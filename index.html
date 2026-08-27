@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mage's Journey — MTG Crawler</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Ekran tytułowy -->
+        <header id="title-screen">
+            <h1>🧙‍♂️ Mage's Journey</h1>
+            <p class="subtitle">Fabularna gra taktyczna osadzona w światach MTG</p>
+            <p class="version">v0.2 — Prototyp Eksploracji</p>
+            <div id="menu-buttons">
+                <button id="btn-new-game" class="btn-primary">Nowa Gra</button>
+                <button id="btn-continue" class="btn-secondary">Kontynuuj</button>
+                <button id="btn-collection" class="btn-secondary">Kolekcja Kart</button>
+            </div>
+        </header>
+
+        <!-- Główny ekran gry -->
+        <main id="game-screen" class="hidden">
+            <!-- HUD: Mag -->
+            <div id="mage-hud">
+                <div class="mage-portrait">🧙‍♂️</div>
+                <div class="mage-stats">
+                    <div class="stat">
+                        <span class="stat-label">Mana</span>
+                        <span id="mage-mana" class="stat-value">5/5</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Renoma</span>
+                        <span id="mage-renown" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Drużyna</span>
+                        <span id="mage-party" class="stat-value">0/3</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Tura</span>
+                        <span id="mage-turn" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="hud-actions">
+                    <button id="btn-stats" class="btn-secondary btn-small">📊 Statystyki</button>
+                    <button id="btn-save" class="btn-secondary btn-small">💾 Zapisz</button>
+                    <button id="btn-menu" class="btn-secondary btn-small">🏠 Menu</button>
+                </div>
+            </div>
+
+            <!-- Panel narracji -->
+            <div id="narrative-panel">
+                <div id="narrative-text">
+                    <p class="narrative-intro">Witaj, Magu...</p>
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <div id="map-container">
+                <canvas id="game-map" width="600" height="600"></canvas>
+                <div id="map-legend">
+                    <span>🧙‍♂️ Ty</span>
+                    <span>🟩 Odkryte</span>
+                    <span>⬛ Nieodkryte</span>
+                </div>
+            </div>
+
+            <!-- Panel boczny: drużyna + log -->
+            <div id="sidebar">
+                <!-- Drużyna -->
+                <div id="party-panel">
+                    <h3>🐺 Drużyna</h3>
+                    <div id="party-slots">
+                        <div class="party-slot empty">Pusty slot</div>
+                        <div class="party-slot empty">Pusty slot</div>
+                        <div class="party-slot empty">Pusty slot</div>
+                    </div>
+                </div>
+
+                <!-- Log gry -->
+                <div id="game-log">
+                    <h3>📜 Dziennik</h3>
+                    <div id="log-entries"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Ekran kolekcji -->
+        <div id="collection-screen" class="hidden">
+            <div class="screen-header">
+                <h2>📚 Kolekcja Kart</h2>
+                <button id="btn-back-from-collection" class="btn-secondary">← Powrót</button>
+            </div>
+            <div id="card-grid"></div>
+        </div>
+
+        <!-- Overlay: Encounter -->
+        <div id="encounter-overlay" class="hidden">
+            <div class="overlay-panel">
+                <h2 id="encounter-title">Spotkanie</h2>
+                <div id="encounter-content"></div>
+                <div id="encounter-actions"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Moduły gry -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

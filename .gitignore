@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts (if ever needed)
+dist/
+build/
+out/
+
+# Python (from Monster Engine reference)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Local data / secrets
+.env
+.env.local
+
+# Game saves (dev testing)
+saves/
+
+# Large asset originals (keep only web-optimized in assets/)
+assets/raw/
+assets/originals/
+
+# Reference files (Monster Engine legacy - too large for GitHub)
+polaczone_pliki_py.txt
