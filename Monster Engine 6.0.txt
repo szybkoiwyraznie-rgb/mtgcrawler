@@ -1,0 +1,2593 @@
+﻿# MONSTER ENGINE V6.0: DOKUMENTACJA TECHNICZNA
+## PUNKT 1: STRUKTURA BYTU (ANATOMIA MECHANICZNA)
+
+
+W systemie Monster Engine, każdy „Byt” (Unit) reprezentuje materializację karty z gry Magic: The Gathering w świecie gry figurowej. Konstrukcja bytu opiera się na trzech nadrzędnych filarach: Witalności, Skalowaniu liczebnym oraz Tożsamości Domenowej.
+
+
+### 1.1. Kondycja (CON - Condition)
+W przeciwieństwie do tradycyjnych systemów RPG opartych na setkach Punktów Życia, Monster Engine stosuje uproszczony, lecz narracyjnie głęboki system **Kondycji (CON)**. Kondycja jest zasobem skończonym, reprezentującym zdolność bytu do pozostania w walce. Skala ta jest uniwersalna dla wszystkich jednostek – od najmniejszego szczura po najpotężniejszego smoka.
+
+
+*   **CON 5 (Zdrowy):** Byt jest w pełnej gotowości. Brak jakichkolwiek kar.
+*   **CON 4 (Draśnięty):** Pierwsze oznaki walki. Narracyjnie: powierzchowne rany, otarcia pancerza.
+*   **CON 3 (Ranny):** Widoczne osłabienie. Pierwszy moment, w którym AI powinno zacząć rozważać zmianę taktyki na bardziej ostrożną.
+*   **CON 2 (Ciężko ranny):** Krytyczne uszkodzenia. Jednostka walczy o przetrwanie.
+*   **CON 1 (U progu śmierci):** Ostatni moment aktywności. Byt jest ledwie świadomy, utrzymywany przy życiu jedynie przez magię lub czystą wolę.
+*   **CON 0 (Wyeliminowany):** Figurka zostaje usunięta z planszy lub zamieniona w statyczny obiekt terenu (zależnie od lore).
+
+
+**Mechanika utraty:** Każdy skuteczny atak ofensywny (fizyczny lub niefizyczny), który przebije się przez obronę (algorytm DVA), redukuje CON o **1 punkt**. Istnieją rzadkie przypadki zdolności potężnych, które mogą odjąć 2 CON, ale są one obarczone drastyczną karą do szansy trafienia.
+
+
+---
+
+
+### 1.2. Dyrektywa Solo i Wyjątki Kompozytowe
+Fundamentem balansu gry jest założenie, że **jeden byt to jedna figurka na planszy**. Odrzucamy systemy oddziałowe (SQUAD), aby skupić się na unikalności każdej materializacji. Dzięki temu każda karta MtG staje się „osobowością” na polu bitwy.
+
+
+*   **Zasada Solo:** Każdy Agent AI kontroluje wyłącznie jedną fizyczną reprezentację na mapie.
+*   **Wyjątek Kompozytowy (Composite Unit):** Dopuszczalny wyłącznie, gdy lore karty MtG nierozerwalnie łączy dwie istoty.
+    *   *Przykład 1:* Mag i jego chowaniec (Familiar). Traktowani jako jeden byt (jeden CON, jeden PA), ale figurka może mieć rozbudowaną wizualnie podstawkę.
+    *   *Przykład 2:* Rycerz na wierzchowcu. Mimo dwóch istot, mechanicznie są jednym bytem. Śmierć wierzchowca w lore oznacza tu po prostu spadek CON całego bytu kompozytowego.
+*   **Balans:** Niezależnie od liczby istot w lore, byt kompozytowy posiada tylko **5 punktów CON** i **1 PA**. Większa liczba istot wewnątrz bytu nie daje przewagi liczbowej, a jedynie większe możliwości fabularne przy projektowaniu 4 zdolności.
+
+
+---
+
+
+### 1.3. Architektura Czterech Domen (The Four-Domain Identity)
+Tożsamość bytu nie jest opisana przez siłę czy zręczność, lecz przez cztery **Domeny**, które determinują jego interakcje z macierzą świata. Każdy byt musi mieć przypisane dokładnie cztery domeny w następującym układzie:
+
+
+#### A. Domena Główna Fizyczna (Primary Physical)
+Definiuje główny żywioł, z którego byt czerpie swoją formę. Jest to fundament obrony fizycznej (100% wartości z macierzy) oraz źródło najpotężniejszej zdolności fizycznej bytu.
+*   *Przykłady:* Ogień, Metal, Ziemia.
+
+
+#### B. Domena Wspomagająca Fizyczna (Support Physical)
+Uzupełnia formę bytu. Służy do łatania luk w obronie fizycznej (50% wartości z macierzy) i generuje słabszą, pomocniczą zdolność fizyczną.
+*   *Przykład:* Byt o Domenie A (Metal) może mieć Domenę B (Elektryczność), co czyni go przewodnikiem energii – trudniejszym do trafienia błyskawicą, ale podatniejszym na wodę.
+
+
+#### C. Domena Główna Niefizyczna (Primary Non-Physical)
+Określa „duszę” lub filozoficzny konstrukt bytu, oparty na kartach Tarota. Jest fundamentem obrony przed magią i statusami (100% wartości z macierzy) oraz źródłem głównego czaru/zdolności kontrolnej.
+*   *Przykłady:* Mag, Śmierć, Cesarz.
+
+
+#### D. Domena Wspomagająca Niefizyczna (Support Non-Physical)
+Uzupełnia charakter bytu. Służy do obrony niefizycznej (50% wartości z macierzy) i generuje słabszą zdolność wspierającą (Buff/Heal).
+*   *Przykład:* Byt o Domenie C (Śmierć) i Domenie D (Pustelnik) będzie wybitnie odporny na próby manipulacji umysłem i nekromancję.
+
+
+---
+
+
+## PUNKT 2: EKONOMIA TURY I RUCHU (SYSTEM ZESPOLONY)
+
+
+Ekonomia tury w Monster Engine została zaprojektowana w celu maksymalnego uproszczenia zarządzania jednostką przy jednoczesnym wymuszeniu wysokiej dynamiki starć. Odrzucamy skomplikowane systemy wielu Punktów Akcji na rzecz **Logiki Binarnej**: byt albo działa, albo oczekuje.
+
+
+### 2.1. Punkt Akcji (PA - Action Point)
+W każdej rundzie gry, każdy byt znajdujący się na planszy otrzymuje dokładnie **1 Punkt Akcji (PA)**. Jest to wartość stała i niezmienna, niezależna od wielkości bytu, jego szybkości w lore czy poziomu Kondycji.
+
+
+*   **Uniwersalność:** Smok, Rycerz i Szczur mają tę samą „ilość czasu” na wykonanie swojej woli. Balans między nimi nie odbywa się na płaszczyźnie liczby akcji, lecz ich jakości i prawdopodobieństwa sukcesu (zapisanego w Macierzy Wpływu).
+*   **Zarządzanie:** PA musi zostać wydany w całości w momencie aktywacji bytu. Nie ma możliwości „oszczędzania” akcji na kolejną rundę ani dzielenia jej między różnych członków bytu (w przypadku jednostek kompozytowych).
+*   **Odnawianie:** Wszystkie byty odzyskują swój 1 PA na początku nowej rundy, po przeliczeniu efektów środowiskowych (Ogień, Trucizna).
+
+
+---
+
+
+### 2.2. Akcja Zespolona (The Composite Action)
+Aby uniknąć problemu „pustych tur” (w których jednostki jedynie podchodzą do siebie, nie wchodząc w interakcję) oraz wyeliminować frustrującą mechanikę „zabawy w kotka i myszkę” (kiting), Monster Engine wprowadza **Akcję Zespoloną**.
+
+
+1 PA nie jest wydawany na „Ruch” ALBO „Atak”. 1 PA jest wydawany na **zestaw: Ruch + Zdolność**.
+
+
+**Struktura Akcji Zespolonej:**
+1.  **Faza Przemieszczenia:** Byt przesuwa się o dokładnie **1 pole** na mapie.
+2.  **Faza Zdolności:** Po zakończeniu ruchu, byt wykonuje jedną z czterech przypisanych mu zdolności (A, B, C lub D).
+
+
+**Zasada „Ruch przed Akcją”:**
+W Monster Engine ruch zawsze poprzedza użycie zdolności. Byt najpierw deklaruje pole docelowe, przemieszcza się na nie, a dopiero z nowej pozycji wybiera cel dla swojej zdolności. Uniemożliwia to taktykę „uderz i ucieknij” w ramach jednej tury (wykonanie ataku i ucieczka na bezpieczną odległość). Byt musi „wejść w zasięg” i tam pozostać do następnej tury.
+
+
+---
+
+
+### 2.3. Mechanika Ruchu i Geometria Pola
+Mimo radykalnego ograniczenia dystansu do 1 pola, ruch w Monster Engine posiada swoje specyficzne zasady geometryczne i fizyczne.
+
+
+*   **Metryka Czebyszewa (Szachowa):** W systemie tym ruch ortogonalny (przód, tył, boki) oraz ruch diagonalny (na ukos) kosztują tyle samo. Przesunięcie się na ukos jest traktowane jako ruch o 1 pole. Daje to bytowi 8 możliwych kierunków przemieszczenia z każdego punktu na mapie.
+*   **Brak Skalowania Prędkości:** Ponieważ każdy byt rusza się o 1 pole, plansza 10x10 staje się gęstym teatrem działań. Smok nie jest „szybszy” od Goblina w sensie dystansu, ale może mieć zdolności (np. z domeny Powietrza), które pozwalają mu ignorować przeszkody terenowe podczas tego jednego kroku.
+*   **Opcjonalność:** Byt może zrezygnować z fazy przemieszczenia i użyć zdolności, pozostając na miejscu. Nie odzyskuje jednak za to PA ani nie zwiększa szansy na sukces zdolności – rezygnacja z ruchu jest decyzją czysto pozycjonującą.
+
+
+---
+
+
+### 2.4. Integracja z AI i Dyrektywa Taktyczna
+Zespolenie Ruchu i Akcji jest kluczowe dla Operatora AI. Upraszcza ono proces decyzyjny do jednego pytania: „Gdzie muszę stanąć, aby moja wybrana zdolność zadziałała najlepiej?”.
+
+
+*   **Przykład Taktyczny:** Byt posiadający zdolność obszarową (np. wybuch ognia na sąsiednie pola) musi najpierw wykonać ruch w sam środek zgrupowania wrogów, a dopiero potem zdetonować efekt. AI nie musi liczyć punktów ruchu – po prostu widzi pole, na którym chce się znaleźć.
+*   **Zablokowanie Mobilności (ROOT):** Jeśli na byt zostanie nałożony status ROOT, traci on fazę przemieszczenia w Akcji Zespolonej. Może nadal wydawać 1 PA na użycie zdolności, ale musi to robić z zajmowanego aktualnie pola.
+
+
+---
+
+
+### 2.5. Przykład Tury: „Weteran Miecza”
+Byt o Domenie A: Metal i C: Sprawiedliwość.
+
+
+1.  **Start tury:** Weteran posiada 1 PA.
+2.  **Sytuacja:** Wróg stoi 2 pola przed nim.
+3.  **Faza Przemieszczenia:** Weteran przesuwa się o 1 pole do przodu (znajduje się teraz w bezpośrednim sąsiedztwie wroga).
+4.  **Faza Zdolności:** Weteran wybiera Zdolność A (Cięcie Miecza).
+5.  **Rozstrzygnięcie:** Następuje obliczenie obrony wroga (DVA) i rzut k100.
+6.  **Koniec tury:** Weteran wydał 1 PA. Stoi obok wroga, narażony na jego kontratak w następnej aktywacji.
+
+
+Ten system gwarantuje, że każda runda w Monster Engine to seria szybkich, znaczących „pchnięć” i zmian pozycji, gdzie błąd w pozycjonowaniu o zaledwie 1 pole może oznaczać śmierć.
+
+
+## PUNKT 3: ZDOLNOŚCI I ALGEBRA MOCY (SYSTEM MATERIALIZACJI)
+
+
+W Monster Engine zdolności (Abilities) są jedynym kanałem interakcji między bytami poza fizycznym pozycjonowaniem na mapie. System ten odrzuca standardowe „ataki podstawowe” na rzecz czterech unikalnych zdolności wynikających bezpośrednio z tożsamości domenowej bytu. Każda zdolność jest matematycznie zrównoważona, co gwarantuje, że niezależnie od lore, każdy byt posiada ten sam potencjał taktyczny.
+
+
+### 3.1. Architektura Slotów Zdolności
+Każdy byt, po materializacji z karty MtG, otrzymuje dokładnie cztery zdolności. Są one przypisane do konkretnych slotów, które determinują ich naturę oraz surową moc (szansę powodzenia).
+
+
+*   **Zdolność A (Główna Fizyczna):** Wywodzi się z fizycznej dominanty bytu (np. Ogień, Metal). Jest to zazwyczaj najbardziej ikoniczny, potężny atak fizyczny lub niszczycielska aura.
+*   **Zdolność B (Wspomagająca Fizyczna):** Reprezentuje poboczne cechy fizyczne. Często są to zdolności defensywne, użytkowe (np. odepchnięcie) lub słabsze formy ataku.
+*   **Zdolność C (Główna Niefizyczna):** Wywodzi się z „duszy” bytu (karta Tarota). Jest to główny czar, efekt psychologiczny lub potężna manipulacja losem/przestrzenią.
+*   **Zdolność D (Wspomagająca Niefizyczna):** Uzupełniający aspekt niefizyczny. Zazwyczaj slot ten służy do leczenia, zdejmowania klątw lub lekkich buffów.
+
+
+---
+
+
+### 3.2. Zasada Mocy 100/50 (The Probability Anchor)
+To serce balansu Monster Engine. Moc zdolności nie jest wyrażona w sile obrażeń (które są zazwyczaj stałe i wynoszą 1 CON), lecz w **prawdopodobieństwie sukcesu**.
+
+
+*   **Sloty Główne (A i C):** Wykorzystują **100%** wyliczonej Szansy Bazowej (BAC - Base Activation Chance). Jeśli algorytm projektowy wyliczy dla czaru szansę 80%, w slocie głównym wynosi ona dokładnie 80%.
+*   **Sloty Wspomagające (B i D):** Wykorzystują **50%** wyliczonej Szansy Bazowej (BAC). Ten sam czar (80%) w slocie wspomagającym miałby szansę jedynie 40%.
+
+
+**Uzasadnienie projektowe:** Ta dychotomia wymusza na graczu (i AI) priorytetyzację. Zdolności główne są fundamentem strategii, podczas gdy wspomagające są „szansą na ratunek” lub dodatkowym atutem, na którym nie można budować pewnego planu. W obronie (DVA) domeny wspomagające również chronią o połowę słabiej.
+
+
+---
+
+
+### 3.3. Definicja Projektowa: Fabuła + Matematyka
+Proces materializacji bytu przez Operatora AI wymaga podwójnego opisu każdej zdolności. Python nie rozumie „Zionięcia Ogniem”, a Gracz nie czuje immersji w „CON_DMG; 1; BAC 60”.
+
+
+1. Warstwa Fabularna (Lore): Soczysty, sugestywny opis (minimum 3-4 zdania), który oddaje brutalność i mistykę świata gry. Opis musi szczegółowo wyjaśniać, w jaki sposób domena fizyczna lub niefizyczna manifestuje się na polu bitwy i jak wpływa na ciało lub umysł celu. Unikamy suchych opisów na rzecz budowania klimatu (tzw. "flavor text in action").
+2.  **Warstwa Matematyczna (Payload):** To zestaw instrukcji dla silnika Python. Składa się z typu efektu, wartości liczbowej, czasu trwania oraz wyliczonej szansy BAC.
+
+
+---
+
+
+### 3.4. Algebra Efektów (Balansowanie Algorytmiczne)
+Aby zachować sprawiedliwość, każda zdolność musi „zapłacić” za swoją potęgę szansą na sukces. AI używa poniższych algorytmów do wyliczania BAC dla slotów głównych.
+
+
+#### A. Modyfikatory Odporności (Buffy/Debuffy Macierzy)
+*   **Wzór:** `Wartość (w %) * Czas Trwania (T) * BAC = 10 000`
+*   **Logika:** Jeśli chcesz obniżyć komuś odporność o 50% (totalne odsłonięcie) na 2 tury, szansa wynosi: `50 * 2 * BAC = 10 000` -> `BAC = 100%`. Jeśli efekt ma być permanentny (T=10), szansa spadłaby do 20%.
+
+
+#### B. Leczenie Kondycji (HEAL)
+*   **Wzór:** `Ilość CON * BAC = 50 * (1 + Zwłoka)`
+*   **Logika:** System nagradza cierpliwość.
+    *   Leczenie 1 CON natychmiast ($Zwłoka=0$): `1 * BAC = 50` -> `BAC = 50%`.
+    *   Leczenie 1 CON po 1 turze czekania ($Zwłoka=1$): `1 * BAC = 100` -> `BAC = 100%`.
+
+
+#### C. Blokady (ROOT, STUN, SILENCE, DISARM)
+*   **Wzór:** `Wartość Typu * Czas Trwania (T) * BAC = 200`
+*   **Wartości Typu:** Root (1.0), Silence/Disarm (1.5), Stun (2.0).
+*   **Przykład:** Stun na 1 turę: `2.0 * 1 * BAC = 200` -> `BAC = 100%`. Stun na 2 tury: `BAC = 50%`.
+
+
+#### D. Atak Bezpośredni (CON_DMG)
+Szansa nie jest liczona wzorem, lecz wynika bezpośrednio z **Macierzy Wpływu** i algorytmu **DVA** (obrona celu). Jeśli jednak atak ma zadawać 2 CON zamiast 1, finalna szansa trafienia jest dzielona przez 3 (ekstremalne ryzyko).
+
+
+---
+
+
+### 3.5. Przykład: „Wampirzy Lord” (Materializacja)
+
+
+**Zdolność C: Pocałunek Śmierci (Domena: Śmierć)**
+*   **Fabularnie:** Lord wysysa esencję życiową z ofiary, pozostawiając ją w stanie katatonii.
+*   **Matematycznie (Algorytm Stun):** `STUN; T=2; BAC=50%` (Wyliczenie: $2.0 \times 2 \times 50 = 200$).
+*   **Mechanika gry:** Ponieważ to slot C (Główny), szansa 50% jest zachowana. Lord rzuca k100 przeciwko niefizycznej obronie wroga (DVA).
+
+
+**Zdolność D: Krew nocy (Domena: Kapłanka)**
+*   **Fabularnie:** Wampir regeneruje swoje rany, zapadając na chwilę w letarg.
+*   **Matematycznie (Algorytm Heal):** `HEAL; CON=1; Delay=1; BAC=100%` (Wyliczenie: $1 \times 100 = 50 \times (1+1)$).
+*   **Mechanika gry:** Ponieważ to slot D (Wspomagający), szansa BAC jest dzielona przez 2. Finalna szansa na uleczenie wynosi **50%**.
+
+
+Ten system gwarantuje, że każda zdolność w grze ma swoją cenę. Nie ma czarów „zbyt mocnych”, są tylko czary o bardzo niskiej szansie powodzenia.
+
+
+### 3.6. Dyrektywa Bliskości (Zasięg)
+Wszystkie zdolności (A, B, C, D), niezależnie od ich typu (Atak, Debuff, Buff, Heal, Purge) oraz lore, posiadają **zasięg 0**. 
+*   **Zasada:** Zdolność może zostać użyta wyłącznie przeciwko bytowi (lub na byt), który znajduje się na tym samym polu mapy (w tej samej lokacji), co byt wykonujący akcję.
+*   **Konsekwencja:** Aby wejść w interakcję z innym bytem, jednostka musi najpierw wykorzystać Fazę Przemieszczenia w Akcji Zespolonej, aby wejść na pole zajmowane przez cel.
+## PUNKT 4: ALGORYTMY PROJEKTOWE I TYPY EFEKTÓW (BIBLIOTEKA PAYLOAD)
+
+
+Punkt ten stanowi instrukcję obsługi dla „Operatora AI” oraz dokumentację logiczną dla „Kodera Python”. Definiuje on zamknięty zbiór dopuszczalnych efektów (Payloads), które mogą zostać przypisane do zdolności bytu podczas materializacji. Każdy efekt posiada własną „fizykę balansu” wyrażoną unikalnym algorytmem matematycznym.
+
+
+### 4.1. Filozofia „Klocków” (Payload Logic)
+W systemie Monster Engine nie programujemy każdej unikalnej zdolności z osobna. Zamiast tego, AI buduje zdolność z gotowych „klocków” efektów. Dzięki temu silnik gry jest uniwersalny i skalowalny. Każdy Payload musi zostać opisany przez AI w formacie: `[TYP];[WARTOŚĆ];[CZAS/ZWŁOKA];[BAC]`.
+
+
+---
+
+
+### 4.2. Modyfikatory Odporności (RES_MOD)
+Efekty te wpływają bezpośrednio na wartości zapisane w Globalnej Macierzy Wpływu. Pozwalają one na tworzenie „wyrw” w obronie przeciwnika lub wzmacnianie pancerza sojuszników.
+
+
+*   **Wzór:** $\text{Wartość} \times \text{Czas Trwania (T)} \times \text{BAC} = 10\,000$
+*   **Definicja Wartości:** 1 punkt wartości odpowiada zmianie szansy obrony o 1% w Macierzy.
+*   **Warianty:**
+    *   **RES_TEMP:** Efekt czasowy. $T$ to liczba tur (zalecane 1-5).
+    *   **RES_PERM:** Efekt permanentny. Dla celów balansu AI musi przyjąć $T=10$ (estymowana długość bitwy).
+*   **Przykład (Debuff):** „Kwasowa Chmura” (Zmniejszenie obrony o 20% na 5 tur).
+    *   Kalkulacja: $20 \times 5 \times BAC = 10\,000 \rightarrow BAC = 100\%$.
+    *   Działanie: Jeśli wejdzie, wróg traci 20% szansy na obronę przeciwko konkretnej domenie.
+
+
+---
+
+
+### 4.3. Manipulacja Kondycją: Leczenie (HEAL)
+Efekty przywracające utracone punkty Kondycji (CON). System ten nagradza planowanie długofalowe poprzez mechanikę „Zwłoki” (Delay).
+
+
+*   **Wzór:** $\text{Ilość CON} \times \text{BAC} = 50 \times (1 + \text{Zwłoka})$
+*   **Logika:** Im dłużej byt czeka na aktywację leczenia, tym wyższa jest szansa sukcesu lub większa liczba przywróconych punktów.
+*   **Przykład A (Natychmiastowy):** „Błysk Światła” (+1 CON natychmiast).
+    *   Kalkulacja: $1 \times BAC = 50 \times (1+0) \rightarrow BAC = 50\%$.
+*   **Przykład B (Odroczony):** „Regeneracja Trolla” (+2 CON po 3 turach zwłoki).
+    *   Kalkulacja: $2 \times BAC = 50 \times (1+3) \rightarrow 2 \times BAC = 200 \rightarrow BAC = 100\%$.
+*   **Ograniczenie:** Leczenie nie może podnieść CON powyżej bazowego poziomu 5.
+
+
+---
+
+
+### 4.4. Kontrola Tłumu (ROOT / STUN / SILENCE / DISARM)
+Efekty ograniczające możliwości działania wroga. Każdy z nich ma przypisaną „wagę taktyczną”, która wpływa na trudność nałożenia.
+
+
+*   **Wzór:** $\text{Waga Typu} \times \text{Czas Trwania (T)} \times \text{BAC} = 200$
+*   **Wagi Typów:**
+    *   **ROOT (1.0):** Blokada Fazie Przemieszczenia (byt nie może przejść na sąsiednie pole).
+    *   **SILENCE (1.5):** Blokada zdolności niefizycznych (sloty C i D).
+    *   **DISARM (1.5):** Blokada zdolności fizycznych (sloty A i B).
+    *   **STUN (2.0):** Pełna blokada (brak ruchu i jakiejkolwiek akcji).
+*   **Przykład (Mocny Stun):** „Paraliżujący Uścisk” (STUN na 2 tury).
+    *   Kalkulacja: $2.0 \times 2 \times BAC = 200 \rightarrow BAC = 50\%$.
+    *   W slocie wspomagającym (B lub D) szansa spadłaby do 25%.
+
+
+---
+
+
+CLEANSE
+Typ: CLEANSE
+Rola: Supportive — usuwa WSZYSTKIE negatywne efekty z celu (self/ally)
+Co usuwa:
+* Statusy: STUN, ROOT, SILENCE, DISARM, CHARMED, FEARED, TAUNTED
+* RES debuffy: VULN, WEAKEN_ATTACK
+* Efekty okresowe: DOT, DRAIN_DOT
+
+
+**Single target:** Auto-sukces (BAC 100%)
+
+
+**AOE:**
+- Bazowy BAC: 75%
+- × dmg_modifier (0.75 dla effect_range=0, 0.50 dla effect_range>0)
+- × 0.75 jeśli no_friendly_fire
+- × 0.5 dla slotu B/D
+- Rzut per cel
+
+
+```json
+{
+    "name": "Nazwa zdolności",
+    "lore": "Opis fabularny...",
+    "type": "AOE",
+    "aoe_type": "CLEANSE",
+    "range": 0,
+    "effect_range": 0,
+    "no_friendly_fire": false,
+    "include_self": true
+}
+```
+
+
+DISPEL
+Typ: DISPEL
+Rola: Offensive — usuwa WSZYSTKIE pozytywne efekty z wroga
+Co usuwa:
+* RES buffy: SHIELD, PIERCE, RES_TEMP
+* Efekty okresowe: HOT
+* Pending heals (odroczone leczenia)
+* TEMP_HP (tymczasowe punkty życia)
+
+
+**Single target:** Auto-sukces (BAC 100%)
+
+
+**AOE:**
+- Bazowy BAC: 75%
+- × dmg_modifier (0.75 dla effect_range=0, 0.50 dla effect_range>0)
+- × 0.75 jeśli no_friendly_fire
+- × 0.5 dla slotu B/D
+- Rzut per cel
+
+
+```json
+{
+    "name": "Nazwa zdolności",
+    "lore": "Opis fabularny...",
+    "type": "AOE",
+    "aoe_type": "DISPEL",
+    "range": 0,
+    "effect_range": 0,
+    "no_friendly_fire": false
+}
+```
+
+
+---
+
+
+### 4.6. Atak Bezpośredni (CON_DMG)
+Jest to jedyny Payload, który nie posiada własnego wzoru na BAC, ponieważ jego szansa sukcesu jest generowana dynamicznie przez **Macierz Wpływu** i algorytm **DVA**.
+
+
+*   **Standard (-1 CON):** Szansa = $100 - SSO$ (Sumaryczna Szansa Obrony wroga).
+*   **Potężny Atak (-2 CON):**
+    *   **Algorytm:** Jeśli AI projektuje zdolność zadającą 2 CON, musi nałożyć modyfikator kary: `Finalna Szansa = (100 - SSO) / 3`.
+    *   *Przykład:* Jeśli smok atakuje jaszczurkę i ma 60% szansy na trafienie za 1 CON, to próba uderzenia za 2 CON daje mu tylko 20% szansy na sukces. Jeśli rzut się nie powiedzie, wróg nie otrzymuje żadnych obrażeń.
+
+
+---
+
+
+### 4.7. Przykładowy Zapis w Bazie Danych (Zmaterializowany Byt)
+Karta MtG: **„Shock”** (Czerwony czar zadający obrażenia).
+Materializacja jako Byt: **„Iskiernik Chaosu”**.
+
+
+1.  **Zdolność A (Ogień):** *Wyładowanie* (Typ: Atak)
+    *   **Lore:** Iskiernik strzela skoncentrowaną energią.
+    *   **Payload:** `CON_DMG; 1; BAC: DVA_BASED`
+2.  **Zdolność C (Wieża):** *Nagłe Przeciążenie* (Typ: Debuff)
+    *   **Lore:** Wibracje osłabiają strukturę pancerza wroga.
+    *   **Payload:** `RES_TEMP; METAL; -30; 3; BAC: 111 (Limit 100%)`
+    *   *Obliczenie:* $30 \times 3 \times 111 \approx 10\,000$.
+3.  **Zdolność D (Głupiec):** *Rozproszenie uwagi* (Typ: Kontrola)
+    *   **Lore:** Byt wykonuje chaotyczny taniec, myląc wroga.
+    *   **Payload:** `ROOT; 2; BAC: 100% / 2 = 50%`
+    *   *Obliczenie:* $1.0 \times 2 \times 100 = 200$. BAC dzielone przez 2 za slot D.
+
+
+Ten system „Algebry Efektów” sprawia, że każda materializacja jest unikalna, ale żadna nie jest w stanie wyjść poza narzucone ramy balansu. Python zawsze wie, co zrobić z komendą `STUN;2;50`.
+
+
+## PUNKT 5: MECHANIKA WALKI (ALGORYTM DVA - DEFENSIVE VALUATION ALGORITHM)
+
+
+Fundamentem rozstrzygania starć w Monster Engine nie jest statyczna wartość „pancerza” czy „uników”, lecz **Algorytm Wyceny Obronnej (DVA)**. System ten opiera się na założeniu, że obrona jest procesem dynamicznym i zależy od interakcji między domenami atakującego i obrońcy. Każdy atak jest rzutem k100, którego szansa powodzenia jest bezpośrednią odwrotnością Sumarycznej Szansy Obrony (SSO) celu.
+
+
+### 5.1. Globalna Macierz Wpływu jako Fundament
+Wszystkie wartości obronne są pobierane z dwóch stałych, globalnych macierzy 12x12 (Fizycznej i Niefizycznej).
+*   **Wartość w Macierzy:** Liczba od 10 do 90, reprezentująca procentową szansę na zneutralizowanie ataku danej domeny przez konkretną domenę obronną.
+*   **Stałość:** Macierz jest „prawem fizyki” świata gry. Żadna jednostka nie posiada własnych, unikalnych statystyk obronnych – jej odporność wynika wyłącznie z tego, jakie domeny posiada w swoich slotach (A, B, C, D).
+
+
+---
+
+
+### 5.2. Podział Interakcji (Fizyka vs Metafizyka)
+System walki jest hermetyczny – domeny fizyczne nie mogą bronić przed niefizycznymi i odwrotnie.
+
+
+1.  **Konflikt Fizyczny:** Jeśli byt używa zdolności ze slotu **A** lub **B**, obrońca wykorzystuje do obliczeń wyłącznie swoje domeny **A** (Główna Fizyczna) oraz **B** (Wspomagająca Fizyczna).
+2.  **Konflikt Niefizyczny:** Jeśli byt używa zdolności ze slotu **C** lub **D**, obrońca wykorzystuje wyłącznie swoje domeny **C** (Główna Niefizyczna) oraz **D** (Wspomagająca Niefizyczna).
+
+
+---
+
+
+### 5.3. Procedura Obliczania Szansy na Obronę (SSO)
+Gdy następuje atak, silnik Python wykonuje następujące kroki algorytmu DVA:
+
+
+**Krok 1: Pobranie wartości bazowych ($D_1$ i $D_2$)**
+*   $D_1$: Szansa obrony z macierzy dla pary [Domena Atakująca] vs [Domena Główna Obrońcy].
+*   $D_2$: Szansa obrony z macierzy dla pary [Domena Atakująca] vs [Domena Wspomagająca Obrońcy].
+
+
+**Krok 2: Zastosowanie kary dla Domeny Wspomagającej**
+Domena wspomagająca (B lub D) jest z założenia o połowę słabsza w defensywie niż domena główna.
+*   Efektywna wartość $D_2 = D_2 \times 0.5$.
+
+
+**Krok 3: Wyliczenie Bazy Obrony**
+System uśrednia obie wartości obronne, tworząc fundament defensywy:
+*   $\text{Baza Obrony} = (D_1 + (D_2 \times 0.5)) / 2$
+
+
+---
+
+
+### 5.4. Modyfikator Mocy Ataku (Zasada 100/50)
+Ostateczna szansa na obronę zależy od tego, jak silny był atak. Ataki wspomagające (B i D) są łatwiejsze do sparowania.
+
+
+*   **Jeśli atakuje Zdolność Główna (A lub C):**
+    *   $\text{SSO} = \text{Baza Obrony} \times 1$.
+*   **Jeśli atakuje Zdolność Wspomagająca (B lub D):**
+    *   $\text{SSO} = \text{Baza Obrony} \times 2$ (Czapka systemowa: max 100%).
+    *   *Uzasadnienie:* Słabszy atak (50% mocy) pozwala obrońcy na dwukrotnie skuteczniejszą reakcję.
+
+
+---
+
+
+### 5.5. Finalny Test k100 (Szansa na Trafienie)
+Po wyliczeniu SSO (Sumarycznej Szansy Obrony), silnik wyznacza szansę na sukces ataku (SA):
+*   $\text{SA} = 100\% - \text{SSO}$
+
+
+**Rzut:** Atakujący rzuca k100. Jeśli wynik jest mniejszy lub równy SA, atak kończy się sukcesem (zadaje 1 CON lub nakłada Payload).
+
+
+---
+
+
+### 5.6. Przykład Obliczeniowy: „Pojedynek Żywiołów”
+
+
+**Atakujący:** Mag (Zdolność B: Elektryczność).
+**Obrońca:** Golem (Domena A: Ziemia, Domena B: Metal).
+
+
+1.  **Pobranie z Macierzy (Fizycznej):**
+    *   Elektryczność vs Ziemia ($D_1$): 90% (Ziemia świetnie izoluje).
+    *   Elektryczność vs Metal ($D_2$): 20% (Metal przewodzi, słaba obrona).
+2.  **Kalkulacja Bazy Obrony:**
+    *   $\text{Baza} = (90\% + (20\% \times 0.5)) / 2 = (90 + 10) / 2 = \mathbf{50\%}$.
+3.  **Modyfikator Ataku B:**
+    *   Atak pochodzi ze slotu B (Wspomagającego), więc Golem broni się 2x łatwiej.
+    *   $\text{SSO} = 50\% \times 2 = \mathbf{100\%}$.
+4.  **Wynik:**
+    *   $\text{Szansa na Trafienie} = 100\% - 100\% = \mathbf{0\%}$.
+    *   *Wniosek:* Mag nie ma szans zranić Golema słabym wyładowaniem (Slot B), ponieważ domena Ziemi Golema całkowicie neutralizuje ten typ energii. Musiałby użyć zdolności ze Slotu A, aby mieć 50% szansy na trafienie.
+
+
+---
+
+
+### 5.7. Znaczenie Strategiczne
+Algorytm DVA sprawia, że dobór domen podczas materializacji jest kluczowy:
+*   Posiadanie dwóch domen o zbliżonych profilach (np. Woda i Lód) tworzy wyspecjalizowanego „Tanka” przeciwko Ogniowi, ale zostawia gigantyczne luki przeciwko innym żywiołom.
+*   Mieszanie domen (np. Ogień i Powietrze) tworzy jednostki o zbalansowanej, średniej obronie przeciwko wszystkiemu.
+
+
+## PUNKT 6: LISTA DOMEN I STRUKTURA MACIERZY (TABLICA PRAW FIZYKI)
+
+
+Domeny w systemie Monster Engine stanowią „układ okresowy pierwiastków” gry. To one definiują, z czego zbudowany jest byt (warstwa fizyczna) oraz jaki jest jego archetyp losu i charakteru (warstwa niefizyczna/Tarot). Każda interakcja bojowa jest sprawdzana w dwóch niezależnych macierzach 12x12, które przechowują stałe wartości prawdopodobieństwa obrony.
+
+
+### 6.1. Pula Fizyczna: 12 Żywiołów (Materia i Energia)
+Domeny fizyczne określają strukturę anatomiczną i energetyczną bytu. Decydują o tym, jak figurka reaguje na ciosy, temperaturę, korozję i siły natury.
+
+
+1.  **Ogień:** Reprezentuje gwałtowną energię, destrukcję i ciepło. Dominuje nad Naturą (spalanie), ale jest gaszony przez Wodę.
+2.  **Woda:** Symbolizuje płynność, adaptację i oczyszczenie. Skuteczna przeciwko Ogniowi, ale podatna na Elektryczność (przewodnictwo).
+3.  **Ziemia:** Reprezentuje stabilność, ciężar i opór. Uziemia Elektryczność, lecz ulega Erozji wywołanej przez Powietrze.
+4.  **Powietrze:** Domena ruchu, lotu i gazów. Rozprasza Ziemię (pył), lecz zostaje zatrzymana przez gęstą strukturę Metalu.
+5.  **Metal:** Symbolizuje porządek molekularny, pancerz i technologię. Przecina Powietrze i Lód, ale ulega Zarazie (rdza/korozja) oraz Eterowi (przenikanie).
+6.  **Elektryczność:** Czysta energia kinetyczna i szybkość. Błyskawicznie pokonuje Wodę, lecz jest całkowicie absorbowana przez Ziemię.
+7.  **Lód:** Reprezentuje stazę, krystalizację i zimno. Kruszy Powietrze, ale topi się w kontakcie z Ogniem.
+8.  **Natura:** Domena biologicznego wzrostu i życia roślinnego. Pochłania Eter (magię), ale jest bezbronna wobec Ognia i Zarazy.
+9.  **Światło:** Reprezentuje porządek, objawienie i czystość. Rozprasza Mrok, lecz ulega rozszczepieniu/odbiciu przez Eter.
+10. **Mrok:** Symbolizuje absorpcję, strach i pustkę. Pochłania Światło, lecz zostaje fizycznie wykuty/ograniczony przez Metal.
+11. **Eter:** Domena czystej magii i niematerialności. Przenika Metal i Światło, ale jest „wykarmiana” i neutralizowana przez Naturę.
+12. **Zaraza:** Reprezentuje rozkład, mutację i korozję. Rozkłada Metal i Naturę, ulega jednak sterylizacji przez Światło.
+
+
+---
+
+
+### 6.2. Pula Niefizyczna: 12 Wielkich Arkanów Tarota (Etyka i Los)
+Domeny niefizyczne określają sferę mentalną, przeznaczenie i sposób, w jaki byt manipuluje rzeczywistością. Decydują o obronie przed klątwami, iluzją i statusami.
+
+
+1.  **Mag (I):** Wola, działanie, manifestacja mocy. Dominuje nad Pustelnikiem (wymuszona aktywność), ale ulega Wieży (chaos niszczy plan).
+2.  **Kapłanka (II):** Intuicja, tajemnica, pasywność. Kontruje Diabła (duchowość vs materia), ulega jednak Magowi (wola vs tajemnica).
+3.  **Cesarz (IV):** Struktura, prawo, autorytet. Narzuca porządek Kochankom (decyzja nad emocją), ulega Wieży (upadek tyrana).
+4.  **Kochankowie (VI):** Wybór, relacja, dualizm. Kontrują Sprawiedliwość (serce vs litera prawa), ulegają Śmierci (rozpad więzi).
+5.  **Rydwan (VII):** Zwycięstwo, pęd, determinacja. Pokonuje Wisielca (ruch vs staza), lecz ulega Kołu Fortuny (pech w biegu).
+6.  **Sprawiedliwość (XI):** Równowaga, karma, wyrok. Kontruje Cesarza (prawa wyższe), ulega Wisielcowi (zawieszenie wyroku).
+7.  **Pustelnik (IX):** Wiedza, izolacja, czas. Kontruje Koło Fortuny (spokój w chaosie), ulega Kapłance (intuicja vs logika).
+8.  **Koło Fortuny (X):** Losowość, cykliczność, przypadek. Dominuje nad Śmiercią (nowy cykl), ulega Sprawiedliwości (zasada nad losem).
+9.  **Wisielec (XII):** Poświęcenie, punkt widzenia, staza. Kontruje Rydwan (zatrzymanie), ulega Diabłu (uwięzienie w materii).
+10. **Śmierć (XIII):** Koniec, transformacja, odcięcie. Kontruje Kochanków (finał), ulega Pustelnikowi (wieczna wiedza).
+11. **Diabeł (XV):** Zniewolenie, materializm, pokusa. Dominuje nad Wisielcem (zły pakt), ulega Kapłance (czystość ducha).
+12. **Wieża (XVI):** Nagła katastrofa, przełom, oświecenie. Rozbija Maga i Cesarza, ulega jednak rygorowi Sprawiedliwości.
+
+
+---
+
+
+### 6.3. Logika Budowy Macierzy (Wartości SSO)
+Zamiast losowych liczb, Macierz Wpływu jest wypełniana według hierarchii zależności:
+
+
+1.  **Hard Counter (Drapieżnik):** Gdy Domena A jest naturalnym pogromcą Domeny B.
+    *   *Przykład:* Ogień atakuje Naturę.
+    *   **SSO (Szansa na Obronę): 10%**. (Prawie pewne trafienie).
+2.  **Hard Defense (Ofiara):** Gdy Domena A próbuje zaatakować swojego „pogromcę”.
+    *   *Przykład:* Natura atakuje Ogień.
+    *   **SSO: 90%**. (Atak prawie zawsze spalony).
+3.  **Soft Counter (Przewaga):** Logiczne, ale nie ekstremalne powiązanie.
+    *   *Przykład:* Metal (miecz) atakuje Naturę (ciało).
+    *   **SSO: 30%**.
+4.  **Neutral:** Brak wyraźnej zależności logicznej.
+    *   **SSO: 50%**.
+
+
+---
+
+
+### 6.4. Znaczenie Projektowe dla AI
+Operator AI, materializując kartę MtG, nie może zmienić tych wartości, ale musi je rozumieć, aby poprawnie przypisać sloty A, B, C i D.
+
+
+*   **Zasada Synergii:** Jeśli karta MtG jest „niezniszczalnym golemem”, AI powinno przypisać mu **Domenę A: Ziemia** i **Domenę B: Metal**. Dzięki temu SSO przeciwko większości fizycznych ataków będzie bardzo wysokie (Ziemia chroni przed prądem, Metal przed wiatrem).
+*   **Zasada Balansu:** Jeśli byt ma potężną obronę fizyczną (np. Metal), AI jest zmuszone przypisać mu słabość niefizyczną (np. Tarot: Wieża), aby przeciwnik mógł go pokonać czarami/klątwami.
+
+
+### 6.5. Przykład Interakcji w Macierzy: „Rdza”
+Byt o Domenie A: Zaraza atakuje Byt o Domenie A: Metal.
+1.  Silnik sprawdza w Macierzy Fizycznej: **Zaraza vs Metal**.
+2.  Wartość SSO wynosi **10%** (Zaraza dominuje nad Metalem poprzez korozję).
+3.  Byt o Domenie Metal ma bardzo małe szanse na uniknięcie obrażeń/statusu, niezależnie od tego, jak potężny wydaje się w lore.
+
+
+## PUNKT 7: MATERIALIZACJA I INTERPRETACJA (MOSTEK MTG – WARHAMMER)
+
+
+Materializacja jest procesem transmutacji danych z kolekcjonerskiej gry karcianej *Magic: The Gathering* na parametry operacyjne systemu *Monster Engine*. Jest to jedyna metoda wprowadzania nowych bytów do gry. Proces ten nie jest dosłowny, lecz opiera się na głębokiej interpretacji „ducha karty” (lore, mechaniki, ilustracji) i osadzeniu go w mrocznym, brutalnym świecie fantasy (inspirowanym lore Warhammera).
+
+
+### 7.1. Dyrektywa Materializacji i Mobilności
+Fundamentalną zasadą jest to, że **każda karta**, niezależnie od jej typu (Creature, Instant, Sorcery, Enchantment, Land, Artifact), musi zostać zmaterializowana jako **permanentny, fizyczny i mobilny byt** na planszy.
+
+
+*   **Zasada Trwałości:** Zakazane jest interpretowanie kart jako jednorazowych „wydarzeń”. Jeśli karta MtG to czar `Fireball`, nie jest on po prostu wybuchem, lecz staje się np. *Ognistym Chowańcem* lub *Manifestacją Płomienia* – istotą, która posiada 5 CON, 1 PA i porusza się po mapie.
+*   **Dyrektywa Mobilności:** Każdy byt musi mieć zdolność samodzielnego przemieszczania się (1 pole na turę).
+    *   *Przykład (Land):* Karta `Mountain` (Góra) nie może być nieruchomym obiektem. Staje się *Kroczącą Skałą* lub *Wędrującym Żywiołakiem Ziemi*.
+    *   *Przykład (Enchantment):* Karta `Pacifism` (Pacyfizm) staje się *Monolitem Spokoju* – lewitującą relikwią niesioną przez milczących akolitów (Byt Kompozytowy), która emituje aurę pacyfizmu.
+
+
+---
+
+
+### 7.2. Lejek Kontekstualizacji (Procedura Wyboru)
+Aby zapewnić spójność fabularną, Operator AI podczas materializacji musi przejść przez hierarchiczną procedurę zwaną „Lejkiem Kontekstualizacji”. AI szuka dopasowania na najwyższym możliwym poziomie, schodząc niżej tylko w razie konieczności.
+
+
+1.  **Dopasowanie Bezpośrednie:** Jeśli karta ma swój logiczny odpowiednik w lore (np. `Goblin Piker` -> *Goblin z włócznią*).
+2.  **Dopasowanie Tematyczne/Symboliczne:** Jeśli postać z karty reprezentuje ideę (np. `Griffin` w świecie bez gryfów staje się *Oddziałem Najemników pod znakiem Gryfa* lub *Omenem Zwycięstwa*).
+3.  **Dopasowanie Funkcjonalne/Metaforyczne:** Skupienie na mechanice karty. `Giant Growth` (+3/+3) staje się *Duchem Pierwotnego Wzrostu* – eteryczną istotą, która „wchodzi” w inne byty, by je wzmocnić.
+4.  **Ostateczność (Dziwactwo Świata):** Jeśli karta jest całkowicie obca (np. mechaniczny smok w świecie natury), staje się ona *Unikalną Anomalią* – np. nieudanym eksperymentem magicznym lub artefaktem z zapomnianej epoki. **Zakazane jest** tłumaczenie karty jako „przybysza z innego wymiaru”, co niszczyłoby spójność świata.
+
+
+---
+
+
+### 7.3. Mapowanie Techniczne: Od Karty do Domen
+Po ustaleniu formy fabularnej, Operator AI przypisuje bytowi 4 Domeny (A, B, C, D) na podstawie kolorystyki i zdolności karty MtG.
+
+
+*   **Kolory Many -> Żywioły (A i B):**
+    *   *Czerwona:* Ogień, Elektryczność.
+    *   *Niebieska:* Woda, Powietrze, Lód.
+    *   *Zielona:* Natura, Ziemia.
+    *   *Biała:* Światło, Metal.
+    *   *Czarna:* Mrok, Zaraza, Eter.
+*   **Zdolności Karty -> Tarot (C i D):**
+    *   Karty dające kontrolę (Tap) -> *Wisielec, Kapłanka*.
+    *   Karty niszczące (Destroy) -> *Śmierć, Wieża, Diabeł*.
+    *   Karty wzmacniające (Buff) -> *Mag, Cesarz, Rydwan*.
+
+
+---
+
+
+### 7.4. Algebra Materializacji (Weryfikacja Balansu)
+Operator AI jest odpowiedzialny za to, by cztery zdolności bytu (A, B, C, D) były matematycznie poprawne według algorytmów z Punktu 4.
+
+
+*   **Proces Projektowy:** AI bierze efekt z karty MtG (np. „Przeciwnik nie może atakować”) i dobiera do niego parametry (Wartość, Czas, BAC) tak, aby wynik równania zgadzał się z limitem (200 dla kontroli, 10 000 dla odporności).
+*   **Niezmienność:** Po zakończeniu procesu materializacji, parametry bytu są „zamrażane” i zapisywane w bazie danych. Byt staje się stałym elementem ekosystemu gry.
+
+
+---
+
+
+### 7.5. Przykład Materializacji (Zdolności)
+Karta wejściowa: Llanowar Elves (G; Creature — Elf Druid; 1/1; {T}: Add {G}).
+
+
+Poniżej przedstawiono fragment materializacji dotyczący wyłącznie czterech zdolności bytu „Strażnik Wiecznych Dębów” (Domeny: Natura / Powietrze / Mag / Koło Fortuny), ilustrujący standard opisu fabularnego:
+
+
+* Zdolność A (Natura) – „Splot Krwawych Cierni”: 
+    Druid uderza kosturem w ziemię, budząc uśpioną nienawiść lasu. Spod stóp ofiary gwałtownie wyrastają zmutowane, twarde jak stal pnącza usiane haczykowatymi kolcami, które zaciskają się na kończynach z taką siłą, że miażdżą kości i rozrywają tętnice. Podczas gdy rośliny piją krew, strażnik recytuje archaiczne klątwy w zapomnianym języku drzew.
+    [Mechanicznie: CON_DMG; 1; BAC: DVA_BASED]
+
+
+* Zdolność B (Powietrze) – „Wietrzny Taniec Liści”: 
+    Strażnik porusza się z nienaturalną, rwaną prędkością, stając się niemal przezroczystym pośród wirujących liści i nagłych podmuchów mroźnego wiatru. Przeciwnik, oślepiony tumanem pyłku i uderzony falą ciśnienia, traci orientację i zostaje uwięziony w miejscu przez sploty powietrznych wirów, podczas gdy las wokół niego zdaje się wyć z dzikiej radości.
+    [Mechanicznie: ROOT; 2; BAC: 50% (wyliczone ze 100% / 2)]
+
+
+* Zdolność C (Mag) – „Transfuzja Zielonej Energii”: 
+    Przykładając dłoń do otwartej rany, mistyk staje się kanałem dla pierwotnej, bezlitosnej mocy życia. Z jego palców wypływa gęsta, jarząca się na zielono żywica, która wypełnia ubytki w ciele, zasklepia rozcięcia twardą jak dąb tkanką i wypala infekcje czystym magicznym ogniem, przywracając rannemu wolę walki kosztem potwornego bólu.
+    [Mechanicznie: HEAL; 1 CON; Delay 0; BAC: 50%]
+
+
+* Zdolność D (Koło Fortuny) – „Szept Przodków”: 
+    Druid rzuca w powietrze garść runicznych kamieni, które zawisają w nienaturalnej formacji wokół sojusznika. Każdy szept wiatru i szelest gałęzi staje się teraz ostrzeżeniem przed nadchodzącym żywiołem, a skóra chronionej istoty twardnieje, przybierając odcień i strukturę starej kory, co pozwala jej zignorować niszczycielską naturę pierwotnych żywiołów.
+    [Mechanicznie: RES_PERM; NATURA; +10%; BAC: 50% (wyliczone ze 100% / 2)]
+
+
+### 7.6. Finalizacja i Zapis
+Po wygenerowaniu powyższego bloku, AI tworzy wiersz TSV gotowy do wklejenia do Google Sheets. Od tego momentu „Llanowarski Strażnik Kniei” jest grywalną jednostką, o kondycji 5 i unikalnych szansach trafienia, które Python będzie bezbłędnie przeliczał w każdej rundzie.
+
+
+7.7. Implementacja Bytu (JSON Injection)
+Zmaterializowany przez Operatora AI byt zostaje wprowadzony do gry poprzez wklejenie obiektu JSON do Panelu GM. 
+* Inicjalizacja Stanu: Każdy nowo wprowadzony byt startuje z następującymi parametrami:
+  - CON: 5/5
+  - PA: 1
+  - Turns_since_action (Argos): 0
+  - Timery Zdolności (A, B, C, D): 0
+* Rozmieszczenie: Silnik losuje współrzędne (X, Y) z zakresu 1-10 i umieszcza tam byt. Pole może być już zajęte przez dowolną liczbę innych bytów.
+
+
+## PUNKT 8: EWOLUCJA ZASAD (SYSTEM PATCHOWANIA I KONSTYTUCJA GRY)
+
+
+Ostatni punkt Dokumentacji Technicznej Monster Engine v5.0 definiuje warstwę zarządzania i rozwoju systemu. Ze względu na złożoność interakcji probabilistycznych oraz unikalny proces materializacji tysięcy kart MtG, system musi posiadać mechanizm bezpiecznej ewolucji. Punkt ten określa, jak wprowadzać zmiany, nie niszcząc fundamentów matematycznych gry.
+
+
+### 8.1. Koncepcja „Konstytucji Gry”
+Niniejsza dokumentacja (Punkty 1–8) stanowi kompletną **Konstytucję Gry**. Jest to nadrzędny dokument, który służy jako jedyne „Źródło Prawdy” (Source of Truth) dla dwóch kluczowych podmiotów:
+1.  **Kodera Python:** Który na podstawie tych zasad buduje silnik rozstrzygający bitwy.
+2.  **Operatora AI:** Który na podstawie tych zasad projektuje (materializuje) nowe byty.
+
+
+Zasada nadrzędna brzmi: **Jeśli jakiejś zasady nie ma w Konstytucji, nie istnieje ona w grze.** Zapobiega to wprowadzaniu „ukrytych mechanik” podczas materializacji i gwarantuje, że Python zawsze będzie wiedział, jak zinterpretować dane przesłane przez AI.
+
+
+---
+
+
+### 8.2. System Patchowania (Formalne Zmiany)
+Zasady Monster Engine są dokumentem żywym, ale ich zmiana nie może odbywać się poprzez luźną rozmowę. Każda modyfikacja musi zostać skodyfikowana w formie **Patcha**. Taki system gwarantuje, że historia zmian jest przejrzysta, a koder może precyzyjnie „chirurgicznie” aktualizować konkretne komórki kodu w Google Colab.
+
+
+**Struktura Formalna Patcha:**
+> *   **ID Patcha:** Kolejny numer (np. PATCH 018).
+> *   **Dokument:** Wskazanie punktu Konstytucji lub konkretnego modułu kodu Python.
+> *   **Treść do usunięcia:** Dokładny cytat fragmentu, który ma zostać wyeliminowany lub nadpisany.
+> *   **Treść do wstawienia:** Dokładny, kompletny tekst, który ma zająć miejsce usuniętego fragmentu (w przypadku dopisywania nowych zasad, sekcja „Treść do usunięcia” pozostaje pusta, a w sekcji „Miejsce” podawany jest unikalny punkt kotwiczenia).
+
+
+---
+
+
+### 8.3. Procedura Wdrażania Ewolucji
+Proces wprowadzania nowej zasady (np. nowego typu Payloadu lub nowej Domeny) musi przejść przez trzy fazy:
+
+
+1.  **Faza Koncepcyjna:** Dyskusja między Twórcą a Konsultantem nad nową ideą (np. „Chciałbym dodać mechanikę odrzutu o 2 pola”).
+2.  **Faza Algebry:** Sprawdzenie, jak nowa zasada wpływa na balans. Jeśli dodajemy odrzut, musimy nadać mu „Wartość Typu” (np. 1.2), aby AI mogło wyliczyć BAC według algorytmu z Punktu 4.
+3.  **Faza Skodyfikowania:** Wydanie oficjalnego Patcha i naniesienie go na tekst Konstytucji. Dopiero wtedy Koder implementuje zmianę w Pythonie.
+
+
+---
+
+
+### 8.4. Przykład Ewolucji: Dodanie Nowego Payloadu
+Wyobraźmy sobie, że po serii testów uznajemy, że brakuje nam efektu „Kradzieży PA” (Stamina Drain).
+
+
+**PATCH 019 (Przykładowy):**
+*   **Dokument:** Punkt 4 (Algorytmy Projektowe).
+*   **Miejsce:** Dodaj podpunkt 4.8.
+*   **Treść:** „**4.8. Drenaż Akcji (DRAIN):** Efekt, który powoduje, że cel w następnej turze traci fazę ruchu w swojej Akcji Zespolonej. Algorytm: `Wartość Typu (1.5) * Czas (T) * BAC = 200`.”
+
+
+---
+
+
+### 8.5. Stabilność Bazy Danych i Wsteczna Kompatybilność
+Jedną z najważniejszych zasad ewolucji w Monster Engine jest **Niezmienność Bytów Zmaterializowanych**.
+*   Jeśli zmieniamy Globalną Macierz Wpływu (Punkt 6), zmiana ta dotyka wszystkich bytów natychmiast (zmieniają się „prawa fizyki”).
+*   Jeśli zmieniamy Algorytmy Projektowe (Punkt 4), zmiana ta dotyczy tylko **nowo materializowanych** kart. Byty już istniejące w Google Sheets zachowują swoje wyliczone wcześniej wartości BAC, chyba że patch wyraźnie zarządzi „Generalną Rekalibrację”.
+
+
+---
+
+
+### 8.6. Podsumowanie Całościowe Systemu v5.0
+Zakończenie opisu Punktu 8 domyka cykl projektowy wersji 5.0. System jest teraz:
+1.  **Matematycznie spójny:** Dzięki algebrze efektów i stałemu budżetowi „energii” zdolności.
+2.  **Unikalny:** Dzięki algorytmowi DVA, który uśrednia obronę z dwóch domen.
+3.  **Dynamiczny:** Dzięki Akcji Zespolonej (Ruch+Zdolność) i małej puli Kondycji (5 CON).
+4.  **Skalowalny:** Dzięki systemowi Patchowania i materializacji opartej na ogromnej bazie MtG.
+
+
+9. Macierze
+
+
+### I. MACIERZ FIZYCZNA: 12 ŻYWIOŁÓW
+(Wiersz = Domena Atakująca | Kolumny = Kolejne Domeny Obrońcy w kolejności listy)
+
+
+**Kolejność kolumn:** 1.Ogień, 2.Woda, 3.Ziemia, 4.Powietrze, 5.Metal, 6.Elektryczność, 7.Lód, 8.Natura, 9.Światło, 10.Mrok, 11.Eter, 12.Zaraza.
+
+
+```text
+OGIEŃ:         [90, 90, 50, 40, 30, 50, 20, 10, 50, 50, 80, 40]
+WODA:          [10, 90, 40, 50, 60, 90, 70, 60, 50, 40, 50, 50]
+ZIEMIA:        [50, 60, 90, 90, 40, 10, 50, 70, 50, 50, 50, 50]
+POWIETRZE:     [60, 50, 10, 90, 80, 50, 50, 40, 50, 50, 40, 50]
+METAL:         [70, 40, 60, 20, 90, 80, 20, 30, 50, 10, 90, 90]
+ELEKTRYCZNOŚĆ: [50, 10, 90, 50, 20, 90, 50, 50, 50, 50, 40, 50]
+LÓD:           [80, 30, 50, 80, 80, 50, 90, 40, 50, 50, 50, 50]
+NATURA:        [90, 40, 30, 60, 70, 50, 60, 90, 40, 60, 10, 80]
+ŚWIATŁO:       [50, 50, 50, 50, 50, 50, 50, 60, 90, 10, 10, 90]
+MROK:          [50, 60, 50, 50, 90, 50, 50, 40, 10, 90, 30, 30]
+ETER:          [20, 50, 50, 60, 10, 60, 50, 90, 90, 70, 90, 50]
+ZARAZA:        [60, 50, 50, 50, 10, 50, 50, 20, 10, 70, 50, 90]
+```
+
+
+---
+
+
+### II. MACIERZ TAROTA: 12 WIELKICH ARKANÓW
+(Wiersz = Domena Atakująca | Kolumny = Kolejne Domeny Obrońcy w kolejności listy)
+
+
+**Kolejność kolumn:** 1.Mag, 2.Kapłanka, 3.Cesarz, 4.Kochankowie, 5.Rydwan, 6.Sprawiedliwość, 7.Pustelnik, 8.Koło Fortuny, 9.Wisielec, 10.Śmierć, 11.Diabeł, 12.Wieża.
+
+
+```text
+MAG:           [90, 30, 40, 50, 60, 50, 10, 50, 20, 50, 50, 90]
+KAPŁANKA:      [10, 90, 50, 50, 50, 50, 80, 40, 60, 40, 10, 50]
+CESARZ:        [60, 50, 90, 10, 40, 90, 50, 70, 30, 50, 50, 90]
+KOCHANKOWIE:   [50, 50, 90, 90, 50, 10, 50, 40, 50, 80, 20, 50]
+RYDWAN:        [40, 50, 60, 50, 90, 60, 50, 90, 10, 40, 50, 80]
+SPRAWIEDLIWOŚĆ:[50, 50, 10, 90, 40, 90, 50, 30, 90, 20, 70, 10]
+PUSTELNIK:     [90, 20, 50, 50, 50, 50, 90, 10, 50, 90, 60, 50]
+KOŁO FORTUNY:  [50, 60, 30, 60, 10, 70, 90, 90, 40, 10, 50, 30]
+WISIELEC:      [80, 40, 70, 50, 90, 10, 50, 60, 90, 50, 10, 50]
+ŚMIERĆ:        [50, 60, 50, 10, 60, 80, 10, 90, 50, 90, 50, 40]
+DIABEŁ:        [50, 90, 50, 80, 50, 30, 40, 50, 90, 50, 90, 20]
+WIEŻA:         [10, 50, 10, 50, 20, 90, 50, 70, 50, 60, 80, 90]
+```
+
+
+---
+
+
+### Sposób odczytu i implementacji (Dla Kodera):
+
+
+Jeśli Byt A (Domena Atakująca: **Ogień**) atakuje Byt B (Domena Główna Obrońcy: **Woda**), Python zagląda do Macierzy Fizycznej, wiersz "Ogień", kolumna 2 ("Woda").
+*   Pobiera wartość: **90%**.
+*   Jest to bazowa szansa na obronę ($D_1$) dla algorytmu DVA.
+
+
+**Przykład asymetrii:**
+*   `MAG` atakuje `PUSTELNIKA`: Pustelnik ma tylko **10%** szansy na obronę (Mag dominuje).
+*   `PUSTELNIK` atakuje `MAGA`: Mag ma **90%** szansy na obronę (Pustelnik jest bezsilny).
+
+
+### 9.2. Matryca Biomów (15 Typów Terenu)
+Mapa składa się z 15 typów lokacji reprezentujących fizyczne biomy lądowe. Każda lokacja modyfikuje Szansę Bazową (BAC) zdolności bytu, który się na niej znajduje. Zmiany dzielą się na Dominujące (+/- 20%) oraz Wspomagające (+/- 10%).
+
+
+| ID | Nazwa Biomis | Bonus (+20% BAC) | Kara (-20% BAC) | Modyfikatory dodatkowe (+/- 10% BAC) |
+| :--- | :--- | :--- | :--- | :--- |
+| L01 | Łąki | Natura | Mrok | +Światło (10%) |
+| L02 | Las (Rzadki) | Natura | Ogień | +Powietrze (10%) |
+| L03 | Las (Gęsty) | Natura | Metal | +Mrok (10%), -Powietrze (10%) |
+| L04 | Dżungla | Zaraza | Lód | +Natura (10%), -Metal (10%) |
+| L05 | Pogórze | Ziemia | Powietrze | +Metal (10%), -Woda (10%) |
+| L06 | Wysokie Góry | Powietrze | Ziemia | +Elektryczność (10%), +Lód (10%) |
+| L07 | Bagna | Woda | Ogień | +Zaraza (10%), -Powietrze (10%) |
+| L08 | Moczary | Mrok | Światło | +Zaraza (10%), +Woda (10%) |
+| L09 | Step | Powietrze | Ziemia | +Ogień (10%) |
+| L10 | Pustynia | Ogień | Woda | +Światło (10%), +Ziemia (10%) |
+| L11 | Lądolód | Lód | Ogień | +Woda (10%), -Natura (10%) |
+| L12 | Pustynia Bazaltowa | Metal | Natura | +Ogień (10%), +Ziemia (10%) |
+| L13 | Ruiny | Eter | Natura | +Metal (10%), +Mrok (10%) |
+| L14 | Wrzosowiska | Światło | Metal | +Powietrze (10%), +Eter (10%) |
+| L15 | Pola Uprawne | Ziemia | Zaraza | +Natura (10%), +Woda (10%) |
+
+
+9.3. Mechanika Odkrywania (Eksploracja)
+Początkowo mapa posiada status TERRA_INCOGNITA.
+1. Odsłonięcie (Triggery):
+   - Trigger Ruchu: Lokacja zostaje odkryta, gdy byt zakończy na niej ruch lub przebywa w jej bezpośrednim sąsiedztwie (8 pól wokół).
+   - Trigger Spawnu: W momencie umieszczenia nowego bytu na mapie, silnik automatycznie sprawdza pole startowe oraz wszystkie 8 pól sąsiadujących. Jeśli którekolwiek z tych pól ma status TERRA_INCOGNITA, następuje jego natychmiastowe odkrycie.
+2. Procedura Generacji: Dla każdego pola odkrywanego przez Trigger Spawnu, silnik stosuje Algorytm Dziedziczenia (70% szans na typ sąsiada / 30% szans na anomalię). Jeśli spawn następuje w miejscu, gdzie nie ma żadnych odkrytych sąsiadów, pierwsze pole losuje typ z pełnej puli L01-L15, a pozostałe dziedziczą od niego.
+
+
+3. Dziedziczenie: Podczas odkrywania rzuca się k100. 
+   - 70% szans: Nowe pole przyjmuje typ jednego z sąsiadujących, już odkrytych pól.
+   - 30% szans: Nowe pole losuje typ z pełnej puli L01-L15.
+
+
+## PUNKT 10: PROCEDURA AKTYWACJI (SYSTEM ARGOS I ARCHITEKTURA DWUFAZOWA)
+
+
+Punkt ten definiuje przepływ czasu i logikę komunikacji między Silnikiem Python a dwoma modelami AI: **Aktorem** (podejmującym decyzję) oraz **Weryfikatorem** (opisującym skutki).
+
+
+### 10.1. Kolejność Działań: System Argos
+Monster Engine nie stosuje stałej inicjatywy. Kolejność aktywacji jest wyliczana dynamicznie przez algorytm probabilistyczny, który premiuje byty czekające najdłużej na ruch.
+
+
+**Algorytm Wyboru:**
+1.  Silnik losuje kandydata z puli wszystkich żywych bytów.
+2.  Oblicza szansę na jego aktywację: $P = \min(1.0, \frac{n \times (n + 1)}{100})$, gdzie $n = \text{tury od ostatniej aktywacji} + 1$.
+3.  Wykonuje rzut. Jeśli **SUKCES** -> Byt zostaje "Aktorem". Jeśli **PORAŻKA** -> Powrót do punktu 1.
+4.  Po każdej aktywacji licznik $n$ wybranego bytu zeruje się, a pozostałych rośnie o 1.
+
+
+---
+
+
+### 10.2. Faza I: Zapytanie do AI AKTORA
+Gdy Byt zostanie wybrany, Python generuje pakiet danych (Prompt A) dla Operatora AI. Pakiet zawiera:
+
+
+*   **Tożsamość:** Nazwa, Lore, szczegółowy opis 4 zdolności (A, B, C, D) wraz z ich matematycznym Payloadem.
+*   **Kontekst Przestrzenny (Zasięg 0):** Typ lokacji, na której stoi Aktor, oraz lista innych bytów tam przebywających.
+*   **Kontekst Otoczenia (Zasięg 1):** Typy 8 sąsiednich lokacji (N, NE, E, SE, S, SW, W, NW) oraz ogólny opis bytów tam przebywających (bez wglądu w ich zdolności).
+
+
+**Zadanie AKTORA:** Wygenerowanie odpowiedzi w formacie:
+1.  **MONOLOG:** (3-4 zdania) Wewnętrzne przemyślenia, ocena sytuacji i motywacja do podjęcia akcji.
+2.  **RUCH:** Deklaracja kierunku (np. "Kierunek: NE") lub "BRAK".
+3.  **SPECJAL:** Wybór jednej zdolności (A, B, C lub D) oraz wskazanie **TARGETU** (cel musi znajdować się na polu docelowym bytu po fazie ruchu).
+
+
+---
+
+
+### 10.3. Faza II: Rozstrzygnięcie Mechaniczne (Python)
+Po wklejeniu decyzji Aktora, Python wykonuje obliczenia "w tle":
+1.  Przesuwa figurkę na mapie (jeśli zadeklarowano Ruch).
+2.  Odkrywa nowe pola mapy (jeśli ruch nastąpił w Terra Incognita).
+3.  Oblicza SSO (Sumaryczną Szansę Obrony) celu przy użyciu **Algorytmu DVA**.
+4.  Wykonuje rzut k100.
+5.  Określa wynik: Sukces (aplikacja uszkodzeń CON lub statusu) lub Porażka (unik/odparcie).
+
+
+---
+
+
+### 10.4. Faza III: Zapytanie do AI WERYFIKATORA
+Wynik z Pythona nie jest wyświetlany jako sucha informacja. Python generuje raport techniczny (Prompt B) dla drugiego modelu AI – Weryfikatora. Raport zawiera:
+
+
+*   **Dane Wejściowe:** Opis Aktora (lore + użyty specjal) oraz Opis Celu (lore + jego zdolności obronne).
+*   **Lokalizacja:** Typ lokacji, na której doszło do interakcji.
+*   **Wynik Mechaniczny:** Dokładna informacja o sukcesie/porażce i zmianie stanu (np. "Cel stracił 1 CON", "Nałożono status ROOT").
+
+
+**Zadanie WERYFIKATORA:**
+Opisanie całej sytuacji fabularnie w **5-8 zdaniach**. Narracja musi uwzględniać:
+1.  Ruch Aktora i jego wejście w interakcję.
+2.  Manifestację użytej zdolności (zgodnie z jej opisem lore).
+3.  Reakcję obronną celu (wynikającą z jego domen).
+4.  Finalny, krwawy lub magiczny skutek akcji.
+
+
+---
+
+
+### 10.5. Przykład Workflow (Demo)
+
+
+**1. Kolejność:** Argos wybiera "Rycerza Przekleństw".
+**2. Prompt A (do Aktora):** "Rycerzu, stoisz na Pogórzu. Przed Tobą na tym samym polu jest Jaszczurka. Na północ jest Gęsty Las."
+**3. Odpowiedź AKTORA:**
+   *   *Monolog:* "Ten gadzi pomiot blokuje mi drogę do serca puszczy. Czuję, jak mój miecz drży z nienawiści do wszystkiego, co żywe."
+   *   *Ruch:* BRAK.
+   *   *Specjal:* Zdolność A (Cięcie Mroku) na Jaszczurkę.
+**4. Python:** Liczy DVA. Wynik: Sukces. Jaszczurka traci 1 CON.
+**5. Prompt B (do Weryfikatora):** "Rycerz użył Cięcia Mroku (A). Jaszczurka (Ogień) nie sparowała. Wynik: -1 CON."
+**6. Narracja WERYFIKATORA:**
+   > Rycerz Przekleństw, nie wykonując nawet kroku, unosi swoje poczerniałe ostrze, które zdaje się chłonąć resztki światła z Pogórza. Z nagłym sykiem, tnie powietrze, uwalniając smugę nienasyconego mroku, która uderza wprost w drżącą Jaszczurkę. Gad próbuje wykrzesać z siebie płomień obronny, jednak lodowata esencja cienia okazuje się szybsza, wgryzając się w łuski i gasząc wewnętrzny żar stworzenia. Jaszczurka zwija się w bólu, a jej ciało pokrywa się nekrotycznym szronem, gdy traci siły do dalszej walki. Wyraźnie osłabiona, próbuje wycofać się w cień skał, lecz wzrok Rycerza już wydał na nią wyrok.
+
+
+---
+
+
+Zrozumiałem. Wprowadzenie mechaniki **Czasowego Odnawiania Zdolności (Cooldowns)** drastycznie zmienia dynamikę gry. Teraz byt nie może po prostu „spamować” swoim najsilniejszym atakiem – musi zarządzać zasobem czasu i planować aktywacje z wyprzedzeniem.
+
+
+Oto szczegółowy opis nowego elementu zasad: **PUNKT 11**.
+
+
+---
+
+
+## PUNKT 11: SYSTEM CZASOWEGO DOSTĘPU (COOLDOWNY I PASEK STANU)
+
+
+System ten wprowadza rygorystyczne ograniczenia częstotliwości używania zdolności. Każda z czterech domen bytu posiada własny licznik czasu (Timer), który determinuje jej dostępność w danej aktywacji. Mechanika ta wymusza na AI Aktora rotację zdolnościami i zapobiega dominacji jednej, najskuteczniejszej techniki.
+
+
+### 11.1. Definicja Liczników (Timery Zdolności)
+Każdy slot zdolności (A, B, C, D) posiada przypisaną na sztywno wartość regeneracji, która aktywuje się w momencie użycia danej zdolności.
+
+
+1.  **Zdolności Kluczowe (Sloty A i C):**
+    *   **Timer: 3**.
+    *   Po użyciu zdolności A lub C, staje się ona niedostępna przez dwie kolejne aktywacje bytu. Będzie gotowa do ponownego użycia dopiero w **trzeciej** aktywacji po turze, w której została użyta.
+2.  **Zdolności Wspomagające (Sloty B i D):**
+    *   **Timer: 2**.
+    *   Po użyciu zdolności B lub D, staje się ona niedostępna w następnej aktywacji. Będzie gotowa do ponownego użycia w **drugiej** aktywacji po turze użycia.
+
+
+---
+
+
+### 11.2. Procedura Odliczania (Logika Paska Stanu)
+Licznik nie jest obniżany globalnie (na koniec rundy), lecz indywidualnie dla każdego bytu, co jest kluczowe w systemie Argos (gdzie niektóre byty ruszają się częściej niż inne).
+
+
+*   **Moment redukcji:** Liczniki wszystkich czterech zdolności danego bytu są obniżane o **-1** na samym początku jego aktywacji, tuż przed wygenerowaniem promptu dla AI Aktora.
+*   **Warunek Dostępności:** Zdolność jest uznawana za aktywną i gotową do użycia wyłącznie wtedy, gdy jej Timer wynosi dokładnie **0**.
+*   **Wartość Startowa:** Na początku bitwy wszystkie zdolności mają Timer = 0 (chyba że lore materializacji karty MtG wyraźnie mówi o "rozgrzewce" lub opóźnieniu).
+
+
+---
+
+
+### 11.3. Wpływ na Komunikację z AI (Filtracja Promptu)
+Mechanika ta ma fundamentalne znaczenie dla sposobu, w jaki Python rozmawia z Aktorami. Aby uniknąć "halucynacji" AI (próby użycia zdolności, która jest zablokowana) oraz aby zmusić model do kreatywnego korzystania z całego wachlarza umiejętności, stosujemy **Zasadę Ukrytej Blokady**.
+
+
+1.  **Analiza Stanu:** Zanim Python wyśle Prompt A do Aktora, sprawdza aktualne wartości Timerów.
+2.  **Filtracja:** Do opisu bytu w prompcie trafiają **wyłącznie** te zdolności, których Timer wynosi 0.
+3.  **Brak Alternatywy:** Jeśli wszystkie zdolności bytu są na cooldownie (co matematycznie jest trudne, ale możliwe przy pechowym rozkładzie), Aktor otrzymuje informację o braku dostępnych specjali i musi podjąć decyzję o samym Ruchu lub akcji "Czekaj".
+
+
+---
+
+
+### 11.4. Przykład Taktyczny: "Rotacja Maga"
+Byt posiada zdolności: **A** (Kula Ognia, T=3), **B** (Tarcza, T=2), **C** (Teleport, T=3), **D** (Leczenie, T=2).
+
+
+*   **Aktywacja 1:** Wszystkie Timery = 0. Mag używa **A (Kula Ognia)**. 
+    *   *Stan po akcji:* A=3, B=0, C=0, D=0.
+*   **Aktywacja 2:** Na starcie Timery spadają o 1 -> A=2, B=0, C=0, D=0. Mag nie widzi zdolności A w prompcie. Wybiera **C (Teleport)**.
+    *   *Stan po akcji:* A=2, B=0, C=3, D=0.
+*   **Aktywacja 3:** Na starcie Timery spadają o 1 -> A=1, B=0, C=2, D=0. Mag nadal nie może użyć ognia ani teleportu. Musi użyć **B** lub **D** (albo samej fizyki/ruchu). Wybiera **B (Tarcza)**.
+    *   *Stan po akcji:* A=1, B=2, C=2, D=0.
+*   **Aktywacja 4:** Na starcie Timery spadają o 1 -> A=0, B=1, C=1, D=0. **Zdolność A (Kula Ognia) wraca do promptu.** Mag może znów zaatakować najsilniejszą bronią.
+
+
+---
+
+
+### 11.5. Strategiczne znaczenie dla AI Weryfikatora
+Weryfikator otrzymuje informację o tym, że dana zdolność została użyta „pomimo wyczerpania” lub „po długim przygotowaniu”. Może to opisywać jako:
+*   *Dla slotów A/C:* „Potężny wysiłek, po którym byt musi nabrać tchu”.
+*   *Dla slotów B/D:* „Szybka, instynktowna reakcja”.
+
+
+To sprawia, że walka przestaje być liniowa. Aktor musi decydować: czy zużyć slot A teraz, ryzykując, że za turę będzie bezbronny, czy oszczędzać go na moment, gdy wejdzie w idealną interakcję z Macierzą Wpływu.
+________________
+
+
+# MONSTER ENGINE 5.1 — BIBLIOTEKA PAYLOADÓW I ALGORYTMY BALANSU (dla AI Materializującego)
+
+
+## 0) Definicje wspólne
+
+
+### 0.1 HP (float)
+- Każdy byt ma **HP = 5.0** (float).
+- Śmierć: `HP <= 0.0`.
+- DD (direct damage) standardowo zadaje **-1.0 HP**.
+
+
+### 0.2 Oś konfliktu (PHYS vs TAROT)
+- Sloty **A/B**: konflikt **PHYS** (macierz fizyczna, obrona z domen A/B celu).
+- Sloty **C/D**: konflikt **TAROT** (macierz tarota, obrona z domen C/D celu).
+
+
+### 0.3 DVA (domenowa szansa trafienia)
+DVA zwraca `hit_chance` w %.
+
+
+- Krytyki (etap DVA):
+  - rzut `1–5` = **zawsze trafia (DVA-hit)**
+  - rzut `96–100` = **zawsze pudło (DVA-miss)**
+
+
+### 0.4 BAC (szansa wejścia efektu)
+BAC dotyczy tylko payloadów, które mają „wejście” po trafieniu domenowym (głównie CC).
+- Dla slotów wspomagających (B/D) BAC jest **dzielone przez 2** (zasada 100/50).
+- Dla slotów głównych (A/C) BAC jest używane w pełnej wartości.
+
+
+### 0.5 CC = DVA → BAC (dwustopniowo)
+Dla efektów kontrolnych (statusy):
+1) Najpierw DVA-hit/DVA-miss (z krytykami),
+2) Dopiero jeśli DVA-hit → rzut na BAC.
+
+
+Finalnie:  
+`P(status) ≈ P(DVA-hit) * (BAC/100)`.
+
+
+### 0.6 RES-y (modyfikatory obrony) — miejsce działania
+W DVA pobierasz:
+- `d1 = matrix[attack_domain vs defender_main_domain]`
+- `d2_raw = matrix[attack_domain vs defender_support_domain]`
+
+
+RES-y zawsze modyfikują **d1 oraz d2_raw** (przed mnożnikiem 0.5 dla domeny wspomagającej obrony).
+
+
+### 0.7 Czas trwania (duration)
+Duration jest liczony w **aktywacjach posiadacza efektu**:
+- `duration -= 1` na początku aktywacji jednostki, która ma efekt.
+
+
+### 0.8 Stackowanie
+- Identyfikator „ten sam efekt” = `ability_name`.
+- Ten sam `ability_name` nałożony ponownie: **nie stackuje**, tylko **odświeża** (resetuje duration / nadpisuje).
+- Różne `ability_name`: **stackują się** (bez capów).
+
+
+---
+
+
+1. Payload: `CON_DMG` (Direct Damage)
+
+
+### 1.1 Opis
+Bezpośrednie obrażenia HP.
+
+
+### 1.2 Rozstrzygnięcie
+- Test: **DVA** (z krytykami 1–5/96–100).
+- Jeśli trafienie → `HP -= damage`.
+
+
+### 1.3 Parametry
+- `damage` (float): standard `1.0`
+- `range`: `0 | 1`
+- `target`: `enemy`
+
+
+### 1.4 Silny strzał (opcjonalny)
+`damage = 2.0`:
+- Finalna szansa trafienia z DVA jest redukowana:  
+  `hit_chance_final = hit_chance / 3`  
+(krytyk 1–5 nadal trafia na etapie DVA).
+2.  PAYLOAD: HEAL (natychmiastowe i odroczone leczenie)
+
+
+### Definicja
+HEAL przywraca HP (float) celowi `self` lub `ally`.
+
+
+### Zasada testu
+HEAL **nie używa DVA** (to nie jest atak).  
+HEAL używa **BAC wyliczonego wzorem** i rzutu k100.
+
+
+### Parametry
+- `heal_amount` (float), np. `0.5` (soft-cap: max 0.5, EMPOWERED: max 1.0)
+- `delay` (int ≥ 0) — zwłoka liczona w **kolejnych aktywacjach rzucającego** (właściciela zdolności)
+- `range`: `0 | 1`
+- `target`: `self | ally`
+
+
+### Algebra balansu (BAC)
+Wzór (jak w Konstytucji, z dopuszczeniem float):
+\[
+heal\_amount \times BAC = 50 \times (1 + delay)
+\]
+\[
+BAC = \frac{50(1+delay)}{heal\_amount}
+\]
+Clamp: `BAC` maks. 100%.
+
+
+### Zasada 100/50 (sloty)
+Po wyliczeniu BAC:
+- slot A/C: `BAC_final = BAC`
+- slot B/D: `BAC_final = BAC * 0.5`
+
+
+Clamp po tej operacji do 100%.
+
+
+---
+
+
+### Moment rozstrzygnięcia (Delay)
+- Jeśli `delay = 0`: test BAC i ewentualne leczenie **natychmiast** w tej samej aktywacji.
+- Jeśli `delay > 0`: na rzucającego nakładany jest **pending heal** (oczekujący), który ma licznik `delay`.
+
+
+**Tick delay:**  
+Licznik `delay` zmniejsza się o 1 **na początku każdej kolejnej aktywacji rzucającego** (tak samo jak cooldowny).
+
+
+Gdy licznik spadnie do 0 (na początku aktywacji rzucającego) → następuje rozstrzygnięcie:
+- rzut k100 vs `BAC_final`
+- jeśli sukces: `HP_target = min(HP_max, HP_target + heal_amount)`
+
+
+### Reguły stabilności
+- Jeśli rzucający zginie zanim pending heal się rozstrzygnie → efekt przepada.
+- Jeśli cel zginie zanim pending heal się rozstrzygnie → efekt przepada.
+
+
+** czy przy rozstrzygnięciu odroczonego HEAL sprawdzamy ponownie zasięg do celu?
+**NIE** (to jest „błogosławieństwo” przypięte do celu).
+
+
+### Przykłady (slot główny, po soft-capie)
+- `heal_amount=1.0, delay=0` → cappowane do 0.5 → `BAC=100%`
+3. Payloady CC (kontrola): `ROOT`, `STUN`, `SILENCE`, `DISARM`
+
+
+### 3.1 Opis
+Statusy ograniczające działania celu:
+- `ROOT`: blokuje ruch
+- `STUN`: blokuje ruch i wszystkie zdolności
+- `SILENCE`: blokuje C/D
+- `DISARM`: blokuje A/B
+
+
+### 3.2 Rozstrzygnięcie (obowiązkowo)
+**DVA → BAC**:
+1) rzut DVA (z krytykami),
+2) jeśli DVA-hit → rzut BAC.
+
+
+### 3.3 Parametry
+- `duration` (int): liczba aktywacji celu
+- `bac` (int 0–100): szansa wejścia po DVA
+- `range`: `0 | 1`
+- `target`: `enemy`
+
+
+### 3.4 Algebra balansu BAC (dla AI Materializującego)
+AI wylicza BAC według budżetu:
+
+
+**Wzór:**
+`weight(type) * duration * BAC = 200`
+
+
+**Wagi:**
+- `ROOT`: 1.0
+- `SILENCE`: 1.5
+- `DISARM`: 1.5
+- `STUN`: 2.0
+
+
+**Przykłady:**
+- ROOT na 2 aktywacje: `1.0 * 2 * BAC = 200` → `BAC=100`
+- STUN na 2 aktywacje: `2.0 * 2 * BAC = 200` → `BAC=50`
+4. RES-y Rodzina 1a: „vs jedna domena ataku” (quasi-permanent: duration=50)
+
+
+Ta rodzina działa **tylko** gdy domena ataku w DVA spełnia warunek:
+- `attack_domain == domain_affected`
+
+
+Dla tej rodziny przyjmujemy:
+- `duration = 50` aktywacji posiadacza (quasi-perm).
+
+
+## 4.1 `RES_DOMAIN_SHIELD_PERM` (Buff defensywny)
+- target: `self | ally`
+- test: **auto (100%)**
+- wartość: `+10`
+- działanie: jeśli `attack_domain == X` → `d1 += 10`, `d2_raw += 10`
+
+
+## 4.2 `RES_DOMAIN_PIERCE_PERM` (Buff ofensywny)
+- target: `self | ally`
+- test: **auto (100%)**
+- wartość: `-10` (pierce)
+- działanie: jeśli posiadacz atakuje i `attack_domain == X` → u celu `d1 -= 10`, `d2_raw -= 10`
+
+
+## 4.3 `RES_DOMAIN_VULN_PERM` (Debuff ofensywny)
+- target: `enemy`
+- test: **DVA jak DD** (bez BAC)
+- wartość: `-20`
+- działanie: jeśli `attack_domain == X` → u ofiary `d1 -= 20`, `d2_raw -= 20`
+
+
+## 4.4 `RES_DOMAIN_WEAKEN_ATTACK_PERM` (Debuff defensywny)
+- target: `enemy`
+- test: **DVA jak DD** (bez BAC)
+- wartość: `+10` lub `+20` (ustala AI)
+- działanie: jeśli osłabiony atakuje i `attack_domain == X` → jego cele mają `d1 += v`, `d2_raw += v` (trudniej mu trafić domeną X)
+
+
+5. RES-y Rodzina 1b: „profil domen celu/sojusznika” (duration=5)
+
+
+Ta rodzina działa zawsze „na osi” i jest **dynamiczna wg celu**:
+- PHYS: dotyczy obrony A/B celu i wszystkich ataków fizycznych,
+- TAROT: dotyczy obrony C/D celu i wszystkich ataków niefizycznych.
+
+
+Dla tej rodziny przyjmujemy:
+- `duration = 5` aktywacji posiadacza.
+
+
+## 5.1 OŚ PHYS (A/B)
+
+
+### 5.1.1 `RES_PROFILE_PHYS_SHIELD` (Buff defensywny)
+- target: `self | ally`
+- test: auto (100%)
+- wartość: `+10`
+- działanie: każdy atak PHYS w posiadacza → `d1 += 10`, `d2_raw += 10`
+
+
+### 5.1.2 `RES_PROFILE_PHYS_PIERCE` (Buff ofensywny)
+- target: `self | ally`
+- test: auto (100%)
+- wartość: `-10`
+- działanie: każdy atak PHYS wykonany przez posiadacza → u celu `d1 -= 10`, `d2_raw -= 10`
+
+
+### 5.1.3 `RES_PROFILE_PHYS_VULN` (Debuff ofensywny)
+- target: `enemy`
+- test: DVA jak DD (bez BAC)
+- wartość: `-20`
+- działanie: każdy atak PHYS przeciwko ofierze → `d1 -= 20`, `d2_raw -= 20`
+
+
+### 5.1.4 `RES_PROFILE_PHYS_WEAKEN_ATTACK` (Debuff defensywny)
+- target: `enemy`
+- test: DVA jak DD (bez BAC)
+- wartość: `+10` lub `+20`
+- działanie: każdy atak PHYS wykonywany przez ofiarę → jego cele mają `d1 += v`, `d2_raw += v`
+
+
+## 5.2 OŚ TAROT (C/D)
+Analogicznie:
+- `RES_PROFILE_TAROT_SHIELD` (+10, auto)
+- `RES_PROFILE_TAROT_PIERCE` (-10, auto)
+- `RES_PROFILE_TAROT_VULN` (-20, DVA)
+- `RES_PROFILE_TAROT_WEAKEN_ATTACK` (+10/+20, DVA)
+6. DOT / HOT (float, status tickowany)
+
+
+## 6.1 `DOT` (Damage over time)
+- target: `enemy`
+- test na nałożenie: **DVA jak DD** (bez BAC) *(zgodnie z Twoją decyzją: „jak DD”)*  
+- po nałożeniu tickuje automatycznie.
+
+
+**Parametry:**
+- `total_damage` (float), np. `1.5`
+- `duration` (int), np. `5`
+- tick: `tick = total_damage / duration` (float)
+- tick time: początek aktywacji celu
+- range: `0 | 1`
+
+
+## 6.2 `HOT` (Heal over time)
+- target: `self | ally`
+- test: auto (100%)
+- parametry analogiczne:
+  - `total_heal` (float)
+  - `duration` (int)
+  - tick: `total_heal/duration`
+  - tick na początku aktywacji celu
+- clamp do `HP_max`
+
+
+---
+
+
+7. Minimalny format JSON payloadu (szablony)
+
+
+## 7.1 DD
+```json
+{ "type": "CON_DMG", "damage": 1.0, "range": 0 }
+```
+
+
+## 7.2 CC
+```json
+{ "type": "STUN", "duration": 2, "bac": 50, "range": 0 }
+```
+
+
+## 7.3 RES 1a (vs domena ataku)
+```json
+{ "type": "RES_DOMAIN_VULN_PERM", "domain_affected": "Światło", "value": 20, "duration": 50, "range": 0 }
+```
+
+
+## 7.4 RES 1b (profil)
+```json
+{ "type": "RES_PROFILE_PHYS_VULN", "value": 20, "duration": 5, "range": 0 }
+```
+
+
+## 7.5 DOT
+```json
+{ "type": "DOT", "total_damage": 1.5, "duration": 5, "range": 0 }
+```
+8. `COOLDOWN_BURN` (Spalenie czasu)
+- **Cel:** `enemy`
+- **Test:** DVA jak DD (bez BAC)
+- **Efekt:** Wybrane sloty zdolności celu otrzymują `+value` do cooldownu (nawet jeśli są już na cooldownie).
+- **Parametry:**
+  - `value` (int): `3` 
+  - `range`: `0 | 1`
+- **JSON:**
+  ```json
+  { "type": "COOLDOWN_BURN", "value": 3, "range": 1 }
+  ```
+
+
+## 8.2 `COOLDOWN_REFRESH` (Odnowienie)
+- **Cel:** `self | ally`
+- **Test:** Auto (100%)
+- **Efekt:** Wybrane sloty zdolności celu otrzymują `-value` do cooldownu (do minimum 0).
+- **Parametry:**
+  - `value` (int): zazwyczaj `3` (pełny reset)
+  - `range`: `0`
+- **JSON:**
+  ```json
+  { "type": "COOLDOWN_REFRESH", "value": 3, "range": 0, "target": "ally" }
+  ```
+
+
+## 8.3 `TAUNT` (Prowokacja)
+- **Cel:** `enemy`
+- **Test:** DVA → BAC (jak CC)
+- **Efekt:** Cel otrzymuje status `TAUNTED`. W swojej następnej aktywacji AI celu ma **absolutny priorytet** ataku na źródło taunta (jeśli zasięg pozwala). Jeśli nie może zaatakować — musi poruszać się w kierunku źródła.
+- **Parametry:**
+  - `duration` (int): zazwyczaj `2` aktywacje
+  - `bac` (int): zazwyczaj `100` (wysokie, bo to ryzykowna zdolność dla rzucającego)
+- **JSON:**
+  ```json
+  { "type": "TAUNT", "duration": 2, "bac": 100, "range": 1 }
+  ```
+
+
+---
+
+
+9) Walidator Materializacji (Reguły Twarde)
+
+
+AI Materializujące **musi** przestrzegać poniższych reguł przy generowaniu JSON. Każde odstępstwo to błąd krytyczny.
+
+
+1. **Typy Payloadów:**
+   - Dopuszczalne: `CON_DMG`, `HEAL`, `DOT`, `ROOT`, `STUN`, `SILENCE`, `DISARM`, `TAUNT`, `COOLDOWN_BURN`, `COOLDOWN_REFRESH`.
+   - Rodzina RES 1a: `RES_DOMAIN_SHIELD_PERM`, `RES_DOMAIN_PIERCE_PERM`, `RES_DOMAIN_VULN_PERM`, `RES_DOMAIN_WEAKEN_ATTACK_PERM`.
+   - Rodzina RES 1b (Profile): `RES_PROFILE_PHYS_*` oraz `RES_PROFILE_TAROT_*` (z końcówkami SHIELD/PIERCE/VULN/WEAKEN_ATTACK).
+
+
+2. **Domeny w RES 1a:**
+   - Pole `domain_affected` musi być **dokładną nazwą domeny** z listy (wielkość liter, polskie znaki), np. `"Zaraza"`, `"Mrok"`. Nie `"poison"`, nie `"darkness"`.
+
+
+3. **Duration:**
+   - Dla RES 1a (quasi-perm): **zawsze 50**.
+   - Dla RES 1b (profil): **zawsze 5**.
+   - Dla CC/TAUNT: ze wzoru
+
+
+4. **BAC:**
+   - Dla HEAL: wyliczane ze wzoru.
+   - Dla CC/TAUNT: wyliczane z budżetu (np. `200 / waga / duration`).
+   - Dla DD/DOT/RES-debuff: **brak pola BAC** (używają tylko DVA).
+   - Dla Buffów: **brak pola BAC** (auto 100%).
+
+
+5. **Target:**
+   - `ally` / `self` → zawsze auto-hit.
+   - `enemy` → zawsze DVA (ew. + BAC).
+
+
+6. **Opisy (Lore):**
+   - Muszą być po polsku, klimatyczne, 3–4 zdania.
+   - Nie mogą zawierać cyfr mechanicznych (np. "zadaje 1 obrażeń"), tylko opis skutku ("rozrywa ciało").
+
+
+```markdown
+# SOFT-CAPY — Automatyczne limity silnika Monster Engine 5.2
+
+
+## Zasada ogólna
+Silnik automatycznie pilnuje balansu wszystkich payloadów.
+Wartości w JSON mogą być wyższe — silnik obetnie do limitu.
+Kary za slot B/D są nakładane OSOBNO przez silnik — NIE uwzględniaj ich w JSON!
+
+
+---
+
+
+## Tabela soft-capów
+
+
+| Payload | Co capowane | Limit | Kara B/D (auto) | Uwagi |
+|---------|------------|-------|-----------------|-------|
+| CON_DMG | damage | ≤ 1.0 | gorsze DVA | Prosty cap na wartość |
+| HEAL | heal_amount | ≤ 0.5 | BAC ×0.5 | Soft-cap + algebra BAC |
+| DOT | total_damage | ≤ 1.5 | gorsze DVA | Cap na sumę, nie na tick |
+| CC (ROOT/STUN/SILENCE/DISARM) | bac | ≤ 50% | BAC ×0.5 → max 25% | Cap PRZED slot penalty |
+| TAUNT | bac | ≤ 100% | BAC ×0.5 → max 50% | Cap PRZED slot penalty |
+| AOE | base_damage × (bac/100) | ≤ 0.75 | BAC ×0.5 | Per-target słabsze od DD |
+| RES_* (buff i debuff) | value × duration | ≤ 50 | brak | Silnik obcina duration |
+| COOLDOWN_BURN/REFRESH | value | ≤ 2 | brak | Ilość tur CD dodanych/usuniętych |
+
+
+---
+
+
+## Szczegóły per payload
+
+
+### CON_DMG (Direct Damage)
+- Cap: `damage ≤ 1.0`
+- Slot B/D: silnik automatycznie pogarsza DVA (obrona celu wyższa)
+- Projektuj: damage 0.5–1.0
+
+
+### HEAL
+- **Soft-cap: heal_amount ≤ 0.5** (EMPOWERED: ≤ 1.0)
+- Algebra BAC: `BAC = 50 × (1 + delay) / heal_amount`
+- Slot B/D: silnik obniża BAC ×0.5
+- Przykłady (po soft-capie):
+  - heal 1.0 w JSON → cappowane do 0.5 → BAC 100%
+
+
+### DOT (Damage Over Time)
+- Cap: `total_damage ≤ 1.5`
+- Tick = total / duration (obliczany przez silnik)
+- Slot B/D: silnik automatycznie pogarsza DVA
+- Projektuj: total 0.5–1.5, duration 3–5
+
+
+### HOT (Heal Over Time)
+- **Soft-cap: total ≤ 0.75** (połowa DOT cap 1.5)
+- Projektuj jak DOT ale z niższym capem
+- Przykład: total 0.75, duration 5 → tick 0.15
+- Przykład: total 1.5 w JSON → cappowane do 0.75 → tick 0.15
+
+
+### CC (ROOT / STUN / SILENCE / DISARM)
+- Cap: `bac ≤ 50%` (wartość z JSON)
+- Silnik automatycznie: slot B/D → BAC ×0.5
+- Efektywne wartości:
+  - Slot A/C: max 50%
+  - Slot B/D: max 25%
+- Wymaga przejścia DVA przed testem BAC
+- Projektuj: bac 30–50
+
+
+### TAUNT
+- Cap: `bac ≤ 100%` (wartość z JSON)
+- Silnik automatycznie: slot B/D → BAC ×0.5
+- Efektywne wartości:
+  - Slot A/C: max 100%
+  - Slot B/D: max 50%
+- Wymaga przejścia DVA przed testem BAC
+- Projektuj: bac 50–100
+
+
+### AOE (Area of Effect)
+- Cap: `base_damage × (bac / 100) ≤ 0.75`
+- Jeśli przekroczone → silnik obniża BAC
+- Dodatkowo: modifier obrażeń wg effect_range:
+  - effect_range 0: ×0.75
+  - effect_range 1: ×0.50
+- Dodatkowo: no_friendly_fire = true: ×0.75
+- Slot B/D: silnik obniża BAC ×0.5
+- Przykład: damage 1.0, bac 75% → expected 0.75 ✓
+- Przykład: damage 1.5, bac 100% → expected 1.5 > 0.75, silnik obcina bac do 50%
+
+
+### RES_* (SHIELD / PIERCE / VULN / WEAKEN_ATTACK)
+- Cap: `value × duration ≤ 50`
+- Jeśli przekroczone → silnik obcina duration
+- Dotyczy zarówno buffów jak i debuffów
+- Debuffy wymagają przejścia DVA
+- Przykład: value 10, duration 5 → 50 ✓
+- Przykład: value 20, duration 5 → 100 > 50, silnik obcina duration do 2
+
+
+### COOLDOWN_BURN / COOLDOWN_REFRESH
+- Cap: `value ≤ 2`
+- Dotyczy ilości tur dodanych (BURN) lub usuniętych (REFRESH)
+- BURN wymaga przejścia DVA
+- Projektuj: value 1–2
+
+
+---
+
+
+## Kary za slot B/D — podsumowanie
+
+
+Slot B/D jest ZAWSZE słabszy od A/C. Silnik nakłada kary automatycznie:
+
+
+| Mechanizm | Kara B/D |
+|-----------|----------|
+| DVA (trafienie) | Obrona celu podwyższona o (100-baza)/2 |
+| BAC (efekt) | ×0.5 |
+
+
+**Nigdy nie obniżaj wartości w JSON dla slotów B/D!**
+Silnik sam to zrobi. Jeśli obniżysz ręcznie, kara nałoży się podwójnie.
+
+
+---
+
+
+## Podsumowanie — zalecane wartości w JSON
+
+
+| Payload | Slot A/C | Slot B/D | Uwagi |
+|---------|----------|----------|-------|
+| CON_DMG damage | 0.5–1.0 | 0.5–1.0 | Identyczne, DVA zbalansuje |
+| HEAL value | 0.3–0.5 | 0.3–0.5 | Soft-cap 0.5, BAC algebra zbalansuje |
+| DOT total | 0.5–1.5 | 0.5–1.5 | Identyczne, DVA zbalansuje |
+| CC bac | 30–50 | 30–50 | Identyczne, slot penalty zbalansuje |
+| TAUNT bac | 50–100 | 50–100 | Identyczne, slot penalty zbalansuje |
+| AOE damage | tak żeby dmg×bac% ≤ 0.75 | j.w. | Slot penalty na BAC osobno |
+| RES value/dur | tak żeby val×dur ≤ 50 | j.w. | Brak auto penalty |
+| CD value | 1–2 | 1–2 | Brak auto penalty |
+```
+10. # PAYLOAD: AOE (Area of Effect)
+
+
+## Opis
+Atak obszarowy trafiający wielu przeciwników na raz. Celuje w lokację (przez jednostkę), a efekt rozchodzi się na wszystkich w zasięgu działania.
+
+
+## Struktura zdolności
+
+
+```json
+{
+    "name": "Nazwa zdolności",
+    "type": "AOE",
+    "range": 0,
+    "effect_range": 0,
+    "damage": 1.0,
+    "bac": 100,
+    "no_friendly_fire": false,
+    "lore": "Opis fabularny zdolności."
+}
+```
+
+
+## Pola
+
+
+| Pole | Typ | Wartości | Opis |
+|------|-----|----------|------|
+| `type` | string | `"AOE"` | Typ payloadu — zawsze AOE |
+| `range` | int/string | `0`, `1` | Zasięg do lokacji docelowej (przez kogo celujemy) |
+| `effect_range` | int | `0` lub `1` | Zasięg działania efektu od lokacji celu |
+| `damage` | float | np. `1.0` | Bazowe obrażenia (przed modyfikatorami) |
+| `bac` | int | `0-100` | Szansa na zadanie obrażeń po trafieniu DVA (domyślnie 100%) |
+| `no_friendly_fire` | bool | `true/false` | Jeśli true — pomija sojuszników, ale kara ×0.75 do obrażeń |
+| `lore` | string | tekst | Opis fabularny zdolności |
+
+
+## Algorytm rozstrzygania
+
+
+### 1. Modyfikator obrażeń (wg effect_range)
+- `effect_range: 0` → obrażenia × 0.75 (AOE na jednym polu)
+- `effect_range: 1` → obrażenia × 0.50 (AOE na polu + sąsiednich)
+
+
+### 2. Kara za no_friendly_fire
+- `no_friendly_fire: true` → dodatkowe × 0.75 do obrażeń
+
+
+### 3. Kara za slot wspomagający
+- Slot B lub D → BAC × 0.50
+
+
+### 4. Per-target resolution
+Dla każdego celu w zasięgu efektu (bez rzucającego, bez ALLY jeśli no_friendly_fire):
+1. **DVA** — standardowe obliczenie szansy trafienia (domena vs domena)
+2. **BAC** — jeśli DVA trafił, rzut vs BAC
+3. **Obrażenia** — jeśli BAC przeszedł, cel otrzymuje finalne obrażenia
+
+
+### Tabela modyfikatorów końcowych
+
+
+| effect_range | no_friendly_fire | Slot | Finalne obrażenia | BAC |
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | false | A/C | damage × 0.75 | 100% |
+| 0 | false | B/D | damage × 0.75 | 50% |
+| 0 | true | A/C | damage × 0.5625 | 100% |
+| 0 | true | B/D | damage × 0.5625 | 50% |
+| 1 | false | A/C | damage × 0.50 | 100% |
+| 1 | false | B/D | damage × 0.50 | 50% |
+| 1 | true | A/C | damage × 0.375 | 100% |
+| 1 | true | B/D | damage × 0.375 | 50% |
+
+
+## Przykłady
+
+
+### Prosty AOE melee (pole pod sobą)
+```json
+{
+    "name": "Ognista Fala",
+    "type": "AOE",
+    "range": 0,
+    "effect_range": 0,
+    "damage": 1.0,
+    "bac": 100,
+    "no_friendly_fire": false,
+    "lore": "Fala ognia rozchodzi się wokół maga, paląc wszystko w pobliżu."
+}
+```
+Efekt: 0.75 dmg per target, DVA per target, BAC 100%. Trafia też sojuszników.
+
+
+### AOE z zasięgiem 1, bez friendly fire
+```json
+{
+    "name": "Lodowy Podmuch",
+    "type": "AOE",
+    "range": 1,
+    "effect_range": 1,
+    "damage": 1.5,
+    "bac": 100,
+    "no_friendly_fire": true,
+    "lore": "Lodowy wicher zamiata pobliskie pole, omijając sojuszników."
+}
+```
+Efekt: 1.5 × 0.50 × 0.75 = 0.5625 dmg per target. Pomija ALLY.
+
+
+### AOE z podwyższonymi obrażeniami kosztem BAC
+```json
+{
+    "name": "Eksplozja Aetheru",
+    "type": "AOE",
+    "range": 1,
+    "effect_range": 1,
+    "damage": 2.0,
+    "bac": 50,
+    "no_friendly_fire": false,
+    "lore": "Niestabilny aether eksploduje z ogromną mocą, ale nieprzewidywalnie."
+}
+```
+Efekt: 2.0 × 0.50 = 1.0 dmg per target, ale BAC tylko 50%. Trade-off: wyższe dmg, niższa pewność.
+
+
+## Uwagi projektowe
+- AOE **nigdy** nie trafia rzucającego
+- AOE **zawsze** wymaga celu (jednostki) do określenia lokacji
+- Celowanie: AI celuje w konkretną jednostkę, efekt rozchodzi się od jej pozycji
+- Eliminacje z AOE przyznają renomę normalnie
+- Świadkowie agresji: przetwarzani jak przy normalnym ataku
+- Atak na NEUTRAL zmienia relację na ENEMY (per trafiony cel)
+```
+
+
+### Dokumentacja AOE subtypów
+
+
+```markdown
+# AOE SUBTYPY — Monster Engine 5.2
+
+
+## Struktura ogólna
+
+
+Wszystkie AOE zdolności mają `"type": "AOE"` i pole `"aoe_type"` określające subtyp.
+Brak `aoe_type` = domyślnie `"DD"`.
+
+
+## Subtypy
+
+
+### AOE DD (domyślny)
+Obrażenia bezpośrednie na wielu celów (wrogowie).
+```json
+{
+    "type": "AOE",
+    "aoe_type": "DD",
+    "range": 0,
+    "effect_range": 0,
+    "damage": 1.0,
+    "bac": 100,
+    "no_friendly_fire": false,
+    "lore": "..."
+}
+```
+Algorytm: DVA per target → BAC → damage × aoe_modifier
+
+
+### AOE DOT
+Efekt okresowy (obrażenia) na wielu wrogów.
+```json
+{
+    "type": "AOE",
+    "aoe_type": "DOT",
+    "range": 0,
+    "effect_range": 0,
+    "total_damage": 1.5,
+    "duration": 5,
+    "no_friendly_fire": false,
+    "lore": "..."
+}
+```
+Algorytm: DVA per target → DOT (tick = total/duration × aoe_modifier)
+
+
+### AOE HEAL
+Leczenie wielu sojuszników (+ opcjonalnie siebie).
+```json
+{
+    "type": "AOE",
+    "aoe_type": "HEAL",
+    "range": 0,
+    "effect_range": 0,
+    "value": 1.0,
+    "delay": 0,
+    "include_self": true,
+    "lore": "..."
+}
+```
+Algorytm: BAC (algebra) per target → heal (soft-cap 0.5) × aoe_modifier
+
+
+### AOE HOT
+Leczenie okresowe wielu sojuszników.
+```json
+{
+    "type": "AOE",
+    "aoe_type": "HOT",
+    "range": 0,
+    "effect_range": 0,
+    "total": 1.5,
+    "duration": 5,
+    "include_self": true,
+    "lore": "..."
+}
+```
+Algorytm: Auto per target → HOT (tick = total/duration × 0.5 × aoe_modifier)
+
+
+### AOE RES buff (SHIELD / PIERCE)
+Buff obronny na wielu sojuszników.
+```json
+{
+    "type": "AOE",
+    "aoe_type": "RES_PROFILE_PHYS_SHIELD",
+    "range": 0,
+    "effect_range": 0,
+    "value": 10,
+    "duration": 5,
+    "include_self": true,
+    "lore": "..."
+}
+```
+Algorytm: Auto per target → RES (value × aoe_modifier)
+
+
+### AOE RES debuff (VULN / WEAKEN_ATTACK)
+Debuff na wielu wrogów.
+```json
+{
+    "type": "AOE",
+    "aoe_type": "RES_PROFILE_PHYS_VULN",
+    "range": 0,
+    "effect_range": 1,
+    "value": 10,
+    "duration": 5,
+    "no_friendly_fire": false,
+    "lore": "..."
+}
+```
+Algorytm: DVA per target → RES (value × aoe_modifier)
+
+
+## Targetowanie
+
+
+| Subtyp | Cele | include_self | no_friendly_fire |
+|--------|------|-------------|-----------------|
+| DD | wrogowie | — | opcja (×0.75) |
+| DOT | wrogowie | — | opcja (×0.75) |
+| HEAL | sojusznicy | opcja (def. true) | — |
+| HOT | sojusznicy | opcja (def. true) | — |
+| RES buff | sojusznicy | opcja (def. true) | — |
+| RES debuff | wrogowie | — | opcja (×0.75) |
+
+
+## AOE Modifier
+
+
+| effect_range | Modifier |
+|:---:|:---:|
+| 0 | ×0.75 |
+| 1 | ×0.50 |
+
+
+Dodatkowa kara `no_friendly_fire: true` → × 0.75
+
+
+## Soft-capy (dziedziczone z bazowych typów)
+
+
+| Subtyp | Cap bazowy | Efektywny per-target |
+|--------|-----------|---------------------|
+| DD | base_dmg × bac% ≤ 0.75 | damage × aoe_mod |
+| DOT | total ≤ 1.5 | tick × aoe_mod |
+| HEAL | heal ≤ 0.5 | heal × aoe_mod |
+| HOT | total ≤ 0.75 | tick × aoe_mod |
+| RES | val × dur ≤ 50 | value × aoe_mod |
+
+
+## Dostępne aoe_type dla RES
+
+
+Buff: `RES_DOMAIN_SHIELD_PERM`, `RES_DOMAIN_PIERCE_PERM`,
+`RES_PROFILE_PHYS_SHIELD`, `RES_PROFILE_PHYS_PIERCE`,
+`RES_PROFILE_TAROT_SHIELD`, `RES_PROFILE_TAROT_PIERCE`
+
+
+Debuff: `RES_DOMAIN_VULN_PERM`, `RES_DOMAIN_WEAKEN_ATTACK_PERM`,
+`RES_PROFILE_PHYS_VULN`, `RES_PROFILE_PHYS_WEAKEN_ATTACK`,
+`RES_PROFILE_TAROT_VULN`, `RES_PROFILE_TAROT_WEAKEN_ATTACK`
+```
+
+
+```markdown
+11. # CHARM & FEAR — Monster Engine 5.2
+
+
+## CHARM
+Oczarowanie — cel postrzega sojuszników jako wrogów i odwrotnie.
+
+
+### JSON
+```json
+{
+    "type": "CHARM",
+    "range": 0,
+    "duration": 2,
+    "lore": "Opis fabularny."
+}
+```
+
+
+### Algorytm
+1. DVA (macierz domen) — szansa trafienia
+2. BAC = 100 / duration (automatycznie)
+3. Slot B/D: BAC × 0.5
+4. Sukces → status CHARMED na `duration` aktywacji
+
+
+### Efekt CHARMED
+- ALLY → postrzegany jako ENEMY (atakowalny)
+- ENEMY → postrzegany jako ALLY (nieatakowany, leczony)
+- NEUTRAL → bez zmian
+- Na początku każdej aktywacji: rzut vs BAC
+  - Fail → efekt znika, normalna tura
+  - Sukces → efekt trwa, duration -1
+
+
+### BAC wg duration
+| Duration | BAC (slot A/C) | BAC (slot B/D) |
+|:---:|:---:|:---:|
+| 1 | 100% | 50% |
+| 2 | 50% | 25% |
+| 3 | 33% | 16.5% |
+
+
+## FEAR
+Panika — cel ucieka od źródła strachu.
+
+
+### JSON
+```json
+{
+    "type": "FEAR",
+    "range": 0,
+    "duration": 1,
+    "lore": "Opis fabularny."
+}
+```
+
+
+### Algorytm
+Identyczny jak CHARM (DVA → BAC → status FEARED).
+
+
+### Efekt FEARED
+- 3× ruch w kierunku od źródła strachu (zamiast normalnych akcji)
+- Blokuje użycie zdolności (A/B/C/D)
+- Na początku każdej aktywacji: rzut vs BAC (jak CHARM)
+- Jeśli źródło strachu zginie → efekt znika natychmiast
+
+
+## AOE CHARM / AOE FEAR
+
+
+### JSON
+```json
+{
+    "type": "AOE",
+    "aoe_type": "CHARM",
+    "range": 0,
+    "effect_range": 0,
+    "duration": 1,
+    "no_friendly_fire": false,
+    "lore": "..."
+}
+```
+
+
+### Algorytm AOE
+- DVA per target → BAC per target
+- BAC = (100 / duration) × aoe_modifier × slot_penalty
+- AOE modifier: effect_range 0 → ×0.75, effect_range 1 → ×0.50
+- no_friendly_fire → dodatkowe ×0.75
+
+
+### Tabela BAC (AOE, duration 1, slot A/C)
+| effect_range | no_ff | BAC |
+|:---:|:---:|:---:|
+| 0 | false | 75% |
+| 0 | true | 56.25% |
+| 1 | false | 50% |
+| 1 | true | 37.5% |
+
+
+## Interakcje
+- CHARM + TAUNT: CHARM nadpisuje — cel ignoruje prowokację
+- CHARM + ROOT/STUN: działają niezależnie
+- FEAR + ROOT: ROOT blokuje ruch, FEAR trwa ale bez efektu ruchu
+- FEAR + STUN: STUN blokuje wszystko, FEAR trwa ale bez efektu
+- CHARM/FEAR + śmierć źródła (FEAR): efekt znika
+```
+
+
+```markdown
+12. # DRAINLIFE — Monster Engine 5.2
+
+
+## Warianty
+
+
+### a) DRAINLIFE (instant)
+Obrażenia + self-heal 1:1. Słabsze od DD ale leczy.
+
+
+```json
+{
+    "type": "DRAINLIFE",
+    "range": 0,
+    "damage": 0.5,
+    "lore": "..."
+}
+```
+
+
+Algorytm: DVA → damage (cap 0.5) → heal self = damage dealt
+Soft-cap: damage ≤ 0.5
+Slot B/D: gorsze DVA (auto)
+
+
+### b) DRAINLIFE DOT
+Okresowe wysysanie — każdy tick rani cel i leczy źródło.
+
+
+```json
+{
+    "type": "DRAINLIFE_DOT",
+    "range": 0,
+    "total_damage": 0.75,
+    "duration": 5,
+    "lore": "..."
+}
+```
+
+
+Algorytm: DVA → apply DRAIN_DOT → tick = total/duration
+Każdy tick: cel -tick, źródło +tick
+Soft-cap: total ≤ 0.75
+Slot B/D: gorsze DVA (auto)
+
+
+### c) AOE DRAINLIFE
+Obrażenia wielu celów, self-heal za sumę.
+
+
+```json
+{
+    "type": "AOE",
+    "aoe_type": "DRAINLIFE",
+    "range": 0,
+    "effect_range": 0,
+    "damage": 0.5,
+    "bac": 100,
+    "no_friendly_fire": false,
+    "lore": "..."
+}
+```
+
+
+Algorytm: DVA per target → BAC → damage × aoe_modifier → sumuj heal
+Self-heal = suma obrażeń zadanych wszystkim celom
+Soft-cap: base_damage × bac% ≤ 0.5
+AOE modifier: effect_range 0 → ×0.75, effect_range 1 → ×0.50
+
+
+## Porównanie z DD/DOT
+
+
+| Typ | Cap DMG | Self-heal | Efektywność na 1 cel |
+|-----|---------|-----------|---------------------|
+| DD | 1.0 | brak | 1.0 |
+| DRAINLIFE | 0.5 | 0.5 | 0.5 dmg + 0.5 heal |
+| DOT | 1.5 total | brak | 1.5 total |
+| DRAINLIFE_DOT | 0.75 total | 0.75 total | 0.75 dmg + 0.75 heal |
+| AOE DD (r0) | 0.75/target | brak | 0.75 multi |
+| AOE DRAIN (r0) | 0.375/target | sum | 0.375 multi + heal |
+
+
+## Uwagi
+- Heal z DRAINLIFE nie podlega soft-capowi HEAL (bo damage jest już cappowany osobno na 0.5)
+- DRAIN_DOT leczy źródło na początku aktywacji CELU (nie źródła)
+- Jeśli źródło DRAIN_DOT zginie, ticki nadal ranią cel ale heal przepada
+- AOE DRAINLIFE: heal = suma damage z WSZYSTKICH trafionych celów
+```
+
+
+13. ### **SYSTEM SETUP & EMPOWERED**
+
+
+Mechanika pozwalająca na budowanie potężnych, "ostatecznych" ataków (Ultimate), które wymagają kilku tur przygotowań. Idealna dla magów gromadzących manę, snajperów celujących w słaby punkt lub wojowników wpadających w szał bitewny.
+
+
+#### **Jak to działa?**
+1. **SETUP (Slot B lub D):** Zdolność typu `SETUP` nie wymaga celu ani rzutu. Po użyciu zwiększa licznik `setup_stacks` o 1 (maksimum 3 stacki). Ma standardowy cooldown (1 aktywacja dla B/D).
+2. **EMPOWERED (Slot A lub C):** Zdolność oznaczona flagą `"empowered": true`. Może być użyta **tylko** gdy jednostka posiada 3 stacki SETUP.
+3. **EFEKT EMPOWERED:**
+   - **Podwójny soft-cap:** Wszystkie limity obrażeń, leczenia, BAC itp. są podwojone.
+   - **Zerowanie:** Po użyciu (niezależnie od trafienia/pudła) `setup_stacks` zerują się.
+
+
+---
+
+
+### **Przykłady JSON**
+
+
+#### **1. Mag Ognia (Gromadzenie many -> Pyroblast)**
+Gromadzi energię przez 2-3 tury, by wypuścić potężną kulę ognia zadającą 2.0 DMG (normalny cap to 1.0).
+
+
+```json
+{
+    "abilities": {
+        "A": {
+            "name": "Pyroblast",
+            "lore": "Ogromna kula ognia, która spopiela cel na miejscu.",
+            "type": "CON_DMG",
+            "damage": 2.0,
+            "range": 1,
+            "empowered": true
+        },
+        "B": {
+            "name": "Koncentracja Ognia",
+            "lore": "Mag skupia się na wewnętrznym płomieniu, wzmacniając jego intensywność.",
+            "type": "SETUP",
+            "range": 0
+        },
+        "C": "...",
+        "D": "..."
+    }
+}
+```
+
+
+#### **2. Snajper (Celowanie -> Headshot)**
+Namierza cel, by oddać jeden precyzyjny strzał, który może zabić jednym trafieniem (jeśli cel ma <2.0 HP).
+
+
+```json
+{
+    "abilities": {
+        "A": {
+            "name": "Strzał w Głowę",
+            "lore": "Jeden perfekcyjny strzał w witalny punkt.",
+            "type": "CON_DMG",
+            "damage": 2.0,
+            "range": 1,
+            "empowered": true
+        },
+        "B": {
+            "name": "Namierzanie",
+            "lore": "Snajper bierze poprawkę na wiatr i ruch celu.",
+            "type": "SETUP",
+            "range": 0
+        }
+    }
+}
+```
+
+
+
+
+#### **4. Czarnoksiężnik (Rytuał -> Masowy Strach)**
+Przygotowuje mroczny rytuał, by przerazić wszystkich wrogów ze 100% BAC (normalny cap 50%).
+
+
+```json
+{
+    "abilities": {
+        "A": {
+            "name": "Koszmar na Jawie",
+            "lore": "Wizje najgłębszych lęków materializują się wokół czarnoksiężnika.",
+            "type": "AOE",
+            "aoe_type": "FEAR",
+            "range": 0,
+            "effect_range": 1,
+            "duration": 2,
+            "bac": 100,
+            "empowered": true
+        },
+        "B": {
+            "name": "Inkantacja Mroku",
+            "lore": "Szepty w zapomnianym języku przywołują cienie.",
+            "type": "SETUP",
+            "range": 0
+        }
+    }
+}
+```
+
+
+---
+
+
+### **Zasady Techniczne**
+
+
+1. **Typ zdolności:** `SETUP`
+   - Zawsze slot **B** lub **D** (pomocniczy).
+   - Zawsze `range: 0`.
+   - Zawsze sukces (nie wymaga rzutu).
+   - Dodaje +1 stack (max 3).
+
+
+2. **Flaga:** `"empowered": true`
+   - Zawsze slot **A** lub **C** (główny).
+   - Wymaga 3 stacków do użycia (inaczej AI pominie, a manual zwróci błąd).
+   - Po użyciu stacki spadają do 0.
+   - **Podwaja limity (Soft-Caps):**
+     - DMG: 1.0 → **2.0**
+     - HEAL: 0.5 → **1.0**
+     - DOT Total: 1.5 → **3.0**
+     - DRAIN Total: 0.5 → **1.0**
+     - BAC (CC): 50% → **100%**
+
+
+14. # SACRIFICE — Zdolność z kosztem HP
+
+
+### Koncept
+Zdolność SACRIFICE to alternatywa dla SETUP+EMPOWERED. Zamiast budować
+3 stacki przez kolejne aktywacje, caster płaci natychmiast własnym HP
+za podwojone soft-capy. Ryzyko vs nagroda.
+
+
+### Flaga JSON
+Dodaj `"sacrifice": true` do dowolnego payloadu:
+```json
+{
+    "name": "Rytuał Krwi",
+    "lore": "Kapłan rozdziera własną skórę, przelewając esencję życiową w leczący rytuał.",
+    "type": "HEAL",
+    "sacrifice": true,
+    "value": 1.0,
+    "delay": 0,
+    "range": 1
+}
+```
+
+
+### Koszt HP
+- Slot A/C (główny): **0.5 HP**
+- Slot B/D (wspomagający): **0.25 HP**
+
+
+Koszt jest płacony PRZED rozstrzygnięciem efektu.
+Koszt MOŻE zabić castera — ale zdolność i tak zadziała.
+Fabularnie: ostatnie tchnienie, poświęcenie, rytuał krwi.
+
+
+### Podwojone soft-capy
+SACRIFICE podwaja limity identycznie jak EMPOWERED:
+
+
+| Payload | Normalny cap | SACRIFICE cap |
+|---------|-------------|---------------|
+| CON_DMG damage | ≤ 1.0 | ≤ 2.0 |
+| HEAL heal_amount | ≤ 0.5 | ≤ 1.0 |
+| DOT total | ≤ 1.5 | ≤ 3.0 |
+| DRAINLIFE damage | ≤ 0.5 | ≤ 1.0 |
+| DRAINLIFE_DOT total | ≤ 0.75 | ≤ 1.5 |
+| CC BAC | ≤ 50% | ≤ 100% |
+
+
+### Różnice vs EMPOWERED
+
+
+| Cecha | EMPOWERED | SACRIFICE |
+|-------|-----------|-----------|
+| Wymaga SETUP | Tak (3 stacki) | Nie |
+| Koszt | Brak (czas na budowę) | 0.5/0.25 HP |
+| Dostępność | Co 4+ aktywacje | Każda aktywacja |
+| Ryzyko | Brak | Utrata HP / śmierć |
+| Stackuje z drugim | Nie | Nie |
+
+
+### Ograniczenia
+- Zdolność NIE MOŻE mieć jednocześnie `"empowered": true` i `"sacrifice": true`
+- SACRIFICE nie wymaga i nie zużywa stacków SETUP
+- SACRIFICE nie ma flagi `"no_friendly_fire"` — to cecha AOE, nie SACRIFICE
+
+
+### Przykłady materializacji
+
+
+**Ofensywny SACRIFICE (DD):**
+```json
+{
+    "name": "Cios Desperacji",
+    "lore": "Wojownik wkłada całą siłę witalną w jeden miażdżący cios.",
+    "type": "CON_DMG",
+    "sacrifice": true,
+    "damage": 2.0,
+    "range": 0
+}
+```
+Efekt: -0.5 HP caster, 2.0 DMG na cel (normalnie cap 1.0).
+
+
+**Leczący SACRIFICE (HEAL):**
+```json
+{
+    "name": "Transfuzja Esencji",
+    "lore": "Uzdrowiciel przelewa własną krew w rany towarzysza.",
+    "type": "HEAL",
+    "sacrifice": true,
+    "value": 1.0,
+    "delay": 0,
+    "range": 1
+}
+```
+Efekt: -0.5 HP caster, +1.0 HEAL na cel (normalnie cap 0.5).
+
+
+**CC SACRIFICE (STUN):**
+```json
+{
+    "name": "Więzy Bólu",
+    "lore": "Mag splata zaklęcie z własnego cierpienia — im większy ból, tym mocniejsze kajdany.",
+    "type": "STUN",
+    "sacrifice": true,
+    "bac": 100,
+    "duration": 2,
+    "range": 1
+}
+```
+Efekt: -0.5 HP caster, BAC 100% (normalnie cap 50%).
+
+
+**Wspomagający SACRIFICE (slot B/D — mniejszy koszt):**
+```json
+{
+    "name": "Krwawy Szept",
+    "lore": "Cichym szeptem i kroplą krwi wzmacnia ochronę sojusznika.",
+    "type": "HEAL",
+    "sacrifice": true,
+    "value": 0.8,
+    "delay": 0,
+    "range": 1
+}
+```
+Na slocie B/D: -0.25 HP caster, heal cappowany do 1.0 (SACRIFICE cap),
+ale BAC × 0.5 (slot penalty).
+
+
+### Zalecane wartości w JSON (pod SACRIFICE cap)
+
+
+| Payload | Zalecany range | Uwagi |
+|---------|---------------|-------|
+| CON_DMG damage | 1.0–2.0 | Cap 2.0, opłaca się >1.0 |
+| HEAL value | 0.5–1.0 | Cap 1.0, opłaca się >0.5 |
+| DOT total | 1.5–3.0 | Cap 3.0, opłaca się >1.5 |
+| DRAINLIFE damage | 0.5–1.0 | Cap 1.0, self-heal kompensuje koszt |
+| CC bac | 50–100 | Cap 100%, opłaca się >50 |
+```
+
+
+14. TEMP_HP (magic shield, magic barrier itp.)
+##Single Target
+
+
+Typ: TEMP_HP
+Rola: Supportive — dodaje tymczasowe punkty życia (ponad max CON)
+Mechanika: Auto-sukces, 100% BAC
+
+
+Permanent (niewygasające):
+JSON
+{
+    "name": "Lodowa Bariera",
+    "lore": "Opis fabularny...",
+    "type": "TEMP_HP",
+    "value": 0.75,
+    "range": 0
+}
+
+
+Timed (wygasające po X aktywacjach):
+JSON
+{
+    "name": "Tarcza Energetyczna",
+    "lore": "Opis fabularny...",
+    "type": "TEMP_HP",
+    "value": 1.0,
+    "duration": 3,
+    "range": 0
+}
+
+
+Soft-capy:
+Wariant
+	Range 0
+	Range 1
+	Permanent
+	0.75
+	0.5625
+	Timed
+	1.0
+	0.75
+	Slot B/D
+	×0.5
+	×0.5
+	Empowered/Sacrifice
+	×2.0
+	×2.0
+	TEMP_HP — AOE
+JSON
+{
+    "name": "Masowa Bariera",
+    "lore": "Opis fabularny...",
+    "type": "AOE",
+    "aoe_type": "TEMP_HP",
+    "value": 0.75,
+    "range": 0,
+    "effect_range": 0,
+    "no_friendly_fire": false,
+    "include_self": true
+}
+
+
+AOE modifier: ×0.75 (effect_range=0), ×0.50 (effect_range>0)
+15. ## REFLECT — Manual Materializacyjny
+
+
+### Opis
+Lustrzana tarcza — pasywna obrona odbijająca negatywne zdolności single-target z powrotem na atakującego. Permanentna, wygasa po wyczerpaniu slotów lub DISPEL.
+
+
+### Parametry JSON
+
+
+```json
+{
+    "name": "Nazwa zdolności",
+    "lore": "Opis fabularny zdolności.",
+    "type": "REFLECT",
+    "slots": 2,
+    "range": 1
+}
+```
+
+
+### Parametry
+
+
+| Parametr | Typ | Wymagany | Opis |
+|----------|-----|----------|------|
+| `type` | string | ✅ | Zawsze `"REFLECT"` |
+| `slots` | int | ✅ | Liczba ataków do odbicia (1+) |
+
+
+### BAC (Base Accuracy Chance)
+Obliczane automatycznie: **100 / slots**
+
+
+| Sloty | BAC per slot |
+|-------|-------------|
+| 1 | 100% |
+| 2 | 50% |
+| 3 | 33% |
+| 4 | 25% |
+| 5 | 20% |
+
+
+### Mechanika
+
+
+1. Caster rzuca REFLECT na siebie lub ally — **auto-sukces** (brak rzutu)
+2. Tarcza czeka pasywnie na atak
+3. Wróg trafia posiadacza tarczy (DVA sukces + BAC sukces jeśli dotyczy)
+4. Rzut BAC tarczy (100/slots)
+   - **Sukces:** efekt odbity na atakującego, cel nietkniknięty, slot zużyty
+- Nieudany DVA nie zużywa slota, ale nieudany BAC zużywa slot — tarcza próbowała odbić, ale się nie udało, energia się wyczerpuje. Więcej slotów = więcej prób, ale nie gwarantuje lepszego wyniku.
+5. Gdy slots = 0 → tarcza wygasa
+6. DISPEL usuwa tarczę natychmiast
+
+
+### Co się odbija
+
+
+| Typ zdolności | Odbija? | Co się dzieje |
+|---------------|---------|---------------|
+| CON_DMG | ✅ | Obrażenia na atakującego |
+| DOT | ✅ | DOT nałożony na atakującego |
+| DRAINLIFE | ✅ | DMG na atakującego, heal dla posiadacza tarczy |
+| DRAINLIFE_DOT | ✅ | Drain DOT na atakującego, heal dla posiadacza tarczy |
+| ROOT/STUN/SILENCE/DISARM | ✅ | Status nałożony na atakującego |
+| CHARM | ✅ | Atakujący sam zostaje oczarowany |
+| FEAR | ✅ | Atakujący sam wpada w panikę |
+| DISPEL | ✅ | Dispel odbity — usuwa buffy atakującego |
+| COOLDOWN_BURN | ✅ | Cooldowny podwyższone u atakującego |
+| TAUNT | ❌ | Bez sensu logicznie |
+| MELEE | ❌ | Bez sensu logicznie |
+| AOE (wszystkie) | ❌ | Brak single-target celu |
+| HEAL/BUFF/CLEANSE | ❌ | Pozytywne efekty — nie dotyczy |
+
+
+### Interakcje z innymi mechanikami
+
+
+- **EMPOWERED/SACRIFICE:** nie dotyczy (REFLECT nie ma soft-capów)
+- **Slot A/C vs B/D:** brak kary — BAC zależy wyłącznie od slotów
+- **Stackowanie:** można mieć wiele różnych tarcz REFLECT — sprawdzana jest pierwsza na liście
+- **DISPEL:** usuwa **wszystkie** tarcze REFLECT
+
+
+### Przykłady
+
+
+**Slot C, 1 slot — pewne odbicie:**
+```json
+{
+    "name": "Lustro Duszy",
+    "lore": "Pustelnik otacza się barierą z czystej woli, która odbija wrogie zaklęcia z powrotem na rzucającego.",
+    "type": "REFLECT",
+    "slots": 1,
+    "range": 1
+}
+```
+
+
+**Slot D, 3 sloty — wiele prób z niższym BAC:**
+```json
+{
+    "name": "Pryzmatyczna Tarcza",
+    "lore": "Magiczna tarcza z załamującego się światła, która wielokrotnie próbuje odbić nadchodzące ataki.",
+    "type": "REFLECT",
+    "slots": 3,
+    "range": 0
+}
+```
+
+
+**Slot A, 2 sloty — fizyczna lustrzana zbroja tylko na ally:**
+```json
+{
+    "name": "Zbroja Odwetu",
+    "lore": "Kowal wykuwa na sojuszniku zbroję z lustrzanego metalu, która odbija ciosy z powrotem na napastnika.",
+    "type": "REFLECT",
+    "slots": 2,
+    "range": 1
+}
+```
+
+
+### Wskazówki balansowe
+
+
+- **1 slot** = silna ale jednorazowa, gwarantowane odbicie, dobra na "pułapkę"
+- **2-3 sloty** = kompromis, trwa dłużej ale mniej pewna per atak
+- **4+ slotów** = długotrwała ale niska szansa per atak (25% lub mniej)
+- Na slocie B/D i tak ma mniejszy DVA ataku wroga → mniejsza szansa na odbicie
+
+
+- Stackowanie zabronione — nie można nałożyć dwóch tarcz o tej samej ability_name na jedną jednostkę. Różne zdolności REFLECT mogą współistnieć.
