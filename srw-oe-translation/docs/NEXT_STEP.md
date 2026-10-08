@@ -1,27 +1,35 @@
-# Next step: map remaining event resources
+# Next step: validate text boundaries and event records
 
-The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/local/` for direct analysis. No further manual PowerShell output is needed from the user. The archive itself and the Japanese-text JSONL export remain untracked local data; only tools and findings are committed.
+The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/local/` for direct analysis. No further manual PowerShell output is needed from the user. The archive itself and the Japanese-text JSONL export remain local ignored data; only tools and findings are committed.
 
 ## Completed on the supplied archive
 
 - Audited all 22 BIN files with the read-only CP932 heuristic: 3,241 Japanese-containing candidate spans.
 - Generated a local JSONL candidate export with unique file/offset IDs, exact source-prefix bytes, decoded CP932 text, raw suffix bytes, and CR/LF counts.
 - Verified all 3,241 IDs are unique and all exported text prefixes round-trip through CP932 with no replacement characters. For the 627 single-NUL cases, Japanese is before the NUL and no Japanese appears in the suffix.
-- Confirmed all 22 `_ext.dat` members also contain Japanese runs; the file type is not yet parsed.
+- Counted 430 CR and 2,463 LF bytes in the candidate prefixes; all CRs form CRLF pairs, and no CR/LF occurs in the recorded single-NUL suffixes.
+- Mapped 42 NUL-delimited Japanese-bearing runs in the 22 fixed-size `_ext.dat` files. Their raw offsets, repeats, and size/header observations are recorded, but field semantics are not decoded.
+- Audited `_edit.dat` and `_Entry.dat` numeric values against BIN sizes and heuristic candidate ranges. Some values overlap candidate ranges, but this does not establish pointer semantics or table relationships.
 
-See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for per-file counts, archive/member hashes, and the explanation for the reported 215 physical output lines. The JSONL is a diagnostic candidate table, not an approved translation table.
+See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, archive/member hashes, and caveats. The JSONL remains a diagnostic candidate table, not an approved translation table.
 
 ## Next agent-side work
 
-1. Map the fixed-size `_ext.dat` contents and identify its text fields without assuming offsets are pointers.
-2. Compare `_Entry.dat` and `_edit.dat` structures with BIN candidate offsets and event IDs.
-3. Validate the single-NUL split across additional record types, then make the text export deterministic while preserving all raw suffix/control bytes and line breaks.
-4. Only after structure and no-change round trips are understood, attempt a text insertion on a disposable copy.
+1. Validate the proposed single-NUL text-prefix/suffix split across more record layouts, retaining every original byte and line break.
+2. Inspect the inner event records and companion values for repeated, testable structure; keep candidate matches classified as numerical overlaps unless independently confirmed.
+3. Build a stable source inventory with explicit control-byte placeholders only after boundaries are validated; add byte-identical no-change round-trip tests.
+4. Only after the format, CPK rebuild, and font/rendering behavior are understood, attempt one short English insertion in a disposable copy.
 
-The audit tool is `tools/audit_event_candidates.py`. To reproduce the counts and local JSONL export:
+Reproduce the candidate audit and local JSONL export:
 
 ```text
 python srw-oe-translation/tools/audit_event_candidates.py srw-oe-translation/local/eventP01.zip --export-jsonl srw-oe-translation/local/eventP01_candidates.jsonl
 ```
 
-Synthetic tests are in `tests/test_audit_event_candidates.py`.
+Reproduce the companion audit without printing Japanese source text:
+
+```text
+python srw-oe-translation/tools/audit_event_companions.py srw-oe-translation/local/eventP01.zip
+```
+
+Synthetic tests are in `tests/test_audit_event_candidates.py` and `tests/test_audit_event_companions.py`.

@@ -30,6 +30,7 @@ The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run th
 - All 627 pre-NUL prefixes still contain Japanese; none of the 627 corresponding suffixes contain Japanese under the same CP932 heuristic.
 - The most common raw suffixes (from the first NUL to just before the stopping pair) are `00 C9` (455), `00 76 01` (43), `00 CA` (40), `00 2D 01` (26), and `00 E7 03` (21). These are **uninterpreted bytes**, not identified opcodes.
 - A local JSONL audit export contains 3,241 unique file/offset IDs. All exported text prefixes round-trip through CP932 byte-for-byte with no replacement characters; all 627 prefixes before a single NUL contain Japanese, and none of their corresponding suffixes do.
+- Across the candidate text prefixes there are 430 CR bytes and 2,463 LF bytes. Every CR is the first byte of a CRLF pair, leaving 2,033 LF-only bytes. No CR or LF occurs in the recorded single-NUL suffixes. Preserve these bytes during any future export/reinsertion work.
 
 | BIN | Bytes | Candidate spans | With single-NUL suffix | CR bytes in spans |
 | --- | ---: | ---: | ---: | ---: |
@@ -63,10 +64,30 @@ On the uploaded `DL102_20.bin`, the same heuristic finds 181 logical Japanese-co
 
 Normalize CRLF/CR/LF together in future display output; do not let line-ending bytes affect candidate counts. Preserve raw line-break bytes in any structured export.
 
-## Other text-bearing members
+## Companion-file observations (not a format specification)
 
-- All 22 `_ext.dat` files are 388 bytes. A raw NUL-separated scan found 42 CP932 byte runs containing Japanese across the set (one or three per file), at raw byte starts `0x18`, `0xB8`, and/or `0x158`. Decoding and splitting on script changes yields 48 regex-detected Japanese runs. The field layout and exact text boundaries remain unparsed.
-- Every `_Entry.dat` size is divisible by 64, and every `_edit.dat` size is divisible by 4. These are size-pattern observations only; record semantics remain unknown.
+### `_ext.dat`
+
+- All 22 files are 388 bytes. A raw NUL-delimited scan found 42 CP932 runs containing Japanese: 10 begin at byte `0x18`, 10 at `0xB8`, and all 22 at `0x158`. Each file has one or three such runs.
+- The 10 runs at `0x18` and the 10 at `0xB8` are byte-identical copies of one 48-byte string. The 22 runs at `0x158` are all byte-unique and 10–28 bytes long. There are 23 unique raw Japanese-bearing runs across all files. These are observed offsets and byte runs; they are not yet decoded as named fields. A previous CP932 script-change split counted 48 character runs; that is a different counting method, not 48 distinct NUL-delimited byte runs.
+- The Japanese-bearing runs contain no CR bytes and seven LF bytes. The second of the first two little-endian u32 words is 100 in seven files and 110 in 15 files; the first word varies. These header values are uninterpreted.
+- A NUL-delimited scan is a reproducible inventory method, not proof that every run is a user-visible string or that these offsets/values have a particular schema.
+
+### `_edit.dat` and `_Entry.dat` numeric comparisons
+
+The companion auditor reads `_edit.dat` as diagnostic little-endian u16 pairs and every four-byte word of `_Entry.dat` as a diagnostic u32. It compares those numbers with BIN size and with the candidate text-prefix/full-span ranges from the heuristic scanner. These numerical overlaps do **not** prove pointer semantics; `_Entry.dat` may also contain floats or unrelated fields, and the candidate ranges are not validated string boundaries.
+
+- All 22 `_edit.dat` files have lengths divisible by 4: 353 u16 pairs total, of which 22 are `(0, 0)` and 331 are nonzero. The first u16 values among nonzero pairs are 1 (64), 2 (185), 3 (27), and 4 (55). Of the 331 second-u16 values, 315 are numerically less than the paired BIN size and 16 are not. Of those values, 179 fall inside a candidate text prefix and 180 inside a full candidate span; six equal a candidate start.
+- All 22 `_Entry.dat` files have lengths divisible by 64. Treating each four-byte word as a u32 yields 10,160 words, including 3,556 zero words. Of the full set, 7,247 values are numerically less than the paired BIN size (3,691 are nonzero); 1,030 fall inside a candidate text prefix, 1,032 inside a full candidate span, and 55 equal a candidate start.
+- These matches are leads for later controlled analysis only. Do not treat them as offsets, change them, or infer a table format from them.
+
+Reproduce the companion summary without printing Japanese source text:
+
+```text
+python srw-oe-translation/tools/audit_event_companions.py srw-oe-translation/local/eventP01.zip
+```
+
+Synthetic tests are in `tests/test_audit_event_companions.py`. The tool reuses the candidate-span heuristic, so all overlap counts inherit the same unverified boundary caveats.
 
 ## Interpretation and next work
 

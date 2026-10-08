@@ -11,9 +11,11 @@
 - [x] Compare two readable and two noisy candidate examples; readable rows end directly at `00 00`, while noisy rows have `00`, code-like bytes, then `00 00`.
 - [x] Audit all 22 BINs: 3,241 Japanese-containing candidate spans, including 627 single-NUL suffix cases.
 - [x] Inventory confirms all 22 `_ext.dat` files contain CP932-decoded Japanese runs.
+- [x] Add a read-only companion audit for `_ext.dat` runs and `_edit.dat`/`_Entry.dat` numeric overlaps with heuristic BIN ranges; seven synthetic tests pass.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
+- [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; text field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
-- [ ] Parse `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and connect them to event text.
+- [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.
 
