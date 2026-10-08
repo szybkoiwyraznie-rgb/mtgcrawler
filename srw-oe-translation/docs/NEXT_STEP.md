@@ -10,13 +10,14 @@ The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/loc
 - Counted 430 CR and 2,463 LF bytes in the candidate prefixes; all CRs form CRLF pairs, and no CR/LF occurs in the recorded single-NUL suffixes.
 - Mapped 42 NUL-delimited Japanese-bearing runs in the 22 fixed-size `_ext.dat` files. Their raw offsets, repeats, and size/header observations are recorded, but field semantics are not decoded.
 - Audited `_edit.dat` and `_Entry.dat` numeric values against BIN sizes and heuristic candidate ranges. Some values overlap candidate ranges, but this does not establish pointer semantics or table relationships.
+- Verified exact EDAT/EVNT framing relations across all 22 BINs: outer size/count words match, all 319 EVNT size-like values end at the next EVNT tag or EOF, and every EVNT is followed by ECHK at `+12`. All 3,241 heuristic candidate spans also fit wholly inside one EVNT block. ECHK payload semantics and text boundaries remain unknown.
 
 See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, archive/member hashes, and caveats. The JSONL remains a diagnostic candidate table, not an approved translation table.
 
 ## Next agent-side work
 
-1. Validate the proposed single-NUL text-prefix/suffix split across more record layouts, retaining every original byte and line break.
-2. Inspect the inner event records and companion values for repeated, testable structure; keep candidate matches classified as numerical overlaps unless independently confirmed.
+1. Use the verified EVNT block boundaries to inspect ECHK payloads and record layouts; treat all interior fields as unknown until independently validated.
+2. Validate the proposed single-NUL text-prefix/suffix split across those layouts, retaining every original byte and line break.
 3. Build a stable source inventory with explicit control-byte placeholders only after boundaries are validated; add byte-identical no-change round-trip tests.
 4. Only after the format, CPK rebuild, and font/rendering behavior are understood, attempt one short English insertion in a disposable copy.
 
