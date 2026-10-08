@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from audit_event_companions import (  # noqa: E402
     audit_event_framing,
     audit_files,
+    cp932_byte_boundaries,
     inspect_echk_chain,
     japanese_nul_runs,
 )
@@ -19,6 +20,8 @@ class CompanionAuditTests(unittest.TestCase):
         data = b"\x00\x00ASCII\x00" + japanese + b"\x00\x00"
 
         self.assertEqual(list(japanese_nul_runs(data)), [(8, japanese)])
+        self.assertEqual(cp932_byte_boundaries(japanese), {0, 2, 4})
+        self.assertIsNone(cp932_byte_boundaries(b"\x82"))
 
     def test_echk_size_like_word_ends_at_tag_or_known_u32(self):
         size_marker_case = b"ECHK" + struct.pack("<I", 4) + b"DATA" + struct.pack("<I", 200)
@@ -178,6 +181,11 @@ class CompanionAuditTests(unittest.TestCase):
                 "inside_candidate_prefix": 1,
                 "inside_full_candidate_span": 1,
                 "equal_candidate_start": 1,
+                "cp932_alignment_available_prefix_values": 1,
+                "cp932_alignment_unavailable_prefix_values": 0,
+                "cp932_codepoint_boundary_hits": 1,
+                "cp932_inside_multibyte_trail_byte_hits": 0,
+                "cp932_uniform_position_expected_boundaries": 0.5,
                 "inside_prior_evnt_candidate_span": 0,
                 "inside_same_evnt_candidate_span": 1,
                 "inside_later_evnt_candidate_span": 0,
@@ -206,6 +214,11 @@ class CompanionAuditTests(unittest.TestCase):
                 "inside_candidate_prefix": 1,
                 "inside_full_candidate_span": 1,
                 "equal_candidate_start": 1,
+                "cp932_alignment_available_prefix_values": 1,
+                "cp932_alignment_unavailable_prefix_values": 0,
+                "cp932_codepoint_boundary_hits": 1,
+                "cp932_inside_multibyte_trail_byte_hits": 0,
+                "cp932_uniform_position_expected_boundaries": 0.5,
                 "inside_prior_evnt_candidate_span": 0,
                 "inside_same_evnt_candidate_span": 1,
                 "inside_later_evnt_candidate_span": 0,

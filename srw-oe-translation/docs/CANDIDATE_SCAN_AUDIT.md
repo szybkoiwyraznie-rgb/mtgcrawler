@@ -101,6 +101,8 @@ Zero-based column 2 (`c2`) of each tentative 20-byte row was also compared numer
 
 There are 1,021 nonzero c2 values; ten numeric values are at or beyond their paired BIN length. In this overlap table, “full candidate span” means bytes from `Candidate.start` up to but not including the first `00 00` stopping pair; two full-span hits fall in the unvalidated suffix after the first NUL rather than in the proposed text prefix. “Before/same/after” classifies the heuristic candidate span containing the numeric value relative to the EVNT block owning the ECHK row. All matches inherit the scanner's unverified string-boundary limitations; most overlapping values land in candidate spans before the referencing block, but that remains a lead for controlled analysis, not proof that c2 stores an offset.
 
+As a coarse offset check, 300 of the 539 c2 values inside proposed CP932 text prefixes (55.7%) land on a CP932 character-byte boundary; 239 land on a multibyte character's trail byte. A matched-candidate-weighted baseline, treating each byte position within each matched prefix as equally likely, predicts 50.7% boundary positions. This small difference is not decisive, especially because c2 values and candidate spans repeat; it neither confirms nor rules out byte-offset use.
+
 ## Companion-file observations (not a format specification)
 
 ### `_ext.dat`

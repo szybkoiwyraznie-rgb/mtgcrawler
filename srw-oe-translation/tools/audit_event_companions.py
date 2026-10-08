@@ -63,6 +63,23 @@ def marker_offsets(data: bytes, marker: bytes) -> list[int]:
         position += len(marker)
 
 
+def cp932_byte_boundaries(raw: bytes) -> Optional[set[int]]:
+    """Return CP932 code-point byte starts, or None if the bytes do not round-trip."""
+    try:
+        decoded = raw.decode("cp932", errors="strict")
+        if decoded.encode("cp932") != raw:
+            return None
+    except (UnicodeDecodeError, UnicodeEncodeError):
+        return None
+
+    boundaries = set()
+    offset = 0
+    for character in decoded:
+        boundaries.add(offset)
+        offset += len(character.encode("cp932"))
+    return boundaries if offset == len(raw) else None
+
+
 def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optional[dict]:
     """Follow ECHK size-like endpoints until the observed u32=200 terminator."""
     if evnt_offset < 0 or block_end > len(data) or evnt_offset + 12 > block_end:
@@ -310,6 +327,9 @@ def audit_candidate_block_coverage(
 
     for name, data in bins.items():
         candidates = candidates_by_bin.get(name, [])
+        cp932_boundaries_by_start = {
+            row.start: cp932_byte_boundaries(row.text_bytes) for row in candidates
+        }
         candidate_count += len(candidates)
         event_offsets = marker_offsets(data, b"EVNT")
         echk_offsets = set(marker_offsets(data, b"ECHK"))
@@ -383,6 +403,11 @@ def audit_candidate_block_coverage(
                     for row_values in segment["rows"]:
                         value = row_values[2]
                         prefix_match, full_match, exact_start = _overlap_flags(value, candidates)
+                        prefix_candidate = next(
+                            (candidate for candidate in candidates
+                             if candidate.start <= value < candidate.start + len(candidate.text_bytes)),
+                            None,
+                        )
                         full_candidate = next(
                             (candidate for candidate in candidates
                              if candidate.start <= value < candidate.pair_offset),
@@ -398,29 +423,41 @@ def audit_candidate_block_coverage(
                             candidate_block_relation = "later"
                         else:
                             candidate_block_relation = "other"
-                        metrics = group["echk_row_column_2_candidate_overlap"]
-                        metrics["rows"] += 1
-                        metrics["nonzero_values"] += value != 0
-                        metrics["values_in_paired_bin"] += value < len(data)
-                        metrics["values_outside_paired_bin"] += value >= len(data)
-                        metrics["inside_candidate_prefix"] += prefix_match
-                        metrics["inside_full_candidate_span"] += full_match
-                        metrics["equal_candidate_start"] += exact_start
-                        for relation in ("prior", "same", "later", "other"):
-                            metrics[f"inside_{relation}_evnt_candidate_span"] += (
-                                candidate_block_relation == relation
-                            )
-                        echk_column_2_candidate_overlap["rows"] += 1
-                        echk_column_2_candidate_overlap["nonzero_values"] += value != 0
-                        echk_column_2_candidate_overlap["values_in_paired_bin"] += value < len(data)
-                        echk_column_2_candidate_overlap["values_outside_paired_bin"] += value >= len(data)
-                        echk_column_2_candidate_overlap["inside_candidate_prefix"] += prefix_match
-                        echk_column_2_candidate_overlap["inside_full_candidate_span"] += full_match
-                        echk_column_2_candidate_overlap["equal_candidate_start"] += exact_start
-                        for relation in ("prior", "same", "later", "other"):
-                            echk_column_2_candidate_overlap[f"inside_{relation}_evnt_candidate_span"] += (
-                                candidate_block_relation == relation
-                            )
+                        cp932_boundary_hit = False
+                        cp932_trail_byte_hit = False
+                        cp932_alignment_unavailable = False
+                        expected_boundary_rate = 0.0
+                        if prefix_candidate is not None:
+                            boundary_offsets = cp932_boundaries_by_start[prefix_candidate.start]
+                            if boundary_offsets is None:
+                                cp932_alignment_unavailable = True
+                            else:
+                                relative_offset = value - prefix_candidate.start
+                                cp932_boundary_hit = relative_offset in boundary_offsets
+                                cp932_trail_byte_hit = not cp932_boundary_hit
+                                expected_boundary_rate = (
+                                    len(boundary_offsets) / len(prefix_candidate.text_bytes)
+                                )
+                        for metrics in (
+                            group["echk_row_column_2_candidate_overlap"],
+                            echk_column_2_candidate_overlap,
+                        ):
+                            metrics["rows"] += 1
+                            metrics["nonzero_values"] += value != 0
+                            metrics["values_in_paired_bin"] += value < len(data)
+                            metrics["values_outside_paired_bin"] += value >= len(data)
+                            metrics["inside_candidate_prefix"] += prefix_match
+                            metrics["inside_full_candidate_span"] += full_match
+                            metrics["equal_candidate_start"] += exact_start
+                            metrics["cp932_alignment_available_prefix_values"] += prefix_candidate is not None and not cp932_alignment_unavailable
+                            metrics["cp932_alignment_unavailable_prefix_values"] += cp932_alignment_unavailable
+                            metrics["cp932_codepoint_boundary_hits"] += cp932_boundary_hit
+                            metrics["cp932_inside_multibyte_trail_byte_hits"] += cp932_trail_byte_hit
+                            metrics["cp932_uniform_position_expected_boundaries"] += expected_boundary_rate
+                            for relation in ("prior", "same", "later", "other"):
+                                metrics[f"inside_{relation}_evnt_candidate_span"] += (
+                                    candidate_block_relation == relation
+                                )
             if primary_echk in echk_offsets and primary_echk + 8 <= block_end:
                 primary_size = struct.unpack_from("<I", data, primary_echk + 4)[0]
                 if primary_size >= 4 and (primary_size - 4) % 20 == 0:
@@ -754,6 +791,18 @@ def print_summary(summary: dict) -> None:
         f"{overlap.get('inside_same_evnt_candidate_span', 0)}/"
         f"{overlap.get('inside_later_evnt_candidate_span', 0)}"
     )
+    boundary_samples = overlap.get("cp932_alignment_available_prefix_values", 0)
+    expected_boundaries = overlap.get("cp932_uniform_position_expected_boundaries", 0.0)
+    if boundary_samples:
+        print(
+            f"  CP932 c2 prefix-byte positions at character boundaries: "
+            f"{overlap.get('cp932_codepoint_boundary_hits', 0)}/{boundary_samples}; "
+            f"trail-byte positions={overlap.get('cp932_inside_multibyte_trail_byte_hits', 0)}, "
+            f"matched-candidate uniform-byte-position baseline="
+            f"{expected_boundaries / boundary_samples:.1%}"
+        )
+    else:
+        print("  CP932 c2 prefix-byte position check: no decodable prefix matches")
     for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
         overlap = group["echk_row_column_2_candidate_overlap"]
         print(

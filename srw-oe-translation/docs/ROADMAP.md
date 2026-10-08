@@ -14,7 +14,7 @@
 - [x] Verify EDAT size/count and EVNT block-boundary arithmetic across all 22 BINs; all 319 event-block boundaries and ECHK-at-`+12` positions match.
 - [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; thirteen synthetic tests pass.
 - [x] Follow each ECHK endpoint chain from EVNT `+12` to u32 200; chain length matches EVNT `+8` in all 319 blocks, and all 3,241 heuristic candidate markers occur after the terminator (minimum gap: 34 bytes).
-- [x] Stratify tentative ECHK row observations by chain position and report column-2 numerical overlap with heuristic candidate ranges (541 full-span overlaps); preserve the pointer-semantics caveat.
+- [x] Stratify tentative ECHK row observations by chain position, report column-2 numerical overlap with heuristic candidate ranges (541 full-span overlaps), and check CP932 byte-boundary alignment; the result is inconclusive and pointer semantics remain unproven.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
 - [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the observed ECHK chains/`4 + 20*n` layout are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
