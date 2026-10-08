@@ -24,6 +24,7 @@ User-provided hex for `DL102_20.bin` showed:
 - At `0x05A8`: readable CP932 text starts in the shown sample.
 - Search for the byte sequence corresponding to `自衛隊の軍用レイバー相手に` returned offset `0x05B0`.
 - Japanese lines include byte `0A` line breaks. The first displayed message was followed by `00 00` at `0x060E–0x060F`; another `FF FF` appeared at `0x0626–0x0627` before a further Japanese message.
+- A read-only candidate scanner produced 215 output lines and included the known Japanese substring. Some output entries contain characters that look like binary/control data, so the scanner is demonstrably finding at least one target string but is not yet a clean extractor.
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition.
 
@@ -33,7 +34,15 @@ The user saw readable Japanese after selecting Shift-JIS in Notepad++. These obs
 - `00 00` may terminate a text block.
 - The bytes between text blocks may contain event opcodes, speaker identifiers, pointer/length data, or other fields.
 - `EDAT`, `EVNT`, and `ECHK` appear to be inner format tags, but their semantics are unknown.
-- A candidate scanner can try decoding bytes after `FF FF` up to `00 00` as CP932 and keep spans containing Japanese. This is only a heuristic; test on multiple blocks and files.
+- A candidate scanner can try decoding bytes after `FF FF` up to `00 00` as CP932 and keep spans containing Japanese. It found the known string in one file, but candidates with control-looking characters must be classified before treating output as text.
+
+## PowerShell formatting note
+
+The first candidate-dump script used a single-quoted format string containing `` `t``. PowerShell does not expand backtick escapes inside single quotes, so the output displayed the literal characters `` `t`` between the hexadecimal offset and candidate text. This is a formatting issue, not a game byte. For an actual tab, use:
+
+```powershell
+$results.Add(("{0:X4}`t{1}" -f $start, $text))
+```
 
 ## Unknowns / risks
 

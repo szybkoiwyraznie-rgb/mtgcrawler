@@ -45,8 +45,17 @@ Names suggest dictionary/DLC-related tables, but their exact field formats have 
 
 **Result:** Re-extraction included all expected files. `DL102_20.bin` had the same size (16,216 bytes) and the user reported its SHA-256 matched the original extraction. Rebuilt archive was reported at about 500 KB; original `eventP01.EDAT` was 326,456 bytes. No in-game test has been performed.
 
+## 2026-10-08 — candidate text dump
+
+**Action:** Ran the read-only `FF FF ... 00 00` CP932 candidate scanner on `DL102_20.bin`.
+
+**Result:** It wrote 215 output lines and included the known Japanese substring. The output also contains control/binary-looking characters (the user cited characters like U+0001/U+0002 and a full-width space). These may be meaningful control tokens mixed with text or false-positive candidates; do not strip them until their role is understood.
+
+**Output-format note:** The offset/text separator appeared as a literal backtick followed by `t` because the PowerShell format string was single-quoted. This is a display-formatting issue, not game data; the corrected line and reproducible scanner are recorded in `NEXT_STEP.md`. Offsets and candidate text are unaffected.
+
 ## Pending
 
-- Run the candidate text-dump heuristic in `NEXT_STEP.md` and validate that it finds the observed lines.
+- Inspect one clearly readable and one noisy candidate line with offsets; classify embedded controls versus false positives without sharing the full dump.
+- Validate the scanner on more records/files and replace it with a structured extractor that preserves controls and stable IDs.
 - Record actual SHA-256 values for the source ISO and relevant original CPK files before any release/patched-file tests.
 - Test a rebuilt archive in a disposable PPSSPP copy only after preserving/validating originals.
