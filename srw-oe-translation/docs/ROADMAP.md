@@ -7,8 +7,8 @@
 - [x] Confirm a story/event BIN contains readable Japanese in Shift-JIS/CP932.
 - [x] Confirm unchanged `DL102_20.bin` survives a CPK pack/extract cycle byte-for-byte.
 - [x] Run the candidate string-dump heuristic on `DL102_20.bin`; it found the known text among 215 output lines.
-- [x] Compare two readable and two noisy candidate examples; all contain coherent Japanese, while two have unexplained control-looking suffixes.
-- [ ] Inspect raw hex around the noisy candidates' suffixes and first `00 00` boundaries.
+- [x] Compare two readable and two noisy candidate examples; all contain coherent Japanese, and the noisy examples include a single `00`, code-like bytes, then `00 00`.
+- [ ] Compare raw endings of clean candidates to test whether a single `00` marks text end or whether the scanner boundary needs another model.
 - [ ] Validate marker/terminator assumptions on multiple messages and multiple `.bin` files.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.

@@ -57,13 +57,19 @@ Names suggest dictionary/DLC-related tables, but their exact field formats have 
 
 **Input:** The user supplied two readable candidate rows (offsets `0x158C` and `0x1D68`) and two visually noisy but still coherent Japanese rows (`0x14E8` and `0x25A8`).
 
-**Observation:** The decoded row at `0x14E8` ends with a space, ASCII `v`, and U+0001; the row at `0x25A8` ends with a space, ASCII double quote, and U+0002. If decoded directly from CP932 bytes, these suffixes are expected to include `20 76 01` and `20 22 02`; raw bytes have not yet been checked.
+**Observation:** Raw windows around the first `00 00` pair show:
 
-**Interpretation:** The noisy rows are not wholly gibberish; coherent Japanese dialogue is present. The trailing bytes may be inline control codes, record metadata, or an overlong candidate span. Their function and the `00 00` boundary assumption remain unverified. Do not strip them.
+- Candidate `0x14E8`, pair at `0x151E`: `E8-82-DC-82-B5-82-BD-81-48-00-76-01-00-00-10-00`.
+- Candidate `0x25A8`, pair at `0x25DE`: `A6-97-CD-82-B7-82-E9-81-42-00-22-02-00-00-10-00`.
+
+The Japanese-looking bytes are followed by `00`, then `76 01` or `22 02`, then the `00 00` pair where the scanner stopped, then `10 00`. The earlier tentative expectation of a space byte (`20`) before `76`/`22` was incorrect; the raw byte there is `00`.
+
+**Interpretation:** The noisy rows are not wholly gibberish; coherent Japanese dialogue is present. A single `00` immediately after the Japanese-looking text could be a string terminator, with `76 01` / `22 02` and later bytes belonging to event/control data; alternatively, it may be a different record layout. The scanner's double-zero stop condition includes the bytes after the single zero. Compare clean candidate endings before relying on any boundary interpretation. Do not strip bytes.
 
 ## Pending
 
-- Collect short raw-hex windows around the first `00 00` after candidate offsets `0x14E8` and `0x25A8`; determine whether the suffix bytes are inside the candidate span or the boundary needs revision.
+- Inspect raw windows around the first `00 00` after clean candidate offsets `0x158C` and `0x1D68`; compare whether a single `00` also precedes following bytes there.
+
 - Validate the scanner on more records/files and replace it with a structured extractor that preserves controls and stable IDs.
 - Record actual SHA-256 values for the source ISO and relevant original CPK files before any release/patched-file tests.
 - Test a rebuilt archive in a disposable PPSSPP copy only after preserving/validating originals.

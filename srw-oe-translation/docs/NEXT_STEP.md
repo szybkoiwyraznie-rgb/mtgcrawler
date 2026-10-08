@@ -1,21 +1,32 @@
-# Next step: inspect candidate suffix bytes
+# Next step: compare clean candidate endings
 
-The read-only candidate scanner was run once against `DL102_20.bin`; it produced 215 rows and included the known Japanese text. The user reviewed four examples:
+The candidate scanner was run once against `DL102_20.bin`; it produced 215 rows and included known Japanese text. The user reviewed readable rows at offsets `0x158C` and `0x1D68`, plus coherent but noisy rows at `0x14E8` and `0x25A8`.
 
-- Readable Japanese candidates at offsets `0x158C` and `0x1D68`.
-- Coherent Japanese candidates at `0x14E8` and `0x25A8`, followed respectively by a space + `v` + U+0001, and a space + ASCII double quote + U+0002.
+## What the noisy-row hex showed
 
-The two noisy rows are not wholly gibberish. The suffixes may be inline control codes, trailing record metadata, or bytes included because the candidate span is too long. Do not strip them. The raw bytes and `00 00` boundary have not yet been checked. The offsets printed by the scanner are candidate-start offsets (the first byte after `FF FF`).
+The first `00 00` after candidate `0x14E8` is at `0x151E`; the 16-byte window was:
 
-## Read-only hex check
+```text
+E8-82-DC-82-B5-82-BD-81-48-00-76-01-00-00-10-00
+```
 
-Run this in PowerShell. It reads the extracted BIN, finds the first `00 00` after each candidate start, and prints a short hex window (12 bytes before the pair, the pair, and up to two bytes after). It does not modify the file.
+The first `00 00` after candidate `0x25A8` is at `0x25DE`; the window was:
+
+```text
+A6-97-CD-82-B7-82-E9-81-42-00-22-02-00-00-10-00
+```
+
+Both show Japanese-looking bytes followed by one `00`, then `76 01` or `22 02`, then the `00 00` pair where the candidate scanner stops, and finally `10 00`. The earlier guess that a literal space byte `20` preceded those code-like bytes was wrong; the raw byte there is `00`. The scanner stops only at a pair of zeros, so it includes the single zero and following bytes in its decoded candidate. A single `00` may terminate the Japanese text, but that is not yet proven; `76 01`, `22 02`, and the later bytes are not understood. Preserve them.
+
+## Read-only comparison on the clean rows
+
+Run this in PowerShell to capture the same short window around the first `00 00` after the clean candidate starts `0x158C` and `0x1D68`. It only reads the BIN and does not modify it. The scanner's offsets are candidate-start offsets (the first byte after `FF FF`).
 
 ```powershell
 $p = Join-Path $env:USERPROFILE 'Desktop\eventP01\DL102_20.bin'
 $b = [IO.File]::ReadAllBytes($p)
 
-foreach ($start in @(0x14E8, 0x25A8)) {
+foreach ($start in @(0x158C, 0x1D68)) {
     $j = $start
     while ($j -lt $b.Length - 1 -and
            -not ($b[$j] -eq 0 -and $b[$j + 1] -eq 0)) {
@@ -34,11 +45,11 @@ foreach ($start in @(0x14E8, 0x25A8)) {
 }
 ```
 
-Paste just the two output lines. This will let us confirm whether the displayed suffixes correspond to bytes like `20 76 01` and `20 22 02`, and whether they sit immediately before the suspected delimiter. The presence of a `00 00` pair alone still does not prove its format meaning.
+Paste just the two output lines. We want to see whether the clean examples also have a single `00` after the visible text followed by other bytes, or whether their first `00 00` directly follows the text.
 
 ## Offset-separator note
 
-The original scanner output may show a literal backtick followed by `t` between offset and text. That is a formatting bug from a single-quoted PowerShell string, not game data. No rerun of the text scanner is needed for the hex check above.
+The original scanner output may show a literal backtick followed by `t` between offset and text. That is a formatting bug from a single-quoted PowerShell string, not game data. No rerun of the text scanner is needed for this comparison.
 
 ## Previously used candidate scanner
 

@@ -25,20 +25,24 @@ User-provided hex for `DL102_20.bin` showed:
 - Search for the byte sequence corresponding to `自衛隊の軍用レイバー相手に` returned offset `0x05B0`.
 - Japanese lines include byte `0A` line breaks. The first displayed message was followed by `00 00` at `0x060E–0x060F`; another `FF FF` appeared at `0x0626–0x0627` before a further Japanese message.
 - A read-only candidate scanner produced 215 output lines and included the known Japanese substring.
-- The user later reviewed four candidate rows: readable Japanese at offsets `0x158C` and `0x1D68`; coherent Japanese at `0x14E8` and `0x25A8` was followed in the decoded output by a space plus `v`/U+0001 and a space plus ASCII double quote/U+0002, respectively.
-- If those final displayed characters are direct CP932 decodings of the source bytes, the suffixes are expected to include `20 76 01` and `20 22 02`; this still needs confirmation from a raw hex window.
+- The user reviewed four candidate rows: readable Japanese at offsets `0x158C` and `0x1D68`; coherent Japanese at `0x14E8` and `0x25A8` was followed in the decoded output by control-looking suffixes.
+- Raw hex around the two noisy rows' first `00 00` pair showed:
+  - Candidate `0x14E8`, pair at `0x151E`: `E8-82-DC-82-B5-82-BD-81-48-00-76-01-00-00-10-00`.
+  - Candidate `0x25A8`, pair at `0x25DE`: `A6-97-CD-82-B7-82-E9-81-42-00-22-02-00-00-10-00`.
+- Thus, in these windows, the byte immediately after the Japanese-looking text is `00`, followed by `76 01` or `22 02`, then the `00 00` pair used as the scanner's stopping condition, then `10 00`. The earlier tentative expectation of an ASCII space byte (`20`) before `76`/`22` was wrong; the raw windows contain `00` there, not `20`.
 
-These examples make a wholly random false-positive interpretation less likely for the two noisy rows: both contain coherent dialogue. They do **not** establish whether the suffix bytes are inline event/control tokens, trailing record metadata, or bytes accidentally included by the current candidate boundary.
+The byte layout suggests the candidate scanner may be reading past a text boundary: it only stops on a *pair* of zero bytes, so it includes a single zero and the following `76 01` / `22 02` before reaching `00 00`. A single zero immediately after the Japanese punctuation is a plausible text terminator, but that interpretation and the meanings of the following bytes remain unverified. Compare against clean candidate endings before relying on it.
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition.
 
 ## Working hypotheses — validate before relying on them
 
 - `FF FF` may introduce a dialogue/text block.
-- `00 00` may terminate a text block.
+- A single `00` after the Japanese text may terminate a string; the `00 00` pair may mark a different boundary or field.
+- `76 01` and `22 02` may be event/control opcodes with parameters or adjacent record metadata; their semantics are unknown.
 - The bytes between text blocks may contain event opcodes, speaker identifiers, pointer/length data, or other fields.
 - `EDAT`, `EVNT`, and `ECHK` appear to be inner format tags, but their semantics are unknown.
-- A candidate scanner can try decoding bytes after `FF FF` up to `00 00` as CP932 and keep spans containing Japanese. It found the known string in one file, but candidates with control-looking suffixes must be classified before treating output as plain text. Preserve those bytes.
+- A candidate scanner can try decoding bytes after `FF FF` up to `00 00` as CP932 and keep spans containing Japanese. It finds some known text but may also consume bytes after a single-NUL string end. Preserve all such bytes until mapped.
 
 ## PowerShell formatting note
 
@@ -50,8 +54,7 @@ $results.Add(("{0:X4}`t{1}" -f $start, $text))
 
 ## Unknowns / risks
 
-- Exact meanings of suffix pairs such as `76 01` and `22 02`, and whether they belong to dialogue or adjacent event data.
-- Whether the first `00 00` after a candidate start is always the record/string terminator.
+- Whether a single `00` terminates text and what `76 01`, `22 02`, `00 00`, and `10 00` represent.
 - Whether a rebuilt archive is accepted by the game.
 - Whether YACpkTool's output preserves all required CPK metadata, order, alignment, and compression flags.
 - Whether the engine uses pointers or lengths that must be updated when English strings grow.
