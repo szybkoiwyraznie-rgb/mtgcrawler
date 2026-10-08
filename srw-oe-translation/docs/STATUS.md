@@ -20,6 +20,7 @@ Last updated: 2026-10-08
 6. The candidate text-dump heuristic ran on `DL102_20.bin`, produced 215 output lines, and included the known Japanese substring.
 7. The user reviewed four candidate rows: two readable examples at offsets `0x158C` and `0x1D68`, and two coherent Japanese rows at `0x14E8` and `0x25A8` that end in control-looking suffixes.
 8. Raw hex windows for the noisy rows show a single `00`, then `76 01` / `22 02`, then `00 00`, then `10 00`; the exact meaning of these fields is unknown.
+9. Raw endings of two readable rows show Japanese-looking bytes directly followed by `00 00`; unlike the noisy rows, no code-like bytes occur between those zeros.
 
 ## Not yet demonstrated
 
@@ -33,4 +34,4 @@ Last updated: 2026-10-08
 
 ## Immediate next step
 
-Request short raw-hex windows around the first `00 00` after clean candidate offsets `0x158C` and `0x1D68`, then compare their endings with the noisy examples. This will test whether a single `00` occurs after clean text as well. Use the read-only PowerShell helper in [`NEXT_STEP.md`](NEXT_STEP.md); ask for only its two output lines, not the full BIN.
+Check whether the candidate dump contains another coherent Japanese row with a control-looking suffix. If so, request its offset and a short raw-hex window around the first `00 00`; one additional example can test whether the `00` + code-like bytes + `00 00` pattern repeats. Do not request the full dump or change extraction logic yet. See [`NEXT_STEP.md`](NEXT_STEP.md).

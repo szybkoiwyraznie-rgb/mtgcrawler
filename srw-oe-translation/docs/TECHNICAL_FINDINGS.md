@@ -29,9 +29,12 @@ User-provided hex for `DL102_20.bin` showed:
 - Raw hex around the two noisy rows' first `00 00` pair showed:
   - Candidate `0x14E8`, pair at `0x151E`: `E8-82-DC-82-B5-82-BD-81-48-00-76-01-00-00-10-00`.
   - Candidate `0x25A8`, pair at `0x25DE`: `A6-97-CD-82-B7-82-E9-81-42-00-22-02-00-00-10-00`.
-- Thus, in these windows, the byte immediately after the Japanese-looking text is `00`, followed by `76 01` or `22 02`, then the `00 00` pair used as the scanner's stopping condition, then `10 00`. The earlier tentative expectation of an ASCII space byte (`20`) before `76`/`22` was wrong; the raw windows contain `00` there, not `20`.
+- Raw hex around the two readable rows' first `00 00` pair showed:
+  - Candidate `0x158C`, pair at `0x15EC`: `82-A0-82-E8-82-DC-82-B9-82-F1-81-42-00-00-00-00`.
+  - Candidate `0x1D68`, pair at `0x1D8A`: `82-AA-82-E9-82-CC-82-A9-81-49-81-48-00-00-C9-00`.
+- In the readable examples, the Japanese-looking bytes are followed immediately by `00 00`. In the two noisy examples, they are followed by `00`, then `76 01` or `22 02`, then `00 00`, then `10 00`. The earlier tentative expectation of an ASCII space byte (`20`) before `76`/`22` was wrong; the raw windows contain `00` there, not `20`.
 
-The byte layout suggests the candidate scanner may be reading past a text boundary: it only stops on a *pair* of zero bytes, so it includes a single zero and the following `76 01` / `22 02` before reaching `00 00`. A single zero immediately after the Japanese punctuation is a plausible text terminator, but that interpretation and the meanings of the following bytes remain unverified. Compare against clean candidate endings before relying on it.
+This comparison strengthens the hypothesis that the current candidate scanner reads past the visible-text boundary in the noisy cases: it only stops on a *pair* of zero bytes, so it includes a single zero and the following `76 01` / `22 02` before reaching `00 00`. A single zero may terminate the Japanese text, with following bytes being event/control data; however, the clean examples end with a zero pair, and the exact format semantics are still unverified. Do not strip or rewrite these bytes.
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition.
 

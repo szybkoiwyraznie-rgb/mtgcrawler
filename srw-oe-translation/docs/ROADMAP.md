@@ -8,7 +8,8 @@
 - [x] Confirm unchanged `DL102_20.bin` survives a CPK pack/extract cycle byte-for-byte.
 - [x] Run the candidate string-dump heuristic on `DL102_20.bin`; it found the known text among 215 output lines.
 - [x] Compare two readable and two noisy candidate examples; all contain coherent Japanese, and the noisy examples include a single `00`, code-like bytes, then `00 00`.
-- [ ] Compare raw endings of clean candidates to test whether a single `00` marks text end or whether the scanner boundary needs another model.
+- [x] Compare raw endings of two clean candidates with noisy examples; clean text is directly followed by `00 00`, while noisy rows have `00`, code-like bytes, then `00 00`.
+- [ ] Check one more noisy candidate, if available, before changing the text-boundary heuristic.
 - [ ] Validate marker/terminator assumptions on multiple messages and multiple `.bin` files.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.

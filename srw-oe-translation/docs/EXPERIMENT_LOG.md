@@ -66,10 +66,22 @@ The Japanese-looking bytes are followed by `00`, then `76 01` or `22 02`, then t
 
 **Interpretation:** The noisy rows are not wholly gibberish; coherent Japanese dialogue is present. A single `00` immediately after the Japanese-looking text could be a string terminator, with `76 01` / `22 02` and later bytes belonging to event/control data; alternatively, it may be a different record layout. The scanner's double-zero stop condition includes the bytes after the single zero. Compare clean candidate endings before relying on any boundary interpretation. Do not strip bytes.
 
+## 2026-10-08 — compare clean candidate endings
+
+**Action:** Collected the same 16-byte windows around the first `00 00` after readable candidates `0x158C` and `0x1D68`.
+
+**Result:**
+
+- Candidate `0x158C`, pair at `0x15EC`: `82-A0-82-E8-82-DC-82-B9-82-F1-81-42-00-00-00-00`.
+- Candidate `0x1D68`, pair at `0x1D8A`: `82-AA-82-E9-82-CC-82-A9-81-49-81-48-00-00-C9-00`.
+
+In both readable examples, the Japanese-looking bytes are followed immediately by `00 00`; no code-like bytes occur between a single zero and that pair. This contrasts with the noisy candidates, where `76 01` or `22 02` occurs after a single zero and before `00 00`.
+
+**Interpretation:** The contrast supports the hypothesis that the original scanner may include event/control bytes after a single-NUL text boundary in some records. It is not enough to define the format or replace the scanner yet.
+
 ## Pending
 
-- Inspect raw windows around the first `00 00` after clean candidate offsets `0x158C` and `0x1D68`; compare whether a single `00` also precedes following bytes there.
-
+- Check whether another candidate row has a similar control-looking suffix; if so, compare its raw hex window before changing extraction logic.
 - Validate the scanner on more records/files and replace it with a structured extractor that preserves controls and stable IDs.
 - Record actual SHA-256 values for the source ISO and relevant original CPK files before any release/patched-file tests.
 - Test a rebuilt archive in a disposable PPSSPP copy only after preserving/validating originals.
