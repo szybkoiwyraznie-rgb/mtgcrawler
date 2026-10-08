@@ -107,10 +107,20 @@ The 22 `_ext.dat` files are 388 bytes. The scan found 42 Japanese-bearing runs a
 
 **Validation:** Added four synthetic companion-audit tests, including synthetic EDAT/EVNT framing and candidate-within-block cases; the complete suite now has nine passing tests. The local companion scan reproduced the documented counts.
 
+## 2026-10-09 — ECHK endpoint correlation and gameplay-test constraint
+
+**Action:** Rechecked every ECHK marker inside the validated EVNT blocks. For each tag at offset `q`, calculated the endpoint `q + 8 + u32(q + 4)` and classified the bytes at that endpoint without interpreting the payload.
+
+**Result:** All 332 ECHK endpoints are in-file and match one of two patterns: 13 land on another ECHK tag; 319 land on a following little-endian u32 value of 200. The ECHK `+4` values are 24 (22 occurrences), 44 (45), 64 (111), 84 (149), and 104 (5); each equals `4 + 20*n` for `n=1..5`. Treating the first four bytes of that region as a prefix and the remainder as 20-byte rows yields 1,066 candidate rows, with the second u32 zero in all of them. This is a plausible repeated layout, not a decoded schema or field meaning.
+
+**Validation:** Added synthetic ECHK endpoint and 20-byte-row shape coverage; all ten tests pass, and the companion audit reproduces the counts on the supplied ZIP.
+
+**Test-access note:** The user cautioned that the game fragment represented by this event data may not be reachable for an in-game insertion test. Do not make reaching that fragment a prerequisite for continued static analysis. Keep byte-exact extraction/rebuild checks separate from visual gameplay QA; if no reachable equivalent uses the same path, record in-game display validation as blocked/unknown rather than relying on an inaccessible scene.
+
 ## Pending
 
 - Inspect ECHK payloads using the verified EVNT block boundaries; do not infer field semantics from matching offsets alone.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
 - Record exact source ISO/base-resource hashes before any release/patch test.
-- Test a rebuilt archive in a disposable PPSSPP copy only after preserving/validating originals.
+- Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.

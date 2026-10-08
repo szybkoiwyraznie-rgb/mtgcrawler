@@ -75,6 +75,16 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
     event_header_word_at_plus_8: Counter[int] = Counter()
     echk_word_at_plus_4: Counter[int] = Counter()
     echk_markers = 0
+    echk_end_at_echk_marker = 0
+    echk_end_at_u32_200 = 0
+    echk_end_at_other_bytes = 0
+    echk_end_outside_file = 0
+    echk_sizes_matching_4_plus_20n = 0
+    echk_sizes_not_matching_4_plus_20n = 0
+    echk_rows_by_count: Counter[int] = Counter()
+    echk_20_byte_rows = 0
+    echk_rows_with_zero_second_u32 = 0
+    echk_unreadable_payloads = 0
     bins_with_edat_header = 0
 
     for data in bins.values():
@@ -82,8 +92,34 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
         echk_offsets = set(marker_offsets(data, b"ECHK"))
         echk_markers += len(echk_offsets)
         for offset in echk_offsets:
-            if offset + 8 <= len(data):
-                echk_word_at_plus_4[struct.unpack_from("<I", data, offset + 4)[0]] += 1
+            if offset + 8 > len(data):
+                echk_end_outside_file += 1
+                continue
+            stored_size = struct.unpack_from("<I", data, offset + 4)[0]
+            echk_word_at_plus_4[stored_size] += 1
+            computed_end = offset + 8 + stored_size
+            if stored_size >= 4 and (stored_size - 4) % 20 == 0:
+                row_count = (stored_size - 4) // 20
+                echk_sizes_matching_4_plus_20n += 1
+                echk_rows_by_count[row_count] += 1
+                if computed_end <= len(data):
+                    for row_index in range(row_count):
+                        row_offset = offset + 12 + row_index * 20
+                        row_words = struct.unpack_from("<5I", data, row_offset)
+                        echk_20_byte_rows += 1
+                        echk_rows_with_zero_second_u32 += row_words[1] == 0
+                else:
+                    echk_unreadable_payloads += 1
+            else:
+                echk_sizes_not_matching_4_plus_20n += 1
+            if computed_end + 4 > len(data):
+                echk_end_outside_file += 1
+            elif data.startswith(b"ECHK", computed_end):
+                echk_end_at_echk_marker += 1
+            elif struct.unpack_from("<I", data, computed_end)[0] == 200:
+                echk_end_at_u32_200 += 1
+            else:
+                echk_end_at_other_bytes += 1
         if len(data) >= 12 and data[:4] == b"EDAT":
             bins_with_edat_header += 1
             if struct.unpack_from("<I", data, 4)[0] == len(data) - 8:
@@ -121,6 +157,16 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
         "evnt_word_at_plus_8": dict(sorted(event_header_word_at_plus_8.items())),
         "echk_markers": echk_markers,
         "echk_word_at_plus_4": dict(sorted(echk_word_at_plus_4.items())),
+        "echk_computed_end_at_echk_marker": echk_end_at_echk_marker,
+        "echk_computed_end_at_u32_200": echk_end_at_u32_200,
+        "echk_computed_end_at_other_bytes": echk_end_at_other_bytes,
+        "echk_computed_end_outside_file": echk_end_outside_file,
+        "echk_sizes_matching_4_plus_20n": echk_sizes_matching_4_plus_20n,
+        "echk_sizes_not_matching_4_plus_20n": echk_sizes_not_matching_4_plus_20n,
+        "echk_rows_by_count": dict(sorted(echk_rows_by_count.items())),
+        "echk_20_byte_rows": echk_20_byte_rows,
+        "echk_rows_with_zero_second_u32": echk_rows_with_zero_second_u32,
+        "echk_unreadable_payloads": echk_unreadable_payloads,
     }
 
 
@@ -379,6 +425,18 @@ def print_summary(summary: dict) -> None:
     )
     print(f"  EVNT word@+8 values: {_format_counter(framing['evnt_word_at_plus_8'])}")
     print(f"  ECHK word@+4 values (uninterpreted): {_format_counter(framing['echk_word_at_plus_4'])}")
+    print(
+        f"  ECHK computed end p+8+u32(p+4): ECHK tag={framing['echk_computed_end_at_echk_marker']}, "
+        f"u32 200={framing['echk_computed_end_at_u32_200']}, "
+        f"other={framing['echk_computed_end_at_other_bytes']}, "
+        f"outside/unreadable={framing['echk_computed_end_outside_file']}"
+    )
+    print(
+        f"  ECHK size values matching 4+20*n: {framing['echk_sizes_matching_4_plus_20n']}/"
+        f"{framing['echk_markers']}; candidate 20-byte rows: {framing['echk_20_byte_rows']} "
+        f"(second u32 zero in {framing['echk_rows_with_zero_second_u32']}); "
+        f"n per ECHK: {_format_counter(framing['echk_rows_by_count'])}"
+    )
     print(
         f"Heuristic candidates fully within one EVNT block: "
         f"{coverage['candidate_spans_fully_within_one_evnt_block']}/"

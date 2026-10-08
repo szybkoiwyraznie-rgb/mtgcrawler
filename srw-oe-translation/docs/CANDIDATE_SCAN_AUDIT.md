@@ -1,6 +1,6 @@
 # `eventP01` candidate-scan audit
 
-Last updated: 2026-10-08
+Last updated: 2026-10-09
 
 This is a read-only heuristic audit, not a validated string extractor. The user-supplied ZIP was uploaded in commit `e576e8b`, analyzed from an ignored local working copy, and removed from the current tracked tree. The upload commit remains in branch history; if needed, recover a local copy with `git show e576e8b:eventP01.zip > srw-oe-translation/local/eventP01.zip`.
 
@@ -72,7 +72,9 @@ A separate read-only probe checks literal tags and little-endian words across al
 - The u32 at `0x08` equals the number of literal `EVNT` tag occurrences in 22/22 files.
 - There are 319 `EVNT` occurrences. For each occurrence at offset `p`, the u32 at `p + 4` satisfies `p + 8 + value == next_EVNT_offset`; for the last occurrence in each file it equals EOF instead. All 297 non-final and all 22 final boundaries match.
 - Every `EVNT` occurrence is followed by `ECHK` at `p + 12` (319/319). There are 332 `ECHK` occurrences overall, so 13 are additional markers beyond those immediately following an `EVNT` tag.
-- The u32 at `EVNT + 8` is 1 in 309 occurrences, 2 in seven, and 3 in three. Its meaning is unknown. The u32 immediately after each ECHK tag has values 24 (22), 44 (45), 64 (111), 84 (149), and 104 (5); these are raw numeric observations, not identified sizes or types.
+- The u32 at `EVNT + 8` is 1 in 309 occurrences, 2 in seven, and 3 in three. Its meaning is unknown. The u32 immediately after each ECHK tag has values 24 (22), 44 (45), 64 (111), 84 (149), and 104 (5).
+- If the ECHK `+4` u32 is treated as a size-like value, `q + 8 + value` lands at a recognizable boundary for all 332 tags: at another `ECHK` tag in 13 cases, or immediately before a little-endian u32 value of 200 in 319 cases. No computed end is outside the file or has another observed pattern. This supports, but does not prove, a length/boundary role; the meaning of the u32=200 and the ECHK payload remain unknown.
+- All 332 ECHK `+4` values equal `4 + 20*n` for `n` from 1 to 5. Treating the first four bytes of that region as a prefix and the remainder as `n` 20-byte rows yields 1,066 rows; the second little-endian u32 of each row is zero. This is a repeatable candidate layout, not a decoded schema—the prefix and row-field meanings are unknown.
 - All 3,241 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
 
 Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing in this archive. They do **not** decode the blocks' contents, identify the `EVNT + 8` values, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.

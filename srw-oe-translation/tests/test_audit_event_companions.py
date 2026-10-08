@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
-from audit_event_companions import audit_files, japanese_nul_runs  # noqa: E402
+from audit_event_companions import audit_event_framing, audit_files, japanese_nul_runs  # noqa: E402
 
 
 class CompanionAuditTests(unittest.TestCase):
@@ -14,6 +14,40 @@ class CompanionAuditTests(unittest.TestCase):
         data = b"\x00\x00ASCII\x00" + japanese + b"\x00\x00"
 
         self.assertEqual(list(japanese_nul_runs(data)), [(8, japanese)])
+
+    def test_echk_size_like_word_ends_at_tag_or_known_u32(self):
+        size_marker_case = b"ECHK" + struct.pack("<I", 4) + b"DATA" + struct.pack("<I", 200)
+        chained_case = (
+            b"ECHK"
+            + struct.pack("<I", 4)
+            + b"DATA"
+            + b"ECHK"
+            + struct.pack("<I", 4)
+            + b"DATA"
+            + struct.pack("<I", 200)
+        )
+        row_case = (
+            b"ECHK"
+            + struct.pack("<I", 24)
+            + struct.pack("<I", 52)
+            + struct.pack("<5I", 101, 0, 1200, 1, 0)
+            + struct.pack("<I", 200)
+        )
+
+        framing = audit_event_framing(
+            {"single.bin": size_marker_case, "chain.bin": chained_case, "row.bin": row_case}
+        )
+
+        self.assertEqual(framing["echk_markers"], 4)
+        self.assertEqual(framing["echk_word_at_plus_4"], {4: 3, 24: 1})
+        self.assertEqual(framing["echk_computed_end_at_echk_marker"], 1)
+        self.assertEqual(framing["echk_computed_end_at_u32_200"], 3)
+        self.assertEqual(framing["echk_computed_end_at_other_bytes"], 0)
+        self.assertEqual(framing["echk_computed_end_outside_file"], 0)
+        self.assertEqual(framing["echk_sizes_matching_4_plus_20n"], 4)
+        self.assertEqual(framing["echk_rows_by_count"], {0: 3, 1: 1})
+        self.assertEqual(framing["echk_20_byte_rows"], 1)
+        self.assertEqual(framing["echk_rows_with_zero_second_u32"], 1)
 
     def test_edat_evnt_sizes_and_echk_positions_match_synthetic_frame(self):
         data = bytearray(44)

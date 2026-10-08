@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-08
+Last updated: 2026-10-09
 
 ## Target
 
@@ -24,7 +24,8 @@ Last updated: 2026-10-08
 10. The clean-row raw endings show Japanese bytes followed immediately by `00 00`; noisy rows instead have `00`, then `76 01` / `22 02`, then `00 00`, then `10 00`. Exact field meanings remain unknown.
 11. A diagnostic JSONL export with 3,241 unique file/offset IDs was generated locally; CP932 text prefixes round-trip exactly, and unknown suffix bytes remain separate. Five synthetic unit tests pass.
 12. A read-only companion audit mapped 42 Japanese-bearing NUL-delimited runs across 22 `_ext.dat` files and measured numeric overlaps from all `_edit.dat` and `_Entry.dat` files against heuristic BIN ranges. The observations are reproducible; no companion field semantics have been identified.
-13. A byte-pattern probe verified EDAT size/count relations and EVNT block-boundary arithmetic across all 22 BINs: 319/319 EVNT boundaries match the next tag or EOF, every EVNT is followed by ECHK at `+12`, and all 3,241 heuristic candidates fit inside one EVNT block. This is top-level framing evidence, not a decoded event parser. The full synthetic suite now has nine passing tests.
+13. A byte-pattern probe verified EDAT size/count relations and EVNT block-boundary arithmetic across all 22 BINs: 319/319 EVNT boundaries match the next tag or EOF, every EVNT is followed by ECHK at `+12`, and all 3,241 heuristic candidates fit inside one EVNT block. This is top-level framing evidence, not a decoded event parser.
+14. For all 332 ECHK markers, `q + 8 + u32(q + 4)` ends at another ECHK tag in 13 cases or before a u32 value of 200 in 319. The u32 at `+4` is always `4 + 20*n`; partitioning accordingly yields 1,066 candidate 20-byte rows whose second u32 is zero. This is a candidate structure, not a decoded schema. Ten synthetic tests pass.
 
 ## Not yet demonstrated
 
@@ -38,4 +39,4 @@ Last updated: 2026-10-08
 
 ## Immediate next step
 
-The EDAT/EVNT framing arithmetic is now consistent across all 22 BINs, but ECHK payloads, event opcodes, candidate-text boundaries, and companion-field meanings remain unknown. Next, examine ECHK structures and validate the candidate-prefix/suffix behavior across record types while preserving offsets, line breaks, and unknown bytes. Do not attempt insertion or call the JSONL an approved translation table until text boundaries, controls, font support, and round-trip behavior are tested. Keep source assets and decoded text outputs under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).
+The EDAT/EVNT framing is consistent across all 22 BINs, and the ECHK `+4` word now has a reproducible size-like endpoint pattern; ECHK payload semantics, event opcodes, candidate-text boundaries, and companion-field meanings remain unknown. Next, inspect ECHK payloads and validate candidate prefixes/suffixes, then build a static extractor and byte-identical no-change round trip. The user cautioned that this event fragment may not be reachable in-game, so do not make a visible insertion test the immediate gate; if no reachable equivalent resource is found, record display QA as blocked/unknown. Keep source assets and decoded text outputs under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).

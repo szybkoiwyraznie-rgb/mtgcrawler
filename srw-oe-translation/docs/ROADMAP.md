@@ -12,9 +12,9 @@
 - [x] Audit all 22 BINs: 3,241 Japanese-containing candidate spans, including 627 single-NUL suffix cases.
 - [x] Inventory confirms all 22 `_ext.dat` files contain CP932-decoded Japanese runs.
 - [x] Verify EDAT size/count and EVNT block-boundary arithmetic across all 22 BINs; all 319 event-block boundaries and ECHK-at-`+12` positions match.
-- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps with heuristic BIN ranges; nine synthetic tests pass.
+- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; ten synthetic tests pass.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
-- [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT top-level framing is consistent, but ECHK payload, text-field, pointer, and record semantics remain unknown.
+- [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the ECHK `4 + 20*n` shape are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
 - [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
@@ -25,7 +25,8 @@
 - [ ] Understand event opcodes, text lengths, pointers/offsets, and CPK metadata before writing.
 - [ ] Verify whether English ASCII/lowercase and punctuation render with the original font.
 - [ ] Determine line/box limits and how dynamic values/control codes are represented.
-- [ ] Insert one short English test string into a disposable copy, rebuild the relevant archive, and validate it in PPSSPP.
+- [ ] Determine whether a reachable event/resource uses the same text-rendering path as the supplied fragment; if not, record visual QA as blocked/unknown.
+- [ ] Only if a comparable reachable path exists, insert one short English test string into a disposable copy, rebuild the archive, and validate it in PPSSPP.
 - [ ] Test longer strings only after a pointer/relocation strategy exists.
 - [ ] Preserve the original ISO, DLC and save data; test only on copies.
 
@@ -34,13 +35,13 @@
 - [ ] Inventory all story/event, menu, unit/robot, battle, dictionary, shop, credits, and graphic text.
 - [ ] Establish an English style guide and sourced terminology glossary for the many represented anime series.
 - [ ] Translate from the Japanese game data; do not use the rejected Akurasu script as the source.
-- [ ] Track per-file and per-chapter coverage, review, and in-game QA.
+- [ ] Track per-file and per-chapter coverage/review; record in-game QA as passed, failed, or inaccessible/unverified.
 - [ ] Decide how all eight chapters/DLC and any update-specific resources are included.
 
 ## Gate 4 — release engineering
 
 - [ ] Identify and record exact SHA-256 hashes for supported Japanese base image and DLC variants.
 - [ ] Make a reproducible patch builder with input validation and safe output paths.
-- [ ] Test the patched result across all chapters and relevant PPSSPP settings; test real hardware if available.
+- [ ] Test the patched result across reachable chapters and relevant PPSSPP settings; explicitly document inaccessible/unverified content, and test real hardware if available.
 - [ ] Distribute only patch data/tooling, never game images, DLC, or extracted proprietary assets.
 - [ ] Document installation, backups, known issues, and supported source versions.
