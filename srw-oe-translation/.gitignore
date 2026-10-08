@@ -1,0 +1,24 @@
+# Local proprietary game data: never commit
+*.iso
+*.cso
+*.edat
+*.EDAT
+*.cpk
+*.CPK
+*.bin
+*.BIN
+*.dat
+*.DAT
+*.pbp
+*.PBP
+*.sav
+*.SAV
+
+# Local extraction/build outputs
+work/
+local/
+extracted/
+build/
+output/
+*.tmp
+*.bak
