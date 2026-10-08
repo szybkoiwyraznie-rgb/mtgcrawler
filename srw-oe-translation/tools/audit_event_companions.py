@@ -63,6 +63,43 @@ def marker_offsets(data: bytes, marker: bytes) -> list[int]:
         position += len(marker)
 
 
+def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optional[dict]:
+    """Follow ECHK size-like endpoints until the observed u32=200 terminator."""
+    if evnt_offset < 0 or block_end > len(data) or evnt_offset + 12 > block_end:
+        return None
+
+    evnt_word = struct.unpack_from("<I", data, evnt_offset + 8)[0]
+    position = evnt_offset + 12
+    chain_length = 0
+    total_rows = 0
+    segment_sizes = []
+
+    while position + 8 <= block_end and data.startswith(b"ECHK", position):
+        size = struct.unpack_from("<I", data, position + 4)[0]
+        endpoint = position + 8 + size
+        if size < 4 or (size - 4) % 20 != 0 or endpoint + 4 > block_end:
+            return None
+
+        chain_length += 1
+        total_rows += (size - 4) // 20
+        segment_sizes.append(size)
+        if data.startswith(b"ECHK", endpoint):
+            position = endpoint
+            continue
+        if struct.unpack_from("<I", data, endpoint)[0] == 200:
+            return {
+                "chain_length": chain_length,
+                "evnt_word_at_plus_8": evnt_word,
+                "matches_evnt_word": chain_length == evnt_word,
+                "echk_rows": total_rows,
+                "segment_sizes": segment_sizes,
+                "terminal_offset": endpoint + 4,
+            }
+        return None
+
+    return None
+
+
 def audit_event_framing(bins: dict[str, bytes]) -> dict:
     """Check observed EDAT length/count and EVNT block-boundary invariants."""
     edat_length_matches = 0
@@ -73,6 +110,11 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
     final_eof_matches = 0
     event_followed_by_echk = 0
     event_header_word_at_plus_8: Counter[int] = Counter()
+    echk_chain_lengths: Counter[int] = Counter()
+    echk_chain_rows_per_block: Counter[int] = Counter()
+    echk_chains_by_evnt_word: Counter[int] = Counter()
+    echk_chain_word_matches = 0
+    echk_chain_terminal_200 = 0
     echk_word_at_plus_4: Counter[int] = Counter()
     echk_markers = 0
     echk_end_at_echk_marker = 0
@@ -82,6 +124,7 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
     echk_sizes_matching_4_plus_20n = 0
     echk_sizes_not_matching_4_plus_20n = 0
     echk_rows_by_count: Counter[int] = Counter()
+    echk_row_columns: list[Counter[int]] = [Counter() for _ in range(5)]
     echk_20_byte_rows = 0
     echk_rows_with_zero_second_u32 = 0
     echk_unreadable_payloads = 0
@@ -108,6 +151,8 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
                         row_words = struct.unpack_from("<5I", data, row_offset)
                         echk_20_byte_rows += 1
                         echk_rows_with_zero_second_u32 += row_words[1] == 0
+                        for column, value in enumerate(row_words):
+                            echk_row_columns[column][value] += 1
                 else:
                     echk_unreadable_payloads += 1
             else:
@@ -144,6 +189,13 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
                     nonfinal_boundary_matches += 1
                 else:
                     final_eof_matches += 1
+                chain = inspect_echk_chain(data, offset, computed_end)
+                if chain is not None:
+                    echk_chains_by_evnt_word[chain["evnt_word_at_plus_8"]] += 1
+                    echk_chain_lengths[chain["chain_length"]] += 1
+                    echk_chain_rows_per_block[chain["echk_rows"]] += 1
+                    echk_chain_word_matches += chain["matches_evnt_word"]
+                    echk_chain_terminal_200 += 1
 
     return {
         "bins_with_edat_header": bins_with_edat_header,
@@ -155,6 +207,13 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
         "final_evnt_size_matches_eof": final_eof_matches,
         "evnt_followed_by_echk_at_plus_12": event_followed_by_echk,
         "evnt_word_at_plus_8": dict(sorted(event_header_word_at_plus_8.items())),
+        "echk_chains": sum(echk_chains_by_evnt_word.values()),
+        "echk_chain_failures": event_markers - sum(echk_chains_by_evnt_word.values()),
+        "echk_chain_length_matches_evnt_word": echk_chain_word_matches,
+        "echk_chains_ending_at_u32_200": echk_chain_terminal_200,
+        "echk_chain_lengths": dict(sorted(echk_chain_lengths.items())),
+        "echk_chain_rows_per_block": dict(sorted(echk_chain_rows_per_block.items())),
+        "echk_chains_by_evnt_word_at_plus_8": dict(sorted(echk_chains_by_evnt_word.items())),
         "echk_markers": echk_markers,
         "echk_word_at_plus_4": dict(sorted(echk_word_at_plus_4.items())),
         "echk_computed_end_at_echk_marker": echk_end_at_echk_marker,
@@ -166,6 +225,14 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
         "echk_rows_by_count": dict(sorted(echk_rows_by_count.items())),
         "echk_20_byte_rows": echk_20_byte_rows,
         "echk_rows_with_zero_second_u32": echk_rows_with_zero_second_u32,
+        "echk_row_columns": [
+            {
+                "distinct": len(values),
+                "zero": values[0],
+                "common": dict(values.most_common(8)),
+            }
+            for values in echk_row_columns
+        ],
         "echk_unreadable_payloads": echk_unreadable_payloads,
     }
 
@@ -179,11 +246,17 @@ def audit_candidate_block_coverage(
     blocks_with_candidates_by_word: Counter[int] = Counter()
     candidate_count = 0
     candidates_fully_contained = 0
+    candidate_spans_after_echk_chain = 0
+    candidate_spans_before_echk_chain = 0
+    candidate_spans_without_valid_echk_chain = 0
+    minimum_marker_gap_after_echk_chain: Optional[int] = None
+    groups: dict[int, dict] = {}
 
     for name, data in bins.items():
         candidates = candidates_by_bin.get(name, [])
         candidate_count += len(candidates)
         event_offsets = marker_offsets(data, b"EVNT")
+        echk_offsets = set(marker_offsets(data, b"ECHK"))
         for index, offset in enumerate(event_offsets):
             if offset + 12 > len(data):
                 continue
@@ -197,6 +270,67 @@ def audit_candidate_block_coverage(
                 row for row in candidates
                 if offset <= row.start - 2 and row.pair_offset + 2 <= block_end
             ]
+            chain = inspect_echk_chain(data, offset, block_end)
+            block_echk = [q for q in echk_offsets if offset <= q < block_end]
+            primary_echk = offset + 12
+            extra_echk = [q for q in block_echk if q != primary_echk]
+            group = groups.setdefault(
+                header_word,
+                {
+                    "blocks": 0,
+                    "blocks_with_candidates": 0,
+                    "candidate_spans": 0,
+                    "extra_echk_tags": 0,
+                    "extra_echk_per_block": Counter(),
+                    "primary_echk_rows_per_block": Counter(),
+                    "extra_echk_size_values": Counter(),
+                    "valid_echk_chains": 0,
+                    "echk_chain_lengths": Counter(),
+                    "echk_chain_rows": Counter(),
+                    "candidates_after_echk_chain": 0,
+                    "candidates_before_echk_chain": 0,
+                    "candidates_without_valid_echk_chain": 0,
+                    "minimum_candidate_marker_gap": None,
+                },
+            )
+            group["blocks"] += 1
+            group["candidate_spans"] += len(contained)
+            group["extra_echk_tags"] += len(extra_echk)
+            group["extra_echk_per_block"][len(extra_echk)] += 1
+            if contained:
+                group["blocks_with_candidates"] += 1
+            if chain is None:
+                group["candidates_without_valid_echk_chain"] += len(contained)
+                candidate_spans_without_valid_echk_chain += len(contained)
+            else:
+                group["valid_echk_chains"] += 1
+                group["echk_chain_lengths"][chain["chain_length"]] += 1
+                group["echk_chain_rows"][chain["echk_rows"]] += 1
+                for row in contained:
+                    gap = row.start - 2 - chain["terminal_offset"]
+                    if gap >= 0:
+                        group["candidates_after_echk_chain"] += 1
+                        candidate_spans_after_echk_chain += 1
+                        minimum_marker_gap_after_echk_chain = (
+                            gap if minimum_marker_gap_after_echk_chain is None
+                            else min(minimum_marker_gap_after_echk_chain, gap)
+                        )
+                        group["minimum_candidate_marker_gap"] = (
+                            gap if group["minimum_candidate_marker_gap"] is None
+                            else min(group["minimum_candidate_marker_gap"], gap)
+                        )
+                    else:
+                        group["candidates_before_echk_chain"] += 1
+                        candidate_spans_before_echk_chain += 1
+            if primary_echk in echk_offsets and primary_echk + 8 <= block_end:
+                primary_size = struct.unpack_from("<I", data, primary_echk + 4)[0]
+                if primary_size >= 4 and (primary_size - 4) % 20 == 0:
+                    group["primary_echk_rows_per_block"][(primary_size - 4) // 20] += 1
+            for q in extra_echk:
+                if q + 8 <= block_end:
+                    extra_size = struct.unpack_from("<I", data, q + 4)[0]
+                    group["extra_echk_size_values"][extra_size] += 1
+
             block_count += 1
             candidates_fully_contained += len(contained)
             if contained:
@@ -207,9 +341,32 @@ def audit_candidate_block_coverage(
         "evnt_blocks": block_count,
         "blocks_with_candidates": blocks_with_candidates,
         "blocks_with_candidates_by_evnt_word_at_plus_8": dict(sorted(blocks_with_candidates_by_word.items())),
+        "groups_by_evnt_word_at_plus_8": {
+            word: {
+                "blocks": stats["blocks"],
+                "blocks_with_candidates": stats["blocks_with_candidates"],
+                "candidate_spans": stats["candidate_spans"],
+                "extra_echk_tags": stats["extra_echk_tags"],
+                "extra_echk_per_block": dict(sorted(stats["extra_echk_per_block"].items())),
+                "primary_echk_rows_per_block": dict(sorted(stats["primary_echk_rows_per_block"].items())),
+                "extra_echk_size_values": dict(sorted(stats["extra_echk_size_values"].items())),
+                "valid_echk_chains": stats["valid_echk_chains"],
+                "echk_chain_lengths": dict(sorted(stats["echk_chain_lengths"].items())),
+                "echk_chain_rows": dict(sorted(stats["echk_chain_rows"].items())),
+                "candidates_after_echk_chain": stats["candidates_after_echk_chain"],
+                "candidates_before_echk_chain": stats["candidates_before_echk_chain"],
+                "candidates_without_valid_echk_chain": stats["candidates_without_valid_echk_chain"],
+                "minimum_candidate_marker_gap": stats["minimum_candidate_marker_gap"],
+            }
+            for word, stats in sorted(groups.items())
+        },
         "candidate_spans": candidate_count,
         "candidate_spans_fully_within_one_evnt_block": candidates_fully_contained,
         "candidate_spans_not_fully_within_one_evnt_block": candidate_count - candidates_fully_contained,
+        "candidate_spans_after_echk_chain": candidate_spans_after_echk_chain,
+        "candidate_spans_before_echk_chain": candidate_spans_before_echk_chain,
+        "candidate_spans_without_valid_echk_chain": candidate_spans_without_valid_echk_chain,
+        "minimum_candidate_marker_gap_after_echk_chain": minimum_marker_gap_after_echk_chain,
     }
 
 
@@ -432,11 +589,25 @@ def print_summary(summary: dict) -> None:
         f"outside/unreadable={framing['echk_computed_end_outside_file']}"
     )
     print(
+        f"  ECHK chains inside EVNT blocks: {framing['echk_chains']}/"
+        f"{framing['evnt_markers']} valid, {framing['echk_chain_failures']} failed; "
+        f"length matches EVNT +8 in {framing['echk_chain_length_matches_evnt_word']}, "
+        f"ends at u32 200 in {framing['echk_chains_ending_at_u32_200']}; "
+        f"chain lengths={_format_counter(framing['echk_chain_lengths'])}, "
+        f"20-byte row totals={_format_counter(framing['echk_chain_rows_per_block'])}"
+    )
+    print(
         f"  ECHK size values matching 4+20*n: {framing['echk_sizes_matching_4_plus_20n']}/"
         f"{framing['echk_markers']}; candidate 20-byte rows: {framing['echk_20_byte_rows']} "
         f"(second u32 zero in {framing['echk_rows_with_zero_second_u32']}); "
         f"n per ECHK: {_format_counter(framing['echk_rows_by_count'])}"
     )
+    print("  Candidate row u32-column observations (not named fields):")
+    for index, column in enumerate(framing["echk_row_columns"]):
+        print(
+            f"    c{index}: distinct={column['distinct']}, zero={column['zero']}, "
+            f"common={_format_counter(column['common'])}"
+        )
     print(
         f"Heuristic candidates fully within one EVNT block: "
         f"{coverage['candidate_spans_fully_within_one_evnt_block']}/"
@@ -446,6 +617,27 @@ def print_summary(summary: dict) -> None:
         f"{coverage['evnt_blocks']} by EVNT word@+8: "
         f"{_format_counter(coverage['blocks_with_candidates_by_evnt_word_at_plus_8'])}"
     )
+    print(
+        f"Candidate FF FF markers after the terminal u32 200: "
+        f"{coverage['candidate_spans_after_echk_chain']}/{coverage['candidate_spans']}; "
+        f"before={coverage['candidate_spans_before_echk_chain']}, "
+        f"without valid chain={coverage['candidate_spans_without_valid_echk_chain']}, "
+        f"minimum gap from byte after 200="
+        f"{coverage['minimum_candidate_marker_gap_after_echk_chain']} bytes"
+    )
+    print("EVNT word@+8 groups (grouped literally; meanings unknown):")
+    for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
+        print(
+            f"  {word}: blocks={group['blocks']}, candidates={group['candidate_spans']}, "
+            f"blocks_with_candidates={group['blocks_with_candidates']}, "
+            f"extra_ECHK={group['extra_echk_tags']}, "
+            f"extra_ECHK_per_block={_format_counter(group['extra_echk_per_block'])}, "
+            f"primary_ECHK_rows={_format_counter(group['primary_echk_rows_per_block'])}, "
+            f"extra_ECHK_sizes={_format_counter(group['extra_echk_size_values'])}, "
+            f"chain_lengths={_format_counter(group['echk_chain_lengths'])}, "
+            f"chain_rows={_format_counter(group['echk_chain_rows'])}, "
+            f"candidates_after_chain={group['candidates_after_echk_chain']}"
+        )
     print(
         f"_ext.dat files: {ext['files']}; sizes: {_format_counter(ext['sizes'])}; "
         f"Japanese NUL-delimited CP932 runs: {ext['japanese_runs']} "

@@ -74,10 +74,17 @@ A separate read-only probe checks literal tags and little-endian words across al
 - Every `EVNT` occurrence is followed by `ECHK` at `p + 12` (319/319). There are 332 `ECHK` occurrences overall, so 13 are additional markers beyond those immediately following an `EVNT` tag.
 - The u32 at `EVNT + 8` is 1 in 309 occurrences, 2 in seven, and 3 in three. Its meaning is unknown. The u32 immediately after each ECHK tag has values 24 (22), 44 (45), 64 (111), 84 (149), and 104 (5).
 - If the ECHK `+4` u32 is treated as a size-like value, `q + 8 + value` lands at a recognizable boundary for all 332 tags: at another `ECHK` tag in 13 cases, or immediately before a little-endian u32 value of 200 in 319 cases. No computed end is outside the file or has another observed pattern. This supports, but does not prove, a length/boundary role; the meaning of the u32=200 and the ECHK payload remain unknown.
-- All 332 ECHK `+4` values equal `4 + 20*n` for `n` from 1 to 5. Treating the first four bytes of that region as a prefix and the remainder as `n` 20-byte rows yields 1,066 rows; the second little-endian u32 of each row is zero. This is a repeatable candidate layout, not a decoded schema—the prefix and row-field meanings are unknown.
-- All 3,241 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
+- Following those endpoints from each EVNT's `+12` ECHK tag through any next ECHK yields 319 chains, all of which terminate at u32 200. The chain lengths are 1 (309 blocks), 2 (7), and 3 (3), exactly matching the literal u32 at EVNT `+8` in all 319 blocks. The chains cover all 332 ECHK tags: 319 initial tags plus 13 intermediate tags. This is an observed correlation, not an interpretation of the EVNT word.
+- All 332 ECHK `+4` values equal `4 + 20*n` for `n` from 1 to 5. Treating the first four bytes of that region as a prefix and the remainder as `n` 20-byte rows yields 1,066 rows; the second little-endian u32 of each row is zero. Summed by ECHK chain, the candidate row totals per block are `{1: 22, 2: 44, 3: 99, 4: 139, 5: 6, 6: 5, 7: 1, 12: 3}`. This is a repeatable candidate layout, not a decoded schema—the prefix and row-field meanings are unknown.
+- All 3,241 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. All 3,241 `FF FF` candidate markers occur after their block's terminal u32 200; none occur before it or in a block without a valid observed ECHK chain. The smallest distance from the byte immediately after u32 200 to a candidate `FF FF` marker is 34 bytes. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
 
-Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing in this archive. They do **not** decode the blocks' contents, identify the `EVNT + 8` values, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.
+| Literal EVNT `+8` | Blocks | ECHK chain length | Tentative ECHK row totals per block | Candidate spans |
+| ---: | ---: | ---: | --- | ---: |
+| 1 | 309 | 1 | `{1:22, 2:44, 3:99, 4:139, 5:5}` | 3,073 |
+| 2 | 7 | 2 | `{5:1, 6:5, 7:1}` | 148 |
+| 3 | 3 | 3 | `{12:3}` | 20 |
+
+Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing and an ECHK endpoint chain in this archive. They do **not** decode the blocks' contents, identify the `EVNT +8` values or u32 200, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.
 
 ## Companion-file observations (not a format specification)
 

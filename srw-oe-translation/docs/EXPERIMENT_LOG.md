@@ -107,19 +107,21 @@ The 22 `_ext.dat` files are 388 bytes. The scan found 42 Japanese-bearing runs a
 
 **Validation:** Added four synthetic companion-audit tests, including synthetic EDAT/EVNT framing and candidate-within-block cases; the complete suite now has nine passing tests. The local companion scan reproduced the documented counts.
 
-## 2026-10-09 — ECHK endpoint correlation and gameplay-test constraint
+## 2026-10-09 — ECHK chains, candidate ordering, and gameplay-test constraint
 
-**Action:** Rechecked every ECHK marker inside the validated EVNT blocks. For each tag at offset `q`, calculated the endpoint `q + 8 + u32(q + 4)` and classified the bytes at that endpoint without interpreting the payload.
+**Action:** Integrated a bounded `inspect_echk_chain()` probe into the read-only companion audit. Starting at each validated EVNT boundary's `+12` ECHK tag, it follows each observed endpoint `q + 8 + u32(q + 4)` when that endpoint is another ECHK, stopping only when the following little-endian u32 is 200. It reports the evidence without assigning semantic field names.
 
-**Result:** All 332 ECHK endpoints are in-file and match one of two patterns: 13 land on another ECHK tag; 319 land on a following little-endian u32 value of 200. The ECHK `+4` values are 24 (22 occurrences), 44 (45), 64 (111), 84 (149), and 104 (5); each equals `4 + 20*n` for `n=1..5`. Treating the first four bytes of that region as a prefix and the remainder as 20-byte rows yields 1,066 candidate rows, with the second u32 zero in all of them. This is a plausible repeated layout, not a decoded schema or field meaning.
+**Result:** All 319 EVNT blocks have a well-formed observed chain ending at u32 200. Chain lengths 1 (309 blocks), 2 (7), and 3 (3) exactly match EVNT `+8` in every block. The chains cover all 332 ECHK tags: 319 initial tags and 13 intermediate tags. ECHK `+4` sizes remain 24 (22), 44 (45), 64 (111), 84 (149), and 104 (5), all `4 + 20*n` for `n=1..5`; treating each region as a 4-byte prefix plus 20-byte rows yields 1,066 tentative rows with the second u32 zero throughout. Per-block row totals across chains are 1 (22), 2 (44), 3 (99), 4 (139), 5 (6), 6 (5), 7 (1), and 12 (3). These are byte-pattern relationships, not decoded fields.
 
-**Validation:** Added synthetic ECHK endpoint and 20-byte-row shape coverage; all ten tests pass, and the companion audit reproduces the counts on the supplied ZIP.
+Every one of the 3,241 heuristic `FF FF` candidate markers occurs after the terminal u32 200 in its EVNT block; none precedes it or lacks a valid observed chain. The smallest distance from the byte after u32 200 to a marker is 34 bytes. Candidate spans are still heuristic, and this ordering does not validate text boundaries.
+
+**Validation:** Added synthetic chain traversal, malformed/truncated boundary, and candidate-gap tests; the complete suite has twelve passing tests. The archive audit reproduces the chain and marker-order results. No text is printed by the companion auditor.
 
 **Test-access note:** The user cautioned that the game fragment represented by this event data may not be reachable for an in-game insertion test. Do not make reaching that fragment a prerequisite for continued static analysis. Keep byte-exact extraction/rebuild checks separate from visual gameplay QA; if no reachable equivalent uses the same path, record in-game display validation as blocked/unknown rather than relying on an inaccessible scene.
 
 ## Pending
 
-- Inspect ECHK payloads using the verified EVNT block boundaries; do not infer field semantics from matching offsets alone.
+- Characterize ECHK prefix/row values by chain position and EVNT group using exact byte comparisons; do not infer field semantics from matching offsets or overlaps alone.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
 - Record exact source ISO/base-resource hashes before any release/patch test.
