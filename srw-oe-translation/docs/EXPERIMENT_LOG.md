@@ -1,6 +1,6 @@
 # Experiment log
 
-Only user-reported tests are recorded. No game files are stored in this repository.
+User-reported tests and local analysis are recorded here. No game files are in the current tracked tree; the uploaded archive used for analysis is kept only in ignored `local/`.
 
 ## 2026-10-08 — identify outer archive signatures
 
@@ -79,9 +79,23 @@ In both readable examples, the Japanese-looking bytes are followed immediately b
 
 **Interpretation:** The contrast supports the hypothesis that the original scanner may include event/control bytes after a single-NUL text boundary in some records. It is not enough to define the format or replace the scanner yet.
 
+## 2026-10-08 — direct audit of supplied `eventP01.zip`
+
+**Input:** User-supplied ZIP, 162,546 bytes, SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`. ZIP integrity passed; it contains 88 files (22 `.bin` plus 66 companion `.dat` members), 384,320 bytes uncompressed.
+
+**Action:** Audited all BIN members in memory with a Python reproduction of the exploratory `FF FF ... 00 00` CP932 heuristic. The tool prints summary statistics only; optional JSONL export is written under ignored `local/`.
+
+**Result:** 3,241 Japanese-containing candidate spans across the 22 BINs. In 627, the span has a single NUL before the stopping pair; all 627 pre-NUL prefixes contain Japanese and none of the corresponding suffixes do. Frequent suffix byte sequences are recorded in `CANDIDATE_SCAN_AUDIT.md`; they remain uninterpreted.
+
+For `DL102_20.bin`, the audit finds 181 logical candidate spans and 34 embedded CR bytes. The original PowerShell line-formatting step replaced LF but left CR intact, so those CRs add 34 physical output lines: 181 + 34 = 215. This likely explains the reported 215-line file.
+
+All 22 `_ext.dat` members are 388 bytes and contain at least one Japanese run. Their layout, like `_Entry.dat` and `_edit.dat`, remains unknown.
+
+**Validation:** Five synthetic unit tests pass for the read-only audit/export code. No proprietary text or binary assets are included in the committed audit report.
+
 ## Pending
 
-- Check whether another candidate row has a similar control-looking suffix; if so, compare its raw hex window before changing extraction logic.
-- Validate the scanner on more records/files and replace it with a structured extractor that preserves controls and stable IDs.
-- Record actual SHA-256 values for the source ISO and relevant original CPK files before any release/patched-file tests.
+- Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
+- Parse the `_ext.dat`, `_Entry.dat`, and `_edit.dat` relationships.
+- Record exact source ISO/base-resource hashes before any release/patch test.
 - Test a rebuilt archive in a disposable PPSSPP copy only after preserving/validating originals.

@@ -16,11 +16,13 @@ Last updated: 2026-10-08
 2. YACpkTool extracted `imenu01.EDAT` and `eventP01.EDAT`.
 3. The extracted `eventP01` package contained multiple scenario/event files, including `DL102_20.bin` and companion `.dat` files.
 4. Japanese dialogue is visibly present in `DL102_20.bin` when viewed as Shift-JIS/CP932 in Notepad++.
-5. A no-change repack/re-extract cycle of `eventP01` preserved `DL102_20.bin` byte-for-byte: the user compared SHA-256 hashes and reported them identical. The actual digest was not saved.
-6. The candidate text-dump heuristic ran on `DL102_20.bin`, produced 215 output lines, and included the known Japanese substring.
-7. The user reviewed four candidate rows: two readable examples at offsets `0x158C` and `0x1D68`, and two coherent Japanese rows at `0x14E8` and `0x25A8` that end in control-looking suffixes.
-8. Raw hex windows for the noisy rows show a single `00`, then `76 01` / `22 02`, then `00 00`, then `10 00`; the exact meaning of these fields is unknown.
-9. Raw endings of two readable rows show Japanese-looking bytes directly followed by `00 00`; unlike the noisy rows, no code-like bytes occur between those zeros.
+5. A no-change repack/re-extract cycle of `eventP01` was reported to preserve `DL102_20.bin` byte-for-byte. The exact digest from that earlier comparison was not saved; the SHA-256 of the later uploaded sample is recorded in `FILE_INVENTORY.md`.
+6. The user ran the candidate text-dump heuristic on `DL102_20.bin`; it included the known Japanese text and the output file appeared to have 215 lines.
+7. Direct analysis of the supplied archive reproduces 181 Japanese-containing candidate spans in `DL102_20.bin`; 34 embedded CR bytes explain the 215 physical lines because the original formatter replaced LF but not CR.
+8. Four row examples were reviewed: readable candidates at `0x158C` and `0x1D68`, and coherent Japanese candidates at `0x14E8` and `0x25A8` with different post-text byte patterns.
+9. The ZIP is valid and contains 22 BINs; a CP932 heuristic finds 3,241 candidate spans across them, with 627 single-NUL suffix cases whose pre-NUL prefixes all contain Japanese and whose suffixes contain no Japanese.
+10. The clean-row raw endings show Japanese bytes followed immediately by `00 00`; noisy rows instead have `00`, then `76 01` / `22 02`, then `00 00`, then `10 00`. Exact field meanings remain unknown.
+11. A diagnostic JSONL export with 3,241 unique file/offset IDs was generated locally; CP932 text prefixes round-trip exactly, and unknown suffix bytes remain separate. Five synthetic unit tests pass.
 
 ## Not yet demonstrated
 
@@ -30,8 +32,8 @@ Last updated: 2026-10-08
 - It is unknown whether the single `00` after each noisy Japanese line terminates the text, and what `76 01`, `22 02`, `00 00`, or the trailing `10 00` represent.
 - English glyph coverage, line width, wrapping, and longer-string relocation are unknown.
 - The exact image/DLC hashes and completeness/version of every DLC file are not recorded.
-- The candidate scanner has only been run on one BIN and is not a validated full-text extractor. Do not strip its control-looking output.
+- The original PowerShell scan was only run by the user on `DL102_20.bin`; the all-file Python audit uses the same heuristic but is not a validated parser. The `00`/suffix semantics and event structure remain unknown. Do not discard suffix bytes.
 
 ## Immediate next step
 
-Check whether the candidate dump contains another coherent Japanese row with a control-looking suffix. If so, request its offset and a short raw-hex window around the first `00 00`; one additional example can test whether the `00` + code-like bytes + `00 00` pattern repeats. Do not request the full dump or change extraction logic yet. See [`NEXT_STEP.md`](NEXT_STEP.md).
+Map the `_ext.dat` text fields and compare `_Entry.dat`/`_edit.dat` structures with the audited BIN offsets. The local JSONL candidate export is validated structurally but not yet an approved translation table; keep source assets and text outputs under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).

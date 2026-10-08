@@ -1,6 +1,6 @@
-# Local file inventory (reported by user)
+# Local file inventory and archive audit
 
-These are filenames and sizes only; the files themselves are not in Git.
+The user reported the original filenames/sizes. A ZIP of `eventP01` was later supplied for direct local analysis; game files are kept out of the tracked tree, while hashes and findings are recorded here.
 
 ## PPSSPP content directory
 
@@ -53,3 +53,11 @@ Selected member sizes:
 | `SM002.bin` | 1,384 |
 
 The names suggest event/scenario resources, but the naming semantics have not been verified.
+
+## User-supplied `eventP01.zip` analyzed in this session
+
+- ZIP size: 162,546 bytes; SHA-256: `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`.
+- Archive integrity check passed. It contains 88 members: 22 `.bin`, 22 `_edit.dat`, 22 `_Entry.dat`, and 22 `_ext.dat`; total uncompressed size is 384,320 bytes.
+- `DL102_20.bin` is 16,216 bytes; SHA-256: `47536d516a9bf0f12b8cd4ddb6f2d776749955c0b48bda65e95adea6287fb71f`.
+- All 22 `_ext.dat` members are 388 bytes and contain at least one CP932-decoded Japanese run. All `_Entry.dat` sizes are divisible by 64; all `_edit.dat` sizes are divisible by 4. These are observations only, not format interpretations.
+- The ZIP itself is kept only in the ignored local work area, not in the current tracked project tree. Scan details are in `CANDIDATE_SCAN_AUDIT.md`.

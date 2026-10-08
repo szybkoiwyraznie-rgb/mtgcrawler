@@ -24,7 +24,9 @@ User-provided hex for `DL102_20.bin` showed:
 - At `0x05A8`: readable CP932 text starts in the shown sample.
 - Search for the byte sequence corresponding to `自衛隊の軍用レイバー相手に` returned offset `0x05B0`.
 - Japanese lines include byte `0A` line breaks. The first displayed message was followed by `00 00` at `0x060E–0x060F`; another `FF FF` appeared at `0x0626–0x0627` before a further Japanese message.
-- A read-only candidate scanner produced 215 output lines and included the known Japanese substring.
+- A read-only candidate scanner produced an output file that the user reported as 215 lines and included the known Japanese substring.
+- The uploaded `eventP01.zip` was audited locally: 22 `.bin` files yielded 3,241 Japanese-containing candidate spans; 627 have a single `00` before the scanner's `00 00` stop, and all 627 prefixes (but none of their suffixes) contain Japanese under the same CP932 heuristic. Per-file counts are in [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md).
+- For `DL102_20.bin`, the audit found 181 logical candidate spans and 34 embedded CR bytes. The original PowerShell display replacement normalized LF but not CR, so those CRs create 34 extra physical lines; `181 + 34 = 215`. This likely explains the user's reported line count.
 - The user reviewed four candidate rows: readable Japanese at offsets `0x158C` and `0x1D68`; coherent Japanese at `0x14E8` and `0x25A8` was followed in the decoded output by control-looking suffixes.
 - Raw hex around the two noisy rows' first `00 00` pair showed:
   - Candidate `0x14E8`, pair at `0x151E`: `E8-82-DC-82-B5-82-BD-81-48-00-76-01-00-00-10-00`.
@@ -34,7 +36,9 @@ User-provided hex for `DL102_20.bin` showed:
   - Candidate `0x1D68`, pair at `0x1D8A`: `82-AA-82-E9-82-CC-82-A9-81-49-81-48-00-00-C9-00`.
 - In the readable examples, the Japanese-looking bytes are followed immediately by `00 00`. In the two noisy examples, they are followed by `00`, then `76 01` or `22 02`, then `00 00`, then `10 00`. The earlier tentative expectation of an ASCII space byte (`20`) before `76`/`22` was wrong; the raw windows contain `00` there, not `20`.
 
-This comparison strengthens the hypothesis that the current candidate scanner reads past the visible-text boundary in the noisy cases: it only stops on a *pair* of zero bytes, so it includes a single zero and the following `76 01` / `22 02` before reaching `00 00`. A single zero may terminate the Japanese text, with following bytes being event/control data; however, the clean examples end with a zero pair, and the exact format semantics are still unverified. Do not strip or rewrite these bytes.
+This comparison strengthens the hypothesis that the current candidate scanner reads past the visible-text boundary in the noisy cases: it only stops on a *pair* of zero bytes, so it includes a single zero and the following `76 01` / `22 02` before reaching `00 00`. The broader audit found this single-NUL pattern in 627 candidate spans across all 22 `.bin` files, and in every case the prefix before that NUL contains Japanese while the suffix does not. A single zero may therefore mark the visible-text boundary, but record semantics are still unverified. Preserve the suffix bytes separately; do not strip or rewrite them. See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for counts and per-file results.
+
+The same ZIP contains 22 `_ext.dat` files (388 bytes each). A raw NUL-separated scan found 42 CP932 byte runs with Japanese (one or three per file), beginning at raw byte offsets `0x18`, `0xB8`, and/or `0x158`; field layout remains unparsed. All `_Entry.dat` sizes are multiples of 64 and `_edit.dat` sizes are multiples of 4, but these are only structural clues.
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition.
 
@@ -53,6 +57,12 @@ The first candidate-dump script used a single-quoted format string containing ``
 
 ```powershell
 $results.Add(("{0:X4}`t{1}" -f $start, $text))
+```
+
+The same script replaced LF with ` / ` but left CR untouched. The uploaded BIN contains CRLF line endings, which explains the extra physical lines. Normalize CRLF first, then any remaining CR/LF:
+
+```powershell
+$text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 ```
 
 ## Unknowns / risks

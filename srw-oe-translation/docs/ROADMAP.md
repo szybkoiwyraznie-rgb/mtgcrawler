@@ -6,11 +6,14 @@
 - [x] Extract an event package with YACpkTool.
 - [x] Confirm a story/event BIN contains readable Japanese in Shift-JIS/CP932.
 - [x] Confirm unchanged `DL102_20.bin` survives a CPK pack/extract cycle byte-for-byte.
-- [x] Run the candidate string-dump heuristic on `DL102_20.bin`; it found the known text among 215 output lines.
-- [x] Compare two readable and two noisy candidate examples; all contain coherent Japanese, and the noisy examples include a single `00`, code-like bytes, then `00 00`.
-- [x] Compare raw endings of two clean candidates with noisy examples; clean text is directly followed by `00 00`, while noisy rows have `00`, code-like bytes, then `00 00`.
-- [ ] Check one more noisy candidate, if available, before changing the text-boundary heuristic.
-- [ ] Validate marker/terminator assumptions on multiple messages and multiple `.bin` files.
+- [x] Run the user's candidate-dump heuristic on `DL102_20.bin`; it found the known text.
+- [x] Reproduce the `DL102_20` output count: 181 logical candidate spans plus 34 unnormalized CRs explain the reported 215 physical lines.
+- [x] Compare two readable and two noisy candidate examples; readable rows end directly at `00 00`, while noisy rows have `00`, code-like bytes, then `00 00`.
+- [x] Audit all 22 BINs: 3,241 Japanese-containing candidate spans, including 627 single-NUL suffix cases.
+- [x] Inventory confirms all 22 `_ext.dat` files contain CP932-decoded Japanese runs.
+- [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
+- [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
+- [ ] Parse `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and connect them to event text.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.
 
