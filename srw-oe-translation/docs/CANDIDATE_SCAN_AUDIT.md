@@ -86,6 +86,21 @@ A separate read-only probe checks literal tags and little-endian words across al
 
 Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing and an ECHK endpoint chain in this archive. They do **not** decode the blocks' contents, identify the `EVNT +8` values or u32 200, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.
 
+### ECHK row values by chain position and candidate-range overlaps
+
+The companion audit now reports ECHK segments separately by literal EVNT `+8` value and chain position. The u32 at ECHK `+8` is the first word after its tag/size; no field name is assigned. The three-segment chains (`EVNT +8 == 3`) have four 20-byte rows per segment and that first payload u32 is 30 in all nine segments. Within each of the three such blocks, row tuples at zero-based indices 0, 2, and 3 are identical across all three segments. At row index 1 (the second row), columns 0, 1, 3, and 4 remain identical while column 2 differs by segment. This exact repetition is a byte-level pattern, not evidence for what the rows or values mean.
+
+Zero-based column 2 (`c2`) of each tentative 20-byte row was also compared numerically with heuristic candidate ranges in the same BIN. This comparison **does not establish pointer semantics**:
+
+| Literal EVNT `+8` | Rows | c2 values within BIN | Within candidate text prefix | Within full candidate span | Equal candidate start | Candidate span before/same/after owning EVNT block |
+| ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 1 | 988 | 978 | 500 | 502 | 4 | 485 / 11 / 6 |
+| 2 | 42 | 42 | 21 | 21 | 0 | 21 / 0 / 0 |
+| 3 | 36 | 36 | 18 | 18 | 0 | 18 / 0 / 0 |
+| **Total** | **1,066** | **1,056** | **539** | **541** | **4** | **524 / 11 / 6** |
+
+There are 1,021 nonzero c2 values; ten numeric values are at or beyond their paired BIN length. In this overlap table, “full candidate span” means bytes from `Candidate.start` up to but not including the first `00 00` stopping pair; two full-span hits fall in the unvalidated suffix after the first NUL rather than in the proposed text prefix. “Before/same/after” classifies the heuristic candidate span containing the numeric value relative to the EVNT block owning the ECHK row. All matches inherit the scanner's unverified string-boundary limitations; most overlapping values land in candidate spans before the referencing block, but that remains a lead for controlled analysis, not proof that c2 stores an offset.
+
 ## Companion-file observations (not a format specification)
 
 ### `_ext.dat`

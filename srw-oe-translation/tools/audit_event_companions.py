@@ -73,6 +73,7 @@ def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optiona
     chain_length = 0
     total_rows = 0
     segment_sizes = []
+    segments = []
 
     while position + 8 <= block_end and data.startswith(b"ECHK", position):
         size = struct.unpack_from("<I", data, position + 4)[0]
@@ -80,8 +81,22 @@ def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optiona
         if size < 4 or (size - 4) % 20 != 0 or endpoint + 4 > block_end:
             return None
 
+        row_count = (size - 4) // 20
+        rows = [
+            struct.unpack_from("<5I", data, position + 12 + row_index * 20)
+            for row_index in range(row_count)
+        ]
+        segments.append(
+            {
+                "offset": position,
+                "size": size,
+                "row_count": row_count,
+                "leading_u32": struct.unpack_from("<I", data, position + 8)[0],
+                "rows": rows,
+            }
+        )
         chain_length += 1
-        total_rows += (size - 4) // 20
+        total_rows += row_count
         segment_sizes.append(size)
         if data.startswith(b"ECHK", endpoint):
             position = endpoint
@@ -93,6 +108,7 @@ def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optiona
                 "matches_evnt_word": chain_length == evnt_word,
                 "echk_rows": total_rows,
                 "segment_sizes": segment_sizes,
+                "segments": segments,
                 "terminal_offset": endpoint + 4,
             }
         return None
@@ -101,7 +117,7 @@ def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optiona
 
 
 def audit_event_framing(bins: dict[str, bytes]) -> dict:
-    """Check observed EDAT length/count and EVNT block-boundary invariants."""
+    """Check EDAT/EVNT framing and summarize observed ECHK chain/row patterns."""
     edat_length_matches = 0
     edat_event_count_matches = 0
     event_markers = 0
@@ -113,6 +129,7 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
     echk_chain_lengths: Counter[int] = Counter()
     echk_chain_rows_per_block: Counter[int] = Counter()
     echk_chains_by_evnt_word: Counter[int] = Counter()
+    echk_chain_segment_stats: dict[tuple[int, int], dict] = {}
     echk_chain_word_matches = 0
     echk_chain_terminal_200 = 0
     echk_word_at_plus_4: Counter[int] = Counter()
@@ -196,6 +213,25 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
                     echk_chain_rows_per_block[chain["echk_rows"]] += 1
                     echk_chain_word_matches += chain["matches_evnt_word"]
                     echk_chain_terminal_200 += 1
+                    for segment_index, segment in enumerate(chain["segments"]):
+                        segment_key = (chain["evnt_word_at_plus_8"], segment_index)
+                        segment_stats = echk_chain_segment_stats.setdefault(
+                            segment_key,
+                            {
+                                "blocks": 0,
+                                "sizes": Counter(),
+                                "row_counts": Counter(),
+                                "leading_u32_values": Counter(),
+                                "row_columns": [Counter() for _ in range(5)],
+                            },
+                        )
+                        segment_stats["blocks"] += 1
+                        segment_stats["sizes"][segment["size"]] += 1
+                        segment_stats["row_counts"][segment["row_count"]] += 1
+                        segment_stats["leading_u32_values"][segment["leading_u32"]] += 1
+                        for row in segment["rows"]:
+                            for column, value in enumerate(row):
+                                segment_stats["row_columns"][column][value] += 1
 
     return {
         "bins_with_edat_header": bins_with_edat_header,
@@ -214,6 +250,25 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
         "echk_chain_lengths": dict(sorted(echk_chain_lengths.items())),
         "echk_chain_rows_per_block": dict(sorted(echk_chain_rows_per_block.items())),
         "echk_chains_by_evnt_word_at_plus_8": dict(sorted(echk_chains_by_evnt_word.items())),
+        "echk_chain_segments_by_evnt_word_at_plus_8": [
+            {
+                "evnt_word_at_plus_8": word,
+                "chain_position": segment_index,
+                "blocks": stats["blocks"],
+                "size_values": dict(sorted(stats["sizes"].items())),
+                "row_counts": dict(sorted(stats["row_counts"].items())),
+                "leading_u32_values": dict(sorted(stats["leading_u32_values"].items())),
+                "row_columns": [
+                    {
+                        "distinct": len(values),
+                        "zero": values[0],
+                        "common": dict(values.most_common(8)),
+                    }
+                    for values in stats["row_columns"]
+                ],
+            }
+            for (word, segment_index), stats in sorted(echk_chain_segment_stats.items())
+        ],
         "echk_markers": echk_markers,
         "echk_word_at_plus_4": dict(sorted(echk_word_at_plus_4.items())),
         "echk_computed_end_at_echk_marker": echk_end_at_echk_marker,
@@ -240,7 +295,7 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
 def audit_candidate_block_coverage(
     bins: dict[str, bytes], candidates_by_bin: dict[str, list]
 ) -> dict:
-    """Check whether heuristic candidate spans fit wholly inside one EVNT block."""
+    """Check candidate containment and compare tentative ECHK c2 values with heuristic ranges."""
     block_count = 0
     blocks_with_candidates = 0
     blocks_with_candidates_by_word: Counter[int] = Counter()
@@ -250,6 +305,7 @@ def audit_candidate_block_coverage(
     candidate_spans_before_echk_chain = 0
     candidate_spans_without_valid_echk_chain = 0
     minimum_marker_gap_after_echk_chain: Optional[int] = None
+    echk_column_2_candidate_overlap: Counter[str] = Counter()
     groups: dict[int, dict] = {}
 
     for name, data in bins.items():
@@ -291,6 +347,7 @@ def audit_candidate_block_coverage(
                     "candidates_before_echk_chain": 0,
                     "candidates_without_valid_echk_chain": 0,
                     "minimum_candidate_marker_gap": None,
+                    "echk_row_column_2_candidate_overlap": Counter(),
                 },
             )
             group["blocks"] += 1
@@ -322,6 +379,48 @@ def audit_candidate_block_coverage(
                     else:
                         group["candidates_before_echk_chain"] += 1
                         candidate_spans_before_echk_chain += 1
+                for segment in chain["segments"]:
+                    for row_values in segment["rows"]:
+                        value = row_values[2]
+                        prefix_match, full_match, exact_start = _overlap_flags(value, candidates)
+                        full_candidate = next(
+                            (candidate for candidate in candidates
+                             if candidate.start <= value < candidate.pair_offset),
+                            None,
+                        )
+                        if full_candidate is None:
+                            candidate_block_relation = None
+                        elif full_candidate.pair_offset + 2 <= offset:
+                            candidate_block_relation = "prior"
+                        elif offset <= full_candidate.start - 2 and full_candidate.pair_offset + 2 <= block_end:
+                            candidate_block_relation = "same"
+                        elif full_candidate.start - 2 >= block_end:
+                            candidate_block_relation = "later"
+                        else:
+                            candidate_block_relation = "other"
+                        metrics = group["echk_row_column_2_candidate_overlap"]
+                        metrics["rows"] += 1
+                        metrics["nonzero_values"] += value != 0
+                        metrics["values_in_paired_bin"] += value < len(data)
+                        metrics["values_outside_paired_bin"] += value >= len(data)
+                        metrics["inside_candidate_prefix"] += prefix_match
+                        metrics["inside_full_candidate_span"] += full_match
+                        metrics["equal_candidate_start"] += exact_start
+                        for relation in ("prior", "same", "later", "other"):
+                            metrics[f"inside_{relation}_evnt_candidate_span"] += (
+                                candidate_block_relation == relation
+                            )
+                        echk_column_2_candidate_overlap["rows"] += 1
+                        echk_column_2_candidate_overlap["nonzero_values"] += value != 0
+                        echk_column_2_candidate_overlap["values_in_paired_bin"] += value < len(data)
+                        echk_column_2_candidate_overlap["values_outside_paired_bin"] += value >= len(data)
+                        echk_column_2_candidate_overlap["inside_candidate_prefix"] += prefix_match
+                        echk_column_2_candidate_overlap["inside_full_candidate_span"] += full_match
+                        echk_column_2_candidate_overlap["equal_candidate_start"] += exact_start
+                        for relation in ("prior", "same", "later", "other"):
+                            echk_column_2_candidate_overlap[f"inside_{relation}_evnt_candidate_span"] += (
+                                candidate_block_relation == relation
+                            )
             if primary_echk in echk_offsets and primary_echk + 8 <= block_end:
                 primary_size = struct.unpack_from("<I", data, primary_echk + 4)[0]
                 if primary_size >= 4 and (primary_size - 4) % 20 == 0:
@@ -357,6 +456,9 @@ def audit_candidate_block_coverage(
                 "candidates_before_echk_chain": stats["candidates_before_echk_chain"],
                 "candidates_without_valid_echk_chain": stats["candidates_without_valid_echk_chain"],
                 "minimum_candidate_marker_gap": stats["minimum_candidate_marker_gap"],
+                "echk_row_column_2_candidate_overlap": dict(
+                    sorted(stats["echk_row_column_2_candidate_overlap"].items())
+                ),
             }
             for word, stats in sorted(groups.items())
         },
@@ -367,11 +469,12 @@ def audit_candidate_block_coverage(
         "candidate_spans_before_echk_chain": candidate_spans_before_echk_chain,
         "candidate_spans_without_valid_echk_chain": candidate_spans_without_valid_echk_chain,
         "minimum_candidate_marker_gap_after_echk_chain": minimum_marker_gap_after_echk_chain,
+        "echk_row_column_2_candidate_overlap": dict(sorted(echk_column_2_candidate_overlap.items())),
     }
 
 
 def _overlap_flags(value: int, candidates: list) -> tuple[bool, bool, bool]:
-    """Return heuristic text-prefix, full-candidate-span, and exact-start matches."""
+    """Return prefix, pre-stop-pair candidate span, and exact-start matches."""
     prefix_match = False
     candidate_match = False
     exact_start = False
@@ -608,6 +711,19 @@ def print_summary(summary: dict) -> None:
             f"    c{index}: distinct={column['distinct']}, zero={column['zero']}, "
             f"common={_format_counter(column['common'])}"
         )
+    print("  ECHK row observations by chain position (u32 columns unnamed):")
+    for segment in framing["echk_chain_segments_by_evnt_word_at_plus_8"]:
+        print(
+            f"    EVNT+8={segment['evnt_word_at_plus_8']} position={segment['chain_position']}: "
+            f"blocks={segment['blocks']}, sizes={_format_counter(segment['size_values'])}, "
+            f"row_counts={_format_counter(segment['row_counts'])}, "
+            f"u32@ECHK+8={_format_counter(segment['leading_u32_values'])}"
+        )
+        for column_index, column in enumerate(segment["row_columns"]):
+            print(
+                f"      c{column_index}: distinct={column['distinct']}, zero={column['zero']}, "
+                f"common={_format_counter(column['common'])}"
+            )
     print(
         f"Heuristic candidates fully within one EVNT block: "
         f"{coverage['candidate_spans_fully_within_one_evnt_block']}/"
@@ -625,6 +741,31 @@ def print_summary(summary: dict) -> None:
         f"minimum gap from byte after 200="
         f"{coverage['minimum_candidate_marker_gap_after_echk_chain']} bytes"
     )
+    overlap = coverage["echk_row_column_2_candidate_overlap"]
+    print(
+        f"ECHK row c2 numeric overlap with heuristic candidate ranges (not pointer evidence): "
+        f"rows={overlap.get('rows', 0)}, nonzero={overlap.get('nonzero_values', 0)}, "
+        f"in/out_of_BIN={overlap.get('values_in_paired_bin', 0)}/"
+        f"{overlap.get('values_outside_paired_bin', 0)}, "
+        f"text_prefix={overlap.get('inside_candidate_prefix', 0)}, "
+        f"full_span={overlap.get('inside_full_candidate_span', 0)}, "
+        f"exact_start={overlap.get('equal_candidate_start', 0)}, "
+        f"prior/same/later_EVNT={overlap.get('inside_prior_evnt_candidate_span', 0)}/"
+        f"{overlap.get('inside_same_evnt_candidate_span', 0)}/"
+        f"{overlap.get('inside_later_evnt_candidate_span', 0)}"
+    )
+    for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
+        overlap = group["echk_row_column_2_candidate_overlap"]
+        print(
+            f"  EVNT+8={word} c2 rows={overlap.get('rows', 0)}, "
+            f"prefix/full/exact/prior/same/later="
+            f"{overlap.get('inside_candidate_prefix', 0)}/"
+            f"{overlap.get('inside_full_candidate_span', 0)}/"
+            f"{overlap.get('equal_candidate_start', 0)}/"
+            f"{overlap.get('inside_prior_evnt_candidate_span', 0)}/"
+            f"{overlap.get('inside_same_evnt_candidate_span', 0)}/"
+            f"{overlap.get('inside_later_evnt_candidate_span', 0)}"
+        )
     print("EVNT word@+8 groups (grouped literally; meanings unknown):")
     for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
         print(

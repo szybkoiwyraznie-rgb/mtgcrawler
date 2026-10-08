@@ -80,9 +80,28 @@ class CompanionAuditTests(unittest.TestCase):
                 "matches_evnt_word": True,
                 "echk_rows": 1,
                 "segment_sizes": [4, 24],
+                "segments": [
+                    {"offset": 12, "size": 4, "row_count": 0, "leading_u32": 52, "rows": []},
+                    {
+                        "offset": 24,
+                        "size": 24,
+                        "row_count": 1,
+                        "leading_u32": 52,
+                        "rows": [(101, 0, 1200, 1, 0)],
+                    },
+                ],
                 "terminal_offset": len(frame),
             },
         )
+        segment_stats = audit_event_framing({"chain.bin": bytes(frame)})[
+            "echk_chain_segments_by_evnt_word_at_plus_8"
+        ]
+        self.assertEqual(len(segment_stats), 2)
+        self.assertEqual(segment_stats[0]["chain_position"], 0)
+        self.assertEqual(segment_stats[0]["leading_u32_values"], {52: 1})
+        self.assertEqual(segment_stats[0]["row_counts"], {0: 1})
+        self.assertEqual(segment_stats[1]["chain_position"], 1)
+        self.assertEqual(segment_stats[1]["row_columns"][2]["common"], {1200: 1})
         self.assertIsNone(inspect_echk_chain(bytes(frame), 0, len(frame) + 1))
         bad_size = bytearray(frame)
         struct.pack_into("<I", bad_size, 16, 5)
@@ -125,7 +144,7 @@ class CompanionAuditTests(unittest.TestCase):
         data[24:28] = b"ECHK"
         struct.pack_into("<I", data, 28, 24)
         struct.pack_into("<I", data, 32, 52)
-        struct.pack_into("<5I", data, 36, 101, 0, 1200, 1, 0)
+        struct.pack_into("<5I", data, 36, 101, 0, 96, 1, 0)
         struct.pack_into("<I", data, 56, 200)
         data[94:96] = b"\xff\xff"
         data[96 : 96 + len(japanese)] = japanese
@@ -149,6 +168,22 @@ class CompanionAuditTests(unittest.TestCase):
         self.assertEqual(coverage["candidate_spans_before_echk_chain"], 0)
         self.assertEqual(coverage["candidate_spans_without_valid_echk_chain"], 0)
         self.assertEqual(coverage["minimum_candidate_marker_gap_after_echk_chain"], 34)
+        self.assertEqual(
+            coverage["echk_row_column_2_candidate_overlap"],
+            {
+                "rows": 1,
+                "nonzero_values": 1,
+                "values_in_paired_bin": 1,
+                "values_outside_paired_bin": 0,
+                "inside_candidate_prefix": 1,
+                "inside_full_candidate_span": 1,
+                "equal_candidate_start": 1,
+                "inside_prior_evnt_candidate_span": 0,
+                "inside_same_evnt_candidate_span": 1,
+                "inside_later_evnt_candidate_span": 0,
+                "inside_other_evnt_candidate_span": 0,
+            },
+        )
         self.assertEqual(coverage["blocks_with_candidates"], 1)
         self.assertEqual(coverage["blocks_with_candidates_by_evnt_word_at_plus_8"], {1: 1})
         group = coverage["groups_by_evnt_word_at_plus_8"][1]
@@ -161,6 +196,65 @@ class CompanionAuditTests(unittest.TestCase):
         self.assertEqual(group["echk_chain_rows"], {1: 1})
         self.assertEqual(group["candidates_after_echk_chain"], 1)
         self.assertEqual(group["minimum_candidate_marker_gap"], 34)
+        self.assertEqual(
+            group["echk_row_column_2_candidate_overlap"],
+            {
+                "rows": 1,
+                "nonzero_values": 1,
+                "values_in_paired_bin": 1,
+                "values_outside_paired_bin": 0,
+                "inside_candidate_prefix": 1,
+                "inside_full_candidate_span": 1,
+                "equal_candidate_start": 1,
+                "inside_prior_evnt_candidate_span": 0,
+                "inside_same_evnt_candidate_span": 1,
+                "inside_later_evnt_candidate_span": 0,
+                "inside_other_evnt_candidate_span": 0,
+            },
+        )
+
+    def test_echk_column_2_overlap_classifies_prior_and_later_candidate_spans(self):
+        japanese = "日本語".encode("cp932")
+        data = bytearray(148)
+        data[0:4] = b"EDAT"
+        struct.pack_into("<II", data, 4, len(data) - 8, 2)
+
+        data[12:16] = b"EVNT"
+        struct.pack_into("<II", data, 16, 70, 1)
+        data[24:28] = b"ECHK"
+        struct.pack_into("<I", data, 28, 44)
+        struct.pack_into("<I", data, 32, 52)
+        struct.pack_into("<5I", data, 36, 101, 0, 140, 1, 0)
+        struct.pack_into("<5I", data, 56, 101, 0, 0, 0, 0)
+        struct.pack_into("<I", data, 76, 200)
+        data[80:82] = b"\xff\xff"
+        data[82 : 82 + len(japanese)] = japanese
+        data[82 + len(japanese) : 84 + len(japanese)] = b"\x00\x00"
+
+        data[90:94] = b"EVNT"
+        struct.pack_into("<II", data, 94, len(data) - 98, 1)
+        data[102:106] = b"ECHK"
+        struct.pack_into("<I", data, 106, 24)
+        struct.pack_into("<I", data, 110, 52)
+        struct.pack_into("<5I", data, 114, 101, 0, 82, 1, 0)
+        struct.pack_into("<I", data, 134, 200)
+        data[138:140] = b"\xff\xff"
+        data[140 : 140 + len(japanese)] = japanese
+        data[140 + len(japanese) : 142 + len(japanese)] = b"\x00\x00"
+
+        coverage = audit_files({"sample.bin": bytes(data)})["candidate_block_coverage"]
+        overlap = coverage["echk_row_column_2_candidate_overlap"]
+
+        self.assertEqual(coverage["candidate_spans"], 2)
+        self.assertEqual(coverage["candidate_spans_fully_within_one_evnt_block"], 2)
+        self.assertEqual(overlap["rows"], 3)
+        self.assertEqual(overlap["nonzero_values"], 2)
+        self.assertEqual(overlap["inside_candidate_prefix"], 2)
+        self.assertEqual(overlap["inside_full_candidate_span"], 2)
+        self.assertEqual(overlap["equal_candidate_start"], 2)
+        self.assertEqual(overlap["inside_prior_evnt_candidate_span"], 1)
+        self.assertEqual(overlap["inside_same_evnt_candidate_span"], 0)
+        self.assertEqual(overlap["inside_later_evnt_candidate_span"], 1)
 
     def test_candidate_marker_before_echk_terminal_is_not_misclassified(self):
         japanese = "日本語".encode("cp932")
