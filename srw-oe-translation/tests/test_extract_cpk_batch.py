@@ -41,12 +41,49 @@ class BatchCpkExtractionTests(unittest.TestCase):
             self.assertEqual(report["cpk_candidate_count"], 2)
             self.assertEqual(report["unresolved_edat_count"], 1)
             self.assertEqual(report["iso_candidate_count"], 1)
+            self.assertEqual(report["iso_member_cpk_candidate_count"], 0)
+            self.assertEqual(report["unsupported_iso_inventory_count"], 1)
             self.assertFalse(output_root.exists())
             planned_sources = {Path(plan["source"]) for plan in report["plans"]}
             self.assertEqual(planned_sources, set(cpk_files))
             self.assertTrue(
                 all(plan["extract_command"][0] == "-X" for plan in report["plans"])
             )
+
+    def test_iso_member_candidates_are_reported_as_inventory_only(self):
+        inventory = {
+            "entries": [
+                {
+                    "path": "base game.iso",
+                    "iso_inventory": {
+                        "status": "indexed",
+                        "files": [
+                            {
+                                "path": "DATA/ARCHIVE.CPK;1",
+                                "size_bytes": 4096,
+                                "content_type": "cpk_signature",
+                                "extents": [{"lba": 22, "offset_bytes": 45056, "length_bytes": 4096}],
+                            },
+                            {
+                                "path": "DATA/OTHER.BIN;1",
+                                "size_bytes": 12,
+                                "content_type": "other_signature",
+                                "extents": [],
+                            },
+                        ],
+                    },
+                },
+                {"path": "unsupported.iso", "iso_inventory": {"status": "unsupported"}},
+            ]
+        }
+
+        candidates, unsupported = extract_cpk_batch._iso_cpk_candidates(inventory)
+
+        self.assertEqual(unsupported, 1)
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates[0]["iso_path"], "base game.iso")
+        self.assertEqual(candidates[0]["member_path"], "DATA/ARCHIVE.CPK;1")
+        self.assertEqual(candidates[0]["status"], "inventory_only_not_extracted")
 
     def test_execute_uses_arg_list_and_extracts_all_detected_archives(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
@@ -217,7 +254,7 @@ class BatchCpkExtractionTests(unittest.TestCase):
                 )
 
             self.assertEqual(exit_code, 0)
-            self.assertIn("CPK-signature inputs: 1", output.getvalue())
+            self.assertIn("Top-level CPK-signature inputs: 1", output.getvalue())
             self.assertIn(str(tool.resolve()), output.getvalue())
             self.assertFalse(output_from_cli.exists())
             self.assertFalse(output_from_config.exists())
