@@ -99,7 +99,18 @@ Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some
 - Observed: the overflowing member is `PSP_GAME/SYSDIR/EBOOT.BIN` (5,531,024 bytes, LBA 328,961), ending exactly at the file's last byte. `trailing_bytes_after_last_extent` is 0.
 - Observed: cross-checked against the loose folder by leaf name — only `PARAM.SFO` (692 bytes in both) overlaps; 0 of the folder's 290 CPK-signature files share a name with the ISO's 63 CPK-signature members. The ISO uses PSP 00-series names (`bacb00.cpk`, `voice00.awb`); the folder uses 01-series and higher `.EDAT` names (`NPJH50521/bacb01.EDAT`).
 - User-provided context (2026-10-09): the game shipped as a PSP UMD disc with chapter 1 of 8; chapters 2–8 were sold as PSN DLC, and the input folder holds those PSN-downloaded files. So the ISO is the disc's chapter-1 content and the folder is the DLC content — two different data sets by design, not a mismatch. The folder's 20 still-encrypted PSP EDAT inputs (`\x00PSPEDAT`, the `*04` files plus `evept101.EDAT`) are consistent with undecrypted PSN packages; the 27 AFS2 archives are audio.
-- No ISO member is extracted, hashed, or modified.
+- No ISO member is extracted, hashed, or modified by the index itself; the run's read-only member extraction (see the coverage section) writes members into the run folder only.
+
+## Coverage: what the pipeline processes (2026-10-09)
+
+User-provided context: the game shipped as a PSP UMD disc with chapter 1 of 8 (the ISO); chapters 2–8 were sold as PSN DLC (the input folder's files).
+
+- **Processed now (the DLC folder, 290 `.EDAT` files with CPK content):** per-chapter data (bacb, bseq, eventP, evept, face, mesbmp, mesbtl, mov, robo, se, bmp) **and per-chapter menu/config/credit/sprstd** (imenu 01–32, config 01–46, credit 01–19, sprstd 01–19, bmp 01–09) for the decrypted chapters. The DLC chapters carry their own menu/config/credit/sprstd data — the system/menu text is not disc-only.
+- **Text:** 39,103 heuristic units — 25,530 from `eventP*` (chapter dialogue), 13,543 from `evept*`, 30 from `imenu*`; `credit*` and `robo*` contribute 0.
+- **Missing — chapter 1 (on the disc):** `eventP00.cpk` (chapter 1's dialogue), chapter-1 data (bacb00, face00, mesbmp00, mesbtl00, mov00, robo00, bseq00, bmp00, se0000, se4000–4120), and chapter-1 menu/config/credit/sprstd (imenu00, config00, credit00, sprstd00).
+- **Missing — chapter 4 (encrypted in the folder):** the whole `*04` series plus `evept101.EDAT` — 20 still-encrypted PSP EDAT containers. They need decryption by the user (their own purchased packages; these tools do not decrypt EDAT); once decrypted, the pipeline processes them like any input.
+- **Missing — disc-only base/system packages (no folder counterpart):** font, system, tactics, texanm, txa00, u16tbl, navisys, tacsys, taclevup, smap, svicon, logodata, colorlst, bg2d, btlcam, efmodel, eftex00, efclump, cprt0001–4, IM1000/3000/9000, configst, segu01, semv01–15. Whether they contain translatable text is unknown until processed.
+- **Plan to close the gap:** read-only ISO member extraction is wired into the run (the disc's 63 CPK members become packages like any other — chapter 1 and the base system packages in scope; the ISO is never modified, and rebuilding/repacking an ISO stays not automated); the user decrypts the `*04` packages (chapter 4) outside these tools. After both, coverage is all 8 chapters plus the base system packages. No translation exists yet — this phase builds and verifies the extraction tooling; the translation phase starts only after coverage is complete and text boundaries are validated.
 
 ## CPK container structure (one sample: `mesbtl09.EDAT`, 6,272 bytes, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`)
 

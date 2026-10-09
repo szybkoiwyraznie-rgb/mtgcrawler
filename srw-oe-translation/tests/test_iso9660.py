@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
 import extract_cpk_batch  # noqa: E402
 from inventory_local_inputs import inventory_path  # noqa: E402
-from iso9660 import BLOCK_SIZE, Iso9660Error, inspect_iso9660  # noqa: E402
+from iso9660 import BLOCK_SIZE, Iso9660Error, extract_members, inspect_iso9660  # noqa: E402
 
 
 def _both_endian(value, width):
@@ -213,6 +213,35 @@ class Iso9660InventoryTests(unittest.TestCase):
             self.assertEqual(report["entries"][0]["iso_inventory"]["status"], "unsupported")
             self.assertIn("terminator", report["entries"][0]["iso_inventory"]["error"])
             self.assertEqual(report["errors"], [])
+
+    def test_extract_members_writes_bytes_and_strips_version_suffix(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            image_path = Path(temporary_directory) / "synthetic.iso"
+            original = bytes(_synthetic_iso())
+            image_path.write_bytes(original)
+            inventory = inspect_iso9660(image_path)
+            members = [f for f in inventory["files"] if f["path"] == "DATA/ARCHIVE.CPK;1"]
+            output_root = Path(temporary_directory) / "out"
+
+            written = extract_members(image_path, members, output_root)
+
+            self.assertEqual(len(written), 1)
+            target = output_root / "DATA" / "ARCHIVE.CPK"
+            self.assertTrue(target.is_file())
+            self.assertEqual(target.read_bytes(), b"CPK \x01\x02")
+            self.assertEqual(written[0]["size_bytes"], 6)
+            self.assertEqual(image_path.read_bytes(), original)  # the image is unchanged
+
+    def test_extract_members_rejects_unsafe_member_paths(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            image_path = Path(temporary_directory) / "synthetic.iso"
+            image_path.write_bytes(_synthetic_iso())
+            with self.assertRaises(Iso9660Error):
+                extract_members(
+                    image_path,
+                    [{"path": "../evil;1", "extents": [], "size_bytes": 0}],
+                    Path(temporary_directory) / "out",
+                )
 
 
 class Iso9660MutationTests(unittest.TestCase):

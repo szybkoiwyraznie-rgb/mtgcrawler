@@ -10,21 +10,21 @@ Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/r
 
 ## Immediate next step (what the user does next)
 
-The table cross-check is wired (item 50). The next run on the user's PC validates the reader on all real packages. Concrete steps:
+The run now includes read-only ISO member extraction (chapter 1 and the disc's base/system packages join the DLC packages). Concrete steps:
 
 1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/b2a62e8c-mtgcrawler.zip
 2. Unpack it anywhere (for example the Desktop).
 3. Open the unpacked folder, then `srw-oe-translation`, and double-click `RUN_PIPELINE.bat`.
 4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are saved; it only asks again if they move.
-5. Wait about 3–4 minutes (the console window stays open; do not close it).
+5. Wait about 4–6 minutes (the run is longer now: the disc's members are extracted and processed too). Keep the console window open.
 6. In `D:\SRW_OE_out`, find the new run folder (named with the date, for example `20261009-XXXXXX`).
 7. Open `REPORT.txt` inside it, copy the whole content, and paste it back to the agent.
 8. Optional: to give the agent more detail, zip `registry.json` from the same run folder and upload it.
 9. The old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB).
 
-What the agent does with it: the report's `CPK table check` line says how many of the 377 packages' TOC tables agree with their listings — that validates the table reader on all real packages and targets the duplicate-name recovery. After that: promote the table check to fail-closed if the run agrees, and recover the 1,111 hidden duplicate-name entries (206,898,244 bytes; 902 uncompressed readable by offset, 209 compressed needing a Layla decompressor or the converter).
+What the agent does with it: the report's `CPK table check` line validates the table reader on all real packages (DLC plus disc), and the ISO line shows the extracted disc members (chapter 1 in scope). Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools — the next run then covers all 8 chapters. After that: promote the table check to fail-closed if the run agrees, and recover the 1,111 hidden duplicate-name entries (206,898,244 bytes; 902 uncompressed readable by offset, 209 compressed needing a Layla decompressor or the converter).
 
-Keep repack, write-back, insertion, and ISO processing blocked.
+Keep repack, write-back, insertion, and ISO rebuilding blocked.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 

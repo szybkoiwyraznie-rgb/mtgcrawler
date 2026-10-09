@@ -21,6 +21,7 @@ MAX_VOLUME_DESCRIPTORS = 64
 MAX_DIRECTORY_DEPTH = 64
 MAX_DIRECTORY_ENTRIES = 1_000_000
 CPK_SIGNATURE = b"CPK "
+CHUNK_SIZE = 1024 * 1024
 
 
 class Iso9660Error(ValueError):
@@ -256,6 +257,55 @@ def _identifier_text(identifier: bytes) -> str:
         identifier,
         safe="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-~;$",
     )
+
+
+def _target_relative(member_path: str) -> str:
+    """Member path without the ISO9660 ';version' suffix, safe for the output tree."""
+    name = member_path.split(";", 1)[0]
+    if name.startswith("/") or "\\" in name:
+        raise Iso9660Error(f"Invalid ISO9660 member path: {member_path!r}")
+    parts = [part for part in name.split("/") if part]
+    if not parts or any(part in (".", "..") for part in parts):
+        raise Iso9660Error(f"Invalid ISO9660 member path: {member_path!r}")
+    return "/".join(parts)
+
+
+def extract_members(
+    image: Path, members: list[dict[str, object]], output_root: Path
+) -> list[dict[str, object]]:
+    """Read-only extraction of selected members into output_root.
+
+    Each member is written to `output_root/<member path without the ';version'
+    suffix>`. The image is opened read-only and never modified. Raises
+    Iso9660Error on any structural or read problem (fail closed).
+    """
+    image = image.expanduser().resolve(strict=True)
+    if not image.is_file():
+        raise Iso9660Error("ISO9660 input is not a regular file")
+    written: list[dict[str, object]] = []
+    with image.open("rb") as stream:
+        for member in members:
+            member_path = str(member.get("path", ""))
+            target = output_root / _target_relative(member_path)
+            total = 0
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with target.open("wb") as out:
+                for extent in member.get("extents", []):  # type: ignore[union-attr]
+                    offset = int(extent["offset_bytes"])
+                    length = int(extent["length_bytes"])
+                    remaining = length
+                    while remaining > 0:
+                        stream.seek(offset + (length - remaining))
+                        chunk = stream.read(min(CHUNK_SIZE, remaining))
+                        if not chunk:
+                            raise Iso9660Error(f"Truncated read for ISO9660 member {member_path!r}")
+                        out.write(chunk)
+                        remaining -= len(chunk)
+                    total += length
+            if total != int(member.get("size_bytes", total)):
+                raise Iso9660Error(f"ISO9660 member {member_path!r} size mismatch")
+            written.append({"member_path": member_path, "target": target, "size_bytes": total})
+    return written
 
 
 def inspect_iso9660(path: Path) -> dict[str, object]:

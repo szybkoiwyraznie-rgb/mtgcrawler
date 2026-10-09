@@ -644,7 +644,7 @@ class RunPipelineTests(PipelineFixture):
         iso_rows = [row for row in registry["inputs"] if row["content_type"] == "iso9660_pvd_signature"]
         self.assertEqual(iso_rows[0]["iso_inventory"]["file_count"], 7)
         not_processed = " | ".join(registry["not_processed"])
-        self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside (not extracted)", not_processed)
+        self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside", not_processed)
 
     def test_report_notes_iso_member_extents_beyond_the_descriptor_volume(self):
         self.write_standard_inputs()
@@ -810,6 +810,107 @@ class RunPipelineTests(PipelineFixture):
         report = Path(result.report_path).read_text(encoding="utf-8")
         self.assertIn("CPK table check mismatches (report-only; up to 3 shown)", report)
         self.assertIn("listing size 4 != TOC ExtractSize 3", report)
+
+    def _iso_member(self, size):
+        return {
+            "path": "PSP_GAME/USRDIR/disc00.cpk;1",
+            "size_bytes": size,
+            "content_type": "cpk_signature",
+            "extent_count": 1,
+            "extents": [
+                {"lba": 22, "extended_attribute_blocks": 0, "offset_bytes": 22 * 2048, "length_bytes": size}
+            ],
+        }
+
+    def _patched_iso_inventory(self, member):
+        real_inventory = run_pipeline.inventory_path
+
+        def patched_inventory(path):
+            inventory = real_inventory(path)
+            for entry in inventory["entries"]:
+                if entry["content_type"] == "iso9660_pvd_signature":
+                    entry["iso_inventory"] = {
+                        "status": "indexed",
+                        "file_count": 1,
+                        "directory_count": 1,
+                        "cpk_signature_count": 1,
+                        "files": [member],
+                        "directories": [],
+                        "warnings": [],
+                        "extents_beyond_volume": 0,
+                        "max_extent_overflow_bytes": 0,
+                        "last_extent_end_bytes": 0,
+                        "trailing_bytes_after_last_extent": 0,
+                        "image_bytes": 0,
+                        "volume_bytes": 0,
+                    }
+            return inventory
+
+        return patched_inventory
+
+    def test_iso_cpk_members_are_extracted_read_only_and_processed(self):
+        self.write_standard_inputs()
+        # Distinct content, so the disc member is not deduplicated against the loose files.
+        iso_cpk = make_cpk({"disc00.bin": self.bin_data, "note.txt": b"disc member"})
+        member = self._iso_member(len(iso_cpk))
+
+        def fake_extract(image, members, output_root):
+            target = output_root / "PSP_GAME" / "USRDIR" / "disc00.cpk"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(iso_cpk)
+            return [
+                {
+                    "member_path": member["path"],
+                    "target": target,
+                    "size_bytes": len(iso_cpk),
+                }
+            ]
+
+        with patch.object(run_pipeline, "inventory_path", self._patched_iso_inventory(member)), patch.object(
+            run_pipeline.iso9660, "extract_members", fake_extract
+        ):
+            result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        iso_packages = [p for p in registry["packages"] if p["source_path"].startswith("iso/")]
+        self.assertEqual(len(iso_packages), 1)
+        self.assertTrue(iso_packages[0]["source_path"].startswith("iso/base_game/"))
+        self.assertTrue(iso_packages[0]["source_path"].endswith("disc00.cpk"))
+        self.assertEqual(iso_packages[0]["status"], "extracted")
+        self.assertEqual(iso_packages[0]["listing_check"]["status"], "verified")
+        self.assertEqual(registry["summary"]["iso_members_extracted"], 1)
+        self.assertEqual(registry["input"]["iso_cpk_member_count"], 1)
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("1 CPK-signature members extracted read-only into iso/", report)
+        self.assertIn("ISO members extracted read-only: 1", report)
+        self.assertTrue((result.run_dir / "iso").is_dir())
+
+    def test_unsupported_iso_index_extracts_nothing_and_does_not_fail(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertFalse([p for p in registry["packages"] if p["source_path"].startswith("iso/")])
+        self.assertEqual(registry["summary"]["iso_members_extracted"], 0)
+        self.assertIn("ISO image not processed", " | ".join(registry["not_processed"]))
+
+    def test_iso_member_extraction_failure_fails_the_run_closed(self):
+        self.write_standard_inputs()
+        member = self._iso_member(10)
+
+        def broken_extract(image, members, output_root):
+            raise run_pipeline.iso9660.Iso9660Error("boom")
+
+        with patch.object(run_pipeline, "inventory_path", self._patched_iso_inventory(member)), patch.object(
+            run_pipeline.iso9660, "extract_members", broken_extract
+        ):
+            result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "error")
+        self.assertTrue(any("boom" in failure for failure in self.registry(result)["failures"]))
 
     def test_source_changed_during_extraction_is_detected_and_output_removed(self):
         self.write_standard_inputs()

@@ -700,9 +700,37 @@ Final SHA-256: `tools/run_pipeline.py` `14a8a0a1a473b8bcf9e79b842c284688d5cee66e
 
 **Not demonstrated:** the wired cross-check on real packages (the next run); promotion to fail-closed; the recovery of the hidden entries.
 
+## 2026-10-09 — coverage analysis: what the pipeline processes, and what is missing
+
+**Question (from the user):** the ISO is the PSP UMD disc with chapter 1 of 8; the folder holds the PSN DLC (chapters 2–8). Does the current run cover the whole game — chapter 1, system/menu/dictionaries?
+
+**Analysis (from the fifth run's registry and the ISO inventory):**
+
+- Processed now (the DLC folder, 290 `.EDAT` files with CPK content): per-chapter data (bacb, bseq, eventP, evept, face, mesbmp, mesbtl, mov, robo, se, bmp) **and per-chapter menu/config/credit/sprstd** (imenu 01–32, config 01–46, credit 01–19, sprstd 01–19, bmp 01–09) for the decrypted chapters. So the DLC chapters carry their own menu/config/credit/sprstd data — the system/menu text is not disc-only.
+- Text: 39,103 heuristic units — 25,530 from `eventP*` (chapter dialogue), 13,543 from `evept*`, 30 from `imenu*`; `credit*` and `robo*` contribute 0.
+- Missing — chapter 1 (on the disc): `eventP00.cpk` (chapter 1's dialogue), chapter-1 data (bacb00, face00, mesbmp00, mesbtl00, mov00, robo00, bseq00, bmp00, se0000, se4000–4120), and chapter-1 menu/config/credit/sprstd (imenu00, config00, credit00, sprstd00).
+- Missing — chapter 4 (encrypted in the folder): the whole `*04` series (eventP04, imenu04, config04, credit04, sprstd04, bacb04, bmp04, bseq04, face04, mesbmp04, mesbtl04, robo04, se44xx, BgmSet04) plus `evept101.EDAT` — 20 still-encrypted PSP EDAT containers. They need decryption by the user (their own purchased packages; these tools do not decrypt EDAT); once decrypted, the pipeline processes them like any input.
+- Missing — disc-only base/system packages (no folder counterpart): font, system, tactics, texanm, txa00, u16tbl, navisys, tacsys, taclevup, smap, svicon, logodata, colorlst, bg2d, btlcam, efmodel, eftex00, efclump, cprt0001–4, IM1000/3000/9000, configst, segu01, semv01–15. Whether they contain translatable text is unknown until processed.
+
+**Answer:** the user is right — the current run does not cover chapter 1 or the disc-only base/system packages (and chapter 4 is encrypted). No translation exists yet: this phase builds and verifies the extraction tooling, and the translation phase starts only after coverage is complete. To close the gap: (1) read-only ISO member extraction is wired into the run (next entry) so the disc's 63 CPK members are processed like any package; (2) the user decrypts the `*04` packages outside these tools. After both, coverage is all 8 chapters plus the base system packages.
+
+## 2026-10-09 — read-only ISO member extraction wired into the run
+
+**Action:** `tools/iso9660.py` gains `extract_members(image, members, output_root)`: read-only extraction of selected members into an output tree (member paths lose the ISO9660 `;version` suffix; unsafe paths are rejected; any structural or read problem raises `Iso9660Error`; the image is opened read-only and never modified). `run_pipeline.py` extracts every ISO's CPK-signature members into the run folder's `iso/` directory before the probe, so they are probe candidates and are extracted, listing-checked, table-checked, and text-exported like any input package. The preflight free-space estimate now includes the ISO member bytes; the report's ISO line and the Extraction section state how many members were extracted (and that the image is never modified); the registry records `input.iso_cpk_member_count/bytes` and summary `iso_members_extracted/iso_member_bytes_extracted`.
+
+**Safety:** extraction writes only under the run folder; the input ISO is read-only; an extraction failure fails the run closed. Rebuilding or repacking an ISO is still not automated.
+
+**Tests:** 161 OK. New: `extract_members` (bytes written, version suffix stripped, image unchanged, unsafe paths rejected) and pipeline integration (indexed ISO members are extracted read-only and processed as packages — extracted, listing-verified, text-exported; an unsupported index extracts nothing and does not fail; an extraction failure fails the run closed).
+
+Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f67aaaea0a99dec4c872`; `tools/run_pipeline.py` `efe71d9492c4a16e0ba3b98783b680c864d4a9c0600e89eedbffdd6c32698f48`; `tests/test_iso9660.py` `0d6a8e2c839df1df8b4175556d4903974e6d77cb5060d888395bc1e5f6cfedf0`; `tests/test_run_pipeline.py` `aa0d0dafcd3a1331854539be308bf1d257adc588105322172ffb15e518163feb`.
+
+**Not demonstrated:** the extraction on the user's real ISO (the next run); whether the disc's base/system packages contain translatable text; chapter 4 until the user decrypts it; any repack, insertion, or in-game result.
+
 ## Pending
 
-- Run the one-click tool on the user's PC with the wired table cross-check and read the report's `CPK table check` line: it validates the reader against all 377 real packages and confirms the TOC row order against the listing row order. Then decide whether to promote the table check to fail-closed.
+- Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
+- The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the pipeline then processes them on the next run.
+- Then decide whether to promote the table check to fail-closed.
 - Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): for each duplicate-name package, read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
 - Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.

@@ -51,6 +51,7 @@ sys.path.insert(0, str(TOOLS_DIR))
 import extract_cpk_batch  # noqa: E402  (converter discovery, shared with the dry-run driver)
 import extract_event_text  # noqa: E402  (text export, verification, read-back)
 import cpk_table  # noqa: E402  (read-only CPK table cross-check)
+import iso9660  # noqa: E402  (read-only ISO9660 member extraction)
 from inventory_local_inputs import inventory_path  # noqa: E402
 
 RUN_SCHEMA = "srw-oe-local-run/1"
@@ -77,8 +78,8 @@ POSIX_SAFE_PATH_RE = re.compile(r"/(?:[A-Za-z0-9._~-]+/)*[A-Za-z0-9._~-]*")
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 
 KNOWN_GAPS = (
-    "ISO adapter: not implemented; ISO images are reported (PVD facts plus a read-only member index) "
-    "but never unpacked.",
+    "ISO adapter: read-only member extraction into the run folder is automated (the image is never "
+    "modified); rebuilding or repacking an ISO image is not automated.",
     "Repack and write-back: disabled; the repack gate only checks CPK member round trips.",
     "Completeness: each package's files are compared with its -L listing by entry count and, when "
     "the listing prints file names, by name and size; without a filename column the converter "
@@ -654,6 +655,44 @@ def table_check(source: Path, listing_text: Optional[str]) -> dict[str, Any]:
     }
 
 
+def _extract_iso_members(run: "Run", entries: list[dict[str, Any]]) -> list[WorkItem]:
+    """Extract CPK-signature ISO members read-only into the run folder's `iso/` directory.
+
+    The image is never modified. Extracted members are returned as work items so they
+    are probed, extracted, listing-checked, and text-exported like any input package.
+    """
+    items: list[WorkItem] = []
+    for entry in entries:
+        if entry["content_type"] != "iso9660_pvd_signature":
+            continue
+        inventory = entry.get("iso_inventory") or {}
+        if inventory.get("status") != "indexed":
+            continue
+        members = [f for f in inventory.get("files", []) if f["content_type"] == "cpk_signature"]
+        if not members:
+            continue
+        image = run.input_root.joinpath(*entry["path"].split("/"))
+        stem = safe_stem(entry["path"])
+        target_root = run.iso_dir / stem
+        run.say(f"  {entry['path']}: extracting {len(members)} CPK-signature members read-only into iso/")
+        written = iso9660.extract_members(image, members, target_root)
+        for item in written:
+            target = Path(item["target"])
+            relative = target.relative_to(target_root).as_posix()
+            items.append(
+                WorkItem(
+                    path=target,
+                    display_path=f"iso/{stem}/{relative}",
+                    name=target.name,
+                    sha256=_sha256_file(target),
+                    size=target.stat().st_size,
+                    depth=0,
+                    parent_package=None,
+                )
+            )
+    return items
+
+
 def _head_hex(path: Path, count: int = 32) -> Optional[str]:
     """First bytes of an unrecognized input, as hex. Read only, for identification; nothing is decoded."""
     try:
@@ -919,6 +958,7 @@ class Run:
         self.packages_dir = run_dir / "packages"
         self.text_dir = run_dir / "text"
         self.gates_dir = run_dir / "gates"
+        self.iso_dir = run_dir / "iso"
         self.timeout_seconds = timeout_seconds
         self.say = say
         self.naming_mode: Optional[str] = None
@@ -1388,16 +1428,36 @@ def run_pipeline(
         unique_cpk.setdefault(entry["sha256"], entry)
     cpk_total_bytes = sum(entry["size_bytes"] for entry in unique_cpk.values())
     iso_count = sum(entry["content_type"] == "iso9660_pvd_signature" for entry in entries)
+    iso_member_count = 0
+    iso_member_bytes = 0
+    for entry in entries:
+        if entry["content_type"] != "iso9660_pvd_signature":
+            continue
+        iso_inventory = entry.get("iso_inventory") or {}
+        if iso_inventory.get("status") != "indexed":
+            continue
+        for member in iso_inventory.get("files", []):
+            if member["content_type"] == "cpk_signature":
+                iso_member_count += 1
+                iso_member_bytes += member["size_bytes"]
+    iso_note = f"; ISO CPK members: {iso_member_count} ({iso_member_bytes} bytes)" if iso_member_count else ""
     say(
         f"  {inventory['file_count']} files; {len(cpk_entries)} CPK signatures "
-        f"({len(unique_cpk)} unique); ISO images: {iso_count}"
+        f"({len(unique_cpk)} unique); ISO images: {iso_count}{iso_note}"
     )
 
     run_id = run_id or _default_run_id(base)
     run_dir = base / run_id
     run_dir.mkdir(parents=True, exist_ok=False)
     run = Run(tool=None, input_root=input_root, run_dir=run_dir, timeout_seconds=timeout_seconds, say=say)
-    for folder in (run.logs_dir, run.staging_dir, run.packages_dir, run.text_dir, run.gates_dir):
+    for folder in (
+        run.logs_dir,
+        run.staging_dir,
+        run.packages_dir,
+        run.text_dir,
+        run.gates_dir,
+        run.iso_dir,
+    ):
         folder.mkdir(parents=True, exist_ok=True)
     started = dt.datetime.now().astimezone()
 
@@ -1435,7 +1495,11 @@ def run_pipeline(
             failures.append("converter SHA-256 differs from expected_tool_sha256; refusing to run it")
         if not converter_info["companion_dll_present"]:
             warnings.append("CpkMaker.dll was not found beside the converter; extraction will likely fail")
-        needed = (FREE_SPACE_FACTOR * cpk_total_bytes + FREE_SPACE_MARGIN_BYTES) if cpk_total_bytes else 0
+        needed = (
+            FREE_SPACE_FACTOR * (cpk_total_bytes + iso_member_bytes) + FREE_SPACE_MARGIN_BYTES
+            if (cpk_total_bytes or iso_member_bytes)
+            else 0
+        )
         free = free_bytes(base)
         if free < needed:
             failures.append(
@@ -1456,8 +1520,11 @@ def run_pipeline(
             say("Preflight only: no converter call was made; nothing was extracted.")
             probe = {"status": "not_run", "reason": "preflight only"}
             gate = {"status": "not_run", "reason": "preflight only"}
-        elif cpk_entries:
+        elif cpk_entries or iso_member_count:
             say("Stage 4/8 probe: finding a converter mode that extracts the smallest CPK")
+            # Read-only ISO member extraction first, so the disc's CPK members can be
+            # probe candidates and are processed like any input package.
+            iso_items = _extract_iso_members(run, entries)
             candidates = [
                 Candidate(
                     relpath=entry["path"],
@@ -1468,6 +1535,17 @@ def run_pipeline(
                 )
                 for entry in sorted(unique_cpk.values(), key=lambda item: (item["size_bytes"], item["path"]))
             ]
+            candidates += [
+                Candidate(
+                    relpath=item.display_path,
+                    path=item.path,
+                    name=item.name,
+                    size=item.size,
+                    sha256=item.sha256,
+                )
+                for item in iso_items
+            ]
+            candidates.sort(key=lambda item: (item.size, item.relpath))
             probe = run.probe(candidates)
             if probe["status"] != "passed":
                 raise SetupError("converter probe failed: " + probe["reason"])
@@ -1487,7 +1565,7 @@ def run_pipeline(
                 )
                 for entry in sorted(cpk_entries, key=lambda item: item["path"])
             ]
-            packages = run.extract_all(top_level)
+            packages = run.extract_all(top_level + iso_items)
             say("Stage 6/8 text: export and verify event text for each extracted package")
             say("Stage 7/8 gate: repack the smallest extracted package with non-empty members and compare member hashes")
             gate_candidates = sorted(
@@ -1548,12 +1626,16 @@ def run_pipeline(
         if category == "iso_not_processed":
             iso_facts = _iso_facts(input_root.joinpath(*entry["path"].split("/")), entry["size_bytes"])
             index_note = ""
+            members_note = ""
             iso_inventory = entry.get("iso_inventory")
             if isinstance(iso_inventory, dict) and iso_inventory.get("status") == "indexed":
+                cpk_members = [
+                    f for f in iso_inventory.get("files", []) if f["content_type"] == "cpk_signature"
+                ]
                 index_note = (
                     f"; read-only index: {iso_inventory.get('file_count')} files, "
                     f"{iso_inventory.get('directory_count')} directories, "
-                    f"{iso_inventory.get('cpk_signature_count')} CPK signatures inside (not extracted)"
+                    f"{iso_inventory.get('cpk_signature_count')} CPK signatures inside"
                 )
                 beyond = iso_inventory.get("extents_beyond_volume") or 0
                 if beyond:
@@ -1563,11 +1645,16 @@ def run_pipeline(
                         f"{iso_inventory.get('image_bytes', 0) - iso_inventory.get('volume_bytes', 0)} "
                         "bytes longer than its descriptor)"
                     )
+                if cpk_members:
+                    members_note = (
+                        f"; {len(cpk_members)} CPK-signature members extracted read-only into iso/ "
+                        f"({sum(f['size_bytes'] for f in cpk_members)} bytes; the image is never modified)"
+                    )
             elif isinstance(iso_inventory, dict) and iso_inventory.get("status") == "unsupported":
                 index_note = f"; read-only index failed: {str(iso_inventory.get('error'))[:200]}"
             not_processed.append(
-                f"{entry['path']}: ISO image not processed (no validated ISO adapter); "
-                f"{_iso_summary(iso_facts)}{index_note}"
+                f"{entry['path']}: ISO image not processed as a container (no ISO adapter for rebuilding); "
+                f"{_iso_summary(iso_facts)}{index_note}{members_note}"
             )
         elif category == "zip_not_processed":
             not_processed.append(f"{entry['path']}: ZIP archive not processed by this pipeline")
@@ -1637,6 +1724,8 @@ def run_pipeline(
             "changed_entries": changes[:50],
             "cpk_unique_count": len(unique_cpk),
             "cpk_total_bytes_unique": cpk_total_bytes,
+            "iso_cpk_member_count": iso_member_count,
+            "iso_cpk_member_bytes": iso_member_bytes,
         },
         "probe": probe,
         "inputs": input_rows,
@@ -1690,6 +1779,12 @@ def _summary(packages: list[dict[str, Any]], gate: dict[str, Any], probe: dict[s
         ),
         "table_no_listing": sum(
             (package.get("table_check") or {}).get("status") == "no_listing" for package in packages
+        ),
+        "iso_members_extracted": sum(
+            package["source_path"].startswith("iso/") for package in packages
+        ),
+        "iso_member_bytes_extracted": sum(
+            package["source_size_bytes"] for package in packages if package["source_path"].startswith("iso/")
         ),
         "gate_status": gate.get("status"),
     }
@@ -1812,6 +1907,11 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
         f"agree {summary['table_agree']}, mismatch {summary['table_mismatch']}, "
         f"unreadable {summary['table_unreadable']}, no listing {summary['table_no_listing']}"
     )
+    if summary.get("iso_members_extracted"):
+        notes.append(
+            f"  ISO members extracted read-only: {summary['iso_members_extracted']} "
+            f"({summary['iso_member_bytes_extracted']} bytes) into iso/ (the image is never modified)"
+        )
     return notes
 
 
