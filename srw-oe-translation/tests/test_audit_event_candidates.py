@@ -95,6 +95,19 @@ class CandidateAuditTests(unittest.TestCase):
         self.assertIn("prefix_not_strict_cp932", record["quality_flags"])
         self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
 
+    def test_reports_nested_start_after_nul_as_alternative_not_a_candidate(self):
+        japanese = "日本語".encode("cp932")
+        data = b"\xff\xffASCII\x00\xff\xff" + japanese + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["nested_marker_alternative_starts"], 1)
+        self.assertEqual(stats["nested_alternative_prefixes_with_wide_japanese"], 1)
+        self.assertEqual(stats["nested_alternative_matches_not_in_parent_prefix"], 1)
+        self.assertEqual(stats["nested_markers_after_outer_first_nul"], 1)
+        self.assertEqual(stats["suffix_only_japanese_matches"], 1)
+
     def test_does_not_promote_halfwidth_katakana_in_suffix_to_text(self):
         halfwidth_katakana = "ｶ".encode("cp932")
         data = b"\xff\xffASCII\x00" + halfwidth_katakana + b"\x00\x00"

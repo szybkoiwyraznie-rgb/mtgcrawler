@@ -58,6 +58,18 @@ def _marker_count(data: bytes, marker: bytes) -> int:
         position += 1
 
 
+def _marker_positions(data: bytes, marker: bytes) -> list[int]:
+    """Return marker starts, including overlapping positions."""
+    positions = []
+    position = 0
+    while True:
+        position = data.find(marker, position)
+        if position < 0:
+            return positions
+        positions.append(position)
+        position += 1
+
+
 def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int, int, int]:
     """Decode a proposed prefix and report reversibility and script/codepoint counts."""
     text = prefix.decode("cp932", errors="replace")
@@ -122,7 +134,8 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
             continue
 
         stats["nonempty_bounded_spans"] += 1
-        nested_markers = _marker_count(raw, b"\xff\xff")
+        nested_positions = _marker_positions(raw, b"\xff\xff")
+        nested_markers = len(nested_positions)
         stats["nested_ff_ff_markers_in_spans"] += nested_markers
         stats["spans_with_nested_ff_ff"] += nested_markers > 0
         try:
@@ -150,7 +163,26 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
             private_use_codepoints,
             control_codepoints,
         ) = _prefix_quality(text_bytes)
-        if not JAPANESE_RE.search(text):
+        outer_prefix_has_japanese = bool(JAPANESE_RE.search(text))
+        for nested_position in nested_positions:
+            inner_raw = raw[nested_position + 2 :]
+            inner_nul = inner_raw.find(b"\x00")
+            inner_prefix = inner_raw if inner_nul < 0 else inner_raw[:inner_nul]
+            inner_text = inner_prefix.decode("cp932", errors="replace")
+            inner_wide_match = bool(WIDE_JAPANESE_RE.search(inner_text))
+            inner_halfwidth_match = bool(HALFWIDTH_KATAKANA_RE.search(inner_text))
+            inner_any_match = inner_wide_match or inner_halfwidth_match
+            stats["nested_marker_alternative_starts"] += 1
+            stats["nested_alternative_prefixes_with_wide_japanese"] += inner_wide_match
+            stats["nested_alternative_prefixes_with_halfwidth_katakana"] += inner_halfwidth_match
+            stats["nested_alternative_prefixes_with_any_japanese"] += inner_any_match
+            stats["nested_alternative_matches_not_in_parent_prefix"] += (
+                inner_any_match and not outer_prefix_has_japanese
+            )
+            stats["nested_markers_after_outer_first_nul"] += (
+                first_nul >= 0 and nested_position > first_nul
+            )
+        if not outer_prefix_has_japanese:
             stats["non_japanese_prefixes"] += 1
             stats["suffix_only_japanese_matches"] += bool(JAPANESE_RE.search(decoded))
             i = pair_offset + 1
@@ -368,6 +400,14 @@ def main(argv: Optional[list[str]] = None) -> int:
         f"non-newline controls={scan_stats['prefixes_with_nonnewline_controls']}, "
         f"one Japanese codepoint={scan_stats['prefixes_with_one_japanese_codepoint']}, "
         f"halfwidth-Katakana-only match={scan_stats['prefixes_matched_only_by_halfwidth_katakana']}"
+    )
+    print(
+        "Nested-marker alternate starts (not auto-emitted): "
+        f"{scan_stats['nested_marker_alternative_starts']}; inner-prefix wide-script="
+        f"{scan_stats['nested_alternative_prefixes_with_wide_japanese']}, "
+        f"half-width={scan_stats['nested_alternative_prefixes_with_halfwidth_katakana']}, "
+        f"matches absent from parent prefix={scan_stats['nested_alternative_matches_not_in_parent_prefix']}, "
+        f"after parent first NUL={scan_stats['nested_markers_after_outer_first_nul']}"
     )
     print(f"Spans with a single NUL before the stopping 00 00: {single_nul_rows}")
     print(f"Those pre-NUL prefixes containing Japanese-script characters: {prefix_japanese_rows}")
