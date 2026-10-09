@@ -652,9 +652,27 @@ Final SHA-256: `tools/iso9660.py` `cf9954cbdec66219f17073de2632b27d6ab4897a61888
 - `SRW OE 1.08.iso` is a **PSP UMD image**: members under `PSP_GAME/` (`ICON0.PNG`, `PARAM.SFO`, `PIC1.PNG`, `SND0.AT3`, `SYSDIR/BOOT.BIN`, `SYSDIR/EBOOT.BIN`, `SYSDIR/UPDATE/DATA.BIN`, `USRDIR/*.cpk`, `USRDIR/*.awb`, `USRDIR/module/*.prx`) plus `UMD_DATA.BIN`. 80 files, 6 directories, 63 CPK-signature members.
 - The overflowing member is `PSP_GAME/SYSDIR/EBOOT.BIN` (5,531,024 bytes, LBA 328,961): its extent ends exactly at the file's last byte, 5,533,072 bytes beyond the PVD's declared volume. The descriptor understates the volume by exactly that member's tail; the image is complete. `trailing_bytes_after_last_extent` is 0.
 - Cross-check against the loose folder by leaf name: of the ISO's 78 distinct member names, exactly 1 (`PARAM.SFO`, 692 bytes in both) also exists among the folder's 340 non-ISO inputs, with a matching size. 0 of the folder's 290 CPK-signature files share a leaf name with the ISO's 63 CPK-signature members. The naming differs by platform: the ISO has `bacb00.cpk`, `voice00.awb`, `BgmSet00.awb` (PSP, 00-series), the folder has `NPJH50521/bacb01.EDAT`, `voice01.EDAT`, `BgmSet01.EDAT` (01-series, `.EDAT` names).
-- Conclusion (observation, not yet cross-verified byte-by-byte): the loose `D:\SRWOE\NPJH50521` folder is not this ISO unpacked. The ISO is the PSP build (its name says 1.08); the folder is a different (PS3-style) data set. The ISO is therefore not the source of the folder's files; it is at most a cross-version reference.
+- Conclusion (observation): the loose `D:\SRWOE\NPJH50521` folder is not this ISO unpacked. The naming differs by source: the ISO has PSP 00-series members (`bacb00.cpk`, `voice00.awb`, `BgmSet00.awb`), the folder has 01-series and higher `.EDAT` names (`NPJH50521/bacb01.EDAT`, `voice01.EDAT`, `BgmSet01.EDAT`). See the user-context entry below for what the two data sets are.
 
-**Not demonstrated:** byte-level comparison of same-named members (only one name overlaps); whether the PSP ISO's event packages contain the same text as the folder's (a cross-version comparison, not needed for the current workflow); any ISO extraction.
+**Not demonstrated:** byte-level comparison of same-named members (only one name overlaps); any ISO extraction.
+
+## 2026-10-09 — user-provided context: the disc is chapter 1 of 8; the folder holds the PSN DLC
+
+**User statement (recorded as user-provided context, not an agent observation):** the game was released as a UMD disc for PSP (that is the ISO). The disc contains 1 of 8 chapters of the game (the first chapter, about a dozen missions). The remaining 7 chapters were sold as DLC on PSN; the files in the input folder (`D:\SRWOE\NPJH50521`) are the PSN-downloaded DLC files.
+
+**How this fits the observations:**
+
+- The ISO's members are the disc's chapter-1 packages (00-series `*.cpk`/`*.awb` under `PSP_GAME/USRDIR`) — hence only 63 CPK-signature members, and 0 name overlaps with the folder.
+- The folder's files are the PSN DLC packages (01-series and higher): 290 `.EDAT` files with CPK content (decrypted/installed DLC data), 27 AFS2 audio archives (`BgmSet*`, `voice*`), and 20 still-encrypted PSP EDAT containers (`\x00PSPEDAT`, the `*04` files plus `evept101.EDAT`) — consistent with PSN download packages that were not decrypted.
+- Only `PARAM.SFO` (692 bytes in both) is common to both sources.
+- The 5,533,072-byte ISO mismatch is unrelated to all this: it is the tail of `PSP_GAME/SYSDIR/EBOOT.BIN` beyond the PVD's declared volume.
+
+**Implications for the workflow:**
+
+- The pipeline's input folder already contains the DLC content (chapters 2–8); the 39,103 heuristic text units come from those packages. Nothing about the current results changes.
+- Chapter 1 (on the disc) is not processed: the ISO is reported but not unpacked (ISO processing is not automated). If chapter 1 is ever wanted, its files would have to be extracted from the ISO read-only (not automated) or copied from the disc; the same pipeline could then process them like any input folder.
+- The 20 encrypted PSP EDAT inputs (`*04` files, `evept101.EDAT`) are not processed (fail-closed on the unknown signature). If the user decrypts their own purchased packages, the same pipeline would process them.
+- The AFS2 archives are audio, not event text; they are out of scope for the text workflow.
 
 **Operational note:** a workspace restore during this turn wiped ignored `local/`; the data was recovered from git (the second run's zip from commit `06ffdd7`, fetched by SHA after the branch rewrite; the first run's zip from `refs/pull/8/head`; `eventP01.zip` from its historical upload blob `a46ca2aa`). The user's uploaded commits remain the durable copies of shared data.
 
