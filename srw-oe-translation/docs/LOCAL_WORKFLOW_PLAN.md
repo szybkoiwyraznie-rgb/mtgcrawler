@@ -1,6 +1,6 @@
 # Local one-command workflow for game files — plan
 
-**Status: design only.** This document records the requested user experience and the safety/format gates. No ISO/DLC processing, general-purpose local pipeline, or translation insertion is implemented by this plan. The existing read-only auditors continue to operate on the supplied `eventP01.zip` sample.
+**Status: plan plus a first read-only inventory utility.** The inventory helper hashes and signature-probes files, but it does not extract archives, process the ISO/DLC, run the full game pipeline, or insert translations. The candidate and companion auditors continue to operate on the supplied `eventP01.zip` sample.
 
 ## User-facing goal
 
@@ -40,7 +40,9 @@ Proposed eventual command contract (illustrative, **not implemented or runnable 
 python srw-oe-translation/tools/local_pipeline.py run --workspace srw-oe-translation/local
 ```
 
-A `--plan-only`/dry-run mode should be available. The eventual normal run should need no per-file prompts. If there are duplicate candidate base images, missing required DLC, unsupported containers, or conflicting inputs, it should stop with a precise report rather than guess or silently produce a partial build.
+**Implemented first slice:** `tools/inventory_local_inputs.py <file-or-directory> [--json-out <report>]` recursively inventories paths, records SHA-256/size/content-signature hints, identifies identical files, and skips symlinks. It probes CPK, ZIP, PBP, SFO, and an ISO9660 PVD signature; extensions are hints only. Its JSON report must be outside a directory input. This is a read-only signature inventory—not a parser, extractor, container validator, or adapter selector—and the ISO/CPK signatures do not by themselves prove that rebuilding is supported. It has synthetic coverage and has been run on the supplied `eventP01.zip` only.
+
+A `--plan-only`/dry-run mode should be available for the later orchestrator. The eventual normal run should need no per-file prompts. If there are duplicate candidate base images, missing required DLC, unsupported containers, or conflicting inputs, it should stop with a precise report rather than guess or silently produce a partial build.
 
 ## Automated stages
 
@@ -101,7 +103,7 @@ YACpkTool is the existing CPK adapter candidate, not a blanket solution for all 
 ## Implementation milestones
 
 1. **Plan recorded (done):** preserve the one-command, no-manual-packaging requirement and the evidence/unknowns above.
-2. **Read-only input inventory:** implement signature probing, hashing, recursive discovery, space estimates, duplicate detection, and a dry-run report. Test with synthetic files and the currently available ZIP/sample resources; do not require the base ISO.
+2. **Read-only input inventory (done):** `tools/inventory_local_inputs.py` recursively hashes and signature-probes inputs, reports duplicate content, and does not follow symlinks or modify sources. Seven synthetic tests pass; the supplied ZIP is identified as a ZIP by signature. This tool does not parse/extract containers, estimate extraction space, or validate an image/archive.
 3. **Batch CPK adapter:** wrap a pinned YACpkTool version and automate all discovered CPKs; test against disposable inputs and compare complete extracted-member manifests/bytes on no-change round trips.
 4. **ISO and DLC adapters:** add only after real format samples are available and a copied source can pass extract/rebuild/re-open checks. Detect incomplete or unsupported resources explicitly.
 5. **Deterministic text extraction:** validate boundaries independently; define stable IDs/control placeholders; test byte-identical no-change resource reinsertion.
@@ -110,4 +112,4 @@ YACpkTool is the existing CPK adapter candidate, not a blanket solution for all 
 
 ## Immediate scope
 
-For now, continue read-only identification and documentation. The real ISO/DLC are not available in this phase, so do not invent their exact wrapping or select an unverified ISO/DLC repacker. The next implementable software piece is the generic read-only inventory/dry-run layer; archive/image adapters can follow when the relevant source formats are available for validation. The current scanner exports remain diagnostic, not approved translation tables.
+Continue read-only identification and small, safe automation steps. The real ISO/DLC are not available in this phase, so do not invent their exact wrapping or select an unverified ISO/DLC repacker. The first read-only inventory slice now exists; next, extend it only as needed and build the CPK adapter after disposable format samples and tool versions can be validated. ISO/DLC adapters require real format samples. The current scanner exports remain diagnostic, not approved translation tables.

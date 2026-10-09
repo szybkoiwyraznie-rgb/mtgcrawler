@@ -20,7 +20,7 @@ The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/loc
 - A separate punctuation review finds 35 script-free prefixes in 12 BINs; 34 strictly round-trip, 33 contain only Japanese punctuation plus CR/LF, and none has a single-NUL suffix. Twenty-two share the codepoint pattern U+2026/U+2026/U+3002. All 35 lie within EVNT blocks after ECHK terminal u32 200 (minimum gap 34 bytes); every such block also contains a main Japanese-script candidate, with 33 punctuation leads preceded and 33 followed by one. They appear plausibly textual but stay outside the main candidate table and range calculations; the decoded supplement is ignored local output.
 - A reproducible cross-BIN control now tests each c2 value against candidate spans from other BINs. Full-span rates are 51.3% paired-BIN and 45.4% other-BIN overall, but only 9/22 source BINs have a positive nonzero lift (mean -5.0 pp; median -6.5 pp); repeated values and related layouts make this a coarse non-independent control, not pointer evidence.
 - The auditor also tests six simple record-relative c2 formulas. None gives more candidate hits than raw absolute offsets, and only 68–81/171–175 nonzero targets that land in the owning EVNT block hit a candidate under these formulas. The formulas are exploratory, not a validated address model.
-- Twenty-six synthetic tests cover marker-quality flags, half-width-only, malformed-CP932, suffix-only, nested alternate-start, private-use-only, punctuation-only and EVNT/ECHK framing/context, compatibility-ideograph, and Japanese script-mark cases, endpoint traversal, malformed/truncated boundaries, marker gaps, segment aggregation, paired/unpaired c2 counts, and a synthetic EVNT-relative candidate target; archive audit reproduces the findings. The sample's 49 nested-marker starts yielded no wide-script inner-prefix matches or new matches absent from their parent prefix.
+- Twenty-six synthetic tests cover marker-quality flags, half-width-only, malformed-CP932, suffix-only, nested alternate-start, private-use-only, punctuation-only and EVNT/ECHK framing/context, compatibility-ideograph, and Japanese script-mark cases, endpoint traversal, malformed/truncated boundaries, marker gaps, segment aggregation, paired/unpaired c2 counts, and a synthetic EVNT-relative candidate target. Seven more tests cover the read-only local input inventory's signatures, recursion, hashes/duplicates, symlinks, report-path safety, and source immutability; all 33 tests pass. The sample's 49 nested-marker starts yielded no wide-script inner-prefix matches or new matches absent from their parent prefix.
 
 See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, archive/member hashes, and caveats. The JSONL remains a diagnostic candidate table, not an approved translation table.
 
@@ -28,13 +28,25 @@ See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, ar
 
 1. The current archive's c2/candidate, CP932-boundary, cross-BIN control, and simple base-offset checks are inconclusive; the pooled same-BIN lift is not consistent across source files, and tested record-relative formulas do not improve candidate alignment. If an independent event resource/version becomes available, repeat the comparisons and test candidate starts, prefix offsets, span ends, and address hypotheses; until then keep c2 uninterpreted, not a pointer.
 2. Validate the proposed single-NUL text-prefix/suffix split across more records, retaining every original byte and line break; preserve both the whole heuristic span and any proposed prefix/suffix split.
-3. Implement the **read-only local inventory/dry-run layer** described in [`LOCAL_WORKFLOW_PLAN.md`](LOCAL_WORKFLOW_PLAN.md): recursively hash and classify a source set by content, report supported/unknown inputs, and leave all originals untouched. This generic layer can be tested before the actual ISO/DLC are available; do not yet claim it extracts or rebuilds the full game.
+3. The read-only inventory helper is implemented and has only been run on the supplied ZIP sample. When the full source set becomes available, use it against the configured ISO/DLC paths first; review its signature/hash report before enabling any extractor. Extend detection and space-estimate reporting with synthetic tests, while continuing not to process the ISO/DLC in this dry-analysis phase.
 4. Build a stable source inventory with explicit control-byte placeholders only after text/record boundaries are supported by independent evidence; add byte-identical no-change round-trip tests.
 5. Validate a no-change CPK rebuild/re-extraction on a disposable copy. If a reachable event using the same rendering path can be identified, use it for a short display test; otherwise record in-game text QA as blocked/unknown rather than requiring access to an unreachable fragment.
 
 ## In-game test access
 
 The user cautioned that the event fragment represented by the supplied data may not be reachable in their current playthrough. This does not block read-only format analysis, extraction, or byte-identical round-trip work. Do not make reaching that specific fragment an immediate prerequisite for progress; any eventual rendering test should use a reachable equivalent only if its resource/rendering path is genuinely comparable.
+
+Run the read-only inventory against the supplied archive (signature/hash only; no extraction):
+
+```text
+python srw-oe-translation/tools/inventory_local_inputs.py srw-oe-translation/local/eventP01.zip
+```
+
+Optionally write a local JSON report outside the input file, for example to ignored `local/reports/`:
+
+```text
+python srw-oe-translation/tools/inventory_local_inputs.py srw-oe-translation/local/eventP01.zip --json-out srw-oe-translation/local/reports/eventP01_inventory.json
+```
 
 Reproduce the candidate audit and local JSONL export:
 

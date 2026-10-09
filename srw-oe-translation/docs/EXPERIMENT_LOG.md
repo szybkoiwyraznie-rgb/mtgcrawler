@@ -209,6 +209,14 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** Re-ran the bounded scan with an explicit progress guard and the same `FF FF`/`00 00` framing rule. This was a read-only one-off audit; no candidate IDs or exports changed. The detailed result is in `CANDIDATE_SCAN_AUDIT.md`.
 
+## 2026-10-09 — add the first read-only local input inventory
+
+**Action:** Added `tools/inventory_local_inputs.py` as the first implementation slice of the local automation plan. It recursively hashes files, probes a small set of content signatures (CPK, ZIP, PBP, SFO, ISO9660 PVD), reports extension hints and duplicate-content paths, skips symlinks, and optionally writes a JSON report outside the input tree. It does not extract, rename, modify, validate, or rebuild files.
+
+**Result:** Running it on the supplied `eventP01.zip` reports one readable file with a ZIP signature, size 162,546 bytes, no duplicates, and no errors. This is signature inventory only; it does not inspect or unpack ZIP members and does not establish that an ISO/CPK adapter is supported.
+
+**Validation:** Added seven synthetic tests for extension-independent signatures, recursion, hashing/duplicates, symlink handling, report-path safety, and source immutability. All 33 project tests pass. No base ISO or DLC was processed.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
