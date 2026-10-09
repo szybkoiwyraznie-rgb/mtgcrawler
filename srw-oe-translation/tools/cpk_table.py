@@ -35,6 +35,7 @@ UTF_MAGIC = b"@UTF"
 
 STORAGE_MASK = 0xF0
 STORAGE_PER_ROW = 0x50
+STORAGE_CONSTANT = 0x30
 
 # Column type (flags & 0x0f) to the byte size of one per-row value.
 TYPE_SIZES = {
@@ -135,7 +136,17 @@ def _parse_utf_table(table: bytes) -> dict[str, Any]:
         name_offset = int.from_bytes(table[cursor : cursor + 4], "big")
         cursor += 4
         name, _raw = read_string(name_offset)
-        columns.append({"name": name, "flags": flags})
+        column = {"name": name, "flags": flags, "const": None}
+        if flags & STORAGE_MASK == STORAGE_CONSTANT:
+            # A constant column stores its one value in the schema, right after the name.
+            size = TYPE_SIZES.get(flags & 0x0F)
+            if size is None:
+                raise CpkTableError(f"unsupported @UTF column type 0x{flags & 0x0F:02x}")
+            if cursor + size > limit:
+                raise CpkTableError("truncated @UTF constant value")
+            column["const"] = table[cursor : cursor + size]
+            cursor += size
+        columns.append(column)
 
     schema = [(column["name"], column["flags"]) for column in columns]
     try:
@@ -153,6 +164,23 @@ def _parse_utf_table(table: bytes) -> dict[str, Any]:
     }
 
 
+def _decode_value(row, name, ctype, raw, read_string):
+    """Store one @UTF value (raw bytes of the column's type) into a row dict."""
+    if ctype == TYPE_STRING:
+        text, raw_bytes = read_string(int.from_bytes(raw, "big"))
+        row[name] = text
+        row[name + "_bytes"] = raw_bytes
+    elif ctype == TYPE_DATA:
+        row[name] = {
+            "data_offset": int.from_bytes(raw[:4], "big"),
+            "data_size": int.from_bytes(raw[4:], "big"),
+        }
+    elif ctype == TYPE_FLOAT:
+        row[name] = struct.unpack(">f", raw)[0]
+    else:
+        row[name] = int.from_bytes(raw, "big")
+
+
 def _read_rows(table, columns, rows_abs, row_length, num_rows, read_string):
     rows: list[dict[str, Any]] = []
     for row_index in range(num_rows):
@@ -162,8 +190,12 @@ def _read_rows(table, columns, rows_abs, row_length, num_rows, read_string):
         for column in columns:
             storage = column["flags"] & STORAGE_MASK
             ctype = column["flags"] & 0x0F
+            if storage == STORAGE_CONSTANT:
+                # The same value for every row, stored once in the schema.
+                _decode_value(row, column["name"], ctype, column["const"], read_string)
+                continue
             if storage != STORAGE_PER_ROW:
-                # No data, zero for all rows, or a constant stored in the schema.
+                # No data and zero for all rows.
                 row[column["name"]] = None
                 continue
             size = TYPE_SIZES.get(ctype)
@@ -173,20 +205,7 @@ def _read_rows(table, columns, rows_abs, row_length, num_rows, read_string):
                 raise CpkTableError("@UTF row overruns its declared length")
             raw = table[cursor : cursor + size]
             cursor += size
-            if ctype == TYPE_STRING:
-                offset = int.from_bytes(raw, "big")
-                text, raw_bytes = read_string(offset)
-                row[column["name"]] = text
-                row[column["name"] + "_bytes"] = raw_bytes
-            elif ctype == TYPE_DATA:
-                row[column["name"]] = {
-                    "data_offset": int.from_bytes(raw[:4], "big"),
-                    "data_size": int.from_bytes(raw[4:], "big"),
-                }
-            elif ctype == TYPE_FLOAT:
-                row[column["name"]] = struct.unpack(">f", raw)[0]
-            else:
-                row[column["name"]] = int.from_bytes(raw, "big")
+            _decode_value(row, column["name"], ctype, raw, read_string)
         rows.append(row)
     return rows
 

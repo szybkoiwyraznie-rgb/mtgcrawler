@@ -757,6 +757,23 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not changed:** reader code. A fix needs a verified layout, so the next step is to capture the table header bytes of one failing package with the tool (identification only, not decoded).
 
+## 2026-10-10 — constant CPK columns read from the schema (5 user-supplied sample packages)
+
+**Input:** `probki.zip` uploaded by the user (5 decrypted packages: `bseq18`, `face01`, `imenu20`, `robo18`, `sprstd06`), analysed read-only in scratch outside the repository. Archive SHA-256 `fa582c24e4ae5789ba47a588c1527a0e0fd3b7c22372fe721749f45a0b75fa03`. The files are not committed.
+
+**Verified by layout consistency (not by a public reference):** in every table with storage class 0x30, the column's single value sits in the schema right after the 4-byte name offset, with the type's size. Check: the schema end including those values equals the declared row offset in every TOC, ITOC, and ETOC table (e.g. TOC 0x57 = 0x57), while the schema without them does not (0x43).
+
+**Change:** `tools/cpk_table.py` now reads constant (0x30) values from the schema and returns them for every row. Before, these columns were dropped to None.
+
+**Result on the samples:**
+- `robo18`: DirName constant `r2530`; the table now reads 21 entries, the first two names `r2530/0000_000.pac` and `r2530/0000_020.pac` (matching the run's listing names). The full name comparison needs the run.
+- `bseq18`, `imenu20`, `sprstd06`: now read (2, 6, and 4 entries).
+- `face01`: still unreadable. Its ITOC has columns `FilesL`, `FilesH`, `DataL`, `DataH` and no `ID`/`TocIndex`; the reader does not handle this layout (not implemented).
+
+**Tests:** `tests/test_cpk_table.py` 12 OK (new: constant string and u32 read from the schema; constant-only table); full suite 165 OK.
+
+**Not demonstrated:** the table check's full agreement on all 69 packages; the meaning of the `FilesL`/`FilesH`/`DataL`/`DataH` ITOC layout; any text or game content.
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.

@@ -32,7 +32,7 @@ TYPE_SIZES = {
 }
 
 
-def build_utf_table(table_name: str, columns: list, rows: list) -> bytes:
+def build_utf_table(table_name: str, columns: list, rows: list, constants: dict | None = None) -> bytes:
     """Build a synthetic @UTF table. columns: (name, flags) pairs; rows: dicts
     of column name to value (only for per-row columns; strings, u16, u32, u64)."""
     pool = bytearray(b"<NULL>\x00")
@@ -46,12 +46,22 @@ def build_utf_table(table_name: str, columns: list, rows: list) -> bytes:
         string_offsets[text] = offset
         return offset
 
+    constants = constants or {}
     name_offsets = [add_string(column_name) for column_name, _flags in columns]
     table_name_offset = add_string(table_name)
     row_length = 0
     for _name, flags in columns:
         if (flags & 0xF0) == 0x50:
             row_length += TYPE_SIZES[flags & 0x0F]
+    # Constant columns (storage 0x30) keep their single value in the schema.
+    const_blobs = {}
+    for column_name, flags in columns:
+        if (flags & 0xF0) == 0x30:
+            value = constants[column_name]
+            if (flags & 0x0F) == 0x0A:
+                const_blobs[column_name] = add_string(value).to_bytes(4, "big")
+            else:
+                const_blobs[column_name] = int(value).to_bytes(TYPE_SIZES[flags & 0x0F], "big")
     row_blobs = []
     for row in rows:
         blob = bytearray()
@@ -73,7 +83,7 @@ def build_utf_table(table_name: str, columns: list, rows: list) -> bytes:
             else:
                 raise ValueError(f"unsupported test column type 0x{ctype:02x}")
         row_blobs.append(bytes(blob))
-    schema_size = 5 * len(columns)
+    schema_size = sum(5 + len(const_blobs.get(name, b"")) for name, _f in columns)
     rows_abs = 0x20 + schema_size
     strings_abs = rows_abs + row_length * len(rows)
     data_abs = strings_abs + len(pool)
@@ -94,9 +104,10 @@ def build_utf_table(table_name: str, columns: list, rows: list) -> bytes:
     header.extend(row_length.to_bytes(2, "big"))
     header.extend(len(rows).to_bytes(4, "big"))
     schema = bytearray()
-    for (_column_name, flags), name_offset in zip(columns, name_offsets):
+    for (column_name, flags), name_offset in zip(columns, name_offsets):
         schema.append(flags)
         schema.extend(name_offset.to_bytes(4, "big"))
+        schema.extend(const_blobs.get(column_name, b""))
     return bytes(header) + bytes(schema) + b"".join(row_blobs) + bytes(pool)
 
 
@@ -406,6 +417,26 @@ class TableCheckTests(unittest.TestCase):
             junk.write_bytes(b"NOPE" + b"\x00" * 64)
             self.assertEqual(run_pipeline.table_check(junk, wrong)["status"], "unreadable")
         self.assertEqual(run_pipeline.table_check(path, None)["status"], "no_listing")
+
+
+class ConstantColumnTests(unittest.TestCase):
+    def test_constant_string_and_u32_are_read_from_the_schema(self):
+        table = build_utf_table(
+            "TOC",
+            [("DirName", 0x3A), ("FileName", 0x5A), ("FileSize", 0x34), ("ID", 0x54)],
+            [{"FileName": "a.bin", "ID": 0}, {"FileName": "b.bin", "ID": 1}],
+            constants={"DirName": "r2530", "FileSize": 4},
+        )
+        parsed = cpk_table._parse_utf_table(table)
+        self.assertEqual([row["DirName"] for row in parsed["rows"]], ["r2530", "r2530"])
+        self.assertEqual([row["FileSize"] for row in parsed["rows"]], [4, 4])
+        self.assertEqual([row["FileName"] for row in parsed["rows"]], ["a.bin", "b.bin"])
+        self.assertEqual([row["ID"] for row in parsed["rows"]], [0, 1])
+
+    def test_constant_only_table_has_no_per_row_data(self):
+        table = build_utf_table("ETOC", [("LocalDir", 0x3A)], [{}], constants={"LocalDir": "dir"})
+        parsed = cpk_table._parse_utf_table(table)
+        self.assertEqual(parsed["rows"][0]["LocalDir"], "dir")
 
 
 class UnreadableTableDiagnosticTests(unittest.TestCase):
