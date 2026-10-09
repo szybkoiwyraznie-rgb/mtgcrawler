@@ -1,6 +1,6 @@
 # One-click local run (first slice)
 
-**Status:** implemented and tested with synthetic data and a fake converter. Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`); the results and limits are in `EXPERIMENT_LOG.md`. Extraction completeness, the `-L` listing format, the 47 non-CPK `.EDAT` files, and the ISO are still open. Record the results of each further run in `EXPERIMENT_LOG.md`.
+**Status:** implemented and tested with synthetic data and a fake converter. Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`); the results and limits are in `EXPERIMENT_LOG.md`. Each package is now checked against its `-L` listing (one listing sample so far). Still open: packages whose entries share a name, the 47 non-CPK `.EDAT` files, and the ISO. Record the results of each further run in `EXPERIMENT_LOG.md`.
 
 ## What it does
 
@@ -10,9 +10,9 @@ Double-click `RUN_PIPELINE.bat` in the `srw-oe-translation` folder. After a one-
 2. **Inventory.** Hashes every input file (SHA-256) and classifies it by content signature, never by extension. `CPK ` signatures are CPK containers even when named `.EDAT`.
 3. **Preflight.** Checks the converter's SHA-256 (and an optional pinned hash), the output path, free disk space (about 3x the unique CPK size plus 512 MiB), and that output and input folders do not overlap.
 4. **Probe.** Tries the converter on the smallest CPK. The original file name is tried first. A `.cpk` copy is made only inside the disposable staging folder, and only if the original name is rejected. Captured output and console output are both tried.
-5. **Extract.** Unpacks every unique CPK into a fresh run folder. Duplicate content is extracted once. CPKs nested inside a package are extracted up to two levels deep.
+5. **Extract.** Unpacks every unique CPK into a fresh run folder. Duplicate content is extracted once. CPKs nested inside a package are extracted up to two levels deep. Each package is then compared with its `-L` listing (see Known limitations).
 6. **Text.** Exports and verifies the event text for every `.bin` file in each extracted package (the same extractor as `tools/extract_event_text.py`). The text is a heuristic candidate list, verified only for round trips.
-7. **Repack gate.** Repacks the smallest extracted package to a temporary CPK, unpacks it again, and checks that every member hash matches. The temporary files are deleted afterwards.
+7. **Repack gate.** Repacks the smallest extracted package with non-empty members to a temporary CPK, unpacks it again, and checks that every member hash matches. The temporary files are deleted afterwards.
 8. **Report.** Writes `registry.json`, `inputs.csv`, `packages.csv`, and `REPORT.txt` into the run folder.
 
 ## What it does not do
@@ -72,7 +72,8 @@ Setup errors (for example, no folder chosen with `--no-gui`) exit with code 2.
 
 - **First real run done, with limits.** On the user's Windows PC the captured-output probe crashed that YACpkTool build (exit code 3762504530, 0xE0434352, an unhandled .NET exception), so extraction and repack calls ran in console-output mode. The converter behaviour is still based mainly on the archived source (2017). See `TECHNICAL_FINDINGS.md`.
 - **Console output may be needed.** YACpkTool's progress display may fail when its output is redirected (observed on the user's build). The pipeline detects this in the probe and then runs that converter call with the console inherited. In that mode its error text cannot be captured, so success is judged from the output folder and the exit code only. The report says so in its `Warnings` and `Extraction` sections.
-- **Extraction completeness is not independently checked.** The run checks the converter's exit code, its `Error:` lines (captured mode), the presence of output files, and the repack round trip of one package. Before each extraction it also runs `-L` and saves that listing, but it does not compare the listing with the extracted files, and it does not parse the CPK table of contents itself, because the listing format is unverified. The report's `listing (-L) without error` count only shows that each listing finished without an `Error:` line; it is not a completeness check.
+- **Extraction completeness is checked against the listing, with limits.** After each extraction the run compares the package's `-L` entries with the files on disk, by count and by name. A package passes only when every entry has exactly one file of the same name and no file is left over. If entries share a name, the package fails as `incomplete` and its output folder is removed, because one flat folder cannot hold them all. If the listing cannot be read, does not add up, or has names that do not decode, the package fails as `unverified`. The listing layout is known from one sample, so the first run with this check may show failures that the sample did not predict. The run still checks the converter's exit code, its `Error:` lines (captured mode only), and the repack round trip of one package.
+- **Repeated entry names.** The sample listing (`bacb01.EDAT`) has 541 entries but only 260 names, and the converter keeps one file per name. Entries with a repeated name are not extracted by this run. Whether their content differs, and whether the game uses their IDs, is unknown.
 - **`.EDAT` names.** Whether the converter accepts an original `.EDAT` name is decided by the probe. If it rejects the name, the `.cpk` staging copy is used. The original file is never renamed.
 - **Nested depth and size.** Two nesting levels are processed. Each converter call has a 30-minute timeout.
 - **Path length.** Keep the output path short (for example `C:\SRW_OE_out`). Long member paths inside a package may still exceed Windows limits; if so, the package fails and the report says so.

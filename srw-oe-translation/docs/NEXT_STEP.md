@@ -4,19 +4,20 @@ The previously user-uploaded `eventP01.zip` is recoverable from its historical u
 
 ## Current state (milestone 35)
 
-Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 34 tests; full suite 118 OK). Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`; 424 packages reported extracted, 0 failed, in console-output mode). Extraction completeness is not yet verified; the run's limits are recorded in `EXPERIMENT_LOG.md`. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
+Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 38 tests; full suite 122 OK). Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`; 424 packages reported extracted, 0 failed, in console-output mode). The uploaded listing of one package showed 541 entries but 260 names, so that `extracted` status did not mean complete. Each package is now compared with its listing (`STATUS.md` item 37). The run's limits are recorded in `EXPERIMENT_LOG.md`. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
 
 `tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
 
-## Immediate next step (milestone 35, after the first real run)
+## Immediate next step (after the listing analysis)
 
-The first real run is done (see `EXPERIMENT_LOG.md`, 2026-10-09). Next:
+The listing analysis and the code change are recorded in `EXPERIMENT_LOG.md` (2026-10-09, listing entry). Next:
 
-1. Ask the user for two files from the run folder: `registry.json`, and one converter listing log `logs\converter\*-list-*.txt` (the `-L` output, not seen yet). They contain names, sizes, hashes, and listings, not decoded text. Do not ask for game files.
-2. Once the listing format is known, compare each package's listing with its extracted member paths. Report any mismatch as a failure, and do not change extraction until the mismatch is understood.
-3. Read-only: identify the 47 non-CPK `.EDAT` files (sizes, hashes, first bytes; no decoding) and record whether any of them carries text. `eventP04.EDAT` and `evept101.EDAT` are first to check.
-4. Read-only: explain why the ISO descriptor size differs from the file size, using `registry.json`. Do not unpack the ISO.
-5. Keep repack, write-back, and reinsertion blocked. Do not change the probe order until the logs show it is needed.
+1. Ask the user to re-run `RUN_PIPELINE.bat` with the current code. Expect about 3 minutes and about 0.8 GB of output; delete the old run folder afterwards. Ask for `REPORT.txt` and `registry.json` only. The converter logs have their folder paths replaced, but they still list game file names.
+2. From the new run: count packages failed as `incomplete` or `unverified`, list which text packages are among them, and check whether any extracted package still has a zero-byte member. Read the first bytes of the 47 unknown-signature inputs (`inputs[].head_hex`) and describe their formats as observations only.
+3. Ask the user to remove the zip from PR #8's branch (`arena/382dda12-mtgcrawler`, commit `56aae991ba`). The repository is public, and the converter log header holds the user's folder paths. This session's branch is not affected.
+4. Open decision for the user: how to read the hidden duplicate-name entries. Options: a converter build the user supplies, pinned by SHA-256 and extracting by entry ID; or a read-only CPK table reader, validated against the converter's listing. No executable downloads.
+5. Explain the ISO descriptor difference from `registry.json` alone. Do not unpack the ISO.
+6. Keep repack, write-back, insertion, and ISO processing blocked.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 

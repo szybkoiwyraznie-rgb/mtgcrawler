@@ -38,6 +38,7 @@ import stat
 import sys
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8")
 args = sys.argv[1:]
 log_path = os.environ.get("FAKE_YACPK_LOG")
 if log_path:
@@ -73,6 +74,16 @@ def rejected(path):
     return bool(flag("FAKE_YACPK_REJECT_EDAT")) and Path(path).name.lower().endswith(".edat")
 
 
+def grouped(value):
+    text = str(value)
+    parts = []
+    while len(text) > 3:
+        parts.insert(0, text[-3:])
+        text = text[:-3]
+    parts.insert(0, text)
+    return "\ufffd".join(parts)
+
+
 def crash():
     sys.stderr.write("Unhandled Exception: System.IO.IOException: The handle is invalid.\n")
     sys.exit(3)
@@ -89,7 +100,18 @@ if command == "-L":
     if members is None:
         print("Error: AnalyzeCpkFile returned false!")
         sys.exit(0)
-    print(f"CPK information: {len(members)} members")
+    rows = [(member["path"], len(base64.b64decode(member["data"]))) for member in members]
+    if flag("FAKE_YACPK_DUPLICATE_SUBSTRING") and flag("FAKE_YACPK_DUPLICATE_SUBSTRING") in source and rows:
+        rows.append(rows[0])  # a second entry with the same name, as the real bacb01 listing has
+    print(f"CPK Filename:{Path(source).name}")
+    print("File format version:Ver.7, Rev.1")
+    print(f"Content files:{len(rows)}")
+    print(f"Content file size:{grouped(sum(size for _name, size in rows))}")
+    print("Compressed files:0")
+    print()
+    print("No.         ID    Filesize  Compressed       %  Contents Filename")
+    for number, (name, size) in enumerate(rows):
+        print(f"[{number:5d}]  {number + 1:5d}  {grouped(size):>9}  {grouped(size):>9}  100,00  {name}")
     print("Process finished (hopefully) without issues!")
     sys.exit(0)
 
@@ -153,6 +175,37 @@ if command == "-P":
 print("Error: unknown command in the fake converter")
 sys.exit(0)
 '''
+
+
+def grouped_number(value: int) -> str:
+    """Thousands groups joined by U+FFFD, as the captured -L text shows them (synthetic values)."""
+    text = str(value)
+    groups = []
+    while len(text) > 3:
+        groups.insert(0, text[-3:])
+        text = text[:-3]
+    groups.insert(0, text)
+    return "\ufffd".join(groups)
+
+
+def synthetic_listing(entries: list) -> str:
+    """Same layout as YACpkTool's -L output, with CR CR LF line ends. The entries are invented."""
+    total = sum(size for _entry_id, _name, size in entries)
+    lines = [
+        "CPK Filename:synthetic.EDAT",
+        "File format version:Ver.7, Rev.1",
+        f"Content files:{len(entries)}",
+        f"Content file size:{grouped_number(total)}",
+        "Compressed files:0",
+        "",
+        "No.         ID    Filesize  Compressed       %  Contents Filename",
+    ]
+    for number, (entry_id, name, size) in enumerate(entries):
+        lines.append(
+            f"[{number:5d}]  {entry_id:5d}  {grouped_number(size):>9}  {grouped_number(size):>9}  100,00  {name}"
+        )
+    lines.append("Process finished (hopefully) without issues!")
+    return "\r\r\n".join(lines) + "\r\r\n"
 
 
 def make_cpk(members: dict) -> bytes:
@@ -310,6 +363,10 @@ class RunPipelineTests(PipelineFixture):
             self.assertTrue((result.run_dir / package["output_dir"]).is_dir())
         self.assertEqual(registry["gate"]["status"], "passed")
         self.assertEqual(registry["gate"].get("missing_count", 0), 0)
+        self.assertEqual(registry["summary"]["listing_verified"], 3)
+        self.assertEqual(registry["summary"]["listing_incomplete"], 0)
+        self.assertEqual(registry["summary"]["listing_unverified"], 0)
+        self.assertTrue(all(package["listing_check"]["status"] == "verified" for package in registry["packages"]))
         self.assertEqual(registry["summary"]["text_packages_verified"], 3)
         self.assertGreater(registry["summary"]["text_units_total"], 0)
         self.assertTrue((result.run_dir / "text" / imenu["package_id"] / "manifest.json").is_file())
@@ -324,6 +381,10 @@ class RunPipelineTests(PipelineFixture):
         iso_rows = [row for row in registry["inputs"] if row["content_type"] == "iso9660_pvd_signature"]
         self.assertEqual(iso_rows[0]["iso_facts"]["volume_identifier"], "SRW_OE_TEST")
         self.assertTrue(iso_rows[0]["iso_facts"]["size_matches_descriptor"])
+        unknown_rows = [row for row in registry["inputs"] if row["content_type"] == "unknown_signature"]
+        self.assertEqual(len(unknown_rows), 1)
+        self.assertEqual(unknown_rows[0]["head_hex"], b"NOT A CONTAINER, unknown wrapper"[:32].hex(" "))
+        self.assertTrue(all(row["head_hex"] is None for row in registry["inputs"] if row is not unknown_rows[0]))
 
         self.assertFalse((result.run_dir / "staging").exists())
         gates = result.run_dir / "gates"
@@ -353,6 +414,14 @@ class RunPipelineTests(PipelineFixture):
             self.assertNotIn("テスト", text)
             self.assertNotIn(str(self.input_root), text)
             self.assertNotIn(str(self.root), text)
+        logs = sorted((result.run_dir / "logs" / "converter").glob("*.txt"))
+        self.assertTrue(logs)
+        for log in logs:
+            log_text = log.read_text(encoding="utf-8")
+            self.assertIn("command: ", log_text)
+            self.assertNotIn(str(self.root), log_text)
+            self.assertNotIn(str(self.input_root), log_text)
+            self.assertNotIn(str(self.tool), log_text)
         self.assertIn("Known gaps", report_text)
         self.assertIn("Repack and write-back: disabled", registry_text)
 
@@ -397,7 +466,7 @@ class RunPipelineTests(PipelineFixture):
         self.assertIn("rejected probe: original_name/captured on ", report)
         self.assertIn("exit code 3", report)
         self.assertIn("error lines: not checked (console output is not captured)", report)
-        self.assertIn(f"listing (-L) without error: {registry['summary']['packages_total']} of", report)
+        self.assertIn("listing check (entries vs files): verified 3, incomplete 0, unverified 0, not checked 0", report)
         self.assertTrue(any("console mode" in warning for warning in registry["warnings"]))
         self.assertTrue(any("Completeness" in gap for gap in registry["known_gaps"]))
 
@@ -430,6 +499,29 @@ class RunPipelineTests(PipelineFixture):
         self.assertFalse((result.run_dir / by_source["event_P01.EDAT"]["output_dir"]).exists())
         self.assertIn("event_P01", " ".join(registry["failures"]))
 
+    def test_entries_that_share_a_name_fail_the_package_and_keep_no_partial_output(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly({"FAKE_YACPK_DUPLICATE_SUBSTRING": "event_P01"})
+
+        self.assertEqual(result.status, "completed_with_failures")
+        self.assertEqual(result.exit_code, 1)
+        registry = self.registry(result)
+        by_source = {package["source_path"]: package for package in registry["packages"]}
+        event = by_source["event_P01.EDAT"]
+        self.assertEqual(event["status"], "failed")
+        self.assertEqual(event["listing_check"]["status"], "incomplete")
+        self.assertEqual(event["listing_check"]["duplicate_entries"], 1)
+        self.assertIn("listing check incomplete", event["error"])
+        self.assertIn("share a name with another entry", event["error"])
+        self.assertFalse((result.run_dir / event["output_dir"]).exists())
+        self.assertEqual(by_source["imenu01.EDAT"]["status"], "extracted")
+        self.assertEqual(by_source["imenu01.EDAT"]["listing_check"]["status"], "verified")
+        self.assertEqual(registry["summary"]["listing_incomplete"], 1)
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("listing check (entries vs files): verified 1, incomplete 1, unverified 0, not checked 0", report)
+        self.assertIn("event_P01", " ".join(registry["failures"]))
+
     def test_source_changed_during_extraction_is_detected_and_output_removed(self):
         self.write_standard_inputs()
 
@@ -454,6 +546,21 @@ class RunPipelineTests(PipelineFixture):
         self.assertFalse(registry["input"]["unchanged"])
         self.assertIn("stray.txt", json.dumps(registry["input"]["changed_entries"]))
         self.assertTrue(any("input folder changed" in item for item in registry["failures"]))
+
+    def test_repack_gate_skips_packages_whose_members_are_all_empty(self):
+        self.write_standard_inputs()
+        (self.input_root / "hollow.EDAT").write_bytes(make_cpk({"empty.pac": b""}))
+
+        result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        hollow = next(package for package in registry["packages"] if package["source_path"] == "hollow.EDAT")
+        self.assertEqual(hollow["status"], "extracted")
+        self.assertEqual(hollow["total_member_bytes"], 0)
+        self.assertEqual(hollow["listing_check"]["status"], "verified")
+        self.assertEqual(registry["gate"]["status"], "passed")
+        self.assertNotEqual(registry["gate"]["package_id"], hollow["package_id"])
 
     def test_repack_gate_reports_a_missing_member(self):
         self.write_standard_inputs()
@@ -704,6 +811,55 @@ class CliAndSetupTests(PipelineFixture):
 
 
 class UnitHelperTests(unittest.TestCase):
+    def test_listing_parser_reads_rows_with_u_fffd_and_space_separators(self):
+        parsed = run_pipeline.parse_listing(synthetic_listing([(0, "a.acb", 5), (7, "sub/b c.acb", 187808)]))
+        self.assertEqual(parsed["header_count"], 2)
+        self.assertEqual(parsed["header_total"], 187813)
+        self.assertEqual([(entry["id"], entry["size"], entry["name"]) for entry in parsed["entries"]],
+                         [(0, 5, "a.acb"), (7, 187808, "sub/b c.acb")])
+        spaced = synthetic_listing([(1, "x.acb", 1234567)]).replace("\ufffd", " ")
+        self.assertEqual(run_pipeline.parse_listing(spaced)["entries"][0]["size"], 1234567)
+        self.assertIsNone(run_pipeline.parse_listing(""))
+        self.assertIsNone(run_pipeline.parse_listing(None))
+
+    def test_listing_check_verifies_one_file_per_entry_and_fails_closed(self):
+        def files(*names):
+            return [{"path": name} for name in names]
+
+        plain = [(0, "a.acb", 5), (1, "b.acb", 187808)]
+        self.assertEqual(run_pipeline.check_listing(synthetic_listing(plain), files("a.acb", "b.acb"))["status"], "verified")
+        nested = run_pipeline.check_listing(synthetic_listing([(0, "sub/c.cpk", 9)]), files("sub\\c.cpk"))
+        self.assertEqual(nested["status"], "verified")
+
+        shared = [(0, "a.acb", 5), (1, "a.acb", 5), (2, "b.acb", 187808)]
+        duplicate = run_pipeline.check_listing(synthetic_listing(shared), files("a.acb", "b.acb"))
+        self.assertEqual(duplicate["status"], "incomplete")
+        self.assertEqual(duplicate["duplicate_entries"], 1)
+        self.assertEqual(duplicate["entries"], 3)
+        self.assertIn("1 of 3 entries share a name", duplicate["reason"])
+
+        self.assertEqual(run_pipeline.check_listing(synthetic_listing(plain), files("a.acb"))["status"], "incomplete")
+        extra = run_pipeline.check_listing(synthetic_listing(plain), files("a.acb", "b.acb", "c.acb"))
+        self.assertEqual(extra["status"], "incomplete")
+        self.assertEqual(extra["files_not_listed"], 1)
+
+        broken_row = synthetic_listing(plain).replace(
+            "Process finished", "[    2]      3  x  100,00  c.acb\r\r\nProcess finished"
+        )
+        unreadable = run_pipeline.check_listing(broken_row, files("a.acb", "b.acb"))
+        self.assertEqual(unreadable["status"], "unverified")
+        self.assertIn("1 listing rows could not be read", unreadable["reason"])
+        undecoded = run_pipeline.check_listing(synthetic_listing([(0, "a\ufffd.acb", 5)]), files("a\ufffd.acb"))
+        self.assertEqual(undecoded["status"], "unverified")
+        self.assertIn("could not be decoded", undecoded["reason"])
+        self.assertEqual(run_pipeline.check_listing(None, files("a.acb"))["status"], "unverified")
+        no_header = synthetic_listing(plain).replace("Content files:2\r\r\n", "")
+        self.assertEqual(run_pipeline.check_listing(no_header, files("a.acb", "b.acb"))["status"], "unverified")
+        short_header = synthetic_listing(plain).replace("Content files:2", "Content files:3")
+        self.assertEqual(run_pipeline.check_listing(short_header, files("a.acb", "b.acb"))["status"], "unverified")
+        bad_total = synthetic_listing(plain).replace(f"Content file size:{grouped_number(187813)}", "Content file size:1")
+        self.assertEqual(run_pipeline.check_listing(bad_total, files("a.acb", "b.acb"))["status"], "unverified")
+
     def test_converter_path_keeps_safe_paths_and_uses_short_names_when_needed(self):
         safe = Path("/tmp/safe_dir/run-1")
         self.assertEqual(run_pipeline.converter_argument_path(safe, short_name=lambda _p: None), str(safe))

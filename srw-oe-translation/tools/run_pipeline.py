@@ -78,8 +78,11 @@ SHA256_RE = re.compile(r"[0-9a-f]{64}")
 KNOWN_GAPS = (
     "ISO adapter: not implemented; ISO images are reported (PVD facts) but never unpacked.",
     "Repack and write-back: disabled; the repack gate only checks CPK member round trips.",
-    "Completeness: extracted files are not yet compared with each package's listing (-L); a partial "
-    "extraction that exits 0 without an Error: line is not detected.",
+    "Completeness: each package's files are compared with its -L listing by entry count and name; a "
+    "mismatch fails the package. The listing layout is known from one sample only.",
+    "Duplicate entry names: YACpkTool keeps one file per name, so a package whose entries share names "
+    "ends with fewer files than entries (seen in one package so far). Such packages fail; whether the "
+    "hidden entries differ in content is not known.",
     "Event text boundaries: unvalidated; units are heuristic candidates, not confirmed strings.",
     "Translation insertion: not implemented; no translated text is produced or applied.",
     "In-game verification: not performed; nothing here is a playable patch.",
@@ -289,6 +292,138 @@ def _member_entries(folder: Path) -> tuple[list[dict[str, Any]], list[dict[str, 
         if entry["sha256"] is not None
     ]
     return members, inventory["errors"]
+
+
+LISTING_HEADER_COUNT_RE = re.compile(r"^Content files:\s*(\d+)\s*$", re.MULTILINE)
+LISTING_HEADER_TOTAL_RE = re.compile(r"^Content file size:\s*(\d[\d\ufffd\u00a0 ,.]*?)\s*$", re.MULTILINE)
+# A table row starts with "[ n]". The name follows the percent column ("100,00"). The text before the
+# percent holds the Filesize and Compressed numbers, which are separated by two or more spaces; the
+# thousands separators inside a number are U+FFFD (or a single space) in the captured text.
+LISTING_ROW_START_RE = re.compile(r"^\[\s*\d+\]", re.MULTILINE)
+LISTING_ROW_RE = re.compile(r"^\[\s*(\d+)\]\s+(\d+)\s+(.+?)\s+\d{1,3}[,.]\d{2}\s+(\S.*?)\s*$", re.MULTILINE)
+NUMBER_TEXT_RE = re.compile(r"\d[\d\ufffd\u00a0 ,.]*")
+NUMBER_GAP_RE = re.compile(r"\s{2,}")
+
+
+def _digits(text: str) -> int:
+    return int(re.sub(r"\D", "", text))
+
+
+def parse_listing(text: Optional[str]) -> Optional[dict[str, Any]]:
+    """Read the header counts and the table rows of a `-L` listing. None when there is no text.
+
+    A line that starts like a table row but does not split into two numbers is not an entry; it is
+    counted in `unparsed_rows`, and the check treats any unparsed row as a failure.
+    """
+    if not text:
+        return None
+    count = LISTING_HEADER_COUNT_RE.search(text)
+    total = LISTING_HEADER_TOTAL_RE.search(text)
+    entries: list[dict[str, Any]] = []
+    for match in LISTING_ROW_RE.finditer(text):
+        numbers = NUMBER_GAP_RE.split(match.group(3).strip())
+        if len(numbers) != 2 or not all(NUMBER_TEXT_RE.fullmatch(number) for number in numbers):
+            continue
+        entries.append(
+            {
+                "no": int(match.group(1)),
+                "id": int(match.group(2)),
+                "size": _digits(numbers[0]),
+                "compressed": _digits(numbers[1]),
+                "name": match.group(4),
+            }
+        )
+    return {
+        "header_count": int(count.group(1)) if count else None,
+        "header_total": _digits(total.group(1)) if total else None,
+        "entries": entries,
+        "unparsed_rows": len(LISTING_ROW_START_RE.findall(text)) - len(entries),
+    }
+
+
+def _listing_name(name: str) -> str:
+    return name.replace("\\", "/").strip()
+
+
+def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) -> dict[str, Any]:
+    """Compare a package's `-L` entries with the files extracted from it, by count and by name.
+
+    `verified` only when every entry has exactly one file of the same name and no file is left over.
+    Entries that share a name cannot all be kept in one flat folder, so they make the package
+    `incomplete`. Anything that cannot be parsed, does not add up, or has names that did not decode
+    (U+FFFD) is `unverified` (fail closed).
+    """
+    result: dict[str, Any] = {
+        "status": "unverified",
+        "reason": "",
+        "entries": 0,
+        "unique_names": 0,
+        "duplicate_entries": 0,
+        "files": len(members),
+        "names_without_file": 0,
+        "files_not_listed": 0,
+        "unparsed_rows": 0,
+    }
+    parsed = parse_listing(listing_text)
+    if parsed is None or parsed["header_count"] is None:
+        result["reason"] = "listing has no 'Content files' line"
+        return result
+    result["unparsed_rows"] = parsed["unparsed_rows"]
+    if parsed["unparsed_rows"]:
+        result["reason"] = f"{parsed['unparsed_rows']} listing rows could not be read"
+        return result
+    entries = parsed["entries"]
+    result["entries"] = len(entries)
+    if not entries or len(entries) != parsed["header_count"]:
+        result["reason"] = f"listing has {len(entries)} rows but its header says {parsed['header_count']}"
+        return result
+    if parsed["header_total"] is not None and sum(entry["size"] for entry in entries) != parsed["header_total"]:
+        result["reason"] = "listing row sizes do not add up to the header total"
+        return result
+    names = [_listing_name(entry["name"]) for entry in entries]
+    undecodable = [name for name in names if "\ufffd" in name]
+    if undecodable:
+        result["reason"] = f"{len(undecodable)} listed names could not be decoded from the converter output"
+        return result
+    listed = set(names)
+    files = {_listing_name(member["path"]) for member in members}
+    result["examples"] = {
+        "listed_without_file": sorted(listed - files)[:3],
+        "file_not_listed": sorted(files - listed)[:3],
+    }
+    result["unique_names"] = len(listed)
+    result["duplicate_entries"] = len(names) - len(listed)
+    result["names_without_file"] = len(listed - files)
+    result["files_not_listed"] = len(files - listed)
+    problems = []
+    if result["duplicate_entries"]:
+        problems.append(
+            f"{result['duplicate_entries']} of {len(names)} entries share a name with another entry, "
+            f"so the folder holds {len(files)} files for {len(listed)} names"
+        )
+    if result["names_without_file"]:
+        problems.append(f"{result['names_without_file']} listed names have no file")
+    if result["files_not_listed"]:
+        problems.append(f"{result['files_not_listed']} files are not in the listing")
+    if problems:
+        result["status"] = "incomplete"
+        result["reason"] = "; ".join(problems)
+    else:
+        result["status"] = "verified"
+    return result
+
+
+def _listing_status(package: dict[str, Any]) -> Optional[str]:
+    return (package.get("listing_check") or {}).get("status")
+
+
+def _head_hex(path: Path, count: int = 32) -> Optional[str]:
+    """First bytes of an unrecognized input, as hex. Read only, for identification; nothing is decoded."""
+    try:
+        with path.open("rb") as stream:
+            return stream.read(count).hex(" ")
+    except OSError:
+        return None
 
 
 def _iso_summary(facts: dict[str, Any]) -> str:
@@ -636,16 +771,17 @@ class Run:
     def _write_call_log(self, slug: str, call: ConverterCall) -> None:
         folder = self.logs_dir / "converter"
         folder.mkdir(parents=True, exist_ok=True)
+        command = " ".join(f'"{part}"' if " " in part else part for part in call.command)
         header = [
             f"label: {call.label}",
             f"io_mode: {call.io_mode}",
-            "command: " + " ".join(f'"{part}"' if " " in part else part for part in call.command),
+            "command: " + self.redact(command),
             f"exit_code: {call.returncode}",
             f"timed_out: {call.timed_out}",
-            f"start_error: {call.error}",
+            f"start_error: {self.redact(call.error) if call.error else None}",
             f"seconds: {call.seconds}",
         ]
-        body = call.output if call.output is not None else "(console mode: output was not captured)"
+        body = self.redact(call.output) if call.output is not None else "(console mode: output was not captured)"
         (folder / f"{slug}.txt").write_text("\n".join(header) + "\n\n" + body, encoding="utf-8", errors="replace")
 
     def _make_alias(self, source: Path, expected_sha256: str, alias_path: Path) -> Path:
@@ -772,6 +908,7 @@ class Run:
         alias_root = self.staging_dir / package_id
         reason: Optional[str] = None
         nested: list[WorkItem] = []
+        members: list[dict[str, Any]] = []
         try:
             if _sha256_file(item.path) != item.sha256:
                 raise RuntimeError("source changed before extraction")
@@ -786,6 +923,15 @@ class Run:
                 io_mode=self.io_mode or "captured",
             )
             reason = self._extraction_failure(call, output_dir)
+            if reason is None:
+                members, inventory_errors = _member_entries(output_dir)
+                if inventory_errors:
+                    reason = f"{len(inventory_errors)} output entries could not be read"
+                else:
+                    check = check_listing(listing.output, members)
+                    package["listing_check"] = check
+                    if check["status"] != "verified":
+                        reason = f"listing check {check['status']}: {check['reason']}"
             if _sha256_file(item.path) != item.sha256:
                 reason = "source changed during extraction"
         except Exception as exc:  # noqa: BLE001 - one package must not stop the other packages
@@ -800,12 +946,6 @@ class Run:
             self.say(f"  FAILED {package_id}: {reason}")
             return nested
 
-        members, inventory_errors = _member_entries(output_dir)
-        if inventory_errors:
-            package["status"] = "failed"
-            package["error"] = f"{len(inventory_errors)} output entries could not be read"
-            self.say(f"  FAILED {package_id}: {package['error']}")
-            return nested
         package["status"] = "extracted"
         package["members"] = members
         package["member_count"] = len(members)
@@ -1109,14 +1249,18 @@ def run_pipeline(
             ]
             packages = run.extract_all(top_level)
             say("Stage 6/8 text: export and verify event text for each extracted package")
-            say("Stage 7/8 gate: repack the smallest extracted package and compare member hashes")
+            say("Stage 7/8 gate: repack the smallest extracted package with non-empty members and compare member hashes")
             gate_candidates = sorted(
-                (package for package in packages if package["status"] == "extracted" and package["member_count"]),
+                (
+                    package
+                    for package in packages
+                    if package["status"] == "extracted" and package["member_count"] and package["total_member_bytes"] > 0
+                ),
                 key=lambda package: (package["total_member_bytes"], package["package_id"]),
             )
             gate = run.repack_gate(gate_candidates[0]) if gate_candidates else {
                 "status": "not_run",
-                "reason": "no extracted package with members",
+                "reason": "no extracted package with non-empty members",
             }
         else:
             say("Stage 4/8 probe: skipped (no CPK signatures)")
@@ -1160,6 +1304,7 @@ def run_pipeline(
     for entry in entries:
         category = _classify_input(entry)
         iso_facts = None
+        head_hex = None
         if category == "iso_not_processed":
             iso_facts = _iso_facts(input_root.joinpath(*entry["path"].split("/")), entry["size_bytes"])
             not_processed.append(f"{entry['path']}: ISO image not processed (no validated ISO adapter); {_iso_summary(iso_facts)}")
@@ -1169,6 +1314,7 @@ def run_pipeline(
             not_processed.append(f"{entry['path']}: metadata container not processed")
         elif category == "unknown_not_processed":
             not_processed.append(f"{entry['path']}: unrecognized signature; not processed")
+            head_hex = _head_hex(input_root.joinpath(*entry["path"].split("/")))
         pipeline_status = category
         if category == "cpk":
             package = package_by_sha.get(entry["sha256"])
@@ -1187,6 +1333,7 @@ def run_pipeline(
                 "extension_hint": entry["extension_hint"],
                 "pipeline_status": pipeline_status,
                 "iso_facts": iso_facts,
+                "head_hex": head_hex,
             }
         )
     for package in packages:
@@ -1270,6 +1417,10 @@ def _summary(packages: list[dict[str, Any]], gate: dict[str, Any], probe: dict[s
         "text_units_total": text_units,
         "aliases_total": sum(len(package["aliases"]) for package in packages),
         "probe_status": probe.get("status"),
+        "listing_verified": sum(_listing_status(package) == "verified" for package in packages),
+        "listing_incomplete": sum(_listing_status(package) == "incomplete" for package in packages),
+        "listing_unverified": sum(_listing_status(package) == "unverified" for package in packages),
+        "listing_not_checked": sum(_listing_status(package) is None for package in packages),
         "gate_status": gate.get("status"),
     }
 
@@ -1305,9 +1456,13 @@ def _write_csvs(run_dir: Path, input_rows: list[dict[str, Any]], packages: list[
                 "text_units",
                 "aliases",
                 "error",
+                "listing_status",
+                "listing_entries",
+                "listing_duplicate_entries",
             ]
         )
         for package in packages:
+            listing = package.get("listing_check") or {}
             writer.writerow(
                 [
                     package["package_id"],
@@ -1322,6 +1477,9 @@ def _write_csvs(run_dir: Path, input_rows: list[dict[str, Any]], packages: list[
                     package["text"].get("units", ""),
                     len(package["aliases"]),
                     package["error"] or "",
+                    listing.get("status", ""),
+                    listing.get("entries", ""),
+                    listing.get("duplicate_entries", ""),
                 ]
             )
 
@@ -1343,10 +1501,12 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
             "  error lines: not checked (console output is not captured); a package counts as "
             "extracted when the converter exits 0 and writes files"
         )
-    listed = [package for package in registry["packages"] if package.get("list_ok") is not None]
-    if listed:
-        listed_ok = sum(1 for package in listed if package["list_ok"])
-        notes.append(f"  listing (-L) without error: {listed_ok} of {len(listed)} packages")
+    summary = registry["summary"]
+    notes.append(
+        "  listing check (entries vs files): "
+        f"verified {summary['listing_verified']}, incomplete {summary['listing_incomplete']}, "
+        f"unverified {summary['listing_unverified']}, not checked {summary['listing_not_checked']}"
+    )
     return notes
 
 

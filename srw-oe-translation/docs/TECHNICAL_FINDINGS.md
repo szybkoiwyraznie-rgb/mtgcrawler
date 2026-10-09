@@ -68,6 +68,15 @@ The user saw readable Japanese after selecting Shift-JIS in Notepad++. These obs
 
 Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some bytes differently, so these are codec facts, not evidence about the game's own table). Printable ASCII `0x20`–`0x7E` decodes to itself. `0x80` decodes to U+0080, a C1 control. `0xA0`, `0xFD`, `0xFE`, and `0xFF` decode to private-use codepoints. `0x81`–`0x9F` and `0xE0`–`0xFC` are lead bytes. Of 9,604 valid two-byte sequences, 1,880 decode to private-use codepoints and 398 decode to a character that does not re-encode to the same bytes (for example `0x8790` → U+2252 → `0x81E0`, and `0xFA40` → U+2170 → `0xEEEF`). The extractor keeps every such byte as a token, so no mapping is silently normalized. In the restored sample, 28 of 3,277 candidate prefixes are not byte-exact under strict CP932 decoding (27 with invalid bytes, one with a non-byte-exact pair).
 
+## YACpkTool `-L` listing (one sample: `bacb01.EDAT`, user's Windows run)
+
+- Observed in the captured text: `CPK Filename`, `File format version:Ver.7, Rev.1`, `Data alignment:2048`, `Content files:541`, `Compressed files:0`, `Content file size:132,272,768` (thousands separators shown as U+FFFD), `Enable Filename info.:True [Sorted]`, `Enable ID info.:True`, `Compression Mode:Layla Standard Compression`, and `Tool version:CPKMC2.30.07, DLL3.00.07`.
+- Observed: the table columns are `No.`, `ID`, `Filesize`, `Compressed`, `%`, and `Contents Filename`. IDs are unique (0–540). The `Filesize` values add up to the header total.
+- Observed: the 541 entries have 260 distinct names (10 names once, 219 twice, 31 three times). Entries that share a name have the same size.
+- Observed: extraction wrote 260 files, one per name. The converter exited 0, and the `-L` output has no `Error:` line.
+- Hypothesis, not tested: later entries overwrite earlier ones with the same name in one flat output folder.
+- Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
+
 ## YACpkTool source (read, not executed)
 
 Source: `YACT/Program.cs` from the archived repository `Brolijah/YACpkTool` at commit `6098bb2001f31b869b32d747f798b044029aa52a` (2017-12-17), SHA-256 `94c3454a9ab8a0f36e7daeb75778d4b8af71c5e8e512b1bde34616c434d00db2`. `CpkMaker.dll` was neither inspected nor run. The user's own build may differ. The items below were read from `Program.cs` only.
@@ -122,7 +131,7 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - Whether all event, menu, dictionary, battle, graphic, and DLC text is in these resources.
 - Whether the game's font/runtime renders lowercase English and punctuation, and whether any font patch is required.
 - Whether the user's YACpkTool build matches the archived source, and how its `CpkMaker.dll` validates signatures, extensions, and `Status` values.
-- Whether `-L` lists members in a format that can be compared with the extracted files; the one-click run saves that output but does not yet compare it.
+- Whether entries that share a name (281 of 541 in `bacb01.EDAT`) hold different content, and whether the game reads them by ID. The one-click run now fails such packages instead of writing a partial set.
 - What the 47 non-CPK `.EDAT` files in the user's `NPJH50521` folder are (format, encryption, and whether any holds text); `eventP04.EDAT` and `evept101.EDAT` are among them.
 
 ## References
