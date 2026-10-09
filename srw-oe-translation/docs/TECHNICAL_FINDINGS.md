@@ -77,14 +77,24 @@ Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some
 - Hypothesis, not tested: later entries overwrite earlier ones with the same name in one flat output folder.
 - Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
 
-## YACpkTool `-L` listing (second real run, 346 packages: row-layout differences)
+## YACpkTool `-L` listing (second real run, all 346 listings read)
 
-- Observed (second real run, `20261009-194153`): the listing check verified 189 of 346 packages, failed 41 as `incomplete` (duplicate entry names, all `bacb*`/`bseq*`), and failed 116 as `unverified` because their rows did not parse.
-- Observed: the 116 unverified packages are concentrated in `face*`, `mesbmp*`, `mesbtl*`, `mov*`, and `n1-bcam*` (plus `robo01`/`robo02`/`robo03`), whose members are small files. In the one known sample (`bacb01`, member sizes 12,288–1,022,752 bytes) every row has 3–6 spaces between the `Filesize` and `Compressed` numbers. In the sample, all sizes have at least five digits, so the columns are wide.
-- Hypothesis, not confirmed: packages with small members print narrower columns, where the two numbers are separated by a single space; the strict two-space split then rejects every row. The parser now falls back to a single-space split (validated on a narrowed copy of the real `bacb01` listing: 541 of 541 rows parse with identical entries), but the real narrow listings have not been inspected yet.
-- Observed: `robo01`/`robo02` listings have no `Content files` line; `robo03` has one listed name with U+FFFD; `face09`, `face18`, and `mesbmp09` each have exactly one listed name without a file and one file not in the listing.
-- Hypothesis, not confirmed: for those three packages the converter writes a sanitized file name to disk (a character that is invalid in a Windows file name replaced), so the listed name and the disk name differ.
-- Unknown: whether the 116 packages extracted completely; their rows must be read before the check can verify them.
+- Observed (second real run `20261009-194153`, all 346 `-L` logs re-parsed locally): the listing check verified 189 of 346 packages and failed 157. Re-derived from the real logs, the failures are exactly: 42 listings without a `Contents Filename` column, 59 without an `ID` column, 16 with a `,00` percent for a 0-byte entry, 2 with a thousands separator in the `Content files` count (`1�711`, `1�201`), 2 with one console-mangled name each, and 38 with duplicate entry names.
+- Observed: the printed columns follow the package's info flags. `Enable Filename info.:True/False` decides the `Contents Filename` column; `Enable ID info.:True/False` decides the `ID` column. Of the 346 listings: 246 print `No.  ID  Filesize  Compressed  %  Contents Filename`, 58 print no `ID` column, 42 print no `Contents Filename` column. No listing prints neither.
+- Observed: for the 42 packages without filename info, YACpkTool writes one ID-named file per entry; the observed file name is `ID00000` for ID 0 (face09, face18, mesbmp09 each have one entry, ID 0, one file `ID00000`). Hypothesis, one data point: the name is `ID` plus the zero-padded ID (`ID%05d`).
+- Observed: a 0-byte entry prints its percent as `,00` (0/0). `Filesize` is the uncompressed size and equals the extracted file's size; `Compressed` is the stored size. 215 of 346 packages are fully uncompressed (`Compressed files:0`); 131 have some compressed entries.
+- Observed: the header lines `Enable Filename info.:True (208 bytes)` and `Enable ID info.:True (104 bytes)` give the byte sizes of the filename and ID tables inside the container.
+- Observed: two listed names are mangled to U+FFFD by the console code page: `r2222/"�.bsb` (robo01) and `r1100/srwWI_�v�Z�R.bsb` (robo03). The packages stay `unverified` (fail closed).
+- Resolved (was a hypothesis): the "narrow column" idea was wrong. All 346 real listings parse in the strict two-space mode once rows are read per the printed columns; the single-space fallback exists but was not needed for real data.
+- Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
+
+## CPK container structure (one sample: `mesbtl09.EDAT`, 6,272 bytes, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`)
+
+- Observed: a CRI CPK container. A `CPK ` header gives content offset 704 and content size 0 (the single entry is empty). A `CpkHeader` `@UTF` table at 0x10 lists its field names (`ContentOffset`, `ContentSize`, `TocOffset`, `TocSize`, `TocCrc`, `EtocOffset`, `EtocSize`, `ItocOffset`, `ItocSize`, `ItocCrc`, `GtocOffset`, …, `Align`, `Sorted`, `CpkMode`, `Tvers`, `Comment`, `Codec`, `DpkItoc`).
+- Observed: a `TOC ` table (after a `(c)CRI` marker) whose `@UTF` schema is `CpkTocInfo` with fields `DirName`, `FileName`, `FileSize`, `ExtractSize`, `FileOffset`, `ID`, `UserString`; the entry name `p0000.pac` is stored in it. The schema carries the entry `ID`, so a read-only table reader can recover (name, ID, size, offset) per entry.
+- Observed: an `ITOC` table at 0x1000 (schema `CpkExtendId`: `ID`, `TocIndex`) and an `ETOC` table at 0x1800 (schema `CpkEtocInfo`: `UpdateDateTime`, `LocalDir`) ending at the file end 0x1880.
+- Observed: `@UTF` tables start with the magic `@UTF`, a big-endian u32 table size, a u16 zero, a u16 rows offset, and further big-endian fields; the string pool holds both the schema names and the row strings.
+- Not decoded yet: the `@UTF` row encoding (per-column storage types and value layout). That is the next step for the read-only CPK table reader; it must be grounded in a public format reference and validated against the converter's listings (fail closed on any mismatch). Nothing here is inferred beyond what the listing confirms (1 entry, ID 0, name `p0000.pac`, size 0).
 
 ## YACpkTool source (read, not executed)
 

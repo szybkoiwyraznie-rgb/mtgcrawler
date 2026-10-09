@@ -103,19 +103,42 @@ if command == "-L":
     rows = [(member["path"], len(base64.b64decode(member["data"]))) for member in members]
     if flag("FAKE_YACPK_DUPLICATE_SUBSTRING") and flag("FAKE_YACPK_DUPLICATE_SUBSTRING") in source and rows:
         rows.append(rows[0])  # a second entry with the same name, as the real bacb01 listing has
+    no_id = flag("FAKE_YACPK_NO_ID_LISTING")
+    no_name = flag("FAKE_YACPK_NO_NAME_LISTING")
+    narrow = flag("FAKE_YACPK_NARROW_LISTING")
     print(f"CPK Filename:{Path(source).name}")
     print("File format version:Ver.7, Rev.1")
     print(f"Content files:{len(rows)}")
     print(f"Content file size:{grouped(sum(size for _name, size in rows))}")
     print("Compressed files:0")
     print()
-    print("No.         ID    Filesize  Compressed       %  Contents Filename")
+    if no_id and no_name:
+        print("No.        Filesize  Compressed       %")
+    elif no_id:
+        print("No.        Filesize  Compressed       %  Contents Filename")
+    elif no_name:
+        print("No.         ID    Filesize  Compressed       %")
+    else:
+        print("No.         ID    Filesize  Compressed       %  Contents Filename")
     for number, (name, size) in enumerate(rows):
-        if flag("FAKE_YACPK_NARROW_LISTING"):
-            # Narrow columns: the two numbers are separated by a single space, with no padding.
-            print(f"[{number:5d}]  {number + 1:5d}  {grouped(size)} {grouped(size)}  100,00  {name}")
+        # A 0/0 percent prints as ",00", as the real converter does for empty entries.
+        percent = ",00" if size == 0 else "100,00"
+        if no_id and no_name:
+            print(f"[{number:5d}]  {grouped(size):>9}  {grouped(size):>9}  {percent}")
+        elif no_id:
+            if narrow:
+                print(f"[{number:5d}]  {grouped(size)} {grouped(size)}  {percent}  {name}")
+            else:
+                print(f"[{number:5d}]  {grouped(size):>9}  {grouped(size):>9}  {percent}  {name}")
+        elif no_name:
+            # Filename info disabled: the row has an ID column but no name (as the real face01).
+            print(f"[{number:5d}]  {number:5d}  {grouped(size):>9}  {grouped(size):>9}  {percent} ")
         else:
-            print(f"[{number:5d}]  {number + 1:5d}  {grouped(size):>9}  {grouped(size):>9}  100,00  {name}")
+            if narrow:
+                # Narrow columns: the two numbers are separated by a single space, no padding.
+                print(f"[{number:5d}]  {number + 1:5d}  {grouped(size)} {grouped(size)}  {percent}  {name}")
+            else:
+                print(f"[{number:5d}]  {number + 1:5d}  {grouped(size):>9}  {grouped(size):>9}  {percent}  {name}")
     print("Process finished (hopefully) without issues!")
     sys.exit(0)
 
@@ -134,8 +157,10 @@ if command == "-X":
         sys.exit(0)
     out = Path(destination)
     out.mkdir(parents=True, exist_ok=True)
+    no_name = flag("FAKE_YACPK_NO_NAME_LISTING")
     for index, member in enumerate(members):
-        target = out / member["path"]
+        # Filename info disabled: YACpkTool writes one ID-named file per entry (ID00000, ...).
+        target = out / (f"ID{index:05d}" if no_name else member["path"])
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(base64.b64decode(member["data"]))
         if index == 0 and flag("FAKE_YACPK_CRASH_ON_PIPE") and is_pipe(sys.stdout):
@@ -208,6 +233,45 @@ def synthetic_listing(entries: list) -> str:
         lines.append(
             f"[{number:5d}]  {entry_id:5d}  {grouped_number(size):>9}  {grouped_number(size):>9}  100,00  {name}"
         )
+    lines.append("Process finished (hopefully) without issues!")
+    return "\r\r\n".join(lines) + "\r\r\n"
+
+
+def synthetic_listing_layout(entries: list, *, drop_id: bool = False, drop_name: bool = False) -> str:
+    """YACpkTool -L layout variants seen in the real run: without the ID column (Enable ID info
+    off), without the filename column (Enable Filename info off), and a ",00" percent for a
+    0-byte entry. The entries are invented."""
+    total = sum(size for _entry_id, _name, size in entries)
+    lines = [
+        "CPK Filename:synthetic.EDAT",
+        "File format version:Ver.7, Rev.1",
+        f"Content files:{len(entries)}",
+        f"Content file size:{grouped_number(total)}",
+        "Compressed files:0",
+        f"Enable Filename info.:{'False' if drop_name else 'True'}",
+        f"Enable ID info.:{'False' if drop_id else 'True'}",
+        "",
+    ]
+    if drop_id and drop_name:
+        lines.append("No.        Filesize  Compressed       %")
+    elif drop_id:
+        lines.append("No.        Filesize  Compressed       %  Contents Filename")
+    elif drop_name:
+        lines.append("No.         ID    Filesize  Compressed       %")
+    else:
+        lines.append("No.         ID    Filesize  Compressed       %  Contents Filename")
+    for number, (entry_id, name, size) in enumerate(entries):
+        percent = ",00" if size == 0 else "100,00"
+        if drop_id and drop_name:
+            lines.append(f"[{number:5d}]  {grouped_number(size):>9}  {grouped_number(size):>9}  {percent}")
+        elif drop_id:
+            lines.append(f"[{number:5d}]  {grouped_number(size):>9}  {grouped_number(size):>9}  {percent}  {name}")
+        elif drop_name:
+            lines.append(f"[{number:5d}]  {entry_id:5d}  {grouped_number(size):>9}  {grouped_number(size):>9}  {percent} ")
+        else:
+            lines.append(
+                f"[{number:5d}]  {entry_id:5d}  {grouped_number(size):>9}  {grouped_number(size):>9}  {percent}  {name}"
+            )
     lines.append("Process finished (hopefully) without issues!")
     return "\r\r\n".join(lines) + "\r\r\n"
 
@@ -581,6 +645,50 @@ class RunPipelineTests(PipelineFixture):
         self.assertEqual(iso_rows[0]["iso_inventory"]["file_count"], 7)
         not_processed = " | ".join(registry["not_processed"])
         self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside (not extracted)", not_processed)
+
+    def test_listings_without_an_id_column_verify_by_name_and_size(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly({"FAKE_YACPK_NO_ID_LISTING": "1"})
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertEqual(registry["summary"]["listing_verified"], 3)
+        for package in registry["packages"]:
+            check = package["listing_check"]
+            self.assertEqual(check["status"], "verified")
+            self.assertEqual(check["columns"][1:], ["Filesize", "Compressed", "%", "Contents Filename"])
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("listing layouts: 3 no ID column", report)
+
+    def test_listings_without_a_filename_column_verify_by_count_and_sizes(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly({"FAKE_YACPK_NO_NAME_LISTING": "1"})
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertEqual(registry["summary"]["listing_verified"], 3)
+        for package in registry["packages"]:
+            check = package["listing_check"]
+            self.assertEqual(check["status"], "verified")
+            self.assertEqual(check["columns"][1:], ["ID", "Filesize", "Compressed", "%"])
+            self.assertTrue(check["examples"]["file_name_examples"])
+            self.assertTrue(all(name.startswith("ID") for name in check["examples"]["file_name_examples"]))
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("listing layouts: 3 no filename column (ID-named files)", report)
+
+    def test_zero_byte_entries_with_comma_percent_still_verify(self):
+        self.write_standard_inputs()
+        (self.input_root / "hollow.EDAT").write_bytes(make_cpk({"empty.pac": b""}))
+
+        result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        hollow = next(package for package in registry["packages"] if package["source_path"] == "hollow.EDAT")
+        self.assertEqual(hollow["listing_check"]["status"], "verified")
+        self.assertEqual(hollow["listing_check"]["entries"], 1)
 
     def test_source_changed_during_extraction_is_detected_and_output_removed(self):
         self.write_standard_inputs()
@@ -975,6 +1083,74 @@ class UnitHelperTests(unittest.TestCase):
         self.assertTrue(missing["examples"]["listing_head"])
         undecoded = run_pipeline.check_listing(synthetic_listing([(0, "a\ufffd.acb", 5)]), files("a\ufffd.acb"))
         self.assertEqual(undecoded["examples"]["undecodable_names"], ["a\ufffd.acb"])
+
+    def test_listing_parser_reads_the_three_real_column_layouts(self):
+        entries = [(0, "a.acb", 5), (7, "sub/b c.acb", 187808)]
+        full = run_pipeline.parse_listing(synthetic_listing_layout(entries))
+        self.assertEqual(full["columns"], ["No.", "ID", "Filesize", "Compressed", "%", "Contents Filename"])
+        self.assertEqual(
+            [(entry["id"], entry["size"], entry["name"]) for entry in full["entries"]],
+            [(0, 5, "a.acb"), (7, 187808, "sub/b c.acb")],
+        )
+        no_id = run_pipeline.parse_listing(synthetic_listing_layout(entries, drop_id=True))
+        self.assertEqual(no_id["columns"], ["No.", "Filesize", "Compressed", "%", "Contents Filename"])
+        self.assertEqual(
+            [(entry["size"], entry["name"]) for entry in no_id["entries"]],
+            [(5, "a.acb"), (187808, "sub/b c.acb")],
+        )
+        self.assertNotIn("id", no_id["entries"][0])
+        no_name = run_pipeline.parse_listing(synthetic_listing_layout(entries, drop_name=True))
+        self.assertEqual(no_name["columns"], ["No.", "ID", "Filesize", "Compressed", "%"])
+        self.assertEqual([(entry["id"], entry["size"]) for entry in no_name["entries"]], [(0, 5), (7, 187808)])
+        self.assertNotIn("name", no_name["entries"][0])
+        # A 0-byte entry prints its percent as ",00" (seen in the real mesbtl09 listing).
+        zero = run_pipeline.parse_listing(synthetic_listing_layout([(0, "p0000.pac", 0)]))
+        self.assertEqual(zero["entries"][0]["size"], 0)
+        self.assertEqual(zero["entries"][0]["percent"], ",00")
+        self.assertEqual(zero["compressed_files"], 0)
+        self.assertEqual(zero["filename_info"], "True")
+        self.assertEqual(zero["id_info"], "True")
+        # A thousands separator inside the Content files count (seen in the real robo01
+        # listing: "Content files:1?711") still reads as the row count.
+        grouped_count = synthetic_listing_layout([(index, f"f{index}.bin", 10) for index in range(12)]).replace(
+            "Content files:12", "Content files:1\ufffd2"
+        )
+        parsed = run_pipeline.parse_listing(grouped_count)
+        self.assertEqual(parsed["header_count"], 12)
+        self.assertEqual(len(parsed["entries"]), 12)
+        self.assertEqual(parsed["unparsed_rows"], 0)
+
+    def test_listing_check_verifies_id_named_packages_by_count_and_sizes(self):
+        def members(*pairs):
+            return [{"path": name, "size_bytes": size} for name, size in pairs]
+
+        entries = [(0, "a.acb", 5), (3, "b.acb", 187808)]
+        listing = synthetic_listing_layout(entries, drop_name=True)
+        ok = run_pipeline.check_listing(listing, members(("ID00000", 5), ("ID00003", 187808)))
+        self.assertEqual(ok["status"], "verified")
+        self.assertEqual(ok["entries"], 2)
+        self.assertEqual(ok["examples"]["file_name_examples"], ["ID00000", "ID00003"])
+        self.assertEqual(ok["examples"]["listed_id_examples"], [0, 3])
+        short = run_pipeline.check_listing(listing, members(("ID00000", 5)))
+        self.assertEqual(short["status"], "incomplete")
+        self.assertIn("the folder holds 1 files for 2 listed entries", short["reason"])
+        wrong_size = run_pipeline.check_listing(listing, members(("ID00000", 5), ("ID00003", 1)))
+        self.assertEqual(wrong_size["status"], "incomplete")
+        self.assertIn("the file sizes do not match the listed entry sizes", wrong_size["reason"])
+
+    def test_listing_check_fails_a_file_whose_size_differs_and_reports_decoded_name_matches(self):
+        def files(*pairs):
+            return [{"path": name, "size_bytes": size} for name, size in pairs]
+
+        plain = [(0, "a.acb", 5), (1, "b.acb", 187808)]
+        wrong = run_pipeline.check_listing(synthetic_listing(plain), files(("a.acb", 5), ("b.acb", 1)))
+        self.assertEqual(wrong["status"], "incomplete")
+        self.assertEqual(wrong["size_mismatches"], 1)
+        self.assertIn("1 files differ in size from their listed entry", wrong["reason"])
+        undecoded = run_pipeline.check_listing(synthetic_listing([(0, "a\ufffd.acb", 5)]), files(("a\ufffd.acb", 5)))
+        self.assertEqual(undecoded["status"], "unverified")
+        self.assertIn("could not be decoded", undecoded["reason"])
+        self.assertIn("1 of 1 listed names matched a file by name", undecoded["reason"])
 
     def test_converter_path_keeps_safe_paths_and_uses_short_names_when_needed(self):
         safe = Path("/tmp/safe_dir/run-1")

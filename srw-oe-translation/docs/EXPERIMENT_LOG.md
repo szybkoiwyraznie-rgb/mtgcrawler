@@ -536,14 +536,55 @@ Final SHA-256: `tools/run_pipeline.py` `dc1db0f54718cdc2f8a944477f790e3cfd0944d1
 
 **Not demonstrated:** the fallback on the user's real narrow listings (the next run, or the second run's logs, will show it); whether the 116 unverified packages verify once their rows parse; the cause of the `robo01`/`robo02` header-less listings; the three single-name mismatches; any repack, insertion, or in-game result.
 
+## 2026-10-09 — the second run's logs and registry: real listing layouts, ID-named files, unknown inputs identified
+
+**Input:** The user uploaded `20261009-194153.zip` (784,584 bytes, SHA-256 `355669cd94d95c1397461252c72350891f55ac072bc6c536b5fe38d3b5cf2ee0`) as commit `06ffdd7` on this branch. It holds the second run's `logs\converter\*.txt` (696 logs: 346 `-L` listings, 346 extractions, 2 probes, 1 pack, 1 unpack check), `registry.json` (1,644,222 bytes, SHA-256 `673395437be48bf4f2b4858c217ce2f3d05c9db4f352c2af29f896b62f26b144`), and one 6,272-byte container (`NPJH50521\mesbtl09.EDAT`, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`, matching the registry's `p202-mesbtl09-981a716110df`) as a sample for a future CPK table reader. All were unpacked under ignored `local/` and read only.
+
+**Observed — the 157 failures re-derived from the real logs (exact counts):**
+
+- 38 packages have entries that share a name (all `bacb*`/`bseq*`) → `incomplete`. Across them, 1,111 entries beyond the first per name have no file in the flat output: 206,898,244 bytes (197.3 MiB). 902 of those hidden entries are uncompressed (stored size equals size) and 209 are compressed; 19 of the 38 packages are fully uncompressed (`Compressed files:0`).
+- 42 listings print no `Contents Filename` column (`Enable Filename info.:False`): rows are `[ n]  ID  Filesize  Compressed  %` with a trailing space and no name. For these packages YACpkTool writes one ID-named file per entry; observed name `ID00000` for ID 0 (face09, face18, mesbmp09 each have one entry, ID 0, one file `ID00000`). In run 2 the old parser failed them as unreadable rows, except those three one-entry packages, where it ate the next line (`Process finished …`) as a name and reported a one-name mismatch.
+- 59 listings print no `ID` column (`Enable ID info.:False`): rows are `[ n]  Filesize  Compressed  %  name`.
+- 16 listings (the `mesbtl*` packages whose single entry is the 0-byte `p0000.pac`) print the percent of a 0/0 entry as `,00`, which the old row pattern rejected.
+- 2 listings (`robo01`, `robo02`) print the `Content files` count with a thousands separator (`1�711`, `1�201`), which the old count pattern rejected.
+- 2 packages (`robo01`, `robo03`) each have exactly one listed name the console mangled to U+FFFD (`r2222/"�.bsb` and `r1100/srwWI_�v�Z�R.bsb`); they stay `unverified` (fail closed).
+
+**Observed — other registry answers:**
+
+- The 47 unknown-signature inputs are 20 PSP EDAT containers (signature `\x00PSPEDAT`; 19 with flag byte 0x00, `evept101.EDAT` with 0x03) and 27 AFS2 archives (signature `AFS2`: the `BgmSet*` and `voice*` files). Signatures only; nothing was decrypted or decoded. The report's `Unrecognized inputs` section shows these groups from `head_hex` alone.
+- The three text packages that left the export (robo01/02/03; 83 → 80 packages) each contributed 0 units in run 1, so the 39,103-unit total is unchanged. No text data was lost.
+- The 16 zero-byte `p0000.pac` members are genuine empty entries: their listings say `Content files:1`, `Content file size:0` (the other 14 `mesbtl*` packages have 1–56 real entries).
+- The header lines `Enable Filename info.:True (208 bytes)` / `Enable ID info.:True (104 bytes)` give the byte sizes of the filename and ID tables inside the container; the parser records them (`filename_table_bytes`, `id_table_bytes`) plus the `Compressed files` count per package.
+- Compression: 215 of 346 packages are fully uncompressed; 131 have some compressed entries (face01: 494 of 494; robo03: 468 of 507; bcam: 9 of 15). `Filesize` is the uncompressed size and equals the extracted file's size (validated: 0 size mismatches across the 189 extracted packages).
+
+**Observed — the CPK sample (`mesbtl09.EDAT`, 6,272 bytes):** a CRI CPK container: a `CPK ` header with content offset 704 and content size 0; a `CpkHeader` `@UTF` table (field names include `ContentOffset`, `ContentSize`, `TocOffset`, `TocSize`, `ItocOffset`, `ItocSize`, `Align`); a `TOC ` table (schema `CpkTocInfo`: `DirName`, `FileName`, `FileSize`, `ExtractSize`, `FileOffset`, `ID`, `UserString`) holding the entry name `p0000.pac`; an `ITOC` table (schema `CpkExtendId`: `ID`, `TocIndex`) at 0x1000; and an `ETOC` table (schema `CpkEtocInfo`) at 0x1800 ending at the file end 0x1880. The TOC schema carries the entry `ID`, so a read-only table reader can recover (name, ID, size, offset) per entry — what the duplicate-name recovery needs. The `@UTF` table format itself (big-endian header, string pool, row encoding) is not decoded yet; that is the next step. Structure observations only; nothing is inferred beyond what the listing confirms (1 entry, ID 0, name `p0000.pac`, size 0).
+
+## 2026-10-09 — parser rewrite: column-header-driven rows, ID-named package checks, size verification
+
+**Action:**
+
+- `parse_listing` now reads the column header line (`No. …`) and parses rows per the printed columns: with or without `ID`, with or without `Contents Filename`. The `Content files` count accepts thousands separators, and a percent may be `,00`. The strict two-space split stays first, with the single-space fallback second; a row that fits neither is kept raw and fails the package. The result records `columns`, `compressed_files`, `filename_info`, `id_info`, `filename_table_bytes`, `id_table_bytes`, and per-row parse modes.
+- `check_listing` now verifies per layout: with a filename column, every entry needs exactly one file of the same name **and size**, with nothing left over; without one, the package is verified by entry count and the multiset of file sizes (the converter writes ID-named files), and the first file names and IDs are kept as examples. Undecodable names still fail closed, and the reason now reports how many names did match.
+- The report adds a `listing layouts:` line to the Extraction section and a file-name-examples subsection to the diagnostics. Known gaps updated.
+
+**Validation (against the second run's real data, all 346 listings):**
+
+- All 346 listings parse: entries equal the header count, sizes sum to the header total, 0 unparsed rows, all in strict mode (the fallback was not needed for real data).
+- All 189 extracted packages verify against their registry members, with 0 size mismatches.
+- Predicted for the next run (from the listings alone; the member data decides): 306 verified (the current 189, plus 75 by name+size and 42 by count+size multiset), 38 incomplete (duplicate names), 2 unverified (the mangled names in robo01 and robo03), 0 not checked.
+- Full suite: 142 tests OK. New tests: the three real layouts plus `,00` and the grouped count (unit), ID-named verification by count and sizes (unit), size mismatch and the decode reason with match counts (unit), no-ID and no-filename integration runs, and a zero-byte `,00` package. The fake converter gained the three layout flags and writes `ID%05d` files in no-name mode.
+- pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `2dfbd64208c01d0155be5c4c65d48f646df5ccd96ec50424b1c9b3db0e3ad883`; `tests/test_run_pipeline.py` `da3a7cbc91dfcf859bd68089b54cff23e76de3613c3f494e9bfcb50b4898fb0d`.
+
+**Not demonstrated:** the next run itself; whether the 42 ID-named packages' size multisets match (they fail closed if not); the `@UTF` row encoding; any recovery of the 1,111 hidden entries; any repack, insertion, or in-game result.
+
 ## Pending
 
-- Get the exact row layout of the 116 unverified listings. Either the user sends the second run's `logs\converter\*-list-*.txt` files plus `registry.json` (zipped; file names, sizes, hashes, and listings, not decoded text), or re-runs `RUN_PIPELINE.bat` with the current code and shares the new `REPORT.txt`, which now contains raw example rows itself.
-- Confirm or refute the narrow-column hypothesis on the real logs; extend the parser only against observed rows. Then re-run and count how many of the 116 verify.
-- Read the first bytes of the 47 unknown-signature inputs from the report's `Unrecognized inputs` section (or `inputs[].head_hex` in the second run's registry) and describe their formats as observations only.
-- From the second run's registry: which three text packages left the 80-package text export (the unit total is unchanged at 39,103); check whether the 16 zero-byte `p0000.pac` members are genuine empty entries (their listing sizes and IDs).
-- Decide how to read the hidden duplicate-name entries in the 41 incomplete packages (open decision for the user). Options: a read-only CPK table reader inside the pipeline (no new executables; validated against the converter's listings and the round-trip gate), or a converter build the user supplies, pinned by SHA-256 and extracting by entry ID. Do not download executables.
-- Explain the ISO descriptor difference from `registry.json` alone (`inputs[].iso_inventory` now has the read-only member index). Do not unpack the ISO.
+- Re-run `RUN_PIPELINE.bat` with the current code on the user's PC (about 3 minutes, about 0.8 GB of output; delete the old run folder afterwards). Expected from the listings: 306 verified, 38 incomplete (duplicate names), 2 unverified (the mangled names in robo01/robo03). Share `REPORT.txt` (and `registry.json` if more detail is needed). The registry now also carries the read-only ISO member index (`inputs[].iso_inventory`), so the ISO descriptor mismatch can be explained from it without unpacking the ISO.
+- Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference, validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
+- Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
+- The user should remove the game-file zip from the public branch history (commit `06ffdd7` adds `20261009-194153.zip` containing `mesbtl09.EDAT`); full removal needs a history rewrite or GitHub support, as with the earlier PR #8 zip.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.

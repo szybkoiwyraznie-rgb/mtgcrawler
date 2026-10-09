@@ -79,9 +79,12 @@ KNOWN_GAPS = (
     "ISO adapter: not implemented; ISO images are reported (PVD facts plus a read-only member index) "
     "but never unpacked.",
     "Repack and write-back: disabled; the repack gate only checks CPK member round trips.",
-    "Completeness: each package's files are compared with its -L listing by entry count and name; a "
-    "mismatch fails the package. Rows are read with a strict parser plus a single-space fallback for "
-    "narrow columns; any row still unreadable fails the package and is shown raw in the report.",
+    "Completeness: each package's files are compared with its -L listing by entry count and, when "
+    "the listing prints file names, by name and size; without a filename column the converter "
+    "writes ID-named files, so the package is checked by entry count and the multiset of file "
+    "sizes. A mismatch fails the package. Rows are read per the listing's own column header (with "
+    "or without the ID or filename column), with a single-space fallback for narrow columns; any "
+    "row still unreadable fails the package and is shown raw in the report.",
     "Duplicate entry names: YACpkTool keeps one file per name, so a package whose entries share names "
     "ends with fewer files than entries. Such packages fail; whether the hidden entries differ in "
     "content is not known, and reading them needs a read-only CPK table reader or a converter that "
@@ -297,82 +300,157 @@ def _member_entries(folder: Path) -> tuple[list[dict[str, Any]], list[dict[str, 
     return members, inventory["errors"]
 
 
-LISTING_HEADER_COUNT_RE = re.compile(r"^Content files:\s*(\d+)\s*$", re.MULTILINE)
+LISTING_HEADER_COUNT_RE = re.compile(r"^Content files:\s*(\d[\d\ufffd\u00a0 ,.]*?)\s*$", re.MULTILINE)
 LISTING_HEADER_TOTAL_RE = re.compile(r"^Content file size:\s*(\d[\d\ufffd\u00a0 ,.]*?)\s*$", re.MULTILINE)
-# A table row starts with "[ n]". The name follows the percent column ("100,00"). The text before the
-# percent holds the Filesize and Compressed numbers; the thousands separators inside a number are
-# U+FFFD (or a single space) in the captured text.
+LISTING_HEADER_COMPRESSED_RE = re.compile(r"^Compressed files:\s*(\d[\d\ufffd\u00a0 ,.]*?)\s*$", re.MULTILINE)
+LISTING_FILENAME_INFO_RE = re.compile(
+    r"^Enable Filename info\.:\s*(True|False)\s*(?:\(([\d\ufffd\u00a0 ,.]*) bytes\))?", re.MULTILINE
+)
+LISTING_ID_INFO_RE = re.compile(
+    r"^Enable ID info\.:\s*(True|False)\s*(?:\(([\d\ufffd\u00a0 ,.]*) bytes\))?", re.MULTILINE
+)
+# A table row starts with "[ n]". YACpkTool prints only the columns its package has info for:
+# "ID" when ID info is enabled, "Contents Filename" when filename info is enabled, so the column
+# header line decides the row layout. The thousands separators inside a printed number are U+FFFD
+# (or a single space) in the captured text, and a 0/0 percent prints as ",00".
 LISTING_ROW_START_RE = re.compile(r"^\[\s*\d+\]")
-LISTING_ROW_RE = re.compile(r"^\[\s*(\d+)\]\s+(\d+)\s+(.+?)\s+\d{1,3}[,.]\d{2}\s+(\S.*?)\s*$")
+LISTING_COLUMN_LABELS = ("No.", "ID", "Filesize", "Compressed", "%", "Contents Filename")
 NUMBER_TEXT_RE = re.compile(r"\d[\d\ufffd\u00a0 ,.]*")
 NUMBER_TOKEN_RE = re.compile(r"\d[\d\ufffd\u00a0,.]*")
+PERCENT_TEXT_RE = re.compile(r"\d{0,3}[,.]\d{2}")
+ID_TEXT_RE = re.compile(r"\d+")
 NUMBER_GAP_RE = re.compile(r"\s{2,}")
-ANY_GAP_RE = re.compile(r"\s+")
 LISTING_HEAD_LINES = 8
 LISTING_EXAMPLE_ROWS = 3
 LISTING_EXAMPLE_HEADS = 2
+LISTING_FILE_NAME_EXAMPLES = 3
 
 
 def _digits(text: str) -> int:
     return int(re.sub(r"\D", "", text))
 
 
-def _listing_row_entry(match: re.Match) -> Optional[dict[str, Any]]:
-    """One table row, or None when its numbers do not split into two readable values.
+def _listing_columns(text: str) -> Optional[list[str]]:
+    """Column labels of the table header line, in printed order, or None when there is none.
 
-    The strict reading requires two or more spaces between the Filesize and Compressed numbers,
-    which is what wide columns print. Narrow columns can separate the two numbers with a single
-    space, so a fallback split on any gap is tried next; a fallback token must then be one plain
-    number with no embedded space, so a number that itself contains a space separator is still
-    rejected instead of being cut in half. Whatever the row layout, the check still requires the
-    row count and the size sum to match the listing header, so a wrong split fails closed.
+    The labels must follow the canonical order No., ID, Filesize, Compressed, %, Contents
+    Filename, with ID and Contents Filename optional (the package's info flags decide them).
     """
-    numbers = NUMBER_GAP_RE.split(match.group(3).strip())
-    mode = "strict"
-    if len(numbers) != 2 or not all(NUMBER_TEXT_RE.fullmatch(number) for number in numbers):
-        numbers = ANY_GAP_RE.split(match.group(3).strip())
-        mode = "fallback"
-        if len(numbers) != 2 or not all(NUMBER_TOKEN_RE.fullmatch(number) for number in numbers):
-            return None
-    return {
-        "no": int(match.group(1)),
-        "id": int(match.group(2)),
-        "size": _digits(numbers[0]),
-        "compressed": _digits(numbers[1]),
-        "name": match.group(4),
-        "parse_mode": mode,
-    }
+    for line in text.splitlines():
+        labels = [label.strip() for label in NUMBER_GAP_RE.split(line.strip()) if label.strip()]
+        if not labels or labels[0] != "No." or any(label not in LISTING_COLUMN_LABELS for label in labels):
+            continue
+        remaining = iter(LISTING_COLUMN_LABELS)
+        if all(any(label == wanted for wanted in remaining) for label in labels):
+            return labels
+    return None
+
+
+def _listing_row_regex(columns: list[str]) -> re.Pattern:
+    """Row pattern for the printed columns, used as the fallback for narrow single-space gaps.
+
+    Numbers in this fallback may not contain spaces, so a number that itself uses a space as a
+    thousands separator is still rejected instead of being cut in half.
+    """
+    parts = [r"^\[\s*(\d+)\]"]
+    for label in columns[1:]:
+        if label == "ID":
+            parts.append(r"\s+(\d+)")
+        elif label in ("Filesize", "Compressed"):
+            parts.append(r"\s+(\d[\d\ufffd\u00a0,.]*)")
+        elif label == "%":
+            parts.append(r"\s+(\d{0,3}[,.]\d{2})")
+        else:
+            parts.append(r"\s+(\S.*?)")
+    parts.append(r"\s*$")
+    return re.compile("".join(parts))
+
+
+def _listing_row_values(line: str, columns: list[str]) -> Optional[tuple[list[str], str]]:
+    """Column values of one table row and the mode that read it, or None when it fits neither.
+
+    The strict reading splits the row on two or more spaces (a number may then contain single
+    spaces as thousands separators); the fallback matches the column pattern with any gap.
+    """
+    kinds = columns[1:]
+    rest = LISTING_ROW_START_RE.sub("", line, count=1).strip()
+    tokens = NUMBER_GAP_RE.split(rest)
+    if len(tokens) == len(kinds):
+        values: list[str] = []
+        valid_row = True
+        for kind, token in zip(kinds, tokens):
+            if kind == "ID":
+                ok = ID_TEXT_RE.fullmatch(token)
+            elif kind in ("Filesize", "Compressed"):
+                ok = NUMBER_TEXT_RE.fullmatch(token)
+            elif kind == "%":
+                ok = PERCENT_TEXT_RE.fullmatch(token)
+            else:
+                ok = token  # the name is any non-empty text
+            if not ok:
+                valid_row = False
+                break
+            values.append(token)
+        if valid_row:
+            return values, "strict"
+    match = _listing_row_regex(columns).match(line)
+    if match is None:
+        return None
+    return list(match.groups())[1:], "fallback"
 
 
 def parse_listing(text: Optional[str]) -> Optional[dict[str, Any]]:
-    """Read the header counts and the table rows of a `-L` listing. None when there is no text.
+    """Read the header counts, the column layout, and the table rows of a `-L` listing.
 
-    A line that starts like a table row but does not split into two numbers is not an entry; its raw
-    text is kept in `unparsed_row_lines`, and the check treats any unparsed row as a failure.
+    None when there is no text. A line that starts like a table row but fits the printed
+    columns in neither reading is not an entry; its raw text is kept in `unparsed_row_lines`,
+    and the check treats any unparsed row as a failure.
     """
     if not text:
         return None
     count = LISTING_HEADER_COUNT_RE.search(text)
     total = LISTING_HEADER_TOTAL_RE.search(text)
+    compressed = LISTING_HEADER_COMPRESSED_RE.search(text)
+    filename_info = LISTING_FILENAME_INFO_RE.search(text)
+    id_info = LISTING_ID_INFO_RE.search(text)
+    columns = _listing_columns(text)
     entries: list[dict[str, Any]] = []
     unparsed_row_lines: list[str] = []
     modes = {"strict": 0, "fallback": 0}
     head_lines = [line for line in text.splitlines() if line.strip()][:LISTING_HEAD_LINES]
     for line in text.splitlines():
-        match = LISTING_ROW_RE.match(line)
-        if match is None:
-            if LISTING_ROW_START_RE.match(line):
-                unparsed_row_lines.append(line)
+        if not LISTING_ROW_START_RE.match(line):
             continue
-        entry = _listing_row_entry(match)
-        if entry is None:
+        values = _listing_row_values(line, columns) if columns else None
+        if values is None:
             unparsed_row_lines.append(line)
             continue
-        modes[entry.pop("parse_mode")] += 1
+        row_values, mode = values
+        entry: dict[str, Any] = {"no": _digits(LISTING_ROW_START_RE.match(line).group(0))}
+        for label, value in zip(columns[1:], row_values):
+            if label == "ID":
+                entry["id"] = int(value)
+            elif label == "Filesize":
+                entry["size"] = _digits(value)
+            elif label == "Compressed":
+                entry["compressed"] = _digits(value)
+            elif label == "%":
+                entry["percent"] = value
+            else:
+                entry["name"] = value
+        modes[mode] += 1
         entries.append(entry)
     return {
-        "header_count": int(count.group(1)) if count else None,
+        "header_count": _digits(count.group(1)) if count else None,
         "header_total": _digits(total.group(1)) if total else None,
+        "compressed_files": _digits(compressed.group(1)) if compressed else None,
+        "filename_info": filename_info.group(1) if filename_info else None,
+        "id_info": id_info.group(1) if id_info else None,
+        "filename_table_bytes": (
+            _digits(filename_info.group(2)) if filename_info and filename_info.group(2) else None
+        ),
+        "id_table_bytes": _digits(id_info.group(2)) if id_info and id_info.group(2) else None,
+        "columns": columns,
         "entries": entries,
         "unparsed_rows": len(unparsed_row_lines),
         "unparsed_row_lines": unparsed_row_lines,
@@ -386,13 +464,16 @@ def _listing_name(name: str) -> str:
 
 
 def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) -> dict[str, Any]:
-    """Compare a package's `-L` entries with the files extracted from it, by count and by name.
+    """Compare a package's `-L` entries with the files extracted from it.
 
-    `verified` only when every entry has exactly one file of the same name and no file is left over.
-    Entries that share a name cannot all be kept in one flat folder, so they make the package
-    `incomplete`. Anything that cannot be parsed, does not add up, or has names that did not decode
-    (U+FFFD) is `unverified` (fail closed). Unverified results keep raw examples of the listing text
-    so a layout change can be diagnosed without another run.
+    With a `Contents Filename` column, every entry must have exactly one file of the same name
+    and the same size, and no file may be left over. Without that column (filename info disabled)
+    the converter writes ID-named files, so the package is verified by entry count and by the
+    multiset of file sizes instead, and the first file names are kept as examples. Entries that
+    share a name cannot all be kept in one flat folder, so they make the package `incomplete`.
+    Anything that cannot be parsed, does not add up, or has names that did not decode (U+FFFD) is
+    `unverified` (fail closed). Unverified results keep raw examples of the listing text so a
+    layout change can be diagnosed without another run.
     """
     result: dict[str, Any] = {
         "status": "unverified",
@@ -403,15 +484,21 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
         "files": len(members),
         "names_without_file": 0,
         "files_not_listed": 0,
+        "size_mismatches": 0,
         "unparsed_rows": 0,
         "parse_modes": None,
+        "columns": None,
+        "compressed_files": None,
+        "filename_info": None,
+        "id_info": None,
     }
     parsed = parse_listing(listing_text)
     if parsed is None or parsed["header_count"] is None:
         result["reason"] = "listing has no 'Content files' line"
         result["examples"] = {"listing_head": (parsed or {}).get("head_lines", [])}
         return result
-    result["parse_modes"] = parsed["parse_modes"]
+    for key in ("parse_modes", "columns", "compressed_files", "filename_info", "id_info"):
+        result[key] = parsed[key]
     result["unparsed_rows"] = parsed["unparsed_rows"]
     if parsed["unparsed_rows"]:
         result["reason"] = f"{parsed['unparsed_rows']} listing rows could not be read"
@@ -419,6 +506,10 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
             "unparsed_rows": parsed["unparsed_row_lines"][:LISTING_EXAMPLE_ROWS],
             "listing_head": parsed["head_lines"],
         }
+        return result
+    if parsed["columns"] is None:
+        result["reason"] = "listing has no column header line"
+        result["examples"] = {"listing_head": parsed["head_lines"]}
         return result
     entries = parsed["entries"]
     result["entries"] = len(entries)
@@ -430,22 +521,36 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
         result["reason"] = "listing row sizes do not add up to the header total"
         result["examples"] = {"listing_head": parsed["head_lines"]}
         return result
+    if parsed["columns"][-1] == "Contents Filename":
+        return _check_listed_names(result, entries, members)
+    return _check_id_named_files(result, entries, members)
+
+
+def _check_listed_names(
+    result: dict[str, Any], entries: list[dict[str, Any]], members: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Name-and-size comparison for packages whose listing prints a Contents Filename column."""
     names = [_listing_name(entry["name"]) for entry in entries]
-    undecodable = [name for name in names if "\ufffd" in name]
-    if undecodable:
-        result["reason"] = f"{len(undecodable)} listed names could not be decoded from the converter output"
-        result["examples"] = {"undecodable_names": undecodable[:LISTING_EXAMPLE_ROWS]}
-        return result
     listed = set(names)
     files = {_listing_name(member["path"]) for member in members}
-    result["examples"] = {
-        "listed_without_file": sorted(listed - files)[:3],
-        "file_not_listed": sorted(files - listed)[:3],
-    }
+    size_by_name: dict[str, int] = {}
+    for entry, name in zip(entries, names):
+        size_by_name.setdefault(name, entry["size"])
     result["unique_names"] = len(listed)
     result["duplicate_entries"] = len(names) - len(listed)
     result["names_without_file"] = len(listed - files)
     result["files_not_listed"] = len(files - listed)
+    result["size_mismatches"] = sum(
+        1
+        for member in members
+        if _listing_name(member["path"]) in size_by_name
+        and member.get("size_bytes") is not None
+        and member["size_bytes"] != size_by_name[_listing_name(member["path"])]
+    )
+    result["examples"] = {
+        "listed_without_file": sorted(listed - files)[:3],
+        "file_not_listed": sorted(files - listed)[:3],
+    }
     problems = []
     if result["duplicate_entries"]:
         problems.append(
@@ -456,6 +561,51 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
         problems.append(f"{result['names_without_file']} listed names have no file")
     if result["files_not_listed"]:
         problems.append(f"{result['files_not_listed']} files are not in the listing")
+    if result["size_mismatches"]:
+        problems.append(f"{result['size_mismatches']} files differ in size from their listed entry")
+    undecodable = [name for name in names if "\ufffd" in name]
+    if undecodable:
+        result["examples"]["undecodable_names"] = undecodable[:LISTING_EXAMPLE_ROWS]
+        matched = len(listed & files)
+        result["reason"] = (
+            f"{len(undecodable)} listed names could not be decoded from the converter output "
+            f"({matched} of {len(listed)} listed names matched a file by name)"
+        )
+        return result
+    if problems:
+        result["status"] = "incomplete"
+        result["reason"] = "; ".join(problems)
+    else:
+        result["status"] = "verified"
+    return result
+
+
+def _check_id_named_files(
+    result: dict[str, Any], entries: list[dict[str, Any]], members: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Count-and-size comparison for packages whose listing has no filename column.
+
+    YACpkTool writes one ID-named file per entry for these packages (observed: `ID00000` for
+    ID 0), so names cannot be compared; the entry count and the multiset of file sizes can.
+    """
+    entry_sizes = sorted(entry["size"] for entry in entries)
+    file_sizes = sorted(member.get("size_bytes", 0) for member in members)
+    result["examples"] = {
+        "file_name_examples": sorted({_listing_name(member["path"]) for member in members})[
+            :LISTING_FILE_NAME_EXAMPLES
+        ]
+    }
+    ids = sorted({entry["id"] for entry in entries if "id" in entry})
+    if ids:
+        result["examples"]["listed_id_examples"] = ids[:LISTING_FILE_NAME_EXAMPLES]
+    problems = []
+    if len(members) != len(entries):
+        problems.append(
+            f"the folder holds {len(members)} files for {len(entries)} listed entries "
+            "(the converter writes one ID-named file per entry)"
+        )
+    if entry_sizes != file_sizes:
+        problems.append("the file sizes do not match the listed entry sizes")
     if problems:
         result["status"] = "incomplete"
         result["reason"] = "; ".join(problems)
@@ -1557,6 +1707,18 @@ def _probe_rejection_lines(registry: dict[str, Any]) -> list[str]:
     ]
 
 
+def _listing_layout_label(columns: list[str]) -> str:
+    has_id = "ID" in columns
+    has_name = "Contents Filename" in columns
+    if has_id and has_name:
+        return "full (ID + filename)"
+    if has_name:
+        return "no ID column"
+    if has_id:
+        return "no filename column (ID-named files)"
+    return "no ID and no filename column"
+
+
 def _extraction_notes(registry: dict[str, Any]) -> list[str]:
     notes = []
     if registry["converter"].get("io_mode") == "console":
@@ -1570,6 +1732,19 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
         f"verified {summary['listing_verified']}, incomplete {summary['listing_incomplete']}, "
         f"unverified {summary['listing_unverified']}, not checked {summary['listing_not_checked']}"
     )
+    layouts: dict[str, int] = {}
+    for package in registry["packages"]:
+        columns = (package.get("listing_check") or {}).get("columns")
+        if columns:
+            label = _listing_layout_label(columns)
+            layouts[label] = layouts.get(label, 0) + 1
+    if layouts:
+        notes.append(
+            "  listing layouts: "
+            + "; ".join(
+                f"{count} {label}" for label, count in sorted(layouts.items(), key=lambda item: -item[1])
+            )
+        )
     return notes
 
 
@@ -1579,6 +1754,7 @@ def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
     head_examples: list[str] = []
     pairs: list[str] = []
     undecodable: list[str] = []
+    file_name_examples: list[str] = []
     fallback_rows = 0
     all_rows = 0
     for package in registry["packages"]:
@@ -1587,6 +1763,8 @@ def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
         fallback_rows += modes.get("fallback", 0)
         all_rows += sum(modes.values())
         examples = check.get("examples") or {}
+        columns = check.get("columns") or []
+        has_names = bool(columns) and columns[-1] == "Contents Filename"
         if check.get("status") == "unverified":
             for line in examples.get("unparsed_rows", [])[:1]:
                 if len(unparsed_examples) < LISTING_EXAMPLE_ROWS and line not in unparsed_examples:
@@ -1598,12 +1776,17 @@ def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
                 if len(undecodable) < LISTING_EXAMPLE_ROWS and name not in undecodable:
                     undecodable.append(name)
         if check.get("status") == "incomplete":
-            listed = examples.get("listed_without_file", [])
-            on_disk = examples.get("file_not_listed", [])
-            for listed_name, disk_name in zip(listed, on_disk):
-                if len(pairs) >= LISTING_EXAMPLE_ROWS:
-                    break
-                pairs.append(f"listed: {listed_name} | on disk: {disk_name}")
+            if has_names:
+                listed = examples.get("listed_without_file", [])
+                on_disk = examples.get("file_not_listed", [])
+                for listed_name, disk_name in zip(listed, on_disk):
+                    if len(pairs) >= LISTING_EXAMPLE_ROWS:
+                        break
+                    pairs.append(f"listed: {listed_name} | on disk: {disk_name}")
+            else:
+                for name in examples.get("file_name_examples", [])[:1]:
+                    if len(file_name_examples) < LISTING_EXAMPLE_ROWS and name not in file_name_examples:
+                        file_name_examples.append(name)
     lines: list[str] = []
     if unparsed_examples:
         lines.append("  rows the parser could not read (up to 3 shown):")
@@ -1614,6 +1797,9 @@ def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
     if pairs:
         lines.append("  listed name vs file on disk (up to 3 pairs):")
         lines += [f"  - {pair[:200]}" for pair in pairs]
+    if file_name_examples:
+        lines.append("  files written for listings without a filename column (up to 3 shown):")
+        lines += [f"  - {name[:200]}" for name in file_name_examples]
     if undecodable:
         lines.append("  listed names that did not decode (up to 3 shown):")
         lines += [f"  - {name[:200]}" for name in undecodable]
