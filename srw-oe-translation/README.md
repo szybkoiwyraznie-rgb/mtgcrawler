@@ -32,6 +32,7 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`tools/audit_event_companions.py`](tools/audit_event_companions.py) — read-only EDAT/EVNT framing and companion DAT-overlap audit; no game text is printed.
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — next milestones.
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
+- [`docs/LOCAL_WORKFLOW_PLAN.md`](docs/LOCAL_WORKFLOW_PLAN.md) — planned one-command local batch workflow for the user's ISO/DLC, with automatic discovery and no manual per-file packing/renaming (design only; not yet implemented).
 - [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) — translation decisions and constraints.
 
 ## Data handling

@@ -25,6 +25,8 @@
 - [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the observed ECHK chains/`4 + 20*n` layout are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
 - [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.
+- [x] Document the requested one-command local workflow: recursive content-signature discovery, automatic batch extraction/rebuild orchestration, no manual extension changes or per-file tool launches, and strict original-file/output verification. This is a design plan only; no ISO/DLC pipeline has been implemented.
+- [ ] Build a read-only local inventory/dry-run entrypoint that hashes and classifies all files recursively and reports unsupported/ambiguous inputs without modifying them; no manual extension changes or per-file commands.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.
 

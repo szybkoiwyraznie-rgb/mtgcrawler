@@ -201,6 +201,14 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** Added a synthetic EVNT/ECHK test with a punctuation review span and a main candidate in the same block. All 26 tests pass; the archive companion audit reproduces the 35/33/33 results.
 
+## 2026-10-09 — check residual non-Japanese prefixes for Unicode symbols
+
+**Action:** Extended the bounded residual-prefix review beyond Japanese script, Unicode letters/numbers, and the existing punctuation supplement by counting non-punctuation Unicode symbol-category codepoints after CP932 replacement decoding.
+
+**Result:** The 117 non-Japanese prefixes contain 41 such symbol codepoints in 36 prefixes: 39 are U+FFFD replacement characters from malformed CP932 sequences, and the remaining two are ASCII grave accents (U+0060). No additional plausible symbol-only text class was found. The replacement characters indicate decode noise/invalid byte sequences and are not promoted as text.
+
+**Validation:** Re-ran the bounded scan with an explicit progress guard and the same `FF FF`/`00 00` framing rule. This was a read-only one-off audit; no candidate IDs or exports changed. The detailed result is in `CANDIDATE_SCAN_AUDIT.md`.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
