@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from audit_event_dat_runs import (  # noqa: E402
     _validate_export_path,
     inputs_from_path,
+    review_shape_profiles,
     scan_nul_delimited_runs,
     write_jsonl,
 )
@@ -55,6 +56,51 @@ class DatRunInventoryTests(unittest.TestCase):
         self.assertEqual(records[1]["wide_japanese_codepoints"], 1)
         self.assertEqual(records[2]["raw_hex"], "82")
         self.assertIn("not_strict_cp932", records[2]["review_signals"])
+
+    def test_review_profiles_keep_clean_runs_and_alignment_as_nonsemantic_leads(self):
+        entry_data = bytearray(128)
+        entry_data[0x1A : 0x1A + 7] = b"ABCDEFG"
+        entry_data[0x5A : 0x5A + 7] = b"HIJKLMN"
+        entry_rows, _ = scan_nul_delimited_runs("sample_Entry.dat", bytes(entry_data))
+
+        japanese = "日本語".encode("cp932")
+        ext_rows_a, _ = scan_nul_delimited_runs("one_ext.dat", japanese + b"\x00")
+        ext_rows_b, _ = scan_nul_delimited_runs("two_ext.dat", japanese + b"\x00")
+        profiles = review_shape_profiles(
+            {
+                "sample_Entry.dat": entry_rows,
+                "one_ext.dat": ext_rows_a,
+                "two_ext.dat": ext_rows_b,
+            }
+        )
+
+        self.assertEqual(
+            profiles["clean_wide_two_plus_by_group"],
+            {"edit": 0, "entry": 0, "ext": 2},
+        )
+        self.assertEqual(
+            profiles["ext_clean_wide_by_offset"],
+            [
+                {
+                    "offset": 0,
+                    "row_count": 2,
+                    "length_counts": {6: 2},
+                    "unique_payload_count": 1,
+                }
+            ],
+        )
+        self.assertEqual(
+            profiles["entry_offset_mod64_1a"],
+            {
+                "run_count": 2,
+                "length_counts": {7: 2},
+                "runs_with_controls": 0,
+                "runs_with_halfwidth_katakana": 0,
+                "runs_with_wide_japanese": 0,
+                "runs_with_two_or_more_wide_japanese": 0,
+                "clean_roundtripping_length_7": 2,
+            },
+        )
 
     def test_zip_input_includes_only_dat_members_and_export_cannot_enter_source_tree(self):
         with tempfile.TemporaryDirectory() as temp_dir:

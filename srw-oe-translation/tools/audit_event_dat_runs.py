@@ -179,6 +179,92 @@ def _dat_group(filename: str) -> str:
     return "other"
 
 
+def _clean_roundtripping_run(row: NulRunReview) -> bool:
+    """Return a diagnostic quality predicate, not a claim that a run is text."""
+    return (
+        row.cp932_strict
+        and row.cp932_roundtrip
+        and row.nonnewline_control_codepoints == 0
+        and row.private_use_codepoints == 0
+        and row.replacement_codepoints == 0
+    )
+
+
+def review_shape_profiles(
+    rows_by_file: dict[str, list[NulRunReview]],
+) -> dict[str, object]:
+    """Summarize text-like cohorts and observed record-relative run positions.
+
+    These profiles expose review priorities only. In particular, the 64-byte
+    `_Entry.dat` offset lattice is not a decoded record schema, and a clean
+    CP932 run is not automatically a game string.
+    """
+    grouped_rows: dict[str, list[NulRunReview]] = defaultdict(list)
+    for filename, rows in rows_by_file.items():
+        grouped_rows[_dat_group(filename)].extend(rows)
+
+    clean_wide_counts = {
+        group: sum(
+            row.wide_japanese_codepoints >= 2 and _clean_roundtripping_run(row)
+            for row in grouped_rows[group]
+        )
+        for group in ("edit", "entry", "ext")
+    }
+
+    ext_rows_by_offset: dict[int, list[NulRunReview]] = defaultdict(list)
+    for row in grouped_rows["ext"]:
+        if row.wide_japanese_codepoints >= 2 and _clean_roundtripping_run(row):
+            ext_rows_by_offset[row.offset].append(row)
+    ext_by_offset = []
+    for offset, rows in sorted(ext_rows_by_offset.items()):
+        length_counts = Counter(len(row.raw) for row in rows)
+        ext_by_offset.append(
+            {
+                "offset": offset,
+                "row_count": len(rows),
+                "length_counts": dict(sorted(length_counts.items())),
+                "unique_payload_count": len({row.raw for row in rows}),
+            }
+        )
+
+    entry_aligned = [
+        row
+        for filename, rows in rows_by_file.items()
+        if _dat_group(filename) == "entry"
+        for row in rows
+        if row.offset % 64 == 0x1A
+    ]
+    clean_entry_seven_byte = [
+        row
+        for row in entry_aligned
+        if len(row.raw) == 7 and _clean_roundtripping_run(row)
+    ]
+    entry_alignment = {
+        "run_count": len(entry_aligned),
+        "length_counts": dict(
+            sorted(Counter(len(row.raw) for row in entry_aligned).items())
+        ),
+        "runs_with_controls": sum(
+            row.nonnewline_control_codepoints > 0 for row in entry_aligned
+        ),
+        "runs_with_halfwidth_katakana": sum(
+            row.halfwidth_katakana_codepoints > 0 for row in entry_aligned
+        ),
+        "runs_with_wide_japanese": sum(
+            row.wide_japanese_codepoints > 0 for row in entry_aligned
+        ),
+        "runs_with_two_or_more_wide_japanese": sum(
+            row.wide_japanese_codepoints >= 2 for row in entry_aligned
+        ),
+        "clean_roundtripping_length_7": len(clean_entry_seven_byte),
+    }
+    return {
+        "clean_wide_two_plus_by_group": clean_wide_counts,
+        "ext_clean_wide_by_offset": ext_by_offset,
+        "entry_offset_mod64_1a": entry_alignment,
+    }
+
+
 def write_jsonl(path: Path, rows_by_file: dict[str, list[NulRunReview]]) -> None:
     """Write every nonempty NUL run, with decoded view and byte-exact source hex."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -298,6 +384,42 @@ def main(argv: Optional[list[str]] = None) -> int:
             f"{stats['punctuation_runs']:12} {stats['ascii_run_3plus']:13} "
             f"{stats['strict_cp932_runs']}/{stats['roundtrip_cp932_runs']}"
         )
+    profiles = review_shape_profiles(rows_by_file)
+    clean_wide_counts = profiles["clean_wide_two_plus_by_group"]
+    print(
+        "Clean wide-script review cohort (>=2 wide Japanese codepoints, strict and "
+        "round-tripping CP932, no non-newline controls/PUA/replacements; not confirmed strings):"
+    )
+    for group in ("edit", "entry", "ext"):
+        print(f"  {group}: {clean_wide_counts[group]}")
+
+    ext_profile = profiles["ext_clean_wide_by_offset"]
+    if ext_profile:
+        print("`_ext.dat` cohort by byte offset (rows / unique raw payloads):")
+        for item in ext_profile:
+            lengths = ", ".join(
+                f"{length}B x{count}"
+                for length, count in item["length_counts"].items()
+            )
+            print(
+                f"  0x{item['offset']:X}: {item['row_count']} rows; {lengths}; "
+                f"{item['unique_payload_count']} unique payloads"
+            )
+
+    entry_profile = profiles["entry_offset_mod64_1a"]
+    if entry_profile["run_count"]:
+        length_7 = entry_profile["length_counts"].get(7, 0)
+        print(
+            "`_Entry.dat` offset-mod-64 == 0x1A diagnostic (not a schema): "
+            f"{entry_profile['run_count']} runs; {length_7} length-7; "
+            f"{entry_profile['runs_with_controls']} with controls; "
+            f"{entry_profile['runs_with_halfwidth_katakana']} with half-width kana; "
+            f"{entry_profile['runs_with_two_or_more_wide_japanese']} with >=2 wide "
+            "Japanese codepoints; "
+            f"{entry_profile['clean_roundtripping_length_7']} clean, round-tripping "
+            "length-7 runs."
+        )
+
     print(
         "All rows preserve raw hex and replacement-decoded CP932; class counts are review signals only."
     )

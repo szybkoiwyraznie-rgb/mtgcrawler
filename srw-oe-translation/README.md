@@ -29,7 +29,7 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`docs/FILE_INVENTORY.md`](docs/FILE_INVENTORY.md) — names, sizes, and hashes from supplied local data.
 - [`docs/CANDIDATE_SCAN_AUDIT.md`](docs/CANDIDATE_SCAN_AUDIT.md) — heuristic scan counts and suffix findings across `eventP01`.
 - [`tools/audit_event_candidates.py`](tools/audit_event_candidates.py) — read-only, prefix-aware candidate audit/JSONL exporter with wide/half-width Japanese detection, CP932 roundtrip metrics, and review-only quality flags; an optional unfiltered export inventories every literal `FF FF` start (including nested/overlapping alternatives) while preserving raw bytes. No game text is printed to stdout by default.
-- [`tools/audit_event_dat_runs.py`](tools/audit_event_dat_runs.py) — unfiltered inventory of all nonempty NUL-delimited runs in event `.dat` companions, with stable offsets, raw bytes, replacement-decoded CP932, and review-only script/ASCII/control quality signals; no game text is printed to stdout.
+- [`tools/audit_event_dat_runs.py`](tools/audit_event_dat_runs.py) — unfiltered inventory of all nonempty NUL-delimited runs in event `.dat` companions, with stable offsets, raw bytes, replacement-decoded CP932, and review-only script/ASCII/control quality signals. Its summary also profiles clean wide-script leads and recurring byte offsets without printing game text or claiming field semantics.
 - [`tools/audit_event_companions.py`](tools/audit_event_companions.py) — read-only EDAT/EVNT framing and companion DAT-overlap audit; no game text is printed.
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — next milestones.
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
