@@ -20,10 +20,18 @@ from pathlib import Path, PurePosixPath
 from typing import Iterator, Optional
 
 
-# CP932 game text may use half-width Katakana as well as standard kana/kanji.
-WIDE_JAPANESE_RE = re.compile(r"[ぁ-んァ-ヶ一-龯]")
+# CP932 game text can include kana/kanji beyond the common ranges: iteration
+# and long-vowel marks, plus compatibility ideographs such as U+FA11 (﨑).
+# The Katakana middle dot (U+30FB) is punctuation and is deliberately excluded.
+WIDE_JAPANESE_CHARS = (
+    r"\u3041-\u3096\u309d-\u309f"
+    r"\u30a1-\u30fa\u30fc-\u30ff"
+    r"\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff"
+    r"\u3005-\u3007\u303b"
+)
+WIDE_JAPANESE_RE = re.compile("[" + WIDE_JAPANESE_CHARS + "]")
 HALFWIDTH_KATAKANA_RE = re.compile(r"[\uFF66-\uFF9D]")
-JAPANESE_RE = re.compile(r"[ぁ-んァ-ヶ一-龯\uFF66-\uFF9D]")
+JAPANESE_RE = re.compile("[" + WIDE_JAPANESE_CHARS + r"\uFF66-\uFF9D]")
 
 
 @dataclass(frozen=True)

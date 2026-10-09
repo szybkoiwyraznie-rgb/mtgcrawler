@@ -80,6 +80,28 @@ class CandidateAuditTests(unittest.TestCase):
             record = json.loads(path.read_text(encoding="utf-8"))
         self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
 
+    def test_recognizes_cp932_compatibility_ideograph(self):
+        compatibility_ideograph = "﨑".encode("cp932")
+        data = b"\xff\xff" + compatibility_ideograph + b"\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "﨑")
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 1)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 0)
+
+    def test_recognizes_iteration_and_long_vowel_marks(self):
+        script_marks = "々ー".encode("cp932")
+        data = b"\xff\xff" + script_marks + b"\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "々ー")
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 2)
+        self.assertEqual(rows[0].prefix_japanese_codepoints, 2)
+
     def test_flags_malformed_cp932_halfwidth_match_for_review(self):
         data = b"\xff\xff\xb6\x81\x00\x00"
 

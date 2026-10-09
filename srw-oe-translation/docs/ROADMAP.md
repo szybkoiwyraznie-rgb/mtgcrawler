@@ -19,6 +19,7 @@
 - [x] Probe raw absolute and six simple record-relative c2 formulas. Absolute c2 overlaps more candidate spans, but only 11 hits lie in the row's own EVNT block; the tested local bases produce no compelling address pattern.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
 - [x] Add review-only candidate quality signals for strict CP932 decoding/byte roundtrip, nested `FF FF`, private-use codepoints, non-newline controls, very short matches, and half-width-only Katakana prefixes. The broadened detector adds 36 candidates, 27 of which fail strict CP932 decoding; all remain in the review export, not auto-dropped. A nested-marker alternate-start audit found no new wide-script prefix candidates.
+- [x] Include Japanese iteration/long-vowel marks and CJK compatibility ideographs in the wide-script matcher, with synthetic CP932 tests; this corrected codepoint counts but added no candidate IDs. All 21 tests pass.
 - [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the observed ECHK chains/`4 + 20*n` layout are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
 - [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.
