@@ -280,6 +280,43 @@ class CompanionAuditTests(unittest.TestCase):
         self.assertEqual(per_source["sample.bin"]["nonzero_full_span_rate_lift"], 1.0)
         self.assertIsNone(per_source["empty.bin"]["nonzero_full_span_rate_lift"])
 
+    def test_c2_relative_to_owning_evnt_tag_can_reach_candidate_text(self):
+        japanese = "日本".encode("cp932")
+        data = bytearray(120)
+        data[0:4] = b"EDAT"
+        struct.pack_into("<II", data, 4, len(data) - 8, 1)
+
+        data[12:16] = b"EVNT"
+        struct.pack_into("<II", data, 16, len(data) - 20, 1)
+        data[24:28] = b"ECHK"
+        struct.pack_into("<I", data, 28, 24)
+        struct.pack_into("<5I", data, 36, 101, 0, 68, 1, 0)
+        struct.pack_into("<I", data, 56, 200)
+        data[78:80] = b"\xff\xff"
+        data[80:84] = japanese
+        data[84:86] = b"\x00\x00"
+
+        summary = audit_files({"sample.bin": bytes(data)})
+        hypotheses = summary["echk_c2_base_hypotheses"]["hypotheses"]
+        absolute = hypotheses["absolute"]
+        relative = hypotheses["owning_evnt_tag_plus_c2"]
+
+        self.assertEqual(absolute["nonzero_in_file"], 1)
+        self.assertEqual(absolute["full_span_hits"], 0)
+        self.assertEqual(relative["full_span_hits"], 1)
+        self.assertEqual(relative["prefix_hits"], 1)
+        self.assertEqual(relative["exact_candidate_starts"], 1)
+        self.assertEqual(relative["full_span_hits_in_owning_evnt_block"], 1)
+        self.assertEqual(relative["nonzero_targets_in_owning_evnt_block"], 1)
+        for hypothesis in (
+            "owning_first_echk_tag_plus_c2",
+            "current_echk_tag_plus_c2",
+            "current_echk_payload_plus_c2",
+            "current_row_start_plus_c2",
+            "owning_evnt_end_minus_c2",
+        ):
+            self.assertEqual(hypotheses[hypothesis]["full_span_hits"], 0)
+
     def test_candidate_marker_before_echk_terminal_is_not_misclassified(self):
         japanese = "日本語".encode("cp932")
         data = bytearray(104)

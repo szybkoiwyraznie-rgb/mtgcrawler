@@ -12,10 +12,11 @@
 - [x] Audit all 22 BINs: 3,241 Japanese-containing candidate spans, including 627 single-NUL suffix cases.
 - [x] Inventory confirms all 22 `_ext.dat` files contain CP932-decoded Japanese runs.
 - [x] Verify EDAT size/count and EVNT block-boundary arithmetic across all 22 BINs; all 319 event-block boundaries and ECHK-at-`+12` positions match.
-- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; thirteen synthetic tests pass.
+- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; fourteen synthetic tests pass.
 - [x] Follow each ECHK endpoint chain from EVNT `+12` to u32 200; chain length matches EVNT `+8` in all 319 blocks, and all 3,241 heuristic candidate markers occur after the terminator (minimum gap: 34 bytes).
 - [x] Stratify tentative ECHK row observations by chain position, report column-2 numerical overlap with heuristic candidate ranges (541 full-span overlaps), and check CP932 byte-boundary alignment; the result is inconclusive and pointer semantics remain unproven.
 - [x] Add a same-value cross-BIN negative control for ECHK column 2: pooled nonzero overlap is 53.5% paired-BIN versus 47.4% cross-BIN, but only 9/22 source BINs show positive lift (mean -5.1 pp; median -7.5 pp); this coarse control offers no consistent pairing evidence.
+- [x] Probe raw absolute and six simple record-relative c2 formulas. Absolute c2 overlaps more candidate spans, but only 11 hits lie in the row's own EVNT block; the tested local bases produce no compelling address pattern.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
 - [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the observed ECHK chains/`4 + 20*n` layout are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.

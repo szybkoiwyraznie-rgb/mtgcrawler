@@ -529,26 +529,36 @@ def _overlap_flags(value: int, candidates: list) -> tuple[bool, bool, bool]:
     return prefix_match, candidate_match, exact_start
 
 
+def _iter_valid_echk_row_contexts(
+    bins: dict[str, bytes],
+) -> Iterator[tuple[str, bytes, int, int, int, int, tuple[int, ...]]]:
+    """Yield row, owning-EVNT, segment, and row-start observations from valid chains."""
+    for bin_name, data in sorted(bins.items()):
+        event_offsets = marker_offsets(data, b"EVNT")
+        for index, evnt_offset in enumerate(event_offsets):
+            if evnt_offset + 12 > len(data):
+                continue
+            block_end = evnt_offset + 8 + struct.unpack_from("<I", data, evnt_offset + 4)[0]
+            next_boundary = event_offsets[index + 1] if index + 1 < len(event_offsets) else len(data)
+            if block_end != next_boundary:
+                continue
+            chain = inspect_echk_chain(data, evnt_offset, block_end)
+            if chain is None:
+                continue
+            for segment in chain["segments"]:
+                segment_offset = segment["offset"]
+                for row_index, row in enumerate(segment["rows"]):
+                    row_start = segment_offset + 12 + row_index * 20
+                    yield bin_name, data, evnt_offset, block_end, segment_offset, row_start, row
+
+
 def audit_echk_c2_cross_bin_control(
     bins: dict[str, bytes], candidates_by_bin: dict[str, list]
 ) -> dict:
     """Compare paired-BIN c2 hits with the same values against other BIN candidate ranges."""
-    values_by_bin: dict[str, list[int]] = {}
-    for name, data in sorted(bins.items()):
-        values = []
-        event_offsets = marker_offsets(data, b"EVNT")
-        for index, offset in enumerate(event_offsets):
-            if offset + 12 > len(data):
-                continue
-            block_end = offset + 8 + struct.unpack_from("<I", data, offset + 4)[0]
-            next_boundary = event_offsets[index + 1] if index + 1 < len(event_offsets) else len(data)
-            if block_end != next_boundary:
-                continue
-            chain = inspect_echk_chain(data, offset, block_end)
-            if chain is None:
-                continue
-            values.extend(row[2] for segment in chain["segments"] for row in segment["rows"])
-        values_by_bin[name] = values
+    values_by_bin: dict[str, list[int]] = {name: [] for name in bins}
+    for bin_name, _, _, _, _, _, row in _iter_valid_echk_row_contexts(bins):
+        values_by_bin[bin_name].append(row[2])
 
     target_bins = sorted(bins.items())
     candidate_starts = {
@@ -636,6 +646,90 @@ def audit_echk_c2_cross_bin_control(
     }
 
 
+def audit_echk_c2_base_hypotheses(
+    bins: dict[str, bytes], candidates_by_bin: dict[str, list]
+) -> dict:
+    """Test a small set of unproven file/record-relative c2 address formulas."""
+    hypothesis_names = (
+        "absolute",
+        "owning_evnt_tag_plus_c2",
+        "owning_first_echk_tag_plus_c2",
+        "current_echk_tag_plus_c2",
+        "current_echk_payload_plus_c2",
+        "current_row_start_plus_c2",
+        "owning_evnt_end_minus_c2",
+    )
+    metric_names = (
+        "nonzero_rows",
+        "nonzero_in_file",
+        "nonzero_targets_in_owning_evnt_block",
+        "full_span_hits",
+        "prefix_hits",
+        "exact_candidate_starts",
+        "full_span_hits_in_owning_evnt_block",
+    )
+    counts = {
+        name: Counter({metric: 0 for metric in metric_names})
+        for name in hypothesis_names
+    }
+    candidate_starts = {
+        name: [row.start for row in candidates_by_bin.get(name, [])]
+        for name in bins
+    }
+
+    for bin_name, data, evnt_offset, block_end, segment_offset, row_start, row in (
+        _iter_valid_echk_row_contexts(bins)
+    ):
+        candidates = candidates_by_bin.get(bin_name, [])
+        c2 = row[2]
+        if c2 == 0:
+            continue
+        targets = {
+            "absolute": c2,
+            "owning_evnt_tag_plus_c2": evnt_offset + c2,
+            "owning_first_echk_tag_plus_c2": evnt_offset + 12 + c2,
+            "current_echk_tag_plus_c2": segment_offset + c2,
+            "current_echk_payload_plus_c2": segment_offset + 8 + c2,
+            "current_row_start_plus_c2": row_start + c2,
+            "owning_evnt_end_minus_c2": block_end - c2,
+        }
+        for hypothesis, target in targets.items():
+            stats = counts[hypothesis]
+            stats["nonzero_rows"] += 1
+            if not 0 <= target < len(data):
+                continue
+            stats["nonzero_in_file"] += 1
+            in_owner_block = evnt_offset <= target < block_end
+            stats["nonzero_targets_in_owning_evnt_block"] += in_owner_block
+            candidate_index = bisect_right(candidate_starts[bin_name], target) - 1
+            if candidate_index < 0:
+                continue
+            candidate = candidates[candidate_index]
+            if target >= candidate.pair_offset:
+                continue
+            stats["full_span_hits"] += 1
+            stats["prefix_hits"] += target < candidate.start + len(candidate.text_bytes)
+            stats["exact_candidate_starts"] += target == candidate.start
+            stats["full_span_hits_in_owning_evnt_block"] += in_owner_block
+
+    hypotheses = {}
+    for name, stats in counts.items():
+        file_denominator = stats["nonzero_in_file"]
+        block_denominator = stats["nonzero_targets_in_owning_evnt_block"]
+        hypotheses[name] = {
+            **dict(sorted(stats.items())),
+            "full_span_rate": stats["full_span_hits"] / file_denominator if file_denominator else None,
+            "owning_block_full_span_rate": (
+                stats["full_span_hits_in_owning_evnt_block"] / block_denominator
+                if block_denominator else None
+            ),
+        }
+    return {
+        "hypotheses": hypotheses,
+        "warning": "Exploratory formulas only; no address semantics are established.",
+    }
+
+
 def audit_files(files: dict[str, bytes]) -> dict:
     """Summarize companion structures and numerical overlaps across input files."""
     bins = {name: data for name, data in files.items() if name.lower().endswith(".bin")}
@@ -643,6 +737,7 @@ def audit_files(files: dict[str, bytes]) -> dict:
     framing = audit_event_framing(bins)
     candidate_block_coverage = audit_candidate_block_coverage(bins, candidates_by_bin)
     echk_c2_cross_bin_control = audit_echk_c2_cross_bin_control(bins, candidates_by_bin)
+    echk_c2_base_hypotheses = audit_echk_c2_base_hypotheses(bins, candidates_by_bin)
 
     ext_sizes: Counter[int] = Counter()
     ext_run_offsets: Counter[int] = Counter()
@@ -758,6 +853,7 @@ def audit_files(files: dict[str, bytes]) -> dict:
         "framing": framing,
         "candidate_block_coverage": candidate_block_coverage,
         "echk_c2_cross_bin_control": echk_c2_cross_bin_control,
+        "echk_c2_base_hypotheses": echk_c2_base_hypotheses,
         "ext": {
             "files": ext_files,
             "sizes": dict(sorted(ext_sizes.items())),
@@ -814,6 +910,7 @@ def print_summary(summary: dict) -> None:
     framing = summary["framing"]
     coverage = summary["candidate_block_coverage"]
     cross_bin_control = summary["echk_c2_cross_bin_control"]
+    base_hypotheses = summary["echk_c2_base_hypotheses"]["hypotheses"]
     ext = summary["ext"]
     edit = summary["edit"]
     entry = summary["entry"]
@@ -953,6 +1050,19 @@ def print_summary(summary: dict) -> None:
                     f"{source['other_bin_nonzero_full_span_hits']}/"
                     f"{source['other_bin_nonzero_in_range_pairs']}, lift={lift * 100:+.1f}pp"
                 )
+    print("ECHK c2 address-formula probe (exploratory; nonzero values only):")
+    for hypothesis, stats in base_hypotheses.items():
+        rate = stats["full_span_rate"]
+        rate_text = "n/a" if rate is None else f"{rate:.1%}"
+        print(
+            f"  {hypothesis}: full-span={stats.get('full_span_hits', 0)}/"
+            f"{stats.get('nonzero_in_file', 0)} ({rate_text}), "
+            f"prefix/exact={stats.get('prefix_hits', 0)}/"
+            f"{stats.get('exact_candidate_starts', 0)}, "
+            f"owning-EVNT full-span="
+            f"{stats.get('full_span_hits_in_owning_evnt_block', 0)}/"
+            f"{stats.get('nonzero_targets_in_owning_evnt_block', 0)}"
+        )
     for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
         overlap = group["echk_row_column_2_candidate_overlap"]
         print(
