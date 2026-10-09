@@ -64,9 +64,13 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 41. Ported the valuable commits from PR #8 (branch `arena/382dda12-mtgcrawler`, written after PR #7 was merged) into this branch with `git cherry-pick -x`: `40bfa82` (research notes), `7efa795` (one-wide `_Entry.dat` profile in `tools/audit_event_dat_runs.py`), and `558d9d6` (read-only ISO9660 directory indexer `tools/iso9660.py` with tests, plus inventory and batch-driver changes). Their STATUS items are renumbered 38–40. The uploaded zip was not ported. PR #8 was closed at the user's request; its branch is to be deleted by the user. The ISO indexer is tested with synthetic images only (7 tests, plus a corruption check). Full suite 131 OK.
 
+42. Second real run of the one-click slice on the user's Windows PC (2026-10-09; details in [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md)). Status `completed_with_failures`: 346 packages (189 extracted, 157 failed); listing check verified 189, incomplete 41 (duplicate entry names, all `bacb*`/`bseq*`), unverified 116 (listing rows the parser could not read, mostly `face*`/`mesbmp*`/`mesbtl*`/`mov*`/`n1-bcam*`); event text 39,103 units from 80 packages, 0 failed; repack gate passed on a package with non-empty members. The first run's "424 extracted, 0 failed" is corrected: extraction completeness is now measured, and 157 packages fail closed. The package count dropped from 424 to 346 because failed packages keep no output, so their nested CPKs are not discovered. Repacking into the game, text insertion, and ISO processing are **not** automated.
+
+43. Widened the listing parser with a single-space fallback for narrow columns (validated against the real `bacb01` listing and a narrowed copy of it), added raw-row diagnostics and unknown-input head-byte groups to `REPORT.txt`, and copied the read-only ISO inventory into `registry.json` (136 tests OK). The 116 unverified packages are expected to verify once their real row layout is confirmed. The 41 duplicate-name packages still need a read-only CPK table reader or an ID-extracting converter to recover the hidden entries. Repacking, insertion, and ISO processing are **not** automated.
+
 ## Not yet demonstrated
 
-- The one-click run has been run once on Windows with the user's YACpkTool and game files (item 36). Extraction completeness, the `-L` listing format, and the 47 non-CPK `.EDAT` files remain unverified.
+- The one-click run has been run twice on Windows with the user's YACpkTool and game files (items 36 and 42). Extraction completeness is now measured per package against its `-L` listing: 189 of 346 packages are verified, 41 fail on duplicate entry names, and 116 fail because their listing rows do not match the one known row layout (a narrow-column hypothesis is open). Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the exact layout of the 116 listings, and the formats of the 47 non-CPK `.EDAT` files remain unknown.
 - A rebuilt CPK has **not** been tested in PPSSPP or on PSP.
 - No Japanese string has yet been changed and successfully displayed in-game.
 - The event-file structure, field meanings, string boundaries, pointers, and length rules are not fully understood.
@@ -77,12 +81,13 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 ## Immediate next step
 
-The first real run is done (item 36). Next:
+The second real run is done (item 42). Next:
 
-1. Ask the user for two files from the run folder: `registry.json`, and one converter listing log `logs\converter\*-list-*.txt` (the `-L` output, not seen yet). They contain names, sizes, hashes, and listings, not decoded text. Do not ask for game files. Keep the run folder on the user's PC.
-2. Once the listing format is known, compare each package's listing with its extracted member paths. Report any mismatch as a failure, and do not change extraction until the mismatch is understood.
-3. Read-only: identify the 47 non-CPK `.EDAT` files (sizes, hashes, first bytes; no decoding) and record whether any of them carries text. `eventP04.EDAT` and `evept101.EDAT` are first to check.
-4. Read-only: explain why the ISO descriptor size differs from the file size, using `registry.json` (`inputs[].iso_facts` has the descriptor blocks and block size; `inputs[].size_bytes` has the file size). Do not unpack the ISO.
-5. Keep repack, write-back, and reinsertion blocked. Do not change the probe order until the logs show it is needed.
+1. Get the exact row layout of the 116 unverified listings. Either the user zips the second run's `logs\converter\*-list-*.txt` files plus `registry.json` and shares them (file names, sizes, hashes, and listings, not decoded text; do not ask for game files), or re-runs `RUN_PIPELINE.bat` with the current code and shares the new `REPORT.txt`, which now contains raw example rows itself.
+2. Confirm the narrow-column hypothesis on the real logs; extend the parser only against observed rows. Then re-run and count how many of the 116 verify.
+3. Read-only: identify the 47 non-CPK `.EDAT` files from the report's `Unrecognized inputs` section (first 32 bytes, hex; no decoding) and record whether any of them carries text. `eventP04.EDAT` and `evept101.EDAT` are first to check.
+4. Read-only: explain why the ISO descriptor size differs from the file size, using `registry.json` (`inputs[].iso_facts` and now `inputs[].iso_inventory`, the read-only member index). Do not unpack the ISO.
+5. Open decision for the user: how to read the hidden duplicate-name entries in the 41 incomplete packages (a read-only CPK table reader inside the pipeline, or a user-supplied converter build pinned by SHA-256 that extracts by entry ID). No executable downloads.
+6. Keep repack, write-back, and reinsertion blocked. Do not change the probe order until the logs show it is needed.
 
 The agent sandbox has neither the game files nor the converter, so only the user's machine can run the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).

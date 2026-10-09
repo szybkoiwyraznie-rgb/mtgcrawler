@@ -76,13 +76,16 @@ POSIX_SAFE_PATH_RE = re.compile(r"/(?:[A-Za-z0-9._~-]+/)*[A-Za-z0-9._~-]*")
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 
 KNOWN_GAPS = (
-    "ISO adapter: not implemented; ISO images are reported (PVD facts) but never unpacked.",
+    "ISO adapter: not implemented; ISO images are reported (PVD facts plus a read-only member index) "
+    "but never unpacked.",
     "Repack and write-back: disabled; the repack gate only checks CPK member round trips.",
     "Completeness: each package's files are compared with its -L listing by entry count and name; a "
-    "mismatch fails the package. The listing layout is known from one sample only.",
+    "mismatch fails the package. Rows are read with a strict parser plus a single-space fallback for "
+    "narrow columns; any row still unreadable fails the package and is shown raw in the report.",
     "Duplicate entry names: YACpkTool keeps one file per name, so a package whose entries share names "
-    "ends with fewer files than entries (seen in one package so far). Such packages fail; whether the "
-    "hidden entries differ in content is not known.",
+    "ends with fewer files than entries. Such packages fail; whether the hidden entries differ in "
+    "content is not known, and reading them needs a read-only CPK table reader or a converter that "
+    "extracts by entry ID.",
     "Event text boundaries: unvalidated; units are heuristic candidates, not confirmed strings.",
     "Translation insertion: not implemented; no translated text is produced or applied.",
     "In-game verification: not performed; nothing here is a playable patch.",
@@ -297,47 +300,84 @@ def _member_entries(folder: Path) -> tuple[list[dict[str, Any]], list[dict[str, 
 LISTING_HEADER_COUNT_RE = re.compile(r"^Content files:\s*(\d+)\s*$", re.MULTILINE)
 LISTING_HEADER_TOTAL_RE = re.compile(r"^Content file size:\s*(\d[\d\ufffd\u00a0 ,.]*?)\s*$", re.MULTILINE)
 # A table row starts with "[ n]". The name follows the percent column ("100,00"). The text before the
-# percent holds the Filesize and Compressed numbers, which are separated by two or more spaces; the
-# thousands separators inside a number are U+FFFD (or a single space) in the captured text.
-LISTING_ROW_START_RE = re.compile(r"^\[\s*\d+\]", re.MULTILINE)
-LISTING_ROW_RE = re.compile(r"^\[\s*(\d+)\]\s+(\d+)\s+(.+?)\s+\d{1,3}[,.]\d{2}\s+(\S.*?)\s*$", re.MULTILINE)
+# percent holds the Filesize and Compressed numbers; the thousands separators inside a number are
+# U+FFFD (or a single space) in the captured text.
+LISTING_ROW_START_RE = re.compile(r"^\[\s*\d+\]")
+LISTING_ROW_RE = re.compile(r"^\[\s*(\d+)\]\s+(\d+)\s+(.+?)\s+\d{1,3}[,.]\d{2}\s+(\S.*?)\s*$")
 NUMBER_TEXT_RE = re.compile(r"\d[\d\ufffd\u00a0 ,.]*")
+NUMBER_TOKEN_RE = re.compile(r"\d[\d\ufffd\u00a0,.]*")
 NUMBER_GAP_RE = re.compile(r"\s{2,}")
+ANY_GAP_RE = re.compile(r"\s+")
+LISTING_HEAD_LINES = 8
+LISTING_EXAMPLE_ROWS = 3
+LISTING_EXAMPLE_HEADS = 2
 
 
 def _digits(text: str) -> int:
     return int(re.sub(r"\D", "", text))
 
 
+def _listing_row_entry(match: re.Match) -> Optional[dict[str, Any]]:
+    """One table row, or None when its numbers do not split into two readable values.
+
+    The strict reading requires two or more spaces between the Filesize and Compressed numbers,
+    which is what wide columns print. Narrow columns can separate the two numbers with a single
+    space, so a fallback split on any gap is tried next; a fallback token must then be one plain
+    number with no embedded space, so a number that itself contains a space separator is still
+    rejected instead of being cut in half. Whatever the row layout, the check still requires the
+    row count and the size sum to match the listing header, so a wrong split fails closed.
+    """
+    numbers = NUMBER_GAP_RE.split(match.group(3).strip())
+    mode = "strict"
+    if len(numbers) != 2 or not all(NUMBER_TEXT_RE.fullmatch(number) for number in numbers):
+        numbers = ANY_GAP_RE.split(match.group(3).strip())
+        mode = "fallback"
+        if len(numbers) != 2 or not all(NUMBER_TOKEN_RE.fullmatch(number) for number in numbers):
+            return None
+    return {
+        "no": int(match.group(1)),
+        "id": int(match.group(2)),
+        "size": _digits(numbers[0]),
+        "compressed": _digits(numbers[1]),
+        "name": match.group(4),
+        "parse_mode": mode,
+    }
+
+
 def parse_listing(text: Optional[str]) -> Optional[dict[str, Any]]:
     """Read the header counts and the table rows of a `-L` listing. None when there is no text.
 
-    A line that starts like a table row but does not split into two numbers is not an entry; it is
-    counted in `unparsed_rows`, and the check treats any unparsed row as a failure.
+    A line that starts like a table row but does not split into two numbers is not an entry; its raw
+    text is kept in `unparsed_row_lines`, and the check treats any unparsed row as a failure.
     """
     if not text:
         return None
     count = LISTING_HEADER_COUNT_RE.search(text)
     total = LISTING_HEADER_TOTAL_RE.search(text)
     entries: list[dict[str, Any]] = []
-    for match in LISTING_ROW_RE.finditer(text):
-        numbers = NUMBER_GAP_RE.split(match.group(3).strip())
-        if len(numbers) != 2 or not all(NUMBER_TEXT_RE.fullmatch(number) for number in numbers):
+    unparsed_row_lines: list[str] = []
+    modes = {"strict": 0, "fallback": 0}
+    head_lines = [line for line in text.splitlines() if line.strip()][:LISTING_HEAD_LINES]
+    for line in text.splitlines():
+        match = LISTING_ROW_RE.match(line)
+        if match is None:
+            if LISTING_ROW_START_RE.match(line):
+                unparsed_row_lines.append(line)
             continue
-        entries.append(
-            {
-                "no": int(match.group(1)),
-                "id": int(match.group(2)),
-                "size": _digits(numbers[0]),
-                "compressed": _digits(numbers[1]),
-                "name": match.group(4),
-            }
-        )
+        entry = _listing_row_entry(match)
+        if entry is None:
+            unparsed_row_lines.append(line)
+            continue
+        modes[entry.pop("parse_mode")] += 1
+        entries.append(entry)
     return {
         "header_count": int(count.group(1)) if count else None,
         "header_total": _digits(total.group(1)) if total else None,
         "entries": entries,
-        "unparsed_rows": len(LISTING_ROW_START_RE.findall(text)) - len(entries),
+        "unparsed_rows": len(unparsed_row_lines),
+        "unparsed_row_lines": unparsed_row_lines,
+        "parse_modes": modes,
+        "head_lines": head_lines,
     }
 
 
@@ -351,7 +391,8 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
     `verified` only when every entry has exactly one file of the same name and no file is left over.
     Entries that share a name cannot all be kept in one flat folder, so they make the package
     `incomplete`. Anything that cannot be parsed, does not add up, or has names that did not decode
-    (U+FFFD) is `unverified` (fail closed).
+    (U+FFFD) is `unverified` (fail closed). Unverified results keep raw examples of the listing text
+    so a layout change can be diagnosed without another run.
     """
     result: dict[str, Any] = {
         "status": "unverified",
@@ -363,27 +404,37 @@ def check_listing(listing_text: Optional[str], members: list[dict[str, Any]]) ->
         "names_without_file": 0,
         "files_not_listed": 0,
         "unparsed_rows": 0,
+        "parse_modes": None,
     }
     parsed = parse_listing(listing_text)
     if parsed is None or parsed["header_count"] is None:
         result["reason"] = "listing has no 'Content files' line"
+        result["examples"] = {"listing_head": (parsed or {}).get("head_lines", [])}
         return result
+    result["parse_modes"] = parsed["parse_modes"]
     result["unparsed_rows"] = parsed["unparsed_rows"]
     if parsed["unparsed_rows"]:
         result["reason"] = f"{parsed['unparsed_rows']} listing rows could not be read"
+        result["examples"] = {
+            "unparsed_rows": parsed["unparsed_row_lines"][:LISTING_EXAMPLE_ROWS],
+            "listing_head": parsed["head_lines"],
+        }
         return result
     entries = parsed["entries"]
     result["entries"] = len(entries)
     if not entries or len(entries) != parsed["header_count"]:
         result["reason"] = f"listing has {len(entries)} rows but its header says {parsed['header_count']}"
+        result["examples"] = {"listing_head": parsed["head_lines"]}
         return result
     if parsed["header_total"] is not None and sum(entry["size"] for entry in entries) != parsed["header_total"]:
         result["reason"] = "listing row sizes do not add up to the header total"
+        result["examples"] = {"listing_head": parsed["head_lines"]}
         return result
     names = [_listing_name(entry["name"]) for entry in entries]
     undecodable = [name for name in names if "\ufffd" in name]
     if undecodable:
         result["reason"] = f"{len(undecodable)} listed names could not be decoded from the converter output"
+        result["examples"] = {"undecodable_names": undecodable[:LISTING_EXAMPLE_ROWS]}
         return result
     listed = set(names)
     files = {_listing_name(member["path"]) for member in members}
@@ -1307,7 +1358,18 @@ def run_pipeline(
         head_hex = None
         if category == "iso_not_processed":
             iso_facts = _iso_facts(input_root.joinpath(*entry["path"].split("/")), entry["size_bytes"])
-            not_processed.append(f"{entry['path']}: ISO image not processed (no validated ISO adapter); {_iso_summary(iso_facts)}")
+            index_note = ""
+            iso_inventory = entry.get("iso_inventory")
+            if isinstance(iso_inventory, dict) and iso_inventory.get("status") == "indexed":
+                index_note = (
+                    f"; read-only index: {iso_inventory.get('file_count')} files, "
+                    f"{iso_inventory.get('directory_count')} directories, "
+                    f"{iso_inventory.get('cpk_signature_count')} CPK signatures inside (not extracted)"
+                )
+            not_processed.append(
+                f"{entry['path']}: ISO image not processed (no validated ISO adapter); "
+                f"{_iso_summary(iso_facts)}{index_note}"
+            )
         elif category == "zip_not_processed":
             not_processed.append(f"{entry['path']}: ZIP archive not processed by this pipeline")
         elif category == "metadata_not_processed":
@@ -1333,6 +1395,7 @@ def run_pipeline(
                 "extension_hint": entry["extension_hint"],
                 "pipeline_status": pipeline_status,
                 "iso_facts": iso_facts,
+                "iso_inventory": entry.get("iso_inventory"),
                 "head_hex": head_hex,
             }
         )
@@ -1510,6 +1573,77 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
     return notes
 
 
+def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
+    """Raw converter rows for packages the listing check could not verify (file names and sizes only)."""
+    unparsed_examples: list[str] = []
+    head_examples: list[str] = []
+    pairs: list[str] = []
+    undecodable: list[str] = []
+    fallback_rows = 0
+    all_rows = 0
+    for package in registry["packages"]:
+        check = package.get("listing_check") or {}
+        modes = check.get("parse_modes") or {}
+        fallback_rows += modes.get("fallback", 0)
+        all_rows += sum(modes.values())
+        examples = check.get("examples") or {}
+        if check.get("status") == "unverified":
+            for line in examples.get("unparsed_rows", [])[:1]:
+                if len(unparsed_examples) < LISTING_EXAMPLE_ROWS and line not in unparsed_examples:
+                    unparsed_examples.append(line)
+            for line in examples.get("listing_head", [])[:LISTING_EXAMPLE_HEADS]:
+                if len(head_examples) < LISTING_EXAMPLE_HEADS and line not in head_examples:
+                    head_examples.append(line)
+            for name in examples.get("undecodable_names", [])[:1]:
+                if len(undecodable) < LISTING_EXAMPLE_ROWS and name not in undecodable:
+                    undecodable.append(name)
+        if check.get("status") == "incomplete":
+            listed = examples.get("listed_without_file", [])
+            on_disk = examples.get("file_not_listed", [])
+            for listed_name, disk_name in zip(listed, on_disk):
+                if len(pairs) >= LISTING_EXAMPLE_ROWS:
+                    break
+                pairs.append(f"listed: {listed_name} | on disk: {disk_name}")
+    lines: list[str] = []
+    if unparsed_examples:
+        lines.append("  rows the parser could not read (up to 3 shown):")
+        lines += [f"  - {line[:200]}" for line in unparsed_examples]
+    if head_examples:
+        lines.append("  listings without a readable 'Content files' header, first lines (up to 2 listings):")
+        lines += [f"  - {line[:200]}" for line in head_examples]
+    if pairs:
+        lines.append("  listed name vs file on disk (up to 3 pairs):")
+        lines += [f"  - {pair[:200]}" for pair in pairs]
+    if undecodable:
+        lines.append("  listed names that did not decode (up to 3 shown):")
+        lines += [f"  - {name[:200]}" for name in undecodable]
+    if fallback_rows:
+        lines.append(
+            f"  rows read with the single-space fallback: {fallback_rows} of {all_rows} "
+            "(narrow-column listings; the strict two-space layout did not match)"
+        )
+    return lines
+
+
+def _unknown_signature_lines(registry: dict[str, Any]) -> list[str]:
+    """Group unrecognized inputs by their first bytes, for identification only."""
+    groups: dict[str, list[str]] = {}
+    for row in registry["inputs"]:
+        head = row.get("head_hex")
+        if head:
+            groups.setdefault(head, []).append(row["path"])
+    if not groups:
+        return []
+    lines = ["Unrecognized inputs (first 32 bytes, hex; identification only, nothing decoded)"]
+    ordered = sorted(groups.items(), key=lambda item: (-len(item[1]), item[0]))
+    for head, paths in ordered[:20]:
+        shown = ", ".join(paths[:3]) + (", ..." if len(paths) > 3 else "")
+        lines.append(f"  {len(paths)} file(s), head {head}: {shown}")
+    if len(ordered) > 20:
+        lines.append(f"  ... and {len(ordered) - 20} more head-byte groups (see registry.json)")
+    return lines
+
+
 def _render_report(registry: dict[str, Any]) -> str:
     summary = registry["summary"]
     converter = registry["converter"]
@@ -1566,6 +1700,12 @@ def _render_report(registry: dict[str, Any]) -> str:
         lines += ["", "Failures"] + [f"  - {item}" for item in registry["failures"]]
     if registry["warnings"]:
         lines += ["", "Warnings"] + [f"  - {item}" for item in registry["warnings"]]
+    diagnostics = _listing_diagnostic_lines(registry)
+    if diagnostics:
+        lines += ["", "Listing check diagnostics (raw converter output; file names and sizes only)"] + diagnostics
+    unknown = _unknown_signature_lines(registry)
+    if unknown:
+        lines += [""] + unknown
     if registry["not_processed"]:
         lines += ["", "Not processed"] + [f"  - {item}" for item in registry["not_processed"]]
     lines += ["", "Known gaps (not done by this run)"] + [f"  - {item}" for item in registry["known_gaps"]]
@@ -1577,7 +1717,7 @@ def _render_report(registry: dict[str, Any]) -> str:
         "  text/       event text exports (manifest, units, segments) for packages with BIN files",
         "  logs/       converter logs (captured or console mode noted per call)",
         "",
-        "This report contains file names and hashes only; it contains no decoded game text.",
+        "This report contains file names, sizes, byte prefixes, and hashes only; it contains no decoded game text.",
         "",
     ]
     return "\n".join(lines)

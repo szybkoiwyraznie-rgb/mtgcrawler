@@ -111,7 +111,11 @@ if command == "-L":
     print()
     print("No.         ID    Filesize  Compressed       %  Contents Filename")
     for number, (name, size) in enumerate(rows):
-        print(f"[{number:5d}]  {number + 1:5d}  {grouped(size):>9}  {grouped(size):>9}  100,00  {name}")
+        if flag("FAKE_YACPK_NARROW_LISTING"):
+            # Narrow columns: the two numbers are separated by a single space, with no padding.
+            print(f"[{number:5d}]  {number + 1:5d}  {grouped(size)} {grouped(size)}  100,00  {name}")
+        else:
+            print(f"[{number:5d}]  {number + 1:5d}  {grouped(size):>9}  {grouped(size):>9}  100,00  {name}")
     print("Process finished (hopefully) without issues!")
     sys.exit(0)
 
@@ -522,6 +526,62 @@ class RunPipelineTests(PipelineFixture):
         self.assertIn("listing check (entries vs files): verified 1, incomplete 1, unverified 0, not checked 0", report)
         self.assertIn("event_P01", " ".join(registry["failures"]))
 
+    def test_narrow_single_space_listings_still_verify(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly({"FAKE_YACPK_NARROW_LISTING": "1"})
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertEqual(registry["summary"]["listing_verified"], 3)
+        for package in registry["packages"]:
+            check = package["listing_check"]
+            self.assertEqual(check["status"], "verified")
+            self.assertEqual(check["parse_modes"]["fallback"], check["entries"])
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("rows read with the single-space fallback:", report)
+
+    def test_report_lists_unrecognized_inputs_by_head_bytes(self):
+        self.write_standard_inputs()
+        (self.input_root / "mystery2.EDAT").write_bytes(b"SECOND UNKNOWN WRAPPER")
+
+        result, _lines = self.run_quietly()
+
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("Unrecognized inputs (first 32 bytes, hex", report)
+        self.assertIn(b"NOT A CONTAINER, unknown wrapper"[:32].hex(" "), report)
+        self.assertIn(b"SECOND UNKNOWN WRAPPER"[:32].hex(" "), report)
+        self.assertIn("unknown.EDAT", report)
+        self.assertIn("mystery2.EDAT", report)
+
+    def test_registry_copies_the_read_only_iso_inventory(self):
+        self.write_standard_inputs()
+        real_inventory = run_pipeline.inventory_path
+
+        def patched_inventory(path):
+            inventory = real_inventory(path)
+            for entry in inventory["entries"]:
+                if entry["content_type"] == "iso9660_pvd_signature":
+                    entry["iso_inventory"] = {
+                        "status": "indexed",
+                        "file_count": 7,
+                        "directory_count": 2,
+                        "cpk_signature_count": 5,
+                        "files": [],
+                        "directories": [],
+                        "warnings": [],
+                    }
+            return inventory
+
+        with patch.object(run_pipeline, "inventory_path", patched_inventory):
+            result, _lines = self.run_quietly()
+
+        registry = self.registry(result)
+        iso_rows = [row for row in registry["inputs"] if row["content_type"] == "iso9660_pvd_signature"]
+        self.assertEqual(iso_rows[0]["iso_inventory"]["file_count"], 7)
+        not_processed = " | ".join(registry["not_processed"])
+        self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside (not extracted)", not_processed)
+
     def test_source_changed_during_extraction_is_detected_and_output_removed(self):
         self.write_standard_inputs()
 
@@ -859,6 +919,62 @@ class UnitHelperTests(unittest.TestCase):
         self.assertEqual(run_pipeline.check_listing(short_header, files("a.acb", "b.acb"))["status"], "unverified")
         bad_total = synthetic_listing(plain).replace(f"Content file size:{grouped_number(187813)}", "Content file size:1")
         self.assertEqual(run_pipeline.check_listing(bad_total, files("a.acb", "b.acb"))["status"], "unverified")
+
+    def test_listing_parser_falls_back_to_single_space_gaps_for_narrow_columns(self):
+        narrow = (
+            "CPK Filename:narrow.EDAT\r\r\n"
+            "Content files:2\r\r\n"
+            f"Content file size:{grouped_number(187813)}\r\r\n"
+            "Compressed files:0\r\r\n"
+            "\r\r\n"
+            "No.         ID    Filesize  Compressed       %  Contents Filename\r\r\n"
+            f"[    0]      1  {grouped_number(5)} {grouped_number(5)}  100,00  a.acb\r\r\n"
+            f"[    1]      2  {grouped_number(187808)} {grouped_number(187808)}  100,00  b.acb\r\r\n"
+            "Process finished (hopefully) without issues!\r\r\n"
+        )
+        parsed = run_pipeline.parse_listing(narrow)
+        self.assertEqual(parsed["header_count"], 2)
+        self.assertEqual(parsed["header_total"], 187813)
+        self.assertEqual(parsed["unparsed_rows"], 0)
+        self.assertEqual(parsed["parse_modes"], {"strict": 0, "fallback": 2})
+        self.assertEqual(
+            [(entry["id"], entry["size"], entry["name"]) for entry in parsed["entries"]],
+            [(1, 5, "a.acb"), (2, 187808, "b.acb")],
+        )
+        # A row whose numbers cannot be split into two readable values stays unparsed and is kept raw.
+        broken = narrow.replace(
+            f"[    1]      2  {grouped_number(187808)} {grouped_number(187808)}  100,00  b.acb",
+            "[    1]      2  x y  100,00  b.acb",
+        )
+        parsed_broken = run_pipeline.parse_listing(broken)
+        self.assertEqual(parsed_broken["unparsed_rows"], 1)
+        self.assertEqual(parsed_broken["unparsed_row_lines"], ["[    1]      2  x y  100,00  b.acb"])
+        # Two numbers that each contain a space separator are ambiguous and stay unparsed (fail closed).
+        ambiguous = narrow.replace(
+            f"[    0]      1  {grouped_number(5)} {grouped_number(5)}  100,00  a.acb",
+            "[    0]      1  1 234 5 678  100,00  a.acb",
+        )
+        self.assertEqual(run_pipeline.parse_listing(ambiguous)["unparsed_rows"], 1)
+
+    def test_listing_check_keeps_raw_examples_for_unreadable_rows_and_missing_headers(self):
+        def files(*names):
+            return [{"path": name} for name in names]
+
+        plain = [(0, "a.acb", 5), (1, "b.acb", 187808)]
+        broken = synthetic_listing(plain).replace(
+            "Process finished", "[    2]      3  x  100,00  c.acb\r\r\nProcess finished"
+        )
+        unreadable = run_pipeline.check_listing(broken, files("a.acb", "b.acb"))
+        self.assertEqual(unreadable["status"], "unverified")
+        self.assertEqual(unreadable["examples"]["unparsed_rows"], ["[    2]      3  x  100,00  c.acb"])
+        self.assertEqual(unreadable["examples"]["listing_head"][0], "CPK Filename:synthetic.EDAT")
+        no_header = synthetic_listing(plain).replace("Content files:2\r\r\n", "")
+        missing = run_pipeline.check_listing(no_header, files("a.acb", "b.acb"))
+        self.assertEqual(missing["status"], "unverified")
+        self.assertIn("listing has no 'Content files' line", missing["reason"])
+        self.assertTrue(missing["examples"]["listing_head"])
+        undecoded = run_pipeline.check_listing(synthetic_listing([(0, "a\ufffd.acb", 5)]), files("a\ufffd.acb"))
+        self.assertEqual(undecoded["examples"]["undecodable_names"], ["a\ufffd.acb"])
 
     def test_converter_path_keeps_safe_paths_and_uses_short_names_when_needed(self):
         safe = Path("/tmp/safe_dir/run-1")

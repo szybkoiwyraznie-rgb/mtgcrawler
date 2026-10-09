@@ -485,13 +485,65 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 
 Final SHA-256: `tools/iso9660.py` `cf915f09962af74bac5de7e72319627fa59ff8b72f739a8c19600b53bc205cfc`; `tools/inventory_local_inputs.py` `e692e365c7929d3b2d341a21631176228ee6bcc83133afebc0865a9bf9e8d1b1`; `tools/audit_event_dat_runs.py` `d2e9901cafed6e52b864c636eeb949f043e17b62b1701df03e0f9b488cfae0fb`; `tools/extract_cpk_batch.py` `fe733e87afd8bf930e02772f4d57f5c222d60bc805e8811ce6bccb7876c46e15`; `tests/test_iso9660.py` `fc9f038299387584618d8604a694b86abcc250c4708fc0ebf4cb39b6a68633ad`; `tools/run_pipeline.py` `64391a0f52f434a0f34c42cc90fbf39226a8b518a7aa18449003c389e75098f6` (unchanged in this port); `tests/test_run_pipeline.py` `cc9bf51d35cd5e35fc7632e08c63bfe131458b8e2df6398189ab2914246f11a3` (unchanged in this port).
 
+## 2026-10-09 — second real run of the one-click slice: the listing check reports 157 failures in two classes
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` on their Windows PC (run `20261009-194153`, code at commit `50b8b30`) against the same input folder and converter (SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962`) and pasted `REPORT.txt`. The agent has the report text only; the second run's `registry.json` and converter logs are still on the user's PC.
+
+**Observed (from the pasted report):**
+
+- Status `completed_with_failures`. Input unchanged: 341 files, all readable; 290 CPK signatures (288 unique content).
+- Packages: 346 total (189 extracted, 157 failed); 3,439 member files; 32 duplicate-content aliases skipped.
+- Listing check: 189 verified, 41 incomplete, 116 unverified, 0 not checked.
+- Event text: 80 packages with BIN files verified (0 failed), 39,103 heuristic units — the same unit total as the first run.
+- Repack gate: passed, on a package with non-empty members.
+- Converter probe: `original_name`/console passed again; `original_name`/captured was rejected again on `NPJH50521/mesbmp09.EDAT` with exit code 3762504530 (0xE0434352, unhandled .NET CLR exception). Extraction ran in console mode again, so `Error:` lines were not checked.
+- Not processed (unchanged): 47 unknown-signature `.EDAT` files, `PARAM.PBP`/`PBOOT.PBP`/`PARAM.SFO`, and the ISO (still 5,533,072 bytes longer than its descriptor).
+
+**The 157 failures, in three groups:**
+
+1. `incomplete` (41 packages, all `bacb*` and `bseq*`): the listing has more entries than distinct names, so the flat output folder holds fewer files than entries (`bacb01`: 541 entries, 260 names, 281 duplicate entries, about 52% of its content bytes without a file). This is the known duplicate-name gap, now measured across the run.
+2. `unverified` (116 packages: `face*`, `mesbmp*`, `mesbtl*`, `mov*`, `n1-bcam*`, plus `robo01`/`robo02`/`robo03`): the parser could not read the `-L` rows (for example `face01`: 247 rows; each `n1-bcam`: 15 rows). The parser was written from one wide-column sample (`bacb01`, gaps of 3–6 spaces between the two numbers). These packages hold small files, so their columns are probably narrower. Hypothesis, not confirmed: the two numbers are then separated by a single space, which the strict two-space split rejects.
+3. Special cases: `robo01`/`robo02` listings have no `Content files` line at all; `robo03` has one listed name that did not decode (U+FFFD); `face09`, `face18`, and `mesbmp09` each have exactly one listed name without a file and one file not in the listing (one name differs between the listing and the disk).
+
+**Interpretation:**
+
+- Observed: the package count dropped from 424 (first run) to 346 because failed packages keep no output, so the nested CPKs inside them are never discovered (first run: 288 top-level + 136 nested; second run: 288 top-level + 58 nested). The input is untouched; this is fail-closed behaviour, not data loss.
+- Observed: the text-unit total is identical to the first run (39,103, from 80 packages instead of 83). The failed packages apparently contain no event-text BIN units; the registry's per-package `text_units` will show which three packages left the text export.
+- Hypothesis, not confirmed: the 116 `unverified` packages are a listing-layout problem in the parser, not an extraction problem. Their extraction may be complete; the check cannot prove it yet.
+- Hypothesis, not confirmed: for the three single-name mismatches, the converter may write a sanitized file name to disk (for example replacing a character that is invalid in a Windows file name), so the listed name and the disk name differ.
+
+**Not demonstrated:** the actual row layout of the 116 listings (no log for them has reached the agent yet); whether the hidden duplicate-name entries differ in content; whether the game uses the ID column; the first bytes of the 47 unknown inputs (they are in the second run's registry, not in the report); any repack, insertion, or in-game result.
+
+## 2026-10-09 — listing parser fallback for narrow columns, report diagnostics, and ISO inventory in the registry
+
+**Input:** The second real run's report (entry above). The one known real listing (`bacb01`, from the first run's upload) was re-parsed with the new code as a regression check.
+
+**Action:**
+
+- `parse_listing` now reads rows line by line. The strict reading is unchanged (two or more spaces between the Filesize and Compressed numbers). When a row's numbers do not split that way, a fallback splits on any gap and accepts the row only when both tokens are one plain number with no embedded space; a number that itself contains a space separator is still rejected instead of being cut in half. The check still requires the row count and the size sum to match the listing header, so a wrong split fails closed. Each parsed row records which mode read it (`parse_modes`: `strict`/`fallback`).
+- Unverified listing checks now keep raw examples in `listing_check.examples`: up to three unreadable rows verbatim, the first eight listing lines when the header is missing or a check fails, up to three listed names that did not decode, and (for incomplete packages) the listed-vs-disk name pairs. `REPORT.txt` gains a `Listing check diagnostics` section with up to three unreadable rows, two header samples, three name pairs, three undecodable names, and a `rows read with the single-space fallback: N of M` line when the fallback was used. These are file names and sizes only, the same categories the report already contained.
+- `REPORT.txt` gains an `Unrecognized inputs` section that groups the unknown-signature inputs by their first 32 bytes (hex) with counts and example paths, so the 47 unknown files can be identified from the report alone. The registry already had `inputs[].head_hex`.
+- The registry's input rows now copy the read-only ISO inventory (`inputs[].iso_inventory`, computed by `inventory_path` since the PR #8 port but previously discarded), and the ISO's `Not processed` line states the indexed member counts. No ISO member is extracted.
+- Known gaps updated: the listing-layout limitation now names the fallback and the raw-row report; the duplicate-name gap names the two recovery options.
+
+**Validation:**
+
+- Full suite: 136 tests OK (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). Five tests are new: the parser fallback on a narrow synthetic listing (plus unreadable and ambiguous rows staying unparsed), the raw examples in `check_listing`, an integration run with the fake converter emitting single-space rows (all packages verify), the report's head-byte groups, and the registry's ISO inventory copy.
+- Regression on the real listing: `parse_listing` on the uploaded `bacb01` log parses 541 of 541 rows in strict mode; the sizes sum to the header total 132,272,768; 260 unique names; 281 duplicate entries. The same log with every multi-space gap collapsed to a single space parses 541 of 541 rows in fallback mode with identical entries (no/id/size/name). `check_listing` on the real listing and the registry's 260 members returns `incomplete` with the known counts.
+- pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `dc1db0f54718cdc2f8a944477f790e3cfd0944d193540790420f90919c3929cc`; `tests/test_run_pipeline.py` `4f8860b1345cfba79b7a96489199e1650c1211cbbfaa74c92ba8f2a0b989d6fe`; `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25` (unchanged).
+
+**Not demonstrated:** the fallback on the user's real narrow listings (the next run, or the second run's logs, will show it); whether the 116 unverified packages verify once their rows parse; the cause of the `robo01`/`robo02` header-less listings; the three single-name mismatches; any repack, insertion, or in-game result.
+
 ## Pending
 
-- Re-run the one-click slice with the current code on the user's PC (about 3 minutes and about 0.8 GB of output; delete the old run folder afterwards). Ask for `REPORT.txt` and `registry.json`; the converter logs have their folder paths replaced but still list file names.
-- From the new registry: count packages failed as `incomplete` or `unverified`; list which text packages are among them; read the first bytes of the 47 unknown-signature inputs (`inputs[].head_hex`) and describe their formats as observations only.
-- Check whether the 16 zero-byte `p0000.pac` members are genuine empty entries (their listing sizes and IDs).
-- Decide how to read the hidden duplicate-name entries (open decision for the user). Options: a converter build the user supplies, pinned by SHA-256 and extracting by entry ID; or a read-only CPK table reader, validated against the converter's listing on the user's data. Do not download executables.
-- Explain the ISO descriptor difference from `registry.json` alone. Do not unpack the ISO.
+- Get the exact row layout of the 116 unverified listings. Either the user sends the second run's `logs\converter\*-list-*.txt` files plus `registry.json` (zipped; file names, sizes, hashes, and listings, not decoded text), or re-runs `RUN_PIPELINE.bat` with the current code and shares the new `REPORT.txt`, which now contains raw example rows itself.
+- Confirm or refute the narrow-column hypothesis on the real logs; extend the parser only against observed rows. Then re-run and count how many of the 116 verify.
+- Read the first bytes of the 47 unknown-signature inputs from the report's `Unrecognized inputs` section (or `inputs[].head_hex` in the second run's registry) and describe their formats as observations only.
+- From the second run's registry: which three text packages left the 80-package text export (the unit total is unchanged at 39,103); check whether the 16 zero-byte `p0000.pac` members are genuine empty entries (their listing sizes and IDs).
+- Decide how to read the hidden duplicate-name entries in the 41 incomplete packages (open decision for the user). Options: a read-only CPK table reader inside the pipeline (no new executables; validated against the converter's listings and the round-trip gate), or a converter build the user supplies, pinned by SHA-256 and extracting by entry ID. Do not download executables.
+- Explain the ISO descriptor difference from `registry.json` alone (`inputs[].iso_inventory` now has the read-only member index). Do not unpack the ISO.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.

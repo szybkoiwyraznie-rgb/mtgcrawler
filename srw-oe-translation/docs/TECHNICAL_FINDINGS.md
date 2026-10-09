@@ -77,6 +77,15 @@ Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some
 - Hypothesis, not tested: later entries overwrite earlier ones with the same name in one flat output folder.
 - Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
 
+## YACpkTool `-L` listing (second real run, 346 packages: row-layout differences)
+
+- Observed (second real run, `20261009-194153`): the listing check verified 189 of 346 packages, failed 41 as `incomplete` (duplicate entry names, all `bacb*`/`bseq*`), and failed 116 as `unverified` because their rows did not parse.
+- Observed: the 116 unverified packages are concentrated in `face*`, `mesbmp*`, `mesbtl*`, `mov*`, and `n1-bcam*` (plus `robo01`/`robo02`/`robo03`), whose members are small files. In the one known sample (`bacb01`, member sizes 12,288–1,022,752 bytes) every row has 3–6 spaces between the `Filesize` and `Compressed` numbers. In the sample, all sizes have at least five digits, so the columns are wide.
+- Hypothesis, not confirmed: packages with small members print narrower columns, where the two numbers are separated by a single space; the strict two-space split then rejects every row. The parser now falls back to a single-space split (validated on a narrowed copy of the real `bacb01` listing: 541 of 541 rows parse with identical entries), but the real narrow listings have not been inspected yet.
+- Observed: `robo01`/`robo02` listings have no `Content files` line; `robo03` has one listed name with U+FFFD; `face09`, `face18`, and `mesbmp09` each have exactly one listed name without a file and one file not in the listing.
+- Hypothesis, not confirmed: for those three packages the converter writes a sanitized file name to disk (a character that is invalid in a Windows file name replaced), so the listed name and the disk name differ.
+- Unknown: whether the 116 packages extracted completely; their rows must be read before the check can verify them.
+
 ## YACpkTool source (read, not executed)
 
 Source: `YACT/Program.cs` from the archived repository `Brolijah/YACpkTool` at commit `6098bb2001f31b869b32d747f798b044029aa52a` (2017-12-17), SHA-256 `94c3454a9ab8a0f36e7daeb75778d4b8af71c5e8e512b1bde34616c434d00db2`. `CpkMaker.dll` was neither inspected nor run. The user's own build may differ. The items below were read from `Program.cs` only.
