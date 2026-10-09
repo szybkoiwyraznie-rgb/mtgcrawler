@@ -68,6 +68,28 @@ The user saw readable Japanese after selecting Shift-JIS in Notepad++. These obs
 
 Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some bytes differently, so these are codec facts, not evidence about the game's own table). Printable ASCII `0x20`–`0x7E` decodes to itself. `0x80` decodes to U+0080, a C1 control. `0xA0`, `0xFD`, `0xFE`, and `0xFF` decode to private-use codepoints. `0x81`–`0x9F` and `0xE0`–`0xFC` are lead bytes. Of 9,604 valid two-byte sequences, 1,880 decode to private-use codepoints and 398 decode to a character that does not re-encode to the same bytes (for example `0x8790` → U+2252 → `0x81E0`, and `0xFA40` → U+2170 → `0xEEEF`). The extractor keeps every such byte as a token, so no mapping is silently normalized. In the restored sample, 28 of 3,277 candidate prefixes are not byte-exact under strict CP932 decoding (27 with invalid bytes, one with a non-byte-exact pair).
 
+## YACpkTool source (read, not executed)
+
+Source: `YACT/Program.cs` from the archived repository `Brolijah/YACpkTool` at commit `6098bb2001f31b869b32d747f798b044029aa52a` (2017-12-17), SHA-256 `94c3454a9ab8a0f36e7daeb75778d4b8af71c5e8e512b1bde34616c434d00db2`. `CpkMaker.dll` was neither inspected nor run. The user's own build may differ. The items below were read from `Program.cs` only.
+
+Observations (from the code):
+
+- **Exit code:** no exit code is set anywhere and there is no `Environment.Exit` call. Each `Error:` path ends with `return`, so a failed call can still exit with code 0. Failure must be judged from the output text.
+- **Success text:** a completed call prints `Process finished (hopefully) without issues!`; error paths return before that line. Extract and pack also print `Status = <value>`; the values come from `CpkMaker.dll`, which was not read, so the pipeline does not parse them.
+- **Output path (`-o`):** `ValidateFilePathString` prefixes relative paths with the working directory (`-d`, default the current directory), builds `file:///` plus the path, and requires `Uri.IsWellFormedUriString`. By the documented rule of `Uri.IsWellFormedUriString` (not run here), spaces and non-ASCII characters fail this test. Drive-letter paths are treated as absolute.
+- **Input path (`-i`):** accepted when `File.Exists` or `Directory.Exists` holds, relative to the current directory or to `-d`. No extension check appears in `Program.cs`; whether `CpkMaker.AnalyzeCpkFile` checks the CPK signature was not read.
+- **`-X` arguments:** `-X` stores the next argument as a single-file name only if its first character is not `-`. The pipeline always writes `-X -i <source> -o <dir>`, so the whole archive is extracted.
+- **`-R`:** takes two arguments (`replaceWhat`, `replaceWith`) and is documented as experimental. The project never uses it.
+- **Packing (`-P`):** packs every file under the input folder recursively (`Directory.GetFiles(..., AllDirectories)`).
+- **Progress display:** extract and pack call `Console.CursorLeft = 0` in a loop. This may throw when stdout is redirected. Not verified; the pipeline's probe falls back to console mode.
+- **Standard input:** never read.
+
+Hypotheses to test on disposable copies (not facts):
+
+- The user's binary keeps the exit-code-0 behaviour, so the text markers above are the only failure signals.
+- `.EDAT`-named inputs are accepted by `-X` if `CpkMaker` does not check the extension.
+- Piped stdout triggers the progress-display exception, so the console-mode fallback is needed.
+
 ## Working hypotheses — validate before relying on them
 
 - `FF FF` may introduce a dialogue/text block.
@@ -99,6 +121,8 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - Whether the engine uses pointers or lengths that must be updated when English strings grow.
 - Whether all event, menu, dictionary, battle, graphic, and DLC text is in these resources.
 - Whether the game's font/runtime renders lowercase English and punctuation, and whether any font patch is required.
+- Whether the user's YACpkTool build matches the archived source, and how its `CpkMaker.dll` validates signatures, extensions, and `Status` values.
+- Whether `-L` lists members in a format that can be compared with the extracted files; the one-click run saves that output but does not yet compare it.
 
 ## References
 

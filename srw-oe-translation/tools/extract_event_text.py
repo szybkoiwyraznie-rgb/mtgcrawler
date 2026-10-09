@@ -546,6 +546,18 @@ def read_export(export_dir: Path) -> tuple[dict, list[dict], list[dict]]:
     return manifest, units, segments
 
 
+def read_back_errors(export_dir: Path, manifest: dict, units: list[dict], segments: list[dict]) -> list[str]:
+    """Reload written export files and verify they match the in-memory records."""
+    try:
+        disk_manifest, disk_units, disk_segments = read_export(export_dir)
+        disk_errors = verify_records(disk_manifest, disk_units, disk_segments)
+        if disk_manifest != manifest or disk_units != units or disk_segments != segments:
+            disk_errors.append("exported files do not reload to the same records")
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        disk_errors = [f"exported files could not be read back: {exc}"]
+    return disk_errors
+
+
 def _validate_export_dir(input_path: Path, export_dir: Path) -> None:
     source = input_path.resolve()
     destination = export_dir.resolve()
@@ -580,14 +592,9 @@ def main(argv: Optional[list[str]] = None) -> int:
             write_export(args.export_dir, manifest, units, segments)
         except OSError as exc:
             parser.error(f"could not write export: {exc}")
-        try:
-            disk_manifest, disk_units, disk_segments = read_export(args.export_dir)
-            disk_errors = verify_records(disk_manifest, disk_units, disk_segments)
-            if disk_manifest != manifest or disk_units != units or disk_segments != segments:
-                disk_errors.append("exported files do not reload to the same records")
-        except (OSError, ValueError, KeyError, TypeError) as exc:
-            disk_errors = [f"exported files could not be read back: {exc}"]
-        checks.append(("exported files read back", disk_errors))
+        checks.append(
+            ("exported files read back", read_back_errors(args.export_dir, manifest, units, segments))
+        )
 
     totals = manifest["totals"]
     kinds = totals["bytes_by_kind"]

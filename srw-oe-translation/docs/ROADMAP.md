@@ -38,10 +38,14 @@
 - [x] Add one-time Windows INI config support for input/output/converter paths, CLI overrides, and a safe example template; relative paths resolve beside the INI and private config paths are ignored.
 - [ ] Validate the batch driver with the user's local YACpkTool distribution on disposable copies: test `-L`/`-X`, no-change member hashes, output layout, and source immutability; never use experimental `-R`.
 - [ ] Add direct ISO extraction/rebuild only after validating an adapter; accept a pre-extracted ISO tree as an explicitly marked fallback, not a silent complete run.
-- [ ] Retain the single-entrypoint workflow: no manual per-file commands or extension changes.
+- [~] Retain the single-entrypoint workflow: `RUN_PIPELINE.bat` is the single entry point for the first slice; no manual per-file commands or extension changes.
 - [x] Build a deterministic read-only extractor (`tools/extract_event_text.py`) that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders. On the restored sample it partitions all 333,732 BIN bytes into 6,826 segments, including 3,277 text units with the candidate IDs. Boundaries remain unvalidated.
 - [ ] Validate the extractor's segment and unit rules on event packages beyond the restored sample; any conflict is a finding to record, not a reason to change the rule silently.
 - [~] Add automated no-change round-trip tests for the extractor/reinserter. Done for the extractor: segment coverage, the placeholder codec, raw and view rebuilds against each file's SHA-256, and export read-back. Reinserter tests remain open.
+- [x] Add the one-click local run for the first slice (`RUN_PIPELINE.bat` and `tools/run_pipeline.py`): one-time folder setup by dialogs, content-based inventory, converter SHA-256 and output-path checks, a converter probe, nested CPK extraction, per-package text export and verification, a CPK round-trip repack gate, and `REPORT.txt`. Its 34 synthetic tests pass with a fake converter; it has not been run with the real YACpkTool or any game file. See `ONE_CLICK_RUN.md`.
+- [ ] Run the one-click slice once on the user's Windows machine. Confirm the probe mode, `.EDAT` acceptance, the output-path rule, and the ISO descriptor report, and record exact counts and SHA-256 values in the experiment log.
+- [ ] Compare the `-L` member listing with the extracted files. The one-click run saves the listing but does not yet compare it, because its output format is unverified.
+- [ ] ISO processing in the one-click run: not automated. It reports the volume descriptor only; no ISO adapter exists.
 
 ## Gate 2 — safe insertion proof of concept
 

@@ -50,8 +50,11 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 34. Added `tools/extract_event_text.py`, a read-only deterministic extractor. It repeats the candidate scanner's greedy `FF FF … 00 00` walk, checks that walk against the existing audit at run time, and partitions each event BIN into text units, other selected marker spans, unselected gaps, and any unterminated tail, with exact raw hex. The 3,277 text units keep the existing `file@HEX` IDs, and their prefix and suffix bytes match the candidate export. Each prefix has a lossless CP932 placeholder view in which controls, private-use mappings, invalid bytes, and non-byte-exact pairs appear as `{XX}`/`{XXXX}` tokens. On the restored 22-BIN sample, the segments cover all 333,732 bytes; the exported files reload from disk and pass the same checks; raw and placeholder-view rebuilds match each file's SHA-256; and two runs produce byte-identical exports. The suite has 84 passing tests. Boundaries remain heuristic. No reinsertion, field decoding, or game-load test was performed.
 
+35. Added the first one-click local run slice: `RUN_PIPELINE.bat` and `tools/run_pipeline.py` (see [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md)). After a one-time folder setup it inventories inputs by content signature, runs preflight checks, probes the converter (original `.EDAT` name first, `.cpk` staging copy only as fallback, captured then console output), extracts unique CPKs (nested up to depth 2), exports and verifies event text for each package, runs a CPK round-trip repack gate, and writes `REPORT.txt`, `registry.json`, and CSV files. It was tested only with synthetic data and a fake converter (`tests/test_run_pipeline.py`, 34 tests; full suite 118 tests OK). It has **not** been run with the real YACpkTool or any game file. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
+
 ## Not yet demonstrated
 
+- The one-click local run has not been run with the real YACpkTool, on Windows, or on any game file. Its converter behaviour rests on reading the archived source only.
 - A rebuilt CPK has **not** been tested in PPSSPP or on PSP.
 - No Japanese string has yet been changed and successfully displayed in-game.
 - The event-file structure, field meanings, string boundaries, pointers, and length rules are not fully understood.
@@ -62,11 +65,12 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 ## Immediate next step
 
-The read-only extractor and its no-change checks now exist, so the next gate is validating boundaries across more data, not adding audit counts. The sample has only one event archive, so its boundaries cannot yet be checked against independent resources. Next:
+The one-click local run is built and tested only with synthetic data and a fake converter. The first real gate is one run on the user's Windows PC with the user's own YACpkTool and game files. Next:
 
-1. On the user's machine, with disposable copies and the user's YACpkTool, extract the remaining `.EDAT` event packages. The agent sandbox has neither the game files nor the converter. Then run `tools/extract_event_text.py` on the extracted `.bin` folder. Share only manifest counts, hashes, and check results, not decoded text.
-2. Compare segment and unit behaviour across those packages. Look for repeated token, suffix, and terminator patterns, and record every conflict as a finding rather than adjusting the rule to fit.
-3. Keep reinsertion blocked until boundaries are validated across more packages. Keep the no-change rebuild as a regression test before any insertion work.
-4. Do not make a visible insertion test the immediate gate. The user cautioned that this fragment may not be reachable in-game. If no reachable equivalent resource is found, record display QA as blocked/unknown.
+1. On the user's machine, complete the one-time folder setup and double-click `RUN_PIPELINE.bat` with an output folder such as `C:\SRW_OE_out` (no spaces or non-ASCII letters). Share `REPORT.txt` and the counts from `inputs.csv` and `packages.csv`, not decoded text. Record the result in `EXPERIMENT_LOG.md` with exact counts and SHA-256 values.
+2. If the probe is blocked, use the converter logs in `logs\converter\` (probe files) to decide whether the cause is the `.EDAT` name, the piped-output behaviour, or the output path. Fix only what the logs show. Do not guess offsets or flags.
+3. Once extraction succeeds for more than one package, compare the event text exports the pipeline writes for each package (segment and unit behaviour, token, suffix, and terminator patterns). Record every conflict as a finding rather than adjusting the rule to fit.
+4. Keep repack, write-back, and reinsertion blocked. The repack gate checks only CPK member round trips. Reinsertion waits until boundaries are validated across more packages and the no-change rebuild is a regression test. ISO unpacking has no adapter yet.
+5. Do not make a visible insertion test the immediate gate. The user cautioned that this fragment may not be reachable in-game. If no reachable equivalent resource is found, record display QA as blocked/unknown.
 
-Do not read or process the user's ISO/DLC until those files are available. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).
+The agent sandbox has neither the game files nor the converter, so only the user's machine can run the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).

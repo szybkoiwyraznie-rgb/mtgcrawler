@@ -2,20 +2,23 @@
 
 The previously user-uploaded `eventP01.zip` is recoverable from its historical upload commit and was restored to ignored `srw-oe-translation/local/` for this turn's static audit. This is the previously shared event sample, not the user's actual ISO/DLC; no ISO or DLC source was read or processed. No further manual PowerShell output is needed from the user. The archive and all decoded JSONL exports remain ignored local data; only tools and findings are committed.
 
-## Current state (milestone 34)
+## Current state (milestone 35)
+
+Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 34 tests; full suite 118 OK). It has **not** been run with the real YACpkTool or any game file. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
 
 `tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
 
-## Immediate next step (milestone 34)
+## Immediate next step (milestone 35)
 
-The extractor and its no-change checks now exist, so the next gate is validating boundaries across more data, not adding audit counts. The sample has only one event archive, so its boundaries cannot yet be checked against independent resources. Next:
+The one-click run needs one real test on the user's Windows PC. Until then, its converter behaviour (`.EDAT` names, the output-path rule, and piped output) comes from the archived YACpkTool source, not from a run. Next:
 
-1. On the user's machine, with disposable copies and the user's YACpkTool, extract the remaining `.EDAT` event packages. The agent sandbox has neither the game files nor the converter. Then run `tools/extract_event_text.py` on the extracted `.bin` folder. Share only manifest counts, hashes, and check results, not decoded text.
-2. Compare segment and unit behaviour across those packages. Look for repeated token, suffix, and terminator patterns, and record every conflict as a finding rather than adjusting the rule to fit it.
-3. Keep reinsertion blocked until boundaries are validated across more packages. Keep the no-change rebuild as a regression test before any insertion work.
-4. Do not make a visible insertion test the immediate gate. The user cautioned that this fragment may not be reachable in-game. If no reachable equivalent resource is found, record display QA as blocked/unknown.
+1. On the user's machine, complete the one-time folder setup and double-click `RUN_PIPELINE.bat` with an output folder such as `C:\SRW_OE_out`. Share `REPORT.txt` and the counts from `inputs.csv` and `packages.csv`, not decoded text. Record the run in `EXPERIMENT_LOG.md` with exact counts and SHA-256 values.
+2. If the probe is blocked, use the probe logs in `logs\converter\` to decide whether the cause is the `.EDAT` name, the piped-output behaviour, or the output path. Fix only what the logs show.
+3. For every package the run extracts, `text/<id>/` holds an event-text export. Compare segment and unit behaviour across packages, and record every conflict as a finding rather than adjusting the rule to fit.
+4. Keep repack, write-back, and reinsertion blocked. The repack gate checks only CPK member round trips. Reinsertion waits until boundaries are validated across more packages and the no-change rebuild is a regression test.
+5. Do not make a visible insertion test the immediate gate. The user cautioned that this fragment may not be reachable in-game. If no reachable equivalent resource is found, record display QA as blocked/unknown.
 
-Do not read or process the user's ISO/DLC until those files are available. Keep the restored sample, exports, and decoded text under ignored `local/`.
+The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 
 Earlier entries below stay as the historical record of the audit. Their counts remain valid for the same sample.
 
@@ -53,7 +56,7 @@ See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, ar
 3. The 75 alternate marker starts have been checked against parent-span stops and EVNT/ECHK framing: none adds bytes beyond its nearest selected stop, and none adds a wide-script or punctuation candidate. Keep the 25 half-width-only alternatives and residual no-script/PUA prefixes as review-only rows; no promotion follows from CP932 validity or EVNT containment alone. Continue separate context review of the 263 NUL-bounded wide-script BIN runs outside marker envelopes (257 clean strict/roundtripping leads); do not merge them into the marker table or translate them until boundaries are independently supported.
 4. Review the `_ext.dat` cohort against surrounding bytes/header words: 20 identical 48-byte runs at `0x18`/`0xB8` and 22 unique 10–28-byte runs at `0x158` pass strict CP932/roundtrip and control-free diagnostics, but their field semantics are not known. Review the two mixed Japanese/ASCII runs in that final group separately. For `_Entry.dat`, examine the 64-byte-relative `0x1A` run lattice (569 runs, all NUL-bounded on both sides; most seven-byte/control-bearing/half-width) and the five clean seven-byte examples in `DL102_90_Entry.dat`; an exact-byte search found each only at its own offset in the 88 sample members, but this does not establish string or identifier semantics. Keep the eight two-wide-character runs as noisy leads. Use byte context and record comparisons; do not interpret any of these as translated text until boundaries/structure are independently understood.
 5. The read-only inventory helper currently has only been run on the supplied ZIP sample. It now reports signatures by extension, so it can distinguish `.EDAT` files with `CPK ` signatures from other `.EDAT` files in the expected flat root. When the full source set is available, inventory the directory containing those files and the single ISO before enabling extraction; do not modify or rename inputs.
-6. Validate the prepared `tools/extract_cpk_batch.py` with the user's locally stored YACpkTool distribution on disposable copies. Its default is dry-run; a private `--config <local-workflow.ini>` carries the Windows input/output/converter paths once, and `--execute` batches every content-confirmed CPK (including original `.EDAT` names) through `-L`/`-X` into collision-safe output folders. Verify actual `.EDAT` path handling, complete no-change member hashes, and source immutability; do not use the tool's experimental `-R` replacement mode.
+6. Validate the one-click run (`tools/run_pipeline.py`, milestone 35; see `ONE_CLICK_RUN.md`) and the older batch driver `tools/extract_cpk_batch.py` with the user's locally stored YACpkTool distribution on disposable copies. The batch driver's default is dry-run; a private `--config <local-workflow.ini>` carries the Windows input/output/converter paths once, and `--execute` batches every content-confirmed CPK (including original `.EDAT` names) through `-L`/`-X` into collision-safe output folders. Verify actual `.EDAT` path handling, complete no-change member hashes, and source immutability; do not use the tool's experimental `-R` replacement mode.
 7. Prefer an automated reader for the single ISO. If no verified reader is available, accept a user-provided pre-extracted ISO contents tree as an explicit temporary fallback and mark base-image processing incomplete; do not make manual ISO extraction the default.
 8. A stable source inventory with explicit control-byte placeholders now exists (`tools/extract_event_text.py`, milestone 34), with byte-identical no-change checks. Keep its boundaries heuristic until text/record boundaries are supported by independent evidence, and add no reinsertion until then.
 9. Validate full CPK rebuild/re-extraction on a disposable copy. If a reachable event using the same rendering path can be identified, use it for a short display test; otherwise record in-game text QA as blocked/unknown rather than requiring access to an unreachable fragment.
@@ -61,6 +64,8 @@ See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, ar
 ## In-game test access
 
 The user cautioned that the event fragment represented by the supplied data may not be reachable in their current playthrough. This does not block read-only format analysis, extraction, or byte-identical round-trip work. Do not make reaching that specific fragment an immediate prerequisite for progress; any eventual rendering test should use a reachable equivalent only if its resource/rendering path is genuinely comparable.
+
+The one-click run (`RUN_PIPELINE.bat`) is now the intended user workflow. The batch driver below remains for dry-runs and comparison.
 
 Plan a batch CPK extraction from a mixed Windows input folder (default is dry-run; the output path must be separate and fresh):
 
