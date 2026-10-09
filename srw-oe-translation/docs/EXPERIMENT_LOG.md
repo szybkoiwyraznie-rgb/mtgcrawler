@@ -774,6 +774,20 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the table check's full agreement on all 69 packages; the meaning of the `FilesL`/`FilesH`/`DataL`/`DataH` ITOC layout; any text or game content.
 
+## 2026-10-10 — ITOC blob layout read (face01 and 56 others with the same layout)
+
+**Input:** `face01.EDAT` from the user's sample archive (SHA-256 `fa582c24e4ae5789ba47a588c1527a0e0fd3b7c22372fe721749f45a0b75fa03`), scratch only, not committed.
+
+**Verified by consistency (not by a public reference):** the ITOC of `face01` has no ID or TocIndex column. Its DataL and DataH columns are data references to nested `@UTF` tables: `CpkItocL` (494 rows: ID, FileSize, ExtractSize) and `CpkItocH` (0 rows). FilesL = 494, FilesH = 0, and FilesL | (FilesH << 16) equals the header Files count 494. The stored sizes summed over the 494 rows equal the header EnabledDataSize (2,022,124 bytes).
+
+**Change:** `tools/cpk_table.py` reads this layout (`_entries_from_itoc_blobs`). Entries carry ID, FileSize and ExtractSize, with no offsets. It fails closed if the blobs do not hold the counts that the header and FilesL/FilesH give. Other ITOC layouts still fail as before.
+
+**Result:** `face01` reads 494 entries. The table check can now compare them with the listing. The registry from run 20261010-011328 shows 57 packages with this layout (44 `NPJH50521`, 13 ISO), all extracted and listing-verified with 0 size mismatches.
+
+**Tests:** `tests/test_cpk_table.py` 14 OK (new: blob layout reads ID and sizes when counts agree; fails closed when they disagree). Full suite 167 OK.
+
+**Not demonstrated:** the table check against the real listing for these 57 packages (needs the next PC run); the meaning of FilesH above 0; any game content.
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.

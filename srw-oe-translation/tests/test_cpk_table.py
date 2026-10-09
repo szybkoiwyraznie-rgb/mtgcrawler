@@ -32,7 +32,9 @@ TYPE_SIZES = {
 }
 
 
-def build_utf_table(table_name: str, columns: list, rows: list, constants: dict | None = None) -> bytes:
+def build_utf_table(
+    table_name: str, columns: list, rows: list, constants: dict | None = None, data: bytes = b""
+) -> bytes:
     """Build a synthetic @UTF table. columns: (name, flags) pairs; rows: dicts
     of column name to value (only for per-row columns; strings, u16, u32, u64)."""
     pool = bytearray(b"<NULL>\x00")
@@ -80,6 +82,9 @@ def build_utf_table(table_name: str, columns: list, rows: list, constants: dict 
                 blob.extend(int(value).to_bytes(2, "big"))
             elif ctype in (0x00, 0x01):
                 blob.extend(int(value).to_bytes(1, "big"))
+            elif ctype == 0x0B:
+                offset, size = value
+                blob.extend(int(offset).to_bytes(4, "big") + int(size).to_bytes(4, "big"))
             else:
                 raise ValueError(f"unsupported test column type 0x{ctype:02x}")
         row_blobs.append(bytes(blob))
@@ -92,7 +97,7 @@ def build_utf_table(table_name: str, columns: list, rows: list, constants: dict 
     rows_offset = rows_abs - 8
     strings_offset = strings_abs - 8
     data_offset = data_abs - 8
-    table_size = data_abs - 8
+    table_size = data_abs - 8 + len(data)
     header = bytearray()
     header.extend(b"@UTF")
     header.extend(table_size.to_bytes(4, "big"))
@@ -108,7 +113,7 @@ def build_utf_table(table_name: str, columns: list, rows: list, constants: dict 
         schema.append(flags)
         schema.extend(name_offset.to_bytes(4, "big"))
         schema.extend(const_blobs.get(column_name, b""))
-    return bytes(header) + bytes(schema) + b"".join(row_blobs) + bytes(pool)
+    return bytes(header) + bytes(schema) + b"".join(row_blobs) + bytes(pool) + bytes(data)
 
 
 def build_cpk_packet(tag: bytes, table: bytes) -> bytes:
@@ -437,6 +442,39 @@ class ConstantColumnTests(unittest.TestCase):
         table = build_utf_table("ETOC", [("LocalDir", 0x3A)], [{}], constants={"LocalDir": "dir"})
         parsed = cpk_table._parse_utf_table(table)
         self.assertEqual(parsed["rows"][0]["LocalDir"], "dir")
+
+
+def build_itoc_blob_table(files_low: int, files_high: int, nested_ids: list) -> bytes:
+    """An ITOC in the blob layout: DataL/DataH point at nested (ID, FileSize, ExtractSize) tables."""
+    low_rows = [{"ID": i, "FileSize": 10 + i, "ExtractSize": 20 + i} for i in nested_ids]
+    low_blob = build_utf_table("CpkItocL", [("ID", 0x54), ("FileSize", 0x54), ("ExtractSize", 0x54)], low_rows)
+    high_blob = build_utf_table("CpkItocH", [("ID", 0x54), ("FileSize", 0x54), ("ExtractSize", 0x54)], [])
+    data = low_blob + high_blob
+    columns = [("FilesL", 0x54), ("FilesH", 0x54), ("DataL", 0x5B), ("DataH", 0x5B)]
+    row = {"FilesL": files_low, "FilesH": files_high, "DataL": (0, len(low_blob)), "DataH": (len(low_blob), len(high_blob))}
+    return build_utf_table("CpkItoc", columns, [row], data=data)
+
+
+class ItocBlobLayoutTests(unittest.TestCase):
+    def test_blob_layout_yields_id_and_sizes_when_counts_agree(self):
+        table = build_itoc_blob_table(2, 0, [0, 1])
+        parsed = cpk_table._parse_utf_table(table)
+        entries = cpk_table._entries_from_itoc_blobs(table, parsed, header_files=2)
+        self.assertEqual([entry["name"] for entry in entries], ["ID00000", "ID00001"])
+        self.assertEqual([entry["file_size"] for entry in entries], [10, 11])
+        self.assertEqual([entry["extract_size"] for entry in entries], [20, 21])
+        self.assertEqual([entry["compressed"] for entry in entries], [True, True])
+        self.assertIsNone(entries[0]["absolute_offset"])
+
+    def test_blob_layout_fails_closed_when_counts_disagree(self):
+        table = build_itoc_blob_table(3, 0, [0, 1])
+        parsed = cpk_table._parse_utf_table(table)
+        with self.assertRaises(cpk_table.CpkTableError):
+            cpk_table._entries_from_itoc_blobs(table, parsed, header_files=3)
+        table = build_itoc_blob_table(2, 0, [0, 1])
+        parsed = cpk_table._parse_utf_table(table)
+        with self.assertRaises(cpk_table.CpkTableError):
+            cpk_table._entries_from_itoc_blobs(table, parsed, header_files=5)
 
 
 class UnreadableTableDiagnosticTests(unittest.TestCase):

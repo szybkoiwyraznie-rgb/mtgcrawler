@@ -229,6 +229,68 @@ def _read_packet(data: bytes, offset: int, expected_tag: bytes) -> bytes:
     return table
 
 
+def _entries_from_itoc_blobs(itoc_table: bytes, itoc: dict[str, Any], header_files: Optional[int]) -> list[dict[str, Any]]:
+    """Read entries from an ITOC whose DataL/DataH columns point at nested @UTF tables.
+
+    Entries carry ID, FileSize and ExtractSize only (the layout has no offsets), so
+    `file_offset` and `absolute_offset` are None and the data bounds are not checked.
+    Fails closed if the blobs do not hold the header's file count.
+    """
+    if len(itoc["rows"]) != 1:
+        raise CpkTableError(f"ITOC blob layout expects one row, found {len(itoc['rows'])}")
+    row = itoc["rows"][0]
+    data_base = 8 + int.from_bytes(itoc_table[16:20], "big")
+    collected: list[dict[str, Any]] = []
+    for key in ("DataL", "DataH"):
+        ref = row.get(key)
+        if not isinstance(ref, dict):
+            raise CpkTableError(f"ITOC {key} is not a data reference")
+        start = data_base + ref["data_offset"]
+        blob = itoc_table[start : start + ref["data_size"]]
+        if len(blob) != ref["data_size"] or blob[:4] != UTF_MAGIC:
+            raise CpkTableError(f"ITOC {key} blob is not a complete @UTF table")
+        nested = _parse_utf_table(blob)
+        if not {"ID", "FileSize", "ExtractSize"} <= set(nested["columns"]):
+            raise CpkTableError(f"ITOC {key} table lacks ID, FileSize or ExtractSize")
+        for nested_row in nested["rows"]:
+            collected.append(nested_row)
+    low = row.get("FilesL")
+    high = row.get("FilesH")
+    if low is None or high is None:
+        raise CpkTableError("ITOC blob layout lacks FilesL or FilesH")
+    counted = low | (high << 16)
+    if counted != len(collected) or (header_files is not None and header_files != counted):
+        raise CpkTableError(
+            f"ITOC blob layout holds {len(collected)} rows, FilesL/FilesH say {counted}, "
+            f"header says {header_files}"
+        )
+    entries: list[dict[str, Any]] = []
+    for toc_index, nested_row in enumerate(collected):
+        entry_id = nested_row["ID"]
+        name = f"ID{entry_id:05d}"
+        file_size = nested_row["FileSize"]
+        extract_size = nested_row["ExtractSize"]
+        if file_size > extract_size:
+            raise CpkTableError(f"ITOC entry {entry_id} stores more bytes than it extracts")
+        entries.append(
+            {
+                "toc_index": toc_index,
+                "dir_name": "",
+                "file_name": name,
+                "name": name,
+                "name_bytes": name.encode("ascii"),
+                "file_size": file_size,
+                "extract_size": extract_size,
+                "file_offset": None,
+                "absolute_offset": None,
+                "compressed": file_size != extract_size,
+                "id": entry_id,
+                "user_string": None,
+            }
+        )
+    return entries
+
+
 def read_cpk_table(path: Path) -> dict[str, Any]:
     """Read a CPK container's header, TOC and ITOC tables (read-only, fail closed)."""
     data = path.read_bytes()
@@ -313,7 +375,16 @@ def read_cpk_table(path: Path) -> dict[str, Any]:
             result["entries"].append(entry)
 
     if itoc_offset is not None:
-        itoc = _parse_utf_table(_read_packet(data, itoc_offset, ITOC_SIGNATURE))
+        itoc_table = _read_packet(data, itoc_offset, ITOC_SIGNATURE)
+        itoc = _parse_utf_table(itoc_table)
+        columns = set(itoc["columns"])
+        if {"FilesL", "FilesH", "DataL", "DataH"} <= columns and not {"ID", "TocIndex"} & columns:
+            # Blob layout: DataL and DataH each hold a nested @UTF table of (ID, FileSize,
+            # ExtractSize) rows; the header count is FilesL | (FilesH << 16). No offsets here.
+            if result["entries"]:
+                raise CpkTableError("ITOC blob layout alongside a TOC is not supported")
+            result["entries"] = _entries_from_itoc_blobs(itoc_table, itoc, header_files=header["rows"][0].get("Files"))
+            return result
         for row in itoc["rows"]:
             id_value = None
             toc_index = None
