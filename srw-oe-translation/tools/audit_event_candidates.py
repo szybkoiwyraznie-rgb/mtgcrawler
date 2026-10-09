@@ -193,6 +193,18 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
         if not outer_prefix_has_japanese:
             stats["non_japanese_prefixes"] += 1
             stats["suffix_only_japanese_matches"] += bool(JAPANESE_RE.search(decoded))
+            has_private_use = private_use_codepoints > 0
+            stats["non_japanese_prefixes_with_private_use"] += has_private_use
+            stats["private_use_codepoints_in_non_japanese_prefixes"] += private_use_codepoints
+            stats["non_japanese_private_use_prefixes_strict_cp932"] += (
+                has_private_use and prefix_cp932_strict
+            )
+            stats["non_japanese_private_use_prefixes_roundtrip"] += (
+                has_private_use and prefix_cp932_roundtrip
+            )
+            stats["non_japanese_private_use_prefixes_with_nested_ff_ff"] += (
+                has_private_use and nested_markers > 0
+            )
             i = pair_offset + 1
             continue
 
@@ -393,6 +405,14 @@ def main(argv: Optional[list[str]] = None) -> int:
         f"{scan_stats['empty_spans_before_double_nul']} empty, "
         f"{scan_stats['spans_without_double_nul']} without a stopping pair); "
         f"prefixes without a Japanese-script match: {scan_stats['non_japanese_prefixes']}"
+    )
+    print(
+        "Non-Japanese prefixes with CP932 private-use codepoints (not auto-emitted): "
+        f"{scan_stats['non_japanese_prefixes_with_private_use']}; codepoints="
+        f"{scan_stats['private_use_codepoints_in_non_japanese_prefixes']}, "
+        f"strict/roundtrip={scan_stats['non_japanese_private_use_prefixes_strict_cp932']}/"
+        f"{scan_stats['non_japanese_private_use_prefixes_roundtrip']}, "
+        f"nested FF FF={scan_stats['non_japanese_private_use_prefixes_with_nested_ff_ff']}"
     )
     print(
         f"Candidate prefixes strictly decode as CP932: "

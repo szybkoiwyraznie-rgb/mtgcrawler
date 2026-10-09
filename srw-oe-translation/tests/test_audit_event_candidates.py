@@ -60,6 +60,20 @@ class CandidateAuditTests(unittest.TestCase):
         self.assertEqual(stats["consumed_ff_ff_markers"], 1)
         self.assertEqual(stats["non_japanese_prefixes"], 1)
 
+    def test_reports_non_japanese_private_use_prefixes_without_emitting_candidates(self):
+        # CP932 maps a single 0xFF byte to U+F8F3, but that alone is not proof of text.
+        data = b"\xff\xff\xff\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+        self.assertEqual(stats["non_japanese_prefixes_with_private_use"], 1)
+        self.assertEqual(stats["private_use_codepoints_in_non_japanese_prefixes"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_strict_cp932"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_roundtrip"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_with_nested_ff_ff"], 0)
+
     def test_recognizes_halfwidth_katakana_only_spans(self):
         halfwidth_katakana = "ｶ".encode("cp932")
         data = b"\xff\xff" + halfwidth_katakana + b"\x00\x00"
