@@ -350,6 +350,22 @@ def main(argv: Optional[list[str]] = None) -> int:
     ascii_long_rows = [
         review for review in printable_ascii_rows if len(review.run.raw) >= 8
     ]
+    clean_outside_rows = [
+        review
+        for rows in rows_by_file.values()
+        for review in rows
+        if review.clean_wide_two_plus_outside_marker_spans
+    ]
+    clean_payload_counts = Counter(review.run.raw for review in clean_outside_rows)
+    clean_payload_files: dict[bytes, set[str]] = {}
+    for review in clean_outside_rows:
+        clean_payload_files.setdefault(review.run.raw, set()).add(review.run.filename)
+    repeated_clean_payloads = {
+        payload for payload, count in clean_payload_counts.items() if count > 1
+    }
+    cross_file_repeated_clean_payloads = {
+        payload for payload in repeated_clean_payloads if len(clean_payload_files[payload]) > 1
+    }
     pre_run_pattern_rows = [
         review
         for rows in rows_by_file.values()
@@ -406,6 +422,20 @@ def main(argv: Optional[list[str]] = None) -> int:
         f">=8-byte runs containing letters "
         f"{sum(review.run.ascii_letter_codepoints > 0 for review in ascii_long_rows)}/"
         f"{len(ascii_long_rows)}."
+    )
+    repeated_clean_rows = sum(
+        clean_payload_counts[payload] for payload in repeated_clean_payloads
+    )
+    cross_file_repeated_clean_rows = sum(
+        clean_payload_counts[payload] for payload in cross_file_repeated_clean_payloads
+    )
+    print(
+        "Clean outside-marker raw-payload reuse: "
+        f"{len(clean_payload_counts)} unique across {len(clean_outside_rows)} rows; "
+        f"{len(repeated_clean_payloads)} repeated payloads cover {repeated_clean_rows} rows; "
+        f"{len(cross_file_repeated_clean_payloads)} recur across BIN files "
+        f"({cross_file_repeated_clean_rows} rows); max multiplicity "
+        f"{max(clean_payload_counts.values(), default=0)}. Occurrence IDs remain distinct."
     )
     if pre_run_pattern_rows:
         print(

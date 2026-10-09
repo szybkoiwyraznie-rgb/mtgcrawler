@@ -138,7 +138,7 @@ class BinNulRunInventoryTests(unittest.TestCase):
             with zipfile.ZipFile(archive_path, "w") as archive:
                 archive.writestr(
                     "sample.bin",
-                    b"\x00" + japanese + b"\x00" + b"ABCD 123" + b"\x00",
+                    b"\x00" + japanese + b"\x00" + b"ABCD 123" + b"\x00\x00" + japanese + b"\x00",
                 )
             output = StringIO()
 
@@ -151,13 +151,17 @@ class BinNulRunInventoryTests(unittest.TestCase):
                 json.loads(line)
                 for line in export_path.read_text(encoding="utf-8").splitlines()
             ]
-            self.assertEqual(len(records), 2)
+            self.assertEqual(len(records), 3)
             self.assertEqual(records[0]["raw_hex"], japanese.hex(" ").upper())
             self.assertFalse(records[0]["raw_printable_ascii_only"])
             self.assertTrue(records[1]["raw_printable_ascii_only"])
             self.assertEqual(records[1]["raw_hex"], "41 42 43 44 20 31 32 33")
+            self.assertEqual(records[2]["raw_hex"], japanese.hex(" ").upper())
             self.assertIn("Raw printable-ASCII-only NUL-runs", output.getvalue())
             self.assertIn("letters/spaces/digits: 1/1/1", output.getvalue())
+            self.assertIn("1 unique across 2 rows", output.getvalue())
+            self.assertIn("1 repeated payloads cover 2 rows", output.getvalue())
+            self.assertIn("0 recur across BIN files", output.getvalue())
             self.assertNotIn("ABCD 123", output.getvalue())
 
 
