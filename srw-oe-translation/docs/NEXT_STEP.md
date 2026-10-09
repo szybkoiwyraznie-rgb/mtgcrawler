@@ -8,15 +8,23 @@ Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/r
 
 `tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
 
-## Immediate next step (after the CPK table reader)
+## Immediate next step (what the user does next)
 
-The ISO is answered and the read-only CPK table reader exists and is validated on the real sample (all recorded in `EXPERIMENT_LOG.md`, 2026-10-09, ISO-cross-check and cpk-table entries). Next:
+The table cross-check is wired (item 50). The next run on the user's PC validates the reader on all real packages. Concrete steps:
 
-1. Wire the CPK table reader into the pipeline as a per-package cross-check: for each package, read the TOC (`tools/cpk_table.py`) and compare it with the `-L` listing (`entries_match_listing`); fail the package on a mismatch (fail closed). This validates the reader against all 377 real packages on the user's PC and confirms the TOC row order against the listing row order.
-2. Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
-3. The ISO is fully characterized and explained by the user (items 47–49): a PSP UMD disc with **chapter 1 of 8**; the input folder holds the **PSN DLC (chapters 2–8)**, which the pipeline already processes. Chapter 1 is not processed (ISO processing is not automated); if it is ever wanted, its files would have to be extracted from the ISO read-only or copied from the disc first. Do not unpack the ISO in the pipeline.
-4. The user's personal upload commits are removed from all branch refs (this branch rewritten, the PR #8 branch and the five `szybkoiwyraznie-rgb-patch-*` branches deleted). What remains reachable is only through GitHub's pull refs (`refs/pull/1..6,8/head`) — that needs GitHub Support.
-5. Keep repack, write-back, insertion, and ISO processing blocked.
+1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/b2a62e8c-mtgcrawler.zip
+2. Unpack it anywhere (for example the Desktop).
+3. Open the unpacked folder, then `srw-oe-translation`, and double-click `RUN_PIPELINE.bat`.
+4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are saved; it only asks again if they move.
+5. Wait about 3–4 minutes (the console window stays open; do not close it).
+6. In `D:\SRW_OE_out`, find the new run folder (named with the date, for example `20261009-XXXXXX`).
+7. Open `REPORT.txt` inside it, copy the whole content, and paste it back to the agent.
+8. Optional: to give the agent more detail, zip `registry.json` from the same run folder and upload it.
+9. The old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB).
+
+What the agent does with it: the report's `CPK table check` line says how many of the 377 packages' TOC tables agree with their listings — that validates the table reader on all real packages and targets the duplicate-name recovery. After that: promote the table check to fail-closed if the run agrees, and recover the 1,111 hidden duplicate-name entries (206,898,244 bytes; 902 uncompressed readable by offset, 209 compressed needing a Layla decompressor or the converter).
+
+Keep repack, write-back, insertion, and ISO processing blocked.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 

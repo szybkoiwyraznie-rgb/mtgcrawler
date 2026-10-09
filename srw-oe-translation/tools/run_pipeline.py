@@ -50,6 +50,7 @@ sys.path.insert(0, str(TOOLS_DIR))
 
 import extract_cpk_batch  # noqa: E402  (converter discovery, shared with the dry-run driver)
 import extract_event_text  # noqa: E402  (text export, verification, read-back)
+import cpk_table  # noqa: E402  (read-only CPK table cross-check)
 from inventory_local_inputs import inventory_path  # noqa: E402
 
 RUN_SCHEMA = "srw-oe-local-run/1"
@@ -92,6 +93,9 @@ KNOWN_GAPS = (
     "Event text boundaries: unvalidated; units are heuristic candidates, not confirmed strings.",
     "Translation insertion: not implemented; no translated text is produced or applied.",
     "In-game verification: not performed; nothing here is a playable patch.",
+    "CPK table cross-check: report-only in this version (the listing check remains the "
+    "authoritative completeness gate); after a run shows agreement on all packages, the "
+    "table check can be promoted to fail-closed.",
 )
 
 
@@ -618,6 +622,38 @@ def _listing_status(package: dict[str, Any]) -> Optional[str]:
     return (package.get("listing_check") or {}).get("status")
 
 
+def table_check(source: Path, listing_text: Optional[str]) -> dict[str, Any]:
+    """Read a container's TOC tables and compare them with its `-L` listing.
+
+    Report-only cross-check: the listing check remains the authoritative completeness
+    gate. `agree` when the TOC and the listing match; `mismatch` with the problem list
+    otherwise; `unreadable` when the tables cannot be parsed; `no_listing` when there is
+    no listing text to compare with.
+    """
+    if not listing_text:
+        return {"status": "no_listing", "entries": 0}
+    try:
+        table = cpk_table.read_cpk_table(source)
+    except Exception as error:  # noqa: BLE001 - the cross-check is report-only, never fatal
+        return {
+            "status": "unreadable",
+            "entries": 0,
+            "error": f"{type(error).__name__}: {str(error)[:200]}",
+        }
+    listing = parse_listing(listing_text)
+    problems = cpk_table.entries_match_listing(table["entries"], listing, table["itoc"])
+    distinct = len({entry["name_bytes"] for entry in table["entries"]})
+    return {
+        "status": "agree" if not problems else "mismatch",
+        "entries": len(table["entries"]),
+        "unique_names": distinct,
+        "duplicate_entries": len(table["entries"]) - distinct,
+        "compressed_entries": sum(1 for entry in table["entries"] if entry["compressed"]),
+        "header_files": table["header"]["files"],
+        "problems": problems,
+    }
+
+
 def _head_hex(path: Path, count: int = 32) -> Optional[str]:
     """First bytes of an unrecognized input, as hex. Read only, for identification; nothing is decoded."""
     try:
@@ -1133,6 +1169,9 @@ class Run:
                     package["listing_check"] = check
                     if check["status"] != "verified":
                         reason = f"listing check {check['status']}: {check['reason']}"
+            # Read-only CPK table cross-check (report-only; the listing check above
+            # remains the authoritative completeness gate).
+            package["table_check"] = table_check(item.path, listing.output)
             if _sha256_file(item.path) != item.sha256:
                 reason = "source changed during extraction"
         except Exception as exc:  # noqa: BLE001 - one package must not stop the other packages
@@ -1644,6 +1683,14 @@ def _summary(packages: list[dict[str, Any]], gate: dict[str, Any], probe: dict[s
         "listing_incomplete": sum(_listing_status(package) == "incomplete" for package in packages),
         "listing_unverified": sum(_listing_status(package) == "unverified" for package in packages),
         "listing_not_checked": sum(_listing_status(package) is None for package in packages),
+        "table_agree": sum((package.get("table_check") or {}).get("status") == "agree" for package in packages),
+        "table_mismatch": sum((package.get("table_check") or {}).get("status") == "mismatch" for package in packages),
+        "table_unreadable": sum(
+            (package.get("table_check") or {}).get("status") == "unreadable" for package in packages
+        ),
+        "table_no_listing": sum(
+            (package.get("table_check") or {}).get("status") == "no_listing" for package in packages
+        ),
         "gate_status": gate.get("status"),
     }
 
@@ -1682,10 +1729,13 @@ def _write_csvs(run_dir: Path, input_rows: list[dict[str, Any]], packages: list[
                 "listing_status",
                 "listing_entries",
                 "listing_duplicate_entries",
+                "table_status",
+                "table_duplicate_entries",
             ]
         )
         for package in packages:
             listing = package.get("listing_check") or {}
+            table = package.get("table_check") or {}
             writer.writerow(
                 [
                     package["package_id"],
@@ -1703,6 +1753,8 @@ def _write_csvs(run_dir: Path, input_rows: list[dict[str, Any]], packages: list[
                     listing.get("status", ""),
                     listing.get("entries", ""),
                     listing.get("duplicate_entries", ""),
+                    table.get("status", ""),
+                    table.get("duplicate_entries", ""),
                 ]
             )
 
@@ -1755,7 +1807,24 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
                 f"{count} {label}" for label, count in sorted(layouts.items(), key=lambda item: -item[1])
             )
         )
+    notes.append(
+        "  CPK table check (TOC vs listing, report-only): "
+        f"agree {summary['table_agree']}, mismatch {summary['table_mismatch']}, "
+        f"unreadable {summary['table_unreadable']}, no listing {summary['table_no_listing']}"
+    )
     return notes
+
+
+def _table_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
+    """First mismatch problems from the CPK table cross-check (report-only)."""
+    lines: list[str] = []
+    for package in registry["packages"]:
+        check = package.get("table_check") or {}
+        if check.get("status") == "mismatch" and len(lines) < 3:
+            problems = check.get("problems") or []
+            first = problems[0] if problems else "no details"
+            lines.append(f"  {package['package_id']}: {first[:200]}")
+    return lines
 
 
 def _listing_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
@@ -1899,6 +1968,9 @@ def _render_report(registry: dict[str, Any]) -> str:
     diagnostics = _listing_diagnostic_lines(registry)
     if diagnostics:
         lines += ["", "Listing check diagnostics (raw converter output; file names and sizes only)"] + diagnostics
+    table_lines = _table_diagnostic_lines(registry)
+    if table_lines:
+        lines += ["", "CPK table check mismatches (report-only; up to 3 shown)"] + table_lines
     unknown = _unknown_signature_lines(registry)
     if unknown:
         lines += [""] + unknown

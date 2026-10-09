@@ -688,9 +688,21 @@ Final SHA-256: `tools/cpk_table.py` `dd2a182131490d75f579755155563666572c127e5ff
 
 **Not demonstrated:** the reader on packages with compressed entries, multi-extent rows, or non-ASCII names (the sample has none); the TOC row order versus the listing row order beyond the sample's single row (the run-time cross-check will confirm on all 377 packages); reading the 38 duplicate-name packages' hidden entries (the reader returns all rows, so it can — that is the next step, wired into the pipeline with self-validation and the round-trip gate).
 
+## 2026-10-09 — the CPK table cross-check is wired into the run (report-only)
+
+**Action:** `run_pipeline.py` now reads every package's TOC tables with `tools/cpk_table.py` (`table_check`) and compares them with the package's `-L` listing (`cpk_table.entries_match_listing`). The result is stored per package as `table_check` (status `agree`/`mismatch`/`unreadable`/`no_listing`, entry count, unique names, duplicate entries, compressed entries, problem list), summarized in the report as `CPK table check (TOC vs listing, report-only): agree N, mismatch N, unreadable N, no listing N`, shown per package in `packages.csv` (`table_status`, `table_duplicate_entries`), and mismatches get a `CPK table check mismatches` section in `REPORT.txt`. The cross-check is **report-only**: the listing check remains the authoritative completeness gate, and a table mismatch or an unreadable table never fails a package in this version. The TOC's `duplicate_entries` per package is the recovery targeting data for the hidden entries.
+
+**Why report-only:** the reader is validated on one real sample; the first wired run on the user's PC validates it against all 377 real packages. After a run shows agreement (or explains every mismatch), the table check can be promoted to fail-closed.
+
+**Tests:** 156 OK. New: `table_check` unit tests (agree, duplicate-name counting, mismatch, unreadable, no listing) and integration tests (unreadable for the synthetic JSON containers is reported without failing the run; agree and mismatch results are recorded in the registry, report, and CSV; a mismatch does not change the run status).
+
+Final SHA-256: `tools/run_pipeline.py` `14a8a0a1a473b8bcf9e79b842c284688d5cee66eabe1b2b1fc7c6b130a92bec6`; `tools/cpk_table.py` `dd2a182131490d75f579755155563666572c127e5ff8e07794a63d80f549203b` (unchanged in this commit); `tests/test_run_pipeline.py` `c49ed97dc316becebf2bd36b64785ed6fd7107ec875a42aa50bf085714ab4597`; `tests/test_cpk_table.py` `9e29aba197fb86c3577b2c374debfb77f3c24e4eb99d5c3ecb80f3a9c22e4dea`.
+
+**Not demonstrated:** the wired cross-check on real packages (the next run); promotion to fail-closed; the recovery of the hidden entries.
+
 ## Pending
 
-- Wire the CPK table reader into the pipeline as a per-package cross-check: for each package, read the TOC (`tools/cpk_table.py`) and compare it with the `-L` listing (`entries_match_listing`); fail the package on a mismatch (fail closed). This validates the reader against all 377 real packages on the user's PC and confirms the TOC row order against the listing row order.
+- Run the one-click tool on the user's PC with the wired table cross-check and read the report's `CPK table check` line: it validates the reader against all 377 real packages and confirms the TOC row order against the listing row order. Then decide whether to promote the table check to fail-closed.
 - Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): for each duplicate-name package, read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
 - Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.

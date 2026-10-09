@@ -743,6 +743,74 @@ class RunPipelineTests(PipelineFixture):
         self.assertEqual(hollow["listing_check"]["status"], "verified")
         self.assertEqual(hollow["listing_check"]["entries"], 1)
 
+    def test_table_check_unreadable_for_synthetic_containers_is_reported(self):
+        self.write_standard_inputs()
+
+        result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        for package in registry["packages"]:
+            self.assertEqual(package["table_check"]["status"], "unreadable")
+        self.assertEqual(registry["summary"]["table_unreadable"], 3)
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn(
+            "CPK table check (TOC vs listing, report-only): agree 0, mismatch 0, unreadable 3, no listing 0",
+            report,
+        )
+        csv_text = (result.run_dir / "packages.csv").read_text(encoding="utf-8")
+        self.assertIn("table_status", csv_text.splitlines()[0])
+        self.assertIn("unreadable", csv_text)
+
+    def test_table_check_agree_results_are_recorded_and_reported(self):
+        self.write_standard_inputs()
+
+        def fake_table_check(source, listing_text):
+            return {
+                "status": "agree",
+                "entries": 2,
+                "unique_names": 2,
+                "duplicate_entries": 0,
+                "compressed_entries": 0,
+                "header_files": 2,
+                "problems": [],
+            }
+
+        with patch.object(run_pipeline, "table_check", fake_table_check):
+            result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertEqual(registry["summary"]["table_agree"], 3)
+        for package in registry["packages"]:
+            self.assertEqual(package["table_check"]["status"], "agree")
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("agree 3, mismatch 0, unreadable 0, no listing 0", report)
+
+    def test_table_check_mismatch_is_reported_without_failing_the_run(self):
+        self.write_standard_inputs()
+
+        def fake_table_check(source, listing_text):
+            return {
+                "status": "mismatch",
+                "entries": 2,
+                "unique_names": 2,
+                "duplicate_entries": 0,
+                "compressed_entries": 0,
+                "header_files": 2,
+                "problems": ["row 0: listing size 4 != TOC ExtractSize 3"],
+            }
+
+        with patch.object(run_pipeline, "table_check", fake_table_check):
+            result, _lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        self.assertEqual(registry["summary"]["table_mismatch"], 3)
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("CPK table check mismatches (report-only; up to 3 shown)", report)
+        self.assertIn("listing size 4 != TOC ExtractSize 3", report)
+
     def test_source_changed_during_extraction_is_detected_and_output_removed(self):
         self.write_standard_inputs()
 

@@ -356,5 +356,57 @@ class CpkTableTests(unittest.TestCase):
         self.assertEqual(cpk_table.main([str(missing)]), 1)
 
 
+class TableCheckTests(unittest.TestCase):
+    """run_pipeline.table_check: the report-only TOC-vs-listing cross-check."""
+
+    def write_cpk(self, entries):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        path = Path(temporary.name) / "synthetic.cpk"
+        path.write_bytes(build_synthetic_cpk(entries))
+        return path
+
+    def test_table_check_agrees_with_a_matching_listing(self):
+        path = self.write_cpk(
+            [
+                {"dir": "", "name": "a.bin", "data": b"AAA", "id": 0},
+                {"dir": "sub", "name": "b.bin", "data": b"BBBBB", "id": 7},
+            ]
+        )
+        listing_text = synthetic_listing_text([(0, "a.bin", 3), (7, "sub/b.bin", 5)])
+        result = run_pipeline.table_check(path, listing_text)
+        self.assertEqual(result["status"], "agree")
+        self.assertEqual(result["entries"], 2)
+        self.assertEqual(result["unique_names"], 2)
+        self.assertEqual(result["duplicate_entries"], 0)
+        self.assertEqual(result["compressed_entries"], 0)
+        self.assertEqual(result["header_files"], 2)
+
+    def test_table_check_counts_duplicate_entry_names(self):
+        path = self.write_cpk(
+            [
+                {"dir": "", "name": "a.bin", "data": b"AAA", "id": 0},
+                {"dir": "", "name": "a.bin", "data": b"CCCCCCCC", "id": 9},
+            ]
+        )
+        listing_text = synthetic_listing_text([(0, "a.bin", 3), (9, "a.bin", 8)])
+        result = run_pipeline.table_check(path, listing_text)
+        self.assertEqual(result["status"], "agree")
+        self.assertEqual(result["entries"], 2)
+        self.assertEqual(result["duplicate_entries"], 1)
+
+    def test_table_check_reports_mismatch_unreadable_and_no_listing(self):
+        path = self.write_cpk([{"dir": "", "name": "a.bin", "data": b"AAA", "id": 0}])
+        wrong = synthetic_listing_text([(0, "a.bin", 4)])
+        result = run_pipeline.table_check(path, wrong)
+        self.assertEqual(result["status"], "mismatch")
+        self.assertTrue(any("listing size 4 != TOC ExtractSize 3" in problem for problem in result["problems"]))
+        with tempfile.TemporaryDirectory() as temporary:
+            junk = Path(temporary) / "junk.cpk"
+            junk.write_bytes(b"NOPE" + b"\x00" * 64)
+            self.assertEqual(run_pipeline.table_check(junk, wrong)["status"], "unreadable")
+        self.assertEqual(run_pipeline.table_check(path, None)["status"], "no_listing")
+
+
 if __name__ == "__main__":
     unittest.main()
