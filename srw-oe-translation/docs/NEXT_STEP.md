@@ -6,7 +6,7 @@ The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/loc
 
 - Audited all 22 BIN files with the read-only CP932 heuristic: 3,241 Japanese-containing candidate spans.
 - Generated a local JSONL candidate export with unique file/offset IDs, exact source-prefix bytes, decoded CP932 text, raw suffix bytes, and CR/LF counts.
-- Verified all 3,241 IDs are unique and all exported text prefixes round-trip through CP932 with no replacement characters. For the 627 single-NUL cases, Japanese is before the NUL and no Japanese appears in the suffix.
+- Verified all 3,241 IDs are unique and all proposed prefixes strictly decode as CP932; 3,240/3,241 byte-round-trip exactly, with one non-reversible prefix now flagged for review. For the 627 single-NUL cases, Japanese is before the NUL and no Japanese appears in the suffix.
 - Counted 430 CR and 2,463 LF bytes in the candidate prefixes; all CRs form CRLF pairs, and no CR/LF occurs in the recorded single-NUL suffixes.
 - Mapped 42 NUL-delimited Japanese-bearing runs in the 22 fixed-size `_ext.dat` files. Their raw offsets, repeats, and size/header observations are recorded, but field semantics are not decoded.
 - Audited `_edit.dat` and `_Entry.dat` numeric values against BIN sizes and heuristic candidate ranges. Some values overlap candidate ranges, but this does not establish pointer semantics or table relationships.
@@ -15,9 +15,10 @@ The user-supplied `eventP01.zip` is available in ignored `srw-oe-translation/loc
 - The ECHK `+4` values always equal `4 + 20*n` for `n=1..5`; partitioning as a 4-byte prefix plus 20-byte rows gives 1,066 tentative rows whose second u32 is zero. Summed per chain, row totals per block are 1 (22), 2 (44), 3 (99), 4 (139), 5 (6), 6 (5), 7 (1), and 12 (3). This is a repeated candidate layout, not a decoded ECHK schema.
 - All 3,241 heuristic `FF FF` candidate markers occur after their block's terminal u32 200, with no before-terminal/unclassified markers; the minimum distance from the byte after 200 to a marker is 34 bytes. Candidate spans remain heuristic and unvalidated.
 - `inspect_echk_chain()` is wired into framing and candidate-coverage summaries; ECHK row observations are stratified by chain position, c2 is compared numerically with candidate ranges, and CP932 byte-boundary alignment is checked. The latter is inconclusive (300/539 boundary hits versus a 50.7% matched-candidate baseline).
+- The candidate scanner now audits marker quality and adds review-only flags to JSONL. Of 3,241 Japanese-bearing candidates, all prefixes strictly decode as CP932 but one does not byte-roundtrip; two candidates contain nested `FF FF`/private-use bytes, and 20 contain only one Japanese-matched codepoint. They remain in the export but are marked for contextual review, not automatically discarded.
 - A reproducible cross-BIN control now tests each c2 value against candidate spans from other BINs. Full-span rates are 51.2% paired-BIN and 45.3% other-BIN overall, but only 9/22 source BINs have a positive nonzero lift (mean -5.1 pp; median -7.5 pp); repeated values and related layouts make this a coarse non-independent control, not pointer evidence.
 - The auditor also tests six simple record-relative c2 formulas. None gives more candidate hits than raw absolute offsets, and only 68–81/171–175 nonzero targets that land in the owning EVNT block hit a candidate under these formulas. The formulas are exploratory, not a validated address model.
-- Fourteen synthetic tests cover endpoint traversal, malformed/truncated boundaries, marker gaps, segment aggregation, paired/unpaired c2 counts, and a synthetic EVNT-relative candidate target; archive audit reproduces the findings.
+- Fifteen synthetic tests cover marker-quality flags, endpoint traversal, malformed/truncated boundaries, marker gaps, segment aggregation, paired/unpaired c2 counts, and a synthetic EVNT-relative candidate target; archive audit reproduces the findings.
 
 See [`CANDIDATE_SCAN_AUDIT.md`](CANDIDATE_SCAN_AUDIT.md) for detailed counts, archive/member hashes, and caveats. The JSONL remains a diagnostic candidate table, not an approved translation table.
 

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import unicodedata
 import zipfile
 from collections import Counter
 from dataclasses import dataclass
@@ -30,51 +31,163 @@ class Candidate:
     text_bytes: bytes
     text: str
     prefix_has_japanese: bool
+    prefix_cp932_strict: bool
+    prefix_cp932_roundtrip: bool
+    prefix_japanese_codepoints: int
+    prefix_private_use_codepoints: int
+    prefix_nonnewline_control_codepoints: int
+    nested_ff_ff_markers: int
     suffix: Optional[bytes]
     carriage_returns: int
     line_feeds: int
 
 
-def scan_bin(filename: str, data: bytes) -> Iterator[Candidate]:
-    """Yield Japanese-containing spans bounded by FF FF and the next 00 00.
+def _marker_count(data: bytes, marker: bytes) -> int:
+    count = 0
+    position = 0
+    while True:
+        position = data.find(marker, position)
+        if position < 0:
+            return count
+        count += 1
+        position += 1
 
-    `start` is the first byte after FF FF. Candidate text is the CP932 prefix
-    before the first NUL, or the whole span if there is no NUL. `suffix`, when
-    present, is the raw sequence from that NUL to just before the stopping pair.
-    This proposed split is diagnostic only; it is not a format parser.
-    """
+
+def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int]:
+    """Decode a proposed text prefix and report reversible/odd codepoints."""
+    text = prefix.decode("cp932", errors="replace")
+    try:
+        strict_text = prefix.decode("cp932")
+    except UnicodeDecodeError:
+        strict = False
+        roundtrip = False
+    else:
+        strict = True
+        try:
+            roundtrip = strict_text.encode("cp932") == prefix
+        except UnicodeEncodeError:
+            roundtrip = False
+    japanese_codepoints = len(JAPANESE_RE.findall(text))
+    private_use_codepoints = sum(unicodedata.category(char) == "Co" for char in text)
+    control_codepoints = sum(
+        unicodedata.category(char) == "Cc" and char not in "\r\n\t"
+        for char in text
+    )
+    return (
+        text,
+        strict,
+        roundtrip,
+        japanese_codepoints,
+        private_use_codepoints,
+        control_codepoints,
+    )
+
+
+def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Counter]:
+    """Return Japanese-bearing heuristic candidates and marker-quality counts."""
+    stats = Counter()
+    stats["literal_ff_ff_markers"] = _marker_count(data, b"\xff\xff")
+    candidates = []
     i = 0
     while i < len(data) - 1:
         if data[i : i + 2] != b"\xff\xff":
             i += 1
             continue
 
+        stats["consumed_ff_ff_markers"] += 1
+        stats["overlapping_ff_ff_starts_after_outer_marker"] += (
+            i + 2 < len(data) and data[i : i + 3] == b"\xff\xff\xff"
+        )
         start = i + 2
-        pair_offset = start
-        while pair_offset < len(data) - 1 and data[pair_offset : pair_offset + 2] != b"\x00\x00":
-            pair_offset += 1
+        pair_offset = data.find(b"\x00\x00", start)
+        if pair_offset < 0:
+            stats["spans_without_double_nul"] += 1
+            stats["unbounded_nested_ff_ff_markers"] += _marker_count(data[start:], b"\xff\xff")
+            break
 
-        if start < pair_offset < len(data) - 1:
-            raw = data[start:pair_offset]
+        stats["spans_with_double_nul"] += 1
+        raw = data[start:pair_offset]
+        if not raw:
+            stats["empty_spans_before_double_nul"] += 1
+            i = pair_offset + 1
+            continue
+
+        stats["nonempty_bounded_spans"] += 1
+        nested_markers = _marker_count(raw, b"\xff\xff")
+        stats["nested_ff_ff_markers_in_spans"] += nested_markers
+        stats["spans_with_nested_ff_ff"] += nested_markers > 0
+        try:
+            decoded = raw.decode("cp932")
+        except UnicodeDecodeError:
+            stats["strict_cp932_raw_failures"] += 1
             decoded = raw.decode("cp932", errors="replace")
-            if JAPANESE_RE.search(decoded):
-                first_nul = raw.find(b"\x00")
-                text_bytes = raw if first_nul < 0 else raw[:first_nul]
-                text = text_bytes.decode("cp932", errors="replace")
-                yield Candidate(
-                    filename=filename,
-                    start=start,
-                    pair_offset=pair_offset,
-                    text_bytes=text_bytes,
-                    text=text,
-                    prefix_has_japanese=bool(JAPANESE_RE.search(text)),
-                    suffix=None if first_nul < 0 else raw[first_nul:],
-                    carriage_returns=raw.count(b"\r"),
-                    line_feeds=raw.count(b"\n"),
-                )
+        else:
+            stats["strict_cp932_raw_spans"] += 1
+            try:
+                roundtrip = decoded.encode("cp932") == raw
+            except UnicodeEncodeError:
+                roundtrip = False
+            stats["roundtrip_cp932_raw_spans"] += roundtrip
 
+        if not JAPANESE_RE.search(decoded):
+            stats["non_japanese_spans"] += 1
+            i = pair_offset + 1
+            continue
+
+        stats["japanese_spans"] += 1
+        first_nul = raw.find(b"\x00")
+        text_bytes = raw if first_nul < 0 else raw[:first_nul]
+        (
+            text,
+            prefix_cp932_strict,
+            prefix_cp932_roundtrip,
+            japanese_codepoints,
+            private_use_codepoints,
+            control_codepoints,
+        ) = _prefix_quality(text_bytes)
+        stats["strict_cp932_prefixes"] += prefix_cp932_strict
+        stats["roundtrip_cp932_prefixes"] += prefix_cp932_roundtrip
+        stats["nonroundtrip_cp932_prefixes"] += not prefix_cp932_roundtrip
+        stats["candidates_with_nested_ff_ff"] += nested_markers > 0
+        stats["prefixes_with_private_use"] += private_use_codepoints > 0
+        stats["prefixes_with_nonnewline_controls"] += control_codepoints > 0
+        stats["prefixes_with_one_japanese_codepoint"] += japanese_codepoints == 1
+
+        candidates.append(
+            Candidate(
+                filename=filename,
+                start=start,
+                pair_offset=pair_offset,
+                text_bytes=text_bytes,
+                text=text,
+                prefix_has_japanese=bool(JAPANESE_RE.search(text)),
+                prefix_cp932_strict=prefix_cp932_strict,
+                prefix_cp932_roundtrip=prefix_cp932_roundtrip,
+                prefix_japanese_codepoints=japanese_codepoints,
+                prefix_private_use_codepoints=private_use_codepoints,
+                prefix_nonnewline_control_codepoints=control_codepoints,
+                nested_ff_ff_markers=nested_markers,
+                suffix=None if first_nul < 0 else raw[first_nul:],
+                carriage_returns=raw.count(b"\r"),
+                line_feeds=raw.count(b"\n"),
+            )
+        )
         # Match the original scanner's skip past the stopping pair.
         i = pair_offset + 1
+
+    return candidates, stats
+
+
+def scan_bin(filename: str, data: bytes) -> Iterator[Candidate]:
+    """Yield Japanese-containing spans bounded by FF FF and the next 00 00.
+
+    `start` is the first byte after `FF FF`. Candidate text is the CP932 prefix
+    before the first NUL, or the whole span if there is no NUL. `suffix`, when
+    present, is the raw sequence from that NUL to just before the stopping pair.
+    This proposed split is diagnostic only; it is not a format parser.
+    """
+    candidates, _ = scan_bin_with_stats(filename, data)
+    yield from candidates
 
 
 def inputs_from_path(path: Path) -> Iterator[tuple[str, bytes]]:
@@ -100,6 +213,19 @@ def write_jsonl(path: Path, rows_by_file: dict[str, list[Candidate]]) -> None:
     with path.open("w", encoding="utf-8", newline="\n") as handle:
         for filename in sorted(rows_by_file):
             for row in rows_by_file[filename]:
+                quality_flags = []
+                if not row.prefix_cp932_strict:
+                    quality_flags.append("prefix_not_strict_cp932")
+                elif not row.prefix_cp932_roundtrip:
+                    quality_flags.append("prefix_cp932_not_byte_reversible")
+                if row.nested_ff_ff_markers:
+                    quality_flags.append("nested_ff_ff_marker")
+                if row.prefix_private_use_codepoints:
+                    quality_flags.append("private_use_codepoint")
+                if row.prefix_nonnewline_control_codepoints:
+                    quality_flags.append("nonnewline_control_codepoint")
+                if row.prefix_japanese_codepoints == 1:
+                    quality_flags.append("single_japanese_codepoint")
                 record = {
                     "id": f"{filename}@{row.start:04X}",
                     "file": filename,
@@ -109,6 +235,13 @@ def write_jsonl(path: Path, rows_by_file: dict[str, list[Candidate]]) -> None:
                     "text_bytes_hex": row.text_bytes.hex(" ").upper(),
                     "suffix_hex": None if row.suffix is None else row.suffix.hex(" ").upper(),
                     "prefix_has_japanese": row.prefix_has_japanese,
+                    "prefix_cp932_strict": row.prefix_cp932_strict,
+                    "prefix_cp932_roundtrip": row.prefix_cp932_roundtrip,
+                    "prefix_japanese_codepoints": row.prefix_japanese_codepoints,
+                    "prefix_private_use_codepoints": row.prefix_private_use_codepoints,
+                    "prefix_nonnewline_control_codepoints": row.prefix_nonnewline_control_codepoints,
+                    "nested_ff_ff_markers": row.nested_ff_ff_markers,
+                    "quality_flags": quality_flags,
                     "cr_bytes_in_full_candidate": row.carriage_returns,
                     "lf_bytes_in_full_candidate": row.line_feeds,
                 }
@@ -130,11 +263,14 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     rows_by_file: dict[str, list[Candidate]] = {}
     sizes: dict[str, int] = {}
+    scan_stats = Counter()
     try:
         # Read archive members directly; do not extract proprietary assets to disk.
         for name, data in inputs_from_path(args.input):
             sizes[name] = len(data)
-            rows_by_file[name] = list(scan_bin(name, data))
+            rows, file_stats = scan_bin_with_stats(name, data)
+            rows_by_file[name] = rows
+            scan_stats.update(file_stats)
     except (OSError, zipfile.BadZipFile, ValueError) as exc:
         parser.error(str(exc))
 
@@ -172,6 +308,36 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     print(f"\nBIN files: {len(rows_by_file)}")
     print(f"Japanese-containing candidate spans: {total_candidates}")
+    print(
+        f"FF FF byte-start positions (overlap allowed): {scan_stats['literal_ff_ff_markers']}; "
+        f"selected as outer span starts: {scan_stats['consumed_ff_ff_markers']}; "
+        f"other starts: "
+        f"{scan_stats['literal_ff_ff_markers'] - scan_stats['consumed_ff_ff_markers']} "
+        f"(inside bounded spans: {scan_stats['nested_ff_ff_markers_in_spans']} "
+        f"across {scan_stats['spans_with_nested_ff_ff']} spans; "
+        f"overlap outer marker: {scan_stats['overlapping_ff_ff_starts_after_outer_marker']}; "
+        f"inside unterminated tails: {scan_stats['unbounded_nested_ff_ff_markers']})"
+    )
+    print(
+        f"Bounded spans: {scan_stats['spans_with_double_nul']} "
+        f"({scan_stats['nonempty_bounded_spans']} nonempty, "
+        f"{scan_stats['empty_spans_before_double_nul']} empty, "
+        f"{scan_stats['spans_without_double_nul']} without a stopping pair); "
+        f"non-Japanese spans: {scan_stats['non_japanese_spans']}"
+    )
+    print(
+        f"Candidate prefixes strictly decode as CP932: "
+        f"{scan_stats['strict_cp932_prefixes']}/{total_candidates}; "
+        f"byte-roundtrip exactly: {scan_stats['roundtrip_cp932_prefixes']}/"
+        f"{total_candidates}; non-roundtrip: {scan_stats['nonroundtrip_cp932_prefixes']}"
+    )
+    print(
+        "Review-only flags (not automatic exclusions): "
+        f"nested FF FF={scan_stats['candidates_with_nested_ff_ff']}, "
+        f"private-use codepoints={scan_stats['prefixes_with_private_use']}, "
+        f"non-newline controls={scan_stats['prefixes_with_nonnewline_controls']}, "
+        f"one Japanese codepoint={scan_stats['prefixes_with_one_japanese_codepoint']}"
+    )
     print(f"Spans with a single NUL before the stopping 00 00: {single_nul_rows}")
     print(f"Those pre-NUL prefixes containing Japanese: {prefix_japanese_rows}")
     print(f"Those suffixes containing Japanese: {suffix_japanese_rows}")

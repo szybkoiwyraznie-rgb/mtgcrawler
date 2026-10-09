@@ -29,7 +29,7 @@ The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run th
 - 627 spans contain a single `00` before the `00 00` stopping pair.
 - All 627 pre-NUL prefixes still contain Japanese; none of the 627 corresponding suffixes contain Japanese under the same CP932 heuristic.
 - The most common raw suffixes (from the first NUL to just before the stopping pair) are `00 C9` (455), `00 76 01` (43), `00 CA` (40), `00 2D 01` (26), and `00 E7 03` (21). These are **uninterpreted bytes**, not identified opcodes.
-- A local JSONL audit export contains 3,241 unique file/offset IDs. All exported text prefixes round-trip through CP932 byte-for-byte with no replacement characters; all 627 prefixes before a single NUL contain Japanese, and none of their corresponding suffixes do.
+- A local JSONL audit export contains 3,241 unique file/offset IDs. All prefixes strictly decode as CP932, but only 3,240/3,241 round-trip byte-for-byte; one prefix is flagged as non-reversible. All 627 prefixes before a single NUL contain Japanese, and none of their corresponding suffixes do.
 - Across the candidate text prefixes there are 430 CR bytes and 2,463 LF bytes. Every CR is the first byte of a CRLF pair, leaving 2,033 LF-only bytes. No CR or LF occurs in the recorded single-NUL suffixes. Preserve these bytes during any future export/reinsertion work.
 
 | BIN | Bytes | Candidate spans | With single-NUL suffix | CR bytes in spans |
@@ -57,6 +57,14 @@ The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run th
 | `SM001.bin` | 1,364 | 1 | 0 | 0 |
 | `SM002.bin` | 1,384 | 1 | 0 | 1 |
 | **Total** | **333,732** | **3,241** | **627** | **430** |
+
+### Marker and prefix-quality review flags
+
+The sequential heuristic sees 3,477 byte positions beginning `FF FF` when overlapping positions are counted. It selects 3,402 as outer span starts; 75 other starts are skipped by the scan: 49 are fully inside bounded scanned spans (across 44 spans), and 26 overlap an outer `FF FF` start in a run of three or more `FF` bytes. All 3,402 selected starts reach a later `00 00`; eight have an empty span, and 153 nonempty spans contain no Japanese under the current heuristic. The remaining 3,241 are the reported Japanese-containing candidates. These counts describe the scanner's behavior, not the game's record boundaries.
+
+All 3,241 proposed text prefixes strictly decode as CP932, but only 3,240 re-encode byte-for-byte to the same prefix. Two candidate prefixes each contain a nested `FF FF` and two CP932 private-use codepoints; one of these is also the non-roundtripping prefix and contains a non-newline control codepoint. These two low-confidence candidates are `DL102_20.bin@2160` and `DL105_20.bin@0F94`. Twenty prefixes contain only one codepoint matched by the Japanese-character heuristic. The exporter now marks these properties as **review-only flags** (`nested_ff_ff_marker`, `private_use_codepoint`, `nonnewline_control_codepoint`, `prefix_cp932_not_byte_reversible`, and `single_japanese_codepoint`). They are not automatic exclusions: rare names, control tokens, or CP932 mappings may be legitimate, so preserve the bytes and review them in context. This catches likely false positives without silently dropping possible text.
+
+The optional JSONL export records the flags and counts alongside the original offsets/bytes. The normal CLI summary still prints no game text. Reproduce the updated audit/export with the command below; the export must remain in ignored `local/`.
 
 ### Why the first dump appeared to have 215 lines
 

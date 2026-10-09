@@ -28,7 +28,7 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`docs/EXPERIMENT_LOG.md`](docs/EXPERIMENT_LOG.md) — tests performed so far.
 - [`docs/FILE_INVENTORY.md`](docs/FILE_INVENTORY.md) — names, sizes, and hashes from supplied local data.
 - [`docs/CANDIDATE_SCAN_AUDIT.md`](docs/CANDIDATE_SCAN_AUDIT.md) — heuristic scan counts and suffix findings across `eventP01`.
-- [`tools/audit_event_candidates.py`](tools/audit_event_candidates.py) — read-only candidate audit/JSONL exporter; no game text is printed by default.
+- [`tools/audit_event_candidates.py`](tools/audit_event_candidates.py) — read-only candidate audit/JSONL exporter with CP932 roundtrip and review-only false-positive flags; no game text is printed by default.
 - [`tools/audit_event_companions.py`](tools/audit_event_companions.py) — read-only EDAT/EVNT framing and companion DAT-overlap audit; no game text is printed.
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — next milestones.
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
