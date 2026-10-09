@@ -66,6 +66,8 @@ A no-text codec differential compares Python `cp932` with Python `shift_jis` acr
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition, but the application's codec label does not settle the exact Unicode mapping.
 
+Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some bytes differently, so these are codec facts, not evidence about the game's own table). Printable ASCII `0x20`–`0x7E` decodes to itself. `0x80` decodes to U+0080, a C1 control. `0xA0`, `0xFD`, `0xFE`, and `0xFF` decode to private-use codepoints. `0x81`–`0x9F` and `0xE0`–`0xFC` are lead bytes. Of 9,604 valid two-byte sequences, 1,880 decode to private-use codepoints and 398 decode to a character that does not re-encode to the same bytes (for example `0x8790` → U+2252 → `0x81E0`, and `0xFA40` → U+2170 → `0xEEEF`). The extractor keeps every such byte as a token, so no mapping is silently normalized. In the restored sample, 28 of 3,277 candidate prefixes are not byte-exact under strict CP932 decoding (27 with invalid bytes, one with a non-byte-exact pair).
+
 ## Working hypotheses — validate before relying on them
 
 - `FF FF` may introduce a dialogue/text block.

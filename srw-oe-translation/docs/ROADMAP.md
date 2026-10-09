@@ -39,8 +39,9 @@
 - [ ] Validate the batch driver with the user's local YACpkTool distribution on disposable copies: test `-L`/`-X`, no-change member hashes, output layout, and source immutability; never use experimental `-R`.
 - [ ] Add direct ISO extraction/rebuild only after validating an adapter; accept a pre-extracted ISO tree as an explicitly marked fallback, not a silent complete run.
 - [ ] Retain the single-entrypoint workflow: no manual per-file commands or extension changes.
-- [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
-- [ ] Add automated no-change round-trip tests for the extractor/reinserter.
+- [x] Build a deterministic read-only extractor (`tools/extract_event_text.py`) that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders. On the restored sample it partitions all 333,732 BIN bytes into 6,826 segments, including 3,277 text units with the candidate IDs. Boundaries remain unvalidated.
+- [ ] Validate the extractor's segment and unit rules on event packages beyond the restored sample; any conflict is a finding to record, not a reason to change the rule silently.
+- [~] Add automated no-change round-trip tests for the extractor/reinserter. Done for the extractor: segment coverage, the placeholder codec, raw and view rebuilds against each file's SHA-256, and export read-back. Reinserter tests remain open.
 
 ## Gate 2 — safe insertion proof of concept
 

@@ -317,6 +317,30 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 
 **Validation:** Exact-byte search returned one occurrence per payload and no occurrences at other offsets or members. The ZIP and local exports were not modified.
 
+## 2026-10-09 — deterministic text-unit extractor and no-change rebuilds
+
+**Input:** The previously supplied `eventP01.zip` restored from upload commit `e576e8b` into ignored `srw-oe-translation/local/` (162,546 bytes; SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`, matching `FILE_INVENTORY.md`). Only its 22 `.bin` members were read. The `.dat` companions, the ISO, and the DLC were not processed.
+
+**Action:** Added `tools/extract_event_text.py`, a read-only extractor. It repeats the candidate scanner's greedy `FF FF … 00 00` walk and checks it at run time against `audit_event_candidates.scan_bin_with_stats`; any divergence aborts. Each BIN is partitioned into `text_unit`, `marker_span`, `gap`, and `unterminated_tail` segments with raw hex. Text units keep the candidate IDs (`file@HEX`). Each unit's prefix is rendered in a lossless CP932 placeholder view: LF and CR stay literal, printable ASCII stays literal except `{`, and every other byte that is not a stable character is written as an uppercase `{XX}` or `{XXXX}` token (C0/DEL/C1 controls, private-use mappings, undecodable bytes, and valid pairs that do not re-encode exactly). A literal `{` is `{7B}`. Suffixes are shown as one token per byte. The tool writes `manifest.json`, `units.jsonl`, and `segments.jsonl` to a chosen folder, reloads them, and checks coverage, the codec, and two no-change rebuilds (from raw segments, and from the placeholder views) against each file's SHA-256.
+
+**Result:**
+
+- 22 BINs, 333,732 bytes. 3,277 text units. Unit IDs, prefix bytes, and single-NUL suffix bytes match the candidate export exactly (zero mismatches).
+- 6,826 segments: `text_unit` 3,277 (166,284 bytes), `marker_span` 125 (933 bytes), `gap` 3,424 (166,515 bytes), `unterminated_tail` 0. The partition covers every byte of every BIN.
+- Placeholder tokens in unit prefixes: 104 in total, in 30 units (token counts: 12 control, 27 invalid, one non-byte-exact pair, 64 private-use). Unit flags (a unit can carry several): 36 half-width-only matches, 29 nested `FF FF`, 627 single-NUL suffixes, 50 with one Japanese codepoint, 30 with private-use tokens, 12 with control tokens, 27 with invalid-byte tokens, and one with a non-byte-exact pair token.
+- Literal line breaks in unit text: LF 2,463 and CR 430, matching the earlier audit totals.
+- Export SHA-256 (local only): `manifest.json` `4f75ddc546c1a6ff55d9d3e100cf151ee51946738db1cf42b59f19479cd3172a`; `units.jsonl` `353ee0d6042c1a187693fcd14fc5ac5a28b89dcf2b3c55d4add21ddd2c0da521`; `segments.jsonl` `7fb689ba8819382b2d3e99d1a6e2ea634fe05bf95226043bbbe60d3f6d69bd93`. Two runs produced byte-identical files and identical stdout. Stdout contains counts and check results only.
+- Negative checks on a copy of the export: changing one token in a unit view, flipping one gap byte, dropping one segment, and changing one suffix byte each produced verification errors. The unmodified export produced none.
+
+**Validation:**
+
+- 84 unit tests pass: the 58 existing tests and 26 new ones. The new tests cover exhaustive one-byte and two-byte codec round trips, seeded random round trips, token and reason classification, a synthetic BIN that covers every segment kind, seeded random partitions cross-checked against the candidate scanner, export/read-back determinism, rejection of export folders inside the input, detection of tampering, and a regression test on the restored sample (it runs only when `local/eventP01.zip` is present).
+- A separate ad hoc run (not committed) of 20,000 seeded random byte sequences also round-tripped.
+- `pyflakes` reports nothing for the new tool and test. It ran from a temporary virtualenv outside the repository.
+- Runtime on the 22 BINs was about one second.
+
+**Not demonstrated:** string and field boundaries (the `FF FF` / `00 00` / single-NUL model remains heuristic), the meaning of tokens and suffixes, reinsertion, English rendering, and in-game behavior. Gap bytes that contain Japanese-script runs are preserved but are not promoted to units; they stay in the separate NUL-run audit. `units.jsonl` contains decoded proprietary text and must remain in the ignored local folder.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
