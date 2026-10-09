@@ -206,6 +206,22 @@ python srw-oe-translation/tools/audit_event_dat_runs.py srw-oe-translation/local
 - The matched `_ext.dat` runs contain no CR bytes and seven LF bytes. The second of the first two little-endian u32 words is 100 in seven files and 110 in 15; the first word varies. These header values are uninterpreted.
 - A NUL-delimited scan is a reproducible inventory method, not proof that every run is a user-visible string or that these offsets/values have a particular schema. In particular, half-width codepoints can arise by chance in binary fields.
 
+### CP932 versus Python Shift-JIS codec comparison
+
+Added `tools/audit_event_codecs.py` to compare Python's `cp932` and `shift_jis` decoders over every `FF FF` marker prefix and every nonempty DAT NUL-run. The tool prints aggregate strict-decode, byte-roundtrip, and differing-codepoint counts only; it does not emit decoded source text. These codec checks do not validate marker/NUL boundaries or prove that a run is text.
+
+For the 3,277 greedily selected Japanese-script candidate prefixes, CP932 strictly decodes 3,250 and round-trips 3,249; Python `shift_jis` strictly decodes and round-trips 3,245. The strict-decode intersection is 3,245 both codecs, five CP932-only, zero Shift-JIS-only, and 27 neither. Four of the five CP932-only prefixes contain wide-script Japanese and one is half-width-only; the 27 neither are already flagged for non-strict CP932. Among rows that strictly decode and round-trip under both codecs, 82 candidate rows differ at 93 codepoint positions, with no decoded-length differences. The only mapping pairs are CP932 U+FF5E → Shift-JIS U+301C (90 positions) and CP932 U+FF0D → Shift-JIS U+2212 (three positions).
+
+Across all 3,477 literal-marker prefixes (including alternatives), 3,398 strictly decode/3,397 round-trip under CP932 and 3,368/3,368 under Python `shift_jis`; 82 rows and the same 93 positions differ. Across the 6,288 DAT runs, 5,237 strictly decode and 5,216 round-trip under CP932; 4,951 strictly decode and round-trip under Python `shift_jis`. No row that round-trips under both decoders changes its decoded codepoints. All 42 clean wide-script `_ext.dat` review leads round-trip under both with no mapping differences.
+
+This establishes why a generic “Shift-JIS” label is not enough to fix codepoint mapping: Python's codec differs from `cp932` for two punctuation mappings in these candidate prefixes. Notepad++'s label may use another implementation, so the user's readable display does not settle the Python codec choice. Keep CP932 as the documented working decoder for consistency with the current audit, retain the exact source bytes, and avoid silently normalizing U+FF5E/U+301C or U+FF0D/U+2212 in any future extraction/export.
+
+Reproduce the no-text encoding comparison with:
+
+```text
+python srw-oe-translation/tools/audit_event_codecs.py srw-oe-translation/local/eventP01.zip
+```
+
 ### `_edit.dat` and `_Entry.dat` numeric comparisons
 
 The companion auditor reads `_edit.dat` as diagnostic little-endian u16 pairs and every four-byte word of `_Entry.dat` as a diagnostic u32. It compares those numbers with BIN size and with the candidate text-prefix/full-span ranges from the heuristic scanner. These numerical overlaps do **not** prove pointer semantics; `_Entry.dat` may also contain floats or unrelated fields, and the candidate ranges are not validated string boundaries.

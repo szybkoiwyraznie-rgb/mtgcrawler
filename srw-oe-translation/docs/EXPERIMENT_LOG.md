@@ -263,6 +263,16 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** The updated CLI reproduced the counts without printing source text. Added a synthetic test for cohort counts, duplicate payload detection, and 64-byte-relative alignment. The full suite passes 49 tests; `py_compile` and `git diff --check` pass. The input archive and decoded JSONL remain ignored local data.
 
+## 2026-10-09 — compare CP932 and standard Shift-JIS decoder variants
+
+**Input:** The same previously supplied `eventP01.zip` in ignored `local/`, SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`. No ISO, DLC, or converter was opened or processed.
+
+**Action:** Added `tools/audit_event_codecs.py` to compare Python `cp932` and `shift_jis` over every BIN `FF FF` marker prefix and every companion-DAT NUL-run. The no-write CLI prints strict-decode/byte-roundtrip totals, intersections, and Unicode-codepoint pairs only; it emits no source strings. Boundaries remain the earlier heuristics.
+
+**Result:** Among 3,277 greedy Japanese-script candidates, CP932 strict/roundtrip counts are 3,250/3,249 and Python `shift_jis` counts are 3,245/3,245. The strict-decode intersection is 3,245 both, five CP932-only, zero Shift-JIS-only, and 27 neither. Four CP932-only rows contain wide-script Japanese and one is half-width-only. For the 82 rows that round-trip under both, 93 codepoint positions differ: U+FF5E → U+301C 90 times and U+FF0D → U+2212 three times. No decoded-length differences were found. The 6,288 DAT runs include no codepoint differences among rows that round-trip under both; all 42 clean wide-script `_ext.dat` leads round-trip identically under both.
+
+**Validation:** Three synthetic codec tests cover shared punctuation mappings, a CP932 extension byte pair, malformed bytes, ZIP scanning, and no-text output. The audit reproduced its counts on the archived sample; the full suite passes 52 tests, and `py_compile`/`git diff --check` pass. CP932 remains the working decoder, but another program's “Shift-JIS” label may map differently; raw bytes remain authoritative.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
