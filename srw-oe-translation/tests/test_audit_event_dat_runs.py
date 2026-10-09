@@ -58,9 +58,10 @@ class DatRunInventoryTests(unittest.TestCase):
         self.assertIn("not_strict_cp932", records[2]["review_signals"])
 
     def test_review_profiles_keep_clean_runs_and_alignment_as_nonsemantic_leads(self):
-        entry_data = bytearray(128)
+        entry_data = bytearray(192)
         entry_data[0x1A : 0x1A + 7] = b"ABCDEFG"
         entry_data[0x5A : 0x5A + 7] = b"HIJKLMN"
+        entry_data[0x9A : 0x9A + 7] = b"ABC\x0fEF\x01"
         entry_rows, _ = scan_nul_delimited_runs("sample_Entry.dat", bytes(entry_data))
 
         japanese = "日本語".encode("cp932")
@@ -93,11 +94,14 @@ class DatRunInventoryTests(unittest.TestCase):
         self.assertEqual(
             profiles["entry_offset_mod64_1a"],
             {
-                "run_count": 2,
-                "length_counts": {7: 2},
-                "runs_preceded_by_nul": 2,
-                "runs_terminated_by_nul": 2,
-                "runs_with_controls": 0,
+                "run_count": 3,
+                "length_counts": {7: 3},
+                "runs_preceded_by_nul": 3,
+                "runs_terminated_by_nul": 3,
+                "length_7_count": 3,
+                "length_7_control_at_byte_3": 1,
+                "length_7_control_at_byte_6": 1,
+                "runs_with_controls": 1,
                 "runs_with_halfwidth_katakana": 0,
                 "runs_with_wide_japanese": 0,
                 "runs_with_two_or_more_wide_japanese": 0,

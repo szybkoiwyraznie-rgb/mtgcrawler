@@ -238,10 +238,9 @@ def review_shape_profiles(
         for row in rows
         if row.offset % 64 == 0x1A
     ]
+    entry_seven_byte = [row for row in entry_aligned if len(row.raw) == 7]
     clean_entry_seven_byte = [
-        row
-        for row in entry_aligned
-        if len(row.raw) == 7 and _clean_roundtripping_run(row)
+        row for row in entry_seven_byte if _clean_roundtripping_run(row)
     ]
     entry_alignment = {
         "run_count": len(entry_aligned),
@@ -250,6 +249,13 @@ def review_shape_profiles(
         ),
         "runs_preceded_by_nul": sum(row.preceded_by_nul for row in entry_aligned),
         "runs_terminated_by_nul": sum(row.terminated_by_nul for row in entry_aligned),
+        "length_7_count": len(entry_seven_byte),
+        "length_7_control_at_byte_3": sum(
+            row.raw[3] < 0x20 or row.raw[3] == 0x7F for row in entry_seven_byte
+        ),
+        "length_7_control_at_byte_6": sum(
+            row.raw[6] < 0x20 or row.raw[6] == 0x7F for row in entry_seven_byte
+        ),
         "runs_with_controls": sum(
             row.nonnewline_control_codepoints > 0 for row in entry_aligned
         ),
@@ -423,6 +429,8 @@ def main(argv: Optional[list[str]] = None) -> int:
             f"{entry_profile['runs_terminated_by_nul']}; "
             f"{entry_profile['runs_with_controls']} with controls; "
             f"{entry_profile['runs_with_halfwidth_katakana']} with half-width kana; "
+            f"raw C0/DEL at +3/+6={entry_profile['length_7_control_at_byte_3']}/"
+            f"{entry_profile['length_7_control_at_byte_6']} of {length_7} seven-byte runs; "
             f"{entry_profile['runs_with_two_or_more_wide_japanese']} with >=2 wide "
             "Japanese codepoints; "
             f"{entry_profile['clean_roundtripping_length_7']} clean, round-tripping "
