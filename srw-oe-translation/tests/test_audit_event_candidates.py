@@ -1,0 +1,330 @@
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+
+from audit_event_candidates import (  # noqa: E402
+    scan_bin,
+    scan_bin_marker_inventory,
+    scan_bin_punctuation_review,
+    scan_bin_with_stats,
+    write_jsonl,
+    write_marker_inventory_jsonl,
+    write_punctuation_review_jsonl,
+)
+
+
+class CandidateAuditTests(unittest.TestCase):
+    def test_reports_text_and_preserves_single_nul_suffix(self):
+        japanese = "日本語。".encode("cp932")
+        data = b"\xff\xff" + japanese + b"\x00\x76\x01\x00\x00\x10\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row.start, 2)
+        self.assertEqual(row.pair_offset, 2 + len(japanese) + 3)
+        self.assertEqual(row.text_bytes, japanese)
+        self.assertEqual(row.text, "日本語。")
+        self.assertTrue(row.prefix_has_japanese)
+        self.assertTrue(row.prefix_cp932_strict)
+        self.assertTrue(row.prefix_cp932_roundtrip)
+        self.assertGreater(row.prefix_japanese_codepoints, 0)
+        self.assertEqual(row.nested_ff_ff_markers, 0)
+        self.assertEqual(row.suffix, b"\x00\x76\x01")
+        self.assertEqual(row.carriage_returns, 0)
+
+    def test_clean_double_nul_has_no_single_nul_suffix(self):
+        japanese = "日本語。".encode("cp932")
+        data = b"\xff\xff" + japanese + b"\x00\x00\x10\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertIsNone(rows[0].suffix)
+        self.assertEqual(rows[0].pair_offset, 2 + len(japanese))
+
+    def test_counts_carriage_returns_that_split_legacy_output_rows(self):
+        japanese = "日本\r\n語。".encode("cp932")
+        data = b"\xff\xff" + japanese + b"\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].carriage_returns, 1)
+        # The old PowerShell formatter replaced LF but left this CR embedded.
+        self.assertEqual(len(rows) + sum(row.carriage_returns for row in rows), 2)
+
+    def test_ignores_spans_without_japanese(self):
+        data = b"\xff\xffASCII\x00\x00"
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["literal_ff_ff_markers"], 1)
+        self.assertEqual(stats["consumed_ff_ff_markers"], 1)
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+
+    def test_reports_non_japanese_private_use_prefixes_without_emitting_candidates(self):
+        # CP932 maps a single 0xFF byte to U+F8F3, but that alone is not proof of text.
+        data = b"\xff\xff\xff\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+        self.assertEqual(stats["non_japanese_prefixes_with_private_use"], 1)
+        self.assertEqual(stats["private_use_codepoints_in_non_japanese_prefixes"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_strict_cp932"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_roundtrip"], 1)
+        self.assertEqual(stats["non_japanese_private_use_prefixes_with_nested_ff_ff"], 0)
+
+    def test_reports_punctuation_only_prefix_as_separate_review_lead(self):
+        punctuation = "……。".encode("cp932")
+        data = b"\xff\xff" + punctuation + b"\x00\x00"
+
+        self.assertEqual(list(scan_bin("sample.bin", data)), [])
+        rows, stats = scan_bin_punctuation_review("sample.bin", data)
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "……。")
+        self.assertEqual(rows[0].prefix_japanese_punctuation_codepoints, 3)
+        self.assertTrue(rows[0].prefix_cp932_strict)
+        self.assertTrue(rows[0].prefix_cp932_roundtrip)
+        self.assertTrue(rows[0].punctuation_and_linebreaks_only)
+        self.assertEqual(stats["punctuation_only_review_prefixes"], 1)
+        self.assertEqual(stats["roundtrip_cp932_prefixes"], 1)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "punctuation-review.jsonl"
+            write_punctuation_review_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(record["id"], "sample.bin@0002")
+        self.assertFalse(record["prefix_has_japanese_script"])
+        self.assertTrue(record["punctuation_and_linebreaks_only"])
+
+    def test_does_not_promote_punctuation_found_only_in_suffix(self):
+        punctuation = "……。".encode("cp932")
+        data = b"\xff\xffASCII\x00" + punctuation + b"\x00\x00"
+
+        rows, stats = scan_bin_punctuation_review("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["punctuation_only_review_prefixes"], 0)
+
+    def test_recognizes_halfwidth_katakana_only_spans(self):
+        halfwidth_katakana = "ｶ".encode("cp932")
+        data = b"\xff\xff" + halfwidth_katakana + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "ｶ")
+        self.assertTrue(rows[0].prefix_has_japanese)
+        self.assertEqual(rows[0].prefix_japanese_codepoints, 1)
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 0)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 1)
+        self.assertEqual(stats["japanese_spans"], 1)
+        self.assertEqual(stats["non_japanese_prefixes"], 0)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
+
+    def test_recognizes_cp932_compatibility_ideograph(self):
+        compatibility_ideograph = "﨑".encode("cp932")
+        data = b"\xff\xff" + compatibility_ideograph + b"\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "﨑")
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 1)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 0)
+
+    def test_recognizes_iteration_and_long_vowel_marks(self):
+        script_marks = "々ー".encode("cp932")
+        data = b"\xff\xff" + script_marks + b"\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "々ー")
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 2)
+        self.assertEqual(rows[0].prefix_japanese_codepoints, 2)
+
+    def test_flags_malformed_cp932_halfwidth_match_for_review(self):
+        data = b"\xff\xff\xb6\x81\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertFalse(rows[0].prefix_cp932_strict)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 1)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertIn("prefix_not_strict_cp932", record["quality_flags"])
+        self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
+
+    def test_reports_nested_start_after_nul_as_alternative_not_a_candidate(self):
+        japanese = "日本語".encode("cp932")
+        data = b"\xff\xffASCII\x00\xff\xff" + japanese + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["nested_marker_alternative_starts"], 1)
+        self.assertEqual(stats["nested_alternative_prefixes_with_wide_japanese"], 1)
+        self.assertEqual(stats["nested_alternative_matches_not_in_parent_prefix"], 1)
+        self.assertEqual(stats["nested_markers_after_outer_first_nul"], 1)
+        self.assertEqual(stats["suffix_only_japanese_matches"], 1)
+
+    def test_does_not_promote_halfwidth_katakana_in_suffix_to_text(self):
+        halfwidth_katakana = "ｶ".encode("cp932")
+        data = b"\xff\xffASCII\x00" + halfwidth_katakana + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+        self.assertEqual(stats["suffix_only_japanese_matches"], 1)
+
+    def test_jsonl_export_keeps_text_and_suffix_separate(self):
+        japanese = "日本語。".encode("cp932")
+        rows = list(scan_bin("sample.bin", b"\xff\xff" + japanese + b"\x00\x76\x01\x00\x00"))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(record["text_cp932"], "日本語。")
+        self.assertEqual(record["suffix_hex"], "00 76 01")
+        self.assertTrue(record["prefix_cp932_roundtrip"])
+        self.assertEqual(record["quality_flags"], [])
+        self.assertEqual(record["id"], "sample.bin@0002")
+
+    def test_flags_nested_marker_and_nonreversible_cp932_prefix_for_review(self):
+        raw = bytes.fromhex("FB EF FF FF 2D 01")
+        data = b"\xff\xff" + raw + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertTrue(row.prefix_cp932_strict)
+        self.assertFalse(row.prefix_cp932_roundtrip)
+        self.assertEqual(row.prefix_private_use_codepoints, 2)
+        self.assertEqual(row.prefix_nonnewline_control_codepoints, 1)
+        self.assertEqual(row.nested_ff_ff_markers, 1)
+        self.assertEqual(stats["literal_ff_ff_markers"], 2)
+        self.assertEqual(stats["consumed_ff_ff_markers"], 1)
+        self.assertEqual(stats["nested_ff_ff_markers_in_spans"], 1)
+        self.assertEqual(stats["spans_with_nested_ff_ff"], 1)
+        self.assertEqual(
+            stats["literal_ff_ff_markers"] - stats["consumed_ff_ff_markers"],
+            stats["nested_ff_ff_markers_in_spans"]
+            + stats["overlapping_ff_ff_starts_after_outer_marker"]
+            + stats["unbounded_nested_ff_ff_markers"],
+        )
+        self.assertEqual(
+            record["quality_flags"],
+            [
+                "prefix_cp932_not_byte_reversible",
+                "nested_ff_ff_marker",
+                "private_use_codepoint",
+                "nonnewline_control_codepoint",
+                "single_japanese_codepoint",
+            ],
+        )
+
+    def test_marker_inventory_retains_nested_japanese_and_overlapping_starts(self):
+        japanese = "日".encode("cp932")
+        data = (
+            b"\xff\xffASCII\x00\xff\xff"
+            + japanese
+            + b"\x00\x00\xff\xff\xff\x00\x00"
+        )
+
+        rows, stats = scan_bin_marker_inventory("sample.bin", data)
+        by_offset = {row.marker_offset: row for row in rows}
+
+        self.assertEqual(sorted(by_offset), [0, 8, 14, 15])
+        self.assertEqual(len(list(scan_bin("sample.bin", data))), 0)
+        self.assertEqual(stats["literal_ff_ff_marker_starts"], 4)
+        self.assertEqual(stats["greedy_selected_starts"], 2)
+        self.assertEqual(stats["alternate_marker_starts"], 2)
+        self.assertEqual(stats["alternate_starts_inside_selected_spans"], 1)
+        self.assertEqual(stats["overlapping_marker_starts"], 2)
+        self.assertEqual(stats["empty_bounded_spans"], 1)
+
+        parent = by_offset[0]
+        nested = by_offset[8]
+        overlap_outer = by_offset[14]
+        overlap_alternate = by_offset[15]
+        self.assertTrue(parent.outer_scan_selected)
+        self.assertEqual(parent.prefix_text, "ASCII")
+        self.assertFalse(parent.prefix_has_japanese_script)
+        self.assertEqual(parent.suffix, b"\x00\xff\xff" + japanese)
+        self.assertFalse(nested.outer_scan_selected)
+        self.assertTrue(nested.inside_selected_span)
+        self.assertEqual(nested.prefix_text, "日")
+        self.assertEqual(nested.raw_span, japanese)
+        self.assertTrue(overlap_outer.outer_scan_selected)
+        self.assertTrue(overlap_outer.overlaps_literal_marker)
+        self.assertEqual(overlap_outer.raw_span, b"\xff")
+        self.assertFalse(overlap_alternate.outer_scan_selected)
+        self.assertTrue(overlap_alternate.overlaps_literal_marker)
+        self.assertEqual(overlap_alternate.raw_span, b"")
+
+    def test_marker_inventory_retains_unbounded_tail_and_nested_markers(self):
+        data = b"\xff\xffA\xff\xffB"
+
+        rows, stats = scan_bin_marker_inventory("sample.bin", data)
+        by_offset = {row.marker_offset: row for row in rows}
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(stats["greedy_selected_starts"], 1)
+        self.assertEqual(stats["unbounded_spans"], 2)
+        self.assertTrue(by_offset[0].outer_scan_selected)
+        self.assertIsNone(by_offset[0].pair_offset)
+        self.assertEqual(by_offset[0].raw_span, b"A\xff\xffB")
+        self.assertFalse(by_offset[3].outer_scan_selected)
+        self.assertTrue(by_offset[3].inside_selected_span)
+        self.assertEqual(by_offset[3].prefix_text, "B")
+
+    def test_marker_inventory_jsonl_preserves_prefix_suffix_and_original_span_bytes(self):
+        data = b"\xff\xffOPEN\x00\x76\x01\x00\x00"
+        rows, _ = scan_bin_marker_inventory("sample.bin", data)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "all-markers.jsonl"
+            write_marker_inventory_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(record["id"], "sample.bin@MARKER:00000000")
+        self.assertEqual(record["start_offset"], 2)
+        self.assertEqual(record["first_nul_offset"], 6)
+        self.assertEqual(record["pair_offset"], 9)
+        self.assertEqual(record["raw_span_hex"], "4F 50 45 4E 00 76 01")
+        self.assertEqual(record["prefix_bytes_hex"], "4F 50 45 4E")
+        self.assertEqual(record["prefix_text_cp932"], "OPEN")
+        self.assertEqual(record["suffix_hex"], "00 76 01")
+        self.assertTrue(record["prefix_cp932_roundtrip"])
+        self.assertEqual(record["prefix_ascii_letter_codepoints"], 4)
+        self.assertEqual(record["prefix_max_ascii_printable_run"], 4)
+        self.assertIn("no_recognized_japanese_script_in_prefix", record["quality_flags"])
+        self.assertIn("ascii_alphanumeric_in_prefix", record["quality_flags"])
+
+
+if __name__ == "__main__":
+    unittest.main()

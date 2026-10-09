@@ -1,0 +1,31 @@
+# Local proprietary game data: never commit
+*.iso
+*.cso
+*.edat
+*.EDAT
+*.cpk
+*.CPK
+*.bin
+*.BIN
+*.dat
+*.DAT
+*.pbp
+*.PBP
+*.sav
+*.SAV
+
+# User-specific Windows input/tool paths (keep the example file tracked)
+/config/local-workflow.ini
+
+# Local extraction/build outputs
+work/
+local/
+extracted/
+build/
+output/
+*.tmp
+*.bak
+
+# Python tooling caches
+__pycache__/
+*.py[cod]
