@@ -61,6 +61,18 @@ MISMATCH_CAP = 20
 class CpkTableError(ValueError):
     """The container's tables could not be read; nothing is inferred."""
 
+    def __init__(self, message: str, schema: Optional[list] = None):
+        super().__init__(message)
+        self.schema = schema or []
+
+
+def _schema_text(schema: list) -> str:
+    """Describe a @UTF column schema (names and storage classes) for a report line."""
+    if not schema:
+        return "no column schema was read"
+    parts = [f"{name}=0x{flags:02x}" for name, flags in schema]
+    return "columns (name=flags): " + ", ".join(parts)
+
 
 def _parse_utf_table(table: bytes) -> dict[str, Any]:
     """Parse one @UTF table (the bytes of one packet's table, starting with '@UTF')."""
@@ -125,6 +137,23 @@ def _parse_utf_table(table: bytes) -> dict[str, Any]:
         name, _raw = read_string(name_offset)
         columns.append({"name": name, "flags": flags})
 
+    schema = [(column["name"], column["flags"]) for column in columns]
+    try:
+        rows = _read_rows(table, columns, rows_abs, row_length, num_rows, read_string)
+    except CpkTableError as error:
+        raise CpkTableError(f"{error} ({_schema_text(schema)})", schema) from error
+    table_name, _raw = read_string(table_name_offset)
+    return {
+        "table_name": table_name,
+        "columns": [column["name"] for column in columns],
+        "rows": rows,
+        "num_rows": num_rows,
+        "row_length": row_length,
+        "schema": schema,
+    }
+
+
+def _read_rows(table, columns, rows_abs, row_length, num_rows, read_string):
     rows: list[dict[str, Any]] = []
     for row_index in range(num_rows):
         row_start = rows_abs + row_index * row_length
@@ -159,14 +188,7 @@ def _parse_utf_table(table: bytes) -> dict[str, Any]:
             else:
                 row[column["name"]] = int.from_bytes(raw, "big")
         rows.append(row)
-    table_name, _raw = read_string(table_name_offset)
-    return {
-        "table_name": table_name,
-        "columns": [column["name"] for column in columns],
-        "rows": rows,
-        "num_rows": num_rows,
-        "row_length": row_length,
-    }
+    return rows
 
 
 def _read_packet(data: bytes, offset: int, expected_tag: bytes) -> bytes:
@@ -246,7 +268,11 @@ def read_cpk_table(path: Path) -> dict[str, Any]:
             extract_size = row.get("ExtractSize")
             file_offset = row.get("FileOffset")
             if file_size is None or extract_size is None or file_offset is None:
-                raise CpkTableError(f"TOC row {toc_index} lacks FileSize, ExtractSize or FileOffset")
+                raise CpkTableError(
+                    f"TOC row {toc_index} lacks FileSize, ExtractSize or FileOffset "
+                    f"({_schema_text(toc['schema'])})",
+                    toc["schema"],
+                )
             if file_size > extract_size:
                 raise CpkTableError(f"TOC row {toc_index} stores more bytes than it extracts")
             entry = {
@@ -278,7 +304,10 @@ def read_cpk_table(path: Path) -> dict[str, Any]:
                 elif key.lower() == "tocindex":
                     toc_index = value
             if id_value is None or toc_index is None:
-                raise CpkTableError("ITOC row lacks the ID or TocIndex column")
+                raise CpkTableError(
+                    f"ITOC row lacks the ID or TocIndex column ({_schema_text(itoc['schema'])})",
+                    itoc["schema"],
+                )
             result["itoc"].append({"id": id_value, "toc_index": toc_index})
     return result
 

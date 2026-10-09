@@ -408,5 +408,20 @@ class TableCheckTests(unittest.TestCase):
         self.assertEqual(run_pipeline.table_check(path, None)["status"], "no_listing")
 
 
+class UnreadableTableDiagnosticTests(unittest.TestCase):
+    def test_unreadable_table_error_names_its_column_schema(self):
+        table = bytearray(build_utf_table("Probe", [("Alpha", 0x54)], [{"Alpha": 7}]))
+        table[0x20] = 0x5B  # column type 0x0B, which the reader does not support
+        with self.assertRaises(cpk_table.CpkTableError) as context:
+            cpk_table._parse_utf_table(bytes(table))
+        message = str(context.exception)
+        self.assertIn("(columns (name=flags): Alpha=0x5b)", message)
+        self.assertIn("Alpha=0x5b", message)
+        self.assertEqual(context.exception.schema, [("Alpha", 0x5B)])
+
+    def test_schema_text_without_columns_says_so(self):
+        self.assertEqual(cpk_table._schema_text([]), "no column schema was read")
+
+
 if __name__ == "__main__":
     unittest.main()

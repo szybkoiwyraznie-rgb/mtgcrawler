@@ -726,6 +726,24 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the extraction on the user's real ISO (the next run); whether the disc's base/system packages contain translatable text; chapter 4 until the user decrypts it; any repack, insertion, or in-game result.
 
+## 2026-10-10 — run 20261010-004920 table check: unreadable tables and robo18 (analysis, no game data committed)
+
+**Input:** `registry.json` from run `20261010-004920` (497 packages, 425 table agree, 3 mismatch, 69 unreadable). Stored outside the repository; SHA-256 `ed055f4bdbaf27d794ff22a4402c5c87ece8296f8cf7f7064f7f7f5237deda3d`. The file was removed from the branch at the user's request.
+
+**Observed (from the registry):**
+- Unreadable, 57 packages (e.g. `face01`): `ITOC row lacks the ID or TocIndex column`.
+- Unreadable, 12 packages (e.g. `bseq18`): `TOC row 0 lacks FileSize, ExtractSize or FileOffset`.
+- Mismatch `robo18`: listing `r2530/0000_000.pac`, TOC `0000_000.pac` with an empty DirName; the same pattern holds for all 21 rows.
+- Mismatch `robo01`, `robo03`: console-mangled names (unchanged).
+
+**Hypothesis (not verified):** `tools/cpk_table.py` returns `None` for every column whose storage class is not per-row (0x10 zero, 0x30 constant). If the DirName/ID/TocIndex/size columns in these tables are stored as constants, the reader drops them. This would explain both the missing-column errors and the empty DirName on `robo18`. The reader does not read constant values from the schema, so this is unconfirmed. No CPK file is available in the sandbox to check it.
+
+**Change:** unreadable-table errors now carry the column schema (`name=flags` for every column), so the next run's registry shows which storage classes these tables use. No parsing rule was changed.
+
+**Tests:** `tests/test_cpk_table.py` 10 OK; full suite 163 OK. New: schema is named in the error, and the empty-schema message.
+
+**Not demonstrated:** the storage class of any real unreadable table; the cause of the `robo18` DirName gap; anything about translatable text. The table check stays report-only.
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
