@@ -672,6 +672,8 @@ def audit_echk_c2_base_hypotheses(
         name: Counter({metric: 0 for metric in metric_names})
         for name in hypothesis_names
     }
+    absolute_candidate_prefix_deltas = Counter()
+    absolute_candidate_suffix_deltas = Counter()
     candidate_starts = {
         name: [row.start for row in candidates_by_bin.get(name, [])]
         for name in bins
@@ -708,9 +710,16 @@ def audit_echk_c2_base_hypotheses(
             if target >= candidate.pair_offset:
                 continue
             stats["full_span_hits"] += 1
-            stats["prefix_hits"] += target < candidate.start + len(candidate.text_bytes)
+            in_text_prefix = target < candidate.start + len(candidate.text_bytes)
+            stats["prefix_hits"] += in_text_prefix
             stats["exact_candidate_starts"] += target == candidate.start
             stats["full_span_hits_in_owning_evnt_block"] += in_owner_block
+            if hypothesis == "absolute":
+                delta = target - candidate.start
+                if in_text_prefix:
+                    absolute_candidate_prefix_deltas[delta] += 1
+                else:
+                    absolute_candidate_suffix_deltas[delta] += 1
 
     hypotheses = {}
     for name, stats in counts.items():
@@ -726,6 +735,9 @@ def audit_echk_c2_base_hypotheses(
         }
     return {
         "hypotheses": hypotheses,
+        "absolute_candidate_prefix_delta_counts": dict(sorted(absolute_candidate_prefix_deltas.items())),
+        "absolute_candidate_suffix_delta_counts": dict(sorted(absolute_candidate_suffix_deltas.items())),
+        "absolute_candidate_prefix_delta_top_10": absolute_candidate_prefix_deltas.most_common(10),
         "warning": "Exploratory formulas only; no address semantics are established.",
     }
 
@@ -906,11 +918,12 @@ def _format_counter(counter: dict[int, int], *, hex_keys: bool = False) -> str:
 
 
 def print_summary(summary: dict) -> None:
-    """Print reproducible aggregate counts only; do not reveal source text."""
+    """Print reproducible numeric summaries without revealing source text."""
     framing = summary["framing"]
     coverage = summary["candidate_block_coverage"]
     cross_bin_control = summary["echk_c2_cross_bin_control"]
-    base_hypotheses = summary["echk_c2_base_hypotheses"]["hypotheses"]
+    base_probe = summary["echk_c2_base_hypotheses"]
+    base_hypotheses = base_probe["hypotheses"]
     ext = summary["ext"]
     edit = summary["edit"]
     entry = summary["entry"]
@@ -1063,6 +1076,16 @@ def print_summary(summary: dict) -> None:
             f"{stats.get('full_span_hits_in_owning_evnt_block', 0)}/"
             f"{stats.get('nonzero_targets_in_owning_evnt_block', 0)}"
         )
+    prefix_delta_counts = base_probe["absolute_candidate_prefix_delta_counts"]
+    top_prefix_deltas = dict(base_probe["absolute_candidate_prefix_delta_top_10"])
+    print(
+        f"  absolute c2 - matched candidate start byte deltas: "
+        f"top-10={_format_counter(top_prefix_deltas)}, "
+        f"distinct prefix deltas={len(prefix_delta_counts)}"
+    )
+    suffix_deltas = base_probe["absolute_candidate_suffix_delta_counts"]
+    if suffix_deltas:
+        print(f"  c2 hits in unvalidated candidate suffix deltas: {_format_counter(suffix_deltas)}")
     for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
         overlap = group["echk_row_column_2_candidate_overlap"]
         print(

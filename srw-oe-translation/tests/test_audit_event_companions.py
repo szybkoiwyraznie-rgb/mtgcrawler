@@ -259,6 +259,7 @@ class CompanionAuditTests(unittest.TestCase):
         coverage = summary["candidate_block_coverage"]
         overlap = coverage["echk_row_column_2_candidate_overlap"]
         cross_control = summary["echk_c2_cross_bin_control"]
+        base_probe = summary["echk_c2_base_hypotheses"]
 
         self.assertEqual(coverage["candidate_spans"], 2)
         self.assertEqual(coverage["candidate_spans_fully_within_one_evnt_block"], 2)
@@ -279,6 +280,8 @@ class CompanionAuditTests(unittest.TestCase):
         per_source = {row["bin"]: row for row in cross_control["per_source"]}
         self.assertEqual(per_source["sample.bin"]["nonzero_full_span_rate_lift"], 1.0)
         self.assertIsNone(per_source["empty.bin"]["nonzero_full_span_rate_lift"])
+        self.assertEqual(base_probe["absolute_candidate_prefix_delta_counts"], {0: 2})
+        self.assertEqual(base_probe["absolute_candidate_suffix_delta_counts"], {})
 
     def test_c2_relative_to_owning_evnt_tag_can_reach_candidate_text(self):
         japanese = "日本".encode("cp932")
