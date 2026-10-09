@@ -248,6 +248,8 @@ def review_shape_profiles(
         "length_counts": dict(
             sorted(Counter(len(row.raw) for row in entry_aligned).items())
         ),
+        "runs_preceded_by_nul": sum(row.preceded_by_nul for row in entry_aligned),
+        "runs_terminated_by_nul": sum(row.terminated_by_nul for row in entry_aligned),
         "runs_with_controls": sum(
             row.nonnewline_control_codepoints > 0 for row in entry_aligned
         ),
@@ -417,6 +419,8 @@ def main(argv: Optional[list[str]] = None) -> int:
         print(
             "`_Entry.dat` offset-mod-64 == 0x1A diagnostic (not a schema): "
             f"{entry_profile['run_count']} runs; {length_7} length-7; "
+            f"NUL-before/after={entry_profile['runs_preceded_by_nul']}/"
+            f"{entry_profile['runs_terminated_by_nul']}; "
             f"{entry_profile['runs_with_controls']} with controls; "
             f"{entry_profile['runs_with_halfwidth_katakana']} with half-width kana; "
             f"{entry_profile['runs_with_two_or_more_wide_japanese']} with >=2 wide "

@@ -95,6 +95,8 @@ class DatRunInventoryTests(unittest.TestCase):
             {
                 "run_count": 2,
                 "length_counts": {7: 2},
+                "runs_preceded_by_nul": 2,
+                "runs_terminated_by_nul": 2,
                 "runs_with_controls": 0,
                 "runs_with_halfwidth_katakana": 0,
                 "runs_with_wide_japanese": 0,
