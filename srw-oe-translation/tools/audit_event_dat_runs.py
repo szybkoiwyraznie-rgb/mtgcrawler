@@ -213,8 +213,7 @@ def review_shape_profiles(
 
     ext_rows_by_offset: dict[int, list[NulRunReview]] = defaultdict(list)
     for row in grouped_rows["ext"]:
-        if row.wide_japanese_codepoints >= 2 and _clean_roundtripping_run(row):
-            ext_rows_by_offset[row.offset].append(row)
+        ext_rows_by_offset[row.offset].append(row)
     ext_by_offset = []
     for offset, rows in sorted(ext_rows_by_offset.items()):
         length_counts = Counter(len(row.raw) for row in rows)
@@ -224,6 +223,11 @@ def review_shape_profiles(
                 "row_count": len(rows),
                 "length_counts": dict(sorted(length_counts.items())),
                 "unique_payload_count": len({row.raw for row in rows}),
+                "clean_wide_row_count": sum(
+                    row.wide_japanese_codepoints >= 2
+                    and _clean_roundtripping_run(row)
+                    for row in rows
+                ),
             }
         )
 
@@ -260,7 +264,7 @@ def review_shape_profiles(
     }
     return {
         "clean_wide_two_plus_by_group": clean_wide_counts,
-        "ext_clean_wide_by_offset": ext_by_offset,
+        "ext_all_runs_by_offset": ext_by_offset,
         "entry_offset_mod64_1a": entry_alignment,
     }
 
@@ -393,9 +397,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     for group in ("edit", "entry", "ext"):
         print(f"  {group}: {clean_wide_counts[group]}")
 
-    ext_profile = profiles["ext_clean_wide_by_offset"]
+    ext_profile = profiles["ext_all_runs_by_offset"]
     if ext_profile:
-        print("`_ext.dat` cohort by byte offset (rows / unique raw payloads):")
+        print("`_ext.dat` NUL-run positions (all counts are diagnostic, no field names assigned):")
         for item in ext_profile:
             lengths = ", ".join(
                 f"{length}B x{count}"
@@ -403,7 +407,8 @@ def main(argv: Optional[list[str]] = None) -> int:
             )
             print(
                 f"  0x{item['offset']:X}: {item['row_count']} rows; {lengths}; "
-                f"{item['unique_payload_count']} unique payloads"
+                f"{item['unique_payload_count']} unique payloads; "
+                f"clean-wide={item['clean_wide_row_count']}"
             )
 
     entry_profile = profiles["entry_offset_mod64_1a"]

@@ -79,13 +79,14 @@ class DatRunInventoryTests(unittest.TestCase):
             {"edit": 0, "entry": 0, "ext": 2},
         )
         self.assertEqual(
-            profiles["ext_clean_wide_by_offset"],
+            profiles["ext_all_runs_by_offset"],
             [
                 {
                     "offset": 0,
                     "row_count": 2,
                     "length_counts": {6: 2},
                     "unique_payload_count": 1,
+                    "clean_wide_row_count": 2,
                 }
             ],
         )
