@@ -147,8 +147,13 @@ def audit_punctuation_review_framing(bins: dict[str, bytes]) -> dict:
     blocks_with_leads = set()
     files_with_leads = set()
 
+    leads_with_main_candidate = 0
+    leads_with_preceding_main_candidate = 0
+    leads_with_following_main_candidate = 0
+
     for filename, data in bins.items():
         review_rows, _ = scan_bin_punctuation_review(filename, data)
+        main_candidates = list(scan_bin(filename, data))
         event_offsets = marker_offsets(data, b"EVNT")
         for row in review_rows:
             total += 1
@@ -177,6 +182,21 @@ def audit_punctuation_review_framing(bins: dict[str, bytes]) -> dict:
             contained += 1
             blocks_with_leads.add((filename, owner[0]))
             files_with_leads.add(filename)
+            same_block_candidates = [
+                candidate
+                for candidate in main_candidates
+                if owner[0] <= candidate.start - 2
+                and candidate.pair_offset + 2 <= owner[1]
+            ]
+            leads_with_main_candidate += bool(same_block_candidates)
+            leads_with_preceding_main_candidate += any(
+                candidate.pair_offset + 2 <= marker_offset
+                for candidate in same_block_candidates
+            )
+            leads_with_following_main_candidate += any(
+                candidate.start - 2 >= row.pair_offset + 2
+                for candidate in same_block_candidates
+            )
             chain = inspect_echk_chain(data, owner[0], owner[1])
             if chain is None:
                 without_valid_chain += 1
@@ -195,6 +215,13 @@ def audit_punctuation_review_framing(bins: dict[str, bytes]) -> dict:
         "punctuation_review_spans_without_valid_echk_chain": without_valid_chain,
         "punctuation_review_spans_after_echk_terminal": after_chain,
         "punctuation_review_spans_before_echk_terminal": before_chain,
+        "punctuation_review_spans_with_main_candidate_in_same_evnt": leads_with_main_candidate,
+        "punctuation_review_spans_with_preceding_main_candidate_in_same_evnt": (
+            leads_with_preceding_main_candidate
+        ),
+        "punctuation_review_spans_with_following_main_candidate_in_same_evnt": (
+            leads_with_following_main_candidate
+        ),
         "evnt_blocks_with_punctuation_review_spans": len(blocks_with_leads),
         "files_with_punctuation_review_spans": len(files_with_leads),
         "minimum_punctuation_review_marker_gap_after_echk_terminal": minimum_gap,
@@ -1082,6 +1109,12 @@ def print_summary(summary: dict) -> None:
         f"without valid chain={punctuation['punctuation_review_spans_without_valid_echk_chain']}, "
         f"minimum gap={punctuation_gap_text}, "
         f"files={punctuation['files_with_punctuation_review_spans']}"
+    )
+    print(
+        "Punctuation review leads sharing EVNT blocks with main candidates: "
+        f"same-block={punctuation['punctuation_review_spans_with_main_candidate_in_same_evnt']}, "
+        f"preceding-main={punctuation['punctuation_review_spans_with_preceding_main_candidate_in_same_evnt']}, "
+        f"following-main={punctuation['punctuation_review_spans_with_following_main_candidate_in_same_evnt']}"
     )
     overlap = coverage["echk_row_column_2_candidate_overlap"]
     print(
