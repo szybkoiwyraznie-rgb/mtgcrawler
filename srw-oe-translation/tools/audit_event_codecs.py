@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Compare CP932 and standard Shift-JIS decoding without printing game text.
 
-This read-only diagnostic scans every literal FF FF prefix in event BIN files
-and every nonempty NUL-delimited run in companion DAT files. It reports codec
-strictness, byte round-trips, and codepoint-mapping differences only. Neither
-codec result validates the proposed game string boundaries.
+This read-only diagnostic scans every literal FF FF prefix and every
+nonempty NUL-delimited run in event BIN files, plus all NUL-runs in companion
+DAT files. It reports codec strictness, byte round-trips, and codepoint-mapping
+differences only. Neither codec result validates the proposed game string boundaries.
 """
 
 from __future__ import annotations
@@ -16,6 +16,7 @@ from pathlib import Path
 import zipfile
 from typing import Any
 
+from audit_event_bin_nul_runs import audit_bin_nul_runs
 from audit_event_candidates import (
     inputs_from_path as bin_inputs_from_path,
     scan_bin_marker_inventory,
@@ -101,7 +102,7 @@ def _decode_roundtrip(raw: bytes, codec: str) -> tuple[str | None, bool, bool]:
 
 
 def audit_event_codecs(input_path: Path) -> dict[str, Any]:
-    """Compare codecs on BIN marker prefixes and companion-DAT NUL runs."""
+    """Compare codecs on BIN marker prefixes, BIN NUL-runs, and DAT NUL-runs."""
     input_path = input_path.expanduser().resolve(strict=True)
     if not (input_path.is_dir() or input_path.is_file() and input_path.suffix.lower() == ".zip"):
         raise ValueError("Input must be an event ZIP archive or an extracted directory")
@@ -111,10 +112,16 @@ def audit_event_codecs(input_path: Path) -> dict[str, Any]:
         "script_matched_marker_prefixes": CodecProfile(),
         "greedy_script_candidates": CodecProfile(),
     }
+    bin_nul_profiles = {
+        "all_nul_runs": CodecProfile(),
+        "wide_two_plus_outside_markers": CodecProfile(),
+        "clean_wide_two_plus_outside_markers": CodecProfile(),
+    }
     dat_profiles: dict[str, CodecProfile] = defaultdict(CodecProfile)
     dat_clean_wide_profile = CodecProfile()
     bin_file_count = 0
     dat_file_count = 0
+    bin_nul_run_count = 0
     marker_count = 0
     try:
         for filename, data in bin_inputs_from_path(input_path):
@@ -127,6 +134,21 @@ def audit_event_codecs(input_path: Path) -> dict[str, Any]:
                     bin_profiles["script_matched_marker_prefixes"].add(row.prefix_bytes)
                     if row.outer_scan_selected:
                         bin_profiles["greedy_script_candidates"].add(row.prefix_bytes)
+
+            nul_rows, _ = audit_bin_nul_runs(filename, data)
+            bin_nul_run_count += len(nul_rows)
+            for review in nul_rows:
+                raw = review.run.raw
+                bin_nul_profiles["all_nul_runs"].add(raw)
+                if (
+                    review.run.wide_japanese_codepoints >= 2
+                    and not review.overlaps_any_ff_ff_review_span
+                ):
+                    bin_nul_profiles["wide_two_plus_outside_markers"].add(raw)
+                    if review.clean_wide_two_plus:
+                        bin_nul_profiles[
+                            "clean_wide_two_plus_outside_markers"
+                        ].add(raw)
 
         for filename, data in dat_inputs_from_path(input_path):
             dat_file_count += 1
@@ -155,7 +177,11 @@ def audit_event_codecs(input_path: Path) -> dict[str, Any]:
         "bin_file_count": bin_file_count,
         "dat_file_count": dat_file_count,
         "literal_marker_count": marker_count,
+        "bin_nul_run_count": bin_nul_run_count,
         "bin_profiles": {name: profile.as_dict() for name, profile in bin_profiles.items()},
+        "bin_nul_profiles": {
+            name: profile.as_dict() for name, profile in bin_nul_profiles.items()
+        },
         "dat_profiles": {
             group: profile.as_dict()
             for group, profile in sorted(dat_profiles.items())
@@ -174,12 +200,17 @@ def audit_event_codecs(input_path: Path) -> dict[str, Any]:
 
 def print_report(report: dict[str, Any]) -> None:
     print("Diagnostic only: Python codec comparison; no game text is printed.")
-    print(f"BIN files: {report['bin_file_count']}; DAT files: {report['dat_file_count']}")
+    print(
+        f"BIN files: {report['bin_file_count']}; DAT files: {report['dat_file_count']}; "
+        f"BIN NUL-runs: {report['bin_nul_run_count']}"
+    )
     print(f"Literal FF FF starts: {report['literal_marker_count']}")
     print("Scope                              Rows   CP932 strict/roundtrip   Shift-JIS strict/roundtrip   Different rows/positions")
     print("---------------------------------  -----  -----------------------  --------------------------  -----------------------")
     for name, profile in report["bin_profiles"].items():
         _print_profile_row(name, profile)
+    for name, profile in report["bin_nul_profiles"].items():
+        _print_profile_row(f"BIN NUL {name}", profile)
     for name, profile in report["dat_profiles"].items():
         _print_profile_row(f"DAT {name}", profile)
     _print_profile_row("DAT ext clean-wide review cohort", report["clean_wide_ext_profile"])
@@ -187,6 +218,7 @@ def print_report(report: dict[str, Any]) -> None:
     print("Strict-decode intersections (both / CP932-only / Shift-JIS-only / neither):")
     for name, profile in [
         *report["bin_profiles"].items(),
+        *((f"BIN NUL {name}", value) for name, value in report["bin_nul_profiles"].items()),
         *((f"DAT {group}", value) for group, value in report["dat_profiles"].items()),
     ]:
         status = profile["strict_status"]
@@ -197,6 +229,7 @@ def print_report(report: dict[str, Any]) -> None:
 
     for scope_name, profile in [
         *report["bin_profiles"].items(),
+        *((f"BIN NUL {name}", value) for name, value in report["bin_nul_profiles"].items()),
         *((f"DAT {name}", value) for name, value in report["dat_profiles"].items()),
     ]:
         mappings = profile["codepoint_mapping_differences"]

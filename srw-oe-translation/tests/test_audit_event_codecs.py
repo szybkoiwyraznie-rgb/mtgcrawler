@@ -45,7 +45,13 @@ class EventCodecAuditTests(unittest.TestCase):
     def test_audits_bin_marker_prefixes_and_dat_runs_from_zip(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             archive_path = Path(temporary_directory) / "event.zip"
-            bin_data = b"\xff\xff" + "あ".encode("cp932") + b"\x81\x60\x00\x00"
+            bin_data = (
+                b"\xff\xff"
+                + "あ".encode("cp932")
+                + b"\x81\x60\x00\x00"
+                + "日本語".encode("cp932")
+                + b"\x00"
+            )
             dat_data = "日本語".encode("cp932") + b"\x00"
             with zipfile.ZipFile(archive_path, "w") as archive:
                 archive.writestr("events/sample.bin", bin_data)
@@ -56,6 +62,16 @@ class EventCodecAuditTests(unittest.TestCase):
             self.assertEqual(report["bin_file_count"], 1)
             self.assertEqual(report["dat_file_count"], 1)
             self.assertEqual(report["literal_marker_count"], 1)
+            self.assertEqual(report["bin_nul_run_count"], 2)
+            self.assertEqual(report["bin_nul_profiles"]["all_nul_runs"]["count"], 2)
+            self.assertEqual(
+                report["bin_nul_profiles"]["wide_two_plus_outside_markers"]["count"],
+                1,
+            )
+            self.assertEqual(
+                report["bin_nul_profiles"]["clean_wide_two_plus_outside_markers"]["count"],
+                1,
+            )
             self.assertEqual(report["bin_profiles"]["greedy_script_candidates"]["count"], 1)
             self.assertEqual(
                 report["bin_profiles"]["greedy_script_candidates"][
