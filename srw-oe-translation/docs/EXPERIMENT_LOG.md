@@ -366,6 +366,35 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 
 **Not demonstrated:** the real YACpkTool on Windows (console redirection, `.EDAT` acceptance, `-o` behaviour of the user's build, the `-L` format, the `Status` values); completeness of CPK extraction against each container's table of contents; ISO structure or processing; any game load or in-game text; boundary validity of the text units; a Python 3.9 runtime.
 
+## 2026-10-09 — first real run of the one-click slice on the user's Windows PC
+
+**Input:** The user's own game folder (`D:\SRWOE`, not copied into the repository and not shared): 341 readable files, including `NPJH50521\` (137 top-level `.EDAT` files, `PARAM.PBP`, `PBOOT.PBP`, `PARAM.SFO`) and `SRW OE 1.08.iso`. The user's YACpkTool build: `YACpkTool.exe` SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962` (as reported by the pipeline; the binary is not in the repository). Run folder `20261009-185908` on the user's PC, outside the repository. The agent received only the console text and `REPORT.txt`, which contain file names, counts, and hashes but no decoded game text. Per-file SHA-256 values are in that run's `inputs.csv`, which has not been received yet.
+
+**Action:** The user ran `RUN_PIPELINE.bat` (code at commit `b1e6fb2`) by double-clicking it and choosing the folders once. No file was edited by hand.
+
+**Result (status `completed`, as reported):**
+
+- Probe: `original_name/captured` was rejected. The converter exited with code 3762504530 (0xE0434352, an unhandled .NET exception), and Windows showed a crash dialog for YACpkTool. `original_name/console` passed. The extraction and repack calls therefore ran in console-output mode; the `-L` listing calls stayed captured.
+- Inputs: 341 files, 341 readable, unchanged during the run. CPK signatures: 290, of which 288 are unique by content.
+- Packages: 424, 424 reported extracted, 0 failed. Member files extracted: 11,389. Duplicates skipped (same content): 104.
+- Event text: 83 packages with BIN files verified, 0 failed. Text units: 39,103. These are heuristic candidates, not validated strings and not a translation.
+- Repack round trip for the smallest package: passed. Only that one package was checked.
+- Not processed: 47 top-level `.EDAT` files with an unrecognized signature, all in `NPJH50521\` (among them `eventP04.EDAT`, `evept101.EDAT`, `mesbtl04.EDAT`, `mesbmp04.EDAT`, `config04.EDAT`, `credit04.EDAT`, `face04.EDAT`, `robo04.EDAT`, `sprstd04.EDAT`, `voice01`–`voice15`, `voice19`, `BgmSet*.EDAT`, `se44xx.EDAT`); `PARAM.PBP`, `PBOOT.PBP`, `PARAM.SFO` (metadata containers); `SRW OE 1.08.iso` (ISO 9660, empty volume identifier, `size matches descriptor: no`; the byte values were not in this report).
+- Inference, not confirmed: 137 − 47 = 90 top-level CPK files. The remaining about 200 CPK signatures should be in subfolders under the input folder; `inputs.csv` will confirm this.
+
+**Interpretation:**
+
+- Observed: captured output crashed YACpkTool during the probe; console output did not.
+- Hypothesis, not tested: `YACT/Program.cs` sets `Console.CursorLeft` in the extraction progress loop (around lines 436–447). Redirected output may make that setter throw. This fits the exit code but has not been reproduced.
+- Observed limit: in console mode the pipeline cannot read YACpkTool's `Error:` lines. "0 failed" therefore means only that each call exited with code 0 and left at least one file. A partial extraction that exits 0 is not detected.
+- Unknown: why the ISO descriptor size differs from the file size (padding, truncation, or other). Not investigated; no ISO was processed.
+
+**Code change after this run:** The report now lists each rejected probe attempt; shows large exit codes in hex with a label; warns (in `Warnings` and in `Extraction`) that console mode does not check YACpkTool's error lines; reports how many packages' `-L` listings finished without an `Error:` line (this is not a completeness check); shows the ISO descriptor and file byte counts when they differ; and lists the completeness gap under known gaps. Final SHA-256 values: `tools/run_pipeline.py` `67d2c79325c195ad885492b3772c1a0b911c1a36c02898f4dc92b8c5549e83b6`; `tests/test_run_pipeline.py` `4b748fb514cb8a1dddc82129e3a91f43bed17fb0716af707ce5014f1c291a51f`; `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25` (unchanged).
+
+**Validation:** Full suite 118 tests OK (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). `tests/test_run_pipeline.py`: 34 tests OK (count unchanged; assertions added for the rejected-probe line, the console-mode notes, the hex exit code, and the ISO byte counts). pyflakes and `py_compile` clean; `git diff --check` clean.
+
+**Not demonstrated:** completeness of extraction against each container's table of contents; the `-L` output format; the contents or container type of the 47 non-CPK `.EDAT` files; the ISO's structure; the correctness of any text unit; any in-game result.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
@@ -373,3 +402,6 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
 - Record exact source ISO/base-resource hashes before any release/patch test.
 - Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.
+- Once the `-L` listing format is known, compare each package's listing with its extracted member paths (see the 2026-10-09 first-run entry).
+- Read-only: identify the 47 non-CPK `.EDAT` files from the first real run (sizes, hashes, first bytes; no decoding) and whether any carries text.
+- Read-only: explain the ISO descriptor size mismatch from the first real run.

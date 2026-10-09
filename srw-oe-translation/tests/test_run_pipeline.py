@@ -393,6 +393,13 @@ class RunPipelineTests(PipelineFixture):
         self.assertTrue(all(command[1] in ("-X", "-P") for command in self.console_calls))
         self.assertEqual(registry["summary"]["packages_extracted"], 3)
         self.assertEqual(registry["summary"]["gate_status"], "passed")
+        report = Path(result.report_path).read_text(encoding="utf-8")
+        self.assertIn("rejected probe: original_name/captured on ", report)
+        self.assertIn("exit code 3", report)
+        self.assertIn("error lines: not checked (console output is not captured)", report)
+        self.assertIn(f"listing (-L) without error: {registry['summary']['packages_total']} of", report)
+        self.assertTrue(any("console mode" in warning for warning in registry["warnings"]))
+        self.assertTrue(any("Completeness" in gap for gap in registry["known_gaps"]))
 
     def test_blocked_when_no_mode_extracts_and_no_partial_output_is_kept(self):
         self.write_standard_inputs()
@@ -724,6 +731,10 @@ class UnitHelperTests(unittest.TestCase):
         self.assertIn("final message", run_pipeline.converter_failure(call("partial"), expect_finished=True))
         self.assertIn("exit code 3", run_pipeline.converter_failure(call("", returncode=3), expect_finished=True))
         self.assertIsNone(run_pipeline.converter_failure(call("listing"), expect_finished=False))
+        crash = run_pipeline.converter_failure(call("", returncode=3762504530), expect_finished=True)
+        self.assertIn("3762504530 (0xE0434352, unhandled .NET (CLR) exception)", crash)
+        self.assertEqual(run_pipeline.describe_exit_code(-532462766), run_pipeline.describe_exit_code(3762504530))
+        self.assertEqual(run_pipeline.describe_exit_code(3), "3")
 
     def test_iso_facts_read_the_primary_volume_descriptor_only(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -734,6 +745,13 @@ class UnitHelperTests(unittest.TestCase):
         self.assertEqual(facts["volume_identifier"], "SRW_OE_TEST")
         self.assertEqual(facts["volume_space_blocks"], 17)
         self.assertTrue(facts["size_matches_descriptor"])
+        self.assertEqual(facts["descriptor_bytes"], 17 * 2048)
+        mismatch = dict(facts, size_matches_descriptor=False, file_bytes=17 * 2048 + 5)
+        self.assertIn(
+            f"size matches descriptor: no (descriptor {17 * 2048} bytes, file {17 * 2048 + 5} bytes)",
+            run_pipeline._iso_summary(mismatch),
+        )
+        self.assertNotIn("bytes", run_pipeline._iso_summary(facts))
 
     def test_snapshot_detects_added_changed_and_removed_entries(self):
         with tempfile.TemporaryDirectory() as temporary:

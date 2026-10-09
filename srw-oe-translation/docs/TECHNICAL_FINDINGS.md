@@ -81,14 +81,14 @@ Observations (from the code):
 - **`-X` arguments:** `-X` stores the next argument as a single-file name only if its first character is not `-`. The pipeline always writes `-X -i <source> -o <dir>`, so the whole archive is extracted.
 - **`-R`:** takes two arguments (`replaceWhat`, `replaceWith`) and is documented as experimental. The project never uses it.
 - **Packing (`-P`):** packs every file under the input folder recursively (`Directory.GetFiles(..., AllDirectories)`).
-- **Progress display:** extract and pack call `Console.CursorLeft = 0` in a loop. This may throw when stdout is redirected. Not verified; the pipeline's probe falls back to console mode.
+- **Progress display:** extract and pack call `Console.CursorLeft = 0` in a loop. This may throw when stdout is redirected. Not verified; the pipeline's probe falls back to console mode. On the user's Windows PC (2026-10-09, build SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962`), captured-output extraction ended with exit code 3762504530 (0xE0434352, an unhandled .NET exception), and console-output extraction then completed. This fits the hypothesis; the mechanism is not proven.
 - **Standard input:** never read.
 
 Hypotheses to test on disposable copies (not facts):
 
 - The user's binary keeps the exit-code-0 behaviour, so the text markers above are the only failure signals.
 - `.EDAT`-named inputs are accepted by `-X` if `CpkMaker` does not check the extension.
-- Piped stdout triggers the progress-display exception, so the console-mode fallback is needed.
+- Piped stdout triggers the progress-display exception, so the console-mode fallback is needed. Observed once on the user's build (see above); the mechanism is not proven.
 
 ## Working hypotheses — validate before relying on them
 
@@ -123,6 +123,7 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - Whether the game's font/runtime renders lowercase English and punctuation, and whether any font patch is required.
 - Whether the user's YACpkTool build matches the archived source, and how its `CpkMaker.dll` validates signatures, extensions, and `Status` values.
 - Whether `-L` lists members in a format that can be compared with the extracted files; the one-click run saves that output but does not yet compare it.
+- What the 47 non-CPK `.EDAT` files in the user's `NPJH50521` folder are (format, encryption, and whether any holds text); `eventP04.EDAT` and `evept101.EDAT` are among them.
 
 ## References
 

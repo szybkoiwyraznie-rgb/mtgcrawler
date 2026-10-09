@@ -43,9 +43,11 @@
 - [ ] Validate the extractor's segment and unit rules on event packages beyond the restored sample; any conflict is a finding to record, not a reason to change the rule silently.
 - [~] Add automated no-change round-trip tests for the extractor/reinserter. Done for the extractor: segment coverage, the placeholder codec, raw and view rebuilds against each file's SHA-256, and export read-back. Reinserter tests remain open.
 - [x] Add the one-click local run for the first slice (`RUN_PIPELINE.bat` and `tools/run_pipeline.py`): one-time folder setup by dialogs, content-based inventory, converter SHA-256 and output-path checks, a converter probe, nested CPK extraction, per-package text export and verification, a CPK round-trip repack gate, and `REPORT.txt`. Its 34 synthetic tests pass with a fake converter; it has not been run with the real YACpkTool or any game file. See `ONE_CLICK_RUN.md`.
-- [ ] Run the one-click slice once on the user's Windows machine. Confirm the probe mode, `.EDAT` acceptance, the output-path rule, and the ISO descriptor report, and record exact counts and SHA-256 values in the experiment log.
+- [x] Run the one-click slice once on the user's Windows machine (2026-10-09, status `completed`). The captured-output probe crashed the converter, so extraction ran in console-output mode. Exact counts and SHA-256 values are in the experiment log.
 - [ ] Compare the `-L` member listing with the extracted files. The one-click run saves the listing but does not yet compare it, because its output format is unverified.
 - [ ] ISO processing in the one-click run: not automated. It reports the volume descriptor only; no ISO adapter exists.
+- [ ] Read-only: identify the 47 non-CPK `.EDAT` files in the user's `NPJH50521` folder (including `eventP04.EDAT` and `evept101.EDAT`) and whether any carries text. No decoding.
+- [ ] Read-only: explain the ISO descriptor size mismatch (`size matches descriptor: no`).
 
 ## Gate 2 — safe insertion proof of concept
 

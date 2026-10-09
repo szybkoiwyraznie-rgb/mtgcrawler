@@ -70,6 +70,7 @@ MAX_PATH_CHARS = 200
 ERROR_LINE_RE = re.compile(r"^\s*Error:", re.IGNORECASE | re.MULTILINE)
 CRASH_RE = re.compile(r"unhandled exception|System\.[A-Za-z.]*Exception", re.IGNORECASE)
 FINISHED_TEXT = "Process finished"
+WINDOWS_EXIT_CODE_LABELS = {0xE0434352: "unhandled .NET (CLR) exception"}
 WINDOWS_SAFE_PATH_RE = re.compile(r"[A-Za-z]:\\(?:[A-Za-z0-9._~-]+\\)*[A-Za-z0-9._~-]*")
 POSIX_SAFE_PATH_RE = re.compile(r"/(?:[A-Za-z0-9._~-]+/)*[A-Za-z0-9._~-]*")
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
@@ -77,6 +78,8 @@ SHA256_RE = re.compile(r"[0-9a-f]{64}")
 KNOWN_GAPS = (
     "ISO adapter: not implemented; ISO images are reported (PVD facts) but never unpacked.",
     "Repack and write-back: disabled; the repack gate only checks CPK member round trips.",
+    "Completeness: extracted files are not yet compared with each package's listing (-L); a partial "
+    "extraction that exits 0 without an Error: line is not detected.",
     "Event text boundaries: unvalidated; units are heuristic candidates, not confirmed strings.",
     "Translation insertion: not implemented; no translated text is produced or applied.",
     "In-game verification: not performed; nothing here is a playable patch.",
@@ -246,6 +249,15 @@ def _has_regular_files(folder: Path) -> bool:
     return False
 
 
+def describe_exit_code(code: int) -> str:
+    """Exit code as text. Windows crash codes are large unsigned numbers, so they also get hex."""
+    value = code & 0xFFFFFFFF if code < 0 else code
+    if value < 0x80000000:
+        return str(value)
+    label = WINDOWS_EXIT_CODE_LABELS.get(value, "Windows exception or error code")
+    return f"{value} (0x{value:08X}, {label})"
+
+
 def converter_failure(call: ConverterCall, *, expect_finished: bool) -> Optional[str]:
     """Judge one converter call. Exit code 0 is not enough: YACpkTool prints `Error:` lines."""
     if call.error:
@@ -253,7 +265,7 @@ def converter_failure(call: ConverterCall, *, expect_finished: bool) -> Optional
     if call.timed_out:
         return "converter timed out"
     if call.returncode != 0:
-        return f"converter exit code {call.returncode}"
+        return f"converter exit code {describe_exit_code(call.returncode)}"
     if call.output is not None:
         if ERROR_LINE_RE.search(call.output):
             return "converter printed an Error: line"
@@ -282,10 +294,13 @@ def _member_entries(folder: Path) -> tuple[list[dict[str, Any]], list[dict[str, 
 def _iso_summary(facts: dict[str, Any]) -> str:
     if not facts.get("primary_volume_descriptor_found"):
         return f"container: {facts.get('container')}; no ISO 9660 primary volume descriptor at sector 16"
-    return (
+    text = (
         f"container: {facts['container']}; volume id: {facts.get('volume_identifier') or '(empty)'}; "
         f"size matches descriptor: {'yes' if facts.get('size_matches_descriptor') else 'no'}"
     )
+    if not facts.get("size_matches_descriptor"):
+        text += f" (descriptor {facts.get('descriptor_bytes')} bytes, file {facts.get('file_bytes')} bytes)"
+    return text
 
 
 def _iso_facts(path: Path, size: int) -> dict[str, Any]:
@@ -305,6 +320,8 @@ def _iso_facts(path: Path, size: int) -> dict[str, Any]:
         block_size = struct.unpack_from("<H", descriptor, 128)[0]
         facts["volume_space_blocks"] = blocks
         facts["logical_block_size"] = block_size
+        facts["descriptor_bytes"] = blocks * block_size
+        facts["file_bytes"] = size
         facts["size_matches_descriptor"] = blocks * block_size == size
     return facts
 
@@ -1180,6 +1197,11 @@ def run_pipeline(
             f"{iso_count} ISO images found: base-image selection is not implemented, so none was chosen"
         )
 
+    if run.io_mode == "console":
+        warnings.append(
+            "converter output was not captured (console mode): YACpkTool's error lines were not checked; "
+            "a package counts as extracted when the converter exits 0 and writes files"
+        )
     if status == "completed" and failures:
         status = "completed_with_failures"
     finished = dt.datetime.now().astimezone()
@@ -1304,6 +1326,30 @@ def _write_csvs(run_dir: Path, input_rows: list[dict[str, Any]], packages: list[
             )
 
 
+def _probe_rejection_lines(registry: dict[str, Any]) -> list[str]:
+    """Show every rejected probe attempt, so a converter crash in one mode stays visible."""
+    return [
+        f"  rejected probe: {attempt.get('naming_mode')}/{attempt.get('io_mode')} on "
+        f"{attempt.get('candidate')}: {attempt.get('reason')}"
+        for attempt in registry["probe"].get("attempts", [])
+        if not attempt.get("ok")
+    ]
+
+
+def _extraction_notes(registry: dict[str, Any]) -> list[str]:
+    notes = []
+    if registry["converter"].get("io_mode") == "console":
+        notes.append(
+            "  error lines: not checked (console output is not captured); a package counts as "
+            "extracted when the converter exits 0 and writes files"
+        )
+    listed = [package for package in registry["packages"] if package.get("list_ok") is not None]
+    if listed:
+        listed_ok = sum(1 for package in listed if package["list_ok"])
+        notes.append(f"  listing (-L) without error: {listed_ok} of {len(listed)} packages")
+    return notes
+
+
 def _render_report(registry: dict[str, Any]) -> str:
     summary = registry["summary"]
     converter = registry["converter"]
@@ -1331,6 +1377,7 @@ def _render_report(registry: dict[str, Any]) -> str:
         f"  sha256: {converter.get('sha256', 'n/a')}",
         f"  probe: {registry['probe'].get('status')} "
         f"(name mode: {converter.get('naming_mode') or 'n/a'}, output mode: {converter.get('io_mode') or 'n/a'})",
+        *_probe_rejection_lines(registry),
         "",
         "Input",
         f"  files: {registry['input']['file_count']} (readable: {registry['input']['readable_file_count']}), "
@@ -1343,6 +1390,7 @@ def _render_report(registry: dict[str, Any]) -> str:
         f"failed {summary['packages_failed']})",
         f"  member files extracted: {summary['member_files_extracted']}",
         f"  duplicates skipped (same content): {summary['aliases_total']}",
+        *_extraction_notes(registry),
         "",
         "Event text (heuristic units, verified for round trip only)",
         f"  packages with BIN files verified: {summary['text_packages_verified']} "

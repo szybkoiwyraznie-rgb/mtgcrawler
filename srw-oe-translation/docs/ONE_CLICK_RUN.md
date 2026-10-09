@@ -1,6 +1,6 @@
 # One-click local run (first slice)
 
-**Status:** implemented and tested with synthetic data and a fake converter. It has **not** yet been run on the user's Windows PC or on the real game files. Treat the first real run as an experiment and record its results in `EXPERIMENT_LOG.md`.
+**Status:** implemented and tested with synthetic data and a fake converter. Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`); the results and limits are in `EXPERIMENT_LOG.md`. Extraction completeness, the `-L` listing format, the 47 non-CPK `.EDAT` files, and the ISO are still open. Record the results of each further run in `EXPERIMENT_LOG.md`.
 
 ## What it does
 
@@ -70,9 +70,9 @@ Setup errors (for example, no folder chosen with `--no-gui`) exit with code 2.
 
 ## Known limitations and assumptions
 
-- **Not yet tested on Windows or with the real converter.** The converter behaviour used here was read from YACpkTool's archived source (2017), not from running it. See `TECHNICAL_FINDINGS.md`.
-- **Console output may be needed.** YACpkTool's progress display may fail when its output is redirected. The pipeline detects this in the probe and then runs that converter call with the console inherited. In that mode its error text cannot be captured, so success is judged from the output folder and the exit code only.
-- **Extraction completeness is not independently checked.** The run checks the converter's exit code, its `Error:` lines (captured mode), the presence of output files, and the repack round trip of one package. Before each extraction it also runs `-L` and saves that listing, but it does not compare the listing with the extracted files, and it does not parse the CPK table of contents itself, because the listing format is unverified.
+- **First real run done, with limits.** On the user's Windows PC the captured-output probe crashed that YACpkTool build (exit code 3762504530, 0xE0434352, an unhandled .NET exception), so extraction and repack calls ran in console-output mode. The converter behaviour is still based mainly on the archived source (2017). See `TECHNICAL_FINDINGS.md`.
+- **Console output may be needed.** YACpkTool's progress display may fail when its output is redirected (observed on the user's build). The pipeline detects this in the probe and then runs that converter call with the console inherited. In that mode its error text cannot be captured, so success is judged from the output folder and the exit code only. The report says so in its `Warnings` and `Extraction` sections.
+- **Extraction completeness is not independently checked.** The run checks the converter's exit code, its `Error:` lines (captured mode), the presence of output files, and the repack round trip of one package. Before each extraction it also runs `-L` and saves that listing, but it does not compare the listing with the extracted files, and it does not parse the CPK table of contents itself, because the listing format is unverified. The report's `listing (-L) without error` count only shows that each listing finished without an `Error:` line; it is not a completeness check.
 - **`.EDAT` names.** Whether the converter accepts an original `.EDAT` name is decided by the probe. If it rejects the name, the `.cpk` staging copy is used. The original file is never renamed.
 - **Nested depth and size.** Two nesting levels are processed. Each converter call has a 30-minute timeout.
 - **Path length.** Keep the output path short (for example `C:\SRW_OE_out`). Long member paths inside a package may still exceed Windows limits; if so, the package fails and the report says so.
@@ -98,4 +98,4 @@ The optional `expected_tool_sha256 = <64 hex digits>` key in the INI file pins t
 
 ## Sharing results
 
-Share `REPORT.txt` first. It contains file names and hashes of the game resources, which is the information needed to diagnose the run. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths.
+Share `REPORT.txt` first. It contains file names and hashes of the game resources, which is the information needed to diagnose the run. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths. If more detail is needed, `registry.json` is the next file to share. It holds names, sizes, hashes, probe attempts, ISO descriptor sizes, and per-package listing results, not decoded text.

@@ -4,19 +4,19 @@ The previously user-uploaded `eventP01.zip` is recoverable from its historical u
 
 ## Current state (milestone 35)
 
-Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 34 tests; full suite 118 OK). It has **not** been run with the real YACpkTool or any game file. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
+Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 34 tests; full suite 118 OK). Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`; 424 packages reported extracted, 0 failed, in console-output mode). Extraction completeness is not yet verified; the run's limits are recorded in `EXPERIMENT_LOG.md`. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
 
 `tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
 
-## Immediate next step (milestone 35)
+## Immediate next step (milestone 35, after the first real run)
 
-The one-click run needs one real test on the user's Windows PC. Until then, its converter behaviour (`.EDAT` names, the output-path rule, and piped output) comes from the archived YACpkTool source, not from a run. Next:
+The first real run is done (see `EXPERIMENT_LOG.md`, 2026-10-09). Next:
 
-1. On the user's machine, complete the one-time folder setup and double-click `RUN_PIPELINE.bat` with an output folder such as `C:\SRW_OE_out`. Share `REPORT.txt` and the counts from `inputs.csv` and `packages.csv`, not decoded text. Record the run in `EXPERIMENT_LOG.md` with exact counts and SHA-256 values.
-2. If the probe is blocked, use the probe logs in `logs\converter\` to decide whether the cause is the `.EDAT` name, the piped-output behaviour, or the output path. Fix only what the logs show.
-3. For every package the run extracts, `text/<id>/` holds an event-text export. Compare segment and unit behaviour across packages, and record every conflict as a finding rather than adjusting the rule to fit.
-4. Keep repack, write-back, and reinsertion blocked. The repack gate checks only CPK member round trips. Reinsertion waits until boundaries are validated across more packages and the no-change rebuild is a regression test.
-5. Do not make a visible insertion test the immediate gate. The user cautioned that this fragment may not be reachable in-game. If no reachable equivalent resource is found, record display QA as blocked/unknown.
+1. Ask the user for two files from the run folder: `registry.json`, and one converter listing log `logs\converter\*-list-*.txt` (the `-L` output, not seen yet). They contain names, sizes, hashes, and listings, not decoded text. Do not ask for game files.
+2. Once the listing format is known, compare each package's listing with its extracted member paths. Report any mismatch as a failure, and do not change extraction until the mismatch is understood.
+3. Read-only: identify the 47 non-CPK `.EDAT` files (sizes, hashes, first bytes; no decoding) and record whether any of them carries text. `eventP04.EDAT` and `evept101.EDAT` are first to check.
+4. Read-only: explain why the ISO descriptor size differs from the file size, using `registry.json`. Do not unpack the ISO.
+5. Keep repack, write-back, and reinsertion blocked. Do not change the probe order until the logs show it is needed.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 
