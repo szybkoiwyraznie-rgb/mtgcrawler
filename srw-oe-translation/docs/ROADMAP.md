@@ -86,8 +86,8 @@
 
 ## Gate 4 — release engineering
 
-- [ ] Identify and record exact SHA-256 hashes for supported Japanese base image and DLC variants.
-- [ ] Make a reproducible patch builder with input validation and safe output paths.
+- [ ] Identify and record exact SHA-256 hashes for the supported Japanese sources: the disc ISO (`SRW OE 1.08.iso`, 679,243,152 bytes) and each DLC package (chapter 4 only after the user decrypts the `*04` PSP EDAT files).
+- [ ] Build a reproducible **xdelta patch builder** (the SRW Z deliverable format, xdelta3): patch the disc ISO (chapter 1 + the base/system packages) and the DLC files (chapters 2–8) against the recorded originals, with input validation and safe output paths. The user applies the patch to their own Japanese copy with `xdelta3` / DeltaPatcher / the Retro Trans app, matching `retro-trans/SRW-Z`'s release model.
 - [ ] Test the patched result across reachable chapters and relevant PPSSPP settings; explicitly document inaccessible/unverified content, and test real hardware if available.
 - [ ] Distribute only patch data/tooling, never game images, DLC, or extracted proprietary assets.
 - [ ] Document installation, backups, known issues, and supported source versions.

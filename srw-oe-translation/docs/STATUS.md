@@ -6,7 +6,8 @@ Last updated: 2026-10-09
 
 - Game: Japanese PSP **Super Robot Taisen: Operation Extend** (SRT/SRW OE).
 - Title/content ID reported by the user: `NPJH50521`.
-- Base image reported by the user: `SRW OE 1.08.iso`, 664,324 KB as displayed/reported. Exact byte count and cryptographic hashes are not yet recorded.
+- Base image reported by the user: `SRW OE 1.08.iso`, 679,243,152 bytes — the PSP UMD disc with **chapter 1 of 8** (user-provided context, 2026-10-09); chapters 2–8 are PSN DLC in the user's game folder (`D:\SRWOE\NPJH50521`).
+- **End goal (stated by the user, 2026-10-09): the whole game translated into English and delivered as a patch**, following the SRW Z workflow (`retro-trans/SRW-Z`, already in `EXTERNAL_REFERENCES.md`): extract every string, translate, re-apply with an exact round-trip, verify against the game, and ship an `.xdelta` patch the user applies to their own Japanese copy — chapter 1 from the disc ISO, chapters 2–8 from the DLC files (chapter 4 only after the user decrypts the `*04` packages).
 - User has the DLC data in the PPSSPP memory-stick game directory and wants an **English** translation.
 - Translation source: the Japanese game itself. The user considers the old Akurasu script too low-quality to use as a source.
 

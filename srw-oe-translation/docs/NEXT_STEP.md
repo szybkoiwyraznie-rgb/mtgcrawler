@@ -22,9 +22,24 @@ The run now includes read-only ISO member extraction (chapter 1 and the disc's b
 8. Optional: to give the agent more detail, zip `registry.json` from the same run folder and upload it.
 9. The old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB).
 
-What the agent does with it: the report's `CPK table check` line validates the table reader on all real packages (DLC plus disc), and the ISO line shows the extracted disc members (chapter 1 in scope). Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools — the next run then covers all 8 chapters. After that: promote the table check to fail-closed if the run agrees, and recover the 1,111 hidden duplicate-name entries (206,898,244 bytes; 902 uncompressed readable by offset, 209 compressed needing a Layla decompressor or the converter).
+What the agent does with it: the report's `CPK table check` line validates the table reader on all real packages (DLC plus disc), and the ISO line shows the extracted disc members (chapter 1 in scope). Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools — the next run then covers all 8 chapters.
 
-Keep repack, write-back, insertion, and ISO rebuilding blocked.
+## The endgame, mapped to SRW Z's workflow
+
+The user's stated end goal (2026-10-09): **the whole game translated to English and delivered as a patch**, like `retro-trans/SRW-Z` (an `.xdelta` patch applied to the user's own Japanese image). SRW Z's pipeline maps to ours:
+
+| SRW Z (`retro-trans/SRW-Z`) | This project | State |
+| --- | --- | --- |
+| `extract_script.py` — every string to editable JSON | extraction + text-unit export (`tools/extract_event_text.py`, the one-click run) | done (units heuristic) |
+| translate the `text` fields | translation phase (English; style guide + terminology glossary) | not started |
+| `apply_script.py` — write back, exact round-trip | reinsertion + CPK container rebuild | not built |
+| gates before every build (`verify_pointers.py`, `verify_elf_patches.py`, `integrity.py`) | listing check + CPK table check | in place |
+| verify against the image (not a tool's report) | PPSSPP / in-game QA | not done |
+| `.xdelta` patch packaging + releases | xdelta patch builder (ISO + DLC files) | not started |
+
+Honest open items before the translation phase can start: full coverage (chapter 4 needs the user's decryption; chapter 1 joins via the ISO extraction on the next run), recovery of the 1,111 hidden duplicate-name entries (the patch must rebuild those containers completely), and validation of the heuristic text boundaries (39,103+ units are candidates, not confirmed strings).
+
+Keep repack, write-back, insertion, and ISO rebuilding blocked until extraction and exact round-trip tests pass and boundaries are independently validated.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 
