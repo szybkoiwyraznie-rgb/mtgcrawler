@@ -21,22 +21,24 @@ This goal concerns mechanical file handling. Translation wording, terminology re
 All large/private files and generated outputs stay under the already-ignored `srw-oe-translation/local/` or another user-selected local workspace. The current files there must not be deleted or migrated automatically.
 
 ```text
-local/
+local-workspace/              # example workspace; this name/location is not required
   config.toml                 # optional, local-only source/tool paths and build settings
   input/                      # optional drop-in mode; preserve supplied names/extensions
-  bin/YACpkTool/               # optional converter distribution, including its required DLLs
-    YACpkTool.exe              # configured executable path
   work/<run-id>/              # automatically created extraction/staging/cache
   reports/<run-id>/           # inventory, hashes, warnings, validation results
   output/<run-id>/            # rebuilt local ISO/DLC copies or patch artifacts
 ```
 
+The workspace may be on the Desktop, alongside the game files, or elsewhere. The converter does **not** have to be placed inside it.
+
 Two ways to provide sources should be supported so a second multi-gigabyte copy is not mandatory:
 
-- **Drop-in mode:** place the base image and the complete DLC/game-data tree under `local/input/` once; the tool finds them recursively.
+- **Drop-in mode:** place the base image and the complete DLC/game-data tree under `<workspace>/input/` once; the tool finds them recursively.
 - **Existing-path mode:** set the base ISO path and installed DLC root in the local config once. The tool reads these paths without modifying them and writes every intermediate/output elsewhere.
 
-The config may record the expected product ID (`NPJH50521`), the source root, and one path to the local CPK converter (for example `local/bin/YACpkTool/YACpkTool.exe`, with its required DLLs kept alongside, or an absolute path if stored elsewhere). The batch tool discovers and invokes that converter for every matching archive; the user should not launch it per file. The script will not download executables itself. It must record the executable's SHA-256 and any available version/help output in the run report. Config and executable are local-only and must never be committed; config must not contain credentials. The exact config schema and final command name are implementation decisions, not established interfaces.
+On the user's Windows system, YACpkTool may stay anywhere accessible—for example, in a Desktop folder or beside the game binaries. There is no mandatory `local/bin` location. The final runner should accept a one-time configured path (or a `--cpk-tool` argument); when no path is set, it may auto-discover `YACpkTool.exe` next to the script or directly in the configured input root. It must not recursively scan the whole Desktop/drive. Use it automatically for every matching archive, never ask the user to run it per file, and handle paths containing spaces using normal Windows process arguments (not shell-concatenated commands). If the converter distribution needs DLLs, keep them next to the `.exe` as supplied.
+
+The local config may record the expected product ID (`NPJH50521`), the source root, and the converter's absolute or config-relative path. The script will not download executables itself. It must record the executable's SHA-256 and any available version/help output in the run report. Config and converter files are local-only and must never be committed; config must not contain credentials. The exact config schema and final command name are implementation decisions, not established interfaces.
 
 Proposed eventual command contract (illustrative, **not implemented or runnable yet**):
 
@@ -87,7 +89,7 @@ A `--plan-only`/dry-run mode should be available for the later orchestrator. The
 
 | Area | Evidence already recorded | What must be verified before automation can build it |
 | --- | --- | --- |
-| CPK in `.EDAT` resources | Several user-listed `.EDAT` samples started with `CPK `; YACpkTool extracted `imenu01.EDAT` and `eventP01.EDAT`; an unchanged `DL102_20.bin` was reported byte-identical after a CPK pack/extract cycle. | The user can place a local YACpkTool executable in `local/bin/` or configure its path once. Verify that the tool accepts the original `.EDAT` path by content without renaming; batch `-L`/`-X` inspection/extraction and use `-P` only after no-change repack tests. Do not use YACpkTool's documented experimental `-R` for automated replacement. Pin/hash the executable and verify full member inventory, metadata, compression, and reproducible no-change rebuilds. A member-level round trip is not proof of a full ISO/DLC rebuild.
+| CPK in `.EDAT` resources | Several user-listed `.EDAT` samples started with `CPK `; YACpkTool extracted `imenu01.EDAT` and `eventP01.EDAT`; an unchanged `DL102_20.bin` was reported byte-identical after a CPK pack/extract cycle. | The user can keep YACpkTool anywhere accessible on Windows (including the Desktop or game folder) and configure its path once; the runner may also auto-discover it in the input root or next to the script. Verify that the tool accepts the original `.EDAT` path by content without renaming; batch `-L`/`-X` inspection/extraction and use `-P` only after no-change repack tests. Do not use YACpkTool's documented experimental `-R` for automated replacement. Pin/hash the executable and verify full member inventory, metadata, compression, and reproducible no-change rebuilds. A member-level round trip is not proof of a full ISO/DLC rebuild.
 | Base PSP ISO | The user reported `SRW OE 1.08.iso` and product ID `NPJH50521`; no full ISO has been processed in this dry phase. | Select and test an ISO/UMD reader and builder on a copy; verify product/version detection, paths, alignment/boot metadata, extraction, and re-open/re-extract. Preserve and compare source hash.
 | DLC/game-data set | The reported PPSSPP folder contains many `.EDAT` families plus PBP/SFO files; some `.EDAT` samples are CPK. | Inventory the complete user set and identify which assets are direct archives, encrypted wrappers, registration metadata, or unrelated files. Confirm DLC completeness/version and safe output/install behavior.
 | Event BIN structure | 22 sample BINs have consistent top-level EDAT/EVNT/ECHK framing and 3,277 heuristic script candidates; candidate boundaries and ECHK semantics are still unproven. | Validate text/record boundaries and controls on independent records/resources before designating the JSONL as translation data or enabling write-back.
