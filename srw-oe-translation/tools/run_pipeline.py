@@ -1516,6 +1516,14 @@ def run_pipeline(
                     f"{iso_inventory.get('directory_count')} directories, "
                     f"{iso_inventory.get('cpk_signature_count')} CPK signatures inside (not extracted)"
                 )
+                beyond = iso_inventory.get("extents_beyond_volume") or 0
+                if beyond:
+                    index_note += (
+                        f"; {beyond} member extents end beyond the PVD volume "
+                        f"(max +{iso_inventory.get('max_extent_overflow_bytes')} bytes; the file is "
+                        f"{iso_inventory.get('image_bytes', 0) - iso_inventory.get('volume_bytes', 0)} "
+                        "bytes longer than its descriptor)"
+                    )
             elif isinstance(iso_inventory, dict) and iso_inventory.get("status") == "unsupported":
                 index_note = f"; read-only index failed: {str(iso_inventory.get('error'))[:200]}"
             not_processed.append(

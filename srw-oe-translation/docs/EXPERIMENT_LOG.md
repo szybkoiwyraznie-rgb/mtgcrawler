@@ -611,11 +611,29 @@ Final SHA-256: `tools/run_pipeline.py` `69b519176269360a0c824a736456dc927791d1b0
 
 **Not removed:** GitHub keeps closed-PR commits reachable through the pull refs (`refs/pull/8/head` still points at `56aae991ba`), so the first zip remains visible on the closed PR #8 page until GitHub Support removes it (the "remove sensitive data" process). The same applies to any pull ref of this PR's old head. The branch `arena/01a0437d-mtgcrawler` belongs to another session and was not touched.
 
+## 2026-10-09 — fourth real run: identical results, and the ISO index failure is now printed
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` (run `20261009-215909`) and pasted `REPORT.txt`.
+
+**Observed:** identical to the third run — 377 packages (337 extracted, 40 failed); listing check verified 337, incomplete 38, unverified 2; layouts 246 full, 89 no ID column, 42 no filename column; text 39,103 units from 81 packages; repack gate passed; the same 38 duplicate-name failures and the same 2 mangled-name failures. The run is deterministic. The ISO `Not processed` line now ends with `read-only index failed: ISO9660 extent extends beyond the image volume` — the new error reporting works, and it names the cause: a member extent ends beyond the PVD's declared volume (the file is 5,533,072 bytes longer than its descriptor).
+
+## 2026-10-09 — the ISO index tolerates trailing data; the user's old upload branches are deleted
+
+**ISO change (read-only):** `_parse_record` in `tools/iso9660.py` now fails only when an extent ends beyond the image *file*; an extent that ends beyond the PVD's declared volume but inside the file is recorded as a warning instead of aborting the index (the real image has such extents — its file is longer than its descriptor). `inspect_iso9660` reports `image_bytes`, `extents_beyond_volume`, `max_extent_overflow_bytes`, `last_extent_end_bytes`, and `trailing_bytes_after_last_extent`, plus a warning when extents lie beyond the declared volume. The pipeline's ISO `Not processed` line carries the beyond-volume counts when the index succeeds. No member is extracted, hashed, modified, or passed to a converter; extents beyond the file are still rejected (fail closed).
+
+**Validation:** full suite 145 tests OK. New tests: an image whose declared volume is one block short of the file indexes successfully with `extents_beyond_volume` 1, `max_extent_overflow_bytes` 6, and the trailing-byte counts; an extent beyond the file still raises `Iso9660Error`; the pipeline report shows the beyond-volume note. Existing tests (including the corruption mutation check) pass unchanged. pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/iso9660.py` `cf9954cbdec66219f17073de2632b27d6ab4897a618889908ee2967833c31fb0`; `tools/run_pipeline.py` `8b1c207a5216a178cd60f19f73fe1d2bdf28cbc06f499a9aa4bd415208a356a2`; `tests/test_iso9660.py` `351dc10e8e07880c97b6a4dadccf4ab22fba9338d0324a73a42e495d2312539a`; `tests/test_run_pipeline.py` `69285b44b8bed61d7b845e490ed185fa632dea3d2dc074e876678859fb81ef38`.
+
+**Not validated locally:** the real ISO (it is on the user's PC); the next run will index it and show where the trailing 5,533,072 bytes sit relative to the last member extent.
+
+**Branch cleanup (at the user's request):** all five `szybkoiwyraznie-rgb-patch-1..5` branches were deleted; they carried only the user's personal web-upload commits (`Add files via upload` / `Delete …`, author `szybkoiwyraznie@gmail.com`, no agent co-author mark) over a shared base commit by another bot. No zip or binary data was found on them — the uploads were text files (card lists and a Python file from the original mtgcrawler project). The branch `arena/01a0437d-mtgcrawler` was left untouched: its only commit besides the base (`004cd4a`) carries the `Co-authored-by: arena-agent` mark, so it is a previous session's agent commit, not a personal upload. `main` contains no user commits and none of the old files. The user's personal commits remain reachable only through GitHub's pull refs (`refs/pull/1..6/head` and `refs/pull/8/head`); removing those needs GitHub Support's sensitive-data process.
+
 ## Pending
 
 - Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference, validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
 - Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
-- Read the ISO index failure from the third run's `registry.json` (`inputs[].iso_inventory.error`; the report now prints it too) and decide whether `tools/iso9660.py` needs an extension for the real image. Then explain the descriptor size mismatch (the file is 5,533,072 bytes longer than its descriptor) without unpacking the ISO.
+- Re-run `RUN_PIPELINE.bat` (about 3 minutes) and read the ISO's read-only index: the index now tolerates the trailing data, so the report/registry will show the member list, the CPK-signature members inside the ISO, and where the trailing 5,533,072 bytes sit relative to the last member extent. Use it to explain the descriptor mismatch and to cross-check the loose `NPJH50521` folder against the disc. Do not unpack the ISO.
 - Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.

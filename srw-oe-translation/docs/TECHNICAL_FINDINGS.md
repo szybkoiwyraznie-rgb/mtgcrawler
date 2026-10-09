@@ -89,6 +89,13 @@ Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some
 - Resolved (was a hypothesis): the "narrow column" idea was wrong. All 346 real listings parse in the strict two-space mode once rows are read per the printed columns; the single-space fallback exists but was not needed for real data.
 - Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
 
+## ISO image (`SRW OE 1.08.iso`, user's PC — read-only facts only)
+
+- Observed: the file is 679,243,152 bytes; the PVD declares logical block size 2048 and `volume_space_blocks` 328,960 (673,710,080 bytes). The file is 5,533,072 bytes longer than the descriptor (2,701 sectors plus 1,424 bytes) and is not sector-aligned; the volume identifier is empty.
+- Observed: the read-only index initially failed with `ISO9660 extent extends beyond the image volume` — at least one member extent ends beyond the declared volume, consistent with the file being longer than its descriptor.
+- Policy (since the 2026-10-09 change): extents beyond the declared volume but inside the file are warnings, not errors; extents beyond the file are rejected. The index reports `extents_beyond_volume`, `max_extent_overflow_bytes`, `last_extent_end_bytes`, and `trailing_bytes_after_last_extent`.
+- Unknown: what the trailing 5,533,072 bytes are (appended data, a second layer, or a rebuild artifact); the member list inside the ISO; whether the loose `NPJH50521` folder matches the disc. The next run will answer these from the index. No ISO member is extracted, hashed, or modified.
+
 ## CPK container structure (one sample: `mesbtl09.EDAT`, 6,272 bytes, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`)
 
 - Observed: a CRI CPK container. A `CPK ` header gives content offset 704 and content size 0 (the single entry is empty). A `CpkHeader` `@UTF` table at 0x10 lists its field names (`ContentOffset`, `ContentSize`, `TocOffset`, `TocSize`, `TocCrc`, `EtocOffset`, `EtocSize`, `ItocOffset`, `ItocSize`, `ItocCrc`, `GtocOffset`, …, `Align`, `Sorted`, `CpkMode`, `Tvers`, `Comment`, `Codec`, `DpkItoc`).

@@ -159,17 +159,45 @@ class Iso9660InventoryTests(unittest.TestCase):
             with self.assertRaisesRegex(Iso9660Error, "Mismatched both-endian volume-space size"):
                 inspect_iso9660(image_path)
 
-    def test_rejects_extent_beyond_declared_volume(self):
+    def test_rejects_extent_beyond_the_image_file(self):
         image = bytearray(_synthetic_iso())
-        # The PVD root record starts at byte 156; its extent LBA begins at +2.
+        # The PVD root record starts at byte 156; its extent LBA begins at +2. LBA 99 lies
+        # beyond the 26-block file, so the extent cannot be read at all.
         image[16 * BLOCK_SIZE + 156 + 2 : 16 * BLOCK_SIZE + 156 + 6] = (99).to_bytes(4, "little")
         image[16 * BLOCK_SIZE + 156 + 6 : 16 * BLOCK_SIZE + 156 + 10] = (99).to_bytes(4, "big")
         with tempfile.TemporaryDirectory() as temporary_directory:
             image_path = Path(temporary_directory) / "bad-extent.iso"
             image_path.write_bytes(image)
 
-            with self.assertRaisesRegex(Iso9660Error, "extent extends beyond"):
+            with self.assertRaisesRegex(Iso9660Error, "extent extends beyond the image file"):
                 inspect_iso9660(image_path)
+
+    def test_indexes_extents_beyond_the_declared_volume_within_the_file(self):
+        image = bytearray(_synthetic_iso())
+        # Declare one block less than the file holds: OTHER.BIN;1 (LBA 25, 6 bytes) then ends
+        # 6 bytes beyond the declared volume but inside the file, like an image with
+        # trailing or appended data.
+        image[16 * BLOCK_SIZE + 80 : 16 * BLOCK_SIZE + 84] = (25).to_bytes(4, "little")
+        image[16 * BLOCK_SIZE + 84 : 16 * BLOCK_SIZE + 88] = (25).to_bytes(4, "big")
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            image_path = Path(temporary_directory) / "trailing-data.iso"
+            image_path.write_bytes(image)
+
+            inventory = inspect_iso9660(image_path)
+
+            self.assertEqual(inventory["status"], "indexed")
+            self.assertEqual(inventory["file_count"], 3)
+            self.assertEqual(inventory["cpk_signature_count"], 2)
+            self.assertEqual(inventory["volume_bytes"], 25 * BLOCK_SIZE)
+            self.assertEqual(inventory["image_bytes"], 26 * BLOCK_SIZE)
+            self.assertEqual(inventory["extents_beyond_volume"], 1)
+            self.assertEqual(inventory["max_extent_overflow_bytes"], 6)
+            self.assertEqual(inventory["last_extent_end_bytes"], 25 * BLOCK_SIZE + 6)
+            self.assertEqual(
+                inventory["trailing_bytes_after_last_extent"],
+                26 * BLOCK_SIZE - (25 * BLOCK_SIZE + 6),
+            )
+            self.assertTrue(any("beyond the PVD volume" in warning for warning in inventory["warnings"]))
 
     def test_inventory_keeps_signature_only_iso_as_unsupported_not_fatal(self):
         with tempfile.TemporaryDirectory() as temporary_directory:

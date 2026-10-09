@@ -646,6 +646,39 @@ class RunPipelineTests(PipelineFixture):
         not_processed = " | ".join(registry["not_processed"])
         self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside (not extracted)", not_processed)
 
+    def test_report_notes_iso_member_extents_beyond_the_descriptor_volume(self):
+        self.write_standard_inputs()
+        real_inventory = run_pipeline.inventory_path
+
+        def patched_inventory(path):
+            inventory = real_inventory(path)
+            for entry in inventory["entries"]:
+                if entry["content_type"] == "iso9660_pvd_signature":
+                    entry["iso_inventory"] = {
+                        "status": "indexed",
+                        "file_count": 7,
+                        "directory_count": 2,
+                        "cpk_signature_count": 5,
+                        "extents_beyond_volume": 3,
+                        "max_extent_overflow_bytes": 4096,
+                        "image_bytes": 100000,
+                        "volume_bytes": 90000,
+                        "files": [],
+                        "directories": [],
+                        "warnings": [],
+                    }
+            return inventory
+
+        with patch.object(run_pipeline, "inventory_path", patched_inventory):
+            result, _lines = self.run_quietly()
+
+        not_processed = " | ".join(self.registry(result)["not_processed"])
+        self.assertIn(
+            "3 member extents end beyond the PVD volume (max +4096 bytes; "
+            "the file is 10000 bytes longer than its descriptor)",
+            not_processed,
+        )
+
     def test_report_shows_why_the_read_only_iso_index_failed(self):
         self.write_standard_inputs()
         real_inventory = run_pipeline.inventory_path

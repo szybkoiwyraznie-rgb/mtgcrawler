@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import BinaryIO
+from typing import Any, BinaryIO, Optional
 from urllib.parse import quote_from_bytes
 
 BLOCK_SIZE = 2048
@@ -80,6 +80,7 @@ def _parse_record(
     block_size: int,
     volume_bytes: int,
     image_bytes: int,
+    extent_notes: Optional[dict[str, Any]] = None,
 ) -> _DirectoryRecord:
     if len(raw) < 34 or raw[0] != len(raw):
         raise Iso9660Error("Invalid ISO9660 directory-record length")
@@ -98,7 +99,16 @@ def _parse_record(
     extent = _Extent(extent_lba, byte_length, extended_attributes)
     data_offset = extent.offset(block_size)
     data_end = data_offset + byte_length
-    if data_end > volume_bytes or data_end > image_bytes:
+    if data_end > image_bytes:
+        raise Iso9660Error("ISO9660 extent extends beyond the image file")
+    if extent_notes is not None:
+        # An extent may end beyond the PVD's declared volume yet stay inside the file: the
+        # image then carries data its descriptor does not declare (trailing or appended
+        # data). That is reported as a warning, not an error, so the index still succeeds.
+        extent_notes["max_data_end"] = max(extent_notes["max_data_end"], data_end)
+        if data_end > volume_bytes:
+            extent_notes["beyond_volume"].append(data_end - volume_bytes)
+    elif data_end > volume_bytes:
         raise Iso9660Error("ISO9660 extent extends beyond the image volume")
 
     file_unit_size = raw[26]
@@ -165,6 +175,7 @@ def _directory_members(
     block_size: int,
     volume_bytes: int,
     image_bytes: int,
+    extent_notes: Optional[dict[str, Any]] = None,
 ) -> list[list[_DirectoryRecord]]:
     """Read directory records and coalesce consecutive multi-extent files."""
     start = directory.offset(block_size)
@@ -189,6 +200,7 @@ def _directory_members(
             block_size=block_size,
             volume_bytes=volume_bytes,
             image_bytes=image_bytes,
+            extent_notes=extent_notes,
         )
         records_seen += 1
         if records_seen > MAX_DIRECTORY_ENTRIES:
@@ -252,6 +264,7 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
     if not image.is_file():
         raise Iso9660Error("ISO9660 input is not a regular file")
     image_bytes = image.stat().st_size
+    extent_notes: dict[str, Any] = {"beyond_volume": [], "max_data_end": 0}
 
     with image.open("rb") as stream:
         pvd, block_size, volume_bytes, joliet_seen = _read_volume_descriptor_set(
@@ -265,6 +278,7 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
             block_size=block_size,
             volume_bytes=volume_bytes,
             image_bytes=image_bytes,
+            extent_notes=extent_notes,
         )
         if root.identifier != b"\x00" or not root.is_directory or root.continues_extent:
             raise Iso9660Error("Invalid ISO9660 root-directory record")
@@ -287,6 +301,7 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
                 block_size=block_size,
                 volume_bytes=volume_bytes,
                 image_bytes=image_bytes,
+                extent_notes=extent_notes,
             ):
                 first = group[0]
                 if first.identifier in (b"\x00", b"\x01"):
@@ -328,9 +343,16 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
     files.sort(key=lambda member: str(member["path"]).casefold())
     directories.sort(key=str.casefold)
     cpk_count = sum(member["content_type"] == "cpk_signature" for member in files)
+    beyond_volume = extent_notes["beyond_volume"]
     warnings = []
     if joliet_seen:
         warnings.append("Joliet descriptors were detected but not used; names come from the PVD.")
+    if beyond_volume:
+        warnings.append(
+            f"{len(beyond_volume)} member extents end beyond the PVD volume "
+            f"(max +{max(beyond_volume)} bytes); the file is {image_bytes - volume_bytes} bytes "
+            "longer than its descriptor, so the image carries data the descriptor does not declare"
+        )
     return {
         "status": "indexed",
         "format": "ISO9660 PVD",
@@ -338,6 +360,11 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
         "logical_block_size": block_size,
         "volume_blocks": volume_bytes // block_size,
         "volume_bytes": volume_bytes,
+        "image_bytes": image_bytes,
+        "extents_beyond_volume": len(beyond_volume),
+        "max_extent_overflow_bytes": max(beyond_volume, default=0),
+        "last_extent_end_bytes": extent_notes["max_data_end"],
+        "trailing_bytes_after_last_extent": image_bytes - extent_notes["max_data_end"],
         "file_count": len(files),
         "directory_count": len(directories),
         "cpk_signature_count": cpk_count,
@@ -347,6 +374,8 @@ def inspect_iso9660(path: Path) -> dict[str, object]:
         "warnings": warnings,
         "scope_note": (
             "Read-only primary-volume directory inventory and first-four-byte signatures; "
-            "no member was extracted, hashed, modified, or passed to a converter."
+            "no member was extracted, hashed, modified, or passed to a converter. Extents "
+            "beyond the PVD's declared volume but inside the file are reported as warnings, "
+            "not errors; extents beyond the file are rejected."
         ),
     }
