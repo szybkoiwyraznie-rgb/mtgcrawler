@@ -295,6 +295,28 @@ Two clean 52-byte mixed-script rows occur at `DL105_30.bin@0x2FEC` and `DL105_40
 
 **Validation:** A synthetic ZIP case now verifies an unmarked, NUL-bounded BIN text run is included in the codec report alongside marker/DAT scopes, and output remains text-free. The full 58-test suite passes; `py_compile` over all tools/tests and `git diff --check` pass.
 
+## 2026-10-09 — review alternate marker starts and single-NUL split profile
+
+**Input:** The previously supplied `eventP01.zip` restored under ignored `local/`, plus its local candidate and all-marker JSONL exports. No ISO or DLC source was opened or processed.
+
+**Action:** Rechecked every non-greedy `FF FF` start against the nearest greedy-selected span and the observed EVNT/ECHK framing. Separately profiled the 627 marker candidates with a single NUL before their `00 00` stop, using exact raw prefix/suffix bytes and CP932 roundtrip flags; no proposed field was promoted or trimmed.
+
+**Result:** All 75 alternate marker starts stop no later than the nearest selected span and fit, including the terminating `00 00`, in the same valid EVNT block as that parent. All 75 follow the observed ECHK terminal. There are 49 starts inside selected spans (39 nested-only and ten also adjacent-overlapping) and 26 adjacent-overlapping-only starts; every alternative remains within an existing parent's stop. They occur in 14 BINs, in EVNT blocks with `+8` equal to 1 (65) or 2 (10), with marker-to-terminal gaps of 134–7,910 bytes (median 1,770). The 25 alternate half-width-only prefixes add no wide-script or punctuation candidate.
+
+All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (7–123 bytes, median 59). The suffix bytes have 26 unique payloads: 495 are two bytes total (`00` plus one byte, with counts 455 for `C9` and 40 for `CA`); 132 are three bytes total (`00` plus two bytes), each with one raw `0x01`/`0x02`/`0x03` control. These compact suffixes look data-like, but their field meaning is unknown. The profile strengthens preservation of the proposed prefix separately from trailing bytes; it does not prove that the first NUL is a string terminator. Keep the whole original span and suffix bytes available for any future parser.
+
+**Validation:** Counts were cross-checked against the 3,477-row marker inventory, 3,277-row candidate export, and the ZIP's EVNT/ECHK framing. No input files were modified; no string replacements or boundary trimming were performed.
+
+## 2026-10-09 — exact-byte cross-search of clean `_Entry.dat` leads
+
+**Input:** The previously supplied `eventP01.zip` (22 BIN and 66 DAT members), kept under ignored `local/`. No ISO or DLC source was opened or processed.
+
+**Action:** Took the five seven-byte `_Entry.dat` NUL-runs that pass strict/exact CP932 roundtrip and have no controls, PUA, or replacement characters, then searched each raw payload as an exact byte sequence across all 88 ZIP members. The review recorded metadata only—offsets, hashes, script/ASCII counts, match locations, and surrounding-byte counts—without decoding or printing these five values.
+
+**Result:** All five unique payloads occur only once in the archive, at their own offsets in `DL102_90_Entry.dat` (`0x075A`, `0x079A`, `0x081A`, `0x085A`, and `0x095A`). Their metadata profiles range from zero to one wide-Japanese codepoint, one to two half-width-Katakana codepoints, and three to five printable-ASCII codepoints; all include ASCII letters, while two also contain a digit. This is a short mixed-field review lead, not evidence of English prose or a named identifier. Each row lies at `0x1A` within a 64-byte lattice; surrounding record semantics remain unknown.
+
+**Validation:** Exact-byte search returned one occurrence per payload and no occurrences at other offsets or members. The ZIP and local exports were not modified.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
