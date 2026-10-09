@@ -137,6 +137,35 @@ class CompanionAuditTests(unittest.TestCase):
         self.assertEqual(framing["evnt_word_at_plus_8"], {1: 1, 2: 1})
         self.assertEqual(framing["echk_markers"], 2)
 
+    def test_punctuation_review_span_is_counted_after_echk_without_candidate_promotion(self):
+        punctuation = "……。".encode("cp932")
+        data = bytearray(104)
+        data[0:4] = b"EDAT"
+        struct.pack_into("<II", data, 4, len(data) - 8, 1)
+        data[12:16] = b"EVNT"
+        struct.pack_into("<II", data, 16, len(data) - 20, 1)
+        data[24:28] = b"ECHK"
+        struct.pack_into("<I", data, 28, 24)
+        struct.pack_into("<I", data, 32, 52)
+        struct.pack_into("<5I", data, 36, 101, 0, 96, 1, 0)
+        struct.pack_into("<I", data, 56, 200)
+        data[94:96] = b"\xff\xff"
+        data[96 : 96 + len(punctuation)] = punctuation
+        data[96 + len(punctuation) : 98 + len(punctuation)] = b"\x00\x00"
+
+        summary = audit_files({"sample.bin": bytes(data)})
+        framing = summary["framing"]["punctuation_review_framing"]
+
+        self.assertEqual(summary["candidate_spans"], 0)
+        self.assertEqual(framing["punctuation_review_spans"], 1)
+        self.assertEqual(framing["punctuation_review_spans_fully_within_evnt_block"], 1)
+        self.assertEqual(framing["punctuation_review_spans_after_echk_terminal"], 1)
+        self.assertEqual(framing["punctuation_review_spans_before_echk_terminal"], 0)
+        self.assertEqual(framing["punctuation_review_spans_without_valid_echk_chain"], 0)
+        self.assertEqual(
+            framing["minimum_punctuation_review_marker_gap_after_echk_terminal"], 34
+        )
+
     def test_candidate_span_is_counted_after_synthetic_echk_chain(self):
         japanese = "日本語".encode("cp932")
         data = bytearray(104)

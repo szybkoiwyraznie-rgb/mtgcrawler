@@ -189,9 +189,9 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Action:** Added a separate `scan_bin_punctuation_review()` pass and optional `--export-punctuation-review-jsonl` output. It scans only proposed prefixes that have a recognized Japanese punctuation codepoint but no kana/kanji/half-width script match; it never merges these rows into the main candidate table or companion range comparisons. Suffix-only punctuation is excluded.
 
-**Result:** The archive yields 35 punctuation-review leads in 12 BINs. Thirty-four strictly decode and round-trip as CP932, 33 consist only of recognized punctuation plus CR/LF, none has a single-NUL suffix, and 22 share the U+2026, U+2026, U+3002 codepoint sequence; three more of this sequence have trailing CRLF. Two leads contain non-newline controls and one contains private-use/malformed bytes, so the group is not uniformly clean. The repetitive ellipsis/full-stop pattern is plausible user-facing text and a likely detector miss, but remains unverified.
+**Result:** The archive yields 35 punctuation-review leads in 12 BINs. Thirty-four strictly decode and round-trip as CP932, 33 consist only of recognized punctuation plus CR/LF, none has a single-NUL suffix, and 22 share the U+2026, U+2026, U+3002 codepoint sequence; three more of this sequence have trailing CRLF. Two leads contain non-newline controls and one contains private-use/malformed bytes, so the group is not uniformly clean. The companion framing check places all 35 wholly within EVNT blocks, after the ECHK terminal u32 200, with a 34-byte minimum gap. The repetitive ellipsis/full-stop pattern is plausible user-facing text and a likely detector miss, but remains unverified.
 
-**Validation:** Added tests for a punctuation-only CP932 prefix, separate JSONL output, and rejecting a punctuation match found only after NUL. All 24 tests pass. The local supplement has 35 records and remains ignored.
+**Validation:** Added tests for a punctuation-only CP932 prefix, separate JSONL output, suffix-only rejection, and EVNT/ECHK positioning. All 25 tests pass. The local supplement has 35 records and remains ignored.
 
 ## Pending
 

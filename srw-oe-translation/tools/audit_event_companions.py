@@ -18,7 +18,7 @@ from pathlib import Path
 from statistics import median
 from typing import Iterator, Optional
 
-from audit_event_candidates import JAPANESE_RE, scan_bin
+from audit_event_candidates import JAPANESE_RE, scan_bin, scan_bin_punctuation_review
 
 
 def inputs_from_path(path: Path) -> Iterator[tuple[str, bytes]]:
@@ -133,6 +133,72 @@ def inspect_echk_chain(data: bytes, evnt_offset: int, block_end: int) -> Optiona
         return None
 
     return None
+
+
+def audit_punctuation_review_framing(bins: dict[str, bytes]) -> dict:
+    """Cross-check script-free punctuation leads against observed EVNT/ECHK framing."""
+    total = 0
+    contained = 0
+    outside_or_crossing = 0
+    without_valid_chain = 0
+    after_chain = 0
+    before_chain = 0
+    minimum_gap: Optional[int] = None
+    blocks_with_leads = set()
+    files_with_leads = set()
+
+    for filename, data in bins.items():
+        review_rows, _ = scan_bin_punctuation_review(filename, data)
+        event_offsets = marker_offsets(data, b"EVNT")
+        for row in review_rows:
+            total += 1
+            marker_offset = row.start - 2
+            owner = None
+            for index, event_offset in enumerate(event_offsets):
+                if event_offset + 8 > len(data):
+                    continue
+                block_end = event_offset + 8 + struct.unpack_from("<I", data, event_offset + 4)[0]
+                next_boundary = (
+                    event_offsets[index + 1]
+                    if index + 1 < len(event_offsets)
+                    else len(data)
+                )
+                if (
+                    block_end == next_boundary
+                    and event_offset <= marker_offset
+                    and row.pair_offset + 2 <= block_end
+                ):
+                    owner = (event_offset, block_end)
+                    break
+            if owner is None:
+                outside_or_crossing += 1
+                continue
+
+            contained += 1
+            blocks_with_leads.add((filename, owner[0]))
+            files_with_leads.add(filename)
+            chain = inspect_echk_chain(data, owner[0], owner[1])
+            if chain is None:
+                without_valid_chain += 1
+                continue
+            gap = marker_offset - chain["terminal_offset"]
+            if gap >= 0:
+                after_chain += 1
+                minimum_gap = gap if minimum_gap is None else min(minimum_gap, gap)
+            else:
+                before_chain += 1
+
+    return {
+        "punctuation_review_spans": total,
+        "punctuation_review_spans_fully_within_evnt_block": contained,
+        "punctuation_review_spans_outside_or_crossing_evnt_block": outside_or_crossing,
+        "punctuation_review_spans_without_valid_echk_chain": without_valid_chain,
+        "punctuation_review_spans_after_echk_terminal": after_chain,
+        "punctuation_review_spans_before_echk_terminal": before_chain,
+        "evnt_blocks_with_punctuation_review_spans": len(blocks_with_leads),
+        "files_with_punctuation_review_spans": len(files_with_leads),
+        "minimum_punctuation_review_marker_gap_after_echk_terminal": minimum_gap,
+    }
 
 
 def audit_event_framing(bins: dict[str, bytes]) -> dict:
@@ -252,8 +318,10 @@ def audit_event_framing(bins: dict[str, bytes]) -> dict:
                             for column, value in enumerate(row):
                                 segment_stats["row_columns"][column][value] += 1
 
+    punctuation_review_framing = audit_punctuation_review_framing(bins)
     return {
         "bins_with_edat_header": bins_with_edat_header,
+        "punctuation_review_framing": punctuation_review_framing,
         "edat_length_matches_file_minus_8": edat_length_matches,
         "edat_word_at_8_matches_evnt_count": edat_event_count_matches,
         "evnt_markers": event_markers,
@@ -999,6 +1067,17 @@ def print_summary(summary: dict) -> None:
         f"without valid chain={coverage['candidate_spans_without_valid_echk_chain']}, "
         f"minimum gap from byte after 200="
         f"{coverage['minimum_candidate_marker_gap_after_echk_chain']} bytes"
+    )
+    punctuation = framing["punctuation_review_framing"]
+    print(
+        "Script-free punctuation review spans in EVNT blocks (separate from candidate ranges): "
+        f"{punctuation['punctuation_review_spans_fully_within_evnt_block']}/"
+        f"{punctuation['punctuation_review_spans']}; after ECHK terminal="
+        f"{punctuation['punctuation_review_spans_after_echk_terminal']}, "
+        f"before={punctuation['punctuation_review_spans_before_echk_terminal']}, "
+        f"without valid chain={punctuation['punctuation_review_spans_without_valid_echk_chain']}, "
+        f"minimum gap={punctuation['minimum_punctuation_review_marker_gap_after_echk_terminal']} bytes, "
+        f"files={punctuation['files_with_punctuation_review_spans']}"
     )
     overlap = coverage["echk_row_column_2_candidate_overlap"]
     print(
