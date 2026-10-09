@@ -217,6 +217,14 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** Added seven synthetic tests for extension-independent signatures, recursion, hashing/duplicates, symlink handling, report-path safety, and source immutability. All 33 project tests pass. No base ISO or DLC was processed.
 
+## 2026-10-09 — prepare a dry-run-default batch CPK extractor
+
+**Action:** Added `tools/extract_cpk_batch.py` to scan a mixed input directory by signature, create collision-safe per-archive output paths, and invoke one locally configured or bounded-auto-discovered YACpkTool executable with `-L` then `-X`. Dry-run is the default; `--execute` is explicit. The wrapper checks source SHA-256 before listing and after each command, keeps outputs separate from inputs, and reports `.EDAT` files without a CPK signature instead of silently treating them as archives.
+
+**Result:** The wrapper is prepared for the expected Windows directory containing many `.EDAT` files and an ISO, but it only processes files whose first four bytes are `CPK `. It does not alter extensions, use YACpkTool's experimental `-R`, repack CPKs, or process the ISO. The user may store the converter anywhere accessible and pass its path once; direct discovery is limited to the script directory and input root. Actual `.EDAT` acceptance and output layout remain to be checked against the real converter.
+
+**Validation:** Seven synthetic tests use a mocked subprocess to verify dry-run batching, `-L`/`-X` argv construction with spaces in paths, output separation, listing failure behavior, source-mutation detection, report-path safety, and bounded executable discovery. A CLI dry-run on a synthetic mixed folder reported one CPK, one non-CPK `.EDAT`, and one ISO and created no output directory. All 40 project tests pass. No real YACpkTool executable, base ISO, or DLC was used.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
