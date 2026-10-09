@@ -13,7 +13,7 @@ This is a read-only heuristic audit, not a validated string extractor. The user-
 
 ## Method
 
-For each `.bin`, the audit follows the exploratory rule: find `FF FF`, scan to the next `00 00` pair, decode that span as CP932, and keep spans containing at least one hiragana, katakana, or CJK character. This counts **candidate spans**, not confirmed dialogue strings. If a span contains a single NUL before the stopping pair, the audit separately counts the bytes before that NUL and records the remaining suffix as hex. It prints no game text.
+For each `.bin`, the audit follows the exploratory rule: find `FF FF`, scan to the next `00 00` pair, and propose the bytes before the first single NUL (or the whole span if none occurs) as text. A candidate is kept only when that proposed prefix, decoded with CP932 replacement, contains at least one hiragana, full-width katakana, CJK character, or half-width Katakana letter (`U+FF66`–`U+FF9D`). A Japanese-looking match in the post-NUL suffix alone does not create a text candidate. Strict CP932 decoding and byte-roundtrip are measured separately. Half-width-only matches are retained but flagged because single CP932 bytes in binary fields can decode as half-width kana. These are **candidate spans**, not confirmed dialogue strings. When a single NUL occurs, the raw suffix is counted and preserved separately. The audit prints no game text.
 
 Reproduce with an uploaded ZIP, extracted event directory, or one BIN:
 
@@ -25,46 +25,59 @@ The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run th
 
 ## Results across the 22 BIN files
 
-- 3,241 Japanese-containing candidate spans.
-- 627 spans contain a single `00` before the `00 00` stopping pair.
-- All 627 pre-NUL prefixes still contain Japanese; none of the 627 corresponding suffixes contain Japanese under the same CP932 heuristic.
+- 3,277 Japanese-script candidate spans: the earlier wide-script detector found 3,241, and recognizing half-width Katakana in proposed prefixes adds 36 more. Every added span is a half-width-only match, none has a single-NUL suffix, and all are retained with a review flag.
+- 627 spans contain a single `00` before the `00 00` stopping pair. All 627 pre-NUL prefixes contain wide-script Japanese; none of the suffixes has a wide-script match. However, 497 suffixes decode to at least one half-width Katakana codepoint under CP932. Given that these are short, uninterpreted suffix bytes (common examples include `00 C9` and `00 CA`), this is a codec/field collision signal, not evidence that the suffix is text.
 - The most common raw suffixes (from the first NUL to just before the stopping pair) are `00 C9` (455), `00 76 01` (43), `00 CA` (40), `00 2D 01` (26), and `00 E7 03` (21). These are **uninterpreted bytes**, not identified opcodes.
-- A local JSONL audit export contains 3,241 unique file/offset IDs. All prefixes strictly decode as CP932, but only 3,240/3,241 round-trip byte-for-byte; one prefix is flagged as non-reversible. All 627 prefixes before a single NUL contain Japanese, and none of their corresponding suffixes do.
+- A local JSONL audit export contains 3,277 unique file/offset IDs. Of these, 3,250 proposed prefixes strictly decode as CP932 and 3,249 round-trip byte-for-byte. The 27 non-strict prefixes are all among the 36 half-width-only candidates; the other nine half-width-only prefixes are strict and round-trip. The one remaining non-roundtripping prefix is strictly decodable and is separately flagged. All 627 single-NUL prefixes contain wide-script Japanese; none of their suffixes does, though 497 suffixes have half-width-Katakana decoder matches as described above.
 - Across the candidate text prefixes there are 430 CR bytes and 2,463 LF bytes. Every CR is the first byte of a CRLF pair, leaving 2,033 LF-only bytes. No CR or LF occurs in the recorded single-NUL suffixes. Preserve these bytes during any future export/reinsertion work.
 
 | BIN | Bytes | Candidate spans | With single-NUL suffix | CR bytes in spans |
 | --- | ---: | ---: | ---: | ---: |
-| `DL102_20.bin` | 16,216 | 181 | 34 | 34 |
+| `DL102_20.bin` | 16,216 | 184 | 34 | 34 |
 | `DL102_30.bin` | 15,620 | 166 | 36 | 14 |
 | `DL102_40.bin` | 10,136 | 66 | 12 | 10 |
-| `DL102_50.bin` | 20,820 | 175 | 33 | 0 |
+| `DL102_50.bin` | 20,820 | 177 | 33 | 0 |
 | `DL102_60.bin` | 7,948 | 63 | 13 | 33 |
 | `DL102_70.bin` | 11,472 | 98 | 29 | 10 |
 | `DL102_90.bin` | 18,760 | 236 | 35 | 38 |
 | `DL103_11.bin` | 23,752 | 230 | 33 | 47 |
-| `DL103_12.bin` | 22,824 | 232 | 45 | 43 |
-| `DL103_20.bin` | 17,912 | 167 | 38 | 33 |
+| `DL103_12.bin` | 22,824 | 235 | 45 | 43 |
+| `DL103_20.bin` | 17,912 | 174 | 38 | 33 |
 | `DL103_30.bin` | 10,332 | 87 | 21 | 27 |
-| `DL103_40.bin` | 22,848 | 223 | 55 | 0 |
-| `DL104_11.bin` | 21,140 | 195 | 44 | 31 |
+| `DL103_40.bin` | 22,848 | 232 | 55 | 0 |
+| `DL104_11.bin` | 21,140 | 198 | 44 | 31 |
 | `DL104_20.bin` | 11,684 | 102 | 26 | 0 |
 | `DL104_30.bin` | 15,468 | 149 | 30 | 5 |
-| `DL105_11.bin` | 21,636 | 238 | 35 | 6 |
-| `DL105_12.bin` | 22,408 | 223 | 47 | 28 |
+| `DL105_11.bin` | 21,636 | 242 | 35 | 6 |
+| `DL105_12.bin` | 22,408 | 225 | 47 | 28 |
 | `DL105_20.bin` | 12,028 | 138 | 20 | 45 |
-| `DL105_30.bin` | 12,812 | 102 | 10 | 0 |
+| `DL105_30.bin` | 12,812 | 105 | 10 | 0 |
 | `DL105_40.bin` | 15,168 | 168 | 31 | 25 |
 | `SM001.bin` | 1,364 | 1 | 0 | 0 |
 | `SM002.bin` | 1,384 | 1 | 0 | 1 |
-| **Total** | **333,732** | **3,241** | **627** | **430** |
+| **Total** | **333,732** | **3,277** | **627** | **430** |
 
 ### Marker and prefix-quality review flags
 
-The sequential heuristic sees 3,477 byte positions beginning `FF FF` when overlapping positions are counted. It selects 3,402 as outer span starts; 75 other starts are skipped by the scan: 49 are fully inside bounded scanned spans (across 44 spans), and 26 overlap an outer `FF FF` start in a run of three or more `FF` bytes. All 3,402 selected starts reach a later `00 00`; eight have an empty span, and 153 nonempty spans contain no Japanese under the current heuristic. The remaining 3,241 are the reported Japanese-containing candidates. These counts describe the scanner's behavior, not the game's record boundaries.
+The sequential heuristic sees 3,477 byte positions beginning `FF FF` when overlapping positions are counted. It selects 3,402 as outer span starts; 75 other starts are skipped by the scan: 49 are fully inside bounded scanned spans (across 44 spans), and 26 overlap an outer `FF FF` start in a run of three or more `FF` bytes. All 3,402 selected starts reach a later `00 00`; eight have an empty span, and 117 nonempty proposed prefixes contain no match under the expanded detector. The remaining 3,277 are candidates. Relative to the earlier wide-script-only rule, 36 spans are newly retained because their prefixes contain half-width Katakana; those matches are review-only, not proof of text. These counts describe the scanner's behavior, not the game's record boundaries.
 
-All 3,241 proposed text prefixes strictly decode as CP932, but only 3,240 re-encode byte-for-byte to the same prefix. Twenty prefixes contain only one codepoint matched by the Japanese-character heuristic. The exporter marks these properties as **review-only flags** (`nested_ff_ff_marker`, `private_use_codepoint`, `nonnewline_control_codepoint`, `prefix_cp932_not_byte_reversible`, and `single_japanese_codepoint`).
+Of 3,277 proposed text prefixes, 3,250 strictly decode as CP932 and 3,249 round-trip byte-for-byte. The 27 prefixes that fail strict decoding are all among the half-width-only group. That group contains 36 candidates: nine strictly decode and round-trip; 27 do not strictly decode. Thirty-one of the 36 have only one codepoint matched by the expanded Japanese heuristic, and five have two; their proposed prefixes are all short (8 are 1 byte, 1 is 3 bytes, 22 are 5 bytes, 4 are 6 bytes, and 1 is 7 bytes). Across the full candidate set, review-only flag counts are: nested `FF FF` in 29 prefixes, private-use codepoints in 30, non-newline controls in 12, a single Japanese-matched codepoint in 50, non-strict CP932 in 27, and a half-width-Katakana-only match in 36. One strictly decodable prefix is not byte-reversible. The exporter records these flags (`prefix_not_strict_cp932`, `prefix_cp932_not_byte_reversible`, `nested_ff_ff_marker`, `private_use_codepoint`, `nonnewline_control_codepoint`, `single_japanese_codepoint`, and `halfwidth_katakana_only_match`); none automatically excludes a row.
 
-Two especially low-confidence candidates are `DL102_20.bin@2160` and `DL105_20.bin@0F94`. Their prefixes are only 5 and 6 bytes long, with a nested `FF FF` at prefix-relative offset +2; each has one Japanese-matched codepoint before that marker and none after it. Both markers decode under CP932 as two U+F8F3 private-use codepoints, so the private-use and nested-marker flags are correlated here, not independent evidence. The second prefix is the one that does not round-trip and it also contains a non-newline control codepoint. These are plausible false positives, but remain candidates: rare names, control tokens, or unusual CP932 mappings may be legitimate. Preserve the bytes and review them in context rather than auto-dropping them.
+The 36 half-width-only IDs are recorded below without decoded text. The first column lists prefixes that strictly decode and round-trip; the second lists prefixes that fail strict CP932 decoding. All remain review candidates.
+
+| BIN | Strict + round-tripping IDs | Non-strict CP932 IDs |
+| --- | --- | --- |
+| `DL102_20.bin` | — | `@35EC`, `@3840`, `@3934` |
+| `DL102_50.bin` | `@1924`, `@1A38` | — |
+| `DL103_12.bin` | — | `@0E14`, `@0E24`, `@0E34` |
+| `DL103_20.bin` | — | `@0E87`, `@2640`, `@268C`, `@27DC`, `@29E0`, `@3924`, `@39A0` |
+| `DL103_40.bin` | — | `@24C4`, `@2C5C`, `@2C9C`, `@2CD0`, `@2D78`, `@30C0`, `@338C`, `@4590`, `@4ACC` |
+| `DL104_11.bin` | `@143C` | `@17C4`, `@181C` |
+| `DL105_11.bin` | `@1E60`, `@5374`, `@5398` | `@49A8` |
+| `DL105_12.bin` | `@0BB7` | `@0CE4` |
+| `DL105_30.bin` | `@207C`, `@29E4` | `@1F20` |
+
+Two illustrative low-confidence wide-script candidates are `DL102_20.bin@2160` and `DL105_20.bin@0F94`. Their prefixes are only 5 and 6 bytes long, with a nested `FF FF` at prefix-relative offset +2; each has one Japanese-matched codepoint before that marker and none after it. Both markers decode under CP932 as two U+F8F3 private-use codepoints, so the private-use and nested-marker flags are correlated here, not independent evidence. The second prefix is the one that does not round-trip and it also contains a non-newline control codepoint. These are plausible false positives, but remain candidates: rare names, control tokens, or unusual CP932 mappings may be legitimate. Preserve the bytes and review them in context rather than auto-dropping them.
 
 A small sanity check against four previously inspected examples in `DL102_20.bin` (`@14E8`, `@158C`, `@1D68`, and `@25A8`) found all four strictly CP932-decodable and byte-roundtripping, with no review flags. Their Japanese-heuristic codepoint counts are 20, 44, 14, and 22 respectively. This only shows that the current flags leave those sample prefixes untouched; four examples cannot establish precision/recall or validate the span boundaries.
 
@@ -72,7 +85,7 @@ The optional JSONL export records the flags and counts alongside the original of
 
 ### Why the first dump appeared to have 215 lines
 
-On the uploaded `DL102_20.bin`, the same heuristic finds 181 logical Japanese-containing candidate spans. Those spans contain 34 carriage-return bytes. The original PowerShell formatter replaced LF (`\n`) with ` / ` but left CR (`\r`) intact; writing those strings therefore split 34 candidates into extra physical lines. `181 + 34 = 215`, which matches the reported output-file line count. So 215 was almost certainly the number of displayed lines, not the number of candidate spans.
+The original, wide-script-only detector found 181 logical candidate spans in `DL102_20.bin`, containing 34 carriage-return bytes. The original PowerShell formatter replaced LF (`\n`) with ` / ` but left CR (`\r`) intact; writing those strings therefore split 34 candidates into extra physical lines. `181 + 34 = 215`, matching the reported output-file line count. The updated detector adds three half-width-only prefixes in this BIN (184 total); under the same formatter it would produce 218 physical lines. Thus the historical 215 count was the old detector's logical count plus embedded CR bytes, not a validated string count.
 
 Normalize CRLF/CR/LF together in future display output; do not let line-ending bytes affect candidate counts. Preserve raw line-break bytes in any structured export.
 
@@ -88,12 +101,12 @@ A separate read-only probe checks literal tags and little-endian words across al
 - If the ECHK `+4` u32 is treated as a size-like value, `q + 8 + value` lands at a recognizable boundary for all 332 tags: at another `ECHK` tag in 13 cases, or immediately before a little-endian u32 value of 200 in 319 cases. No computed end is outside the file or has another observed pattern. This supports, but does not prove, a length/boundary role; the meaning of the u32=200 and the ECHK payload remain unknown.
 - Following those endpoints from each EVNT's `+12` ECHK tag through any next ECHK yields 319 chains, all of which terminate at u32 200. The chain lengths are 1 (309 blocks), 2 (7), and 3 (3), exactly matching the literal u32 at EVNT `+8` in all 319 blocks. The chains cover all 332 ECHK tags: 319 initial tags plus 13 intermediate tags. This is an observed correlation, not an interpretation of the EVNT word.
 - All 332 ECHK `+4` values equal `4 + 20*n` for `n` from 1 to 5. Treating the first four bytes of that region as a prefix and the remainder as `n` 20-byte rows yields 1,066 rows; the second little-endian u32 of each row is zero. Summed by ECHK chain, the candidate row totals per block are `{1: 22, 2: 44, 3: 99, 4: 139, 5: 6, 6: 5, 7: 1, 12: 3}`. This is a repeatable candidate layout, not a decoded schema—the prefix and row-field meanings are unknown.
-- All 3,241 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. All 3,241 `FF FF` candidate markers occur after their block's terminal u32 200; none occur before it or in a block without a valid observed ECHK chain. The smallest distance from the byte immediately after u32 200 to a candidate `FF FF` marker is 34 bytes. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
+- All 3,277 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. All 3,277 `FF FF` candidate markers occur after their block's terminal u32 200; none occur before it or in a block without a valid observed ECHK chain. The smallest distance from the byte immediately after u32 200 to a candidate `FF FF` marker is 34 bytes. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
 
 | Literal EVNT `+8` | Blocks | ECHK chain length | Tentative ECHK row totals per block | Candidate spans |
 | ---: | ---: | ---: | --- | ---: |
-| 1 | 309 | 1 | `{1:22, 2:44, 3:99, 4:139, 5:5}` | 3,073 |
-| 2 | 7 | 2 | `{5:1, 6:5, 7:1}` | 148 |
+| 1 | 309 | 1 | `{1:22, 2:44, 3:99, 4:139, 5:5}` | 3,105 |
+| 2 | 7 | 2 | `{5:1, 6:5, 7:1}` | 152 |
 | 3 | 3 | 3 | `{12:3}` | 20 |
 
 Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing and an ECHK endpoint chain in this archive. They do **not** decode the blocks' contents, identify the `EVNT +8` values or u32 200, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.
@@ -106,36 +119,37 @@ Zero-based column 2 (`c2`) of each tentative 20-byte row was also compared numer
 
 | Literal EVNT `+8` | Rows | c2 values within BIN | Within candidate text prefix | Within full candidate span | Equal candidate start | Candidate span before/same/after owning EVNT block |
 | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 1 | 988 | 978 | 500 | 502 | 4 | 485 / 11 / 6 |
+| 1 | 988 | 978 | 501 | 503 | 4 | 486 / 11 / 6 |
 | 2 | 42 | 42 | 21 | 21 | 0 | 21 / 0 / 0 |
 | 3 | 36 | 36 | 18 | 18 | 0 | 18 / 0 / 0 |
-| **Total** | **1,066** | **1,056** | **539** | **541** | **4** | **524 / 11 / 6** |
+| **Total** | **1,066** | **1,056** | **540** | **542** | **4** | **525 / 11 / 6** |
 
 There are 1,021 nonzero c2 values; ten numeric values are at or beyond their paired BIN length. In this overlap table, “full candidate span” means bytes from `Candidate.start` up to but not including the first `00 00` stopping pair; two full-span hits fall in the unvalidated suffix after the first NUL rather than in the proposed text prefix. “Before/same/after” classifies the heuristic candidate span containing the numeric value relative to the EVNT block owning the ECHK row. All matches inherit the scanner's unverified string-boundary limitations; most overlapping values land in candidate spans before the referencing block, but that remains a lead for controlled analysis, not proof that c2 stores an offset.
 
-As a coarse offset check, 300 of the 539 c2 values inside proposed CP932 text prefixes (55.7%) land on a CP932 character-byte boundary; 239 land on a multibyte character's trail byte. A matched-candidate-weighted baseline, treating each byte position within each matched prefix as equally likely, predicts 50.7% boundary positions. This small difference is not decisive, especially because c2 values and candidate spans repeat; it neither confirms nor rules out byte-offset use.
+As a coarse offset check, 300 of the 539 c2 prefix hits with an available strict CP932 boundary map (55.7%) land on a CP932 character-byte boundary; 239 land on a multibyte character's trail byte. There are 540 total proposed-prefix overlaps; one more lies in a prefix for which strict roundtrip alignment is unavailable. A matched-candidate-weighted baseline, treating each byte position within each matched prefix as equally likely, predicts 50.7% boundary positions. This small difference is not decisive, especially because c2 values and candidate spans repeat; it neither confirms nor rules out byte-offset use.
 
-A second negative control projected each c2 value into candidate ranges from every *other* BIN whenever the value was within that target file's size. Same-BIN overlap is 541/1,056 in-range values (51.2%); the other-BIN control is 9,846/21,716 in-range row/target pairs (45.3%). Restricting both to nonzero values gives 53.5% same-BIN versus 47.4% cross-BIN. On a per-source-BIN comparison, only 9/22 sources have a positive same-minus-cross lift; the unweighted mean lift is -5.1 percentage points and the median is -7.5 points. Because BINs share content/layout patterns and repeated row values contribute multiple times, this is a crude control, not a formal significance test. It does not support a consistent same-file pointer interpretation.
+A second negative control projected each c2 value into candidate ranges from every *other* BIN whenever the value was within that target file's size. Same-BIN overlap is 542/1,056 in-range values (51.3%); the other-BIN control is 9,851/21,716 in-range row/target pairs (45.4%). Restricting both to nonzero values gives 53.6% same-BIN versus 47.4% cross-BIN. On a per-source-BIN comparison, only 9/22 sources have a positive same-minus-cross lift; the unweighted mean lift is -5.0 percentage points and the median is -6.5 points. Because BINs share content/layout patterns and repeated row values contribute multiple times, this is a crude control, not a formal significance test. It does not support a consistent same-file pointer interpretation.
 
-A separate exploratory probe tested a short list of plausible c2-to-file-offset formulas. With c2 used as an absolute BIN offset, 541/1,011 nonzero in-file values (53.5%) overlap full candidate spans, but only 11 such targets lie in the ECHK row's own EVNT block (11/22 absolute targets that land in that block). Adding c2 to the owning EVNT tag gives 405/933 candidate hits (43.4%; 72/175 targets landing in the owning block hit a candidate); using the first ECHK tag gives 415/933 (44.5%; 81/174), the current segment's ECHK tag 408/933 (43.7%; 73/174), its payload start 396/933 (42.4%; 68/174), or the row start 422/933 (45.2%; 79/171). A backwards-from-EVNT-end formula gives 437/986 (44.3%; 72/175). Exact candidate-start counts for those formulas are 4, 7, 19, 20, 11, 10, and 17 respectively. These bases were tested only as hypotheses; denominators differ because some transformed values fall outside the BIN or owning EVNT block, and candidate spans remain heuristic. None establishes an address convention or yields compelling evidence of block-relative text pointers.
+A separate exploratory probe tested a short list of plausible c2-to-file-offset formulas. With c2 used as an absolute BIN offset, 542/1,011 nonzero in-file values (53.6%) overlap full candidate spans, but only 11 such targets lie in the ECHK row's own EVNT block (11/22 absolute targets that land in that block). Adding c2 to the owning EVNT tag gives 405/933 candidate hits (43.4%; 72/175 targets landing in the owning block hit a candidate); using the first ECHK tag gives 416/933 (44.6%; 81/174), the current segment's ECHK tag 409/933 (43.8%; 73/174), its payload start 396/933 (42.4%; 68/174), or the row start 422/933 (45.2%; 79/171). A backwards-from-EVNT-end formula gives 438/986 (44.4%; 73/175). Exact candidate-start counts for those formulas are 4, 7, 19, 20, 11, 10, and 17 respectively. These bases were tested only as hypotheses; denominators differ because some transformed values fall outside the BIN or owning EVNT block, and candidate spans remain heuristic. None establishes an address convention or yields compelling evidence of block-relative text pointers.
 
-Among the 539 absolute-offset hits within proposed text prefixes, c2 minus the matched candidate start has 82 distinct displacements. The most frequent are 16 (55), 20 (32), 4 (32), 13 (26), 28 (20), 21 (19), 24 (18), 5 (18), 32 (15), and 9 (11). The two remaining full-span hits are in unvalidated suffixes, at displacements 40 and 92. Repeated values and candidate spans make this descriptive only; the observed spread does not identify a fixed text-relative offset. The calculations are reproducible in the companion auditor's `echk_c2_base_hypotheses` summary.
+Among the 540 absolute-offset hits within proposed text prefixes, c2 minus the matched candidate start has 82 distinct displacements. The most frequent are 16 (55), 20 (32), 4 (32), 13 (26), 28 (20), 21 (19), 24 (18), 5 (18), 32 (15), and 9 (11). The two remaining full-span hits are in unvalidated suffixes, at displacements 40 and 92. Repeated values and candidate spans make this descriptive only; the observed spread does not identify a fixed text-relative offset. The calculations are reproducible in the companion auditor's `echk_c2_base_hypotheses` summary.
 
 ## Companion-file observations (not a format specification)
 
 ### `_ext.dat`
 
-- All 22 files are 388 bytes. A raw NUL-delimited scan found 42 CP932 runs containing Japanese: 10 begin at byte `0x18`, 10 at `0xB8`, and all 22 at `0x158`. Each file has one or three such runs.
-- The 10 runs at `0x18` and the 10 at `0xB8` are byte-identical copies of one 48-byte string. The 22 runs at `0x158` are all byte-unique and 10–28 bytes long. There are 23 unique raw Japanese-bearing runs across all files. These are observed offsets and byte runs; they are not yet decoded as named fields. A previous CP932 script-change split counted 48 character runs; that is a different counting method, not 48 distinct NUL-delimited byte runs.
-- The Japanese-bearing runs contain no CR bytes and seven LF bytes. The second of the first two little-endian u32 words is 100 in seven files and 110 in 15 files; the first word varies. These header values are uninterpreted.
-- A NUL-delimited scan is a reproducible inventory method, not proof that every run is a user-visible string or that these offsets/values have a particular schema.
+- All 22 files are 388 bytes. With the expanded detector, a raw NUL-delimited scan finds 47 CP932 runs with Japanese-script matches: five at offset `0x00`, 10 at `0x18`, 10 at `0xB8`, and all 22 at `0x158`. Per-file hit counts are 1 (10 files), 2 (2), 3 (7), and 4 (3).
+- The five new offset-`0x00` matches are only two bytes each (`D8 0E`, `C8 19`, or `A8 16`); each decodes as one half-width Katakana codepoint plus one control codepoint and round-trips as CP932. These are strong examples of binary/header bytes accidentally matching the broader half-width detector, not evidence of five extra user-visible strings. Preserve them as review noise rather than interpreting them.
+- The 10 runs at `0x18` and the 10 at `0xB8` are byte-identical copies of one 48-byte string. The 22 runs at `0x158` are all byte-unique and 10–28 bytes long. The expanded inventory has 26 unique raw runs, three at offset `0x00` and 23 at the prior offsets. These are observed offsets and byte runs; they are not yet decoded as named fields. A previous CP932 script-change split counted 48 character runs; that is a different counting method, not 48 distinct NUL-delimited byte runs.
+- The matched runs contain no CR bytes and seven LF bytes. The second of the first two little-endian u32 words is 100 in seven files and 110 in 15 files; the first word varies. These header values are uninterpreted.
+- A NUL-delimited scan is a reproducible inventory method, not proof that every run is a user-visible string or that these offsets/values have a particular schema. In particular, half-width codepoints can arise by chance in binary fields.
 
 ### `_edit.dat` and `_Entry.dat` numeric comparisons
 
 The companion auditor reads `_edit.dat` as diagnostic little-endian u16 pairs and every four-byte word of `_Entry.dat` as a diagnostic u32. It compares those numbers with BIN size and with the candidate text-prefix/full-span ranges from the heuristic scanner. These numerical overlaps do **not** prove pointer semantics; `_Entry.dat` may also contain floats or unrelated fields, and the candidate ranges are not validated string boundaries.
 
 - All 22 `_edit.dat` files have lengths divisible by 4: 353 u16 pairs total, of which 22 are `(0, 0)` and 331 are nonzero. The first u16 values among nonzero pairs are 1 (64), 2 (185), 3 (27), and 4 (55). Of the 331 second-u16 values, 315 are numerically less than the paired BIN size and 16 are not. Of those values, 179 fall inside a candidate text prefix and 180 inside a full candidate span; six equal a candidate start.
-- All 22 `_Entry.dat` files have lengths divisible by 64. Treating each four-byte word as a u32 yields 10,160 words, including 3,556 zero words. Of the full set, 7,247 values are numerically less than the paired BIN size (3,691 are nonzero); 1,030 fall inside a candidate text prefix, 1,032 inside a full candidate span, and 55 equal a candidate start.
+- All 22 `_Entry.dat` files have lengths divisible by 64. Treating each four-byte word as a u32 yields 10,160 words, including 3,556 zero words. Of the full set, 7,247 values are numerically less than the paired BIN size (3,691 are nonzero); 1,033 fall inside a candidate text prefix, 1,035 inside a full candidate span, and 55 equal a candidate start.
 - These matches are leads for later controlled analysis only. Do not treat them as offsets, change them, or infer a table format from them.
 
 Reproduce the companion summary without printing Japanese source text:
@@ -148,4 +162,4 @@ Synthetic tests are in `tests/test_audit_event_companions.py`. The tool reuses t
 
 ## Interpretation and next work
 
-The all-file results support a tentative split: when a single NUL occurs before the next double-NUL pair, the Japanese-bearing prefix is before that NUL and the short non-Japanese suffix follows it. A diagnostic exporter should therefore return the CP932 prefix **and preserve the suffix bytes separately**. Do not treat the common suffix values as opcodes or discard them until the structure is verified against more record types and, eventually, an unchanged rebuild/game test.
+The all-file results support a tentative split: when a single NUL occurs before the next double-NUL pair, wide-script Japanese appears in the prefix, while no wide-script match appears in the short suffix. Many suffix bytes nevertheless decode as half-width Katakana, likely because binary field values share CP932 kana mappings; this does not validate them as text. A diagnostic exporter should return the proposed CP932 prefix **and preserve the suffix bytes separately**. Do not treat common suffix values as opcodes or discard them until the structure is verified against more record types and, eventually, an unchanged rebuild/game test.

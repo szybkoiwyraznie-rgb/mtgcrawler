@@ -20,7 +20,10 @@ from pathlib import Path, PurePosixPath
 from typing import Iterator, Optional
 
 
-JAPANESE_RE = re.compile(r"[ぁ-んァ-ヶ一-龯]")
+# CP932 game text may use half-width Katakana as well as standard kana/kanji.
+WIDE_JAPANESE_RE = re.compile(r"[ぁ-んァ-ヶ一-龯]")
+HALFWIDTH_KATAKANA_RE = re.compile(r"[\uFF66-\uFF9D]")
+JAPANESE_RE = re.compile(r"[ぁ-んァ-ヶ一-龯\uFF66-\uFF9D]")
 
 
 @dataclass(frozen=True)
@@ -34,6 +37,8 @@ class Candidate:
     prefix_cp932_strict: bool
     prefix_cp932_roundtrip: bool
     prefix_japanese_codepoints: int
+    prefix_wide_japanese_codepoints: int
+    prefix_halfwidth_katakana_codepoints: int
     prefix_private_use_codepoints: int
     prefix_nonnewline_control_codepoints: int
     nested_ff_ff_markers: int
@@ -53,8 +58,8 @@ def _marker_count(data: bytes, marker: bytes) -> int:
         position += 1
 
 
-def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int]:
-    """Decode a proposed text prefix and report reversible/odd codepoints."""
+def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int, int, int]:
+    """Decode a proposed prefix and report reversibility and script/codepoint counts."""
     text = prefix.decode("cp932", errors="replace")
     try:
         strict_text = prefix.decode("cp932")
@@ -68,6 +73,8 @@ def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int]:
         except UnicodeEncodeError:
             roundtrip = False
     japanese_codepoints = len(JAPANESE_RE.findall(text))
+    wide_japanese_codepoints = len(WIDE_JAPANESE_RE.findall(text))
+    halfwidth_katakana_codepoints = len(HALFWIDTH_KATAKANA_RE.findall(text))
     private_use_codepoints = sum(unicodedata.category(char) == "Co" for char in text)
     control_codepoints = sum(
         unicodedata.category(char) == "Cc" and char not in "\r\n\t"
@@ -78,13 +85,15 @@ def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int]:
         strict,
         roundtrip,
         japanese_codepoints,
+        wide_japanese_codepoints,
+        halfwidth_katakana_codepoints,
         private_use_codepoints,
         control_codepoints,
     )
 
 
 def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Counter]:
-    """Return Japanese-bearing heuristic candidates and marker-quality counts."""
+    """Return prefix-matched heuristic candidates and marker-quality counts."""
     stats = Counter()
     stats["literal_ff_ff_markers"] = _marker_count(data, b"\xff\xff")
     candidates = []
@@ -129,12 +138,6 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
                 roundtrip = False
             stats["roundtrip_cp932_raw_spans"] += roundtrip
 
-        if not JAPANESE_RE.search(decoded):
-            stats["non_japanese_spans"] += 1
-            i = pair_offset + 1
-            continue
-
-        stats["japanese_spans"] += 1
         first_nul = raw.find(b"\x00")
         text_bytes = raw if first_nul < 0 else raw[:first_nul]
         (
@@ -142,9 +145,18 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
             prefix_cp932_strict,
             prefix_cp932_roundtrip,
             japanese_codepoints,
+            wide_japanese_codepoints,
+            halfwidth_katakana_codepoints,
             private_use_codepoints,
             control_codepoints,
         ) = _prefix_quality(text_bytes)
+        if not JAPANESE_RE.search(text):
+            stats["non_japanese_prefixes"] += 1
+            stats["suffix_only_japanese_matches"] += bool(JAPANESE_RE.search(decoded))
+            i = pair_offset + 1
+            continue
+
+        stats["japanese_spans"] += 1
         stats["strict_cp932_prefixes"] += prefix_cp932_strict
         stats["roundtrip_cp932_prefixes"] += prefix_cp932_roundtrip
         stats["nonroundtrip_cp932_prefixes"] += not prefix_cp932_roundtrip
@@ -152,6 +164,10 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
         stats["prefixes_with_private_use"] += private_use_codepoints > 0
         stats["prefixes_with_nonnewline_controls"] += control_codepoints > 0
         stats["prefixes_with_one_japanese_codepoint"] += japanese_codepoints == 1
+        stats["prefixes_with_halfwidth_katakana"] += halfwidth_katakana_codepoints > 0
+        stats["prefixes_matched_only_by_halfwidth_katakana"] += (
+            halfwidth_katakana_codepoints > 0 and wide_japanese_codepoints == 0
+        )
 
         candidates.append(
             Candidate(
@@ -164,6 +180,8 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
                 prefix_cp932_strict=prefix_cp932_strict,
                 prefix_cp932_roundtrip=prefix_cp932_roundtrip,
                 prefix_japanese_codepoints=japanese_codepoints,
+                prefix_wide_japanese_codepoints=wide_japanese_codepoints,
+                prefix_halfwidth_katakana_codepoints=halfwidth_katakana_codepoints,
                 prefix_private_use_codepoints=private_use_codepoints,
                 prefix_nonnewline_control_codepoints=control_codepoints,
                 nested_ff_ff_markers=nested_markers,
@@ -179,12 +197,13 @@ def scan_bin_with_stats(filename: str, data: bytes) -> tuple[list[Candidate], Co
 
 
 def scan_bin(filename: str, data: bytes) -> Iterator[Candidate]:
-    """Yield Japanese-containing spans bounded by FF FF and the next 00 00.
+    """Yield spans whose proposed prefix has a Japanese-script CP932 match.
 
     `start` is the first byte after `FF FF`. Candidate text is the CP932 prefix
-    before the first NUL, or the whole span if there is no NUL. `suffix`, when
-    present, is the raw sequence from that NUL to just before the stopping pair.
-    This proposed split is diagnostic only; it is not a format parser.
+    before the first NUL, or the whole span if there is no NUL. Wide Japanese
+    and half-width Katakana qualify; a match only in `suffix` does not. `suffix`,
+    when present, is the raw sequence from that NUL to just before the stopping
+    pair. This proposed split is diagnostic only; it is not a format parser.
     """
     candidates, _ = scan_bin_with_stats(filename, data)
     yield from candidates
@@ -226,6 +245,8 @@ def write_jsonl(path: Path, rows_by_file: dict[str, list[Candidate]]) -> None:
                     quality_flags.append("nonnewline_control_codepoint")
                 if row.prefix_japanese_codepoints == 1:
                     quality_flags.append("single_japanese_codepoint")
+                if row.prefix_halfwidth_katakana_codepoints and not row.prefix_wide_japanese_codepoints:
+                    quality_flags.append("halfwidth_katakana_only_match")
                 record = {
                     "id": f"{filename}@{row.start:04X}",
                     "file": filename,
@@ -238,6 +259,8 @@ def write_jsonl(path: Path, rows_by_file: dict[str, list[Candidate]]) -> None:
                     "prefix_cp932_strict": row.prefix_cp932_strict,
                     "prefix_cp932_roundtrip": row.prefix_cp932_roundtrip,
                     "prefix_japanese_codepoints": row.prefix_japanese_codepoints,
+                    "prefix_wide_japanese_codepoints": row.prefix_wide_japanese_codepoints,
+                    "prefix_halfwidth_katakana_codepoints": row.prefix_halfwidth_katakana_codepoints,
                     "prefix_private_use_codepoints": row.prefix_private_use_codepoints,
                     "prefix_nonnewline_control_codepoints": row.prefix_nonnewline_control_codepoints,
                     "nested_ff_ff_markers": row.nested_ff_ff_markers,
@@ -288,8 +311,14 @@ def main(argv: Optional[list[str]] = None) -> int:
     prefix_japanese_rows = sum(
         row.prefix_has_japanese for rows in rows_by_file.values() for row in rows if row.suffix is not None
     )
-    suffix_japanese_rows = sum(
-        bool(JAPANESE_RE.search(row.suffix.decode("cp932", errors="replace")))
+    suffix_wide_japanese_rows = sum(
+        bool(WIDE_JAPANESE_RE.search(row.suffix.decode("cp932", errors="replace")))
+        for rows in rows_by_file.values()
+        for row in rows
+        if row.suffix is not None
+    )
+    suffix_halfwidth_katakana_rows = sum(
+        bool(HALFWIDTH_KATAKANA_RE.search(row.suffix.decode("cp932", errors="replace")))
         for rows in rows_by_file.values()
         for row in rows
         if row.suffix is not None
@@ -323,24 +352,34 @@ def main(argv: Optional[list[str]] = None) -> int:
         f"({scan_stats['nonempty_bounded_spans']} nonempty, "
         f"{scan_stats['empty_spans_before_double_nul']} empty, "
         f"{scan_stats['spans_without_double_nul']} without a stopping pair); "
-        f"non-Japanese spans: {scan_stats['non_japanese_spans']}"
+        f"prefixes without a Japanese-script match: {scan_stats['non_japanese_prefixes']}"
     )
     print(
         f"Candidate prefixes strictly decode as CP932: "
         f"{scan_stats['strict_cp932_prefixes']}/{total_candidates}; "
         f"byte-roundtrip exactly: {scan_stats['roundtrip_cp932_prefixes']}/"
-        f"{total_candidates}; non-roundtrip: {scan_stats['nonroundtrip_cp932_prefixes']}"
+        f"{total_candidates}; not exact (including non-strict): "
+        f"{scan_stats['nonroundtrip_cp932_prefixes']}"
     )
     print(
         "Review-only flags (not automatic exclusions): "
         f"nested FF FF={scan_stats['candidates_with_nested_ff_ff']}, "
         f"private-use codepoints={scan_stats['prefixes_with_private_use']}, "
         f"non-newline controls={scan_stats['prefixes_with_nonnewline_controls']}, "
-        f"one Japanese codepoint={scan_stats['prefixes_with_one_japanese_codepoint']}"
+        f"one Japanese codepoint={scan_stats['prefixes_with_one_japanese_codepoint']}, "
+        f"halfwidth-Katakana-only match={scan_stats['prefixes_matched_only_by_halfwidth_katakana']}"
     )
     print(f"Spans with a single NUL before the stopping 00 00: {single_nul_rows}")
-    print(f"Those pre-NUL prefixes containing Japanese: {prefix_japanese_rows}")
-    print(f"Those suffixes containing Japanese: {suffix_japanese_rows}")
+    print(f"Those pre-NUL prefixes containing Japanese-script characters: {prefix_japanese_rows}")
+    print(f"Those suffixes with wide-script Japanese matches: {suffix_wide_japanese_rows}")
+    print(
+        f"Those suffixes decoding with halfwidth Katakana: {suffix_halfwidth_katakana_rows} "
+        "(possible byte-field collisions, not treated as text evidence)"
+    )
+    print(
+        "Bounded spans with a Japanese match only after the first NUL: "
+        f"{scan_stats['suffix_only_japanese_matches']} (not exported as text candidates)"
+    )
     print(f"Embedded CR bytes: {total_cr}; LF bytes: {total_lf}")
     print(f"Estimated physical output lines with the old LF-only replacement: {total_candidates + total_cr}")
     print("\nMost common raw suffixes (from first NUL to before the stopping pair):")

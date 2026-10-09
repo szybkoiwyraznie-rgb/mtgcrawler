@@ -7,18 +7,18 @@
 - [x] Confirm a story/event BIN contains readable Japanese in Shift-JIS/CP932.
 - [x] Confirm unchanged `DL102_20.bin` survives a CPK pack/extract cycle byte-for-byte.
 - [x] Run the user's candidate-dump heuristic on `DL102_20.bin`; it found the known text.
-- [x] Reproduce the `DL102_20` output count: 181 logical candidate spans plus 34 unnormalized CRs explain the reported 215 physical lines.
+- [x] Explain the historical `DL102_20` output count: the old detector found 181 spans plus 34 unnormalized CRs (215 lines); the updated detector adds three half-width-only review candidates.
 - [x] Compare two readable and two noisy candidate examples; readable rows end directly at `00 00`, while noisy rows have `00`, code-like bytes, then `00 00`.
-- [x] Audit all 22 BINs: 3,241 Japanese-containing candidate spans, including 627 single-NUL suffix cases.
-- [x] Inventory confirms all 22 `_ext.dat` files contain CP932-decoded Japanese runs.
+- [x] Audit all 22 BINs: 3,277 Japanese-script candidate spans, including 36 half-width-only matches and 627 single-NUL suffix cases; suffix-byte half-width matches are tracked as possible binary collisions.
+- [x] Inventory the `_ext.dat` CP932 runs; all 22 files retain a longer match at `0x158`, while the expanded half-width detector adds five likely binary/header false positives at `0x00`, documented separately from those runs.
 - [x] Verify EDAT size/count and EVNT block-boundary arithmetic across all 22 BINs; all 319 event-block boundaries and ECHK-at-`+12` positions match.
-- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; fifteen synthetic tests pass.
-- [x] Follow each ECHK endpoint chain from EVNT `+12` to u32 200; chain length matches EVNT `+8` in all 319 blocks, and all 3,241 heuristic candidate markers occur after the terminator (minimum gap: 34 bytes).
-- [x] Stratify tentative ECHK row observations by chain position, report column-2 numerical overlap with heuristic candidate ranges (541 full-span overlaps), and check CP932 byte-boundary alignment; the result is inconclusive and pointer semantics remain unproven.
-- [x] Add a same-value cross-BIN negative control for ECHK column 2: pooled nonzero overlap is 53.5% paired-BIN versus 47.4% cross-BIN, but only 9/22 source BINs show positive lift (mean -5.1 pp; median -7.5 pp); this coarse control offers no consistent pairing evidence.
+- [x] Add a read-only audit for EDAT/EVNT framing, candidate-block containment, ECHK endpoints, `_ext.dat` runs, and `_edit.dat`/`_Entry.dat` numeric overlaps; eighteen synthetic tests pass.
+- [x] Follow each ECHK endpoint chain from EVNT `+12` to u32 200; chain length matches EVNT `+8` in all 319 blocks, and all 3,277 heuristic candidate markers occur after the terminator (minimum gap: 34 bytes).
+- [x] Stratify tentative ECHK row observations by chain position, report column-2 numerical overlap with heuristic candidate ranges (542 full-span overlaps), and check CP932 byte-boundary alignment; the result is inconclusive and pointer semantics remain unproven.
+- [x] Add a same-value cross-BIN negative control for ECHK column 2: pooled nonzero overlap is 53.6% paired-BIN versus 47.4% cross-BIN, but only 9/22 source BINs show positive lift (mean -5.0 pp; median -6.5 pp); this coarse control offers no consistent pairing evidence.
 - [x] Probe raw absolute and six simple record-relative c2 formulas. Absolute c2 overlaps more candidate spans, but only 11 hits lie in the row's own EVNT block; the tested local bases produce no compelling address pattern.
 - [x] Produce a diagnostic JSONL export with stable file/offset IDs, CP932 prefixes, and raw suffix bytes preserved; synthetic tests pass.
-- [x] Add review-only candidate quality signals for strict CP932 decoding/byte roundtrip, nested `FF FF`, private-use codepoints, non-newline controls, and very short Japanese-bearing prefixes; flagged candidates are retained, not auto-dropped.
+- [x] Add review-only candidate quality signals for strict CP932 decoding/byte roundtrip, nested `FF FF`, private-use codepoints, non-newline controls, very short matches, and half-width-only Katakana prefixes. The broadened detector adds 36 candidates, 27 of which fail strict CP932 decoding; all remain in the review export, not auto-dropped.
 - [~] Map raw `_ext.dat` Japanese-run offsets and compare companion numbers with heuristic BIN spans; EVNT framing and the observed ECHK chains/`4 + 20*n` layout are consistent, but payload, text-field, pointer, and record semantics remain unknown.
 - [ ] Validate single-NUL/pair boundaries and text completeness across more records and `.bin` files; the JSONL is not yet an approved translation table.
 - [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.

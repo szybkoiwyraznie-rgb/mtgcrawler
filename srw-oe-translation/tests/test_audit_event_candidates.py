@@ -58,7 +58,52 @@ class CandidateAuditTests(unittest.TestCase):
         self.assertEqual(rows, [])
         self.assertEqual(stats["literal_ff_ff_markers"], 1)
         self.assertEqual(stats["consumed_ff_ff_markers"], 1)
-        self.assertEqual(stats["non_japanese_spans"], 1)
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+
+    def test_recognizes_halfwidth_katakana_only_spans(self):
+        halfwidth_katakana = "ｶ".encode("cp932")
+        data = b"\xff\xff" + halfwidth_katakana + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "ｶ")
+        self.assertTrue(rows[0].prefix_has_japanese)
+        self.assertEqual(rows[0].prefix_japanese_codepoints, 1)
+        self.assertEqual(rows[0].prefix_wide_japanese_codepoints, 0)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 1)
+        self.assertEqual(stats["japanese_spans"], 1)
+        self.assertEqual(stats["non_japanese_prefixes"], 0)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
+
+    def test_flags_malformed_cp932_halfwidth_match_for_review(self):
+        data = b"\xff\xff\xb6\x81\x00\x00"
+
+        rows = list(scan_bin("sample.bin", data))
+
+        self.assertEqual(len(rows), 1)
+        self.assertFalse(rows[0].prefix_cp932_strict)
+        self.assertEqual(rows[0].prefix_halfwidth_katakana_codepoints, 1)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "candidate.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertIn("prefix_not_strict_cp932", record["quality_flags"])
+        self.assertIn("halfwidth_katakana_only_match", record["quality_flags"])
+
+    def test_does_not_promote_halfwidth_katakana_in_suffix_to_text(self):
+        halfwidth_katakana = "ｶ".encode("cp932")
+        data = b"\xff\xffASCII\x00" + halfwidth_katakana + b"\x00\x00"
+
+        rows, stats = scan_bin_with_stats("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["non_japanese_prefixes"], 1)
+        self.assertEqual(stats["suffix_only_japanese_matches"], 1)
 
     def test_jsonl_export_keeps_text_and_suffix_separate(self):
         japanese = "日本語。".encode("cp932")

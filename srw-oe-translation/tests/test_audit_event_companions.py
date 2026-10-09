@@ -350,7 +350,8 @@ class CompanionAuditTests(unittest.TestCase):
         bin_data[2 + len(japanese) : 4 + len(japanese)] = b"\x00\x00"
 
         ext_data = bytearray(0x184)
-        struct.pack_into("<II", ext_data, 0, 1234, 100)
+        # Avoid a binary-header value that accidentally CP932-decodes as half-width kana.
+        struct.pack_into("<II", ext_data, 0, 0x41414141, 100)
         ext_data[0x18 : 0x18 + len(japanese)] = japanese
         title = "題名".encode("cp932")
         ext_data[0x158 : 0x158 + len(title)] = title
