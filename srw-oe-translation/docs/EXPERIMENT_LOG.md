@@ -744,6 +744,19 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the storage class of any real unreadable table; the cause of the `robo18` DirName gap; anything about translatable text. The table check stays report-only.
 
+## 2026-10-10 — run 20261010-011328: column schemas of the unreadable CPK tables (metadata only)
+
+**Input:** `registry.json` from run `20261010-011328` (497 packages; 425 agree, 3 mismatch, 69 unreadable). Stored outside the repository; SHA-256 `8c8f6a696018de9d5aa671c8817e761cdb773ab4113bc957a6cb127d0ec30d8a`.
+
+**Observed (column names and flags only; no table bytes or game text):**
+- 57 packages (e.g. `face01`) fail in ITOC with schema `FilesL=0x54, FilesH=0x54, DataL=0x5b, DataH=0x5b`. This ITOC has no `ID` or `TocIndex` column, which the reader expects.
+- 12 packages (e.g. `imenu20`, `sprstd06`, `bseq18`) fail in TOC with `FileSize` or `ExtractSize` stored with storage class 0x30 (constant), so the reader returns no value for them.
+- `robo18` still reads 21 entries, with the TOC DirName empty against listing `r2530/`. Its schema is not in the registry (the table reads), so the cause is still open.
+
+**Hypothesis (not verified):** the reader ignores constant (0x30) columns and uses the wrong ITOC layout. Both explain the 69 unreadable tables. The value encoding for constant columns is not confirmed, and no public reference was reachable from the sandbox.
+
+**Not changed:** reader code. A fix needs a verified layout, so the next step is to capture the table header bytes of one failing package with the tool (identification only, not decoded).
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
