@@ -1069,6 +1069,10 @@ def print_summary(summary: dict) -> None:
         f"{coverage['minimum_candidate_marker_gap_after_echk_chain']} bytes"
     )
     punctuation = framing["punctuation_review_framing"]
+    punctuation_gap = punctuation["minimum_punctuation_review_marker_gap_after_echk_terminal"]
+    punctuation_gap_text = (
+        "n/a" if punctuation_gap is None else f"{punctuation_gap} bytes"
+    )
     print(
         "Script-free punctuation review spans in EVNT blocks (separate from candidate ranges): "
         f"{punctuation['punctuation_review_spans_fully_within_evnt_block']}/"
@@ -1076,7 +1080,7 @@ def print_summary(summary: dict) -> None:
         f"{punctuation['punctuation_review_spans_after_echk_terminal']}, "
         f"before={punctuation['punctuation_review_spans_before_echk_terminal']}, "
         f"without valid chain={punctuation['punctuation_review_spans_without_valid_echk_chain']}, "
-        f"minimum gap={punctuation['minimum_punctuation_review_marker_gap_after_echk_terminal']} bytes, "
+        f"minimum gap={punctuation_gap_text}, "
         f"files={punctuation['files_with_punctuation_review_spans']}"
     )
     overlap = coverage["echk_row_column_2_candidate_overlap"]
