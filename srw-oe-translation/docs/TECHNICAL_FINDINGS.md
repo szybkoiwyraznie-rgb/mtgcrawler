@@ -77,9 +77,10 @@ Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some
 - Hypothesis, not tested: later entries overwrite earlier ones with the same name in one flat output folder.
 - Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
 
-## YACpkTool `-L` listing (second real run, all 346 listings read)
+## YACpkTool `-L` listing (second and third real runs, all listings read)
 
 - Observed (second real run `20261009-194153`, all 346 `-L` logs re-parsed locally): the listing check verified 189 of 346 packages and failed 157. Re-derived from the real logs, the failures are exactly: 42 listings without a `Contents Filename` column, 59 without an `ID` column, 16 with a `,00` percent for a 0-byte entry, 2 with a thousands separator in the `Content files` count (`1�711`, `1�201`), 2 with one console-mangled name each, and 38 with duplicate entry names.
+- Observed (third real run `20261009-214604`, rewritten parser): 337 of 377 packages verified, 38 incomplete (the same duplicate-name packages), 2 unverified (the same mangled names). Layouts: 246 full, 89 no ID column, 42 no filename column. The 31 additional packages over the second run are nested CPKs discovered because more parents extracted.
 - Observed: the printed columns follow the package's info flags. `Enable Filename info.:True/False` decides the `Contents Filename` column; `Enable ID info.:True/False` decides the `ID` column. Of the 346 listings: 246 print `No.  ID  Filesize  Compressed  %  Contents Filename`, 58 print no `ID` column, 42 print no `Contents Filename` column. No listing prints neither.
 - Observed: for the 42 packages without filename info, YACpkTool writes one ID-named file per entry; the observed file name is `ID00000` for ID 0 (face09, face18, mesbmp09 each have one entry, ID 0, one file `ID00000`). Hypothesis, one data point: the name is `ID` plus the zero-padded ID (`ID%05d`).
 - Observed: a 0-byte entry prints its percent as `,00` (0/0). `Filesize` is the uncompressed size and equals the extracted file's size; `Compressed` is the stored size. 215 of 346 packages are fully uncompressed (`Compressed files:0`); 131 have some compressed entries.

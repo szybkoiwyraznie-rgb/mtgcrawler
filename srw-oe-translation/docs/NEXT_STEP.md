@@ -8,16 +8,15 @@ Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/r
 
 `tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
 
-## Immediate next step (after the logs analysis and the parser rewrite)
+## Immediate next step (after the third real run)
 
-The second run's logs are analysed and the parser is rewritten; both are recorded in `EXPERIMENT_LOG.md` (2026-10-09, logs-analysis and parser-rewrite entries). Next:
+The third run verified 337 of 377 packages; the remaining 40 failures are exactly the 38 duplicate-name packages and the 2 console-mangled names. All are recorded in `EXPERIMENT_LOG.md` (2026-10-09, third-run and history-cleanup entries). Next:
 
-1. Re-run `RUN_PIPELINE.bat` with the current code (about 3 minutes, about 0.8 GB of output; delete the old run folder afterwards) and share the new `REPORT.txt` (plus `registry.json` if more detail is needed). Expected from the listings: 306 verified, 38 incomplete (duplicate names), 2 unverified (the console-mangled names in robo01/robo03).
-2. Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference; validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
-3. Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
-4. Read-only: explain why the ISO descriptor size differs from the file size, using `registry.json` (`inputs[].iso_facts` and `inputs[].iso_inventory`, the read-only member index). Do not unpack the ISO.
-5. The user should remove the game-file zip from the public branch history (commit `06ffdd7` adds `20261009-194153.zip` containing `mesbtl09.EDAT`); full removal needs a history rewrite or GitHub support, as with the earlier PR #8 zip.
-6. Keep repack, write-back, insertion, and ISO processing blocked.
+1. Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference; validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
+2. Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
+3. Read the ISO index failure from the third run's `registry.json` (`inputs[].iso_inventory.error`; the report prints it now) and decide whether `tools/iso9660.py` needs an extension for the real image. Then explain the descriptor size mismatch without unpacking the ISO.
+4. The user's old zip upload commits are removed from this branch's history (rebase plus `--force-with-lease`, at the user's request); the leftover PR #8 branch is deleted. The closed PR #8 page still shows its zip commit through GitHub's pull refs — that needs GitHub Support.
+5. Keep repack, write-back, insertion, and ISO processing blocked.
 
 The agent sandbox has neither the game files nor the converter, so the agent does not read the user's ISO or DLC; only the user's machine runs the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`.
 

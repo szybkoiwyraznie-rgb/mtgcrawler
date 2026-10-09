@@ -646,6 +646,26 @@ class RunPipelineTests(PipelineFixture):
         not_processed = " | ".join(registry["not_processed"])
         self.assertIn("read-only index: 7 files, 2 directories, 5 CPK signatures inside (not extracted)", not_processed)
 
+    def test_report_shows_why_the_read_only_iso_index_failed(self):
+        self.write_standard_inputs()
+        real_inventory = run_pipeline.inventory_path
+
+        def patched_inventory(path):
+            inventory = real_inventory(path)
+            for entry in inventory["entries"]:
+                if entry["content_type"] == "iso9660_pvd_signature":
+                    entry["iso_inventory"] = {
+                        "status": "unsupported",
+                        "error": "Multi-extent directories are unsupported",
+                    }
+            return inventory
+
+        with patch.object(run_pipeline, "inventory_path", patched_inventory):
+            result, _lines = self.run_quietly()
+
+        not_processed = " | ".join(self.registry(result)["not_processed"])
+        self.assertIn("read-only index failed: Multi-extent directories are unsupported", not_processed)
+
     def test_listings_without_an_id_column_verify_by_name_and_size(self):
         self.write_standard_inputs()
 

@@ -1516,6 +1516,8 @@ def run_pipeline(
                     f"{iso_inventory.get('directory_count')} directories, "
                     f"{iso_inventory.get('cpk_signature_count')} CPK signatures inside (not extracted)"
                 )
+            elif isinstance(iso_inventory, dict) and iso_inventory.get("status") == "unsupported":
+                index_note = f"; read-only index failed: {str(iso_inventory.get('error'))[:200]}"
             not_processed.append(
                 f"{entry['path']}: ISO image not processed (no validated ISO adapter); "
                 f"{_iso_summary(iso_facts)}{index_note}"

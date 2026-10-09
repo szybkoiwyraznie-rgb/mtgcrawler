@@ -538,7 +538,7 @@ Final SHA-256: `tools/run_pipeline.py` `dc1db0f54718cdc2f8a944477f790e3cfd0944d1
 
 ## 2026-10-09 — the second run's logs and registry: real listing layouts, ID-named files, unknown inputs identified
 
-**Input:** The user uploaded `20261009-194153.zip` (784,584 bytes, SHA-256 `355669cd94d95c1397461252c72350891f55ac072bc6c536b5fe38d3b5cf2ee0`) as commit `06ffdd7` on this branch. It holds the second run's `logs\converter\*.txt` (696 logs: 346 `-L` listings, 346 extractions, 2 probes, 1 pack, 1 unpack check), `registry.json` (1,644,222 bytes, SHA-256 `673395437be48bf4f2b4858c217ce2f3d05c9db4f352c2af29f896b62f26b144`), and one 6,272-byte container (`NPJH50521\mesbtl09.EDAT`, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`, matching the registry's `p202-mesbtl09-981a716110df`) as a sample for a future CPK table reader. All were unpacked under ignored `local/` and read only.
+**Input:** The user uploaded `20261009-194153.zip` (784,584 bytes, SHA-256 `355669cd94d95c1397461252c72350891f55ac072bc6c536b5fe38d3b5cf2ee0`) to this branch. It holds the second run's `logs\converter\*.txt` (696 logs: 346 `-L` listings, 346 extractions, 2 probes, 1 pack, 1 unpack check), `registry.json` (1,644,222 bytes, SHA-256 `673395437be48bf4f2b4858c217ce2f3d05c9db4f352c2af29f896b62f26b144`), and one 6,272-byte container (`NPJH50521\mesbtl09.EDAT`, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`, matching the registry's `p202-mesbtl09-981a716110df`) as a sample for a future CPK table reader. All were unpacked under ignored `local/` and read only. The upload commit was removed from the branch history at the user's request once the analysis was done (the zip contains a game file and the repository is public); a copy stays under ignored `local/second_run_upload/`.
 
 **Observed — the 157 failures re-derived from the real logs (exact counts):**
 
@@ -579,12 +579,44 @@ Final SHA-256: `tools/run_pipeline.py` `2dfbd64208c01d0155be5c4c65d48f646df5ccd9
 
 **Not demonstrated:** the next run itself; whether the 42 ID-named packages' size multisets match (they fail closed if not); the `@UTF` row encoding; any recovery of the 1,111 hidden entries; any repack, insertion, or in-game result.
 
+## 2026-10-09 — third real run with the rewritten parser: 337 of 377 packages verified
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` with the rewritten parser (run `20261009-214604`) and pasted `REPORT.txt`. Same input folder and converter (SHA-256 `8871f1ef…baf962`).
+
+**Observed:**
+
+- Status `completed_with_failures`. Input unchanged: 341 files; 290 CPK signatures (288 unique content).
+- Packages: 377 (extracted 337, failed 40) — 288 top-level plus 89 nested, 31 more nested packages than the second run because more parent packages extracted.
+- Listing check: **verified 337, incomplete 38, unverified 2, not checked 0**. Layouts: 246 full, 89 no ID column, 42 no filename column (377 total).
+- The prediction from the listings (306 verified of 346) was met and exceeded: the 31 newly discovered nested packages also verified, giving 337 of 377.
+- Failures are exactly the two known classes: the 38 duplicate-name packages (the same `bacb*`/`bseq*` list as the second run, with the same hidden-entry counts) and the 2 console-mangled names (`robo01`: 1710 of 1711 names matched; `robo03`: 506 of 507). The report's diagnostics section shows both mangled names (`r2222/"�.bsb`, `r1100/srwWI_�v�Z�R.bsb`), and the `Unrecognized inputs` section shows the 20 PSP EDAT and 27 AFS2 groups from the head bytes.
+- Event text: 81 packages verified (0 failed), 39,103 units — the total is unchanged; the one additional text package contributed 0 units.
+- Repack gate: passed. Member files extracted: 7,446; duplicate-content aliases skipped: 54.
+- ISO: still not processed, and the `Not processed` line carries no read-only index note, so `inspect_iso9660` returned `unsupported` on the real image; the error text is in `registry.json` (`inputs[].iso_inventory.error`) but was not pasted. The report now also prints that error when an index fails (code change below).
+
+**Interpretation:**
+
+- Observed: the pipeline now verifies every package whose extraction it can prove complete. The remaining 40 failures are exactly the known data-loss class (38 duplicate-name packages) plus 2 packages blocked by one undecodable name each (fail closed; every other name and size in those packages matches).
+- Not demonstrated: the cause of the ISO index failure; the `@UTF` row encoding; whether the hidden entries differ in content; any repack, insertion, or in-game result.
+
+**Code change (same commit):** the ISO `Not processed` line now also prints the read-only index error when the index returns `unsupported`, so a failed index is visible from `REPORT.txt` alone.
+
+**Validation:** Full suite 143 tests OK (one new test for the ISO index error in the report). pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `69b519176269360a0c824a736456dc927791d1b0d0d53c9f24464fcd7c12b387`; `tests/test_run_pipeline.py` `0dc8642764e2b4a7f8918ab5104033e9d3eb5d4db7bae38e59b212aab2058c2f`.
+
+## 2026-10-09 — the user's old zip commits removed from the branch history
+
+**Action (at the user's request, "moje stare, wykorzystane commity możesz pokasować sam"):** the upload commit that added `20261009-194153.zip` (with the game file `mesbtl09.EDAT` inside) was dropped from this branch with a rebase and a `--force-with-lease` push; a local backup branch keeps the old head. The leftover branch `arena/382dda12-mtgcrawler` (closed PR #8) was deleted; its valuable commits were already ported with `git cherry-pick -x`, and its zip commit `56aae991ba` was the user's first-run upload, already analysed. Nothing was lost: both zips and all analysed data stay under ignored `srw-oe-translation/local/`.
+
+**Not removed:** GitHub keeps closed-PR commits reachable through the pull refs (`refs/pull/8/head` still points at `56aae991ba`), so the first zip remains visible on the closed PR #8 page until GitHub Support removes it (the "remove sensitive data" process). The same applies to any pull ref of this PR's old head. The branch `arena/01a0437d-mtgcrawler` belongs to another session and was not touched.
+
 ## Pending
 
-- Re-run `RUN_PIPELINE.bat` with the current code on the user's PC (about 3 minutes, about 0.8 GB of output; delete the old run folder afterwards). Expected from the listings: 306 verified, 38 incomplete (duplicate names), 2 unverified (the mangled names in robo01/robo03). Share `REPORT.txt` (and `registry.json` if more detail is needed). The registry now also carries the read-only ISO member index (`inputs[].iso_inventory`), so the ISO descriptor mismatch can be explained from it without unpacking the ISO.
 - Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference, validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
 - Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
-- The user should remove the game-file zip from the public branch history (commit `06ffdd7` adds `20261009-194153.zip` containing `mesbtl09.EDAT`); full removal needs a history rewrite or GitHub support, as with the earlier PR #8 zip.
+- Read the ISO index failure from the third run's `registry.json` (`inputs[].iso_inventory.error`; the report now prints it too) and decide whether `tools/iso9660.py` needs an extension for the real image. Then explain the descriptor size mismatch (the file is 5,533,072 bytes longer than its descriptor) without unpacking the ISO.
+- Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
