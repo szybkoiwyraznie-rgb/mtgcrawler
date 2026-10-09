@@ -62,6 +62,8 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 40. Added `tools/iso9660.py` for read-only ISO9660 PVD directory/member inventory and first-four-byte CPK-signature detection. It validates both-endian fields and extent bounds, supports adjacent multi-extent files, and explicitly does not extract members; Joliet names are ignored and interleaved/multi-volume records are unsupported. Integrated metadata into `inventory_local_inputs.py` and separate nested ISO CPK candidates from top-level extraction plans in `extract_cpk_batch.py`. Six ISO/inventory tests and two batch-reporting tests were added; all 66 tests pass. No actual ISO/DLC or converter was opened or processed, and no output was extracted or modified.
 
+41. Ported the valuable commits from PR #8 (branch `arena/382dda12-mtgcrawler`, written after PR #7 was merged) into this branch with `git cherry-pick -x`: `40bfa82` (research notes), `7efa795` (one-wide `_Entry.dat` profile in `tools/audit_event_dat_runs.py`), and `558d9d6` (read-only ISO9660 directory indexer `tools/iso9660.py` with tests, plus inventory and batch-driver changes). Their STATUS items are renumbered 38–40. The uploaded zip was not ported. PR #8 was closed at the user's request; its branch is to be deleted by the user. The ISO indexer is tested with synthetic images only (7 tests, plus a corruption check). Full suite 131 OK.
+
 ## Not yet demonstrated
 
 - The one-click run has been run once on Windows with the user's YACpkTool and game files (item 36). Extraction completeness, the `-L` listing format, and the 47 non-CPK `.EDAT` files remain unverified.

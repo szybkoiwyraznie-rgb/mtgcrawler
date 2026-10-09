@@ -14,7 +14,7 @@ The listing analysis and the code change are recorded in `EXPERIMENT_LOG.md` (20
 
 1. Ask the user to re-run `RUN_PIPELINE.bat` with the current code. Expect about 3 minutes and about 0.8 GB of output; delete the old run folder afterwards. Ask for `REPORT.txt` and `registry.json` only. The converter logs have their folder paths replaced, but they still list game file names.
 2. From the new run: count packages failed as `incomplete` or `unverified`, list which text packages are among them, and check whether any extracted package still has a zero-byte member. Read the first bytes of the 47 unknown-signature inputs (`inputs[].head_hex`) and describe their formats as observations only.
-3. Ask the user to remove the zip from PR #8's branch (`arena/382dda12-mtgcrawler`, commit `56aae991ba`). The repository is public, and the converter log header holds the user's folder paths. This session's branch is not affected.
+3. The zip from PR #8 (`20261009-185908.zip`, commit `56aae991ba`) was not ported to this branch. PR #8 was closed at the user's request. Its branch `arena/382dda12-mtgcrawler` still exists until the user deletes it on GitHub. GitHub keeps the commit reachable through PR #8's history, so removing it fully needs a history rewrite or GitHub support.
 4. Open decision for the user: how to read the hidden duplicate-name entries. Options: a converter build the user supplies, pinned by SHA-256 and extracting by entry ID; or a read-only CPK table reader, validated against the converter's listing. No executable downloads.
 5. Explain the ISO descriptor difference from `registry.json` alone. Do not unpack the ISO.
 6. Keep repack, write-back, insertion, and ISO processing blocked.

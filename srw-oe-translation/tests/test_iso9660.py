@@ -1,3 +1,4 @@
+import random
 import sys
 import tempfile
 import unittest
@@ -184,6 +185,24 @@ class Iso9660InventoryTests(unittest.TestCase):
             self.assertEqual(report["entries"][0]["iso_inventory"]["status"], "unsupported")
             self.assertIn("terminator", report["entries"][0]["iso_inventory"]["error"])
             self.assertEqual(report["errors"], [])
+
+
+class Iso9660MutationTests(unittest.TestCase):
+    def test_corrupted_images_raise_only_iso_errors(self):
+        """A damaged image may be rejected, but the parser must not raise any other exception."""
+        base = bytes(_synthetic_iso())
+        rng = random.Random(20261009)
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "corrupted.iso"
+            for _ in range(500):
+                data = bytearray(base)
+                for _ in range(rng.randint(1, 40)):
+                    data[rng.randrange(len(data))] = rng.randrange(256)
+                path.write_bytes(bytes(data))
+                try:
+                    inspect_iso9660(path)
+                except (Iso9660Error, OSError):
+                    pass
 
 
 if __name__ == "__main__":
