@@ -22,7 +22,7 @@ from typing import Iterator, Optional
 
 # CP932 game text can include kana/kanji beyond the common ranges: iteration
 # and long-vowel marks, plus compatibility ideographs such as U+FA11 (﨑).
-# The Katakana middle dot (U+30FB) is punctuation and is deliberately excluded.
+# Punctuation-only prefixes are handled as a separate review supplement.
 WIDE_JAPANESE_CHARS = (
     r"\u3041-\u3096\u309d-\u309f"
     r"\u30a1-\u30fa\u30fc-\u30ff"
@@ -32,6 +32,10 @@ WIDE_JAPANESE_CHARS = (
 WIDE_JAPANESE_RE = re.compile("[" + WIDE_JAPANESE_CHARS + "]")
 HALFWIDTH_KATAKANA_RE = re.compile(r"[\uFF66-\uFF9D]")
 JAPANESE_RE = re.compile("[" + WIDE_JAPANESE_CHARS + r"\uFF66-\uFF9D]")
+JAPANESE_PUNCTUATION_RE = re.compile(
+    r"[\u2010-\u2015\u2025-\u2026\u3001\u3002\u300c-\u301b\u30a0\u30fb"
+    r"\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff65]"
+)
 
 
 @dataclass(frozen=True)
@@ -50,6 +54,27 @@ class Candidate:
     prefix_private_use_codepoints: int
     prefix_nonnewline_control_codepoints: int
     nested_ff_ff_markers: int
+    suffix: Optional[bytes]
+    carriage_returns: int
+    line_feeds: int
+
+
+@dataclass(frozen=True)
+class PunctuationReviewCandidate:
+    """A script-free punctuation prefix kept outside the main candidate set."""
+
+    filename: str
+    start: int
+    pair_offset: int
+    text_bytes: bytes
+    text: str
+    prefix_cp932_strict: bool
+    prefix_cp932_roundtrip: bool
+    prefix_japanese_punctuation_codepoints: int
+    prefix_private_use_codepoints: int
+    prefix_nonnewline_control_codepoints: int
+    nested_ff_ff_markers: int
+    punctuation_and_linebreaks_only: bool
     suffix: Optional[bytes]
     carriage_returns: int
     line_feeds: int
@@ -261,6 +286,69 @@ def scan_bin(filename: str, data: bytes) -> Iterator[Candidate]:
     yield from candidates
 
 
+def scan_bin_punctuation_review(
+    filename: str, data: bytes
+) -> tuple[list[PunctuationReviewCandidate], Counter]:
+    """Find script-free prefixes with Japanese punctuation, without auto-promotion.
+
+    These punctuation-only leads are kept separate from `scan_bin()` because
+    random/binary bytes can decode as punctuation. Prefix/suffix boundaries
+    follow the same exploratory `FF FF ... 00 00` and first-NUL rule.
+    """
+    rows = []
+    stats = Counter()
+    i = 0
+    while i < len(data) - 1:
+        if data[i : i + 2] != b"\xff\xff":
+            i += 1
+            continue
+        start = i + 2
+        pair_offset = data.find(b"\x00\x00", start)
+        if pair_offset < 0:
+            break
+        raw = data[start:pair_offset]
+        if raw:
+            first_nul = raw.find(b"\x00")
+            text_bytes = raw if first_nul < 0 else raw[:first_nul]
+            text, strict, roundtrip, _, _, _, private_use, controls = _prefix_quality(text_bytes)
+            punctuation_codepoints = len(JAPANESE_PUNCTUATION_RE.findall(text))
+            if not JAPANESE_RE.search(text) and punctuation_codepoints:
+                nested_markers = len(_marker_positions(raw, b"\xff\xff"))
+                punctuation_and_linebreaks_only = all(
+                    JAPANESE_PUNCTUATION_RE.fullmatch(char) or char in "\r\n"
+                    for char in text
+                )
+                rows.append(
+                    PunctuationReviewCandidate(
+                        filename=filename,
+                        start=start,
+                        pair_offset=pair_offset,
+                        text_bytes=text_bytes,
+                        text=text,
+                        prefix_cp932_strict=strict,
+                        prefix_cp932_roundtrip=roundtrip,
+                        prefix_japanese_punctuation_codepoints=punctuation_codepoints,
+                        prefix_private_use_codepoints=private_use,
+                        prefix_nonnewline_control_codepoints=controls,
+                        nested_ff_ff_markers=nested_markers,
+                        punctuation_and_linebreaks_only=punctuation_and_linebreaks_only,
+                        suffix=None if first_nul < 0 else raw[first_nul:],
+                        carriage_returns=raw.count(b"\r"),
+                        line_feeds=raw.count(b"\n"),
+                    )
+                )
+                stats["punctuation_only_review_prefixes"] += 1
+                stats["punctuation_codepoints"] += punctuation_codepoints
+                stats["strict_cp932_prefixes"] += strict
+                stats["roundtrip_cp932_prefixes"] += roundtrip
+                stats["punctuation_and_linebreaks_only"] += punctuation_and_linebreaks_only
+                stats["prefixes_with_private_use"] += private_use > 0
+                stats["prefixes_with_nonnewline_controls"] += controls > 0
+                stats["prefixes_with_nested_ff_ff"] += nested_markers > 0
+        i = pair_offset + 1
+    return rows, stats
+
+
 def inputs_from_path(path: Path) -> Iterator[tuple[str, bytes]]:
     """Read BIN bytes from a ZIP, a directory, or a single BIN file."""
     if path.is_dir():
@@ -323,13 +411,62 @@ def write_jsonl(path: Path, rows_by_file: dict[str, list[Candidate]]) -> None:
                 handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def write_punctuation_review_jsonl(
+    path: Path, rows_by_file: dict[str, list[PunctuationReviewCandidate]]
+) -> None:
+    """Write script-free punctuation leads to a separate local review export."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        for filename in sorted(rows_by_file):
+            for row in rows_by_file[filename]:
+                quality_flags = []
+                if not row.prefix_cp932_strict:
+                    quality_flags.append("prefix_not_strict_cp932")
+                elif not row.prefix_cp932_roundtrip:
+                    quality_flags.append("prefix_cp932_not_byte_reversible")
+                if row.nested_ff_ff_markers:
+                    quality_flags.append("nested_ff_ff_marker")
+                if row.prefix_private_use_codepoints:
+                    quality_flags.append("private_use_codepoint")
+                if row.prefix_nonnewline_control_codepoints:
+                    quality_flags.append("nonnewline_control_codepoint")
+                if not row.punctuation_and_linebreaks_only:
+                    quality_flags.append("contains_nonpunctuation_or_nonnewline_codepoint")
+                record = {
+                    "id": f"{filename}@{row.start:04X}",
+                    "file": filename,
+                    "start_offset": row.start,
+                    "pair_offset": row.pair_offset,
+                    "text_cp932": row.text,
+                    "text_bytes_hex": row.text_bytes.hex(" ").upper(),
+                    "suffix_hex": None if row.suffix is None else row.suffix.hex(" ").upper(),
+                    "prefix_has_japanese_script": False,
+                    "prefix_japanese_punctuation_codepoints": row.prefix_japanese_punctuation_codepoints,
+                    "punctuation_and_linebreaks_only": row.punctuation_and_linebreaks_only,
+                    "prefix_cp932_strict": row.prefix_cp932_strict,
+                    "prefix_cp932_roundtrip": row.prefix_cp932_roundtrip,
+                    "prefix_private_use_codepoints": row.prefix_private_use_codepoints,
+                    "prefix_nonnewline_control_codepoints": row.prefix_nonnewline_control_codepoints,
+                    "nested_ff_ff_markers": row.nested_ff_ff_markers,
+                    "quality_flags": quality_flags,
+                    "cr_bytes_in_full_span": row.carriage_returns,
+                    "lf_bytes_in_full_span": row.line_feeds,
+                }
+                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="event ZIP, extracted directory, or one BIN file")
     parser.add_argument(
         "--export-jsonl",
         type=Path,
-        help="write candidate text prefixes and raw suffix bytes to a local JSONL file",
+        help="write Japanese-script candidate prefixes and raw suffix bytes to a local JSONL file",
+    )
+    parser.add_argument(
+        "--export-punctuation-review-jsonl",
+        type=Path,
+        help="write script-free Japanese-punctuation leads separately to a local JSONL file",
     )
     args = parser.parse_args(argv)
 
@@ -337,15 +474,20 @@ def main(argv: Optional[list[str]] = None) -> int:
         parser.error(f"input does not exist: {args.input}")
 
     rows_by_file: dict[str, list[Candidate]] = {}
+    punctuation_review_by_file: dict[str, list[PunctuationReviewCandidate]] = {}
     sizes: dict[str, int] = {}
     scan_stats = Counter()
+    punctuation_stats = Counter()
     try:
         # Read archive members directly; do not extract proprietary assets to disk.
         for name, data in inputs_from_path(args.input):
             sizes[name] = len(data)
             rows, file_stats = scan_bin_with_stats(name, data)
+            punctuation_rows, punctuation_file_stats = scan_bin_punctuation_review(name, data)
             rows_by_file[name] = rows
+            punctuation_review_by_file[name] = punctuation_rows
             scan_stats.update(file_stats)
+            punctuation_stats.update(punctuation_file_stats)
     except (OSError, zipfile.BadZipFile, ValueError) as exc:
         parser.error(str(exc))
 
@@ -354,6 +496,13 @@ def main(argv: Optional[list[str]] = None) -> int:
             write_jsonl(args.export_jsonl, rows_by_file)
         except OSError as exc:
             parser.error(f"could not write JSONL export: {exc}")
+    if args.export_punctuation_review_jsonl:
+        try:
+            write_punctuation_review_jsonl(
+                args.export_punctuation_review_jsonl, punctuation_review_by_file
+            )
+        except OSError as exc:
+            parser.error(f"could not write punctuation review JSONL export: {exc}")
 
     suffix_counts: Counter[bytes] = Counter(
         row.suffix for rows in rows_by_file.values() for row in rows if row.suffix is not None
@@ -415,6 +564,15 @@ def main(argv: Optional[list[str]] = None) -> int:
         f"nested FF FF={scan_stats['non_japanese_private_use_prefixes_with_nested_ff_ff']}"
     )
     print(
+        "Script-free Japanese-punctuation review leads (not in main candidate export): "
+        f"{punctuation_stats['punctuation_only_review_prefixes']}; punctuation codepoints="
+        f"{punctuation_stats['punctuation_codepoints']}, "
+        f"strict/roundtrip={punctuation_stats['strict_cp932_prefixes']}/"
+        f"{punctuation_stats['roundtrip_cp932_prefixes']}, "
+        f"punctuation-or-CRLF-only={punctuation_stats['punctuation_and_linebreaks_only']}, "
+        f"with non-newline controls={punctuation_stats['prefixes_with_nonnewline_controls']}"
+    )
+    print(
         f"Candidate prefixes strictly decode as CP932: "
         f"{scan_stats['strict_cp932_prefixes']}/{total_candidates}; "
         f"byte-roundtrip exactly: {scan_stats['roundtrip_cp932_prefixes']}/"
@@ -455,6 +613,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         print(f"{count:5}  {suffix.hex(' ').upper()}")
     if args.export_jsonl:
         print(f"\nLocal JSONL export: {args.export_jsonl} ({total_candidates} records)")
+    if args.export_punctuation_review_jsonl:
+        print(
+            f"\nLocal punctuation-review JSONL: {args.export_punctuation_review_jsonl} "
+            f"({punctuation_stats['punctuation_only_review_prefixes']} records)"
+        )
     return 0
 
 

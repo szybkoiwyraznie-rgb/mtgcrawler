@@ -6,7 +6,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
-from audit_event_candidates import scan_bin, scan_bin_with_stats, write_jsonl  # noqa: E402
+from audit_event_candidates import (  # noqa: E402
+    scan_bin,
+    scan_bin_punctuation_review,
+    scan_bin_with_stats,
+    write_jsonl,
+    write_punctuation_review_jsonl,
+)
 
 
 class CandidateAuditTests(unittest.TestCase):
@@ -73,6 +79,39 @@ class CandidateAuditTests(unittest.TestCase):
         self.assertEqual(stats["non_japanese_private_use_prefixes_strict_cp932"], 1)
         self.assertEqual(stats["non_japanese_private_use_prefixes_roundtrip"], 1)
         self.assertEqual(stats["non_japanese_private_use_prefixes_with_nested_ff_ff"], 0)
+
+    def test_reports_punctuation_only_prefix_as_separate_review_lead(self):
+        punctuation = "……。".encode("cp932")
+        data = b"\xff\xff" + punctuation + b"\x00\x00"
+
+        self.assertEqual(list(scan_bin("sample.bin", data)), [])
+        rows, stats = scan_bin_punctuation_review("sample.bin", data)
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].text, "……。")
+        self.assertEqual(rows[0].prefix_japanese_punctuation_codepoints, 3)
+        self.assertTrue(rows[0].prefix_cp932_strict)
+        self.assertTrue(rows[0].prefix_cp932_roundtrip)
+        self.assertTrue(rows[0].punctuation_and_linebreaks_only)
+        self.assertEqual(stats["punctuation_only_review_prefixes"], 1)
+        self.assertEqual(stats["roundtrip_cp932_prefixes"], 1)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "punctuation-review.jsonl"
+            write_punctuation_review_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(record["id"], "sample.bin@0002")
+        self.assertFalse(record["prefix_has_japanese_script"])
+        self.assertTrue(record["punctuation_and_linebreaks_only"])
+
+    def test_does_not_promote_punctuation_found_only_in_suffix(self):
+        punctuation = "……。".encode("cp932")
+        data = b"\xff\xffASCII\x00" + punctuation + b"\x00\x00"
+
+        rows, stats = scan_bin_punctuation_review("sample.bin", data)
+
+        self.assertEqual(rows, [])
+        self.assertEqual(stats["punctuation_only_review_prefixes"], 0)
 
     def test_recognizes_halfwidth_katakana_only_spans(self):
         halfwidth_katakana = "ｶ".encode("cp932")
