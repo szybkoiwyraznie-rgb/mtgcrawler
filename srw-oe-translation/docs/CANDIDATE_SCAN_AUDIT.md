@@ -64,6 +64,8 @@ The sequential heuristic sees 3,477 byte positions beginning `FF FF` when overla
 
 All 3,241 proposed text prefixes strictly decode as CP932, but only 3,240 re-encode byte-for-byte to the same prefix. Two candidate prefixes each contain a nested `FF FF` and two CP932 private-use codepoints; one of these is also the non-roundtripping prefix and contains a non-newline control codepoint. These two low-confidence candidates are `DL102_20.bin@2160` and `DL105_20.bin@0F94`. Twenty prefixes contain only one codepoint matched by the Japanese-character heuristic. The exporter now marks these properties as **review-only flags** (`nested_ff_ff_marker`, `private_use_codepoint`, `nonnewline_control_codepoint`, `prefix_cp932_not_byte_reversible`, and `single_japanese_codepoint`). They are not automatic exclusions: rare names, control tokens, or CP932 mappings may be legitimate, so preserve the bytes and review them in context. This catches likely false positives without silently dropping possible text.
 
+A small sanity check against four previously inspected examples in `DL102_20.bin` (`@14E8`, `@158C`, `@1D68`, and `@25A8`) found all four strictly CP932-decodable and byte-roundtripping, with no review flags. Their Japanese-heuristic codepoint counts are 20, 44, 14, and 22 respectively. This only shows that the current flags leave those sample prefixes untouched; four examples cannot establish precision/recall or validate the span boundaries.
+
 The optional JSONL export records the flags and counts alongside the original offsets/bytes. The normal CLI summary still prints no game text. Reproduce the updated audit/export with the command below; the export must remain in ignored `local/`.
 
 ### Why the first dump appeared to have 215 lines
