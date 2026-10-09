@@ -255,8 +255,10 @@ class CompanionAuditTests(unittest.TestCase):
         data[140 : 140 + len(japanese)] = japanese
         data[140 + len(japanese) : 142 + len(japanese)] = b"\x00\x00"
 
-        coverage = audit_files({"sample.bin": bytes(data)})["candidate_block_coverage"]
+        summary = audit_files({"sample.bin": bytes(data), "empty.bin": bytes(len(data))})
+        coverage = summary["candidate_block_coverage"]
         overlap = coverage["echk_row_column_2_candidate_overlap"]
+        cross_control = summary["echk_c2_cross_bin_control"]
 
         self.assertEqual(coverage["candidate_spans"], 2)
         self.assertEqual(coverage["candidate_spans_fully_within_one_evnt_block"], 2)
@@ -268,6 +270,15 @@ class CompanionAuditTests(unittest.TestCase):
         self.assertEqual(overlap["inside_prior_evnt_candidate_span"], 1)
         self.assertEqual(overlap["inside_same_evnt_candidate_span"], 0)
         self.assertEqual(overlap["inside_later_evnt_candidate_span"], 1)
+        self.assertEqual(cross_control["same_bin"]["full_span_hits"], 2)
+        self.assertEqual(cross_control["same_bin"]["in_range_values"], 3)
+        self.assertEqual(cross_control["other_bin_control"]["full_span_hits"], 0)
+        self.assertEqual(cross_control["other_bin_control"]["in_range_row_target_pairs"], 3)
+        self.assertEqual(cross_control["nonzero_full_span_sources_with_positive_lift"], 1)
+        self.assertEqual(cross_control["nonzero_full_span_sources_with_negative_lift"], 0)
+        per_source = {row["bin"]: row for row in cross_control["per_source"]}
+        self.assertEqual(per_source["sample.bin"]["nonzero_full_span_rate_lift"], 1.0)
+        self.assertIsNone(per_source["empty.bin"]["nonzero_full_span_rate_lift"])
 
     def test_candidate_marker_before_echk_terminal_is_not_misclassified(self):
         japanese = "日本語".encode("cp932")

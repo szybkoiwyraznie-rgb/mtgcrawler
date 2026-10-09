@@ -103,6 +103,8 @@ There are 1,021 nonzero c2 values; ten numeric values are at or beyond their pai
 
 As a coarse offset check, 300 of the 539 c2 values inside proposed CP932 text prefixes (55.7%) land on a CP932 character-byte boundary; 239 land on a multibyte character's trail byte. A matched-candidate-weighted baseline, treating each byte position within each matched prefix as equally likely, predicts 50.7% boundary positions. This small difference is not decisive, especially because c2 values and candidate spans repeat; it neither confirms nor rules out byte-offset use.
 
+A second negative control projected each c2 value into candidate ranges from every *other* BIN whenever the value was within that target file's size. Same-BIN overlap is 541/1,056 in-range values (51.2%); the other-BIN control is 9,846/21,716 in-range row/target pairs (45.3%). Restricting both to nonzero values gives 53.5% same-BIN versus 47.4% cross-BIN. On a per-source-BIN comparison, only 9/22 sources have a positive same-minus-cross lift; the unweighted mean lift is -5.1 percentage points and the median is -7.5 points. Because BINs share content/layout patterns and repeated row values contribute multiple times, this is a crude control, not a formal significance test. It does not support a consistent same-file pointer interpretation.
+
 ## Companion-file observations (not a format specification)
 
 ### `_ext.dat`

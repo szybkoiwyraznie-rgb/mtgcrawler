@@ -12,8 +12,10 @@ from __future__ import annotations
 import argparse
 import struct
 import zipfile
+from bisect import bisect_right
 from collections import Counter, defaultdict
 from pathlib import Path
+from statistics import median
 from typing import Iterator, Optional
 
 from audit_event_candidates import JAPANESE_RE, scan_bin
@@ -527,12 +529,120 @@ def _overlap_flags(value: int, candidates: list) -> tuple[bool, bool, bool]:
     return prefix_match, candidate_match, exact_start
 
 
+def audit_echk_c2_cross_bin_control(
+    bins: dict[str, bytes], candidates_by_bin: dict[str, list]
+) -> dict:
+    """Compare paired-BIN c2 hits with the same values against other BIN candidate ranges."""
+    values_by_bin: dict[str, list[int]] = {}
+    for name, data in sorted(bins.items()):
+        values = []
+        event_offsets = marker_offsets(data, b"EVNT")
+        for index, offset in enumerate(event_offsets):
+            if offset + 12 > len(data):
+                continue
+            block_end = offset + 8 + struct.unpack_from("<I", data, offset + 4)[0]
+            next_boundary = event_offsets[index + 1] if index + 1 < len(event_offsets) else len(data)
+            if block_end != next_boundary:
+                continue
+            chain = inspect_echk_chain(data, offset, block_end)
+            if chain is None:
+                continue
+            values.extend(row[2] for segment in chain["segments"] for row in segment["rows"])
+        values_by_bin[name] = values
+
+    target_bins = sorted(bins.items())
+    candidate_starts = {
+        name: [row.start for row in candidates_by_bin.get(name, [])]
+        for name in bins
+    }
+
+    def range_flags(name: str, value: int) -> tuple[bool, bool]:
+        candidates = candidates_by_bin.get(name, [])
+        candidate_index = bisect_right(candidate_starts[name], value) - 1
+        if candidate_index < 0:
+            return False, False
+        candidate = candidates[candidate_index]
+        if value >= candidate.pair_offset:
+            return False, False
+        return value < candidate.start + len(candidate.text_bytes), True
+
+    same_bin = Counter()
+    other_bin_control = Counter()
+    per_source = []
+    rate_lifts = []
+
+    for source, values in sorted(values_by_bin.items()):
+        source_data = bins[source]
+        own = Counter()
+        cross = Counter()
+        for value in values:
+            own["row_values"] += 1
+            own["nonzero_values"] += value != 0
+            if value < len(source_data):
+                own["in_range_values"] += 1
+                own["nonzero_in_range_values"] += value != 0
+                prefix, full = range_flags(source, value)
+                own["prefix_hits"] += prefix
+                own["full_span_hits"] += full
+                own["nonzero_prefix_hits"] += prefix and value != 0
+                own["nonzero_full_span_hits"] += full and value != 0
+            for target, target_data in target_bins:
+                if target == source or value >= len(target_data):
+                    continue
+                cross["in_range_row_target_pairs"] += 1
+                cross["nonzero_in_range_pairs"] += value != 0
+                prefix, full = range_flags(target, value)
+                cross["prefix_hits"] += prefix
+                cross["full_span_hits"] += full
+                cross["nonzero_prefix_hits"] += prefix and value != 0
+                cross["nonzero_full_span_hits"] += full and value != 0
+
+        same_bin.update(own)
+        other_bin_control.update(cross)
+        own_rate = (
+            own["nonzero_full_span_hits"] / own["nonzero_in_range_values"]
+            if own["nonzero_in_range_values"] else None
+        )
+        cross_rate = (
+            cross["nonzero_full_span_hits"] / cross["nonzero_in_range_pairs"]
+            if cross["nonzero_in_range_pairs"] else None
+        )
+        lift = None if own_rate is None or cross_rate is None else own_rate - cross_rate
+        if lift is not None:
+            rate_lifts.append(lift)
+        per_source.append(
+            {
+                "bin": source,
+                "row_values": own["row_values"],
+                "nonzero_in_range_values": own["nonzero_in_range_values"],
+                "same_bin_nonzero_full_span_hits": own["nonzero_full_span_hits"],
+                "other_bin_nonzero_in_range_pairs": cross["nonzero_in_range_pairs"],
+                "other_bin_nonzero_full_span_hits": cross["nonzero_full_span_hits"],
+                "nonzero_full_span_rate_lift": lift,
+            }
+        )
+
+    return {
+        "same_bin": dict(sorted(same_bin.items())),
+        "other_bin_control": dict(sorted(other_bin_control.items())),
+        "nonzero_full_span_sources_compared": len(rate_lifts),
+        "nonzero_full_span_sources_with_positive_lift": sum(lift > 0 for lift in rate_lifts),
+        "nonzero_full_span_sources_with_negative_lift": sum(lift < 0 for lift in rate_lifts),
+        "nonzero_full_span_unweighted_mean_source_lift": (
+            sum(rate_lifts) / len(rate_lifts) if rate_lifts else None
+        ),
+        "nonzero_full_span_median_source_lift": median(rate_lifts) if rate_lifts else None,
+        "per_source": per_source,
+    }
+
+
 def audit_files(files: dict[str, bytes]) -> dict:
     """Summarize companion structures and numerical overlaps across input files."""
     bins = {name: data for name, data in files.items() if name.lower().endswith(".bin")}
     candidates_by_bin = {name: list(scan_bin(name, data)) for name, data in bins.items()}
     framing = audit_event_framing(bins)
     candidate_block_coverage = audit_candidate_block_coverage(bins, candidates_by_bin)
+    echk_c2_cross_bin_control = audit_echk_c2_cross_bin_control(bins, candidates_by_bin)
 
     ext_sizes: Counter[int] = Counter()
     ext_run_offsets: Counter[int] = Counter()
@@ -647,6 +757,7 @@ def audit_files(files: dict[str, bytes]) -> dict:
         "candidate_spans": sum(map(len, candidates_by_bin.values())),
         "framing": framing,
         "candidate_block_coverage": candidate_block_coverage,
+        "echk_c2_cross_bin_control": echk_c2_cross_bin_control,
         "ext": {
             "files": ext_files,
             "sizes": dict(sorted(ext_sizes.items())),
@@ -702,6 +813,7 @@ def print_summary(summary: dict) -> None:
     """Print reproducible aggregate counts only; do not reveal source text."""
     framing = summary["framing"]
     coverage = summary["candidate_block_coverage"]
+    cross_bin_control = summary["echk_c2_cross_bin_control"]
     ext = summary["ext"]
     edit = summary["edit"]
     entry = summary["entry"]
@@ -803,6 +915,44 @@ def print_summary(summary: dict) -> None:
         )
     else:
         print("  CP932 c2 prefix-byte position check: no decodable prefix matches")
+    same = cross_bin_control["same_bin"]
+    other = cross_bin_control["other_bin_control"]
+    print(
+        f"ECHK c2 paired-BIN vs other-BIN control (diagnostic only): "
+        f"same-bin full-span={same.get('full_span_hits', 0)}/"
+        f"{same.get('in_range_values', 0)}, other-bin full-span="
+        f"{other.get('full_span_hits', 0)}/"
+        f"{other.get('in_range_row_target_pairs', 0)}"
+    )
+    if same.get("nonzero_in_range_values", 0) and other.get("nonzero_in_range_pairs", 0):
+        same_nonzero_rate = (
+            same["nonzero_full_span_hits"] / same["nonzero_in_range_values"]
+        )
+        other_nonzero_rate = (
+            other["nonzero_full_span_hits"] / other["nonzero_in_range_pairs"]
+        )
+        print(
+            f"  nonzero-only full-span rates={same_nonzero_rate:.1%} same BIN vs "
+            f"{other_nonzero_rate:.1%} other BIN; per-source positive lift="
+            f"{cross_bin_control['nonzero_full_span_sources_with_positive_lift']}/"
+            f"{cross_bin_control['nonzero_full_span_sources_compared']}"
+        )
+        mean_lift = cross_bin_control["nonzero_full_span_unweighted_mean_source_lift"]
+        median_lift = cross_bin_control["nonzero_full_span_median_source_lift"]
+        if mean_lift is not None:
+            print(f"  per-source nonzero-rate lift: mean={mean_lift * 100:+.1f}pp, "
+                  f"median={median_lift * 100:+.1f}pp")
+            for source in cross_bin_control["per_source"]:
+                lift = source["nonzero_full_span_rate_lift"]
+                if lift is None:
+                    continue
+                print(
+                    f"    {source['bin']}: same="
+                    f"{source['same_bin_nonzero_full_span_hits']}/"
+                    f"{source['nonzero_in_range_values']}, other-bin="
+                    f"{source['other_bin_nonzero_full_span_hits']}/"
+                    f"{source['other_bin_nonzero_in_range_pairs']}, lift={lift * 100:+.1f}pp"
+                )
     for word, group in coverage["groups_by_evnt_word_at_plus_8"].items():
         overlap = group["echk_row_column_2_candidate_overlap"]
         print(
