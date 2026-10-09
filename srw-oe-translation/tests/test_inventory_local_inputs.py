@@ -13,21 +13,29 @@ class LocalInputInventoryTests(unittest.TestCase):
     def test_signature_detection_does_not_depend_on_extension(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = Path(temporary_directory)
-            cpk = root / "odd-name.data"
+            cpk = root / "eventP01.EDAT"
             cpk.write_bytes(b"CPK " + b"\x00" * 20)
+            odd_name_cpk = root / "odd-name.data"
+            odd_name_cpk.write_bytes(b"CPK " + b"\x00" * 16)
             mislabeled_edat = root / "not-a-cpk.EDAT"
             mislabeled_edat.write_bytes(b"not actually a recognized container")
 
             report = inventory_path(root)
             by_path = {entry["path"]: entry for entry in report["entries"]}
 
+            self.assertEqual(by_path["eventP01.EDAT"]["content_type"], "cpk_signature")
+            self.assertEqual(by_path["eventP01.EDAT"]["extension_hint"], ".edat")
             self.assertEqual(by_path["odd-name.data"]["content_type"], "cpk_signature")
             self.assertEqual(by_path["odd-name.data"]["extension_hint"], ".data")
             self.assertEqual(
                 by_path["not-a-cpk.EDAT"]["content_type"], "unknown_signature"
             )
             self.assertEqual(by_path["not-a-cpk.EDAT"]["extension_hint"], ".edat")
-            self.assertEqual(report["file_count"], 2)
+            self.assertEqual(
+                report["signature_counts_by_extension"][".edat"],
+                {"cpk_signature": 1, "unknown_signature": 1},
+            )
+            self.assertEqual(report["file_count"], 3)
 
     def test_detects_iso_pvd_pbp_sfo_and_zip_signatures(self):
         with tempfile.TemporaryDirectory() as temporary_directory:

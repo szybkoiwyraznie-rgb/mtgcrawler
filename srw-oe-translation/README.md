@@ -33,7 +33,7 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — next milestones.
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
 - [`docs/LOCAL_WORKFLOW_PLAN.md`](docs/LOCAL_WORKFLOW_PLAN.md) — target one-command local ISO/DLC workflow and safety gates; its first read-only inventory helper exists, but archive extraction/repacking and ISO/DLC processing are not implemented.
-- [`tools/inventory_local_inputs.py`](tools/inventory_local_inputs.py) — read-only recursive file inventory with SHA-256 and signature hints; it does not unpack, validate, rename, or modify inputs.
+- [`tools/inventory_local_inputs.py`](tools/inventory_local_inputs.py) — read-only recursive file inventory with SHA-256, signature hints, and extension/signature counts (useful for a directory of `.EDAT` files); it does not unpack, validate, rename, or modify inputs.
 - [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) — translation decisions and constraints.
 
 ## Data handling

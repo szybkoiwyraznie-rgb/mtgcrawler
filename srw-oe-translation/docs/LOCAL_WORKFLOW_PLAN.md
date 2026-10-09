@@ -12,6 +12,8 @@ The user should not have to unpack or repack each archive, change extensions, mo
 
 The pipeline should discover supported files recursively by content/signature, batch all of them, and orchestrate the required extract, scan, edit-application, repack, and verification steps. A tool may invoke a lower-level CLI once per archive internally if required; the user must not have to do that orchestration. Original names/extensions are preserved. If a dependency insists on a suffix, any temporary alias belongs inside generated staging and is never a manual rename of the user's source.
 
+The expected source root is usually a directory containing mostly `.EDAT` files and one base ISO; it may be flat and need not already look like a PPSSPP folder tree. The tool must inspect each `.EDAT` by content and report how many are actual CPK signatures versus other/unknown EDAT-like files. It should try to handle the ISO directly; accepting a user-pre-extracted ISO contents directory is a fallback if a verified ISO adapter is not yet available, not a default requirement.
+
 This goal concerns mechanical file handling. Translation wording, terminology review, and approval of uncertain text remain editorial tasks; the pipeline must not silently invent translations or treat heuristic candidates as approved source strings.
 
 ## Proposed workspace layout
@@ -20,8 +22,10 @@ All large/private files and generated outputs stay under the already-ignored `sr
 
 ```text
 local/
-  config.toml                 # optional, local-only input paths and build settings
+  config.toml                 # optional, local-only source/tool paths and build settings
   input/                      # optional drop-in mode; preserve supplied names/extensions
+  bin/YACpkTool/               # optional converter distribution, including its required DLLs
+    YACpkTool.exe              # configured executable path
   work/<run-id>/              # automatically created extraction/staging/cache
   reports/<run-id>/           # inventory, hashes, warnings, validation results
   output/<run-id>/            # rebuilt local ISO/DLC copies or patch artifacts
@@ -32,7 +36,7 @@ Two ways to provide sources should be supported so a second multi-gigabyte copy 
 - **Drop-in mode:** place the base image and the complete DLC/game-data tree under `local/input/` once; the tool finds them recursively.
 - **Existing-path mode:** set the base ISO path and installed DLC root in the local config once. The tool reads these paths without modifying them and writes every intermediate/output elsewhere.
 
-The config may record the expected product ID (`NPJH50521`) and selected base/DLC roots. It must not contain credentials. It is local-only and must never be committed. The exact config schema and final command name are implementation decisions, not established interfaces.
+The config may record the expected product ID (`NPJH50521`), the source root, and one path to the local CPK converter (for example `local/bin/YACpkTool/YACpkTool.exe`, with its required DLLs kept alongside, or an absolute path if stored elsewhere). The batch tool discovers and invokes that converter for every matching archive; the user should not launch it per file. The script will not download executables itself. It must record the executable's SHA-256 and any available version/help output in the run report. Config and executable are local-only and must never be committed; config must not contain credentials. The exact config schema and final command name are implementation decisions, not established interfaces.
 
 Proposed eventual command contract (illustrative, **not implemented or runnable yet**):
 
@@ -40,7 +44,7 @@ Proposed eventual command contract (illustrative, **not implemented or runnable 
 python srw-oe-translation/tools/local_pipeline.py run --workspace srw-oe-translation/local
 ```
 
-**Implemented first slice:** `tools/inventory_local_inputs.py <file-or-directory> [--json-out <report>]` recursively inventories paths, records SHA-256/size/content-signature hints, identifies identical files, and skips symlinks. It probes CPK, ZIP, PBP, SFO, and an ISO9660 PVD signature; extensions are hints only. Its JSON report must be outside a directory input. This is a read-only signature inventory—not a parser, extractor, container validator, or adapter selector—and the ISO/CPK signatures do not by themselves prove that rebuilding is supported. It has synthetic coverage and has been run on the supplied `eventP01.zip` only.
+**Implemented first slice:** `tools/inventory_local_inputs.py <file-or-directory> [--json-out <report>]` recursively inventories paths, records SHA-256/size/content-signature hints, identifies identical files, and skips symlinks. It probes CPK, ZIP, PBP, SFO, and an ISO9660 PVD signature; extensions are hints only. Its JSON and console summaries group signatures by extension, so a `.EDAT` input set can be reviewed as “CPK signature” versus “unknown signature” without renaming. Its JSON report must be outside a directory input. This is a read-only signature inventory—not a parser, extractor, container validator, or adapter selector—and the ISO/CPK signatures do not by themselves prove that rebuilding is supported. It has synthetic coverage and has been run on the supplied `eventP01.zip` only.
 
 A `--plan-only`/dry-run mode should be available for the later orchestrator. The eventual normal run should need no per-file prompts. If there are duplicate candidate base images, missing required DLC, unsupported containers, or conflicting inputs, it should stop with a precise report rather than guess or silently produce a partial build.
 
@@ -54,8 +58,10 @@ A `--plan-only`/dry-run mode should be available for the later orchestrator. The
    - Do not print or commit decoded proprietary text in routine logs.
 
 2. **Base-image and DLC extraction**
-   - Extract the PSP base image and recursively expose supported game resources under a staging tree while preserving relative paths and a source-to-output map.
-   - Scan the DLC/game-data root as a batch. Identify CPK by its `CPK ` content signature even when named `.EDAT`; do not assume every `.EDAT` is CPK or that every DLC file is a CPK.
+   - Accept a flat/mixed input directory containing many `.EDAT` files and one ISO; do not require the user to reorganize or rename it. Confirm a unique base-image candidate from content/product evidence, or report ambiguity.
+   - Prefer extracting the ISO automatically and exposing supported game resources under a staging tree while preserving relative paths and a source-to-output map. A pre-extracted ISO tree may be configured as a fallback; the tool must label the run as incomplete if the actual base image was not handled.
+   - Scan every `.EDAT` and other source file as a batch. Identify CPK by its `CPK ` content signature even when named `.EDAT`; do not assume every `.EDAT` is CPK or that every DLC file is a CPK. Send unknown/non-CPK `.EDAT` files to explicit classification rather than silently skipping them.
+   - For each CPK signature, invoke the configured local YACpkTool automatically into a separate staging directory derived from the original relative path and content hash, preventing basename collisions. Pass the original `.EDAT` path directly; never ask the user to change its extension.
    - Detect nested supported containers by content at each level, subject to recursion/depth limits and safe path handling.
    - Never overwrite source files. If a file is encrypted/unsupported or its format is ambiguous, report it and stop any build that would otherwise omit it.
 
@@ -81,13 +87,13 @@ A `--plan-only`/dry-run mode should be available for the later orchestrator. The
 
 | Area | Evidence already recorded | What must be verified before automation can build it |
 | --- | --- | --- |
-| CPK in `.EDAT` resources | Several user-listed `.EDAT` samples started with `CPK `; YACpkTool extracted `imenu01.EDAT` and `eventP01.EDAT`; an unchanged `DL102_20.bin` was reported byte-identical after a CPK pack/extract cycle. | Enumerate all CPK/non-CPK variants in the real input set; pin and wrap a tested tool version; verify full member inventory, metadata, compression, and reproducible no-change rebuilds. A member-level round trip is not proof of a full ISO/DLC rebuild.
+| CPK in `.EDAT` resources | Several user-listed `.EDAT` samples started with `CPK `; YACpkTool extracted `imenu01.EDAT` and `eventP01.EDAT`; an unchanged `DL102_20.bin` was reported byte-identical after a CPK pack/extract cycle. | The user can place a local YACpkTool executable in `local/bin/` or configure its path once. Verify that the tool accepts the original `.EDAT` path by content without renaming; batch `-L`/`-X` inspection/extraction and use `-P` only after no-change repack tests. Do not use YACpkTool's documented experimental `-R` for automated replacement. Pin/hash the executable and verify full member inventory, metadata, compression, and reproducible no-change rebuilds. A member-level round trip is not proof of a full ISO/DLC rebuild.
 | Base PSP ISO | The user reported `SRW OE 1.08.iso` and product ID `NPJH50521`; no full ISO has been processed in this dry phase. | Select and test an ISO/UMD reader and builder on a copy; verify product/version detection, paths, alignment/boot metadata, extraction, and re-open/re-extract. Preserve and compare source hash.
 | DLC/game-data set | The reported PPSSPP folder contains many `.EDAT` families plus PBP/SFO files; some `.EDAT` samples are CPK. | Inventory the complete user set and identify which assets are direct archives, encrypted wrappers, registration metadata, or unrelated files. Confirm DLC completeness/version and safe output/install behavior.
 | Event BIN structure | 22 sample BINs have consistent top-level EDAT/EVNT/ECHK framing and 3,277 heuristic script candidates; candidate boundaries and ECHK semantics are still unproven. | Validate text/record boundaries and controls on independent records/resources before designating the JSONL as translation data or enabling write-back.
 | Rendering/in-game QA | No modified string has been confirmed in-game; the user cautioned the supplied fragment may be inaccessible. | Use a genuinely comparable reachable resource if available. If not, record display QA as blocked/unverified; do not claim a playable patch.
 
-YACpkTool is the existing CPK adapter candidate, not a blanket solution for all DLC or the base ISO. Its documented pack codec defaults to `none`, with LAYLA optional; the adapter must detect/preserve the source codec rather than selecting a codec by guess. Historical references to other inner formats are leads only. If a source requires decryption or a parser not yet validated, the pipeline must identify that boundary clearly and avoid a partial “successful” build.
+YACpkTool is the existing CPK adapter candidate, not a blanket solution for all DLC or the base ISO. Its README documents `-L` for listing, `-X` for extraction, and `-P` for packing; these can be wrapped into one batch run over all signature-matched inputs. Its documented pack codec defaults to `none`, with LAYLA optional; the adapter must detect/preserve the source codec rather than selecting a codec by guess. The README calls its `-R` replacement command experimental, so the proposed pipeline must avoid `-R` and use a fully extracted/repacked archive only after a no-change test. The repository is archived, so pin and hash the user's local executable and record its reported version/help text; do not download or upgrade it automatically. Acceptance of the original `.EDAT` filename by `-i` remains to be tested on a disposable copy. Historical references to other inner formats are leads only. If a source requires decryption or a parser not yet validated, the pipeline must identify that boundary clearly and avoid a partial “successful” build.
 
 ## Safety, reproducibility, and error behavior
 
@@ -104,7 +110,7 @@ YACpkTool is the existing CPK adapter candidate, not a blanket solution for all 
 
 1. **Plan recorded (done):** preserve the one-command, no-manual-packaging requirement and the evidence/unknowns above.
 2. **Read-only input inventory (done):** `tools/inventory_local_inputs.py` recursively hashes and signature-probes inputs, reports duplicate content, and does not follow symlinks or modify sources. Seven synthetic tests pass; the supplied ZIP is identified as a ZIP by signature. This tool does not parse/extract containers, estimate extraction space, or validate an image/archive.
-3. **Batch CPK adapter:** wrap a pinned YACpkTool version and automate all discovered CPKs; test against disposable inputs and compare complete extracted-member manifests/bytes on no-change round trips.
+3. **Batch CPK adapter:** use the one configured local YACpkTool path; automatically run `-L`/`-X` on each content-detected CPK, including `.EDAT` names, into collision-safe per-input work directories. First verify `.EDAT` path acceptance on a disposable copy, pin/hash the executable, and compare complete member manifests/bytes on no-change round trips. Do not use its experimental `-R` replacement command.
 4. **ISO and DLC adapters:** add only after real format samples are available and a copied source can pass extract/rebuild/re-open checks. Detect incomplete or unsupported resources explicitly.
 5. **Deterministic text extraction:** validate boundaries independently; define stable IDs/control placeholders; test byte-identical no-change resource reinsertion.
 6. **Translation/build pipeline:** only after pointer/length/encoding rules are known; validate translation inputs, batch apply all edits, rebuild archives/images, and report exact output hashes.

@@ -27,7 +27,10 @@
 - [ ] Decode `_ext.dat`, `_Entry.dat`, and `_edit.dat` structures and establish any real relationships to event text.
 - [x] Document the requested one-command local workflow: recursive content-signature discovery, automatic batch extraction/rebuild orchestration, no manual extension changes or per-file tool launches, and strict original-file/output verification. This is a design plan only; no ISO/DLC pipeline has been implemented.
 - [x] Build the first read-only local inventory helper: recursively hash and signature-probe files, report identical-content paths, skip symlinks, and never modify/rename inputs. Seven synthetic tests pass; a sample ZIP was recognized by content. It is an inventory only—not an extractor, validator, or full-game orchestrator.
-- [ ] Extend preflight reporting for ambiguous/unsupported inputs and space estimates, then add tested batch adapters; retain content-based detection and no manual extension changes/per-file commands.
+- [ ] Extend preflight for the expected flat input root (many `.EDAT` files plus one ISO): summarize extension/signature pairs, require an unambiguous base candidate, and estimate working space.
+- [ ] Wrap a locally supplied YACpkTool distribution in a batch CPK list/extract adapter. Auto-dispatch only files with `CPK ` content signatures, pass original `.EDAT` paths without renaming, and validate `-L`/`-X` plus no-change round trips on disposable copies; never use its experimental `-R`.
+- [ ] Add direct ISO extraction/rebuild only after validating an adapter; accept a pre-extracted ISO tree as an explicitly marked fallback, not a silent complete run.
+- [ ] Retain the single-entrypoint workflow: no manual per-file commands or extension changes.
 - [ ] Build a deterministic extractor that exports stable offsets/IDs, source strings, line breaks, and control-code placeholders.
 - [ ] Add automated no-change round-trip tests for the extractor/reinserter.
 

@@ -153,6 +153,10 @@ def inventory_path(input_path: Path) -> dict[str, Any]:
             entry["duplicate_of"] = None
 
     by_type: Counter[str] = Counter(entry["content_type"] for entry in entries)
+    by_extension_and_type: dict[str, Counter[str]] = {}
+    for entry in entries:
+        extension = entry["extension_hint"] or "[no extension]"
+        by_extension_and_type.setdefault(extension, Counter())[entry["content_type"]] += 1
     readable_files = [entry for entry in entries if entry["size_bytes"] is not None]
     return {
         "schema_version": 1,
@@ -161,6 +165,10 @@ def inventory_path(input_path: Path) -> dict[str, Any]:
         "readable_file_count": len(readable_files),
         "total_size_bytes": sum(entry["size_bytes"] for entry in readable_files),
         "content_type_counts": dict(sorted(by_type.items())),
+        "signature_counts_by_extension": {
+            extension: dict(sorted(type_counts.items()))
+            for extension, type_counts in sorted(by_extension_and_type.items())
+        },
         "errors": errors,
         "entries": entries,
         "scope_note": (
@@ -221,6 +229,13 @@ def _summary_lines(report: dict[str, Any]) -> list[str]:
         )
     else:
         lines.append("  (none)")
+    lines.append("Signature counts grouped by extension hint (suffix is not detection):")
+    for extension, type_counts in report["signature_counts_by_extension"].items():
+        details = ", ".join(
+            f"{content_type}={count}"
+            for content_type, count in type_counts.items()
+        )
+        lines.append(f"  {extension}: {details}")
     duplicate_count = sum(
         entry["duplicate_of"] is not None for entry in report["entries"]
     )
