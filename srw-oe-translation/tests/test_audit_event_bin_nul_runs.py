@@ -75,6 +75,27 @@ class BinNulRunInventoryTests(unittest.TestCase):
         self.assertEqual(split_row.pre_run_correlated_extent_bytes, 4)
         self.assertFalse(split_row.pre_run_correlated_extent_cp932_strict)
 
+    def test_jsonl_preserves_raw_control_byte_offsets_inside_nul_run(self):
+        text = "漢".encode("cp932") + b"\x01" + "字".encode("cp932") + b"\r\n\x7f"
+        data = b"\x00" + text + b"\x00"
+        rows, _ = audit_bin_nul_runs("sample.bin", data)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "runs.jsonl"
+            write_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8").splitlines()[0])
+
+        self.assertEqual(record["offset"], 1)
+        self.assertEqual(record["length_bytes"], len(text))
+        self.assertEqual(record["raw_hex"], text.hex(" ").upper())
+        self.assertEqual(
+            record["raw_c0_del_control_bytes"],
+            [{"offset": 2, "byte_hex": "01"}, {"offset": 7, "byte_hex": "7F"}],
+        )
+        self.assertIn("raw_c0_del_control_byte", record["review_signals"])
+        self.assertTrue(record["preceded_by_nul"])
+        self.assertTrue(record["terminated_by_nul"])
+
     def test_jsonl_export_preserves_all_run_bytes_and_marker_metadata(self):
         text = "日本語".encode("cp932")
         data = b"\xff\xff" + text + b"\x00\x00" + text + b"\x00"

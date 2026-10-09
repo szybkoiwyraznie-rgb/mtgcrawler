@@ -68,6 +68,15 @@ class BinNulRunReview:
         return True
 
     @property
+    def raw_c0_del_control_bytes(self) -> tuple[tuple[int, int], ...]:
+        """Return relative offsets/values for raw C0 and DEL bytes except CR/LF."""
+        return tuple(
+            (offset, byte)
+            for offset, byte in enumerate(self.run.raw)
+            if (byte < 0x20 and byte not in (0x0A, 0x0D)) or byte == 0x7F
+        )
+
+    @property
     def printable_ascii_only(self) -> bool:
         """Return whether every raw byte is a printable seven-bit ASCII byte."""
         return bool(self.run.raw) and all(0x20 <= byte <= 0x7E for byte in self.run.raw)
@@ -204,6 +213,8 @@ def write_jsonl(
                     review_signals.append("private_use_codepoint")
                 if row.nonnewline_control_codepoints:
                     review_signals.append("nonnewline_control_codepoint")
+                if review.raw_c0_del_control_bytes:
+                    review_signals.append("raw_c0_del_control_byte")
                 if row.replacement_codepoints:
                     review_signals.append("replacement_character_from_decode")
                 if review.contains_literal_ff_ff:
@@ -237,6 +248,10 @@ def write_jsonl(
                     "pre_run_correlated_extent_cp932_strict": (
                         review.pre_run_correlated_extent_cp932_strict
                     ),
+                    "raw_c0_del_control_bytes": [
+                        {"offset": offset, "byte_hex": f"{byte:02X}"}
+                        for offset, byte in review.raw_c0_del_control_bytes
+                    ],
                     "raw_printable_ascii_only": review.printable_ascii_only,
                     "text_cp932_replacement": row.text,
                     "cp932_strict": row.cp932_strict,
