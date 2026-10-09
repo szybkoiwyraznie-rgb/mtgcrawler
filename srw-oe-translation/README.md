@@ -34,7 +34,8 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
 - [`docs/LOCAL_WORKFLOW_PLAN.md`](docs/LOCAL_WORKFLOW_PLAN.md) — target one-command local ISO/DLC workflow and safety gates; its first read-only inventory helper exists, but archive extraction/repacking and ISO/DLC processing are not implemented.
 - [`tools/inventory_local_inputs.py`](tools/inventory_local_inputs.py) — read-only recursive file inventory with SHA-256, signature hints, and extension/signature counts (useful for a directory of `.EDAT` files).
-- [`tools/extract_cpk_batch.py`](tools/extract_cpk_batch.py) — experimental batch CPK list/extract driver, dry-run by default; actual YACpkTool execution has not yet been validated. It accepts one input directory and one converter path for the whole `.EDAT` set, does not rename inputs, repack CPKs, or process the ISO.
+- [`tools/extract_cpk_batch.py`](tools/extract_cpk_batch.py) — experimental batch CPK list/extract driver, dry-run by default; actual YACpkTool execution has not yet been validated. It accepts one input directory or one-time INI config for the whole `.EDAT` set, does not rename inputs, repack CPKs, or process the ISO.
+- [`config/local-workflow.example.ini`](config/local-workflow.example.ini) — Windows path template; copy to an ignored/private `local-workflow.ini` and set input, output, and optional converter paths once.
 - [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) — translation decisions and constraints.
 
 ## Data handling

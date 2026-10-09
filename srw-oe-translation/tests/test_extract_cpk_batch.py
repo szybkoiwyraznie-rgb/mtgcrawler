@@ -1,7 +1,9 @@
 import hashlib
+import io
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -179,6 +181,59 @@ class BatchCpkExtractionTests(unittest.TestCase):
                 extract_cpk_batch._validate_paths(
                     input_root, output_root, existing_report
                 )
+
+    def test_ini_config_resolves_paths_relative_to_itself_and_cli_overrides_output(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            config_directory = root / "Desktop config folder"
+            input_root = root / "Game files"
+            output_from_config = root / "Configured output"
+            output_from_cli = root / "CLI output"
+            tool_directory = root / "Converter folder"
+            config_directory.mkdir()
+            input_root.mkdir()
+            (input_root / "eventP01.EDAT").write_bytes(b"CPK " + b"fixture")
+            tool_directory.mkdir()
+            tool = tool_directory / "YACpkTool.exe"
+            tool.write_bytes(b"fake converter")
+            config_path = config_directory / "paths.ini"
+            config_path.write_text(
+                "[local]\n"
+                "input_root = ../Game files\n"
+                "output_root = ../Configured output\n"
+                "tool_path = ../Converter folder/YACpkTool.exe\n",
+                encoding="utf-8",
+            )
+
+            settings = extract_cpk_batch.load_local_config(config_path)
+            self.assertEqual(settings["input_root"], input_root.resolve())
+            self.assertEqual(settings["output_root"], output_from_config.resolve())
+            self.assertEqual(settings["tool_path"], tool.resolve())
+
+            output = io.StringIO()
+            with redirect_stdout(output):
+                exit_code = extract_cpk_batch.main(
+                    ["--config", str(config_path), "--output", str(output_from_cli)]
+                )
+
+            self.assertEqual(exit_code, 0)
+            self.assertIn("CPK-signature inputs: 1", output.getvalue())
+            self.assertIn(str(tool.resolve()), output.getvalue())
+            self.assertFalse(output_from_cli.exists())
+            self.assertFalse(output_from_config.exists())
+
+    def test_ini_config_requires_local_section_and_input_output_paths(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            no_section = root / "no-section.ini"
+            no_section.write_text("[other]\ninput_root = x\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, r"\[local\] section"):
+                extract_cpk_batch.load_local_config(no_section)
+
+            missing_output = root / "missing-output.ini"
+            missing_output.write_text("[local]\ninput_root = .\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "requires output_root"):
+                extract_cpk_batch.load_local_config(missing_output)
 
     def test_converter_auto_discovery_is_limited_to_input_root_and_script_dir(self):
         with tempfile.TemporaryDirectory() as temporary_directory:

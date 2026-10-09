@@ -225,6 +225,14 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** Seven synthetic tests use a mocked subprocess to verify dry-run batching, `-L`/`-X` argv construction with spaces in paths, output separation, listing failure behavior, source-mutation detection, report-path safety, and bounded executable discovery. A CLI dry-run on a synthetic mixed folder reported one CPK, one non-CPK `.EDAT`, and one ISO and created no output directory. All 40 project tests pass. No real YACpkTool executable, base ISO, or DLC was used.
 
+## 2026-10-09 — add one-time Windows INI path configuration
+
+**Action:** Added optional `--config` support to `extract_cpk_batch.py` using a small standard-library INI file with `input_root`, `output_root`, and optional `tool_path`. Relative paths resolve beside the INI, and CLI path arguments override configured values. Added `config/local-workflow.example.ini` plus a `.gitignore` entry for the private `config/local-workflow.ini` copy.
+
+**Result:** The user's YACpkTool can remain anywhere accessible on Windows (for example, Desktop or beside the game binaries); its path is entered once rather than for every run or archive. The example uses forward slashes and supports path values with spaces. The batch helper remains dry-run by default and still has not invoked the real converter.
+
+**Validation:** Added tests for relative path resolution, CLI override behavior, and missing/invalid config fields. All 42 project tests pass. No real Windows path, ISO, DLC, or YACpkTool executable was used.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.

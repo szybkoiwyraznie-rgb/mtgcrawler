@@ -14,6 +14,9 @@
 *.sav
 *.SAV
 
+# User-specific Windows input/tool paths (keep the example file tracked)
+/config/local-workflow.ini
+
 # Local extraction/build outputs
 work/
 local/

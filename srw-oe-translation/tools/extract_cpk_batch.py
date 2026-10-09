@@ -10,6 +10,7 @@ or process an ISO.
 from __future__ import annotations
 
 import argparse
+import configparser
 import hashlib
 import json
 import os
@@ -306,6 +307,42 @@ def write_json_report(report: dict[str, Any], output_path: Path) -> None:
                 pass
 
 
+def load_local_config(config_path: Path) -> dict[str, Path | None]:
+    """Load one-time Windows input/output/tool paths from a local INI file.
+
+    Relative paths are resolved relative to the INI file, not the current
+    working directory. Empty tool_path means use bounded auto-discovery.
+    """
+    config_file = config_path.expanduser().resolve(strict=True)
+    config = configparser.ConfigParser(interpolation=None)
+    try:
+        with config_file.open("r", encoding="utf-8-sig") as stream:
+            config.read_file(stream)
+    except configparser.Error as error:
+        raise ValueError(f"Invalid local INI config: {error}") from error
+    if not config.has_section("local"):
+        raise ValueError("Config must contain a [local] section")
+
+    section = config["local"]
+
+    def configured_path(key: str, required: bool) -> Path | None:
+        raw_value = section.get(key, "").strip()
+        if not raw_value:
+            if required:
+                raise ValueError(f"Config [local] requires {key}")
+            return None
+        path = Path(raw_value).expanduser()
+        if not path.is_absolute():
+            path = config_file.parent / path
+        return path.resolve(strict=False)
+
+    return {
+        "input_root": configured_path("input_root", required=True),
+        "output_root": configured_path("output_root", required=True),
+        "tool_path": configured_path("tool_path", required=False),
+    }
+
+
 def _print_summary(report: dict[str, Any]) -> None:
     print(f"Mode: {report['mode']} (CPK extraction only)")
     print(f"Readable inputs inventoried: {report['input_file_count']}")
@@ -333,23 +370,44 @@ def main(argv: list[str] | None = None) -> int:
             "YACpkTool. Default mode is a no-write dry run."
         )
     )
-    parser.add_argument("input_root", type=Path, help="directory containing EDATs and/or an ISO")
-    parser.add_argument("--output", required=True, type=Path, help="separate extraction output root")
+    parser.add_argument(
+        "input_root",
+        nargs="?",
+        type=Path,
+        help="directory containing EDATs and/or an ISO (or set it in --config)",
+    )
+    parser.add_argument("--output", type=Path, help="separate extraction output root")
     parser.add_argument(
         "--tool",
         type=Path,
-        help="path to YACpkTool.exe; otherwise searches next to this script and in input_root",
+        help="path to YACpkTool.exe; overrides config and bounded auto-discovery",
+    )
+    parser.add_argument(
+        "--config",
+        type=Path,
+        help="local INI file with one-time input_root, output_root, and optional tool_path",
     )
     parser.add_argument("--execute", action="store_true", help="invoke the converter (default is dry-run)")
     parser.add_argument("--json-out", type=Path, help="optional local report path outside input/output")
     arguments = parser.parse_args(argv)
 
     try:
-        _validate_paths(arguments.input_root, arguments.output, arguments.json_out)
+        config: dict[str, Path | None] = {}
+        if arguments.config:
+            config = load_local_config(arguments.config)
+        input_root = arguments.input_root or config.get("input_root")
+        output_root = arguments.output or config.get("output_root")
+        tool_path = arguments.tool or config.get("tool_path")
+        if input_root is None:
+            parser.error("provide input_root or set it in --config")
+        if output_root is None:
+            parser.error("provide --output or set output_root in --config")
+
+        _validate_paths(input_root, output_root, arguments.json_out)
         report = run_batch(
-            arguments.input_root,
-            arguments.output,
-            arguments.tool,
+            input_root,
+            output_root,
+            tool_path,
             execute=arguments.execute,
         )
         if arguments.json_out:
