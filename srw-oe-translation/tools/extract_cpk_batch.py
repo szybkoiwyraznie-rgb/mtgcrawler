@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Batch CPK listing/extraction through a locally supplied YACpkTool.
 
-Only files beginning with the CPK signature are selected; `.EDAT` is treated
-as a filename hint, not a format test. The default mode only plans the batch.
-Pass --execute to invoke YACpkTool. This tool extracts; it does not repack, edit,
-or process an ISO.
+Only top-level files beginning with the CPK signature are selected for
+YACpkTool; `.EDAT` is a filename hint, not a format test. The default mode only
+plans the batch. A read-only ISO9660 scan reports CPK-signature members inside
+an image but does not extract them. Pass --execute to invoke YACpkTool on the
+top-level candidates. This tool does not repack, edit, or rebuild an ISO.
 """
 
 from __future__ import annotations
@@ -143,6 +144,36 @@ def _make_plan(
     return plans, unresolved_edat
 
 
+def _iso_cpk_candidates(inventory: dict[str, Any]) -> tuple[list[dict[str, Any]], int]:
+    candidates: list[dict[str, Any]] = []
+    unsupported_count = 0
+    for entry in inventory["entries"]:
+        iso = entry.get("iso_inventory")
+        if iso is None:
+            continue
+        if iso.get("status") != "indexed":
+            unsupported_count += 1
+            continue
+        for member in iso.get("files", []):
+            if member.get("content_type") == "cpk_signature":
+                candidates.append(
+                    {
+                        "iso_path": entry["path"],
+                        "member_path": member["path"],
+                        "size_bytes": member["size_bytes"],
+                        "extents": member["extents"],
+                        "status": "inventory_only_not_extracted",
+                    }
+                )
+    candidates.sort(
+        key=lambda item: (
+            str(item["iso_path"]).casefold(),
+            str(item["member_path"]).casefold(),
+        )
+    )
+    return candidates, unsupported_count
+
+
 def _decode_process_output(raw: bytes | None) -> str:
     return (raw or b"").decode("utf-8", errors="replace")
 
@@ -196,6 +227,7 @@ def run_batch(
         raise ValueError("Input inventory has read/walk errors: " + details)
 
     plans, unresolved_edat = _make_plan(input_root, output_root, inventory)
+    iso_cpk_candidates, unsupported_iso_inventory_count = _iso_cpk_candidates(inventory)
     tool = resolve_tool(tool_path, input_root)
     if execute and plans and tool is None:
         raise ValueError(
@@ -216,6 +248,9 @@ def run_batch(
         "iso_candidate_count": inventory["content_type_counts"].get(
             "iso9660_pvd_signature", 0
         ),
+        "iso_member_cpk_candidate_count": len(iso_cpk_candidates),
+        "iso_member_cpk_candidates": iso_cpk_candidates,
+        "unsupported_iso_inventory_count": unsupported_iso_inventory_count,
         "cpk_candidate_count": len(plans),
         "unresolved_edat_count": len(unresolved_edat),
         "unresolved_edat": unresolved_edat,
@@ -346,8 +381,16 @@ def load_local_config(config_path: Path) -> dict[str, Path | None]:
 def _print_summary(report: dict[str, Any]) -> None:
     print(f"Mode: {report['mode']} (CPK extraction only)")
     print(f"Readable inputs inventoried: {report['input_file_count']}")
-    print(f"ISO9660 PVD signatures (not processed here): {report['iso_candidate_count']}")
-    print(f"CPK-signature inputs: {report['cpk_candidate_count']}")
+    print(f"ISO9660 images indexed or detected: {report['iso_candidate_count']}")
+    print(
+        "CPK-signature members inside ISO images (inventory only): "
+        f"{report['iso_member_cpk_candidate_count']}"
+    )
+    print(
+        "ISO images whose directory inventory is unsupported: "
+        f"{report['unsupported_iso_inventory_count']}"
+    )
+    print(f"Top-level CPK-signature inputs: {report['cpk_candidate_count']}")
     print(f"Unresolved `.EDAT` inputs: {report['unresolved_edat_count']}")
     if report["converter_path"]:
         print(f"Converter: {report['converter_path']}")
