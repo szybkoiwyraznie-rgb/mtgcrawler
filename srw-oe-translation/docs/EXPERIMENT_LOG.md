@@ -627,13 +627,28 @@ Final SHA-256: `tools/iso9660.py` `cf9954cbdec66219f17073de2632b27d6ab4897a61888
 
 **Not validated locally:** the real ISO (it is on the user's PC); the next run will index it and show where the trailing 5,533,072 bytes sit relative to the last member extent.
 
+## 2026-10-09 — fifth real run: the ISO index succeeds and explains the descriptor mismatch
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` (run `20261009-222046`) with the trailing-data-tolerant index and pasted `REPORT.txt`.
+
+**Observed:** identical extraction results again — 377 packages (337 extracted, 40 failed); listing check verified 337, incomplete 38, unverified 2; text 39,103 units from 81 packages; repack gate passed; the same 38 duplicate-name and 2 mangled-name failures.
+
+**Observed — the ISO, answered:**
+
+- The read-only index succeeds: **80 files, 6 directories, 63 CPK-signature members** inside `SRW OE 1.08.iso` (not extracted).
+- **1 member extent ends beyond the PVD volume, by exactly 5,533,072 bytes — the whole file-vs-descriptor difference.** The overflowing extent ends exactly at the last byte of the file (673,710,080 + 5,533,072 = 679,243,152). So the descriptor's volume-space size is understated by exactly that member's tail; the image itself is complete and internally consistent. The 5,533,072-byte mismatch is fully explained: it is one member's extent beyond the declared volume, not appended junk.
+- The loose `NPJH50521` folder has 290 CPK-signature files; the ISO lists 63 CPK-signature members among 80 files. The folder is therefore not simply this ISO unpacked. Hypothesis, not confirmed: the ISO is a partial or update image (its name says 1.08), or the folder came from a different source. Confirming needs the member list (the run's `registry.json`, `inputs[].iso_inventory.files`) compared by name and size against the folder's inputs.
+
+**Not demonstrated:** the overlap between the ISO's 80 members and the folder's 341 files (needs the run's `registry.json`); the overflowing member's path (it is in the registry); any ISO extraction.
+
 **Branch cleanup (at the user's request):** all five `szybkoiwyraznie-rgb-patch-1..5` branches were deleted; they carried only the user's personal web-upload commits (`Add files via upload` / `Delete …`, author `szybkoiwyraznie@gmail.com`, no agent co-author mark) over a shared base commit by another bot. No zip or binary data was found on them — the uploads were text files (card lists and a Python file from the original mtgcrawler project). The branch `arena/01a0437d-mtgcrawler` was left untouched: its only commit besides the base (`004cd4a`) carries the `Co-authored-by: arena-agent` mark, so it is a previous session's agent commit, not a personal upload. `main` contains no user commits and none of the old files. The user's personal commits remain reachable only through GitHub's pull refs (`refs/pull/1..6/head` and `refs/pull/8/head`); removing those needs GitHub Support's sensitive-data process.
 
 ## Pending
 
 - Build a read-only CPK table reader (`tools/cpk_table.py`): decode the `@UTF` tables (ground the format in a public reference, validate against the sample's listing), read each container's TOC entries (name, ID, size, offset) and ITOC IDs, and self-validate against the converter's `-L` listing per package (fail closed on any mismatch). No executable downloads.
 - Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): 902 uncompressed entries are readable by offset alone; 209 compressed entries would need a Layla decompressor or the converter for those. Keep the round-trip gate before any repack decision.
-- Re-run `RUN_PIPELINE.bat` (about 3 minutes) and read the ISO's read-only index: the index now tolerates the trailing data, so the report/registry will show the member list, the CPK-signature members inside the ISO, and where the trailing 5,533,072 bytes sit relative to the last member extent. Use it to explain the descriptor mismatch and to cross-check the loose `NPJH50521` folder against the disc. Do not unpack the ISO.
+- Re-run `RUN_PIPELINE.bat` (about 3 minutes) and read the ISO's read-only index: the member list, the CPK-signature members inside the ISO, and where the trailing 5,533,072 bytes sit relative to the last member extent. Use it to explain the descriptor mismatch and to cross-check the loose `NPJH50521` folder against the disc. Do not unpack the ISO.
+- Cross-check the ISO's 80 members against the loose folder's 341 inputs by name and size: send the fifth run's `registry.json` (`inputs[].iso_inventory.files` has the member list). Observation so far: the folder has 290 CPK-signature files, the ISO lists 63 CPK-signature members — the folder is not simply this ISO unpacked.
 - Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
