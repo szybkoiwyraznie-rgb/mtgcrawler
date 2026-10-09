@@ -317,6 +317,16 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 
 **Validation:** Exact-byte search returned one occurrence per payload and no occurrences at other offsets or members. The ZIP and local exports were not modified.
 
+## 2026-10-09 — cross-check control-bearing `_Entry.dat` wide-script leads
+
+**Input:** The previously supplied `eventP01.zip` restored from its historical upload commit into ignored `local/` (SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`). This is the previously shared sample, not the actual ISO/DLC.
+
+**Action:** Profiled the eight `_Entry.dat` NUL-runs with at least two wide-Japanese codepoints. The review compared control-byte positions, CP932 quality of the intervening byte segments, 64-byte record-relative offsets, and exact raw-byte reuse across all 88 ZIP members; no decoded strings were printed or promoted.
+
+**Result:** All eight runs remain control-bearing leads; seven round-trip under CP932 and one does not. A five-byte CP932-roundtripping sequence with two wide-Japanese codepoints and a trailing raw `0x03` occurs as a whole run at `DL104_30_Entry.dat@0x00DC` and as a five-byte substring at offsets `@0x005C` and `@0x009C` inside seven-byte runs starting at `@0x005A` and `@0x009A`. The two enclosing runs have `0x02`/`0x03` controls at relative `+0`/`+6`; the repeated subspan starts at `+2` and includes the terminal `0x03`. No other exact occurrence was found among all 88 member contents. This repeat supports reviewing the subspan, but does not establish whether the control is a delimiter, token, or text formatting byte. Keep each original NUL-run intact.
+
+**Validation:** The four occurrence offsets and enclosing-run boundaries were checked directly against `DL104_30_Entry.dat`; the archive's other members contained no exact copy. All comparisons were read-only.
+
 ## 2026-10-09 — deterministic text-unit extractor and no-change rebuilds
 
 **Input:** The previously supplied `eventP01.zip` restored from upload commit `e576e8b` into ignored `srw-oe-translation/local/` (162,546 bytes; SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`, matching `FILE_INVENTORY.md`). Only its 22 `.bin` members were read. The `.dat` companions, the ISO, and the DLC were not processed.
