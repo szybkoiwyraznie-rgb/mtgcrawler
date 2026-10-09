@@ -258,10 +258,12 @@ def _entries_from_itoc_blobs(itoc_table: bytes, itoc: dict[str, Any], header_fil
     high = row.get("FilesH")
     if low is None or high is None:
         raise CpkTableError("ITOC blob layout lacks FilesL or FilesH")
-    counted = low | (high << 16)
+    # Verified on the run's packages: the header count equals FilesL + FilesH and the
+    # nested tables hold exactly that many rows. The per-table split is not verified.
+    counted = low + high
     if counted != len(collected) or (header_files is not None and header_files != counted):
         raise CpkTableError(
-            f"ITOC blob layout holds {len(collected)} rows, FilesL/FilesH say {counted}, "
+            f"ITOC blob layout holds {len(collected)} rows, FilesL + FilesH say {counted}, "
             f"header says {header_files}"
         )
     entries: list[dict[str, Any]] = []
@@ -380,7 +382,7 @@ def read_cpk_table(path: Path) -> dict[str, Any]:
         columns = set(itoc["columns"])
         if {"FilesL", "FilesH", "DataL", "DataH"} <= columns and not {"ID", "TocIndex"} & columns:
             # Blob layout: DataL and DataH each hold a nested @UTF table of (ID, FileSize,
-            # ExtractSize) rows; the header count is FilesL | (FilesH << 16). No offsets here.
+            # ExtractSize) rows; the header count is FilesL + FilesH. No offsets here.
             if result["entries"]:
                 raise CpkTableError("ITOC blob layout alongside a TOC is not supported")
             result["entries"] = _entries_from_itoc_blobs(itoc_table, itoc, header_files=header["rows"][0].get("Files"))

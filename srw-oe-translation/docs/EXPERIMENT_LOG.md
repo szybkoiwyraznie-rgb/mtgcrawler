@@ -788,6 +788,20 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the table check against the real listing for these 57 packages (needs the next PC run); the meaning of FilesH above 0; any game content.
 
+## 2026-10-10 — run 20261010-013506: the blob-layout count was wrong, fixed
+
+**Input:** `registry.json` from run `20261010-013506` (SHA-256 `2dd8d8d227c6aa0e54dd730cdff00527ab62dfa502fe3a0fa375a7a22eb4b8e8`), kept outside the repository.
+
+**Observed:** table check agree 462 (was 425), mismatch 2 (`robo01`, `robo03`; expected), unreadable 33 (was 69). All 33 remaining failures were the blob-layout count check, and all of them had `nested rows == header Files`. The check itself was wrong: it combined the counts as `FilesL | (FilesH << 16)`, which gives 65536 for a file with header 1 (`mesbmp09`).
+
+**Verified on the 33 cases:** `FilesL + FilesH` equals the header Files count in every case (e.g. `mesbmp01`: 7 + 47 = 54, header 54). Earlier, `face01` had FilesL 494 and FilesH 0, which agrees with both formulas.
+
+**Change:** `_entries_from_itoc_blobs` now checks `FilesL + FilesH` against the nested row total and the header. A new test covers a non-zero FilesH. The per-table split (rows in CpkItocL equal FilesL, rows in CpkItocH equal FilesH) is not verified and is not checked.
+
+**Tests:** full suite 168 OK.
+
+**Not demonstrated:** that the 33 tables now agree with their listings (needs the next PC run); the meaning of FilesH; any game content.
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.

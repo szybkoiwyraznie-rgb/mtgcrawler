@@ -444,11 +444,12 @@ class ConstantColumnTests(unittest.TestCase):
         self.assertEqual(parsed["rows"][0]["LocalDir"], "dir")
 
 
-def build_itoc_blob_table(files_low: int, files_high: int, nested_ids: list) -> bytes:
+def build_itoc_blob_table(files_low: int, files_high: int, nested_ids: list, high_ids: list = ()) -> bytes:
     """An ITOC in the blob layout: DataL/DataH point at nested (ID, FileSize, ExtractSize) tables."""
     low_rows = [{"ID": i, "FileSize": 10 + i, "ExtractSize": 20 + i} for i in nested_ids]
     low_blob = build_utf_table("CpkItocL", [("ID", 0x54), ("FileSize", 0x54), ("ExtractSize", 0x54)], low_rows)
-    high_blob = build_utf_table("CpkItocH", [("ID", 0x54), ("FileSize", 0x54), ("ExtractSize", 0x54)], [])
+    high_rows = [{"ID": i, "FileSize": 10 + i, "ExtractSize": 20 + i} for i in high_ids]
+    high_blob = build_utf_table("CpkItocH", [("ID", 0x54), ("FileSize", 0x54), ("ExtractSize", 0x54)], high_rows)
     data = low_blob + high_blob
     columns = [("FilesL", 0x54), ("FilesH", 0x54), ("DataL", 0x5B), ("DataH", 0x5B)]
     row = {"FilesL": files_low, "FilesH": files_high, "DataL": (0, len(low_blob)), "DataH": (len(low_blob), len(high_blob))}
@@ -465,6 +466,12 @@ class ItocBlobLayoutTests(unittest.TestCase):
         self.assertEqual([entry["extract_size"] for entry in entries], [20, 21])
         self.assertEqual([entry["compressed"] for entry in entries], [True, True])
         self.assertIsNone(entries[0]["absolute_offset"])
+
+    def test_blob_layout_adds_low_and_high_counts(self):
+        table = build_itoc_blob_table(1, 1, [0], high_ids=[65536])
+        parsed = cpk_table._parse_utf_table(table)
+        entries = cpk_table._entries_from_itoc_blobs(table, parsed, header_files=2)
+        self.assertEqual([entry["id"] for entry in entries], [0, 65536])
 
     def test_blob_layout_fails_closed_when_counts_disagree(self):
         table = build_itoc_blob_table(3, 0, [0, 1])
