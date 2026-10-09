@@ -197,7 +197,7 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Action:** Extended the companion auditor's punctuation framing check to identify Japanese-script candidate spans in the same EVNT block, without merging punctuation leads into c2/range calculations.
 
-**Result:** All 35 punctuation leads share an EVNT block with at least one main script candidate. Thirty-three have an earlier and 33 have a later main candidate in the same block. The two contextual counts are separate (not a claim that the same 33 rows have both neighbors); this is byte-level adjacency evidence only, not confirmation of string boundaries.
+**Result:** All 35 punctuation leads share one of 22 EVNT blocks with at least one main script candidate. Thirty-three have an earlier and 33 have a later main candidate in the same block. The two contextual counts are separate (not a claim that the same 33 rows have both neighbors); this is byte-level adjacency evidence only, not confirmation of string boundaries.
 
 **Validation:** Added a synthetic EVNT/ECHK test with a punctuation review span and a main candidate in the same block. All 26 tests pass; the archive companion audit reproduces the 35/33/33 results.
 
