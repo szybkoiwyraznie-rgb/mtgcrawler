@@ -3,8 +3,10 @@
 
 Accepts either the extracted event directory, one BIN file, or a ZIP archive of
 that directory. The scan reproduces the exploratory FF FF ... 00 00 heuristic,
-then reports possible single-NUL suffixes separately. It is diagnostic only;
-it is not a format parser or a text reinserter.
+then reports possible single-NUL suffixes separately. An optional all-marker
+JSONL export retains every literal FF FF start, including non-Japanese, nested,
+overlapping, empty, and unbounded spans. It is diagnostic only; it is not a
+format parser or a text reinserter.
 """
 
 from __future__ import annotations
@@ -80,6 +82,43 @@ class PunctuationReviewCandidate:
     line_feeds: int
 
 
+@dataclass(frozen=True)
+class MarkerSpanReview:
+    """Unfiltered byte span beginning at one literal, possibly overlapping FF FF marker."""
+
+    filename: str
+    marker_offset: int
+    start: int
+    pair_offset: Optional[int]
+    raw_span: bytes
+    prefix_bytes: bytes
+    prefix_text: str
+    suffix: Optional[bytes]
+    outer_scan_selected: bool
+    inside_selected_span: bool
+    overlaps_literal_marker: bool
+    span_cp932_strict: bool
+    span_cp932_roundtrip: bool
+    prefix_cp932_strict: bool
+    prefix_cp932_roundtrip: bool
+    prefix_has_japanese_script: bool
+    prefix_japanese_codepoints: int
+    prefix_wide_japanese_codepoints: int
+    prefix_halfwidth_katakana_codepoints: int
+    prefix_japanese_punctuation_codepoints: int
+    prefix_private_use_codepoints: int
+    prefix_nonnewline_control_codepoints: int
+    prefix_ascii_printable_codepoints: int
+    prefix_ascii_letter_codepoints: int
+    prefix_ascii_digit_codepoints: int
+    prefix_max_ascii_printable_run: int
+    prefix_nonascii_letter_number_codepoints: int
+    prefix_replacement_codepoints: int
+    nested_ff_ff_markers: int
+    carriage_returns: int
+    line_feeds: int
+
+
 def _marker_count(data: bytes, marker: bytes) -> int:
     count = 0
     position = 0
@@ -101,6 +140,18 @@ def _marker_positions(data: bytes, marker: bytes) -> list[int]:
             return positions
         positions.append(position)
         position += 1
+
+
+def _cp932_reversibility(raw: bytes) -> tuple[bool, bool]:
+    """Return strict-decode and exact byte-roundtrip results for a byte sequence."""
+    try:
+        decoded = raw.decode("cp932")
+    except UnicodeDecodeError:
+        return False, False
+    try:
+        return True, decoded.encode("cp932") == raw
+    except UnicodeEncodeError:
+        return True, False
 
 
 def _prefix_quality(prefix: bytes) -> tuple[str, bool, bool, int, int, int, int, int]:
@@ -349,6 +400,145 @@ def scan_bin_punctuation_review(
     return rows, stats
 
 
+def scan_bin_marker_inventory(filename: str, data: bytes) -> tuple[list[MarkerSpanReview], Counter]:
+    """Inventory every literal ``FF FF`` start without a text-content filter.
+
+    For each start, the proposed span extends from the two marker bytes to the
+    next ``00 00`` pair or EOF. This is diagnostic framing only, not a format
+    parser. ``outer_scan_selected`` means the existing greedy scanner would
+    visit the start; nested and overlapping alternatives are retained too.
+    The first single NUL still defines a *proposed* prefix/suffix split, and the
+    full raw span plus byte hex in the JSONL preserve all source bytes.
+    """
+    from bisect import bisect_left
+
+    marker_offsets = _marker_positions(data, b"\xff\xff")
+    selected_ranges: list[tuple[int, int, int]] = []
+    selected_offsets: set[int] = set()
+    stats = Counter()
+
+    # Reproduce the candidate scanner's greedy walk so that the inventory can
+    # distinguish its chosen starts from every alternate literal marker.
+    i = 0
+    while i < len(data) - 1:
+        if data[i : i + 2] != b"\xff\xff":
+            i += 1
+            continue
+        start = i + 2
+        pair_offset = data.find(b"\x00\x00", start)
+        selected_offsets.add(i)
+        selected_ranges.append((i, start, len(data) if pair_offset < 0 else pair_offset))
+        if pair_offset < 0:
+            break
+        i = pair_offset + 1
+
+    nested_offsets: set[int] = set()
+    for _, start, end in selected_ranges:
+        left = bisect_left(marker_offsets, start)
+        right = bisect_left(marker_offsets, end)
+        nested_offsets.update(marker_offsets[left:right])
+
+    rows: list[MarkerSpanReview] = []
+    for marker_offset in marker_offsets:
+        start = marker_offset + 2
+        pair_offset = data.find(b"\x00\x00", start)
+        bounded = pair_offset >= 0
+        end = pair_offset if bounded else len(data)
+        raw = data[start:end]
+        first_nul = raw.find(b"\x00")
+        prefix_bytes = raw if first_nul < 0 else raw[:first_nul]
+        suffix = None if first_nul < 0 else raw[first_nul:]
+        (
+            prefix_text,
+            prefix_strict,
+            prefix_roundtrip,
+            japanese_codepoints,
+            wide_japanese_codepoints,
+            halfwidth_katakana_codepoints,
+            private_use_codepoints,
+            control_codepoints,
+        ) = _prefix_quality(prefix_bytes)
+        span_strict, span_roundtrip = _cp932_reversibility(raw)
+        ascii_printable = sum(0x20 <= ord(char) <= 0x7E for char in prefix_text)
+        ascii_letters = sum(
+            "A" <= char <= "Z" or "a" <= char <= "z" for char in prefix_text
+        )
+        ascii_digits = sum("0" <= char <= "9" for char in prefix_text)
+        max_ascii_printable_run = 0
+        current_ascii_printable_run = 0
+        for char in prefix_text:
+            if 0x20 <= ord(char) <= 0x7E:
+                current_ascii_printable_run += 1
+                max_ascii_printable_run = max(max_ascii_printable_run, current_ascii_printable_run)
+            else:
+                current_ascii_printable_run = 0
+        nonascii_letters_numbers = sum(
+            ord(char) > 0x7F and unicodedata.category(char)[0] in {"L", "N"}
+            for char in prefix_text
+        )
+        overlaps_literal_marker = (
+            (marker_offset > 0 and data[marker_offset - 1] == 0xFF)
+            or (marker_offset + 2 < len(data) and data[marker_offset + 2] == 0xFF)
+        )
+        has_japanese = bool(JAPANESE_RE.search(prefix_text))
+        rows.append(
+            MarkerSpanReview(
+                filename=filename,
+                marker_offset=marker_offset,
+                start=start,
+                pair_offset=pair_offset if bounded else None,
+                raw_span=raw,
+                prefix_bytes=prefix_bytes,
+                prefix_text=prefix_text,
+                suffix=suffix,
+                outer_scan_selected=marker_offset in selected_offsets,
+                inside_selected_span=marker_offset in nested_offsets,
+                overlaps_literal_marker=overlaps_literal_marker,
+                span_cp932_strict=span_strict,
+                span_cp932_roundtrip=span_roundtrip,
+                prefix_cp932_strict=prefix_strict,
+                prefix_cp932_roundtrip=prefix_roundtrip,
+                prefix_has_japanese_script=has_japanese,
+                prefix_japanese_codepoints=japanese_codepoints,
+                prefix_wide_japanese_codepoints=wide_japanese_codepoints,
+                prefix_halfwidth_katakana_codepoints=halfwidth_katakana_codepoints,
+                prefix_japanese_punctuation_codepoints=len(
+                    JAPANESE_PUNCTUATION_RE.findall(prefix_text)
+                ),
+                prefix_private_use_codepoints=private_use_codepoints,
+                prefix_nonnewline_control_codepoints=control_codepoints,
+                prefix_ascii_printable_codepoints=ascii_printable,
+                prefix_ascii_letter_codepoints=ascii_letters,
+                prefix_ascii_digit_codepoints=ascii_digits,
+                prefix_max_ascii_printable_run=max_ascii_printable_run,
+                prefix_nonascii_letter_number_codepoints=nonascii_letters_numbers,
+                prefix_replacement_codepoints=prefix_text.count("\ufffd"),
+                nested_ff_ff_markers=len(_marker_positions(raw, b"\xff\xff")),
+                carriage_returns=raw.count(b"\r"),
+                line_feeds=raw.count(b"\n"),
+            )
+        )
+        stats["literal_ff_ff_marker_starts"] += 1
+        stats["greedy_selected_starts"] += marker_offset in selected_offsets
+        stats["alternate_starts_inside_selected_spans"] += marker_offset in nested_offsets
+        stats["overlapping_marker_starts"] += overlaps_literal_marker
+        stats["overlapping_alternate_starts"] += (
+            overlaps_literal_marker and marker_offset not in selected_offsets
+        )
+        stats["bounded_spans"] += bounded
+        stats["unbounded_spans"] += not bounded
+        stats["empty_bounded_spans"] += bounded and not raw
+        stats["prefixes_with_japanese_script"] += has_japanese
+        stats["prefixes_with_ascii_letters_or_digits"] += bool(ascii_letters or ascii_digits)
+        stats["prefixes_with_3plus_ascii_printable_run"] += max_ascii_printable_run >= 3
+        stats["script_free_prefixes_with_nonascii_letter_number"] += (
+            not has_japanese and nonascii_letters_numbers > 0
+        )
+
+    stats["alternate_marker_starts"] = len(marker_offsets) - len(selected_offsets)
+    return rows, stats
+
+
 def inputs_from_path(path: Path) -> Iterator[tuple[str, bytes]]:
     """Read BIN bytes from a ZIP, a directory, or a single BIN file."""
     if path.is_dir():
@@ -455,6 +645,99 @@ def write_punctuation_review_jsonl(
                 handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def write_marker_inventory_jsonl(
+    path: Path, rows_by_file: dict[str, list[MarkerSpanReview]]
+) -> None:
+    """Write every literal-marker span and its original bytes to local JSONL."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        for filename in sorted(rows_by_file):
+            for row in rows_by_file[filename]:
+                marker_roles = []
+                if row.outer_scan_selected:
+                    marker_roles.append("greedy_selected_start")
+                else:
+                    marker_roles.append("alternate_marker_start")
+                if row.inside_selected_span:
+                    marker_roles.append("inside_greedy_selected_span")
+                if row.overlaps_literal_marker:
+                    marker_roles.append("overlaps_adjacent_ff_ff_marker")
+
+                quality_flags = []
+                if row.pair_offset is None:
+                    quality_flags.append("no_double_nul_before_eof")
+                if not row.raw_span:
+                    quality_flags.append("empty_span")
+                if not row.prefix_has_japanese_script:
+                    quality_flags.append("no_recognized_japanese_script_in_prefix")
+                if row.prefix_japanese_punctuation_codepoints:
+                    quality_flags.append("japanese_punctuation_in_prefix")
+                if row.prefix_ascii_letter_codepoints or row.prefix_ascii_digit_codepoints:
+                    quality_flags.append("ascii_alphanumeric_in_prefix")
+                if not row.prefix_cp932_strict:
+                    quality_flags.append("prefix_not_strict_cp932")
+                elif not row.prefix_cp932_roundtrip:
+                    quality_flags.append("prefix_cp932_not_byte_reversible")
+                if not row.span_cp932_strict:
+                    quality_flags.append("span_not_strict_cp932")
+                elif not row.span_cp932_roundtrip:
+                    quality_flags.append("span_cp932_not_byte_reversible")
+                if row.prefix_private_use_codepoints:
+                    quality_flags.append("private_use_codepoint")
+                if row.prefix_nonnewline_control_codepoints:
+                    quality_flags.append("nonnewline_control_codepoint")
+                if row.prefix_replacement_codepoints:
+                    quality_flags.append("replacement_character_from_decode")
+                if row.nested_ff_ff_markers:
+                    quality_flags.append("nested_ff_ff_marker_in_span")
+
+                end_offset = row.start + len(row.raw_span)
+                record = {
+                    "id": f"{filename}@MARKER:{row.marker_offset:08X}",
+                    "file": filename,
+                    "marker_offset": row.marker_offset,
+                    "marker_hex": "FF FF",
+                    "start_offset": row.start,
+                    "span_end_offset_exclusive": end_offset,
+                    "pair_offset": row.pair_offset,
+                    "stopping_pair_hex": "00 00" if row.pair_offset is not None else None,
+                    "span_length_bytes": len(row.raw_span),
+                    "bounded_by_double_nul": row.pair_offset is not None,
+                    "outer_scan_selected": row.outer_scan_selected,
+                    "inside_selected_span": row.inside_selected_span,
+                    "overlaps_literal_marker": row.overlaps_literal_marker,
+                    "marker_roles": marker_roles,
+                    "raw_span_hex": row.raw_span.hex(" ").upper(),
+                    "prefix_offset": row.start,
+                    "first_nul_offset": row.start + len(row.prefix_bytes) if row.suffix is not None else None,
+                    "prefix_bytes_hex": row.prefix_bytes.hex(" ").upper(),
+                    "prefix_text_cp932": row.prefix_text,
+                    "suffix_hex": None if row.suffix is None else row.suffix.hex(" ").upper(),
+                    "prefix_has_japanese_script": row.prefix_has_japanese_script,
+                    "prefix_japanese_codepoints": row.prefix_japanese_codepoints,
+                    "prefix_wide_japanese_codepoints": row.prefix_wide_japanese_codepoints,
+                    "prefix_halfwidth_katakana_codepoints": row.prefix_halfwidth_katakana_codepoints,
+                    "prefix_japanese_punctuation_codepoints": row.prefix_japanese_punctuation_codepoints,
+                    "prefix_ascii_printable_codepoints": row.prefix_ascii_printable_codepoints,
+                    "prefix_ascii_letter_codepoints": row.prefix_ascii_letter_codepoints,
+                    "prefix_ascii_digit_codepoints": row.prefix_ascii_digit_codepoints,
+                    "prefix_max_ascii_printable_run": row.prefix_max_ascii_printable_run,
+                    "prefix_nonascii_letter_number_codepoints": row.prefix_nonascii_letter_number_codepoints,
+                    "prefix_private_use_codepoints": row.prefix_private_use_codepoints,
+                    "prefix_nonnewline_control_codepoints": row.prefix_nonnewline_control_codepoints,
+                    "prefix_replacement_codepoints": row.prefix_replacement_codepoints,
+                    "prefix_cp932_strict": row.prefix_cp932_strict,
+                    "prefix_cp932_roundtrip": row.prefix_cp932_roundtrip,
+                    "span_cp932_strict": row.span_cp932_strict,
+                    "span_cp932_roundtrip": row.span_cp932_roundtrip,
+                    "nested_ff_ff_markers": row.nested_ff_ff_markers,
+                    "cr_bytes_in_span": row.carriage_returns,
+                    "lf_bytes_in_span": row.line_feeds,
+                    "quality_flags": quality_flags,
+                }
+                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="event ZIP, extracted directory, or one BIN file")
@@ -468,6 +751,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         type=Path,
         help="write script-free Japanese-punctuation leads separately to a local JSONL file",
     )
+    parser.add_argument(
+        "--export-marker-inventory-jsonl",
+        type=Path,
+        help="write every literal FF FF marker span, including non-text and alternate starts, to local JSONL",
+    )
     args = parser.parse_args(argv)
 
     if not args.input.exists():
@@ -475,9 +763,11 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     rows_by_file: dict[str, list[Candidate]] = {}
     punctuation_review_by_file: dict[str, list[PunctuationReviewCandidate]] = {}
+    marker_inventory_by_file: dict[str, list[MarkerSpanReview]] = {}
     sizes: dict[str, int] = {}
     scan_stats = Counter()
     punctuation_stats = Counter()
+    marker_inventory_stats = Counter()
     try:
         # Read archive members directly; do not extract proprietary assets to disk.
         for name, data in inputs_from_path(args.input):
@@ -488,6 +778,10 @@ def main(argv: Optional[list[str]] = None) -> int:
             punctuation_review_by_file[name] = punctuation_rows
             scan_stats.update(file_stats)
             punctuation_stats.update(punctuation_file_stats)
+            if args.export_marker_inventory_jsonl:
+                marker_rows, marker_file_stats = scan_bin_marker_inventory(name, data)
+                marker_inventory_by_file[name] = marker_rows
+                marker_inventory_stats.update(marker_file_stats)
     except (OSError, zipfile.BadZipFile, ValueError) as exc:
         parser.error(str(exc))
 
@@ -503,6 +797,11 @@ def main(argv: Optional[list[str]] = None) -> int:
             )
         except OSError as exc:
             parser.error(f"could not write punctuation review JSONL export: {exc}")
+    if args.export_marker_inventory_jsonl:
+        try:
+            write_marker_inventory_jsonl(args.export_marker_inventory_jsonl, marker_inventory_by_file)
+        except OSError as exc:
+            parser.error(f"could not write marker-inventory JSONL export: {exc}")
 
     suffix_counts: Counter[bytes] = Counter(
         row.suffix for rows in rows_by_file.values() for row in rows if row.suffix is not None
@@ -538,6 +837,28 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     print(f"\nBIN files: {len(rows_by_file)}")
     print(f"Japanese-containing candidate spans: {total_candidates}")
+    if args.export_marker_inventory_jsonl:
+        marker_total = sum(map(len, marker_inventory_by_file.values()))
+        print(
+            "Unfiltered literal-marker inventory: "
+            f"{marker_total} rows from {marker_inventory_stats['literal_ff_ff_marker_starts']} starts; "
+            f"{marker_inventory_stats['greedy_selected_starts']} greedily selected, "
+            f"{marker_inventory_stats['alternate_marker_starts']} alternate, "
+            f"{marker_inventory_stats['alternate_starts_inside_selected_spans']} inside selected spans, "
+            f"{marker_inventory_stats['overlapping_alternate_starts']} alternate starts sharing a byte "
+            f"with a neighboring marker ({marker_inventory_stats['overlapping_marker_starts']} total "
+            f"marker starts participate in overlaps; these categories are not exclusive), "
+            f"{marker_inventory_stats['empty_bounded_spans']} empty, "
+            f"{marker_inventory_stats['unbounded_spans']} unbounded"
+        )
+        print(
+            "Unfiltered prefix review signals: "
+            f"{marker_inventory_stats['prefixes_with_3plus_ascii_printable_run']} with an ASCII printable run "
+            f"of at least 3 characters, "
+            f"{marker_inventory_stats['script_free_prefixes_with_nonascii_letter_number']} with "
+            "non-ASCII letters/numbers but no recognized Japanese script (counts are not text labels)."
+        )
+        print("The inventory is byte-preserving diagnostics, not a validated string table.")
     print(
         f"FF FF byte-start positions (overlap allowed): {scan_stats['literal_ff_ff_markers']}; "
         f"selected as outer span starts: {scan_stats['consumed_ff_ff_markers']}; "
@@ -617,6 +938,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         print(
             f"\nLocal punctuation-review JSONL: {args.export_punctuation_review_jsonl} "
             f"({punctuation_stats['punctuation_only_review_prefixes']} records)"
+        )
+    if args.export_marker_inventory_jsonl:
+        print(
+            f"\nLocal all-marker inventory JSONL: {args.export_marker_inventory_jsonl} "
+            f"({sum(map(len, marker_inventory_by_file.values()))} records)"
         )
     return 0
 

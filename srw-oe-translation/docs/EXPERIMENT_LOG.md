@@ -233,6 +233,26 @@ Across all 1,066 tentative rows, column 2 is nonzero in 1,021 and is numerically
 
 **Validation:** Added tests for relative path resolution, CLI override behavior, and missing/invalid config fields. All 42 project tests pass. No real Windows path, ISO, DLC, or YACpkTool executable was used.
 
+## 2026-10-09 — inventory every literal `FF FF` marker start
+
+**Input:** The previously user-uploaded `eventP01.zip`, restored from its historical upload commit into ignored `local/`; 162,546 bytes, SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`. ZIP integrity passed. This was the already shared event sample; no ISO or DLC was opened or processed.
+
+**Action:** Added `--export-marker-inventory-jsonl` to `tools/audit_event_candidates.py`. Unlike the filtered candidate and punctuation exports, this optional pass emits every overlapping-allowed literal `FF FF` start, including selected, nested, overlapping, empty, non-Japanese, and unbounded rows. Each record preserves offsets, raw span hex, proposed first-NUL prefix/suffix, CP932 quality, and review signals. Regenerated all three ignored local exports.
+
+**Result:** The all-marker inventory contains 3,477 unique rows: 3,402 greedily selected starts and 75 alternate starts. All are bounded by a `00 00` pair; 13 spans are empty across all marker starts (eight among selected starts). The alternatives include 25 half-width-only prefix matches but no wide-script or punctuation matches. Across all marker prefixes there is no printable ASCII run of three or more characters and no non-ASCII letter/number outside recognized Japanese script. These observations cover only `FF FF` spans in these 22 BINs and do not establish string boundaries.
+
+**Validation:** A byte-by-byte check compared all 3,477 marker bytes, span slices, prefix/suffix concatenations, and stopping-pair offsets to the ZIP members: 3,477 unique IDs, zero mismatches. Added three synthetic tests for nested/overlapping and unbounded alternatives, prefix/suffix preservation, and JSONL fields. The full suite increased from the 42-test baseline to 45 passing tests; `py_compile` and CLI JSONL smoke checks passed.
+
+## 2026-10-09 — inventory all nonempty NUL-delimited companion-DAT runs
+
+**Input:** The same user-supplied sample ZIP and SHA-256 above; no actual ISO/DLC input or converter was used.
+
+**Action:** Added `tools/audit_event_dat_runs.py`, which scans every `.dat` member and retains every nonempty maximal nonzero-byte run without a text filter. The optional local JSONL records exact offsets/end offsets/raw hex, CP932 replacement text and strict/roundtrip signals, Japanese-script/punctuation/ASCII/PUA/control counts, and adjacent NUL status. Regenerated the ignored local export.
+
+**Result:** The archive has 6,288 nonempty runs across 66 `.dat` files: `_edit.dat` 370, `_Entry.dat` 5,802, `_ext.dat` 116. The existing `_ext.dat` scan is reproduced: 42 wide-script runs and five two-byte half-width/control leads. `_Entry.dat` contains 1,352 broad Japanese-script decoder hits, but 1,122 are half-width-only, 954 include non-newline controls, and only eight contain two wide-script codepoints (none has three or more). All 76 `_edit.dat` half-width hits are 2–3 bytes and contain non-newline controls. Two roundtripping `_ext.dat` runs contain a nine-character ASCII sequence alongside wide Japanese; retain them as mixed-script review leads, not confirmed English text. No run is auto-promoted to a string.
+
+**Validation:** A boundary checker verified all 6,288 unique IDs, raw slices, maximal NUL-run endpoints, and preceding/following NUL flags against the ZIP: zero byte/boundary mismatches. Added three synthetic tests for full run retention, malformed CP932/control cases, JSONL offsets/bytes, ZIP DAT filtering, and export path safety. The full suite now has 48 passing tests; `py_compile` and the 6,288-record CLI export passed.
+
 ## Pending
 
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.

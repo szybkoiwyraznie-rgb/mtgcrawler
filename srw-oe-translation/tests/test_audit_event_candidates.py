@@ -8,9 +8,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 
 from audit_event_candidates import (  # noqa: E402
     scan_bin,
+    scan_bin_marker_inventory,
     scan_bin_punctuation_review,
     scan_bin_with_stats,
     write_jsonl,
+    write_marker_inventory_jsonl,
     write_punctuation_review_jsonl,
 )
 
@@ -244,6 +246,84 @@ class CandidateAuditTests(unittest.TestCase):
                 "single_japanese_codepoint",
             ],
         )
+
+    def test_marker_inventory_retains_nested_japanese_and_overlapping_starts(self):
+        japanese = "日".encode("cp932")
+        data = (
+            b"\xff\xffASCII\x00\xff\xff"
+            + japanese
+            + b"\x00\x00\xff\xff\xff\x00\x00"
+        )
+
+        rows, stats = scan_bin_marker_inventory("sample.bin", data)
+        by_offset = {row.marker_offset: row for row in rows}
+
+        self.assertEqual(sorted(by_offset), [0, 8, 14, 15])
+        self.assertEqual(len(list(scan_bin("sample.bin", data))), 0)
+        self.assertEqual(stats["literal_ff_ff_marker_starts"], 4)
+        self.assertEqual(stats["greedy_selected_starts"], 2)
+        self.assertEqual(stats["alternate_marker_starts"], 2)
+        self.assertEqual(stats["alternate_starts_inside_selected_spans"], 1)
+        self.assertEqual(stats["overlapping_marker_starts"], 2)
+        self.assertEqual(stats["empty_bounded_spans"], 1)
+
+        parent = by_offset[0]
+        nested = by_offset[8]
+        overlap_outer = by_offset[14]
+        overlap_alternate = by_offset[15]
+        self.assertTrue(parent.outer_scan_selected)
+        self.assertEqual(parent.prefix_text, "ASCII")
+        self.assertFalse(parent.prefix_has_japanese_script)
+        self.assertEqual(parent.suffix, b"\x00\xff\xff" + japanese)
+        self.assertFalse(nested.outer_scan_selected)
+        self.assertTrue(nested.inside_selected_span)
+        self.assertEqual(nested.prefix_text, "日")
+        self.assertEqual(nested.raw_span, japanese)
+        self.assertTrue(overlap_outer.outer_scan_selected)
+        self.assertTrue(overlap_outer.overlaps_literal_marker)
+        self.assertEqual(overlap_outer.raw_span, b"\xff")
+        self.assertFalse(overlap_alternate.outer_scan_selected)
+        self.assertTrue(overlap_alternate.overlaps_literal_marker)
+        self.assertEqual(overlap_alternate.raw_span, b"")
+
+    def test_marker_inventory_retains_unbounded_tail_and_nested_markers(self):
+        data = b"\xff\xffA\xff\xffB"
+
+        rows, stats = scan_bin_marker_inventory("sample.bin", data)
+        by_offset = {row.marker_offset: row for row in rows}
+
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(stats["greedy_selected_starts"], 1)
+        self.assertEqual(stats["unbounded_spans"], 2)
+        self.assertTrue(by_offset[0].outer_scan_selected)
+        self.assertIsNone(by_offset[0].pair_offset)
+        self.assertEqual(by_offset[0].raw_span, b"A\xff\xffB")
+        self.assertFalse(by_offset[3].outer_scan_selected)
+        self.assertTrue(by_offset[3].inside_selected_span)
+        self.assertEqual(by_offset[3].prefix_text, "B")
+
+    def test_marker_inventory_jsonl_preserves_prefix_suffix_and_original_span_bytes(self):
+        data = b"\xff\xffOPEN\x00\x76\x01\x00\x00"
+        rows, _ = scan_bin_marker_inventory("sample.bin", data)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "all-markers.jsonl"
+            write_marker_inventory_jsonl(path, {"sample.bin": rows})
+            record = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual(record["id"], "sample.bin@MARKER:00000000")
+        self.assertEqual(record["start_offset"], 2)
+        self.assertEqual(record["first_nul_offset"], 6)
+        self.assertEqual(record["pair_offset"], 9)
+        self.assertEqual(record["raw_span_hex"], "4F 50 45 4E 00 76 01")
+        self.assertEqual(record["prefix_bytes_hex"], "4F 50 45 4E")
+        self.assertEqual(record["prefix_text_cp932"], "OPEN")
+        self.assertEqual(record["suffix_hex"], "00 76 01")
+        self.assertTrue(record["prefix_cp932_roundtrip"])
+        self.assertEqual(record["prefix_ascii_letter_codepoints"], 4)
+        self.assertEqual(record["prefix_max_ascii_printable_run"], 4)
+        self.assertIn("no_recognized_japanese_script_in_prefix", record["quality_flags"])
+        self.assertIn("ascii_alphanumeric_in_prefix", record["quality_flags"])
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ Reproduce with an uploaded ZIP, extracted event directory, or one BIN:
 python srw-oe-translation/tools/audit_event_candidates.py <ZIP-or-directory-or-BIN>
 ```
 
-The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run them from the repository root with `python -m unittest discover -s srw-oe-translation/tests -v`. Its optional `--export-jsonl` output contains the decoded Japanese-script candidate prefixes, while `--export-punctuation-review-jsonl` writes the separate punctuation-only leads. Both contain decoded source data and must be written to ignored `local/`, never committed.
+The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run them from the repository root with `python -m unittest discover -s srw-oe-translation/tests -v`. Its optional `--export-jsonl` output contains the decoded Japanese-script candidate prefixes; `--export-punctuation-review-jsonl` writes the separate punctuation-only leads; and `--export-marker-inventory-jsonl` writes one row for every literal `FF FF` start, without a Japanese-text filter. The all-marker output retains alternate, nested, overlapping, empty, and unbounded spans, with offsets, CP932 diagnostics, proposed prefix/suffix, and raw bytes. Every export contains decoded/source data and must be written to ignored `local/`, never committed.
 
 ## Results across the 22 BIN files
 
@@ -105,6 +105,23 @@ A small sanity check against four previously inspected examples in `DL102_20.bin
 
 The optional JSONL export records the flags and counts alongside the original offsets/bytes. The normal CLI summary still prints no game text. Reproduce the updated audit/export with the command below; the export must remain in ignored `local/`.
 
+### All-literal-marker inventory and residual-text review
+
+On 2026-10-09, the archived user-uploaded `eventP01.zip` was restored from its historical upload commit into ignored `local/` and scanned with the new `--export-marker-inventory-jsonl` option. This was a repeat static audit of that previously supplied event sample; no ISO or DLC source was opened or processed. The export is diagnostic and deliberately does not apply a Japanese-character filter.
+
+- The inventory contains 3,477 unique rows, one for every overlapping-allowed literal `FF FF` start across the 22 BINs. It records the marker/start/end offsets, the next `00 00` offset or EOF, full raw-span hex, proposed first-NUL prefix/suffix bytes, replacement-decoded CP932 prefix, strict-decode/byte-roundtrip flags, script/punctuation/ASCII/PUA/control counts, and marker-role flags.
+- All 3,477 rows are bounded by a later `00 00` pair. Thirteen rows are empty across all literal starts (eight among the 3,402 greedily selected starts); none is unbounded. The greedy scanner selects 3,402 starts and leaves 75 alternatives, 49 inside selected spans. Some inside-span and adjacent-overlap markers belong to the same `FF` runs, so those role flags are not mutually exclusive; 36 alternate rows share a byte with a neighboring marker, and 62 total marker rows participate in an adjacent overlap.
+- A byte-integrity check matched every exported marker, raw span, prefix-plus-suffix split, and stopping pair to the original ZIP member: 3,477 unique IDs, zero boundary/byte mismatches. This proves the export preserved the proposed byte ranges, not that those ranges are game string boundaries.
+- The alternate starts produce 25 half-width-Katakana-only prefix hits but no wide-script Japanese or punctuation hits. Twenty-three correspond to the earlier nested-start half-width review leads; the other two are overlapping-marker cases, one malformed/control-bearing. No alternate start yielded a new wide-script candidate.
+- Across all 3,477 proposed prefixes, there is no run of three or more consecutive printable ASCII characters and no non-ASCII Unicode letter/number in a prefix lacking recognized Japanese script. Ten prefixes consist entirely of printable ASCII, all only one or two bytes long; nine are greedily selected and one is an alternate marker. This finds no longer English-only lead under this marker heuristic, but it does not cover strings outside `FF FF` spans or other resource formats.
+- The original main candidate set stays at 3,277; the 35 punctuation-only leads and the PUA/half-width ambiguity remain separate review classes. The full all-marker JSONL is ignored local output at `local/eventP01_all_markers.jsonl`; do not commit it or treat it as a translation table.
+
+Reproduce all three local exports with:
+
+```text
+python srw-oe-translation/tools/audit_event_candidates.py srw-oe-translation/local/eventP01.zip --export-jsonl srw-oe-translation/local/eventP01_candidates.jsonl --export-punctuation-review-jsonl srw-oe-translation/local/eventP01_punctuation_review.jsonl --export-marker-inventory-jsonl srw-oe-translation/local/eventP01_all_markers.jsonl
+```
+
 ### Why the first dump appeared to have 215 lines
 
 The original, wide-script-only detector found 181 logical candidate spans in `DL102_20.bin`, containing 34 carriage-return bytes. The original PowerShell formatter replaced LF (`\n`) with ` / ` but left CR (`\r`) intact; writing those strings therefore split 34 candidates into extra physical lines. `181 + 34 = 215`, matching the reported output-file line count. The updated detector adds three half-width-only prefixes in this BIN (184 total); under the same formatter it would produce 218 physical lines. Thus the historical 215 count was the old detector's logical count plus embedded CR bytes, not a validated string count.
@@ -157,6 +174,26 @@ A separate exploratory probe tested a short list of plausible c2-to-file-offset 
 Among the 540 absolute-offset hits within proposed text prefixes, c2 minus the matched candidate start has 82 distinct displacements. The most frequent are 16 (55), 20 (32), 4 (32), 13 (26), 28 (20), 21 (19), 24 (18), 5 (18), 32 (15), and 9 (11). The two remaining full-span hits are in unvalidated suffixes, at displacements 40 and 92. Repeated values and candidate spans make this descriptive only; the observed spread does not identify a fixed text-relative offset. The calculations are reproducible in the companion auditor's `echk_c2_base_hypotheses` summary.
 
 ## Companion-file observations (not a format specification)
+
+### All nonempty NUL-delimited `.dat` byte runs
+
+Added `tools/audit_event_dat_runs.py` to inventory every nonempty maximal nonzero-byte run in each companion `.dat`, with no decoded-text filter. The optional JSONL carries stable offsets, end-exclusive boundaries, raw hex, replacement-decoded CP932, strict-decode/roundtrip metrics, script/punctuation/ASCII/PUA/control signals, and whether a NUL byte precedes/follows the run. A byte audit of the archived ZIP checked all 6,288 rows across 66 files: IDs were unique, raw bytes matched their offsets, and both delimiter flags/end boundaries were correct (zero mismatches). This only verifies the run export, not that NUL bytes are string terminators.
+
+| Suffix group | Files | Nonempty runs | Runs with wide Japanese | Runs with half-width Katakana | Runs with Japanese punctuation | Runs with ASCII print run ≥3 | Strict CP932 / exact roundtrip |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `_edit.dat` | 22 | 370 | 0 | 76 | 0 | 0 | 245 / 245 |
+| `_Entry.dat` | 22 | 5,802 | 230 | 1,226 | 20 | 48 | 4,884 / 4,863 |
+| `_ext.dat` | 22 | 116 | 42 | 5 | 22 | 2 | 108 / 108 |
+
+The `_Entry.dat` script hits are highly ambiguous: 1,352 runs match the broad Japanese detector, 1,122 are half-width-only, 954 include non-newline controls, and 80 decode with replacement characters. Only eight runs contain two wide-script Japanese codepoints, and none contains three or more. Forty-eight runs have an ASCII printable sequence of at least three characters, but 44 also contain non-newline controls; these must not be treated as English strings automatically. Nine additional `_Entry.dat` runs contain punctuation but no recognized Japanese script (eight are strict/roundtripping, three have controls, one has a replacement decode); the byte runs are only 2, 3, or 7 bytes long. The 76 `_edit.dat` half-width hits are all 2–3 bytes and all contain non-newline controls, so they are likely binary collisions, not text evidence.
+
+For `_ext.dat`, the 47 script-bearing runs match the earlier companion audit: 42 wide-script runs and five two-byte half-width/control leads at offset `0x00`. Two otherwise CP932-roundtripping wide-Japanese `_ext.dat` runs also contain a 9-character printable ASCII sequence and no controls (the two `SM` files); keep these as mixed-script review leads, not confirmed English or Japanese strings. The full 6,288-row export is ignored local output at `local/eventP01_dat_nul_runs.jsonl`.
+
+Reproduce the no-filter NUL-run scan/export with:
+
+```text
+python srw-oe-translation/tools/audit_event_dat_runs.py srw-oe-translation/local/eventP01.zip --export-jsonl srw-oe-translation/local/eventP01_dat_nul_runs.jsonl
+```
 
 ### `_ext.dat`
 
