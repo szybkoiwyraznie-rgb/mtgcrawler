@@ -200,3 +200,157 @@ def build_iso(tree: Tree, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> b
 
 def pack_iso(tree: Tree, out_path: Path, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> None:
     out_path.write_bytes(build_iso(tree, system_area))
+
+
+def repack_iso(root: Path, out_path: Path, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES,
+               patch: Optional[dict] = None) -> dict:
+    """Stream-rebuild an ISO9660 image from a local directory tree without holding it in RAM.
+
+    ``patch`` maps a slash-separated path relative to *root* to replacement bytes; patched
+    files are written from memory, everything else is streamed from disk. Layout (PVD, path
+    tables, directory records, extents) is computed from file *sizes* first, then the image is
+    written sequentially. Preserves the caller's 32 KiB system area so a repacked PSP UMD
+    keeps its boot region.
+    """
+    if len(system_area) != SYSTEM_AREA_BYTES:
+        raise ValueError("system area must be exactly 32 KiB (sectors 0..15)")
+    patch = patch or {}
+    root = Path(root)
+
+    dirs: list[str] = []
+    files: list[tuple[str, str, int, object]] = []  # parent,name,size,source
+
+    def walk(rel: str, base: Path):
+        dirs.append(rel)
+        for entry in sorted(base.iterdir(), key=lambda e: e.name.upper()):
+            if entry.is_dir():
+                walk(f"{rel}{entry.name}/", entry)
+            else:
+                key = f"{rel}{entry.name}"
+                if key in patch:
+                    files.append((rel, entry.name, len(patch[key]), ("mem", patch[key])))
+                else:
+                    files.append((rel, entry.name, entry.stat().st_size, ("disk", entry)))
+
+    walk("", root)
+    dir_index = {d: i + 1 for i, d in enumerate(dirs)}
+
+    dir_children: dict[str, list] = {d: [] for d in dirs}
+    for parent, name, size, src in files:
+        dir_children[parent].append((name, size, False, None))
+    for d in dirs[1:]:
+        parent = "" if d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        dir_children[parent].append((d.rstrip("/").split("/")[-1], 0, True, d))
+
+    def pt_size() -> int:
+        total = 0
+        for d in dirs:
+            ident = b"\x00" if d == "" else _dir_name(d.rstrip("/").split("/")[-1])
+            total += 8 + len(ident) + (len(ident) % 2)
+        return total
+
+    path_bytes = pt_size()
+    pt_sectors = max(1, (path_bytes + BLOCK_SIZE - 1) // BLOCK_SIZE)
+    l_path_lba = 18
+    m_path_lba = 18 + pt_sectors
+
+    dir_lba: dict[str, int] = {}
+    cursor = m_path_lba + pt_sectors
+    dir_blocks: dict[str, bytes] = {}
+    for d in dirs:
+        dir_lba[d] = cursor
+        rec = bytearray()
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        rec += _record(b"\x00", dir_lba[d], 0, True)
+        rec += _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True)
+        for name, size, is_dir, sub in dir_children[d]:
+            rec += _record(_dir_name(name), 0, size, is_dir)
+        dir_blocks[d] = _sector_pad(bytes(rec))
+        cursor += len(dir_blocks[d]) // BLOCK_SIZE
+
+    file_lba: dict[tuple, int] = {}
+    for parent, name, size, src in files:
+        file_lba[(parent, name)] = cursor
+        cursor += (size + BLOCK_SIZE - 1) // BLOCK_SIZE
+    total_lba = cursor
+
+    # second pass: real extents in directory blocks
+    for d in dirs:
+        rec = bytearray()
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        rec += _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True)
+        rec += _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True)
+        for name, size, is_dir, sub in dir_children[d]:
+            if is_dir:
+                rec += _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True)
+            else:
+                rec += _record(_dir_name(name), file_lba[(d, name)], size, False)
+        dir_blocks[d] = _sector_pad(bytes(rec))
+
+    l = bytearray(); m = bytearray()
+    for d in dirs:
+        ident = b"\x00" if d == "" else _dir_name(d.rstrip("/").split("/")[-1])
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        pad = len(ident) % 2
+        l += bytes([len(ident), 0]) + dir_lba[d].to_bytes(4, "little") + dir_index[parent].to_bytes(2, "little") + ident + b"\x00" * pad
+        m += bytes([len(ident), 0]) + dir_lba[d].to_bytes(4, "big") + dir_index[parent].to_bytes(2, "big") + ident + b"\x00" * pad
+
+    pvd = bytearray(BLOCK_SIZE)
+    pvd[0] = 1; pvd[1:6] = b"CD001"; pvd[6] = 1
+    pvd[80:88] = _both(total_lba, 4)
+    pvd[120:124] = _both(1, 2); pvd[124:128] = _both(1, 2)
+    pvd[128:132] = _both(BLOCK_SIZE, 2)
+    pvd[132:140] = _both(path_bytes, 4)
+    pvd[140:144] = l_path_lba.to_bytes(4, "little")
+    pvd[148:152] = m_path_lba.to_bytes(4, "big")
+    pvd[156:190] = _record(b"\x00", dir_lba[""], len(dir_blocks[""]), True)
+    terminator = bytearray(BLOCK_SIZE)
+    terminator[0] = 255; terminator[1:6] = b"CD001"; terminator[6] = 1
+
+    with open(out_path, "wb") as out:
+        out.write(system_area)
+        out.write(bytes(pvd))
+        out.write(bytes(terminator))
+        out.write(bytes(l).ljust(pt_sectors * BLOCK_SIZE, b"\x00"))
+        out.write(bytes(m).ljust(pt_sectors * BLOCK_SIZE, b"\x00"))
+        for d in dirs:
+            out.write(dir_blocks[d])
+        for parent, name, size, src in files:
+            if src[0] == "mem":
+                out.write(_sector_pad(src[1]))
+            else:
+                with open(src[1], "rb") as fh:
+                    written = 0
+                    while True:
+                        chunk = fh.read(1 << 20)
+                        if not chunk:
+                            break
+                        out.write(chunk)
+                        written += len(chunk)
+                rem = written % BLOCK_SIZE
+                if rem:
+                    out.write(b"\x00" * (BLOCK_SIZE - rem))
+    return {"files": len(files), "dirs": len(dirs), "total_lba": total_lba}
+
+
+def _cli(argv):
+    if not argv or argv[0] != "repack" or len(argv) < 3:
+        print("usage: iso_pack.py repack <tree_dir> <out.iso> [system_area.bin] [patches_dir]")
+        return 2
+    root = Path(argv[1]); out = Path(argv[2])
+    system_area = b"\x00" * SYSTEM_AREA_BYTES
+    patch = {}
+    if len(argv) > 3:
+        system_area = Path(argv[3]).read_bytes()
+    if len(argv) > 4:
+        pdir = Path(argv[4])
+        for p in pdir.rglob("*"):
+            if p.is_file():
+                patch[p.relative_to(pdir).as_posix()] = p.read_bytes()
+    summary = repack_iso(root, out, system_area, patch)
+    print(summary)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(_cli(sys.argv[1:]))
