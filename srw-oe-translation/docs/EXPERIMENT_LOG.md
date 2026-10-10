@@ -1442,6 +1442,31 @@ than Japanese), the nested EVNT size fields must be reverse-engineered and every
 size bumped by the delta; until then translation must be equal-length (fit-or-pad) per
 string.
 
+### 2026-10-10 (night, 4) — FOUND IT: an inner EVNT size field at offset 60
+
+**Differential across four packages cracked the growth crash.** For the first EVNT member of
+eventP01/02/03/09, the u32 at body offset 60 is always `EVNTsize - 36`:
+
+    eventP01 EVNTsize 7368 -> u32@60 7332
+    eventP02 EVNTsize 6796 -> u32@60 6760
+    eventP03 EVNTsize 5396 -> u32@60 5360
+    eventP09 EVNTsize 3144 -> u32@60 3108
+
+It sizes the inner subsection region [56, EVNT_end): `value == owner_end - f + 4` with f=60.
+`grow_record` bumped the EDAT total and the outer EVNT size but left this inner field stale,
+so after an insertion the inner bounds no longer matched and the loader wrote through a bad
+pointer -- the fixed-PC, data-dependent crash seen in every grown build. A same-length edit
+changes no size, which is why the controls booted.
+
+**Fix.** `grow_record` now also bumps every u32 field before the record whose value equals
+`owner_end - f + 4` (the inner size fields tracking the owner end); `check()` whitelists
+those bytes. Only one such field exists here (offset 60), confirmed by scan.
+
+Rebuilt grown variants pass `check()` and the structural gate with the inner field
+consistent (`inner@60 == owner_end - 56`): jp `cecd72631f73d469131e42eb42cc177e` (member
+10205), en `4f82950c3b9074a248d8f9fa42b5f4ec` (member 10202). Suite 307 OK, 1 skipped.
+Awaiting the user's boot of the grown jp build -- this is the first growth expected to work.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

@@ -130,6 +130,16 @@ def grow_record(data: bytes, record_offset: int, new_text: bytes) -> bytes:
         raise ValueError(f"the record at {record_offset} is inside {len(owner)} sections, expected 1")
     struct.pack_into("<I", out, 4, struct.unpack_from("<I", out, 4)[0] + delta)
     struct.pack_into("<I", out, owner[0][0] + 4, owner[0][2] + delta)
+
+    # The owner section holds inner subsections with their own size fields. A field at
+    # offset f whose value equals (owner_end - f + 4) sizes the region [f-4, owner_end);
+    # when the record grows, owner_end moves by delta, so every such field must too.
+    # Only fields before the record are touched: their offsets do not shift.
+    owner_start, owner_body, owner_size = owner[0]
+    owner_end = owner_body + owner_size
+    for f in range(owner_body, min(record_offset, owner_end - 4)):
+        if struct.unpack_from("<I", data, f)[0] == owner_end - f + 4:
+            struct.pack_into("<I", out, f, struct.unpack_from("<I", out, f)[0] + delta)
     return bytes(out)
 
 
@@ -190,6 +200,11 @@ def check(original: bytes, modified: bytes, record_offset: int, new_text: bytes)
     owner = [s for s in before_sections if s[1] <= record_offset < s[1] + s[2]]
     if owner:
         allowed.append(range(owner[0][0] + 4, owner[0][0] + 8))
+        # Inner subsection size fields that track the owner end also change on growth.
+        owner_end = owner[0][1] + owner[0][2]
+        for f in range(owner[0][1], min(record_offset, owner_end - 4)):
+            if struct.unpack_from("<I", original, f)[0] == owner_end - f + 4:
+                allowed.append(range(f, f + 4))
     for span in allowed:
         for at in span:
             if at < head_limit:
