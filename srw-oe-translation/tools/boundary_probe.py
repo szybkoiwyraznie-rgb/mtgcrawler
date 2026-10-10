@@ -1091,24 +1091,71 @@ def write_probe(run_dir: Path, result: dict[str, Any], out: Optional[Path] = Non
 DEFAULT_CONFIG = Path(__file__).resolve().parent.parent / "config" / "local-workflow.ini"
 
 
+# The pipeline writes `output_root`; `output_base` is accepted for hand-edited copies.
+OUTPUT_BASE_KEYS = ("output_root", "output_base")
+
+
+def _output_base(config: Path) -> tuple[Optional[Path], str]:
+    """The configured run-output folder, plus a sentence saying where it came from."""
+    if not config.is_file():
+        return None, f"there is no config file at {config}"
+    parser = configparser.ConfigParser()
+    try:
+        parser.read(config, encoding="utf-8")
+    except (configparser.Error, UnicodeDecodeError) as error:
+        return None, f"{config} could not be read ({type(error).__name__})"
+    for key in OUTPUT_BASE_KEYS:
+        value = parser.get("local", key, fallback=None)
+        if value and value.strip():
+            path = Path(value.strip()).expanduser()
+            if not path.is_absolute():
+                path = config.parent / path  # the pipeline resolves relative paths from the INI
+            return path.resolve(strict=False), f"{config} says {key} = {path}"
+    return None, f"{config} has no output_root in its [local] section"
+
+
+def find_latest_run_folder(config_path: Optional[Path] = None) -> tuple[Optional[Path], str]:
+    """The newest finished run folder under the configured output base, and why that is the answer.
+
+    The reason matters: a probe that silently finds nothing looks like a probe that was never run.
+    """
+    base, why = _output_base((config_path or DEFAULT_CONFIG).expanduser())
+    if base is None:
+        return None, why
+    if not base.is_dir():
+        return None, f"{why}, but that folder does not exist"
+    finished = [path for path in base.iterdir() if path.is_dir() and (path / "registry.json").is_file()]
+    if not finished:
+        return None, f"{why}, but no subfolder of {base} holds a registry.json"
+    newest = max(finished, key=lambda path: path.name)
+    return newest, f"{why}; newest of {len(finished)} run folder(s) there is {newest.name}"
+
+
 def latest_run_folder(config_path: Optional[Path] = None) -> Optional[Path]:
     """The newest finished run folder under the configured output base, if there is one."""
-    config = config_path or DEFAULT_CONFIG
-    base: Optional[str] = None
-    if config.is_file():
-        parser = configparser.ConfigParser()
-        try:
-            parser.read(config, encoding="utf-8")
-            base = parser.get("local", "output_base", fallback=None)
-        except configparser.Error:
-            base = None
-    if not base:
-        return None
-    root = Path(base).expanduser()
-    if not root.is_dir():
-        return None
-    finished = [path for path in root.iterdir() if path.is_dir() and (path / "registry.json").is_file()]
-    return max(finished, key=lambda path: path.name) if finished else None
+    return find_latest_run_folder(config_path)[0]
+
+
+def resolve_run_dir(given: Optional[Path]) -> tuple[Optional[Path], str]:
+    """Turn the argument (or the config) into a run folder: the one holding registry.json.
+
+    A folder that merely contains run folders is accepted too, so dragging the whole output folder
+    onto RUN_PROBE.bat works as well as dragging one run.
+    """
+    if given is None:
+        return find_latest_run_folder()
+    candidate = given.expanduser()
+    if (candidate / "registry.json").is_file():
+        return candidate.resolve(strict=False), f"{candidate} holds registry.json"
+    if candidate.is_dir():
+        finished = [
+            path for path in candidate.iterdir() if path.is_dir() and (path / "registry.json").is_file()
+        ]
+        if finished:
+            newest = max(finished, key=lambda path: path.name)
+            return newest, f"{candidate} has no registry.json; using its newest run folder {newest.name}"
+        return None, f"{candidate} has no registry.json and no run folder inside it"
+    return None, f"{candidate} is not a folder"
 
 
 def build_probe(run_dir: Path, out: Optional[Path] = None) -> dict[str, Any]:
@@ -1321,14 +1368,16 @@ def main(argv: Optional[list[str]] = None) -> int:
     )
     parser.add_argument("--out", type=Path, help=f"JSON path (default: <run folder>/{PROBE_NAME})")
     args = parser.parse_args(argv)
-    run_dir = args.run_dir.expanduser() if args.run_dir else latest_run_folder()
+    run_dir, why = resolve_run_dir(args.run_dir)
     if run_dir is None:
+        print(f"No run folder to measure: {why}.", file=sys.stderr)
         print(
-            "No run folder given and none found: pass the run folder (the one with registry.json) "
-            "as an argument, or run RUN_PIPELINE.bat first.",
+            "Pass the run folder (the one with registry.json) as an argument — in Explorer you can "
+            "drag it onto RUN_PROBE.bat — or run RUN_PIPELINE.bat first.",
             file=sys.stderr,
         )
         return 2
+    print(f"Run folder: {run_dir} ({why})", file=sys.stderr)
     run_dir = run_dir.resolve()
     print(
         f"Measuring {run_dir} (read-only; a full run takes about a minute). "

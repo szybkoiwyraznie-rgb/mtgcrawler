@@ -1609,6 +1609,16 @@ class ProbeLauncherTests(unittest.TestCase):
         self.assertNotIn("yacpktool", lowered)
         self.assertNotIn("pip install", lowered)
 
+    def test_probe_launcher_asks_for_a_folder_when_the_probe_finds_none(self):
+        # A fresh download has no config/local-workflow.ini (it is private and git-ignored), so the
+        # automatic lookup finds nothing; the launcher must then ask instead of just stopping.
+        text = (BAT_PATH.parent / "RUN_PROBE.bat").read_text(encoding="utf-8")
+        self.assertIn('if not "%RESULT%"=="2" goto :finish', text)
+        self.assertIn('set /p "RUNDIR=Run folder: "', text)
+        self.assertIn("%PY% tools\\boundary_probe.py %RUNDIR%", text)
+        self.assertIn("drag the run folder", text.lower())
+        self.assertIn("exit /b %RESULT%", text)  # the retry's exit code is the one reported
+
 
 class HiddenEntryTests(unittest.TestCase):
     """Colliding names are read from a real @UTF CPK by TOC index, so none overwrites another."""

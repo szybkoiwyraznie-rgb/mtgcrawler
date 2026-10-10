@@ -47,8 +47,12 @@ truncation. `REPORT.txt` gains a `by cohort` section; `boundary_probe.json` gain
 1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/c656a5df-mtgcrawler.zip
 2. Unpack it anywhere (for example the Desktop), open `srw-oe-translation`, and double-click
    **`RUN_PROBE.bat`** — not `RUN_PIPELINE.bat`.
-3. It finds the newest run folder in the configured output folder (`D:\SRW_OE_out`) by itself. To
-   point it at a specific one: `RUN_PROBE.bat "D:\SRW_OE_out\20261010-142640"`.
+3. It will probably ask which run folder to measure, because a fresh download has no
+   `config\local-workflow.ini` (that file is private to your PC and is not in the ZIP). Then either
+   **drag the run folder onto `RUN_PROBE.bat`** in Explorer — `D:\SRW_OE_out\20261010-142640`, or the
+   whole `D:\SRW_OE_out` and it picks the newest run inside — or paste that path at its
+   `Run folder:` prompt and press Enter. If you unpack over the folder that already ran
+   `RUN_PIPELINE.bat`, the saved settings are reused and it finds the run by itself.
 4. Wait about a minute. It is read-only, calls no converter, extracts nothing, and replaces only
    `boundary_probe.json` in that run folder. Keep the console window open.
 5. Copy the whole console output and paste it back to the agent. The `by cohort` section is the part

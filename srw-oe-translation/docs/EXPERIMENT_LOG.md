@@ -919,9 +919,25 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the cohort-split probe on real data — that needs `RUN_PROBE.bat` on the same run folder, which the user still has; any repack, write-back, reinsertion, or in-game result; what the `C9` byte after the stop means.
 
+## 2026-10-10 — `RUN_PROBE.bat` found no run folder on the user's PC (my bug, fixed)
+
+**Report:** the user double-clicked `RUN_PROBE.bat` from a fresh branch download and got `No run folder given and none found` (exit 2).
+
+**Cause (reproduced here):** `latest_run_folder()` read the key `output_base` from `[local]`, while `run_pipeline.save_settings()` — the writer `RUN_PIPELINE.bat` actually uses — writes `output_root`. With a real INI the lookup therefore always returned `None`, so the automatic discovery could never have worked on any PC. The test that should have caught it wrote its fixture INI by hand with the reader's own key instead of using the pipeline's writer, so it agreed with the bug. A fresh download also has no `config/local-workflow.ini` at all (it is private and git-ignored), which produces the same message for a second, independent reason.
+
+**Fix:**
+- `latest_run_folder()` now reads `output_root` (with `output_base` accepted for hand-edited copies) and resolves a relative value from the INI's folder, like the pipeline does.
+- `find_latest_run_folder()` returns a reason with the path, and the CLI prints it (`no config file at …`, `… has no output_root in its [local] section`, `… but no subfolder of … holds a registry.json`), so "found nothing" says which of the three it was.
+- `resolve_run_dir()` accepts a run folder **or** its parent (dragging the whole output folder onto the `.bat` works), and says which run it picked.
+- `RUN_PROBE.bat` now prompts for a folder when the probe exits 2 and retries with it, and the retry's exit code is the one reported. The message names the drag-onto-the-`.bat` route.
+
+**Tests:** the regression test writes the INI with `run_pipeline.save_settings()` and asserts the newest run is found, so the reader and the writer can no longer drift; plus relative paths, the three "nothing found" reasons, parent-folder resolution, the CLI's exit-2 message, and the launcher's prompt. 34 probe tests, full suite 226 OK (1 skipped).
+
+**Lesson:** a fixture that mirrors the code under test instead of the code that produces the data proves nothing. Where two files must agree on a format, the test has to use the real writer.
+
 ## Pending
 
-- **Run `RUN_PROBE.bat` on the user's PC against the existing `20261010-142640` run folder** (no converter call, about a minute). It re-measures the same data with probe schema/3 and answers what the pooled numbers could not: the length-prefix verdict, the pointer scan with real coverage, and the suffix/post-text structure for the 32 event exports on their own.
+- **Run `RUN_PROBE.bat` on the user's PC against the existing `20261010-142640` run folder** (no converter call, about a minute). A fresh download has no private INI, so drag the run folder (or the whole `D:\SRW_OE_out`) onto the `.bat`, or type the path at its prompt. It re-measures the same data with probe schema/3 and answers what the pooled numbers could not: the length-prefix verdict, the pointer scan with real coverage, and the suffix/post-text structure for the 32 event exports on their own.
 - Then read the `by cohort` section: the `text` cohort is the script, the `binary` cohort is archive data. Only the `text` cohort's numbers bear on write-back.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
 - Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).

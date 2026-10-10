@@ -65,8 +65,12 @@ The choices are saved to `config/local-workflow.ini`, which is ignored by git. R
 ## Re-running just the measurements
 
 `RUN_PROBE.bat` re-runs stage 8 against an existing run folder. `python tools\boundary_probe.py`
-with no argument uses the newest folder under `output_base` from `config\local-workflow.ini`; pass
-a run folder as an argument to choose one. It reads `registry.json`, the extracted packages, and
+with no argument uses the newest folder under `output_root` from `config\local-workflow.ini` (the
+key `RUN_PIPELINE.bat` writes); pass a run folder — or the output folder that contains it, and the
+newest run inside is used — as an argument to choose one. A fresh download has no private INI, so
+the launcher asks for the folder when nothing was found: drag it onto `RUN_PROBE.bat`, or paste the
+path at the prompt. Every "nothing found" case prints which one it was (no config file, no
+`output_root`, or no subfolder with a `registry.json`). It reads `registry.json`, the extracted packages, and
 the text exports, rewrites `boundary_probe.json`, and prints the same lines the report carries. It
 makes no converter call and writes nothing outside that one JSON file, so it is safe to run as
 often as needed — a full `RUN_PIPELINE.bat` run is only needed when the game files, the converter,

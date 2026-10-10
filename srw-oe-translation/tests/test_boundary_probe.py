@@ -425,6 +425,91 @@ class CompanionTest(unittest.TestCase):
         self.assertEqual(cross["packages_capped_at_run_limit"], 1)
 
 
+class RunFolderDiscoveryTest(unittest.TestCase):
+    """RUN_PROBE.bat has to find the run folder the pipeline wrote, without being told where it is."""
+
+    def _output_with_runs(self, root: Path) -> Path:
+        out = root / "out"
+        for name in ("20261009-222046", "20261010-142640"):
+            (out / name).mkdir(parents=True)
+            (out / name / "registry.json").write_text("{}", encoding="utf-8")
+        (out / "not-a-run").mkdir()
+        return out
+
+    def test_the_config_key_the_pipeline_writes_is_the_one_the_probe_reads(self):
+        import run_pipeline  # the writer RUN_PIPELINE.bat uses; the two must not drift apart
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = self._output_with_runs(root)
+            config = root / "local-workflow.ini"
+            run_pipeline.save_settings(
+                config,
+                run_pipeline.Settings(
+                    input_root=root / "in", output_base=out, tool_path=None, expected_tool_sha256=None
+                ),
+            )
+            self.assertIn("output_root =", config.read_text(encoding="utf-8"))
+            found, why = boundary_probe.find_latest_run_folder(config)
+            self.assertEqual(found, (out / "20261010-142640").resolve())
+            self.assertIn("output_root", why)
+
+    def test_a_relative_output_root_resolves_from_the_config_folder(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = self._output_with_runs(root)
+            config = root / "local-workflow.ini"
+            config.write_text("[local]\noutput_root = out\n", encoding="utf-8")
+            self.assertEqual(boundary_probe.latest_run_folder(config), (out / "20261010-142640").resolve())
+
+    def test_a_missing_or_incomplete_config_says_what_it_looked_for(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            missing, why = boundary_probe.find_latest_run_folder(root / "nope.ini")
+            self.assertIsNone(missing)
+            self.assertIn("no config file", why)
+            empty = root / "empty.ini"
+            empty.write_text("[local]\ninput_root = C:/games\n", encoding="utf-8")
+            missing, why = boundary_probe.find_latest_run_folder(empty)
+            self.assertIsNone(missing)
+            self.assertIn("no output_root", why)
+            out = self._output_with_runs(root)
+            (out / "20261010-142640" / "registry.json").unlink()
+            (out / "20261009-222046" / "registry.json").unlink()
+            bare = root / "bare.ini"
+            bare.write_text(f"[local]\noutput_root = {out}\n", encoding="utf-8")
+            missing, why = boundary_probe.find_latest_run_folder(bare)
+            self.assertIsNone(missing)
+            self.assertIn("no subfolder", why)
+
+    def test_a_run_folder_or_its_parent_can_both_be_given(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = self._output_with_runs(root)
+            run = out / "20261010-142640"
+            self.assertEqual(boundary_probe.resolve_run_dir(run)[0], run.resolve())
+            self.assertEqual(boundary_probe.resolve_run_dir(out)[0], run.resolve())
+            self.assertIn("newest run folder", boundary_probe.resolve_run_dir(out)[1])
+            self.assertIn("not a folder", boundary_probe.resolve_run_dir(root / "nope")[1])
+            empty = root / "empty"
+            empty.mkdir()
+            self.assertIn("no registry.json", boundary_probe.resolve_run_dir(empty)[1])
+
+    def test_the_command_line_says_why_it_found_nothing(self):
+        import contextlib
+        import io
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            err = io.StringIO()
+            with contextlib.redirect_stderr(err):
+                code = boundary_probe.main(["--out", str(root / "b.json"), str(root / "missing")])
+            self.assertEqual(code, 2)
+            message = err.getvalue()
+            self.assertIn("is not a folder", message)
+            self.assertIn("drag it onto RUN_PROBE.bat", message)
+
+
 class CohortTest(unittest.TestCase):
     """The probe must not pool the event script with the binary data that surrounds it."""
 
