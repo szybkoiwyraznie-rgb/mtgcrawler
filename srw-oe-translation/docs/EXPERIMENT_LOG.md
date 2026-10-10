@@ -1267,11 +1267,19 @@ under ignored `local/deliverables/` and are never committed.
 `tests/test_grow_event_text.py`, built on synthetic members with the real shape because the
 game's own files are not in the repository.
 
-**Still not demonstrated, and blocking the test:** the delivered files are *decrypted* CPK
-containers, while the game loads `.EDAT`, so they need re-encrypting with the same key
-before PPSSPP will boot them, and whether the tool that decrypted them can re-encrypt is
-unknown here; whether the font renders Latin glyphs at all; and whether the engine
-tolerates a grown record in a real boot — which is precisely what the test decides.
+**Re-encryption turned out not to be needed.** These files are decrypted CPK containers,
+so the working assumption was that the game loads `.EDAT` and they would have to be
+re-encrypted with the same key first. The user reports that their PPSSPP reads encrypted
+and decrypted files with no difference, so the decrypted containers are being tested
+directly. **That is user-reported, not verified here** — nothing in this repository runs
+PPSSPP — and if a delivered file will not boot, it is the first thing to suspect.
+
+**Still not demonstrated:** whether the font renders Latin glyphs at all (which is why the
+English variant is worth a separate run), and whether the engine tolerates a grown record
+in a real boot. That last one is precisely what the test decides. Both variants are
+packaged with instructions as `local/deliverables/srwoe-test-eventP02.zip` (MD5
+`cd9b61587044dfa34395b8e7e2d097d9`), the Japanese run first because it keeps the charset
+constant and therefore isolates the container mechanics from font coverage.
 
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
