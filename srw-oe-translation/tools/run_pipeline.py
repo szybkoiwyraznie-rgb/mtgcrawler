@@ -166,10 +166,34 @@ def _link_or_copy(source: str, target: str) -> None:
         shutil.copy2(source, target)
 
 
+TRAILER_OFFSET = 0x100
+
+
+def _longest_text_run(data: bytes) -> int:
+    """Longest run of bytes that could be ASCII or CP932 text (a rough check, not a decoder)."""
+    best = current = 0
+    for byte in data:
+        text_like = 0x20 <= byte < 0x7F or byte in (0x09, 0x0A, 0x0D) or 0x81 <= byte <= 0x9F or 0xE0 <= byte <= 0xFC
+        current = current + 1 if text_like else 0
+        best = max(best, current)
+    return best
+
+
 def _decode_crilayla_entry(entry: dict[str, Any], blob: bytes, folder: Path, result: dict[str, Any]) -> None:
     """Decode one CRILAYLA entry into `folder` and keep the counts; a failure is recorded, never guessed."""
     summary = result.setdefault(
-        "crilayla", {"attempted": 0, "decoded": 0, "failed": 0, "clean_end": 0, "decoded_bytes": 0, "samples": []}
+        "crilayla",
+        {
+            "attempted": 0,
+            "decoded": 0,
+            "failed": 0,
+            "clean_end": 0,
+            "unused_stream_bytes": {},
+            "decoded_bytes": 0,
+            "longest_text_run_max": 0,
+            "entries_with_text_run_16": 0,
+            "samples": [],
+        },
     )
     summary["attempted"] += 1
     try:
@@ -191,6 +215,12 @@ def _decode_crilayla_entry(entry: dict[str, Any], blob: bytes, folder: Path, res
     summary["decoded_bytes"] += len(decoded.data)
     if decoded.bytes_consumed == decoded.stream_size:
         summary["clean_end"] += 1
+    gap = str(decoded.stream_size - decoded.bytes_consumed)
+    summary["unused_stream_bytes"][gap] = summary["unused_stream_bytes"].get(gap, 0) + 1
+    run_length = _longest_text_run(decoded.data[TRAILER_OFFSET:])
+    summary["longest_text_run_max"] = max(summary["longest_text_run_max"], run_length)
+    if run_length >= 16:
+        summary["entries_with_text_run_16"] += 1
     if len(summary["samples"]) < 5:
         summary["samples"].append(
             {"name": entry["name"][:120], "decoded_head_hex": decoded.data[0x100:0x110].hex(), "clean_end": decoded.bytes_consumed == decoded.stream_size}
