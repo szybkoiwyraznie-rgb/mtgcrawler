@@ -1005,6 +1005,49 @@ Attribution is to the **nearest** marker, not the previous one: a record's heade
 
 **Not verified:** contents of any of the four release archives; the identity of the base-game ISO the patch targets (our ISO is `SRW OE 1.08.iso`, MD5 unrecorded here); whether the DLC patches apply to our decrypted DLC files or only to the EDATs as distributed.
 
+## 2026-10-10 — `tools/patch_diff.py` + `COMPARE_PATCH.bat`, the evidence tool for the prior-art route
+
+**Why:** the survey above says the container facts are obtainable by diffing an existing translation
+patch against the user's own originals. That needs a tool that reads two versions of a file and says
+what the translation did, without printing translated text and without touching the originals.
+
+**What it measures** (schema `srw-oe-patch-diff/1`): files compared/changed/identical and files present
+on one side only; how many files changed length (0 means every string was replaced at identical byte
+length — the byte-budget question); original bytes changed and the patched bytes that replaced them;
+where the changed original bytes sit, classified against the project's own unit scanner
+(`extract_event_text.select_envelopes`): inside a text span, on the `FF FF` marker, on the `00 00`
+stop, or outside any unit; how many units were touched; how many changes also cover the 8 bytes before
+an `FF FF` (the record header, where an offset operand would have to be rewritten — the pointer
+question); and the byte classes of the replacement bytes (ASCII / SJIS-range / EUC-KR-range), which is
+the encoding question and therefore the font question. Three input modes: `--iso` (member-by-member
+through `tools/iso9660.py`, read straight out of the image, nothing extracted), `--dirs`, `--files`,
+plus `--md5` and `--expect-md5` for the edition check. Inputs are opened read-only; only counts and
+offsets are ever printed.
+
+**Two defects found and fixed while testing it against a synthetic pair** (5 records, one string grown
+by 4 bytes, the rest replaced at equal length with EUC-KR-range bytes):
+
+1. Block-aligned ranges at 16 bytes made the report claim the patch touched the `FF FF` markers and
+   stops (10 bytes each) when it touched only text. Ranges are now trimmed back to the bytes that
+   really differ (`_refine`), and the block size adapts (4 bytes up to 4 MiB, 16 above). The same
+   fixture then reports `inside text x60, marker x0, stop x0, outside x0` and `pre-marker ranges: 0`,
+   which is what it does.
+2. A **pure insertion changes no original byte**, so `bytes_changed` was 0 while the file grew. The
+   report now states both sides (`60 original bytes were replaced by 64 patched bytes`) and the
+   aggregate carries `bytes_replacement_total`; the test pins that a pure insertion reports
+   `bytes_changed == 0` and `bytes_replacement == size_delta`.
+
+**Verification:** `python3 -m unittest tests.test_patch_diff` → 16 OK (exact ranges for equal-length
+inputs, insertion refinement, in-place text edit, header change, gap change, byte-class counting
+including the position shift caused by an earlier grown record, one-sided files, report contents, and
+four CLI paths including the MD5 gate). Full suite 247 OK (1 skipped). End-to-end CLI run over the
+synthetic folder pair reproduced the numbers above. `COMPARE_PATCH.bat` is CRLF (55 lines, no lone LF)
+and covered by `*.bat text eol=crlf`.
+
+**Not verified:** the tool has never seen a real patched file. Whether the Korean DLC patches apply to
+the user's files, and whether the base-game ISO matches `ce57eb21bcdc9bdd6204f63a4fd9f716`, are both
+open until the user runs it.
+
 ## Pending
 
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.

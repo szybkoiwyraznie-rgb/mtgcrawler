@@ -8,23 +8,37 @@ the slower route to a question with a known answer.
 
 ## Do this first (milestone 62)
 
-1. **Check the ISO edition.** Compare our ISO's MD5 with `ce57eb21bcdc9bdd6204f63a4fd9f716`, the
-   original the base-game Korean patch (`z3oo3z/PSP-SRWOE-KPatch`, v250810) targets:
-   `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5`. A match means the patch and our files are
-   the same edition and any diff is directly meaningful.
-2. **Download the DLC patch** — `srwOEKDLC_v250617.7z`, 2.9 MB, from the release page of
-   `z3oo3z/PSP-SRWOEDLC-KPatch`. It holds 73 xdelta patches (one per DLC file), an `org` folder,
-   `1.move_org.bat`, `2.dlcpatch.bat` and `dlcmd5checker.exe`.
-3. **Diff, don't run.** Apply the patches to **copies** of the originals and compare byte ranges
-   against this project's extracted units. One diff answers: which files hold translatable text;
-   whether strings grow or stay byte-identical in length; whether bytes *next to* a changed string
-   also change (that is the offset operands, and it settles the pointer question with evidence);
-   whether the file length changes; and how the font was made to render characters the Japanese font
-   does not have.
-4. **Only then** spend a `RUN_PROBE.bat` run, and only on a question the diff left open.
+1. **Check the ISO edition** (one command, no downloads):
+   `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5`, and compare it with
+   `ce57eb21bcdc9bdd6204f63a4fd9f716`, the original the base-game Korean patch targets. A match means
+   the patch and our files are the same edition.
+2. **Download both release archives** (57 MB total, from the Releases page of each repo):
+   - `z3oo3z/PSP-SRWOE-KPatch` → `srwOE_v250810.7z` (54 MB, base game) and, if wanted,
+     `srwOE_texture_NPJH50521_UI.7z` (10 MB, menu PNGs).
+   - `z3oo3z/PSP-SRWOEDLC-KPatch` → `srwOEKDLC_v250617.7z` (2.9 MB, 73 DLC xdelta patches).
+3. **Produce the patched copies — never the originals.** For the base game, follow their README
+   (drag a **copy** of the ISO onto `여기에원본iso올려놔.bat`). For the DLC, put **copies** of the
+   DLC files in the archive's `org` folder and run its `2.dlcpatch.bat`; keep the patched output in
+   its own folder.
+4. **Diff, don't run.** Drop the two items onto `COMPARE_PATCH.bat` (original first, patched second)
+   — files, folders or ISOs all work, and the mode is chosen automatically:
+   - ISO pair → member-by-member diff of the disc image (chapter 1 is unencrypted in there, so the
+     changed bytes are directly readable evidence);
+   - folder pair → the 73 DLC files, matched by relative path;
+   - file pair → one file.
+
+   The report answers, per side: how many files changed; **how many changed length** (0 means every
+   string was replaced at identical byte length — the byte-budget question); where the changed bytes
+   sit (inside a text span, on the `FF FF` marker, on the `00 00` stop, or outside any unit); how many
+   units were touched; **how many changes also cover the 8 bytes before an `FF FF`** (the record
+   header, which is where an offset operand would have to be rewritten); and the byte classes of the
+   replacement bytes (ASCII vs SJIS-range vs EUC-KR-range — the encoding question, which is also the
+   font question; `0xE0`–`0xFC` is a lead byte in both, so read the mix rather than one label). `patch_diff.json` next to the `.bat` keeps every per-file row.
+5. Paste the console output back. Only if a question survives that, spend a `RUN_PROBE.bat` run.
 
 Boundary: this is format knowledge. No translated text is taken from those projects — the user asked
-for a fresh translation and rejected the Akurasu script as a source.
+for a fresh translation and rejected the Akurasu script as a source. The tool reports counts and
+offsets only and never decodes text.
 
 The rest of this page is the record of the measurement route that led here, kept because its negative
 results are what make the diff worth reading.
