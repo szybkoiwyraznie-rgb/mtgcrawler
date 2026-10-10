@@ -66,7 +66,8 @@ PROBE_ORDER = (
     ("cpk_alias", "captured"),
     ("cpk_alias", "console"),
 )
-FREE_SPACE_FACTOR = 3
+# Extraction output plus the verified cache copy of it, with working room for the converter.
+FREE_SPACE_FACTOR = 4
 FREE_SPACE_MARGIN_BYTES = 512 * 1024 * 1024
 MAX_PATH_CHARS = 200
 ERROR_LINE_RE = re.compile(r"^\s*Error:", re.IGNORECASE | re.MULTILINE)
@@ -2128,7 +2129,7 @@ def _render_report(registry: dict[str, Any]) -> str:
                 "  - failed probe: the probe-* files in logs/converter/; CpkMaker.dll beside YACpkTool.exe",
                 "  - output path: no spaces or non-ASCII letters, and not inside the input folder",
                 "  - converter hash: YACpkTool.exe must match expected_tool_sha256 in your settings",
-                "  - free space: the output drive needs about three times the CPK size plus 512 MiB",
+                "  - free space: the output drive needs about four times the CPK size plus 512 MiB",
                 "Share REPORT.txt if you need help.",
             ]
     lines += [

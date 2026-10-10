@@ -8,7 +8,7 @@ Double-click `RUN_PIPELINE.bat` in the `srw-oe-translation` folder. After a one-
 
 1. **Setup.** Reads the private `config/local-workflow.ini`. If a folder is missing, it asks once with a folder dialog and saves the answer.
 2. **Inventory.** Hashes every input file (SHA-256) and classifies it by content signature, never by extension. `CPK ` signatures are CPK containers even when named `.EDAT`.
-3. **Preflight.** Checks the converter's SHA-256 (and an optional pinned hash), the output path, free disk space (about 3x the unique CPK size plus 512 MiB), and that output and input folders do not overlap.
+3. **Preflight.** Checks the converter's SHA-256 (and an optional pinned hash), the output path, free disk space (about 4x the unique CPK size plus 512 MiB; the extra copy is the verified cache), and that output and input folders do not overlap.
 4. **Probe.** Tries the converter on the smallest CPK. The original file name is tried first. A `.cpk` copy is made only inside the disposable staging folder, and only if the original name is rejected. Captured output and console output are both tried.
 5. **Extract.** Unpacks every unique CPK into a fresh run folder. Duplicate content is extracted once. CPKs nested inside a package are extracted up to two levels deep. Each package is then compared with its `-L` listing (see Known limitations).
 6. **Text.** Exports and verifies the event text for every `.bin` file in each extracted package (the same extractor as `tools/extract_event_text.py`). The text is a heuristic candidate list, verified only for round trips.
@@ -103,3 +103,7 @@ The optional `expected_tool_sha256 = <64 hex digits>` key in the INI file pins t
 ## Sharing results
 
 Share `REPORT.txt` first. It contains file names, sizes, byte prefixes, and hashes of the game resources, which is the information needed to diagnose the run, including the `Listing check diagnostics` and `Unrecognized inputs` sections. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths. If more detail is needed, `registry.json` is the next file to share. It holds names, sizes, hashes, probe attempts, ISO descriptor sizes and member indexes, unknown-input first bytes, and per-package listing results, not decoded text.
+
+## Verified cache
+
+After a package is extracted and verified, a copy is kept under `<output folder>/_cache/<converter and tool digest>/<source SHA-256>/`. A later run with the same converter binary and the same tool code restores such a package instead of calling the converter again. Every cached file is hashed again before it is copied; any mismatch, missing file, or unreadable record makes the run extract that package again. Changing the converter or any of `run_pipeline.py`, `cpk_table.py`, `iso9660.py`, or `extract_event_text.py` changes the digest, so old entries are not used. The cache takes about as much space as the extracted packages, which is why the free-space check asks for four times the CPK size. To reclaim the space, delete the `_cache` folder; the next run rebuilds it. ISO CPK members are still copied out of the image on every run; only their extraction is cached.
