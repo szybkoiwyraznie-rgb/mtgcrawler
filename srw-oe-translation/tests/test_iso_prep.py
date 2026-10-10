@@ -20,6 +20,7 @@ TREE = {
         "USRDIR": {
             "eventP01.EDAT": b"A" * 3000,
             "eventP02.EDAT": b"B" * 4000,
+            "eventP00.cpk": b"C" * 3000,  # disc-style container must be bundled too
             "big.bin": b"\x00" * 200000,  # must NOT be bundled
         },
     },
@@ -37,7 +38,9 @@ class IsoPrepTests(unittest.TestCase):
     def test_prep_bundles_only_text_members(self):
         summary = iso_prep.prep(self.iso, self.out)
         names = {Path(b).name.upper() for b in summary["bundled"]}
-        self.assertEqual(names, {"PARAM.SFO", "EVENTP01.EDAT", "EVENTP02.EDAT"})
+        self.assertEqual(
+            names, {"PARAM.SFO", "EVENTP01.EDAT", "EVENTP02.EDAT", "EVENTP00.CPK"}
+        )
 
     def test_prep_zip_contains_inventory_and_system_area(self):
         summary = iso_prep.prep(self.iso, self.out)
@@ -55,7 +58,7 @@ class IsoPrepTests(unittest.TestCase):
     def test_inventory_counts_files(self):
         iso_prep.prep(self.iso, self.out)
         inv = json.loads((self.out / "inventory.json").read_text())
-        self.assertEqual(inv["file_count"], 4)
+        self.assertEqual(inv["file_count"], 5)
 
 
 if __name__ == "__main__":

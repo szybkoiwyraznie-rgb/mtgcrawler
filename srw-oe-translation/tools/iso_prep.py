@@ -34,8 +34,11 @@ import iso9660
 
 SYSTEM_AREA_BYTES = iso9660.BLOCK_SIZE * 16
 
-# Small, text-bearing members worth bundling for the remote pipeline.
-WANT_RE = re.compile(r"(eventP\d+\.EDAT|evept\d+\.EDAT|PARAM\.SFO)$", re.IGNORECASE)
+# Small, text-bearing members worth bundling for the remote pipeline. The disc stores its
+# containers as ``*.cpk`` (e.g. ``eventP00.cpk``) while the PSN DLC uses ``*.EDAT``; match both.
+WANT_RE = re.compile(
+    r"(eventP\d+\.(?:EDAT|cpk)|evept\d+\.(?:EDAT|cpk)|PARAM\.SFO)$", re.IGNORECASE
+)
 
 
 def prep(iso_path: Path, out_dir: Path) -> dict:

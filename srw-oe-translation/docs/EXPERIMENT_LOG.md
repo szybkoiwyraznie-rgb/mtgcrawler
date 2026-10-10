@@ -1526,6 +1526,23 @@ bundle lets the remote side validate the repacker against the real layout and ex
 1. A streaming repack for the full 660 MB image is the following step (the in-memory
 `build_iso` suits small images, not the whole disc).
 
+### 2026-10-10 (night, 8) — disc uses .cpk containers; chapter 1 extracted
+
+**Disc vs DLC naming.** The real ISO (`SRW OE 1.08.iso`, 679,243,152 bytes, 80 files) stores
+its containers as ``*.cpk`` under ``PSP_GAME/USRDIR/`` (e.g. ``eventP00.cpk``), while the PSN
+DLC uses ``*.EDAT``. The first prep therefore bundled only the two ``PARAM.SFO`` files.
+`iso_prep.WANT_RE` now matches both ``.EDAT`` and ``.cpk``; the test covers a disc-style
+``eventP00.cpk``.
+
+**Chapter 1 from the disc.** The user also uploaded the full unpacked ISO as
+``SRW_OE_1.08`` on Drive. ``eventP00.cpk`` (162,264 B) was pulled from it and run through
+`export_strings`: **38 records** across ``DL1xx`` members (incl. the UC-opening narration).
+Output `local/strings/eventP00.strings.json` (gitignored). Suite 316 OK.
+
+The disc's single event container is ``eventP00.cpk``; the numbered chapters (01..13) live in
+the DLC. The streaming repack of the 660 MB disc (needed to ship a patched ISO) remains the
+next process step and must run on the user's PC.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
