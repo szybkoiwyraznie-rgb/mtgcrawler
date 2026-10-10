@@ -1557,6 +1557,20 @@ paths (case-insensitive, since ISO9660 upper-cases identifiers). It needs no loc
 nothing can be dropped. Tested (round-trip + patch). `REPACK_GUIDE.md` now makes `repackiso`
 the primary method. The user must still run FAZA 1 (identity boot) to validate on real HW.
 
+### 2026-10-10 (night, 10) — case fix did NOT change the crash; it is structural
+
+**Observation.** Preserving ISO9660 identifier case (commit 58f919d) left the boot crash
+*identical* (same PC 08b3d374, Read Word at 00000014, SazThread). So PPSSPP matches names
+case-insensitively and the failure is not a file-name lookup. The repacked ISO boots far enough
+to run SazThread (EBOOT/PARAM.SFO read fine), then dereferences null -- something a from-scratch
+ISO9660 rebuild does not provide the way the original UMD does.
+
+**Interpretation.** A PSP UMD is more than ISO9660+32KiB; the original carries layout/metadata my
+writer does not reproduce. Rather than guess further, the next evidence is the PPSSPP debug log
+around the crash, which names the failing read. Fallback if the writer proves unbootable: deliver
+chapters 2-8 as loose DLC files (no ISO) and chapter 1 via an external UMD-capable repacker
+(UMDGen) fed our patched eventP00.cpk.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
