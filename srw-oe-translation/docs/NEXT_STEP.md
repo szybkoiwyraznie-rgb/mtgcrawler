@@ -10,13 +10,20 @@ units real strings?** Milestone 54 makes that measurable instead of debatable: t
 ## Current state (milestone 54)
 
 - **Stage 8/9 of the run measures the units** (`tools/boundary_probe.py`, read-only, counts only):
-  a length-prefix scan over all 96 delta/width/endian configurations, a pointer scan for unit
-  starts as u32 values, the byte context before the marker and after the text, the suffix length
-  and per-byte-position profile, gaps/alignment/pitch, and payload repetition. Each hypothesis
-  carries a control — a matched-distribution null for the length scan, `start + 1` for the pointer
-  scan — and both scans report how much of their byte budget they used. Output:
+  a length-prefix scan over all 96 delta/width/endian configurations; a pointer scan for the marker
+  and text-start offsets as u32 **and** u16, LE and BE, aligned and not, with match positions by
+  eighth of the file; the byte context before the marker and after the text; the suffix length and
+  per-byte-position profile; gaps/alignment/pitch; `FF FF` nested inside a unit; payload
+  repetition; every companion `.dat` run of 6+ bytes searched verbatim in the same package's BINs;
+  run-wide text coverage (bytes by segment kind, unit flags, control tokens); and units grouped by
+  top-level source file, which is the per-chapter picture. Each hypothesis carries a control — a
+  matched-distribution null for the length scan, `marker + 1`/`start + 1` for the pointer scan —
+  and the scans report how much of their byte budget they used and what was truncated. Output:
   `boundary_probe.json`, `registry.json` (`boundary_probe`), and the report section. A probe
   failure never changes the run status.
+- **Re-measuring is cheap.** `RUN_PROBE.bat` re-runs only this stage against the newest run folder
+  (read-only, no converter call, seconds), so a follow-up measurement never needs a new full run.
+  Keep the run folder until the boundary question is settled.
 - **The colliding-name entries are recovered read-only** into `hidden/<package>/`, CRILAYLA streams
   decoded, their text exported to `text/<package>-hidden/`. Their packages still fail the listing
   check; recovery is for reading, not for repacking.
@@ -35,18 +42,21 @@ units real strings?** Milestone 54 makes that measurable instead of debatable: t
 4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output
    folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are
    saved; it only asks again if they move.
-5. Wait about 5–7 minutes. The run is a little longer than before: the disc's members are extracted,
-   the colliding-name entries are read from the tables, and the boundary probe measures every unit.
-   Keep the console window open.
+5. Wait about 5–8 minutes. The run is longer than before: the disc's members are extracted, chapter 4
+   joins, the colliding-name entries are read from the tables, and the boundary probe measures every
+   unit. Keep the console window open.
 6. In `D:\SRW_OE_out`, open the new run folder (named with the date, for example `20261010-XXXXXX`).
 7. Open `REPORT.txt`, copy the whole content, and paste it back to the agent. The
    `Boundary evidence` section is the part that decides the next milestone.
 8. If more detail is needed, send `diagnostics_<run id>.zip` from the same folder (report, registry,
    CSVs, converter logs, boundary counts — no game files).
-9. Old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB, plus the `_cache`).
+9. Keep **this** run folder for now (later measurements reuse it through `RUN_PROBE.bat`); older run
+   folders can be deleted (each is about 0.8 GB, plus the shared `_cache`).
 
-Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content)
-outside these tools; the run after that covers all 8 chapters.
+Chapter 4 is already decrypted on the user's side, so this run should cover **all 8 chapters** for
+the first time — chapter 4's unit count in `units per source file` is the check. If the `*04`
+packages still appear under `Unrecognized inputs`, their head-byte groups in the report say what
+they actually are.
 
 What the agent does with the report:
 

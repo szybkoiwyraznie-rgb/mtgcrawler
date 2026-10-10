@@ -856,11 +856,33 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the probe on real event data (the next PC run); whether any hypothesis survives contact with it; any repack, insertion, translation, or in-game result. A measurement is evidence, not a validated parser — even a strong length-prefix or pointer signal still has to be confirmed against the game's own records before text is written back.
 
+## 2026-10-10 — boundary probe extended before the run, and a fast re-measure path
+
+**Input:** none; the user also reported that the `*04` chapter-4 packages are already decrypted, so all inputs on their side are ready (not verified by a run).
+
+**Reason:** a full run takes minutes and the user asked not to repeat it. Everything that can be measured from a finished run folder was therefore added now, and the measurement was separated from the run.
+
+**Change (probe schema `srw-oe-boundary-probe/2`):**
+- Pointer scan: the marker **and** the text start are searched as u32 **and** u16, LE and BE, unaligned and aligned, against `marker + 1` and `start + 1` controls in the same bytes; match positions are kept by eighth of the file, so a pointer table would be localized rather than just detected. Offsets that do not fit the width are counted (`values_too_large`), targets and controls alike.
+- Nesting: `FF FF` inside a unit's own text is counted, with how many inner markers are followed by at least two wide-script CP932 codepoints and how many are ASCII-only.
+- Companion cross-check: every NUL-delimited run of at least six bytes in each package's `_ext.dat`/`_Entry.dat`/`_edit.dat` files is searched verbatim in that package's BIN files (512 runs per package, cap reported). Counts, lengths, and per-class breakdowns only.
+- Coverage: each export's `manifest.json` totals are summed for the run — bytes by segment kind (text units, gaps, unselected marker spans, unterminated tails), unit flags, and control tokens by reason.
+- Grouping: units are attributed to their top-level source file by walking `parent_package`, which gives the per-chapter picture without manual analysis.
+- Budgets are now per file and in total (256 MiB/2 GiB unaligned, 8 MiB/256 MiB aligned), so one large file cannot starve the rest; the report and JSON say how much was searched and how many files were truncated.
+- `RUN_PROBE.bat` and `boundary_probe.py` with no argument (resolved from `output_base` in the saved INI) re-run the probe against an existing run folder: read-only, no converter call, one JSON file written.
+
+**Measured here (synthetic):** one 177,000-byte file with 3,000 units probes in 0.43 s and reports 1 truncated file; 22 files of about 7 KB with 3,300 units probe in 0.50 s with all 26,400 offset searches complete and no truncation. The length null still absorbs every chance hit on unstructured bytes (best lift +0.01%), and the u16 counts on the same data sit within ±10% of their controls, which is why the JSON says to judge a u16 lift against its control and not against zero.
+
+**Tests:** 22 probe tests (new: u16 offsets, match positions, nesting, manifest coverage, per-source grouping, companion hits, run cap, latest-run resolution) plus a launcher contract test for `RUN_PROBE.bat`. Full suite 214 OK (1 skipped). `py_compile` clean.
+
+**Not demonstrated:** any of it on real event data; whether chapter 4's decrypted `*04` packages are readable CPK containers; any repack, insertion, translation, or in-game result.
+
 ## Pending
 
-- Run the one-click tool on the user's PC with this branch: the run now also recovers colliding-name entries (`hidden/`), decodes their CRILAYLA streams, writes `layout_probe.zip`, `translation/units.csv`, `boundary_probe.json`, and the diagnostic ZIP, and prints the `CPK table check` and `Boundary evidence` sections. Share `REPORT.txt` (and the diagnostic ZIP if asked).
+- Run the one-click tool on the user's PC with this branch: the run now also recovers colliding-name entries (`hidden/`), decodes their CRILAYLA streams, writes `layout_probe.zip`, `translation/units.csv`, `boundary_probe.json`, and the diagnostic ZIP, and prints the `CPK table check` and `Boundary evidence` sections. Share `REPORT.txt` (and the diagnostic ZIP if asked). Chapter 4 is decrypted per the user, so this run should cover all 8 chapters.
+- Later measurements do not need another full run: `RUN_PROBE.bat` re-runs the boundary probe against the newest run folder in seconds. Keep that run folder until the boundary question is settled.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
-- The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the pipeline then processes them on the next run.
+- Chapter 4 is decrypted on the user's side (their report); the next run shows whether the `*04` packages are readable CPK containers or still land in `Unrecognized inputs`.
 - Then decide whether to promote the table check to fail-closed (the last run had 6 mismatches: `robo01`/`robo03` mangled names plus 4 blob-layout packages that the ID matching should fix).
 - Keep the recovered colliding-name entries read-only. Repacking a container that the converter cannot write completely is not attempted; that needs a CPK writer or a converter that extracts by ID.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
