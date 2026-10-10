@@ -1417,6 +1417,31 @@ grown string must be fitted without changing the member's stored size (borrow tr
 padding) or growth is unsupported; crashes -> even same-size content edits break the
 parser, pointing at a checksum/validation of the member.
 
+### 2026-10-10 (night, 3) — same-length edit boots; the crash is a nested size field
+
+**Result (user).** `03-KONTROLA-taSamaDlugosc.EDAT` (record content changed, length held at
+118 bytes) **boots**. So the pipeline works end to end in the real game for edits that keep
+the member's size constant. The crash is specific to *growth*.
+
+**Why growth crashes (evidence, not guess).** The member header is
+`EDAT | size | count=6 | "EVNT" size=6796 | ...` and the EVNT section holds *nested*
+subsections (an inner "ECHK" tag, a `6760` size field at offset 60, etc.). `grow_record`
+bumps only the EDAT total (offset 4) and the outer EVNT size (offset 16); the inner size
+fields are left stale, so after the extra bytes are inserted the inner subsection bounds no
+longer match and the loader reads out of its box -> the fixed-PC write to a data-dependent
+bad address seen in both grown builds. A same-length edit changes no size, so it stays
+consistent and boots.
+
+**First in-game English delivered.** `05-EN-taSamaDlugosc.EDAT` (MD5
+`391770431ef5efd32e46b40777461a38`) replaces the record with English at exactly 118 bytes
+(29 invisible padding spaces), member still 10172 bytes -- the mechanism proven by the
+booting control. This is the first English text expected to render in the game.
+
+**Open work.** To support *growth* (needed for a real English translation, which is longer
+than Japanese), the nested EVNT size fields must be reverse-engineered and every enclosing
+size bumped by the delta; until then translation must be equal-length (fit-or-pad) per
+string.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
