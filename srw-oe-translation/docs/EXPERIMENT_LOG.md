@@ -1133,6 +1133,59 @@ offsets exist.
 reproducible; the conclusion that nothing points at a string is an inference from three negative
 measurements plus an exact structural parse.
 
+## 2026-10-10 — CPK write-back: the TOC cell layout, decoded and cross-checked
+
+**Why:** the user's proposed experiment — find a known Japanese line, replace it with a *longer*
+string, hand back one modified file, boot PPSSPP — needs a CPK writer. This is the layout it writes
+into, measured on the sample `imenu01.EDAT` (24,744 B, 6 entries).
+
+**Container:** header at 0 (`CPK `) with `TocOffset 2048`, `ItocOffset 4096`, `ContentOffset 6144`,
+`EtocOffset 24576`, `Align 2048`, `Files 6`, `Version 7`, `CpkMode 2`, `Sorted 1`. `TocCrc` and
+`ItocCrc` are absent in this file, so no checksum has to be recomputed.
+
+**TOC:** `TOC ` at `TocOffset`, and the `@UTF` table 0x10 bytes later — exactly the `math offset += 0x10`
+step in the QuickBMS script posted in gbatemp thread 351431. Its header gives `table_size 424`,
+`rows_offset 67`, `string_table_offset 211`, `row_length 24`, `rows 6`. Seven columns, two of them
+constant-storage (`DirName`, `UserString`) and five per-row, laid out in the row as:
+
+| column | offset in row | width |
+|---|---|---|
+| `FileName` | 0 | 4 (string-table index) |
+| `FileSize` | 4 | 4 |
+| `ExtractSize` | 8 | 4 |
+| `FileOffset` | 12 | 8 |
+| `ID` | 20 | 4 |
+
+All values big-endian. Reading them back gives `FileOffset` 4096 / 12288 / 8192 / 10240 / 6144 /
+18432 with the matching `FileSize`/`ExtractSize` — **identical to what `tools/cpk_table.py` reports
+independently**, so the two parsers agree cell for cell.
+
+**Consequences for the writer:**
+- Rows are fixed-width, so replacing an entry's sizes and offset **does not change the table's size**;
+  `TocSize` stays valid and nothing downstream of the TOC has to move.
+- `FileOffset` is relative to `min(TocOffset, ContentOffset)` (here 2048), and every entry's absolute
+  offset is `Align`-aligned, so a rebuilt content region is a straightforward re-layout.
+- The EToc sits *after* the content (`EtocOffset 24576`, content ending at 22928 aligned up), so it
+  moves when content grows and the header's `ContentSize`/`EtocOffset` must be updated with it.
+- **There is no CRILAYLA compressor in this repository, only a decompressor** (`tools/crilayla.py`), so
+  a grown member has to be written **stored** (`FileSize == ExtractSize`). That is legal — the sample
+  already contains stored entries — and it matches CrashmanX's working recipe, "I just left 'Force
+  Compress' unchecked and it worked".
+- **The gate before any of this is trusted:** rebuilding a file with *no* changes must reproduce it
+  byte for byte. The gbatemp thread records the opposite from a naive repack ("i tried to repack
+  'without any changes' the game crash"), so identity-on-round-trip is the acceptance test.
+
+**Also measured this turn:** the two Japanese lines the user captured from a memory monitor at the
+start of chapter 2 (`コロニー格闘技、その覇者たる証…キング・オブ・ハート…` = 116 CP932 bytes, and
+`いやぁ、こんな辺境宇宙まで客を連れてくるのは久々だ` = 50 bytes) both encode to CP932 cleanly and
+round-trip through `tools/extract_event_text.py`'s byte view. Neither occurs anywhere in the 21-file
+sample — the sample holds `eventP01`, `eventP09` and `evept108`, but no chapter-2 event package — so
+the search has to run against `eventP02.EDAT` (and probably `evept102.EDAT`).
+
+**Not verified:** no CPK has been written yet; the writer and its byte-identity test are the next
+step, and nothing here has been run in the game.
+
+
 
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
