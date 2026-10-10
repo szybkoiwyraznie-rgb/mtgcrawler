@@ -187,8 +187,22 @@ mismatches, 0 missing files), so the unit records do describe the bytes they cla
   `FF FF`, not at the marker. What this is not: not 4-byte aligned (the aligned scan gives 548
   against 542), not one contiguous table (matches are spread evenly over all eighths of the file),
   and not only little-endian (big-endian gives 6,086 against 887). Those three facts rule out an
-  ordinary offset table and are why the probe now records where each match sits relative to the
-  offset it encodes.
+  ordinary offset table.
+- **The follow-up measurement came back negative too.** Of the 6,335 u32 LE matches in the text
+  cohort, 6,236 (98.4%) sit more than 256 bytes from the offset they encode and the remaining 99
+  scatter over ~67 distances at 1–6 each — the signature a synthetic file with no references at all
+  produces (751 of 776). A record storing its own string's offset would put nearly every match at one
+  fixed distance, and a contiguous table would over-represent one eighth of the file (eighth 0 holds
+  801 against a mean of 792). The same-parity control removed the last artefact explanation:
+  `start + 2` gives 528 matches, below `start + 1` at 1,258, against 6,335 for `start` itself.
+- **What is still unexplained:** a structure-matched synthetic null (same density, same `XX 00 00 00
+  00 00` pre-marker bytes, same suffix mix) gives 776 `start` matches against 750 and 509 for the two
+  controls, so the real files hold roughly 5,000 more matches of those exact offset values than a file
+  with no references. Nothing yet shows those values being *used*, and a distance measurement cannot
+  see a cross-reference between records — which is why the probe now attributes each match to the
+  record holding it. **Note that this line of inquiry is now superseded**: `retro-trans/SRW-Z`
+  documents the same missing offset table on a sibling engine and settles it with a grow-test in the
+  emulator (`docs/PRIOR_ART.md`).
 - **The `C9` byte.** `C9 00 00 00` is 201 little-endian, and this project's earlier framing work found
   the event blocks' ECHK chains ending at u32 200. That is a coincidence worth testing, not a
   finding: nothing here links the two.

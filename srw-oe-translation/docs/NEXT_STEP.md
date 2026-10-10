@@ -1,9 +1,33 @@
-# Next step: re-measure the run you already have
+# Next step: read the answer somebody else already produced
 
-The full run `20261010-142640` answered the first real boundary questions and exposed a flaw in how
-the probe pooled its own data. Three hypotheses are now ruled out on real data, the pointer question
-is still open, and answering it needs **no new extraction**: `RUN_PROBE.bat` re-measures the run
-folder that is already on the user's disk.
+A prior-art survey (milestone 62, `docs/PRIOR_ART.md`) changed the plan. **A working Korean fan patch
+exists for this exact game, base and DLC**, and `retro-trans/SRW-Z` — the project this workflow is
+modelled on — documents hitting this project's exact wall (no offset table; offsets inline in the
+bytecode) and settling it in the emulator rather than by scanning. Continuing to measure bytes is now
+the slower route to a question with a known answer.
+
+## Do this first (milestone 62)
+
+1. **Check the ISO edition.** Compare our ISO's MD5 with `ce57eb21bcdc9bdd6204f63a4fd9f716`, the
+   original the base-game Korean patch (`z3oo3z/PSP-SRWOE-KPatch`, v250810) targets:
+   `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5`. A match means the patch and our files are
+   the same edition and any diff is directly meaningful.
+2. **Download the DLC patch** — `srwOEKDLC_v250617.7z`, 2.9 MB, from the release page of
+   `z3oo3z/PSP-SRWOEDLC-KPatch`. It holds 73 xdelta patches (one per DLC file), an `org` folder,
+   `1.move_org.bat`, `2.dlcpatch.bat` and `dlcmd5checker.exe`.
+3. **Diff, don't run.** Apply the patches to **copies** of the originals and compare byte ranges
+   against this project's extracted units. One diff answers: which files hold translatable text;
+   whether strings grow or stay byte-identical in length; whether bytes *next to* a changed string
+   also change (that is the offset operands, and it settles the pointer question with evidence);
+   whether the file length changes; and how the font was made to render characters the Japanese font
+   does not have.
+4. **Only then** spend a `RUN_PROBE.bat` run, and only on a question the diff left open.
+
+Boundary: this is format knowledge. No translated text is taken from those projects — the user asked
+for a fresh translation and rejected the Akurasu script as a source.
+
+The rest of this page is the record of the measurement route that led here, kept because its negative
+results are what make the diff worth reading.
 
 ## What the last run settled (milestone 57)
 

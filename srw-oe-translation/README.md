@@ -33,6 +33,7 @@ These are meaningful feasibility results, but they do **not** yet prove that a m
 - [`tools/audit_event_dat_runs.py`](tools/audit_event_dat_runs.py) — unfiltered inventory of all nonempty NUL-delimited runs in event `.dat` companions, with stable offsets, raw bytes, replacement-decoded CP932, and review-only script/ASCII/control quality signals. Its summary also profiles clean wide-script leads and recurring byte offsets without printing game text or claiming field semantics.
 - [`tools/audit_event_codecs.py`](tools/audit_event_codecs.py) — compares Python CP932 and standard Shift-JIS decoding/byte-roundtrip results across all BIN marker prefixes and DAT NUL-runs, printing only aggregate counts and Unicode codepoint mappings, never game text.
 - [`tools/audit_event_companions.py`](tools/audit_event_companions.py) — read-only EDAT/EVNT framing and companion DAT-overlap audit; no game text is printed.
+- [`docs/PRIOR_ART.md`](docs/PRIOR_ART.md) — what other translation projects have already solved for this game and its engine family, and what that changes here.
 - [`docs/ROADMAP.md`](docs/ROADMAP.md) — next milestones.
 - [`docs/NEXT_STEP.md`](docs/NEXT_STEP.md) — current parser/export work.
 - [`docs/LOCAL_WORKFLOW_PLAN.md`](docs/LOCAL_WORKFLOW_PLAN.md) — target one-command local ISO/DLC workflow and safety gates; read-only ISO9660 indexing is synthetic-tested, but ISO extraction/rebuilding and actual converter execution remain unvalidated.

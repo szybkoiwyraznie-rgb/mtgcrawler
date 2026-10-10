@@ -987,9 +987,28 @@ Attribution is to the **nearest** marker, not the previous one: a record's heade
 
 **Correction to the previous entry:** "the event files really do contain text-start offsets" was stated too strongly. What is measured is that those exact offset *values* occur far above a matched null; nothing yet shows them being used as references. That is what the owner attribution is for.
 
+## 2026-10-10 — prior-art survey (no game files touched)
+
+**Why:** the user asked whether this was reinventing solved work, before spending another PC run on the probe. It was.
+
+**Method:** GitHub API (`gh api search/repositories`, `search/code`, per-repo trees, releases, commits, issues) plus web search. No downloads succeeded: release assets redirect to `release-assets.githubusercontent.com`, which is outside the sandbox allowlist — so nothing below is verified at the byte level.
+
+**Findings (full detail and links in `docs/PRIOR_ART.md`):**
+
+- **A working Korean patch exists for this game, base and DLC**: `z3oo3z/PSP-SRWOE-KPatch` (v250810; assets `srwOE_v250810.7z` 54,258,657 B / 321 downloads, `srwOE_texture_NPJH50521_UI.7z` 10,343,773 B / 276) and `z3oo3z/PSP-SRWOEDLC-KPatch` (v250617; `srwOEKDLC_v250617.7z` 2,938,903 B / 246, `srwOEKDLC_eventP01.EDAT.7z` 151,313 B / 221). The DLC archive holds an `xdelta` folder of **73 patches**, an `org` folder, `1.move_org.bat`, `2.dlcpatch.bat` and `dlcmd5checker.exe`. Base-game originals are identified by MD5 `ce57eb21bcdc9bdd6204f63a4fd9f716`, patched `1b5e7e8c984f07bf3620c8399d158efa`. Menus go through PPSSPP texture replacement (`memstick/PSP/TEXTURES/NPJH50521`); tested on PPSSPP 1.18.1; real hardware unknown. Both repos are a single README blob — no tools published, no issues, no commits beyond README edits.
+- **A partial English patch exists**: CrashmanX, distributed as a whole patched ISO for **v1.02** (CRC-32 `2866c6c0`; clean v1.08 is `1718f49a`) — level/item/song names done, battle menus ~90%, unit and attack names ~80%, main menus ~70%, character names ~60%, terrain ~30%. **No story dialogue**, and a different game version from ours.
+- **`retro-trans/SRW-Z` reached the same negative result and stopped scanning for it**: no contiguous offset/length table in the record (u16/u32, absolute and relative); offsets inline in the scenario bytecode; established by a **grow-test in PCSX2** (lengthen one early string → later lines render blank). In-place replacement at identical byte length is "safe and verified"; growing requires rewriting every inline offset operand, or relocating the row and rewriting every 4-aligned pointer to it. The renderer was found by a **memory breakpoint**, after static signature search failed to converge. The font is fullwidth SJIS only, so ASCII renders blank and they remap ASCII→fullwidth in the ELF.
+- **The Korean SRW patches' glyph method**: `snake759494/NDS-SRW-K` overwrites the font table's entries for codes ≥ `0x889F` with KS X 1001 Hangul (~2,350 glyphs from Galmuri11, SIL OFL) and keeps the same 26-byte record layout; the same approach is described for PS2 SRW Z in a Korean community log. That repo is also the cleanest open model of this project's target delivery: translation as JSON, one `.xdelta` per release, `docs/PATCHING.md` gating on ROM CRC-32 and asserting the patched size and CRC-32, published injection tools.
+- **Repacking confirmation**: a gbatemp thread on this game shares a QuickBMS script for the `.cpk`, notes the DLC works by renaming `.EDAT`→`.CPK`, and reports **"i tried to repack 'without any changes' the game crash"** — independent confirmation of why repack/write-back/reinsertion stay gated.
+
+**Conclusion:** the next measurement is not another probe run. Applying the 73 Korean xdelta patches to the user's own originals and diffing the result tells us, in one run, which files hold text, whether strings grow, whether neighbouring bytes are rewritten, whether file length changes, and how the font was made to render new glyphs. Boundary kept: format knowledge only — no translated text is taken from these projects.
+
+**Not verified:** contents of any of the four release archives; the identity of the base-game ISO the patch targets (our ISO is `SRW OE 1.08.iso`, MD5 unrecorded here); whether the DLC patches apply to our decrypted DLC files or only to the EDATs as distributed.
+
 ## Pending
 
-- **Run `RUN_PROBE.bat` once more against the same run folder** (drag it onto the `.bat`; about a minute). The distance question is answered and negative; what is left is *who holds those offsets*. Read `the u32 le start-offset matches by the record holding them` (position in the record), `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
+- **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
+- Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
 - Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).
