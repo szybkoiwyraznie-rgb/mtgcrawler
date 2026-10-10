@@ -1510,6 +1510,22 @@ ISO9660 Level-1 image (PVD, path tables, directory records, single extents) pres
 `tests/test_iso_pack.py`: pack -> `inspect_iso9660` lists all files -> `extract_members`
 returns byte-identical content. Suite 312 OK, 1 skipped.
 
+### 2026-10-10 (night, 7) — ISO prep .bat for the user's 660 MB image
+
+The disc ISO (~660 MB) is too large to move whole. `tools/iso_prep.py` (mode `prep`) runs on
+the user's PC and emits a small bundle: `inventory.json` (ISO9660 directory inventory),
+`system_area.bin` (first 32 KiB / UMD boot region), and `files/` with only the small
+text-bearing members (`eventP*.EDAT`, `evept*.EDAT`, `PARAM.SFO`), all zipped. The ISO is
+opened read-only. `PREP_ISO.bat` wraps it (drag the ISO on, or it prompts).
+
+Tested on a synthetic ISO: only PARAM.SFO + eventP01/02 bundled (a 200 KB filler excluded),
+zip tiny, inventory/system-area present. `tests/test_iso_prep.py` covers it. Suite 316 OK.
+
+Next on the user side: run `PREP_ISO.bat` on the real ISO and upload `iso_prep_out.zip`; the
+bundle lets the remote side validate the repacker against the real layout and export chapter
+1. A streaming repack for the full 660 MB image is the following step (the in-memory
+`build_iso` suits small images, not the whole disc).
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
