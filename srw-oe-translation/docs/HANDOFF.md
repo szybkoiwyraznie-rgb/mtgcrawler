@@ -96,9 +96,11 @@ out and delete the in-repo copy** so game data never lands in git.
 2. **Streaming repack — DONE (tooling).** `iso_pack.repack_iso` + `REPACK_ISO.bat` (tested:
    round-trip + patch on a disk tree). Still to do: run it for real on the user's 660 MB tree
    and boot the result in PPSSPP.
-3. **UI / names / menus export — NOT started.** Separate tables from containers `imenu*`,
-   `mesbmp*`, `mesbtl*`, `u16tbl.cpk`, `system.cpk`, `font.cpk`; their formats are not yet
-   reversed. This is the main open reverse-engineering area.
+3. **UI / names / menus export — STARTED, see `docs/UI_NAMES.md`.** Key facts: `u16tbl.cpk`
+   holds the game's `jis2ucs`/`ucs2jis` encoding tables (ASCII passes through → rendering is
+   UCS; Latin availability is a *font* question). `imenu` `*Dictionary*` members are u32 offset
+   maps, not name strings. `u16tbl` (constant-storage) and `system` (CpkMode 0) need a new
+   write path. `mesbmp`/`font` likely images.
 
 ## 7. Pitfalls (each cost real time)
 
