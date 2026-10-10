@@ -53,7 +53,11 @@ def _record(identifier: bytes, lba: int, size: int, is_dir: bool) -> bytes:
 
 
 def _dir_name(name: str) -> bytes:
-    return name.upper().encode("ascii")
+    # Preserve the original identifier case. PSP discs store USRDIR members in lower case and
+    # the game opens them with that exact case; upper-casing here made those lookups fail
+    # (boot worked -- SYSDIR is upper case -- but SazThread then opened a missing lower-case
+    # file and dereferenced null). ISO9660-conformance aside, PPSSPP reads the bytes as-is.
+    return name.encode("ascii")
 
 
 def _collect(tree: Tree, prefix: str, dirs: list, files: list) -> None:

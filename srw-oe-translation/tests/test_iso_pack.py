@@ -85,7 +85,7 @@ class RepackIsoTests(unittest.TestCase):
         info = iso9660.inspect_iso9660(self.out)
         o = self.tmp / "re_out2"
         iso9660.extract_members(self.out, info["files"], o)
-        got = (o / "PSP_GAME" / "USRDIR" / "EVENTP00.CPK").read_bytes()
+        got = (o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes()
         self.assertEqual(got, b"PATCHED" * 300)
 
 
@@ -108,8 +108,8 @@ class RepackFromIsoTests(unittest.TestCase):
         self.assertEqual(info["file_count"], 3)
         o = self.tmp / "out"
         iso9660.extract_members(self.out, info["files"], o)
-        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "EVENTP00.CPK").read_bytes(), b"PATCHED" * 300)
-        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "BIG.BIN").read_bytes(), b"\x00" * 300000)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes(), b"PATCHED" * 300)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "big.bin").read_bytes(), b"\x00" * 300000)
 
 if __name__ == "__main__":
     unittest.main()

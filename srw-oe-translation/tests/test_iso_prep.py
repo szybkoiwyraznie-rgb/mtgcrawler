@@ -48,7 +48,7 @@ class IsoPrepTests(unittest.TestCase):
             names = set(zf.namelist())
         self.assertIn("prep_out/inventory.json", names)
         self.assertIn("prep_out/system_area.bin", names)
-        self.assertTrue(any(n.endswith("EVENTP01.EDAT") for n in names))
+        self.assertTrue(any(n.upper().endswith("EVENTP01.EDAT") for n in names))
 
     def test_system_area_is_first_32k(self):
         iso_prep.prep(self.iso, self.out)
