@@ -802,6 +802,20 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** that the 33 tables now agree with their listings (needs the next PC run); the meaning of FilesH; any game content.
 
+## 2026-10-10 — run 20261010-094219: blob entries matched by ID, not by index
+
+**Input:** `registry.json` from run `20261010-094219` (SHA-256 `9c5e1a3a7c9e28c92317d9db48a74a967d0b917113536a5e5b8982ddf737281a`), kept outside the repository.
+
+**Observed:** table check agree 491, mismatch 6, unreadable 0. Four of the six were new and came from the blob layout (`mesbmp01`, `mesbmp02`, `mesbmp05`, and ISO `mesbmp00`). Their problems all showed the same pattern: the listing's row 0 is ID 0, but the reader's row 0 is some other ID, and the sizes at each index differ.
+
+**Verified from the problem lines (no new data):** the listing is ordered by ID (0, 1, 2, ...). In `mesbmp05`, listing ID 0 has size 136656 and compressed 110460. The reader's ID 0 entry has ExtractSize 136656 and FileSize 110460, and the same holds for IDs 1 and 2. The disagreement comes from comparing by position, not from the data.
+
+**Change:** entries from the blob layout carry `match_by_id`, and `entries_match_listing` matches them to listing rows by ID. TOC entries still match by index.
+
+**Tests:** full suite 169 OK (skipped 1). New: blob entries match an ID-ordered listing by ID, and a changed size is reported with its ID.
+
+**Not demonstrated:** the four cases now agree in a real run (needs the next PC run); `robo01` and `robo03` remain mismatched because of mangled names, as before.
+
 ## Pending
 
 - Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.

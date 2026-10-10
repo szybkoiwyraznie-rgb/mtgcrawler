@@ -288,6 +288,8 @@ def _entries_from_itoc_blobs(itoc_table: bytes, itoc: dict[str, Any], header_fil
                 "compressed": file_size != extract_size,
                 "id": entry_id,
                 "user_string": None,
+                # Blob entries have no TOC index; the listing is ordered by ID, so match by ID.
+                "match_by_id": True,
             }
         )
     return entries
@@ -429,7 +431,20 @@ def entries_match_listing(
     has_ids = "ID" in columns
     id_by_toc_index = {row["toc_index"]: row["id"] for row in (itoc or [])}
     listed_rows = {row["no"]: row for row in listing.get("entries", [])}
+    listed_by_id = {row["id"]: row for row in listing.get("entries", []) if row.get("id") is not None}
     for entry in entries:
+        if entry.get("match_by_id"):
+            row = listed_by_id.get(entry["id"])
+            if row is None:
+                problems.append(f"ID {entry['id']} has no listing row")
+                continue
+            if has_names and row.get("name") is not None and row["name"] != entry["name"]:
+                problems.append(f"ID {entry['id']}: listing name {row['name']!r} != {entry['name']!r}")
+            if row.get("size") is not None and row["size"] != entry["extract_size"]:
+                problems.append(f"ID {entry['id']}: listing size {row['size']} != ExtractSize {entry['extract_size']}")
+            if row.get("compressed") is not None and row["compressed"] != entry["file_size"]:
+                problems.append(f"ID {entry['id']}: listing compressed {row['compressed']} != FileSize {entry['file_size']}")
+            continue
         row = listed_rows.get(entry["toc_index"])
         if row is None:
             problems.append(f"TOC row {entry['toc_index']} has no listing row")

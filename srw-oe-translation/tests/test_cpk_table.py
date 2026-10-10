@@ -484,6 +484,26 @@ class ItocBlobLayoutTests(unittest.TestCase):
             cpk_table._entries_from_itoc_blobs(table, parsed, header_files=5)
 
 
+class BlobEntryListingMatchTests(unittest.TestCase):
+    def test_blob_entries_match_an_id_ordered_listing_by_id(self):
+        # Blob order is 1, 0 (low table) then 2 (high table); the listing is ordered by ID.
+        table = build_itoc_blob_table(2, 1, [1, 0], high_ids=[2])
+        parsed = cpk_table._parse_utf_table(table)
+        entries = cpk_table._entries_from_itoc_blobs(table, parsed, header_files=3)
+        listing = {
+            "header_count": 3,
+            "columns": ["No.", "ID", "Filesize", "Compressed", "%"],
+            "entries": [
+                {"no": no, "id": entry["id"], "size": entry["extract_size"], "compressed": entry["file_size"], "name": None}
+                for no, entry in enumerate(sorted(entries, key=lambda item: item["id"]))
+            ],
+        }
+        self.assertEqual(cpk_table.entries_match_listing(entries, listing, []), [])
+        listing["entries"][0]["size"] += 1
+        problems = cpk_table.entries_match_listing(entries, listing, [])
+        self.assertTrue(any("ID 0: listing size" in problem for problem in problems))
+
+
 class UnreadableTableDiagnosticTests(unittest.TestCase):
     def test_unreadable_table_error_names_its_column_schema(self):
         table = bytearray(build_utf_table("Probe", [("Alpha", 0x54)], [{"Alpha": 7}]))
