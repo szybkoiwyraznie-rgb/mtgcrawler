@@ -53,6 +53,7 @@ import extract_event_text  # noqa: E402  (text export, verification, read-back)
 import cpk_table  # noqa: E402  (read-only CPK table cross-check)
 import diagnostic_bundle  # noqa: E402  (one ZIP of the report, registry, logs, and text manifests)
 import layout_probe  # noqa: E402  (header/table bytes of colliding-name packages)
+import crilayla  # noqa: E402  (CRILAYLA decompression for compressed CPK entries)
 import iso9660  # noqa: E402  (read-only ISO9660 member extraction)
 from inventory_local_inputs import inventory_path  # noqa: E402
 
@@ -163,6 +164,37 @@ def _link_or_copy(source: str, target: str) -> None:
         os.link(source, target)
     except OSError:
         shutil.copy2(source, target)
+
+
+def _decode_crilayla_entry(entry: dict[str, Any], blob: bytes, folder: Path, result: dict[str, Any]) -> None:
+    """Decode one CRILAYLA entry into `folder` and keep the counts; a failure is recorded, never guessed."""
+    summary = result.setdefault(
+        "crilayla", {"attempted": 0, "decoded": 0, "failed": 0, "clean_end": 0, "decoded_bytes": 0, "samples": []}
+    )
+    summary["attempted"] += 1
+    try:
+        decoded = crilayla.decompress(blob)
+        if len(decoded.data) != entry["extract_size"]:
+            raise crilayla.CrilaylaError(
+                f"decoded {len(decoded.data)} bytes, the table says {entry['extract_size']}"
+            )
+    except crilayla.CrilaylaError as exc:
+        summary["failed"] += 1
+        if len(summary["samples"]) < 5:
+            summary["samples"].append({"name": entry["name"][:120], "error": str(exc)[:200]})
+        return
+    suffix = "".join(ch for ch in Path(entry["name"]).suffix if ch.isalnum())[:8]
+    folder.mkdir(parents=True, exist_ok=True)
+    target = folder / f"{entry['toc_index']:05d}_{safe_stem(entry['name'])}.{suffix or 'bin'}"
+    target.write_bytes(decoded.data)
+    summary["decoded"] += 1
+    summary["decoded_bytes"] += len(decoded.data)
+    if decoded.bytes_consumed == decoded.stream_size:
+        summary["clean_end"] += 1
+    if len(summary["samples"]) < 5:
+        summary["samples"].append(
+            {"name": entry["name"][:120], "decoded_head_hex": decoded.data[0x100:0x110].hex(), "clean_end": decoded.bytes_consumed == decoded.stream_size}
+        )
 
 
 def _sha256_file(path: Path) -> str:
@@ -1310,18 +1342,21 @@ class Run:
                         continue
                     if entry["compressed"]:
                         result["compressed"] += 1
+                        stream.seek(entry["absolute_offset"])
+                        head = stream.read(16)
                         if len(result["compressed_names"]) < 20:
                             result["compressed_names"].append(entry["name"][:120])
-                            # The first bytes name the compression scheme (for the next decoder step); 16 bytes only.
-                            stream.seek(entry["absolute_offset"])
                             result.setdefault("compressed_heads", []).append(
                                 {
                                     "name": entry["name"][:120],
                                     "file_size": entry["file_size"],
                                     "extract_size": entry["extract_size"],
-                                    "head_hex": stream.read(16).hex(),
+                                    "head_hex": head.hex(),
                                 }
                             )
+                        if crilayla.is_crilayla(head):
+                            stream.seek(entry["absolute_offset"])
+                            _decode_crilayla_entry(entry, stream.read(entry["file_size"]), hidden_dir, result)
                         continue
                     stream.seek(entry["absolute_offset"])
                     data = stream.read(entry["file_size"])
