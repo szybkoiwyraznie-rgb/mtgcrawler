@@ -521,15 +521,6 @@ def _cli_patch(argv):
     return 0
 
 
-if __name__ == "__main__":
-    a = sys.argv[1:]
-    if a and a[0] == "repackiso":
-        raise SystemExit(_cli_fromiso(a[1:]))
-    if a and a[0] == "patchiso":
-        raise SystemExit(_cli_patch(a[1:]))
-    raise SystemExit(_cli(a))
-
-
 def _walk_record_offsets(fh, block_size=BLOCK_SIZE):
     import struct as _s
     fh.seek(PVD_LBA * block_size)
@@ -605,3 +596,11 @@ def patch_iso(original_iso, out_path, patch):
         fh.seek(PVD_LBA * BLOCK_SIZE + 80)
         fh.write(_both(total_lba, 4))
     return {"applied": applied, "total_lba": total_lba}
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    if a and a[0] == "repackiso":
+        raise SystemExit(_cli_fromiso(a[1:]))
+    if a and a[0] == "patchiso":
+        raise SystemExit(_cli_patch(a[1:]))
+    raise SystemExit(_cli(a))
