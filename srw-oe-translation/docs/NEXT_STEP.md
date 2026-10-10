@@ -6,47 +6,36 @@ modelled on — documents hitting this project's exact wall (no offset table; of
 bytecode) and settling it in the emulator rather than by scanning. Continuing to measure bytes is now
 the slower route to a question with a known answer.
 
-## Do this first (milestone 62, revised by milestone 63)
+## Do this next: put one English line into the game (milestone 64, `docs/METHOD.md`)
 
-**The ISO route is closed.** `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5` returned
-`3bfd26f800b7b7a635df29f2c0c936ae`, and the Korean base-game patch names `ce57eb21bcdc9bdd6204f63a4fd9f716`
-as the original it was built against. Different dumps — byte-exact patching cannot apply, so **do not
-download the 54 MB base-game patch**. It is a dump-level difference, not a different game version: our
-own measurement already showed this image is 679,243,152 bytes while its descriptor declares
-673,710,080.
+The method is now sourced rather than inferred, and it removes the blocker this project has been
+measuring around. CrashmanX, who started the English patch for this game, worked under "the constraint
+of having to use the same amount of spaces as the Japanese characters", and `retro-trans/SRW-Z` states
+that in-place replacement at identical byte length "is safe and verified". **If the replacement is
+exactly as long as the original, no offset in the file can move** — so the pointer layout is not a gate.
 
-The DLC route does not touch the ISO at all, so it stands on its own:
+And repacking is known to work: "It's possible to re-pack the .cpk files ... I just left **'Force
+Compress' unchecked** and it worked." Our own run found 0 compressed entries, which agrees.
 
-1. **Download one archive** — `srwOEKDLC_v250617.7z` (2.9 MB) from the Releases page of
-   `z3oo3z/PSP-SRWOEDLC-KPatch`. It holds 73 xdelta patches, an `org` folder, `1.move_org.bat`,
-   `2.dlcpatch.bat` and `dlcmd5checker.exe`.
-2. **Offer it the PSN-distributed `.EDAT` files** from `D:\SRWOE\NPJH50521` — **copies**, and not the
-   decrypted chapter-4 files this project produced. Run their `1.move_org.bat`, then
-   `dlcmd5checker.exe`: it verifies every original and prints `모두 일치!` when all match, or names the
-   files that do not. **That output is worth pasting back on its own** — it says how many of the 73
-   files we can actually learn from.
-3. If they match, run their `2.dlcpatch.bat` and keep the patched output in its own folder.
-4. **Diff, don't run.** Drop the two folders onto `COMPARE_PATCH.bat` — the `org` folder first (the
-   originals), the patched folder second. Paste the console output back; `patch_diff.json` keeps every
-   per-file row.
+1. **Pick one unit in one DLC file**, not the ISO — PPSSPP reads the DLC from
+   `memstick/PSP/GAME/NPJH50521` as loose files, so a DLC test needs no ISO rebuild.
+2. **Write an equal-length English string** with the new `tools/rewrite_units.py`:
+   `python tools\rewrite_units.py --csv units.csv --extracted <run>\extracted --out <somewhere>`.
+   It re-encodes each row's `source_text` and compares it with the bytes in the file before writing,
+   pads a shorter translation with `0x20` to the exact slot, refuses a longer one, and refuses to write
+   at all if the output length would differ.
+3. **Repack that CPK with compression off** and check the TOC row-by-row against the original.
+4. **Put it where the emulator reads it** and boot PPSSPP.
+5. **If the glyphs come up blank**, that is the font problem, separate from the text — and it is the
+   only thing between a written string and a visible one. Two proven fixes are in `docs/METHOD.md`.
 
-   The report answers: how many files changed; **how many changed length** (0 means every string was
-   replaced at identical byte length — the byte-budget question); where the changed bytes sit (inside a
-   text span, on the `FF FF` marker, on the `00 00` stop, or outside any unit); how many units were
-   touched; **how many changes also cover the 8 bytes before an `FF FF`** (the record header, which is
-   where an offset operand would have to be rewritten); and the byte classes of the replacement bytes
-   (ASCII vs SJIS-range vs EUC-KR-range — the encoding question, which is also the font question;
-   `0xE0`–`0xFC` is a lead byte in both, so read the mix rather than one label).
+The ISO diff route is closed (milestone 63: the user's ISO is MD5
+`3bfd26f800b7b7a635df29f2c0c936ae`, a different dump from the one the Korean base patch targets).
+Diffing someone else's patch is no longer the plan either — the method is documented, so there is
+nothing left to learn from their distribution.
 
-One caveat to expect: the patch's unit of distribution is the **`.EDAT`**, so the diff's two sides may
-both be encrypted. That still answers how many files changed, by how many bytes, and whether the
-length moved — but reading the changed *content* needs the patched file decrypted the same way chapter
-4 was. If the diff comes back as noise-sized changes across all 73 files, that is the reason, and the
-follow-up is to decrypt one patched file and diff that instead.
-
-Boundary: format knowledge only. No translated text is taken from those projects — the user asked for
-a fresh translation and rejected the Akurasu script as a source. The tool reports counts and offsets
-only and never decodes text.
+Boundary: format and method knowledge only. No translated text is taken from any of those projects;
+the user asked for a fresh translation and rejected the Akurasu script as a source.
 
 The rest of this page is the record of the measurement route that led here, kept because its negative
 results are what make the diff worth reading.
