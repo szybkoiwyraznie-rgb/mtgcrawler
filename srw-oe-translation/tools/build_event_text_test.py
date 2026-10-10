@@ -38,6 +38,7 @@ from typing import Optional, Sequence
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import cpk_table  # noqa: E402
 import cpk_write  # noqa: E402
 import grow_event_text  # noqa: E402
 
@@ -71,6 +72,73 @@ VARIANTS = (
 
 def md5(data: bytes) -> str:
     return hashlib.md5(data).hexdigest()
+
+
+def verify_image(image: bytes, source: bytes, member_name: str, grown: bytes):
+    """Source-independent structural check of a rebuilt container.
+
+    The recorded MD5s below describe an earlier *crashing* build, so they are only
+    informational now. The real gate is structural: the rebuilt image must still be a
+    readable container, its content region must end on the Align boundary (the thing
+    the crashing build got wrong), the EToc must close the file, every member other
+    than the grown one must be byte for byte the source's, and the grown member must
+    be exactly the new bytes.
+    """
+    import crilayla
+    import tempfile
+
+    problems = []
+    tmp = tempfile.NamedTemporaryFile(suffix=".edat", delete=False)
+    tmp.write(image); tmp.close()
+    try:
+        table = cpk_table.read_cpk_table(Path(tmp.name))
+    except Exception as exc:
+        return [f"the rebuilt image does not parse: {exc}"]
+    fields = table["header"]["fields"]
+    align = int(fields.get("Align") or 1)
+    etoc_offset = fields.get("EtocOffset")
+    etoc_size = fields.get("EtocSize")
+    if etoc_offset is not None and align > 1 and int(etoc_offset) % align != 0:
+        problems.append(f"EToc at {etoc_offset} is not on the {align} boundary")
+    if etoc_offset is not None and etoc_size is not None and int(etoc_offset) + int(etoc_size) != len(image):
+        problems.append("EToc does not close the file")
+
+    # Compare member-by-member against the source by extracting from both images.
+    def extract(data: bytes, entry):
+        b = data[entry["absolute_offset"]:entry["absolute_offset"] + entry["file_size"]]
+        if entry["extract_size"] > entry["file_size"]:
+            b = crilayla.decompress(b).data
+        return b
+
+    src_table = _table_from_bytes(source)
+    img_table = table
+    src_entries = {e["name"]: e for e in src_table["entries"]}
+    for e in img_table["entries"]:
+        name = e["name"]
+        if name == member_name:
+            continue
+        se = src_entries.get(name)
+        if se is None:
+            problems.append(f"member {name!r} is new relative to the source"); continue
+        if extract(image, e) != extract(source, se):
+            problems.append(f"member {name!r} differs from the source")
+    ge = next((e for e in img_table["entries"] if e["name"] == member_name), None)
+    if ge is None:
+        problems.append("the grown member is missing")
+    elif extract(image, ge) != grown:
+        problems.append("the grown member does not match the requested bytes")
+    return problems
+
+
+def _table_from_bytes(data: bytes):
+    import tempfile
+    tmp = tempfile.NamedTemporaryFile(suffix=".edat", delete=False)
+    tmp.write(data); tmp.close()
+    try:
+        return cpk_table.read_cpk_table(Path(tmp.name))
+    finally:
+        import os
+        os.unlink(tmp.name)
 
 
 def build(container: Path, out_dir: Path) -> int:
@@ -126,15 +194,21 @@ def build(container: Path, out_dir: Path) -> int:
         image = cpk_write.rebuild(cpk, (MEMBER, grown))
         out.write_bytes(image)
 
-        actual = md5(image)
-        verdict = "matches the recorded build" if actual == expected else "DIFFERS from the recorded build"
-        if actual != expected:
+        problems = verify_image(image, original, MEMBER, grown)
+        if problems:
+            for problem in problems:
+                print(f"REFUSED ({folder}): {problem}", file=sys.stderr)
             failures += 1
+            continue
+
+        actual = md5(image)
+        match = "matches the recorded build" if actual == expected else \
+            "differs from the old recorded MD5 (expected until it is regenerated)"
         print(f"{folder}/eventP02.EDAT  {len(image)} bytes  {description}")
         print(f"    text {len(stored)} -> {len(new_text)} bytes")
-        print(f"    MD5 {actual}  {verdict}")
-        if actual != expected:
-            print(f"    recorded: {expected}")
+        print(f"    MD5 {actual}  {match}")
+        print(f"    structure: readable, EToc on {cpk.align} boundary, closes the file, "
+              f"{len(cpk.members) - 1} other members byte-identical to the source")
         print()
 
     if failures:
