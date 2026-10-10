@@ -135,6 +135,17 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
    `eventP00.cpk` (grown/English) through `patchiso` and boot, proving edit->repack->patch->boot with
    growth. Suite 325 OK.
 
+82. **FAZA 2 result: patchiso boots the game to gameplay; the grown eventP00 crashes at first narration.**
+   FAZA 1 (identity) and FAZA 2 both boot through title/character-creation (unlike from-scratch
+   rebuild, which crashed at boot), so patchiso is the working ISO-packing method. But the *grown*
+   `eventP00.cpk` crashes on the first prologue narration (Invalid Mem Access Read@0, PC 088a7378,
+   SazThread). Header size fields are all consistent (+delta); the cause is EVNT forward-offsets:
+   records AFTER the grown one shift, but their offsets stored in the ECHK block header are not
+   updated by `grow_record` (it only fixes size fields). This is the growth requirement gap; the
+   retro-trans/SRW-Z project solves the analogous pointer-rewrite problem (pool.py repack /
+   verify_pointers). Next: either RE the EVNT forward-offset table to make growth safe, or proceed
+   to B (readable translation-source files) with growth-in-ISO as the known open blocker.
+
 ## Not yet demonstrated
 
 - The one-click run has been run six times on Windows with the user's YACpkTool and game files (items 36, 42, 45, 46, 47, and 57). Extraction completeness is measured per package against its `-L` listing, whose three real column layouts are known and parsed (full, no ID column, no filename column with ID-named files). The latest run verified 453 of 497 packages; the remaining failures are the 42 colliding-name packages (whose entries are recovered separately under `hidden/` and verified against their listing sizes) and `robo01`/`robo03`, where one listed name each does not decode from the converter's console output. Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the `@UTF` table row encoding, and the formats inside the AFS2 audio inputs remain unknown.
