@@ -1467,6 +1467,24 @@ consistent (`inner@60 == owner_end - 56`): jp `cecd72631f73d469131e42eb42cc177e`
 10205), en `4f82950c3b9074a248d8f9fa42b5f4ec` (member 10202). Suite 307 OK, 1 skipped.
 Awaiting the user's boot of the grown jp build -- this is the first growth expected to work.
 
+### 2026-10-10 (night, 5) — GROWTH CONFIRMED IN GAME
+
+**Result (user).** `06-jp-WZROST-naprawiony.EDAT` (record grown by 33 bytes, inner EVNT size
+field bumped) **boots**. Growth works. The inner-size-field fix is the root cause and the
+cure; the long crash hunt is closed.
+
+**Delivered.** `07-en-WZROST-naprawiony.EDAT` (MD5 `4f82950c3b9074a248d8f9fa42b5f4ec`) is the
+English variant grown by the same corrected path.
+
+**Regression protection.** `tests/test_grow_event_text.py::InnerSizeFieldTests` builds a
+synthetic EDAT with an inner size field tracking the owner end and asserts a growth bumps it
+(plus the owner and EDAT sizes) and stays consistent. Suite 308 OK, 1 skipped.
+
+**What this unlocks.** `grow_event_text.grow_record` now supports in-place growth of event
+strings, so the translation pipeline can emit English of arbitrary length, not just
+equal-length. Next: scale from the single proof record to every event string across all
+chapters, then the full export -> translate -> apply -> xdelta flow.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

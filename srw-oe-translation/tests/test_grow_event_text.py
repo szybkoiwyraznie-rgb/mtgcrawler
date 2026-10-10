@@ -166,5 +166,44 @@ class LineBreakTests(unittest.TestCase):
         self.assertNotIn(stored, stored.replace(b"\x0a", b""))
 
 
+
+
+class InnerSizeFieldTests(unittest.TestCase):
+    """A growth must also bump inner size fields that track the owner section end."""
+
+    def _member(self):
+        import struct
+        text = b"NEEDLE"
+        rec_len = 12 + len(text) + 2
+        record = target.RECORD_TYPE + struct.pack("<II", rec_len, 0) + text + b"\x00\x00"
+        body_size = 60
+        body = bytearray(body_size)
+        # body index 8 == data offset 28 (12-byte EDAT header + 4 tag + 4 size)
+        body[8:8 + len(record)] = record
+        # inner size field at body index 0 == data offset 20; owner_end = 20 + body_size
+        owner_end = 20 + body_size
+        struct.pack_into("<I", body, 0, owner_end - 20 + 4)
+        data = bytearray(b"EDAT")
+        data += struct.pack("<I", (12 + 8 + body_size) - 8)
+        data += struct.pack("<I", 1)
+        data += b"EVNT" + struct.pack("<I", body_size) + bytes(body)
+        return bytes(data), 28, text  # record at data offset 28
+
+    def test_growth_bumps_the_inner_size_field(self):
+        import struct
+        data, rec, text = self._member()
+        grown = target.grow_record(data, rec, text + b"EXTRA")
+        self.assertEqual(target.check(data, grown, rec, text + b"EXTRA"), [])
+        delta = len(b"EXTRA")
+        self.assertEqual(struct.unpack_from("<I", grown, 20)[0],
+                         struct.unpack_from("<I", data, 20)[0] + delta)
+        self.assertEqual(struct.unpack_from("<I", grown, 16)[0],
+                         struct.unpack_from("<I", data, 16)[0] + delta)
+        self.assertEqual(struct.unpack_from("<I", grown, 4)[0],
+                         struct.unpack_from("<I", data, 4)[0] + delta)
+        owner_end = 20 + struct.unpack_from("<I", grown, 16)[0]
+        self.assertEqual(struct.unpack_from("<I", grown, 20)[0], owner_end - 20 + 4)
+
+
 if __name__ == "__main__":
     unittest.main()
