@@ -48,6 +48,7 @@ TOOLS_DIR = Path(__file__).resolve().parent
 SRW_ROOT = TOOLS_DIR.parent
 sys.path.insert(0, str(TOOLS_DIR))
 
+import boundary_probe  # noqa: E402  (read-only boundary evidence over the text exports)
 import extract_cpk_batch  # noqa: E402  (converter discovery, shared with the dry-run driver)
 import extract_event_text  # noqa: E402  (text export, verification, read-back)
 import cpk_table  # noqa: E402  (read-only CPK table cross-check)
@@ -1340,9 +1341,10 @@ class Run:
 
         Used only for packages the listing marks `incomplete`, because the converter writes one
         flat folder and collided names overwrite each other. Each entry is written as
-        `<TOC index>_<name>`, so nothing collides. Only entries with TOC offsets and uncompressed
-        data are written; compressed entries are counted and named but not decoded. The folder is
-        kept out of packages/ and is not part of the package's verified output.
+        `<TOC index>_<name>`, so nothing collides. Uncompressed entries with TOC offsets are
+        written as they are; compressed entries are decoded when their stream is CRILAYLA
+        (`tools/crilayla.py`), and otherwise only counted, named, and recorded by their first 16
+        bytes. The folder is kept out of packages/ and is not part of the package's verified output.
         """
         hidden_dir = self.run_dir / HIDDEN_DIR / package_id
         try:
@@ -1679,8 +1681,8 @@ def run_pipeline(
     if base == input_root or input_root in base.parents or base in input_root.parents:
         raise SetupError("output folder must be separate from the input folder (neither inside the other)")
 
-    say("Stage 1/8 setup: folders chosen")
-    say("Stage 2/8 inventory: hashing and classifying every input file (read-only)")
+    say("Stage 1/9 setup: folders chosen")
+    say("Stage 2/9 inventory: hashing and classifying every input file (read-only)")
     inventory = inventory_path(input_root)
     entries = inventory["entries"]
     before_snapshot = _tree_snapshot(input_root)
@@ -1733,7 +1735,7 @@ def run_pipeline(
     blocked_reason: Optional[str] = None
 
     try:
-        say("Stage 3/8 preflight: converter, output path, free space")
+        say("Stage 3/9 preflight: converter, output path, free space")
         tool_path = settings.tool_path
         if tool_path is None:
             try:
@@ -1785,7 +1787,7 @@ def run_pipeline(
             probe = {"status": "not_run", "reason": "preflight only"}
             gate = {"status": "not_run", "reason": "preflight only"}
         elif cpk_entries or iso_member_count:
-            say("Stage 4/8 probe: finding a converter mode that extracts the smallest CPK")
+            say("Stage 4/9 probe: finding a converter mode that extracts the smallest CPK")
             # Read-only ISO member extraction first, so the disc's CPK members can be
             # probe candidates and are processed like any input package.
             iso_items = _extract_iso_members(run, entries)
@@ -1816,7 +1818,7 @@ def run_pipeline(
             naming_text = "original .EDAT name" if probe["naming_mode"] == "original_name" else "staged .cpk copy"
             output_text = "captured output" if probe["io_mode"] == "captured" else "console output"
             say(f"  probe passed: {naming_text}, {output_text}")
-            say("Stage 5/8 extract: unique CPKs and nested CPKs into the run folder")
+            say("Stage 5/9 extract: unique CPKs and nested CPKs into the run folder")
             top_level = [
                 WorkItem(
                     path=input_root.joinpath(*entry["path"].split("/")),
@@ -1830,8 +1832,8 @@ def run_pipeline(
                 for entry in sorted(cpk_entries, key=lambda item: item["path"])
             ]
             packages = run.extract_all(top_level + iso_items)
-            say("Stage 6/8 text: export and verify event text for each extracted package")
-            say("Stage 7/8 gate: repack the smallest extracted package with non-empty members and compare member hashes")
+            say("Stage 6/9 text: export and verify event text for each extracted package")
+            say("Stage 7/9 gate: repack the smallest extracted package with non-empty members and compare member hashes")
             gate_candidates = sorted(
                 (
                     package
@@ -1845,8 +1847,8 @@ def run_pipeline(
                 "reason": "no extracted package with non-empty members",
             }
         else:
-            say("Stage 4/8 probe: skipped (no CPK signatures)")
-            say("Stage 5-7/8: nothing to extract, export, or repack")
+            say("Stage 4/9 probe: skipped (no CPK signatures)")
+            say("Stage 5-7/9: nothing to extract, export, or repack")
     except SetupError as error:
         blocked_reason = str(error)
         status = "blocked"
@@ -1865,7 +1867,7 @@ def run_pipeline(
         except OSError:
             pass
 
-    say("Stage 8/8 report: registry, CSV files, and REPORT.txt")
+    say("Stage 8/9 boundary evidence: measure the text units against the extracted files (read-only)")
     changes = _snapshot_changes(before_snapshot, _tree_snapshot(input_root))
     input_unchanged = not changes
     if changes:
@@ -1917,7 +1919,7 @@ def run_pipeline(
             elif isinstance(iso_inventory, dict) and iso_inventory.get("status") == "unsupported":
                 index_note = f"; read-only index failed: {str(iso_inventory.get('error'))[:200]}"
             not_processed.append(
-                f"{entry['path']}: ISO image not processed as a container (no ISO adapter for rebuilding); "
+                f"{entry['path']}: ISO image is never rebuilt or modified (no ISO adapter); "
                 f"{_iso_summary(iso_facts)}{index_note}{members_note}"
             )
         elif category == "zip_not_processed":
@@ -1964,7 +1966,17 @@ def run_pipeline(
         )
     if status == "completed" and failures:
         status = "completed_with_failures"
+    try:
+        boundary = boundary_probe.probe_packages(packages, run_dir)
+        say(
+            f"  {boundary['totals']['units']} units in {boundary['totals']['files']} files "
+            f"({boundary['exports_probed']} text exports)"
+        )
+    except Exception as error:  # noqa: BLE001 - a measurement; the run result stands on its own
+        boundary = {"status": "failed", "error": f"{type(error).__name__}: {str(error)[:200]}"}
+        say(f"  boundary probe failed: {boundary['error']}")
     finished = dt.datetime.now().astimezone()
+    say("Stage 9/9 report: registry, CSV files, and REPORT.txt")
     registry = {
         "schema": RUN_SCHEMA,
         "run": {
@@ -1995,6 +2007,7 @@ def run_pipeline(
         "inputs": input_rows,
         "packages": packages,
         "gate": gate,
+        "boundary_probe": boundary,
         "not_processed": not_processed,
         "failures": failures,
         "warnings": warnings,
@@ -2009,6 +2022,10 @@ def run_pipeline(
     registry_path = run_dir / "registry.json"
     registry_path.write_text(json.dumps(registry, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
     _write_csvs(run_dir, input_rows, packages)
+    try:
+        boundary_probe.write_probe(run_dir, boundary)
+    except OSError as error:  # the JSON is a convenience copy of the registry entry
+        say(f"Boundary probe JSON not written: {type(error).__name__}: {str(error)[:160]}")
     report_path = run_dir / "REPORT.txt"
     report_path.write_text(_render_report(registry), encoding="utf-8")
     try:
@@ -2203,9 +2220,13 @@ def _hidden_lines(registry: dict[str, Any]) -> list[str]:
             continue
         text = (hidden.get("text") or {}).get("status", "not_run")
         if hidden.get("status") in ("extracted", "failed"):
+            crilayla = hidden.get("crilayla") or {}
+            compressed = hidden.get("compressed", 0)
             detail = (
-                f"{hidden.get('written', 0)} of {hidden.get('entries', 0)} entries written "
-                f"({hidden.get('written_bytes', 0)} bytes), {hidden.get('compressed', 0)} compressed (not decoded), "
+                f"{hidden.get('written', 0)} of {hidden.get('entries', 0)} uncompressed entries written "
+                f"({hidden.get('written_bytes', 0)} bytes), {compressed} compressed "
+                f"({crilayla.get('decoded', 0)} CRILAYLA decoded, {crilayla.get('failed', 0)} failed, "
+                f"{max(0, compressed - crilayla.get('attempted', 0))} not CRILAYLA), "
                 f"{hidden.get('no_offset', 0)} without offsets, listing sizes match: {hidden.get('listing_sizes_match')}, "
                 f"text: {text}"
             )
@@ -2356,6 +2377,9 @@ def _render_report(registry: dict[str, Any]) -> str:
         f"(failed: {summary['text_packages_failed']})",
         f"  text units: {summary['text_units_total']}",
         "",
+        "Boundary evidence (read-only counts; measurements, not validated boundaries)",
+        *boundary_probe.report_lines(registry.get("boundary_probe") or {"status": "not_run"}),
+        "",
         "CPK repack round trip (smallest package)",
         f"  status: {registry['gate'].get('status')}",
     ]
@@ -2383,11 +2407,14 @@ def _render_report(registry: dict[str, Any]) -> str:
     lines += [
         "",
         "Outputs (inside this run folder)",
-        "  registry.json, inputs.csv, packages.csv, REPORT.txt",
+        "  registry.json, inputs.csv, packages.csv, REPORT.txt, boundary_probe.json",
         "  packages/   extracted CPK contents (one folder per unique package)",
         "  text/       event text exports (manifest, units, segments) for packages with BIN files",
         "  logs/       converter logs (captured or console mode noted per call)",
         "  hidden/     entries whose names collide, read from the CPK table (packages with duplicate names only)",
+        "  translation/  units.csv (one row per text unit, source view plus byte budget) and template_report.txt",
+        "  layout_probe.zip  header and table bytes of the duplicate-name packages (identification only)",
+        "  diagnostics_<run id>.zip  report, registry, CSVs, boundary counts, converter logs, text manifests",
         "",
         "This report contains file names, sizes, byte prefixes, and hashes only; it contains no decoded game text.",
         "",
