@@ -74,7 +74,9 @@ def build_probe(input_root: Path, run_dir: Path, out: Optional[Path] = None) -> 
     staging = out.with_name(out.name + ".partial")
     with zipfile.ZipFile(staging, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for package in selected:
-            source = input_root.joinpath(*package["source_path"].split("/"))
+            # ISO members were extracted read-only into the run folder's iso/ directory.
+            base = run_dir if package["source_path"].startswith("iso/") else input_root
+            source = base.joinpath(*package["source_path"].split("/"))
             record: dict[str, Any] = {
                 "package_id": package["package_id"],
                 "source_path": package["source_path"],
