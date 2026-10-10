@@ -354,5 +354,156 @@ def _cli(argv):
     return 0
 
 
+def _cli_fromiso(argv):
+    if len(argv) < 2:
+        print("usage: iso_pack.py repackiso <original.iso> <out.iso> [patches_dir]")
+        return 2
+    iso = Path(argv[0]); out = Path(argv[1])
+    sa = iso.read_bytes()[:SYSTEM_AREA_BYTES]
+    patch = {}
+    if len(argv) > 2:
+        pdir = Path(argv[2])
+        for p in pdir.rglob("*"):
+            if p.is_file():
+                patch[p.relative_to(pdir).as_posix()] = p.read_bytes()
+    summary = repack_from_iso(iso, out, sa, patch)
+    print(summary)
+    return 0
+
+
 if __name__ == "__main__":
-    raise SystemExit(_cli(sys.argv[1:]))
+    a = sys.argv[1:]
+    if a and a[0] == "repackiso":
+        raise SystemExit(_cli_fromiso(a[1:]))
+    raise SystemExit(_cli(a))
+
+
+def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
+                    patch: Optional[dict] = None) -> dict:
+    """Rebuild an ISO streaming unchanged members straight from the *original* ISO.
+
+    Unlike ``repack_iso`` (which reads a local tree and therefore depends on a complete
+    extraction), this reads the directory inventory and each member's extent from the original
+    image and copies it byte-for-byte, overriding only paths present in ``patch``. It is robust
+    to incomplete local extractions -- nothing can be dropped, because everything that is not
+    patched is streamed from the source image itself.
+    """
+    import iso9660
+
+    if len(system_area) != SYSTEM_AREA_BYTES:
+        raise ValueError("system area must be exactly 32 KiB (sectors 0..15)")
+    patch = patch or {}
+    # ISO9660 identifiers are stored upper-case, so match patch paths case-insensitively.
+    upatch = {k.upper(): v for k, v in patch.items()}
+    original_iso = Path(original_iso)
+    info = iso9660.inspect_iso9660(original_iso)
+
+    dirs: set[str] = {""}
+    files: list[tuple[str, str, int, object]] = []
+    for f in info["files"]:
+        path = f["path"]
+        parts = path.split("/")
+        for i in range(1, len(parts)):
+            dirs.add("/".join(parts[:i]) + "/")
+        parent = "" if len(parts) == 1 else "/".join(parts[:-1]) + "/"
+        name = parts[-1]
+        ext = f["extents"][0]
+        if path.upper() in upatch:
+            files.append((parent, name, len(upatch[path.upper()]), ("mem", upatch[path.upper()])))
+        else:
+            files.append((parent, name, ext["length_bytes"], ("iso", ext["offset_bytes"], ext["length_bytes"])))
+    dirs = sorted(dirs)
+    dir_index = {d: i + 1 for i, d in enumerate(dirs)}
+
+    dir_children: dict[str, list] = {d: [] for d in dirs}
+    for parent, name, size, src in files:
+        dir_children[parent].append((name, size, False, None))
+    for d in dirs[1:]:
+        parent = "" if d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        dir_children[parent].append((d.rstrip("/").split("/")[-1], 0, True, d))
+
+    def ident_of(d: str) -> bytes:
+        return b"\x00" if d == "" else _dir_name(d.rstrip("/").split("/")[-1])
+
+    path_bytes = sum(8 + len(ident_of(d)) + (len(ident_of(d)) % 2) for d in dirs)
+    pt_sectors = max(1, (path_bytes + BLOCK_SIZE - 1) // BLOCK_SIZE)
+    l_path_lba = 18
+    m_path_lba = 18 + pt_sectors
+
+    dir_lba: dict[str, int] = {}
+    cursor = m_path_lba + pt_sectors
+    dir_blocks: dict[str, bytes] = {}
+    for d in dirs:
+        dir_lba[d] = cursor
+        rec = bytearray()
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        rec += _record(b"\x00", dir_lba[d], 0, True)
+        rec += _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True)
+        for name, size, is_dir, sub in dir_children[d]:
+            rec += _record(_dir_name(name), 0, size, is_dir)
+        dir_blocks[d] = _sector_pad(bytes(rec))
+        cursor += len(dir_blocks[d]) // BLOCK_SIZE
+
+    file_lba: dict[tuple, int] = {}
+    for parent, name, size, src in files:
+        file_lba[(parent, name)] = cursor
+        cursor += (size + BLOCK_SIZE - 1) // BLOCK_SIZE
+    total_lba = cursor
+
+    for d in dirs:
+        rec = bytearray()
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        rec += _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True)
+        rec += _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True)
+        for name, size, is_dir, sub in dir_children[d]:
+            if is_dir:
+                rec += _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True)
+            else:
+                rec += _record(_dir_name(name), file_lba[(d, name)], size, False)
+        dir_blocks[d] = _sector_pad(bytes(rec))
+
+    l = bytearray(); m = bytearray()
+    for d in dirs:
+        ident = ident_of(d)
+        parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
+        pad = len(ident) % 2
+        l += bytes([len(ident), 0]) + dir_lba[d].to_bytes(4, "little") + dir_index[parent].to_bytes(2, "little") + ident + b"\x00" * pad
+        m += bytes([len(ident), 0]) + dir_lba[d].to_bytes(4, "big") + dir_index[parent].to_bytes(2, "big") + ident + b"\x00" * pad
+
+    pvd = bytearray(BLOCK_SIZE)
+    pvd[0] = 1; pvd[1:6] = b"CD001"; pvd[6] = 1
+    pvd[80:88] = _both(total_lba, 4)
+    pvd[120:124] = _both(1, 2); pvd[124:128] = _both(1, 2)
+    pvd[128:132] = _both(BLOCK_SIZE, 2)
+    pvd[132:140] = _both(path_bytes, 4)
+    pvd[140:144] = l_path_lba.to_bytes(4, "little")
+    pvd[148:152] = m_path_lba.to_bytes(4, "big")
+    pvd[156:190] = _record(b"\x00", dir_lba[""], len(dir_blocks[""]), True)
+    terminator = bytearray(BLOCK_SIZE)
+    terminator[0] = 255; terminator[1:6] = b"CD001"; terminator[6] = 1
+
+    with open(original_iso, "rb") as src, open(out_path, "wb") as out:
+        out.write(system_area)
+        out.write(bytes(pvd))
+        out.write(bytes(terminator))
+        out.write(bytes(l).ljust(pt_sectors * BLOCK_SIZE, b"\x00"))
+        out.write(bytes(m).ljust(pt_sectors * BLOCK_SIZE, b"\x00"))
+        for d in dirs:
+            out.write(dir_blocks[d])
+        for parent, name, size, srcinfo in files:
+            if srcinfo[0] == "mem":
+                out.write(_sector_pad(srcinfo[1]))
+            else:
+                off, length = srcinfo[1], srcinfo[2]
+                src.seek(off)
+                remaining = length
+                while remaining > 0:
+                    chunk = src.read(min(1 << 20, remaining))
+                    if not chunk:
+                        break
+                    out.write(chunk)
+                    remaining -= len(chunk)
+                rem = length % BLOCK_SIZE
+                if rem:
+                    out.write(b"\x00" * (BLOCK_SIZE - rem))
+    return {"files": len(files), "dirs": len(dirs), "total_lba": total_lba}

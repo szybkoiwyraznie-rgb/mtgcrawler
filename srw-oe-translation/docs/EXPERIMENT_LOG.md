@@ -1543,6 +1543,20 @@ The disc's single event container is ``eventP00.cpk``; the numbered chapters (01
 the DLC. The streaming repack of the 660 MB disc (needed to ship a patched ISO) remains the
 next process step and must run on the user's PC.
 
+### 2026-10-10 (night, 9) — the user's ISO extraction is incomplete; repack must read the ISO
+
+**Finding.** The real disc's 80 files sum to ~672 MB (inventory `size_bytes`), while the user's
+unpacked `SRW_OE_1.08` tree is only ~293 MB: the extraction dropped the large members
+(`BgmSet00.awb` 194 MB, `UPDATE/DATA.BIN` 100 MB, `bacb00.cpk` 97 MB, `lmap.cpk` 81 MB,
+`voice00.awb` 50 MB, `mov00.cpk` 44 MB, `robo00.cpk` 38 MB). A repack built from that tree is
+truncated (~300 MB) and would not boot.
+
+**Fix.** `iso_pack.repack_from_iso` (`repackiso` CLI) rebuilds the image by streaming every
+unchanged member byte-for-byte from the *original* ISO (by extent) and overriding only `patch`
+paths (case-insensitive, since ISO9660 upper-cases identifiers). It needs no local tree, so
+nothing can be dropped. Tested (round-trip + patch). `REPACK_GUIDE.md` now makes `repackiso`
+the primary method. The user must still run FAZA 1 (identity boot) to validate on real HW.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

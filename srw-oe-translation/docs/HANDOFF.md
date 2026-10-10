@@ -62,6 +62,7 @@ menus are also in scope, as separate tables, later.
 | `iso_prep.py` + `PREP_ISO.bat` | on user's PC, bundle a small uploadable slice of the big ISO (inventory + system_area.bin + event/evept/PARAM.SFO, both `.EDAT` and `.cpk`) |
 | `apply_strings.py` | **apply** translated `*.strings.json` back into a package via `grow_record`; enforces `max_line_width` (46), verifies source match, CP932-encodes; refuses over-wide/mismatched. Tested |
 | `iso_pack.repack_iso` + `REPACK_ISO.bat` | **streaming** ISO repack from a local unpacked tree (sizes first, then sequential write; no 660 MB in RAM); `patch` map overrides members; preserves 32 KiB system area. Tested round-trip + patch |
+| `iso_pack.repack_from_iso` (`repackiso` CLI) | **preferred**: rebuild streaming unchanged members straight from the *original* ISO (byte-for-byte by extent), overriding only `patch` paths. Robust to incomplete extractions. Tested |
 
 Readable export format (one object per record): `member`, `record_index`, `record_offset`,
 `source`, `lines`, `source_bytes`, `max_line_width`, `line_count`, empty `target`. **These live
@@ -93,9 +94,11 @@ out and delete the in-repo copy** so game data never lands in git.
 
 1. **Apply step — DONE.** `tools/apply_strings.py` (tested, 5 unit tests). Closes
    read → translate → write; enforces the 46-wide budget and source-match before writing.
-2. **Streaming repack — DONE (tooling).** `iso_pack.repack_iso` + `REPACK_ISO.bat` (tested:
-   round-trip + patch on a disk tree). Still to do: run it for real on the user's 660 MB tree
-   and boot the result in PPSSPP.
+2. **Streaming repack — DONE (tooling), and the user's extraction is incomplete.** The real disc
+   holds ~672 MB (80 files) but the user's `SRW_OE_1.08` tree is ~293 MB (big files dropped), so
+   tree-based repack yields a truncated image. Use `iso_pack.repack_from_iso` (`repackiso`), which
+   streams unchanged members from the original ISO and needs no tree. Still to do: user runs it and
+   boots the result in PPSSPP (FAZA 1 identity, then FAZA 2 with a patch) -- see `REPACK_GUIDE.md`.
 3. **UI / names / menus export — STARTED, see `docs/UI_NAMES.md`.** Key facts: `u16tbl.cpk`
    holds the game's `jis2ucs`/`ucs2jis` encoding tables (ASCII passes through → rendering is
    UCS; Latin availability is a *font* question). `imenu` `*Dictionary*` members are u32 offset
