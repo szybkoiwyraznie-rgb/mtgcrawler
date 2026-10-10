@@ -51,6 +51,7 @@ sys.path.insert(0, str(TOOLS_DIR))
 import extract_cpk_batch  # noqa: E402  (converter discovery, shared with the dry-run driver)
 import extract_event_text  # noqa: E402  (text export, verification, read-back)
 import cpk_table  # noqa: E402  (read-only CPK table cross-check)
+import diagnostic_bundle  # noqa: E402  (one ZIP of the report, registry, logs, and text manifests)
 import iso9660  # noqa: E402  (read-only ISO9660 member extraction)
 from inventory_local_inputs import inventory_path  # noqa: E402
 
@@ -1850,6 +1851,11 @@ def run_pipeline(
     _write_csvs(run_dir, input_rows, packages)
     report_path = run_dir / "REPORT.txt"
     report_path.write_text(_render_report(registry), encoding="utf-8")
+    try:
+        bundle_path = diagnostic_bundle.write_bundle(run_dir)
+        say(f"Diagnostic bundle (send this ZIP if asked): {bundle_path}")
+    except Exception as exc:  # noqa: BLE001 - the bundle is a convenience; the run result stands
+        say(f"Diagnostic bundle not written: {type(exc).__name__}: {str(exc)[:200]}")
     exit_code = 0 if status in ("completed", "preflight_passed") else 1
     say(f"Status: {status}. Report: {report_path}")
     return RunResult(status=status, exit_code=exit_code, run_dir=run_dir, report_path=report_path, registry_path=registry_path)

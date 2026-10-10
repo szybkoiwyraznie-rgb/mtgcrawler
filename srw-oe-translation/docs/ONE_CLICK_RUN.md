@@ -102,6 +102,8 @@ The optional `expected_tool_sha256 = <64 hex digits>` key in the INI file pins t
 
 ## Sharing results
 
+Every run also writes `diagnostics_<run id>.zip` into its run folder: `REPORT.txt`, `registry.json`, `inputs.csv`, `packages.csv`, the converter call logs (`logs/`, including the `-L` listings), and the text export manifests. It leaves out the game files (`packages/`, `iso/`, `staging/`, `gates/`, `_cache/`) and lists every included file with its size and SHA-256 in `BUNDLE_INDEX.txt`. For a run folder made before this existed, run `python tools/diagnostic_bundle.py "<run folder>"`.
+
 Share `REPORT.txt` first. It contains file names, sizes, byte prefixes, and hashes of the game resources, which is the information needed to diagnose the run, including the `Listing check diagnostics` and `Unrecognized inputs` sections. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths. If more detail is needed, `registry.json` is the next file to share. It holds names, sizes, hashes, probe attempts, ISO descriptor sizes and member indexes, unknown-input first bytes, and per-package listing results, not decoded text.
 
 ## Verified cache

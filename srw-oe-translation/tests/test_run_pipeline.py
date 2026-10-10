@@ -415,6 +415,7 @@ class RunPipelineTests(PipelineFixture):
         registry = self.registry(result)
         self.assertTrue(registry["input"]["unchanged"])
         self.assertEqual(self.input_hashes(), before)
+        self.assertEqual(len(list(result.run_dir.glob("diagnostics_*.zip"))), 1)
 
         self.assertEqual(len(registry["packages"]), 3)
         packages = {package["source_path"]: package for package in registry["packages"] if package["depth"] == 0}
