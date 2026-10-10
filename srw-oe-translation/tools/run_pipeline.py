@@ -53,6 +53,7 @@ import extract_event_text  # noqa: E402  (text export, verification, read-back)
 import cpk_table  # noqa: E402  (read-only CPK table cross-check)
 import diagnostic_bundle  # noqa: E402  (one ZIP of the report, registry, logs, and text manifests)
 import layout_probe  # noqa: E402  (header/table bytes of colliding-name packages)
+import translation_tools  # noqa: E402  (units.csv template for translators)
 import crilayla  # noqa: E402  (CRILAYLA decompression for compressed CPK entries)
 import iso9660  # noqa: E402  (read-only ISO9660 member extraction)
 from inventory_local_inputs import inventory_path  # noqa: E402
@@ -2010,6 +2011,11 @@ def run_pipeline(
     _write_csvs(run_dir, input_rows, packages)
     report_path = run_dir / "REPORT.txt"
     report_path.write_text(_render_report(registry), encoding="utf-8")
+    try:
+        template = translation_tools.write_template(run_dir, run_dir / "translation")
+        say(f"Translation template: {template['units']} text units in {template['csv']}")
+    except Exception as exc:  # noqa: BLE001 - a convenience output; the run result stands
+        say(f"Translation template not written: {type(exc).__name__}: {str(exc)[:200]}")
     try:
         probe_path = layout_probe.build_probe(input_root, run_dir)
         say(f"Layout probe (header and table bytes only; included in the diagnostic ZIP): {probe_path}")
