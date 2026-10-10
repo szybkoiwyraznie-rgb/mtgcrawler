@@ -1187,6 +1187,92 @@ step, and nothing here has been run in the game.
 
 
 
+### 2026-10-10 — Chapter 2 located, the narration record decoded, two modified containers built
+
+**The user's memory-monitor line is in the file, and it is not one contiguous run.** The
+user captured the opening narration of event 2.0 from a memory monitor and supplied
+`eventP02.EDAT` + `evept102.EDAT` out-of-band (kept outside the repository). Searching the
+CP932 encoding of that line across every extracted member, the fragments hit
+`DL105_50.bin` (entry #0 of `eventP02.EDAT`) at body offsets 229 and 296, but the full
+116-byte string does not occur. The reason, measured: the file stores explicit line breaks
+as `0x0A` **inside** the text, at exactly the two places where the monitor rendered a
+newline — 116 bytes of visible text plus 2 stored breaks is the 118 bytes on disk.
+
+**The narration record is length-prefixed, and the records chain exactly.** Around that text:
+
+```
+b7 01 00 00 | 84 00 00 00 | 00 00 00 00 | <118 bytes of text> | 00 00
+  type 439    length 132    parameter
+```
+
+`length` covers the whole record: `132 == 12 + 118 + 2`. All six such records in the member
+chain end to end — 184 → 316 → 460 → 540 → 632 → 676, each step exactly the previous
+record's `length`. Two records contain an internal `00 00`, so the terminator is *not* the
+record boundary; the length field is authoritative. This is the first length prefix found
+in these files, and it explains why the earlier length-prefix scan came back empty: that
+scan looked in the 16 bytes before `FF FF` markers, and this text has no marker.
+
+**Section parse confirmed, with a correction to a throwaway script rather than to the
+docs.** The first section starts at byte 12 (`EDAT` at 0, size at 4, count at 8). An ad-hoc
+script written this session started at 16 and failed; at 12 the walk lands exactly on EOF
+for all four members re-tested (`DL105_50.bin` 6 sections / 10,172 B, plus the three
+earlier `DL102` files).
+
+**Nothing in the CPK has to be recomputed.** `eventP02.EDAT` header: `TocOffset 2048`,
+`ItocOffset 8192`, `ContentOffset 10240`, `EtocOffset 366592`, `EtocSize 888`,
+`ContentSize 356352`, `Files 96`, `Align 2048`, `CpkMode 2`. `TocCrc` and `ItocCrc` are
+absent, and the CRC-32 of a member does not occur anywhere in the ITOC region.
+
+**The `@UTF` header read correctly this time.** `rows_abs = 8 + rows_offset` (not `+0`),
+column names are **byte offsets** into the string pool rather than indices, and a zero
+flags byte is followed by three skipped bytes and then the real flags byte. With that, the
+TOC of `evept102.EDAT` reads 7 columns / 24-byte rows / 2 rows, the schema ends exactly at
+`rows_abs`, and `DirName` + `UserString` are constant-storage columns taking no room in a
+row. Rather than keep a second parser, `tools/cpk_write.py` uses the one in `cpk_table`.
+
+**`tools/cpk_write.py` — rebuild with one member replaced, gated on byte identity.**
+`verify-identity` across the 23 sample containers: **18 reproduce the original byte for
+byte**. The 5 that do not each name their reason: 3 are `CpkMode 0` ITOC-only layouts with
+no TOC to patch, `imenu32` keeps `FileSize`/`ExtractSize` as constant-storage columns so a
+member cannot be resized without rebuilding every row's width, and `voice08` is not a CPK
+at all but `AFS2`. Identity is the gate because the gbatemp thread records a naive repack
+crashing the game.
+
+**A bug the identity gate could not catch, caught end to end.** Member offsets are relative
+to `data_base` (2048) while the content region starts at `content_offset` (10240); the
+first rebuild placed every shifted blob 8192 bytes too early, and the identity gate still
+passed, because in the no-change path the content region is copied verbatim. The
+end-to-end check found it: 60 of 96 entries claimed compression but did not begin with
+`CRILAYLA`. Fixed by converting through absolute file positions.
+
+**Result: two modified containers, verified.** `tools/grow_event_text.py` grows one record
+— rewriting its length, the owning section's body size and the `EDAT` size, shifting the
+bytes after it — and refuses unless its own re-parse holds (section walk lands on EOF,
+record chain intact, tail unchanged). Two variants were built from `eventP02.EDAT`:
+
+- `eventP02.jp.EDAT` — MD5 `14e0d138084a4080e4a3617b63aaf3e5`, 371,896 B, a longer
+  Japanese line prepended (text 118 → 151 bytes). Same charset, so it isolates the
+  container mechanics from font coverage.
+- `eventP02.en.EDAT` — MD5 `91118db85ae22752194ce48963dfb89d`, 371,896 B, an English
+  translation (text 118 → 148 bytes), which also tests whether the font has Latin glyphs.
+
+Both re-parse through `cpk_table`: 96 entries, 0 corrupt, **95 of 95 untouched members
+byte-identical after full extraction and decompression**, and `EtocOffset + EtocSize`
+equals the file size. The changed member is written **stored** (`FileSize == ExtractSize`)
+because this repository has a CRILAYLA decompressor and no compressor — the same as leaving
+"Force Compress" unchecked, which is what the working Korean patch did. Both files sit
+under ignored `local/deliverables/` and are never committed.
+
+**Full suite 288 OK, 1 skipped**, including 14 new tests in
+`tests/test_grow_event_text.py`, built on synthetic members with the real shape because the
+game's own files are not in the repository.
+
+**Still not demonstrated, and blocking the test:** the delivered files are *decrypted* CPK
+containers, while the game loads `.EDAT`, so they need re-encrypting with the same key
+before PPSSPP will boot them, and whether the tool that decrypted them can re-encrypt is
+unknown here; whether the font renders Latin glyphs at all; and whether the engine
+tolerates a grown record in a real boot — which is precisely what the test decides.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
