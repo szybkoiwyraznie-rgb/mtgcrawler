@@ -24,11 +24,64 @@ the sibling engine:
 > the original `nbytes`). **This is safe and verified.** Growing strings is not safe without also
 > rewriting every inline offset operand."
 
-**Consequence for this project:** if every replacement is exactly as long as the original, **no offset
-anywhere in the file can move**. The pointer layout — which `tools/boundary_probe.py` spent several
-milestones trying to localise — is not needed to produce a testable patch. It only becomes necessary
-if a translation must be longer than its slot, and SRW-Z's answer to that (relocate the row, rewrite
-every pointer to it) is a later milestone, not a gate.
+**Consequence for this project:** an equal-length replacement cannot move any offset, so it is the
+safe first write — but it is a *fallback*, not the method. English needs more bytes than Japanese
+almost always, so the real method is the second half of their pipeline.
+
+**Correction (this document originally claimed equal-length was the whole method; it is not).**
+`retro-trans/SRW-Z` grows strings routinely:
+
+- `tools/apply_fixes.py`: "Rows are located by **RE-RESOLVING the pointer at apply time** ... Rows that
+  outgrow their slot are **relocated (append + repoint + zero)**."
+- `tools/apply_script.py`: "Longer needs relocation ... A pass that moves bytes inside a record while
+  leaving the pointer table alone produces an image that boots, plays and shows the wrong text."
+- `tools/verify_pointers.py`: "**Structural gate: every pointer must still land on the START of a
+  string.**"
+
+So growth = append the longer string at the record end, rewrite every pointer that referenced it,
+zero the old slot, and then verify structurally that every pointer still lands on a string start.
+
+## The pointers exist, and they are load-base-relative — which is why our search found nothing
+
+`retro-trans/SRW-Z`, `tools/pool.py`, verbatim:
+
+> "THE FINDING (2026-08-26). Weapon/ability/item names are NOT walked and NOT indexed. COMPDATA.BN's
+> single 524,032-byte record ends in a string pool, and every string is reached through an **ABSOLUTE
+> PS2 RAM POINTER** stored earlier in the same record. ... **That is why the byte budget looked
+> immovable: every static search for an index, a record-relative offset, or an offset/8 failed, because
+> the stored value is `0x0073xxxx`.**"
+
+Layout they measured: pointer tables at `0x00904..0x61658` (9,483 words), string pool at
+`0x61680..0x7FF00` (3,435 entries, 8-byte aligned); the pointers only ever live **before** the pool.
+Their predicate (`tools/export_review.py`): "for a row at JP offset O, find a **4-aligned word equal
+to `BASE+O`** in the JAPANESE record, read the word at that same position in OURS, and that value is
+where the row lives now."
+
+**This is exactly the trap this project fell into.** `tools/boundary_probe.py` searched for the bare
+offsets (`start`, `marker`, `start+1`, `start+2`) — SRW-Z says a search for "an index, a
+record-relative offset, or an offset/8" is precisely what fails, because the stored value carries the
+load base. Milestone 61's negative result therefore rules out *bare-offset* pointers only, and says
+nothing about `BASE + offset` ones.
+
+**Two of their hard-won details worth copying:**
+
+- **Pointer-shaped words that miss a string start are not always coincidence.** Of 91 such words, 34
+  were u16 pairs reading as an address by chance, but **60 were real table entries** pointing into a
+  string's NUL padding (a deliberate empty string) or a few bytes into a string (a deliberate
+  substring). "0.8.81 left them alone on the coincidence argument and **broke all 60**." Their fix was
+  a *stride test*: a word sitting exactly on the pointer table's stride is a real entry. `repack()`
+  now runs it and **refuses** rather than guessing.
+- **They measure the health of the pointer table, not just its existence**: `tools/pointer_baseline.json`
+  records per-record scores on the untouched Japanese disc, noting that "rec48 scores 84.4% on Bandai
+  Namco's own disc, which is why a flat `--min 85` reported a false failure" — i.e. the metric has a
+  natural floor, and thresholds must be read against it.
+
+**Ported here as `tools/pointer_base_scan.py`.** For every candidate base B (the PSP user-memory window
+`0x08800000`-`0x0A000000` at 16 KiB steps, plus small constants in case the base is a header length)
+and every string start S in a file, it asks whether `B + S` occurs as a u32 in that file. One file
+holds only a few hundred strings, so this is cheap. It reports the best bases, the share of strings
+each reaches, the same search with every start shifted by +1 as a control, and whether the winning
+words sit in a dense run (a table) or scatter.
 
 `tools/rewrite_units.py` implements exactly this rule and refuses anything else: it re-encodes each
 row's `source_text` and compares it with the bytes actually in the file before writing, pads a shorter
@@ -118,9 +171,14 @@ Two proven approaches, both from sources above:
 6. **Only after a line is visibly English** does length become interesting: measure how often English
    needs more bytes than the Japanese slot, and only then consider relocation and pointer rewriting.
 
-## What this retires
+## What this retires, and what it puts back on the table
 
-- The pointer/offset localisation work (`boundary_probe` owner attribution, `patch_diff` of someone
-  else's patch) is no longer on the critical path. It stays useful as evidence if a translation ever
-  has to grow, and it stays in the repository, but it is not a gate.
-- The ISO diff route was already closed by the MD5 check (`docs/STATUS.md` item 63).
+- **Retired:** diffing someone else's patch distribution. The method is documented, so there is nothing
+  left to learn from their xdelta files, and the ISO route was already closed by the MD5 check
+  (`docs/STATUS.md` item 63).
+- **Back on the critical path:** finding the pointers. Not as an academic question — it is what allows
+  an English line to be longer than its Japanese slot, which is the normal case. The search that
+  matters is now the **load-base-relative** one (`tools/pointer_base_scan.py`), because a bare-offset
+  search is documented to fail on this engine family.
+- **Reframed:** the equal-length write-back (`tools/rewrite_units.py`) stays, but as the safe first
+  write and as the fallback for a slot that cannot be repointed — not as the plan.
