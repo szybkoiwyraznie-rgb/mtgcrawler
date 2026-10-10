@@ -133,3 +133,12 @@ class CrilaylaEntryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TextRunTests(unittest.TestCase):
+    def test_longest_text_run_counts_cp932_japanese_bytes(self):
+        import run_pipeline  # noqa: E402
+
+        japanese = "こんにちは".encode("cp932")  # hiragana: lead 0x82, trail bytes 0x9F-0xF1
+        self.assertEqual(run_pipeline._longest_text_run(b"\x00\x01" + japanese + b"\x00"), len(japanese))
+        self.assertEqual(run_pipeline._longest_text_run(bytes([0, 0x80, 0, 0xFF, 0])), 0)

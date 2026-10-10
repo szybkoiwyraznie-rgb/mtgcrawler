@@ -173,7 +173,8 @@ def _longest_text_run(data: bytes) -> int:
     """Longest run of bytes that could be ASCII or CP932 text (a rough check, not a decoder)."""
     best = current = 0
     for byte in data:
-        text_like = 0x20 <= byte < 0x7F or byte in (0x09, 0x0A, 0x0D) or 0x81 <= byte <= 0x9F or 0xE0 <= byte <= 0xFC
+        # ASCII printable, tab/newline, and every byte that can appear in CP932 (lead and trail bytes, half-width katakana).
+        text_like = 0x20 <= byte < 0x7F or byte in (0x09, 0x0A, 0x0D) or 0x81 <= byte <= 0xFC and byte != 0xFD
         current = current + 1 if text_like else 0
         best = max(best, current)
     return best
