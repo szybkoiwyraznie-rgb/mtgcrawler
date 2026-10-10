@@ -508,8 +508,100 @@ def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
     return {"files": len(files), "dirs": len(dirs), "total_lba": total_lba}
 
 
+def _cli_patch(argv):
+    if len(argv) < 3:
+        print("usage: iso_pack.py patchiso <original.iso> <out.iso> <patches_dir>")
+        return 2
+    iso = Path(argv[0]); out = Path(argv[1]); pdir = Path(argv[2])
+    patch = {}
+    for p in pdir.rglob("*"):
+        if p.is_file():
+            patch[p.relative_to(pdir).as_posix()] = p.read_bytes()
+    print(patch_iso(iso, out, patch))
+    return 0
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a and a[0] == "repackiso":
         raise SystemExit(_cli_fromiso(a[1:]))
+    if a and a[0] == "patchiso":
+        raise SystemExit(_cli_patch(a[1:]))
     raise SystemExit(_cli(a))
+
+
+def _walk_record_offsets(fh, block_size=BLOCK_SIZE):
+    import struct as _s
+    fh.seek(PVD_LBA * block_size)
+    pvd = fh.read(block_size)
+    root = pvd[156:156 + 34]
+    out = {}
+
+    def rec_lba(r):
+        return _s.unpack_from("<I", r, 2)[0]
+
+    def rec_size(r):
+        return _s.unpack_from("<I", r, 10)[0]
+
+    queue = [("", rec_lba(root), rec_size(root))]
+    seen = set()
+    while queue:
+        path, lba, size = queue.pop(0)
+        if (lba, size) in seen:
+            continue
+        seen.add((lba, size))
+        fh.seek(lba * block_size)
+        data = fh.read(size)
+        cursor = 0
+        while cursor < len(data):
+            rlen = data[cursor]
+            if rlen == 0:
+                cursor += block_size - ((lba * block_size + cursor) % block_size)
+                continue
+            rec = data[cursor:cursor + rlen]
+            ident_len = rec[32]
+            ident = rec[33:33 + ident_len]
+            flags = rec[25]
+            abs_off = lba * block_size + cursor
+            if ident in (b"\x00", b"\x01"):
+                cursor += rlen
+                continue
+            name = ident.decode("ascii", "replace")
+            full = name if path == "" else f"{path}{name}"
+            is_dir = bool(flags & 0x02)
+            out[full.lower()] = (abs_off, rec_lba(rec), rec_size(rec), is_dir)
+            if is_dir:
+                queue.append((full + "/", rec_lba(rec), rec_size(rec)))
+            cursor += rlen
+    return out
+
+
+def patch_iso(original_iso, out_path, patch):
+    import shutil as _sh
+    original_iso = Path(original_iso); out_path = Path(out_path)
+    upatch = {k.lower(): v for k, v in patch.items()}
+    _sh.copyfile(original_iso, out_path)
+    with open(out_path, "r+b") as fh:
+        records = _walk_record_offsets(fh)
+        fh.seek(0, 2)
+        end = fh.tell()
+        applied = []
+        for path, blob in upatch.items():
+            if path not in records:
+                raise ValueError(f"patch path not found in ISO: {path}")
+            rec_off, _l, _s2, is_dir = records[path]
+            if is_dir:
+                raise ValueError(f"patch path is a directory: {path}")
+            new_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
+            fh.seek(end)
+            fh.write(_sector_pad(blob))
+            end += ((len(blob) + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
+            fh.seek(rec_off + 2)
+            fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
+            fh.seek(rec_off + 10)
+            fh.write(len(blob).to_bytes(4, "little") + len(blob).to_bytes(4, "big"))
+            applied.append(path)
+        total_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
+        fh.seek(PVD_LBA * BLOCK_SIZE + 80)
+        fh.write(_both(total_lba, 4))
+    return {"applied": applied, "total_lba": total_lba}

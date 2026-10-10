@@ -111,5 +111,25 @@ class RepackFromIsoTests(unittest.TestCase):
         self.assertEqual((o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes(), b"PATCHED" * 300)
         self.assertEqual((o / "PSP_GAME" / "USRDIR" / "big.bin").read_bytes(), b"\x00" * 300000)
 
+
+
+class PatchIsoTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, True)
+        tree = {"PSP_GAME": {"PARAM.SFO": b"SFO" * 100,
+                             "USRDIR": {"eventP00.cpk": b"orig" * 500, "big.bin": b"\x00" * 300000}}}
+        self.orig = self.tmp / "o.iso"
+        self.orig.write_bytes(iso_pack.build_iso(tree))
+        self.out = self.tmp / "p.iso"
+
+    def test_patch_splices_and_keeps_rest(self):
+        iso_pack.patch_iso(self.orig, self.out, {"PSP_GAME/USRDIR/eventP00.cpk": b"PATCHED" * 400})
+        info = iso9660.inspect_iso9660(self.out)
+        o = self.tmp / "out"
+        iso9660.extract_members(self.out, info["files"], o)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes(), b"PATCHED" * 400)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "big.bin").read_bytes(), b"\x00" * 300000)
+
 if __name__ == "__main__":
     unittest.main()

@@ -18,21 +18,28 @@ rozpakowujące **pominęło duże pliki** (`BgmSet00.awb`, `UPDATE/DATA.BIN`, `b
 byłby okrojony. **Używaj metody `repackiso`**, która czyta niezmienione pliki wprost z
 oryginalnego ISO — nic nie może zginąć, a drzewo w ogóle nie jest potrzebne.
 
-## KROK 1 — test tożsamości (bez patchy)
+## KROK 0 — metoda: `patchiso` (zalecana)
+
+Zamiast przebudowywać ISO od zera (`repackiso`), używaj **`patchiso`**:
+kopiuje oryginał bajt-w-bajt i zmienia TYLKO rekord katalogowy + dopisuje podmieniony plik na
+końcu. Cała struktura UMD/ISO9660 oryginału zostaje nietknięta, więc obraz bootuje jak źródło.
+`repackiso` (przebudowa) okazał się niewystarczający dla prawdziwego UMD (crash w PPSSPP).
+
+## KROK 1 — test tożsamości (patch identyczny)
 
 To sprawdza, czy spakowany obraz w ogóle startuje. **Nie pomijaj go.**
 
 1. Otwórz wiersz poleceń w katalogu repo (`srw-oe-translation`). Użyj Pythona wprost (działa
    w PowerShell i w cmd):
 
+   1. Zrób katalog patchy i skopiuj doń ORYGINALNY `eventP00.cpk` (patch identyczny):
+      `D:\SRWOE\patch\PSP_GAME\USRDIR\eventP00.cpk`.
+   2. Uruchom:
    ```
-   python tools\iso_pack.py repackiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso"
+   python tools\iso_pack.py patchiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso" "D:\SRWOE\patch"
    ```
-
-   - arg1 = oryginalne ISO (źródło wszystkich plików + 32 KiB bootowe), arg2 = nowy obraz.
-   - Brak arg3 = brak patchy.
-   - W PowerShell nie cytuj samej nazwy skryptu `.bat`; tu wywołujemy `python`, więc pułapki
-     cytowania nie ma.
+   - arg1 = oryginalne ISO, arg2 = nowy obraz, arg3 = katalog patchy.
+   - Ma powstać obraz ~tej samej wielkości co oryginał (+kilka KB) i bootować identycznie.
 3. Poczekaj (kilkadziesiąt sekund; nie trzyma 660 MB w RAM).
 4. Podmień w PPSSPP oryginalne ISO na `repacked.iso` i uruchom.
 5. **Oczekiwany wynik:** gra startuje i zachowuje się identycznie jak oryginał.
@@ -49,7 +56,7 @@ To sprawdza, czy spakowany obraz w ogóle startuje. **Nie pomijaj go.**
    wielkości liter):
 
    ```
-   python tools\iso_pack.py repackiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso" "D:\SRWOE\patch"
+   python tools\iso_pack.py patchiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso" "D:\SRWOE\patch"
    ```
 3. Uruchom `repacked.iso` w PPSSPP i sprawdź, czy zmiana jest widoczna.
 
