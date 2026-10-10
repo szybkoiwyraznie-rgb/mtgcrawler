@@ -1312,6 +1312,16 @@ class Run:
                         result["compressed"] += 1
                         if len(result["compressed_names"]) < 20:
                             result["compressed_names"].append(entry["name"][:120])
+                            # The first bytes name the compression scheme (for the next decoder step); 16 bytes only.
+                            stream.seek(entry["absolute_offset"])
+                            result.setdefault("compressed_heads", []).append(
+                                {
+                                    "name": entry["name"][:120],
+                                    "file_size": entry["file_size"],
+                                    "extract_size": entry["extract_size"],
+                                    "head_hex": stream.read(16).hex(),
+                                }
+                            )
                         continue
                     stream.seek(entry["absolute_offset"])
                     data = stream.read(entry["file_size"])
