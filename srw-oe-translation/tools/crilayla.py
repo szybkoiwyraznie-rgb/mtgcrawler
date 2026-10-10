@@ -95,3 +95,34 @@ def decompress(src: bytes) -> Decoded:
             position -= 1
     consumed = HEADER_SIZE + csize - 1 - byte_pos
     return Decoded(data=bytes(out), bytes_consumed=consumed, stream_size=csize)
+
+
+def compress_literal(data: bytes) -> bytes:
+    """Encode `data` as a valid CRILAYLA stream made only of literal bytes.
+
+    The decoder's output is `trailer (0x100) + decoded`. We put the first 0x100 bytes
+    of `data` in the raw trailer and emit every remaining byte as a 9-bit literal
+    (flag bit 0 + the byte MSB-first), laid out so that the decoder's backwards,
+    MSB-first bit reader reproduces them in order. The result is a genuine CRILAYLA
+    stream: ``decompress(compress_literal(x)).data == x``. It is larger than `data`
+    (9 bits per body byte) but the container records FileSize and ExtractSize
+    accordingly, so a reader that always decompresses behaves correctly.
+    """
+    if len(data) < TRAILER_SIZE:
+        raise CrilaylaError("a CRILAYLA entry needs at least the 0x100-byte trailer")
+    trailer = data[:TRAILER_SIZE]
+    body = data[TRAILER_SIZE:]
+
+    bits = bytearray()
+    for value in reversed(body):
+        bits.append(0)  # literal flag
+        for k in range(7, -1, -1):
+            bits.append((value >> k) & 1)
+
+    nbytes = (len(bits) + 7) // 8
+    stream = bytearray(nbytes)
+    for k, bit in enumerate(bits):
+        if bit:
+            stream[nbytes - 1 - k // 8] |= 1 << (7 - k % 8)
+
+    return MAGIC + struct.pack("<II", len(body), nbytes) + bytes(stream) + trailer

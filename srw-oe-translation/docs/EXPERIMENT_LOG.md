@@ -1367,6 +1367,37 @@ Both are uploaded to the shared Drive folder for the boot test, Japanese first. 
 still does not prove is only what a real boot proves: that the engine tolerates the grown,
 aligned record and (for the English variant) that the font has Latin glyphs.
 
+### 2026-10-10 (late) — the aligned build also crashed; two hypotheses down, one control pending
+
+**Observation.** The aligned `01-jp` build crashed at the *same* guest PC as the unaligned
+one (`08a2bb78`, same function, `SazThread`), only the faulting destination changed
+(`10fa0000` -> `151a0000`). So the alignment fix, though correct in itself, was not the
+cause -- the earlier diagnosis is hereby retracted. A fixed PC with a data-dependent bad
+destination reads like a decoder being fed bytes it did not expect.
+
+**Hypothesis 1 (stored members) is now the prime suspect.** The original member is
+compressed (`FileSize 5076 < ExtractSize 10172`). Our builds wrote it stored
+(`FileSize == ExtractSize`). If the game's event loader unconditionally CRILAYLA-decodes
+event members, stored bytes are fed to the decompressor and its header math writes through
+a garbage pointer -- exactly a fixed-PC write to a data-dependent bad address.
+
+**A literal-only CRILAYLA encoder was built and proven correct but is a dead end.**
+`tools/crilayla.py` gained `compress_literal`: raw 0x100 trailer + every remaining byte as a
+9-bit literal, laid out for the decoder's backwards MSB-first reader. It round-trips the repo
+decompressor on all 72 real compressed members and on the new tests. But 9 bits per body
+byte makes the stream *larger* than the data, i.e. `FileSize > ExtractSize`, which inverts
+the invariant `cpk_table` (and likely the game) relies on -- `cpk_table` fails closed on it
+("stores more bytes than it extracts"). So literal-only cannot be shipped; a real compressor
+that shrinks would be needed if stored is indeed rejected.
+
+**The disambiguating control is uploaded to Drive** as
+`00-KONTROLA-stored-bezWzrostu.EDAT` (MD5 `6752f04ed6d6dd06b869d47ffe868193`): the member
+stored as the *original* decompressed bytes, no growth, aligned. One boot settles it: if the
+control also crashes, stored members are rejected (need real compression); if it boots, the
+growth/record edit is the fault.
+
+Suite 307 OK, 1 skipped (3 round-trip tests for `compress_literal`).
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

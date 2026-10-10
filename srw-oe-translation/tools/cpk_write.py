@@ -307,7 +307,7 @@ def _align_up(value: int, align: int) -> int:
     return value if align <= 1 else ((value + align - 1) // align) * align
 
 
-def rebuild(cpk: Cpk, replacement: Optional[Tuple[str, bytes]] = None) -> bytes:
+def rebuild(cpk: Cpk, replacement=None) -> bytes:
     """Reassemble the container, optionally swapping in a new blob for one member.
 
     The replacement is written stored, so its ``FileSize`` and ``ExtractSize``
@@ -321,8 +321,12 @@ def rebuild(cpk: Cpk, replacement: Optional[Tuple[str, bytes]] = None) -> bytes:
 
     target_name: Optional[str] = None
     new_blob: Optional[bytes] = None
+    new_extract: Optional[int] = None
     if replacement is not None:
-        target_name, new_blob = replacement
+        if len(replacement) == 3:
+            target_name, new_blob, new_extract = replacement
+        else:
+            target_name, new_blob = replacement
         if not any(m.name == target_name for m in members):
             raise ValueError(f"{target_name!r} is not a member of {cpk.path.name}")
 
@@ -391,7 +395,8 @@ def rebuild(cpk: Cpk, replacement: Optional[Tuple[str, bytes]] = None) -> bytes:
         _write_cell(out, member.row_start, offset_col, new_relative[member.index])
         if member.name == target_name and new_blob is not None:
             _write_cell(out, member.row_start, size_col, len(new_blob))
-            _write_cell(out, member.row_start, extract_col, len(new_blob))
+            _write_cell(out, member.row_start, extract_col,
+                        new_extract if new_extract is not None else len(new_blob))
 
     def set_header(name: str, value: int) -> None:
         try:
