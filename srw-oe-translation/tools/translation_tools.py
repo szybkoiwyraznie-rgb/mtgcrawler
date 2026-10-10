@@ -34,6 +34,7 @@ import extract_event_text  # noqa: E402
 COLUMNS = ("unit_id", "package_id", "file", "source_text", "target_text", "budget_bytes", "status", "note")
 CSV_NAME = "units.csv"
 REPORT_NAME = "check_report.txt"
+TEMPLATE_REPORT_NAME = "template_report.txt"
 
 
 def _package_units(run_dir: Path) -> list[tuple[str, dict[str, Any]]]:
@@ -46,15 +47,34 @@ def _package_units(run_dir: Path) -> list[tuple[str, dict[str, Any]]]:
     return rows
 
 
+def _source_round_trips(unit: dict[str, Any]) -> bool:
+    """The source view must turn back into the exact original bytes."""
+    try:
+        return extract_event_text.from_view(unit["source_text"]) == bytes.fromhex(unit["prefix_raw_hex"])
+    except ValueError:
+        return False
+
+
 def write_template(run_dir: Path, out_dir: Path) -> dict[str, Any]:
     rows = _package_units(run_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / CSV_NAME
+    per_package: Counter = Counter()
+    per_file: Counter = Counter()
+    with_tokens = 0
+    zero_budget = 0
+    broken: list[str] = []
     with path.open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=COLUMNS)
         writer.writeheader()
         for package_id, unit in rows:
             budget = len(bytes.fromhex(unit["prefix_raw_hex"]))
+            per_package[package_id] += 1
+            per_file[unit["file"]] += 1
+            with_tokens += bool(unit.get("tokens"))
+            zero_budget += budget == 0
+            if not _source_round_trips(unit):
+                broken.append(unit["unit_id"])
             writer.writerow(
                 {
                     "unit_id": unit["unit_id"],
@@ -67,7 +87,23 @@ def write_template(run_dir: Path, out_dir: Path) -> dict[str, Any]:
                     "note": "",
                 }
             )
-    return {"units": len(rows), "csv": str(path)}
+    lines = [
+        "Translation template check (source views only; no game file is written)",
+        f"  units: {len(rows)} in {len(per_package)} packages, {len(per_file)} files",
+        f"  units with control tokens: {with_tokens}",
+        f"  units with zero byte budget: {zero_budget}",
+        f"  units whose source view does not round-trip to the original bytes: {len(broken)}",
+    ]
+    if broken:
+        lines += ["  first failing unit ids:"] + [f"    {unit_id}" for unit_id in broken[:50]]
+    lines += ["", "Units per package (top 20):"] + [f"  {count:6d}  {name}" for name, count in per_package.most_common(20)]
+    (out_dir / TEMPLATE_REPORT_NAME).write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return {
+        "units": len(rows),
+        "csv": str(path),
+        "round_trip_failures": len(broken),
+        "report": str(out_dir / TEMPLATE_REPORT_NAME),
+    }
 
 
 def _tokens(text: str) -> Counter:

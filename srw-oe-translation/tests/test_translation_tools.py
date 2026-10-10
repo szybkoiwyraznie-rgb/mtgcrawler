@@ -68,5 +68,25 @@ class TemplateAndCheckTests(unittest.TestCase):
             self.assertEqual((result["units"], result["filled"], result["failing"]), (1, 1, 0))
 
 
+class TemplateReportTests(unittest.TestCase):
+    def test_template_report_counts_round_trip_failures(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp) / "run"
+            unit_dir = run / "text" / "p001"
+            unit_dir.mkdir(parents=True)
+            good = {"unit_id": "good", "file": "a.bin", "source_text": SOURCE, "prefix_raw_hex": RAW.hex(), "tokens": [{}]}
+            # The view says 'A' but the stored bytes say 'Z': the codec cannot reproduce them.
+            bad = {"unit_id": "bad", "file": "a.bin", "source_text": "A", "prefix_raw_hex": "5a", "tokens": []}
+            (unit_dir / "units.jsonl").write_text(json.dumps(good) + "\n" + json.dumps(bad) + "\n", encoding="utf-8")
+            out = Path(tmp) / "translation"
+            result = translation_tools.write_template(run, out)
+            report = (out / translation_tools.TEMPLATE_REPORT_NAME).read_text(encoding="utf-8")
+
+        self.assertEqual(result["units"], 2)
+        self.assertEqual(result["round_trip_failures"], 1)
+        self.assertIn("units with control tokens: 1", report)
+        self.assertIn("    bad", report)
+
+
 if __name__ == "__main__":
     unittest.main()
