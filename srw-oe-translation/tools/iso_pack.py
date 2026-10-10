@@ -371,11 +371,6 @@ def _cli_fromiso(argv):
     return 0
 
 
-if __name__ == "__main__":
-    a = sys.argv[1:]
-    if a and a[0] == "repackiso":
-        raise SystemExit(_cli_fromiso(a[1:]))
-    raise SystemExit(_cli(a))
 
 
 def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
@@ -507,3 +502,10 @@ def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
                 if rem:
                     out.write(b"\x00" * (BLOCK_SIZE - rem))
     return {"files": len(files), "dirs": len(dirs), "total_lba": total_lba}
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    if a and a[0] == "repackiso":
+        raise SystemExit(_cli_fromiso(a[1:]))
+    raise SystemExit(_cli(a))
