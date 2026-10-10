@@ -61,10 +61,25 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from audit_event_candidates import WIDE_JAPANESE_RE  # noqa: E402  (wide-script matcher, shared)
 
-SCHEMA = "srw-oe-boundary-probe/2"
+SCHEMA = "srw-oe-boundary-probe/3"
 PROBE_NAME = "boundary_probe.json"
 
 TOP_N = 12
+
+# An export whose units mostly decode as wide-script Japanese is "text"; the rest is binary data
+# that merely contains FF FF runs. On run 20261010-142640 the 42 recovered battle-data exports
+# (bacb*/bseq*) held 118,198 of 163,523 units and 523 MB, and pooling them with the event files
+# buried the 45,325 units that are actually the script.
+TEXT_SHARE_THRESHOLD = 0.5
+TEXT_COHORT_EXPORTS_IN_JSON = 24
+# Offsets sampled per file per pointer measure, spread evenly over the file instead of taking the
+# first N (taking the first N left the event files unsearched).
+MAX_OFFSETS_PER_FILE = 1024
+# The unaligned search costs one pass over the file per value, so it is limited to the width where
+# it can answer something: a 4-byte table entry pointing anywhere in the file. u16 offsets mostly do
+# not fit their own file at all (93,113 of 163,523 on run 20261010-142640), and chance 2-byte matches
+# swamp the rest, so u16 is measured by the complete aligned scan instead.
+POINTER_UNALIGNED_WIDTHS = (4,)
 LENGTH_DELTAS = tuple(range(1, 17))  # field start = marker - delta
 LENGTH_WIDTHS = (1, 2, 4)
 ENDIANS = (("le", "little"), ("be", "big"))
@@ -79,9 +94,9 @@ OCTILES = 8
 # (offsets searched x file size) per width, endianness, and set. The per-file caps keep one
 # pathological file from eating the run; the global caps keep a very large run bounded.
 POINTER_UNALIGNED_FILE_BUDGET = 256 * 1024 * 1024
-POINTER_ALIGNED_FILE_BUDGET = 8 * 1024 * 1024
-POINTER_UNALIGNED_TOTAL_BUDGET = 2 * 1024 * 1024 * 1024
-POINTER_ALIGNED_TOTAL_BUDGET = 256 * 1024 * 1024
+POINTER_ALIGNED_FILE_BUDGET = 32 * 1024 * 1024
+POINTER_UNALIGNED_TOTAL_BUDGET = 8 * 1024 * 1024 * 1024
+POINTER_ALIGNED_TOTAL_BUDGET = 2 * 1024 * 1024 * 1024
 
 # Companion .dat cross-check: NUL-delimited runs at least this long are searched in the BINs.
 COMPANION_MIN_RUN = 6
@@ -110,15 +125,30 @@ def _wide_script_count(raw: bytes) -> int:
         return 0
 
 
+class Budgets:
+    """Byte budgets shared by every export of one pass, so the bounded scans stay bounded.
+
+    They live outside `Evidence` on purpose: the cohorts are measured by merging per-export
+    evidence, and a budget that lived on `Evidence` would either be spent once per export or
+    disappear in the merge. Sharing one instance keeps the whole pass inside the same limits.
+    """
+
+    def __init__(self) -> None:
+        self.unaligned = POINTER_UNALIGNED_TOTAL_BUDGET
+        self.aligned = POINTER_ALIGNED_TOTAL_BUDGET
+        self.files_truncated = 0
+
+
 class Evidence:
     """Mutable counters for one probe. Merging two probes adds their counters."""
 
-    def __init__(self) -> None:
+    def __init__(self, budgets: Optional["Budgets"] = None) -> None:
         self.packages: Counter = Counter()  # package id -> units
         self.sources: Counter = Counter()  # top-level input file -> units
         self.files: Counter = Counter()  # file name -> units
         self.units = 0
         self.units_with_suffix = 0
+        self.units_wide_script = 0
         self.marker_mismatches = 0
         self.prefix_mismatches = 0
         self.offset_problems = 0
@@ -155,13 +185,15 @@ class Evidence:
         self.companion_payloads: Counter = Counter()  # (class, digest, length) -> runs
         self.companion_runs_capped = 0
         self.companion_bytes_searched = 0
-        # Remaining global byte budgets for the bounded pointer scans (see _scan_pointers).
-        self.unaligned_budget = POINTER_UNALIGNED_TOTAL_BUDGET
-        self.aligned_budget = POINTER_ALIGNED_TOTAL_BUDGET
-        self.pointer_files_truncated = 0
+        self.budgets = budgets if budgets is not None else Budgets()  # shared across the pass
+        self.pointer_offsets: Counter = Counter()  # (measure, width) -> offsets
+        self.pointer_aligned_files: Counter = Counter()  # scanned/skipped -> files
+        self.pointer_aligned_bytes = 0
 
     def merge(self, other: "Evidence") -> None:
         for name, value in vars(other).items():
+            if name == "budgets":
+                continue  # shared by the whole pass; summing it would invent budget
             if name.endswith("_budget"):
                 continue  # the budgets belong to the pass that spent them
             mine = getattr(self, name)
@@ -236,33 +268,47 @@ def _pointer_sets(units: list[dict[str, Any]]) -> dict[str, set[int]]:
 def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> None:
     """Count how often the unit offsets (and the +1 controls) occur as u32/u16 values in the file.
 
-    Both scans are bounded by a byte budget, because a naive search costs one pass over the file
-    per value. The budget is spent in a deterministic order (packages in registry order, values in
-    ascending order) and the amount actually scanned is reported, so a truncated measurement is
-    visible instead of silently looking like a negative result. Values that do not fit the width
-    are skipped and counted, for targets and controls alike.
+    Two different scans, because they cost differently:
+
+    * the unaligned search costs one pass over the file per value, so it covers the offsets it is
+      given and nothing more. It is bounded by a byte budget, spent in a deterministic order
+      (packages in registry order, values in ascending order) and sampled evenly per file, and the
+      amount actually searched is reported. An unsearched offset is counted as truncated, never as
+      a negative result.
+    * the aligned search is one pass per width and endian, so it covers every byte of every file it
+      reaches. A real pointer table is aligned, so this is the scan that can settle the question.
+
+    Values that do not fit the width are skipped and counted, for targets and controls alike.
     """
     size = len(data)
     sets = _pointer_sets(units)
-    unaligned_left = POINTER_UNALIGNED_FILE_BUDGET
-    truncated = False
     for width in POINTER_WIDTHS:
         limit_value = 1 << (8 * width)
+        for endian, _ in ENDIANS:
+            for kind in POINTER_SETS:
+                too_large = sum(1 for value in sets[kind] if value >= limit_value)
+                if too_large:
+                    acc.pointer[("values_too_large", width, endian, kind)] += too_large
+    unaligned_left = POINTER_UNALIGNED_FILE_BUDGET
+    truncated = False
+    for width in POINTER_UNALIGNED_WIDTHS:
+        limit_value = 1 << (8 * width)
+        acc.pointer_offsets[("available", width)] += len(sets["marker"])
         for endian, byteorder in ENDIANS:
             for kind in POINTER_SETS:
                 values = sorted(value for value in sets[kind] if value < limit_value)
-                skipped = len(sets[kind]) - len(values)
-                if skipped:
-                    acc.pointer[("values_too_large", width, endian, kind)] += skipped
-                room = max(0, min(unaligned_left, acc.unaligned_budget) // max(1, size))
-                if len(values) > room:
+                room = max(0, min(unaligned_left, acc.budgets.unaligned) // max(1, size))
+                searched = _sample(values, min(room, MAX_OFFSETS_PER_FILE))
+                if len(searched) < len(values):
                     truncated = True
-                values = values[:room]
-                spent = len(values) * size
-                acc.pointer[("values_scanned", width, endian, kind)] += len(values)
+                if kind == "marker" and endian == ENDIANS[0][0]:
+                    # counted once per width, so this is "distinct offsets searched", not searches
+                    acc.pointer_offsets[("searched", width)] += len(searched)
+                spent = len(searched) * size
+                acc.pointer[("values_scanned", width, endian, kind)] += len(searched)
                 unaligned_left -= spent
-                acc.unaligned_budget -= spent
-                for value in values:
+                acc.budgets.unaligned -= spent
+                for value in searched:
                     pattern = value.to_bytes(width, byteorder)  # type: ignore[arg-type]
                     index = data.find(pattern)
                     while index >= 0:
@@ -271,25 +317,49 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                             (width, endian, kind, min(OCTILES - 1, index * OCTILES // max(1, size)))
                         ] += 1
                         index = data.find(pattern, index + 1)
-            aligned_left = min(POINTER_ALIGNED_FILE_BUDGET, acc.aligned_budget)
-            if aligned_left >= size:
-                acc.aligned_budget -= size
-                acc.pointer[("bytes_scanned_aligned", width, endian, "all")] += size
-                lookup: dict[int, tuple[str, ...]] = {}
-                for kind in POINTER_SETS:
-                    for value in sets[kind]:
-                        if value < limit_value:
-                            lookup[value] = (*lookup.get(value, ()), kind)
-                format_code = ("<" if endian == "le" else ">") + ("I" if width == 4 else "H")
-                tail = size - size % width
-                for (value,) in struct.iter_unpack(format_code, memoryview(data)[:tail]):
-                    kinds = lookup.get(value)
-                    if kinds:
-                        for kind in kinds:
-                            acc.pointer[("occurrences_aligned", width, endian, kind)] += 1
-            else:
+    for width in POINTER_WIDTHS:
+        limit_value = 1 << (8 * width)
+        for endian, _ in ENDIANS:
+            byteorder = dict(ENDIANS)[endian]
+            aligned_left = min(POINTER_ALIGNED_FILE_BUDGET, acc.budgets.aligned)
+            if aligned_left < size:
                 truncated = True
-    acc.pointer_files_truncated += truncated
+                if width == POINTER_WIDTHS[0] and endian == ENDIANS[0][0]:
+                    acc.pointer_aligned_files["skipped_over_budget"] += 1
+                continue
+            acc.budgets.aligned -= size
+            acc.pointer[("bytes_scanned_aligned", width, endian, "all")] += size
+            acc.pointer_aligned_bytes += size
+            if width == POINTER_WIDTHS[0] and endian == ENDIANS[0][0]:
+                acc.pointer_aligned_files["scanned"] += 1
+            lookup: dict[int, tuple[str, ...]] = {}
+            for kind in POINTER_SETS:
+                for value in sets[kind]:
+                    if value < limit_value:
+                        lookup[value] = (*lookup.get(value, ()), kind)
+            format_code = ("<" if endian == "le" else ">") + ("I" if width == 4 else "H")
+            tail = size - size % width
+            for (value,) in struct.iter_unpack(format_code, memoryview(data)[:tail]):
+                kinds = lookup.get(value)
+                if kinds:
+                    for kind in kinds:
+                        acc.pointer[("occurrences_aligned", width, endian, kind)] += 1
+    acc.budgets.files_truncated += truncated
+
+
+def _sample(values: list[int], limit: int) -> list[int]:
+    """Take up to `limit` values spread evenly over the sorted list.
+
+    Taking the first `limit` instead concentrated the whole measurement on whichever file came
+    first: the 20261010-142640 run searched 1,382 of 163,523 u32 offsets and left the event files
+    untouched, which read as a negative result when it was only an unsearched one.
+    """
+    if limit <= 0:
+        return []
+    if len(values) <= limit:
+        return values
+    step = len(values) / limit
+    return [values[int(index * step)] for index in range(limit)]
 
 
 def _scan_context(acc: Evidence, unit: dict[str, Any], data: bytes) -> None:
@@ -385,6 +455,12 @@ def _scan_layout(acc: Evidence, units: list[dict[str, Any]]) -> None:
         previous = unit
 
 
+def note_wide_script(acc: Evidence, prefix: bytes) -> None:
+    """Count units whose text really looks like Japanese prose, not binary noise."""
+    if _wide_script_count(prefix) >= 2:
+        acc.units_wide_script += 1
+
+
 def add_units(
     acc: Evidence,
     package_id: str,
@@ -414,7 +490,8 @@ def add_units(
             acc.prefix_mismatches += 1
             continue
         acc.units += 1
-        acc.files[name] += 1
+        acc.files[(package_id, name)] += 1  # keyed by export too: the same relative name recurs
+        note_wide_script(acc, prefix)
         acc.units_with_suffix += bool(unit.get("suffix_raw_hex"))
         _scan_context(acc, unit, data)
         _scan_nested(acc, unit)
@@ -630,67 +707,178 @@ def _expand(counts: dict[int, int], cap_per_value: int = 1000) -> list[int]:
     return values
 
 
-def summarize(acc: Evidence) -> dict[str, Any]:
-    length_rows = _length_rows(acc)
-    best_length = length_rows[:8]
+def _totals_block(acc: Evidence) -> dict[str, Any]:
+    return {
+        "packages": len(acc.packages),
+        "files": len(acc.files),
+        "units": acc.units,
+        "units_with_suffix": acc.units_with_suffix,
+        "units_wide_script": acc.units_wide_script,
+        "offset_problems": acc.offset_problems,
+        "marker_mismatches": acc.marker_mismatches,
+        "prefix_mismatches": acc.prefix_mismatches,
+        "missing_files": acc.missing_files,
+    }
+
+
+def _text_share(acc: Evidence) -> Optional[float]:
+    """Share of a cohort's units that really look like Japanese prose."""
+    return round(acc.units_wide_script / acc.units, 4) if acc.units else None
+
+
+def _length_block(acc: Evidence, best_n: int = 8) -> dict[str, Any]:
+    rows = _length_rows(acc)
+    return {
+        "note": (
+            "A 1/2/4-byte integer starting `delta` bytes before the marker that equals one of "
+            "the recorded lengths, against the matched-distribution null `expected_hits` "
+            "(those field values paired with the units' lengths at random)."
+        ),
+        "best": rows[:best_n],
+        "rows": rows,
+    }
+
+
+def _pointer_coverage(acc: Evidence) -> dict[str, Any]:
+    return {
+        "offsets_available_unaligned": {
+            str(width): acc.pointer_offsets[("available", width)] for width in POINTER_UNALIGNED_WIDTHS
+        },
+        "offsets_searched_unaligned": {
+            str(width): acc.pointer_offsets[("searched", width)] for width in POINTER_UNALIGNED_WIDTHS
+        },
+        "offsets_too_large_for_width": {
+            str(width): acc.pointer[("values_too_large", width, ENDIANS[0][0], "marker")]
+            for width in POINTER_WIDTHS
+        },
+        "aligned_files_scanned": acc.pointer_aligned_files["scanned"],
+        "aligned_files_skipped_over_budget": acc.pointer_aligned_files["skipped_over_budget"],
+        "aligned_bytes_scanned": acc.pointer_aligned_bytes,
+    }
+
+
+def _pointer_block(acc: Evidence, with_budgets: bool = False) -> dict[str, Any]:
+    block: dict[str, Any] = {
+        "note": (
+            "Occurrences of the units' marker and text-start offsets as u32/u16 values in "
+            "their own file, against marker+1 and start+1 (never used) as controls. All sets "
+            "are searched in the same bytes. The unaligned search costs one pass per value and "
+            "is budgeted and sampled evenly, so `coverage` says how much was searched; the "
+            "aligned search is a single pass per width and covers every file it reaches. "
+            "Two-byte patterns occur often by chance, so judge a u16 lift against its control "
+            "counts, not against zero."
+        ),
+        "coverage": _pointer_coverage(acc),
+        "rows": _pointer_rows(acc),
+        "positions": _pointer_positions(acc),
+    }
+    if with_budgets:
+        block["budgets"] = {
+            "unaligned_bytes_per_file": POINTER_UNALIGNED_FILE_BUDGET,
+            "aligned_bytes_per_file_width_endian": POINTER_ALIGNED_FILE_BUDGET,
+            "unaligned_bytes_total": POINTER_UNALIGNED_TOTAL_BUDGET,
+            "aligned_bytes_total": POINTER_ALIGNED_TOTAL_BUDGET,
+            "unaligned_bytes_left": acc.budgets.unaligned,
+            "aligned_bytes_left": acc.budgets.aligned,
+            "files_truncated_by_budget": acc.budgets.files_truncated,
+            "max_offsets_per_file": MAX_OFFSETS_PER_FILE,
+        }
+    return block
+
+
+def _gaps_block(acc: Evidence) -> dict[str, Any]:
     gap_counts = {int(key): count for key, count in acc.gap_len.items() if key.isdigit()}
     gaps = _expand(gap_counts)
     return {
+        "min": min(gaps) if gaps else None,
+        "median": statistics.median(gaps) if gaps else None,
+        "max": max(gaps) if gaps else None,
+        "gaps_above_exact_max": sum(count for key, count in acc.gap_len.items() if not key.isdigit()),
+        "multiple_of_4": {str(key): count for key, count in sorted(acc.gap_mod4.items())},
+        "top": _top(acc.gap_len),
+    }
+
+
+def _nested_block(acc: Evidence) -> dict[str, Any]:
+    return {
+        "note": "Another FF FF inside a unit's own text, and whether wide-script Japanese follows it.",
+        "units_with_inner_marker": acc.nested["units_with_inner_marker"],
+        "inner_markers": acc.nested["inner_markers"],
+        "inner_markers_wide_script": acc.nested["inner_markers_wide_script"],
+        "inner_markers_ascii_only": acc.nested["inner_markers_ascii_only"],
+    }
+
+
+def _measurements_block(acc: Evidence) -> dict[str, Any]:
+    """Everything one cohort says about its own boundaries."""
+    return {
+        "totals": _totals_block(acc),
+        "text_share": _text_share(acc),
+        "length_prefix": _length_block(acc, best_n=4),
+        "pointer_references": _pointer_block(acc),
+        "pre_marker_patterns": _top(acc.pre_marker, 8),
+        "post_text_patterns": _top(acc.post_text, 8),
+        "suffix_lengths": _top(acc.suffix_len, 12),
+        "suffix_patterns": _top(
+            Counter({f"{length}:{hex_}": count for (length, hex_), count in acc.suffix_hex.items()}), 8
+        ),
+        "suffix_profile": _suffix_profile(acc),
+        "gaps_between_units": _gaps_block(acc),
+        "start_alignment": {
+            f"mod{modulus}": {
+                str(remainder): count for (m, remainder), count in sorted(acc.start_mod.items()) if m == modulus
+            }
+            for modulus in (2, 4, 8)
+        },
+        "pitch_between_starts": _top(acc.pitch, 8),
+        "nested_markers": _nested_block(acc),
+        "repetition": _repeats(acc),
+        "text_coverage": _coverage(acc),
+    }
+
+
+def _export_row(export_id: str, acc: Evidence, source: Optional[str] = None) -> dict[str, Any]:
+    rows = _length_rows(acc)
+    best = rows[0] if rows else {}
+    return {
+        "export": export_id,
+        "source": source,
+        "files": len(acc.files),
+        "units": acc.units,
+        "units_wide_script": acc.units_wide_script,
+        "text_share": _text_share(acc),
+        "best_length_delta": best.get("delta"),
+        "best_length_width": best.get("width"),
+        "best_length_lift": best.get("lift"),
+    }
+
+
+def summarize(
+    acc: Evidence,
+    cohorts: Optional[dict[str, Evidence]] = None,
+    per_export: Optional[dict[str, Evidence]] = None,
+    export_sources: Optional[dict[str, str]] = None,
+) -> dict[str, Any]:
+    """One pooled summary plus a per-cohort and per-export breakdown.
+
+    Pooling every export hides the event text: on run 20261010-142640 the 42 recovered
+    battle-data exports contributed 118,198 of 163,523 units and 523 MB of bytes that are not
+    text at all, and their byte statistics buried the 45,325 units that are.
+    """
+    export_sources = export_sources or {}
+    result: dict[str, Any] = {
         "schema": SCHEMA,
         "generator": "tools/boundary_probe.py",
-        "totals": {
-            "packages": len(acc.packages),
-            "files": len(acc.files),
-            "units": acc.units,
-            "units_with_suffix": acc.units_with_suffix,
-            "offset_problems": acc.offset_problems,
-            "marker_mismatches": acc.marker_mismatches,
-            "prefix_mismatches": acc.prefix_mismatches,
-            "missing_files": acc.missing_files,
-        },
-        "length_prefix": {
-            "note": (
-                "A 1/2/4-byte integer starting `delta` bytes before the marker that equals one of "
-                "the recorded lengths, against the matched-distribution null `expected_hits` "
-                "(those field values paired with the units' lengths at random)."
-            ),
-            "best": best_length,
-            "rows": length_rows,
-        },
-        "pointer_references": {
-            "note": (
-                "Occurrences of the units' marker and text-start offsets as u32/u16 values in "
-                "their own file, against marker+1 and start+1 (never used) as controls. All sets "
-                "are searched in the same bytes. Both scans are budgeted; values_scanned and "
-                "bytes_scanned_aligned say how much was searched, values_too_large how many "
-                "offsets did not fit the width. Two-byte patterns occur often by chance, so judge "
-                "a u16 lift against its control counts, not against zero."
-            ),
-            "budgets": {
-                "unaligned_bytes_per_file": POINTER_UNALIGNED_FILE_BUDGET,
-                "aligned_bytes_per_file_width_endian": POINTER_ALIGNED_FILE_BUDGET,
-                "unaligned_bytes_total": POINTER_UNALIGNED_TOTAL_BUDGET,
-                "aligned_bytes_total": POINTER_ALIGNED_TOTAL_BUDGET,
-                "unaligned_bytes_left": acc.unaligned_budget,
-                "aligned_bytes_left": acc.aligned_budget,
-                "files_truncated_by_budget": acc.pointer_files_truncated,
-            },
-            "rows": _pointer_rows(acc),
-            "positions": _pointer_positions(acc),
-        },
+        "totals": _totals_block(acc),
+        "text_share": _text_share(acc),
+        "length_prefix": _length_block(acc),
+        "pointer_references": _pointer_block(acc, with_budgets=True),
         "pre_marker_patterns": _top(acc.pre_marker),
         "post_text_patterns": _top(acc.post_text),
         "suffix_lengths": _top(acc.suffix_len, 16),
         "suffix_patterns": _top(Counter({f"{length}:{hex_}": count for (length, hex_), count in acc.suffix_hex.items()})),
         "suffix_profile": _suffix_profile(acc),
-        "gaps_between_units": {
-            "min": min(gaps) if gaps else None,
-            "median": statistics.median(gaps) if gaps else None,
-            "max": max(gaps) if gaps else None,
-            "gaps_above_exact_max": sum(count for key, count in acc.gap_len.items() if not key.isdigit()),
-            "multiple_of_4": {str(key): count for key, count in sorted(acc.gap_mod4.items())},
-            "top": _top(acc.gap_len),
-        },
+        "gaps_between_units": _gaps_block(acc),
         "start_alignment": {
             f"mod{modulus}": {
                 str(remainder): count for (m, remainder), count in sorted(acc.start_mod.items()) if m == modulus
@@ -698,13 +886,7 @@ def summarize(acc: Evidence) -> dict[str, Any]:
             for modulus in (2, 4, 8)
         },
         "pitch_between_starts": _top(acc.pitch),
-        "nested_markers": {
-            "note": "Another FF FF inside a unit's own text, and whether wide-script Japanese follows it.",
-            "units_with_inner_marker": acc.nested["units_with_inner_marker"],
-            "inner_markers": acc.nested["inner_markers"],
-            "inner_markers_wide_script": acc.nested["inner_markers_wide_script"],
-            "inner_markers_ascii_only": acc.nested["inner_markers_ascii_only"],
-        },
+        "nested_markers": _nested_block(acc),
         "repetition": _repeats(acc),
         "companion_dat_cross_check": {
             "note": (
@@ -725,6 +907,24 @@ def summarize(acc: Evidence) -> dict[str, Any]:
         "units_per_package": _top(acc.packages, 20),
         "units_per_source": _top(acc.sources, 60),
     }
+    if cohorts:
+        result["cohort_split"] = {
+            "note": (
+                "Exports are split by the share of their units that decode as wide-script "
+                "Japanese, measured from the text exports' own manifests before any BIN is read. "
+                "The `binary` cohort is data that merely contains FF FF runs; its statistics "
+                "describe the archive, not the script."
+            ),
+            "threshold": TEXT_SHARE_THRESHOLD,
+            "exports": {name: ev.exports_read for name, ev in cohorts.items()},
+        }
+        result["cohorts"] = {name: _measurements_block(ev) for name, ev in cohorts.items()}
+    if per_export:
+        ranked = sorted(per_export.items(), key=lambda item: -item[1].units)
+        result["per_export"] = [
+            _export_row(export_id, ev, export_sources.get(export_id)) for export_id, ev in ranked
+        ][:TEXT_COHORT_EXPORTS_IN_JSON]
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -768,59 +968,104 @@ def _top_level_sources(packages: Iterable[dict[str, Any]]) -> dict[str, str]:
     return resolved
 
 
+def _manifest_text_share(manifest: Optional[dict[str, Any]]) -> float:
+    """Estimate an export's share of prose units from its manifest alone.
+
+    A unit flagged `halfwidth_katakana_only_match` or `invalid_cp932_token` is not Japanese prose,
+    so an export where most units carry one of those is data, not script. This only decides which
+    cohort an export belongs to; the reported shares come from the units themselves.
+    """
+    totals = (manifest or {}).get("totals") or {}
+    units = int(totals.get("units") or 0)
+    if not units:
+        return 0.0
+    flags = totals.get("unit_flags") or {}
+    bad = int(flags.get("halfwidth_katakana_only_match") or 0) + int(flags.get("invalid_cp932_token") or 0)
+    return max(0.0, (units - bad) / units)
+
+
+def _cohort_of(manifest: Optional[dict[str, Any]]) -> str:
+    return "text" if _manifest_text_share(manifest) >= TEXT_SHARE_THRESHOLD else "binary"
+
+
 def probe_packages(packages: Iterable[dict[str, Any]], run_dir: Path) -> dict[str, Any]:
-    """Measure every text export of a run against the files it was extracted from."""
+    """Measure every text export of a run against the files it was extracted from.
+
+    Each export is measured on its own and then merged into the pooled evidence, the text cohort
+    and the binary cohort, so the summary can be read per cohort. The text exports are measured
+    first: the bounded pointer scan spends one shared byte budget, and spending it on 523 MB of
+    battle data left nothing for the files that matter.
+    """
     package_list = list(packages)
     sources = _top_level_sources(package_list)
-    acc = Evidence()
+    budgets = Budgets()
+    acc = Evidence(budgets)
+    cohorts = {"text": Evidence(budgets), "binary": Evidence(budgets)}
+    per_export: dict[str, Evidence] = {}
+    export_source: dict[str, str] = {}
     errors: list[str] = []
     probed = 0
+
+    planned: list[tuple[str, str, Path, Path, Optional[dict[str, Any]]]] = []
     for package in package_list:
         for package_id, export_dir, source_dir in _export_sources(package):
             units_path = run_dir / export_dir / "units.jsonl"
             if not units_path.is_file():
                 continue
-            try:
-                units = _read_units(units_path)
-            except (OSError, ValueError, json.JSONDecodeError) as error:
-                errors.append(f"{package_id}: {type(error).__name__}: {str(error)[:160]}")
-                continue
+            manifest = None
             manifest_path = run_dir / export_dir / "manifest.json"
             if manifest_path.is_file():
                 try:
-                    add_manifest(acc, json.loads(manifest_path.read_text(encoding="utf-8")))
+                    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
                 except (OSError, ValueError, json.JSONDecodeError) as error:
-                    acc.exports_without_manifest += 1
                     errors.append(f"{package_id}/manifest.json: {type(error).__name__}: {str(error)[:120]}")
-            else:
-                acc.exports_without_manifest += 1
-            names = {unit["file"] for unit in units}
-            files: dict[str, bytes] = {}
-            for name in sorted(names):
-                path = run_dir / source_dir / name
-                try:
-                    files[name] = path.read_bytes()
-                except OSError as error:
-                    errors.append(f"{package_id}/{name}: {type(error).__name__}: {str(error)[:120]}")
-            add_units(acc, package_id, units, files, sources.get(package["package_id"]))
+            planned.append((package_id, package["package_id"], export_dir, source_dir, manifest))
+    for package_id, package_key, export_dir, source_dir, manifest in sorted(
+        planned, key=lambda item: 0 if _cohort_of(item[4]) == "text" else 1
+    ):
+        units_path = run_dir / export_dir / "units.jsonl"
+        try:
+            units = _read_units(units_path)
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            errors.append(f"{package_id}: {type(error).__name__}: {str(error)[:160]}")
+            continue
+        ev = Evidence(budgets)
+        if manifest is not None:
+            add_manifest(ev, manifest)
+        else:
+            ev.exports_without_manifest += 1
+        names = {unit["file"] for unit in units}
+        files: dict[str, bytes] = {}
+        for name in sorted(names):
+            path = run_dir / source_dir / name
             try:
-                folder = run_dir / source_dir
-                bins = dict(files)
-                companions: dict[str, bytes] = {}
-                for path in sorted(folder.rglob("*")):
-                    if not path.is_file() or path.is_symlink():
-                        continue
-                    relative = path.relative_to(folder).as_posix()
-                    suffix = path.suffix.lower()
-                    if suffix == ".bin" and relative not in bins:
-                        bins[relative] = path.read_bytes()
-                    elif suffix == ".dat":
-                        companions[relative] = path.read_bytes()
-                add_companions(acc, companions, bins)
+                files[name] = path.read_bytes()
             except OSError as error:
-                errors.append(f"{package_id}/companions: {type(error).__name__}: {str(error)[:120]}")
-            probed += 1
-    result = summarize(acc)
+                errors.append(f"{package_id}/{name}: {type(error).__name__}: {str(error)[:120]}")
+        add_units(ev, package_id, units, files, sources.get(package_key))
+        acc.merge(ev)
+        cohorts[_cohort_of(manifest)].merge(ev)
+        per_export[package_id] = ev
+        if sources.get(package_key):
+            export_source[package_id] = sources[package_key]
+        try:
+            folder = run_dir / source_dir
+            bins = dict(files)
+            companions: dict[str, bytes] = {}
+            for path in sorted(folder.rglob("*")):
+                if not path.is_file() or path.is_symlink():
+                    continue
+                relative = path.relative_to(folder).as_posix()
+                suffix = path.suffix.lower()
+                if suffix == ".bin" and relative not in bins:
+                    bins[relative] = path.read_bytes()
+                elif suffix == ".dat":
+                    companions[relative] = path.read_bytes()
+            add_companions(acc, companions, bins)
+        except OSError as error:
+            errors.append(f"{package_id}/companions: {type(error).__name__}: {str(error)[:120]}")
+        probed += 1
+    result = summarize(acc, cohorts, per_export, export_source)
     result["status"] = "ok" if acc.units else "no_units"
     result["exports_probed"] = probed
     result["errors"] = errors[:50]
@@ -872,6 +1117,135 @@ def build_probe(run_dir: Path, out: Optional[Path] = None) -> dict[str, Any]:
     return result
 
 
+def _length_verdict_lines(rows: list[dict[str, Any]], prefix: str = "  ") -> list[str]:
+    """The length-prefix verdict: either the fields above the null, or the negative result."""
+    positive = [row for row in rows if row["hits"] and row["lift"] > 0.01]
+    if not positive:
+        best = max((row["lift"] for row in rows), default=0.0)
+        return [
+            f"{prefix}length-prefix scan: no 1/2/4-byte field in the 16 bytes before the marker beats the"
+            f" matched-distribution null (best lift {best:+.1%})"
+        ]
+    lines = [f"{prefix}length-prefix fields above the matched-distribution null (a length stored before the marker):"]
+    lines += [
+        f"{prefix}  u{row['width'] * 8} {row['endian']} at marker-{row['delta']}: {row['hits']}/{row['eligible']}"
+        f" ({row['rate']:.1%}) vs expected {row['expected_hits']} ({row['expected_rate']:.1%}),"
+        f" lift {row['lift']:+.1%}, ratio {row['ratio']} targets {row['by_target']}"
+        for row in positive[:3]
+    ]
+    return lines
+
+
+def _pointer_lines(pointer: dict[str, Any], prefix: str = "  ") -> list[str]:
+    hits = [row for row in pointer["rows"] if row["measure"] == "occurrences" and (row["targets"] or row["controls"])]
+    aligned = [
+        row for row in pointer["rows"] if row["measure"] == "occurrences_aligned" and (row["targets"] or row["controls"])
+    ]
+    if not hits and not aligned:
+        return [f"{prefix}pointer scan: no unit offset occurs as a u32/u16 value in its own file (targets 0, controls 0)"]
+    lines = [
+        f"{prefix}pointer u{row['width'] * 8} {row['endian']} {'unaligned' if row['measure'] == 'occurrences' else 'aligned'}:"
+        f" at marker {row['counts']['marker']}, at text start {row['counts']['start']}"
+        f" (controls: marker+1 {row['counts']['marker_plus_1']}, start+1 {row['counts']['start_plus_1']}),"
+        f" lift {row['lift']:+d}"
+        for row in hits + aligned
+    ]
+    coverage = pointer.get("coverage") or {}
+    available = coverage.get("offsets_available_unaligned") or {}
+    searched = coverage.get("offsets_searched_unaligned") or {}
+    if available:
+        parts = ", ".join(
+            f"u{int(width) * 8}: {searched.get(width, 0)}/{available.get(width, 0)} offsets searched unaligned"
+            for width in sorted(available, key=int)
+        )
+        too_large = ", ".join(
+            f"u{int(width) * 8}: {count}"
+            for width, count in sorted((coverage.get("offsets_too_large_for_width") or {}).items(), key=lambda i: int(i[0]))
+            if count
+        )
+        lines.append(
+            f"{prefix}pointer search coverage: {parts}; aligned scan {coverage.get('aligned_files_scanned', 0)}"
+            f" file(s), {coverage.get('aligned_bytes_scanned', 0):,} bytes"
+            f" (skipped over budget: {coverage.get('aligned_files_skipped_over_budget', 0)})"
+            + (f"; marker offsets too large for the width: {too_large}" if too_large else "")
+        )
+    else:
+        scanned = ", ".join(
+            f"u{row['width'] * 8} {row['endian']}: {row['counts']['marker'] + row['counts']['start']} offsets"
+            for row in pointer["rows"]
+            if row["measure"] == "values_scanned"
+        )
+        lines.append(f"{prefix}pointer search coverage: {scanned}")
+    for row in pointer["positions"]:
+        if row["kind"] in ("marker", "start"):
+            eighths = ", ".join(f"eighth {key}: {count}" for key, count in sorted(row["by_eighth"].items()))
+            lines.append(f"{prefix}pointer match positions u{row['width'] * 8} {row['endian']} ({row['kind']}): {eighths}")
+    return lines
+
+
+def _pattern_lines(block: dict[str, Any], prefix: str = "  ") -> list[str]:
+    lines: list[str] = []
+    if block["post_text_patterns"]:
+        top = ", ".join(f"{row['key']} x{row['count']}" for row in block["post_text_patterns"][:4])
+        lines.append(f"{prefix}bytes after the text (top 4): {top}")
+    if block["pre_marker_patterns"]:
+        top = ", ".join(f"{row['key']} x{row['count']}" for row in block["pre_marker_patterns"][:4])
+        lines.append(f"{prefix}bytes before the marker (top 4): {top}")
+    if block["suffix_lengths"]:
+        suffixes = ", ".join(f"{row['key']} bytes x{row['count']}" for row in block["suffix_lengths"][:6])
+        lines.append(f"{prefix}suffix lengths: {suffixes}")
+    for profile in block["suffix_profile"][:3]:
+        described = ", ".join(
+            f"+{position['position']}:{position['distinct_values']} value(s), top {position['top_value']}"
+            f" {position['top_share']:.0%}"
+            for position in profile["positions"]
+        )
+        lines.append(f"{prefix}suffix of {profile['suffix_len']} bytes ({profile['units']} units): {described}")
+    return lines
+
+
+def _layout_lines(block: dict[str, Any], prefix: str = "  ") -> list[str]:
+    gaps = block["gaps_between_units"]
+    pitch = ", ".join(f"{row['key']} x{row['count']}" for row in block["pitch_between_starts"][:5])
+    nested = block["nested_markers"]
+    return [
+        f"{prefix}gap between units: min {gaps['min']}, median {gaps['median']}, max {gaps['max']},"
+        f" mod 4 {gaps['multiple_of_4']}",
+        f"{prefix}pitch between starts (top 5): {pitch}",
+        f"{prefix}nested FF FF inside a unit: {nested['units_with_inner_marker']} units,"
+        f" {nested['inner_markers']} inner markers, {nested['inner_markers_wide_script']} followed by"
+        f" wide-script Japanese, {nested['inner_markers_ascii_only']} ASCII-only",
+    ]
+
+
+def _coverage_line(coverage: dict[str, Any], prefix: str = "  ") -> Optional[str]:
+    if not coverage["bytes_total"]:
+        return None
+    shares = ", ".join(
+        f"{kind} {coverage['bytes_by_kind'][kind]:,} ({coverage['share_by_kind'][kind]:.1%})"
+        for kind in coverage["bytes_by_kind"]
+    )
+    return (
+        f"{prefix}text bytes: {coverage['bytes_total']:,} in {coverage['files']} files — {shares}"
+        f"; exports with an unterminated tail: {coverage['exports_with_unterminated_tail']}"
+    )
+
+
+def _cohort_lines(name: str, block: dict[str, Any]) -> list[str]:
+    totals = block["totals"]
+    share = block["text_share"]
+    head = f"  cohort {name}: {totals['packages']} exports, {totals['units']} units in {totals['files']} files"
+    lines = [head + (f" ({totals['units_wide_script']} prose units, share {share:.1%})" if share is not None else "")]
+    lines += _length_verdict_lines(block["length_prefix"]["rows"], prefix="    ")
+    lines += _pointer_lines(block["pointer_references"], prefix="    ")
+    lines += _pattern_lines(block, prefix="    ")
+    lines += _layout_lines(block, prefix="    ")
+    coverage = _coverage_line(block["text_coverage"], prefix="    ")
+    if coverage:
+        lines.append(coverage)
+    return lines
+
+
 def report_lines(result: dict[str, Any]) -> list[str]:
     """Short count-only lines for REPORT.txt."""
     if result.get("status") != "ok":
@@ -879,96 +1253,27 @@ def report_lines(result: dict[str, Any]) -> list[str]:
         status = result.get("status", "not_run")
         return [f"  boundary probe: {status}" + (f" ({detail})" if detail else "")]
     totals = result["totals"]
+    share = result.get("text_share")
+    prose = f", {totals['units_wide_script']} prose units" if totals.get("units_wide_script") else ""
     lines = [
-        f"  units probed: {totals['units']} in {totals['files']} files, {totals['packages']} exports"
+        f"  units probed: {totals['units']} in {totals['files']} files, {totals['packages']} exports{prose}"
         f" (offset problems {totals['offset_problems']}, marker mismatches {totals['marker_mismatches']},"
-        f" prefix mismatches {totals['prefix_mismatches']}, missing files {totals['missing_files']})",
+        f" prefix mismatches {totals['prefix_mismatches']}, missing files {totals['missing_files']})"
     ]
+    coverage_line = _coverage_line(result["text_coverage"])
+    if coverage_line:
+        lines.append(coverage_line)
     coverage = result["text_coverage"]
-    if coverage["bytes_total"]:
-        shares = ", ".join(
-            f"{kind} {coverage['bytes_by_kind'][kind]:,} ({coverage['share_by_kind'][kind]:.1%})"
-            for kind in coverage["bytes_by_kind"]
-        )
-        lines.append(
-            f"  text bytes: {coverage['bytes_total']:,} in {coverage['files']} files — {shares}"
-            f"; exports with an unterminated tail: {coverage['exports_with_unterminated_tail']}"
-        )
     if coverage["unit_flags"]:
         flags = ", ".join(f"{flag} {count}" for flag, count in sorted(coverage["unit_flags"].items()))
         lines.append(f"  unit flags: {flags}")
     if coverage["tokens_by_reason"]:
         tokens = ", ".join(f"{reason} {count}" for reason, count in sorted(coverage["tokens_by_reason"].items()))
         lines.append(f"  control tokens: {tokens}")
-    rows = result["length_prefix"]["rows"]
-    positive = [row for row in rows if row["hits"] and row["lift"] > 0.01]
-    if positive:
-        lines.append("  length-prefix fields above the matched-distribution null (a length stored before the marker):")
-        lines += [
-            f"    u{row['width'] * 8} {row['endian']} at marker-{row['delta']}: {row['hits']}/{row['eligible']}"
-            f" ({row['rate']:.1%}) vs expected {row['expected_hits']} ({row['expected_rate']:.1%}),"
-            f" lift {row['lift']:+.1%}, ratio {row['ratio']} targets {row['by_target']}"
-            for row in positive[:3]
-        ]
-    else:
-        best = max((row["lift"] for row in rows), default=0.0)
-        lines.append(
-            "  length-prefix scan: no 1/2/4-byte field in the 16 bytes before the marker beats the"
-            f" matched-distribution null (best lift {best:+.1%})"
-        )
-    pointer = result["pointer_references"]
-    hits = [row for row in pointer["rows"] if row["measure"] == "occurrences" and (row["targets"] or row["controls"])]
-    aligned = [
-        row for row in pointer["rows"] if row["measure"] == "occurrences_aligned" and (row["targets"] or row["controls"])
-    ]
-    if hits or aligned:
-        for row in hits + aligned:
-            label = "unaligned" if row["measure"] == "occurrences" else "aligned"
-            lines.append(
-                f"  pointer u{row['width'] * 8} {row['endian']} {label}: at marker {row['counts']['marker']},"
-                f" at text start {row['counts']['start']} (controls: marker+1 {row['counts']['marker_plus_1']},"
-                f" start+1 {row['counts']['start_plus_1']}), lift {row['lift']:+d}"
-            )
-        searched = ", ".join(
-            f"u{row['width'] * 8} {row['endian']}: {row['counts']['marker'] + row['counts']['start']} offsets"
-            for row in pointer["rows"]
-            if row["measure"] == "values_scanned"
-        )
-        lines.append(f"  pointer search coverage: {searched}")
-        for row in pointer["positions"]:
-            if row["kind"] in ("marker", "start"):
-                eighths = ", ".join(f"eighth {key}: {count}" for key, count in sorted(row["by_eighth"].items()))
-                lines.append(f"  pointer match positions u{row['width'] * 8} {row['endian']} ({row['kind']}): {eighths}")
-    else:
-        lines.append("  pointer scan: no unit offset occurs as a u32/u16 value in its own file (targets 0, controls 0)")
-    if result["post_text_patterns"]:
-        top = ", ".join(f"{row['key']} x{row['count']}" for row in result["post_text_patterns"][:4])
-        lines.append(f"  bytes after the text (top 4): {top}")
-    if result["pre_marker_patterns"]:
-        top = ", ".join(f"{row['key']} x{row['count']}" for row in result["pre_marker_patterns"][:4])
-        lines.append(f"  bytes before the marker (top 4): {top}")
-    suffixes = ", ".join(f"{row['key']} bytes x{row['count']}" for row in result["suffix_lengths"][:6])
-    lines.append(f"  suffix lengths: {suffixes}")
-    for profile in result["suffix_profile"][:3]:
-        described = ", ".join(
-            f"+{position['position']}:{position['distinct_values']} value(s), top {position['top_value']}"
-            f" {position['top_share']:.0%}"
-            for position in profile["positions"]
-        )
-        lines.append(f"  suffix of {profile['suffix_len']} bytes ({profile['units']} units): {described}")
-    gaps = result["gaps_between_units"]
-    lines.append(
-        f"  gap between units: min {gaps['min']}, median {gaps['median']}, max {gaps['max']},"
-        f" mod 4 {gaps['multiple_of_4']}"
-    )
-    pitch = ", ".join(f"{row['key']} x{row['count']}" for row in result["pitch_between_starts"][:5])
-    lines.append(f"  pitch between starts (top 5): {pitch}")
-    nested = result["nested_markers"]
-    lines.append(
-        f"  nested FF FF inside a unit: {nested['units_with_inner_marker']} units,"
-        f" {nested['inner_markers']} inner markers, {nested['inner_markers_wide_script']} followed by"
-        f" wide-script Japanese, {nested['inner_markers_ascii_only']} ASCII-only"
-    )
+    lines += _length_verdict_lines(result["length_prefix"]["rows"])
+    lines += _pointer_lines(result["pointer_references"])
+    lines += _pattern_lines(result)
+    lines += _layout_lines(result)
     companions = result["companion_dat_cross_check"]
     if companions["runs_searched"]:
         searched = ", ".join(f"{label} {count}" for label, count in sorted(companions["runs_searched"].items()))
@@ -985,6 +1290,19 @@ def report_lines(result: dict[str, Any]) -> list[str]:
         f" ({repeats['units_with_repeated_payload']} units, max x{repeats['max_multiplicity']},"
         f" repeated units >=8 bytes: {repeats['repeated_units_at_least_8_bytes']})"
     )
+    cohorts = result.get("cohorts") or {}
+    if len(cohorts) > 1 or "text" in cohorts:
+        lines.append("  by cohort (an export is `text` when most of its units decode as Japanese prose):")
+        for name in ("text", "binary"):
+            if cohorts.get(name, {}).get("totals", {}).get("units"):
+                lines += _cohort_lines(name, cohorts[name])
+    for row in (result.get("per_export") or [])[:10]:
+        share_text = f"{row['text_share']:.0%}" if row["text_share"] is not None else "n/a"
+        best = f"u{row['best_length_width'] * 8}@marker-{row['best_length_delta']}" if row["best_length_width"] else "n/a"
+        lines.append(
+            f"  export {row['export']}: {row['units']} units in {row['files']} files, prose {share_text},"
+            f" best length field {best} lift {row['best_length_lift']:+.1%}"
+        )
     per_source = result["units_per_source"]
     if per_source:
         shown = ", ".join(f"{row['key']} {row['count']}" for row in per_source[:10])
@@ -1012,6 +1330,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         )
         return 2
     run_dir = run_dir.resolve()
+    print(
+        f"Measuring {run_dir} (read-only; a full run takes about a minute). "
+        "This replaces the boundary_probe.json already in that folder.",
+        file=sys.stderr,
+    )
     try:
         result = build_probe(run_dir, args.out.expanduser().resolve() if args.out else None)
     except (OSError, ValueError) as error:

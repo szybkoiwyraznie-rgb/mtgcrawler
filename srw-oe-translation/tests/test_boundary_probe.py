@@ -199,16 +199,19 @@ class LengthPrefixTest(unittest.TestCase):
         self.assertEqual(sum(positions["by_eighth"].values()), table_le["counts"]["start"])
         self.assertGreater(positions["by_eighth"][0], 0)
 
-    def test_u16_offsets_are_found_too(self):
+    def test_u16_offsets_are_found_by_the_aligned_scan(self):
+        # u16 is measured by the aligned scan only: a per-value search over the whole file costs too
+        # much for a width whose offsets mostly do not fit their own file (see POINTER_UNALIGNED_WIDTHS)
         data = bytearray(synthetic_bin(TEXTS, pad=16))
         units = build_units(bytes(data))
+        self.assertTrue(all(unit["start_offset"] % 2 == 0 for unit in units))
         table = b"".join(unit["start_offset"].to_bytes(2, "little") for unit in units)
         data[: len(table)] = table
         result = probe(units, {NAME: bytes(data)})
         row = next(
             row
             for row in result["pointer_references"]["rows"]
-            if row["measure"] == "occurrences" and row["width"] == 2 and row["endian"] == "le"
+            if row["measure"] == "occurrences_aligned" and row["width"] == 2 and row["endian"] == "le"
         )
         self.assertGreaterEqual(row["counts"]["start"], len(TEXTS))
 
@@ -420,6 +423,147 @@ class CompanionTest(unittest.TestCase):
         cross = boundary_probe.summarize(acc)["companion_dat_cross_check"]
         self.assertEqual(cross["runs_searched"]["ext"], boundary_probe.COMPANION_RUNS_PER_PACKAGE)
         self.assertEqual(cross["packages_capped_at_run_limit"], 1)
+
+
+class CohortTest(unittest.TestCase):
+    """The probe must not pool the event script with the binary data that surrounds it."""
+
+    KANA = ["ｱｲｳ", "ｴｵｶ", "ｷｸｹ"]  # half-width katakana: no wide-script codepoints
+
+    def _run_folder(self, root: Path) -> dict:
+        registry_packages = []
+        for package_id, texts, flags, source in (
+            ("p001", TEXTS, {}, "NPJH50521/eventP01.EDAT"),
+            ("p002", [kana.encode("cp932") for kana in self.KANA],
+             {"halfwidth_katakana_only_match": len(self.KANA)}, "NPJH50521/bacb01.EDAT"),
+        ):
+            package_dir = root / "packages" / package_id
+            package_dir.mkdir(parents=True)
+            data = synthetic_bin(list(texts))
+            (package_dir / NAME).write_bytes(data)
+            export = root / "text" / package_id
+            export.mkdir(parents=True)
+            units = build_units(data)
+            (export / "units.jsonl").write_text(
+                "".join(json.dumps(unit, ensure_ascii=False) + "\n" for unit in units), encoding="utf-8"
+            )
+            (export / "manifest.json").write_text(
+                json.dumps(
+                    {
+                        "totals": {
+                            "files": 1,
+                            "units": len(units),
+                            "bytes": len(data),
+                            "bytes_by_kind": {"text_unit": len(data), "gap": 0},
+                            "unit_flags": flags,
+                            "tokens_by_reason": {},
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+            registry_packages.append(
+                {
+                    "package_id": package_id,
+                    "output_dir": f"packages/{package_id}",
+                    "text": {"export_dir": f"text/{package_id}"},
+                    "source_path": source,
+                }
+            )
+        registry = {"packages": registry_packages}
+        (root / "registry.json").write_text(json.dumps(registry), encoding="utf-8")
+        return registry
+
+    def test_exports_are_split_into_text_and_binary_cohorts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            registry = self._run_folder(root)
+            result = boundary_probe.probe_packages(registry["packages"], root)
+        self.assertEqual(result["totals"]["units"], len(TEXTS) + len(self.KANA))
+        self.assertEqual(result["cohorts"]["text"]["totals"]["units"], len(TEXTS))
+        self.assertEqual(result["cohorts"]["binary"]["totals"]["units"], len(self.KANA))
+        self.assertEqual(result["cohorts"]["text"]["text_share"], 1.0)
+        self.assertEqual(result["cohorts"]["binary"]["text_share"], 0.0)
+        # each cohort carries its own manifest coverage, not the pooled one
+        self.assertEqual(result["cohorts"]["text"]["text_coverage"]["exports_read"], 1)
+        self.assertEqual(result["cohorts"]["binary"]["text_coverage"]["exports_read"], 1)
+        self.assertEqual(result["cohorts"]["text"]["totals"]["files"], 1)
+
+    def test_every_export_is_ranked_with_its_own_text_share(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            registry = self._run_folder(root)
+            result = boundary_probe.probe_packages(registry["packages"], root)
+        rows = {row["export"]: row for row in result["per_export"]}
+        self.assertEqual(set(rows), {"p001", "p002"})
+        self.assertEqual(rows["p001"]["text_share"], 1.0)
+        self.assertEqual(rows["p001"]["source"], "NPJH50521/eventP01.EDAT")
+        self.assertEqual(rows["p002"]["text_share"], 0.0)
+        self.assertEqual(rows["p002"]["units"], len(self.KANA))
+        # the fixture stores a u16 length two bytes before the marker; the two pad bytes are zero,
+        # so a u32 at marker-4 matches too, and ties go to the widest field
+        self.assertEqual(rows["p001"]["best_length_width"], 4)
+        self.assertEqual(rows["p001"]["best_length_delta"], 4)
+
+    def test_the_report_names_both_cohorts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            registry = self._run_folder(root)
+            result = boundary_probe.probe_packages(registry["packages"], root)
+        text = "\n".join(boundary_probe.report_lines(result))
+        self.assertIn("by cohort", text)
+        self.assertIn("cohort text: 1 exports, 4 units", text)
+        self.assertIn("cohort binary: 1 exports, 3 units", text)
+        self.assertIn("export p001: 4 units", text)
+
+    def test_the_command_line_prints_the_cohort_section_and_the_json_path(self):
+        import contextlib
+        import io
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            registry = self._run_folder(root)
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                code = boundary_probe.main([str(root)])
+            printed = out.getvalue()
+            self.assertEqual(code, 0)
+            self.assertIn("by cohort", printed)
+            self.assertIn("cohort text: 1 exports, 4 units", printed)
+            self.assertIn(str(root / boundary_probe.PROBE_NAME), printed)
+            written = json.loads((root / boundary_probe.PROBE_NAME).read_text(encoding="utf-8"))
+            self.assertEqual(written["schema"], boundary_probe.SCHEMA)
+            self.assertIn("cohorts", written)
+        self.assertEqual(registry["packages"][0]["package_id"], "p001")
+
+    def test_an_unsearched_offset_is_reported_as_truncated_not_as_a_negative(self):
+        data = synthetic_bin(TEXTS)
+        units = build_units(data)
+        original = boundary_probe.POINTER_UNALIGNED_FILE_BUDGET
+        boundary_probe.POINTER_UNALIGNED_FILE_BUDGET = 1  # no value fits, so nothing is searched
+        try:
+            acc = boundary_probe.Evidence()
+            boundary_probe.add_units(acc, "pkg", units, {NAME: data})
+        finally:
+            boundary_probe.POINTER_UNALIGNED_FILE_BUDGET = original
+        self.assertEqual(acc.budgets.files_truncated, 1)
+        self.assertEqual(acc.pointer_offsets[("available", 4)], len(TEXTS))
+        self.assertEqual(acc.pointer_offsets[("searched", 4)], 0)
+
+    def test_pointer_offsets_are_sampled_evenly_and_coverage_is_reported(self):
+        self.assertEqual(boundary_probe._sample(list(range(10)), 4), [0, 2, 5, 7])
+        self.assertEqual(boundary_probe._sample([1, 2, 3], 10), [1, 2, 3])
+        self.assertEqual(boundary_probe._sample([1, 2, 3], 0), [])
+        data = synthetic_bin(TEXTS)
+        result = probe(build_units(data), {NAME: data})
+        coverage = result["pointer_references"]["coverage"]
+        self.assertEqual(coverage["offsets_available_unaligned"], {"4": len(TEXTS)})
+        self.assertEqual(coverage["offsets_searched_unaligned"], {"4": len(TEXTS)})
+        self.assertEqual(coverage["offsets_too_large_for_width"], {"4": 0, "2": 0})
+        self.assertEqual(coverage["aligned_files_scanned"], 1)
+        self.assertEqual(coverage["aligned_files_skipped_over_budget"], 0)
+        lines = "\n".join(boundary_probe.report_lines(result))
+        self.assertIn("u32: 4/4 offsets searched unaligned", lines)
 
 
 class RunFolderTest(unittest.TestCase):
