@@ -1348,6 +1348,25 @@ regenerated once a source `eventP02.EDAT` is available. They are therefore no lo
 acceptance values in `tools/build_event_text_test.py` until re-derived; the corrected
 build cannot be produced here because the sandbox no longer has the source container.
 
+### 2026-10-10 (night) — corrected builds produced from a fresh source, hashes regenerated
+
+The user re-uploaded the original `eventP02.EDAT` (MD5
+`60316f4639b906cf70b91fc28fc863be`, 367,480 bytes) via Google Drive; the connector's
+`download_file` staged it in the workspace, it was copied out of the repository, and the
+in-repo copy removed. With the alignment fix in place, `tools/build_event_text_test.py`
+rebuilt both variants and each passed the structural gate (parses with `cpk_table`, EToc on
+the 2048 boundary and closing the file, 95 of 95 other members byte-identical to the
+source, grown member exactly the new bytes). The identity gate reproduces the source byte
+for byte. New acceptance values, replacing the invalidated crashing-build hashes:
+
+* source `eventP02.EDAT` -- MD5 `60316f4639b906cf70b91fc28fc863be`
+* `01-jp/eventP02.EDAT` -- 373,624 bytes, MD5 `cf1e703c2e1ca435ef514840e233c20b`
+* `02-en/eventP02.EDAT` -- 373,624 bytes, MD5 `ee40c5b4ef138d092d4e4fe4bc6f9194`
+
+Both are uploaded to the shared Drive folder for the boot test, Japanese first. What this
+still does not prove is only what a real boot proves: that the engine tolerates the grown,
+aligned record and (for the English variant) that the font has Latin glyphs.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

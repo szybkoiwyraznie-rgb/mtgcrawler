@@ -57,7 +57,7 @@ VARIANTS = (
         "01-jp",
         "japoński, jedna linia więcej (ta sama gra znaków co oryginał)",
         "これは長いテキストのテストです。" + BREAK + ORIGINAL,
-        "14e0d138084a4080e4a3617b63aaf3e5",
+        "cf1e703c2e1ca435ef514840e233c20b",
     ),
     (
         "02-en",
@@ -65,7 +65,7 @@ VARIANTS = (
         "Colony martial arts, the proof of its champion..." + BREAK +
         "The Gundam Fighter who bears the King of Heart emblem in his right hand," + BREAK +
         "his name is Domon Kasshu.",
-        "91118db85ae22752194ce48963dfb89d",
+        "ee40c5b4ef138d092d4e4fe4bc6f9194",
     ),
 )
 
