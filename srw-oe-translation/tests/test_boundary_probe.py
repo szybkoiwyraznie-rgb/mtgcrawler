@@ -621,6 +621,46 @@ class CohortTest(unittest.TestCase):
             self.assertIn("cohorts", written)
         self.assertEqual(registry["packages"][0]["package_id"], "p001")
 
+    def test_a_per_record_offset_field_is_localized_at_a_fixed_distance(self):
+        # Each record carries its own text offset in a u32 exactly 10 bytes before the text, so
+        # every match sits at the same distance from the value it encodes. This is the shape the
+        # real text cohort's start-offset matches have to be tested against.
+        texts = [text.encode("cp932") for text in ("日本語のテキストです", "別の行です", "三番目の行です", "四番目")]
+        starts = []
+        position = 0
+        for text in texts:
+            starts.append(position + 10)  # u32 (4) + filler (4) + FF FF (2)
+            position += 10 + len(text) + 2
+        body = bytearray()
+        for start, text in zip(starts, texts):
+            body += start.to_bytes(4, "little") + b"\x00\x00\x00\x00" + b"\xff\xff" + text + b"\x00\x00"
+        data = bytes(body)
+        units = build_units(data)
+        self.assertEqual([unit["start_offset"] for unit in units], starts)
+        result = probe(units, {NAME: data})
+        row = next(
+            row
+            for row in result["pointer_references"]["deltas"]
+            if row["kind"] == "start" and row["width"] == 4 and row["endian"] == "le"
+        )
+        self.assertEqual(row["top"][0]["delta"], "-10")
+        self.assertEqual(row["top"][0]["count"], len(texts))
+        self.assertEqual(row["distinct_deltas"], 1)  # one fixed distance, not a spread
+        self.assertIn("target-10 x4", "\n".join(boundary_probe.report_lines(result)))
+
+    def test_the_aligned_scan_counts_a_file_once_not_once_per_width_and_endian(self):
+        data = synthetic_bin(TEXTS)
+        result = probe(build_units(data), {NAME: data})
+        coverage = result["pointer_references"]["coverage"]
+        self.assertEqual(coverage["aligned_bytes_scanned"], len(data))
+        per_pass = [
+            row["counts"]["all"]
+            for row in result["pointer_references"]["rows"]
+            if row["measure"] == "bytes_scanned_aligned"
+        ]
+        self.assertEqual(len(per_pass), 4)  # u32/u16 x le/be each read the file once
+        self.assertEqual(sum(per_pass), 4 * len(data))
+
     def test_an_unsearched_offset_is_reported_as_truncated_not_as_a_negative(self):
         data = synthetic_bin(TEXTS)
         units = build_units(data)

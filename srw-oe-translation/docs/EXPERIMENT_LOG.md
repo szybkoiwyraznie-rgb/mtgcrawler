@@ -935,10 +935,37 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Lesson:** a fixture that mirrors the code under test instead of the code that produces the data proves nothing. Where two files must agree on a format, the test has to use the real writer.
 
+## 2026-10-10 — cohort-split probe on the user's PC: the event files really do contain text-start offsets
+
+**Action:** the user re-ran the probe against the saved run folder `20261010-142640` (`RUN_PROBE.bat`, no converter call). First measurements with schema `/3`.
+
+**Cohort split on real data:** text = 32 exports, 45,252 units in 293 files, prose share 97.9%; binary = 82 exports, 118,271 units, prose share 2.4%. Pooled integrity stayed clean, and the file count went from 2,617 to **2,659** — keying `totals.files` by (export, name) removed the undercount.
+
+**Text cohort — settled:** no length prefix (best of 96 configurations +0.4% lift); no nested strings (449 units, 522 inner markers, 0 followed by wide-script Japanese); suffixes are only 0 bytes (35,681), 2 bytes (7,448; `+1` is `C9` in 90%) or 3 bytes (2,123; `+2` is `01` in 80%); the extractor covers the event files properly — of 5,035,356 bytes, text units are 45.1%, gaps 54.5%, and only 0.4% are `FF FF …` spans it did not select, with no unterminated tail. Two layout facts worth keeping: the gap between units is never ≡ 1 (mod 4) — 43 of 44,959 gaps — and the commonest pitches are 56/60/64/52/68 bytes.
+
+**Text cohort — the pointer result, and its control:**
+
+| u32 LE, unaligned | at marker | at text start | controls marker+1 / start+1 |
+| --- | --- | --- | --- |
+| real text cohort | 599 | **6,535** | 446 / 1,339 |
+| density-matched synthetic corpus with **no** pointer table | 340 | 421 | 494 / 374 |
+
+The synthetic null was built to the text cohort's own density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111; 18,264 bytes per file against 17,186) and gives `start/start+1` = 1.13, where the real data gives 4.88 with 15× the null's absolute count. So **the text-start offsets occur as u32 little-endian values in the event files far above chance, and the shifted-by-one control is not what produces it.** Marker offsets are *not* elevated (599 vs 446, like the null's 340 vs 494), so whatever is stored points at the byte after `FF FF`, not at the marker.
+
+Two earlier attempts at this null were mis-scaled and gave misleading answers (0.95 at 35 bytes/unit, and an inverted result on a sparse 6.7 MB corpus); both came from misreading `aligned_bytes_scanned`, which counted each file once per width × endian and so reported 2,110,481,568 bytes for 527,620,392 real bytes. That counter is fixed.
+
+**What is still not explained, and the measurement added for it:** u32 big-endian shows the same lift (6,086 vs 887), the 4-byte-**aligned** scan shows none (548 vs 542), and the matches are spread evenly over all eighths of the file — so this is not a contiguous, aligned pointer table. The probe now records **where each match sits relative to the offset it encodes** (`pointer_references.deltas`, plus a report line per scan). A per-record field puts nearly every match at one fixed distance; a table clusters them in one region; chance leaves them far away. On the density-matched null, 69 of 72 `start` matches sit more than 256 bytes from the value they encode, while a synthetic record layout that stores its own offset 10 bytes before the text gives one distance holding every match. A same-parity control (`start + 2`) was added next to `start + 1`, so a parity artefact in the control would show up as `start ≈ start+2`.
+
+**Cost:** the unaligned scan now searches five sets instead of four, so for the same 8 GiB budget the text cohort's coverage drops from 42,424/45,252 to roughly four fifths of that; the coverage line reports the real number.
+
+**Tests:** 36 probe tests (new: a per-record offset field is localized at one fixed distance and printed as `target-10 x4`; the aligned scan counts a file once, not once per width and endian). Full suite 228 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Not demonstrated:** what the stored offsets are for, whether they are per record or in a table, what the `C9` byte means, and anything about repacking, write-back, or in-game results.
+
 ## Pending
 
-- **Run `RUN_PROBE.bat` on the user's PC against the existing `20261010-142640` run folder** (no converter call, about a minute). A fresh download has no private INI, so drag the run folder (or the whole `D:\SRW_OE_out`) onto the `.bat`, or type the path at its prompt. It re-measures the same data with probe schema/3 and answers what the pooled numbers could not: the length-prefix verdict, the pointer scan with real coverage, and the suffix/post-text structure for the 32 event exports on their own.
-- Then read the `by cohort` section: the `text` cohort is the script, the `binary` cohort is archive data. Only the `text` cohort's numbers bear on write-back.
+- **Run `RUN_PROBE.bat` once more against the same run folder** (drag it onto the `.bat`; about a minute). The new `where the u32 le unaligned start-offset matches sit` line decides whether the stored offsets are a per-record field (one fixed distance holding nearly all matches), a table (matches clustered in one region), or nothing readable (distances over 256 bytes, as in the null).
+- Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
 - Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).
 - Decide whether to promote the table check to fail-closed: run `20261010-142640` agreed on 495 of 497 packages, and both remaining mismatches are the `robo01`/`robo03` console-name decoding, not the table.

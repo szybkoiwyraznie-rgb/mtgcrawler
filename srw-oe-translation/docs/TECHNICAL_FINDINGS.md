@@ -178,14 +178,27 @@ mismatches, 0 missing files), so the unit records do describe the bytes they cla
 
 **Not settled by this run:**
 
-- **Pointers.** The unaligned search covered 1,382 of 163,523 u32 offsets before its byte budget ran
-  out on the huge battle files (2,653 files truncated), and 93,113 offsets do not fit in u16 at all.
-  The counts it did produce are within chance of their `marker + 1`/`start + 1` controls, but the
-  measurement was too small to conclude anything. The re-measurement with the cohort-split probe
-  (schema `/3`) covers the event files completely.
+- **Pointers — measured, and positive, but not yet localized.** The cohort-split probe covered
+  42,424 of the text cohort's 45,252 offsets. Their start offsets occur as u32 little-endian values
+  **6,535** times against **1,339** for `start + 1`, while a synthetic corpus built to the same
+  density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111) with no
+  pointer table at all gives 421 against 374 — a ratio of 1.13 at a fifteenth of the count. Marker
+  offsets are *not* elevated (599 against 446), so whatever is stored points at the byte after
+  `FF FF`, not at the marker. What this is not: not 4-byte aligned (the aligned scan gives 548
+  against 542), not one contiguous table (matches are spread evenly over all eighths of the file),
+  and not only little-endian (big-endian gives 6,086 against 887). Those three facts rule out an
+  ordinary offset table and are why the probe now records where each match sits relative to the
+  offset it encodes.
 - **The `C9` byte.** `C9 00 00 00` is 201 little-endian, and this project's earlier framing work found
   the event blocks' ECHK chains ending at u32 200. That is a coincidence worth testing, not a
   finding: nothing here links the two.
+
+**Measured on the text cohort alone (probe schema `/3`, the 32 event exports):** no length prefix
+(best of 96 configurations +0.4% lift); no nested strings (522 inner markers, none followed by
+wide-script Japanese); suffixes are only 0 bytes (35,681 units), 2 bytes (7,448; `+1` is `C9` in 90%)
+or 3 bytes (2,123; `+2` is `01` in 80%); of 5,035,356 bytes, 45.1% is text units, 54.5% gaps, 0.4%
+unselected `FF FF …` spans, and no unterminated tail. Two layout regularities: the gap between units
+is **never ≡ 1 (mod 4)** — 43 of 44,959 gaps — and the commonest pitches are 56/60/64/52/68 bytes.
 
 **Caution on every pooled number above:** 118,198 of the 163,523 units and 523,336,306 of the
 529,473,170 bytes came from the 42 recovered battle-data exports (`bacb*`/`bseq*`), which are binary

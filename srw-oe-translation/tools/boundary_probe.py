@@ -106,7 +106,14 @@ COMPANION_CLASSES = (("_ext.dat", "ext"), ("_entry.dat", "entry"), ("_edit.dat",
 # Target names for the length-prefix scan: which length a field could be storing.
 TARGET_NAMES = ("prefix", "prefix_plus_1", "prefix_plus_2", "span", "envelope")
 # Pointer-scan sets: two real targets and two matched controls.
-POINTER_SETS = ("marker", "start", "marker_plus_1", "start_plus_1")
+POINTER_SETS = ("marker", "start", "marker_plus_1", "start_plus_1", "start_plus_2")
+
+
+def _signed_bucket(value: int, exact_max: int = 256) -> str:
+    """A small signed difference exactly, otherwise which side of the range it is on."""
+    if -exact_max <= value <= exact_max:
+        return str(value)
+    return f">{exact_max}" if value > exact_max else f"<-{exact_max}"
 
 
 def _bucket(value: int, exact_max: int) -> str:
@@ -159,6 +166,7 @@ class Evidence:
         self.length_targets: Counter = Counter()  # (target name, value) -> units
         self.pointer: Counter = Counter()  # (measure, width, endian, kind)
         self.pointer_positions: Counter = Counter()  # (width, endian, kind, octile)
+        self.pointer_deltas: Counter = Counter()  # (width, endian, kind, hit_offset - value)
         self.pre_marker: Counter = Counter()  # byte pattern hex
         self.post_text: Counter = Counter()  # byte pattern hex
         self.suffix_len: Counter = Counter()  # length -> units
@@ -262,6 +270,10 @@ def _pointer_sets(units: list[dict[str, Any]]) -> dict[str, set[int]]:
         "start": starts,
         "marker_plus_1": {value + 1 for value in markers} - used,
         "start_plus_1": {value + 1 for value in starts} - used,
+        # A shifted-by-one control changes parity as well as value, and on run 20261010-142640 the
+        # text cohort's starts (mostly even) beat start+1 by 4.9x. A same-parity control separates
+        # "this exact offset is stored" from "offsets of this parity occur often here".
+        "start_plus_2": {value + 2 for value in starts} - used,
     }
 
 
@@ -316,6 +328,7 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                         acc.pointer_positions[
                             (width, endian, kind, min(OCTILES - 1, index * OCTILES // max(1, size)))
                         ] += 1
+                        acc.pointer_deltas[(width, endian, kind, _signed_bucket(index - value))] += 1
                         index = data.find(pattern, index + 1)
     for width in POINTER_WIDTHS:
         limit_value = 1 << (8 * width)
@@ -329,8 +342,9 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                 continue
             acc.budgets.aligned -= size
             acc.pointer[("bytes_scanned_aligned", width, endian, "all")] += size
-            acc.pointer_aligned_bytes += size
             if width == POINTER_WIDTHS[0] and endian == ENDIANS[0][0]:
+                # counted once per file: the four width x endian passes read the same bytes
+                acc.pointer_aligned_bytes += size
                 acc.pointer_aligned_files["scanned"] += 1
             lookup: dict[int, tuple[str, ...]] = {}
             for kind in POINTER_SETS:
@@ -339,11 +353,15 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                         lookup[value] = (*lookup.get(value, ()), kind)
             format_code = ("<" if endian == "le" else ">") + ("I" if width == 4 else "H")
             tail = size - size % width
-            for (value,) in struct.iter_unpack(format_code, memoryview(data)[:tail]):
+            for position, (value,) in enumerate(struct.iter_unpack(format_code, memoryview(data)[:tail])):
                 kinds = lookup.get(value)
                 if kinds:
+                    index = position * width
                     for kind in kinds:
                         acc.pointer[("occurrences_aligned", width, endian, kind)] += 1
+                        acc.pointer_deltas[
+                            (width, endian, f"{kind}_aligned", _signed_bucket(index - value))
+                        ] += 1
     acc.budgets.files_truncated += truncated
 
 
@@ -757,6 +775,41 @@ def _pointer_coverage(acc: Evidence) -> dict[str, Any]:
     }
 
 
+def _delta_label(bucket: str) -> str:
+    try:
+        return f"target{int(bucket):+d}"
+    except ValueError:
+        return bucket
+
+
+def _pointer_delta_rows(acc: Evidence, top: int = 8) -> list[dict[str, Any]]:
+    """Where each match sits relative to the offset it encodes.
+
+    This is what turns "the offsets occur in the file" into a layout: a pointer table puts many
+    matches in one region, while a per-record field puts them at a fixed distance from the string.
+    Only the text starts are reported, because those are the offsets that showed a signal.
+    """
+    grouped: dict[tuple[int, str, str], Counter] = {}
+    for (width, endian, kind, bucket), count in acc.pointer_deltas.items():
+        grouped.setdefault((width, endian, kind), Counter())[bucket] = count
+    rows: list[dict[str, Any]] = []
+    for (width, endian, kind), counts in sorted(grouped.items()):
+        if not kind.startswith("start"):
+            continue
+        rows.append(
+            {
+                "measure": "hit_offset_minus_value",
+                "width": width,
+                "endian": endian,
+                "kind": kind,
+                "hits": sum(counts.values()),
+                "distinct_deltas": len(counts),
+                "top": [{"delta": key, "count": count} for key, count in counts.most_common(top)],
+            }
+        )
+    return rows
+
+
 def _pointer_block(acc: Evidence, with_budgets: bool = False) -> dict[str, Any]:
     block: dict[str, Any] = {
         "note": (
@@ -771,6 +824,7 @@ def _pointer_block(acc: Evidence, with_budgets: bool = False) -> dict[str, Any]:
         "coverage": _pointer_coverage(acc),
         "rows": _pointer_rows(acc),
         "positions": _pointer_positions(acc),
+        "deltas": _pointer_delta_rows(acc),
     }
     if with_budgets:
         block["budgets"] = {
@@ -1193,8 +1247,8 @@ def _pointer_lines(pointer: dict[str, Any], prefix: str = "  ") -> list[str]:
     lines = [
         f"{prefix}pointer u{row['width'] * 8} {row['endian']} {'unaligned' if row['measure'] == 'occurrences' else 'aligned'}:"
         f" at marker {row['counts']['marker']}, at text start {row['counts']['start']}"
-        f" (controls: marker+1 {row['counts']['marker_plus_1']}, start+1 {row['counts']['start_plus_1']}),"
-        f" lift {row['lift']:+d}"
+        f" (controls: marker+1 {row['counts']['marker_plus_1']}, start+1 {row['counts']['start_plus_1']},"
+        f" start+2 {row['counts']['start_plus_2']}), lift {row['lift']:+d}"
         for row in hits + aligned
     ]
     coverage = pointer.get("coverage") or {}
@@ -1227,6 +1281,15 @@ def _pointer_lines(pointer: dict[str, Any], prefix: str = "  ") -> list[str]:
         if row["kind"] in ("marker", "start"):
             eighths = ", ".join(f"eighth {key}: {count}" for key, count in sorted(row["by_eighth"].items()))
             lines.append(f"{prefix}pointer match positions u{row['width'] * 8} {row['endian']} ({row['kind']}): {eighths}")
+    for row in pointer.get("deltas") or []:
+        if row["kind"] not in ("start", "start_aligned") or not row["hits"]:
+            continue
+        scan = "unaligned" if row["kind"] == "start" else "aligned"
+        top = ", ".join(f"{_delta_label(item['delta'])} x{item['count']}" for item in row["top"])
+        lines.append(
+            f"{prefix}where the u{row['width'] * 8} {row['endian']} {scan} start-offset matches sit"
+            f" ({row['hits']} hits over {row['distinct_deltas']} distinct distances): {top}"
+        )
     return lines
 
 

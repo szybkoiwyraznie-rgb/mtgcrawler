@@ -86,6 +86,12 @@ its own prose share and best length field, and `pointer_references.coverage` say
 search actually reached the event files — a truncated search is reported as truncated, never as a
 negative result.
 
+The pointer lines carry three readings. `controls` are the same search for offsets shifted by one and
+two bytes, so a lift is a difference against matched bytes rather than against zero. `coverage` says
+how many offsets were searched. And `where the … matches sit` gives the distance from each match to
+the offset it encodes: one fixed distance means every record stores its own string's offset, one
+region means a table, and distances over 256 bytes are what chance looks like.
+
 ## Statuses and exit codes
 
 | Status | Meaning | Exit code |

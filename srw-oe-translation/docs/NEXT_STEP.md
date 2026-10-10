@@ -31,6 +31,20 @@ folder that is already on the user's disk.
   after the text are `0000C9000000` (×8,303). `C9 00 00 00` is 201 little-endian, and the event
   blocks' ECHK chains are known to end at u32 200 — a coincidence so far, not a finding.
 
+## What the re-measurement found (milestone 60)
+
+The text cohort is the script, and it behaves: no length prefix, no nested strings, suffixes of only
+0/2/3 bytes, 45.1% of its bytes are text units and 0.4% unselected marker spans. And it produced the
+first positive structural evidence in the project — **the units' text-start offsets occur as u32
+little-endian values in the same files, 6,535 times against 1,339 for `start + 1`, where a synthetic
+corpus of the same size and density with no pointer table gives 421 against 374.** Marker offsets are
+not elevated, so whatever is stored points at the byte after `FF FF`.
+
+It is not an ordinary offset table: the 4-byte-aligned scan shows nothing (548 vs 542), big-endian
+shows the same lift as little-endian, and the matches are spread evenly over the whole file. So the
+next question is *where each match sits relative to the offset it encodes*, which the probe now
+measures.
+
 ## What changed since (milestone 58)
 
 The pooled numbers above mix the script with 523 MB of battle data: 118,198 of the 163,523 measured
@@ -55,9 +69,11 @@ truncation. `REPORT.txt` gains a `by cohort` section; `boundary_probe.json` gain
    `RUN_PIPELINE.bat`, the saved settings are reused and it finds the run by itself.
 4. Wait about a minute. It is read-only, calls no converter, extracts nothing, and replaces only
    `boundary_probe.json` in that run folder. Keep the console window open.
-5. Copy the whole console output and paste it back to the agent. The `by cohort` section is the part
-   that decides the next milestone. If more detail is needed, send the new `boundary_probe.json` from
-   the same folder.
+5. Copy the whole console output and paste it back to the agent. The line that decides the next
+   milestone is now `where the u32 le unaligned start-offset matches sit …` inside the `text` cohort:
+   one distance holding nearly all matches means each record stores its own string's offset, a
+   cluster in one region means a table, and distances over 256 bytes mean chance. If more detail is
+   needed, send the new `boundary_probe.json` from the same folder.
 
 No new extraction is needed, so nothing about the game files is touched. If the run folder has been
 deleted, `RUN_PIPELINE.bat` reproduces it in 5–8 minutes.
