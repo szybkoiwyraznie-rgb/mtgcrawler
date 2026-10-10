@@ -1,73 +1,72 @@
-# Next step: measure whether the text units are real strings
+# Next step: re-measure the run you already have
 
-Everything the pipeline can do without the game's own records is now built: extraction with a
-per-package listing check, a read-only CPK table cross-check, recovery of the colliding-name
-entries, read-only ISO member extraction, the event-text export, and a translator workspace. The
-one question that decides what happens next is the oldest one — **are the 39,103 `FF FF ... 00 00`
-units real strings?** Milestone 54 makes that measurable instead of debatable: the run now prints a
-`Boundary evidence` section with counts and controls, and nothing else is blocked on it.
+The full run `20261010-142640` answered the first real boundary questions and exposed a flaw in how
+the probe pooled its own data. Three hypotheses are now ruled out on real data, the pointer question
+is still open, and answering it needs **no new extraction**: `RUN_PROBE.bat` re-measures the run
+folder that is already on the user's disk.
 
-## Current state (milestone 54)
+## What the last run settled (milestone 57)
 
-- **Stage 8/9 of the run measures the units** (`tools/boundary_probe.py`, read-only, counts only):
-  a length-prefix scan over all 96 delta/width/endian configurations; a pointer scan for the marker
-  and text-start offsets as u32 **and** u16, LE and BE, aligned and not, with match positions by
-  eighth of the file; the byte context before the marker and after the text; the suffix length and
-  per-byte-position profile; gaps/alignment/pitch; `FF FF` nested inside a unit; payload
-  repetition; every companion `.dat` run of 6+ bytes searched verbatim in the same package's BINs;
-  run-wide text coverage (bytes by segment kind, unit flags, control tokens); and units grouped by
-  top-level source file, which is the per-chapter picture. Each hypothesis carries a control — a
-  matched-distribution null for the length scan, `marker + 1`/`start + 1` for the pointer scan —
-  and the scans report how much of their byte budget they used and what was truncated. Output:
-  `boundary_probe.json`, `registry.json` (`boundary_probe`), and the report section. A probe
-  failure never changes the run status.
-- **Re-measuring is cheap.** `RUN_PROBE.bat` re-runs only this stage against the newest run folder
-  (read-only, no converter call, seconds), so a follow-up measurement never needs a new full run.
-  Keep the run folder until the boundary question is settled.
-- **The colliding-name entries are recovered read-only** into `hidden/<package>/`, CRILAYLA streams
-  decoded, their text exported to `text/<package>-hidden/`. Their packages still fail the listing
-  check; recovery is for reading, not for repacking.
-- **Translators have a workspace**: `translation/units.csv` is written at the end of every run, and
-  `tools/translation_tools.py check` validates filled-in rows against the source's control tokens,
-  line breaks, CP932 encodability, and byte budget.
-- None of the three has produced output on real data yet. The last real run is
-  `20261010-094219` (table check: agree 491, mismatch 6, unreadable 0; text 39,103 units).
-- Repacking into the game, text insertion, and ISO rebuilding are **not** automated.
+- **All 8 chapters are in.** 45,325 units from 91 packages, including `eventP00` (1,582 units) from
+  the disc ISO — chapter 1 — and `eventP04`/`evept104` (3,520/3,562) from the decrypted chapter-4
+  `*04` packages, which are readable CPK containers.
+- **The CPK table check agrees on 495 of 497 packages.** The two mismatches are `robo01`/`robo03`,
+  where one listed name each does not decode from the converter's console output — a name problem,
+  not a table problem. Matching blob-layout rows by ID removed the four mismatches from the run before.
+- **Colliding-name recovery is complete**: all 42 packages, `listing sizes match: True`, 0 compressed
+  entries. Those packages still fail the listing gate (the converter writes one file per name), so
+  their entries stay read-only.
+- **No length prefix.** Not one of the 96 delta/width/endian configurations beats its
+  matched-distribution null (best +0.6% lift over 163,523 units). The scan covers every unit, so a
+  length field covering the event text would have shown about +25%.
+- **No nested strings.** 4,757 inner `FF FF` markers inside units, 0 of them followed by wide-script
+  Japanese (1,050 followed by ASCII only).
+- **No fixed record layout.** Gap `mod 4` is spread over all four remainders and the pitch is `>256`
+  for 114,498 of 163,523 units.
+- **The pointer scan was inconclusive, not negative.** It searched 1,382 of 163,523 u32 offsets
+  before its byte budget ran out on the huge battle files, and 93,113 offsets do not fit in u16.
+- **Companion files:** `_Entry.dat` shares nothing with the BINs (0 of 5,472 runs of 6+ bytes);
+  `_ext.dat` shares a little (12 of 242 runs, 11 distinct payloads of 10–24 bytes).
+- **A structure worth chasing:** 88% of two-byte suffixes are `00 C9`, and the most common six bytes
+  after the text are `0000C9000000` (×8,303). `C9 00 00 00` is 201 little-endian, and the event
+  blocks' ECHK chains are known to end at u32 200 — a coincidence so far, not a finding.
+
+## What changed since (milestone 58)
+
+The pooled numbers above mix the script with 523 MB of battle data: 118,198 of the 163,523 measured
+units came from the 42 recovered `bacb*`/`bseq*` exports, none of which is prose. The probe now
+measures every export on its own and splits them into a `text` and a `binary` cohort (32 prose
+exports / 45,252 units versus 82 binary exports / 118,271 units on the real manifests), samples
+pointer offsets evenly instead of taking the first N, limits the expensive unaligned search to u32
+with explicit coverage counters, measures u16 with the complete aligned scan, and reports every
+truncation. `REPORT.txt` gains a `by cohort` section; `boundary_probe.json` gains `cohorts`,
+`per_export`, and `text_share`.
 
 ## Immediate next step (what the user does next)
 
 1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/c656a5df-mtgcrawler.zip
-2. Unpack it anywhere (for example the Desktop).
-3. Open the unpacked folder, then `srw-oe-translation`, and double-click `RUN_PIPELINE.bat`.
-4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output
-   folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are
-   saved; it only asks again if they move.
-5. Wait about 5–8 minutes. The run is longer than before: the disc's members are extracted, chapter 4
-   joins, the colliding-name entries are read from the tables, and the boundary probe measures every
-   unit. Keep the console window open.
-6. In `D:\SRW_OE_out`, open the new run folder (named with the date, for example `20261010-XXXXXX`).
-7. Open `REPORT.txt`, copy the whole content, and paste it back to the agent. The
-   `Boundary evidence` section is the part that decides the next milestone.
-8. If more detail is needed, send `diagnostics_<run id>.zip` from the same folder (report, registry,
-   CSVs, converter logs, boundary counts — no game files).
-9. Keep **this** run folder for now (later measurements reuse it through `RUN_PROBE.bat`); older run
-   folders can be deleted (each is about 0.8 GB, plus the shared `_cache`).
+2. Unpack it anywhere (for example the Desktop), open `srw-oe-translation`, and double-click
+   **`RUN_PROBE.bat`** — not `RUN_PIPELINE.bat`.
+3. It finds the newest run folder in the configured output folder (`D:\SRW_OE_out`) by itself. To
+   point it at a specific one: `RUN_PROBE.bat "D:\SRW_OE_out\20261010-142640"`.
+4. Wait about a minute. It is read-only, calls no converter, extracts nothing, and replaces only
+   `boundary_probe.json` in that run folder. Keep the console window open.
+5. Copy the whole console output and paste it back to the agent. The `by cohort` section is the part
+   that decides the next milestone. If more detail is needed, send the new `boundary_probe.json` from
+   the same folder.
 
-Chapter 4 is already decrypted on the user's side, so this run should cover **all 8 chapters** for
-the first time — chapter 4's unit count in `units per source file` is the check. If the `*04`
-packages still appear under `Unrecognized inputs`, their head-byte groups in the report say what
-they actually are.
+No new extraction is needed, so nothing about the game files is touched. If the run folder has been
+deleted, `RUN_PIPELINE.bat` reproduces it in 5–8 minutes.
 
-What the agent does with the report:
+What the agent does with the output:
 
-- **If the boundary probe is positive** (a length field or a pointer table clearly above its
-  control, or a fixed record pitch), the units are treated as validated strings: the next milestone
-  pins down that exact layout and the translation phase starts in earnest.
-- **If it is negative**, the units stay candidates and the next source of evidence is external
-  (another resource/version, or the game's own records) — not translation.
-- Either way, the same report shows whether the CPK table check now agrees on the four blob-layout
-  packages, how many colliding-name entries were recovered, and whether chapter 1's packages joined
-  the run.
+- **If the `text` cohort shows a length field or an aligned pointer table clearly above its
+  control**, the units are treated as validated strings: the next milestone pins down that exact
+  layout and the translation phase starts in earnest.
+- **If it stays negative**, the units stay candidates and the next evidence has to come from outside
+  the files (another resource/version, or the game's own records) — not from translation.
+- Either way, the same output says how much of the pointer search actually covered the event files,
+  which is what made the last run's pointer result unreadable.
 
 ## The endgame, mapped to SRW Z's workflow
 
@@ -75,14 +74,14 @@ The user's stated end goal (2026-10-09): **the whole game translated to English 
 
 | SRW Z (`retro-trans/SRW-Z`) | This project | State |
 | --- | --- | --- |
-| `extract_script.py` — every string to editable JSON | extraction + text-unit export (`tools/extract_event_text.py`, the one-click run) | done (units heuristic; boundary probe built, not yet run on real data) |
+| `extract_script.py` — every string to editable JSON | extraction + text-unit export (`tools/extract_event_text.py`, the one-click run) | done for all 8 chapters (45,325 units; boundaries still heuristic, three hypotheses ruled out) |
 | translate the `text` fields | translation phase (English; style guide + terminology glossary), workspace `translation/units.csv` + `tools/translation_tools.py check` | workspace done, no rows translated |
 | `apply_script.py` — write back, exact round-trip | reinsertion + CPK container rebuild | not built |
 | gates before every build (`verify_pointers.py`, `verify_elf_patches.py`, `integrity.py`) | listing check + CPK table check | in place |
 | verify against the image (not a tool's report) | PPSSPP / in-game QA | not done |
 | `.xdelta` patch packaging + releases | xdelta patch builder (ISO + DLC files) | not started |
 
-Honest open items before the translation phase can start: full coverage (chapter 4 needs the user's decryption; chapter 1 joins via the ISO extraction), and validation of the heuristic text boundaries (39,103+ units are candidates, not confirmed strings). The 1,111 hidden duplicate-name entries are now recovered for **reading**; rebuilding those containers completely is still open, because the converter writes one file per name.
+Honest open items before the translation phase can start: validation of the heuristic text boundaries (45,325 units are candidates, not confirmed strings — a length prefix, nested strings, and a fixed record pitch are ruled out, the pointer question is open). Coverage is no longer one: chapter 1 comes from the ISO and chapter 4's decrypted packages extract. The colliding-name entries are recovered for **reading**; rebuilding those containers completely is still open, because the converter writes one file per name.
 
 Keep repack, write-back, insertion, and ISO rebuilding blocked until extraction and exact round-trip tests pass and boundaries are independently validated.
 

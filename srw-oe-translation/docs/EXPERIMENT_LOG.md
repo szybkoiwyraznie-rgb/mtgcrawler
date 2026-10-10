@@ -877,13 +877,55 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** any of it on real event data; whether chapter 4's decrypted `*04` packages are readable CPK containers; any repack, insertion, translation, or in-game result.
 
+## 2026-10-10 — full run `20261010-142640` on the user's PC: first real boundary evidence
+
+**Inputs:** the user's `D:\SRWOE` (ISO `SRW OE 1.08.iso` + `NPJH50521` DLC, chapter 4 decrypted per the user), `D:\SRW_OE_out`, `D:\YACpkTool\YACpkTool.exe` (SHA-256 `8871f1ef…49baf962`); branch `arena/c656a5df-mtgcrawler` at `d8ed1f7`. Reported back as `diagnostics_20261010-142640.zip` (1,890,076 bytes, commit `f728517`), extracted to ignored `local/run-20261010-142640/`. `BUNDLE_INDEX.txt` carries the SHA-256 of every file (`REPORT.txt` `bea96f87…`, `registry.json` `4dbbad95…`, `boundary_probe.json` `0c8a08b5…`).
+
+**Action:** `RUN_PIPELINE.bat`, all stages, `completed_with_failures`.
+
+**Result — extraction:** 341 inputs all readable and unchanged; 308 CPK signatures (306 unique); 497 packages, 453 extracted, 44 failed; 12,203 member files; 107 duplicates skipped; listing check verified 453, incomplete 42, unverified 2; layouts 311 full / 129 no-ID / 57 no-filename. ISO gave 63 members, 307,513,504 bytes, so **chapter 1's event data is extracted from the disc**. All 44 failures are known and explained: 42 are the colliding-name packages (the converter writes one file per name, so the folder cannot hold every entry — those are recovered separately) and 2 are `robo01`/`robo03`, where one listed name each does not decode from the converter's console output.
+
+**Result — CPK table check: agree 495, mismatch 2, unreadable 0.** The previous run had 6 mismatches; matching blob-layout rows by ID instead of by index removed the 4 blob-layout cases, leaving only the two console-mangled names.
+
+**Result — colliding-name recovery:** complete for all 42 packages (`bacb01` 541/541 entries, 132,272,768 bytes; `bacb02` 336/336; `bacb00` 394/394; …), `listing sizes match: True` everywhere, 0 compressed entries, so no CRILAYLA stream was needed for them.
+
+**Result — text:** 91 packages with verified BINs, 0 failed, **45,325 units** (previous run 39,103). `eventP00` (1,582 units) is the chapter-1 ISO package and `eventP04`/`evept104` (3,520 / 3,562) are chapter 4, so **the decrypted `*04` packages are readable CPK containers** and all 8 chapters are covered.
+
+**Result — boundary probe (schema/2), first measurements on real data:** 163,523 units in 2,617 files across 114 exports; integrity clean (offset problems 0, marker mismatches 0, prefix mismatches 0, missing files 0). Text bytes 529,473,170 over 3,240 files: gap 434,847,300 (82.1%), unselected marker spans 43,725,712 (8.3%), text units 50,900,138 (9.6%), unterminated tail 20 bytes in 1 export.
+
+- **Length prefix: negative.** No 1/2/4-byte field in the 16 bytes before the marker beats the matched-distribution null; the best of 96 configurations is +0.6% lift (u8 at marker-6: 5,877/163,522 = 3.59% vs 3.03% expected). The scan covers every unit, so this also rules a length field out for the event files: a field covering the 45,325 prose units would have shown about +25% pooled.
+- **Nesting: negative.** 3,493 units contain another `FF FF` inside their own text (4,757 inner markers) and **0** of those inner markers are followed by wide-script Japanese (1,050 are followed by ASCII only), so the inner markers are data, not nested strings.
+- **Pointer table: inconclusive as measured.** Only 1,382 of 163,523 u32 offsets (and 160 for u16) were searched, because the budget ran out on the huge battle files (`files_truncated_by_budget: 2,653`, 68 bytes of 2 GiB left). 93,113 offsets do not fit in u16 at all.
+- **Companion `.dat` files:** 242 `_ext.dat` runs of at least 6 bytes were searched verbatim in the same package's BINs and 12 were found (69 occurrences, 11 distinct payloads, 10–24 bytes); 5,472 `_Entry.dat` runs found 0. So `_Entry.dat` is not a copy of BIN text, and `_ext.dat` overlaps it only slightly.
+- **Suffix structure:** of 7,591 two-byte suffixes, `+0` is always `00` and `+1` is `C9` in 88% of cases; the 6 bytes after the text are most often `0000C9000000` (×8,303), `00000000C900` (×8,155), `000000C90000` (×7,047). Three-byte suffixes are `00`, then 71 values (top `2D` 31%), then `01` in 77%.
+- Gaps (median 31, `mod 4` spread over all four remainders) and pitch (`>256` ×114,498) show no fixed record layout.
+
+**What the run exposed — two defects in the probe, both fixed:**
+
+1. **Pooling hides the script.** 118,198 of the 163,523 units and 523,336,306 of the 529,473,170 bytes come from the 42 recovered battle-data exports (`bacb*`/`bseq*`). Not one of them is prose: every one has at least 30% of its units flagged `halfwidth_katakana_only_match` or `invalid_cp932_token`, while the 32 exports that are prose are exactly the event files (`eventP00`–`eventP32`, `evept101`–`evept108`). Every pooled statistic above is therefore a mixture of script and binary data.
+2. **The pointer scan was starved, and the truncation counter under-reported.** Taking the first N values per file let the first huge file consume the whole budget; the rewrite also dropped the `truncated` flag for the sampled case, so an unsearched offset could have read as a negative result.
+
+**Change (probe schema `srw-oe-boundary-probe/3`):**
+
+- Every export is measured on its own and merged into the pooled evidence, its cohort, and a per-export row. Cohorts are decided from each export's own manifest before any BIN is read: an export is `text` when at least half its units are not flagged half-width-katakana-only or invalid CP932. The JSON now has `cohorts.text`, `cohorts.binary`, `per_export`, `text_share`, and `units_wide_script`; `REPORT.txt` prints a `by cohort` section and the ten largest exports with their own prose share and best length field.
+- The text exports are measured first, because the bounded scans spend one shared budget (`Budgets`) and spending it on 523 MB of battle data left nothing for the script.
+- The unaligned pointer search samples offsets evenly (`_sample`) instead of taking the first N, is limited to u32 (u16 offsets mostly do not fit their own file, and chance 2-byte matches swamp the rest), and counts `offsets_available_unaligned`, `offsets_searched_unaligned`, `offsets_too_large_for_width`. u16 is measured by the aligned scan, which is one pass per width and endian and covers every byte of every file it reaches.
+- Budgets: 256 MiB per file and 8 GiB total unaligned, 32 MiB per file and 2 GiB total aligned (were 256 MiB/2 GiB and 8 MiB/256 MiB). `files_truncated_by_budget` is set again for the sampled case, and the aligned scan reports files scanned and skipped.
+- `totals.files` is keyed by (export, file name): the same relative name recurs across packages, so the old key undercounted (2,617 counted against 3,240 in the manifests).
+
+**Measured here (synthetic, shaped like the real run):** 82,080 units in 840 files over 98 MB probe in 28.3 s. The text cohort searches 46,080/46,080 offsets unaligned and scans 720/720 files aligned; the binary cohort gets 300/36,000 offsets (budget exhausted, reported as truncated) with 32,640 offsets too large for u16. The cohort classifier run over the **real** 114 manifests from the bundle gives 32 exports / 45,252 units as `text` and 82 exports / 118,271 units as `binary`; the 73 units below the threshold are the small `imenu*` menu exports, `colorlst`, and the hidden `robo01`/`robo03`.
+
+**Tests:** 29 probe tests (new: cohort split with its own manifest coverage, per-export ranking, cohort report lines, even sampling, truncation honesty, and a command-line test that runs `main()` over a run folder and checks the printed cohort section and the written JSON; `test_u16_offsets_are_found_by_the_aligned_scan` replaces the unaligned u16 assertion). Full suite 220 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Not demonstrated:** the cohort-split probe on real data — that needs `RUN_PROBE.bat` on the same run folder, which the user still has; any repack, write-back, reinsertion, or in-game result; what the `C9` byte after the stop means.
+
 ## Pending
 
-- Run the one-click tool on the user's PC with this branch: the run now also recovers colliding-name entries (`hidden/`), decodes their CRILAYLA streams, writes `layout_probe.zip`, `translation/units.csv`, `boundary_probe.json`, and the diagnostic ZIP, and prints the `CPK table check` and `Boundary evidence` sections. Share `REPORT.txt` (and the diagnostic ZIP if asked). Chapter 4 is decrypted per the user, so this run should cover all 8 chapters.
-- Later measurements do not need another full run: `RUN_PROBE.bat` re-runs the boundary probe against the newest run folder in seconds. Keep that run folder until the boundary question is settled.
+- **Run `RUN_PROBE.bat` on the user's PC against the existing `20261010-142640` run folder** (no converter call, about a minute). It re-measures the same data with probe schema/3 and answers what the pooled numbers could not: the length-prefix verdict, the pointer scan with real coverage, and the suffix/post-text structure for the 32 event exports on their own.
+- Then read the `by cohort` section: the `text` cohort is the script, the `binary` cohort is archive data. Only the `text` cohort's numbers bear on write-back.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
-- Chapter 4 is decrypted on the user's side (their report); the next run shows whether the `*04` packages are readable CPK containers or still land in `Unrecognized inputs`.
-- Then decide whether to promote the table check to fail-closed (the last run had 6 mismatches: `robo01`/`robo03` mangled names plus 4 blob-layout packages that the ID matching should fix).
+- Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).
+- Decide whether to promote the table check to fail-closed: run `20261010-142640` agreed on 495 of 497 packages, and both remaining mismatches are the `robo01`/`robo03` console-name decoding, not the table.
 - Keep the recovered colliding-name entries read-only. Repacking a container that the converter cannot write completely is not attempted; that needs a CPK writer or a converter that extracts by ID.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.

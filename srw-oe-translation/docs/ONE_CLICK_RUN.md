@@ -70,7 +70,17 @@ a run folder as an argument to choose one. It reads `registry.json`, the extract
 the text exports, rewrites `boundary_probe.json`, and prints the same lines the report carries. It
 makes no converter call and writes nothing outside that one JSON file, so it is safe to run as
 often as needed — a full `RUN_PIPELINE.bat` run is only needed when the game files, the converter,
-or the extraction/text stages change.
+or the extraction/text stages change. On a full run folder it takes about a minute rather than
+seconds, because the pointer scan now covers the event files instead of stopping at the first few.
+
+The output is split by cohort. An export is `text` when at least half of its units are not flagged
+half-width-katakana-only or invalid CP932 (on run `20261010-142640` that is the 32 event exports,
+45,252 units); everything else is `binary`, which is archive data that merely contains `FF FF` runs
+(the 82 recovered battle-data exports, 118,271 units). **Read the `text` cohort**: the pooled lines
+above it mix the script with 523 MB of battle data. `per_export` in the JSON ranks every export with
+its own prose share and best length field, and `pointer_references.coverage` says how much of the
+search actually reached the event files — a truncated search is reported as truncated, never as a
+negative result.
 
 ## Statuses and exit codes
 
