@@ -1,6 +1,6 @@
 # One-click local run (first slice)
 
-**Status:** implemented and tested with synthetic data and a fake converter. Its first real run on the user's Windows PC completed on 2026-10-09 (status `completed`); the results and limits are in `EXPERIMENT_LOG.md`. Each package is now checked against its `-L` listing (one listing sample so far). Still open: packages whose entries share a name, the 47 non-CPK `.EDAT` files, and the ISO. Record the results of each further run in `EXPERIMENT_LOG.md`.
+**Status:** implemented and tested with synthetic data and a fake converter, and run repeatedly on the user's Windows PC (2026-10-09 and 2026-10-10; every run's results and limits are in `EXPERIMENT_LOG.md`). Each package is checked against its `-L` listing, and its CPK tables are cross-checked read-only. Entries whose names collide are recovered read-only from the tables. Still open: the 47 non-CPK `.EDAT` files (20 encrypted PSP EDAT, 27 AFS2 audio), repacking into the game, and text insertion. Record the results of each further run in `EXPERIMENT_LOG.md`.
 
 ## What it does
 
@@ -10,15 +10,16 @@ Double-click `RUN_PIPELINE.bat` in the `srw-oe-translation` folder. After a one-
 2. **Inventory.** Hashes every input file (SHA-256) and classifies it by content signature, never by extension. `CPK ` signatures are CPK containers even when named `.EDAT`.
 3. **Preflight.** Checks the converter's SHA-256 (and an optional pinned hash), the output path, free disk space (about 4x the unique CPK size plus 512 MiB; the extra copy is the verified cache), and that output and input folders do not overlap.
 4. **Probe.** Tries the converter on the smallest CPK. The original file name is tried first. A `.cpk` copy is made only inside the disposable staging folder, and only if the original name is rejected. Captured output and console output are both tried.
-5. **Extract.** Unpacks every unique CPK into a fresh run folder. Duplicate content is extracted once. CPKs nested inside a package are extracted up to two levels deep. Each package is then compared with its `-L` listing (see Known limitations).
-6. **Text.** Exports and verifies the event text for every `.bin` file in each extracted package (the same extractor as `tools/extract_event_text.py`). The text is a heuristic candidate list, verified only for round trips.
+5. **Extract.** Unpacks every unique CPK into a fresh run folder. Duplicate content is extracted once. CPKs nested inside a package are extracted up to two levels deep. Each package is then compared with its `-L` listing (see Known limitations). For a package whose entries share a name, the entries the converter could not write are read straight from the CPK table into `hidden/` (CRILAYLA streams decoded) — read-only recovery, the package still fails the listing check.
+6. **Text.** Exports and verifies the event text for every `.bin` file in each extracted package (the same extractor as `tools/extract_event_text.py`), including the recovered `hidden/` entries. The text is a heuristic candidate list, verified only for round trips.
 7. **Repack gate.** Repacks the smallest extracted package with non-empty members to a temporary CPK, unpacks it again, and checks that every member hash matches. The temporary files are deleted afterwards.
-8. **Report.** Writes `registry.json`, `inputs.csv`, `packages.csv`, and `REPORT.txt` into the run folder.
+8. **Boundary evidence.** Re-checks every exported unit against its file and measures five hypotheses about the unit boundaries, each with a control, as counts only (`tools/boundary_probe.py`). Nothing is written to a game file and no text is decoded.
+9. **Report.** Writes `registry.json`, `inputs.csv`, `packages.csv`, `boundary_probe.json`, `translation/units.csv`, `layout_probe.zip`, `diagnostics_<run id>.zip`, and `REPORT.txt` into the run folder.
 
 ## What it does not do
 
 - It does **not** repack the game, insert or apply any text, or write a patch. Repacking is only a round-trip check of the CPK tool.
-- It does **not** unpack ISO images. The base ISO is inventoried and its volume descriptor is read, but it is reported as *not processed*.
+- It does **not** repack or rebuild an ISO image. The base ISO is inventoried, its volume descriptor is read, and its CPK-signature members are copied out read-only and processed like any package; the image itself is never modified.
 - It does **not** decode or print game text into the report, the registry, or the CSV files. Converter logs and text exports stay in the run folder you chose, which is outside this repository.
 - It does **not** verify anything in the game. Nothing it produces is a playable patch.
 - It never writes into the input folder. The run checks this with a before/after tree snapshot and fails if anything changed.
@@ -32,7 +33,7 @@ Double-click `RUN_PIPELINE.bat` in the `srw-oe-translation` folder. After a one-
 
 ## First run
 
-1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/b2a62e8c-mtgcrawler.zip
+1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/c656a5df-mtgcrawler.zip
 2. Unpack it anywhere (for example the Desktop).
 3. Open the unpacked folder, then `srw-oe-translation`, and double-click `RUN_PIPELINE.bat`.
 4. If it asks for folders, choose: the folder with the game files (the folder that contains the `.EDAT` files and the ISO, for example `D:\SRWOE`), the output folder (for example create `D:\SRW_OE_out` with the dialog's *New folder* button), and the converter (`YACpkTool.exe`, for example `D:\YACpkTool\YACpkTool.exe`).
@@ -49,8 +50,13 @@ The choices are saved to `config/local-workflow.ini`, which is ignored by git. R
   registry.json       full machine-readable record (paths are placeholders, not user folders)
   inputs.csv          every input file: size, SHA-256, content type, pipeline status
   packages.csv        every extracted package: source, status, member counts, text status
+  boundary_probe.json boundary measurements for the text units (counts only, no decoded text)
   packages\           extracted CPK contents, one folder per unique package
-  text\               event text exports (manifest.json, units.jsonl, segments.jsonl)
+  hidden\             entries whose names collide, read from the CPK table (duplicate-name packages only)
+  text\               event text exports (manifest.json, units.jsonl, segments.jsonl), including <package>-hidden\
+  translation\        units.csv (one row per text unit, source view plus byte budget) and template_report.txt
+  layout_probe.zip    header and table bytes of the duplicate-name packages (identification only)
+  diagnostics_<run>.zip  report, registry, CSVs, boundary counts, converter logs, text manifests
   logs\converter\     every converter call (list, extract, pack, unpack check, probe): exit code and captured output, or a console note
 ```
 
@@ -75,6 +81,8 @@ Setup errors (for example, no folder chosen with `--no-gui`) exit with code 2.
 - **Console output may be needed.** YACpkTool's progress display may fail when its output is redirected (observed on the user's build). The pipeline detects this in the probe and then runs that converter call with the console inherited. In that mode its error text cannot be captured, so success is judged from the output folder and the exit code only. The report says so in its `Warnings` and `Extraction` sections.
 - **Extraction completeness is checked against the listing, per its own column layout.** After each extraction the run compares the package's `-L` entries with the files on disk. The listing's column header decides the layout: in the third real run, of 377 listings, 246 printed `No.  ID  Filesize  Compressed  %  Contents Filename`, 89 printed no `ID` column, and 42 printed no `Contents Filename` column. With a filename column, a package passes only when every entry has exactly one file of the same name **and size** and no file is left over. Without one, the converter writes one ID-named file per entry (observed: `ID00000` for ID 0), so the package is verified by entry count and the multiset of file sizes instead. If entries share a name, the package fails as `incomplete` and its output folder is removed, because one flat folder cannot hold them all. If the listing cannot be read, does not add up, or has names that do not decode, the package fails as `unverified`. Rows are read with a strict two-space split plus a single-space fallback for narrow columns; anything still unreadable fails the package, and `REPORT.txt` shows the raw example rows, header lines, name mismatches, and file-name examples in its `Listing check diagnostics` section, so a layout change can be diagnosed from the report alone. The run still checks the converter's exit code, its `Error:` lines (captured mode only), and the repack round trip of one package.
 - **Repeated entry names.** In the third real run, 38 of 377 packages failed this way (all `bacb*`/`bseq*`): 1,111 entries beyond the first per name (206,898,244 bytes, 197.3 MiB) have no file, and the converter keeps one file per name. Entries with a repeated name are not extracted by this run. Whether their content differs, and whether the game uses their IDs, is unknown. Recovering them needs a read-only CPK table reader (the container's TOC carries each entry's name, ID, size, and offset); `tools/cpk_table.py` now exists and the run cross-checks every package's TOC against its listing (report-only, see the next bullet).
+- **Recovered colliding-name entries are read-only.** The entries in `hidden/` are read from the container's own table (offset and size per entry), never through the converter, and CRILAYLA streams are decoded with `tools/crilayla.py` and checked against the table's `ExtractSize`. Their package still fails the listing check, and no container is repacked from them: rebuilding a package the converter cannot write completely needs a CPK writer, which does not exist here.
+- **Boundary evidence is measurement, not validation.** The `Boundary evidence` section reports counts for five hypotheses (a length field before the marker, pointer references to unit starts, byte context, suffix structure, gaps/pitch, payload repetition), each with a control: the length scan against a matched-distribution null, the pointer scan against `start + 1` in the same bytes. Both scans are byte-budgeted (256 MiB unaligned, 64 MiB aligned per endianness) and say how much was searched. A positive line is evidence to follow up, not proof that a unit is a string; the units stay heuristic until a layout is confirmed.
 - **CPK table cross-check (report-only).** Every package's TOC tables are read with `tools/cpk_table.py` and compared with its `-L` listing. The report adds a `CPK table check (TOC vs listing, report-only): agree N, mismatch N, unreadable N, no listing N` line, a mismatches section, and `packages.csv` gains `table_status`/`table_duplicate_entries`. A table mismatch never fails a package in this version — the listing check remains the authoritative completeness gate. After a run shows agreement on all packages, the table check can be promoted to fail-closed.
 - **`.EDAT` names.** Whether the converter accepts an original `.EDAT` name is decided by the probe. If it rejects the name, the `.cpk` staging copy is used. The original file is never renamed.
 - **Nested depth and size.** Two nesting levels are processed. Each converter call has a 30-minute timeout.
@@ -104,7 +112,7 @@ The optional `expected_tool_sha256 = <64 hex digits>` key in the INI file pins t
 
 Every run also writes `diagnostics_<run id>.zip` into its run folder: `REPORT.txt`, `registry.json`, `inputs.csv`, `packages.csv`, the converter call logs (`logs/`, including the `-L` listings), and the text export manifests. It leaves out the game files (`packages/`, `iso/`, `staging/`, `gates/`, `_cache/`) and lists every included file with its size and SHA-256 in `BUNDLE_INDEX.txt`. For a run folder made before this existed, run `python tools/diagnostic_bundle.py "<run folder>"`.
 
-Share `REPORT.txt` first. It contains file names, sizes, byte prefixes, and hashes of the game resources, which is the information needed to diagnose the run, including the `Listing check diagnostics` and `Unrecognized inputs` sections. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths. If more detail is needed, `registry.json` is the next file to share. It holds names, sizes, hashes, probe attempts, ISO descriptor sizes and member indexes, unknown-input first bytes, and per-package listing results, not decoded text.
+Share `REPORT.txt` first. It contains file names, sizes, byte prefixes, and hashes of the game resources, which is the information needed to diagnose the run, including the `Listing check diagnostics`, `Boundary evidence`, and `Unrecognized inputs` sections. Do not share the text exports or converter logs unless you are sure the content is acceptable to share. Do not share the INI file, which contains your local paths. If more detail is needed, `registry.json` is the next file to share. It holds names, sizes, hashes, probe attempts, ISO descriptor sizes and member indexes, unknown-input first bytes, and per-package listing results, not decoded text.
 
 ## Verified cache
 

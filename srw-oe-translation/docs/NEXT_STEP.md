@@ -1,28 +1,63 @@
-# Next step: validate text boundaries and event records
+# Next step: measure whether the text units are real strings
 
-The previously user-uploaded `eventP01.zip` is recoverable from its historical upload commit and was restored to ignored `srw-oe-translation/local/` for this turn's static audit. This is the previously shared event sample, not the user's actual ISO/DLC; no ISO or DLC source was read or processed. No further manual PowerShell output is needed from the user. The archive and all decoded JSONL exports remain ignored local data; only tools and findings are committed.
+Everything the pipeline can do without the game's own records is now built: extraction with a
+per-package listing check, a read-only CPK table cross-check, recovery of the colliding-name
+entries, read-only ISO member extraction, the event-text export, and a translator workspace. The
+one question that decides what happens next is the oldest one — **are the 39,103 `FF FF ... 00 00`
+units real strings?** Milestone 54 makes that measurable instead of debatable: the run now prints a
+`Boundary evidence` section with counts and controls, and nothing else is blocked on it.
 
-## Current state (milestone 35)
+## Current state (milestone 54)
 
-Milestone 35 adds the first one-click local run: `RUN_PIPELINE.bat` and `tools/run_pipeline.py`, documented in [`ONE_CLICK_RUN.md`](ONE_CLICK_RUN.md). It performs setup, inventory, preflight checks, a converter probe, CPK extraction (nested up to depth 2), event-text export and verification, a CPK round-trip repack gate, and reporting. Its tests use synthetic data and a fake converter only (`tests/test_run_pipeline.py`, 49 tests; full suite 142 OK). It has run twice on the user's Windows PC (2026-10-09). The first run (status `completed`; 424 packages reported extracted, 0 failed, in console-output mode) was over-optimistic: the uploaded listing of one package showed 541 entries but 260 names. Each package is now compared with its listing (`STATUS.md` items 37, 42, and 44). The second run (status `completed_with_failures`) verified 189 of 346 packages; the other 157 failed for reasons that the second run's logs now explain exactly (42 listings without a filename column, 59 without an ID column, 16 with a `,00` percent, 2 with a grouped `Content files` count, 2 with a mangled name, 38 with duplicate entry names hiding 1,111 entries / 197.3 MiB); the text-unit total stayed at 39,103. The parser now reads each listing's own column header, checks file sizes as well as names, and verifies ID-named packages by entry count and size multiset; all 346 real listings parse and all 189 extracted packages verify against them. The run's limits are recorded in `EXPERIMENT_LOG.md`. Repacking to the game, text insertion, and ISO unpacking are **not** automated.
-
-`tools/extract_event_text.py` is the read-only deterministic extractor that the earlier list asked for. It keeps the candidate scanner's walk (checked against that scanner at run time), partitions every BIN exactly into segments, exports the 3,277 Japanese-script candidates as text units with the same `file@HEX` IDs, and shows each prefix in a lossless CP932 placeholder view. Tokens are `{XX}`/`{XXXX}`; a literal brace is `{7B}`. Its checks cover coverage and both no-change rebuilds, from the exported files. It does not validate boundaries, decode fields, or reinsert text, and its exports stay under ignored `local/`.
+- **Stage 8/9 of the run measures the units** (`tools/boundary_probe.py`, read-only, counts only):
+  a length-prefix scan over all 96 delta/width/endian configurations, a pointer scan for unit
+  starts as u32 values, the byte context before the marker and after the text, the suffix length
+  and per-byte-position profile, gaps/alignment/pitch, and payload repetition. Each hypothesis
+  carries a control — a matched-distribution null for the length scan, `start + 1` for the pointer
+  scan — and both scans report how much of their byte budget they used. Output:
+  `boundary_probe.json`, `registry.json` (`boundary_probe`), and the report section. A probe
+  failure never changes the run status.
+- **The colliding-name entries are recovered read-only** into `hidden/<package>/`, CRILAYLA streams
+  decoded, their text exported to `text/<package>-hidden/`. Their packages still fail the listing
+  check; recovery is for reading, not for repacking.
+- **Translators have a workspace**: `translation/units.csv` is written at the end of every run, and
+  `tools/translation_tools.py check` validates filled-in rows against the source's control tokens,
+  line breaks, CP932 encodability, and byte budget.
+- None of the three has produced output on real data yet. The last real run is
+  `20261010-094219` (table check: agree 491, mismatch 6, unreadable 0; text 39,103 units).
+- Repacking into the game, text insertion, and ISO rebuilding are **not** automated.
 
 ## Immediate next step (what the user does next)
 
-The run now includes read-only ISO member extraction (chapter 1 and the disc's base/system packages join the DLC packages). Concrete steps:
-
-1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/b2a62e8c-mtgcrawler.zip
+1. Download the branch ZIP: https://github.com/szybkoiwyraznie-rgb/mtgcrawler/archive/refs/heads/arena/c656a5df-mtgcrawler.zip
 2. Unpack it anywhere (for example the Desktop).
 3. Open the unpacked folder, then `srw-oe-translation`, and double-click `RUN_PIPELINE.bat`.
-4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are saved; it only asks again if they move.
-5. Wait about 4–6 minutes (the run is longer now: the disc's members are extracted and processed too). Keep the console window open.
-6. In `D:\SRW_OE_out`, find the new run folder (named with the date, for example `20261009-XXXXXX`).
-7. Open `REPORT.txt` inside it, copy the whole content, and paste it back to the agent.
-8. Optional: to give the agent more detail, zip `registry.json` from the same run folder and upload it.
-9. The old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB).
+4. If it asks for folders, choose the same ones as before: the game folder (`D:\SRWOE`), the output
+   folder (`D:\SRW_OE_out`), and the converter (`D:\YACpkTool\YACpkTool.exe`). The choices are
+   saved; it only asks again if they move.
+5. Wait about 5–7 minutes. The run is a little longer than before: the disc's members are extracted,
+   the colliding-name entries are read from the tables, and the boundary probe measures every unit.
+   Keep the console window open.
+6. In `D:\SRW_OE_out`, open the new run folder (named with the date, for example `20261010-XXXXXX`).
+7. Open `REPORT.txt`, copy the whole content, and paste it back to the agent. The
+   `Boundary evidence` section is the part that decides the next milestone.
+8. If more detail is needed, send `diagnostics_<run id>.zip` from the same folder (report, registry,
+   CSVs, converter logs, boundary counts — no game files).
+9. Old run folders in `D:\SRW_OE_out` can be deleted (each is about 0.8 GB, plus the `_cache`).
 
-What the agent does with it: the report's `CPK table check` line validates the table reader on all real packages (DLC plus disc), and the ISO line shows the extracted disc members (chapter 1 in scope). Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools — the next run then covers all 8 chapters.
+Separately, the user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content)
+outside these tools; the run after that covers all 8 chapters.
+
+What the agent does with the report:
+
+- **If the boundary probe is positive** (a length field or a pointer table clearly above its
+  control, or a fixed record pitch), the units are treated as validated strings: the next milestone
+  pins down that exact layout and the translation phase starts in earnest.
+- **If it is negative**, the units stay candidates and the next source of evidence is external
+  (another resource/version, or the game's own records) — not translation.
+- Either way, the same report shows whether the CPK table check now agrees on the four blob-layout
+  packages, how many colliding-name entries were recovered, and whether chapter 1's packages joined
+  the run.
 
 ## The endgame, mapped to SRW Z's workflow
 
@@ -30,14 +65,14 @@ The user's stated end goal (2026-10-09): **the whole game translated to English 
 
 | SRW Z (`retro-trans/SRW-Z`) | This project | State |
 | --- | --- | --- |
-| `extract_script.py` — every string to editable JSON | extraction + text-unit export (`tools/extract_event_text.py`, the one-click run) | done (units heuristic) |
-| translate the `text` fields | translation phase (English; style guide + terminology glossary) | not started |
+| `extract_script.py` — every string to editable JSON | extraction + text-unit export (`tools/extract_event_text.py`, the one-click run) | done (units heuristic; boundary probe built, not yet run on real data) |
+| translate the `text` fields | translation phase (English; style guide + terminology glossary), workspace `translation/units.csv` + `tools/translation_tools.py check` | workspace done, no rows translated |
 | `apply_script.py` — write back, exact round-trip | reinsertion + CPK container rebuild | not built |
 | gates before every build (`verify_pointers.py`, `verify_elf_patches.py`, `integrity.py`) | listing check + CPK table check | in place |
 | verify against the image (not a tool's report) | PPSSPP / in-game QA | not done |
 | `.xdelta` patch packaging + releases | xdelta patch builder (ISO + DLC files) | not started |
 
-Honest open items before the translation phase can start: full coverage (chapter 4 needs the user's decryption; chapter 1 joins via the ISO extraction on the next run), recovery of the 1,111 hidden duplicate-name entries (the patch must rebuild those containers completely), and validation of the heuristic text boundaries (39,103+ units are candidates, not confirmed strings).
+Honest open items before the translation phase can start: full coverage (chapter 4 needs the user's decryption; chapter 1 joins via the ISO extraction), and validation of the heuristic text boundaries (39,103+ units are candidates, not confirmed strings). The 1,111 hidden duplicate-name entries are now recovered for **reading**; rebuilding those containers completely is still open, because the converter writes one file per name.
 
 Keep repack, write-back, insertion, and ISO rebuilding blocked until extraction and exact round-trip tests pass and boundaries are independently validated.
 

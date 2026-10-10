@@ -816,15 +816,56 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the four cases now agree in a real run (needs the next PC run); `robo01` and `robo03` remain mismatched because of mangled names, as before.
 
+## 2026-10-10 — recorded late: what the 08:35–11:09 commits added (no new data)
+
+**Input:** none. This entry documents code already on the branch (commits `2d34683`..`83a676b`, merged into `main` with PR #9) that this log had not described. No game file was opened in the sandbox; every item runs on the user's PC.
+
+**Verified by reading the code (not by a real run):**
+- `2d34683` the free-space estimate counts the verified cache copy (`FREE_SPACE_FACTOR = 4`, plus 512 MiB), and `ONE_CLICK_RUN.md` documents the cache and how to reclaim it.
+- `e77e80a` `tools/diagnostic_bundle.py` writes `diagnostics_<run id>.zip` after every run: the report, registry, both CSVs, the converter logs, and the text export manifests, with a size and SHA-256 index. Game files (`packages/`, `iso/`, `staging/`, `gates/`, `_cache/`) are excluded.
+- `453cc0a` `Run._extract_hidden_entries` reads the entries whose names collide straight from the CPK table into `hidden/<package>/<TOC index>_<name>`, so a collided name no longer hides an entry. The package status is unchanged (still `incomplete`); this is recovery for reading, not for repacking.
+- `61f6771`, `56c3c50`, `f9b3b91` `tools/layout_probe.py` collects the header and table bytes of the colliding-name packages (and of the ISO members in `iso/`) into `layout_probe.zip`, which the run writes automatically and the diagnostic ZIP includes.
+- `98ca717` the verified cache hard-links files where the filesystem allows it and the run logs cache and text timings per package.
+- `0f84d83`, `f73a741`, `f5c4c27` compressed colliding-name entries record their first 16 bytes, and CRILAYLA streams are decoded with `tools/crilayla.py` (size checked against the table's `ExtractSize`); the run reports decoded/failed counts, unused stream bytes, and the longest text-like run per entry.
+- `364d605` the text-like byte predicate covers CP932 lead/trail bytes and half-width katakana, so it no longer undercounts Japanese.
+- `0938b21` the hidden-entry step also runs for packages whose listing has one undecodable name (`robo01`, `robo03`), because their tables carry the exact name bytes.
+- `ec7d494`, `0347542`, `ee9c859`, `83a676b` `tools/translation_tools.py` writes `translation/units.csv` at the end of every run (one row per text unit, including `text/<package>-hidden/`, source in the lossless view, plus `budget_bytes`) and checks a filled-in CSV for changed control tokens, changed line breaks, non-CP932 text, and over-budget text. `template_report.txt` counts units, tokens, zero-budget rows, and source views that do not round-trip.
+
+**Not demonstrated:** any of this on a real run (the next run is the first to produce `hidden/`, `layout_probe.zip`, the CRILAYLA counts, and `translation/units.csv` for the real data); no repack, insertion, or in-game result.
+
+## 2026-10-10 — boundary evidence probe (read-only counts, no game data in the sandbox)
+
+**Motivation:** every blocker downstream of extraction (translation, insertion, patching) waits on the same open question — are the 39,103 `FF FF ... 00 00` units real strings? The heuristic cannot answer that from inside the sandbox, so this milestone makes the question measurable on the user's PC instead of arguing about it.
+
+**Change:** `tools/boundary_probe.py` (new, read-only) plus stage 8/9 of the one-click run. It re-checks each unit's recorded offsets and prefix bytes against the extracted file, then measures:
+- a length-prefix scan: a 1/2/4-byte integer in the 16 bytes before each marker that equals the text, span, or envelope length, for all 96 delta/width/endian configurations;
+- a pointer scan: how often each unit's start offset occurs as a little-/big-endian u32 in its own file (unaligned and 4-aligned);
+- byte context: the most common 6-byte patterns before the marker and after the text, the suffix length histogram, and the distinct-value profile per suffix byte position;
+- layout: gaps between consecutive units, their divisibility by 4, start-offset alignment, and the pitch between consecutive starts;
+- repetition: how many distinct payloads occur more than once across the run, and their length range (payloads are digested, never stored).
+
+**Method (the important part):** a hit rate alone is meaningless, because small integers and even offsets are common. The length scan is therefore compared with a **matched-distribution null**: for each configuration, the expected hit count if the field values actually found at those positions were paired at random with the units' lengths (`expected_hits`, `expected_rate`, `lift`, `ratio`). The pointer scan's control is `start + 1`, searched in the same bytes. Both scans are byte-budgeted (256 MiB unaligned, 64 MiB aligned per endianness) and report how much was searched, so a truncated measurement is visible instead of looking like a negative result.
+
+**Checked here (synthetic only):** on a 177,000-byte file with 3,000 units in pseudo-random gaps, the scan found 1,656 chance length hits and the null absorbed all of them (best lift +0.01%); on a fixture with a real u16 length field at `marker-4` the same configuration reports a 100% rate against a much lower expectation; on a fixture with a u32 pointer table the start offsets occur more often than the `start+1` control, and removing the table removes the lift. A 3-byte suffix whose first byte is constant and whose other bytes vary is reported as 1 distinct value at `+0` and more at `+1`/`+2`. The probe output is ASCII-only, contains no decoded text and no long payload hex, and two runs of the same input give byte-identical JSON.
+
+**Wiring:** `run_pipeline.py` runs the probe as stage 8/9, stores it in `registry.json` as `boundary_probe`, writes `boundary_probe.json` into the run folder, prints a count-only `Boundary evidence` section in `REPORT.txt`, and `diagnostic_bundle.py` includes the JSON. A probe failure never changes the run status. The extraction cache digest is unchanged (the probe does not affect extraction), so the user's `_cache` stays valid.
+
+**Also fixed:** the colliding-name report line said "compressed (not decoded)", which stopped being true when CRILAYLA decoding landed. It now reports uncompressed writes, CRILAYLA decoded/failed, and the remainder that is not CRILAYLA.
+
+**Tests:** `tests/test_boundary_probe.py` (16) and one pipeline integration test plus one `_hidden_lines` test in `tests/test_run_pipeline.py` (62). Full suite 206 OK (1 skipped). `py_compile` clean.
+
+**Not demonstrated:** the probe on real event data (the next PC run); whether any hypothesis survives contact with it; any repack, insertion, translation, or in-game result. A measurement is evidence, not a validated parser — even a strong length-prefix or pointer signal still has to be confirmed against the game's own records before text is written back.
+
 ## Pending
 
-- Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
+- Run the one-click tool on the user's PC with this branch: the run now also recovers colliding-name entries (`hidden/`), decodes their CRILAYLA streams, writes `layout_probe.zip`, `translation/units.csv`, `boundary_probe.json`, and the diagnostic ZIP, and prints the `CPK table check` and `Boundary evidence` sections. Share `REPORT.txt` (and the diagnostic ZIP if asked).
+- Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
 - The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the pipeline then processes them on the next run.
-- Then decide whether to promote the table check to fail-closed.
-- Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): for each duplicate-name package, read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
-- Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
+- Then decide whether to promote the table check to fail-closed (the last run had 6 mismatches: `robo01`/`robo03` mangled names plus 4 blob-layout packages that the ID matching should fix).
+- Keep the recovered colliding-name entries read-only. Repacking a container that the converter cannot write completely is not attempted; that needs a CPK writer or a converter that extracts by ID.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
 - Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.
 - Record exact source ISO/base-resource hashes before any release/patch test.
+- Translation can start in `translation/units.csv` (English, byte budget per row) while the above is pending, but no row is applied to a game file.

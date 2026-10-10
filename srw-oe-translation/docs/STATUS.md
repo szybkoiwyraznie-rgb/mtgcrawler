@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-09
+Last updated: 2026-10-10
 
 ## Target
 
@@ -87,12 +87,17 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 52. Read-only ISO member extraction is wired into the one-click run: every ISO's CPK-signature members are extracted read-only into the run folder's `iso/` directory (the image is never modified) and processed like any package — probed, extracted, listing-checked, table-checked, text-exported. The preflight free-space estimate includes the ISO member bytes; the report and registry record the counts. This brings chapter 1 and the disc-only base/system packages into scope on the next run. Rebuilding or repacking an ISO is still **not** automated; repacking into the game and text insertion are **not** automated (161 tests OK).
 
+53. The 2026-10-10 08:35–11:09 commits (merged with PR #9, recorded late in `EXPERIMENT_LOG.md`) added the colliding-name recovery and the translator workspace: `hidden/<package>/<TOC index>_<name>` entries read straight from the CPK table (CRILAYLA streams decoded with `tools/crilayla.py`, others recorded by their first 16 bytes), `tools/layout_probe.py` (`layout_probe.zip` with the header and table bytes of those packages, including ISO members), `tools/diagnostic_bundle.py` (`diagnostics_<run id>.zip` with a size/SHA-256 index, no game files), hard-linked verified-cache entries with per-package timings, the hidden-entry step for listings with one undecodable name (`robo01`, `robo03`), and `tools/translation_tools.py` (`translation/units.csv` written at the end of every run, plus a checker for filled-in rows). None of this has been run on real data yet; the run status and the listing gate are unchanged by it.
+
+54. Added `tools/boundary_probe.py` and stage 8/9 of the one-click run: read-only, count-only evidence about the exported units. It re-verifies each unit's offsets and prefix bytes against the extracted file, then measures a length-prefix scan (all 96 delta/width/endian configurations), a pointer scan (unit starts as u32 values in their own file), byte context before the marker and after the text, the suffix length and per-byte-position profile, gaps/alignment/pitch, and payload repetition. Every hypothesis carries a control: the length scan against a matched-distribution null (those same field values paired at random with the units' lengths), the pointer scan against `start + 1` searched in the same bytes. Both scans are byte-budgeted and report how much was searched. Results go to `boundary_probe.json`, `registry.json` (`boundary_probe`), and a `Boundary evidence` section in `REPORT.txt`; the diagnostic ZIP includes the JSON, and a probe failure never changes the run status. Synthetic checks: on 3,000 units in pseudo-random bytes the scan found 1,656 chance length hits and the null absorbed all of them (best lift +0.01%); a fixture with a real u16 length field and one with a u32 pointer table both show their expected lift, and removing the structure removes it (16 probe tests; full suite 206 OK, 1 skipped). **Nothing is validated by this yet — it has not seen real event data.** Repacking into the game, text insertion, and ISO rebuilding are **not** automated.
+
 ## Not yet demonstrated
 
-- The one-click run has been run three times on Windows with the user's YACpkTool and game files (items 36, 42, 44, and 45). Extraction completeness is measured per package against its `-L` listing, whose three real column layouts are known and parsed (full, no ID column, no filename column with ID-named files). The third run verified 337 of 377 packages; the only remaining failures are 38 packages with duplicate entry names and 2 packages with one console-mangled name each. Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the `@UTF` table row encoding, the cause of the ISO index failure on the real image, and the formats inside the 20 PSP EDAT and 27 AFS2 inputs remain unknown.
+- The one-click run has been run five times on Windows with the user's YACpkTool and game files (items 36, 42, 45, 46, and 47). Extraction completeness is measured per package against its `-L` listing, whose three real column layouts are known and parsed (full, no ID column, no filename column with ID-named files). The third run verified 337 of 377 packages; the only remaining failures are 38 packages with duplicate entry names and 2 packages with one console-mangled name each. Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the `@UTF` table row encoding, the cause of the ISO index failure on the real image, and the formats inside the 20 PSP EDAT and 27 AFS2 inputs remain unknown.
 - A rebuilt CPK has **not** been tested in PPSSPP or on PSP.
 - No Japanese string has yet been changed and successfully displayed in-game.
-- The event-file structure, field meanings, string boundaries, pointers, and length rules are not fully understood.
+- The event-file structure, field meanings, string boundaries, pointers, and length rules are not fully understood. `tools/boundary_probe.py` can now measure five hypotheses about them with controls, but it has not been run on real data, so no hypothesis is supported or ruled out yet.
+- The colliding-name recovery, the CRILAYLA decoding, the layout probe, and the translation template have not produced output on a real run yet (item 53).
 - It is unknown whether the single `00` after each noisy Japanese line terminates the text, and what `76 01`, `22 02`, `00 00`, or the trailing `10 00` represent.
 - English glyph coverage, line width, wrapping, and longer-string relocation are unknown.
 - The exact image/DLC hashes and completeness/version of every DLC file are not recorded.
@@ -100,12 +105,12 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
 
 ## Immediate next step
 
-The ISO is answered and the CPK table reader exists (items 47–48). Next:
+Extraction, the table reader, the colliding-name recovery, and the translator workspace are built (items 47–54). The one thing that now decides everything downstream is whether the heuristic units are real strings, so the next run measures it:
 
-1. Wire the CPK table reader into the pipeline as a per-package cross-check: for each package, read the TOC and compare it with the `-L` listing (`entries_match_listing`); fail the package on a mismatch (fail closed). This validates the reader against all 377 real packages on the user's PC and confirms the TOC row order.
-2. Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
-3. The ISO is fully characterized and explained (items 47–49): a PSP UMD disc with chapter 1 of 8; the input folder holds the PSN DLC (chapters 2–8), which the pipeline already processes. Chapter 1 is not processed (ISO processing is not automated); if it is ever wanted, its files would have to be extracted from the ISO read-only or copied from the disc first. Do not unpack the ISO in the pipeline.
-4. Optional, later: the 2 packages blocked by one console-mangled name each match on every other name and size; keep them fail-closed until the true names are available.
-5. Keep repack, write-back, and reinsertion blocked. Do not change the probe order until the logs show it is needed.
+1. **Run the tool on the user's PC with this branch** and read the new `Boundary evidence` section of `REPORT.txt`: does a length field, a pointer table, a fixed record pitch, or payload repetition support the unit boundaries? The same run finally produces the real `hidden/` entries, `layout_probe.zip`, `translation/units.csv`, and the `CPK table check` result for the blob-layout packages that the ID matching should fix.
+2. Only if the probe is positive: extend it to the specific hypothesis it found (exact field layout, pointer table location) and treat the units as validated strings. If it is negative, the units stay candidates and the next step is a different source of evidence (another resource/version, or the game's own records), not translation.
+3. The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the next run then covers all 8 chapters.
+4. Promote the table check to fail-closed only after a run shows agreement on every package (or explains every mismatch).
+5. Keep repack, write-back, and reinsertion blocked. The recovered colliding-name entries are read-only; no container the converter cannot write completely is repacked. Do not change the probe order until the logs show it is needed.
 
 The agent sandbox has neither the game files nor the converter, so only the user's machine can run the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).
