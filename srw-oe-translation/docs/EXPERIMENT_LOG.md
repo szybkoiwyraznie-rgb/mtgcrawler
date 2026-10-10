@@ -1485,6 +1485,31 @@ strings, so the translation pipeline can emit English of arbitrary length, not j
 equal-length. Next: scale from the single proof record to every event string across all
 chapters, then the full export -> translate -> apply -> xdelta flow.
 
+### 2026-10-10 (night, 6) — scope pivot: process first, translation deferred
+
+**Decision (user).** Translation itself is deferred to a separate workflow. The focus now is
+the *process*: reading, writing, unpacking and **packing** the ISO, plus producing **readable
+source files** a specialised translation model can consume. UI / names / menus are also in
+scope to translate later, as separate tables.
+
+**Line-width constraint observed (screenshot).** The in-game box clips over-long lines: the
+grown English line 2 ran past the right edge. The original longest line is 46 half-width
+units, so that is the working per-line budget. The exporter records `max_line_width` per
+record; a later apply step must wrap targets within it (or the font must shrink).
+
+**Readable export.** `tools/export_strings.py` walks every narration record of every EVNT
+member and writes structured JSON (`member`, `record_offset`, `source`, `lines`,
+`source_bytes`, `max_line_width`, `line_count`, empty `target`) to `local/strings/*.strings.json`.
+No translation is performed. Output is gitignored (`local/`) because the full Japanese
+script must never enter the repository. Sample: eventP01 100, eventP02 162, eventP03 154,
+eventP09 3 records.
+
+**ISO pack.** `iso9660.py` was read-only; `tools/iso_pack.py` now builds a spec-shaped
+ISO9660 Level-1 image (PVD, path tables, directory records, single extents) preserving a
+32 KiB caller system area (the UMD boot region). Round-trip proven by
+`tests/test_iso_pack.py`: pack -> `inspect_iso9660` lists all files -> `extract_members`
+returns byte-identical content. Suite 312 OK, 1 skipped.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
