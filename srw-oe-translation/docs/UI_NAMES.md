@@ -53,6 +53,11 @@ IDs to numeric records; the display names live in a separate string heap (likely
 those records or in another container, e.g. `config*`/`system`). Next: chase the secondary
 table's meaning field-by-field and locate the string heap.
 
+Probe (2026-10-10): a targeted search for ドモン (CP932 and UTF-16LE) across all six `imenu00`
+members found nothing -- the base-disc `imenu00` does not hold display names. Try the DLC
+`imenu*`/`config*`/`system.cpk` next; the story script (event EVNT) is the only place ドモン
+has been confirmed so far.
+
 ## Why the writer refuses two of them (and what that implies)
 
 - `u16tbl.cpk`: ExtractSize constant-storage → members can't be resized without rebuilding the

@@ -341,7 +341,9 @@ def _cli(argv):
     system_area = b"\x00" * SYSTEM_AREA_BYTES
     patch = {}
     if len(argv) > 3:
-        system_area = Path(argv[3]).read_bytes()
+        sa = Path(argv[3]).read_bytes()
+        # Accept either a 32 KiB system_area.bin or the original ISO (take its first 32 KiB).
+        system_area = sa if len(sa) == SYSTEM_AREA_BYTES else sa[:SYSTEM_AREA_BYTES]
     if len(argv) > 4:
         pdir = Path(argv[4])
         for p in pdir.rglob("*"):
