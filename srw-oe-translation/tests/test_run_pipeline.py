@@ -1596,6 +1596,20 @@ class LauncherContractTests(unittest.TestCase):
         self.assertNotIn("powershell -command download", lowered)
 
 
+class ProbeLauncherTests(unittest.TestCase):
+    def test_probe_launcher_reuses_the_saved_folders_and_never_calls_the_converter(self):
+        path = BAT_PATH.parent / "RUN_PROBE.bat"
+        self.assertTrue(path.is_file())
+        lowered = path.read_text(encoding="utf-8").lower()
+        self.assertIn('cd /d "%~dp0"', lowered)
+        self.assertIn("py -3", lowered)
+        self.assertIn("tools\\boundary_probe.py", lowered)
+        self.assertIn("pause", lowered)
+        self.assertIn("run_pipeline.bat", lowered)  # it points back at the full run
+        self.assertNotIn("yacpktool", lowered)
+        self.assertNotIn("pip install", lowered)
+
+
 class HiddenEntryTests(unittest.TestCase):
     """Colliding names are read from a real @UTF CPK by TOC index, so none overwrites another."""
 

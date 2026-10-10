@@ -174,25 +174,43 @@ class LengthPrefixTest(unittest.TestCase):
         lifted = probe(build_units(with_table), {NAME: with_table})
         plain = probe(build_units(without), {NAME: without})
 
-        def occurrences(result, endian="le"):
+        def row_for(result, measure, width, endian="le"):
             return next(
                 row
                 for row in result["pointer_references"]["rows"]
-                if row["measure"] == "occurrences_unaligned" and row["endian"] == endian
+                if row["measure"] == measure and row["width"] == width and row["endian"] == endian
             )
 
-        table_le = occurrences(lifted)
-        plain_le = occurrences(plain)
-        self.assertGreaterEqual(table_le["candidate"], len(TEXTS))
-        self.assertGreater(table_le["candidate"], table_le["control"])
-        self.assertGreater(table_le["candidate"], plain_le["candidate"])
-        # The aligned scan sees the same table.
-        aligned = next(
+        # The fixture's table stores text-start offsets (marker + 2) as u32 LE, 4-aligned.
+        table_le = row_for(lifted, "occurrences", 4)
+        plain_le = row_for(plain, "occurrences", 4)
+        self.assertGreaterEqual(table_le["counts"]["start"], len(TEXTS))
+        self.assertGreater(table_le["counts"]["start"], plain_le["counts"]["start"])
+        self.assertEqual(table_le["targets"], table_le["counts"]["marker"] + table_le["counts"]["start"])
+        self.assertLess(table_le["controls"], table_le["counts"]["start"])
+        aligned = row_for(lifted, "occurrences_aligned", 4)
+        self.assertGreaterEqual(aligned["counts"]["start"], len(TEXTS))
+        # Matches are localized by eighth of the file: the table sits at the very start.
+        positions = next(
             row
-            for row in lifted["pointer_references"]["rows"]
-            if row["measure"] == "occurrences_aligned" and row["endian"] == "le"
+            for row in lifted["pointer_references"]["positions"]
+            if row["width"] == 4 and row["endian"] == "le" and row["kind"] == "start"
         )
-        self.assertGreaterEqual(aligned["candidate"], len(TEXTS))
+        self.assertEqual(sum(positions["by_eighth"].values()), table_le["counts"]["start"])
+        self.assertGreater(positions["by_eighth"][0], 0)
+
+    def test_u16_offsets_are_found_too(self):
+        data = bytearray(synthetic_bin(TEXTS, pad=16))
+        units = build_units(bytes(data))
+        table = b"".join(unit["start_offset"].to_bytes(2, "little") for unit in units)
+        data[: len(table)] = table
+        result = probe(units, {NAME: bytes(data)})
+        row = next(
+            row
+            for row in result["pointer_references"]["rows"]
+            if row["measure"] == "occurrences" and row["width"] == 2 and row["endian"] == "le"
+        )
+        self.assertGreaterEqual(row["counts"]["start"], len(TEXTS))
 
     def test_repeated_payloads_are_counted_not_printed(self):
         data = synthetic_bin([TEXTS[0], TEXTS[0], TEXTS[1]])
@@ -270,7 +288,7 @@ class IntegrityTest(unittest.TestCase):
         self.assertEqual(result["totals"]["units"], len(TEXTS))
         lines = boundary_probe.report_lines(result)
         self.assertTrue(any("no 1/2/4-byte field" in line for line in lines), lines)
-        self.assertTrue(any("pointer scan: no unit start occurs" in line for line in lines), lines)
+        self.assertTrue(any("pointer scan: no unit offset occurs" in line for line in lines), lines)
         self.assertTrue(all(row["hits"] == 0 for row in result["length_prefix"]["rows"]))
 
     def test_empty_input_reports_no_units(self):
@@ -316,6 +334,94 @@ class OutputTest(unittest.TestCase):
         self.assertEqual(boundary_probe.summarize(combined)["totals"]["packages"], 2)
 
 
+class NestingAndCoverageTest(unittest.TestCase):
+    def test_inner_marker_followed_by_japanese_is_counted(self):
+        inner = "内側の文章".encode("cp932")
+        outer = "外側".encode("cp932")
+        body = bytearray()
+        body += bytes(16)
+        marker = len(body)
+        body += b"\xff\xff" + outer + b"\xff\xff" + inner + b"\x00\x00"
+        data = bytes(body)
+        pair = len(data) - 2
+        units = [
+            {
+                "unit_id": f"{NAME}@{marker:08X}",
+                "file": NAME,
+                "marker_offset": marker,
+                "start_offset": marker + 2,
+                "text_end_offset": pair,
+                "pair_offset": pair,
+                "prefix_raw_hex": data[marker + 2 : pair].hex(),
+                "suffix_raw_hex": None,
+            }
+        ]
+        result = probe(units, {NAME: data})
+        nested = result["nested_markers"]
+        self.assertEqual(nested["units_with_inner_marker"], 1)
+        self.assertEqual(nested["inner_markers"], 1)
+        self.assertEqual(nested["inner_markers_wide_script"], 1)
+        self.assertEqual(nested["inner_markers_ascii_only"], 0)
+        self.assertTrue(any("nested FF FF inside a unit: 1 units" in line for line in boundary_probe.report_lines(result)))
+
+    def test_manifest_totals_are_summed_into_the_coverage_section(self):
+        data = synthetic_bin(TEXTS)
+        units = build_units(data)
+        acc = boundary_probe.Evidence()
+        boundary_probe.add_units(acc, "p001", units, {NAME: data}, source="eventP01.EDAT")
+        boundary_probe.add_manifest(
+            acc,
+            {
+                "totals": {
+                    "files": 1,
+                    "units": len(units),
+                    "bytes_by_kind": {"gap": 60, "text_unit": 100, "unterminated_tail": 7},
+                    "unit_flags": {"nested_ff_ff_marker": 2, "single_nul_suffix": 1},
+                    "tokens_by_reason": {"control_token": 3, "pua_token": 1},
+                }
+            }
+        )
+        coverage = boundary_probe.summarize(acc)["text_coverage"]
+        self.assertEqual(coverage["exports_read"], 1)
+        self.assertEqual(coverage["bytes_total"], 167)
+        self.assertEqual(coverage["bytes_by_kind"]["text_unit"], 100)
+        self.assertEqual(coverage["exports_with_unterminated_tail"], 1)
+        self.assertEqual(coverage["unit_flags"]["nested_ff_ff_marker"], 2)
+        self.assertEqual(coverage["tokens_by_reason"]["control_token"], 3)
+
+
+class CompanionTest(unittest.TestCase):
+    def test_dat_run_found_in_a_bin_is_counted_by_class(self):
+        payload = b"\x82\xa0\x82\xa2\x82\xa4\x82\xa6"  # eight bytes, no NUL inside
+        ext = b"\x00\x00" + payload + b"\x00" + b"\x01\x02" + b"\x00"  # one long run, one too short
+        entry = b"\x00" + b"\xaa" * 8 + b"\x00"
+        acc = boundary_probe.Evidence()
+        boundary_probe.add_companions(
+            acc, {"SM001_ext.dat": ext, "SM001_Entry.dat": entry}, {"DL102_20.bin": b"junk" + payload + b"junk"}
+        )
+        cross = boundary_probe.summarize(acc)["companion_dat_cross_check"]
+        self.assertEqual(cross["files"], {"entry": 1, "ext": 1})
+        self.assertEqual(cross["runs_searched"], {"entry": 1, "ext": 1})
+        self.assertEqual(cross["runs_found_in_bins"], {"ext": 1})
+        self.assertEqual(cross["occurrences"], {"ext": 1})
+        self.assertEqual(cross["distinct_payloads_found"], 1)
+        self.assertEqual(cross["payload_len_min"], len(payload))
+        self.assertEqual(cross["payload_len_max"], len(payload))
+        lines = boundary_probe.report_lines(
+            {**boundary_probe.summarize(acc), "status": "ok", "totals": {"units": 0, "files": 0, "packages": 0,
+             "offset_problems": 0, "marker_mismatches": 0, "prefix_mismatches": 0, "missing_files": 0}}
+        )
+        self.assertTrue(any("found in a BIN: ext 1" in line for line in lines), lines)
+
+    def test_runs_are_capped_per_package(self):
+        dat = b"\x00" + b"\x00".join(b"\xaa" * 8 for _ in range(boundary_probe.COMPANION_RUNS_PER_PACKAGE + 5))
+        acc = boundary_probe.Evidence()
+        boundary_probe.add_companions(acc, {"a_ext.dat": dat}, {"a.bin": b"\x00" * 16})
+        cross = boundary_probe.summarize(acc)["companion_dat_cross_check"]
+        self.assertEqual(cross["runs_searched"]["ext"], boundary_probe.COMPANION_RUNS_PER_PACKAGE)
+        self.assertEqual(cross["packages_capped_at_run_limit"], 1)
+
+
 class RunFolderTest(unittest.TestCase):
     def _run_folder(self, root: Path) -> dict:
         package_dir = root / "packages" / "p001"
@@ -340,11 +446,16 @@ class RunFolderTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             registry = self._run_folder(root)
+            payload = TEXTS[0]
+            (root / "packages" / "p001" / "SM001_ext.dat").write_bytes(b"\x00" + payload + b"\x00")
             result = boundary_probe.probe_packages(registry["packages"], root)
             self.assertEqual(result["status"], "ok")
             self.assertEqual(result["exports_probed"], 1)
             self.assertEqual(result["totals"]["units"], len(TEXTS))
             self.assertEqual(result["length_prefix"]["best"][0]["delta"], 4)
+            cross = result["companion_dat_cross_check"]
+            self.assertEqual(cross["files"], {"ext": 1})
+            self.assertEqual(cross["runs_found_in_bins"], {"ext": 1})
 
     def test_probe_run_writes_the_json(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -377,6 +488,50 @@ class RunFolderTest(unittest.TestCase):
             self.assertEqual(result["exports_probed"], 2)
             self.assertEqual(result["totals"]["units"], len(TEXTS) + 2)
             self.assertEqual(result["totals"]["packages"], 2)
+
+    def test_units_are_grouped_under_the_top_level_source_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            registry = self._run_folder(root)
+            data = synthetic_bin(TEXTS[:2])
+            nested_dir = root / "packages" / "p001" / "sub"
+            nested_dir.mkdir(parents=True)
+            (nested_dir / "inner.bin").write_bytes(data)
+            export = root / "text" / "p002"
+            export.mkdir(parents=True)
+            units = [dict(unit, file="inner.bin") for unit in build_units(data)]
+            (export / "units.jsonl").write_text(
+                "".join(json.dumps(unit, ensure_ascii=False) + "\n" for unit in units), encoding="utf-8"
+            )
+            registry["packages"][0]["source_path"] = "eventP01.EDAT"
+            registry["packages"].append(
+                {
+                    "package_id": "p002",
+                    "output_dir": "packages/p001/sub",
+                    "parent_package": "p001",
+                    "source_path": "eventP01.EDAT/sub/inner.cpk",
+                    "text": {"export_dir": "text/p002"},
+                }
+            )
+            result = boundary_probe.probe_packages(registry["packages"], root)
+            per_source = {row["key"]: row["count"] for row in result["units_per_source"]}
+            self.assertEqual(per_source, {"eventP01.EDAT": len(TEXTS) + 2})
+
+    def test_latest_run_folder_uses_the_configured_output_base(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out = root / "out"
+            newest = out / "20261010-101010"
+            newest.mkdir(parents=True)
+            (newest / "registry.json").write_text("{}", encoding="utf-8")
+            older = out / "20261009-090909"
+            older.mkdir()
+            (older / "registry.json").write_text("{}", encoding="utf-8")
+            (out / "not-a-run").mkdir()
+            config = root / "local-workflow.ini"
+            config.write_text(f"[local]\noutput_base = {out}\n", encoding="utf-8")
+            self.assertEqual(boundary_probe.latest_run_folder(config), newest)
+            self.assertIsNone(boundary_probe.latest_run_folder(root / "missing.ini"))
 
     def test_missing_source_files_are_reported_as_errors(self):
         with tempfile.TemporaryDirectory() as tmp:
