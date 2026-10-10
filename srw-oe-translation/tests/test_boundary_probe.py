@@ -648,6 +648,63 @@ class CohortTest(unittest.TestCase):
         self.assertEqual(row["distinct_deltas"], 1)  # one fixed distance, not a spread
         self.assertIn("target-10 x4", "\n".join(boundary_probe.report_lines(result)))
 
+    @staticmethod
+    def _records_with_a_field(values: list[int] | None, texts: list[bytes]) -> tuple[bytes, list[int]]:
+        """Records of `u32 field + 4 filler + FF FF + text + 00 00`, so the field is at marker-8."""
+        starts = []
+        position = 0
+        for text in texts:
+            starts.append(position + 10)
+            position += 10 + len(text) + 2
+        body = bytearray()
+        for index, (start, text) in enumerate(zip(starts, texts)):
+            value = start if values is None else values[index]
+            body += value.to_bytes(4, "little") + b"\x00\x00\x00\x00" + b"\xff\xff" + text + b"\x00\x00"
+        return bytes(body), starts
+
+    def test_a_self_referential_record_field_is_attributed_to_its_own_record(self):
+        texts = [text.encode("cp932") for text in ("日本語のテキストです", "別の行です", "三番目の行です", "四番目")]
+        data, starts = self._records_with_a_field(None, texts)
+        result = probe(build_units(data), {NAME: data})
+        owner = result["pointer_references"]["owner_attribution"]
+        self.assertEqual(owner["hits"], len(texts))
+        # the field is 8 bytes before its own FF FF, and a record's header belongs to that record,
+        # not to the one before it
+        self.assertEqual(owner["position_in_record"][0], {"key": "-8", "count": len(texts)})
+        # every record stores its own string's offset, so the relation to its own start is 0
+        self.assertEqual(owner["stored_value_vs_record_start"][0], {"key": "0", "count": len(texts)})
+        lines = "\n".join(boundary_probe.report_lines(result))
+        self.assertIn("position marker-8 x4", lines)
+        self.assertIn("own start+0 x4", lines)
+
+    def test_a_chain_to_the_next_record_is_attributed_to_the_record_that_holds_it(self):
+        # The distance from a match to the value it encodes means nothing for a cross-reference, so
+        # the same matches have to be readable by who holds them and what they point at.
+        texts = [text.encode("cp932") for text in ("日本語のテキストです", "別の行です", "三番目の行です", "四番目")]
+        _data, starts = self._records_with_a_field(None, texts)
+        values = [*starts[1:], starts[0]]  # each record stores the next record's start
+        data, _ = self._records_with_a_field(values, texts)
+        result = probe(build_units(data), {NAME: data})
+        owner = result["pointer_references"]["owner_attribution"]
+        self.assertEqual(owner["position_in_record"][0], {"key": "-8", "count": len(texts)})
+        relations = {row["key"]: row["count"] for row in owner["stored_value_vs_record_start"]}
+        pitch = starts[1] - starts[0]
+        self.assertNotEqual(starts[2] - starts[1], pitch)  # the fixture's pitches differ, so this is not one bucket
+        self.assertEqual(relations[str(pitch)], 1)
+        self.assertEqual(relations[str(starts[0] - starts[-1])], 1)  # the wrap-around record
+
+    def test_repeated_references_to_one_offset_are_counted_separately_from_a_line_table(self):
+        texts = [text.encode("cp932") for text in ("日本語のテキストです", "別の行です", "三番目の行です", "四番目")]
+        _data, starts = self._records_with_a_field(None, texts)
+        values = [starts[1]] * len(texts)  # every record points at the same line
+        data, _ = self._records_with_a_field(values, texts)
+        result = probe(build_units(data), {NAME: data})
+        owner = result["pointer_references"]["owner_attribution"]
+        self.assertEqual(owner["distinct_values_matched"], 1)
+        self.assertEqual(owner["most_matched_value_hits"], len(texts))
+        self.assertEqual(owner["values_matched_more_than_once"], 1)
+        self.assertIn("cover 1 distinct offsets", "\n".join(boundary_probe.report_lines(result)))
+
     def test_the_aligned_scan_counts_a_file_once_not_once_per_width_and_endian(self):
         data = synthetic_bin(TEXTS)
         result = probe(build_units(data), {NAME: data})

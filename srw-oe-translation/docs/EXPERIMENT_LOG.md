@@ -962,9 +962,34 @@ Two earlier attempts at this null were mis-scaled and gave misleading answers (0
 
 **Not demonstrated:** what the stored offsets are for, whether they are per record or in a table, what the `C9` byte means, and anything about repacking, write-back, or in-game results.
 
+## 2026-10-10 — second probe run: the start-offset matches are not a self-reference and not a table
+
+**Action:** the user ran `RUN_PROBE.bat` again on `20261010-142640` (schema `/3` with the distance measurement and the same-parity control).
+
+**Text cohort, u32 LE unaligned `start`: 6,335 hits over 69 distinct distances — `>256` ×4,495, `<-256` ×1,741, then `target-17` ×6, `target+31` ×5, `target+43` ×3 and smaller.** So **6,236 of 6,335 matches (98.4%) sit more than 256 bytes from the offset they encode**, and the remaining 99 are spread over ~67 distances at 1–6 each. Big-endian (5,872 hits: 4,127 + 1,642 outside ±256) and the aligned scan (581: 491 + 84) look the same. On the density-matched null the same signature is 751 of 776.
+
+That closes two hypotheses: **no record stores its own string's offset** (that would put nearly every match at one fixed distance), and **there is no contiguous offset table** (matches are spread evenly over all eighths of the file, and a per-file table would over-represent one eighth; eighth 0 has 801 against a mean of 792).
+
+**The same-parity control killed the parity explanation too:** `start + 2` gives 528 matches, *below* `start + 1` at 1,258, while `start` gives 6,335. The excess belongs to the exact offsets, not to their parity or their neighbourhood.
+
+**A second null, built with the real pre-marker structure** (`XX 00 00 00 00 00` with `XX` drawn from the observed 57/20/12/11 split over `00`/`01`/`03`/`04`, the 0/2/3-byte suffix mix, 124 bytes per unit against the real 111): `start` 776, `start + 1` 750, `start + 2` 509, `marker` 423, `marker + 1` 418 — ratios 1.03 and 1.52. So the null reproduces the distance signature but not the magnitude: **the real files hold about 5,000 more matches of the exact start offsets than a structure-matched file with no references at all.** Coverage this run: 39,132 of 45,252 offsets (five search sets now), and `aligned_bytes_scanned` reported 5,035,356 bytes, confirming the four-fold over-count is fixed.
+
+**What this does *not* settle — and the flaw in the instrument:** the distance from a match to the value it encodes can only reveal a field that points at its own string. A record that stores *another* line's offset sits at an arbitrary distance from it, so a script made of cross-references would look exactly like this. The probe therefore now attributes every one of those matches to the record it sits in:
+
+- `position_in_record` — distance from that record's `FF FF` (a header field is a small negative number, a trailer a small positive one);
+- `stored_value_vs_record_start` — the stored offset minus that record's own text start, so `0` means a record pointing at itself and a constant positive value means a chain to the next line;
+- `distinct_values_matched`, `values_matched_more_than_once`, `most_matched_value_hits` — one match per offset reads as a line table, a few offsets matched repeatedly reads as something else;
+- `files_with_hits` and the top files, so a spread can be told from a concentration.
+
+Attribution is to the **nearest** marker, not the previous one: a record's header sits before its own `FF FF`, so "the record before" would claim every header field (the first implementation did exactly that and reported `marker+14` for a field at `marker-8`).
+
+**Tests:** 39 probe tests. A self-referential field is attributed to its own record (`position marker-8 x4`, `own start+0 x4`); a chain to the next record shows the same position with the pitches as relations; four records pointing at one line report 1 distinct offset matched 4 times; a match before the first marker is counted as `no_record` rather than dropped. Full suite 231 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Correction to the previous entry:** "the event files really do contain text-start offsets" was stated too strongly. What is measured is that those exact offset *values* occur far above a matched null; nothing yet shows them being used as references. That is what the owner attribution is for.
+
 ## Pending
 
-- **Run `RUN_PROBE.bat` once more against the same run folder** (drag it onto the `.bat`; about a minute). The new `where the u32 le unaligned start-offset matches sit` line decides whether the stored offsets are a per-record field (one fixed distance holding nearly all matches), a table (matches clustered in one region), or nothing readable (distances over 256 bytes, as in the null).
+- **Run `RUN_PROBE.bat` once more against the same run folder** (drag it onto the `.bat`; about a minute). The distance question is answered and negative; what is left is *who holds those offsets*. Read `the u32 le start-offset matches by the record holding them` (position in the record), `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
 - Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
 - Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).

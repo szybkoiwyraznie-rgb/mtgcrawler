@@ -34,16 +34,23 @@ folder that is already on the user's disk.
 ## What the re-measurement found (milestone 60)
 
 The text cohort is the script, and it behaves: no length prefix, no nested strings, suffixes of only
-0/2/3 bytes, 45.1% of its bytes are text units and 0.4% unselected marker spans. And it produced the
-first positive structural evidence in the project — **the units' text-start offsets occur as u32
-little-endian values in the same files, 6,535 times against 1,339 for `start + 1`, where a synthetic
-corpus of the same size and density with no pointer table gives 421 against 374.** Marker offsets are
-not elevated, so whatever is stored points at the byte after `FF FF`.
+0/2/3 bytes, 45.1% of its bytes are text units and 0.4% unselected marker spans. It also produced the
+project's first structural signal — **the units' text-start offsets occur as u32 little-endian values
+in the same files, 6,335 times against 1,258 for `start + 1` and 528 for `start + 2`, where a
+synthetic corpus of the same size, density and pre-marker structure gives 776 against 750 and 509.**
+Marker offsets are not elevated, so whatever is involved refers to the byte after `FF FF`, not to the
+marker. (The exact counts move a little between runs, because the pointer scan is budgeted and reports
+how much of it searched: 39,132 of 45,252 offsets in the latest run.)
 
 It is not an ordinary offset table: the 4-byte-aligned scan shows nothing (548 vs 542), big-endian
-shows the same lift as little-endian, and the matches are spread evenly over the whole file. So the
-next question is *where each match sits relative to the offset it encodes*, which the probe now
-measures.
+shows the same lift as little-endian, and the matches are spread evenly over the whole file.
+
+**And the follow-up measurement came back negative too** (milestone 61): 98.4% of those matches sit
+more than 256 bytes from the offset they encode, and the rest scatter over ~67 distances at 1–6 each
+— the same picture a synthetic file with no references produces. The same-parity control `start + 2`
+(528) sits *below* `start + 1` (1,258), so the excess belongs to the exact offsets, not to parity.
+What that measurement could not see is a record pointing at *another* line, which sits at an
+arbitrary distance by definition — so the probe now attributes every match to the record holding it.
 
 ## What changed since (milestone 58)
 
@@ -69,24 +76,28 @@ truncation. `REPORT.txt` gains a `by cohort` section; `boundary_probe.json` gain
    `RUN_PIPELINE.bat`, the saved settings are reused and it finds the run by itself.
 4. Wait about a minute. It is read-only, calls no converter, extracts nothing, and replaces only
    `boundary_probe.json` in that run folder. Keep the console window open.
-5. Copy the whole console output and paste it back to the agent. The line that decides the next
-   milestone is now `where the u32 le unaligned start-offset matches sit …` inside the `text` cohort:
-   one distance holding nearly all matches means each record stores its own string's offset, a
-   cluster in one region means a table, and distances over 256 bytes mean chance. If more detail is
-   needed, send the new `boundary_probe.json` from the same folder.
+5. Copy the whole console output and paste it back to the agent. The lines that decide the next
+   milestone are now inside the `text` cohort: `the u32 le start-offset matches by the record holding
+   them` (a small negative distance means a header field), `what those stored offsets point at,
+   relative to that record` (`own start+0` means self-reference, a constant positive value means a
+   chain to the next line), and `those matches cover N distinct offsets` (one match per offset reads
+   as a line table). If more detail is needed, send the new `boundary_probe.json` from the same
+   folder.
 
 No new extraction is needed, so nothing about the game files is touched. If the run folder has been
 deleted, `RUN_PIPELINE.bat` reproduces it in 5–8 minutes.
 
 What the agent does with the output:
 
-- **If the `text` cohort shows a length field or an aligned pointer table clearly above its
-  control**, the units are treated as validated strings: the next milestone pins down that exact
-  layout and the translation phase starts in earnest.
-- **If it stays negative**, the units stay candidates and the next evidence has to come from outside
-  the files (another resource/version, or the game's own records) — not from translation.
-- Either way, the same output says how much of the pointer search actually covered the event files,
-  which is what made the last run's pointer result unreadable.
+- **If the matches cluster at one position inside the records** (for example every match 8 bytes
+  before a record's `FF FF`, all pointing at their own line or at the next one), that is the game's
+  own string addressing, and the next milestone pins down that record layout — the first validated
+  structure in the project.
+- **If they scatter the same way again**, the excess matches are not references, and the boundary
+  evidence is exhausted: the units stay candidates and the next evidence has to come from outside
+  these files (another resource/version, or the game's own records) — not from translation.
+- Either way the run also re-states what is already settled for the text cohort: no length prefix,
+  no nested strings, only 0/2/3-byte suffixes, and 45.1% of the event bytes covered as text.
 
 ## The endgame, mapped to SRW Z's workflow
 

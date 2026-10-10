@@ -47,6 +47,7 @@ Usage (a finished run folder, no converter call, seconds)::
 from __future__ import annotations
 
 import argparse
+import bisect
 import configparser
 import hashlib
 import json
@@ -167,6 +168,10 @@ class Evidence:
         self.pointer: Counter = Counter()  # (measure, width, endian, kind)
         self.pointer_positions: Counter = Counter()  # (width, endian, kind, octile)
         self.pointer_deltas: Counter = Counter()  # (width, endian, kind, hit_offset - value)
+        self.pointer_owner: Counter = Counter()  # hit_offset - the marker of the record holding it
+        self.pointer_relation: Counter = Counter()  # stored value - that record's own text start
+        self.pointer_hits_per_file: Counter = Counter()  # file -> unaligned u32 LE start matches
+        self.pointer_matched_values: Counter = Counter()  # stored value -> matches (u32 LE start)
         self.pre_marker: Counter = Counter()  # byte pattern hex
         self.post_text: Counter = Counter()  # byte pattern hex
         self.suffix_len: Counter = Counter()  # length -> units
@@ -277,7 +282,26 @@ def _pointer_sets(units: list[dict[str, Any]]) -> dict[str, set[int]]:
     }
 
 
-def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> None:
+def _owner_lookup(units: list[dict[str, Any]]) -> tuple[list[int], dict[int, int]]:
+    """Sorted marker offsets, and each marker's own text start, for attributing a match to a record."""
+    markers = sorted(int(unit["marker_offset"]) for unit in units)
+    return markers, {int(unit["marker_offset"]): int(unit["start_offset"]) for unit in units}
+
+
+def _nearest_marker(markers: list[int], index: int) -> Optional[int]:
+    """The marker closest to `index`, so a match is attributed to the record it really sits in."""
+    if not markers:
+        return None
+    after = bisect.bisect_right(markers, index)
+    if after >= len(markers):
+        return markers[-1]
+    if after == 0:
+        return markers[0]
+    before = markers[after - 1]
+    return before if index - before <= markers[after] - index else markers[after]
+
+
+def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes, label: str = "") -> None:
     """Count how often the unit offsets (and the +1 controls) occur as u32/u16 values in the file.
 
     Two different scans, because they cost differently:
@@ -303,6 +327,7 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                     acc.pointer[("values_too_large", width, endian, kind)] += too_large
     unaligned_left = POINTER_UNALIGNED_FILE_BUDGET
     truncated = False
+    markers, starts_by_marker = _owner_lookup(units)
     for width in POINTER_UNALIGNED_WIDTHS:
         limit_value = 1 << (8 * width)
         acc.pointer_offsets[("available", width)] += len(sets["marker"])
@@ -329,6 +354,23 @@ def _scan_pointers(acc: Evidence, units: list[dict[str, Any]], data: bytes) -> N
                             (width, endian, kind, min(OCTILES - 1, index * OCTILES // max(1, size)))
                         ] += 1
                         acc.pointer_deltas[(width, endian, kind, _signed_bucket(index - value))] += 1
+                        if width == 4 and endian == "le" and kind == "start":
+                            # Who holds this offset, and whose offset is it? A self-referential field
+                            # shows up in pointer_deltas; a cross-reference between records does not,
+                            # so attribute the match to the record it sits in instead.
+                            owner_marker = _nearest_marker(markers, index)
+                            if owner_marker is None:
+                                acc.pointer_owner["no_record"] += 1
+                                acc.pointer_relation["no_record"] += 1
+                            else:
+                                # nearest, not previous: a record's header sits *before* its own
+                                # FF FF, so "the record before" would claim every header field
+                                acc.pointer_owner[_signed_bucket(index - owner_marker)] += 1
+                                acc.pointer_relation[
+                                    _signed_bucket(value - starts_by_marker[owner_marker])
+                                ] += 1
+                            acc.pointer_hits_per_file[label] += 1
+                            acc.pointer_matched_values[value] += 1
                         index = data.find(pattern, index + 1)
     for width in POINTER_WIDTHS:
         limit_value = 1 << (8 * width)
@@ -520,7 +562,7 @@ def add_units(
         for unit in measured:
             _scan_lengths(acc, unit, files[unit["file"]], wanted)
         for name, file_units in by_file.items():
-            _scan_pointers(acc, file_units, files[name])
+            _scan_pointers(acc, file_units, files[name], f"{package_id}/{name}")
     _scan_layout(acc, units)
     acc.packages[package_id] += len(units)
     if source:
@@ -775,11 +817,40 @@ def _pointer_coverage(acc: Evidence) -> dict[str, Any]:
     }
 
 
-def _delta_label(bucket: str) -> str:
+def _delta_label(bucket: str, base: str = "target") -> str:
     try:
-        return f"target{int(bucket):+d}"
+        return f"{base}{int(bucket):+d}"
     except ValueError:
         return bucket
+
+
+def _owner_block(acc: Evidence, top: int = 12) -> dict[str, Any]:
+    """Who holds the matched offsets, where inside their record, and whose offsets they are.
+
+    `pointer_deltas` can only see a field that stores its own string's offset. A record that stores
+    *another* line's offset sits at an arbitrary distance from it, so the same match has to be read
+    a second way: which record contains it, at what position in that record, and how the stored
+    value relates to that record's own text start.
+    """
+    return {
+        "note": (
+            "Unaligned u32 little-endian matches of the units' text-start offsets, attributed to the "
+            "record they sit in. `position_in_record` is the distance from that record's FF FF; "
+            "`stored_value_vs_record_start` is the stored offset minus that record's own text start, "
+            "so 0 means a record pointing at its own string and a constant positive value means a "
+            "chain to the next one."
+        ),
+        "hits": sum(acc.pointer_owner.values()),
+        "position_in_record": _top(acc.pointer_owner, top),
+        "stored_value_vs_record_start": _top(acc.pointer_relation, top),
+        "files_with_hits": len(acc.pointer_hits_per_file),
+        "top_files": _top(acc.pointer_hits_per_file, 5),
+        # One match per offset reads as a line table; a few offsets matched over and over reads as
+        # something else (a shared resource, or a value that is not an offset at all).
+        "distinct_values_matched": len(acc.pointer_matched_values),
+        "most_matched_value_hits": max(acc.pointer_matched_values.values(), default=0),
+        "values_matched_more_than_once": sum(1 for count in acc.pointer_matched_values.values() if count > 1),
+    }
 
 
 def _pointer_delta_rows(acc: Evidence, top: int = 8) -> list[dict[str, Any]]:
@@ -825,6 +896,7 @@ def _pointer_block(acc: Evidence, with_budgets: bool = False) -> dict[str, Any]:
         "rows": _pointer_rows(acc),
         "positions": _pointer_positions(acc),
         "deltas": _pointer_delta_rows(acc),
+        "owner_attribution": _owner_block(acc),
     }
     if with_budgets:
         block["budgets"] = {
@@ -1281,6 +1353,30 @@ def _pointer_lines(pointer: dict[str, Any], prefix: str = "  ") -> list[str]:
         if row["kind"] in ("marker", "start"):
             eighths = ", ".join(f"eighth {key}: {count}" for key, count in sorted(row["by_eighth"].items()))
             lines.append(f"{prefix}pointer match positions u{row['width'] * 8} {row['endian']} ({row['kind']}): {eighths}")
+    owner = pointer.get("owner_attribution") or {}
+    if owner.get("hits"):
+        position = ", ".join(
+            f"{_delta_label(row['key'], 'marker')} x{row['count']}" for row in owner["position_in_record"][:6]
+        )
+        relation = ", ".join(
+            f"{_delta_label(row['key'], 'own start')} x{row['count']}"
+            for row in owner["stored_value_vs_record_start"][:6]
+        )
+        lines.append(
+            f"{prefix}the u32 le start-offset matches by the record holding them ({owner['hits']} hits):"
+            f" position {position}"
+        )
+        lines.append(f"{prefix}what those stored offsets point at, relative to that record: {relation}")
+        if owner["top_files"]:
+            files = ", ".join(f"{row['key']} x{row['count']}" for row in owner["top_files"])
+            lines.append(
+                f"{prefix}files holding those matches: {owner['files_with_hits']} in total; top: {files}"
+            )
+        lines.append(
+            f"{prefix}those matches cover {owner['distinct_values_matched']} distinct offsets"
+            f" ({owner['values_matched_more_than_once']} matched more than once,"
+            f" most-matched offset x{owner['most_matched_value_hits']})"
+        )
     for row in pointer.get("deltas") or []:
         if row["kind"] not in ("start", "start_aligned") or not row["hits"]:
             continue
