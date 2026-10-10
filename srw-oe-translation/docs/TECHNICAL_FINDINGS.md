@@ -66,6 +66,84 @@ A no-text codec differential compares Python `cp932` with Python `shift_jis` acr
 
 The user saw readable Japanese after selecting Shift-JIS in Notepad++. These observations confirm that at least some script text is stored directly in the file, not encrypted/compressed beyond recognition, but the application's codec label does not settle the exact Unicode mapping.
 
+Codec facts used by the placeholder view (Python `cp932`; Notepad++ may map some bytes differently, so these are codec facts, not evidence about the game's own table). Printable ASCII `0x20`–`0x7E` decodes to itself. `0x80` decodes to U+0080, a C1 control. `0xA0`, `0xFD`, `0xFE`, and `0xFF` decode to private-use codepoints. `0x81`–`0x9F` and `0xE0`–`0xFC` are lead bytes. Of 9,604 valid two-byte sequences, 1,880 decode to private-use codepoints and 398 decode to a character that does not re-encode to the same bytes (for example `0x8790` → U+2252 → `0x81E0`, and `0xFA40` → U+2170 → `0xEEEF`). The extractor keeps every such byte as a token, so no mapping is silently normalized. In the restored sample, 28 of 3,277 candidate prefixes are not byte-exact under strict CP932 decoding (27 with invalid bytes, one with a non-byte-exact pair).
+
+## YACpkTool `-L` listing (one sample: `bacb01.EDAT`, user's Windows run)
+
+- Observed in the captured text: `CPK Filename`, `File format version:Ver.7, Rev.1`, `Data alignment:2048`, `Content files:541`, `Compressed files:0`, `Content file size:132,272,768` (thousands separators shown as U+FFFD), `Enable Filename info.:True [Sorted]`, `Enable ID info.:True`, `Compression Mode:Layla Standard Compression`, and `Tool version:CPKMC2.30.07, DLL3.00.07`.
+- Observed: the table columns are `No.`, `ID`, `Filesize`, `Compressed`, `%`, and `Contents Filename`. IDs are unique (0–540). The `Filesize` values add up to the header total.
+- Observed: the 541 entries have 260 distinct names (10 names once, 219 twice, 31 three times). Entries that share a name have the same size.
+- Observed: extraction wrote 260 files, one per name. The converter exited 0, and the `-L` output has no `Error:` line.
+- Hypothesis, not tested: later entries overwrite earlier ones with the same name in one flat output folder.
+- Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
+
+## YACpkTool `-L` listing (second and third real runs, all listings read)
+
+- Observed (second real run `20261009-194153`, all 346 `-L` logs re-parsed locally): the listing check verified 189 of 346 packages and failed 157. Re-derived from the real logs, the failures are exactly: 42 listings without a `Contents Filename` column, 59 without an `ID` column, 16 with a `,00` percent for a 0-byte entry, 2 with a thousands separator in the `Content files` count (`1�711`, `1�201`), 2 with one console-mangled name each, and 38 with duplicate entry names.
+- Observed (third real run `20261009-214604`, rewritten parser): 337 of 377 packages verified, 38 incomplete (the same duplicate-name packages), 2 unverified (the same mangled names). Layouts: 246 full, 89 no ID column, 42 no filename column. The 31 additional packages over the second run are nested CPKs discovered because more parents extracted.
+- Observed: the printed columns follow the package's info flags. `Enable Filename info.:True/False` decides the `Contents Filename` column; `Enable ID info.:True/False` decides the `ID` column. Of the 346 listings: 246 print `No.  ID  Filesize  Compressed  %  Contents Filename`, 58 print no `ID` column, 42 print no `Contents Filename` column. No listing prints neither.
+- Observed: for the 42 packages without filename info, YACpkTool writes one ID-named file per entry; the observed file name is `ID00000` for ID 0 (face09, face18, mesbmp09 each have one entry, ID 0, one file `ID00000`). Hypothesis, one data point: the name is `ID` plus the zero-padded ID (`ID%05d`).
+- Observed: a 0-byte entry prints its percent as `,00` (0/0). `Filesize` is the uncompressed size and equals the extracted file's size; `Compressed` is the stored size. 215 of 346 packages are fully uncompressed (`Compressed files:0`); 131 have some compressed entries.
+- Observed: the header lines `Enable Filename info.:True (208 bytes)` and `Enable ID info.:True (104 bytes)` give the byte sizes of the filename and ID tables inside the container.
+- Observed: two listed names are mangled to U+FFFD by the console code page: `r2222/"�.bsb` (robo01) and `r1100/srwWI_�v�Z�R.bsb` (robo03). The packages stay `unverified` (fail closed).
+- Resolved (was a hypothesis): the "narrow column" idea was wrong. All 346 real listings parse in the strict two-space mode once rows are read per the printed columns; the single-space fallback exists but was not needed for real data.
+- Unknown: whether entries that share a name have identical content, and whether the game uses the ID column.
+
+## ISO image (`SRW OE 1.08.iso`, user's PC — read-only facts only)
+
+- Observed: the file is 679,243,152 bytes; the PVD declares logical block size 2048 and `volume_space_blocks` 328,960 (673,710,080 bytes). The file is 5,533,072 bytes longer than the descriptor (2,701 sectors plus 1,424 bytes) and is not sector-aligned; the volume identifier is empty.
+- Observed: the read-only index initially failed with `ISO9660 extent extends beyond the image volume` — at least one member extent ends beyond the declared volume, consistent with the file being longer than its descriptor.
+- Policy (since the 2026-10-09 change): extents beyond the declared volume but inside the file are warnings, not errors; extents beyond the file are rejected. The index reports `extents_beyond_volume`, `max_extent_overflow_bytes`, `last_extent_end_bytes`, and `trailing_bytes_after_last_extent`.
+- Answered (fifth real run, `20261009-222046`): the index succeeds — **80 files, 6 directories, 63 CPK-signature members** (not extracted). **1 member extent ends beyond the PVD volume by exactly 5,533,072 bytes, ending exactly at the file's last byte** (673,710,080 + 5,533,072 = 679,243,152). The descriptor's volume-space size is understated by exactly that member's tail; the image is complete and internally consistent. The mismatch is fully explained — it is one member's extent beyond the declared volume, not appended junk.
+- Observed: the ISO is a **PSP UMD image**: members under `PSP_GAME/` (`ICON0.PNG`, `PARAM.SFO`, `PIC1.PNG`, `SND0.AT3`, `SYSDIR/BOOT.BIN`, `SYSDIR/EBOOT.BIN`, `SYSDIR/UPDATE/DATA.BIN`, `USRDIR/*.cpk`, `USRDIR/*.awb`, `USRDIR/module/*.prx`) plus `UMD_DATA.BIN`. 80 files, 6 directories, 63 CPK-signature members.
+- Observed: the overflowing member is `PSP_GAME/SYSDIR/EBOOT.BIN` (5,531,024 bytes, LBA 328,961), ending exactly at the file's last byte. `trailing_bytes_after_last_extent` is 0.
+- Observed: cross-checked against the loose folder by leaf name — only `PARAM.SFO` (692 bytes in both) overlaps; 0 of the folder's 290 CPK-signature files share a name with the ISO's 63 CPK-signature members. The ISO uses PSP 00-series names (`bacb00.cpk`, `voice00.awb`); the folder uses 01-series and higher `.EDAT` names (`NPJH50521/bacb01.EDAT`).
+- User-provided context (2026-10-09): the game shipped as a PSP UMD disc with chapter 1 of 8; chapters 2–8 were sold as PSN DLC, and the input folder holds those PSN-downloaded files. So the ISO is the disc's chapter-1 content and the folder is the DLC content — two different data sets by design, not a mismatch. The folder's 20 still-encrypted PSP EDAT inputs (`\x00PSPEDAT`, the `*04` files plus `evept101.EDAT`) are consistent with undecrypted PSN packages; the 27 AFS2 archives are audio.
+- No ISO member is extracted, hashed, or modified by the index itself; the run's read-only member extraction (see the coverage section) writes members into the run folder only.
+
+## Coverage: what the pipeline processes (2026-10-09)
+
+User-provided context: the game shipped as a PSP UMD disc with chapter 1 of 8 (the ISO); chapters 2–8 were sold as PSN DLC (the input folder's files).
+
+- **Processed now (the DLC folder, 290 `.EDAT` files with CPK content):** per-chapter data (bacb, bseq, eventP, evept, face, mesbmp, mesbtl, mov, robo, se, bmp) **and per-chapter menu/config/credit/sprstd** (imenu 01–32, config 01–46, credit 01–19, sprstd 01–19, bmp 01–09) for the decrypted chapters. The DLC chapters carry their own menu/config/credit/sprstd data — the system/menu text is not disc-only.
+- **Text:** 39,103 heuristic units — 25,530 from `eventP*` (chapter dialogue), 13,543 from `evept*`, 30 from `imenu*`; `credit*` and `robo*` contribute 0.
+- **Missing — chapter 1 (on the disc):** `eventP00.cpk` (chapter 1's dialogue), chapter-1 data (bacb00, face00, mesbmp00, mesbtl00, mov00, robo00, bseq00, bmp00, se0000, se4000–4120), and chapter-1 menu/config/credit/sprstd (imenu00, config00, credit00, sprstd00).
+- **Missing — chapter 4 (encrypted in the folder):** the whole `*04` series plus `evept101.EDAT` — 20 still-encrypted PSP EDAT containers. They need decryption by the user (their own purchased packages; these tools do not decrypt EDAT); once decrypted, the pipeline processes them like any input.
+- **Missing — disc-only base/system packages (no folder counterpart):** font, system, tactics, texanm, txa00, u16tbl, navisys, tacsys, taclevup, smap, svicon, logodata, colorlst, bg2d, btlcam, efmodel, eftex00, efclump, cprt0001–4, IM1000/3000/9000, configst, segu01, semv01–15. Whether they contain translatable text is unknown until processed.
+- **Plan to close the gap:** read-only ISO member extraction is wired into the run (the disc's 63 CPK members become packages like any other — chapter 1 and the base system packages in scope; the ISO is never modified, and rebuilding/repacking an ISO stays not automated); the user decrypts the `*04` packages (chapter 4) outside these tools. After both, coverage is all 8 chapters plus the base system packages. No translation exists yet — this phase builds and verifies the extraction tooling; the translation phase starts only after coverage is complete and text boundaries are validated.
+
+## CPK container structure (one sample: `mesbtl09.EDAT`, 6,272 bytes, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`)
+
+- Observed: a CRI CPK container. A `CPK ` header gives content offset 704 and content size 0 (the single entry is empty). A `CpkHeader` `@UTF` table at 0x10 lists its field names (`ContentOffset`, `ContentSize`, `TocOffset`, `TocSize`, `TocCrc`, `EtocOffset`, `EtocSize`, `ItocOffset`, `ItocSize`, `ItocCrc`, `GtocOffset`, …, `Align`, `Sorted`, `CpkMode`, `Tvers`, `Comment`, `Codec`, `DpkItoc`).
+- Observed: a `TOC ` table (after a `(c)CRI` marker) whose `@UTF` schema is `CpkTocInfo` with fields `DirName`, `FileName`, `FileSize`, `ExtractSize`, `FileOffset`, `ID`, `UserString`; the entry name `p0000.pac` is stored in it. The schema carries the entry `ID`, so a read-only table reader can recover (name, ID, size, offset) per entry.
+- Observed: an `ITOC` table at 0x1000 (schema `CpkExtendId`: `ID`, `TocIndex`) and an `ETOC` table at 0x1800 (schema `CpkEtocInfo`: `UpdateDateTime`, `LocalDir`) ending at the file end 0x1880.
+- Observed (format, confirmed byte-by-byte against the sample and grounded in public implementations — LibCPK in ConnorKrammer/cpk-tools plus published format notes): each packet is a 4-byte tag (`CPK `/`TOC `/`ITOC`/`ETOC`), a little-endian filler u32, a little-endian u64 table size, then the table bytes. Each `@UTF` table is big-endian: magic `@UTF`, u32 table size (bytes after the 8-byte header), u32 rows offset, u32 strings offset, u32 data offset (all three relative to table start + 8), u32 table-name string offset, u16 column count, u16 row length, u32 row count; then a column schema of (u8 flags, u32 name string offset) per column; then the rows; then the NUL-terminated string pool. Column flags: storage in the high nibble (0x10 zero/null, 0x30 constant, 0x50 per-row), type in the low nibble (0x00/0x01 1-byte, 0x02/0x03 2-byte, 0x04/0x05 4-byte, 0x06/0x07 8-byte, 0x08 float32, 0x0a string as a u32 string-table offset, 0x0b data as offset+size). The sample's CpkHeader has 35 columns (row length 126), the TOC 7 (28), the ITOC 2 (8).
+- Observed: entry data is addressed as FileOffset + min(ContentOffset, min(TocOffset, 0x800)) (the data base), matching public implementations; for the sample the data base is 2048.
+- Implemented: `tools/cpk_table.py` — a read-only reader for these tables (header fields, TOC entries with name/ID/FileSize/ExtractSize/offset, ITOC rows), fail closed on truncation, wrong tags, encrypted (non-`@UTF`) tables, bad schemas, and entry data beyond the file. Validated on the sample: CpkHeader reads TocOffset 2048/TocSize 208, ItocOffset 4096/ItocSize 104, EtocOffset 6144/EtocSize 128, Files 1, Align 2048, Version 7, Revision 1, Tvers `CPKMC2.30.07, DLL3.00.07`; the TOC row is `p0000.pac`, ID 0, sizes 0; the ITOC row is ID 0 → TocIndex 0; `entries_match_listing` against the package's real `-L` listing reports no mismatches.
+- Not yet demonstrated: the reader on compressed entries, multi-extent rows, or non-ASCII names (the sample has none); TOC row order versus listing row order beyond the sample's single row (the run-time cross-check will confirm on all 377 packages); reading the 38 duplicate-name packages' hidden entries.
+
+## YACpkTool source (read, not executed)
+
+Source: `YACT/Program.cs` from the archived repository `Brolijah/YACpkTool` at commit `6098bb2001f31b869b32d747f798b044029aa52a` (2017-12-17), SHA-256 `94c3454a9ab8a0f36e7daeb75778d4b8af71c5e8e512b1bde34616c434d00db2`. `CpkMaker.dll` was neither inspected nor run. The user's own build may differ. The items below were read from `Program.cs` only.
+
+Observations (from the code):
+
+- **Exit code:** no exit code is set anywhere and there is no `Environment.Exit` call. Each `Error:` path ends with `return`, so a failed call can still exit with code 0. Failure must be judged from the output text.
+- **Success text:** a completed call prints `Process finished (hopefully) without issues!`; error paths return before that line. Extract and pack also print `Status = <value>`; the values come from `CpkMaker.dll`, which was not read, so the pipeline does not parse them.
+- **Output path (`-o`):** `ValidateFilePathString` prefixes relative paths with the working directory (`-d`, default the current directory), builds `file:///` plus the path, and requires `Uri.IsWellFormedUriString`. By the documented rule of `Uri.IsWellFormedUriString` (not run here), spaces and non-ASCII characters fail this test. Drive-letter paths are treated as absolute.
+- **Input path (`-i`):** accepted when `File.Exists` or `Directory.Exists` holds, relative to the current directory or to `-d`. No extension check appears in `Program.cs`; whether `CpkMaker.AnalyzeCpkFile` checks the CPK signature was not read.
+- **`-X` arguments:** `-X` stores the next argument as a single-file name only if its first character is not `-`. The pipeline always writes `-X -i <source> -o <dir>`, so the whole archive is extracted.
+- **`-R`:** takes two arguments (`replaceWhat`, `replaceWith`) and is documented as experimental. The project never uses it.
+- **Packing (`-P`):** packs every file under the input folder recursively (`Directory.GetFiles(..., AllDirectories)`).
+- **Progress display:** extract and pack call `Console.CursorLeft = 0` in a loop. This may throw when stdout is redirected. Not verified; the pipeline's probe falls back to console mode. On the user's Windows PC (2026-10-09, build SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962`), captured-output extraction ended with exit code 3762504530 (0xE0434352, an unhandled .NET exception), and console-output extraction then completed. This fits the hypothesis; the mechanism is not proven.
+- **Standard input:** never read.
+
+Hypotheses to test on disposable copies (not facts):
+
+- The user's binary keeps the exit-code-0 behaviour, so the text markers above are the only failure signals.
+- `.EDAT`-named inputs are accepted by `-X` if `CpkMaker` does not check the extension.
+- Piped stdout triggers the progress-display exception, so the console-mode fallback is needed. Observed once on the user's build (see above); the mechanism is not proven.
+
 ## Working hypotheses — validate before relying on them
 
 - `FF FF` may introduce a dialogue/text block.
@@ -97,6 +175,9 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - Whether the engine uses pointers or lengths that must be updated when English strings grow.
 - Whether all event, menu, dictionary, battle, graphic, and DLC text is in these resources.
 - Whether the game's font/runtime renders lowercase English and punctuation, and whether any font patch is required.
+- Whether the user's YACpkTool build matches the archived source, and how its `CpkMaker.dll` validates signatures, extensions, and `Status` values.
+- Whether entries that share a name (281 of 541 in `bacb01.EDAT`) hold different content, and whether the game reads them by ID. The one-click run now fails such packages instead of writing a partial set.
+- What the 47 non-CPK `.EDAT` files in the user's `NPJH50521` folder are (format, encryption, and whether any holds text); `eventP04.EDAT` and `evept101.EDAT` are among them.
 
 ## References
 

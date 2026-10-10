@@ -3,6 +3,8 @@ import sys
 import tempfile
 import unittest
 import zipfile
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
@@ -10,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from audit_event_dat_runs import (  # noqa: E402
     _validate_export_path,
     inputs_from_path,
+    main,
     review_shape_profiles,
     scan_nul_delimited_runs,
     write_jsonl,
@@ -40,7 +43,7 @@ class DatRunInventoryTests(unittest.TestCase):
         self.assertEqual(rows[4].text, "END")
 
     def test_jsonl_export_keeps_offsets_and_raw_bytes_for_all_runs(self):
-        data = b"\x00ASCII\x00" + "日".encode("cp932") + b"\x00\x82"
+        data = b"\x00ASCII\x00" + "\u65e5".encode("cp932") + b"\x00\x82"
         rows, _ = scan_nul_delimited_runs("sample.dat", data)
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -108,6 +111,58 @@ class DatRunInventoryTests(unittest.TestCase):
                 "clean_roundtripping_length_7": 2,
             },
         )
+
+    def test_single_wide_entry_profile_counts_reuse_without_printing_source(self):
+        first_data = bytearray(128)
+        second_data = bytearray(64)
+        first_codepoint = "\u65e5".encode("cp932")
+        second_codepoint = "\u672c".encode("cp932")
+        first_data[0x12 : 0x12 + 2] = first_codepoint
+        first_data[0x16 : 0x16 + 2] = second_codepoint
+        first_data[0x52 : 0x52 + 2] = first_codepoint
+        second_data[0x12 : 0x12 + 2] = first_codepoint
+
+        first_rows, _ = scan_nul_delimited_runs("one_Entry.dat", bytes(first_data))
+        second_rows, _ = scan_nul_delimited_runs("two_Entry.dat", bytes(second_data))
+        profile = review_shape_profiles(
+            {"one_Entry.dat": first_rows, "two_Entry.dat": second_rows}
+        )["entry_clean_single_wide"]
+
+        self.assertEqual(
+            profile,
+            {
+                "row_count": 4,
+                "unique_payload_count": 2,
+                "repeated_payload_groups": 1,
+                "rows_in_repeated_payloads": 3,
+                "max_payload_multiplicity": 3,
+                "repeated_groups_across_files": 1,
+                "repeated_groups_within_one_file": 0,
+                "length_counts": {2: 4},
+                "offset_mod64_counts": {0x12: 3, 0x16: 1},
+                "runs_preceded_by_nul": 4,
+                "runs_terminated_by_nul": 4,
+                "rows_with_cr": 0,
+                "rows_with_lf": 0,
+            },
+        )
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            archive_path = Path(temp_dir) / "sample.zip"
+            with zipfile.ZipFile(archive_path, "w") as archive:
+                archive.writestr("one_Entry.dat", bytes(first_data))
+                archive.writestr("two_Entry.dat", bytes(second_data))
+            output = StringIO()
+            with redirect_stdout(output):
+                exit_code = main([str(archive_path)])
+
+        self.assertEqual(exit_code, 0)
+        self.assertIn(
+            "4 rows; 2 unique payloads; 1 repeated groups cover 3 rows", output.getvalue()
+        )
+        self.assertIn("offset-mod-64={18: 3, 22: 1}", output.getvalue())
+        self.assertNotIn("\u65e5", output.getvalue())
+        self.assertNotIn("\u672c", output.getvalue())
 
     def test_zip_input_includes_only_dat_members_and_export_cannot_enter_source_tree(self):
         with tempfile.TemporaryDirectory() as temp_dir:

@@ -18,6 +18,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from iso9660 import Iso9660Error, inspect_iso9660
+
 CHUNK_SIZE = 1024 * 1024
 ISO9660_SECTOR_SIZE = 2048
 ISO9660_PVD_SECTOR = 16
@@ -99,16 +101,23 @@ def inventory_path(input_path: Path) -> dict[str, Any]:
                 return
             content_type = _content_type(path, stat.st_size)
             sha256 = _sha256(path)
-            entries.append(
-                {
-                    "path": relative_path,
-                    "size_bytes": stat.st_size,
-                    "sha256": sha256,
-                    "content_type": content_type,
-                    "extension_hint": path.suffix.lower() or None,
-                    "duplicate_of": None,
-                }
-            )
+            entry: dict[str, Any] = {
+                "path": relative_path,
+                "size_bytes": stat.st_size,
+                "sha256": sha256,
+                "content_type": content_type,
+                "extension_hint": path.suffix.lower() or None,
+                "duplicate_of": None,
+            }
+            if content_type == "iso9660_pvd_signature":
+                try:
+                    entry["iso_inventory"] = inspect_iso9660(path)
+                except (Iso9660Error, OSError) as error:
+                    entry["iso_inventory"] = {
+                        "status": "unsupported",
+                        "error": str(error),
+                    }
+            entries.append(entry)
         except OSError as error:
             errors.append({"path": relative_path, "error": str(error)})
 
@@ -172,8 +181,9 @@ def inventory_path(input_path: Path) -> dict[str, Any]:
         "errors": errors,
         "entries": entries,
         "scope_note": (
-            "Signatures and hashes only: this inventory does not validate, "
-            "extract, modify, or rebuild any file."
+            "Top-level signatures and SHA-256 hashes, plus read-only ISO9660 PVD "
+            "directory/signature metadata when supported. No member is extracted; "
+            "no file is modified, converted, or rebuilt."
         ),
     }
 
@@ -236,6 +246,22 @@ def _summary_lines(report: dict[str, Any]) -> list[str]:
             for content_type, count in type_counts.items()
         )
         lines.append(f"  {extension}: {details}")
+    for entry in report["entries"]:
+        iso = entry.get("iso_inventory")
+        if iso is None:
+            continue
+        if iso.get("status") == "indexed":
+            lines.append(
+                f"ISO9660 {entry['path']}: {iso['file_count']} files, "
+                f"{iso['directory_count']} directories, "
+                f"{iso['cpk_signature_count']} CPK-signature members "
+                "(directory/signature inventory only)."
+            )
+        else:
+            lines.append(
+                f"ISO9660 {entry['path']}: directory inventory unsupported "
+                f"({iso.get('error', 'unspecified format limitation')})."
+            )
     duplicate_count = sum(
         entry["duplicate_of"] is not None for entry in report["entries"]
     )
@@ -249,7 +275,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Recursively inventory local game inputs by content signature and "
-            "SHA-256. This is read-only; it does not unpack or rebuild files."
+            "SHA-256, with a read-only ISO9660 directory scan when recognized. "
+            "This does not extract members or rebuild files."
         )
     )
     parser.add_argument("input", type=Path, help="one file or a directory to inventory")

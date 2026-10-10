@@ -270,10 +270,47 @@ def review_shape_profiles(
         ),
         "clean_roundtripping_length_7": len(clean_entry_seven_byte),
     }
+
+    entry_single_wide = [
+        row
+        for row in grouped_rows["entry"]
+        if row.wide_japanese_codepoints == 1 and _clean_roundtripping_run(row)
+    ]
+    payload_counts = Counter(row.raw for row in entry_single_wide)
+    payload_files: dict[bytes, set[str]] = defaultdict(set)
+    for row in entry_single_wide:
+        payload_files[row.raw].add(row.filename)
+    repeated_payload_counts = {
+        raw: count for raw, count in payload_counts.items() if count > 1
+    }
+    entry_single_wide_profile = {
+        "row_count": len(entry_single_wide),
+        "unique_payload_count": len(payload_counts),
+        "repeated_payload_groups": len(repeated_payload_counts),
+        "rows_in_repeated_payloads": sum(repeated_payload_counts.values()),
+        "max_payload_multiplicity": max(payload_counts.values(), default=0),
+        "repeated_groups_across_files": sum(
+            len(payload_files[raw]) > 1 for raw in repeated_payload_counts
+        ),
+        "repeated_groups_within_one_file": sum(
+            len(payload_files[raw]) == 1 for raw in repeated_payload_counts
+        ),
+        "length_counts": dict(
+            sorted(Counter(len(row.raw) for row in entry_single_wide).items())
+        ),
+        "offset_mod64_counts": dict(
+            sorted(Counter(row.offset % 64 for row in entry_single_wide).items())
+        ),
+        "runs_preceded_by_nul": sum(row.preceded_by_nul for row in entry_single_wide),
+        "runs_terminated_by_nul": sum(row.terminated_by_nul for row in entry_single_wide),
+        "rows_with_cr": sum(b"\r" in row.raw for row in entry_single_wide),
+        "rows_with_lf": sum(b"\n" in row.raw for row in entry_single_wide),
+    }
     return {
         "clean_wide_two_plus_by_group": clean_wide_counts,
         "ext_all_runs_by_offset": ext_by_offset,
         "entry_offset_mod64_1a": entry_alignment,
+        "entry_clean_single_wide": entry_single_wide_profile,
     }
 
 
@@ -435,6 +472,27 @@ def main(argv: Optional[list[str]] = None) -> int:
             "Japanese codepoints; "
             f"{entry_profile['clean_roundtripping_length_7']} clean, round-tripping "
             "length-7 runs."
+        )
+
+    single_wide_profile = profiles["entry_clean_single_wide"]
+    if single_wide_profile["row_count"]:
+        print(
+            "`_Entry.dat` clean single-wide review cohort (one wide-Japanese codepoint, "
+            "strict/round-tripping CP932, no non-newline controls/PUA/replacements; not confirmed strings): "
+            f"{single_wide_profile['row_count']} rows; "
+            f"{single_wide_profile['unique_payload_count']} unique payloads; "
+            f"{single_wide_profile['repeated_payload_groups']} repeated groups cover "
+            f"{single_wide_profile['rows_in_repeated_payloads']} rows; "
+            f"cross-file/same-file-only groups="
+            f"{single_wide_profile['repeated_groups_across_files']}/"
+            f"{single_wide_profile['repeated_groups_within_one_file']}; "
+            f"max multiplicity={single_wide_profile['max_payload_multiplicity']}; "
+            f"lengths={single_wide_profile['length_counts']}; "
+            f"offset-mod-64={single_wide_profile['offset_mod64_counts']}; "
+            f"NUL-before/after={single_wide_profile['runs_preceded_by_nul']}/"
+            f"{single_wide_profile['runs_terminated_by_nul']}; "
+            f"CR/LF rows={single_wide_profile['rows_with_cr']}/"
+            f"{single_wide_profile['rows_with_lf']}"
         )
 
     print(

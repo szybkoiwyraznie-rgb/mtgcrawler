@@ -317,10 +317,514 @@ All 627 proposed pre-NUL prefixes strictly decode and byte-round-trip as CP932 (
 
 **Validation:** Exact-byte search returned one occurrence per payload and no occurrences at other offsets or members. The ZIP and local exports were not modified.
 
+## 2026-10-09 — cross-check control-bearing `_Entry.dat` wide-script leads
+
+**Input:** The previously supplied `eventP01.zip` restored from its historical upload commit into ignored `local/` (SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`). This is the previously shared sample, not the actual ISO/DLC.
+
+**Action:** Profiled the eight `_Entry.dat` NUL-runs with at least two wide-Japanese codepoints. The review compared control-byte positions, CP932 quality of the intervening byte segments, 64-byte record-relative offsets, and exact raw-byte reuse across all 88 ZIP members; no decoded strings were printed or promoted.
+
+**Result:** All eight runs remain control-bearing leads; seven round-trip under CP932 and one does not. A five-byte CP932-roundtripping sequence with two wide-Japanese codepoints and a trailing raw `0x03` occurs as a whole run at `DL104_30_Entry.dat@0x00DC` and as a five-byte substring at offsets `@0x005C` and `@0x009C` inside seven-byte runs starting at `@0x005A` and `@0x009A`. The two enclosing runs have `0x02`/`0x03` controls at relative `+0`/`+6`; the repeated subspan starts at `+2` and includes the terminal `0x03`. No other exact occurrence was found among all 88 member contents. This repeat supports reviewing the subspan, but does not establish whether the control is a delimiter, token, or text formatting byte. Keep each original NUL-run intact.
+
+**Validation:** The four occurrence offsets and enclosing-run boundaries were checked directly against `DL104_30_Entry.dat`; the archive's other members contained no exact copy. All comparisons were read-only.
+
+## 2026-10-09 — profile clean one-wide `_Entry.dat` runs
+
+**Input:** The previously supplied `eventP01.zip` restored locally from its historical upload commit and kept ignored; no ISO or DLC source was opened or processed.
+
+**Action:** Extended `tools/audit_event_dat_runs.py` with a metadata-only profile for `_Entry.dat` NUL-runs containing exactly one wide-Japanese codepoint and passing strict/exact CP932 plus no-control/PUA/replacement checks. It reports raw-payload multiplicities and 64-byte-relative offsets without emitting decoded strings or raw payload bytes. Added a synthetic CLI test proving repeated rows are counted while stdout remains source-free.
+
+**Result:** The archive has 222 one-wide `_Entry.dat` runs; 86 meet the stricter diagnostic quality predicate. Those 86 comprise 50 unique payloads; 18 repeat groups cover 54 rows, 16 groups recur across files and two repeat only within a file, with maximum multiplicity nine. Eighty-three payload rows are two bytes long; three are four or seven bytes. All are NUL-bounded and none has CR/LF. Their offset-mod-64 counts are 71 at `0x12`, nine at `0x16`, and six at `0x1A`. The runs remain one-codepoint review leads rather than confirmed strings; preserve each occurrence ID even for byte-identical values.
+
+**Validation:** The CLI reproduced the counts in its metadata-only summary. A synthetic test verifies payload grouping, offsets, NUL flags, and no source text in stdout; the full suite now has 59 passing tests. `py_compile` and `git diff --check` pass.
+
+## 2026-10-09 — add read-only ISO9660 member inventory
+
+**Input:** Synthetic ISO images only. No actual ISO/DLC, CPK archive, or new event-sample payload was opened or processed.
+
+**Action:** Added `tools/iso9660.py`, a standard-library-only, read-only ISO9660 PVD indexer. It validates the descriptor set and both-endian fields, walks 2048-byte-sector directories, preserves PVD identifiers as stable paths, supports adjacent multi-extent file records, checks extent bounds, and reads only the first four bytes of each regular member to flag a `CPK ` signature. Joliet descriptors are noted but not used; interleaving and multi-volume records fail closed. Integrated its metadata into `inventory_local_inputs.py`. The CPK batch report now separates nested ISO CPK candidates from top-level inputs and labels nested candidates inventory-only; neither code path extracts an ISO member.
+
+**Result:** A synthetic PVD fixture with a nested directory, an ordinary CPK-signature member, a CPK signature split across two extents, and a non-CPK file indexes all three files and detects the two CPK signatures. Invalid both-endian volume size, out-of-volume extent, and a signature-only/truncated image are rejected by the ISO parser; the general inventory retains such an image as an unsupported ISO scan rather than losing its top-level signature/hash result. Source bytes are unchanged.
+
+**Validation:** Six ISO/inventory tests plus two batch-reporting tests pass, including a mixed-folder dry run that finds synthetic ISO members without creating output; the full suite passes 66 tests. The parser has not been validated against an actual game image and is not an extractor/rebuilder. The YACpkTool binary and real `.EDAT` inputs remain untested. No user-side action is needed until those real inputs/tools become available.
+
+## 2026-10-09 — deterministic text-unit extractor and no-change rebuilds
+
+**Input:** The previously supplied `eventP01.zip` restored from upload commit `e576e8b` into ignored `srw-oe-translation/local/` (162,546 bytes; SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`, matching `FILE_INVENTORY.md`). Only its 22 `.bin` members were read. The `.dat` companions, the ISO, and the DLC were not processed.
+
+**Action:** Added `tools/extract_event_text.py`, a read-only extractor. It repeats the candidate scanner's greedy `FF FF … 00 00` walk and checks it at run time against `audit_event_candidates.scan_bin_with_stats`; any divergence aborts. Each BIN is partitioned into `text_unit`, `marker_span`, `gap`, and `unterminated_tail` segments with raw hex. Text units keep the candidate IDs (`file@HEX`). Each unit's prefix is rendered in a lossless CP932 placeholder view: LF and CR stay literal, printable ASCII stays literal except `{`, and every other byte that is not a stable character is written as an uppercase `{XX}` or `{XXXX}` token (C0/DEL/C1 controls, private-use mappings, undecodable bytes, and valid pairs that do not re-encode exactly). A literal `{` is `{7B}`. Suffixes are shown as one token per byte. The tool writes `manifest.json`, `units.jsonl`, and `segments.jsonl` to a chosen folder, reloads them, and checks coverage, the codec, and two no-change rebuilds (from raw segments, and from the placeholder views) against each file's SHA-256.
+
+**Result:**
+
+- 22 BINs, 333,732 bytes. 3,277 text units. Unit IDs, prefix bytes, and single-NUL suffix bytes match the candidate export exactly (zero mismatches).
+- 6,826 segments: `text_unit` 3,277 (166,284 bytes), `marker_span` 125 (933 bytes), `gap` 3,424 (166,515 bytes), `unterminated_tail` 0. The partition covers every byte of every BIN.
+- Placeholder tokens in unit prefixes: 104 in total, in 30 units (token counts: 12 control, 27 invalid, one non-byte-exact pair, 64 private-use). Unit flags (a unit can carry several): 36 half-width-only matches, 29 nested `FF FF`, 627 single-NUL suffixes, 50 with one Japanese codepoint, 30 with private-use tokens, 12 with control tokens, 27 with invalid-byte tokens, and one with a non-byte-exact pair token.
+- Literal line breaks in unit text: LF 2,463 and CR 430, matching the earlier audit totals.
+- Export SHA-256 (local only): `manifest.json` `4f75ddc546c1a6ff55d9d3e100cf151ee51946738db1cf42b59f19479cd3172a`; `units.jsonl` `353ee0d6042c1a187693fcd14fc5ac5a28b89dcf2b3c55d4add21ddd2c0da521`; `segments.jsonl` `7fb689ba8819382b2d3e99d1a6e2ea634fe05bf95226043bbbe60d3f6d69bd93`. Two runs produced byte-identical files and identical stdout. Stdout contains counts and check results only.
+- Negative checks on a copy of the export: changing one token in a unit view, flipping one gap byte, dropping one segment, and changing one suffix byte each produced verification errors. The unmodified export produced none.
+
+**Validation:**
+
+- 84 unit tests pass: the 58 existing tests and 26 new ones. The new tests cover exhaustive one-byte and two-byte codec round trips, seeded random round trips, token and reason classification, a synthetic BIN that covers every segment kind, seeded random partitions cross-checked against the candidate scanner, export/read-back determinism, rejection of export folders inside the input, detection of tampering, and a regression test on the restored sample (it runs only when `local/eventP01.zip` is present).
+- A separate ad hoc run (not committed) of 20,000 seeded random byte sequences also round-tripped.
+- `pyflakes` reports nothing for the new tool and test. It ran from a temporary virtualenv outside the repository.
+- Runtime on the 22 BINs was about one second.
+
+**Not demonstrated:** string and field boundaries (the `FF FF` / `00 00` / single-NUL model remains heuristic), the meaning of tokens and suffixes, reinsertion, English rendering, and in-game behavior. Gap bytes that contain Japanese-script runs are preserved but are not promoted to units; they stay in the separate NUL-run audit. `units.jsonl` contains decoded proprietary text and must remain in the ignored local folder.
+
+## 2026-10-09 — one-click local run, first slice (synthetic tests, sample regression, demo runs)
+
+**Input:** Synthetic fixtures only for the new pipeline: a fake converter script (`FAKE_CONVERTER_SOURCE` in `tests/test_run_pipeline.py`), synthetic JSON "CPK" containers, and a synthetic ISO descriptor. A scratch demo tree (`/tmp/demo`, not committed) held four synthetic files: `event_P01.EDAT` (SHA-256 `716a7c5cc66d09ce8cbb3159b5f4dfc6c2e6ffbdb9caf5c52a62cc38ea8e01e8`), `imenu01.EDAT` (`d1621d635aeb631e2a0c00a61f4b3049ef64433d9f60b32012c2506d5c9cfb97`), `base game.iso` (`5230604be9f5bdb061b5afb8c725b646972153c28721566b3c0e6e7c56a8e49c`), and `unknown.EDAT` (`13118606593e3a4e83bea9966e8b83e560e83da5be38565a7a058fdbf9b1a115`). The restored sample `local/eventP01.zip` (162,546 bytes; SHA-256 `187cc54669be48909c99f9f1c83acad032e57858680753381ea5fae9638fe0c7`) was used only for the text-extractor regression check. No real YACpkTool run, no game file, and no ISO or DLC was processed.
+
+**Action:**
+
+1. Added `tools/run_pipeline.py` and `RUN_PIPELINE.bat`. Moved the read-back check of `tools/extract_event_text.py` into `read_back_errors()` so the pipeline reuses it; CLI behaviour unchanged.
+2. Re-ran `tools/extract_event_text.py` on the restored sample into a scratch folder and compared the three exports with the existing ignored export byte for byte.
+3. Ran the full synthetic suite and the one-click test module.
+4. Ran the one-click CLI (`--no-gui`, explicit `--input`, `--output`, `--tool`) on the synthetic tree in three modes: a completed run; a run where the fake converter rejects every mode (`FAKE_YACPK_REJECT_ALL=1`); and a `--preflight-only` run with an output folder containing a space. Input SHA-256 lists were taken before and after each run.
+
+**Result:**
+
+- Full suite: **118 tests OK** (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). That is the 84 earlier tests plus 34 in `tests/test_run_pipeline.py`.
+- Sample regression (22 BINs, 333,732 bytes): exit 0; 3,277 text units; 6,826 segments (gap 3,424, text_unit 3,277, marker_span 125, unterminated_tail 0); bytes by kind gap 166,515, text_unit 166,284, marker_span 933, unterminated_tail 0; placeholder tokens control 12, invalid 27, nonroundtrip 1, pua 64; literal line breaks LF 2,463, CR 430. Exports are byte-identical to the earlier export: `manifest.json` `4f75ddc546c1a6ff55d9d3e100cf151ee51946738db1cf42b59f19479cd3172a`, `units.jsonl` `353ee0d6042c1a187693fcd14fc5ac5a28b89dcf2b3c55d4add21ddd2c0da521`, `segments.jsonl` `7fb689ba8819382b2d3e99d1a6e2ea634fe05bf95226043bbbe60d3f6d69bd93`. Verification passed both in memory and after read-back.
+- Completed synthetic run: exit 0; status `completed`; 4 input files (2 CPK signatures, both unique; 1 ISO; 1 unrecognized). Probe: original `.EDAT` name, captured output. 3 packages extracted, 0 failed; 6 member files; 3 text packages verified; 12 text units; repack gate passed. Input hashes unchanged.
+- Blocked synthetic run (every converter mode rejected): exit 1; status `blocked`; 8 probe attempts logged under `logs/converter/` (`probe-*`); 0 packages extracted; `REPORT.txt` gives the reason and a checklist. Input hashes unchanged.
+- Preflight-only with output `my out` (contains a space): exit 1; status `blocked`; the reason is that the output path cannot be passed to the converter. No converter call. Input hashes unchanged.
+- Python grammar check (`ast.parse` with `feature_version=(3, 9)`) passes for the new and modified Python files. Only Python 3.11.2 was available to run them.
+- Final code SHA-256 at this milestone: `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25`; `tools/run_pipeline.py` `971d4511be5f13ad8dad948892aa9439046a2c77aa0a4c73aa2c509aacd57424`; `tests/test_run_pipeline.py` `3c8cf32bfddd2a1c21ecb1f6380cf80893c24cae5d12eab5638eb83962f3a8b5`; `tools/extract_event_text.py` `0212909bc1575bdb34b672ccc0a991a3566bcc63bf0588ed98a75fed0acd2f03`.
+
+**Validation:** Problems found during review and fixed before this entry: a saved output folder that YACpkTool cannot use now asks for a new folder in GUI mode (test `test_saved_unusable_output_folder_is_asked_again_in_gui_mode_only`); the blocked report now gives a reason-specific checklist; the probe message wording is clearer; the docs no longer claim a `logs/run.log` that the run does not write. The converter assumptions (no exit code, `Error:` returns, `-o` URI rule, `-X` argument rule, progress display, no stdin) come from reading the archived `YACT/Program.cs` only; they were not executed.
+
+**Not demonstrated:** the real YACpkTool on Windows (console redirection, `.EDAT` acceptance, `-o` behaviour of the user's build, the `-L` format, the `Status` values); completeness of CPK extraction against each container's table of contents; ISO structure or processing; any game load or in-game text; boundary validity of the text units; a Python 3.9 runtime.
+
+## 2026-10-09 — first real run of the one-click slice on the user's Windows PC
+
+**Input:** The user's own game folder (`D:\SRWOE`, not copied into the repository and not shared): 341 readable files, including `NPJH50521\` (137 top-level `.EDAT` files, `PARAM.PBP`, `PBOOT.PBP`, `PARAM.SFO`) and `SRW OE 1.08.iso`. The user's YACpkTool build: `YACpkTool.exe` SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962` (as reported by the pipeline; the binary is not in the repository). Run folder `20261009-185908` on the user's PC, outside the repository. The agent received only the console text and `REPORT.txt`, which contain file names, counts, and hashes but no decoded game text. Per-file SHA-256 values are in that run's `inputs.csv`, which has not been received yet.
+
+**Action:** The user ran `RUN_PIPELINE.bat` (code at commit `b1e6fb2`) by double-clicking it and choosing the folders once. No file was edited by hand.
+
+**Result (status `completed`, as reported):**
+
+- Probe: `original_name/captured` was rejected. The converter exited with code 3762504530 (0xE0434352, an unhandled .NET exception), and Windows showed a crash dialog for YACpkTool. `original_name/console` passed. The extraction and repack calls therefore ran in console-output mode; the `-L` listing calls stayed captured.
+- Inputs: 341 files, 341 readable, unchanged during the run. CPK signatures: 290, of which 288 are unique by content.
+- Packages: 424, 424 reported extracted, 0 failed. Member files extracted: 11,389. Duplicates skipped (same content): 104.
+- Event text: 83 packages with BIN files verified, 0 failed. Text units: 39,103. These are heuristic candidates, not validated strings and not a translation.
+- Repack round trip for the smallest package: passed. Only that one package was checked.
+- Not processed: 47 top-level `.EDAT` files with an unrecognized signature, all in `NPJH50521\` (among them `eventP04.EDAT`, `evept101.EDAT`, `mesbtl04.EDAT`, `mesbmp04.EDAT`, `config04.EDAT`, `credit04.EDAT`, `face04.EDAT`, `robo04.EDAT`, `sprstd04.EDAT`, `voice01`–`voice15`, `voice19`, `BgmSet*.EDAT`, `se44xx.EDAT`); `PARAM.PBP`, `PBOOT.PBP`, `PARAM.SFO` (metadata containers); `SRW OE 1.08.iso` (ISO 9660, empty volume identifier, `size matches descriptor: no`; the byte values were not in this report).
+- Inference, not confirmed: 137 − 47 = 90 top-level CPK files. The remaining about 200 CPK signatures should be in subfolders under the input folder; `inputs.csv` will confirm this.
+
+**Interpretation:**
+
+- Observed: captured output crashed YACpkTool during the probe; console output did not.
+- Hypothesis, not tested: `YACT/Program.cs` sets `Console.CursorLeft` in the extraction progress loop (around lines 436–447). Redirected output may make that setter throw. This fits the exit code but has not been reproduced.
+- Observed limit: in console mode the pipeline cannot read YACpkTool's `Error:` lines. "0 failed" therefore means only that each call exited with code 0 and left at least one file. A partial extraction that exits 0 is not detected.
+- Unknown: why the ISO descriptor size differs from the file size (padding, truncation, or other). Not investigated; no ISO was processed.
+
+**Code change after this run:** The report now lists each rejected probe attempt; shows large exit codes in hex with a label; warns (in `Warnings` and in `Extraction`) that console mode does not check YACpkTool's error lines; reports how many packages' `-L` listings finished without an `Error:` line (this is not a completeness check); shows the ISO descriptor and file byte counts when they differ; and lists the completeness gap under known gaps. Final SHA-256 values: `tools/run_pipeline.py` `67d2c79325c195ad885492b3772c1a0b911c1a36c02898f4dc92b8c5549e83b6`; `tests/test_run_pipeline.py` `4b748fb514cb8a1dddc82129e3a91f43bed17fb0716af707ce5014f1c291a51f`; `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25` (unchanged).
+
+**Validation:** Full suite 118 tests OK (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). `tests/test_run_pipeline.py`: 34 tests OK (count unchanged; assertions added for the rejected-probe line, the console-mode notes, the hex exit code, and the ISO byte counts). pyflakes and `py_compile` clean; `git diff --check` clean.
+
+**Not demonstrated:** completeness of extraction against each container's table of contents; the `-L` output format; the contents or container type of the 47 non-CPK `.EDAT` files; the ISO's structure; the correctness of any text unit; any in-game result.
+
+## 2026-10-09 — listing of one package from the first real run; listing check added
+
+**Input:** A zip the user uploaded as a commit, `20261009-185908.zip` (576,175 bytes; SHA-256 `39836eb5dc081867525b6863b78e662392e9e7dea741f7e2a397ded5631c6bc2`). It contains `registry.json` from the first real run (3,421,218 bytes; SHA-256 `9e582ba48079dcd3183ee7f3b95a8d42da5a770e51620f1060a518fb3a272235`) and `0003-list-p001-bacb01-ce026e1f42d6.txt` (39,080 bytes; SHA-256 `0acca31aeee1fc3b3edb2b6059fc10fcb119aa433e99541843912398b9cf14f7`), the captured `-L` output for `NPJH50521\bacb01.EDAT`. The commit landed on PR #8's branch (`arena/382dda12-mtgcrawler`, commit `56aae991ba`), which belongs to another session, not on this session's branch. The zip was extracted to ignored `local/first_run_upload/` and is not committed. No game file was received.
+
+**Action:** Read-only analysis of those two files (Python). The pipeline did not run again. The `-L` text was parsed and its entries were compared with the registry's member list for `p001-bacb01-ce026e1f42d6`.
+
+**Result (observed):**
+
+- Listing header: `Content files:541`; `Content file size:132,272,768` (thousands separators appear as U+FFFD in the captured text); `Compressed files:0`; `File format version:Ver.7, Rev.1`; `Data alignment:2048`; `Enable Filename info.:True [Sorted]`; `Enable ID info.:True`; `Tool version:CPKMC2.30.07, DLL3.00.07`.
+- The table has 541 rows with unique IDs 0–540. Their `Filesize` values add up to the header total exactly.
+- Only **260 distinct names** for 541 entries: 10 names occur once, 219 twice, and 31 three times. Entries that share a name have the same size.
+- The output folder holds exactly those 260 names, each with the size of its group (63,799,392 bytes in total). The 281 entries that share a name with another entry have no file. They hold 68,473,376 bytes, about 52% of the content bytes.
+- The container `bacb01.EDAT` is 132,839,776 bytes, which is 567,008 bytes more than its content total.
+- For this package the `-L` output has no `Error:` line. The extraction ran in console-output mode, so its error lines were not captured. The pipeline recorded the package as `extracted`.
+- Sixteen packages in the registry have one member, `p0000.pac`, of 0 bytes with an unknown signature. All sixteen are `mesbtl` packages (6,272-byte containers, for example `NPJH50521/mesbtl09.EDAT`).
+- ISO: `SRW OE 1.08.iso` is 679,243,152 bytes, with logical block size 2048 and `volume_space_blocks` 328,960 (673,710,080 bytes). The file is 5,533,072 bytes longer than the descriptor: 2,701 sectors plus 1,424 bytes. The file is 331,661 full sectors plus 1,424 bytes, so it is not sector-aligned. Not processed.
+- 47 unknown-signature inputs, all in `NPJH50521\`, sizes 1,284 to 94,500,680 bytes. The registry did not store their first bytes. The code change below records them for the next run.
+
+**Interpretation:**
+
+- Observed: with one file per name, the 281 entries that share a name cannot all be kept in a flat folder. About 52% of the content bytes of `bacb01.EDAT` are missing from the output, and the pipeline reported the package as complete.
+- Hypothesis, not tested: later entries with a repeated name overwrite earlier ones. Whether the hidden entries have the same content as the kept ones is unknown.
+- Hypothesis, not tested: the game may look up entries by ID. A rebuild by name would then not reproduce the table. Repacking and reinsertion stay blocked.
+- Correction to an earlier count: I wrote 137 packages below the CPK size. The registry gives **184** of 424 extracted packages with on-disk member bytes below `source_size_bytes` (92 below 0.5). This ratio is not a loss signal. An uncompressed container always holds a table and padding besides its content. Only the listing check measures completeness.
+- Correction: the repack gate's sample was `p202-mesbtl09-981a716110df`, a package whose only member is 0 bytes. The gate chose the smallest package by on-disk bytes, so its "passed" result tested no content. Fixed in this change.
+
+**Code change:**
+
+- After extraction, `_extract_package` compares each package's `-L` entries with the files on disk, by count and by name. A package is `verified` only when every entry has exactly one file of the same name and no file is left over. Entries that share a name make it `incomplete`. A listing that cannot be read, has a row that does not split into two numbers, has a name that does not decode (U+FFFD), or whose sizes do not add up to its header total is `unverified`. A name that does not decode may be a code-page problem in the converter's output; the registry keeps up to three examples of each kind of mismatch (`listing_check.examples`) so the next run can show which it is. Both non-verified states fail the package and remove its output, as the existing failure path does. The result is stored as `listing_check` in the registry.
+- The report adds `listing check (entries vs files): verified N, incomplete N, unverified N, not checked N`. `packages.csv` gains `listing_status`, `listing_entries`, and `listing_duplicate_entries`. Known gaps lists the duplicate-name gap.
+- The repack gate uses the smallest extracted package that has non-empty members.
+- Converter logs (`logs\converter\*.txt`) replace the run folder, input folder, and converter paths in the command line, the start error, and the captured output.
+- The registry records the first 32 bytes (hex) of each unrecognized input in `inputs[].head_hex`. The bytes are not decoded and are not written to `REPORT.txt` or the CSV files.
+- Read-only check on the real data: `check_listing` on the uploaded listing and the registry's member list returns `incomplete` with 541 entries, 260 names, 281 duplicate entries, 0 names without a file, 0 files not listed, and 0 unparsed rows.
+
+**Validation:** Full suite 122 tests OK (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). `tests/test_run_pipeline.py`: 38 tests OK. Four tests are new: the listing parser on synthetic listings in the real layout (U+FFFD and space separators, unreadable rows); the listing-check outcomes (verified, repeated name, missing or extra file, bad header, unreadable row); an integration run where a fake converter repeats one name (the package fails, no output is kept, the other package passes); and an integration run with an all-empty package (the gate skips it). Existing tests gained assertions for converter-log redaction, the head bytes of the unknown input only, and the listing counts. Pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean. Final SHA-256: `tools/run_pipeline.py` `64391a0f52f434a0f34c42cc90fbf39226a8b518a7aa18449003c389e75098f6`; `tests/test_run_pipeline.py` `cc9bf51d35cd5e35fc7632e08c63bfe131458b8e2df6398189ab2914246f11a3`; `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25` (unchanged).
+
+**Not demonstrated:** whether the hidden entries differ in content; whether the game uses the ID column; whether the other 423 packages have repeated names (only one listing is available); whether the 16 zero-byte members are genuine empty entries; the cause of the ISO size difference; the first bytes of the 47 unknown inputs (not yet collected); any repack, insertion, or in-game result.
+
+**Expected effect of the next run:** packages with repeated names now fail. Their number is unknown until the run; `bacb01.EDAT` alone would fail. Some text packages may leave the text export as a result. This is the intended fail-closed behaviour, not a regression, and the earlier "424 extracted" figure should not be read as complete.
+
+
+## 2026-10-09 — port the valuable commits of PR #8 into this branch
+
+**Input:** Branch `arena/382dda12-mtgcrawler` (PR #8, open). It has four commits after `main` (`ab8ae91`). Its first commit was made four minutes after PR #7 was merged, under the same branch name, so it continues that earlier work. The user asked for everything valuable to be added to this branch, and for PR #8 to be closed. Commits `40bfa82`, `7efa795`, and `558d9d6` were ported with `git cherry-pick -x`, so their authors and messages are kept. The uploaded zip commit `56aae991ba` (`20261009-185908.zip`, 576,175 bytes, SHA-256 `39836eb5dc081867525b6863b78e662392e9e7dea741f7e2a397ded5631c6bc2`) was not ported. It holds data with local paths, and it was already analysed in the listing entry above.
+
+**Action:** Conflicts were resolved by hand, in docs only (`README.md`, `docs/EXPERIMENT_LOG.md`, `docs/LOCAL_WORKFLOW_PLAN.md`, `docs/NEXT_STEP.md`, `docs/STATUS.md`). The ported STATUS items were renumbered 38–40. Two sentences that the resolution had replaced were restored. One regression test for corrupted ISO images was added. A one-off mutation check was run outside the repository and is not committed.
+
+**Result:**
+
+- Full suite: 131 tests OK. `tests/test_iso9660.py` has 7 tests (6 ported, 1 added).
+- Mutation check on the synthetic PVD image (53,248 bytes). Seed 1234, 4,000 mutations, with most changes in the first 36 KiB: 3,520 accepted, 480 rejected with `Iso9660Error`, 0 other exceptions. Seed 99, 6,000 heavier mutations (descriptor and directory sectors, zero or `FF` runs, random bytes): 2,148 accepted, 3,852 rejected with `Iso9660Error`, 0 other exceptions.
+- The ported inventory calls `inspect_iso9660` for ISO files. The one-click pipeline stores only its own fields in `registry.json`, so ISO directory metadata is computed but not yet recorded.
+
+**Validation:** pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+**Not demonstrated:** the ISO reader on the user's real image; the cause of the 5,533,072-byte descriptor mismatch; any extraction or repacking from the ISO.
+
+Final SHA-256: `tools/iso9660.py` `cf915f09962af74bac5de7e72319627fa59ff8b72f739a8c19600b53bc205cfc`; `tools/inventory_local_inputs.py` `e692e365c7929d3b2d341a21631176228ee6bcc83133afebc0865a9bf9e8d1b1`; `tools/audit_event_dat_runs.py` `d2e9901cafed6e52b864c636eeb949f043e17b62b1701df03e0f9b488cfae0fb`; `tools/extract_cpk_batch.py` `fe733e87afd8bf930e02772f4d57f5c222d60bc805e8811ce6bccb7876c46e15`; `tests/test_iso9660.py` `fc9f038299387584618d8604a694b86abcc250c4708fc0ebf4cb39b6a68633ad`; `tools/run_pipeline.py` `64391a0f52f434a0f34c42cc90fbf39226a8b518a7aa18449003c389e75098f6` (unchanged in this port); `tests/test_run_pipeline.py` `cc9bf51d35cd5e35fc7632e08c63bfe131458b8e2df6398189ab2914246f11a3` (unchanged in this port).
+
+## 2026-10-09 — second real run of the one-click slice: the listing check reports 157 failures in two classes
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` on their Windows PC (run `20261009-194153`, code at commit `50b8b30`) against the same input folder and converter (SHA-256 `8871f1efa6c7bd27f13c8736d3ddb119a4360f201f1fc57f3ea415a949baf962`) and pasted `REPORT.txt`. The agent has the report text only; the second run's `registry.json` and converter logs are still on the user's PC.
+
+**Observed (from the pasted report):**
+
+- Status `completed_with_failures`. Input unchanged: 341 files, all readable; 290 CPK signatures (288 unique content).
+- Packages: 346 total (189 extracted, 157 failed); 3,439 member files; 32 duplicate-content aliases skipped.
+- Listing check: 189 verified, 41 incomplete, 116 unverified, 0 not checked.
+- Event text: 80 packages with BIN files verified (0 failed), 39,103 heuristic units — the same unit total as the first run.
+- Repack gate: passed, on a package with non-empty members.
+- Converter probe: `original_name`/console passed again; `original_name`/captured was rejected again on `NPJH50521/mesbmp09.EDAT` with exit code 3762504530 (0xE0434352, unhandled .NET CLR exception). Extraction ran in console mode again, so `Error:` lines were not checked.
+- Not processed (unchanged): 47 unknown-signature `.EDAT` files, `PARAM.PBP`/`PBOOT.PBP`/`PARAM.SFO`, and the ISO (still 5,533,072 bytes longer than its descriptor).
+
+**The 157 failures, in three groups:**
+
+1. `incomplete` (41 packages, all `bacb*` and `bseq*`): the listing has more entries than distinct names, so the flat output folder holds fewer files than entries (`bacb01`: 541 entries, 260 names, 281 duplicate entries, about 52% of its content bytes without a file). This is the known duplicate-name gap, now measured across the run.
+2. `unverified` (116 packages: `face*`, `mesbmp*`, `mesbtl*`, `mov*`, `n1-bcam*`, plus `robo01`/`robo02`/`robo03`): the parser could not read the `-L` rows (for example `face01`: 247 rows; each `n1-bcam`: 15 rows). The parser was written from one wide-column sample (`bacb01`, gaps of 3–6 spaces between the two numbers). These packages hold small files, so their columns are probably narrower. Hypothesis, not confirmed: the two numbers are then separated by a single space, which the strict two-space split rejects.
+3. Special cases: `robo01`/`robo02` listings have no `Content files` line at all; `robo03` has one listed name that did not decode (U+FFFD); `face09`, `face18`, and `mesbmp09` each have exactly one listed name without a file and one file not in the listing (one name differs between the listing and the disk).
+
+**Interpretation:**
+
+- Observed: the package count dropped from 424 (first run) to 346 because failed packages keep no output, so the nested CPKs inside them are never discovered (first run: 288 top-level + 136 nested; second run: 288 top-level + 58 nested). The input is untouched; this is fail-closed behaviour, not data loss.
+- Observed: the text-unit total is identical to the first run (39,103, from 80 packages instead of 83). The failed packages apparently contain no event-text BIN units; the registry's per-package `text_units` will show which three packages left the text export.
+- Hypothesis, not confirmed: the 116 `unverified` packages are a listing-layout problem in the parser, not an extraction problem. Their extraction may be complete; the check cannot prove it yet.
+- Hypothesis, not confirmed: for the three single-name mismatches, the converter may write a sanitized file name to disk (for example replacing a character that is invalid in a Windows file name), so the listed name and the disk name differ.
+
+**Not demonstrated:** the actual row layout of the 116 listings (no log for them has reached the agent yet); whether the hidden duplicate-name entries differ in content; whether the game uses the ID column; the first bytes of the 47 unknown inputs (they are in the second run's registry, not in the report); any repack, insertion, or in-game result.
+
+## 2026-10-09 — listing parser fallback for narrow columns, report diagnostics, and ISO inventory in the registry
+
+**Input:** The second real run's report (entry above). The one known real listing (`bacb01`, from the first run's upload) was re-parsed with the new code as a regression check.
+
+**Action:**
+
+- `parse_listing` now reads rows line by line. The strict reading is unchanged (two or more spaces between the Filesize and Compressed numbers). When a row's numbers do not split that way, a fallback splits on any gap and accepts the row only when both tokens are one plain number with no embedded space; a number that itself contains a space separator is still rejected instead of being cut in half. The check still requires the row count and the size sum to match the listing header, so a wrong split fails closed. Each parsed row records which mode read it (`parse_modes`: `strict`/`fallback`).
+- Unverified listing checks now keep raw examples in `listing_check.examples`: up to three unreadable rows verbatim, the first eight listing lines when the header is missing or a check fails, up to three listed names that did not decode, and (for incomplete packages) the listed-vs-disk name pairs. `REPORT.txt` gains a `Listing check diagnostics` section with up to three unreadable rows, two header samples, three name pairs, three undecodable names, and a `rows read with the single-space fallback: N of M` line when the fallback was used. These are file names and sizes only, the same categories the report already contained.
+- `REPORT.txt` gains an `Unrecognized inputs` section that groups the unknown-signature inputs by their first 32 bytes (hex) with counts and example paths, so the 47 unknown files can be identified from the report alone. The registry already had `inputs[].head_hex`.
+- The registry's input rows now copy the read-only ISO inventory (`inputs[].iso_inventory`, computed by `inventory_path` since the PR #8 port but previously discarded), and the ISO's `Not processed` line states the indexed member counts. No ISO member is extracted.
+- Known gaps updated: the listing-layout limitation now names the fallback and the raw-row report; the duplicate-name gap names the two recovery options.
+
+**Validation:**
+
+- Full suite: 136 tests OK (`python3 -m unittest discover -s tests -p 'test_*.py'` from `srw-oe-translation`). Five tests are new: the parser fallback on a narrow synthetic listing (plus unreadable and ambiguous rows staying unparsed), the raw examples in `check_listing`, an integration run with the fake converter emitting single-space rows (all packages verify), the report's head-byte groups, and the registry's ISO inventory copy.
+- Regression on the real listing: `parse_listing` on the uploaded `bacb01` log parses 541 of 541 rows in strict mode; the sizes sum to the header total 132,272,768; 260 unique names; 281 duplicate entries. The same log with every multi-space gap collapsed to a single space parses 541 of 541 rows in fallback mode with identical entries (no/id/size/name). `check_listing` on the real listing and the registry's 260 members returns `incomplete` with the known counts.
+- pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `dc1db0f54718cdc2f8a944477f790e3cfd0944d193540790420f90919c3929cc`; `tests/test_run_pipeline.py` `4f8860b1345cfba79b7a96489199e1650c1211cbbfaa74c92ba8f2a0b989d6fe`; `RUN_PIPELINE.bat` `7c909d7852fedfb5ba3caf079bd71ce1631d4a5aed6880274e2ede4db5f79c25` (unchanged).
+
+**Not demonstrated:** the fallback on the user's real narrow listings (the next run, or the second run's logs, will show it); whether the 116 unverified packages verify once their rows parse; the cause of the `robo01`/`robo02` header-less listings; the three single-name mismatches; any repack, insertion, or in-game result.
+
+## 2026-10-09 — the second run's logs and registry: real listing layouts, ID-named files, unknown inputs identified
+
+**Input:** The user uploaded `20261009-194153.zip` (784,584 bytes, SHA-256 `355669cd94d95c1397461252c72350891f55ac072bc6c536b5fe38d3b5cf2ee0`) to this branch. It holds the second run's `logs\converter\*.txt` (696 logs: 346 `-L` listings, 346 extractions, 2 probes, 1 pack, 1 unpack check), `registry.json` (1,644,222 bytes, SHA-256 `673395437be48bf4f2b4858c217ce2f3d05c9db4f352c2af29f896b62f26b144`), and one 6,272-byte container (`NPJH50521\mesbtl09.EDAT`, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`, matching the registry's `p202-mesbtl09-981a716110df`) as a sample for a future CPK table reader. All were unpacked under ignored `local/` and read only. The upload commit was removed from the branch history at the user's request once the analysis was done (the zip contains a game file and the repository is public); a copy stays under ignored `local/second_run_upload/`.
+
+**Observed — the 157 failures re-derived from the real logs (exact counts):**
+
+- 38 packages have entries that share a name (all `bacb*`/`bseq*`) → `incomplete`. Across them, 1,111 entries beyond the first per name have no file in the flat output: 206,898,244 bytes (197.3 MiB). 902 of those hidden entries are uncompressed (stored size equals size) and 209 are compressed; 19 of the 38 packages are fully uncompressed (`Compressed files:0`).
+- 42 listings print no `Contents Filename` column (`Enable Filename info.:False`): rows are `[ n]  ID  Filesize  Compressed  %` with a trailing space and no name. For these packages YACpkTool writes one ID-named file per entry; observed name `ID00000` for ID 0 (face09, face18, mesbmp09 each have one entry, ID 0, one file `ID00000`). In run 2 the old parser failed them as unreadable rows, except those three one-entry packages, where it ate the next line (`Process finished …`) as a name and reported a one-name mismatch.
+- 59 listings print no `ID` column (`Enable ID info.:False`): rows are `[ n]  Filesize  Compressed  %  name`.
+- 16 listings (the `mesbtl*` packages whose single entry is the 0-byte `p0000.pac`) print the percent of a 0/0 entry as `,00`, which the old row pattern rejected.
+- 2 listings (`robo01`, `robo02`) print the `Content files` count with a thousands separator (`1�711`, `1�201`), which the old count pattern rejected.
+- 2 packages (`robo01`, `robo03`) each have exactly one listed name the console mangled to U+FFFD (`r2222/"�.bsb` and `r1100/srwWI_�v�Z�R.bsb`); they stay `unverified` (fail closed).
+
+**Observed — other registry answers:**
+
+- The 47 unknown-signature inputs are 20 PSP EDAT containers (signature `\x00PSPEDAT`; 19 with flag byte 0x00, `evept101.EDAT` with 0x03) and 27 AFS2 archives (signature `AFS2`: the `BgmSet*` and `voice*` files). Signatures only; nothing was decrypted or decoded. The report's `Unrecognized inputs` section shows these groups from `head_hex` alone.
+- The three text packages that left the export (robo01/02/03; 83 → 80 packages) each contributed 0 units in run 1, so the 39,103-unit total is unchanged. No text data was lost.
+- The 16 zero-byte `p0000.pac` members are genuine empty entries: their listings say `Content files:1`, `Content file size:0` (the other 14 `mesbtl*` packages have 1–56 real entries).
+- The header lines `Enable Filename info.:True (208 bytes)` / `Enable ID info.:True (104 bytes)` give the byte sizes of the filename and ID tables inside the container; the parser records them (`filename_table_bytes`, `id_table_bytes`) plus the `Compressed files` count per package.
+- Compression: 215 of 346 packages are fully uncompressed; 131 have some compressed entries (face01: 494 of 494; robo03: 468 of 507; bcam: 9 of 15). `Filesize` is the uncompressed size and equals the extracted file's size (validated: 0 size mismatches across the 189 extracted packages).
+
+**Observed — the CPK sample (`mesbtl09.EDAT`, 6,272 bytes):** a CRI CPK container: a `CPK ` header with content offset 704 and content size 0; a `CpkHeader` `@UTF` table (field names include `ContentOffset`, `ContentSize`, `TocOffset`, `TocSize`, `ItocOffset`, `ItocSize`, `Align`); a `TOC ` table (schema `CpkTocInfo`: `DirName`, `FileName`, `FileSize`, `ExtractSize`, `FileOffset`, `ID`, `UserString`) holding the entry name `p0000.pac`; an `ITOC` table (schema `CpkExtendId`: `ID`, `TocIndex`) at 0x1000; and an `ETOC` table (schema `CpkEtocInfo`) at 0x1800 ending at the file end 0x1880. The TOC schema carries the entry `ID`, so a read-only table reader can recover (name, ID, size, offset) per entry — what the duplicate-name recovery needs. The `@UTF` table format itself (big-endian header, string pool, row encoding) is not decoded yet; that is the next step. Structure observations only; nothing is inferred beyond what the listing confirms (1 entry, ID 0, name `p0000.pac`, size 0).
+
+## 2026-10-09 — parser rewrite: column-header-driven rows, ID-named package checks, size verification
+
+**Action:**
+
+- `parse_listing` now reads the column header line (`No. …`) and parses rows per the printed columns: with or without `ID`, with or without `Contents Filename`. The `Content files` count accepts thousands separators, and a percent may be `,00`. The strict two-space split stays first, with the single-space fallback second; a row that fits neither is kept raw and fails the package. The result records `columns`, `compressed_files`, `filename_info`, `id_info`, `filename_table_bytes`, `id_table_bytes`, and per-row parse modes.
+- `check_listing` now verifies per layout: with a filename column, every entry needs exactly one file of the same name **and size**, with nothing left over; without one, the package is verified by entry count and the multiset of file sizes (the converter writes ID-named files), and the first file names and IDs are kept as examples. Undecodable names still fail closed, and the reason now reports how many names did match.
+- The report adds a `listing layouts:` line to the Extraction section and a file-name-examples subsection to the diagnostics. Known gaps updated.
+
+**Validation (against the second run's real data, all 346 listings):**
+
+- All 346 listings parse: entries equal the header count, sizes sum to the header total, 0 unparsed rows, all in strict mode (the fallback was not needed for real data).
+- All 189 extracted packages verify against their registry members, with 0 size mismatches.
+- Predicted for the next run (from the listings alone; the member data decides): 306 verified (the current 189, plus 75 by name+size and 42 by count+size multiset), 38 incomplete (duplicate names), 2 unverified (the mangled names in robo01 and robo03), 0 not checked.
+- Full suite: 142 tests OK. New tests: the three real layouts plus `,00` and the grouped count (unit), ID-named verification by count and sizes (unit), size mismatch and the decode reason with match counts (unit), no-ID and no-filename integration runs, and a zero-byte `,00` package. The fake converter gained the three layout flags and writes `ID%05d` files in no-name mode.
+- pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `2dfbd64208c01d0155be5c4c65d48f646df5ccd96ec50424b1c9b3db0e3ad883`; `tests/test_run_pipeline.py` `da3a7cbc91dfcf859bd68089b54cff23e76de3613c3f494e9bfcb50b4898fb0d`.
+
+**Not demonstrated:** the next run itself; whether the 42 ID-named packages' size multisets match (they fail closed if not); the `@UTF` row encoding; any recovery of the 1,111 hidden entries; any repack, insertion, or in-game result.
+
+## 2026-10-09 — third real run with the rewritten parser: 337 of 377 packages verified
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` with the rewritten parser (run `20261009-214604`) and pasted `REPORT.txt`. Same input folder and converter (SHA-256 `8871f1ef…baf962`).
+
+**Observed:**
+
+- Status `completed_with_failures`. Input unchanged: 341 files; 290 CPK signatures (288 unique content).
+- Packages: 377 (extracted 337, failed 40) — 288 top-level plus 89 nested, 31 more nested packages than the second run because more parent packages extracted.
+- Listing check: **verified 337, incomplete 38, unverified 2, not checked 0**. Layouts: 246 full, 89 no ID column, 42 no filename column (377 total).
+- The prediction from the listings (306 verified of 346) was met and exceeded: the 31 newly discovered nested packages also verified, giving 337 of 377.
+- Failures are exactly the two known classes: the 38 duplicate-name packages (the same `bacb*`/`bseq*` list as the second run, with the same hidden-entry counts) and the 2 console-mangled names (`robo01`: 1710 of 1711 names matched; `robo03`: 506 of 507). The report's diagnostics section shows both mangled names (`r2222/"�.bsb`, `r1100/srwWI_�v�Z�R.bsb`), and the `Unrecognized inputs` section shows the 20 PSP EDAT and 27 AFS2 groups from the head bytes.
+- Event text: 81 packages verified (0 failed), 39,103 units — the total is unchanged; the one additional text package contributed 0 units.
+- Repack gate: passed. Member files extracted: 7,446; duplicate-content aliases skipped: 54.
+- ISO: still not processed, and the `Not processed` line carries no read-only index note, so `inspect_iso9660` returned `unsupported` on the real image; the error text is in `registry.json` (`inputs[].iso_inventory.error`) but was not pasted. The report now also prints that error when an index fails (code change below).
+
+**Interpretation:**
+
+- Observed: the pipeline now verifies every package whose extraction it can prove complete. The remaining 40 failures are exactly the known data-loss class (38 duplicate-name packages) plus 2 packages blocked by one undecodable name each (fail closed; every other name and size in those packages matches).
+- Not demonstrated: the cause of the ISO index failure; the `@UTF` row encoding; whether the hidden entries differ in content; any repack, insertion, or in-game result.
+
+**Code change (same commit):** the ISO `Not processed` line now also prints the read-only index error when the index returns `unsupported`, so a failed index is visible from `REPORT.txt` alone.
+
+**Validation:** Full suite 143 tests OK (one new test for the ISO index error in the report). pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/run_pipeline.py` `69b519176269360a0c824a736456dc927791d1b0d0d53c9f24464fcd7c12b387`; `tests/test_run_pipeline.py` `0dc8642764e2b4a7f8918ab5104033e9d3eb5d4db7bae38e59b212aab2058c2f`.
+
+## 2026-10-09 — the user's old zip commits removed from the branch history
+
+**Action (at the user's request, "moje stare, wykorzystane commity możesz pokasować sam"):** the upload commit that added `20261009-194153.zip` (with the game file `mesbtl09.EDAT` inside) was dropped from this branch with a rebase and a `--force-with-lease` push; a local backup branch keeps the old head. The leftover branch `arena/382dda12-mtgcrawler` (closed PR #8) was deleted; its valuable commits were already ported with `git cherry-pick -x`, and its zip commit `56aae991ba` was the user's first-run upload, already analysed. Nothing was lost: both zips and all analysed data stay under ignored `srw-oe-translation/local/`.
+
+**Not removed:** GitHub keeps closed-PR commits reachable through the pull refs (`refs/pull/8/head` still points at `56aae991ba`), so the first zip remains visible on the closed PR #8 page until GitHub Support removes it (the "remove sensitive data" process). The same applies to any pull ref of this PR's old head. The branch `arena/01a0437d-mtgcrawler` belongs to another session and was not touched.
+
+## 2026-10-09 — fourth real run: identical results, and the ISO index failure is now printed
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` (run `20261009-215909`) and pasted `REPORT.txt`.
+
+**Observed:** identical to the third run — 377 packages (337 extracted, 40 failed); listing check verified 337, incomplete 38, unverified 2; layouts 246 full, 89 no ID column, 42 no filename column; text 39,103 units from 81 packages; repack gate passed; the same 38 duplicate-name failures and the same 2 mangled-name failures. The run is deterministic. The ISO `Not processed` line now ends with `read-only index failed: ISO9660 extent extends beyond the image volume` — the new error reporting works, and it names the cause: a member extent ends beyond the PVD's declared volume (the file is 5,533,072 bytes longer than its descriptor).
+
+## 2026-10-09 — the ISO index tolerates trailing data; the user's old upload branches are deleted
+
+**ISO change (read-only):** `_parse_record` in `tools/iso9660.py` now fails only when an extent ends beyond the image *file*; an extent that ends beyond the PVD's declared volume but inside the file is recorded as a warning instead of aborting the index (the real image has such extents — its file is longer than its descriptor). `inspect_iso9660` reports `image_bytes`, `extents_beyond_volume`, `max_extent_overflow_bytes`, `last_extent_end_bytes`, and `trailing_bytes_after_last_extent`, plus a warning when extents lie beyond the declared volume. The pipeline's ISO `Not processed` line carries the beyond-volume counts when the index succeeds. No member is extracted, hashed, modified, or passed to a converter; extents beyond the file are still rejected (fail closed).
+
+**Validation:** full suite 145 tests OK. New tests: an image whose declared volume is one block short of the file indexes successfully with `extents_beyond_volume` 1, `max_extent_overflow_bytes` 6, and the trailing-byte counts; an extent beyond the file still raises `Iso9660Error`; the pipeline report shows the beyond-volume note. Existing tests (including the corruption mutation check) pass unchanged. pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/iso9660.py` `cf9954cbdec66219f17073de2632b27d6ab4897a618889908ee2967833c31fb0`; `tools/run_pipeline.py` `8b1c207a5216a178cd60f19f73fe1d2bdf28cbc06f499a9aa4bd415208a356a2`; `tests/test_iso9660.py` `351dc10e8e07880c97b6a4dadccf4ab22fba9338d0324a73a42e495d2312539a`; `tests/test_run_pipeline.py` `69285b44b8bed61d7b845e490ed185fa632dea3d2dc074e876678859fb81ef38`.
+
+**Not validated locally:** the real ISO (it is on the user's PC); the next run will index it and show where the trailing 5,533,072 bytes sit relative to the last member extent.
+
+## 2026-10-09 — fifth real run: the ISO index succeeds and explains the descriptor mismatch
+
+**Input:** The user re-ran `RUN_PIPELINE.bat` (run `20261009-222046`) with the trailing-data-tolerant index and pasted `REPORT.txt`.
+
+**Observed:** identical extraction results again — 377 packages (337 extracted, 40 failed); listing check verified 337, incomplete 38, unverified 2; text 39,103 units from 81 packages; repack gate passed; the same 38 duplicate-name and 2 mangled-name failures.
+
+**Observed — the ISO, answered:**
+
+- The read-only index succeeds: **80 files, 6 directories, 63 CPK-signature members** inside `SRW OE 1.08.iso` (not extracted).
+- **1 member extent ends beyond the PVD volume, by exactly 5,533,072 bytes — the whole file-vs-descriptor difference.** The overflowing extent ends exactly at the last byte of the file (673,710,080 + 5,533,072 = 679,243,152). So the descriptor's volume-space size is understated by exactly that member's tail; the image itself is complete and internally consistent. The 5,533,072-byte mismatch is fully explained: it is one member's extent beyond the declared volume, not appended junk.
+- The loose `NPJH50521` folder has 290 CPK-signature files; the ISO lists 63 CPK-signature members among 80 files. The folder is therefore not simply this ISO unpacked. Hypothesis, not confirmed: the ISO is a partial or update image (its name says 1.08), or the folder came from a different source. Confirming needs the member list (the run's `registry.json`, `inputs[].iso_inventory.files`) compared by name and size against the folder's inputs.
+
+**Not demonstrated:** the overlap between the ISO's 80 members and the folder's 341 files (needs the run's `registry.json`); the overflowing member's path (it is in the registry); any ISO extraction.
+
+**Branch cleanup (at the user's request):** all five `szybkoiwyraznie-rgb-patch-1..5` branches were deleted; they carried only the user's personal web-upload commits (`Add files via upload` / `Delete …`, author `szybkoiwyraznie@gmail.com`, no agent co-author mark) over a shared base commit by another bot. No zip or binary data was found on them — the uploads were text files (card lists and a Python file from the original mtgcrawler project). The branch `arena/01a0437d-mtgcrawler` was left untouched: its only commit besides the base (`004cd4a`) carries the `Co-authored-by: arena-agent` mark, so it is a previous session's agent commit, not a personal upload. `main` contains no user commits and none of the old files. The user's personal commits remain reachable only through GitHub's pull refs (`refs/pull/1..6/head` and `refs/pull/8/head`); removing those needs GitHub Support's sensitive-data process.
+
+## 2026-10-09 — the ISO cross-check: a PSP image, a different data set than the folder
+
+**Input:** The user uploaded the fifth run's `registry.json` (2,798,238 bytes, SHA-256 `5e9317c7e41ac16dbae8541b7aa2877e57584dce9dd91f72d52c17a0ca8955a0`) as commit `da4d1cc` on this branch. Its `inputs[].iso_inventory` carries the full read-only member index.
+
+**Observed:**
+
+- `SRW OE 1.08.iso` is a **PSP UMD image**: members under `PSP_GAME/` (`ICON0.PNG`, `PARAM.SFO`, `PIC1.PNG`, `SND0.AT3`, `SYSDIR/BOOT.BIN`, `SYSDIR/EBOOT.BIN`, `SYSDIR/UPDATE/DATA.BIN`, `USRDIR/*.cpk`, `USRDIR/*.awb`, `USRDIR/module/*.prx`) plus `UMD_DATA.BIN`. 80 files, 6 directories, 63 CPK-signature members.
+- The overflowing member is `PSP_GAME/SYSDIR/EBOOT.BIN` (5,531,024 bytes, LBA 328,961): its extent ends exactly at the file's last byte, 5,533,072 bytes beyond the PVD's declared volume. The descriptor understates the volume by exactly that member's tail; the image is complete. `trailing_bytes_after_last_extent` is 0.
+- Cross-check against the loose folder by leaf name: of the ISO's 78 distinct member names, exactly 1 (`PARAM.SFO`, 692 bytes in both) also exists among the folder's 340 non-ISO inputs, with a matching size. 0 of the folder's 290 CPK-signature files share a leaf name with the ISO's 63 CPK-signature members. The naming differs by platform: the ISO has `bacb00.cpk`, `voice00.awb`, `BgmSet00.awb` (PSP, 00-series), the folder has `NPJH50521/bacb01.EDAT`, `voice01.EDAT`, `BgmSet01.EDAT` (01-series, `.EDAT` names).
+- Conclusion (observation): the loose `D:\SRWOE\NPJH50521` folder is not this ISO unpacked. The naming differs by source: the ISO has PSP 00-series members (`bacb00.cpk`, `voice00.awb`, `BgmSet00.awb`), the folder has 01-series and higher `.EDAT` names (`NPJH50521/bacb01.EDAT`, `voice01.EDAT`, `BgmSet01.EDAT`). See the user-context entry below for what the two data sets are.
+
+**Not demonstrated:** byte-level comparison of same-named members (only one name overlaps); any ISO extraction.
+
+## 2026-10-09 — user-provided context: the disc is chapter 1 of 8; the folder holds the PSN DLC
+
+**User statement (recorded as user-provided context, not an agent observation):** the game was released as a UMD disc for PSP (that is the ISO). The disc contains 1 of 8 chapters of the game (the first chapter, about a dozen missions). The remaining 7 chapters were sold as DLC on PSN; the files in the input folder (`D:\SRWOE\NPJH50521`) are the PSN-downloaded DLC files.
+
+**How this fits the observations:**
+
+- The ISO's members are the disc's chapter-1 packages (00-series `*.cpk`/`*.awb` under `PSP_GAME/USRDIR`) — hence only 63 CPK-signature members, and 0 name overlaps with the folder.
+- The folder's files are the PSN DLC packages (01-series and higher): 290 `.EDAT` files with CPK content (decrypted/installed DLC data), 27 AFS2 audio archives (`BgmSet*`, `voice*`), and 20 still-encrypted PSP EDAT containers (`\x00PSPEDAT`, the `*04` files plus `evept101.EDAT`) — consistent with PSN download packages that were not decrypted.
+- Only `PARAM.SFO` (692 bytes in both) is common to both sources.
+- The 5,533,072-byte ISO mismatch is unrelated to all this: it is the tail of `PSP_GAME/SYSDIR/EBOOT.BIN` beyond the PVD's declared volume.
+
+**Implications for the workflow:**
+
+- The pipeline's input folder already contains the DLC content (chapters 2–8); the 39,103 heuristic text units come from those packages. Nothing about the current results changes.
+- Chapter 1 (on the disc) is not processed: the ISO is reported but not unpacked (ISO processing is not automated). If chapter 1 is ever wanted, its files would have to be extracted from the ISO read-only (not automated) or copied from the disc; the same pipeline could then process them like any input folder.
+- The 20 encrypted PSP EDAT inputs (`*04` files, `evept101.EDAT`) are not processed (fail-closed on the unknown signature). If the user decrypts their own purchased packages, the same pipeline would process them.
+- The AFS2 archives are audio, not event text; they are out of scope for the text workflow.
+
+**Operational note:** a workspace restore during this turn wiped ignored `local/`; the data was recovered from git (the second run's zip from commit `06ffdd7`, fetched by SHA after the branch rewrite; the first run's zip from `refs/pull/8/head`; `eventP01.zip` from its historical upload blob `a46ca2aa`). The user's uploaded commits remain the durable copies of shared data.
+
+## 2026-10-09 — read-only CPK table reader: tools/cpk_table.py
+
+**Action:** Added `tools/cpk_table.py`, a read-only reader for CRI CPK containers: it parses the `CPK `/`TOC `/`ITOC` packets (4-byte tag, little-endian filler, little-endian u64 table size, then the table) and the big-endian `@UTF` tables (CpkHeader, CpkTocInfo, CpkExtendId), returning each entry's directory, name, stored size (FileSize), uncompressed size (ExtractSize), data offset (FileOffset + min(ContentOffset, min(TocOffset, 0x800))), and ID, plus the ITOC ID↔TocIndex rows. The `@UTF` column types and storage flags follow public implementations (LibCPK in ConnorKrammer/cpk-tools, plus published format notes); the format was confirmed byte-by-byte against the real sample. `entries_match_listing` compares the parsed TOC with a parsed `-L` listing (count, name, ID, uncompressed size, stored size, ITOC agreement), capped at 20 mismatches. The reader never extracts, writes, decrypts, or repacks; it fails closed (`CpkTableError`) on truncation, wrong tags, non-`@UTF` (encrypted) tables, bad schemas, row overruns, and entry data beyond the file. CLI: `python tools/cpk_table.py <file> [--json]`.
+
+**Validation on the real sample (`mesbtl09.EDAT`, 6,272 bytes, SHA-256 `981a716110dfe8ba514a8a652417db33bcf9b30f62ca3ee14a6d631b453778c1`):** the CpkHeader reads ContentOffset 6144, ContentSize 0, TocOffset 2048 / TocSize 208, ItocOffset 4096 / ItocSize 104, EtocOffset 6144 / EtocSize 128, Files 1, Align 2048, Version 7, Revision 1, Sorted 1, Tvers `CPKMC2.30.07, DLL3.00.07` — every table size matches the packet layout seen in the hexdump (TOC packet 16+192=208, ITOC 16+88=104, ETOC 16+112=128). The TOC row is `p0000.pac`, ID 0, FileSize 0, ExtractSize 0, FileOffset 4096; the ITOC row is ID 0 → TocIndex 0. `entries_match_listing` against the package's real `-L` listing returns no mismatches.
+
+**Tests:** `tests/test_cpk_table.py` builds synthetic `@UTF` tables and CPK packets (same layout as the sample) and covers: header/TOC/ITOC reading, duplicate entry names preserved as separate rows, absolute offsets addressing the content bytes, listing agreement and mismatch reporting, fail-closed on empty/wrong/truncated/encrypted containers and on FileSize > ExtractSize, and the CLI. Full suite: 150 tests OK. pyflakes, `py_compile`, a Python 3.9 syntax check, and `git diff --check` are clean.
+
+Final SHA-256: `tools/cpk_table.py` `dd2a182131490d75f579755155563666572c127e5ff8e07794a63d80f549203b`; `tests/test_cpk_table.py` `3244fcfdaf30872be5713aa29281f988b6818d4cf41a0d59a94d9b460c48ce25`.
+
+**Not demonstrated:** the reader on packages with compressed entries, multi-extent rows, or non-ASCII names (the sample has none); the TOC row order versus the listing row order beyond the sample's single row (the run-time cross-check will confirm on all 377 packages); reading the 38 duplicate-name packages' hidden entries (the reader returns all rows, so it can — that is the next step, wired into the pipeline with self-validation and the round-trip gate).
+
+## 2026-10-09 — the CPK table cross-check is wired into the run (report-only)
+
+**Action:** `run_pipeline.py` now reads every package's TOC tables with `tools/cpk_table.py` (`table_check`) and compares them with the package's `-L` listing (`cpk_table.entries_match_listing`). The result is stored per package as `table_check` (status `agree`/`mismatch`/`unreadable`/`no_listing`, entry count, unique names, duplicate entries, compressed entries, problem list), summarized in the report as `CPK table check (TOC vs listing, report-only): agree N, mismatch N, unreadable N, no listing N`, shown per package in `packages.csv` (`table_status`, `table_duplicate_entries`), and mismatches get a `CPK table check mismatches` section in `REPORT.txt`. The cross-check is **report-only**: the listing check remains the authoritative completeness gate, and a table mismatch or an unreadable table never fails a package in this version. The TOC's `duplicate_entries` per package is the recovery targeting data for the hidden entries.
+
+**Why report-only:** the reader is validated on one real sample; the first wired run on the user's PC validates it against all 377 real packages. After a run shows agreement (or explains every mismatch), the table check can be promoted to fail-closed.
+
+**Tests:** 156 OK. New: `table_check` unit tests (agree, duplicate-name counting, mismatch, unreadable, no listing) and integration tests (unreadable for the synthetic JSON containers is reported without failing the run; agree and mismatch results are recorded in the registry, report, and CSV; a mismatch does not change the run status).
+
+Final SHA-256: `tools/run_pipeline.py` `14a8a0a1a473b8bcf9e79b842c284688d5cee66eabe1b2b1fc7c6b130a92bec6`; `tools/cpk_table.py` `dd2a182131490d75f579755155563666572c127e5ff8e07794a63d80f549203b` (unchanged in this commit); `tests/test_run_pipeline.py` `c49ed97dc316becebf2bd36b64785ed6fd7107ec875a42aa50bf085714ab4597`; `tests/test_cpk_table.py` `9e29aba197fb86c3577b2c374debfb77f3c24e4eb99d5c3ecb80f3a9c22e4dea`.
+
+**Not demonstrated:** the wired cross-check on real packages (the next run); promotion to fail-closed; the recovery of the hidden entries.
+
+## 2026-10-09 — coverage analysis: what the pipeline processes, and what is missing
+
+**Question (from the user):** the ISO is the PSP UMD disc with chapter 1 of 8; the folder holds the PSN DLC (chapters 2–8). Does the current run cover the whole game — chapter 1, system/menu/dictionaries?
+
+**Analysis (from the fifth run's registry and the ISO inventory):**
+
+- Processed now (the DLC folder, 290 `.EDAT` files with CPK content): per-chapter data (bacb, bseq, eventP, evept, face, mesbmp, mesbtl, mov, robo, se, bmp) **and per-chapter menu/config/credit/sprstd** (imenu 01–32, config 01–46, credit 01–19, sprstd 01–19, bmp 01–09) for the decrypted chapters. So the DLC chapters carry their own menu/config/credit/sprstd data — the system/menu text is not disc-only.
+- Text: 39,103 heuristic units — 25,530 from `eventP*` (chapter dialogue), 13,543 from `evept*`, 30 from `imenu*`; `credit*` and `robo*` contribute 0.
+- Missing — chapter 1 (on the disc): `eventP00.cpk` (chapter 1's dialogue), chapter-1 data (bacb00, face00, mesbmp00, mesbtl00, mov00, robo00, bseq00, bmp00, se0000, se4000–4120), and chapter-1 menu/config/credit/sprstd (imenu00, config00, credit00, sprstd00).
+- Missing — chapter 4 (encrypted in the folder): the whole `*04` series (eventP04, imenu04, config04, credit04, sprstd04, bacb04, bmp04, bseq04, face04, mesbmp04, mesbtl04, robo04, se44xx, BgmSet04) plus `evept101.EDAT` — 20 still-encrypted PSP EDAT containers. They need decryption by the user (their own purchased packages; these tools do not decrypt EDAT); once decrypted, the pipeline processes them like any input.
+- Missing — disc-only base/system packages (no folder counterpart): font, system, tactics, texanm, txa00, u16tbl, navisys, tacsys, taclevup, smap, svicon, logodata, colorlst, bg2d, btlcam, efmodel, eftex00, efclump, cprt0001–4, IM1000/3000/9000, configst, segu01, semv01–15. Whether they contain translatable text is unknown until processed.
+
+**Answer:** the user is right — the current run does not cover chapter 1 or the disc-only base/system packages (and chapter 4 is encrypted). No translation exists yet: this phase builds and verifies the extraction tooling, and the translation phase starts only after coverage is complete. To close the gap: (1) read-only ISO member extraction is wired into the run (next entry) so the disc's 63 CPK members are processed like any package; (2) the user decrypts the `*04` packages outside these tools. After both, coverage is all 8 chapters plus the base system packages.
+
+## 2026-10-09 — read-only ISO member extraction wired into the run
+
+**Action:** `tools/iso9660.py` gains `extract_members(image, members, output_root)`: read-only extraction of selected members into an output tree (member paths lose the ISO9660 `;version` suffix; unsafe paths are rejected; any structural or read problem raises `Iso9660Error`; the image is opened read-only and never modified). `run_pipeline.py` extracts every ISO's CPK-signature members into the run folder's `iso/` directory before the probe, so they are probe candidates and are extracted, listing-checked, table-checked, and text-exported like any input package. The preflight free-space estimate now includes the ISO member bytes; the report's ISO line and the Extraction section state how many members were extracted (and that the image is never modified); the registry records `input.iso_cpk_member_count/bytes` and summary `iso_members_extracted/iso_member_bytes_extracted`.
+
+**Safety:** extraction writes only under the run folder; the input ISO is read-only; an extraction failure fails the run closed. Rebuilding or repacking an ISO is still not automated.
+
+**Tests:** 161 OK. New: `extract_members` (bytes written, version suffix stripped, image unchanged, unsafe paths rejected) and pipeline integration (indexed ISO members are extracted read-only and processed as packages — extracted, listing-verified, text-exported; an unsupported index extracts nothing and does not fail; an extraction failure fails the run closed).
+
+Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f67aaaea0a99dec4c872`; `tools/run_pipeline.py` `efe71d9492c4a16e0ba3b98783b680c864d4a9c0600e89eedbffdd6c32698f48`; `tests/test_iso9660.py` `0d6a8e2c839df1df8b4175556d4903974e6d77cb5060d888395bc1e5f6cfedf0`; `tests/test_run_pipeline.py` `aa0d0dafcd3a1331854539be308bf1d257adc588105322172ffb15e518163feb`.
+
+**Not demonstrated:** the extraction on the user's real ISO (the next run); whether the disc's base/system packages contain translatable text; chapter 4 until the user decrypts it; any repack, insertion, or in-game result.
+
+## 2026-10-10 — run 20261010-004920 table check: unreadable tables and robo18 (analysis, no game data committed)
+
+**Input:** `registry.json` from run `20261010-004920` (497 packages, 425 table agree, 3 mismatch, 69 unreadable). Stored outside the repository; SHA-256 `ed055f4bdbaf27d794ff22a4402c5c87ece8296f8cf7f7064f7f7f5237deda3d`. The file was removed from the branch at the user's request.
+
+**Observed (from the registry):**
+- Unreadable, 57 packages (e.g. `face01`): `ITOC row lacks the ID or TocIndex column`.
+- Unreadable, 12 packages (e.g. `bseq18`): `TOC row 0 lacks FileSize, ExtractSize or FileOffset`.
+- Mismatch `robo18`: listing `r2530/0000_000.pac`, TOC `0000_000.pac` with an empty DirName; the same pattern holds for all 21 rows.
+- Mismatch `robo01`, `robo03`: console-mangled names (unchanged).
+
+**Hypothesis (not verified):** `tools/cpk_table.py` returns `None` for every column whose storage class is not per-row (0x10 zero, 0x30 constant). If the DirName/ID/TocIndex/size columns in these tables are stored as constants, the reader drops them. This would explain both the missing-column errors and the empty DirName on `robo18`. The reader does not read constant values from the schema, so this is unconfirmed. No CPK file is available in the sandbox to check it.
+
+**Change:** unreadable-table errors now carry the column schema (`name=flags` for every column), so the next run's registry shows which storage classes these tables use. No parsing rule was changed.
+
+**Tests:** `tests/test_cpk_table.py` 10 OK; full suite 163 OK. New: schema is named in the error, and the empty-schema message.
+
+**Not demonstrated:** the storage class of any real unreadable table; the cause of the `robo18` DirName gap; anything about translatable text. The table check stays report-only.
+
+## 2026-10-10 — run 20261010-011328: column schemas of the unreadable CPK tables (metadata only)
+
+**Input:** `registry.json` from run `20261010-011328` (497 packages; 425 agree, 3 mismatch, 69 unreadable). Stored outside the repository; SHA-256 `8c8f6a696018de9d5aa671c8817e761cdb773ab4113bc957a6cb127d0ec30d8a`.
+
+**Observed (column names and flags only; no table bytes or game text):**
+- 57 packages (e.g. `face01`) fail in ITOC with schema `FilesL=0x54, FilesH=0x54, DataL=0x5b, DataH=0x5b`. This ITOC has no `ID` or `TocIndex` column, which the reader expects.
+- 12 packages (e.g. `imenu20`, `sprstd06`, `bseq18`) fail in TOC with `FileSize` or `ExtractSize` stored with storage class 0x30 (constant), so the reader returns no value for them.
+- `robo18` still reads 21 entries, with the TOC DirName empty against listing `r2530/`. Its schema is not in the registry (the table reads), so the cause is still open.
+
+**Hypothesis (not verified):** the reader ignores constant (0x30) columns and uses the wrong ITOC layout. Both explain the 69 unreadable tables. The value encoding for constant columns is not confirmed, and no public reference was reachable from the sandbox.
+
+**Not changed:** reader code. A fix needs a verified layout, so the next step is to capture the table header bytes of one failing package with the tool (identification only, not decoded).
+
+## 2026-10-10 — constant CPK columns read from the schema (5 user-supplied sample packages)
+
+**Input:** `probki.zip` uploaded by the user (5 decrypted packages: `bseq18`, `face01`, `imenu20`, `robo18`, `sprstd06`), analysed read-only in scratch outside the repository. Archive SHA-256 `fa582c24e4ae5789ba47a588c1527a0e0fd3b7c22372fe721749f45a0b75fa03`. The files are not committed.
+
+**Verified by layout consistency (not by a public reference):** in every table with storage class 0x30, the column's single value sits in the schema right after the 4-byte name offset, with the type's size. Check: the schema end including those values equals the declared row offset in every TOC, ITOC, and ETOC table (e.g. TOC 0x57 = 0x57), while the schema without them does not (0x43).
+
+**Change:** `tools/cpk_table.py` now reads constant (0x30) values from the schema and returns them for every row. Before, these columns were dropped to None.
+
+**Result on the samples:**
+- `robo18`: DirName constant `r2530`; the table now reads 21 entries, the first two names `r2530/0000_000.pac` and `r2530/0000_020.pac` (matching the run's listing names). The full name comparison needs the run.
+- `bseq18`, `imenu20`, `sprstd06`: now read (2, 6, and 4 entries).
+- `face01`: still unreadable. Its ITOC has columns `FilesL`, `FilesH`, `DataL`, `DataH` and no `ID`/`TocIndex`; the reader does not handle this layout (not implemented).
+
+**Tests:** `tests/test_cpk_table.py` 12 OK (new: constant string and u32 read from the schema; constant-only table); full suite 165 OK.
+
+**Not demonstrated:** the table check's full agreement on all 69 packages; the meaning of the `FilesL`/`FilesH`/`DataL`/`DataH` ITOC layout; any text or game content.
+
+## 2026-10-10 — ITOC blob layout read (face01 and 56 others with the same layout)
+
+**Input:** `face01.EDAT` from the user's sample archive (SHA-256 `fa582c24e4ae5789ba47a588c1527a0e0fd3b7c22372fe721749f45a0b75fa03`), scratch only, not committed.
+
+**Verified by consistency (not by a public reference):** the ITOC of `face01` has no ID or TocIndex column. Its DataL and DataH columns are data references to nested `@UTF` tables: `CpkItocL` (494 rows: ID, FileSize, ExtractSize) and `CpkItocH` (0 rows). FilesL = 494, FilesH = 0, and FilesL | (FilesH << 16) equals the header Files count 494. The stored sizes summed over the 494 rows equal the header EnabledDataSize (2,022,124 bytes).
+
+**Change:** `tools/cpk_table.py` reads this layout (`_entries_from_itoc_blobs`). Entries carry ID, FileSize and ExtractSize, with no offsets. It fails closed if the blobs do not hold the counts that the header and FilesL/FilesH give. Other ITOC layouts still fail as before.
+
+**Result:** `face01` reads 494 entries. The table check can now compare them with the listing. The registry from run 20261010-011328 shows 57 packages with this layout (44 `NPJH50521`, 13 ISO), all extracted and listing-verified with 0 size mismatches.
+
+**Tests:** `tests/test_cpk_table.py` 14 OK (new: blob layout reads ID and sizes when counts agree; fails closed when they disagree). Full suite 167 OK.
+
+**Not demonstrated:** the table check against the real listing for these 57 packages (needs the next PC run); the meaning of FilesH above 0; any game content.
+
+## 2026-10-10 — run 20261010-013506: the blob-layout count was wrong, fixed
+
+**Input:** `registry.json` from run `20261010-013506` (SHA-256 `2dd8d8d227c6aa0e54dd730cdff00527ab62dfa502fe3a0fa375a7a22eb4b8e8`), kept outside the repository.
+
+**Observed:** table check agree 462 (was 425), mismatch 2 (`robo01`, `robo03`; expected), unreadable 33 (was 69). All 33 remaining failures were the blob-layout count check, and all of them had `nested rows == header Files`. The check itself was wrong: it combined the counts as `FilesL | (FilesH << 16)`, which gives 65536 for a file with header 1 (`mesbmp09`).
+
+**Verified on the 33 cases:** `FilesL + FilesH` equals the header Files count in every case (e.g. `mesbmp01`: 7 + 47 = 54, header 54). Earlier, `face01` had FilesL 494 and FilesH 0, which agrees with both formulas.
+
+**Change:** `_entries_from_itoc_blobs` now checks `FilesL + FilesH` against the nested row total and the header. A new test covers a non-zero FilesH. The per-table split (rows in CpkItocL equal FilesL, rows in CpkItocH equal FilesH) is not verified and is not checked.
+
+**Tests:** full suite 168 OK.
+
+**Not demonstrated:** that the 33 tables now agree with their listings (needs the next PC run); the meaning of FilesH; any game content.
+
+## 2026-10-10 — run 20261010-094219: blob entries matched by ID, not by index
+
+**Input:** `registry.json` from run `20261010-094219` (SHA-256 `9c5e1a3a7c9e28c92317d9db48a74a967d0b917113536a5e5b8982ddf737281a`), kept outside the repository.
+
+**Observed:** table check agree 491, mismatch 6, unreadable 0. Four of the six were new and came from the blob layout (`mesbmp01`, `mesbmp02`, `mesbmp05`, and ISO `mesbmp00`). Their problems all showed the same pattern: the listing's row 0 is ID 0, but the reader's row 0 is some other ID, and the sizes at each index differ.
+
+**Verified from the problem lines (no new data):** the listing is ordered by ID (0, 1, 2, ...). In `mesbmp05`, listing ID 0 has size 136656 and compressed 110460. The reader's ID 0 entry has ExtractSize 136656 and FileSize 110460, and the same holds for IDs 1 and 2. The disagreement comes from comparing by position, not from the data.
+
+**Change:** entries from the blob layout carry `match_by_id`, and `entries_match_listing` matches them to listing rows by ID. TOC entries still match by index.
+
+**Tests:** full suite 169 OK (skipped 1). New: blob entries match an ID-ordered listing by ID, and a changed size is reported with its ID.
+
+**Not demonstrated:** the four cases now agree in a real run (needs the next PC run); `robo01` and `robo03` remain mismatched because of mangled names, as before.
+
 ## Pending
 
+- Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
+- The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the pipeline then processes them on the next run.
+- Then decide whether to promote the table check to fail-closed.
+- Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): for each duplicate-name package, read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
+- Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
-- Record exact source ISO/base-resource hashes before any release/patch test.
 - Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.
+- Record exact source ISO/base-resource hashes before any release/patch test.
