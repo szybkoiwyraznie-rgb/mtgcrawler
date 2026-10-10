@@ -100,7 +100,9 @@ out and delete the in-repo copy** so game data never lands in git.
    holds the game's `jis2ucs`/`ucs2jis` encoding tables (ASCII passes through → rendering is
    UCS; Latin availability is a *font* question). `imenu` `*Dictionary*` members are u32 offset
    maps, not name strings. `u16tbl` (constant-storage) and `system` (CpkMode 0) need a new
-   write path. `mesbmp`/`font` likely images.
+   write path. `font.cpk` is a single CpkMode-0 glyph blob (`ID00000`), but the **Latin gate is
+   already PASSED**: the in-game English dialogue rendered A–Z/a–z/punctuation, so the dialogue
+   font has Latin; a blank UI string later would imply a separate UI font. `mesbmp` likely images.
 
 ## 7. Pitfalls (each cost real time)
 

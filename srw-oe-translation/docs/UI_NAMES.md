@@ -30,14 +30,28 @@ on the *font* having Latin glyphs, not on the table. This is the concrete handle
 `u16tbl.cpk` cannot be rebuilt by `cpk_write` (constant-storage ExtractSize column). Writing it
 needs a TOC-row-layout rebuild or a byte-level in-place edit (its members are fixed-size).
 
+## `font.cpk` — glyph blob; Latin gate PASSED via in-game proof
+
+`font.cpk` is `CpkMode 0` (ITOC-only) with a single member `ID00000` (stored 238,800, extract
+397,504 B, CRILAYLA) -- one packed glyph-blob. Its internal index is not yet reversed.
+
+**Latin coverage does not need the index to be settled:** the in-game English dialogue test
+(the Domon screenshot) already rendered A-Z, a-z, digits and punctuation, so the dialogue font
+contains Latin glyphs. The font gate for English is therefore PASSED on the dialogue path; if a
+future UI/menu string renders blank, that would indicate a *separate* UI font, to be checked
+then. Writing `font.cpk` (to add missing glyphs) needs the same ITOC-only write path as
+`system.cpk`.
+
 ## `imenu00.cpk` dictionaries are ID maps, not name strings
 
 Members: `srwDL_BMP00`, `srwDL_CharaDictionary00`, `srwDL_DLC_ID00`, `srwDL_Reference00`,
 `srwDL_Shop00`, `srw_DL_RoboDictionary00`. The `*Dictionary*` members begin with a u32 offset
-table (e.g. Chara: `[100,404,628,...]`, 25 entries; Robo: `[68,276,...]`, 17) whose targets are
-*further u32 data*, not CP932/UTF-16 display strings. So these map IDs to records; the actual
-display names live elsewhere (a string heap referenced by those records, or another container).
-Next: parse one dictionary record fully (field-by-field) and follow its string references.
+table (e.g. Chara: `[100,404,628,...]`, 25 entries; Robo: `[68,276,...]`, 17). The first target
+(@100 for Chara) is itself a *secondary* offset table; deeper targets (@404, @628) are arrays
+of small u32 values (0x59, 0x60, 0x67, ...), **not** CP932/UTF-16 display strings. So these map
+IDs to numeric records; the display names live in a separate string heap (likely referenced by
+those records or in another container, e.g. `config*`/`system`). Next: chase the secondary
+table's meaning field-by-field and locate the string heap.
 
 ## Why the writer refuses two of them (and what that implies)
 
