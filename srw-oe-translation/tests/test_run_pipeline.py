@@ -585,6 +585,10 @@ class RunPipelineTests(PipelineFixture):
         self.assertIn("listing check incomplete", event["error"])
         self.assertIn("share a name with another entry", event["error"])
         self.assertFalse((result.run_dir / event["output_dir"]).exists())
+        # The fixture is a JSON stand-in, not a real @UTF CPK, so the table cannot be read here;
+        # the step must record that without failing the run (see HiddenEntryTests for the real path).
+        self.assertEqual(event["hidden_entries"]["status"], "unreadable_table")
+        self.assertEqual(self.registry(result)["summary"]["packages_failed"], 1)
         self.assertEqual(by_source["imenu01.EDAT"]["status"], "extracted")
         self.assertEqual(by_source["imenu01.EDAT"]["listing_check"]["status"], "verified")
         self.assertEqual(registry["summary"]["listing_incomplete"], 1)
@@ -1521,6 +1525,52 @@ class LauncherContractTests(unittest.TestCase):
         self.assertNotIn("pip install", lowered)
         self.assertNotIn("curl", lowered)
         self.assertNotIn("powershell -command download", lowered)
+
+
+class HiddenEntryTests(unittest.TestCase):
+    """Colliding names are read from a real @UTF CPK by TOC index, so none overwrites another."""
+
+    def test_entries_that_share_a_name_are_all_written_with_their_own_bytes(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import test_cpk_table  # noqa: E402  (synthetic CPK builder, no game data)
+
+        blob = test_cpk_table.build_synthetic_cpk(
+            [
+                {"dir": "", "name": "dup.bin", "data": b"A" * 100, "id": 1},
+                {"dir": "", "name": "dup.bin", "data": b"B" * 50, "id": 2},
+                {"dir": "", "name": "other.txt", "data": b"C" * 10, "id": 3},
+            ]
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cpk = root / "pkg.cpk"
+            cpk.write_bytes(blob)
+            run = run_pipeline.Run.__new__(run_pipeline.Run)
+            run.run_dir = root / "run"
+            run.run_dir.mkdir()
+            run.text_dir = run.run_dir / "text"
+            run.say = lambda *_args: None
+            item = run_pipeline.WorkItem(
+                path=cpk,
+                display_path="pkg.cpk",
+                name="pkg.cpk",
+                sha256="0" * 64,
+                size=len(blob),
+                depth=0,
+                parent_package=None,
+            )
+            hidden = run._extract_hidden_entries(item, "p001", None)
+            written = sorted((run.run_dir / "hidden" / "p001").iterdir())
+            payloads = sorted(path.read_bytes() for path in written)
+
+        self.assertEqual(hidden["status"], "extracted", hidden)
+        self.assertEqual(hidden["entries"], 3)
+        self.assertEqual(hidden["written"], 3)
+        self.assertEqual(hidden["written_bytes"], 160)
+        self.assertEqual(hidden["compressed"], 0)
+        self.assertIsNone(hidden["listing_sizes_match"])
+        self.assertEqual(payloads, sorted([b"A" * 100, b"B" * 50, b"C" * 10]))
+        self.assertEqual([path.name.split("_")[0] for path in written], ["00000", "00001", "00002"])
 
 
 if __name__ == "__main__":

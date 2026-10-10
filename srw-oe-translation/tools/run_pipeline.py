@@ -69,6 +69,7 @@ PROBE_ORDER = (
 )
 # Extraction output plus the verified cache copy of it, with working room for the converter.
 FREE_SPACE_FACTOR = 4
+HIDDEN_DIR = "hidden"  # collided-name entries read from the CPK table (not part of packages/)
 FREE_SPACE_MARGIN_BYTES = 512 * 1024 * 1024
 MAX_PATH_CHARS = 200
 ERROR_LINE_RE = re.compile(r"^\s*Error:", re.IGNORECASE | re.MULTILINE)
@@ -1261,6 +1262,71 @@ class Run:
             shutil.rmtree(staging, ignore_errors=True)
             self.say(f"  cache not written for {package['package_id']}: {type(exc).__name__}")
 
+    def _extract_hidden_entries(self, item: WorkItem, package_id: str, listing_text: Optional[str]) -> dict[str, Any]:
+        """Read entries whose names collide, straight from the CPK table, into hidden/<package>/.
+
+        Used only for packages the listing marks `incomplete`, because the converter writes one
+        flat folder and collided names overwrite each other. Each entry is written as
+        `<TOC index>_<name>`, so nothing collides. Only entries with TOC offsets and uncompressed
+        data are written; compressed entries are counted and named but not decoded. The folder is
+        kept out of packages/ and is not part of the package's verified output.
+        """
+        hidden_dir = self.run_dir / HIDDEN_DIR / package_id
+        try:
+            table = cpk_table.read_cpk_table(item.path)
+        except Exception as exc:  # noqa: BLE001 - reported, never fatal
+            return {"status": "unreadable_table", "error": f"{type(exc).__name__}: {str(exc)[:200]}"}
+        entries = table.get("entries") or []
+        result: dict[str, Any] = {
+            "status": "extracted",
+            "entries": len(entries),
+            "written": 0,
+            "written_bytes": 0,
+            "compressed": 0,
+            "compressed_names": [],
+            "no_offset": 0,
+            "listing_sizes_match": None,
+            "files": [],
+        }
+        if not entries or all(entry.get("absolute_offset") is None for entry in entries):
+            result["status"] = "no_offsets"
+            result["reason"] = "the table stores no data offsets (ITOC blob layout)"
+            return result
+        hidden_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            with item.path.open("rb") as stream:
+                for entry in entries:
+                    if entry.get("absolute_offset") is None:
+                        result["no_offset"] += 1
+                        continue
+                    if entry["compressed"]:
+                        result["compressed"] += 1
+                        if len(result["compressed_names"]) < 20:
+                            result["compressed_names"].append(entry["name"][:120])
+                        continue
+                    stream.seek(entry["absolute_offset"])
+                    data = stream.read(entry["file_size"])
+                    if len(data) != entry["file_size"]:
+                        raise RuntimeError(f"entry {entry['toc_index']} is truncated")
+                    target = hidden_dir / f"{entry['toc_index']:05d}_{safe_stem(entry['name'])}.bin"
+                    target.write_bytes(data)
+                    result["written"] += 1
+                    result["written_bytes"] += len(data)
+                    if len(result["files"]) < 200:
+                        result["files"].append(
+                            {"toc_index": entry["toc_index"], "name": entry["name"][:120], "size_bytes": len(data), "sha256": _sha256_file(target)}
+                        )
+        except Exception as exc:  # noqa: BLE001 - reported, never fatal
+            result["status"] = "failed"
+            result["error"] = f"{type(exc).__name__}: {str(exc)[:200]}"
+            return result
+        parsed = parse_listing(listing_text)
+        if parsed is not None and parsed.get("entries"):
+            listed = sorted(row["size"] for row in parsed["entries"])
+            result["listing_sizes_match"] = listed == sorted(entry["extract_size"] for entry in entries)
+        result["text"] = self.export_text(f"{package_id}-hidden", hidden_dir) if result["written"] else {"status": "not_applicable", "bin_files": 0}
+        return result
+
     def _child_items(self, item: WorkItem, package_id: str, output_dir: Path, members: list[dict[str, Any]]) -> list[WorkItem]:
         children: list[WorkItem] = []
         for member in members:
@@ -1325,6 +1391,8 @@ class Run:
             # Read-only CPK table cross-check (report-only; the listing check above
             # remains the authoritative completeness gate).
             package["table_check"] = table_check(item.path, listing.output)
+            if (package.get("listing_check") or {}).get("status") == "incomplete":
+                package["hidden_entries"] = self._extract_hidden_entries(item, package_id, listing.output)
             if _sha256_file(item.path) != item.sha256:
                 reason = "source changed during extraction"
         except Exception as exc:  # noqa: BLE001 - one package must not stop the other packages
@@ -2024,6 +2092,27 @@ def _extraction_notes(registry: dict[str, Any]) -> list[str]:
     return notes
 
 
+def _hidden_lines(registry: dict[str, Any]) -> list[str]:
+    """One line per package whose colliding entries were read from the CPK table."""
+    lines: list[str] = []
+    for package in registry["packages"]:
+        hidden = package.get("hidden_entries")
+        if not hidden:
+            continue
+        text = (hidden.get("text") or {}).get("status", "not_run")
+        if hidden.get("status") in ("extracted", "failed"):
+            detail = (
+                f"{hidden.get('written', 0)} of {hidden.get('entries', 0)} entries written "
+                f"({hidden.get('written_bytes', 0)} bytes), {hidden.get('compressed', 0)} compressed (not decoded), "
+                f"{hidden.get('no_offset', 0)} without offsets, listing sizes match: {hidden.get('listing_sizes_match')}, "
+                f"text: {text}"
+            )
+        else:
+            detail = f"{hidden.get('status')}: {hidden.get('reason') or hidden.get('error') or ''}"
+        lines.append(f"  {package['package_id']} {package['source_path']}: {detail}"[:400])
+    return lines
+
+
 def _table_diagnostic_lines(registry: dict[str, Any]) -> list[str]:
     """First mismatch problems from the CPK table cross-check (report-only)."""
     lines: list[str] = []
@@ -2177,6 +2266,9 @@ def _render_report(registry: dict[str, Any]) -> str:
     diagnostics = _listing_diagnostic_lines(registry)
     if diagnostics:
         lines += ["", "Listing check diagnostics (raw converter output; file names and sizes only)"] + diagnostics
+    hidden_lines = _hidden_lines(registry)
+    if hidden_lines:
+        lines += ["", "Colliding-name entries read from the CPK table (hidden/, text/<package>-hidden/; not in packages/)"] + hidden_lines
     table_lines = _table_diagnostic_lines(registry)
     if table_lines:
         lines += ["", "CPK table check mismatches (report-only; up to 3 shown)"] + table_lines
@@ -2193,6 +2285,7 @@ def _render_report(registry: dict[str, Any]) -> str:
         "  packages/   extracted CPK contents (one folder per unique package)",
         "  text/       event text exports (manifest, units, segments) for packages with BIN files",
         "  logs/       converter logs (captured or console mode noted per call)",
+        "  hidden/     entries whose names collide, read from the CPK table (packages with duplicate names only)",
         "",
         "This report contains file names, sizes, byte prefixes, and hashes only; it contains no decoded game text.",
         "",
