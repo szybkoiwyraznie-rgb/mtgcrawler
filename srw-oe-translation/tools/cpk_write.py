@@ -180,11 +180,15 @@ class Cpk:
 
     @property
     def etoc_offset(self) -> int:
-        return self.field("EtocOffset")
+        # Some containers carry no EtocOffset at all; then whatever follows the
+        # content region is the EToc, which is the same span either way.
+        value = self.header.get("EtocOffset")
+        return int(value) if value is not None else self.content_offset + self.content_size
 
     @property
     def etoc_size(self) -> int:
-        return self.field("EtocSize")
+        value = self.header.get("EtocSize")
+        return int(value) if value is not None else len(self.data) - self.etoc_offset
 
 
 def load(path: Path) -> Cpk:
@@ -356,41 +360,46 @@ def rebuild(cpk: Cpk, replacement: Optional[Tuple[str, bytes]] = None) -> bytes:
             at = cpk.data_base + member.relative_offset - cpk.content_offset
             content[at:at + member.file_size] = new_blob
 
-    # TOC cells: sizes for the changed member, offsets for every member.
-    toc_block = bytearray(data[cpk.toc_offset:cpk.itoc_offset])
-    base = cpk.toc_offset
+    # Patch the TOC cells and the header's size fields in place first: both sit
+    # at absolute positions in the original file, and neither changes its length.
+    out = bytearray(data)
     size_col = cpk.toc_layout.column("FileSize")
     extract_col = cpk.toc_layout.column("ExtractSize")
     offset_col = cpk.toc_layout.column("FileOffset")
     for member in members:
-        row = member.row_start - base
-        _write_cell(toc_block, row, offset_col, new_relative[member.index])
+        _write_cell(out, member.row_start, offset_col, new_relative[member.index])
         if member.name == target_name and new_blob is not None:
-            _write_cell(toc_block, row, size_col, len(new_blob))
-            _write_cell(toc_block, row, extract_col, len(new_blob))
+            _write_cell(out, member.row_start, size_col, len(new_blob))
+            _write_cell(out, member.row_start, extract_col, len(new_blob))
 
-    head = bytearray(data[:cpk.toc_offset])
-    row = cpk.header_layout.rows_start
-    for name, value in (
-        ("ContentSize", len(content)),
-        ("EtocOffset", cpk.content_offset + len(content)),
-        ("FileSize", cpk.content_offset + len(content) + cpk.etoc_size),
-    ):
+    def set_header(name: str, value: int) -> None:
         try:
             col = cpk.header_layout.column(name)
         except KeyError:
-            continue
+            return  # this container does not record that field
         if col.row_offset is None:
-            continue  # constant-storage: one value shared by all rows, left alone
-        _write_cell(head, row, col, value)
+            return  # constant-storage: one value shared by all rows, left alone
+        _write_cell(out, cpk.header_layout.rows_start, col, value)
 
-    return (
-        bytes(head)
-        + bytes(toc_block)
-        + data[cpk.itoc_offset:cpk.content_offset]
-        + bytes(content)
-        + data[cpk.etoc_offset:cpk.etoc_offset + cpk.etoc_size]
-    )
+    delta = len(content) - cpk.content_size
+    set_header("ContentSize", len(content))
+    set_header("FileSize", len(data) + delta)
+    # Any table that sits after the content region moves with it. The real
+    # containers keep the TOC ahead of the content so nothing shifts, but that
+    # is their layout, not a rule.
+    for name in ("TocOffset", "ItocOffset", "EtocOffset", "GtocOffset"):
+        value = cpk.header.get(name)
+        if value is None or int(value) <= cpk.content_offset:
+            continue
+        set_header(name, int(value) + delta)
+
+    # Splice the content region back in. The regions are not required to appear
+    # in any particular order -- some containers put the content ahead of the
+    # TOC -- so everything outside the content region is carried along as one
+    # prefix and one suffix rather than reassembled from assumed boundaries.
+    head = out[:cpk.content_offset]
+    tail = out[cpk.content_offset + cpk.content_size:]
+    return bytes(head) + bytes(content) + bytes(tail)
 
 
 def verify_identity(path: Path) -> Tuple[bool, str]:
@@ -418,6 +427,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ident = sub.add_parser("verify-identity", help="a no-change rebuild must reproduce each file exactly")
     ident.add_argument("paths", nargs="+", type=Path)
 
+    extract = sub.add_parser("extract-member", help="write one member's bytes out, decompressed")
+    extract.add_argument("container", type=Path)
+    extract.add_argument("member", help="member file name inside the container")
+    extract.add_argument("-o", "--output", type=Path, required=True)
+
     replace = sub.add_parser("replace-member", help="rebuild with one member's bytes swapped in")
     replace.add_argument("container", type=Path)
     replace.add_argument("member", help="member file name inside the container")
@@ -435,6 +449,29 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         total = len(args.paths)
         print(f"\n{total - failures} passed, {failures} failed of {total}")
         return 1 if failures else 0
+
+    if args.command == "extract-member":
+        cpk = load(args.container)
+        member = next((m for m in cpk.members if m.name == args.member), None)
+        if member is None:
+            print(f"{args.member!r} is not in {cpk.path.name}", file=sys.stderr)
+            return 1
+        blob = member.blob
+        if member.extract_size > member.file_size:
+            import crilayla
+
+            blob = crilayla.decompress(blob).data
+            if len(blob) != member.extract_size:
+                print(
+                    f"{args.member}: decompressed to {len(blob)} bytes, the TOC says "
+                    f"{member.extract_size}",
+                    file=sys.stderr,
+                )
+                return 1
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_bytes(blob)
+        print(f"{cpk.path.name}: {args.member} -> {len(blob)} bytes, wrote {args.output}")
+        return 0
 
     cpk = load(args.container)
     new_blob = args.new_blob.read_bytes()

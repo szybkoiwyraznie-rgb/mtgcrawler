@@ -1281,6 +1281,46 @@ packaged with instructions as `local/deliverables/srwoe-test-eventP02.zip` (MD5
 `cd9b61587044dfa34395b8e7e2d097d9`), the Japanese run first because it keeps the charset
 constant and therefore isolates the container mechanics from font coverage.
 
+### 2026-10-10 (later) — the sandbox lost everything outside git, so the build became a script
+
+**The workspace does not survive between turns.** By the next turn `/home/user/srwoe/`
+(the user's 21 samples plus `eventP02.EDAT`) and `local/deliverables/` (the two built
+containers and their archive) were gone; only the committed tree remained. The local clone
+had also been reset to the session's base commit `d4e2488` with the work restored as
+uncommitted changes, so `git diff` reported the new tools as *deleted* while the bytes were
+on disk — the index, not the files, was stale. `git reset origin/arena/c656a5df-mtgcrawler`
+(mixed, working tree untouched) put HEAD back on `54d19fe` and the tree compared clean.
+**Consequence: a built container cannot be handed over by keeping it in the sandbox.** It
+has to be rebuilt on the user's machine, or pushed somewhere that persists.
+
+**`tools/build_event_text_test.py` + `BUILD_TEST_PATCH.bat`** therefore do the whole job on
+the user's own machine: read their decrypted `eventP02.EDAT`, extract `DL105_50.bin`, grow
+the record twice, rebuild both containers, and compare each MD5 against the values recorded
+when the files were first built here (`14e0d138084a4080e4a3617b63aaf3e5` and
+`91118db85ae22752194ce48963dfb89d`). Matching hashes mean the file on their disk is byte for
+byte the file verified here. The strings live in the Python source, not the batch file, so
+no Windows codepage touches them. Re-checked this turn without the source container: the
+three strings encode to 118, 151 and 148 CP932 bytes with 2, 3 and 2 `0x0A` breaks — the
+lengths the original build reported. The end-to-end rebuild itself could not be re-run,
+because the source container is gone.
+
+**Two real bugs in already-pushed code, found by the new `tests/test_cpk_write.py`.** The
+tests reuse `build_synthetic_cpk` from `test_cpk_table.py`, whose container puts the content
+region *ahead* of the TOC (`ContentOffset 265`, `TocOffset 655`). `cpk_write.rebuild` had
+hard-coded the region order head → TOC → ITOC → content → EToc, so on that container it
+emitted 1718 bytes for a 1048-byte file and put member data where the ITOC belonged. Region
+order is a property of those particular files, not of the format. Fixed by patching the TOC
+and header cells in place at their absolute positions and then splicing the content region
+in as one prefix and one suffix. The same tests then showed a second gap: when the content
+does move, any table *after* it moves too, and only `ContentSize`, `EtocOffset` and
+`FileSize` were being updated — `TocOffset` and `ItocOffset` were left pointing into the old
+file. They are now shifted whenever they sit past the content region. Neither bug could
+show up on the real containers, which is exactly why a synthetic one with a different layout
+was worth having. `cpk_write` also now treats a missing `EtocOffset`/`EtocSize` as "whatever
+follows the content", and gained an `extract-member` subcommand.
+
+**Full suite 301 OK, 1 skipped** (13 new `cpk_write` tests; 288 before).
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
