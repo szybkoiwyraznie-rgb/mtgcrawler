@@ -144,10 +144,86 @@ Hypotheses to test on disposable copies (not facts):
 - `.EDAT`-named inputs are accepted by `-X` if `CpkMaker` does not check the extension.
 - Piped stdout triggers the progress-display exception, so the console-mode fallback is needed. Observed once on the user's build (see above); the mechanism is not proven.
 
+## Boundary evidence from run `20261010-142640` (all 8 chapters, user's PC)
+
+First measurements of the exported units against the files they came from: 163,523 units, 2,617
+files, 114 exports, and a clean integrity check (0 offset problems, 0 marker mismatches, 0 prefix
+mismatches, 0 missing files), so the unit records do describe the bytes they claim to.
+
+**Confirmed by the counts (not interpretations):**
+
+- **There is no length field before the marker.** Of the 96 delta/width/endian configurations (1–16
+  bytes before the marker, 1/2/4-byte, LE and BE), none beats its matched-distribution null; the best
+  is +0.6% lift. The scan covers every unit, so a field covering the 45,325 prose units would have
+  shown about +25%. The units' lengths are not stored next to them.
+- **There are no nested strings.** 3,493 units contain another `FF FF` inside their own text (4,757
+  inner markers), and **0** of those inner markers are followed by wide-script Japanese (1,050 are
+  followed by ASCII only). The inner markers are data.
+- **There is no fixed record layout.** The gap between consecutive units has median 31 and its
+  `mod 4` counts are spread over all four remainders (41,656 / 26,976 / 41,340 / 50,892); the pitch
+  between unit starts is `>256` for 114,498 units and only 2,158–2,322 for each of 52/56/60/64.
+- **90.4% of the event bytes are not selected text:** gap 434,847,300 bytes (82.1%), unselected
+  `FF FF …` spans 43,725,712 (8.3%), text units 50,900,138 (9.6%), and only 20 bytes of unterminated
+  tail in one export. The extractor's coverage question is therefore about that 8.3% of unselected
+  marker spans, not about truncated text.
+- **The suffix is structured, not random.** Of 7,591 two-byte suffixes, byte `+0` is always `00` and
+  byte `+1` is `C9` in 88% of cases. Of 2,198 three-byte suffixes, `+0` is always `00`, `+1` has 71
+  values (top `2D` at 31%), and `+2` is `01` in 77%. The most common six bytes after the text are
+  `0000C9000000` (×8,303), `00000000C900` (×8,155), `000000C90000` (×7,047).
+- **`_Entry.dat` is not a copy of BIN text:** 0 of its 5,472 NUL-delimited runs of at least six bytes
+  occur verbatim in the same package's BINs. `_ext.dat` overlaps a little: 12 of 242 runs (69
+  occurrences, 11 distinct payloads of 10–24 bytes).
+- **Colliding-name entries carry no compressed data:** all 42 packages recovered completely with
+  `listing sizes match: True` and 0 CRILAYLA streams.
+
+**Not settled by this run:**
+
+- **Pointers — measured, and positive, but not yet localized.** The cohort-split probe covered
+  42,424 of the text cohort's 45,252 offsets. Their start offsets occur as u32 little-endian values
+  **6,535** times against **1,339** for `start + 1`, while a synthetic corpus built to the same
+  density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111) with no
+  pointer table at all gives 421 against 374 — a ratio of 1.13 at a fifteenth of the count. Marker
+  offsets are *not* elevated (599 against 446), so whatever is stored points at the byte after
+  `FF FF`, not at the marker. What this is not: not 4-byte aligned (the aligned scan gives 548
+  against 542), not one contiguous table (matches are spread evenly over all eighths of the file),
+  and not only little-endian (big-endian gives 6,086 against 887). Those three facts rule out an
+  ordinary offset table.
+- **The follow-up measurement came back negative too.** Of the 6,335 u32 LE matches in the text
+  cohort, 6,236 (98.4%) sit more than 256 bytes from the offset they encode and the remaining 99
+  scatter over ~67 distances at 1–6 each — the signature a synthetic file with no references at all
+  produces (751 of 776). A record storing its own string's offset would put nearly every match at one
+  fixed distance, and a contiguous table would over-represent one eighth of the file (eighth 0 holds
+  801 against a mean of 792). The same-parity control removed the last artefact explanation:
+  `start + 2` gives 528 matches, below `start + 1` at 1,258, against 6,335 for `start` itself.
+- **What is still unexplained:** a structure-matched synthetic null (same density, same `XX 00 00 00
+  00 00` pre-marker bytes, same suffix mix) gives 776 `start` matches against 750 and 509 for the two
+  controls, so the real files hold roughly 5,000 more matches of those exact offset values than a file
+  with no references. Nothing yet shows those values being *used*, and a distance measurement cannot
+  see a cross-reference between records — which is why the probe now attributes each match to the
+  record holding it. **Note that this line of inquiry is now superseded**: `retro-trans/SRW-Z`
+  documents the same missing offset table on a sibling engine and settles it with a grow-test in the
+  emulator (`docs/PRIOR_ART.md`).
+- **The `C9` byte.** `C9 00 00 00` is 201 little-endian, and this project's earlier framing work found
+  the event blocks' ECHK chains ending at u32 200. That is a coincidence worth testing, not a
+  finding: nothing here links the two.
+
+**Measured on the text cohort alone (probe schema `/3`, the 32 event exports):** no length prefix
+(best of 96 configurations +0.4% lift); no nested strings (522 inner markers, none followed by
+wide-script Japanese); suffixes are only 0 bytes (35,681 units), 2 bytes (7,448; `+1` is `C9` in 90%)
+or 3 bytes (2,123; `+2` is `01` in 80%); of 5,035,356 bytes, 45.1% is text units, 54.5% gaps, 0.4%
+unselected `FF FF …` spans, and no unterminated tail. Two layout regularities: the gap between units
+is **never ≡ 1 (mod 4)** — 43 of 44,959 gaps — and the commonest pitches are 56/60/64/52/68 bytes.
+
+**Caution on every pooled number above:** 118,198 of the 163,523 units and 523,336,306 of the
+529,473,170 bytes came from the 42 recovered battle-data exports (`bacb*`/`bseq*`), which are binary
+data, not script. The negatives hold for the script too (the length scan covers every unit), but the
+suffix, context, gap, and repetition distributions are mixtures until they are read per cohort.
+
 ## Working hypotheses — validate before relying on them
 
 - `FF FF` may introduce a dialogue/text block.
-- A single `00` after the Japanese text may terminate a string; the `00 00` pair may mark a different boundary or field.
+- A single `00` after the Japanese text may terminate a string; the `00 00` pair may mark a different boundary or field. Run `20261010-142640` shows the byte after that `00` is `C9` in 88% of the two-byte suffixes, which is a pattern, but its meaning is unknown.
+- ~~The bytes between text blocks may hold a length or pointer for the string.~~ Ruled out for lengths (no 1/2/4-byte field in the 16 bytes before the marker beats its null) and open for pointers (the scan was starved; see the boundary-evidence section).
 - `76 01` and `22 02` may be event/control opcodes with parameters or adjacent record metadata; their semantics are unknown.
 - The bytes between text blocks may contain event opcodes, speaker identifiers, pointer/length data, or other fields.
 - The EDAT length/count words and EVNT boundary arithmetic are consistent across all 22 supplied BINs; this supports a top-level framing model. The EVNT `+8` word and ECHK payload/field semantics remain unknown.
@@ -177,7 +253,8 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - Whether the game's font/runtime renders lowercase English and punctuation, and whether any font patch is required.
 - Whether the user's YACpkTool build matches the archived source, and how its `CpkMaker.dll` validates signatures, extensions, and `Status` values.
 - Whether entries that share a name (281 of 541 in `bacb01.EDAT`) hold different content, and whether the game reads them by ID. The one-click run now fails such packages instead of writing a partial set.
-- What the 47 non-CPK `.EDAT` files in the user's `NPJH50521` folder are (format, encryption, and whether any holds text); `eventP04.EDAT` and `evept101.EDAT` are among them.
+- What the remaining non-CPK `.EDAT` files in the user's `NPJH50521` folder are (27 AFS2 audio containers). The 20 then-encrypted PSP EDAT containers are decrypted and readable now: `eventP04.EDAT` and `evept101.EDAT` export 3,520 and 1,077 units.
+- What the `C9` byte after the text-terminating `00` means, and whether it relates to the ECHK terminal u32 200.
 
 ## References
 

@@ -131,6 +131,25 @@ class CrilaylaEntryTests(unittest.TestCase):
         self.assertIn("the table says", summary["samples"][-1]["error"])
 
 
+
+
+class CompressLiteralTests(unittest.TestCase):
+    def test_literal_round_trip_returns_the_input_exactly(self):
+        import os
+        data = os.urandom(0) or bytes(range(256)) * 3 + b"\x00" * 0x100
+        data = (bytes(range(256)) * 4 + b"AB" * 0x80)[:0x300] + b"\x00" * 0x100
+        comp = crilayla.compress_literal(data)
+        self.assertTrue(crilayla.is_crilayla(comp))
+        self.assertEqual(crilayla.decompress(comp).data, data)
+
+    def test_shorter_than_a_page_is_refused(self):
+        with self.assertRaises(crilayla.CrilaylaError):
+            crilayla.compress_literal(b"\x00" * 0x10)
+
+    def test_repetitive_data_round_trips(self):
+        data = b"SRWOE " * 400 + b"\x00" * 0x100
+        self.assertEqual(crilayla.decompress(crilayla.compress_literal(data)).data, data)
+
 if __name__ == "__main__":
     unittest.main()
 

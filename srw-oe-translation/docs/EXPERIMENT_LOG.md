@@ -816,15 +816,771 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Not demonstrated:** the four cases now agree in a real run (needs the next PC run); `robo01` and `robo03` remain mismatched because of mangled names, as before.
 
-## Pending
+## 2026-10-10 — recorded late: what the 08:35–11:09 commits added (no new data)
 
-- Run the one-click tool on the user's PC (now with read-only ISO member extraction): the report's `CPK table check` line validates the reader against all real packages (the DLC ones plus the disc's), and the ISO line shows the extracted disc members. This brings chapter 1 and the disc-only base/system packages into scope.
-- The user decrypts the `*04` PSP EDAT packages (chapter 4, their own purchased content) outside these tools; the pipeline then processes them on the next run.
-- Then decide whether to promote the table check to fail-closed.
-- Use the table reader to recover the 1,111 hidden duplicate-name entries (206,898,244 bytes): for each duplicate-name package, read the hidden entries' bytes by offset (902 uncompressed entries are readable directly; 209 compressed entries would need a Layla decompressor or the converter for those), write them under ID-based names in the run folder, and verify their sizes against the listing. Keep the round-trip gate before any repack decision.
-- Optional, later: the 2 packages blocked by one console-mangled name each (`robo01`, `robo03`) match on every other name and size; a stricter name recovery would need the true names, which the mangled listing does not carry. Keep them fail-closed until then.
+**Input:** none. This entry documents code already on the branch (commits `2d34683`..`83a676b`, merged into `main` with PR #9) that this log had not described. No game file was opened in the sandbox; every item runs on the user's PC.
+
+**Verified by reading the code (not by a real run):**
+- `2d34683` the free-space estimate counts the verified cache copy (`FREE_SPACE_FACTOR = 4`, plus 512 MiB), and `ONE_CLICK_RUN.md` documents the cache and how to reclaim it.
+- `e77e80a` `tools/diagnostic_bundle.py` writes `diagnostics_<run id>.zip` after every run: the report, registry, both CSVs, the converter logs, and the text export manifests, with a size and SHA-256 index. Game files (`packages/`, `iso/`, `staging/`, `gates/`, `_cache/`) are excluded.
+- `453cc0a` `Run._extract_hidden_entries` reads the entries whose names collide straight from the CPK table into `hidden/<package>/<TOC index>_<name>`, so a collided name no longer hides an entry. The package status is unchanged (still `incomplete`); this is recovery for reading, not for repacking.
+- `61f6771`, `56c3c50`, `f9b3b91` `tools/layout_probe.py` collects the header and table bytes of the colliding-name packages (and of the ISO members in `iso/`) into `layout_probe.zip`, which the run writes automatically and the diagnostic ZIP includes.
+- `98ca717` the verified cache hard-links files where the filesystem allows it and the run logs cache and text timings per package.
+- `0f84d83`, `f73a741`, `f5c4c27` compressed colliding-name entries record their first 16 bytes, and CRILAYLA streams are decoded with `tools/crilayla.py` (size checked against the table's `ExtractSize`); the run reports decoded/failed counts, unused stream bytes, and the longest text-like run per entry.
+- `364d605` the text-like byte predicate covers CP932 lead/trail bytes and half-width katakana, so it no longer undercounts Japanese.
+- `0938b21` the hidden-entry step also runs for packages whose listing has one undecodable name (`robo01`, `robo03`), because their tables carry the exact name bytes.
+- `ec7d494`, `0347542`, `ee9c859`, `83a676b` `tools/translation_tools.py` writes `translation/units.csv` at the end of every run (one row per text unit, including `text/<package>-hidden/`, source in the lossless view, plus `budget_bytes`) and checks a filled-in CSV for changed control tokens, changed line breaks, non-CP932 text, and over-budget text. `template_report.txt` counts units, tokens, zero-budget rows, and source views that do not round-trip.
+
+**Not demonstrated:** any of this on a real run (the next run is the first to produce `hidden/`, `layout_probe.zip`, the CRILAYLA counts, and `translation/units.csv` for the real data); no repack, insertion, or in-game result.
+
+## 2026-10-10 — boundary evidence probe (read-only counts, no game data in the sandbox)
+
+**Motivation:** every blocker downstream of extraction (translation, insertion, patching) waits on the same open question — are the 39,103 `FF FF ... 00 00` units real strings? The heuristic cannot answer that from inside the sandbox, so this milestone makes the question measurable on the user's PC instead of arguing about it.
+
+**Change:** `tools/boundary_probe.py` (new, read-only) plus stage 8/9 of the one-click run. It re-checks each unit's recorded offsets and prefix bytes against the extracted file, then measures:
+- a length-prefix scan: a 1/2/4-byte integer in the 16 bytes before each marker that equals the text, span, or envelope length, for all 96 delta/width/endian configurations;
+- a pointer scan: how often each unit's start offset occurs as a little-/big-endian u32 in its own file (unaligned and 4-aligned);
+- byte context: the most common 6-byte patterns before the marker and after the text, the suffix length histogram, and the distinct-value profile per suffix byte position;
+- layout: gaps between consecutive units, their divisibility by 4, start-offset alignment, and the pitch between consecutive starts;
+- repetition: how many distinct payloads occur more than once across the run, and their length range (payloads are digested, never stored).
+
+**Method (the important part):** a hit rate alone is meaningless, because small integers and even offsets are common. The length scan is therefore compared with a **matched-distribution null**: for each configuration, the expected hit count if the field values actually found at those positions were paired at random with the units' lengths (`expected_hits`, `expected_rate`, `lift`, `ratio`). The pointer scan's control is `start + 1`, searched in the same bytes. Both scans are byte-budgeted (256 MiB unaligned, 64 MiB aligned per endianness) and report how much was searched, so a truncated measurement is visible instead of looking like a negative result.
+
+**Checked here (synthetic only):** on a 177,000-byte file with 3,000 units in pseudo-random gaps, the scan found 1,656 chance length hits and the null absorbed all of them (best lift +0.01%); on a fixture with a real u16 length field at `marker-4` the same configuration reports a 100% rate against a much lower expectation; on a fixture with a u32 pointer table the start offsets occur more often than the `start+1` control, and removing the table removes the lift. A 3-byte suffix whose first byte is constant and whose other bytes vary is reported as 1 distinct value at `+0` and more at `+1`/`+2`. The probe output is ASCII-only, contains no decoded text and no long payload hex, and two runs of the same input give byte-identical JSON.
+
+**Wiring:** `run_pipeline.py` runs the probe as stage 8/9, stores it in `registry.json` as `boundary_probe`, writes `boundary_probe.json` into the run folder, prints a count-only `Boundary evidence` section in `REPORT.txt`, and `diagnostic_bundle.py` includes the JSON. A probe failure never changes the run status. The extraction cache digest is unchanged (the probe does not affect extraction), so the user's `_cache` stays valid.
+
+**Also fixed:** the colliding-name report line said "compressed (not decoded)", which stopped being true when CRILAYLA decoding landed. It now reports uncompressed writes, CRILAYLA decoded/failed, and the remainder that is not CRILAYLA.
+
+**Tests:** `tests/test_boundary_probe.py` (16) and one pipeline integration test plus one `_hidden_lines` test in `tests/test_run_pipeline.py` (62). Full suite 206 OK (1 skipped). `py_compile` clean.
+
+**Not demonstrated:** the probe on real event data (the next PC run); whether any hypothesis survives contact with it; any repack, insertion, translation, or in-game result. A measurement is evidence, not a validated parser — even a strong length-prefix or pointer signal still has to be confirmed against the game's own records before text is written back.
+
+## 2026-10-10 — boundary probe extended before the run, and a fast re-measure path
+
+**Input:** none; the user also reported that the `*04` chapter-4 packages are already decrypted, so all inputs on their side are ready (not verified by a run).
+
+**Reason:** a full run takes minutes and the user asked not to repeat it. Everything that can be measured from a finished run folder was therefore added now, and the measurement was separated from the run.
+
+**Change (probe schema `srw-oe-boundary-probe/2`):**
+- Pointer scan: the marker **and** the text start are searched as u32 **and** u16, LE and BE, unaligned and aligned, against `marker + 1` and `start + 1` controls in the same bytes; match positions are kept by eighth of the file, so a pointer table would be localized rather than just detected. Offsets that do not fit the width are counted (`values_too_large`), targets and controls alike.
+- Nesting: `FF FF` inside a unit's own text is counted, with how many inner markers are followed by at least two wide-script CP932 codepoints and how many are ASCII-only.
+- Companion cross-check: every NUL-delimited run of at least six bytes in each package's `_ext.dat`/`_Entry.dat`/`_edit.dat` files is searched verbatim in that package's BIN files (512 runs per package, cap reported). Counts, lengths, and per-class breakdowns only.
+- Coverage: each export's `manifest.json` totals are summed for the run — bytes by segment kind (text units, gaps, unselected marker spans, unterminated tails), unit flags, and control tokens by reason.
+- Grouping: units are attributed to their top-level source file by walking `parent_package`, which gives the per-chapter picture without manual analysis.
+- Budgets are now per file and in total (256 MiB/2 GiB unaligned, 8 MiB/256 MiB aligned), so one large file cannot starve the rest; the report and JSON say how much was searched and how many files were truncated.
+- `RUN_PROBE.bat` and `boundary_probe.py` with no argument (resolved from `output_base` in the saved INI) re-run the probe against an existing run folder: read-only, no converter call, one JSON file written.
+
+**Measured here (synthetic):** one 177,000-byte file with 3,000 units probes in 0.43 s and reports 1 truncated file; 22 files of about 7 KB with 3,300 units probe in 0.50 s with all 26,400 offset searches complete and no truncation. The length null still absorbs every chance hit on unstructured bytes (best lift +0.01%), and the u16 counts on the same data sit within ±10% of their controls, which is why the JSON says to judge a u16 lift against its control and not against zero.
+
+**Tests:** 22 probe tests (new: u16 offsets, match positions, nesting, manifest coverage, per-source grouping, companion hits, run cap, latest-run resolution) plus a launcher contract test for `RUN_PROBE.bat`. Full suite 214 OK (1 skipped). `py_compile` clean.
+
+**Not demonstrated:** any of it on real event data; whether chapter 4's decrypted `*04` packages are readable CPK containers; any repack, insertion, translation, or in-game result.
+
+## 2026-10-10 — full run `20261010-142640` on the user's PC: first real boundary evidence
+
+**Inputs:** the user's `D:\SRWOE` (ISO `SRW OE 1.08.iso` + `NPJH50521` DLC, chapter 4 decrypted per the user), `D:\SRW_OE_out`, `D:\YACpkTool\YACpkTool.exe` (SHA-256 `8871f1ef…49baf962`); branch `arena/c656a5df-mtgcrawler` at `d8ed1f7`. Reported back as `diagnostics_20261010-142640.zip` (1,890,076 bytes, commit `f728517`), extracted to ignored `local/run-20261010-142640/`. `BUNDLE_INDEX.txt` carries the SHA-256 of every file (`REPORT.txt` `bea96f87…`, `registry.json` `4dbbad95…`, `boundary_probe.json` `0c8a08b5…`).
+
+**Action:** `RUN_PIPELINE.bat`, all stages, `completed_with_failures`.
+
+**Result — extraction:** 341 inputs all readable and unchanged; 308 CPK signatures (306 unique); 497 packages, 453 extracted, 44 failed; 12,203 member files; 107 duplicates skipped; listing check verified 453, incomplete 42, unverified 2; layouts 311 full / 129 no-ID / 57 no-filename. ISO gave 63 members, 307,513,504 bytes, so **chapter 1's event data is extracted from the disc**. All 44 failures are known and explained: 42 are the colliding-name packages (the converter writes one file per name, so the folder cannot hold every entry — those are recovered separately) and 2 are `robo01`/`robo03`, where one listed name each does not decode from the converter's console output.
+
+**Result — CPK table check: agree 495, mismatch 2, unreadable 0.** The previous run had 6 mismatches; matching blob-layout rows by ID instead of by index removed the 4 blob-layout cases, leaving only the two console-mangled names.
+
+**Result — colliding-name recovery:** complete for all 42 packages (`bacb01` 541/541 entries, 132,272,768 bytes; `bacb02` 336/336; `bacb00` 394/394; …), `listing sizes match: True` everywhere, 0 compressed entries, so no CRILAYLA stream was needed for them.
+
+**Result — text:** 91 packages with verified BINs, 0 failed, **45,325 units** (previous run 39,103). `eventP00` (1,582 units) is the chapter-1 ISO package and `eventP04`/`evept104` (3,520 / 3,562) are chapter 4, so **the decrypted `*04` packages are readable CPK containers** and all 8 chapters are covered.
+
+**Result — boundary probe (schema/2), first measurements on real data:** 163,523 units in 2,617 files across 114 exports; integrity clean (offset problems 0, marker mismatches 0, prefix mismatches 0, missing files 0). Text bytes 529,473,170 over 3,240 files: gap 434,847,300 (82.1%), unselected marker spans 43,725,712 (8.3%), text units 50,900,138 (9.6%), unterminated tail 20 bytes in 1 export.
+
+- **Length prefix: negative.** No 1/2/4-byte field in the 16 bytes before the marker beats the matched-distribution null; the best of 96 configurations is +0.6% lift (u8 at marker-6: 5,877/163,522 = 3.59% vs 3.03% expected). The scan covers every unit, so this also rules a length field out for the event files: a field covering the 45,325 prose units would have shown about +25% pooled.
+- **Nesting: negative.** 3,493 units contain another `FF FF` inside their own text (4,757 inner markers) and **0** of those inner markers are followed by wide-script Japanese (1,050 are followed by ASCII only), so the inner markers are data, not nested strings.
+- **Pointer table: inconclusive as measured.** Only 1,382 of 163,523 u32 offsets (and 160 for u16) were searched, because the budget ran out on the huge battle files (`files_truncated_by_budget: 2,653`, 68 bytes of 2 GiB left). 93,113 offsets do not fit in u16 at all.
+- **Companion `.dat` files:** 242 `_ext.dat` runs of at least 6 bytes were searched verbatim in the same package's BINs and 12 were found (69 occurrences, 11 distinct payloads, 10–24 bytes); 5,472 `_Entry.dat` runs found 0. So `_Entry.dat` is not a copy of BIN text, and `_ext.dat` overlaps it only slightly.
+- **Suffix structure:** of 7,591 two-byte suffixes, `+0` is always `00` and `+1` is `C9` in 88% of cases; the 6 bytes after the text are most often `0000C9000000` (×8,303), `00000000C900` (×8,155), `000000C90000` (×7,047). Three-byte suffixes are `00`, then 71 values (top `2D` 31%), then `01` in 77%.
+- Gaps (median 31, `mod 4` spread over all four remainders) and pitch (`>256` ×114,498) show no fixed record layout.
+
+**What the run exposed — two defects in the probe, both fixed:**
+
+1. **Pooling hides the script.** 118,198 of the 163,523 units and 523,336,306 of the 529,473,170 bytes come from the 42 recovered battle-data exports (`bacb*`/`bseq*`). Not one of them is prose: every one has at least 30% of its units flagged `halfwidth_katakana_only_match` or `invalid_cp932_token`, while the 32 exports that are prose are exactly the event files (`eventP00`–`eventP32`, `evept101`–`evept108`). Every pooled statistic above is therefore a mixture of script and binary data.
+2. **The pointer scan was starved, and the truncation counter under-reported.** Taking the first N values per file let the first huge file consume the whole budget; the rewrite also dropped the `truncated` flag for the sampled case, so an unsearched offset could have read as a negative result.
+
+**Change (probe schema `srw-oe-boundary-probe/3`):**
+
+- Every export is measured on its own and merged into the pooled evidence, its cohort, and a per-export row. Cohorts are decided from each export's own manifest before any BIN is read: an export is `text` when at least half its units are not flagged half-width-katakana-only or invalid CP932. The JSON now has `cohorts.text`, `cohorts.binary`, `per_export`, `text_share`, and `units_wide_script`; `REPORT.txt` prints a `by cohort` section and the ten largest exports with their own prose share and best length field.
+- The text exports are measured first, because the bounded scans spend one shared budget (`Budgets`) and spending it on 523 MB of battle data left nothing for the script.
+- The unaligned pointer search samples offsets evenly (`_sample`) instead of taking the first N, is limited to u32 (u16 offsets mostly do not fit their own file, and chance 2-byte matches swamp the rest), and counts `offsets_available_unaligned`, `offsets_searched_unaligned`, `offsets_too_large_for_width`. u16 is measured by the aligned scan, which is one pass per width and endian and covers every byte of every file it reaches.
+- Budgets: 256 MiB per file and 8 GiB total unaligned, 32 MiB per file and 2 GiB total aligned (were 256 MiB/2 GiB and 8 MiB/256 MiB). `files_truncated_by_budget` is set again for the sampled case, and the aligned scan reports files scanned and skipped.
+- `totals.files` is keyed by (export, file name): the same relative name recurs across packages, so the old key undercounted (2,617 counted against 3,240 in the manifests).
+
+**Measured here (synthetic, shaped like the real run):** 82,080 units in 840 files over 98 MB probe in 28.3 s. The text cohort searches 46,080/46,080 offsets unaligned and scans 720/720 files aligned; the binary cohort gets 300/36,000 offsets (budget exhausted, reported as truncated) with 32,640 offsets too large for u16. The cohort classifier run over the **real** 114 manifests from the bundle gives 32 exports / 45,252 units as `text` and 82 exports / 118,271 units as `binary`; the 73 units below the threshold are the small `imenu*` menu exports, `colorlst`, and the hidden `robo01`/`robo03`.
+
+**Tests:** 29 probe tests (new: cohort split with its own manifest coverage, per-export ranking, cohort report lines, even sampling, truncation honesty, and a command-line test that runs `main()` over a run folder and checks the printed cohort section and the written JSON; `test_u16_offsets_are_found_by_the_aligned_scan` replaces the unaligned u16 assertion). Full suite 220 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Not demonstrated:** the cohort-split probe on real data — that needs `RUN_PROBE.bat` on the same run folder, which the user still has; any repack, write-back, reinsertion, or in-game result; what the `C9` byte after the stop means.
+
+## 2026-10-10 — `RUN_PROBE.bat` found no run folder on the user's PC (my bug, fixed)
+
+**Report:** the user double-clicked `RUN_PROBE.bat` from a fresh branch download and got `No run folder given and none found` (exit 2).
+
+**Cause (reproduced here):** `latest_run_folder()` read the key `output_base` from `[local]`, while `run_pipeline.save_settings()` — the writer `RUN_PIPELINE.bat` actually uses — writes `output_root`. With a real INI the lookup therefore always returned `None`, so the automatic discovery could never have worked on any PC. The test that should have caught it wrote its fixture INI by hand with the reader's own key instead of using the pipeline's writer, so it agreed with the bug. A fresh download also has no `config/local-workflow.ini` at all (it is private and git-ignored), which produces the same message for a second, independent reason.
+
+**Fix:**
+- `latest_run_folder()` now reads `output_root` (with `output_base` accepted for hand-edited copies) and resolves a relative value from the INI's folder, like the pipeline does.
+- `find_latest_run_folder()` returns a reason with the path, and the CLI prints it (`no config file at …`, `… has no output_root in its [local] section`, `… but no subfolder of … holds a registry.json`), so "found nothing" says which of the three it was.
+- `resolve_run_dir()` accepts a run folder **or** its parent (dragging the whole output folder onto the `.bat` works), and says which run it picked.
+- `RUN_PROBE.bat` now prompts for a folder when the probe exits 2 and retries with it, and the retry's exit code is the one reported. The message names the drag-onto-the-`.bat` route.
+
+**Tests:** the regression test writes the INI with `run_pipeline.save_settings()` and asserts the newest run is found, so the reader and the writer can no longer drift; plus relative paths, the three "nothing found" reasons, parent-folder resolution, the CLI's exit-2 message, and the launcher's prompt. 34 probe tests, full suite 226 OK (1 skipped).
+
+**Lesson:** a fixture that mirrors the code under test instead of the code that produces the data proves nothing. Where two files must agree on a format, the test has to use the real writer.
+
+## 2026-10-10 — cohort-split probe on the user's PC: the event files really do contain text-start offsets
+
+**Action:** the user re-ran the probe against the saved run folder `20261010-142640` (`RUN_PROBE.bat`, no converter call). First measurements with schema `/3`.
+
+**Cohort split on real data:** text = 32 exports, 45,252 units in 293 files, prose share 97.9%; binary = 82 exports, 118,271 units, prose share 2.4%. Pooled integrity stayed clean, and the file count went from 2,617 to **2,659** — keying `totals.files` by (export, name) removed the undercount.
+
+**Text cohort — settled:** no length prefix (best of 96 configurations +0.4% lift); no nested strings (449 units, 522 inner markers, 0 followed by wide-script Japanese); suffixes are only 0 bytes (35,681), 2 bytes (7,448; `+1` is `C9` in 90%) or 3 bytes (2,123; `+2` is `01` in 80%); the extractor covers the event files properly — of 5,035,356 bytes, text units are 45.1%, gaps 54.5%, and only 0.4% are `FF FF …` spans it did not select, with no unterminated tail. Two layout facts worth keeping: the gap between units is never ≡ 1 (mod 4) — 43 of 44,959 gaps — and the commonest pitches are 56/60/64/52/68 bytes.
+
+**Text cohort — the pointer result, and its control:**
+
+| u32 LE, unaligned | at marker | at text start | controls marker+1 / start+1 |
+| --- | --- | --- | --- |
+| real text cohort | 599 | **6,535** | 446 / 1,339 |
+| density-matched synthetic corpus with **no** pointer table | 340 | 421 | 494 / 374 |
+
+The synthetic null was built to the text cohort's own density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111; 18,264 bytes per file against 17,186) and gives `start/start+1` = 1.13, where the real data gives 4.88 with 15× the null's absolute count. So **the text-start offsets occur as u32 little-endian values in the event files far above chance, and the shifted-by-one control is not what produces it.** Marker offsets are *not* elevated (599 vs 446, like the null's 340 vs 494), so whatever is stored points at the byte after `FF FF`, not at the marker.
+
+Two earlier attempts at this null were mis-scaled and gave misleading answers (0.95 at 35 bytes/unit, and an inverted result on a sparse 6.7 MB corpus); both came from misreading `aligned_bytes_scanned`, which counted each file once per width × endian and so reported 2,110,481,568 bytes for 527,620,392 real bytes. That counter is fixed.
+
+**What is still not explained, and the measurement added for it:** u32 big-endian shows the same lift (6,086 vs 887), the 4-byte-**aligned** scan shows none (548 vs 542), and the matches are spread evenly over all eighths of the file — so this is not a contiguous, aligned pointer table. The probe now records **where each match sits relative to the offset it encodes** (`pointer_references.deltas`, plus a report line per scan). A per-record field puts nearly every match at one fixed distance; a table clusters them in one region; chance leaves them far away. On the density-matched null, 69 of 72 `start` matches sit more than 256 bytes from the value they encode, while a synthetic record layout that stores its own offset 10 bytes before the text gives one distance holding every match. A same-parity control (`start + 2`) was added next to `start + 1`, so a parity artefact in the control would show up as `start ≈ start+2`.
+
+**Cost:** the unaligned scan now searches five sets instead of four, so for the same 8 GiB budget the text cohort's coverage drops from 42,424/45,252 to roughly four fifths of that; the coverage line reports the real number.
+
+**Tests:** 36 probe tests (new: a per-record offset field is localized at one fixed distance and printed as `target-10 x4`; the aligned scan counts a file once, not once per width and endian). Full suite 228 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Not demonstrated:** what the stored offsets are for, whether they are per record or in a table, what the `C9` byte means, and anything about repacking, write-back, or in-game results.
+
+## 2026-10-10 — second probe run: the start-offset matches are not a self-reference and not a table
+
+**Action:** the user ran `RUN_PROBE.bat` again on `20261010-142640` (schema `/3` with the distance measurement and the same-parity control).
+
+**Text cohort, u32 LE unaligned `start`: 6,335 hits over 69 distinct distances — `>256` ×4,495, `<-256` ×1,741, then `target-17` ×6, `target+31` ×5, `target+43` ×3 and smaller.** So **6,236 of 6,335 matches (98.4%) sit more than 256 bytes from the offset they encode**, and the remaining 99 are spread over ~67 distances at 1–6 each. Big-endian (5,872 hits: 4,127 + 1,642 outside ±256) and the aligned scan (581: 491 + 84) look the same. On the density-matched null the same signature is 751 of 776.
+
+That closes two hypotheses: **no record stores its own string's offset** (that would put nearly every match at one fixed distance), and **there is no contiguous offset table** (matches are spread evenly over all eighths of the file, and a per-file table would over-represent one eighth; eighth 0 has 801 against a mean of 792).
+
+**The same-parity control killed the parity explanation too:** `start + 2` gives 528 matches, *below* `start + 1` at 1,258, while `start` gives 6,335. The excess belongs to the exact offsets, not to their parity or their neighbourhood.
+
+**A second null, built with the real pre-marker structure** (`XX 00 00 00 00 00` with `XX` drawn from the observed 57/20/12/11 split over `00`/`01`/`03`/`04`, the 0/2/3-byte suffix mix, 124 bytes per unit against the real 111): `start` 776, `start + 1` 750, `start + 2` 509, `marker` 423, `marker + 1` 418 — ratios 1.03 and 1.52. So the null reproduces the distance signature but not the magnitude: **the real files hold about 5,000 more matches of the exact start offsets than a structure-matched file with no references at all.** Coverage this run: 39,132 of 45,252 offsets (five search sets now), and `aligned_bytes_scanned` reported 5,035,356 bytes, confirming the four-fold over-count is fixed.
+
+**What this does *not* settle — and the flaw in the instrument:** the distance from a match to the value it encodes can only reveal a field that points at its own string. A record that stores *another* line's offset sits at an arbitrary distance from it, so a script made of cross-references would look exactly like this. The probe therefore now attributes every one of those matches to the record it sits in:
+
+- `position_in_record` — distance from that record's `FF FF` (a header field is a small negative number, a trailer a small positive one);
+- `stored_value_vs_record_start` — the stored offset minus that record's own text start, so `0` means a record pointing at itself and a constant positive value means a chain to the next line;
+- `distinct_values_matched`, `values_matched_more_than_once`, `most_matched_value_hits` — one match per offset reads as a line table, a few offsets matched repeatedly reads as something else;
+- `files_with_hits` and the top files, so a spread can be told from a concentration.
+
+Attribution is to the **nearest** marker, not the previous one: a record's header sits before its own `FF FF`, so "the record before" would claim every header field (the first implementation did exactly that and reported `marker+14` for a field at `marker-8`).
+
+**Tests:** 39 probe tests. A self-referential field is attributed to its own record (`position marker-8 x4`, `own start+0 x4`); a chain to the next record shows the same position with the pitches as relations; four records pointing at one line report 1 distinct offset matched 4 times; a match before the first marker is counted as `no_record` rather than dropped. Full suite 231 OK (1 skipped). `py_compile` and `git diff --check` clean.
+
+**Correction to the previous entry:** "the event files really do contain text-start offsets" was stated too strongly. What is measured is that those exact offset *values* occur far above a matched null; nothing yet shows them being used as references. That is what the owner attribution is for.
+
+## 2026-10-10 — prior-art survey (no game files touched)
+
+**Why:** the user asked whether this was reinventing solved work, before spending another PC run on the probe. It was.
+
+**Method:** GitHub API (`gh api search/repositories`, `search/code`, per-repo trees, releases, commits, issues) plus web search. No downloads succeeded: release assets redirect to `release-assets.githubusercontent.com`, which is outside the sandbox allowlist — so nothing below is verified at the byte level.
+
+**Findings (full detail and links in `docs/PRIOR_ART.md`):**
+
+- **A working Korean patch exists for this game, base and DLC**: `z3oo3z/PSP-SRWOE-KPatch` (v250810; assets `srwOE_v250810.7z` 54,258,657 B / 321 downloads, `srwOE_texture_NPJH50521_UI.7z` 10,343,773 B / 276) and `z3oo3z/PSP-SRWOEDLC-KPatch` (v250617; `srwOEKDLC_v250617.7z` 2,938,903 B / 246, `srwOEKDLC_eventP01.EDAT.7z` 151,313 B / 221). The DLC archive holds an `xdelta` folder of **73 patches**, an `org` folder, `1.move_org.bat`, `2.dlcpatch.bat` and `dlcmd5checker.exe`. Base-game originals are identified by MD5 `ce57eb21bcdc9bdd6204f63a4fd9f716`, patched `1b5e7e8c984f07bf3620c8399d158efa`. Menus go through PPSSPP texture replacement (`memstick/PSP/TEXTURES/NPJH50521`); tested on PPSSPP 1.18.1; real hardware unknown. Both repos are a single README blob — no tools published, no issues, no commits beyond README edits.
+- **A partial English patch exists**: CrashmanX, distributed as a whole patched ISO for **v1.02** (CRC-32 `2866c6c0`; clean v1.08 is `1718f49a`) — level/item/song names done, battle menus ~90%, unit and attack names ~80%, main menus ~70%, character names ~60%, terrain ~30%. **No story dialogue**, and a different game version from ours.
+- **`retro-trans/SRW-Z` reached the same negative result and stopped scanning for it**: no contiguous offset/length table in the record (u16/u32, absolute and relative); offsets inline in the scenario bytecode; established by a **grow-test in PCSX2** (lengthen one early string → later lines render blank). In-place replacement at identical byte length is "safe and verified"; growing requires rewriting every inline offset operand, or relocating the row and rewriting every 4-aligned pointer to it. The renderer was found by a **memory breakpoint**, after static signature search failed to converge. The font is fullwidth SJIS only, so ASCII renders blank and they remap ASCII→fullwidth in the ELF.
+- **The Korean SRW patches' glyph method**: `snake759494/NDS-SRW-K` overwrites the font table's entries for codes ≥ `0x889F` with KS X 1001 Hangul (~2,350 glyphs from Galmuri11, SIL OFL) and keeps the same 26-byte record layout; the same approach is described for PS2 SRW Z in a Korean community log. That repo is also the cleanest open model of this project's target delivery: translation as JSON, one `.xdelta` per release, `docs/PATCHING.md` gating on ROM CRC-32 and asserting the patched size and CRC-32, published injection tools.
+- **Repacking confirmation**: a gbatemp thread on this game shares a QuickBMS script for the `.cpk`, notes the DLC works by renaming `.EDAT`→`.CPK`, and reports **"i tried to repack 'without any changes' the game crash"** — independent confirmation of why repack/write-back/reinsertion stay gated.
+
+**Conclusion:** the next measurement is not another probe run. Applying the 73 Korean xdelta patches to the user's own originals and diffing the result tells us, in one run, which files hold text, whether strings grow, whether neighbouring bytes are rewritten, whether file length changes, and how the font was made to render new glyphs. Boundary kept: format knowledge only — no translated text is taken from these projects.
+
+**Not verified:** contents of any of the four release archives; whether the DLC patches apply to the user's DLC files (the `dlcmd5checker.exe` step settles it). **Settled since:** the base-game ISO the patch targets is not the user's ISO — measured in the next entry.
+
+## 2026-10-10 — `tools/patch_diff.py` + `COMPARE_PATCH.bat`, the evidence tool for the prior-art route
+
+**Why:** the survey above says the container facts are obtainable by diffing an existing translation
+patch against the user's own originals. That needs a tool that reads two versions of a file and says
+what the translation did, without printing translated text and without touching the originals.
+
+**What it measures** (schema `srw-oe-patch-diff/1`): files compared/changed/identical and files present
+on one side only; how many files changed length (0 means every string was replaced at identical byte
+length — the byte-budget question); original bytes changed and the patched bytes that replaced them;
+where the changed original bytes sit, classified against the project's own unit scanner
+(`extract_event_text.select_envelopes`): inside a text span, on the `FF FF` marker, on the `00 00`
+stop, or outside any unit; how many units were touched; how many changes also cover the 8 bytes before
+an `FF FF` (the record header, where an offset operand would have to be rewritten — the pointer
+question); and the byte classes of the replacement bytes (ASCII / SJIS-range / EUC-KR-range), which is
+the encoding question and therefore the font question. Three input modes: `--iso` (member-by-member
+through `tools/iso9660.py`, read straight out of the image, nothing extracted), `--dirs`, `--files`,
+plus `--md5` and `--expect-md5` for the edition check. Inputs are opened read-only; only counts and
+offsets are ever printed.
+
+**Two defects found and fixed while testing it against a synthetic pair** (5 records, one string grown
+by 4 bytes, the rest replaced at equal length with EUC-KR-range bytes):
+
+1. Block-aligned ranges at 16 bytes made the report claim the patch touched the `FF FF` markers and
+   stops (10 bytes each) when it touched only text. Ranges are now trimmed back to the bytes that
+   really differ (`_refine`), and the block size adapts (4 bytes up to 4 MiB, 16 above). The same
+   fixture then reports `inside text x60, marker x0, stop x0, outside x0` and `pre-marker ranges: 0`,
+   which is what it does.
+2. A **pure insertion changes no original byte**, so `bytes_changed` was 0 while the file grew. The
+   report now states both sides (`60 original bytes were replaced by 64 patched bytes`) and the
+   aggregate carries `bytes_replacement_total`; the test pins that a pure insertion reports
+   `bytes_changed == 0` and `bytes_replacement == size_delta`.
+
+**Verification:** `python3 -m unittest tests.test_patch_diff` → 16 OK (exact ranges for equal-length
+inputs, insertion refinement, in-place text edit, header change, gap change, byte-class counting
+including the position shift caused by an earlier grown record, one-sided files, report contents, and
+four CLI paths including the MD5 gate). Full suite 247 OK (1 skipped). End-to-end CLI run over the
+synthetic folder pair reproduced the numbers above. `COMPARE_PATCH.bat` is CRLF (55 lines, no lone LF)
+and covered by `*.bat text eol=crlf`.
+
+**Not verified:** the tool has never seen a real patched file. Whether the Korean DLC patches apply to
+the user's files, and whether the base-game ISO matches `ce57eb21bcdc9bdd6204f63a4fd9f716`, are both
+open until the user runs it.
+
+## 2026-10-10 — the user's ISO is not the edition the Korean base patch targets
+
+**Action:** the user ran `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5`.
+
+**Result:** `3bfd26f800b7b7a635df29f2c0c936ae`. The Korean base-game patch (`z3oo3z/PSP-SRWOE-KPatch`
+v250810) states its original is `ce57eb21bcdc9bdd6204f63a4fd9f716`. **They differ**, so that patch
+cannot be applied to this ISO: byte-exact patching would fail or corrupt.
+
+**What that does and does not mean.** It is a *dump-level* difference, not proof of a different game
+version. This project already measured that the user's image is 679,243,152 bytes while its own
+primary volume descriptor declares 673,710,080 — 5,533,072 bytes of one member's extent beyond the
+declared volume (run `20261010-142640`), so dumps of the same edition can differ in trailing bytes
+alone. Public catalogues list at least two distinct dumps of this title (CRC-32 `2866c6c0` for the
+PLAYASiA "v2" release and `1718f49a` for a "clean Japanese v1.08" image; the community disagrees on
+whether "v2" is v1.02 or v1.08). Neither hash is this file's, and MD5 and CRC-32 are not comparable,
+so **which edition the user has is still unrecorded** — only its MD5 and size are.
+
+**Consequences:**
+
+1. **Skip the 54 MB base-game patch.** It cannot apply, so downloading it buys nothing. The ISO diff
+   route is closed unless a matching original turns up, and chasing one would mean obtaining another
+   dump — not something this project asks for.
+2. **The DLC route is unaffected and is now the only evidence route.** The DLC files are separate PSN
+   files, independent of the ISO. `srwOEKDLC_v250617.7z` (2.9 MB) ships `dlcmd5checker.exe`, which
+   verifies each original and then each patched file and names any file that fails — so the very first
+   step says how many of the 73 files match the user's copies. **The originals offered to the patcher
+   must be the PSN-distributed `.EDAT` files, not this project's decrypted chapter-4 copies.**
+3. **A Gate-4 finding.** More than one dump of this title circulates, so the release must be keyed to
+   recorded hashes and refuse anything else, the way `snake759494/NDS-SRW-K` gates on ROM CRC-32 and
+   asserts the patched size and CRC-32. The user's ISO is recorded here as MD5
+   `3bfd26f800b7b7a635df29f2c0c936ae`, 679,243,152 bytes; its SHA-256 is still unrecorded.
+
+## 2026-10-10 — first measurements on real event files: the EDAT/EVNT structure, and no offsets anywhere
+
+**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `/home/user/srwoe/` in the
+sandbox, never committed; the upload commit was removed from the branch at the user's request).
+`NPJH50521.zip` SHA-256 `3ea8ab3233515a233faa2bf77e246dc9016ef3dac972976ea9e5ce00ac7ec2d8`. All begin
+`CPK ` — decrypted CPK containers, as expected.
+
+**Extraction works end to end.** `tools/cpk_table.py` + `tools/crilayla.py` on `eventP01.EDAT`: 88
+entries, 22 stored, **66 CRILAYLA-decompressed, 0 failed**. The event members hold **3,405 dialogue
+units** (e.g. `DL103_40.bin` 246 units / 22,848 B, `DL105_11.bin` 249 / 21,636 B).
+
+**The event BIN format is now parsed, and the parse is exact.** Each member is:
+
+```
+"EDAT"  u32 size (= file size - 8)  u32 section_count
+  repeated section_count times:  magic[4]  u32 body_size  body[body_size]
+```
+
+Walking that chain lands **exactly on the end of the file** for every file tested (`000_DL102_20.bin`
+10 sections → 16,216 B exact; `004_DL102_30.bin` 13 → 15,620 exact; `008_DL102_40.bin` 15 → 10,136
+exact). Every section is `EVNT`; the last is always 100 bytes with no text. Text units sit inside the
+section bodies, interleaved with command words (the inter-unit gaps contain records such as
+`c9 00 00 00` = 201, matching the ECHK-chain value noted earlier).
+
+**Three offset hypotheses, all measured against a null, all negative:**
+
+| Test | Result |
+|---|---|
+| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64 | best base reaches **2%** of a file's starts, and the starts-shifted-by-+1 control reaches the same → chance |
+| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists |
+| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below chance |
+
+**What this means, and the correction it forces.** `retro-trans/SRW-Z`'s COMPDATA model (a table of
+absolute load-base addresses) does **not** apply to this game's event files, so the base scan's
+negative result is a real finding rather than a missing search. Combined with the exact section parse,
+the event files look **walked, not indexed**: strings are delimited by `FF FF … 00 00` inside `EVNT`
+sections, and the only structural values found are the file's own size and the section sizes.
+
+**So growing a string looks tractable without any repointing** — the values that must be updated are
+the containing `EVNT` section's `u32 size`, the `EDAT` header's `u32 size`, and the CPK entry's
+`file_size`/`extract_size` (then recompress with CRILAYLA or store uncompressed). This is a better
+position than SRW-Z, where inline operands had to be rewritten.
+
+**Not ruled out:** operands *inside* an `EVNT` section that address a string by index, by a
+word/2/4-scaled position, PC-relative, or including the 8-byte section header. None of those four
+encodings was tested. The decisive experiment is now small and concrete: grow one string in one
+member, update the three size fields, repack, and boot — if the dialogue after it still displays, no
+offsets exist.
+
+**Not verified:** nothing here was run in the game. The extraction and the parse are byte-exact and
+reproducible; the conclusion that nothing points at a string is an inference from three negative
+measurements plus an exact structural parse.
+
+## 2026-10-10 — CPK write-back: the TOC cell layout, decoded and cross-checked
+
+**Why:** the user's proposed experiment — find a known Japanese line, replace it with a *longer*
+string, hand back one modified file, boot PPSSPP — needs a CPK writer. This is the layout it writes
+into, measured on the sample `imenu01.EDAT` (24,744 B, 6 entries).
+
+**Container:** header at 0 (`CPK `) with `TocOffset 2048`, `ItocOffset 4096`, `ContentOffset 6144`,
+`EtocOffset 24576`, `Align 2048`, `Files 6`, `Version 7`, `CpkMode 2`, `Sorted 1`. `TocCrc` and
+`ItocCrc` are absent in this file, so no checksum has to be recomputed.
+
+**TOC:** `TOC ` at `TocOffset`, and the `@UTF` table 0x10 bytes later — exactly the `math offset += 0x10`
+step in the QuickBMS script posted in gbatemp thread 351431. Its header gives `table_size 424`,
+`rows_offset 67`, `string_table_offset 211`, `row_length 24`, `rows 6`. Seven columns, two of them
+constant-storage (`DirName`, `UserString`) and five per-row, laid out in the row as:
+
+| column | offset in row | width |
+|---|---|---|
+| `FileName` | 0 | 4 (string-table index) |
+| `FileSize` | 4 | 4 |
+| `ExtractSize` | 8 | 4 |
+| `FileOffset` | 12 | 8 |
+| `ID` | 20 | 4 |
+
+All values big-endian. Reading them back gives `FileOffset` 4096 / 12288 / 8192 / 10240 / 6144 /
+18432 with the matching `FileSize`/`ExtractSize` — **identical to what `tools/cpk_table.py` reports
+independently**, so the two parsers agree cell for cell.
+
+**Consequences for the writer:**
+- Rows are fixed-width, so replacing an entry's sizes and offset **does not change the table's size**;
+  `TocSize` stays valid and nothing downstream of the TOC has to move.
+- `FileOffset` is relative to `min(TocOffset, ContentOffset)` (here 2048), and every entry's absolute
+  offset is `Align`-aligned, so a rebuilt content region is a straightforward re-layout.
+- The EToc sits *after* the content (`EtocOffset 24576`, content ending at 22928 aligned up), so it
+  moves when content grows and the header's `ContentSize`/`EtocOffset` must be updated with it.
+- **There is no CRILAYLA compressor in this repository, only a decompressor** (`tools/crilayla.py`), so
+  a grown member has to be written **stored** (`FileSize == ExtractSize`). That is legal — the sample
+  already contains stored entries — and it matches CrashmanX's working recipe, "I just left 'Force
+  Compress' unchecked and it worked".
+- **The gate before any of this is trusted:** rebuilding a file with *no* changes must reproduce it
+  byte for byte. The gbatemp thread records the opposite from a naive repack ("i tried to repack
+  'without any changes' the game crash"), so identity-on-round-trip is the acceptance test.
+
+**Also measured this turn:** the two Japanese lines the user captured from a memory monitor at the
+start of chapter 2 (`コロニー格闘技、その覇者たる証…キング・オブ・ハート…` = 116 CP932 bytes, and
+`いやぁ、こんな辺境宇宙まで客を連れてくるのは久々だ` = 50 bytes) both encode to CP932 cleanly and
+round-trip through `tools/extract_event_text.py`'s byte view. Neither occurs anywhere in the 21-file
+sample — the sample holds `eventP01`, `eventP09` and `evept108`, but no chapter-2 event package — so
+the search has to run against `eventP02.EDAT` (and probably `evept102.EDAT`).
+
+**Not verified:** no CPK has been written yet; the writer and its byte-identity test are the next
+step, and nothing here has been run in the game.
+
+
+
+### 2026-10-10 — Chapter 2 located, the narration record decoded, two modified containers built
+
+**The user's memory-monitor line is in the file, and it is not one contiguous run.** The
+user captured the opening narration of event 2.0 from a memory monitor and supplied
+`eventP02.EDAT` + `evept102.EDAT` out-of-band (kept outside the repository). Searching the
+CP932 encoding of that line across every extracted member, the fragments hit
+`DL105_50.bin` (entry #0 of `eventP02.EDAT`) at body offsets 229 and 296, but the full
+116-byte string does not occur. The reason, measured: the file stores explicit line breaks
+as `0x0A` **inside** the text, at exactly the two places where the monitor rendered a
+newline — 116 bytes of visible text plus 2 stored breaks is the 118 bytes on disk.
+
+**The narration record is length-prefixed, and the records chain exactly.** Around that text:
+
+```
+b7 01 00 00 | 84 00 00 00 | 00 00 00 00 | <118 bytes of text> | 00 00
+  type 439    length 132    parameter
+```
+
+`length` covers the whole record: `132 == 12 + 118 + 2`. All six such records in the member
+chain end to end — 184 → 316 → 460 → 540 → 632 → 676, each step exactly the previous
+record's `length`. Two records contain an internal `00 00`, so the terminator is *not* the
+record boundary; the length field is authoritative. This is the first length prefix found
+in these files, and it explains why the earlier length-prefix scan came back empty: that
+scan looked in the 16 bytes before `FF FF` markers, and this text has no marker.
+
+**Section parse confirmed, with a correction to a throwaway script rather than to the
+docs.** The first section starts at byte 12 (`EDAT` at 0, size at 4, count at 8). An ad-hoc
+script written this session started at 16 and failed; at 12 the walk lands exactly on EOF
+for all four members re-tested (`DL105_50.bin` 6 sections / 10,172 B, plus the three
+earlier `DL102` files).
+
+**Nothing in the CPK has to be recomputed.** `eventP02.EDAT` header: `TocOffset 2048`,
+`ItocOffset 8192`, `ContentOffset 10240`, `EtocOffset 366592`, `EtocSize 888`,
+`ContentSize 356352`, `Files 96`, `Align 2048`, `CpkMode 2`. `TocCrc` and `ItocCrc` are
+absent, and the CRC-32 of a member does not occur anywhere in the ITOC region.
+
+**The `@UTF` header read correctly this time.** `rows_abs = 8 + rows_offset` (not `+0`),
+column names are **byte offsets** into the string pool rather than indices, and a zero
+flags byte is followed by three skipped bytes and then the real flags byte. With that, the
+TOC of `evept102.EDAT` reads 7 columns / 24-byte rows / 2 rows, the schema ends exactly at
+`rows_abs`, and `DirName` + `UserString` are constant-storage columns taking no room in a
+row. Rather than keep a second parser, `tools/cpk_write.py` uses the one in `cpk_table`.
+
+**`tools/cpk_write.py` — rebuild with one member replaced, gated on byte identity.**
+`verify-identity` across the 23 sample containers: **18 reproduce the original byte for
+byte**. The 5 that do not each name their reason: 3 are `CpkMode 0` ITOC-only layouts with
+no TOC to patch, `imenu32` keeps `FileSize`/`ExtractSize` as constant-storage columns so a
+member cannot be resized without rebuilding every row's width, and `voice08` is not a CPK
+at all but `AFS2`. Identity is the gate because the gbatemp thread records a naive repack
+crashing the game.
+
+**A bug the identity gate could not catch, caught end to end.** Member offsets are relative
+to `data_base` (2048) while the content region starts at `content_offset` (10240); the
+first rebuild placed every shifted blob 8192 bytes too early, and the identity gate still
+passed, because in the no-change path the content region is copied verbatim. The
+end-to-end check found it: 60 of 96 entries claimed compression but did not begin with
+`CRILAYLA`. Fixed by converting through absolute file positions.
+
+**Result: two modified containers, verified.** `tools/grow_event_text.py` grows one record
+— rewriting its length, the owning section's body size and the `EDAT` size, shifting the
+bytes after it — and refuses unless its own re-parse holds (section walk lands on EOF,
+record chain intact, tail unchanged). Two variants were built from `eventP02.EDAT`:
+
+- `eventP02.jp.EDAT` — MD5 `14e0d138084a4080e4a3617b63aaf3e5`, 371,896 B, a longer
+  Japanese line prepended (text 118 → 151 bytes). Same charset, so it isolates the
+  container mechanics from font coverage.
+- `eventP02.en.EDAT` — MD5 `91118db85ae22752194ce48963dfb89d`, 371,896 B, an English
+  translation (text 118 → 148 bytes), which also tests whether the font has Latin glyphs.
+
+Both re-parse through `cpk_table`: 96 entries, 0 corrupt, **95 of 95 untouched members
+byte-identical after full extraction and decompression**, and `EtocOffset + EtocSize`
+equals the file size. The changed member is written **stored** (`FileSize == ExtractSize`)
+because this repository has a CRILAYLA decompressor and no compressor — the same as leaving
+"Force Compress" unchecked, which is what the working Korean patch did. Both files sit
+under ignored `local/deliverables/` and are never committed.
+
+**Full suite 288 OK, 1 skipped**, including 14 new tests in
+`tests/test_grow_event_text.py`, built on synthetic members with the real shape because the
+game's own files are not in the repository.
+
+**Re-encryption turned out not to be needed.** These files are decrypted CPK containers,
+so the working assumption was that the game loads `.EDAT` and they would have to be
+re-encrypted with the same key first. The user reports that their PPSSPP reads encrypted
+and decrypted files with no difference, so the decrypted containers are being tested
+directly. **That is user-reported, not verified here** — nothing in this repository runs
+PPSSPP — and if a delivered file will not boot, it is the first thing to suspect.
+
+**Still not demonstrated:** whether the font renders Latin glyphs at all (which is why the
+English variant is worth a separate run), and whether the engine tolerates a grown record
+in a real boot. That last one is precisely what the test decides. Both variants are
+packaged with instructions as `local/deliverables/srwoe-test-eventP02.zip` (MD5
+`cd9b61587044dfa34395b8e7e2d097d9`), the Japanese run first because it keeps the charset
+constant and therefore isolates the container mechanics from font coverage.
+
+### 2026-10-10 (later) — the sandbox lost everything outside git, so the build became a script
+
+**The workspace does not survive between turns.** By the next turn `/home/user/srwoe/`
+(the user's 21 samples plus `eventP02.EDAT`) and `local/deliverables/` (the two built
+containers and their archive) were gone; only the committed tree remained. The local clone
+had also been reset to the session's base commit `d4e2488` with the work restored as
+uncommitted changes, so `git diff` reported the new tools as *deleted* while the bytes were
+on disk — the index, not the files, was stale. `git reset origin/arena/c656a5df-mtgcrawler`
+(mixed, working tree untouched) put HEAD back on `54d19fe` and the tree compared clean.
+**Consequence: a built container cannot be handed over by keeping it in the sandbox.** It
+has to be rebuilt on the user's machine, or pushed somewhere that persists.
+
+**`tools/build_event_text_test.py` + `BUILD_TEST_PATCH.bat`** therefore do the whole job on
+the user's own machine: read their decrypted `eventP02.EDAT`, extract `DL105_50.bin`, grow
+the record twice, rebuild both containers, and compare each MD5 against the values recorded
+when the files were first built here (`14e0d138084a4080e4a3617b63aaf3e5` and
+`91118db85ae22752194ce48963dfb89d`). Matching hashes mean the file on their disk is byte for
+byte the file verified here. The strings live in the Python source, not the batch file, so
+no Windows codepage touches them. Re-checked this turn without the source container: the
+three strings encode to 118, 151 and 148 CP932 bytes with 2, 3 and 2 `0x0A` breaks — the
+lengths the original build reported. The end-to-end rebuild itself could not be re-run,
+because the source container is gone.
+
+**Two real bugs in already-pushed code, found by the new `tests/test_cpk_write.py`.** The
+tests reuse `build_synthetic_cpk` from `test_cpk_table.py`, whose container puts the content
+region *ahead* of the TOC (`ContentOffset 265`, `TocOffset 655`). `cpk_write.rebuild` had
+hard-coded the region order head → TOC → ITOC → content → EToc, so on that container it
+emitted 1718 bytes for a 1048-byte file and put member data where the ITOC belonged. Region
+order is a property of those particular files, not of the format. Fixed by patching the TOC
+and header cells in place at their absolute positions and then splicing the content region
+in as one prefix and one suffix. The same tests then showed a second gap: when the content
+does move, any table *after* it moves too, and only `ContentSize`, `EtocOffset` and
+`FileSize` were being updated — `TocOffset` and `ItocOffset` were left pointing into the old
+file. They are now shifted whenever they sit past the content region. Neither bug could
+show up on the real containers, which is exactly why a synthetic one with a different layout
+was worth having. `cpk_write` also now treats a missing `EtocOffset`/`EtocSize` as "whatever
+follows the content", and gained an `extract-member` subcommand.
+
+**Full suite 301 OK, 1 skipped** (13 new `cpk_write` tests; 288 before).
+
+### 2026-10-10 (evening) — the jp build crashed PPSSPP; the content region was not re-aligned
+
+**Observation (user).** With `eventP02.jp.EDAT` on the memstick, PPSSPP halts:
+`Access: Write Word at 10fa0000`, PC in `08a2bb78`, thread `SazThread`. The guest wrote a
+word to `0x10FA0000`, far outside PSP user RAM (`0x08800000`-`0x0A000000`), which is the
+emulator's report of the game reading garbage and following it. The original container
+boots; the modified one does not, so the write is ours.
+
+**Cause.** The original container keeps the end of its content region -- and therefore the
+EToc that follows it -- on the `Align` boundary: `ContentOffset 10240 + ContentSize 356352
+= 366592 = 2048*179`. Growing the member by 4416 bytes moved the EToc to `371008`, and
+`371008 / 2048 = 181.16`: misaligned. The loader then reads the EToc from a non-aligned
+address and walks off into unmapped memory. The identity gate and the end-to-end member
+comparison could not see it: neither checks alignment, and both compare against the
+*original* (aligned) layout rather than against the loader's expectations.
+
+**Fix.** `tools/cpk_write.py` now pads the content region back to the `Align` boundary
+after a change -- but only when the original region ended aligned, so a no-change rebuild
+of an unaligned (synthetic) container still reproduces it byte for byte. Three alignment
+tests cover the pad math, the aligned no-op, and the unaligned no-op.
+
+**Consequence.** The two MD5s recorded earlier (`14e0d138084a4080e4a3617b63aaf3e5`,
+`91118db85ae22752194ce48963dfb89d`) describe the *unaligned, crashing* build and must be
+regenerated once a source `eventP02.EDAT` is available. They are therefore no longer the
+acceptance values in `tools/build_event_text_test.py` until re-derived; the corrected
+build cannot be produced here because the sandbox no longer has the source container.
+
+### 2026-10-10 (night) — corrected builds produced from a fresh source, hashes regenerated
+
+The user re-uploaded the original `eventP02.EDAT` (MD5
+`60316f4639b906cf70b91fc28fc863be`, 367,480 bytes) via Google Drive; the connector's
+`download_file` staged it in the workspace, it was copied out of the repository, and the
+in-repo copy removed. With the alignment fix in place, `tools/build_event_text_test.py`
+rebuilt both variants and each passed the structural gate (parses with `cpk_table`, EToc on
+the 2048 boundary and closing the file, 95 of 95 other members byte-identical to the
+source, grown member exactly the new bytes). The identity gate reproduces the source byte
+for byte. New acceptance values, replacing the invalidated crashing-build hashes:
+
+* source `eventP02.EDAT` -- MD5 `60316f4639b906cf70b91fc28fc863be`
+* `01-jp/eventP02.EDAT` -- 373,624 bytes, MD5 `cf1e703c2e1ca435ef514840e233c20b`
+* `02-en/eventP02.EDAT` -- 373,624 bytes, MD5 `ee40c5b4ef138d092d4e4fe4bc6f9194`
+
+Both are uploaded to the shared Drive folder for the boot test, Japanese first. What this
+still does not prove is only what a real boot proves: that the engine tolerates the grown,
+aligned record and (for the English variant) that the font has Latin glyphs.
+
+### 2026-10-10 (late) — the aligned build also crashed; two hypotheses down, one control pending
+
+**Observation.** The aligned `01-jp` build crashed at the *same* guest PC as the unaligned
+one (`08a2bb78`, same function, `SazThread`), only the faulting destination changed
+(`10fa0000` -> `151a0000`). So the alignment fix, though correct in itself, was not the
+cause -- the earlier diagnosis is hereby retracted. A fixed PC with a data-dependent bad
+destination reads like a decoder being fed bytes it did not expect.
+
+**Hypothesis 1 (stored members) is now the prime suspect.** The original member is
+compressed (`FileSize 5076 < ExtractSize 10172`). Our builds wrote it stored
+(`FileSize == ExtractSize`). If the game's event loader unconditionally CRILAYLA-decodes
+event members, stored bytes are fed to the decompressor and its header math writes through
+a garbage pointer -- exactly a fixed-PC write to a data-dependent bad address.
+
+**A literal-only CRILAYLA encoder was built and proven correct but is a dead end.**
+`tools/crilayla.py` gained `compress_literal`: raw 0x100 trailer + every remaining byte as a
+9-bit literal, laid out for the decoder's backwards MSB-first reader. It round-trips the repo
+decompressor on all 72 real compressed members and on the new tests. But 9 bits per body
+byte makes the stream *larger* than the data, i.e. `FileSize > ExtractSize`, which inverts
+the invariant `cpk_table` (and likely the game) relies on -- `cpk_table` fails closed on it
+("stores more bytes than it extracts"). So literal-only cannot be shipped; a real compressor
+that shrinks would be needed if stored is indeed rejected.
+
+**The disambiguating control is uploaded to Drive** as
+`00-KONTROLA-stored-bezWzrostu.EDAT` (MD5 `6752f04ed6d6dd06b869d47ffe868193`): the member
+stored as the *original* decompressed bytes, no growth, aligned. One boot settles it: if the
+control also crashes, stored members are rejected (need real compression); if it boots, the
+growth/record edit is the fault.
+
+Suite 307 OK, 1 skipped (3 round-trip tests for `compress_literal`).
+
+### 2026-10-10 (night, 2) — control booted: stored is fine, the GROWTH is the fault
+
+**Result (user).** `00-KONTROLA-stored-bezWzrostu.EDAT` (member stored as the original
+decompressed bytes, no growth, aligned) **boots**. Combined with the two crashing grown
+builds, this isolates the fault to the *growth* of the record, not to stored-vs-compressed
+and not to the container rewrite itself.
+
+**EToc exonerated.** Its `@UTF` table holds only `UpdateDateTime` and `LocalDir` (97 rows,
+row length 8) -- no per-file sizes or offsets, so moving it as a blob loses nothing. The
+stale-EToc hypothesis is dead.
+
+**Next bisect (uploaded, awaiting a boot): `03-KONTROLA-taSamaDlugosc.EDAT`** (MD5
+`fa5319f5f930cf7114e168e89888d4a9`) edits the record's *content* (ドモン -> テスト) at the
+*same* 118-byte length, member still 10172 bytes, container identical to the booting
+control. Outcomes: boots -> content edits are safe and the crash is the size change, so a
+grown string must be fitted without changing the member's stored size (borrow trailing
+padding) or growth is unsupported; crashes -> even same-size content edits break the
+parser, pointing at a checksum/validation of the member.
+
+### 2026-10-10 (night, 3) — same-length edit boots; the crash is a nested size field
+
+**Result (user).** `03-KONTROLA-taSamaDlugosc.EDAT` (record content changed, length held at
+118 bytes) **boots**. So the pipeline works end to end in the real game for edits that keep
+the member's size constant. The crash is specific to *growth*.
+
+**Why growth crashes (evidence, not guess).** The member header is
+`EDAT | size | count=6 | "EVNT" size=6796 | ...` and the EVNT section holds *nested*
+subsections (an inner "ECHK" tag, a `6760` size field at offset 60, etc.). `grow_record`
+bumps only the EDAT total (offset 4) and the outer EVNT size (offset 16); the inner size
+fields are left stale, so after the extra bytes are inserted the inner subsection bounds no
+longer match and the loader reads out of its box -> the fixed-PC write to a data-dependent
+bad address seen in both grown builds. A same-length edit changes no size, so it stays
+consistent and boots.
+
+**First in-game English delivered.** `05-EN-taSamaDlugosc.EDAT` (MD5
+`391770431ef5efd32e46b40777461a38`) replaces the record with English at exactly 118 bytes
+(29 invisible padding spaces), member still 10172 bytes -- the mechanism proven by the
+booting control. This is the first English text expected to render in the game.
+
+**Open work.** To support *growth* (needed for a real English translation, which is longer
+than Japanese), the nested EVNT size fields must be reverse-engineered and every enclosing
+size bumped by the delta; until then translation must be equal-length (fit-or-pad) per
+string.
+
+### 2026-10-10 (night, 4) — FOUND IT: an inner EVNT size field at offset 60
+
+**Differential across four packages cracked the growth crash.** For the first EVNT member of
+eventP01/02/03/09, the u32 at body offset 60 is always `EVNTsize - 36`:
+
+    eventP01 EVNTsize 7368 -> u32@60 7332
+    eventP02 EVNTsize 6796 -> u32@60 6760
+    eventP03 EVNTsize 5396 -> u32@60 5360
+    eventP09 EVNTsize 3144 -> u32@60 3108
+
+It sizes the inner subsection region [56, EVNT_end): `value == owner_end - f + 4` with f=60.
+`grow_record` bumped the EDAT total and the outer EVNT size but left this inner field stale,
+so after an insertion the inner bounds no longer matched and the loader wrote through a bad
+pointer -- the fixed-PC, data-dependent crash seen in every grown build. A same-length edit
+changes no size, which is why the controls booted.
+
+**Fix.** `grow_record` now also bumps every u32 field before the record whose value equals
+`owner_end - f + 4` (the inner size fields tracking the owner end); `check()` whitelists
+those bytes. Only one such field exists here (offset 60), confirmed by scan.
+
+Rebuilt grown variants pass `check()` and the structural gate with the inner field
+consistent (`inner@60 == owner_end - 56`): jp `cecd72631f73d469131e42eb42cc177e` (member
+10205), en `4f82950c3b9074a248d8f9fa42b5f4ec` (member 10202). Suite 307 OK, 1 skipped.
+Awaiting the user's boot of the grown jp build -- this is the first growth expected to work.
+
+### 2026-10-10 (night, 5) — GROWTH CONFIRMED IN GAME
+
+**Result (user).** `06-jp-WZROST-naprawiony.EDAT` (record grown by 33 bytes, inner EVNT size
+field bumped) **boots**. Growth works. The inner-size-field fix is the root cause and the
+cure; the long crash hunt is closed.
+
+**Delivered.** `07-en-WZROST-naprawiony.EDAT` (MD5 `4f82950c3b9074a248d8f9fa42b5f4ec`) is the
+English variant grown by the same corrected path.
+
+**Regression protection.** `tests/test_grow_event_text.py::InnerSizeFieldTests` builds a
+synthetic EDAT with an inner size field tracking the owner end and asserts a growth bumps it
+(plus the owner and EDAT sizes) and stays consistent. Suite 308 OK, 1 skipped.
+
+**What this unlocks.** `grow_event_text.grow_record` now supports in-place growth of event
+strings, so the translation pipeline can emit English of arbitrary length, not just
+equal-length. Next: scale from the single proof record to every event string across all
+chapters, then the full export -> translate -> apply -> xdelta flow.
+
+### 2026-10-10 (night, 6) — scope pivot: process first, translation deferred
+
+**Decision (user).** Translation itself is deferred to a separate workflow. The focus now is
+the *process*: reading, writing, unpacking and **packing** the ISO, plus producing **readable
+source files** a specialised translation model can consume. UI / names / menus are also in
+scope to translate later, as separate tables.
+
+**Line-width constraint observed (screenshot).** The in-game box clips over-long lines: the
+grown English line 2 ran past the right edge. The original longest line is 46 half-width
+units, so that is the working per-line budget. The exporter records `max_line_width` per
+record; a later apply step must wrap targets within it (or the font must shrink).
+
+**Readable export.** `tools/export_strings.py` walks every narration record of every EVNT
+member and writes structured JSON (`member`, `record_offset`, `source`, `lines`,
+`source_bytes`, `max_line_width`, `line_count`, empty `target`) to `local/strings/*.strings.json`.
+No translation is performed. Output is gitignored (`local/`) because the full Japanese
+script must never enter the repository. Sample: eventP01 100, eventP02 162, eventP03 154,
+eventP09 3 records.
+
+**ISO pack.** `iso9660.py` was read-only; `tools/iso_pack.py` now builds a spec-shaped
+ISO9660 Level-1 image (PVD, path tables, directory records, single extents) preserving a
+32 KiB caller system area (the UMD boot region). Round-trip proven by
+`tests/test_iso_pack.py`: pack -> `inspect_iso9660` lists all files -> `extract_members`
+returns byte-identical content. Suite 312 OK, 1 skipped.
+
+### 2026-10-10 (night, 7) — ISO prep .bat for the user's 660 MB image
+
+The disc ISO (~660 MB) is too large to move whole. `tools/iso_prep.py` (mode `prep`) runs on
+the user's PC and emits a small bundle: `inventory.json` (ISO9660 directory inventory),
+`system_area.bin` (first 32 KiB / UMD boot region), and `files/` with only the small
+text-bearing members (`eventP*.EDAT`, `evept*.EDAT`, `PARAM.SFO`), all zipped. The ISO is
+opened read-only. `PREP_ISO.bat` wraps it (drag the ISO on, or it prompts).
+
+Tested on a synthetic ISO: only PARAM.SFO + eventP01/02 bundled (a 200 KB filler excluded),
+zip tiny, inventory/system-area present. `tests/test_iso_prep.py` covers it. Suite 316 OK.
+
+Next on the user side: run `PREP_ISO.bat` on the real ISO and upload `iso_prep_out.zip`; the
+bundle lets the remote side validate the repacker against the real layout and export chapter
+1. A streaming repack for the full 660 MB image is the following step (the in-memory
+`build_iso` suits small images, not the whole disc).
+
+### 2026-10-10 (night, 8) — disc uses .cpk containers; chapter 1 extracted
+
+**Disc vs DLC naming.** The real ISO (`SRW OE 1.08.iso`, 679,243,152 bytes, 80 files) stores
+its containers as ``*.cpk`` under ``PSP_GAME/USRDIR/`` (e.g. ``eventP00.cpk``), while the PSN
+DLC uses ``*.EDAT``. The first prep therefore bundled only the two ``PARAM.SFO`` files.
+`iso_prep.WANT_RE` now matches both ``.EDAT`` and ``.cpk``; the test covers a disc-style
+``eventP00.cpk``.
+
+**Chapter 1 from the disc.** The user also uploaded the full unpacked ISO as
+``SRW_OE_1.08`` on Drive. ``eventP00.cpk`` (162,264 B) was pulled from it and run through
+`export_strings`: **38 records** across ``DL1xx`` members (incl. the UC-opening narration).
+Output `local/strings/eventP00.strings.json` (gitignored). Suite 316 OK.
+
+The disc's single event container is ``eventP00.cpk``; the numbered chapters (01..13) live in
+the DLC. The streaming repack of the 660 MB disc (needed to ship a patched ISO) remains the
+next process step and must run on the user's PC.
+
+### 2026-10-10 (night, 9) — the user's ISO extraction is incomplete; repack must read the ISO
+
+**Finding.** The real disc's 80 files sum to ~672 MB (inventory `size_bytes`), while the user's
+unpacked `SRW_OE_1.08` tree is only ~293 MB: the extraction dropped the large members
+(`BgmSet00.awb` 194 MB, `UPDATE/DATA.BIN` 100 MB, `bacb00.cpk` 97 MB, `lmap.cpk` 81 MB,
+`voice00.awb` 50 MB, `mov00.cpk` 44 MB, `robo00.cpk` 38 MB). A repack built from that tree is
+truncated (~300 MB) and would not boot.
+
+**Fix.** `iso_pack.repack_from_iso` (`repackiso` CLI) rebuilds the image by streaming every
+unchanged member byte-for-byte from the *original* ISO (by extent) and overriding only `patch`
+paths (case-insensitive, since ISO9660 upper-cases identifiers). It needs no local tree, so
+nothing can be dropped. Tested (round-trip + patch). `REPACK_GUIDE.md` now makes `repackiso`
+the primary method. The user must still run FAZA 1 (identity boot) to validate on real HW.
+
+### 2026-10-10 (night, 10) — case fix did NOT change the crash; it is structural
+
+**Observation.** Preserving ISO9660 identifier case (commit 58f919d) left the boot crash
+*identical* (same PC 08b3d374, Read Word at 00000014, SazThread). So PPSSPP matches names
+case-insensitively and the failure is not a file-name lookup. The repacked ISO boots far enough
+to run SazThread (EBOOT/PARAM.SFO read fine), then dereferences null -- something a from-scratch
+ISO9660 rebuild does not provide the way the original UMD does.
+
+**Interpretation.** A PSP UMD is more than ISO9660+32KiB; the original carries layout/metadata my
+writer does not reproduce. Rather than guess further, the next evidence is the PPSSPP debug log
+around the crash, which names the failing read. Fallback if the writer proves unbootable: deliver
+chapters 2-8 as loose DLC files (no ISO) and chapter 1 via an external UMD-capable repacker
+(UMDGen) fed our patched eventP00.cpk.
+
+- **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
+- Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
+- Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
+- Read the `Boundary evidence` section: whether a length field, a pointer table, a fixed record pitch, or repeated payloads support the heuristic unit boundaries. Until something there is positive, the units stay candidates and write-back stays blocked.
+- Chapter 4 is settled: the `*04` packages extract and export text (`eventP04` 3,520 units, `evept104` 3,562).
+- Decide whether to promote the table check to fail-closed: run `20261010-142640` agreed on 495 of 497 packages, and both remaining mismatches are the `robo01`/`robo03` console-name decoding, not the table.
+- Keep the recovered colliding-name entries read-only. Repacking a container that the converter cannot write completely is not attempted; that needs a CPK writer or a converter that extracts by ID.
 - Seek independent resource/version evidence to test whether c2 aligns to text at all; current same-BIN, cross-BIN, and simple-base results do not establish pointer semantics.
 - Validate the proposed text-prefix/suffix split on more event structures; keep offsets, CR/LF, and unknown bytes preserved.
 - Decode the `_ext.dat`, `_Entry.dat`, and `_edit.dat` layouts and relationships only with additional independent evidence.
 - Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.
 - Record exact source ISO/base-resource hashes before any release/patch test.
+- Translation can start in `translation/units.csv` (English, byte budget per row) while the above is pending, but no row is applied to a game file.
