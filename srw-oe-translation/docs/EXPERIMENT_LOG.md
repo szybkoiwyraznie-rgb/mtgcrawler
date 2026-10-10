@@ -1003,7 +1003,7 @@ Attribution is to the **nearest** marker, not the previous one: a record's heade
 
 **Conclusion:** the next measurement is not another probe run. Applying the 73 Korean xdelta patches to the user's own originals and diffing the result tells us, in one run, which files hold text, whether strings grow, whether neighbouring bytes are rewritten, whether file length changes, and how the font was made to render new glyphs. Boundary kept: format knowledge only — no translated text is taken from these projects.
 
-**Not verified:** contents of any of the four release archives; the identity of the base-game ISO the patch targets (our ISO is `SRW OE 1.08.iso`, MD5 unrecorded here); whether the DLC patches apply to our decrypted DLC files or only to the EDATs as distributed.
+**Not verified:** contents of any of the four release archives; whether the DLC patches apply to the user's DLC files (the `dlcmd5checker.exe` step settles it). **Settled since:** the base-game ISO the patch targets is not the user's ISO — measured in the next entry.
 
 ## 2026-10-10 — `tools/patch_diff.py` + `COMPARE_PATCH.bat`, the evidence tool for the prior-art route
 
@@ -1047,6 +1047,38 @@ and covered by `*.bat text eol=crlf`.
 **Not verified:** the tool has never seen a real patched file. Whether the Korean DLC patches apply to
 the user's files, and whether the base-game ISO matches `ce57eb21bcdc9bdd6204f63a4fd9f716`, are both
 open until the user runs it.
+
+## 2026-10-10 — the user's ISO is not the edition the Korean base patch targets
+
+**Action:** the user ran `certutil -hashfile "D:\SRWOE\SRW OE 1.08.iso" MD5`.
+
+**Result:** `3bfd26f800b7b7a635df29f2c0c936ae`. The Korean base-game patch (`z3oo3z/PSP-SRWOE-KPatch`
+v250810) states its original is `ce57eb21bcdc9bdd6204f63a4fd9f716`. **They differ**, so that patch
+cannot be applied to this ISO: byte-exact patching would fail or corrupt.
+
+**What that does and does not mean.** It is a *dump-level* difference, not proof of a different game
+version. This project already measured that the user's image is 679,243,152 bytes while its own
+primary volume descriptor declares 673,710,080 — 5,533,072 bytes of one member's extent beyond the
+declared volume (run `20261010-142640`), so dumps of the same edition can differ in trailing bytes
+alone. Public catalogues list at least two distinct dumps of this title (CRC-32 `2866c6c0` for the
+PLAYASiA "v2" release and `1718f49a` for a "clean Japanese v1.08" image; the community disagrees on
+whether "v2" is v1.02 or v1.08). Neither hash is this file's, and MD5 and CRC-32 are not comparable,
+so **which edition the user has is still unrecorded** — only its MD5 and size are.
+
+**Consequences:**
+
+1. **Skip the 54 MB base-game patch.** It cannot apply, so downloading it buys nothing. The ISO diff
+   route is closed unless a matching original turns up, and chasing one would mean obtaining another
+   dump — not something this project asks for.
+2. **The DLC route is unaffected and is now the only evidence route.** The DLC files are separate PSN
+   files, independent of the ISO. `srwOEKDLC_v250617.7z` (2.9 MB) ships `dlcmd5checker.exe`, which
+   verifies each original and then each patched file and names any file that fails — so the very first
+   step says how many of the 73 files match the user's copies. **The originals offered to the patcher
+   must be the PSN-distributed `.EDAT` files, not this project's decrypted chapter-4 copies.**
+3. **A Gate-4 finding.** More than one dump of this title circulates, so the release must be keyed to
+   recorded hashes and refuse anything else, the way `snake759494/NDS-SRW-K` gates on ROM CRC-32 and
+   asserts the patched size and CRC-32. The user's ISO is recorded here as MD5
+   `3bfd26f800b7b7a635df29f2c0c936ae`, 679,243,152 bytes; its SHA-256 is still unrecorded.
 
 ## Pending
 

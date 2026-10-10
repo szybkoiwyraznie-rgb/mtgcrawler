@@ -140,10 +140,22 @@ What the READMEs state, and why each item matters here:
    neither Korean repo publishes its tools — so the extraction and reinsertion tooling is still this
    project's to build. What is no longer unknown is the shape of the answer.
 
-## Suggested order
+## Suggested order (revised after the MD5 check)
 
-1. Check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716` (one command).
-2. Download `srwOEKDLC_v250617.7z` (2.9 MB) and diff the patched DLC against the user's originals,
-   aligning the changed byte ranges with this project's extracted units.
-3. If the ISO matches, do the same for the base game from `srwOE_v250810.7z`.
+1. ~~Check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`.~~ **Done — and it does not
+   match.** The user's ISO is `3bfd26f800b7b7a635df29f2c0c936ae`, 679,243,152 bytes. A different dump,
+   so the base-game patch cannot apply. That is a dump-level difference, not a different edition: our
+   own measurement found the image is 5,533,072 bytes longer than its descriptor because of one
+   member's extent.
+2. **Diff the Korean DLC patch** (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against copies of
+   the user's own PSN `.EDAT` files, with `COMPARE_PATCH.bat`. This is now the only evidence route, and
+   it is independent of the ISO. Their `dlcmd5checker.exe` says per file whether the user's copies are
+   the originals the patches were built against.
+3. ~~Do the same for the base game from `srwOE_v250810.7z`.~~ **Closed** by step 1: that patch targets
+   a dump the user does not have, and obtaining one is not something this project asks for.
 4. Only then, if a question is still open, spend a `RUN_PROBE.bat` run on it.
+
+Also worth keeping for Gate 4: more than one dump of this title circulates (at least CRC-32 `2866c6c0`
+and `1718f49a` in public catalogues), so our own release must be keyed to recorded hashes and refuse
+anything else — the pattern `snake759494/NDS-SRW-K` uses with CRC-32 plus an expected patched size and
+CRC-32.
