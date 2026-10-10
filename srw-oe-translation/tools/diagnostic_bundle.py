@@ -1,6 +1,6 @@
 """Collect everything needed to diagnose a run into one ZIP, without the game binaries.
 
-Included: REPORT.txt, registry.json, inputs.csv, packages.csv, logs/ (converter call logs),
+Included: REPORT.txt, registry.json, inputs.csv, packages.csv, translation/template_report.txt (counts only), logs/ (converter call logs),
 and text/<package>/manifest.json (the text export manifests). Excluded: packages/, iso/,
 staging/, gates/, _cache/, and the unit/segment files, which are large and reproducible.
 Every included file is listed with its size and SHA-256 in BUNDLE_INDEX.txt.
@@ -17,7 +17,7 @@ import zipfile
 from pathlib import Path
 from typing import Optional
 
-TOP_LEVEL_FILES = ("REPORT.txt", "registry.json", "inputs.csv", "packages.csv", "layout_probe.zip")
+TOP_LEVEL_FILES = ("REPORT.txt", "registry.json", "inputs.csv", "packages.csv", "layout_probe.zip", "translation/template_report.txt")
 INDEX_NAME = "BUNDLE_INDEX.txt"
 
 
