@@ -1476,7 +1476,9 @@ class Run:
             # Read-only CPK table cross-check (report-only; the listing check above
             # remains the authoritative completeness gate).
             package["table_check"] = table_check(item.path, listing.output)
-            if (package.get("listing_check") or {}).get("status") == "incomplete":
+            # Colliding names (incomplete) and one undecodable listed name (unverified) both mean the
+            # converter's flat output cannot be checked by name; the TOC still gives every entry exactly.
+            if (package.get("listing_check") or {}).get("status") in ("incomplete", "unverified"):
                 package["hidden_entries"] = self._extract_hidden_entries(item, package_id, listing.output)
             if _sha256_file(item.path) != item.sha256:
                 reason = "source changed during extraction"

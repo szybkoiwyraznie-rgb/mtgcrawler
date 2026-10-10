@@ -67,7 +67,7 @@ def build_probe(input_root: Path, run_dir: Path, out: Optional[Path] = None) -> 
     selected = [
         package
         for package in registry["packages"]
-        if package.get("depth") == 0 and (package.get("listing_check") or {}).get("status") == "incomplete"
+        if package.get("depth") == 0 and (package.get("listing_check") or {}).get("status") in ("incomplete", "unverified")
     ]
     out = out or run_dir / "layout_probe.zip"
     layout: dict[str, Any] = {"packages": [], "note": "header/table bytes only; no entry data"}
