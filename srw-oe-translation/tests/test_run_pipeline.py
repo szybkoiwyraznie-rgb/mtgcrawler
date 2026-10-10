@@ -588,6 +588,7 @@ class RunPipelineTests(PipelineFixture):
         # The fixture is a JSON stand-in, not a real @UTF CPK, so the table cannot be read here;
         # the step must record that without failing the run (see HiddenEntryTests for the real path).
         self.assertEqual(event["hidden_entries"]["status"], "unreadable_table")
+        self.assertTrue((result.run_dir / "layout_probe.zip").is_file())
         self.assertEqual(self.registry(result)["summary"]["packages_failed"], 1)
         self.assertEqual(by_source["imenu01.EDAT"]["status"], "extracted")
         self.assertEqual(by_source["imenu01.EDAT"]["listing_check"]["status"], "verified")

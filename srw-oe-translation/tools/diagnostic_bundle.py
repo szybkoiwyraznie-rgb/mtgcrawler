@@ -17,7 +17,7 @@ import zipfile
 from pathlib import Path
 from typing import Optional
 
-TOP_LEVEL_FILES = ("REPORT.txt", "registry.json", "inputs.csv", "packages.csv")
+TOP_LEVEL_FILES = ("REPORT.txt", "registry.json", "inputs.csv", "packages.csv", "layout_probe.zip")
 INDEX_NAME = "BUNDLE_INDEX.txt"
 
 
