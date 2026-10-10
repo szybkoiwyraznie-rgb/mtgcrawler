@@ -938,6 +938,20 @@ def complete_settings(
 # ---------------------------------------------------------------------------
 
 
+_TOOL_CODE_FILES = ("run_pipeline.py", "cpk_table.py", "iso9660.py", "extract_event_text.py")
+
+
+def _tool_code_digest() -> str:
+    """Digest of the scripts that decide what an extraction means; a change invalidates the cache."""
+    digest = hashlib.sha256()
+    here = Path(__file__).resolve().parent
+    for name in _TOOL_CODE_FILES:
+        digest.update(name.encode("ascii"))
+        path = here / name
+        digest.update(_sha256_file(path).encode("ascii") if path.is_file() else b"-")
+    return digest.hexdigest()
+
+
 class Run:
     """State and stage functions for one pipeline run."""
 
@@ -959,6 +973,9 @@ class Run:
         self.text_dir = run_dir / "text"
         self.gates_dir = run_dir / "gates"
         self.iso_dir = run_dir / "iso"
+        # Verified-extraction cache shared by runs (set by run_pipeline once the converter is hashed).
+        self.cache_root: Optional[Path] = None
+        self.cache_key: Optional[str] = None
         self.timeout_seconds = timeout_seconds
         self.say = say
         self.naming_mode: Optional[str] = None
@@ -1176,13 +1193,107 @@ class Run:
             "members": [],
             "member_count": 0,
             "total_member_bytes": 0,
+            "restored_from_cache": False,
             "text": {"status": "not_run"},
         }
+
+    def _cache_entry(self, sha256: str) -> Optional[Path]:
+        if self.cache_root is None or self.cache_key is None:
+            return None
+        return self.cache_root / self.cache_key / sha256
+
+    def _restore_from_cache(self, item: WorkItem, package: dict[str, Any], output_dir: Path) -> Optional[dict[str, Any]]:
+        """Copy a previously verified extraction of the same bytes; None when unusable.
+
+        Every cached member is re-hashed before the copy. Any mismatch, missing file, or
+        unreadable record returns None, and the package is extracted again.
+        """
+        entry = self._cache_entry(item.sha256)
+        if entry is None or not (entry / "package.json").is_file():
+            return None
+        try:
+            record = json.loads((entry / "package.json").read_text(encoding="utf-8"))
+            if record.get("source_sha256") != item.sha256 or record.get("cache_key") != self.cache_key:
+                return None
+            tree = entry / "tree"
+            for member in record["members"]:
+                target = tree.joinpath(*member["path"].split("/"))
+                if not target.is_file() or _sha256_file(target) != member["sha256"]:
+                    return None
+            if output_dir.exists():
+                return None
+            shutil.copytree(tree, output_dir)
+            return record
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            self.say(f"  cache entry for {package['package_id']} not used: {type(exc).__name__}")
+            shutil.rmtree(output_dir, ignore_errors=True)
+            return None
+
+    def _store_in_cache(self, item: WorkItem, package: dict[str, Any], output_dir: Path) -> None:
+        """Keep a verified extraction so a later run with the same converter can reuse it."""
+        entry = self._cache_entry(item.sha256)
+        if entry is None:
+            return
+        staging = entry.with_name(entry.name + ".partial")
+        try:
+            shutil.rmtree(staging, ignore_errors=True)
+            staging.mkdir(parents=True)
+            shutil.copytree(output_dir, staging / "tree")
+            record = {
+                "source_sha256": item.sha256,
+                "cache_key": self.cache_key,
+                "list_ok": package["list_ok"],
+                "listing_check": package.get("listing_check"),
+                "table_check": package.get("table_check"),
+                "members": package["members"],
+                "member_count": package["member_count"],
+                "total_member_bytes": package["total_member_bytes"],
+            }
+            (staging / "package.json").write_text(
+                json.dumps(record, ensure_ascii=False, sort_keys=True, default=str), encoding="utf-8"
+            )
+            shutil.rmtree(entry, ignore_errors=True)
+            entry.parent.mkdir(parents=True, exist_ok=True)
+            staging.rename(entry)
+        except OSError as exc:
+            shutil.rmtree(staging, ignore_errors=True)
+            self.say(f"  cache not written for {package['package_id']}: {type(exc).__name__}")
+
+    def _child_items(self, item: WorkItem, package_id: str, output_dir: Path, members: list[dict[str, Any]]) -> list[WorkItem]:
+        children: list[WorkItem] = []
+        for member in members:
+            if member["content_type"] == "cpk_signature":
+                children.append(
+                    WorkItem(
+                        path=output_dir / member["path"],
+                        display_path=f"packages/{package_id}/{member['path']}",
+                        name=_leaf_name(member["path"]),
+                        sha256=member["sha256"],
+                        size=member["size_bytes"],
+                        depth=item.depth + 1,
+                        parent_package=package_id,
+                    )
+                )
+        return children
 
     def _extract_package(self, item: WorkItem, package: dict[str, Any]) -> list[WorkItem]:
         package_id = package["package_id"]
         output_dir = self.packages_dir / package_id
         alias_root = self.staging_dir / package_id
+        restored = self._restore_from_cache(item, package, output_dir)
+        if restored is not None:
+            package["status"] = "extracted"
+            package["list_ok"] = restored["list_ok"]
+            package["listing_check"] = restored.get("listing_check")
+            package["table_check"] = restored.get("table_check")
+            package["members"] = restored["members"]
+            package["member_count"] = restored["member_count"]
+            package["total_member_bytes"] = restored["total_member_bytes"]
+            package["restored_from_cache"] = True
+            self.say(f"  {package_id}: restored from the verified cache (SHA-256 checked)")
+            nested = self._child_items(item, package_id, output_dir, restored["members"])
+            package["text"] = self.export_text(package_id, output_dir)
+            return nested
         reason: Optional[str] = None
         nested: list[WorkItem] = []
         members: list[dict[str, Any]] = []
@@ -1230,19 +1341,8 @@ class Run:
         package["members"] = members
         package["member_count"] = len(members)
         package["total_member_bytes"] = sum(member["size_bytes"] for member in members)
-        for member in members:
-            if member["content_type"] == "cpk_signature":
-                nested.append(
-                    WorkItem(
-                        path=output_dir / member["path"],
-                        display_path=f"packages/{package_id}/{member['path']}",
-                        name=_leaf_name(member["path"]),
-                        sha256=member["sha256"],
-                        size=member["size_bytes"],
-                        depth=item.depth + 1,
-                        parent_package=package_id,
-                    )
-                )
+        nested = self._child_items(item, package_id, output_dir, members)
+        self._store_in_cache(item, package, output_dir)
         package["text"] = self.export_text(package_id, output_dir)
         return nested
 
@@ -1483,6 +1583,8 @@ def run_pipeline(
         tool = tool_path.expanduser().resolve(strict=True)
         run.tool = tool
         digest = _sha256_file(tool)
+        run.cache_root = base / "_cache"
+        run.cache_key = f"{digest[:16]}-{_tool_code_digest()[:16]}"
         expected = settings.expected_tool_sha256
         converter_info = {
             "file_name": tool.name,

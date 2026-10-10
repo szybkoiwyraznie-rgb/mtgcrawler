@@ -14,6 +14,7 @@ import hashlib
 import io
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -1028,9 +1029,16 @@ class RunPipelineTests(PipelineFixture):
     def test_registry_is_deterministic_apart_from_run_identity_and_timing(self):
         self.write_standard_inputs()
         first, _ = self.run_quietly(run_id="first-run")
+        # A cache hit legitimately removes converter calls; compare against a fresh cache.
+        shutil.rmtree(self.output_base / "_cache", ignore_errors=True)
         second, _ = self.run_quietly(run_id="second-run")
         keys = ("probe", "inputs", "packages", "gate", "not_processed", "failures", "summary")
         first_registry, second_registry = self.registry(first), self.registry(second)
+        # The second run may legitimately restore packages from the first run's verified cache;
+        # that flag is the only package field allowed to differ.
+        for registry in (first_registry, second_registry):
+            for package in registry["packages"]:
+                package.pop("restored_from_cache", None)
         self.assertEqual({key: first_registry[key] for key in keys}, {key: second_registry[key] for key in keys})
         calls_without_timing = lambda registry: [  # noqa: E731
             {key: value for key, value in call.items() if key != "seconds"} for call in registry["converter_calls"]
@@ -1199,6 +1207,54 @@ class CliAndSetupTests(PipelineFixture):
         self.assertEqual(loaded.output_base, self.output_base.resolve())
         self.assertIsNone(loaded.input_root)
 
+
+class VerifiedCacheTests(PipelineFixture):
+    def comparable(self, result) -> list:
+        registry = self.registry(result)
+        return sorted(
+            (
+                package["source_path"],
+                package["status"],
+                package["member_count"],
+                (package.get("listing_check") or {}).get("status"),
+                (package.get("text") or {}).get("units"),
+            )
+            for package in registry["packages"]
+        )
+
+    def test_second_run_restores_verified_packages_and_matches_the_first(self):
+        self.write_standard_inputs()
+        first, _ = self.run_quietly()
+        first_calls = len(self.calls())
+        second, lines = self.run_quietly()
+        second_calls = len(self.calls()) - first_calls
+
+        self.assertEqual(second.status, "completed")
+        self.assertLess(second_calls, first_calls)
+        self.assertTrue(any("restored from the verified cache" in line for line in lines))
+        self.assertEqual(self.comparable(first), self.comparable(second))
+        restored = [p for p in self.registry(second)["packages"] if p["restored_from_cache"]]
+        self.assertTrue(restored)
+
+    def test_tampered_cache_entry_is_not_used_and_the_package_is_extracted_again(self):
+        self.write_standard_inputs()
+        first, _ = self.run_quietly()
+        cache = self.output_base / "_cache"
+        victims = sorted(cache.rglob("tree/*.bin"))
+        self.assertTrue(victims)
+        tampered_sha = victims[0].relative_to(cache).parts[1]
+        victims[0].write_bytes(b"tampered")
+
+        second, lines = self.run_quietly()
+
+        self.assertEqual(second.status, "completed")
+        self.assertEqual(self.comparable(first), self.comparable(second))
+        packages = self.registry(second)["packages"]
+        tampered = [p for p in packages if p["source_sha256"] == tampered_sha]
+        self.assertTrue(tampered)
+        self.assertFalse(any(p["restored_from_cache"] for p in tampered))
+        self.assertTrue(any(p["restored_from_cache"] for p in packages if p["source_sha256"] != tampered_sha))
+        self.assertTrue(any("not used" in line or "restored" in line for line in lines))
 
 class UnitHelperTests(unittest.TestCase):
     def test_listing_parser_reads_rows_with_u_fffd_and_space_separators(self):
