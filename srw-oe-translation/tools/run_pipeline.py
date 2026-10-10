@@ -157,6 +157,14 @@ class WorkItem:
 # ---------------------------------------------------------------------------
 
 
+def _link_or_copy(source: str, target: str) -> None:
+    """Hard-link a file into the cache when the disk allows it (no second copy of the bytes); copy otherwise."""
+    try:
+        os.link(source, target)
+    except OSError:
+        shutil.copy2(source, target)
+
+
 def _sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -1226,7 +1234,7 @@ class Run:
                     return None
             if output_dir.exists():
                 return None
-            shutil.copytree(tree, output_dir)
+            shutil.copytree(tree, output_dir, copy_function=_link_or_copy)
             return record
         except (OSError, ValueError, KeyError, TypeError) as exc:
             self.say(f"  cache entry for {package['package_id']} not used: {type(exc).__name__}")
@@ -1242,7 +1250,7 @@ class Run:
         try:
             shutil.rmtree(staging, ignore_errors=True)
             staging.mkdir(parents=True)
-            shutil.copytree(output_dir, staging / "tree")
+            shutil.copytree(output_dir, staging / "tree", copy_function=_link_or_copy)
             record = {
                 "source_sha256": item.sha256,
                 "cache_key": self.cache_key,
@@ -1413,8 +1421,12 @@ class Run:
         package["member_count"] = len(members)
         package["total_member_bytes"] = sum(member["size_bytes"] for member in members)
         nested = self._child_items(item, package_id, output_dir, members)
+        started = time.monotonic()
         self._store_in_cache(item, package, output_dir)
+        cache_seconds = time.monotonic() - started
+        started = time.monotonic()
         package["text"] = self.export_text(package_id, output_dir)
+        self.say(f"  {package_id}: cache {cache_seconds:.1f} s, text {time.monotonic() - started:.1f} s")
         return nested
 
     # -- text --------------------------------------------------------------
