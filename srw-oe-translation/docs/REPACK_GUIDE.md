@@ -14,17 +14,19 @@ Czego potrzebujesz na dysku:
 
 To sprawdza, czy spakowany obraz w ogóle startuje. **Nie pomijaj go.**
 
-1. Otwórz wiersz poleceń w katalogu repo (`srw-oe-translation`).
-2. Uruchom (podstaw swoje ścieżki):
+1. Otwój wiersz poleceń w katalogu repo (`srw-oe-translation`). **Najpewniej użyj Pythona
+   wprost** (działa w PowerShell i w cmd, bez pułapek cytowania):
 
    ```
-   REPACK_ISO.bat "D:\...\SRW_OE_1.08" "D:\...\repacked.iso" "D:\...\SRW OE 1.08.iso"
+   python tools\iso_pack.py repack "D:\SRWOE\SRW_OE_1.08" "D:\SRWOE\repacked.iso" "D:\SRWOE\SRW OE 1.08.iso"
    ```
 
-   - argument 1 = rozpakowane drzewo,
-   - argument 2 = gdzie zapisać nowy obraz,
-   - argument 3 = oryginalne ISO (skrypt sam weźmie z niego pierwsze 32 KiB — region bootowy).
-   - (bez 4. argumentu = brak patchy).
+   - arg1 = rozpakowane drzewo, arg2 = nowy obraz, arg3 = oryginalne ISO (skrypt sam weźmie
+     z niego pierwsze 32 KiB — region bootowy). Brak arg4 = brak patchy.
+   - Jeśli wolisz `.bat`: w **PowerShell** wywołaj go przez operator `&`
+     (`& .\REPACK_ISO.bat "..." "..." "..."`) albo uruchom w **cmd**. Samo
+     `".\REPACK_ISO.bat" ...` w PowerShell daje błąd „Unexpected token" — to pułapka powłoki,
+     nie skryptu.
 3. Poczekaj (kilkadziesiąt sekund; nie trzyma 660 MB w RAM).
 4. Podmień w PPSSPP oryginalne ISO na `repacked.iso` i uruchom.
 5. **Oczekiwany wynik:** gra startuje i zachowuje się identycznie jak oryginał.
@@ -36,13 +38,12 @@ To sprawdza, czy spakowany obraz w ogóle startuje. **Nie pomijaj go.**
 1. Zrób katalog patchy, np. `D:\...\patch`, i odtwórz w nim ścieżkę względem drzewa:
    `D:\...\patch\PSP_GAME\USRDIR\eventP00.cpk` — to Twój zmodyfikowany plik
    (np. z nałożonym tłumaczeniem; na razie możesz użyć pliku testowego).
-2. Uruchom:
+2. Uruchom (4. argument = katalog patchy; każdy plik w nim nadpisuje odpowiadający mu plik
+   drzewa):
 
    ```
-   REPACK_ISO.bat "D:\...\SRW_OE_1.08" "D:\...\repacked.iso" "D:\...\SRW OE 1.08.iso" "D:\...\patch"
+   python tools\iso_pack.py repack "D:\SRWOE\SRW_OE_1.08" "D:\SRWOE\repacked.iso" "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\patch"
    ```
-
-   (4. argument = katalog patchy; każdy plik w nim nadpisuje odpowiadający mu plik drzewa).
 3. Uruchom `repacked.iso` w PPSSPP i sprawdź, czy zmiana jest widoczna.
 
 ## Uwagi
