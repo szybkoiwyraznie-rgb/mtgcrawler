@@ -428,6 +428,33 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     return bytes(head) + bytes(content) + bytes(tail)
 
 
+def replace_appended(cpk: Cpk, name: str, blob: bytes) -> bytes:
+    """Swap one member by appending the new blob at the end of the file and
+    repointing only that member's TOC row. No other member or table moves, so
+    the result is a minimal diff from a known-good container -- the same idea
+    as the surgical ISO patch. The appended member is written stored.
+    """
+    member = next((m for m in cpk.members if m.name == name), None)
+    if member is None:
+        raise ValueError(f"{name!r} is not a member of {cpk.path.name}")
+    data = bytearray(cpk.data)
+    data += b"\x00" * ((-len(data)) % cpk.align)
+    new_abs = len(data)
+    data += blob
+    data += b"\x00" * ((-len(data)) % cpk.align)
+    _write_cell(data, member.row_start, cpk.toc_layout.column("FileOffset"),
+                new_abs - cpk.data_base)
+    _write_cell(data, member.row_start, cpk.toc_layout.column("FileSize"), len(blob))
+    _write_cell(data, member.row_start, cpk.toc_layout.column("ExtractSize"), len(blob))
+    try:
+        col = cpk.header_layout.column("FileSize")
+    except KeyError:
+        col = None
+    if col is not None and col.row_offset is not None:
+        _write_cell(data, cpk.header_layout.rows_start, col, len(data))
+    return bytes(data)
+
+
 def verify_identity(path: Path) -> Tuple[bool, str]:
     """Rebuild with no change and compare to the original, byte for byte."""
     original = path.read_bytes()

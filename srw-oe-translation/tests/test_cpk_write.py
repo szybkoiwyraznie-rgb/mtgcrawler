@@ -113,6 +113,28 @@ class CpkWriteTests(unittest.TestCase):
             )
         self.assertEqual(offsets, sorted(offsets))
 
+    def test_replace_appended_repoints_only_the_target_and_keeps_the_rest(self):
+        path, _ = self.write()
+        grown = b"Y" * 777
+        out_bytes = cpk_write.replace_appended(cpk_write.load(path), "second.bin", grown)
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        out = Path(temporary.name) / "appended.cpk"
+        out.write_bytes(out_bytes)
+
+        orig = cpk_write.load(path)
+        new = cpk_write.load(out)
+        om = {m.name: m for m in orig.members}
+        nm = {m.name: m for m in new.members}
+        self.assertEqual(nm["second.bin"].blob, grown)
+        self.assertEqual(nm["second.bin"].file_size, len(grown))
+        self.assertEqual(nm["second.bin"].extract_size, len(grown))
+        for name in om:
+            if name == "second.bin":
+                continue
+            self.assertEqual(om[name].relative_offset, nm[name].relative_offset)
+            self.assertEqual(om[name].blob, nm[name].blob)
+
     def test_refuses_a_file_that_is_not_a_container(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)

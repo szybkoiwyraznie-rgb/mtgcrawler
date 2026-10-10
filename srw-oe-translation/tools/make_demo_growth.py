@@ -53,7 +53,7 @@ def main(argv=None) -> int:
             print("REFUSED:", p, file=sys.stderr)
         return 1
 
-    out_bytes = cpk_write.rebuild(cpk, (MEMBER, grown))
+    out_bytes = cpk_write.replace_appended(cpk, MEMBER, grown)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(out_bytes)
     print(f"{src.name}: {MEMBER} record text {len(old)} -> {len(new)} bytes")
