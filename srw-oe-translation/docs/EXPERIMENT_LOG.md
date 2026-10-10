@@ -1080,7 +1080,59 @@ so **which edition the user has is still unrecorded** — only its MD5 and size 
    asserts the patched size and CRC-32. The user's ISO is recorded here as MD5
    `3bfd26f800b7b7a635df29f2c0c936ae`, 679,243,152 bytes; its SHA-256 is still unrecorded.
 
-## Pending
+## 2026-10-10 — first measurements on real event files: the EDAT/EVNT structure, and no offsets anywhere
+
+**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `/home/user/srwoe/` in the
+sandbox, never committed; the upload commit was removed from the branch at the user's request).
+`NPJH50521.zip` SHA-256 `3ea8ab3233515a233faa2bf77e246dc9016ef3dac972976ea9e5ce00ac7ec2d8`. All begin
+`CPK ` — decrypted CPK containers, as expected.
+
+**Extraction works end to end.** `tools/cpk_table.py` + `tools/crilayla.py` on `eventP01.EDAT`: 88
+entries, 22 stored, **66 CRILAYLA-decompressed, 0 failed**. The event members hold **3,405 dialogue
+units** (e.g. `DL103_40.bin` 246 units / 22,848 B, `DL105_11.bin` 249 / 21,636 B).
+
+**The event BIN format is now parsed, and the parse is exact.** Each member is:
+
+```
+"EDAT"  u32 size (= file size - 8)  u32 section_count
+  repeated section_count times:  magic[4]  u32 body_size  body[body_size]
+```
+
+Walking that chain lands **exactly on the end of the file** for every file tested (`000_DL102_20.bin`
+10 sections → 16,216 B exact; `004_DL102_30.bin` 13 → 15,620 exact; `008_DL102_40.bin` 15 → 10,136
+exact). Every section is `EVNT`; the last is always 100 bytes with no text. Text units sit inside the
+section bodies, interleaved with command words (the inter-unit gaps contain records such as
+`c9 00 00 00` = 201, matching the ECHK-chain value noted earlier).
+
+**Three offset hypotheses, all measured against a null, all negative:**
+
+| Test | Result |
+|---|---|
+| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64 | best base reaches **2%** of a file's starts, and the starts-shifted-by-+1 control reaches the same → chance |
+| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists |
+| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below chance |
+
+**What this means, and the correction it forces.** `retro-trans/SRW-Z`'s COMPDATA model (a table of
+absolute load-base addresses) does **not** apply to this game's event files, so the base scan's
+negative result is a real finding rather than a missing search. Combined with the exact section parse,
+the event files look **walked, not indexed**: strings are delimited by `FF FF … 00 00` inside `EVNT`
+sections, and the only structural values found are the file's own size and the section sizes.
+
+**So growing a string looks tractable without any repointing** — the values that must be updated are
+the containing `EVNT` section's `u32 size`, the `EDAT` header's `u32 size`, and the CPK entry's
+`file_size`/`extract_size` (then recompress with CRILAYLA or store uncompressed). This is a better
+position than SRW-Z, where inline operands had to be rewritten.
+
+**Not ruled out:** operands *inside* an `EVNT` section that address a string by index, by a
+word/2/4-scaled position, PC-relative, or including the 8-byte section header. None of those four
+encodings was tested. The decisive experiment is now small and concrete: grow one string in one
+member, update the three size fields, repack, and boot — if the dialogue after it still displays, no
+offsets exist.
+
+**Not verified:** nothing here was run in the game. The extraction and the parse are byte-exact and
+reproducible; the conclusion that nothing points at a string is an inference from three negative
+measurements plus an exact structural parse.
+
 
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
