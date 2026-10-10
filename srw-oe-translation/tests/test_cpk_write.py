@@ -173,5 +173,33 @@ class CommandLineTests(unittest.TestCase):
         self.assertEqual(cpk_write.main(["verify-identity", str(self.path)]), 0)
 
 
+
+
+class AlignmentPaddingTests(unittest.TestCase):
+    class Stub:
+        content_offset = 10240
+        content_size = 356352   # ends at 366592 = 2048*179 -> aligned, like real files
+        align = 2048
+
+    def test_a_grown_region_is_padded_back_to_the_align_boundary(self):
+        # 360768 grew the end to 371008, which is 320 bytes past a 2048 boundary.
+        content = cpk_write._pad_to_alignment(self.Stub(), bytearray(b"\x00" * 360768))
+        end = self.Stub.content_offset + len(content)
+        self.assertEqual(end % self.Stub.align, 0, f"end {end} not aligned")
+        self.assertEqual(end, 372736)
+
+    def test_a_no_change_region_of_an_aligned_container_is_untouched(self):
+        content = bytearray(b"\x00" * 356352)
+        self.assertEqual(cpk_write._pad_to_alignment(self.Stub(), content), content)
+
+    class Unaligned:
+        content_offset = 265
+        content_size = 390      # ends at 655, not aligned -> leave alone
+        align = 2048
+
+    def test_an_originally_unaligned_container_is_not_padded(self):
+        content = bytearray(b"\x00" * 390)
+        self.assertEqual(cpk_write._pad_to_alignment(self.Unaligned(), content), content)
+
 if __name__ == "__main__":
     unittest.main()

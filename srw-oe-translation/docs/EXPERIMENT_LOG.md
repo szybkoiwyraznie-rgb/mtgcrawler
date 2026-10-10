@@ -1321,6 +1321,33 @@ follows the content", and gained an `extract-member` subcommand.
 
 **Full suite 301 OK, 1 skipped** (13 new `cpk_write` tests; 288 before).
 
+### 2026-10-10 (evening) — the jp build crashed PPSSPP; the content region was not re-aligned
+
+**Observation (user).** With `eventP02.jp.EDAT` on the memstick, PPSSPP halts:
+`Access: Write Word at 10fa0000`, PC in `08a2bb78`, thread `SazThread`. The guest wrote a
+word to `0x10FA0000`, far outside PSP user RAM (`0x08800000`-`0x0A000000`), which is the
+emulator's report of the game reading garbage and following it. The original container
+boots; the modified one does not, so the write is ours.
+
+**Cause.** The original container keeps the end of its content region -- and therefore the
+EToc that follows it -- on the `Align` boundary: `ContentOffset 10240 + ContentSize 356352
+= 366592 = 2048*179`. Growing the member by 4416 bytes moved the EToc to `371008`, and
+`371008 / 2048 = 181.16`: misaligned. The loader then reads the EToc from a non-aligned
+address and walks off into unmapped memory. The identity gate and the end-to-end member
+comparison could not see it: neither checks alignment, and both compare against the
+*original* (aligned) layout rather than against the loader's expectations.
+
+**Fix.** `tools/cpk_write.py` now pads the content region back to the `Align` boundary
+after a change -- but only when the original region ended aligned, so a no-change rebuild
+of an unaligned (synthetic) container still reproduces it byte for byte. Three alignment
+tests cover the pad math, the aligned no-op, and the unaligned no-op.
+
+**Consequence.** The two MD5s recorded earlier (`14e0d138084a4080e4a3617b63aaf3e5`,
+`91118db85ae22752194ce48963dfb89d`) describe the *unaligned, crashing* build and must be
+regenerated once a source `eventP02.EDAT` is available. They are therefore no longer the
+acceptance values in `tools/build_event_text_test.py` until re-derived; the corrected
+build cannot be produced here because the sandbox no longer has the source container.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.

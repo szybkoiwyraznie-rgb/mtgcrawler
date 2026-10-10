@@ -284,6 +284,25 @@ def load(path: Path) -> Cpk:
     return cpk
 
 
+def _pad_to_alignment(cpk: Cpk, content: bytearray) -> bytearray:
+    """Pad the content region so it ends on an ``Align`` boundary, if it did before.
+
+    Real containers keep the end of the content region (and therefore the EToc that
+    follows it) on an ``Align`` boundary. Growing a member by a non-multiple of
+    ``Align`` would drop the EToc at a misaligned address, and the game's loader
+    reads it as garbage -- which is exactly the crash a grown test build produced.
+    We only pad when the original was padded, so a no-change rebuild of an
+    unaligned (e.g. synthetic) container still reproduces it byte for byte.
+    """
+    original_end = cpk.content_offset + cpk.content_size
+    if cpk.align > 1 and original_end % cpk.align == 0:
+        new_end = cpk.content_offset + len(content)
+        remainder = new_end % cpk.align
+        if remainder:
+            content.extend(b"\x00" * (cpk.align - remainder))
+    return content
+
+
 def _align_up(value: int, align: int) -> int:
     return value if align <= 1 else ((value + align - 1) // align) * align
 
@@ -359,6 +378,8 @@ def rebuild(cpk: Cpk, replacement: Optional[Tuple[str, bytes]] = None) -> bytes:
             member = next(m for m in members if m.name == target_name)
             at = cpk.data_base + member.relative_offset - cpk.content_offset
             content[at:at + member.file_size] = new_blob
+
+    content = _pad_to_alignment(cpk, content)
 
     # Patch the TOC cells and the header's size fields in place first: both sit
     # at absolute positions in the original file, and neither changes its length.
