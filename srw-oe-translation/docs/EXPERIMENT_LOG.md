@@ -1398,6 +1398,25 @@ growth/record edit is the fault.
 
 Suite 307 OK, 1 skipped (3 round-trip tests for `compress_literal`).
 
+### 2026-10-10 (night, 2) — control booted: stored is fine, the GROWTH is the fault
+
+**Result (user).** `00-KONTROLA-stored-bezWzrostu.EDAT` (member stored as the original
+decompressed bytes, no growth, aligned) **boots**. Combined with the two crashing grown
+builds, this isolates the fault to the *growth* of the record, not to stored-vs-compressed
+and not to the container rewrite itself.
+
+**EToc exonerated.** Its `@UTF` table holds only `UpdateDateTime` and `LocalDir` (97 rows,
+row length 8) -- no per-file sizes or offsets, so moving it as a blob loses nothing. The
+stale-EToc hypothesis is dead.
+
+**Next bisect (uploaded, awaiting a boot): `03-KONTROLA-taSamaDlugosc.EDAT`** (MD5
+`fa5319f5f930cf7114e168e89888d4a9`) edits the record's *content* (ドモン -> テスト) at the
+*same* 118-byte length, member still 10172 bytes, container identical to the booting
+control. Outcomes: boots -> content edits are safe and the crash is the size change, so a
+grown string must be fitted without changing the member's stored size (borrow trailing
+padding) or growth is unsupported; crashes -> even same-size content edits break the
+parser, pointing at a checksum/validation of the member.
+
 - **Prior art first** (`docs/PRIOR_ART.md`): check our ISO's MD5 against `ce57eb21bcdc9bdd6204f63a4fd9f716`, and diff the Korean DLC patch (`srwOEKDLC_v250617.7z`, 73 xdelta files, 2.9 MB) against the user's own originals. That yields the container facts empirically instead of by inference.
 - Only if a question survives that, run `RUN_PROBE.bat` again and read `the u32 le start-offset matches by the record holding them`, `what those stored offsets point at, relative to that record`, and `those matches cover N distinct offsets`.
 - Read the `by cohort` section, not the pooled lines: the `text` cohort is the script, the `binary` cohort is archive data.
