@@ -1695,3 +1695,14 @@ like a real member. Suite 322 OK.
   Validate with an UNTRANSLATED rebuild first: it must resolve every string identically to the
   original before any translated patch is handed over. Until then: keep the ORIGINAL configst.cpk in
   the ISO (do not apply the garbling patch).
+
+## 2026-10-11 — equal-length (no-shift) sysmes translate = the safe transform
+- Data showed ライブラリー/リファレンス/クレジット/ダウンロードリスト have NO offset pointer anywhere
+  in the cpk (menu reads them sequentially from a base); only ゲームスタート has a shared tail (0x91a4,
+  id 0x45f). Hence the only guaranteed-safe transform is IN-PLACE equal-length replacement (slot size
+  preserved, nothing moves -> every pointer/offset stays valid).
+- tools/sysmes_pack.py equal_translate: replaces a string only when (a) no table entry points into its
+  slot and (b) the translation fits the slot; pads with NUL to keep the slot size; skips otherwise.
+- Result on the title menu: LIBRARY/REFERENCE/CREDITS/DOWNLOAD LIST translated at their ORIGINAL
+  offsets (0x91b0/0x91c0/0x91d0/0x91dc), ゲームスタート left JP (shared tail), pointer set + sysmes length
+  byte-identical. Suite 330 OK. Growth + game start need tail relocation (next RE step).

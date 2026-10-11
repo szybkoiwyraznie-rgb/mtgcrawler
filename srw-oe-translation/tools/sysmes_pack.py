@@ -60,6 +60,38 @@ def grow_one(sm: bytes, off: int, new_text: str) -> bytes:
     return bytes(new)
 
 
+def equal_translate(sm: bytes, edits) -> tuple:
+    """Replace strings IN PLACE with no byte shift (slot length preserved).
+
+    Because nothing moves, every offset/pointer (internal or external, sequential
+    or absolute) stays valid - the only safe transform while the full reference
+    map is unfinished. A string is left untouched when (a) another table entry
+    points into the middle of its slot (shared tail would be clobbered) or
+    (b) the translation does not fit the original slot. Returns (new_sm, report).
+    """
+    starts = string_starts(sm)
+    pointers = {struct.unpack_from("<I", sm, p)[0]
+                for p in range(0, POOL_MIN, 4)
+                if POOL_MIN <= struct.unpack_from("<I", sm, p)[0] < len(sm)}
+    new = bytearray(sm)
+    report = []
+    for old, new_text in edits.items():
+        for off in [a for a, t in es.scan_runs(sm, 1, 2) if t == old and a >= POOL_MIN]:
+            nxt = next((s for s in starts if s > off), len(sm))
+            slot = nxt - off
+            if any(off < p < nxt for p in pointers):
+                report.append((old, "skipped: shared tail inside slot"))
+                continue
+            nb = new_text.encode("cp932") + b"\x00"
+            if len(nb) > slot:
+                report.append((old, f"skipped: needs {len(nb)} > slot {slot}"))
+                continue
+            nb += b"\x00" * (slot - len(nb))  # pad to keep the slot size
+            new[off:off + slot] = nb
+            report.append((old, f"ok @{off:#x} ({len(nb)}/{slot})"))
+    return bytes(new), report
+
+
 def apply_edits(sm: bytes, edits) -> bytes:
     """Rebuild the text pool from scratch so resizing is always safe.
 
@@ -110,17 +142,19 @@ def rebuild_cpk(src: Path, dst: Path, edits) -> None:
     parsed = configst_pack.parse_pac(pac)
     for s in parsed["subs"]:
         if s["name"] == "sysmes.bin":
-            s["data"] = apply_edits(s["data"], edits)
+            s["data"], report = equal_translate(s["data"], edits)
     new_pac = configst_pack.rebuild_pac(parsed)
     out = cpk_write.rebuild(cpk, replacement=("configst.pac", new_pac))
     dst.write_bytes(out)
+    for old, msg in report:
+        print(f"  {old!r}: {msg}")
 
 
 DEFAULT_EDITS = {
     "ゲームスタート": "START GAME",
     "ライブラリー": "LIBRARY",
     "リファレンス": "REFERENCE",
-    "クレジット": "CREDITS / STAFF ROLL",
+    "クレジット": "CREDITS",
     "ダウンロードリスト": "DOWNLOAD LIST",
 }
 
