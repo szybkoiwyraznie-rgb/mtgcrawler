@@ -64,7 +64,7 @@ def main(argv=None) -> int:
             return 1
         print(f"{src.name}: {MEMBER} record text {len(old)} -> {len(new)} bytes")
 
-    comp = crilayla.compress_literal(newblob)
+    comp = crilayla.compress(newblob)
     out_bytes = cpk_write.rebuild(cpk, (MEMBER, comp, len(newblob)))
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(out_bytes)

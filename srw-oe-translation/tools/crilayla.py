@@ -143,8 +143,8 @@ def compress(data: bytes) -> bytes:
     usize = n - TRAILER_SIZE
 
     index = {}
-    for i in range(TRAILER_SIZE, n - 2):
-        index.setdefault(data[i:i + 3], []).append(i)
+    for i in range(TRAILER_SIZE + 2, n):
+        index.setdefault(data[i - 2:i + 1], []).append(i)
 
     bits = []
 
@@ -156,16 +156,16 @@ def compress(data: bytes) -> bytes:
     while p >= TRAILER_SIZE:
         best_len = 0
         best_delta = 0
-        if p + 3 <= n:
-            for cand in index.get(data[p:p + 3], ()):
+        if p >= TRAILER_SIZE + 2:
+            for cand in index.get(data[p - 2:p + 1], ()):
                 if cand <= p:
                     continue
                 delta = cand - p
                 if delta < 3 or delta - 3 > 0x1FFF:
                     continue
-                limit = min(n - p, n - cand, 4096, p - TRAILER_SIZE + 1)
+                limit = min(p - TRAILER_SIZE + 1, cand + 1, 4096)
                 length = 0
-                while length < limit and data[p + length] == data[cand + length]:
+                while length < limit and data[p - length] == data[cand - length]:
                     length += 1
                 if length > best_len:
                     best_len = length
