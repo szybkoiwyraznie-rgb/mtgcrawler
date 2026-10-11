@@ -583,10 +583,12 @@ def patch_iso(original_iso, out_path, patch):
             rec_off, _l, _s2, is_dir = records[path]
             if is_dir:
                 raise ValueError(f"patch path is a directory: {path}")
-            new_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
+            start = ((end + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
             fh.seek(end)
+            fh.write(b"\x00" * (start - end))
             fh.write(_sector_pad(blob))
-            end += ((len(blob) + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
+            new_lba = start // BLOCK_SIZE
+            end = start + len(_sector_pad(blob))
             fh.seek(rec_off + 2)
             fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
             fh.seek(rec_off + 10)

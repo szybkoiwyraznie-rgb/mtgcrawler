@@ -131,5 +131,18 @@ class PatchIsoTests(unittest.TestCase):
         self.assertEqual((o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes(), b"PATCHED" * 400)
         self.assertEqual((o / "PSP_GAME" / "USRDIR" / "big.bin").read_bytes(), b"\x00" * 300000)
 
+    def test_patch_aligns_appended_blob_on_a_non_sector_aligned_image(self):
+        # The real disc image ends mid-sector; the appended blob must start on a
+        # sector boundary that matches the LBA written into its directory record.
+        mis = self.tmp / "mis.iso"
+        mis.write_bytes(self.orig.read_bytes() + b"T" * 1000)
+        iso_pack.patch_iso(mis, self.out, {"PSP_GAME/USRDIR/eventP00.cpk": b"PATCHED" * 400})
+        info = iso9660.inspect_iso9660(self.out)
+        o = self.tmp / "out2"
+        iso9660.extract_members(self.out, info["files"], o)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "eventP00.cpk").read_bytes(), b"PATCHED" * 400)
+        self.assertEqual((o / "PSP_GAME" / "USRDIR" / "big.bin").read_bytes(), b"\x00" * 300000)
+
+
 if __name__ == "__main__":
     unittest.main()
