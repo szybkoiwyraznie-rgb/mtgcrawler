@@ -117,6 +117,11 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
    (u32 klucza na +0x14 slotu 16 B, CP932). Pierwszeństwo ma słownik. Wynik: rozdział 1 — **60/60**
    kluczy; rozdział 2 — **158/167**. Pozostałe 9 kluczy (postacie generyczne i 3 bez źródła) jest
    OTWARTE — lista kluczy w `EXPERIMENT_LOG.md`. Imiona zostają w `local/` (nie w git).
+   **Mapa całej gry (2026-10-11):** configi 00–46, imenu 00–32, eventy P00–P09/P13/P20–P32 zbadane.
+   283 klucze; 244 z ≥3 liniami: 216 ma imię ze słownika, 11 tylko z configu, 17 bez źródła.
+   39 z 43 kluczy rozdziału 1 wraca w późniejszych eventach. Żaden rekord słownika postaci z rozdziału 1
+   nie leży poza imenu00. Każdy DLC event wnosi własną pulę słownika (HIPOTEZA). Dwa klucze mają 2 rekordy
+   (0xe93, 0x101a) — wymaga reguły. Szczegóły w `EXPERIMENT_LOG.md`, pełna lista w `local/` (nie w git).
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
    **Postęp (2026-10-11):** `tools/dict_pool_shift.py` — `srwDL_CharaDictionary*` ma zmierzony układ
    (12 wskaźników u32 na rekord + ciągłe stringi NUL + stałe bloki ID na +0x30..+0x3c). Rebuild bez

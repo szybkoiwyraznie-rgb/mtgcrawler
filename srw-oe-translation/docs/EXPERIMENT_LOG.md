@@ -1787,3 +1787,24 @@ like a real member. Suite 322 OK.
   `local/probe_eventP0{0,1,2}.json`, `local/chapter_key_check.json`.
 - Not done: config scan does not cover generic ch2 roles; the other `config*` containers (09+) not checked;
   in-game check of any speaker label not done.
+
+## 2026-10-11 — whole-game speaker map (all config*/imenu*/event*) — numeric summary only
+- Downloaded from FULL_DLC folder into `google_drive/` (gitignored): config00–46 (47 containers, all CPK
+  headers `43 50 4B 20`, each with one `.pac` member), imenu00–32 (25 CharaDictionary pools; ids 16, 23,
+  26–30 are not in the Drive folder), event containers P00–P09, P13, P20–P32 (23 files; P10–12, P14–19
+  absent). Hashes not recorded here. A mistyped Drive ID (one placeholder call) returned 404 and had no effect.
+- Probe: `tools/speaker_probe.py` per event → `local/probes/`. Union of distinct keys across events: 283.
+  Keys with >=3 dialogue lines: 244. Sources: dictionary name 216, config name-slot only 11, no source 17.
+- Chapter 1 (eventP00): 43 keys with >=3 lines. 39 of them reappear in later events. All 43 dictionary
+  records are in `imenu00`, so no later pool redefines a chapter-1 key `[ZWERYFIKOWANE]` (structural).
+- Pool by first use (keys >=3 lines): imenu01 → P01 (39 keys), imenu02 → P02, imenu03 → P03, imenu04 → P04,
+  imenu05 → P05/P06. Each DLC event brings its own dictionary pool `[HIPOTEZA]`, while older characters are
+  referenced from imenu00.
+- Two keys have two dictionary records: 0xe93 (3731) and 0x101a (4122). Needs a rule before use.
+- 9 chapter-2 keys stay without any name source after all configs and pools: 0x4e3, 0x4e8, 0xd93, 0xc71,
+  0xd89, 0x1054, 0x1056, 0x105f, 0x1062. The other no-source keys (>=3 lines) are 0x673, 0x678, 0xc6c, 0xcc6,
+  0xccb, 0xd84, 0xd8e, 0xec4 (first use in P01/P03/P04/P05/P07).
+- Observation to check: `eventP04.EDAT` and `config04.EDAT` are readable here (CPK headers, probe ok).
+  This conflicts with the earlier note that `*04` needs decryption. Re-check before relying on chapter 4.
+- Local artifacts (game text): `local/WHOLE_GAME_SPEAKER_MAP.md`, `local/whole_game_speakers.json`,
+  `local/whole_game_map.json`, script `local/whole_game_map.py`.

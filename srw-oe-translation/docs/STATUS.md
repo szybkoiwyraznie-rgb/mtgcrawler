@@ -206,3 +206,6 @@ The agent sandbox has neither the game files nor the converter, so only the user
    names (string[0]) with config name slots. Chapter 1: 60/60 keys named. Chapter 2: 158/167 keys named;
    9 generic-role keys remain without a name source (listed by key in EXPERIMENT_LOG). Names stay in `local/`.
    Suite 355 OK (1 skipped).
+98b. **Whole-game speaker map (2026-10-11).** 244 keys with >=3 lines: 216 named from dictionary, 11 config-only,
+   17 no source. 39/43 chapter-1 keys return later. Each DLC event brings its own dictionary pool (HIPOTEZA).
+   Local-only list in `local/WHOLE_GAME_SPEAKER_MAP.md`.
