@@ -189,3 +189,14 @@ glob now includes `evept*` probes; previously only `eventP*`) and re-running `na
 table (0 names or sources changed; 339 keys; dict 216, config 11, config_raw 40, config_raw_clean 34, none 38).
 The `whole_game_map` "no source" count (21) uses a different definition from `name_union` (14 dialogue keys
 with source `none`). `name_union` is the reference.
+
+Other tables checked for inline names (same reader, read-only):
+* `srwDL_Shop00.bin` (182 records): 19 records with an inline CP932 string (relpos 45 for records 0–4,
+  relpos 20 for 12 records). `[ZWERYFIKOWANE]` 0 of the 19 match an item or weapon name, so these are NOT
+  shop item names. Shop item names remain unlocated (open item 6).
+* `srwDL_Reference00.bin` (28 records): inline string at relpos 45 in all 28 records (help/title text, not names).
+* `srwDL_DLC_ID00.bin` (41 records): inline strings at relpos 57/58 (chapter titles, config file names).
+* `srwDL_Skill_Tag.bin` (configst, 151 records): inline string at relpos 28 in 133 records (skill tag names).
+  Not yet checked against skill names in `srwDL_Skill00.bin`.
+* `unit_list*.bin`, `charalist*.bin`, `robolist.bin`, `srwDL_Skill0*.bin`: no count@0 or first-offset table at byte 4,
+  so the inline reader does not apply. These need their own record decoding (section 5b).

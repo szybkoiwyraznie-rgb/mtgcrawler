@@ -1925,3 +1925,7 @@ No game files written. Game text only under `local/`.
 6. Discrepancy noted: `whole_game_map` "no source" 21 vs `name_union` dialogue `none` 14. Different definitions.
 7. Open: `ItemDrop` 177 names are not in `srwDL_Item00` (0 overlap). Need checking before use.
    Growth of inline names is untested.
+8. Shop/Reference/DLC_ID/Skill_Tag inline check (read-only, same reader): Shop00 19 inline strings, 0 overlap
+   with item or weapon names (not item names). Reference00 28/28 at relpos 45. DLC_ID00 41 records, relpos 57/58.
+   configst `srwDL_Skill_Tag.bin` 133/151 at relpos 28. Unit list, charalist, robolist, Skill00/01–08 have no
+   first-offset table at byte 4 (the reader does not apply).
