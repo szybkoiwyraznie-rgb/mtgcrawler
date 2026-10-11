@@ -1682,3 +1682,16 @@ like a real member. Suite 322 OK.
   is rewritten to the new location; SMES size updated. Resizing is now always safe; shared tails become
   independent copies so nothing corrupts. Verified: id 0x45e -> START GAME, tails keep their own text,
   all 5 English labels present, 330 tests OK.
+
+## 2026-10-11 — pool-rebuild ALSO garbled: title-menu refs are EXTERNAL to the sysmes table
+- 2nd boot test: every title slot showed the library-description tail (見られる項目が増えます。).
+  Interpretation: the title-menu label offsets are NOT among the {offset,id} words in sysmes
+  [0,0x2500) that the rebuild rewrote; they live elsewhere (another sub-file / layout) and still hold
+  OLD offsets, which now land inside moved strings. So BOTH strategies failed:
+    * in-place growth  -> clobbers shared tails inside sysmes,
+    * pool rebuild     -> moves strings, breaking references that live outside the rewritten table.
+- Conclusion: a safe sysmes repack needs a COMPLETE reference map - every u32 in ALL of configst.pac
+  (every sub-file) and the whole cpk that points into the sysmes text pool - then rewrite ALL of them.
+  Validate with an UNTRANSLATED rebuild first: it must resolve every string identically to the
+  original before any translated patch is handed over. Until then: keep the ORIGINAL configst.cpk in
+  the ISO (do not apply the garbling patch).
