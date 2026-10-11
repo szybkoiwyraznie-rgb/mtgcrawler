@@ -1,120 +1,131 @@
-# HANDOFF — everything a successor needs to continue (read this first)
+# HANDOFF — SRW OE (Super Robot Wars Operation Extend) — fan-translation EN
 
-> If you only read one file, read this one. It is the condensed, current (2026-10-10) state of
-> the SRW OE English fan-translation project. It supersedes the measurement-route plan still
-> visible in `NEXT_STEP.md`/`TECHNICAL_FINDINGS.md` (kept as history). Chronology lives in
-> `EXPERIMENT_LOG.md`; the milestone index in `STATUS.md`. Everything below was *proven*,
-> mostly in the real game via PPSSPP, unless labelled hypothesis.
+> Samodzielny dokument przejęcia. Przeczytaj też `AGENTS.md` (guardrails), `docs/METHOD.md`,
+> `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
+> `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
-## 1. The goal and the model
+## 0. Cel
+Przetłumaczyć **całą grę** SRW OE (PSP) na angielski; dostarczyć jako **`.xdelta`** na
+japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdzie to możliwe.
+**Nic nie tłumaczymy, dopóki setup nie obejmuje 100% kategorii** (decyzja użytkownika).
 
-Translate the whole game to English and ship it as a patch applied to the user's own Japanese
-copy (chapter 1 from the disc ISO `SRW OE 1.08.iso`, chapters 2–8 from PSN DLC in
-`NPJH50521`). Modelled on `retro-trans/SRW-Z`. The user wants a **fresh translation** (Akurasu
-script rejected) and, as of 2026-10-10, has **deferred the actual translating to a separate
-workflow**: the current job is the *process* — read / write / unpack ISO / pack ISO — and
-producing **readable source files** a specialised translation model can consume. UI, names and
-menus are also in scope, as separate tables, later.
+## 1. Środowisko i ograniczenia (KRYTYCZNE)
+- Repo: `mtgcrawler`, branch **`arena/c656a5df-mtgcrawler`** (tylko ten; push tylko tu).
+- Cała praca pod **`srw-oe-translation/`**.
+- `.gitignore` wyklucza `google_drive/` i `srw-oe-translation/local/` — **NIGDY nie commituj**
+  ISO/EDAT/CPK ani pełnego skryptu JP.
+- **Nie modyfikuj oryginałów.** Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
+- Tłumaczenie **fresh** (Akurasu odrzucone). Nie nazywaj projektu „przetłumaczonym”.
+- **Piaskownica robi rollbacki** (HEAD potrafi wrócić do bazy `d4e2488`). Po rollbacku:
+  `git add -A && git commit && git pull --rebase origin arena/c656a5df-mtgcrawler && git push`.
+  Pliki w workspace trwają niezależnie od commitów.
+- **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
+  `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
+  `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.
+- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **331 OK**).
 
-## 2. What is PROVEN (do not re-litigate)
+## 2. Kontenery tekstu — klasyfikacja grow vs fixed
+| Kontener | Plik(i) | Tryb | Stan |
+|---|---|---|---|
+| Fabuła/dialogi (EVNT) | `eventP00..P09` | **GROW** | dowiedzione (rekord z polem długości + patch ISO bootuje) |
+| Menu tytułowe | `configst.cpk/sysmes.bin` | **STAŁA szerokość** | dowiedzione 3 bootami (stałe offsety ZEWNĘTRZNE) |
+| Help/opisy/systemowe | `configst/sysmes` | grow możliwy (shift) | `sysmes_shift` integralność verified; render niepotwierdzony |
+| Słownik postaci (nazwy) | `imenu00` `srwDL_CharaDictionary` | do zbudowania grow | pula NUL; ekstrakcja verified |
+| Encyklopedia/Reference | `imenu00` `srwDL_Reference` | do zbudowania grow | pula NUL |
+| Nazwy mechów/serii/seiyū | `config0X` (DLC) | do zbudowania grow | pula NUL |
+| Opisy przedmiotów/skilli | `configst` (`srwDL_Item`,`srwDL_Skill_Tag`) | do zbudowania grow | — |
+| Nazwy map/terenu | `config00` | do zbudowania grow | pula NUL |
+| Okrzyki bitewne | `mesbtl00`+DLC `mesbtl0X` | do zbudowania grow | linia ≤46 (render) |
 
-- **Containers are CPK.** Both the disc (`*.cpk`, e.g. `eventP00.cpk`) and the DLC (`*.EDAT`)
-  hold CPK archives. `tools/cpk_write.py` (`load`/`rebuild`) and `tools/cpk_table.py`
-  (`read_cpk_table`) parse and rebuild them. `eventP02.EDAT`: 367,480 B, 96 files,
-  `Align 2048`, `CpkMode 2`, `Version 7`, `EtocOffset 366592`. Invariant: content end
-  (= `EtocOffset`) is a multiple of `Align`. **EToc holds only `UpdateDateTime`+`LocalDir`** (no
-  per-file sizes) — moving it as a blob loses nothing. The game reads member sizes from the
-  **TOC**, not the ITOC.
-- **Members are CRILAYLA-compressed.** `tools/crilayla.py` decompresses (header `CRILAYLA` +
-  u32 usize + u32 csize, then stream + 0x100 trailer; `data = trailer + decoded`,
-  `usize = extract_size - 0x100`; bit reader backwards MSB-first). **Stored members are accepted
-  by the game** (a stored control booted), so a rebuilt member may be written stored
-  (`FileSize == ExtractSize`). `compress_literal` exists but is a **dead end**: 9 bits/byte makes
-  the stream larger (`FileSize > ExtractSize`), which `cpk_table` and likely the game reject.
-- **Event members are EDAT scripts.** `EDAT` + u32 size + u32 count + sections
-  (tag4 + size4 + body); section 0 is `EVNT`. Narration records:
-  `type b7010000 | u32 length | u32 param | text | 00 00`, with `length == 12 + len(text) + 2`,
-  lines separated by `0x0A`; the chain is walked by length (no offset index exists).
-- **The growth crash root cause (the big one).** The EVNT section has an *inner* size field at
-  body offset **60** that is always `EVNTsize - 36` (region `[56, EVNT_end)`), found by a
-  differential across eventP01/02/03/09. The old `grow_record` bumped only the EDAT size (off 4)
-  and the outer EVNT size (off 16), leaving offset 60 stale → the loader wrote through a bad
-  pointer (fixed PC, data-dependent address) on *every* grown build. **Fix in
-  `grow_event_text.grow_record`: also bump every u32 field before the record whose value equals
-  `owner_end - f + 4`.** With it, **growth works in the real game** (jp +33 B booted). Equal-
-  length edits were always safe.
-- **Line-width limit.** The in-game dialogue box clips lines past ~**46 half-width** units
-  (observed in a screenshot). `tools/export_strings.py` records `max_line_width` per record; a
-  target must wrap within it (or the font must shrink).
+**Zasada użytkownika:** grow wszędzie, gdzie budowa pozwala; stałe TYLKO tam, gdzie struktura
+pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
 
-## 3. The tooling (all under `tools/`, tested; suite 316 OK, 1 skipped)
+## 3. sysmes.bin (configst) — struktura + wniosek z 3 bootów `[ZWERYFIKOWANE]`
+- Nagłówek: `SMES | u32 size@4 | u32 count@8 | u32 table@0xc`.
+- **Wewnętrzna tablica odnośników** `~0x22f0–0x2368`: `count × {u32 offset, u32 id}`.
+  Np. `{off=0x91a0, id=0x45e}` = „ゲームスタート". Czytana dla **opisów/help**.
+- **Etykiety menu tytułowego NIE mają tu wskaźnika** — gra czyta je pod **stałymi offsetami
+  zapisanymi POZA sysmes**. Dowód: 3 booty patcha shift → CREDITS ok, DOWNLOAD LIST ucięty,
+  reszta rozjechana o jeden slot ⇒ **każdy przesuw puli rozjeżdża menu**. Jedyna bezpieczna
+  transformacja tytułu = **bajt-w-bajt (równa długość slotu)**.
+- `sysmes_shift.py` (committed): `shift_translate` przesuwa pulę, przepisuje wewnętrzną tablicę
+  (strict `v>off`, size@4, pomija shared-tail), `verify` = multiset-diff (edycje usunięte,
+  reszta musi być pusta). **Integralność True** — ale render NIEZWERYFIKOWANY, a dla MENU
+  tytułowego shift jest NIEBEZPIECZNY (patrz wyżej). Używaj shift tylko dla stringów czytanych
+  przez wewnętrzną tablicę (opisy), nie dla etykiet tytułu.
 
-| tool | purpose |
-|---|---|
-| `cpk_write.py` | load / rebuild CPK; `verify-identity`/`extract-member`/`replace-member` CLIs |
-| `cpk_table.py` | read CPK tables; fails closed on `FileSize > ExtractSize` |
-| `crilayla.py` | CRILAYLA decompress (+ `compress_literal`, dead end) |
-| `grow_event_text.py` | `find_record`/`record_text`/`grow_record` (with inner-size fix)/`check`/`parse_edat` |
-| `build_event_text_test.py` | driver; `verify_image` structural gate |
-| `export_strings.py` | **readable source JSON** for translation AI → `local/strings/*.strings.json` (gitignored) |
-| `iso9660.py` | read-only ISO index (`inspect_iso9660`) + `extract_members` |
-| `iso_pack.py` | **pack** a spec-shaped ISO9660, preserves 32 KiB system area; round-trip tested |
-| `iso_prep.py` + `PREP_ISO.bat` | on user's PC, bundle a small uploadable slice of the big ISO (inventory + system_area.bin + event/evept/PARAM.SFO, both `.EDAT` and `.cpk`) |
-| `apply_strings.py` | **apply** translated `*.strings.json` back into a package via `grow_record`; enforces `max_line_width` (46), verifies source match, CP932-encodes; refuses over-wide/mismatched. Tested |
-| `iso_pack.repack_iso` + `REPACK_ISO.bat` | **streaming** ISO repack from a local unpacked tree (sizes first, then sequential write; no 660 MB in RAM); `patch` map overrides members; preserves 32 KiB system area. Tested round-trip + patch |
-| `iso_pack.repack_from_iso` (`repackiso` CLI) | rebuild streaming unchanged members from the original ISO by extent; robust to incomplete extractions. **Did NOT boot a real UMD** (structural). Tested for round-trip only |
-| `iso_pack.patch_iso` (`patchiso` CLI) | **preferred for real discs**: copy the original verbatim, append each patched member at the end, update only its directory record (LBA+size) and the PVD volume size. Preserves all UMD metadata. Tested |
+## 4. EVNT (eventP00..) — strumień rekordów `[ZWERYFIKOWANE na eventP00]`
+- Member = zdeszyfrowany EDAT; EVNT body = samo-rozmiarowy strumień rekordów (`u32 type`,
+  `u32 length`, payload). Rekordy łańcuchują się po `length`.
+- **Typy tekstowe:** `0x000001b7` narracja (prolog), `0x000000c9` dialog/monolog,
+  `0x000001b6` **nagłówek sceny** (miejsce/czas, np. „宇宙世紀００７９ 地球圏 中立宙域").
+- Nagłówek narracji: `type|length|parameter`; **parameter = indeks sekwencji** (0,1,1,2…),
+  **NIE mówca**.
+- **Mówca NIE jest w rekordzie tekstu** — to stan VM ustawiany poprzedzającymi komendami
+  portretu/postaci (typy `0x160` pozycje ASCII `$(x y z /`, `0x1b8`, `0x145`…). Przypisanie
+  mówcy = zdekodować te komendy + zmapować ID pilota na `srwDL_CharaDictionary`.
+- **Placeholdery w tekście**: ＜主人公名＞ itd. — zachować w tłumaczeniu.
+- `extract_scenes.py` (committed): sceny grupowane po `0x1b6`, chronologia, `monologue`
+  (（…）), `placeholders`. Na eventP00: **19 scen, 1598 linii**. `speaker` = null (TODO).
+  **Monologi/narracja nie potrzebują mówcy** — mówca tylko dla kwestii z portretem.
+- Linia ≤ **46 znaków półszerokich** (okno komunikatu; `BOX_WIDTH=46`).
 
-Readable export format (one object per record): `member`, `record_index`, `record_offset`,
-`source`, `lines`, `source_bytes`, `max_line_width`, `line_count`, empty `target`. **These live
-in `local/` (gitignored): the full Japanese script must never enter git.**
+## 5. Narzędzia (wszystko pod `srw-oe-translation/tools/`)
+- `cpk_write.py` (`load`/`rebuild`), `cpk_table.py` (`read_cpk_table` ITOC-only), `crilayla.py`
+  (dekompresja CRI), `edat.py` (EDAT).
+- `iso_pack.py patchiso` — patch pełnego ISO9660 (obchodzi limit 0x100000000, rośnie, bootuje).
+- `configst_pack.py` — PAC layer (`ALIGN=0x800`, `DIR_OFF=0x10`); byte-identical bez edycji.
+- `sysmes_pack.py` — `equal_translate` (równa długość, NIE przesuwa; DEFAULT_EDITS), `apply_edits`,
+  `grow_one`, `string_starts`.
+- `sysmes_shift.py` — `shift_translate` + `verify` (grow puli + przepisanie tablicy).
+- `extract_tables.py` — pule NUL (imenu00/config0X/config00/mesbtl) → JSONL {member,key,text}.
+- `extract_structured.py` — rekordy {u32 len,u32 id} + nazwy NUL (config00/configst) → JSONL.
+- `export_strings.py` — eventy → JSONL {member,record_index,record_offset,source,target}
+  (BEZ speakra). `apply_strings.py` — wkleja tłumaczenia (rośnie).
+- `extract_scenes.py` — sceny z chronologią/nagłówkami/placeholderami (speaker TODO).
+- `scan_translatable.py` — inwentaryzacja; `dlc_catalog.json`, `local/extracted/*.jsonl`.
+- Testy: `tests/test_sysmes_shift.py`, `test_sysmes_pack.py`, `test_configst_pack.py`, + reszta (331).
 
-## 4. Where the data is (Google Drive, folder `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`)
+## 6. Zasoby (poza git)
+- **Google Drive** (connector `google_drive`, użytkownik podłączył): katalog DLC
+  `155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU` (eventP00-P09, config0X, mesbtl0X, tacsys, configst).
+  eventP00 file id `1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w`.
+- Na PC użytkownika: `D:\SRWOE\SRW_OE_1.08\` (rozpakowane PSP_GAME), `D:\SRWOE\iso\` (ISO),
+  Python 3.12 (brak `lz4` — używać crilayla.py). PPSSPP do testów.
+- **Nie ma kluczy klicen** — EDAT z PSP_GAME są zaszyfrowane; `config07.EDAT` z DESYGNOWANEGO
+  źródła jest zdeszyfrowany (`head=0x75091211`). Deszyfrowanie wymaga klicen (brak) — na razie
+  pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
-- `FULL_DLC/` `155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU` — 307 DLC files (`eventP01..13.EDAT`, …).
-- `SRW_OE_1.08/` `1W7gCzfZRnPCFrqiajYnsC4YZcIk-ClY2` — the **full unpacked disc ISO**;
-  `PSP_GAME/USRDIR/` `1FyM77fcFLQfXgxRhnS0cJ98oKZaZG72x`; chapter-1 container
-  `eventP00.cpk` `1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w` (162,264 B).
-- original `eventP02.EDAT` `1yLV3NKrD4WKWf_pv9K6hxwvv3N531bbu` (MD5
-  `60316f4639b906cf70b91fc28fc863be`).
-- various test builds (00/03/05/06/07-*.EDAT) — see `EXPERIMENT_LOG.md` for which booted.
+## 7. Zadania OTWARTE (kolejność)
+1. **Dekodowanie mówcy** w EVNT: rozpoznać komendę portretu/postawi, wyciągnąć ID pilota,
+   zmapować na `srwDL_CharaDictionary`, dopisać `speaker` do `extract_scenes`. (Monologi pomijamy.)
+2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
+   znaleźć tablicę wskaźników/offsetów, zbudować `*_shift` z `verify` (wzór: `sysmes_shift`).
+   Stałe zostaje tylko to, co nie ma wewnętrznych wskaźników i ma stałe offsety zewnętrzne.
+3. **Budżety znaków** per string dla kategorii stałych (slot→max znaków, z szerokością W/F).
+4. **apply** (wklejanie tłumaczeń) dla każdej puli NUL + pełny pipeline xdelta.
+5. Dopiero 1–4 gotowe i przetestowane → tłumaczenie.
 
-`download_file` stages into `<repo>/google_drive/` (inside the git tree): **always copy the file
-out and delete the in-repo copy** so game data never lands in git.
+## 8. Komendy (PC użytkownika, PowerShell)
+```powershell
+cd D:\SRWOE\mtgcrawler\srw-oe-translation
+# patch ISO z rozbudowanego drzewa:
+python tools\iso_pack.py patchiso "D:\SRWOE\iso\Super_Robot_Taisen_OE_v1.08_JPN_PSP-PLAYME\Super Robot Wars OE (Japan).iso" "D:\SRWOE\patch.iso" "D:\SRWOE\patch"
+# grow jednego pliku event:
+python tools\grow_event_text.py <member.bin> --at <off> --text "<EN>" -o <out.bin> --check
+# eksport/sceny event:
+python tools\extract_scenes.py eventP00.cpk --out scenes.json
+# repack CPK (PAC):
+python tools\configst_pack.py pack <orig.cpk> --replacements rep.json --out <out.cpk>
+# repack sysmes (równa długość / shift):
+python tools\sysmes_pack.py <in.cpk> <out.cpk>          # equal-length
+python tools\sysmes_shift.py <in.cpk> <out.cpk>         # grow (NIE dla menu tytułowego)
+```
 
-## 5. Proven build hashes (what booted / what crashed)
-
-- Booted: stored-no-growth `6752f04ed6d6dd06b869d47ffe868193`; same-length content
-  `fa5319f5f930cf7114e168e89888d4a9`; EN same-length `391770431ef5efd32e46b40777461a38` (renders
-  3 lines); **jp grown (fixed)** `cecd72631f73d469131e42eb42cc177e` (boots); en grown
-  `4f82950c3b9074a248d8f9fa42b5f4ec` (renders, line 2 clipped by width).
-- Crashed (do not reuse): unaligned grown `14e0d138…`/`91118db8…`; aligned-stored grown
-  `cf1e703c…`/`ee40c5b4…`.
-
-## 6. Remaining process (status 2026-10-10)
-
-1. **Apply step — DONE.** `tools/apply_strings.py` (tested, 5 unit tests). Closes
-   read → translate → write; enforces the 46-wide budget and source-match before writing.
-2. **ISO patching — use `patchiso`, not `repackiso`.** From-scratch rebuilds (`repack_iso`/
-   `repack_from_iso`) round-trip in our reader but did NOT boot a real UMD (identical SazThread
-   null-deref, PC 08b3d374, before/after a case fix) -- a rebuild misses UMD metadata. `patch_iso`
-   instead copies the original verbatim and splices patched members (append + directory-record
-   LBA/size + PVD volume-size update), preserving all UMD structure. User to run FAZA 1 (identity
-   patch of eventP00.cpk) then FAZA 2 (real patch) -- see `REPACK_GUIDE.md`.
-3. **UI / names / menus export — STARTED, see `docs/UI_NAMES.md`.** Key facts: `u16tbl.cpk`
-   holds the game's `jis2ucs`/`ucs2jis` encoding tables (ASCII passes through → rendering is
-   UCS; Latin availability is a *font* question). `imenu` `*Dictionary*` members are u32 offset
-   maps, not name strings. `u16tbl` (constant-storage) and `system` (CpkMode 0) need a new
-   write path. `font.cpk` is a single CpkMode-0 glyph blob (`ID00000`), but the **Latin gate is
-   already PASSED**: the in-game English dialogue rendered A–Z/a–z/punctuation, so the dialogue
-   font has Latin; a blank UI string later would imply a separate UI font. `mesbmp` likely images.
-
-## 7. Pitfalls (each cost real time)
-
-- Alignment was *not* the crash cause (two crashes shared the same PC). Stored-vs-compressed
-  was *not* either (stored control booted). The inner size field was.
-- The `google_drive` connector must be re-loaded via `list_connector_tools` every turn.
-- Local-only files (`/home/user/src`, `/home/user/out2`) may not persist across sessions; the
-  Drive copies are the durable store. Re-download by Drive id when missing.
-- `local/` is gitignored on purpose; never commit the Japanese script or game binaries.
-- Session/branch is fixed to `arena/c656a5df-mtgcrawler`; commit and push only there.
+## 9. Znane pułapki (nie powtarzaj)
+- Shift/grow **menu tytułowego** = rozjazd (stałe offsety zewnętrzne). Tylko equal-length.
+- `apply_edits` (przebudowa z mapy przesunięć) rozjeżdża referencje zewnętrzne → garble.
+- In-place `v>=off` psuje własny base pointer → używaj `v>off`.
+- `verify` musi usuwać klucze edycji (angielski ASCII niewidoczny dla multisetu JP).
+- `compress_literal` (rozszerzanie) CRASHOWAŁO w grze — używaj tylko shrink/identity w crilayla.
+- Nie nazywaj projektu przetłumaczonym; nie commituj binariów gry.
