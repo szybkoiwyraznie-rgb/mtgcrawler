@@ -35,6 +35,25 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import speaker_names as SN  # noqa: E402
+import token_solve as TS  # noqa: E402
+
+_TOKEN_PH = re.compile(r"\{0F ([0-9A-F]{2})\}")
+
+
+def apply_known_tokens(name: str) -> tuple:
+    """Replace {0F xx} placeholders by the verified voiced-kana map. Returns (name, fully_mapped)."""
+    toks = [int(m.group(1), 16) for m in _TOKEN_PH.finditer(name)]
+    if not toks:
+        return name, True
+    ok = True
+    out = name
+    for t in toks:
+        ch = TS.TOKEN_MAP.get(t)
+        if ch is None:
+            ok = False
+            break
+        out = _TOKEN_PH.sub(ch, out, count=1)
+    return out, ok
 
 KEY_OFF = SN.KEY_OFF
 SLOT = SN.SLOT
@@ -167,6 +186,11 @@ def main(argv=None) -> int:
             cands.sort(key=lambda c: (not c["marker"], c["file"], c["offset"]))
             if cands:
                 row["name"] = cands[0]["name"]
+                mapped, all_ok = apply_known_tokens(cands[0]["name"])
+                if all_ok and mapped != cands[0]["name"]:
+                    row["name_raw"] = cands[0]["name"]
+                    row["name"] = mapped
+                    row["token_mapped"] = True
                 row["source"] = "config_raw" if "{0F" in cands[0]["name"] else "config_raw_clean"
                 row["confidence"] = "marker" if cands[0]["marker"] else "unmarked-review"
                 row["raw_candidates"] = len(cands)

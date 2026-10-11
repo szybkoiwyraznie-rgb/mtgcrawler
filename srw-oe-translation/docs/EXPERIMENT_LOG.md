@@ -1887,3 +1887,18 @@ Inputs (sha256, Drive copies in google_drive/, gitignored):
 9. Tests: `tests/test_battle_members.py` (6 synthetic tests) pass; `test_speaker_names` and `test_speaker_map` still pass (16 total).
 10. Outputs (local/, gitignored): `battle_members.json`, `speaker_names_all.json`, `SPEAKER_NAMES_ALL.md`,
     `dialogue_lines_per_key.json`, `font_ID00000.bin`.
+
+## 2026-10-11 (session 2, part 2) — token map, unit lists, script labels, item table
+1. **Token map (0x0F xx)**: alignment of token strings with plain strings (`tools/token_solve.py`).
+   Candidates for 0x20–0x39 follow the voiced-katakana order. Control: correct order 1218/4059 plain
+   matches; shifted +1, shifted -1, reversed: 0 each. Token values outside 0x20–0x39 are not mapped.
+   Applied in `name_union.py` (`apply_known_tokens`): all 40 token names now have no placeholder.
+2. **Unit list** (`unit_list00.bin`): records begin with a CP932 unit name (mecha) and contain pilot
+   keys as u16 runs. Pilot keys with names are found; unnamed keys are not in any config name slot.
+3. **Unnamed keys**: 38 with no config name (14 dialogue, 24 battle-only). 10 of the 14 dialogue keys
+   have a script label (`tools/script_labels.py`, output `local/script_labels.json`, 4064 of 12738
+   dialogue records matched to a script line). Labels are calibration only; kept separate.
+4. **srwDL_Item00.bin**: offset table at byte 4 (74 entries). Name field not found yet.
+5. Failures: first attempt at linking unit_list keys used only u16 with marker; no hits for the 38 keys.
+   Shift-test of the token map was needed to rule out coincidences. Script aligner `align_script.py`
+   only covered eventP00; `script_labels.py` covers all event containers.

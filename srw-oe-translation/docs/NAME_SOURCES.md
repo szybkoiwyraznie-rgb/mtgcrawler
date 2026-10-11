@@ -68,8 +68,10 @@ All in the `config00.pac` (disc side, `config00.cpk`) and `config01.pac` (`confi
 - **wp_list (weapons)**: pool format holds 84 records but slots 1–2 contain small integers, not
   names. Weapon names exist as CP932 strings in config00/config01 (weapon words found in raw bytes
   of config00..08 and in mesbtl). Which table points to them is `[OTWARTE]`.
-- **srwDL_Item00.bin** (34 566 bytes) does not match the count@0 pool. Header starts
-  `0x828C, 0x12C, 0x4B8, …`. Layout `[OTWARTE]`.
+- **srwDL_Item00.bin** (34 566 bytes): offset table from byte 4 with 74 entries (first offset 300 =
+  (300-4)/4 entries; monotonic; last offset in range). The word at byte 0 (0x828C) is not a count.
+  Records are 88–132+ bytes, first fields look numeric (u16 pairs, e.g. price-like 10000). Strings
+  are not at absolute file offsets (tested: 0x2454 is not text). Name field `[OTWARTE]`.
 - **unit_list00 / charalist00**: no pool header; fixed-width text-like blocks. Layout `[OTWARTE]`.
 
 ## 5. Control bytes: the 0x0F escape
@@ -78,9 +80,27 @@ All in the `config00.pac` (disc side, `config00.cpk`) and `config01.pac` (`confi
   often 0x00 (551), then 0x34, 0x0A, 0xB4–0xB6 (half-width katakana), 0x30, 0x2A. `[ZWERYFIKOWANE]`
 - In character names the pattern is `0x0F xx` where xx is 0x20–0x7E. Across 54 names with tokens
   the most frequent xx values are 0x26 (10), 0x38 (6), 0x20 (6), 0x2F (5), 0x2A (5). `[ZWERYFIKOWANE]`
-- Meaning of xx: `[HIPOTEZA]` a glyph index into a secondary font, most likely a dakuten or
-  extra katakana (the token sits between kana that suggest a dakuten form). Not proven and not
-  tested against the font. Context examples are in `local/`.
+- **Meaning of xx, 0x20–0x39 (`[ZWERYFIKOWANE]` statistically):** token 0x20 + i stands for the
+  i-th voiced or half-voiced katakana in the order ガギグゲゴザジズゼゾダヂヅデドバパビピブプベペボポヴ.
+  Evidence: 4059 token strings fully mapped by this table; 1218 of them reconstruct to a plain
+  string found elsewhere in the game (configs and dictionaries). A control test with the same
+  characters in a shifted, reversed or reflected order gives 0 hits. Tool: `tools/token_solve.py`
+  (`TOKEN_MAP`, `apply_token_map`). Not yet verified in-game.
+- Token values outside 0x20–0x39 (about 100 distinct values, mostly with 1–5 occurrences) are NOT
+  mapped. Some of them may be other glyph sets (small kana, symbols). `[OTWARTE]`
+
+## 5b. Unit-list records (`unit_list00.bin`)
+
+- Each record starts with a CP932 unit name (e.g. a mecha name) and then fixed-width numeric fields.
+  The same token sets appear in these names (0x0F 0x26 inside a mecha name = ジ). `[ZWERYFIKOWANE]`
+- Pilot speaker keys appear inside records as u16 values (at least 2–3 keys per record, often in
+  runs such as main pilot / sub pilots). This links units to pilot keys. `[ZWERYFIKOWANE]`
+- Record boundaries are not yet decoded; the offset table (if any) is `[OTWARTE]`.
+- Charalist (`charalist00.bin`) uses the same name-slot layout as the configs (key at +0x14,
+  marker 0x6401 at key+10); its names are half-width katakana (NFKC applies). `[ZWERYFIKOWANE]`
+- The 38 keys without any name have NO name slot in any config table (tested u32 and u16 keys with
+  and without marker). Ten of them have a script label from the user's own script copies
+  (`tools/script_labels.py`). Those labels are calibration only; they are NOT config names.
 
 ## 6. Font container (`font.cpk`, USRDIR)
 
