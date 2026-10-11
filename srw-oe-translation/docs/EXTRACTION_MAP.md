@@ -48,8 +48,18 @@ Bitmaps/faces/font: `mesbmp00`, `face00`, `font`, `bmp00`, `svicon`. 3D/anim (on
 "シーン/ルート" names): `robo00`, `lmap`, `btlcam`, `efmodel`, `efclump`, `smap`, `sprstd00`,
 `bg2d`, `mov00`. Conversion tables: `u16tbl`.
 
-## DLC note
+## DLC note — the DLC data files are the big name source (verified)
 
-Beyond the ISO, the DLC catalog adds the `eventP0x` chapters (events, covered) and the `srwDL_*`
-dictionary content in `imenu00` (covered by extract_tables). Run the same tools over the unpacked
-DLC `USRDIR`/`SAVEDATA` equivalents to pick those up.
+Drive DLC folder `155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU` holds per-chapter (01-08) data files named
+`*.EDAT` that are **already decrypted plain CPKs** (header `CPK `), so the extractors read them
+directly (extension is irrelevant). Per chapter there are `config0X`, `mesbtl0X`, `eventP0X`,
+`imenu0X`, `credit0X`, plus audio/texture/binary (`robo/face/mesbmp/voice/BgmSet/sprstd/bacb/mov/bseq/bmp`).
+
+Verified on `config07.EDAT` (a plain CPK): it is a **character/unit dictionary** — pilot names,
+nicknames (愛称：), voice actors (声優：), series titles and mech names, e.g. コーウェン／三宅健太／
+チェンジ！！ゲッターロボ 世界最後の日／スティンガー／真・ポセイダル／重戦機エルガイム／装甲騎兵ボトムズ／
+イプシロン. NUL-separated -> `extract_tables.py` yields 902 clean strings.
+
+So, beyond the ISO: run `extract_tables.py` over the DLC `config01..08` + `imenu0X` (roster names,
+nicknames, VAs, series, mechs) and `mesbtl01..08` (per-chapter battle quotes); `export_strings.py`
+over `eventP01..P08` (events). These roughly double the ISO's name/text content, as expected.

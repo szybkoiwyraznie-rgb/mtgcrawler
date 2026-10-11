@@ -1635,3 +1635,12 @@ like a real member. Suite 322 OK.
   So tacsys/tactics/taclevup/navisys/logodata/system are BINARY, not text. EXTRACTION_MAP corrected.
 - extract_structured: added an ITOC-only (CpkMode 0) fallback via cpk_table (data_base+file_offset)
   so containers without a TOC still open. Suite 326 OK.
+
+## 2026-10-11 — DLC data files are decrypted CPKs holding the roster names (verified)
+- Drive DLC folder 155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU has per-chapter (01-08) config0X/mesbtl0X/
+  eventP0X/imenu0X/credit0X .EDAT files that are ALREADY plain CPKs (header "CPK "), so extractors
+  read them directly. config07.EDAT verified = character/unit dictionary (pilot names, 愛称：,
+  声優：, series titles, mech names: コーウェン/三宅健太/チェンジ！！ゲッターロボ 世界最後の日/スティンガー/
+  真・ポセイダル/重戦機エルガイム/装甲騎兵ボトムズ/イプシロン). extract_tables -> 902 clean strings.
+- So DLC config01..08 + imenu0X (names) and mesbtl01..08 (quotes) roughly double the ISO's name/text
+  content. EXTRACTION_MAP DLC section updated with the folder id + tool mapping.
