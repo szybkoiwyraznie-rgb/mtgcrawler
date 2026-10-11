@@ -1929,3 +1929,9 @@ No game files written. Game text only under `local/`.
    with item or weapon names (not item names). Reference00 28/28 at relpos 45. DLC_ID00 41 records, relpos 57/58.
    configst `srwDL_Skill_Tag.bin` 133/151 at relpos 28. Unit list, charalist, robolist, Skill00/01–08 have no
    first-offset table at byte 4 (the reader does not apply).
+9. Unit list (`unit_list*.bin`): all 19 members are whole multiples of 384 bytes (393 records). Base name at
+   offset 0, display name with variant at offset 140 (equal in 200, longer in 45). Pilot-slot test: named keys
+   appear in pilot offsets but small numeric values collide with dictionary keys (366/393), so not validated.
+   The 14 dialogue no-name keys do not occur in pilot slots (hits only at numeric offsets).
+   Tool `tools/unit_records.py`; `name_units` now includes category `unit` (393 rows, 267 unique).
+   Tests: 367 OK, 1 skipped.

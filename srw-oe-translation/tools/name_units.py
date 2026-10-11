@@ -6,6 +6,7 @@ Categories and where each name lives (see docs/NAME_SOURCES.md):
 * weapon        : wp_list*.bin records, inline CP932 name at relpos 42/44 (tools/inline_names.py).
 * item          : srwDL_Item*.bin / srwDL_ItemDrop.bin records, inline name (inline_names.py).
 * mecha         : srw_DL_RoboDictionary*.bin count@0 pools, string pointer slot 3.
+* unit          : unit_list*.bin 384-byte records: base name (+0) and display name with variant (+140).
 
 Each row carries:
   source_ja     : Japanese name (token placeholders already replaced by the verified map where possible)
@@ -36,7 +37,7 @@ import speaker_map as SM  # noqa: E402
 import inline_names as IN  # noqa: E402
 
 HEADER = ["category", "table", "container", "record", "speaker_key", "source_ja", "raw_has_token",
-          "placement", "en"]
+          "placement", "en", "field"]
 
 
 def robo_names(blobs):
@@ -109,6 +110,8 @@ def main(argv=None) -> int:
     ap.add_argument("--imenu", required=True, type=Path)
     ap.add_argument("--speakers", required=True, type=Path)
     ap.add_argument("--inline", required=True, type=Path)
+    ap.add_argument("--unit-records", type=Path, default=None,
+                    help="local/unit_records.json from tools/unit_records.py")
     ap.add_argument("--out", required=True, type=Path)
     args = ap.parse_args(argv)
 
@@ -143,6 +146,16 @@ def main(argv=None) -> int:
                 else:
                     blobs.append((p.name, m, b))
     rows.extend(robo_names(blobs))
+
+    ur = args.unit_records
+    if ur and ur.exists():
+        for r in json.loads(ur.read_text(encoding="utf-8")):
+            for field, slot in (("name", "base"), ("name_display", "display")):
+                if r.get(field):
+                    rows.append({"category": "unit", "table": r["member"], "container": r["container"],
+                                 "record": r["record"], "speaker_key": "", "source_ja": r[field],
+                                 "raw_has_token": False, "placement": "inline", "en": "",
+                                 "field": slot})
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", encoding="utf-8", newline="") as f:

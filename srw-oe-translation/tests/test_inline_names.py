@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import inline_names as IN  # noqa: E402
 import name_units as NU  # noqa: E402
+import unit_records as UR  # noqa: E402
 
 
 def make_table(records):
@@ -58,6 +59,25 @@ class UniqueRowsTest(unittest.TestCase):
         self.assertEqual(len(u), 1)
         self.assertEqual(u[0]["occurrences"], 2)
         self.assertEqual(u[0]["locations"], "c1:a#3;c2:b#7")
+
+
+class UnitRecordTest(unittest.TestCase):
+    def test_384_record_name_display_and_key(self):
+        rec = bytearray(384)
+        base = "テスト".encode("cp932")
+        disp = "テスト／標準".encode("cp932")
+        rec[0:len(base)] = base
+        rec[140:140 + len(disp)] = disp
+        struct.pack_into("<H", rec, 98, 0x1195)
+        out = UR.decode_member("c.cpk", "unit_list00.bin", bytes(rec) * 2, {0x1195: "テスト人"})
+        self.assertEqual(len(out), 2)
+        self.assertEqual(out[0]["name"], "テスト")
+        self.assertEqual(out[0]["name_display"], "テスト／標準")
+        self.assertFalse(out[0]["name_copy_equal"])
+        self.assertEqual(out[0]["pilot_slots"][0]["name"], "テスト人")
+
+    def test_rejects_partial_record(self):
+        self.assertEqual(UR.decode_member("c", "unit_list00.bin", b"\0" * 100, {}), [])
 
 
 if __name__ == "__main__":

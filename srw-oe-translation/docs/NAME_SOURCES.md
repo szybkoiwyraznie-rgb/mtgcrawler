@@ -200,3 +200,23 @@ Other tables checked for inline names (same reader, read-only):
   Not yet checked against skill names in `srwDL_Skill00.bin`.
 * `unit_list*.bin`, `charalist*.bin`, `robolist.bin`, `srwDL_Skill0*.bin`: no count@0 or first-offset table at byte 4,
   so the inline reader does not apply. These need their own record decoding (section 5b).
+
+## 11. Unit-list records (`unit_list*.bin`), measured 2026-10-11
+
+Tool: `tools/unit_records.py` → `local/unit_records.json`. Also feeds `name_units` as category `unit`.
+
+* `[ZWERYFIKOWANE]` every `unit_list*` member is a whole number of **384-byte records**, no header, no
+  count word (config00–19: 393 records in total; unit_list00 = 84 records).
+* `[ZWERYFIKOWANE]` offset 0: base unit name, CP932, NUL-terminated (393/393 records have one).
+* `[ZWERYFIKOWANE]` offset 140: display name = base name + variant suffix after a full-width slash
+  (examples in local data only). Equal to offset 0 in 200 records, longer in 45, other in 2.
+  Unit names are therefore 267 unique texts (base + display).
+* `[HIPOTEZA]` u16 pilot-key candidates at offsets 98, 100, 102, 108, 110, 112. Named speaker keys appear
+  there, but small numeric values coincide with dictionary keys (366 of 393 records show a "named" value),
+  so the field is not validated. Do not use it as a speaker link until a known-pilot check passes.
+* `[ZWERYFIKOWANE]` the 14 dialogue keys with no name (source `none`) do not occur in any pilot slot. Their few hits
+  fall at numeric offsets 84–118. Conclusion: the unit list does not link these keys to a unit.
+* Numeric stat fields: u16 values at 64–96 and 118–132.
+
+Open for this table: a validated pilot-slot rule (test it on a pilot whose unit is known from the script),
+and the record layout beyond offset 132 (fields 204–344 hold stat-like values).
