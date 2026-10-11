@@ -1819,8 +1819,8 @@ like a real member. Suite 322 OK.
   Their name slot starts with a 2-byte token `0x0F xx`, where xx is an ASCII-range byte (0x20–0x7E).
   Tokens also appear inside names, e.g. a syllable split by a token. Decoding without the token table
   gives role labels with a faction/prefix plus a role suffix (兵 / 士官 / 乗り). The 11 config-only keys
-  show the same suffixes but no tokens. Examples (`[ZWERYFIKOWANE]` that these strings exist): 0x4e3 → full
-  name with suffix 士官; 0xd93 → full name with suffix 士官; 0x1054/0x1056 → faction prefix + 兵/士官.
+  show the same suffixes but no tokens. Examples (structure verified, names in local/ only): key 0x4e3 has a full
+  name ending in 士官; 0xd93 → full name with suffix 士官; 0x1054/0x1056 → faction prefix + 兵/士官.
 - Token table: NOT solved. `u16tbl.cpk` contains only JIS↔UCS tables (not the 0x0F codes). Dictionary-assisted
   solve gave noise (no consistent mapping). Next step: find the glyph table in the game binary/font, or
   check whether 0x0F xx is an index into the sysmes/configst font table.
@@ -1848,3 +1848,42 @@ like a real member. Suite 322 OK.
 - Dictionary record for Masaki: imenu19 record 0, key u16 at +0x40 = 0x1144 (already recorded).
 - Next step (not done): decode the quote members (text structure) and check whether the joining/special
   dialogue lines for 4420 sit in the same member or in another container.
+
+## 2026-10-11 (session 2) — font.cpk, configst, mesbtl structure, unified speaker table, name sources
+Environment: Python 3.11.2 (system). No pytest installed; tests run with `python3 -m unittest`.
+Inputs (sha256, Drive copies in google_drive/, gitignored):
+- font.cpk a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6 (242896 B, USRDIR)
+- configst.cpk e5e9892fb5a5be1e58de09d36aea6bf75e9a23ef88586318278cf040137b332b (USRDIR)
+- mesbtl19.EDAT 94ea17f60d8f0eee954b420987adab8b418b9b4da52ea78ffe46391860fdfa0f (FULL_DLC)
+- mesbtl00.cpk 51da60432ce26f7705e2b231713048d3ac85cd7fd80b81ec2b57f5f2b20c9a4a (USRDIR)
+- config00.cpk d38b0ccae89d460afcbd7ad3411391aaae8a9c3e77f2e9f6d7b9c317a3806582 (USRDIR)
+
+1. **Correction**: battle members `p<key>.pac` number 241 keys with quotes (earlier entry said 242;
+   the 242nd was the empty `p0` placeholder).
+2. **font.cpk** (`tools/font_probe.py`): one ITOC entry `ID00000`, CRILAYLA, 238800 -> 397504 bytes,
+   data at offset 4096. Archive header u32 0x10, 7, 0x20. Names `ank.fta`, `kanji22.fta`, `kanji21L.tbl`
+   style. `.tbl` = 2660 u16, 2561 are 0xFFFF, 99 populated. `[ZWERYFIKOWANE]` structure.
+   Token map NOT found here: populated index set does not line up with the 95 printable ASCII codes.
+   Failure: `cpk_table.read_cpk_table` returns `absolute_offset=None` for ITOC-only entries; the
+   probe handles only the one-entry case and fails closed otherwise.
+3. **configst.pac**: 0x0F appears 1021 times; the next byte is 0x00 in 551 cases. Escape, not a token table.
+4. **Pool/record formats** in config00/config01 (`.pac` index: name at entry+8, stride 0x28 from 0x10):
+   count@0 pools: CharaDictionary, RoboDictionary (68 / 75), Shop (182), Reference (28), DLC_ID (41),
+   wp_list00 (84), wp_list01 (99). RoboDictionary name = slot 3. Shop/Item/unit/charalist: not count@0 (`[OTWARTE]`).
+5. **Battle members** (`tools/battle_members.py`): 241 keys, 22 902 anchors. Anchor = u16 0x029 (low 12 bits)
+   at key-2; key u16 at record; quote CP932 text from key+8. Masaki (4420) = 164 records in `mesbtl19`.
+   Failure: first attempt raised KeyError on the empty `p0` member; fixed by skipping key 0.
+6. **Unified table** (`tools/name_union.py`): 339 keys (283 dialogue, 56 battle-only). Priority:
+   dict first record > config marker slot > config raw with `{0F xx}` placeholders (NFKC) > unmarked
+   config (review) > UNNAMED. Results: named 301 of 339; dialogue 276/283 (99.6 % of 12 738 lines named).
+   Failures fixed during the run: (a) strict filter dropped half-width kana; fixed with NFKC;
+   (b) single-byte half-width katakana (0xA1-0xDF) swallowed the following 0x0F; fixed; (c) unmarked
+   slots gave labels, fragments and digits; now rejected (digits, symbols, leading dash/prolonged mark).
+7. **Token analysis** (`[HIPOTEZA]`): the 0x0F xx byte is ASCII-range in all 54 names. Most frequent xx:
+   0x26 (10), 0x38 (6), 0x20 (6), 0x2F (5), 0x2A (5). Meaning not proven (glyph index or dakuten form?).
+8. **Still open**: 7 dialogue keys with no name (46 lines); 13 battle-only keys with no name; unit tables
+   (`unit_list00`, `charalist00`, `robolist`, `srwDL_Skill00`) not yet parsed. Two-record keys: rule is
+   first record (user decision). Duplicates checked earlier are identical.
+9. Tests: `tests/test_battle_members.py` (6 synthetic tests) pass; `test_speaker_names` and `test_speaker_map` still pass (16 total).
+10. Outputs (local/, gitignored): `battle_members.json`, `speaker_names_all.json`, `SPEAKER_NAMES_ALL.md`,
+    `dialogue_lines_per_key.json`, `font_ID00000.bin`.
