@@ -146,6 +146,14 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
    verify_pointers). Next: either RE the EVNT forward-offset table to make growth safe, or proceed
    to B (readable translation-source files) with growth-in-ISO as the known open blocker.
 
+83. **patch_iso ROOT CAUSE fixed and validated: identity patch now boots into chapter 1.** The
+   crash that plagued every variant was `patch_iso` writing the patched member at the unaligned
+   EOF while its directory record pointed at ceil(EOF/2048)*2048 (past the bytes); the game read
+   garbage for eventP00.cpk (constant PC 088a7378). Fix pads to a sector boundary first
+   (LBA=start/2048); regression test uses a non-aligned image. User confirms identity.iso enters
+   chapter 1. Remaining: a *modified* cpk member still crashes (user_main, PC 088caea0) -- the cpk
+   member encoding (expanding CRILAYLA + stale cpk header aggregate fields), i.e. growth-in-cpk.
+
 ## Not yet demonstrated
 
 - The one-click run has been run six times on Windows with the user's YACpkTool and game files (items 36, 42, 45, 46, 47, and 57). Extraction completeness is measured per package against its `-L` listing, whose three real column layouts are known and parsed (full, no ID column, no filename column with ID-named files). The latest run verified 453 of 497 packages; the remaining failures are the 42 colliding-name packages (whose entries are recovered separately under `hidden/` and verified against their listing sizes) and `robo01`/`robo03`, where one listed name each does not decode from the converter's console output. Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the `@UTF` table row encoding, and the formats inside the AFS2 audio inputs remain unknown.
