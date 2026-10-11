@@ -1644,3 +1644,16 @@ like a real member. Suite 322 OK.
   真・ポセイダル/重戦機エルガイム/装甲騎兵ボトムズ/イプシロン). extract_tables -> 902 clean strings.
 - So DLC config01..08 + imenu0X (names) and mesbtl01..08 (quotes) roughly double the ISO's name/text
   content. EXTRACTION_MAP DLC section updated with the folder id + tool mapping.
+
+## 2026-10-11 — configst repack: PAC layer solved + offset tables confirmed
+- configst.cpk -> one member configst.pac -> nested PAC of 21 srwDL_*.bin/sysmes.bin sub-files.
+  PAC layout reversed: header {u32 data_base=0x800, u32 count, u32 name_len=32}, directory of
+  40-byte entries {u32 offset, u32 size, char name[32]} at 0x10, sub-files 0x800-aligned, trailing
+  pad to 0x800. tools/configst_pack.py parse_pac/rebuild_pac reproduces configst.pac BYTE-IDENTICAL
+  (370688==370688) and shifts later offsets when a sub-file grows. +tests (2). Suite 328 OK.
+- Every sub-file starts with its own u32 OFFSET TABLE (srwDL_Item: 0x12c,0x4b8,0x518...;
+  srwDL_Spirit: 0x3c,0xf8,0x1bc...; sysmes: magic "SMES"+{id,offset}). So text is pointer-referenced,
+  not blind fixed slots -> growing a string + rewriting the table is feasible (same shape as EVNT).
+- Key sub-files: srwDL_Item.bin (items), sysmes.bin (system/menu messages), srwDL_Spirit.bin,
+  srwDL_Skill_Tag.bin, srwDL_Achievement.bin. NEXT: per-format sub-file string grower, starting with
+  sysmes.bin (menus show at boot -> the ISO crash test the user wants).
