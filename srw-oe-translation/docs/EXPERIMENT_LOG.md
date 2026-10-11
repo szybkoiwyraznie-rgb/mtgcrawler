@@ -1717,3 +1717,18 @@ like a real member. Suite 322 OK.
   updates SMES size. Suite 331 OK.
 - This shift patch is the boot test for the moving-pool case; if the menu renders clean, growth is
   validated and the same mechanism serves longer (growing) translations.
+
+## 2026-10-11 — speaker-key probe (HANDOFF §7.1, read-only) — HYPOTHESIS, not verified
+- Input: `eventP00.cpk` from `google_drive/` (local copy, not committed), chapter 1, 11 event members.
+- Method: `tools/speaker_probe.py` chains records by their u32 length from the earliest caption/narration
+  tag and keeps the clean chain (must end exactly at EOF). For each `0xc9` dialogue record it reads
+  u16 `+10` (the "key") and u16 `+18` (`0xffff` = monologue-style). Prints numeric keys only.
+- Result: 10/11 members yield a clean chain (DL101_70 needed the caption-start fix to be clean: 13 lines).
+  Totals: 16+43+115+80+31+71+61+30+13+114+47 = 620 dialogue lines. Distinct keys per member 2–19.
+- Observed pattern (numeric only): inside a conversation the key alternates between two values
+  (e.g. 0x1195 / 0x119e) and keys recur in runs; ABAB alternations are common (e.g. 30/115 in DL101_11).
+- Interpretation (hypothesis): the u16 at `+10` behaves like a per-line speaker/portrait state. NOT
+  verified. Not yet shown that it is a character-dictionary index or that the value maps to a name.
+- Next measurement: map the keys to `srwDL_CharaDictionary` (imenu00 / DLC) — require a dictionary entry
+  whose index/ID matches, and check speaker-change points against the `0x160` / `0x1b8` / `0x145` commands.
+- Tests: `tests/test_speaker_probe.py` (5 synthetic cases, no game data). Suite 336 OK (1 skipped).

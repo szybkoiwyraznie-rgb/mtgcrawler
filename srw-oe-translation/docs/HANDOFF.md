@@ -22,7 +22,7 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 - **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
   `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
   `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.
-- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **331 OK**).
+- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **336 OK**, 1 skipped).
 
 ## 2. Kontenery tekstu — klasyfikacja grow vs fixed
 | Kontener | Plik(i) | Tryb | Stan |
@@ -99,6 +99,11 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
 ## 7. Zadania OTWARTE (kolejność)
 1. **Dekodowanie mówcy** w EVNT: rozpoznać komendę portretu/postawi, wyciągnąć ID pilota,
    zmapować na `srwDL_CharaDictionary`, dopisać `speaker` do `extract_scenes`. (Monologi pomijamy.)
+   **Postęp (2026-10-11, HIPOTEZA):** `tools/speaker_probe.py` (read-only, tylko liczby) pokazuje, że
+   u16 na offsecie `+10` rekordu `0xc9` zmienia się per linia jak stan mówcy (w rozmowie naprzemienne
+   pary kluczy, np. `0x1195`/`0x119e`; 620 linii w 11 członkach eventP00). NIE zweryfikowane jako
+   indeks słownika. Następny krok: mapowanie na `srwDL_CharaDictionary` + sprawdzenie zmian mówcy
+   względem komend `0x160`/`0x1b8`/`0x145`. Dopiero po tym `speaker` idzie do tłumaczeń.
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
    znaleźć tablicę wskaźników/offsetów, zbudować `*_shift` z `verify` (wzór: `sysmes_shift`).
    Stałe zostaje tylko to, co nie ma wewnętrznych wskaźników i ma stałe offsety zewnętrzne.

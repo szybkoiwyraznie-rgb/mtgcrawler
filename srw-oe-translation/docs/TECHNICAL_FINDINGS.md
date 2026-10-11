@@ -261,3 +261,15 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - [YACpkTool repository and documentation](https://github.com/Brolijah/YACpkTool)
 - [Historical SRW OE CPK/EDAT discussion](https://gbatemp.net/threads/super-robot-wars-oe.351431/) — useful technical lead only; it is not a verified modern rebuild recipe.
 - [retro-trans/SRW-Z](https://github.com/retro-trans/SRW-Z) — workflow/review inspiration only. It targets a different PS2 game; its binary parsers are not assumed compatible with OE.
+
+## Dialogue key at record `+10` (0xc9) — working hypothesis (2026-10-11)
+
+- Observed (eventP00, numeric only, `tools/speaker_probe.py`): the u16 at record offset `+10` of
+  `0xc9` dialogue records takes a small set of values per scene; consecutive lines alternate between
+  two keys within a conversation, and keys recur in runs. The u16 at `+18` equal to `0xffff` marks
+  monologue-style lines (matches the existing `monologue` heuristic in `extract_scenes.py`).
+- Hypothesis: `+10` is a speaker/portrait state key. Unverified. Do not write it as a speaker name
+  until it is matched to `srwDL_CharaDictionary` and speaker-change points agree with the portrait
+  commands (`0x160`, `0x1b8`, `0x145`).
+- Known limit: 1 of 11 members (DL101_70) needs the earliest caption/narration start to form a clean
+  record chain; the chain must end exactly at EOF, otherwise the member is reported as unclean.
