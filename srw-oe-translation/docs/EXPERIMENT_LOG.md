@@ -1706,3 +1706,14 @@ like a real member. Suite 322 OK.
 - Result on the title menu: LIBRARY/REFERENCE/CREDITS/DOWNLOAD LIST translated at their ORIGINAL
   offsets (0x91b0/0x91c0/0x91d0/0x91dc), ゲームスタート left JP (shared tail), pointer set + sysmes length
   byte-identical. Suite 330 OK. Growth + game start need tail relocation (next RE step).
+
+## 2026-10-11 — shift (grow/shrink) sysmes path built + integrity-verified
+- tools/sysmes_shift.py: replaces strings with different-length ones, shifts the pool by delta, and
+  rewrites EVERY pool-range offset word strictly after the edit (the edited string's own pointer keeps
+  its position); skips strings with a shared tail. This is the real "needs shifting" path.
+- Integrity check (multiset of decoded JP strings before/after) confirms NO non-edited string changed
+  (integrity ok: True) for translating the 4 menu labels (which shrink -> pool moves).
+- +tests/test_sysmes_shift.py (1): _grow shifts the later pointer by delta, keeps the own pointer,
+  updates SMES size. Suite 331 OK.
+- This shift patch is the boot test for the moving-pool case; if the menu renders clean, growth is
+  validated and the same mechanism serves longer (growing) translations.
