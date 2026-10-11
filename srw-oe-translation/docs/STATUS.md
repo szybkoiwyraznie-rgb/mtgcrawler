@@ -185,3 +185,4 @@ Extraction, the table reader, the colliding-name recovery, and the translator wo
 5. Keep repack, write-back, and reinsertion blocked. The recovered colliding-name entries are read-only; no container the converter cannot write completely is repacked.
 
 The agent sandbox has neither the game files nor the converter, so only the user's machine can run the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).
+93. `tools/extract_tables.py` added (dumps NUL-separated CP932 strings from a cpk to `local/tables/*.json`, fill-target/apply shape like events) + `tests/test_extract_tables.py` (suite 324 OK). Full category→container map of translatable containers recorded in `docs/EXTRACTION_MAP.md`: events=`eventP00..P09`; string tables=`mesbtl00`/`imenu00`(DLC char dict)/`config00`/`cprt000x`; structured(open)=`configst/system/tacsys/tactics/taclevup/navisys/logodata`. DLC is in translation scope.

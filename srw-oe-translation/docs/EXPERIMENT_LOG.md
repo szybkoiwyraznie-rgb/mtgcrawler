@@ -1597,3 +1597,18 @@ to a sector boundary first (LBA=start/2048); identity.iso boots chapter 1. (2) t
 compressor used forward LCP matches but the decoder copies back-references *downward*, so matches
 must be descending; fixed, it round-trips and shrinks (27456->6622), giving FileSize<ExtractSize
 like a real member. Suite 322 OK.
+
+## 2026-10-11 — Extraction map + extract_tables (non-event strings)
+- User ran `scan_translatable.py` over the unpacked USRDIR (63 files). Full
+  category→container map recorded in **docs/EXTRACTION_MAP.md**. Key: events =
+  `eventP00.cpk` + DLC `eventP01..P09`; NUL-separated string tables =
+  `mesbtl00.cpk` (battle quotes), `imenu00.cpk` (incl. `srwDL_CharaDictionary00.bin`
+  = DLC character names/encyclopedia), `config00.cpk` (map/terrain names),
+  `cprt0001..0004.cpk` (credits). **Structured** (not NUL-sep) = `configst/system/
+  tacsys/tactics/taclevup/navisys/logodata` → need layout parsers (open).
+- Added `tools/extract_tables.py`: dumps every NUL-separated CP932 string in a cpk
+  to `local/tables/*.json` rows `{member,offset,source,source_bytes,target}`, the
+  same fill-target/apply shape as events, so it reuses the proven growth method.
+  + `tests/test_extract_tables.py` (2). Suite 324 OK.
+- User re-flagged: the **DLC catalogue is in scope** for translation too (not just
+  the disc ISO).
