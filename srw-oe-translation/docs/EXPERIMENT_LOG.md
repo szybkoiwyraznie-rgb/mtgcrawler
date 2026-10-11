@@ -1761,3 +1761,29 @@ like a real member. Suite 322 OK.
 - Artifact noted and fixed: a repeated glob loaded imenu00 twice and inflated duplicate counts. The
   speaker-map tool dedupes files.
 - Suite 351 OK, 1 skipped. Corrects the earlier 9/60 ID-slot result, which was not the speaker field.
+
+## 2026-10-11 — speaker names: two technical sources, resolver `tools/speaker_names.py`
+- Inputs (read-only, copies in `google_drive/`, gitignored): `config00.cpk`, `config01–08` (`.EDAT`, all CPK
+  containers with one `.pac` member each; `config04/05/06/08` downloaded this session). Event containers
+  `eventP00.cpk`, `eventP01.EDAT`, `eventP02.EDAT` (CPK headers `43 50 4B 20`). Hashes not recorded here.
+- Source A — CharaDictionary (imenu*): record string[0] is the full character name. Linked to speaker key
+  via `speaker_map` (u16 at record +0x40). Verified on 10 records by reading the strings (local only).
+- Source B — `config*.pac` name slot: u32 key at slot+0x14, slot = 16 bytes, NUL-terminated CP932.
+  Marker u16 0x6401 at key+0x0A is present on some records only (`confidence=marker`); not universal.
+  Probe found 2275 keys in config scan, but most are noise (single-character junk); used only as fallback.
+- Rule finding: marker is NOT a reliable record filter (named characters use other marker values). The earlier
+  anchored-slot rule (35/54) was superseded.
+- Resolver precedence: dictionary name wins; config name only when no dictionary link exists.
+- Results (probe keys from `speaker_probe.py` on eventP00/P01/P02; union = 177 keys):
+  - `resolve`: dict=154, config=14, none=9.
+  - Chapter 1 (eventP00, 60 keys): named 60/60.
+  - Chapter 2 (eventP01+P02, 167 keys): named 158/167.
+  - Unresolved ch2 (keys only): 0x4e3, 0x4e8, 0xd93 (no source); 0xc71, 0xd89, 0x1054, 0x1056, 0x105f, 0x1062
+    (generic-role keys; no clean name-slot in any config; script labels only indicate generic roles).
+- Conflicts: 98 keys where config scan produced a name list that disagrees with the dictionary name. Config
+  candidates for these keys are mostly junk; dictionary name kept. Not resolved further.
+- Tests: `tests/test_speaker_names.py` (4 synthetic cases). Full suite: 355 tests, OK, 1 skipped.
+- Artifacts (local only): `local/speaker_names_resolved.json`, `local/speaker_map_ch2.json`,
+  `local/probe_eventP0{0,1,2}.json`, `local/chapter_key_check.json`.
+- Not done: config scan does not cover generic ch2 roles; the other `config*` containers (09+) not checked;
+  in-game check of any speaker label not done.

@@ -112,6 +112,11 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
    Nie znaleziono 4 kluczy (0x4b1, 0x4b6, 0xec0, 0xec1 — 34 linie). `tools/speaker_map.py` (liczby;
    tekst rekordów tylko do `local/`). **Nie zrobione:** pełne sprawdzenie transkrypcją innych mówców oraz
    weryfikacja w grze.
+   **Imiona mówców (2026-10-11):** `tools/speaker_names.py resolve` łączy dwa źródła: (A) imię pełne =
+   string[0] rekordu słownika powiązanego kluczem (`speaker_map`); (B) sloty imion w `config*.pac`
+   (u32 klucza na +0x14 slotu 16 B, CP932). Pierwszeństwo ma słownik. Wynik: rozdział 1 — **60/60**
+   kluczy; rozdział 2 — **158/167**. Pozostałe 9 kluczy (postacie generyczne i 3 bez źródła) jest
+   OTWARTE — lista kluczy w `EXPERIMENT_LOG.md`. Imiona zostają w `local/` (nie w git).
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
    **Postęp (2026-10-11):** `tools/dict_pool_shift.py` — `srwDL_CharaDictionary*` ma zmierzony układ
    (12 wskaźników u32 na rekord + ciągłe stringi NUL + stałe bloki ID na +0x30..+0x3c). Rebuild bez

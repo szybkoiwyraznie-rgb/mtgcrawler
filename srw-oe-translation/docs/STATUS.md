@@ -202,3 +202,7 @@ The agent sandbox has neither the game files nor the converter, so only the user
    0xe93 ambiguous (records 86, 87); 0x4b1/0x4b6/0xec0/0xec1 unmapped. Seven named characters agree with a
    user-supplied line transcript. The mapping is numeric and committed; game text stays in `local/`.
    Suite 351 OK (1 skipped).
+98a. **Speaker names resolved (2026-10-11).** `tools/speaker_names.py resolve` combines CharaDictionary
+   names (string[0]) with config name slots. Chapter 1: 60/60 keys named. Chapter 2: 158/167 keys named;
+   9 generic-role keys remain without a name source (listed by key in EXPERIMENT_LOG). Names stay in `local/`.
+   Suite 355 OK (1 skipped).
