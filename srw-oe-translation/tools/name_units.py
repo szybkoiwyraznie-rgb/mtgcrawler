@@ -122,7 +122,7 @@ def main(argv=None) -> int:
         rows.append({"category": "speaker", "table": "CharaDictionary/config slot", "container": "",
                      "record": "", "speaker_key": r["key"], "source_ja": r["name"],
                      "raw_has_token": "name_raw" in r, "placement": "pointer" if r["source"] == "dict" else "inline",
-                     "en": ""})
+                     "en": "", "field": r.get("confidence", "")})
 
     for r in json.loads(args.inline.read_text(encoding="utf-8")):
         if not r.get("name"):
