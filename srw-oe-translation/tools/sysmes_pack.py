@@ -45,26 +45,63 @@ def grow_one(sm: bytes, off: int, new_text: str) -> bytes:
         raise ValueError(f"0x{off:x} is not a string start")
     nxt = next((s for s in starts if s > off), len(sm))
     old_total = nxt - off
+    old_len = len(sm)
     nb = _pad4(new_text.encode("cp932") + b"\x00")
     delta = len(nb) - old_total
     new = bytearray(sm[:off] + nb + sm[nxt:])
-    struct.pack_into("<I", new, 4, len(new))  # SMES size field
-    sset = set(starts)
+    # The table holds {u32 pool_offset, u32 id} pairs. Every u32 in the table
+    # region whose value lies inside the pool is an offset and must shift by
+    # delta once the pool moves (ids are small, < POOL_MIN, and stay put).
     for pos in range(0, POOL_MIN, 4):
         v = struct.unpack_from("<I", new, pos)[0]
-        if v in sset and v >= off:
+        if POOL_MIN <= v < old_len and v >= off:
             struct.pack_into("<I", new, pos, v + delta)
+    struct.pack_into("<I", new, 4, len(new))  # SMES size field
     return bytes(new)
 
 
 def apply_edits(sm: bytes, edits) -> bytes:
-    for old, new in edits.items():
-        while True:
-            hits = [a for a, t in es.scan_runs(sm, 1, 2) if t == old and a >= POOL_MIN]
-            if not hits:
-                break
-            sm = grow_one(sm, hits[0], new)
-    return sm
+    """Rebuild the text pool from scratch so resizing is always safe.
+
+    The pool shares string tails (several table offsets point into the middle of
+    other strings), so shifting bytes in place corrupts neighbours. Instead we
+    give every referenced string its own copy in a fresh pool and rewrite every
+    offset word in the table to the new location. All {offset,id} entries keep
+    resolving to the same text (translated where requested), at any length.
+    """
+    old_len = len(sm)
+    fields = [p for p in range(0, POOL_MIN, 4)
+              if POOL_MIN <= struct.unpack_from("<I", sm, p)[0] < old_len]
+    # every referenced offset plus every detected string start, so unreferenced
+    # strings are carried along too (nothing is dropped)
+    offsets = sorted({struct.unpack_from("<I", sm, p)[0] for p in fields}
+                     | set(string_starts(sm)))
+
+    def text_at(o: int) -> bytes:
+        end = sm.find(b"\x00", o)
+        return sm[o:end if end >= 0 else old_len]
+
+    remap = {}
+    pool = bytearray()
+    for o in offsets:
+        t = text_at(o)
+        try:
+            key = t.decode("cp932")
+        except Exception:
+            key = None
+        if key in edits:
+            t = edits[key].encode("cp932")
+        remap[o] = POOL_MIN + len(pool)
+        nb = t + b"\x00"
+        pool += nb + b"\x00" * ((-len(nb)) % 4)
+
+    new = bytearray(sm[:POOL_MIN])
+    for p in fields:
+        o = struct.unpack_from("<I", sm, p)[0]
+        struct.pack_into("<I", new, p, remap[o])
+    struct.pack_into("<I", new, 4, POOL_MIN + len(pool))  # SMES size field
+    new += pool
+    return bytes(new)
 
 
 def rebuild_cpk(src: Path, dst: Path, edits) -> None:

@@ -1672,3 +1672,13 @@ like a real member. Suite 322 OK.
 - User runs sysmes_pack.py on THEIR configst.cpk to emit the patched cpk for the boot test (menu shows
   at start -> instant crash feedback if wrong). Reference scheme is partly pointer-based; if the title
   menu reads by fixed stride, a crash will reveal it and the grower gets adjusted.
+
+## 2026-10-11 — sysmes garble root-caused + pool-rebuild repacker (safe growth)
+- Boot test: no crash but title menu garbled (LOAD LIST / ル). Root cause: sysmes text pool SHARES
+  string tails (table offsets like 0x9188/0x9198/0x91a4 point INTO other strings) and the menu reads
+  via a {u32 offset, u32 id} table (~0x2300). In-place growth shifted bytes and clobbered shared tails.
+- Fix: tools/sysmes_pack.py apply_edits now REBUILDS the pool from scratch: every referenced offset
+  (and every detected string start) gets its own copy in a fresh pool; every offset word in the table
+  is rewritten to the new location; SMES size updated. Resizing is now always safe; shared tails become
+  independent copies so nothing corrupts. Verified: id 0x45e -> START GAME, tails keep their own text,
+  all 5 English labels present, 330 tests OK.
