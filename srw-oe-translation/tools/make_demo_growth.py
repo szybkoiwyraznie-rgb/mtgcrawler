@@ -1,12 +1,16 @@
-"""Produce a *grown* eventP00.cpk for the ISO patch boot test (FAZA 2).
+"""Produce a modified eventP00.cpk for the ISO patch boot test (FAZA 2).
 
-This is a process demo, not a translation: it lengthens ONE narration record in
-DL100_01.bin so the resulting eventP00.cpk is larger than the original, then the
-user patches it into the ISO with `iso_pack.py patchiso` and boots it. If it boots,
-edit -> repack -> patchiso -> boot with growth is proven on a real UMD.
+Process demo, not a translation. By default it lengthens ONE narration record in
+DL100_01.bin (so the cpk is larger than the original) and writes the result with the
+surgical cpk swap; the user then patches it into the ISO with `iso_pack.py patchiso`.
+
+With `--control` the member is decompressed and stored back UNCHANGED (same content,
+stored instead of CRILAYLA). That isolates the cpk write path from the growth: if the
+control build boots, the writer is fine and any crash of the grown build is the growth;
+if the control build crashes, the cpk writer itself is wrong.
 
 Usage:
-    python tools/make_demo_growth.py <eventP00.cpk> <output.cpk>
+    python tools/make_demo_growth.py <eventP00.cpk> <output.cpk> [--control]
 """
 from __future__ import annotations
 
@@ -26,11 +30,13 @@ EXTRA = " GROWTH TEST: THIS LINE IS NOW LONGER AND IN ENGLISH."
 
 
 def main(argv=None) -> int:
-    argv = sys.argv[1:] if argv is None else argv
-    if len(argv) != 2:
-        raise SystemExit("usage: make_demo_growth.py <eventP00.cpk> <output.cpk>")
-    src = Path(argv[0])
-    out = Path(argv[1])
+    args = list(sys.argv[1:] if argv is None else argv)
+    control = "--control" in args
+    args = [a for a in args if a != "--control"]
+    if len(args) != 2:
+        raise SystemExit("usage: make_demo_growth.py <eventP00.cpk> <output.cpk> [--control]")
+    src = Path(args[0])
+    out = Path(args[1])
 
     cpk = cpk_write.load(src)
     member = next((m for m in cpk.members if m.name == MEMBER), None)
@@ -43,23 +49,27 @@ def main(argv=None) -> int:
         if len(blob) != member.extract_size:
             raise SystemExit(f"{MEMBER}: decompressed to {len(blob)}, TOC says {member.extract_size}")
 
-    off = g.find_record(blob, NEEDLE.encode("cp932"))
-    old = g.record_text(blob, off)
-    new = old + EXTRA.encode("cp932")
-    grown = g.grow_record(blob, off, new)
-    problems = g.check(blob, grown, off, new)
-    if problems:
-        for p in problems:
-            print("REFUSED:", p, file=sys.stderr)
-        return 1
+    if control:
+        newblob = blob
+        print(f"{src.name}: CONTROL (member stored unchanged, {len(blob)} bytes)")
+    else:
+        off = g.find_record(blob, NEEDLE.encode("cp932"))
+        old = g.record_text(blob, off)
+        new = old + EXTRA.encode("cp932")
+        newblob = g.grow_record(blob, off, new)
+        problems = g.check(blob, newblob, off, new)
+        if problems:
+            for p in problems:
+                print("REFUSED:", p, file=sys.stderr)
+            return 1
+        print(f"{src.name}: {MEMBER} record text {len(old)} -> {len(new)} bytes")
+        print(f"  before: {g._decode(old)}")
+        print(f"  after : {g._decode(new)}")
 
-    out_bytes = cpk_write.replace_appended(cpk, MEMBER, grown)
+    out_bytes = cpk_write.replace_appended(cpk, MEMBER, newblob)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(out_bytes)
-    print(f"{src.name}: {MEMBER} record text {len(old)} -> {len(new)} bytes")
     print(f"  cpk {len(cpk.data)} -> {len(out_bytes)} bytes (+{len(out_bytes) - len(cpk.data)})")
-    print(f"  before: {g._decode(old)}")
-    print(f"  after : {g._decode(new)}")
     print(f"wrote {out}")
     return 0
 
