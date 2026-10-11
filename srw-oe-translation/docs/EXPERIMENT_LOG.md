@@ -1833,3 +1833,18 @@ like a real member. Suite 322 OK.
   Key 0x1144 has zero dialogue lines in all 32 probed event files. His lines are probably in an event file
   not yet obtained (candidates: eventP10–12, P14–19 absent from the Drive folder, or other containers).
 - Local artifacts: `local/probes/evept10x.json`, `local/whole_game_speakers.json` (not rebuilt with evept).
+
+## 2026-10-11 — battle-quote containers (mesbtl) and Masaki; disc side = USRDIR on Drive
+- Scope per user: missing file numbers mean no events in that DLC. Everything relevant is on Drive: FULL_DLC
+  (DLC side) and USRDIR (disc side; `mesbtl00.cpk`, `eventP00.cpk`, `imenu00.cpk`, `config00.cpk` match the
+  disc-side ids already used). No ISO image exists on Drive (search for .iso/NPJH returned only an unrelated zip).
+- Downloaded FULL_DLC `mesbtl01–31` (EDAT). Read-only parse with `speaker_map.read_members` (CRILAYLA aware).
+- Aligned u16 hits for Masaki key 0x1144 (4420): mesbtl19.EDAT 164 hits, all inside member `p4420.pac`
+  (18160 bytes). mesbtl00 11 hits but NO `p4420.pac` member there, so those are incidental values.
+- Member naming: battle-quote members are named `p<speaker key decimal>.pac`. 242 such members in mesbtl01–31
+  and mesbtl00. 185 of 242 keys also appear in event dialogue. 57 do not (includes 4420 Masaki).
+- All 17 no-source keys and all 11 config-only keys have a `p<key>.pac` battle-quote member. So a member's
+  existence does not give a name. It only confirms the key is a unit with quotes.
+- Dictionary record for Masaki: imenu19 record 0, key u16 at +0x40 = 0x1144 (already recorded).
+- Next step (not done): decode the quote members (text structure) and check whether the joining/special
+  dialogue lines for 4420 sit in the same member or in another container.

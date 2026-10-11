@@ -212,3 +212,6 @@ The agent sandbox has neither the game files nor the converter, so only the user
 98c. **Open leads (2026-10-11).** (a) 17 no-source keys use a `0x0F xx` glyph-token name format; token table
    not solved. (b) Keys 0xe93 and 0x101a have identical names in duplicate records, so no alias evidence.
    (c) Masaki Andoh key 0x1144 has no dialogue in the 32 probed event files; the missing event file is still to find.
+98d. **Masaki located (2026-10-11).** Dictionary record in imenu19 (key 0x1144 = 4420). Battle quotes in
+   mesbtl19.EDAT, member p4420.pac (`p<key decimal>.pac` naming, 242 members overall). No event lines for 4420 in the
+   32 probed event files (no event for him in the downloaded set). Quote text decoding still open.
