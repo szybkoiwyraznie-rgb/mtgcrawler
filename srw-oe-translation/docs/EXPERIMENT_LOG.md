@@ -1612,3 +1612,16 @@ like a real member. Suite 322 OK.
   + `tests/test_extract_tables.py` (2). Suite 324 OK.
 - User re-flagged: the **DLC catalogue is in scope** for translation too (not just
   the disc ISO).
+
+## 2026-10-11 — extract_structured.py (fixed-record tables)
+- The structured containers (configst/system/tacsys/tactics/taclevup/navisys/logodata) keep text in
+  fixed-width records with no NUL separators, so extract_tables' NUL-split misses them. Added
+  `tools/extract_structured.py`: byte-scans each decompressed member for maximal CP932 double-byte
+  runs -> `{member,offset,source,source_bytes,target}` (same schema), `local/tables/*.strings.json`.
+- Verified on the real `configst.cpk` (pulled from Drive): 3690 strings, incl. spirit names
+  (不屈/鉄壁/集中/熱血/加速/閃き/必中/努力/幸運) and menu/help/warning sentences
+  (合体すると…／が全回復します。／（合体するとミッション中は元に戻せません）／よろしいですか？／
+  変身して別の形態になります。). configst.pac is itself a nested PAC of srwDL_*.bin sub-files.
+- **Extraction done; repack still open** — fixed records have no length field, so in-place growth is
+  unsafe until the record stride / pointer table is reversed. +tests/test_extract_structured.py (2).
+  Suite 326 OK.

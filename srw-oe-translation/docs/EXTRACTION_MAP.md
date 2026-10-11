@@ -2,7 +2,8 @@
 
 Method: `scan_translatable.py <USRDIR>` inventories every container as `events` (EVNT narration),
 `strings` (NUL-separated CP932 tables) or `binary`. Real text vs noise was then triaged by hand.
-Two extractor families exist today; a third (structured tables) is open.
+Three extractor families exist: `export_strings.py` (events), `extract_tables.py` (NUL-separated
+tables), `extract_structured.py` (fixed-record tables — extraction only; repack still open).
 
 ## Covered (extractable now)
 
@@ -15,14 +16,21 @@ Two extractor families exist today; a third (structured tables) is open.
 | Map / terrain / background names | `config00.cpk` | `extract_tables.py` | 赤宇宙／森林　山 etc. |
 | Credits / copyright | `cprt0001..0004.cpk` | `extract_tables.py` (raw) | ㊤/㊦ credit lines |
 
-## Open (strings present but NOT NUL-separated -> need layout-specific parsers)
+## Structured — byte-scan extractor `extract_structured.py` (extraction works, repack open)
 
-- **Menus / options / help / warnings:** `configst.cpk`, `system.cpk` (samples garbled under the
-  NUL heuristic; text is in a structured/length-prefixed table).
+- **Menus / options / help / warnings:** `configst.cpk`, `system.cpk`
 - **Items / missions / tactics / navi:** `tacsys.cpk`, `tactics.cpk`, `taclevup.cpk`,
-  `navisys.cpk`, `logodata.cpk` (few garbled runs; structured tables).
-Cracking these means dumping the member bytes and reversing the row/offset layout (as was done for
-the EVNT inner sizes); do one container at a time.
+  `navisys.cpk`, `logodata.cpk`
+
+These are fixed-record tables (no NUL separators), so `tools/extract_structured.py` byte-scans each
+decompressed member for maximal CP932 double-byte runs and writes `{member, offset, source,
+source_bytes, target}` (same schema as the other extractors) to `local/tables/*.strings.json`.
+Verified on `configst.cpk`: 3690 strings incl. spirit names (不屈/鉄壁/集中/熱血/加速/閃き/必中/努力/幸運)
+and menu/help/warning text (合体すると…／が全回復します。／よろしいですか？／変身して別の形態になります。).
+
+**Repacking is still open:** fixed records carry no length field, so growing a string in place is not
+yet safe — an apply step needs the record stride (and any pointer table) first. Until then these are
+read-only translation sources. Run: `python tools\extract_structured.py <container>.cpk [...]`.
 
 ## Noise (not translatable)
 
