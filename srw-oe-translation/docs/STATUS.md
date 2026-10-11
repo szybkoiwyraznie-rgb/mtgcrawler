@@ -224,3 +224,11 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Mecha names: RoboDictionary slot 3 (verified). Weapon/item/shop/unit tables: layout not decoded yet.
 - Open: 14 dialogue keys (65 lines) + 24 battle-only keys with no name; unit tables next.
 
+
+### Session 2, part 3 (2026-10-11)
+- Weapon names (wp_list00–19): inline at relpos 42/44, 205 unique; item names (srwDL_Item00): inline at relpos 54, 70/74.
+- Mech names: RoboDictionary slot 3, 40 unique.
+- Translation sheet: `local/name_units_unique.csv` (769 unique texts, with locations). Filled by translators later; not translated yet.
+- `ItemDrop` names (177) are unverified; not the same as Item00 names.
+- Growth of inline names untested (needs offset-table rebuild).
+- Speaker table reconfirmed after the 32-probe rebuild: no change.

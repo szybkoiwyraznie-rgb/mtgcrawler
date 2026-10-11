@@ -1902,3 +1902,26 @@ Inputs (sha256, Drive copies in google_drive/, gitignored):
 5. Failures: first attempt at linking unit_list keys used only u16 with marker; no hits for the 38 keys.
    Shift-test of the token map was needed to rule out coincidences. Script aligner `align_script.py`
    only covered eventP00; `script_labels.py` covers all event containers.
+
+## 2026-10-11 (session 2, part 3) — inline weapon/item names, mech names, translation-unit table
+
+Environment: Python 3 in sandbox, stdlib only. Inputs: `google_drive/` (config*, configst.cpk, imenu*).
+No game files written. Game text only under `local/`.
+
+1. `tools/inline_names.py`: walks config `.pac` members, reads the `u32 first offset` table at byte 4,
+   and takes the first CP932 run with ≥2 full-width characters in each record (token-decoded).
+   Result: wp_list 00–19 (all records except 2), srwDL_Item00 (70/74), configst srwDL_Item (70/74),
+   srwDL_ItemDrop (177/1092). Output `local/inline_names.json`.
+2. `tools/name_units.py`: adds mech names from `srw_DL_RoboDictionary*` slot 3 (pointer), speaker names
+   from `local/speaker_names_all.json`. Output `local/name_units.csv` (1607 rows) and
+   `local/name_units_unique.csv` (769 unique texts with `locations`).
+3. Tests: `tests/test_inline_names.py` (4 synthetic tests). Full suite: `python3 -m unittest discover -s tests`
+   → 365 tests OK, 1 skipped.
+4. `local/whole_game_map.py` fixed to read `evept*` probes as well as `eventP*` (previously 24 of 32
+   probes). Output: 283 dialogue keys, 246 with dictionary name, 16 config slot only, 21 no source.
+5. `name_union.py` re-run on the rebuilt `whole_game_speakers.json`: identical output to the previous run.
+   A first attempt with `local/speaker_map.json` as the speakers input gave dict 0 (wrong input). Output
+   discarded; the reference input is `whole_game_speakers.json`.
+6. Discrepancy noted: `whole_game_map` "no source" 21 vs `name_union` dialogue `none` 14. Different definitions.
+7. Open: `ItemDrop` 177 names are not in `srwDL_Item00` (0 overlap). Need checking before use.
+   Growth of inline names is untested.

@@ -152,3 +152,40 @@ names) is not supported by these keys and is not pursued further.
    can be exported as a unit with speaker name.
 6. Growth: CharaDictionary and config name slots use fixed 16-byte slots (name slot) → growth
    needs pool rebuild (`dict_pool_shift.rebuild_pool`, verified path). Battle quotes: not tested.
+
+## 10. Weapons, items, mechs: where the names are (2026-10-11, session 2 part 3)
+
+Tools: `tools/inline_names.py` (weapon and item names inside records), `tools/name_units.py`
+(one translation-unit table for all name categories). Outputs in `local/` only.
+
+* **Weapons, `wp_list*.bin`** (config00–19 `.pac` members): table is `u32 first offset` at byte 4,
+  record count = (first offset − 4) / 4. The name is an inline CP932 string at relpos 42 or 44.
+  `[ZWERYFIKOWANE]` named records: wp_list00 82/84, wp_list01 98/99, wp_list02 57/57, wp_list03–19 all
+  records named except config08 (13/14). Unique weapon names: 205.
+* **Items, `srwDL_Item00.bin`** (config00): offset table as above, 74 records, name at relpos 54 for 63
+  records (others at 0, 30, 32). 70/74 named, 70 fully mapped by the token table. `configst.cpk` carries
+  a copy (`srwDL_Item.bin`, 74 records, same names).
+* **Items, `srwDL_ItemDrop.bin`** (configst, 1092 records): 177 records start with a CP932 name (relpos 0).
+  `[ZWERYFIKOWANE]` 0 of the 177 names occur in `srwDL_Item00`. `[HIPOTEZA]` a separate item or drop
+  list; not yet confirmed as item names. Treat as a separate category until checked.
+* **Mechs, `srw_DL_RoboDictionary*.bin`** (imenu and config pools): count at byte 0, string pointer
+  slot 3 (record-relative). 40 unique mech names over 600 occurrences (the same names repeat across
+  pools).
+* **Speakers**: section 2, `local/speaker_names_all.json` (339 keys).
+
+Placement and growth:
+* `inline` (weapons, items): the name is inside a variable-size record. Growing it changes the record
+  size, so the table's offset array must be rebuilt (the same family of rebuild as `dict_pool_shift`).
+  `[HIPOTEZA]` this works if no other field inside the record depends on the name length. Not tested.
+* `pointer` (mechs, dictionary speaker slots): growth needs a pool rebuild (`dict_pool_shift.rebuild_pool`).
+
+Translation units (local only): `local/name_units.csv` (1607 occurrences) and
+`local/name_units_unique.csv` (769 unique texts, with a `locations` column listing every container and
+record that stores each text). Translators fill `en`; the unique file is the translation sheet and the
+location list drives reinsertion.
+
+Speaker table check: rebuilding `whole_game_speakers.json` from all 32 probes (`local/whole_game_map.py`,
+glob now includes `evept*` probes; previously only `eventP*`) and re-running `name_union` gives an identical
+table (0 names or sources changed; 339 keys; dict 216, config 11, config_raw 40, config_raw_clean 34, none 38).
+The `whole_game_map` "no source" count (21) uses a different definition from `name_union` (14 dialogue keys
+with source `none`). `name_union` is the reference.
