@@ -1875,13 +1875,13 @@ Inputs (sha256, Drive copies in google_drive/, gitignored):
    Failure: first attempt raised KeyError on the empty `p0` member; fixed by skipping key 0.
 6. **Unified table** (`tools/name_union.py`): 339 keys (283 dialogue, 56 battle-only). Priority:
    dict first record > config marker slot > config raw with `{0F xx}` placeholders (NFKC) > unmarked
-   config (review) > UNNAMED. Results: named 301 of 339; dialogue 276/283 (99.6 % of 12 738 lines named).
+   config (review) > UNNAMED. Results: named 301 of 339; dialogue 269/283 keys, 12 673 of 12 738 lines (99.5 %).
    Failures fixed during the run: (a) strict filter dropped half-width kana; fixed with NFKC;
    (b) single-byte half-width katakana (0xA1-0xDF) swallowed the following 0x0F; fixed; (c) unmarked
    slots gave labels, fragments and digits; now rejected (digits, symbols, leading dash/prolonged mark).
 7. **Token analysis** (`[HIPOTEZA]`): the 0x0F xx byte is ASCII-range in all 54 names. Most frequent xx:
    0x26 (10), 0x38 (6), 0x20 (6), 0x2F (5), 0x2A (5). Meaning not proven (glyph index or dakuten form?).
-8. **Still open**: 7 dialogue keys with no name (46 lines); 13 battle-only keys with no name; unit tables
+8. **Still open**: 14 dialogue keys with no name (65 lines; 7 with >= 3 lines); 24 battle-only keys with no name (18 with battle records); unit tables
    (`unit_list00`, `charalist00`, `robolist`, `srwDL_Skill00`) not yet parsed. Two-record keys: rule is
    first record (user decision). Duplicates checked earlier are identical.
 9. Tests: `tests/test_battle_members.py` (6 synthetic tests) pass; `test_speaker_names` and `test_speaker_map` still pass (16 total).

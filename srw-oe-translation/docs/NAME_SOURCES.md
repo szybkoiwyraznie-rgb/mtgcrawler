@@ -94,24 +94,25 @@ All in the `config00.pac` (disc side, `config00.cpk`) and `config01.pac` (`confi
 - `libfont.prx` (module folder) not yet examined for a glyph table: `[OTWARTE]`.
 - `u16tbl.cpk` holds only JIS<->UCS tables (`[ZWERYFIKOWANE]`, earlier work); it is not the token map.
 
-## 7. Speaker table status (2026-10-11, end of this session)
+## 7. Speaker table status (2026-10-11, end of session 2)
 
 Output: `local/speaker_names_all.json`, `local/SPEAKER_NAMES_ALL.md` (game text, local only).
 
 | Set | Keys | Named | Notes |
 |---|---:|---:|---|
-| Dialogue keys (event probes) | 283 | 276 | 12 738 lines; 12 692 lines (99.6 %) have a name |
-| Dialogue keys, no name | 7 | 0 | 46 lines; 0x1fe(14), 0x2c4(12), 0x1ff(6), 0x324(4), 0x322(4), 0x2cb(4), 0x26b(2) |
-| Battle-only keys (no dialogue) | 56 | 42 (+ unmarked review) | 13 without any name |
+| Dialogue keys (event probes) | 283 | 269 | 12 738 lines; 12 673 lines (99.5 %) have a name |
+| Dialogue keys with no name | 14 | 0 | 65 lines in total; 7 of them have >= 3 lines (decimal keys 510, 708, 507, 511, 715, 802, 804) |
+| Battle-only keys (no dialogue) | 56 | 32 (16 marked + 16 unmarked-review) | 24 without any name, 18 of them have battle records |
 | All keys | 339 | 301 | sources: dict 216, config 11, config_raw 40 (with tokens), config_raw_clean 34 (20 marked + 14 unmarked-review), none 38 |
 
+- Decimal keys are used for the user; hex is kept here for the tools (see `local/` for the list).
 - The 17 no-source keys from the earlier whole-game work are now all named (with `{0F xx}`
-  placeholders): dict-less, marker-verified config slots.
+  placeholders), marker-verified config slots.
 - Unmarked-review names include character-like names and generic role names. The user rule is that
   generic names are valid, so they stay in. The review flag remains until the translator or user
   confirms them. (Examples are in `local/SPEAKER_NAMES_ALL.md`, not here.)
-- Known wrong/unsure entry: the key with 189 battle records (0x32) gets an unmarked label that is
-  a stat word, not a name. Its real owner must come from the unit tables. `[OTWARTE]`
+- Known wrong/unsure entry: one battle-only key with 189 battle records gets an unmarked label that
+  is a stat word, not a name. Its real owner must come from the unit tables. `[OTWARTE]`
 
 ## 8. Two-record keys (user rule, 2026-10-11)
 
@@ -121,7 +122,7 @@ names) is not supported by these keys and is not pursued further.
 
 ## 9. Open items (in order)
 
-1. Unit table: find the table that gives names to the 13 battle-only keys with no name and the 7
+1. Unit table: find the table that gives names to the 24 battle-only keys with no name and the 14
    dialogue keys with no name (`unit_list00`, `charalist00`, `robolist`, `srwDL_Skill00`).
 2. Item and shop names: decode `srwDL_Item00.bin` header and `srwDL_Shop00.bin` pointer layout.
 3. Weapon names: find the pointer table into `wp_list` string data.

@@ -217,10 +217,10 @@ The agent sandbox has neither the game files nor the converter, so only the user
    32 probed event files (no event for him in the downloaded set). Quote text decoding still open.
 
 ## Session 2 (2026-10-11): names, battle quotes, font, tables
-- Speaker table covers all 339 keys (283 dialogue + 56 battle-only): 301 named; dialogue lines named 99.6 %.
+- Speaker table covers all 339 keys (283 dialogue + 56 battle-only): 301 named; dialogue lines named 99.5 %.
   Build: `tools/name_union.py`. Output stays in `local/`.
 - Battle quotes: `p<key>.pac` members in mesbtl; 241 keys; record anchor documented in `docs/NAME_SOURCES.md`.
 - font.cpk: decompressed (one CRILAYLA entry). Token map NOT found; 0x0F is an escape in configst.
 - Mecha names: RoboDictionary slot 3 (verified). Weapon/item/shop/unit tables: layout not decoded yet.
-- Open: 7 dialogue keys + 13 battle-only keys with no name; unit tables next.
+- Open: 14 dialogue keys (65 lines) + 24 battle-only keys with no name; unit tables next.
 
