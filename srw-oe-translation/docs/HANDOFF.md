@@ -104,7 +104,20 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
    pary kluczy, np. `0x1195`/`0x119e`; 620 linii w 11 członkach eventP00). NIE zweryfikowane jako
    indeks słownika. Następny krok: mapowanie na `srwDL_CharaDictionary` + sprawdzenie zmian mówcy
    względem komend `0x160`/`0x1b8`/`0x145`. Dopiero po tym `speaker` idzie do tłumaczeń.
+   **Wynik mapowania (2026-10-11, `tools/speaker_map.py`):** ID w slotach +0x30..+0x38 słowników
+   CharaDictionary (399 ID, 0 duplikatów) pokrywają tylko 9 z 60 kluczy (500–516) — **61 z 608 linii**
+   (10%). Pozostałe 51 kluczy (700s, 1000s, 2800s, 3700s, 4500s; najczęstsze 0x1195/0x119e = 4501/4510)
+   nie występuje w żadnym słowniku z 25 pul imenu00–32 (16 z nich nie jest czytanych przez writer, ale
+   czytane przez `cpk_table`). Hipoteza do sprawdzenia: klucze 4500s/3700s to ID z innej tabeli
+   (np. `face*.EDAT` lub tabele bazowej gry spoza Dysku). Bez tego mówca NIE jest rozstrzygnięty.
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
+   **Postęp (2026-10-11):** `tools/dict_pool_shift.py` — `srwDL_CharaDictionary*` ma zmierzony układ
+   (12 wskaźników u32 na rekord + ciągłe stringi NUL + stałe bloki ID na +0x30..+0x3c). Rebuild bez
+   zmian jest bajt-w-bajt na 15/15 niepustych pul (imenu00-19, 10 pul jest pustych: count=0).
+   Grow/shrink z `verify` przechodzi na pulach w pamięci (nie zapisano CPK). Strażnik odrzuca edycję,
+   gdy słowo w prefiksie wskazuje do wnętrza obszaru stringów (0 takich na realnych danych).
+   **Nie zweryfikowane:** odwołania spoza puli (inne kontenery) i render w grze. Pozostałe pule
+   (RoboDictionary, Reference, Shop, DLC_ID) mają INNY układ — jeszcze nie zmierzone.
    znaleźć tablicę wskaźników/offsetów, zbudować `*_shift` z `verify` (wzór: `sysmes_shift`).
    Stałe zostaje tylko to, co nie ma wewnętrznych wskaźników i ma stałe offsety zewnętrzne.
 3. **Budżety znaków** per string dla kategorii stałych (slot→max znaków, z szerokością W/F).

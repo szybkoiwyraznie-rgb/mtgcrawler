@@ -191,3 +191,9 @@ The agent sandbox has neither the game files nor the converter, so only the user
    (5 synthetic tests). On eventP00 the u16 at `+10` of `0xc9` records behaves like a per-line speaker
    state (620 lines across 11 members, alternating key pairs within conversations). Not verified as a
    dictionary index; mapping to `srwDL_CharaDictionary` is the next measurement. Suite 336 OK (1 skipped).
+96. **Speaker mapping + dictionary grow (2026-10-11).** `tools/speaker_map.py` maps dialogue keys to the
+   CharaDictionary ID slots: 9/60 keys (61/608 lines, 10%) found, 0 duplicate IDs over 399 IDs. The remaining
+   keys (4500s, 3700s, 1000s, …) are not in any dictionary read from imenu00–32. `tools/dict_pool_shift.py`
+   implements the 12-pointer record layout: identity-exact on 15/15 pools; grow/shrink verified in memory;
+   guard refuses unexplained in-record refs (0 on real data). CPK write-back and boot test NOT done.
+   Suite 350 OK (1 skipped).

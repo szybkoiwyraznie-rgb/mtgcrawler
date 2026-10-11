@@ -1732,3 +1732,19 @@ like a real member. Suite 322 OK.
 - Next measurement: map the keys to `srwDL_CharaDictionary` (imenu00 / DLC) — require a dictionary entry
   whose index/ID matches, and check speaker-change points against the `0x160` / `0x1b8` / `0x145` commands.
 - Tests: `tests/test_speaker_probe.py` (5 synthetic cases, no game data). Suite 336 OK (1 skipped).
+
+## 2026-10-11 — speaker-key mapping + CharaDictionary pool layout (HANDOFF §7 tasks 1–2)
+- Downloaded (read-only, via the Drive connector into the gitignored `google_drive/`) the DLC dictionary
+  members `imenu01`–`imenu08`, `imenu10`–`15`, `17`–`19`, `20`–`22`, `24`, `25`, `31`, `32`, plus
+  base `imenu00.cpk` (Drive file `149s9EvDgyi0cq1Hcang29TaicbLH1yId`). Hashes not recorded here.
+- `tools/speaker_map.py` reads members via `cpk_table` absolute offsets (read-only; `cpk_write.load`
+  refuses constant-storage TOCs such as imenu20). Result on eventP00 keys (probe JSON from speaker_probe):
+  pools=25 (10 empty, count=0), IDs=399, dup_ids=0; distinct keys 60, mapped 9, lines 61/608.
+  Mapped keys: 0x1f4, 0x1f6, 0x1f8, 0x1fa, 0x1fe, 0x1ff, 0x200, 0x203, 0x204 (500–516).
+- `tools/dict_pool_shift.py` audit: identity rebuild byte-identical on 15/15 non-empty CharaDictionary
+  pools. Prefix words outside the ID slots that land in the string region: 0 (the first audit flagged
+  94, all at +0x30..+0x3c = ID slots; the guard now excludes that measured region).
+- Grow/shrink check on in-memory imenu01 copy (not written): +2-byte growth, `verify` clean, IDs unchanged.
+- Other pools (RoboDictionary, Reference, Shop, DLC_ID) do NOT follow the 12-pointer layout (0 records match in the audit).
+- Tests: `tests/test_dict_pool_shift.py` (9), `tests/test_speaker_map.py` (5). Suite 350 OK, 1 skipped.
+- Not done: CPK write-back of a grown dictionary, boot test, and any check of references from other containers.
