@@ -55,23 +55,45 @@ def scan_runs(blob: bytes, min_wide: int = 2, min_bytes: int = 4):
         i += 1
 
 
-def member_blobs(cpk) -> List[tuple]:
-    out = []
-    for m in cpk.members:
-        blob = m.blob
-        if crilayla.is_crilayla(blob):
+def member_blobs(path: Path):
+    """Yield (name, decompressed_bytes) for each member.
+
+    Uses cpk_write when the container has a TOC; falls back to cpk_table for
+    ITOC-only containers (CpkMode 0) that cpk_write refuses to open.
+    """
+    try:
+        cpk = cpk_write.load(path)
+        for m in cpk.members:
+            blob = m.blob
+            if crilayla.is_crilayla(blob):
+                try:
+                    blob = crilayla.decompress(blob).data
+                except Exception:
+                    continue
+            yield m.name, blob
+        return
+    except Exception:
+        pass
+    import cpk_table  # noqa: E402
+    raw = path.read_bytes()
+    table = cpk_table.read_cpk_table(path)
+    data_base = table.get("data_base") or 0
+    for e in table["entries"]:
+        off = e.get("absolute_offset")
+        if off is None:
+            off = data_base + (e.get("file_offset") or 0)
+        blob = raw[off:off + e["file_size"]]
+        if e.get("compressed") or crilayla.is_crilayla(blob):
             try:
                 blob = crilayla.decompress(blob).data
             except Exception:
                 continue
-        out.append((m.name, blob))
-    return out
+        yield e["name"], blob
 
 
 def extract_package(path: Path, min_wide: int) -> List[dict]:
-    cpk = cpk_write.load(path)
     rows = []
-    for name, blob in member_blobs(cpk):
+    for name, blob in member_blobs(path):
         for off, s in scan_runs(blob, min_wide):
             rows.append({"member": name, "offset": off, "source": s,
                          "source_bytes": len(s.encode("cp932")), "target": ""})

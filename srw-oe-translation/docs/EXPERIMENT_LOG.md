@@ -1625,3 +1625,13 @@ like a real member. Suite 322 OK.
 - **Extraction done; repack still open** — fixed records have no length field, so in-place growth is
   unsafe until the record stride / pointer table is reversed. +tests/test_extract_structured.py (2).
   Suite 326 OK.
+
+## 2026-10-11 — configst is the system-text container; tac* are binary (map corrected)
+- extract_structured verified on configst.cpk = 3690 strings (1706 unique) of clean CP932 covering
+  menus/options/help/warnings AND items/parts/skills/effects/mission-economy UI (武器/アイテム/
+  ミッションx72/強化x38/パーツx112+descriptions/精神 names/装備/DLC購入). This is the main UI text file.
+- tacsys.cpk checked: member is a PAC of .gim textures + numeric tables (head "tacsys_02.gim"),
+  decompresses cleanly to 185872 B but has NO real text -> byte-scan gives only false positives.
+  So tacsys/tactics/taclevup/navisys/logodata/system are BINARY, not text. EXTRACTION_MAP corrected.
+- extract_structured: added an ITOC-only (CpkMode 0) fallback via cpk_table (data_base+file_offset)
+  so containers without a TOC still open. Suite 326 OK.

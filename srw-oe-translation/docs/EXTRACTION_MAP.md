@@ -16,21 +16,30 @@ tables), `extract_structured.py` (fixed-record tables — extraction only; repac
 | Map / terrain / background names | `config00.cpk` | `extract_tables.py` | 赤宇宙／森林　山 etc. |
 | Credits / copyright | `cprt0001..0004.cpk` | `extract_tables.py` (raw) | ㊤/㊦ credit lines |
 
-## Structured — byte-scan extractor `extract_structured.py` (extraction works, repack open)
+## System / UI / menus / items / parts / skills text — `configst.cpk` (verified, clean)
 
-- **Menus / options / help / warnings:** `configst.cpk`, `system.cpk`
-- **Items / missions / tactics / navi:** `tacsys.cpk`, `tactics.cpk`, `taclevup.cpk`,
-  `navisys.cpk`, `logodata.cpk`
+`configst.cpk` (a nested PAC of `srwDL_*.bin` sub-files) is the **main system-text container**.
+`extract_structured.py` pulls 3690 strings (1706 unique) of clean CP932, covering most of the
+UI categories at once:
+- menus / options / help / warnings: よろしいですか？／変身して別の形態になります。／メインテーマ曲をユニットごとに指定できます。
+- spirit (精神) command names: 不屈/鉄壁/集中/熱血/加速/閃き/必中/努力/幸運
+- items / upgrade parts / skills / effects: 武器, アイテム, 強化 (x38), パーツ (x112, with descriptions
+  e.g. 撃破時にランダムパーツをドロップする), 精神エナジー装置, 命中ダウン１, 重複装備不可
+- mission / economy UI: ミッション (x72, e.g. ミッションディスク), 資金, 経験値, DLC 購入 text
 
-These are fixed-record tables (no NUL separators), so `tools/extract_structured.py` byte-scans each
-decompressed member for maximal CP932 double-byte runs and writes `{member, offset, source,
-source_bytes, target}` (same schema as the other extractors) to `local/tables/*.strings.json`.
-Verified on `configst.cpk`: 3690 strings incl. spirit names (不屈/鉄壁/集中/熱血/加速/閃き/必中/努力/幸運)
-and menu/help/warning text (合体すると…／が全回復します。／よろしいですか？／変身して別の形態になります。).
+Run: `python tools\extract_structured.py configst.cpk` -> `local/tables/configst.strings.json`.
 
-**Repacking is still open:** fixed records carry no length field, so growing a string in place is not
-yet safe — an apply step needs the record stride (and any pointer table) first. Until then these are
-read-only translation sources. Run: `python tools\extract_structured.py <container>.cpk [...]`.
+**Repacking is still open:** these are fixed-record tables with no length field, so in-place growth
+is unsafe until the record stride (and any pointer table) is reversed. Read-only source for now.
+
+## NOT text (corrected) — `tacsys` / `tactics` / `taclevup` / `navisys` / `logodata` / `system`
+
+Verified on `tacsys.cpk`: its member is itself a PAC of `.gim` textures + numeric tables (head
+`tacsys_02.gim`), i.e. **binary, not translatable text**. A byte-scan over it yields only false
+positives (e.g. 遧劔誧滑葈). These were mis-triaged as "structured text" earlier; they are noise.
+`extract_structured.py` should be run only on genuine text containers (configst, and the NUL-table
+files via extract_tables). Where specific weapon/item/mission *name lists* live, if not inside
+configst, is still to be pinned down.
 
 ## Noise (not translatable)
 
