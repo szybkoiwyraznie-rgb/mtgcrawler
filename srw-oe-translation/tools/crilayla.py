@@ -95,3 +95,110 @@ def decompress(src: bytes) -> Decoded:
             position -= 1
     consumed = HEADER_SIZE + csize - 1 - byte_pos
     return Decoded(data=bytes(out), bytes_consumed=consumed, stream_size=csize)
+
+
+def compress_literal(data: bytes) -> bytes:
+    """Encode `data` as a valid CRILAYLA stream made only of literal bytes.
+
+    The decoder's output is `trailer (0x100) + decoded`. We put the first 0x100 bytes
+    of `data` in the raw trailer and emit every remaining byte as a 9-bit literal
+    (flag bit 0 + the byte MSB-first), laid out so that the decoder's backwards,
+    MSB-first bit reader reproduces them in order. The result is a genuine CRILAYLA
+    stream: ``decompress(compress_literal(x)).data == x``. It is larger than `data`
+    (9 bits per body byte) but the container records FileSize and ExtractSize
+    accordingly, so a reader that always decompresses behaves correctly.
+    """
+    if len(data) < TRAILER_SIZE:
+        raise CrilaylaError("a CRILAYLA entry needs at least the 0x100-byte trailer")
+    trailer = data[:TRAILER_SIZE]
+    body = data[TRAILER_SIZE:]
+
+    bits = bytearray()
+    for value in reversed(body):
+        bits.append(0)  # literal flag
+        for k in range(7, -1, -1):
+            bits.append((value >> k) & 1)
+
+    nbytes = (len(bits) + 7) // 8
+    stream = bytearray(nbytes)
+    for k, bit in enumerate(bits):
+        if bit:
+            stream[nbytes - 1 - k // 8] |= 1 << (7 - k % 8)
+
+    return MAGIC + struct.pack("<II", len(body), nbytes) + bytes(stream) + trailer
+
+
+def compress(data: bytes) -> bytes:
+    """Encode `data` as a genuine, shrinking CRILAYLA stream (LZSS back-references).
+
+    Mirrors :func:`decompress` exactly, so ``decompress(compress(x)).data == x`` and the
+    resulting entry has FileSize < ExtractSize like a real CRI container, which the game's
+    always-decompress reader expects. The output is filled backwards, so instructions are
+    emitted from the last output byte to the first and packed MSB-first from the end of the
+    stream, matching the decoder's backwards bit reader.
+    """
+    if len(data) < TRAILER_SIZE + 3:
+        raise CrilaylaError("a CRILAYLA entry needs at least the trailer plus 3 bytes")
+    n = len(data)
+    usize = n - TRAILER_SIZE
+
+    index = {}
+    for i in range(TRAILER_SIZE + 2, n):
+        index.setdefault(data[i - 2:i + 1], []).append(i)
+
+    bits = []
+
+    def emit(value: int, count: int) -> None:
+        for k in range(count - 1, -1, -1):
+            bits.append((value >> k) & 1)
+
+    p = n - 1
+    while p >= TRAILER_SIZE:
+        best_len = 0
+        best_delta = 0
+        if p >= TRAILER_SIZE + 2:
+            for cand in index.get(data[p - 2:p + 1], ()):
+                if cand <= p:
+                    continue
+                delta = cand - p
+                if delta < 3 or delta - 3 > 0x1FFF:
+                    continue
+                limit = min(p - TRAILER_SIZE + 1, cand + 1, 4096)
+                length = 0
+                while length < limit and data[p - length] == data[cand - length]:
+                    length += 1
+                if length > best_len:
+                    best_len = length
+                    best_delta = delta
+                if best_len >= 256:
+                    break
+        if best_len >= 4:
+            emit(1, 1)
+            emit(best_delta - 3, 13)
+            rest = best_len - 3
+            for width in (2, 3, 5):
+                maxc = (1 << width) - 1
+                chunk = min(rest, maxc)
+                emit(chunk, width)
+                rest -= chunk
+                if chunk < maxc:
+                    break
+            else:
+                while True:
+                    chunk = min(rest, 255)
+                    emit(chunk, 8)
+                    rest -= chunk
+                    if chunk < 255:
+                        break
+            p -= best_len
+        else:
+            emit(0, 1)
+            emit(data[p], 8)
+            p -= 1
+
+    nbytes = (len(bits) + 7) // 8
+    stream = bytearray(nbytes)
+    for k, bit in enumerate(bits):
+        if bit:
+            stream[nbytes - 1 - k // 8] |= 1 << (7 - k % 8)
+    return MAGIC + struct.pack("<II", usize, nbytes) + bytes(stream) + data[:TRAILER_SIZE]

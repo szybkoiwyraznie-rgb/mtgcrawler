@@ -10,6 +10,7 @@ Before continuing that work, read these files in order:
 4. `srw-oe-translation/docs/EXPERIMENT_LOG.md`
 5. `srw-oe-translation/docs/ROADMAP.md`
 6. `srw-oe-translation/docs/NEXT_STEP.md`
+7. `srw-oe-translation/docs/PRIOR_ART.md` — survey of other translation projects for this game and its engine family. Read it early: it records what has already been solved elsewhere and can change which measurement is worth doing next.
 
 Project guardrails:
 

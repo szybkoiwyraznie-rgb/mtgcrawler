@@ -19,6 +19,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import zipfile
 from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
@@ -442,7 +443,7 @@ class RunPipelineTests(PipelineFixture):
         self.assertTrue((result.run_dir / "text" / imenu["package_id"] / "manifest.json").is_file())
 
         not_processed = " | ".join(registry["not_processed"])
-        self.assertIn("ISO image not processed", not_processed)
+        self.assertIn("ISO image is never rebuilt", not_processed)
         self.assertIn("volume id: SRW_OE_TEST", not_processed)
         self.assertIn("ZIP archive not processed", not_processed)
         self.assertIn("unrecognized signature", not_processed)
@@ -459,6 +460,38 @@ class RunPipelineTests(PipelineFixture):
         self.assertFalse((result.run_dir / "staging").exists())
         gates = result.run_dir / "gates"
         self.assertTrue(not gates.exists() or list(gates.iterdir()) == [])
+
+    def test_boundary_probe_measures_the_text_exports_and_ships_in_the_bundle(self):
+        self.write_standard_inputs()
+
+        result, lines = self.run_quietly()
+
+        self.assertEqual(result.status, "completed")
+        registry = self.registry(result)
+        boundary = registry["boundary_probe"]
+        self.assertEqual(boundary["status"], "ok")
+        self.assertEqual(boundary["totals"]["units"], registry["summary"]["text_units_total"])
+        self.assertEqual(boundary["totals"]["offset_problems"], 0)
+        self.assertEqual(boundary["totals"]["marker_mismatches"], 0)
+        self.assertEqual(boundary["totals"]["prefix_mismatches"], 0)
+        self.assertTrue(boundary["length_prefix"]["rows"])
+        self.assertTrue(boundary["pointer_references"]["rows"])
+        self.assertTrue(boundary["exports_probed"] >= registry["summary"]["text_packages_verified"])
+
+        on_disk = json.loads((result.run_dir / "boundary_probe.json").read_text(encoding="utf-8"))
+        self.assertEqual(on_disk["totals"]["units"], boundary["totals"]["units"])
+
+        report = result.report_path.read_text(encoding="utf-8")
+        self.assertIn("Boundary evidence", report)
+        self.assertIn(f"units probed: {boundary['totals']['units']}", report)
+        self.assertIn("no 1/2/4-byte field", report)  # the synthetic BIN stores no length prefix
+        self.assertIn("boundary_probe.json", report)
+        self.assertNotIn("\u65e5\u672c\u8a9e", report)  # no decoded game text in the report
+
+        bundle = next(result.run_dir.glob("diagnostics_*.zip"))
+        with zipfile.ZipFile(bundle) as archive:
+            self.assertIn("boundary_probe.json", archive.namelist())
+        self.assertTrue(any("Stage 8/9 boundary evidence" in line for line in lines))
 
     def test_converter_never_receives_r_option_and_extract_always_uses_dash_i_after_x(self):
         self.write_standard_inputs()
@@ -902,7 +935,7 @@ class RunPipelineTests(PipelineFixture):
         registry = self.registry(result)
         self.assertFalse([p for p in registry["packages"] if p["source_path"].startswith("iso/")])
         self.assertEqual(registry["summary"]["iso_members_extracted"], 0)
-        self.assertIn("ISO image not processed", " | ".join(registry["not_processed"]))
+        self.assertIn("ISO image is never rebuilt", " | ".join(registry["not_processed"]))
 
     def test_iso_member_extraction_failure_fails_the_run_closed(self):
         self.write_standard_inputs()
@@ -1436,6 +1469,41 @@ class UnitHelperTests(unittest.TestCase):
         self.assertIn("could not be decoded", undecoded["reason"])
         self.assertIn("1 of 1 listed names matched a file by name", undecoded["reason"])
 
+    def test_hidden_lines_report_the_crilayla_counts_and_the_uncompressed_writes(self):
+        registry = {
+            "packages": [
+                {
+                    "package_id": "p001-bacb01",
+                    "source_path": "bacb01.EDAT",
+                    "hidden_entries": {
+                        "status": "extracted",
+                        "entries": 10,
+                        "written": 4,
+                        "written_bytes": 400,
+                        "compressed": 5,
+                        "no_offset": 1,
+                        "listing_sizes_match": True,
+                        "crilayla": {"attempted": 3, "decoded": 2, "failed": 1},
+                        "text": {"status": "exported_verified"},
+                    },
+                },
+                {
+                    "package_id": "p002-face01",
+                    "source_path": "face01.EDAT",
+                    "hidden_entries": {
+                        "status": "no_offsets",
+                        "reason": "the table stores no data offsets (ITOC blob layout)",
+                    },
+                },
+            ]
+        }
+        lines = run_pipeline._hidden_lines(registry)
+        self.assertEqual(len(lines), 2)
+        self.assertIn("4 of 10 uncompressed entries written (400 bytes)", lines[0])
+        self.assertIn("5 compressed (2 CRILAYLA decoded, 1 failed, 2 not CRILAYLA)", lines[0])
+        self.assertIn("listing sizes match: True", lines[0])
+        self.assertIn("no_offsets: the table stores no data offsets", lines[1])
+
     def test_converter_path_keeps_safe_paths_and_uses_short_names_when_needed(self):
         safe = Path("/tmp/safe_dir/run-1")
         self.assertEqual(run_pipeline.converter_argument_path(safe, short_name=lambda _p: None), str(safe))
@@ -1526,6 +1594,30 @@ class LauncherContractTests(unittest.TestCase):
         self.assertNotIn("pip install", lowered)
         self.assertNotIn("curl", lowered)
         self.assertNotIn("powershell -command download", lowered)
+
+
+class ProbeLauncherTests(unittest.TestCase):
+    def test_probe_launcher_reuses_the_saved_folders_and_never_calls_the_converter(self):
+        path = BAT_PATH.parent / "RUN_PROBE.bat"
+        self.assertTrue(path.is_file())
+        lowered = path.read_text(encoding="utf-8").lower()
+        self.assertIn('cd /d "%~dp0"', lowered)
+        self.assertIn("py -3", lowered)
+        self.assertIn("tools\\boundary_probe.py", lowered)
+        self.assertIn("pause", lowered)
+        self.assertIn("run_pipeline.bat", lowered)  # it points back at the full run
+        self.assertNotIn("yacpktool", lowered)
+        self.assertNotIn("pip install", lowered)
+
+    def test_probe_launcher_asks_for_a_folder_when_the_probe_finds_none(self):
+        # A fresh download has no config/local-workflow.ini (it is private and git-ignored), so the
+        # automatic lookup finds nothing; the launcher must then ask instead of just stopping.
+        text = (BAT_PATH.parent / "RUN_PROBE.bat").read_text(encoding="utf-8")
+        self.assertIn('if not "%RESULT%"=="2" goto :finish', text)
+        self.assertIn('set /p "RUNDIR=Run folder: "', text)
+        self.assertIn("%PY% tools\\boundary_probe.py %RUNDIR%", text)
+        self.assertIn("drag the run folder", text.lower())
+        self.assertIn("exit /b %RESULT%", text)  # the retry's exit code is the one reported
 
 
 class HiddenEntryTests(unittest.TestCase):

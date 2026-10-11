@@ -1,0 +1,69 @@
+# REPACK — instrukcja krok po kroku (na Twoim PC, po polsku)
+
+Cel: zbudować nowy obraz ISO, który PPSSPP
+uruchomi — najpierw **bez zmian** (test, że repack w ogóle działa), potem **z podmienionym
+plikiem** (test, że Twoja zmiana trafia do gry).
+
+Czego potrzebujesz na dysku:
+- oryginał: `SRW OE 1.08.iso`,
+- rozpakowane drzewo: katalog `SRW_OE_1.08` (z `PSP_GAME/...` w środku),
+- świeże repo (gałąź `arena/c656a5df-mtgcrawler`) — są w nim `REPACK_ISO.bat` i `tools/iso_pack.py`,
+- Python w PATH (masz go — uruchamiasz nim pipeline).
+
+## WAŻNE: Twoja ekstrakcja `SRW_OE_1.08` jest NIEPEŁNA
+
+Prawdziwy dysk ma ~672 MB danych (80 plików), a katalog rozpakowany waży ~293 MB — narzędzie
+rozpakowujące **pominęło duże pliki** (`BgmSet00.awb`, `UPDATE/DATA.BIN`, `bacb00.cpk`,
+`lmap.cpk`, `voice00.awb`, `mov00.cpk`, `robo00.cpk`…). Dlatego repack z drzewa dał ~300 MB i
+byłby okrojony. **Używaj metody `repackiso`**, która czyta niezmienione pliki wprost z
+oryginalnego ISO — nic nie może zginąć, a drzewo w ogóle nie jest potrzebne.
+
+## KROK 0 — metoda: `patchiso` (zalecana)
+
+Zamiast przebudowywać ISO od zera (`repackiso`), używaj **`patchiso`**:
+kopiuje oryginał bajt-w-bajt i zmienia TYLKO rekord katalogowy + dopisuje podmieniony plik na
+końcu. Cała struktura UMD/ISO9660 oryginału zostaje nietknięta, więc obraz bootuje jak źródło.
+`repackiso` (przebudowa) okazał się niewystarczający dla prawdziwego UMD (crash w PPSSPP).
+
+## KROK 1 — test tożsamości (patch identyczny)
+
+To sprawdza, czy spakowany obraz w ogóle startuje. **Nie pomijaj go.**
+
+1. Otwórz wiersz poleceń w katalogu repo (`srw-oe-translation`). Użyj Pythona wprost (działa
+   w PowerShell i w cmd):
+
+   1. Zrób katalog patchy i skopiuj doń ORYGINALNY `eventP00.cpk` (patch identyczny):
+      `D:\SRWOE\patch\PSP_GAME\USRDIR\eventP00.cpk`.
+   2. Uruchom:
+   ```
+   python tools\iso_pack.py patchiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso" "D:\SRWOE\patch"
+   ```
+   - arg1 = oryginalne ISO, arg2 = nowy obraz, arg3 = katalog patchy.
+   - Ma powstać obraz ~tej samej wielkości co oryginał (+kilka KB) i bootować identycznie.
+3. Poczekaj (kilkadziesiąt sekund; nie trzyma 660 MB w RAM).
+4. Podmień w PPSSPP oryginalne ISO na `repacked.iso` i uruchom.
+5. **Oczekiwany wynik:** gra startuje i zachowuje się identycznie jak oryginał.
+   Jeśli się wysypie — nie przechodź dalej, tylko wyślij mi objawy; to znaczy, że writer ISO
+   wymaga poprawki (to jedyny nieprzetestowany na prawdziwym dysku element).
+
+## KROK 2 — test z podmianą
+
+1. Zrób katalog patchy, np. `D:\...\patch`, i odtwórz w nim ścieżkę względem drzewa:
+   `D:\...\patch\PSP_GAME\USRDIR\eventP00.cpk` — to Twój zmodyfikowany plik
+   (np. z nałożonym tłumaczeniem; na razie możesz użyć pliku testowego).
+2. Uruchom (arg3 = katalog patchy; każdy plik w nim nadpisuje odpowiadający mu plik z ISO;
+   ścieżki patchy pisz małymi literami jak w drzewie, porównanie jest bez rozróżniania
+   wielkości liter):
+
+   ```
+   python tools\iso_pack.py patchiso "D:\SRWOE\SRW OE 1.08.iso" "D:\SRWOE\repacked.iso" "D:\SRWOE\patch"
+   ```
+3. Uruchom `repacked.iso` w PPSSPP i sprawdź, czy zmiana jest widoczna.
+
+## Uwagi
+
+- Rozdziały 2–8 (DLC) **nie potrzebują repacku** — PPSSPP czyta je luzem z
+  `memstick/PSP/GAME/NPJH50521`; wystarczy podmienić pojedynczy `.EDAT`.
+- Repack służy tylko do rozdziału 1 (dysk) i do walidacji procesu.
+- Narzędzie nigdy nie dotyka oryginału — czyta drzewo i ISO tylko do odczytu, wynik pisze do
+  nowego pliku.
