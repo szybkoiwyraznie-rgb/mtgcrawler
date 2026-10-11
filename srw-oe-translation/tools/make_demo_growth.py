@@ -1,16 +1,15 @@
 """Produce a modified eventP00.cpk for the ISO patch boot test (FAZA 2).
 
 Process demo, not a translation. By default it lengthens ONE narration record in
-DL100_01.bin (so the cpk is larger than the original) and writes the result with the
-surgical cpk swap; the user then patches it into the ISO with `iso_pack.py patchiso`.
-
-With `--control` the member is decompressed and stored back UNCHANGED (same content,
-stored instead of CRILAYLA). That isolates the cpk write path from the growth: if the
-control build boots, the writer is fine and any crash of the grown build is the growth;
-if the control build crashes, the cpk writer itself is wrong.
+DL100_01.bin; with `--control` the member is decompressed and stored back UNCHANGED,
+isolating the cpk writer from the growth. `--method` selects the cpk write strategy:
+`rebuild` keeps the member inside the content region (shifts followers, updates
+ContentSize); `append` tacks it on at the end (repointing only its TOC row). The game's
+CRI reader only resolves members inside the content region, so `rebuild` is the one a
+real PPSSPP can load.
 
 Usage:
-    python tools/make_demo_growth.py <eventP00.cpk> <output.cpk> [--control]
+    python tools/make_demo_growth.py <eventP00.cpk> <output.cpk> [--control] [--method rebuild|append]
 """
 from __future__ import annotations
 
@@ -33,8 +32,15 @@ def main(argv=None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
     control = "--control" in args
     args = [a for a in args if a != "--control"]
+    method = "rebuild"
+    if "--method" in args:
+        i = args.index("--method")
+        method = args[i + 1]
+        del args[i:i + 2]
+    if method not in ("rebuild", "append"):
+        raise SystemExit("--method must be rebuild or append")
     if len(args) != 2:
-        raise SystemExit("usage: make_demo_growth.py <eventP00.cpk> <output.cpk> [--control]")
+        raise SystemExit("usage: make_demo_growth.py <eventP00.cpk> <output.cpk> [--control] [--method rebuild|append]")
     src = Path(args[0])
     out = Path(args[1])
 
@@ -63,13 +69,14 @@ def main(argv=None) -> int:
                 print("REFUSED:", p, file=sys.stderr)
             return 1
         print(f"{src.name}: {MEMBER} record text {len(old)} -> {len(new)} bytes")
-        print(f"  before: {g._decode(old)}")
-        print(f"  after : {g._decode(new)}")
 
-    out_bytes = cpk_write.replace_appended(cpk, MEMBER, newblob)
+    if method == "rebuild":
+        out_bytes = cpk_write.rebuild(cpk, (MEMBER, newblob))
+    else:
+        out_bytes = cpk_write.replace_appended(cpk, MEMBER, newblob)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(out_bytes)
-    print(f"  cpk {len(cpk.data)} -> {len(out_bytes)} bytes (+{len(out_bytes) - len(cpk.data)})")
+    print(f"  method {method}: cpk {len(cpk.data)} -> {len(out_bytes)} bytes (+{len(out_bytes) - len(cpk.data)})")
     print(f"wrote {out}")
     return 0
 
