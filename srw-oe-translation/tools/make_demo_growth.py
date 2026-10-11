@@ -22,7 +22,7 @@ import grow_event_text as g
 
 MEMBER = "DL100_01.bin"
 NEEDLE = "地球統一政府である地球連邦の樹立から数十年。"
-EXTRA = "（成長テスト：この行は意図的に伸ばされています）"
+EXTRA = " GROWTH TEST: THIS LINE IS NOW LONGER AND IN ENGLISH."
 
 
 def main(argv=None) -> int:
