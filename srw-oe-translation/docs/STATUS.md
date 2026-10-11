@@ -209,3 +209,6 @@ The agent sandbox has neither the game files nor the converter, so only the user
 98b. **Whole-game speaker map (2026-10-11).** 244 keys with >=3 lines: 216 named from dictionary, 11 config-only,
    17 no source. 39/43 chapter-1 keys return later. Each DLC event brings its own dictionary pool (HIPOTEZA).
    Local-only list in `local/WHOLE_GAME_SPEAKER_MAP.md`.
+98c. **Open leads (2026-10-11).** (a) 17 no-source keys use a `0x0F xx` glyph-token name format; token table
+   not solved. (b) Keys 0xe93 and 0x101a have identical names in duplicate records, so no alias evidence.
+   (c) Masaki Andoh key 0x1144 has no dialogue in the 32 probed event files; the missing event file is still to find.

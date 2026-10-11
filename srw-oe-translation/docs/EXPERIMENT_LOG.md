@@ -1808,3 +1808,28 @@ like a real member. Suite 322 OK.
   This conflicts with the earlier note that `*04` needs decryption. Re-check before relying on chapter 4.
 - Local artifacts (game text): `local/WHOLE_GAME_SPEAKER_MAP.md`, `local/whole_game_speakers.json`,
   `local/whole_game_map.json`, script `local/whole_game_map.py`.
+
+## 2026-10-11 — correction + no-source keys + two-record keys + evept files
+- CORRECTION: the note that `*04` needs decryption came from early work and is stale. The user reports chapter 4
+  files are already decrypted. Treat eventP04/config04 as readable (probe ok). Remove the earlier warning.
+- Event files `evept101–108.EDAT` (lowercase `evept`, missed by the earlier name filter) downloaded and probed.
+  Chapter-map inputs now: eventP00–P09, P13, P20–P32 and evept101–108 (32 probes). Keys >=3 lines in any event: 244.
+- No-source keys (17 with >=3 lines): their records use the same layout as the config name slots.
+  Verified: u16 marker 0x6401 at key+0x0A, name slot at key-0x14 (config00 table, stride 172 bytes).
+  Their name slot starts with a 2-byte token `0x0F xx`, where xx is an ASCII-range byte (0x20–0x7E).
+  Tokens also appear inside names, e.g. a syllable split by a token. Decoding without the token table
+  gives role labels with a faction/prefix plus a role suffix (兵 / 士官 / 乗り). The 11 config-only keys
+  show the same suffixes but no tokens. Examples (`[ZWERYFIKOWANE]` that these strings exist): 0x4e3 → full
+  name with suffix 士官; 0xd93 → full name with suffix 士官; 0x1054/0x1056 → faction prefix + 兵/士官.
+- Token table: NOT solved. `u16tbl.cpk` contains only JIS↔UCS tables (not the 0x0F codes). Dictionary-assisted
+  solve gave noise (no consistent mapping). Next step: find the glyph table in the game binary/font, or
+  check whether 0x0F xx is an index into the sysmes/configst font table.
+- Stride finding: keys 0x4b1, 0x4b6, 0x4e3 and 0xec0/0xec1 sit at 172-byte stride in config00 (diff 0 mod 172).
+  Each record: name slot, then key at +0x14, then u16 marker at key+0x0A.
+- Two-record keys: 0xe93 (3731) → imenu00 #86 and #87; 0x101a (4122) → imenu02 #21 and #22.
+  Both pairs carry IDENTICAL name strings (str0). Result: duplicate records, not a name change.
+  The alias hypothesis (name change, e.g. two names for one character) is NOT supported by these two keys.
+- Masaki Andoh: dictionary record found in imenu19 (record 0). Speaker key u16 at +0x40 = 0x1144 (4420).
+  Key 0x1144 has zero dialogue lines in all 32 probed event files. His lines are probably in an event file
+  not yet obtained (candidates: eventP10–12, P14–19 absent from the Drive folder, or other containers).
+- Local artifacts: `local/probes/evept10x.json`, `local/whole_game_speakers.json` (not rebuilt with evept).
