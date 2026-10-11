@@ -1657,3 +1657,18 @@ like a real member. Suite 322 OK.
 - Key sub-files: srwDL_Item.bin (items), sysmes.bin (system/menu messages), srwDL_Spirit.bin,
   srwDL_Skill_Tag.bin, srwDL_Achievement.bin. NEXT: per-format sub-file string grower, starting with
   sysmes.bin (menus show at boot -> the ISO crash test the user wants).
+
+## 2026-10-11 — sysmes menu grower (title menu located + repack built)
+- User's screenshot proved the title menu IS text: ゲームスタート/ライブラリー/リファレンス/
+  クレジット/ダウンロードリスト + bottom line スーパーロボット大戦Operation Extendを始めます。.
+  They live in configst's sysmes.bin: title copy is a sequential 4-aligned NUL-terminated pool at
+  ~0x91a0-0x9200 (a second copy of some labels serves the intermission menu at ~0x3e00).
+- tools/sysmes_pack.py: grow exact-match pool strings (new CP932 + NUL, 4-aligned), shift the pool,
+  add delta to every u32 pointer word in the table (0..0x2500) pointing at a string start >= the grown
+  offset, and refresh the SMES size field; then configst_pack.rebuild_pac + cpk_write.rebuild.
+- Verified on the real configst.cpk: patched cpk holds START GAME/LIBRARY/REFERENCE/
+  CREDITS / STAFF ROLL/DOWNLOAD LIST (4-aligned, NUL-terminated), SMES size field matches, PAC
+  round-trips. +tests/test_sysmes_pack.py (2). Suite 330 OK.
+- User runs sysmes_pack.py on THEIR configst.cpk to emit the patched cpk for the boot test (menu shows
+  at start -> instant crash feedback if wrong). Reference scheme is partly pointer-based; if the title
+  menu reads by fixed stride, a crash will reveal it and the grower gets adjusted.
