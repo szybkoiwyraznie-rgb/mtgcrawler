@@ -154,6 +154,13 @@ Milestones 9–15 record the detector and audit at earlier revisions. The half-w
    chapter 1. Remaining: a *modified* cpk member still crashes (user_main, PC 088caea0) -- the cpk
    member encoding (expanding CRILAYLA + stale cpk header aggregate fields), i.e. growth-in-cpk.
 
+84. **GROWTH-IN-CPK VALIDATED IN GAME: the longer English line renders in chapter 1.** With the
+   patch_iso sector-alignment fix (83) plus the corrected descending CRILAYLA compressor (member
+   shrinks, FileSize<ExtractSize), `make_demo_growth` + `patchiso` produced a repacked.iso that
+   boots and displays "GROWTH TEST: THIS LINE IS NOW LONGER AND IN ENGLISH." in the prologue
+   narration (user screenshot). The full chain edit -> repack cpk -> patch ISO -> boot with growth
+   is proven on a real UMD. A is complete; next is B (readable translation-source files).
+
 ## Not yet demonstrated
 
 - The one-click run has been run six times on Windows with the user's YACpkTool and game files (items 36, 42, 45, 46, 47, and 57). Extraction completeness is measured per package against its `-L` listing, whose three real column layouts are known and parsed (full, no ID column, no filename column with ID-named files). The latest run verified 453 of 497 packages; the remaining failures are the 42 colliding-name packages (whose entries are recovered separately under `hidden/` and verified against their listing sizes) and `robo01`/`robo03`, where one listed name each does not decode from the converter's console output. Whether the hidden duplicate-name entries differ in content, whether the game uses the ID column, the `@UTF` table row encoding, and the formats inside the AFS2 audio inputs remain unknown.

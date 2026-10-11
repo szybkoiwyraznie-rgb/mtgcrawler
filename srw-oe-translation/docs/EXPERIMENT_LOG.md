@@ -1584,3 +1584,16 @@ chapters 2-8 as loose DLC files (no ISO) and chapter 1 via an external UMD-capab
 - Continue static no-change rebuild/re-extraction checks on copies. Do a PPSSPP display/load test only if a reachable comparable resource path exists; otherwise mark that QA blocked/unknown.
 - Record exact source ISO/base-resource hashes before any release/patch test.
 - Translation can start in `translation/units.csv` (English, byte budget per row) while the above is pending, but no row is applied to a game file.
+
+
+## 2026-10-11 — A COMPLETE: grown English renders in chapter 1 via patchiso
+
+**Result (user screenshot).** `repacked.iso` (eventP00.cpk with one narration record grown and
+re-compressed with the descending CRILAYLA compressor, spliced by `patchiso`) boots and shows the
+longer English line in the prologue narration. Two root causes were fixed this night: (1)
+`patch_iso` appended the patched member at the unaligned EOF while its directory record pointed at
+ceil(EOF/2048)*2048, so the game read garbage for eventP00.cpk (constant PC 088a7378) -- now it pads
+to a sector boundary first (LBA=start/2048); identity.iso boots chapter 1. (2) the CRILAYLA
+compressor used forward LCP matches but the decoder copies back-references *downward*, so matches
+must be descending; fixed, it round-trips and shrinks (27456->6622), giving FileSize<ExtractSize
+like a real member. Suite 322 OK.
