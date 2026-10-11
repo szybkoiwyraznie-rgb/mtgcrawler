@@ -104,12 +104,14 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
    pary kluczy, np. `0x1195`/`0x119e`; 620 linii w 11 członkach eventP00). NIE zweryfikowane jako
    indeks słownika. Następny krok: mapowanie na `srwDL_CharaDictionary` + sprawdzenie zmian mówcy
    względem komend `0x160`/`0x1b8`/`0x145`. Dopiero po tym `speaker` idzie do tłumaczeń.
-   **Wynik mapowania (2026-10-11, `tools/speaker_map.py`):** ID w slotach +0x30..+0x38 słowników
-   CharaDictionary (399 ID, 0 duplikatów) pokrywają tylko 9 z 60 kluczy (500–516) — **61 z 608 linii**
-   (10%). Pozostałe 51 kluczy (700s, 1000s, 2800s, 3700s, 4500s; najczęstsze 0x1195/0x119e = 4501/4510)
-   nie występuje w żadnym słowniku z 25 pul imenu00–32 (16 z nich nie jest czytanych przez writer, ale
-   czytane przez `cpk_table`). Hipoteza do sprawdzenia: klucze 4500s/3700s to ID z innej tabeli
-   (np. `face*.EDAT` lub tabele bazowej gry spoza Dysku). Bez tego mówca NIE jest rozstrzygnięty.
+   **Wynik (2026-10-11, KOREKTA poprzedniego wpisu):** klucz mówcy to u16 na offsecie **+0x40** rekordu
+   `srwDL_CharaDictionary` (nie sloty ID +0x30). Siedmiu nazwanych bohaterów (katakana w słowniku) ma dokładnie
+   ten klucz, który transkrypcja linia-po-linii przypisuje tej samej postaci (Seishiro 0x1195, Himari 0x119e,
+   Bright 0x3fb, Mirai 0x3fe, Paolo 0x415, Sayla 0x401, Marker 0x41c). **56/60 kluczy** ma rekord w słowniku
+   (**574/608 linii, 94%**); 55 jednoznacznie, **0xe93** w dwóch rekordach (86, 87) — niejednoznaczne.
+   Nie znaleziono 4 kluczy (0x4b1, 0x4b6, 0xec0, 0xec1 — 34 linie). `tools/speaker_map.py` (liczby;
+   tekst rekordów tylko do `local/`). **Nie zrobione:** pełne sprawdzenie transkrypcją innych mówców oraz
+   weryfikacja w grze.
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
    **Postęp (2026-10-11):** `tools/dict_pool_shift.py` — `srwDL_CharaDictionary*` ma zmierzony układ
    (12 wskaźników u32 na rekord + ciągłe stringi NUL + stałe bloki ID na +0x30..+0x3c). Rebuild bez

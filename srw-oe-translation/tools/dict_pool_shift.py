@@ -35,6 +35,8 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 POINTERS = 12
+# Measured: the dialogue speaker key is the u16 at record offset +0x40 (see speaker_map.py).
+SPEAKER_KEY_OFFSET = 0x40
 # Measured: three ID slots (+0x30, +0x34, +0x38) plus one sentinel/extra word (+0x3c).
 # Values there are small unique IDs or 0xffffffff, not string references.
 ID_SLOT_START, ID_SLOT_END = 0x30, 0x40
@@ -101,6 +103,21 @@ def parse_record(rec: bytes) -> Record:
             unexplained.append((off, v))
     return Record(prefix=prefix, strings=strings, tail=tail, pointers=p,
                   unexplained_refs=unexplained)
+
+
+def record_spans(b: bytes) -> List[Tuple[int, int]]:
+    """(start, end) of every record in a pool, after the same validation as parse_pool."""
+    if len(b) == 4 and _u32(b, 0) == 0:
+        return []
+    n = _u32(b, 0)
+    if not (0 < n < 10000) or 4 + 4 * n > len(b):
+        raise PoolError("implausible record count")
+    offs = [_u32(b, 4 + 4 * i) for i in range(n)]
+    if offs[0] != 4 + 4 * n or any(offs[i] >= offs[i + 1] for i in range(n - 1)):
+        raise PoolError("record offset table not monotonic from 4+4n")
+    if offs[-1] >= len(b):
+        raise PoolError("last record offset beyond pool")
+    return list(zip(offs, offs[1:] + [len(b)]))
 
 
 def parse_pool(b: bytes) -> Pool:

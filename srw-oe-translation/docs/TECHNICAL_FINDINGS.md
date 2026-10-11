@@ -288,3 +288,14 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
   not a conclusion about the speaker assignment.
 - Unexplained: the ID slots are not string pointers (confirmed by no-duplicate and out-of-region checks,
   not by a field-level spec).
+
+## Speaker key = CharaDictionary record field +0x40 (2026-10-11, corrects the ID-slot reading)
+
+- The dialogue u16 at record `+10` of `0xc9` lines equals the u16 at record `+0x40` of the matching
+  character record in `srwDL_CharaDictionary` (`dict_pool_shift.SPEAKER_KEY_OFFSET`). The earlier
+  "ID-slot" reading (+0x30..+0x38) is NOT the speaker key; those slots are separate IDs.
+- Evidence: (a) seven records whose strings contain the character's Japanese name hold the key that a
+  user-supplied line transcript assigns to the same speaker; (b) 56 of 60 distinct eventP00 keys occur
+  in the `+0x40` field of exactly one record in 55 cases; (c) one key (0xe93) occurs in two records.
+- Not established: that the record's name is the speaker in every line, and the four missing keys.
+- Keep the mapping numeric in the repo; the record text is game text and stays under `local/`.

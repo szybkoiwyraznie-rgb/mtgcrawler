@@ -197,3 +197,8 @@ The agent sandbox has neither the game files nor the converter, so only the user
    implements the 12-pointer record layout: identity-exact on 15/15 pools; grow/shrink verified in memory;
    guard refuses unexplained in-record refs (0 on real data). CPK write-back and boot test NOT done.
    Suite 350 OK (1 skipped).
+97. **Speaker key located (2026-10-11, supersedes 96's mapping).** The dialogue speaker key is the u16 at
+   record offset +0x40 of `srwDL_CharaDictionary` records. 56/60 eventP00 keys map (574/608 lines); 55 unique,
+   0xe93 ambiguous (records 86, 87); 0x4b1/0x4b6/0xec0/0xec1 unmapped. Seven named characters agree with a
+   user-supplied line transcript. The mapping is numeric and committed; game text stays in `local/`.
+   Suite 351 OK (1 skipped).

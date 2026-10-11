@@ -1748,3 +1748,16 @@ like a real member. Suite 322 OK.
 - Other pools (RoboDictionary, Reference, Shop, DLC_ID) do NOT follow the 12-pointer layout (0 records match in the audit).
 - Tests: `tests/test_dict_pool_shift.py` (9), `tests/test_speaker_map.py` (5). Suite 350 OK, 1 skipped.
 - Not done: CPK write-back of a grown dictionary, boot test, and any check of references from other containers.
+
+## 2026-10-11 — speaker key located at CharaDictionary +0x40 (corrects the previous mapping)
+- Method: a user-supplied transcript (speaker label + short Japanese fragments; fragments only, not reproduced
+  here) was matched against the `0xc9` records of eventP00. Each speaker's matched keys agree across lines
+  (Seishiro 0x1195, Himari 0x119e, Bright 0x3fb, Mirai 0x3fe, Paolo 0x415, Sayla 0x401, Marker 0x41c).
+- Dictionary check: a katakana name search over all 25 CharaDictionary pools (imenu00–32, read-only via
+  `cpk_table`) locates Seishiro/Himari/Bright/Amuro/Paolo/Mirai/Marker in imenu00 records 94/95/46/43/51/47/53,
+  and Sayla (セイラ) in record 48. Each of those records holds the transcript key at +0x40.
+- Coverage: `tools/speaker_map.py` → 56/60 keys, 574/608 lines; 55 unique; 0xe93 in records 86 and 87;
+  unmapped 0x4b1, 0x4b6, 0xec0, 0xec1.
+- Artifact noted and fixed: a repeated glob loaded imenu00 twice and inflated duplicate counts. The
+  speaker-map tool dedupes files.
+- Suite 351 OK, 1 skipped. Corrects the earlier 9/60 ID-slot result, which was not the speaker field.
