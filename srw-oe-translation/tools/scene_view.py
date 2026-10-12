@@ -216,7 +216,7 @@ def render_index(scenes: List[dict]) -> str:
              "tłumaczenie. Gotowe pliki wracają do pakietu jednym poleceniem "
              "`tools/translation_import.py`.", "",
              "Kolejność jest kolejnością gry: odcinek, misja, wariant (DLC). "
-             "Numer sceny w nagłówku (`## Scena 12/282`) to numer wiersza w `06_scenes.jsonl`.", "",
+             f"Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) to numer wiersza w `06_scenes.jsonl`.", "",
              "| # | odcinek | misja | miejsce | uwaga |",
              "|---|---------|-------|--------|-------|"]
     seq_by_id = {scene["id"]: scene["seq"] for scene in scenes}

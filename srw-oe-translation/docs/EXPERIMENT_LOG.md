@@ -2750,3 +2750,33 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
     `04_config_text.jsonl` (15 368 wierszy, kategorie config_sysmes/config_leftover).
     **Nieudemonstrowane jeszcze w grze:** wstrzyk angielskiego configst.cpk w PPSSPP
     (pełny test i tak ma być jeden, wszystkich typów naraz — decyzja użytkownika).
+
+53. [ZWERYFIKOWANE — eventP00.cpk ODZYSKANY Z HISTORII GITA, PAKIET PRZEBUDOWANY ZE 113 KONTENERAMI]
+    **Data:** 2026-10-12. Korekta wpisu 52: „brak eventP00" nie był luką nie do
+    odzyskania — plik był pobierany wielokrotnie w poprzednich sesjach (testy wtrysku
+    w PPSSPP robione właśnie na nim), leży na Drive (id `1or9mKqqJzL_0aFqHoxLCTLKN3lEyNG1w`),
+    a blob `google_drive/eventP00.cpk` zachował się w historii gita (usunięty z drzewa
+    commitem `821be86`, przywrócony przez `git show 821be86^:google_drive/eventP00.cpk`,
+    162 264 B — rozmiar zgodny z manifestem). Pobieranie konektorem w tej sesji było
+    blokowane, ale historia gita wystarczyła.
+    **Ekstrakcja:** `event_dialogue.py` na 32 kontenerach (31 + eventP00.cpk):
+    45 265 linii dialogów (+1 557), 0 błędów. `translator_export.py` + `package_copies.py`
+    + `scene_view.py` + `table_view.py` → pakiet **107 081 wierszy**: 00 dialog 48 881,
+    05 misje 1 284, sceny **293** (37 plików, nowy `epizod-00.md` = prolog z płyty:
+    organizacja „Connect", ＜主人公名＞, 11 scen z eventP00), EN do wypełnienia **84 579**
+    (fabuła 40 464 + widoki 44 115), bez EN 13 897 (kopie 8 751 + widoki 5 146).
+    Mówcy: dialogi bez nazwy 2/45 265 (0,0%), cytaty 451/27 383 (1,65%).
+    **Nowa klasa członów sprawdzona przy okazji: `*_ext.dat`** (226 członów, tytuły misji
+    i briefingi ekranu startu misji): 236 unikalnych tekstów, 233 już w pakiecie
+    (milstP00.bin i inne źródła). Domyknięto 3 luki z eventP00 jako event_leftover:
+    `1話\n試作レイバー暴走事件` (DL101_11_ext.dat:344, slot 44 B), `2話\n地底に潜む脅威`
+    (DL102_11_ext.dat:344, slot 44 B) — warianty tytułów z `\n` zamiast spacji względem
+    milstP00.bin — oraz briefing z DL101_60_ext.dat:24 („sojuszniczy NPC Medea", slot
+    160 B; tokeny ＠6/＠0 zostają). Uwaga do etapu apply: ext.dat to człony stałopozycyjne
+    poza łańcuchem EVNT — zapis wymaga osobnej ścieżki slotowej (jak Entry.dat).
+    **Brama:** `coverage_audit.py` — 113 kontenerów, missing=2 (tylko Makefile
+    w configst.pac). `translation_check.py` 0 błędów; 734 testy OK.
+    **Naprawiony generator:** `scene_view.py` miał na sztywno „Scena 12/282" w szablonie
+    spisu — teraz podstawia `len(scenes)`.
+    **Drive:** do odświeżenia README.md, sceny.zip, widoki.zip (Pakiet do tłumaczenia)
+    oraz 00/05/06/index.json/check_report.txt (Robocze JSONL); reszta Roboczych bez zmian.

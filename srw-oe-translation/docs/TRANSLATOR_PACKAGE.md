@@ -21,12 +21,12 @@ tłumaczy się **tekst w plikach `.md`**, po znaczniku `EN:`.
 | plik | co to jest |
 |---|---|
 | `README.md` (ten dokument) | instrukcja |
-| `sceny.zip` | fabuła: 36 plików `.md` (spis scen + odcinki + symulator) |
+| `sceny.zip` | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
 | `widoki.zip` | nazwy i tabele: 7 plików `.md` |
 
-Do wypełnienia w całym pakiecie: **83 536 linii `EN:`**
-(39 424 w fabule + 44 112 w widokach). Poza tym jest **13 162 elementy bez linii `EN:`**
-(8 016 w fabule — kopie scen z wersji DLC, i 5 146 w widokach — powtórzone nazwy i opisy);
+Do wypełnienia w całym pakiecie: **84 579 linii `EN:`**
+(40 464 w fabule + 44 115 w widokach). Poza tym jest **13 897 elementów bez linii `EN:`**
+(8 751 w fabule — kopie scen i kwestii, i 5 146 w widokach — powtórzone nazwy i opisy);
 tłumaczenie dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „Elementy bez linii `EN:`").
 
 ---
@@ -94,18 +94,18 @@ krótszą wersję i wspólną dla wszystkich; jedna pisownia na cały pakiet jes
 
 ## 2. Krok 1 — fabuła: `sceny.zip`
 
-Rozpakuj `sceny.zip`. W środku jest 36 plików: `spis-scen.md` (lista wszystkich 282 scen)
-oraz `epizod-01.md` … `epizod-34.md` + `simulator.md`.
+Rozpakuj `sceny.zip`. W środku jest 37 plików: `spis-scen.md` (lista wszystkich 293 scen)
+oraz `epizod-00.md` … `epizod-34.md` + `simulator.md` (`epizod-00` to prolog z płyty gry).
 
 Zacznij od `spis-scen.md` — to spis treści: numer sceny, odcinek, misja, miejsce. Każdy plik
 odcinka to sceny **w kolejności gry**.
 
 ### Jak wygląda scena
 
-To prawdziwy początek sceny 4/282 z pliku `epizod-02.md` (lista uczestników skrócona):
+To prawdziwy początek sceny 15/293 z pliku `epizod-02.md` (lista uczestników skrócona):
 
 ```
-## Scena 4/282 — 黒いレイバー
+## Scena 15/293 — 黒いレイバー
 - odcinek: ２話 メインミッション (episode 2)
 - miejsce: 自衛隊演習場 (element 1)
 - miejsce: シャフトエンタープライズ／オフィス (element 11)
@@ -132,7 +132,7 @@ _koniec sceny_
 
 Co jest czym:
 
-* **`## Scena 4/282 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
+* **`## Scena 15/293 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
 * **`- odcinek:` / `- miejsce:`** — kontekst: który odcinek i gdzie scena się dzieje
   (miejsce też jest do przetłumaczenia — jako element w środku sceny).
 * **`- limit:`** — ile wolno napisać w tej scenie (dialog 46 jednostek na linię, narracja 50).
@@ -188,7 +188,7 @@ Rozpakuj `widoki.zip`. W środku jest siedem plików — każdy obejmuje jedną 
 | `przedmioty.md` | nazwy przedmiotów i opisy efektów | 443 | 757 |
 | `umiejetnosci.md` | nazwy umiejętności i opisy efektów | 3 069 | 1 863 |
 | `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 15 368 | 0 |
-| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 281 | 0 |
+| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 284 | 0 |
 
 Zasada jest **ta sama** co w fabule: linia japońska, pod nią linia `limit:` (ile wolno napisać),
 a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam nie wpisujesz.
