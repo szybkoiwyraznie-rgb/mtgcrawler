@@ -56,9 +56,12 @@ def tokens(text: str) -> List[str]:
 def controls(text: str) -> List[int]:
     """Every control character except the plain line break, as code points (CR, 0x0F, ...).
 
-    The game uses them for real: ``\r`` (0x0D) clears the dialogue box, ``0x0F`` switches the font
-    to half width (it sits inside half-width names and effect lines) - dropping one silently breaks
-    the display, so the check treats them as structural.
+    ``\\r`` (0x0D) clears the dialogue box - dropping it silently breaks the display, so the
+    check treats it as structural. ``0x0F`` is different: it is the lead byte of a two-byte
+    token ``0x0F xx`` (xx always 0x20-0x39 in this game, verified across the whole package)
+    that draws one voiced half-width kana glyph; the byte after it is part of the glyph, not
+    text. English has no voiced kana, so the EN text must carry NO 0x0F at all - keeping it
+    before a Latin letter would make the game swallow that letter as the token's second byte.
     """
     return sorted(ord(ch) for ch in text if ord(ch) < 32 and ch != "\n")
 
@@ -89,10 +92,15 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
         errors.append(f"control tokens changed: {tokens(jp)} -> {tokens(text)}")
     if text.count("\n") != jp.count("\n"):
         errors.append(f"line breaks changed: {jp.count(chr(10))} -> {text.count(chr(10))}")
-    if controls(text) != controls(jp):
+    jp_controls = [code for code in controls(jp) if code != 0x0F]
+    en_controls = controls(text)
+    if 0x0F in en_controls:
+        errors.append("the <0x0F> token must not stay in the English text - in Japanese it and "
+                      "the character after it are one voiced kana glyph; write the English plain")
+    if [code for code in en_controls if code != 0x0F] != jp_controls:
         errors.append("control characters changed: "
                       f"{[hex(code) for code in controls(jp)]} -> "
-                      f"{[hex(code) for code in controls(text)]}")
+                      f"{[hex(code) for code in en_controls]}")
     size = len(text.encode("cp932")) if not problem else 0
     if row.get("max_bytes") is not None and size > row["max_bytes"]:
         errors.append(f"over budget: {size} > max_bytes {row['max_bytes']}")

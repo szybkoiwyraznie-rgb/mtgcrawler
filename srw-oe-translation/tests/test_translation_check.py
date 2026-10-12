@@ -68,9 +68,19 @@ class RowTest(unittest.TestCase):
         errors, _ = TC.check_row(row("あ\r\nい", "a\nb"))
         self.assertIn("control characters changed", errors[0])
 
-    def test_dropped_half_width_marker_is_an_error(self):
-        errors, _ = TC.check_row(row("\x0fﾕﾆｯﾄ", "UNIT"))
-        self.assertIn("control characters changed", errors[0])
+    def test_dropping_the_voiced_kana_token_in_english_is_correct(self):
+        # JP `0x0F xx` (xx in 0x20-0x39) is ONE voiced half-width kana glyph; English writes
+        # the name plain, so the token (and the byte it consumed) disappears from the EN text
+        errors, warnings = TC.check_row(row("\x0f3ﾗ", "Ra"))
+        self.assertEqual(errors, [])
+
+    def test_keeping_the_voiced_kana_token_in_english_is_an_error(self):
+        errors, _ = TC.check_row(row("\x0f3ﾗ", "\x0f3Ra"))
+        self.assertIn("<0x0F>", errors[0])
+
+    def test_english_keeps_the_carriage_return_but_drops_the_token(self):
+        errors, warnings = TC.check_row(row("あ\x0f3ﾗ\r\n", "aRa\r\n"))
+        self.assertEqual((errors, warnings), ([], []))
 
     def test_plain_line_breaks_are_not_reported_as_control_characters(self):
         errors, _ = TC.check_row(row("あ\nい", "a\nb"))

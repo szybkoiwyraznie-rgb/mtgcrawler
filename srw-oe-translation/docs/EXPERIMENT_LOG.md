@@ -2780,3 +2780,41 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
     spisu — teraz podstawia `len(scenes)`.
     **Drive:** do odświeżenia README.md, sceny.zip, widoki.zip (Pakiet do tłumaczenia)
     oraz 00/05/06/index.json/check_report.txt (Robocze JSONL); reszta Roboczych bez zmian.
+
+54. [ZWERYFIKOWANE — 0x0F TO TOKEN DWUBAJTOWY, NIE PRZEŁĄCZNIK CZCIONKI; NOWA POLITYKA EN]
+    **Data:** 2026-10-12. Pytania tłumacza: (1) czy `<0x0F>` zostaje w EN; (2) czy rekord
+    „Kuro (#289)" jest uszkodzony.
+    **(1) 0x0F — pomiar na całym pakiecie** (pliki z Drive: 00/01/02/03/07/08): wystąpienia
+    wyłącznie w tabelach — itemy 76 wierszy, skille 1 368, postacie 172 (imiona wąskie),
+    jednostki/bronie 29; **ZERO w dialogach i cytatach** (1 389 wierszy dialogu ma `\r`, nie 0x0F
+    — stara notatka myliła te liczby). W KAŻDYM wystąpieniu po 0x0F stoi bajt 0x20–0x39
+    (0 wyjątków na ~2,4 tys.), brak par 0x0F 0x0F. Zakres 0x20–0x39 = rozwiązana w poprzedniej
+    sesji mapa tokenów (kolejność dźwięcznych katan, kontrola 1218/4059 vs 0 dla przesunięć).
+    Wniosek: `0x0F xx` to dwubajtowy glif dźwięcznej kany półszerokiej; bajt po 0x0F jest
+    częścią glifu, nie tekstem. **Konsekwencja dla EN:** zostawienie `<0x0F>` przed literą
+    łacińską (0x41–0x7A — poza rozwiązanym zakresem) kazałoby grze połknąć literę jako drugi
+    bajt tokena → obawa tłumacza uzasadniona; dotychczasowa reguła README („zostaw <0x0F>")
+    była BŁĘDNA (hipoteza „przełącznik czcionki" nie przeszła weryfikacji; pole wąskie renderuje
+    półszerokie znaki bezpośrednio z `ank.fta`, bez żadnego przełączania).
+    **Nowa polityka:** EN nie zawiera 0x0F w ogóle; tłumacz usuwa `<0x0F>` razem z jednym
+    znakiem po nim (sylabę czyta z wersji pełnej imienia). `translation_check.controls`:
+    `\r` i inne znaki sterujące dalej strukturalne (równość z JP), 0x0F w EN = błąd
+    („must not stay in the English text"); brak 0x0F w EN przy obecności w JP = poprawne.
+    Testy: stary `test_dropped_half_width_marker_is_an_error` zastąpiony trzema nowymi
+    (usunięcie tokena OK; pozostawienie = błąd; `\r` zostaje, token znika). **736 testów OK.**
+    README: reguła `<0x0F>` przepisana, checklista i odwołanie z sekcji znaków poprawione.
+    Importer bez zmian zachowania (nadal przywraca `<0x0F>`→0x0F, żeby walidator mógł odrzucić).
+    **Przy okazji wyjaśniona „normalizacja par 0x0F" ze starszych notatek: par nie ma (0 na
+    całym pakiecie)** — wielokrotne tokeny w jednym imieniu (np. `\x0f/ｸﾘｭｳ\x0f.ﾗ\x0f$ﾝ`) są
+    normalne i każdy rządzi się tą samą regułą.
+    **(2) Kuro #289 — rekord POPRAWNY, pomyłka numeracji między plikami.** W `postacie.md`
+    Postać 289/405 = クロ (Kuro, czarny kot Masakiego: SRW Original, głos 佐久間レイ; rekord
+    czysty — wszystkie wersje imienia クロ/ｸﾛ). W `cytaty.md` Mówca 289/299 = ガイロス帝国軍兵士
+    (id 4181, 210 generycznych kwestii z `p4181.pac`) — numeracja grup jest OSOBNA w każdym
+    pliku widoku, to dwie różne encje. Kwoty Kuro są w `cytaty.md` Mówca 299/299 (18 rekordów)
+    i pochodzą z `p4420.pac` — pliku Masakiego, bo koty (クロ id 4426, シロ id 4424, 15 rekordów)
+    mówią z kokpitu Cybustera; treść spójna („マサキ、油断しちゃダメよ", „待ってたニャ！",
+    pułap prany, cewka Maxwella). `name_map.tsv` 4420/4424?/4426: マサキ・アンドー / — / クロ,
+    charalist, 0 dialogów + 18/20 rekordów bitewnych. **Żadnej naprawy pakietu nie wymaga.**
+    Widoki NIE były regenerowane (treść JP bez zmian — tłumacz nie musi nic pobierać ponownie);
+    na Drive wymieniony tylko README.md.

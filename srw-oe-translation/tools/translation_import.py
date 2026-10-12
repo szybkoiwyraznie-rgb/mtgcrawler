@@ -22,8 +22,9 @@ An element is addressed by the scene number of its heading (``## Scena 1/293`` =
 ``06_scenes.jsonl``) plus its own number ``1.``, ``2.``, …; the mission title and notes of the scene
 use ``T1.`` / ``N1.``, ``N2.``.  Every following indented line belongs to the same element, so the
 number of line breaks stays the same as in the Japanese text (the game draws the box around them);
-the two invisible characters of the view are written back as characters (``\u23ce`` -> carriage
-return, ``<0x0F>`` -> the half-width font switch), so the translator never types an invisible byte,
+the two invisible characters of the view are written back as bytes (``\u23ce`` -> carriage
+return, ``<0x0F>`` -> 0x0F, the lead byte of a voiced-kana token that the English text must NOT
+carry - the validator rejects it), so the translator never types an invisible byte,
 and a trailing break the Japanese text ends with is restored automatically.  Elements that repeat a
 line of another scene (``[kopia]``) carry no ``EN:`` line: their English comes from
 ``tools/translation_copy.py``.

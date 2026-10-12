@@ -60,7 +60,7 @@ nasze narzędzie odrzuci taką linię i zgłosi to.
 
 Zamiast `—` pisz `-` albo `―`. Zamiast `José` pisz `Jose`. Pełna szerokość japońska (`Ａ`, `１`, `％`)
 jest dostępna, ale **dla angielskiego używaj zwykłych liter i cyfr** — chyba że tekst w grze stoi
-w polu pisanym czcionką półszeroką (patrz `<0x0F>` niżej).
+w polu pisanym czcionką półszeroką (patrz „Imiona wąskie" i `<0x0F>` niżej).
 
 ### Długość tekstu — czytaj linię `limit:` pod każdym elementem
 
@@ -173,8 +173,13 @@ Co jest czym:
   końcu** tekstu dodają się same, tam pustej linii nie odtwarzasz.
 * `⏎` w tekście japońskim = wymuszone przejście do nowej linii. **Zostaw `⏎` w swoim tekście**
   w tym samym miejscu — nie zamieniaj go na zwykłą nową linię.
-* `<0x0F>` = gra przełącza czcionkę na półszeroką (tak są pisane skróty w nazwach broni).
-  **Zostaw `<0x0F>`** w tym samym miejscu; tekst po nim pisz zwykłymi literami.
+* `<0x0F>` = w japońskim tekście to **pierwszy bajt dwubajtowego znaku**: razem z JEDNYM znakiem
+  stojącym bezpośrednio po nim tworzy jedną dźwięczną sylabę kany (ten znak po `<0x0F>` nie jest
+  tekstem — jest częścią sylaby, mimo że wygląda jak cyfra lub interpunkcja). Po angielsku dźwięczna
+  kana nie istnieje, więc **w tekście `EN:` usuwasz `<0x0F>` razem z tym jednym znakiem po nim**,
+  a resztę piszesz zwykłymi literami. Jak odczytać sylabę: pełna wersja tej samej nazwy (np.
+  „Imię pełne" przy „Imię wąskie") pokazuje ją zwykłą kaną z kropkami. Narzędzie **odrzuci**
+  angielski tekst, w którym `<0x0F>` został — zostawiony przed angielską literą zjadłby ją w grze.
 * Nie znasz mówcy? W nagłówku jest `ID 3122` zamiast imienia — wtedy pisz tak, żeby pasowało do
   postaci widocznej w grze (neutralny ton).
 
@@ -344,7 +349,7 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 - [ ] Każde `EN:` w scenie ma tekst (albo element jest `[kopia]` — wtedy zostaje pusty).
 - [ ] W tytułach misji (`T1.`) i uwagach (`N1.`,`N2.`) nie ma pustych `EN:`.
 - [ ] Liczba linii w moim tekście = liczba linii japońskich (końcowe łamanie dodaje się samo).
-- [ ] `⏎`, `<0x0F>` i podstawki `＜…＞` (np. `＜主人公名＞`) zostały tam, gdzie były.
+- [ ] `⏎` i podstawki `＜…＞` (np. `＜主人公名＞`) zostały tam, gdzie były; `<0x0F>` zniknęło z angielskiego tekstu (razem ze znakiem, który po nim stał).
 - [ ] Żadnego `—`, `„`, `•` ani liter z akcentami.
 
 **Widoki nazw i tabel**
