@@ -1967,3 +1967,14 @@ No game files written. Game text only under `local/`.
 8. [NIEZWERYFIKOWANE] Tabela mechów (cel 100+) nie znaleziona. Kandydaci: `config*` (`unit_list`, `robolist.bin`, RoboDictionary slot 3) — nie pobrane w tej turze.
 
 Odrzucone/nieudane: `cpk_write.load` przyjmuje `Path`, nie `str`. Drukowanie `member.blob` zalewa wyjście — nie robić tego.
+
+## Sesja 4, korekta liczenia dialogów (2026-10-12)
+
+Przyczyna rozbieżności z lokalnym wynikiem użytkownika (ok. 45k+ linii):
+1. [ZWERYFIKOWANE] `extract_scenes.py` liczy rekordy po znacznikach typu (skanowanie), bez wymogu granic łańcucha. Razem 46703 rekordów tekstu (44876 dialogów `0xc9` + 1827 narracji `0x1b7`). Dla 32 kontenerów.
+2. [ZWERYFIKOWANE] `speaker_probe.py` chodzi po łańcuchu rekordów (`walk_records`, od `find_stream_start` do EOF). Dla 293 członków (32 kontenery, `evept` włącznie): 251 z czystym łańcuchem, 42 bez (`no-clean-record-chain`, 0 linii).
+3. [ZWERYFIKOWANE] Test granic: ze 43710 dialogów ekstraktora (dopasowanych członków) tylko 12615 (29%) leży na granicy łańcucha rekordu `0xc9`. Pozostałe ok. 71% to trafienia po znaczniku bez poprawnego łańcucha, nie rekordy.
+4. [ZWERYFIKOWANE] Łańcuch: 12738 rekordów `0xc9` dla 293 członków, zgodne z sumą sondy.
+5. [NIEZWERYFIKOWANE] 42 członki bez łańcucha mają 1166 trafień ekstraktora. Nie wiadomo, czy są prawdziwe. Nie dołączać bez weryfikacji.
+6. Wniosek: liczba zweryfikowana to 12738 linii dialogowych (łańcuch). 45k+ z lokalnego narzędzia najprawdopodobniej to liczba trafień znacznikowych. Nie wiadomo, czy to samo narzędzie, bo użytkownik nie podał nazwy ani wyniku.
+7. ISO: na USRDIR jedyny kontener zdarzeń to `eventP00.cpk` (wliczony). Inne pliki ISO z dialogami (np. `mesbtl00.cpk` z walkami) nie są wliczone do 12738.

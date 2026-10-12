@@ -253,7 +253,7 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Manifest jest niepełny: config01–46 (bez 38), imenu01–32, USRDIR (68 plików) dopisać przy następnym pobieraniu. ID z listingu FULL_DLC i USRDIR z tej tury są w historii rozmowy.
 
 ### Sesja 4 (2026-10-12): stan
-- Dialogi: 32 kontenery zdarzeń (w tym `eventP00` z USRDIR), 251 członków, 12738 linii. Pokrycie zdarzeń potwierdzone.
+- Dialogi: 12738 linii `0xc9` z łańcucha rekordów (293 członków, 32 kontenery, w tym `eventP00` z USRDIR). 42 członki bez łańcucha nieobjęte. Liczba znacznikowa 46703 jest zawyżona (tylko 29% trafień leży na granicach).
 - Hash `eventP00`: jedna kopia na Drive, porównanie niemożliwe.
 - Mechy: 100+ NIE osiągnięte. `robo00.cpk` to archiwum modeli; nazwy członków nie są kluczami jednostek (9/45 pokrycia). Dalej: `config*` (unit_list, robolist, RoboDictionary).
 - Trwałość: wejścia gitignored znikają między turami; odtwarzać przez `tools/drive_manifest.tsv`.
