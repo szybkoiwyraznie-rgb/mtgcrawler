@@ -15,8 +15,9 @@ Record layout (identical for items and skills)::
     +4   u16   copy of the linked id                            | skill: record id, UNIQUE (1469/1469)
     +6   u16   item: 5 distinct values (0..4)                   | skill: level (65535 seed + 0..10)
     +8..+39    parameter area (u16 fields, item-specific)
-    +40  3 u16 pairs (start, end) - the record's three text slots, each a NUL-padded string
-    then  the numeric tail (u16 parameters after the last slot)
+    +40  6 u16 field boundaries b0..b5 (b0 == 54 in all 1769 records) delimiting **five**
+         NUL-terminated text fields: [name, name_level, effect, effect_brief, label]
+    then  the numeric tail (u16 parameters after the last field, i.e. after b5)
 
 Measured facts
 --------------
@@ -27,12 +28,15 @@ Measured facts
   (65535 seed + levels 1..10).  The unique id at +4 is used as the skill key here; no other table
   in the shared data was found to reference it (searched: ``srwDL_Skill_Tag`` ids, ``charalist``,
   ``unit_list`` slots) `[OTWARTE]`.
-* **Three text slots in every one of the 1769 records** (300 items + 1469 skills): slot 0 = name
-  (300/300 and 1469/1469 non-empty), slot 1 = effect/description (same counts), slot 2 = extra
-  (empty in 91 items / 455 skills; where non-empty it is a label such as 開始気力:全).
-  A slot is a *reserved range* ``[start, end)`` whose text ends at the first NUL; the remaining
-  bytes of the range are padding (the text length is what a translation may grow into, and the
-  record can grow beyond it because the span table is rebuilt - ``grow`` path).
+* **Five text fields in every one of the 1769 records** (300 items + 1469 skills), delimited by the
+  six boundaries at +40.  The first reading of this table took the six values as three (start, end)
+  pairs, which hid two fields in between; corrected 2026-10-12 (session 5, part 9):
+  ``name`` (base name, e.g. 対地 / 経験値 ２倍 Lv1), ``name_level`` (name with the level suffix,
+  e.g. 対地 Lv1 - skills only), ``effect`` (long effect text with ``%s``/``＠n`` placeholders),
+  ``effect_brief`` (short summary, e.g. 攻撃1.3倍 命中+40%), ``label`` (e.g. 開始気力:全).
+  Filled: items name 300 + effect 300 only; skills 1469 / 1469 / 1469 / 516 / 9.
+  Fields are exactly text + NUL (padding 0 everywhere), so a translation grows the field and the
+  *record* - the boundary table is rebuilt (`grow` path), which is what ``item_skill_write`` does.
 * **DLC Item/Skill files add no text**: ``Item01-08`` are eight identical copies whose 76 pool
   entries all come from the ``Item00`` tail pool (152 runs / 1146 B); ``Skill01/03-08`` are seven
   identical copies and ``Skill02`` differs slightly, 720 pool entries each - all 720 already in the
@@ -62,9 +66,11 @@ if str(HERE) not in sys.path:
 import inline_names as IN  # noqa: E402
 import speaker_map as SM  # noqa: E402
 
-SPAN_TABLE = 40
-SPAN_PAIRS = 3
-ROLES = ("name", "effect", "extra")
+BOUNDARY_TABLE = 40   # six u16 field boundaries
+BOUNDARY_COUNT = 6
+STRING_BASE = 54      # first text field always starts here (1769/1769 records)
+FIELDS = ("name", "name_level", "effect", "effect_brief", "label")
+ROLES = FIELDS        # kept for callers that iterate role names
 KIND_PREFIX = {"item": "srwDL_Item", "skill": "srwDL_Skill"}
 # srwDL_Skill_Tag is a different table (convention A, tag ids + JP/EN labels): not a skill record.
 EXCLUDED = ("srwDL_Skill_Tag.bin", "srwDL_ItemDrop.bin")
@@ -120,8 +126,8 @@ def parse_member(blob: bytes, kind: str, member: str = "", container: str = "") 
         record = blob[offsets[index]:ends[index]]
         row: Dict[str, object] = {"container": container, "member": member, "kind": kind,
                                  "record": index, "offset": offsets[index], "length": len(record)}
-        if len(record) < SPAN_TABLE + 2 * SPAN_PAIRS:
-            errors.append(f"record {index}: too short for a span table")
+        if len(record) < BOUNDARY_TABLE + 2 * BOUNDARY_COUNT + 2:
+            errors.append(f"record {index}: too short for the boundary table")
             continue
         header = list(struct.unpack_from("<%dH" % (len(record) // 2), record, 0))
         row["header"] = header
@@ -135,22 +141,24 @@ def parse_member(blob: bytes, kind: str, member: str = "", container: str = "") 
             row["family"] = header[0]
             row["family_alt"] = header[1]
             row["level"] = header[3]
-        spans = list(struct.unpack_from("<%dH" % (2 * SPAN_PAIRS), record, SPAN_TABLE))
-        text_end = SPAN_TABLE
-        for role in range(SPAN_PAIRS):
-            start, end = spans[2 * role], spans[2 * role + 1]
-            if not (SPAN_TABLE <= start < end <= len(record)):
-                errors.append(f"record {index}: span {role} out of range ({start},{end})")
-                continue
+        boundaries = list(struct.unpack_from("<%dH" % BOUNDARY_COUNT, record, BOUNDARY_TABLE))
+        row["boundaries"] = boundaries
+        if boundaries[0] != STRING_BASE or any(
+                boundaries[i] >= boundaries[i + 1] for i in range(BOUNDARY_COUNT - 1)
+        ) or boundaries[-1] > len(record):
+            errors.append(f"record {index}: bad field boundaries {boundaries}")
+            return result
+        for role_index, role in enumerate(FIELDS):
+            start, end = boundaries[role_index], boundaries[role_index + 1]
             raw = record[start:end]
-            body = raw.split(b"\x00", 1)[0]      # the text ends at the first NUL; the rest is padding
-            if len(body) >= len(raw):
-                errors.append(f"record {index}: slot {role} has no terminator")
-            row[f"{ROLES[role]}_offset"] = start
-            row[f"{ROLES[role]}_slot"] = end - start
-            row[f"{ROLES[role]}_padding"] = len(raw) - len(body) - 1
-            row[ROLES[role]] = decode(body)
-            text_end = max(text_end, end)
+            body = raw.split(b"\x00", 1)[0]      # a field is text + NUL (+ padding, 0 in all 1769)
+            if not raw.endswith(b"\x00"):
+                errors.append(f"record {index}: field {role} has no terminator")
+            row[f"{role}_offset"] = start
+            row[f"{role}_slot"] = end - start
+            row[f"{role}_padding"] = len(raw) - len(body) - 1
+            row[role] = decode(body)
+        text_end = boundaries[-1]
         tail_words = list(struct.unpack_from("<%dH" % ((len(record) - text_end) // 2),
                                              record, text_end))
         row["tail"] = tail_words
@@ -239,11 +247,9 @@ def summary(collected: dict) -> dict:
             "keys_in_one_member": len({row["key"] for row in rows
                                        if row["member"] == sorted(members)[0]}),
             "duplicated_between_members": sum(1 for k, n in copies.items() if n > 1),
-            "with_name": sum(1 for row in rows if row.get("name")),
-            "with_effect": sum(1 for row in rows if row.get("effect")),
-            "with_extra": sum(1 for row in rows if row.get("extra")),
-            "name_bytes": sum(len(row.get("name", "").encode("cp932")) for row in rows),
-            "effect_bytes": sum(len(row.get("effect", "").encode("cp932")) for row in rows),
+            **{f"with_{role}": sum(1 for row in rows if row.get(role)) for role in FIELDS},
+            **{f"{role}_bytes": sum(len(row.get(role, "").encode("cp932")) for row in rows)
+               for role in FIELDS},
             "key_min": min(keys) if keys else None,
             "key_max": max(keys) if keys else None,
         }

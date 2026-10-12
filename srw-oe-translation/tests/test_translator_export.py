@@ -135,13 +135,15 @@ class RowTests(unittest.TestCase):
         self.assertEqual(rows[0]["mode"], "grow")
         self.assertIsNone(rows[0]["max_bytes"])
 
-    def test_item_and_skill_slots_become_budgeted_rows(self):
+    def test_item_and_skill_rows_grow_with_a_ui_hint(self):
         items = TE.item_skill_rows(self.root, "item")
         skills = TE.item_skill_rows(self.root, "skill")
         self.assertEqual([r["part"] for r in items], ["name", "effect"])
-        self.assertEqual(items[0]["mode"], "slot")
-        self.assertEqual(items[0]["max_bytes"], 12)      # span 13 - NUL
-        self.assertEqual(skills[0]["max_bytes"], 19)     # span 20 - NUL
+        self.assertEqual(items[0]["mode"], "grow")        # the record table is rebuilt on write
+        self.assertIsNone(items[0]["max_bytes"])
+        self.assertEqual(items[0]["suggested_max"], 12)   # original slot span 13 - NUL
+        self.assertEqual(items[0]["record"], 0)
+        self.assertEqual(skills[0]["suggested_max"], 19)  # span 20 - NUL
         self.assertEqual(skills[0]["key"], 3311)
 
     def test_config_rows_use_record_relative_offsets(self):

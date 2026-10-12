@@ -18,8 +18,8 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu (26 468/26 468)** i **98,35% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
 | 4 | Encyklopedia postaci | `srwDL_CharaDictionary` (imenu/config) — **pole [2] rekordu** | tabela **289 postaci** z nazwą, seiyuu, tytułem serii, pseudonimem `愛称：` i **slotem opisu**; opis ma **tylko 3/582 rekordy**, reszta trzyma sam szablon `＠０\r`; rekord `NoData` (klucz 65535) ma w tym polu `図鑑用のデータが存在していません。` = „brak danych do encyklopedii” (`tools/chara_dictionary.py`, 9 testów) | grow (pula NUL — `dict_pool_shift.rebuild_pool`) | **tabela zlokalizowana, opisów w danych gry brak** | 579 rekordów bez opisu → opisy trzeba **napisać** (praca redakcyjna), a wstrzyknięcie jest wykonalne w polu [2] (szablon `＠０\r` + tekst) `[HIPOTEZA]` co do wyświetlania |
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
-| 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); nazwy 4 001 B (273 unikalne, max 20 B), efekty 3 941 B (max 66 B); slot dodatkowy (etykieta) pusty we wszystkich 300 rekordach (`tools/item_skill_records.py`, 11 testów) | grow (przebudowa tabeli spanów + offsetów rekordów) | **role pól ustalone** | ścieżka `apply`; znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy itemów |
-| 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **189 unikalnych nazw / 10 322 B** (część w połowie szerokości z tokenami 0x0F), efekty **40 208 B** (1 237 unikalnych, max 106 B); 9 rekordów ma etykietę w trzecim slocie | grow | **role pól ustalone** | nazwy do rozwiązania tokenów (`token_solve`); klucz rekordu nie jest powiązany z żadną inną tabelą w przekazanych plikach `[OTWARTE]` |
+| 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); tekst: nazwa **4 001 B** (273 unikalne, max 20 B) + efekt **3 941 B** (max 66 B); pola `name_level`/`effect_brief`/`label` puste w 300/300 (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`) | **ekstrakcja + zapis domknięte** | znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy; ten sam plik leży w dwóch kontenerach — trzeba wypełnić oba wiersze |
+| 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **pięć pól tekstu**: nazwa 10 322 B (189 unikalnych, tokeny 0x0F) + `name_level` **15 032 B** + efekt 40 208 B (1 237 unikalnych, max 106 B) + `effect_brief` **7 161 B** + etykieta 99 B (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`, 19 testów) | **ekstrakcja + zapis domknięte** | nazwy z tokenami 0x0F do rozwiązania (`token_solve`); klucz rekordu niepowiązany z inną tabelą w przekazanych plikach `[OTWARTE]` |
 | 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
 | 9 | Mapy / shop / drop | `srwDL_Map_S`, `bg2dlist`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | **nazwy map i teł zlokalizowane** (§3f, znalezisko 15): `srwDL_Map_S` 15 nazw / 412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19 z tekstem: 5 etykiet kategorii `パイロット用パーツ` itp.); ItemDrop 1092 rekordy (5 stringów) | grow (slot + NUL) | **zdekodowane** | skąd sklep bierze nazwy itemów (nie z `srwDL_Shop`) — do ustalenia; nazwy map mają prefiks id (`53_…`), więc slot ma stałą szerokość do zmierzenia |
 | 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **ekstrakcja domknięta** (`tools/mission_text.py`, 20 testów, 871 rekordów, 0 błędów) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; uwagi do misji **zduplikowane** w slotach +24/+184 (deduplikacja przy eksporcie) |
@@ -162,14 +162,22 @@ Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rek
 | +4 | kopia `linked` | **id rekordu, unikalne 1469/1469 → klucz** |
 | +6 | 5 wartości (0–4) | poziom (65535 = zalążek + 0–10) |
 | +8–39 | parametry | parametry |
-| +40 | **3 pary u16 (start, end)** = trzy sloty tekstu | to samo |
-| dalej | ogon liczbowy (u16) po ostatnim slocie | to samo |
+| +40 | **6 granic pól u16** (b0 = 54) = pięć pól tekstu | to samo |
+| +54 | pięć pól: `name`, `name_level`, `effect`, `effect_brief`, `label` | to samo |
+| dalej | ogon liczbowy (u16) po ostatnim polu | to samo |
 
-* Slot = zakres `[start, end)`, tekst kończy się na pierwszym NUL, resztę zakresu wypełnia padding.
-  Role: **slot 0 = nazwa**, **slot 1 = efekt/opis**, **slot 2 = dodatkowy** (pusty u 300/300 itemów
-  i 455/1469 umiejętności; gdy niepusty, to etykieta, np. `開始気力:全`).
-* Sloty nazwy i efektu **nie mają zapasu** (padding 0 w 300/300 i 1469/1469 rekordach) — dłuższy
-  tekst angielski wymaga przesunięcia danych i przebudowy tabeli offsetów (ścieżka grow).
+* **KOREKTA (sesja 5, cz. 9)**: sześć wartości `u16` pod +40 to **granice pięciu pól**, nie trzy pary
+  `(start, end)`. Pierwsze odczytanie wzięło je za trzy pary i **zgubiło dwa pola**: `name_level`
+  (np. `対地 Lv1`, **15 032 B**) i `effect_brief` (np. `攻撃1.3倍 命中+40%`, **7 161 B**) — razem
+  **22,3 kB tekstu widocznego na ekranie umiejętności**, którego wcześniej nie było w pakiecie.
+* Pole = `[b_i, b_{i+1})`, tekst kończy się na pierwszym NUL. Role: `name` (nazwa bazowa),
+  `name_level` (nazwa z poziomem), `effect` (długi efekt z `%s`/`＠n`), `effect_brief` (skrót efektu),
+  `label` (np. `開始気力:全`). Wypełnione: itemy 300/0/300/0/0; umiejętności 1469/1469/1469/516/9.
+* Każdy rekord ma długość **wielokrotności 4** (2069/2069), a nadmiar leży w ostatnim polu jako padding
+  (0–3 B). Zapis odtwarza tę regułę, więc przebudowa bez zmian daje **bajt w bajt** oryginał
+  (sprawdzone na 2 069 rekordach i 3 członkach).
+* Pola nazwy i efektu **nie mają zapasu** (padding 0 wszędzie) — zapis rośnie przez przebudowę rekordu,
+  tabeli offsetów i `tail_offset` (gotowe: `tools/item_skill_write.py`).
 * Tekst: itemy — 300 nazw (4 001 B, 273 unikalne, max 20 B) + 300 efektów (3 941 B, max 66 B);
   umiejętności — 1 469 nazw (10 322 B, **189 unikalnych**, max 14 B) + 1 469 efektów (40 208 B,
   1 237 unikalnych, max 106 B).
@@ -297,9 +305,11 @@ Wiersze narracji/helpów/etykiet nie mają mówcy z definicji. `speaker.jp = nul
    i tłumaczy 5 różnic: warianty szerokości (ｱﾘｬﾘｬ･… vs アリャリャ・…), pusty `name_full` (4135 —
    uzupełniany z `CharaDictionary`) oraz alias w nawiasie (400 勇者ラムネス（馬場ラムネ）).
 
-11. **Role pól itemów i umiejętności ustalone** (pkt 5/6): tabela trzech par `u16` pod +40 w każdym
-    rekordzie, slot 0 = nazwa, slot 1 = efekt, slot 2 = etykieta; brak zapasu w slotach nazwy/efektu.
-    Klucz itemu = u16 +0 (300 unikalnych), klucz umiejętności = u16 +4 (1 469 unikalnych).
+11. **Role pól itemów i umiejętności — KOREKTA (cz. 9)**: sześć `u16` pod +40 to **granice pięciu pól**
+    (`name`, `name_level`, `effect`, `effect_brief`, `label`), nie trzy pary. Pierwsze odczytanie zgubiło
+    `name_level` (15 032 B) i `effect_brief` (7 161 B) = 22,3 kB tekstu. Rekord = 20 słów parametrów +
+    6 granic + 1 słowo + pola + ogon liczbowy, długość zawsze % 4 == 0; zapis (`item_skill_write`)
+    odtwarza to bajt w bajt. Klucz itemu = u16 +0 (300 unikalnych), umiejętności = u16 +4 (1 469).
 12. **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów z plików bazowych
     (0 nowych stringów), więc ekstrakcja z `config00` + `configst` pokrywa całość kategorii.
 
@@ -389,10 +399,12 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    opis jest teksturą/obrazem albo siedzi w `EBOOT.BIN` / `UPDATE/DATA.BIN` (95 MB).
 5. ~~**Skille (pkt 7) — role pól**~~ **ZROBIONE (sesja 5, `tools/item_skill_records.py`)**:
    1 469 rekordów, klucz = u16 +4, role slotów nazwa/efekt/etykieta, tekst 10 322 + 40 208 B.
-   Zostaje: rozwiązanie tokenów 0x0F w nazwach (`token_solve`) i ścieżka `apply`.
+   Zostaje: rozwiązanie tokenów 0x0F w nazwach (`token_solve`). **Ścieżka `apply` zrobiona (cz. 9)** —
+   razem z korektą modelu pól (5 pól, nie 3 sloty).
 6. ~~**Itemy (pkt 6)**~~ **ZROBIONE (sesja 5)**: 300 itemów = 300 kluczy, nazwy + efekty
    (4 001 B + 3 941 B), role pól jak w skillach; `configst/srwDL_Item` = kopia `Item00`.
-   Zostaje: `linked` (+2) i powiązanie z opisami zakupu w `srwDL_DLC_ID` (pkt 8), ścieżka `apply`.
+   **Ścieżka `apply` zrobiona (cz. 9)**. Zostaje: `linked` (+2) i powiązanie z opisami zakupu
+   w `srwDL_DLC_ID` (pkt 8).
 7. **Helpy/UI (pkt 8) — budżety znaków.** Dla `sysmes.bin` (menu tytułowe = equal-length, opisy =
    shift) zmierzyć sloty i szerokości; `srwDL_Reference` (17 KB) i pozostałe tabele configst —
    ekstrakcja jak w pkt 3–4. **Nowe kategorie z §3f** (uwagi do misji, tytuły BGM, nazwy teł/oddziałów,
@@ -405,6 +417,14 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    wysyłane na Google Drive (folder pakietu). Zostaje: kontrola pokrycia wobec tego dokumentu
    i kolumna szerokości dla UI.
 10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
+    - **Zrobione (cz. 9)**: itemy i umiejętności — `tools/item_skill_write.py` przebudowuje rekordy
+      (5 pól), tabelę offsetów, `tail_offset`, PAC i CPK; przebudowa bez zmian = bajt w bajt,
+      a 28 wierszy demonstracyjnych przechodzi kontrolę po ponownym odczycie (20/20 w `config00`,
+      8/8 w `configst`, 0 błędów parsera).
+    - Tekst scen: `apply_strings.py` (EVNT) — zbudowany wcześniej, cykl bez zmian sprawdzony.
+    - Zostaje: kategorie o stałym kroku (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`,
+      `groupunit`), tabele `config_text_tables`, `sysmes.bin` (equal-length/shift), repack ISO i DLC,
+      test w PPSSPP.
 11. **Ostatnie 14 kluczy cytatów bez nazwy** (451 rekordów / 27 383 = 1,65%, pkt 2) — po tej sesji
     wiadomo: (a) występują wyłącznie w `mesbtl00`, (b) nie ma ich w `charalist`/`CharaDictionary`/
     slotach `config*`, (c) nie ma reguły przesunięcia ±1, (d) w samych rekordach nie ma ukrytego

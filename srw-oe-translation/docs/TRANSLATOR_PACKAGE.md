@@ -17,15 +17,19 @@ sekcja o prawach): leży w `local/translation/` i jest wysyłany na Google Drive
 | `00_dialogue.jsonl` | dialogi scen fabularnych + narracja, warunki misji, lokacje, helps, etykiety | 27 101 |
 | `01_battle_quotes.jsonl` | cytaty bitewne (ataki, trafienia, porażki, zwycięstwa) | 27 383 |
 | `02_items.jsonl` | nazwy itemów i opisy ich efektów | 1 200 |
-| `03_skills.jsonl` | nazwy umiejętności i opisy efektów | 2 947 |
+| `03_skills.jsonl` | umiejętności: nazwa, nazwa z poziomem (`対地 Lv1`), długi efekt, skrót efektu, etykieta | 4 932 |
 | `04_config_text.jsonl` | pomoce (`srwDL_Reference`), komendy duchowe, trofea, opisy zakupów DLC, etykiety sklepu, zmiany statusu | 12 631 |
 | `05_mission_text.jsonl` | tytuły misji, uwagi do misji, tytuły BGM, nazwy map, teł i oddziałów | 1 311 |
 | `10_names_characters.jsonl` | imiona i nazwiska postaci, pseudonimy, serie, seiyuu | 3 388 |
 | `11_names_units_weapons.jsonl` | nazwy mechów, serie, nazwy broni, notki encyklopedii mechów | 4 645 |
-| `strings.csv` | te same wiersze w arkuszu (do pracy w Excelu/LibreOffice) | 80 606 |
+| `strings.csv` | te same wiersze w arkuszu (do pracy w Excelu/LibreOffice) | 82 591 |
 | `index.json` | statystyki: ile wierszy w każdym pliku, ile ma nazwę mówcy | — |
 
-Razem **80 606 wierszy / 2 447 484 bajtów** tekstu japońskiego.
+Razem **82 591 wierszy / 2 469 677 bajtów** tekstu japońskiego.
+
+Itemy i umiejętności to jedyne kategorie, w których jeden rekord ma kilka tekstów — każdy jest osobnym
+wierszem z tym samym `record` i innym `part` (`name`, `name_level`, `effect`, `effect_brief`, `label`).
+Nie trzeba pilnować ich wzajemnej długości: każdy wiersz rośnie niezależnie.
 
 ## 2. Jeden wiersz = jeden tekst
 
@@ -41,7 +45,9 @@ Razem **80 606 wierszy / 2 447 484 bajtów** tekstu japońskiego.
 * `jp` — oryginał, nie zmieniać (służy do porównania i do weryfikacji).
 * **`en` — jedyne pole do wypełnienia.** Puste = tekst nietłumaczony (zostanie japoński).
 * `bytes` — ile bajtów CP932 zajmuje oryginał.
-* `mode` / `max_bytes` — patrz punkt 3.
+* `mode` / `max_bytes` / `suggested_max` — patrz punkt 3.
+* `record` — numer rekordu w pliku gry (item/umiejętność). Wiersze z tym samym `record` opisują
+  jeden przedmiot; nic z tym nie trzeba robić, to tylko informacja.
 * `speaker` — kto mówi. `speaker.jp = null` znaczy „nie znamy nazwy, użyj `speaker.id`”.
 
 ## 3. Dwa tryby i budżet miejsca
@@ -49,8 +55,14 @@ Razem **80 606 wierszy / 2 447 484 bajtów** tekstu japońskiego.
 * `mode = "grow"` — kontener przebuduje rozmiary (`apply` przelicza tabele i offsety), więc
   tłumaczenie może być **dłuższe niż oryginał**. Nie ma `max_bytes`. Uwaga: zbyt długi tekst w
   oknie dialogowym może wyjść za ekran — trzymaj się długości oryginału tam, gdzie się da.
-* `mode = "slot"` — tekst siedzi w **stałym polu** (item, skill, tytuł misji, nazwa mapy). Maksymalna
-  długość w bajtach CP932 to `max_bytes`. Teksts dłuższy niż `max_bytes` nie wejdzie — trzeba skrócić.
+* `mode = "grow"` z `suggested_max` — itemy i umiejętności. Plik gry przebudowuje rekordy, więc
+  **limit techniczny nie istnieje**, ale `suggested_max` podaje, ile bajtów CP932 miało oryginalne pole.
+  To podpowiedź z UI gry: w oknie listy itemów/umiejętności widać ~20–30 bajtów na nazwę i ~66 bajtów
+  na opis, dłuższe teksty zostaną ucięte przy wyświetlaniu. Staraj się nie przekraczać `suggested_max`;
+  jeśli musisz, skróć opis zamiast rozciągać nazwę.
+* `mode = "slot"` — tekst siedzi w **stałym polu** (tytuł misji, nazwa mapy, tytuł BGM, uwaga do misji).
+  Maksymalna długość w bajtach CP932 to `max_bytes`. Tekst dłuższy niż `max_bytes` nie wejdzie —
+  trzeba skrócić.
 
 ## 4. Zasady, o których trzeba pamiętać
 

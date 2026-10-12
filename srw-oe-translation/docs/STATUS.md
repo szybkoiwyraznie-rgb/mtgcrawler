@@ -389,3 +389,19 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - **Sklep**: `srwDL_Shop` dodany do `config_text_tables`; pełny przebieg 36 członków / 12 631 stringów /
   208 229 B / 0 błędów.
 - Testy: **521 OK (1 skipped)**.
+
+## Sesja 5, część 9 (2026-10-12): itemy i umiejętności — korekta układu pól i ścieżka zapisu
+
+- **KOREKTA**: +40 w rekordzie itemu/umiejętności to **sześć granic `u16` = pięć pól tekstu**
+  (`name`, `name_level`, `effect`, `effect_brief`, `label`), nie trzy pary `(start, end)`. Poprzedni
+  odczyt **zgubił dwa pola**: `name_level` (15 032 B) i `effect_brief` (7 161 B) — razem **22 193 B
+  tekstu widocznego w grze** wróciło do pakietu. Wypełnienie: umiejętności 1469/1469/1469/516/9,
+  itemy 300/0/300/0/0.
+- **Reguła zapisu**: rekord ma zawsze długość % 4 == 0, a nadmiar leży w ostatnim polu (2069/2069).
+- **`tools/item_skill_write.py`** (19 testów): przebudowuje rekord, tabelę offsetów, `tail_offset`,
+  PAC i CPK; wiersz stosuje tylko przy zgodnym `member` i zgodnym tekście `jp`; przebudowa bez zmian
+  = **bajt w bajt**. Przebieg demo: 20 wierszy w `config00` (Skill00 208 958 → 209 170 B,
+  Item00 34 566 → 34 726 B) i 8 w `configst` (34 566 → 34 726 B), kontrola 20/20 i 8/8.
+- **Pakiet dla tłumacza**: **82 591 wierszy / 2 469 677 B** (`03_skills` 4 932 wiersze), wiersze
+  itemów/umiejętności w trybie `grow` z `suggested_max` (podpowiedź UI) i `record`.
+- Testy: **544 OK (1 skipped)**.

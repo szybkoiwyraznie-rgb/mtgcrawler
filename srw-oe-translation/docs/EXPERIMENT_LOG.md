@@ -2330,3 +2330,52 @@ Polecenia (katalog `srw-oe-translation/`, artefakty gitignored w `local/`):
    (488 + 20 z `tests/test_mission_text.py` + 13 z `tests/test_translator_export.py`).
 9. Higiena: pakiet `local/translation/` powstaje wyłącznie w `local/` (ignorowane) i jest wysyłany na
    Google Drive jako gotowy artefakt dla tłumacza; repozytorium trzyma tylko kod i dokumentację.
+
+## Sesja 5 (2026-10-12), część 9 — układ itemów/umiejętności (korekta) i ścieżka zapisu
+
+1. [ZWERYFIKOWANE] **Korekta modelu rekordu itemu/umiejętności.** Pomiar przed poprawką: offsety
+   rekordów są dokładnie ciągłe (`offsets[i+1] - end_i == 0` w 2066/2066), a `tail_offset` == koniec
+   ostatniego rekordu (3/3) — czyli między rekordem a pulą ogona **nie ma szczeliny**, w której
+   mogłyby siedzieć dane. Surowa „szczelina” po ostatnim slocie (np. `91 ce 92 6e 00`) dekoduje się
+   jako tekst (対地 + NUL) — to nie dane liczbowe. Po ponownym odczycie +40: **sześć wartości `u16`
+   to granice pięciu pól**, a `b0 == 54` w 1769/1769 rekordach. Pola: `name`, `name_level`, `effect`,
+   `effect_brief`, `label`. Wcześniejsze „trzy pary (start, end)” było błędem odczytu.
+2. [ZWERYFIKOWANE] **Dwa pola były niewidoczne w pakiecie**: `name_level` (np. `対地 Lv1`, **15 032 B**)
+   i `effect_brief` (np. `攻撃1.3倍 命中+40%`, **7 161 B**) — razem **22 193 B tekstu widocznego
+   w grze** (nazwa umiejętności z poziomem + skrót efektu na liście). Wypełnienie pól: umiejętności
+   1469/1469/1469/516/9, itemy 300/0/300/0/0.
+3. [ZWERYFIKOWANE] **Reguła długości rekordu**: każdy rekord ma długość **wielokrotności 4**
+   (2069/2069 w `Item00`/`Skill00`/`Item`), a nadmiar (0–3 B) leży zawsze w **ostatnim polu** jako
+   padding — sprawdzone parą (padding ostatniego pola, brakujące bajty do %4): zgadza się w 2069/2069.
+   Zapis odtwarza regułę, więc przebudowa **bez zmian daje bajt w bajt** oryginał: 2 069/2 069 rekordów
+   i 3/3 członki (`srwDL_Item00.bin`, `srwDL_Skill00.bin`, `srwDL_Item.bin`) identyczne.
+4. [ZWERYFIKOWANE] **`tools/item_skill_write.py`** (19 testów syntetycznych `tests/test_item_skill_write.py`):
+   `rebuild_record` (20 słów parametrów + 6 granic + słowo 26 + pięć pól + ogon liczbowy),
+   `rebuild_member` (tabela offsetów i `tail_offset` przeliczone, pula ogona zachowana, odmowa dla
+   nieparsowalnego członka i nieznanego numeru rekordu), `plan_edits` (wiersz stosowany tylko gdy
+   `source.member` się zgadza **i** tekst w pliku == `jp` wiersza; liczniki `applied`/`empty`/
+   `mismatch`/`foreign`), `apply_container` (CPK → PAC → członki → `configst_pack.rebuild_pac` →
+   `cpk_write.rebuild`) i `verify_container` (ponowny odczyt + porównanie `(member, record, pole)`).
+   `wanted_targets(rows, container)` filtruje wiersze po kontenerze — bez tego werdykt pokazywał
+   fałszywe braki dla wierszy z drugiego kontenera.
+5. [ZWERYFIKOWANE] **Przebieg demonstracyjny na prawdziwych plikach** (28 wierszy demo: 12 umiejętności
+   + 8 itemów w `config00`, 8 itemów w `configst`): `config00.cpk` → 20 wierszy zastosowanych
+   (`Skill00` 3 rekordy, 208 958 → 209 170 B; `Item00` 4 rekordy, 34 566 → 34 726 B),
+   `configst.cpk` → 8 wierszy (`Item.bin` 4 rekordy, 34 566 → 34 726 B); kontrola po ponownym
+   odczycie: **20/20** i **8/8**, 0 błędów parsera, pozostałe rekordy i pula ogona bez zmian.
+   Wynik: `local/patched/config00.cpk`, `local/patched/configst.cpk` (gitignored).
+6. [ZWERYFIKOWANE] **Poprawka błędu w czytniku**: stare `SPAN_TABLE` w `item_skill_records.py` zostawiło
+   `NameError` w 13 testach po zmianie modelu; strażnik zmieniony na
+   `BOUNDARY_TABLE + 2*BOUNDARY_COUNT + 2`, testy przepisane na pięć pól → 15 OK.
+7. [ZWERYFIKOWANE] **Pakiet dla tłumacza po korekcie**: `python3 tools/translator_export.py --local
+   local --out local/translation` → **82 591 wierszy / 2 469 677 B** (`00_dialogue` 27 101,
+   `01_battle_quotes` 27 383, `02_items` 1 200, `03_skills` **4 932 / 72 822 B**, `04_config_text`
+   12 631, `05_mission_text` 1 311, `10_names_characters` 3 388, `11_names_units_weapons` 4 645,
+   `strings.csv` 82 591 wierszy). Wiersze itemów/umiejętności mają teraz `mode=grow` +
+   `suggested_max` (oryginalna szerokość pola = podpowiedź UI, nie limit) + `record`.
+   `docs/TRANSLATOR_PACKAGE.md` (i kopia `local/translation/README.md`, wysyłana na Drive) opisują
+   trzy tryby i nowe pola.
+8. Higiena: nazwy plików w `local/translation/` i na Google Drive zostają bez zmian — podmieniane są
+   tylko te trzy pliki, które się zmieniły (`03_skills.jsonl`, `strings.csv`, `index.json`) plus README
+   pakietu i `02_items.jsonl` (nowe pola `mode`/`suggested_max`/`record`).
+9. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **544 OK (1 skipped)**.

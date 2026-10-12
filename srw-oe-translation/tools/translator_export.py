@@ -165,7 +165,9 @@ def item_skill_rows(local: Path, kind: str) -> List[dict]:
     for item in load_jsonl(local / "item_skill.jsonl"):
         if item.get("kind") != kind:
             continue
-        for slot in ("name", "effect", "extra"):
+        # items and skills carry five roles (six boundaries at +40 in the record);
+        # items fill name/effect only, skills add name_level/effect_brief/label
+        for slot in ("name", "name_level", "effect", "effect_brief", "label"):
             text = item.get(slot) or ""
             if not text:
                 continue
@@ -178,8 +180,12 @@ def item_skill_rows(local: Path, kind: str) -> List[dict]:
                     "jp": text,
                     "en": "",
                     "bytes": row_bytes(text),
-                    "mode": "slot",
-                    "max_bytes": span - 1 if isinstance(span, int) and span else None,
+                    # the record table is rebuilt on write, so any length fits the file;
+                    # suggested_max keeps the original reserved width as a UI hint
+                    "mode": "grow",
+                    "max_bytes": None,
+                    "suggested_max": span - 1 if isinstance(span, int) and span else None,
+                    "record": item.get("record"),
                     "key": item.get("key"),
                     "level": item.get("level"),
                     "source": {
@@ -463,6 +469,7 @@ def main(argv=None) -> int:
     index["notes"] = [
         "mode=grow: the container rebuild accepts any string length (dialogue, quotes, config pools).",
         "mode=slot: the string sits in a fixed span; max_bytes is that span minus its NUL.",
+        "suggested_max on item/skill rows is the original reserved width (a UI hint, not a limit).",
         "speaker.jp = null means the project has no name for that key yet (see index.speaker).",
         "Only the dialogue and quote rows carry a speaker; narration/help/label rows do not.",
         "Keep strings CP932-encodable; keep the in-game placeholders (＠0-＠9, ％s, ＄) intact.",
