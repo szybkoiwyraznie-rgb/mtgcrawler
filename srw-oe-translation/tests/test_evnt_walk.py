@@ -10,9 +10,14 @@ sys.path.insert(0, str(ROOT / "tools"))
 import evnt_walk as EW  # noqa: E402
 
 
+def pad4(data: bytes) -> bytes:
+    """Pad a record body to a 4-byte boundary - every measured record is aligned (never 0 bytes)."""
+    return data + b"\x00" * ((-len(data)) % 4 or 4)
+
+
 def text_payload(key, text, flags=1, anchor=0x0029, extra=0xFFFF):
     words = struct.pack("<6H", anchor, key, flags, 0, 0, extra)
-    return words + text.encode("cp932") + b"\x00"
+    return words + pad4(text.encode("cp932") + b"\x00")
 
 
 def text_record(key, text, **kw):
@@ -31,10 +36,14 @@ def mesbtl_block(records: bytes):
 
 
 def event_block(records: bytes, kind=1, extra_words=(52, 101, 0, 1200, 1, 0)):
-    """Measured event block: u32 kind, 'ECHK' chunk + header words, then records."""
+    """Measured event block: u32 kind, 'ECHK' chunk + header words, then the wrapped chain.
+
+    The header grows with the block (index tables), so the chain is found by scanning, and its
+    first record is always the 0xC8 wrapper -- measured on every event block of the 31 containers.
+    """
     header = struct.pack("<I", kind) + b"ECHK" + struct.pack("<I", 24)
     header += b"".join(struct.pack("<I", w) for w in extra_words)
-    payload = header + records
+    payload = header + wrapper_record(records)
     return EW.TAG + struct.pack("<I", len(payload)) + payload
 
 
@@ -119,10 +128,11 @@ class EventVariantTest(unittest.TestCase):
         self.assertEqual(result["records"][0]["text"], "ＥＮ補充、完了！\r")
 
     def test_types_histogram_covers_every_chain_record(self):
+        """Every record counts, the wrapper included: its size field has to grow with the text."""
         other = struct.pack("<2I", 0x12D, 8)
         blob = event_file(event_block(text_record(4501, "一", anchor=1) + other))
         result = EW.text_records(blob, "c", "DL100_01.bin")
-        self.assertEqual(result["types"], {EW.TYPE_TEXT: 1, 0x12D: 1})
+        self.assertEqual(result["types"], {EW.TYPE_WRAPPER: 1, EW.TYPE_TEXT: 1, 0x12D: 1})
 
 
 class FramingErrorTest(unittest.TestCase):

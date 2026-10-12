@@ -21,13 +21,13 @@ tłumaczy się **tekst w plikach `.md`**, po znaczniku `EN:`.
 | plik | co to jest |
 |---|---|
 | `README.md` (ten dokument) | instrukcja |
-| `sceny.zip` | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
+| `sceny.zip` | fabuła: 36 plików `.md` (spis scen + odcinki + symulator) |
 | `widoki.zip` | nazwy i tabele: 7 plików `.md` |
 
-Do wypełnienia w całym pakiecie: **67 440 linii `EN:`**
-(26 035 w fabule + 41 405 w widokach). Poza tym jest **5 146 elementów bez linii `EN:`** — to
-powtórzenia tego samego tekstu w grze (np. nazwa serii przy każdym mechu z tej serii); tłumaczenie
-dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „Elementy bez linii `EN:`").
+Do wypełnienia w całym pakiecie: **83 536 linii `EN:`**
+(39 424 w fabule + 44 112 w widokach). Poza tym jest **13 162 elementy bez linii `EN:`**
+(8 016 w fabule — kopie scen z wersji DLC, i 5 146 w widokach — powtórzone nazwy i opisy);
+tłumaczenie dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „Elementy bez linii `EN:`").
 
 ---
 
@@ -94,31 +94,37 @@ krótszą wersję i wspólną dla wszystkich; jedna pisownia na cały pakiet jes
 
 ## 2. Krok 1 — fabuła: `sceny.zip`
 
-Rozpakuj `sceny.zip`. W środku jest 37 plików: `spis-scen.md` (lista wszystkich 293 scen)
-oraz `epizod-00.md` … `epizod-34.md` + `simulator.md`.
+Rozpakuj `sceny.zip`. W środku jest 36 plików: `spis-scen.md` (lista wszystkich 282 scen)
+oraz `epizod-01.md` … `epizod-34.md` + `simulator.md`.
 
 Zacznij od `spis-scen.md` — to spis treści: numer sceny, odcinek, misja, miejsce. Każdy plik
 odcinka to sceny **w kolejności gry**.
 
 ### Jak wygląda scena
 
-```
-## Scena 1/293 — 初等訓練
-- odcinek: ０話 メインミッション (episode 0)
-- miejsce: コネクト・ステーション／格納庫 (element 74)
-- uczestnicy:
-  - セイシロウ・クサナギ — スーパーロボット大戦 オリジナル
-  - ヒマリ・ヤエガキ — スーパーロボット大戦 オリジナル
+To prawdziwy początek sceny 4/282 z pliku `epizod-02.md` (lista uczestników skrócona):
 
-T1. [Tytuł misji] 初等訓練
+```
+## Scena 4/282 — 黒いレイバー
+- odcinek: ２話 メインミッション (episode 2)
+- miejsce: 自衛隊演習場 (element 1)
+- miejsce: シャフトエンタープライズ／オフィス (element 11)
+- miejsce: 特車二課／格納庫 (element 19)
+- miejsce: 自衛隊演習場／指揮所 (element 45)
+- limit: dialog — 46 jedn. na linię (gra sama używa do 52), narracja — do 50 jedn.; liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)
+- uczestnicy:
+  - 自衛隊員
+  - 内海 — 機動警察パトレイバー
+  - 泉野明 — 機動警察パトレイバー
+  (…)
+
+T1. [Tytuł misji] 黒いレイバー
    EN:
 N1. [Uwaga do misji (pole powtarzane w grze — jeden tekst)] このミッションは出撃ユニットが固定されています。
    EN:
-1. [Dialog - セイシロウ・クサナギ] （俺は今、宇宙貿易事業を推進する
-   　民間組織『コネクト』にいる…）
+1. [Nagłówek miejsca] 自衛隊演習場
    EN:
-2. [Dialog - セイシロウ・クサナギ] 感度良好だ！
-   ミッションをはじめよう。
+2. [Dialog - 自衛隊員] 本部、本部！　応答願います！
    EN:
 
 _koniec sceny_
@@ -126,7 +132,7 @@ _koniec sceny_
 
 Co jest czym:
 
-* **`## Scena 1/293 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
+* **`## Scena 4/282 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
 * **`- odcinek:` / `- miejsce:`** — kontekst: który odcinek i gdzie scena się dzieje
   (miejsce też jest do przetłumaczenia — jako element w środku sceny).
 * **`- limit:`** — ile wolno napisać w tej scenie (dialog 46 jednostek na linię, narracja 50).
@@ -147,10 +153,10 @@ Co jest czym:
 ### Jak wypełniać
 
 ```
-2. [Dialog - セイシロウ・クサナギ] 感度良好だ！
-   ミッションをはじめよう。
-   EN: Loud and clear!
-   Let's begin the mission.
+3. [Dialog - 自衛隊員] 無線が電波障害を起こしています。
+   本部と連絡が取れません。
+   EN: Our radio is being jammed.
+   We can't reach HQ.
 ```
 
 * Tekst wpisujesz **w linii `EN:`**, po dwukropku.
@@ -181,8 +187,8 @@ Rozpakuj `widoki.zip`. W środku jest siedem plików — każdy obejmuje jedną 
 | `mechy.md` | nazwy jednostek, serie, długość, masa **oraz wszystkie bronie** | 2 303 | 2 042 |
 | `przedmioty.md` | nazwy przedmiotów i opisy efektów | 443 | 757 |
 | `umiejetnosci.md` | nazwy umiejętności i opisy efektów | 3 069 | 1 863 |
-| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 12 631 | 0 |
-| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 311 | 0 |
+| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 15 368 | 0 |
+| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 281 | 0 |
 
 Zasada jest **ta sama** co w fabule: linia japońska, pod nią linia `limit:` (ile wolno napisać),
 a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam nie wpisujesz.
@@ -228,18 +234,20 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 ### Cytaty bitewne — `cytaty.md`
 
 ```
-## Mówca 3/299 — シロー・アマダ
+## Mówca 67/299 — シロー・アマダ
 - seria: 機動戦士ガンダム 第０８ＭＳ小隊
 
-1. [Kwestia] 「当たるかよ、こんなもん！」
+1. [Kwestia] 「守ったら負ける！」
+   limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 1 linii
    EN:
-2. [Kwestia] 「援護射撃だ、下がってろ！」
+2. [Kwestia] 「あの時の二の舞はゴメンだ！」
+   limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 1 linii
    EN:
 ```
 
 * Grupa = mówca; w nagłówku jego **imię i seria**, żeby ton wypowiedzi był zgodny z postacią.
 * Kwestie stoją w japońskich cudzysłowach `「…」` — **zostaw je** (gra je rysuje).
-* Mówca bez nazwy (`## Mówca 5/299 — ID 3122`) — ton neutralny; w grze widać, kto to mówi.
+* Mówca bez nazwy (`## Mówca 1/299 — ID 50`) — ton neutralny; w grze widać, kto to mówi.
   Takich kwestii jest 1,65 % (451 z 27 383) i to jest w porządku.
 
 ### Mechy i bronie — `mechy.md`
@@ -285,7 +293,7 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 
 ### Teksty interfejsu i misji — `teksty-config.md`, `teksty-misji.md`
 
-* Te pliki są podzielone na **sekcje** (`## Sekcja 1/29 — config_skill`), a w środku elementy po
+* Te pliki są podzielone na **sekcje** (`## Sekcja 1/31 — config_achievement`), a w środku elementy po
   kolei. To teksty menu, podpowiedzi, nazwy duchów, typów umiejętności, tytuły map i BGM.
 * `teksty-misji.md` ma **twarde limity miejsca** — pisze to wprost linia `limit:` przy każdym
   elemencie (np. `limit: 117 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;

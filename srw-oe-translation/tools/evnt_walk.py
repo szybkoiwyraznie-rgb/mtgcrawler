@@ -97,30 +97,62 @@ def _chain_lands(blob: bytes, start: int, block_end: int) -> bool:
     return pos == block_end
 
 
-def find_chain(blob: bytes, payload_start: int, block_end: int) -> Optional[int]:
-    """First offset in the payload whose record chain lands exactly on ``block_end``.
+def _candidate_chain(blob: bytes, start: int, block_end: int) -> Optional[int]:
+    """Number of records when the chain from ``start`` lands exactly on ``block_end``, else None.
 
-    A leading zero word is the mesbtl payload marker, and the scan below must not mistake it for a
-    record: the measured ``u32 0`` + ``u32 0xC8`` pair parses as a type-0 record whose size eats the
-    whole block, which hides every quote it wraps.  So a zero first word forces the start one word
-    later (checked, not assumed).
+    Record sizes are always a multiple of four and types fit a ``u16`` (measured across every
+    event member); both tests drop starts that only *look* like a chain because of a size word
+    in the header.
+    """
+    pos = start
+    count = 0
+    while pos + 8 <= block_end:
+        rtype, size = struct.unpack_from("<II", blob, pos)
+        if size < 8 or size % 4 or rtype > 0xFFFF or pos + size > block_end:
+            return None
+        count += 1
+        pos += size
+    return count if pos == block_end else None
+
+
+def find_chain(blob: bytes, payload_start: int, block_end: int) -> Optional[int]:
+    """Start of the record chain in a block payload, or None.
+
+    Measured 2026-10-12 [ZWERYFIKOWANE]: the chain does **not** begin within the first few dozen
+    bytes of the payload.  The event variant carries a header between the block start and the first
+    record whose length grows with the block (index tables: 36 bytes in the first block of
+    ``DL830_13.bin``, 76 and 96 bytes in its later blocks), so the old 64-byte :data:`CHAIN_SCAN`
+    window found no chain in 60 of that member's 65 blocks and every record inside them was lost.
+    The scan now covers the whole payload.
+
+    The chain is the **outermost wrapper**: its first record has type :data:`TYPE_WRAPPER`, and the
+    block's other records follow inside it.  Measured over every event container: each of the 5,211
+    event blocks has such a start, and a start inside it (the wrapped chain, first type ``0x12C``)
+    also lands on the block end with *more* records -- picking that one by a record count loses the
+    wrapper, whose size field has to grow with the text.  So the earliest start whose first record
+    is a wrapper wins; when a block has no wrapper, the earliest start that lands on the block end
+    does.  Both tests are strict: record sizes are a multiple of four and types fit a ``u16``
+    (measured across every member), which drops starts that only *look* like a chain because of a
+    size word in the header (``DL623_11.bin``, ``DL726_12.bin`` would otherwise start on a record
+    type of 4,294,965,863).
+
+    A leading zero word is the mesbtl payload marker: the measured ``u32 0`` + ``u32 0xC8`` pair
+    parses as a type-0 record whose size eats the whole block, which hides every quote it wraps.
+    So a zero first word forces the start one word later (checked, not assumed).
     """
     if len(blob) >= payload_start + 4 and struct.unpack_from("<I", blob, payload_start)[0] == 0 \
             and _chain_lands(blob, payload_start + 4, block_end):
         return payload_start + 4
-    limit = min(block_end, payload_start + CHAIN_SCAN)
-    for start in range(payload_start, limit, 4):
-        pos = start
-        ok = True
-        while pos + 8 <= block_end:
-            _t, size = struct.unpack_from("<II", blob, pos)
-            if size < 8 or pos + size > block_end:
-                ok = False
-                break
-            pos += size
-        if ok and pos == block_end:
+    first_landing: Optional[int] = None
+    for start in range(payload_start, block_end, 4):
+        count = _candidate_chain(blob, start, block_end)
+        if count is None:
+            continue
+        if first_landing is None:
+            first_landing = start
+        if struct.unpack_from("<I", blob, start)[0] == TYPE_WRAPPER:
             return start
-    return None
+    return first_landing
 
 
 def blocks(blob: bytes) -> Tuple[List[dict], List[str]]:
@@ -225,6 +257,14 @@ def _collect(blob: bytes, start: int, end: int, records: List[dict], errors: Lis
         })
 
 
+def _count_types(blob: bytes, start: int, end: int, types: Dict[int, int]) -> None:
+    """Count every record type, descending into the wrappers (the histogram covers them all)."""
+    for offset, rtype, size in walk_chain(blob, start, end):
+        types[rtype] = types.get(rtype, 0) + 1
+        if rtype == TYPE_WRAPPER:
+            _count_types(blob, offset + 8, offset + size, types)
+
+
 def text_records(blob: bytes, container: str = "", member: str = "",
                  anchor: Optional[int] = None) -> dict:
     """Every type-201 record of a member plus the framing report.
@@ -241,8 +281,7 @@ def text_records(blob: bytes, container: str = "", member: str = "",
         if block["chain_start"] is None:
             continue
         chain_blocks += 1
-        for offset, rtype, _size in walk_chain(blob, block["chain_start"], block["end"]):
-            types[rtype] = types.get(rtype, 0) + 1
+        _count_types(blob, block["chain_start"], block["end"], types)
         _collect(blob, block["chain_start"], block["end"], records, errors, where, anchor)
     return {"header": file_header(blob), "blocks": len(block_list), "chain_blocks": chain_blocks,
             "records": records, "types": types, "errors": errors + block_errors}

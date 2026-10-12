@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-10
+Last updated: 2026-10-12
 
 ## Target
 
@@ -563,3 +563,15 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   (451 025 znaków jp). Cytaty bitewne sprawdzone na **wszystkich 32 `mesbtl`** — **0 braków**.
   Tekst do tłumaczenia rośnie z 1,41 mln do ~1,86 mln znaków jp (~4,2 mln znaków angielskiego).
   Szczegóły: `EXPERIMENT_LOG.md` wpis 50.
+- **CZYTNIK NAPRAWIONY, PAKIET PRZEBUDOWANY, BRAMA ZIELONA (2026-10-12)**: nowa reguła startu
+  łańcucha w `evnt_walk.find_chain` — najwcześniejsze opakowanie `0xC8` (zmierzone na wszystkich
+  **5 211 blokach**; stara reguła „najwięcej rekordów” myliła się w 5 104). Wynik: **43 708
+  rekordów dialogu, 0 błędów**. `coverage_audit.py` na przebudowanym pakiecie: **0 brakujących
+  tekstów** (2 pozostałe trafienia to wpisy Makefile w `configst.pac`, nie tekst gry). Pakiet:
+  **105 372 wiersze** (dialog 47 175 — mówca nienazwany 2 = 0,0%; cytaty 27 383 — 451 = 1,65%;
+  przedmioty 1 200; umiejętności 4 932; config 15 368 — w tym **2 196 tekstów z `sysmes.bin`**
+  i 541 doczyszczeń; misje 1 281; postacie 3 388; jednostki/bronie 4 645; sceny 282).
+  Dziedziczenie przywrócone (`package_copies.py`): **6 504 `copy_of`** → do wpisania **83 536
+  linii `EN:`**, 13 162 elementy dziedziczone. Pliki dla tłumacza przebudowane: `sceny.zip`
+  (36 plików), `widoki.zip` (7 plików), instrukcja zaktualizowana. Testy: **734 OK (1 skipped)**.
+  Szczegóły: `EXPERIMENT_LOG.md` wpis 51. Nadal brakuje `eventP00.cpk` (rozdział 1).

@@ -6,22 +6,23 @@ dokumentu jako rozdziały 6 i 7 — żeby instrukcja była czysta, a wiedza nie 
 
 ## 1. Stan prac (co jest gotowe, a co nie)
 
-* **Do przetłumaczenia**: 72 586 elementy — 67 440 z linią `EN:` (26 035 fabuła + 41 405 widoki)
-  + 5 146 dziedziczonych. Widoki są gotowe i czekają.
+* **Do przetłumaczenia**: 96 698 elementów — 83 536 z linią `EN:` (39 424 fabuła + 44 112 widoki)
+  + 13 162 dziedziczone (8 016 kopii scen DLC + 5 146 powtórzeń w widokach). Widoki są gotowe
+  i czekają.
 * **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów oraz **dialogów, narracji i tytułów
   misji** (sprawdzone na roboczej kopii: cała scena 1 — 88 linii dialogu/narracji + 15 tytułów
   misji; kontener przebudowany i odczytany z powrotem bajt w bajt, bez różnic poza tymi tekstami).
   Kwestie mówców i angielskie linie w grze widział już człowiek (PPSSPP); reszta do pokazania,
   zanim cokolwiek ogłosimy gotowym.
 * **Kwestie bez mówcy** — 451 z 27 383 (1,65 %), w ustalonych granicach (≤ 2 %).
-* **Nazwy mówców w dialogach** — postacie z nazwą: 100 %; 42 klucze to postacie zbiorowe bez nazwy
-  własnej (np. „żołnierz"), pokazywane jako `ID`.
+* **Nazwy mówców w dialogach** — bez nazwy tylko 2 wiersze z 47 175 (0,0 %); kwestie bez mówcy
+  w cytatach: 451 z 27 383 (1,65 %), w ustalonej granicy.
 * **Format dystrybucji i ocena prawna** — nadal nieustalone; danych gry nie rozpowszechniamy.
 
 ## 2. Kuchnia techniczna
 
-* Pakiet to pliki `00_dialogue.jsonl` … `08_names_units_weapons.jsonl` (85 424 wiersze tekstu +
-  293 wiersze strukturalne scen) — jedyne źródło prawdy dla gry. Widoki `.md` są generowane
+* Pakiet to pliki `00_dialogue.jsonl` … `08_names_units_weapons.jsonl` (105 372 wiersze tekstu +
+  282 wiersze strukturalne scen) — jedyne źródło prawdy dla gry. Widoki `.md` są generowane
   z pakietu i do niego wracają.
 * Klucz elementu fabuły: numer sceny (`seq` z `06_scenes.jsonl`) + numer elementu (`order`).
   Klucz elementu nazw/tabel: numer grupy + numer elementu w planie zbudowanym z tych samych
@@ -38,7 +39,10 @@ dokumentu jako rozdziały 6 i 7 — żeby instrukcja była czysta, a wiedza nie 
 * Narzędzia: `tools/scene_view.py` (widoki fabuły + zip), `tools/table_view.py` (widoki nazw i tabel
   + zip), `tools/translation_import.py`, `tools/translation_copy.py`, `tools/translation_mirror.py`,
   `tools/translation_check.py`, `tools/event_refresh.py`, `tools/package_copies.py`.
-  Testy: 728 (1 pominięty).
-* Kontrola całego pakietu: 85 424 wiersze, **0 błędów** (przed tłumaczeniem wszystkie puste).
+  Testy: 734 (1 pominięty).
+* Kontrola całego pakietu: 105 372 wiersze, **0 błędów** (przed tłumaczeniem wszystkie puste).
+* Brama pokrycia: `tools/coverage_audit.py` porównuje bajty kontenerów z pakietem — **0 braków**
+  (wpis 51 dziennika). Teksty menu/helpów z `sysmes.bin` dodał `tools/sysmes_text.py`,
+  doczyszczenia per członek — `tools/text_runs_export.py`.
 * Wgrywanie na Dysk i kolejność kroków: `tools/drive_manifest.tsv` oraz `docs/STATUS.md`
   (sesja 5, część 11).

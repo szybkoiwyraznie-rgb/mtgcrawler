@@ -11,12 +11,19 @@ import event_dialogue as ED  # noqa: E402
 import evnt_walk as EW  # noqa: E402
 
 
+def pad4(data: bytes) -> bytes:
+    """Pad a record body to a 4-byte boundary - every measured record is aligned (never 0 bytes)."""
+    return data + b"\x00" * ((-len(data)) % 4 or 4)
+
+
 def dialogue_record(key, text, flags=1, extra=0xFFFF):
-    payload = struct.pack("<6H", flags, key, 0, 0, 0, extra) + text.encode("cp932") + b"\x00"
+    payload = pad4(struct.pack("<6H", flags, key, 0, 0, 0, extra) + text.encode("cp932")
+                   + b"\x00")
     return struct.pack("<2I", EW.TYPE_TEXT, 8 + len(payload)) + payload
 
 
 def typed_record(rtype, body):
+    body = pad4(body)
     return struct.pack("<2I", rtype, 8 + len(body)) + body
 
 
@@ -25,9 +32,15 @@ def wrapper(inner):
 
 
 def event_block(records: bytes, kind=1):
+    """Measured event block layout: the chain sits behind the header and starts with the wrapper.
+
+    The header grows with the block (index tables), so nothing may hard-code its length; the first
+    record of the chain is the 0xC8 wrapper in every measured event block, which is how the reader
+    finds the chain (see evnt_walk.find_chain).
+    """
     header = struct.pack("<I", kind) + b"ECHK" + struct.pack("<I", 24)
     header += b"".join(struct.pack("<I", w) for w in (52, 101, 0, 1200, 1, 0))
-    payload = header + records
+    payload = header + wrapper(records)
     return EW.TAG + struct.pack("<I", len(payload)) + payload
 
 

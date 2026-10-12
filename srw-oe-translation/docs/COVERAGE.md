@@ -9,6 +9,14 @@ struktura pliku tego wymaga. Fakty oznaczam `[ZWERYFIKOWANE]`, hipotezy `[HIPOTE
 Ten dokument jest mapą: co jest zrobione, co blokuje, w jakiej kolejności domykać.
 Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu setupu (decyzja użytkownika).
 
+> **KOREKTA (2026-10-12, sesja 5, część 12 — `EXPERIMENT_LOG.md` wpis 51):** liczby dialogu
+> „26 468 linii” w tabelach poniżej są **nieaktualne** — czytnik łańcuchów (`evnt_walk.find_chain`)
+> gubił bloki niedomykające się na końcu członka. Po naprawie (reguła: najwcześniejsze opakowanie
+> `0xC8`): **43 708 rekordów dialogu w 5 211 blokach, 0 błędów**; pakiet przebudowany do
+> **105 372 wierszy**, `coverage_audit.py` = **0 brakujących tekstów**, mówca nienazwany 2/47 175
+> (0,0%), cytaty 451/27 383 (1,65%), sceny 282. Pliki dla tłumacza przebudowane (83 536 linii
+> `EN:` + 13 162 dziedziczone).
+
 ## 1. Tabela zbiorcza
 
 | # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |

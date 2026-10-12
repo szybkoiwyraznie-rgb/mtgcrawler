@@ -4,7 +4,7 @@
 The JSONL files are what the game reads back; this view is for the person (or the assistant)
 translating, so that the context of a scene is visible instead of a flat line-by-line list:
 
-    ## Scena 12/293 — 試作レイバー暴走事件
+    ## Scena 12/282 — 試作レイバー暴走事件
     - odcinek: １話 メインミッション (episode 1)
     - miejsce: ジオン軍基地／オデッサ (element 74)
     - uczestnicy:
@@ -24,7 +24,7 @@ every speaker in order of appearance plus the series the character comes from, s
 never translated blind.  ``[kopia]`` elements repeat a line of another scene: their English is
 filled by ``tools/translation_copy.py``, so they carry no ``EN:`` line.
 
-The scene is identified by its number (``## Scena 8/293``), which is the ``seq`` of
+The scene is identified by its number (``## Scena 8/282``), which is the ``seq`` of
 ``06_scenes.jsonl`` - the name of the game file stays out of the translator's way.
 
 Usage:
@@ -216,7 +216,7 @@ def render_index(scenes: List[dict]) -> str:
              "tłumaczenie. Gotowe pliki wracają do pakietu jednym poleceniem "
              "`tools/translation_import.py`.", "",
              "Kolejność jest kolejnością gry: odcinek, misja, wariant (DLC). "
-             "Numer sceny w nagłówku (`## Scena 12/293`) to numer wiersza w `06_scenes.jsonl`.", "",
+             "Numer sceny w nagłówku (`## Scena 12/282`) to numer wiersza w `06_scenes.jsonl`.", "",
              "| # | odcinek | misja | miejsce | uwaga |",
              "|---|---------|-------|--------|-------|"]
     seq_by_id = {scene["id"]: scene["seq"] for scene in scenes}

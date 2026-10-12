@@ -2673,3 +2673,47 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
      (31 559 przebiegów tekstu): **0 braków**, więc tabela 27 383 / 98,35% / 1,65% (451) stoi.
    * **skutek dla wyceny pracy**: tekst japoński rośnie z 1 406 489 do ~1 857 514 znaków (+32%),
      czyli angielskiego do napisania jest ~4,2 mln znaków zamiast 3,16 mln.
+
+## Sesja 5 (2026-10-12), część 12 — naprawa łańcuchów, pełna przebudowa pakietu, pliki dla tłumacza
+
+51. [ZWERYFIKOWANE — CZYTNIK NAPRAWIONY, PAKIET PRZEBUDOWANY, BRAMA POKRYCIA ZIELONA]
+   * **Reguła startu łańcucha** (`evnt_walk.find_chain`, pomiar na wszystkich **5 211 blokach**
+     zdarzeń z 31 kontenerów): łańcuchem jest **najwcześniejszy kandydat, którego pierwszy rekord
+     to opakowanie `0xC8`**; fallback = najwcześniejszy kandydat domykający się dokładnie na końcu
+     bloku. Stara reguła „najwięcej rekordów” lądowała **wewnątrz** opakowania (pierwszy typ
+     `0x12C`) i była błędna w **5 104 z 5 211 bloków**. Długość nagłówka bloku jest zmienna
+     (`DL830_13.bin`: +36/+76/+96 B od payloadu) — nigdy nie hardkodować. `_candidate_chain`
+     odrzuca rozmiary niepodzielne przez 4 i typy > 0xFFFF (bez tego `DL623_11`/`DL726_12`
+     startowałyby na typie 4 294 965 863). Wynik przebiegu wszystkich kontenerów: **5 211/5 211
+     bloków z łańcuchem, 43 708 rekordów `0xC9`, 0 błędów**; histogram typów schodzi rekurencyjnie
+     do wnętrz opakowań.
+   * **Fixtury były wadliwe, nie czytnik**: syntetyczne rekordy bez wyrównania do 4 B i bloki
+     bez opakowania `0xC8`. Dodane `pad4()` + prawdziwy wrapper w `event_block()`
+     (`tests/test_evnt_walk.py`, `tests/test_event_dialogue.py`). Pełny zestaw: **734 testy OK
+     (1 skipped)**.
+   * **Nowe narzędzia**: `tools/sysmes_text.py` — reader puli `sysmes.bin` (`SMES` + tablica
+     wskaźników → pula od 0x2500, CP932, NUL, wyrównanie 4): **2 196 tekstów / 57 475 znaków**
+     (menu/pomoc/ostrzeżenia; członek wcześniej całkowicie nieobecny w pakiecie);
+     `tools/text_runs_export.py` — doczyszczanie tekstów per członek (przebiegi CP932 bez wiersza
+     w pakiecie; limit = bajty rekordu) → `local/leftovers.jsonl` **541 wierszy** + 3 zdarzeniowe.
+   * **Przebudowany pakiet** (`translator_export.py --local local --out local/translation`):
+     **105 372 wiersze**: 00 dialog 47 175 (mówca nienazwany 2 = 0,0%), 01 cytaty 27 383
+     (451 = 1,65%), 02 przedmioty 1 200, 03 umiejętności 4 932, 04 config 15 368 (w tym 2 196
+     sysmes + 541 leftover), 05 misje 1 281, 07 postacie 3 388, 08 jednostki 4 645 + strukturalne
+     06 sceny 282 (279 tytułów = 98,94%, 201 miejsc, 34 odcinki + 36 symulatora).
+   * **Brama pokrycia**: `coverage_audit.py --package local/translation --dir local/check` →
+     **brakuje 0 tekstów**; jedyne 2 trafienia (łącznie 19 znaków) to przepisy Makefile
+     w `configst.pac` (`ターゲットファイル` @243862, `各フォルダ内依存関係` @243933) — nie tekst gry.
+   * **Dziedziczenie przywrócone**: nowy eksporter nie uruchamiał `package_copies.py`, przez co
+     ~6,5 tys. powtórzeń w widokach dostałoby własne `EN:` (łamanie zasady „tłumaczone raz”).
+     Po oznaczeniu: **6 504 `copy_of`** (02: 757, 03: 1 863, 07: 1 581, 08: 2 303 — identycznie
+     jak stary pakiet). Widoki: 44 112 `EN:` + 5 146 dziedziczonych; fabuła: 39 424 `EN:`
+     + 8 016 `[kopia]`. Razem do wpisania: **83 536 linii `EN:`**, 13 162 elementy dziedziczone.
+     Powtórzenia w `04`/`05` celowo bez `copy_of` (budżety bajtowe slotów — patrz dokumentacja
+     `package_copies.py`).
+   * **Pliki dla tłumacza**: `sceny/` 36 plików + `sceny.zip`, `widoki/` 7 plików + `widoki.zip`,
+     `docs/TRANSLATOR_PACKAGE.md` zaktualizowana do rzeczywistych liczb i przykładów (282 sceny,
+     scena 4/282 „黒いレイバー”, mówca 67/299, sekcje 1/31). `check_report.txt`: 105 372 wierszy,
+     0 błędów.
+   * **Nadal wisi**: `eventP00.cpk` (id zablokowane — tylko nowa sesja) → rozdział 1 w dialogach
+     i misjach; normalizacja par `0x0F` w umiejętnościach; wgranie pakietu na Drive.

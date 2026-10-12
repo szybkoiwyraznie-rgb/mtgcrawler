@@ -247,6 +247,30 @@ def config_rows(local: Path) -> List[dict]:
     return rows
 
 
+def extra_rows(local: Path, *names: str) -> List[dict]:
+    """Rows measured outside the table readers, added to the config file.
+
+    Two sources, both kept because the audit (``tools/coverage_audit.py``) proves the table readers
+    do not reach them:
+
+    * ``local/sysmes_text.jsonl`` -- the whole text pool of ``configst.cpk``'s ``sysmes.bin``
+      (menu, help and warning lines; ``tools/sysmes_text.py`` reads the pool, the pointer table
+      makes the string growable);
+    * ``local/leftovers.jsonl`` -- game strings no reader covers (formula labels, robot-dictionary
+      notes, reference prose, dictionary nicknames); written by ``tools/text_runs_export.py`` with
+      the space each one physically has (``max_bytes``), because these keep a fixed span.
+    """
+    rows: List[dict] = []
+    for name in names:
+        for item in load_jsonl(local / name):
+            text = item.get("jp") or ""
+            if not text:
+                continue
+            rows.append({**item, "en": "", "jp": text,
+                         "bytes": item.get("bytes") or row_bytes(text)})
+    return rows
+
+
 def mission_rows(local: Path) -> List[dict]:
     """Mission titles/notes, BGM titles, map/background/squad names (fixed-stride records)."""
     rows: List[dict] = []
@@ -450,8 +474,9 @@ def main(argv=None) -> int:
         "01_battle_quotes.jsonl": quote_rows(local, speakers),
         "02_items.jsonl": item_skill_rows(local, "item"),
         "03_skills.jsonl": item_skill_rows(local, "skill"),
-        "04_config_text.jsonl": config_rows(local),
-        "05_mission_text.jsonl": mission_rows(local),
+        "04_config_text.jsonl": config_rows(local) + extra_rows(local, "sysmes_text.jsonl",
+                                                          "leftovers.jsonl"),
+        "05_mission_text.jsonl": mission_rows(local) + extra_rows(local, "leftovers_events.jsonl"),
         "06_scenes.jsonl": scenes,
         "07_names_characters.jsonl": character_rows(local),
         "08_names_units_weapons.jsonl": unit_rows(local),
