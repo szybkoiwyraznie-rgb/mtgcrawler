@@ -41,7 +41,11 @@ tłumaczenie dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „E
    na trzy linie, angielski też ma się łamać na trzy linie (w tym samym miejscu mniej więcej).
    Przejścia **na samym końcu** tekstu dodają się same — nie trzeba po nich zostawiać pustej linii.
 4. **Nie tłumaczysz znaków specjalnych** — zostają dokładnie takie, jakie są: `＃` (mówca nieznany),
-   `%s`, `%%`, `＠0`, `＠1`, `＠4`, `＠6`, `＠9` (podstawiane przez grę liczby i nazwy).
+   `%s`, `%%`, `＠0`, `＠1`, `＠4`, `＠6`, `＠9` (podstawiane przez grę liczby i nazwy), a także
+   nawiasowe podstawki w rodzaju `＜主人公名＞` (imię protagonisty wpisane przez gracza — gra
+   podmienia je przy wyświetlaniu). Podstawkę kopiujesz dosłownie, bez tłumaczenia; przy liczeniu
+   limitu liczy się tak, jak stoi: `＜主人公名＞` = **12 jednostek** (`＜` i `＞` po 2, cztery
+   znaki kanji po 2).
 5. **Jedna nazwa — jedna pisownia** w całym pakiecie. Nazwy własne (postacie, mechy, bronie, serie)
    mają osobne pliki — tam je ustalasz, a w dialogach i cytatach ich używasz.
 
@@ -162,6 +166,11 @@ Co jest czym:
 * Tekst wpisujesz **w linii `EN:`**, po dwukropku.
 * Jeśli tekst ma więcej linii, piszesz je w kolejnych liniach **z takim samym wcięciem** (3 spacje) —
   dokładnie tyle linii, ile łamie się japoński.
+* **Pusta linia** w tekście japońskim (odstęp między akapitami narracji) stoi jako pusta linia
+  z wcięciem — w bloku `EN:` zostaw taką samą pustą linię (wystarczą same 3 spacje albo zupełnie
+  pusta). Liczba przejść do nowej linii musi się zgadzać co do sztuki z japońskim oryginałem —
+  narzędzie importujące to sprawdza i odrzuci tekst z inną liczbą. Wyjątek: przejścia **na samym
+  końcu** tekstu dodają się same, tam pustej linii nie odtwarzasz.
 * `⏎` w tekście japońskim = wymuszone przejście do nowej linii. **Zostaw `⏎` w swoim tekście**
   w tym samym miejscu — nie zamieniaj go na zwykłą nową linię.
 * `<0x0F>` = gra przełącza czcionkę na półszeroką (tak są pisane skróty w nazwach broni).
@@ -335,7 +344,7 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 - [ ] Każde `EN:` w scenie ma tekst (albo element jest `[kopia]` — wtedy zostaje pusty).
 - [ ] W tytułach misji (`T1.`) i uwagach (`N1.`,`N2.`) nie ma pustych `EN:`.
 - [ ] Liczba linii w moim tekście = liczba linii japońskich (końcowe łamanie dodaje się samo).
-- [ ] `⏎` i `<0x0F>` zostały tam, gdzie były.
+- [ ] `⏎`, `<0x0F>` i podstawki `＜…＞` (np. `＜主人公名＞`) zostały tam, gdzie były.
 - [ ] Żadnego `—`, `„`, `•` ani liter z akcentami.
 
 **Widoki nazw i tabel**
