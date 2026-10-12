@@ -160,7 +160,7 @@ DEFAULT_EDITS = {
 
 
 if __name__ == "__main__":
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/home/user/mtgcrawler/google_drive/configst.cpk")
+    src = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("google_drive/configst.cpk")
     dst = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("/tmp/configst_patched.cpk")
     rebuild_cpk(src, dst, DEFAULT_EDITS)
     # verify: reload patched, dump the title-menu region

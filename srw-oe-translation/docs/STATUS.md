@@ -187,3 +187,78 @@ Extraction, the table reader, the colliding-name recovery, and the translator wo
 The agent sandbox has neither the game files nor the converter, so only the user's machine can run the pipeline. Keep the restored sample, exports, and decoded text under ignored `local/`. See [`NEXT_STEP.md`](NEXT_STEP.md).
 93. `tools/extract_tables.py` added (dumps NUL-separated CP932 strings from a cpk to `local/tables/*.json`, fill-target/apply shape like events) + `tests/test_extract_tables.py` (suite 324 OK). Full category→container map of translatable containers recorded in `docs/EXTRACTION_MAP.md`: events=`eventP00..P09`; string tables=`mesbtl00`/`imenu00`(DLC char dict)/`config00`/`cprt000x`; structured(open)=`configst/system/tacsys/tactics/taclevup/navisys/logodata`. DLC is in translation scope.
 94. `tools/extract_structured.py` added: byte-scans fixed-record structured containers (configst/system/tacsys/tactics/taclevup/navisys/logodata) for CP932 runs -> same row schema. Verified on real configst.cpk (3690 strings: spirit names + menu/help/warning text). Repack of these fixed records still open (no length field). +2 tests; suite 326 OK.
+95. **Speaker-key probe (read-only, hypothesis).** `tools/speaker_probe.py` + `tests/test_speaker_probe.py`
+   (5 synthetic tests). On eventP00 the u16 at `+10` of `0xc9` records behaves like a per-line speaker
+   state (620 lines across 11 members, alternating key pairs within conversations). Not verified as a
+   dictionary index; mapping to `srwDL_CharaDictionary` is the next measurement. Suite 336 OK (1 skipped).
+96. **Speaker mapping + dictionary grow (2026-10-11).** `tools/speaker_map.py` maps dialogue keys to the
+   CharaDictionary ID slots: 9/60 keys (61/608 lines, 10%) found, 0 duplicate IDs over 399 IDs. The remaining
+   keys (4500s, 3700s, 1000s, …) are not in any dictionary read from imenu00–32. `tools/dict_pool_shift.py`
+   implements the 12-pointer record layout: identity-exact on 15/15 pools; grow/shrink verified in memory;
+   guard refuses unexplained in-record refs (0 on real data). CPK write-back and boot test NOT done.
+   Suite 350 OK (1 skipped).
+97. **Speaker key located (2026-10-11, supersedes 96's mapping).** The dialogue speaker key is the u16 at
+   record offset +0x40 of `srwDL_CharaDictionary` records. 56/60 eventP00 keys map (574/608 lines); 55 unique,
+   0xe93 ambiguous (records 86, 87); 0x4b1/0x4b6/0xec0/0xec1 unmapped. Seven named characters agree with a
+   user-supplied line transcript. The mapping is numeric and committed; game text stays in `local/`.
+   Suite 351 OK (1 skipped).
+98a. **Speaker names resolved (2026-10-11).** `tools/speaker_names.py resolve` combines CharaDictionary
+   names (string[0]) with config name slots. Chapter 1: 60/60 keys named. Chapter 2: 158/167 keys named;
+   9 generic-role keys remain without a name source (listed by key in EXPERIMENT_LOG). Names stay in `local/`.
+   Suite 355 OK (1 skipped).
+98b. **Whole-game speaker map (2026-10-11).** 244 keys with >=3 lines: 216 named from dictionary, 11 config-only,
+   17 no source. 39/43 chapter-1 keys return later. Each DLC event brings its own dictionary pool (HIPOTEZA).
+   Local-only list in `local/WHOLE_GAME_SPEAKER_MAP.md`.
+98c. **Open leads (2026-10-11).** (a) 17 no-source keys use a `0x0F xx` glyph-token name format; token table
+   not solved. (b) Keys 0xe93 and 0x101a have identical names in duplicate records, so no alias evidence.
+   (c) Masaki Andoh key 0x1144 has no dialogue in the 32 probed event files; the missing event file is still to find.
+98d. **Masaki located (2026-10-11).** Dictionary record in imenu19 (key 0x1144 = 4420). Battle quotes in
+   mesbtl19.EDAT, member p4420.pac (`p<key decimal>.pac` naming, 242 members overall). No event lines for 4420 in the
+   32 probed event files (no event for him in the downloaded set). Quote text decoding still open.
+
+## Session 2 (2026-10-11): names, battle quotes, font, tables
+- Speaker table covers all 339 keys (283 dialogue + 56 battle-only): 301 named; dialogue lines named 99.5 %.
+  Build: `tools/name_union.py`. Output stays in `local/`.
+- Battle quotes: `p<key>.pac` members in mesbtl; 241 keys; record anchor documented in `docs/NAME_SOURCES.md`.
+- font.cpk: decompressed (one CRILAYLA entry). Token map NOT found; 0x0F is an escape in configst.
+- Mecha names: RoboDictionary slot 3 (verified). Weapon/item/shop/unit tables: layout not decoded yet.
+- Open: 14 dialogue keys (65 lines) + 24 battle-only keys with no name; unit tables next.
+
+
+### Session 2, part 3 (2026-10-11)
+- Weapon names (wp_list00–19): inline at relpos 42/44, 205 unique; item names (srwDL_Item00): inline at relpos 54, 70/74.
+- Mech names: RoboDictionary slot 3, 40 unique.
+- Translation sheet: `local/name_units_unique.csv` (769 unique texts, with locations). Filled by translators later; not translated yet.
+- `ItemDrop` names (177) are unverified; not the same as Item00 names.
+- Growth of inline names untested (needs offset-table rebuild).
+- Speaker table reconfirmed after the 32-probe rebuild: no change.
+
+### Session 3 (2026-10-12): cel i stan
+- Stały cel (100% tekstu przetłumaczone i reinject, 100% kluczy): `docs/GOAL.md`. Czytać przed każdą pracą.
+- Sandbox cofnął HEAD dwa razy. Odtworzenie: `git reset --mixed origin/arena/581a1b79-mtgcrawler`, potem commit i push. Pliki robocze nie zmieniają się przy resecie.
+- `local/` odtworzone z Drive (wejścia w `google_drive/`, `tools/build_speaker_inputs.py`).
+- Otwarte: rozbieżność 246 vs 216 nazw słownikowych (`docs/NAME_REVIEW.md`); klucze bitewne bez nazwy (23 w kolejce, bez 4420); walidacja pól pilotów w `unit_list` (hipoteza).
+- Kategorie wymagane przez cel, stan pokrycia:
+  - dialog (283 klucze, 12738 linii): tak, nazwy częściowo;
+  - battle quotes (241 kluczy, 22902 rekordy): tak, nazwy częściowo;
+  - mechy/jednostki (393 rekordy `unit_list`, 40 mechów `RoboDictionary`): nazwy tak, powiązanie z bronią nie;
+  - bronie (389 nazw): nazwy tak, opisy nie;
+  - przedmioty (317 nazw): nazwy tak, opisy działania nie;
+  - helpy/UI: nie zaczęte (poza tabelą referencyjną `srwDL_Reference`, 28 rekordów z tekstem);
+  - encyklopedia postaci: nie zlokalizowana.
+
+### Trwałość danych między turami (ważne)
+- `google_drive/` i `local/` (gitignored) NIE przetrwały granicy tury: na początku każdej tury jest tylko `eventP00.cpk`.
+- Odtwarzanie: `tools/drive_manifest.tsv` (nazwa, ID Drive, rozmiar). Pobrać każdy ID narzędziem Drive do `google_drive/<nazwa>`.
+- Manifest jest niepełny: config01–46 (bez 38), imenu01–32, USRDIR (68 plików) dopisać przy następnym pobieraniu. ID z listingu FULL_DLC i USRDIR z tej tury są w historii rozmowy.
+
+### Sesja 4 (2026-10-12): stan
+- Dialogi: 12738 linii `0xc9` z łańcucha rekordów (293 członków, 32 kontenery, w tym `eventP00` z USRDIR). 42 członki bez łańcucha nieobjęte. Liczba znacznikowa 46703 jest zawyżona (tylko 29% trafień leży na granicach).
+- Hash `eventP00`: jedna kopia na Drive, porównanie niemożliwe.
+- Mechy: 100+ NIE osiągnięte. `robo00.cpk` to archiwum modeli; nazwy członków nie są kluczami jednostek (9/45 pokrycia). Dalej: `config*` (unit_list, robolist, RoboDictionary).
+- Trwałość: wejścia gitignored znikają między turami; odtwarzać przez `tools/drive_manifest.tsv`.
+
+### Mechy, stan po pobraniu config01–46
+- Narzędzie: `tools/mech_names.py` (czyta config*, zwraca kandydatów z trzech źródeł). Wynik w `local/mech/mech_names.json`.
+- Kandydaci: `unit_list` base 267, display 390, slot3 40. Brak wspólnych nazw slot3 z unit_list.
+- Cel 100+ mechów NIEPOTWIERDZONY: nie wiadomo, czy unit_list to same mechy.

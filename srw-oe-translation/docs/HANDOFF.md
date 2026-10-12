@@ -22,7 +22,7 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 - **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
   `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
   `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.
-- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **331 OK**).
+- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **336 OK**, 1 skipped).
 
 ## 2. Kontenery tekstu — klasyfikacja grow vs fixed
 | Kontener | Plik(i) | Tryb | Stan |
@@ -99,7 +99,37 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
 ## 7. Zadania OTWARTE (kolejność)
 1. **Dekodowanie mówcy** w EVNT: rozpoznać komendę portretu/postawi, wyciągnąć ID pilota,
    zmapować na `srwDL_CharaDictionary`, dopisać `speaker` do `extract_scenes`. (Monologi pomijamy.)
+   **Postęp (2026-10-11, HIPOTEZA):** `tools/speaker_probe.py` (read-only, tylko liczby) pokazuje, że
+   u16 na offsecie `+10` rekordu `0xc9` zmienia się per linia jak stan mówcy (w rozmowie naprzemienne
+   pary kluczy, np. `0x1195`/`0x119e`; 620 linii w 11 członkach eventP00). NIE zweryfikowane jako
+   indeks słownika. Następny krok: mapowanie na `srwDL_CharaDictionary` + sprawdzenie zmian mówcy
+   względem komend `0x160`/`0x1b8`/`0x145`. Dopiero po tym `speaker` idzie do tłumaczeń.
+   **Wynik (2026-10-11, KOREKTA poprzedniego wpisu):** klucz mówcy to u16 na offsecie **+0x40** rekordu
+   `srwDL_CharaDictionary` (nie sloty ID +0x30). Siedmiu nazwanych bohaterów (katakana w słowniku) ma dokładnie
+   ten klucz, który transkrypcja linia-po-linii przypisuje tej samej postaci (Seishiro 0x1195, Himari 0x119e,
+   Bright 0x3fb, Mirai 0x3fe, Paolo 0x415, Sayla 0x401, Marker 0x41c). **56/60 kluczy** ma rekord w słowniku
+   (**574/608 linii, 94%**); 55 jednoznacznie, **0xe93** w dwóch rekordach (86, 87) — niejednoznaczne.
+   Nie znaleziono 4 kluczy (0x4b1, 0x4b6, 0xec0, 0xec1 — 34 linie). `tools/speaker_map.py` (liczby;
+   tekst rekordów tylko do `local/`). **Nie zrobione:** pełne sprawdzenie transkrypcją innych mówców oraz
+   weryfikacja w grze.
+   **Imiona mówców (2026-10-11):** `tools/speaker_names.py resolve` łączy dwa źródła: (A) imię pełne =
+   string[0] rekordu słownika powiązanego kluczem (`speaker_map`); (B) sloty imion w `config*.pac`
+   (u32 klucza na +0x14 slotu 16 B, CP932). Pierwszeństwo ma słownik. Wynik: rozdział 1 — **60/60**
+   kluczy; rozdział 2 — **158/167**. Pozostałe 9 kluczy (postacie generyczne i 3 bez źródła) jest
+   OTWARTE — lista kluczy w `EXPERIMENT_LOG.md`. Imiona zostają w `local/` (nie w git).
+   **Mapa całej gry (2026-10-11):** configi 00–46, imenu 00–32, eventy P00–P09/P13/P20–P32 zbadane.
+   283 klucze; 244 z ≥3 liniami: 216 ma imię ze słownika, 11 tylko z configu, 17 bez źródła.
+   39 z 43 kluczy rozdziału 1 wraca w późniejszych eventach. Żaden rekord słownika postaci z rozdziału 1
+   nie leży poza imenu00. Każdy DLC event wnosi własną pulę słownika (HIPOTEZA). Dwa klucze mają 2 rekordy
+   (0xe93, 0x101a) — wymaga reguły. Szczegóły w `EXPERIMENT_LOG.md`, pełna lista w `local/` (nie w git).
 2. **Repack grow dla każdej puli NUL** (char dict, Reference, config0X, config00, mesbtl):
+   **Postęp (2026-10-11):** `tools/dict_pool_shift.py` — `srwDL_CharaDictionary*` ma zmierzony układ
+   (12 wskaźników u32 na rekord + ciągłe stringi NUL + stałe bloki ID na +0x30..+0x3c). Rebuild bez
+   zmian jest bajt-w-bajt na 15/15 niepustych pul (imenu00-19, 10 pul jest pustych: count=0).
+   Grow/shrink z `verify` przechodzi na pulach w pamięci (nie zapisano CPK). Strażnik odrzuca edycję,
+   gdy słowo w prefiksie wskazuje do wnętrza obszaru stringów (0 takich na realnych danych).
+   **Nie zweryfikowane:** odwołania spoza puli (inne kontenery) i render w grze. Pozostałe pule
+   (RoboDictionary, Reference, Shop, DLC_ID) mają INNY układ — jeszcze nie zmierzone.
    znaleźć tablicę wskaźników/offsetów, zbudować `*_shift` z `verify` (wzór: `sysmes_shift`).
    Stałe zostaje tylko to, co nie ma wewnętrznych wskaźników i ma stałe offsety zewnętrzne.
 3. **Budżety znaków** per string dla kategorii stałych (slot→max znaków, z szerokością W/F).

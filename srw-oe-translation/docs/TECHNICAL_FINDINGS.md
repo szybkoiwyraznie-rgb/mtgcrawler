@@ -261,3 +261,41 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 - [YACpkTool repository and documentation](https://github.com/Brolijah/YACpkTool)
 - [Historical SRW OE CPK/EDAT discussion](https://gbatemp.net/threads/super-robot-wars-oe.351431/) — useful technical lead only; it is not a verified modern rebuild recipe.
 - [retro-trans/SRW-Z](https://github.com/retro-trans/SRW-Z) — workflow/review inspiration only. It targets a different PS2 game; its binary parsers are not assumed compatible with OE.
+
+## Dialogue key at record `+10` (0xc9) — working hypothesis (2026-10-11)
+
+- Observed (eventP00, numeric only, `tools/speaker_probe.py`): the u16 at record offset `+10` of
+  `0xc9` dialogue records takes a small set of values per scene; consecutive lines alternate between
+  two keys within a conversation, and keys recur in runs. The u16 at `+18` equal to `0xffff` marks
+  monologue-style lines (matches the existing `monologue` heuristic in `extract_scenes.py`).
+- Hypothesis: `+10` is a speaker/portrait state key. Unverified. Do not write it as a speaker name
+  until it is matched to `srwDL_CharaDictionary` and speaker-change points agree with the portrait
+  commands (`0x160`, `0x1b8`, `0x145`).
+- Known limit: 1 of 11 members (DL101_70) needs the earliest caption/narration start to form a clean
+  record chain; the chain must end exactly at EOF, otherwise the member is reported as unclean.
+
+## CharaDictionary record layout (measured, 2026-10-11)
+
+- Pool: `u32 count`, `u32 offset[count]` (absolute, from pool start; first = 4+4·count), then records.
+  Empty pools are a bare `00 00 00 00`.
+- Record: `u32 pointer[12]` (record-relative, strictly increasing, strings packed back to back, each
+  NUL-terminated; empty strings allowed), a prefix holding ID slots at `+0x30`, `+0x34`, `+0x38` and
+  `+0x3c` (sentinel `ffffffff` or extra), then a tail of padding bytes.
+- Verified on 15 non-empty pools: all records match the layout; identity rebuild byte-identical.
+- ID slots: 399 IDs across imenu00–32 with no duplicates. Used as the character ID space.
+- Dialogue keys (`0xc9` +10): only 9 of 60 distinct keys (500–516, 61 of 608 lines) are found in this ID
+  space. The rest (700s–4500s) are not in any CharaDictionary available here. This is a measured gap,
+  not a conclusion about the speaker assignment.
+- Unexplained: the ID slots are not string pointers (confirmed by no-duplicate and out-of-region checks,
+  not by a field-level spec).
+
+## Speaker key = CharaDictionary record field +0x40 (2026-10-11, corrects the ID-slot reading)
+
+- The dialogue u16 at record `+10` of `0xc9` lines equals the u16 at record `+0x40` of the matching
+  character record in `srwDL_CharaDictionary` (`dict_pool_shift.SPEAKER_KEY_OFFSET`). The earlier
+  "ID-slot" reading (+0x30..+0x38) is NOT the speaker key; those slots are separate IDs.
+- Evidence: (a) seven records whose strings contain the character's Japanese name hold the key that a
+  user-supplied line transcript assigns to the same speaker; (b) 56 of 60 distinct eventP00 keys occur
+  in the `+0x40` field of exactly one record in 55 cases; (c) one key (0xe93) occurs in two records.
+- Not established: that the record's name is the speaker in every line, and the four missing keys.
+- Keep the mapping numeric in the repo; the record text is game text and stays under `local/`.

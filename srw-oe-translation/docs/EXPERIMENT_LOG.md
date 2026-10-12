@@ -1082,7 +1082,7 @@ so **which edition the user has is still unrecorded** — only its MD5 and size 
 
 ## 2026-10-10 — first measurements on real event files: the EDAT/EVNT structure, and no offsets anywhere
 
-**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `/home/user/srwoe/` in the
+**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `<workspace>/srwoe/` in the
 sandbox, never committed; the upload commit was removed from the branch at the user's request).
 `NPJH50521.zip` SHA-256 `3ea8ab3233515a233faa2bf77e246dc9016ef3dac972976ea9e5ce00ac7ec2d8`. All begin
 `CPK ` — decrypted CPK containers, as expected.
@@ -1283,7 +1283,7 @@ constant and therefore isolates the container mechanics from font coverage.
 
 ### 2026-10-10 (later) — the sandbox lost everything outside git, so the build became a script
 
-**The workspace does not survive between turns.** By the next turn `/home/user/srwoe/`
+**The workspace does not survive between turns.** By the next turn `<workspace>/srwoe/`
 (the user's 21 samples plus `eventP02.EDAT`) and `local/deliverables/` (the two built
 containers and their archive) were gone; only the committed tree remained. The local clone
 had also been reset to the session's base commit `d4e2488` with the work restored as
@@ -1717,3 +1717,278 @@ like a real member. Suite 322 OK.
   updates SMES size. Suite 331 OK.
 - This shift patch is the boot test for the moving-pool case; if the menu renders clean, growth is
   validated and the same mechanism serves longer (growing) translations.
+
+## 2026-10-11 — speaker-key probe (HANDOFF §7.1, read-only) — HYPOTHESIS, not verified
+- Input: `eventP00.cpk` from `google_drive/` (local copy, not committed), chapter 1, 11 event members.
+- Method: `tools/speaker_probe.py` chains records by their u32 length from the earliest caption/narration
+  tag and keeps the clean chain (must end exactly at EOF). For each `0xc9` dialogue record it reads
+  u16 `+10` (the "key") and u16 `+18` (`0xffff` = monologue-style). Prints numeric keys only.
+- Result: 10/11 members yield a clean chain (DL101_70 needed the caption-start fix to be clean: 13 lines).
+  Totals: 16+43+115+80+31+71+61+30+13+114+47 = 620 dialogue lines. Distinct keys per member 2–19.
+- Observed pattern (numeric only): inside a conversation the key alternates between two values
+  (e.g. 0x1195 / 0x119e) and keys recur in runs; ABAB alternations are common (e.g. 30/115 in DL101_11).
+- Interpretation (hypothesis): the u16 at `+10` behaves like a per-line speaker/portrait state. NOT
+  verified. Not yet shown that it is a character-dictionary index or that the value maps to a name.
+- Next measurement: map the keys to `srwDL_CharaDictionary` (imenu00 / DLC) — require a dictionary entry
+  whose index/ID matches, and check speaker-change points against the `0x160` / `0x1b8` / `0x145` commands.
+- Tests: `tests/test_speaker_probe.py` (5 synthetic cases, no game data). Suite 336 OK (1 skipped).
+
+## 2026-10-11 — speaker-key mapping + CharaDictionary pool layout (HANDOFF §7 tasks 1–2)
+- Downloaded (read-only, via the Drive connector into the gitignored `google_drive/`) the DLC dictionary
+  members `imenu01`–`imenu08`, `imenu10`–`15`, `17`–`19`, `20`–`22`, `24`, `25`, `31`, `32`, plus
+  base `imenu00.cpk` (Drive file `149s9EvDgyi0cq1Hcang29TaicbLH1yId`). Hashes not recorded here.
+- `tools/speaker_map.py` reads members via `cpk_table` absolute offsets (read-only; `cpk_write.load`
+  refuses constant-storage TOCs such as imenu20). Result on eventP00 keys (probe JSON from speaker_probe):
+  pools=25 (10 empty, count=0), IDs=399, dup_ids=0; distinct keys 60, mapped 9, lines 61/608.
+  Mapped keys: 0x1f4, 0x1f6, 0x1f8, 0x1fa, 0x1fe, 0x1ff, 0x200, 0x203, 0x204 (500–516).
+- `tools/dict_pool_shift.py` audit: identity rebuild byte-identical on 15/15 non-empty CharaDictionary
+  pools. Prefix words outside the ID slots that land in the string region: 0 (the first audit flagged
+  94, all at +0x30..+0x3c = ID slots; the guard now excludes that measured region).
+- Grow/shrink check on in-memory imenu01 copy (not written): +2-byte growth, `verify` clean, IDs unchanged.
+- Other pools (RoboDictionary, Reference, Shop, DLC_ID) do NOT follow the 12-pointer layout (0 records match in the audit).
+- Tests: `tests/test_dict_pool_shift.py` (9), `tests/test_speaker_map.py` (5). Suite 350 OK, 1 skipped.
+- Not done: CPK write-back of a grown dictionary, boot test, and any check of references from other containers.
+
+## 2026-10-11 — speaker key located at CharaDictionary +0x40 (corrects the previous mapping)
+- Method: a user-supplied transcript (speaker label + short Japanese fragments; fragments only, not reproduced
+  here) was matched against the `0xc9` records of eventP00. Each speaker's matched keys agree across lines
+  (Seishiro 0x1195, Himari 0x119e, Bright 0x3fb, Mirai 0x3fe, Paolo 0x415, Sayla 0x401, Marker 0x41c).
+- Dictionary check: a katakana name search over all 25 CharaDictionary pools (imenu00–32, read-only via
+  `cpk_table`) locates Seishiro/Himari/Bright/Amuro/Paolo/Mirai/Marker in imenu00 records 94/95/46/43/51/47/53,
+  and Sayla (セイラ) in record 48. Each of those records holds the transcript key at +0x40.
+- Coverage: `tools/speaker_map.py` → 56/60 keys, 574/608 lines; 55 unique; 0xe93 in records 86 and 87;
+  unmapped 0x4b1, 0x4b6, 0xec0, 0xec1.
+- Artifact noted and fixed: a repeated glob loaded imenu00 twice and inflated duplicate counts. The
+  speaker-map tool dedupes files.
+- Suite 351 OK, 1 skipped. Corrects the earlier 9/60 ID-slot result, which was not the speaker field.
+
+## 2026-10-11 — speaker names: two technical sources, resolver `tools/speaker_names.py`
+- Inputs (read-only, copies in `google_drive/`, gitignored): `config00.cpk`, `config01–08` (`.EDAT`, all CPK
+  containers with one `.pac` member each; `config04/05/06/08` downloaded this session). Event containers
+  `eventP00.cpk`, `eventP01.EDAT`, `eventP02.EDAT` (CPK headers `43 50 4B 20`). Hashes not recorded here.
+- Source A — CharaDictionary (imenu*): record string[0] is the full character name. Linked to speaker key
+  via `speaker_map` (u16 at record +0x40). Verified on 10 records by reading the strings (local only).
+- Source B — `config*.pac` name slot: u32 key at slot+0x14, slot = 16 bytes, NUL-terminated CP932.
+  Marker u16 0x6401 at key+0x0A is present on some records only (`confidence=marker`); not universal.
+  Probe found 2275 keys in config scan, but most are noise (single-character junk); used only as fallback.
+- Rule finding: marker is NOT a reliable record filter (named characters use other marker values). The earlier
+  anchored-slot rule (35/54) was superseded.
+- Resolver precedence: dictionary name wins; config name only when no dictionary link exists.
+- Results (probe keys from `speaker_probe.py` on eventP00/P01/P02; union = 177 keys):
+  - `resolve`: dict=154, config=14, none=9.
+  - Chapter 1 (eventP00, 60 keys): named 60/60.
+  - Chapter 2 (eventP01+P02, 167 keys): named 158/167.
+  - Unresolved ch2 (keys only): 0x4e3, 0x4e8, 0xd93 (no source); 0xc71, 0xd89, 0x1054, 0x1056, 0x105f, 0x1062
+    (generic-role keys; no clean name-slot in any config; script labels only indicate generic roles).
+- Conflicts: 98 keys where config scan produced a name list that disagrees with the dictionary name. Config
+  candidates for these keys are mostly junk; dictionary name kept. Not resolved further.
+- Tests: `tests/test_speaker_names.py` (4 synthetic cases). Full suite: 355 tests, OK, 1 skipped.
+- Artifacts (local only): `local/speaker_names_resolved.json`, `local/speaker_map_ch2.json`,
+  `local/probe_eventP0{0,1,2}.json`, `local/chapter_key_check.json`.
+- Not done: config scan does not cover generic ch2 roles; the other `config*` containers (09+) not checked;
+  in-game check of any speaker label not done.
+
+## 2026-10-11 — whole-game speaker map (all config*/imenu*/event*) — numeric summary only
+- Downloaded from FULL_DLC folder into `google_drive/` (gitignored): config00–46 (47 containers, all CPK
+  headers `43 50 4B 20`, each with one `.pac` member), imenu00–32 (25 CharaDictionary pools; ids 16, 23,
+  26–30 are not in the Drive folder), event containers P00–P09, P13, P20–P32 (23 files; P10–12, P14–19
+  absent). Hashes not recorded here. A mistyped Drive ID (one placeholder call) returned 404 and had no effect.
+- Probe: `tools/speaker_probe.py` per event → `local/probes/`. Union of distinct keys across events: 283.
+  Keys with >=3 dialogue lines: 244. Sources: dictionary name 216, config name-slot only 11, no source 17.
+- Chapter 1 (eventP00): 43 keys with >=3 lines. 39 of them reappear in later events. All 43 dictionary
+  records are in `imenu00`, so no later pool redefines a chapter-1 key `[ZWERYFIKOWANE]` (structural).
+- Pool by first use (keys >=3 lines): imenu01 → P01 (39 keys), imenu02 → P02, imenu03 → P03, imenu04 → P04,
+  imenu05 → P05/P06. Each DLC event brings its own dictionary pool `[HIPOTEZA]`, while older characters are
+  referenced from imenu00.
+- Two keys have two dictionary records: 0xe93 (3731) and 0x101a (4122). Needs a rule before use.
+- 9 chapter-2 keys stay without any name source after all configs and pools: 0x4e3, 0x4e8, 0xd93, 0xc71,
+  0xd89, 0x1054, 0x1056, 0x105f, 0x1062. The other no-source keys (>=3 lines) are 0x673, 0x678, 0xc6c, 0xcc6,
+  0xccb, 0xd84, 0xd8e, 0xec4 (first use in P01/P03/P04/P05/P07).
+- Observation to check: `eventP04.EDAT` and `config04.EDAT` are readable here (CPK headers, probe ok).
+  This conflicts with the earlier note that `*04` needs decryption. Re-check before relying on chapter 4.
+- Local artifacts (game text): `local/WHOLE_GAME_SPEAKER_MAP.md`, `local/whole_game_speakers.json`,
+  `local/whole_game_map.json`, script `local/whole_game_map.py`.
+
+## 2026-10-11 — correction + no-source keys + two-record keys + evept files
+- CORRECTION: the note that `*04` needs decryption came from early work and is stale. The user reports chapter 4
+  files are already decrypted. Treat eventP04/config04 as readable (probe ok). Remove the earlier warning.
+- Event files `evept101–108.EDAT` (lowercase `evept`, missed by the earlier name filter) downloaded and probed.
+  Chapter-map inputs now: eventP00–P09, P13, P20–P32 and evept101–108 (32 probes). Keys >=3 lines in any event: 244.
+- No-source keys (17 with >=3 lines): their records use the same layout as the config name slots.
+  Verified: u16 marker 0x6401 at key+0x0A, name slot at key-0x14 (config00 table, stride 172 bytes).
+  Their name slot starts with a 2-byte token `0x0F xx`, where xx is an ASCII-range byte (0x20–0x7E).
+  Tokens also appear inside names, e.g. a syllable split by a token. Decoding without the token table
+  gives role labels with a faction/prefix plus a role suffix (兵 / 士官 / 乗り). The 11 config-only keys
+  show the same suffixes but no tokens. Examples (structure verified, names in local/ only): key 0x4e3 has a full
+  name ending in 士官; 0xd93 → full name with suffix 士官; 0x1054/0x1056 → faction prefix + 兵/士官.
+- Token table: NOT solved. `u16tbl.cpk` contains only JIS↔UCS tables (not the 0x0F codes). Dictionary-assisted
+  solve gave noise (no consistent mapping). Next step: find the glyph table in the game binary/font, or
+  check whether 0x0F xx is an index into the sysmes/configst font table.
+- Stride finding: keys 0x4b1, 0x4b6, 0x4e3 and 0xec0/0xec1 sit at 172-byte stride in config00 (diff 0 mod 172).
+  Each record: name slot, then key at +0x14, then u16 marker at key+0x0A.
+- Two-record keys: 0xe93 (3731) → imenu00 #86 and #87; 0x101a (4122) → imenu02 #21 and #22.
+  Both pairs carry IDENTICAL name strings (str0). Result: duplicate records, not a name change.
+  The alias hypothesis (name change, e.g. two names for one character) is NOT supported by these two keys.
+- Masaki Andoh: dictionary record found in imenu19 (record 0). Speaker key u16 at +0x40 = 0x1144 (4420).
+  Key 0x1144 has zero dialogue lines in all 32 probed event files. His lines are probably in an event file
+  not yet obtained (candidates: eventP10–12, P14–19 absent from the Drive folder, or other containers).
+- Local artifacts: `local/probes/evept10x.json`, `local/whole_game_speakers.json` (not rebuilt with evept).
+
+## 2026-10-11 — battle-quote containers (mesbtl) and Masaki; disc side = USRDIR on Drive
+- Scope per user: missing file numbers mean no events in that DLC. Everything relevant is on Drive: FULL_DLC
+  (DLC side) and USRDIR (disc side; `mesbtl00.cpk`, `eventP00.cpk`, `imenu00.cpk`, `config00.cpk` match the
+  disc-side ids already used). No ISO image exists on Drive (search for .iso/NPJH returned only an unrelated zip).
+- Downloaded FULL_DLC `mesbtl01–31` (EDAT). Read-only parse with `speaker_map.read_members` (CRILAYLA aware).
+- Aligned u16 hits for Masaki key 0x1144 (4420): mesbtl19.EDAT 164 hits, all inside member `p4420.pac`
+  (18160 bytes). mesbtl00 11 hits but NO `p4420.pac` member there, so those are incidental values.
+- Member naming: battle-quote members are named `p<speaker key decimal>.pac`. 242 such members in mesbtl01–31
+  and mesbtl00. 185 of 242 keys also appear in event dialogue. 57 do not (includes 4420 Masaki).
+- All 17 no-source keys and all 11 config-only keys have a `p<key>.pac` battle-quote member. So a member's
+  existence does not give a name. It only confirms the key is a unit with quotes.
+- Dictionary record for Masaki: imenu19 record 0, key u16 at +0x40 = 0x1144 (already recorded).
+- Next step (not done): decode the quote members (text structure) and check whether the joining/special
+  dialogue lines for 4420 sit in the same member or in another container.
+
+## 2026-10-11 (session 2) — font.cpk, configst, mesbtl structure, unified speaker table, name sources
+Environment: Python 3.11.2 (system). No pytest installed; tests run with `python3 -m unittest`.
+Inputs (sha256, Drive copies in google_drive/, gitignored):
+- font.cpk a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6 (242896 B, USRDIR)
+- configst.cpk e5e9892fb5a5be1e58de09d36aea6bf75e9a23ef88586318278cf040137b332b (USRDIR)
+- mesbtl19.EDAT 94ea17f60d8f0eee954b420987adab8b418b9b4da52ea78ffe46391860fdfa0f (FULL_DLC)
+- mesbtl00.cpk 51da60432ce26f7705e2b231713048d3ac85cd7fd80b81ec2b57f5f2b20c9a4a (USRDIR)
+- config00.cpk d38b0ccae89d460afcbd7ad3411391aaae8a9c3e77f2e9f6d7b9c317a3806582 (USRDIR)
+
+1. **Correction**: battle members `p<key>.pac` number 241 keys with quotes (earlier entry said 242;
+   the 242nd was the empty `p0` placeholder).
+2. **font.cpk** (`tools/font_probe.py`): one ITOC entry `ID00000`, CRILAYLA, 238800 -> 397504 bytes,
+   data at offset 4096. Archive header u32 0x10, 7, 0x20. Names `ank.fta`, `kanji22.fta`, `kanji21L.tbl`
+   style. `.tbl` = 2660 u16, 2561 are 0xFFFF, 99 populated. `[ZWERYFIKOWANE]` structure.
+   Token map NOT found here: populated index set does not line up with the 95 printable ASCII codes.
+   Failure: `cpk_table.read_cpk_table` returns `absolute_offset=None` for ITOC-only entries; the
+   probe handles only the one-entry case and fails closed otherwise.
+3. **configst.pac**: 0x0F appears 1021 times; the next byte is 0x00 in 551 cases. Escape, not a token table.
+4. **Pool/record formats** in config00/config01 (`.pac` index: name at entry+8, stride 0x28 from 0x10):
+   count@0 pools: CharaDictionary, RoboDictionary (68 / 75), Shop (182), Reference (28), DLC_ID (41),
+   wp_list00 (84), wp_list01 (99). RoboDictionary name = slot 3. Shop/Item/unit/charalist: not count@0 (`[OTWARTE]`).
+5. **Battle members** (`tools/battle_members.py`): 241 keys, 22 902 anchors. Anchor = u16 0x029 (low 12 bits)
+   at key-2; key u16 at record; quote CP932 text from key+8. Masaki (4420) = 164 records in `mesbtl19`.
+   Failure: first attempt raised KeyError on the empty `p0` member; fixed by skipping key 0.
+6. **Unified table** (`tools/name_union.py`): 339 keys (283 dialogue, 56 battle-only). Priority:
+   dict first record > config marker slot > config raw with `{0F xx}` placeholders (NFKC) > unmarked
+   config (review) > UNNAMED. Results: named 301 of 339; dialogue 269/283 keys, 12 673 of 12 738 lines (99.5 %).
+   Failures fixed during the run: (a) strict filter dropped half-width kana; fixed with NFKC;
+   (b) single-byte half-width katakana (0xA1-0xDF) swallowed the following 0x0F; fixed; (c) unmarked
+   slots gave labels, fragments and digits; now rejected (digits, symbols, leading dash/prolonged mark).
+7. **Token analysis** (`[HIPOTEZA]`): the 0x0F xx byte is ASCII-range in all 54 names. Most frequent xx:
+   0x26 (10), 0x38 (6), 0x20 (6), 0x2F (5), 0x2A (5). Meaning not proven (glyph index or dakuten form?).
+8. **Still open**: 14 dialogue keys with no name (65 lines; 7 with >= 3 lines); 24 battle-only keys with no name (18 with battle records); unit tables
+   (`unit_list00`, `charalist00`, `robolist`, `srwDL_Skill00`) not yet parsed. Two-record keys: rule is
+   first record (user decision). Duplicates checked earlier are identical.
+9. Tests: `tests/test_battle_members.py` (6 synthetic tests) pass; `test_speaker_names` and `test_speaker_map` still pass (16 total).
+10. Outputs (local/, gitignored): `battle_members.json`, `speaker_names_all.json`, `SPEAKER_NAMES_ALL.md`,
+    `dialogue_lines_per_key.json`, `font_ID00000.bin`.
+
+## 2026-10-11 (session 2, part 2) — token map, unit lists, script labels, item table
+1. **Token map (0x0F xx)**: alignment of token strings with plain strings (`tools/token_solve.py`).
+   Candidates for 0x20–0x39 follow the voiced-katakana order. Control: correct order 1218/4059 plain
+   matches; shifted +1, shifted -1, reversed: 0 each. Token values outside 0x20–0x39 are not mapped.
+   Applied in `name_union.py` (`apply_known_tokens`): all 40 token names now have no placeholder.
+2. **Unit list** (`unit_list00.bin`): records begin with a CP932 unit name (mecha) and contain pilot
+   keys as u16 runs. Pilot keys with names are found; unnamed keys are not in any config name slot.
+3. **Unnamed keys**: 38 with no config name (14 dialogue, 24 battle-only). 10 of the 14 dialogue keys
+   have a script label (`tools/script_labels.py`, output `local/script_labels.json`, 4064 of 12738
+   dialogue records matched to a script line). Labels are calibration only; kept separate.
+4. **srwDL_Item00.bin**: offset table at byte 4 (74 entries). Name field not found yet.
+5. Failures: first attempt at linking unit_list keys used only u16 with marker; no hits for the 38 keys.
+   Shift-test of the token map was needed to rule out coincidences. Script aligner `align_script.py`
+   only covered eventP00; `script_labels.py` covers all event containers.
+
+## 2026-10-11 (session 2, part 3) — inline weapon/item names, mech names, translation-unit table
+
+Environment: Python 3 in sandbox, stdlib only. Inputs: `google_drive/` (config*, configst.cpk, imenu*).
+No game files written. Game text only under `local/`.
+
+1. `tools/inline_names.py`: walks config `.pac` members, reads the `u32 first offset` table at byte 4,
+   and takes the first CP932 run with ≥2 full-width characters in each record (token-decoded).
+   Result: wp_list 00–19 (all records except 2), srwDL_Item00 (70/74), configst srwDL_Item (70/74),
+   srwDL_ItemDrop (177/1092). Output `local/inline_names.json`.
+2. `tools/name_units.py`: adds mech names from `srw_DL_RoboDictionary*` slot 3 (pointer), speaker names
+   from `local/speaker_names_all.json`. Output `local/name_units.csv` (1607 rows) and
+   `local/name_units_unique.csv` (769 unique texts with `locations`).
+3. Tests: `tests/test_inline_names.py` (4 synthetic tests). Full suite: `python3 -m unittest discover -s tests`
+   → 365 tests OK, 1 skipped.
+4. `local/whole_game_map.py` fixed to read `evept*` probes as well as `eventP*` (previously 24 of 32
+   probes). Output: 283 dialogue keys, 246 with dictionary name, 16 config slot only, 21 no source.
+5. `name_union.py` re-run on the rebuilt `whole_game_speakers.json`: identical output to the previous run.
+   A first attempt with `local/speaker_map.json` as the speakers input gave dict 0 (wrong input). Output
+   discarded; the reference input is `whole_game_speakers.json`.
+6. Discrepancy noted: `whole_game_map` "no source" 21 vs `name_union` dialogue `none` 14. Different definitions.
+7. Open: `ItemDrop` 177 names are not in `srwDL_Item00` (0 overlap). Need checking before use.
+   Growth of inline names is untested.
+8. Shop/Reference/DLC_ID/Skill_Tag inline check (read-only, same reader): Shop00 19 inline strings, 0 overlap
+   with item or weapon names (not item names). Reference00 28/28 at relpos 45. DLC_ID00 41 records, relpos 57/58.
+   configst `srwDL_Skill_Tag.bin` 133/151 at relpos 28. Unit list, charalist, robolist, Skill00/01–08 have no
+   first-offset table at byte 4 (the reader does not apply).
+9. Unit list (`unit_list*.bin`): all 19 members are whole multiples of 384 bytes (393 records). Base name at
+   offset 0, display name with variant at offset 140 (equal in 200, longer in 45). Pilot-slot test: named keys
+   appear in pilot offsets but small numeric values collide with dictionary keys (366/393), so not validated.
+   The 14 dialogue no-name keys do not occur in pilot slots (hits only at numeric offsets).
+   Tool `tools/unit_records.py`; `name_units` now includes category `unit` (393 rows, 267 unique).
+   Tests: 367 OK, 1 skipped.
+10. **Sandbox rollback and recovery (2026-10-12).** `HEAD` had been reset to `6d22f1a`, while `origin/arena/581a1b79-mtgcrawler`
+    was at `b5fc8e3`. The working tree matched the origin tip for all tracked and untracked SRW files (checked
+    with a temporary worktree, read-only). Recovery: `git reset --mixed origin/arena/581a1b79-mtgcrawler` (no
+    working-tree file changed). Backup of the directory was taken to `/tmp` before the comparison. `local/` and most
+    of `google_drive/` had been removed; restored from Drive.
+11. Drive restore: `download_file` writes straight to `google_drive/<name>` (metadata only in context). Restored
+    mesbtl00–31, config00–46 (except 38, which does not exist), configst, imenu00–32, eventP01–32, evept101–108.
+    Missing from Drive: none of the listed files. `config19` was missed on the first pass and downloaded later.
+12. `tools/battle_members.py --dir google_drive` → 241 keys, 22902 records (matches session 2). `tests/test_battle_members.py` OK.
+13. `tools/speaker_probe.py` over 32 event containers → `local/probes/*.json` (32 files, all OK).
+14. New `tools/build_speaker_inputs.py`: rebuilds the dialogue keys (283) and the dictionary names (246) from the probes
+    and imenu pools. Output `local/whole_game_map.json`, `local/whole_game_speakers.json`.
+15. `name_union` rerun: dict 246, config_raw 37, config_raw_clean 32, none 24. Differs from session 2 (see NAME_REVIEW.md).
+16. `inline_names`, `unit_records` (393 records), `name_units` regenerated. Unit names: 786 occurrences, the unique file
+    is `local/name_units_unique.csv`. Tests: 367 OK, 1 skipped.
+17. Next: resolve the 246 vs 216 dictionary discrepancy before translating any name. Then battle-only queue
+    (733 and 220 first), pilot-slot validation.
+
+## Sesja 4 (2026-10-12): pokrycie zdarzeń, mechy, trwałość danych
+
+Środowisko: po granicy tury `google_drive/` zawierał tylko `eventP00.cpk`; `local/` był pusty (poza nowymi katalogami).
+
+1. [ZWERYFIKOWANE] Pobranie z Drive: 31 kontenerów zdarzeń (`eventP01–09`, `eventP13`, `eventP20–32`, `evept101–108`), rozmiary zgodne z listingiem. Manifest: `tools/drive_manifest.tsv`.
+2. [ZWERYFIKOWANE] `tools/extract_scenes.py` na 32 kontenerach: exit 0 dla 32/32. Łącznie 354 wpisy scen (podpis + linie). Mówca nie jest w rekordzie tekstu (stan VM), więc `speaker` = null.
+3. [ZWERYFIKOWANE] `tools/speaker_probe.py` na 32 kontenerach: exit 0 dla 32/32. Wynik: 251 członków w stanie `ok`, 12738 linii dialogowych (zgodne z wynikiem sprzed granicy tury). Unikalne klucze (suma top_keys): 257; w pełnym zestawie wcześniej 283 klucze.
+4. [ZWERYFIKOWANE] Pokrycie kontenerów: `eventP00` (USRDIR) 621 linii, 11 członków; FULL_DLC `eventP01–08` 678–1566 linii; `eventP31`, `eventP32` 0 linii dialogowych (członki bez linii; nie oznacza braku tekstu, tylko brak dialogów wykrytych sondą).
+5. [ZWERYFIKOWANE] Porównanie hashów `eventP00`: na Drive jest tylko JEDNA kopia (`1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w`, rodzic USRDIR `1FyM77fcFLQfXgxRhnS0cJ98oKZaZG72x`, 162264 B). Nie istnieje kopia w FULL_DLC. Porównanie niemożliwe; pytanie zamknięte jako nieistotne.
+6. [ZWERYFIKOWANE] `robo00.cpk` (USRDIR, 38273016 B, pobrany): 1318 członków. Rozkład prefiksów: `0000_*` 412, `0100_*` 329, `1000_*` 87, `bcam.cpk` 72, `info.bin` 74, `*.bsb` 216, `*.pac` 956. Składowe `.pac` i `info.bin` są CRILAYLA (`tools/crilayla.decompress`). `info.bin` po dekompresji = 3114 B, struktura nieustalona.
+7. [ZWERYFIKOWANE] Test powiązania: identyfikatory z nazw członków `NNNN_KKK` (poza 0000) = 45 unikatów; część wspólna z kluczami dialogów = 9 (np. 200, 300, 310, 400, 410, 460, 500, 510, 710). Wniosek: nazwy członków NIE są kluczami jednostek. `[HIPOTEZA]` odrzucona, brak powiązania mechów z kluczami tym sposobem.
+8. [NIEZWERYFIKOWANE] Tabela mechów (cel 100+) nie znaleziona. Kandydaci: `config*` (`unit_list`, `robolist.bin`, RoboDictionary slot 3) — nie pobrane w tej turze.
+
+Odrzucone/nieudane: `cpk_write.load` przyjmuje `Path`, nie `str`. Drukowanie `member.blob` zalewa wyjście — nie robić tego.
+
+## Sesja 4, korekta liczenia dialogów (2026-10-12)
+
+Przyczyna rozbieżności z lokalnym wynikiem użytkownika (ok. 45k+ linii):
+1. [ZWERYFIKOWANE] `extract_scenes.py` liczy rekordy po znacznikach typu (skanowanie), bez wymogu granic łańcucha. Razem 46703 rekordów tekstu (44876 dialogów `0xc9` + 1827 narracji `0x1b7`). Dla 32 kontenerów.
+2. [ZWERYFIKOWANE] `speaker_probe.py` chodzi po łańcuchu rekordów (`walk_records`, od `find_stream_start` do EOF). Dla 293 członków (32 kontenery, `evept` włącznie): 251 z czystym łańcuchem, 42 bez (`no-clean-record-chain`, 0 linii).
+3. [ZWERYFIKOWANE] Test granic: ze 43710 dialogów ekstraktora (dopasowanych członków) tylko 12615 (29%) leży na granicy łańcucha rekordu `0xc9`. Pozostałe ok. 71% to trafienia po znaczniku bez poprawnego łańcucha, nie rekordy.
+4. [ZWERYFIKOWANE] Łańcuch: 12738 rekordów `0xc9` dla 293 członków, zgodne z sumą sondy.
+5. [NIEZWERYFIKOWANE] 42 członki bez łańcucha mają 1166 trafień ekstraktora. Nie wiadomo, czy są prawdziwe. Nie dołączać bez weryfikacji.
+6. Wniosek: liczba zweryfikowana to 12738 linii dialogowych (łańcuch). 45k+ z lokalnego narzędzia najprawdopodobniej to liczba trafień znacznikowych. Nie wiadomo, czy to samo narzędzie, bo użytkownik nie podał nazwy ani wyniku.
+7. ISO: na USRDIR jedyny kontener zdarzeń to `eventP00.cpk` (wliczony). Inne pliki ISO z dialogami (np. `mesbtl00.cpk` z walkami) nie są wliczone do 12738.
+
+## Sesja 4, mechy (2026-10-12): config00 + config01–46
+
+1. [ZWERYFIKOWANE] Pobrano 45 plików `config*.EDAT` z FULL_DLC (brak `config38`) oraz `config00.cpk` z USRDIR. Wszystkie 46 kontenerów wczytane bez błędów (`tools/mech_names.py`).
+2. [ZWERYFIKOWANE] `config00.pac`: 34 wpisy (układ 0x10 + 0x28·i), m.in. `robolist.bin` 8716 B (count 363), `srw_DL_RoboDictionary00.bin` 9442 B (68 rekordów, każdy z 7 slotami u32), `unit_list00.bin` 32256 B (84 rekordy po 384 B).
+3. [ZWERYFIKOWANE] RoboDictionary rekord 0 to etykiety pól (全長, 重量 — długość, waga), nie nazwy mechów. Slot 3: 40 unikatowych nazw realnych + 1 placeholder (w config00: 13 unikatów).
+4. [ZWERYFIKOWANE] Wynik `mech_names.py` po 46 kontenerach: 1092 wierszy, 500 unikatowych nazw ze wszystkich źródeł.
+   - `robo_dict_slot3`: 41 unikatów (40 realnych).
+   - `unit_list_base` (+0): 267 unikatów.
+   - `unit_list_display` (+140): 390 unikatów.
+   - Część wspólna: slot3 ∩ base = 0; slot3 ∩ display = 0; base ∩ display = 198.
+5. [NIEZWERYFIKOWANE] Czy `unit_list` zawiera same mechy (jednostki), czy też piloty i inne wpisy. Nie ustalone. Dlatego 267 nie jest jeszcze liczbą mechów.
+6. [NIEZWERYFIKOWANE] Cel 100+ mechów: NIE potwierdzony. Kandydaci: 267 (base), 390 (display), 40 (slot3), bez rozstrzygnięcia tożsamości.
+7. Następny krok: rozdzielić `unit_list` na mechy i piloty (porównanie z `charalist*` i z pilotami w sloty +98/+100/+102), oraz dekodować `robolist.bin` (363 rekordy po 24 B?).
