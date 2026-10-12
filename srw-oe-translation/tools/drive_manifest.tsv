@@ -190,3 +190,14 @@ pp_index.json	1ihzuq_hpWd6KpxxjNC3yMa8rtaMMdibL	4054
 pp_strings.csv	1UnkI_IeSa2lMij5Kk2X4XTWX8HO9NTua	13089547
 pp_name_map.tsv	1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7	32502
 pp_README.md	1yH-dt-kwXewX1YRiQDrYevjspSpdXZUz	4844
+# --- AKTUALIZACJA (sesja 5, cz. 9): podmiana 5 plikow pakietu po korekcie pol itemow/umiejetnosci
+# stare wersje przeniesione do kosza: 02_items 1LA-d5HbhllbLZlzyZJ-lWzQmQwAz6B05,
+# 03_skills 19GbfsUpQKuwcEAu-ugfJScgaS4juM7Wm, index.json 1ihzuq_hpWd6KpxxjNC3yMa8rtaMMdibL,
+# strings.csv 1UnkI_IeSa2lMij5Kk2X4XTWX8HO9NTua, README 1yH-dt-kwXewX1YRiQDrYevjspSpdXZUz
+# name	file_id	size
+pp_02_items.jsonl	1DlP-EUc51OWDlVM_lhKqwcaSJLwg4QR6	393762
+pp_03_skills.jsonl	1UFxawNEJC4EMqo8c6sMj-Qd6_TDqemJL	1689531
+pp_index.json	1JR8KXVkca0piHe_jBtF-KNImS4Ia1HAn	4149
+pp_strings.csv	1UHzTz9FytCnRc_vioPVXzqqFO-TyfF1Q	13359212
+pp_README.md	1hBCchpNd5KuIF91TgCFqoQqFbcs0Ea7k	5892
+# nazwa name_map.tsv na Drive: "name_map.tsv - klucz do nazwy mowcy"
