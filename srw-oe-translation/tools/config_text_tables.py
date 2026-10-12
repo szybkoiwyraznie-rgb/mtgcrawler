@@ -13,7 +13,7 @@ Measured table conventions (config00, 2026-10-12) [ZWERYFIKOWANE]
 -----------------------------------------------------------------
 Convention A - ``u32 count`` at +0, then ``count`` u32 record offsets from +4:
     ``srwDL_ReferenceNN.bin`` (28 records in config00), ``srwDL_DLC_IDNN.bin`` (41),
-    ``srwDL_ShopNN.bin`` (182; not extracted here), ``wp_listNN.bin``, and in configst:
+    ``srwDL_ShopNN.bin`` (182), ``wp_listNN.bin``, and in configst:
     ``srwDL_Skill_Tag.bin`` (151), ``srwDL_Achievement.bin`` (75), ``srwDL_ItemDrop.bin`` (1092).
     The first offset equals ``4 + 4*count`` (end of the offset table = start of record 0).
 Convention B - ``u32 tail_offset`` at +0, ``u32 count`` at +4, ``count`` u32 record offsets from
@@ -84,6 +84,8 @@ TABLES = (
     ("srwDL_Skill_Tag", "skill_tag"),
     ("srwDL_StatusChange", "status_change"),
     ("srwDL_ItemDrop", "item_drop"),
+    # shop catalogue: convention A; its records hold item ids and only ~5 label strings
+    ("srwDL_Shop", "shop"),
 )
 CJK = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]")
 MIN_RUN = 2

@@ -371,3 +371,21 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Higiena: pliki pobrane tylko do pomiaru (`bacb04`, `mesbmp00`, `lmap`, `face00`, `bg2d`, `txa00`,
   `smap`) usunięte po skanie; ID i rozmiary w `tools/drive_manifest.tsv` (workspace 143 MB → 51 MB).
 - Testy: **488 OK (1 skipped)**.
+
+## Sesja 5, część 8 (2026-10-12): czytnik nowych kategorii + pakiet dla tłumacza
+
+- **Nowe kategorie tekstu są już czytane**: `tools/mission_text.py` (`*_ext.dat` tytuły i uwagi do misji,
+  `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`) — **871 rekordów, 0 błędów**, 20 testów
+  syntetycznych. Każdy slot ma policzony **span** (= twardy budżet tłumaczenia); uwagi do misji są
+  zduplikowane w dwóch slotach (deduplikacja przy eksporcie).
+- **Pakiet dla tłumacza gotowy**: `tools/translator_export.py` skleja wszystko w 8 plików JSONL +
+  `strings.csv` + `index.json` — **80 606 wierszy / 2 447 484 B**; wiersz ma `id`, `jp`, puste `en`,
+  budżet (`mode=grow` albo `max_bytes` dla slotów) i mówcę. Pliki jadą na Google Drive (poza repo).
+- **Nazwy mówców**: **26 468/26 468 linii dialogu = 100,0%** (poprawiony błąd eksportu gubiący klucz 0),
+  cytaty 26 932/27 383 = 98,35%. Reszta to **14 kluczy / 451 rekordów** (1,65%) występujących wyłącznie
+  w `mesbtl00`; cztery metody sprawdzenia wykluczone, zostaje odczyt ze skryptu bitwy.
+- **2 194 rekordy cytatów** (`p0995.pac`, `p0996.pac`) **nie mają w grze tekstu** (24-B rekordy,
+  `flags=0`) — 7,4% puli, nic do tłumaczenia.
+- **Sklep**: `srwDL_Shop` dodany do `config_text_tables`; pełny przebieg 36 członków / 12 631 stringów /
+  208 229 B / 0 błędów.
+- Testy: **521 OK (1 skipped)**.

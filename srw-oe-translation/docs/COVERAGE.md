@@ -14,15 +14,15 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |
 |---|---|---|---|---|---|---|
 | 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery, 293 członki) | **26 468 linii, 313 kluczy (100% z nazwą), 1 186 781 B tekstu** (`tools/event_dialogue.py`) **+ 360 tekstów innych typów** (narracja 136, warunki zwycięstwa/porażki 149, lokacje 41, help 19, tytuły scen 6, etykiety 9) **+ 273 teksty w blokach-tabelach** (13 KB) | **grow — sprawdzony w grze** | **ekstrakcja domknięta** (0 błędów, 0 nieczytelnych rekordów) | stara liczba 12 738 linii była zaniżona ~2× (stary chodzik kończył na granicy bloku); brak kroku `apply`; 4008 bloków to tabele (nie tekst), 137 z nich ma teksty – wyekstrahowane |
-| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **300/319 kluczy ma nazwę** z tabeli postaci (`local/name_map.json`) | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | 19 kluczy bez nazwy = **1 182 rekordy (4,0% cytatów)**: 6 to sloty bez tekstu (3/6/7/8/991/1037 → 744 rekordy z tekstem zastępczym lub pustym), 13 z tekstem (50/55/60/101/151/733/1005/1048/1051/3122/3702/3707/3712 = 438 rekordów) — kandydat: id jednostki generycznej, gdzie mówcą jest pilot z `unit_list`; ścieżka `apply` jeszcze nie zbudowana |
-| 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu** i **96,0% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
+| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **305/319 kluczy ma nazwę** z tabeli postaci (`local/name_map.json`); nazwane rekordy: **26 932/27 383 (98,35%)** | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | **14 kluczy bez nazwy = 451 rekordów (1,65%)**: 50/55/60/101/151/733/1005/1037/1048/1051/3122/3702/3707/3712 — występują **tylko w `mesbtl00`**, brak ich w `charalist` (404 klucze), `CharaDictionary` (289) i slotach `config*`. Sprawdzone i odrzucone: ukryty klucz w rekordzie (skan wszystkich u16), reguła przesunięcia ±1 (5 kluczy ma sąsiada −1, 1 ma +1, 8 nie ma nazwanego sąsiada), wzorce `unitfacelist`/`robo_cpkid` (trafienia przypadkowe). **2 194 rekordy (7,4%) nie mają w grze żadnego tekstu** — `p0995.pac` (1 402) i `p0996.pac` (792): rekordy 24-B, `flags=0`, pusty tekst → nic do tłumaczenia. Ścieżka `apply` jeszcze nie zbudowana |
+| 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu (26 468/26 468)** i **98,35% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
 | 4 | Encyklopedia postaci | `srwDL_CharaDictionary` (imenu/config) — **pole [2] rekordu** | tabela **289 postaci** z nazwą, seiyuu, tytułem serii, pseudonimem `愛称：` i **slotem opisu**; opis ma **tylko 3/582 rekordy**, reszta trzyma sam szablon `＠０\r`; rekord `NoData` (klucz 65535) ma w tym polu `図鑑用のデータが存在していません。` = „brak danych do encyklopedii” (`tools/chara_dictionary.py`, 9 testów) | grow (pula NUL — `dict_pool_shift.rebuild_pool`) | **tabela zlokalizowana, opisów w danych gry brak** | 579 rekordów bez opisu → opisy trzeba **napisać** (praca redakcyjna), a wstrzyknięcie jest wykonalne w polu [2] (szablon `＠０\r` + tekst) `[HIPOTEZA]` co do wyświetlania |
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
 | 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); nazwy 4 001 B (273 unikalne, max 20 B), efekty 3 941 B (max 66 B); slot dodatkowy (etykieta) pusty we wszystkich 300 rekordach (`tools/item_skill_records.py`, 11 testów) | grow (przebudowa tabeli spanów + offsetów rekordów) | **role pól ustalone** | ścieżka `apply`; znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy itemów |
 | 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **189 unikalnych nazw / 10 322 B** (część w połowie szerokości z tokenami 0x0F), efekty **40 208 B** (1 237 unikalnych, max 106 B); 9 rekordów ma etykietę w trzecim slocie | grow | **role pól ustalone** | nazwy do rozwiązania tokenów (`token_solve`); klucz rekordu nie jest powiązany z żadną inną tabelą w przekazanych plikach `[OTWARTE]` |
 | 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
 | 9 | Mapy / shop / drop | `srwDL_Map_S`, `bg2dlist`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | **nazwy map i teł zlokalizowane** (§3f, znalezisko 15): `srwDL_Map_S` 15 nazw / 412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19 z tekstem: 5 etykiet kategorii `パイロット用パーツ` itp.); ItemDrop 1092 rekordy (5 stringów) | grow (slot + NUL) | **zdekodowane** | skąd sklep bierze nazwy itemów (nie z `srwDL_Shop`) — do ustalenia; nazwy map mają prefiks id (`53_…`), więc slot ma stałą szerokość do zmierzenia |
-| 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **zmierzone, czytnika brak** (pkt 12 planu) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; układ `_ext.dat` 388 B (2 × 348 B) |
+| 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **ekstrakcja domknięta** (`tools/mission_text.py`, 20 testów, 871 rekordów, 0 błędów) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; uwagi do misji **zduplikowane** w slotach +24/+184 (deduplikacja przy eksporcie) |
 
 Razem dla tabel z pkt 6–8 (`tools/config_text_tables.py`, 20 kontenerów + `configst`):
 **11 254 rekordy, 12 599 stringów, 208 KB tekstu; unikalnych 4208 (3518 z kanji/kana), 89,3 KB.**
@@ -34,7 +34,7 @@ Cytaty bitewne (pkt 2, `tools/battle_quotes.py`): **29 577 rekordów, 814,7 KB t
 |---|---|---|
 | Jednostki (mechy) | `unit_list` +84 = `wp_list` u32 = `RoboDictionary` +28 = `unit_index_list` kol. 1 | **393 / 393 (cała gra)** `[ZWERYFIKOWANE]` |
 | Bronie | pozycja wpisu w rekordzie `wp_list` jednostki (nazwa `.bsb` = `s<id>_<nnn>`) | **1485 / 1485** `[ZWERYFIKOWANE]` |
-| Mówcy | u16 w rekordzie dialogu/cytatu +10 → `charalist` +96 (nazwy) i `CharaDictionary` +0x40 (seiyuu, seria) | **362 / 381 kluczy (95,0%)**; dialogi 313/313, cytaty 300/319; 19 kluczy cytatów = 1 182 rekordy |
+| Mówcy | u16 w rekordzie dialogu/cytatu +10 → `charalist` +96 (nazwy) i `CharaDictionary` +0x40 (seiyuu, seria) | **362 / 381 kluczy (95,0%)**; dialogi 313/313 (100% linii), cytaty 305/319; 14 kluczy cytatów = 451 rekordów (1,65%) |
 | Cytaty bitewne | u16 klucza w rekordzie 0xC9 (nazwa członka `p<NNN>.pac` to *zestaw*, nie mówca) | **319 kluczy** `[ZWERYFIKOWANE]` (poprzednie 241 liczyło tylko rekordy zgodne z nazwą członka) |
 | Encyklopedia | klucz mówcy u16 +0x40 rekordu `CharaDictionary` | **289 / 313 kluczy dialogów** (`local/name_map.json`); opisy obecne w 3 rekordach |
 | Itemy | u16 na +0 rekordu `srwDL_Item` (np. 10000, 10019) | 300 kluczy na płycie + pule DLC; mapowanie nazwa↔klucz niepotwierdzone |
@@ -235,6 +235,30 @@ oraz **nazwy map i teł** (`srwDL_Map_S`, `bg2dlist`). Kształt rekordu `*_ext.d
 (2 pliki 348 B), trzy sloty tekstu z NUL-em (`+24`, `+184`, tytuł od `+344`); układ jak w itemach,
 więc ścieżka grow będzie ta sama. Czytnik tych kategorii to następny krok (pkt 12 planu).
 
+## 3g. Pakiet dla tłumacza — jeden zestaw plików JSONL (pkt 9 planu)
+
+`tools/translator_export.py` skleja wszystkie artefakty z `local/` w **jeden pakiet dla tłumacza**
+(13 testów syntetycznych; wynik trafia do `local/translation/`, czyli poza repozytorium):
+
+| plik | wiersze | bajty JP | unikalne JP | tryb |
+|---|---|---|---|---|
+| `00_dialogue.jsonl` (dialogi + 360 tekstów innych typów + 273 embedded) | 27 101 | 1 221 274 | 17 820 | grow |
+| `01_battle_quotes.jsonl` (cytaty z tekstem) | 27 383 | 814 683 | 16 930 | grow |
+| `02_items.jsonl` (nazwa + efekt; pule Item/Item00–08) | 1 200 | 15 884 | 443 | slot |
+| `03_skills.jsonl` (nazwa + efekt) | 2 947 | 50 629 | 1 427 | slot |
+| `04_config_text.jsonl` (Reference, Spirit, SkillTag, Achievement, DLC_ID, Shop, StatusChange, ItemDrop) | 12 631 | 208 229 | 4 216 | grow |
+| `05_mission_text.jsonl` (tytuły/uwagi misji, BGM, mapy, tła, oddziały) | 1 311 | 29 674 | 818 | slot |
+| `10_names_characters.jsonl` (nazwy, pseudonimy, serie, seiyuu) | 3 388 | 37 861 | 1 033 | grow |
+| `11_names_units_weapons.jsonl` (jednostki, serie, bronie, noty RoboDictionary) | 4 645 | 69 250 | 2 020 | grow |
+| **razem** | **80 606** | **2 447 484** | — | — |
+
+Do tego `strings.csv` (te same wiersze w arkuszu: `id, category, part, jp, en, bytes, max_bytes,
+mode, speaker_key, speaker_jp, container, member, offset`) i `index.json` ze statystykami mówców.
+
+**Nazwy mówców w pakiecie [ZWERYFIKOWANE, 2026-10-12]**: **dialogi 26 468/26 468 = 100,0%**
+(0 wierszy bez nazwy), **cytaty 26 932/27 383 = 98,35%** (451 wierszy = 14 kluczy, patrz wiersz 2).
+Wiersze narracji/helpów/etykiet nie mają mówcy z definicji. `speaker.jp = null` znaczy „oddaj ID”.
+
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
@@ -317,6 +341,25 @@ więc ścieżka grow będzie ta sama. Czytnik tych kategorii to następny krok (
     (razem z `lmap`/`face00`/`bg2d`/`txa00`/`smap` po skanie), żeby workspace nie puchł; ID i rozmiary
     są w `tools/drive_manifest.tsv`, więc każdy plik wraca jednym pobraniem.
 
+18. **2 194 rekordy cytatów bez tekstu w grze** — `p0995.pac` (1 402) i `p0996.pac` (792) mają
+    rekordy 24-B (`c9 00 00 00 | 18 00 00 00 | 29 00 | key | flags=0 | … | extra`), z pustym tekstem
+    i rosnącym `extra`; nagłówek pliku to u32 + tablica indeksów u16 (`15 00 16 00 17 00 …`), nie
+    tekst. Nic tu nie ma do tłumaczenia — to domyka 7,4% puli cytatów. **14 kluczy bez nazwy**
+    (451 rekordów, 1,65%) sprawdzono czterema metodami: skan wszystkich u16 w rekordzie (brak
+    ukrytego klucza), reguła przesunięcia ±1 (5 kluczy ma nazwanego sąsiada −1, 1 ma +1, 8 nie ma
+    żadnego → brak reguły), obecność w `unitfacelist`/`robo_cpkid` (trafienia to przypadkowe małe
+    wartości), brak rekordu w `charalist`/`CharaDictionary`. Wszystkie 14 występują **tylko**
+    w `mesbtl00`. Zostaje jedna droga: odczytać mówcę ze **skryptu bitwy** (kto jest wystawiony
+    w misji danego pliku `p<NNNN>.pac`).
+19. **Korekta eksportu nazw: klucz 0 to nie brak mówcy** — `speaker_of(key or -1)` zamieniał klucz 0
+    (？？？) na −1 i gubił 4 linie; po poprawce **26 468/26 468 linii dialogu ma nazwę (100,0%)**,
+    a cytaty 26 932/27 383 (98,35%). Limit użytkownika (<1% linii dialogu jako samo ID) jest więc
+    spełniony z zapasem; residual dotyczy wyłącznie cytatów bitewnych.
+20. **Kategoria „sklep” w tabelach config**: `srwDL_Shop<NN>.bin` dopisany do `config_text_tables`
+    (konwencja A, 182 rekordy) — 32 stringi / 120 B; pełny przebieg po dodaniu: 36 członków,
+    4 216 unikalnych stringów / 89 311 B, 0 błędów. Nazwy itemów w sklepie pochodzą z innej tabeli
+    (znalezisko 8) — `srwDL_Shop` to kategorie zakupów.
+
 ## 5. Plan domykania (kolejność i definicja „gotowe”)
 
 Dla każdej kategorii „gotowe” znaczy: (a) ekstrakcja 100% z lokalizacjami, (b) ścieżka grow
@@ -325,11 +368,13 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 
 1. ~~Cytaty bitewne — odblokować granice rekordów.~~ **ZROBIONE (sesja 5)**: 29 577 cytatów z 319 kluczy,
    0 błędów. Pozostaje: ścieżka `apply` (przebudowa rozmiarów 200/201 i bloków `EVNT`) + scalenie z nazwami mówców.
+   Uwaga: **2 194 rekordy cytatów nie mają w grze tekstu** (`p0995.pac` 1 402 + `p0996.pac` 792;
+   rekordy 24-B, `flags=0`) — do tłumaczenia ich nie ma, co domyka 7,4% puli.
 2. ~~**Nazwy mówców dla 319 kluczy cytatów**~~ **ZROBIONE (sesja 5, `tools/name_map.py`)**:
    381 kluczy całej gry, 362 z nazwą (95,0%), 100% linii dialogu i 96,0% rekordów cytatów.
    Źródła: `charalist` (podstawa) + `CharaDictionary` (seiyuu, seria, pseudonim), sloty `config*`
-   tylko weryfikacyjnie. Zostaje 19 kluczy cytatów = 1 182 rekordy (4,0%) — patrz wiersz 2 tabeli
-   i pkt 11 niżej (kandydat: klucz = id jednostki generycznej).
+   tylko weryfikacyjnie. Zostaje **14 kluczy cytatów = 451 rekordów (1,65%)** — patrz wiersz 2 tabeli i pkt 11 niżej;
+   wszystkie 14 występują tylko w `mesbtl00` i nie mają rekordu w żadnej tabeli nazw.
 3. **Narracja i warunki misji — domknięte przy okazji pkt 1** (360 tekstów innych typów + 273 embedded).
 4. ~~**Encyklopedia (pkt 4)**~~ **ZAMKNIĘTE (sesja 5, `tools/chara_dictionary.py`)**: tabela to
    `srwDL_CharaDictionary` (289 postaci, pole [2] = opis do encyklopedii, dowód = rekord `NoData`).
@@ -355,18 +400,22 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 8. **Mapy/shop (pkt 9)** — nazwy map i teł **zlokalizowane**: `srwDL_Map_S.bin` (15 nazw) i
    `bg2dlist.bin` (64 nazwy, oba w `config*.pac`). Zostaje: z czego sklep czyta nazwy itemów
    (sam `srwDL_Shop` ma tylko 5 etykiet kategorii).
-9. **Arkusz scalony** — jeden plik wszystkich kategorii (klucz, źródło, japoński, angielski,
-   maks. długość, tryb zapisu) + kontrola 100% pokrycia wobec tego dokumentu.
+9. ~~**Arkusz scalony**~~ **WYKONANE (sesja 5, cz. 8)**: `tools/translator_export.py` pisze 8 plików
+   JSONL + `strings.csv` + `index.json` (80 606 wierszy / 2 447 484 B, §3g), a gotowe pliki są
+   wysyłane na Google Drive (folder pakietu). Zostaje: kontrola pokrycia wobec tego dokumentu
+   i kolumna szerokości dla UI.
 10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
-11. **Ostatnie 19 kluczy cytatów bez nazwy** (1 182 rekordy, pkt 2) — sprawdzić hipotezę „klucz =
-    id jednostki generycznej, mówca = pilot z `unit_list`” na parach, które mają tekst (50/1005/1051
-    mają odpowiedniki w `unit_list`, 10 pozostałych nie), a jeśli się nie potwierdzi, zamknąć jako
-    rekordy bez wyświetlanej nazwy (tekst zastępczy) i udokumentować.
+11. **Ostatnie 14 kluczy cytatów bez nazwy** (451 rekordów / 27 383 = 1,65%, pkt 2) — po tej sesji
+    wiadomo: (a) występują wyłącznie w `mesbtl00`, (b) nie ma ich w `charalist`/`CharaDictionary`/
+    slotach `config*`, (c) nie ma reguły przesunięcia ±1, (d) w samych rekordach nie ma ukrytego
+    klucza. Zostaje jedno źródło: **skrypt bitwy** — kto jest wystawiony w misji, do której należy
+    plik `p<NNNN>.pac`; jeśli to nie da nazwy, wpisać ID (limit użytkownika: <1% linii **dialogu** —
+    jesteśmy na 0%) i udokumentować rekordy jako bez nazwy w grze.
 
-12. **Czytnik nowych kategorii tekstu** (`*_ext.dat` tytuły + uwagi do misji, `milstP`, `bgmlist`,
-    `bg2dlist`, `srwDL_Map_S`, `groupunit`, `srwDL_Shop`) — jeden moduł (`tools/mission_text.py`),
-    rama jak w itemach (slot + NUL), test syntetyczny, ścieżka grow przez `grow_event_text.grow_record`
-    lub własną (slot ma zapas? do zmierzenia), potem wpis w §3.
+12. ~~**Czytnik nowych kategorii tekstu**~~ **ZROBIONE (sesja 5, cz. 8)**: `tools/mission_text.py`
+    (20 testów syntetycznych) czyta `*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`,
+    `groupunit` — 871 rekordów / 0 błędów, raport rozmiarów slotów w §3f. Zostaje: ścieżka `apply`
+    (slot + NUL, jak w itemach).
 13. **Inwentarz jako brama** — `tools/member_inventory.py` uruchamiać po każdym nowym pliku z Drive;
     cel: liczba plików „bez czytnika” ma maleć tylko o grafiki/dźwięk, a każdy nowy plik z tekstem
     (np. `UPDATE/DATA.BIN`) musi się w nim pokazać zanim uznamy kategorię za zamkniętą.

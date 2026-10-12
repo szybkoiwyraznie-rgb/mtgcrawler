@@ -2289,3 +2289,44 @@ Polecenia (katalog `srw-oe-translation/`, artefakty gitignored w `local/`):
    `lmap` 81 MB, `face00`, `bg2d`, `txa00`, `smap`) zostały **usunięte** po skanie; ID i rozmiary są
    w `tools/drive_manifest.tsv`, więc wracają jednym pobraniem (workspace: 143 MB → 51 MB).
 9. Testy: **488 OK (1 skipped)** (477 + 11 nowych z `tests/test_member_inventory.py`).
+
+## Sesja 5 (2026-10-12), część 8 — czytnik nowych kategorii, pakiet dla tłumacza, reszta nazw mówców
+
+1. [ZWERYFIKOWANE] **Czytnik nowych kategorii** `tools/mission_text.py` (`SPECS` = prefiks/sufiks
+   członka + rodzina kontenera + nagłówek + stride + sloty): przebieg na przekazanym materiale daje
+   **871 rekordów / 0 błędów**. Liczby per rodzaj (wypełnione sloty / bajty / maks.):
+   `bg_name` 73/793/16, `bgm_title` 566/12 554/50, `group_name` 16/228/20, `map_name` 15/412/32,
+   `mission_note` 338/9 975/121, `mission_title` 303/5 712/32. Role: `name` span [100,160],
+   `note_a`/`note_b` span 160, `series` span 48, `title` span [4,118], `title_narrow` span 60.
+   Uwagi do misji są **zduplikowane** (sloty +24 i +184, identyczne stringi) — eksport deduplikuje.
+2. [ZWERYFIKOWANE] **Pułapka rozpoznawania członków**: pierwsza wersja kluczowała `_ext.dat` po
+   `prefix` — sufiks nigdy nie spełnia `startswith`, więc przebieg dał 645 wierszy i **zero uwag do
+   misji**. Poprawka: `SPECS` trzyma `prefix` *lub* `suffix`, a `kind_for` sprawdza oba; po niej
+   871 wierszy. Wniosek dla kolejnych czytników: sprawdzać oba kształty nazwy członka.
+3. [ZWERYFIKOWANE] **Kategoria „sklep”** dopisana do `config_text_tables` (`srwDL_Shop`, konwencja A,
+   182 rekordy): 32 stringi / 120 B. Pełny przebieg po dodaniu: **36 członków, 11 436 rekordów,
+   12 631 stringów, 208 229 B; unikalnych 4 216 (3 522 z CJK), 89 311 B; 0 błędów.**
+4. [ZWERYFIKOWANE] **Pakiet dla tłumacza** `tools/translator_export.py` (13 testów syntetycznych):
+   8 plików JSONL + `strings.csv` + `index.json`, **80 606 wierszy / 2 447 484 B** (tabela w §3g
+   `docs/COVERAGE.md`). Wiersz = `{id, category, part, jp, en, bytes, mode, max_bytes, speaker, source}`;
+   `mode=grow` (kontener przebudowuje rozmiary) albo `mode=slot` z `max_bytes` = twardy budżet
+   (span − NUL). Mówca: nazwa gdy znana, inaczej `null` (= oddaj ID).
+5. [ZWERYFIKOWANE] **100% nazwanych linii dialogu**: po scaleniu tabel nazw **26 468/26 468 = 100,0%**
+   (0 wierszy bez nazwy), cytaty **26 932/27 383 = 98,35%**. Wcześniejsze „4 linie bez nazwy” to był
+   błąd eksportu (`speaker_of(key or -1)` gubił klucz 0 = `？？？`); poprawka + test regresyjny.
+   Limit użytkownika (<1% linii dialogu jako samo ID) spełniony z zapasem.
+6. [ZWERYFIKOWANE] **2 194 rekordy cytatów bez tekstu w grze**: `p0995.pac` (1 402) + `p0996.pac`
+   (792) — rekord 24-B (`c9 … | 18 00 00 00 | 29 00 | key | flags=0 | … | extra`), tekst pusty,
+   `extra` rośnie; nagłówek pliku to u32 + tablica u16 (`15 00 16 00 17 00 …`), nie tekst. To 7,4%
+   puli cytatów — nic do tłumaczenia (nie są to rekordy z tekstem, który przeoczyliśmy).
+7. [ZWERYFIKOWANE — wynik negatywny] **14 kluczy cytatów bez nazwy = 451 rekordów (1,65%)**:
+   50/55/60/101/151/733/1005/1037/1048/1051/3122/3702/3707/3712. Występują **tylko w `mesbtl00`**.
+   Sprawdzone i odrzucone: (a) skan wszystkich u16 w rekordach — brak ukrytego klucza mówcy,
+   (b) reguła przesunięcia: 5 kluczy ma nazwanego sąsiada −1, 1 ma +1, 8 nie ma żadnego — brak reguły,
+   (c) `unitfacelist`/`robo_cpkid`/`unit_index_list`/`grouplist`/`effsetlist` — trafienia to przypadkowe
+   małe wartości, (d) brak rekordu w `charalist` (404) i `CharaDictionary` (289). Zostaje odczyt ze
+   **skryptu bitwy** (kto jest wystawiony w misji pliku `p<NNNN>.pac`).
+8. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **521 OK (1 skipped)**
+   (488 + 20 z `tests/test_mission_text.py` + 13 z `tests/test_translator_export.py`).
+9. Higiena: pakiet `local/translation/` powstaje wyłącznie w `local/` (ignorowane) i jest wysyłany na
+   Google Drive jako gotowy artefakt dla tłumacza; repozytorium trzyma tylko kod i dokumentację.
