@@ -2393,3 +2393,51 @@ Polecenia (katalog `srw-oe-translation/`, artefakty gitignored w `local/`):
    Poprawione i pokryte testem (`test_line_break_count_must_match`). `docs/TRANSLATOR_PACKAGE.md`
    §5 opisuje teraz prawdziwy walidator (wcześniej odsyłał do starego `translation_tools.py check`).
 12. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **560 OK (1 skipped)**.
+
+## Sesja 5 (2026-10-12), część 10 — kolejność scen, numeracja pakietu, proces tłumaczenia
+
+Pyta­nia użytkownika na wejściu: (1) co dokładnie ma robić tłumacz — JSON czy CSV, bo dublują się;
+(2) numeracja pakietu ma lukę (…0–5, potem 10, 11) — co z 6/7/8; (3) tekst fabularny musi iść do
+tłumacza **blokami scen z kontekstem** (nagłówek: miejsce i czas → narracja/dialogi w kolejności
+zdarzeń → koniec sceny), bo chronologia jest istotna. Dodatkowo: mówca bez nazwy w cytatach jest
+tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z gry i DLC).
+
+13. [ZWERYFIKOWANE] **Model sceny**: jedno zdarzenie = jedna scena; nazwy plików zdarzeń to
+   `DL<tom><odcinek:2>_<numer:2><wariant>.bin` (fabuła) i `SM<nnn><wariant>` (Simulator); litera
+   wariantu `B`…`J` odpowiada paczkom DLC `evept101..108`. Cyfra odcinka w nazwie zgadza się z `N話`
+   tytułu misji w **79/79** przypadkach (0 niezgodności). Kontenery: `eventP00`←DL100/101,
+   `eventP01`←DL102/103+SM001/002, `eventP02`←DL105/206, `eventP03`←DL209/310, `eventP04`←DL313/414.
+   Kolejność scen = (seria, odcinek, numer, wariant DLC); **293 sceny**, 0 nierozpoznanych plików.
+14. [ZWERYFIKOWANE] **`tools/scene_map.py`** — model scen: parsowanie nazw, klucz sortowania,
+   etykiety odcinków (`milstP`), tytuły z `*_ext.dat`, znaczniki kopii (`_mark_copies`) i dziedziczenie
+   tytułu (`_scene_key` = seria + odcinek + numer, **14 testów syntetycznych**, `tests/test_scene_map.py`).
+   Ustalenia: 224 sceny mają własny tytuł, **69 dziedziczy** go z wariantu bazowego, 0 bez tytułu;
+   32 sceny niosą element „miejsce/czas”; 67 scen wariantowych → **36 `duplicate_of`** (tekst identyczny
+   słowo w słowo) + **33 `variant_of`** (scena edytowana — pasujące wiersze dostają `copy_of`),
+   razem **4 186 wierszy-kopii**, w tym 2 powtórzenia między kontenerami (`DL103_30`, `DL208_30`).
+15. [ZWERYFIKOWANE] **`tools/translator_export.py` przebudowany**: `dialogue_and_scenes()` zastępuje
+   stare `dialogue_rows()` — wiersz dialogu niesie `scene` i `order`, więc kolejność pliku = kolejność
+   gry. Nowy plik strukturalny `06_scenes.jsonl` (293 nagłówki, bez tekstu), pliki nazw przenumerowane
+   **`10_`→`07_`, `11_`→`08_`** (numer 09 wolny, tak jak w tabeli sekcji 1 dokumentu pakietu).
+   `strings.csv` jest teraz **opcjonalny** (`--csv`) i nie jest już liczony do sum; przy ponownym
+   przebiegu eksport **kasuje** pliki o nieaktualnych nazwach (`10_`, `11_`, `strings.csv` bez `--csv`).
+   Statystyki scen wchodzą do `index.json` (`index.scenes`).
+16. [ZWERYFIKOWANE] **`tools/translation_copy.py`** — domykanie kopii wariantów: przepisuje `en`
+   z wiersza wskazanego w `copy_of` do pustych kopii, nigdy nie nadpisuje wypełnionego, zgłasza
+   rozjazd tekstu (`jp` kopii ≠ źródła) jako problem i zapisuje wyłącznie pliki, które zmienił.
+   `--check` = próba bez zapisu (**8 testów syntetycznych**, uruchomiony na prawdziwym pakiecie:
+   82 591 wierszy, 4 186 kopii, 0 wypełnionych, 0 problemów, żaden plik nie zmieniony).
+17. [ZWERYFIKOWANE — pułapka na dane] Znaki sterujące w prawdziwym pakiecie: `\r` (`0x0D`, czyści
+   okno) występuje w **1 389** wierszach dialogu, `0x0F` (przełączenie czcionki na połówkową) —
+   76× itemy, 1 368× skille, 172× postacie, 29× jednostki. Walidator porównuje teraz **pełną listę
+   znaków sterujących** poza `\n` (błąd przy różnicy), żeby tłumacz nie zgubił `\r` ani `0x0F`.
+   Widok sceny pokazuje je jako `⏎` i `<0x0F>`.
+18. [ZWERYFIKOWANE] **`tools/scene_view.py`** — widok scen do czytania: `spis-scen.md` (293 sceny),
+   po jednym pliku na odcinek (nagłówek sceny z miejscem i czasem, elementy w kolejności, znacznik
+   kopii, `_koniec sceny_`), `simulator.md`; `--zip` pakuje 37 plików w `sceny.zip` (744 KB).
+   **5 testów syntetycznych**. Pakiet: 82 591 wierszy / 0 błędów kontroli.
+19. [ZWERYFIKOWANE] **Dokument procesu**: `docs/TRANSLATOR_PACKAGE.md` ma teraz sekcję „Proces
+   tłumaczenia (jeden, obowiązujący)” — wypełniamy wyłącznie `en` w JSONL, potem
+   `translation_copy.py`, potem `translation_check.py`; CSV to tylko widok. Sekcja o scenach tłumaczy,
+   jak czytać bloki i skąd bierze się kontekst.
+20. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **595 OK (1 skipped)**.

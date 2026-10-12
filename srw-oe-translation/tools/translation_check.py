@@ -4,6 +4,8 @@
 The checher is deliberately strict about everything the game cares about and forgiving about style:
 
 * every ``en`` must be CP932-encodable (the font's charset is CP932),
+* the control characters the game draws with (``\r`` clears the box, ``0x0F`` switches to half
+  width) must stay exactly as they are,
 * the ordered list of control tokens must match ``jp`` exactly (``＠0``…``＠9``, ``%s``, ``%%``,
   ``％s``, ``＄n``, ``＃``, ``{XX}`` — the game substitutes them),
 * the number of ``\\n`` line breaks must match ``jp`` (the dialogue boxes and list rows are drawn
@@ -42,6 +44,16 @@ def tokens(text: str) -> List[str]:
     return TOKEN_RE.findall(text)
 
 
+def controls(text: str) -> List[int]:
+    """Every control character except the plain line break, as code points (CR, 0x0F, ...).
+
+    The game uses them for real: ``\r`` (0x0D) clears the dialogue box, ``0x0F`` switches the font
+    to half width (it sits inside half-width names and effect lines) - dropping one silently breaks
+    the display, so the check treats them as structural.
+    """
+    return sorted(ord(ch) for ch in text if ord(ch) < 32 and ch != "\n")
+
+
 def encode(text: str) -> Optional[str]:
     """None when the text encodes to CP932, otherwise the failure message."""
     try:
@@ -68,6 +80,10 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
         errors.append(f"control tokens changed: {tokens(jp)} -> {tokens(text)}")
     if text.count("\n") != jp.count("\n"):
         errors.append(f"line breaks changed: {jp.count(chr(10))} -> {text.count(chr(10))}")
+    if controls(text) != controls(jp):
+        errors.append("control characters changed: "
+                      f"{[hex(code) for code in controls(jp)]} -> "
+                      f"{[hex(code) for code in controls(text)]}")
     size = len(text.encode("cp932")) if not problem else 0
     if row.get("max_bytes") is not None and size > row["max_bytes"]:
         errors.append(f"over budget: {size} > max_bytes {row['max_bytes']}")
@@ -77,14 +93,33 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
 
 
 def check_rows(rows: Iterable[dict], require_complete: bool = False) -> dict:
-    """Per-file counters plus the first problems of every kind."""
-    report = {"files": {}, "errors": [], "warnings": []}
+    """Per-file counters plus the first problems of every kind.
+
+    Rows that a DLC re-release repeats carry ``copy_of``: the translation is not written twice, so
+    an empty copy is not a problem as long as its source is empty too, and a filled copy must equal
+    its source (``tools/translation_copy.py`` fills them).
+    """
+    rows = list(rows)
+    by_id = {row["id"]: row for row in rows if row.get("id")}
+    report = {"files": {}, "errors": [], "warnings": [], "structural_rows": 0}
     for row in rows:
         name = row.get("_file") or row.get("category") or "?"
+        if "jp" not in row and "en" not in row:
+            report["structural_rows"] += 1          # 06_scenes: an index, nothing to translate
+            continue
         bucket = report["files"].setdefault(name, {"rows": 0, "filled": 0, "empty": 0,
                                                    "errors": 0, "warnings": 0})
         bucket["rows"] += 1
         errors, warnings = check_row(row, require_complete)
+        source = by_id.get(row.get("copy_of")) if row.get("copy_of") else None
+        if source is not None:
+            if (row.get("en") or "").strip() and (row["en"] or "") != (source.get("en") or ""):
+                errors.append("copy differs from its source row "
+                              f"({row['copy_of']})")
+            elif not (row.get("en") or "").strip() and (source.get("en") or "").strip() \
+                    and not require_complete:
+                warnings.append(f"copy of {row['copy_of']} can be filled by "
+                                "tools/translation_copy.py")
         if (row.get("en") or "").strip():
             bucket["filled"] += 1
         else:
@@ -117,6 +152,8 @@ def format_report(report: dict) -> str:
     lines.append("")
     lines.append(f"RAZEM: {totals['rows']} wierszy, {totals['filled']} wypełnionych, "
                  f"{totals['empty']} pustych, {totals['errors']} błędów, {totals['warnings']} uwag")
+    if report.get("structural_rows"):
+        lines.append(f"(pominięto {report['structural_rows']} wierszy strukturalnych: 06_scenes)")
     for label, key in (("BŁĘDY", "errors"), ("UWAGI", "warnings")):
         if report[key]:
             lines.append("")
@@ -133,6 +170,7 @@ def collect(paths: Iterable[Path]) -> List[dict]:
         for row in ISW.read_package(path):
             row["_file"] = path.name
             by_name.setdefault(path.name, []).append(row)
+    # the scene index is read first so the copy check can see every package row
     return [row for name in sorted(by_name) for row in by_name[name]]
 
 

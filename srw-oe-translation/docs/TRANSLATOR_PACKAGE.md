@@ -9,34 +9,64 @@ python3 tools/translator_export.py --local local --out local/translation
 
 Wynik **nie trafia do repozytorium** (gra objęta jest ograniczeniami — patrz `docs/STATUS.md`,
 sekcja o prawach): leży w `local/translation/` i jest wysyłany na Google Drive jako osobny folder.
+Pliki `*.jsonl` są **jedynym** źródłem prawdy; arkusz `strings.csv` to tylko widok do czytania.
 
 ## 1. Co jest w pakiecie
 
 | plik | treść | wiersze |
 |---|---|---|
-| `00_dialogue.jsonl` | dialogi scen fabularnych + narracja, warunki misji, lokacje, helps, etykiety | 27 101 |
+| `00_dialogue.jsonl` | dialogi scen fabularnych w kolejności gry + narracja, warunki misji, lokacje, helps, etykiety | 27 101 |
 | `01_battle_quotes.jsonl` | cytaty bitewne (ataki, trafienia, porażki, zwycięstwa) | 27 383 |
 | `02_items.jsonl` | nazwy itemów i opisy ich efektów | 1 200 |
 | `03_skills.jsonl` | umiejętności: nazwa, nazwa z poziomem (`対地 Lv1`), długi efekt, skrót efektu, etykieta | 4 932 |
 | `04_config_text.jsonl` | pomoce (`srwDL_Reference`), komendy duchowe, trofea, opisy zakupów DLC, etykiety sklepu, zmiany statusu | 12 631 |
 | `05_mission_text.jsonl` | tytuły misji, uwagi do misji, tytuły BGM, nazwy map, teł i oddziałów | 1 311 |
-| `10_names_characters.jsonl` | imiona i nazwiska postaci, pseudonimy, serie, seiyuu | 3 388 |
-| `11_names_units_weapons.jsonl` | nazwy mechów, serie, nazwy broni, notki encyklopedii mechów | 4 645 |
-| `strings.csv` | te same wiersze w arkuszu (do pracy w Excelu/LibreOffice) | 82 591 |
-| `index.json` | statystyki: ile wierszy w każdym pliku, ile ma nazwę mówcy | — |
+| `06_scenes.jsonl` | **struktura**: 293 sceny — nagłówki (miejsce, czas), kolejność, tytuł misji, znaczniki kopii. Bez tekstu do tłumaczenia | 293 |
+| `07_names_characters.jsonl` | imiona i nazwiska postaci, pseudonimy, serie, seiyuu | 3 388 |
+| `08_names_units_weapons.jsonl` | nazwy mechów, serie, nazwy broni, notki encyklopedii mechów | 4 645 |
+| `strings.csv` | widok tych samych wierszy w arkuszu (tylko z opcją `--csv`; **nie wraca** do gry) | 82 591 |
+| `index.json` | statystyki: wiersze i bajty na plik, pokrycie mówców, liczba scen | — |
 
-Razem **82 591 wierszy / 2 469 677 bajtów** tekstu japońskiego.
+Razem **82 591 wierszy / 2 469 677 bajtów** tekstu japońskiego (pliki `0x_`, bez `06_scenes`).
+Numeracja jest ciągła: 00–08; numer 09 zostaje wolny, a numery 10/11 z poprzednich wydań pakietu
+zostały skasowane przy pierwszym przebiegu po zmianie nazw.
 
 Itemy i umiejętności to jedyne kategorie, w których jeden rekord ma kilka tekstów — każdy jest osobnym
 wierszem z tym samym `record` i innym `part` (`name`, `name_level`, `effect`, `effect_brief`, `label`).
 Nie trzeba pilnować ich wzajemnej długości: każdy wiersz rośnie niezależnie.
 
-## 2. Jeden wiersz = jeden tekst
+## 2. Sceny — kontekst dla tłumacza
+
+Scena = jeden plik zdarzenia w grze. Kolejność scen to kolejność gry: seria, odcinek (`N話`), numer
+zdarzenia, wariant DLC. Wiersze `00_dialogue.jsonl` są w **tej samej kolejności** — najpierw cała
+scena 1, potem scena 2 itd. Każdy wiersz niesie dwa pola porządkujące:
+
+* `scene` — identyfikator sceny, np. `eventP00.cpk/DL100_01.bin` (ten sam co `id` w `06_scenes.jsonl`),
+* `order` — numer elementu w scenie (1, 2, 3…).
+
+`06_scenes.jsonl` otwiera scenę nagłówkiem: `episode`, `episode_label`, `container`, `member`,
+`mission` (tytuł misji, z odnośnikiem do wiersza `05_mission_text.jsonl` do przetłumaczenia),
+`sections` (elementy typu „miejsce/czas”, np. `コネクト・ステーション／格納庫`) i `counts`.
+Scena z `duplicate_of` jest kopią innej (tekst identyczny — tłumaczy się raz), a z `variant_of` to ta
+sama scena w innym DLC (część linii jest identyczna; te wiersze mają `copy_of`).
+
+Do czytania w tej formie służy widok:
+
+```
+python3 tools/scene_view.py --package local/translation --out local/translation/sceny --zip
+```
+
+Wynik to `spis-scen.md` (293 sceny w kolejności) + `epizod-NN.md` (po jednym pliku na odcinek, sceny
+z nagłówkami i dialogami po kolei) + `sceny.zip` — wysyłane na Drive razem z pakietem. Widok nie jest
+wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en` w plikach JSONL.
+
+## 3. Jeden wiersz = jeden tekst
 
 ```json
 {"id": "dlg:eventP00.cpk/DL100_01.bin:1844", "category": "dialogue", "part": "dialogue",
  "jp": "（俺は今、宇宙貿易事業を推進する\n　民間組織『コネクト』にいる…）", "en": "",
  "bytes": 65, "mode": "grow", "max_bytes": null,
+ "scene": "eventP00.cpk/DL100_01.bin", "order": 1,
  "speaker": {"id": 4501, "jp": "アムロ・レイ", "source": "charalist"},
  "source": {"container": "eventP00.cpk", "member": "DL100_01.bin", "offset": 1844}}
 ```
@@ -45,57 +75,78 @@ Nie trzeba pilnować ich wzajemnej długości: każdy wiersz rośnie niezależni
 * `jp` — oryginał, nie zmieniać (służy do porównania i do weryfikacji).
 * **`en` — jedyne pole do wypełnienia.** Puste = tekst nietłumaczony (zostanie japoński).
 * `bytes` — ile bajtów CP932 zajmuje oryginał.
-* `mode` / `max_bytes` / `suggested_max` — patrz punkt 3.
+* `mode` / `max_bytes` / `suggested_max` — patrz punkt 4.
 * `record` — numer rekordu w pliku gry (item/umiejętność). Wiersze z tym samym `record` opisują
   jeden przedmiot; nic z tym nie trzeba robić, to tylko informacja.
+* `scene` / `order` — patrz punkt 2 (tylko dialogi).
+* `copy_of` — ten wiersz jest kopią innego (wariant DLC); jeśli zostanie pusty, program przepisze mu
+  tłumaczenie ze źródła — nie trzeba go wypełniać ręcznie.
 * `speaker` — kto mówi. `speaker.jp = null` znaczy „nie znamy nazwy, użyj `speaker.id`”.
 
-## 3. Dwa tryby i budżet miejsca
+## 4. Tryby i budżet miejsca
 
-* `mode = "grow"` — kontener przebuduje rozmiary (`apply` przelicza tabele i offsety), więc
-  tłumaczenie może być **dłuższe niż oryginał**. Nie ma `max_bytes`. Uwaga: zbyt długi tekst w
-  oknie dialogowym może wyjść za ekran — trzymaj się długości oryginału tam, gdzie się da.
+* `mode = "grow"` — kontener przebuduje rozmiary (przelicza tabele i offsety), więc tłumaczenie może
+  być **dłuższe niż oryginał**. Nie ma `max_bytes`. Uwaga: zbyt długi tekst w oknie dialogowym może
+  wyjść za ekran — trzymaj się długości oryginału tam, gdzie się da.
 * `mode = "grow"` z `suggested_max` — itemy i umiejętności. Plik gry przebudowuje rekordy, więc
   **limit techniczny nie istnieje**, ale `suggested_max` podaje, ile bajtów CP932 miało oryginalne pole.
   To podpowiedź z UI gry: w oknie listy itemów/umiejętności widać ~20–30 bajtów na nazwę i ~66 bajtów
-  na opis, dłuższe teksty zostaną ucięte przy wyświetlaniu. Staraj się nie przekraczać `suggested_max`;
-  jeśli musisz, skróć opis zamiast rozciągać nazwę.
+  na opis, dłuższe teksty zostaną ucięte przy wyświetlaniu. Staraj się nie przekraczać `suggested_max`.
 * `mode = "slot"` — tekst siedzi w **stałym polu** (tytuł misji, nazwa mapy, tytuł BGM, uwaga do misji).
-  Maksymalna długość w bajtach CP932 to `max_bytes`. Tekst dłuższy niż `max_bytes` nie wejdzie —
-  trzeba skrócić.
+  Maksymalna długość w bajtach CP932 to `max_bytes`. Tekst dłuższy nie wejdzie — trzeba skrócić.
 
-## 4. Zasady, o których trzeba pamiętać
+## 5. Zasady, o których trzeba pamiętać
 
 1. **Nie tłumacz tokenów sterujących**: zostaw dokładnie takie same znaki jak w `jp` —
-   pełnoszerokościowe `＠0`…`＠9` (odwołania do zmiennych gry), `％` (procent), `＄`, `＃`.
-   W cytatach bitewnych często występują na początku/końcu.
-2. **Nie zmieniaj liczby przejść do nowej linii** (`\n`) i nie wstawiaj znaków, których nie ma
-   w czcionce gry (napisy używają standardowych znaków latin + pełnej szerokości).
+   pełnoszerokościowe `＠0`…`＠9` (odwołania do zmiennych gry), `％`, `＄`, `＃`. W tekście występują
+   wyłącznie: `＃` (dialogi), `%s` i `＠0/＠1/＠4/＠6/＠9` (skille, teksty `config`, misje). W cytatach
+   bitewnych często stoją na początku/końcu.
+2. **Nie zmieniaj liczby przejść do nowej linii** ani znaków niewidocznych: `⏎` (`\r` — czyści okno
+   dialogowe) i `0x0F` (przełącza czcionkę na połówkową — stoi w nazwach i skrótach opisów).
+   Walidator pilnuje obu.
 3. **CP932**: każde `en` musi dać się zapisać w CP932 (japoński zestaw znaków zawiera pełną
    łacinę, cyfry i znaki interpunkcyjne). Program zgłosi wiersze, które się nie kodują.
-4. **Nazwy własne** — trzymaj się jednej pisowni w całym pakiecie; sekcja `10_` i `11_` to źródło nazw,
+4. **Nazwy własne** — trzymaj się jednej pisowni w całym pakiecie; sekcje `07_` i `08_` to źródło nazw,
    których pilnują też dialogi.
 5. **Kolejność**: nie zmieniaj kolejności wierszy i nie usuwaj pól — parser jest prosty z założenia.
 
-## 5. Kontrola jakości przed zwrotem
+## 6. Proces tłumaczenia (jeden, obowiązujący)
 
-Po wypełnieniu plików uruchamiany jest walidator pakietu:
+1. **Wypełnij `en` w plikach `*.jsonl`** (tylko tam; `strings.csv` jest widokiem i nie jest wczytywany
+   z powrotem). Dialogi czytaj scenami: `sceny/epizod-NN.md` albo po kolei w `00_dialogue.jsonl`
+   (wiersze już są w kolejności scen).
+2. **Uzupełnij kopie wariantów** — jednym poleceniem, przed kontrolą jakości:
 
-```
-python3 tools/translation_check.py --package <katalog z JSONL> --require-complete --strict
-```
+   ```
+   python3 tools/translation_copy.py --package local/translation
+   ```
 
-Dla każdego wypełnionego wiersza sprawdza: kodowalność CP932, **zgodność tokenów sterujących**
-(`＠0`…`＠9`, `%s`, `%%`, `＄n`, `＃`, `{XX}` — te same znaki w tej samej kolejności co w `jp`),
-liczbę przejść do nowej linii, twardy budżet `max_bytes` (błąd) i szerokość `suggested_max` (uwaga).
-Wiersze z pustym `en` są liczone jako „nietłumaczone”; `--require-complete` zamienia je w błędy,
-`--strict` zwraca kod wyjścia 1, gdy są błędy. Raport (`check_report.txt`) zawiera tabelę per plik
-oraz pierwsze problemy. Pełny przebieg po 82 591 wierszach zajmuje ~1,6 s.
+   Program przepisuje `en` z wiersza wskazanego w `copy_of` do każdego pustego wiersza-kopii
+   (4 186 wierszy), nie nadpisuje niczego wypełnionego i odmawia, gdy `jp` kopii różni się od źródła.
+   `--check` pokazuje, co zostałoby zrobione, bez zapisu.
+3. **Sprawdź pakiet** przed zwrotem:
 
-## 6. Stan pokrycia (2026-10-12)
+   ```
+   python3 tools/translation_check.py --package local/translation --require-complete --strict
+   ```
 
-* **Dialogi: 100% linii ma mówcę** (26 468/26 468); teksty dialogów są wyekstrahowane w całości.
+   Dla każdego wypełnionego wiersza sprawdza: kodowalność CP932, **tokeny sterujące** (te same znaki
+   w tej samej kolejności co w `jp`), liczbę przejść do nowej linii, znaki niewidoczne (`\r`, `0x0F`),
+   twardy budżet `max_bytes` (błąd) i szerokość `suggested_max` (uwaga). Puste `en` są liczone jako
+   „nietłumaczone”; `--require-complete` zamienia je w błędy, `--strict` zwraca kod wyjścia 1.
+   Raport (`check_report.txt`, domyślnie w katalogu pakietu) ma tabelę per plik i pierwsze problemy.
+   Wiersze `06_scenes.jsonl` są pomijane jako struktura. Pełny przebieg po 82 591 wierszach: **0 błędów
+   w ~1,6 s**.
+4. **Zwrot**: wypełnione pliki JSONL wracają na Drive; program `tools/item_skill_write.py --translations
+   <plik lub katalog>` wstawia teksty itemów i umiejętności do kontenerów gry (reszta kategorii czeka
+   na swoje ścieżki zapisu — patrz `docs/STATUS.md`).
+
+## 7. Stan pokrycia (2026-10-12)
+
+* **Dialogi: 100% linii ma mówcę** (26 468/26 468), a tekst jest wyekstrahowany w **293 scenach**
+  w kolejności gry (224 mają własny tytuł misji, 69 dziedziczy go z wariantu bazowego; 0 bez tytułu).
 * **Cytaty bitewne: 98,35% rekordów ma mówcę** (451 rekordów = 14 kluczy nie ma nazwy w danych gry —
-  dla nich `speaker.jp` jest `null`, tłumacz dostaje ID i musi wnioskować z kontekstu).
+  dla nich `speaker.jp` jest `null`, tłumacz dostaje ID i wnioskuje z kontekstu; użytkownik akceptuje
+  do ~2%).
 * Reszta kategorii: tekst wyekstrahowany w 100% z lokalnie dostępnych plików (szczegóły w
-  `docs/COVERAGE.md`, sekcje 1 i 3g).
+  `docs/COVERAGE.md`).

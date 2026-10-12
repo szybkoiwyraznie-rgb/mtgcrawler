@@ -252,20 +252,46 @@ więc ścieżka grow będzie ta sama. Czytnik tych kategorii to następny krok (
 |---|---|---|---|---|
 | `00_dialogue.jsonl` (dialogi + 360 tekstów innych typów + 273 embedded) | 27 101 | 1 221 274 | 17 820 | grow |
 | `01_battle_quotes.jsonl` (cytaty z tekstem) | 27 383 | 814 683 | 16 930 | grow |
-| `02_items.jsonl` (nazwa + efekt; pule Item/Item00–08) | 1 200 | 15 884 | 443 | slot |
-| `03_skills.jsonl` (nazwa + efekt) | 2 947 | 50 629 | 1 427 | slot |
+| `02_items.jsonl` (nazwa + efekt; pule Item/Item00–08) | 1 200 | 15 884 | 443 | grow + `suggested_max` |
+| `03_skills.jsonl` (nazwa, nazwa z poziomem, długi efekt, skrót, etykieta) | 4 932 | 72 822 | 2 878 | grow + `suggested_max` |
 | `04_config_text.jsonl` (Reference, Spirit, SkillTag, Achievement, DLC_ID, Shop, StatusChange, ItemDrop) | 12 631 | 208 229 | 4 216 | grow |
-| `05_mission_text.jsonl` (tytuły/uwagi misji, BGM, mapy, tła, oddziały) | 1 311 | 29 674 | 818 | slot |
-| `10_names_characters.jsonl` (nazwy, pseudonimy, serie, seiyuu) | 3 388 | 37 861 | 1 033 | grow |
-| `11_names_units_weapons.jsonl` (jednostki, serie, bronie, noty RoboDictionary) | 4 645 | 69 250 | 2 020 | grow |
-| **razem** | **80 606** | **2 447 484** | — | — |
+| `05_mission_text.jsonl` (tytuły/uwagi misji, BGM, mapy, tła, oddziały) | 1 311 | 29 674 | 818 | grow (slot) |
+| `06_scenes.jsonl` (**struktura**: 293 nagłówki scen — odcinek, miejsce/czas, tytuł misji, znaczniki kopii) | 293 | — | — | struktura |
+| `07_names_characters.jsonl` (nazwy, pseudonimy, serie, seiyuu) | 3 388 | 37 861 | 1 033 | grow |
+| `08_names_units_weapons.jsonl` (jednostki, serie, bronie, noty RoboDictionary) | 4 645 | 69 250 | 2 020 | grow |
+| **razem** | **82 591** | **2 469 677** | — | — |
 
-Do tego `strings.csv` (te same wiersze w arkuszu: `id, category, part, jp, en, bytes, max_bytes,
-mode, speaker_key, speaker_jp, container, member, offset`) i `index.json` ze statystykami mówców.
+Do tego `strings.csv` (**tylko z opcją `--csv`**; te same wiersze w arkuszu: `id, category, part, jp,
+en, bytes, max_bytes, mode, speaker_key, speaker_jp, container, member, offset`) i `index.json` ze
+statystykami mówców i scen. Wiersze `00_dialogue.jsonl` są w **kolejności gry** i noszą `scene`/`order`,
+a wiersze-kopie wariantów DLC — `copy_of` (4 186). Przy ponownym przebiegu eksport kasuje pliki
+o nieaktualnych nazwach (`10_`, `11_`, `strings.csv` bez `--csv`), więc numeracja 00–08 nie ma luk
+(09 zostaje wolny).
 
 **Nazwy mówców w pakiecie [ZWERYFIKOWANE, 2026-10-12]**: **dialogi 26 468/26 468 = 100,0%**
 (0 wierszy bez nazwy), **cytaty 26 932/27 383 = 98,35%** (451 wierszy = 14 kluczy, patrz wiersz 2).
 Wiersze narracji/helpów/etykiet nie mają mówcy z definicji. `speaker.jp = null` znaczy „oddaj ID”.
+
+## 3h. Sceny — blok kontekstu dla tłumacza (nowe wymaganie użytkownika, cz. 10)
+
+Wymaganie: tekst fabularny ma iść do tłumacza **blokami scen** (nagłówek: miejsce i czas → elementy
+w kolejności zdarzeń → koniec sceny), bo bez chronologii i kontekstu tłumaczenie wychodzi złe.
+
+* [ZWERYFIKOWANE] **`tools/scene_map.py`** (14 testów): scena = jeden plik zdarzenia; nazwy
+  `DL<tom><odcinek:2>_<numer:2><wariant>.bin` (fabuła) i `SM<nnn><wariant>` (Simulator); cyfra odcinka
+  zgadza się z `N話` tytułu misji **79/79**; warianty `B`…`J` = paczki DLC `evept101..108`.
+  Kolejność scen = (seria, odcinek, numer, wariant); **293 sceny**, 0 nierozpoznanych.
+* Tytuły misji: 224 własne (`*_ext.dat`) + **69 dziedziczonych** z wariantu bazowego, **0 bez tytułu**.
+  32 sceny niosą elementy „miejsce/czas” (`location`/`scene_title`).
+* Kopie: 67 scen wariantowych → **36 `duplicate_of`** (identyczne słowo w słowo) + **33 `variant_of`**
+  (edytowane; pasujące wiersze mają `copy_of`) = **4 186 wierszy-kopii**; 2 powtórzenia między
+  kontenerami (`DL103_30`, `DL208_30`).
+* **`tools/translation_copy.py`** (8 testów) domyka kopie: przepisuje `en` ze źródła do pustych kopii,
+  nie nadpisuje wypełnionych, zgłasza rozjazd `jp`. Na prawdziwym pakiecie: 4 186 kopii, 0 problemów.
+* **`tools/scene_view.py`** (5 testów) robi widok do czytania: `sceny/spis-scen.md`, po pliku na
+  odcinek (`epizod-NN.md`), `simulator.md`, `sceny.zip` (37 plików, 744 KB) — wysyłany na Drive.
+* Proces (jeden, obowiązujący) opisany w `docs/TRANSLATOR_PACKAGE.md` §6: wypełniamy **wyłącznie `en`
+  w JSONL** → `translation_copy.py` → `translation_check.py`; CSV to tylko widok i nie wraca do gry.
 
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
@@ -394,9 +420,8 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    i zmierzone `system.cpk`, `tacsys.cpk`, `navisys.cpk`, `u16tbl.cpk`, `IM1000/3000/9000.cpk`,
    `celldata.bin`, `tactics/taclevup/svicon`, `bmp00/logodata/colorlst/bseq00/eftex00/efclump/
    efmodel`, `face00/smap/bg2d/txa00/lmap/mesbmp00/bacb04` — **żadnego opisu postaci**.
-   Zostaje jedno sprawdzenie do wykonania z użytkownikiem: **jeden japoński przykład tekstu z gry**
-   (zaproponował go) → bajtowe szukanie w całym materiale, a jeśli nie znajdzie się w danych, to
-   opis jest teksturą/obrazem albo siedzi w `EBOOT.BIN` / `UPDATE/DATA.BIN` (95 MB).
+   **Użytkownik zamknął temat (2026-10-12, cz. 10)**: w encyklopedii nie ma opisów — są tylko
+   portrety i cytaty audio; nie szukamy dalej i nie piszemy biografii redakcyjnych.
 5. ~~**Skille (pkt 7) — role pól**~~ **ZROBIONE (sesja 5, `tools/item_skill_records.py`)**:
    1 469 rekordów, klucz = u16 +4, role slotów nazwa/efekt/etykieta, tekst 10 322 + 40 208 B.
    Zostaje: rozwiązanie tokenów 0x0F w nazwach (`token_solve`). **Ścieżka `apply` zrobiona (cz. 9)** —
@@ -412,10 +437,12 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 8. **Mapy/shop (pkt 9)** — nazwy map i teł **zlokalizowane**: `srwDL_Map_S.bin` (15 nazw) i
    `bg2dlist.bin` (64 nazwy, oba w `config*.pac`). Zostaje: z czego sklep czyta nazwy itemów
    (sam `srwDL_Shop` ma tylko 5 etykiet kategorii).
-9. ~~**Arkusz scalony**~~ **WYKONANE (sesja 5, cz. 8)**: `tools/translator_export.py` pisze 8 plików
-   JSONL + `strings.csv` + `index.json` (80 606 wierszy / 2 447 484 B, §3g), a gotowe pliki są
-   wysyłane na Google Drive (folder pakietu). Zostaje: kontrola pokrycia wobec tego dokumentu
-   i kolumna szerokości dla UI.
+9. ~~**Arkusz scalony**~~ **WYKONANE (sesja 5, cz. 8; przebudowane w cz. 10)**: `tools/translator_export.py`
+   pisze 8 plików tekstowych JSONL + `06_scenes.jsonl` (struktura) + `index.json`, a `strings.csv`
+   tylko z `--csv` (**82 591 wierszy / 2 469 677 B**, §3g). Wiersze dialogu są w kolejności scen
+   (`scene`/`order`), kopie wariantów mają `copy_of`. **Widok scen** `tools/scene_view.py` →
+   `sceny/*.md` + `sceny.zip`. Gotowe pliki są wysyłane na Google Drive (folder pakietu).
+   Zostaje: kontrola pokrycia wobec tego dokumentu i kolumna szerokości dla UI.
 10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
     - **Zrobione (cz. 9)**: itemy i umiejętności — `tools/item_skill_write.py` przebudowuje rekordy
       (5 pól), tabelę offsetów, `tail_offset`, PAC i CPK; przebudowa bez zmian = bajt w bajt,
@@ -440,6 +467,12 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
     cel: liczba plików „bez czytnika” ma maleć tylko o grafiki/dźwięk, a każdy nowy plik z tekstem
     (np. `UPDATE/DATA.BIN`) musi się w nim pokazać zanim uznamy kategorię za zamkniętą.
 
-Zadania z kolejki, które nie są blokadą, ale zostają: semantyka pól `unit_list` 88–134,
-`robo01`+ dla 24 par modeli, 19 kluczy cytatów bez nazwy (pkt 2) i pytanie do użytkownika
-o jeden japoński przykład tekstu z encyklopedii (pkt 4).
+Zadania z kolejki, które nie są blokadą, ale zostają: semantyka pól `unit_list` 88–134 i `robo01`+
+dla 24 par modeli.
+
+**Decyzje użytkownika z 2026-10-12 (część 10)**: (a) **encyklopedia zamknięta** — w grze nie ma opisów
+postaci/mechów (tylko portrety i cytaty audio), więc nie szukamy dalej i nie piszemy biografii;
+(b) **mówca bez nazwy w cytatach jest tolerowany do ~2%** (jesteśmy na 1,65%) — limit <1% dotyczy
+wyłącznie linii dialogu (0%); (c) **nazwy itemów sklepowych nie mają znaczenia** — liczą się tylko
+itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów” jest odłożone;
+(d) **tekst fabularny musi iść blokami scen z kontekstem** — patrz §3h.

@@ -20,12 +20,14 @@ length (dialogue, quotes, config pools), ``slot`` = the string sits in a fixed s
 Speaker coverage is reported in ``index.json``; the acceptance criterion recorded with the user is
 100% of dialogue *text* translated and speaker names for at least 99% of dialogue lines.
 
-A flat ``strings.csv`` (same rows, one CSV line each) is written next to the JSONL files for
-translators who prefer a spreadsheet; ``tools/translation_tools.py`` remains the older CSV
-template/checker for the per-run ``text/<package>/units.jsonl`` exports.
+The story file is *scene ordered*: rows are grouped by scene (one member of an event container)
+and follow the game's own byte order inside it, and ``06_scenes.jsonl`` describes every scene
+(episode, mission title, places, element counts) - see :mod:`scene_map`.  ``--csv`` additionally
+writes a flat spreadsheet view of all rows; the JSONL files remain the source of truth (fill the
+JSONL, not the CSV).
 
 Usage:
-    python tools/translator_export.py --local local --out local/translation [--no-csv]
+    python tools/translator_export.py --local local --out local/translation [--csv]
 """
 from __future__ import annotations
 
@@ -36,11 +38,13 @@ import hashlib
 import json
 import sys
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional, Tuple
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
+
+import scene_map as SMAP  # noqa: E402
 
 
 def load_jsonl(path: Path) -> List[dict]:
@@ -96,9 +100,14 @@ def row_bytes(text: str) -> int:
         return len(text.encode("utf-8"))
 
 
-def dialogue_rows(local: Path, speakers: Dict[int, dict]) -> List[dict]:
-    """Scene dialogue plus narration/conditions/help/labels and the embedded block texts."""
-    rows: List[dict] = []
+def dialogue_and_scenes(local: Path, speakers: Dict[int, dict]) -> Tuple[List[dict], List[dict]]:
+    """Story rows in game order (each with its scene and its position in it) plus the scene index.
+
+    One scene is one member of an event container (see :mod:`scene_map`).  Rows are ordered by
+    scene and, inside a scene, by the byte offset of the record - the order the game shows them -
+    so the file reads as the script of the story: scene 1, its narration and dialogue, scene 2, ...
+    """
+    items: List[dict] = []
     for part, name in (
         ("dialogue", "dialogue/dialogue.jsonl"),
         ("other", "dialogue/other_text.jsonl"),
@@ -109,7 +118,7 @@ def dialogue_rows(local: Path, speakers: Dict[int, dict]) -> List[dict]:
             if not text:
                 continue
             key = item.get("key")
-            rows.append(
+            items.append(
                 {
                     "id": f"dlg:{item['container']}/{item['member']}:{item['text_offset']}",
                     "category": "dialogue",
@@ -121,6 +130,9 @@ def dialogue_rows(local: Path, speakers: Dict[int, dict]) -> List[dict]:
                     "max_bytes": None,
                     "speaker": speaker_of(speakers, key),
                     "kind": item.get("kind"),
+                    "text_offset": item["text_offset"],
+                    "container": item["container"],
+                    "member": item["member"],
                     "source": {
                         "container": item["container"],
                         "member": item["member"],
@@ -128,7 +140,12 @@ def dialogue_rows(local: Path, speakers: Dict[int, dict]) -> List[dict]:
                     },
                 }
             )
-    return rows
+    ordered, scenes = SMAP.build_scenes(items, load_jsonl(local / "mission_text.jsonl"))
+    for item in ordered:
+        item.pop("text_offset", None)
+        item.pop("container", None)
+        item.pop("member", None)
+    return ordered, scenes
 
 
 def quote_rows(local: Path, speakers: Dict[int, dict]) -> List[dict]:
@@ -417,33 +434,49 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--local", default="local", help="folder with the extraction artifacts")
     parser.add_argument("--out", default="local/translation", help="output folder (keep it ignored)")
-    parser.add_argument("--no-csv", action="store_true", help="skip the flat strings.csv")
+    parser.add_argument("--csv", action="store_true",
+                        help="also write the flat strings.csv view (the JSONL files are the "
+                             "source of truth; the CSV is only a spreadsheet view)")
     args = parser.parse_args(argv)
 
     local = Path(args.local)
     out = Path(args.out)
     speakers = load_speakers(local / "name_map.tsv")
 
+    dialogue, scenes = dialogue_and_scenes(local, speakers)
+    structural = {"06_scenes.jsonl"}          # an index, not text to translate
     parts = {
-        "00_dialogue.jsonl": dialogue_rows(local, speakers),
+        "00_dialogue.jsonl": dialogue,
         "01_battle_quotes.jsonl": quote_rows(local, speakers),
         "02_items.jsonl": item_skill_rows(local, "item"),
         "03_skills.jsonl": item_skill_rows(local, "skill"),
         "04_config_text.jsonl": config_rows(local),
         "05_mission_text.jsonl": mission_rows(local),
-        "10_names_characters.jsonl": character_rows(local),
-        "11_names_units_weapons.jsonl": unit_rows(local),
+        "06_scenes.jsonl": scenes,
+        "07_names_characters.jsonl": character_rows(local),
+        "08_names_units_weapons.jsonl": unit_rows(local),
     }
+
+    # the output folder holds exactly the files of this run: name files were renumbered
+    # (10_/11_ -> 07_/08_) and the CSV is opt-in, so stale files must not survive a rerun
+    for stale in sorted(out.glob("*.jsonl")):
+        if stale.name not in parts:
+            stale.unlink()
+    if not args.csv and (out / "strings.csv").exists():
+        (out / "strings.csv").unlink()
 
     index: dict = {"parts": {}, "categories": {}, "speaker": {}}
     for name, rows in parts.items():
         write_jsonl(out / name, rows)
         index["parts"][name] = {
             "rows": len(rows),
-            "jp_bytes": sum(row["bytes"] for row in rows),
-            "unique_jp": len({row["jp"] for row in rows}),
+            "jp_bytes": sum(row.get("bytes", row.get("jp_bytes", 0)) for row in rows),
+            "unique_jp": len({row["jp"] for row in rows}) if rows and "jp" in rows[0] else 0,
+            "kind": "structure" if name in structural else "text",
         }
         for row in rows:
+            if "category" not in row:
+                continue      # the scene index is a structural file, not a text file
             entry = index["categories"].setdefault(row["category"], {"rows": 0, "jp_bytes": 0})
             entry["rows"] += 1
             entry["jp_bytes"] += row["bytes"]
@@ -461,10 +494,23 @@ def main(argv=None) -> int:
             "unnamed_percent": round(100.0 * (len(rows) - named) / len(rows), 2) if rows else 0.0,
         }
 
+    with_title = [scene for scene in scenes if scene["mission"]]
+    index["scenes"] = {
+        "scenes": len(scenes),
+        "with_mission_title": len(with_title),
+        "with_title_percent": round(100.0 * len(with_title) / len(scenes), 2) if scenes else 0.0,
+        "with_place": len([scene for scene in scenes if scene["sections"]]),
+        "episodes": len({scene["episode"] for scene in scenes if scene["episode"] is not None}),
+        "simulator": len([scene for scene in scenes if scene["series"] == "simulator"]),
+        "first": scenes[0]["id"] if scenes else None,
+        "last": scenes[-1]["id"] if scenes else None,
+    }
+    text_parts = {name: part for name, part in index["parts"].items() if part["kind"] == "text"}
     index["totals"] = {
-        "rows": sum(part["rows"] for part in index["parts"].values()),
-        "jp_bytes": sum(part["jp_bytes"] for part in index["parts"].values()),
-        "files": sorted(index["parts"]),
+        "rows": sum(part["rows"] for part in text_parts.values()),
+        "jp_bytes": sum(part["jp_bytes"] for part in text_parts.values()),
+        "files": sorted(text_parts),
+        "structure_files": sorted(name for name in index["parts"] if name in structural),
     }
     index["notes"] = [
         "mode=grow: the container rebuild accepts any string length (dialogue, quotes, config pools).",
@@ -473,12 +519,16 @@ def main(argv=None) -> int:
         "speaker.jp = null means the project has no name for that key yet (see index.speaker).",
         "Only the dialogue and quote rows carry a speaker; narration/help/label rows do not.",
         "Keep strings CP932-encodable; keep the in-game placeholders (＠0-＠9, ％s, ＄) intact.",
+        "00_dialogue rows are grouped by scene and ordered by the game's own byte order;",
+        "each row carries scene (the scene id) and order (its position inside that scene);",
+        "06_scenes lists every scene with its episode, mission title, places and element counts.",
     ]
-    if not args.no_csv:
-        flat = [row for rows in parts.values() for row in rows]
+    if args.csv:
+        flat = [row for name, rows in parts.items() if name not in structural for row in rows]
         index["totals"]["csv_rows"] = write_csv(out / "strings.csv", flat)
     (out / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps({"totals": index["totals"], "speaker": index["speaker"],
+                      "scenes": index["scenes"],
                       "categories": sorted(index["categories"])}, ensure_ascii=False, indent=1))
     print(f"wrote {out}")
     return 0

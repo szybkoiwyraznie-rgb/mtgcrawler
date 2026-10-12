@@ -54,6 +54,18 @@ class RowTest(unittest.TestCase):
         errors, _ = TC.check_row(row("あ\nい", "one line"))
         self.assertIn("line breaks changed", errors[0])
 
+    def test_dropped_carriage_return_is_an_error(self):
+        errors, _ = TC.check_row(row("あ\r\nい", "a\nb"))
+        self.assertIn("control characters changed", errors[0])
+
+    def test_dropped_half_width_marker_is_an_error(self):
+        errors, _ = TC.check_row(row("\x0fﾕﾆｯﾄ", "UNIT"))
+        self.assertIn("control characters changed", errors[0])
+
+    def test_plain_line_breaks_are_not_reported_as_control_characters(self):
+        errors, _ = TC.check_row(row("あ\nい", "a\nb"))
+        self.assertEqual(errors, [])
+
     def test_non_cp932_is_an_error(self):
         errors, _ = TC.check_row(row("あ", "Zażółć"))
         self.assertIn("not CP932-encodable", errors[0])
@@ -66,6 +78,33 @@ class RowTest(unittest.TestCase):
         errors, warnings = TC.check_row(row("あ", "12", suggested_max=1))
         self.assertEqual(errors, [])
         self.assertIn("suggested_max", warnings[0])
+
+
+class CopyTest(unittest.TestCase):
+    def test_filled_copy_must_equal_its_source(self):
+        rows = [row("あ", "one"), row("い", "one", copy_of="dlg:eventP00.cpk/DL100_01.bin:1844")]
+        rows[1]["id"] = "dlg:eventP00.cpk/DL100_01.bin:2000"
+        report = TC.check_rows(rows)
+        self.assertEqual(report["totals"]["errors"], 0)
+
+    def test_copy_that_differs_from_its_source_is_an_error(self):
+        rows = [row("あ", "one"), row("い", "uno", copy_of="dlg:eventP00.cpk/DL100_01.bin:1844")]
+        rows[1]["id"] = "dlg:eventP00.cpk/DL100_01.bin:2000"
+        report = TC.check_rows(rows)
+        self.assertIn("copy differs from its source row", report["errors"][0])
+
+    def test_empty_copy_with_a_translated_source_is_a_pointer_to_copy_the_row(self):
+        rows = [row("あ", "one"), row("い", "", copy_of="dlg:eventP00.cpk/DL100_01.bin:1844")]
+        rows[1]["id"] = "dlg:eventP00.cpk/DL100_01.bin:2000"
+        report = TC.check_rows(rows)
+        self.assertEqual(report["totals"]["errors"], 0)
+        self.assertTrue(any("translation_copy.py" in warning for warning in report["warnings"]))
+
+    def test_structural_rows_are_counted_apart(self):
+        report = TC.check_rows([{"id": "a/b.bin", "seq": 1, "rows": 3},
+                                dict(row("あ", "a"), _file="00_dialogue.jsonl")])
+        self.assertEqual(report["structural_rows"], 1)
+        self.assertEqual(report["totals"]["rows"], 1)
 
 
 class ReportTest(unittest.TestCase):

@@ -411,3 +411,21 @@ The agent sandbox has neither the game files nor the converter, so only the user
   `check_report.txt`, `--require-complete`, `--strict`. Pełny przebieg: 82 591 wierszy / 0 błędów.
 - **Pułapka**: nowa linia w tekstach gry to prawdziwy LF (0x0A), nie `\n` — walidator to liczy.
 - Testy: **560 OK (1 skipped)**.
+
+## Sesja 5, część 10 (2026-10-12): kolejność scen, numeracja pakietu i proces tłumaczenia
+
+- **Sceny**: `tools/scene_map.py` — 293 sceny w kolejności gry (seria → odcinek → numer → wariant DLC),
+  tytuł misji dla każdej (224 własne + 69 dziedziczonych, 0 braków), 32 sceny z elementem
+  „miejsce/czas”; 36 scen to kopie, 33 to warianty edytowane → 4 186 wierszy z `copy_of`.
+- **Pakiet**: wiersze dialogu w kolejności scen (`scene`, `order`), nowy plik strukturalny
+  `06_scenes.jsonl`, pliki nazw przenumerowane `10_`→`07_`, `11_`→`08_` (numeracja ciągła 00–08,
+  09 wolny). `strings.csv` tylko z `--csv`; przy ponownym eksporcie stare nazwy są kasowane.
+- **Widok scen dla tłumacza**: `tools/scene_view.py` → `sceny/spis-scen.md` + `epizod-NN.md` +
+  `sceny.zip` — nagłówek sceny (odcinek, miejsce, czas), elementy po kolei, `_koniec sceny_`.
+- **Kopie wariantów**: `tools/translation_copy.py` przepisuje tłumaczenie ze źródła `copy_of`
+  (nie nadpisuje wypełnionych, zgłasza rozjazd `jp`).
+- **Znaki sterujące**: walidator pilnuje `\r` (1 389 wierszy dialogu) i `0x0F` (1 645 wierszy w itemach,
+  skillach i nazwach) — zgubienie któregokolwiek to błąd.
+- **Proces tłumaczenia** opisany w `docs/TRANSLATOR_PACKAGE.md` §6: wypełniamy **tylko `en` w JSONL**
+  → `translation_copy.py` → `translation_check.py`; CSV to wyłącznie widok (nie wraca do gry).
+- Testy: **595 OK (1 skipped)**.
