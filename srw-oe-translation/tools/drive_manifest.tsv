@@ -294,3 +294,24 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 # 1YxDv8XNaM4_i2-5-o7tB3yEyxcyFNoCz 07, 1NaYmW5Ri6YwFGXMvaBwmnz2vJEKcQAZg 08, 1NjczUSchNpZquGbWRA7E_NV9lPYfY_Fi index.json,
 # 1aV7jgNfaMuS7Etmuu1cjL5-GJoXuLmk6 check_report (85 424 wiersze), 1nrZmVFAt8Mpqah23Ti1DOg6jKKeBQPNr spis-scen.md (293),
 # 1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7 name_map.tsv (nazwa z dopiskiem)
+
+# cz. 13 — 2026-10-12 — przebudowa pakietu z eventP00.cpk (odzyskany z historii gita); pakiet 107 081 wierszy / 293 sceny
+# Pakiet do tłumaczenia (15zExy5JpoZt_obcgK8xruCsHkZYhVlwo) — wymiana 3 plików:
+README.md	1JtrOndjsywVnCLHapa2fmXLtv6f7mzUE	18189
+sceny.zip	1lHMJUTmVer-75A2nHbpK9AWlNsm1c_zG	1626228
+widoki.zip	1Je2z6Z5Owc_3gTo9K5qJbCyNQo88jqiO	651499
+# Robocze (JSONL) (1Qk4D0G9KShgIua1UFr4Zoy399UQ9IJgm) — wymiana 5 plików:
+00_dialogue.jsonl	1ihsupT9bGXwIIWZbgYCnBmIXWlzUzd0Y	23135979
+05_mission_text.jsonl	1IIiMlRZzULuyn4O53P9HWLU59bR2jOGp	370256
+06_scenes.jsonl	12uP4qMwlXeDmvO5nbLvXoXfWLNTUYtKZ	293877
+index.json	1dKi2DdDysv07RDgvEHGN1J--7TCfUqe-	5124
+check_report.txt	1ZpQCaHSv8UdF7P1mbNs7RGhZpH9UGBYX	13258
+# KOSZ (stare wersje z przebudowy bez eventP00):
+#   1920G_yMCsKdsHDkuw55MFPammwCuz-x_ README.md | 13l8qyw6BPoZ_qWRZfNuyhgnDq0NX5k8Z sceny.zip
+#   1lnH_SiL0njhP_lO8NcBkgFXo0KaPub2j widoki.zip | 10HOITXhGLTQK5Sx88oY3dgXGHGJnhoCc 00_dialogue.jsonl
+#   13ZzItsIWUzF8x2G89QUpTJ6aZumjHLDF 05_mission_text.jsonl | 1Py3VybAR_WOuK_lM54aGAFJD3-9QXuCV 06_scenes.jsonl
+#   1JcoZJHt3ZFEdmVnOwq8CMUoPI1QumjyH index.json | 1eWohdoS-T2sdVxj0AgrTYcH32anX_MfS check_report.txt
+# Bez zmian na Drive: 01 162sYI143hYCsECBqAPqJZXOqCA5ELflq, 02 1eLSpRlhP6g0kW_r9s2GaacBLRV2g5ila,
+#   03 1HPXpHgXNn-Dd5SQxbWw97L0DJkDfEB02, 04 1ZaqXVO1ikM8_Ty1GUfomUz2-2yeQnSbk,
+#   07 1pYhqjsVSRFZXw3qvULycZ_UB9GS7kqcu, 08 1h837z8kzthNXlLzGG6gVELXQnhZmNuqH,
+#   name_map.tsv 1mpdytrmGhTOYAf_pTqWccnI7K8uQIT7q
