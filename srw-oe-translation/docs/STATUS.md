@@ -558,3 +558,8 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   ma 507 rekordów dialogu, a pakiet zna 98; `configst` 824 opisy interfejsu). Szczegóły i dowody
   bajtowe w `EXPERIMENT_LOG.md` wpisy 48–49. **Pakiet nie jest kompletny — nie oddawać tłumaczowi**
   do czasu, gdy audyt da 0 braków.
+- **KOREKTA LICZB (2026-10-12)**: dialog fabuły to **~44 500 linii**, nie 26 468 — czytnik gubił
+  całe bloki (w `eventP08`/`DL830_13.bin` pominięte 60 z 65 bloków). Brakuje ~18 519 linii
+  (451 025 znaków jp). Cytaty bitewne sprawdzone na **wszystkich 32 `mesbtl`** — **0 braków**.
+  Tekst do tłumaczenia rośnie z 1,41 mln do ~1,86 mln znaków jp (~4,2 mln znaków angielskiego).
+  Szczegóły: `EXPERIMENT_LOG.md` wpis 50.

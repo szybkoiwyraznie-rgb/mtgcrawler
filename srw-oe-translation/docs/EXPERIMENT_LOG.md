@@ -2654,3 +2654,22 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    brakuje — patrz wpis 48). Wcześniejsza uwaga „nasz pisak nie przebuduje system.cpk” dotyczyła
    wyłącznie wariantu CPK bez tabeli nagłówków i **nie** oznacza, że tekstów menu nie da się zapisać;
    brakującą ścieżką jest pisak dla tego wariantu, a nie blokada tłumaczenia.
+50. [ZWERYFIKOWANE — SKALA LUKI POLICZONA] Pomiar z walidacją rekordów (offset tekstu rekordu porównany
+   z offsetem znanym pakietowi, ±8 B):
+   * **dialog fabuły: w plikach ~44 522 kandydatów, w pakiecie 26 468 → brakuje ~18 519 linii**
+     (451 025 znaków japońskich). Czyli `00_dialogue.jsonl` wzrośnie z ~14,1 MB do ~24 MB,
+     a „26 468 linii" z tabeli pokrycia było **zaniżone o ~70%**.
+     Weryfikacja bajtowa brakującego rekordu: `eventP08.EDAT`/`DL830_13.bin` @7892:
+     `c9 00 00 00 | 44 00 00 00 | 01 00 | 05 10 | 07 00 | 00 00 | 00 00 | ff ff` → mówca **4101**,
+     tekst „プロイツェン！\nお前の思い通りにはさせないぜ！” — brak w pakiecie.
+   * **przyczyna**: `evnt_walk.blocks()` uznaje blok za czytelny tylko wtedy, gdy łańcuch rekordów
+     **domyka się dokładnie na końcu bloku**. W `DL830_13.bin` **60 z 65 bloków** nie domyka się
+     (za ostatnim rekordem leży ogon danych), więc całe bloki są pomijane — a w nich 429 z 508
+     rekordów `0xC9` tego członka.
+   * **nowe klucze mówców**: skan znalazł klucze, których nie ma w pakiecie (719, 1137, 1138, 1652,
+     3181, 3472, 4420, 4424, 4426). 4420 = **Masaki Andoh** (znany z `imenu19`, rekord 0) — czyli
+     nazwy dla nowych linii są osiągalne; tabelę nazw trzeba przeliczyć po naprawie.
+   * **cytat bitewny: DOMPLETNE.** Pobrano i przeskanowano **wszystkie 32 kontenery `mesbtl00–31`**
+     (31 559 przebiegów tekstu): **0 braków**, więc tabela 27 383 / 98,35% / 1,65% (451) stoi.
+   * **skutek dla wyceny pracy**: tekst japoński rośnie z 1 406 489 do ~1 857 514 znaków (+32%),
+     czyli angielskiego do napisania jest ~4,2 mln znaków zamiast 3,16 mln.
