@@ -20,8 +20,9 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
 | 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); nazwy 4 001 B (273 unikalne, max 20 B), efekty 3 941 B (max 66 B); slot dodatkowy (etykieta) pusty we wszystkich 300 rekordach (`tools/item_skill_records.py`, 11 testów) | grow (przebudowa tabeli spanów + offsetów rekordów) | **role pól ustalone** | ścieżka `apply`; znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy itemów |
 | 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **189 unikalnych nazw / 10 322 B** (część w połowie szerokości z tokenami 0x0F), efekty **40 208 B** (1 237 unikalnych, max 106 B); 9 rekordów ma etykietę w trzecim slocie | grow | **role pól ustalone** | nazwy do rozwiązania tokenów (`token_solve`); klucz rekordu nie jest powiązany z żadną inną tabelą w przekazanych plikach `[OTWARTE]` |
-| 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length |
-| 9 | Mapy / shop / drop | `srwDL_Map_S`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | Shop 182 rekordy (19 z tekstem, żadna nie jest nazwą itemu); ItemDrop 1092 rekordy (5 stringów) | do ustalenia | **niezdekodowane** | nazwy map/terenów i nazwy itemów w sklepie — nie zlokalizowane |
+| 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
+| 9 | Mapy / shop / drop | `srwDL_Map_S`, `bg2dlist`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | **nazwy map i teł zlokalizowane** (§3f, znalezisko 15): `srwDL_Map_S` 15 nazw / 412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19 z tekstem: 5 etykiet kategorii `パイロット用パーツ` itp.); ItemDrop 1092 rekordy (5 stringów) | grow (slot + NUL) | **zdekodowane** | skąd sklep bierze nazwy itemów (nie z `srwDL_Shop`) — do ustalenia; nazwy map mają prefiks id (`53_…`), więc slot ma stałą szerokość do zmierzenia |
+| 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **zmierzone, czytnika brak** (pkt 12 planu) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; układ `_ext.dat` 388 B (2 × 348 B) |
 
 Razem dla tabel z pkt 6–8 (`tools/config_text_tables.py`, 20 kontenerów + `configst`):
 **11 254 rekordy, 12 599 stringów, 208 KB tekstu; unikalnych 4208 (3518 z kanji/kana), 89,3 KB.**
@@ -179,6 +180,58 @@ Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rek
 
 Artefakty (gitignored): `local/item_skill.jsonl`, `local/item_skill_summary.json`.
 
+## 3f. Inwentarz plików — wszystkie kategorie i czytniki (audyt „100% kategorii”)
+
+`[ZWERYFIKOWANE]` `tools/member_inventory.py` (11 testów w `tests/test_member_inventory.py`);
+artefakty (gitignored): `local/member_inventory.json`, `local/member_inventory.tsv`.
+
+Audyt prowadzony wyłącznie na poziomie *członków kontenera* ukrywał dwie rzeczy: (a) część
+czytników dopasowuje **nazwy podplików PAC**, nie nazwy członków (`config00.pac` to jeden członek
+o 923 648 B, w którym siedzą 34 podpliki: `bg2dlist.bin`, `srwDL_Skill00.bin`, `milstP00.bin`, …),
+(b) pięć „systemowych” kontenerów dyskowych ma inny wariant CPK, którego stary czytnik nie
+odczytywał (znalezisko 13). Narzędzie czyta oba poziomy i przyporządkowuje każdy plik do czytnika,
+który go skonsumował (nazwy bierze z JSON-ów wyjściowych czytników, nie z ręcznej listy).
+
+**Wynik: 155 kontenerów / 4 043 pliki.**
+
+| czytnik (wyjście, które plik konsumuje) | plików |
+|---|---|
+| `event_dialogue` (`eventP*`/`evept*`, `*.bin`) | 293 |
+| `battle_quotes` (`mesbtl*`) | 257 |
+| `mission_notes` (`*_ext.dat` — nowa kategoria) | 226 |
+| `chara_dictionary` (`imenu*` + `config*.pac`) | 44 |
+| `robo_dictionary` | 44 |
+| `text_tables` (`srwDL_*` w `config*`) | 43 |
+| `unit_weapons` (`unit_list*`, `wp_list*`) | 18 |
+| `charalist_table` (`charalist*`) | 15 |
+| `name_map` (zestawienie nazw) | 2 |
+| **bez czytnika** | **3 101** |
+
+Reszta bez czytnika to wyłącznie grafika, dźwięk i dane bez tekstu (rozszerzenia/liczby):
+`pac` 1 095 (tekstury i modele 3D), `gim` 553, `bsb` 312 (siatki), `ssa`/`sss` 84 (animacje
+sprite'ów), `cpk` 72 (`bcam`), `dff` 41, `brtex` 20, `anm` 20, `sp` 8, `png` 2, `acb` (banki
+dźwięku), 410× `_Entry.dat`/`_edit.dat` (sloty puste), 44× `config<NN>.txt` (marker wersji:
+`config01config01config01config01`, 32 B), `ssw.bin` (4 B). Skan przebiegów tekstu: **0 tekstu
+≥ 12 B** w tych plikach (pomiar w `docs/EXPERIMENT_LOG.md`, sesja 5 część 7).
+
+### Nowe kategorie tekstu znalezione przy tej okazji
+
+| plik / obiekt | treść | sztuk | tekst | maks. |
+|---|---|---|---|---|
+| `*_ext.dat` slot 2 (+344) | **tytuł misji** (`19話\nアクシズからの撤退`) | 224 z 226 | — | 32 B |
+| `*_ext.dat` slot 0 (+24) i slot 1 (+184) | **uwagi do misji** (`このミッションでは…強制出撃しますが…`) | 61 / 53 | 10 147 B (razem z tytułami) | 121 B |
+| `milstP<NN>.bin` | tytuły misji w liście misji (`ホワイトベースを救援せよ`) | 22 pliki / 203 teksty | 3 700 B | 27 B |
+| `bgmlist<NN>.bin` | **tytuły BGM** (`Ｃｒｅａｔｅ ｙｏｕｒ Ｆｕｔｕｒｅ～時空を越えろ`) | 14 / 490 | 10 953 B | 48 B |
+| `bg2dlist.bin` | nazwy teł (`アステロイド宇宙`) | 64 (w `config00`) | ~800 B | 16 B |
+| `srwDL_Map_S.bin` | nazwy map (`53_必殺技用マップ1（ただの暗い空`) | 15 | 412 B | 32 B |
+| `groupunit<NN>.bin` | nazwy oddziałów (`スカル小隊／宇宙／Ｆ`) | 16 | 228 B | 20 B |
+| `srwDL_Shop<NN>.bin` | etykiety sklepu (`パイロット用パーツ`) | 5 | 66 B | 18 B |
+
+To domyka dwie pozycje, które nie miały wskazanego pliku: **tytuły misji** (`*_ext.dat`, `milstP`)
+oraz **nazwy map i teł** (`srwDL_Map_S`, `bg2dlist`). Kształt rekordu `*_ext.dat`: 388 B
+(2 pliki 348 B), trzy sloty tekstu z NUL-em (`+24`, `+184`, tytuł od `+344`); układ jak w itemach,
+więc ścieżka grow będzie ta sama. Czytnik tych kategorii to następny krok (pkt 12 planu).
+
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
@@ -223,6 +276,44 @@ Artefakty (gitignored): `local/item_skill.jsonl`, `local/item_skill_summary.json
 12. **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów z plików bazowych
     (0 nowych stringów), więc ekstrakcja z `config00` + `configst` pokrywa całość kategorii.
 
+13. **Drugi wariant CPK („ITOC blob”) odczytany** — `system`, `tacsys`, `tactics`, `taclevup`,
+    `mesbmp00` mają nagłówek 0x2a0 i wpisy ITOC bez offsetów (`absolute_offset = None`), więc stary
+    `read_members` padał na `TypeError`. Reguła zmierzona i potwierdzona budżetem bajtów: członki
+    leżą **kolejno od `ContentOffset`, każdy na granicy 2048 B** (koniec marszu vs
+    `ContentOffset+ContentSize`: system −1 896 B, tacsys −1 920, mesbmp00 −236, tactics −172,
+    taclevup −1 996; wyrównanie 16 B zostawia 184 700 B niewyjaśnionych). `speaker_map.member_offsets`
+    (+`read_members`) obsługuje oba warianty i zamyka się fail-closed przy przekroczeniu regionu.
+    **Wyjątek**: `mesbmp00.cpk` ma 186 wpisów, ale dane zaczynają się pod 6 144/8 192/112 640/
+    200 704/286 720… zamiast pod 6 144/28 672/47 104… — kolejność jest tam inna niż w tabeli ITOC;
+    ten kontener (bitmapy `PAL_`) nie jest potrzebny do tekstu, więc rozbieżność zostaje udokumentowana,
+    ale nie rozwiązana.
+14. **Każdy `.pac` w tej grze to archiwum indeksowe PAC** (wpisy 0x28 B od `0x10`: u32 offset,
+    u32 rozmiar, nazwa ASCII 0x20 B; pierwsze słowo = koniec indeksu/początek danych): `config00.pac`
+    = 34 podpliki (`bg2dlist.bin`, `srwDL_Skill00.bin`, `milstP00.bin`, …), `IM1000.pac` = 12
+    (`srwDL_*`), `r0001/0000_000.pac` = 26 (`R001_000.dff`, `.tex.pac`, `.anm`), `svicon.pac` = 2,
+    `ssw95000.pac` = 5. Dwa kształty indeksu: koniec wg pierwszego słowa (`config00` 0x800,
+    `IM1000` 0x1f0) albo krótki nagłówek (32 B) i tabela biegnąca dalej (`r0001`). Narzędzie czyta
+    oba z kontrolą granic (obcięty członek → 0 podplików, nie zmyślone nazwy).
+15. **Nowe kategorie tekstu gracza** (pomiary w §3f): tytuły misji i uwagi do misji (`*_ext.dat`,
+    226 plików), tytuły misji w liście (`milstP`, 203 teksty), **tytuły BGM** (`bgmlist`, 490 tekstów /
+    10 953 B), nazwy teł (`bg2dlist`), nazwy map (`srwDL_Map_S`, 15), nazwy oddziałów (`groupunit`, 16),
+    etykiety sklepu (`srwDL_Shop`, 5). Wcześniej żadna z tych kategorii nie miała wskazanego pliku.
+16. **Encyklopedia postaci: opisów w danych nie ma** — `CharaDictionary` (582 rekordy) ma pole [2] na
+    tekst wpisu, ale 579 rekordów trzyma goły szablon `＠０\r`; `RoboDictionary` ma tylko krótkie
+    notki ≤ 52 B (`パイロット：黒い三連星（…）`, `全長 14.53m（…）`). Pełny spis 155 kontenerów /
+    4 043 plików nie znalazł prozy per-postaci: jedyne teksty ≥ 100 B to dialogi, cytaty, `srwDL_Reference`,
+    `srwDL_DLC_ID`, efekty itemów/umiejętności i uwagi do misji. Kontenery graficzne też zeskanowano
+    (`lmap` 271 pac, `face00` 544 `PAL_`, `bg2d` 73 `.sp`, `txa00` 137 `.brtex`, `smap`, `eftex`,
+    `efclump`, `efmodel`, `mesbmp` 186 `PAL_`, `bacb` 144 `acb`) — 0 tekstu ≥ 12 B. Wniosek: opis
+    per-postaci jest albo (a) tym, co już mamy (seria/pseudonim/seiyuu + 3 rekordy z tekstem),
+    albo (b) **narysowany jako tekstura** (obraz — nie da się wyjąć jako tekst), albo (c) w pliku,
+    którego nie ma w lokalnym zestawie (`EBOOT.BIN`, `UPDATE/DATA.BIN` 95 MB). Rozstrzygnięcie:
+    potrzebny jeden japoński przykład z gry (użytkownik zaproponował) → wtedy szukamy bajtowo.
+17. **Higiena warsztatu**: `mesbmp00.cpk` = 186 bitmap `PAL_` (nagłówek 128×1024 słów + 131 072 B
+    danych), `bacb04.EDAT` = 144 banki `.acb` — zmierzone i **usunięte** z `google_drive/`
+    (razem z `lmap`/`face00`/`bg2d`/`txa00`/`smap` po skanie), żeby workspace nie puchł; ID i rozmiary
+    są w `tools/drive_manifest.tsv`, więc każdy plik wraca jednym pobraniem.
+
 ## 5. Plan domykania (kolejność i definicja „gotowe”)
 
 Dla każdej kategorii „gotowe” znaczy: (a) ekstrakcja 100% z lokalizacjami, (b) ścieżka grow
@@ -240,10 +331,14 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 4. ~~**Encyklopedia (pkt 4)**~~ **ZAMKNIĘTE (sesja 5, `tools/chara_dictionary.py`)**: tabela to
    `srwDL_CharaDictionary` (289 postaci, pole [2] = opis do encyklopedii, dowód = rekord `NoData`).
    Opisów w danych gry nie ma (579/582 puste) → decyzja dla użytkownika: pisać opisy redakcyjnie
-   (wstrzyknięcie w pole [2], grow puli) czy pokazywać tylko nazwę/seiyuu/serię. Plików
-   `system.cpk`/`navisys`/`tacsys`/`u16tbl.cpk`/`SRW_DL.acf` **nie ma** na liście przekazanych
-   plików (`tools/drive_manifest.tsv`, 137 plików), więc dalsze szukanie wymaga nowego pliku od
-   użytkownika.
+   (wstrzyknięcie w pole [2], grow puli) czy pokazywać tylko nazwę/seiyuu/serię.
+   **Sesja 5, część 7 — poszukiwanie domknięte po stronie danych** (znaleziska 13–16): pobrane
+   i zmierzone `system.cpk`, `tacsys.cpk`, `navisys.cpk`, `u16tbl.cpk`, `IM1000/3000/9000.cpk`,
+   `celldata.bin`, `tactics/taclevup/svicon`, `bmp00/logodata/colorlst/bseq00/eftex00/efclump/
+   efmodel`, `face00/smap/bg2d/txa00/lmap/mesbmp00/bacb04` — **żadnego opisu postaci**.
+   Zostaje jedno sprawdzenie do wykonania z użytkownikiem: **jeden japoński przykład tekstu z gry**
+   (zaproponował go) → bajtowe szukanie w całym materiale, a jeśli nie znajdzie się w danych, to
+   opis jest teksturą/obrazem albo siedzi w `EBOOT.BIN` / `UPDATE/DATA.BIN` (95 MB).
 5. ~~**Skille (pkt 7) — role pól**~~ **ZROBIONE (sesja 5, `tools/item_skill_records.py`)**:
    1 469 rekordów, klucz = u16 +4, role slotów nazwa/efekt/etykieta, tekst 10 322 + 40 208 B.
    Zostaje: rozwiązanie tokenów 0x0F w nazwach (`token_solve`) i ścieżka `apply`.
@@ -252,8 +347,11 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    Zostaje: `linked` (+2) i powiązanie z opisami zakupu w `srwDL_DLC_ID` (pkt 8), ścieżka `apply`.
 7. **Helpy/UI (pkt 8) — budżety znaków.** Dla `sysmes.bin` (menu tytułowe = equal-length, opisy =
    shift) zmierzyć sloty i szerokości; `srwDL_Reference` (17 KB) i pozostałe tabele configst —
-   ekstrakcja jak w pkt 3–4.
-8. **Mapy/shop (pkt 9)** — zlokalizować nazwy map/terenów i nazwy itemów w sklepie.
+   ekstrakcja jak w pkt 3–4. **Nowe kategorie z §3f** (uwagi do misji, tytuły BGM, nazwy teł/oddziałów,
+   etykiety sklepu) dołączyć do tego samego arkusza — czytnik = pkt 12.
+8. **Mapy/shop (pkt 9)** — nazwy map i teł **zlokalizowane**: `srwDL_Map_S.bin` (15 nazw) i
+   `bg2dlist.bin` (64 nazwy, oba w `config*.pac`). Zostaje: z czego sklep czyta nazwy itemów
+   (sam `srwDL_Shop` ma tylko 5 etykiet kategorii).
 9. **Arkusz scalony** — jeden plik wszystkich kategorii (klucz, źródło, japoński, angielski,
    maks. długość, tryb zapisu) + kontrola 100% pokrycia wobec tego dokumentu.
 10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
@@ -262,5 +360,14 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
     mają odpowiedniki w `unit_list`, 10 pozostałych nie), a jeśli się nie potwierdzi, zamknąć jako
     rekordy bez wyświetlanej nazwy (tekst zastępczy) i udokumentować.
 
+12. **Czytnik nowych kategorii tekstu** (`*_ext.dat` tytuły + uwagi do misji, `milstP`, `bgmlist`,
+    `bg2dlist`, `srwDL_Map_S`, `groupunit`, `srwDL_Shop`) — jeden moduł (`tools/mission_text.py`),
+    rama jak w itemach (slot + NUL), test syntetyczny, ścieżka grow przez `grow_event_text.grow_record`
+    lub własną (slot ma zapas? do zmierzenia), potem wpis w §3.
+13. **Inwentarz jako brama** — `tools/member_inventory.py` uruchamiać po każdym nowym pliku z Drive;
+    cel: liczba plików „bez czytnika” ma maleć tylko o grafiki/dźwięk, a każdy nowy plik z tekstem
+    (np. `UPDATE/DATA.BIN`) musi się w nim pokazać zanim uznamy kategorię za zamkniętą.
+
 Zadania z kolejki, które nie są blokadą, ale zostają: semantyka pól `unit_list` 88–134,
-`robo01`+ dla 24 par modeli, 19 kluczy cytatów bez nazwy (pkt 2) i decyzja o opisach encyklopedii (pkt 4).
+`robo01`+ dla 24 par modeli, 19 kluczy cytatów bez nazwy (pkt 2) i pytanie do użytkownika
+o jeden japoński przykład tekstu z encyklopedii (pkt 4).

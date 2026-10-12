@@ -2233,3 +2233,59 @@ Cel: domknąć punkty 5 i 6 planu z `docs/COVERAGE.md` (role pól w tabelach `sr
    oficjalne angielskie skróty), ale nie łączy się z rekordami umiejętności (trafienia id: 18/150 dla +0,
    40/150 dla +4 — przypadkowe).
 8. Testy: **477 OK (1 skipped)**.
+
+## Sesja 5 (2026-10-12), część 7 — inwentarz plików i poszukiwanie opisów encyklopedii
+
+Cel: odpowiedzieć na pytanie „opisy encyklopedii muszą być, gra je pokazuje” — zeskanować **wszystkie**
+pliki danych, wskazać kategorie tekstu, których jeszcze nie mieliśmy, i rozstrzygnąć sprawę opisów.
+
+Polecenia (katalog `srw-oe-translation/`, artefakty gitignored w `local/`):
+`python3 tools/member_inventory.py --out local/member_inventory.json --tsv local/member_inventory.tsv`,
+`python3 -m unittest tests.test_member_inventory`, skany przebiegów przez
+`config_text_tables.record_strings` po wszystkich członkach i podplikach PAC.
+
+1. [ZWERYFIKOWANE] `system.cpk`, `tacsys.cpk`, `tactics.cpk`, `taclevup.cpk`, `mesbmp00.cpk` to **drugi
+   wariant CPK** (nagłówek 0x2a0, wpisy ITOC bez offsetów → stary `read_members` padał). Reguła: członki
+   kolejno od `ContentOffset`, każdy na granicy 2048 B; budżet bajtów domyka się (koniec marszu vs
+   `ContentOffset+ContentSize`: system −1 896 B, tacsys −1 920, mesbmp00 −236, tactics −172, taclevup
+   −1 996; wyrównanie 16 B zostawia 184 700 B). `speaker_map.member_offsets` + `read_members` obsługują
+   oba warianty i zamykają się fail-closed. **Wyjątek `mesbmp00`**: 186 wpisów, ale dane zaczynają się
+   pod 6 144/8 192/112 640/200 704/286 720… (nie pod 6 144/28 672/47 104…) — kolejność fizyczna inna niż
+   tabela ITOC; plik jest zbiorem bitmap, więc rozbieżność udokumentowana, nie rozwiązana.
+2. [ZWERYFIKOWANE] Wszystkie `.pac` w tej grze to archiwa indeksowe PAC (wpis 0x28 B od 0x10: u32 offset,
+   u32 rozmiar, nazwa ASCII): `config00.pac` = 34 podpliki, `IM1000.pac` = 12 (`srwDL_*`), `r0001/0000_000.pac`
+   = 26 (`R001_000.dff`, `.tex.pac`, `.anm`), `svicon.pac` = 2, `ssw95000.pac` = 5.
+3. [ZWERYFIKOWANE] Rozbiór nowych plików: `system`/`tacsys` — po 1 członku (191 792 / 185 872 B po
+   dekompresji), tylko tabele i padding; `navisys` = 2 GIM; `u16tbl` = `jis2ucs.bin` + `ucs2jis.bin`
+   (po 131 072 B); `celldata.bin` 26 856 B; `mesbmp00` = 186 bitmap `PAL_` (nagłówek 128×1024 słów +
+   131 072 B danych); `bacb04.EDAT` = 144 banki `.acb`; `face00` = 544 `PAL_`; `bg2d` = 73 `.sp`;
+   `txa00`/`texanm` = 137 `.brtex`; `smap`/`lmap` = 20/271 pac z teksturami; `eftex00`/`efclump`/`efmodel`/
+   `bmp00`/`logodata`/`colorlst`/`bseq00`/`sprstd00`/`tactics`/`taclevup`/`svicon` — grafika i efekty.
+   **0 tekstu ≥ 12 B we wszystkich tych plikach.**
+4. [ZWERYFIKOWANE] **Nowe kategorie tekstu gracza**: `*_ext.dat` (226 plików, 10 147 B tekstu) — slot 0
+   (+24) i slot 1 (+184) to **uwagi do misji** (wypełnione w 61 i 53 plikach, max 121 B, np.
+   `このミッションでは「＠6ＮＴ－１アレックス＠0」が＠9GR＠0として\n強制出撃しますが…`), a slot 2 (od +344) to
+   **tytuł misji** (224/226, max 32 B, np. `19話\nアクシズからの撤退`); `milstP<NN>.bin` = 203 tytuły misji
+   (3 700 B, max 27 B); `bgmlist<NN>.bin` = **tytuły BGM** (490 tekstów, 10 953 B, max 48 B, np.
+   `Ｃｒｅａｔｅ ｙｏｕｒ Ｆｕｔｕｒｅ～時空を越えろ`); `bg2dlist.bin` = 64 nazwy teł; `srwDL_Map_S.bin` = 15 nazw
+   map (412 B, np. `53_必殺技用マップ1（ただの暗い空`); `groupunit<NN>.bin` = 16 nazw oddziałów (228 B);
+   `srwDL_Shop<NN>.bin` = 5 etykiet sklepu (66 B, np. `パイロット用パーツ`). `config<NN>.txt` (44 × 32 B) to
+   marker wersji (`config01config01config01config01`), nie tekst.
+5. [ZWERYFIKOWANE] `*_Entry.dat` (226) i `*_edit.dat` (226) mają puste sloty tekstu (max przebieg 8 B,
+   jeden plik) — nie zawierają nazw ani opisów misji.
+6. [ZWERYFIKOWANE — wynik negatywny] **Opisów postaci nie ma w danych gry.** `CharaDictionary` (582
+   rekordy) ma pole [2] na wpis, ale 579 rekordów trzyma goły szablon `＠０\r`; `RoboDictionary` notki
+   ≤ 52 B. Pełny inwentarz **155 kontenerów / 4 043 pliki** nie zawiera prozy per-postać — jedyne teksty
+   ≥ 100 B to dialogi scen, cytaty bitewne, `srwDL_Reference`, `srwDL_DLC_ID`, efekty itemów/umiejętności
+   i uwagi do misji. Zostają trzy możliwości: (a) tym, co pokazuje gra, są pola, które już mamy
+   (seria/pseudonim/seiyuu + 3 rekordy z tekstem), (b) opis jest **napisany na teksturze** (obraz),
+   (c) siedzi w pliku poza lokalnym zestawem: `EBOOT.BIN` albo `UPDATE/DATA.BIN` (95 MB, folder UPDATE).
+   Rozstrzygnięcie wymaga jednego japońskiego przykładu z gry (użytkownik zaproponował) → szukanie bajtowe.
+7. [ZWERYFIKOWANE] Inwentarz z czytnikami (względem JSON-ów wyjściowych): `event_dialogue` 293,
+   `battle_quotes` 257, `mission_notes` 226, `chara_dictionary` 44, `robo_dictionary` 44, `text_tables` 43,
+   `unit_weapons` 18, `charalist_table` 15, `name_map` 2; **bez czytnika 3 101** (grafika, dźwięk,
+   `_Entry`/`_edit`, `config<NN>.txt`, `bcam.cpk`, `ssw.bin`).
+8. Higiena warsztatu: pliki pobrane tylko po to, by je zmierzyć (`bacb04` 26 MB, `mesbmp00` 14 MB,
+   `lmap` 81 MB, `face00`, `bg2d`, `txa00`, `smap`) zostały **usunięte** po skanie; ID i rozmiary są
+   w `tools/drive_manifest.tsv`, więc wracają jednym pobraniem (workspace: 143 MB → 51 MB).
+9. Testy: **488 OK (1 skipped)** (477 + 11 nowych z `tests/test_member_inventory.py`).

@@ -140,3 +140,38 @@ imenu24.EDAT	1Jv-lyde_Rr2TKUIX4htqNZ4g0WIqohyS	18600
 imenu25.EDAT	1zzi8zZLvlMquudvz_9uti-I0Fs-R-9ln	18600
 imenu31.EDAT	1507TbAF5Jyp66q8lmiBB23IS0XegafPe	18600
 imenu32.EDAT	1TKkTvcpL1xhoLiPiObRrFlIzwD76e1Ch	18600
+# --- USRDIR, sesja 5 cz. 7: pobrane i zmierzone (lezą w google_drive/) ---
+system.cpk	1S5kom5Me-J5gA5bTQOA5v64ehi0AIry4	77976
+tacsys.cpk	1XWoCcHuPut3jOqUOc2z3b5a21OCIcdpH	77952
+navisys.cpk	1wdWFzCmvfFDMwo4YKQfxYOaKEIT03o5J	39048
+u16tbl.cpk	156LdmkwBupdYfTWeGaZGArWwNwySOs5G	51336
+IM1000.cpk	1n7V95Wh3SPVNRfpIpH533COwHtJONWu_	63616
+IM3000.cpk	1ZZVDSFbpsxiN0m0QnYggwRFVoXgFbN_G	92288
+IM9000.cpk	1vt3GNafsE6b39rEThFiPb8T7pH6pQaqt	82048
+celldata.bin	1Xo9JP04ditnlYo3USZ04v2Ja56dT2GO_	26856
+tactics.cpk	17oIIR9Xvgi2liGK4jeeuflitgTUbFJ-V	46932
+taclevup.cpk	1mhXUZFbVmpBh5XcQwQMNIp3E1oy5gwt9	43060
+svicon.cpk	1KFF7OBNAUUbVtjJ607M8VyberHrT6t5J	268416
+sprstd00.cpk	1D9it35jeZbf8YGvXNcRcRtHsZ-XSzrOb	2822600
+bmp00.cpk	1AsSCcnDNqqcW9XkXu3L0xcEis9Q7Rt5r	24760
+logodata.cpk	1lzL27CHj07BzWXb0JfIpEWod9TWNxJPp	43776
+colorlst.cpk	1jLSVK14DY9zI3_1--mw-1BCUHduLqixh	8320
+bseq00.cpk	1YlQbO2Zd-ByZ3v_HmdL5kA6E2xJq_AtP	287608
+eftex00.cpk	1WV2OhUd7YWyFHellYtrRsU53xvo2VXpv	659104
+efclump.cpk	1whKliDYEJZ4wvA0Wnf3Rn2NB1tqFMNGb	262488
+efmodel.cpk	1VDoDzV3kRD0pTIY9gaG-RUdr9Bxvrafe	221464
+# --- zmierzone jako grafika/dzwiek BEZ TEKSTU, usuniete po pomiarze (pobrac ponownie wg potrzeb) ---
+mesbmp00.cpk	1f_OjdNLPNuoJMNUnAgU_9PgsEaI-X32O	14309140
+bacb04.EDAT	1g4KqEWJp4M6GUvNw6vg2P5duDegsm2uh	26410232
+lmap.cpk	1a_tXLEHqtrQWFnqiokhYOE77gf7DvBYQ	81379568
+face00.cpk	1xbp8rGVDOxiVNyE9C2WqKX2a6LX1AJcF	2642060
+bg2d.cpk	1NYAYrJi2G2_PtPZiz39-5MXXVUbXAmER	7860928
+txa00.cpk	1I06bnbBBiLoZ7_wdgPd5dfYwR4yX7gDF	3515584
+smap.cpk	1AXJo_Chq0d2ijyDy9KfXasVRp-mnCpto	1573144
+# --- niepobrane: dzwiek, wideo i pliki systemowe (kandydatow na tekst brak) ---
+mov00.cpk	1dd5LRwNnMHRIoTTRDJnpJMJUMlb1xOFd	44431360
+bacb00.cpk	1z7vuQvvVDhEjXSPc6QP2t7-ZJe563_ZZ	97422536
+voice00.awb	14xi__VleS-kfUHOmIfUHLwR4lg2captq	50378244
+BgmSet00.awb	1y7L8L0Ap2NXjied7XzQkfOCVF8AitX11	193715460
+DATA.BIN (folder UPDATE)	1ASFv9d025QdfMS-_gZ7lxRu2CpG-6ow3	99614720
+# reszta USRDIR niepobrana: se0000/se40xx/segu01, semv01-15, cprt0001-0004, module/, SRW_DL.acf, UMD_DATA.BIN

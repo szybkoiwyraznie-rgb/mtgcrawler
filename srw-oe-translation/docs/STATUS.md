@@ -347,3 +347,27 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów bazowych plików (0 nowych).
 - `srwDL_Skill_Tag` to tabela etykiet JP/EN (常時/ALWAYS), nie tabela skilli.
 - Testy: **477 OK (1 skipped)**.
+
+### Sesja 5, część 7 (2026-10-12): inwentarz plików, brak opisów encyklopedii, nowe kategorie tekstu
+- `tools/member_inventory.py` (11 testów w `tests/test_member_inventory.py`): czyta **oba warianty CPK**
+  (klasyczny z TOC i „ITOC blob” bez offsetów) oraz **oba poziomy** (członek kontenera + podpliki PAC),
+  a każdy plik przypisuje do czytnika na podstawie JSON-ów wyjściowych. Wynik na przekazanym materiale:
+  **155 kontenerów / 4 043 pliki**; z czytnikiem 1 097, bez czytnika 3 101 (wyłącznie grafika, dźwięk
+  i puste sloty `_Entry.dat`/`_edit.dat`; każdy plik z tekstem ≥ 12 B jest rozliczony).
+- Drugi wariant CPK: członki leżą kolejno od `ContentOffset`, każdy na granicy 2048 B — reguła
+  potwierdzona budżetem bajtów (`speaker_map.member_offsets`, fail-closed). Wyjątek: `mesbmp00`
+  (kolejność inna niż tabela ITOC; zbiór bitmap, dla tekstu nieistotny) — udokumentowany.
+- **Nowe kategorie tekstu**: tytuły misji i uwagi do misji (`*_ext.dat`: 224 tytuły, 114 uwag, 10 147 B),
+  tytuły misji w liście (`milstP`, 203), **tytuły BGM** (`bgmlist`, 490 / 10 953 B), nazwy teł
+  (`bg2dlist`, 64), nazwy map (`srwDL_Map_S`, 15), nazwy oddziałów (`groupunit`, 16), etykiety sklepu
+  (`srwDL_Shop`, 5). Wszystkie mają ramę „slot + NUL”, więc ścieżka grow jak w itemach — ale czytnika
+  jeszcze nie ma (pkt 12 planu).
+- **Encyklopedia**: opisów per-postać **nie ma w żadnym z 155 kontenerów** (pole [2] `CharaDictionary`
+  puste w 579/582; `RoboDictionary` notki ≤ 52 B). Przeskanowane też wszystkie kontenery grafiki
+  (`lmap`, `face00`, `bg2d`, `txa00`, `smap`, `mesbmp`, `bacb`, `eftex*`, `efmodel`, `efclump`, `bmp00`,
+  `logodata`, `colorlst`, `bseq00`, `sprstd00`) — **0 tekstu**. Do rozstrzygnięcia z użytkownikiem:
+  jeden japoński przykład tekstu z ekranu encyklopedii → szukanie bajtowe; jeśli nie znajdzie się
+  w danych, opis jest obrazem/teksturą albo siedzi w `EBOOT.BIN`/`UPDATE/DATA.BIN` (95 MB).
+- Higiena: pliki pobrane tylko do pomiaru (`bacb04`, `mesbmp00`, `lmap`, `face00`, `bg2d`, `txa00`,
+  `smap`) usunięte po skanie; ID i rozmiary w `tools/drive_manifest.tsv` (workspace 143 MB → 51 MB).
+- Testy: **488 OK (1 skipped)**.

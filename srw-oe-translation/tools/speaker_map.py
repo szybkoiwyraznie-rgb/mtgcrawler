@@ -46,12 +46,47 @@ DICT_MARK = "CharaDictionary"
 KEY_OFFSET = dps.SPEAKER_KEY_OFFSET
 
 
+def member_offsets(path: Optional[Path] = None, table: Optional[dict] = None) -> List[int]:
+    """Absolute offset of every entry, for both CPK layouts (TOC offsets or ITOC blobs).
+
+    MEASURED 2026-10-12 on the disc-side packages (``system``, ``tacsys``, ``tactics``,
+    ``taclevup``, ``mesbmp00``) [ZWERYFIKOWANE]: these use the "ITOC blob" layout whose
+    entries carry ID/FileSize/ExtractSize only (``absolute_offset`` is None), and their
+    members are laid out sequentially from ``ContentOffset``, each one starting on the
+    ``Align`` boundary (2048). Verified by the byte budget: with that rule the walked
+    end matches ContentOffset + ContentSize modulo the trailing pad (mesbmp00: 236 B),
+    whereas 16/4/1-byte alignment leave 184,700 B unaccounted for. The rule fails closed:
+    an overrun past the content region raises instead of returning wrong bytes.
+    """
+    table = table or cpk_table.read_cpk_table(path)
+    header, entries = table["header"], table["entries"]
+    align = header["align"] or 1
+    pos = header["content_offset"]
+    content_size = header["content_size"] or None  # 0 and None both mean "not declared"
+    end_of_content = pos + content_size if content_size else None
+    offsets: List[int] = []
+    for e in entries:
+        if e["absolute_offset"] is not None:
+            offsets.append(e["absolute_offset"])
+            pos = e["absolute_offset"] + e["file_size"]
+            continue
+        pos = -(-pos // align) * align
+        offsets.append(pos)
+        pos += e["file_size"]
+    if entries and all(e["absolute_offset"] is None for e in entries) and end_of_content:
+        if offsets[-1] + entries[-1]["file_size"] > end_of_content:
+            raise cpk_table.CpkTableError("sequential member layout overruns the content region")
+    return offsets
+
+
 def read_members(path: Path) -> List[Tuple[str, bytes]]:
     """Return (member name, bytes) for every entry, read-only, CRILAYLA decompressed."""
     data = path.read_bytes()
+    table = cpk_table.read_cpk_table(path)
+    offsets = member_offsets(path, table)
     out = []
-    for e in cpk_table.read_cpk_table(path)["entries"]:
-        raw = data[e["absolute_offset"]:e["absolute_offset"] + e["file_size"]]
+    for e, off in zip(table["entries"], offsets):
+        raw = data[off:off + e["file_size"]]
         if e.get("compressed") or crilayla.is_crilayla(raw):
             raw = crilayla.decompress(raw).data
         out.append((e["name"], raw))
