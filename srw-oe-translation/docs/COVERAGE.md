@@ -288,10 +288,15 @@ w kolejności zdarzeń → koniec sceny), bo bez chronologii i kontekstu tłumac
   kontenerami (`DL103_30`, `DL208_30`).
 * **`tools/translation_copy.py`** (8 testów) domyka kopie: przepisuje `en` ze źródła do pustych kopii,
   nie nadpisuje wypełnionych, zgłasza rozjazd `jp`. Na prawdziwym pakiecie: 4 186 kopii, 0 problemów.
-* **`tools/scene_view.py`** (5 testów) robi widok do czytania: `sceny/spis-scen.md`, po pliku na
-  odcinek (`epizod-NN.md`), `simulator.md`, `sceny.zip` (37 plików, 744 KB) — wysyłany na Drive.
-* Proces (jeden, obowiązujący) opisany w `docs/TRANSLATOR_PACKAGE.md` §6: wypełniamy **wyłącznie `en`
-  w JSONL** → `translation_copy.py` → `translation_check.py`; CSV to tylko widok i nie wraca do gry.
+* **`tools/scene_view.py`** (11 testów) robi widok do czytania i pracy: `sceny/spis-scen.md`, po pliku
+  na odcinek (`epizod-NN.md`), `simulator.md`, `sceny.zip` (37 plików) — wysyłany na Drive. Nagłówek
+  sceny niesie odcinek, miejsce i **uczestników z serią**, a tytuł misji i uwagi są elementami sceny.
+* **`tools/table_view.py`** (8 testów) robi widoki nazw i tabel (`widoki.zip`, 7 plików: `postacie.md`,
+  `cytaty.md`, `mechy.md`, `przedmioty.md`, `umiejetnosci.md`, `teksty-config.md`, `teksty-misji.md`),
+  każda grupa z kontekstem (seria, głos, jednostka), 46 551 elementów.
+* Proces (jeden, obowiązujący) opisany w `docs/TRANSLATOR_PACKAGE.md`: tłumacz wypełnia **wyłącznie
+  linie `EN:` w plikach `.md`** → `translation_import.py` → `translation_copy.py` →
+  `translation_mirror.py` → `translation_check.py`; CSV to tylko widok i nie wraca do gry.
 
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
