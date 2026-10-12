@@ -98,8 +98,7 @@ class BuildScenesTest(unittest.TestCase):
         self.assertEqual(first["sections"], [{"order": 2, "kind": "location",
                                               "row": "dlg:eventP00.cpk/DL100_01.bin:20",
                                               "jp": "格納庫"}])
-        self.assertEqual(first["counts"], {"dialogue": 0, "narration": 1, "location": 1}
-                         if False else {"narration": 1, "location": 1})
+        self.assertEqual(first["counts"], {"narration": 1, "location": 1})
         self.assertEqual(first["jp_bytes"], len("（モノローグ）".encode("cp932")) + len("格納庫".encode("cp932")))
         self.assertEqual(first["mission"], "初等訓練")
         self.assertFalse(first["mission_inherited"])
