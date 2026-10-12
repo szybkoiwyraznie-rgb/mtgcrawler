@@ -18,8 +18,8 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu** i **96,0% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
 | 4 | Encyklopedia postaci | `srwDL_CharaDictionary` (imenu/config) — **pole [2] rekordu** | tabela **289 postaci** z nazwą, seiyuu, tytułem serii, pseudonimem `愛称：` i **slotem opisu**; opis ma **tylko 3/582 rekordy**, reszta trzyma sam szablon `＠０\r`; rekord `NoData` (klucz 65535) ma w tym polu `図鑑用のデータが存在していません。` = „brak danych do encyklopedii” (`tools/chara_dictionary.py`, 9 testów) | grow (pula NUL — `dict_pool_shift.rebuild_pool`) | **tabela zlokalizowana, opisów w danych gry brak** | 579 rekordów bez opisu → opisy trzeba **napisać** (praca redakcyjna), a wstrzyknięcie jest wykonalne w polu [2] (szablon `＠０\r` + tekst) `[HIPOTEZA]` co do wyświetlania |
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
-| 6 | Itemy + opisy | `srwDL_Item00` + pule DLC (`config*`), `configst/srwDL_Item` | 2300 rekordów, **1929 stringów / 22,5 KB** (510 unikalnych) | grow (pary zakresów) | ekstrakcja tak, role pól nie | role pól w rekordzie; nazwa itemu ↔ klucz; opisy efektów częściowo w `srwDL_DLC_ID` |
-| 7 | Umiejętności + opisy | `srwDL_Skill00` + pule DLC | 7380 rekordów, **9128 stringów / 142 KB** (3036 unikalnych) | grow (pary zakresów) | ekstrakcja tak, role pól nie | role pól; powiązanie z tagami (`srwDL_Skill_Tag`, 288 unikalnych) |
+| 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); nazwy 4 001 B (273 unikalne, max 20 B), efekty 3 941 B (max 66 B); slot dodatkowy (etykieta) pusty we wszystkich 300 rekordach (`tools/item_skill_records.py`, 11 testów) | grow (przebudowa tabeli spanów + offsetów rekordów) | **role pól ustalone** | ścieżka `apply`; znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy itemów |
+| 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **189 unikalnych nazw / 10 322 B** (część w połowie szerokości z tokenami 0x0F), efekty **40 208 B** (1 237 unikalnych, max 106 B); 9 rekordów ma etykietę w trzecim slocie | grow | **role pól ustalone** | nazwy do rozwiązania tokenów (`token_solve`); klucz rekordu nie jest powiązany z żadną inną tabelą w przekazanych plikach `[OTWARTE]` |
 | 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length |
 | 9 | Mapy / shop / drop | `srwDL_Map_S`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | Shop 182 rekordy (19 z tekstem, żadna nie jest nazwą itemu); ItemDrop 1092 rekordy (5 stringów) | do ustalenia | **niezdekodowane** | nazwy map/terenów i nazwy itemów w sklepie — nie zlokalizowane |
 
@@ -146,6 +146,39 @@ kluczy (26 468 linii dialogu + 29 577 cytatów), z priorytetem źródeł i rapor
 
 Artefakty (gitignored): `local/chara_dictionary.json`, `local/name_map.json`, `local/name_map.tsv`.
 
+## 3e. Itemy i umiejętności — klucze i role pól (pkt 5/6 planu)
+
+`[ZWERYFIKOWANE]` `tools/item_skill_records.py` (11 testów). Kontener konwencji B: `u32 offset ogona`
+pod +0, `u32 liczba` pod +4, offsety rekordów od +8; rekordy kończą się pod offsetem ogona, a dalej
+leży **pula fragmentów** (NUL-terminowane kawałki, z których gra składa tekst efektu).
+
+Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rekordach):
+
+| offset | item | umiejętność |
+|---|---|---|
+| +0 | **id itemu** (unikalne 300/300) | id rodziny (193 różne wartości) |
+| +2 | `linked` (równe +4 w 300/300) | drugie pole rodziny (254 różne) |
+| +4 | kopia `linked` | **id rekordu, unikalne 1469/1469 → klucz** |
+| +6 | 5 wartości (0–4) | poziom (65535 = zalążek + 0–10) |
+| +8–39 | parametry | parametry |
+| +40 | **3 pary u16 (start, end)** = trzy sloty tekstu | to samo |
+| dalej | ogon liczbowy (u16) po ostatnim slocie | to samo |
+
+* Slot = zakres `[start, end)`, tekst kończy się na pierwszym NUL, resztę zakresu wypełnia padding.
+  Role: **slot 0 = nazwa**, **slot 1 = efekt/opis**, **slot 2 = dodatkowy** (pusty u 300/300 itemów
+  i 455/1469 umiejętności; gdy niepusty, to etykieta, np. `開始気力:全`).
+* Sloty nazwy i efektu **nie mają zapasu** (padding 0 w 300/300 i 1469/1469 rekordach) — dłuższy
+  tekst angielski wymaga przesunięcia danych i przebudowy tabeli offsetów (ścieżka grow).
+* Tekst: itemy — 300 nazw (4 001 B, 273 unikalne, max 20 B) + 300 efektów (3 941 B, max 66 B);
+  umiejętności — 1 469 nazw (10 322 B, **189 unikalnych**, max 14 B) + 1 469 efektów (40 208 B,
+  1 237 unikalnych, max 106 B).
+* **Pliki DLC nie wnoszą tekstu**: `Item01–08` to 8 identycznych kopii (76 wpisów), a wszystkie
+  76 wpisów leży w puli ogona `Item00` (152 przebiegi / 1 146 B); `Skill01/03–08` to 7 identycznych
+  kopii, `Skill02` różni się kosmetycznie, 720 wpisów każda — wszystkie 720 są w puli ogona
+  `Skill00` (1 458 przebiegów / 15 630 B), 0 nowych. `configst/srwDL_Item.bin` = kopia `Item00`.
+
+Artefakty (gitignored): `local/item_skill.jsonl`, `local/item_skill_summary.json`.
+
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
@@ -184,6 +217,12 @@ Artefakty (gitignored): `local/chara_dictionary.json`, `local/name_map.json`, `l
    i tłumaczy 5 różnic: warianty szerokości (ｱﾘｬﾘｬ･… vs アリャリャ・…), pusty `name_full` (4135 —
    uzupełniany z `CharaDictionary`) oraz alias w nawiasie (400 勇者ラムネス（馬場ラムネ）).
 
+11. **Role pól itemów i umiejętności ustalone** (pkt 5/6): tabela trzech par `u16` pod +40 w każdym
+    rekordzie, slot 0 = nazwa, slot 1 = efekt, slot 2 = etykieta; brak zapasu w slotach nazwy/efektu.
+    Klucz itemu = u16 +0 (300 unikalnych), klucz umiejętności = u16 +4 (1 469 unikalnych).
+12. **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów z plików bazowych
+    (0 nowych stringów), więc ekstrakcja z `config00` + `configst` pokrywa całość kategorii.
+
 ## 5. Plan domykania (kolejność i definicja „gotowe”)
 
 Dla każdej kategorii „gotowe” znaczy: (a) ekstrakcja 100% z lokalizacjami, (b) ścieżka grow
@@ -205,10 +244,12 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    `system.cpk`/`navisys`/`tacsys`/`u16tbl.cpk`/`SRW_DL.acf` **nie ma** na liście przekazanych
    plików (`tools/drive_manifest.tsv`, 137 plików), więc dalsze szukanie wymaga nowego pliku od
    użytkownika.
-5. **Skille (pkt 7, 142 KB) — role pól.** Para (start, koniec) w rekordzie + tabela u16 pod +40;
-   potwierdzić na próbce nazwę/opis/skrót, potem arkusz i ścieżka grow (przebudowa par).
-6. **Itemy (pkt 6) — to samo dla itemów** + powiązanie klucza itemu z nazwą i z opisem zakupu
-   w `srwDL_DLC_ID`.
+5. ~~**Skille (pkt 7) — role pól**~~ **ZROBIONE (sesja 5, `tools/item_skill_records.py`)**:
+   1 469 rekordów, klucz = u16 +4, role slotów nazwa/efekt/etykieta, tekst 10 322 + 40 208 B.
+   Zostaje: rozwiązanie tokenów 0x0F w nazwach (`token_solve`) i ścieżka `apply`.
+6. ~~**Itemy (pkt 6)**~~ **ZROBIONE (sesja 5)**: 300 itemów = 300 kluczy, nazwy + efekty
+   (4 001 B + 3 941 B), role pól jak w skillach; `configst/srwDL_Item` = kopia `Item00`.
+   Zostaje: `linked` (+2) i powiązanie z opisami zakupu w `srwDL_DLC_ID` (pkt 8), ścieżka `apply`.
 7. **Helpy/UI (pkt 8) — budżety znaków.** Dla `sysmes.bin` (menu tytułowe = equal-length, opisy =
    shift) zmierzyć sloty i szerokości; `srwDL_Reference` (17 KB) i pozostałe tabele configst —
    ekstrakcja jak w pkt 3–4.

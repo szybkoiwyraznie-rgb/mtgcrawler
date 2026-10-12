@@ -2201,3 +2201,35 @@ Cel: domknąć punkty 2 i 4 planu z `docs/COVERAGE.md` (nazwy dla wszystkich klu
    `AttributeError`) — regex jest teraz tworzony leniwie także w `scan()`, więc narzędzie da się użyć
    jako biblioteki (było to potrzebne do pomiaru z punktu 7).
 10. Testy: **466 OK (1 skipped)** (`python3 -m unittest discover tests`).
+
+## Sesja 5 (2026-10-12), część 6: itemy i umiejętności — klucze, role pól, pule DLC
+
+Cel: domknąć punkty 5 i 6 planu z `docs/COVERAGE.md` (role pól w tabelach `srwDL_Item` i `srwDL_Skill`).
+
+1. [ZWERYFIKOWANE] Nowe narzędzie `tools/item_skill_records.py` (11 testów syntetycznych) czyta konwencję
+   B: `u32 offset ogona` +0, `u32 liczba` +4, offsety rekordów od +8; rekordy kończą się pod offsetem
+   ogona, a od niego do EOF leży pula fragmentów.
+2. [ZWERYFIKOWANE] **Rekord ma dokładnie 3 pary `u16` (start, end) pod +40** — w 300/300 itemach i
+   1469/1469 umiejętnościach. Slot = zakres, tekst kończy się na pierwszym NUL, reszta to padding.
+   Role: slot 0 = nazwa, slot 1 = efekt, slot 2 = etykieta (pusta u wszystkich 300 itemów i 455/1469
+   umiejętności; 9 umiejętności ma tam np. `開始気力:全`).
+3. [ZWERYFIKOWANE] Klucze: item — u16 pod +0, **300 unikalnych na 300 rekordów**; +2 = +4 = id
+   powiązane (w 106 rekordach równe id itemu, w 194 różne). Umiejętność — u16 pod +4, **1469 unikalnych
+   na 1469 rekordów**; +0 i +2 to pola rodziny (193 i 254 różne wartości), +6 = poziom (65535 zalążek
+   + 0–10). Klucza umiejętności nie znaleziono w żadnej innej tabeli przekazanych plików `[OTWARTE]`.
+4. [ZWERYFIKOWANE] Tekst kategorii: itemy — 300 nazw (4 001 B, 273 unikalne, max 20 B) i 300 efektów
+   (3 941 B, max 66 B); umiejętności — 1 469 nazw (10 322 B, **189 unikalnych**, max 14 B; część
+   zapisana półszerokościowo z tokenami 0x0F) i 1 469 efektów (40 208 B, 1 237 unikalnych, max 106 B).
+5. [ZWERYFIKOWANE] Sloty nazwy i efektu **nie mają zapasu** (padding 0 w 1769/1769 rekordach) —
+   dłuższy tekst wymaga przesunięcia danych i przebudowy tabeli offsetów; to definiuje ścieżkę grow
+   dla tych dwóch kategorii.
+6. [ZWERYFIKOWANE] **Pliki DLC nie dodają tekstu.** `srwDL_Item00.bin` (config00) i `srwDL_Item.bin`
+   (configst) są identyczne (md5 `18f16420f2`); `Item01–08` to 8 identycznych kopii (76 wpisów) — wszystkie
+   76 wpisów leży w puli ogona `Item00` (152 przebiegi / 1 146 B), 0 nowych. `Skill01/03–08` to 7
+   identycznych kopii, `Skill02` różni się kosmetycznie; każda ma 720 wpisów, wszystkie 720 są w puli
+   ogona `Skill00` (1 458 przebiegów / 15 630 B), 0 nowych.
+7. [ZWERYFIKOWANE] `srwDL_Skill_Tag` (konwencja A, 151 rekordów) to **nie** tabela skilli, lecz tabela
+   etykiet JP/EN (常時/ALWAYS, 命中/HIT, 回避/EVA, 防御/DEF) — przydatna przy tłumaczeniu (daje
+   oficjalne angielskie skróty), ale nie łączy się z rekordami umiejętności (trafienia id: 18/150 dla +0,
+   40/150 dla +4 — przypadkowe).
+8. Testy: **477 OK (1 skipped)**.

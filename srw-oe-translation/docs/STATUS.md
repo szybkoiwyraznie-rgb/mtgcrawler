@@ -335,3 +335,15 @@ The agent sandbox has neither the game files nor the converter, so only the user
   id jednostek — hipoteza „klucz = jednostka generyczna” do sprawdzenia (plan pkt 11).
 - Naprawiony dług: `speaker_names.scan()` działa jako biblioteka (leniwy regex).
 - Testy: **466 OK (1 skipped)**.
+
+### Sesja 5, część 6 (2026-10-12): itemy i umiejętności — klucze, role pól, pule DLC
+- `tools/item_skill_records.py` (11 testów): rekord itemu/umiejętności = nagłówek u16, **3 pary
+  `u16` (start, end) pod +40** (nazwa / efekt / etykieta), ogon liczbowy i pula fragmentów po rekordach.
+- **Itemy**: 300 rekordów = **300 kluczy** (u16 +0); nazwy 4 001 B (273 unikalne), efekty 3 941 B.
+  `srwDL_Item00` (config00) i `srwDL_Item` (configst) są **identyczne** (md5 `18f16420f2`).
+- **Umiejętności**: 1 469 rekordów = **1 469 kluczy** (u16 +4, unikalne); nazwy 10 322 B (189 unikalnych,
+  część z tokenami 0x0F), efekty 40 208 B (1 237 unikalnych). Rodzina +0/+2 (193/254 wartości), poziom +6.
+- Sloty nazwy i efektu **bez zapasu** (0 w 1769/1769) → grow wymaga przebudowy tabeli offsetów.
+- **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów bazowych plików (0 nowych).
+- `srwDL_Skill_Tag` to tabela etykiet JP/EN (常時/ALWAYS), nie tabela skilli.
+- Testy: **477 OK (1 skipped)**.
