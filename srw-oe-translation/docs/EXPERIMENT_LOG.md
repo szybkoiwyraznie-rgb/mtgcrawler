@@ -1952,3 +1952,18 @@ No game files written. Game text only under `local/`.
     is `local/name_units_unique.csv`. Tests: 367 OK, 1 skipped.
 17. Next: resolve the 246 vs 216 dictionary discrepancy before translating any name. Then battle-only queue
     (733 and 220 first), pilot-slot validation.
+
+## Sesja 4 (2026-10-12): pokrycie zdarzeń, mechy, trwałość danych
+
+Środowisko: po granicy tury `google_drive/` zawierał tylko `eventP00.cpk`; `local/` był pusty (poza nowymi katalogami).
+
+1. [ZWERYFIKOWANE] Pobranie z Drive: 31 kontenerów zdarzeń (`eventP01–09`, `eventP13`, `eventP20–32`, `evept101–108`), rozmiary zgodne z listingiem. Manifest: `tools/drive_manifest.tsv`.
+2. [ZWERYFIKOWANE] `tools/extract_scenes.py` na 32 kontenerach: exit 0 dla 32/32. Łącznie 354 wpisy scen (podpis + linie). Mówca nie jest w rekordzie tekstu (stan VM), więc `speaker` = null.
+3. [ZWERYFIKOWANE] `tools/speaker_probe.py` na 32 kontenerach: exit 0 dla 32/32. Wynik: 251 członków w stanie `ok`, 12738 linii dialogowych (zgodne z wynikiem sprzed granicy tury). Unikalne klucze (suma top_keys): 257; w pełnym zestawie wcześniej 283 klucze.
+4. [ZWERYFIKOWANE] Pokrycie kontenerów: `eventP00` (USRDIR) 621 linii, 11 członków; FULL_DLC `eventP01–08` 678–1566 linii; `eventP31`, `eventP32` 0 linii dialogowych (członki bez linii; nie oznacza braku tekstu, tylko brak dialogów wykrytych sondą).
+5. [ZWERYFIKOWANE] Porównanie hashów `eventP00`: na Drive jest tylko JEDNA kopia (`1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w`, rodzic USRDIR `1FyM77fcFLQfXgxRhnS0cJ98oKZaZG72x`, 162264 B). Nie istnieje kopia w FULL_DLC. Porównanie niemożliwe; pytanie zamknięte jako nieistotne.
+6. [ZWERYFIKOWANE] `robo00.cpk` (USRDIR, 38273016 B, pobrany): 1318 członków. Rozkład prefiksów: `0000_*` 412, `0100_*` 329, `1000_*` 87, `bcam.cpk` 72, `info.bin` 74, `*.bsb` 216, `*.pac` 956. Składowe `.pac` i `info.bin` są CRILAYLA (`tools/crilayla.decompress`). `info.bin` po dekompresji = 3114 B, struktura nieustalona.
+7. [ZWERYFIKOWANE] Test powiązania: identyfikatory z nazw członków `NNNN_KKK` (poza 0000) = 45 unikatów; część wspólna z kluczami dialogów = 9 (np. 200, 300, 310, 400, 410, 460, 500, 510, 710). Wniosek: nazwy członków NIE są kluczami jednostek. `[HIPOTEZA]` odrzucona, brak powiązania mechów z kluczami tym sposobem.
+8. [NIEZWERYFIKOWANE] Tabela mechów (cel 100+) nie znaleziona. Kandydaci: `config*` (`unit_list`, `robolist.bin`, RoboDictionary slot 3) — nie pobrane w tej turze.
+
+Odrzucone/nieudane: `cpk_write.load` przyjmuje `Path`, nie `str`. Drukowanie `member.blob` zalewa wyjście — nie robić tego.
