@@ -25,6 +25,8 @@ import zipfile
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+import translation_import as TI
+
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
@@ -89,6 +91,8 @@ def render_scene(scene: dict, rows: List[dict]) -> str:
         # the JSONL keeps the raw bytes; the view makes the invisible control characters visible
         text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
         lines.append(f"{row['order']}. [{label(row)}] {text}")
+        english = (row.get("en") or "").replace("\r", "⏎").replace("\x0f", "<0x0F>")
+        lines.append(f"   EN: {english.replace(chr(10), chr(10) + '   ')}".rstrip())
     lines.append("")
     lines.append("_koniec sceny_")
     lines.append("")
@@ -97,6 +101,9 @@ def render_scene(scene: dict, rows: List[dict]) -> str:
 
 def render_index(scenes: List[dict]) -> str:
     lines = ["# Spis scen", "",
+             "Widok do czytania i do pracy: pod każdym elementem jest linia `EN:` — tam wpisuje się",
+             "tłumaczenie. Gotowe pliki wracają do pakietu jednym poleceniem "
+             "`tools/translation_import.py`.", "",
              "Kolejność jest kolejnością gry: odcinek, misja, wariant (DLC). "
              "Plik `00_dialogue.jsonl` ma wiersze w tej samej kolejności.", "",
              "| # | odcinek | misja | scena (plik gry) | elementów | miejsce | uwaga |",
@@ -115,9 +122,16 @@ def render_index(scenes: List[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def write_views(package: Path, out: Path) -> Dict[str, int]:
-    """Write ``spis-scen.md`` plus one script file per episode into ``out``."""
+def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, object]:
+    """Write ``spis-scen.md`` plus one script file per episode into ``out``.
+
+    A view file that already carries English a translator typed (``EN:`` lines that the package does
+    not know yet) is **left alone**, so regenerating the list can never throw the work away; use
+    ``force`` to overwrite it anyway.
+    """
     rows, scenes = load_package(package)
+    known = {(row["scene"], int(row["order"])): (row.get("en") or "")
+             for row in rows if row.get("scene") is not None and row.get("order") is not None}
     out.mkdir(parents=True, exist_ok=True)
     by_scene: Dict[str, List[dict]] = collections.defaultdict(list)
     for row in rows:
@@ -135,15 +149,23 @@ def write_views(package: Path, out: Path) -> Dict[str, int]:
         else:
             key = "inne.md"
         groups[key].append(scene)
-    counts = {"spis-scen.md": 1}
+    counts: Dict[str, object] = {"files": {"spis-scen.md": 1}, "skipped": []}
     for name, group in sorted(groups.items()):
         head = f"# {name.replace('.md', '').replace('-', ' ')}"
         body = [head, ""]
         for scene in sorted(group, key=lambda item: item["seq"]):
             body.append(render_scene(scene, sorted(by_scene.get(scene["id"], []),
                                                    key=lambda row: row["order"])))
-        (out / name).write_text("\n".join(body), encoding="utf-8")
-        counts[name] = 1
+        text = "\n".join(body)
+        target = out / name
+        if not force and target.exists():
+            edited = [key for key, value in TI.parse_view(target.read_text(encoding="utf-8")).items()
+                      if known.get(key, "") != value]
+            if edited:
+                counts["skipped"].append(f"{name} ({len(edited)} linii EN do zaimportowania)")
+                continue
+        target.write_text(text, encoding="utf-8")
+        counts["files"][name] = 1
     return counts
 
 
@@ -160,9 +182,11 @@ def main(argv=None) -> int:
     parser.add_argument("--package", type=Path, default=Path("local/translation"))
     parser.add_argument("--out", type=Path, default=Path("local/translation/sceny"))
     parser.add_argument("--zip", action="store_true", help="also pack the view into sceny.zip")
+    parser.add_argument("--force", action="store_true",
+                        help="overwrite view files that still hold untransferred English")
     args = parser.parse_args(argv)
 
-    counts = write_views(args.package, args.out)
+    counts = write_views(args.package, args.out, force=args.force)
     print(json.dumps(counts, ensure_ascii=False, indent=1))
     print("wrote", args.out)
     if args.zip:

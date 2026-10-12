@@ -60,7 +60,9 @@ class ViewTest(unittest.TestCase):
 
     def test_files_per_episode_and_index(self):
         counts = SV.write_views(self.package, self.out)
-        self.assertEqual(sorted(counts), ["epizod-00.md", "simulator.md", "spis-scen.md"])
+        self.assertEqual(sorted(counts["files"]),
+                         ["epizod-00.md", "simulator.md", "spis-scen.md"])
+        self.assertEqual(counts["skipped"], [])
         self.assertTrue((self.out / "spis-scen.md").exists())
         self.assertFalse((self.out / "epizod-01.md").exists())
 
@@ -86,6 +88,22 @@ class ViewTest(unittest.TestCase):
         index = (self.out / "spis-scen.md").read_text(encoding="utf-8")
         self.assertIn("| 1 | ０話 メインミッション | 初等訓練 |", index)
         self.assertIn("| 3 | Simulator |", index)
+
+    def test_english_typed_into_the_view_is_never_overwritten(self):
+        SV.write_views(self.package, self.out)
+        path = self.out / "epizod-00.md"
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("   EN:", text)
+        translated = text.replace("1. [Dialog - 日向仁] おはよう",
+                                  "1. [Dialog - 日向仁] おはよう")
+        translated = translated.replace("   EN:", "   EN: Good morning,", 1)
+        path.write_text(translated, encoding="utf-8")
+        counts = SV.write_views(self.package, self.out)
+        self.assertEqual(counts["skipped"], ["epizod-00.md (1 linii EN do zaimportowania)"])
+        self.assertEqual(path.read_text(encoding="utf-8"), translated)
+        counts = SV.write_views(self.package, self.out, force=True)
+        self.assertEqual(counts["skipped"], [])
+        self.assertNotIn("Good morning,", path.read_text(encoding="utf-8"))
 
     def test_zip_packs_the_view(self):
         SV.write_views(self.package, self.out)

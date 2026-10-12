@@ -80,6 +80,30 @@ class RowTest(unittest.TestCase):
         self.assertIn("suggested_max", warnings[0])
 
 
+class BoxWidthTest(unittest.TestCase):
+    def test_a_long_dialogue_line_is_a_warning(self):
+        _, warnings = TC.check_row(row("あ", "x" * (TC.BOX_WIDTH + 1)))
+        self.assertIn("the in-game box fits", warnings[0])
+
+    def test_a_line_that_fits_is_clean(self):
+        errors, warnings = TC.check_row(row("あ", "x" * TC.BOX_WIDTH))
+        self.assertEqual((errors, warnings), ([], []))
+
+    def test_full_width_characters_count_double(self):
+        _, warnings = TC.check_row(row("あ", "あ" * (TC.BOX_WIDTH // 2 + 1)))
+        self.assertTrue(any("the in-game box fits" in message for message in warnings))
+
+    def test_non_boxed_categories_are_not_measured(self):
+        wide = row("あ", "x" * (TC.BOX_WIDTH + 5))
+        wide["category"] = "config_help"
+        _, warnings = TC.check_row(wide)
+        self.assertEqual(warnings, [])
+
+    def test_box_width_matches_the_writer(self):
+        import apply_strings
+        self.assertEqual(TC.BOX_WIDTH, apply_strings.BOX_WIDTH)
+
+
 class CopyTest(unittest.TestCase):
     def test_filled_copy_must_equal_its_source(self):
         rows = [row("あ", "one"), row("い", "one", copy_of="dlg:eventP00.cpk/DL100_01.bin:1844")]

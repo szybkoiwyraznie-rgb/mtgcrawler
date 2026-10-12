@@ -429,3 +429,16 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - **Proces tłumaczenia** opisany w `docs/TRANSLATOR_PACKAGE.md` §6: wypełniamy **tylko `en` w JSONL**
   → `translation_copy.py` → `translation_check.py`; CSV to wyłącznie widok (nie wraca do gry).
 - Testy: **595 OK (1 skipped)**.
+
+## Sesja 5, część 10b (2026-10-12): widok scen = plik do pracy (import angielskiego)
+
+- `tools/scene_view.py`: linia `EN:` pod każdym elementem sceny + ochrona pracy — plik z nieprzeniesionym
+  angielskim nie zostanie nadpisany przy ponownym generowaniu widoku (`skipped`, `--force`).
+- `tools/translation_import.py` (**nowe**, 13 testów): rozpakowany `sceny.zip` / folder `.md` →
+  `00_dialogue.jsonl` jednym poleceniem; wcięte linie po `EN:` to ciąg dalszy tekstu, `⏎` i `<0x0F>`
+  wracają jako znaki; tekst łamiący zasady gry jest odrzucany, nie wpisywany (idempotentnie).
+- Proces (§6 `docs/TRANSLATOR_PACKAGE.md`): **tłumaczysz sceny w `.md`** → `translation_import.py` →
+  `translation_copy.py` → `translation_check.py`; JSONL to plik, z którego buduje się gra (nie trzeba
+  go czytać), a `sceny.zip` nigdy nie wraca spakowany do gry.
+- Demo na 12 liniach sceny 1: import 12/12, kontrola 0 błędów, 0 uwag. Widok pakietu regenerowany
+  z liniami `EN:` (`sceny.zip` 767 501 B) — do podmiany na Drive.

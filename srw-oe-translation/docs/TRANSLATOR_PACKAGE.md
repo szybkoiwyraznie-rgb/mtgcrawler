@@ -57,8 +57,24 @@ python3 tools/scene_view.py --package local/translation --out local/translation/
 ```
 
 Wynik to `spis-scen.md` (293 sceny w kolejności) + `epizod-NN.md` (po jednym pliku na odcinek, sceny
-z nagłówkami i dialogami po kolei) + `sceny.zip` — wysyłane na Drive razem z pakietem. Widok nie jest
-wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en` w plikach JSONL.
+z nagłówkami i dialogami po kolei) + `sceny.zip` — wysyłane na Drive razem z pakietem.
+
+**Widok jest plikiem do pracy, nie tylko do czytania.** Pod każdym elementem jest pusta linia `EN:` —
+tam wpisuje się tłumaczenie, a dalsze linie (z wcięciem) to jego ciąg dalszy::
+
+    1. [Dialog - セイシロウ・クサナギ] （俺は今、宇宙貿易事業を推進する
+       　民間組織『コネクト』にいる…）
+       EN: (I'm now at Connect - a civilian
+        organization promoting interstellar trade...)
+
+Liczba linii angielskiego musi się zgadzać z liczbą linii japońskiego (okno gry jest rysowane wokół
+nich), a dwa niewidzialne znaki widoku — `⏎` (czyści okno) i `<0x0F>` (przełącza czcionkę) — wpisuje
+się tak, jak stoją w oryginale. Elementy bez tekstu po `EN:` zostają nietknięte.
+
+Gotowy plik wraca do pakietu **jednym poleceniem** (patrz §6), a nie przez zipowanie: widok nie jest
+wysyłany do gry i nie jest przez nią czytany. `scene_view.py` pilnuje zresztą, żeby ponowne wygenerowanie
+widoku nie skasowało pracy — plik, w którym jest nieprzeniesiony angielski, jest pomijany
+(`--force` nadpisuje świadomie).
 
 ## 3. Jeden wiersz = jeden tekst
 
@@ -103,7 +119,7 @@ wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en`
    bitewnych często stoją na początku/końcu.
 2. **Nie zmieniaj liczby przejść do nowej linii** ani znaków niewidocznych: `⏎` (`\r` — czyści okno
    dialogowe) i `0x0F` (przełącza czcionkę na połówkową — stoi w nazwach i skrótach opisów).
-   Walidator pilnuje obu.
+   Walidator pilnuje obu; w widoku wpisuje się je jako `⏎` i `<0x0F>`, a import zamienia je na znaki.
 3. **CP932**: każde `en` musi dać się zapisać w CP932 (japoński zestaw znaków zawiera pełną
    łacinę, cyfry i znaki interpunkcyjne). Program zgłosi wiersze, które się nie kodują.
 4. **Nazwy własne** — trzymaj się jednej pisowni w całym pakiecie; sekcje `07_` i `08_` to źródło nazw,
@@ -112,10 +128,22 @@ wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en`
 
 ## 6. Proces tłumaczenia (jeden, obowiązujący)
 
-1. **Wypełnij `en` w plikach `*.jsonl`** (tylko tam; `strings.csv` jest widokiem i nie jest wczytywany
-   z powrotem). Dialogi czytaj scenami: `sceny/epizod-NN.md` albo po kolei w `00_dialogue.jsonl`
-   (wiersze już są w kolejności scen).
-2. **Uzupełnij kopie wariantów** — jednym poleceniem, przed kontrolą jakości:
+1. **Tłumaczysz sceny w widoku** — rozpakowujesz `sceny.zip` i po kolei uzupełniasz linie `EN:`
+   w `epizod-NN.md` (kontekst: nagłówek sceny z odcinkiem, tytułem misji i miejscem + japoński tekst
+   wszystkich elementów w kolejności gry). Kategorie bez widoku (cytaty bitewne, itemy, umiejętności,
+   nazwy) wypełnia się bezpośrednio polem `en` w odpowiednim `*.jsonl`.
+2. **Przenieś pracę do pakietu** — widok nie idzie do gry, tylko do jednego polecenia:
+
+   ```
+   python3 tools/translation_import.py --views <folder z plikami md albo sceny.zip> --package local/translation
+   ```
+
+   Narzędzie wpisuje angielski z linii `EN:` do `00_dialogue.jsonl` (element `3.` w scenie
+   `eventP00.cpk / DL100_01.bin` to wiersz o `scene` = `eventP00.cpk/DL100_01.bin` i `order` = 3).
+   Tekst, który zepsułby grę — inna liczba linii, zgubiony token `＠0`/`%s`, znak spoza czcionki,
+   zgubiony `⏎`/`<0x0F>` — jest **odrzucany i wypisany**, a nie wpisany; poprawiasz i uruchamiasz
+   ponownie (polecenie jest bezpieczne wielokrotnie). `--check` pokazuje, co zostałoby wpisane.
+3. **Uzupełnij kopie wariantów** — jednym poleceniem, przed kontrolą jakości:
 
    ```
    python3 tools/translation_copy.py --package local/translation
@@ -124,7 +152,7 @@ wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en`
    Program przepisuje `en` z wiersza wskazanego w `copy_of` do każdego pustego wiersza-kopii
    (4 186 wierszy), nie nadpisuje niczego wypełnionego i odmawia, gdy `jp` kopii różni się od źródła.
    `--check` pokazuje, co zostałoby zrobione, bez zapisu.
-3. **Sprawdź pakiet** przed zwrotem:
+4. **Sprawdź pakiet** przed zwrotem:
 
    ```
    python3 tools/translation_check.py --package local/translation --require-complete --strict
@@ -137,9 +165,10 @@ wczytywany z powrotem przez programy; tłumaczenie wpisuje się **tylko** w `en`
    Raport (`check_report.txt`, domyślnie w katalogu pakietu) ma tabelę per plik i pierwsze problemy.
    Wiersze `06_scenes.jsonl` są pomijane jako struktura. Pełny przebieg po 82 591 wierszach: **0 błędów
    w ~1,6 s**.
-4. **Zwrot**: wypełnione pliki JSONL wracają na Drive; program `tools/item_skill_write.py --translations
-   <plik lub katalog>` wstawia teksty itemów i umiejętności do kontenerów gry (reszta kategorii czeka
-   na swoje ścieżki zapisu — patrz `docs/STATUS.md`).
+5. **Zwrot**: wypełnione pliki JSONL wracają na Drive; program `tools/item_skill_write.py --translations
+   <plik lub katalog>` wstawia teksty itemów i umiejętności do kontenerów gry, a `tools/apply_strings.py`
+   (EVNT) obsługuje narrację scen. Ścieżka zapisu dialogów scen jest następna w kolejce — patrz
+   `docs/STATUS.md`.
 
 ## 7. Stan pokrycia (2026-10-12)
 

@@ -10,7 +10,9 @@ The checher is deliberately strict about everything the game cares about and for
   ``％s``, ``＄n``, ``＃``, ``{XX}`` — the game substitutes them),
 * the number of ``\\n`` line breaks must match ``jp`` (the dialogue boxes and list rows are drawn
   around them),
-* ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning.
+* ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning,
+* a dialogue or battle-quote line wider than the in-game box (``BOX_WIDTH`` half-width units) is
+  a warning: the game draws the box around ``jp`` and clips anything wider.
 
 Rows with an empty ``en`` are reported as untranslated, not as errors, so the check can be run while
 translating.  ``--require-complete`` turns them into errors for a release check.
@@ -33,9 +35,12 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
 
 TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
+BOX_WIDTH = 46   # the in-game dialogue box in half-width units (docs/HANDOFF.md §2; apply_strings)
+BOXED = ("dialogue", "battle_quote")   # only these two are drawn inside that box
 CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
 
 
@@ -89,6 +94,12 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
         errors.append(f"over budget: {size} > max_bytes {row['max_bytes']}")
     elif row.get("suggested_max") and size > row["suggested_max"]:
         warnings.append(f"wider than the game's field: {size} > suggested_max {row['suggested_max']}")
+    if row.get("category") in BOXED:
+        widths = [export_strings.display_width(line) for line in text.split("\n")]
+        over = [width for width in widths if width > BOX_WIDTH]
+        if over:
+            which = widths.index(max(widths)) + 1
+            warnings.append(f"line {which} is {max(widths)} wide, the in-game box fits {BOX_WIDTH}")
     return errors, warnings
 
 

@@ -2441,3 +2441,24 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    `translation_copy.py`, potem `translation_check.py`; CSV to tylko widok. Sekcja o scenach tłumaczy,
    jak czytać bloki i skąd bierze się kontekst.
 20. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **595 OK (1 skipped)**.
+
+## Sesja 5 (2026-10-12), część 10b — widok scen jako plik do pracy i import angielskiego
+
+21. [ZWERYFIKOWANE — brakujące ogniwo procesu] Pytanie użytkownika: „mam rozpakować `sceny.zip` i
+   tłumaczyć pliki `.md`, a potem co — spakować je z powrotem?”. Odpowiedź zbudowana w kodzie:
+   widok scen jest **plikiem do pracy**, a nie tylko do czytania.
+   * `tools/scene_view.py`: pod każdym elementem sceny pojawia się linia `EN:` (z istniejącym
+     tłumaczeniem, jeśli już jest); znaki niewidzialne pokazywane jako `⏎` i `<0x0F>`; `scene_view.py`
+     **nie nadpisze** pliku, w którym leży nieprzeniesiony angielski (raport `skipped`, `--force`
+     nadpisuje świadomie) — regeneracja widoku nie może skasować pracy tłumacza. 6 testów.
+   * `tools/translation_import.py` (nowe): czyta `.md` (folder, lista plików albo `sceny.zip`),
+     zbiera angielski z bloków `EN:` (z wcięciem = ciąg dalszy, więc liczba linii wychodzi jak w
+     japońskim), zamienia `⏎`/`<0x0F>` na znaki i wpisuje tekst do `00_dialogue.jsonl`
+     (klucz: scena + numer elementu). Tekst łamiący zasady gry (linie, tokeny `＠0`/`%s`, CP932,
+     znaki sterujące) jest **odrzucany, nie wpisywany** — poprawka i ponowne uruchomienie są bezpieczne
+     (przebieg jest idempotentny). `--check` = próba bez zapisu. 13 testów.
+22. [ZWERYFIKOWANE — przebieg na danych] Demo na pierwszych 12 liniach sceny 1 (`local/translation-demo2/`,
+   gitignored): widok z pustymi `EN:` → ręcznie wpisany angielski → `translation_import.py` →
+   **12 wierszy wpisanych / 0 odrzuconych**, `translation_check.py`: 12 wypełnionych / 0 błędów /
+   0 uwag. Prawdziwy widok pakietu regenerowany z liniami `EN:` (`local/translation/sceny/`, 37 plików,
+   `sceny.zip` 767 501 B).
