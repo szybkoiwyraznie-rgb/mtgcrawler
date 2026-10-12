@@ -187,6 +187,12 @@ Rozpakuj `widoki.zip`. W środku jest siedem plików — każdy obejmuje jedną 
 Zasada jest **ta sama** co w fabule: linia japońska, pod nią linia `limit:` (ile wolno napisać),
 a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam nie wpisujesz.
 
+> **Nagłówki grup zostają po japońsku.** Linie `- seria:`, `- głos:`, `- długość:`, `- masa:`
+> w nagłówkach (i `- uczestnicy:` w fabule) to tylko **podpowiedź**, z jakiego świata pochodzi
+> postać albo mech — **nie tłumaczy się ich** i nic się w nich nie wpisuje. To, co **widać w grze**,
+> jest osobno, jako ponumerowany element: `[Seria]`, `[Aktor głosowy]`, `[Długość]`, `[Masa]` —
+> i **te elementy się tłumaczy**.
+
 ### Postacie — `postacie.md`
 
 ```

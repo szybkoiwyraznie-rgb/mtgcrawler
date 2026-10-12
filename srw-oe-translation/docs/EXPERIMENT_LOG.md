@@ -2616,3 +2616,13 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    `EN:`**, widoki **41 405** — razem **67 440** (+ 5 146 elementów dziedziczonych = 72 586 pozycji).
    `sceny.zip` 932 206 B (37 plików), `widoki.zip` 617 660 B (7 plików). Kontrola pakietu:
    85 424 wiersze tekstu + 293 strukturalne, **0 błędów**. Testy: **728 OK (1 skipped)**.
+46. [SZACUNEK — ile pracy na całe tłumaczenie] Zmierzone: źródło japońskie **1 406 489 znaków**
+   w 67 440 pozycjach (średnio 21 znaków na pozycję). Zmierzony stosunek z przetłumaczonej sceny 1
+   (103 pozycje, 88 linii scenki + 15 tytułów): **6 083 znaków angielskich** — ok. 2,25 znaku EN na
+   znak JP. Czyli docelowy tekst to ok. **3,16 mln znaków / ~527 tys. słów / ~0,8 mln tokenów**
+   samego tekstu. Podział pracy: dialog+narracja 51 %, cytaty bitewne 29 %, teksty config 10 %,
+   umiejętności 4 %, nazwy mechów/broni 3 %, reszta 3 %. Widoki do przejrzenia: 11,8 MB `.md`
+   (sceny 4,3 MB + widoki 7,5 MB); wejście (japoński + ramki) ~2,2 mln tokenów na jeden przebieg.
+   Wniosek orientacyjny: nie jedna sesja i nie 15 minut; rząd **~5–10 mln tokenów** w sumie
+   (z czytaniem źródła, sprawdzeniami i poprawkami), **~100–250 tur roboczych = ~10–20 sesji**,
+   kilkanaście–kilkadziesiąt godzin czystego generowania, rozłożone na dni z Twoimi testami w grze.

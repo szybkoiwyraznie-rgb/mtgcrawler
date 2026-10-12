@@ -543,3 +543,9 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 - **Drive**: folder „Pakiet do tłumaczenia" zawiera **dokładnie trzy pliki** (`README.md`,
   `sceny.zip`, `widoki.zip`); nasze kopie JSONL i raporty przeniesione do folderu
   „Robocze (JSONL — nie dla tłumacza)".
+- **Jasność pakietu**: README (wersja 2) mówi wprost, że **nagłówki grup** (`- seria:`, `- głos:`,
+  `- uczestnicy:`) zostają po japońsku jako podpowiedź, a tłumaczy się tylko elementy widoczne
+  w grze (`[Seria]`, `[Aktor głosowy]`, …).
+- **Szacunek pracy na całość** (zmierzony, nie na oko): 1 406 489 znaków JP → ~3,16 mln znaków EN
+  (~527 tys. słów), ~0,8 mln tokenów czystego tekstu; rząd 5–10 mln tokenów z otoczką, ~100–250 tur
+  roboczych (~10–20 sesji). Szczegóły we wpisie 46 `EXPERIMENT_LOG.md`.
