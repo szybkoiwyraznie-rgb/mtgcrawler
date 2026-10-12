@@ -232,3 +232,17 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - `ItemDrop` names (177) are unverified; not the same as Item00 names.
 - Growth of inline names untested (needs offset-table rebuild).
 - Speaker table reconfirmed after the 32-probe rebuild: no change.
+
+### Session 3 (2026-10-12): cel i stan
+- Stały cel (100% tekstu przetłumaczone i reinject, 100% kluczy): `docs/GOAL.md`. Czytać przed każdą pracą.
+- Sandbox cofnął HEAD dwa razy. Odtworzenie: `git reset --mixed origin/arena/581a1b79-mtgcrawler`, potem commit i push. Pliki robocze nie zmieniają się przy resecie.
+- `local/` odtworzone z Drive (wejścia w `google_drive/`, `tools/build_speaker_inputs.py`).
+- Otwarte: rozbieżność 246 vs 216 nazw słownikowych (`docs/NAME_REVIEW.md`); klucze bitewne bez nazwy (23 w kolejce, bez 4420); walidacja pól pilotów w `unit_list` (hipoteza).
+- Kategorie wymagane przez cel, stan pokrycia:
+  - dialog (283 klucze, 12738 linii): tak, nazwy częściowo;
+  - battle quotes (241 kluczy, 22902 rekordy): tak, nazwy częściowo;
+  - mechy/jednostki (393 rekordy `unit_list`, 40 mechów `RoboDictionary`): nazwy tak, powiązanie z bronią nie;
+  - bronie (389 nazw): nazwy tak, opisy nie;
+  - przedmioty (317 nazw): nazwy tak, opisy działania nie;
+  - helpy/UI: nie zaczęte (poza tabelą referencyjną `srwDL_Reference`, 28 rekordów z tekstem);
+  - encyklopedia postaci: nie zlokalizowana.
