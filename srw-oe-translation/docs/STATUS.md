@@ -263,17 +263,22 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Kandydaci: `unit_list` base 267, display 390, slot3 40. Brak wspólnych nazw slot3 z unit_list.
 - Cel 100+ mechów NIEPOTWIERDZONY: nie wiadomo, czy unit_list to same mechy.
 
-### Sesja 5 (2026-10-12): tożsamość jednostek (jednostka → bronie → seria)
+### Sesja 5 (2026-10-12): tożsamość jednostek (jednostka → bronie → seria) — CAŁA GRA
 - Nowe narzędzie `tools/unit_weapons.py` (read-only): scala `unit_list`, `wp_list`, `srw_DL_RoboDictionary`,
   `robo_cpkid` i `unit_index_list` po id jednostki; wynik `local/units/unit_weapons.json` + CSV (gitignored).
   16 nowych testów syntetycznych; cały zestaw **383 OK (1 skipped)**.
-- [ZWERYFIKOWANE] 7 kontenerów config (00–06): 333 jednostki, 1236 broni; id `unit_list` +84 == id `wp_list`
-  w każdym kontenerze, ta sama kolejność; każda jednostka ma listę broni, każda broń ma nazwę i animację `.bsb`.
+- [ZWERYFIKOWANE] **Cała gra, 46 kontenerów:** 393 jednostki (= cały `unit_index_list`) i 1485 broni;
+  id `unit_list` +84 == id `wp_list` w każdym kontenerze, ta sama kolejność (46/46); każda jednostka ma
+  listę broni, każda broń ma nazwę i animację `.bsb` (1481 także formę skróconą).
+- [ZWERYFIKOWANE] Dane gry siedzą w `config00`–`config19` (20 kontenerów). `config20`–`config46` to zaślepki
+  z tekstem-powtórzeniem „configNN" (32 B) i czasem 256-bajtowym `milstPnn.bin`; `config09` ma puste pule.
 - [ZWERYFIKOWANE] `unit_index_list.bin` = globalna lista **393 jednostek całej gry** (id, liczba broni, offset);
   łańcuch offsetów 393/393 (offset[i+1] − offset[i] = 12 + 256·liczba); liczba broni zgodna z `wp_list` 332/333
   (anomalia: id 2940 — indeks 3, rekord 4). 60 id należy do kontenerów `config07`–`config46`.
 - [ZWERYFIKOWANE, korekta] nazwa broni jest ZAWSZE pod entry+32 (dawne „+30" to artefakt float32 pod +28).
   Nazwa jednostki: +0 (bazowa) i +140 (z wariantem); seria = `RoboDictionary` slot 3 po id z +28
   (261 rekordów, 259 id pokrytych, jedno id z dwoma rekordami: 3201; 74 jednostki bez serii w tych kontenerach).
-- Otwarte: pobrać `config07`–`config46` i powtórzyć przebieg; semantyka pól +88…+134; `robo01`+ dla modeli;
-  pozycje 55 jednostek bez modelu.
+- [ZWERYFIKOWANE] Komplet: `srw_DL_RoboDictionary` 305 rekordów → 302 jednostki z serią (91 bez);
+  `robo_cpkid` 360 par → 336 jednostek z modelem w `robo00`, 24 pary poza `robo00`; `unitfacelist` 321 rekordów.
+- Otwarte: semantyka pól +88…+134; `robo01`+ dla 24 par modeli; 91 jednostek bez rekordu serii;
+  2 anomalie liczby broni (2940, 3246).

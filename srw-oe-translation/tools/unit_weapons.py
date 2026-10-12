@@ -37,10 +37,9 @@ Measured record layouts (config00-06, 2026-10-12) [ZWERYFIKOWANE on those contai
   slot 0/1 = "全長 ..." (length) / "重量 ..." (weight) strings, slot 3 = series/work title.
 ``unit_index_list.bin`` (a member of config00) is the GLOBAL roster of the whole game: 393 rows
   of (u16 unit_id, u16 weapon_count, u32 offset), sorted by unit id.  Measured [ZWERYFIKOWANE]:
-  * the 333 unit ids of config00-06 all occur in column 1, and 60 further ids belong to the
-    containers not downloaded yet (config07-46);
-  * column 2 equals the unit's ``wp_list`` weapon count for 332/333 of our units
-    (one anomaly: unit 2940, index says 3, the wp_list record holds 4);
+  * all 393 unit ids of config00-19 occur in column 1 (no further units exist);
+  * column 2 equals the unit's ``wp_list`` weapon count for 391/393 units (two anomalies:
+    unit 2940 of config05, index 3 vs record 4; unit 3246 of config07, index 0 vs record 1);
   * column 3 chains exactly: ``offset[i+1] - offset[i] == 12 + 256*count[i]`` for 393/393 rows,
     i.e. the offsets address one merged weapon table covering all units of the game
     (value range 1588 .. 385952).

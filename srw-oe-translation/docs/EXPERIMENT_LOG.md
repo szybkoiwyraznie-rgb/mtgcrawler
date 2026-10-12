@@ -2033,3 +2033,18 @@ Przyczyna rozbieżności z lokalnym wynikiem użytkownika (ok. 45k+ linii):
 Wniosek dla celu: wymaganie „nazwy mechów powiązane z nazwami broni" ma zdekodowane i zweryfikowane
 połączenie na 7 z 46 kontenerów; reszta to to samo pobranie + ten sam przebieg, bez zmian w narzędziu.
 Otwarte: semantyka pól +88…+134 w `unit_list`, anomalia 2940, 74 jednostki bez serii, modele jednostek z DLC.
+
+10. [ZWERYFIKOWANE] **Cała gra.** Pobrano pozostałe `config07`–`config46` (39 plików; `config38` nie istnieje)
+    i powtórzono przebieg na 46 kontenerach: **393 jednostki (= cały `unit_index_list`), 1485 broni**;
+    wszystkie jednostki mają listę broni; każda broń ma nazwę i animację `.bsb` (1481 ma formę skróconą);
+    kontrole kolejności id: 46/46 kontenerów zgodne. Cross-check liczby broni z indeksem: **391 zgodnych,
+    2 anomalie** (2940: rekord 4 vs indeks 3; 3246 w config07: rekord 1 vs indeks 0).
+11. [ZWERYFIKOWANE] **Prawdziwe kontenery danych to `config00`–`config19`** (20 plików; 393 jednostki,
+    393 rekordy `wp_list`, 1485 wpisów broni). `config20`–`config46` to zaślepki: zawierają tylko
+    `configNN.txt` = powtórzone „configNN" (32 B), czasem dodatkowo 256-bajtowy `milstPnn.bin`.
+    `config09` też jest pusta (słowniki 4-bajtowe, zero jednostek). Dla tej kategorii nie ma już nic do pobrania.
+12. Pokrycie towarzyszące (20 kontenerów danych): `srw_DL_RoboDictionary` 305 rekordów → 302 jednostki z serią
+    (91 bez rekordu); `robo_cpkid` 360 par → 336 jednostek z rozwiązaniem modelu (74 katalogi w `robo00`),
+    24 pary wskazują poza `robo00` (`robo01`+ do pobrania); `unitfacelist` = 321 rekordów po 12 B.
+13. Testy po zmianach: **383 OK (1 skipped)**, w tym 16 dla `tools/unit_weapons.py`. Commit `333dff9`
+    (PR #12) zawiera narzędzie i dokumentację; wyniki całogrowe dopisane po jego utworzeniu.
