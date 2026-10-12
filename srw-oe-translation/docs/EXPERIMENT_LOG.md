@@ -2568,3 +2568,40 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    jako `<nazwa>-test.iso`. Ścieżkę z klawiatury pyta tylko wtedy, gdy nie ma Tk/pulpitu albo
    okno zostanie anulowane; wtedy puste wejście = kod wyjścia 2 (nie „cicha" kontynuacja).
    `main()` sprawdza rozszerzenie/istnienie pliku przed odczytem. 4 nowe testy (15 razem).
+
+## Sesja 5 (2026-10-12), część 11 — narracja, tytuły misji, cała pierwsza scenka
+
+39. [ZWERYFIKOWANE — luka w ekstraktorze, naprawiona] `event_dialogue._walk_wrapper` wpuszczał do
+   pakietu wyłącznie rekordy `0xC9` (dialog), więc **cała narracja leżąca w opakowaniu `0xC8`
+   wypadała** — w samym `eventP00.cpk` 41 rekordów z 44. Skutek: tłumacz nie widział prozy
+   otwierającej grę (4 rekordy w `DL100_01.bin`), a pisarz nie miał czego dopasować. Teraz
+   `_append_record` obsługuje oba miejsca tym samym kodem, a narracja jest czytana **z pola**
+   (tekst od +12), nie przez skanowanie — skan szuka japońskich znaków, więc nie widziałby własnego
+   angielskiego wyniku. Testy: 13 w `test_event_dialogue.py` (m.in. narracja w opakowaniu i już
+   przetłumaczona linia).
+40. [ZWERYFIKOWANE — zapis narracji] `tools/event_text_apply.py` pisze teraz oba typy rekordów:
+   `0xC9` (dialog, tekst od +20) i `0x1B7` (narracja, tekst od +12). To samo prawo dopełnienia
+   (rozmiar % 4 == 0, 1–4 zera, nigdy 0) zmierzone na 44 rekordach narracji `eventP00.cpk`
+   (dopełnienia 1/2/3/4 = 15/10/12/7). Szerokość: dialog 46 (okno dialogowe), narracja **52**
+   (najdłuższa zmierzona linia = 26 znaków pełnej szerokości); przekroczenie szerokości narracji to
+   uwaga w raporcie, nie odmowa — okna narracji nie znamy dokładnie. Weryfikacja liczy teraz teksty
+   własnym czytnikiem (nie ekstraktorem), bo ekstraktor nie widzi angielskiego. Testy: 21.
+41. [ZWERYFIKOWANE — cała pierwsza scenka] `tools/build_test_spec.py` składa przepis dla
+   `DL100_01.bin`: **88 pozycji = 6 rekordów narracji + 82 linie dialogu**, tłumaczone z japońskiego
+   w grze (bez skryptu Akurasu). Nazwy własne potwierdzone nazwami z materiałów wydawcy i wiki:
+   草薙征士郎 = **Seishiro Kusanagi**, 八重垣ひまり = **Himari Yaegaki**; エグザート czytane jako
+   **Exert** (wiki SRW: nazwa od angielskiego „Exert”) — do potwierdzenia przy przejściu nazw.
+   Znacznik imienia bohatera `＜主人公名＞` zostaje dosłownie. Przebieg na prawdziwym kontenerze:
+   **88/88 wpisanych, 0 problemów, zmieniony tylko `DL100_01.bin`** (13 112 → 13 740 B), a odczyt
+   patrzonego kontenera daje 88 pozycji bez błędów.
+42. [ZWERYFIKOWANE — tytuły misji] `tools/slot_text_apply.py` (+18 testów) pisze w pola stałej
+   szerokości: CPK → `config00.pac` → `milstP00.bin`, komórka 128 B, tytuł od +10, do 117 B + NUL.
+   Reguła odwrotna niż przy rekordach: **mieści się albo odmowa**; po zapisie weryfikacja sprawdza,
+   że poza pisanymi komórkami nie zmienił się ani jeden bajt i że tekst czyta się z powrotem.
+   Bramka `--identity` dla `config00.cpk`: 929 920 B bajt w bajt. Przetłumaczone **wszystkie 15
+   tytułów** z `milstP00.bin` (m.in. `初等訓練` → „Basic Training”, `ホワイトベースを救援せよ` →
+   „Rescue the White Base”, `黒い三連星` → „The Black Tri-Stars”).
+43. [ZWERYFIKOWANE — jeden bat, dwa kontenery] `PATCH_ISO_TEST.bat` wpisuje teraz jedno i drugie:
+   scenkę z `eventP00.cpk` i tytuły z `config00.cpk`, w jednym przebiegu i jednym `patch_iso`
+   (sekcja `slots` w przepisie, z własnymi skrótami MD5). Przebieg kontrolny na atrapie ISO
+   z **oboma prawdziwymi kontenerami**: 88/88 linii + 15 komórek, zero uwag, sąsiedni plik bez zmian.

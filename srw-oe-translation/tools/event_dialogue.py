@@ -58,6 +58,11 @@ import speaker_map as SM  # noqa: E402
 CJK = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
 CONTAINER_TYPES = (0x0, EW.TYPE_WRAPPER)      # never scanned for their own text
 MIN_RUN = 4                                    # bytes of CP932 before a run is considered
+#: record type -> where its text starts inside the record's payload (measured, not assumed).
+#: Narration keeps one u32 (a line index 0/1/2) before the text, at +12 from the record start.
+TEXT_FIELDS = {
+    0x1B7: 4,
+}
 KIND = {
     0x1B7: "narration",
     0x1B6: "scene_title",
@@ -115,28 +120,12 @@ def extract_member(blob: bytes, container: str = "", member: str = "") -> dict:
         for offset, rtype, size in EW.walk_chain(blob, block["chain_start"], block["end"]):
             types[rtype] += 1
             if rtype == EW.TYPE_WRAPPER:
-                unreadable += _walk_wrapper(blob, offset, size, dialogue, container, member)
+                unreadable += _walk_wrapper(blob, offset, size, dialogue, other,
+                                            container, member)
                 continue
             if rtype not in CONTAINER_TYPES:
-                payload = blob[offset + 8:offset + size]
-                if rtype == EW.TYPE_TEXT:
-                    parsed = EW.payload_text(payload)
-                    if parsed is None:
-                        unreadable += 1
-                        continue
-                    dialogue.append({"container": container, "member": member, "kind": "dialogue",
-                                     "record_offset": offset, "record_size": size,
-                                     "text_offset": offset + 8 + EW.TEXT_HEADER,
-                                     "key": parsed["key"], "flags": parsed["header"][0],
-                                     "extra": parsed["extra"], "text": parsed["text"],
-                                     "bytes": len(parsed["raw"])})
-                    continue
-                for run_offset, text in clean_runs(payload, limit=1):
-                    other.append({"container": container, "member": member,
-                                  "kind": KIND.get(rtype, f"type_{rtype:#x}"),
-                                  "record_offset": offset, "record_size": size,
-                                  "record_type": rtype, "text_offset": offset + 8 + run_offset,
-                                  "text": text, "bytes": len(text.encode("cp932"))})
+                unreadable += _append_record(blob, offset, rtype, size, container, member,
+                                             dialogue, other)
     return {"container": container, "member": member, "header": EW.file_header(blob),
             "blocks": len(block_list), "chain_blocks": chain_blocks, "table_blocks": table_blocks,
             "unreadable_dialogue": unreadable,
@@ -144,29 +133,72 @@ def extract_member(blob: bytes, container: str = "", member: str = "") -> dict:
             "types": types, "errors": errors}
 
 
-def _walk_wrapper(blob: bytes, offset: int, size: int, dialogue: List[dict],
+def _append_record(blob: bytes, offset: int, rtype: int, size: int, container: str, member: str,
+                   dialogue: List[dict], other: List[dict]) -> int:
+    """Append the text of one record; returns 1 when a dialogue payload is unreadable.
+
+    Wrapper nesting is the caller's business.  Every other record type -- narration, conditions,
+    scene titles, help -- is located by scanning its payload, exactly as at the top level of a
+    block, because a wrapper is a container, not a different kind of text.
+    """
+    if rtype == EW.TYPE_TEXT:
+        parsed = EW.payload_text(blob[offset + 8:offset + size])
+        if parsed is None:
+            return 1
+        dialogue.append({"container": container, "member": member, "kind": "dialogue",
+                         "record_offset": offset, "record_size": size,
+                         "text_offset": offset + 8 + EW.TEXT_HEADER,
+                         "key": parsed["key"], "flags": parsed["header"][0],
+                         "extra": parsed["extra"], "text": parsed["text"],
+                         "bytes": len(parsed["raw"])})
+        return 0
+    field = TEXT_FIELDS.get(rtype)
+    if field is not None:
+        # measured layout: read the field instead of scanning.  Scanning looks for Japanese
+        # characters, so it cannot see a line we have already translated -- and a reader that goes
+        # blind on our own output cannot be used to check it.
+        start = offset + 8 + field
+        raw = blob[start:offset + size].split(b"\x00", 1)[0]
+        try:
+            text = raw.decode("cp932")
+        except UnicodeDecodeError:
+            text = ""
+        if text and EW.is_clean(text):
+            other.append({"container": container, "member": member,
+                          "kind": KIND.get(rtype, f"type_{rtype:#x}"),
+                          "record_offset": offset, "record_size": size,
+                          "record_type": rtype, "text_offset": start,
+                          "text": text, "bytes": len(raw)})
+        return 0
+    for run_offset, text in clean_runs(blob[offset + 8:offset + size], limit=1):
+        other.append({"container": container, "member": member,
+                      "kind": KIND.get(rtype, f"type_{rtype:#x}"),
+                      "record_offset": offset, "record_size": size,
+                      "record_type": rtype, "text_offset": offset + 8 + run_offset,
+                      "text": text, "bytes": len(text.encode("cp932"))})
+    return 0
+
+
+def _walk_wrapper(blob: bytes, offset: int, size: int, dialogue: List[dict], other: List[dict],
                   container: str, member: str) -> int:
-    """Every 0xC9 inside a 0xC8 wrapper (measured: 20 575 of the 26 468 story lines).
+    """Every text inside a 0xC8 wrapper (measured: 20 575 of the 26 468 story lines).
+
+    Records inside a wrapper used to be filtered down to type 201, which silently dropped 44
+    narration records of ``eventP00.cpk`` alone (measured 2026-10-12) -- the prose a player sees
+    before a battle.  Now every record type is read here too.
 
     Returns the number of type-201 records that are not readable as text (counted, not hidden).
     """
     unreadable = 0
     for inner_offset, rtype, inner_size in EW.walk_chain(blob, offset + 8, offset + size):
         if rtype == EW.TYPE_WRAPPER:
-            unreadable += _walk_wrapper(blob, inner_offset, inner_size, dialogue, container, member)
+            unreadable += _walk_wrapper(blob, inner_offset, inner_size, dialogue, other,
+                                        container, member)
             continue
-        if rtype != EW.TYPE_TEXT:
+        if rtype in CONTAINER_TYPES:
             continue
-        parsed = EW.payload_text(blob[inner_offset + 8:inner_offset + inner_size])
-        if parsed is None:
-            unreadable += 1
-            continue
-        dialogue.append({"container": container, "member": member, "kind": "dialogue",
-                         "record_offset": inner_offset, "record_size": inner_size,
-                         "text_offset": inner_offset + 8 + EW.TEXT_HEADER,
-                         "key": parsed["key"], "flags": parsed["header"][0],
-                         "extra": parsed["extra"], "text": parsed["text"],
-                         "bytes": len(parsed["raw"])})
+        unreadable += _append_record(blob, inner_offset, rtype, inner_size, container, member,
+                                     dialogue, other)
     return unreadable
 
 

@@ -58,7 +58,12 @@ import evnt_walk as EW    # noqa: E402
 import export_strings     # noqa: E402
 import speaker_map as SM  # noqa: E402
 
-RECORD_TEXT = 0xC9     # a dialogue line
+RECORD_TEXT = 0xC9
+RECORD_NARRATION = 0x1B7
+#: record type -> where its text starts inside the record (8-byte record header + own header)
+TEXT_START = {RECORD_TEXT: 20, RECORD_NARRATION: 12}
+#: narration is drawn wider than the dialogue box (measured: up to 26 full-width characters)
+NARRATION_WIDTH = 52     # a dialogue line
 RECORD_WRAPPER = 0xC8  # the record that holds the chain of one scene
 TEXT_HEADER = 12       # 6 u16 words in front of the text (evnt_walk.TEXT_HEADER)
 RECORD_HEADER = 8      # type + size
@@ -71,14 +76,14 @@ def record_text_length(size: int, text: bytes) -> int:
     return len(text)
 
 
-def padded_size(text_length: int) -> int:
-    """The size a ``0xC9`` record takes for a text of this length.
+def padded_size(text_length: int, text_start: int = TEXT_OFFSET_IN_RECORD) -> int:
+    """The size a record takes for a text of this length.
 
-    Measured: every record is 4-byte aligned and keeps at least one NUL after the text
-    (pads of 1…4 bytes occur, never 0).
+    Measured for both record types (0xC9 dialogue and 0x1B7 narration, 2026-10-12): every record is
+    4-byte aligned and keeps at least one NUL after the text (pads of 1…4 bytes occur, never 0).
     """
-    pad = (-(TEXT_OFFSET_IN_RECORD + text_length)) % 4
-    return TEXT_OFFSET_IN_RECORD + text_length + (pad or 4)
+    pad = (-(text_start + text_length)) % 4
+    return text_start + text_length + (pad or 4)
 
 
 def parse_block_records(blob: bytes) -> Tuple[List[dict], List[str]]:
@@ -103,20 +108,28 @@ def parse_block_records(blob: bytes) -> Tuple[List[dict], List[str]]:
 
 
 def text_of(blob: bytes, record: dict) -> bytes:
-    """The text bytes of a ``0xC9`` record (everything before the first NUL of the payload)."""
+    """The text bytes of a record (everything before the first NUL of its payload)."""
+    start = TEXT_START.get(record["type"])
+    if start is None:
+        raise ValueError(f"record type {record['type']:#x} has no text field I know")
     offset, size = record["offset"], record["size"]
     payload = blob[offset + RECORD_HEADER:offset + size]
-    return payload[TEXT_HEADER:].split(b"\x00", 1)[0]
+    return payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
 
 
 def find_record(blob: bytes, text_offset: int, text: bytes) -> Optional[dict]:
-    """The innermost ``0xC9`` record whose text starts exactly at ``text_offset``."""
+    """The innermost record with a length field whose text starts exactly at ``text_offset``.
+
+    Dialogue and narration are both measured to keep their text at a fixed place after the record
+    header, so both are found the same way; anything else has no length field and is refused here
+    (its own writer is still to come).
+    """
     records, _ = parse_block_records(blob)
     candidates = [r for r in records
-                  if r["type"] == RECORD_TEXT
-                  and r["offset"] + TEXT_OFFSET_IN_RECORD == text_offset
+                  if r["type"] in TEXT_START
+                  and r["offset"] + TEXT_START[r["type"]] == text_offset
                   and blob[r["offset"]:r["offset"] + r["size"]].startswith(
-                      struct.pack("<II", RECORD_TEXT, r["size"]))]
+                      struct.pack("<II", r["type"], r["size"]))]
     if not candidates:
         return None
     record = min(candidates, key=lambda r: r["size"])
@@ -133,16 +146,19 @@ def grow_text(blob: bytes, record: dict, new_text: bytes) -> bytes:
     their offsets do not move when the text grows.
     """
     offset, old_size = record["offset"], record["size"]
+    start = TEXT_START.get(record["type"])
+    if start is None:
+        raise ValueError(f"record type {record['type']:#x} has no text field I know")
     old_text = text_of(blob, record)
-    if struct.unpack_from("<I", blob, offset)[0] != RECORD_TEXT:
-        raise ValueError(f"record at {offset} is not a dialogue record")
+    if struct.unpack_from("<I", blob, offset)[0] != record["type"]:
+        raise ValueError(f"record at {offset} is not a {record['type']:#x} record")
     if not blob.startswith(struct.pack("<I", old_size), offset + 4):
         raise ValueError(f"record at {offset} declares {old_size} bytes")
-    size = padded_size(len(new_text))
+    size = padded_size(len(new_text), start)
     delta = size - old_size
-    head = blob[offset:offset + RECORD_HEADER + TEXT_HEADER]
+    head = blob[offset:offset + start]
     tail = blob[offset + old_size:]
-    new_record = head + new_text + b"\x00" * (size - TEXT_OFFSET_IN_RECORD - len(new_text))
+    new_record = head + new_text + b"\x00" * (size - start - len(new_text))
     out = bytearray(blob[:offset] + new_record + tail)
     if delta:
         struct.pack_into("<I", out, offset + 4, size)
@@ -174,15 +190,45 @@ def owner_section(blob: bytes, offset: int) -> Optional[dict]:
     return None
 
 
-def texts_of_member(blob: bytes, container: str = "", member: str = "") -> List[Tuple[str, int, str]]:
-    """``[(kind, record_type, text)]`` of every text of a member, in reading order."""
+def kind_of(record_type: int) -> str:
+    """The package's name for a record type (``dialogue`` for 0xC9, ``narration`` for 0x1B7…)."""
     import event_dialogue
 
+    if record_type == RECORD_TEXT:
+        return "dialogue"
+    return event_dialogue.KIND.get(record_type, f"type_{record_type:#x}")
+
+
+def texts_of_member(blob: bytes, container: str = "", member: str = "") -> List[Tuple[str, int, str]]:
+    """``[(kind, record_type, text)]`` of every text of a member, in reading order.
+
+    Records that have a length field are read with the writer's own reader -- the extractor only
+    reports runs with Japanese characters, so it would not see an English line we just wrote, and
+    a verification that cannot see its own result is worthless.  Everything else (the table texts
+    with no length field) still comes from the extractor, unchanged.
+    """
+    import event_dialogue
+
+    rows: List[Tuple[str, int, str]] = []
+    records, _ = parse_block_records(blob)
+    for record in records:
+        if record["type"] in TEXT_START:
+            rows.append((kind_of(record["type"]), record["type"],
+                         text_of(blob, record).decode("cp932", errors="replace")))
     found = event_dialogue.extract_member(blob, container, member)
-    rows = [("dialogue", RECORD_TEXT, item["text"]) for item in found["dialogue"]]
-    rows += [(item["kind"], item["record_type"], item["text"]) for item in found["other"]]
+    rows += [(item["kind"], item["record_type"], item["text"])
+             for item in found["other"] if item["record_type"] not in TEXT_START]
     rows += [("embedded", 0, item["text"]) for item in found["embedded"]]
     return sorted(rows, key=lambda item: (item[0], item[2]))
+
+
+def _text_kind(records: List[dict], text_offset: int) -> Tuple[Optional[str], Optional[int]]:
+    """``(kind, record type)`` of the record whose text starts at this offset."""
+    for record in records:
+        start = TEXT_START.get(record["type"])
+        if start is not None and record["offset"] + start == text_offset:
+            return kind_of(record["type"]), record["type"]
+    return None, None
 
 
 def _error_kind(message: str) -> str:
@@ -232,9 +278,13 @@ def verify(original: bytes, modified: bytes, changed: List[Tuple[int, bytes, byt
     before = collections.Counter(texts_of_member(original))
     after = collections.Counter(texts_of_member(modified))
     expected = before.copy()
-    for _offset, old, new in changed:
-        expected[("dialogue", RECORD_TEXT, old.decode("cp932", errors="replace"))] -= 1
-        expected[("dialogue", RECORD_TEXT, new.decode("cp932", errors="replace"))] += 1
+    for offset, old, new in changed:
+        kind, rtype = _text_kind(before_records, offset)
+        if kind is None:
+            problems.append(f"no record of a known type holds the text at {offset}")
+            continue
+        expected[(kind, rtype, old.decode("cp932", errors="replace"))] -= 1
+        expected[(kind, rtype, new.decode("cp932", errors="replace"))] += 1
     expected = collections.Counter({key: value for key, value in expected.items() if value > 0})
     for key, count in (expected - after).items():
         problems.append(f"text missing after the change ({count}x): {key[2][:40]!r}")
@@ -276,7 +326,7 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
     that would break the file is reported instead of written out.
     """
     report = {"rows": len(rows), "applied": 0, "skipped": [], "refused": [], "changed": [],
-              "problems": []}
+              "problems": [], "notes": []}
     ordered = sorted(rows, key=lambda row: row["source"]["offset"], reverse=True)
     out = blob
     for row in ordered:
@@ -286,19 +336,26 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
         if blob[offset:offset + len(jp)] != jp:
             report["skipped"].append(f"{row['id']}: the Japanese text is not at {offset}")
             continue
-        problems = box_problems(row["en"] or "")
-        if problems:
-            report["refused"].extend(f"{row['id']}: {problem}" for problem in problems)
-            continue
         record = find_record(out, offset, jp)
         if record is None:
-            if (row.get("kind") or "") != "dialogue":
-                report["skipped"].append(
-                    f"{row['id']}: kind {row.get('kind')} is not a dialogue record "
-                    "(its own writer is still to come)")
-            else:
-                report["refused"].append(f"{row['id']}: no dialogue record holds the text at {offset}")
+            report["skipped"].append(
+                f"{row['id']}: kind {row.get('kind')} has no length field at {offset} "
+                "(its own writer is still to come)")
             continue
+        if record["type"] == RECORD_TEXT:
+            problems = box_problems(row["en"] or "")
+            if problems:
+                report["refused"].extend(f"{row['id']}: {problem}" for problem in problems)
+                continue
+        else:
+            # narration is drawn in a wider field, so its width is a note, not a refusal
+            wide = [(export_strings.display_width(line), line)
+                    for line in (row["en"] or "").split("\n")
+                    if export_strings.display_width(line) > NARRATION_WIDTH]
+            if wide:
+                report["notes"].append(
+                    f"{row['id']}: narration line {wide[0][0]} wide, widest measured is "
+                    f"{NARRATION_WIDTH}")
         out = grow_text(out, record, en)
         report["applied"] += 1
         report["changed"].append((offset, jp, en))

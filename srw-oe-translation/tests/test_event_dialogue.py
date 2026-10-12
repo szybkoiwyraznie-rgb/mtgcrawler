@@ -84,6 +84,36 @@ class ExtractMemberTest(unittest.TestCase):
         self.assertEqual(result["other"], [])
         self.assertEqual(result["embedded"], [])
 
+    def test_narration_inside_a_wrapper_is_reported_too(self):
+        # measured on eventP00.cpk/DL100_01.bin: the scene prose sits inside the same 0xC8 wrapper
+        # as the dialogue, and used to be dropped here (44 narration records of eventP00 alone)
+        wrapped_narration = typed_record(0x1B7, struct.pack("<I", 0) + "数日前…".encode("cp932")
+                                         + b"\x00")
+        section = event_block(wrapper(dialogue_record(4501, "了解！") + wrapped_narration))
+        result = ED.extract_member(event_file(section), "eventP00.cpk", "DL100_01.bin")
+        self.assertEqual([r["kind"] for r in result["other"]], ["narration"])
+        self.assertEqual(result["other"][0]["text"], "数日前…")
+        self.assertEqual(result["other"][0]["record_type"], 0x1B7)
+        self.assertEqual(result["other"][0]["text_offset"],
+                         result["other"][0]["record_offset"] + 8 + 4)
+        self.assertEqual([r["text"] for r in result["dialogue"]], ["了解！"])
+
+    def test_an_already_translated_narration_line_is_still_reported(self):
+        # our English has no Japanese characters, so a scan for Japanese runs goes blind on it
+        english = "Decades have passed since the Earth Federation was founded."
+        section = event_block(typed_record(0x1B7, struct.pack("<I", 0) + english.encode("cp932")
+                                           + b"\x00"))
+        result = ED.extract_member(event_file(section), "c", "m")
+        self.assertEqual([r["text"] for r in result["other"]], [english])
+        self.assertEqual(result["other"][0]["text_offset"], result["other"][0]["record_offset"] + 12)
+
+    def test_a_wrapper_text_is_not_reported_twice(self):
+        section = event_block(wrapper(typed_record(0x1B7, struct.pack("<I", 1) + "数日前…".encode("cp932")
+                                                   + b"\x00")))
+        result = ED.extract_member(event_file(section), "c", "m")
+        self.assertEqual(len(result["other"]), 1)
+        self.assertEqual(result["embedded"], [])
+
     def test_unreadable_dialogue_record_is_counted_not_hidden(self):
         broken = event_block(wrapper(struct.pack("<2I", EW.TYPE_TEXT, 12) + b"\xff\xff\xff\xff"))
         result = ED.extract_member(event_file(broken), "c", "m")

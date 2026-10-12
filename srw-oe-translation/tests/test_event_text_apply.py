@@ -36,6 +36,42 @@ HEADER = (struct.pack("<I", 1) + b"ECHK" + struct.pack("<III", 24, 52, 101)
           + struct.pack("<I", 0) + struct.pack("<III", 1200, 1, 0))
 
 
+def narration_record(index: int, text: bytes) -> bytes:
+    """A 0x1B7 record: type, size, one u32 line index, then the text (measured on eventP00.cpk)."""
+    size = A.padded_size(len(text), A.TEXT_START[A.RECORD_NARRATION])
+    return (struct.pack("<II", A.RECORD_NARRATION, size) + struct.pack("<I", index) + text
+            + b"\x00" * (size - A.TEXT_START[A.RECORD_NARRATION] - len(text)))
+
+
+def member_with_narration(narration, texts, speakers=None, table_text: bytes = None) -> tuple:
+    """Like :func:`member`, but the wrapper starts with narration records, as the real scene does.
+
+    Measured on ``eventP00.cpk`` / ``DL100_01.bin``: narration sits inside the same 0xC8 wrapper as
+    the dialogue, before it, so both writers have to work together.  Returns
+    (blob, narration offsets, dialogue offsets, table offset).
+    """
+    speakers = speakers or [4501] * len(texts)
+    inner = b"".join(narration_record(index, text) for index, text in enumerate(narration))
+    inner += b"".join(dialogue_record(sp, text) for sp, text in zip(speakers, texts))
+    wrapper = struct.pack("<II", WRAPPER, len(inner) + 8) + inner
+    sections = b"EVNT" + struct.pack("<I", len(HEADER + wrapper)) + HEADER + wrapper
+    table_offset = None
+    if table_text is not None:
+        table_body = (struct.pack("<I", 1) + b"ECHK" + struct.pack("<II", 84, 55)
+                      + struct.pack("<I", len(table_text)) + table_text)
+        sections += b"EVNT" + struct.pack("<I", len(table_body)) + table_body
+    blob = b"EDAT" + struct.pack("<II", len(sections), 2 if table_text is not None else 1) + sections
+    records, _ = A.parse_block_records(blob)
+    ordered = sorted(records, key=lambda r: r["offset"])
+    narration_offsets = [r["offset"] + A.TEXT_START[A.RECORD_NARRATION]
+                         for r in ordered if r["type"] == A.RECORD_NARRATION]
+    dialogue_offsets = [r["offset"] + A.TEXT_OFFSET_IN_RECORD
+                        for r in ordered if r["type"] == TEXT]
+    if table_text is not None:
+        table_offset = blob.find(table_text)
+    return blob, narration_offsets, dialogue_offsets, table_offset
+
+
 def member(texts, speakers=None, table_text: bytes = None) -> tuple:
     """A member with one EVNT section holding one C8 wrapper of dialogue records.
 
@@ -44,22 +80,8 @@ def member(texts, speakers=None, table_text: bytes = None) -> tuple:
 
     Returns (blob, [text offsets], table offset or None).
     """
-    speakers = speakers or [4501] * len(texts)
-    inner = b"".join(dialogue_record(sp, text) for sp, text in zip(speakers, texts))
-    wrapper = struct.pack("<II", WRAPPER, len(inner) + 8) + inner
-    body = HEADER + wrapper
-    sections = b"EVNT" + struct.pack("<I", len(body)) + body
-    table_offset = None
-    if table_text is not None:
-        table_body = (struct.pack("<I", 1) + b"ECHK" + struct.pack("<II", 84, 55)
-                      + struct.pack("<I", len(table_text)) + table_text)
-        sections += b"EVNT" + struct.pack("<I", len(table_body)) + table_body
-    blob = b"EDAT" + struct.pack("<II", len(sections), 2 if table_text is not None else 1) + sections
-    records, _ = A.parse_block_records(blob)
-    offsets = [record["offset"] + A.TEXT_OFFSET_IN_RECORD
-               for record in sorted(records, key=lambda r: r["offset"]) if record["type"] == TEXT]
-    if table_text is not None:
-        table_offset = blob.find(table_text)
+    blob, _narration, offsets, table_offset = member_with_narration(
+        [], texts, speakers=speakers, table_text=table_text)
     return blob, offsets, table_offset
 
 
@@ -166,8 +188,9 @@ class GrowTest(unittest.TestCase):
                             kind="embedded")])
         self.assertEqual(out, self.blob)
         self.assertEqual(report["applied"], 0)
-        self.assertEqual(report["skipped"], ["dlg:x:2: kind embedded is not a dialogue record "
-                                             "(its own writer is still to come)"])
+        self.assertEqual(report["skipped"],
+                         ["dlg:x:2: kind embedded has no length field at "
+                          f"{self.table} (its own writer is still to come)"])
 
     def test_two_rows_are_applied_from_the_end_so_offsets_hold(self):
         rows = [row("dlg:x:1", self.offsets[0], self.jp, "First line!"),
@@ -200,6 +223,84 @@ class RowsTest(unittest.TestCase):
                 "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
             found = A.rows_for_member(package, "eventP00.cpk", "DL100_01.bin")
             self.assertEqual([r["id"] for r in found], ["a"])
+
+
+class NarrationTest(unittest.TestCase):
+    """The prose a player reads before a battle: 0x1B7 records, text at +12 (measured)."""
+
+    def setUp(self):
+        self.first = "地球統一政府である地球連邦の樹立から数十年。".encode("cp932")
+        self.second = "やがて太陽系全域に進出した人類は\n膨大な資源とエネルギーを得た。".encode("cp932")
+        self.line = "了解！".encode("cp932")
+        self.blob, self.narration, self.dialogue, _ = member_with_narration(
+            [self.first, self.second], [self.line], speakers=[4501])
+
+    def test_the_text_field_of_a_narration_record_is_at_plus_twelve(self):
+        record = A.find_record(self.blob, self.narration[0], self.first)
+        self.assertIsNotNone(record)
+        self.assertEqual(record["type"], A.RECORD_NARRATION)
+        self.assertEqual(record["offset"] + 12, self.narration[0])
+        self.assertEqual(A.text_of(self.blob, record), self.first)
+
+    def test_a_narration_text_is_found_in_the_same_wrapper_as_the_dialogue(self):
+        records, _ = A.parse_block_records(self.blob)
+        narration = [r for r in records if r["type"] == A.RECORD_NARRATION]
+        self.assertEqual(len(narration), 2)
+        self.assertTrue(all(r["depth"] == 1 for r in narration))     # inside the 0xC8 wrapper
+
+    def test_growing_narration_keeps_every_size_consistent(self):
+        text = ("Earth Federation, decades after its founding.\n"
+                "Human science, technology and economy grew faster than ever.")
+        out, report = A.apply_member(self.blob, [
+            row("nar:x:1", self.narration[0], self.first.decode("cp932"), text, kind="narration")])
+        self.assertEqual((report["applied"], report["refused"], report["skipped"], report["problems"]),
+                         (1, [], [], []))
+        delta = len(out) - len(self.blob)
+        self.assertGreater(delta, 0)
+        self.assertEqual(struct.unpack_from("<I", out, 4)[0],
+                         struct.unpack_from("<I", self.blob, 4)[0] + delta)          # EDAT
+        self.assertEqual(struct.unpack_from("<I", out, 16)[0],
+                         struct.unpack_from("<I", self.blob, 16)[0] + delta)          # EVNT
+        wrapper = [r for r in A.parse_block_records(self.blob)[0] if r["type"] == WRAPPER][0]
+        self.assertEqual(struct.unpack_from("<I", out, wrapper["offset"] + 4)[0],
+                         wrapper["size"] + delta)                                    # wrapper
+        record = A.find_record(out, self.narration[0], text.encode("cp932"))
+        self.assertIsNotNone(record)
+
+    def test_growing_and_shrinking_narration_reproduces_the_original(self):
+        text = "A much longer narration line than the original one, in English."
+        out, _ = A.apply_member(self.blob, [
+            row("nar:x:1", self.narration[0], self.first.decode("cp932"), text, kind="narration")])
+        back, _ = A.apply_member(out, [
+            row("nar:x:1", self.narration[0], text, self.first.decode("cp932"), kind="narration")])
+        self.assertEqual(back, self.blob)
+
+    def test_narration_and_dialogue_are_changed_in_one_pass(self):
+        out, report = A.apply_member(self.blob, [
+            row("nar:x:1", self.narration[0], self.first.decode("cp932"), "Long opening.", kind="narration"),
+            row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"), "Understood!")])
+        self.assertEqual(report["applied"], 2)
+        self.assertEqual(report["problems"], [])
+        records, _ = A.parse_block_records(out)
+        narration = [r for r in records if r["type"] == A.RECORD_NARRATION]
+        self.assertEqual(A.text_of(out, narration[0]), b"Long opening.")
+        dialogue = [r for r in records if r["type"] == TEXT]
+        self.assertEqual(A.text_of(out, dialogue[0]), b"Understood!")
+
+    def test_a_wide_narration_line_is_a_note_not_a_refusal(self):
+        wide = "x" * (A.NARRATION_WIDTH + 3)
+        out, report = A.apply_member(self.blob, [
+            row("nar:x:1", self.narration[0], self.first.decode("cp932"), wide, kind="narration")])
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(len(report["notes"]), 1)
+        self.assertIn("narration line", report["notes"][0])
+
+    def test_a_dialogue_row_still_refuses_a_line_wider_than_the_box(self):
+        _out, report = A.apply_member(self.blob, [
+            row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"), "x" * (A.BOX_WIDTH + 1))])
+        self.assertEqual(report["applied"], 0)
+        self.assertEqual(len(report["refused"]), 1)
 
 
 if __name__ == "__main__":

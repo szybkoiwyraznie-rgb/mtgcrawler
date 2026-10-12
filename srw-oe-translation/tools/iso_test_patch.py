@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import event_text_apply as ETA  # noqa: E402
 import iso_pack  # noqa: E402
+import slot_text_apply as STA  # noqa: E402
 import speaker_map as SM  # noqa: E402
 
 DEFAULT_SPEC = Path(__file__).resolve().parent.parent / "test-patches" / "eventP00-scena1.json"
@@ -59,9 +60,10 @@ def rows_from_spec(blob: bytes, member: str, spec: dict) -> Tuple[List[dict], Li
     records, _ = ETA.parse_block_records(blob)
     by_offset: Dict[int, dict] = {}
     for record in records:
-        if record["type"] != ETA.RECORD_TEXT:
+        start = ETA.TEXT_START.get(record["type"])
+        if start is None:
             continue
-        at = record["offset"] + ETA.TEXT_OFFSET_IN_RECORD
+        at = record["offset"] + start
         if at not in by_offset or record["size"] < by_offset[at]["size"]:
             by_offset[at] = record
     rows: List[dict] = []
@@ -70,13 +72,13 @@ def rows_from_spec(blob: bytes, member: str, spec: dict) -> Tuple[List[dict], Li
         offset = int(line["offset"])
         record = by_offset.get(offset)
         if record is None:
-            problems.append(f"line {number}: no dialogue record starts at {offset} in this file "
-                            "(a different game edition?)")
+            problems.append(f"line {number}: no record with a length field starts at {offset} "
+                            "in this file (a different game edition?)")
             continue
         rows.append({
             "id": f"test:{member}:{offset}",
-            "category": "dialogue",
-            "kind": "dialogue",
+            "category": line.get("kind") or "dialogue",
+            "kind": line.get("kind") or "dialogue",
             "jp": ETA.text_of(blob, record).decode("cp932", "replace"),
             "en": line["text"],
             "source": {"container": spec["container"], "member": member, "offset": offset},
@@ -127,6 +129,62 @@ def prompt_iso() -> Optional[Path]:
     except EOFError:
         return None
     return Path(typed) if typed else None
+
+
+def apply_slot_section(iso_in: Path, section: dict, work: Path) -> Tuple[str, bytes, dict]:
+    """Write one fixed-width section (mission titles) into the container it names.
+
+    Returns (ISO path of the container, new container bytes, report).  The same gates as the
+    dialogue path: the container and the subfile must hash to what the offsets were measured on,
+    every offset must be a slot of its kind, the fitted text must read back, and the ISO's own
+    copy is only read.
+    """
+    name = section["container"]
+    report: dict = {"container": name, "member": section["member"], "kind": section["kind"],
+                    "applied": 0}
+    container = iso_pack.read_member(iso_in, name)
+    report["container_bytes"] = len(container)
+    if section.get("md5_container") and md5(container) != section["md5_container"]:
+        raise ValueError(
+            f"kontener {name} w tym ISO ma inny skrot niz ten, na ktorym mierzylem offsety "
+            f"(jest {md5(container)}) - to inna wersja gry.")
+    original = work / "original-slots.cpk"
+    patched = work / "patched-slots.cpk"
+    original.write_bytes(container)
+    layout = STA.spec_for(section["kind"])
+    stride, slot = layout["stride"], layout["slot"]
+
+    member_blob = None
+    cpk = __import__("cpk_write").load(original)
+    for entry in cpk.members:
+        if entry.name.lower().endswith(".pac"):
+            for sub in __import__("configst_pack").parse_pac(entry.blob)["subs"]:
+                if sub["name"] == section["member"]:
+                    member_blob = sub["data"]
+    if member_blob is None:
+        raise ValueError(f"{name} holds no PAC subfile named {section['member']!r}")
+    report["member_bytes"] = len(member_blob)
+    report["member_md5"] = md5(member_blob)
+    if section.get("md5_member") and report["member_md5"] != section["md5_member"]:
+        raise ValueError(f"podplik {section['member']} ma inny skrot niz zmierzony "
+                         f"({report['member_md5']}) - to inna wersja gry.")
+
+    edits: Dict[int, str] = {}
+    for number, line in enumerate(section["lines"], 1):
+        offset = int(line["offset"])
+        if offset % stride != slot:
+            raise ValueError(f"linia {number}: {offset} nie jest komorka {section['kind']}")
+        index = offset // stride
+        current = STA.read_slot(member_blob, layout, index)
+        if not current:
+            raise ValueError(f"linia {number}: komorka {offset} jest pusta (inna wersja gry?)")
+        edits[index] = line["text"]
+    result = STA.apply_container(original, patched, section["kind"], section["member"], edits)
+    report.update({key: result[key] for key in ("applied", "member_delta", "container_delta")
+                   if key in result})
+    report["replaced"] = [(STA.read_slot(member_blob, layout, index), text)
+                          for index, text in sorted(edits.items())]
+    return name, patched.read_bytes(), report
 
 
 def apply_test_patch(iso_in: Path, iso_out: Path, spec: dict, work: Optional[Path] = None,
@@ -200,7 +258,15 @@ def apply_test_patch(iso_in: Path, iso_out: Path, spec: dict, work: Optional[Pat
             return report
         patched = patched_path.read_bytes()
         key, _, _ = iso_pack.find_member(iso_in, container_name)
-        report["patch"] = iso_pack.patch_iso(iso_in, iso_out, {key: patched})
+        replacements = {key: patched}
+        section = spec.get("slots")
+        if section:
+            area.mkdir(parents=True, exist_ok=True)
+            slot_name, slot_bytes, slot_report = apply_slot_section(iso_in, section, area)
+            report["slots"] = slot_report
+            slot_key, _, _ = iso_pack.find_member(iso_in, slot_name)
+            replacements[slot_key] = slot_bytes
+        report["patch"] = iso_pack.patch_iso(iso_in, iso_out, replacements)
         report["written"] = str(iso_out)
         report["out_bytes"] = iso_out.stat().st_size
     return report
@@ -257,6 +323,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"       -> {en!r}")
     print(f"zmienione czlonki: {', '.join(report['changed_members'])} (tylko ten)")
     print(f"kontener po zmianie: {report['container_delta']:+d} B")
+    section = report.get("slots")
+    if section:
+        print(f"tytuly misji ({section['kind']}, {section['container']}/{section['member']}): "
+              f"{section['applied']} komorek, podplik {section['member_delta']:+d} B, "
+              f"kontener {section['container_delta']:+d} B")
+        for number, (jp, en) in enumerate(section["replaced"], 1):
+            print(f"  [{number}] {jp!r} -> {en!r}")
     if report.get("written"):
         print(f"ISO wyjsciowe: {report['written']} ({report['out_bytes']} B)")
         print("Gotowe: uruchom to ISO w PPSSPP.")

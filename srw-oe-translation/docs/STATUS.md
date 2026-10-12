@@ -503,3 +503,25 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Testy: `tests/test_iso_test_patch.py` ma 15 testów (doszły: nazwa pliku wyjściowego obok
   wejścia, przebieg CLI bez podanej ścieżki, brak okna/anulowanie, brak okna ≠ błąd).
 - Zestaw: **685 testów OK** (1 pominięty).
+
+## Sesja 5, część 11 (2026-10-12): narracja i tytuły misji — po Twoim teście w grze
+
+Po potwierdzeniu, że gra czyta nasze linie, domknięte zostały trzy rzeczy, które widziałeś po
+japońsku:
+
+1. **Narracja** — miała własny typ rekordu (`0x1B7`, tekst od +12) i własny problem: leżała
+   w opakowaniu, którego ekstraktor nie otwierał, więc **nie było jej w pakiecie tłumacza**
+   (41 z 44 rekordów w `eventP00.cpk`). Ekstraktor naprawiony, zapis obsługuje oba typy rekordów,
+   a okno narracji zmierzone na 52 znaki.
+2. **Tytuły misji** — pola stałej szerokości w `config00.cpk` → `config00.pac` → `milstP00.bin`
+   (komórka 128 B, tytuł od +10). Nowe narzędzie `tools/slot_text_apply.py` pisze w takie pola:
+   mieści się albo odmowa, zero zmian poza pisanymi komórkami, bramka tożsamości dla całego
+   kontenera. Przetłumaczone wszystkie 15 tytułów z tego pliku.
+3. **Cała pierwsza scenka** — przełożona w całości: 6 rekordów narracji + 82 linie dialogu
+   (Seishiro Kusanagi, Himari Yaegaki, mech „Exert”). `PATCH_ISO_TEST.bat` wpisuje teraz jedno
+   i drugie w jednym przebiegu.
+
+Do zrobienia dalej: **odświeżyć pakiet tłumacza** (widoki scen bez narracji to skutek naprawionej
+luki — potrzebna ponowna ekstrakcja z kontenerów fabuły), imiona mówców w okienku dialogowym
+(`config00.cpk`, sloty nazw), pozostałe rodzaje tekstu (warunki, etykiety, teksty w tabelach),
+UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.

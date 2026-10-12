@@ -29,7 +29,9 @@ rozpakowywać osobno — wystarczy całe repo i Twoje ISO.
    się nie pokaże.)
 2. Nowe ISO powstaje **obok Twojego oryginału**, pod nazwą z końcówką `-test`
    (`SRW OE 1.08.iso` → `SRW OE 1.08-test.iso`). Na dysku masz więc od razu obie wersje.
-3. Bat wypisze, ile linii wpisał, i pokaże **wymienione linie** (japoński → angielski).
+3. Bat wpisuje **całą pierwszą scenkę** (6 bloków narracji + 82 linie dialogu) oraz **tytuły misji**
+wszystkich 15 komórek z `milstP00.bin`, i pokaże **wymienione linie** (japoński → angielski).
+Kontener scenki i kontener tytułów są podmieniane w jednym przebiegu.
 4. Uruchom nowe ISO w PPSSPP, nowa gra, prolog (odcinek 1).
 
 Zasady bezpieczeństwa, które ten bat sam pilnuje:

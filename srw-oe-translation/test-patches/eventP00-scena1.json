@@ -1,5 +1,5 @@
 {
-  "opis": "Test wtrysku dialogow w grze: pierwsze 6 linii prologu (scena DL100_01.bin, odcinek 1). Repozytorium nie zawiera danych gry - ten plik trzyma tylko offsety, skroty MD5 i nasze angielskie linie. Japonski tekst jest czytany z Twojego ISO i pokazywany na ekranie, nigdzie nie jest zapisywany.",
+  "opis": "Test wtrysku: cale pierwsze scenki (narracja + dialogi). Repozytorium nie zawiera danych gry - ten plik trzyma tylko offsety, skroty MD5 i nasze angielskie linie. Japonski tekst jest czytany z Twojego ISO i pokazywany na ekranie.",
   "wersja_gry": "SRW OE 1.08 (PSP_GAME/USRDIR z ISO)",
   "container": "PSP_GAME/USRDIR/eventP00.cpk",
   "member": "DL100_01.bin",
@@ -7,28 +7,513 @@
   "md5_member": "a19fbf123f0b23eba303e5406ed1e547",
   "lines": [
     {
+      "offset": 180,
+      "kind": "narration",
+      "text": "Decades have passed since the Earth Federation,\na unified government of all mankind, was founded.\nHuman science, technology and economy gathered pace,\ngiant space colonies rose around the Earth,\nand the Universal Century began."
+    },
+    {
+      "offset": 348,
+      "kind": "narration",
+      "text": "In time humanity spread across the solar system\nand grew mighty on vast resources and energy.\nBut as human activity raced ahead, prosperity\nmagnified the scale of every problem as well."
+    },
+    {
+      "offset": 524,
+      "kind": "narration",
+      "text": "An expanding economy bred inequality and drew\nvast money, resources and people into criminal\nhands. Terrorist and pirate groups grew bolder,\nand men like Dr. Hell appeared, openly declaring\nworld conquest and defying all of humanity.\n\nBut the Earth Federation Forces could not keep up.\nOld national governments and the colonies were\nforced to arm themselves for their own defence.\nThat arms race, of course, only raised tension\nbetween nations and between peoples, and it took\nlittle time for the ideal of a unified government\nto be lost."
+    },
+    {
+      "offset": 988,
+      "kind": "narration",
+      "text": "Ironically, war accelerated science even further,\ngiving birth to one runaway technology after\nanother -- the Devil Gundam incident being the\nmost notorious.\n\nIn the same way, research into unknown energies\naltered the energy balance of the Earth itself,\nand became the very thing that invites invasion\nby races that are not human."
+    },
+    {
+      "offset": 1244,
+      "kind": "narration",
+      "text": "The Invaders, the Muge Empire, the evil god\nDragon, the Machine Empire, the Jark Empire,\nthe Great Demon World -- threats beyond human\ncomprehension struck the Earth Sphere one after\nanother, and the memory is still fresh."
+    },
+    {
+      "offset": 1388,
+      "kind": "narration",
+      "text": "But humanity has overcome crisis after crisis,\nrebuilding and pressing on, again and again.\n\nEven with the fear of a threat that may come at\nany moment, people live each day with strength."
+    },
+    {
       "offset": 1844,
+      "kind": "dialogue",
       "text": "(I am now at Connect, a civilian\norganization promoting space trade...)"
     },
     {
       "offset": 1976,
+      "kind": "dialogue",
       "text": "(Connect is famous, but its origins\nand true purpose are unknown...)"
     },
     {
       "offset": 2128,
+      "kind": "dialogue",
       "text": "(People of Earth have faced so many\ndisasters that one company's doings\nare not worth their attention.)"
     },
     {
       "offset": 2312,
+      "kind": "dialogue",
       "text": "(But that is fine. If I reach my goal\nwithout anyone knowing,\nso much the better...)"
     },
     {
       "offset": 2532,
+      "kind": "dialogue",
       "text": "Now then, it is time for training."
     },
     {
       "offset": 2820,
+      "kind": "dialogue",
       "text": "Ah, ah, testing, testing."
+    },
+    {
+      "offset": 2872,
+      "kind": "dialogue",
+      "text": "＜主人公名＞, can you hear me?"
+    },
+    {
+      "offset": 2928,
+      "kind": "dialogue",
+      "text": "Read you loud and clear!\nLet us begin the mission."
+    },
+    {
+      "offset": 2988,
+      "kind": "dialogue",
+      "text": "Catapult connected!\nExert, please launch!"
+    },
+    {
+      "offset": 3060,
+      "kind": "dialogue",
+      "text": "Understood!"
+    },
+    {
+      "offset": 3088,
+      "kind": "dialogue",
+      "text": "CF-00 Exert, launching!"
+    },
+    {
+      "offset": 3336,
+      "kind": "dialogue",
+      "text": "Today you will test combat manoeuvres\nusing the new mobility control system."
+    },
+    {
+      "offset": 3424,
+      "kind": "dialogue",
+      "text": "First, please 'Move' to the designated area."
+    },
+    {
+      "offset": 3488,
+      "kind": "dialogue",
+      "text": "Roger! Moving to the target!"
+    },
+    {
+      "offset": 3540,
+      "kind": "dialogue",
+      "text": "Displaying the designated area."
+    },
+    {
+      "offset": 3760,
+      "kind": "dialogue",
+      "text": "Target confirmed!\nBeginning 'Move' now."
+    },
+    {
+      "offset": 6048,
+      "kind": "dialogue",
+      "text": "EN resupply complete!\r\n"
+    },
+    {
+      "offset": 6100,
+      "kind": "dialogue",
+      "text": "Next, we will recover 'Parts'.\r\n"
+    },
+    {
+      "offset": 6160,
+      "kind": "dialogue",
+      "text": "Deploying container blocks.\r\n"
+    },
+    {
+      "offset": 6372,
+      "kind": "dialogue",
+      "text": "\"At the same coordinates as a 'Container',\n the unit identifies and recovers 'Parts'\n on its own.\"\r\n"
+    },
+    {
+      "offset": 6476,
+      "kind": "dialogue",
+      "text": "Roger!\nAfter moving to the 'Container' coordinates,\nI will recover the 'Parts'.\r\n"
+    },
+    {
+      "offset": 6804,
+      "kind": "dialogue",
+      "text": "Parts recovery complete!"
+    },
+    {
+      "offset": 6868,
+      "kind": "dialogue",
+      "text": "This is a repair kit that patches up damage\nin the field. Good to have one aboard."
+    },
+    {
+      "offset": 7012,
+      "kind": "dialogue",
+      "text": "Now we move on to combat manoeuvres."
+    },
+    {
+      "offset": 7072,
+      "kind": "dialogue",
+      "text": "Displaying a simulated enemy."
+    },
+    {
+      "offset": 7204,
+      "kind": "dialogue",
+      "text": "Enemy unit confirmed!"
+    },
+    {
+      "offset": 7240,
+      "kind": "dialogue",
+      "text": "Well now... this one does not look\nlike a simulation."
+    },
+    {
+      "offset": 7308,
+      "kind": "dialogue",
+      "text": "The system was upgraded the other day."
+    },
+    {
+      "offset": 7376,
+      "kind": "dialogue",
+      "text": "Impact from hits is fed back into the unit,\nso combat feels far more real, they say."
+    },
+    {
+      "offset": 7484,
+      "kind": "dialogue",
+      "text": "That I have to see."
+    },
+    {
+      "offset": 7528,
+      "kind": "dialogue",
+      "text": "Beginning 'Attack'!"
+    },
+    {
+      "offset": 9048,
+      "kind": "dialogue",
+      "text": "Halt!\nThe Exert hangar is off limits to outsiders.\nHow did you get in?"
+    },
+    {
+      "offset": 9180,
+      "kind": "dialogue",
+      "text": "Oh, I am sorry!\nI have been transferred here from the 44th\nGeneral Affairs Department."
+    },
+    {
+      "offset": 9256,
+      "kind": "dialogue",
+      "text": "This is only my first year with the company,\nbut I look forward to working with you!"
+    },
+    {
+      "offset": 9332,
+      "kind": "dialogue",
+      "text": "So you are...?\nThe new member of the Connect Force, then."
+    },
+    {
+      "offset": 9408,
+      "kind": "dialogue",
+      "text": "Yes! My name is Himari Yaegaki.\nI am from Japan on Earth. I studied\nengineering."
+    },
+    {
+      "offset": 9512,
+      "kind": "dialogue",
+      "text": "I see. Nice to meet y--"
+    },
+    {
+      "offset": 9556,
+      "kind": "dialogue",
+      "text": "People say I do not look the science type,\nbut I skipped grades and finished my master's."
+    },
+    {
+      "offset": 9656,
+      "kind": "dialogue",
+      "text": "I see. That is impress--"
+    },
+    {
+      "offset": 9696,
+      "kind": "dialogue",
+      "text": "My favourites are yakiniku, ramen and\ndessert buffets. And with dessert...\na caramel macchiato, no question!"
+    },
+    {
+      "offset": 9828,
+      "kind": "dialogue",
+      "text": "Oh, there was pilot and operator training\nlast week, and, well... I cannot even drive,\nso will I really be all right...?"
+    },
+    {
+      "offset": 9964,
+      "kind": "dialogue",
+      "text": "Er... hold on a moment..."
+    },
+    {
+      "offset": 10016,
+      "kind": "dialogue",
+      "text": "I can push myself through most things,\nbut the cold is one thing I am bad with..."
+    },
+    {
+      "offset": 10112,
+      "kind": "dialogue",
+      "text": "Oh, but I do love a good bath! And also..."
+    },
+    {
+      "offset": 10176,
+      "kind": "dialogue",
+      "text": "T-that is quite enough!"
+    },
+    {
+      "offset": 10216,
+      "kind": "dialogue",
+      "text": "Ah... I am sorry!"
+    },
+    {
+      "offset": 10268,
+      "kind": "dialogue",
+      "text": "I talked far too much, did I not..."
+    },
+    {
+      "offset": 10320,
+      "kind": "dialogue",
+      "text": "We are the Connect Force, a combat unit.\nLong chats on duty get people killed.\nSave them for later."
+    },
+    {
+      "offset": 10432,
+      "kind": "dialogue",
+      "text": "Understood... I will be careful."
+    },
+    {
+      "offset": 10484,
+      "kind": "dialogue",
+      "text": "Good."
+    },
+    {
+      "offset": 10532,
+      "kind": "dialogue",
+      "text": "Um, may I ask you one question?"
+    },
+    {
+      "offset": 10588,
+      "kind": "dialogue",
+      "text": "You said combat unit just now,\nbut what do we actually do?"
+    },
+    {
+      "offset": 10676,
+      "kind": "dialogue",
+      "text": "Nobody told me anything when I\nwas transferred..."
+    },
+    {
+      "offset": 10736,
+      "kind": "dialogue",
+      "text": "Just what it says. We are expected to fight."
+    },
+    {
+      "offset": 10788,
+      "kind": "dialogue",
+      "text": "The robot in front of you is no work machine.\nIt is the newest weapon, made for any mission."
+    },
+    {
+      "offset": 10892,
+      "kind": "dialogue",
+      "text": "A weapon...?"
+    },
+    {
+      "offset": 10936,
+      "kind": "dialogue",
+      "text": "What?! Why would a private\ncompany like Connect...?"
+    },
+    {
+      "offset": 11000,
+      "kind": "dialogue",
+      "text": "Everyone assigned here is\nsurprised at first..."
+    },
+    {
+      "offset": 11064,
+      "kind": "dialogue",
+      "text": "But once you know the purpose, you will see\nthis is the most rewarding work here."
+    },
+    {
+      "offset": 11168,
+      "kind": "dialogue",
+      "text": "Is that so."
+    },
+    {
+      "offset": 11208,
+      "kind": "dialogue",
+      "text": "Still, hearing you say it so firmly, senior,\nmakes me want to work harder!"
+    },
+    {
+      "offset": 11292,
+      "kind": "dialogue",
+      "text": "You have what it takes. You were chosen\nfrom hundreds of thousands of candidates."
+    },
+    {
+      "offset": 11376,
+      "kind": "dialogue",
+      "text": "So I am one of the chosen?!"
+    },
+    {
+      "offset": 11436,
+      "kind": "dialogue",
+      "text": "Well... I would not go that far."
+    },
+    {
+      "offset": 11480,
+      "kind": "dialogue",
+      "text": "For now this is combat training, but you\nnever know when something might happen."
+    },
+    {
+      "offset": 11564,
+      "kind": "dialogue",
+      "text": "Make every day count, and always\ndo your best!"
+    },
+    {
+      "offset": 11648,
+      "kind": "dialogue",
+      "text": "Yes! I will do my best!"
+    },
+    {
+      "offset": 11800,
+      "kind": "dialogue",
+      "text": "(I did not expect a fresh graduate.\n I thought we would get an old hand...)"
+    },
+    {
+      "offset": 11912,
+      "kind": "dialogue",
+      "text": "(Surely this project is not\n short of people...)"
+    },
+    {
+      "offset": 12016,
+      "kind": "dialogue",
+      "text": "Welcome back, senior!"
+    },
+    {
+      "offset": 12060,
+      "kind": "dialogue",
+      "text": "Good work, Himari."
+    },
+    {
+      "offset": 12104,
+      "kind": "dialogue",
+      "text": "Send the data on to Headquarters for analysis.\nDo you know how?"
+    },
+    {
+      "offset": 12188,
+      "kind": "dialogue",
+      "text": "The data... er... how do I...?"
+    },
+    {
+      "offset": 12244,
+      "kind": "dialogue",
+      "text": "You have not been taught this?"
+    },
+    {
+      "offset": 12296,
+      "kind": "dialogue",
+      "text": "Sorry, I have not studied enough..."
+    },
+    {
+      "offset": 12344,
+      "kind": "dialogue",
+      "text": "It seems I have a lot to teach you yet.\nLet me walk you through the steps."
+    },
+    {
+      "offset": 12420,
+      "kind": "dialogue",
+      "text": "Sorry.\nI am keeping you late because of this."
+    },
+    {
+      "offset": 12488,
+      "kind": "dialogue",
+      "text": "Do not worry about that."
+    },
+    {
+      "offset": 12532,
+      "kind": "dialogue",
+      "text": "This job really can cost you your life.\nKeep that in mind, all right?"
+    },
+    {
+      "offset": 12628,
+      "kind": "dialogue",
+      "text": "Yes!"
+    },
+    {
+      "offset": 12712,
+      "kind": "dialogue",
+      "text": "(Himari's assignment was the organisation's\n choice. She must be key to the project.)"
+    },
+    {
+      "offset": 12812,
+      "kind": "dialogue",
+      "text": "(Well, what she does not know can be taught.\n What matters is how she fits the team.)"
     }
-  ]
+  ],
+  "slots": {
+    "container": "PSP_GAME/USRDIR/config00.cpk",
+    "kind": "mission_title",
+    "member": "milstP00.bin",
+    "md5_container": "266366c3bee66130d4b7cb57a1b1e3d4",
+    "md5_member": "3c5491c35506283a313d23f5b236317e",
+    "lines": [
+      {
+        "offset": 10,
+        "text": "Episode 0 Main Mission"
+      },
+      {
+        "offset": 138,
+        "text": "Basic Training"
+      },
+      {
+        "offset": 266,
+        "text": "Rescue the White Base"
+      },
+      {
+        "offset": 394,
+        "text": "Episode 1 Main Mission"
+      },
+      {
+        "offset": 522,
+        "text": "Ep. 1: Prototype Labor Rampage"
+      },
+      {
+        "offset": 650,
+        "text": "　　 Sub Mission　　"
+      },
+      {
+        "offset": 778,
+        "text": "The Black Tri-Stars"
+      },
+      {
+        "offset": 906,
+        "text": "Stop the H-Bomb Missile"
+      },
+      {
+        "offset": 1034,
+        "text": "Defence Corps Training"
+      },
+      {
+        "offset": 1162,
+        "text": "Launching the Alex"
+      },
+      {
+        "offset": 1290,
+        "text": "Rescue the Medea Transport"
+      },
+      {
+        "offset": 1418,
+        "text": "The Rampaging Labor Returns"
+      },
+      {
+        "offset": 1546,
+        "text": "Infiltration"
+      },
+      {
+        "offset": 1674,
+        "text": "Episode 2 Main Mission"
+      },
+      {
+        "offset": 1802,
+        "text": "Ep. 2: Threat Beneath the Earth"
+      }
+    ]
+  }
 }

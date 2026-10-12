@@ -495,6 +495,12 @@ itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów
   Twojej płyty: odczyt kontenera z ISO, bramka MD5, wtrysk 6 linii, przebudowa kontenera,
   `patchiso`. Przebieg kontrolny na atrapie ISO z prawdziwym kontenerem: 6/6 linii, zmieniony
   tylko `DL100_01.bin`, ISO nadal czytelne (`inspect_iso9660`: 4 pliki, status `indexed`).
-* **Do zrobienia**: rekordy inne niż dialogowe (633 wiersze), pola o stałej szerokości
+* **Narracja** — `0x1B7`, tekst od +12: zapis obsługuje ją tak samo jak dialog (rozmiar % 4 == 0,
+  1–4 zera), a ekstraktor czyta ją z pola, więc widzi też już przetłumaczone linie. Pierwsza scenka
+  wpisana w całości: 6 rekordów narracji + 82 linie dialogu, 88/88, zero uwag.
+* **Tytuły misji** — `tools/slot_text_apply.py` pisze w pola stałej szerokości (komórka 128 B,
+  tekst od +10, do 117 B + NUL): `config00.cpk` → `config00.pac` → `milstP00.bin`. Bramka
+  tożsamości dla `config00.cpk` przechodzi; 15 tytułów gotowych.
+* **Do zrobienia**: rekordy inne niż dialog i narracja (633 wiersze), pozostałe pola o stałej szerokości
   (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`), `sysmes.bin`,
   przebudowa ISO i test w PPSSPP (po stronie użytkownika).

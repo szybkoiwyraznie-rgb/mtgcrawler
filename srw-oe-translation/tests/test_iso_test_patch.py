@@ -21,9 +21,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import configst_pack as CP  # noqa: E402
+import cpk_write  # noqa: E402
 import event_text_apply as ETA  # noqa: E402
 import iso_pack  # noqa: E402
 import iso_test_patch  # noqa: E402
+import slot_text_apply as STA  # noqa: E402
+from test_configst_pack import make_pac  # noqa: E402
 from test_cpk_table import build_synthetic_cpk  # noqa: E402
 from test_event_text_apply import member as synthetic_member  # noqa: E402
 
@@ -70,6 +74,32 @@ class IsoTestPatchTests(unittest.TestCase):
         ])
         self.spec_path = self.area / "spec.json"
         self.spec_path.write_text(json.dumps(self.spec, ensure_ascii=False), encoding="utf-8")
+
+    def iso_with_config(self) -> tuple:
+        """This test's ISO plus a synthetic config container (mission titles are fixed cells)."""
+        cell, stride, slot = bytearray(128), 128, 10
+        title = "ミッション0".encode("cp932")
+        cell[slot:slot + len(title)] = title
+        member = bytes(cell) * 2
+        pac = make_pac([("milstP00.bin", member)])
+        config_bytes = build_synthetic_cpk([{"dir": "", "name": "config00.pac", "data": pac,
+                                             "id": 0}])
+        iso = self.area / "with-config.iso"
+        iso.write_bytes(iso_pack.build_iso({
+            "PSP_GAME": {"USRDIR": {"eventP00.cpk": self.container, "config00.cpk": config_bytes,
+                                    "keep.bin": KEEP},
+                         "SYSDIR": {"EBOOT.BIN": b"boot"}},
+            "UMD_DATA.BIN": b"DATA"}))
+        return iso, config_bytes, member
+
+    def slot_section(self, config_bytes, member, stride=128, slot=10) -> dict:
+        return {
+            "container": "PSP_GAME/USRDIR/config00.cpk", "kind": "mission_title",
+            "member": "milstP00.bin",
+            "md5_container": hashlib.md5(config_bytes).hexdigest(),
+            "md5_member": hashlib.md5(member).hexdigest(),
+            "lines": [{"offset": slot, "text": "Episode 0 Main Mission"},
+                      {"offset": stride + slot, "text": "Basic Training"}]}
 
     def read_back(self):
         """The event member as a player's game would see it in the ISO we wrote."""
@@ -121,7 +151,7 @@ class IsoTestPatchTests(unittest.TestCase):
         spec = dict(self.spec, lines=[{"offset": 4, "text": "Nowhere."}])
         with self.assertRaises(ValueError) as caught:
             iso_test_patch.apply_test_patch(self.iso, self.out, spec)
-        self.assertIn("no dialogue record starts at 4", str(caught.exception))
+        self.assertIn("no record with a length field starts at 4", str(caught.exception))
         self.assertFalse(self.out.exists())
 
     def test_a_line_too_wide_for_the_box_stops_the_run(self):
@@ -145,15 +175,63 @@ class IsoTestPatchTests(unittest.TestCase):
         self.assertEqual([en for _offset, _jp, en in report["replaced"]],
                          ["The first line.", "The second line."])
 
+    def test_a_slot_section_is_written_into_its_own_container_of_the_same_iso(self):
+        # mission titles live in config00.cpk -> config00.pac -> milstP00.bin, a fixed-width cell
+        iso, config_bytes, member = self.iso_with_config()
+        spec = dict(self.spec, slots=self.slot_section(config_bytes, member))
+        out = self.area / "with-config-test.iso"
+        report = iso_test_patch.apply_test_patch(iso, out, spec)
+        self.assertEqual(report["slots"]["applied"], 2)
+        self.assertEqual(report["changed_members"], [MEMBER])          # the event member, as before
+        container = self.area / "read-back-config.cpk"
+        container.write_bytes(iso_pack.read_member(out, "PSP_GAME/USRDIR/config00.cpk"))
+        subfile = {sub["name"]: sub["data"] for sub in
+                   CP.parse_pac(cpk_write.load(container).members[0].blob)["subs"]}
+        layout = STA.spec_for("mission_title")
+        self.assertEqual(STA.read_slot(subfile["milstP00.bin"], layout, 0),
+                         "Episode 0 Main Mission")
+        self.assertEqual(STA.read_slot(subfile["milstP00.bin"], layout, 1), "Basic Training")
+        self.assertEqual(iso_pack.read_member(out, KEEP_IN_ISO), KEEP)
+
+    def test_a_slot_section_with_a_wrong_hash_stops_the_run(self):
+        iso, config_bytes, member = self.iso_with_config()
+        section = self.slot_section(config_bytes, member)
+        section["md5_container"] = "0" * 32
+        out = self.area / "never-written.iso"
+        with self.assertRaises(ValueError) as caught:
+            iso_test_patch.apply_test_patch(iso, out, dict(self.spec, slots=section))
+        self.assertIn("inna wersja gry", str(caught.exception))
+        self.assertFalse(out.exists())
+
+    def test_a_slot_line_that_is_not_a_slot_stops_the_run(self):
+        iso, config_bytes, member = self.iso_with_config()
+        section = self.slot_section(config_bytes, member)
+        section["lines"] = [{"offset": 11, "text": "Off by one"}]
+        with self.assertRaises(ValueError) as caught:
+            iso_test_patch.apply_test_patch(iso, self.out, dict(self.spec, slots=section))
+        self.assertIn("nie jest komorka", str(caught.exception))
+        self.assertFalse(self.out.exists())
+
     def test_the_shipped_spec_is_well_formed_and_carries_no_japanese(self):
         shipped = iso_test_patch.load_spec(iso_test_patch.DEFAULT_SPEC)
         self.assertEqual(shipped["member"], MEMBER)
         self.assertEqual(shipped["container"], CONTAINER_IN_ISO)
-        self.assertEqual(len(shipped["lines"]), 6)
-        self.assertTrue(all(len(line["text"]) <= 200 for line in shipped["lines"]))
+        self.assertEqual(len(shipped["lines"]), 88)      # the whole first scene
+        self.assertTrue(all(len(line["text"]) <= 700 for line in shipped["lines"]))
+        self.assertEqual({line["kind"] for line in shipped["lines"]}, {"dialogue", "narration"})
+        # the spec carries no Japanese game text: the only non-ASCII left is the game's own name
+        # placeholder, which the game substitutes with the hero's name and which must stay verbatim
         raw = iso_test_patch.DEFAULT_SPEC.read_text(encoding="utf-8")
-        self.assertFalse(any(ord(character) > 0x7F and ord(character) not in (0x2019,)
-                             for character in raw), "the spec must stay ASCII")
+        self.assertEqual(raw.count("＜主人公名＞"), 1)
+        # 　 (the full-width space) stays in the "Sub Mission" title, where the game centres text
+        leftover = raw.replace("＜主人公名＞", "").replace("\u3000", "")
+        self.assertFalse([character for character in leftover if ord(character) > 0x7F],
+                         "the spec must carry no Japanese game text")
+        self.assertIn("＜主人公名＞", "".join(line["text"] for line in shipped["lines"]))
+        slots = shipped["slots"]
+        self.assertEqual((slots["kind"], slots["member"], len(slots["lines"])),
+                         ("mission_title", "milstP00.bin", 15))
+        self.assertEqual(slots["lines"][0]["offset"], 10)
 
     def test_the_test_iso_lands_next_to_the_disc_you_picked(self):
         self.assertEqual(iso_test_patch.default_out_path(Path("D:/gry/SRW OE 1.08.iso")),
