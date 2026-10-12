@@ -4,8 +4,8 @@ rem Build a TEST ISO from YOUR OWN ISO: original disc + the translated dialogue 
 rem Nothing from the game lives in this repository (no ISO, no CPK, no Japanese text):
 rem the script reads PSP_GAME/USRDIR/eventP00.cpk out of your ISO, checks its MD5 against
 rem the spec, applies the English lines from test-patches\eventP00-scena1.json with the
-rem measured dialogue writer, and writes a NEW ISO - your original is only read.
-rem Usage: drag your ISO onto this file, or:  PATCH_ISO_TEST.bat ["original.iso"] ["out.iso"]
+rem measured dialogue writer, and writes a NEW ISO next to your original - the original
+rem is only read.  Usage: double-click, or drag an ISO onto this file.
 set HERE=%~dp0
 set SPEC=%HERE%test-patches\eventP00-scena1.json
 if not exist "%SPEC%" (
@@ -20,25 +20,11 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
-set ISO=%~1
-if "%ISO%"=="" if exist "%HERE%SRW_OE.iso" set ISO=%HERE%SRW_OE.iso
-if "%ISO%"=="" (
-    echo Nie podano ISO. Podaj sciezke do swojej kopii ISO wersji 1.08, np. D:\gry\SRW_OE.iso
-    set /p ISO="ISO: "
-)
-if not exist "%ISO%" (
-    echo BLAD: nie ma pliku "%ISO%"
-    pause
-    exit /b 1
-)
-set OUT=%~2
-if "%OUT%"=="" set OUT=%~dp1SRW_OE-test.iso
 echo.
-echo Tworze TEST ISO:
-echo   wejscie: %ISO%
-echo   wyjscie: %OUT%
+echo Otworze okno wyboru pliku - wskaz w nim swoje ISO wersji 1.08.
+echo Nie wybierzesz - nic sie nie stanie, bat sie zamknie.
 echo.
-python "%HERE%tools\iso_test_patch.py" "%ISO%" "%OUT%"
+python "%HERE%tools\iso_test_patch.py" %*
 if errorlevel 1 (
     echo.
     echo PATCH FAILED - nic nie zapisalem. Skopiuj tekst powyzej i wyslij go dalej.
@@ -46,7 +32,7 @@ if errorlevel 1 (
     exit /b 1
 )
 echo.
-echo Gotowe. Nowe ISO: "%OUT%"
+echo Gotowe. Nowe ISO lezy obok Twojego oryginalu, z koncowka "-test".
 echo Uruchom je w PPSSPP, zacznij nowa gre i przejdz prolog (odcinek 1).
 echo Pierwsze 6 linii prologu powinno byc po angielsku, reszta gry zostaje po japonsku.
 pause

@@ -2562,3 +2562,9 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    repozytorium, test jest odtwarzalny lokalnie z ISO użytkownika dwoma plikami commitowymi
    (przepis + narzędzie) i jednym batem. Repozytorium pozostaje bez ISO/CPK/BIN i bez japońskiego
    tekstu; to samo ograniczenie, które skłoniło nas do `git rm --cached google_drive/eventP00.cpk`.
+38. [ZWERYFIKOWANE — wygoda uruchomienia] `iso_test_patch.py` przyjmuje teraz brak argumentów:
+   otwiera okno wyboru pliku (`filedialog.askopenfilename`, ten sam wzorzec co `run_pipeline.py`
+   — `Tk().withdraw()`, `-topmost`, `TclError` łapany), a ISO wynikowe zapisuje obok wejściowego
+   jako `<nazwa>-test.iso`. Ścieżkę z klawiatury pyta tylko wtedy, gdy nie ma Tk/pulpitu albo
+   okno zostanie anulowane; wtedy puste wejście = kod wyjścia 2 (nie „cicha" kontynuacja).
+   `main()` sprawdza rozszerzenie/istnienie pliku przed odczytem. 4 nowe testy (15 razem).

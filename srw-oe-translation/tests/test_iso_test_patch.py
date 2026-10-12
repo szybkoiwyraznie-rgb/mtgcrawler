@@ -155,6 +155,29 @@ class IsoTestPatchTests(unittest.TestCase):
         self.assertFalse(any(ord(character) > 0x7F and ord(character) not in (0x2019,)
                              for character in raw), "the spec must stay ASCII")
 
+    def test_the_test_iso_lands_next_to_the_disc_you_picked(self):
+        self.assertEqual(iso_test_patch.default_out_path(Path("D:/gry/SRW OE 1.08.iso")),
+                         Path("D:/gry/SRW OE 1.08-test.iso"))
+        self.assertNotEqual(iso_test_patch.default_out_path(self.iso), self.iso)
+
+    def test_the_cli_writes_the_default_output_next_to_the_input(self):
+        code = iso_test_patch.main([str(self.iso), "--spec", str(self.spec_path)])
+        self.assertEqual(code, 0)
+        self.assertTrue(iso_test_patch.default_out_path(self.iso).is_file())
+
+    def test_the_cli_asks_for_the_disc_and_gives_up_when_there_is_no_answer(self):
+        import io
+        original_stdin, original_choose = sys.stdin, iso_test_patch.choose_iso
+        sys.stdin = io.StringIO("\n")
+        iso_test_patch.choose_iso = lambda initial=None: None     # brak okna (np. bez Tk)
+        self.addCleanup(setattr, sys, "stdin", original_stdin)
+        self.addCleanup(setattr, iso_test_patch, "choose_iso", original_choose)
+        self.assertEqual(iso_test_patch.main([]), 2)
+
+    def test_a_dialog_that_cannot_open_is_not_an_error(self):
+        # Tk is present in CI but there is no display: the picker must return None, not raise
+        self.assertIn(iso_test_patch.choose_iso(), (None, Path("")))
+
     def test_a_work_directory_keeps_the_intermediate_containers(self):
         work = self.area / "work"
         iso_test_patch.apply_test_patch(self.iso, self.out, self.spec, work=work)

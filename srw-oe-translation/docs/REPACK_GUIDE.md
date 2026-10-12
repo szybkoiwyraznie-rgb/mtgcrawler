@@ -24,11 +24,12 @@ Ten bat robi **cały** test wtrysku fabuły: bierze Twoje ISO, wyciąga z niego 
 wpisuje 6 angielskich linii prologu i zapisuje **nowe** ISO obok. Nic nie trzeba pobierać ani
 rozpakowywać osobno — wystarczy całe repo i Twoje ISO.
 
-1. Uruchom `PATCH_ISO_TEST.bat` (albo przeciągnij na niego plik ISO).
-2. Podaj ścieżkę do swojej kopii ISO 1.08 (albo połóż ją jako `SRW_OE.iso` w katalogu repo —
-   wtedy bat znajdzie ją sam).
-3. Bat wypisze, ile linii wpisał, pokaże **wymienione linie** (japoński → angielski) i poda
-   ścieżkę nowego ISO `SRW_OE-test.iso`.
+1. Uruchom `PATCH_ISO_TEST.bat` — otworzy się **okno wyboru pliku**, wskaż w nim swoje ISO 1.08.
+   Nie trzeba nic wpisywać z klawiatury. (Można też przeciągnąć ISO na plik bata — wtedy okno
+   się nie pokaże.)
+2. Nowe ISO powstaje **obok Twojego oryginału**, pod nazwą z końcówką `-test`
+   (`SRW OE 1.08.iso` → `SRW OE 1.08-test.iso`). Na dysku masz więc od razu obie wersje.
+3. Bat wypisze, ile linii wpisał, i pokaże **wymienione linie** (japoński → angielski).
 4. Uruchom nowe ISO w PPSSPP, nowa gra, prolog (odcinek 1).
 
 Zasady bezpieczeństwa, które ten bat sam pilnuje:

@@ -492,3 +492,14 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Test końcowy: atrapa ISO z prawdziwym `eventP00.cpk` + przepis z repo → **6/6 linii**, zmieniony
   tylko `DL100_01.bin`, kontener przebudowany, ISO czytelne dla `iso9660.inspect_iso9660`.
 - Zestaw testów: **681 OK** (1 pominięty).
+
+## Sesja 5, część 10g (2026-10-12): wybór ISO w oknie, wynik obok oryginału
+
+- `PATCH_ISO_TEST.bat` nie wymaga już wpisywania niczego z klawiatury: otwiera **okno wyboru
+  pliku** (ten sam mechanizm Tk, co w `run_pipeline.py`), a nowe ISO zapisuje **obok oryginału**
+  jako `<nazwa>-test.iso`. Przeciągnięcie ISO na bata nadal działa (wtedy okna nie ma).
+- Bez Tk albo bez pulpitu narzędzie pyta w konsoli, a anulowanie okna kończy pracę komunikatem
+  (kod wyjścia 2). Rozszerzenie pliku i brak pliku są sprawdzane przed czymkolwiek innym.
+- Testy: `tests/test_iso_test_patch.py` ma 15 testów (doszły: nazwa pliku wyjściowego obok
+  wejścia, przebieg CLI bez podanej ścieżki, brak okna/anulowanie, brak okna ≠ błąd).
+- Zestaw: **685 testów OK** (1 pominięty).

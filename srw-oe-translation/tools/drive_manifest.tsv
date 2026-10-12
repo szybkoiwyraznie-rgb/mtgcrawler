@@ -244,3 +244,6 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 # cz. 10f (2026-10-12): test w grze robi bat z repo, folder Drive nieaktualny
 1d4MHKognt_XQrBOlTLgXwwtu7pftmSds	plik	README-TEST.txt	Test wtrysku (PPSSPP)	1 037 B; wyjasnia, ze test robi teraz PATCH_ISO_TEST.bat z repozytorium
 # KOSZ: 1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK patch-test-ppsspp.zip (zawieral dane gry), 1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx PATCH_ISO_TEST.bat
+# cz. 10g (2026-10-12): test ISO wybiera sie w oknie, wynik obok oryginalu
+1iEEaAojNHcrE1A7b1nmnjwuXxDpEjFx3	plik	README-TEST.txt	Test wtrysku (PPSSPP)	968 B; PATCH_ISO_TEST.bat otwiera okno wyboru ISO, wynik obok oryginalu
+# KOSZ: 1d4MHKognt_XQrBOlTLgXwwtu7pftmSds README-TEST.txt (pierwsza wersja opisu)

@@ -9,7 +9,10 @@ silently corrupted), applies the English lines with the measured dialogue writer
 holds offsets, hashes and our English lines only -- never Japanese game text.
 
 Usage:
-    python3 tools/iso_test_patch.py <in.iso> <out.iso> [--spec FILE] [--work DIR] [--dry-run]
+    python3 tools/iso_test_patch.py [in.iso] [out.iso] [--spec FILE] [--work DIR] [--dry-run]
+
+Without an ``in.iso`` a file dialog opens (the same way ``run_pipeline`` asks for its folders), and
+the test ISO is written next to the disc the user picked, as ``<name>-test.iso``.
 """
 
 from __future__ import annotations
@@ -79,6 +82,51 @@ def rows_from_spec(blob: bytes, member: str, spec: dict) -> Tuple[List[dict], Li
             "source": {"container": spec["container"], "member": member, "offset": offset},
         })
     return rows, problems
+
+
+def default_out_path(iso: Path) -> Path:
+    """Where the test ISO goes when nobody says otherwise: next to the disc you picked."""
+    iso = Path(iso)
+    return iso.with_name(f"{iso.stem}-test.iso")
+
+
+def choose_iso(initial: Optional[Path] = None) -> Optional[Path]:
+    """Ask for the disc in a file dialog; None when Tk is missing, there is no desktop, or the
+    user cancels (the caller then falls back to a typed path)."""
+    try:
+        import tkinter
+        from tkinter import filedialog
+    except ImportError:
+        return None
+    try:
+        root = tkinter.Tk()
+    except tkinter.TclError:
+        return None
+    root.withdraw()
+    try:
+        root.attributes("-topmost", True)
+    except tkinter.TclError:
+        pass
+    try:
+        chosen = filedialog.askopenfilename(
+            title="Wybierz swoja kopie ISO SRW OE (wersja 1.08)",
+            initialdir=str(initial) if initial and Path(initial).is_dir() else None,
+            filetypes=[("Obraz ISO", "*.iso"), ("Wszystkie pliki", "*.*")],
+        )
+    except tkinter.TclError:
+        return None
+    finally:
+        root.destroy()
+    return Path(chosen) if chosen else None
+
+
+def prompt_iso() -> Optional[Path]:
+    """Console fallback for machines without a dialog: one typed path, quotes allowed."""
+    try:
+        typed = input("Nie wybrano pliku ISO. Podaj sciezke do swojej kopii ISO: ").strip().strip('"')
+    except EOFError:
+        return None
+    return Path(typed) if typed else None
 
 
 def apply_test_patch(iso_in: Path, iso_out: Path, spec: dict, work: Optional[Path] = None,
@@ -160,8 +208,10 @@ def apply_test_patch(iso_in: Path, iso_out: Path, spec: dict, work: Optional[Pat
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("iso", type=Path, help="your own copy of the game ISO")
-    parser.add_argument("out", type=Path, help="the test ISO to write")
+    parser.add_argument("iso", type=Path, nargs="?", help="your own copy of the game ISO "
+                                                          "(a file dialog opens when omitted)")
+    parser.add_argument("out", type=Path, nargs="?", help="the test ISO to write "
+                                                          "(default: next to the input)")
     parser.add_argument("--spec", type=Path, default=DEFAULT_SPEC, help="patch spec (default: %(default)s)")
     parser.add_argument("--work", type=Path, help="keep the intermediate containers in this directory")
     parser.add_argument("--dry-run", action="store_true", help="check everything, write nothing")
@@ -172,8 +222,23 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     except Exception:
         pass
 
+    iso = args.iso
+    if iso is None:
+        print("Wybierz swoje ISO w oknie, ktore sie zaraz otworzy...")
+        iso = choose_iso() or prompt_iso()
+    if iso is None:
+        print("PRZERWANE: nie wybrano pliku ISO.")
+        return 2
+    iso = Path(iso)
+    if not iso.is_file():
+        print(f"PRZERWANE: nie ma pliku {iso}")
+        return 2
+    out = Path(args.out) if args.out else default_out_path(iso)
+    args.iso, args.out = iso, out
+
     spec = load_spec(args.spec)
     print(f"ISO wejsciowe: {args.iso}")
+    print(f"ISO wyjsciowe: {args.out}")
     print(f"kontener: {spec['container']} | czlon: {spec['member']} | linii w przepisie: {len(spec['lines'])}")
     try:
         report = apply_test_patch(args.iso, args.out, spec, args.work, args.dry_run)
