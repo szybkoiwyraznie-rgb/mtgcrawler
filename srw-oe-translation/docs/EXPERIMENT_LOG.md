@@ -1978,3 +1978,17 @@ Przyczyna rozbieżności z lokalnym wynikiem użytkownika (ok. 45k+ linii):
 5. [NIEZWERYFIKOWANE] 42 członki bez łańcucha mają 1166 trafień ekstraktora. Nie wiadomo, czy są prawdziwe. Nie dołączać bez weryfikacji.
 6. Wniosek: liczba zweryfikowana to 12738 linii dialogowych (łańcuch). 45k+ z lokalnego narzędzia najprawdopodobniej to liczba trafień znacznikowych. Nie wiadomo, czy to samo narzędzie, bo użytkownik nie podał nazwy ani wyniku.
 7. ISO: na USRDIR jedyny kontener zdarzeń to `eventP00.cpk` (wliczony). Inne pliki ISO z dialogami (np. `mesbtl00.cpk` z walkami) nie są wliczone do 12738.
+
+## Sesja 4, mechy (2026-10-12): config00 + config01–46
+
+1. [ZWERYFIKOWANE] Pobrano 45 plików `config*.EDAT` z FULL_DLC (brak `config38`) oraz `config00.cpk` z USRDIR. Wszystkie 46 kontenerów wczytane bez błędów (`tools/mech_names.py`).
+2. [ZWERYFIKOWANE] `config00.pac`: 34 wpisy (układ 0x10 + 0x28·i), m.in. `robolist.bin` 8716 B (count 363), `srw_DL_RoboDictionary00.bin` 9442 B (68 rekordów, każdy z 7 slotami u32), `unit_list00.bin` 32256 B (84 rekordy po 384 B).
+3. [ZWERYFIKOWANE] RoboDictionary rekord 0 to etykiety pól (全長, 重量 — długość, waga), nie nazwy mechów. Slot 3: 40 unikatowych nazw realnych + 1 placeholder (w config00: 13 unikatów).
+4. [ZWERYFIKOWANE] Wynik `mech_names.py` po 46 kontenerach: 1092 wierszy, 500 unikatowych nazw ze wszystkich źródeł.
+   - `robo_dict_slot3`: 41 unikatów (40 realnych).
+   - `unit_list_base` (+0): 267 unikatów.
+   - `unit_list_display` (+140): 390 unikatów.
+   - Część wspólna: slot3 ∩ base = 0; slot3 ∩ display = 0; base ∩ display = 198.
+5. [NIEZWERYFIKOWANE] Czy `unit_list` zawiera same mechy (jednostki), czy też piloty i inne wpisy. Nie ustalone. Dlatego 267 nie jest jeszcze liczbą mechów.
+6. [NIEZWERYFIKOWANE] Cel 100+ mechów: NIE potwierdzony. Kandydaci: 267 (base), 390 (display), 40 (slot3), bez rozstrzygnięcia tożsamości.
+7. Następny krok: rozdzielić `unit_list` na mechy i piloty (porównanie z `charalist*` i z pilotami w sloty +98/+100/+102), oraz dekodować `robolist.bin` (363 rekordy po 24 B?).

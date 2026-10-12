@@ -257,3 +257,8 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Hash `eventP00`: jedna kopia na Drive, porównanie niemożliwe.
 - Mechy: 100+ NIE osiągnięte. `robo00.cpk` to archiwum modeli; nazwy członków nie są kluczami jednostek (9/45 pokrycia). Dalej: `config*` (unit_list, robolist, RoboDictionary).
 - Trwałość: wejścia gitignored znikają między turami; odtwarzać przez `tools/drive_manifest.tsv`.
+
+### Mechy, stan po pobraniu config01–46
+- Narzędzie: `tools/mech_names.py` (czyta config*, zwraca kandydatów z trzech źródeł). Wynik w `local/mech/mech_names.json`.
+- Kandydaci: `unit_list` base 267, display 390, slot3 40. Brak wspólnych nazw slot3 z unit_list.
+- Cel 100+ mechów NIEPOTWIERDZONY: nie wiadomo, czy unit_list to same mechy.
