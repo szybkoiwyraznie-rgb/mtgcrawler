@@ -466,3 +466,13 @@ The agent sandbox has neither the game files nor the converter, so only the user
   wbudowane — 633 wiersze) mają tekst bez pola długości, więc dostaną własny zapis; tytuły i uwagi
   misji czekają na zapis pól o stałej szerokości (`*_ext.dat`); uruchomienia w PPSSPP nie mam —
   to po stronie użytkownika.
+
+## Decyzje użytkownika (2026-10-12, po cz. 10e)
+
+1. **Nazwy serii zostają po japońsku** — nie tłumaczymy ich; kontekst serii w widokach i scenach
+   pozostaje w oryginalnym zapisie.
+2. **Instrukcja dla tłumacza tylko po polsku** — wersja angielska nie jest potrzebna.
+3. **Dane gry poza repozytorium** — plik `google_drive/eventP00.cpk` usunięty ze śledzenia
+   (`git rm --cached`); historia commitów pozostaje nietknięta. `google_drive/` i `local/` są
+   ignorowane, więc plik nie wróci przypadkiem przy `git add -A`. Audyt `git ls-files` po tej
+   zmianie: **żaden** plik danych gry (CPK/ISO/BIN/DAT/…) nie jest śledzony.
