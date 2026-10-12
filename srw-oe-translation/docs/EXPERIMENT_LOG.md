@@ -2462,3 +2462,56 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    **12 wierszy wpisanych / 0 odrzuconych**, `translation_check.py`: 12 wypełnionych / 0 błędów /
    0 uwag. Prawdziwy widok pakietu regenerowany z liniami `EN:` (`local/translation/sceny/`, 37 plików,
    `sceny.zip` 767 501 B).
+
+## Sesja 5 (2026-10-12), część 10c — widoki dla tłumacza: kontekst zamiast szumu + nazwy z serią
+
+23. [ZWERYFIKOWANE — uwagi użytkownika do widoku scen] Nagłówek sceny niósł techniczny szum
+   (`- plik gry: …`, `- tytuł misji do przetłumaczenia: mission_note:…`, `- elementów: 90 (…)`), a
+   brakowało tego, co dla tłumacza najważniejsze: **kto bierze udział w scenie i z jakiej serii
+   pochodzi**. Widok przebudowany (`tools/scene_view.py`):
+   * nagłówek: `## Scena 12/293 — <tytuł>` + `- odcinek: …` + `- miejsce: … (element N)`;
+   * **`- uczestnicy:`** — japońskie imię każdego mówcy w kolejności pierwszego wystąpienia, a obok
+     seria z tablicy postaci gry (`07_names_characters.jsonl`); 138/293 scen ma serię dla wszystkich
+     mówców, w pozostałych mówca zbiorowy (np. `自衛隊員`) idzie bez serii — taka jest w grze;
+   * **tytuł misji i uwagi do misji są teraz elementami sceny** (`T1.`, `N1.`, `N2.`) — wpisuje się je
+     w tym samym miejscu co dialogi, zamiast szukać id w JSONL; gdy scena powtarza tytuł innej sceny,
+     element jest oznaczony „tłumaczy się raz, tam gdzie jest wprowadzony”;
+   * identyfikacja sceny **numerem** (`## Scena 1/293` = `seq` w `06_scenes.jsonl`), nie nazwą pliku
+     gry; nazwa pliku znikła z widoku (była też w `spis-scen.md`);
+   * elementy `[kopia]` **nie mają linii `EN:`** — niosą notkę „tłumaczenie dziedziczone
+     automatycznie”; wiersze z powtarzanymi uwagami misji pokazywane raz („pole powtarzane w grze”).
+24. [ZWERYFIKOWANE — nazwy z kontekstem] Nowe **`tools/table_view.py`**: sześć plików `.md` dla
+   kategorii tabelarycznych, ten sam mechanizm co przy scenach (element + `EN:`):
+   `postacie.md` (405 grup: imię, przezwisko, seria, głos, imię krótkie/pełne/wąskie, tekst księgi),
+   `mechy.md` (393 grupy: nazwa, nazwa na ekranie, seria, długość, masa **oraz wszystkie bronie**
+   jednostki z nazwą i skrótem), `przedmioty.md`, `umiejetnosci.md`, `teksty-config.md`,
+   `teksty-misji.md`. Każda grupa niesie kontekst (`- seria:`, `- głos:`) — nazwy własne tłumaczy się
+   z wiedzą, skąd postać/mech pochodzi. Wiersz gry czytany w kilku tablicach rozdziałów jest **jednym
+   elementem widoku** (1 097 scalonych par w `07`, 300 w `08`, wszystkie o identycznym jp) — jedno
+   tłumaczenie trafia do wszystkich wierszy; dwa różne teksty pod tym samym offsetem pozostają dwoma
+   elementami (`04`). Razem 26 710 elementów w `widoki/` + 23 252 w `sceny/`.
+25. [ZWERYFIKOWANE — import) `tools/translation_import.py` czyta oba rodzaje widoków (rozpoznaje plik
+   po nazwie): dla widoków tabelarycznych element = (numer grupy, numer elementu) w planie budowanym
+   z **tych samych wierszy**, które idą z powrotem do pliku; przed zapisem porównuje japoński tekst z
+   widoku z wierszem pakietu i **odrzuca nieaktualny widok**, zamiast wpisać tekst pod złą linię.
+   Nowe ostrzeżenie: dwie linie `EN:` pod jednym elementem (`duplicated`) — liczy się ostatnia.
+26. [ZWERYFIKOWANE — błędy widoczne dopiero na danych] Wiersze dialogów kończące się realnym
+   przejściem do nowej linii (2 023 z `\n`, 1 380 z `\r\n`) powodowały fałszywy błąd, bo walidator
+   porównywał `en` po `.strip()`. Poprawione: `translation_check.py` porównuje tekst **jak zapisany**
+   (puste = tylko białe znaki), a `translation_import.py` **odtwarza końcowe przejścia** z japońskiego,
+   gdy brakuje dokładnie ich (środkowe nadal trzeba wpisać — i walidator to zgłasza).
+27. [ZWERYFIKOWANE — kolejność pracy] `tools/translation_mirror.py` (nowe): uzupełnia puste nazwy i
+   etykiety z wiersza o tym samym jp w tym samym pliku gry (16 729 par w pakiecie, konfliktów 0).
+   Zwykłe powtórzenia (`copy_of`, 4 186) nadal załatwia `translation_copy.py`. Kolejność:
+   import → `translation_copy.py` → `translation_mirror.py` → `translation_check.py`.
+28. [ZWERYFIKOWANE — przebieg końcowy na kopii pakietu] Scena + postać + mech: 5 elementów w widokach
+   → `translation_import.py`: **4 wpisane** (`05_mission_text.jsonl`, `07_names_characters.jsonl`,
+   `08_names_units_weapons.jsonl`), 1 odrzucony (mój tekst próbny miał `—`, którego CP932 nie ma, i
+   brak przejścia do nowej linii — dokładnie to, co ma zgłaszać walidator). Dwa wiersze gry tej samej
+   postaci dostały to samo tłumaczenie z jednej linii `EN:`.
+29. [ZWERYFIKOWANE — znaki] Do użycia w tłumaczeniu: `―` (U+2015), `…`, `‘ ’ “ ”`, `°  ×  →  ★  〜  ♪  ①  Å`,
+   pełna szerokość japońska. **Nie da się zapisać**: `—` (U+2014), `–` (U+2013), `„`, `•`, `♥` i litery
+   z akcentami (`é ä ö ñ ç å ø`) — CP932 ich nie ma; w nazwach trzeba pisać zwykłe litery.
+30. [ZWERYFIKOWANE] Kontrola całego pakietu po zmianach: **82 591 wierszy, 0 błędów**, 82 591 pustych
+   (nic jeszcze nie jest przetłumaczone); testy: `python3 -m unittest discover tests` → **652 OK
+   (1 skipped)**.

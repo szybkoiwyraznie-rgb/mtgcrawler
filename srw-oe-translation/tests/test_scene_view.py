@@ -1,5 +1,6 @@
 """Synthetic tests for tools/scene_view.py (no game data)."""
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -45,6 +46,19 @@ def build_package(root: Path) -> Path:
     (package / "06_scenes.jsonl").write_text(
         "\n".join(json.dumps(scene, ensure_ascii=False) for scene in scenes) + "\n",
         encoding="utf-8")
+    characters = [{"id": "char:1:series", "category": "character_series", "key": 1,
+                   "jp": "絶対無敵ライジンオー", "en": ""}]
+    (package / "07_names_characters.jsonl").write_text(
+        "\n".join(json.dumps(row, ensure_ascii=False) for row in characters) + "\n",
+        encoding="utf-8")
+    mission = [
+        {"id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:title", "category": "mission_note",
+         "part": "title", "jp": "初等訓練", "en": "", "mode": "slot", "max_bytes": 43},
+        {"id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_a", "category": "mission_note",
+         "part": "note_a", "jp": "このミッションは…", "en": "", "mode": "slot", "max_bytes": 159},
+    ]
+    (package / "05_mission_text.jsonl").write_text(
+        "\n".join(json.dumps(row, ensure_ascii=False) for row in mission) + "\n", encoding="utf-8")
     return package
 
 
@@ -71,17 +85,55 @@ class ViewTest(unittest.TestCase):
         text = (self.out / "epizod-00.md").read_text(encoding="utf-8")
         self.assertIn("## Scena 1/3 — 初等訓練", text)
         self.assertIn("- odcinek: ０話 メインミッション (episode 0)", text)
-        self.assertIn("- plik gry: eventP00.cpk / DL100_01.bin", text)
-        self.assertIn("- miejsce (element 2): 格納庫", text)
+        self.assertIn("- miejsce: 格納庫 (element 2)", text)
         self.assertIn("1. [Dialog - 日向仁] おはよう", text)
         self.assertIn("2. [Miejsce] 格納庫", text)
         self.assertIn("_koniec sceny_", text)
 
+    def test_the_technical_lines_stay_out_of_the_view(self):
+        SV.write_views(self.package, self.out)
+        text = (self.out / "epizod-00.md").read_text(encoding="utf-8")
+        self.assertNotIn("plik gry", text)
+        self.assertNotIn("do przetłumaczenia", text)
+        self.assertNotIn("elementów:", text)
+
+    def test_participants_carry_their_series(self):
+        SV.write_views(self.package, self.out)
+        text = (self.out / "epizod-00.md").read_text(encoding="utf-8")
+        self.assertIn("- uczestnicy:", text)
+        self.assertIn("  - 日向仁 — 絶対無敵ライジンオー", text)
+
+    def test_a_speaker_without_a_series_is_listed_with_its_name_only(self):
+        rows = [{"id": "dlg:x", "scene": "eventP21.EDAT/SM004.bin", "order": 1, "kind": "dialogue",
+                 "jp": "訓練開始", "speaker": {"id": 2, "jp": "教官"}}]
+        (self.package / "00_dialogue.jsonl").write_text(
+            "\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n", encoding="utf-8")
+        SV.write_views(self.package, self.out)
+        text = (self.out / "simulator.md").read_text(encoding="utf-8")
+        self.assertIn("  - 教官\n", text)
+
+    def test_mission_title_and_notes_are_elements_of_the_scene(self):
+        SV.write_views(self.package, self.out)
+        text = (self.out / "epizod-00.md").read_text(encoding="utf-8")
+        self.assertIn("T1. [Tytuł misji] 初等訓練", text)
+        self.assertIn("N1. [Uwaga do misji] このミッションは…", text)
+
     def test_copies_and_variants_are_flagged(self):
         SV.write_views(self.package, self.out)
         text = (self.out / "epizod-00.md").read_text(encoding="utf-8")
-        self.assertIn("**kopia sceny**", text)
+        self.assertIn("cała scena powtarza scenę nr 1", text)
         self.assertIn("[kopia] Dialog - ID 1", text)
+        self.assertIn("(tłumaczenie dziedziczone automatycznie — nie wpisuj tu nic)", text)
+
+    def test_a_copy_has_no_en_line_to_fill(self):
+        SV.write_views(self.package, self.out)
+        lines = (self.out / "epizod-00.md").read_text(encoding="utf-8").splitlines()
+        start = next(index for index, line in enumerate(lines) if "[[kopia]" in line)
+        end = next(index for index in range(start + 1, len(lines))
+                   if lines[index].startswith("_koniec") or re.match(r"^\d+\. ", lines[index]))
+        block = "\n".join(lines[start:end])
+        self.assertIn("(tłumaczenie dziedziczone automatycznie — nie wpisuj tu nic)", block)
+        self.assertNotIn("EN:", block)
 
     def test_index_lists_every_scene_in_order(self):
         SV.write_views(self.package, self.out)

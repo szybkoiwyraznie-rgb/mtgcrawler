@@ -2,30 +2,47 @@
 """Move the English a translator typed into the scene view (``*.md``) back into the package.
 
 The scene view (``tools/scene_view.py`` -> ``sceny/*.md``, shipped as ``sceny.zip``) is the reading
-copy: every element of every scene in game order, with its place, its speaker and its Japanese text.
-It is **not** sent to the game - it is a work card.  This tool reads the English out of it and writes
-it into ``00_dialogue.jsonl``, which stays the single source of truth the game is built from.
+copy: every element of every scene in game order, with its place, its participants and its Japanese
+text.  It is **not** sent to the game - it is a work card.  This tool reads the English out of it and
+writes it into the package (``00_dialogue.jsonl`` for the scenes, ``05_mission_text.jsonl`` for the
+mission title and notes), which stay the single source of truth the game is built from.
 
 The view carries an empty ``EN:`` line under every element, so the translator only types after the
 colon::
 
-    1. [Dialog - セイシロウ・クサナギ] （俺は今、宇宙貿易事業を推進する
-       　民間組織『コネクト』にいる…）
-       EN: (I'm now at Connect - a civilian
-        organization promoting interstellar trade...)
+    ## Scena 1/293 — 初等訓練
+    - odcinek: ０話 メインミッション (episode 0)
 
-Every following indented line belongs to the same element, so the number of line breaks stays the
-same as in the Japanese text (the game draws the box around them); the two invisible characters of
-the view are written back as characters (``\u23ce`` -> carriage return, ``<0x0F>`` -> the half-width
-font switch), so the translator never types an invisible byte.  Lines of an element that has no
-``EN:`` text are left untouched.  A text that would break the game (CP932, control tokens, line
-breaks, control characters - the rules of ``tools/translation_check.py``) is **refused**, not
-written, and reported, so a broken view can never clobber the package.
+    T1. [Tytuł misji] 初等訓練
+       EN: Basic Training
+    1. [Dialog - セイシロウ・クサナギ] さて、訓練の時間だ。
+       EN: Now then, it is time for training.
+
+An element is addressed by the scene number of its heading (``## Scena 1/293`` = the ``seq`` of
+``06_scenes.jsonl``) plus its own number ``1.``, ``2.``, …; the mission title and notes of the scene
+use ``T1.`` / ``N1.``, ``N2.``.  Every following indented line belongs to the same element, so the
+number of line breaks stays the same as in the Japanese text (the game draws the box around them);
+the two invisible characters of the view are written back as characters (``\u23ce`` -> carriage
+return, ``<0x0F>`` -> the half-width font switch), so the translator never types an invisible byte,
+and a trailing break the Japanese text ends with is restored automatically.  Elements that repeat a
+line of another scene (``[kopia]``) carry no ``EN:`` line: their English comes from
+``tools/translation_copy.py``.
+
+A text that would break the game (CP932, control tokens, line breaks, control characters - the rules
+of ``tools/translation_check.py``) is **refused**, not written, and reported, so a broken view can
+never clobber the package.
+
+The table views of ``tools/table_view.py`` (``postacie.md``, ``mechy.md``, ``przedmioty.md``,
+``umiejetnosci.md``, ``teksty-config.md``, ``teksty-misji.md``) are read the same way: their
+``## Postać 12/582`` heading is the group, the number of the element is its position inside the
+group, and the Japanese text on the element line is checked before anything is written, so a view
+rendered from an older package can never clobber a newer one.
 
 Usage::
 
     python tools/translation_import.py --views local/translation/sceny --package local/translation
-    python tools/translation_import.py --views sceny.zip --package local/translation --check
+    python tools/translation_import.py --views local/translation/widoki --package local/translation
+    python tools/translation_import.py --views sceny.zip widoki.zip --package local/translation --check
 """
 from __future__ import annotations
 
@@ -44,9 +61,11 @@ if str(HERE) not in sys.path:
 import translation_check as TC  # noqa: E402
 
 MARKERS = (("\u23ce", "\r"), ("<0x0F>", "\x0f"))   # the view shows them, the game needs bytes
+GROUP_HEAD_RE = re.compile(r"^## .+? (\d+)/\d+")
+SCENE_FILE_RE = re.compile(r"^- plik gry: (.+?) / (.+?)\s*$")   # older views carried the file name
 ELEMENT_RE = re.compile(r"^(\d+)\. \[(.*?)\] (.*)$")
+META_RE = re.compile(r"^(T\d+|N\d+)\. \[(.*?)\] (.*)$")
 EN_RE = re.compile(r"^\s*EN:\s?(.*)$")
-SCENE_FILE_RE = re.compile(r"^- plik gry: (.+?) / (.+?)\s*$")
 
 
 def read_views(paths: Iterable[Path]) -> Dict[Path, str]:
@@ -74,47 +93,92 @@ def restore_markers(text: str) -> str:
     return text
 
 
-def parse_view(text: str) -> Dict[Tuple[str, int], str]:
-    """{(scene, order): english} for every element that has an ``EN:`` block with text."""
-    found: Dict[Tuple[str, int], str] = {}
-    scene: Optional[str] = None
-    order: Optional[int] = None
+def restore_trailing_breaks(text: str, jp: str) -> str:
+    """Add the line breaks the Japanese text ends with - the view has no line to type them on.
+
+    The game stores a real ``\\n`` (often ``\\r\\n``) at the end of many lines; the view shows such a
+    text as the marker (``⏎``) followed by an empty continuation line, so the translator would have to
+    add a blank line after every ``EN:`` just to keep the count.  Nobody should have to: when the text
+    typed into the view is exactly the Japanese minus its trailing breaks, they are restored here.
+    A text that is missing any *other* break is not touched - the validator reports it, the
+    translator fixes the view.
+    """
+    tail = jp[len(jp.rstrip("\r\n")):]
+    breaks = tail.count("\n")
+    if breaks and jp.count("\n") - text.count("\n") == breaks:
+        return text + "\n" * breaks
+    return text
+
+
+def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
+    """{(group, element): {"en": english, "jp": japanese first line}} of every element of a view.
+
+    ``group`` is ``grp:<number>`` for the heading of a view (the scene number in a scene view, the
+    number of the group in a table view) or the ``container/member`` of an older view that still
+    carried the game file name.  ``element`` is the number of the element (``"3"``) or the mission
+    element (``"T1"``, ``"N1"``).  An element is always a group heading, one ``N. [Label] text``
+    line, its continuation lines and an optional ``EN:`` block; the Japanese first line is kept so
+    the importer can tell a stale view from a good one.
+    """
+    found: Dict[Tuple[str, str], Dict[str, str]] = {}
+    group: Optional[str] = None
+    token: Optional[str] = None
+    jp: Optional[str] = None
     english: Optional[List[str]] = None
+    blocks = 0                       # how many ``EN:`` blocks the element carries (two = a mistake)
 
     def close() -> None:
-        if scene is not None and order is not None and english is not None:
-            joined = "\n".join(line.rstrip(" ") for line in english).strip("\n")
-            if joined.strip():
-                found[(scene, order)] = restore_markers(joined)
+        nonlocal blocks
+        if group is None or token is None:
+            return
+        joined = "\n".join(line.rstrip(" ") for line in english or []).strip("\n")
+        if joined.strip():
+            found[(group, token)] = {"en": restore_markers(joined),
+                                     "jp": (jp or "").rstrip(" "), "blocks": blocks}
+        blocks = 0
 
     for raw in text.splitlines():
+        heading = GROUP_HEAD_RE.match(raw)
+        if heading:
+            close()
+            english, token, jp = None, None, None
+            group = f"grp:{int(heading.group(1))}"
+            continue
         match = SCENE_FILE_RE.match(raw)
         if match:
             close()
-            english, order = None, None
-            scene = f"{match.group(1)}/{match.group(2)}"
+            english, token, jp = None, None, None
+            group = f"{match.group(1)}/{match.group(2)}"
             continue
         if raw.startswith("## ") or raw.startswith("- "):
             close()
-            english, order = None, None
+            english, token, jp = None, None, None
             continue
         if raw.strip() == "_koniec sceny_":
             close()
-            english, order = None, None
+            english, token, jp = None, None, None
             continue
-        element = ELEMENT_RE.match(raw)
+        element = ELEMENT_RE.match(raw) or META_RE.match(raw)
         if element:
             close()
-            order = int(element.group(1))
+            token = element.group(1)
+            jp = element.group(3)
             english = None
             continue
         if raw.strip().startswith("EN:"):
+            if english is not None:
+                blocks += 1          # the element had an ``EN:`` block already
             english = [raw[raw.index("EN:") + 3:].lstrip(" ")]
             continue
         if english is not None:
             english.append(raw[3:] if raw.startswith("   ") else raw)
     close()
     return found
+
+
+def parse_view(text: str) -> Dict[Tuple[str, str], str]:
+    """``{(group, element): english}`` - what the view holds, for comparing with the package."""
+    return {key: value["en"] for key, value in parse_view_full(text).items()}
 
 
 def load_rows(package: Path) -> Tuple[List[dict], Dict[str, List[dict]]]:
@@ -131,35 +195,118 @@ def load_rows(package: Path) -> Tuple[List[dict], Dict[str, List[dict]]]:
     return rows, by_file
 
 
+def scene_lookup(rows: List[dict]) -> dict:
+    """The index a view is resolved against: scene number -> scene, element -> package row."""
+    by_row: Dict[Tuple[str, str], dict] = {}
+    by_id: Dict[str, dict] = {}
+    by_seq: Dict[int, str] = {}
+    meta: Dict[Tuple[str, str], str] = {}
+    for row in rows:
+        if row.get("id"):
+            by_id[row["id"]] = row
+        if row.get("scene") is not None and row.get("order") is not None:
+            by_row[(row["scene"], str(int(row["order"])))] = row
+        if row.get("seq") is not None and row.get("container") and row.get("id"):
+            by_seq[int(row["seq"])] = row["id"]
+            if row.get("mission_row"):
+                meta[(row["id"], "T1")] = row["mission_row"]
+            for index, note in enumerate(row.get("mission_notes") or [], start=1):
+                meta[(row["id"], f"N{index}")] = note
+    return {"by_row": by_row, "by_id": by_id, "by_seq": by_seq, "meta": meta}
+
+
+def resolve(lookup: dict, scene: str, token: str) -> Optional[dict]:
+    """The package row one scene-view element belongs to, or ``None`` when the view is out of date."""
+    if scene.startswith("grp:"):
+        try:
+            scene_id = lookup["by_seq"].get(int(scene[4:]))
+        except (TypeError, ValueError):
+            return None
+    else:
+        scene_id = scene
+    if not scene_id:
+        return None
+    if token.isdigit():
+        return lookup["by_row"].get((scene_id, token))
+    row_id = lookup["meta"].get((scene_id, token))
+    return lookup["by_id"].get(row_id) if row_id else None
+
+
+def resolve_table(plan: List[List[List[dict]]], group: str, token: str) -> Optional[List[dict]]:
+    """The package rows of a table-view element (``grp:<group>`` + element number), or ``None``.
+
+    One element can be backed by several rows: the same field of the same character (or unit) lives
+    in several chapter tables of the game and every one of them must get the same English.
+    """
+    if not group.startswith("grp:") or not token.isdigit():
+        return None
+    index = int(group[4:]) - 1
+    number = int(token) - 1
+    if index < 0 or index >= len(plan) or number < 0 or number >= len(plan[index]):
+        return None
+    return plan[index][number]
+
+
+def view_kind(name: object) -> str:
+    """``table`` for a table view (``postacie.md``…), ``scene`` for everything else."""
+    import table_view                     # deferred: table_view imports this module for the markers
+    file_name = str(name).replace("\\", "/").rsplit("/", 1)[-1]
+    if ":" in file_name:                  # ``sceny.zip:epizod-00.md``
+        file_name = file_name.rsplit(":", 1)[-1]
+    return "table" if file_name in table_view.VIEW_TO_FILE else "scene"
+
+
 def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> dict:
     """Write the English of the views into the package; ``apply=False`` only reports."""
+    import table_view                     # deferred: table_view imports this module for the markers
+
     rows, by_file = load_rows(package)
-    by_scene: Dict[Tuple[str, int], dict] = {}
-    for row in rows:
-        if row.get("scene") is not None and row.get("order") is not None:
-            by_scene[(row["scene"], int(row["order"]))] = row
+    lookup = scene_lookup(rows)
+    plan = table_view.plan_from(by_file)     # the very rows that get written back
 
     report = {"views": len(views), "elements_with_text": 0, "imported": 0, "unchanged": 0,
-              "unknown": [], "rejected": [], "written": [], "rows": len(rows)}
+              "unknown": [], "rejected": [], "duplicated": [], "written": [], "rows": len(rows)}
     touched: Dict[str, List[dict]] = {}
     for name, text in views.items():
-        for (scene, order), english in sorted(parse_view(text).items()):
+        kind = view_kind(name)
+        view_name = str(name).replace("\\", "/").rsplit("/", 1)[-1]
+        if ":" in view_name:                  # ``sceny.zip:epizod-00.md``
+            view_name = view_name.rsplit(":", 1)[-1]
+        table = view_name if view_name in table_view.VIEW_TO_FILE else None
+        for (group, token), content in sorted(parse_view_full(text).items()):
             report["elements_with_text"] += 1
-            row = by_scene.get((scene, order))
-            if row is None:
-                report["unknown"].append(f"{name}:{scene}:{order}")
+            if kind == "table":
+                element = resolve_table(plan.get(table, []), group, token)
+                expected = (element[0].get("jp") if element else "") or ""
+                view_jp = content["jp"]
+                if element is not None and view_jp and \
+                        view_jp != restore_markers(expected).split("\n")[0]:
+                    element = None           # the view was rendered from other package rows
+            else:
+                single = resolve(lookup, group, token)
+                element = [single] if single else None
+            if not element:
+                report["unknown"].append(f"{name}:{group}:{token}")
                 continue
-            if (row.get("en") or "") == english:
+            if content.get("blocks"):
+                report["duplicated"].append(
+                    f"{name}:{group}:{token} ({content['blocks'] + 1} linii EN — liczy się ostatnia, "
+                    f"pusta: usuń nadmiarową)")
+            english = restore_trailing_breaks(content["en"], element[0].get("jp") or "")
+            if all((row.get("en") or "") == english for row in element):
                 report["unchanged"] += 1
                 continue
-            errors, _ = TC.check_row(dict(row, en=english))
-            if errors:
-                row_id = row.get("id", "?")
-                report["rejected"].extend(f"{row_id}: {message}" for message in errors)
+            problems = []
+            for row in element:
+                errors, _ = TC.check_row(dict(row, en=english))
+                problems.extend(f"{row.get('id', '?')}: {message}" for message in errors)
+            if problems:
+                report["rejected"].extend(problems)
                 continue
-            row["en"] = english
+            for row in element:
+                row["en"] = english
+                touched.setdefault(row["_file"], []).append(row)
             report["imported"] += 1
-            touched.setdefault(row["_file"], []).append(row)
     if apply:
         for file_name, file_rows in by_file.items():
             if file_name not in touched:
@@ -184,11 +331,15 @@ def main(argv=None) -> int:
 
     views = read_views(args.views)
     report = import_views(views, args.package, apply=not args.check)
-    summary = {key: value for key, value in report.items() if key not in ("unknown", "rejected")}
+    summary = {key: value for key, value in report.items()
+               if key not in ("unknown", "rejected", "duplicated")}
     print(json.dumps(summary, ensure_ascii=False, indent=1))
-    for label in ("rejected", "unknown"):
-        for message in report[label][:40]:
-            print(f"{label[:-2]}e: {message}" if label == "rejected" else f"nieznane: {message}")
+    for message in report["rejected"][:40]:
+        print(f"odrzucone: {message}")
+    for message in report["duplicated"][:40]:
+        print(f"dwie linie EN: {message}")
+    for message in report["unknown"][:40]:
+        print(f"nieznane: {message}")
     return 0
 
 

@@ -54,6 +54,16 @@ class RowTest(unittest.TestCase):
         errors, _ = TC.check_row(row("あ\nい", "one line"))
         self.assertIn("line breaks changed", errors[0])
 
+    def test_trailing_break_of_the_japanese_is_kept(self):
+        # a third of the dialogue lines end with a real break; stripping the translation would
+        # report a mismatch on correct work
+        errors, warnings = TC.check_row(row("ＥＮ補充、完了！\r\n", "EN supply, complete!\r\n"))
+        self.assertEqual((errors, warnings), ([], []))
+
+    def test_a_translation_without_the_trailing_break_is_an_error(self):
+        errors, _ = TC.check_row(row("ＥＮ補充、完了！\n", "EN supply, complete!"))
+        self.assertIn("line breaks changed", errors[0])
+
     def test_dropped_carriage_return_is_an_error(self):
         errors, _ = TC.check_row(row("あ\r\nい", "a\nb"))
         self.assertIn("control characters changed", errors[0])

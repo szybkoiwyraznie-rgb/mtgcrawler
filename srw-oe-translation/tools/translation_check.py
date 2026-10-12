@@ -17,6 +17,10 @@ The checher is deliberately strict about everything the game cares about and for
 Rows with an empty ``en`` are reported as untranslated, not as errors, so the check can be run while
 translating.  ``--require-complete`` turns them into errors for a release check.
 
+The text is compared **as it is written**, not stripped: a third of the Japanese dialogue lines end
+with a real line break, and stripping the translation would report a break mismatch on correct work.
+Only a whitespace-only ``en`` counts as untranslated.
+
 Usage::
 
     python tools/translation_check.py --package local/translation
@@ -72,9 +76,9 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
     """(errors, warnings) for one package row."""
     errors: List[str] = []
     warnings: List[str] = []
-    text = (row.get("en") or "").strip()
+    text = row.get("en") or ""
     jp = row.get("jp") or ""
-    if not text:
+    if not text.strip():
         message = "untranslated (empty en)"
         (errors if require_complete else warnings).append(message)
         return errors, warnings
