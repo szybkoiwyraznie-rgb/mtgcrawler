@@ -1935,3 +1935,20 @@ No game files written. Game text only under `local/`.
    The 14 dialogue no-name keys do not occur in pilot slots (hits only at numeric offsets).
    Tool `tools/unit_records.py`; `name_units` now includes category `unit` (393 rows, 267 unique).
    Tests: 367 OK, 1 skipped.
+10. **Sandbox rollback and recovery (2026-10-12).** `HEAD` had been reset to `6d22f1a`, while `origin/arena/581a1b79-mtgcrawler`
+    was at `b5fc8e3`. The working tree matched the origin tip for all tracked and untracked SRW files (checked
+    with a temporary worktree, read-only). Recovery: `git reset --mixed origin/arena/581a1b79-mtgcrawler` (no
+    working-tree file changed). Backup of the directory was taken to `/tmp` before the comparison. `local/` and most
+    of `google_drive/` had been removed; restored from Drive.
+11. Drive restore: `download_file` writes straight to `google_drive/<name>` (metadata only in context). Restored
+    mesbtl00–31, config00–46 (except 38, which does not exist), configst, imenu00–32, eventP01–32, evept101–108.
+    Missing from Drive: none of the listed files. `config19` was missed on the first pass and downloaded later.
+12. `tools/battle_members.py --dir google_drive` → 241 keys, 22902 records (matches session 2). `tests/test_battle_members.py` OK.
+13. `tools/speaker_probe.py` over 32 event containers → `local/probes/*.json` (32 files, all OK).
+14. New `tools/build_speaker_inputs.py`: rebuilds the dialogue keys (283) and the dictionary names (246) from the probes
+    and imenu pools. Output `local/whole_game_map.json`, `local/whole_game_speakers.json`.
+15. `name_union` rerun: dict 246, config_raw 37, config_raw_clean 32, none 24. Differs from session 2 (see NAME_REVIEW.md).
+16. `inline_names`, `unit_records` (393 records), `name_units` regenerated. Unit names: 786 occurrences, the unique file
+    is `local/name_units_unique.csv`. Tests: 367 OK, 1 skipped.
+17. Next: resolve the 246 vs 216 dictionary discrepancy before translating any name. Then battle-only queue
+    (733 and 220 first), pilot-slot validation.
