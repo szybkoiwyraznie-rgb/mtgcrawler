@@ -202,3 +202,21 @@ pp_strings.csv	1UHzTz9FytCnRc_vioPVXzqqFO-TyfF1Q	13359212
 pp_README.md	1hBCchpNd5KuIF91TgCFqoQqFbcs0Ea7k	5892  # stara wersja -> kosz
 pp_README.md	1Z4DY_aThOi1poIRuG-oQCJzO9P1SIrYF	6346  # wersja z walidatorem (par. 5)
 # nazwa name_map.tsv na Drive: "name_map.tsv - klucz do nazwy mowcy"
+# --- AKTUALIZACJA (sesja 5, cz. 10): sceny, numeracja 00-08, jeden proces tlumaczenia
+# stare wersje przeniesione do kosza: 00_dialogue 1VKTr6qb6KV1qOhncL0x5KR1kBWO8gR9b,
+# index.json 1JR8KXVkca0piHe_jBtF-KNImS4Ia1HAn, README 1Z4DY_aThOi1poIRuG-oQCJzO9P1SIrYF,
+# strings.csv 1UHzTz9FytCnRc_vioPVXzqqFO-TyfF1Q (CSV jest teraz opcjonalny: --csv),
+# 10_names_characters.jsonl 1v4B45X6HNrgSA0bdGI-I3o54_AXNOuq2 -> 07_names_characters.jsonl,
+# 11_names_units_weapons.jsonl 1tXG6h3uBS1BvQALuucrO8-UMQbsW2KW_ -> 08_names_units_weapons.jsonl
+# name	file_id	size
+pp_00_dialogue.jsonl	1tx8Psr5ZGjgNI7ISdeTCn2XcZKG9gVZc	12754998  # wiersze w kolejnosci scen (scene/order)
+pp_06_scenes.jsonl	12E5VyYj6IzKl7WYuqmok9qQnVzXdTJR-	185255  # struktura: 293 sceny
+pp_07_names_characters.jsonl	1kCs3tisPE4OyGl1qyon1sDQwLxgp_RAc	986264  # dawniej 10_
+pp_08_names_units_weapons.jsonl	106uhVsS9NLD7kVArDk9r-06UZtrlBw1Y	1218331  # dawniej 11_
+pp_index.json	1NjczUSchNpZquGbWRA7E_NV9lPYfY_Fi	4932  # + statystyki scen
+pp_README.md	1C_OAMnIb1v7DZ4tPHGRFdRd35b60xRAO	9727  # proces tlumaczenia (par. 6) + sceny (par. 2)
+pp_check_report.txt	1X2qrnHtftKxiBMmN_cLJqo5fVi6D_cZk	13291  # 82591 wierszy / 0 bledow
+pp_spis-scen.md	1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6	36537  # 293 sceny w kolejnosci gry
+pp_sceny.zip	1odnUnmVaROz2DWw3lZIAV23kpL01_qaR	757831  # 37 plikow: epizod-NN.md + spis scen
+# bez zmian (te same pliki co w cz. 9): 01_battle_quotes, 02_items, 03_skills, 04_config_text,
+# 05_mission_text, name_map.tsv
