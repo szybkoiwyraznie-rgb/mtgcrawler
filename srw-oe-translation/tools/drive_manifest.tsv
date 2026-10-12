@@ -228,3 +228,12 @@ pp_README.md	1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq	13171  # + par. 0 szybki start
 # stare wersje przeniesione do kosza: sceny.zip 1odnUnmVaROz2DWw3lZIAV23kpL01_qaR,
 # spis-scen.md 1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6, README.md 1C_OAMnIb1v7DZ4tPHGRFdRd35b60xRAO
 # (wersja posrednia README 1kO6Q8C4G6lVxXva8AxTi_tMb2i3J3HYg takze w koszu)
+# --- AKTUALIZACJA (sesja 5, cz. 10c): widoki z kontekstem + README krok po kroku
+# nowe wersje (naglowek sceny z uczestnikami i seria, bez nazwy pliku gry; nowy podzial widokow):
+pp_readme.md	1Hlv1DOVr_DFIQze231gqkMVjQ-N7aWlO	16363  # instrukcja krok po kroku (sceny + widoki)
+pp_sceny.zip	1dHBtwXNqU8iWn0hwOB_aGgygeFdBFoUR	822852  # 37 plikow: elementy T1/N1 + uczestnicy
+pp_widoki.zip	177Tor91VmnIdk14WTPpIdP99Qh423TeZ	482688  # postacie, cytaty, mechy, przedmioty, umiejetnosci, config, misje
+pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw plikow gry
+# stare wersje przeniesione do kosza: README.md 1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq,
+# sceny.zip 1b1CVCN7AqdnJxiFNGY7h6vMoyP61fBaV, spis-scen.md 13AfdpxnwEid-Zgi511Okh0Q6EU9Z2lmx
+# (JSONL 00-08 bez zmian — te same ID co w cz. 10)
