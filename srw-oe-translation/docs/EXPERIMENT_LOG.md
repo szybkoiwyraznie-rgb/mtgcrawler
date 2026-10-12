@@ -2717,3 +2717,36 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
      0 błędów.
    * **Nadal wisi**: `eventP00.cpk` (id zablokowane — tylko nowa sesja) → rozdział 1 w dialogach
      i misjach; normalizacja par `0x0F` w umiejętnościach; wgranie pakietu na Drive.
+
+52. [ZWERYFIKOWANE — imenu08.EDAT POBRANY I CZYSTY; WARSTWA CPK MENU ODTWARZALNA BAJT-W-BAJT]
+    **Data:** 2026-10-12.
+    **Kontekst:** „Robocze (JSONL)" na Drive odświeżone (12 plików, stare 13 w koszu),
+    pakiet na Drive zgodny z lokalnym. Pytanie kontrolne: czy mamy komplet i czy menu/UI
+    jest ogarnięte do reinjectu.
+    **imenu08.EDAT:** jedyny kontener z manifestu FULL_DLC nigdy niepobrany
+    (id `18Wg3U3n2F_GywbHJbOCMfXKxrTMrFbIE`, 18 600 B). Pobrane przez konektor Drive do
+    `google_drive/imenu08.EDAT`, skopiowane do `local/imenu/`. Audyt bramką
+    `coverage_audit.py` (zestaw events+configs+battle_quotes+imenu): **imenu08.EDAT —
+    członków 6, przebiegów 39, braków 0, OK**. Jedyne 2 teksty spoza pakietu głównego
+    (`%s%s!解説書：戦術`, `（艦船ユニット）`) istnieją już w pakiecie jako leftovers
+    z lustrzanych kontenerów config08/imenu00–06 (te same bajty) — zero nowej treści.
+    `text_runs_export.py` raportuje je jako „bez wiersza" celowo: wyklucza własne
+    kategorie leftovers z bloba pokrycia, żeby jego wcześniejszy wynik nie maskował
+    nowych luk; prawdziwą bramką jest `coverage_audit.py`.
+    **Raport pokrycia:** 112 kontenerów, missing=2 (oba to stringi Makefile
+    w configst.pac, nie tekst gry). **Komplet ekstraktów = wszystkie kontenery tekstowe
+    z wyjątkiem `eventP00.cpk`** (rozdział 1; id zablokowane w tej sesji, tylko nowa
+    sesja). `robo00.cpk` (38 MB) = modele/animacje (bcam/bsb/pac CRILAYLA), nie tekst;
+    `system.cpk` (77 976 B) = tylko grafika.
+    **Warstwa CPK dla menu/UI [ZWERYFIKOWANE]:** `cpk_write.rebuild(load(p))` daje
+    plik **identyczny bajt-w-bajt** dla `configst.cpk` (376 960 B, 1 członek),
+    `config00.cpk` (929 920 B) i `imenu00.cpk` (34 984 B, 6 członków) — ten sam pisarz
+    CPK, który przeszedł demonystrację w PPSSPP na eventP00. Łańcuch reinjectu menu:
+    `sysmes_pack.rebuild_cpk(configst, {}, )` → 376 960 B identyczne bez edycji
+    (round-trip), `grow_one`/`apply_edits`/`equal_translate` z testami jednostkowymi
+    (test_sysmes_pack, test_sysmes_shift), `configst_pack.parse_pac`/`rebuild_pac`
+    (test_configst_pack), `dict_pool_shift.rebuild_pool` dla słowników Chara/Robo
+    (9 testów). Teksty menu są w pakiecie tłumacza: sysmes 2 196 + tabele config w
+    `04_config_text.jsonl` (15 368 wierszy, kategorie config_sysmes/config_leftover).
+    **Nieudemonstrowane jeszcze w grze:** wstrzyk angielskiego configst.cpk w PPSSPP
+    (pełny test i tak ma być jeden, wszystkich typów naraz — decyzja użytkownika).
