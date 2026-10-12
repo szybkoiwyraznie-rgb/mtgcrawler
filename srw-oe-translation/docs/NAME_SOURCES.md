@@ -278,12 +278,52 @@ gives a name for every speaker key; it had been "layout unresolved" since sessio
 
 - Keys are unique across all members (404 records → 404 keys) and ascend inside a member, so +96 is
   safe to read without a header.
-- Coverage measured against the local extraction: **283/283 story-dialogue keys** (12 738 lines) and
+- Coverage measured against the local extraction: **313/313 story-dialogue keys** (26 468 lines) and
   **300/319 battle-quote keys** have a record here. The 19 without one are listed in
-  `local/charalist_missing_keys.json`: keys 3/6/7/8/991 are placeholder slots whose quote text is
-  empty in every record; keys 50/1005/1051 are also **unit ids** in `unit_list`/`RoboDictionary`
-  (ガンバルガー, ガンキャノン, ザクⅡ); the rest (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702,
-  3707, 3712 – 1 182 quote records) still have no name source. Where those keys' records live is
-  `[OTWARTE]`.
+  `local/charalist_missing_keys.json` and in `local/name_map.json`: keys 3/6/7/8/991/1037 are
+  placeholder slots (744 quote records, no real dialogue text); keys 50/1005/1051 are also **unit ids**
+  in `unit_list`/`RoboDictionary` (ガンバルガー, ガンキャノン, ザクⅡ – 221 quote records); the
+  remaining 10 (55, 60, 101, 151, 733, 1048, 3122, 3702, 3707, 3712 – 217 quote records) still have
+  no name source.  The 13 keys with real text (the three unit-id ones + these ten) carry 438 records
+  in total.
+  Where those keys' records live is `[OTWARTE]` (best candidate: generic-unit keys, where the speaker
+  plate is the pilot from `unit_list`; not proven, see EXPERIMENT_LOG session 5 part 5).
 - Priority rule for the translation tables: use this table first (it is the table the game itself
-  displays); CharaDictionary and the config name slots stay as fallbacks for anything it misses.
+  displays); `CharaDictionary` adds what it lacks (voice actor, series, nickname) and the config name
+  slots stay as a **verification** source only.
+
+## 14. Name map for the whole key universe (`tools/name_map.py`), measured 2026-10-12
+
+`[ZWERYFIKOWANE]` — 12 synthetic tests. One command joins every extraction JSONL with the two name
+tables and prints the coverage:
+
+```
+python tools/name_map.py --dir google_drive \
+    --jsonl local/dialogue/dialogue.jsonl local/battle_quotes/battle_quotes.jsonl \
+    --out local/name_map.json --tsv local/name_map.tsv --verify-config
+```
+
+Result over the shared inputs: **381 keys** (313 dialogue ∪ 319 quote), **362 named (95.0%)**,
+**210 with a voice actor**, **284 with a series title**; **100% of the 26 468 dialogue lines** and
+**96.0% of the 29 577 quote records** carry a name; the unresolved 19 keys are quote-only and account
+for the remaining 1 182 records (4.0%).
+
+Source cross-checks (all measured on this corpus):
+
+| comparison | result |
+|---|---|
+| `charalist.name_full` vs `CharaDictionary.name` (288 common keys) | **285/288** equal after NFKC (283 exact) |
+| `charalist.name_short` vs `CharaDictionary.nickname` | **288/288** equal |
+| config name slot (marker `0x6401`) vs `charalist.name_short` | **89 agree / 2 differ**; both differences are abbreviations (連邦士官/連邦軍士官, RS隊員/レッドショルダー隊員) |
+| config name slot without the marker | wrong in 91 of 214 cases → **never trust** |
+| config slot hits that add a key the charalist lacks (quote universe) | **0** (190 of 201 already known, 11 single-character noise) |
+
+`CharaDictionary` field roles (12 strings per record, 582 records / 289 keys, identical across the
+pool copies): [0] name, [1] voice actor (`－－－` = none, 156 records), **[2] encyclopedia entry text**
+(template `＠０\r` + description), [3] series title, [4] `愛称：<nickname>`, [5] `声優：<voice actor>`,
+[8]/[9] display templates, [10] alternate name (1 record), [11] short display name (440 records).
+The role of [2] is proven by the `NoData` record (key 65535): its text is
+`図鑑用のデータが存在していません。` — the game's own "no encyclopedia data" placeholder. Only 3 of the
+582 records carry any entry text, so the descriptions do **not** exist in the shipped data and have to be
+written as editorial content; the injection point is this field (`＠０\r` prefix kept, pool grown with
+`dict_pool_shift.rebuild_pool`).

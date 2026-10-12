@@ -14,9 +14,9 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |
 |---|---|---|---|---|---|---|
 | 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery, 293 członki) | **26 468 linii, 313 kluczy (100% z nazwą), 1 186 781 B tekstu** (`tools/event_dialogue.py`) **+ 360 tekstów innych typów** (narracja 136, warunki zwycięstwa/porażki 149, lokacje 41, help 19, tytuły scen 6, etykiety 9) **+ 273 teksty w blokach-tabelach** (13 KB) | **grow — sprawdzony w grze** | **ekstrakcja domknięta** (0 błędów, 0 nieczytelnych rekordów) | stara liczba 12 738 linii była zaniżona ~2× (stary chodzik kończył na granicy bloku); brak kroku `apply`; 4008 bloków to tabele (nie tekst), 137 z nich ma teksty – wyekstrahowane |
-| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **300/319 kluczy ma nazwę** z tabeli postaci | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | 19 kluczy bez rekordu w tabeli postaci: 5 to sloty zastępcze z pustym tekstem (3/6/7/8/991), 3 to także id jednostek (50/1005/1051), 11 (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712) nadal bez nazwy – 1 182 rekordy cytatów; ścieżka `apply` jeszcze nie zbudowana |
-| 3 | Imiona (mówcy) | `srwDL_CharaDictionary` + sloty `config*` | **339 kluczy, 301 nazwanych** (dialog 99,5%) | grow (pula NUL) | prawie domknięte | 14 kluczy dialogowych + 24 bitewne bez źródła nazwy; 2 klucze z podwójnym rekordem |
-| 4 | Encyklopedia postaci | **nie zlokalizowana** | `CharaDictionary` = tylko nazwy i tytuły serii (max 43 B); `srwDL_Reference` = help/tutorial | — | **brak tabeli** | trzeba znaleźć tabelę biografii (kandydaci niżej) albo udowodnić, że jej nie ma |
+| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **300/319 kluczy ma nazwę** z tabeli postaci (`local/name_map.json`) | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | 19 kluczy bez nazwy = **1 182 rekordy (4,0% cytatów)**: 6 to sloty bez tekstu (3/6/7/8/991/1037 → 744 rekordy z tekstem zastępczym lub pustym), 13 z tekstem (50/55/60/101/151/733/1005/1048/1051/3122/3702/3707/3712 = 438 rekordów) — kandydat: id jednostki generycznej, gdzie mówcą jest pilot z `unit_list`; ścieżka `apply` jeszcze nie zbudowana |
+| 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu** i **96,0% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
+| 4 | Encyklopedia postaci | `srwDL_CharaDictionary` (imenu/config) — **pole [2] rekordu** | tabela **289 postaci** z nazwą, seiyuu, tytułem serii, pseudonimem `愛称：` i **slotem opisu**; opis ma **tylko 3/582 rekordy**, reszta trzyma sam szablon `＠０\r`; rekord `NoData` (klucz 65535) ma w tym polu `図鑑用のデータが存在していません。` = „brak danych do encyklopedii” (`tools/chara_dictionary.py`, 9 testów) | grow (pula NUL — `dict_pool_shift.rebuild_pool`) | **tabela zlokalizowana, opisów w danych gry brak** | 579 rekordów bez opisu → opisy trzeba **napisać** (praca redakcyjna), a wstrzyknięcie jest wykonalne w polu [2] (szablon `＠０\r` + tekst) `[HIPOTEZA]` co do wyświetlania |
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
 | 6 | Itemy + opisy | `srwDL_Item00` + pule DLC (`config*`), `configst/srwDL_Item` | 2300 rekordów, **1929 stringów / 22,5 KB** (510 unikalnych) | grow (pary zakresów) | ekstrakcja tak, role pól nie | role pól w rekordzie; nazwa itemu ↔ klucz; opisy efektów częściowo w `srwDL_DLC_ID` |
 | 7 | Umiejętności + opisy | `srwDL_Skill00` + pule DLC | 7380 rekordów, **9128 stringów / 142 KB** (3036 unikalnych) | grow (pary zakresów) | ekstrakcja tak, role pól nie | role pól; powiązanie z tagami (`srwDL_Skill_Tag`, 288 unikalnych) |
@@ -33,8 +33,9 @@ Cytaty bitewne (pkt 2, `tools/battle_quotes.py`): **29 577 rekordów, 814,7 KB t
 |---|---|---|
 | Jednostki (mechy) | `unit_list` +84 = `wp_list` u32 = `RoboDictionary` +28 = `unit_index_list` kol. 1 | **393 / 393 (cała gra)** `[ZWERYFIKOWANE]` |
 | Bronie | pozycja wpisu w rekordzie `wp_list` jednostki (nazwa `.bsb` = `s<id>_<nnn>`) | **1485 / 1485** `[ZWERYFIKOWANE]` |
-| Mówcy | u16 w rekordzie dialogu +10 → `CharaDictionary` +0x40 | 339 kluczy; 301 z nazwą (99,5% linii) |
+| Mówcy | u16 w rekordzie dialogu/cytatu +10 → `charalist` +96 (nazwy) i `CharaDictionary` +0x40 (seiyuu, seria) | **362 / 381 kluczy (95,0%)**; dialogi 313/313, cytaty 300/319; 19 kluczy cytatów = 1 182 rekordy |
 | Cytaty bitewne | u16 klucza w rekordzie 0xC9 (nazwa członka `p<NNN>.pac` to *zestaw*, nie mówca) | **319 kluczy** `[ZWERYFIKOWANE]` (poprzednie 241 liczyło tylko rekordy zgodne z nazwą członka) |
+| Encyklopedia | klucz mówcy u16 +0x40 rekordu `CharaDictionary` | **289 / 313 kluczy dialogów** (`local/name_map.json`); opisy obecne w 3 rekordach |
 | Itemy | u16 na +0 rekordu `srwDL_Item` (np. 10000, 10019) | 300 kluczy na płycie + pule DLC; mapowanie nazwa↔klucz niepotwierdzone |
 | Skille | rekord `srwDL_Skill` (1469 na płycie + pule) | klucz nieustalony |
 | Tytuły serii | `RoboDictionary` po id jednostki | 302 / 393 jednostek ma rekord |
@@ -111,12 +112,51 @@ flag (0x0001/0x0009/0x0011/0x0019) — dlatego test kotwicy jest opcjonalny. Po 
 cytatów daje identyczne wyniki jak przed nim (29 577 rekordów, 0 błędów), co jest regresją pilnowaną
 testami.
 
+## 3d. Nazwy mówców i encyklopedia — dwa nowe narzędzia (pkt 2 i 4 planu)
+
+`[ZWERYFIKOWANE]` `tools/chara_dictionary.py` (9 testów) — słownik postaci `srwDL_CharaDictionary<NN>.bin`
+(25 kontenerów `imenu`, 582 rekordy / 289 kluczy, identyczne w kopiach). 12 stringów rekordu:
+
+| pole | znaczenie | pokrycie |
+|---|---|---|
+| [0] | nazwa postaci (np. 霧隠虎太郎) | 582/582 |
+| [1] | seiyuu, `－－－` gdy brak | 426 + 156 placeholderów |
+| [2] | **opis do encyklopedii**: szablon `＠０\r` + tekst | 3/582 |
+| [3] | tytuł serii | 582/582 |
+| [4] | `愛称：<pseudonim>` | 582/582 |
+| [5] | `声優：<seiyuu>` | 582/582 |
+| [8]/[9] | szablony wyświetlania `＠６\r`, `＠０\r\n＠６\r` | 582/582 |
+| [10] | nazwa alternatywna (勇者ラムネス（馬場ランペルージ）) | 1 |
+| [11] | krótka nazwa wyświetlana (マリア) | 440/582 |
+
+`[ZWERYFIKOWANE]` `tools/name_map.py` (12 testów) — jeden stół **klucz → nazwa** dla całego uniwersum
+kluczy (26 468 linii dialogu + 29 577 cytatów), z priorytetem źródeł i raportem konfliktów:
+
+* **`charalist` to źródło nazw** (404 klucze, nadzbiór) — `name_short` = nazwa wyświetlana, `name_full` = pełna,
+  `name_narrow` = warianty wąskie (z tokenami 0x0F).
+* **`CharaDictionary` potwierdza nazwy i dodaje seiyuu/serię**: `name_full == charalist.name_full` dla **285/288**
+  wspólnych kluczy (po normalizacji NFKC; 283/288 bez niej), `nickname == charalist.name_short` dla **288/288**; 5 wyjątków to warianty szerokości
+  (ｱﾘｬﾘｬ･… vs アリャリャ・…), pusty `name_full` (4135 — uzupełniany z `CharaDictionary`) i alias w nawiasie (400).
+* **Sloty nazw `config*` są redundantne**: z 201 trafień w klucze cytatów 190 jest w `charalist`, a 11
+  (3/6/7/8/50/55/60/101/151/733/991) to przypadkowe bajty. Reguła markera `u16 0x6401` zgadza się
+  z `charalist` w **89/91** przypadkach (2 różnice to skróty: 連邦士官/連邦軍士官, RS隊員/レッドショルダー隊員),
+  sloty bez markera mylą się w 91/214 — dlatego: **nazwy nigdy ze slotu bez markera**.
+* Wynik: **362/381 kluczy** ma nazwę; nierozwiązane **19 kluczy = 1 182 rekordy cytatów (4,0%)**, w tym
+  6 bez tekstu (744 rekordy) i 13 z tekstem (438 rekordów) — opisane w wierszu 2 tabeli zbiorczej.
+
+Artefakty (gitignored): `local/chara_dictionary.json`, `local/name_map.json`, `local/name_map.tsv`.
+
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
-1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener —
-   encyklopedii tam nie ma.
-2. Encyklopedii postaci **nie ma** w `CharaDictionary` (najdłuższy tekst 43 B = tytuły serii) ani
-   w `RoboDictionary` (najdłuższy 52 B; są tam listy pilotów, np. „パイロット：…”).
+1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
+   Dzięki temu `CharaDictionary`/`RoboDictionary` z `imenu00` to ten sam zestaw danych co
+   `config00` (i dlatego 582 rekordy = 291 × 2 kopie).
+2. **Encyklopedia postaci JEST w `CharaDictionary`** — to pole [2] rekordu (szablon `＠０\r` +
+   tekst). Dowód: rekord `NoData` (klucz 65535) ma tam `図鑑用のデータが存在していません。`
+   („brak danych do encyklopedii”), a 2 dalsze rekordy mają krótkie opisy. Samych **opisów
+   w danych gry nie ma** — 579/582 rekordów trzyma goły szablon, więc biografie trzeba napisać
+   (praca redakcyjna); miejscem wstrzyknięcia jest pole [2]. `RoboDictionary` opisów nie ma
+   (najdłuższy tekst 52 B = listy pilotów).
 3. `configst.pac` zawiera 21 członków, w tym całe kategorie tekstu dotąd niekatalogowane:
    `srwDL_Spirit` (komendy duchowe — nazwy i opisy), `srwDL_Achievement` (trofea),
    `srwDL_Skill_Tag`, `srwDL_StatusChange`, `srwDL_ItemDrop`, `srwDL_Dmg`, `srwDL_CalcType`.
@@ -135,6 +175,15 @@ testami.
 8. `srwDL_Shop00` (182 rekordy) nie zawiera nazw itemów — 19 rekordów ma tekst, żaden nie jest nazwą
    itemu ani broni; nazwy w sklepie są czytane z innej tabeli (do znalezienia).
 
+9. **Sloty nazw w `config*` są zbędne**: ze 201 trafień w klucze cytatów 190 jest już w `charalist`,
+   a 11 (klucze 3/6/7/8/50/55/60/101/151/733/991) to pojedyncze znaki z przypadkowych bajtów. Reguła
+   markera `u16 0x6401` (klucz +0x0A) zgadza się z `charalist` w 89/91 przypadkach; bez markera slot
+   myli się w 91/214. Wniosek: **nazwy brać z `charalist`, ze slotów `config*` tylko weryfikować**.
+10. **Dwa niezależne źródła nazw się potwierdzają**: `charalist.name_short == CharaDictionary.nickname`
+   w 288/288 wspólnych kluczy, `name_full == name` w 285/288 (NFKC). To podnosi zaufanie do obu tabel
+   i tłumaczy 5 różnic: warianty szerokości (ｱﾘｬﾘｬ･… vs アリャリャ・…), pusty `name_full` (4135 —
+   uzupełniany z `CharaDictionary`) oraz alias w nawiasie (400 勇者ラムネス（馬場ラムネ）).
+
 ## 5. Plan domykania (kolejność i definicja „gotowe”)
 
 Dla każdej kategorii „gotowe” znaczy: (a) ekstrakcja 100% z lokalizacjami, (b) ścieżka grow
@@ -143,13 +192,19 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 
 1. ~~Cytaty bitewne — odblokować granice rekordów.~~ **ZROBIONE (sesja 5)**: 29 577 cytatów z 319 kluczy,
    0 błędów. Pozostaje: ścieżka `apply` (przebudowa rozmiarów 200/201 i bloków `EVNT`) + scalenie z nazwami mówców.
-2. **Nazwy mówców dla 319 kluczy cytatów** — przecięcie ze słownikiem postaci (`CharaDictionary` +0x40)
-   i tabelą `name_union`; to domknie wymaganie „cytaty z imionami”.
+2. ~~**Nazwy mówców dla 319 kluczy cytatów**~~ **ZROBIONE (sesja 5, `tools/name_map.py`)**:
+   381 kluczy całej gry, 362 z nazwą (95,0%), 100% linii dialogu i 96,0% rekordów cytatów.
+   Źródła: `charalist` (podstawa) + `CharaDictionary` (seiyuu, seria, pseudonim), sloty `config*`
+   tylko weryfikacyjnie. Zostaje 19 kluczy cytatów = 1 182 rekordy (4,0%) — patrz wiersz 2 tabeli
+   i pkt 11 niżej (kandydat: klucz = id jednostki generycznej).
 3. **Narracja i warunki misji — domknięte przy okazji pkt 1** (360 tekstów innych typów + 273 embedded).
-4. **Encyklopedia (pkt 4) — znaleźć albo zamknąć pytanie.** Sprawdzić kolejno: `system.cpk`, `navisys`,
-   `tacsys`, `u16tbl.cpk`, `mesbmp00` (obrazy?), `celldata.bin`, `SRW_DL.acf`. Jeśli biografii nie ma,
-   ustalić z użytkownikiem, czy „encyklopedia” ma być zbudowana z `CharaDictionary` + tytułów serii
-   (dane, które gra ma), czy dopisana jako treść redakcyjna.
+4. ~~**Encyklopedia (pkt 4)**~~ **ZAMKNIĘTE (sesja 5, `tools/chara_dictionary.py`)**: tabela to
+   `srwDL_CharaDictionary` (289 postaci, pole [2] = opis do encyklopedii, dowód = rekord `NoData`).
+   Opisów w danych gry nie ma (579/582 puste) → decyzja dla użytkownika: pisać opisy redakcyjnie
+   (wstrzyknięcie w pole [2], grow puli) czy pokazywać tylko nazwę/seiyuu/serię. Plików
+   `system.cpk`/`navisys`/`tacsys`/`u16tbl.cpk`/`SRW_DL.acf` **nie ma** na liście przekazanych
+   plików (`tools/drive_manifest.tsv`, 137 plików), więc dalsze szukanie wymaga nowego pliku od
+   użytkownika.
 5. **Skille (pkt 7, 142 KB) — role pól.** Para (start, koniec) w rekordzie + tabela u16 pod +40;
    potwierdzić na próbce nazwę/opis/skrót, potem arkusz i ścieżka grow (przebudowa par).
 6. **Itemy (pkt 6) — to samo dla itemów** + powiązanie klucza itemu z nazwą i z opisem zakupu
@@ -161,6 +216,10 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
 9. **Arkusz scalony** — jeden plik wszystkich kategorii (klucz, źródło, japoński, angielski,
    maks. długość, tryb zapisu) + kontrola 100% pokrycia wobec tego dokumentu.
 10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
+11. **Ostatnie 19 kluczy cytatów bez nazwy** (1 182 rekordy, pkt 2) — sprawdzić hipotezę „klucz =
+    id jednostki generycznej, mówca = pilot z `unit_list`” na parach, które mają tekst (50/1005/1051
+    mają odpowiedniki w `unit_list`, 10 pozostałych nie), a jeśli się nie potwierdzi, zamknąć jako
+    rekordy bez wyświetlanej nazwy (tekst zastępczy) i udokumentować.
 
-Zadania z kolejki, które nie są blokadą, ale zostają: 42 członki bez łańcucha (`event`), 14 kluczy
-dialogowych bez nazwy, semantyka pól `unit_list` 88–134, `robo01`+ dla 24 par modeli.
+Zadania z kolejki, które nie są blokadą, ale zostają: semantyka pól `unit_list` 88–134,
+`robo01`+ dla 24 par modeli, 19 kluczy cytatów bez nazwy (pkt 2) i decyzja o opisach encyklopedii (pkt 4).

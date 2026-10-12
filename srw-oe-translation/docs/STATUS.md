@@ -317,3 +317,21 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Poza dialogiem: 360 tekstów innych typów (narracja, warunki zwycięstwa/porażki, lokacje, help,
   tytuły scen) + 273 teksty w blokach-tabelach. Razem 27 101 pozycji / ~1,22 MB.
 - Testy: **445 OK (1 skipped)**.
+
+### Sesja 5, część 5 (2026-10-12): nazwy mówców (381 kluczy) i encyklopedia postaci
+- `tools/chara_dictionary.py` (9 testów): słownik postaci z 25 kontenerów `imenu` — **582 rekordy /
+  289 kluczy**, pola: nazwa, seiyuu (`－－－` = brak), **opis do encyklopedii [2]**, tytuł serii,
+  `愛称：`, `声優：`, szablony wyświetlania, nazwa alternatywna, krótka nazwa.
+- **Encyklopedia zlokalizowana**: to pole [2] rekordu (dowód: rekord `NoData` ma tam
+  `図鑑用のデータが存在していません。`). Opisów w danych gry **nie ma** (579/582 puste) — trzeba je
+  napisać redakcyjnie; wstrzyknięcie jest wykonalne w polu [2] (pula rośnie).
+- `tools/name_map.py` (12 testów): jeden stół **klucz → nazwa** dla 381 kluczy gry (313 dialogów ∪
+  319 cytatów). **362 klucze z nazwą (95,0%)**; nazwę dostaje **100% linii dialogu** i **96,0%**
+  rekordów cytatów. Źródła: `charalist` (podstawa) + `CharaDictionary` (seiyuu, seria, pseudonim).
+- Kontrola krzyżowa źródeł: `charalist.name_short` == `CharaDictionary.nickname` w 288/288, `name_full`
+  == `name` w 285/288 (NFKC). Sloty `config*` **zbędne**: 190/201 trafień już w `charalist`, a 11 to
+  przypadkowe bajty; reguła markera `0x6401` zgadza się w 89/91, bez markera myli się w 91/214.
+- Zostaje **19 kluczy cytatów = 1 182 rekordy (4,0%)** bez nazwy (13 z tekstem); 3 z nich to także
+  id jednostek — hipoteza „klucz = jednostka generyczna” do sprawdzenia (plan pkt 11).
+- Naprawiony dług: `speaker_names.scan()` działa jako biblioteka (leniwy regex).
+- Testy: **466 OK (1 skipped)**.

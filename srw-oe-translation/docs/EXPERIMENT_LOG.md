@@ -2152,3 +2152,52 @@ poszukiwanie tabeli encyklopedii, budżety znaków UI, arkusz scalony, `apply` p
 7. Razem wyekstrahowany tekst fabularny: **27 101 pozycji / ~1,22 MB** (`local/dialogue/`:
    `dialogue.jsonl`, `other_text.jsonl`, `embedded_text.jsonl`, `summary.json`).
 8. Zestaw testów: **445 OK (1 skipped)**.
+
+## Sesja 5 (2026-10-12), część 5: nazwy mówców (381 kluczy) i encyklopedia postaci
+
+Cel: domknąć punkty 2 i 4 planu z `docs/COVERAGE.md` (nazwy dla wszystkich kluczy; encyklopedia).
+
+1. [ZWERYFIKOWANE] Nowe narzędzie `tools/chara_dictionary.py` (9 testów syntetycznych) czyta pulę
+   `srwDL_CharaDictionary<NN>.bin` ze **wszystkich 25 kontenerów `imenu`**: **582 rekordy / 289 kluczy**
+   (rekordy występują w dwóch-więcej kopiach: 287 kluczy ×2, 2 klucze ×4), identyczne treści w kopiach.
+2. [ZWERYFIKOWANE] Rozkład 12 stringów rekordu (mierzone, nie założone): [0] nazwa postaci,
+   [1] seiyuu (`－－－` = brak, 156 rekordów), **[2] opis do encyklopedii** (szablon `＠０\r` + tekst),
+   [3] tytuł serii, [4] `愛称：<pseudonim>`, [5] `声優：<seiyuu>`, [8] `＠６\r`, [9] `＠０\r\n＠６\r`,
+   [10] nazwa alternatywna (1 rekord), [11] krótka nazwa wyświetlana (440 rekordów).
+3. [ZWERYFIKOWANE] **Pole [2] to encyklopedia**: rekord `NoData` (klucz 65535) ma w nim
+   `図鑑用のデータが存在していません。` = „brak danych do encyklopedii”, a tylko 2 inne rekordy mają
+   krótkie opisy (ヒルツ → „デスザウラーのゾイドコアと融合した姿。”, ゼロ → „（ルルーシュ・ランペルージ）”).
+   579/582 rekordów trzyma goły szablon `＠０\r`, więc **opisów postaci nie ma w przekazanych danych** —
+   wniosek dla użytkownika: opisy trzeba napisać redakcyjnie, a miejscem wstrzyknięcia jest pole [2]
+   (pula rośnie, `dict_pool_shift.rebuild_pool`). Hipoteza, że encyklopedia jest w tabeli o wysokim
+   pokryciu kluczy (334/473), jest **odrzucona** — encyklopedia jest w `CharaDictionary`.
+4. [ZWERYFIKOWANE] Sprawdzone też, czy opisów nie ma w innych kategoriach: najdłuższe przebiegi tekstu
+   w `CharaDictionary` to tytuły serii (43 B), w `RoboDictionary` 52 B (listy pilotów „パイロット：…”),
+   w `srwDL_Shop00` żaden tekst nie jest nazwą itemu. Plików `system.cpk`/`navisys`/`tacsys`/
+   `u16tbl.cpk`/`SRW_DL.acf` **nie ma** na liście przekazanych plików (137 pozycji w
+   `tools/drive_manifest.tsv`), więc szukanie poza tym zbiorem wymaga nowego pliku od użytkownika.
+5. [ZWERYFIKOWANE] Nowe narzędzie `tools/name_map.py` (12 testów syntetycznych) liczy **jeden stół
+   klucz → nazwa** dla uniwersum kluczy z ekstrakcji (`--jsonl`, plik = typ danych): 313 kluczy dialogu
+   ∪ 319 kluczy cytatów = **381 kluczy**, **362 z nazwą (95,0%)**; **26 468/26 468 linii dialogu (100%)**
+   i **28 395/29 577 rekordów cytatów (96,0%)** dostaje nazwę; 210 kluczy ma seiyuu, 284 tytuł serii.
+6. [ZWERYFIKOWANE] **Dwa niezależne źródła nazw potwierdzają się**: `charalist.name_short` ==
+   `CharaDictionary.nickname` w **288/288** wspólnych kluczy, a `name_full` == `name` w **285/288**
+   (NFKC; 283 bez normalizacji). 5 różnic: dwa warianty szerokości (ｱﾘｬﾘｬ･ｺﾘｬﾘｬ･ﾖｯｺｰﾗ三世 vs
+   アリャリャ・コリャリャ・ヨッコーラ三世), puste `name_full` w 4135 (uzupełniane z `CharaDictionary`)
+   i alias w nawiasie w 400 (勇者ラムネス（馬場ラムネ）). Rozstrzygnięcie sporu z sesji 2: charalist jest
+   źródłem nazw, `CharaDictionary` uzupełnia seiyuu/serię/pseudonim, a sloty `config*` są zbędne.
+7. [ZWERYFIKOWANE] **Sloty nazw w `config*` są redundantne i częściowo fałszywe.** Ze 201 trafień w klucze
+   cytatów 190 jest już w `charalist`; pozostałe 11 to pojedyncze znaki z przypadkowych bajtów
+   („X”, „f”, „N”, „b”, „月”, „Y”, „ゥ”…). Reguła markera `u16 0x6401` pod klucz+0x0A zgadza się
+   z `charalist` w **89/91** przypadkach (2 różnice to skróty: 連邦士官/連邦軍士官, RS隊員/
+   レッドショルダー隊員), a sloty bez markera mylą się w **91/214**. Wniosek: nazw nie brać ze slotów
+   `config*`; używać ich wyłącznie jako kontroli.
+8. [ZWERYFIKOWANE] Zostaje **19 kluczy cytatów bez nazwy = 1 182 rekordy (4,0% cytatów)**: 6 kluczy bez
+   realnego tekstu (3, 6, 7, 8, 991, 1037 — 744 rekordy) i 13 z tekstem (50, 55, 60, 101, 151, 733,
+   1005, 1048, 1051, 3122, 3702, 3707, 3712 — 438 rekordów); trzy z nich (50/1005/1051) pokrywają się
+   z id jednostek (`unit_list`: ガンバルガー, ガンキャノン, ザクⅡ), co sugeruje klucz = jednostka
+   generyczna, ale to `[HIPOTEZA]`; brak jakiegokolwiek rekordu nazwy w przekazanych danych.
+9. [ZWERYFIKOWANE] Naprawa długu: `speaker_names.scan()` wywalało się poza `main()` (`CLEAN = None`,
+   `AttributeError`) — regex jest teraz tworzony leniwie także w `scan()`, więc narzędzie da się użyć
+   jako biblioteki (było to potrzebne do pomiaru z punktu 7).
+10. Testy: **466 OK (1 skipped)** (`python3 -m unittest discover tests`).
