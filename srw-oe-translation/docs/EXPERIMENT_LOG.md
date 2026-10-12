@@ -2635,3 +2635,22 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    w instrukcji nie pojawi się nasza kuchnia (PPSSPP, `jsonl`, nazwy narzędzi, sekcja techniczna)
    i że nadal są w niej: trzy pliki dostawy, trzy formaty `limit:` i zasada dziedziczenia.
    Instrukcja: 384 → 351 linii (17 753 B). Testy: **734 OK (1 skipped)**.
+48. [ZWERYFIKOWANE — AUDYT: PAKIET NIE JEST KOMPLETNY] Nowe narzędzie `tools/coverage_audit.py`
+   (niezależny audyt: skanuje bajty kontenerów na przebiegi CP932 i pyta, czy pakiet zna każdy
+   z nich). Wynik na 32 kontenerach fabuły + mesbtl00 + config00/configst: **26 756 tekstów /
+   413 943 znaki obecne w plikach gry, a nieobecne w pakiecie**. Przykłady potwierdzone bajtami:
+   `eventP08.EDAT`/`DL830_13.bin` ma **507 rekordów 0xC9** (dialogue), a pakiet zna z tego członka
+   tylko **98** wierszy; brakujące linie siedzą w poprawnych rekordach (np. @44656:
+   `c9 00 00 00 | 64 00 00 00 | 01 00 cd 10 | …` → „あなたはゾイドを破壊のための道具としか見ていない。”,
+   której w pakiecie nie ma). `eventP09.EDAT`/`DL103_30.bin`: 165 przebiegów, 60 nieznanych pakietowi
+   (np. @3296 „海賊がこちらに向かっている！” — rekord `c9 00 00 00 | 50 00 00 00 | 01 00 fb 03 | …`).
+   Doliczone braki w tabelach: `configst` 824 teksty / 11 141 znaków (opisy interfejsu: „精神コマンドを
+   使用した際のエフェクト…”, „所持しているパーツの確認や…”), `config00` 98 / 977 znaków.
+   Wniosek: czytnik scen kończy chodzenie po członku przedwcześnie (członek ma ~65 opakowań `0xC8`,
+   a wiersze pakietu odpowiadają tylko pierwszym kilobajtom), więc liczba „26 468 linii dialogu”
+   jest zaniżona. **Pakiety nie wolno uznać za kompletny, dopóki audyt nie da 0 braków.**
+49. [SPROSTOWANIE] `system.cpk` to **grafika** (1 członek ID00000 z plikami `.gim`/`.png` — ekrany
+   i menu jako obrazy), a nie tekst. Teksty menu/systemu siedzą w `config*`/`configst` (i tam ich
+   brakuje — patrz wpis 48). Wcześniejsza uwaga „nasz pisak nie przebuduje system.cpk” dotyczyła
+   wyłącznie wariantu CPK bez tabeli nagłówków i **nie** oznacza, że tekstów menu nie da się zapisać;
+   brakującą ścieżką jest pisak dla tego wariantu, a nie blokada tłumaczenia.

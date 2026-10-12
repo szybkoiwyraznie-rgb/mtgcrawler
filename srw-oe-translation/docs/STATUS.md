@@ -552,3 +552,9 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 - **Instrukcja dla tłumacza = tylko instrukcja**: rozdziały o naszym stanie prac i kuchni
   technicznej przeniesione do `docs/TRANSLATOR_PACKAGE_TECH.md`; pilnuje tego
   `tests/test_translator_readme.py` (6 testów). Testy: **734 OK (1 skipped)**.
+- **AUDYT POKRYCIA (nowe)**: `tools/coverage_audit.py` porównuje surowe kontenery z pakietem.
+  Pierwszy przebieg: **26 756 tekstów / 413 943 znaki są w plikach gry, a nie ma ich w pakiecie**
+  (najwięcej w fabule: czytnik scen kończy chodzenie po członku przedwcześnie, np. `DL830_13.bin`
+  ma 507 rekordów dialogu, a pakiet zna 98; `configst` 824 opisy interfejsu). Szczegóły i dowody
+  bajtowe w `EXPERIMENT_LOG.md` wpisy 48–49. **Pakiet nie jest kompletny — nie oddawać tłumaczowi**
+  do czasu, gdy audyt da 0 braków.
