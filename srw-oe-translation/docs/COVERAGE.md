@@ -208,11 +208,14 @@ który go skonsumował (nazwy bierze z JSON-ów wyjściowych czytników, nie z r
 | **bez czytnika** | **3 101** |
 
 Reszta bez czytnika to wyłącznie grafika, dźwięk i dane bez tekstu (rozszerzenia/liczby):
-`pac` 1 095 (tekstury i modele 3D), `gim` 553, `bsb` 312 (siatki), `ssa`/`sss` 84 (animacje
-sprite'ów), `cpk` 72 (`bcam`), `dff` 41, `brtex` 20, `anm` 20, `sp` 8, `png` 2, `acb` (banki
-dźwięku), 410× `_Entry.dat`/`_edit.dat` (sloty puste), 44× `config<NN>.txt` (marker wersji:
-`config01config01config01config01`, 32 B), `ssw.bin` (4 B). Skan przebiegów tekstu: **0 tekstu
-≥ 12 B** w tych plikach (pomiar w `docs/EXPERIMENT_LOG.md`, sesja 5 część 7).
+`pac` 1 095 (tekstury i modele 3D), `gim` 553, `dat` 452 (226× `_Entry.dat` + 226× `_edit.dat` —
+sloty puste), `bin` 405 (m.in. `r#/info.bin` 74, `ssw.bin` 42, `milstP` 21, `bgmlist` 13,
+`srwDL_BMP`/`Shop`/`Reference`/`DLC_ID` — tabele id; te z tekstem wymieniono w tabeli niżej),
+`bsb` 312 (siatki), `ssa`/`sss` 84 (animacje sprite'ów), `cpk` 72 (`bcam`), `txt` 44
+(`config<NN>.txt` = marker wersji, 32 B), `dff` 20, `brtex` 20, `anm` 20, `sp` 8, `cfg` 7, `png` 2,
+7 bez rozszerzenia. Skan przebiegów tekstu: **0 tekstu ≥ 12 B** w tych plikach (pomiar w
+`docs/EXPERIMENT_LOG.md`, sesja 5 część 7; banki `.acb` i bitmapy `PAL_` zmierzone osobno i usunięte,
+znalezisko 17).
 
 ### Nowe kategorie tekstu znalezione przy tej okazji
 
