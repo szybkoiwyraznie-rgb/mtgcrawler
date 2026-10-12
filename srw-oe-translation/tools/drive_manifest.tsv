@@ -237,3 +237,7 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 # stare wersje przeniesione do kosza: README.md 1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq,
 # sceny.zip 1b1CVCN7AqdnJxiFNGY7h6vMoyP61fBaV, spis-scen.md 13AfdpxnwEid-Zgi511Okh0Q6EU9Z2lmx
 # (JSONL 00-08 bez zmian — te same ID co w cz. 10)
+# cz. 10e (2026-10-12): test wtrysku dialogow w grze
+16KJFXYpv8PDNCI-JGKxM9OAEBSR4kn-A	folder	Test wtrysku (PPSSPP)	SRW OE	NOWY folder na testy w grze; zawiera dwa pliki nizej
+1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK	plik	patch-test-ppsspp.zip	Test wtrysku (PPSSPP)	81 874 B; PSP_GAME/USRDIR/eventP00.cpk (170 456 B) + README-TEST.json
+1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx	plik	PATCH_ISO_TEST.bat	Test wtrysku (PPSSPP)	1 048 B; buduje TEST ISO przez tools/iso_pack.py patchiso
