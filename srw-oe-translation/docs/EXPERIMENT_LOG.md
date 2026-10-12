@@ -2125,3 +2125,30 @@ poszukiwanie tabeli encyklopedii, budżety znaków UI, arkusz scalony, `apply` p
    przyczyną jest rama z punktu 4; pełny przebieg nowym czytnikiem jest następnym krokiem.
 8. Zestaw testów: **435 OK (1 skipped)** (18 `evnt_walk`, 7 `charalist_table`, 11 `battle_quotes`,
    16 `config_text_tables` + wcześniejsze).
+
+## Sesja 5 (2026-10-12), część 4: pełna ekstrakcja tekstu scen (dialogi + narracja + warunki)
+
+1. [ZWERYFIKOWANE] Nowe narzędzie `tools/event_dialogue.py` (10 testów syntetycznych) czyta **wszystkie**
+   bloki `EVNT` członka, a nie tylko pierwszy — to ujawniło, że stara liczba dialogów była zaniżona.
+2. [ZWERYFIKOWANE] Wynik na 32 kontenerach (293 członki): **26 468 linii dialogu, 313 kluczy,
+   1 186 781 B tekstu, 17 488 unikalnych tekstów, 0 błędów, 0 nieczytelnych rekordów**.
+   Poprzednie 12 738 linii / 283 klucze pochodziło z chodzika, który startował od pierwszego rekordu
+   podpisu i kończył się na granicy bloku (widział co drugi blok). Liczby zapisane w sesji 4 są
+   zastąpione.
+3. [ZWERYFIKOWANE] Tekst scen nie siedzi w jednym typie rekordu (pomiary na 5 320 blokach):
+   0xC9 dialog 26 468; 0x1B7 narracja 136 (tekst od +4); 0x1B4 warunki zwycięstwa 74 (od +0);
+   0x1B5 warunki porażki 75 (od +0); 0x152 nazwy lokacji 41 (od +4); 0x1FC help/tutorial 19 (od +4);
+   0x1B6 tytuł sceny 6 (od +12); 0x14A/0x14F/0x1BA etykiety 9. Razem 360 tekstów = 21 583 B.
+   Dla typów innych niż 0xC9 offset tekstu jest mierzony (pierwszy czysty przebieg CP932 z ≥2 znakami
+   japońskimi), nie zakładany.
+4. [ZWERYFIKOWANE] 4 008 z 5 320 bloków nie ma łańcucha rekordów — to tabele parametrów, nie błąd;
+   137 z nich zawiera tekst wyświetlany (warunki misji, proza): **273 przebiegi / 12 910 B**,
+   raportowane jako `embedded` z offsetem w bloku.
+5. [ZWERYFIKOWANE] Rekordy typów 0x0 i 0xC8 to kontenery — nie są skanowane na własny tekst, a 0xC8
+   jest rekurencyjnie rozwijany (20 575 z 26 468 linii siedzi w opakowaniach 0xC8). Rekordy typu 0x0
+   w scenach nie zawierają zagnieżdżonych rekordów (sprawdzone: 0 trafień 0xC9).
+6. [ZWERYFIKOWANE] Nazwy mówców: **313/313 klucze dialogów** mają rekord w tabeli `charalist`
+   (narzędzie `charalist_table.py --keys local/dialogue_key_counts.json` → 313/313, 0 braków).
+7. Razem wyekstrahowany tekst fabularny: **27 101 pozycji / ~1,22 MB** (`local/dialogue/`:
+   `dialogue.jsonl`, `other_text.jsonl`, `embedded_text.jsonl`, `summary.json`).
+8. Zestaw testów: **445 OK (1 skipped)**.

@@ -13,7 +13,7 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 
 | # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |
 |---|---|---|---|---|---|---|
-| 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery) | **12 738 linii** (rekord 201), **283 klucze mówców — wszystkie mają nazwę** w tabeli postaci; 16 ustawień, 265 scen | **grow — sprawdzony w grze** | ekstrakcja domknięta, nazwy domknięte | 42 członki miały łańcuch nieczysty → **rama rozwiązana** (`evnt_walk`: nagłówek `EDAT` + różna reguła rozmiaru bloku); pełna reekstrakcja całej gry z tą ramą jeszcze nie uruchomiona; brak kroku `apply` |
+| 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery, 293 członki) | **26 468 linii, 313 kluczy (100% z nazwą), 1 186 781 B tekstu** (`tools/event_dialogue.py`) **+ 360 tekstów innych typów** (narracja 136, warunki zwycięstwa/porażki 149, lokacje 41, help 19, tytuły scen 6, etykiety 9) **+ 273 teksty w blokach-tabelach** (13 KB) | **grow — sprawdzony w grze** | **ekstrakcja domknięta** (0 błędów, 0 nieczytelnych rekordów) | stara liczba 12 738 linii była zaniżona ~2× (stary chodzik kończył na granicy bloku); brak kroku `apply`; 4008 bloków to tabele (nie tekst), 137 z nich ma teksty – wyekstrahowane |
 | 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **300/319 kluczy ma nazwę** z tabeli postaci | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | 19 kluczy bez rekordu w tabeli postaci: 5 to sloty zastępcze z pustym tekstem (3/6/7/8/991), 3 to także id jednostek (50/1005/1051), 11 (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712) nadal bez nazwy – 1 182 rekordy cytatów; ścieżka `apply` jeszcze nie zbudowana |
 | 3 | Imiona (mówcy) | `srwDL_CharaDictionary` + sloty `config*` | **339 kluczy, 301 nazwanych** (dialog 99,5%) | grow (pula NUL) | prawie domknięte | 14 kluczy dialogowych + 24 bitewne bez źródła nazwy; 2 klucze z podwójnym rekordem |
 | 4 | Encyklopedia postaci | **nie zlokalizowana** | `CharaDictionary` = tylko nazwy i tytuły serii (max 43 B); `srwDL_Reference` = help/tutorial | — | **brak tabeli** | trzeba znaleźć tabelę biografii (kandydaci niżej) albo udowodnić, że jej nie ma |
@@ -77,12 +77,23 @@ plus ~239 jedno- do trzyznakowych fragmentów formatujących. **DLC nie wnosi no
 - w 32 kontenerach występują wyłącznie typy 200 i 201, a **wszystkie 29 577 rekordów typu 201 mają podtyp 41
   i wszystkie zostały wyekstrahowane** (0 błędów łańcucha) — pokrycie 100%.
 
+## 3a2. Dialogi fabuły — pełna reekstrakcja (pkt 1)
+
+`[ZWERYFIKOWANE]` `tools/event_dialogue.py` (10 testów). Tekst scen nie siedzi w jednym typie rekordu:
+**0xC9** (dialog, nagłówek 12 B, klucz mówcy) = 26 468 linii; **0x1B7** (narracja, tekst od +4) = 136;
+**0x1B4/0x1B5** (warunki zwycięstwa/porażki, tekst od +0) = 74/75; **0x152** (nazwy lokacji, +4) = 41;
+**0x1FC** (help/tutorial, +4) = 19; **0x1B6** (tytuł sceny, +12) = 6; **0x14A/0x14F/0x1BA** (etykiety) = 9.
+Dla typów innych niż 0xC9 pozycja tekstu jest **mierzona** (pierwszy czysty przebieg CP932 z ≥2 znakami
+japońskimi), nie zakładana. Bloki bez łańcucha rekordów to tabele parametrów — 4008 z 5320 bloków;
+137 z nich zawiera tekst wyświetlany (warunki misji, proza), raportowany jako `embedded`.
+Razem: **27 101 pozycji tekstu / ~1,22 MB**. Nazwy: **313/313 kluczy** z tabeli postaci.
+
 ## 3b. Nazwy mówców — tabela postaci `charalist` (pkt 4/5)
 
 `[ZWERYFIKOWANE]` `tools/charalist_table.py` (7 testów). Tabela `charalist<NN>.bin` wewnątrz
 `config<NN>.pac` to tablica rekordów **172 B**: nazwa skrócona +0, pełna +32, wąska +76 (z tokenami
 0x0F), **klucz mówcy u16 +96**, alias +100, pole grupy +102. 16 członków, **404 rekordy, 404 klucze**
-(unikalne, rosnące w członku). Pokrycie: **283/283 klucze dialogów** (12 738 linii) i
+(unikalne, rosnące w członku). Pokrycie: **313/313 klucze dialogów** (26 468 linii) i
 **300/319 kluczy cytatów**. Brakujące 19 kluczy cytatów: 3/6/7/8/991 to sloty zastępcze z pustym
 tekstem, 50/1005/1051 to również id jednostek (ガンバルガー, ガンキャノン, ザクⅡ), pozostałe 11
 (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712 → 1 182 rekordy) bez źródła nazwy.
@@ -134,21 +145,22 @@ zbudowana i `verify` przechodzi, (c) `apply` wkleja tłumaczenie, (d) przebieg b
    0 błędów. Pozostaje: ścieżka `apply` (przebudowa rozmiarów 200/201 i bloków `EVNT`) + scalenie z nazwami mówców.
 2. **Nazwy mówców dla 319 kluczy cytatów** — przecięcie ze słownikiem postaci (`CharaDictionary` +0x40)
    i tabelą `name_union`; to domknie wymaganie „cytaty z imionami”.
-3. **Encyklopedia (pkt 4) — znaleźć albo zamknąć pytanie.** Sprawdzić kolejno: `system.cpk`, `navisys`,
+3. **Narracja i warunki misji — domknięte przy okazji pkt 1** (360 tekstów innych typów + 273 embedded).
+4. **Encyklopedia (pkt 4) — znaleźć albo zamknąć pytanie.** Sprawdzić kolejno: `system.cpk`, `navisys`,
    `tacsys`, `u16tbl.cpk`, `mesbmp00` (obrazy?), `celldata.bin`, `SRW_DL.acf`. Jeśli biografii nie ma,
    ustalić z użytkownikiem, czy „encyklopedia” ma być zbudowana z `CharaDictionary` + tytułów serii
    (dane, które gra ma), czy dopisana jako treść redakcyjna.
-4. **Skille (pkt 7, 142 KB) — role pól.** Para (start, koniec) w rekordzie + tabela u16 pod +40;
+5. **Skille (pkt 7, 142 KB) — role pól.** Para (start, koniec) w rekordzie + tabela u16 pod +40;
    potwierdzić na próbce nazwę/opis/skrót, potem arkusz i ścieżka grow (przebudowa par).
-5. **Itemy (pkt 6) — to samo dla itemów** + powiązanie klucza itemu z nazwą i z opisem zakupu
+6. **Itemy (pkt 6) — to samo dla itemów** + powiązanie klucza itemu z nazwą i z opisem zakupu
    w `srwDL_DLC_ID`.
-6. **Helpy/UI (pkt 8) — budżety znaków.** Dla `sysmes.bin` (menu tytułowe = equal-length, opisy =
+7. **Helpy/UI (pkt 8) — budżety znaków.** Dla `sysmes.bin` (menu tytułowe = equal-length, opisy =
    shift) zmierzyć sloty i szerokości; `srwDL_Reference` (17 KB) i pozostałe tabele configst —
    ekstrakcja jak w pkt 3–4.
-7. **Mapy/shop (pkt 9)** — zlokalizować nazwy map/terenów i nazwy itemów w sklepie.
-8. **Arkusz scalony** — jeden plik wszystkich kategorii (klucz, źródło, japoński, angielski,
+8. **Mapy/shop (pkt 9)** — zlokalizować nazwy map/terenów i nazwy itemów w sklepie.
+9. **Arkusz scalony** — jeden plik wszystkich kategorii (klucz, źródło, japoński, angielski,
    maks. długość, tryb zapisu) + kontrola 100% pokrycia wobec tego dokumentu.
-9. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
+10. **Apply po kategorii** + repack + test w PPSSPP (dla każdej kategorii osobno, potem razem).
 
 Zadania z kolejki, które nie są blokadą, ale zostają: 42 członki bez łańcucha (`event`), 14 kluczy
 dialogowych bez nazwy, semantyka pól `unit_list` 88–134, `robo01`+ dla 24 par modeli.

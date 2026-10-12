@@ -309,3 +309,11 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Pobrano brakujące kontenery: `imenu01–32` (25 plików) i wszystkie eventy (`eventP02–09, 13,
   20–32`, `evept101–108`). Manifest uzupełniony o brakujące ID.
 - Testy: **435 OK (1 skipped)**.
+
+### Sesja 5, część 4 (2026-10-12): pełna ekstrakcja tekstu scen
+- `tools/event_dialogue.py` (10 testów) czyta wszystkie bloki `EVNT`: **26 468 linii dialogu**
+  (32 kontenery, 293 członki), 313 kluczy mówców — **wszystkie mają nazwę** w tabeli postaci.
+- Poprzednia liczba 12 738 linii / 283 klucze była zaniżona ~2x (chodzik kończył na granicy bloku).
+- Poza dialogiem: 360 tekstów innych typów (narracja, warunki zwycięstwa/porażki, lokacje, help,
+  tytuły scen) + 273 teksty w blokach-tabelach. Razem 27 101 pozycji / ~1,22 MB.
+- Testy: **445 OK (1 skipped)**.

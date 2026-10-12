@@ -9,8 +9,10 @@ No game text is in this file. Name strings live in `local/` only.
 - Key = u16 speaker value. In EVNT dialogue it sits at record +10 (`speaker_probe.py`).
   In CharaDictionary it sits at record +0x40 (`dict_pool_shift.SPEAKER_KEY_OFFSET`).
   `[ZWERYFIKOWANE]` (seven named characters agree with the user's transcript).
-- Whole-game map: 283 keys in event dialogue (12 738 lines, 32 event probes incl. `evept101–108`);
-  260 keys have >= 3 lines. Source: `local/whole_game_map.json`, `local/dialogue_lines_per_key.json`.
+- Whole-game map (re-measured 2026-10-12 with the full block reader): **313 keys, 26 468 dialogue lines**
+  in 293 members of the 32 event containers. The older "283 keys / 12 738 lines" figure came from a
+  walker that stopped at the first block boundary of every member; it is superseded.
+  Source: `tools/event_dialogue.py` → `local/dialogue/dialogue.jsonl`.
 
 ## 2. Name sources, in priority order (per key)
 
