@@ -2605,3 +2605,14 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    scenkę z `eventP00.cpk` i tytuły z `config00.cpk`, w jednym przebiegu i jednym `patch_iso`
    (sekcja `slots` w przepisie, z własnymi skrótami MD5). Przebieg kontrolny na atrapie ISO
    z **oboma prawdziwymi kontenerami**: 88/88 linii + 15 komórek, zero uwag, sąsiedni plik bez zmian.
+44. [ZWERYFIKOWANE — pakiet domknięty fabularnie] `tools/event_refresh.py` dociągnął fabułę z
+   kontenerów gry do pakietu: **2 833 nowe wiersze** (27 101 → **29 934**), w tym **1 706 narracji**
+   (wcześniej czytnik widział tylko 633 — część była schowana w osłonkach `0xC8`), 62 tytuły scen,
+   659 lokacji, 37 etykiet, 336/329 warunków zwycięstwa/porażki, 64 teksty pomocy. Kolejne
+   uruchomienie `--check` = 0 nowych wierszy (idempotentne). Kontenery: **32/32 obecne w pakiecie**
+   (`eventP00`–`09`, `13`, `20`–`32`, `evept101`–`108`); rozdziały `eventP10`–`12` i `14`–`19`
+   **nie istnieją** w dystrybucji DLC — nie brakuje nic.
+45. [ZWERYFIKOWANE — liczby pakietu po odświeżeniu] Widoki przegenerowane: fabuła **26 035 linii
+   `EN:`**, widoki **41 405** — razem **67 440** (+ 5 146 elementów dziedziczonych = 72 586 pozycji).
+   `sceny.zip` 932 206 B (37 plików), `widoki.zip` 617 660 B (7 plików). Kontrola pakietu:
+   85 424 wiersze tekstu + 293 strukturalne, **0 błędów**. Testy: **728 OK (1 skipped)**.

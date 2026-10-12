@@ -16,8 +16,18 @@ tłumaczy się **tekst w plikach `.md`**, po znaczniku `EN:`.
 5. Całą resztę robią nasze narzędzia: wpisanie tekstu do pakietu, uzupełnienie powtórzeń,
    sprawdzenie limitów i znaków.
 
-Do wypełnienia w całym pakiecie: **69 753 elementy**
-(23 202 w fabule + 46 551 w widokach nazw i tabel).
+**Co dostajesz — dokładnie trzy rzeczy i nic więcej:**
+
+| plik | co to jest |
+|---|---|
+| `README.md` (ten dokument) | instrukcja |
+| `sceny.zip` | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
+| `widoki.zip` | nazwy i tabele: 7 plików `.md` |
+
+Do wypełnienia w całym pakiecie: **67 440 linii `EN:`**
+(26 035 w fabule + 41 405 w widokach). Poza tym jest **5 146 elementów bez linii `EN:`** — to
+powtórzenia tego samego tekstu w grze (np. nazwa serii przy każdym mechu z tej serii); tłumaczenie
+dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „Elementy bez linii `EN:`").
 
 ---
 
@@ -48,15 +58,37 @@ Zamiast `—` pisz `-` albo `―`. Zamiast `José` pisz `Jose`. Pełna szerokoś
 jest dostępna, ale **dla angielskiego używaj zwykłych liter i cyfr** — chyba że tekst w grze stoi
 w polu pisanym czcionką półszeroką (patrz `<0x0F>` niżej).
 
-### Długość tekstu
+### Długość tekstu — czytaj linię `limit:` pod każdym elementem
 
-* **Dialogi i cytaty** — okno gry mieści około **46 znaków półszerokich w linii** (czyli ~23 znaki
-  japońskie). Tłumaczenie może być dłuższe niż japońskie (gra przebudowuje rozmiary), ale zbyt długa
-  linia zostanie ucięta przy wyświetlaniu — narzędzie zgłosi to jako uwagę.
-* **Nazwy w listach (itemy, umiejętności)** — pole w interfejsie jest wąskie; przekroczenie
-  rozmiaru oryginału to uwaga, nie błąd, ale lepiej się mieścić.
-* **Teksty misji** (`teksty-misji.md`) — **twardy limit w bajtach**. Tekst dłuższy się nie zmieści
-  i narzędzie go odrzuci z liczbą bajtów. Tu trzeba skracać.
+Pod **każdym** elementem do przetłumaczenia jest linia `limit:` mówiąca, ile wolno napisać. Są trzy
+rodzaje tej linii:
+
+| linia `limit:` | co znaczy |
+|---|---|
+| `limit: 117 B (stała szerokość — dłuższe się nie zmieści)` | **twardy limit**. Miejsce w grze ma dokładnie tyle bajtów; dłuższy tekst **nie zostanie wpisany** (narzędzie go odrzuci i poda, o ile trzeba skrócić). Jeden znak japoński = 2 B, jeden znak angielski = 1 B. |
+| `limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 3 linii` | tekst rysowany w oknie gry. Długość całego tekstu jest dowolna (gra przebudowuje rozmiary), ale **każda linia** ma się mieścić: trzymaj się 46, absolutne maksimum zmierzone w grze to 52 jednostki (jednostka = szerokość połowy znaku; znak japoński ma 2). `oryginał: N linii` mówi, na ile linii łamał się japoński — **zostaw tyle samo**. |
+| `limit: bez twardego limitu (pole rośnie) — trzymaj się długości oryginału (najdłuższy w tej kategorii: 18 jedn.)` | nazwy w listach, serie, opisy. Długość jest dowolna, ale interfejs gry ma stałą szerokość listy — **nie przekraczaj długości oryginału** więcej niż o ~⅓. Liczba w nawiasie to najdłuższy oryginał w tej samej kategorii: to praktyczna granica. |
+
+Uwaga: „dowolna długość" przy dialogach **nie znaczy „bez konsekwencji"** — tekst wpisany do gry
+musi się jeszcze mieścić w oknie. Dlatego liczba linii i szerokość linii są w limicie, a nasze
+narzędzia odrzucają linię szerszą niż 52 jednostki.
+
+### Elementy bez linii `EN:` (dziedziczenie)
+
+W grze ten sam tekst jest często zapisany **wielokrotnie**: nazwa serii powtarza się przy każdym
+mechu z tej serii (w plikach gry to jedno wspólne pole, do którego odwołuje się każdy mech), opis
+efektu przedmiotu przy każdym przedmiocie, który go używa, aktor głosowy przy każdej postaci,
+którą gra. Żebyś nie pisał tego samego dwadzieścia razy (i żeby to nie wyszło dwadzieścia razy
+inaczej), powtórzenia **nie mają linii `EN:`**, tylko dopisek:
+
+```
+3. [Seria] 絶対無敵ライジンオー
+   (ten sam tekst co wcześniej — tłumaczenie dziedziczy się automatycznie, nic tu nie wpisuj)
+```
+
+Takich elementów jest 5 146. Tłumaczysz **pierwsze wystąpienie** (ono ma `limit:` i `EN:`), a reszta
+dostaje ten sam angielski automatycznie. Jeśli chcesz — możesz w pierwszym wystąpieniu napisać
+krótszą wersję i wspólną dla wszystkich; jedna pisownia na cały pakiet jest tym, czego chcemy.
 
 ---
 
@@ -97,6 +129,8 @@ Co jest czym:
 * **`## Scena 1/293 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
 * **`- odcinek:` / `- miejsce:`** — kontekst: który odcinek i gdzie scena się dzieje
   (miejsce też jest do przetłumaczenia — jako element w środku sceny).
+* **`- limit:`** — ile wolno napisać w tej scenie (dialog 46 jednostek na linię, narracja 50).
+  Szczegóły w sekcji 1.
 * **`- uczestnicy:`** — wszystkie postacie mówiące w tej scenie, po japońsku, z **serią**, z której
   pochodzą. To podpowiedź dla Ciebie — nie tłumaczy się tego.
 * **`T1. [Tytuł misji]`** — tytuł misji (widać go w menu gry). Wpisujesz go tutaj, w scenie, w której
@@ -140,17 +174,18 @@ wracają do nas razem.
 
 Rozpakuj `widoki.zip`. W środku jest siedem plików — każdy obejmuje jedną kategorię gry:
 
-| plik | co zawiera | elementów |
-|---|---|---|
-| `postacie.md` | imiona, przezwiska, serie, aktorzy głosowi, wersje imion (pełne/krótkie/wąskie) | 2 291 |
-| `cytaty.md` | kwestie bitewne, pogrupowane po mówcy | 19 841 |
-| `mechy.md` | nazwy jednostek, serie, długość, masa **oraz wszystkie bronie** | 4 345 |
-| `przedmioty.md` | nazwy przedmiotów i opisy efektów | 1 200 |
-| `umiejetnosci.md` | nazwy umiejętności i opisy efektów | 4 932 |
-| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 12 631 |
-| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 311 |
+| plik | co zawiera | linii `EN:` | dziedziczy |
+|---|---|---|---|
+| `postacie.md` | imiona, przezwiska, serie, aktorzy głosowi, wersje imion (pełne/krótkie/wąskie) | 1 807 | 484 |
+| `cytaty.md` | kwestie bitewne, pogrupowane po mówcy | 19 841 | 0 |
+| `mechy.md` | nazwy jednostek, serie, długość, masa **oraz wszystkie bronie** | 2 303 | 2 042 |
+| `przedmioty.md` | nazwy przedmiotów i opisy efektów | 443 | 757 |
+| `umiejetnosci.md` | nazwy umiejętności i opisy efektów | 3 069 | 1 863 |
+| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 12 631 | 0 |
+| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 311 | 0 |
 
-Zasada jest **ta sama** co w fabule: linia japońska, pod nią `EN:` do wypełnienia.
+Zasada jest **ta sama** co w fabule: linia japońska, pod nią linia `limit:` (ile wolno napisać),
+a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam nie wpisujesz.
 
 ### Postacie — `postacie.md`
 
@@ -246,8 +281,9 @@ Zasada jest **ta sama** co w fabule: linia japońska, pod nią `EN:` do wypełni
 
 * Te pliki są podzielone na **sekcje** (`## Sekcja 1/29 — config_skill`), a w środku elementy po
   kolei. To teksty menu, podpowiedzi, nazwy duchów, typów umiejętności, tytuły map i BGM.
-* `teksty-misji.md` ma **twarde limity miejsca** — jeśli tekst jest za długi, narzędzie go odrzuci
-  i poda, o ile bajtów trzeba skrócić. Tu nie da się „przekroczyć o trochę".
+* `teksty-misji.md` ma **twarde limity miejsca** — pisze to wprost linia `limit:` przy każdym
+  elemencie (np. `limit: 117 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;
+  tu nie da się „przekroczyć o trochę".
 * W tych plikach bywają tokeny `＠0`, `＠4`, `＠6`, `＠9` — to odwołania do nazw i liczb z gry.
   Zostaw je w tym samym miejscu.
 
@@ -296,8 +332,10 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
 
 **Widoki nazw i tabel**
 
-- [ ] `postacie.md`: każda postać ma imię, serię i aktora głosowego.
+- [ ] Nie wpisałem nic w elementy z dopiskiem „ten sam tekst co wcześniej".
+- [ ] W `teksty-misji.md` każdy tekst mieści się w bajtach z linii `limit:`.
 - [ ] `mechy.md`: każda jednostka ma nazwę, serię i wszystkie bronie (nazwa + skrót).
+- [ ] Seria każdego mecha/postaci jest zapisana **raz** — pozostałe wystąpienia dziedziczą.
 - [ ] `cytaty.md`: kwestie bez mówcy przetłumaczone neutralnie.
 - [ ] `przedmioty.md` / `umiejetnosci.md`: nazwy krótkie (mieszczą się w liście), opisy z `%s`/`%%`.
 - [ ] `teksty-misji.md`: nic nie jest dłuższe niż oryginał w bajtach.
@@ -308,11 +346,11 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
 ## 6. Co jeszcze nie jest gotowe (stan prac)
 
 * **Fabuła, nazwy, cytaty, itemy, umiejętności, teksty config i misji** — widoki są gotowe,
-  czekają na tłumaczenie (69 753 elementy).
-* **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów i **dialogów** (sprawdzone na roboczej
-  kopii `eventP00.cpk`: 6 linii sceny 1 wpisanych, kontener przebudowany i odczytany z powrotem bez
-  różnic poza tymi liniami). Uruchomienia w PPSSPP jeszcze nie było — to po naszej stronie
-  i zostanie pokazane, zanim cokolwiek ogłosimy gotowym.
+  czekają na tłumaczenie (72 586 elementy: 67 440 z linią `EN:` + 5 146 dziedziczonych).
+* **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów, **dialogów, narracji i tytułów misji**
+  (sprawdzone na roboczej kopii: cała scena 1 — 88 linii dialogu/narracji + 15 tytułów misji;
+  kontener przebudowany i odczytany z powrotem bajt w bajt bez różnic poza tymi tekstami). Kwestie
+  mówców i teksty w grze widział już człowiek — reszta do pokazania, zanim cokolwiek ogłosimy gotowym.
 * **Kwestie bez mówcy** — 451 z 27 383 (1,65 %), w granicach, które ustaliliśmy.
 * **Nazwy mówców w dialogach** — postaci z nazwą 100 %; 42 klucze to postacie zbiorowe bez nazwy
   własnej (np. „żołnierz"), pokazywane jako `ID`.
@@ -321,7 +359,7 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
 
 ## 7. Dodatek techniczny (dla nas, nie dla tłumacza)
 
-* Pakiet to pliki `00_dialogue.jsonl` … `08_names_units_weapons.jsonl` (82 591 wierszy tekstu +
+* Pakiet to pliki `00_dialogue.jsonl` … `08_names_units_weapons.jsonl` (85 424 wiersze tekstu +
   293 wiersze strukturalne scen) — jedyne źródło prawdy dla gry. Widoki `.md` są generowane z pakietu
   i do niego wracają.
 * Klucz elementu fabuły: numer sceny (`seq` z `06_scenes.jsonl`) + numer elementu (`order`).
@@ -334,5 +372,6 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
   tablicach rozdziałów (1 097 scalonych par w `07`, 300 w `08`, 7 542 identycznych kwestii w `01`).
 * Narzędzia: `tools/scene_view.py` (widoki fabuły + zip), `tools/table_view.py` (widoki nazw i tabel
   + zip), `tools/translation_import.py`, `tools/translation_copy.py`, `tools/translation_mirror.py`,
-  `tools/translation_check.py`. Testy: 652 (1 pominięty).
-* Kontrola całego pakietu: 82 591 wierszy, **0 błędów** (przed tłumaczeniem wszystkie puste).
+  `tools/translation_check.py`, `tools/event_refresh.py` (domyka fabułę z kontenerów gry),
+  `tools/package_copies.py` (znaczy powtórzenia). Testy: 728 (1 pominięty).
+* Kontrola całego pakietu: 85 424 wiersze, **0 błędów** (przed tłumaczeniem wszystkie puste).

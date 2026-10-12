@@ -124,6 +124,38 @@ class ViewTest(unittest.TestCase):
         plan = TV.lookup(self.package)
         self.assertEqual(len(plan["teksty-config.md"][0]), 2)
 
+    def test_a_slot_element_carries_its_byte_budget(self):
+        rows = [{"id": "mission_title:x", "category": "mission_title", "part": "title",
+                 "jp": "初等訓練", "en": "", "mode": "slot", "max_bytes": 117, "source": {}}]
+        text = TV.render("teksty-misji.md", rows, {})
+        self.assertIn("limit: 117 B (stała szerokość — dłuższe się nie zmieści)", text)
+
+    def test_a_boxed_line_gets_the_width_and_the_shape_of_the_original(self):
+        rows = [{"id": "dlg:1", "category": "dialogue", "part": "dialogue", "jp": "了解！\n行くぞ！",
+                 "en": "", "source": {}}]
+        text = TV.render("cytaty.md", rows, {})
+        self.assertIn("limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 2 linii", text)
+
+    def test_a_table_text_says_it_may_grow_and_gives_the_longest_original(self):
+        rows = [{"id": "unit:1:name", "category": "unit_name", "part": "name", "jp": "ライジンオー",
+                 "en": "", "key": 1, "source": {}}]
+        text = TV.render("mechy.md", rows, {})
+        self.assertIn("limit: bez twardego limitu (pole rośnie)", text)
+        self.assertIn("najdłuższy w tej kategorii: 12 jedn.", text)
+
+    def test_an_element_that_repeats_a_text_has_no_en_line(self):
+        rows = [
+            {"id": "unit:1:series", "category": "unit_series", "part": "series", "jp": "絶対無敵ライジンオー",
+             "en": "", "key": 1, "source": {}},
+            {"id": "unit:2:series", "category": "unit_series", "part": "series", "jp": "絶対無敵ライジンオー",
+             "en": "", "key": 2, "copy_of": "unit:1:series", "source": {}},
+        ]
+        text = TV.render("mechy.md", rows, {})
+        self.assertEqual(text.count("   EN:"), 1)
+        self.assertIn("(ten sam tekst co wcześniej — tłumaczenie dziedziczy się automatycznie, "
+                      "nic tu nie wpisuj)", text)
+        self.assertEqual(text.count("   limit:"), 1)      # the note replaces the limit line too
+
     def test_a_view_with_english_is_not_overwritten(self):
         TV.write_views(self.package, self.out)
         path = self.out / "postacie.md"

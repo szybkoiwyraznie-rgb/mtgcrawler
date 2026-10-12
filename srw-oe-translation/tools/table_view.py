@@ -49,7 +49,44 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import export_strings as ES      # noqa: E402  (display_width -> the width the game draws)
 import translation_import as TI   # noqa: E402  (render_markers -> markers_for)
+
+#: the width the game itself never exceeds on one line, and the width a typical line has
+#: (measured on every dialogue, quote and narration line of the package, 2026-10-12)
+WIDEST_LINE = 52
+TYPICAL_LINE = 46
+
+
+def limit_note(view: str, element: List[dict], widest: Dict[str, int]) -> str:
+    """What the translator may write for one element, in one line.
+
+    Three cases, and the note always says which one it is:
+
+    * ``slot`` rows sit in a fixed span (mission titles and other menu records) - the number is a
+      hard budget in bytes, and the writer refuses anything longer;
+    * dialogue and battle quotes are drawn in the game's text box, so the limit is a width per line
+      plus the shape of the original;
+    * everything else is a string in a table the writer rebuilds, so the length is free - and the
+      note gives the longest original in that category as a guide, so the translator stays in the
+      game's own proportions.
+    """
+    rows = element
+    first = rows[0]
+    budgets = [row.get("max_bytes") for row in rows if row.get("mode") == "slot"]
+    if budgets:
+        smallest = min(int(value) for value in budgets if value)
+        return f"limit: {smallest} B (stała szerokość — dłuższe się nie zmieści)"
+    category = first.get("category") or ""
+    lines = max((len((row.get("jp") or "").split("\n")) for row in rows), default=1)
+    if category in ("dialogue", "battle_quote"):
+        return (f"limit: {TYPICAL_LINE} jedn. na linię (gra sama używa do {WIDEST_LINE} jedn.); "
+                f"oryginał: {lines} linii")
+    part = str(first.get("part"))
+    longest = widest.get(part)
+    guide = (f" — trzymaj się długości oryginału (najdłuższy w tej kategorii: {longest} jedn.)"
+             if longest else " — trzymaj się długości oryginału")
+    return f"limit: bez twardego limitu (pole rośnie){guide}"
 
 # the label of every field, as the translator sees it in the view
 PART_LABEL = {
@@ -261,12 +298,28 @@ def render_markers(text: str) -> str:
     return text
 
 
+def widest_by_part(rows: List[dict]) -> Dict[str, int]:
+    """``{part: the widest original line of that part}`` in display units, for the limit notes."""
+    found: Dict[str, int] = {}
+    for row in rows:
+        text = row.get("jp") or ""
+        if not text:
+            continue
+        width = max(ES.display_width(line) for line in text.split("\n"))
+        part = str(row.get("part"))
+        found[part] = max(found.get(part, 0), width)
+    return found
+
+
 def render(view: str, rows: List[dict], characters: Dict[object, dict] = None) -> str:
     """The whole ``*.md`` view of one table file."""
     found = groups(view, rows, characters or {})
+    widest = widest_by_part(rows)
     lines = [f"# {TITLES[view]}", "",
-             "Pod każdym elementem jest linia `EN:` — tam wpisuje się tłumaczenie. "
-             "Gotowy plik wraca do pakietu jednym poleceniem `tools/translation_import.py`.", ""]
+             "Pod każdym elementem jest linia `limit:` (ile wolno napisać) i linia `EN:` — tam "
+             "wpisuje się tłumaczenie. Elementy bez linii `EN:` dziedziczą tłumaczenie z elementu, "
+             "który ma ten sam tekst — nic tam nie wpisuj. Gotowy plik wraca do pakietu jednym "
+             "poleceniem `tools/translation_import.py`.", ""]
     for index, group in enumerate(found, start=1):
         word = GROUP_WORD[view]
         lines.append(f"## {word} {index}/{len(found)}{group['label']}")
@@ -276,6 +329,12 @@ def render(view: str, rows: List[dict], characters: Dict[object, dict] = None) -
             row = element[0]
             text = render_markers(row["jp"]).replace("\n", "\n   ")
             lines.append(f"{number}. [{element_label(view, row)}] {text}")
+            if all(item.get("copy_of") for item in element):
+                lines.append("   (ten sam tekst co wcześniej — tłumaczenie dziedziczy się "
+                             "automatycznie, nic tu nie wpisuj)")
+                continue
+            lines.append(f"   limit: {limit_note(view, element, widest)}"
+                         .replace("limit: limit: ", "limit: "))
             english = render_markers(row.get("en") or "").replace("\n", "\n   ")
             lines.append(f"   EN: {english}".rstrip())
         lines.append("")

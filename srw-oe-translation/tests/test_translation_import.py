@@ -283,11 +283,22 @@ class TableViewTest(unittest.TestCase):
         self.table_view.write_views(self.package, self.root / "widoki")
         return self.root / "widoki" / "postacie.md"
 
+    @staticmethod
+    def fill(text: str, element_line: str, english: str) -> str:
+        """Put ``english`` into the ``EN:`` line of the element that starts with ``element_line``.
+
+        The view carries a ``limit:`` line between the element and its ``EN:`` line, so the tests
+        cannot just replace "element line + EN:" - they look up the EN: line that follows.
+        """
+        start = text.index(element_line)
+        at = text.index("\n   EN:", start)
+        end = text.index("\n", at + 1)
+        return text[:at] + "\n   EN: " + english + text[end:]
+
     def test_one_en_line_fills_every_row_of_the_element(self):
         view = self.render()
-        view.write_text(view.read_text(encoding="utf-8").replace(
-            "1. [Imię w grze] 日向仁\n   EN:", "1. [Imię w grze] 日向仁\n   EN: Hyuga Jin"),
-            encoding="utf-8")
+        view.write_text(self.fill(view.read_text(encoding="utf-8"),
+                                  "1. [Imię w grze] 日向仁", "Hyuga Jin"), encoding="utf-8")
         report = TI.import_views(TI.read_views([view]), self.package)
         self.assertEqual((report["imported"], report["unknown"], report["rejected"]), (1, [], []))
         rows = rows_of(self.package, "07_names_characters.jsonl")
@@ -295,10 +306,9 @@ class TableViewTest(unittest.TestCase):
 
     def test_the_series_element_lands_in_its_own_row(self):
         view = self.render()
-        view.write_text(view.read_text(encoding="utf-8").replace(
-            "2. [Seria] 絶対無敵ライジンオー\n   EN:",
-            "2. [Seria] 絶対無敵ライジンオー\n   EN: Invincible Robo Trider G7"),
-            encoding="utf-8")
+        view.write_text(self.fill(view.read_text(encoding="utf-8"),
+                                  "2. [Seria] 絶対無敵ライジンオー",
+                                  "Invincible Robo Trider G7"), encoding="utf-8")
         TI.import_views(TI.read_views([view]), self.package)
         rows = rows_of(self.package, "07_names_characters.jsonl")
         self.assertEqual(rows[2]["en"], "Invincible Robo Trider G7")
@@ -309,7 +319,7 @@ class TableViewTest(unittest.TestCase):
         # another text, so the view cannot be trusted
         text = view.read_text(encoding="utf-8").replace("1. [Imię w grze] 日向仁",
                                                         "1. [Imię w grze] 別人")
-        view.write_text(text.replace("   EN:", "   EN: Somebody Else", 1), encoding="utf-8")
+        view.write_text(self.fill(text, "1. [Imię w grze] 別人", "Somebody Else"), encoding="utf-8")
         report = TI.import_views(TI.read_views([view]), self.package)
         self.assertEqual(report["imported"], 0)
         self.assertEqual(len(report["unknown"]), 1)
@@ -318,10 +328,9 @@ class TableViewTest(unittest.TestCase):
     def test_a_text_over_max_bytes_is_refused(self):
         self.table_view.write_views(self.package, self.root / "widoki")
         view = self.root / "widoki" / "przedmioty.md"
-        view.write_text(view.read_text(encoding="utf-8").replace(
-            "1. [Nazwa] 改造制限解除\n   EN:",
-            "1. [Nazwa] 改造制限解除\n   EN: a name far too long for the twelve bytes of the slot"),
-            encoding="utf-8")
+        view.write_text(self.fill(view.read_text(encoding="utf-8"), "1. [Nazwa] 改造制限解除",
+                                  "a name far too long for the twelve bytes of the slot"),
+                        encoding="utf-8")
         report = TI.import_views(TI.read_views([view]), self.package)
         self.assertEqual(report["imported"], 0)
         self.assertTrue(any("max_bytes" in message for message in report["rejected"]))

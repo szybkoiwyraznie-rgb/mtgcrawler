@@ -316,6 +316,8 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Poprzednia liczba 12 738 linii / 283 klucze była zaniżona ~2x (chodzik kończył na granicy bloku).
 - Poza dialogiem: 360 tekstów innych typów (narracja, warunki zwycięstwa/porażki, lokacje, help,
   tytuły scen) + 273 teksty w blokach-tabelach. Razem 27 101 pozycji / ~1,22 MB.
+- **Korekta (sesja 5, część 11)**: czytnik gubił narrację schowaną w osłonkach `0xC8` — patrz wpis 44
+  w `EXPERIMENT_LOG.md`; po dociągnięciu: **29 934 wiersze** fabuły, 32/32 kontenery obecne.
 - Testy: **445 OK (1 skipped)**.
 
 ### Sesja 5, część 5 (2026-10-12): nazwy mówców (381 kluczy) i encyklopedia postaci

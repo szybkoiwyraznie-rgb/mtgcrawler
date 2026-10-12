@@ -175,6 +175,8 @@ def render_scene(scene: dict, rows: List[dict], package: dict) -> str:
         lines.append("- odcinek: misje treningowe (Simulator)")
     for section in scene.get("sections") or []:
         lines.append(f"- miejsce: {section['jp']} (element {section['order']})")
+    lines.append("- limit: dialog — 46 jedn. na linię (gra sama używa do 52), narracja — do 50 jedn.; "
+                 "liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)")
     people = participants(rows, package["series"])
     if people:
         lines.append("- uczestnicy:")
