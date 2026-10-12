@@ -274,3 +274,23 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 1lnH_SiL0njhP_lO8NcBkgFXo0KaPub2j	plik	widoki.zip	Pakiet do tlumaczenia	651 441 B; 7 plikow .md, 44 112 linii EN + 5 146 dziedziczonych
 # KOSZ: 1CLlTE93lRu_bTMaWpjg7_Vpqi61l4G9t README.md 17 753 B (wersja 3 sprzed przebudowy),
 # 16nrHO8rrfW5VZHP9mM80CiynflWCuwaO sceny.zip 932 206 B (37 plikow/293 sceny), 1S_uYLk908AkOBJk88LICxyBZ-Qt4zf0- widoki.zip 617 660 B
+# cz. 12 (2026-10-12): folder Robocze (JSONL) odswiezony pakietem po przebudowie (zrodlo prawdy do reinjectu)
+10HOITXhGLTQK5Sx88oY3dgXGHGJnhoCc	plik	00_dialogue.jsonl	Robocze (JSONL — nie dla tlumacza)	22 326 582 B; 47 175 wierszy (dialog + narracja/tytuly/lokacje/help), copy_of kopii DLC
+162sYI143hYCsECBqAPqJZXOqCA5ELflq	plik	01_battle_quotes.jsonl	Robocze (JSONL — nie dla tlumacza)	9 810 844 B; 27 383 cytaty (451 bez nazwy = 1,65%)
+1eLSpRlhP6g0kW_r9s2GaacBLRV2g5ila	plik	02_items.jsonl	Robocze (JSONL — nie dla tlumacza)	439 027 B; 1 200 wierszy, 757 copy_of
+1HPXpHgXNn-Dd5SQxbWw97L0DJkDfEB02	plik	03_skills.jsonl	Robocze (JSONL — nie dla tlumacza)	1 806 419 B; 4 932 wiersze, 1 863 copy_of
+1ZaqXVO1ikM8_Ty1GUfomUz2-2yeQnSbk	plik	04_config_text.jsonl	Robocze (JSONL — nie dla tlumacza)	4 364 613 B; 15 368 wierszy (w tym 2 196 sysmes.bin + 541 leftover)
+13ZzItsIWUzF8x2G89QUpTJ6aZumjHLDF	plik	05_mission_text.jsonl	Robocze (JSONL — nie dla tlumacza)	369 305 B; 1 281 wierszy
+1Py3VybAR_WOuK_lM54aGAFJD3-9QXuCV	plik	06_scenes.jsonl	Robocze (JSONL — nie dla tlumacza)	282 239 B; indeks 282 scen
+1pYhqjsVSRFZXw3qvULycZ_UB9GS7kqcu	plik	07_names_characters.jsonl	Robocze (JSONL — nie dla tlumacza)	1 036 814 B; 3 388 wierszy, 1 581 copy_of
+1h837z8kzthNXlLzGG6gVELXQnhZmNuqH	plik	08_names_units_weapons.jsonl	Robocze (JSONL — nie dla tlumacza)	1 298 453 B; 4 645 wierszy, 2 303 copy_of
+1JcoZJHt3ZFEdmVnOwq8CMUoPI1QumjyH	plik	index.json	Robocze (JSONL — nie dla tlumacza)	5 125 B; indeks pakietu (105 372 wiersze)
+1eWohdoS-T2sdVxj0AgrTYcH32anX_MfS	plik	check_report.txt	Robocze (JSONL — nie dla tlumacza)	13 635 B; 105 372 wiersze, 0 bledow
+1mpdytrmGhTOYAf_pTqWccnI7K8uQIT7q	plik	name_map.tsv	Robocze (JSONL — nie dla tlumacza)	32 502 B; klucz -> nazwa mowcy
+# KOSZ (stary pakiet sprzed przebudowy): 1xLP-MTkvX8_nxrVkrG4AcrtnyJN0Apx9 00_dialogue 14 078 671 B (29 934 wiersze),
+# 1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead 01_battle_quotes, 1fZCBrtxcD_NYWl4pvtcLUU7q7kQJAt_h 02_items,
+# 1GxvQoEaG7oGaIQYqSJi4be9cT0vIcy7u 03_skills, 1meXaguk0ABnEwFr77U9u5e7abXS51Is1 04_config_text 3 518 768 B,
+# 1O51cJnlGr8QgEIS2lmJGth7Px7MlGTQ9 05_mission_text, 1Da_47-RCKLQnXvdjr5hylePA90gJTeEj 06_scenes (293 sceny),
+# 1YxDv8XNaM4_i2-5-o7tB3yEyxcyFNoCz 07, 1NaYmW5Ri6YwFGXMvaBwmnz2vJEKcQAZg 08, 1NjczUSchNpZquGbWRA7E_NV9lPYfY_Fi index.json,
+# 1aV7jgNfaMuS7Etmuu1cjL5-GJoXuLmk6 check_report (85 424 wiersze), 1nrZmVFAt8Mpqah23Ti1DOg6jKKeBQPNr spis-scen.md (293),
+# 1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7 name_map.tsv (nazwa z dopiskiem)
