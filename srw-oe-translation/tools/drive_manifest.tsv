@@ -175,3 +175,18 @@ voice00.awb	14xi__VleS-kfUHOmIfUHLwR4lg2captq	50378244
 BgmSet00.awb	1y7L8L0Ap2NXjied7XzQkfOCVF8AitX11	193715460
 DATA.BIN (folder UPDATE)	1ASFv9d025QdfMS-_gZ7lxRu2CpG-6ow3	99614720
 # reszta USRDIR niepobrana: se0000/se40xx/segu01, semv01-15, cprt0001-0004, module/, SRW_DL.acf, UMD_DATA.BIN
+# --- WYJSCIE (sesja 5, cz. 8): folder "Pakiet do tlumaczenia" w folderze "SRW OE"
+# folder 15zExy5JpoZt_obcgK8xruCsHkZYhVlwo (SRW OE = 1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w)
+# name	file_id	size
+pp_00_dialogue.jsonl	1VKTr6qb6KV1qOhncL0x5KR1kBWO8gR9b	11119478
+pp_01_battle_quotes.jsonl	1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead	9810844
+pp_02_items.jsonl	1LA-d5HbhllbLZlzyZJ-lWzQmQwAz6B05	348602
+pp_03_skills.jsonl	19GbfsUpQKuwcEAu-ugfJScgaS4juM7Wm	891371
+pp_04_config_text.jsonl	1meXaguk0ABnEwFr77U9u5e7abXS51Is1	3518768
+pp_05_mission_text.jsonl	1O51cJnlGr8QgEIS2lmJGth7Px7MlGTQ9	379078
+pp_10_names_characters.jsonl	1v4B45X6HNrgSA0bdGI-I3o54_AXNOuq2	986264
+pp_11_names_units_weapons.jsonl	1tXG6h3uBS1BvQALuucrO8-UMQbsW2KW_	1218331
+pp_index.json	1ihzuq_hpWd6KpxxjNC3yMa8rtaMMdibL	4054
+pp_strings.csv	1UnkI_IeSa2lMij5Kk2X4XTWX8HO9NTua	13089547
+pp_name_map.tsv	1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7	32502
+pp_README.md	1yH-dt-kwXewX1YRiQDrYevjspSpdXZUz	4844
