@@ -11,6 +11,29 @@ Wynik **nie trafia do repozytorium** (gra objęta jest ograniczeniami — patrz 
 sekcja o prawach): leży w `local/translation/` i jest wysyłany na Google Drive jako osobny folder.
 Pliki `*.jsonl` są **jedynym** źródłem prawdy; arkusz `strings.csv` to tylko widok do czytania.
 
+## 0. Szybki start — co robi tłumacz (i czego nie robi)
+
+1. **Rozpakuj `sceny.zip`** i pracuj na plikach `epizod-NN.md`. Każda scena ma nagłówek (odcinek,
+   tytuł misji, miejsce) i elementy w kolejności gry; pod każdym japońskim tekstem jest pusta linia
+   `EN:` — tam wpisuje się tłumaczenie.
+2. **Angielski tylko po `EN:`.** Zdania japońskie zostają; liczba linii musi się zgadzać z liczbą linii
+   japońskiego; znaki `⏎` i `<0x0F>` przepisuje się, jeżeli są w oryginale. Poza tym nic w pliku się
+   nie zmienia.
+3. **Plików `*.jsonl` nie tłumaczy się ręcznie po wierszu** — sceny (dialogi) zawsze wracają z plików
+   `.md`. Kategorie bez widoku (cytaty bitewne, itemy, umiejętności, nazwy) wypełnia się bezpośrednio
+   polem `en` w swoim pliku JSONL.
+4. **Gotowego `.md` nie trzeba pakować ani konwertować.** Odsyła się plik tak, jak jest — pojedynczy
+   `.md`, cały folder albo zip; wszystkie trzy formy są czytane. Jeden przebieg:
+
+   ```
+   python3 tools/translation_import.py --views <plik|folder|sceny.zip> --package local/translation
+   ```
+
+   przenosi angielski do `00_dialogue.jsonl` (a `translation_copy.py` uzupełnia kopie wariantów).
+5. **Bezpieczeństwo**: import można powtarzać (nic się nie zdubluje, nic nie nadpisze pracy), a tekst,
+   który zepsułby grę — inna liczba linii, zgubiony token `＠0`/`%s`, znak spoza czcionki — jest
+   **odrzucany i wypisany**, nie wchodzi do pakietu.
+
 ## 1. Co jest w pakiecie
 
 | plik | treść | wiersze |

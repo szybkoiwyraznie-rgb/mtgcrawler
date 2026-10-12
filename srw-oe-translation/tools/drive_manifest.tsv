@@ -220,3 +220,11 @@ pp_spis-scen.md	1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6	36537  # 293 sceny w kolejnosc
 pp_sceny.zip	1odnUnmVaROz2DWw3lZIAV23kpL01_qaR	757831  # 37 plikow: epizod-NN.md + spis scen
 # bez zmian (te same pliki co w cz. 9): 01_battle_quotes, 02_items, 03_skills, 04_config_text,
 # 05_mission_text, name_map.tsv
+# --- AKTUALIZACJA (sesja 5, cz. 10b): widok scen = plik do pracy (linie EN:), import z .md
+# nowe wersje (widok z liniami EN: i par. 0 "Szybki start" w README):
+pp_sceny.zip	1b1CVCN7AqdnJxiFNGY7h6vMoyP61fBaV	767501  # EN: pod kazdym elementem
+pp_spis-scen.md	13AfdpxnwEid-Zgi511Okh0Q6EU9Z2lmx	36724  # + instrukcja na gorze
+pp_README.md	1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq	13171  # + par. 0 szybki start
+# stare wersje przeniesione do kosza: sceny.zip 1odnUnmVaROz2DWw3lZIAV23kpL01_qaR,
+# spis-scen.md 1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6, README.md 1C_OAMnIb1v7DZ4tPHGRFdRd35b60xRAO
+# (wersja posrednia README 1kO6Q8C4G6lVxXva8AxTi_tMb2i3J3HYg takze w koszu)
