@@ -527,3 +527,19 @@ Do zrobienia dalej: **odświeżyć pakiet tłumacza** (widoki scen bez narracji 
 luki — potrzebna ponowna ekstrakcja z kontenerów fabuły), imiona mówców w okienku dialogowym
 (`config00.cpk`, sloty nazw), pozostałe rodzaje tekstu (warunki, etykiety, teksty w tabelach),
 UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
+
+### Sesja 5, część 11 (2026-10-12): pakiet dla tłumacza domknięty i wgrany
+
+- **Fabuła domknięta**: `tools/event_refresh.py` dociągnął z kontenerów gry to, czego nie widział
+  czytnik — **+2 833 wiersze** (w tym 1 706 narracji ukrytej w osłonkach `0xC8`); fabuła ma teraz
+  **29 934 wiersze**, kontenery **32/32** (rozdziały `eventP10`–`12`, `14`–`19` nie istnieją w DLC).
+- **Limity długości przy każdym elemencie**: każdy element do tłumaczenia ma linię `limit:`
+  (slot: ile bajtów; dialog/cytat: 46 jednostek na linię + liczba linii oryginału; pole tabeli:
+  bez twardego limitu, z długością oryginału).
+- **Powtórzenia dziedziczą tłumaczenie**: `tools/package_copies.py` oznaczył **6 504 wiersze**;
+  w widokach **5 146** pozycji nie ma linii `EN:` (m.in. „Seria" przy każdym mechu/postaci).
+- **Pakiet**: 67 440 linii `EN:` (26 035 fabuła + 41 405 widoki), kontrola **0 błędów**,
+  85 424 wiersze tekstu. Testy: **728 OK (1 skipped)**.
+- **Drive**: folder „Pakiet do tłumaczenia" zawiera **dokładnie trzy pliki** (`README.md`,
+  `sceny.zip`, `widoki.zip`); nasze kopie JSONL i raporty przeniesione do folderu
+  „Robocze (JSONL — nie dla tłumacza)".

@@ -247,3 +247,20 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 # cz. 10g (2026-10-12): test ISO wybiera sie w oknie, wynik obok oryginalu
 1iEEaAojNHcrE1A7b1nmnjwuXxDpEjFx3	plik	README-TEST.txt	Test wtrysku (PPSSPP)	968 B; PATCH_ISO_TEST.bat otwiera okno wyboru ISO, wynik obok oryginalu
 # KOSZ: 1d4MHKognt_XQrBOlTLgXwwtu7pftmSds README-TEST.txt (pierwsza wersja opisu)
+# cz. 11 (2026-10-12): pakiet dla tlumacza domkniety (limity, dziedziczenie, narracja) + porzadek w folderze
+1nQwfcLRk17WNMWGjZaeuGDRbvGVLykKZ	plik	README.md	Pakiet do tlumaczenia	19 573 B; instrukcja z limitami dlugosci i dziedziczeniem powtorzen
+16nrHO8rrfW5VZHP9mM80CiynflWCuwaO	plik	sceny.zip	Pakiet do tlumaczenia	932 206 B; 37 plikow .md, 26 035 linii EN (z narracja)
+1S_uYLk908AkOBJk88LICxyBZ-Qt4zf0-	plik	widoki.zip	Pakiet do tlumaczenia	617 660 B; 7 plikow .md, 41 405 linii EN + 5 146 dziedziczonych
+1Qk4D0G9KShgIua1UFr4Zoy399UQ9IJgm	folder	Robocze (JSONL — nie dla tlumacza)	SRW OE	nasze kopie pakietu; nie wysylamy tlumaczowi
+1xLP-MTkvX8_nxrVkrG4AcrtnyJN0Apx9	plik	00_dialogue.jsonl	Robocze (JSONL — nie dla tlumacza)	14 078 671 B; 29 934 wiersze po dociagnieciu narracji
+1fZCBrtxcD_NYWl4pvtcLUU7q7kQJAt_h	plik	02_items.jsonl	Robocze (JSONL — nie dla tlumacza)	439 027 B; znaczniki copy_of
+1GxvQoEaG7oGaIQYqSJi4be9cT0vIcy7u	plik	03_skills.jsonl	Robocze (JSONL — nie dla tlumacza)	1 806 419 B; znaczniki copy_of
+1Da_47-RCKLQnXvdjr5hylePA90gJTeEj	plik	06_scenes.jsonl	Robocze (JSONL — nie dla tlumacza)	280 597 B
+1YxDv8XNaM4_i2-5-o7tB3yEyxcyFNoCz	plik	07_names_characters.jsonl	Robocze (JSONL — nie dla tlumacza)	1 036 814 B; znaczniki copy_of
+1NaYmW5Ri6YwFGXMvaBwmnz2vJEKcQAZg	plik	08_names_units_weapons.jsonl	Robocze (JSONL — nie dla tlumacza)	1 298 453 B; znaczniki copy_of
+1aV7jgNfaMuS7Etmuu1cjL5-GJoXuLmk6	plik	check_report.txt	Robocze (JSONL — nie dla tlumacza)	13 281 B; 85 424 wiersze, 0 bledow
+1nrZmVFAt8Mpqah23Ti1DOg6jKKeBQPNr	plik	spis-scen.md	Robocze (JSONL — nie dla tlumacza)	48 394 B; spis 293 scen
+# przeniesione bez zmian do folderu roboczego: 01_battle_quotes 1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead,
+# 04_config_text 1meXaguk0ABnEwFr77U9u5e7abXS51Is1, 05_mission_text 1O51cJnlGr8Q..., index.json 1NjczUSchNpZ...,
+# name_map.tsv 1zIfJydnszpo...; do kosza: 00 1tx8Psr5..., 02 1DlP-EUc5..., 03 1UFxawNE..., 06 12E5VyYj...,
+# 07 1kCs3tis..., 08 106uhVsS..., spis-scen.md 1B7ATsm6..., check_report 1X2qrnHt... (wersje sprzed odswiezenia)
