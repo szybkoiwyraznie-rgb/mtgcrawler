@@ -309,10 +309,10 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
 
 * **Fabuła, nazwy, cytaty, itemy, umiejętności, teksty config i misji** — widoki są gotowe,
   czekają na tłumaczenie (69 753 elementy).
-* **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów (sprawdzone na roboczej kopii
-  `config00.cpk`); wtryskiwanie dialogów do zdarzeń jest w trakcie (prototyp, nie jest jeszcze
-  wpisany na stałe do procesu). Niczego nie ogłaszamy jako „gotowe", dopóki nie zadziała cała ścieżka:
-  tekst → kontener gry → uruchomiona gra.
+* **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów i **dialogów** (sprawdzone na roboczej
+  kopii `eventP00.cpk`: 6 linii sceny 1 wpisanych, kontener przebudowany i odczytany z powrotem bez
+  różnic poza tymi liniami). Uruchomienia w PPSSPP jeszcze nie było — to po naszej stronie
+  i zostanie pokazane, zanim cokolwiek ogłosimy gotowym.
 * **Kwestie bez mówcy** — 451 z 27 383 (1,65 %), w granicach, które ustaliliśmy.
 * **Nazwy mówców w dialogach** — postaci z nazwą 100 %; 42 klucze to postacie zbiorowe bez nazwy
   własnej (np. „żołnierz"), pokazywane jako `ID`.

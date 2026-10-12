@@ -2515,3 +2515,32 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
 30. [ZWERYFIKOWANE] Kontrola całego pakietu po zmianach: **82 591 wierszy, 0 błędów**, 82 591 pustych
    (nic jeszcze nie jest przetłumaczone); testy: `python3 -m unittest discover tests` → **652 OK
    (1 skipped)**.
+
+## Sesja 5 (2026-10-12), część 10d — wtrysk dialogów do zdarzeń (pakiet → gra)
+
+31. [ZWERYFIKOWANE — format rekordu dialogowego] Na `eventP00.cpk` / `DL100_01.bin` (44 członki)
+   zmierzone: offset z pakietu (`source.offset`) **jest** początkiem tekstu — dla wszystkich 90 wierszy
+   tego członu bajty zgadzają się co do znaku (także dla wiersza z `\r\n`). Rekord:
+   `C9 00 00 00 | size | 6×u16 (1, id mówcy, 0,0,0,FFFF) | tekst | 1–4 zera`, tekst od `+20`,
+   `size` zawsze %4 == 0, dopełnienie 1–4 bajty (nigdy 0). Rekord leży w opakowaniu `C8`, to w sekcji
+   `EVNT` (`"EVNT" + u32 rozmiar`), to w nagłówku `EDAT` (`size = plik − 8`). Wiersze `dialogue`
+   (82 z 90) trafiają dokładnie w `offset − 20`; pozostałe kindy (narracja, warunki, etykiety,
+   wbudowane) używają innych typów rekordów bez pola długości tekstu.
+32. [ZWERYFIKOWANE — narzędzie] `tools/event_text_apply.py` (14 testów syntetycznych): rozszerzenie
+   linii przepisuje rozmiar rekordu, rozmiar opakowań `C8`, rozmiar sekcji i rozmiar `EDAT` — każde
+   pole leży przed wstawianym tekstem, więc offsety nie uciekają. Test odwracalności: rozszerzenie
+   i powrót do oryginalnego tekstu **odtwarza plik bajt w bajt**. Weryfikacja wyniku: brak nowych
+   błędów chodzenia bloków, sekcje pokrywają plik co do bajtu, liczba rekordów bez zmian, wielozbiór
+   tekstów = poprzedni − wymienione + nowe. Testy pilnują też, że etykieta `kind` nie decyduje
+   (decyduje typ rekordu) i że tekst spoza rekordu dialogowego jest zgłaszany, nie pisany.
+33. [ZWERYFIKOWANE — przebieg na prawdziwym kontenerze] `local/demo-inject` (kopia pakietu) z 6 liniami
+   sceny 1 → `event_text_apply.py --container ../google_drive/eventP00.cpk --member DL100_01.bin`:
+   **6/6 wpisanych, 0 pominiętych, 0 odrzuconych, 0 problemów weryfikacji**, człon 13 112 → 13 080 B,
+   kontener 162 264 → 170 456 B (`container_bytes 8192`), zmieniony człon zapisany bez kompresji.
+   Odczyt patrzonego kontenera: 44 członki, **różni się tylko `DL100_01.bin`**, 82 teksty, 0 błędów,
+   pierwsze sześć linii po angielsku. Bramka `cpk_write.verify_identity`: `eventP00.cpk` 162 264 B
+   **bajt w bajt**, `config00.cpk` 929 920 B **bajt w bajt**; `system.cpk` — układ tylko-ITOC,
+   `cpk_write` go nie obsługuje (do `sysmes`).
+34. [HIPOTEZA — do sprawdzenia w grze] Zapas: gra ładuje kontener przebudowany, w którym zmieniony
+   człon jest zapisany **stored** (bez CRILAYLA). W repozytorium nie ma kompresora, a tak właśnie
+   powstał działający koreański patch. Weryfikacja = uruchomienie w PPSSPP po przebudowie ISO.

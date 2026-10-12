@@ -481,3 +481,15 @@ postaci/mechów (tylko portrety i cytaty audio), więc nie szukamy dalej i nie p
 wyłącznie linii dialogu (0%); (c) **nazwy itemów sklepowych nie mają znaczenia** — liczą się tylko
 itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów” jest odłożone;
 (d) **tekst fabularny musi iść blokami scen z kontekstem** — patrz §3h.
+
+## 5. Wtrysk do gry (stan po części 10d)
+
+* **Fabuła (rekordy dialogowe `0xC9`)** — `tools/event_text_apply.py` pisze angielski z pakietu do
+  członu zdarzenia i przebudowuje CPK (`tools/cpk_write.py`). Na `eventP00.cpk`: 6 linii → 6 wpisanych,
+  weryfikacja 0 problemów, patrzony kontener czyta się identycznie poza zmienionym członkiem.
+* **Bramka tożsamości** — przebudowa bez zmian musi dać plik bajt w bajt: `eventP00.cpk` ✓,
+  `config00.cpk` ✓. `system.cpk` (UI) ma układ tylko-ITOC, którego `cpk_write` nie obsługuje —
+  do rozstrzygnięcia przy `sysmes`.
+* **Do zrobienia**: rekordy inne niż dialogowe (633 wiersze), pola o stałej szerokości
+  (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`), `sysmes.bin`,
+  przebudowa ISO i test w PPSSPP (po stronie użytkownika).

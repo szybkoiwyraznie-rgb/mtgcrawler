@@ -443,3 +443,26 @@ The agent sandbox has neither the game files nor the converter, so only the user
   a `sceny.zip` nigdy nie wraca spakowany do gry.
 - Demo na 12 liniach sceny 1: import 12/12, kontrola 0 błędów, 0 uwag. Widok pakietu regenerowany
   z liniami `EN:` (`sceny.zip` 767 501 B) — do podmiany na Drive.
+
+## Sesja 5, część 10d (2026-10-12): wtrysk dialogów do zdarzeń — działa na prawdziwym kontenerze
+
+- `tools/event_text_apply.py` (**nowe**, 14 testów) domyka ścieżkę pakiet → gra dla fabuły.
+  Zmierzony format rekordu dialogowego: `0xC9`, `[typ][rozmiar][6×u16: 1, id mówcy, 0,0,0,FFFF]`,
+  tekst od +20, dopełnienie do 4 bajtów (1–4 zera). Offset z pakietu **jest** początkiem tekstu
+  (sprawdzone na wszystkich 90 wierszach członu `DL100_01.bin`); rekord siedzi w opakowaniu `0xC8`,
+  to w sekcji `EVNT`, a to w nagłówku `EDAT`.
+- Rozszerzenie linii przepisuje: rozmiar rekordu, rozmiar każdego opakowania `0xC8`, rozmiar sekcji
+  `EVNT` i rozmiar `EDAT` — wszystkie te pola leżą **przed** wstawianym tekstem, więc nic nie trzeba
+  przeliczać (plik jest chodzony, nie indeksowany).
+- Bramki: tekst musi stać pod zapisanym offsetem (inaczej wiersz pominięty), linia musi zmieścić się
+  w oknie (46 jednostek), tekst musi kodować się w CP932, a po zmianie plik jest **ponownie parsowany**
+  (chodzenie bloków, liczba rekordów, wielozbiór tekstów) — wynik niezgodny nie jest zapisywany.
+- Przebieg na prawdziwym `eventP00.cpk`: **6 linii sceny 1 przetłumaczone → 6/6 wpisanych**,
+  0 pominiętych, 0 odrzuconych, 0 problemów weryfikacji; człon `DL100_01.bin` 13 112 → 13 080 B,
+  kontener 162 264 → 170 456 B (zmieniony człon zapisany bez kompresji). Odczyt patrzonego kontenera
+  z zewnątrz: **44 członki, różni się tylko `DL100_01.bin`**, 82 teksty sceny bez błędów, pierwsze
+  sześć po angielsku. Bramka tożsamości `cpk_write`: `eventP00.cpk` i `config00.cpk` **bajt w bajt**.
+- Ograniczenia (uczciwie): rekordy inne niż dialogowe (narracja, warunki, etykiety, teksty
+  wbudowane — 633 wiersze) mają tekst bez pola długości, więc dostaną własny zapis; tytuły i uwagi
+  misji czekają na zapis pól o stałej szerokości (`*_ext.dat`); uruchomienia w PPSSPP nie mam —
+  to po stronie użytkownika.
