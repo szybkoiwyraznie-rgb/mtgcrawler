@@ -220,3 +220,32 @@ Tool: `tools/unit_records.py` → `local/unit_records.json`. Also feeds `name_un
 
 Open for this table: a validated pilot-slot rule (test it on a pilot whose unit is known from the script),
 and the record layout beyond offset 132 (fields 204–344 hold stat-like values).
+
+## 12. Unit ↔ weapon ↔ series map (`tools/unit_weapons.py`), measured 2026-10-12
+
+Read-only tool that joins the tables through the unit id (S id) and reports consistency checks.
+Output: `local/units/unit_weapons.json` plus `units.csv` / `weapons.csv` (gitignored; game text).
+
+* `[ZWERYFIKOWANE]` `unit_list*.bin`: 384-byte records; +0 base mech name; +84 u16 unit id (S id);
+  +86 u16 base unit id (equals S except for variants, e.g. 1002 -> 1000, 2413 -> 2400);
+  +140 display name with the variant suffix; +88..+134 are 25 u16 stat/slot fields with unknown
+  semantics (exported raw as `fields84`, not interpreted).
+* `[ZWERYFIKOWANE]` `wp_list*.bin`: record = 12-byte header (u32 unit id, u32 weapon count,
+  u32 flags 0x100) + count * 256-byte entries; record size is exactly 12 + 256*count (0 mismatches
+  over the seven containers measured). Entry: +28 f32, +32 full-width name (present in 1236/1236
+  entries), +96 half-width/token short form (0x0F xx; mapped with `token_solve` where possible),
+  +128 `.bsb` animation member (`s<unit id>_<nnn>.bsb`).
+* `[ZWERYFIKOWANE]` the unit ids of `unit_list` and `wp_list` are equal and in the same order in every
+  container (0 duplicates, 0 mismatches).
+* `[ZWERYFIKOWANE]` `unit_index_list.bin` (a config00 member) is the whole-game roster: 393 rows of
+  (u16 unit id, u16 weapon count, u32 offset) sorted by id; all 333 ids of the seven downloaded
+  containers appear in column 1; column 2 equals the `wp_list` count for 332/333 units (one anomaly:
+  id 2940 - index 3 vs record 4); column 3 chains exactly (`offset[i+1]-offset[i] = 12+256*count[i]`,
+  393/393) into one merged weapon table (offsets 1588..385952).
+* `[ZWERYFIKOWANE]` the series/work title is `srw_DL_RoboDictionary*` slot 3, joined by the u16 unit id
+  at record +28 (261 records in the seven containers; 259 ids match `unit_list`; id 3201 has two
+  records; 74 units have no dictionary record yet).
+* `[ZWERYFIKOWANE]` `robo_cpkid*`: 302 (unit id -> member index) pairs; the member index resolves to a
+  model directory `r<robolist id>` inside `robo00.cpk` for 74 directories.
+* Weapon-name offset: the name is ALWAYS at entry +32; the old "relpos 42 or 44" split was an artifact
+  of the f32 at entry +28 (1.0 = bytes `00 00 80 3F`) extending the raw text run.

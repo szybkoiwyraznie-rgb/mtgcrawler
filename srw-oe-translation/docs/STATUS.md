@@ -241,7 +241,7 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Kategorie wymagane przez cel, stan pokrycia:
   - dialog (283 klucze, 12738 linii): tak, nazwy częściowo;
   - battle quotes (241 kluczy, 22902 rekordy): tak, nazwy częściowo;
-  - mechy/jednostki (393 rekordy `unit_list`, 40 mechów `RoboDictionary`): nazwy tak, powiązanie z bronią nie;
+  - mechy/jednostki (393 rekordy `unit_list`, 40 tytułów serii w `RoboDictionary`): nazwy tak; powiązanie jednostka→bronie TAK na 7/46 kontenerów (`tools/unit_weapons.py`, sesja 5);
   - bronie (389 nazw): nazwy tak, opisy nie;
   - przedmioty (317 nazw): nazwy tak, opisy działania nie;
   - helpy/UI: nie zaczęte (poza tabelą referencyjną `srwDL_Reference`, 28 rekordów z tekstem);
@@ -262,3 +262,18 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Narzędzie: `tools/mech_names.py` (czyta config*, zwraca kandydatów z trzech źródeł). Wynik w `local/mech/mech_names.json`.
 - Kandydaci: `unit_list` base 267, display 390, slot3 40. Brak wspólnych nazw slot3 z unit_list.
 - Cel 100+ mechów NIEPOTWIERDZONY: nie wiadomo, czy unit_list to same mechy.
+
+### Sesja 5 (2026-10-12): tożsamość jednostek (jednostka → bronie → seria)
+- Nowe narzędzie `tools/unit_weapons.py` (read-only): scala `unit_list`, `wp_list`, `srw_DL_RoboDictionary`,
+  `robo_cpkid` i `unit_index_list` po id jednostki; wynik `local/units/unit_weapons.json` + CSV (gitignored).
+  16 nowych testów syntetycznych; cały zestaw **383 OK (1 skipped)**.
+- [ZWERYFIKOWANE] 7 kontenerów config (00–06): 333 jednostki, 1236 broni; id `unit_list` +84 == id `wp_list`
+  w każdym kontenerze, ta sama kolejność; każda jednostka ma listę broni, każda broń ma nazwę i animację `.bsb`.
+- [ZWERYFIKOWANE] `unit_index_list.bin` = globalna lista **393 jednostek całej gry** (id, liczba broni, offset);
+  łańcuch offsetów 393/393 (offset[i+1] − offset[i] = 12 + 256·liczba); liczba broni zgodna z `wp_list` 332/333
+  (anomalia: id 2940 — indeks 3, rekord 4). 60 id należy do kontenerów `config07`–`config46`.
+- [ZWERYFIKOWANE, korekta] nazwa broni jest ZAWSZE pod entry+32 (dawne „+30" to artefakt float32 pod +28).
+  Nazwa jednostki: +0 (bazowa) i +140 (z wariantem); seria = `RoboDictionary` slot 3 po id z +28
+  (261 rekordów, 259 id pokrytych, jedno id z dwoma rekordami: 3201; 74 jednostki bez serii w tych kontenerach).
+- Otwarte: pobrać `config07`–`config46` i powtórzyć przebieg; semantyka pól +88…+134; `robo01`+ dla modeli;
+  pozycje 55 jednostek bez modelu.

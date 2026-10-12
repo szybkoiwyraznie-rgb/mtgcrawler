@@ -1992,3 +1992,44 @@ Przyczyna rozbieżności z lokalnym wynikiem użytkownika (ok. 45k+ linii):
 5. [NIEZWERYFIKOWANE] Czy `unit_list` zawiera same mechy (jednostki), czy też piloty i inne wpisy. Nie ustalone. Dlatego 267 nie jest jeszcze liczbą mechów.
 6. [NIEZWERYFIKOWANE] Cel 100+ mechów: NIE potwierdzony. Kandydaci: 267 (base), 390 (display), 40 (slot3), bez rozstrzygnięcia tożsamości.
 7. Następny krok: rozdzielić `unit_list` na mechy i piloty (porównanie z `charalist*` i z pilotami w sloty +98/+100/+102), oraz dekodować `robolist.bin` (363 rekordy po 24 B?).
+
+## Sesja 5 (2026-10-12): tożsamość jednostek — unit_list ↔ wp_list ↔ RoboDictionary [ZWERYFIKOWANE]
+
+Środowisko: w `google_drive/` było 7 kontenerów `config` (00 z USRDIR + 01–07 z FULL_DLC) i `robo00.cpk`;
+`config07`–`config46` (bez 38) czekają na pobranie tym samym sposobem.
+
+1. [ZWERYFIKOWANE] Nowe narzędzie `tools/unit_weapons.py` (read-only) scala jednostki, bronie, serie i modele
+   oraz raportuje kontrole spójności. Wynik na 7 kontenerach: **333 jednostki, 1236 broni**;
+   333/333 jednostek ma listę broni; 1236/1236 broni ma nazwę pełną i animację `.bsb`; 1232/1236 ma formę skróconą.
+   Wejście na dysk: `local/units/unit_weapons.json`, `units.csv`, `weapons.csv` (gitignored).
+2. [ZWERYFIKOWANE] Układ rekordu `wp_list`: nagłówek 12 B (u32 `unit_id`, u32 liczba broni, u32 flagi = 0x100),
+   potem liczba × 256 B wpisów; rozmiar rekordu = **12 + 256 × liczba** (0 rozjazdów w 7 kontenerach).
+   Wpis: +28 float, **+32 nazwa CP932**, +96 forma półszeroka z tokenami `0x0F xx`, +128 nazwa animacji `sNNN_NNN.bsb`.
+3. [ZWERYFIKOWANE — korekta wcześniejszej sondy] Histogram „pierwszego przebiegu JP" (32: 610, 30: 547,
+   24: 29, 28: 15, 26: 12, brak: 23) był artefaktem: nazwa broni jest **zawsze pod +32**. Pod +28 leży float
+   (np. 1.0 = bajty `00 00 80 3F`), którego górne bajty (`80 3F`) wydłużały przebieg przed nazwą i przesuwały
+   wykryte „starty" na +30 (rzadziej +24/+26/+28 — inne wartości float). Wszystkie 1236 wpisów ma niepustą
+   nazwę pod +32; 20 z nich to legalne nazwy jednoliterowe/ASCII (傘, 鎌, 歌, 盾, 剣, 槍, SEED, ASURA, Ｖ－ＭＡＸ, 17.5mmCIWS).
+   Zapis w `inline_names.py` „relpos 42/44" to ten sam mechanizm (44 = +32, 42 = +30 z bajtami float).
+4. [ZWERYFIKOWANE] `unit_list` +84 („S id") == `wp_list` u32 `unit_id`, rekord po rekordzie i w kolejności,
+   we wszystkich 7 kontenerach (0 duplikatów id, 0 rozjazdów kolejności).
+5. [ZWERYFIKOWANE] `unit_index_list.bin` (członek config00) to **globalny rejestr całej gry**: 393 wiersze po
+   (u16 `unit_id`, u16 liczba broni, u32 offset), posortowane po id. Wszystkie 333 id z 7 kontenerów występują
+   w kolumnie 1; pozostałe 60 id należy do `config07`–`config46`. Kolumna 2 == liczba broni z `wp_list`
+   dla **332/333** jednostek (1 anomalia: id 2940 w config05 — indeks mówi 3, rekord `wp_list` ma 4 wpisy).
+   Kolumna 3 tworzy łańcuch **393/393**: `offset[i+1] − offset[i] = 12 + 256·count[i]` (zakres 1588…385952),
+   czyli offsety wskazują jedną scaloną tabelę broni całej gry.
+6. [ZWERYFIKOWANE] `unit_list`: +0 nazwa mecha (bazowa), +140 nazwa wyświetlana z wariantem po pełnym ukośniku
+   („／標準", „／対空", „／マシンガン"), +84 id S, +86 id bazowe (równe S poza wariantami), dalej 25 pól u16 —
+   semantyka pól +88…+134 nadal nieustalona (`fields84` w JSON, bez interpretacji).
+7. [ZWERYFIKOWANE] Seria/tytuł dzieła: `srw_DL_RoboDictionary` slot 3, wiązany po u16 `unit_id` na +28 rekordu.
+   W 7 kontenerach 261 rekordów; 259 id pokrywa się z `unit_list` (jedno id z dwoma rekordami: 3201).
+   **74 jednostki nie mają rekordu słownika w tych kontenerach** (do sprawdzenia po pobraniu reszty).
+8. [ZWERYFIKOWANE] `robo_cpkid`: 302 pary (u16 `unit_id` → u16 indeks członka) w 7 kontenerach; mapowanie na
+   katalog modelu `r<robolist id>` w `robo00.cpk` działa dla 74 katalogów; 55 jednostek bez rozwiązania modelu
+   (indeks poza `robo00` albo brak pary — do sprawdzenia na `robo01`+).
+9. Zestaw testów: **383 OK (1 skipped)**, w tym 16 nowych syntetycznych dla `tools/unit_weapons.py`.
+
+Wniosek dla celu: wymaganie „nazwy mechów powiązane z nazwami broni" ma zdekodowane i zweryfikowane
+połączenie na 7 z 46 kontenerów; reszta to to samo pobranie + ten sam przebieg, bez zmian w narzędziu.
+Otwarte: semantyka pól +88…+134 w `unit_list`, anomalia 2940, 74 jednostki bez serii, modele jednostek z DLC.
