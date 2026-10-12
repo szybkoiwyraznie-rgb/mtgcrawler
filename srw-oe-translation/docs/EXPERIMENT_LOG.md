@@ -2048,3 +2048,44 @@ Otwarte: semantyka pól +88…+134 w `unit_list`, anomalia 2940, 74 jednostki be
     24 pary wskazują poza `robo00` (`robo01`+ do pobrania); `unitfacelist` = 321 rekordów po 12 B.
 13. Testy po zmianach: **383 OK (1 skipped)**, w tym 16 dla `tools/unit_weapons.py`. Commit `333dff9`
     (PR #12) zawiera narzędzie i dokumentację; wyniki całogrowe dopisane po jego utworzeniu.
+
+## Sesja 5 (2026-10-12), część 2: audyt kategorii + cytaty bitewne + tabele tekstowe config
+
+1. [ZWERYFIKOWANE] Nowy dokument `docs/COVERAGE.md`: mapa wszystkich kategorii celu (stan, źródła, braki,
+   kolejność domykania, definicja „gotowe” per kategoria).
+2. [ZWERYFIKOWANE] Nowe narzędzie `tools/config_text_tables.py` (read-only, 16 testów syntetycznych):
+   ekstrakcja każdego przebiegu tekstu z tabel `Item`, `Skill`, `Reference`, `DLC_ID` (config00–19)
+   oraz `Spirit`, `Achievement`, `Skill_Tag`, `StatusChange`, `ItemDrop` (configst), z dokładną lokalizacją.
+   Wynik na 20 kontenerach + configst: **11 254 rekordy, 12 599 stringów, 208 109 B tekstu; unikalnych
+   4208 (3518 z kanji/kana), 89 259 B**. Wyjście w `local/text_tables/` (gitignored).
+3. [ZWERYFIKOWANE] Trzy konwencje tabel zmierzone: A (liczba pod +0, offsety od +4), B (offset ogona pod +0,
+   liczba pod +4, offsety od +8 + pula ogonowa), C (start tablicy pod +0 = 8, tablica od +8 samoograniczająca
+   się wartością `u32[8]`) — C to pliki DLC `Item01–08`/`Skill01–08`.
+4. [ZWERYFIKOWANE] Relacja DLC ↔ płyta: pula `Item01–08` = podzbiór puli ogonowej `Item00` (75/75 bez nowych);
+   pula `Skill01–08` zawiera wszystkie 583 teksty ogona `Skill00` + ~239 fragmentów formatujących.
+   DLC nie wnosi nowych tekstów itemów/skilli.
+5. [ZWERYFIKOWANE] `srwDL_Reference00`: 8 wskaźników u32 na rekord celuje w tekst (reguła: bajt drukowalny
+   po NUL/bajcie sterującym) — **28/28 rekordów zgodnych**; `Reference03` 3/4, `Reference08` 0/1 (otwarte).
+6. [ZWERYFIKOWANE] `configst.pac` = 21 członków, w tym całe niekatalogowane kategorie: `srwDL_Spirit`
+   (komendy duchowe, 60 rekordów, 9262 B), `srwDL_Achievement` (75/1433 B), `srwDL_Skill_Tag` (151/2829 B),
+   `srwDL_StatusChange` (101/2333 B), `srwDL_ItemDrop` (1092 rekordy, 5 stringów), `srwDL_Item` (duplikat Item00).
+7. [ZWERYFIKOWANE] `imenu00.cpk` to duplikat zawartości `config00.pac` (te same 6 członków) — encyklopedii
+   postaci tam nie ma. `CharaDictionary` zawiera tylko nazwy i tytuły serii (najdłuższy tekst 43 B),
+   `RoboDictionary` dodatkowo listy pilotów („パイロット：…”) i uwagi („（…の「設置」コマンドで出現）”).
+   Tabela biografii postaci pozostaje niezidentyfikowana.
+8. [ZWERYFIKOWANE] **Cytaty bitewne domknięte.** `tools/battle_quotes.py` (read-only, 11 testów):
+   członek `p<NNN>.pac` = łańcuch bloków `EVNT` (rozmiar liczony od pola rozmiaru), w bloku `u32 0`
+   i rekordy `typ, rozmiar` (rozmiar od pola typu); typ 200 opakowuje, typ 201 = cytat; ładunek 0xC9:
+   `u16 0x0029` (podtyp w dolnych 12 bitach, 0x8029 też), `u16 klucz`, `u16 flagi`, `u16 0`, `u16 0`,
+   `u16 id głosu` (0xFFFF = brak), tekst CP932 + NUL.
+9. [ZWERYFIKOWANE] Wynik na 32 kontenerach `mesbtl`: **257 członków, 25 449 bloków EVNT, 29 577 rekordów
+   typu 201, 29 577 wyekstrahowanych cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów łańcucha**.
+   Wszystkie rekordy 201 mają podtyp 41 → pokrycie 100%. Unikalnych tekstów 16 931; 2194 rekordy mają
+   pusty tekst (slot zastępczy); najczęstsze powtórzenia to „…………” (990) i „※※※” (312).
+10. [ZWERYFIKOWANE] **Korekta kluczy cytatów**: nazwa członka to *zestaw*, nie mówca — `p0050.pac` zawiera
+    klucze 50/55/60/101/151, `p0408.pac` klucze 407/405 (stara sonda liczyła dla niego 0 rekordów).
+    Prawdziwe liczby: **319 kluczy i 29 577 rekordów** zamiast 241 i 22 902.
+11. Zestaw testów: **410 OK (1 skipped)** (16 nowych `config_text_tables`, 11 nowych `battle_quotes`).
+
+Kolejka po tej sesji (z `docs/COVERAGE.md` §5): nazwy dla 319 kluczy cytatów, role pól w skillach/itemach,
+poszukiwanie tabeli encyklopedii, budżety znaków UI, arkusz scalony, `apply` per kategoria.

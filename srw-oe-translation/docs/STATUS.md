@@ -282,3 +282,17 @@ The agent sandbox has neither the game files nor the converter, so only the user
   `robo_cpkid` 360 par → 336 jednostek z modelem w `robo00`, 24 pary poza `robo00`; `unitfacelist` 321 rekordów.
 - Otwarte: semantyka pól +88…+134; `robo01`+ dla 24 par modeli; 91 jednostek bez rekordu serii;
   2 anomalie liczby broni (2940, 3246).
+
+### Sesja 5, część 2 (2026-10-12): audyt kategorii, cytaty bitewne, tabele tekstowe config
+- Nowy dokument **`docs/COVERAGE.md`** — mapa wszystkich kategorii celu (stan, źródła, braki, kolejność
+  domykania, definicja „gotowe” per kategoria). To punkt odniesienia dla dalszej pracy.
+- **Cytaty bitewne: domknięte.** `tools/battle_quotes.py` dekoduje łańcuch `EVNT` i rekordy 200/201;
+  wynik na 32 kontenerach: **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów** (pokrycie 100%
+  rekordów typu 201). Korekta: stara liczba 241 kluczy / 22 902 rekordy liczyła tylko rekordy zgodne
+  z nazwą członka — prawdziwy klucz mówcy jest w rekordzie.
+- **Tabele tekstowe config: ekstrakcja.** `tools/config_text_tables.py`: 11 254 rekordy, 12 599 stringów,
+  208 109 B (unikalnych 4208 / 89 259 B) z Item/Skill/Reference/DLC_ID + Spirit/Achievement/Skill_Tag/
+  StatusChange/ItemDrop. Trzy konwencje tabel zmierzone i przetestowane.
+- Ustalenia: `imenu00` = duplikat `config00`; `configst` = 21 członków (m.in. komendy duchowe, trofea);
+  DLC itemy/skille nie wnoszą nowych tekstów; tabela biografii postaci nadal niezidentyfikowana.
+- Testy: **410 OK (1 skipped)**.
