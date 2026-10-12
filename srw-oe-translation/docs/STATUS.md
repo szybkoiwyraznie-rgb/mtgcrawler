@@ -549,3 +549,6 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 - **Szacunek pracy na całość** (zmierzony, nie na oko): 1 406 489 znaków JP → ~3,16 mln znaków EN
   (~527 tys. słów), ~0,8 mln tokenów czystego tekstu; rząd 5–10 mln tokenów z otoczką, ~100–250 tur
   roboczych (~10–20 sesji). Szczegóły we wpisie 46 `EXPERIMENT_LOG.md`.
+- **Instrukcja dla tłumacza = tylko instrukcja**: rozdziały o naszym stanie prac i kuchni
+  technicznej przeniesione do `docs/TRANSLATOR_PACKAGE_TECH.md`; pilnuje tego
+  `tests/test_translator_readme.py` (6 testów). Testy: **734 OK (1 skipped)**.

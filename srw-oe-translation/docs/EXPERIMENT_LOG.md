@@ -2626,3 +2626,12 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
    Wniosek orientacyjny: nie jedna sesja i nie 15 minut; rząd **~5–10 mln tokenów** w sumie
    (z czytaniem źródła, sprawdzeniami i poprawkami), **~100–250 tur roboczych = ~10–20 sesji**,
    kilkanaście–kilkadziesiąt godzin czystego generowania, rozłożone na dni z Twoimi testami w grze.
+47. [ZWERYFIKOWANE] **Instrukcja dla tłumacza oczyszczona** (decyzja użytkownika: „rozdziały 6 i 7 to
+   nie jest lektura dla niego"). `docs/TRANSLATOR_PACKAGE.md` kończy się teraz na checkliście
+   i krótkim zdaniu na koniec; treść dawnych rozdziałów 6 (stan prac) i 7 (dodatek techniczny)
+   przeniesiona do nowego **`docs/TRANSLATOR_PACKAGE_TECH.md`** (dokument wewnętrzny, nie idzie do
+   tłumacza). Przy okazji z punktu 4 zniknęła lista naszych czterech poleceń `python3 tools/…`
+   (zastąpiona opisem po ludzku). Nowy test `tests/test_translator_readme.py` (6 testów) pilnuje, że
+   w instrukcji nie pojawi się nasza kuchnia (PPSSPP, `jsonl`, nazwy narzędzi, sekcja techniczna)
+   i że nadal są w niej: trzy pliki dostawy, trzy formaty `limit:` i zasada dziedziczenia.
+   Instrukcja: 384 → 351 linii (17 753 B). Testy: **734 OK (1 skipped)**.

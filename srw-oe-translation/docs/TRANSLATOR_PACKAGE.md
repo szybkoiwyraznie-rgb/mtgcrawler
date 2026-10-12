@@ -304,19 +304,13 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 
 ### Co robimy z plikami po naszej stronie
 
-```
-python3 tools/translation_import.py --views <pliki .md albo zip> --package local/translation
-python3 tools/translation_copy.py --package local/translation      # powtórzenia scen DLC
-python3 tools/translation_mirror.py --package local/translation    # ta sama nazwa w kilku tabelach
-python3 tools/translation_check.py --package local/translation     # limity, znaki, tokeny, linie
-```
-
-* `translation_import.py` rozpoznaje plik po nazwie i wie, do którego miejsca w grze trafia każdy
-  element. Jeśli plik pochodzi ze starszej wersji pakietu (tekst japoński się nie zgadza), **odrzuca
-  go w całości** — nigdy nie wpisze tekstu w złe miejsce.
-* Tekst, który złamałby grę (znak spoza CP932, zgubiony token, inna liczba linii, za długi tekst
-  w polu o stałym rozmiarze) jest **odrzucany i wypisany** — poprawiamy i uruchamiamy ponownie.
-  Uruchomienie można powtarzać bezpiecznie: nic nie jest wpisywane podwójnie.
+* Każde Twoje `EN:` trafia **dokładnie tam, gdzie w grze stoi tekst japoński, który stał nad nim**.
+  Jeśli plik pochodzi ze starszej wersji pakietu (tekst japoński się nie zgadza), **odrzucamy go
+  w całości** — nigdy nie wpiszemy tekstu w złe miejsce.
+* Tekst, który złamałby grę (znak spoza CP932, zgubiony token `＠…`/`%s`, inna liczba linii, za dużo
+  bajtów w polu o stałej szerokości) jest **odrzucany i wypisany** — poprawiamy i sprawdzamy ponownie.
+  Powtarzanie niczego nie psuje: żaden tekst nie jest wpisywany dwa razy.
+* Powtórzenia uzupełniają się same, a ta sama nazwa użyta w kilku tabelach to nadal jedna linia `EN:`.
 
 ---
 
@@ -349,35 +343,9 @@ python3 tools/translation_check.py --package local/translation     # limity, zna
 
 ---
 
-## 6. Co jeszcze nie jest gotowe (stan prac)
+## 6. Na koniec
 
-* **Fabuła, nazwy, cytaty, itemy, umiejętności, teksty config i misji** — widoki są gotowe,
-  czekają na tłumaczenie (72 586 elementy: 67 440 z linią `EN:` + 5 146 dziedziczonych).
-* **Tłumaczenie w grze** — działa wtryskiwanie przedmiotów, **dialogów, narracji i tytułów misji**
-  (sprawdzone na roboczej kopii: cała scena 1 — 88 linii dialogu/narracji + 15 tytułów misji;
-  kontener przebudowany i odczytany z powrotem bajt w bajt bez różnic poza tymi tekstami). Kwestie
-  mówców i teksty w grze widział już człowiek — reszta do pokazania, zanim cokolwiek ogłosimy gotowym.
-* **Kwestie bez mówcy** — 451 z 27 383 (1,65 %), w granicach, które ustaliliśmy.
-* **Nazwy mówców w dialogach** — postaci z nazwą 100 %; 42 klucze to postacie zbiorowe bez nazwy
-  własnej (np. „żołnierz"), pokazywane jako `ID`.
-
----
-
-## 7. Dodatek techniczny (dla nas, nie dla tłumacza)
-
-* Pakiet to pliki `00_dialogue.jsonl` … `08_names_units_weapons.jsonl` (85 424 wiersze tekstu +
-  293 wiersze strukturalne scen) — jedyne źródło prawdy dla gry. Widoki `.md` są generowane z pakietu
-  i do niego wracają.
-* Klucz elementu fabuły: numer sceny (`seq` z `06_scenes.jsonl`) + numer elementu (`order`).
-  Klucz elementu nazw/tabel: numer grupy + numer elementu w planie zbudowanym z tych samych wierszy,
-  które idą z powrotem do pliku; import dodatkowo porównuje tekst japoński, żeby wykryć nieaktualny
-  widok.
-* Tytuł misji i uwagi do misji są elementami sceny (`T1`, `N1`, `N2`) i trafiają do
-  `05_mission_text.jsonl` (mają twardy `max_bytes`).
-* Jedna linia `EN:` może wypełnić **kilka wierszy gry** — gdy ta sama postać/mech figuruje w kilku
-  tablicach rozdziałów (1 097 scalonych par w `07`, 300 w `08`, 7 542 identycznych kwestii w `01`).
-* Narzędzia: `tools/scene_view.py` (widoki fabuły + zip), `tools/table_view.py` (widoki nazw i tabel
-  + zip), `tools/translation_import.py`, `tools/translation_copy.py`, `tools/translation_mirror.py`,
-  `tools/translation_check.py`, `tools/event_refresh.py` (domyka fabułę z kontenerów gry),
-  `tools/package_copies.py` (znaczy powtórzenia). Testy: 728 (1 pominięty).
-* Kontrola całego pakietu: 85 424 wiersze, **0 błędów** (przed tłumaczeniem wszystkie puste).
+To cała instrukcja — nie trzeba nic wiedzieć o plikach gry, JSON-ach ani o naszych narzędziach.
+Jeśli coś jest niejasne albo w którymś miejscu brakuje kontekstu (np. nie wiadomo, jak brzmi
+wcześniejsza kwestia tej samej postaci), **pytaj** — dopiszemy brakujący fragment do pakietu.
+Powodzenia!
