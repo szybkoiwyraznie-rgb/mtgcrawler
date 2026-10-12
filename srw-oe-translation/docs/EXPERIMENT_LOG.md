@@ -1082,7 +1082,7 @@ so **which edition the user has is still unrecorded** — only its MD5 and size 
 
 ## 2026-10-10 — first measurements on real event files: the EDAT/EVNT structure, and no offsets anywhere
 
-**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `/home/user/srwoe/` in the
+**Input:** 21 decrypted DLC files the user supplied out-of-band (extracted to `<workspace>/srwoe/` in the
 sandbox, never committed; the upload commit was removed from the branch at the user's request).
 `NPJH50521.zip` SHA-256 `3ea8ab3233515a233faa2bf77e246dc9016ef3dac972976ea9e5ce00ac7ec2d8`. All begin
 `CPK ` — decrypted CPK containers, as expected.
@@ -1283,7 +1283,7 @@ constant and therefore isolates the container mechanics from font coverage.
 
 ### 2026-10-10 (later) — the sandbox lost everything outside git, so the build became a script
 
-**The workspace does not survive between turns.** By the next turn `/home/user/srwoe/`
+**The workspace does not survive between turns.** By the next turn `<workspace>/srwoe/`
 (the user's 21 samples plus `eventP02.EDAT`) and `local/deliverables/` (the two built
 containers and their archive) were gone; only the committed tree remained. The local clone
 had also been reset to the session's base commit `d4e2488` with the work restored as

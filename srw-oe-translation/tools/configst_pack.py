@@ -72,7 +72,7 @@ if __name__ == "__main__":
     import cpk_write
     from pathlib import Path
     cpk = cpk_write.load(Path(sys.argv[1]) if len(sys.argv) > 1
-                         else Path("/home/user/mtgcrawler/google_drive/configst.cpk"))
+                         else Path("google_drive/configst.cpk"))
     pac = cpk.members[0].blob
     p = parse_pac(pac)
     print(f"subs={p['count']} data_base=0x{p['data_base']:x} orig_len={p['orig_len']}")
