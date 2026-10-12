@@ -246,3 +246,8 @@ The agent sandbox has neither the game files nor the converter, so only the user
   - przedmioty (317 nazw): nazwy tak, opisy działania nie;
   - helpy/UI: nie zaczęte (poza tabelą referencyjną `srwDL_Reference`, 28 rekordów z tekstem);
   - encyklopedia postaci: nie zlokalizowana.
+
+### Trwałość danych między turami (ważne)
+- `google_drive/` i `local/` (gitignored) NIE przetrwały granicy tury: na początku każdej tury jest tylko `eventP00.cpk`.
+- Odtwarzanie: `tools/drive_manifest.tsv` (nazwa, ID Drive, rozmiar). Pobrać każdy ID narzędziem Drive do `google_drive/<nazwa>`.
+- Manifest jest niepełny: config01–46 (bez 38), imenu01–32, USRDIR (68 plików) dopisać przy następnym pobieraniu. ID z listingu FULL_DLC i USRDIR z tej tury są w historii rozmowy.
