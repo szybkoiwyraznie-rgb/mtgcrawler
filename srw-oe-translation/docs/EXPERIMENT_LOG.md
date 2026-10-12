@@ -2089,3 +2089,39 @@ Otwarte: semantyka pól +88…+134 w `unit_list`, anomalia 2940, 74 jednostki be
 
 Kolejka po tej sesji (z `docs/COVERAGE.md` §5): nazwy dla 319 kluczy cytatów, role pól w skillach/itemach,
 poszukiwanie tabeli encyklopedii, budżety znaków UI, arkusz scalony, `apply` per kategoria.
+
+## Sesja 5 (2026-10-12), część 3: tabela postaci, wspólna rama EVNT, nazwy kluczy
+
+1. [ZWERYFIKOWANE] Pobrano brakujące kontenery wejściowe: `imenu01–08, 10–15, 17–22, 24, 25, 31, 32`
+   (25 plików; `imenu09/16/23/26–30` nie istnieją), `eventP02–09, 13, 20–32` oraz `evept101–108`.
+   Manifest `tools/drive_manifest.tsv` zawierał dotąd tylko `imenu00` — luka w liście odtwarzalności
+   pobrań; dopisane (patrz niżej).
+2. [ZWERYFIKOWANE] **Tabela postaci `charalist<NN>.bin` zdekodowana** (`tools/charalist_table.py`,
+   7 testów syntetycznych): rekord 172 B — nazwa skrócona +0, pełna +32, wąska +76 (tokeny 0x0F),
+   **klucz mówcy u16 +96**, alias +100 (13 rekordów), pole grupy +102 (0/10/20/30), pole +104
+   (niezerowe w 140 rekordach; wartości 12815/2563/15378/20504) — nie zdekodowane.
+   16 członków (`config00–08, 10–15, 19`), **404 rekordy, 404 unikalne klucze**, rozmiar członka
+   = 172 × liczba rekordów, klucze rosną w członku.
+3. [ZWERYFIKOWANE] Pokrycie nazw: **283/283 klucze dialogów** (wszystkie 12 738 linii mają nazwę)
+   i **300/319 kluczy cytatów**. Brakujące 19: 3/6/7/8/991 to sloty zastępcze (100% pustego tekstu),
+   50/1005/1051 to także id jednostek (ガンバルガー / ガンキャノン / ザクⅡ — potwierdzone rekordem
+   `srw_DL_RoboDictionary`), pozostałe 11 (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712)
+   to 1 182 rekordy cytatów bez źródła nazwy. Wyjście: `local/charalist.json`,
+   `local/charalist_missing_keys.json`.
+4. [ZWERYFIKOWANE] **Wspólna rama EVNT** (`tools/evnt_walk.py`, 18 testów): dwa warianty bloku —
+   `mesbtl` (rozmiar liczony od pola rozmiaru, ładunek od słowa zerowego) i eventowy (nagłówek pliku
+   `EDAT` = rozmiar + liczba bloków, rozmiar bloku liczony od tagu, ładunek: u32 rodzaj, `ECHK` + u32,
+   słowa nagłówka, dopiero łańcuch rekordów). Reguła końca bloku wybierana per blok przez dopasowanie
+   do następnego tagu (rozbieżność = błąd, nie ciche założenie).
+5. [ZWERYFIKOWANE] Skan ładunku nie może brać słowa zerowego za rekord: para `u32 0` + `u32 0xC8`
+   parsuje się jako rekord typu 0 o rozmiarze równym blokowi i **pożera cały blok razem z cytatami**
+   (7 członków `mesbtl`, 74 rekordy). Po wymuszeniu startu łańcucha za słowem zerowym nowy czytnik
+   daje wynik identyczny ze starą implementacją: 257 członków, 25 449 bloków, 29 577 cytatów,
+   319 kluczy, 814 683 B, 0 błędów.
+6. [ZWERYFIKOWANE] `battle_quotes.py` korzysta teraz z `evnt_walk.py` (jedna implementacja ramy);
+   testy regresji pilnują liczby 29 577.
+7. [ZWERYFIKOWANE] Reekstrakcja dialogów starą metodą dała 12 738 linii / 265 scen / 283 klucze
+   w 32 kontenerach (zgodne z liczbą z sesji 4), ale 42 członki miały „no-clean-record-chain” —
+   przyczyną jest rama z punktu 4; pełny przebieg nowym czytnikiem jest następnym krokiem.
+8. Zestaw testów: **435 OK (1 skipped)** (18 `evnt_walk`, 7 `charalist_table`, 11 `battle_quotes`,
+   16 `config_text_tables` + wcześniejsze).

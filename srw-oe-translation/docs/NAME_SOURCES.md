@@ -252,3 +252,36 @@ titles**; `config20`-`config46` are placeholders (only a repeated "configNN" fil
   outside `robo00` (needs `robo01`+).
 * Weapon-name offset: the name is ALWAYS at entry +32; the old "relpos 42 or 44" split was an artifact
   of the f32 at entry +28 (1.0 = bytes `00 00 80 3F`) extending the raw text run.
+
+## 13. Character table `charalist<NN>.bin` — the name side of every speaker key (2026-10-12)
+
+`[ZWERYFIKOWANE]` — `tools/charalist_table.py` (7 synthetic tests). This is the table that finally
+gives a name for every speaker key; it had been "layout unresolved" since session 2.
+
+- Location: `config<NN>.pac` subfiles `charalist<NN>.bin` (16 members: 00–08, 10–15, 19; the numbers
+  without a member carry no records). 404 records in total, member size = 172 x records.
+- Record layout (172 bytes):
+
+  | offset | field | measured |
+  |---|---|---|
+  | +0 | short name | CP932, NUL-terminated (e.g. ブライト) |
+  | +32 | full name | e.g. ブライト・ノア (259 of 404 records differ from the short form) |
+  | +76 | narrow name | half-width form, may carry 0x0F token bytes |
+  | +96 | u16 **key** | the speaker key used by dialogue *and* battle-quote records |
+  | +98 | u16 | 0 in every record |
+  | +100 | u16 alias | present in 13 records, always another record's key |
+  | +102 | u16 | 0 / 10 / 20 / 30 (group field, not decoded) |
+  | +104 | u16 | non-zero in 140 records (12815, 2563, 15378, 20504 – not decoded) |
+  | rest | — | zero in every record |
+
+- Keys are unique across all members (404 records → 404 keys) and ascend inside a member, so +96 is
+  safe to read without a header.
+- Coverage measured against the local extraction: **283/283 story-dialogue keys** (12 738 lines) and
+  **300/319 battle-quote keys** have a record here. The 19 without one are listed in
+  `local/charalist_missing_keys.json`: keys 3/6/7/8/991 are placeholder slots whose quote text is
+  empty in every record; keys 50/1005/1051 are also **unit ids** in `unit_list`/`RoboDictionary`
+  (ガンバルガー, ガンキャノン, ザクⅡ); the rest (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702,
+  3707, 3712 – 1 182 quote records) still have no name source. Where those keys' records live is
+  `[OTWARTE]`.
+- Priority rule for the translation tables: use this table first (it is the table the game itself
+  displays); CharaDictionary and the config name slots stay as fallbacks for anything it misses.

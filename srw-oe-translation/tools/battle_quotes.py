@@ -56,97 +56,43 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import evnt_walk as EW  # noqa: E402
 import speaker_map as SM  # noqa: E402
 
-TAG = b"EVNT"
+TAG = EW.TAG
 MEMBER_RE = re.compile(r"^p(\d+)\.pac$")
-TYPE_QUOTE = 0xC9
-TYPE_WRAPPER = 0xC8
-QUOTE_HEADER = 12          # six u16 fields before the text
-MARKER = 0x0029           # subtype word at payload +0 (low 12 bits)
-MARKER_MASK = 0x0FFF      # measured subtypes: 0x0029, 0x8029 (top nibble = flags)
+TYPE_QUOTE = EW.TYPE_TEXT
+TYPE_WRAPPER = EW.TYPE_WRAPPER
+QUOTE_HEADER = EW.TEXT_HEADER    # six u16 fields before the text
+MARKER = EW.ANCHOR_EXPECTED      # subtype word at payload +0 (low 12 bits)
+MARKER_MASK = EW.ANCHOR_MASK     # measured subtypes: 0x0029, 0x8029 (top nibble = flags)
 
 
 def payload_text(payload: bytes) -> Optional[dict]:
-    """Parse a 0xC9 payload: key, header words and the NUL-terminated CP932 text."""
-    if len(payload) < QUOTE_HEADER:
+    """Parse a 0xC9 payload: key, header words and the NUL-terminated CP932 text.
+
+    The framing itself lives in :mod:`evnt_walk` (shared with the story-scene reader); this
+    wrapper keeps the battle-quote anchor test, so a story-dialogue record is not mistaken for a
+    quote.
+    """
+    parsed = EW.payload_text(payload, EW.ANCHOR_EXPECTED)
+    if parsed is None:
         return None
-    words = list(struct.unpack_from("<6H", payload, 0))
-    if (words[0] & MARKER_MASK) != MARKER:
-        return None
-    raw = payload[QUOTE_HEADER:]
-    end = raw.find(b"\x00")
-    if end < 0:
-        end = len(raw)
-    raw = raw[:end]
-    try:
-        text = raw.decode("cp932")
-    except UnicodeDecodeError:
-        return None
-    if any(unicodedata.category(c) == "Co" or (ord(c) < 0x20 and c != "\n") for c in text):
-        return None
-    return {"key": words[1], "anchor": words[0], "flags": words[2], "extra": words[5],
-            "header": words, "raw": raw, "text": text}
+    return {"key": parsed["key"], "anchor": parsed["anchor"], "flags": parsed["flags"],
+            "extra": parsed["extra"], "header": parsed["header"], "raw": parsed["raw"],
+            "text": parsed["text"]}
 
 
 def parse_records(blob: bytes, start: int, end: int, quotes: List[dict], errors: List[str],
                   container: str, member: str) -> None:
-    """Walk the record chain in [start, end).  Type 200 wraps, type 201 is a quote."""
-    at = start
-    while at + 8 <= end:
-        rtype, rsize = struct.unpack_from("<2I", blob, at)
-        if rsize < 8 or at + rsize > end:
-            errors.append(f"{container}:{member}: record at {at} size {rsize} escapes {end}")
-            return
-        payload_start, payload_end = at + 8, at + rsize
-        if rtype == TYPE_QUOTE:
-            parsed = payload_text(blob[payload_start:payload_end])
-            if parsed is None:
-                errors.append(f"{container}:{member}: quote payload at {at} not parsable")
-            else:
-                quotes.append({
-                    "record_offset": at, "record_size": rsize,
-                    "text_offset": payload_start + QUOTE_HEADER,
-                    "key": parsed["key"], "anchor": parsed["anchor"],
-                    "flags": parsed["flags"], "extra": parsed["extra"],
-                    "header": parsed["header"],
-                    "text": parsed["text"], "bytes": len(parsed["raw"]),
-                })
-        elif rtype == TYPE_WRAPPER:
-            parse_records(blob, payload_start, payload_end, quotes, errors, container, member)
-        at += rsize
-    if at != end:
-        errors.append(f"{container}:{member}: chain walked to {at}, expected {end}")
+    """Walk the record chain in [start, end).  Kept for callers/tests; evnt_walk does the work."""
+    EW._collect(blob, start, end, quotes, errors, f"{container}:{member}", EW.ANCHOR_EXPECTED)
 
 
 def walk_member(blob: bytes, container: str = "", member: str = "") -> dict:
     """Walk the EVNT blocks of one member.  Returns {quotes, blocks, errors}."""
-    quotes: List[dict] = []
-    blocks = 0
-    errors: List[str] = []
-    pos = 0
-    while True:
-        pos = blob.find(TAG, pos)
-        if pos < 0:
-            break
-        if pos + 12 > len(blob):
-            break
-        if pos + 12 > len(blob):
-            break
-        size = struct.unpack_from("<I", blob, pos + 4)[0]
-        block_end = pos + 4 + size
-        if size >= 12 and struct.unpack_from("<I", blob, pos + 8)[0] == 0 and block_end > len(blob):
-            errors.append(f"{container}:{member}: block at {pos} ends at {block_end}, beyond EOF "
-                          f"({len(blob)})")
-            break
-        if (size < 12 or block_end > len(blob)
-                or struct.unpack_from("<I", blob, pos + 8)[0] != 0):
-            pos += 4                      # not a block header; keep scanning
-            continue
-        blocks += 1
-        parse_records(blob, pos + 12, block_end, quotes, errors, container, member)
-        pos = block_end - 4
-    return {"quotes": quotes, "blocks": blocks, "errors": errors}
+    result = EW.text_records(blob, container, member, anchor=EW.ANCHOR_EXPECTED)
+    return {"quotes": result["records"], "blocks": result["blocks"], "errors": result["errors"]}
 
 
 def scan_dir(directory: Path) -> dict:

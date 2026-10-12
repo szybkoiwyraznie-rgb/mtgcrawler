@@ -13,8 +13,8 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 
 | # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |
 |---|---|---|---|---|---|---|
-| 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery) | **12 738 linii** (rekord 201), 293 członki; mówca 99,5% linii | **grow — sprawdzony w grze** | prawie domknięte | 14 kluczy bez nazwy; 42 członki bez łańcucha (1166 trafień niezweryfikowanych); eksport nie zawiera mówcy; brak kroku `apply` |
-| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów** (16 931 unikalnych tekstów) | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja domknięta** | ścieżka `apply` (przebudowa rozmiarów) jeszcze nie zbudowana; 2194 rekordy z pustym tekstem (slot zastępczy) |
+| 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery) | **12 738 linii** (rekord 201), **283 klucze mówców — wszystkie mają nazwę** w tabeli postaci; 16 ustawień, 265 scen | **grow — sprawdzony w grze** | ekstrakcja domknięta, nazwy domknięte | 42 członki miały łańcuch nieczysty → **rama rozwiązana** (`evnt_walk`: nagłówek `EDAT` + różna reguła rozmiaru bloku); pełna reekstrakcja całej gry z tą ramą jeszcze nie uruchomiona; brak kroku `apply` |
+| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **300/319 kluczy ma nazwę** z tabeli postaci | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | 19 kluczy bez rekordu w tabeli postaci: 5 to sloty zastępcze z pustym tekstem (3/6/7/8/991), 3 to także id jednostek (50/1005/1051), 11 (55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712) nadal bez nazwy – 1 182 rekordy cytatów; ścieżka `apply` jeszcze nie zbudowana |
 | 3 | Imiona (mówcy) | `srwDL_CharaDictionary` + sloty `config*` | **339 kluczy, 301 nazwanych** (dialog 99,5%) | grow (pula NUL) | prawie domknięte | 14 kluczy dialogowych + 24 bitewne bez źródła nazwy; 2 klucze z podwójnym rekordem |
 | 4 | Encyklopedia postaci | **nie zlokalizowana** | `CharaDictionary` = tylko nazwy i tytuły serii (max 43 B); `srwDL_Reference` = help/tutorial | — | **brak tabeli** | trzeba znaleźć tabelę biografii (kandydaci niżej) albo udowodnić, że jej nie ma |
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
@@ -77,6 +77,29 @@ plus ~239 jedno- do trzyznakowych fragmentów formatujących. **DLC nie wnosi no
 - w 32 kontenerach występują wyłącznie typy 200 i 201, a **wszystkie 29 577 rekordów typu 201 mają podtyp 41
   i wszystkie zostały wyekstrahowane** (0 błędów łańcucha) — pokrycie 100%.
 
+## 3b. Nazwy mówców — tabela postaci `charalist` (pkt 4/5)
+
+`[ZWERYFIKOWANE]` `tools/charalist_table.py` (7 testów). Tabela `charalist<NN>.bin` wewnątrz
+`config<NN>.pac` to tablica rekordów **172 B**: nazwa skrócona +0, pełna +32, wąska +76 (z tokenami
+0x0F), **klucz mówcy u16 +96**, alias +100, pole grupy +102. 16 członków, **404 rekordy, 404 klucze**
+(unikalne, rosnące w członku). Pokrycie: **283/283 klucze dialogów** (12 738 linii) i
+**300/319 kluczy cytatów**. Brakujące 19 kluczy cytatów: 3/6/7/8/991 to sloty zastępcze z pustym
+tekstem, 50/1005/1051 to również id jednostek (ガンバルガー, ガンキャノン, ザクⅡ), pozostałe 11
+(55, 60, 101, 151, 733, 1037, 1048, 3122, 3702, 3707, 3712 → 1 182 rekordy) bez źródła nazwy.
+
+## 3c. Rama `EVNT` — wspólny czytnik dla cytatów i scen (`evnt_walk.py`)
+
+`[ZWERYFIKOWANE]` Dwa warianty tego samego formatu bloków:
+- **mesbtl**: `EVNT` + u32 rozmiar (liczony od pola rozmiaru), ładunek od słowa zerowego, łańcuch rekordów;
+- **eventy**: nagłówek pliku `EDAT` (u32 rozmiar, u32 liczba bloków), `EVNT` + u32 rozmiar (liczony od
+  tagu), potem u32 rodzaj, `ECHK` + u32 oraz słowa nagłówka i dopiero łańcuch rekordów.
+Reguła końca bloku jest dobierana per blok przez dopasowanie do następnego tagu `EVNT` (rozbieżność
+= zgłoszony błąd, nigdy ciche założenie). Łańcuch rekordów znajduje się przez skanowanie pierwszych
+64 B ładunku; rekord 0xC9 ma w cytatach kotwicę 0x0029 (maska 0x0FFF), a w dialogach własne słowo
+flag (0x0001/0x0009/0x0011/0x0019) — dlatego test kotwicy jest opcjonalny. Po refaktorze narzędzie
+cytatów daje identyczne wyniki jak przed nim (29 577 rekordów, 0 błędów), co jest regresją pilnowaną
+testami.
+
 ## 4. Znaleziska audytu (nowe lub korygujące)
 
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener —
@@ -92,7 +115,13 @@ plus ~239 jedno- do trzyznakowych fragmentów formatujących. **DLC nie wnosi no
 5. **Korekta liczby kluczy cytatów**: stara metoda (klucz = nazwa członka) dawała 241 kluczy i 22 902
    rekordy; prawdziwe wartości to **319 kluczy i 29 577 rekordów** — 78 kluczy i 6 675 rekordów było
    pomijanych, bo siedzą w członkach nazwanych innym kluczem.
-6. `srwDL_Shop00` (182 rekordy) nie zawiera nazw itemów — 19 rekordów ma tekst, żaden nie jest nazwą
+6. **Tabela postaci znaleziona**: `charalist<NN>.bin` (rekord 172 B, klucz u16 +96, 404 rekordy) —
+   daje nazwę dla 100% kluczy dialogów i 94% kluczy cytatów. Poprzednia teza „layout nierozwiązany”
+   jest nieaktualna.
+7. **Rama `EVNT` wyjaśnia 42 członki bez łańcucha**: członki `eventP*` mają nagłówek `EDAT` i inny
+   licznik rozmiaru bloku niż `mesbtl`; po uwzględnieniu obu wariantów łańcuch rekordów znajduje się
+   (sprawdzone na `DL104_20.bin`, `SM001.bin`, `DL100_01.bin`).
+8. `srwDL_Shop00` (182 rekordy) nie zawiera nazw itemów — 19 rekordów ma tekst, żaden nie jest nazwą
    itemu ani broni; nazwy w sklepie są czytane z innej tabeli (do znalezienia).
 
 ## 5. Plan domykania (kolejność i definicja „gotowe”)

@@ -296,3 +296,16 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Ustalenia: `imenu00` = duplikat `config00`; `configst` = 21 członków (m.in. komendy duchowe, trofea);
   DLC itemy/skille nie wnoszą nowych tekstów; tabela biografii postaci nadal niezidentyfikowana.
 - Testy: **410 OK (1 skipped)**.
+
+### Sesja 5, część 3 (2026-10-12): tabela postaci, wspólna rama EVNT, nazwy kluczy
+- **Tabela postaci `charalist<NN>.bin` znaleziona i zdekodowana** (`tools/charalist_table.py`):
+  172-bajtowe rekordy, nazwa skrócona +0, pełna +32, wąska +76, **klucz mówcy u16 +96**;
+  16 członków, 404 rekordy, 404 unikalne klucze.
+- Nazwy kluczy: **dialogi 283/283 (100%)**, cytaty 300/319; pozostałe 19 kluczy opisane
+  (5 slotów zastępczych z pustym tekstem, 3 to także id jednostek, 11 nadal otwarte).
+- **Wspólna rama `EVNT`** (`tools/evnt_walk.py`): wariant `mesbtl` i wariant eventowy z nagłówkiem
+  `EDAT`; wyjaśnia 42 członki bez łańcucha. `battle_quotes.py` używa teraz tej implementacji,
+  wynik bez zmian: 29 577 cytatów / 319 kluczy / 0 błędów.
+- Pobrano brakujące kontenery: `imenu01–32` (25 plików) i wszystkie eventy (`eventP02–09, 13,
+  20–32`, `evept101–108`). Manifest uzupełniony o brakujące ID.
+- Testy: **435 OK (1 skipped)**.
