@@ -1,0 +1,34 @@
+{
+  "opis": "Test wtrysku dialogow w grze: pierwsze 6 linii prologu (scena DL100_01.bin, odcinek 1). Repozytorium nie zawiera danych gry - ten plik trzyma tylko offsety, skroty MD5 i nasze angielskie linie. Japonski tekst jest czytany z Twojego ISO i pokazywany na ekranie, nigdzie nie jest zapisywany.",
+  "wersja_gry": "SRW OE 1.08 (PSP_GAME/USRDIR z ISO)",
+  "container": "PSP_GAME/USRDIR/eventP00.cpk",
+  "member": "DL100_01.bin",
+  "md5_container": "5fd6eea0e3732b17c48aa44859d86b02",
+  "md5_member": "a19fbf123f0b23eba303e5406ed1e547",
+  "lines": [
+    {
+      "offset": 1844,
+      "text": "(I am now at Connect, a civilian\norganization promoting space trade...)"
+    },
+    {
+      "offset": 1976,
+      "text": "(Connect is famous, but its origins\nand true purpose are unknown...)"
+    },
+    {
+      "offset": 2128,
+      "text": "(People of Earth have faced so many\ndisasters that one company's doings\nare not worth their attention.)"
+    },
+    {
+      "offset": 2312,
+      "text": "(But that is fine. If I reach my goal\nwithout anyone knowing,\nso much the better...)"
+    },
+    {
+      "offset": 2532,
+      "text": "Now then, it is time for training."
+    },
+    {
+      "offset": 2820,
+      "text": "Ah, ah, testing, testing."
+    }
+  ]
+}

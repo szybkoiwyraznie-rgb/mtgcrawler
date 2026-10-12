@@ -476,3 +476,19 @@ The agent sandbox has neither the game files nor the converter, so only the user
    (`git rm --cached`); historia commitów pozostaje nietknięta. `google_drive/` i `local/` są
    ignorowane, więc plik nie wróci przypadkiem przy `git add -A`. Audyt `git ls-files` po tej
    zmianie: **żaden** plik danych gry (CPK/ISO/BIN/DAT/…) nie jest śledzony.
+
+## Sesja 5, część 10f (2026-10-12): test w grze jednym batem, bez danych gry w repo
+
+- `PATCH_ISO_TEST.bat` przestał potrzebować paczki z Drive: bierze **Twoje ISO**, wyciąga z niego
+  `PSP_GAME/USRDIR/eventP00.cpk`, wpisuje 6 angielskich linii prologu i zapisuje nowe ISO obok
+  (`SRW_OE-test.iso`). Uruchomienie: dwuklik (albo przeciągnięcie ISO na plik).
+- Nowe: `tools/iso_test_patch.py` (+11 testów, w tym przepis z repo sprawdzony na atrapie ISO z
+  prawdziwym kontenerem), `tools/iso_pack.py`: `find_member` / `read_member` (+4 testy),
+  `test-patches/eventP00-scena1.json` — offsety, skróty MD5 i nasze angielskie linie; **żadnego
+  japońskiego tekstu i żadnego pliku gry w repozytorium**.
+- Bramki w narzędziu: MD5 kontenera i członu (inna wersja gry → stop, nie cicha korupcja), każda
+  linia musi trafić w swój rekord dialogowy, weryfikacja zapisu musi wyjść pusta, po przebudowie
+  zmieniony może być **tylko** wskazany członek. `--dry-run` sprawdza wszystko i nic nie zapisuje.
+- Test końcowy: atrapa ISO z prawdziwym `eventP00.cpk` + przepis z repo → **6/6 linii**, zmieniony
+  tylko `DL100_01.bin`, kontener przebudowany, ISO czytelne dla `iso9660.inspect_iso9660`.
+- Zestaw testów: **681 OK** (1 pominięty).

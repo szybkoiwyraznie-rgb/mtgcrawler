@@ -241,3 +241,6 @@ pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw p
 16KJFXYpv8PDNCI-JGKxM9OAEBSR4kn-A	folder	Test wtrysku (PPSSPP)	SRW OE	NOWY folder na testy w grze; zawiera dwa pliki nizej
 1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK	plik	patch-test-ppsspp.zip	Test wtrysku (PPSSPP)	81 874 B; PSP_GAME/USRDIR/eventP00.cpk (170 456 B) + README-TEST.json
 1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx	plik	PATCH_ISO_TEST.bat	Test wtrysku (PPSSPP)	1 048 B; buduje TEST ISO przez tools/iso_pack.py patchiso
+# cz. 10f (2026-10-12): test w grze robi bat z repo, folder Drive nieaktualny
+1d4MHKognt_XQrBOlTLgXwwtu7pftmSds	plik	README-TEST.txt	Test wtrysku (PPSSPP)	1 037 B; wyjasnia, ze test robi teraz PATCH_ISO_TEST.bat z repozytorium
+# KOSZ: 1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK patch-test-ppsspp.zip (zawieral dane gry), 1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx PATCH_ISO_TEST.bat

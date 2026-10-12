@@ -2544,3 +2544,21 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
 34. [HIPOTEZA — do sprawdzenia w grze] Zapas: gra ładuje kontener przebudowany, w którym zmieniony
    człon jest zapisany **stored** (bez CRILAYLA). W repozytorium nie ma kompresora, a tak właśnie
    powstał działający koreański patch. Weryfikacja = uruchomienie w PPSSPP po przebudowie ISO.
+35. [ZWERYFIKOWANE — narzędzia ISO] `tools/iso_pack.py` zyskał `find_member` (nazwa ISO9660
+   ignoruje wielkość liter i przyrostek `;1`) i `read_member`; klucz zwracany przez `find_member`
+   jest tym, którego oczekuje `patch_iso`. 4 nowe testy: znalezienie, brak ścieżki, odczyt bajtów,
+   podmiana znalezionego członka przez `patch_iso` (sąsiedzi bez zmian).
+36. [ZWERYFIKOWANE — ścieżka „jeden bat"] `tools/iso_test_patch.py` + `PATCH_ISO_TEST.bat` +
+   `test-patches/eventP00-scena1.json` (offsety, `md5_container` `5fd6eea0e3732b17c48aa44859d86b02`,
+   `md5_member` `a19fbf123f0b23eba303e5406ed1e547`, 6 angielskich linii; **bez japońskiego tekstu**).
+   Przepływ: odczyt kontenera z ISO użytkownika → bramka MD5 → odczyt japońskiego tekstu z rekordu
+   (japoński nigdzie nie jest zapisywany) → `event_text_apply.apply_container` → kontrola, że zmienił
+   się tylko wskazany członek → `iso_pack.patch_iso`. 11 testów (m.in. zły MD5 kontenera i członu,
+   offset bez rekordu, linia za szeroka, `--dry-run`, „tylko wskazany członek się zmienił", ISO
+   wejściowe nietknięte). Przebieg kontrolny na atrapie ISO zbudowanej z **prawdziwego**
+   `eventP00.cpk`: 6/6 linii, `changed_members ['DL100_01.bin']`, kontener +8 192 B, ISO nadal
+   `indexed` (4 pliki), sąsiedni plik bez zmian, teksty 1–6 po angielsku, 7. wciąż japoński.
+37. [DECYZJA — brak danych gry w repo] Zamiast wgrywać patrzony kontener (162→170 KB danych gry) do
+   repozytorium, test jest odtwarzalny lokalnie z ISO użytkownika dwoma plikami commitowymi
+   (przepis + narzędzie) i jednym batem. Repozytorium pozostaje bez ISO/CPK/BIN i bez japońskiego
+   tekstu; to samo ograniczenie, które skłoniło nas do `git rm --cached google_drive/eventP00.cpk`.

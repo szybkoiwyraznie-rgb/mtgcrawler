@@ -490,6 +490,11 @@ itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów
 * **Bramka tożsamości** — przebudowa bez zmian musi dać plik bajt w bajt: `eventP00.cpk` ✓,
   `config00.cpk` ✓. `system.cpk` (UI) ma układ tylko-ITOC, którego `cpk_write` nie obsługuje —
   do rozstrzygnięcia przy `sysmes`.
+* **Ścieżka „jeden bat"** — `PATCH_ISO_TEST.bat` + `tools/iso_test_patch.py` (+ `test-patches/
+  eventP00-scena1.json`: offsety, skróty MD5, nasze linie — bez danych gry) budują test ISO z
+  Twojej płyty: odczyt kontenera z ISO, bramka MD5, wtrysk 6 linii, przebudowa kontenera,
+  `patchiso`. Przebieg kontrolny na atrapie ISO z prawdziwym kontenerem: 6/6 linii, zmieniony
+  tylko `DL100_01.bin`, ISO nadal czytelne (`inspect_iso9660`: 4 pliki, status `indexed`).
 * **Do zrobienia**: rekordy inne niż dialogowe (633 wiersze), pola o stałej szerokości
   (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`), `sysmes.bin`,
   przebudowa ISO i test w PPSSPP (po stronie użytkownika).

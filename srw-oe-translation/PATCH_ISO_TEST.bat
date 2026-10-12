@@ -1,23 +1,52 @@
 @echo off
 setlocal
-rem Build a TEST ISO: original ISO + our translated eventP00.cpk (streamed, nothing else changes).
-rem Run on the PC that has the ISO.  Usage:  PATCH_ISO_TEST.bat "original.iso" "out.iso" ["patch_dir"]
-rem With no patch_dir it uses this folder's "out" (unzip patch-test-ppsspp.zip there first).
+rem Build a TEST ISO from YOUR OWN ISO: original disc + the translated dialogue lines.
+rem Nothing from the game lives in this repository (no ISO, no CPK, no Japanese text):
+rem the script reads PSP_GAME/USRDIR/eventP00.cpk out of your ISO, checks its MD5 against
+rem the spec, applies the English lines from test-patches\eventP00-scena1.json with the
+rem measured dialogue writer, and writes a NEW ISO - your original is only read.
+rem Usage: drag your ISO onto this file, or:  PATCH_ISO_TEST.bat ["original.iso"] ["out.iso"]
 set HERE=%~dp0
-set ISO=%~1
-set OUT=%~2
-if "%ISO%"=="" set /p ISO="Path to the original ISO: "
-if "%OUT%"=="" set /p OUT="Path for the new ISO: "
-set PATCH=%~3
-if "%PATCH%"=="" set PATCH=%HERE%out
-if not exist "%PATCH%\PSP_GAME\USRDIR\eventP00.cpk" (
-    echo PATCH FAILED: %PATCH%\PSP_GAME\USRDIR\eventP00.cpk not found.
-    echo Unzip patch-test-ppsspp.zip into "%HERE%out" first.
-    pause & exit /b 1
+set SPEC=%HERE%test-patches\eventP00-scena1.json
+if not exist "%SPEC%" (
+    echo BLAD: brak przepisu %SPEC%
+    echo Rozpakuj cale repozytorium, nie sam ten plik.
+    pause
+    exit /b 1
 )
-python "%HERE%tools\iso_pack.py" patchiso "%ISO%" "%OUT%" "%PATCH%"
-if errorlevel 1 ( echo PATCH FAILED & pause & exit /b 1 )
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo BLAD: nie widze Pythona w PATH. Zainstaluj Pythona 3 i uruchom ponownie.
+    pause
+    exit /b 1
+)
+set ISO=%~1
+if "%ISO%"=="" if exist "%HERE%SRW_OE.iso" set ISO=%HERE%SRW_OE.iso
+if "%ISO%"=="" (
+    echo Nie podano ISO. Podaj sciezke do swojej kopii ISO wersji 1.08, np. D:\gry\SRW_OE.iso
+    set /p ISO="ISO: "
+)
+if not exist "%ISO%" (
+    echo BLAD: nie ma pliku "%ISO%"
+    pause
+    exit /b 1
+)
+set OUT=%~2
+if "%OUT%"=="" set OUT=%~dp1SRW_OE-test.iso
 echo.
-echo Done. Boot "%OUT%" in PPSSPP, start a new game and play the prologue (scene 1).
-echo The first six lines should be English; everything after them stays Japanese.
+echo Tworze TEST ISO:
+echo   wejscie: %ISO%
+echo   wyjscie: %OUT%
+echo.
+python "%HERE%tools\iso_test_patch.py" "%ISO%" "%OUT%"
+if errorlevel 1 (
+    echo.
+    echo PATCH FAILED - nic nie zapisalem. Skopiuj tekst powyzej i wyslij go dalej.
+    pause
+    exit /b 1
+)
+echo.
+echo Gotowe. Nowe ISO: "%OUT%"
+echo Uruchom je w PPSSPP, zacznij nowa gre i przejdz prolog (odcinek 1).
+echo Pierwsze 6 linii prologu powinno byc po angielsku, reszta gry zostaje po japonsku.
 pause

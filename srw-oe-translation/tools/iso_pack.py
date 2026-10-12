@@ -567,6 +567,36 @@ def _walk_record_offsets(fh, block_size=BLOCK_SIZE):
     return out
 
 
+def find_member(image: Path, wanted: str) -> tuple:
+    """(key, first block, size) of the ISO member whose path is ``wanted``.
+
+    ISO9660 identifiers are upper-case and carry a ``;1`` version suffix, so the comparison
+    ignores case and that suffix: ``psp_game/usrir/eventP00.cpk`` finds ``PSP_GAME/USRDIR/
+    EVENTP00.CPK;1``.  The returned key is the one ``patch_iso`` expects.  Raises ValueError
+    when the image has no such member.
+    """
+    image = Path(image)
+    with image.open("rb") as fh:
+        records = _walk_record_offsets(fh)
+    wanted_path = wanted.split(";")[0].strip("/").lower()
+    for key, (offset, lba, size, is_dir) in records.items():
+        if not is_dir and key.split(";")[0].strip("/") == wanted_path:
+            return key, lba, size
+    raise ValueError(f"{image.name} has no member {wanted!r}")
+
+
+def read_member(image: Path, wanted: str) -> bytes:
+    """The bytes of one ISO member, read-only (see :func:`find_member`)."""
+    image = Path(image)
+    key, lba, size = find_member(image, wanted)
+    with image.open("rb") as fh:
+        fh.seek(lba * BLOCK_SIZE)
+        data = fh.read(size)
+    if len(data) != size:
+        raise ValueError(f"{image.name}: truncated read for {key!r}")
+    return data
+
+
 def patch_iso(original_iso, out_path, patch):
     import shutil as _sh
     original_iso = Path(original_iso); out_path = Path(out_path)
