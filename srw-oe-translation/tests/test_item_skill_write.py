@@ -196,6 +196,25 @@ class WantedTargetsTest(unittest.TestCase):
         self.assertEqual(ISW.wanted_targets([row]), {("srwDL_Item00.bin", 7, "name"): "b"})
 
 
+class PackageTest(unittest.TestCase):
+    def test_collect_rows_reads_a_directory_of_jsonl(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "a.jsonl").write_text('{"id": "a"}\n', encoding="utf-8")
+            (root / "b.jsonl").write_text('{"id": "b"}\n{"id": "c"}\n', encoding="utf-8")
+            (root / "skip.txt").write_text('{"id": "no"}\n', encoding="utf-8")
+            rows, files = ISW.collect_rows([root])
+            self.assertEqual([row["id"] for row in rows], ["a", "b", "c"])
+            self.assertEqual([path.name for path in files], ["a.jsonl", "b.jsonl"])
+
+    def test_collect_rows_takes_files_too(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "one.jsonl"
+            path.write_text('{"id": "x"}\n', encoding="utf-8")
+            rows, files = ISW.collect_rows([path])
+            self.assertEqual(([row["id"] for row in rows], files), (["x"], [path]))
+
+
 class HelperTest(unittest.TestCase):
     def test_kind_of_matches_item_and_skill_members_only(self):
         self.assertEqual(ISW._kind_of("srwDL_Item00.bin"), "item")

@@ -19,7 +19,7 @@ Game text never enters the repository: edited containers go to ``local/`` (gitig
 
 Usage::
 
-    python tools/item_skill_write.py --translations local/translation/03_skills.jsonl \\
+    python tools/item_skill_write.py --translations local/translation \\
         --container ../google_drive/config00.cpk --out local/patched/config00.cpk
 """
 from __future__ import annotations
@@ -167,12 +167,26 @@ def read_package(path: Path) -> List[dict]:
     return rows
 
 
+def collect_rows(paths: Iterable[Path]) -> Tuple[List[dict], List[Path]]:
+    """Rows of every ``*.jsonl`` given; a directory means all of its ``*.jsonl`` (sorted)."""
+    files: List[Path] = []
+    for path in paths:
+        if path.is_dir():
+            files.extend(sorted(path.glob("*.jsonl")))
+        else:
+            files.append(path)
+    rows: List[dict] = []
+    for path in files:
+        rows.extend(read_package(path))
+    return rows, files
+
+
 def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
     """Apply the item/skill rows of a package to one config container, then verify by re-reading."""
     cpk = cpk_write.load(src)
     replacement = None
     report = {"container": src.name, "members": [], "skipped": [], "applied_rows": 0,
-              "empty_rows": 0, "mismatch_rows": 0}
+              "empty_rows": 0, "mismatch_rows": 0, "foreign_rows": 0}
     for member in cpk.members:
         if not member.name.lower().endswith(".pac"):
             continue
@@ -188,6 +202,7 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
             report["applied_rows"] += stats["applied"]
             report["empty_rows"] += stats["empty"]
             report["mismatch_rows"] += stats["mismatch"]
+            report["foreign_rows"] += stats["foreign"]
             if not edits:
                 continue
             new_blob, member_report = rebuild_member(sub["data"], kind, edits, sub["name"])
@@ -266,15 +281,18 @@ def _kind_of(member_name: str) -> Optional[str]:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--translations", type=Path, required=True)
+    parser.add_argument("--translations", type=Path, nargs="+", required=True,
+                        help="package JSONL files, or a directory holding them")
     parser.add_argument("--container", type=Path, required=True)
     parser.add_argument("--out", type=Path, default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
 
-    rows = read_package(args.translations)
+    rows, files = collect_rows(args.translations)
     dst = args.out or Path("local/patched") / args.container.name
     report = apply_container(args.container, dst, rows, dry_run=args.dry_run)
+    report["translation_files"] = [path.name for path in files]
+    report["rows_read"] = len(rows)
     print(json.dumps(report, ensure_ascii=False, indent=1))
     if not args.dry_run and report.get("changed"):
         print("wrote", dst)

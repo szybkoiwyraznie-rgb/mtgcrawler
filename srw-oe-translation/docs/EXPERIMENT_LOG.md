@@ -2378,4 +2378,18 @@ Polecenia (katalog `srw-oe-translation/`, artefakty gitignored w `local/`):
 8. Higiena: nazwy plików w `local/translation/` i na Google Drive zostają bez zmian — podmieniane są
    tylko te trzy pliki, które się zmieniły (`03_skills.jsonl`, `strings.csv`, `index.json`) plus README
    pakietu i `02_items.jsonl` (nowe pola `mode`/`suggested_max`/`record`).
-9. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **544 OK (1 skipped)**.
+9. [ZWERYFIKOWANE] **CLI `item_skill_write.py`**: `--translations` przyjmuje **wiele plików albo
+   katalog** z JSONL (`collect_rows`), raport ma liczniki `applied`/`empty`/`mismatch`/`foreign`
+   i listę użytych plików. Przebieg na całym pakiecie (wszystkie `en` puste) dla `config00.cpk`:
+   wczytanych 82 591 wierszy, 0 zastosowanych, 0 błędów, `changed=false`.
+10. [ZWERYFIKOWANE] **Walidator pakietu `tools/translation_check.py`** (14 testów syntetycznych):
+   dla każdego wypełnionego wiersza sprawdza kodowalność CP932, **tokeny sterujące w kolejności**
+   (`＠0`…`＠9`, `%s`, `%%`, `＄n`, `＃`, `{XX}`), liczbę przejść do nowej linii oraz budżety
+   (`max_bytes` = błąd, `suggested_max` = uwaga); puste `en` liczy jako „nietłumaczone”
+   (`--require-complete` robi z nich błąd), pisze `check_report.txt`, `--strict` daje kod 1.
+   Przebieg na pakiecie: **82 591 wierszy / 0 wypełnionych / 0 błędów / 82 591 uwag w 1,6 s**.
+11. [ZWERYFIKOWANE — pułapka zapisu] Nowa linia w tekstach gry to **prawdziwy LF (0x0A)**, nie
+   sekwencja `\n` w tekście; pierwsza wersja walidatora liczyła `"\\n"` i nie wykrywałaby różnicy.
+   Poprawione i pokryte testem (`test_line_break_count_must_match`). `docs/TRANSLATOR_PACKAGE.md`
+   §5 opisuje teraz prawdziwy walidator (wcześniej odsyłał do starego `translation_tools.py check`).
+12. [ZWERYFIKOWANE] **Testy**: `python3 -m unittest discover tests` → **560 OK (1 skipped)**.

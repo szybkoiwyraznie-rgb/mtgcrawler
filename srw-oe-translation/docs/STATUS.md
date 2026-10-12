@@ -404,4 +404,10 @@ The agent sandbox has neither the game files nor the converter, so only the user
   Item00 34 566 → 34 726 B) i 8 w `configst` (34 566 → 34 726 B), kontrola 20/20 i 8/8.
 - **Pakiet dla tłumacza**: **82 591 wierszy / 2 469 677 B** (`03_skills` 4 932 wiersze), wiersze
   itemów/umiejętności w trybie `grow` z `suggested_max` (podpowiedź UI) i `record`.
-- Testy: **544 OK (1 skipped)**.
+- **CLI zapisu**: `item_skill_write.py --translations` przyjmuje katalog z JSONL albo wiele plików;
+  przebieg po całym pakiecie (wszystkie `en` puste) → 0 zastosowanych, 0 błędów.
+- **Walidator pakietu** `tools/translation_check.py` (14 testów): tokeny sterujące w kolejności,
+  liczba linii, CP932, `max_bytes` (błąd) / `suggested_max` (uwaga), licznik nietłumaczonych,
+  `check_report.txt`, `--require-complete`, `--strict`. Pełny przebieg: 82 591 wierszy / 0 błędów.
+- **Pułapka**: nowa linia w tekstach gry to prawdziwy LF (0x0A), nie `\n` — walidator to liczy.
+- Testy: **560 OK (1 skipped)**.

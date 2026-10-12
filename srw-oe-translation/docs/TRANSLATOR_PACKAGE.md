@@ -79,9 +79,18 @@ Nie trzeba pilnować ich wzajemnej długości: każdy wiersz rośnie niezależni
 
 ## 5. Kontrola jakości przed zwrotem
 
-Po wypełnieniu pliku uruchamiane są testy spójności (`tools/translation_tools.py check` — ten sam
-mechanizm, co dla wcześniejszych eksportów): zgodność tokenów sterujących, liczba przejść do nowej
-linii, kodowalność CP932 i budżet bajtów. Wiersze z problemem trafiają do `check_report.txt`.
+Po wypełnieniu plików uruchamiany jest walidator pakietu:
+
+```
+python3 tools/translation_check.py --package <katalog z JSONL> --require-complete --strict
+```
+
+Dla każdego wypełnionego wiersza sprawdza: kodowalność CP932, **zgodność tokenów sterujących**
+(`＠0`…`＠9`, `%s`, `%%`, `＄n`, `＃`, `{XX}` — te same znaki w tej samej kolejności co w `jp`),
+liczbę przejść do nowej linii, twardy budżet `max_bytes` (błąd) i szerokość `suggested_max` (uwaga).
+Wiersze z pustym `en` są liczone jako „nietłumaczone”; `--require-complete` zamienia je w błędy,
+`--strict` zwraca kod wyjścia 1, gdy są błędy. Raport (`check_report.txt`) zawiera tabelę per plik
+oraz pierwsze problemy. Pełny przebieg po 82 591 wierszach zajmuje ~1,6 s.
 
 ## 6. Stan pokrycia (2026-10-12)
 
