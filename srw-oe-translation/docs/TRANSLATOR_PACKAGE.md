@@ -305,6 +305,35 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 * Umiejętności mają dodatkowo `[Nazwa z poziomem]` (np. `対地 Lv1`) i `[Opis skrócony]` (wersja na
   wąską listę — musi być krótka).
 
+#### Co dokładnie oznacza `%s` w opisach (i dlaczego nie trzeba zgadywać)
+
+Pod `%s` w widokach kryją się **dwie różne rzeczy**, których nie da się rozróżnić wzrokiem —
+i nie trzeba, bo reguła jest jedna:
+
+1. **Literalny `%s` z plików gry** — własny placeholder silnika (printf). Gra wstawia w to
+   miejsce w czasie działania wyliczaną wartość (liczbę, próg, etykietę). Zmierzone co do bajtu:
+   w opisach przedmiotów jest 701 takich literalnych `%s`, w opisach umiejętności 3563
+   (same `%s` z pliku, bajty 37 115). Przykład: `改造制限解除 → %s20%s` — silnik dostawi
+   wartość przy „20"; `経験値２倍 → %s2倍`.
+2. **Token kany** — bajt sterujący `0x0F` plus drugi bajt tworzą jeden glif dźwięcznej kany
+   (np. ジ). Widok renderuje go jako `%s` (drugi bajt bywa widoczny jako znak tuż po nim,
+   np. `%s&`). Zmierzone: 44 takie bajty w opisach przedmiotów, 2115 w opisach umiejętności.
+
+Narzędzie wstawiające tłumaczenie do gry rozróżnia oba przypadki **bajtem po bajcie**
+i odtwarza właściwe bajty w każdym miejscu — dlatego od tłumaczenia wymaga się tylko:
+
+* **zachowaj wszystkie `%s`** z japońskiego: ani jednego mniej, ani więcej, żadnego dodanego;
+* **nie zamieniaj ich kolejności względem siebie** — i-ty `%s` w angielskim tekście jest
+  parowany pozycyjnie z i-tym placeholderem w bajtach japońskich. Przesunięcie całego
+  fragmentu zdania razem z jego `%s` jest w porządku, zamiana `%s` miejscami — nie;
+* tłumacz tekst **dookoła** placeholderów; zdanie musi brzmieć naturalnie z „czymś" w ich
+  miejscach (treść wstawki zna tylko silnik gry i nie jest ona potrzebna do tłumaczenia);
+* pomyłka nie przejdzie cicho: przy niezgodnej liczbie `%s` budowniczy odmawia zapisu wiersza
+  i wpisuje powód do raportu budowania.
+
+Uwaga: to inna reguła niż `<0x0F>` w widokach nazw (postacie/bronie) — tam `<0x0F>` **usuwamy
+razem z jednym znakiem po nim**. W opisach efektów tokeny przychodzą jako `%s` i **zostają**.
+
 ### Teksty interfejsu i misji — `teksty-config.md`, `teksty-misji.md`
 
 * Te pliki są podzielone na **sekcje** (`## Sekcja 1/31 — config_achievement`), a w środku elementy po
