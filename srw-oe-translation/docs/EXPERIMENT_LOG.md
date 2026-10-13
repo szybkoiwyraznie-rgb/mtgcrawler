@@ -2818,3 +2818,146 @@ tolerowany do ~2%, a nazwy itemów sklepowych nie mają znaczenia (tylko itemy z
     charalist, 0 dialogów + 18/20 rekordów bitewnych. **Żadnej naprawy pakietu nie wymaga.**
     Widoki NIE były regenerowane (treść JP bez zmian — tłumacz nie musi nic pobierać ponownie);
     na Drive wymieniony tylko README.md.
+
+## Sesja 6 (2026-10-13), część 13 — dwie formy jp w pakiecie: rozróżnianie literalnego `%s` od bajtów sterujących
+
+**Problem [ZWERYFIKOWANE]:** pierwszy smoke zapisu wierszy 02/03 (tokenowych) do `config00.cpk`
+odmówił zapisu: „translation has 3 %s but the original string has 0 control bytes". Pomiar
+wyjaśnił przyczynę: `%s` w jp wierszy ma DWA niezależne pochodzenia — (a) literalny ASCII
+`%s` zapisany w plikach gry (placeholder printf silnika: 701 wystąpień w polach `Item00`,
+3563 w `Skill00`) oraz (b) wyświetlenie bajtów sterujących (tokeny `0x0F xx`) przez
+eksporter (`text_runs_export.text_of` renderuje oba przypadki IDENTYCZNIE). Wcześniejsza
+ścieżka blob-aware w `plan_edits` traktowała każde `%s` jak token → fałszywe odmowy.
+
+**Rozwiązanie (commit c11adb3, odtworzony po resecie jako 7e33b70):**
+- `table_write.token_kinds(original)` — spacer po bajtach oryginału: bajt sterujący
+  (<0x20 poza 0x0A, lub 0x7F) → rodzaj „token" (w display zajmuje `%s` + ewentualnie
+  widoczny drugi bajt tokena, np. `%s&` dla `0x0F 0x26`); literalne `b'%s'` → rodzaj
+  „literal"; leady CP932 przeskakiwane parami. `encode_target(en, original)` podstawia
+  i-te `%s` w EN zgodnie z rodzajem i pozycją.
+- `table_write.match_form(jp, original)` → `'raw'` gdy `original.decode('cp932','replace')==jp`,
+  inaczej `'display'` gdy `display(original)==jp`, inaczej None (wiersz niepasujący = odmowa).
+  Stringi bez bajtów sterujących pasują do obu form i oba kodowania dają ten sam wynik.
+- `encode_en(en, original, form)`: raw → `en.replace('\n','\x0a').encode('cp932')`;
+  display → `encode_target`.
+- `item_skill_write.plan_edits` wrócił do porównania w formie raw (wiersze 02/03 mają jp
+  z literalnymi znakami sterującymi, np. `'強化\x0f0ｰﾂ…'`); `plan_offset_edits` (wiersze 04)
+  używa `match_form`/`encode_en` — rozgałęzianie po kategorii było BŁĘDNE (forma nie jest
+  per-kategoria: wiersze offsetowe configst są display, a `sysmes` miesza obie formy
+  w jednej kategorii: 62 display + 75 raw).
+
+**Pomiary form [ZWERYFIKOWANE]:** wiersze rekordowe 02/03/04-strukturalne = forma raw;
+wiersze offsetowe 04 (config_item/skill/spirit/status_change/leftover) = display;
+04 sysmes = mieszana; 07/08 series (z `\x0f`) = raw-ctrl (172/29 wierszy);
+08 weapon `name_short` = forma TRZECIA: token-solved kana (`ﾗｲ\x0f&ﾝｸﾛｰ` → jp `ﾗｲジﾝｸﾛｰ`
+przez `unit_weapons.short_name_forms`, tj. `token_solve.apply_token_map`) — `match_form`
+jej nie widzi, obsługuje ją `name_table_write` (część 14).
+
+**Smoke na żywo (config00.cpk, prawdziwe wiersze 02/03/04 z markerami TEST):** 15/15
+zastosowanych, 0 mismatch; wiersze tail-pool odmówione (trafiają do pisarza slotów);
+konflikt „record 0 role effect: two rows, two translations" (wiersz 03 vs markerowy 04
+na tym samym polu) — deduplikacja fizycznych celów to obowiązek orkiestratora (udowodniona
+dwukrotnie na żywo); remapy @36: Skill00 46/46, Item00 6/6, StatusChange 8; 10 pól
+markerowych przeczytanych z powrotem; zmienione tylko 2 subpliki. **782 testy OK.**
+
+## Sesja 6 (2026-10-13), część 14 — name_table_write i slot_apply; CRILAYLA w memberach CPK
+
+**Układy tabel nazw [ZWERYFIKOWANE na config00+config01]:**
+- `charalist<NN>.bin`: rekordy 172 B; klucz u16@+96; komórki: name_short [0,32) (tekst ≤31;
+  najdłuższy w grze 20 B), name_full [32,76) (≤43; max 32), name_narrow [76,96) (≤19; max 14);
+  padding komórek zawsze zerowy (pomiar wszystkich rekordów).
+- `unit_list<NN>.bin`: rekordy 384 B; klucz u16@+84; name [0,64) (≤63; max 46),
+  name_display [140,204) (≤63; max 42).
+- `wp_list<NN>.bin`: tabela offsetów (`inline_names.record_offsets`: u32@4 = pierwszy offset),
+  rekord jednostki: unit_id u32@+0, liczba broni u32@+4, wpisy 256 B od +12; we wpisie:
+  name@+32 komórka 64 B (max 48), name_short@+96 komórka **32 B** (tekst ≤31; max 25;
+  zawiera tokeny `0x0F` dźwięcznej kany).
+
+**`tools/name_table_write.py` (commit 6e83c97):** adresowanie key+part (07) i key+index (08,
+index w `source.offset` jako string); pasuje-albo-odmawia (nigdy nie przycina); zapis in-place
+(EN + NUL + zera do szerokości komórki, rozmiar membera nie zmienia się); walidacja jp przez
+`match_cell`: dla weapon short najpierw forma mapped/raw z `short_name_forms` (trzecia forma!),
+potem `match_form`; utrata tokenów w EN liczona w raporcie (`token_loss`); verify: ten sam
+rozmiar + zmiany wyłącznie w zapisanych komórkach (maska bitowa). Wiersz `unit_series`
+(member `unit_list`, part `series`) fizycznie NIE leży w unit_list → orkiestrator przekierowuje
+go na RoboDict slot 3.
+
+**`tools/slot_apply.py`:** generyczny pisarz in-place po offsecie dla wszystkiego, co nie rośnie:
+sloty 04/05 (milstP/bgmlist/Map_S/bg2dlist/groupunit/CalcType/_ext.dat/Entry.dat) i wiersze
+tail-poola konwencji B (których `item_skill_write` odmawia strukturalnie przebudować). Reguły:
+offset musi trafiać w span NUL-ograniczony; jp musi się zgadzać (`match_form`); budżet =
+`max_bytes` z pakietu (albo span+1); `len(EN)+1 ≤ budżet`; obszar budżetu za spanem musi być
+czystym zerowym paddingiem (inaczej odmowa — nic nie nadpisujemy); dwa wiersze na jeden span:
+ten sam EN → zapis raz, różne EN → odmowa obu; padding: krótszy EN zeruje resztę spanu.
+
+**Odkrycie CRILAYLA [ZWERYFIKOWANE]:** smoke orkiestratora na eventP00.cpk odmówił wiersza
+`DL101_11_ext.dat:344` („empty span"), a TW odmówił `srwDL_CharaDictionary00.bin` w imenu00
+(„implausible record count"). Przyczyna: `cpk_write.load` zwraca bajty JAK LEŻĄ (skompresowane
+CRILAYLA: ext 320 B na dysku vs 388 B po dekompresji), a `speaker_map.read_members` dekompresuje.
+Membery kontenerów config* są nieskompresowane (dlatemu wcześniejsze smoke przechodziły),
+event*/imenu* bywają skompresowane. Naprawa: `cpk_write.decompressed(raw)` (wspólny helper,
+`crilayla.is_crilayla`) używany przez TW/NMT/ISW/SLA/orchestrator przed parsowaniem memberów
+i pac-ów; zapis z powrotem STORED (mechanika `cpk_write.rebuild` — precedens QA „written_stored").
+
+## Sesja 6 (2026-10-13), część 15 — build_translation_patch: orkiestrator wszystkich pisarzy + HOKUS_POKUS.bat
+
+**`tools/build_translation_patch.py` (commit 6e83c97):** jeden przebieg: ISO + folder DLC +
+zwrócony pakiet → `patched.iso` + `DLC/<ścieżki względne>` (tylko zmienione pliki) +
+`build_report.json`. Wejścia czytane nigdy nie są zapisywane (ISO: `iso_pack.read_member`
+per member; wynik: `iso_pack.patch_iso` — zmienione membery dopisane na koniec obrazu,
+rekordy ISO9660 i PVD zaktualizowane).
+
+**Routing wierszy (`owner()`)** po pliku pakietu i rodzinie membera: 00→`event_text_apply`;
+01→`quotes_apply`; 02/03→`item_skill_write`; 04: config_sysmes→sysmes, rodzina TW
+(CharaDict/RoboDict/Reference/DLC_ID/Shop/Skill_Tag/Achievement)→`table_write`,
+kategorie item/skill/spirit/status_change (lub `_kind_of`)→ISW, reszta→`slot_apply`;
+05→`slot_apply`; 07: charalist→`name_table_write`, słowniki→TW; 08: unit/weapon→NMT,
+robonote i series→TW (`unit_series` przekierowany na szablon `robonote`, gdy klucz nie ma
+własnego wiersza RoboDict; gdy ma — duplikat odrzucony). `config_item_drop` = skip (szum).
+
+**Kolejność kroków na kontener (krytyczna dla offsetów):** dialogi → cytaty → **tail-sloty
+(in-place, PRZED przebudową rekordów** — przesunięty tail niesie już przetłumaczone bajty)
+→ ISW (record region: 02/03 raw + 04 offset, `merge_edits` łapie konflikty) → TW (grow) →
+NMT (komórki) → sysmes (`SMSP.apply_edits` — pełna przebudowa poola; `equal_translate`
+NIE widzi stringów z `\n`/tokenami, bo `scan_runs` zwraca tylko czyste przebiegi fullwidth
+— odkryte na markerze TESTSYS2) → reszta slotów. Łańcuch kroków pisze pliki tymczasowe
+`work/<kontener>/stepN/<NAZWA KONTENERA>` — pisarze dopasowują `source.container` po nazwie
+pliku, więc `.step0` w nazwie rozbijał dopasowanie (ISW liczył wiersze jako „foreign").
+
+**Wiersze bez kontenera** (08 robonote): dołączane do każdego kontenera, którego member
+pasuje przez `TW.member_matches`; kandydaci = wszystkie wiarygodne pliki DLC i USRDIR ISO
+(regex config|imenu|mesbtl|event|bgm|sys|srw_DL|CharaDict|RoboDict, ≤16 MB). Odmowa
+„no record with key" dla obcych słowników jest oczekiwana i nieszkodliwa (fail-closed).
+
+**`_sysmes_edits`:** dla każdego stringa poola (cięcie do NUL od startów `string_starts`)
+dopasowuje jp wierszy przez `match_form`, koduje EN przez `encode_en` (tokeny przywrócone
+w bajtach) i przekazuje `apply_edits` jako string round-trippowalny cp932; różne EN na ten
+sam string = konflikt (odmowa), wiersze bez dopasowania = „stale jp" w raporcie.
+
+**Smoke na żywo (przed resetem sandboxa; pakiet 21 wierszy z prawdziwych JSONL z markerami
+TEST, --dlc ../google_drive):** 5 kontenerów zmienionych (config00, configst, eventP00,
+imenu00, mesbtl00), config01.EDAT/imenu20.EDAT nietknięte (niezapisane). Czytanie zwrotne:
+**21/21 markerów na miejscu** — TESTDLG1/2 (dialogi eventP00), TESTQUOTE (mesbtl00 p0050.pac,
+stored), TESTITEM+TESTEFFECT (Item00: rekord 02 + offset 04 na różnych polach), TESTSPIR
+(Spirit configst, 2 remapy @36), TESTTAIL (tail Skill00 z przywróconymi 2 tokenami `%s`),
+TCALC (CalcType, budżet 7 B), TESTROBO/TESTNOTE/TESTSER (RoboDict00; TESTNOTE w OBU
+lustrach config00+imenu00; TESTSER = przekierowany unit:3600:series), TESTTAG (Skill_Tag),
+TESTIM/TESTNICK (CharaDict00), TESTBGM (bgmlist00), TESTNAME/TESTUNIT/TESTWPN (charalist/
+unit_list/wp_list; TESTWPN z formy mapped `ﾗｲジﾝｸﾛｰ`, token_loss=1 zgodnie z kontraktem),
+TESTSYS1/TESTSYS2 (sysmes: 2 stringi, 12 kopii w nowym poolu — `表示切換` ×10 wymienione
+równościowo), TESTEVT (_ext.dat@344 po dekompresji CRILAYLA). Konflikt celów (dwa markery
+na record 0 role name) wykryty i odmówiony („two rows, two translations") — polityka
+fail-closed działa w łańcuchu. Odmowy z prawdziwych danych: 13 wierszy slot Skill00
+„translation has 0 %s but carries 2 tokens" gdy EN gubi placeholdery (poprawne zachowanie).
+
+**`HOKUS_POKUS.bat`:** cztery ścieżki (ISO, folder DLC, pakiet bazowy JSONL, zwrócone
+tłumaczenie — katalogi `sceny\`/`widoki\` lub zipy; brak widoków = budowanie wprost z JSONL);
+wykrywanie Pythona jak w `BUILD_TEST_PATCH.bat`; wynik w `srw-oe-patch\`; komunikaty po
+polsku; oryginały użytkownika tylko czytane.
+
+**Testy:** +54 (20 `test_name_table_write`, 19 `test_slot_apply`, 15 `test_build_translation_patch`:
+routing owner(), `_sysmes_edits` z formą display/tokenami i konfliktami, przekierowanie
+unit_series z klonowaniem szablonu, nazewnictwo łańcucha, `_jsonable`). **Pełny zestaw:
+836 OK (1 skipped).** UWAGA po resecie sandboxa: smoke orkiestratora należy powtórzyć na
+świeżo pobranych kontenerach z Drive (drzewo kodu identyczne, ale uczciwa weryfikacja
+wymaga przebiegu na bieżącym drzewie).

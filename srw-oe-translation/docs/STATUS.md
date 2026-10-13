@@ -575,3 +575,22 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   linii `EN:`**, 13 162 elementy dziedziczone. Pliki dla tłumacza przebudowane: `sceny.zip`
   (36 plików), `widoki.zip` (7 plików), instrukcja zaktualizowana. Testy: **734 OK (1 skipped)**.
   Szczegóły: `EXPERIMENT_LOG.md` wpis 51. Nadal brakuje `eventP00.cpk` (rozdział 1).
+- **PEŁNY BUDOWNICZY PATCHA GOTOWY (2026-10-13)**: `tools/build_translation_patch.py` +
+  `HOKUS_POKUS.bat` — jeden przebieg: ISO użytkownika + folder DLC + zwrócony pakiet
+  tłumaczenia → `srw-oe-patch/patched.iso` + `srw-oe-patch/DLC/...` (tylko zmienione pliki)
+  + `build_report.json` (każda odmowa z powodem). Oryginały tylko czytane. Nowi pisarze:
+  `name_table_write.py` (stałe komórki charalist/unit_list/wp_list, pasuje-albo-odmawia,
+  trzecia forma jp „token-solved" dla krótkich nazw broni) i `slot_apply.py` (generyczny
+  zapis in-place: sloty 04/05 i tail-poole konwencji B przed przebudową rekordów). Poprawka
+  CRILAYLA: `cpk_write.decompressed()` — membery event*/imenu* bywają skompresowane, wszyscy
+  pisarze dekodują przed parsowaniem i zapisują stored. Sysmes przez `apply_edits` (pełna
+  przebudowa poola; `equal_translate` nie widzi stringów z `\n`/tokenami). Rozpoznawanie form
+  jp: `table_write.match_form/encode_en` — literalne `%s` (printf gry) odróżnione od bajtów
+  sterujących (`token_kinds`). Smoke na żywo: **21/21 markerów TEST w 5 kontenerach**
+  (config00, configst, eventP00, imenu00, mesbtl00), konflikty celów wykrywane i odmawiane
+  (fail-closed), robonote bez kontenera ląduje we wszystkich lustrach, redirect
+  `unit_series`→RoboDict działa. Testy: **836 OK (1 skipped)** (commity c11adb3, 6e83c97;
+  szczegóły: EXPERIMENT_LOG części 13–15). `eventP00.cpk` dostępny (pobrany z Drive —
+  poprzedni wpis „brakuje" nieaktualny). **Następny krok**: powtórzyć smoke orkiestratora na
+  świeżym drzewie po resecie sandboxa, potem pełny przebieg na maszynie użytkownika
+  (HOKUS_POKUS.bat) i test w PPSSPP.
