@@ -40,6 +40,20 @@ class OwnerRoutingTests(unittest.TestCase):
         self.assertEqual(BTP.owner(row("04_config_text.jsonl", "config_status_change",
                                        "srwDL_StatusChange.bin", offset=40)), "isw")
 
+    def test_dlc_pool_copies_go_to_the_pool_writer(self):
+        # Skill01-08 / Item01-08 are convention-C pool-only files (no record table, count=0):
+        # the record writer cannot rebuild them, the pool writer's C path addresses every
+        # string by its own offset
+        self.assertEqual(BTP.owner(row("04_config_text.jsonl", "config_skill",
+                                       "srwDL_Skill01.bin", container="config01.EDAT",
+                                       offset=4103)), "tw")
+        self.assertEqual(BTP.owner(row("04_config_text.jsonl", "config_item",
+                                       "srwDL_Item01.bin", container="config01.EDAT",
+                                       offset=1000)), "tw")
+        # the convention-B base members stay with the record writer
+        self.assertEqual(BTP.owner(row("04_config_text.jsonl", "config_skill",
+                                       "srwDL_Skill00.bin", offset=40)), "isw")
+
     def test_families_go_to_table_write(self):
         self.assertEqual(BTP.owner(row("04_config_text.jsonl", "config_skill_tag",
                                        "srwDL_Skill_Tag.bin", offset=8)), "tw")

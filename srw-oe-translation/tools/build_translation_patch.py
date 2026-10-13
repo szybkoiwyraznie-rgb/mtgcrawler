@@ -149,6 +149,12 @@ def owner(row: dict) -> str:
     # 04 (and anything else): the member decides
     if TW.family_of(member) is not None:
         return "tw"
+    # the DLC copies Skill01-08 / Item01-08 are convention-C pool-only files (no record
+    # table, every string has its own offset): the record writer cannot rebuild them and
+    # _kind_of says None - the pool writer's C path owns ALL their rows (also the leftover
+    # scan's: a C rebuild changes the member's size, so later offset writes would go stale)
+    if member.startswith(("srwDL_Skill", "srwDL_Item")) and ISW._kind_of(member) is None:
+        return "tw"
     if category in ("config_item", "config_skill", "config_spirit", "config_status_change") \
             or ISW._kind_of(member) is not None:
         return "isw"

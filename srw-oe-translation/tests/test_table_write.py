@@ -199,6 +199,15 @@ class RowResolutionTests(unittest.TestCase):
         self.assertEqual(report["problems"], [])       # a foreign key is not member-fatal
         self.assertTrue(any("no record with key" in p for p in report["refused"]))
 
+    def test_a_mid_string_offset_finds_its_string(self):
+        # the leftover scan can record a hit inside the string, not its start
+        rows = [row_offset(self.string_offset(1, 0) + 2, "日向仁", "Hinata Jin", self.MEMBER)]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[1].strings[0], b"Hinata Jin")
+
     def test_unknown_key_does_not_poison_a_valid_row(self):
         # the 07/08 broadcast: every dictionary container sees every key; the ones it does
         # not hold are row-level skips and the rest of the member is still written
@@ -319,6 +328,26 @@ class PoolCTests(unittest.TestCase):
         self.assertEqual(report["problems"], [])
         _o, strings = TW.parse_pool_c(modified)
         self.assertEqual(strings[0], b"Item")
+
+    def test_a_mid_string_offset_finds_its_pool_string(self):
+        blob, offs, _strings = self.build()
+        rows = [row_offset(offs[1] + 3, "スキル説明", "Skill note", "srwDL_Item01.bin")]
+        modified, report = TW.apply_member(blob, "srwDL_Item01.bin", rows)
+        self.assertEqual(report["refused"], [])
+        _o, strings = TW.parse_pool_c(modified)
+        self.assertEqual(strings[1], b"Skill note")
+
+    def test_conflicting_rows_refuse_the_pool_string(self):
+        blob, offs, _strings = self.build()
+        rows = [row_offset(offs[0], "アイテム", "One", "srwDL_Item01.bin", row_id="a"),
+                row_offset(offs[0], "アイテム", "Two", "srwDL_Item01.bin", row_id="b"),
+                row_offset(offs[1], "スキル説明", "Skill note", "srwDL_Item01.bin", row_id="c")]
+        modified, report = TW.apply_member(blob, "srwDL_Item01.bin", rows)
+        self.assertEqual(report["problems"], [])
+        self.assertTrue(any("conflicts" in p for p in report["refused"]))
+        _o, strings = TW.parse_pool_c(modified)
+        self.assertEqual(strings[0], jp("アイテム"))       # the conflicted string stays Japanese
+        self.assertEqual(strings[1], b"Skill note")        # its neighbour is still written
 
 
 if __name__ == "__main__":

@@ -430,9 +430,13 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
         spans = record_spans(blob)
         records = parse_pool(blob, family)
         by_offset: Dict[int, Tuple[int, int]] = {}
+        ranges: List[Tuple[int, int, int, int]] = []      # (start, end, record, slot)
         for i, (rec, span) in enumerate(zip(records, spans)):
             for j, ptr in enumerate(rec.pointers):
-                by_offset[span[0] + ptr] = (i, j)
+                start = span[0] + ptr
+                by_offset[start] = (i, j)
+                ranges.append((start, start + len(rec.strings[j]) + 1, i, j))
+        ranges.sort()
         keyed: Dict[Optional[int], List[int]] = {}
         for i, span in enumerate(spans):
             keyed.setdefault(record_key(blob, span, family), []).append(i)
@@ -445,7 +449,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
                 continue                      # partial package: the string stays Japanese
             source = row.get("source") or {}
             targets = resolve_one(row, en, blob, spans, records, by_offset, keyed, family,
-                                  sub_name, refused)
+                                  sub_name, refused, ranges)
             for (i, j), value in targets:
                 resolved.append((sub_name, i, j, row.get("id")))
                 if (i, j) in edits and edits[(i, j)] != value:
@@ -469,6 +473,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
                 "member": sub_name}, problems
     by_offset = {off: i for i, off in enumerate(offs)}
     edits_c: Dict[int, bytes] = {}
+    dead: set = set()          # pool strings refused for conflicting rows
     resolved = []
     refused = []
     for row in rows:
@@ -477,10 +482,23 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
             continue
         source = row.get("source") or {}
         offset = source.get("offset")
-        if not isinstance(offset, int) or offset not in by_offset:
+        index = by_offset.get(offset) if isinstance(offset, int) else None
+        if index is None and isinstance(offset, int):
+            # the leftover scan can point into the middle of a string: take the string that
+            # contains the offset (its jp still has to match, so a wrong hit is refused)
+            for i2, off2 in enumerate(offs):
+                if off2 > offset:
+                    break
+                if off2 <= offset < off2 + len(strings[i2]) + 1:
+                    index = i2
+                    break
+        if index is None:
             refused.append(f"{row.get('id')}: offset {offset} is not a pool string start")
             continue
-        index = by_offset[offset]
+        if index in dead:
+            refused.append(f"{row.get('id')}: pool string {index} is already refused "
+                           f"(conflicting rows)")
+            continue
         form = match_form(row.get("jp"), strings[index])
         if form is None:
             refused.append(f"{row.get('id')}: jp does not match the string at {offset}")
@@ -490,14 +508,24 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
         except TableError as exc:
             refused.append(f"{row.get('id')}: {exc}")
             continue
-        resolved.append((sub_name, index, None, row.get("id")))
+        previous = edits_c.get(index)
+        if previous is not None and previous != value:
+            # two offset rows, one string, two translations: a package bug - refuse the string
+            refused.append(f"{row.get('id')}: conflicts with another row targeting pool "
+                           f"string {index}; the string is refused")
+            edits_c.pop(index)
+            dead.add(index)
+            continue
+        if previous is None:
+            resolved.append((sub_name, index, None, row.get("id")))
         edits_c[index] = value
     return {"convention": "C", "edits": edits_c, "resolved": resolved, "member": sub_name,
             "records": len(strings), "refused": refused}, problems
 
 
 def resolve_one(row: dict, en: str, blob: bytes, spans, records, by_offset, keyed,
-                family: Family, sub_name: str, refused: List[str]) -> List[tuple]:
+                family: Family, sub_name: str, refused: List[str],
+                ranges: Optional[List[Tuple[int, int, int, int]]] = None) -> List[tuple]:
     """[((record, slot), bytes)] for one row; empty when it is skipped or refused.
 
     Every skip lands in ``refused`` - a row-level note.  Rows that do not belong to this
@@ -531,10 +559,20 @@ def resolve_one(row: dict, en: str, blob: bytes, spans, records, by_offset, keye
             out.append(((i, slot), value))
         return out
     offset = source.get("offset")
-    if not isinstance(offset, int) or offset not in by_offset:
+    ij = by_offset.get(offset) if isinstance(offset, int) else None
+    if ij is None and isinstance(offset, int):
+        # the leftover scan can point into the middle of a string: take the string that
+        # contains the offset (its jp still has to match, so a wrong hit is refused)
+        for start, end, ri, rj in (ranges or ()):
+            if start > offset:
+                break
+            if start <= offset < end:
+                ij = (ri, rj)
+                break
+    if ij is None:
         refused.append(f"{row.get('id')}: offset {offset} is not a string start of this pool")
         return []
-    i, j = by_offset[offset]
+    i, j = ij
     original = records[i].strings[j]
     form = match_form(row.get("jp"), original)
     if form is None:
@@ -646,8 +684,9 @@ def rows_for_container(package: Path, container: str) -> List[dict]:
 
 def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
     """Rebuild the container with every translated pool member, chained through ``dst``."""
-    summary = {"container": src.name, "members": 0, "edits": 0, "refused": 0, "problems": [],
-               "per_member": {}, "written": None, "dry_run": dry_run, "resolved": []}
+    summary = {"container": src.name, "members": 0, "edits": 0, "applied": 0, "refused": 0,
+               "problems": [], "per_member": {}, "written": None, "dry_run": dry_run,
+               "resolved": []}
     current = src
     produced = False
     cpk = cpk_write.load(src)
@@ -710,6 +749,8 @@ def _apply_sub(sub_name: str, data: bytes, rows: List[dict], summary: dict):
     summary["edits"] += report["edits"]
     summary["resolved"] += report["resolved"]
     summary["refused"] += len(report["refused"])
+    if report["edits"] and not report["problems"]:
+        summary["applied"] += report["edits"]   # the orchestrator reads this key
     for message in report["problems"]:
         summary["problems"].append(f"{sub_name}: {message}")
     for message in report["refused"][:8]:
