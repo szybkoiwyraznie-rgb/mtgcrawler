@@ -1,7 +1,7 @@
 # Drive inputs for SRW OE (IDs and sizes only, no game content). Gitignored folders do NOT survive turns:
 # re-download with the Drive download tool into google_drive/<name>. Folder ids: FULL_DLC 155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU, USRDIR 1FyM77fcFLQfXgxRhnS0cJ98oKZaZG72x
 # name	file_id	size
-eventP00.cpk	1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w	162264
+eventP00.cpk	(ID Drive wygasl 404 — odzyskany z historii gita 7f65524:google_drive/eventP00.cpk, md5 5fd6eea0e3732b17c48aa44859d86b02)	162264
 eventP01.EDAT	1IcqZvZ9wtOErfIpgMuvHx_nUrMqLAQjv	326456
 eventP02.EDAT	174rpHwTAUqI5tn-neA5mE4p2JUP2PRtx	367480
 eventP03.EDAT	1I7aoN9rCbWyMUlFNClQo6MG6JxnAWdPS	344920
