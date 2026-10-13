@@ -2958,6 +2958,13 @@ polsku; oryginały użytkownika tylko czytane.
 **Testy:** +54 (20 `test_name_table_write`, 19 `test_slot_apply`, 15 `test_build_translation_patch`:
 routing owner(), `_sysmes_edits` z formą display/tokenami i konfliktami, przekierowanie
 unit_series z klonowaniem szablonu, nazewnictwo łańcucha, `_jsonable`). **Pełny zestaw:
-836 OK (1 skipped).** UWAGA po resecie sandboxa: smoke orkiestratora należy powtórzyć na
-świeżo pobranych kontenerach z Drive (drzewo kodu identyczne, ale uczciwa weryfikacja
-wymaga przebiegu na bieżącym drzewie).
+836 OK (1 skipped).**
+
+**Powtórka smoke po twardym resecie sandboxa (2026-10-13, na drzewie z commitów c11adb3 +
+6e83c97) [ZWERYFIKOWANE]:** kontenery pobrane świeżo z Drive (config00, configst, imenu00,
+mesbtl00, config01.EDAT; `eventP00.cpk` z Drive zniknął — stary ID `1or9mKqq…` zwraca 404 —
+odzyskany z historii gita `7f65524:google_drive/eventP00.cpk`, md5 `5fd6eea0e3732b17c48aa44859d86b02`
+identyczny jak przed resetem) + JSONL 00/01/02/04/05/07/08. Wynik identyczny: 5 kontenerów
+zmienionych (config00, configst, eventP00, imenu00, mesbtl00), **21/21 markerów TEST czytanych
+z powrotem** (TESTNOTE w obu lustrach RoboDict), jedyny problem w raporcie = oczekiwana odmowa
+„robonote:1:series: no record with key 1" na obcym słowniku config01 (fail-closed).
