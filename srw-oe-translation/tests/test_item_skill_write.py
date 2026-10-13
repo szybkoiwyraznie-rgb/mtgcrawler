@@ -215,10 +215,174 @@ class PackageTest(unittest.TestCase):
             self.assertEqual(([row["id"] for row in rows], files), (["x"], [path]))
 
 
+class RawTokenRowTest(unittest.TestCase):
+    """Structured rows carry control bytes as characters; CP932 passes them through."""
+
+    def member(self):
+        rec = build_record("item", 10000, "改造制限解除", "地形\x0f6地＠0\x0f攻撃")
+        return build_member("item", [rec])
+
+    def row(self, **kwargs):
+        row = {"id": "item:c/srwDL_Item00.bin:r0:effect", "category": "item", "part": "effect",
+               "jp": "地形\x0f6地＠0\x0f攻撃", "en": "terrain \x0f6 ground＠0\x0f attack",
+               "record": 0,
+               "source": {"container": "c", "member": "srwDL_Item00.bin", "offset": 0}}
+        row.update(kwargs)
+        return row
+
+    def test_raw_control_bytes_survive_the_round_trip(self):
+        blob = self.member()
+        parsed = ISR.parse_member(blob, "item", "srwDL_Item00.bin")
+        edits, skipped, stats = ISW.plan_edits([self.row()], "srwDL_Item00.bin", parsed, "c")
+        self.assertEqual(skipped, [])
+        self.assertEqual(stats["applied"], 1)
+        grown, _ = ISW.rebuild_member(blob, "item", edits, "srwDL_Item00.bin")
+        rec = ISR.parse_member(grown, "item", "srwDL_Item00.bin")["records"][0]
+        raw = ISW.field_raw(grown, rec, "effect")
+        self.assertEqual(raw, b"terrain \x0f6 ground" + "＠0".encode("cp932") + b"\x0f attack")
+
+    def test_stale_jp_is_refused(self):
+        blob = self.member()
+        parsed = ISR.parse_member(blob, "item", "srwDL_Item00.bin")
+        edits, skipped, stats = ISW.plan_edits([self.row(jp="coś innego")], "srwDL_Item00.bin",
+                                               parsed, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["mismatch"], 1)
+        self.assertIn("source text differs", skipped[0])
+
+
+class OffsetAdapterTest(unittest.TestCase):
+    def setUp(self):
+        self.blob = build_member("skill", [
+            build_record("skill", 1000, "対地", "地形効果"),
+            build_record("skill", 1001, "対空", "空の効果"),
+        ], pool_runs=["tail fragment"])
+        self.parsed = ISR.parse_member(self.blob, "skill", "srwDL_Skill00.bin")
+        self.rec1 = self.parsed["records"][1]
+        self.effect_offset = self.rec1["offset"] + self.rec1["effect_offset"]
+
+    def row(self, offset, jp, en, row_id="leftover:c/srwDL_Skill00.bin:0"):
+        return {"id": row_id, "category": "config_skill", "part": "text", "jp": jp, "en": en,
+                "mode": "grow",
+                "source": {"container": "c", "member": "srwDL_Skill00.bin", "offset": offset}}
+
+    def test_offset_row_lands_on_its_field(self):
+        edits, skipped, stats = ISW.plan_offset_edits(
+            [self.row(self.effect_offset, "空の効果", "Anti-air effect")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(skipped, [])
+        self.assertEqual(edits, {1: {"effect": b"Anti-air effect"}})
+        self.assertEqual(stats["applied"], 1)
+
+    def test_offset_inside_the_field_still_resolves_by_jp(self):
+        edits, skipped, _ = ISW.plan_offset_edits(
+            [self.row(self.effect_offset + 2, "空の効果", "Anti-air effect")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {1: {"effect": b"Anti-air effect"}})
+        self.assertEqual(skipped, [])
+
+    def test_tail_offsets_are_left_to_the_slot_writer(self):
+        offset = self.parsed["tail_offset"] + 1
+        edits, skipped, stats = ISW.plan_offset_edits(
+            [self.row(offset, "tail fragment", "x")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["tail"], 1)
+        self.assertIn("slot writer", skipped[0])
+
+    def test_an_offset_with_a_different_jp_is_refused(self):
+        edits, skipped, stats = ISW.plan_offset_edits(
+            [self.row(self.effect_offset, "inne jp", "x")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["mismatch"], 1)
+
+    def test_record_rows_are_not_double_planned(self):
+        record_row = {"id": "skill:c/srwDL_Skill00.bin:r1:effect", "part": "effect",
+                      "jp": "空の効果", "en": "Anti-air effect", "record": 1,
+                      "source": {"container": "c", "member": "srwDL_Skill00.bin"}}
+        edits, _, _ = ISW.plan_offset_edits([record_row], "srwDL_Skill00.bin",
+                                            self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+
+    def test_display_form_leftover_row_restores_control_bytes(self):
+        blob = build_member("skill", [
+            build_record("skill", 1000, "対地", "lit %s ctrl \x0f end"),
+        ])
+        parsed = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
+        rec = parsed["records"][0]
+        offset = rec["offset"] + rec["effect_offset"]
+        row = self.row(offset, "lit %s ctrl %s end", "A %s B %s C", row_id="leftover:c/x:0")
+        row["category"] = "config_leftover"
+        edits, skipped, _ = ISW.plan_offset_edits([row], "srwDL_Skill00.bin", parsed, blob, "c")
+        self.assertEqual(skipped, [])
+        self.assertEqual(edits, {0: {"effect": b"A %s B \x0f C"}})
+
+    def test_a_field_whose_jp_matches_neither_form_is_refused(self):
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "効果")])
+        parsed = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
+        rec = parsed["records"][0]
+        row = self.row(rec["offset"] + rec["effect_offset"], "coś innego", "x")
+        edits, skipped, stats = ISW.plan_offset_edits([row], "srwDL_Skill00.bin", parsed,
+                                                      blob, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["mismatch"], 1)
+
+    def test_conflicting_plans_refuse_the_record(self):
+        a = {1: {"effect": b"One"}}
+        b = {1: {"effect": b"Two"}}
+        merged, problems = ISW.merge_edits(a, b)
+        self.assertEqual(merged, {})
+        self.assertTrue(any("two rows, two translations" in p for p in problems))
+
+    def test_identical_plans_merge_cleanly(self):
+        merged, problems = ISW.merge_edits({1: {"effect": b"One"}}, {1: {"effect": b"One"}})
+        self.assertEqual(merged, {1: {"effect": b"One"}})
+        self.assertEqual(problems, [])
+
+
+class CrossRefTest(unittest.TestCase):
+    def test_mutual_word_at_36_is_repointed_after_growth(self):
+        rec0 = bytearray(build_record("skill", 1000, "対地", "効果零"))
+        rec1 = bytearray(build_record("skill", 1001, "対空", "効果一"))
+        blob = build_member("skill", [bytes(rec0), bytes(rec1)])
+        parsed = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
+        off0 = parsed["records"][0]["offset"]
+        off1 = parsed["records"][1]["offset"]
+        rec0 = bytearray(blob[off0:off1])
+        rec1 = bytearray(blob[off1:parsed["tail_offset"]])
+        struct.pack_into("<I", rec0, 36, off1)      # record 0 points at record 1
+        struct.pack_into("<I", rec1, 36, off0)      # and back - the measured mutual pair
+        blob = blob[:off0] + bytes(rec0) + bytes(rec1) + blob[parsed["tail_offset"]:]
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-ground weapon"}},
+                                           "srwDL_Skill00.bin")
+        # only the word that really moves counts: record 0 keeps its offset, so its referrer
+        # needs no patch and is not counted
+        self.assertEqual(report["cross_refs_remapped"], 1)
+        after = ISR.parse_member(grown, "skill", "srwDL_Skill00.bin")
+        new0 = after["records"][0]["offset"]
+        new1 = after["records"][1]["offset"]
+        self.assertEqual(struct.unpack_from("<I", grown, new0 + 36)[0], new1)
+        self.assertEqual(struct.unpack_from("<I", grown, new1 + 36)[0], new0)
+        self.assertNotEqual(new1, off1)             # record 1 really moved
+
+    def test_a_word_at_36_that_is_no_offset_stays(self):
+        rec0 = bytearray(build_record("skill", 1000, "対地", "効果零"))
+        struct.pack_into("<I", rec0, 36, 7)
+        blob = build_member("skill", [bytes(rec0)])
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Longer name here"}},
+                                           "srwDL_Skill00.bin")
+        self.assertEqual(report["cross_refs_remapped"], 0)
+        after = ISR.parse_member(grown, "skill", "srwDL_Skill00.bin")
+        self.assertEqual(struct.unpack_from("<I", grown, after["records"][0]["offset"] + 36)[0], 7)
+
+
 class HelperTest(unittest.TestCase):
     def test_kind_of_matches_item_and_skill_members_only(self):
         self.assertEqual(ISW._kind_of("srwDL_Item00.bin"), "item")
         self.assertEqual(ISW._kind_of("srwDL_Skill00.bin"), "skill")
+        self.assertEqual(ISW._kind_of("srwDL_Spirit.bin"), "spirit")
+        self.assertEqual(ISW._kind_of("srwDL_StatusChange.bin"), "status_change")
         self.assertIsNone(ISW._kind_of("srwDL_Skill_Tag.bin"))
         self.assertIsNone(ISW._kind_of("srwDL_Item01.bin"))     # a DLC pool, not a record table
         self.assertIsNone(ISW._kind_of("charalist00.bin"))

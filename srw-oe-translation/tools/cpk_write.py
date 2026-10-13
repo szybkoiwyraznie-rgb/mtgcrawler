@@ -307,6 +307,18 @@ def _align_up(value: int, align: int) -> int:
     return value if align <= 1 else ((value + align - 1) // align) * align
 
 
+def decompressed(raw: bytes) -> bytes:
+    """The member body to parse: CRILAYLA-decoded when stored compressed, else the raw bytes.
+
+    A member that changes is rebuilt *stored*, so every writer works on the full body and
+    hands that body back - the TOC entry then gets FileSize == ExtractSize.
+    """
+    import crilayla
+    if crilayla.is_crilayla(raw):
+        return crilayla.decompress(raw).data
+    return raw
+
+
 def rebuild(cpk: Cpk, replacement=None) -> bytes:
     """Reassemble the container, optionally swapping in a new blob for one member.
 
@@ -338,14 +350,31 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     ordered = sorted(members, key=lambda m: m.relative_offset)
     shift = 0
     new_relative: Dict[int, int] = {}
-    for member in ordered:
+    for position, member in enumerate(ordered):
         new_relative[member.index] = member.relative_offset + shift
         if member.name == target_name and new_blob is not None:
             delta = len(new_blob) - member.file_size
-            # Round the change up to Align in the direction it moves, so a grown
-            # member cannot overlap the next one and a shrunk one cannot leave it
-            # misaligned.
-            shift += _align_up(abs(delta), cpk.align) * (1 if delta >= 0 else -1)
+            if delta >= 0:
+                # Round the growth up to Align, so a grown member cannot overlap
+                # the next one and the followers stay aligned.
+                shift += _align_up(delta, cpk.align)
+            else:
+                # A shrunk member only frees the difference of its ALIGNED
+                # footprints: moving the followers back by a whole alignment unit
+                # (the old rule) slid them under the replacement's tail and zeroed
+                # its last bytes -- measured on a synthetic container, fixed
+                # 2026-10-13.  When the smaller blob still fits the old footprint,
+                # nothing has to move at all; in a container that packs tighter
+                # than its declared alignment, the follower's own position caps
+                # the backward move so the two can never overlap.
+                old_end = _align_up(member.relative_offset + member.file_size, cpk.align)
+                new_end = _align_up(member.relative_offset + len(new_blob), cpk.align)
+                freed = max(0, old_end - new_end)
+                if position + 1 < len(ordered):
+                    gap = ordered[position + 1].relative_offset - (
+                        member.relative_offset + len(new_blob))
+                    freed = min(freed, max(0, gap))
+                shift -= freed
 
     moved = shift != 0 or (new_blob is not None and len(new_blob) != next(
         m.file_size for m in members if m.name == target_name))

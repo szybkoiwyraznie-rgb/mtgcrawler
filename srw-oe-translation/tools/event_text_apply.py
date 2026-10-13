@@ -138,12 +138,37 @@ def find_record(blob: bytes, text_offset: int, text: bytes) -> Optional[dict]:
     return record
 
 
-def grow_text(blob: bytes, record: dict, new_text: bytes) -> bytes:
+def find_edat(blob: bytes) -> int:
+    """Offset of the ``EDAT`` header inside a member (0 for event members).
+
+    The battle-quote pacs of the ``mesbtl`` containers put a pac header in front of the ``EDAT``
+    header (measured on mesbtl00.cpk/p0050.pac: ``EDAT`` sits at 5732, its count field names the
+    176 ``EVNT`` sections that follow at ``edat + 12``).  An ``EDAT`` occurrence only counts when
+    the first section tag really follows it, so game text that happens to spell ``EDAT`` cannot
+    fool the search.  Returns -1 when there is no such header.
+    """
+    pos = 0
+    while True:
+        i = blob.find(b"EDAT", pos)
+        if i < 0:
+            return -1
+        if blob[i + 12:i + 16] == b"EVNT":
+            return i
+        pos = i + 4
+
+
+def grow_text(blob: bytes, record: dict, new_text: bytes, edat_at: int = 0) -> bytes:
     """Return the member with one dialogue record's text replaced by ``new_text``.
 
     Everything around it is updated: the record's own size, the size of every wrapper that holds it,
     the ``EVNT`` section size and the ``EDAT`` size.  All of those fields sit *before* the record, so
     their offsets do not move when the text grows.
+
+    ``edat_at`` is the offset of the ``EDAT`` header (see :func:`find_edat`): 0 for event members,
+    deeper for the ``mesbtl`` battle-quote pacs.  The EDAT size field lives at ``edat_at + 4`` and
+    grows by the same delta as the record (it is a linear function of the section span, which grows
+    by exactly delta), for both the event rule (size = span) and the mesbtl rule (size = span minus
+    four bytes per section) -- measured on the real files.
     """
     offset, old_size = record["offset"], record["size"]
     start = TEXT_START.get(record["type"])
@@ -174,7 +199,8 @@ def grow_text(blob: bytes, record: dict, new_text: bytes) -> bytes:
         if section is None:
             raise ValueError(f"no EVNT section holds the record at {offset}")
         struct.pack_into("<I", out, section["magic_offset"] + 4, section["size"] + delta)
-        struct.pack_into("<I", out, 4, struct.unpack_from("<I", blob, 4)[0] + delta)
+        struct.pack_into("<I", out, edat_at + 4,
+                         struct.unpack_from("<I", blob, edat_at + 4)[0] + delta)
     if len(old_text) == len(new_text) and blob[offset:offset + old_size] == bytes(out[offset:offset + size]):
         return bytes(blob)          # no change at all
     return bytes(out)
@@ -236,13 +262,18 @@ def _error_kind(message: str) -> str:
     return re.sub(r"\d+", "#", message)
 
 
-def verify(original: bytes, modified: bytes, changed: List[Tuple[int, bytes, bytes]]) -> List[str]:
+def verify(original: bytes, modified: bytes, changed: List[Tuple[int, bytes, bytes]],
+           edat_at: int = 0) -> List[str]:
     """Re-parse the result and report what does not hold.
 
     ``changed`` is ``[(text_offset, old_text, new_text)]``.  The check is deliberately strict: no new
     block-walk error, the blocks still cover the whole file, the record count is unchanged, and the
     texts of the member are exactly the texts it had before minus the ones we replaced plus the new
     ones - a growth that lost or invented a text is refused.
+
+    ``edat_at`` is the offset of the ``EDAT`` header (:func:`find_edat`); the sections must cover
+    the file from ``edat_at + 12`` on, each section spanning ``8 + size`` bytes in the event
+    variant and ``4 + size`` in the mesbtl variant (its size field counts itself), both measured.
     """
     problems: List[str] = []
     before_blocks, before_errors = EW.blocks(original)
@@ -260,11 +291,14 @@ def verify(original: bytes, modified: bytes, changed: List[Tuple[int, bytes, byt
     if after_blocks and after_blocks[-1]["end"] != len(modified):
         problems.append(f"the block walk ends at {after_blocks[-1]['end']}, "
                         f"the file is {len(modified)} bytes")
-    # the sections start right after the 12-byte EDAT header and must cover the rest exactly
-    covered = sum(8 + block["size"] for block in after_blocks)
-    if after_blocks and (after_blocks[0]["tag"] != 12 or covered != len(modified) - 12):
+    # the sections start right after the 12-byte EDAT header and must cover the rest exactly;
+    # a mesbtl section's size field counts itself, so it spans 4 + size, an event one 8 + size
+    covered = sum((4 if block["variant"] == "mesbtl" else 8) + block["size"]
+                  for block in after_blocks)
+    if after_blocks and (after_blocks[0]["tag"] != edat_at + 12
+                         or covered != len(modified) - (edat_at + 12)):
         problems.append(f"the sections cover {covered} bytes, the file leaves "
-                        f"{len(modified) - 12} for them")
+                        f"{len(modified) - (edat_at + 12)} for them")
 
     before_records, _ = parse_block_records(original)
     after_records, _ = parse_block_records(modified)
@@ -324,9 +358,18 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
     With ``verify_result`` (the default) the result is re-parsed before it is returned: the block
     walk, the record count and every text of the member are compared with the original, so a change
     that would break the file is reported instead of written out.
+
+    The member may be an event member (``EDAT`` at byte 0) or a decompressed battle-quote pac of
+    the ``mesbtl`` containers (a pac header, then ``EDAT``): :func:`find_edat` tells the two apart
+    and every size fix lands on the header that is really there.
     """
     report = {"rows": len(rows), "applied": 0, "skipped": [], "refused": [], "changed": [],
               "problems": [], "notes": []}
+    edat_at = find_edat(blob)
+    if edat_at < 0:
+        report["problems"].append("the member has no EDAT header followed by an EVNT section")
+        return blob, report
+    report["edat_at"] = edat_at
     ordered = sorted(rows, key=lambda row: row["source"]["offset"], reverse=True)
     out = blob
     for row in ordered:
@@ -356,11 +399,11 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
                 report["notes"].append(
                     f"{row['id']}: narration line {wide[0][0]} wide, widest measured is "
                     f"{NARRATION_WIDTH}")
-        out = grow_text(out, record, en)
+        out = grow_text(out, record, en, edat_at)
         report["applied"] += 1
         report["changed"].append((offset, jp, en))
     if verify_result and report["changed"]:
-        report["problems"] = verify(blob, out, report["changed"])
+        report["problems"] = verify(blob, out, report["changed"], edat_at)
     return out, report
 
 
