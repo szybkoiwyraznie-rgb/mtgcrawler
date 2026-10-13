@@ -189,8 +189,9 @@ class GrowTest(unittest.TestCase):
         self.assertEqual(out, self.blob)
         self.assertEqual(report["applied"], 0)
         self.assertEqual(report["skipped"],
-                         ["dlg:x:2: kind embedded has no length field at "
-                          f"{self.table} (its own writer is still to come)"])
+                         ["dlg:x:2: kind embedded at "
+                          f"{self.table}: no record with a measured text position "
+                          "starts there"])
 
     def test_two_rows_are_applied_from_the_end_so_offsets_hold(self):
         rows = [row("dlg:x:1", self.offsets[0], self.jp, "First line!"),
@@ -301,6 +302,123 @@ class NarrationTest(unittest.TestCase):
             row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"), "x" * (A.BOX_WIDTH + 1))])
         self.assertEqual(report["applied"], 0)
         self.assertEqual(len(report["refused"]), 1)
+
+
+def plain_record(rtype: int, params: bytes, text: bytes) -> bytes:
+    """A record of any measured kind: type, size, fixed parameter words, text, NUL padding."""
+    start = A.RECORD_HEADER + len(params)
+    assert start in A.text_starts(rtype), \
+        f"{rtype:#x} was not measured with {len(params)} parameter bytes"
+    size = A.padded_size(len(text), start)
+    return (struct.pack("<II", rtype, size) + params + text
+            + b"\x00" * (size - start - len(text)))
+
+
+def member_with_records(records) -> bytes:
+    """One EVNT section holding one C8 wrapper around the given records (the real framing)."""
+    inner = b"".join(records)
+    wrapper = struct.pack("<II", WRAPPER, len(inner) + 8) + inner
+    sections = b"EVNT" + struct.pack("<I", len(HEADER + wrapper)) + HEADER + wrapper
+    return b"EDAT" + struct.pack("<II", len(sections), 1) + sections
+
+
+class KindRecordTests(unittest.TestCase):
+    """The mission-window kinds measured on eventP00.cpk on 2026-10-13.
+
+    Conditions, help, labels, locations and scene titles are plain chain records with a fixed
+    text position, so the dialogue grow mechanism writes them unchanged; only the box rule and
+    the unmeasured 0x14A label need their own behaviour.
+    """
+
+    KINDS = [(A.RECORD_CONDITION_VICTORY, b"", "condition_victory",
+              "ＭＳ小隊を撃墜", "Shoot down the MS squad"),
+             (A.RECORD_CONDITION_DEFEAT, b"", "condition_defeat",
+              "戦艦を撃墜される", "Don't let them sink the battleship"),
+             (A.RECORD_LABEL, b"", "label", "部隊壊滅", "Squad wiped out"),
+             (A.RECORD_LOCATION, struct.pack("<I", 0x312), "location",
+              "ア・バオア・クー", "A Baoa Qu"),
+             (A.RECORD_HELP, struct.pack("<I", 1), "help",
+              "このエリアの敵を全滅させてください。", "Wipe out every enemy in this area."),
+             (A.RECORD_LABEL_ID, struct.pack("<I", 368), "label",
+              "隠しアイテム", "Hidden item"),
+             (A.RECORD_LABEL_ALT, b"", "label",
+              "コネクト・ステーション／地球圏", "Connect Station / Earth Sphere"),
+             (A.RECORD_LABEL, struct.pack("<I", 149), "label",
+              "第２話「地底に潜む脅威」", "Stage 2: The Threat Below"),
+             (A.RECORD_SCENE_TITLE, struct.pack("<III", 0, 1, 0), "scene_title",
+              "第１話　悲劇の幕開け", "Stage 1: The Curtain Rises")]
+
+    def setUp(self):
+        self.blob = member_with_records(
+            [plain_record(rtype, params, jp.encode("cp932"))
+             for rtype, params, _kind, jp, _en in self.KINDS])
+        parsed, errors = A.parse_block_records(self.blob)
+        self.assertEqual(errors, [])
+        self.records = sorted((r for r in parsed if r["type"] in A.TEXT_START
+                               and r["type"] != TEXT),
+                              key=lambda r: r["offset"])
+        self.starts = [A.text_start_of(self.blob, r) for r in self.records]
+
+    def test_the_fixture_parses_every_kind(self):
+        self.assertEqual(len(self.records), len(self.KINDS))
+        for record, start, (rtype, params, _kind, jp, _en) in zip(
+                self.records, self.starts, self.KINDS):
+            self.assertEqual(record["type"], rtype)
+            self.assertEqual(start, A.RECORD_HEADER + len(params))   # resolver picks the shape
+            self.assertEqual(A.text_of(self.blob, record), jp.encode("cp932"))
+
+    def test_every_measured_kind_grows_and_keeps_the_sizes_consistent(self):
+        rows = [row(f"{kind}/{rtype:#x}", record["offset"] + start, jp, en, kind=kind)
+                for record, start, (rtype, _params, kind, jp, en)
+                in zip(self.records, self.starts, self.KINDS)]
+        out, report = A.apply_member(self.blob, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["applied"], len(self.KINDS))
+        parsed, errors = A.parse_block_records(out)
+        self.assertEqual(errors, [])
+        grown = sorted((r for r in parsed if r["type"] in A.TEXT_START and r["type"] != TEXT),
+                       key=lambda r: r["offset"])
+        self.assertEqual(len(grown), len(self.KINDS))
+        for record, (_rtype, _params, _kind, _jp, en) in zip(grown, self.KINDS):
+            self.assertEqual(A.text_of(out, record), en.encode("cp932"))
+        # shrinking back from the grown offsets reproduces the original byte for byte
+        back = [row(f"back/{kind}/{rtype:#x}", record["offset"] + A.text_start_of(out, record),
+                    en, jp, kind=kind)
+                for record, (rtype, _params, kind, jp, en) in zip(grown, self.KINDS)]
+        out2, report2 = A.apply_member(out, back)
+        self.assertEqual(report2["applied"], len(self.KINDS))
+        self.assertEqual(report2["problems"], [])
+        self.assertEqual(out2, self.blob)
+
+    def test_a_wide_condition_line_is_refused_like_dialogue(self):
+        record = self.records[0]                     # condition_victory
+        self.assertEqual(record["type"], A.RECORD_CONDITION_VICTORY)
+        wide = "Destroy every single enemy mobile suit squadron of the whole battlefield"
+        rows = [row("wide", record["offset"] + 8, "ＭＳ小隊を撃墜", wide,
+                    kind="condition_victory")]
+        out, report = A.apply_member(self.blob, rows)
+        self.assertEqual(report["applied"], 0)
+        self.assertEqual(len(report["refused"]), 1)
+        self.assertIn("the box fits", report["refused"][0])
+        self.assertEqual(out, self.blob)
+
+    def test_a_record_kind_without_a_measured_position_is_skipped(self):
+        # a type outside TEXT_START: the writer refuses its rows instead of guessing the layout
+        text = "ＭＳ小隊".encode("cp932")
+        size = A.padded_size(len(text), 8)
+        record = struct.pack("<II", 0x1FF, size) + text + b"\x00" * (size - 8 - len(text))
+        blob = member_with_records([record])
+        parsed, errors = A.parse_block_records(blob)   # the chain walker still sees the record
+        self.assertEqual(errors, [])
+        found = [r for r in parsed if r["type"] == 0x1FF]
+        self.assertEqual(len(found), 1)
+        out, report = A.apply_member(blob, [row("kind/0x1ff", found[0]["offset"] + 8,
+                                                "ＭＳ小隊", "MS squad", kind="label")])
+        self.assertEqual(report["applied"], 0)
+        self.assertEqual(len(report["skipped"]), 1)
+        self.assertIn("measured text position", report["skipped"][0])
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(out, blob)
 
 
 if __name__ == "__main__":

@@ -60,7 +60,7 @@ def rows_from_spec(blob: bytes, member: str, spec: dict) -> Tuple[List[dict], Li
     records, _ = ETA.parse_block_records(blob)
     by_offset: Dict[int, dict] = {}
     for record in records:
-        start = ETA.TEXT_START.get(record["type"])
+        start = ETA.text_start_of(blob, record)
         if start is None:
             continue
         at = record["offset"] + start

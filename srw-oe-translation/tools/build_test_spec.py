@@ -241,7 +241,7 @@ def main() -> int:
     members = dict(SM.read_members(HERE.parent / "google_drive" / "eventP00.cpk"))
     blob = members[MEMBER]
     records, _ = ETA.parse_block_records(blob)
-    known = {record["offset"] + ETA.TEXT_START[record["type"]]: record["type"]
+    known = {record["offset"] + ETA.text_start_of(blob, record): record["type"]
              for record in records if record["type"] in ETA.TEXT_START}
     for offset, kind, _text in LINES:
         if offset not in known:

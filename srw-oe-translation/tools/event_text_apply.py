@@ -60,8 +60,70 @@ import speaker_map as SM  # noqa: E402
 
 RECORD_TEXT = 0xC9
 RECORD_NARRATION = 0x1B7
+# The remaining scene-element kinds, measured on the real eventP00.cpk members (2026-10-13):
+# every one is a plain chain record -- u32 type, u32 size, optional u32 parameters, text+NUL,
+# zero padding -- the same shape the dialogue/narration grow mechanism already handles, and the
+# padded_size alignment rule (4-byte aligned, at least one NUL) holds on every sampled record.
+RECORD_SCENE_TITLE = 0x1B6        # three u32 parameters, then the text
+RECORD_CONDITION_DEFEAT = 0x1B5   # text right after the record header
+RECORD_CONDITION_VICTORY = 0x1B4  # text right after the record header
+RECORD_LOCATION = 0x152           # u32 location id, then the text
+RECORD_HELP = 0x1FC               # u32 parameter, then the text
+RECORD_LABEL = 0x1BA              # two measured shapes: bare text, or u32 id then text
+RECORD_LABEL_ID = 0x14F           # u32 id, then the text (bare shape allowed by candidates)
+RECORD_LABEL_ALT = 0x14A          # text right after the record header (4 eventP00 samples)
 #: record type -> where its text starts inside the record (8-byte record header + own header)
-TEXT_START = {RECORD_TEXT: 20, RECORD_NARRATION: 12}
+TEXT_START = {
+    RECORD_TEXT: 20,
+    RECORD_NARRATION: 12,
+    RECORD_SCENE_TITLE: 20,
+    RECORD_CONDITION_DEFEAT: 8,
+    RECORD_CONDITION_VICTORY: 8,
+    RECORD_LOCATION: 12,
+    RECORD_HELP: 12,
+    RECORD_LABEL: 8,
+    RECORD_LABEL_ID: 12,
+    RECORD_LABEL_ALT: 8,
+}
+#: kinds measured in two shapes (2026-10-13, eventP00): 0x1BA labels sit bare at +8 in
+#: DL100_01.bin and carry a u32 id before the text at +12 in DL102_11.bin; 0x14F was only
+#: seen with an id, but its bare shape is admitted so a row offset decides, never a guess.
+TEXT_START_ALT = {RECORD_LABEL: (8, 12), RECORD_LABEL_ID: (8, 12)}
+
+
+def text_starts(record_type: int) -> tuple:
+    """Every candidate text position of a record type (empty for types without one)."""
+    if record_type in TEXT_START_ALT:
+        return TEXT_START_ALT[record_type]
+    if record_type in TEXT_START:
+        return (TEXT_START[record_type],)
+    return ()
+
+
+def text_start_of(blob: bytes, record: dict) -> Optional[int]:
+    """Where the text of this record really starts: its own choice among the candidates.
+
+    Single-shape kinds return their measured position unchanged.  For the two-shape kinds the
+    smallest candidate consistent with the record's own padding wins: the text must run to a
+    NUL inside the record and ``padded_size(len, start)`` must equal the declared size, with
+    zero padding bytes -- measured to single out the right shape on every sampled record.
+    A record returned by :func:`find_record` already carries the row's position as
+    ``text_start`` and keeps it.
+    """
+    if record.get("text_start") is not None:
+        return record["text_start"]
+    starts = text_starts(record["type"])
+    if not starts:
+        return None
+    if len(starts) == 1:
+        return starts[0]
+    offset, size = record["offset"], record["size"]
+    payload = blob[offset + RECORD_HEADER:offset + size]
+    for start in starts:
+        text = payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
+        if padded_size(len(text), start) == size and not any(payload[start - RECORD_HEADER + len(text):]):
+            return start
+    return starts[0]
 #: narration is drawn wider than the dialogue box (measured: up to 26 full-width characters)
 NARRATION_WIDTH = 52     # a dialogue line
 RECORD_WRAPPER = 0xC8  # the record that holds the chain of one scene
@@ -109,7 +171,7 @@ def parse_block_records(blob: bytes) -> Tuple[List[dict], List[str]]:
 
 def text_of(blob: bytes, record: dict) -> bytes:
     """The text bytes of a record (everything before the first NUL of its payload)."""
-    start = TEXT_START.get(record["type"])
+    start = text_start_of(blob, record)
     if start is None:
         raise ValueError(f"record type {record['type']:#x} has no text field I know")
     offset, size = record["offset"], record["size"]
@@ -120,16 +182,18 @@ def text_of(blob: bytes, record: dict) -> bytes:
 def find_record(blob: bytes, text_offset: int, text: bytes) -> Optional[dict]:
     """The innermost record with a length field whose text starts exactly at ``text_offset``.
 
-    Dialogue and narration are both measured to keep their text at a fixed place after the record
-    header, so both are found the same way; anything else has no length field and is refused here
-    (its own writer is still to come).
+    Every kind in :data:`TEXT_START` is measured to keep its text at a fixed place after the
+    record header, so all of them are found the same way; a kind whose text position is not
+    measured (0x14A labels) has no entry and is refused here until it is.
     """
     records, _ = parse_block_records(blob)
-    candidates = [r for r in records
-                  if r["type"] in TEXT_START
-                  and r["offset"] + TEXT_START[r["type"]] == text_offset
-                  and blob[r["offset"]:r["offset"] + r["size"]].startswith(
-                      struct.pack("<II", r["type"], r["size"]))]
+    candidates = []
+    for r in records:
+        hit = next((start for start in text_starts(r["type"])
+                    if r["offset"] + start == text_offset), None)
+        if hit is not None and blob[r["offset"]:r["offset"] + r["size"]].startswith(
+                struct.pack("<II", r["type"], r["size"])):
+            candidates.append(dict(r, text_start=hit))
     if not candidates:
         return None
     record = min(candidates, key=lambda r: r["size"])
@@ -171,7 +235,7 @@ def grow_text(blob: bytes, record: dict, new_text: bytes, edat_at: int = 0) -> b
     four bytes per section) -- measured on the real files.
     """
     offset, old_size = record["offset"], record["size"]
-    start = TEXT_START.get(record["type"])
+    start = text_start_of(blob, record)
     if start is None:
         raise ValueError(f"record type {record['type']:#x} has no text field I know")
     old_text = text_of(blob, record)
@@ -251,8 +315,8 @@ def texts_of_member(blob: bytes, container: str = "", member: str = "") -> List[
 def _text_kind(records: List[dict], text_offset: int) -> Tuple[Optional[str], Optional[int]]:
     """``(kind, record type)`` of the record whose text starts at this offset."""
     for record in records:
-        start = TEXT_START.get(record["type"])
-        if start is not None and record["offset"] + start == text_offset:
+        if any(record["offset"] + start == text_offset
+               for start in text_starts(record["type"])):
             return kind_of(record["type"]), record["type"]
     return None, None
 
@@ -382,10 +446,12 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
         record = find_record(out, offset, jp)
         if record is None:
             report["skipped"].append(
-                f"{row['id']}: kind {row.get('kind')} has no length field at {offset} "
-                "(its own writer is still to come)")
+                f"{row['id']}: kind {row.get('kind')} at {offset}: no record with a "
+                "measured text position starts there")
             continue
-        if record["type"] == RECORD_TEXT:
+        if record["type"] != RECORD_NARRATION:
+            # the dialogue box rule covers the mission-window kinds too: the translator manual
+            # promises the same 46-unit limit for conditions, help, labels, locations and titles
             problems = box_problems(row["en"] or "")
             if problems:
                 report["refused"].extend(f"{row['id']}: {problem}" for problem in problems)
