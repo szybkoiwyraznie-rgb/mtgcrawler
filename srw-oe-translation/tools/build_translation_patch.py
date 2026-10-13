@@ -365,7 +365,7 @@ class ContainerBuild:
 
         self._eta(by_owner.get("eta", []))
         self._qa(by_owner.get("qa", []))
-        self._slot_pass("tail-slots", tails)
+        self._slot_pass("tail-slots", tails, pool=True)   # tail-pool rows: located by content
         self._isw(by_owner.get("isw", []))
         self._tw(by_owner.get("tw", []))
         self._nmt(by_owner.get("nmt", []))
@@ -513,9 +513,11 @@ class ContainerBuild:
             if not self.dry_run:
                 src.unlink(missing_ok=True)
 
-    def _slot_pass(self, step: str, rows: List[dict]) -> None:
+    def _slot_pass(self, step: str, rows: List[dict], pool: bool = False) -> None:
         rows = [r for r in rows if filled(r) and isinstance((r.get("source") or {}).get("offset"), int)]
-        self._run_container_step(step, {"rows": rows, "call": SLA.apply_container})
+        call = SLA.apply_container if not pool else \
+            (lambda src, dst, r: SLA.apply_container(src, dst, r, pool=True))
+        self._run_container_step(step, {"rows": rows, "call": call})
 
 
 def _iter_members(path: Path) -> Iterable[Tuple[str, bytes]]:

@@ -262,8 +262,24 @@ def plan_offset_edits(rows: Iterable[dict], member: str, parsed: dict, blob: byt
     return edits, skipped, stats
 
 
+def _norm_value(value: object) -> bytes:
+    """Comparable bytes of an edit value: planners emit text (plan_edits) or the ready bytes
+    of encode_target (plan_offset_edits) for the same physical field."""
+    if isinstance(value, bytes):
+        return value
+    try:
+        return encode(str(value))
+    except WriteError:
+        return b"\x00unencodable:" + str(value).encode("utf-8", "replace")
+
+
 def merge_edits(*plans) -> Tuple[Dict[int, Dict[str, object]], List[str]]:
-    """Merge edit plans; a physical target named twice with different bytes refuses the member."""
+    """Merge edit plans; a physical target named twice with different bytes refuses the member.
+
+    The two planners represent the same translation differently (text vs encoded bytes), so
+    the conflict test compares encoded bytes - a structured row and an offset row covering the
+    same field with the same English are one edit, not a conflict.
+    """
     merged: Dict[int, Dict[str, object]] = {}
     problems: List[str] = []
     for edits in plans:
@@ -271,7 +287,8 @@ def merge_edits(*plans) -> Tuple[Dict[int, Dict[str, object]], List[str]]:
             for role, value in roles.items():
                 if role == "__conflict__":
                     continue
-                if merged.setdefault(record, {}).get(role) not in (None, value):
+                previous = merged.setdefault(record, {}).get(role)
+                if previous is not None and _norm_value(previous) != _norm_value(value):
                     problems.append(f"record {record} role {role}: two rows, two translations")
                     merged[record].pop(role)
                     merged[record]["__conflict__"] = True
@@ -355,6 +372,7 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
             report["members"].append(member_report)
         if changed:
             replacement = (member.name, configst_pack.rebuild_pac(pac))
+    report["applied"] = report["applied_rows"]   # the orchestrator reads this key
     if replacement is None:
         report["changed"] = False
         return report

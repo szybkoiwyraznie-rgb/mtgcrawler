@@ -225,8 +225,10 @@ def config_rows(local: Path) -> List[dict]:
                 text = string.get("text") or ""
                 if not text:
                     continue
-                offset = item.get("record_offset", 0) + string.get("rel", 0) if not item.get("pool") \
-                    else item.get("record_offset", 0)
+                # convention-B tail-pool items carry one record_offset (the pool start) and a
+                # rel per string; convention-C items point at each string already (rel 0) -
+                # the sum is the true offset in both cases
+                offset = item.get("record_offset", 0) + string.get("rel", 0)
                 rows.append(
                     {
                         "id": f"{kind}:{item['container']}/{item['member']}:{offset}",

@@ -64,12 +64,26 @@ class BasicWriteTests(unittest.TestCase):
         self.assertEqual(out, self.blob)
         self.assertIn("do not fit the 16-byte budget", report["refused"][0])
 
-    def test_dirty_budget_area_refused(self):
-        # budget 64 would reach into the next run, which is not clean padding
+    def test_short_en_never_touches_the_dirty_budget_area(self):
+        # budget 70 reaches into the next run, but a 4-byte EN only replaces the 6-byte span:
+        # bytes behind the write stay untouched, so the dirty neighbour no longer matters
         rows = [row("a", 0, "テスト", "TEST", max_bytes=70)]
         out, report = SLA.apply_member(self.blob, rows)
-        self.assertEqual(out, self.blob)
-        self.assertIn("not clean padding", report["refused"][0])
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[0:6], b"TEST\x00\x00")
+        self.assertEqual(out[6:], self.blob[6:])
+
+    def test_growth_into_a_dirty_area_is_refused(self):
+        dirty = b"test\x00\x00" + b"\x01\x01" + b"name\x00"
+        rows = [row("a", 0, "test", "ABCDEFGH", max_bytes=12)]
+        out, report = SLA.apply_member(dirty, rows)
+        self.assertEqual(out, dirty)
+        self.assertIn("growth area", report["refused"][0])
+        clean = b"test\x00\x00\x00\x00" + b"name\x00"
+        out, report = SLA.apply_member(clean, rows)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[0:8], b"ABCDEFGH")
+        self.assertEqual(out[8:], clean[8:])
 
     def test_stale_jp_refused(self):
         rows = [row("a", 0, "Something else", "TEST", max_bytes=64)]
@@ -148,6 +162,58 @@ class ConflictTests(unittest.TestCase):
         self.assertEqual(out, self.blob)
         self.assertEqual(report["applied"], 0)
         self.assertTrue(any("conflicts" in line for line in report["refused"]))
+
+
+class PoolLookupTests(unittest.TestCase):
+    """pool=True: the row's offset marks the pool start, the string is found by content."""
+
+    def setUp(self):
+        self.head = b"\x01\x02\x03\x00" * 16          # 64 bytes of "records", ends with NUL
+        self.blob = self.head + b"aaa\x00bb\x00aaa\x00"
+
+    def test_found_by_content_and_every_occurrence_written(self):
+        rows = [row("p", 64, "bb", "BB")]
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[68:70], b"BB")
+        rows = [row("p", 64, "aaa", "AA")]             # two identical runs: both are written
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(report["applied"], 2)
+        self.assertEqual(out[64:68], b"AA\x00\x00")
+        self.assertEqual(out[71:75], b"AA\x00\x00")
+        self.assertEqual(len(out), len(self.blob))
+
+    def test_exact_offset_wins_without_pool_flag(self):
+        rows = [row("p", 64, "aaa", "AA")]             # jp sits at the offset: plain path
+        out, report = SLA.apply_member(self.blob, rows)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[64:66], b"AA")
+
+    def test_without_pool_flag_the_offset_must_match(self):
+        rows = [row("p", 64, "bb", "BB")]
+        out, report = SLA.apply_member(self.blob, rows)
+        self.assertEqual(out, self.blob)
+        self.assertIn("does not match", report["refused"][0])
+
+    def test_missing_from_the_pool_is_refused(self):
+        rows = [row("p", 64, "zzz", "ZZZ")]
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(out, self.blob)
+        self.assertIn("not found in the pool", report["refused"][0])
+
+    def test_growth_inside_the_pool_is_refused(self):
+        # pool strings sit back to back: the in-place budget is span+1, growth would eat
+        # the neighbour - refused, the string stays Japanese
+        rows = [row("p", 64, "bb", "BBBB")]
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(out, self.blob)
+        self.assertIn("do not fit", report["refused"][0])
+
+    def test_conflicting_rows_refuse_the_span(self):
+        rows = [row("p1", 64, "bb", "XX"), row("p2", 64, "bb", "YY")]
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(out, self.blob)
+        self.assertTrue(any("conflicts" in m for m in report["refused"]))
 
 
 class VerifyTests(unittest.TestCase):

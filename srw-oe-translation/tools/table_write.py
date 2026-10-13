@@ -417,9 +417,11 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
     """Turn package rows into edits for one pool member.  Returns (plan, problems).
 
     ``plan`` is ``{"convention": "A"|"C", "edits": {(record, slot) | (index,): bytes},
-    "resolved": [...]}`` - ``resolved`` records the physical target of every accepted row so the
-    orchestrator can deduplicate double coverage (04 offset rows and 07/08 key rows can name the
-    same string).
+    "resolved": [...], "refused": [...]}`` - ``resolved`` records the physical target of every
+    accepted row so the orchestrator can deduplicate double coverage (04 offset rows and 07/08
+    key rows can name the same string); ``refused`` lists the row-level skips (foreign keyspace,
+    stale jp, resolved conflicts) that do not poison the member.  ``problems`` stays reserved
+    for member-fatal structural failures.
     """
     rows = [r for r in rows if member_matches((r.get("source") or {}).get("member"), sub_name)]
     problems: List[str] = []
@@ -436,17 +438,18 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
             keyed.setdefault(record_key(blob, span, family), []).append(i)
         edits: Dict[Tuple[int, int], bytes] = {}
         resolved: List[tuple] = []
+        refused: List[str] = []
         for row in rows:
             en = (row.get("en") or "").strip()
             if not en:
                 continue                      # partial package: the string stays Japanese
             source = row.get("source") or {}
             targets = resolve_one(row, en, blob, spans, records, by_offset, keyed, family,
-                                  sub_name, problems)
+                                  sub_name, refused)
             for (i, j), value in targets:
                 resolved.append((sub_name, i, j, row.get("id")))
                 if (i, j) in edits and edits[(i, j)] != value:
-                    problems.append(
+                    refused.append(
                         f"{row.get('id')}: conflicts with another row targeting record "
                         f"{i} slot {j}; keeping the row whose jp covers the whole string")
                     if not row.get("key"):
@@ -454,7 +457,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
                     continue
                 edits[(i, j)] = value
         return {"convention": "A", "edits": edits, "resolved": resolved, "member": sub_name,
-                "records": len(records)}, problems
+                "records": len(records), "refused": refused}, problems
     # convention C?
     try:
         offs, strings = parse_pool_c(blob)
@@ -467,6 +470,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
     by_offset = {off: i for i, off in enumerate(offs)}
     edits_c: Dict[int, bytes] = {}
     resolved = []
+    refused = []
     for row in rows:
         en = (row.get("en") or "").strip()
         if not en:
@@ -474,37 +478,42 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
         source = row.get("source") or {}
         offset = source.get("offset")
         if not isinstance(offset, int) or offset not in by_offset:
-            problems.append(f"{row.get('id')}: offset {offset} is not a pool string start")
+            refused.append(f"{row.get('id')}: offset {offset} is not a pool string start")
             continue
         index = by_offset[offset]
         form = match_form(row.get("jp"), strings[index])
         if form is None:
-            problems.append(f"{row.get('id')}: jp does not match the string at {offset}")
+            refused.append(f"{row.get('id')}: jp does not match the string at {offset}")
             continue
         try:
             value = encode_en(en, strings[index], form)
         except TableError as exc:
-            problems.append(f"{row.get('id')}: {exc}")
+            refused.append(f"{row.get('id')}: {exc}")
             continue
         resolved.append((sub_name, index, None, row.get("id")))
         edits_c[index] = value
     return {"convention": "C", "edits": edits_c, "resolved": resolved, "member": sub_name,
-            "records": len(strings)}, problems
+            "records": len(strings), "refused": refused}, problems
 
 
 def resolve_one(row: dict, en: str, blob: bytes, spans, records, by_offset, keyed,
-                family: Family, sub_name: str, problems: List[str]) -> List[tuple]:
-    """[((record, slot), bytes)] for one row; empty when it is skipped or refused."""
+                family: Family, sub_name: str, refused: List[str]) -> List[tuple]:
+    """[((record, slot), bytes)] for one row; empty when it is skipped or refused.
+
+    Every skip lands in ``refused`` - a row-level note.  Rows that do not belong to this
+    member's keyspace (the 07/08 broadcast) or whose jp went stale refuse themselves without
+    poisoning the rest of the member; only structural failures (parse/verify) are problems.
+    """
     source = row.get("source") or {}
     if row.get("category") == "config_item_drop":
-        problems.append(f"{row.get('id')}: ItemDrop rows are binary noise; skipped")
+        refused.append(f"{row.get('id')}: ItemDrop rows are binary noise; skipped")
         return []
     if row.get("key") is not None and family.key is not None \
             and row.get("part") in PART_SLOT.get(sub_name_prefix(sub_name), {}):
         slot = PART_SLOT[sub_name_prefix(sub_name)][row["part"]]
         matches = keyed.get(int(row["key"]), [])
         if not matches:
-            problems.append(f"{row.get('id')}: no record with key {row['key']}")
+            refused.append(f"{row.get('id')}: no record with key {row['key']}")
             return []
         out = []
         for i in matches:
@@ -512,29 +521,29 @@ def resolve_one(row: dict, en: str, blob: bytes, spans, records, by_offset, keye
             prefix = template_prefix(row["part"], original, sub_name)
             form = match_form(row.get("jp"), original[len(prefix):])
             if form is None:
-                problems.append(f"{row.get('id')}: jp does not match record {i} slot {slot}")
+                refused.append(f"{row.get('id')}: jp does not match record {i} slot {slot}")
                 return []
             try:
                 value = prefix + encode_en(en, original[len(prefix):], form)
             except TableError as exc:
-                problems.append(f"{row.get('id')}: {exc}")
+                refused.append(f"{row.get('id')}: {exc}")
                 return []
             out.append(((i, slot), value))
         return out
     offset = source.get("offset")
     if not isinstance(offset, int) or offset not in by_offset:
-        problems.append(f"{row.get('id')}: offset {offset} is not a string start of this pool")
+        refused.append(f"{row.get('id')}: offset {offset} is not a string start of this pool")
         return []
     i, j = by_offset[offset]
     original = records[i].strings[j]
     form = match_form(row.get("jp"), original)
     if form is None:
-        problems.append(f"{row.get('id')}: jp does not match the string at {offset}")
+        refused.append(f"{row.get('id')}: jp does not match the string at {offset}")
         return []
     try:
         value = encode_en(en, original, form)
     except TableError as exc:
-        problems.append(f"{row.get('id')}: {exc}")
+        refused.append(f"{row.get('id')}: {exc}")
         return []
     return [((i, j), value)]
 
@@ -562,7 +571,7 @@ def apply_member(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[byte
     plan, problems = resolve_rows(blob, sub_name, rows)
     report = {"member": sub_name, "convention": plan["convention"], "records": plan["records"],
               "edits": len(plan["edits"]), "resolved": plan["resolved"],
-              "problems": problems, "skipped_empty": 0}
+              "problems": problems, "refused": plan.get("refused", []), "skipped_empty": 0}
     if plan["convention"] is None or not plan["edits"]:
         return blob, report
     family = family_of(sub_name)
@@ -637,7 +646,7 @@ def rows_for_container(package: Path, container: str) -> List[dict]:
 
 def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
     """Rebuild the container with every translated pool member, chained through ``dst``."""
-    summary = {"container": src.name, "members": 0, "edits": 0, "problems": [],
+    summary = {"container": src.name, "members": 0, "edits": 0, "refused": 0, "problems": [],
                "per_member": {}, "written": None, "dry_run": dry_run, "resolved": []}
     current = src
     produced = False
@@ -678,7 +687,11 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
 
 
 def _apply_sub(sub_name: str, data: bytes, rows: List[dict], summary: dict):
-    """Apply rows to one (sub)member when a pool writer owns it; feed the summary."""
+    """Apply rows to one (sub)member when a pool writer owns it; feed the summary.
+
+    A member whose rebuild raises (e.g. the unexplained-in-record-references guard) is
+    refused on its own - the rest of the container still gets its edits.
+    """
     mine = [r for r in rows if member_matches((r.get("source") or {}).get("member"), sub_name)]
     if not mine:
         return None, None
@@ -688,14 +701,22 @@ def _apply_sub(sub_name: str, data: bytes, rows: List[dict], summary: dict):
         except TableError:
             summary["problems"].append(f"{sub_name}: {len(mine)} rows but no pool writer")
             return None, None
-    modified, report = apply_member(data, sub_name, mine)
+    try:
+        modified, report = apply_member(data, sub_name, mine)
+    except TableError as exc:
+        summary["problems"].append(f"{sub_name}: {exc}")
+        return None, None
     summary["members"] += 1
     summary["edits"] += report["edits"]
     summary["resolved"] += report["resolved"]
+    summary["refused"] += len(report["refused"])
     for message in report["problems"]:
         summary["problems"].append(f"{sub_name}: {message}")
+    for message in report["refused"][:8]:
+        summary["problems"].append(f"{sub_name}: refused: {message}")
     summary["per_member"][sub_name] = {k: report[k] for k in
                                        ("convention", "records", "edits", "problems")}
+    summary["per_member"][sub_name]["refused"] = len(report["refused"])
     return modified, report
 
 

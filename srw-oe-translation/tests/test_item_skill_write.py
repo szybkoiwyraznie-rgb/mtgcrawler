@@ -340,6 +340,16 @@ class OffsetAdapterTest(unittest.TestCase):
         self.assertEqual(merged, {1: {"effect": b"One"}})
         self.assertEqual(problems, [])
 
+    def test_text_and_bytes_of_the_same_translation_are_one_edit(self):
+        # plan_edits emits text, plan_offset_edits the encoded bytes of the same field:
+        # the conflict test compares encoded bytes, not the representation
+        merged, problems = ISW.merge_edits({1: {"effect": "One"}}, {1: {"effect": b"One"}})
+        self.assertEqual(problems, [])
+        self.assertIn("effect", merged[1])
+        merged, problems = ISW.merge_edits({1: {"effect": "One"}}, {1: {"effect": b"Two"}})
+        self.assertEqual(merged, {})
+        self.assertTrue(any("two rows, two translations" in p for p in problems))
+
 
 class CrossRefTest(unittest.TestCase):
     def test_mutual_word_at_36_is_repointed_after_growth(self):

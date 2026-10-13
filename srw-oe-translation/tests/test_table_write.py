@@ -164,7 +164,8 @@ class RowResolutionTests(unittest.TestCase):
         rows = [row_offset(self.string_offset(1, 0), " Someone else ", "X", self.MEMBER)]
         modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
         self.assertEqual(modified, self.pool)
-        self.assertTrue(any("jp does not match" in p for p in report["problems"]))
+        self.assertEqual(report["problems"], [])       # a stale row is not member-fatal
+        self.assertTrue(any("jp does not match" in p for p in report["refused"]))
 
     def test_key_row_keeps_the_nickname_label(self):
         rows = [row_key(501, "nickname", "仁", "Jin", self.MEMBER)]
@@ -195,7 +196,20 @@ class RowResolutionTests(unittest.TestCase):
         rows = [row_key(1234, "name", "x", "y", self.MEMBER)]
         modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
         self.assertEqual(modified, self.pool)
-        self.assertTrue(any("no record with key" in p for p in report["problems"]))
+        self.assertEqual(report["problems"], [])       # a foreign key is not member-fatal
+        self.assertTrue(any("no record with key" in p for p in report["refused"]))
+
+    def test_unknown_key_does_not_poison_a_valid_row(self):
+        # the 07/08 broadcast: every dictionary container sees every key; the ones it does
+        # not hold are row-level skips and the rest of the member is still written
+        rows = [row_key(1234, "name", "x", "y", self.MEMBER),
+                row_key(501, "name", "日向仁", "Hinata Jin", self.MEMBER)]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertNotEqual(modified, self.pool)
+        self.assertEqual(report["problems"], [])
+        self.assertTrue(any("no record with key" in p for p in report["refused"]))
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[1].strings[0], b"Hinata Jin")
 
     def test_empty_english_leaves_the_pool_untouched(self):
         rows = [row_offset(self.string_offset(1, 0), "日向仁", "", self.MEMBER)]
@@ -204,16 +218,39 @@ class RowResolutionTests(unittest.TestCase):
         self.assertEqual(report["edits"], 0)
         self.assertEqual(report["problems"], [])
 
-    def test_a_conflict_between_two_rows_refuses_the_member(self):
-        """Two rows naming the same string with different English is a package bug: the writer
-        is fail-closed, so the whole member stays untouched and the report names the conflict
-        (the orchestrator deduplicates double coverage before rows ever reach this point)."""
+    def test_a_conflict_between_two_rows_keeps_the_offset_row(self):
+        """Two rows naming the same string with different English: the conflict is resolved
+        deterministically at row level (the offset row carries the full labeled string and
+        wins), the member is still written and the report names the resolution."""
         rows = [row_key(501, "name", "日向仁", "Key Version", self.MEMBER, row_id="key"),
                 row_offset(self.string_offset(1, 0), "日向仁", "Offset Version", self.MEMBER,
                            row_id="off")]
         modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
-        self.assertEqual(modified, self.pool)
-        self.assertTrue(any("conflicts" in p for p in report["problems"]))
+        self.assertNotEqual(modified, self.pool)
+        self.assertEqual(report["problems"], [])
+        self.assertTrue(any("conflicts" in p for p in report["refused"]))
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[1].strings[0], b"Offset Version")
+
+
+class SubContainmentTests(unittest.TestCase):
+    """A member whose rebuild raises is refused alone; the container step survives."""
+
+    def test_a_raising_member_is_contained(self):
+        rec = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
+        struct.pack_into("<I", rec, 68, 73)      # a word pointing into its own string area
+        pool = make_pool([bytes(rec)])
+        spans = TW.record_spans(pool)
+        parsed = TW.parse_pool(pool, CHARA)
+        self.assertTrue(parsed[0].unexplained_refs)
+        rows = [row_offset(spans[0][0] + parsed[0].pointers[0], "日向仁", "Hinata Jin",
+                           "srwDL_CharaDictionary99.bin")]
+        summary = {"members": 0, "edits": 0, "refused": 0, "problems": [], "per_member": {},
+                   "resolved": []}
+        blob, report = TW._apply_sub("srwDL_CharaDictionary99.bin", pool, rows, summary)
+        self.assertIsNone(blob)
+        self.assertIsNone(report)
+        self.assertTrue(any("unexplained" in p for p in summary["problems"]))
 
 
 class TokenTests(unittest.TestCase):

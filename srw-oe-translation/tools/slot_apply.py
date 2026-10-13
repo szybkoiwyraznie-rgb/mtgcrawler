@@ -58,12 +58,38 @@ def span_around(data: bytes, offset: int) -> Tuple[int, bytes]:
     return start, data[start:end if end >= 0 else len(data)]
 
 
-def apply_member(blob: bytes, rows: Iterable[dict], member: str = "") -> Tuple[bytes, dict]:
-    """Write every fitting row in place.  Returns (bytes, report)."""
+def pool_spans(data: bytes, start: int) -> List[Tuple[int, bytes]]:
+    """(start, bytes) of every NUL-delimited run at or after ``start``."""
+    out: List[Tuple[int, bytes]] = []
+    i = max(0, start)
+    n = len(data)
+    while i < n:
+        j = i
+        while j < n and data[j]:
+            j += 1
+        if j > i:
+            out.append((i, data[i:j]))
+        i = j + 1
+    return out
+
+
+def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
+                 pool: bool = False) -> Tuple[bytes, dict]:
+    """Write every fitting row in place.  Returns (bytes, report).
+
+    ``pool=True`` is the tail-pool pass of the orchestrator: the package marks every string of
+    a convention-B tail pool with the pool's *start* offset (one id for the whole pool), so a
+    pool row is looked up by content among the NUL-delimited runs at or after that offset and
+    every occurrence is written in place (the pool holds duplicate runs and any of them can be
+    the one the game reads).  In-place means same size or shorter: the pool is copied verbatim
+    by the record rebuild and its strings sit back to back, so a longer translation is refused
+    and the string stays Japanese.
+    """
     report = {"member": member, "applied": 0, "refused": [], "problems": [], "bytes": 0,
               "regions": []}
     out = bytearray(blob)
     planned: Dict[int, Tuple[bytes, str]] = {}      # span start -> (value, row id)
+    spans_cache: Dict[int, List[Tuple[int, bytes]]] = {}
     for row in rows:
         row_id = row.get("id")
         source = row.get("source") or {}
@@ -75,36 +101,56 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "") -> Tuple[b
             report["refused"].append(f"{row_id}: no byte offset")
             continue
         start, span = span_around(blob, offset)
-        if not span:
-            report["refused"].append(f"{row_id}: the offset {offset} sits on an empty span")
-            continue
-        form = TW.match_form(row.get("jp"), span)
-        if form is None:
-            report["refused"].append(f"{row_id}: jp does not match the span at {start}")
-            continue
-        try:
-            value = TW.encode_en(en, span, form)
-        except TW.TableError as exc:
-            report["refused"].append(f"{row_id}: {exc}")
-            continue
-        budget = int(row.get("max_bytes") or 0) or (len(span) + 1)
-        if len(value) + 1 > budget:
-            report["refused"].append(
-                f"{row_id}: {len(value)} bytes + NUL do not fit the {budget}-byte budget")
-            continue
-        region_end = min(start + budget - 1, len(blob))
-        if any(blob[start + len(span):region_end]):
-            report["refused"].append(
-                f"{row_id}: the budget area behind the span is not clean padding")
-            continue
-        previous = planned.get(start)
-        if previous is not None:
-            if previous[0] != value:
+        targets: List[Tuple[int, bytes, Optional[str]]] = []
+        if pool:
+            # every occurrence of the row's string in the pool gets the same English: the
+            # pool holds duplicate runs and any of them can be the one the game reads
+            runs = spans_cache.get(offset)
+            if runs is None:
+                runs = spans_cache[offset] = pool_spans(blob, offset)
+            for run_start, run in runs:
+                run_form = TW.match_form(row.get("jp"), run)
+                if run_form is not None:
+                    targets.append((run_start, run, run_form))
+            if not targets:
+                report["refused"].append(f"{row_id}: jp not found in the pool at {offset}")
+                continue
+        else:
+            form = TW.match_form(row.get("jp"), span) if span else None
+            if form is None:
+                if not span:
+                    report["refused"].append(
+                        f"{row_id}: the offset {offset} sits on an empty span")
+                else:
+                    report["refused"].append(
+                        f"{row_id}: jp does not match the span at {start}")
+                continue
+            targets.append((start, span, form))
+        for start, span, form in targets:
+            try:
+                value = TW.encode_en(en, span, form)
+            except TW.TableError as exc:
+                report["refused"].append(f"{row_id}: {exc}")
+                continue
+            budget = int(row.get("max_bytes") or 0) or (len(span) + 1)
+            if len(value) + 1 > budget:
                 report["refused"].append(
-                    f"{row_id}: conflicts with {previous[1]} on the span at {start}")
-                planned[start] = (b"", "__conflict__")
-            continue
-        planned[start] = (value, row_id)
+                    f"{row_id}: {len(value)} bytes + NUL do not fit the {budget}-byte budget")
+                continue
+            # only the bytes the write newly occupies behind the original span must be clean
+            # padding; the rest of the budget area is never touched
+            if any(blob[start + len(span):start + len(value)]):
+                report["refused"].append(
+                    f"{row_id}: the growth area behind the span is not clean padding")
+                continue
+            previous = planned.get(start)
+            if previous is not None:
+                if previous[0] != value:
+                    report["refused"].append(
+                        f"{row_id}: conflicts with {previous[1]} on the span at {start}")
+                    planned[start] = (b"", "__conflict__")
+                continue
+            planned[start] = (value, row_id)
     written: List[Tuple[int, int]] = []
     for start, (value, row_id) in sorted(planned.items()):
         if row_id == "__conflict__":
@@ -174,8 +220,13 @@ def rows_for_container(package: Path, container: str, members: Optional[Iterable
     return rows
 
 
-def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
-    """Rebuild the container with every translated slot member, chained through ``dst``."""
+def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False,
+                    pool: bool = False) -> dict:
+    """Rebuild the container with every translated slot member, chained through ``dst``.
+
+    ``pool=True`` switches every member to the tail-pool content lookup of
+    :func:`apply_member` (the orchestrator's ``tail-slots`` pass).
+    """
     summary = {"container": src.name, "members": 0, "applied": 0, "refused": 0,
                "problems": [], "per_member": {}, "written": None, "dry_run": dry_run}
     by_member: Dict[str, List[dict]] = {}
@@ -194,7 +245,7 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
                 mine = by_member.get(sub["name"])
                 if not mine:
                     continue
-                blob, report = _apply(sub["name"], sub["data"], mine, summary)
+                blob, report = _apply(sub["name"], sub["data"], mine, summary, pool)
                 if report and report["applied"] and not report["problems"]:
                     sub["data"] = blob
                     changed = True
@@ -204,7 +255,7 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
             mine = by_member.get(member.name)
             if mine:
                 blob, report = _apply(member.name, cpk_write.decompressed(member.blob),
-                                      mine, summary)
+                                      mine, summary, pool)
                 if report and report["applied"] and not report["problems"]:
                     targets.append((member.name, blob))
         for name, blob in targets:
@@ -233,8 +284,9 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
     return summary
 
 
-def _apply(sub_name: str, data: bytes, rows: List[dict], summary: dict):
-    blob, report = apply_member(data, rows, sub_name)
+def _apply(sub_name: str, data: bytes, rows: List[dict], summary: dict,
+           pool: bool = False):
+    blob, report = apply_member(data, rows, sub_name, pool=pool)
     summary["members"] += 1
     summary["applied"] += report["applied"]
     summary["refused"] += len(report["refused"])
