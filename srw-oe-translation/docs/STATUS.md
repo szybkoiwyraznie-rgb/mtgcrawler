@@ -591,6 +591,21 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   (fail-closed), robonote bez kontenera ląduje we wszystkich lustrach, redirect
   `unit_series`→RoboDict działa. Testy: **836 OK (1 skipped)** (commity c11adb3, 6e83c97;
   szczegóły: EXPERIMENT_LOG części 13–15). `eventP00.cpk` dostępny (pobrany z Drive —
-  poprzedni wpis „brakuje" nieaktualny). **Następny krok**: powtórzyć smoke orkiestratora na
-  świeżym drzewie po resecie sandboxa, potem pełny przebieg na maszynie użytkownika
-  (HOKUS_POKUS.bat) i test w PPSSPP.
+  poprzedni wpis „brakuje" nieaktualny). 
+- **PRÓBA PEŁNOSKALOWA + WSZYSTKIE RODZAJE REKORDÓW SCENY (2026-10-13)**: smoke orkiestratora
+  powtórzony po resecie (21/21); próba pełnoskalowa na 26 729 wypełnionych wierszach
+  (`local/scale_pkg`, 7 JSONL-ów): **24 823 zapisów / 1 781 odmów w 6 kontenerach, 1 m 37 s**,
+  spot 408/420 (chybione = udokumentowane uczciwe odmowy). Bug G naprawiony: kopie DLC
+  `Skill01-08`/`Item01-08` (pool-only konwencja C) routowane w całości do `table_write` przed
+  sprawdzeniem kategorii; konflikty i offsety ze środka stringa w poolach A/C odmawiane
+  fail-closed. **ETA zna teraz wszystkie zmierzone rodzaje rekordów sceny** (odwrócone na
+  żywym eventP00.cpk): condition_victory 0x1B4 i condition_defeat 0x1B5 (tekst @8), location
+  0x152 i help 0x1FC (u32 parametr, tekst @12), scene_title 0x1B6 (3×u32, tekst @20), label
+  0x1BA (dwie postaci: @8 albo u32 id + @12), 0x14F (id + @12), 0x14A (@8) — reguła paddingu
+  `padded_size` potwierdzona na każdej próbce, `grow_text` bez zmian; rozstrzyganie postaci
+  per rekord (`text_start_of`) + `find_record` niesie pozycję z offsetu wiersza. eventP00:
+  **1 709/1 709 wierszy, 0 skipped** (luka pisarza 3,7% pakietu 00 zamknięta). Testy:
+  **855 OK (1 skipped)** (commity e8edd30, 5b5d472; szczegóły: EXPERIMENT_LOG część 16).
+  **Następny krok**: pełny przebieg na maszynie użytkownika (HOKUS_POKUS.bat: ISO + folder
+  DLC + zwrócony pakiet tłumaczenia) i test w PPSSPP; do zweryfikowania w grze: szerokość
+  okna dla nowych rodzajów (reguła 46 jedn. zastosowana przez analogię do dialogu).
