@@ -2968,3 +2968,97 @@ identyczny jak przed resetem) + JSONL 00/01/02/04/05/07/08. Wynik identyczny: 5 
 zmienionych (config00, configst, eventP00, imenu00, mesbtl00), **21/21 markerów TEST czytanych
 z powrotem** (TESTNOTE w obu lustrach RoboDict), jedyny problem w raporcie = oczekiwana odmowa
 „robonote:1:series: no record with key 1" na obcym słowniku config01 (fail-closed).
+
+## Sesja 6 (2026-10-13), część 16 — Bug G: kopie DLC konwencji C; generalizacja ETA na wszystkie zmierzone rodzaje rekordów sceny
+
+**Kontekst:** próba pełnoskalowa (`local/scale_pkg`, 26 729 wypełnionych wierszy z 7 plików
+JSONL, kontenery z `google_drive/`) odsłoniła dwie luki: (G) kopie DLC `srwDL_Skill01-08.bin`/
+`srwDL_Item01-08.bin` to pool-only konwencja C — `_kind_of` zwraca None, więc orkiestrator
+routował je do `slot_apply`, który nie umie przebudować poola C; oraz (H) `event_text_apply`
+miał `TEXT_START` tylko dla dialogu 0xC9 (tekst @20) i narracji 0x1B7 (tekst @12) — pozostałe
+rodzaje rekordów sceny lądowały w `skipped` z komunikatem „its own writer is still to come".
+
+**Poprawki ery Bug G (commit e8edd30) [ZWERYFIKOWANE]:**
+- `owner()`: WSZYSTKIE wiersze na memberach `srwDL_Skill|Item01-08` idą do `table_write`
+  PRZED sprawdzeniem kategorii (też `config_leftover`): rebuild poola C zmienia rozmiar
+  membera, więc późniejsze zapisy offsetowe SLA byłyby nieświeże (13 odmów w config01 slots).
+- `table_write` konwencja C: wykrywanie konfliktów — dwa wiersze o RÓŻNYM EN na tym samym
+  stringu poola odmawiają go oba (zbiór `dead`, fail-closed jak w SLA/ISW); identyczny EN
+  jest idempotentny; sąsiednie stringi piszą się dalej.
+- `table_write` A i C: offsety leftoverowe ze skanu display mogą wskazywać ŚRODEK stringa —
+  fallback „string zawierający offset" (jp i tak musi pasować, więc błędne trafienie jest
+  odmówione, nie zapisane).
+- Testy: +4 (routing C, konflikt C, mid-string A, mid-string C) → **851 OK**.
+- Próba v5: **24 730 zapisów / 1 781 odmów**, 6 kontenerów; config01 slots wróciły do 133/6.
+
+**Luka pisarza zdarzeń — spis rodzajów w pełnym `00_dialogue.jsonl` (48 881 wierszy):**
+dialogue 45 265 (92,6%), narration 1 829 (3,7%), location 720, condition_victory 427,
+condition_defeat 413, help 123, scene_title 65, label 39 → **1 787 wierszy (3,7%)** bez
+pisarza. To dokładnie elementy scen z manuala tłumacza ([Nagłówek miejsca], [Warunek
+zwycięstwa/porażki], [Etykieta], [Pomoc], tytuły scen) — tłumacz je tłumaczy, patcher by ich
+nie wstrzyknął.
+
+**Odwrócenie rodzajów na żywych memberach eventP00.cpk (2026-10-13) [ZWERYFIKOWANE]:**
+każdy rodzaj to zwykły rekord łańcucha `u32 type, u32 size, parametry, tekst+NUL, zera`:
+
+| rodzaj | type | parametry przed tekstem | tekst @ | próbki |
+|---|---|---|---|---|
+| condition_defeat | 0x1B5 | brak | 8 | 3 |
+| condition_victory | 0x1B4 | brak | 8 | 3 |
+| location | 0x152 | u32 id miejsca (786/157/83) | 12 | 3 |
+| help | 0x1FC | u32 (1/3) | 12 | 3 |
+| scene_title | 0x1B6 | 3×u32 (0,1,0) | 20 | 3 |
+| label | 0x1BA | **dwie postaci**: brak LUB u32 id (149) | 8 LUB 12 | 2 |
+| label | 0x14F | u32 id (368/375) | 12 | 2 |
+| label | 0x14A | brak | 8 | 4 |
+
+Reguła `padded_size` (wyrównanie do 4 bajtów, ≥1 NUL, `pad or 4`) zgadza się na KAŻDEJ
+zmierzonej próbce wszystkich rodzajów — mechanizm `grow_text` (poprawki size rekordu,
+wrapperów 0xC8, sekcji EVNT, nagłówka EDAT) działa bez zmian. Wieloliniowe warunki
+(0x1B5 z `\n` między dwoma warunkami) mają ten sam kształt.
+
+**Implementacja (commit 5b5d472):**
+- `TEXT_START` (int = pozycja główna, zgodność wsteczna) + `TEXT_START_ALT` = kandydaci dla
+  rodzajów dwupostaciowych (0x1BA/0x14F: (8, 12)) + `text_starts()` + `text_start_of()`:
+  dla wielopostaciowych najmniejsza pozycja spójna z własnym paddingiem rekordu
+  (`padded_size(len, start) == size` i zera w ogonie) — dla id < 2^24 (górne bajty zerowe)
+  błędna pozycja jest zawsze niespójna, więc rozstrzygnięcie jest jednoznaczne.
+- `find_record` próbuje wszystkich kandydatów i niesie `text_start` z offsetu wiersza —
+  o wyborze pozycji decyduje zmierzony offset pakietu, nigdy zgadywanie; `text_of`/
+  `grow_text`/`_text_kind` używają rezolwera; `head` w `grow_text` zachowuje parametry.
+- Polityka szerokości: narracja (0x1B7) = notatka (jak dotąd); WSZYSTKIE pozostałe rodzaje
+  = reguła okna dialogowego (`box_problems`, 46 jedn.) — manual tłumacza obiecuje ten limit
+  dla warunków/pomocy/etykiet/miejsc/tytułów. **[HIPOTEZA do PPSSPP]**:renderowanie tych elementów
+  nie było mierzone w grze — jeśli któryś rysuje się w szerszym polu, regułę można poluzować
+  per rodzaj.
+- `build_test_spec.py`/`iso_test_patch.py` przeszły na `text_start_of`.
+- Testy: nowa klasa `KindRecordTests` (9 rekordów: wszystkie rodzaje, obie postaci 0x1BA,
+  0x14A; grow → EN w bajtach + verify czysty; shrink-back → oryginał byte-for-byte; szeroka
+  linia warunku odmówiona; typ 0x1FF bez zmierzonej pozycji pominięty fail-closed) →
+  **855 OK (1 skipped)**.
+
+**Próba pełnoskalowa v7 (finalna, `local/scale_patch/build_report.json`) [ZWERYFIKOWANE]:**
+6 kontenerów, 1 m 37 s, **24 823 zapisów / 1 781 odmów** z 26 729 wierszy. eventP00:
+**1 709/1 709 wierszy, 0 skipped, 0 refused** (v5: 1 613 + 96 skipped), problems=[] na
+wszystkich 11 memberach. Wszystkie 93 wiersze nowych rodzajów w eventP00 (location 33,
+condition_victory 20, condition_defeat 18, label 11, scene_title 8, help 3) mają EN
+w bajtach przebudowanego kontenera; 5 wcześniej pominiętych etykiet (4×0x14A, 1×0x1BA z id)
+potwierdzonych. Spot 60 wierszy/plik, seed 11: **408/420**; 12 chybionych = udokumentowane
+ucziwe odmowy (dlc_id „unexplained in-record references" ×3, marker 7 B > budżet tail-poola
+×1, bg2dlist/milstP ×2, nickname 2701 double-coverage ×2, unit:*:series broadcast ×4);
+`00_dialogue` 60/60 (v5: 58/60 — chybione były help/condition, dziś zapisane). Pozostałe
+1 781 odmów bez zmian: RoboDict00 945 + RoboDict01 457 (broadcast keyspace — tekst pisze
+właścicielski kontener), CharaDict 72+16 (nickname), budżety pooli (markery scale_fill 7 B
+> krótkie spany: Skill00 63, StatusChange 51, Spirit 36, Item00/Item 35+35), Shop00 27,
+Reference00 24, bg2dlist 9, imenu00 520 (klucze poza katalogiem).
+
+**Lekcje harnessa czytnikowego:** (1) rozpakowany pac mesbtl ma 16 bajtów zer przed `EDAT` —
+`parse_pac` na takim ciele „udaje się" z 0 subs i member znika ze słownika: potrzebny
+fallthrough gdy subs puste; (2) config00.cpk/configst.cpk to CPK z JEDNYM memberem `.pac`
+(warstwa PAC → srwDL_*.bin); zdeszyfrowane `.EDAT` użytkownika parsują się przez
+`cpk_write.load` jak CPK.
+
+**Stan luk pisarzy:** pakiet 00 — 100% wierszy ma pisarza (odmowy to polityka treści/budżetu,
+nie brak mechanizmu); jedyne pomijane rekordy to typy spoza zmierzonej dziewiątki (w eventP00
+nie wystąpił ani jeden) i teksty `embedded` z tabel parametrów (bez rekordu — jak dotąd
+w pakiecie 00 nie było takich wierszy).
