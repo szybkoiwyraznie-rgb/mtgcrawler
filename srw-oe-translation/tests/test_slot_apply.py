@@ -183,6 +183,13 @@ class PoolLookupTests(unittest.TestCase):
         self.assertEqual(out[71:75], b"AA\x00\x00")
         self.assertEqual(len(out), len(self.blob))
 
+    def test_an_offset_in_the_middle_of_its_run_still_finds_it(self):
+        # leftover rows can point into the middle of their string (the display scan did)
+        rows = [row("p", 69, "bb", "BB")]              # 69 = second byte of 'bb' @68
+        out, report = SLA.apply_member(self.blob, rows, pool=True)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[68:70], b"BB")
+
     def test_exact_offset_wins_without_pool_flag(self):
         rows = [row("p", 64, "aaa", "AA")]             # jp sits at the offset: plain path
         out, report = SLA.apply_member(self.blob, rows)

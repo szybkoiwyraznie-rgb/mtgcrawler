@@ -104,10 +104,12 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
         targets: List[Tuple[int, bytes, Optional[str]]] = []
         if pool:
             # every occurrence of the row's string in the pool gets the same English: the
-            # pool holds duplicate runs and any of them can be the one the game reads
-            runs = spans_cache.get(offset)
+            # pool holds duplicate runs and any of them can be the one the game reads.
+            # the scan starts at the run containing the offset - leftover rows can point
+            # into the middle of their string
+            runs = spans_cache.get(start)
             if runs is None:
-                runs = spans_cache[offset] = pool_spans(blob, offset)
+                runs = spans_cache[start] = pool_spans(blob, start)
             for run_start, run in runs:
                 run_form = TW.match_form(row.get("jp"), run)
                 if run_form is not None:
