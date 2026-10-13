@@ -1,0 +1,790 @@
+#!/usr/bin/env python3
+"""Build the translation patch: one run over the ISO and the DLC tree, every writer chained.
+
+This is the tool ``HOKUS_POKUS.bat`` calls.  It takes
+
+* the user's **ISO** (chapter 1 lives in ``PSP_GAME/USRDIR`` inside it),
+* the user's **DLC folder** (the decrypted ``.EDAT``/``.cpk`` files of chapters 2-8 and the
+  downloadable dictionaries),
+* the **returned translation package** (the same folder that went out: ``00``-``08`` JSONL,
+  optionally with the filled ``sceny/`` and ``widoki/`` views next to it - they are imported
+  first, exactly like :mod:`translation_import` + :mod:`translation_copy` do by hand),
+
+and writes ``out/patched.iso`` plus ``out/DLC/<the same relative paths>`` - only the files that
+actually changed.  Nothing of the user's is modified in place: the ISO is read member by member
+(:func:`iso_pack.read_member`) and the patched copy gets the changed members appended
+(:func:`iso_pack.patch_iso`); the DLC files are read, never written.
+
+Every row of the package is routed to the one writer that owns its bytes, in an order that keeps
+offsets honest:
+
+1. story dialogue (:mod:`event_text_apply`) and battle quotes (:mod:`quotes_apply`) - both grow
+   their own containers the way the measured smoke tests proved;
+2. the **tail-pool rows** of the convention-B members (:mod:`slot_apply`, in place) - they must
+   be written *before* the record rebuild moves the tail, and the rebuild then carries the
+   translated bytes along untouched;
+3. the record writers: :mod:`item_skill_write` (items/skills/spirits/status changes, growing the
+   record region and remapping the ``+36`` cross references) and :mod:`table_write` (the
+   dictionary/pool families, growing);
+4. :mod:`name_table_write` for the fixed name cells (charalist/unit_list/wp_list);
+5. ``sysmes.bin`` through :mod:`sysmes_pack` (the whole pool is rebuilt, every equal string is
+   replaced at once);
+6. everything else measured as ``mode: slot`` through :mod:`slot_apply` (mission notes and
+   titles, BGM titles, map/background/group names, leftover slots).
+
+Rows the translator left empty are simply not applied - the bytes stay Japanese, which is the
+contract of a partially filled package.  Rows a writer refuses (a translation too long for its
+slot, a jp that no longer matches the bytes, two rows fighting over one target) are collected in
+``build_report.json`` with their reason; the build does not stop, because one refused line must
+not hold the other ten thousand hostage.  The exit code is 0 when every container that had rows
+produced a patched file, 1 when something structural broke.
+
+Usage::
+
+    python3 tools/build_translation_patch.py --iso ~/ISO/NPJH50521.iso --dlc ~/FULL_DLC \
+        --package local/translation --out local/patch [--views local/translation/sceny \
+        local/translation/widoki] [--dry-run]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import shutil
+import sys
+import traceback
+from pathlib import Path
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+
+import configst_pack as CSP          # noqa: E402
+import cpk_write                     # noqa: E402
+import event_text_apply as ETA       # noqa: E402
+import inline_names as IN            # noqa: E402
+import item_skill_records as ISR     # noqa: E402
+import item_skill_write as ISW       # noqa: E402
+import iso_pack                      # noqa: E402
+import name_table_write as NMT       # noqa: E402
+import quotes_apply as QA            # noqa: E402
+import slot_apply as SLA             # noqa: E402
+import sysmes_pack as SMSP           # noqa: E402
+import table_write as TW             # noqa: E402
+
+PACKAGE_FILES = (
+    "00_dialogue.jsonl",
+    "01_battle_quotes.jsonl",
+    "02_items.jsonl",
+    "03_skills.jsonl",
+    "04_config_text.jsonl",
+    "05_mission_text.jsonl",
+    "07_names_characters.jsonl",
+    "08_names_units_weapons.jsonl",
+)
+
+#: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
+SKIP_CATEGORIES = {"config_item_drop"}
+
+
+class BuildError(RuntimeError):
+    pass
+
+
+# --------------------------------------------------------------------------- row routing
+
+def load_rows(package: Path) -> List[dict]:
+    rows: List[dict] = []
+    for name in PACKAGE_FILES:
+        path = Path(package) / name
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            row["__file"] = name
+            rows.append(row)
+    return rows
+
+
+def filled(row: dict) -> bool:
+    return bool((row.get("en") or "").strip())
+
+
+def owner(row: dict) -> str:
+    """Which writer owns this row's bytes.
+
+    The routing is by package file first (each exporter wrote rows only its writer reads
+    back), then by member family for the mixed ``04`` file: dictionary/pool families go to
+    :mod:`table_write`, item/skill/spirit/status records to :mod:`item_skill_write`, the name
+    cells to :mod:`name_table_write`, everything measured as a slot to :mod:`slot_apply`.
+    Tail-pool rows of the convention-B members are pulled out of their owner's bucket before
+    the run (see :meth:`ContainerBuild.run`) - they belong to the slot writer, first.
+    """
+    category = row.get("category") or ""
+    if category in SKIP_CATEGORIES:
+        return "skip"
+    source = row.get("source") or {}
+    member = source.get("member") or ""
+    which = row.get("__file") or ""
+    if which.startswith("00") or category == "dialogue":
+        return "eta"
+    if which.startswith("01") or category == "battle_quote":
+        return "qa"
+    if category == "config_sysmes":
+        return "sysmes"
+    if which.startswith("02") or which.startswith("03"):
+        return "isw"
+    if which.startswith("05"):
+        return "sla"
+    if which.startswith("07"):
+        return "nmt" if NMT.family_of(member) is not None else "tw"
+    if which.startswith("08"):
+        if _is_unit_series(row) or TW.family_of(member) is not None \
+                or category.startswith("robo"):
+            return "tw"
+        return "nmt" if NMT.family_of(member) is not None else "tw"
+    # 04 (and anything else): the member decides
+    if TW.family_of(member) is not None:
+        return "tw"
+    if category in ("config_item", "config_skill", "config_spirit", "config_status_change") \
+            or ISW._kind_of(member) is not None:
+        return "isw"
+    return "sla"
+
+
+def _is_unit_series(row: dict) -> bool:
+    """08 ``unit_list`` series rows are physically RoboDict slot 3 - the table writer owns them."""
+    source = row.get("source") or {}
+    return (row.get("category") or "").endswith("_series") \
+        and (source.get("member") or "").startswith("unit_list")
+
+
+# --------------------------------------------------------------------------- containers
+
+class ContainerStore:
+    """Where each container name lives: inside the ISO, in the DLC tree, or in both."""
+
+    def __init__(self, iso: Optional[Path], dlc: Optional[Path]):
+        self.iso = iso
+        self.dlc = dlc
+        self._iso_keys: Dict[str, Tuple[str, int, int]] = {}
+        self._dlc_paths: Dict[str, Path] = {}
+        if dlc is not None:
+            for path in sorted(dlc.rglob("*")):
+                if path.is_file():
+                    self._dlc_paths.setdefault(path.name, path)
+
+    def locations(self, name: str) -> List[str]:
+        out = []
+        if self.iso is not None:
+            try:
+                self._iso_keys[name] = iso_pack.find_member(self.iso, f"psp_game/usrdir/{name}")
+                out.append("iso")
+            except ValueError:
+                pass
+        if name in self._dlc_paths:
+            out.append("dlc")
+        return out
+
+    def read(self, name: str, where: str) -> bytes:
+        if where == "iso":
+            key, lba, size = self._iso_keys[name]
+            return iso_pack.read_member(self.iso, key.split(";")[0].strip("/"))
+        return self._dlc_paths[name].read_bytes()
+
+    def dlc_relpath(self, name: str) -> Optional[str]:
+        path = self._dlc_paths.get(name)
+        if path is None or self.dlc is None:
+            return None
+        return str(path.relative_to(self.dlc))
+
+    def iso_key(self, name: str) -> Optional[str]:
+        found = self._iso_keys.get(name)
+        return found[0] if found else None
+
+    def candidates(self, existing: Dict[str, bytes], limit: int = 16 * 1024 * 1024
+                   ) -> Dict[str, bytes]:
+        """Every plausible container file not already loaded, name -> bytes."""
+        pattern = _PLAUSIBLE
+        out: Dict[str, bytes] = {}
+        if self.dlc is not None:
+            for name, path in self._dlc_paths.items():
+                if name in existing or name in out:
+                    continue
+                try:
+                    if path.stat().st_size > limit:
+                        continue
+                except OSError:
+                    continue
+                if not (path.suffix.lower() in (".cpk", ".edat") or pattern.search(name)):
+                    continue
+                try:
+                    out[name] = path.read_bytes()
+                except OSError:
+                    pass
+        if self.iso is not None:
+            try:
+                with self.iso.open("rb") as fh:
+                    records = iso_pack._walk_record_offsets(fh)
+            except OSError:
+                records = {}
+            for key, (_off, lba, size, is_dir) in records.items():
+                if is_dir or size > limit or "usrdir" not in key.lower():
+                    continue
+                base = key.split(";")[0].split("/")[-1]
+                if base in existing or base in out:
+                    continue
+                if not (base.lower().endswith((".cpk", ".edat")) or pattern.search(base)):
+                    continue
+                try:
+                    blob = iso_pack.read_member(self.iso, key.split(";")[0].strip("/"))
+                except (OSError, ValueError):
+                    continue
+                self._iso_keys[base] = (key, lba, size)
+                out[base] = blob
+        return out
+
+
+#: file names that can hold package members, so a dictionary nobody named explicitly still
+#: gets its names (the container-less 07/08 rows are matched against everything plausible)
+_PLAUSIBLE = re.compile(r"(config|imenu|mesbtl|event|bgm|sys|srw_?DL|CharaDict|RoboDict)", re.I)
+
+
+def container_members(blob: bytes) -> List[str]:
+    """Every (sub)member name a container holds - used for the container-less 07/08 rows."""
+    names: List[str] = []
+    try:
+        cpk = cpk_write.load_from_bytes(blob) if hasattr(cpk_write, "load_from_bytes") else None
+    except Exception:
+        cpk = None
+    if cpk is None:
+        try:
+            import tempfile
+            with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as fh:
+                fh.write(blob)
+                tmp = Path(fh.name)
+            try:
+                cpk = cpk_write.load(tmp)
+            finally:
+                tmp.unlink(missing_ok=True)
+        except Exception:
+            return names
+    for member in cpk.members:
+        names.append(member.name)
+        if member.name.lower().endswith(".pac"):
+            try:
+                names.extend(sub["name"] for sub in
+                             CSP.parse_pac(cpk_write.decompressed(member.blob))["subs"])
+            except Exception:
+                pass
+    return names
+
+
+# --------------------------------------------------------------------------- the chain
+
+class ContainerBuild:
+    """One container: read -> every writer in order -> final bytes + report."""
+
+    def __init__(self, name: str, blob: bytes, rows: List[dict], work: Path,
+                 dry_run: bool = False):
+        self.name = name
+        self.rows = rows
+        self.work = work
+        self.dry_run = dry_run
+        self.steps: List[str] = []
+        self.current = blob
+        self.step_no = 0
+        self.report: dict = {"container": name, "rows": len(rows), "steps": [],
+                             "problems": [], "changed": False}
+
+    # -- plumbing ---------------------------------------------------------
+    def _path(self, blob: bytes) -> Path:
+        """Temp file for the chain - the name stays the container's, because writers
+        match ``source.container`` against it."""
+        folder = self.work / f"step{self.step_no}"
+        folder.mkdir(parents=True, exist_ok=True)
+        path = folder / self.name
+        path.write_bytes(blob)
+        return path
+
+    def _advance(self, blob: bytes, step: str, summary: dict) -> None:
+        if blob is None or blob == self.current:
+            self.report["steps"].append({"step": step, "applied": 0, "detail": summary})
+            return
+        self.current = blob
+        self.step_no += 1
+        self.report["changed"] = True
+        self.report["steps"].append({"step": step, "applied": summary.get("applied", 0)
+                                     if isinstance(summary, dict) else 0,
+                                     "detail": _shrink(summary)})
+
+    def _run_container_step(self, step: str, func) -> None:
+        """Run a writer whose API is ``apply_container(src, dst, rows...)`` over the chain."""
+        rows = func["rows"]
+        if not rows:
+            return
+        src = self._path(self.current)
+        dst = self.work / f"step{self.step_no + 1}" / self.name
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            summary = func["call"](src, dst, rows)
+        except Exception as exc:
+            self.report["problems"].append(f"{step}: {exc}")
+            self._advance(None, step, {})
+            return
+        new = dst.read_bytes() if dst.exists() else None
+        if not self.dry_run:
+            for path in (src, dst):
+                if path.exists():
+                    path.unlink()
+        self._advance(new, step, summary)
+        if isinstance(summary, dict):
+            self.report["problems"].extend(f"{step}: {p}" for p in summary.get("problems", []))
+
+    # -- steps ------------------------------------------------------------
+    def run(self) -> bytes:
+        tails: List[dict] = []
+        by_owner: Dict[str, List[dict]] = {}
+        offsets: Dict[str, Optional[int]] = {}
+        for row in self.rows:
+            if not filled(row):
+                continue
+            source = row.get("source") or {}
+            member = source.get("member") or ""
+            offset = source.get("offset")
+            if isinstance(offset, int) and ISW._kind_of(member) is not None:
+                if member not in offsets:
+                    offsets[member] = self._tail_offset(member)
+                if offsets[member] is not None and offset >= offsets[member]:
+                    tails.append(row)      # tail pool: written in place, before any rebuild
+                    continue
+            by_owner.setdefault(owner(row), []).append(row)
+
+        self._eta(by_owner.get("eta", []))
+        self._qa(by_owner.get("qa", []))
+        self._slot_pass("tail-slots", tails)
+        self._isw(by_owner.get("isw", []))
+        self._tw(by_owner.get("tw", []))
+        self._nmt(by_owner.get("nmt", []))
+        self._sysmes(by_owner.get("sysmes", []))
+        self._slot_pass("slots", by_owner.get("sla", []))
+        return self.current
+
+    def _eta(self, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r)]
+        if not rows:
+            return
+        by_member: Dict[str, List[dict]] = {}
+        for row in rows:
+            by_member.setdefault((row.get("source") or {}).get("member") or "", []).append(row)
+        for member in sorted(by_member):
+            src = self._path(self.current)
+            dst = self.work / f"step{self.step_no + 1}" / self.name
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                summary = ETA.apply_container(src, member, by_member[member], dst)
+            except Exception as exc:
+                self.report["problems"].append(f"dialogue {member}: {exc}")
+                for path in (src, dst):
+                    if path.exists() and not self.dry_run:
+                        path.unlink()
+                continue
+            new = dst.read_bytes() if dst.exists() else None
+            if not self.dry_run:
+                for path in (src, dst):
+                    if path.exists():
+                        path.unlink()
+            self._advance(new, f"dialogue {member}", summary or {})
+
+    def _qa(self, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r)]
+        if not rows:
+            return
+        by_member: Dict[str, List[dict]] = {}
+        for row in rows:
+            by_member.setdefault((row.get("source") or {}).get("member") or "", []).append(row)
+        self._run_container_step("quotes", {"rows": rows, "call": lambda s, d, r: QA.apply_container(s, d, by_member)})
+
+    def _tail_offset(self, member: str) -> Optional[int]:
+        kind = ISW._kind_of(member)
+        if kind is None:
+            return None
+        try:
+            blob = self._member_blob(member)
+            if blob is None:
+                return None
+            return ISR.parse_member(blob, kind, member, self.name)["tail_offset"]
+        except Exception:
+            return None
+
+    def _member_blob(self, member: str) -> Optional[bytes]:
+        try:
+            cpk_path = self._path(self.current)
+            try:
+                for name, blob in _iter_members(cpk_path):
+                    if name == member:
+                        return blob
+            finally:
+                if not self.dry_run:
+                    cpk_path.unlink(missing_ok=True)
+        except Exception:
+            return None
+        return None
+
+    def _isw(self, rows: List[dict]) -> None:
+        self._run_container_step("records", {
+            "rows": rows,
+            "call": lambda s, d, r: ISW.apply_container(s, d, r),
+        })
+
+    def _tw(self, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r)]
+        rows = self._redirect_unit_series(rows)
+        self._run_container_step("tables", {"rows": rows, "call": TW.apply_container})
+
+    def _redirect_unit_series(self, rows: List[dict]) -> List[dict]:
+        """unit_list series rows become RoboDict series rows (slot 3 of the same key)."""
+        out: List[dict] = []
+        robo_keys = {(r.get("key"), r.get("part")) for r in rows
+                     if (r.get("source") or {}).get("member", "").startswith("srw_DL_RoboDict")}
+        template = next((r for r in rows if r.get("id", "").startswith("robonote:")
+                         and r.get("part") == "series"), None)
+        for row in rows:
+            if not _is_unit_series(row):
+                out.append(row)
+                continue
+            key = row.get("key")
+            if (key, "series") in robo_keys:
+                continue                      # the RoboDict row already carries this key
+            if template is None:
+                self.report["problems"].append(
+                    f"unit_series {key}: no RoboDict row to redirect to")
+                continue
+            clone = dict(template)
+            clone.update({"id": row.get("id"), "jp": row.get("jp"), "en": row.get("en"),
+                          "key": key, "copy_of": None, "__redirected": True})
+            out.append(clone)
+        return out
+
+    def _nmt(self, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r)]
+        self._run_container_step("names", {"rows": rows, "call": NMT.apply_container})
+
+    def _sysmes(self, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r)]
+        if not rows:
+            return
+        step = "sysmes"
+        src = self._path(self.current)
+        try:
+            blob = None
+            for name, data in _iter_members(src):
+                if name == "sysmes.bin":
+                    blob = data
+                    break
+            if blob is None:
+                self.report["problems"].append(f"{step}: {self.name} holds no sysmes.bin")
+                return
+            edits, problems = _sysmes_edits(blob, rows)
+            self.report["problems"].extend(f"{step}: {p}" for p in problems)
+            if not edits:
+                self._advance(None, step, {})
+                return
+            # apply_edits rebuilds the whole pool: every referenced string gets its own
+            # copy, so any length is safe and the shared-tail blind spot of the in-place
+            # equal_translate (which also cannot see strings holding a newline) is gone
+            modified = SMSP.apply_edits(blob, edits)
+            replaced = sum(modified.count(en.encode("cp932")) for en in edits.values())
+            missing = [k for k, v in edits.items()
+                       if v.encode("cp932") not in modified]
+            for key in missing:
+                self.report["problems"].append(f"{step}: {key[:16]!r} did not land in the pool")
+            self.report.setdefault("info", []).append(
+                f"{step}: {len(edits)} strings requested, {replaced} copies in the new pool")
+            new = _replace_member(self.current, "sysmes.bin", modified)
+            self._advance(new, step, {"applied": len(edits) - len(missing)})
+        except Exception as exc:
+            self.report["problems"].append(f"{step}: {exc}")
+            self._advance(None, step, {})
+        finally:
+            if not self.dry_run:
+                src.unlink(missing_ok=True)
+
+    def _slot_pass(self, step: str, rows: List[dict]) -> None:
+        rows = [r for r in rows if filled(r) and isinstance((r.get("source") or {}).get("offset"), int)]
+        self._run_container_step(step, {"rows": rows, "call": SLA.apply_container})
+
+
+def _iter_members(path: Path) -> Iterable[Tuple[str, bytes]]:
+    cpk = cpk_write.load(path)
+    for member in cpk.members:
+        body = cpk_write.decompressed(member.blob)
+        if member.name.lower().endswith(".pac"):
+            try:
+                for sub in CSP.parse_pac(body)["subs"]:
+                    yield sub["name"], sub["data"]
+                continue
+            except Exception:
+                pass
+        yield member.name, body
+
+
+def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
+    """Swap one (sub)member of a container blob, keeping everything else byte-identical."""
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as fh:
+        fh.write(container)
+        tmp = Path(fh.name)
+    try:
+        cpk = cpk_write.load(tmp)
+        replacement = None
+        for member in cpk.members:
+            if member.name == sub_name:
+                replacement = (member.name, data)
+                break
+            if member.name.lower().endswith(".pac"):
+                pac = CSP.parse_pac(cpk_write.decompressed(member.blob))
+                changed = False
+                for sub in pac["subs"]:
+                    if sub["name"] == sub_name:
+                        sub["data"] = data
+                        changed = True
+                if changed:
+                    replacement = (member.name, CSP.rebuild_pac(pac))
+                    break
+        if replacement is None:
+            raise BuildError(f"{sub_name} is not a member of the container")
+        return cpk_write.rebuild(cpk, replacement=replacement)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[str]]:
+    """{string in the file: english} - the row jp is matched in whatever form it arrived.
+
+    ``apply_edits`` encodes the values with a plain ``str.encode("cp932")``, so a row whose
+    jp is the ``%s`` display form gets its tokens resolved here: the English is encoded
+    against the file's own bytes (:func:`table_write.encode_en`) and handed over as the
+    cp932-decodable string of those exact bytes - control tokens included, they round-trip.
+    """
+    edits: Dict[str, str] = {}
+    problems: List[str] = []
+    strings = []
+    for start in SMSP.string_starts(blob):
+        end = blob.find(b"\x00", start)
+        raw = blob[start:end if end >= 0 else len(blob)]
+        if raw:
+            strings.append(raw)
+    for raw in strings:
+        matches = []
+        for row in rows:
+            form = TW.match_form(row.get("jp"), raw)
+            if form is not None:
+                matches.append((row, form))
+        if not matches:
+            continue
+        encoded = set()
+        for row, form in matches:
+            try:
+                encoded.add(TW.encode_en((row.get("en") or "").strip(), raw, form))
+            except TW.TableError as exc:
+                problems.append(f"sysmes row {row.get('id')}: {exc}")
+        if len(encoded) > 1:
+            problems.append(f"sysmes string {raw[:12]!r}: {len(encoded)} different translations")
+            continue
+        if not encoded:
+            continue
+        value = encoded.pop()
+        try:
+            key = raw.decode("cp932")
+        except UnicodeDecodeError:
+            problems.append(f"sysmes string {raw[:12]!r}: not clean cp932, left alone")
+            continue
+        edits[key] = value.decode("cp932")
+    unmatched = 0
+    for row in rows:
+        if not any(TW.match_form(row.get("jp"), raw) is not None for raw in strings):
+            unmatched += 1
+    if unmatched:
+        problems.append(f"{unmatched} sysmes rows do not occur in this sysmes.bin (stale jp)")
+    return edits, problems
+
+
+def _jsonable(value, depth: int = 0):
+    """Everything the writers report, made small and JSON-safe."""
+    if isinstance(value, bytes):
+        text = repr(value[:40])
+        return text + ("…" if len(value) > 40 else "")
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, dict):
+        return {str(k): _jsonable(v, depth + 1) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        out = [_jsonable(v, depth + 1) for v in value]
+        if len(out) > 20:
+            out = out[:20] + [f"… {len(out)} entries in total"]
+        return out
+    return value
+
+
+def _shrink(summary) -> dict:
+    """Keep the report small: numbers in, long lists and byte strings shortened."""
+    if not isinstance(summary, dict):
+        return {}
+    return _jsonable(summary)
+
+
+# --------------------------------------------------------------------------- the build
+
+def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str, List[dict]]:
+    """Rows per container; ``container: null`` rows go to every container holding their member."""
+    per: Dict[str, List[dict]] = {name: [] for name in stores}
+    members: Dict[str, List[str]] = {}
+    for row in rows:
+        source = row.get("source") or {}
+        container = source.get("container")
+        if container is not None:
+            per.setdefault(container, []).append(row)
+            continue
+        member = source.get("member") or ""
+        if member not in members:
+            members[member] = [name for name, blob in stores.items()
+                               if any(TW.member_matches(member, have)
+                                      for have in container_members(blob))]
+        for name in members[member]:
+            per.setdefault(name, []).append(row)
+    return per
+
+
+def import_views(package: Path, views: Sequence[Path], work: Path) -> Path:
+    """Copy the base package into the work dir and import the returned views into it."""
+    import translation_copy
+    import translation_import
+    target = work / "package"
+    if target.exists():
+        shutil.rmtree(target)
+    shutil.copytree(package, target)
+    args: List[str] = ["--views"] + [str(v) for v in views] + ["--package", str(target)]
+    code = translation_import.main(args)
+    if code != 0:
+        raise BuildError(f"translation_import refused the views (exit {code})")
+    code = translation_copy.main(["--package", str(target)])
+    if code != 0:
+        raise BuildError(f"translation_copy refused the package (exit {code})")
+    return target
+
+
+def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
+          views: Sequence[Path] = (), work: Optional[Path] = None,
+          dry_run: bool = False) -> dict:
+    if iso is None and dlc is None:
+        raise BuildError("give --iso, --dlc or both")
+    work = Path(work) if work else out / "work"
+    work.mkdir(parents=True, exist_ok=True)
+    if views:
+        package = import_views(package, views, work)
+
+    rows = load_rows(package)
+    filled_rows = [r for r in rows if filled(r)]
+    report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
+                    "containers": [], "problems": [], "dry_run": dry_run,
+                    "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
+                    "written": []}
+
+    store = ContainerStore(iso, dlc)
+    names = sorted({(r.get("source") or {}).get("container")
+                    for r in filled_rows if (r.get("source") or {}).get("container")})
+    blobs: Dict[str, bytes] = {}
+    for name in names:
+        where = store.locations(name)
+        if not where:
+            report["problems"].append(f"{name}: not found in the ISO or the DLC folder")
+            continue
+        blobs[name] = store.read(name, where[0])
+    # the container-less 07/08 rows (dictionary names) must find their containers themselves:
+    # every plausible file of the DLC folder and of the ISO USRDIR becomes a candidate
+    if any((r.get("source") or {}).get("container") is None for r in filled_rows):
+        for name, blob in store.candidates(blobs).items():
+            blobs.setdefault(name, blob)
+    per_container = attach_containerless(filled_rows, blobs)
+
+    iso_patch: Dict[str, bytes] = {}
+    for name in sorted(blobs):
+        mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
+        if not mine:
+            continue
+        builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
+        try:
+            final = builder.run()
+        except Exception as exc:
+            report["problems"].append(f"{name}: build broke: {exc}")
+            report["problems"].append(traceback.format_exc(limit=3))
+            report["containers"].append(builder.report)
+            continue
+        report["containers"].append(builder.report)
+        if not builder.report["changed"]:
+            continue
+        for where in store.locations(name):
+            if where == "iso":
+                key = store.iso_key(name)
+                if key:
+                    iso_patch[key] = final
+            else:
+                rel = store.dlc_relpath(name)
+                if rel and not dry_run:
+                    target = out / "DLC" / rel
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(final)
+                    report["written"].append(str(target))
+                elif rel:
+                    report["written"].append(f"(dry-run) DLC/{rel}")
+
+    if iso_patch and iso is not None and not dry_run:
+        out.mkdir(parents=True, exist_ok=True)
+        target = out / "patched.iso"
+        result = iso_pack.patch_iso(iso, target, iso_patch)
+        report["written"].append(str(target))
+        report["iso_members"] = result["applied"]
+    elif iso_patch:
+        report["iso_members"] = sorted(iso_patch)
+
+    (out if not dry_run else work).mkdir(parents=True, exist_ok=True)
+    report_path = (out / "build_report.json") if not dry_run else (work / "build_report.json")
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    report["report_path"] = str(report_path)
+    return report
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--iso", type=Path, help="the game ISO (chapter 1 inside)")
+    parser.add_argument("--dlc", type=Path, help="folder with the decrypted DLC files")
+    parser.add_argument("--package", type=Path, required=True,
+                        help="the translation package (base JSONL folder)")
+    parser.add_argument("--views", type=Path, nargs="*", default=[],
+                        help="returned sceny/ widoki/ folders or zips - imported first")
+    parser.add_argument("--out", type=Path, default=Path("local/patch"))
+    parser.add_argument("--work", type=Path)
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args(argv)
+
+    report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
+                   work=args.work, dry_run=args.dry_run)
+    changed = [c["container"] for c in report["containers"] if c["changed"]]
+    problems = report["problems"]
+    print(f"Kontenery z tłumaczeniem: {len(changed)} -> {', '.join(changed) if changed else '(brak)'}")
+    print(f"Zapisane pliki: {len(report['written'])}")
+    for line in report["written"]:
+        print(f"  {line}")
+    if problems:
+        print(f"Problemy ({len(problems)}) - szczegóły w {report.get('report_path')}:")
+        for line in problems[:20]:
+            print(f"  {line}")
+    return 1 if any("build broke" in p or "not found" in p for p in problems) else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
