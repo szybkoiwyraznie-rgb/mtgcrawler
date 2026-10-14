@@ -113,6 +113,44 @@ class CpkWriteTests(unittest.TestCase):
             )
         self.assertEqual(offsets, sorted(offsets))
 
+    def test_a_shrunk_member_keeps_its_neighbours_byte_identical(self):
+        """Regression 2026-10-13: the old rule slid followers back by a whole Align and
+        zeroed the tail of the shrunk member; a shrink that still fits the aligned
+        footprint must not move anything at all."""
+        path, _ = self.write()
+        rebuilt = cpk_write.rebuild(cpk_write.load(path), ("second.bin", b"Z" * 100))
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        out = Path(temporary.name) / "shrunk.cpk"
+        out.write_bytes(rebuilt)
+        after = cpk_write.load(out)
+        by_name = {m.name: m for m in after.members}
+        self.assertEqual(by_name["second.bin"].blob, b"Z" * 100)
+        self.assertEqual(by_name["first.bin"].blob, b"A" * 100)
+        self.assertEqual(by_name["third.bin"].blob, b"C" * 40)
+        before = {m.name: m.relative_offset for m in cpk_write.load(path).members}
+        self.assertEqual({m.name: m.relative_offset for m in after.members}, before)
+
+    def test_a_big_shrink_moves_followers_no_further_than_the_freed_footprint(self):
+        entries = [
+            {"dir": "", "name": "big.bin", "data": b"B" * 5000, "id": 0},
+            {"dir": "", "name": "after.bin", "data": b"A" * 600, "id": 1},
+        ]
+        # pack the follower at the aligned end of the first member, like a real container
+        entries[0]["data"] = b"B" * 5000
+        path, _ = self.write(entries)
+        rebuilt = cpk_write.rebuild(cpk_write.load(path), ("big.bin", b"S" * 3000))
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        out = Path(temporary.name) / "shrunk.cpk"
+        out.write_bytes(rebuilt)
+        after = cpk_write.load(out)
+        by_offset = sorted(after.members, key=lambda m: m.relative_offset)
+        self.assertEqual(by_offset[0].blob, b"S" * 3000)
+        self.assertEqual(by_offset[1].blob, b"A" * 600)
+        self.assertGreaterEqual(by_offset[1].relative_offset,
+                                by_offset[0].relative_offset + by_offset[0].file_size)
+
     def test_replace_appended_repoints_only_the_target_and_keeps_the_rest(self):
         path, _ = self.write()
         grown = b"Y" * 777

@@ -48,6 +48,9 @@ def decode_slot(blob: bytes, start: int) -> str | None:
 
 def scan(blob: bytes) -> Dict[int, List[dict]]:
     """Return {key: [{'offset': name_start, 'name': str, 'confidence': 'marker'|'slot'}, ...]}."""
+    global CLEAN
+    if CLEAN is None:                      # the regex is built lazily; scan() must not need main()
+        CLEAN = _clean_re()
     out: Dict[int, List[dict]] = {}
     for q in range(KEY_OFF, len(blob) - 0x10):
         key = struct.unpack_from("<I", blob, q)[0]

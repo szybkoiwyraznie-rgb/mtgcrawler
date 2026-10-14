@@ -41,6 +41,28 @@ class IsoPackTests(unittest.TestCase):
         names = {f["path"] for f in info["files"]}
         self.assertIn("PSP_GAME/SYSDIR/EBOOT.BIN", names)
 
+    def test_find_member_ignores_case_and_the_version_suffix(self):
+        key, lba, size = iso_pack.find_member(self.image, "psp_game/usrDir/data/a.bin;1")
+        self.assertTrue(key.lower().startswith("psp_game/usrDir/data/a.bin".lower()))
+        self.assertGreater(lba, 0)
+        self.assertEqual(size, len(self._source("PSP_GAME/USRDIR/DATA/a.bin")))
+
+    def test_find_member_reports_a_missing_path(self):
+        with self.assertRaises(ValueError):
+            iso_pack.find_member(self.image, "PSP_GAME/USRDIR/nope.bin")
+
+    def test_read_member_returns_the_file_bytes(self):
+        self.assertEqual(iso_pack.read_member(self.image, "PSP_GAME/USRDIR/DATA/b.bin"),
+                         self._source("PSP_GAME/USRDIR/DATA/b.bin"))
+
+    def test_a_member_found_here_can_be_patched_back_in(self):
+        key, _lba, _size = iso_pack.find_member(self.image, "PSP_GAME/USRDIR/DATA/a.bin")
+        out = self.tmp / "patched.iso"
+        iso_pack.patch_iso(self.image, out, {key: b"replaced!" * 10})
+        self.assertEqual(iso_pack.read_member(out, "PSP_GAME/USRDIR/DATA/a.bin"), b"replaced!" * 10)
+        self.assertEqual(iso_pack.read_member(out, "PSP_GAME/USRDIR/DATA/b.bin"),
+                         self._source("PSP_GAME/USRDIR/DATA/b.bin"))
+
     def test_content_round_trips(self):
         info = iso9660.inspect_iso9660(self.image)
         out = self.tmp / "out"

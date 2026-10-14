@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-10
+Last updated: 2026-10-12
 
 ## Target
 
@@ -241,7 +241,7 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Kategorie wymagane przez cel, stan pokrycia:
   - dialog (283 klucze, 12738 linii): tak, nazwy częściowo;
   - battle quotes (241 kluczy, 22902 rekordy): tak, nazwy częściowo;
-  - mechy/jednostki (393 rekordy `unit_list`, 40 mechów `RoboDictionary`): nazwy tak, powiązanie z bronią nie;
+  - mechy/jednostki (393 rekordy `unit_list`, 40 tytułów serii w `RoboDictionary`): nazwy tak; powiązanie jednostka→bronie TAK na 7/46 kontenerów (`tools/unit_weapons.py`, sesja 5);
   - bronie (389 nazw): nazwy tak, opisy nie;
   - przedmioty (317 nazw): nazwy tak, opisy działania nie;
   - helpy/UI: nie zaczęte (poza tabelą referencyjną `srwDL_Reference`, 28 rekordów z tekstem);
@@ -262,3 +262,369 @@ The agent sandbox has neither the game files nor the converter, so only the user
 - Narzędzie: `tools/mech_names.py` (czyta config*, zwraca kandydatów z trzech źródeł). Wynik w `local/mech/mech_names.json`.
 - Kandydaci: `unit_list` base 267, display 390, slot3 40. Brak wspólnych nazw slot3 z unit_list.
 - Cel 100+ mechów NIEPOTWIERDZONY: nie wiadomo, czy unit_list to same mechy.
+
+### Sesja 5 (2026-10-12): tożsamość jednostek (jednostka → bronie → seria) — CAŁA GRA
+- Nowe narzędzie `tools/unit_weapons.py` (read-only): scala `unit_list`, `wp_list`, `srw_DL_RoboDictionary`,
+  `robo_cpkid` i `unit_index_list` po id jednostki; wynik `local/units/unit_weapons.json` + CSV (gitignored).
+  16 nowych testów syntetycznych; cały zestaw **383 OK (1 skipped)**.
+- [ZWERYFIKOWANE] **Cała gra, 46 kontenerów:** 393 jednostki (= cały `unit_index_list`) i 1485 broni;
+  id `unit_list` +84 == id `wp_list` w każdym kontenerze, ta sama kolejność (46/46); każda jednostka ma
+  listę broni, każda broń ma nazwę i animację `.bsb` (1481 także formę skróconą).
+- [ZWERYFIKOWANE] Dane gry siedzą w `config00`–`config19` (20 kontenerów). `config20`–`config46` to zaślepki
+  z tekstem-powtórzeniem „configNN" (32 B) i czasem 256-bajtowym `milstPnn.bin`; `config09` ma puste pule.
+- [ZWERYFIKOWANE] `unit_index_list.bin` = globalna lista **393 jednostek całej gry** (id, liczba broni, offset);
+  łańcuch offsetów 393/393 (offset[i+1] − offset[i] = 12 + 256·liczba); liczba broni zgodna z `wp_list` 332/333
+  (anomalia: id 2940 — indeks 3, rekord 4). 60 id należy do kontenerów `config07`–`config46`.
+- [ZWERYFIKOWANE, korekta] nazwa broni jest ZAWSZE pod entry+32 (dawne „+30" to artefakt float32 pod +28).
+  Nazwa jednostki: +0 (bazowa) i +140 (z wariantem); seria = `RoboDictionary` slot 3 po id z +28
+  (261 rekordów, 259 id pokrytych, jedno id z dwoma rekordami: 3201; 74 jednostki bez serii w tych kontenerach).
+- [ZWERYFIKOWANE] Komplet: `srw_DL_RoboDictionary` 305 rekordów → 302 jednostki z serią (91 bez);
+  `robo_cpkid` 360 par → 336 jednostek z modelem w `robo00`, 24 pary poza `robo00`; `unitfacelist` 321 rekordów.
+- Otwarte: semantyka pól +88…+134; `robo01`+ dla 24 par modeli; 91 jednostek bez rekordu serii;
+  2 anomalie liczby broni (2940, 3246).
+
+### Sesja 5, część 2 (2026-10-12): audyt kategorii, cytaty bitewne, tabele tekstowe config
+- Nowy dokument **`docs/COVERAGE.md`** — mapa wszystkich kategorii celu (stan, źródła, braki, kolejność
+  domykania, definicja „gotowe” per kategoria). To punkt odniesienia dla dalszej pracy.
+- **Cytaty bitewne: domknięte.** `tools/battle_quotes.py` dekoduje łańcuch `EVNT` i rekordy 200/201;
+  wynik na 32 kontenerach: **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów** (pokrycie 100%
+  rekordów typu 201). Korekta: stara liczba 241 kluczy / 22 902 rekordy liczyła tylko rekordy zgodne
+  z nazwą członka — prawdziwy klucz mówcy jest w rekordzie.
+- **Tabele tekstowe config: ekstrakcja.** `tools/config_text_tables.py`: 11 254 rekordy, 12 599 stringów,
+  208 109 B (unikalnych 4208 / 89 259 B) z Item/Skill/Reference/DLC_ID + Spirit/Achievement/Skill_Tag/
+  StatusChange/ItemDrop. Trzy konwencje tabel zmierzone i przetestowane.
+- Ustalenia: `imenu00` = duplikat `config00`; `configst` = 21 członków (m.in. komendy duchowe, trofea);
+  DLC itemy/skille nie wnoszą nowych tekstów; tabela biografii postaci nadal niezidentyfikowana.
+- Testy: **410 OK (1 skipped)**.
+
+### Sesja 5, część 3 (2026-10-12): tabela postaci, wspólna rama EVNT, nazwy kluczy
+- **Tabela postaci `charalist<NN>.bin` znaleziona i zdekodowana** (`tools/charalist_table.py`):
+  172-bajtowe rekordy, nazwa skrócona +0, pełna +32, wąska +76, **klucz mówcy u16 +96**;
+  16 członków, 404 rekordy, 404 unikalne klucze.
+- Nazwy kluczy: **dialogi 283/283 (100%)**, cytaty 300/319; pozostałe 19 kluczy opisane
+  (5 slotów zastępczych z pustym tekstem, 3 to także id jednostek, 11 nadal otwarte).
+- **Wspólna rama `EVNT`** (`tools/evnt_walk.py`): wariant `mesbtl` i wariant eventowy z nagłówkiem
+  `EDAT`; wyjaśnia 42 członki bez łańcucha. `battle_quotes.py` używa teraz tej implementacji,
+  wynik bez zmian: 29 577 cytatów / 319 kluczy / 0 błędów.
+- Pobrano brakujące kontenery: `imenu01–32` (25 plików) i wszystkie eventy (`eventP02–09, 13,
+  20–32`, `evept101–108`). Manifest uzupełniony o brakujące ID.
+- Testy: **435 OK (1 skipped)**.
+
+### Sesja 5, część 4 (2026-10-12): pełna ekstrakcja tekstu scen
+- `tools/event_dialogue.py` (10 testów) czyta wszystkie bloki `EVNT`: **26 468 linii dialogu**
+  (32 kontenery, 293 członki), 313 kluczy mówców — **wszystkie mają nazwę** w tabeli postaci.
+- Poprzednia liczba 12 738 linii / 283 klucze była zaniżona ~2x (chodzik kończył na granicy bloku).
+- Poza dialogiem: 360 tekstów innych typów (narracja, warunki zwycięstwa/porażki, lokacje, help,
+  tytuły scen) + 273 teksty w blokach-tabelach. Razem 27 101 pozycji / ~1,22 MB.
+- **Korekta (sesja 5, część 11)**: czytnik gubił narrację schowaną w osłonkach `0xC8` — patrz wpis 44
+  w `EXPERIMENT_LOG.md`; po dociągnięciu: **29 934 wiersze** fabuły, 32/32 kontenery obecne.
+- Testy: **445 OK (1 skipped)**.
+
+### Sesja 5, część 5 (2026-10-12): nazwy mówców (381 kluczy) i encyklopedia postaci
+- `tools/chara_dictionary.py` (9 testów): słownik postaci z 25 kontenerów `imenu` — **582 rekordy /
+  289 kluczy**, pola: nazwa, seiyuu (`－－－` = brak), **opis do encyklopedii [2]**, tytuł serii,
+  `愛称：`, `声優：`, szablony wyświetlania, nazwa alternatywna, krótka nazwa.
+- **Encyklopedia zlokalizowana**: to pole [2] rekordu (dowód: rekord `NoData` ma tam
+  `図鑑用のデータが存在していません。`). Opisów w danych gry **nie ma** (579/582 puste) — trzeba je
+  napisać redakcyjnie; wstrzyknięcie jest wykonalne w polu [2] (pula rośnie).
+- `tools/name_map.py` (12 testów): jeden stół **klucz → nazwa** dla 381 kluczy gry (313 dialogów ∪
+  319 cytatów). **362 klucze z nazwą (95,0%)**; nazwę dostaje **100% linii dialogu** i **96,0%**
+  rekordów cytatów. Źródła: `charalist` (podstawa) + `CharaDictionary` (seiyuu, seria, pseudonim).
+- Kontrola krzyżowa źródeł: `charalist.name_short` == `CharaDictionary.nickname` w 288/288, `name_full`
+  == `name` w 285/288 (NFKC). Sloty `config*` **zbędne**: 190/201 trafień już w `charalist`, a 11 to
+  przypadkowe bajty; reguła markera `0x6401` zgadza się w 89/91, bez markera myli się w 91/214.
+- Zostaje **19 kluczy cytatów = 1 182 rekordy (4,0%)** bez nazwy (13 z tekstem); 3 z nich to także
+  id jednostek — hipoteza „klucz = jednostka generyczna” do sprawdzenia (plan pkt 11).
+- Naprawiony dług: `speaker_names.scan()` działa jako biblioteka (leniwy regex).
+- Testy: **466 OK (1 skipped)**.
+
+### Sesja 5, część 6 (2026-10-12): itemy i umiejętności — klucze, role pól, pule DLC
+- `tools/item_skill_records.py` (11 testów): rekord itemu/umiejętności = nagłówek u16, **3 pary
+  `u16` (start, end) pod +40** (nazwa / efekt / etykieta), ogon liczbowy i pula fragmentów po rekordach.
+- **Itemy**: 300 rekordów = **300 kluczy** (u16 +0); nazwy 4 001 B (273 unikalne), efekty 3 941 B.
+  `srwDL_Item00` (config00) i `srwDL_Item` (configst) są **identyczne** (md5 `18f16420f2`).
+- **Umiejętności**: 1 469 rekordów = **1 469 kluczy** (u16 +4, unikalne); nazwy 10 322 B (189 unikalnych,
+  część z tokenami 0x0F), efekty 40 208 B (1 237 unikalnych). Rodzina +0/+2 (193/254 wartości), poziom +6.
+- Sloty nazwy i efektu **bez zapasu** (0 w 1769/1769) → grow wymaga przebudowy tabeli offsetów.
+- **DLC `Item01–08`/`Skill01–08` nie dodają tekstu** — to kopie pul fragmentów bazowych plików (0 nowych).
+- `srwDL_Skill_Tag` to tabela etykiet JP/EN (常時/ALWAYS), nie tabela skilli.
+- Testy: **477 OK (1 skipped)**.
+
+### Sesja 5, część 7 (2026-10-12): inwentarz plików, brak opisów encyklopedii, nowe kategorie tekstu
+- `tools/member_inventory.py` (11 testów w `tests/test_member_inventory.py`): czyta **oba warianty CPK**
+  (klasyczny z TOC i „ITOC blob” bez offsetów) oraz **oba poziomy** (członek kontenera + podpliki PAC),
+  a każdy plik przypisuje do czytnika na podstawie JSON-ów wyjściowych. Wynik na przekazanym materiale:
+  **155 kontenerów / 4 043 pliki**; z czytnikiem 1 097, bez czytnika 3 101 (wyłącznie grafika, dźwięk
+  i puste sloty `_Entry.dat`/`_edit.dat`; każdy plik z tekstem ≥ 12 B jest rozliczony).
+- Drugi wariant CPK: członki leżą kolejno od `ContentOffset`, każdy na granicy 2048 B — reguła
+  potwierdzona budżetem bajtów (`speaker_map.member_offsets`, fail-closed). Wyjątek: `mesbmp00`
+  (kolejność inna niż tabela ITOC; zbiór bitmap, dla tekstu nieistotny) — udokumentowany.
+- **Nowe kategorie tekstu**: tytuły misji i uwagi do misji (`*_ext.dat`: 224 tytuły, 114 uwag, 10 147 B),
+  tytuły misji w liście (`milstP`, 203), **tytuły BGM** (`bgmlist`, 490 / 10 953 B), nazwy teł
+  (`bg2dlist`, 64), nazwy map (`srwDL_Map_S`, 15), nazwy oddziałów (`groupunit`, 16), etykiety sklepu
+  (`srwDL_Shop`, 5). Wszystkie mają ramę „slot + NUL”, więc ścieżka grow jak w itemach — ale czytnika
+  jeszcze nie ma (pkt 12 planu).
+- **Encyklopedia**: opisów per-postać **nie ma w żadnym z 155 kontenerów** (pole [2] `CharaDictionary`
+  puste w 579/582; `RoboDictionary` notki ≤ 52 B). Przeskanowane też wszystkie kontenery grafiki
+  (`lmap`, `face00`, `bg2d`, `txa00`, `smap`, `mesbmp`, `bacb`, `eftex*`, `efmodel`, `efclump`, `bmp00`,
+  `logodata`, `colorlst`, `bseq00`, `sprstd00`) — **0 tekstu**. Do rozstrzygnięcia z użytkownikiem:
+  jeden japoński przykład tekstu z ekranu encyklopedii → szukanie bajtowe; jeśli nie znajdzie się
+  w danych, opis jest obrazem/teksturą albo siedzi w `EBOOT.BIN`/`UPDATE/DATA.BIN` (95 MB).
+- Higiena: pliki pobrane tylko do pomiaru (`bacb04`, `mesbmp00`, `lmap`, `face00`, `bg2d`, `txa00`,
+  `smap`) usunięte po skanie; ID i rozmiary w `tools/drive_manifest.tsv` (workspace 143 MB → 51 MB).
+- Testy: **488 OK (1 skipped)**.
+
+## Sesja 5, część 8 (2026-10-12): czytnik nowych kategorii + pakiet dla tłumacza
+
+- **Nowe kategorie tekstu są już czytane**: `tools/mission_text.py` (`*_ext.dat` tytuły i uwagi do misji,
+  `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`) — **871 rekordów, 0 błędów**, 20 testów
+  syntetycznych. Każdy slot ma policzony **span** (= twardy budżet tłumaczenia); uwagi do misji są
+  zduplikowane w dwóch slotach (deduplikacja przy eksporcie).
+- **Pakiet dla tłumacza gotowy**: `tools/translator_export.py` skleja wszystko w 8 plików JSONL +
+  `strings.csv` + `index.json` — **80 606 wierszy / 2 447 484 B**; wiersz ma `id`, `jp`, puste `en`,
+  budżet (`mode=grow` albo `max_bytes` dla slotów) i mówcę. Pliki jadą na Google Drive (poza repo).
+- **Nazwy mówców**: **26 468/26 468 linii dialogu = 100,0%** (poprawiony błąd eksportu gubiący klucz 0),
+  cytaty 26 932/27 383 = 98,35%. Reszta to **14 kluczy / 451 rekordów** (1,65%) występujących wyłącznie
+  w `mesbtl00`; cztery metody sprawdzenia wykluczone, zostaje odczyt ze skryptu bitwy.
+- **2 194 rekordy cytatów** (`p0995.pac`, `p0996.pac`) **nie mają w grze tekstu** (24-B rekordy,
+  `flags=0`) — 7,4% puli, nic do tłumaczenia.
+- **Sklep**: `srwDL_Shop` dodany do `config_text_tables`; pełny przebieg 36 członków / 12 631 stringów /
+  208 229 B / 0 błędów.
+- Testy: **521 OK (1 skipped)**.
+
+## Sesja 5, część 9 (2026-10-12): itemy i umiejętności — korekta układu pól i ścieżka zapisu
+
+- **KOREKTA**: +40 w rekordzie itemu/umiejętności to **sześć granic `u16` = pięć pól tekstu**
+  (`name`, `name_level`, `effect`, `effect_brief`, `label`), nie trzy pary `(start, end)`. Poprzedni
+  odczyt **zgubił dwa pola**: `name_level` (15 032 B) i `effect_brief` (7 161 B) — razem **22 193 B
+  tekstu widocznego w grze** wróciło do pakietu. Wypełnienie: umiejętności 1469/1469/1469/516/9,
+  itemy 300/0/300/0/0.
+- **Reguła zapisu**: rekord ma zawsze długość % 4 == 0, a nadmiar leży w ostatnim polu (2069/2069).
+- **`tools/item_skill_write.py`** (19 testów): przebudowuje rekord, tabelę offsetów, `tail_offset`,
+  PAC i CPK; wiersz stosuje tylko przy zgodnym `member` i zgodnym tekście `jp`; przebudowa bez zmian
+  = **bajt w bajt**. Przebieg demo: 20 wierszy w `config00` (Skill00 208 958 → 209 170 B,
+  Item00 34 566 → 34 726 B) i 8 w `configst` (34 566 → 34 726 B), kontrola 20/20 i 8/8.
+- **Pakiet dla tłumacza**: **82 591 wierszy / 2 469 677 B** (`03_skills` 4 932 wiersze), wiersze
+  itemów/umiejętności w trybie `grow` z `suggested_max` (podpowiedź UI) i `record`.
+- **CLI zapisu**: `item_skill_write.py --translations` przyjmuje katalog z JSONL albo wiele plików;
+  przebieg po całym pakiecie (wszystkie `en` puste) → 0 zastosowanych, 0 błędów.
+- **Walidator pakietu** `tools/translation_check.py` (14 testów): tokeny sterujące w kolejności,
+  liczba linii, CP932, `max_bytes` (błąd) / `suggested_max` (uwaga), licznik nietłumaczonych,
+  `check_report.txt`, `--require-complete`, `--strict`. Pełny przebieg: 82 591 wierszy / 0 błędów.
+- **Pułapka**: nowa linia w tekstach gry to prawdziwy LF (0x0A), nie `\n` — walidator to liczy.
+- Testy: **560 OK (1 skipped)**.
+
+## Sesja 5, część 10 (2026-10-12): kolejność scen, numeracja pakietu i proces tłumaczenia
+
+- **Sceny**: `tools/scene_map.py` — 293 sceny w kolejności gry (seria → odcinek → numer → wariant DLC),
+  tytuł misji dla każdej (224 własne + 69 dziedziczonych, 0 braków), 32 sceny z elementem
+  „miejsce/czas”; 36 scen to kopie, 33 to warianty edytowane → 4 186 wierszy z `copy_of`.
+- **Pakiet**: wiersze dialogu w kolejności scen (`scene`, `order`), nowy plik strukturalny
+  `06_scenes.jsonl`, pliki nazw przenumerowane `10_`→`07_`, `11_`→`08_` (numeracja ciągła 00–08,
+  09 wolny). `strings.csv` tylko z `--csv`; przy ponownym eksporcie stare nazwy są kasowane.
+- **Widok scen dla tłumacza**: `tools/scene_view.py` → `sceny/spis-scen.md` + `epizod-NN.md` +
+  `sceny.zip` — nagłówek sceny (odcinek, miejsce, czas), elementy po kolei, `_koniec sceny_`.
+- **Kopie wariantów**: `tools/translation_copy.py` przepisuje tłumaczenie ze źródła `copy_of`
+  (nie nadpisuje wypełnionych, zgłasza rozjazd `jp`).
+- **Znaki sterujące**: walidator pilnuje `\r` (1 389 wierszy dialogu) i `0x0F` (1 645 wierszy w itemach,
+  skillach i nazwach) — zgubienie któregokolwiek to błąd.
+- **Proces tłumaczenia**: `docs/TRANSLATOR_PACKAGE.md` to instrukcja krok po kroku — tłumacz wypełnia
+  **tylko linie `EN:` w plikach `.md`** (widoki), a nie JSONL; import → `translation_copy.py` →
+  `translation_mirror.py` → `translation_check.py`. CSV to wyłącznie widok (nie wraca do gry).
+- Testy: **595 OK (1 skipped)** (stan tej części; po części 10c — 652).
+
+## Sesja 5, część 10b (2026-10-12): widok scen = plik do pracy (import angielskiego)
+
+- `tools/scene_view.py`: linia `EN:` pod każdym elementem sceny + ochrona pracy — plik z nieprzeniesionym
+  angielskim nie zostanie nadpisany przy ponownym generowaniu widoku (`skipped`, `--force`).
+- `tools/translation_import.py` (**nowe**, 13 testów): rozpakowany `sceny.zip` / folder `.md` →
+  `00_dialogue.jsonl` jednym poleceniem; wcięte linie po `EN:` to ciąg dalszy tekstu, `⏎` i `<0x0F>`
+  wracają jako znaki; tekst łamiący zasady gry jest odrzucany, nie wpisywany (idempotentnie).
+- Proces: **tłumaczysz sceny w `.md`** → `translation_import.py` → `translation_copy.py` →
+  `translation_check.py`; JSONL to plik, z którego buduje się gra (nie trzeba go czytać),
+  a `sceny.zip` nigdy nie wraca spakowany do gry.
+- Demo na 12 liniach sceny 1: import 12/12, kontrola 0 błędów, 0 uwag. Widok pakietu regenerowany
+  z liniami `EN:` (`sceny.zip` 767 501 B) — do podmiany na Drive.
+
+## Sesja 5, część 10d (2026-10-12): wtrysk dialogów do zdarzeń — działa na prawdziwym kontenerze
+
+- `tools/event_text_apply.py` (**nowe**, 14 testów) domyka ścieżkę pakiet → gra dla fabuły.
+  Zmierzony format rekordu dialogowego: `0xC9`, `[typ][rozmiar][6×u16: 1, id mówcy, 0,0,0,FFFF]`,
+  tekst od +20, dopełnienie do 4 bajtów (1–4 zera). Offset z pakietu **jest** początkiem tekstu
+  (sprawdzone na wszystkich 90 wierszach członu `DL100_01.bin`); rekord siedzi w opakowaniu `0xC8`,
+  to w sekcji `EVNT`, a to w nagłówku `EDAT`.
+- Rozszerzenie linii przepisuje: rozmiar rekordu, rozmiar każdego opakowania `0xC8`, rozmiar sekcji
+  `EVNT` i rozmiar `EDAT` — wszystkie te pola leżą **przed** wstawianym tekstem, więc nic nie trzeba
+  przeliczać (plik jest chodzony, nie indeksowany).
+- Bramki: tekst musi stać pod zapisanym offsetem (inaczej wiersz pominięty), linia musi zmieścić się
+  w oknie (46 jednostek), tekst musi kodować się w CP932, a po zmianie plik jest **ponownie parsowany**
+  (chodzenie bloków, liczba rekordów, wielozbiór tekstów) — wynik niezgodny nie jest zapisywany.
+- Przebieg na prawdziwym `eventP00.cpk`: **6 linii sceny 1 przetłumaczone → 6/6 wpisanych**,
+  0 pominiętych, 0 odrzuconych, 0 problemów weryfikacji; człon `DL100_01.bin` 13 112 → 13 080 B,
+  kontener 162 264 → 170 456 B (zmieniony człon zapisany bez kompresji). Odczyt patrzonego kontenera
+  z zewnątrz: **44 członki, różni się tylko `DL100_01.bin`**, 82 teksty sceny bez błędów, pierwsze
+  sześć po angielsku. Bramka tożsamości `cpk_write`: `eventP00.cpk` i `config00.cpk` **bajt w bajt**.
+- Ograniczenia (uczciwie): rekordy inne niż dialogowe (narracja, warunki, etykiety, teksty
+  wbudowane — 633 wiersze) mają tekst bez pola długości, więc dostaną własny zapis; tytuły i uwagi
+  misji czekają na zapis pól o stałej szerokości (`*_ext.dat`); uruchomienia w PPSSPP nie mam —
+  to po stronie użytkownika.
+
+## Decyzje użytkownika (2026-10-12, po cz. 10e)
+
+1. **Nazwy serii zostają po japońsku** — nie tłumaczymy ich; kontekst serii w widokach i scenach
+   pozostaje w oryginalnym zapisie.
+2. **Instrukcja dla tłumacza tylko po polsku** — wersja angielska nie jest potrzebna.
+3. **Dane gry poza repozytorium** — plik `google_drive/eventP00.cpk` usunięty ze śledzenia
+   (`git rm --cached`); historia commitów pozostaje nietknięta. `google_drive/` i `local/` są
+   ignorowane, więc plik nie wróci przypadkiem przy `git add -A`. Audyt `git ls-files` po tej
+   zmianie: **żaden** plik danych gry (CPK/ISO/BIN/DAT/…) nie jest śledzony.
+
+## Sesja 5, część 10f (2026-10-12): test w grze jednym batem, bez danych gry w repo
+
+- `PATCH_ISO_TEST.bat` przestał potrzebować paczki z Drive: bierze **Twoje ISO**, wyciąga z niego
+  `PSP_GAME/USRDIR/eventP00.cpk`, wpisuje 6 angielskich linii prologu i zapisuje nowe ISO obok
+  (`SRW_OE-test.iso`). Uruchomienie: dwuklik (albo przeciągnięcie ISO na plik).
+- Nowe: `tools/iso_test_patch.py` (+11 testów, w tym przepis z repo sprawdzony na atrapie ISO z
+  prawdziwym kontenerem), `tools/iso_pack.py`: `find_member` / `read_member` (+4 testy),
+  `test-patches/eventP00-scena1.json` — offsety, skróty MD5 i nasze angielskie linie; **żadnego
+  japońskiego tekstu i żadnego pliku gry w repozytorium**.
+- Bramki w narzędziu: MD5 kontenera i członu (inna wersja gry → stop, nie cicha korupcja), każda
+  linia musi trafić w swój rekord dialogowy, weryfikacja zapisu musi wyjść pusta, po przebudowie
+  zmieniony może być **tylko** wskazany członek. `--dry-run` sprawdza wszystko i nic nie zapisuje.
+- Test końcowy: atrapa ISO z prawdziwym `eventP00.cpk` + przepis z repo → **6/6 linii**, zmieniony
+  tylko `DL100_01.bin`, kontener przebudowany, ISO czytelne dla `iso9660.inspect_iso9660`.
+- Zestaw testów: **681 OK** (1 pominięty).
+
+## Sesja 5, część 10g (2026-10-12): wybór ISO w oknie, wynik obok oryginału
+
+- `PATCH_ISO_TEST.bat` nie wymaga już wpisywania niczego z klawiatury: otwiera **okno wyboru
+  pliku** (ten sam mechanizm Tk, co w `run_pipeline.py`), a nowe ISO zapisuje **obok oryginału**
+  jako `<nazwa>-test.iso`. Przeciągnięcie ISO na bata nadal działa (wtedy okna nie ma).
+- Bez Tk albo bez pulpitu narzędzie pyta w konsoli, a anulowanie okna kończy pracę komunikatem
+  (kod wyjścia 2). Rozszerzenie pliku i brak pliku są sprawdzane przed czymkolwiek innym.
+- Testy: `tests/test_iso_test_patch.py` ma 15 testów (doszły: nazwa pliku wyjściowego obok
+  wejścia, przebieg CLI bez podanej ścieżki, brak okna/anulowanie, brak okna ≠ błąd).
+- Zestaw: **685 testów OK** (1 pominięty).
+
+## Sesja 5, część 11 (2026-10-12): narracja i tytuły misji — po Twoim teście w grze
+
+Po potwierdzeniu, że gra czyta nasze linie, domknięte zostały trzy rzeczy, które widziałeś po
+japońsku:
+
+1. **Narracja** — miała własny typ rekordu (`0x1B7`, tekst od +12) i własny problem: leżała
+   w opakowaniu, którego ekstraktor nie otwierał, więc **nie było jej w pakiecie tłumacza**
+   (41 z 44 rekordów w `eventP00.cpk`). Ekstraktor naprawiony, zapis obsługuje oba typy rekordów,
+   a okno narracji zmierzone na 52 znaki.
+2. **Tytuły misji** — pola stałej szerokości w `config00.cpk` → `config00.pac` → `milstP00.bin`
+   (komórka 128 B, tytuł od +10). Nowe narzędzie `tools/slot_text_apply.py` pisze w takie pola:
+   mieści się albo odmowa, zero zmian poza pisanymi komórkami, bramka tożsamości dla całego
+   kontenera. Przetłumaczone wszystkie 15 tytułów z tego pliku.
+3. **Cała pierwsza scenka** — przełożona w całości: 6 rekordów narracji + 82 linie dialogu
+   (Seishiro Kusanagi, Himari Yaegaki, mech „Exert”). `PATCH_ISO_TEST.bat` wpisuje teraz jedno
+   i drugie w jednym przebiegu.
+
+Do zrobienia dalej: **odświeżyć pakiet tłumacza** (widoki scen bez narracji to skutek naprawionej
+luki — potrzebna ponowna ekstrakcja z kontenerów fabuły), imiona mówców w okienku dialogowym
+(`config00.cpk`, sloty nazw), pozostałe rodzaje tekstu (warunki, etykiety, teksty w tabelach),
+UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
+
+### Sesja 5, część 11 (2026-10-12): pakiet dla tłumacza domknięty i wgrany
+
+- **Fabuła domknięta**: `tools/event_refresh.py` dociągnął z kontenerów gry to, czego nie widział
+  czytnik — **+2 833 wiersze** (w tym 1 706 narracji ukrytej w osłonkach `0xC8`); fabuła ma teraz
+  **29 934 wiersze**, kontenery **32/32** (rozdziały `eventP10`–`12`, `14`–`19` nie istnieją w DLC).
+- **Limity długości przy każdym elemencie**: każdy element do tłumaczenia ma linię `limit:`
+  (slot: ile bajtów; dialog/cytat: 46 jednostek na linię + liczba linii oryginału; pole tabeli:
+  bez twardego limitu, z długością oryginału).
+- **Powtórzenia dziedziczą tłumaczenie**: `tools/package_copies.py` oznaczył **6 504 wiersze**;
+  w widokach **5 146** pozycji nie ma linii `EN:` (m.in. „Seria" przy każdym mechu/postaci).
+- **Pakiet**: 67 440 linii `EN:` (26 035 fabuła + 41 405 widoki), kontrola **0 błędów**,
+  85 424 wiersze tekstu. Testy: **728 OK (1 skipped)**.
+- **Drive**: folder „Pakiet do tłumaczenia" zawiera **dokładnie trzy pliki** (`README.md`,
+  `sceny.zip`, `widoki.zip`); nasze kopie JSONL i raporty przeniesione do folderu
+  „Robocze (JSONL — nie dla tłumacza)".
+- **Jasność pakietu**: README (wersja 2) mówi wprost, że **nagłówki grup** (`- seria:`, `- głos:`,
+  `- uczestnicy:`) zostają po japońsku jako podpowiedź, a tłumaczy się tylko elementy widoczne
+  w grze (`[Seria]`, `[Aktor głosowy]`, …).
+- **Szacunek pracy na całość** (zmierzony, nie na oko): 1 406 489 znaków JP → ~3,16 mln znaków EN
+  (~527 tys. słów), ~0,8 mln tokenów czystego tekstu; rząd 5–10 mln tokenów z otoczką, ~100–250 tur
+  roboczych (~10–20 sesji). Szczegóły we wpisie 46 `EXPERIMENT_LOG.md`.
+- **Instrukcja dla tłumacza = tylko instrukcja**: rozdziały o naszym stanie prac i kuchni
+  technicznej przeniesione do `docs/TRANSLATOR_PACKAGE_TECH.md`; pilnuje tego
+  `tests/test_translator_readme.py` (6 testów). Testy: **734 OK (1 skipped)**.
+- **AUDYT POKRYCIA (nowe)**: `tools/coverage_audit.py` porównuje surowe kontenery z pakietem.
+  Pierwszy przebieg: **26 756 tekstów / 413 943 znaki są w plikach gry, a nie ma ich w pakiecie**
+  (najwięcej w fabule: czytnik scen kończy chodzenie po członku przedwcześnie, np. `DL830_13.bin`
+  ma 507 rekordów dialogu, a pakiet zna 98; `configst` 824 opisy interfejsu). Szczegóły i dowody
+  bajtowe w `EXPERIMENT_LOG.md` wpisy 48–49. **Pakiet nie jest kompletny — nie oddawać tłumaczowi**
+  do czasu, gdy audyt da 0 braków.
+- **KOREKTA LICZB (2026-10-12)**: dialog fabuły to **~44 500 linii**, nie 26 468 — czytnik gubił
+  całe bloki (w `eventP08`/`DL830_13.bin` pominięte 60 z 65 bloków). Brakuje ~18 519 linii
+  (451 025 znaków jp). Cytaty bitewne sprawdzone na **wszystkich 32 `mesbtl`** — **0 braków**.
+  Tekst do tłumaczenia rośnie z 1,41 mln do ~1,86 mln znaków jp (~4,2 mln znaków angielskiego).
+  Szczegóły: `EXPERIMENT_LOG.md` wpis 50.
+- **CZYTNIK NAPRAWIONY, PAKIET PRZEBUDOWANY, BRAMA ZIELONA (2026-10-12)**: nowa reguła startu
+  łańcucha w `evnt_walk.find_chain` — najwcześniejsze opakowanie `0xC8` (zmierzone na wszystkich
+  **5 211 blokach**; stara reguła „najwięcej rekordów” myliła się w 5 104). Wynik: **43 708
+  rekordów dialogu, 0 błędów**. `coverage_audit.py` na przebudowanym pakiecie: **0 brakujących
+  tekstów** (2 pozostałe trafienia to wpisy Makefile w `configst.pac`, nie tekst gry). Pakiet:
+  **105 372 wiersze** (dialog 47 175 — mówca nienazwany 2 = 0,0%; cytaty 27 383 — 451 = 1,65%;
+  przedmioty 1 200; umiejętności 4 932; config 15 368 — w tym **2 196 tekstów z `sysmes.bin`**
+  i 541 doczyszczeń; misje 1 281; postacie 3 388; jednostki/bronie 4 645; sceny 282).
+  Dziedziczenie przywrócone (`package_copies.py`): **6 504 `copy_of`** → do wpisania **83 536
+  linii `EN:`**, 13 162 elementy dziedziczone. Pliki dla tłumacza przebudowane: `sceny.zip`
+  (36 plików), `widoki.zip` (7 plików), instrukcja zaktualizowana. Testy: **734 OK (1 skipped)**.
+  Szczegóły: `EXPERIMENT_LOG.md` wpis 51. Nadal brakuje `eventP00.cpk` (rozdział 1).
+- **PEŁNY BUDOWNICZY PATCHA GOTOWY (2026-10-13)**: `tools/build_translation_patch.py` +
+  `HOKUS_POKUS.bat` — jeden przebieg: ISO użytkownika + folder DLC + zwrócony pakiet
+  tłumaczenia → `srw-oe-patch/patched.iso` + `srw-oe-patch/DLC/...` (tylko zmienione pliki)
+  + `build_report.json` (każda odmowa z powodem). Oryginały tylko czytane. Nowi pisarze:
+  `name_table_write.py` (stałe komórki charalist/unit_list/wp_list, pasuje-albo-odmawia,
+  trzecia forma jp „token-solved" dla krótkich nazw broni) i `slot_apply.py` (generyczny
+  zapis in-place: sloty 04/05 i tail-poole konwencji B przed przebudową rekordów). Poprawka
+  CRILAYLA: `cpk_write.decompressed()` — membery event*/imenu* bywają skompresowane, wszyscy
+  pisarze dekodują przed parsowaniem i zapisują stored. Sysmes przez `apply_edits` (pełna
+  przebudowa poola; `equal_translate` nie widzi stringów z `\n`/tokenami). Rozpoznawanie form
+  jp: `table_write.match_form/encode_en` — literalne `%s` (printf gry) odróżnione od bajtów
+  sterujących (`token_kinds`). Smoke na żywo: **21/21 markerów TEST w 5 kontenerach**
+  (config00, configst, eventP00, imenu00, mesbtl00), konflikty celów wykrywane i odmawiane
+  (fail-closed), robonote bez kontenera ląduje we wszystkich lustrach, redirect
+  `unit_series`→RoboDict działa. Testy: **836 OK (1 skipped)** (commity c11adb3, 6e83c97;
+  szczegóły: EXPERIMENT_LOG części 13–15). `eventP00.cpk` dostępny (pobrany z Drive —
+  poprzedni wpis „brakuje" nieaktualny). 
+- **PRÓBA PEŁNOSKALOWA + WSZYSTKIE RODZAJE REKORDÓW SCENY (2026-10-13)**: smoke orkiestratora
+  powtórzony po resecie (21/21); próba pełnoskalowa na 26 729 wypełnionych wierszach
+  (`local/scale_pkg`, 7 JSONL-ów): **24 823 zapisów / 1 781 odmów w 6 kontenerach, 1 m 37 s**,
+  spot 408/420 (chybione = udokumentowane uczciwe odmowy). Bug G naprawiony: kopie DLC
+  `Skill01-08`/`Item01-08` (pool-only konwencja C) routowane w całości do `table_write` przed
+  sprawdzeniem kategorii; konflikty i offsety ze środka stringa w poolach A/C odmawiane
+  fail-closed. **ETA zna teraz wszystkie zmierzone rodzaje rekordów sceny** (odwrócone na
+  żywym eventP00.cpk): condition_victory 0x1B4 i condition_defeat 0x1B5 (tekst @8), location
+  0x152 i help 0x1FC (u32 parametr, tekst @12), scene_title 0x1B6 (3×u32, tekst @20), label
+  0x1BA (dwie postaci: @8 albo u32 id + @12), 0x14F (id + @12), 0x14A (@8) — reguła paddingu
+  `padded_size` potwierdzona na każdej próbce, `grow_text` bez zmian; rozstrzyganie postaci
+  per rekord (`text_start_of`) + `find_record` niesie pozycję z offsetu wiersza. eventP00:
+  **1 709/1 709 wierszy, 0 skipped** (luka pisarza 3,7% pakietu 00 zamknięta). Testy:
+  **855 OK (1 skipped)** (commity e8edd30, 5b5d472; szczegóły: EXPERIMENT_LOG część 16).
+  **Następny krok**: pełny przebieg na maszynie użytkownika (HOKUS_POKUS.bat: ISO + folder
+  DLC + zwrócony pakiet tłumaczenia) i test w PPSSPP; do zweryfikowania w grze: szerokość
+  okna dla nowych rodzajów (reguła 46 jedn. zastosowana przez analogię do dialogu).
+
+## 2026-10-14 — %s: token kany znika z EN (pytanie tłumacza załatwione twierdząco)
+
+* **Reguła (od 26c3560):** EN zachowuje wyłącznie %s-y obowiązkowe — literały `%s` silnika i
+  kontrolki funkcjonalne (\r); tokeny kany `0x0F xx` (glif dźwięcznej kany) znikają z EN razem
+  ze znakiem po %s, dokładnie jak `<0x0F>` w scenach/widokach nazw. Liczba %s w EN = liczba
+  obowiązkowych, inaczej pisarz odmawia (kontrakt deterministyczny, bez zgadywania po tekście —
+  drugie bajty glifów to cyfry/spacje/interpunkcja tak samo często jak symbole).
+* **tokeny.tsv** (tools/token_map.py, 6e21255): mapa L/T/C dla 4 098 display-form wierszy z %s
+  (L=9 391, T=217 w 119 tekstach, C=20); 0 nierozwiązanych; 0 konfliktów jp→rodzaje. Na Drive
+  w „Pakiet do tłumaczenia" i „Robocze (JSONL)" — użytkownik kładzie ją OBOK JSONL-ów.
+* **Walidator/importer** (549fa1d) czytają sidecar automatycznie: EN bez tokenów kany przechodzi,
+  z zachowanymi — odrzucany; bez sidecara stara ścisła reguła. Stare EN-y z `%s*` będą odmawiane —
+  po stronie tłumacza poprawka masowa wg listy (przed tłumaczeniem umiejętności — zgodnie z prośbą).
+* Manual §3 przepisany; README Drive v4 w trakcie synchronizacji. Suite **882 OK**.
+* Następne: ponowny przebieg scale/smoke na realnych kontenerach (pomocniki lokalne do odtworzenia)
+  i finalny patch — bez zmian wobec planu; nowa reguła %s nic w łańcuchu budowania nie łamie
+  (odmowy token-only SLA zamienią się w zapisy).
+

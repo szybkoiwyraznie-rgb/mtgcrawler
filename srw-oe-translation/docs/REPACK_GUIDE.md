@@ -7,7 +7,7 @@ plikiem** (test, że Twoja zmiana trafia do gry).
 Czego potrzebujesz na dysku:
 - oryginał: `SRW OE 1.08.iso`,
 - rozpakowane drzewo: katalog `SRW_OE_1.08` (z `PSP_GAME/...` w środku),
-- świeże repo (gałąź `arena/c656a5df-mtgcrawler`) — są w nim `REPACK_ISO.bat` i `tools/iso_pack.py`,
+- świeże repo (gałąź sesji, dziś `arena/51f7d5fe-mtgcrawler`) — są w nim `REPACK_ISO.bat`, `PATCH_ISO_TEST.bat` i `tools/iso_pack.py`,
 - Python w PATH (masz go — uruchamiasz nim pipeline).
 
 ## WAŻNE: Twoja ekstrakcja `SRW_OE_1.08` jest NIEPEŁNA
@@ -17,6 +17,35 @@ rozpakowujące **pominęło duże pliki** (`BgmSet00.awb`, `UPDATE/DATA.BIN`, `b
 `lmap.cpk`, `voice00.awb`, `mov00.cpk`, `robo00.cpk`…). Dlatego repack z drzewa dał ~300 MB i
 byłby okrojony. **Używaj metody `repackiso`**, która czyta niezmienione pliki wprost z
 oryginalnego ISO — nic nie może zginąć, a drzewo w ogóle nie jest potrzebne.
+
+## KROK 0 (najprościej) — jeden plik: `PATCH_ISO_TEST.bat`
+
+Ten bat robi **cały** test wtrysku fabuły: bierze Twoje ISO, wyciąga z niego kontener zdarzeń,
+wpisuje 6 angielskich linii prologu i zapisuje **nowe** ISO obok. Nic nie trzeba pobierać ani
+rozpakowywać osobno — wystarczy całe repo i Twoje ISO.
+
+1. Uruchom `PATCH_ISO_TEST.bat` — otworzy się **okno wyboru pliku**, wskaż w nim swoje ISO 1.08.
+   Nie trzeba nic wpisywać z klawiatury. (Można też przeciągnąć ISO na plik bata — wtedy okno
+   się nie pokaże.)
+2. Nowe ISO powstaje **obok Twojego oryginału**, pod nazwą z końcówką `-test`
+   (`SRW OE 1.08.iso` → `SRW OE 1.08-test.iso`). Na dysku masz więc od razu obie wersje.
+3. Bat wpisuje **całą pierwszą scenkę** (6 bloków narracji + 82 linie dialogu) oraz **tytuły misji**
+wszystkich 15 komórek z `milstP00.bin`, i pokaże **wymienione linie** (japoński → angielski).
+Kontener scenki i kontener tytułów są podmieniane w jednym przebiegu.
+4. Uruchom nowe ISO w PPSSPP, nowa gra, prolog (odcinek 1).
+
+Zasady bezpieczeństwa, które ten bat sam pilnuje:
+- Twój oryginał jest tylko **czytany** — bat nigdy nie zmienia pliku wejściowego.
+- Kontener i scenka muszą zgadzać się skrótem MD5 z tym, na czym mierzyłem offsety; inna wersja
+  gry **zatrzymuje** pracę z komunikatem, zamiast cicho zepsuć plik.
+- Po zmianie liczy się od nowa, czy zmienił się **tylko** jeden członek (scenka z prologiem);
+  gdyby ruszyło się cokolwiek więcej, wynik nie jest zapisywany.
+- `--dry-run` (dopisz na końcu wywołania `python tools/iso_test_patch.py`) sprawdza wszystko,
+  ale nic nie zapisuje.
+
+Kontener zdarzeń i japoński tekst **nie leżą w repozytorium** — repo trzyma tylko offsety, skróty
+MD5 i nasze angielskie linie (`test-patches/eventP00-scena1.json`). Japoński tekst jest czytany z
+Twojego ISO i pokazywany na ekranie, nigdzie nie jest zapisywany.
 
 ## KROK 0 — metoda: `patchiso` (zalecana)
 

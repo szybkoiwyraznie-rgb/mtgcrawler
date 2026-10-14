@@ -1,7 +1,7 @@
 # Drive inputs for SRW OE (IDs and sizes only, no game content). Gitignored folders do NOT survive turns:
 # re-download with the Drive download tool into google_drive/<name>. Folder ids: FULL_DLC 155zwn1AuwR_O8Sx0UpNPGIi52ysAlaPU, USRDIR 1FyM77fcFLQfXgxRhnS0cJ98oKZaZG72x
 # name	file_id	size
-eventP00.cpk	1or9mKqqJzL_0aFqHOxLCTLKN3lEyNG1w	162264
+eventP00.cpk	(ID Drive wygasl 404 — odzyskany z historii gita 7f65524:google_drive/eventP00.cpk, md5 5fd6eea0e3732b17c48aa44859d86b02)	162264
 eventP01.EDAT	1IcqZvZ9wtOErfIpgMuvHx_nUrMqLAQjv	326456
 eventP02.EDAT	174rpHwTAUqI5tn-neA5mE4p2JUP2PRtx	367480
 eventP03.EDAT	1I7aoN9rCbWyMUlFNClQo6MG6JxnAWdPS	344920
@@ -68,3 +68,260 @@ mesbtl31.EDAT	1TAZmnYGDEcwy8sNLAxsj1Hu0b-iUKDCP	6272
 config00.cpk	1v3FW_p1Zbl56-1F2ATK7NvC7LmGYYcRX	929920
 configst.cpk	1sfVaVX45k7qlUxdo75D1HRY48dCDM4pj	376960
 imenu00.cpk	149s9EvDgyi0cq1Hcang29TaicbLH1yId	34984
+# config containers (FULL_DLC); config38 does not exist. Real data: config00-19;
+# config20-46 are placeholders (repeated "configNN" filler text, some with a milstP stub).
+config01.EDAT	1L03QazqlaBtI0ToIgk8YAKXoo98tLyG1	247936
+config02.EDAT	1AaB82Y19zF11t8u6eKN-NvgzzSG0RvUY	157824
+config03.EDAT	1ttYfkyWnIXQKxUeONeGzAVTyVwj1VrXi	118912
+config04.EDAT	1XlcjX92_K7RAyEwp8NNJKLVqohrAAx_h	108672
+config05.EDAT	1TMDdvrY10ir-BP5enwwLfbasEg8j4_s4	110720
+config06.EDAT	1Ah6OKM6TDFNpBqSz0nWrjF19iVzLsf82	75904
+config07.EDAT	1bKvIjAHGtt8OKXvs-VKGt8SRsTlm4wjv	73856
+config08.EDAT	15xq8W6_QLOQgSYKtpcIEMDonfPv__pXV	80000
+config09.EDAT	1EceQESWMEpUQi6qHEpZBhClnGtQEiEuk	18560
+config10.EDAT	1ja6pW-bRPQ-jnRjxJA8ITy22pp38pglm	32896
+config11.EDAT	1yrqFZH1qcEsfkhPCMuY2C1uXyR9TZPT8	32896
+config12.EDAT	1SJacSmuY-HCgK1mE1h1EH2n1d73343J5	34944
+config13.EDAT	1yCPJhnJo_1eNHxF301iWTBBqMuzGeCAa	34944
+config14.EDAT	1FwhbbN08IBWNvSDQ1dc5VGWlPh9vXvye	34944
+config15.EDAT	1y6aZjD2RftF_rE6PQZhK8UgRYntNKT4i	30848
+config16.EDAT	13wVElE1biYs24rO8QbreoW-teDUvIziK	30848
+config17.EDAT	1tLJsaZ6oikAsG22R-EuQYPT3ktuAHlCi	30848
+config18.EDAT	1lj8oUvVbeN6wuusRoTijeRINenBL3VLn	24704
+config19.EDAT	18X5n_NpN4Lmfh2WyqKXF0nCevRD9hgWA	32896
+config20.EDAT	1MRaoDxqXbG3qDL6sVnnlUJSHYG0Mqd5F	12416
+config21.EDAT	1BDsmWiaCNKtynoqPkWgBAXyI6ofKqPys	12416
+config22.EDAT	1S-Ootp5U6kJg_Fx9rprLUJ1mdfkT0Pqd	12416
+config23.EDAT	1Vbuyh_Liobt6OtnwG9ODn9bUIfoIahs7	12416
+config24.EDAT	1gZZHQn8EixXKD9Xru0EEXTgOEOHuvAUV	12416
+config25.EDAT	1I5qZ5Ho-4kj1khP2hLe9X74KAokem1zv	12416
+config26.EDAT	1B1dx5q1M-x56Gq33sq9AdDsef-OZNGyB	12416
+config27.EDAT	1ohBMesYPmPmYNPudrResvCMKpTWW-S11	12416
+config28.EDAT	1kofr1MkCHkju94uYgv4M09Gd8VDdCo5D	12416
+config29.EDAT	11OFuMB7MJkCFKeKoBILVDeT8Dyap-Tr0	12416
+config30.EDAT	1DHRmdXbguHz_phV3dipQVO4GY8HJHobG	12416
+config31.EDAT	1eoOauBZXpI8Dyb3-6RdYHHNOPKUNAE0S	12416
+config32.EDAT	19FZB140M_ETdt_KpYFRSg8iOJXD-7Hy0	12416
+config33.EDAT	1hpYzSqKIk9nQqM6IeCu4Dl1DD8x9cWQD	10368
+config34.EDAT	1IUS4sZB4tzqkNAY_bsqzhq6Tv4CwZXv6	10368
+config35.EDAT	13geQrdnG_WC4PgfOggHNEHAKIBqguUwd	10368
+config36.EDAT	1n3QPProGL_7iS_1jBI2iAcsUGBmXdQPX	10368
+config37.EDAT	1MtSPQt5ixX715aeI56D3ZFvmb5aKrDbk	10368
+config39.EDAT	1UO8psJ_RYO17Ay53VMFCjMPeljWPbY2s	10368
+config40.EDAT	1cqC3chQdntB8bYDb2pp6lGoi4097-72K	10368
+config41.EDAT	1e7adinfaxex_RT7lBwwzMdS5XbCZBhpS	10368
+config42.EDAT	1KSN8UM_QOs3SDomUmWpyLmKBzl71wSN_	10368
+config43.EDAT	188_uXbUMbafdFnw8IQ5v7YMwB_64FqI3	10368
+config44.EDAT	1Y8rkbLmD8xiXKQCvatzo1L8yB9uiQuwV	10368
+config45.EDAT	1H30dnVccopomVFHmd08XNjLRTYhT_WIj	10368
+config46.EDAT	1leLjUe7PNrFoM3EgoZUQEGRUMQKdsYRq	10368
+robo00.cpk	1vj2pXVth_OYcn0WRA9aQzgAFDycAJ9Nz	38273016
+imenu01.EDAT	1txMS0g6Y-9yckUXhUcyN_6CuudgeBUSl	24744
+imenu02.EDAT	12f_goo0NW4SECqc5C5q6keZuy01V0zNs	20648
+imenu03.EDAT	1KGRJ5fYW84b6AYcEq29i4mSUFJ5PKQtb	18600
+imenu04.EDAT	1n_gl2az36NPkTlfjI59iKxW17OAIgpX3	20648
+imenu05.EDAT	15tPgPmEfDhLQoVKH-MnYxLQrkzfyd17F	18600
+imenu06.EDAT	1CUAzU3o5ALfE_cDkLFpRhcN2AX3BS01c	18600
+imenu07.EDAT	1OMuTvLO9aiIVy6A61AYXGObkWLIP7o7q	18600
+imenu08.EDAT	18Wg3U3n2F_GywbHJbOCMfXKxrTMrFbIE	18600
+imenu10.EDAT	1jT9PMTavRv78QGbaQJ4xXzH3nqvW0icX	18600
+imenu11.EDAT	10Ze1U-rN7EitKTc2UrnZmBapA2yRK7Z5	18600
+imenu12.EDAT	1TnQKZ59RgoXxbxJIfQE0cSRN105z-1A0	18600
+imenu13.EDAT	19p23M21vbeU0V_obkk6kGbnu_E7OREUT	18600
+imenu14.EDAT	16_N3gtjfKLiiMQs-RXYhT0JaSVaBimmd	18600
+imenu15.EDAT	1WlLxdZPQFFeoIYIR8czjVCzGYTcojUXW	18600
+imenu17.EDAT	1z6SFOj58hmjvitVJit_s4QEalf-vMniR	18600
+imenu18.EDAT	1c65M8BP3qj4K-xXRfba5SPHc29i178Iw	18600
+imenu19.EDAT	1aS3I56ZxryZ3UUbc6hEg0cg8d5NoB_Kp	18600
+imenu20.EDAT	18Wyo3JRFLrSc3WL9Z5A4rbNSZ2l9VfIV	18600
+imenu21.EDAT	1-U74njAENB4RGarBf9b-mxpaycNt_Pyn	18600
+imenu22.EDAT	1-dcN1f_5ASj-q9N_NDXxFly5u8ZZjvw9	18600
+imenu24.EDAT	1Jv-lyde_Rr2TKUIX4htqNZ4g0WIqohyS	18600
+imenu25.EDAT	1zzi8zZLvlMquudvz_9uti-I0Fs-R-9ln	18600
+imenu31.EDAT	1507TbAF5Jyp66q8lmiBB23IS0XegafPe	18600
+imenu32.EDAT	1TKkTvcpL1xhoLiPiObRrFlIzwD76e1Ch	18600
+# --- USRDIR, sesja 5 cz. 7: pobrane i zmierzone (lezą w google_drive/) ---
+system.cpk	1S5kom5Me-J5gA5bTQOA5v64ehi0AIry4	77976
+tacsys.cpk	1XWoCcHuPut3jOqUOc2z3b5a21OCIcdpH	77952
+navisys.cpk	1wdWFzCmvfFDMwo4YKQfxYOaKEIT03o5J	39048
+u16tbl.cpk	156LdmkwBupdYfTWeGaZGArWwNwySOs5G	51336
+IM1000.cpk	1n7V95Wh3SPVNRfpIpH533COwHtJONWu_	63616
+IM3000.cpk	1ZZVDSFbpsxiN0m0QnYggwRFVoXgFbN_G	92288
+IM9000.cpk	1vt3GNafsE6b39rEThFiPb8T7pH6pQaqt	82048
+celldata.bin	1Xo9JP04ditnlYo3USZ04v2Ja56dT2GO_	26856
+tactics.cpk	17oIIR9Xvgi2liGK4jeeuflitgTUbFJ-V	46932
+taclevup.cpk	1mhXUZFbVmpBh5XcQwQMNIp3E1oy5gwt9	43060
+svicon.cpk	1KFF7OBNAUUbVtjJ607M8VyberHrT6t5J	268416
+sprstd00.cpk	1D9it35jeZbf8YGvXNcRcRtHsZ-XSzrOb	2822600
+bmp00.cpk	1AsSCcnDNqqcW9XkXu3L0xcEis9Q7Rt5r	24760
+logodata.cpk	1lzL27CHj07BzWXb0JfIpEWod9TWNxJPp	43776
+colorlst.cpk	1jLSVK14DY9zI3_1--mw-1BCUHduLqixh	8320
+bseq00.cpk	1YlQbO2Zd-ByZ3v_HmdL5kA6E2xJq_AtP	287608
+eftex00.cpk	1WV2OhUd7YWyFHellYtrRsU53xvo2VXpv	659104
+efclump.cpk	1whKliDYEJZ4wvA0Wnf3Rn2NB1tqFMNGb	262488
+efmodel.cpk	1VDoDzV3kRD0pTIY9gaG-RUdr9Bxvrafe	221464
+# --- zmierzone jako grafika/dzwiek BEZ TEKSTU, usuniete po pomiarze (pobrac ponownie wg potrzeb) ---
+mesbmp00.cpk	1f_OjdNLPNuoJMNUnAgU_9PgsEaI-X32O	14309140
+bacb04.EDAT	1g4KqEWJp4M6GUvNw6vg2P5duDegsm2uh	26410232
+lmap.cpk	1a_tXLEHqtrQWFnqiokhYOE77gf7DvBYQ	81379568
+face00.cpk	1xbp8rGVDOxiVNyE9C2WqKX2a6LX1AJcF	2642060
+bg2d.cpk	1NYAYrJi2G2_PtPZiz39-5MXXVUbXAmER	7860928
+txa00.cpk	1I06bnbBBiLoZ7_wdgPd5dfYwR4yX7gDF	3515584
+smap.cpk	1AXJo_Chq0d2ijyDy9KfXasVRp-mnCpto	1573144
+# --- niepobrane: dzwiek, wideo i pliki systemowe (kandydatow na tekst brak) ---
+mov00.cpk	1dd5LRwNnMHRIoTTRDJnpJMJUMlb1xOFd	44431360
+bacb00.cpk	1z7vuQvvVDhEjXSPc6QP2t7-ZJe563_ZZ	97422536
+voice00.awb	14xi__VleS-kfUHOmIfUHLwR4lg2captq	50378244
+BgmSet00.awb	1y7L8L0Ap2NXjied7XzQkfOCVF8AitX11	193715460
+DATA.BIN (folder UPDATE)	1ASFv9d025QdfMS-_gZ7lxRu2CpG-6ow3	99614720
+# reszta USRDIR niepobrana: se0000/se40xx/segu01, semv01-15, cprt0001-0004, module/, SRW_DL.acf, UMD_DATA.BIN
+# --- WYJSCIE (sesja 5, cz. 8): folder "Pakiet do tlumaczenia" w folderze "SRW OE"
+# folder 15zExy5JpoZt_obcgK8xruCsHkZYhVlwo (SRW OE = 1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w)
+# name	file_id	size
+pp_00_dialogue.jsonl	1VKTr6qb6KV1qOhncL0x5KR1kBWO8gR9b	11119478
+pp_01_battle_quotes.jsonl	1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead	9810844
+pp_02_items.jsonl	1LA-d5HbhllbLZlzyZJ-lWzQmQwAz6B05	348602
+pp_03_skills.jsonl	19GbfsUpQKuwcEAu-ugfJScgaS4juM7Wm	891371
+pp_04_config_text.jsonl	1meXaguk0ABnEwFr77U9u5e7abXS51Is1	3518768
+pp_05_mission_text.jsonl	1O51cJnlGr8QgEIS2lmJGth7Px7MlGTQ9	379078
+pp_10_names_characters.jsonl	1v4B45X6HNrgSA0bdGI-I3o54_AXNOuq2	986264
+pp_11_names_units_weapons.jsonl	1tXG6h3uBS1BvQALuucrO8-UMQbsW2KW_	1218331
+pp_index.json	1ihzuq_hpWd6KpxxjNC3yMa8rtaMMdibL	4054
+pp_strings.csv	1UnkI_IeSa2lMij5Kk2X4XTWX8HO9NTua	13089547
+pp_name_map.tsv	1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7	32502
+pp_README.md	1yH-dt-kwXewX1YRiQDrYevjspSpdXZUz	4844
+# --- AKTUALIZACJA (sesja 5, cz. 9): podmiana 5 plikow pakietu po korekcie pol itemow/umiejetnosci
+# stare wersje przeniesione do kosza: 02_items 1LA-d5HbhllbLZlzyZJ-lWzQmQwAz6B05,
+# 03_skills 19GbfsUpQKuwcEAu-ugfJScgaS4juM7Wm, index.json 1ihzuq_hpWd6KpxxjNC3yMa8rtaMMdibL,
+# strings.csv 1UnkI_IeSa2lMij5Kk2X4XTWX8HO9NTua, README 1yH-dt-kwXewX1YRiQDrYevjspSpdXZUz
+# name	file_id	size
+pp_02_items.jsonl	1DlP-EUc51OWDlVM_lhKqwcaSJLwg4QR6	393762
+pp_03_skills.jsonl	1UFxawNEJC4EMqo8c6sMj-Qd6_TDqemJL	1689531
+pp_index.json	1JR8KXVkca0piHe_jBtF-KNImS4Ia1HAn	4149
+pp_strings.csv	1UHzTz9FytCnRc_vioPVXzqqFO-TyfF1Q	13359212
+pp_README.md	1hBCchpNd5KuIF91TgCFqoQqFbcs0Ea7k	5892  # stara wersja -> kosz
+pp_README.md	1Z4DY_aThOi1poIRuG-oQCJzO9P1SIrYF	6346  # wersja z walidatorem (par. 5)
+# nazwa name_map.tsv na Drive: "name_map.tsv - klucz do nazwy mowcy"
+# --- AKTUALIZACJA (sesja 5, cz. 10): sceny, numeracja 00-08, jeden proces tlumaczenia
+# stare wersje przeniesione do kosza: 00_dialogue 1VKTr6qb6KV1qOhncL0x5KR1kBWO8gR9b,
+# index.json 1JR8KXVkca0piHe_jBtF-KNImS4Ia1HAn, README 1Z4DY_aThOi1poIRuG-oQCJzO9P1SIrYF,
+# strings.csv 1UHzTz9FytCnRc_vioPVXzqqFO-TyfF1Q (CSV jest teraz opcjonalny: --csv),
+# 10_names_characters.jsonl 1v4B45X6HNrgSA0bdGI-I3o54_AXNOuq2 -> 07_names_characters.jsonl,
+# 11_names_units_weapons.jsonl 1tXG6h3uBS1BvQALuucrO8-UMQbsW2KW_ -> 08_names_units_weapons.jsonl
+# name	file_id	size
+pp_00_dialogue.jsonl	1tx8Psr5ZGjgNI7ISdeTCn2XcZKG9gVZc	12754998  # wiersze w kolejnosci scen (scene/order)
+pp_06_scenes.jsonl	12E5VyYj6IzKl7WYuqmok9qQnVzXdTJR-	185255  # struktura: 293 sceny
+pp_07_names_characters.jsonl	1kCs3tisPE4OyGl1qyon1sDQwLxgp_RAc	986264  # dawniej 10_
+pp_08_names_units_weapons.jsonl	106uhVsS9NLD7kVArDk9r-06UZtrlBw1Y	1218331  # dawniej 11_
+pp_index.json	1NjczUSchNpZquGbWRA7E_NV9lPYfY_Fi	4932  # + statystyki scen
+pp_README.md	1C_OAMnIb1v7DZ4tPHGRFdRd35b60xRAO	9727  # proces tlumaczenia (par. 6) + sceny (par. 2)
+pp_check_report.txt	1X2qrnHtftKxiBMmN_cLJqo5fVi6D_cZk	13291  # 82591 wierszy / 0 bledow
+pp_spis-scen.md	1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6	36537  # 293 sceny w kolejnosci gry
+pp_sceny.zip	1odnUnmVaROz2DWw3lZIAV23kpL01_qaR	757831  # 37 plikow: epizod-NN.md + spis scen
+# bez zmian (te same pliki co w cz. 9): 01_battle_quotes, 02_items, 03_skills, 04_config_text,
+# 05_mission_text, name_map.tsv
+# --- AKTUALIZACJA (sesja 5, cz. 10b): widok scen = plik do pracy (linie EN:), import z .md
+# nowe wersje (widok z liniami EN: i par. 0 "Szybki start" w README):
+pp_sceny.zip	1b1CVCN7AqdnJxiFNGY7h6vMoyP61fBaV	767501  # EN: pod kazdym elementem
+pp_spis-scen.md	13AfdpxnwEid-Zgi511Okh0Q6EU9Z2lmx	36724  # + instrukcja na gorze
+pp_README.md	1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq	13171  # + par. 0 szybki start
+# stare wersje przeniesione do kosza: sceny.zip 1odnUnmVaROz2DWw3lZIAV23kpL01_qaR,
+# spis-scen.md 1WGJ5_gcKD3VxBBUDfz10OrUmrY23p_n6, README.md 1C_OAMnIb1v7DZ4tPHGRFdRd35b60xRAO
+# (wersja posrednia README 1kO6Q8C4G6lVxXva8AxTi_tMb2i3J3HYg takze w koszu)
+# --- AKTUALIZACJA (sesja 5, cz. 10c): widoki z kontekstem + README krok po kroku
+# nowe wersje (naglowek sceny z uczestnikami i seria, bez nazwy pliku gry; nowy podzial widokow):
+pp_readme.md	1Hlv1DOVr_DFIQze231gqkMVjQ-N7aWlO	16363  # instrukcja krok po kroku (sceny + widoki)
+pp_sceny.zip	1dHBtwXNqU8iWn0hwOB_aGgygeFdBFoUR	822852  # 37 plikow: elementy T1/N1 + uczestnicy
+pp_widoki.zip	177Tor91VmnIdk14WTPpIdP99Qh423TeZ	482688  # postacie, cytaty, mechy, przedmioty, umiejetnosci, config, misje
+pp_spis-scen.md	1B7ATsm6Mtj1Fpds3QNC8soEEELP2VmZM	26137  # 293 sceny, bez nazw plikow gry
+# stare wersje przeniesione do kosza: README.md 1uR3WNoDCb0axfP1MV_EkwQTYYVXyUrzq,
+# sceny.zip 1b1CVCN7AqdnJxiFNGY7h6vMoyP61fBaV, spis-scen.md 13AfdpxnwEid-Zgi511Okh0Q6EU9Z2lmx
+# (JSONL 00-08 bez zmian — te same ID co w cz. 10)
+# cz. 10e (2026-10-12): test wtrysku dialogow w grze
+16KJFXYpv8PDNCI-JGKxM9OAEBSR4kn-A	folder	Test wtrysku (PPSSPP)	SRW OE	NOWY folder na testy w grze; zawiera dwa pliki nizej
+1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK	plik	patch-test-ppsspp.zip	Test wtrysku (PPSSPP)	81 874 B; PSP_GAME/USRDIR/eventP00.cpk (170 456 B) + README-TEST.json
+1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx	plik	PATCH_ISO_TEST.bat	Test wtrysku (PPSSPP)	1 048 B; buduje TEST ISO przez tools/iso_pack.py patchiso
+# cz. 10f (2026-10-12): test w grze robi bat z repo, folder Drive nieaktualny
+1d4MHKognt_XQrBOlTLgXwwtu7pftmSds	plik	README-TEST.txt	Test wtrysku (PPSSPP)	1 037 B; wyjasnia, ze test robi teraz PATCH_ISO_TEST.bat z repozytorium
+# KOSZ: 1REsLJsRrKw4CUaakZUOJ_LC-3EgBCGJK patch-test-ppsspp.zip (zawieral dane gry), 1d0h9cN-9I2_ZgK7neb7szIpyxu5NMOBx PATCH_ISO_TEST.bat
+# cz. 10g (2026-10-12): test ISO wybiera sie w oknie, wynik obok oryginalu
+1iEEaAojNHcrE1A7b1nmnjwuXxDpEjFx3	plik	README-TEST.txt	Test wtrysku (PPSSPP)	968 B; PATCH_ISO_TEST.bat otwiera okno wyboru ISO, wynik obok oryginalu
+# KOSZ: 1d4MHKognt_XQrBOlTLgXwwtu7pftmSds README-TEST.txt (pierwsza wersja opisu)
+# cz. 11 (2026-10-12): pakiet dla tlumacza domkniety (limity, dziedziczenie, narracja) + porzadek w folderze
+1nQwfcLRk17WNMWGjZaeuGDRbvGVLykKZ	plik	README.md	Pakiet do tlumaczenia	19 573 B; instrukcja z limitami dlugosci i dziedziczeniem powtorzen
+16nrHO8rrfW5VZHP9mM80CiynflWCuwaO	plik	sceny.zip	Pakiet do tlumaczenia	932 206 B; 37 plikow .md, 26 035 linii EN (z narracja)
+1S_uYLk908AkOBJk88LICxyBZ-Qt4zf0-	plik	widoki.zip	Pakiet do tlumaczenia	617 660 B; 7 plikow .md, 41 405 linii EN + 5 146 dziedziczonych
+1Qk4D0G9KShgIua1UFr4Zoy399UQ9IJgm	folder	Robocze (JSONL — nie dla tlumacza)	SRW OE	nasze kopie pakietu; nie wysylamy tlumaczowi
+1xLP-MTkvX8_nxrVkrG4AcrtnyJN0Apx9	plik	00_dialogue.jsonl	Robocze (JSONL — nie dla tlumacza)	14 078 671 B; 29 934 wiersze po dociagnieciu narracji
+1fZCBrtxcD_NYWl4pvtcLUU7q7kQJAt_h	plik	02_items.jsonl	Robocze (JSONL — nie dla tlumacza)	439 027 B; znaczniki copy_of
+1GxvQoEaG7oGaIQYqSJi4be9cT0vIcy7u	plik	03_skills.jsonl	Robocze (JSONL — nie dla tlumacza)	1 806 419 B; znaczniki copy_of
+1Da_47-RCKLQnXvdjr5hylePA90gJTeEj	plik	06_scenes.jsonl	Robocze (JSONL — nie dla tlumacza)	280 597 B
+1YxDv8XNaM4_i2-5-o7tB3yEyxcyFNoCz	plik	07_names_characters.jsonl	Robocze (JSONL — nie dla tlumacza)	1 036 814 B; znaczniki copy_of
+1NaYmW5Ri6YwFGXMvaBwmnz2vJEKcQAZg	plik	08_names_units_weapons.jsonl	Robocze (JSONL — nie dla tlumacza)	1 298 453 B; znaczniki copy_of
+1aV7jgNfaMuS7Etmuu1cjL5-GJoXuLmk6	plik	check_report.txt	Robocze (JSONL — nie dla tlumacza)	13 281 B; 85 424 wiersze, 0 bledow
+1nrZmVFAt8Mpqah23Ti1DOg6jKKeBQPNr	plik	spis-scen.md	Robocze (JSONL — nie dla tlumacza)	48 394 B; spis 293 scen
+# przeniesione bez zmian do folderu roboczego: 01_battle_quotes 1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead,
+# 04_config_text 1meXaguk0ABnEwFr77U9u5e7abXS51Is1, 05_mission_text 1O51cJnlGr8Q..., index.json 1NjczUSchNpZ...,
+# name_map.tsv 1zIfJydnszpo...; do kosza: 00 1tx8Psr5..., 02 1DlP-EUc5..., 03 1UFxawNE..., 06 12E5VyYj...,
+# 07 1kCs3tis..., 08 106uhVsS..., spis-scen.md 1B7ATsm6..., check_report 1X2qrnHt... (wersje sprzed odswiezenia)
+17ZFXYRZgU8yQm4GiMQJy3qM4KuPVasgD	plik	README.md	Pakiet do tlumaczenia	20 021 B; wersja 2: naglowki grup zostaja po japonsku (podpowiedz), nie mylic z elementami [Seria]/[Aktor glosowy]
+# KOSZ: 1nQwfcLRk17WNMWGjZaeuGDRbvGVLykKZ README.md 19 573 B (wersja 1 bez tego wyjasnienia)
+1CLlTE93lRu_bTMaWpjg7_Vpqi61l4G9t	plik	README.md	Pakiet do tlumaczenia	17 753 B; wersja 3: bez rozdziałow 6-7 (poszly do docs/TRANSLATOR_PACKAGE_TECH.md) i bez listy naszych polecen
+# KOSZ: 17ZFXYRZgU8yQm4GiMQJy3qM4KuPVasgD README.md 20 021 B (wersja 2 z dodatkiem technicznym)
+# cz. 12 (2026-10-12): pakiet przebudowany po naprawie czytnika (105 372 wiersze, 282 sceny, brama pokrycia 0 brakow)
+1920G_yMCsKdsHDkuw55MFPammwCuz-x_	plik	README.md	Pakiet do tlumaczenia	18 150 B; wersja 4: liczby po przebudowie (282 sceny/36 plikow, 83 536 linii EN, 13 162 dziedziczone), przyklady z nowego pakietu
+13l8qyw6BPoZ_qWRZfNuyhgnDq0NX5k8Z	plik	sceny.zip	Pakiet do tlumaczenia	1 574 338 B; 36 plikow .md, 39 424 linii EN + 8 016 kopii [kopia]
+1lnH_SiL0njhP_lO8NcBkgFXo0KaPub2j	plik	widoki.zip	Pakiet do tlumaczenia	651 441 B; 7 plikow .md, 44 112 linii EN + 5 146 dziedziczonych
+# KOSZ: 1CLlTE93lRu_bTMaWpjg7_Vpqi61l4G9t README.md 17 753 B (wersja 3 sprzed przebudowy),
+# 16nrHO8rrfW5VZHP9mM80CiynflWCuwaO sceny.zip 932 206 B (37 plikow/293 sceny), 1S_uYLk908AkOBJk88LICxyBZ-Qt4zf0- widoki.zip 617 660 B
+# cz. 12 (2026-10-12): folder Robocze (JSONL) odswiezony pakietem po przebudowie (zrodlo prawdy do reinjectu)
+10HOITXhGLTQK5Sx88oY3dgXGHGJnhoCc	plik	00_dialogue.jsonl	Robocze (JSONL — nie dla tlumacza)	22 326 582 B; 47 175 wierszy (dialog + narracja/tytuly/lokacje/help), copy_of kopii DLC
+162sYI143hYCsECBqAPqJZXOqCA5ELflq	plik	01_battle_quotes.jsonl	Robocze (JSONL — nie dla tlumacza)	9 810 844 B; 27 383 cytaty (451 bez nazwy = 1,65%)
+1eLSpRlhP6g0kW_r9s2GaacBLRV2g5ila	plik	02_items.jsonl	Robocze (JSONL — nie dla tlumacza)	439 027 B; 1 200 wierszy, 757 copy_of
+1HPXpHgXNn-Dd5SQxbWw97L0DJkDfEB02	plik	03_skills.jsonl	Robocze (JSONL — nie dla tlumacza)	1 806 419 B; 4 932 wiersze, 1 863 copy_of
+1ZaqXVO1ikM8_Ty1GUfomUz2-2yeQnSbk	plik	04_config_text.jsonl	Robocze (JSONL — nie dla tlumacza)	4 364 613 B; 15 368 wierszy (w tym 2 196 sysmes.bin + 541 leftover)
+13ZzItsIWUzF8x2G89QUpTJ6aZumjHLDF	plik	05_mission_text.jsonl	Robocze (JSONL — nie dla tlumacza)	369 305 B; 1 281 wierszy
+1Py3VybAR_WOuK_lM54aGAFJD3-9QXuCV	plik	06_scenes.jsonl	Robocze (JSONL — nie dla tlumacza)	282 239 B; indeks 282 scen
+1pYhqjsVSRFZXw3qvULycZ_UB9GS7kqcu	plik	07_names_characters.jsonl	Robocze (JSONL — nie dla tlumacza)	1 036 814 B; 3 388 wierszy, 1 581 copy_of
+1h837z8kzthNXlLzGG6gVELXQnhZmNuqH	plik	08_names_units_weapons.jsonl	Robocze (JSONL — nie dla tlumacza)	1 298 453 B; 4 645 wierszy, 2 303 copy_of
+1JcoZJHt3ZFEdmVnOwq8CMUoPI1QumjyH	plik	index.json	Robocze (JSONL — nie dla tlumacza)	5 125 B; indeks pakietu (105 372 wiersze)
+1eWohdoS-T2sdVxj0AgrTYcH32anX_MfS	plik	check_report.txt	Robocze (JSONL — nie dla tlumacza)	13 635 B; 105 372 wiersze, 0 bledow
+1mpdytrmGhTOYAf_pTqWccnI7K8uQIT7q	plik	name_map.tsv	Robocze (JSONL — nie dla tlumacza)	32 502 B; klucz -> nazwa mowcy
+# KOSZ (stary pakiet sprzed przebudowy): 1xLP-MTkvX8_nxrVkrG4AcrtnyJN0Apx9 00_dialogue 14 078 671 B (29 934 wiersze),
+# 1lO_S_DMYVwGmeLizI_dvgzTFRziM_Ead 01_battle_quotes, 1fZCBrtxcD_NYWl4pvtcLUU7q7kQJAt_h 02_items,
+# 1GxvQoEaG7oGaIQYqSJi4be9cT0vIcy7u 03_skills, 1meXaguk0ABnEwFr77U9u5e7abXS51Is1 04_config_text 3 518 768 B,
+# 1O51cJnlGr8QgEIS2lmJGth7Px7MlGTQ9 05_mission_text, 1Da_47-RCKLQnXvdjr5hylePA90gJTeEj 06_scenes (293 sceny),
+# 1YxDv8XNaM4_i2-5-o7tB3yEyxcyFNoCz 07, 1NaYmW5Ri6YwFGXMvaBwmnz2vJEKcQAZg 08, 1NjczUSchNpZquGbWRA7E_NV9lPYfY_Fi index.json,
+# 1aV7jgNfaMuS7Etmuu1cjL5-GJoXuLmk6 check_report (85 424 wiersze), 1nrZmVFAt8Mpqah23Ti1DOg6jKKeBQPNr spis-scen.md (293),
+# 1zIfJydnszpo_pe0V_ecyZ8sTn-LWsYh7 name_map.tsv (nazwa z dopiskiem)
+
+# cz. 13 — 2026-10-12 — przebudowa pakietu z eventP00.cpk (odzyskany z historii gita); pakiet 107 081 wierszy / 293 sceny
+# Pakiet do tłumaczenia (15zExy5JpoZt_obcgK8xruCsHkZYhVlwo) — wymiana 3 plików:
+README.md	1JtrOndjsywVnCLHapa2fmXLtv6f7mzUE	18189
+sceny.zip	1lHMJUTmVer-75A2nHbpK9AWlNsm1c_zG	1626228
+widoki.zip	1Je2z6Z5Owc_3gTo9K5qJbCyNQo88jqiO	651499
+# Robocze (JSONL) (1Qk4D0G9KShgIua1UFr4Zoy399UQ9IJgm) — wymiana 5 plików:
+00_dialogue.jsonl	1ihsupT9bGXwIIWZbgYCnBmIXWlzUzd0Y	23135979
+05_mission_text.jsonl	1IIiMlRZzULuyn4O53P9HWLU59bR2jOGp	370256
+06_scenes.jsonl	12uP4qMwlXeDmvO5nbLvXoXfWLNTUYtKZ	293877
+index.json	1dKi2DdDysv07RDgvEHGN1J--7TCfUqe-	5124
+check_report.txt	1ZpQCaHSv8UdF7P1mbNs7RGhZpH9UGBYX	13258
+# KOSZ (stare wersje z przebudowy bez eventP00):
+#   1920G_yMCsKdsHDkuw55MFPammwCuz-x_ README.md | 13l8qyw6BPoZ_qWRZfNuyhgnDq0NX5k8Z sceny.zip
+#   1lnH_SiL0njhP_lO8NcBkgFXo0KaPub2j widoki.zip | 10HOITXhGLTQK5Sx88oY3dgXGHGJnhoCc 00_dialogue.jsonl
+#   13ZzItsIWUzF8x2G89QUpTJ6aZumjHLDF 05_mission_text.jsonl | 1Py3VybAR_WOuK_lM54aGAFJD3-9QXuCV 06_scenes.jsonl
+#   1JcoZJHt3ZFEdmVnOwq8CMUoPI1QumjyH index.json | 1eWohdoS-T2sdVxj0AgrTYcH32anX_MfS check_report.txt
+# Bez zmian na Drive: 01 162sYI143hYCsECBqAPqJZXOqCA5ELflq, 02 1eLSpRlhP6g0kW_r9s2GaacBLRV2g5ila,
+#   03 1HPXpHgXNn-Dd5SQxbWw97L0DJkDfEB02, 04 1ZaqXVO1ikM8_Ty1GUfomUz2-2yeQnSbk,
+#   07 1pYhqjsVSRFZXw3qvULycZ_UB9GS7kqcu, 08 1h837z8kzthNXlLzGG6gVELXQnhZmNuqH,
+#   name_map.tsv 1mpdytrmGhTOYAf_pTqWccnI7K8uQIT7q
+
+# cz. 14 — 2026-10-12 — README uzupełniony (＜主人公名＞ = 12 jedn.; puste linie w EN: dozwolone i wymagane jak w JP)
+README.md	1InctJsL2m2QuBNsSYDeKxyP0Dner6Sy_	19060
+# KOSZ: 1JtrOndjsywVnCLHapa2fmXLtv6f7mzUE README.md (wersja bez tych reguł)
+
+# cz. 15 — 2026-10-12 — README z poprawioną regułą <0x0F> (token dwubajtowy; w EN usuwamy token+znak)
+README.md	1I0Cg5Nt9Gq5rkA_YoM4svPa27Lnvof8d	19699
+# KOSZ: 1InctJsL2m2QuBNsSYDeKxyP0Dner6Sy_ README.md (błędna reguła „zostaw <0x0F>")
+tokeny.tsv (Pakiet do tłumaczenia)	10Vgx0YcDEZcUkaQICg7Qmoqo9X6977ny	337708
+tokeny.tsv (Robocze JSONL)	13zkOFzTm3xuhcT8G7LCv13c3zyHJIDiE	337708
