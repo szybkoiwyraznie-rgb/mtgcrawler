@@ -119,6 +119,9 @@ wskaźnik +36 (poprawiony, nadal pada). Brak odwołań po nazwie umiejętności 
 z PLANU B + runda 2 `RUNDA_2_Skill00.zip` (Drive `1DAxpAe4u3hn0kJ_ADpniJDdmnA03lqBV`, `tools/member_variants.py`:
 S1 rozmiar / S2 rekordy EN+pula JP / S3 rekordy JP+pula EN / S4 nazwy / S5 opisy / S6–S7 połowy). Hipotezy:
 rozmiar `.pac`/członu (V6, S1), stałe bufory nazw (JP max 14 B, EN do 26 B — S4), opisy (S5), pula (S3).
+**2026-10-15: S1 (oryginał + zera do rozmiaru buildu) PADA** ⇒ treść EN niepotrzebna do crasha. Runda 3 =
+drabinka rozmiaru T1–T6 (`--ladder`: tekst JP + spacje w `effect`, §21.17, Drive `1PtpZT4IfmE_TcV_2swTzFtlVhTwHrT3y`);
+po wyniku: budżet wzrostu Skill00 (albo dowód, że zera były winne) → poprawka pisarza / skracanie EN.
 
 **Stan 2026-10-14 bardzo późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.15):** build #9 w wariancie B **padł
 identycznie** (`memcpy_jak`, NULL + `bytes>0`). Znaleziona pewna usterka pisarza: w rekordach conv-B

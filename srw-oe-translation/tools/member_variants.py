@@ -15,6 +15,14 @@ BUILT one, and writes one container per variant in which only that member differ
 ``effects_only`` the complement: ``effect``/``effect_brief``/``label`` from the build, names Japanese;
 ``half_a`` / ``half_b``  all five fields from the build for the first / second half of the records.
 
+Round 2 answered with ``pad`` alone: the ORIGINAL member + zeros to the built size crashes too
+(S1, 2026-10-15), so the texts are not what the loader trips over - the size is (or the zeros).
+The **size ladder** (``--ladder``) settles that with structurally valid growth: the original
+Japanese texts, with spaces appended to ``effect`` fields (4 at a time, round robin, no field and
+no line longer than the member's own Japanese maximum), until the member has exactly the requested
+size - records grow, the pool moves, pointers are recomputed, i.e. the same kind of growth a
+translation causes.  One container per size; the game then tells which rung still loads.
+
 Every variant is re-parsed (record count, pool pointers, pool strings) before it is written, and the
 report next to it carries sizes and md5s only.  Game text never leaves ``local/``.
 
@@ -22,6 +30,8 @@ Usage::
 
     python tools/member_variants.py --original local/usrdir/config00.cpk \\
         --built local/build10/DLC/config00.cpk --member srwDL_Skill00.bin --out-dir local/round2
+    python tools/member_variants.py --original local/usrdir/config00.cpk --member srwDL_Skill00.bin \\
+        --ladder 210942 212990 217086 221182 225278 228202 --out-dir local/round3
 """
 from __future__ import annotations
 
@@ -152,6 +162,81 @@ def with_member(original_path: Path, member: str, data: bytes) -> Tuple[bytes, i
     return cpk_write.rebuild(cpk, replacement=(pac_name, new_pac)), len(new_pac)
 
 
+def space_room(effect: bytes, max_field: int, max_line: int) -> int:
+    """How many bytes of spaces ``effect`` can take at its end without exceeding ``max_field``
+    bytes in total or ``max_line`` bytes on its last line."""
+    last = effect.rsplit(b"\n", 1)[-1]
+    return max(0, min(max_field - len(effect), max_line - len(last)))
+
+
+def grow_with_spaces(original: bytes, kind: str, member: str, target_size: int,
+                     max_field: Optional[int] = None, max_line: Optional[int] = None) -> bytes:
+    """The original member grown to exactly ``target_size`` bytes by appending spaces to ``effect``
+    texts (4 bytes per record per round, round robin over the records that still have room).
+
+    ``max_field`` / ``max_line`` default to the member's own maxima, so no field and no line gets
+    longer than the longest Japanese one.  Records are 4-byte aligned, so ``target_size`` must be
+    the original size plus a multiple of 4; the pool keeps its strings and moves behind the records.
+    """
+    p = parsed(original, kind, member)
+    effects = {row["record"]: field_bytes(original, row)["effect"] for row in p["records"]}
+    if max_field is None:
+        max_field = max(len(e) for e in effects.values())
+    if max_line is None:
+        max_line = max(len(line) for e in effects.values() for line in e.split(b"\n"))
+    need = target_size - len(original)
+    if need < 0 or need % 4:
+        raise VariantError(f"target {target_size} must be the original size {len(original)} plus a "
+                           f"multiple of 4")
+    added = {key: 0 for key in effects}
+    while need > 0:
+        progressed = False
+        for key, effect in effects.items():
+            if need <= 0:
+                break
+            if space_room(effect + b" " * added[key], max_field, max_line) >= 4:
+                added[key] += 4
+                need -= 4
+                progressed = True
+        if not progressed:
+            raise VariantError(f"{member}: not enough room for {target_size - len(original)} bytes of "
+                               f"spaces with fields <= {max_field} B and lines <= {max_line} B")
+    edits = {key: {"effect": effects[key] + b" " * count} for key, count in added.items() if count}
+    out, _ = ISW.rebuild_member(original, kind, edits, member)
+    if len(out) != target_size:
+        raise VariantError(f"{member}: grew to {len(out)} B, wanted {target_size}")
+    return out
+
+
+def build_ladder(original_path: Path, member: str, sizes: Sequence[int], out_dir: Path,
+                 labels: Optional[Dict[int, str]] = None, max_field: Optional[int] = None,
+                 max_line: Optional[int] = None) -> List[dict]:
+    """One container per requested member size (original texts + spaces); see grow_with_spaces."""
+    kind = ISW._kind_of(member)
+    if kind is None:
+        raise VariantError(f"{member} is not a convention-B member this tool knows")
+    _c, orig_members, _p = CM.members_of(original_path)
+    original = orig_members[member]
+    reports = []
+    for index, size in enumerate(sizes, 1):
+        label = (labels or {}).get(size, f"T{index}")
+        data = grow_with_spaces(original, kind, member, size, max_field, max_line)
+        info = check(data, kind, member, original)
+        container, pac_size = with_member(original_path, member, data)
+        folder = out_dir / label
+        folder.mkdir(parents=True, exist_ok=True)
+        target = folder / original_path.name
+        target.write_bytes(container)
+        report = {"label": label, "variant": f"spaces_{size}", "member": member,
+                  "member_original_size": len(original), "member_built_size": size,
+                  "member_variant": info, "pac_size": pac_size,
+                  "container_size": len(container), "container_md5": _md5(container)}
+        target.with_name(target.name + ".variant.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        reports.append(report)
+    return reports
+
+
 def build_all(original_path: Path, built_path: Path, member: str, out_dir: Path,
               variants: Sequence[str] = VARIANTS, labels: Optional[Dict[str, str]] = None) -> List[dict]:
     kind = ISW._kind_of(member)
@@ -187,13 +272,24 @@ def build_all(original_path: Path, built_path: Path, member: str, out_dir: Path,
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--original", type=Path, required=True)
-    parser.add_argument("--built", type=Path, required=True)
+    parser.add_argument("--built", type=Path, help="the rebuilt container (variants S1..)")
     parser.add_argument("--member", required=True, help="e.g. srwDL_Skill00.bin")
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--variants", nargs="*", default=list(VARIANTS), choices=VARIANTS)
+    parser.add_argument("--ladder", nargs="+", type=int, metavar="SIZE",
+                        help="size ladder instead: member sizes to grow the ORIGINAL to with spaces")
+    parser.add_argument("--max-field", type=int, help="ladder: effect field cap in bytes "
+                        "(default: the member's own Japanese maximum)")
+    parser.add_argument("--max-line", type=int, help="ladder: effect line cap in bytes (default: own maximum)")
     args = parser.parse_args(argv)
+    if args.ladder is None and args.built is None:
+        parser.error("either --built (variants) or --ladder SIZE ... (size ladder) is required")
     try:
-        reports = build_all(args.original, args.built, args.member, args.out_dir, args.variants)
+        if args.ladder is not None:
+            reports = build_ladder(args.original, args.member, args.ladder, args.out_dir,
+                                   max_field=args.max_field, max_line=args.max_line)
+        else:
+            reports = build_all(args.original, args.built, args.member, args.out_dir, args.variants)
     except (VariantError, ISW.WriteError, ValueError) as exc:
         print(f"ERROR: {exc}")
         return 1

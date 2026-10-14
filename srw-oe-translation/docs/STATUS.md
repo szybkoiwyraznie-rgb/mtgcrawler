@@ -18,7 +18,10 @@ as plan B. UPDATE (same night): build #10 STILL crashes; sub-file bisection says
 rebuilt `srwDL_Skill00.bin` alone, pool pointers right) crashes — so the pointer defect was real but not
 the cause. Round 2 (`tools/member_variants.py`, S1–S7: size / records vs pool / names vs effects / halves)
 is with the user; no name-based skill references were found in any other file.
-Details: `EXPERIMENT_LOG.md` §21.13–21.16, `HANDOFF.md` §7.
+2026-10-15: S1 (ORIGINAL Skill00 + zero padding to the built size) crashes too, so the English text is
+not needed for the crash - the file's size is (or the padding); round 3 is a size ladder T1-T6 (Japanese
+text + spaces, structurally valid growth of +2/+4/+8/+12/+16/+19 KB) to find the budget.
+Details: `EXPERIMENT_LOG.md` §21.13–21.17, `HANDOFF.md` §7.
 The project is NOT a finished translation; no full in-game acceptance exists.
 
 ## Target

@@ -102,6 +102,49 @@ class MemberVariantsTests(unittest.TestCase):
         self.assertTrue((self.root / "cli" / "S1" / "orig.cpk").exists())
         self.assertTrue((self.root / "cli" / "S2" / "orig.cpk").exists())
 
+    def test_grow_with_spaces_adds_only_trailing_spaces_to_effects(self):
+        size = len(self.original)
+        grown = MV.grow_with_spaces(self.original, "skill", MEMBER, size + 8, max_field=64, max_line=64)
+        self.assertEqual(len(grown), size + 8)
+        fo, fg = self.fields(self.original), self.fields(grown)
+        for i, (a, b) in enumerate(zip(fo, fg)):
+            for role in ISR.FIELDS:
+                if role == "effect":
+                    self.assertTrue(b[role].startswith(a[role]))
+                    self.assertEqual(b[role][len(a[role]):], b" " * (4 if i < 2 else 0), i)
+                else:
+                    self.assertEqual(a[role], b[role], (i, role))
+        self.assertEqual(self.pool(grown), self.pool(self.original))
+        parsed = ISR.parse_member(grown, "skill", MEMBER)
+        self.assertEqual(ISW.pool_pointer_faults(grown, parsed), [])
+        # round robin keeps every effect under the caps; a cap that is already full refuses
+        # (each 5-byte effect has room for 8 spaces under a 16-byte cap: 4 records x 8 = 32)
+        big = MV.grow_with_spaces(self.original, "skill", MEMBER, size + 32, max_field=16, max_line=16)
+        self.assertEqual([len(f["effect"]) for f in self.fields(big)], [13] * 4)
+        with self.assertRaises(MV.VariantError):
+            MV.grow_with_spaces(self.original, "skill", MEMBER, size + 6, max_field=64, max_line=64)
+        with self.assertRaises(MV.VariantError):
+            MV.grow_with_spaces(self.original, "skill", MEMBER, size + 8)   # own maximum: no room
+        with self.assertRaises(MV.VariantError):
+            MV.grow_with_spaces(self.original, "skill", MEMBER, size + 4000, max_field=16, max_line=16)
+
+    def test_build_ladder_writes_one_container_per_size_with_other_members_untouched(self):
+        size = len(self.original)
+        out = self.root / "ladder"
+        reports = MV.build_ladder(self.orig_path, MEMBER, [size + 8, size + 16], out, max_field=64, max_line=64)
+        self.assertEqual([r["label"] for r in reports], ["T1", "T2"])
+        _c, orig_members, _p = CM.members_of(self.orig_path)
+        for report, want in zip(reports, (size + 8, size + 16)):
+            path = out / report["label"] / "orig.cpk"
+            self.assertTrue(path.exists())
+            self.assertTrue(path.with_name("orig.cpk.variant.json").exists())
+            _c2, members, _p2 = CM.members_of(path)
+            self.assertEqual(len(members[MEMBER]), want)
+            self.assertEqual(report["member_variant"]["size"], want)
+            for name, data in orig_members.items():
+                if name != MEMBER:
+                    self.assertEqual(members[name], data, name)
+
 
 if __name__ == "__main__":
     unittest.main()

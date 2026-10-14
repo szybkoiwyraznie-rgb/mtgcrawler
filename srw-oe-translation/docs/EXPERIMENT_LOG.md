@@ -3813,3 +3813,43 @@ nazwy → S4 pada, S5 działa; opisy → odwrotnie; napisy puli (np. dopasowanie
 Drive DELIVERY `1DAxpAe4u3hn0kJ_ADpniJDdmnA03lqBV` (foldery `S1_tylko_rozmiar` … `S7_polowa_B`, wgrywane
 `WGRAJ_DO_ISO.bat`). Zalecona kolejność: V6, V3, V4 (V5 pominąć — zawiera Skill00), potem S1, S3, S4, S5,
 S2, S6, S7 — wszystkie.
+
+### 21.17 Runda 2: S1 (oryginalny Skill00 + zera do rozmiaru buildu) PADA → runda 3: drabinka rozmiaru
+
+**Wynik użytkownika (2026-10-15) [ZWERYFIKOWANE w grze]:** **S1 `pad` pada** (oryginalna treść Skill00,
+228 202 B przez dopisanie zer za pulą; pac 942 080 B jak build). Pozostałe S2–S7 i V3–V6 nietestowane.
+Wniosek: **treść angielska nie jest potrzebna do crasha** — wystarczy większy plik. Dwie interpretacje
+do rozdzielenia: (a) ROZMIAR (bufor na człon / na `.pac` / wyczerpana pamięć przy Loading); (b) same ZERA
+za pulą (gdyby gra czytała coś za ostatnim napisem puli — tabela puli kończy się na pierwszym wskaźniku,
+napisy są zakończone NUL, więc (b) jest mało prawdopodobne, ale niewykluczone). Hipotezy „stałe bufory
+nazw/opisów" nie są już potrzebne do wyjaśnienia crasha (mogą być dodatkowym problemem — S4/S5 później).
+
+**Runda 3 — drabinka rozmiaru (`tools/member_variants.py --ladder`):** oryginalny `srwDL_Skill00.bin`
+z JAPOŃSKIM tekstem, na końcu pól `effect` dopisane spacje (po 4 B na rekord na rundę, round robin;
+żadne pole nie przekracza 106 B ani linia 60 B = japońskie maksima), aż człon ma dokładnie zadany rozmiar
+— rekordy rosną, pula się przesuwa, +36 przeliczone, czyli ten sam rodzaj wzrostu co przy tłumaczeniu.
+Weryfikacja niezależna każdego wariantu: pola poza `effect` identyczne, `effect` = oryginał + same spacje,
+nagłówki +0..+35 i ogony numeryczne identyczne, pula identyczna, 0 błędnych wskaźników, pozostałe 33
+sub-pliki bajt w bajt. Testy: `tests/test_member_variants.py` (6), pełny zestaw 1 052 OK / 1 skipped.
+
+| wariant | Skill00 B | wzrost | rekordów ze spacjami | pac B | md5 config00.cpk |
+|---|---|---|---|---|---|
+| T1_plus_2KB | 210 942 | +1 984 | 496 | 923 648 (= oryginał) | `33d38092ea1ce7fe9378b598e012e153` |
+| T2_plus_4KB | 212 990 | +4 032 | 1 008 | 925 696 | `28e215ae62dde9ea55fdab8caaeebd28` |
+| T3_plus_8KB | 217 086 | +8 128 | 1 463 | 929 792 | `ee063c83dcbdeaef5ffec9b3b18c4645` |
+| T4_plus_12KB | 221 182 | +12 224 | 1 463 | 933 888 | `3d4ed74f01597f495ef9843ac9124012` |
+| T5_plus_16KB | 225 278 | +16 320 | 1 463 | 937 984 | `336e4b9e70f98462eeb22b2e708c0d1a` |
+| T6_plus_19KB_jak_build | 228 202 | +19 244 | 1 463 | 942 080 (= build #10) | `915a38227cb003b10d029e32a33c4288` |
+
+Oryginał Skill00 zajmuje w `.pac` slot 210 944 B (wyrównanie 2 048), więc T1 (i S3 z rundy 2) rosną bez
+zmiany rozmiaru `.pac` i bez przesuwania kolejnych sub-plików. Kontener T6 ma 948 352 B = dokładnie
+rozmiar `config00.cpk` buildu #10. Dostawa `RUNDA_3_rozmiar.zip` (889 839 B, md5
+`0ed4dae19958ba523885ede80a128b47`) → Drive DELIVERY `1PtpZT4IfmE_TcV_2swTzFtlVhTwHrT3y`.
+
+**Kolejność i reguły stopu (w `CZYTAJ.txt`):** T6 (pada ⇒ rozmiar potwierdzony; działa ⇒ S1 padł przez
+zera, rozmiar nie jest problemem) → T1 (pada ⇒ żaden wzrost członu nie przechodzi) → T3 → T4 (→ T2 albo
+T5 wg wyniku). Dodatkowo: V6 (wzrost `.pac` poza Skill00), S3 (+2 KB z angielską pulą), test C „bez DLC"
+(folder `NPJH50521` w memsticku czasowo przemianowany, ISO z KROK_1 — jeśli przechodzi, chodzi o łączną
+pamięć DLC + plik, nie o sam człon). Pomiar pojemności: Skill00 ma 64 758 B miejsca na spacje pod
+japońskimi maksimami; `Item00` tylko 6 709 B (dlatego nie ma wariantu „rośnie inny człon o +19 KB").
+Oryginalny `config00.cpk` pobrano ponownie z Drive (md5 `266366c3bee66130d4b7cb57a1b1e3d4` zgodne).
