@@ -3260,3 +3260,109 @@ dlc_id 13 + achievement 10 = 107 (sieroty/przycięcia — znikają po ponownym e
 5+5 (brak pisarza), Map_S 5 (nazwy nierozkodowalne). Walidator 0 błędów w obu przebiegach.
 Suite: **942 OK (1 skipped)**. Niezrobione: eksport pakietu wymaga pełnego `local/` na maszynie
 użytkownika (tu są tylko 3 kontenery config); Drive README zostaje v4 do zgody na podmianę.
+
+## Sesja 7 (2026-10-14), część 19 — pierwszy prawdziwy import (`EN.zip`), pula ogonowa z tablicą wskaźników, budowa na 13 kontenerach z Drive
+
+**Wejście.** `EN.zip` tłumacza z Drive (Pakiet, id `11uyHQLT8lzS_ki0zTYCy4mePNDJhJfxZ`): `sceny/epizod-00..15.md`
++ `widoki/*.md` wygenerowane z pakietu Robocze (107 374 wierszy; kopia pod `local/pkg/`). Kontenery z Drive
+(md5 jak w cz. 18) + `full_dlc/config02..08.EDAT` (md5 pierwsze 8: 02 `4c904d0a`, 03 `262c949e`, 04 `6dc8ad36`,
+05 `30883077`, 06 `1d6b0ad2`, 07 `62ee3ee0`, 08 `04104750`). Python 3.11.2; wszystko pod gitignorowanym `local/`.
+
+**1. Import [ZWERYFIKOWANE].** `translation_import.py` dwie poprawki: porównanie jp widoku z pakietem na bajtach
+gry po prawym trimie (edytor tłumacza gubił spację końcową; `restore_trailing_breaks` odtwarza `⏎` końcowe) oraz
+`translation_check.same_tokens`. Wynik: **61 468 elementów z EN, 61 322 zaimportowanych, 41 odrzuconych**
+(`local/rejected_rows.json`): sysmes 9 (tłumacz usunął pierwszą linijkę doklejaną przez grę: `は\n`, `　が\n`×6,
+`で\n`, `個\n` → zmieniona liczba `\n`), bg_name 16 (24–37 B > 23), mission_title 14 (41–45 B > 39), map_name 2
+(33/35 B > 31). `translation_copy` 10 046 kopii. Walidator: 0 błędów.
+
+**2. Pula ogonowa Skill/Item/Spirit/StatusChange — układ [ZWERYFIKOWANE na config00/configst/config02–08].**
+Hipoteza z cz. 18 („słowa ogona = odwołania") obalona: na `tail_offset` leży **tablica n×u32 absolutnych
+offsetów** (Skill00 720, Item00/`srwDL_Item` 76, StatusChange 71, Spirit 39; rosnąca ściśle, pierwszy wskaźnik
+== tail_offset + 4n), za nią napisy NUL jeden za drugim; konwencja C (DLC Skill01–08/Item01–08) to samo z
+nagłówkiem `u32 8, u32 0`. Każda pula DLC Skill ma 720 napisów = te same co Skill00 (wcześniejsze „583 + ~239
+fragmentów" było artefaktem naiwnego cięcia po NUL). Narzędzia: `item_skill_records.parse_tail_pool/
+build_tail_pool`, `item_skill_write.plan_pool_edits` (offset == tail_offset → dopasowanie treści; offset w
+tablicy → ten napis; offset wewnątrz napisu → ten napis pod warunkiem pełnego dopasowania jp — tak adresuje
+13 wierszy `config_leftover` 1–16 B w głąb napisu; nieaktualne jp / sprzeczne EN → odmowa), `rebuild_pool`
+(tablica + napisy od nowa, dowolna długość), `apply_tail_pool` jako krok `tail-pool` orkiestratora PRZED
+przebudową rekordów (`rebuild_member` przepina pulę po wzroście rekordów). Wiersze `slot`+`max_bytes` z cz. 18
+dla tej puli były błędne (zapis w miejscu) — eksport (`translator_export`) znów daje `grow`; usunięty
+`scale_fill.mark_in_place`. `config_text_tables.pool_text` czyta pulę po wskaźnikach: `clean_run` odrzucał
+każdy napis z tokenem kany 0x0F, więc **125 tekstów (124 Skill, 1 Item, 1 Spirit; np. `防御時､%s*ﾒｰ%s&-`,
+`% %s`, `倍 %s.ﾛｯ%s`) nigdy nie weszło do pakietu**, a `coverage_audit.py` tego nie widział (`scan_runs` tnie na
+bajtach sterujących, `covered()` akceptuje podciągi) — „0 brakujących" z cz. 12 było dla pul config fałszywe.
+
+**3. `tools/pool_rows_refresh.py` (nowe, 4 testy).** Dopisuje do `04_config_text.jsonl` wiersze puli
+ogonowej, których pakiet nie ma (`--check` bez zapisu; `copy_of` dla kopii DLC; `--prune-stale` usuwa wiersze
+puli, których offset nie jest już początkiem napisu). Przebieg: +1 127 wierszy (126 oryginałów + 1 001 kopii),
+potem `--prune-stale` −85 śmieci (bajty wskaźników czytane jako tekst: `痺`, `蘒`, `ｸ8`, `+&`) → 04 ma
+16 410 wierszy (15 274 EN, 1 136 pustych). Kopia `local/04_config_text.before_pool_refresh.jsonl`.
+
+**4. Szerokość linii [ZWERYFIKOWANE spisem; w grze NIE].** Stałe 46 pochodziło z pierwszej sceny (cz. 6).
+Spis szerokości każdej japońskiej linii pakietu (jednostki połówkowe, `export_strings.display_width`):
+dialog max 52 (316 linii ma 50, 4 mają 52 — eventP08 `DL834_13`), cytat bitewny 50 (67 linii), narracja 56,
+help 66, location 48, label 44, warunki 36/35, tytuł sceny 34. Nowe `export_strings.GAME_WIDEST` +
+`box_limit(kind) = max(46, najszersza linia gry)`: pisarze (`event_text_apply.box_problems(text, kind)`,
+przez niego `quotes_apply`) odrzucają dopiero powyżej tego; walidator ostrzega tą samą regułą (0 ostrzeżeń
+po zmianie, wcześniej 199); widoki piszą „46 zalecane, twardy limit 52/50". Przy okazji `display_width`
+nie liczy znaków sterujących (`\r` na końcu strony dialogu robił z 46 → 47 i 4 linie eventP00 odpadały).
+Efekt: 299 linii dialogu (rozdz. 2–8) i 3 cytaty (47–50) przestały być odmowami. Hipoteza do sprawdzenia
+w grze: 47–52 znaków ASCII mieści się jak 24–26 znaków japońskich (czcionka półszeroka).
+
+**5. Drobne.** `build_translation_patch`: odmowy/pominięcia kroku `dialogue` trafiają do `problems`
+raportu (były tylko w szczegółach kroku). `table_view.limit_note` tnie limit slotu zmierzonym polem
+(`translation_check.fixed_slot_limit`) — nowe widoki pokazują 23/31/39 B zamiast 111/117/159.
+
+**6. Budowa (`local/run_real.sh`, `build_translation_patch.py --dlc ../google_drive --package
+local/translation --out local/real_patch`), przebieg #4 (ostateczny): 91 s, exit 1 tylko dlatego, że 83
+kontenery pakietu nie leżą w folderze (config10–46, eventP01+, mesbtl01+, imenu01+). 13 kontenerów
+zapisanych (budowniczy znalazł `full_dlc/` przez rglob):**
+
+| kontener | we (B) | wy (B) | md5 wyjścia | kroki (zapisy/odmowy) |
+|---|---|---|---|---|
+| config00.cpk | 929 920 | 948 352 | `202c2d2476f36e37c619fdc088d9caa3` | tail-pool 671/0, records 9 658, tables 866/561, names 1 110/0, slots 464/5 |
+| config01.EDAT | 247 936 | 249 984 | `87b8ab67a47a706ae5f855e16afa35f4` | tables 1 164/473, names 1 264, slots 138 |
+| configst.cpk | 376 960 | 471 168 | `dd7e626bd7f14645abc52a2bf5bdb7c4` | tail-pool 184/0, records 1 645, tables 362/13, sysmes 1 666, slots 62 |
+| eventP00.cpk | 162 264 | 258 520 | `a3b1dfc31d63b678211a51a0f2ea476d` | dialogue 11 członków 1 706/0, slots 2/1 |
+| imenu00.cpk | 34 984 | 57 512 | `5317aa99dd3e1ddb3c7cf48310179b79` | tables 524/520 |
+| mesbtl00.cpk | 348 888 | 1 010 392 | `a5a6ac5ae905f6471048de7b5acc3ddc` | quotes 8 660/0 |
+| config02.EDAT | 157 824 | 161 920 | `bee5129687db831b854d14705cd1dc69` | tables 907/502, names 688, slots 60 |
+| config03.EDAT | 118 912 | 120 960 | `9afebe41f2931919c080b907e9879704` | tables 847/537, names 401, slots 42 |
+| config04.EDAT | 108 672 | 110 720 | `22c83c34e73f2b47e496a67a7fc4161e` | tables 816/560, names 311, slots 42 |
+| config05.EDAT | 110 720 | 112 768 | `b92efdbe76f2a5c1cc648242f9f509b7` | tables 770/557, names 317, slots 35 |
+| config06.EDAT | 75 904 | 77 952 | `5588f54ef8bcbd0f79206438e90c0dad` | tables 712/576, names 134, slots 32 |
+| config07.EDAT | 73 856 | 75 904 | `5f7624ea5ac80e1a3c72819949c8ea70` | tables 714/578, names 122, slots 27 |
+| config08.EDAT | 80 000 | 82 048 | `1433bb5c685bd11f38967fcfb965dee0` | tables 688/583, names 155, slots 32 |
+
+Odmowy kroku `tables` to nie utracone teksty: RoboDictionary 472 „no record with key" (wiersze 03 adresowane
+kluczem, których rekord leży w innej puli — próbowane na każdym kontenerze), CharaDictionary 72 konflikty
+pseudonim/nazwa (wygrywa wiersz z całym napisem), Shop 27 i DLC_ID 13 śmieciowe wiersze liczb (`'0u'`,
+bajt licznika — znikną po eksporcie), Reference 24 „jp does not match" (przycięte nagłówki — eksport).
+Rozmiary rosną, bo zmieniony członek CPK jest zapisywany *stored* (mesbtl00: 74 z 76 członków; stored
+zweryfikowane bootem tylko dla eventP02 w cz. 8 — dla mesbtl/config to hipoteza). Zbudowane pule
+[ZWERYFIKOWANE parserem]: Skill00 720 napisów (587 zmienionych), Item 76 (71), Spirit 39 (38), StatusChange
+71 (71); tablice spójne, rekordy nienaruszone; Skill00 208 958 → 227 820 B.
+
+**7. Spot check (`patch_spot_check.py`, `local/real_patch/spot_check.json`, `missing.txt`):** 79 612 wierszy
+z EN; 39 290 sprawdzalnych w 13 kontenerach; **38 598 trafionych, 101 braków, 591 za krótkich** (EN < 3 znaki,
+niesprawdzalne); 40 322 poza buildem (kontenery spoza folderu). Per kontener: config00 12 506/12 845
+(41 braków, 298 krótkich), config01 2 518/2 522, configst 4 510/4 771 (6), eventP00 1 708/1 709 (1),
+imenu00 437/453 (13), mesbtl00 8 660/8 660, config02–08 1 611/1 615, 1 250/1 258, 1 152/1 156, 1 103/1 107,
+867/871, 853/857, 870/875, bez kontenera 553/591 (38). 101 braków = robonote 38 (brak rekordu w
+RoboDictionary — polityka), leftover 31 (Reference00 8×2 kontenery + Reference03/08 po 1 „jp does not match",
+Map_S 5 nierozkodowalne, ext.dat 44 B > 43), dlc_id 13 (wiersze z bajtem licznika), skill 11 (sieroty
+`P珖`/`ｴ珖`/`$炻` — liczby rekordu czytane jako tekst), achievement 6 (3 „not a string start" + 3 rekordy z
+niewyjaśnionymi odwołaniami 9/23/30), char 2 (pseudonimy), ItemDrop 5 (brak pisarza). Przebiegi
+pośrednie: #2 (po puli) 38 593/106, #3 (po `\r`) 38 597/102, #4 (limity per rodzaj) 38 598/101.
+
+**8. Widoki i lista dla tłumacza.** `table_view.py --package local/translation --out local/widoki_v2`
+(7 plików; `teksty-config.md` 16 410 elementów, 135 pustych `EN:` = 126 nowych + 9 sysmes; `teksty-misji.md`
+32 puste = odrzucone za długie). Numeracja `teksty-config.md` przesunęła się (+1 127/−85 wierszy) — stare
+widoki z `EN.zip` nie nadają się już do importu. `local/real_patch/DO_ZROBIENIA.md` (po polsku): 32 nazwy
+do skrócenia z bajtami i limitem, 9 sysmes z regułą pierwszej linijki, 126 nowych elementów (grupa/element),
+zmiana reguły szerokości, czego nie ruszać. Suite po wszystkim: **971 OK (1 skipped)**.
+
+**Nie zrobione / otwarte:** test w grze (brak ISO i emulatora w sandboxie): przebudowana pula umiejętności,
+linie 47–52, stored mesbtl00 (1 MB), DLC_ID w menu; ISO nie da się tu zbudować (`patched.iso` wymaga pliku
+użytkownika); ponowny eksport pakietu na maszynie użytkownika (sieroty, przycięcia); `coverage_audit`
+nadal ślepy na fragmenty z tokenem (do naprawy razem z eksportem).

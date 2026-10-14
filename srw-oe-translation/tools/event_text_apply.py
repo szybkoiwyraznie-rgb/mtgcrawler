@@ -124,13 +124,15 @@ def text_start_of(blob: bytes, record: dict) -> Optional[int]:
         if padded_size(len(text), start) == size and not any(payload[start - RECORD_HEADER + len(text):]):
             return start
     return starts[0]
-#: narration is drawn wider than the dialogue box (measured: up to 26 full-width characters)
-NARRATION_WIDTH = 52     # a dialogue line
+#: narration is drawn wider than the dialogue box (the game's own widest: 28 full-width characters)
+NARRATION_WIDTH = export_strings.GAME_WIDEST["narration"]
 RECORD_WRAPPER = 0xC8  # the record that holds the chain of one scene
 TEXT_HEADER = 12       # 6 u16 words in front of the text (evnt_walk.TEXT_HEADER)
 RECORD_HEADER = 8      # type + size
 TEXT_OFFSET_IN_RECORD = RECORD_HEADER + TEXT_HEADER   # 20: measured on the real files
-BOX_WIDTH = 46         # the in-game dialogue box, half-width units
+#: the typical dialogue line; the hard limit per kind is export_strings.box_limit (the widest
+#: line the game itself draws for that kind - dialogue 52, battle quote 50, help 66, ...)
+BOX_WIDTH = export_strings.TYPICAL_LINE
 
 
 def record_text_length(size: int, text: bytes) -> int:
@@ -407,12 +409,15 @@ def rows_for_member(package: Path, container: str, member: str) -> List[dict]:
     return rows
 
 
-def box_problems(text: str) -> List[str]:
+def box_problems(text: str, kind: Optional[str] = "dialogue") -> List[str]:
+    """Lines wider than the game's own widest line of ``kind`` (export_strings.box_limit)."""
     problems = []
+    limit = export_strings.box_limit(kind)
     for line in text.split("\n"):
         width = export_strings.display_width(line)
-        if width > BOX_WIDTH:
-            problems.append(f"a line is {width} wide, the box fits {BOX_WIDTH}")
+        if width > limit:
+            problems.append(f"a line is {width} wide, the game's own {kind or 'dialogue'} lines "
+                            f"reach {limit}")
     return problems
 
 
@@ -450,9 +455,9 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
                 "measured text position starts there")
             continue
         if record["type"] != RECORD_NARRATION:
-            # the dialogue box rule covers the mission-window kinds too: the translator manual
-            # promises the same 46-unit limit for conditions, help, labels, locations and titles
-            problems = box_problems(row["en"] or "")
+            # every kind has its own limit: the widest line the game itself draws for it (the
+            # mission-window kinds - conditions, help, labels, locations, titles - included)
+            problems = box_problems(row["en"] or "", row.get("kind") or row.get("category"))
             if problems:
                 report["refused"].extend(f"{row['id']}: {problem}" for problem in problems)
                 continue

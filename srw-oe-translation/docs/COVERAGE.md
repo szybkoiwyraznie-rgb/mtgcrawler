@@ -59,7 +59,15 @@ Zapis: `local/text_tables/*.jsonl` + `unique_strings.jsonl` + `summary.json` (gi
 Zmierzona budowa tabel `[ZWERYFIKOWANE]`:
 - **Konwencja A**: `u32 liczba` pod +0, offsety rekordów od +4; pierwszy offset = 4 + 4·liczba.
 - **Konwencja B**: `u32 offset ogona` pod +0, `u32 liczba` pod +4, offsety od +8; rekordy kończą się
-  pod offsetem ogona, a dalej leży **pula ogonowa** (teksty-fragmenty), też wyciągana.
+  pod offsetem ogona, a dalej leży **pula fragmentów** z **własną tablicą u32 bezwzględnych
+  offsetów** pod offsetem ogona (układ konwencji C bez 8-bajtowego nagłówka; zmierzone 2026-10-14 na
+  wszystkich pięciu pulach: Skill00 720 napisów, Item00/Item 76, StatusChange 71, Spirit 39; pierwszy
+  wskaźnik = offset ogona + 4·n, każdy napis kończy się dokładnie na następnym wskaźniku). Czytnik
+  daje jeden wiersz na wskaźnik; napisy z tokenami sterującymi (`ﾀﾞﾒｰｼﾞ` = `0x0F 0x2A ﾒｰ 0x0F 0x26`)
+  są eksportowane w formie `%s` — do 2026-10-14 filtr kontrolek odrzucał je w całości i **137 z 720
+  fragmentów Skill00** (plus kopie DLC; łącznie 125 unikalnych tekstów) nie było w pakiecie, czego
+  `coverage_audit` nie widział, bo jego skan też rwie przebiegi na bajtach sterujących.
+  `tools/pool_rows_refresh.py` dopisuje te wiersze do istniejącego pakietu.
 - **Konwencja C**: `u32 start tablicy` pod +0 (zawsze 8), `u32 0` pod +4, tablica od +8 do wartości
   `u32[8]` (samoograniczająca się); wpisy to offsety stringów puli. Tak zbudowane są pliki DLC
   `Item01–08`/`Skill01–08`.
@@ -69,9 +77,10 @@ Zmierzona budowa tabel `[ZWERYFIKOWANE]`:
 - **Dekodowanie**: przebieg czysty = CP932 bez znaków sterujących (poza `\n`) i bez private-use;
   dzięki temu opis efektu `%s2倍\n5%s` (bez kanji) też jest wyciągany.
 
-Pomiar relacji DLC ↔ płyta `[ZWERYFIKOWANE]`: pula `srwDL_Item01–08` jest podzbiorem puli ogonowej
-`Item00` (75/75 tekstów bez nowych); pula `Skill01–08` zawiera wszystkie 583 teksty ogona `Skill00`
-plus ~239 jedno- do trzyznakowych fragmentów formatujących. **DLC nie wnosi nowych tekstów itemów/skilli.**
+Pomiar relacji DLC ↔ płyta `[ZWERYFIKOWANE]` (po tablicach wskaźników, 2026-10-14): pula
+`srwDL_Item01–08` = 76 napisów = pula `Item00`; pula `Skill01–08` = 720 napisów = pula `Skill00`
+(wcześniejsze „583 + ~239 fragmentów formatujących" było artefaktem naiwnego cięcia na NUL).
+**DLC nie wnosi nowych tekstów itemów/skilli.**
 
 ## 3a. Cytaty bitewne — domknięcie (pkt 2)
 
@@ -189,10 +198,13 @@ Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rek
 * Tekst: itemy — 300 nazw (4 001 B, 273 unikalne, max 20 B) + 300 efektów (3 941 B, max 66 B);
   umiejętności — 1 469 nazw (10 322 B, **189 unikalnych**, max 14 B) + 1 469 efektów (40 208 B,
   1 237 unikalnych, max 106 B).
-* **Pliki DLC nie wnoszą tekstu**: `Item01–08` to 8 identycznych kopii (76 wpisów), a wszystkie
-  76 wpisów leży w puli ogona `Item00` (152 przebiegi / 1 146 B); `Skill01/03–08` to 7 identycznych
-  kopii, `Skill02` różni się kosmetycznie, 720 wpisów każda — wszystkie 720 są w puli ogona
-  `Skill00` (1 458 przebiegów / 15 630 B), 0 nowych. `configst/srwDL_Item.bin` = kopia `Item00`.
+* **Pliki DLC nie wnoszą tekstu**: `Item01–08` to 8 identycznych kopii (76 wpisów) puli `Item00`;
+  `Skill01–08` — 720 wpisów każda — to kopie puli `Skill00` (720 napisów po tablicy wskaźników).
+  `configst/srwDL_Item.bin` = kopia `Item00`.
+* **Pula fragmentów rośnie** (od 2026-10-14): `item_skill_write.apply_tail_pool` przepisuje napisy
+  puli o dowolnej długości i przelicza tablicę wskaźników; `rebuild_member` po wzroście rekordów
+  przesuwa pulę i przepina jej tablicę (do tej daty zostawiał stare wskaźniki — zbudowane wcześniej
+  `config00.cpk`/`configst.cpk` ze wzrostem rekordów miały pulę wskazującą w złe miejsce).
 
 Artefakty (gitignored): `local/item_skill.jsonl`, `local/item_skill_summary.json`.
 

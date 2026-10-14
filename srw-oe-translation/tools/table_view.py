@@ -50,12 +50,13 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import export_strings as ES      # noqa: E402  (display_width -> the width the game draws)
+import translation_check as TC   # noqa: E402  (fixed_slot_limit -> the measured slot sizes)
 import translation_import as TI   # noqa: E402  (render_markers -> markers_for)
 
 #: the width the game itself never exceeds on one line, and the width a typical line has
 #: (measured on every dialogue, quote and narration line of the package, 2026-10-12)
-WIDEST_LINE = 52
-TYPICAL_LINE = 46
+WIDEST_LINE = ES.GAME_WIDEST["dialogue"]   # 52 - the hard limit of a dialogue line
+TYPICAL_LINE = ES.TYPICAL_LINE             # 46 - what most of the game's lines stay within
 
 
 def limit_note(view: str, element: List[dict], widest: Dict[str, int]) -> str:
@@ -73,15 +74,26 @@ def limit_note(view: str, element: List[dict], widest: Dict[str, int]) -> str:
     """
     rows = element
     first = rows[0]
-    budgets = [row.get("max_bytes") for row in rows if row.get("mode") == "slot"]
+    budgets = []
+    for row in rows:
+        if row.get("mode") != "slot":
+            continue
+        budget = row.get("max_bytes")
+        # the measured fixed-stride slot (mission title 39 B, map name 31, background 23, group
+        # 31) caps whatever the row says - an older export carried the whole record there
+        fixed = TC.fixed_slot_limit(row)
+        if fixed is not None and (not isinstance(budget, int) or fixed < budget):
+            budget = fixed
+        if budget:
+            budgets.append(int(budget))
     if budgets:
-        smallest = min(int(value) for value in budgets if value)
-        return f"limit: {smallest} B (stała szerokość — dłuższe się nie zmieści)"
+        return f"limit: {min(budgets)} B (stała szerokość — dłuższe się nie zmieści)"
     category = first.get("category") or ""
     lines = max((len((row.get("jp") or "").split("\n")) for row in rows), default=1)
     if category in ("dialogue", "battle_quote"):
-        return (f"limit: {TYPICAL_LINE} jedn. na linię (gra sama używa do {WIDEST_LINE} jedn.); "
-                f"oryginał: {lines} linii")
+        hard = ES.box_limit(first.get("kind") or category)
+        return (f"limit: {TYPICAL_LINE} jedn. na linię (twardy limit {hard} jedn. — tyle gra sama "
+                f"rysuje w tym miejscu); oryginał: {lines} linii")
     part = str(first.get("part"))
     longest = widest.get(part)
     guide = (f" — trzymaj się długości oryginału (najdłuższy w tej kategorii: {longest} jedn.)"

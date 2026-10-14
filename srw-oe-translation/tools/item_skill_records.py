@@ -6,7 +6,15 @@ Both categories use the same layout (measured 2026-10-12 on config00/configst) [
 Convention B container: ``u32 tail_offset`` at +0, ``u32 count`` at +4, ``count`` u32 record
 offsets from +8; the first offset equals ``8 + 4*count``, the records end at ``tail_offset`` and the
 bytes from ``tail_offset`` to EOF are a **fragment pool** (NUL-terminated pieces used to build the
-displayed effect strings).
+displayed effect strings).  The pool is not a bare run of strings: it **starts with its own u32
+pointer table** - the first word at ``tail_offset`` is the absolute offset of the first string and
+marks the table's end, every entry is the absolute offset of one string, and the strings fill the
+rest of the member back to back.  Measured 2026-10-14 on all five pools (Skill00 720 entries,
+Item00/Item 76, StatusChange 71, Spirit 39): strictly ascending, every entry a string start, not
+one byte outside the partition [ZWERYFIKOWANE].  It is the same layout as the convention-C DLC
+members (``srwDL_Skill01-08``: table at +8, no records), so the game reaches a fragment through
+the table - a rebuild that moves or grows the strings only has to rewrite the table
+(:func:`parse_tail_pool` / :func:`build_tail_pool`).
 
 Record layout (identical for items and skills)::
 
@@ -57,7 +65,7 @@ import json
 import struct
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
@@ -84,7 +92,15 @@ def decode(raw: bytes) -> str:
 
 
 def split_pool(data: bytes, start: int) -> List[str]:
-    """NUL-terminated runs of a fragment pool region."""
+    """The strings of the fragment pool at ``start``, in table order.
+
+    A pool with a pointer table (every measured member) yields exactly its table's strings;
+    a region that does not parse as one falls back to the NUL-terminated runs it contains.
+    """
+    try:
+        return [decode(raw) for raw in parse_tail_pool(data, start)[1]]
+    except ValueError:
+        pass
     out: List[str] = []
     i = max(0, start)
     while i < len(data):
@@ -95,6 +111,58 @@ def split_pool(data: bytes, start: int) -> List[str]:
             out.append(decode(data[i:j]))
         i = j + 1
     return out
+
+
+def parse_tail_pool(blob: bytes, table_start: int) -> Tuple[List[int], List[bytes]]:
+    """``(pointers, strings)`` of the fragment pool whose pointer table begins at ``table_start``.
+
+    The table is read the way the game must read it: the first u32 is the absolute offset of the
+    first string and therefore the end of the table; each entry addresses one NUL-terminated
+    string and the strings fill the member to EOF without a gap.  ``table_start == len(blob)``
+    is a member without a pool (``([], [])``).  Anything else that does not fit this shape raises
+    ``ValueError`` - a writer must then refuse the member rather than guess, because a pool copied
+    with stale pointers would send the game into the record area.
+    """
+    size = len(blob)
+    if table_start == size:
+        return [], []
+    if not (0 <= table_start < size) or table_start + 4 > size:
+        raise ValueError(f"pool table start {table_start} outside the member ({size} bytes)")
+    first = struct.unpack_from("<I", blob, table_start)[0]
+    if first <= table_start or (first - table_start) % 4 or first >= size:
+        raise ValueError(f"first pool pointer {first} does not end a table starting at {table_start}")
+    count = (first - table_start) // 4
+    pointers = list(struct.unpack_from("<%dI" % count, blob, table_start))
+    if any(pointers[i] >= pointers[i + 1] for i in range(count - 1)) or pointers[-1] >= size:
+        raise ValueError("pool pointers are not strictly ascending inside the member")
+    strings: List[bytes] = []
+    for index, start in enumerate(pointers):
+        end = pointers[index + 1] if index + 1 < count else size
+        segment = blob[start:end]
+        nul = segment.find(b"\x00")
+        if nul != len(segment) - 1:
+            raise ValueError(f"pool string {index} at {start} does not end exactly at the next "
+                             f"pointer (NUL at {nul}, span {len(segment)})")
+        strings.append(segment[:nul])
+    return pointers, strings
+
+
+def build_tail_pool(table_start: int, strings: List[bytes]) -> bytes:
+    """The bytes of a fragment pool placed at ``table_start``: pointer table, then the strings.
+
+    The inverse of :func:`parse_tail_pool`: ``build_tail_pool(t, parse_tail_pool(b, t)[1])`` is
+    ``b[t:]`` for every measured member, and after an edit only the table cells and the string
+    bytes differ.
+    """
+    for index, text in enumerate(strings):
+        if b"\x00" in text:
+            raise ValueError(f"pool string {index} contains NUL")
+    pointers, position = [], table_start + 4 * len(strings)
+    for text in strings:
+        pointers.append(position)
+        position += len(text) + 1
+    return (b"".join(struct.pack("<I", pointer) for pointer in pointers)
+            + b"".join(text + b"\x00" for text in strings))
 
 
 def parse_member(blob: bytes, kind: str, member: str = "", container: str = "") -> dict:

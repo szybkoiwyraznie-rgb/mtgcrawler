@@ -61,10 +61,34 @@ def decode(text: bytes) -> str:
     return text.decode("cp932", errors="replace")
 
 
+#: the widest line the game itself draws for each kind of text, in half-width units: a census of
+#: the whole Japanese script in the package (chapter 1 + DLC chapters 2-8, 2026-10-14; see
+#: docs/EXPERIMENT_LOG.md part 19).  A line the game ships cannot be too wide for its own box, so
+#: these are the writers' hard limits.  The earlier 46 came from the first scene only (the
+#: prologue, 2026-10-10): 316 of the game's own dialogue lines are 50 wide and 4 are 52.
+GAME_WIDEST = {"dialogue": 52, "battle_quote": 50, "narration": 56, "help": 66, "location": 48,
+               "label": 44, "condition_victory": 36, "condition_defeat": 35, "scene_title": 34}
+#: the typical dialogue line the translator aims for, and the floor of every limit: the in-game
+#: proofs (docs/HANDOFF.md) were made with lines up to 46, so no kind is held below it
+TYPICAL_LINE = 46
+
+
+def box_limit(kind: Optional[str]) -> int:
+    """The widest line the writers accept for ``kind`` (a package row's ``kind`` or category)."""
+    return max(TYPICAL_LINE, GAME_WIDEST.get(kind or "dialogue", TYPICAL_LINE))
+
+
 def display_width(s: str) -> int:
-    """Approximate on-screen width: full-width (CJK) chars count 2, others 1."""
+    """Approximate on-screen width: full-width (CJK) chars count 2, others 1.
+
+    Control characters draw nothing: ``\r`` (the box clear the game keeps at the end of a
+    dialogue page), ``\n``, and the ``0x0F`` that only announces a kana-glyph token - counting
+    them made a 46-unit line that ends in ``\r`` look 47 wide and the writer refuse it.
+    """
     total = 0
     for ch in s:
+        if unicodedata.category(ch) == "Cc":
+            continue
         if unicodedata.east_asian_width(ch) in ("W", "F"):
             total += 2
         else:

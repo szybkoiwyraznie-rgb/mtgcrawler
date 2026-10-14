@@ -41,13 +41,17 @@ def build_record(kind, key, name, effect, name_level="", effect_brief="", label=
             + struct.pack("<H", 100) + blob + tail_blob)
 
 
-def build_member(kind, records, pool_runs=()):
+def build_member(kind, records, pool_runs=(), bare_pool=False):
     table_size = 8 + 4 * len(records)
     offsets, position = [], table_size
     for record in records:
         offsets.append(position)
         position += len(record)
-    pool = b"".join(run.encode("cp932") + b"\x00" for run in pool_runs)
+    raws = [run.encode("cp932") for run in pool_runs]
+    if bare_pool or not raws:
+        pool = b"".join(raw + b"\x00" for raw in raws)
+    else:
+        pool = ISR.build_tail_pool(position, raws)      # the game's layout: table, then strings
     return (struct.pack("<2I", position, len(records))
             + b"".join(struct.pack("<I", o) for o in offsets)
             + b"".join(records) + pool)
@@ -111,6 +115,27 @@ class RebuildMemberTest(unittest.TestCase):
         self.assertEqual(again["records"][0]["name"], "Anti-ground")
         self.assertEqual(again["records"][1]["name_level"], "対地 Lv1")   # untouched record
         self.assertEqual(again["tail_pool"], ["最大SP+"])
+
+    def test_the_pool_table_is_repointed_after_growth(self):
+        # the pool's pointers are absolute: after the records grow, the table must follow
+        blob = self.member()
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"effect": "a much longer effect text than the Japanese one had"}})
+        shift = report["pool_shift"]
+        self.assertGreater(shift, 0)
+        tail = struct.unpack_from("<I", grown, 0)[0]
+        pointers, strings = ISR.parse_tail_pool(grown, tail)
+        self.assertEqual(strings, ["最大SP+".encode("cp932")])
+        self.assertEqual(pointers, [tail + 4])
+        old_tail = struct.unpack_from("<I", blob, 0)[0]
+        self.assertEqual(pointers[0], struct.unpack_from("<I", blob, old_tail)[0] + shift)
+        self.assertEqual(grown[tail:], ISR.build_tail_pool(tail, strings))
+
+    def test_a_pool_without_a_table_refuses_the_member(self):
+        # fail closed: a verbatim copy would leave whatever the pool holds pointing at old bytes
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "効果", level=0)],
+                            pool_runs=("最大SP+",), bare_pool=True)
+        with self.assertRaises(ISW.WriteError):
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-ground"}})
 
     def test_unknown_record_is_refused(self):
         with self.assertRaises(ISW.WriteError):
@@ -287,14 +312,14 @@ class OffsetAdapterTest(unittest.TestCase):
         self.assertEqual(edits, {1: {"effect": b"Anti-air effect"}})
         self.assertEqual(skipped, [])
 
-    def test_tail_offsets_are_left_to_the_slot_writer(self):
+    def test_tail_offsets_are_left_to_the_pool_writer(self):
         offset = self.parsed["tail_offset"] + 1
         edits, skipped, stats = ISW.plan_offset_edits(
             [self.row(offset, "tail fragment", "x")],
             "srwDL_Skill00.bin", self.parsed, self.blob, "c")
         self.assertEqual(edits, {})
         self.assertEqual(stats["tail"], 1)
-        self.assertIn("slot writer", skipped[0])
+        self.assertIn("pool writer", skipped[0])
 
     def test_an_offset_with_a_different_jp_is_refused(self):
         edits, skipped, stats = ISW.plan_offset_edits(
@@ -368,6 +393,77 @@ class OffsetAdapterTest(unittest.TestCase):
         merged, problems = ISW.merge_edits({1: {"effect": "One"}}, {1: {"effect": b"Two"}})
         self.assertEqual(merged, {})
         self.assertTrue(any("two rows, two translations" in p for p in problems))
+
+
+class PoolWriterTest(unittest.TestCase):
+    """plan_pool_edits / rebuild_pool: the fragment pool grows, its table is recomputed."""
+
+    def setUp(self):
+        self.blob = build_member("skill", [
+            build_record("skill", 1000, "対地", "地形効果"),
+        ], pool_runs=["気力", "%s軽減", "気力"])
+        self.parsed = ISR.parse_member(self.blob, "skill", "srwDL_Skill00.bin")
+        self.tail = self.parsed["tail_offset"]
+        self.pointers, _ = ISR.parse_tail_pool(self.blob, self.tail)
+
+    def row(self, offset, jp, en, row_id="skill:c/srwDL_Skill00.bin:pool"):
+        return {"id": row_id, "category": "config_skill", "part": "text", "jp": jp, "en": en,
+                "mode": "grow",
+                "source": {"container": "c", "member": "srwDL_Skill00.bin", "offset": offset}}
+
+    def test_a_shared_offset_row_fills_every_string_with_that_text(self):
+        edits, skipped, stats = ISW.plan_pool_edits(
+            [self.row(self.tail, "気力", "Will")], "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual((edits, skipped), ({0: b"Will", 2: b"Will"}, []))
+        self.assertEqual((stats["applied"], stats["strings"]), (1, 2))
+
+    def test_an_exact_offset_row_fills_its_string_only(self):
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[2], "気力", "Morale")], "srwDL_Skill00.bin", self.parsed,
+            self.blob, "c")
+        self.assertEqual((edits, skipped), ({2: b"Morale"}, []))
+
+    def test_growth_is_allowed_and_the_table_follows(self):
+        edits, _, _ = ISW.plan_pool_edits(
+            [self.row(self.tail, "気力", "Will (morale gauge)"),
+             self.row(self.tail, "%s軽減", "%s reduction")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        out = ISW.rebuild_pool(self.blob, self.parsed, edits)
+        self.assertEqual(out[:self.tail], self.blob[:self.tail])      # records untouched
+        pointers, strings = ISR.parse_tail_pool(out, self.tail)
+        self.assertEqual(strings, [b"Will (morale gauge)", b"%s reduction", b"Will (morale gauge)"])
+        self.assertEqual(pointers[0], self.tail + 12)
+        self.assertEqual(ISR.parse_member(out, "skill")["records"][0]["name"], "対地")
+
+    def test_a_stale_jp_and_an_offset_in_the_table_are_refused(self):
+        edits, skipped, stats = ISW.plan_pool_edits(
+            [self.row(self.tail, "別の文", "Other"), self.row(self.tail + 4, "%s軽減", "x")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["mismatch"], 2)
+        self.assertEqual(len(skipped), 2)
+
+    def test_an_offset_inside_a_string_matches_that_whole_string(self):
+        # the leftover scan anchors a run a few bytes into the pool string it read
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[1] + 2, "%s軽減", "%s reduction"),
+             self.row(self.pointers[1] + 2, "軽減", "cut")],      # a partial jp is not the string
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {1: b"%s reduction"})
+        self.assertEqual(len(skipped), 1)
+
+    def test_two_translations_for_one_string_refuse_it(self):
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[0], "気力", "Will", "a"), self.row(self.pointers[0], "気力", "Morale", "b")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertTrue(any("conflicts" in message for message in skipped))
+
+    def test_record_rows_are_not_pool_rows(self):
+        offset = self.parsed["records"][0]["offset"] + self.parsed["records"][0]["name_offset"]
+        edits, _, stats = ISW.plan_pool_edits(
+            [self.row(offset, "対地", "Anti-ground")], "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual((edits, stats["rows"]), ({}, 0))
 
 
 class CrossRefTest(unittest.TestCase):

@@ -139,12 +139,40 @@ class ExtractMemberTest(unittest.TestCase):
         self.assertTrue(rows[2]["pool"])
         self.assertEqual(rows[2]["strings"][0]["text"], "%s2")
 
+    def test_item_records_plus_tail_pool_with_its_pointer_table(self):
+        # the game's layout (measured on all five pools 2026-10-14): the tail starts with a u32
+        # table of absolute string offsets - one row per pointer, the string's own offset as
+        # record_offset, and a string with the game's 0x0F kana tokens shown as %s, not dropped
+        import item_skill_records as ISR
+        rec0 = b"\x10\x27\x00\x00" + b"\x00" * 46 + "改造制限解除".encode("cp932")
+        head = table_b([rec0])
+        tail_at = struct.unpack_from("<I", head, 0)[0]
+        raws = ["%s2".encode("cp932"), "防御時､".encode("cp932") + b"\x0f*\xd2\xb0\x0f&-",
+                b"% \x0f"]
+        blob = head + ISR.build_tail_pool(tail_at, raws)
+        out = CT.extract_member("c.EDAT", "srwDL_Item00.bin", blob, "item")
+        pool = [r for r in out["rows"] if r.get("pool")]
+        self.assertEqual([(r["record_offset"], r["strings"][0]["text"]) for r in pool],
+                         [(tail_at + 12, "%s2"), (tail_at + 16, "防御時､%s*ﾒｰ%s&-"),
+                          (tail_at + 16 + len(raws[1]) + 1, "% %s")])
+        self.assertEqual([r["pool_index"] for r in pool], [0, 1, 2])
+        self.assertEqual(pool[1]["strings"][0]["bytes"], len(raws[1]))
+        self.assertEqual(out["stats"]["strings"], 4)
+
+    def test_pool_text_keeps_tokenised_fragments_and_drops_token_only_runs(self):
+        self.assertEqual(CT.pool_text("気力".encode("cp932")), ("気力", True))
+        self.assertEqual(CT.pool_text(b"\x0f*\xd2\xb0\x0f&"), ("%s*ﾒｰ%s&", True))
+        self.assertEqual(CT.pool_text(b"\x0f*\x0f&"), (None, False))
+        self.assertEqual(CT.pool_text(b"\x82\xc5\x0f"), ("で%s", True))
+        self.assertEqual(CT.pool_text(b"\x0f"), (None, False))
+
     def test_pool_member_convention_c(self):
-        blob = table_c(["対地".encode("cp932"), "攻撃､命中上昇".encode("cp932")])
+        blob = table_c(["対地".encode("cp932"), "攻撃､命中上昇".encode("cp932"),
+                        b"CT\x0f*\xd2\xb0\x0f&+"])
         out = CT.extract_member("c.EDAT", "srwDL_Skill01.bin", blob, "skill")
         self.assertEqual(out["stats"]["convention"], "C")
         self.assertEqual([r["strings"][0]["text"] for r in out["rows"]],
-                         ["対地", "攻撃､命中上昇"])
+                         ["対地", "攻撃､命中上昇", "CT%s*ﾒｰ%s&+"])
 
     def test_empty_member_is_not_an_error(self):
         out = CT.extract_member("c", "srwDL_Item09.bin", b"\x00\x00\x00\x00", "item")

@@ -20,9 +20,10 @@ offsets honest:
 
 1. story dialogue (:mod:`event_text_apply`) and battle quotes (:mod:`quotes_apply`) - both grow
    their own containers the way the measured smoke tests proved;
-2. the **tail-pool rows** of the convention-B members (:mod:`slot_apply`, in place) - they must
-   be written *before* the record rebuild moves the tail, and the rebuild then carries the
-   translated bytes along untouched;
+2. the **fragment-pool rows** of the convention-B members (``item_skill_write.apply_tail_pool``):
+   the pool behind the item/skill/spirit/status records has its own u32 pointer table (measured
+   2026-10-14), so its strings are rewritten at any length and the table recomputed - *before*
+   the record rebuild, which then moves the whole pool and re-points its table;
 3. the record writers: :mod:`item_skill_write` (items/skills/spirits/status changes, growing the
    record region and remapping the ``+36`` cross references) and :mod:`table_write` (the
    dictionary/pool families, growing);
@@ -365,13 +366,13 @@ class ContainerBuild:
                 if member not in offsets:
                     offsets[member] = self._tail_offset(member)
                 if offsets[member] is not None and offset >= offsets[member]:
-                    tails.append(row)      # tail pool: written in place, before any rebuild
+                    tails.append(row)      # fragment pool: rebuilt with its table, before the records
                     continue
             by_owner.setdefault(owner(row), []).append(row)
 
         self._eta(by_owner.get("eta", []))
         self._qa(by_owner.get("qa", []))
-        self._slot_pass("tail-slots", tails, pool=True)   # tail-pool rows: located by content
+        self._tail_pool(tails)                            # pool rows: by content or exact offset
         self._isw(by_owner.get("isw", []))
         self._tw(by_owner.get("tw", []))
         self._nmt(by_owner.get("nmt", []))
@@ -404,6 +405,12 @@ class ContainerBuild:
                     if path.exists():
                         path.unlink()
             self._advance(new, f"dialogue {member}", summary or {})
+            # the event writer reports its refusals (a line wider than the box) and skips (a
+            # jp no longer at its offset) in their own lists - they belong in the build report
+            # like every other writer's, not only in the per-step detail
+            for key in ("refused", "skipped", "problems"):
+                self.report["problems"].extend(f"dialogue {member}: {p}"
+                                               for p in (summary or {}).get(key) or [])
 
     def _qa(self, rows: List[dict]) -> None:
         rows = [r for r in rows if filled(r)]
@@ -439,6 +446,15 @@ class ContainerBuild:
         except Exception:
             return None
         return None
+
+    def _tail_pool(self, rows: List[dict]) -> None:
+        """The fragment pools behind the item/skill/spirit/status records: strings rewritten at
+        any length, pointer table recomputed (``item_skill_write.apply_tail_pool``).  Runs before
+        the record rebuild, which then re-points the grown pool at its new offset."""
+        self._run_container_step("tail-pool", {
+            "rows": rows,
+            "call": lambda s, d, r: ISW.apply_tail_pool(s, d, r),
+        })
 
     def _isw(self, rows: List[dict]) -> None:
         self._run_container_step("records", {
@@ -519,11 +535,9 @@ class ContainerBuild:
             if not self.dry_run:
                 src.unlink(missing_ok=True)
 
-    def _slot_pass(self, step: str, rows: List[dict], pool: bool = False) -> None:
+    def _slot_pass(self, step: str, rows: List[dict]) -> None:
         rows = [r for r in rows if filled(r) and isinstance((r.get("source") or {}).get("offset"), int)]
-        call = SLA.apply_container if not pool else \
-            (lambda src, dst, r: SLA.apply_container(src, dst, r, pool=True))
-        self._run_container_step(step, {"rows": rows, "call": call})
+        self._run_container_step(step, {"rows": rows, "call": SLA.apply_container})
 
 
 def _iter_members(path: Path) -> Iterable[Tuple[str, bytes]]:

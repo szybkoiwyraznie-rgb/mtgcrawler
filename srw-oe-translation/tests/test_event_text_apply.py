@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import event_text_apply as A  # noqa: E402
+import export_strings  # noqa: E402
 
 WRAPPER = 0xC8
 TEXT = 0xC9
@@ -172,7 +173,7 @@ class GrowTest(unittest.TestCase):
         out, report = A.apply_member(self.blob, [row("dlg:x:1", self.first, self.jp, wide)])
         self.assertEqual(out, self.blob)
         self.assertEqual(report["applied"], 0)
-        self.assertIn("the box fits 46", report["refused"][0])
+        self.assertIn("the game's own dialogue lines reach 52", report["refused"][0])
 
     def test_the_record_decides_not_the_kind_label(self):
         # the label is only metadata: what matters is that a dialogue record holds the text
@@ -299,9 +300,16 @@ class NarrationTest(unittest.TestCase):
 
     def test_a_dialogue_row_still_refuses_a_line_wider_than_the_box(self):
         _out, report = A.apply_member(self.blob, [
-            row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"), "x" * (A.BOX_WIDTH + 1))])
+            row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"),
+                "x" * (export_strings.box_limit("dialogue") + 1))])
         self.assertEqual(report["applied"], 0)
         self.assertEqual(len(report["refused"]), 1)
+
+    def test_a_line_the_game_itself_draws_is_accepted(self):
+        # 316 of the game's own dialogue lines are 50 wide: the old 46 refused them in English
+        _out, report = A.apply_member(self.blob, [
+            row("dlg:x:1", self.dialogue[0], self.line.decode("cp932"), "x" * 50)])
+        self.assertEqual((report["applied"], report["refused"]), (1, []))
 
 
 def plain_record(rtype: int, params: bytes, text: bytes) -> bytes:
@@ -399,7 +407,7 @@ class KindRecordTests(unittest.TestCase):
         out, report = A.apply_member(self.blob, rows)
         self.assertEqual(report["applied"], 0)
         self.assertEqual(len(report["refused"]), 1)
-        self.assertIn("the box fits", report["refused"][0])
+        self.assertIn("condition_victory lines reach 46", report["refused"][0])
         self.assertEqual(out, self.blob)
 
     def test_a_record_kind_without_a_measured_position_is_skipped(self):
@@ -419,6 +427,17 @@ class KindRecordTests(unittest.TestCase):
         self.assertIn("measured text position", report["skipped"][0])
         self.assertEqual(report["problems"], [])
         self.assertEqual(out, blob)
+
+
+class BoxWidthTest(unittest.TestCase):
+    def test_a_box_clear_at_the_end_of_a_line_has_no_width(self):
+        line = "We can't do any more maintenance at this base."   # exactly 46 units
+        self.assertEqual(A.box_problems(line + "\r\n"), [])
+        self.assertEqual(A.box_problems(line + "!\r\n", "battle_quote"), [])
+        self.assertEqual(A.box_problems(line + "!\r\n", "label"),
+                         ["a line is 47 wide, the game's own label lines reach 46"])
+        self.assertEqual(A.box_problems("x" * 51, "battle_quote"),
+                         ["a line is 51 wide, the game's own battle_quote lines reach 50"])
 
 
 if __name__ == "__main__":

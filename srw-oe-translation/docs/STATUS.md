@@ -670,3 +670,31 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   miejscu) → podmiana Robocze/Pakiet na Drive po zgodzie → pełny przebieg HOKUS_POKUS z ISO +
   DLC i test w PPSSPP (w grze do sprawdzenia: tytuły misji z nowym limitem, nazwa tła po
   binariach, DLC_ID w menu pobierania, fragment opisu umiejętności w miejscu).
+
+
+## 2026-10-14 — pierwszy prawdziwy import tłumaczeń i budowa na 13 kontenerach z Drive
+
+* **Import `EN.zip` [ZWERYFIKOWANE]:** 61 468 elementów z EN → **61 322 w pakiecie, 41 odrzuconych**
+  (9 opisów sysmes bez pierwszej linijki doklejanej przez grę, 32 nazwy za długie na zmierzone pola
+  23/31/39 B). Po kopiach: 79 612 wierszy z EN w pakiecie (108 123 wierszy), walidator 0 błędów.
+* **Pula ogonowa Skill/Item/Spirit/StatusChange ma własną tablicę wskaźników u32 [ZWERYFIKOWANE]** —
+  hipoteza „w miejscu" z poprzedniego wpisu odwołana: pisarz przebudowuje tablicę i napisy
+  (`item_skill_write.rebuild_pool`, krok `tail-pool` przed rekordami), fragmenty rosną. Przy okazji
+  wyszło, że **125 tekstów z tokenem kany nigdy nie było w pakiecie** (`clean_run` je odrzucał, a
+  `coverage_audit` tego nie widzi) — `tools/pool_rows_refresh.py` dopisał je (+1 127 wierszy z kopiami,
+  −85 śmieci); są puste i czekają na tłumacza.
+* **Szerokość linii:** 46 było z pierwszej sceny; spis całego skryptu daje dialog 52 (316 linii gry ma 50),
+  cytat 50, narracja 56. Pisarze i walidator używają teraz najszerszej linii gry per rodzaj
+  (`export_strings.GAME_WIDEST`), 46 zostaje zalecane; `\r` nie liczy się do szerokości. **W grze
+  niesprawdzone** (hipoteza: czcionka ASCII półszeroka).
+* **Budowa (13 kontenerów: config00/01/02–08, configst, eventP00, imenu00, mesbtl00; 91 s):**
+  **38 598 z 39 290 sprawdzalnych tekstów wylądowało, 101 braków** (wszystkie znane: 38 bez rekordu
+  w słowniku robotów, 31 przycięte/nierozkodowalne resztki, 13+11 śmieciowe wiersze liczb, 6 achievement,
+  2 pseudonimy), 591 za krótkich do sprawdzenia; 40 322 wiersze z EN czekają na kontenery spoza Drive.
+  Rozmiary rosną (mesbtl00 349 KB → 1 010 KB), bo zmienione członki CPK są zapisywane stored.
+  Hashe i kroki: EXPERIMENT_LOG cz. 19. Wyjścia + `DO_ZROBIENIA.md` + nowe widoki idą na Drive.
+* **Nie jest to grywalny patch całości:** brak ISO (rozdział 1 poza DLC), brak kontenerów rozdziałów 2–8
+  poza config02–08, zero testów w grze dla tej budowy. Testy: **971 OK (1 skipped)**.
+* **Następny krok:** test w PPSSPP na zbudowanych kontenerach (pula umiejętności, linie 47–52, DLC_ID);
+  tłumacz: `DO_ZROBIENIA.md`; wgranie pozostałych kontenerów na Drive; ponowny eksport pakietu.
+

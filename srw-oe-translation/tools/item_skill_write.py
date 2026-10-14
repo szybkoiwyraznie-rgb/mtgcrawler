@@ -5,7 +5,12 @@ The record layout is the one measured by ``item_skill_records``: twenty u16 para
 field boundaries at +40, one more parameter word, the five NUL-terminated fields, then the numeric
 tail.  Because the boundaries are explicit, growing a field only means rebuilding the record: the
 member's record-offset table and its ``tail_offset`` are re-derived, and everything after the record
-shifts.  Nothing else in the member points at a text.
+shifts.  One more thing points at text: the fragment pool behind the records starts with its own
+table of **absolute** string offsets (``item_skill_records.parse_tail_pool``), so the rebuild
+re-points that table at the pool's new home - copied verbatim it would send the game into the
+record area.  The pool strings themselves are translated by :func:`apply_tail_pool` (the
+orchestrator's ``tail-pool`` step): the strings are rewritten at any length and the table
+recomputed, exactly as ``table_write`` does for the convention-C DLC members.
 
 Layers, all fail-closed:
 
@@ -25,6 +30,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import bisect
 import json
 import struct
 import sys
@@ -118,13 +124,21 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
                 struct.pack_into("<I", rec, 36, old_to_new[word])
                 remapped += 1
         patched.append(bytes(rec))
-    tail_pool = blob[parsed["tail_offset"]:]
+    # the fragment pool keeps its strings but its pointer table holds absolute offsets: it is
+    # rebuilt at the new tail position (an unparseable pool refuses the member - fail closed)
+    try:
+        _, pool_strings = ISR.parse_tail_pool(blob, parsed["tail_offset"])
+    except ValueError as exc:
+        raise WriteError(f"{member or kind}: the fragment pool does not parse ({exc}); "
+                         f"the member is refused") from exc
+    tail_pool = ISR.build_tail_pool(position, pool_strings)
     out = (struct.pack("<2I", position, count)
            + b"".join(struct.pack("<I", offset) for offset in offsets)
            + b"".join(patched) + tail_pool)
     report = {"member": member, "kind": kind, "records": count,
               "edited_records": len(edits), "edited_roles": sum(len(v) for v in edits.values()),
-              "cross_refs_remapped": remapped,
+              "cross_refs_remapped": remapped, "pool_strings": len(pool_strings),
+              "pool_shift": position - parsed["tail_offset"],
               "old_size": len(blob), "new_size": len(out)}
     return out, report
 
@@ -198,9 +212,8 @@ def plan_offset_edits(rows: Iterable[dict], member: str, parsed: dict, blob: byt
     while the ``config_leftover`` scan displays every control byte as ``%s`` -
     :func:`table_write.match_form` recognises which form a row carries and
     :func:`table_write.encode_en` puts the right bytes back.  Rows whose offset
-    sits in the tail pool are refused here - the tail is a mixed binary/text region this writer
-    rebuilds verbatim, and those rows go through the slot writer, which never changes a member's
-    size.
+    sits in the tail pool are not record fields - they belong to :func:`plan_pool_edits` /
+    :func:`apply_tail_pool`, which rewrite the pool with its pointer table.
     """
     edits: Dict[int, Dict[str, bytes]] = {}
     skipped: List[str] = []
@@ -223,7 +236,7 @@ def plan_offset_edits(rows: Iterable[dict], member: str, parsed: dict, blob: byt
         offset = source["offset"]
         if offset >= tail_offset:
             stats["tail"] += 1
-            skipped.append(f"{row.get('id')}: tail-pool row, left to the slot writer")
+            skipped.append(f"{row.get('id')}: tail-pool row, left to the pool writer")
             continue
         hit = None
         for rec_row in parsed["records"]:
@@ -384,6 +397,198 @@ def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
     dst.write_bytes(out)
     report["verification"] = verify_container(dst, rows, src.name)
     return report
+
+
+def plan_pool_edits(rows: Iterable[dict], member: str, parsed: dict, blob: bytes,
+                    container: str = "") -> Tuple[Dict[int, bytes], List[str], dict]:
+    """``{pool index: new bytes}`` for the rows that address the fragment pool of ``member``.
+
+    Two row addressings exist in ``04``: the older export gives every string of a pool the
+    pool's *start* offset (one id per pool) - such a row is matched by content against every
+    pool string and every string that reads back as its ``jp`` gets the English (duplicates in
+    the pool are the same fragment); a row carrying the exact offset of a string (the per-string
+    export) is matched to that string only, and its ``jp`` must still read back from it.  A row
+    whose offset falls *inside* a string (the leftover scan anchors a tokenised run a few bytes
+    into it - measured on 13 Skill00 rows) is matched to that one string, again by its whole
+    ``jp``.  A row that reads back from nothing is stale and refused; two rows asking two
+    different texts for one string refuse that string.
+    """
+    edits: Dict[int, bytes] = {}
+    owners: Dict[int, str] = {}
+    skipped: List[str] = []
+    stats = {"rows": 0, "applied": 0, "empty": 0, "mismatch": 0, "foreign": 0, "strings": 0}
+    tail_offset = parsed.get("tail_offset", len(blob))
+    try:
+        pointers, strings = ISR.parse_tail_pool(blob, tail_offset)
+    except ValueError as exc:
+        raise WriteError(f"{member}: the fragment pool does not parse ({exc})") from exc
+    index_of = {pointer: index for index, pointer in enumerate(pointers)}
+    conflicts: set = set()
+    for row in rows:
+        source = row.get("source") or {}
+        if (container and source.get("container") not in (None, container)) \
+                or source.get("member") != member:
+            stats["foreign"] += 1
+            continue
+        offset = source.get("offset")
+        if not isinstance(offset, int) or offset < tail_offset:
+            continue                        # a record row - the record planners own it
+        stats["rows"] += 1
+        target = TW.english(row)
+        if not target:
+            stats["empty"] += 1
+            continue
+        if offset == tail_offset:
+            candidates = list(range(len(strings)))
+        elif offset in index_of:
+            candidates = [index_of[offset]]
+        else:
+            inside = bisect.bisect_right(pointers, offset) - 1
+            if inside >= 0 and offset < pointers[inside] + len(strings[inside]):
+                candidates = [inside]
+            else:
+                stats["mismatch"] += 1
+                skipped.append(f"{row.get('id')}: offset {offset} is not a string of the pool")
+                continue
+        hits = []
+        for index in candidates:
+            form = TW.match_form(row.get("jp"), strings[index])
+            if form is not None:
+                hits.append((index, form))
+        if not hits:
+            stats["mismatch"] += 1
+            skipped.append(f"{row.get('id')}: no pool string reads back as this jp")
+            continue
+        applied = False
+        for index, form in hits:
+            try:
+                value = TW.encode_en(target, strings[index], form)
+            except TW.TableError as exc:
+                stats["mismatch"] += 1
+                skipped.append(f"{row.get('id')}: {exc}")
+                break
+            previous = edits.get(index)
+            if previous is not None and previous != value:
+                conflicts.add(index)
+                skipped.append(f"{row.get('id')}: conflicts with {owners[index]} on pool string "
+                               f"{index}; the string stays Japanese")
+                continue
+            edits[index] = value
+            owners[index] = str(row.get("id"))
+            applied = True
+        if applied:
+            stats["applied"] += 1
+    for index in conflicts:
+        edits.pop(index, None)
+    stats["strings"] = len(edits)
+    return edits, skipped, stats
+
+
+def rebuild_pool(blob: bytes, parsed: dict, edits: Dict[int, bytes]) -> bytes:
+    """The member with the given pool strings replaced; the table is recomputed, the records
+    and everything before the pool stay byte for byte."""
+    tail_offset = parsed.get("tail_offset", len(blob))
+    try:
+        _, strings = ISR.parse_tail_pool(blob, tail_offset)
+    except ValueError as exc:
+        raise WriteError(f"the fragment pool does not parse ({exc})") from exc
+    for index, value in edits.items():
+        if not (0 <= index < len(strings)):
+            raise WriteError(f"pool edit addresses string {index} of {len(strings)}")
+        strings[index] = value
+    out = blob[:tail_offset] + ISR.build_tail_pool(tail_offset, strings)
+    # prove it: the result parses to the same count, the edited strings read back, no other moved
+    _, check = ISR.parse_tail_pool(out, tail_offset)
+    _, before = ISR.parse_tail_pool(blob, tail_offset)
+    if len(check) != len(before) or any(
+            check[i] != (edits.get(i) if i in edits else before[i]) for i in range(len(check))):
+        raise WriteError("pool rebuild did not reproduce the requested strings")
+    return out
+
+
+def apply_tail_pool(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
+    """Translate the fragment pools of one config container (the orchestrator's ``tail-pool``
+    step), at any length, and verify by re-reading the written file."""
+    cpk = cpk_write.load(src)
+    replacement = None
+    report = {"container": src.name, "members": [], "problems": [], "applied": 0,
+              "refused": 0, "per_member": {}}
+    wanted: Dict[Tuple[str, int], bytes] = {}
+    for member in cpk.members:
+        if not member.name.lower().endswith(".pac"):
+            continue
+        pac = configst_pack.parse_pac(cpk_write.decompressed(member.blob))
+        changed = False
+        for sub in pac["subs"]:
+            kind = _kind_of(sub["name"])
+            if kind is None:
+                continue
+            parsed = ISR.parse_member(sub["data"], kind, sub["name"], src.name)
+            if parsed["errors"]:
+                continue
+            try:
+                edits, skipped, stats = plan_pool_edits(rows, sub["name"], parsed, sub["data"],
+                                                        src.name)
+            except WriteError as exc:
+                report["problems"].append(f"{sub['name']}: {exc}")
+                continue
+            if not stats["rows"]:
+                continue
+            report["problems"].extend(f"{sub['name']}: refused: {message}" for message in skipped)
+            report["applied"] += stats["applied"]
+            report["refused"] += stats["mismatch"]
+            report["per_member"][sub["name"]] = {"rows": stats["rows"], "applied": stats["applied"],
+                                                 "refused": stats["mismatch"],
+                                                 "strings": stats["strings"]}
+            if not edits:
+                continue
+            try:
+                new_blob = rebuild_pool(sub["data"], parsed, edits)
+            except WriteError as exc:
+                report["problems"].append(f"{sub['name']}: {exc}")
+                continue
+            for index, value in edits.items():
+                wanted[(sub["name"], index)] = value
+            report["members"].append({"member": sub["name"], "kind": kind,
+                                      "strings": stats["strings"],
+                                      "old_size": len(sub["data"]), "new_size": len(new_blob)})
+            sub["data"] = new_blob
+            changed = True
+        if changed:
+            replacement = (member.name, configst_pack.rebuild_pac(pac))
+    report["changed"] = replacement is not None
+    if replacement is None or dry_run:
+        return report
+    out = cpk_write.rebuild(cpk, replacement=replacement)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_bytes(out)
+    report["verification"] = verify_pools(dst, wanted)
+    return report
+
+
+def verify_pools(path: Path, wanted: Dict[Tuple[str, int], bytes]) -> dict:
+    """Re-read a written container: every requested pool string must be there, at its index."""
+    found: Dict[Tuple[str, int], bytes] = {}
+    for member_name, blob in SM.read_members(path):
+        subs = list(IN.pac_subfiles(blob)) if member_name.lower().endswith(".pac") \
+            else [(member_name, blob)]
+        for sub_name, sub_blob in subs:
+            kind = _kind_of(sub_name)
+            if kind is None:
+                continue
+            parsed = ISR.parse_member(sub_blob, kind, sub_name, path.name)
+            if parsed["errors"]:
+                continue
+            try:
+                _, strings = ISR.parse_tail_pool(sub_blob, parsed["tail_offset"])
+            except ValueError:
+                continue
+            for index, text in enumerate(strings):
+                if (sub_name, index) in wanted:
+                    found[(sub_name, index)] = text
+    failures = [f"{member}#{index}: {found.get((member, index))!r} != {value!r}"
+                for (member, index), value in wanted.items() if found.get((member, index)) != value]
+    return {"checked": len(wanted), "ok": len(wanted) - len(failures), "failures": failures[:5]}
 
 
 def wanted_targets(rows: Iterable[dict], container: Optional[str] = None

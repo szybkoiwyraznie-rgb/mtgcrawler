@@ -23,24 +23,6 @@ def row(jp, **extra):
     return base
 
 
-class InPlaceTests(unittest.TestCase):
-    def test_shared_id_pool_rows_of_an_old_package_get_their_own_bytes_as_the_budget(self):
-        pool_id = "skill:config00.cpk/srwDL_Skill00.bin:193328"
-        a = row("気力", id=pool_id, category="config_skill", bytes=4, max_bytes=None)
-        b = row("発動すると", id=pool_id, category="config_skill", bytes=10, max_bytes=None)
-        c = row("対地", id="skill:config00.cpk/srwDL_Skill00.bin:554", category="config_skill",
-                bytes=4, max_bytes=None)
-        files = {"04_config_text.jsonl": [a, b, c]}
-        self.assertEqual(SF.mark_in_place(files), 2)
-        self.assertEqual(SF.constraints([a]), (None, 3))
-        self.assertEqual(SF.constraints([b]), (None, 9))
-        self.assertEqual(SF.constraints([c]), (None, None))
-        new_style = row("気力", id=pool_id, category="config_skill", bytes=4, mode="slot",
-                        max_bytes=4)
-        self.assertEqual(SF.mark_in_place({"04_config_text.jsonl": [new_style, new_style]}), 0)
-        self.assertEqual(SF.constraints([new_style]), (None, 3))
-
-
 class TwinTests(unittest.TestCase):
     def test_same_id_and_copy_of_rows_of_the_same_file_join_the_selection(self):
         a = row("元気", id="char:600:series", copy_of=None, __file="07")

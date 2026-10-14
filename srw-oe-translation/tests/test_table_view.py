@@ -130,11 +130,20 @@ class ViewTest(unittest.TestCase):
         text = TV.render("teksty-misji.md", rows, {})
         self.assertIn("limit: 117 B (stała szerokość — dłuższe się nie zmieści)", text)
 
+    def test_a_slot_in_a_measured_table_shows_the_measured_field_not_the_record(self):
+        # the Drive package still says 111 B for a background name: the field is 24 B (23 + NUL)
+        row = {"id": "bg_name:config00.cpk/bg2dlist.bin:7", "category": "bg_name", "part": "name",
+               "jp": "荒野　緑山", "en": "", "mode": "slot", "max_bytes": 111,
+               "source": {"container": "config00.cpk", "member": "bg2dlist.bin", "offset": 4 + 112 * 6}}
+        self.assertEqual(TV.limit_note("teksty-misji.md", [row], {}),
+                         "limit: 23 B (stała szerokość — dłuższe się nie zmieści)")
+
     def test_a_boxed_line_gets_the_width_and_the_shape_of_the_original(self):
         rows = [{"id": "dlg:1", "category": "dialogue", "part": "dialogue", "jp": "了解！\n行くぞ！",
                  "en": "", "source": {}}]
         text = TV.render("cytaty.md", rows, {})
-        self.assertIn("limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 2 linii", text)
+        self.assertIn("limit: 46 jedn. na linię (twardy limit 52 jedn. — tyle gra sama rysuje w tym "
+                      "miejscu); oryginał: 2 linii", text)
 
     def test_a_table_text_says_it_may_grow_and_gives_the_longest_original(self):
         rows = [{"id": "unit:1:name", "category": "unit_name", "part": "name", "jp": "ライジンオー",

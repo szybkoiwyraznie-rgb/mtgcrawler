@@ -18,7 +18,8 @@ The checher is deliberately strict about everything the game cares about and for
 * ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning;
   for the fixed-stride tables ``mission_text`` measured (mission titles, BGM, map/background/group
   names) the measured slot size is the limit even when an older package row claims more,
-* a dialogue or battle-quote line wider than the in-game box (``BOX_WIDTH`` half-width units) is
+* a dialogue or battle-quote line wider than the in-game box (``export_strings.box_limit`` - the
+  widest line the game itself draws for that kind - half-width units) is
   a warning: the game draws the box around ``jp`` and clips anything wider.
 
 Rows with an empty ``en`` are reported as untranslated, not as errors, so the check can be run while
@@ -52,8 +53,8 @@ import mission_text as MT  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
 TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
-BOX_WIDTH = 46   # the in-game dialogue box in half-width units (docs/HANDOFF.md §2; apply_strings)
-BOXED = ("dialogue", "battle_quote")   # only these two are drawn inside that box
+BOX_WIDTH = export_strings.TYPICAL_LINE   # the typical dialogue line (46); the hard limit per
+BOXED = ("dialogue", "battle_quote")      # kind is export_strings.box_limit, as in the writers
 CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
 
 
@@ -89,6 +90,16 @@ def expected_tokens(jp: str, pct: Optional[Tuple[str, List[str]]] = None) -> Lis
         else:
             expected.append(token)
     return expected
+
+
+def same_tokens(found: List[str], expected: List[str]) -> bool:
+    """``True`` when the English carries the expected tokens: same count of each, and the same
+    order of every token that does something - ``%%`` is the escaped literal percent sign, it
+    consumes no argument and colours nothing, so the English may move it with the number it
+    belongs to (``%sの14%%にする`` -> ``14%% of %s``)."""
+    return found.count("%%") == expected.count("%%") and \
+        [token for token in found if token != "%%"] == \
+        [token for token in expected if token != "%%"]
 
 
 def controls(text: str) -> List[int]:
@@ -145,7 +156,7 @@ def check_row(row: dict, require_complete: bool = False,
     if problem:
         errors.append(problem)
     expected = expected_tokens(jp, pct)
-    if tokens(text) != expected:
+    if not same_tokens(tokens(text), expected):
         if expected != tokens(jp):
             errors.append(f"control tokens changed: the English must carry {expected} (the kana "
                           f"tokens 0x0F of the jp are dropped with their glyph, tokeny.tsv), "
@@ -178,11 +189,15 @@ def check_row(row: dict, require_complete: bool = False,
             warnings.append(f"{side} whitespace {en_edge!r} that the jp does not have - the "
                             "writers keep it exactly as written")
     if row.get("category") in BOXED:
+        # the same rule the writers refuse by: wider than the game's own widest line of the kind
+        kind = row.get("kind") or row.get("category")
+        limit = export_strings.box_limit(kind)
         widths = [export_strings.display_width(line) for line in text.split("\n")]
-        over = [width for width in widths if width > BOX_WIDTH]
-        if over:
+        over = [width for width in widths if width > limit]
+        if over and kind != "narration":   # narration is a note in the writer, not a refusal
             which = widths.index(max(widths)) + 1
-            warnings.append(f"line {which} is {max(widths)} wide, the in-game box fits {BOX_WIDTH}")
+            warnings.append(f"line {which} is {max(widths)} wide, the in-game box fits {limit} "
+                            f"({kind})")
     return errors, warnings
 
 

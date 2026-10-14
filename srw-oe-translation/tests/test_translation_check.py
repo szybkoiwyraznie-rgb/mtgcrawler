@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
+import export_strings  # noqa: E402
 import translation_check as TC  # noqa: E402
 
 
@@ -25,6 +26,18 @@ class TokensTest(unittest.TestCase):
 
     def test_plain_text_has_no_tokens(self):
         self.assertEqual(TC.tokens("それは、パイロットの腕次第ってところかな。"), [])
+
+    def test_the_literal_percent_may_move_with_its_number(self):
+        # ``%%`` consumes no argument: ``与える最低%sを%sの14%%にする`` -> ``Minimum %s dealt: 14%% of %s``
+        # keeps both %s in order and the one literal percent (9 skill rows of the real views)
+        errors, _ = TC.check_row(row("与える最低%sを%sの14%%にする", "Minimum %s dealt: 14%% of %s"))
+        self.assertEqual(errors, [])
+
+    def test_a_dropped_or_reordered_argument_is_still_an_error(self):
+        errors, _ = TC.check_row(row("%sの14%%", "14 of %s"))
+        self.assertTrue(any("control tokens changed" in message for message in errors))
+        errors, _ = TC.check_row(row("＠4<%s>＠0 %s", "＠0<%s>＠4 %s"))
+        self.assertTrue(any("control tokens changed" in message for message in errors))
 
 
 class KanaSidecarTests(unittest.TestCase):
@@ -181,16 +194,28 @@ class WhitespaceTest(unittest.TestCase):
 
 
 class BoxWidthTest(unittest.TestCase):
+    LIMIT = export_strings.box_limit("dialogue")   # 52: the widest line the game itself draws
+
     def test_a_long_dialogue_line_is_a_warning(self):
-        _, warnings = TC.check_row(row("あ", "x" * (TC.BOX_WIDTH + 1)))
-        self.assertIn("the in-game box fits", warnings[0])
+        _, warnings = TC.check_row(row("あ", "x" * (self.LIMIT + 1)))
+        self.assertIn("the in-game box fits 52 (dialogue)", warnings[0])
 
     def test_a_line_that_fits_is_clean(self):
-        errors, warnings = TC.check_row(row("あ", "x" * TC.BOX_WIDTH))
+        errors, warnings = TC.check_row(row("あ", "x" * self.LIMIT))
+        self.assertEqual((errors, warnings), ([], []))
+
+    def test_a_battle_quote_has_the_quote_limit(self):
+        quote = row("あ", "x" * 51)
+        quote["category"] = "battle_quote"
+        _, warnings = TC.check_row(quote)
+        self.assertIn("the in-game box fits 50 (battle_quote)", warnings[0])
+
+    def test_a_box_clear_does_not_count(self):
+        errors, warnings = TC.check_row(row("あ\r", "x" * self.LIMIT + "\r"))
         self.assertEqual((errors, warnings), ([], []))
 
     def test_full_width_characters_count_double(self):
-        _, warnings = TC.check_row(row("あ", "あ" * (TC.BOX_WIDTH // 2 + 1)))
+        _, warnings = TC.check_row(row("あ", "あ" * (self.LIMIT // 2 + 1)))
         self.assertTrue(any("the in-game box fits" in message for message in warnings))
 
     def test_non_boxed_categories_are_not_measured(self):
@@ -200,8 +225,9 @@ class BoxWidthTest(unittest.TestCase):
         self.assertEqual(warnings, [])
 
     def test_box_width_matches_the_writer(self):
-        import apply_strings
-        self.assertEqual(TC.BOX_WIDTH, apply_strings.BOX_WIDTH)
+        import event_text_apply
+        self.assertEqual(TC.BOX_WIDTH, event_text_apply.BOX_WIDTH)
+        self.assertEqual(TC.BOX_WIDTH, export_strings.TYPICAL_LINE)
 
 
 class CopyTest(unittest.TestCase):

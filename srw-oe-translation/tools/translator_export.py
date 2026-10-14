@@ -225,15 +225,14 @@ def config_rows(local: Path) -> List[dict]:
                 text = string.get("text") or ""
                 if not text or string.get("orphan"):
                     continue          # orphan: a binary field that decodes (' N' = 20000), not text
-                # convention-B tail-pool items carry one record_offset (the pool start) and a
-                # rel per string; convention-C items point at each string already (rel 0) -
-                # the sum is the true offset in both cases
+                # pool items (the convention-B fragment pool behind the item/skill records and
+                # the convention-C DLC members) point at each string already (rel 0); the older
+                # convention-B export carried one record_offset (the pool start) and a rel per
+                # string - the sum is the true offset in both cases.  Every pool has a pointer
+                # table, so its strings grow like any record text (item_skill_write.apply_tail_pool,
+                # table_write for convention C)
                 offset = item.get("record_offset", 0) + string.get("rel", 0)
                 size = string.get("bytes") or row_bytes(text)
-                # the convention-B tail pool (record None) has no table of its own: its
-                # strings are written in place by slot_apply, so the row says so - the
-                # English must fit the Japanese bytes until a pool rebuild is proven in-game
-                in_place = bool(item.get("pool")) and item.get("record") is None
                 rows.append(
                     {
                         "id": f"{kind}:{item['container']}/{item['member']}:{offset}",
@@ -242,8 +241,8 @@ def config_rows(local: Path) -> List[dict]:
                         "jp": text,
                         "en": "",
                         "bytes": size,
-                        "mode": "slot" if in_place else "grow",
-                        "max_bytes": size if in_place else None,
+                        "mode": "grow",
+                        "max_bytes": None,
                         "source": {
                             "container": item["container"],
                             "member": item["member"],

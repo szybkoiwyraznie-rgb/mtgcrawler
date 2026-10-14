@@ -168,7 +168,10 @@ class RowTests(unittest.TestCase):
         self.assertEqual(rows[0]["id"], "reference:config00.cpk/srwDL_Reference00.bin:174")
         self.assertEqual(rows[0]["category"], "config_reference")
 
-    def test_tail_pool_rows_are_in_place_slots_with_their_own_bytes_as_the_limit(self):
+    def test_pool_rows_grow_and_carry_the_string_offset(self):
+        # every pool (convention-B tail and convention-C DLC) has a u32 pointer table, so its
+        # strings grow like record text; the new export gives each string its own offset
+        # (record_offset), the older one a shared pool start plus a rel per string
         with tempfile.TemporaryDirectory() as tmp:
             local = Path(tmp)
             (local / "text_tables").mkdir()
@@ -186,7 +189,8 @@ class RowTests(unittest.TestCase):
             ]) + "\n", encoding="utf-8")
             rows = TE.config_rows(local)
         self.assertEqual([(r["mode"], r["max_bytes"]) for r in rows],
-                         [("grow", None), ("slot", 4), ("slot", 10), ("grow", None)])
+                         [("grow", None), ("grow", None), ("grow", None), ("grow", None)])
+        self.assertEqual([r["id"].rsplit(":", 1)[1] for r in rows], ["554", "193328", "193333", "2340"])
 
     def test_config_rows_drop_orphan_strings(self):
         with tempfile.TemporaryDirectory() as tmp:

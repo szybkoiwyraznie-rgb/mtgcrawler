@@ -35,7 +35,7 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 | Nazwy mechów/serii/seiyū | `config0X` (DLC) | do zbudowania grow | pula NUL |
 | Opisy przedmiotów/skilli | `configst` (`srwDL_Item`,`srwDL_Skill_Tag`) | do zbudowania grow | — |
 | Nazwy map/terenu | `config00` | do zbudowania grow | pula NUL |
-| Okrzyki bitewne | `mesbtl00`+DLC `mesbtl0X` | do zbudowania grow | linia ≤46 (render) |
+| Okrzyki bitewne | `mesbtl00`+DLC `mesbtl0X` | do zbudowania grow | linia ≤50 (tyle gra sama rysuje; zalecane 46) |
 
 **Zasada użytkownika:** grow wszędzie, gdzie budowa pozwala; stałe TYLKO tam, gdzie struktura
 pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
@@ -68,7 +68,11 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
 - `extract_scenes.py` (committed): sceny grupowane po `0x1b6`, chronologia, `monologue`
   (（…）), `placeholders`. Na eventP00: **19 scen, 1598 linii**. `speaker` = null (TODO).
   **Monologi/narracja nie potrzebują mówcy** — mówca tylko dla kwestii z portretem.
-- Linia ≤ **46 znaków półszerokich** (okno komunikatu; `BOX_WIDTH=46`).
+- Linia: zalecane ≤ **46 jednostek półszerokich**; twardy limit pisarzy = najszersza linia, jaką gra
+  sama rysuje w danym rodzaju (`export_strings.GAME_WIDEST`, spis całego skryptu 2026-10-14: dialog 52,
+  cytat 50, narracja 56, help 66; reszta ma podłogę 46). 46 pochodziło z pierwszej sceny; 316 linii
+  dialogu gry ma 50. Znaki sterujące (`\r`) nie mają szerokości. **Nie sprawdzone w grze** dla linii
+  ASCII 47–52 — hipoteza (czcionka półszeroka).
 
 ## 5. Narzędzia (wszystko pod `srw-oe-translation/tools/`)
 - `cpk_write.py` (`load`/`rebuild`), `cpk_table.py` (`read_cpk_table` ITOC-only), `crilayla.py`
@@ -97,6 +101,18 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
+**Stan 2026-10-14 (najnowszy; szczegóły `STATUS.md`, `EXPERIMENT_LOG.md` cz. 19):** pierwszy prawdziwy
+import tłumaczeń (`EN.zip`: 61 322/61 468 elementów) i budowa na 13 kontenerach z Drive
+(`config00/01/02–08`, `configst`, `eventP00`, `imenu00`, `mesbtl00`): 38 598/39 290 sprawdzalnych
+tekstów wylądowało. Pula ogonowa `srwDL_Skill/Item/Spirit/StatusChange` ma własną tablicę wskaźników
+u32 (`item_skill_records.parse_tail_pool`) — pisarz przebudowuje ją (`item_skill_write.rebuild_pool`),
+a 126 fragmentów z tokenem kany doszło do pakietu dopiero teraz (`tools/pool_rows_refresh.py`).
+Otwarte: (a) weryfikacja w grze zbudowanych kontenerów (brak ISO/emulatora w sandboxie), w tym szerokość
+linii 47–52 i przebudowana pula umiejętności; (b) 126 nowych fragmentów + 41 odrzuconych elementów do
+tłumacza (`DO_ZROBIENIA.md` przy kontenerach na Drive); (c) kontenery spoza Drive (config10–46, eventP01+,
+mesbtl01+, imenu01+) — 40 322 wiersze z EN czekają na pliki; (d) ponowny eksport pakietu (śmieciowe
+wiersze z liczb znikną, `coverage_audit` nadal nie widzi fragmentów rozciętych tokenem).
+
 1. **Dekodowanie mówcy** w EVNT: rozpoznać komendę portretu/postawi, wyciągnąć ID pilota,
    zmapować na `srwDL_CharaDictionary`, dopisać `speaker` do `extract_scenes`. (Monologi pomijamy.)
    **Postęp (2026-10-11, HIPOTEZA):** `tools/speaker_probe.py` (read-only, tylko liczby) pokazuje, że
@@ -159,3 +175,10 @@ python tools\sysmes_shift.py <in.cpk> <out.cpk>         # grow (NIE dla menu tyt
 - `verify` musi usuwać klucze edycji (angielski ASCII niewidoczny dla multisetu JP).
 - `compress_literal` (rozszerzanie) CRASHOWAŁO w grze — używaj tylko shrink/identity w crilayla.
 - Nie nazywaj projektu przetłumaczonym; nie commituj binariów gry.
+- Pula ogonowa Skill/Item/Spirit/StatusChange: słowa w ogonie rekordu to PARAMETRY, nie odwołania;
+  adresowanie = własna tablica u32 na `tail_offset`. Naiwne cięcie po NUL dawało śmieciowe wiersze
+  (bajty wskaźników jako tekst) i gubiło teksty z tokenem kany; wpis in-place `slot` i stary
+  `rebuild_member` (stare wskaźniki po wzroście rekordów) były błędne — nie wracaj do nich.
+- `coverage_audit.py` jest ślepy na fragmenty rozcięte bajtem sterującym (akceptuje podciągi) —
+  „0 brakujących” dla pul config było fałszywe.
+- Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.

@@ -21,7 +21,11 @@ Convention B - ``u32 tail_offset`` at +0, ``u32 count`` at +4, ``count`` u32 rec
     configst: ``srwDL_Spirit.bin`` (60 records - the spirit-command names and descriptions),
     ``srwDL_StatusChange.bin`` (101).  The first
     offset equals ``8 + 4*count``; the records end at ``tail_offset`` and the remaining bytes
-    (``tail_offset``..EOF) are a tail pool of description fragments; that pool is extracted too.
+    (``tail_offset``..EOF) are a pool of description fragments with its own u32 table of absolute
+    string offsets at ``tail_offset`` (the convention-C layout without the 8-byte header; measured
+    on all five pools 2026-10-14: Skill00 720 strings, Item00/Item 76, StatusChange 71, Spirit
+    39).  The pool is extracted one row per pointer, in the display form where a string holds
+    the game's control tokens (137 of the Skill00 fragments do - ``ﾀﾞﾒｰｼﾞ`` and friends).
 Convention C - pool with its own offset table: ``u32 table_start`` at +0 (8 in every measured
     file), ``u32 0`` at +4, then the offset table from +8 up to ``u32[table_start]`` (whose value is
     the start of the first string, i.e. the table is self-delimiting).  Measured on the DLC members
@@ -174,13 +178,53 @@ def clean_run(raw: bytes) -> Tuple[Optional[str], bool]:
     return text, bool(CJK.search(text))
 
 
+def pool_text(raw: bytes) -> Tuple[Optional[str], bool]:
+    """The row text of a pool string: the clean run, or the display form when the string carries
+    the game's control tokens.
+
+    The fragment pools hold description pieces such as ``防御時､ﾀﾞﾒｰｼﾞ-`` whose voiced kana are
+    ``0x0F xx`` tokens; :func:`clean_run` drops every run with a control byte, which left 137 of
+    the 720 Skill00 fragments (and their copies in the DLC pools) out of the package unnoticed
+    (measured 2026-10-14).  Such strings are exported the way the leftover scan shows them -
+    control tokens as ``%s`` (:func:`table_write.display`), the form the writers match - so
+    nothing the pool points at is skipped except runs that decode to nothing printable.
+    """
+    text, has_cjk = clean_run(raw)
+    if text is not None or len(raw) < MIN_RUN:
+        return text, has_cjk
+    try:
+        decoded = raw.decode("cp932")
+    except UnicodeDecodeError:
+        return None, False
+    if any(unicodedata.category(ch) == "Co" for ch in decoded):
+        return None, False
+    if not any(ord(ch) < 0x20 and ch != "\n" for ch in decoded):
+        return None, False
+    bare = bytearray()                           # the bytes left once the tokens are gone
+    i = 0
+    while i < len(raw):
+        if raw[i] == TW.KANA_TOKEN:
+            i += 2                               # ``0x0F xx``: the glyph token and its parameter
+            continue
+        if raw[i] < 0x20 or raw[i] == 0x7F:
+            i += 1
+            continue
+        bare.append(raw[i])
+        i += 1
+    if not bare.decode("cp932", "replace").strip():   # tokens only: nothing to translate
+        return None, False
+    shown = TW.display(raw)
+    return shown, bool(CJK.search(shown))
+
+
 def string_starts(blob: bytes, member: str, kind: str) -> Optional[set]:
     """Absolute offsets of the strings the member's own record tables point at.
 
     ``None`` when no measured layout covers the member - then every clean run is kept, as before.
     Convention-A records come from the pointer families of :mod:`table_write`; item/skill records
     (convention B) from the field boundaries of :mod:`item_skill_records`.  The convention-B tail
-    pool has no table of its own (records reach it through u16 words), so it is never judged.
+    pool is not judged here: it has its own u32 pointer table, which ``extract_member`` reads
+    directly (one row per pointer).
     """
     family = TW.family_of(member)
     if family is not None:
@@ -294,7 +338,7 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
     if table.get("pool"):
         for i, start in enumerate(table["offsets"]):
             end = table["offsets"][i + 1] if i + 1 < table["count"] else len(blob)
-            text, has_cjk = clean_run(blob[start:end].split(b"\x00")[0])
+            text, has_cjk = pool_text(blob[start:end].split(b"\x00")[0])
             if text is None:
                 continue
             recs.append({"container": container, "member": member, "kind": kind, "record": i,
@@ -329,15 +373,36 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
                 bytes_total += sum(s["bytes"] for s in strings)
             recs.append(row)
         if table["convention"] == "B" and table["data_end"] < len(blob):
-            tail = blob[table["data_end"]:]
-            strings = record_strings(tail)        # the pool has no table to judge runs against
-            if strings:
-                recs.append({"container": container, "member": member, "kind": kind,
-                             "record": None, "record_offset": table["data_end"],
-                             "record_len": len(tail), "id": None, "pool": True,
-                             "strings": strings})
-                runs_total += len(strings)
-                bytes_total += sum(s["bytes"] for s in strings)
+            # the fragment pool behind the records has its own u32 pointer table (the same
+            # layout as a convention-C member, measured on all five pools 2026-10-14): one row
+            # per pointer, every string judged by the table.  A tail that does not parse as one
+            # falls back to the old reading - its runs under the pool start, one shared row
+            try:
+                pointers, raws = ISR.parse_tail_pool(blob, table["data_end"])
+            except ValueError:
+                pointers, raws = [], []
+            if pointers:
+                for i, (start, raw) in enumerate(zip(pointers, raws)):
+                    text, has_cjk = pool_text(raw)
+                    if text is None:
+                        continue
+                    recs.append({"container": container, "member": member, "kind": kind,
+                                 "record": None, "pool_index": i, "record_offset": start,
+                                 "record_len": len(raw) + 1, "id": None, "pool": True,
+                                 "strings": [{"rel": 0, "bytes": len(raw), "text": text,
+                                              "has_cjk": has_cjk}]})
+                    runs_total += 1
+                    bytes_total += len(raw)
+            else:
+                tail = blob[table["data_end"]:]
+                strings = record_strings(tail)
+                if strings:
+                    recs.append({"container": container, "member": member, "kind": kind,
+                                 "record": None, "record_offset": table["data_end"],
+                                 "record_len": len(tail), "id": None, "pool": True,
+                                 "strings": strings})
+                    runs_total += len(strings)
+                    bytes_total += sum(s["bytes"] for s in strings)
 
     return {"rows": recs,
             "stats": {"container": container, "member": member, "kind": kind,

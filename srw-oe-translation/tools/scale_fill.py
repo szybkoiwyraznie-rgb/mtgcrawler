@@ -356,34 +356,10 @@ def constraints(rows: Sequence[dict]) -> Tuple[Optional[int], Optional[int]]:
         fixed = TC.fixed_slot_limit(row)             # the measured fixed-stride slot, if any
         if fixed is not None and (not isinstance(max_bytes, int) or fixed < max_bytes):
             max_bytes = fixed
-        if row.get("__in_place") and not isinstance(max_bytes, int):
-            max_bytes = row.get("bytes") or len((row.get("jp") or "").encode("cp932", "replace"))
         if isinstance(max_bytes, int) and max_bytes > 0:
             room = max_bytes - 1                     # one byte under the limit, on purpose:
             budget = room if budget is None else min(budget, room)   # a rehearsal, not a race
     return line_cap, budget
-
-
-def mark_in_place(files: Dict[str, List[dict]]) -> int:
-    """Flag the convention-B tail-pool rows of an older package (``grow`` with no limit).
-
-    The pool strings share one id per pool (the pool's start offset) and are written in place
-    by ``slot_apply``; a package exported before 2026-10-14 still calls them ``grow``.  Marked
-    rows get their own byte length as the budget, which is what the writer enforces.
-    """
-    marked = 0
-    for name, rows in files.items():
-        if not name.startswith("04"):
-            continue
-        counts: Dict[str, int] = {}
-        for row in rows:
-            counts[row.get("id")] = counts.get(row.get("id"), 0) + 1
-        for row in rows:
-            if counts.get(row.get("id"), 0) > 1 and row.get("mode") == "grow" \
-                    and row.get("max_bytes") is None:
-                row["__in_place"] = True
-                marked += 1
-    return marked
 
 
 def problems_of(row: dict, en: str, pct) -> List[str]:
@@ -500,7 +476,6 @@ def fill(package: Path, out: Path, *, containers: Optional[Iterable[str]] = None
                     "rows": 0, "selected": 0, "filled": 0, "distinct_jp": 0,
                     "unfilled": {}, "per_file": {}, "markers": {}}
 
-    report["in_place_marked"] = mark_in_place(files)
     candidates: List[dict] = []
     for name, rows in files.items():
         report["rows"] += len(rows)

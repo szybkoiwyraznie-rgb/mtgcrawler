@@ -23,10 +23,11 @@ distance to the next string for the leftover scan).  This writer takes rows at t
   written spans against the original.
 
 Rows this writer owns in the full build: the ``05`` slot tables of the config and event
-containers (mission notes and titles, BGM titles, map/background/group names), the leftover
-slot rows of ``04`` (``srwDL_CalcType``, ``srwDL_Map_S``, the charalist cell), and the
-tail-pool rows of the convention-B members that :mod:`item_skill_write` refuses to resize
-(the mixed binary/text tails of ``srwDL_Skill00`` and friends).
+containers (mission notes and titles, BGM titles, map/background/group names) and the leftover
+slot rows of ``04`` (``srwDL_CalcType``, ``srwDL_Map_S``, the charalist cell).  The ``pool=True``
+mode below (tail-pool strings written in place, found by content) is no longer used by the
+orchestrator: the fragment pools turned out to carry their own u32 pointer table (2026-10-14),
+so :mod:`item_skill_write` rebuilds them with growth instead.
 
 Fail-closed like every writer here: a refused row is reported with its reason and the member is
 left byte-identical when anything about the result does not verify.
@@ -90,13 +91,12 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
                  pool: bool = False) -> Tuple[bytes, dict]:
     """Write every fitting row in place.  Returns (bytes, report).
 
-    ``pool=True`` is the tail-pool pass of the orchestrator: the package marks every string of
-    a convention-B tail pool with the pool's *start* offset (one id for the whole pool), so a
-    pool row is looked up by content among the NUL-delimited runs at or after that offset and
-    every occurrence is written in place (the pool holds duplicate runs and any of them can be
-    the one the game reads).  In-place means same size or shorter: the pool is copied verbatim
-    by the record rebuild and its strings sit back to back, so a longer translation is refused
-    and the string stays Japanese.
+    ``pool=True`` (kept for the tests and as a fallback, unused by the orchestrator since the
+    pools' pointer tables were measured): the package marks every string of a convention-B tail
+    pool with the pool's *start* offset (one id for the whole pool), so a pool row is looked up
+    by content among the NUL-delimited runs at or after that offset and every occurrence is
+    written in place.  In-place means same size or shorter: the strings sit back to back, so a
+    longer translation is refused and the string stays Japanese.
     """
     report = {"member": member, "applied": 0, "refused": [], "problems": [], "bytes": 0,
               "regions": []}

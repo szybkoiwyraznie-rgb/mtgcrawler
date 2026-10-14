@@ -237,6 +237,16 @@ class TrailingBreakTest(unittest.TestCase):
             self.assertEqual((report["imported"], report["rejected"]), (1, []))
             self.assertEqual(rows_of(folder)[0]["en"], "EN supply, complete!\r\n")
 
+    def test_a_partly_typed_tail_is_completed_to_the_japanese_tail(self):
+        # the view shows ``…した。`` / ``⏎`` / an empty line for a text ending in "\n\r\n"; the
+        # translator typed the ⏎ line but not the empty one (12 narration lines of the real views)
+        with tempfile.TemporaryDirectory() as tmp:
+            folder, view = self.view_for(Path(tmp), "進撃を\n開始した。\n\r\n",
+                                         "began the\n   advance.\n   ⏎")
+            report = TI.import_views(TI.read_views([view]), folder)
+            self.assertEqual((report["imported"], report["rejected"]), (1, []))
+            self.assertEqual(rows_of(folder)[0]["en"], "began the\nadvance.\n\r\n")
+
     def test_a_missing_inner_break_is_refused_not_completed(self):
         with tempfile.TemporaryDirectory() as tmp:
             folder, view = self.view_for(Path(tmp), "あ\nい\n", "One line only.")
@@ -324,6 +334,37 @@ class TableViewTest(unittest.TestCase):
         self.assertEqual(report["imported"], 0)
         self.assertEqual(len(report["unknown"]), 1)
         self.assertEqual(rows_of(self.package, "07_names_characters.jsonl")[0]["en"], "")
+
+    def test_a_kana_token_in_the_japanese_does_not_make_the_view_stale(self):
+        # the view shows the lead byte of a voiced-kana token as ``<0x0F>``; the importer must
+        # compare the game's bytes, not the marker, or every such name is "unknown"
+        # (1,026 elements of the real views, 2026-10-14)
+        rows = rows_of(self.package, "07_names_characters.jsonl")
+        rows.append({"id": "char:501:name_narrow", "category": "character_name",
+                     "part": "name_narrow", "jp": "ﾗ\x0f3", "en": "", "key": 501})
+        (self.package / "07_names_characters.jsonl").write_text(
+            "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
+        view = self.render()
+        text = view.read_text(encoding="utf-8")
+        self.assertIn("ﾗ<0x0F>3", text)
+        view.write_text(self.fill(text, "ﾗ<0x0F>3", "Love"), encoding="utf-8")
+        report = TI.import_views(TI.read_views([view]), self.package)
+        self.assertEqual((report["imported"], report["unknown"], report["rejected"]), (1, [], []))
+        self.assertEqual(rows_of(self.package, "07_names_characters.jsonl")[-1]["en"], "Love")
+
+    def test_a_trailing_space_of_the_japanese_does_not_make_the_view_stale(self):
+        # ``回復系 `` is stored with a trailing space; editors drop it from the view line
+        rows = rows_of(self.package, "07_names_characters.jsonl")
+        rows[2]["jp"] = "絶対無敵ライジンオー "
+        (self.package / "07_names_characters.jsonl").write_text(
+            "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
+        view = self.render()
+        text = view.read_text(encoding="utf-8").replace("絶対無敵ライジンオー \n", "絶対無敵ライジンオー\n")
+        view.write_text(self.fill(text, "2. [Seria] 絶対無敵ライジンオー", "Raijin-Oh"),
+                        encoding="utf-8")
+        report = TI.import_views(TI.read_views([view]), self.package)
+        self.assertEqual((report["imported"], report["unknown"]), (1, []))
+        self.assertEqual(rows_of(self.package, "07_names_characters.jsonl")[2]["en"], "Raijin-Oh")
 
     def test_a_text_over_max_bytes_is_refused(self):
         self.table_view.write_views(self.package, self.root / "widoki")
