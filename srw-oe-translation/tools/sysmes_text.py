@@ -9,13 +9,16 @@ menu, help and warning texts of ``configst.cpk`` (``第１章 本編``, ``精神
 (``tools/coverage_audit.py``) found it: 824 scanned runs of ``configst.cpk`` had no row anywhere.
 Build the rows here, merge them into ``04_config_text.jsonl`` with ``--merge-into``.
 
-Layout (measured, see :mod:`sysmes_pack`)
-----------------------------------------
-    'SMES' | u32 file_size | u32 count | record/pointer table (to 0x2500) | text pool
+Layout (measured 2026-10-14, see :mod:`sysmes_pack`)
+---------------------------------------------------
+    'SMES' | u32 file_size | u32 count | u32 1 | count x {u32 off, u32 id} | pool
 
-The pool holds CP932 strings, NUL-terminated and padded to a 4-byte boundary; the pointer
-table stores ``u32 pool_offset`` words, so every row's ``offset`` is the **pool offset** the
-writer needs to rewrite the pointer when the text grows.
+The pool holds exactly ``count`` CP932 strings in sequence (NUL-terminated, padded to 4 B)
+and entry k points at string k with an offset relative to the pool start.  One row per
+WHOLE string: a row's ``offset`` is the absolute offset of that string in ``sysmes.bin``.
+(The first version of this exporter walked the run scanner instead and emitted 1,141 extra
+rows for the tails of strings that contain ASCII / half-width / control bytes; those rows are
+not pool entries, the builder ignores them and ``--prune-fragments`` removes them.)
 
 Usage::
 
@@ -51,20 +54,14 @@ def sysmes_blob(path: Path) -> bytes:
 
 
 def pool_strings(sm: bytes) -> List[dict]:
-    """One row per pool string: the scan says where each string starts, the NUL where it ends."""
-    starts = SP.string_starts(sm)
+    """One row per pool string (the table entry's whole text), Japanese ones only."""
+    parsed = SP.parse(sm)
     out: List[dict] = []
-    for offset in starts:
-        end = sm.find(b"\x00", offset)
-        if end < 0:
-            continue
-        raw = sm[offset:end]
+    for offset, raw in zip(parsed.starts, parsed.strings):
         try:
             text = raw.decode("cp932")
         except UnicodeDecodeError:
             continue
-        if not text or not ES.has_cjk(text) if hasattr(ES, "has_cjk") else False:
-            pass
         if not text:
             continue
         if not any("\u3040" <= ch <= "\u9fff" or ch in "、。「」！？…ー『』（）／" for ch in text):
@@ -76,20 +73,32 @@ def pool_strings(sm: bytes) -> List[dict]:
     return out
 
 
-def merge_into(rows: List[dict], target: Path) -> dict:
-    """Add rows the target does not have yet (by id); the file is rewritten in place."""
+def fragment_ids(sm: bytes, rows: List[dict]) -> List[str]:
+    """Ids of ``config_sysmes`` rows whose offset is not a whole-string start."""
+    starts = set(SP.parse(sm).starts)
+    return [row["id"] for row in rows
+            if row.get("category") == "config_sysmes"
+            and (row.get("source") or {}).get("member") == MEMBER
+            and (row.get("source") or {}).get("offset") not in starts]
+
+
+def merge_into(rows: List[dict], target: Path, prune: Sequence[str] = ()) -> dict:
+    """Add rows the target does not have yet (by id), drop ``prune`` ids; rewritten in place."""
     existing = [json.loads(line) for line in target.read_text(encoding="utf-8").splitlines()
                 if line.strip()]
-    known = {row["id"] for row in existing}
+    drop = set(prune)
+    kept = [row for row in existing if row["id"] not in drop]
+    known = {row["id"] for row in kept}
     added = [row for row in rows if row["id"] not in known]
-    if added:
-        merged = existing + added
+    if added or len(kept) != len(existing):
+        merged = kept + added
         merged.sort(key=lambda row: (row["source"]["container"], row["source"]["member"],
                                      row["source"]["offset"]))
         with target.open("w", encoding="utf-8") as handle:
             for row in merged:
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
-    return {"existing": len(existing), "added": len(added), "total": len(existing) + len(added)}
+    return {"existing": len(existing), "added": len(added), "pruned": len(existing) - len(kept),
+            "total": len(kept) + len(added)}
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -97,6 +106,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--configst", type=Path, required=True, help="configst.cpk of the game")
     parser.add_argument("--out", type=Path, help="where to write the JSONL")
     parser.add_argument("--merge-into", type=Path, help="package JSONL to add the rows to")
+    parser.add_argument("--prune-fragments", action="store_true",
+                        help="with --merge-into: drop sysmes rows that are not whole strings")
     args = parser.parse_args(argv)
 
     sm = sysmes_blob(args.configst)
@@ -110,9 +121,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
         print(f"zapisane: {args.out}")
     if args.merge_into:
-        report = merge_into(rows, args.merge_into)
+        prune: List[str] = []
+        if args.prune_fragments:
+            present = [json.loads(line) for line in
+                       args.merge_into.read_text(encoding="utf-8").splitlines() if line.strip()]
+            prune = fragment_ids(sm, present)
+        report = merge_into(rows, args.merge_into, prune)
         print(f"w {args.merge_into}: było {report['existing']}, dodane {report['added']}, "
-              f"razem {report['total']}")
+              f"usunięte fragmenty {report['pruned']}, razem {report['total']}")
     return 0
 
 

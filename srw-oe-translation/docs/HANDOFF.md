@@ -35,8 +35,7 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 | Kontener | Plik(i) | Tryb | Stan |
 |---|---|---|---|
 | Fabuła/dialogi (EVNT) | `eventP00..P09` | **GROW** | dowiedzione (rekord z polem długości + patch ISO bootuje) |
-| Menu tytułowe | `configst.cpk/sysmes.bin` | **STAŁA szerokość** | dowiedzione 3 bootami (stałe offsety ZEWNĘTRZNE) |
-| Help/opisy/systemowe | `configst/sysmes` | grow możliwy (shift) | `sysmes_shift` integralność verified; render niepotwierdzony |
+| Menu tytułowe + help/systemowe | `configst.cpk/sysmes.bin` | **GROW** (tablica względna, `sysmes_pack.translate_bytes`) | struktura zmierzona 2026-10-14 (1182/1182 wpisów), 3 booty „shift" wyjaśnione nowym modelem; render po wzroście NIEZWERYFIKOWANY |
 | Słownik postaci (nazwy) | `imenu00` `srwDL_CharaDictionary` | do zbudowania grow | pula NUL; ekstrakcja verified |
 | Encyklopedia/Reference | `imenu00` `srwDL_Reference` | do zbudowania grow | pula NUL |
 | Nazwy mechów/serii/seiyū | `config0X` (DLC) | do zbudowania grow | pula NUL |
@@ -47,19 +46,25 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 **Zasada użytkownika:** grow wszędzie, gdzie budowa pozwala; stałe TYLKO tam, gdzie struktura
 pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
 
-## 3. sysmes.bin (configst) — struktura + wniosek z 3 bootów `[ZWERYFIKOWANE]`
-- Nagłówek: `SMES | u32 size@4 | u32 count@8 | u32 table@0xc`.
-- **Wewnętrzna tablica odnośników** `~0x22f0–0x2368`: `count × {u32 offset, u32 id}`.
-  Np. `{off=0x91a0, id=0x45e}` = „ゲームスタート". Czytana dla **opisów/help**.
-- **Etykiety menu tytułowego NIE mają tu wskaźnika** — gra czyta je pod **stałymi offsetami
-  zapisanymi POZA sysmes**. Dowód: 3 booty patcha shift → CREDITS ok, DOWNLOAD LIST ucięty,
-  reszta rozjechana o jeden slot ⇒ **każdy przesuw puli rozjeżdża menu**. Jedyna bezpieczna
-  transformacja tytułu = **bajt-w-bajt (równa długość slotu)**.
-- `sysmes_shift.py` (committed): `shift_translate` przesuwa pulę, przepisuje wewnętrzną tablicę
-  (strict `v>off`, size@4, pomija shared-tail), `verify` = multiset-diff (edycje usunięte,
-  reszta musi być pusta). **Integralność True** — ale render NIEZWERYFIKOWANY, a dla MENU
-  tytułowego shift jest NIEBEZPIECZNY (patrz wyżej). Używaj shift tylko dla stringów czytanych
-  przez wewnętrzną tablicę (opisy), nie dla etykiet tytułu.
+## 3. sysmes.bin (configst) — struktura `[ZWERYFIKOWANE offline 2026-10-14]` (poprzedni wniosek o „stałych offsetach" ODWOŁANY)
+- Nagłówek: `SMES | u32 size@4 | u32 count@8 (1182) | u32 1@0xc`.
+- Od 0x10: **`count × {u32 off, u32 id}`**. Pula zaczyna się pod **`base = 0x10 + count·8 − 4`**
+  (= 0x24fc w oryginale; pierwszy string `'Ａ\0\0'` dzieli 4 bajty z polem id ostatniego wpisu).
+  **`off` jest WZGLĘDNE wobec `base`**, wpis k wskazuje k-ty string sekwencyjnej puli (NUL, pad 4).
+  Sprawdzone na wszystkich 1182 wpisach oryginału (0 wyjątków); `parse`+`build` = bajt w bajt.
+- **Etykiety menu tytułowego SĄ w tablicy**: wpisy 906–911 (ゲームスタート id 0x28c, ライブラリー 0x28d,
+  リファレンス 0x28e, クレジット 0x28f, ダウンロードリスト 0x2c6, データインストール 0x290) + drugi komplet
+  157/158/168/169. Wynik „3 bootów shift" (CREDITS ok, DOWNLOAD LIST ucięty, reszta o slot) to dokładnie
+  to, co przewiduje ten model dla starego `_grow` (przesuwał tylko słowa o wartości > offsetu
+  bezwzględnego, więc wskaźniki w oknie 0x24fc za edycją zostawały stare); hipoteza stałych offsetów
+  przewiduje inne śmieci. Nie ma dowodu na żaden odczyt sysmes po stałym offsecie.
+- Jedyna poprawna transformacja: **`sysmes_pack.translate_bytes`** — pula przepisana sekwencyjnie
+  z nowymi stringami (dowolna długość), słowo k = nowy offset względny stringu k, id/nagłówek bez zmian,
+  `size@4` odświeżone, string 0 nietykany; `verify(orig, new, edits)` musi być puste. Build #6 użył
+  starego `apply_edits` (offsety bezwzględne, 3× pula) → wszystkie komunikaty systemowe = śmieci.
+- Render po wzroście w grze **NIEZWERYFIKOWANY** (pierwszy boot po naprawie = test). `sysmes_shift.py`
+  to tylko shim. Eksport wierszy: `sysmes_text.py` = jeden wiersz na CAŁY string (1080); stare wiersze-
+  ogony (1141 w pakiecie 2026-10-14) builder ignoruje, `--merge-into --prune-fragments` je usuwa.
 
 ## 4. EVNT (eventP00..) — strumień rekordów `[ZWERYFIKOWANE na eventP00]`
 - Member = zdeszyfrowany EDAT; EVNT body = samo-rozmiarowy strumień rekordów (`u32 type`,
@@ -86,9 +91,9 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   (dekompresja CRI), `edat.py` (EDAT).
 - `iso_pack.py patchiso` — patch pełnego ISO9660 (obchodzi limit 0x100000000, rośnie, bootuje).
 - `configst_pack.py` — PAC layer (`ALIGN=0x800`, `DIR_OFF=0x10`); byte-identical bez edycji.
-- `sysmes_pack.py` — `equal_translate` (równa długość, NIE przesuwa; DEFAULT_EDITS), `apply_edits`,
+- `sysmes_pack.py` — `parse`/`build`/`translate_bytes`/`verify` (model względny 2026-10-14; `apply_edits`/`equal_translate`/`grow_one` = nakładki, dowolna długość),
   `grow_one`, `string_starts`.
-- `sysmes_shift.py` — `shift_translate` + `verify` (grow puli + przepisanie tablicy).
+- `sysmes_shift.py` — shim na `sysmes_pack.translate` (stary model shift był błędny; zostawiony dla starych wywołań).
 - `extract_tables.py` — pule NUL (imenu00/config0X/config00/mesbtl) → JSONL {member,key,text}.
 - `extract_structured.py` — rekordy {u32 len,u32 id} + nazwy NUL (config00/configst) → JSONL.
 - `export_strings.py` — eventy → JSONL {member,record_index,record_offset,source,target}
@@ -108,7 +113,17 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
-**Stan 2026-10-14 wieczór (najnowszy; szczegóły `STATUS.md`, `EXPERIMENT_LOG.md` cz. 20):** `EN2.zip`
+**Stan 2026-10-14 noc (najnowszy; `EXPERIMENT_LOG.md` cz. 21):** build #6 **padł w grze** na „Loading"
+(`Read Word at 00000000`, PC `088e6120`, po 45 otwarciach EDAT DLC — log PPSSPP bez nazw plików).
+Znalezione i naprawione offline: (1) `sysmes.bin` budowany złym modelem (offsety są WZGLĘDNE wobec
+`0x24fc`, wpis k = string k; #6 dał 145 KB śmieci w miejsce 1182 komunikatów systemowych — §3);
+(2) spacja końcowa identyfikatora DLC `…ADDPACKAGE000002-J001␠` zjedzona przez wiersz-kopię tłumacza
+(builder: `identity(row)` = nie pisz). Czy to był jedyny powód crasha — **NIEZNANE** do testu użytkownika.
+Do bisekcji: `BISEKCJA.bat` (okno A–I, builder `--only/--skip/--filter`), wynik `srw-oe-bisekcja\<litera>\`.
+Komunikat o autozapisie na starcie = `EBOOT.BIN` (poza pakietem). Dla tłumacza: 25 całych stringów sysmes
+bez wiersza (`sysmes_text.py --merge-into --prune-fragments` przy następnym pakiecie).
+
+**Stan 2026-10-14 wieczór (szczegóły `STATUS.md`, `EXPERIMENT_LOG.md` cz. 20):** `EN2.zip`
 tłumacza wczytany bez odrzuceń (44 051 + 17 353 elementów), pakiet 80 780/108 123 wierszy z EN (puste =
 tylko dialogi: rozdziały 1–3 w całości, 4 w 59 %, 5–8 puste), **budowa na wszystkich 96 kontenerach:
 96/96, 0 problemów, 80 084 teksty odnalezione w wynikach, 63 braki (same znane)**, deterministyczna.
@@ -184,15 +199,16 @@ python tools\extract_scenes.py eventP00.cpk --out scenes.json
 # repack CPK (PAC):
 python tools\configst_pack.py pack <orig.cpk> --replacements rep.json --out <out.cpk>
 # repack sysmes (równa długość / shift):
-python tools\sysmes_pack.py <in.cpk> <out.cpk>          # equal-length
-python tools\sysmes_shift.py <in.cpk> <out.cpk>         # grow (NIE dla menu tytułowego)
+python tools\sysmes_pack.py <in.cpk> <out.cpk>          # DEFAULT_EDITS tytułu, dowolna długość, zrzut wpisów 906-911
 ```
 
 ## 9. Znane pułapki (nie powtarzaj)
-- Shift/grow **menu tytułowego** = rozjazd (stałe offsety zewnętrzne). Tylko equal-length.
-- `apply_edits` (przebudowa z mapy przesunięć) rozjeżdża referencje zewnętrzne → garble.
-- In-place `v>=off` psuje własny base pointer → używaj `v>off`.
-- `verify` musi usuwać klucze edycji (angielski ASCII niewidoczny dla multisetu JP).
+- `sysmes.bin`: offsety tablicy są **względne wobec `0x10 + count·8 − 4`**, nie bezwzględne; wpis k =
+  k-ty string. Stary `apply_edits`/`sysmes_shift._grow` (model bezwzględny, pula od 0x2500) psuł wszystko —
+  build #6 (145 KB śmieci). Wniosek „menu tytułowe = stałe offsety zewnętrzne" był artefaktem tego modelu
+  (odwołany 2026-10-14, §3). Używaj tylko `sysmes_pack.translate_bytes` + `verify`.
+- Wiersze pakietu z EN == JP (identyfikatory PSN, ` N`) nie są tłumaczeniem — builder je pomija
+  (`identity`); kopia bez spacji końcowej zmieniała bajt porównywany przez grę.
 - `compress_literal` (rozszerzanie) CRASHOWAŁO w grze — używaj tylko shrink/identity w crilayla.
 - Nie nazywaj projektu przetłumaczonym; nie commituj binariów gry.
 - Pula ogonowa Skill/Item/Spirit/StatusChange: słowa w ogonie rekordu to PARAMETRY, nie odwołania;

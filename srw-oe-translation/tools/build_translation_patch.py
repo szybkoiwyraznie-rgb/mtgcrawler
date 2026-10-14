@@ -28,8 +28,9 @@ offsets honest:
    record region and remapping the ``+36`` cross references) and :mod:`table_write` (the
    dictionary/pool families, growing);
 4. :mod:`name_table_write` for the fixed name cells (charalist/unit_list/wp_list);
-5. ``sysmes.bin`` through :mod:`sysmes_pack` (the whole pool is rebuilt, every equal string is
-   replaced at once);
+5. ``sysmes.bin`` through :mod:`sysmes_pack` (the sequential pool is rewritten string by
+   string and the relative pointer table recomputed - measured layout, see that module; every
+   pool string equal to a row's jp is replaced at once, at any length);
 6. everything else measured as ``mode: slot`` through :mod:`slot_apply` (mission notes and
    titles, BGM titles, map/background/group names, leftover slots).
 
@@ -49,6 +50,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import shutil
@@ -112,6 +114,20 @@ def load_rows(package: Path) -> List[dict]:
 
 def filled(row: dict) -> bool:
     return bool((row.get("en") or "").strip())
+
+
+def identity(row: dict) -> bool:
+    """English == Japanese (exactly or up to surrounding whitespace): nothing to write.
+
+    The exporters showed the translator some strings that are not text at all - PSN content
+    ids (``JP0700-NPJH50521_00-ADDPACKAGE000002-J001 ``, with its trailing space), column
+    labels like `` N`` - and he copied them back, sometimes trimmed.  Writing the copy back
+    would alter bytes the game compares (build #6 lost that trailing space), so such rows
+    leave the original bytes alone.
+    """
+    en, jp = row.get("en"), row.get("jp")
+    return isinstance(en, str) and isinstance(jp, str) and bool(en.strip()) \
+        and en.strip() == jp.strip()
 
 
 def owner(row: dict) -> str:
@@ -510,24 +526,26 @@ class ContainerBuild:
             if blob is None:
                 self.report["problems"].append(f"{step}: {self.name} holds no sysmes.bin")
                 return
-            edits, problems = _sysmes_edits(blob, rows)
+            edits, problems, notes = _sysmes_edits(blob, rows)
             self.report["problems"].extend(f"{step}: {p}" for p in problems)
+            self.report.setdefault("info", []).extend(f"{step}: {n}" for n in notes)
             if not edits:
                 self._advance(None, step, {})
                 return
-            # apply_edits rebuilds the whole pool: every referenced string gets its own
-            # copy, so any length is safe and the shared-tail blind spot of the in-place
-            # equal_translate (which also cannot see strings holding a newline) is gone
-            modified = SMSP.apply_edits(blob, edits)
-            replaced = sum(modified.count(en.encode("cp932")) for en in edits.values())
-            missing = [k for k, v in edits.items()
-                       if v.encode("cp932") not in modified]
-            for key in missing:
+            # translate_bytes keeps the measured layout: count strings in sequence, the
+            # k-th pointer word = relative offset of the k-th string, ids untouched
+            modified, result = SMSP.translate_bytes(blob, edits)
+            bad = SMSP.verify(blob, modified, edits)
+            if bad:
+                raise BuildError("sysmes verify: " + "; ".join(bad[:5]))
+            for key in result["unmatched"]:
                 self.report["problems"].append(f"{step}: {key[:16]!r} did not land in the pool")
             self.report.setdefault("info", []).append(
-                f"{step}: {len(edits)} strings requested, {replaced} copies in the new pool")
+                f"{step}: {result['replaced']} strings -> {result['replaced_entries']} pool "
+                f"entries rewritten, {result['size'][0]} -> {result['size'][1]} B")
             new = _replace_member(self.current, "sysmes.bin", modified)
-            self._advance(new, step, {"applied": len(edits) - len(missing)})
+            self._advance(new, step, {"applied": result["replaced"],
+                                      "entries": result["replaced_entries"]})
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
@@ -584,32 +602,42 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
         tmp.unlink(missing_ok=True)
 
 
-def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[str]]:
-    """{string in the file: english} - the row jp is matched in whatever form it arrived.
+def _sysmes_edits(blob: bytes, rows: List[dict]
+                  ) -> Tuple[Dict[bytes, bytes], List[str], List[str]]:
+    """{whole pool string bytes: english bytes} from the rows, plus problems and notes.
 
-    ``apply_edits`` encodes the values with a plain ``str.encode("cp932")``, so a row whose
-    jp is the ``%s`` display form gets its tokens resolved here: the English is encoded
-    against the file's own bytes (:func:`table_write.encode_en`) and handed over as the
-    cp932-decodable string of those exact bytes - control tokens included, they round-trip.
+    A row's jp is matched against every WHOLE string of the pool (the table has exactly one
+    entry per string, :func:`sysmes_pack.parse`) in whatever form it arrived - the file's own
+    or the ``%s`` display form - and the English is encoded against the file's bytes
+    (:func:`table_write.encode_en`, control tokens included).  Rows whose jp is only the tail
+    of a longer string (the old run scanner exported 1,141 such fragments) are not strings
+    of their own: they are counted in the notes and ignored, the whole string's row wins.
     """
-    edits: Dict[str, str] = {}
+    edits: Dict[bytes, bytes] = {}
     problems: List[str] = []
-    strings = []
-    for start in SMSP.string_starts(blob):
-        end = blob.find(b"\x00", start)
-        raw = blob[start:end if end >= 0 else len(blob)]
-        if raw:
-            strings.append(raw)
-    for raw in strings:
-        matches = []
-        for row in rows:
-            form = TW.match_form(row.get("jp"), raw)
-            if form is not None:
-                matches.append((row, form))
-        if not matches:
-            continue
+    notes: List[str] = []
+    strings = [s for s in SMSP.parse(blob).strings if s]
+    decoded = [raw.decode("cp932", "replace") for raw in strings]
+    displays = [TW.display(raw) for raw in strings]
+    # the same lookup order as table_write.match_form: the file's own form first
+    by_raw: Dict[str, bytes] = {}
+    by_display: Dict[str, bytes] = {}
+    for raw, text, shown in zip(strings, decoded, displays):
+        by_raw.setdefault(text, raw)
+        by_display.setdefault(shown, raw)
+    matches: Dict[bytes, List[Tuple[dict, str]]] = {}
+    unmatched_rows: List[dict] = []
+    for row in rows:
+        jp = row.get("jp")
+        if jp in by_raw:
+            matches.setdefault(by_raw[jp], []).append((row, "raw"))
+        elif jp in by_display:
+            matches.setdefault(by_display[jp], []).append((row, "display"))
+        else:
+            unmatched_rows.append(row)
+    for raw, found in matches.items():
         encoded = set()
-        for row, form in matches:
+        for row, form in found:
             try:
                 encoded.add(TW.encode_en(TW.english(row), raw, form))
             except TW.TableError as exc:
@@ -620,19 +648,26 @@ def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[s
         if not encoded:
             continue
         value = encoded.pop()
-        try:
-            key = raw.decode("cp932")
-        except UnicodeDecodeError:
-            problems.append(f"sysmes string {raw[:12]!r}: not clean cp932, left alone")
+        if b"\x00" in value:
+            problems.append(f"sysmes string {raw[:12]!r}: translation contains NUL")
             continue
-        edits[key] = value.decode("cp932")
-    unmatched = 0
-    for row in rows:
-        if not any(TW.match_form(row.get("jp"), raw) is not None for raw in strings):
-            unmatched += 1
-    if unmatched:
-        problems.append(f"{unmatched} sysmes rows do not occur in this sysmes.bin (stale jp)")
-    return edits, problems
+        edits[raw] = value
+    fragments = 0
+    stale = 0
+    for row in unmatched_rows:
+        jp = row.get("jp") or ""
+        tail = bool(jp) and any(text.endswith(jp) and text != jp
+                                for forms in (decoded, displays) for text in forms)
+        if tail:
+            fragments += 1
+        else:
+            stale += 1
+    if fragments:
+        notes.append(f"{fragments} sysmes rows are tails of longer strings (not pool entries), "
+                     f"ignored")
+    if stale:
+        problems.append(f"{stale} sysmes rows do not occur in this sysmes.bin (stale jp)")
+    return edits, problems, notes
 
 
 def _jsonable(value, depth: int = 0):
@@ -699,9 +734,33 @@ def import_views(package: Path, views: Sequence[Path], work: Path) -> Path:
     return target
 
 
+def container_selected(name: str, only: Sequence[str] = (), skip: Sequence[str] = ()) -> bool:
+    """Case-insensitive glob filter on container file names (``configst.cpk``, ``eventP*``).
+
+    ``only`` empty = everything; ``skip`` wins over ``only``.  This is the bisection knob: a
+    build limited to one container (or one family) tells which file makes the game crash.
+    """
+    lower = name.lower()
+    if any(fnmatch.fnmatch(lower, pat.lower()) for pat in skip):
+        return False
+    return not only or any(fnmatch.fnmatch(lower, pat.lower()) for pat in only)
+
+
+def parse_filter(spec: str) -> Tuple[List[str], List[str]]:
+    """``only=glob,glob`` / ``skip=glob,glob`` (the form the .bat passes) -> (only, skip)."""
+    kind, sep, globs = spec.partition("=")
+    kind = kind.strip().lower()
+    if not sep or kind not in ("only", "skip"):
+        raise BuildError(f"filter must be only=... or skip=..., got {spec!r}")
+    names = [g.strip() for g in globs.split(",") if g.strip()]
+    if not names:
+        raise BuildError(f"filter {spec!r} names no container")
+    return (names, []) if kind == "only" else ([], names)
+
+
 def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
-          dry_run: bool = False) -> dict:
+          dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = ()) -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     work = Path(work) if work else out / "work"
@@ -711,14 +770,18 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
 
     rows = load_rows(package)
     filled_rows = [r for r in rows if filled(r)]
+    identity_rows = sum(1 for r in filled_rows if identity(r))
+    filled_rows = [r for r in filled_rows if not identity(r)]
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
+                    "identity_rows": identity_rows,
                     "containers": [], "problems": [], "dry_run": dry_run,
                     "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
-                    "written": []}
+                    "only": list(only), "skip": list(skip), "written": []}
 
     store = ContainerStore(iso, dlc)
     names = sorted({(r.get("source") or {}).get("container")
                     for r in filled_rows if (r.get("source") or {}).get("container")})
+    names = [n for n in names if container_selected(n, only, skip)]
     blobs: Dict[str, bytes] = {}
     for name in names:
         where = store.locations(name)
@@ -730,7 +793,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     # every plausible file of the DLC folder and of the ISO USRDIR becomes a candidate
     if any((r.get("source") or {}).get("container") is None for r in filled_rows):
         for name, blob in store.candidates(blobs).items():
-            blobs.setdefault(name, blob)
+            if container_selected(name, only, skip):
+                blobs.setdefault(name, blob)
     per_container = attach_containerless(filled_rows, blobs)
 
     iso_patch: Dict[str, bytes] = {}
@@ -791,10 +855,25 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--out", type=Path, default=Path("local/patch"))
     parser.add_argument("--work", type=Path)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--only", nargs="*", default=[], metavar="GLOB",
+                        help="patch only these containers (file-name globs, e.g. configst.cpk "
+                             "eventP*); everything else stays original")
+    parser.add_argument("--skip", nargs="*", default=[], metavar="GLOB",
+                        help="leave these containers original (globs; wins over --only)")
+    parser.add_argument("--filter", action="append", default=[], metavar="SPEC",
+                        help="only=glob,glob or skip=glob,glob - the one-argument form of "
+                             "--only/--skip (what BISEKCJA.bat passes); repeatable")
     args = parser.parse_args(argv)
 
+    only, skip = list(args.only), list(args.skip)
+    for spec in args.filter:
+        more_only, more_skip = parse_filter(spec)
+        only += more_only
+        skip += more_skip
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
-                   work=args.work, dry_run=args.dry_run)
+                   work=args.work, dry_run=args.dry_run, only=only, skip=skip)
+    if only or skip:
+        print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]
     problems = report["problems"]
     print(f"Kontenery z tłumaczeniem: {len(changed)} -> {', '.join(changed) if changed else '(brak)'}")

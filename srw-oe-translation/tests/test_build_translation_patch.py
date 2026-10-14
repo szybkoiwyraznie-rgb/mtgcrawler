@@ -98,17 +98,8 @@ class OwnerRoutingTests(unittest.TestCase):
 
 class SysmesEditsTests(unittest.TestCase):
     def build_sysmes(self, strings):
-        """A minimal sysmes.bin: a table of pool offsets below POOL_MIN, then the pool."""
-        table = bytearray(SMSP.POOL_MIN)
-        pool = bytearray()
-        offsets = []
-        for text in strings:
-            offsets.append(SMSP.POOL_MIN + len(pool))
-            raw = text.encode("cp932") + b"\x00"
-            pool += raw + b"\x00" * ((-len(raw)) % 4)
-        for i, off in enumerate(offsets):
-            struct.pack_into("<II", table, 8 * i, off, i + 1)
-        return bytes(table) + bytes(pool)
+        """A minimal sysmes.bin in the measured layout (string 0 is the 'Ａ' pad word)."""
+        return SMSP.make_sysmes(["Ａ"] + list(strings))
 
     def test_match_and_apply(self):
         blob = self.build_sysmes(["テスト", "表示切換"])
@@ -116,38 +107,35 @@ class SysmesEditsTests(unittest.TestCase):
                     en="MARK1"),
                 row("04_config_text.jsonl", "config_sysmes", "sysmes.bin", jp="表示切換",
                     en="MARK2")]
-        edits, problems = BTP._sysmes_edits(blob, rows)
-        self.assertEqual(edits, {"テスト": "MARK1", "表示切換": "MARK2"})
+        edits, problems, notes = BTP._sysmes_edits(blob, rows)
+        self.assertEqual(edits, {"テスト".encode("cp932"): b"MARK1",
+                                 "表示切換".encode("cp932"): b"MARK2"})
         self.assertEqual(problems, [])
-        modified = SMSP.apply_edits(blob, edits)
-        self.assertIn(b"MARK1", modified)
-        self.assertIn(b"MARK2", modified)
-        self.assertNotIn("テスト".encode("cp932"), modified)
+        self.assertEqual(notes, [])
+        modified, report = SMSP.translate_bytes(blob, edits)
+        self.assertEqual(SMSP.parse(modified).strings[1:], [b"MARK1", b"MARK2"])
+        self.assertEqual(SMSP.verify(blob, modified, edits), [])
+        self.assertEqual(report["replaced_entries"], 2)
 
     def test_display_form_row_matches_raw_string(self):
-        # scan_runs only sees full-width runs, so the string must start full-width; the
-        # 0x0F token splits the run but the slice to NUL keeps the whole string
+        # the 0x0F kana token is a control byte: the package shows it as %s, the file keeps it
         raw_bytes = "アイ".encode("cp932") + b"\x0f\x26" + "ウ".encode("cp932")
-        raw_string = raw_bytes.decode("cp932")
-        blob = self.build_sysmes([raw_string])
+        blob = self.build_sysmes([raw_bytes])
         rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin",
                     jp="アイ%s&ウ", en="カコス")]
-        edits, problems = BTP._sysmes_edits(blob, rows)
+        edits, problems, notes = BTP._sysmes_edits(blob, rows)
         self.assertEqual(problems, [])
-        self.assertIn(raw_string, edits)
         # the kana token is dropped with its second byte: the English value is plain text
-        expected = "カコス".encode("cp932")
-        self.assertEqual(edits[raw_string].encode("cp932"), expected)
-        modified = SMSP.apply_edits(blob, edits)
-        self.assertIn(expected, modified)
+        self.assertEqual(edits, {raw_bytes: "カコス".encode("cp932")})
+        modified, _ = SMSP.translate_bytes(blob, edits)
+        self.assertEqual(SMSP.parse(modified).strings[1], "カコス".encode("cp932"))
 
     def test_display_form_row_that_keeps_the_kana_token_is_refused(self):
         raw_bytes = "アイ".encode("cp932") + b"\x0f\x26" + "ウ".encode("cp932")
-        raw_string = raw_bytes.decode("cp932")
-        blob = self.build_sysmes([raw_string])
+        blob = self.build_sysmes([raw_bytes])
         rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin",
                     jp="アイ%s&ウ", en="カコ%s&ス")]
-        edits, problems = BTP._sysmes_edits(blob, rows)
+        edits, problems, _ = BTP._sysmes_edits(blob, rows)
         self.assertEqual(edits, {})
         self.assertTrue(problems)
 
@@ -157,7 +145,7 @@ class SysmesEditsTests(unittest.TestCase):
                     en="ONE"),
                 row("04_config_text.jsonl", "config_sysmes", "sysmes.bin", jp="テスト",
                     en="TWO")]
-        edits, problems = BTP._sysmes_edits(blob, rows)
+        edits, problems, _ = BTP._sysmes_edits(blob, rows)
         self.assertEqual(edits, {})
         self.assertTrue(any("different translations" in p for p in problems))
 
@@ -165,9 +153,54 @@ class SysmesEditsTests(unittest.TestCase):
         blob = self.build_sysmes(["テスト"])
         rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin", jp="幽霊文字",
                     en="GHOST")]
-        edits, problems = BTP._sysmes_edits(blob, rows)
+        edits, problems, _ = BTP._sysmes_edits(blob, rows)
         self.assertEqual(edits, {})
         self.assertTrue(any("stale jp" in p for p in problems))
+
+    def test_tail_fragment_rows_are_ignored_with_a_note(self):
+        # the old run scanner exported the tail of a string as a row of its own; it is not a
+        # pool entry, so it must neither be applied nor counted as stale
+        blob = self.build_sysmes(["表示切換を行います。"])
+        rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin", jp="を行います。",
+                    en="TAIL"),
+                row("04_config_text.jsonl", "config_sysmes", "sysmes.bin",
+                    jp="表示切換を行います。", en="Toggles the display.")]
+        edits, problems, notes = BTP._sysmes_edits(blob, rows)
+        self.assertEqual(edits, {"表示切換を行います。".encode("cp932"): b"Toggles the display."})
+        self.assertEqual(problems, [])
+        self.assertTrue(any("1 sysmes rows are tails" in n for n in notes))
+
+    def test_same_label_in_two_menus_is_replaced_in_both(self):
+        blob = self.build_sysmes(["ライブラリー", "オプション", "ライブラリー"])
+        rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin", jp="ライブラリー",
+                    en="Library")]
+        edits, problems, _ = BTP._sysmes_edits(blob, rows)
+        modified, report = SMSP.translate_bytes(blob, edits)
+        self.assertEqual(SMSP.parse(modified).strings[1:],
+                         [b"Library", "オプション".encode("cp932"), b"Library"])
+        self.assertEqual(report["replaced_entries"], 2)
+
+
+class RowFilterTests(unittest.TestCase):
+    def test_identity_rows_leave_the_bytes_alone(self):
+        ident = row("04_config_text.jsonl", "config_dlc_id", "srwDL_DLC_ID00.bin",
+                    jp="JP0700-NPJH50521_00-ADDPACKAGE000002-J001 ",
+                    en="JP0700-NPJH50521_00-ADDPACKAGE000002-J001")
+        self.assertTrue(BTP.identity(ident))
+        self.assertTrue(BTP.identity(row("02_items.jsonl", "item", "x", jp=" N", en="N")))
+        self.assertTrue(BTP.identity(row("02_items.jsonl", "item", "x", jp="ＨＰ", en="ＨＰ")))
+        self.assertFalse(BTP.identity(row("02_items.jsonl", "item", "x", jp="ＨＰ", en="HP")))
+        self.assertFalse(BTP.identity(row("02_items.jsonl", "item", "x", jp="ＨＰ", en="")))
+        self.assertFalse(BTP.identity(row("02_items.jsonl", "item", "x", jp=None, en="HP")))
+
+    def test_container_filter_globs(self):
+        sel = BTP.container_selected
+        self.assertTrue(sel("configst.cpk"))
+        self.assertTrue(sel("configst.cpk", only=["CONFIGST.CPK"]))
+        self.assertFalse(sel("config00.cpk", only=["configst.cpk"]))
+        self.assertTrue(sel("eventP03.EDAT", only=["eventp*"]))
+        self.assertFalse(sel("eventP03.EDAT", only=["eventp*"], skip=["*.edat"]))
+        self.assertFalse(sel("mesbtl00.cpk", skip=["mesbtl*"]))
 
 
 class RedirectTests(unittest.TestCase):

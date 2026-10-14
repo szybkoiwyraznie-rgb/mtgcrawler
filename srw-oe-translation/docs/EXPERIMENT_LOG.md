@@ -3460,3 +3460,86 @@ zapisana w `HANDOFF.md` §1 i §9 oraz **wymuszona testem** `tests/test_pick_pat
 (`set /p` poza `:pick` = czerwony test). W sandboxie brak Tk → `pick_path.py` daje 3 (sprawdzone);
 okna symulowane w testach atrapą `tkinter` (wybór, anulowanie, brak Tk, brak modułu). Samego `cmd.exe`
 tu nie ma — bat przejrzany ręcznie, przebieg u użytkownika. Suite: **988 OK (1 skipped)**.
+
+## Sesja 7 (2026-10-14), część 21 — build #6 w grze: crash na „Loading"; `sysmes.bin` miał zły model struktury; BISEKCJA
+
+**1. Wynik w grze (użytkownik, PPSSPP, `patched.iso` + spatchowane DLC z #6) [ZAOBSERWOWANE]:**
+(a) komunikat startowy o autozapisie („本ゲームはオートセーブ機能に対応しています…") po japońsku;
+(b) 4 ekrany logo/copyright OK; (c) „Loading…" — kropki idą ~5 s, stoją ~60 s, potem niebieski ekran
+PPSSPP: `Access: Read Word at 00000000, PC: 088e6120 (088e6120_z_un_088e60d0), mov eax,[rbx+rax],
+Cur thread: SazThread:0x88a5b78 (attr 800040ff)`. Inny PC niż crash z 2026-10-10 (`08a2bb78`) i niż
+splice niewyrównany (`088a7378`). Log PPSSPP (`ppsspplog.txt`, Drive, 184 254 B, poziom błędów): boot
+22:45; 22:50–23:01 **45 otwarć plików z ioctl PGD** („Not a valid PGD file. Open as normal file" —
+odszyfrowane EDAT DLC otwierane jak zwykłe pliki, ~165 ms odstępu), dwa `DirectoryFileSystem::OpenFile:
+FAILED, 2` (plik nie istnieje na ms0:, 22:59:951 i 23:01:819), potem cisza do 24:55 i `Bad memory
+access … 00000000`. Nazw plików w logu nie ma (kanał IO nie na debug). Interpretacja [HIPOTEZA]: gra
+była w fazie sprawdzania DLC / budowania tytułu; crash = odczyt przez wskaźnik NULL w wątku gry.
+
+**2. Komunikat o autozapisie [ZWERYFIKOWANE]:** nie ma go w żadnym z 11 kontenerów USRDIR (surowe
+bajty + każdy człon CRILAYLA po dekompresji; cp932/UTF-16LE/UTF-8; config00, configst, eventP00,
+imenu00, mesbtl00, system, logodata, navisys, tacsys, tactics, taclevup) → siedzi w `EBOOT.BIN`.
+Poza pakietem; osobne zadanie (zrzut odszyfrowanego EBOOT z PPSSPP, napis zaszyty w kodzie).
+
+**3. `sysmes.bin` — poprzedni model był błędny [ZWERYFIKOWANE offline, 2 niezależne dowody]:**
+pomiar na oryginale (51 280 B): nagłówek `SMES|size|count=1182|1`, od 0x10 **1182 wpisów
+`{u32 off, u32 id}`**, pula od **`base = 0x10 + 1182·8 − 4 = 0x24fc`** (pierwszy string `'Ａ\0\0'`
+dzieli 4 bajty z polem id ostatniego wpisu), **`off` względne wobec `base`**, wpis k → k-ty string
+puli (sekwencyjna, NUL + wyrównanie do 4). Sprawdzone dla **wszystkich 1182 wpisów: 0 wyjątków**;
+`parse` strict + `build` daje bajt w bajt oryginał. Stary model (offsety bezwzględne, pula od 0x2500)
+„widział" 915 wskaźników, z czego 791 w środku stringów („shared tails" — artefakt), pierwszych 268
+wpisów nie widział wcale, a etykiet tytułu „nie znajdował" → stąd wniosek o „stałych offsetach poza
+sysmes" (HANDOFF §3, 3 booty). **Re-symulacja tamtego eksperymentu shift** (`sysmes_shift.SHIFT_EDITS`
+na oryginale) nowym modelem przewiduje ekran tytułowy: `ライブラリー, リファレンス, CREDITS, " LIST",
+タインストール, パーロボット…` — czyli dokładnie zaobserwowane „CREDITS ok, DOWNLOAD LIST ucięty, reszta
+o jeden slot"; hipoteza stałych offsetów przewiduje `ァレンス, ITS, T, トール…`. Wniosek: **etykiety
+tytułu są normalnymi wpisami tablicy** (906..911: ゲームスタート id 0x28c, ライブラリー 0x28d,
+リファレンス 0x28e, クレジット 0x28f, ダウンロードリスト 0x2c6, データインストール 0x290; drugi komplet
+157/158/168/169) i mogą rosnąć jak każdy string, byle tablica była przepisana. Render po wzroście w
+grze: **NIEZWERYFIKOWANY** do następnego bootu.
+
+**4. Co zrobił build #6 w `sysmes.bin` [ZWERYFIKOWANE]:** `apply_edits` (pełna przebudowa puli w
+starym modelu) → 51 280 → **145 568 B**, każdemu „wskaźnikowi" (także tym w środku stringów) własna
+kopia, słowa tablicy przepisane na offsety **bezwzględne** (gra czyta je jako względne → każdy string
+przesunięty o 0x24fc, końcówka tablicy poza plikiem), 268 pierwszych wpisów nietknięte (wskazują w
+nową pulę byle gdzie). Czyli wszystkie 1182 komunikaty systemowe = śmieci. Główny podejrzany o crash
+na „Loading" (tytuł buduje się z tych stringów) — **związek z crashem niepotwierdzony**, stąd BISEKCJA.
+
+**5. Naprawa [ZWERYFIKOWANE offline]:** `tools/sysmes_pack.py` przepisany: `parse` (strict),
+`build`, `make_sysmes` (fixture), `translate_bytes({bajty: bajty})` (pula przepisana sekwencyjnie,
+słowo k = nowy offset względny stringu k, id i nagłówek bez zmian, `size@4` odświeżone, string 0
+nigdy nie ruszany), `verify` (count/id/nagłówek równe, stringi równe poza edycjami), `apply_edits`/
+`equal_translate`/`grow_one`/`string_starts` jako nakładki; `sysmes_shift.py` = shim na nowy model.
+Builder `_sysmes_edits` dopasowuje wiersze do **całych** stringów (słowniki po formie surowej i
+`%s`), `_sysmes` używa `translate_bytes` + `verify` (błąd weryfikacji = wyjątek, bez zapisu).
+Na pakiecie 2026-10-14: 2196 wierszy sysmes = **1055 całych stringów (839 unikalnych tekstów) +
+1141 ogonów** (eksporter `sysmes_text.py` szedł po `scan_runs`, więc każdy string z ASCII/półszerokimi/
+kontrolnymi bajtami dał dodatkowe wiersze-ogony; tłumacz je przetłumaczył — ignorowane, liczone w
+`info`); 25 całych stringów bez wiersza (zaczynają się od `%s`/spacji/półszerokiej kany, np.
+`%sが使用可能になりました！`, `ｼｽﾃﾑ設定１`) → `sysmes_text.py` eksportuje teraz całe stringi (1080
+wierszy), `--merge-into --prune-fragments` dodaje 25 i usuwa 1141 (próba na kopii: 16 410 → 15 294).
+Wynik: `sysmes.bin` 51 280 → **49 252 B** (angielski krótszy), `verify` pusty, tytuł: `Game Start /
+Library / Reference / Credits / Download List / Data Install` we wpisach 906–911.
+
+**6. Druga znaleziona wada #6 — identyfikatory DLC [ZWERYFIKOWANE]:** `srwDL_DLC_ID00.bin`
+(41 rekordów: 8 wskaźników + 26 B liczb + stringi; pola stałe i 292 stringi identyczne, 35 jp→en)
+stracił spację końcową w `JP0700-NPJH50521_00-ADDPACKAGE000002-J001␠` — pakiet zawierał 140 wierszy
+z identyfikatorami PSN (nie tekst), tłumacz skopiował je bez spacji. Builder: `identity(row)` —
+EN == JP (dokładnie albo z dokładnością do białych znaków na brzegach) = nic nie pisz (3686 takich
+wierszy w pakiecie: 3593 identyczne, 93 tylko białe znaki, np. ` N`→`N`, ` HP+`→`HP+`). Po naprawie
+bajt zachowany; `config00` 948 352 B (Skill00 +5 B, Item00 +3 B względem #6 — przywrócone spacje).
+
+**7. Narzędzia do bisekcji [ZWERYFIKOWANE testami, nie w cmd.exe]:** builder `--only GLOB…`,
+`--skip GLOB…`, `--filter only=a,b|skip=…` (`container_selected`, bez rozróżniania wielkości liter,
+`skip` wygrywa); `tools/pick_choice.py` (okno z listą radio, kontrakt jak `pick_path`: 0/2/3, wartość
+do pliku); **`BISEKCJA.bat`** — ten sam szkielet co `HOKUS_POKUS.bat` (okna ISO/DLC/pakiet, pakiet_EN\
+obok), trzecie okno z wariantami **A** configst, **B** config00, **C** eventP00, **D** mesbtl00,
+**E** imenu00 (po jednym pliku ISO, reszta oryginalna), **F** całe ISO + DLC oryginalne, **G** tylko
+DLC, **H** tylko DLC z dialogami, **I** tylko DLC bez dialogów; wynik `srw-oe-bisekcja\<litera>\`.
+Fallback z palca (kod 3) tylko na literę. Testy: `tests/test_pick_choice.py` (mapowanie liter w bacie
+== `BISECT_OPTIONS`, 4 `set /p` wyłącznie w podprogramach), `tests/test_sysmes_pack.py`,
+`test_sysmes_shift.py`, `test_sysmes_text.py`, `RowFilterTests`. Suite: **1011 OK (1 skipped)**.
+Budowa `--only configst.cpk config00.cpk` na oryginałach z Drive: 4 s, 0 problemów.
+
+**Otwarte:** czy #6 padał wyłącznie przez sysmes (test użytkownika: nowy `HOKUS_POKUS`, a gdy crash —
+BISEKCJA A→I); render tytułu/helpów po wzroście; stored członki CRILAYLA w kontenerach ISO
+(eventP00/mesbtl00/imenu00) w grze niesprawdzone; komunikat EBOOT; 25 nowych wierszy sysmes dla tłumacza.

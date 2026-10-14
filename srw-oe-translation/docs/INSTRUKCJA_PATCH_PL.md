@@ -95,6 +95,27 @@ i treść okna konsoli (albo zrzut ekranu). Oryginały są nietknięte, skrypt m
   ładują się bez zacięć; menu DLC (`DLC_ID`) — czy pozycje listy wyglądają normalnie.
   Zrzut ekranu + nazwa scenki/menu wystarczą, żeby to naprawić.
 
+### Gdy gra się wywala — `BISEKCJA.bat` (szukanie winnego pliku)
+
+Build z 2026-10-14 wieczorem padał na ekranie „Loading" (niebieski ekran PPSSPP `Read Word at
+00000000`). Przyczyna znaleziona offline (plik `sysmes.bin` z komunikatami systemowymi był składany
+złym narzędziem) jest naprawiona w tym wydaniu, ale **czy była jedyna — pokaże dopiero gra**. Jeśli
+nowy `HOKUS_POKUS.bat` dalej daje crash, uruchom `srw-oe-translation\BISEKCJA.bat`:
+
+1. Te same okna co w HOKUS_POKUS (ISO, folder DLC; pakiet bierze z `pakiet_EN\`).
+2. Trzecie okno — lista wariantów. W każdym tłumaczony jest **tylko jeden kawałek gry**, reszta
+   zostaje oryginalna:
+   `A` configst.cpk (menu/teksty systemowe) · `B` config00.cpk (nazwy, umiejętności, przedmioty, lista DLC) ·
+   `C` eventP00.cpk (dialogi rozdz. 1) · `D` mesbtl00.cpk (kwestie bitewne) · `E` imenu00.cpk (menu
+   intermisji) · `F` całe ISO przetłumaczone, DLC oryginalne · `G` tylko DLC, ISO oryginalne ·
+   `H` tylko DLC z dialogami · `I` tylko DLC bez dialogów.
+3. Wynik ląduje w `srw-oe-bisekcja\<litera>\` (`patched.iso` i/lub `DLC\...`). Dla wariantów A–F
+   uruchom `patched.iso` z tego folderu **z oryginalnym DLC**; dla G–I uruchom **oryginalne ISO**
+   z podmienionym DLC z tego folderu.
+4. Zapisz dla każdej litery „działa / crash (jaki ekran)". Zacznij od `F` i `G` (dzieli problem na
+   ISO vs DLC), potem litery z tej połowy, która pada. Każda litera to osobny folder — nic się nie
+   nadpisuje; foldery można kasować.
+
 ### Powrót do oryginału
 
 Usuń folder `srw-oe-patch\`, w PPSSPP wskaż z powrotem swoje ISO, przywróć folder DLC z kopii
@@ -117,5 +138,7 @@ Usuń folder `srw-oe-patch\`, w PPSSPP wskaż z powrotem swoje ISO, przywróć f
 ## Czego ten pakiet NIE robi
 
 - Nie dotyka grafik (logo, przyciski w teksturach) — tylko tekst w plikach danych.
+- Nie tłumaczy komunikatu o autozapisie wyświetlanego zaraz po starcie („本ゲームはオートセーブ…"):
+  ten napis siedzi w programie gry (`EBOOT.BIN`), nie w plikach danych — osobne zadanie.
 - Nie zawiera żadnych plików gry: wszystko powstaje z twojego ISO i twoich DLC.
 - Nie działa na zaszyfrowanych plikach DLC ani na ISO innej wersji niż 1.08 (inne offsety).
