@@ -3753,3 +3753,14 @@ Dostawa zastępująca: `WGRAJ_build10.zip` (1 312 110 B, md5 `20cc4778bd000e830f
 DELIVERY `1yjzP39z6qtWO457uZd4IoBG-w4zr2-Ak`: `WGRAJ_DO_ISO.bat` + `tools/{pick_path,iso_insert,iso_pack}.py`
 + `KROK_1_tylko_config00/` + `KROK_2_config00_i_configst/` + `PLAN_B/V1..V6/` + `CZYTAJ.txt` (3 kroki) +
 `SZCZEGOLY_techniczne.txt`; `USRDIR_EN_build10.zip` (`1GQUD_g9…`) do kosza.
+
+**Odpowiedź użytkownika na pytanie o wariant A (2026-10-14, późna noc) [ZWERYFIKOWANE w grze]:** A (sam
+`configst.cpk` z buildu #8) **przeszedł przez „Loading"**, pokazał w pełni przetłumaczone menu i dało się
+klikać w opcje. Znaczenie dla hipotezy +36: configst z buildu #8 miał ten sam błędny wskaźnik puli w
+`srwDL_Item` (274/300), `srwDL_Spirit` (60/60) i `srwDL_StatusChange` (92/101), a gra wstała — więc **błędny
+wskaźnik w tych trzech członach nie wywraca ładowania**. Hipoteza zawęża się do `srwDL_Skill00.bin`, który
+istnieje TYLKO w `config00` (configst nie ma członu Skill) i jest czytany przy ładowaniu (umiejętności
+pilotów), podczas gdy przedmioty/duchy/statusy mogą być czytane dopiero w swoich menu — tego test A nie
+sprawdzał (z ekranu tytułowego nie ma ekwipunku ani duchów). Alternatywa nadal otwarta: gra w ogóle nie
+używa słowa +36, a crash config00 ma inną przyczynę — rozstrzyga KROK 1 (build #10), a w razie crasha wariant
+V2 (sam `Skill00` z buildu #10) kontra V5 (wszystko oprócz `DLC_ID00`).
