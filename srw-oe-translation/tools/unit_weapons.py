@@ -73,6 +73,8 @@ import token_solve as TS  # noqa: E402
 
 UNIT_RECORD = 384
 UNIT_ID_OFFSET = 84
+UNIT_NAME_CELL = 32           # name @ +0 is a 32-byte cell (three DLC names fill it without NUL)
+UNIT_SHORT_OFFSET = 32        # half-width kana short name, 32-byte cell, present in every record
 UNIT_DISPLAY_OFFSET = 140
 UNIT_FIELDS_LEN = 26          # u16 fields exported raw from +84
 WP_HEADER = 12
@@ -105,13 +107,19 @@ def unit_rows(blob: bytes, container: str, member: str) -> List[dict]:
     for idx in range(len(blob) // UNIT_RECORD):
         rec = blob[idx * UNIT_RECORD:(idx + 1) * UNIT_RECORD]
         fields = list(struct.unpack_from("<%dH" % UNIT_FIELDS_LEN, rec, UNIT_ID_OFFSET))
+        short_raw, short, short_tokens, short_mapped = short_name_forms(
+            raw_run(rec[:UNIT_SHORT_OFFSET + UNIT_NAME_CELL], UNIT_SHORT_OFFSET))
         rows.append({
             "container": container,
             "member": member,
             "unit_index": idx,
             "unit_id": fields[0],
             "base_id": fields[1],
-            "name": cstring(rec, 0),
+            "name": cstring(rec[:UNIT_NAME_CELL], 0),
+            "name_short_raw": short_raw,
+            "name_short": short,
+            "name_short_tokens": list(short_tokens),
+            "name_short_mapped": bool(short_mapped),
             "name_display": cstring(rec, UNIT_DISPLAY_OFFSET),
             "fields84": fields,
         })
@@ -407,6 +415,7 @@ def collect(container_files: Sequence[Path], robo00: Optional[Path] = None) -> d
         "units_without_weapon_list": unmatched,
         "weapons": sum(len(r["weapons"]) for r in units),
         "named_units": sum(1 for r in units if r["name"]),
+        "units_with_short": sum(1 for r in units if r.get("name_short")),
         "named_weapons": sum(1 for r in units for w in r["weapons"] if w["name"]),
         "weapons_with_anim": sum(1 for r in units for w in r["weapons"] if w["anim"]),
         "weapons_with_short": sum(1 for r in units for w in r["weapons"] if w["name_short"]),
@@ -433,11 +442,11 @@ def write_csv(out_dir: Path, data: dict) -> Tuple[Path, Path]:
     with units_csv.open("w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["container", "unit_index", "unit_id", "base_id", "name", "name_display",
-                    "weapon_count", "series", "model_dir", "robo_member_index"])
+                    "weapon_count", "series", "model_dir", "robo_member_index", "name_short"])
         for r in data["units"]:
             w.writerow([r["container"], r["unit_index"], r["unit_id"], r["base_id"], r["name"],
                         r["name_display"], len(r["weapons"]), r["series"], r["model_dir"],
-                        r.get("robo_member_index", "")])
+                        r.get("robo_member_index", ""), r.get("name_short", "")])
     with weapons_csv.open("w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["container", "unit_id", "unit_name", "unit_display", "weapon_index",

@@ -77,8 +77,8 @@ def build_local(root: Path) -> None:
     (root / "units").mkdir(parents=True, exist_ok=True)
     (root / "units/units.csv").write_text(
         "container,unit_index,unit_id,base_id,name,name_display,weapon_count,series,model_dir,"
-        "robo_member_index\r\nconfig00.cpk,0,1,1,ライジンオー,ライジンオー,8,絶対無敵ライジンオー,"
-        "r0001,0\r\n", encoding="utf-8")
+        "robo_member_index,name_short\r\nconfig00.cpk,0,1,1,ライジンオー,ライジンオー,8,絶対無敵ライジンオー,"
+        "r0001,0,ﾗｲｼﾞﾝｵｰ\r\n", encoding="utf-8")
     (root / "units/unit_weapons.json").write_text(json.dumps({
         "units": [{"container": "config00.cpk", "unit_id": 1, "weapons": [
             {"name": "ライジンクロー", "name_short": "ﾗｲｼﾞﾝｸﾛｰ", "index": 0}]}],
@@ -217,14 +217,30 @@ class RowTests(unittest.TestCase):
         parts = sorted(r["part"] for r in rows)
         self.assertEqual(parts, ["name", "name_full", "name_narrow", "name_short", "nickname",
                                 "series", "voice_actor"])
-        self.assertTrue(all(r["mode"] == "grow" for r in rows))
+        # dictionary strings grow (pool); the charalist cells are fixed 32/44/20-byte slots
+        by_part = {r["part"]: r for r in rows}
+        for part in ("name", "nickname", "series", "voice_actor"):
+            self.assertEqual((by_part[part]["mode"], by_part[part]["max_bytes"]), ("grow", None))
+        self.assertEqual((by_part["name_short"]["mode"], by_part["name_short"]["max_bytes"]), ("slot", 31))
+        self.assertEqual(by_part["name_full"]["max_bytes"], 43)
+        self.assertEqual(by_part["name_narrow"]["max_bytes"], 19)
 
     def test_unit_rows_include_weapons_and_robo_notes(self):
         rows = TE.unit_rows(self.root)
         kinds = sorted({r["category"] for r in rows})
         self.assertEqual(kinds, ["robo_length", "robo_series", "robo_weight", "unit_name",
-                                 "unit_name_display", "unit_series", "weapon_name", "weapon_name_short"])
+                                 "unit_name_display", "unit_name_short", "unit_series",
+                                 "weapon_name", "weapon_name_short"])
         self.assertFalse([r for r in rows if "－－－" in r["jp"]])
+        by_id = {r["id"]: r for r in rows}
+        self.assertEqual(by_id["unit:1:name_short"]["jp"], "ﾗｲｼﾞﾝｵｰ")
+        # fixed cells carry their byte budget (build #8 lesson: the writer refuses longer text)
+        self.assertEqual((by_id["unit:1:name"]["mode"], by_id["unit:1:name"]["max_bytes"]), ("slot", 31))
+        self.assertEqual(by_id["unit:1:name_short"]["max_bytes"], 31)
+        self.assertEqual(by_id["unit:1:name_display"]["max_bytes"], 63)
+        self.assertEqual((by_id["unit:1:series"]["mode"], by_id["unit:1:series"]["max_bytes"]), ("grow", None))
+        self.assertEqual(by_id["weapon:1:0:name"]["max_bytes"], 63)
+        self.assertEqual(by_id["weapon:1:0:name_short"]["max_bytes"], 31)
 
 
 class MainTests(unittest.TestCase):

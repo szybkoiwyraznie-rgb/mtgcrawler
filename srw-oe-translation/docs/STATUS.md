@@ -2,14 +2,16 @@
 
 Last updated: 2026-10-14 (night)
 
-**Latest in-game result (2026-10-14, user, PPSSPP): build #6 (`patched.iso` + patched DLC) CRASHES at the
-"Loading" screen (`Read Word at 00000000`, PC `088e6120`), after the logos; the boot auto-save notice stays
-Japanese (it lives in `EBOOT.BIN`, outside the data files).** Found offline afterwards and fixed in the
-tree: `sysmes.bin` (configst) was rebuilt with a wrong structural model (table offsets are RELATIVE to
-`0x10 + count*8 - 4`, one entry per sequential string; build #6 wrote 145 KB of garbage in place of the
-1,182 system messages) and a PSN content id lost its trailing space through a translator copy row.
-Whether these were the only crash causes is UNKNOWN until the next in-game test; `BISEKCJA.bat` builds
-one-container variants for bisection. Details: `EXPERIMENT_LOG.md` part 21, `HANDOFF.md` §3/§7/§9.
+**Latest in-game result (2026-10-14, user, PPSSPP): build #8 (5 patched USRDIR containers) CRASHES at the
+"Loading" screen like build #6 (`memcpy` of a NULL block, PC `088e6120`). Bisection with `BISEKCJA.bat`:
+variant A (only `configst.cpk`) WORKS — the title menu is in English; variant B (only `config00.cpk`)
+CRASHES; C/D/E (eventP00, mesbtl00, imenu00) not yet tested.** Offline audit of `config00.cpk` found one
+defect: `name_table_write` treated the unit name as a 64-byte cell and so zeroed the half-width kana short
+name at +32 of all 84 unit records (real layout: name 32 B, short name 32 B, display 64 B at +140; measured
+on config00 and config01–08). Fixed in the tree together with pointer-pool record parity (originals: every
+record offset/length even). Whether the emptied short names were the crash cause is a HYPOTHESIS until the
+user re-tests variant B with the rebuilt `config00.cpk` (build #9). Earlier fixes (sysmes model, PSN id
+trailing space) are in. Details: `EXPERIMENT_LOG.md` §21.13–21.14, `HANDOFF.md` §3/§7/§9.
 The project is NOT a finished translation; no full in-game acceptance exists.
 
 ## Target

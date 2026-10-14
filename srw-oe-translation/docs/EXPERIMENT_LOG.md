@@ -3605,3 +3605,65 @@ naprawione `identity()`), (2) pierwsze użycie `sysmes.bin` (145 KB śmieci — 
 Rozstrzygnie build #8 użytkownika (pierwszy z poprawionym `:pick`). Potrzebny ogon logu za config46, jeśli
 znów padnie.
 
+
+### 21.13 Build #8 w grze: ten sam crash; BISEKCJA — A (configst) DZIAŁA, B (config00) PADA
+Użytkownik (2026-10-14): build #8 (pierwszy z poprawionym `:pick`, 5 kontenerów USRDIR) pada tak samo na
+„Loading" po skanie DLC; zrzut stosu PPSSPP: `memcpy_jak (08b6af1c)` ← `08b3d554+08c` ← `08b3d3f8+044` ←
+`088e60d0+050` (PC `088e6120`) ← `088e0b48+484` ← `088a5b78+078` ← `08b40908+018`, `Read/Write Block at
+00000000 (sz: 0)` — kopiowanie Z/DO adresu zero o długości zero, czyli wskaźnik NULL i długość 0 z jakiejś
+tablicy. BISEKCJA.bat (preset `pick_choice.py bisect`): **F** (ISO oryginalne + DLC z pakietu) pada,
+**A** (tylko `configst.cpk`) DZIAŁA — menu tytułowe po angielsku, **B** (tylko `config00.cpk`) PADA;
+C/D/E jeszcze nie testowane. Wniosek (obserwacja): błąd leży w przebudowanym `config00.cpk`.
+
+### 21.14 Audyt `config00.cpk` oryginał↔build: jedyny ubytek = 84 skrócone nazwy jednostek wyzerowane
+Porównanie sub-plików `config00.pac` (oryginał z Drive `USRDIR originals` vs `local/build8`, bajt po bajcie,
+odczyt przez `cpk_write.load` → `configst_pack.parse_pac`). Zmienione sub-pliki: bg2dlist, Map_S, bgmlist00,
+milstP00, groupunit00, unit_list00, wp_list00, charalist00 (stałe komórki, ten sam rozmiar), Skill00
+208 958→228 202, CharaDictionary00 21 226→21 842, RoboDictionary00 9 442→9 269, Item00 34 566→34 799,
+Shop00 12 450→12 447, DLC_ID00 8 422→8 210, Reference00 17 656→17 404. Szukanie „napisów, które w oryginale
+były, a w buildzie są puste" (regex ciągów CP932 na tych samych offsetach dla sub-plików o stałym
+rozmiarze; pule przez `table_write.parse_pool`): **tylko `unit_list00.bin`**: w każdym z 84 rekordów
+(384 B) komórka +32..+63 — półszeroka katakana z tokenami `0x0F xx` (skrócona nazwa jednostki, np. do
+listy/paska) — była w buildzie zerami. Przyczyna (potwierdzona w kodzie): `name_table_write.SPECS`
+miał `unit_list name @+0 cell 64` — pisarz zerował ogon 64-bajtowej „komórki", czyli całą komórkę kany.
+Docstring „najdłuższa nazwa 46 B" był artefaktem: 3 nazwy DLC (config01 rek. 89/91, config04 rek. 25)
+wypełniają 32 B bez NUL, a `unit_weapons.cstring` czytał bez ograniczenia dalej w komórkę kany.
+Pomiar układu (config00 + config01..08, 358 rekordów): `name` @+0 komórka 32 (config00 max 24 B),
+**kana short @+32 komórka 32, niepusta w 100 % rekordów**, klucz u16 @+84, `name_display` @+140
+komórka 64 (max 53 B). Przy okazji zmierzone: wszystkie 1 051 rekordów pul wskaźnikowych
+(CharaDictionary/RoboDictionary/Shop/DLC_ID/Reference/Skill_Tag/Achievement, USRDIR + DLC) mają PARZYSTE
+offsety i długości; `rebuild_pool` dawał nieparzyste (DLC_ID 16, Shop 180, Reference 10, Chara 44, Robo 28
+rekordów) — tolerowane przez `configst` (A działa), ale naruszało niezmiennik (MIPS: `lh/lhu` pod
+nieparzystym adresem = wyjątek).
+Związek 84 pustych komórek z crashem = HIPOTEZA (bez EBOOT nie da się tego dowieść); poprawka obowiązkowa
+niezależnie od tego. Audyt pokrycia (`coverage_audit.py`) tych napisów nie widział, bo `clean_run`
+odrzuca ciągi z `0x0F` — dlatego pakiet nie miał wierszy `unit:<id>:name_short`.
+
+Poprawki (ten commit):
+- `tools/name_table_write.py`: `unit_list` = `name (0,32)`, `name_short (32,32)`, `name_display (140,64)`;
+  `KANA_SHORT_FAMILIES = (wp_list, unit_list)` (dopasowanie jp w formie zmapowanej/tokenowej, licznik
+  `token_loss`); rekord z przetłumaczoną nazwą bez własnego wiersza `name_short` dostaje angielską nazwę
+  także w komórce +32, gdy mieści się w 31 B (`derived_short`), inaczej zostaje oryginalna kana
+  (`short_kept`) — komórka nigdy nie jest zerowana; `match_cell` przyjmuje jp dłuższe od pełnej komórki
+  bez NUL (3 nazwy DLC z „przeciekiem" kany w starym eksporcie), porównanie bajtowe w CP932.
+- `tools/table_write.rebuild_pool`: edytowany rekord o nieparzystej długości dostaje 1 bajt zera
+  (nieedytowane kopiowane 1:1, przebudowa bez edycji nadal bajt w bajt); `verify_member` akceptuje tylko
+  ten 1 bajt i odrzuca nieparzysty rekord.
+- Eksport: `unit_weapons.unit_rows` czyta `name` z 32 B i dodaje `name_short`/`name_short_raw`/
+  `name_short_tokens`; `units.csv` kolumna `name_short`; `translator_export` emituje `unit:<id>:name_short`
+  i nadaje komórkom tablic nazw `mode: slot` + `max_bytes` (unit 31/31/63, broń 63/31, charalist 31/43/19),
+  więc `translation_check` złapie za długą nazwę PRZED budową (do tej pory 2 nazwy >31 B przeszły do
+  pakietu: `unit:379:name` 32 B, `unit:426:name` 34 B — tłumacz musi skrócić).
+- Testy: `test_name_table_write` (komórka 32 B, derived short, jawny `name_short`, odmowa >31 B z kaną
+  nietkniętą, pełna komórka bez NUL), `test_unit_weapons`, `test_translator_export`, `test_table_write`
+  (parzystość). Razem 1 022 OK / 1 skipped.
+
+Build #9 (`--dlc local/usrdir --package local/translation --out local/build9 --only config00.cpk`, 3 s):
+`config00.cpk` 948 352 B, md5 `d42e1493e6e15d8484ea98c9b40fbe6e` (build #8: `b29199db…`, oryginał
+`266366c3…`); `unit_list00`: applied 168, derived_short 84, short_kept 0, refused 0; audyt „puste napisy"
+= 0 w każdym sub-pliku; pule: 0 nieparzystych offsetów/długości (CharaDictionary 21 890, RoboDictionary
+9 306, Shop 12 448, DLC_ID 8 214, Reference 17 416). Te same 37 znanych odmów co w #8 (32 konflikty
+`nickname` CharaDictionary, 5 slotów). Kontrolnie DLC `config01..08.EDAT` (`local/build9_dlc`): derived_short
+99/55/25/27/27/14/11/14, kana wyzerowana 0, nieparzyste 0, odmowy tylko `unit:379`/`unit:426` (za długie).
+Przebudowa deterministyczna (dwa przebiegi = ten sam md5). W grze NIE sprawdzone — czeka na test B u
+użytkownika z nowym `config00.cpk`.

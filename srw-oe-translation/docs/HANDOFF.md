@@ -113,7 +113,16 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
-**Stan 2026-10-14 noc (najnowszy; `EXPERIMENT_LOG.md` cz. 21):** build #6 **padł w grze** na „Loading"
+**Stan 2026-10-14 późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.13–21.14):** build #8 padł jak #6;
+**bisekcja: A (`configst.cpk`) DZIAŁA — menu po angielsku; B (`config00.cpk`) PADA**; C/D/E nie testowane.
+Audyt `config00` oryginał↔build: jedyny ubytek = 84 skrócone nazwy jednostek (kana, `unit_list00` +32)
+wyzerowane przez `name_table_write` (komórka nazwy to 32 B, nie 64). Naprawione: SPECS `unit_list`
+name 32/name_short 32/display 64, EN nazwa kopiowana do komórki +32 (`derived_short`), parzystość rekordów
+pul (`rebuild_pool`), eksport `unit:<id>:name_short` + `mode: slot`/`max_bytes` dla komórek tablic nazw.
+Build #9 = sam `config00.cpk` (md5 `d42e1493…`) do ponownego testu wariantu B; związek z crashem =
+hipoteza do czasu testu. Potem C/D/E (eventP00, mesbtl00, imenu00) i dopiero pełna piątka.
+
+**Stan 2026-10-14 noc (`EXPERIMENT_LOG.md` cz. 21):** build #6 **padł w grze** na „Loading"
 (`Read Word at 00000000`, PC `088e6120`, po 45 otwarciach EDAT DLC — log PPSSPP bez nazw plików).
 Znalezione i naprawione offline: (1) `sysmes.bin` budowany złym modelem (offsety są WZGLĘDNE wobec
 `0x24fc`, wpis k = string k; #6 dał 145 KB śmieci w miejsce 1182 komunikatów systemowych — §3);
@@ -203,6 +212,13 @@ python tools\sysmes_pack.py <in.cpk> <out.cpk>          # DEFAULT_EDITS tytułu,
 ```
 
 ## 9. Znane pułapki (nie powtarzaj)
+- `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
+  (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę
+  w 84/84 rekordach config00 (build #6–#8). Nigdy nie zostawiaj komórki tablicy nazw pustej; „najdłuższa
+  nazwa 46 B" pochodziła z nieograniczonego `cstring` czytającego w kanę (3 nazwy DLC bez NUL w 32 B).
+- Pule wskaźnikowe (CharaDictionary/RoboDictionary/Shop/DLC_ID/Reference/Skill_Tag/Achievement): każdy
+  oryginalny rekord ma PARZYSTY offset i długość (1 051/1 051); `rebuild_pool` dopełnia edytowane rekordy
+  1 bajtem zera. Nie usuwaj tego dopełnienia.
 - `sysmes.bin`: offsety tablicy są **względne wobec `0x10 + count·8 − 4`**, nie bezwzględne; wpis k =
   k-ty string. Stary `apply_edits`/`sysmes_shift._grow` (model bezwzględny, pula od 0x2500) psuł wszystko —
   build #6 (145 KB śmieci). Wniosek „menu tytułowe = stałe offsety zewnętrzne" był artefaktem tego modelu

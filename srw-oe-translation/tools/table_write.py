@@ -217,7 +217,13 @@ def rebuild_pool(b: bytes, family: Family,
             body += text + b"\x00"
         for j, value in enumerate(ptrs):
             struct.pack_into("<I", prefix, family.ptr_start + 4 * j, value)
-        new_recs.append(bytes(prefix) + bytes(body) + rec.tail)
+        new = bytes(prefix) + bytes(body) + rec.tail
+        if i in by_rec and len(new) % 2:
+            # measured on every original pool (config00, configst, config01-08: 1,051 records):
+            # record offsets and lengths are always even; an edited record keeps that invariant
+            # with one zero byte of padding, an untouched record is copied verbatim
+            new += b"\x00"
+        new_recs.append(new)
     head = bytearray(4 + 4 * len(new_recs))
     struct.pack_into("<I", head, 0, len(new_recs))
     pos = len(head)
@@ -700,8 +706,11 @@ def verify_member(original: bytes, modified: bytes, plan: dict) -> List[str]:
             struct.pack_into("<I", kept, family.ptr_start + 4 * j, 0)
         if bytes(keep) != bytes(kept):
             problems.append(f"record {i}: non-pointer prefix bytes changed")
-        if ra.tail != rc.tail:
-            problems.append(f"record {i}: tail changed")
+        edited = any(key[0] == i for key in plan["edits"])
+        if rc.tail != ra.tail and not (edited and rc.tail == ra.tail + b"\x00"):
+            problems.append(f"record {i}: tail changed")     # one zero pad byte keeps it even
+        if edited and (len(rc.prefix) + sum(len(t) + 1 for t in rc.strings) + len(rc.tail)) % 2:
+            problems.append(f"record {i}: odd record length after the rebuild")
         for j in range(family.pointers):
             want = plan["edits"].get((i, j), ra.strings[j])
             if rc.strings[j] != want:

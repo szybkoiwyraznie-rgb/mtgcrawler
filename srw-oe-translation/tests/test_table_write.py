@@ -100,6 +100,22 @@ class PoolRebuildTests(unittest.TestCase):
         self.assertEqual(records[1].strings, [b"X", jp("Ａ")])
         self.assertEqual(records[0].strings, [jp("名前"), jp("せりふ")])
 
+    def test_edited_record_keeps_even_offsets_and_lengths(self):
+        # every original pool record (1,051 measured) starts at an even offset and has an even
+        # length; an edit that would make a record odd gets one zero byte of padding
+        self.assertTrue(all(len(r) % 2 == 0 for r in [make_record([jp("名前"), jp("せりふ")])]))
+        edited = TW.rebuild_pool(self.pool, FAM2, {(0, 1): b"ABC"})      # 8 + 5 + 4 + 2 = 19
+        spans = TW.record_spans(edited)
+        self.assertEqual([s % 2 for s, _ in spans] + [(e - s) % 2 for s, e in spans], [0] * 4)
+        records = TW.parse_pool(edited, FAM2)
+        self.assertEqual(records[0].strings, [jp("名前"), b"ABC"])
+        self.assertEqual(records[0].tail, b"\x00\x00\x00")               # the original 2 + 1 pad
+        self.assertEqual(records[1].strings, [jp("長い名前"), jp("Ａ")])
+        self.assertEqual(edited[spans[1][0]:], self.pool[TW.record_spans(self.pool)[1][0]:])
+        # an untouched record is never padded, even when it is odd itself
+        odd_pool = make_pool([make_record([b"a", b"b"]) + b"\x00"])         # 8 + 2 + 2 + 2 + 1 = 15
+        self.assertEqual(TW.rebuild_pool(odd_pool, FAM2), odd_pool)
+
     def test_unexplained_reference_refuses_the_edit(self):
         # the extra prefix word at +8 points into the record's own string region (byte 21 of
         # the record sits inside string 1 and is not one of the two pointers)

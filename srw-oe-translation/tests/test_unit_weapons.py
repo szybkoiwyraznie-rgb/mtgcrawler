@@ -92,6 +92,18 @@ class UnitRowsTest(unittest.TestCase):
         self.assertEqual(rows[0]["base_id"], 2)
         self.assertEqual(rows[0]["fields84"][0], 138)
 
+    def test_name_cell_is_32_bytes_and_short_name_sits_at_32(self):
+        # measured on config00 + config01-08: every record has a half-width kana short name at
+        # +32; a name that fills its 32-byte cell without NUL must not swallow it
+        rec = bytearray(unit_record("テスト", "テスト／標準", 138, 2))
+        rec[0:32] = ("ア" * 16).encode("cp932")            # 32 bytes, no terminator
+        rec[32:38] = "ｱｲ".encode("cp932") + b"\x0f\x2a" + "ｳ".encode("cp932") + b"\x00"
+        rows = UW.unit_rows(bytes(rec), "c.cpk", "unit_list00.bin")
+        self.assertEqual(rows[0]["name"], "ア" * 16)
+        self.assertEqual(rows[0]["name_short_raw"], "ｱｲ{2A}ｳ")
+        self.assertEqual(rows[0]["name_short"], "ｱｲダｳ")
+        self.assertEqual(rows[0]["name_short_tokens"], [0x2A])
+
     def test_rejects_partial_record(self):
         self.assertEqual(UW.unit_rows(b"\x00" * 100, "c", "unit_list00.bin"), [])
 

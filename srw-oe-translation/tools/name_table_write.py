@@ -9,8 +9,9 @@ config00.cpk and config01.EDAT (the longest strings found anywhere in the game f
                         name_full   @ +32  cell 44 (text <= 43, longest in game: 32)
                         name_narrow @ +76  cell 20 (text <= 19, longest in game: 14)
     unit_list<NN>.bin   384-byte records, key u16 @ +84
-                        name        @ +0   cell 64 (text <= 63, longest in game: 46)
-                        name_display@ +140 cell 64 (text <= 63, longest in game: 42)
+                        name        @ +0   cell 32 (text <= 31, longest in game: 28)
+                        name_short  @ +32  cell 32 (half-width kana, present in every record)
+                        name_display@ +140 cell 64 (text <= 63, longest in game: 53)
     wp_list<NN>.bin     offset table (u32 first_offset @ +4), one variable record per unit:
                         unit_id u32 @ +0, weapon count u32 @ +4, then count x 256-byte weapon
                         entries from +12; in each entry:
@@ -21,7 +22,17 @@ Growing a cell would move every following record and nothing points at these tab
 from the outside, but the cells are the layout the game's UI measures against - so the rule here
 is the slot rule: a translation that fits the cell is written in place (NUL + zero padding, the
 member never changes size), a translation that does not fit is refused and reported, never
-truncated.  The ``mode: grow`` label these rows carry in the package describes the wish, not the
+truncated.
+
+The unit name cell is 32 bytes, not 64 (corrected 2026-10-14 after build #8 crashed on
+config00.cpk): every unit record of config00 and of config01-08 carries a half-width kana short
+name at +32, and the three ``+0`` names longer than 31 bytes found in the DLC lists are names
+that fill the 32-byte cell *without* a terminator and run on into that kana cell - the earlier
+"longest 46" was that artefact.  Writing a 64-byte cell at +0 wiped the kana short name of every
+unit (84/84 in config00) and left the game an empty string there.  Now: an explicit
+``name_short`` row is written like any other cell; without one, the unit's English ``name`` is
+copied into the short cell when it fits (reported as ``derived_short``), otherwise the original
+kana stays (``short_kept``) - the cell is never emptied.  The ``mode: grow`` label these rows carry in the package describes the wish, not the
 bytes; this writer applies what the bytes allow (see docs/COVERAGE.md).
 
 Row addressing is the ``07``/``08`` one: ``key`` + ``part``.  Weapon rows also carry the weapon
@@ -68,11 +79,15 @@ SPECS: Dict[str, dict] = {
     "charalist": {"cells": {"name_short": (0, 32), "name_full": (32, 44),
                             "name_narrow": (76, 20)},
                   "key": ("u16", 96)},
-    "unit_list": {"cells": {"name": (0, 64), "name_display": (140, 64)},
+    "unit_list": {"cells": {"name": (0, 32), "name_short": (32, 32), "name_display": (140, 64)},
                   "key": ("u16", 84)},
     "wp_list": {"cells": {"name": (32, 64), "name_short": (96, 32)},
                 "key": ("u32", 0), "header": 12, "entry": 256},
 }
+
+
+#: families whose ``name_short`` cell holds half-width kana with ``0x0F xx`` glyph tokens
+KANA_SHORT_FAMILIES = ("wp_list", "unit_list")
 
 
 def family_of(member: str) -> Optional[str]:
@@ -123,20 +138,34 @@ def cell_targets(blob: bytes, family: str, start: int, end: int, part: str,
     return [(base + off, width)]
 
 
-def match_cell(jp: Optional[str], raw: bytes, mapped_form: bool) -> Optional[str]:
-    """Which form the row's jp is in, or None when the cell does not hold this text."""
+def match_cell(jp: Optional[str], raw: bytes, mapped_form: bool,
+               width: Optional[int] = None) -> Optional[str]:
+    """Which form the row's jp is in, or None when the cell does not hold this text.
+
+    A cell filled to its last byte has no terminator (three DLC unit names do that), and an
+    export made before the cell width was known read on into the next cell: such a jp is
+    accepted when it *starts* with the whole cell, since the cell itself is what the row names.
+    """
     if mapped_form:
         text, mapped, _toks, _fully = UW.short_name_forms(raw)
         if jp in (mapped, text):
             return "raw"          # tokens cannot survive an English line; the cell is written
-    return TW.match_form(jp, raw)
+    form = TW.match_form(jp, raw)
+    if form is None and jp and width is not None and len(raw) == width:
+        try:
+            jp_bytes = jp.encode("cp932")        # byte-wise: the cut may split a double byte
+        except UnicodeEncodeError:
+            return None
+        if jp_bytes.startswith(raw) and len(jp_bytes) > len(raw):
+            return "raw"
+    return form
 
 
 def apply_member(blob: bytes, member: str, rows: Iterable[dict]) -> Tuple[bytes, dict]:
     """Write every fitting row into its cell.  Returns (bytes, report); nothing moves."""
     family = family_of(member)
     report = {"member": member, "family": family, "applied": 0, "refused": [], "problems": [],
-              "token_loss": 0, "bytes": 0}
+              "token_loss": 0, "bytes": 0, "derived_short": 0, "short_kept": 0}
     if family is None:
         report["problems"].append(f"{member}: not a name table")
         return blob, report
@@ -146,6 +175,8 @@ def apply_member(blob: bytes, member: str, rows: Iterable[dict]) -> Tuple[bytes,
         keys.setdefault(record_key(blob, start, family), []).append(i)
     out = bytearray(blob)
     written: List[Tuple[int, int]] = []
+    unit_names: Dict[int, bytes] = {}       # unit_list: record index -> English name written
+    unit_shorts: set = set()                # unit_list: records with an explicit name_short row
     for row in rows:
         row_id = row.get("id")
         part = row.get("part")
@@ -180,8 +211,8 @@ def apply_member(blob: bytes, member: str, rows: Iterable[dict]) -> Tuple[bytes,
                 continue
             for cell_start, width in targets:
                 raw = cstring(blob, cell_start, width)
-                form = match_cell(row.get("jp"), raw, family == "wp_list"
-                                  and part == "name_short")
+                form = match_cell(row.get("jp"), raw, family in KANA_SHORT_FAMILIES
+                                  and part == "name_short", width)
                 if form is None:
                     report["refused"].append(
                         f"{row_id}: jp does not match the cell at {cell_start} ({raw[:16]!r})")
@@ -195,12 +226,33 @@ def apply_member(blob: bytes, member: str, rows: Iterable[dict]) -> Tuple[bytes,
                     report["refused"].append(
                         f"{row_id}: {len(value)} bytes do not fit the {width - 1}-byte cell")
                     continue
-                if family == "wp_list" and part == "name_short" and b"\x0f" in raw \
+                if family in KANA_SHORT_FAMILIES and part == "name_short" and b"\x0f" in raw \
                         and b"\x0f" not in value:
                     report["token_loss"] += 1
                 out[cell_start:cell_start + width] = value + b"\x00" * (width - len(value))
                 written.append((cell_start, width))
                 report["applied"] += 1
+                if family == "unit_list" and part == "name":
+                    unit_names[i] = value
+                elif family == "unit_list" and part == "name_short":
+                    unit_shorts.add(i)
+    # unit_list: a record whose name was translated but has no name_short row gets the English
+    # name in the kana short cell when it fits; the cell is never left empty.
+    for i, value in unit_names.items():
+        if i in unit_shorts:
+            continue
+        start, _end = spans[i]
+        off, width = SPECS["unit_list"]["cells"]["name_short"]
+        cell_start = start + off
+        if len(value) > width - 1:
+            report["short_kept"] += 1
+            continue
+        raw = cstring(blob, cell_start, width)
+        if b"\x0f" in raw:
+            report["token_loss"] += 1
+        out[cell_start:cell_start + width] = value + b"\x00" * (width - len(value))
+        written.append((cell_start, width))
+        report["derived_short"] += 1
     if not written:
         return blob, report
     modified = bytes(out)
@@ -262,6 +314,7 @@ def rows_for_member(rows: Iterable[dict], sub_name: str) -> List[dict]:
 def apply_container(src: Path, dst: Path, rows: List[dict], dry_run: bool = False) -> dict:
     """Rebuild the container with every translated name table, chained through ``dst``."""
     summary = {"container": src.name, "members": 0, "applied": 0, "refused": 0, "token_loss": 0,
+               "derived_short": 0, "short_kept": 0,
                "problems": [], "per_member": {}, "written": None, "dry_run": dry_run}
     current = src
     produced = False
@@ -311,11 +364,14 @@ def _apply(sub_name: str, data: bytes, rows: List[dict], summary: dict):
     summary["applied"] += report["applied"]
     summary["refused"] += len(report["refused"])
     summary["token_loss"] += report["token_loss"]
+    summary["derived_short"] += report.get("derived_short", 0)
+    summary["short_kept"] += report.get("short_kept", 0)
     summary["problems"].extend(f"{sub_name}: {m}" for m in report["problems"])
     for line in report["refused"][:8]:
         summary["problems"].append(f"{sub_name}: refused: {line}")
     summary["per_member"][sub_name] = {k: report[k] for k in
-                                       ("applied", "token_loss") if k in report}
+                                       ("applied", "token_loss", "derived_short", "short_kept")
+                                       if k in report}
     summary["per_member"][sub_name]["refused"] = len(report["refused"])
     return blob, report
 
