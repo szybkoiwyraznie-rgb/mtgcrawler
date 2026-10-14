@@ -123,7 +123,11 @@ Drive DELIVERY `1GQUD_g9VuujLPzsrt-xsw0y3UDdm6uys` z `CZYTAJ.txt`: KROK 1 = wari
 KROK 2 = oba, PLAN B = warianty V1–V6 z `tools/container_mix.py` (bisekcja sub-plików `.pac`: `--take`/
 `--keep`/`--pad-only`, raport `.mix.json`). Czy +36 było przyczyną crasha — **hipoteza do testu**. Pytanie
 otwarte: czy wariant A (configst z tym samym błędem w Item/Spirit/StatusChange) przeszedł „Loading" do gry.
-DLC `config01..08` błąd nie dotyczy (conv-C, 0 rekordów).
+DLC `config01..08` błąd nie dotyczy (conv-C, 0 rekordów). Użytkownik nie wiedział, co zrobić z luźnymi
+`.cpk` → `WGRAJ_DO_ISO.bat` + `tools/iso_insert.py` (okna: ISO → folder; wkłada pliki z folderu do KOPII
+ISO, odmawia ISO już załatanego i plików spoza USRDIR, czyta wgrane człony z powrotem); dostawa
+`WGRAJ_build10.zip` (Drive `1yjzP39z6qtWO457uZd4IoBG-w4zr2-Ak`, samowystarczalna: bat + 3 narzędzia +
+`KROK_1_tylko_config00/`, `KROK_2_config00_i_configst/`, `PLAN_B/V1..V6/`).
 
 **Stan 2026-10-14 późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.13–21.14):** build #8 padł jak #6;
 **bisekcja: A (`configst.cpk`) DZIAŁA — menu po angielsku; B (`config00.cpk`) PADA**; C/D/E nie testowane.

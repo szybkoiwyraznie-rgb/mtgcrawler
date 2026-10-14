@@ -3734,3 +3734,22 @@ DELIVERY `1GQUD_g9VuujLPzsrt-xsw0y3UDdm6uys`; stary zip #9 (`1Dhs36Rz…`) do ko
 dalej pada): V1 tylko `DLC_ID00` (md5 `f96e931a…`), V2 tylko `Skill00` (`a398c57f…`), V3 słowniki+sklep+
 Reference (`61856539…`), V4 `Item00` + 8 tablic stałych (`ce8d5fa6…`), V5 wszystko oprócz `DLC_ID00`
 (`092f8d88…`), V6 kontrola rozmiaru `--pad-only` (`2548c604…`). Kolejność V1, V2, V6, V3, V4, V5, wszystkie.
+
+**Uzupełnienie (2026-10-14, późna noc) — „nie rozumiem, co mam zrobić z tymi plikami":** paczka z luźnymi
+`.cpk` wymagała od użytkownika włożenia pliku do ISO — czego nie da się zrobić ręcznie. Nowe narzędzie
+`tools/iso_insert.py` + `WGRAJ_DO_ISO.bat` (okna wyboru: ISO → folder z plikami; wynik
+`srw-oe-wgrane\<folder>\patched.iso` + `wgrane_report.json`): bierze pliki leżące BEZPOŚREDNIO w folderze
+(`.txt/.json/.bat/.py` pomijane, podfoldery = osobne warianty, wypisywane jako podpowiedź), mapuje na
+`PSP_GAME/USRDIR/<nazwa>`, odmawia nazwy nieobecnej w ISO, odmawia pliku identycznego z tym w ISO, odmawia
+ISO, w którym podmieniany plik nie ma md5 oryginału 1.08 (`KNOWN_ORIGINALS`: config00 `266366c3…`, configst
+`c87e4040…`, eventP00 `5fd6eea0…`, imenu00 `bec96255…`, mesbtl00 `f614ab62…`) — żeby warianty się nie
+nakładały (`--force` tylko z CLI); po zapisie czyta każdy wgrany człon z nowego ISO i porównuje md5.
+Sprawdzone na syntetycznym ISO z PRAWDZIWYMI oryginalnymi członami: KROK 1 (config00 `266366c3…` →
+`37251325…`), KROK 2 (+configst `c87e4040…` → `ee1aae95…`), próba nałożenia na już załatane ISO = odmowa,
+wybór katalogu głównego zipa = podpowiedź podfolderów. Testy `tests/test_iso_insert.py` (14, w tym reguły
+bata jak dla HOKUS_POKUS); preset `files` w `pick_path.py`; `.gitignore` + `srw-oe-wgrane/`. Pełny zestaw:
+1 046 OK / 1 skipped.
+Dostawa zastępująca: `WGRAJ_build10.zip` (1 312 110 B, md5 `20cc4778bd000e830fc4ef352d8d5d1e`) → Drive
+DELIVERY `1yjzP39z6qtWO457uZd4IoBG-w4zr2-Ak`: `WGRAJ_DO_ISO.bat` + `tools/{pick_path,iso_insert,iso_pack}.py`
++ `KROK_1_tylko_config00/` + `KROK_2_config00_i_configst/` + `PLAN_B/V1..V6/` + `CZYTAJ.txt` (3 kroki) +
+`SZCZEGOLY_techniczne.txt`; `USRDIR_EN_build10.zip` (`1GQUD_g9…`) do kosza.

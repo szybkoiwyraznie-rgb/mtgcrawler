@@ -53,6 +53,11 @@ PRESETS = {
         "kind": "dir",
         "title": "Wybierz folder zwroconego tlumaczenia (sceny\\ i widoki\\) albo ten sam co pakiet",
     },
+    "files": {
+        "kind": "dir",
+        "title": "Wybierz folder z plikami do wgrania do ISO (np. USRDIR_EN_build10 albo "
+                 "PLAN_B_sub_pliki\\V1) - do ISO trafia to, co lezy bezposrednio w nim",
+    },
 }
 
 CHOSEN, CANCELLED, NO_DIALOG = 0, 2, 3
