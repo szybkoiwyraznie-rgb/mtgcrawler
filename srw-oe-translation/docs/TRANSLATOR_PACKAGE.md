@@ -41,7 +41,9 @@ tłumaczenie dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „E
    na trzy linie, angielski też ma się łamać na trzy linie (w tym samym miejscu mniej więcej).
    Przejścia **na samym końcu** tekstu dodają się same — nie trzeba po nich zostawiać pustej linii.
 4. **Nie tłumaczysz znaków specjalnych** — zostają dokładnie takie, jakie są: `＃` (mówca nieznany),
-   `%s`, `%%`, `＠0`, `＠1`, `＠4`, `＠6`, `＠9` (podstawiane przez grę liczby i nazwy), a także
+   `%%`, `＠0`, `＠1`, `＠4`, `＠6`, `＠9` (podstawiane przez grę liczby i nazwy), a także `%s`
+   **zgodnie z regułą z sekcji 3** (część `%s` to tokeny japońskiej kany — te znikają z angielskiego
+   tekstu razem ze znakiem, który po nich stoi; lista `tokeny.tsv` mówi, które to które), oraz
    nawiasowe podstawki w rodzaju `＜主人公名＞` (imię protagonisty wpisane przez gracza — gra
    podmienia je przy wyświetlaniu). Podstawkę kopiujesz dosłownie, bez tłumaczenia; przy liczeniu
    limitu liczy się tak, jak stoi: `＜主人公名＞` = **12 jednostek** (`＜` i `＞` po 2, cztery
@@ -301,38 +303,49 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 ```
 
 * Nazwa i opis stoją obok siebie — tłumaczysz je razem, jako jedno pojęcie.
-* Opisy efektów używają `%s` (gra wstawia liczbę/poziom) i `%%` (znak procentu) — **zostaw je**.
+* Opisy efektów używają `%s` i `%%` (znak procentu). **Uwaga: reguła `%s` zmieniła się
+  2026-10-14** — czytaj następny podrozdział, zanim wypełnisz opisy.
 * Umiejętności mają dodatkowo `[Nazwa z poziomem]` (np. `対地 Lv1`) i `[Opis skrócony]` (wersja na
   wąską listę — musi być krótka).
 
-#### Co dokładnie oznacza `%s` w opisach (i dlaczego nie trzeba zgadywać)
+#### Co dokładnie oznacza `%s` w opisach — reguła z 2026-10-14
 
-Pod `%s` w widokach kryją się **dwie różne rzeczy**, których nie da się rozróżnić wzrokiem —
-i nie trzeba, bo reguła jest jedna:
+Pod `%s` w widokach kryją się **dwie różne rzeczy**, których nie da się rozróżnić wzrokiem.
+Dotychczasowa reguła („zachowaj wszystkie `%s`") była dla drugiej z nich błędna: zachowany token
+wstawiał japoński glif w środek angielskiego zdania. Teraz zgadywać nie trzeba — w pakiecie jest
+lista **`tokeny.tsv`** (w tym samym folderze co pliki JSON), która dla każdego takiego tekstu
+pokazuje rodzaj każdego `%s`.
 
-1. **Literalny `%s` z plików gry** — własny placeholder silnika (printf). Gra wstawia w to
-   miejsce w czasie działania wyliczaną wartość (liczbę, próg, etykietę). Zmierzone co do bajtu:
-   w opisach przedmiotów jest 701 takich literalnych `%s`, w opisach umiejętności 3563
-   (same `%s` z pliku, bajty 37 115). Przykład: `改造制限解除 → %s20%s` — silnik dostawi
-   wartość przy „20"; `経験値２倍 → %s2倍`.
-2. **Token kany** — bajt sterujący `0x0F` plus drugi bajt tworzą jeden glif dźwięcznej kany
-   (np. ジ). Widok renderuje go jako `%s` (drugi bajt bywa widoczny jako znak tuż po nim,
-   np. `%s&`). Zmierzone: 44 takie bajty w opisach przedmiotów, 2115 w opisach umiejętności.
+1. **Literalny `%s` (w liście oznaczony `L`)** — własny placeholder silnika: w czasie działania
+   gra wstawia w to miejsce wyliczaną wartość (liczbę, poziom, próg). Przykład: `%s20%s`
+   (改造制限解除), `%s2倍`. **Musi zostać w angielskim tekście** — każdy co do sztuki, bez zmiany
+   kolejności względem siebie i innych tokenów (`＠0`, `%%`). Przesunięcie całego fragmentu zdania
+   razem z jego `%s` jest w porządku, zamiana `%s` miejscami — nie. W całym pakiecie jest ich
+   9 391.
+2. **Token kany (oznaczony `T`)** — bajt sterujący `0x0F` plus bajt po nim tworzą **jeden glif
+   dźwięcznej kany** (np. ダ). Widok renderuje go jako `%s`, a drugi bajt glifu często widać jako
+   znak tuż po nim (`%s*`, `%s&`, `%s4`, `%s.`…). **Musi zniknąć z angielskiego tekstu**: usuń
+   `%s` **razem z jednym znakiem, który po nim stoi**, a słowo przetłumacz naturalnie. Przykład:
+   `発動すると敵に追加%s*ﾒｰ%s&` (= 追加ダメージ) → EN `Adds damage to the enemy when activated` —
+   bez żadnego `%s`. Takich tokenów jest 217 w 119 tekstach (głównie opisy umiejętności).
+3. **Inna kontrolka (oznaczona `C`)** — rzadkie znaczniki strukturalne (np. na początku opisów
+   ksiąg referencyjnych: `%s%s解説書：戦術`). **Zostają jako `%s`** w tym samym miejscu. Jest ich 20.
 
-Narzędzie wstawiające tłumaczenie do gry rozróżnia oba przypadki **bajtem po bajcie**
-i odtwarza właściwe bajty w każdym miejscu — dlatego od tłumaczenia wymaga się tylko:
+**Jak korzystać z listy.** Każda linia to `id_tekstu <TAB> rodzaje <TAB> tekst_japoński`, rodzaje
+po przecinku w kolejności wystąpień `%s` w tekście (np. `L,T,L`). Widoki nie pokazują id —
+wpisu szukaj **po tekście japońskim** (trzecia kolumna): jp elementu widoku i jp w liście to ten
+sam napis. Zweryfikowane na całym pakiecie: ten sam tekst ma zawsze te same rodzaje (1 359 różnych
+tekstów, zero konfliktów), więc dopasowanie po tekście jest jednoznaczne.
 
-* **zachowaj wszystkie `%s`** z japońskiego: ani jednego mniej, ani więcej, żadnego dodanego;
-* **nie zamieniaj ich kolejności względem siebie** — i-ty `%s` w angielskim tekście jest
-  parowany pozycyjnie z i-tym placeholderem w bajtach japońskich. Przesunięcie całego
-  fragmentu zdania razem z jego `%s` jest w porządku, zamiana `%s` miejscami — nie;
-* tłumacz tekst **dookoła** placeholderów; zdanie musi brzmieć naturalnie z „czymś" w ich
-  miejscach (treść wstawki zna tylko silnik gry i nie jest ona potrzebna do tłumaczenia);
-* pomyłka nie przejdzie cicho: przy niezgodnej liczbie `%s` budowniczy odmawia zapisu wiersza
-  i wpisuje powód do raportu budowania.
+**Kto pilnuje poprawności.** Walidator i importer czytają `tokeny.tsv` automatycznie, jeśli plik
+leży obok JSON-ów: angielski tekst z usuniętymi tokenami kany **przechodzi**; tekst, który je
+zachował (`%s*`), jest **odrzucany** z wyjaśnieniem; brak literalnego `%s` też jest odrzucany.
+Bez listy obok pakietu obowiązuje stara ścisła reguła (wszystkie `%s` zostają) — dlatego plik
+**musi** leżeć w folderze pakietu.
 
-Uwaga: to inna reguła niż `<0x0F>` w widokach nazw (postacie/bronie) — tam `<0x0F>` **usuwamy
-razem z jednym znakiem po nim**. W opisach efektów tokeny przychodzą jako `%s` i **zostają**.
+**Znacznik `<0x0F>`** (imiona w widokach postaci i mechów, sceny) to **dokładnie ten sam** token
+kany, tylko pokazany wprost: usuwamy go razem z jednym znakiem po nim. Tekstów z tym znacznikiem
+nie ma w liście — są jednoznaczne same w sobie.
 
 ### Teksty interfejsu i misji — `teksty-config.md`, `teksty-misji.md`
 
@@ -358,7 +371,8 @@ razem z jednym znakiem po nim**. W opisach efektów tokeny przychodzą jako `%s`
 * Każde Twoje `EN:` trafia **dokładnie tam, gdzie w grze stoi tekst japoński, który stał nad nim**.
   Jeśli plik pochodzi ze starszej wersji pakietu (tekst japoński się nie zgadza), **odrzucamy go
   w całości** — nigdy nie wpiszemy tekstu w złe miejsce.
-* Tekst, który złamałby grę (znak spoza CP932, zgubiony token `＠…`/`%s`, inna liczba linii, za dużo
+* Tekst, który złamałby grę (znak spoza CP932, zgubiony obowiązkowy token `＠…`/literalny `%s`,
+  zachowany token kany `%s`, inna liczba linii, za dużo
   bajtów w polu o stałej szerokości) jest **odrzucany i wypisany** — poprawiamy i sprawdzamy ponownie.
   Powtarzanie niczego nie psuje: żaden tekst nie jest wpisywany dwa razy.
 * Powtórzenia uzupełniają się same, a ta sama nazwa użyta w kilku tabelach to nadal jedna linia `EN:`.
@@ -388,7 +402,9 @@ razem z jednym znakiem po nim**. W opisach efektów tokeny przychodzą jako `%s`
 - [ ] `mechy.md`: każda jednostka ma nazwę, serię i wszystkie bronie (nazwa + skrót).
 - [ ] Seria każdego mecha/postaci jest zapisana **raz** — pozostałe wystąpienia dziedziczą.
 - [ ] `cytaty.md`: kwestie bez mówcy przetłumaczone neutralnie.
-- [ ] `przedmioty.md` / `umiejetnosci.md`: nazwy krótkie (mieszczą się w liście), opisy z `%s`/`%%`.
+- [ ] `przedmioty.md` / `umiejetnosci.md`: nazwy krótkie (mieszczą się w liście), opisy według
+      reguły `%s` (sekcja 3): literalne `%s` z `tokeny.tsv` zachowane co do sztuki, `%s` tokenów
+      kany usunięte razem ze znakiem po nich, `%%` zostaje.
 - [ ] `teksty-misji.md`: nic nie jest dłuższe niż oryginał w bajtach.
 - [ ] Te same nazwy w różnych plikach są zapisane identycznie.
 

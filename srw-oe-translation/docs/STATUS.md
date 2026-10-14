@@ -609,3 +609,22 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   **Następny krok**: pełny przebieg na maszynie użytkownika (HOKUS_POKUS.bat: ISO + folder
   DLC + zwrócony pakiet tłumaczenia) i test w PPSSPP; do zweryfikowania w grze: szerokość
   okna dla nowych rodzajów (reguła 46 jedn. zastosowana przez analogię do dialogu).
+
+## 2026-10-14 — %s: token kany znika z EN (pytanie tłumacza załatwione twierdząco)
+
+* **Reguła (od 26c3560):** EN zachowuje wyłącznie %s-y obowiązkowe — literały `%s` silnika i
+  kontrolki funkcjonalne (\r); tokeny kany `0x0F xx` (glif dźwięcznej kany) znikają z EN razem
+  ze znakiem po %s, dokładnie jak `<0x0F>` w scenach/widokach nazw. Liczba %s w EN = liczba
+  obowiązkowych, inaczej pisarz odmawia (kontrakt deterministyczny, bez zgadywania po tekście —
+  drugie bajty glifów to cyfry/spacje/interpunkcja tak samo często jak symbole).
+* **tokeny.tsv** (tools/token_map.py, 6e21255): mapa L/T/C dla 4 098 display-form wierszy z %s
+  (L=9 391, T=217 w 119 tekstach, C=20); 0 nierozwiązanych; 0 konfliktów jp→rodzaje. Na Drive
+  w „Pakiet do tłumaczenia" i „Robocze (JSONL)" — użytkownik kładzie ją OBOK JSONL-ów.
+* **Walidator/importer** (549fa1d) czytają sidecar automatycznie: EN bez tokenów kany przechodzi,
+  z zachowanymi — odrzucany; bez sidecara stara ścisła reguła. Stare EN-y z `%s*` będą odmawiane —
+  po stronie tłumacza poprawka masowa wg listy (przed tłumaczeniem umiejętności — zgodnie z prośbą).
+* Manual §3 przepisany; README Drive v4 w trakcie synchronizacji. Suite **882 OK**.
+* Następne: ponowny przebieg scale/smoke na realnych kontenerach (pomocniki lokalne do odtworzenia)
+  i finalny patch — bez zmian wobec planu; nowa reguła %s nic w łańcuchu budowania nie łamie
+  (odmowy token-only SLA zamienią się w zapisy).
+

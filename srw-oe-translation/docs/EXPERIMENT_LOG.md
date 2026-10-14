@@ -3062,3 +3062,61 @@ fallthrough gdy subs puste; (2) config00.cpk/configst.cpk to CPK z JEDNYM member
 nie brak mechanizmu); jedyne pomijane rekordy to typy spoza zmierzonej dziewiątki (w eventP00
 nie wystąpił ani jeden) i teksty `embedded` z tabel parametrów (bez rekordu — jak dotąd
 w pakiecie 00 nie było takich wierszy).
+
+## Sesja 7 (2026-10-14), część 17 — %s w opisach: token kany znika z EN, literal zostaje (pytanie tłumacza)
+
+**Pytanie tłumacza (2026-10-13, pilne przed tłumaczeniem umiejętności):** dotychczasowa reguła
+„zachowaj każde %s" jest błędna dla tokenów kany — zachowane `%s*` wstawia japoński glif (np. ダ)
+w środek angielskiego zdania (`追加%s*ﾒｰ` = 追加ダメージ). Czy narzędzie pozwoli EN **nie zawierać**
+%s-ów kany i liczyć tylko literały? **Odpowiedź: TAK — zaimplementowane i zweryfikowane.**
+
+**Census [ZWERYFIKOWANE, realne kontenery]:** w polach tekstowych itemów/skilli (ISR), poolach
+(TW.parse_pool/parse_pool_c) i sysmes (SMSP.string_starts) jedyną kontrolką w napisach jest 0x0F
+(2 203× w 02/03, 152× w sysmes) plus 0x02 (2× w tailu Skill00); w wierszach leftover Reference00
+i dwóch event-resztkach (05) dochodzą kody 0x02-0x19 jako przedrostki strukturalne (drugi bajt
+niespójny — to nie tokeny dwubajtowe). Drugie bajty glifów 0x0F: '.' 46×, '&' 38×, '*' 42×,
+'4' 52×, '1' 49×, spacja 32×… — **nakładają się** na znaki stojące po literalnych %s (cyfry,
+\n, ＋), więc `%s4` z oka/tekstu NIE da się rozstrzygnąć: wyrównywanie „po tekście" w pisarzu
+odrzucone jako niebezpieczne (cicha utrata literałów = zepsuta gra).
+
+**Kontrakt (deterministyczny):** EN zawiera wyłącznie %s-y OBOWIĄZKOWE = literały `%s` + kontrolki
+inne niż 0x0F (np. \r czyszczące okno); tokeny kany 0x0F znikają z EN ZAWSZE (jak `<0x0F>` w
+scenach/widokach nazw — walidator od zawsze odmawia 0x0F w EN). Liczba %s w EN musi być równa
+liczbie obowiązkowych — inaczej zapis odmawia. `TW.encode_target`: kept = [k for k in kinds if
+k == b"%s" or k != KANA_TOKEN]; każdy %s z EN → kept[i] pozycyjnie; 0x0F nie jest re-emitowane
+(drugi bajt glifu nigdy nie wraca). Komunikat odmowy wymienia tokeny kany i konieczność usunięcia
+ich ze znakiem po nich.
+
+**Sidecar `tokeny.tsv` (tools/token_map.py):** display-form jp jest niejednoznaczny, więc walidator
+potrzebuje mapy z bajtów: id → rodzaje każdego %s (L/T/C) + jp(JSON). Rozwiązywanie surowca:
+(1) pola rekordów 02/03 przez ISR — **wiersze nie niosą record_offset, numer rekordu jest w id**
+(`:r33:`), a source.offset = start rekordu (run tam to binarny nagłówek — fałszywy census z rana);
+(2) plaster blob[offset:NUL] — **napisy LOGICZNE sysmes**: jeden run NUL niesie kilka napisów,
+offset wiersza jest początkiem jego własnego (pisarz _sysmes_edits tnie tak samo); (3) run
+zawierający offset (leftover/poola — offset bywa w środku runu, np. Reference00 `\x02\x05解説書…`).
+Straż na każdym kandydacie: TW.display(raw) == jp; nierozwiązane → exit 1 (fail-closed).
+**Wynik na pakiecie: 4 098/4 098 rozwiązanych, 0 nierozwiązanych**; L=9 391, T=217 (w 119
+wierszach), C=20; 147 wierszy mieszanych (jp z prawdziwym 0x0F + literałem) nie potrzebuje mapy
+(surowa forma jednoznaczna, `<0x0F>` w widokach); **1 359 różnych jp → 0 konfliktów rodzajów**
+(dopasowanie po tekście jp — bez id — jest jednoznaczne, ważne dla agentów tłumacza pracujących
+na widokach).
+
+**Walidator (translation_check):** `expected_tokens(jp, pct)` — z wpisem sidecara tokeny T wypadają
+z listy oczekiwanej (＠n, %%, literały zostają, kolejność); wpis nieświeży/brak → stara ścisła
+reguła (wsteczna zgodność). **Importer:** import_views ładuje tokeny.tsv obok pakietu, check_row
+dostaje pct — widok z EN bez tokenów przechodzi, z zachowanym `%s*` jest odrzucany PRZED zapisem.
+HOKUS_POKUS.bat bez zmian (sidecar automatyczny). Smoke na realnych danych: 119/119 wierszy z T
+przechodzi po usunięciu tokenów (EN = jp minus %s+znak), EN==jp (tokeny zachowane) odrzucony.
+
+**Konsekwencje:** stare EN-y z zachowanymi tokenami (`%s*`) będą teraz ODMAWIANE — tłumacz robi
+poprawkę masową wg listy (wstrzymywane do ich potwierdzenia); 13 odmów SLA „token-only" z przebiegu
+scale powinno zamienić się w zapisy (L==0 ↔ EN bez %s). Widoki NIE są regenerowane (tłumacz w toku
+pracy; display-form %s rozstrzyga lista, raw-form <0x0F> był jednoznaczny zawsze).
+
+**Artefakty:** tokeny.tsv (337 708 B) na Drive: Pakiet do tłumaczenia `10Vgx0YcDEZcUkaQICg7Qmoqo9X6977ny`,
+Robocze (JSONL) `13zkOFzTm3xuhcT8G7LCv13c3zyHJIDiE` (do pobrania OBOK JSONL-ów). Manual §3
+przepisany (reguła z 2026-10-14 + instrukcja listy), README Drive v4 do zsynchronizowania.
+Commity: 26c3560 (pisarz), 7f3a4f8 (generator), 549fa1d (walidator+importer), 6e21255 (realne
+dane). Suite: **882 OK (1 skipped)**. Do zrobienia: ponowny przebieg scale/smoke na kontenerach
+(lokalne pomocniki scale_fill/mkpkg przepadły przy resecie — do odtworzenia przed finalnym patchem).
+
