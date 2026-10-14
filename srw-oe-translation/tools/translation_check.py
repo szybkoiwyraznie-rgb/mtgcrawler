@@ -92,6 +92,49 @@ def expected_tokens(jp: str, pct: Optional[Tuple[str, List[str]]] = None) -> Lis
     return expected
 
 
+def kana_signatures(jp: str, pct: Optional[Tuple[str, List[str]]]) -> List[str]:
+    """How each kana token of a display-form jp looks on the page: ``%s`` plus the character
+    after it (the glyph's second byte, ``%s*`` ``%s&`` in ``%s*ﾒｰ%s&`` = ﾀﾞﾒｰｼﾞ), in order.
+
+    Empty without a sidecar entry, with a stale one (jp or ``%s`` count differs) and for jp
+    without kana tokens - the same fail-closed rule as ``expected_tokens``.
+    """
+    if pct is None:
+        return []
+    map_jp, kinds = pct
+    hits = [match for match in re.finditer(r"%s", jp)]
+    if map_jp != jp or len(kinds) != len(hits):
+        return []
+    return [jp[match.start():match.end() + 1]
+            for kind, match in zip(kinds, hits) if kind == "T"]
+
+
+def strip_kana_tokens(en: str, jp: str, pct: Optional[Tuple[str, List[str]]]) -> str:
+    """Drop from the English the kana tokens a translator copied over from the jp.
+
+    The views render a kana token ``0x0F xx`` as ``%s`` followed by the glyph's second byte,
+    so a translator who keeps every placeholder writes ``%s*%s&Damage`` for ``%s*ﾒｰ%s&``.  The
+    token draws one voiced kana glyph and has no place in an English line (``expected_tokens``
+    drops it, the writers never emit it), so each ``%s`` the sidecar marks as ``T`` is removed
+    from the English together with the character after it - but only as the exact pair the jp
+    shows (``%s*``), never a bare ``%s`` that could be a literal placeholder the English must
+    keep.  Each pair is removed once, in the order of the jp; anything else stays as written,
+    and without a matching sidecar entry the text comes back untouched.  An English that
+    already carries only the mandatory tokens is returned as is.
+    """
+    signatures = kana_signatures(jp, pct)
+    keep = jp.count("%s") - len(signatures)          # the literal/control %s the EN must carry
+    if not signatures or en.count("%s") <= keep:
+        return en
+    out = en
+    for signature in signatures:
+        position = out.find(signature)
+        if position < 0:
+            continue
+        out = out[:position] + out[position + len(signature):]
+    return out
+
+
 def same_tokens(found: List[str], expected: List[str]) -> bool:
     """``True`` when the English carries the expected tokens: same count of each, and the same
     order of every token that does something - ``%%`` is the escaped literal percent sign, it

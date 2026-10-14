@@ -128,6 +128,42 @@ class RefreshTest(unittest.TestCase):
             self.assertNotIn("痺", [r["jp"] for r in rows])
             self.assertEqual(len(rows), 6)
 
+    def test_apply_writes_the_token_sidecar_for_the_new_rows(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            package = self.package(tmp)
+            report = PRR.refresh(package, [], apply=True)
+            self.assertEqual((report["sidecar_entries"], report["sidecar_unresolved"]), (4, []))
+            sidecar = package / PRR.TM.SIDECAR_NAME
+            self.assertTrue(sidecar.is_file())
+            table = PRR.TM.load_map(sidecar)
+            rows = PRR.load_rows(package / PRR.CONFIG_FILE)
+            new = rows[2:]
+            self.assertEqual(sorted(table), sorted(r["id"] for r in new))
+            self.assertEqual(table[new[0]["id"]], ("%s*ﾒｰ%s&-", ["T", "T"]))
+            self.assertEqual(table[new[3]["id"]], ("CT%s*ﾒｰ%s&+", ["T", "T"]))
+            # a second run adds nothing and leaves the sidecar alone
+            stamp = sidecar.read_text(encoding="utf-8")
+            report = PRR.refresh(package, [], apply=True)
+            self.assertEqual((report["added"], report["sidecar_entries"]), (0, 0))
+            self.assertEqual(sidecar.read_text(encoding="utf-8"), stamp)
+
+    def test_prune_drops_the_sidecar_entries_of_the_pruned_rows(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            package = self.package(tmp)
+            tail = struct.unpack_from("<I", self.members[("config00.cpk", "srwDL_Skill00.bin")], 0)[0]
+            junk_id = f"skill:config00.cpk/srwDL_Skill00.bin:{tail}"
+            junk = {"id": junk_id, "category": "config_skill", "part": "text", "jp": "痺%s",
+                    "en": "", "mode": "grow", "max_bytes": None,
+                    "source": {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "offset": tail}}
+            with (package / PRR.CONFIG_FILE).open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(junk, ensure_ascii=False) + "\n")
+            sidecar = package / PRR.TM.SIDECAR_NAME
+            PRR.TM.write_map(sidecar, [(junk_id, "L", json.dumps("痺%s", ensure_ascii=False))])
+            PRR.refresh(package, [], apply=True, prune_stale=True)
+            table = PRR.TM.load_map(sidecar)
+            self.assertNotIn(junk_id, table)
+            self.assertEqual(len(table), 4)
+
     def test_a_missing_container_is_reported_not_fatal(self):
         del self.members[("config01.EDAT", "srwDL_Skill01.bin")]
         with tempfile.TemporaryDirectory() as tmp:

@@ -309,6 +309,12 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
                     f"{name}:{group}:{token} ({content['blocks'] + 1} linii EN — liczy się ostatnia, "
                     f"pusta: usuń nadmiarową)")
             english = restore_trailing_breaks(content["en"], element[0].get("jp") or "")
+            # a translator who keeps every placeholder copies the kana tokens too
+            # (``%s*%s&Damage`` for ``%s*ﾒｰ%s&``); the sidecar says which %s are kana tokens
+            # and they leave the English here, with the glyph byte after them (never a bare %s)
+            pct = next((token_map[row["id"]] for row in element if row.get("id") in token_map),
+                       None)
+            english = TC.strip_kana_tokens(english, element[0].get("jp") or "", pct)
             if all((row.get("en") or "") == english for row in element):
                 report["unchanged"] += 1
                 continue

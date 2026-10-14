@@ -14,6 +14,9 @@ pointer, control tokens shown as ``%s``) and appends to the package every pool s
 package does not hold for that member yet, as a normal ``grow`` row with the string's exact
 offset.  Rows already present (by member and jp) are left untouched - their shared pool-start id
 still works, the writer matches them by content.  Nothing is removed, no English is changed.
+Every added row that shows a ``%s`` gets its ``tokeny.tsv`` entry at once (``tools/token_map.py``
+resolution from the game bytes) - without it the checker would treat the kana tokens as
+mandatory placeholders and pass an English the writer refuses.
 
 The DLC pools repeat the disc pool string for string (``srwDL_Skill01-08`` = the 720 strings of
 ``srwDL_Skill00``, ``srwDL_Item01-08`` and configst's ``srwDL_Item`` = the 76 of ``srwDL_Item00``),
@@ -99,13 +102,44 @@ def containers_of(rows: Sequence[dict]) -> Dict[str, set]:
     return found
 
 
+def sidecar_entries(rows: Sequence[dict], containers: TM.Containers) -> Tuple[List[Tuple[str, str, str]],
+                                                                             List[str]]:
+    """``tokeny.tsv`` entries for the rows that need one (display-form jp with ``%s``).
+
+    A pool string written with kana tokens shows every ``0x0F xx`` as ``%s`` in the package;
+    without a sidecar entry the checker falls back to the strict rule (every ``%s`` mandatory)
+    and passes an English that still carries the kana tokens, which the writer then refuses at
+    build time - measured 2026-10-14 on the 126 fragments this tool had added without entries.
+    """
+    return TM.build_map(list(rows), containers)
+
+
+def update_sidecar(package: Path, added: Sequence[dict], removed_ids: Sequence[str],
+                   containers: TM.Containers) -> Tuple[int, List[str]]:
+    """Append the entries of ``added`` to the package's ``tokeny.tsv`` (created when missing)
+    and drop those of ``removed_ids``.  Returns (entries written, unresolved reports)."""
+    entries, unresolved = sidecar_entries(added, containers)
+    sidecar = package / TM.SIDECAR_NAME
+    existing = TM.load_map(sidecar) if sidecar.is_file() else {}
+    drop = set(removed_ids)
+    merged: Dict[str, Tuple[str, str]] = {ident: (",".join(kinds), json.dumps(jp, ensure_ascii=False))
+                                          for ident, (jp, kinds) in existing.items()
+                                          if ident not in drop}
+    for ident, kinds, jp in entries:
+        merged[ident] = (kinds, jp)
+    if not entries and not (drop & set(existing)):
+        return 0, unresolved
+    TM.write_map(sidecar, [(ident, kinds, jp) for ident, (kinds, jp) in merged.items()])
+    return len(entries), unresolved
+
+
 def refresh(package: Path, dlc_dirs: List[Path], apply: bool, prune_stale: bool = False) -> dict:
     path = package / CONFIG_FILE
     rows = load_rows(path)
     have = {((r.get("source") or {}).get("member"), r.get("jp")) for r in rows}
     containers = TM.Containers(dlc_dirs)
     report: dict = {"package": str(package), "apply": apply, "members": {}, "added": 0,
-                    "unreadable": [], "pruned": 0}
+                    "unreadable": [], "pruned": 0, "sidecar_entries": 0, "sidecar_unresolved": []}
     added: List[dict] = []
     stale_rows: List[dict] = []
     base_ids: Dict[Tuple[str, str], str] = {}        # (kind, jp) -> id of the new config00 row
@@ -154,6 +188,12 @@ def refresh(package: Path, dlc_dirs: List[Path], apply: bool, prune_stale: bool 
         with path.open("a", encoding="utf-8") as handle:
             for row in added:
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+    if apply and (added or report["pruned"]):
+        # the new rows' %s kinds go to tokeny.tsv right away (see sidecar_entries)
+        pruned_ids = [r.get("id") for r in stale_rows] if report["pruned"] else []
+        written, unresolved = update_sidecar(package, added, pruned_ids, containers)
+        report["sidecar_entries"] = written
+        report["sidecar_unresolved"] = unresolved
     return report
 
 
@@ -168,7 +208,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     report = refresh(args.package, args.dlc, apply=not args.check, prune_stale=args.prune_stale)
     print(json.dumps(report, ensure_ascii=False, indent=1))
-    return 1 if report["unreadable"] else 0
+    return 1 if report["unreadable"] or report["sidecar_unresolved"] else 0
 
 
 if __name__ == "__main__":

@@ -424,9 +424,20 @@ class TokenMapImportTest(unittest.TestCase):
                 .read_text(encoding="utf-8").splitlines()]
         self.assertEqual(rows[0]["en"], "Additional Damage")
 
-    def test_english_that_keeps_the_kana_token_is_rejected_with_the_map(self):
+    def test_a_kana_token_copied_from_the_jp_is_stripped_on_import(self):
+        # the translator kept the placeholder as the view shows it: %s plus the glyph byte
         self.sidecar()
-        report = TI.import_views(TI.read_views([self.fill_view("Additional %s* Damage")]),
+        report = TI.import_views(TI.read_views([self.fill_view("Additional %s*Damage")]),
+                                 self.package)
+        self.assertEqual((report["imported"], report["rejected"]), (1, []))
+        rows = [json.loads(line) for line in (self.package / "02_items.jsonl")
+                .read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(rows[0]["en"], "Additional Damage")
+
+    def test_a_bare_extra_placeholder_is_still_rejected_with_the_map(self):
+        # %s not followed by the jp's glyph byte could be a literal the English must keep
+        self.sidecar()
+        report = TI.import_views(TI.read_views([self.fill_view("Additional %s Damage")]),
                                  self.package)
         self.assertEqual(report["imported"], 0)
         self.assertTrue(report["rejected"])

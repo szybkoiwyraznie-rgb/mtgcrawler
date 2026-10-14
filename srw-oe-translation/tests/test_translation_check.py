@@ -70,6 +70,34 @@ class KanaSidecarTests(unittest.TestCase):
         errors, _ = TC.check_row(row("＠0%s%s&", "%s＠0"), pct=("＠0%s%s&", ["L", "T"]))
         self.assertTrue(errors)
 
+    def test_strip_kana_tokens_removes_the_copied_pairs_only(self):
+        jp = "防御時､%s*ﾒｰ%s&-"
+        pct = (jp, ["T", "T"])
+        self.assertEqual(TC.kana_signatures(jp, pct), ["%s*", "%s&"])
+        self.assertEqual(TC.strip_kana_tokens("On defense, %s*%s&damage-", jp, pct),
+                         "On defense, damage-")
+        # already clean: untouched
+        self.assertEqual(TC.strip_kana_tokens("On defense, damage-", jp, pct),
+                         "On defense, damage-")
+        # a bare %s is never removed - it could be a literal the English must keep
+        self.assertEqual(TC.strip_kana_tokens("On defense, %s damage-", jp, pct),
+                         "On defense, %s damage-")
+        # literal placeholders stay, the kana pair around them goes
+        mixed = "%s4ﾀﾞ%s*"
+        self.assertEqual(TC.strip_kana_tokens("%s4 Da%s*", mixed, (mixed, ["L", "T"])), "%s4 Da")
+        # each pair is removed once, in the order of the jp
+        self.assertEqual(TC.strip_kana_tokens("%s*%s*x", "%s*ﾀ%s*", ("%s*ﾀ%s*", ["T", "T"])), "x")
+        # no sidecar entry or a stale one: nothing happens (the checker then refuses)
+        self.assertEqual(TC.strip_kana_tokens("a%s*b", jp, None), "a%s*b")
+        self.assertEqual(TC.strip_kana_tokens("a%s*b", jp, ("inne", ["T", "T"])), "a%s*b")
+        self.assertEqual(TC.strip_kana_tokens("a%s*b", jp, (jp, ["T"])), "a%s*b")
+        # the stripped text passes the checker, the copied one does not
+        errors, _ = TC.check_row(row(jp, TC.strip_kana_tokens("On defense, %s*%s&damage-", jp, pct)),
+                                 pct=pct)
+        self.assertEqual(errors, [])
+        errors, _ = TC.check_row(row(jp, "On defense, %s*%s&damage-"), pct=pct)
+        self.assertTrue(errors)
+
     def test_a_stale_map_entry_falls_back_to_the_strict_rule(self):
         errors, _ = TC.check_row(row("AB%s&CD", "WXYZ"), pct=("inne jp", ["T"]))
         self.assertTrue(any("control tokens changed" in message for message in errors))
