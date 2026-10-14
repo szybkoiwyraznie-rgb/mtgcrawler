@@ -1,2 +1,3 @@
-# Windows batch files must keep CRLF line endings.
-*.bat text eol=crlf
+# Windows batch files must keep CRLF line endings - stored verbatim (no eol conversion),
+# so GitHub "Download ZIP" (which ignores eol attributes) also delivers CRLF.
+*.bat -text
