@@ -1,17 +1,21 @@
 # Project status
 
-Last updated: 2026-10-14 (night)
+Last updated: 2026-10-14 (late night)
 
-**Latest in-game result (2026-10-14, user, PPSSPP): build #8 (5 patched USRDIR containers) CRASHES at the
-"Loading" screen like build #6 (`memcpy` of a NULL block, PC `088e6120`). Bisection with `BISEKCJA.bat`:
-variant A (only `configst.cpk`) WORKS — the title menu is in English; variant B (only `config00.cpk`)
-CRASHES; C/D/E (eventP00, mesbtl00, imenu00) not yet tested.** Offline audit of `config00.cpk` found one
-defect: `name_table_write` treated the unit name as a 64-byte cell and so zeroed the half-width kana short
-name at +32 of all 84 unit records (real layout: name 32 B, short name 32 B, display 64 B at +140; measured
-on config00 and config01–08). Fixed in the tree together with pointer-pool record parity (originals: every
-record offset/length even). Whether the emptied short names were the crash cause is a HYPOTHESIS until the
-user re-tests variant B with the rebuilt `config00.cpk` (build #9). Earlier fixes (sysmes model, PSN id
-trailing space) are in. Details: `EXPERIMENT_LOG.md` §21.13–21.14, `HANDOFF.md` §3/§7/§9.
+**Latest in-game result (2026-10-14, user, PPSSPP): build #9 (`config00.cpk` with the unit-name fix) CRASHES
+exactly like #8/#6 at the "Loading" screen right after the DLC scan (`memcpy_jak`, `Read/Write Block at
+00000000 (sz: 0)` — per the PPSSPP source that means a `memcpy` with `bytes > 0` and a NULL `dst`/`src`).
+Bisection so far: A (`configst.cpk` only) works to the title menu; B (`config00.cpk` only) crashes with #8 and
+#9. A structural review of `srwDL_Skill00.bin` then found a real writer defect: in every convention-B record
+(Skill00/Item00/Item/Spirit/StatusChange) the u32 at `+36` is the fragment pool's position RELATIVE to the
+record (`tail_offset − record_offset`, 2230/2230 original records measured); builds #6–#9 copied it
+verbatim (and mis-read 46 as record cross references), so after growth 1468/1469 Skill00 and 274/300 Item00
+records pointed into the record area instead of the pool table. `item_skill_write` now recomputes the word
+for every record and proves it on the output (fail-closed on sources that break the rule). Build #10
+(`config00.cpk` md5 `37251325…`, `configst.cpk` md5 `ee1aae95…`) differs from #9/#8 only in those words (plus
+pool parity in configst) and is on Drive with sub-file bisection variants V1–V6 (`tools/container_mix.py`)
+as plan B. Whether this defect IS the crash cause is a HYPOTHESIS until the user re-tests variant B.
+Details: `EXPERIMENT_LOG.md` §21.13–21.15, `HANDOFF.md` §7.
 The project is NOT a finished translation; no full in-game acceptance exists.
 
 ## Target

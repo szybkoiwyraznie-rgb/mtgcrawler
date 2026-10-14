@@ -5,10 +5,16 @@ The record layout is the one measured by ``item_skill_records``: twenty u16 para
 field boundaries at +40, one more parameter word, the five NUL-terminated fields, then the numeric
 tail.  Because the boundaries are explicit, growing a field only means rebuilding the record: the
 member's record-offset table and its ``tail_offset`` are re-derived, and everything after the record
-shifts.  One more thing points at text: the fragment pool behind the records starts with its own
+shifts.  Two more things point at text.  The fragment pool behind the records starts with its own
 table of **absolute** string offsets (``item_skill_records.parse_tail_pool``), so the rebuild
 re-points that table at the pool's new home - copied verbatim it would send the game into the
-record area.  The pool strings themselves are translated by :func:`apply_tail_pool` (the
+record area.  And **every record carries the pool's position at +36**, as a u32 *relative to the
+record start* (``tail_offset - record_offset``; measured 2230/2230 records of the five original
+members 2026-10-14 - Skill00 1469, Item00 300, Item 300, StatusChange 101, Spirit 60).  A rebuild
+moves both the record and the pool, so the word is recomputed for every record; builds #6-#9
+copied it verbatim (and mis-read 46 of them as record cross references), which left the game a
+pool pointer landing inside the record area - the crash candidate under test since build #10.
+The pool strings themselves are translated by :func:`apply_tail_pool` (the
 orchestrator's ``tail-pool`` step): the strings are rewritten at any length and the table
 recomputed, exactly as ``table_write`` does for the convention-C DLC members.
 
@@ -51,10 +57,29 @@ import table_write as TW  # noqa: E402
 PARAM_WORDS = 20           # parameter words before the boundary table
 BOUNDARY_BYTES = 12        # six u16 field boundaries
 PREAMBLE_WORD = 26         # the parameter word sitting between the boundaries and the fields
+POOL_POINTER = 36          # u32: the fragment pool's offset relative to the record start
 
 
 class WriteError(Exception):
     """The member or the edit list cannot be rebuilt safely."""
+
+
+def pool_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
+    """Records whose u32 at +36 is not ``tail_offset - record_offset``.
+
+    Empty for all 2230 records of the five original convention-B members (measured 2026-10-14);
+    a non-empty list means the layout is not the understood one and the member must be refused.
+    """
+    tail_offset = parsed["tail_offset"]
+    faults = []
+    for row in parsed["records"]:
+        offset = row["offset"]
+        if offset + POOL_POINTER + 4 > len(blob):
+            faults.append(row["record"])
+            continue
+        if struct.unpack_from("<I", blob, offset + POOL_POINTER)[0] != tail_offset - offset:
+            faults.append(row["record"])
+    return faults
 
 
 def encode(text: str) -> bytes:
@@ -104,25 +129,30 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
     unknown = sorted(set(edits) - set(range(len(rows))))
     if unknown:
         raise WriteError(f"{member or kind}: edits reference unknown records {unknown[:5]}")
+    # the u32 at +36 of every record is the fragment pool's position relative to the record
+    # (tail_offset - record_offset, 2230/2230 original records); a source that breaks the rule
+    # is a layout this writer does not understand - refuse it rather than guess
+    faults = pool_pointer_faults(blob, parsed)
+    if faults:
+        raise WriteError(f"{member or kind}: {len(faults)} record(s) {faults[:5]} do not carry "
+                         f"the pool pointer (tail_offset - offset) at +{POOL_POINTER}; "
+                         f"the member is refused")
     records = [rebuild_record(row, edits.get(row["record"], {})) for row in rows]
     count = len(records)
     offsets, position = [], 8 + 4 * count
     for record in records:
         offsets.append(position)
         position += len(record)
-    # every record word at +36 that holds the offset of another record is a mutual cross
-    # reference (measured 62/62 on Spirit, StatusChange, Item00 and Skill00): after a rebuild
-    # the offsets move, so the word has to point at the record's new home
-    old_to_new = {row["offset"]: new for row, new in zip(rows, offsets)}
-    remapped = 0
+    # records and pool both move: every record's pool pointer is recomputed for the new layout
+    # (builds #6-#9 copied the old value verbatim, which pointed into the record area)
+    rewritten = 0
     patched = []
-    for record in records:
+    for record, offset in zip(records, offsets):
         rec = bytearray(record)
-        if len(rec) >= 40:
-            word = struct.unpack_from("<I", rec, 36)[0]
-            if word in old_to_new and old_to_new[word] != word:
-                struct.pack_into("<I", rec, 36, old_to_new[word])
-                remapped += 1
+        pointer = position - offset
+        if struct.unpack_from("<I", rec, POOL_POINTER)[0] != pointer:
+            struct.pack_into("<I", rec, POOL_POINTER, pointer)
+            rewritten += 1
         patched.append(bytes(rec))
     # the fragment pool keeps its strings but its pointer table holds absolute offsets: it is
     # rebuilt at the new tail position (an unparseable pool refuses the member - fail closed)
@@ -135,9 +165,23 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
     out = (struct.pack("<2I", position, count)
            + b"".join(struct.pack("<I", offset) for offset in offsets)
            + b"".join(patched) + tail_pool)
+    # prove it on the result: same record count, every pool pointer right, the pool parses
+    after = ISR.parse_member(out, kind, member)
+    if after["errors"] or len(after["records"]) != count or after["tail_offset"] != position:
+        raise WriteError(f"{member or kind}: the rebuilt member does not parse back "
+                         f"({after['errors'][:2]}); the member is refused")
+    if pool_pointer_faults(out, after):
+        raise WriteError(f"{member or kind}: pool pointers wrong after the rebuild; "
+                         f"the member is refused")
+    try:
+        _, check_strings = ISR.parse_tail_pool(out, position)
+    except ValueError as exc:
+        raise WriteError(f"{member or kind}: the rebuilt pool does not parse ({exc})") from exc
+    if check_strings != pool_strings:
+        raise WriteError(f"{member or kind}: the rebuilt pool lost strings; the member is refused")
     report = {"member": member, "kind": kind, "records": count,
               "edited_records": len(edits), "edited_roles": sum(len(v) for v in edits.values()),
-              "cross_refs_remapped": remapped, "pool_strings": len(pool_strings),
+              "pool_pointers_rewritten": rewritten, "pool_strings": len(pool_strings),
               "pool_shift": position - parsed["tail_offset"],
               "old_size": len(blob), "new_size": len(out)}
     return out, report

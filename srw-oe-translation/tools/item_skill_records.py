@@ -22,7 +22,11 @@ Record layout (identical for items and skills)::
     +2   u16   linked id (equal to +4 in 300/300 records)       | skill: second family field (254)
     +4   u16   copy of the linked id                            | skill: record id, UNIQUE (1469/1469)
     +6   u16   item: 5 distinct values (0..4)                   | skill: level (65535 seed + 0..10)
-    +8..+39    parameter area (u16 fields, item-specific)
+    +8..+35    parameter area (u16 fields, item-specific)
+    +36  u32   **pool pointer**: ``tail_offset - record_offset``, i.e. the fragment pool's position
+               relative to the record start (2230/2230 records of Skill00/Item00/Item/
+               StatusChange/Spirit, measured 2026-10-14) - a rebuild that moves records or the
+               pool recomputes it for every record (``item_skill_write.rebuild_member``)
     +40  6 u16 field boundaries b0..b5 (b0 == 54 in all 1769 records) delimiting **five**
          NUL-terminated text fields: [name, name_level, effect, effect_brief, label]
     then  the numeric tail (u16 parameters after the last field, i.e. after b5)

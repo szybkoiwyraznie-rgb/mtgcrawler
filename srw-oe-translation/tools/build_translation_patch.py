@@ -25,7 +25,7 @@ offsets honest:
    2026-10-14), so its strings are rewritten at any length and the table recomputed - *before*
    the record rebuild, which then moves the whole pool and re-points its table;
 3. the record writers: :mod:`item_skill_write` (items/skills/spirits/status changes, growing the
-   record region and remapping the ``+36`` cross references) and :mod:`table_write` (the
+   record region and recomputing every record's ``+36`` pool pointer) and :mod:`table_write` (the
    dictionary/pool families, growing);
 4. :mod:`name_table_write` for the fixed name cells (charalist/unit_list/wp_list);
 5. ``sysmes.bin`` through :mod:`sysmes_pack` (the sequential pool is rewritten string by

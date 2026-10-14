@@ -113,6 +113,18 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
+**Stan 2026-10-14 bardzo późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.15):** build #9 w wariancie B **padł
+identycznie** (`memcpy_jak`, NULL + `bytes>0`). Znaleziona pewna usterka pisarza: w rekordach conv-B
+(Skill00/Item00/Item/Spirit/StatusChange) u32 pod **+36 = `tail_offset − offset_rekordu`** (wskaźnik puli
+względem rekordu; 2230/2230 w oryginałach), a `item_skill_write` kopiował go bez zmian po przesunięciu
+rekordów (1468/1469 złych w Skill00). Naprawione (`POOL_POINTER`, `pool_pointer_faults`, dowód na wyniku,
+odmowa źródła łamiącego regułę). **Build #10** (`config00` md5 `37251325…`, `configst` md5 `ee1aae95…`) na
+Drive DELIVERY `1GQUD_g9VuujLPzsrt-xsw0y3UDdm6uys` z `CZYTAJ.txt`: KROK 1 = wariant B z nowym `config00`,
+KROK 2 = oba, PLAN B = warianty V1–V6 z `tools/container_mix.py` (bisekcja sub-plików `.pac`: `--take`/
+`--keep`/`--pad-only`, raport `.mix.json`). Czy +36 było przyczyną crasha — **hipoteza do testu**. Pytanie
+otwarte: czy wariant A (configst z tym samym błędem w Item/Spirit/StatusChange) przeszedł „Loading" do gry.
+DLC `config01..08` błąd nie dotyczy (conv-C, 0 rekordów).
+
 **Stan 2026-10-14 późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.13–21.14):** build #8 padł jak #6;
 **bisekcja: A (`configst.cpk`) DZIAŁA — menu po angielsku; B (`config00.cpk`) PADA**; C/D/E nie testowane.
 Audyt `config00` oryginał↔build: jedyny ubytek = 84 skrócone nazwy jednostek (kana, `unit_list00` +32)

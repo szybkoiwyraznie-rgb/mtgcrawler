@@ -3671,3 +3671,66 @@ Drive (folder DELIVERY `1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr`): `USRDIR_EN_build9_c
 (`1Dhs36Rzepzxk1HFFeZFC401Sis4T1ptG`, 152 293 B, md5 zipa `eb871c65ef54375d7d086f7f6f9d19e9`; w środku
 `config00.cpk` + `CZYTAJ.txt` + raport buildera). Instrukcja dla użytkownika: wariant B jeszcze raz
 (oryginalne ISO + ten jeden `config00.cpk`, DLC oryginalne); gdy działa → C, D, E po jednym.
+
+### 21.15 Build #9 w grze: TEN SAM crash. Znaleziona konkretna usterka: wskaźnik puli (+36) w rekordach conv-B
+
+**Zgłoszenie użytkownika (2026-10-14, noc):** wariant B z buildem #9 (`config00.cpk` md5 `d42e1493…`) pada
+identycznie jak #8: `CRC ff27f085`, `Read/Write Block at 00000000 (sz: 0)`, PC `08b6af1c`, wątek
+`SazThread:0x88a5b78`, stos `memcpy_jak ← 08b3d554+08c ← 08b3d3f8+044 ← 088e60d0+050 ← 088e0b48+484 ←
+088a5b78+078 ← 08b40908+018`. Wniosek: wyzerowane skrócone nazwy jednostek (§21.14) były realnym ubytkiem,
+ale NIE przyczyną crasha.
+
+**Co znaczy „(sz: 0)" (źródła PPSSPP, `Core/HLE/ReplaceTables.cpp` i `Core/MemMapFunctions.cpp`,
+master):** `Replace_memcpy_jak` przy `bytes == 0` wraca od razu, zanim sprawdzi wskaźniki; wyjątek
+„Block at … (sz: 0)" rzuca `GetPointerWriteOrException`/`GetPointerOrException` z komentarzem *„Size is not
+known, we pass 0 to signal that"*. Czyli: `memcpy` z `bytes > 0` i `dst` lub `src == 0x00000000`
+[ZWERYFIKOWANE w źródle emulatora].
+
+**Audyty offline, które nic nie dały** (żadnego zapisu, tylko porównania oryginał↔build9): luz komórek
+stałych (czysty), katalog/wyrównanie `.pac` (identyczne), skan zewnętrznych indeksów offsetów do
+przebudowanych pul (brak), diff `DLC_ID00` (tylko tekst), skan `%`/tokenów/kontrolek w EN (brak zagrożeń).
+
+**Nowe narzędzie `tools/container_mix.py`** (bisekcja na poziomie sub-plików `.pac`): `--original`/`--built`,
+`--take GLOB…` (sub-pliki z buildu), `--keep GLOB…` (zostają oryginalne, wygrywa), `--pad-only` (oryginalne
+sub-pliki, `.pac` dopchany zerami do rozmiaru buildu — kontrola „sam rozmiar"), `--list`, `--out` + raport
+`<out>.mix.json` (nazwy, rozmiary, md5 — bez treści). `--take "*"` odtwarza build bajt w bajt (sprawdzone
+na #9 i #10), nic nie wzięte = oryginał bajt w bajt. Testy `tests/test_container_mix.py` (7).
+
+**USTERKA ZNALEZIONA przy przeglądzie struktury `srwDL_Skill00.bin` oryginał↔build:** w 46 rekordach różnił
+się nagłówek (bajty +36..+39) — stary pisarz „przemapowywał" je jako *wzajemne odwołania między rekordami*
+(komentarz „measured 62/62"). Sprawdzenie wartości: w oryginale u32 pod +36 maleje o długość rekordu z
+rekordu na rekord, bo **`+36 == tail_offset − offset_rekordu`** — wskaźnik na pulę fragmentów WZGLĘDEM
+początku rekordu. Zmierzone na wszystkich pięciu oryginalnych członkach conv-B: Skill00 1469/1469,
+Item00 300/300, Item 300/300, StatusChange 101/101, Spirit 60/60 = **2230/2230** [ZWERYFIKOWANE]. Owe „62
+wzajemne odwołania" to zbiegi okoliczności (`tail_offset − offset_i` trafiające w `offset_j`). W buildach
+#6–#9 pisarz kopiował słowo bez zmian (a 46 „przemapował" w złe miejsce): po przebudowie błędny wskaźnik
+ma 1468/1469 rekordów Skill00 i 274/300 Item00 (config00) oraz 274/300 Item, 92/101 StatusChange, 60/60
+Spirit (configst, build #8). Gra idąca po `rekord + słowo` trafia w obszar rekordów zamiast w tablicę puli
+— spójne z `memcpy` o zerowym adresie zaraz po skanie DLC. **Czy to JEST przyczyna crasha — hipoteza do
+testu w grze**; usterka sama w sobie jest pewna. Zagadka: wariant A (configst z tym samym błędem w
+Item/Spirit/StatusChange) „działał" — pytanie do użytkownika, czy A przeszedł przez „Loading" do menu/gry.
+
+**Poprawka (`tools/item_skill_write.py`):** `POOL_POINTER = 36`; `pool_pointer_faults(blob, parsed)`
+(lista rekordów łamiących regułę); `rebuild_member` odmawia członka, którego ŹRÓDŁO łamie regułę (układ
+niezrozumiany → nie zgadujemy), po przebudowie wpisuje `nowy_tail − nowy_offset` w każdy rekord, a potem
+dowodzi na wyniku: parsuje się, ta sama liczba rekordów, `tail_offset` zgodny, 0 błędnych wskaźników, pula
+czyta się do tych samych napisów. Raport: `pool_pointers_rewritten` (zamiast `cross_refs_remapped`).
+Testy `PoolPointerTest` (fixture `build_member` ustawia wskaźniki jak gra; wzrost → wszystkie wskaźniki
+poprawne; identyczność bez edycji; odmowa źródła łamiącego regułę). Docstring `item_skill_records`
+poprawiony (+36 to u32 wskaźnik puli, nie „parametry"). Pełny zestaw: 1 032 OK / 1 skipped.
+
+**Build #10** (`--dlc local/usrdir --package local/translation --out local/build10 --only config00.cpk
+configst.cpk`, 4 s): `config00.cpk` 948 352 B md5 `372513258059c47217013e0fce138d78`; `configst.cpk`
+374 912 B md5 `ee1aae959b68fc356a68b0fa86076f57`. Różnica wobec #9/#8 **wyłącznie** w słowach +36 pięciu
+członków conv-B (0 bajtów różnicy poza nimi, sprawdzone z maską), w configst dodatkowo parzyste wyrównanie
+pul `Skill_Tag`/`Achievement` (reguła z §21.14, której #8 jeszcze nie miał). 0 błędnych wskaźników w pięciu
+członkach. DLC `config01..08` nietknięte przez błąd (ich `Skill/ItemNN` to conv-C: tabela od +8, 0
+rekordów) — build #9 DLC pozostaje aktualny.
+
+**Dostawa:** `USRDIR_EN_build10.zip` (1 127 997 B, md5 `76d117e3bdd29334c46979c7ed6a0b71`) → Drive
+DELIVERY `1GQUD_g9VuujLPzsrt-xsw0y3UDdm6uys`; stary zip #9 (`1Dhs36Rz…`) do kosza. W środku: `config00.cpk`,
+`configst.cpk`, raport buildera, `CZYTAJ.txt` (KROK 1 = wariant B z nowym `config00`; KROK 2 = oba), oraz
+`PLAN_B_sub_pliki/V1..V6` — warianty `config00.cpk` z `container_mix` na bazie buildu #10 (tylko gdy KROK 1
+dalej pada): V1 tylko `DLC_ID00` (md5 `f96e931a…`), V2 tylko `Skill00` (`a398c57f…`), V3 słowniki+sklep+
+Reference (`61856539…`), V4 `Item00` + 8 tablic stałych (`ce8d5fa6…`), V5 wszystko oprócz `DLC_ID00`
+(`092f8d88…`), V6 kontrola rozmiaru `--pad-only` (`2548c604…`). Kolejność V1, V2, V6, V3, V4, V5, wszystkie.
