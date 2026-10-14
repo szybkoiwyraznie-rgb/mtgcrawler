@@ -71,6 +71,26 @@ class BisekcjaBatRuleTests(unittest.TestCase):
         raw.decode("ascii")
         self.assertNotIn(b"\n", raw.replace(b"\r\n", b""))
 
+    def test_substring_of_a_possibly_undefined_variable_is_never_parsed(self):
+        """cmd.exe phase-1 rule: `%VAR:...%` with VAR undefined removes only `%VAR:` and keeps
+        scanning, so `if defined INIT if "%INIT:~-1%"=="\\" set "INIT=%INIT:~0,-1%"` turned into
+        `if defined INIT if "~-1INIT:~0,-1"` and aborted the whole script with "The syntax of the
+        command is incorrect" (user, 2026-10-14, Windows 10 1709, first :pick with an empty
+        start folder).  The guard must be a goto, never `if defined X ... %X:...%` on one line."""
+        text = self._text()
+        for line in text.split("\r\n"):
+            if line.lstrip().lower().startswith("rem"):
+                continue
+            m = re.search(r"if defined (\w+)\b", line, re.I)
+            if m:
+                self.assertNotIn("%" + m.group(1) + ":", line, line)
+        self.assertIn('set "INIT=%~3"\r\nif not defined INIT goto :pick_run\r\n'
+                      'if "%INIT:~-1%"=="\\" set "INIT=%INIT:~0,-1%"\r\n:pick_run\r\n', text)
+        # rem lines must not carry percent signs either: phase 1 expands them before REM is seen
+        for line in text.split("\r\n"):
+            if line.lstrip().lower().startswith("rem"):
+                self.assertNotIn("%", line, line)
+
     def test_window_stays_open_even_after_a_parse_error(self):
         """2026-10-14: the user double-clicked the bat and the console flashed and vanished,
         so no error text could be read.  The bat relaunches itself once under `cmd /k`

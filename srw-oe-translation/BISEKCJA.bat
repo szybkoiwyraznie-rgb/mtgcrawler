@@ -170,8 +170,12 @@ rem ----------------------------------------------------------------------------
 :pick
 set "%~2="
 if exist "%PICK%" del "%PICK%" >nul 2>&1
+rem folder startowy bez koncowego "\". Linia z podciagiem INIT:~ tylko gdy INIT zdefiniowane
+rem (podciag niezdefiniowanej zmiennej = smieci + fatalny blad skladni cmd) - stad goto.
 set "INIT=%~3"
-if defined INIT if "%INIT:~-1%"=="\" set "INIT=%INIT:~0,-1%"
+if not defined INIT goto :pick_run
+if "%INIT:~-1%"=="\" set "INIT=%INIT:~0,-1%"
+:pick_run
 %PY% tools\pick_path.py %~1 --out "%PICK%" --initial "%INIT%"
 if errorlevel 3 goto :pick_typed
 if errorlevel 2 (

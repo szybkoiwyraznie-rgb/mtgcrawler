@@ -3573,3 +3573,22 @@ więc okno zostaje otwarte po każdym błędzie; drukują folder i `ver`; sprawd
 `pick_choice.py`: `deiconify/lift/focus_force` przed `mainloop`. Testy: 1013 OK / 1 skipped.
 Plan B dla użytkownika bez pobierania: pasek adresu Eksploratora → `cmd` → `HOKUS_POKUS` (okno nie znika).
 
+### 21.11 Przyczyna „okienko miga i znika" ZNALEZIONA: podciąg niezdefiniowanej zmiennej w `:pick`
+Po wersji z `cmd /k` użytkownik przysłał ekran (Windows 10 **1709**, build 16299.125): po „Otwieram okno
+wyboru…" od razu `The syntax of the command is incorrect.` i koniec skryptu — fatalny błąd składni w
+pierwszym `call :pick iso ISO ""`. Winna linia:
+`if defined INIT if "%INIT:~-1%"=="\" set "INIT=%INIT:~0,-1%"` wykonywana, gdy INIT jest PUSTE (okno ISO
+bez folderu startowego). Reguła fazy 1 cmd.exe (dbenham/jeb, SO 4094699, pkt 1.3): dla niezdefiniowanej
+zmiennej z dwukropkiem cmd usuwa **tylko `%INIT:`** i skanuje dalej, więc następny `%` paruje się z kolejnym —
+linia staje się `if defined INIT if "~-1INIT:~0,-1"` (bez `==` i bez polecenia), a IF z błędem składni jest
+fatalny i przerywa cały batch, choć warunek `if defined` był fałszywy (IF parsuje swój blok zawsze).
+Dowód pośredni: ten sam mechanizm opisuje komentarz w Wine `WCMD_expand_envvar` („%garbage:1,3% results in
+anything after the ':' except the %"). Stara wersja (`set /p`) nie miała tej linii, stąd działała.
+Poprawka (`HOKUS_POKUS.bat`, `BISEKCJA.bat`): `if not defined INIT goto :pick_run` PRZED linią z podciągiem
+(linia nie jest czytana, gdy INIT puste), etykieta `:pick_run` przed wywołaniem `pick_path.py`; `rem`-y bez
+znaku `%` (faza 1 rozwija procenty także w komentarzach). Test
+`test_substring_of_a_possibly_undefined_variable_is_never_parsed` (oba baty): zakaz `if defined X … %X:…%`
+w jednej linii, wymagany wzorzec goto, zakaz `%` w `rem`. Pozostałe `%X:"=%` (ISO/DLC/PACKAGE/TRANSLATION/
+CHOICE) są czytane tylko po zdefiniowaniu X (anulowanie okna → `goto :finish` wcześniej). Testy 1015 OK.
+Nie sprawdzone w cmd.exe (brak w sandboxie) — czeka na uruchomienie u użytkownika.
+

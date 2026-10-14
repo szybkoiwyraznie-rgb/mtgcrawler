@@ -153,9 +153,14 @@ rem ----------------------------------------------------------------------------
 :pick
 set "%~2="
 if exist "%PICK%" del "%PICK%" >nul 2>&1
-rem folder startowy bez koncowego "\" - inaczej \" na koncu argumentu zjada cudzyslow
+rem folder startowy bez koncowego "\" - inaczej \" na koncu argumentu zjada cudzyslow.
+rem UWAGA: linia z INIT:~ (podciag) moze byc czytana TYLKO gdy INIT jest zdefiniowane - cmd
+rem rozwija podciag niezdefiniowanej zmiennej do smieci i wywala caly skrypt bledem skladni
+rem ("The syntax of the command is incorrect", 2026-10-14). Dlatego goto, nie "if defined".
 set "INIT=%~3"
-if defined INIT if "%INIT:~-1%"=="\" set "INIT=%INIT:~0,-1%"
+if not defined INIT goto :pick_run
+if "%INIT:~-1%"=="\" set "INIT=%INIT:~0,-1%"
+:pick_run
 %PY% tools\pick_path.py %~1 --out "%PICK%" --initial "%INIT%"
 if errorlevel 3 goto :pick_typed
 if errorlevel 2 (

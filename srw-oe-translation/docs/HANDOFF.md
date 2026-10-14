@@ -218,6 +218,10 @@ python tools\sysmes_pack.py <in.cpk> <out.cpk>          # DEFAULT_EDITS tytułu,
 - `coverage_audit.py` jest ślepy na fragmenty rozcięte bajtem sterującym (akceptuje podciągi) —
   „0 brakujących” dla pul config było fałszywe.
 - Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.
+- cmd.exe: `%X:~…%`/`%X:a=b%` dla NIEZDEFINIOWANEGO X usuwa tylko `%X:` i skanuje dalej → linia zamienia
+  się w śmieci; w `if` to fatalny błąd składni („The syntax of the command is incorrect"), nawet gdy
+  warunek `if defined X` jest fałszywy. Guard = `if not defined X goto :dalej` w osobnej linii. Bez `%` w `rem`.
+  (HOKUS_POKUS `:pick`, 2026-10-14, Windows 10 1709.)
 - `.bat` z `set /p` na ścieżkę = błąd zgłaszany przez użytkownika (dwukrotnie). Zawsze okno wyboru
   (`tools/pick_path.py`, `call :pick`). W argumentach dla Pythona folder bez końcowego `\` przed
   cudzysłowem (`"D:\x\"` → `\"` zjada cudzysłów).
