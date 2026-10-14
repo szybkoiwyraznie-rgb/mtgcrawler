@@ -73,6 +73,13 @@ def _tk_root():
         root.attributes("-topmost", True)
     except tkinter.TclError:
         pass
+    # Bring the (hidden) owner to the front so the dialog it owns opens in front of the
+    # console instead of behind it (reported as "the window flashes and nothing happens").
+    for step in ("update", "lift", "focus_force"):
+        try:
+            getattr(root, step)()
+        except Exception:
+            pass
     return root
 
 
@@ -86,10 +93,11 @@ def choose(kind: str, title: str, initial: Optional[Path] = None,
     initialdir = str(initial) if initial is not None and Path(initial).is_dir() else None
     try:
         if kind == "dir":
-            chosen = filedialog.askdirectory(title=title, initialdir=initialdir, mustexist=True)
+            chosen = filedialog.askdirectory(parent=root, title=title, initialdir=initialdir,
+                                             mustexist=True)
         else:
             chosen = filedialog.askopenfilename(
-                title=title, initialdir=initialdir,
+                parent=root, title=title, initialdir=initialdir,
                 filetypes=filetypes or [("Wszystkie pliki", "*.*")])
     except Exception:  # Tk raised while opening - treat as "no dialog here"
         return None

@@ -103,6 +103,11 @@ def choose(title: str, options: Sequence[Tuple[str, str]]) -> Tuple[int, Optiona
     root.update_idletasks()
     root.geometry("+%d+%d" % ((root.winfo_screenwidth() - root.winfo_reqwidth()) // 2,
                               (root.winfo_screenheight() - root.winfo_reqheight()) // 3))
+    for step in ("deiconify", "lift", "focus_force"):  # in front of the console window
+        try:
+            getattr(root, step)()
+        except Exception:
+            pass
     root.mainloop()
     return result["code"], result["value"]
 

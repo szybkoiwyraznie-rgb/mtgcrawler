@@ -22,9 +22,20 @@ rem  Okna wyboru: tools\pick_path.py (sciezki) i tools\pick_choice.py (lista).
 rem ============================================================================
 setlocal
 cd /d "%~dp0"
+rem --- Okno NIE ZNIKA po bledzie: pierwsze uruchomienie (dwuklik) odpala ten sam plik
+rem     jeszcze raz przez "cmd /k", wiec kazdy komunikat - takze o bledzie skladni czy
+rem     braku pliku - zostaje na ekranie, dopoki sam nie zamkniesz okna (zrzut ekranu!).
+if not defined SRWOE_KEEP_WINDOW set "SRWOE_KEEP_WINDOW=1" & cmd /k ""%~f0" %*" & exit /b
+echo [BISEKCJA] folder: %~dp0
+ver
 chcp 65001 >nul
 set "PYTHONIOENCODING=utf-8"
 set "RESULT=1"
+if not exist "tools\pick_path.py" (
+  echo Brak tools\pick_path.py obok tego pliku - skopiuj CALY folder srw-oe-translation z zipa,
+  echo nie sam plik .bat.
+  goto :finish
+)
 
 set "PY="
 py -3 -c "import sys" >nul 2>&1
@@ -49,6 +60,7 @@ set "CHOICE=%~5"
 if not defined ISO (
   echo.
   echo Otwieram okno wyboru - wskaz w nim swoje ISO gry ^(wersja 1.08^).
+  echo ^(Jesli okna nie widac - jest za tym oknem albo miga na pasku zadan.^)
   call :pick iso ISO ""
   if errorlevel 1 goto :finish
 )
@@ -147,6 +159,7 @@ if "%RESULT%"=="0" (
 )
 echo.
 pause
+echo Mozesz zamknac to okno.
 endlocal & exit /b %RESULT%
 
 rem ----------------------------------------------------------------------------

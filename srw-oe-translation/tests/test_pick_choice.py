@@ -71,6 +71,18 @@ class BisekcjaBatRuleTests(unittest.TestCase):
         raw.decode("ascii")
         self.assertNotIn(b"\n", raw.replace(b"\r\n", b""))
 
+    def test_window_stays_open_even_after_a_parse_error(self):
+        """2026-10-14: the user double-clicked the bat and the console flashed and vanished,
+        so no error text could be read.  The bat relaunches itself once under `cmd /k`
+        (before anything else can fail) so every message stays on screen."""
+        text = self._text()
+        keep = 'if not defined SRWOE_KEEP_WINDOW set "SRWOE_KEEP_WINDOW=1" & cmd /k ""%~f0" %*" & exit /b'
+        self.assertIn(keep, text)
+        body = text.split("setlocal\r\n", 1)[1]
+        self.assertLess(body.index(keep), body.index("chcp 65001"))  # before chcp / python
+        self.assertIn('if not exist "tools\\pick_path.py" (', text)  # a lone .bat copied out of the zip
+        self.assertIn("\r\nver\r\n", text)  # Windows version in the screenshot
+
     def test_paths_and_variant_come_from_windows(self):
         text = self._text()
         for line in ("call :pick iso ISO", "call :pick dlc DLC", "call :pick package PACKAGE",

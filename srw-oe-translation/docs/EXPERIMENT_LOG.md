@@ -3557,3 +3557,19 @@ nowa (`1oWDZ_NFDjHqhHKc-bSE1z4AgAB-p9fH6`); zip DLC z #6 przemianowany na `…_S
 (DLC nie da się przebudować w sandboxie — brak plików; użytkownik buduje `HOKUS_POKUS.bat`).
 Commit `58987b2` na `arena/c0e5c9d1-mtgcrawler` (narzędzia, testy 1011 OK, BISEKCJA.bat, docs).
 **W grze nic z tego jeszcze nie sprawdzono.**
+
+### 21.10 Zgłoszenie: „nowy HOKUS_POKUS — okienko miga i znika" (2026-10-14, późny wieczór)
+Użytkownik po podmianie folderu z zipa: dwuklik na `HOKUS_POKUS.bat` → okno konsoli na ułamek
+sekundy, nic więcej. Sprawdzone offline: plik w zipie GitHuba = plik w repo bajt w bajt (6 319 B,
+MD5 `1c846c81…`, CRLF, ASCII, bez BOM); treść identyczna modulo CR z wersją `1426a09`; każda ścieżka
+logiczna skryptu kończy się `pause`, więc zniknięcie okna oznacza przerwanie batcha przed `pause`
+(błąd składni zależny od środowiska, nieznaleziona etykieta, plik 0 B po kopiowaniu, blokada AV /
+SmartScreen) — **przyczyna NIEZNANA**, bez cmd.exe w sandboxie nie da się jej odtworzyć. Hipoteza
+alternatywna: miga ukryte okno główne Tk, a dialog pliku otwiera się ZA konsolą.
+Zmiany (żeby następny raport zawierał tekst błędu, nie opis): `HOKUS_POKUS.bat` i `BISEKCJA.bat`
+odpalają się raz jeszcze przez `cmd /k ""%~f0" %*"` (zmienna `SRWOE_KEEP_WINDOW`) zaraz po `setlocal`,
+więc okno zostaje otwarte po każdym błędzie; drukują folder i `ver`; sprawdzają `tools\pick_path.py`
+(sam `.bat` skopiowany z zipa). `pick_path.py`: `parent=root`, `update/lift/focus_force` przed dialogiem;
+`pick_choice.py`: `deiconify/lift/focus_force` przed `mainloop`. Testy: 1013 OK / 1 skipped.
+Plan B dla użytkownika bez pobierania: pasek adresu Eksploratora → `cmd` → `HOKUS_POKUS` (okno nie znika).
+

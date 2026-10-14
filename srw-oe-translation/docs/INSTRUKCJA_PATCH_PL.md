@@ -95,6 +95,15 @@ i treść okna konsoli (albo zrzut ekranu). Oryginały są nietknięte, skrypt m
   ładują się bez zacięć; menu DLC (`DLC_ID`) — czy pozycje listy wyglądają normalnie.
   Zrzut ekranu + nazwa scenki/menu wystarczą, żeby to naprawić.
 
+### Gdy okno `.bat` miga i znika
+
+Od wersji z 2026-10-14 (noc) `HOKUS_POKUS.bat` i `BISEKCJA.bat` same otwierają się ponownie w trybie,
+w którym okno **nie zamyka się** po błędzie — zostaje tekst do zrzutu ekranu (pierwsze linie: folder,
+wersja Windows). Jeśli mimo to okno znika w ułamku sekundy: otwórz folder `srw-oe-translation` w
+Eksploratorze, kliknij w pasek adresu, wpisz `cmd`, Enter; w czarnym oknie wpisz `HOKUS_POKUS` i Enter —
+komunikat zostanie na ekranie. Jeśli po dwukliku pojawia się niebieskie „System Windows ochronił ten
+komputer" — „Więcej informacji" → „Uruchom mimo to" (plik pochodzi z pobranego zipa).
+
 ### Gdy gra się wywala — `BISEKCJA.bat` (szukanie winnego pliku)
 
 Build z 2026-10-14 wieczorem padał na ekranie „Loading" (niebieski ekran PPSSPP `Read Word at
