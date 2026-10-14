@@ -16,6 +16,13 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
   ISO/EDAT/CPK ani pełnego skryptu JP.
 - **Nie modyfikuj oryginałów.** Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
 - Tłumaczenie **fresh** (Akurasu odrzucone). Nie nazywaj projektu „przetłumaczonym”.
+- **Każdy `.bat` dla użytkownika otwiera OKNO WYBORU pliku/folderu — nigdy nie każe wpisywać
+  ścieżki z palca.** Użytkownik zwracał na to uwagę dwa razy (2026-10-12 `PATCH_ISO_TEST.bat`,
+  2026-10-14 `HOKUS_POKUS.bat`). Gotowy selektor: `tools/pick_path.py` (tkinter; presety
+  `iso|dlc|package|translation`; wynik do pliku, kody 0/2/3) + podprogram `:pick` w
+  `HOKUS_POKUS.bat` — kopiuj go do nowych batów. `set /p` na ścieżkę tylko jako awaryjne
+  wyjście, gdy `pick_path.py` zwróci 3 (Python bez Tk). Pilnuje tego test
+  `tests/test_pick_path.py::UserFacingBatRuleTests`.
 - **Piaskownica robi rollbacki** (HEAD potrafi wrócić do bazy `d4e2488`). Po rollbacku:
   `git add -A && git commit && git pull --rebase origin arena/c656a5df-mtgcrawler && git push`.
   Pliki w workspace trwają niezależnie od commitów.
@@ -195,6 +202,9 @@ python tools\sysmes_shift.py <in.cpk> <out.cpk>         # grow (NIE dla menu tyt
 - `coverage_audit.py` jest ślepy na fragmenty rozcięte bajtem sterującym (akceptuje podciągi) —
   „0 brakujących” dla pul config było fałszywe.
 - Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.
+- `.bat` z `set /p` na ścieżkę = błąd zgłaszany przez użytkownika (dwukrotnie). Zawsze okno wyboru
+  (`tools/pick_path.py`, `call :pick`). W argumentach dla Pythona folder bez końcowego `\` przed
+  cudzysłowem (`"D:\x\"` → `\"` zjada cudzysłów).
 - `*_ext.dat`: za tytułem (+344) leżą dwa u16 gry (+384, +386), zera tylko w eventP00 — heurystyka
   „zerowe wypełnienie" ich nie odróżnia; sloty stałe mają zmierzone rozmiary (`mission_text.SPECS`) i twardy
   limit, nie szukaj padding-u za slotem.

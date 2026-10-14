@@ -3447,3 +3447,16 @@ identyczne z wyjściami #6** (config00 `d3475908…`, configst `d157d63f…`, ev
 linie 47–52, stored mesbtl00/config00/configst, pula umiejętności, DLC_ID, tytuły `Ep.`; 6 achievementów
 (parser odwołań rekordu), przydomki; ponowny eksport pakietu (sieroty, Reference, limit 39 w widoku);
 `coverage_audit` ślepy na fragmenty z tokenem.
+
+**9. Uwaga użytkownika po uruchomieniu budowy (2026-10-14): `HOKUS_POKUS.bat` kazał wpisywać ścieżki
+do ISO i DLC z palca — ten sam błąd, na który zwracał uwagę już przy `PATCH_ISO_TEST.bat` (cz. 10g).**
+Naprawa: `tools/pick_path.py` (tkinter `askopenfilename`/`askdirectory`, presety `iso|dlc|package|
+translation` z polskimi tytułami i filtrem `*.iso`, okno topmost; wynik zapisany do pliku UTF-8 bez
+BOM i bez newline, żeby `.bat` czytał go przez `set /p "VAR=" < plik`, bez `for /f`; kody wyjścia:
+0 wybrano, 2 anulowano, 3 brak okna) + podprogram `:pick` w `HOKUS_POKUS.bat` (anulowanie = koniec bez
+zapisu; `set /p` na ścieżkę tylko przy kodzie 3; bez `EnableDelayedExpansion`, więc `!` w ścieżkach
+przeżywa; folder startowy bez końcowego `\`, bo `\"` zjada cudzysłów w argv Pythona). Reguła
+zapisana w `HANDOFF.md` §1 i §9 oraz **wymuszona testem** `tests/test_pick_path.py::UserFacingBatRuleTests`
+(`set /p` poza `:pick` = czerwony test). W sandboxie brak Tk → `pick_path.py` daje 3 (sprawdzone);
+okna symulowane w testach atrapą `tkinter` (wybór, anulowanie, brak Tk, brak modułu). Samego `cmd.exe`
+tu nie ma — bat przejrzany ręcznie, przebieg u użytkownika. Suite: **988 OK (1 skipped)**.

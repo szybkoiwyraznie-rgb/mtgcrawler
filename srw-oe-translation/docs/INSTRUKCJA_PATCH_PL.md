@@ -60,13 +60,13 @@ przy instalacji zaznacz **„Add python.exe to PATH”**. Nic więcej (żadnych 
    w `pakiet_EN\` (a nie w kolejnym podfolderze). Ten folder jest w `.gitignore`, więc nic
    z niego nie trafi do repozytorium.
 3. **Uruchom `srw-oe-translation\HOKUS_POKUS.bat`** (dwuklik). Skrypt widzi `pakiet_EN\`
-   i pyta już tylko o dwie rzeczy — wpisz lub wklej ścieżki (można też przeciągnąć plik/folder
-   na okno konsoli):
-   - **Sciezka do ISO gry** — twoje `SRW OE 1.08.iso` (679 243 152 bajtów);
-   - **Folder z DLC** — folder z **odszyfrowanymi** plikami DLC (ten sam zestaw, który jest na
+   i otwiera **dwa okna wyboru** — niczego nie wpisujesz z palca:
+   - pierwsze okno: wskaż plik **`SRW OE 1.08.iso`** (679 243 152 bajtów);
+   - drugie okno: wskaż **folder z odszyfrowanymi plikami DLC** (ten sam zestaw, który jest na
      Dysku jako `FULL_DLC`). Jeżeli w folderze emulatora masz pliki zaszyfrowane, wskaż
      folder FULL_DLC, a nie folder emulatora.
-   Można też podać wszystko naraz z wiersza poleceń:
+   Zamknięcie okna bez wyboru = skrypt kończy, nic nie zapisuje. Okna można pominąć,
+   przeciągając ISO na plik `.bat` albo podając ścieżki z wiersza poleceń:
    `HOKUS_POKUS.bat "D:\gry\SRW OE 1.08.iso" "D:\SRWOE\FULL_DLC"`.
 4. **Czekaj.** Napis „Buduje patch… (to potrwa kilka minut)” — u nas 96 kontenerów zajęło
    ~3,5 minuty bez ISO; z ISO dochodzi przepisanie obrazu 680 MB (kilka minut na HDD).
