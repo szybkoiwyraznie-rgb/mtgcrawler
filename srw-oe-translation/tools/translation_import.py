@@ -59,6 +59,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import token_map as TMAP  # noqa: E402
 import translation_check as TC  # noqa: E402
 
 MARKERS = (("\u23ce", "\r"), ("<0x0F>", "\x0f"))   # the view shows them, the game needs bytes
@@ -264,9 +265,15 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
     rows, by_file = load_rows(package)
     lookup = scene_lookup(rows)
     plan = table_view.plan_from(by_file)     # the very rows that get written back
+    # tokeny.tsv (tools/token_map.py) next to the package tells the checker which %s of a
+    # display-form jp is a literal placeholder (mandatory in EN) and which is a kana token
+    # 0x0F (dropped from EN with the character after it); without it every %s stays mandatory
+    sidecar = TMAP.find_sidecar([Path(package)])
+    token_map = TMAP.load_map(sidecar) if sidecar else {}
 
     report = {"views": len(views), "elements_with_text": 0, "imported": 0, "unchanged": 0,
-              "unknown": [], "rejected": [], "duplicated": [], "written": [], "rows": len(rows)}
+              "unknown": [], "rejected": [], "duplicated": [], "written": [], "rows": len(rows),
+              "token_map": str(sidecar) if sidecar else None}
     touched: Dict[str, List[dict]] = {}
     for name, text in views.items():
         kind = view_kind(name)
@@ -299,7 +306,8 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
                 continue
             problems = []
             for row in element:
-                errors, _ = TC.check_row(dict(row, en=english))
+                errors, _ = TC.check_row(dict(row, en=english),
+                                         pct=token_map.get(row.get("id")))
                 problems.extend(f"{row.get('id', '?')}: {message}" for message in errors)
             if problems:
                 report["rejected"].extend(problems)

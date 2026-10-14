@@ -6,8 +6,13 @@ The checher is deliberately strict about everything the game cares about and for
 * every ``en`` must be CP932-encodable (the font's charset is CP932),
 * the control characters the game draws with (``\r`` clears the box, ``0x0F`` switches to half
   width) must stay exactly as they are,
-* the ordered list of control tokens must match ``jp`` exactly (``＠0``…``＠9``, ``%s``, ``%%``,
-  ``％s``, ``＄n``, ``＃``, ``{XX}`` — the game substitutes them),
+* the ordered list of control tokens must match ``jp`` (``＠0``…``＠9``, ``%s``, ``%%``, ``％s``,
+  ``＄n``, ``＃``, ``{XX}`` — the game substitutes them), with one measured exception: the ``%s``
+  of the display form that stand for a kana token ``0x0F xx`` (one voiced-kana glyph) must be
+  DROPPED from the English together with the character after them, exactly like the ``<0x0F>``
+  marker of the raw form.  Which ``%s`` is which only the raw bytes know, so the checker reads
+  the sidecar ``tokeny.tsv`` (``tools/token_map.py``) next to the package; without it the old
+  strict rule applies (every ``%s`` of jp must appear in the English),
 * the number of ``\\n`` line breaks must match ``jp`` (the dialogue boxes and list rows are drawn
   around them),
 * ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning,
@@ -41,6 +46,7 @@ if str(HERE) not in sys.path:
 
 import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
+import token_map as TMAP  # noqa: E402
 
 TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
 BOX_WIDTH = 46   # the in-game dialogue box in half-width units (docs/HANDOFF.md §2; apply_strings)
@@ -51,6 +57,35 @@ CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
 def tokens(text: str) -> List[str]:
     """Control tokens of one string, in order."""
     return TOKEN_RE.findall(text)
+
+
+def expected_tokens(jp: str, pct: Optional[Tuple[str, List[str]]] = None) -> List[str]:
+    """The ordered control tokens the English line must carry.
+
+    ``pct`` is the sidecar entry of the row (``tokeny.tsv``: the row's jp and one kind letter
+    per ``%s`` of that jp - ``L`` literal placeholder, ``T`` kana token ``0x0F xx``, ``C`` other
+    control).  With a matching entry the kana tokens drop out of the expected list: they draw
+    one voiced kana glyph, which has no place in an English line (the raw-form rows follow the
+    same rule - the validator below refuses any 0x0F in ``en``).  Every other token stays
+    mandatory, count and order.  Without the sidecar - or with a stale entry (jp differs or the
+    kinds count differs) - the strict list applies: every token of jp, every ``%s`` included.
+    """
+    found = tokens(jp)
+    if pct is None:
+        return found
+    map_jp, kinds = pct
+    if map_jp != jp or len(kinds) != found.count("%s"):
+        return found                        # stale sidecar entry: fail closed, strict rule
+    expected: List[str] = []
+    index = 0
+    for token in found:
+        if token == "%s":
+            if kinds[index] != "T":
+                expected.append(token)
+            index += 1
+        else:
+            expected.append(token)
+    return expected
 
 
 def controls(text: str) -> List[int]:
@@ -75,8 +110,9 @@ def encode(text: str) -> Optional[str]:
     return None
 
 
-def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], List[str]]:
-    """(errors, warnings) for one package row."""
+def check_row(row: dict, require_complete: bool = False,
+              pct: Optional[Tuple[str, List[str]]] = None) -> Tuple[List[str], List[str]]:
+    """(errors, warnings) for one package row; ``pct`` is its ``tokeny.tsv`` entry."""
     errors: List[str] = []
     warnings: List[str] = []
     text = row.get("en") or ""
@@ -88,8 +124,14 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
     problem = encode(text)
     if problem:
         errors.append(problem)
-    if tokens(text) != tokens(jp):
-        errors.append(f"control tokens changed: {tokens(jp)} -> {tokens(text)}")
+    expected = expected_tokens(jp, pct)
+    if tokens(text) != expected:
+        if expected != tokens(jp):
+            errors.append(f"control tokens changed: the English must carry {expected} (the kana "
+                          f"tokens 0x0F of the jp are dropped with their glyph, tokeny.tsv), "
+                          f"got {tokens(text)}")
+        else:
+            errors.append(f"control tokens changed: {tokens(jp)} -> {tokens(text)}")
     if text.count("\n") != jp.count("\n"):
         errors.append(f"line breaks changed: {jp.count(chr(10))} -> {text.count(chr(10))}")
     jp_controls = [code for code in controls(jp) if code != 0x0F]
@@ -115,7 +157,8 @@ def check_row(row: dict, require_complete: bool = False) -> Tuple[List[str], Lis
     return errors, warnings
 
 
-def check_rows(rows: Iterable[dict], require_complete: bool = False) -> dict:
+def check_rows(rows: Iterable[dict], require_complete: bool = False,
+               token_map: Optional[Dict[str, Tuple[str, List[str]]]] = None) -> dict:
     """Per-file counters plus the first problems of every kind.
 
     Rows that a DLC re-release repeats carry ``copy_of``: the translation is not written twice, so
@@ -133,7 +176,8 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False) -> dict:
         bucket = report["files"].setdefault(name, {"rows": 0, "filled": 0, "empty": 0,
                                                    "errors": 0, "warnings": 0})
         bucket["rows"] += 1
-        errors, warnings = check_row(row, require_complete)
+        pct = token_map.get(row.get("id")) if token_map else None
+        errors, warnings = check_row(row, require_complete, pct=pct)
         source = by_id.get(row.get("copy_of")) if row.get("copy_of") else None
         if source is not None:
             if (row.get("en") or "").strip() and (row["en"] or "") != (source.get("en") or ""):
@@ -205,10 +249,18 @@ def main(argv=None) -> int:
     parser.add_argument("--require-complete", action="store_true",
                         help="treat an empty en as an error (release check)")
     parser.add_argument("--strict", action="store_true", help="exit 1 on any error")
+    parser.add_argument("--token-map", type=Path, default=None,
+                        help="tokeny.tsv with the %s kinds (default: next to the package)")
     args = parser.parse_args(argv)
 
     rows = collect(args.package)
-    report = check_rows(rows, require_complete=args.require_complete)
+    sidecar = args.token_map or TMAP.find_sidecar(list(args.package))
+    token_map = TMAP.load_map(sidecar) if sidecar else {}
+    if sidecar:
+        print(f"mapa tokenów: {sidecar} ({len(token_map)} wierszy)")
+    else:
+        print("mapa tokenów: brak (tokeny.tsv obok pakietu) - każde %s z jp musi zostać w EN")
+    report = check_rows(rows, require_complete=args.require_complete, token_map=token_map)
     text = format_report(report)
     print(text)
     out = args.out or (args.package[0] / "check_report.txt" if args.package[0].is_dir()

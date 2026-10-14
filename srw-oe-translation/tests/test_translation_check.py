@@ -27,6 +27,49 @@ class TokensTest(unittest.TestCase):
         self.assertEqual(TC.tokens("それは、パイロットの腕次第ってところかな。"), [])
 
 
+class KanaSidecarTests(unittest.TestCase):
+    """tokeny.tsv (tools/token_map.py): which %s of a display-form jp is a kana token 0x0F."""
+
+    def test_a_dropped_kana_token_is_correct_with_the_map(self):
+        errors, _ = TC.check_row(row("AB%s&CD", "WXYZ"), pct=("AB%s&CD", ["T"]))
+        self.assertEqual(errors, [])
+
+    def test_a_kept_kana_token_is_an_error_even_with_the_map(self):
+        errors, _ = TC.check_row(row("AB%s&CD", "XY%s&ZW"), pct=("AB%s&CD", ["T"]))
+        self.assertTrue(any("kana" in message for message in errors))
+
+    def test_without_the_map_the_strict_rule_still_applies(self):
+        errors, _ = TC.check_row(row("AB%s&CD", "WXYZ"))
+        self.assertTrue(any("control tokens changed" in message for message in errors))
+
+    def test_literal_placeholders_stay_mandatory_with_the_map(self):
+        kinds = ("%s20%s\n%s", ["L", "L", "L"])
+        errors, _ = TC.check_row(row("%s20%s\n%s", "x20y\nz"), pct=kinds)
+        self.assertTrue(any("control tokens changed" in message for message in errors))
+        errors, _ = TC.check_row(row("%s20%s\n%s", "A%sB%s\nC%s"), pct=kinds)
+        self.assertEqual(errors, [])
+
+    def test_other_tokens_keep_their_order_around_the_dropped_kana(self):
+        self.assertEqual(TC.expected_tokens("＠0%s%s&", ("＠0%s%s&", ["L", "T"])),
+                         ["＠0", "%s"])
+        errors, _ = TC.check_row(row("＠0%s%s&", "＠0%s"), pct=("＠0%s%s&", ["L", "T"]))
+        self.assertEqual(errors, [])
+        errors, _ = TC.check_row(row("＠0%s%s&", "%s＠0"), pct=("＠0%s%s&", ["L", "T"]))
+        self.assertTrue(errors)
+
+    def test_a_stale_map_entry_falls_back_to_the_strict_rule(self):
+        errors, _ = TC.check_row(row("AB%s&CD", "WXYZ"), pct=("inne jp", ["T"]))
+        self.assertTrue(any("control tokens changed" in message for message in errors))
+        errors, _ = TC.check_row(row("AB%s&CD", "WXYZ"), pct=("AB%s&CD", []))
+        self.assertTrue(any("control tokens changed" in message for message in errors))
+
+    def test_check_rows_consults_the_map_by_row_id(self):
+        rows = [row("AB%s&CD", "WXYZ", id="kana:1"), row("CD%sEF", "WXYZ", id="kana:2")]
+        report = TC.check_rows(rows, token_map={"kana:1": ("AB%s&CD", ["T"])})
+        self.assertEqual(report["totals"]["errors"], 1)     # only the unmapped row fails
+        self.assertIn("kana:2", report["errors"][0])
+
+
 class RowTest(unittest.TestCase):
     def test_clean_row_has_no_problems(self):
         errors, warnings = TC.check_row(row("おはよう\nございます", "Good morning\nsir"))

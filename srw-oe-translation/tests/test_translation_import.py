@@ -337,6 +337,66 @@ class TableViewTest(unittest.TestCase):
         self.assertEqual(rows_of(self.package, "02_items.jsonl")[0]["en"], "")
 
 
+class TokenMapImportTest(unittest.TestCase):
+    """tokeny.tsv next to the package: the view's EN may drop the kana tokens (0x0F); without
+    the sidecar the old strict rule applies (every %s of jp must appear in EN)."""
+
+    ITEM = {"id": "item:config00.cpk/srwDL_Item00.bin:r0:effect", "category": "item",
+            "part": "effect", "jp": "追加%s*ﾒｰｼﾞ", "en": "", "suggested_max": 40}
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self._tmp.name)
+        self.package = self.root / "translation"
+        self.package.mkdir(parents=True)
+        (self.package / "02_items.jsonl").write_text(
+            json.dumps(self.ITEM, ensure_ascii=False) + "\n", encoding="utf-8")
+        import table_view
+        self.table_view = table_view
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def sidecar(self, kinds=("T",)):
+        entry = f"{self.ITEM['id']}\t{','.join(kinds)}\t" \
+                f"{json.dumps(self.ITEM['jp'], ensure_ascii=False)}\n"
+        (self.package / "tokeny.tsv").write_text(entry, encoding="utf-8")
+
+    def fill_view(self, english):
+        views = self.root / "widoki"
+        self.table_view.write_views(self.package, views)
+        view = views / "przedmioty.md"
+        text = view.read_text(encoding="utf-8")
+        start = text.index("追加%s*ﾒｰｼﾞ")
+        at = text.index("\n   EN:", start)
+        end = text.index("\n", at + 1)
+        view.write_text(text[:at] + "\n   EN: " + english + text[end:], encoding="utf-8")
+        return view
+
+    def test_english_without_the_kana_token_is_imported_with_the_map(self):
+        self.sidecar()
+        report = TI.import_views(TI.read_views([self.fill_view("Additional Damage")]),
+                                 self.package)
+        self.assertEqual(report["imported"], 1)
+        self.assertEqual(report["rejected"], [])
+        rows = [json.loads(line) for line in (self.package / "02_items.jsonl")
+                .read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(rows[0]["en"], "Additional Damage")
+
+    def test_english_that_keeps_the_kana_token_is_rejected_with_the_map(self):
+        self.sidecar()
+        report = TI.import_views(TI.read_views([self.fill_view("Additional %s* Damage")]),
+                                 self.package)
+        self.assertEqual(report["imported"], 0)
+        self.assertTrue(report["rejected"])
+
+    def test_without_the_map_the_strict_rule_rejects_the_dropped_token(self):
+        report = TI.import_views(TI.read_views([self.fill_view("Additional Damage")]),
+                                 self.package)
+        self.assertEqual(report["imported"], 0)
+        self.assertTrue(any("control tokens changed" in line for line in report["rejected"]))
+
+
 class ZipTest(unittest.TestCase):
     def test_views_are_read_out_of_a_zip(self):
         with tempfile.TemporaryDirectory() as tmp:
