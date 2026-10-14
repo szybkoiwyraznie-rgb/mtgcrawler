@@ -280,6 +280,21 @@ o nieaktualnych nazwach (`10_`, `11_`, `strings.csv` bez `--csv`), więc numerac
 (0 wierszy bez nazwy), **cytaty 26 932/27 383 = 98,35%** (451 wierszy = 14 kluczy, patrz wiersz 2).
 Wiersze narracji/helpów/etykiet nie mają mówcy z definicji. `speaker.jp = null` znaczy „oddaj ID”.
 
+**Korekta 2026-10-14 (Sesja 7, cz. 18) — higiena wierszy `04`:** próba pełnoskalowa na realnych
+kontenerach pokazała w `04_config_text.jsonl` trzy rzeczy do poprawienia po stronie eksportu
+(wszystkie [ZWERYFIKOWANE] na config00/configst/config01): (a) **84 „sieroty"** — runy, na które nie
+wskazuje żaden wskaźnik ani granica pola rekordu (`' N'` = u16 20000, `'0u'` = 30000: ceny i
+identyfikatory w Shop/Item/Achievement/Skill), eksport je teraz pomija (`orphan: true` w surowym
+`text_tables`); (b) **53 napisy „przycięte do wskaźnika"** — run zaczynał się bajtem poprzedniego pola
+(`!チョバムアーマーSR`, nagłówki Reference `\x02\x05解説書：戦術`, które filtr kontrolek odrzucał w
+całości), teraz wiersz niesie dokładnie napis, który czyta gra (`snapped: true`); (c) **927 wierszy
+puli ogonowej** konwencji B (Skill00 583, StatusChange 109, Item 86+86, Spirit 63; wspólny `id` =
+start puli) były `grow` bez limitu, a pisarz pisze je **w miejscu** — eksport oznacza je teraz
+`mode: slot`, `max_bytes = bytes`. Liczby wierszy w tabeli wyżej (12 631 → 15 368 w pakiecie z Drive)
+są sprzed tych zmian; kolejny eksport je zaktualizuje. Semantyka `max_bytes` w całym łańcuchu =
+**bajty angielskiego bez NUL-a** (jak w instrukcji tłumacza); `text_runs_export` i `slot_apply`
+dostosowane (wcześniej liczyły NUL do limitu — rozjazd o 1 B między walidatorem a pisarzem).
+
 ## 3h. Sceny — blok kontekstu dla tłumacza (nowe wymaganie użytkownika, cz. 10)
 
 Wymaganie: tekst fabularny ma iść do tłumacza **blokami scen** (nagłówek: miejsce i czas → elementy

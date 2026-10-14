@@ -223,12 +223,17 @@ def config_rows(local: Path) -> List[dict]:
         for item in load_jsonl(path):
             for string in item.get("strings", []):
                 text = string.get("text") or ""
-                if not text:
-                    continue
+                if not text or string.get("orphan"):
+                    continue          # orphan: a binary field that decodes (' N' = 20000), not text
                 # convention-B tail-pool items carry one record_offset (the pool start) and a
                 # rel per string; convention-C items point at each string already (rel 0) -
                 # the sum is the true offset in both cases
                 offset = item.get("record_offset", 0) + string.get("rel", 0)
+                size = string.get("bytes") or row_bytes(text)
+                # the convention-B tail pool (record None) has no table of its own: its
+                # strings are written in place by slot_apply, so the row says so - the
+                # English must fit the Japanese bytes until a pool rebuild is proven in-game
+                in_place = bool(item.get("pool")) and item.get("record") is None
                 rows.append(
                     {
                         "id": f"{kind}:{item['container']}/{item['member']}:{offset}",
@@ -236,9 +241,9 @@ def config_rows(local: Path) -> List[dict]:
                         "part": "text",
                         "jp": text,
                         "en": "",
-                        "bytes": string.get("bytes") or row_bytes(text),
-                        "mode": "grow",
-                        "max_bytes": None,
+                        "bytes": size,
+                        "mode": "slot" if in_place else "grow",
+                        "max_bytes": size if in_place else None,
                         "source": {
                             "container": item["container"],
                             "member": item["member"],

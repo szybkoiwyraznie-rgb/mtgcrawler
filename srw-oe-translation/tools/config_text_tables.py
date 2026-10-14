@@ -49,6 +49,21 @@ A run is kept when it decodes as CP932, is at least ``MIN_RUN`` bytes, contains 
 character other than newline, and contains no private-use character.  Runs with and without CJK
 are both kept (an item description can be pure ``%s`` format text); each row records ``has_cjk``.
 
+Where a member's own layout is measured (the pointer families of ``table_write`` - reference,
+DLC id, shop, skill tag, achievement, dictionaries - and the field boundaries of
+``item_skill_records`` - item/skill records with their tail pool), the runs are checked against
+the offsets those tables actually point at [ZWERYFIKOWANE 2026-10-14, config00/configst/config01]:
+
+* a run no pointer names is a binary field that happens to decode (``' N'`` = u16 20000, ``'0u'``
+  = 30000 - prices and ids in the shop, item and achievement records); it is kept in the raw
+  output with ``orphan: true`` and the translator export drops it (97 of 6,602 judged strings);
+* a run that *contains* a pointer target starts with bytes that belong to the previous field
+  (``!チョバムアーマーSR`` - the ``!`` is a count byte; ``\x02\x05解説書：戦術`` - formatting
+  bytes before a reference heading, which the control filter used to reject whole); it is
+  snapped to the pointer target (``snapped: true``), so the row carries the string the game reads.
+
+Members without a measured layout (spirit, status change, item drop, sysmes) keep every run.
+
 Output contains game text, so it goes under ignored ``local/`` only.
 
 Usage:
@@ -71,7 +86,9 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import inline_names as IN  # noqa: E402
+import item_skill_records as ISR  # noqa: E402
 import speaker_map as SM  # noqa: E402
+import table_write as TW  # noqa: E402
 
 TABLES = (
     ("srwDL_Item", "item"),
@@ -157,8 +174,44 @@ def clean_run(raw: bytes) -> Tuple[Optional[str], bool]:
     return text, bool(CJK.search(text))
 
 
-def record_strings(rec: bytes) -> List[dict]:
-    """Every clean NUL-terminated run in a record, with its in-record offset."""
+def string_starts(blob: bytes, member: str, kind: str) -> Optional[set]:
+    """Absolute offsets of the strings the member's own record tables point at.
+
+    ``None`` when no measured layout covers the member - then every clean run is kept, as before.
+    Convention-A records come from the pointer families of :mod:`table_write`; item/skill records
+    (convention B) from the field boundaries of :mod:`item_skill_records`.  The convention-B tail
+    pool has no table of its own (records reach it through u16 words), so it is never judged.
+    """
+    family = TW.family_of(member)
+    if family is not None:
+        try:
+            starts = set()
+            for start, end in TW.record_spans(blob):
+                record = TW.parse_record(blob[start:end], family)
+                starts.update(start + p for p, text in zip(record.pointers, record.strings) if text)
+            return starts
+        except TW.TableError:
+            return None
+    if kind in ISR.KIND_PREFIX and member not in ISR.EXCLUDED:
+        parsed = ISR.parse_member(blob, kind, member)
+        if parsed["errors"] or not parsed["records"]:
+            return None
+        starts = set()
+        for record in parsed["records"]:
+            for role in ISR.FIELDS:
+                if record[role]:
+                    starts.add(record["offset"] + record[f"{role}_offset"])
+        return starts
+    return None
+
+
+def record_strings(rec: bytes, base: int = 0, starts: Optional[set] = None) -> List[dict]:
+    """Every clean NUL-terminated run in a record, with its in-record offset.
+
+    With ``starts`` (absolute offsets, see :func:`string_starts`) a run is judged against the
+    member's own tables: kept when it begins at a target, snapped to a target that lies inside it
+    (``snapped``), otherwise flagged ``orphan`` (a binary field that happens to decode).
+    """
     out = []
     i = 0
     n = len(rec)
@@ -167,9 +220,27 @@ def record_strings(rec: bytes) -> List[dict]:
             j = i
             while j < n and rec[j]:
                 j += 1
-            text, has_cjk = clean_run(rec[i:j])
-            if text is not None:
-                out.append({"rel": i, "bytes": j - i, "text": text, "has_cjk": has_cjk})
+            raw = rec[i:j]
+            entry = None
+            if starts is not None and base + i not in starts:
+                inside = sorted(t - base - i for t in starts if base + i < t < base + j)
+                if inside:
+                    cut = inside[0]
+                    text, has_cjk = clean_run(raw[cut:])
+                    if text is not None:
+                        entry = {"rel": i + cut, "bytes": j - i - cut, "text": text,
+                                 "has_cjk": has_cjk, "snapped": True}
+                if entry is None:
+                    text, has_cjk = clean_run(raw)
+                    if text is not None:
+                        entry = {"rel": i, "bytes": j - i, "text": text, "has_cjk": has_cjk,
+                                 "orphan": True}
+            else:
+                text, has_cjk = clean_run(raw)
+                if text is not None:
+                    entry = {"rel": i, "bytes": j - i, "text": text, "has_cjk": has_cjk}
+            if entry is not None:
+                out.append(entry)
             i = j
         i += 1
     return out
@@ -217,6 +288,8 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
                                       "error": "table not recognised"}}
     recs: List[dict] = []
     ptr_ok = ptr_total = runs_total = bytes_total = with_text = 0
+    starts = None if table.get("pool") else string_starts(blob, member, kind)
+    orphans = snapped = 0
 
     if table.get("pool"):
         for i, start in enumerate(table["offsets"]):
@@ -237,7 +310,9 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
             start = table["offsets"][i]
             end = table["offsets"][i + 1] if i + 1 < table["count"] else table["data_end"]
             rec = blob[start:end]
-            strings = record_strings(rec)
+            strings = record_strings(rec, start, starts)
+            orphans += sum(1 for s in strings if s.get("orphan"))
+            snapped += sum(1 for s in strings if s.get("snapped"))
             row = {"container": container, "member": member, "kind": kind, "record": i,
                    "record_offset": start, "record_len": len(rec),
                    "id": struct.unpack_from("<H", rec, 0)[0] if len(rec) >= 2 else None,
@@ -255,7 +330,7 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
             recs.append(row)
         if table["convention"] == "B" and table["data_end"] < len(blob):
             tail = blob[table["data_end"]:]
-            strings = record_strings(tail)
+            strings = record_strings(tail)        # the pool has no table to judge runs against
             if strings:
                 recs.append({"container": container, "member": member, "kind": kind,
                              "record": None, "record_offset": table["data_end"],
@@ -269,6 +344,8 @@ def extract_member(container: str, member: str, blob: bytes, kind: str) -> dict:
                       "convention": table["convention"], "records": table["count"],
                       "records_with_text": with_text, "strings": runs_total,
                       "text_bytes": bytes_total, "empty": False,
+                      "layout_checked": starts is not None, "orphans": orphans,
+                      "snapped": snapped,
                       "reference_pointer_records_ok": ptr_ok if kind == "reference" else None,
                       "reference_records": ptr_total if kind == "reference" else None,
                       "error": None}}

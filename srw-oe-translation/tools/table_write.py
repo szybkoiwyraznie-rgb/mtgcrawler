@@ -91,7 +91,12 @@ FAMILY_BY_PREFIX: Dict[str, Family] = {
     "srwDL_CharaDictionary": Family(12, 0, ("u16", 0x40), exempt=((0x30, 0x40),)),
     "srw_DL_RoboDictionary": Family(7, 0, ("u16", 28)),
     "srwDL_Reference": Family(10),
-    "srwDL_DLC_ID": Family(8),
+    # DLC_ID record: 8 pointers, then 26 bytes of numbers before the first string at +58 -
+    # +32 price (0/2000/3000/4000/5000), +36 running number 45..106 or a packed u16 pair,
+    # +40/+44 packed small fields, +48 points (0/50/100/150/200, tracks the price), +52 flags
+    # [ZWERYFIKOWANE 2026-10-14, 51 records of DLC_ID00/01]; the running number and the points
+    # land inside the string range by arithmetic coincidence (73..106 >= 58), not as pointers
+    "srwDL_DLC_ID": Family(8, exempt=((32, 56),)),
     "srwDL_Shop": Family(2),
     "srwDL_Skill_Tag": Family(5, ptr_start=8, key=("u32", 0)),
     "srwDL_Achievement": Family(2),
@@ -392,6 +397,19 @@ def match_form(jp: Optional[str], original: bytes) -> Optional[str]:
     return None
 
 
+def english(row: dict) -> str:
+    """The row's English exactly as written, or ``""`` when it is blank (untranslated).
+
+    The writers used to ``strip()`` the English.  That silently dropped what the package check
+    had just insisted on - a trailing ``\\n`` matching the jp - and the leading/trailing spaces
+    that centre a mission title (``　　 サブミッション　　``), indent a sysmes line or align a
+    skill column (`` Lv``).  Whitespace is the translator's; only an all-whitespace cell means
+    "not translated" (the event and quote writers never stripped).
+    """
+    en = row.get("en") or ""
+    return en if en.strip() else ""
+
+
 def encode_en(en: str, original: bytes, form: str) -> bytes:
     """The bytes to store for a translation validated against ``original`` in ``form``."""
     if form == "raw":
@@ -467,13 +485,20 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
         resolved: List[tuple] = []
         refused: List[str] = []
         for row in rows:
-            en = (row.get("en") or "").strip()
+            en = english(row)
             if not en:
                 continue                      # partial package: the string stays Japanese
             source = row.get("source") or {}
             targets = resolve_one(row, en, blob, spans, records, by_offset, keyed, family,
                                   sub_name, refused, ranges)
             for (i, j), value in targets:
+                if records[i].unexplained_refs:
+                    # the rebuild guard would refuse the whole member for this one record;
+                    # refuse the row here so the other records still get their text
+                    refused.append(f"{row.get('id')}: record {i} has unexplained in-record "
+                                   f"references (offsets {records[i].unexplained_refs[:3]}); "
+                                   f"left as is")
+                    continue
                 resolved.append((sub_name, i, j, row.get("id")))
                 if (i, j) in edits and edits[(i, j)] != value:
                     refused.append(
@@ -500,7 +525,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
     resolved = []
     refused = []
     for row in rows:
-        en = (row.get("en") or "").strip()
+        en = english(row)
         if not en:
             continue
         source = row.get("source") or {}

@@ -160,7 +160,7 @@ def plan_edits(rows: Iterable[dict], member: str, parsed: dict,
             stats["foreign"] += 1
             continue
         stats["rows"] += 1
-        target = (row.get("en") or "").strip()
+        target = TW.english(row)
         if not target:
             stats["empty"] += 1
             continue
@@ -216,7 +216,7 @@ def plan_offset_edits(rows: Iterable[dict], member: str, parsed: dict, blob: byt
                 or row.get("part") != "text" or not isinstance(source.get("offset"), int):
             continue                        # not an offset row - plan_edits owns it
         stats["rows"] += 1
-        target = (row.get("en") or "").strip()
+        target = TW.english(row)
         if not target:
             stats["empty"] += 1
             continue
@@ -391,7 +391,7 @@ def wanted_targets(rows: Iterable[dict], container: Optional[str] = None
     """{(member, record, role): target} for the filled rows of one container (rows are the package)."""
     want: Dict[Tuple[str, int, str], str] = {}
     for row in rows:
-        target = (row.get("en") or "").strip()
+        target = TW.english(row)
         source = row.get("source") or {}
         if not target or source.get("member") is None:
             continue

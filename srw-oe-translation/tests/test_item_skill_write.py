@@ -145,6 +145,12 @@ class PlanEditsTest(unittest.TestCase):
         edits, _, stats = ISW.plan_edits([self.row(en="  ")], "srwDL_Skill00.bin", self.parsed())
         self.assertEqual((edits, stats["empty"]), ({}, 1))
 
+    def test_edge_whitespace_of_the_english_is_kept(self):
+        # a column-aligning space or a trailing line break is the translator's, not noise
+        edits, _, _ = ISW.plan_edits([self.row(en=" Anti-ground\n")], "srwDL_Skill00.bin",
+                                     self.parsed())
+        self.assertEqual(edits, {0: {"name": " Anti-ground\n"}})
+
     def test_stale_source_text_is_refused(self):
         edits, skipped, stats = ISW.plan_edits([self.row(jp="対空")], "srwDL_Skill00.bin", self.parsed())
         self.assertEqual(edits, {})

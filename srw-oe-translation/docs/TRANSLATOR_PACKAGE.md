@@ -356,8 +356,24 @@ nie ma w liście — są jednoznaczne same w sobie.
 * Te pliki są podzielone na **sekcje** (`## Sekcja 1/31 — config_achievement`), a w środku elementy po
   kolei. To teksty menu, podpowiedzi, nazwy duchów, typów umiejętności, tytuły map i BGM.
 * `teksty-misji.md` ma **twarde limity miejsca** — pisze to wprost linia `limit:` przy każdym
-  elemencie (np. `limit: 117 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;
+  elemencie (np. `limit: 39 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;
   tu nie da się „przekroczyć o trochę".
+  **Uwaga do widoków wysłanych przed 2026-10-14:** przy tytułach misji, nazwach map, teł i oddziałów
+  stoją tam limity za duże (117/159/111/99 B) — to był cały rekord, nie samo pole tekstu. Prawdziwe
+  miejsce to **tytuł misji 39 B, nazwa mapy 31 B, nazwa tła 23 B, nazwa oddziału 31 B** (zmierzone na
+  plikach gry; narzędzie i tak nie wpisze nic dłuższego). Następna wersja widoków ma już poprawne
+  liczby.
+* **Fragmenty opisów umiejętności, przedmiotów, duchów i stanów** (w `teksty-config.md` sekcje
+  `config_skill`, `config_item`, `config_spirit`, `config_status_change` — krótkie kawałki typu
+  `気力`, `発動すると`, `%s\n%s`) leżą w grze w jednej wspólnej puli, do której narzędzie na razie
+  umie pisać **tylko w miejscu**: angielski nie może być dłuższy w bajtach niż japoński oryginał.
+  W starszych widokach te elementy mają jeszcze napis „bez twardego limitu" — traktuj je jak twardy
+  limit równy długości oryginału (`bytes`), inaczej wpis zostanie odrzucony przy budowaniu.
+* **Spacje na początku i końcu są częścią tekstu.** Japoński ma czasem wyśrodkowany tytuł
+  (`　　 サブミッション　　`), spację wyrównującą kolumnę (` Lv`) albo znak nowej linii na końcu opisu
+  (`\n`). Narzędzia wpisują angielski **dokładnie tak, jak go napiszesz** — ze spacjami i `\n` włącznie
+  — więc zachowaj to, co ma oryginał (walidator ostrzega, gdy dodasz spację skrajną, której oryginał
+  nie ma). Sam tekst złożony wyłącznie z białych znaków znaczy „nie przetłumaczone".
 * W tych plikach bywają tokeny `＠0`, `＠4`, `＠6`, `＠9` — to odwołania do nazw i liczb z gry.
   Zostaw je w tym samym miejscu.
 

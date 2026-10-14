@@ -15,7 +15,9 @@ The checher is deliberately strict about everything the game cares about and for
   strict rule applies (every ``%s`` of jp must appear in the English),
 * the number of ``\\n`` line breaks must match ``jp`` (the dialogue boxes and list rows are drawn
   around them),
-* ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning,
+* ``max_bytes`` (a fixed slot) is a hard error, ``suggested_max`` (item/skill UI width) is a warning;
+  for the fixed-stride tables ``mission_text`` measured (mission titles, BGM, map/background/group
+  names) the measured slot size is the limit even when an older package row claims more,
 * a dialogue or battle-quote line wider than the in-game box (``BOX_WIDTH`` half-width units) is
   a warning: the game draws the box around ``jp`` and clips anything wider.
 
@@ -46,6 +48,7 @@ if str(HERE) not in sys.path:
 
 import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
+import mission_text as MT  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
 TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
@@ -110,6 +113,23 @@ def encode(text: str) -> Optional[str]:
     return None
 
 
+def fixed_slot_limit(row: dict) -> Optional[int]:
+    """``max_bytes`` the measured fixed-stride slot allows (size - NUL), or None for other rows.
+
+    The ``05`` rows (and the leftover rows pointing at the same tables) carry the member and
+    the slot's offset; ``mission_text.slot_size_at`` knows the field sizes.  The one-record
+    ``*_ext.dat`` kinds need the file size, which a row does not carry - they keep their
+    ``max_bytes``.
+    """
+    source = row.get("source") or {}
+    member = source.get("member")
+    offset = source.get("offset")
+    if not member or not isinstance(offset, int) or member.lower().endswith("_ext.dat"):
+        return None
+    size = MT.slot_size_at(member, offset)
+    return None if size is None else size - 1
+
+
 def check_row(row: dict, require_complete: bool = False,
               pct: Optional[Tuple[str, List[str]]] = None) -> Tuple[List[str], List[str]]:
     """(errors, warnings) for one package row; ``pct`` is its ``tokeny.tsv`` entry."""
@@ -144,10 +164,19 @@ def check_row(row: dict, require_complete: bool = False,
                       f"{[hex(code) for code in controls(jp)]} -> "
                       f"{[hex(code) for code in en_controls]}")
     size = len(text.encode("cp932")) if not problem else 0
-    if row.get("max_bytes") is not None and size > row["max_bytes"]:
+    fixed = fixed_slot_limit(row)
+    if fixed is not None and (row.get("max_bytes") is None or fixed < row["max_bytes"]):
+        if size > fixed:
+            errors.append(f"over budget: {size} > the measured {fixed + 1}-byte slot "
+                          f"(max_bytes {fixed}; the package row says {row.get('max_bytes')})")
+    elif row.get("max_bytes") is not None and size > row["max_bytes"]:
         errors.append(f"over budget: {size} > max_bytes {row['max_bytes']}")
     elif row.get("suggested_max") and size > row["suggested_max"]:
         warnings.append(f"wider than the game's field: {size} > suggested_max {row['suggested_max']}")
+    for side, jp_edge, en_edge in (("leading", jp[:1], text[:1]), ("trailing", jp[-1:], text[-1:])):
+        if en_edge.isspace() and en_edge != "\n" and not jp_edge.isspace():
+            warnings.append(f"{side} whitespace {en_edge!r} that the jp does not have - the "
+                            "writers keep it exactly as written")
     if row.get("category") in BOXED:
         widths = [export_strings.display_width(line) for line in text.split("\n")]
         over = [width for width in widths if width > BOX_WIDTH]

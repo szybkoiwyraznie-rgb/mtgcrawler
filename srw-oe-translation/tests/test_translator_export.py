@@ -168,6 +168,40 @@ class RowTests(unittest.TestCase):
         self.assertEqual(rows[0]["id"], "reference:config00.cpk/srwDL_Reference00.bin:174")
         self.assertEqual(rows[0]["category"], "config_reference")
 
+    def test_tail_pool_rows_are_in_place_slots_with_their_own_bytes_as_the_limit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            local = Path(tmp)
+            (local / "text_tables").mkdir()
+            (local / "text_tables" / "skill.jsonl").write_text("\n".join(json.dumps(item, ensure_ascii=False) for item in [
+                {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "kind": "skill",
+                 "record": 3, "record_offset": 500,
+                 "strings": [{"rel": 54, "bytes": 4, "text": "対地", "has_cjk": True}]},
+                {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "kind": "skill",
+                 "record": None, "record_offset": 193328, "pool": True,
+                 "strings": [{"rel": 0, "bytes": 4, "text": "気力", "has_cjk": True},
+                             {"rel": 5, "bytes": 10, "text": "発動すると", "has_cjk": True}]},
+                {"container": "config01.EDAT", "member": "srwDL_Skill01.bin", "kind": "skill",
+                 "record": 0, "record_offset": 2340, "pool": True,
+                 "strings": [{"rel": 0, "bytes": 4, "text": "気力", "has_cjk": True}]},
+            ]) + "\n", encoding="utf-8")
+            rows = TE.config_rows(local)
+        self.assertEqual([(r["mode"], r["max_bytes"]) for r in rows],
+                         [("grow", None), ("slot", 4), ("slot", 10), ("grow", None)])
+
+    def test_config_rows_drop_orphan_strings(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            local = Path(tmp)
+            (local / "text_tables").mkdir()
+            (local / "text_tables" / "shop.jsonl").write_text(json.dumps({
+                "container": "config00.cpk", "member": "srwDL_Shop00.bin", "kind": "shop",
+                "record": 0, "record_offset": 732,
+                "strings": [{"rel": 12, "bytes": 2, "text": "0u", "has_cjk": False, "orphan": True},
+                            {"rel": 16, "bytes": 6, "text": "武器屋", "has_cjk": True}],
+            }, ensure_ascii=False) + "\n", encoding="utf-8")
+            rows = TE.config_rows(local)
+        self.assertEqual([(r["id"], r["jp"]) for r in rows],
+                         [("shop:config00.cpk/srwDL_Shop00.bin:748", "武器屋")])
+
     def test_mission_rows_expand_slots(self):
         rows = TE.mission_rows(self.root)
         self.assertEqual(rows[0]["id"], "mission_title:config00.cpk/milstP00.bin:r2:title")

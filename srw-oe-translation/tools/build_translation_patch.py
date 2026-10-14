@@ -597,7 +597,7 @@ def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[s
         encoded = set()
         for row, form in matches:
             try:
-                encoded.add(TW.encode_en((row.get("en") or "").strip(), raw, form))
+                encoded.add(TW.encode_en(TW.english(row), raw, form))
             except TW.TableError as exc:
                 problems.append(f"sysmes row {row.get('id')}: {exc}")
         if len(encoded) > 1:

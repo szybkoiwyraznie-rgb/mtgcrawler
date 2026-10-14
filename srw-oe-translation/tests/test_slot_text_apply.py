@@ -50,9 +50,10 @@ class SlotTest(unittest.TestCase):
         self.assertEqual(S.read_slot(self.blob, self.spec, 0), "ミッション0")
         self.assertEqual(S.read_slot(self.blob, self.spec, 2), "ミッション2")
 
-    def test_the_room_of_a_slot_is_its_own_cell(self):
+    def test_the_room_of_a_slot_is_its_measured_field(self):
+        # the title field is 40 bytes: an ASCII field follows it at +50 (mission_text)
         start, end = S.slot_span(self.blob, self.spec, 1)
-        self.assertEqual((start, end), (STRIDE + SLOT, 2 * STRIDE))
+        self.assertEqual((start, end), (STRIDE + SLOT, STRIDE + SLOT + 40))
 
     def test_writing_fits_the_text_and_pads_with_nuls(self):
         out, report = S.write_slots(self.blob, self.spec, {0: "Basic Training"})
@@ -62,12 +63,15 @@ class SlotTest(unittest.TestCase):
         self.assertEqual(len(out), len(self.blob))
         self.assertEqual(S.read_slot(out, self.spec, 1), "ミッション1")  # the next cell is untouched
         self.assertEqual(report, [f"record 0: {len('Basic Training'.encode('cp932'))} bytes "
-                                  f"into {STRIDE - SLOT - 1}"])
+                                  f"into 39"])
 
     def test_a_text_that_does_not_fit_is_refused(self):
         with self.assertRaises(S.SlotError) as caught:
-            S.write_slots(self.blob, self.spec, {0: "x" * (STRIDE - SLOT)})
+            S.write_slots(self.blob, self.spec, {0: "x" * 40})
         self.assertIn("the text is", str(caught.exception))
+        # the old span (to the record end) must not be writable any more: binary follows +50
+        with self.assertRaises(S.SlotError):
+            S.write_slots(self.blob, self.spec, {0: "x" * 60})
 
     def test_a_character_the_game_cannot_show_is_refused(self):
         with self.assertRaises(S.SlotError) as caught:

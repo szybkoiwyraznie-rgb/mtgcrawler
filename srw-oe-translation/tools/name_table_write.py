@@ -149,7 +149,7 @@ def apply_member(blob: bytes, member: str, rows: Iterable[dict]) -> Tuple[bytes,
     for row in rows:
         row_id = row.get("id")
         part = row.get("part")
-        en = (row.get("en") or "").strip()
+        en = TW.english(row)
         if not en or part not in SPECS[family]["cells"]:
             continue
         try:

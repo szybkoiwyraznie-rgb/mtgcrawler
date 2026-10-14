@@ -3120,3 +3120,143 @@ Commity: 26c3560 (pisarz), 7f3a4f8 (generator), 549fa1d (walidator+importer), 6e
 dane). Suite: **882 OK (1 skipped)**. Do zrobienia: ponowny przebieg scale/smoke na kontenerach
 (lokalne pomocniki scale_fill/mkpkg przepadły przy resecie — do odtworzenia przed finalnym patchem).
 
+## Sesja 7 (2026-10-14), część 18 — próba pełnoskalowa na realnych kontenerach: 5 błędów pisarzy/pakietu znalezionych i naprawionych
+
+**Cel:** odtworzyć pomocniki scale/smoke, które przepadły przy resecie (zapowiedź w cz. 17), i
+przegonić całą ścieżkę „pakiet → walidator → build → weryfikacja" na kontenerach z Drive, zanim
+wróci prawdziwe tłumaczenie. Wejścia (md5, `google_drive/`, poza git): `config00.cpk`
+266366c3…, `config01.EDAT` 10a6b9f8…, `configst.cpk` c87e4040…, `eventP00.cpk` 5fd6eea0…,
+`imenu00.cpk` bec96255…, `mesbtl00.cpk` f614ab62…, `mesbtl09.EDAT` 8c648f0c…; pakiet Robocze
+00–08 + `tokeny.tsv` (107 081 wierszy w 8 plikach z tekstem). Python 3.11.2 (piaskownica).
+
+**Nowe narzędzia (w repo, z testami):**
+* `tools/scale_fill.py` (20 testów) — syntetyczne wypełnienie pakietu: jeden EN na każde różne
+  jp (znacznik `t`+base36, w smoke `TEST<KOD><n>`), te same ograniczenia co brama (46/50 jedn.
+  na linię, `max_bytes` i zmierzony slot, tokeny kany znikają wg reguły z cz. 17, `＠n`/`%s`
+  literały zostają w kolejności), wiersze bliźniacze (ten sam `id` w drugim kontenerze,
+  `copy_of`) dołączane do wyboru, wiersze puli ogonowej starszego pakietu (wspólny `id`)
+  dostają budżet = własne bajty. Raport `fill_report.json`.
+* `tools/patch_spot_check.py` (10 testów) — czyta zbudowane kontenery (PAC rozbite na
+  pod-pliki), szuka EN każdego wypełnionego wiersza, liczy trafione/brak/za krótkie, składa
+  wiersze offsetowe 04 z wierszami rekordów 02/03 dzielące jeden fizyczny napis (ISW
+  `merge_edits` — bez tego 3 fałszywe „braki"), zapisuje pełną listę braków (`missing.txt`,
+  `spot_check.json`); build_report trzyma tylko pierwsze odmowy.
+
+**Smoke (102 wiersze TEST, po wszystkich poprawkach):** fill 102/102 (74 różnych jp; 00:13
+01:1 02:4 03:2 04:34 05:8 07:23 08:17), walidator 0 błędów (także `--strict`), build 6
+kontenerów, spot **93 trafione / 8 brak / 1 za krótki**. 8 braków = udokumentowane uczciwe odmowy:
+`shop:…Shop00.bin:744` (nie jest początkiem napisu — patrz sieroty niżej), `leftover:…
+Reference00.bin:1785` ×2 (jp z przedrostkiem `%s%s` — patrz przycięcia niżej), `leftover:…
+Map_S.bin:1315` (fragment nierozkodowalnej nazwy r8), `dlc_id:…DLC_ID01.bin:114` (rekord 0 z
+niewyjaśnionymi odwołaniami), `item:`+`item_drop:…ItemDrop.bin:39308` (brak pisarza puli,
+kategoria pomijana), `robonote:401:weight` (brak rekordu). „Za krótki" = `leftover:…CalcType.bin:48`
+(limit 7 B → znacznik 2-znakowy, spot go nie szuka).
+
+**Błąd 1 — podwójne pokrycie offset/rekord (fałszywy alarm, nie bug pisarza):** wiersze 04
+`item:`/`skill:` (per offset) i wiersze 02/03 (per rekord) wskazują ten sam napis; ISW składa je w
+jedną edycję. Spot check liczy grupę jako trafioną, gdy napis jest w pliku. Nic do naprawy.
+
+**Błąd 2 — pisarz slotów nadpisywał pola binarne (NAPRAWIONY, [ZWERYFIKOWANE]):** odmowa
+`map_name:…Map_S.bin:r0:name: growth area not clean padding` w pierwszym smoke była
+niewinna, ale krótszy EN (35 B) **został wpisany ponad zerowe u32 na +32** — heurystyka
+„zera = padding" nie odróżnia paddingu od pola o wartości 0. Zmierzone układy rekordów
+(config00+config01): `srwDL_Map_S.bin` nagłówek 16, krok 160, nazwa = pole **32 B** (7/20 nazw
+dokładnie 32 B bez NUL; r8/r9/r12/r18/r19 ucięte w pół znaku → nierozkodowalne → brak wierszy 05,
+tylko fragmenty leftover 04, które odmawiają), zero u32 na +32, floaty od +36; `bg2dlist.bin`
+nagłówek 4, krok 112, nazwa ≤16 B, binaria od +28 → **24 B**; `milstP<NN>.bin` krok 128, tytuł
++10 (≤27 B), pole ASCII „P00" na +50 → **40 B**; `groupunit<NN>.bin` krok 100, nazwa ≤20 B, u16 od
++32 → **32 B**; `bgmlist<NN>.bin` +20/64, +84/60, +144/48 i `*_ext.dat` +24/160, +184/160, +344/44
+(czyste). Poprawka: `mission_text.SPECS` niesie rozmiar slotu (`slot_size_at`), `slot_apply`,
+`translation_check.fixed_slot_limit` i `scale_fill.constraints` tną budżet do zmierzonego pola
+niezależnie od `max_bytes` wiersza. Pakiet 05 z Drive mówi 159/111/117/99 — prawda to **31/23/39/31**
+(następny `translator_export` sam to poprawi; widoki na Drive mają stare liczby — tłumacz
+poinformowany w `TRANSLATOR_PACKAGE.md`). Trzy stare testy kodowały zły zasięg (118/117) —
+poprawione. Po poprawce Map_S r0 = 29 B, trafiony, bajt 32 nietknięty.
+
+**Błąd 3 — pisarze ucinały białe znaki EN (NAPRAWIONY):** każdy pisarz brał `en.strip()` jako
+WARTOŚĆ (SLA, TW ×2, NTW, ISW ×3, sysmes w buildzie), więc wiodące/końcowe `\n`, spacje i U+3000,
+których walidator wymaga (parzystość `\n`) i które jp ma (`　　 サブミッション　　` ×33, `　月面　小惑星　`,
+sysmes `　　気力制限クリア！` 20 wiodących / 45 końcowych U+3000, ` Lv`/` 発動率` ×558, opisy z `\n`
+na końcu), ginęły przy zapisie. Dowód: `leftover:eventP00.cpk/DL101_11_ext.dat:344`, EN
+`'\nTESTEVENTL1 …'` zapisany bez `\n`. Poprawka: wspólny `table_write.english(row)` (EN jak
+napisany; sam biały znak = nieprzetłumaczone) w 8 miejscach + ostrzeżenie walidatora o skrajnym
+białym znaku, którego jp nie ma + testy (SLA, ISW, TW, walidator).
+
+**Błąd 4 — slot po bajtach binarnych bez NUL-a (NAPRAWIONY, [ZWERYFIKOWANE]):** 9 odmów
+`bg2dlist` z przebiegu v7 („uczciwe") i 6 `milstP01` były błędem pisarza: `span_around` szukał
+NUL-a wstecz, a przed nazwą tła stoją bajty `0c 0d 0e 0f` (koniec poprzedniego rekordu) → span z
+przedrostkiem → „jp nie pasuje". Po użyciu zmierzonego startu slotu wyszedł drugi, groźniejszy
+błąd: pętla zapisu mierzyła padding ponownie `span_around`-em i zerowała do końca
+PRZEDROSTKOWEGO spanu — **bajt `02` na +28 rekordu bg2dlist r1 (pole binarne) poszedłby na 0**.
+Poprawka: dla znanych slotów span zaczyna się na offsecie wiersza (`slot_span`), długość
+dopasowanego spanu jedzie z planem (nigdy nie jest mierzona ponownie), twardy strażnik: zapis nie
+może wyjść poza zmierzony slot. Weryfikacja na realnych plikach: bg2dlist 73/73, milstP01 31/31,
+milstP00 15/15, Map_S 15/15, groupunit 16/16, bgmlist00 365/365 — **0 zmienionych bajtów poza
+slotami**. Test regresji odtwarza układ bg2dlist.
+
+**Błąd 5 — semantyka `max_bytes` (NAPRAWIONA):** walidator i instrukcja tłumacza liczą bajty EN
+bez NUL-a (`limit: 117 B` = „dokładnie tyle bajtów"), `slot_apply` wymagał `len+1 <= max_bytes`,
+`text_runs_export` wpisywał `len(span)+1` — rozjazd o 1 B w obie strony (EN o pełnym limicie
+przechodził walidator i odpadał w buildzie; leftover mógł dostać o bajt więcej niż span). Jedna
+semantyka w całym łańcuchu: **`max_bytes` = bajty EN**; SLA sprawdza, że obszar wzrostu RAZEM Z
+POZYCJĄ NOWEGO NUL-a jest zerowy (stary test `test_growth_into_a_dirty_area` utrwalał zapis
+„ABCDEFGH" sklejony z następnym napisem bez terminatora — poprawiony).
+
+**Higiena pakietu 04 (eksport, [ZWERYFIKOWANE] na 3 kontenerach):** `config_text_tables`
+sprawdza runy wobec własnych tablic członka (rodziny wskaźników TW: Reference, DLC_ID, Shop,
+Skill_Tag, Achievement, słowniki; granice pól ISR: rekordy Item/Skill; pula ogonowa B nie ma
+tablicy — nieoceniana): **84 sieroty** (`' N'`=20000, `'0u'`=30000, `'Pﾃ'`, `'珱b'`… — ceny i
+identyfikatory; Shop00 27, Item 14+14, Skill00 23, Achievement 6) → `orphan: true`, eksport pomija;
+**53 przycięcia** (DLC_ID00 15 + DLC_ID01 10: `!チョバムアーマーSR`, `第２章 本編` z bajtem licznika;
+Reference00 28: nagłówki `\x02\x05解説書：戦術`, które filtr kontrolek odrzucał w całości — stąd 26
+nagłówków Reference nie było w pakiecie, a 9 wróciło jako leftover z `%s%s`) → `snapped: true`,
+wiersz niesie napis od wskaźnika. Pierwsza wersja oceniała też pulę ogonową z pozycji liczonych z
+`len(text.encode)` — 612 fałszywych przycięć w Skill00 (dekodowanie zmienia długość) — wycofana,
+pula nieoceniana. **927 wierszy puli ogonowej** (Skill00 583, StatusChange 109, Item 86+86, Spirit
+63; jeden `id` = start puli) były `grow`/`None`, a SLA pisze je w miejscu → eksport daje
+`mode: slot`, `max_bytes = bytes`. Pytanie otwarte [HIPOTEZA]: słowa ogona rekordów (1, 78, 2, 32,
+60…) to parametry, nie offsety puli (1 687/10 284 „trafień" to przypadki małych liczb; u32 269/11 500)
+— jak gra adresuje fragmenty, nieznane; wzrost puli wymaga testu w grze (przesunąć jeden fragment i
+sprawdzić opisy). Do czasu dowodu: w miejscu.
+
+**Strażnik TW per rekord:** `rebuild_pool` odrzucał CAŁY członek, gdy jakikolwiek edytowany
+rekord miał niewyjaśnione odwołania (`srwDL_Achievement.bin` rekord 9 → 78 wierszy achievement
+stracone; DLC_ID00 r9 / DLC_ID01 r0 → 171 wierszy). Teraz `resolve_rows` odmawia wiersz po wierszu
+(z offsetami odwołań), reszta członka jest pisana; `rebuild_pool` zostaje jako ostatnia linia.
+
+**Przebiegi scale (7 JSONL bez 03 = „base", 8 JSONL = „full"; 6 kontenerów; build ~105–115 s):**
+| wersja | zmiana | base: sprawdzone / trafione / brak | full |
+|---|---|---|---|
+| v8a | sloty + białe znaki | 26 623 / 25 289 / 1 334 | 31 520 / 30 184 / 1 336 |
+| v8b | slot po binariach (bg2dlist, milstP01) | 26 623 / 25 304 / 1 319 | 31 520 / 30 199 / 1 321 |
+| v8c | pula w miejscu, bliźniaki, semantyka limitu | 26 514 / 25 945 / 569 | 31 411 / 30 842 / 569 |
+| v8d | strażnik TW per rekord | 26 514 / 26 032 / 482 | 31 411 / 30 929 / 482 |
+| v8e | wyjątek liczb w rekordach DLC_ID | 26 514 / **26 171 / 343** | 31 411 / **31 068 / 343** |
+Walidator: v8a 51 błędów `copy differs` (bliźniaki `char:600:series` config01/imenu01 bez EN) → od
+v8b **0 błędów**. Niewypełnione przez fill: 111/146 „tylko tokeny" + 109 „znacznik nie mieści się"
+(fragmenty 2–4 B puli). „Poza buildem" 1 636 = bliźniaki w kontenerach spoza folderu (imenu01/02,
+evept*). 03 (4 932 wierszy skilli) w full: +4 897 trafionych, 0 nowych braków — 13 odmów SLA
+„token-only" z v7 to teraz zapisy (reguła %s z cz. 17). Braki v8c (569): dlc_id 171 i achievement 78
+(strażnik TW — v8d), robonote 144 + char 77 (polityka: brak rekordu / konflikt pseudonimów),
+leftover Reference 24 i Map_S 5, skill 23 + item 28 + shop 9 (sieroty — znikną po eksporcie),
+ItemDrop 5+5 (brak pisarza). Dla porównania v7 (cz. 16): 24 823 zapisów / 1 781 odmów.
+
+**DLC_ID — zmierzony blok liczb (v8e, [ZWERYFIKOWANE] 51 rekordów DLC_ID00/01):** po 8
+wskaźnikach rekord ma 26 bajtów liczb do pierwszego napisu na +58: +32 cena (0/2000/3000/4000/
+5000), +36 numer bieżący 45…106 (w DLC_ID01 spakowana para u16: 65538…), +40/+44 pola spakowane,
++48 punkty 0/50/100/150/200 (idą za ceną), +52 flagi. Strażnik TW brał numer i punkty za
+odwołania, gdy ich wartość wpadała w zakres napisów (73…106 ≥ 58) — w DLC_ID01 wszystkie 10
+rekordów, w DLC_ID00 r9–r40. Rodzina dostała `exempt=((32, 56),)`; DLC_ID00 139 edycji (13 odmów
+= wiersze z bajtem licznika, które eksport przytnie), DLC_ID01 60/60, verify czyste. To teksty menu
+pobierania DLC (`第２章 本編`, `第２章の本編をダウンロードします。`) — do sprawdzenia w grze.
+
+**Stan końcowy v8e (full, 8 JSONL):** 33 047 wypełnionych, 31 411 sprawdzonych w 6 kontenerach,
+**31 068 trafionych, 343 braków, 0 za krótkich**; build 111 s; wyjścia `DLC/` (sha256 pierwsze 16):
+config00.cpk 934 016 B 19e00447…, config01.EDAT 245 888 B 1862a9a3…, configst.cpk 491 648 B
+0f0179e5…, eventP00.cpk 262 616 B bff38b0a…, imenu00.cpk 57 512 B 1471182b…, mesbtl00.cpk
+1 043 160 B b05593d0…. 343 braków: robonote 144 (brak rekordu w słowniku), char 77 (konflikt
+pseudonimów — polityka „cały napis wygrywa"), leftover Reference 24 + skill 23 + item 28 + shop 9 +
+dlc_id 13 + achievement 10 = 107 (sieroty/przycięcia — znikają po ponownym eksporcie), ItemDrop
+5+5 (brak pisarza), Map_S 5 (nazwy nierozkodowalne). Walidator 0 błędów w obu przebiegach.
+Suite: **942 OK (1 skipped)**. Niezrobione: eksport pakietu wymaga pełnego `local/` na maszynie
+użytkownika (tu są tylko 3 kontenery config); Drive README zostaje v4 do zgody na podmianę.

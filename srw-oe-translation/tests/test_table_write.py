@@ -243,23 +243,70 @@ class RowResolutionTests(unittest.TestCase):
 
 
 class SubContainmentTests(unittest.TestCase):
-    """A member whose rebuild raises is refused alone; the container step survives."""
+    """A record with unexplained in-record references is refused alone - row by row - and the
+    other records of the member still get their text (before 2026-10-14 the rebuild guard threw
+    the whole member away: 78 achievement rows for one guarded record)."""
 
-    def test_a_raising_member_is_contained(self):
-        rec = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
-        struct.pack_into("<I", rec, 68, 73)      # a word pointing into its own string area
-        pool = make_pool([bytes(rec)])
+    def test_a_guarded_record_is_refused_alone(self):
+        guarded = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
+        struct.pack_into("<I", guarded, 68, 73)  # a word pointing into its own string area
+        clean = chara_record(502, [jp("月城飛鳥"), jp("山口勝平")])
+        pool = make_pool([bytes(guarded), clean])
         spans = TW.record_spans(pool)
         parsed = TW.parse_pool(pool, CHARA)
         self.assertTrue(parsed[0].unexplained_refs)
+        self.assertFalse(parsed[1].unexplained_refs)
         rows = [row_offset(spans[0][0] + parsed[0].pointers[0], "日向仁", "Hinata Jin",
-                           "srwDL_CharaDictionary99.bin")]
-        summary = {"members": 0, "edits": 0, "refused": 0, "problems": [], "per_member": {},
-                   "resolved": []}
-        blob, report = TW._apply_sub("srwDL_CharaDictionary99.bin", pool, rows, summary)
-        self.assertIsNone(blob)
-        self.assertIsNone(report)
-        self.assertTrue(any("unexplained" in p for p in summary["problems"]))
+                           "srwDL_CharaDictionary99.bin", row_id="guarded"),
+                row_offset(spans[1][0] + parsed[1].pointers[0], "月城飛鳥", "Tsukishiro Asuka",
+                           "srwDL_CharaDictionary99.bin", row_id="clean")]
+        blob, report = TW.apply_member(pool, "srwDL_CharaDictionary99.bin", rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(len(report["refused"]), 1)
+        self.assertIn("guarded: record 0 has unexplained in-record references",
+                      report["refused"][0])
+        after = TW.parse_pool(blob, CHARA)
+        self.assertEqual(after[0].strings[0], jp("日向仁"))          # untouched
+        self.assertEqual(after[1].strings[0], b"Tsukishiro Asuka")  # written
+
+    def test_the_rebuild_guard_still_stands_behind_the_row_filter(self):
+        rec = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
+        struct.pack_into("<I", rec, 68, 73)
+        pool = make_pool([bytes(rec)])
+        with self.assertRaises(TW.TableError):
+            TW.rebuild_pool(pool, CHARA, {(0, 0): b"Boom"})
+
+
+class DlcIdNumbersTests(unittest.TestCase):
+    def test_the_numeric_prefix_of_a_dlc_id_record_is_not_a_reference(self):
+        # 8 pointers, then price / running number / packed / packed / points / flags (+32..+55)
+        # and two bytes, first string at +58 - the measured layout
+        strings = [jp("経験値 ２倍 Lv1"), jp("経験値 ２倍 Lv1"), jp("部隊パーツ"), b"", b"X", b"Y", b"Z", b""]
+        pos = 58
+        ptrs = []
+        for st in strings:
+            ptrs.append(pos)
+            pos += len(st) + 1
+        numbers = struct.pack("<6I", 2000, 73, 10, 0, 100, 67436544) + b"\x00\x00"
+        rec = (b"".join(struct.pack("<I", q) for q in ptrs) + numbers
+               + b"".join(st + b"\x00" for st in strings) + b"\x00\x00")
+        pool = make_pool([rec])
+        fam = TW.family_of("srwDL_DLC_ID00.bin")
+        parsed = TW.parse_pool(pool, fam)
+        self.assertEqual(parsed[0].unexplained_refs, [])
+        out = TW.rebuild_pool(pool, fam, {(0, 0): b"EXP x2 Lv1"})
+        after = TW.parse_pool(out, fam)
+        self.assertEqual(after[0].strings[0], b"EXP x2 Lv1")
+        self.assertEqual(after[0].prefix[32:58], numbers)      # the numbers ride along untouched
+
+
+class EnglishTests(unittest.TestCase):
+    def test_english_is_kept_as_written_and_blank_means_untranslated(self):
+        self.assertEqual(TW.english({"en": "　Sub　"}), "　Sub　")
+        self.assertEqual(TW.english({"en": "Text\n"}), "Text\n")
+        self.assertEqual(TW.english({"en": " \n "}), "")
+        self.assertEqual(TW.english({"en": None}), "")
+        self.assertEqual(TW.english({}), "")
 
 
 class TokenTests(unittest.TestCase):

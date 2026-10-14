@@ -157,6 +157,84 @@ class ExtractMemberTest(unittest.TestCase):
         self.assertEqual(out["stats"]["error"], "table not recognised")
 
 
+def shop_record(label: bytes, price: int) -> bytes:
+    """Convention-A shop record (family: 2 pointers at +0): pointers, a u32 price, the strings."""
+    head = 12
+    ptr0 = head
+    ptr1 = head + len(label) + 1
+    return (struct.pack("<2I", ptr0, ptr1) + struct.pack("<I", price)
+            + label + b"\x00" + b"\x00")
+
+
+class LayoutCheckTest(unittest.TestCase):
+    """Runs are judged against the member's own pointer / boundary tables."""
+
+    def test_a_price_that_decodes_is_an_orphan_and_the_label_is_kept(self):
+        # u32 30000 = 30 75 00 00 -> the run "0u" that used to become a shop row
+        blob = table_a([shop_record("武器屋".encode("cp932"), 30000)])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        strings = out["rows"][0]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in strings],
+                         [("0u", True), ("武器屋", False)])
+        self.assertTrue(out["stats"]["layout_checked"])
+        self.assertEqual((out["stats"]["orphans"], out["stats"]["snapped"]), (1, 0))
+
+    def test_a_run_with_a_prefix_byte_is_snapped_to_the_pointer_target(self):
+        # the byte before the string is a count field that happens to be printable ("!")
+        label = "チョバムアーマーSR".encode("cp932")
+        rec = struct.pack("<2I", 12, 12 + len(label) + 1) + b"\x00\x00\x00" + b"!" + label + b"\x00\x00"
+        blob = table_a([rec])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        strings = out["rows"][0]["strings"]
+        self.assertEqual(len(strings), 1)
+        self.assertEqual(strings[0]["text"], "チョバムアーマーSR")
+        self.assertTrue(strings[0]["snapped"])
+        self.assertEqual(strings[0]["rel"], 12)
+        self.assertEqual(strings[0]["bytes"], len(label))
+
+    def test_a_control_prefixed_heading_is_recovered_by_snapping(self):
+        # reference headings start with formatting bytes 02 05 that the control filter rejects
+        heading = "解説書：戦術".encode("cp932")
+        rec = struct.pack("<2I", 10, 10 + len(heading) + 1) + b"\x02\x05" + heading + b"\x00\x00"
+        blob = table_a([rec])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        self.assertEqual([s["text"] for s in out["rows"][0]["strings"]], ["解説書：戦術"])
+
+    def test_members_without_a_measured_layout_keep_every_run(self):
+        rec = b"\x00" * 8 + b"0u\x00\x00" + "気合".encode("cp932") + b"\x00"
+        blob = table_b([rec])
+        out = CT.extract_member("configst.cpk", "srwDL_Spirit.bin", blob, "spirit")
+        self.assertFalse(out["stats"]["layout_checked"])
+        self.assertEqual([s["text"] for s in out["rows"][0]["strings"]], ["0u", "気合"])
+        self.assertFalse(any(s.get("orphan") for s in out["rows"][0]["strings"]))
+
+    def test_item_record_fields_are_judged_but_the_tail_pool_is_not(self):
+        import item_skill_records as ISR
+        fields = ["改造制限解除", "", "改造の上限を解除する", "", ""]
+        body = b""
+        bounds = []
+        pos = ISR.STRING_BASE
+        for text in fields:
+            bounds.append(pos)
+            raw = text.encode("cp932") + b"\x00"
+            body += raw
+            pos += len(raw)
+        bounds.append(pos)
+        header = bytearray(ISR.STRING_BASE)
+        struct.pack_into("<3H", header, 0, 10000, 10000, 10000)
+        struct.pack_into("<H", header, 24, 20000)            # price 20 4E -> " N"
+        struct.pack_into("<6H", header, ISR.BOUNDARY_TABLE, *bounds)
+        rec = bytes(header) + body
+        blob = table_b([rec], tail=b"0u\x00" + "%s2".encode("cp932") + b"\x00")
+        out = CT.extract_member("config00.cpk", "srwDL_Item00.bin", blob, "item")
+        rec_strings = out["rows"][0]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in rec_strings],
+                         [(" N", True), ("改造制限解除", False), ("改造の上限を解除する", False)])
+        pool_strings = out["rows"][1]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in pool_strings],
+                         [("0u", False), ("%s2", False)])
+
+
 class UniqueStringsTest(unittest.TestCase):
     def test_grouping_and_locations(self):
         rows = [

@@ -628,3 +628,45 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   i finalny patch — bez zmian wobec planu; nowa reguła %s nic w łańcuchu budowania nie łamie
   (odmowy token-only SLA zamienią się w zapisy).
 
+
+## 2026-10-14 — próba pełnoskalowa na realnych kontenerach: pięć błędów pisarzy/pakietu zamkniętych
+
+* **Pomocniki odtworzone w repo** (zapowiedź z poprzedniego wpisu): `tools/scale_fill.py`
+  (syntetyczne wypełnienie pakietu pod te same bramy co prawdziwe tłumaczenie, `--smoke` = 1 wiersz
+  na rodzinę) i `tools/patch_spot_check.py` (czyta zbudowane kontenery i liczy, które EN naprawdę
+  wylądowały; pełna lista braków — build_report trzyma tylko pierwsze odmowy). Oba z testami.
+* **Znalezione i naprawione [ZWERYFIKOWANE na config00/config01/configst/eventP00]:**
+  1. pisarz slotów ufał heurystyce „zera = padding" i **nadpisałby zerowe pole binarne** za
+     krótszą nazwą mapy (`srwDL_Map_S` +32); teraz `mission_text.SPECS` niesie zmierzone rozmiary
+     pól (mapa 32, tło 24, tytuł misji 40, oddział 32 B) i tną budżet pisarza, walidatora i filla;
+  2. **wszystkie pisarze ucinały skrajne białe znaki EN** (`\n`, spacje, U+3000 wyśrodkowanych
+     tytułów, ` Lv` kolumn) — wspólny `table_write.english()`; walidator ostrzega o dodanej spacji;
+  3. slot po bajtach binarnych bez NUL-a (`bg2dlist`, `milstP01`) — 15 „uczciwych" odmów z v7 było
+     błędem; przy okazji pętla zapisu **zerowałaby pole binarne za nazwą tła** — naprawione, zapis
+     nie może wyjść poza zmierzony slot (0 bajtów poza slotami na 6 członkach);
+  4. `max_bytes` liczony z NUL-em w `slot_apply`/`text_runs_export`, bez NUL-a w walidatorze i
+     instrukcji — jedna semantyka (bajty EN), pozycja terminatora sprawdzana jawnie;
+  5. strażnik „niewyjaśnione odwołania" odrzucał całe członki (78 achievement, 171 DLC_ID) — teraz
+     per wiersz; rekordy DLC_ID mają zmierzony blok liczb (+32 cena, +36 numer, +48 punkty) →
+     wyjątek rodziny, DLC_ID00/01 piszą się (139+60 edycji).
+* **Higiena pakietu 04 (eksport):** 84 „sieroty" (ceny/identyfikatory dekodujące się jako `' N'`,
+  `'0u'`) pomijane; 53 napisy przycięte do wskaźnika (26 nagłówków Reference wraca do pakietu,
+  `!チョバムアーマーSR` bez bajtu licznika); 927 wierszy puli ogonowej B (Skill00/StatusChange/
+  Item/Spirit) oznaczone `slot` + `max_bytes = bytes`, bo pisarz pisze je w miejscu — pakiet
+  z Drive (sprzed zmian) ma je jeszcze jako `grow`; **następny eksport na maszynie użytkownika
+  naprawi plik**, a `TRANSLATOR_PACKAGE.md` (v5, lokalnie — Drive README dalej v4, bez wysyłki
+  bez zgody) mówi tłumaczowi, jak czytać stare widoki (limity 05: 39/31/23/31 B zamiast
+  117/159/111/99; fragmenty opisów = limit długości oryginału; spacje skrajne są częścią tekstu).
+* **Wyniki (6 kontenerów, 7 vs 8 JSONL):** smoke 93/8/1 (8 = udokumentowane odmowy); scale
+  v8a 25 289 trafionych / 1 334 braków → v8d **26 032 / 482** (base) i **30 929 / 482** (full,
+  z 03: +4 897 trafionych, 0 nowych braków; 13 odmów „token-only" z v7 to zapisy); walidator
+  0 błędów; build ~110 s. Pozostałe braki = polityka (robonote bez rekordu 144, pseudonimy 77,
+  nierozkodowalne Map_S 5, ItemDrop bez pisarza 10) + sieroty/przycięcia, które znikają po
+  eksporcie (≈70) + DLC_ID (po wyjątku rodziny: 13 → po eksporcie 0). Szczegóły: EXPERIMENT_LOG cz. 18.
+* **Otwarte [HIPOTEZA]:** jak gra adresuje fragmenty puli ogonowej (słowa ogona rekordów to
+  parametry, nie offsety) — wzrost puli wymaga testu w grze; do tego czasu w miejscu.
+* Testy: **942 OK (1 skipped)**.
+* **Następny krok:** eksport pakietu na maszynie użytkownika (nowe limity 05, sieroty, pula w
+  miejscu) → podmiana Robocze/Pakiet na Drive po zgodzie → pełny przebieg HOKUS_POKUS z ISO +
+  DLC i test w PPSSPP (w grze do sprawdzenia: tytuły misji z nowym limitem, nazwa tła po
+  binariach, DLC_ID w menu pobierania, fragment opisu umiejętności w miejscu).

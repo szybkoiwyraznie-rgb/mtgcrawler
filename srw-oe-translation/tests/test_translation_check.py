@@ -143,6 +143,43 @@ class RowTest(unittest.TestCase):
         self.assertIn("suggested_max", warnings[0])
 
 
+class FixedSlotLimitTest(unittest.TestCase):
+    def slot_row(self, en, max_bytes, member="srwDL_Map_S.bin", offset=16):
+        return {"id": "map_name:config00.cpk/srwDL_Map_S.bin:r0:name", "category": "map_name",
+                "part": "name", "jp": "宇宙マップ", "en": en, "mode": "slot", "max_bytes": max_bytes,
+                "source": {"container": "config00.cpk", "member": member, "offset": offset}}
+
+    def test_the_measured_field_beats_a_stale_record_wide_max_bytes(self):
+        errors, _ = TC.check_row(self.slot_row("x" * 40, 159))
+        self.assertTrue(any("measured 32-byte slot" in e for e in errors), errors)
+        errors, _ = TC.check_row(self.slot_row("x" * 31, 159))
+        self.assertEqual(errors, [])
+
+    def test_a_tighter_package_budget_still_applies(self):
+        errors, _ = TC.check_row(self.slot_row("x" * 20, 10))
+        self.assertTrue(any("max_bytes 10" in e for e in errors), errors)
+
+    def test_other_members_are_untouched(self):
+        self.assertIsNone(TC.fixed_slot_limit(self.slot_row("x", 159, member="srwDL_Item00.bin")))
+        self.assertIsNone(TC.fixed_slot_limit(self.slot_row("x", 159, offset=20)))
+        self.assertEqual(TC.fixed_slot_limit(self.slot_row("x", 159)), 31)
+
+
+class WhitespaceTest(unittest.TestCase):
+    def test_edge_whitespace_absent_from_the_jp_is_a_warning_not_an_error(self):
+        errors, warnings = TC.check_row(row("加速", " Accel "))
+        self.assertEqual(errors, [])
+        self.assertEqual(len([w for w in warnings if "whitespace" in w]), 2)
+
+    def test_edge_whitespace_the_jp_also_has_is_silent(self):
+        errors, warnings = TC.check_row(row("　　 サブミッション　　", "　　 Sub mission　　"))
+        self.assertEqual(errors, [])
+        self.assertFalse([w for w in warnings if "whitespace" in w])
+        errors, warnings = TC.check_row(row("説明。\n", "Text.\n"))
+        self.assertEqual(errors, [])
+        self.assertFalse([w for w in warnings if "whitespace" in w])
+
+
 class BoxWidthTest(unittest.TestCase):
     def test_a_long_dialogue_line_is_a_warning(self):
         _, warnings = TC.check_row(row("あ", "x" * (TC.BOX_WIDTH + 1)))
