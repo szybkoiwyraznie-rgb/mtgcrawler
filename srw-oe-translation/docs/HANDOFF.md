@@ -113,6 +113,13 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
+**Stan 2026-10-14 noc, runda 2 (`EXPERIMENT_LOG.md` §21.16):** build #10 (`config00`) **pada**; V1 (sam
+`DLC_ID00`) działa; **V2 (sam `srwDL_Skill00.bin` z buildu #10) pada** → winny jest przebudowany Skill00, nie
+wskaźnik +36 (poprawiony, nadal pada). Brak odwołań po nazwie umiejętności w innych plikach. W toku: V6/V3/V4
+z PLANU B + runda 2 `RUNDA_2_Skill00.zip` (Drive `1DAxpAe4u3hn0kJ_ADpniJDdmnA03lqBV`, `tools/member_variants.py`:
+S1 rozmiar / S2 rekordy EN+pula JP / S3 rekordy JP+pula EN / S4 nazwy / S5 opisy / S6–S7 połowy). Hipotezy:
+rozmiar `.pac`/członu (V6, S1), stałe bufory nazw (JP max 14 B, EN do 26 B — S4), opisy (S5), pula (S3).
+
 **Stan 2026-10-14 bardzo późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.15):** build #9 w wariancie B **padł
 identycznie** (`memcpy_jak`, NULL + `bytes>0`). Znaleziona pewna usterka pisarza: w rekordach conv-B
 (Skill00/Item00/Item/Spirit/StatusChange) u32 pod **+36 = `tail_offset − offset_rekordu`** (wskaźnik puli

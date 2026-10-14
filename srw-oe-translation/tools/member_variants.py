@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""Bisection INSIDE one convention-B member (e.g. ``srwDL_Skill00.bin``): what part of a rebuilt
+member makes the game crash - its size, its record texts, or its fragment pool?
+
+Round 1 of the sub-file bisection (``container_mix``) showed that ``config00.cpk`` with ONLY the
+rebuilt ``srwDL_Skill00.bin`` crashes at "Loading" (variant V2, build #10, pool pointers right),
+while the rebuilt dictionaries/DLC list do not.  This tool takes the ORIGINAL container and the
+BUILT one, and writes one container per variant in which only that member differs:
+
+``pad``          original member + zero padding to the built member's size (size only);
+``rec_en_pool_jp`` the built records (English texts, pool pointers right) + the ORIGINAL pool strings;
+``rec_jp_pool_en`` the original records + the built (English) pool strings, table recomputed;
+``names_only``   original member with only ``name``/``name_level`` taken from the build (effects,
+                 brief, label and the pool stay Japanese) - rebuilt with ``item_skill_write``;
+``effects_only`` the complement: ``effect``/``effect_brief``/``label`` from the build, names Japanese;
+``half_a`` / ``half_b``  all five fields from the build for the first / second half of the records.
+
+Every variant is re-parsed (record count, pool pointers, pool strings) before it is written, and the
+report next to it carries sizes and md5s only.  Game text never leaves ``local/``.
+
+Usage::
+
+    python tools/member_variants.py --original local/usrdir/config00.cpk \\
+        --built local/build10/DLC/config00.cpk --member srwDL_Skill00.bin --out-dir local/round2
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import struct
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional, Sequence, Tuple
+
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+
+import configst_pack as CSP  # noqa: E402
+import container_mix as CM  # noqa: E402
+import cpk_write  # noqa: E402
+import item_skill_records as ISR  # noqa: E402
+import item_skill_write as ISW  # noqa: E402
+
+VARIANTS = ("pad", "rec_en_pool_jp", "rec_jp_pool_en", "names_only", "effects_only", "half_a", "half_b")
+NAME_ROLES = ("name", "name_level")
+EFFECT_ROLES = ("effect", "effect_brief", "label")
+
+
+class VariantError(Exception):
+    """The member cannot be varied safely (layout not understood)."""
+
+
+def _md5(data: bytes) -> str:
+    return hashlib.md5(data).hexdigest()
+
+
+def field_bytes(blob: bytes, row: dict) -> Dict[str, bytes]:
+    """The five text fields of one record as raw bytes (NUL and slack stripped)."""
+    offset, length = row["offset"], row["length"]
+    bounds = struct.unpack_from("<6H", blob, offset + ISR.BOUNDARY_TABLE)
+    rec = blob[offset:offset + length]
+    return {role: rec[bounds[k]:bounds[k + 1]].rstrip(b"\x00") for k, role in enumerate(ISR.FIELDS)}
+
+
+def parsed(blob: bytes, kind: str, member: str) -> dict:
+    out = ISR.parse_member(blob, kind, member)
+    if out["errors"]:
+        raise VariantError(f"{member}: does not parse: {out['errors'][:2]}")
+    return out
+
+
+def edits_between(original: bytes, built: bytes, kind: str, member: str,
+                  roles: Sequence[str], records: Optional[range] = None) -> Dict[int, Dict[str, bytes]]:
+    """Per-record edits that carry the built member's bytes for ``roles`` (where they differ)."""
+    po, pb = parsed(original, kind, member), parsed(built, kind, member)
+    if len(po["records"]) != len(pb["records"]):
+        raise VariantError(f"{member}: record counts differ ({len(po['records'])} vs {len(pb['records'])})")
+    edits: Dict[int, Dict[str, bytes]] = {}
+    for ro, rb in zip(po["records"], pb["records"]):
+        if records is not None and ro["record"] not in records:
+            continue
+        fo, fb = field_bytes(original, ro), field_bytes(built, rb)
+        changed = {role: fb[role] for role in roles if fo[role] != fb[role]}
+        if changed:
+            edits[ro["record"]] = changed
+    return edits
+
+
+def pool_strings(blob: bytes, kind: str, member: str) -> Tuple[int, List[bytes]]:
+    p = parsed(blob, kind, member)
+    _, strings = ISR.parse_tail_pool(blob, p["tail_offset"])
+    return p["tail_offset"], strings
+
+
+def make_variant(name: str, original: bytes, built: bytes, kind: str, member: str) -> bytes:
+    if name == "pad":
+        if len(built) < len(original):
+            raise VariantError("pad: the built member is smaller than the original")
+        return original + b"\x00" * (len(built) - len(original))
+    if name == "rec_en_pool_jp":
+        tail_b, _ = pool_strings(built, kind, member)
+        _, strings_o = pool_strings(original, kind, member)
+        return built[:tail_b] + ISR.build_tail_pool(tail_b, strings_o)
+    if name == "rec_jp_pool_en":
+        tail_o, _ = pool_strings(original, kind, member)
+        _, strings_b = pool_strings(built, kind, member)
+        return original[:tail_o] + ISR.build_tail_pool(tail_o, strings_b)
+    if name == "names_only":
+        out, _ = ISW.rebuild_member(original, kind, edits_between(original, built, kind, member, NAME_ROLES), member)
+        return out
+    if name == "effects_only":
+        out, _ = ISW.rebuild_member(original, kind, edits_between(original, built, kind, member, EFFECT_ROLES), member)
+        return out
+    if name in ("half_a", "half_b"):
+        count = len(parsed(original, kind, member)["records"])
+        half = count // 2
+        rng = range(0, half) if name == "half_a" else range(half, count)
+        out, _ = ISW.rebuild_member(original, kind, edits_between(original, built, kind, member, ISR.FIELDS, rng), member)
+        return out
+    raise VariantError(f"unknown variant {name!r}")
+
+
+def check(blob: bytes, kind: str, member: str, reference: bytes) -> dict:
+    """Re-parse a variant: same record count as the reference, pool pointers right, pool parses."""
+    p = parsed(blob, kind, member)
+    ref = parsed(reference, kind, member)
+    faults = ISW.pool_pointer_faults(blob, p)
+    _, strings = ISR.parse_tail_pool(blob, p["tail_offset"])
+    if len(p["records"]) != len(ref["records"]) or faults:
+        raise VariantError(f"{member}: variant does not hold (records {len(p['records'])}, "
+                           f"pointer faults {len(faults)})")
+    return {"records": len(p["records"]), "tail_offset": p["tail_offset"], "pool_strings": len(strings),
+            "size": len(blob), "md5": _md5(blob)}
+
+
+def with_member(original_path: Path, member: str, data: bytes) -> Tuple[bytes, int]:
+    """The original container with ONE sub-file replaced; returns (bytes, pac size)."""
+    cpk, _members, pac_name = CM.members_of(original_path)
+    if pac_name is None:
+        raise VariantError("only single-.pac containers are supported")
+    pac = CSP.parse_pac(cpk_write.decompressed(cpk.members[0].blob))
+    hit = False
+    for sub in pac["subs"]:
+        if sub["name"] == member:
+            sub["data"] = data
+            hit = True
+    if not hit:
+        raise VariantError(f"{member} is not in {original_path.name}")
+    new_pac = CSP.rebuild_pac(pac)
+    return cpk_write.rebuild(cpk, replacement=(pac_name, new_pac)), len(new_pac)
+
+
+def build_all(original_path: Path, built_path: Path, member: str, out_dir: Path,
+              variants: Sequence[str] = VARIANTS, labels: Optional[Dict[str, str]] = None) -> List[dict]:
+    kind = ISW._kind_of(member)
+    if kind is None:
+        raise VariantError(f"{member} is not a convention-B member this tool knows")
+    _c, orig_members, _p = CM.members_of(original_path)
+    _c2, built_members, _p2 = CM.members_of(built_path)
+    original, built = orig_members[member], built_members[member]
+    if original == built:
+        raise VariantError(f"{member} is identical in both containers - nothing to vary")
+    reports = []
+    for index, name in enumerate(variants, 1):
+        label = (labels or {}).get(name, f"S{index}")
+        data = make_variant(name, original, built, kind, member)
+        # the padded member is checked on its structured part - the zeros behind the pool are
+        # exactly what the variant is about (the loader copies them, the parser never reads them)
+        info = check(data[:len(original)] if name == "pad" else data, kind, member, original)
+        info["size"], info["md5"] = len(data), _md5(data)
+        container, pac_size = with_member(original_path, member, data)
+        folder = out_dir / label
+        folder.mkdir(parents=True, exist_ok=True)
+        target = folder / original_path.name
+        target.write_bytes(container)
+        report = {"label": label, "variant": name, "member": member, "member_original_size": len(original),
+                  "member_built_size": len(built), "member_variant": info, "pac_size": pac_size,
+                  "container_size": len(container), "container_md5": _md5(container)}
+        target.with_name(target.name + ".variant.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        reports.append(report)
+    return reports
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--original", type=Path, required=True)
+    parser.add_argument("--built", type=Path, required=True)
+    parser.add_argument("--member", required=True, help="e.g. srwDL_Skill00.bin")
+    parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument("--variants", nargs="*", default=list(VARIANTS), choices=VARIANTS)
+    args = parser.parse_args(argv)
+    try:
+        reports = build_all(args.original, args.built, args.member, args.out_dir, args.variants)
+    except (VariantError, ISW.WriteError, ValueError) as exc:
+        print(f"ERROR: {exc}")
+        return 1
+    for r in reports:
+        v = r["member_variant"]
+        print(f"{r['label']:4} {r['variant']:15} member {v['size']:>7} B (orig {r['member_original_size']}, "
+              f"built {r['member_built_size']})  pac {r['pac_size']}  container {r['container_size']} "
+              f"md5 {r['container_md5']}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

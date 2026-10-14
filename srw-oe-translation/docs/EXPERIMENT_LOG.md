@@ -3764,3 +3764,52 @@ pilotów), podczas gdy przedmioty/duchy/statusy mogą być czytane dopiero w swo
 sprawdzał (z ekranu tytułowego nie ma ekwipunku ani duchów). Alternatywa nadal otwarta: gra w ogóle nie
 używa słowa +36, a crash config00 ma inną przyczynę — rozstrzyga KROK 1 (build #10), a w razie crasha wariant
 V2 (sam `Skill00` z buildu #10) kontra V5 (wszystko oprócz `DLC_ID00`).
+
+### 21.16 Build #10 w grze: KROK 1 PADA; sub-pliki: V1 (DLC_ID00) DZIAŁA, V2 (sam Skill00) PADA → runda 2 wewnątrz Skill00
+
+**Wyniki użytkownika (2026-10-14, noc) [ZWERYFIKOWANE w grze]:** KROK 1 (`config00.cpk` build #10, wskaźniki
++36 poprawne) — pada jak dotąd; **V1** (tylko `srwDL_DLC_ID00.bin` z buildu) — **działa**; **V2** (tylko
+`srwDL_Skill00.bin` z buildu #10) — **pada**. V3/V4/V5/V6 jeszcze nie testowane. Wnioski: (a) poprawka +36
+była prawdziwą usterką, ale nie przyczyną crasha (V2 ma ją wgraną i pada); (b) przebudowany `Skill00` SAM
+wystarcza do crasha; (c) przetłumaczona lista DLC jest w porządku. Nadal nierozstrzygnięte: V6 (kontrola
+rozmiaru `.pac` — V2 i build mają pac 942 080 B, oryginał 923 648; test A z configst, który ZMALAŁ, działał).
+
+**Szukanie odwołań po NAZWIE (offline, bez zapisu):** wszystkie 189 różnych nazw, 1 289 `name_level` i 720
+napisów puli oryginalnego `Skill00` szukane jako `tekst+NUL` w 255 członach (config00 bez Skill00, configst,
+eventP00/mesbtl00/imenu00, DLC config01..08): nazwy trafiają tylko w `wp_list*` (nazwy broni jak 修理/補給 —
+zbieżność słów), `Skill_Tag` (4), `unit_list00` (7), `sysmes` (5), `charalist` (ogólne słowa); napisy puli
+— w `SkillNN` DLC (944 trafień/plik: te same 720 fragmentów) i `Item*` (30). **Brak śladu, by piloci wskazywali
+umiejętności po nazwie**; mechanizm odwołań pilot→umiejętność nadal `[OTWARTE]`.
+
+**Długości (JP→EN w build #10, bajty):** `name` max 14→26 (258 rekordów dłuższych niż JP max), `name_level`
+18→30 (213), `effect` 106→151 (15), `effect_brief` 32→48 (18), `label` 11→18 (9); rekord max 196→260 (60
+rekordów ponad JP max); napis puli max 42→64; najdłuższa linia `effect` 60→81 B; liczba `\n` identyczna.
+Gdyby gra kopiowała nazwę do stałego bufora 16 B (JP max 14+NUL) albo `name_level` do 20 B — EN by go
+przepełniało; to hipoteza, którą rozstrzyga S4/S5.
+
+**Nowe narzędzie `tools/member_variants.py`** (bisekcja WEWNĄTRZ członu conv-B; każdy wariant = oryginalny
+kontener z jednym zmienionym sub-plikiem; wszystko re-parsowane: 1 469 rekordów, 0 błędnych wskaźników +36,
+pula czyta się; raport `.variant.json` = rozmiary i md5): `pad` (oryginał + zera do rozmiaru buildu),
+`rec_en_pool_jp`, `rec_jp_pool_en`, `names_only` (name+name_level z buildu przez `rebuild_member`),
+`effects_only` (effect/brief/label), `half_a`/`half_b` (rekordy 0–733 / 734–1468 w całości). Weryfikacja
+niezależna (pola z właściwego źródła, pula, nagłówki +0..+35 i ogony numeryczne nietknięte, pozostałe
+sub-pliki identyczne): 7/7 OK. Testy `tests/test_member_variants.py` (4); pełny zestaw 1 050 OK / 1 skipped.
+
+**Runda 2 (Skill00 w `config00.cpk`, reszta oryginalna):**
+
+| wariant | Skill00 B | pac B | md5 config00.cpk |
+|---|---|---|---|
+| S1 `pad` | 228 202 | 942 080 | `91217ef2920d836b97a84fb8e3cd5d56` |
+| S2 `rec_en_pool_jp` | 226 222 | 940 032 | `a7ed11e8864aadd228b1ab1fbe302ac6` |
+| S3 `rec_jp_pool_en` | 210 938 | 923 648 | `42873880e4a36064db48bcd18f8a2fc3` |
+| S4 `names_only` | 218 682 | 931 840 | `7cf248c7ced4abb69b2049ecccb8e72f` |
+| S5 `effects_only` | 216 434 | 929 792 | `dcf1161fb37b7ed06012b67ee4449221` |
+| S6 `half_a` | 219 498 | 933 888 | `daca472bca7f38daa43a4259399c4906` |
+| S7 `half_b` | 215 682 | 929 792 | `f6b76ded030668841e0c235b930cce44` |
+
+Oczekiwane wzorce: rozmiar kontenera → V6 pada (i S1, S2); rozmiar członu → V6 działa, S1 pada, S3 działa;
+nazwy → S4 pada, S5 działa; opisy → odwrotnie; napisy puli (np. dopasowanie do pul `SkillNN` DLC po treści)
+→ S3 pada, S2 działa. Dostawa `RUNDA_2_Skill00.zip` (1 044 673 B, md5 `e86fca03523a555134caa04f9a4913c3`) →
+Drive DELIVERY `1DAxpAe4u3hn0kJ_ADpniJDdmnA03lqBV` (foldery `S1_tylko_rozmiar` … `S7_polowa_B`, wgrywane
+`WGRAJ_DO_ISO.bat`). Zalecona kolejność: V6, V3, V4 (V5 pominąć — zawiera Skill00), potem S1, S3, S4, S5,
+S2, S6, S7 — wszystkie.

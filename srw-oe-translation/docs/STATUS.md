@@ -14,8 +14,11 @@ records pointed into the record area instead of the pool table. `item_skill_writ
 for every record and proves it on the output (fail-closed on sources that break the rule). Build #10
 (`config00.cpk` md5 `37251325…`, `configst.cpk` md5 `ee1aae95…`) differs from #9/#8 only in those words (plus
 pool parity in configst) and is on Drive with sub-file bisection variants V1–V6 (`tools/container_mix.py`)
-as plan B. Whether this defect IS the crash cause is a HYPOTHESIS until the user re-tests variant B.
-Details: `EXPERIMENT_LOG.md` §21.13–21.15, `HANDOFF.md` §7.
+as plan B. UPDATE (same night): build #10 STILL crashes; sub-file bisection says V1 (DLC list only) works and V2 (the
+rebuilt `srwDL_Skill00.bin` alone, pool pointers right) crashes — so the pointer defect was real but not
+the cause. Round 2 (`tools/member_variants.py`, S1–S7: size / records vs pool / names vs effects / halves)
+is with the user; no name-based skill references were found in any other file.
+Details: `EXPERIMENT_LOG.md` §21.13–21.16, `HANDOFF.md` §7.
 The project is NOT a finished translation; no full in-game acceptance exists.
 
 ## Target

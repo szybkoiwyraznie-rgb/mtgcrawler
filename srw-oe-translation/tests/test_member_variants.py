@@ -1,0 +1,107 @@
+"""member_variants: bisection inside one convention-B member (size / records / pool / names / effects)."""
+from __future__ import annotations
+
+import struct
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import container_mix as CM  # noqa: E402
+import item_skill_records as ISR  # noqa: E402
+import item_skill_write as ISW  # noqa: E402
+import member_variants as MV  # noqa: E402
+from test_configst_pack import make_pac  # noqa: E402
+from test_cpk_table import build_synthetic_cpk  # noqa: E402
+from test_item_skill_write import build_member, build_record  # noqa: E402
+
+MEMBER = "srwDL_Skill00.bin"
+
+
+def container(skill_blob: bytes) -> bytes:
+    pac = make_pac([("a.bin", b"\x01" * 100), (MEMBER, skill_blob), ("z.bin", b"\x02" * 50)])
+    return build_synthetic_cpk([{"dir": "", "name": "config00.pac", "data": pac, "id": 0}])
+
+
+class MemberVariantsTests(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        records = [build_record("skill", 1000 + i, f"技{i}", f"効果{i}", name_level=f"技{i} Lv1",
+                                effect_brief=f"短{i}") for i in range(4)]
+        self.original = build_member("skill", records, ["気力", "命中"])
+        edits = {i: {"name": f"Skill number {i}", "name_level": f"Skill number {i} Lv1",
+                     "effect": f"A much longer English effect text {i}", "effect_brief": f"Brief {i}"}
+                 for i in range(4)}
+        grown, _ = ISW.rebuild_member(self.original, "skill", edits, MEMBER)
+        parsed = ISR.parse_member(grown, "skill", MEMBER)
+        self.built = grown[:parsed["tail_offset"]] + ISR.build_tail_pool(
+            parsed["tail_offset"], [b"Will", b"Hit"])
+        self.orig_path = self.root / "orig.cpk"
+        self.built_path = self.root / "built.cpk"
+        self.orig_path.write_bytes(container(self.original))
+        self.built_path.write_bytes(container(self.built))
+
+    def fields(self, blob):
+        parsed = ISR.parse_member(blob, "skill", MEMBER)
+        return [MV.field_bytes(blob, row) for row in parsed["records"]]
+
+    def pool(self, blob):
+        parsed = ISR.parse_member(blob, "skill", MEMBER)
+        return ISR.parse_tail_pool(blob, parsed["tail_offset"])[1]
+
+    def test_every_variant_changes_only_what_it_says(self):
+        fo, fb = self.fields(self.original), self.fields(self.built)
+        po, pb = self.pool(self.original), self.pool(self.built)
+        out = {name: MV.make_variant(name, self.original, self.built, "skill", MEMBER) for name in MV.VARIANTS}
+        self.assertEqual(out["pad"], self.original + b"\x00" * (len(self.built) - len(self.original)))
+        self.assertEqual(self.fields(out["rec_en_pool_jp"]), fb)
+        self.assertEqual(self.pool(out["rec_en_pool_jp"]), po)
+        self.assertEqual(self.fields(out["rec_jp_pool_en"]), fo)
+        self.assertEqual(self.pool(out["rec_jp_pool_en"]), pb)
+        for i, f in enumerate(self.fields(out["names_only"])):
+            self.assertEqual((f["name"], f["name_level"]), (fb[i]["name"], fb[i]["name_level"]))
+            self.assertEqual((f["effect"], f["effect_brief"], f["label"]),
+                             (fo[i]["effect"], fo[i]["effect_brief"], fo[i]["label"]))
+        for i, f in enumerate(self.fields(out["effects_only"])):
+            self.assertEqual((f["name"], f["name_level"]), (fo[i]["name"], fo[i]["name_level"]))
+            self.assertEqual(f["effect"], fb[i]["effect"])
+        self.assertEqual(self.fields(out["half_a"]), fb[:2] + fo[2:])
+        self.assertEqual(self.fields(out["half_b"]), fo[:2] + fb[2:])
+        for name in MV.VARIANTS:
+            if name != "pad":
+                self.assertEqual(self.pool(out[name]), pb if name == "rec_jp_pool_en" else po)
+                parsed = ISR.parse_member(out[name], "skill", MEMBER)
+                self.assertEqual(ISW.pool_pointer_faults(out[name], parsed), [], name)
+
+    def test_containers_differ_from_the_original_only_in_the_member(self):
+        reports = MV.build_all(self.orig_path, self.built_path, MEMBER, self.root / "out")
+        self.assertEqual([r["label"] for r in reports], ["S1", "S2", "S3", "S4", "S5", "S6", "S7"])
+        _c, orig_members, _p = CM.members_of(self.orig_path)
+        for report in reports:
+            path = self.root / "out" / report["label"] / "orig.cpk"
+            _c, members, _p = CM.members_of(path)
+            self.assertEqual(members["a.bin"], orig_members["a.bin"])
+            self.assertEqual(members["z.bin"], orig_members["z.bin"])
+            self.assertEqual(len(members[MEMBER]), report["member_variant"]["size"])
+            self.assertTrue(path.with_name("orig.cpk.variant.json").exists())
+        self.assertEqual(reports[0]["member_variant"]["size"], len(self.built))
+
+    def test_identical_members_are_refused(self):
+        with self.assertRaises(MV.VariantError):
+            MV.build_all(self.orig_path, self.orig_path, MEMBER, self.root / "x")
+
+    def test_cli_prints_sizes_only(self):
+        rc = MV.main(["--original", str(self.orig_path), "--built", str(self.built_path),
+                      "--member", MEMBER, "--out-dir", str(self.root / "cli"), "--variants", "pad", "names_only"])
+        self.assertEqual(rc, 0)
+        self.assertTrue((self.root / "cli" / "S1" / "orig.cpk").exists())
+        self.assertTrue((self.root / "cli" / "S2" / "orig.cpk").exists())
+
+
+if __name__ == "__main__":
+    unittest.main()
