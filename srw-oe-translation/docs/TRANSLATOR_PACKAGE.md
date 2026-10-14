@@ -24,6 +24,10 @@ tłumaczy się **tekst w plikach `.md`**, po znaczniku `EN:`.
 | `sceny.zip` | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
 | `widoki.zip` | nazwy i tabele: 7 plików `.md` |
 
+**Aktualizacja 2026-10-14:** do folderu doszedł plik **`tokeny.tsv`** — lista rodzajów `%s`
+(patrz sekcja 3, „Co dokładnie oznacza `%s` w opisach"). Trzeba go położyć **obok plików JSON**
+(pakiet roboczy), wtedy walidator i importer pilnują nowej reguły `%s` automatycznie.
+
 Do wypełnienia w całym pakiecie: **84 579 linii `EN:`**
 (40 464 w fabule + 44 115 w widokach). Poza tym jest **13 897 elementów bez linii `EN:`**
 (8 751 w fabule — kopie scen i kwestii, i 5 146 w widokach — powtórzone nazwy i opisy);
