@@ -313,8 +313,9 @@ def token_kinds(original: bytes) -> List[object]:
 
     The pools hold two things that display as ``%s``: a control byte (a runtime token such as
     0x0F) and the literal ASCII ``%s`` the game's own formatter substitutes (both measured inside
-    the same skill fields).  The walk of the original tells them apart, so the writer can put
-    back exactly what the translator's ``%s`` inherited.
+    the same skill fields).  The walk of the original tells them apart, so the writer knows which
+    tokens the English must keep (literals and functional controls) and which it must drop (the
+    0x0F kana glyphs - see :func:`encode_target`).
     """
     kinds: List[object] = []
     i = 0
@@ -332,21 +333,43 @@ def token_kinds(original: bytes) -> List[object]:
     return kinds
 
 
+#: the lead byte of the voiced-kana glyph token ``0x0F xx`` (xx always 0x20-0x39 in this game,
+#: verified across the whole package): one Japanese glyph with no place in an English line
+KANA_TOKEN = 0x0F
+
+
 def encode_target(en: str, original: bytes) -> bytes:
-    """CP932 bytes of a display-form translation: every ``%s`` restored to what it stands for."""
+    """CP932 bytes of a display-form translation: every kept ``%s`` restored to what it stands for.
+
+    The display form shows two things as ``%s``: the game formatter's literal ``%s`` and a control
+    token.  The English must carry every literal placeholder and every functional control token
+    (a ``\r`` clearing the box, for instance), in order, but must NEVER carry the kana tokens
+    ``0x0F xx`` - they draw one voiced kana glyph in the middle of the English text, so English
+    drops them (translation_check refuses 0x0F in English, and raw-form rows drop them the same
+    way).  A dropped token leaves no trace, so the English ``%s`` count must equal the kept-token
+    count exactly and anything else is refused; nothing is guessed from the surrounding text,
+    because a literal ``%s2`` and a kana token ``%s2`` are indistinguishable by eye (measured:
+    the glyph's second byte is a digit, a space or punctuation as often as a symbol).
+    """
     kinds = token_kinds(original)
+    kept = [kind for kind in kinds if kind == b"%s" or kind != KANA_TOKEN]
+    dropped = len(kinds) - len(kept)
     pieces = en.split("%s")
-    if len(pieces) - 1 != len(kinds):
+    if len(pieces) - 1 != len(kept):
+        detail = ""
+        if dropped:
+            detail = (f"; the other {dropped} of the jp's %s are kana tokens (0x0F) - drop them "
+                      "from the English together with the character after them")
         raise TableError(f"the translation has {len(pieces) - 1} %s but the original string "
-                         f"carries {len(kinds)} tokens")
+                         f"carries {len(kept)} tokens the English must keep{detail}")
     out = bytearray()
     for i, piece in enumerate(pieces):
         try:
             out += piece.replace("\n", "\x0a").encode("cp932")
         except UnicodeEncodeError as exc:
             raise TableError(f"target is not CP932-encodable: {exc}") from exc
-        if i < len(kinds):
-            kind = kinds[i]
+        if i < len(kept):
+            kind = kept[i]
             out += bytes([kind]) if isinstance(kind, int) else kind
     return bytes(out)
 

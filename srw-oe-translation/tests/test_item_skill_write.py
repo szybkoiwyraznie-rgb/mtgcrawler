@@ -305,7 +305,20 @@ class OffsetAdapterTest(unittest.TestCase):
                                             self.parsed, self.blob, "c")
         self.assertEqual(edits, {})
 
-    def test_display_form_leftover_row_restores_control_bytes(self):
+    def test_display_form_leftover_row_keeps_literals_and_drops_kana(self):
+        blob = build_member("skill", [
+            build_record("skill", 1000, "対地", "lit %s ctrl \x0f end"),
+        ])
+        parsed = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
+        rec = parsed["records"][0]
+        offset = rec["offset"] + rec["effect_offset"]
+        row = self.row(offset, "lit %s ctrl %s end", "A %s B C", row_id="leftover:c/x:0")
+        row["category"] = "config_leftover"
+        edits, skipped, _ = ISW.plan_offset_edits([row], "srwDL_Skill00.bin", parsed, blob, "c")
+        self.assertEqual(skipped, [])
+        self.assertEqual(edits, {0: {"effect": b"A %s B C"}})
+
+    def test_display_form_leftover_row_with_a_kept_kana_token_is_skipped(self):
         blob = build_member("skill", [
             build_record("skill", 1000, "対地", "lit %s ctrl \x0f end"),
         ])
@@ -315,8 +328,8 @@ class OffsetAdapterTest(unittest.TestCase):
         row = self.row(offset, "lit %s ctrl %s end", "A %s B %s C", row_id="leftover:c/x:0")
         row["category"] = "config_leftover"
         edits, skipped, _ = ISW.plan_offset_edits([row], "srwDL_Skill00.bin", parsed, blob, "c")
-        self.assertEqual(skipped, [])
-        self.assertEqual(edits, {0: {"effect": b"A %s B \x0f C"}})
+        self.assertEqual(edits, {})
+        self.assertTrue(skipped)
 
     def test_a_field_whose_jp_matches_neither_form_is_refused(self):
         blob = build_member("skill", [build_record("skill", 1000, "対地", "効果")])

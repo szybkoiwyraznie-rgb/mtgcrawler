@@ -131,15 +131,25 @@ class SysmesEditsTests(unittest.TestCase):
         raw_string = raw_bytes.decode("cp932")
         blob = self.build_sysmes([raw_string])
         rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin",
-                    jp="アイ%s&ウ", en="カコ%s&ス")]
+                    jp="アイ%s&ウ", en="カコス")]
         edits, problems = BTP._sysmes_edits(blob, rows)
         self.assertEqual(problems, [])
         self.assertIn(raw_string, edits)
-        # the value carries the real token bytes, cp932-round-trippable for apply_edits
-        expected = "カコ".encode("cp932") + b"\x0f&" + "ス".encode("cp932")
+        # the kana token is dropped with its second byte: the English value is plain text
+        expected = "カコス".encode("cp932")
         self.assertEqual(edits[raw_string].encode("cp932"), expected)
         modified = SMSP.apply_edits(blob, edits)
         self.assertIn(expected, modified)
+
+    def test_display_form_row_that_keeps_the_kana_token_is_refused(self):
+        raw_bytes = "アイ".encode("cp932") + b"\x0f\x26" + "ウ".encode("cp932")
+        raw_string = raw_bytes.decode("cp932")
+        blob = self.build_sysmes([raw_string])
+        rows = [row("04_config_text.jsonl", "config_sysmes", "sysmes.bin",
+                    jp="アイ%s&ウ", en="カコ%s&ス")]
+        edits, problems = BTP._sysmes_edits(blob, rows)
+        self.assertEqual(edits, {})
+        self.assertTrue(problems)
 
     def test_conflicting_rows_are_reported_not_applied(self):
         blob = self.build_sysmes(["テスト"])

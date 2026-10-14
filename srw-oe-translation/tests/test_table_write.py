@@ -263,23 +263,40 @@ class SubContainmentTests(unittest.TestCase):
 
 
 class TokenTests(unittest.TestCase):
-    def test_control_bytes_are_restored_positionally(self):
-        original = jp("与える") + b"\x0f" + b"20" + jp("を") + b"\x0d"
-        en = "deals %s20 to%s the target"
-        out = TW.encode_target(en, original)
-        self.assertEqual(out, jp("deals ") + b"\x0f" + b"20" + jp(" to") + b"\x0d"
-                         + jp(" the target"))
+    def test_functional_control_bytes_are_restored_positionally(self):
+        # a \r clears the box - a functional control, not a kana glyph: the English keeps it
+        # as %s and the writer puts the byte back
+        original = jp("与える") + b"\x0f&" + jp("を") + b"\x0d" + jp("終")
+        out = TW.encode_target("deals damage to%s the end", original)
+        self.assertEqual(out, jp("deals damage to") + b"\x0d" + jp(" the end"))
 
-    def test_a_missing_token_is_refused(self):
+    def test_kana_tokens_are_dropped_from_the_english(self):
+        # 追加%s*ﾒｰ (0x0F '*' = one voiced kana glyph) is 追加ダメージ: the English drops the
+        # token together with the character after it and the writer restores nothing
+        original = jp("追加") + b"\x0f*" + jp("ﾒｰｼﾞ")
+        self.assertEqual(TW.display(original), "追加%s*ﾒｰｼﾞ")
+        self.assertEqual(TW.encode_target("Additional Damage", original),
+                         jp("Additional Damage"))
+
+    def test_a_kept_kana_token_is_refused(self):
+        original = jp("追加") + b"\x0f*" + jp("ﾒｰｼﾞ")
+        with self.assertRaises(TW.TableError) as caught:
+            TW.encode_target("Additional %s* Damage", original)
+        self.assertIn("kana tokens", str(caught.exception))
+
+    def test_a_missing_literal_placeholder_is_refused(self):
         with self.assertRaises(TW.TableError):
-            TW.encode_target("no tokens here", b"\x0f" + jp("Ｘ"))
+            TW.encode_target("no tokens here", b"lit %s end")
 
     def test_literal_placeholders_and_control_bytes_are_told_apart(self):
         # the pools hold both: the game formatter's ASCII %s and control-byte tokens; the walk
-        # of the original says which %s of the display is which
+        # of the original says which %s of the display is which - the literal stays mandatory,
+        # the kana token must be dropped by the English
         original = b"lit %s ctrl \x0f end"
         self.assertEqual(TW.display(original), "lit %s ctrl %s end")
-        self.assertEqual(TW.encode_target("A %s B %s C", original), b"A %s B \x0f C")
+        self.assertEqual(TW.encode_target("A %s B C", original), b"A %s B C")
+        with self.assertRaises(TW.TableError):
+            TW.encode_target("A %s B %s C", original)
 
     def test_match_form_recognises_both_package_forms(self):
         original = jp("名前") + b"\x0f" + b"2"

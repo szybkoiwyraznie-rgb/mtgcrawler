@@ -115,16 +115,34 @@ class BasicWriteTests(unittest.TestCase):
 
 
 class TokenFormTests(unittest.TestCase):
-    def test_display_form_tokens_are_put_back(self):
-        # the package display of 0x0F 0x26 is "%s&": %s is the control byte (restored by
-        # encode_target) and & is the second token byte kept literally in the English
+    def test_display_form_kana_token_is_dropped(self):
+        # the package display of 0x0F 0x26 is "%s&": one voiced kana glyph - the English
+        # drops it (with the character after the %s) and the writer writes plain text
+        raw = b"AB\x0f\x26CD"
+        blob = raw + b"\x00" * (64 - len(raw))
+        rows = [row("a", 0, "AB%s&CD", "WXYZ", max_bytes=64)]
+        out, report = SLA.apply_member(blob, rows)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[0:4], b"WXYZ")
+        self.assertEqual(out[4:64], b"\x00" * 60)   # shorter than jp: zero-padded
+
+    def test_display_form_kept_kana_token_is_refused(self):
         raw = b"AB\x0f\x26CD"
         blob = raw + b"\x00" * (64 - len(raw))
         rows = [row("a", 0, "AB%s&CD", "XY%s&ZW", max_bytes=64)]
         out, report = SLA.apply_member(blob, rows)
+        self.assertEqual(out, blob)
+        self.assertTrue(report["refused"])
+
+    def test_functional_control_is_restored_from_the_english(self):
+        # a \r clears the box: not a kana glyph, so the English keeps it as %s
+        raw = b"AB\x0dCD"
+        blob = raw + b"\x00" * (64 - len(raw))
+        rows = [row("a", 0, "AB%sCD", "XY%sZW", max_bytes=64)]
+        out, report = SLA.apply_member(blob, rows)
         self.assertEqual(report["applied"], 1)
-        self.assertEqual(out[0:6], b"XY\x0f&ZW")
-        self.assertEqual(out[6:64], b"\x00" * 58)
+        self.assertEqual(out[0:5], b"XY\x0dZW")
+        self.assertEqual(out[5:64], b"\x00" * 59)
 
     def test_raw_form_newline(self):
         raw = b"1\x98b\nABC"          # '1話\nABC' in cp932
@@ -134,8 +152,9 @@ class TokenFormTests(unittest.TestCase):
         self.assertEqual(report["applied"], 1)
         self.assertEqual(out[0:8], b"Ch.1\nXYZ")
 
-    def test_token_count_mismatch_refused(self):
-        raw = b"AB\x0f\x26CD"
+    def test_a_missing_functional_token_is_refused(self):
+        # a kana-only string may lose its %s (dropped glyph), but a functional control may not
+        raw = b"AB\x0dCD"
         blob = raw + b"\x00" * (64 - len(raw))
         rows = [row("a", 0, "AB%sCD", "PLAIN", max_bytes=64)]
         out, report = SLA.apply_member(blob, rows)
