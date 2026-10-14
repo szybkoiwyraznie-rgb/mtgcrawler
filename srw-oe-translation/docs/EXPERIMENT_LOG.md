@@ -3543,3 +3543,17 @@ Budowa `--only configst.cpk config00.cpk` na oryginałach z Drive: 4 s, 0 proble
 **Otwarte:** czy #6 padał wyłącznie przez sysmes (test użytkownika: nowy `HOKUS_POKUS`, a gdy crash —
 BISEKCJA A→I); render tytułu/helpów po wzroście; stored członki CRILAYLA w kontenerach ISO
 (eventP00/mesbtl00/imenu00) w grze niesprawdzone; komunikat EBOOT; 25 nowych wierszy sysmes dla tłumacza.
+
+### 21.9 Budowa #7 (5 kontenerów USRDIR, nowy pisarz) i Drive
+`python3 tools/build_translation_patch.py --dlc local/usrdir --package local/translation --out local/build7
+--only "*.cpk"` (19 s): 5/5 zmienione, **0 problemów**, `identity_rows` 3 686; configst sysmes „839 strings ->
+1055 pool entries rewritten, 51280 -> 49252 B", 1 095 wierszy-ogonów zignorowanych. Rozmiary: config00
+948 352, configst 374 912 (#6: 471 168), eventP00 260 568, imenu00 57 512, mesbtl00 994 008 (#6: 1 010 392 —
+mniej członków dotkniętych, bo 1 373 wiersze battle_quote EN==JP już nie są przepisywane). MD5:
+config00 `b29199db…`, configst `fc5dddd8…`, eventP00 `e23a02ba…`, imenu00 `5317aa99…`, mesbtl00 `9ba8eeac…`
+(`local/build7/md5sums_USRDIR_2026-10-14b.txt`). Drive DELIVERY: `USRDIR_EN_2026-10-14b.zip`
+(`1_yqNUeTG13j-MoUYXaQRvAZPNggGFOWx`) zastąpił `USRDIR_EN_2026-10-14.zip` (kosz); `INSTRUKCJA_PL.md`
+nowa (`1oWDZ_NFDjHqhHKc-bSE1z4AgAB-p9fH6`); zip DLC z #6 przemianowany na `…_STARE_build6_NIE_UZYWAC.zip`
+(DLC nie da się przebudować w sandboxie — brak plików; użytkownik buduje `HOKUS_POKUS.bat`).
+Commit `58987b2` na `arena/c0e5c9d1-mtgcrawler` (narzędzia, testy 1011 OK, BISEKCJA.bat, docs).
+**W grze nic z tego jeszcze nie sprawdzono.**
