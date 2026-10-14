@@ -50,6 +50,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -102,14 +103,15 @@ class Containers:
         path = self._find(container)
         members: Dict[str, bytes] = {}
         if path.suffix.lower() == ".pac":
-            members.update((sub["name"], sub["data"]) for sub in CSP.parse_pac(path.read_bytes()))
+            subs = CSP.parse_pac(path.read_bytes())["subs"]
+            members.update((sub["name"], sub["data"]) for sub in subs)
         else:
             cpk = cpk_write.load(path)
             for member in cpk.members:
                 body = cpk_write.decompressed(member.blob)
                 if member.name.lower().endswith(".pac"):
                     try:
-                        subs = CSP.parse_pac(body)
+                        subs = CSP.parse_pac(body)["subs"]
                     except Exception:
                         subs = []
                     if subs:
@@ -140,30 +142,45 @@ def containing_run(blob: bytes, offset: int) -> Optional[bytes]:
     return blob[start:] if end < 0 else blob[start:end]
 
 
-def field_raw(row: dict, blob: bytes) -> Optional[bytes]:
-    """The raw bytes of an item/skill record field row, or None when not one."""
+def field_candidates(row: dict, blob: bytes) -> List[bytes]:
+    """Raw-bytes candidates of an item/skill record field row (empty when not one).
+
+    The package rows of 02/03 carry no record offset - their ``source.offset`` is the RECORD
+    start (the run there is the binary record header) and the record number lives in the row
+    id (``item:config00.cpk/srwDL_Item00.bin:r33:effect``).  The field bytes come from the
+    parsed record: ``record_offset``/``record`` when present, otherwise the number from the id.
+    """
     part = row.get("part")
     source = row.get("source") or {}
-    record_offset = source.get("record_offset")
-    if part not in ISR.FIELDS or record_offset is None:
-        return None
+    if part not in ISR.FIELDS:
+        return []
     kind = "item" if (row.get("category") == "item" or "Item" in str(source.get("member", ""))) \
         else "skill"
     try:
         parsed = ISR.parse_member(blob, kind, str(source.get("member", "")),
                                   str(source.get("container", "")))
     except Exception:
-        return None
-    for record in parsed.get("records", []):
-        if record.get("offset") != record_offset:
-            continue
+        return []
+    records = parsed.get("records", [])
+    candidates: List[dict] = []
+    record_offset = source.get("record_offset")
+    record_index = source.get("record")
+    if record_index is None:
+        match = re.search(r":r(\d+):", str(row.get("id", "")))
+        record_index = int(match.group(1)) if match else None
+    if record_offset is not None:
+        candidates = [rec for rec in records if rec.get("offset") == record_offset]
+    elif isinstance(record_index, int) and 0 <= record_index < len(records):
+        candidates = [records[record_index]]
+    out: List[bytes] = []
+    for record in candidates:
         offset = record.get(f"{part}_offset")
         if offset is None or offset >= parsed["tail_offset"]:
-            return None
-        start = record_offset + offset
+            continue
+        start = record.get("offset", 0) + offset
         end = blob.find(b"\x00", start)
-        return blob[start:] if end < 0 else blob[start:end]
-    return None
+        out.append(blob[start:] if end < 0 else blob[start:end])
+    return out
 
 
 def raw_for_row(row: dict, containers: Containers) -> Optional[bytes]:
@@ -177,10 +194,18 @@ def raw_for_row(row: dict, containers: Containers) -> Optional[bytes]:
     except MapError:
         return None
     jp = row.get("jp") or ""
-    raw = field_raw(row, blob)
-    if raw is not None and TW.display(raw) == jp:
-        return raw
-    raw = containing_run(blob, source.get("offset"))
+    for raw in field_candidates(row, blob):
+        if TW.display(raw) == jp:
+            return raw
+    offset = source.get("offset")
+    if isinstance(offset, int) and 0 <= offset < len(blob):
+        # sysmes-style rows: the offset is the start of a LOGICAL string inside a longer
+        # NUL run (one run holds several of them) - the writer slices it the same way
+        end = blob.find(b"\x00", offset)
+        suffix = blob[offset:] if end < 0 else blob[offset:end]
+        if TW.display(suffix) == jp:
+            return suffix
+    raw = containing_run(blob, offset)
     if raw is not None and TW.display(raw) == jp:
         return raw
     return None

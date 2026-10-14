@@ -75,6 +75,29 @@ class BuildMapTests(unittest.TestCase):
         self.assertEqual(unresolved, [])
         self.assertEqual(entries[0][0:2], ("p1", "L,T"))
 
+    def test_record_number_from_the_row_id_when_the_source_has_no_record(self):
+        # the real 02/03 rows carry only container/member/offset (the RECORD start); the
+        # record number lives in the id: item:config00.cpk/srwDL_Item00.bin:r0:effect
+        jp = TW.display(self.field_bytes())
+        rows = [{"id": "skill:c.cpk/m.bin:r0:effect", "category": "skill", "part": "effect",
+                 "jp": jp,
+                 "source": {"container": "c.cpk", "member": "m.bin",
+                            "offset": self.rec["offset"]}}]
+        entries, unresolved = TM.build_map(rows, self.containers)
+        self.assertEqual(unresolved, [])
+        self.assertEqual(entries[0][1], "L,T")
+
+    def test_sysmes_style_logical_string_starts_at_the_offset(self):
+        # one NUL run holding several logical strings: the row's jp is the slice FROM the
+        # offset (the writer slices it the same way), not the whole run
+        blob = b"ABC%sDEF%sGHI\x00"
+        containers = FakeContainers({("c.cpk", "m.bin"): blob})
+        rows = [{"id": "sysmes:c.cpk/m.bin:5", "jp": "DEF%sGHI",
+                 "source": {"container": "c.cpk", "member": "m.bin", "offset": 5}}]
+        entries, unresolved = TM.build_map(rows, containers)
+        self.assertEqual(unresolved, [])
+        self.assertEqual(entries, [("sysmes:c.cpk/m.bin:5", "L", '"DEF%sGHI"')])
+
     def test_raw_form_and_plain_rows_need_no_map(self):
         rows = [{"id": "r1", "jp": "AB\x0f&CD", "source": {}},          # raw form
                 {"id": "r2", "jp": "zwykły tekst", "source": {}}]       # no %s at all
