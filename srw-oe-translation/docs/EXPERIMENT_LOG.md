@@ -3592,3 +3592,16 @@ w jednej linii, wymagany wzorzec goto, zakaz `%` w `rem`. Pozostałe `%X:"=%` (I
 CHOICE) są czytane tylko po zdefiniowaniu X (anulowanie okna → `goto :finish` wcześniej). Testy 1015 OK.
 Nie sprawdzone w cmd.exe (brak w sandboxie) — czeka na uruchomienie u użytkownika.
 
+### 21.12 Log PPSSPP z debugiem IO dla builda #6 (fragment od użytkownika)
+Po starcie emulatora (36:37) gra od 36:42:664 czyta kolejno `ms0:/PSP/GAME/NPJH50521/config01.EDAT` …
+`config46.EDAT` (**bez config38** — w folderze go nie ma; w starym logu to był jeden z dwóch `OpenFile:
+FAILED, 2`), każdy plik **4 odczyty** co ~30 ms, pliki co ~165 ms; `npdrmRead: pgdInfo is null …
+reading as non-encrypted` = normalne ostrzeżenie dla odszyfrowanych EDAT (nie błąd). To jest 45 „Not a
+valid PGD file" ze starego logu = skan pakietów DLC (nagłówek CPK/TOC/PAC + tablica DLC_ID). Fragment
+kończy się na config46 (36:53:134); w starym logu po tym samym miejscu było ~114 s zawieszenia i MemFault
+`Read Word at 00000000`. Wniosek (obserwacja): crash #6 nastąpił PO skanie DLC, nie na konkretnym pliku
+danych; hipotezy w kolejności: (1) przetwarzanie wyników skanu (DLC_ID z utraconą spacją końcową —
+naprawione `identity()`), (2) pierwsze użycie `sysmes.bin` (145 KB śmieci — naprawione), (3) coś jeszcze.
+Rozstrzygnie build #8 użytkownika (pierwszy z poprawionym `:pick`). Potrzebny ogon logu za config46, jeśli
+znów padnie.
+
