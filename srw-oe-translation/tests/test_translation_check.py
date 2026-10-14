@@ -200,6 +200,17 @@ class FixedSlotLimitTest(unittest.TestCase):
         errors, _ = TC.check_row(self.slot_row("x" * 20, 10))
         self.assertTrue(any("max_bytes 10" in e for e in errors), errors)
 
+    def test_an_ext_dat_title_row_is_capped_at_the_measured_40_byte_slot(self):
+        # the one-record file is not in the row; the measured 388-byte record is assumed
+        ext = self.slot_row("x" * 42, 43, member="DL311_12_ext.dat", offset=344)
+        self.assertEqual(TC.fixed_slot_limit(ext), 39)
+        errors, _ = TC.check_row(ext)
+        self.assertTrue(any("measured 40-byte slot" in e for e in errors), errors)
+        self.assertEqual(TC.fixed_slot_limit(self.slot_row("x", 159, member="DL311_12_ext.dat",
+                                                           offset=24)), 159)
+        errors, _ = TC.check_row(self.slot_row("x" * 39, 43, member="DL311_12_ext.dat", offset=344))
+        self.assertEqual(errors, [])
+
     def test_other_members_are_untouched(self):
         self.assertIsNone(TC.fixed_slot_limit(self.slot_row("x", 159, member="srwDL_Item00.bin")))
         self.assertIsNone(TC.fixed_slot_limit(self.slot_row("x", 159, offset=20)))

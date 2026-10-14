@@ -224,6 +224,32 @@ class FixedSlotCapTests(unittest.TestCase):
         self.assertEqual(out[47:52], b"\x00" * 5)
         self.assertEqual(out[52:], blob[52:])
 
+    def ext_dat(self, tail=b"\x03\x00\x02\x00"):
+        # *_ext.dat: one 388-byte record, the title at +344, two u16 fields at +384/+386
+        blob = bytearray(388)
+        title = "11話\n闇に開く扉".encode("cp932")
+        blob[344:344 + len(title)] = title
+        blob[384:388] = tail
+        return bytes(blob)
+
+    def test_an_ext_dat_title_stops_before_the_record_fields(self):
+        # 40-43 English bytes fit the old 44-byte reading and would overwrite the fields -
+        # on a record whose fields are zero the padding test alone cannot see it
+        for tail in (b"\x03\x00\x02\x00", b"\x00\x00\x00\x00"):
+            blob = self.ext_dat(tail)
+            rows = [row("t", 344, "11話\n闇に開く扉", "Episode 11\nThe Door That Opens in Darkness",
+                        max_bytes=43, member_name="DL311_12_ext.dat")]
+            out, report = SLA.apply_member(blob, rows, member="DL311_12_ext.dat")
+            self.assertEqual(out, blob)
+            self.assertIn("39-byte limit (measured fixed slot)", report["refused"][0])
+            rows = [row("t", 344, "11話\n闇に開く扉", "Ep. 11\nThe Door That Opens in Darkness",
+                        max_bytes=43, member_name="DL311_12_ext.dat")]
+            out, report = SLA.apply_member(blob, rows, member="DL311_12_ext.dat")
+            self.assertEqual(report["applied"], 1)
+            self.assertEqual(out[384:388], tail)
+            self.assertEqual(out[344:382], b"Ep. 11\nThe Door That Opens in Darkness")
+            self.assertEqual(out[382:384], b"\x00\x00")
+
     def test_unknown_members_keep_the_row_budget(self):
         blob = member("テスト", "名前")
         rows = [row("a", 0, "テスト", "x" * 40, max_bytes=64)]

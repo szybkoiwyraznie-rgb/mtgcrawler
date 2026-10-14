@@ -13,7 +13,7 @@ Measured layouts 2026-10-12 [ZWERYFIKOWANE] (config00/config01 plus the 224 ``*_
 
 | kind | file | header | stride | slots (role, size) | records (config00) |
 |---|---|---|---|---|---|
-| ``mission_note`` | ``*_ext.dat`` (event containers) | 0 | whole file | +24 note_a 160, +184 note_b 160, +344 title 44 | 1 per file (388 B; 2 files 348 B) |
+| ``mission_note`` | ``*_ext.dat`` (event containers) | 0 | whole file | +24 note_a 160, +184 note_b 160, +344 title 40 | 1 per file (388 B; 2 files 348 B) |
 | ``mission_title`` | ``milstP<NN>.bin`` | 0 | 128 | +10 title 40 | 15 |
 | ``bgm_title`` | ``bgmlist<NN>.bin`` | 0 | 192 | +20 title 64, +84 narrow title 60, +144 series 48 | 164 |
 | ``map_name`` | ``srwDL_Map_S.bin`` | 16 | 160 | +0 name 32 | 20 |
@@ -38,6 +38,13 @@ and ``*_ext.dat`` showed nothing but zeros between a text and the next slot, so 
 the distance to the next slot.  Before this measurement the span of those four kinds reached the
 record end (160/118/100/112): a long translation would have passed the package check and the
 slot writer's "clean padding" test on a record whose binary fields happen to be zero.
+
+``*_ext.dat`` title (2026-10-14, 213 title records over all 96 text containers) [ZWERYFIKOWANE]:
+the record does NOT end with the title - its last four bytes (+384, +386) are two little-endian
+u16 fields (values 1-7 in the DLC chapters, ``03 00 02 00`` ...; zeros only in eventP00), never
+text.  The title slot is therefore 40 bytes (+344..+384), not 44: with 44 the writer refused
+eight 40-43-byte English titles on records whose fields are non-zero ("growth area is not clean
+padding") and would have written a 40-43-byte title over the zero fields of a chapter-1 record.
 
 The tool reports each slot's **span** = that size - the hard budget for a translation, the same
 role the slot pairs play for items.  :func:`slot_size_at` answers the same question for one
@@ -74,7 +81,7 @@ SPECS: Dict[str, dict] = {
         "family": "event",
         "header": 0,
         "stride": None,  # one record per file: stride = len(blob)
-        "slots": ((24, "note_a", None), (184, "note_b", None), (344, "title", None)),
+        "slots": ((24, "note_a", None), (184, "note_b", None), (344, "title", 40)),  # +384: 2 x u16
     },
     "mission_title": {
         "prefix": "milstP",

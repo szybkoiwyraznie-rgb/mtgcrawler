@@ -52,6 +52,7 @@ import item_skill_write as ISW  # noqa: E402
 import mission_text as MT  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
+EXT_DAT_RECORD = 388   # the measured one-record ``*_ext.dat`` file (mission_text)
 TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
 BOX_WIDTH = export_strings.TYPICAL_LINE   # the typical dialogue line (46); the hard limit per
 BOXED = ("dialogue", "battle_quote")      # kind is export_strings.box_limit, as in the writers
@@ -172,15 +173,16 @@ def fixed_slot_limit(row: dict) -> Optional[int]:
 
     The ``05`` rows (and the leftover rows pointing at the same tables) carry the member and
     the slot's offset; ``mission_text.slot_size_at`` knows the field sizes.  The one-record
-    ``*_ext.dat`` kinds need the file size, which a row does not carry - they keep their
-    ``max_bytes``.
+    ``*_ext.dat`` kinds take the file as the record: a row does not carry the file size, so the
+    measured 388-byte record is assumed (every slot of the two 348-byte files lies below it).
     """
     source = row.get("source") or {}
     member = source.get("member")
     offset = source.get("offset")
-    if not member or not isinstance(offset, int) or member.lower().endswith("_ext.dat"):
+    if not member or not isinstance(offset, int):
         return None
-    size = MT.slot_size_at(member, offset)
+    size = MT.slot_size_at(member, offset, EXT_DAT_RECORD if member.lower().endswith("_ext.dat")
+                           else None)
     return None if size is None else size - 1
 
 

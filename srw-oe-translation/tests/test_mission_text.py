@@ -113,7 +113,7 @@ class ParseMemberTests(unittest.TestCase):
         slots = {s["role"]: s for s in rows[0]["slots"]}
         self.assertEqual(slots["note_a"]["text"], slots["note_b"]["text"])
         self.assertEqual(slots["note_a"]["span"], 160)
-        self.assertEqual(slots["title"]["span"], 44)
+        self.assertEqual(slots["title"]["span"], 40)      # +384..+388 are two u16 fields
         self.assertIn("19話", slots["title"]["text"])
 
     def test_every_record_of_a_stride_is_read(self):
@@ -161,7 +161,8 @@ class SlotSizeTests(unittest.TestCase):
 
     def test_ext_dat_needs_the_file_size(self):
         self.assertIsNone(MT.slot_size_at("DL100_01_ext.dat", 344))
-        self.assertEqual(MT.slot_size_at("DL100_01_ext.dat", 344, blob_size=388), 44)
+        # the title slot stops before the two u16 fields that end the record (+384, +386)
+        self.assertEqual(MT.slot_size_at("DL100_01_ext.dat", 344, blob_size=388), 40)
         self.assertEqual(MT.slot_size_at("DL100_01_ext.dat", 24, blob_size=388), 160)
 
     def test_parse_member_reports_the_measured_span(self):

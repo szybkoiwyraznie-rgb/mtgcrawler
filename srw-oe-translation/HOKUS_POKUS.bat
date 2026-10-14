@@ -11,6 +11,10 @@ rem    4. Folder/zipy ZWROCONEGO tlumaczenia (sceny\ i widoki\ albo sceny.zip, w
 rem       - jezeli tlumaczenie jest juz wpisane wprost w pliki JSONL pakietu,
 rem         w punkcie 4 podaj ten sam folder co w punkcie 3 (pominiemy widoki).
 rem
+rem  SKROT: rozpakuj pakiet z wpisanym tlumaczeniem (pakiet_EN_*.zip z Dysku) do folderu
+rem  pakiet_EN\ obok tego pliku - wtedy pyta tylko o ISO i folder DLC (punkty 3 i 4
+rem  bierze z pakiet_EN\ sam).
+rem
 rem  Wynik: srw-oe-patch\patched.iso + srw-oe-patch\DLC\... (tylko zmienione pliki)
 rem         + srw-oe-patch\build_report.json (co sie udalo, co odmowilo i dlaczego)
 rem
@@ -49,6 +53,12 @@ if not defined DLC (
   echo.
   echo Folder z DLC ^(np. FULL_DLC^):
   set /p "DLC=> "
+)
+if not defined PACKAGE if exist "%~dp0pakiet_EN\00_dialogue.jsonl" (
+  set "PACKAGE=%~dp0pakiet_EN"
+  if not defined TRANSLATION set "TRANSLATION=%~dp0pakiet_EN"
+  echo.
+  echo Pakiet z wpisanym tlumaczeniem: %~dp0pakiet_EN
 )
 if not defined PACKAGE (
   echo.
