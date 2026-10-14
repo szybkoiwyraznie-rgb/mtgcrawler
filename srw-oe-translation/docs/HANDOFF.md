@@ -101,7 +101,20 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
-**Stan 2026-10-14 (najnowszy; szczegóły `STATUS.md`, `EXPERIMENT_LOG.md` cz. 19):** pierwszy prawdziwy
+**Stan 2026-10-14 wieczór (najnowszy; szczegóły `STATUS.md`, `EXPERIMENT_LOG.md` cz. 20):** `EN2.zip`
+tłumacza wczytany bez odrzuceń (44 051 + 17 353 elementów), pakiet 80 780/108 123 wierszy z EN (puste =
+tylko dialogi: rozdziały 1–3 w całości, 4 w 59 %, 5–8 puste), **budowa na wszystkich 96 kontenerach:
+96/96, 0 problemów, 80 084 teksty odnalezione w wynikach, 63 braki (same znane)**, deterministyczna.
+Pakiet do wgrania na Drive („SRW OE - PATCH 2026-10-14 (EN2)", `1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr`):
+gotowe DLC, pakiet JSONL dla `HOKUS_POKUS.bat` (buduje `patched.iso` u użytkownika), instrukcja
+`docs/INSTRUKCJA_PATCH_PL.md`. Pole tytułu `*_ext.dat` = 40 B (nie 44) — 10 tytułów skrócono prowizorycznie.
+Otwarte: (a) **test w grze tej budowy** (nigdy nie zrobiony: linie 47–52, stored mesbtl00/config00/configst,
+pula umiejętności, DLC_ID, pełny splice 5 kontenerów do ISO — w grze sprawdzony tylko sam eventP00);
+(b) tłumacz: `DO_ZROBIENIA_2.md` (10 tytułów) + dalsze `epizod-NN.md`; (c) 6 achievementów (liczba rekordu
+czytana jako odwołanie) i 2 przydomki; (d) ponowny eksport pakietu (limit 39 w widoku, sieroty, Reference,
+`coverage_audit` ślepy na fragmenty z tokenem).
+
+**Stan 2026-10-14 rano (szczegóły `EXPERIMENT_LOG.md` cz. 19):** pierwszy prawdziwy
 import tłumaczeń (`EN.zip`: 61 322/61 468 elementów) i budowa na 13 kontenerach z Drive
 (`config00/01/02–08`, `configst`, `eventP00`, `imenu00`, `mesbtl00`): 38 598/39 290 sprawdzalnych
 tekstów wylądowało. Pula ogonowa `srwDL_Skill/Item/Spirit/StatusChange` ma własną tablicę wskaźników
@@ -182,3 +195,12 @@ python tools\sysmes_shift.py <in.cpk> <out.cpk>         # grow (NIE dla menu tyt
 - `coverage_audit.py` jest ślepy na fragmenty rozcięte bajtem sterującym (akceptuje podciągi) —
   „0 brakujących” dla pul config było fałszywe.
 - Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.
+- `*_ext.dat`: za tytułem (+344) leżą dwa u16 gry (+384, +386), zera tylko w eventP00 — heurystyka
+  „zerowe wypełnienie" ich nie odróżnia; sloty stałe mają zmierzone rozmiary (`mission_text.SPECS`) i twardy
+  limit, nie szukaj padding-u za slotem.
+- `patch_spot_check.py --report` to ścieżka WYJŚCIA raportu spot checku — podanie `build_report.json`
+  buildera nadpisuje go (stało się przy #5). Zawsze osobny plik.
+- Sandbox może zostać zresetowany bez ostrzeżenia (`local/`, `google_drive/` i niewypchnięte commity
+  znikają) — commit+push wcześnie, wyniki z `local/` od razu na Drive.
+- Każde nowe wiersze puli (`pool_rows_refresh`) muszą od razu dostać wpis w `tokeny.tsv`, inaczej
+  pisarz odmawia po cichu przy budowie (126 tekstów w #4).

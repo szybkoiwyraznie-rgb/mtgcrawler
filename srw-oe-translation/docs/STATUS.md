@@ -698,3 +698,27 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 * **Następny krok:** test w PPSSPP na zbudowanych kontenerach (pula umiejętności, linie 47–52, DLC_ID);
   tłumacz: `DO_ZROBIENIA.md`; wgranie pozostałych kontenerów na Drive; ponowny eksport pakietu.
 
+## 2026-10-14 — import `EN2.zip`, wszystkie 96 kontenerów zbudowane, pakiet do wgrania na Dysku
+
+* **Import `EN2.zip` [ZWERYFIKOWANE]:** sceny 17 353 elementów (0 odrzuconych), widoki v2 **44 051
+  wpisanych, 0 odrzuconych, 0 nieznanych** — w tym wszystkie 41 poprawek i 126 nowych tekstów. Tokeny kany
+  w EN tłumacza (`%s*%s&`) importer usuwa sam (`strip_kana_tokens`); `pool_rows_refresh` dopisuje
+  `tokeny.tsv` (5 225 wpisów = 100 % wierszy z `%s`). Pakiet: 108 123 wiersze, **80 780 z EN, 27 343 puste
+  (same dialogi)**, 0 błędów.
+* **Pole tytułu misji w `*_ext.dat` ma 40 B, nie 44 [ZWERYFIKOWANE]:** za tytułem leżą dwa u16 gry.
+  Limit 39 w narzędziach i pakiecie; 10 tytułów skrócono prowizorycznie (`Ep.`) — do potwierdzenia
+  przez tłumacza (`DO_ZROBIENIA_2.md`).
+* **Budowa #6 na wszystkich 96 kontenerach (5 USRDIR + 91 DLC, 197 s): 96/96, 0 problemów;
+  deterministyczna (dwa przebiegi #5/#5b bajt w bajt równe). Spot check: 80 084 teksty odnalezione
+  w plikach wynikowych, 63 braki** (31 resztki tablic, 13 liczniki DLC_ID, 11 puste rekordy skill —
+  śmieci eksportu; 6 achievementów; 2 przydomki), 633 za krótkie do sprawdzenia.
+* **Fabuła w buildzie:** rozdziały 1–3 (eventP00–03) 100 %, rozdział 4 59 %, rozdziały 5–8 0 %;
+  scenki poboczne eventP09/13/20–26 95–100 %, eventP27–32 0 %, evept101–102 100 %, evept103–108 9–71 %
+  (128 scen w całości, 1 częściowo, 164 puste). Wszystko poza dialogami: 100 % wpisane.
+* **Do wgrania (Drive „SRW OE - PATCH 2026-10-14 (EN2)"):** `DLC_EN_2026-10-14.zip` (91 EDAT, gotowe
+  do skopiowania do folderu DLC emulatora), `pakiet_EN_2026-10-14.zip` + `HOKUS_POKUS.bat`
+  (buduje `patched.iso` z ISO użytkownika i te same DLC), `USRDIR_EN_2026-10-14.zip`, raporty, md5,
+  `docs/INSTRUKCJA_PATCH_PL.md`. Hashe/kroki: EXPERIMENT_LOG cz. 20.
+* **Nie jest to skończone tłumaczenie i nie było testu w grze dla tej budowy** — to pierwszy pakiet,
+  który pozwala taki test zrobić (linie 47–52, stored mesbtl00 1 MB, pula umiejętności, DLC_ID, tytuły).
+  Testy: **977 OK (1 skipped)**.

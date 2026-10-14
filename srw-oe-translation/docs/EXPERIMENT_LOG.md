@@ -3366,3 +3366,84 @@ zmiana reguły szerokości, czego nie ruszać. Suite po wszystkim: **971 OK (1 s
 linie 47–52, stored mesbtl00 (1 MB), DLC_ID w menu; ISO nie da się tu zbudować (`patched.iso` wymaga pliku
 użytkownika); ponowny eksport pakietu na maszynie użytkownika (sieroty, przycięcia); `coverage_audit`
 nadal ślepy na fragmenty z tokenem (do naprawy razem z eksportem).
+
+## Sesja 7 (2026-10-14), część 20 — import `EN2.zip`, tokeny kany w EN tłumacza, pole tytułu `*_ext.dat`, budowa wszystkich 96 kontenerów i pakiet do wgrania
+
+**Punkt wyjścia.** Reset sandboxa (cz. 19) skasował `local/` i `google_drive/`; w repo `ef7b8df`, PR #13.
+Tłumacz oddał `EN2.zip` (Drive `1HJRZFCNt77xavTAgaRJ5uv8vYUXmQR6x`, 2 364 570 B, md5
+`5b548db679b849f8a18375b20d6f9dc2`): 16 plików `sceny/` **bajt w bajt równe `EN.zip`** i 7 widoków v2
+(`teksty-config.md` 16 410 elementów, 0 pustych `EN:`). Jego 126 nowych tekstów zapisane z tokenem
+kany *i* jego drugim bajtem (`On defense, %s*%s&damage-`).
+
+**1. Dwie luki narzędzi (kod, 975 testów):**
+* `pool_rows_refresh.py` dopisywał wiersze puli, ale nie `tokeny.tsv` → walidator stosował regułę
+  ścisłą (każdy `%s` obowiązkowy), przepuszczał EN z tokenami kany, a `table_write.encode_target`
+  odmówiłby przy budowie. Teraz `update_sidecar` rozwiązuje rodzaje nowych wierszy z bajtów gry
+  (`token_map.build_map`) i dopisuje je od razu (usunięte wiersze tracą wpisy); raport
+  `sidecar_entries`/`sidecar_unresolved`, kod wyjścia 1 przy nierozwiązanym wierszu.
+* `translation_check.strip_kana_tokens(en, jp, pct)` (+ `kana_signatures`): para „`%s` + znak stojący
+  po nim w jp" dla każdego `T` z mapy jest usuwana z EN raz, w kolejności jp; goły `%s` nigdy
+  (może być literałem); bez wpisu/ze starym wpisem nic się nie dzieje. `translation_import` woła to
+  przed `check_row`. Commit `6e5286b`.
+
+**2. Kontenery.** Z Drive pobrane i zweryfikowane md5 **wszystkie 96 kontenerów tekstowych** pakietu:
+5 USRDIR (md5 jak w cz. 18/19) + 91 FULL_DLC (config01–08, 10–32; eventP01–09, 13, 20–32;
+evept101–108; imenu01–07, 10–15, 19; mesbtl01–08, 10–15, 19; md5 w `local/dlc_expected_md5.txt`
+= md5 z Drive). Jeden błąd przepisania id (imenu07) złapany 404 → ponowne `search_files`.
+
+**3. Pakiet od zera (`local/translation`):** Robocze (107 374 wierszy) → import scen z EN2
+(17 353 elementów, 0 odrzuconych, 2 s) → `pool_rows_refresh` (+1 127 wierszy, 125 nowych tekstów,
+**1 127 wpisów `tokeny.tsv` rozwiązanych, 0 nierozwiązanych**, 8 s) → `--prune-stale` (−85) →
+`tokeny.tsv` 4 098 → 5 225 wpisów = **100 % wierszy w formie display z `%s`** (0 brakujących, 0 osieroconych)
+→ import widoków v2 z EN2: **44 156 elementów, 44 051 wpisanych, 105 bez zmian, 0 odrzuconych,
+0 nieznanych** (numeracja v2 odtworzona co do elementu) → 1 246 wierszy z rodzajem `T` w 04: **0 z `%s`
+w EN**; w całym pakiecie 0 wierszy, których liczba `%s` w EN ≠ liczbie `L`+`C` → `translation_copy`
+(16 187 kopii, 11 047 wypełnionych) → `translation_check`: **108 123 wiersze, 80 780 z EN, 27 343 puste
+(wszystkie 00_dialogue), 0 błędów.**
+
+**4. Budowa #5 (`build_translation_patch --dlc local/game` = USRDIR/ + DLC/, 198 s): 96/96 kontenerów
+zmienionych, 0 problemów.** Powtórka #5b na tych samych wejściach: **96/96 plików md5 identyczne**
+(budowa deterministyczna). Spot check: 80 780 sprawdzonych, 80 075 trafionych, 72 braki, 633 za krótkie.
+Nowe wśród braków: **8 tytułów misji `*_ext.dat`** („growth area behind the span is not clean padding").
+
+**5. Pole tytułu `*_ext.dat` ma 40 bajtów, nie 44 [ZWERYFIKOWANE na 213 rekordach × 96 kontenerów].**
+Ostatnie 4 bajty rekordu 388 B (+384, +386) to dwa u16 o wartościach 1–7 (`03 00 02 00`, `06 00 05 00`…),
+zera tylko w eventP00. Skutek starego odczytu: 8 tytułów 40–43 B odmówionych przez strażnika
+wypełnienia, a dwa tytuły rozdziału 1 (44 B odmówiony limitem, 40 B — NUL trafił dokładnie w zerowe
+pole, bez szkody) *przeszłyby* po pole na rekordzie z zerami. Poprawka: `mission_text.SPECS`
+tytuł 40; `translation_check.fixed_slot_limit` zakłada rekord 388 B dla `*_ext.dat` (wcześniej brak
+limitu); testy `slot_apply` (obie końcówki), checker, spany. Pakiet: `max_bytes` 215 wierszy tytułów
+43/44 → 39; **10 tytułów EN > 39 B skrócono prowizorycznie** konwencją tłumacza (`Ep.`; 2× bez „The")
+— lista `title_fixes.tsv` i `DO_ZROBIENIA_2.md`. Checker po zmianie: 0 błędów. Commit `355affe`.
+
+**6. Budowa #6 (197 s): 96/96, 0 problemów; spot check 80 780 → 80 084 trafionych, 63 braki
+(leftover 31, dlc_id 13, skill 11 — śmieci starego eksportu; achievement 6 — liczba rekordu 30/100/40/50
+czytana jako odwołanie; char 2 — przydomek `ワン`), 633 za krótkie.** Tytuły: 0 braków. Fabuła w buildzie:
+eventP00–03 100 %, eventP04 59 %, eventP05–08 0 %, eventP09/13/20–26 95–100 %, eventP27–32 0 %,
+evept101–102 100 %, evept103–108 9–71 % (21 538 / 48 881 linii dialogu; 128 scen w całości, 1 częściowo
+`DL105_40`, 164 puste). Hashe wyjść: `local/upload2/md5sums.txt` (= Drive). Rozmiary: mesbtl00
+348 888 → 1 010 392, eventP00 162 264 → 258 520, configst 376 960 → 471 168, config00 929 920 → 948 352.
+
+**7. Pakiet do wgrania — Drive „SRW OE - PATCH 2026-10-14 (EN2)" (`1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr`):**
+`DLC_EN_2026-10-14.zip` (91 EDAT, 2 858 342 B, md5 `f50d605b…`), `USRDIR_EN_2026-10-14.zip`
+(5 CPK, md5 `b32e17c4…`), `pakiet_EN_2026-10-14.zip` (JSONL+tokeny z EN, 5 048 965 B, md5
+`943e421f…`; pierwsza wersja sprzed poprawki tytułów wyrzucona do kosza), `md5sums.txt`,
+`build_report.json`, `spot_check.json`, `missing.txt`, `title_fixes.tsv`, `INSTRUKCJA_PL.md`
+(= `docs/INSTRUKCJA_PATCH_PL.md`), `DO_ZROBIENIA_2.md`. `HOKUS_POKUS.bat`: folder `pakiet_EN\`
+obok bata = pakiet i tłumaczenie naraz (pyta tylko o ISO i DLC); `.gitignore` wyklucza `pakiet_EN/`
+i `srw-oe-patch/`.
+
+**8. Próba drogi z ISO (bez prawdziwego obrazu) [ZWERYFIKOWANE na atrapie]:** atrapa ISO
+(`iso_pack.pack_iso`: PSP_GAME/USRDIR z 5 prawdziwymi kontenerami + plik-sąsiad `DUMMY.TXT`, 1 914 880 B)
+→ `build_translation_patch --iso atrapa --dlc local/dlc --package local/translation --out local/build7`
+(dokładnie wywołanie `HOKUS_POKUS.bat`): exit 0, 199 s, 96/96, 0 problemów; `patched.iso` 4 671 488 B
+(+2,7 MB = pięć zmienionych członków dopisanych na końcu); **5 członków odczytanych z `patched.iso` md5
+identyczne z wyjściami #6** (config00 `d3475908…`, configst `d157d63f…`, eventP00 `e23a02ba…`, imenu00
+`5317aa99…`, mesbtl00 `a5a6ac5a…`), sąsiad nietknięty, **91 EDAT identyczne z #6**. Prawdziwego ISO
+(680 MB, układ katalogów gry) atrapa nie zastępuje — w grze sprawdzony był tylko splice samego eventP00
+(2026-10-11).
+
+**Nie zrobione / otwarte:** test w grze (ISO i emulator są u użytkownika — od tego jest ten pakiet):
+linie 47–52, stored mesbtl00/config00/configst, pula umiejętności, DLC_ID, tytuły `Ep.`; 6 achievementów
+(parser odwołań rekordu), przydomki; ponowny eksport pakietu (sieroty, Reference, limit 39 w widoku);
+`coverage_audit` ślepy na fragmenty z tokenem.
