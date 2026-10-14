@@ -3667,3 +3667,7 @@ Build #9 (`--dlc local/usrdir --package local/translation --out local/build9 --o
 99/55/25/27/27/14/11/14, kana wyzerowana 0, nieparzyste 0, odmowy tylko `unit:379`/`unit:426` (za długie).
 Przebudowa deterministyczna (dwa przebiegi = ten sam md5). W grze NIE sprawdzone — czeka na test B u
 użytkownika z nowym `config00.cpk`.
+Drive (folder DELIVERY `1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr`): `USRDIR_EN_build9_config00.zip`
+(`1Dhs36Rzepzxk1HFFeZFC401Sis4T1ptG`, 152 293 B, md5 zipa `eb871c65ef54375d7d086f7f6f9d19e9`; w środku
+`config00.cpk` + `CZYTAJ.txt` + raport buildera). Instrukcja dla użytkownika: wariant B jeszcze raz
+(oryginalne ISO + ten jeden `config00.cpk`, DLC oryginalne); gdy działa → C, D, E po jednym.
