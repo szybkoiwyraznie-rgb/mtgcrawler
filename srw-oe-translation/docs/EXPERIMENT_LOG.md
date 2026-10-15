@@ -4498,7 +4498,7 @@ rozmiar spakowany — nieznane). **Ryzyko B:** nasz koder CRILAYLA. Dlatego dwa 
 
 **Zestaw dla użytkownika:** `UI_TEST1.zip` 484 348 B sha256 `8df4302a90516a9984e919eb6da23a8b97cf0ea773add5f46c7dc86d6fb19f63`
 (Dysk DELIVERY `1ex7qluz248VV7Xsgs-MaIPwR8q435T4P`): `UI_TEST1\A_stored\`, `UI_TEST1\B_crilayla\` (po 3 CPK),
-`CZYTAJ_UI_TEST1.txt` (wgrywanie przez `WGRAJ_DO_ISO.bat` na `patched.iso` z v4 albo na oryginał — te 3 pliki nie
+`CZYTAJ_UI_TEST1.txt` (nowa `INSTRUKCJA_PL.md` `12fKL69l7Y3Xye77tGtfHxWYlPzTtgN2-` z częścią 4, stara `1NXTOPrDG…` w koszu, DELIVERY zweryfikowane `list_files`: 6 pozycji; wgrywanie przez `WGRAJ_DO_ISO.bat` na `patched.iso` z v4 albo na oryginał — te 3 pliki nie
 kolidują z tekstowymi; wskazać PODFOLDER wariantu; co sprawdzić; czego test nie zmienia), `podglad\PRZED_PO.png`,
 raporty. `iso_insert.KNOWN_ORIGINALS` += `system/IM1000/IM3000` (wgranie UI na ISO, w którym te kontenery już są
 zmienione, jest odmawiane — świadomie: nie nakładać A na B; na `patched.iso` v4 przechodzi, bo tekst ich nie rusza).

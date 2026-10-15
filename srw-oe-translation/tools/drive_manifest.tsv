@@ -337,3 +337,7 @@ INSTRUKCJA_PL.md	1NXTOPrDGKTdUI9bdZaUnTWq4Xrdw7jeS	11190	= docs/INSTRUKCJA_PATCH
 # Pakiet do tlumaczenia (15zExy5JpoZt_obcgK8xruCsHkZYhVlwo):
 pakiet_EN_2026-10-15_v4.zip (kopia)	1Zx_LDyb5Lud3XS7b81P8gs1zHJbpM4XR	5304843
 #   1ptwsZAtLb-6_0ydGfFOakXlWjBKIa3iB przemianowany na pakiet_EN_2026-10-15_v3_STARY.zip
+# 2026-10-15 (po Y4a/Y4/Z4 OK; tekstury UI) — DELIVERY (1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr):
+UI_TEST1.zip	1ex7qluz248VV7Xsgs-MaIPwR8q435T4P	484348	sha256 8df4302a90516a9984e919eb6da23a8b97cf0ea773add5f46c7dc86d6fb19f63 (A_stored + B_crilayla: system/IM1000/IM3000.cpk, CZYTAJ_UI_TEST1.txt, podglad/PRZED_PO.png, raporty) — NIGDY w grze
+INSTRUKCJA_PL.md	12fKL69l7Y3Xye77tGtfHxWYlPzTtgN2-	13713	= docs/INSTRUKCJA_PATCH_PL.md (stan po Y4/Z4 + czesc 4 UI_TEST1)
+# KOSZ: 1NXTOPrDGKTdUI9bdZaUnTWq4Xrdw7jeS INSTRUKCJA_PL.md (stan v4 przed testami)
