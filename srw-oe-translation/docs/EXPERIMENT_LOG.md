@@ -4064,3 +4064,50 @@ rysuje ASCII w połowie komórki) — czekam na zrzuty.
 **Stan:** build #12 czeka na test w grze; nic nie jest wykazane jako działające poza Loading/misją buildu #11.
 Pakiet odniesienia buildu #12: `pakiet_EN_2026-10-15_ciasny_v2.zip` 5 247 253 B md5 `a6bbff94ddaeda16d166e381bbffb5ca`,
 Drive Pakiet `1Pn6TsLNk8QVEdW7eJdas4-QyUqp8YpGg` (= pakiet ciasny + 12 wierszy `record_rows_refresh`).
+
+### 21.22 Build #12 w grze: nowa gra DZIAŁA (Spirits po angielsku, opis, bez crasha); sejw z 2. epizodu NADAL pada przy wczytywaniu → runda 6; pasek przycisków → reguła szerokości etykiet (`label_fit`), build #13
+
+**Obserwacje użytkownika (2026-10-15, build #12 KROK 2, oryginalne DLC, PPSSPP):** (a) nowa gra: wszystko działa,
+komendy duchowe i ich opisy po angielsku, dłuższa gra bez crasha ⇒ **crash listy komend duchowych z #11 był
+nieświeżym `+32`** [potwierdzone w grze]; (b) sejw ze środka 2. epizodu: Loading OK, menu główne, „Start” →
+„zaczyna czytać” → **crash** (jak w #11) — podmieniony tylko ISO, DLC oryginalne; (c) zrzuty ekranu: napisy
+wychodzą poza pola **tylko w podpowiedziach przycisków** („□ Spirit Commands △ Quick Stats ○ Action Commands”,
+„□ Play Line △ Change Expression ○ Pilot”) — kolejna ikona rysowana w miejscu wyliczonym z japońskiej etykiety.
+
+**Analiza crasha sejwu (dane):** skan słów pozycyjnych w rekordach konwencji A (CharaDictionary00 100,
+RoboDictionary00 68, Reference00 28, DLC_ID00 41, Shop00 182, Skill_Tag 151, Achievement 75): **0 trafień**
+(offset/−offset/koniec/długość) — konwencja A nie ma odpowiednika `+32`. `srwDL_DLC_ID00.bin`: zmienione tylko
+nazwy/opisy; identyfikatory (`config01.pac`, `JP0700-NPJH50521_00-…`) nietknięte. Ścieżka „wczytaj sejw z 2.
+epizodu” różni się od nowej gry danymi, których nie da się zbadać bez gry (zawartość sejwu, DLC rozdziału 2,
+odblokowane słowniki) ⇒ bisekcja członów + dwa testy sejwów. Hipotezy do rozstrzygnięcia: budżet Skill00 ciaśniejszy
+przy sejwie z DLC (sterta); sejw przechowuje offsety rekordów (wtedy sejwy japońskie niekompatybilne, własne OK);
+inny człon czytany tylko przy wczytywaniu.
+
+**Runda 6** (`tools/container_mix.py`, oryginał + człony z build #12; każdy wariant sprawdzony: człony „z buildu”
+dokładnie jak zamierzone, Z1/Z2 bajt w bajt = build #12): Z1 cały config00; Z2 cały configst; Z3 tylko Skill00;
+Z4 config00 bez Skill00; Z5 słowniki; Z6 Item00+DLC_ID00+Reference00+Shop00; Z7 listy nazw (unit_list00,
+wp_list00, charalist00, groupunit00, milstP00, bgmlist00, bg2dlist, Map_S); Z8 tylko sysmes; Z9 Spirit+Item+
+StatusChange; Z10 Skill_Tag+Achievement+CalcType. md5 w `local/round6/warianty.json`. Dostawa
+`BISEKCJA_SEJW_runda6.zip` 1 187 192 B md5 `8eb496518b34af57cfea51a480fdfea3`, Drive DELIVERY
+`1HEvYrFtHdhvAg4V9LZMg1CVcZw_SqWhK` (CZYTAJ z drzewkiem: Z1/Z2 → gałąź → Z3/Z4 → Z5–Z7 lub Z8–Z10; testy A: sejw
+zrobiony na #12 wczytany na #12, B: ten sam sejw na oryginale; prośba o tekst okna crasha).
+
+**Reguła szerokości etykiet (pomiar ze zrzutów):** pozycje ikon paska są stałymi japońskiego układu (etykieta
+mierzona w locie nie nachodziłaby), odstęp < 1 komórki ⇒ `komórki(EN) ≤ komórki(JP)`, komórka = bajt CP932 bez
+tokenów (`＠n`, pola printf). Zakres: jednoliniowe etykiety `sysmes.bin` ≤ 16 B (paska nie da się odróżnić od
+etykiet menu po treści; te same ciągi służą obu). Pakiet: 1 079 wpisów puli sysmes, **280 za szerokich**
+(187 par) — `tools/label_fit.py` + `config/label_fit_rules.tsv` (229 reguł, odmowa reguły za szerokiej lub
+zmieniającej tokeny; wiersze-ogony pomijane jak w pisarzu sysmes) → **280 → 4** (4 z tokenami kany `0x0F`
+zostawione). Zmienione 382 wiersze (w tym ogony o tym samym jp). Testy `tests/test_label_fit.py` (6).
+Pomiar całego pakietu (komórki, bez reguły): 29 558 wypełnionych wierszy UI, 16 459 szerszych od JP; kategorie
+najgorsze: weapon_name_short 84 %, mission_title 80 %, character_name_narrow 76 %, config_spirit 75 %.
+
+**Build #13** (`--package local/pakiet_b13`, exit 0): `config00.cpk` **identyczny z #12** (md5 `3c56686d…`);
+`configst.cpk` 372 864 B md5 `27a8cdeaa82a9e1436c18cd9a80783fa` — różni się tylko `sysmes.bin` (49 252 →
+48 228 B). W puli: `Spirit Cmds`, `Stats`, `Action Cmds`, `Voice`, `Face`, `Pilot` obecne, stare formy
+nieobecne. Dostawa `WGRAJ_build13.zip` 251 554 B md5 `887d3dbb4a0f9f21d366f688f2d65940`, Drive DELIVERY
+`1w23e2YM9FkooTJguDMj6bcHuTfX0uXzv` (KROK_2 + `DO_PRZEJRZENIA/ETYKIETY_sysmes_skrocone.tsv`; CZYTAJ: test w nowej
+grze, NIE do bisekcji).
+
+**Stan:** build #12 = pierwszy build z przetłumaczonymi config00+configst, który działa w nowej grze (Loading,
+misja, Spirits, kilkadziesiąt minut gry); wczytanie sejwu z 2. epizodu pada — przyczyna nieznana, runda 6 czeka.

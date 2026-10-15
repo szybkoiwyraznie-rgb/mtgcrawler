@@ -2,7 +2,16 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, evening): build #11 LOADS in-game (Loading, first mission) — the Skill00 size budget
+**Latest (2026-10-15, night): build #12 WORKS in a new game** (Loading, mission, Spirits list and descriptions
+in English, no crash in a longer session) — the `+32` finding is confirmed. Still open: loading the user's save from
+mid-chapter 2 crashes right after "Start" (same as #11); convention-A members show no position-dependent words,
+DLC_ID identifiers are untouched, so round 6 bisects the members in-game (`BISEKCJA_SEJW_runda6.zip`, Z1–Z10 +
+two save experiments). Button-bar labels overflow because the bar places icons at the JAPANESE label width:
+new rule `cells(EN) <= cells(JP)` for one-line `sysmes.bin` labels ≤ 16 B (`tools/label_fit.py`,
+`config/label_fit_rules.tsv`, 280 rows → 4 left), shipped as **build #13** (= #12 + shorter labels;
+`configst.cpk` md5 `27a8cdea…`). Details: `EXPERIMENT_LOG.md` §21.22.
+
+**Earlier (2026-10-15, evening): build #11 LOADS in-game (Loading, first mission) — the Skill00 size budget
 holds (W1 217 090 B loads, W2 218 110 B crashes). Two further crashes it showed (pilot → Spirits → hover; loading a
 mid-chapter-2 save → crash before the intermission) are attributed to a second position-dependent record word the
 writer never rewrote: `i32@+32 = -record_offset` in every convention-B record (2 230/2 230 originals; stale in

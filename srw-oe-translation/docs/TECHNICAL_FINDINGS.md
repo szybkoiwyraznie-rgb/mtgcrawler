@@ -359,3 +359,16 @@ gets no row — the name stayed Japanese in build #11 while `name_level` and `ef
 English. `tools/record_rows_refresh.py` adds such fields as offset rows (English taken from a translated sibling
 field with the identical Japanese). Nine further Spirit fields (`effect` r30–32, `label` r30–35) hold `0x0F` kana
 tokens and still need token-map rows (`pool_rows_refresh`-style); they remain Japanese for now.
+
+## Button-bar labels are drawn in slots sized by the JAPANESE label (in-game, 2026-10-15)
+
+Two screenshots of build 12: "□ Spirit Commands △ Quick Stats ○ Action Commands" and "□ Play Line △ Change
+Expression ○ Pilot" — each next icon lands at the position the Japanese label (精神コマンド 12 cells, 簡易能力 8,
+台詞再生 8, 表情変更 8) would have ended, with less than one cell of gap; ASCII glyphs take half a cell. Since a label
+measured at runtime would not overlap, the slot positions are constants of the Japanese layout. Rule for such labels
+(`tools/label_fit.py`): `cells(English) <= cells(Japanese)`, cells = CP932 bytes without control tokens (`＠n`) and
+printf fields. Applied to every one-line `sysmes.bin` string of ≤ 16 bytes (bar labels and menu labels share
+strings). The user reports no other overflowing screens so far (new game only; the intermission is unreached).
+Convention-A records (`table_write` families) hold NO position-dependent words (scan of all prefix words of
+CharaDictionary00/RoboDictionary00/Reference00/DLC_ID00/Shop00/Skill_Tag/Achievement against offset, −offset,
+end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+36`.
