@@ -47,7 +47,7 @@
     27,
     17,
     54,
-    32
+    30
    ]
   },
   {
@@ -58,8 +58,9 @@
     1,
     32,
     30,
-    48
-   ]
+    43
+   ],
+   "note": "box ends at y=43: the prohibition/person icons below start at y=44 (UI_TEST3 cut their tops)"
   },
   {
    "id": "special",

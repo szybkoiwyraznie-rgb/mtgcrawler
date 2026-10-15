@@ -3,8 +3,8 @@
 its plain ELF - pure Python, no third-party module.
 
 Why this exists: the last Japanese strings of SRW OE that no data file holds (battle-panel
-``移動後``/``敵``/``味方``, ``メインパイロット``, ``SELECT パイロット表示変更``, the 1.08
-ability lines ``<貫通 Lv2> 敵の防御-35%`` …) live in the executable itself.  The 1.08 update
+``移動後``/``敵``/``味方``, the battle pop-ups ``回避``/``援護防御``, the 1.08 ability lines
+``<貫通 Lv2> 敵の防御-35%`` …) live in the executable itself.  The 1.08 update
 executable is ``PBOOT.PBP`` → ``DATA.PSP`` (tag ``0x2E5E10F0``, decrypt mode 25), which the
 user's DLC folder already contains - but it is KIRK-encrypted, so :mod:`exe_strings` needs this
 module first.
@@ -32,8 +32,8 @@ Usage::
     python3 tools/psp_prx.py EBOOT.BIN -o EBOOT.elf         # bare ~PSP file
     python3 tools/psp_prx.py PBOOT.PBP --info               # header fields only
 
-Pure Python decrypts the 5.5 MB executable in roughly 15-30 s - acceptable for a one-shot build
-step; the result is cached by the callers (md5 of the input) where it matters.
+Pure Python decrypts the 5.5 MB executable in about 5 s (CPython 3.11, sandbox) - fine for a
+one-shot build step.
 """
 from __future__ import annotations
 

@@ -55,6 +55,7 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
+import hashlib
 import json
 import re
 import shutil
@@ -71,15 +72,18 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-15e: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
-               "skill total 342194, copies resync, UI textures (stored) from ui_labels/")
+TOOLS_STAMP = ("2026-10-15f: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+               "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
+               "executable strings in place (PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
+import exe_strings as EXE            # noqa: E402
 import inline_names as IN            # noqa: E402
 import item_skill_records as ISR     # noqa: E402
 import item_skill_write as ISW       # noqa: E402
 import iso_pack                      # noqa: E402
 import name_table_write as NMT       # noqa: E402
+import psp_prx                       # noqa: E402
 import quotes_apply as QA            # noqa: E402
 import slot_apply as SLA             # noqa: E402
 import sysmes_pack as SMSP           # noqa: E402
@@ -95,6 +99,7 @@ PACKAGE_FILES = (
     "05_mission_text.jsonl",
     "07_names_characters.jsonl",
     "08_names_units_weapons.jsonl",
+    "09_executable.jsonl",
 )
 
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
@@ -160,6 +165,8 @@ def owner(row: dict) -> str:
     category = row.get("category") or ""
     if category in SKIP_CATEGORIES:
         return "skip"
+    if category == EXE.CATEGORY:
+        return "exe"            # the executable's own strings: exe_step, never a container
     source = row.get("source") or {}
     member = source.get("member") or ""
     which = row.get("__file") or ""
@@ -234,6 +241,9 @@ class ContainerStore:
             key, lba, size = self._iso_keys[name]
             return iso_pack.read_member(self.iso, key.split(";")[0].strip("/"))
         return self._dlc_paths[name].read_bytes()
+
+    def dlc_path(self, name: str) -> Optional[Path]:
+        return self._dlc_paths.get(name)
 
     def dlc_relpath(self, name: str) -> Optional[str]:
         path = self._dlc_paths.get(name)
@@ -780,7 +790,8 @@ def parse_filter(spec: str) -> Tuple[List[str], List[str]]:
 def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
           dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
-          ui_textures: bool = True, ui_specs: Optional[Path] = None) -> dict:
+          ui_textures: bool = True, ui_specs: Optional[Path] = None,
+          executable: bool = True) -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     work = Path(work) if work else out / "work"
@@ -792,6 +803,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     filled_rows = [r for r in rows if filled(r)]
     identity_rows = sum(1 for r in filled_rows if identity(r))
     filled_rows = [r for r in filled_rows if not identity(r)]
+    exe_rows = [r for r in filled_rows if owner(r) == "exe"]
+    filled_rows = [r for r in filled_rows if owner(r) != "exe"]
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
                     "identity_rows": identity_rows, "tools": TOOLS_STAMP,
                     "containers": [], "problems": [], "dry_run": dry_run,
@@ -855,10 +868,13 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
 
-    skill_total_check(report, blobs, iso_patch, out, dry_run)
+    skill_total_check(report, blobs, iso_patch, out, dry_run, store)
 
     if iso is not None and ui_textures:
         ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
+
+    if executable and exe_rows:
+        exe_step(report, store, exe_rows, out, work, only, skip, dry_run)
 
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
@@ -874,6 +890,85 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     report["report_path"] = str(report_path)
     return report
+
+
+def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path, work: Path,
+             only: Sequence[str], skip: Sequence[str], dry_run: bool) -> None:
+    """Write the ``09_executable.jsonl`` English into the game's executable, in place.
+
+    The executable is the 1.08 update ``PBOOT.PBP`` of the DLC folder (its ``DATA.PSP``),
+    decrypted by :mod:`psp_prx` and patched by :func:`exe_strings.apply_rows` - nothing moves,
+    every row is checked against the Japanese bytes at its offset, a row that does not fit or
+    does not match is refused and listed.  The result is ``out/DLC/<same path>/PBOOT.PBP``
+    whose ``DATA.PSP`` is the patched *plain* ELF (PPSSPP loads it; the disc ``EBOOT.BIN``
+    inside the ISO is left alone - with the update present the emulator boots the update).
+    The same byte edits are also written as a CWCheat file (``out/cheats/NPJH50521.ini``)
+    for a setup that cannot swap the executable.  Honours --only/--skip (``PBOOT.PBP``).
+    """
+    summary: dict = {"container": EXE.CONTAINER, "member": EXE.MEMBER, "rows": len(rows),
+                     "applied": 0, "skipped": [], "problems": [], "written": []}
+    report["executable"] = summary
+    if not container_selected(EXE.CONTAINER, only, skip):
+        summary["problems"].append("filtered out (--only/--skip)")
+        return
+    path = store.dlc_path(EXE.CONTAINER)
+    if path is None:
+        msg = (f"{EXE.CONTAINER} not found under --dlc: the executable strings need the 1.08 "
+               f"update folder (PSP/GAME/NPJH50521/{EXE.CONTAINER}); {len(rows)} rows not written")
+        summary["problems"].append(msg)
+        report["problems"].append(f"executable: {msg}")
+        return
+    try:
+        pbp = path.read_bytes()
+        psp = psp_prx.pbp_get(pbp, EXE.MEMBER)
+        elf = psp if psp[:4] == psp_prx.ELF_MAGIC else psp_prx.decrypt_prx(psp)
+    except Exception as exc:  # noqa: BLE001 - PrxError / KeyError / OSError: reported, not fatal
+        summary["problems"].append(f"cannot read the executable: {exc}")
+        report["problems"].append(f"executable: cannot read {path.name}: {exc}")
+        return
+    md5_in = hashlib.md5(elf).hexdigest()
+    summary["elf_md5_in"] = md5_in
+    summary["known"] = EXE.KNOWN_ELF_MD5.get(md5_in)
+    match, total = EXE.verify_build(elf, rows)
+    summary["rows_matching_japanese"] = match
+    if match == 0:
+        msg = (f"none of the {total} rows finds its Japanese bytes in {path.name} (ELF md5 "
+               f"{md5_in}): a different print of the executable - nothing written")
+        summary["problems"].append(msg)
+        report["problems"].append(f"executable: {msg}")
+        return
+    patched, exe_report = EXE.apply_rows(elf, rows)
+    summary["applied"] = exe_report["applied"]
+    summary["empty"] = exe_report["empty"]
+    summary["skipped"] = exe_report["skipped"]
+    summary["elf_md5_out"] = hashlib.md5(patched).hexdigest()
+    if exe_report["skipped"]:
+        report["problems"].append(f"executable: {len(exe_report['skipped'])} row(s) refused "
+                                  f"(see executable.skipped in the report)")
+    if not exe_report["applied"]:
+        return
+    new_pbp = psp_prx.pbp_replace(pbp, EXE.MEMBER, patched)
+    rel = store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER
+    cheat_text, _ = EXE.cheat_file(elf, rows)
+    if dry_run:
+        summary["written"].append(f"(dry-run) DLC/{rel}")
+        summary["written"].append("(dry-run) cheats/NPJH50521.ini")
+        return
+    target = out / "DLC" / rel
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(new_pbp)
+    summary["written"].append(str(target))
+    report["written"].append(str(target))
+    cheat = out / "cheats" / "NPJH50521.ini"
+    cheat.parent.mkdir(parents=True, exist_ok=True)
+    cheat.write_text(cheat_text, encoding="utf-8", newline="\r\n")
+    summary["written"].append(str(cheat))
+    report["written"].append(str(cheat))
+    # read back: the PBP we wrote yields exactly the patched ELF
+    back = psp_prx.pbp_get(target.read_bytes(), EXE.MEMBER)
+    summary["verified"] = back == patched
+    if not summary["verified"]:
+        report["problems"].append("executable: read-back of the written PBOOT.PBP differs")
 
 
 def ui_texture_step(report: dict, iso: Path, iso_patch: Dict[str, bytes], work: Path,
@@ -951,7 +1046,7 @@ SKILL_MEMBERS = {"config00.cpk": "srwDL_Skill00.bin",
 
 
 def skill_total_check(report: dict, blobs: Dict[str, bytes], iso_patch: Dict[str, bytes],
-                      out: Path, dry_run: bool) -> None:
+                      out: Path, dry_run: bool, store: Optional["ContainerStore"] = None) -> None:
     """Sum the skill members of the containers this build produced (originals for the ones it
     did not touch) and flag a sum over ``SKILL_TOTAL_LIMIT`` in the report."""
     sizes: Dict[str, int] = {}
@@ -961,7 +1056,8 @@ def skill_total_check(report: dict, blobs: Dict[str, bytes], iso_patch: Dict[str
         for key, patched in iso_patch.items():          # built for the ISO (config00.cpk)
             if key.rsplit("/", 1)[-1].lower() == container.lower():
                 blob = patched
-        written = None if dry_run else (out / "DLC" / container)
+        rel = (store.dlc_relpath(container) if store is not None else None) or container
+        written = None if dry_run else (out / "DLC" / rel)
         if blob is None and written is not None and written.exists():
             blob = written.read_bytes()                 # built for the DLC folder
         if blob is None and container in blobs:
@@ -1035,6 +1131,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--no-ui-textures", action="store_true",
                         help="leave the UI texture containers (system.cpk, tacsys.cpk, IM*.cpk) "
                              "original - text only")
+    parser.add_argument("--no-exe", action="store_true",
+                        help="skip the executable strings step (PBOOT.PBP -> DATA.PSP in place)")
     parser.add_argument("--ui-specs", type=Path, default=None,
                         help="folder with the texture caption specs (default ui_labels/)")
     args = parser.parse_args(argv)
@@ -1046,7 +1144,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         skip += more_skip
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
                    work=args.work, dry_run=args.dry_run, only=only, skip=skip,
-                   ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs)
+                   ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
+                   executable=not args.no_exe)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]
@@ -1056,6 +1155,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if ui.get("containers"):
         names = [c["name"] for c in ui["containers"]]
         print(f"Tekstury UI (napisy w grafikach): {len(names)} -> {', '.join(names)}")
+    exe = report.get("executable") or {}
+    if exe:
+        print(f"Program gry (PBOOT.PBP): {exe.get('applied', 0)} z {exe.get('rows', 0)} napisów "
+              f"wpisanych, {len(exe.get('skipped') or [])} odrzuconych")
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")

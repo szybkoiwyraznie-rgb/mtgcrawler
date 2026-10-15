@@ -19,8 +19,9 @@ must be filled to EXACTLY its byte length - the English of such a row is space-p
 a trailing ``＠`` when the colour code straddles the split).
 
 Writing is in place and fail-closed: nothing moves (the code addresses the strings by absolute
-pointer, several tables by ``base + level * stride``), the English must fit the original byte
-length (``max_bytes``), must keep every printf conversion (``%d``, ``%2d``, ``%+3d%%``,
+pointer, several tables by ``base + level * stride``), the English must fit ``max_bytes`` - the
+Japanese length plus the zero alignment padding behind the terminator (``source.slack``: the
+strings are 4-byte aligned, so ``敵`` owns 3 bytes and ``移動`` 7), must keep every printf conversion (``%d``, ``%2d``, ``%+3d%%``,
 ``%-TEXT_SPACE_ROBOs``…) in order, must not carry a ``0x0F`` kana token, and the Japanese bytes
 must still be at the offset or the row is refused and reported - a different print of the game
 is never half-patched.  Strings the save-data layer reads are UTF-8 (``第%d話までクリア``) and
@@ -38,8 +39,10 @@ Usage::
         --out out/PBOOT.PBP [--report out/exe_report.json]
     python3 tools/exe_strings.py cheat --rows 09_executable.jsonl --out NPJH50521.ini
 
-``apply`` writes a PBP whose ``DATA.PSP`` is the patched *plain* ELF (PPSSPP and CFW load it;
-no re-encryption exists), or a bare ELF when the input was one.  ``cheat`` turns the same byte
+``apply`` writes a PBP whose ``DATA.PSP`` is the patched *plain* ELF (PPSSPP loads an
+unencrypted module from a PBP - ``sceKernelModule.cpp`` falls back to the ELF when the ``~PSP``
+decrypt is not needed; a real PSP needs CFW and is untested), or a bare ELF when the input was
+one.  ``cheat`` turns the same byte
 edits into CWCheat ``_L`` lines (``memstick/PSP/Cheats/NPJH50521.ini``) for a setup where the
 executable cannot be replaced.
 """
@@ -74,7 +77,9 @@ TEXT_SECTIONS = (".rodata", ".data")
 R_MIPS_32, R_MIPS_26, R_MIPS_HI16, R_MIPS_LO16 = 2, 4, 5, 6
 SHT_PSP_REL = 0x700000A0
 
-FORMAT_RE = re.compile(r"%(?:%|[-+ 0#]*\d*(?:\.\d+)?[A-Za-z_]*[diouxXeEfgGcsp])")
+#: printf conversions the game's strings use: ``%%``, ``%d`` ``%2d`` ``%+3d`` ``%02d`` ``%10d``
+#: ``%s``, and the engine's own ``%-TEXT_SPACE_ROBOs`` width macros
+FORMAT_RE = re.compile(r"%(?:%|-?[A-Z_]{2,}s|[-+ 0#]*\d*(?:\.\d+)?[hlL]?[diouxXeEfgGcsp])")
 COLOUR_RE = re.compile("＠.")
 
 
@@ -422,10 +427,27 @@ def extract_rows(elf: Elf, container: str = CONTAINER, member: str = MEMBER,
         for si, (seg_fo, raw, text, encoding, trimmed) in enumerate(segments):
             seg_rel = rel + (seg_fo - fo)
             final = si == len(segments) - 1
+            slack = 0
+            if final and not trimmed:
+                slack = _alignment_slack(data, end, rel + (end - fo), target_set)
             rows.append(_row(container, member, seg_rel, seg_fo, raw, text, encoding,
-                             refs[seg_rel], final=final, trimmed=trimmed))
+                             refs[seg_rel], final=final, trimmed=trimmed, slack=slack))
     rows.sort(key=lambda r: r["source"]["offset"])
     return rows, rejects
+
+
+def _alignment_slack(data: bytes, nul_offset: int, nul_rel: int, targets) -> int:
+    """Zero bytes after a string's terminator up to the next 4-byte boundary: alignment padding
+    the English may use (``敵`` → ``Foe``, ``攻撃`` → ``Attack``).  Only padding that is all
+    zero and not itself a relocation target counts; the terminator moves to its end."""
+    slack = 0
+    pos = nul_offset + 1
+    rel = nul_rel + 1
+    while rel % 4 != 0 and pos < len(data) and data[pos] == 0 and rel not in targets:
+        slack += 1
+        pos += 1
+        rel += 1
+    return slack
 
 
 def elf_rel_of(elf: Elf, file_offset: int) -> int:
@@ -436,20 +458,23 @@ def elf_rel_of(elf: Elf, file_offset: int) -> int:
 
 
 def _row(container: str, member: str, rel: int, offset: int, raw: bytes, text: str,
-         encoding: str, nrefs: int, final: bool, trimmed: int = 0) -> dict:
-    """One package row.  ``bytes`` is the region the writer owns (the Japanese bytes);
-    ``max_bytes`` is the English budget - the region when the original NUL follows it, one
-    less when the row was trimmed (the terminator must then fit inside the region)."""
+         encoding: str, nrefs: int, final: bool, trimmed: int = 0, slack: int = 0) -> dict:
+    """One package row.  ``bytes`` is the Japanese length; ``max_bytes`` the English budget:
+    the Japanese length plus the alignment padding behind the terminator (``source.slack``),
+    one less than the Japanese length when the row was trimmed (the terminator must then fit
+    inside), exactly the Japanese length for a non-final segment."""
     vaddr = LOAD_BASE + rel
     jp_bytes = encode_text(text, encoding)
     region = len(jp_bytes)
-    budget = region - 1 if trimmed else region
+    budget = region - 1 if trimmed else region + slack
     source = {"container": container, "member": member, "offset": offset,
               "vaddr": "0x%08x" % vaddr, "refs": nrefs, "encoding": encoding}
     if not final:
         source["exact"] = True
     if trimmed:
         source["trimmed_tail"] = len(raw) - region
+    if slack:
+        source["slack"] = slack
     return {
         "id": "exe:%s/%s:0x%08x" % (container, member, vaddr),
         "category": CATEGORY,
@@ -510,9 +535,12 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
         region = len(encode_text(jp, encoding))
     except (UnicodeEncodeError, UnicodeDecodeError) as exc:
         return None, "cannot encode: %s" % exc
+    slack = int(source.get("slack") or 0)
+    span = region + slack
     budget = int(row.get("max_bytes") or region)
-    if budget > region:
-        return None, "max_bytes %d exceeds the region of %d bytes" % (budget, region)
+    if budget > span or (exact and budget != region):
+        return None, "max_bytes %d does not fit the slot (%d jp bytes + %d slack)" % (
+            budget, region, slack)
     if len(enc) > budget:
         return None, "over budget: %d > max_bytes %d" % (len(enc), budget)
     if exact:
@@ -523,7 +551,7 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
         if pad:
             enc = enc[:-2] + b" " * pad + enc[-2:] if jp_dangling else enc + b" " * pad
         return enc, None
-    return enc + b"\0" * (region - len(enc)), None
+    return enc + b"\0" * (span - len(enc)), None
 
 
 def apply_rows(elf_bytes: bytes, rows: Sequence[dict]) -> Tuple[bytes, dict]:
@@ -545,7 +573,8 @@ def apply_rows(elf_bytes: bytes, rows: Sequence[dict]) -> Tuple[bytes, dict]:
         encoding = source.get("encoding") or "cp932"
         jp_bytes = encode_text(row.get("jp") or "", encoding)
         region = len(jp_bytes)
-        if offset < 0 or offset + region > len(out):
+        span = len(patch)
+        if offset < 0 or offset + span + 1 > len(out):
             report["skipped"].append({"id": row.get("id"), "reason": "offset outside the file"})
             continue
         if bytes(elf_bytes[offset:offset + region]) != jp_bytes:
@@ -553,10 +582,11 @@ def apply_rows(elf_bytes: bytes, rows: Sequence[dict]) -> Tuple[bytes, dict]:
                                       "reason": "japanese bytes not at offset (other build?)"})
             continue
         if not source.get("exact") and not source.get("trimmed_tail") \
-                and elf_bytes[offset + region:offset + region + 1] != b"\0":
-            report["skipped"].append({"id": row.get("id"), "reason": "region is not NUL-terminated"})
+                and any(elf_bytes[offset + region:offset + span + 1]):
+            report["skipped"].append({"id": row.get("id"),
+                                      "reason": "terminator/padding behind the string is not zero"})
             continue
-        out[offset:offset + region] = patch
+        out[offset:offset + span] = patch
         report["applied"] += 1
     report["elf_md5_out"] = hashlib.md5(bytes(out)).hexdigest()
     return bytes(out), report
@@ -594,7 +624,8 @@ def cheat_lines(elf_bytes: bytes, rows: Sequence[dict]) -> Tuple[List[str], dict
             continue
         source = row.get("source") or {}
         offset = int(source.get("offset", -1))
-        budget = int(row.get("max_bytes") or row.get("bytes") or 0)
+        patch, _reason = check_en(row)
+        budget = len(patch) if patch else 0        # the span the writer owns (incl. padding)
         if offset < 0 or budget <= 0:
             continue
         before = elf_bytes[offset:offset + budget]
@@ -603,6 +634,15 @@ def cheat_lines(elf_bytes: bytes, rows: Sequence[dict]) -> Tuple[List[str], dict
             continue
         vaddr = int(str(source.get("vaddr")), 16)
         addr = vaddr - CWCHEAT_BASE
+        # widen to whole words: the bytes around the span are unchanged in ``patched``, so
+        # writing them again is harmless and keeps the cheat list short
+        while addr % 4 and offset > 0:
+            addr -= 1
+            offset -= 1
+            budget += 1
+        while (addr + budget) % 4 and offset + budget < len(patched):
+            budget += 1
+        after = patched[offset:offset + budget]
         # whole 32-bit words where possible, then 16-bit, then 8-bit
         pos = 0
         while pos < budget:

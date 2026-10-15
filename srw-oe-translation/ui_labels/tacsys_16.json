@@ -11,12 +11,12 @@
    "jp": "ミッションリザルト",
    "en": "",
    "box": [
-    112,
+    115,
     3,
-    207,
+    211,
     17
    ],
-   "note": "erased — repeats MISSION RESULT"
+   "note": "erased — repeats MISSION RESULT; x from 115 (UI_TEST3 at 112 clipped the \"!\" of LEVEL UP!), to 211 (a dot of ト stayed at 208)"
   },
   {
    "id": "level_up_sub",
@@ -25,10 +25,10 @@
    "box": [
     0,
     17,
-    77,
+    73,
     32
    ],
-   "note": "erased — repeats LEVEL UP!"
+   "note": "erased — repeats LEVEL UP!; x to 73 (UI_TEST3 at 77 clipped the M of MISSION RESULT)"
   }
  ]
 }

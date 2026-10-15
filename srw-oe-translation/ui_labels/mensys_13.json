@@ -69,9 +69,10 @@
    "box": [
     32,
     30,
-    58,
+    56,
     41
-   ]
+   ],
+   "min_size": 7
   },
   {
    "id": "equip",
@@ -109,14 +110,14 @@
   {
    "id": "for_suffix",
    "jp": "用",
-   "en": null,
+   "en": "",
    "box": [
     89,
     44,
     100,
     56
    ],
-   "note": "suffix glyph 用 (‘for …’) combined with 機体/パイロット — no English equivalent; kept"
+   "note": "erased: suffix glyph 用 drawn after 機体/パイロット (\"Unit用\" otherwise); no English equivalent"
   },
   {
    "id": "attr_break",

@@ -12,11 +12,11 @@
    "en": "",
    "box": [
     40,
-    18,
+    20,
     128,
     32
    ],
-   "note": "erased — repeats GAME OVER"
+   "note": "erased — repeats GAME OVER; from y=20 so the banner shadow at y=18-19 stays"
   },
   {
    "id": "not_possible",

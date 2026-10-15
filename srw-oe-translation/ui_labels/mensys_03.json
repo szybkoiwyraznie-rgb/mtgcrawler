@@ -107,14 +107,14 @@
   {
    "id": "name_counter",
    "jp": "名",
-   "en": null,
+   "en": "",
    "box": [
     58,
     42,
     68,
     53
    ],
-   "note": "single 10 px glyph (counter for people, e.g. 2名); usage not seen on screen yet — kept"
+   "note": "erased: the weapon list header is drawn as 武器+名 (\"WPN名\" in UI_TEST3); the counter use (2名) was never seen"
   },
   {
    "id": "en_cost",
@@ -123,27 +123,30 @@
    "box": [
     0,
     53,
-    30,
+    33,
     64
-   ]
+   ],
+   "note": "the game cell is ~33 px wide: UI_TEST3 painted RNG from x=30 and a sliver of its R showed after \"EN Cost\""
   },
   {
    "id": "range",
    "jp": "射程",
    "en": "RNG",
    "box": [
-    30,
+    34,
     53,
     51,
     64
-   ]
+   ],
+   "min_size": 7,
+   "note": "text from x=34: the RNG cell starts at ~x=33 in the game, UI_TEST3 clipped the R"
   },
   {
    "id": "hit_weapon",
    "jp": "命中",
    "en": "HIT",
    "box": [
-    51,
+    53,
     53,
     71,
     64

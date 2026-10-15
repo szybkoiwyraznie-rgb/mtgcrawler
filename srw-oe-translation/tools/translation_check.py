@@ -48,6 +48,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import exe_strings  # noqa: E402
 import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
 import mission_text as MT  # noqa: E402
@@ -234,6 +235,15 @@ def check_row(row: dict, require_complete: bool = False,
     if not text.strip():
         message = "untranslated (empty en)"
         (errors if require_complete else warnings).append(message)
+        return errors, warnings
+    if row.get("category") == exe_strings.CATEGORY:
+        # executable strings: the in-place writer's own rules (byte budget incl. alignment
+        # slack, printf conversions in order, exact segments, UTF-8 rows) are the check
+        patch, why = exe_strings.check_en(row)
+        if patch is None:
+            errors.append(why or "refused by exe_strings.check_en")
+        if text.count("\n") != jp.count("\n"):
+            errors.append(f"line breaks changed: {jp.count(chr(10))} -> {text.count(chr(10))}")
         return errors, warnings
     problem = encode(text)
     if problem:
