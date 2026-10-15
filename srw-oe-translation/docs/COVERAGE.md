@@ -539,3 +539,24 @@ itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów
 * **Do zrobienia**: rekordy inne niż dialog i narracja (633 wiersze), pozostałe pola o stałej szerokości
   (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`), `sysmes.bin`,
   przebudowa ISO i test w PPSSPP (po stronie użytkownika).
+
+## 6. Napisy systemowe w GRAFICE (tekstury GIM) — stan po 2026-10-15
+
+Kategoria, której audyt „100% tekstu" z definicji nie widzi: etykiety ekranów statusu / broni / umiejętności /
+intermisji nie są stringami, tylko bitmapami. Potwierdzone na zrzutach użytkownika po przyjęciu pakietu v4 (tekst
+po angielsku, etykiety wokół po japońsku). Szczegóły formatów i narzędzi: `EXPERIMENT_LOG.md` §21.28.
+
+| kontener | tekstury z japońskim napisem | stan |
+|---|---|---|
+| `system.cpk` (CPK bez TOC, 1 member) | `mensys_01` (気力, 援護), `mensys_03` (status/broń), `mensys_08` (umiejętności/części), `mensys_13` (listy jednostek/pilotów) | **spec + podgląd gotowe, w `UI_TEST1`; w grze nie sprawdzone** |
+| | `mensys_05` (Auto Save/Now Loading, 使用中), `mensys_07` (opcje/BGM: 主人公 基本 設定 一括 個別に 曲名 …), `mensys_10` (注意 Lv NEXT EXP), `mensys_11` (獲得 資金 残り 金額 必要 特殊 素材), `mensys_12` (連 特 防 狙 回), `mensys_14` (HP EN 地 空 宇), `mensys_15` (ikony duchów) | nie zaczęte |
+| `IM1000.cpk` / `IM3000.cpk` (TOC, PAC w PAC) | `intsys_01` (zakładki 能力 改造 武器 機体, パイロット, ミッションセレクト, DLコンテンツ) | **spec gotowe, w `UI_TEST1`; w grze nie sprawdzone** |
+| `IM1000`/`IM3000`/`IM9000` | `intsys_03` (ロボ・パイロット 改造ゲージ 連動ユニット サポート 改造段階限界突破), `intsys_04` (強化パーツリスト 所持 交換 交換条件 発生状況 装備 部隊 ボーナス パーツ フル改造ボーナス) | nie zaczęte (komórki znane z TXCL) |
+| `tacsys.cpk` (walka) | `tacsys_07` (攻撃 防御 回避 反撃), `08` (能力詳細 戦闘開始), `09` (援護設定), `10/11` (プレイヤー/エネミーフェイズ), `13` (行動可能ユニット), `14` (戦闘結果), `15` (反撃 攻撃 防御 回避 クリティカル), `16` (ミッションリザルト レベルアップ), `17` (精神コマンド 特殊スキル ゲット), `18` (ゲームオーバー 不可), `vsbg` (LIVEスタート) | nie zaczęte |
+| `navisys.cpk` | `navisys_02` (戦闘 回避 決定 キャンセル 敵艦発見) | nie zaczęte (`cpk_write` odmawia tego pliku — stały `ExtractSize`) |
+| `sprstd00`, `mesbmp00`, `svicon`, `txa00`, pliki `.sp` | nieznane | nie pobrane / nie zdekodowane |
+| `EBOOT.BIN` | komunikat autozapisu i inne stringi w programie | poza zasięgiem projektu |
+
+Świadomie zostawione po japońsku w gotowych specyfikacjach: ikony terenu 空/宇/地, 連, 名, 用, ikony cech broni
+(M 突 曲 押 投 合) — to piktogramy, nie etykiety. Reguła narzędzia: napis, który się nie mieści (po zmniejszeniu fontu
+do `min_size` i ściśnięciu do `squeeze`), zatrzymuje całą budowę — żadnych uciętych etykiet.

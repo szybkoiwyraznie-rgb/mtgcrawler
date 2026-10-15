@@ -48,8 +48,8 @@ USRDIR_NAMES = ("config00.cpk", "configst.cpk", "eventP00.cpk", "imenu00.cpk", "
 KNOWN_CONFIG: Dict[str, str] = {
     # config00.cpk
     "266366c3bee66130d4b7cb57a1b1e3d4": "ORYGINAL",
-    "80b8fae61b858fb91db35532c4680c6f": "BUILD17 (pakiet v4: Skill00 215 462 B; kandydat, w grze jeszcze nie sprawdzony)",
-    "71d9fcafa37c21513b97c14d1dff8f33": "BUILD14 (poprawny, sprawdzony w grze; pakiet v2/v3)",
+    "80b8fae61b858fb91db35532c4680c6f": "BUILD17 (pakiet v4: Skill00 215 462 B; SPRAWDZONY W GRZE 2026-10-15: Y4a/Y4/Z4)",
+    "71d9fcafa37c21513b97c14d1dff8f33": "BUILD14 (poprawny, sprawdzony w grze; pakiet v2/v3 - starszy niz BUILD17)",
     "3c56686d04cb1c362c7cb72111598879": "build #12 (stary: nieswiezy +52, pada na sejwie z 2. rozdzialu)",
     "abacf828a966bb0dc1e51f555a541eab": "build #11 (stary: nieswiezy +32/+52, pada w intermisji)",
     "372513258059c47217013e0fce138d78": "build #10 (stary: Skill00 za duzy, pada na Loading)",
@@ -70,7 +70,7 @@ EXPECTED_BUILD14 = {
     "configst.cpk": "6cfe245d5f6ec6dfffd2a829b778a4d7",
 }
 # every config00/configst that is fine in the emulator folder today: BUILD14 (tested in the game)
-# and BUILD17 (package v4 - the candidate that keeps the DLC pools at their original size)
+# and BUILD17 (package v4 - keeps the DLC pools at their original size; accepted in-game 2026-10-15)
 ACCEPTED_CONFIG = {
     "config00.cpk": {"71d9fcafa37c21513b97c14d1dff8f33": "BUILD14",
                      "80b8fae61b858fb91db35532c4680c6f": "BUILD17"},
@@ -88,14 +88,14 @@ KNOWN_DLC_CONFIG: Dict[str, str] = {
     "75c1101fac48de719b899cf0dba95ff1": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
     "bbeddd5eb5049b00e318d76128e23706": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
     # build #17 (pakiet v4): pule 15 578 B (< oryginal 15 638 B)
-    "7c6459fa7377b585a5176b5859361da2": "build #17 (pakiet v4; pula 15 578 B)",
-    "a7f034d10cc07c771bfc975aeec73b5b": "build #17 (pakiet v4; pula 15 578 B)",
-    "6af12bab9c1b81db9952beff2279205b": "build #17 (pakiet v4; pula 15 578 B)",
-    "9a8a771573ccd68eceadfc9a111c95b1": "build #17 (pakiet v4; pula 15 578 B)",
-    "e3694678a42f1d78d2f10d80bcfdb004": "build #17 (pakiet v4; pula 15 578 B)",
-    "ebeace423570cda94d1d3b1ea23d6435": "build #17 (pakiet v4; pula 15 578 B)",
-    "60eab71a9ff17806cbfd554401b7a46f": "build #17 (pakiet v4; pula 15 578 B)",
-    "735cdf6c59febd80d1aacce62ae87b9b": "build #17 (pakiet v4; pula 15 578 B)",
+    "7c6459fa7377b585a5176b5859361da2": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "a7f034d10cc07c771bfc975aeec73b5b": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "6af12bab9c1b81db9952beff2279205b": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "9a8a771573ccd68eceadfc9a111c95b1": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "e3694678a42f1d78d2f10d80bcfdb004": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "ebeace423570cda94d1d3b1ea23d6435": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "60eab71a9ff17806cbfd554401b7a46f": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    "735cdf6c59febd80d1aacce62ae87b9b": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
     # wariant testowy "pula JP": pule oryginalne (15 638 B), reszta EN
     "1bfb935293c5c2f51e719a3176420003": "wariant pulaJP (pula oryginalna, reszta EN)",
     "8eb2ef592fc15e5646df0bdfff2fae54": "wariant pulaJP (pula oryginalna, reszta EN)",

@@ -1,0 +1,121 @@
+{
+  "texture": "mensys_08",
+  "source": "system.cpk — 256x32 INDEX8; section headers of the intermission lists",
+  "font": "assets/fonts/Roboto-Bold.ttf",
+  "size": 12,
+  "min_size": 8,
+  "squeeze": 0.8,
+  "fill": [
+    230,
+    230,
+    230,
+    255
+  ],
+  "outline": [
+    0,
+    0,
+    0,
+    200
+  ],
+  "labels": [
+    {
+      "id": "drop_parts",
+      "jp": "ドロップパーツ",
+      "en": "Drop Parts",
+      "box": [
+        1,
+        0,
+        70,
+        13
+      ]
+    },
+    {
+      "id": "abilities_skills",
+      "jp": "特殊能力・スキル",
+      "en": "Abilities / Skills",
+      "box": [
+        73,
+        1,
+        160,
+        13
+      ]
+    },
+    {
+      "id": "parts",
+      "jp": "強化パーツ",
+      "en": "Parts",
+      "box": [
+        162,
+        0,
+        218,
+        13
+      ]
+    },
+    {
+      "id": "upgrade",
+      "jp": "改造",
+      "en": "Mods",
+      "box": [
+        220,
+        1,
+        244,
+        13
+      ]
+    },
+    {
+      "id": "kills",
+      "jp": "撃墜",
+      "en": "Kills",
+      "box": [
+        1,
+        14,
+        26,
+        27
+      ]
+    },
+    {
+      "id": "spirit_commands",
+      "jp": "精神コマンド",
+      "en": "Spirits",
+      "box": [
+        27,
+        14,
+        88,
+        27
+      ]
+    },
+    {
+      "id": "list_view",
+      "jp": "一覧表示",
+      "en": "List",
+      "box": [
+        92,
+        14,
+        137,
+        27
+      ]
+    },
+    {
+      "id": "required_count",
+      "jp": "必要数",
+      "en": "Needed",
+      "box": [
+        139,
+        14,
+        171,
+        27
+      ]
+    },
+    {
+      "id": "ace_kills",
+      "jp": "撃墜エース",
+      "en": "Ace Kills",
+      "box": [
+        173,
+        14,
+        228,
+        27
+      ]
+    }
+  ]
+}

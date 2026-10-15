@@ -1,19 +1,17 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15, pakiet v4)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 po testach Y4/Z4, pakiet v4 + UI_TEST1)
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08, 679 243 152 bajty, i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski
 tekst. Nic z oryginałów nie jest ruszane: ISO i DLC są tylko czytane, wynik ląduje w osobnym folderze.
 
-Uczciwie o stanie: **to nie jest skończone tłumaczenie i pełny zestaw nie był jeszcze ani razu
-uruchomiony bez crasha.** W grze sprawdzone są: `config00.cpk` + `configst.cpk` z budowy #14
-(Loading, nowa gra, sejw z 2. rozdziału) oraz — testem X z 2026-10-15 — całe zmienione ISO
-(`patched.iso` z `eventP00`, `mesbtl00`, `imenu00`) z **oryginalnym** folderem DLC: działa, da się
-grać do ekranu słownika. Test Y (oryginalne ISO + 91 zbudowanych plików DLC) **padł na „Loading”**
-z tym samym śladem co dawny crash „Skill00 za duży”. Jedyna różnica rozmiarowa między X a Y, która
-pasuje do tego śladu, to pule fragmentów umiejętności w `config01–08.EDAT` (każda urosła
-15 638 → 17 396 B). **Pakiet v4** trzyma te pule poniżej oryginału (15 578 B) — to jest kandydat
-do sprawdzenia w tej rundzie (część 3). Pozostałe 83 pliki EDAT po poprawkach pisarzy nadal
-**nigdy nie przeszły przez grę osobno**.
+Uczciwie o stanie: **to nie jest skończone tłumaczenie.** Od 2026-10-15 (testy Y4a / Y4 / Z4) pełny
+zestaw z pakietu v4 — `patched.iso` + cały folder DLC z `HOKUS_POKUS.bat` — **działa w grze**: Loading,
+nowa gra, sejw z 2. rozdziału, ekrany statusu i umiejętności. Czego w nim brakuje: (1) dialogi
+rozdziałów 5–8 są w pakiecie w większości bez angielskiego (tłumaczenie trwa), (2) **etykiety
+systemowe na ekranach statusu / broni / umiejętności / intermisji (攻撃 防御 命中, 能力 改造 武器 機体,
+特殊能力・スキル, 気力, 援護 …) nie są tekstem, tylko obrazkami** — pracuję nad nimi osobno
+(zestaw `UI_TEST1.zip`, patrz tabela niżej); (3) komunikaty z programu gry (autozapis) — poza zasięgiem.
+Drobny znany błąd układu: pasek podpowiedzi w słowniku nachodzi na zakładkę „Pilot”.
 
 Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwiera okno wyboru pliku/folderu.
 
@@ -26,6 +24,7 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 | `pakiet_EN_2026-10-15_v4.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); w środku `CO_NOWEGO_v4.txt` |
 | `KIT_build17_2026-10-15.zip` | pliki z budowy #17 (pakiet v4) do testów bez budowania: `USRDIR_build17\` (5 plików do ISO dla `WGRAJ_DO_ISO.bat`), `DLC_build17_config\` (10 plików do folderu DLC: `config00.cpk`, `configst.cpk`, `config01–08.EDAT`), `DLC_pulaJP_config01-08\` (wariant awaryjny), `CZYTAJ.txt` z planem testów |
 | `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
+| `UI_TEST1.zip` | **test grafik interfejsu** (nie część pakietu v4): `system.cpk`, `IM1000.cpk`, `IM3000.cpk` z angielskimi napisami wmalowanymi w tekstury, w dwóch wariantach `A_stored` i `B_crilayla`; wgrywa się je `WGRAJ_DO_ISO.bat` na `patched.iso` z v4 (wskazać PODFOLDER wariantu). Nigdy nie uruchomione w grze — instrukcja w `CZYTAJ_UI_TEST1.txt` w środku |
 | `INSTRUKCJA_PL.md` | ten tekst |
 | `_STARE_NIE_UZYWAC\…` | pakiet v3 i `KIT_build15` (ich `config01–08.EDAT` padają na Loading — test Y), oraz wszystko z 14–15.10 sprzed poprawki `+52`. **Nie kopiować.** |
 
@@ -96,9 +95,10 @@ samych w sobie — wtedy część 3.
 
 ---
 
-## Część 3 — runda testów pakietu v4 (po 2–5 minut każdy, bez budowania poza Y4)
+## Część 3 — runda testów pakietu v4 (ZALICZONA 2026-10-15: Y4a, Y4 i Z4 działają)
 
-Wyniki X/Y z 2026-10-15 (X działa, Y pada) są podstawą tej rundy. Za każdym razem **zacznij od
+Ta runda jest już za nami — zostawiam opis, bo te same kroki służą do odtworzenia stanu „działa”
+po każdej kolejnej zmianie. Wyniki X/Y z 2026-10-15 (X działa, Y pada) były jej podstawą. Za każdym razem **zacznij od
 przywrócenia folderu DLC emulatora z kopii `_ORYGINAL`**; ISO = **oryginalne** `SRW OE 1.08.iso`,
 chyba że napisano inaczej. Pliki do kopiowania: `KIT_build17_2026-10-15.zip` z Dysku (te same
 bajty co twoja budowa z pakietem v4). Zanotuj: **działa** (tytuł po „Loading”) / **crash** (zrzut PPSSPP).
@@ -127,6 +127,30 @@ z `DLC_build17_config\` + 8 plików z `DLC_pulaJP_config01-08\` (pule japońskie
 
 Po każdym teście `DIAGNOZA.bat` (okno 1: folder DLC emulatora, okno 2: ISO) i prześlij
 `DIAGNOZA.txt` + zrzut PPSSPP przy crashu. Przy Y4/Z4 dołącz też `srw-oe-patch\build_report.json`.
+
+## Część 4 — test grafik interfejsu `UI_TEST1.zip` (osobny od pakietu; nic nie buduje)
+
+Napisy systemowe na ekranach statusu / broni / umiejętności i zakładki intermisji są obrazkami
+w trzech plikach ISO: `system.cpk`, `IM1000.cpk`, `IM3000.cpk`. `UI_TEST1.zip` zawiera te trzy pliki
+z angielskimi napisami w dwóch wariantach. **Żaden z nich nie był jeszcze uruchomiony w grze.**
+
+1. Rozpakuj `UI_TEST1.zip` (folder `UI_TEST1\` z podfolderami `A_stored\` i `B_crilayla\`).
+2. `WGRAJ_DO_ISO.bat` → okno ISO: twoje `patched.iso` z pakietu v4 (może być też oryginalne ISO) →
+   okno folderu: **`UI_TEST1\A_stored`** (podfolder wariantu, nie `UI_TEST1`). Wynik:
+   `srw-oe-wgrane\A_stored\patched.iso`.
+3. Uruchom w PPSSPP z folderem DLC z testu Y4. Sprawdź: zakładki intermisji (Stats / Mods / Arms /
+   Unit / Pilot), status jednostki (ATK DEF HIT EVA SIZE MOV), lista broni (EN Cost, RNG, HIT, TGT,
+   Will Req), ekran umiejętności (Abilities / Skills, Parts, Spirits), pasek HP/EN/SP („Will”), banner
+   „Support” w walce. Zrzuty ekranu mile widziane — zwłaszcza napisów uciętych lub nachodzących.
+4. To samo z **`UI_TEST1\B_crilayla`** (wynik w `srw-oe-wgrane\B_crilayla\`). Nie nakładaj B na ISO,
+   do którego wgrano A — `WGRAJ_DO_ISO.bat` i tak tego odmówi (zna md5 oryginalnych plików).
+
+| wynik | wniosek | następny krok |
+|---|---|---|
+| A działa | gra toleruje niespakowane tekstury | reszta tekstur (walka, opcje, sklep) tą samą drogą |
+| A crash / czarne pola | bufor na spakowany rozmiar albo zły format tekstur | zrzut + moment; sprawdzam B |
+| B działa | nasz koder CRILAYLA jest poprawny | B staje się domyślnym wariantem |
+| napis ucięty | komórka węższa niż założona | napisz który — skracam/ściskam konkretny napis |
 
 ---
 
@@ -157,7 +181,10 @@ W PPSSPP wskaż z powrotem swoje ISO, przywróć folder DLC z kopii `_ORYGINAL`,
 
 ## Czego ten pakiet NIE robi
 
-- Nie dotyka grafik (logo, przyciski w teksturach) — tylko tekst w plikach danych.
+- Nie dotyka grafik — tylko tekst w plikach danych. Etykiety systemowe w teksturach (ekrany statusu,
+  broni, umiejętności, zakładki intermisji, pasek 気力/援護) to osobna, trwająca praca: pierwszy zestaw
+  testowy `UI_TEST1.zip` (3 kontenery) leży na Dysku, ale nie był jeszcze uruchomiony w grze; tekstury
+  walki, opcji, sklepu i mapy są nadal japońskie.
 - Nie tłumaczy komunikatu o autozapisie po starcie — siedzi w programie gry (`EBOOT.BIN`).
 - Nie zawiera żadnych plików gry: wszystko powstaje z twojego ISO i twoich DLC.
 - Nie działa na zaszyfrowanych plikach DLC ani na ISO innej wersji niż 1.08.

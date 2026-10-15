@@ -113,7 +113,23 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
-**Stan 2026-10-15 noc (najnowszy; `EXPERIMENT_LOG.md` §21.26–21.27):** testy X/Y w grze: **X działa** (`patched.iso`
+**Stan 2026-10-15 (najnowszy; `EXPERIMENT_LOG.md` §21.28):** **Y4a / Y4 / Z4 DZIAŁAJĄ w grze** — pakiet v4 + build
+#17 to pierwszy przyjęty pełny zestaw TEKSTU (Loading, nowa gra, sejw z 2. rozdziału, ekrany statusu/umiejętności).
+Nowy front z zrzutów użytkownika: **etykiety systemowe są teksturami** (GIM INDEX8 w `system.cpk` — CPK bez TOC,
+`IM1000`/`IM3000` — PAC w PAC). Narzędzia (offline, wszystkie z testami): `tools/gim_image.py` (dekoder + koder tej
+samej wielkości, tożsamość 52/52), `tools/cpk_itoc_write.py` (pisarz CPK bez TOC), `tools/gim_label.py` (spec
+`ui_labels/<tekstura>.json` → napis Roboto Bold z `assets/fonts/`, dopasowanie fail-closed), `tools/ui_texture_patch.py`
+(`--originals DIR --out DIR --compress stored|crilayla`). Zrobione 5 tekstur: `intsys_01`, `mensys_01/03/08/13`.
+Na Dysku DELIVERY `UI_TEST1.zip` (`1ex7qluz248VV7Xsgs-MaIPwR8q435T4P`): `A_stored` (member bez kompresji, 2,6×
+większy) i `B_crilayla` (nasz koder, nigdy w grze) — wgrywać `WGRAJ_DO_ISO.bat` na `patched.iso` v4, wskazując
+PODFOLDER wariantu; `iso_insert.KNOWN_ORIGINALS` zna md5 `system/IM1000/IM3000` (nie nakładać A na B). **Nic z tego
+nie było w grze.** `ui_texture_patch` NIE jest krokiem `HOKUS_POKUS` do czasu potwierdzenia. Dalej: wynik A/B →
+jeśli A działa, reszta tekstur (walka `tacsys_07–18`, `mensys_05/07/10–12/14`, `intsys_03/04` z komórkami TXCL,
+`navisys_02` — wymaga obsługi stałego `ExtractSize` w `cpk_write`), potem integracja z builderem za bramkami;
+nadal otwarte z tekstu: pasek podpowiedzi słownika nad zakładką „Pilot", dialogi rozdziałów 5–8 bez EN (~27 k
+wierszy), nieunikalne id, wiodąca spacja, A1/A2.
+
+**Stan 2026-10-15 noc (`EXPERIMENT_LOG.md` §21.26–21.27):** testy X/Y w grze: **X działa** (`patched.iso`
 z przebudowanymi `eventP00`/`mesbtl00`/`imenu00` STORED + config #14, oryginalny folder DLC — gra do słownika),
 **Y pada** na „Loading" stosem buildu #8 (oryginalne ISO + pełny build #15, 91 EDAT). Jedyny podplik rosnący we
 wszystkich rozdziałach zgodnie z tym stosem: pula fragmentów `srwDL_Skill01–08.bin` 15 638 → 17 396 B (suma

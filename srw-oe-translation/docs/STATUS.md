@@ -2,7 +2,22 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, night): tests X/Y in-game split the full-patch crash — X (patched.iso with the rebuilt
+**Latest (2026-10-15, night → next day): Y4a, Y4 and Z4 ALL WORK in-game (PPSSPP, ISO 1.08): Loading, new game,
+the chapter-2 save, pilot status and skill screens — package v4 + build #17 is the first fully accepted TEXT set**
+(the pool budget rule — each `srwDL_Skill0N.bin` ≤ 15 638 B, Skill00 + pools ≤ 342 194 B — holds in every test so
+far; still a measured rule, not a proven mechanism). The user's screenshots then raised the next front: the
+system labels on the status / weapon / skill screens (攻撃 防御 命中 回避, tabs 能力 改造 武器 機体, 特殊能力・スキル,
+気力, 援護 …) are still Japanese. They are NOT text — they are **GIM textures** inside `system.cpk`, `IM1000.cpk`,
+`IM3000.cpk` (never in scope until now). New offline tool chain (`tools/gim_image.py` decoder + same-size INDEX8
+encoder, identity 52/52; `tools/cpk_itoc_write.py` for TOC-less CPKs; `tools/gim_label.py` fail-closed caption
+renderer driven by `ui_labels/*.json`; `tools/ui_texture_patch.py` container builder) rewrote 5 textures
+(`intsys_01`, `mensys_01/03/08/13`: Stats/Mods/Arms/Unit/Pilot tabs, ATK DEF HIT EVA SIZE MOV, EN Cost RNG HIT TGT
+Will Req, Abilities / Skills, Parts, Spirits, Will, Support …). `UI_TEST1.zip` on Drive (variants `A_stored` and
+`B_crilayla`, 3 containers each) — **nothing of this has run in-game yet**; it is deliberately not a HOKUS_POKUS step.
+Battle textures (`tacsys`), `mensys_05/07/10–12/14`, `intsys_03/04`, `.sp`/`sprstd`/`mesbmp` remain Japanese.
+Details: `EXPERIMENT_LOG.md` §21.28.
+
+**Previous (2026-10-15, night): tests X/Y in-game split the full-patch crash — X (patched.iso with the rebuilt
 `eventP00`/`mesbtl00`/`imenu00` + config #14, ORIGINAL DLC folder) WORKS into the dictionary screen; Y (original
 ISO + the complete 91-EDAT build #15) CRASHES at "Loading" with the exact build-#8 stack.** The only sub-file
 that grows in every chapter in a way matching that stack is the DLC skill fragment pool `srwDL_Skill01–08.bin`

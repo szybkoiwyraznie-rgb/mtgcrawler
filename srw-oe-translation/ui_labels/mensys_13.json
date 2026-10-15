@@ -1,0 +1,134 @@
+{
+  "texture": "mensys_13",
+  "source": "system.cpk — 128x64 INDEX8; unit/pilot list headers and attribute icons",
+  "font": "assets/fonts/Roboto-Bold.ttf",
+  "size": 12,
+  "min_size": 8,
+  "squeeze": 0.8,
+  "fill": [
+    230,
+    230,
+    230,
+    255
+  ],
+  "outline": [
+    0,
+    0,
+    0,
+    200
+  ],
+  "labels": [
+    {
+      "id": "unit",
+      "jp": "ユニット",
+      "en": "Unit",
+      "box": [
+        2,
+        1,
+        38,
+        13
+      ]
+    },
+    {
+      "id": "pilot",
+      "jp": "パイロット",
+      "en": "Pilot",
+      "box": [
+        43,
+        0,
+        86,
+        13
+      ]
+    },
+    {
+      "id": "will",
+      "jp": "気力",
+      "en": "Will",
+      "box": [
+        106,
+        1,
+        127,
+        13
+      ]
+    },
+    {
+      "id": "trait",
+      "jp": "特性",
+      "en": "Trait",
+      "box": [
+        3,
+        14,
+        25,
+        27
+      ]
+    },
+    {
+      "id": "terrain",
+      "jp": "地形",
+      "en": "Terrain",
+      "box": [
+        32,
+        30,
+        58,
+        41
+      ]
+    },
+    {
+      "id": "equip",
+      "jp": "装備",
+      "en": "Equip",
+      "box": [
+        0,
+        44,
+        22,
+        57
+      ]
+    },
+    {
+      "id": "unit_body",
+      "jp": "機体",
+      "en": "Unit",
+      "box": [
+        41,
+        44,
+        63,
+        56
+      ]
+    },
+    {
+      "id": "recover",
+      "jp": "回復",
+      "en": "Heal",
+      "box": [
+        65,
+        43,
+        87,
+        56
+      ]
+    },
+    {
+      "id": "for_suffix",
+      "jp": "用",
+      "en": null,
+      "box": [
+        89,
+        44,
+        100,
+        56
+      ],
+      "note": "suffix glyph 用 (‘for …’) combined with 機体/パイロット — no English equivalent; kept"
+    },
+    {
+      "id": "attr_icons",
+      "jp": "M 突 曲 押 投 ! 合 B",
+      "en": null,
+      "box": [
+        28,
+        14,
+        127,
+        28
+      ],
+      "note": "weapon/unit attribute icons (kanji in coloured frames) — kept for now"
+    }
+  ]
+}

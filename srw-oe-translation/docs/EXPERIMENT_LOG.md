@@ -4414,3 +4414,104 @@ Y4 (+ 91 EDAT z własnej budowy v4) → Z4 (`patched.iso` + folder Y4; sejw z 2.
 w rozdziale 2); Y3 tylko gdy Y4a padnie. **Status: pakiet v4 i build #17 w grze jeszcze nie sprawdzone.**
 Otwarte: pasek podpowiedzi słownika (układ), notatka dla tłumacza, kana-tokeny 9 pól duchów, utrata wiodącej spacji
 w fragmentach EN (builder zostawia bajty JP przy tożsamości ` Lv`→`Lv`), A1 vs A2 (drabinka pul).
+
+### 21.28 Y4a/Y4/Z4 DZIAŁAJĄ (pierwszy przyjęty pełny zestaw: pakiet v4 + build #17) ⇒ nowy front: napisy systemowe w TEKSTURACH (GIM w `system.cpk`/`IM1000`/`IM3000`); `gim_image`, `gim_label`, `cpk_itoc_write`, `ui_texture_patch`; zestaw UI_TEST1
+
+**Wynik użytkownika (2026-10-15 w nocy, PPSSPP, ISO 1.08 + własny `patched.iso` + folder DLC z buildu v4):**
+**Y4a DZIAŁA, Y4 DZIAŁA, Z4 DZIAŁA** — Loading, nowa gra, sejw z 2. rozdziału, ekrany statusu pilota i listy
+umiejętności (5 zrzutów). Wnioski (potwierdzone na poziomie „zestaw plików działa"): (1) hipoteza budżetu pul
+(każda `srwDL_Skill0N.bin` ≤ 15 638 B, suma Skill00 + 8 pul ≤ 342 194 B) trzyma się we wszystkich dotychczasowych
+testach (W1/W2/X/Y/Y4) — nadal nie rozróżniono A1/A2; (2) **pakiet v4 + build #17 = pierwszy w pełni przyjęty
+zestaw** (tekst). Nowe zgłoszenie użytkownika: na tych samych zrzutach **etykiety systemowe są japońskie** (攻撃 防御
+命中 回避 サイズ 移動, 対象 必要気力 消費EN 射程, zakładki 能力 改造 武器 機体 パイロット, nagłówki 特殊能力・スキル,
+強化パーツ, 精神コマンド, 撃墜, 必要数, 気力, 援護 …) — „jeśli to pełne tłumaczenie, to masa komunikatów systemowych jest
+nieprzetłumaczona". Diagnoza: te napisy NIE są tekstem (nie ma ich w żadnej z 108 135 pozycji pakietu, `coverage_audit`
+ich nie widzi) — to **grafika**: tekstury GIM w kontenerach USRDIR, dotąd świadomie poza zakresem („nie dotyka grafik").
+
+**Źródła (Dysk, folder USRDIR; `tools/drive_manifest.tsv` 143–177), md5 oryginałów:** `system.cpk` 77 976 B
+`75b0d0d44f1afb3af027b93e38e223c6`, `IM1000.cpk` 63 616 B `54077cbbf76c06251a220f9085bb2fc3`, `IM3000.cpk` 92 288 B
+`5447d366aa01f8060138ecf4ae2ed80f`, `IM9000.cpk` 82 048 B `2a490e70…`, `tacsys.cpk` 77 952 B `0e29a507…`,
+`navisys.cpk` 39 048 B `08d5b99a…` (+ `tactics`, `taclevup`, `logodata`, `bmp00`; nie pobrane: `sprstd00`, `mesbmp00`,
+`svicon`, `txa00`).
+
+**Formaty (zdekodowane tu, potwierdzone na plikach):**
+
+* **CPK bez TOC** (`CpkMode 0`: `system`, `tacsys`, `taclevup`, `tactics`): nagłówek @0, ITOC @2048 (`DataL`/`DataH`
+  z `ID, FileSize, ExtractSize`), dane @4096; jeden member CRILAYLA (`system`: 73 880 → 191 792 B). `cpk_write.load`
+  odmawia takich plików ⇒ nowy pisarz **`tools/cpk_itoc_write.py`** (`load`, `rebuild(cpk, {id|nazwa: (blob,
+  extract)})`, `verify_identity`; pola `ContentSize`/`EnabledPackedSize`/`EnabledDataSize` przeliczane tylko gdy
+  oryginał spełnia zmierzoną regułę; tożsamość na `system.cpk` OK). `IM1000`/`IM3000`/`IM9000`/`navisys` = `CpkMode 2`
+  z TOC (obsługuje `cpk_write`), member CRILAYLA (55 600 → 158 352; 84 400 → 243 760; 74 760 → 197 648).
+* **PAC interfejsu** (inny kształt niż `configst_pack.parse_pac`/`member_inventory._pac_index` — te na nim padają):
+  `u32 first (0x10 albo 0x800 — niewiarygodne), u32 count, u32 name_len = 0x20, u32 0`, wpisy `u32 off, u32 size,
+  char[32]`; PAC-i zagnieżdżone (`srwDL_Inter_Tex.pac` w `IM1000.pac`, `srwDL_UnitParam_Tex.pac` w `IM3000.pac`).
+  Parser: `gim_image.pac_entries`, rekurencja: `ui_texture_patch.walk_gims`.
+* **GIM** (`MIG.00.1PSP`): bloki 0x02 root / 0x03 picture / 0x04 image / 0x05 palette / 0xFF file-info; nagłówek
+  obrazu 0x30 B (`<HHHHHHHHHHIIIIIHHHH`, piksele @+0x40), `pixel_order 1` = swizzle w kafelki 16×8 B. Wszystkie
+  tekstury z napisami: **INDEX8 + paleta RGBA8888×256** (częściowe alfa w krokach 17, czarny halo α 85–187). Dekoder +
+  koder tej samej wielkości (`gim_image.encode_index8`: niezmienione piksele zachowują ORYGINALNE indeksy, bo palety
+  mają duplikaty kolorów; nowe → najbliższy kolor w palecie); **tożsamość 52/52 GIM** (dekoduj → koduj = bajt w bajt).
+* **TXCL** (układ komórek): `'TXCL', u32 size, u32 count, u32 0`, wpisy 40 B `u8 cell, u8 tex_gid, u16 0, u32 0,
+  float LE u0 v0 u1 v1, x0 y0 x1 y1` (float **little-endian**). W `IM1000`/`IM3000` TXCL opisuje tylko `intsys`/`messys`
+  — komórki `mensys_*` (ekran statusu) **nieznane** ⇒ szerokości pól na ekranie statusu to przybliżenia (możliwe
+  ucięcia; do sprawdzenia w grze). `TexID.bin`: `u32 n, u32 off[n]`, wpis `u32 gid, u32 8, cstr`.
+* Mapa zrzut → tekstura: zakładki intermisji = `intsys_01` (w IM1000 i IM3000, identyczna); status jednostki/broni =
+  `mensys_03`; ekran umiejętności/części = `mensys_08`; listy jednostek/pilotów = `mensys_13`; pasek HP/EN/SP + banner
+  援護 = `mensys_01` (wszystkie `system.cpk`). Pozostałe z japońskim tekstem (NIE zrobione): `mensys_05/07/10/11/12/14/15`,
+  `tacsys_07…18 + vsbg` (walka: 攻撃 防御 回避 反撃, フェイズ, 戦闘結果, ゲームオーバー …), `navisys_02`, `intsys_03/04`
+  (IM1000/IM3000/IM9000); komunikat autozapisu jest w EBOOT (poza zasięgiem).
+
+**Narzędzie napisów `tools/gim_label.py`** (spec JSON na teksturę w `ui_labels/<tekstura>.json`: `font`, `size`,
+`min_size`, `squeeze`, `fill`, `outline`, `labels[{id, jp, en|null, box, align, clear, bg, bg_from_column, cell…}]`):
+czyści prostokąt `box`, renderuje angielski Roboto Bold (Apache 2.0, `assets/fonts/`, bo w sandboxie nie ma fontów)
+z obrysem, **dopasowanie fail-closed**: zmniejsza font do `min_size`, potem ściska poziomo do `squeeze`; gdy nadal nie
+mieści się — `LabelError` i cała budowa odmawia (żadnych uciętych napisów). `en: null` = piksele japońskie zostają.
+Lekcje: binaryzacja alfy i automatyczne kolory per-napis dały ciężkie, niespójne obrysy — gra opiera się na częściowym
+alfa, więc zostawiono prawdziwe alfa i kolory z poziomu spec; maska zmniejszana LANCZOS dawała pierścienie ⇒ `BOX`;
+Roboto Bold nie mieści „Upgrade"/„Weapons" w komórkach zakładek 30 px ⇒ skróty **Stats / Mods / Arms / Unit**; banner z
+malowanym tłem (援護) po wyczyszczeniu miał dziurę ⇒ `bg_from_column` (tło kopiowane z sąsiedniej kolumny); 1 px za
+blisko sąsiedniej litery łacińskiej („SPWill") ⇒ 2 px odstępu; resztki obrysu poza boxem ⇒ jawne `clear`.
+Specyfikacje (wszystkie mieszczą się; podglądy ×4 sprawdzone): `intsys_01` Stats/Mods/Arms/Unit, Pilot, Mission
+Select (9 px), DL Content (zostaje 連); `mensys_03` Sub Pilot, ATK DEF HIT, EVA SIZE MOV, TGT, Will Req, EN Cost, RNG,
+HIT, WPN, Area (zostają 名, 空/宇/地); `mensys_08` Drop Parts, Abilities / Skills, Parts, Mods, Kills, Spirits, List,
+Needed, Ace Kills; `mensys_13` Unit, Pilot, Will, Trait, Terrain, Equip, Unit, Heal (zostają 用 + ikony cech broni);
+`mensys_01` Will (pomarańcz), banner Support + Sup (żółty, obrys brązowy). 気力 = „Will" wszędzie.
+
+**Budowa `tools/ui_texture_patch.py`** (`--originals DIR --out DIR [--specs ui_labels] [--compress stored|crilayla]
+[--preview-dir]`): każdy `*.cpk` z folderu oryginałów → member → rekurencyjnie PAC → GIM; łata tylko tekstury mające
+spec; zapisuje tylko kontenery, które coś zmieniły; member z powrotem STORED (rozmiar = ExtractSize) albo naszym
+`crilayla.compress` (LZSS; **nigdy nie sprawdzony w grze**); odczyt kontrolny przez `speaker_map.read_members` +
+porównanie bajtów GIM; `ui_texture_report.json` (rozmiary, md5, dopasowanie każdego napisu). Wyniki (oryginały z Dysku):
+
+| wariant | plik | B | md5 | member |
+|---|---|---|---|---|
+| A_stored (3 s) | system.cpk | 195 888 | `4862e1f34ef68c7b631d146995722dfe` | 191 792 stored |
+| | IM1000.cpk | 166 016 | `6695d4da2cfccde08bf6e2c51be1974d` | 158 352 stored |
+| | IM3000.cpk | 252 032 | `541c20d50c28ab0a3d0b6944c02093e4` | 243 760 stored |
+| B_crilayla (46 s) | system.cpk | 80 203 | `7be64db85b7662566b63b2071f7b7826` | 76 107 ← 191 792 |
+| | IM1000.cpk | 67 712 | `0362fa7a4a91b0b051c2caf73eb262bb` | 60 375 ← 158 352 |
+| | IM3000.cpk | 100 480 | `5458d0824b87461c1847481acde0ab04` | 92 644 ← 243 760 |
+
+`verify-identity` obu pisarzy na zbudowanych plikach OK; `cpk_table.read_cpk_table` czyta je (ContentSize 192 512 /
+159 744 / 245 760 i 77 824 / 61 440 / 94 208). **Ryzyko A:** member 2,6× większy niż oryginał (gra może mieć bufor na
+rozmiar spakowany — nieznane). **Ryzyko B:** nasz koder CRILAYLA. Dlatego dwa warianty, A pierwszy.
+
+**Zestaw dla użytkownika:** `UI_TEST1.zip` 484 348 B sha256 `8df4302a90516a9984e919eb6da23a8b97cf0ea773add5f46c7dc86d6fb19f63`
+(Dysk DELIVERY `1ex7qluz248VV7Xsgs-MaIPwR8q435T4P`): `UI_TEST1\A_stored\`, `UI_TEST1\B_crilayla\` (po 3 CPK),
+`CZYTAJ_UI_TEST1.txt` (wgrywanie przez `WGRAJ_DO_ISO.bat` na `patched.iso` z v4 albo na oryginał — te 3 pliki nie
+kolidują z tekstowymi; wskazać PODFOLDER wariantu; co sprawdzić; czego test nie zmienia), `podglad\PRZED_PO.png`,
+raporty. `iso_insert.KNOWN_ORIGINALS` += `system/IM1000/IM3000` (wgranie UI na ISO, w którym te kontenery już są
+zmienione, jest odmawiane — świadomie: nie nakładać A na B; na `patched.iso` v4 przechodzi, bo tekst ich nie rusza).
+
+**Testy:** `tests/gim_fixtures.py` (syntetyczny GIM INDEX8 ze swizzle, `build_ui_pac`, `label_texture`),
+`tests/test_gim_image.py` (12), `tests/test_cpk_itoc_write.py` (11; fixture `build_itoc_only_cpk`),
+`tests/test_gim_label.py` (14: dopasowanie fail-closed, `en: null`, kolory z glifu, `bg_from_column`, piksele poza
+boxem nietknięte, specyfikacje z repo poprawne; e2e: syntetyczny PAC w PAC w CPK-ITOC → build → odczyt →
+member różni się TYLKO wewnątrz GIM; zły napis odmawia całej budowy; CLI pisze raport). Poprawki po pierwszym
+uruchomieniu: fixture puli bez CRILAYLA (`not a CRILAYLA stream`), box 16 px za wąski na „ATK" przy min 7 px, trzecia
+wartość `render_labels` to płótno PRZED kwantyzacją palety (nie równa dekodowanemu GIM).
+
+**Status:** napisy w teksturach = **praca w toku, nic w grze nie sprawdzone**; `ui_texture_patch` celowo NIE jest
+krokiem `HOKUS_POKUS`/`build_translation_patch` do czasu potwierdzenia w grze. Otwarte: pozostałe tekstury (walka —
+`tacsys`, `mensys_05/07/10–12/14`, `intsys_03/04`), `.sp`/`sprstd00`/`mesbmp00` niezdekodowane, 256-kolorowa paleta
+(nowe kolory tylko z palety), szerokości komórek `mensys_*`, `IM9000` (zawiera `intsys_03`, brak spec).

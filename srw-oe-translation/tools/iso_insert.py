@@ -46,6 +46,11 @@ KNOWN_ORIGINALS: Dict[str, str] = {
     "eventP00.cpk": "5fd6eea0e3732b17c48aa44859d86b02",
     "imenu00.cpk": "bec96255271d89bcb07cfe41be15bb1f",
     "mesbtl00.cpk": "f614ab6297136b38fb39ab96e41863d7",
+    # UI texture containers (2026-10-15, measured on the user's USRDIR copies of the same disc):
+    # the texture builds (tools/ui_texture_patch.py) replace these, so a stacked insert is refused too.
+    "system.cpk": "75b0d0d44f1afb3af027b93e38e223c6",
+    "IM1000.cpk": "54077cbbf76c06251a220f9085bb2fc3",
+    "IM3000.cpk": "5447d366aa01f8060138ecf4ae2ed80f",
 }
 SKIPPED_SUFFIXES = {".txt", ".json", ".md", ".zip", ".log", ".csv", ".html", ".bat", ".py", ".exe"}
 
