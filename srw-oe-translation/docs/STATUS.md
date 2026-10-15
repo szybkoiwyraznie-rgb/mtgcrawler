@@ -2,7 +2,20 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, evening): CONFIRMED IN-GAME — build #14 loads the user's mid-chapter-2 save and the skill
+**Latest (2026-10-15, late evening): the user's FULL patch (provenance unknown) CRASHES at "Loading" with the
+exact build-#8 stack** (`memcpy_jak` ← `z_un_08b3d554` …, `Read/Write Block at 00000000`). Two findings: (1) my
+fault — the Drive `INSTRUKCJA_PL.md` was still the 2026-10-14 text pointing at package v1 and the build-#6 kits
+(all now moved to `_STARE_NIE_UZYWAC`, instruction rewritten and re-uploaded, KIT_build15 uploaded); (2) the
+three ISO containers `eventP00`/`mesbtl00`/`imenu00` and the 91 EDATs have NEVER been run in-game with the
+fixed writers (bisection letters C/D/E/G were never executed). Build #15 here (v3, 13 containers) reproduces #14
+for config00/configst; the other files grow 1.6–2.9× because changed members are STORED (uncompressed content
+grows ≤ 6 %) — a boot-time memory budget on whole files is an open hypothesis. New read-only `DIAGNOZA.bat`
+(`tools/diagnoza.py`) reports which tools/package/build/emulator files are actually in place, with md5 tables
+of every shipped build; `build_report.json` now carries a tools stamp. Next: user runs DIAGNOZA, then test X
+(original DLC + patched.iso) and test Y (original ISO + full DLC build), then container bisection via
+`WGRAJ_DO_ISO.bat` / `BISEKCJA.bat`. Details: `EXPERIMENT_LOG.md` §21.26.
+
+**Previous (2026-10-15, evening): CONFIRMED IN-GAME — build #14 loads the user's mid-chapter-2 save and the skill
 descriptions read correctly; Y5 (= Y3 with only the `+52` word corrected) loads where Y3 crashed**, so the
 chapter-2 crash was the stale parameter pointer, not the member size (the Loading budget 216 768 B stays as
 measured). Build #14 is the first build that passes Loading, a new game and the chapter-2 save. Package **v3**

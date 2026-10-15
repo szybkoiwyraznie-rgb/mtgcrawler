@@ -68,6 +68,10 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import configst_pack as CSP          # noqa: E402
+
+# Written into build_report.json so a report tells which writers produced it (the user's copy
+# of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
+TOOLS_STAMP = "2026-10-15c: conv-B +32/+36/+52, Skill00 budget 216768, copies resync"
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
 import inline_names as IN            # noqa: E402
@@ -779,7 +783,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     identity_rows = sum(1 for r in filled_rows if identity(r))
     filled_rows = [r for r in filled_rows if not identity(r)]
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
-                    "identity_rows": identity_rows,
+                    "identity_rows": identity_rows, "tools": TOOLS_STAMP,
                     "containers": [], "problems": [], "dry_run": dry_run,
                     "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
                     "only": list(only), "skip": list(skip), "written": []}

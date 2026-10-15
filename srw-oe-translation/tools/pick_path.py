@@ -25,7 +25,7 @@ Exit codes (the .bat branches on them):
 * ``3`` - no dialog is possible here (Python without Tk, or no desktop) - the .bat may
   fall back to a typed path; this is the only situation in which typing is acceptable.
 
-The presets (``iso``, ``dlc``, ``package``, ``translation``) carry the Polish titles and
+The presets (``iso``, ``dlc``, ``package``, ``translation``, ``files``, ``dlc_emu``, ``iso_run``) carry the Polish titles and
 file filters, so the .bat stays pure ASCII.
 """
 from __future__ import annotations
@@ -57,6 +57,16 @@ PRESETS = {
         "kind": "dir",
         "title": "Wybierz folder z plikami do wgrania do ISO (np. USRDIR_EN_build10 albo "
                  "PLAN_B_sub_pliki\\V1) - do ISO trafia to, co lezy bezposrednio w nim",
+    },
+    "dlc_emu": {
+        "kind": "dir",
+        "title": "DIAGNOZA: wskaz folder DLC, z ktorego czyta PPSSPP (...\\PSP\\GAME\\NPJH50521) "
+                 "- tylko czytany",
+    },
+    "iso_run": {
+        "kind": "file",
+        "title": "DIAGNOZA: wskaz ISO, ktore URUCHAMIASZ w PPSSPP (np. patched.iso) - tylko czytane",
+        "filetypes": [("Obraz ISO", "*.iso"), ("Wszystkie pliki", "*.*")],
     },
 }
 

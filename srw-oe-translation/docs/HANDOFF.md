@@ -177,7 +177,15 @@ ISO, odmawia ISO już załatanego i plików spoza USRDIR, czyta wgrane człony z
 `WGRAJ_build10.zip` (Drive `1yjzP39z6qtWO457uZd4IoBG-w4zr2-Ak`, samowystarczalna: bat + 3 narzędzia +
 `KROK_1_tylko_config00/`, `KROK_2_config00_i_configst/`, `PLAN_B/V1..V6/`).
 
-**Stan 2026-10-14 późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.13–21.14):** build #8 padł jak #6;
+**Stan 2026-10-15 późny wieczór (najnowszy; `EXPERIMENT_LOG.md` §21.26):** pełny patch użytkownika (pochodzenie
+plików nieznane) pada na „Loading" stosem buildu #8. Dysk uporządkowany (stare zestawy w `_STARE_NIE_UZYWAC`,
+nowa `INSTRUKCJA_PL.md`, `KIT_build15_2026-10-15.zip`). Nowy `DIAGNOZA.bat` + `tools/diagnoza.py` (tylko czyta:
+narzędzia / pakiet / wynik budowy / folder DLC emulatora / ISO — md5 i rozpoznanie buildów; raport `DIAGNOZA.txt`).
+`build_report.json` ma `"tools"` (`TOOLS_STAMP`). Nieuruchomione nigdy w grze z poprawionymi pisarzami:
+`eventP00`/`mesbtl00`/`imenu00` (STORED, 1,6–2,9× większe pliki) i 91 EDAT. Następne: DIAGNOZA → test X (oryginalny
+DLC + `patched.iso`) i Y (oryginalne ISO + pełny `DLC\`) → `WGRAJ_DO_ISO.bat` z `ISO_B/C/D` albo `BISEKCJA.bat` H/I.
+
+**Stan 2026-10-14 późna noc (`EXPERIMENT_LOG.md` §21.13–21.14):** build #8 padł jak #6;
 **bisekcja: A (`configst.cpk`) DZIAŁA — menu po angielsku; B (`config00.cpk`) PADA**; C/D/E nie testowane.
 Audyt `config00` oryginał↔build: jedyny ubytek = 84 skrócone nazwy jednostek (kana, `unit_list00` +32)
 wyzerowane przez `name_table_write` (komórka nazwy to 32 B, nie 64). Naprawione: SPECS `unit_list`

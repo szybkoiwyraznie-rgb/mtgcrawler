@@ -4242,3 +4242,85 @@ znów nieświeże `+52`), v3 do `pakiet_EN\`, `HOKUS_POKUS.bat` → `srw-oe-patc
 md5 `config00.cpk`/`configst.cpk` z wyniku = BUILD14; test 1 = sejw z 2. rozdziału na pełnym zestawie (ISO +
 wszystkie pliki DLC), test 2 = nowa gra do 2. rozdziału. `INSTRUKCJA_PATCH_PL.md` dostała ramkę „Aktualizacja
 2026-10-15".
+
+### 21.26 Pełny patch (2026-10-15) PADA na „Loading" tym samym stosem co build #8; stara instrukcja na Dysku; build #15; `DIAGNOZA.bat`; testy X/Y
+
+**Zgłoszenie (użytkownik, 2026-10-15 wieczór):** pełny patch zbudowany lokalnie przez `HOKUS_POKUS.bat` →
+„Bootuje → loga → Loading… → Crash", „dokładnie to samo co przed całą tą zabawą w poprawki". Zrzut PPSSPP:
+`CRC 05f2347c`, `Access: Read/Write Block at 00000000 (sz: 0)`, `PC 08b6af1c`, stos `memcpy_jak` ←
+`z_un_08b3d554+08c` ← `z_un_08b3d3f8+044` ← `z_un_088e60d0+050` ← `z_un_088e0b48+484` ← `z_un_088a5b78+078` ←
+`z_un_08b40908+018` — **bajtowo ten sam stos co crash „Loading" buildu #8 (§21.13)**. Pochodzenie plików
+(które narzędzia, który pakiet, co skopiowane do folderu DLC emulatora) — **nieznane**; to jest pierwsza rzecz
+do ustalenia, bo:
+
+**Błąd po mojej stronie (potwierdzony):** `INSTRUKCJA_PL.md` na Dysku (DELIVERY) była **wciąż tekstem z 2026-10-14**
+(wskazywała `pakiet_EN_2026-10-14.zip` = v1 i gotowe paczki `DLC_EN_2026-10-14`/`USRDIR_EN_2026-10-14b` z buildu #6);
+w §21.25 napisałem, że dostała ramkę „Aktualizacja 2026-10-15" — ramka była tylko w repo, plik na Dysku nie był
+podmieniony. W DELIVERY leżały też bez oznaczenia wszystkie stare zestawy (`WGRAJ_build10–13`, rundy 2–7). Ktoś
+idący wg Dysku dostawał dokładnie crash z „Loading" (v1 + stare narzędzia ⇒ Skill00 ponad budżet). Czy użytkownik
+tak zrobił — nie wiem (pyta „na pewno wszystko powgrywałeś gdzie trzeba?").
+
+**Porządek na Dysku (zrobione i zweryfikowane `list_files`):** w DELIVERY utworzony podfolder
+`_STARE_NIE_UZYWAC (pliki z 14-15.10 przed poprawka +52 - padaja)` (`1wV4hEhULZVtd8R2u04ODl5YwnV18vH-U`) i przeniesione
+do niego 20 pozycji (pakiet v1, `DLC_EN_…_build6`, `USRDIR_EN_2026-10-14b`, `WGRAJ_build10–13`, `RUNDA_2–5`,
+`BISEKCJA_SEJW_runda6/7`, `build_report.json`, `md5sums.txt`, `missing.txt`, `spot_check.json`, `title_fixes.tsv`,
+`DO_ZROBIENIA_2.md`, stara instrukcja przemianowana na `INSTRUKCJA_PL_STARA_2026-10-14_NIE_UZYWAC.md`).
+W DELIVERY zostały: `pakiet_EN_2026-10-15_v3.zip`, `RUNDA8_build14.zip`, nowa `INSTRUKCJA_PL.md`
+(`1tZV-q2jJiGPLx47Ao3QU66vQgKOm8cBQ`, = `docs/INSTRUKCJA_PATCH_PL.md` przepisana), nowy
+`KIT_build15_2026-10-15.zip` (`1Gd_-DvhDnpQU2UPM5FUkTPTpcUq8LU3D`, 909 797 B, md5 `448bd45dbc3c26e62afdfc87289c095e`).
+W folderze Pakiet: `pakiet_EN_2026-10-15_ciasny.zip` i `_ciasny_v2.zip` przemianowane z prefiksem
+`STARE_NIE_UZYWAC_` (pliki tłumacza `EN.zip`, `EN2.zip`, `sceny.zip`, `widoki.zip`, `README.md`, `tokeny.tsv` nietknięte).
+
+**Fakty o builderze (odczyt kodu):** kontener leżący i w ISO, i w folderze DLC jest czytany **z ISO** i ten sam wynik
+trafia do `patched.iso` i do `srw-oe-patch\DLC\` (identyczne bajty); pełna budowa = 5 kontenerów USRDIR + 91 EDAT.
+Historia bisekcji w grze: tylko A (configst) OK, B (config00) crash, F (całe ISO) crash — **C `eventP00`, D `mesbtl00`,
+E `imenu00`, G (same EDAT) nigdy nie były uruchomione.** `ppsspplog.txt` z Dysku nie ma śladu otwierania plików
+(domyślny poziom logowania) — nie da się z niego odczytać, co gra ładuje przy starcie.
+
+**Build #15 (tu, z oryginałów z Dysku; 13 kontenerów, bo `--dlc` dostał tylko oryginały config00/configst/eventP00/
+imenu00/mesbtl00/config01–08; pakiet v3; narzędzia po `3fe558b`):**
+
+| plik | oryginał | build #15 | md5 build #15 |
+|---|---|---|---|
+| config00.cpk | 929 920 | 936 064 | `71d9fcafa37c21513b97c14d1dff8f33` (= #14) |
+| configst.cpk | 376 960 | 372 864 | `6cfe245d5f6ec6dfffd2a829b778a4d7` (= #14) |
+| eventP00.cpk | 162 264 | 260 568 | `ac538959fdef3d47eeb38d0e2282adb0` |
+| imenu00.cpk | 34 984 | 57 512 | `ee66a6f824a54f2ee27c8309db16294a` |
+| mesbtl00.cpk | 348 888 | 994 008 | `00e10760c204e75133169b3455b19608` |
+| config01–08.EDAT | — | każdy +2 048 B (config02 +4 096) | `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`, `41b25268…`, `75c1101f…`, `bbeddd5e…` |
+
+Analiza członów (`cpk_write.load`, `extract_size` oryginał → build): rozpakowane rozmiary rosną **najwyżej o ~6 %**
+(imenu00 `CharaDictionary00` +664 B; mesbtl00 suma 981 128 → 979 904; eventP00 suma 170 032 → 176 120); rozmiary
+**plików** rosną 1,6–2,9×, bo zmienione człony są zapisywane STORED zamiast CRILAYLA. **Hipoteza (niesprawdzona):**
+wszystkie dane o crashu „Loading" są też zgodne z budżetem pamięci/sterty przy starcie liczonym od rozmiarów
+całych plików, a nie tylko `Skill00` (W1/W2 dały ~8 KB zapasu przy samym config00); wtedy STORED
+`mesbtl00`/`eventP00`/`imenu00`, jeśli któryś jest czytany przy starcie, może go przekroczyć. Alternatywa (do
+sprawdzenia dopiero po teście X): `crilayla.compress` (prawdziwe LZSS, dziś używane tylko przez
+`make_demo_growth.py`) dla zmienionych członów — nigdy nie wysłane do gry, więc najpierw bisekcja, potem ewentualnie
+kompresja.
+
+**Odciski pakietów** (md5 `03_skills.jsonl` / `04_config_text.jsonl`): v1 `6bccde6c…`/`e5071783…`; v2 (ciasny_v2)
+`68c58d14…`/`8955a292…`; b13 `68c58d14…`/`042cfa4a…`; **v3 `68c58d14…`/`30f4ad0a…`**. Po tych md5
+`diagnoza.py` rozpoznaje, który pakiet leży w `pakiet_EN\`.
+
+**Nowe narzędzie `tools/diagnoza.py` + `DIAGNOZA.bat`** (tylko czyta; dwa okna wyboru: folder DLC emulatora i ISO
+uruchamiane w PPSSPP — nowe presety `pick_path.py`: `dlc_emu`, `iso_run`; raport `DIAGNOZA.txt` UTF-8 BOM/CRLF
+otwierany w Notatniku). Sekcje: (1) narzędzia obok `.bat` — md5 czterech kluczowych modułów + markery poprawek
+(`SKILL00_LIMIT`, `POOL_POINTER`, `BASE_POINTER`, `parameter_pointer_faults`); (2) pakiet w `pakiet_EN\` — wersja po
+odciskach, wykrycie „o jeden folder za głęboko"; (3) `srw-oe-patch\` — `build_report.json` (odmowy `NOT written`,
+`build broke`, kontenery nieznalezione, stempel narzędzi), md5 członów `patched.iso` (`iso_pack.read_member`) i plików
+`DLC\`; (4) folder DLC emulatora — każdy plik: identyczny z buildem / inny niż build / rozmiar oryginału / bez
+odpowiednika; `config00`/`configst` rozpoznawane po tabeli md5 (oryginał, BUILD14, buildy #6/#7/#9–#13, Y5);
+(5) ISO uruchamiane — 5 członów USRDIR. Na końcu WNIOSKI. `build_translation_patch.py` zapisuje teraz w raporcie
+`"tools": TOOLS_STAMP` (`2026-10-15c: conv-B +32/+36/+52, Skill00 budget 216768, copies resync`). Testy:
+`tests/test_diagnoza.py` (raport na syntetycznym układzie + syntetyczne ISO z `iso_pack.build_iso`; reguły `.bat`:
+ASCII/CRLF, oba wybory przez `:pick`, `set /p` tylko w `:pick_typed`, okno zostaje, brak `%VAR:` przy możliwie
+niezdefiniowanej zmiennej). Pełny zestaw: **1 104 testy OK / 1 pominięty**.
+
+**Plan testów dla użytkownika (bez budowania, w `INSTRUKCJA_PL.md` część 3):** X = oryginalny folder DLC (łącznie z
+oryginalnymi config00/configst) + `patched.iso` ⇒ testuje wyłącznie `eventP00`/`mesbtl00`/`imenu00`; Y = oryginalne
+ISO + pełny `srw-oe-patch\DLC\` (91 EDAT + config #14) ⇒ testuje EDAT-y. Dalej: X pada → `WGRAJ_DO_ISO.bat` z
+`ISO_B_imenu00` / `ISO_C_mesbtl00` / `ISO_D_eventP00` (KIT), każde ISO z oryginalnym DLC + config #14; Y pada →
+`BISEKCJA.bat` H / I. KIT = `USRDIR_build15\` (5 plików), trzy foldery bisekcji, `DLC_config01-08\`,
+`ROZMIARY_I_MD5.txt`, `CZYTAJ.txt`. Pełny kanoniczny zestaw 91 EDAT nie był tu budowany (83 oryginały do pobrania z
+Dysku) — użytkownik buduje lokalnie, `DIAGNOZA.bat` potwierdza md5 config00/configst.
