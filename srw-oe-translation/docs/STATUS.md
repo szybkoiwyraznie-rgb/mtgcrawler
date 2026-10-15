@@ -25,6 +25,10 @@ T6 (+19 KB, Japanese text) CRASHES: the size is the cause. Round 4 asks which si
 (U2: sub-files packed at 64 B instead of 2048 B, container smaller than the original even with the
 grown skill file - a fix if it works) or the skill file alone (then the T1-T5 ladder gives the budget).
 `cpk_write` now also refreshes EnabledPackedSize/EnabledDataSize (stale in builds #6-#10; T7 tests it).
+Round 3 complete: T1 and T3 (+8 128 B) work, T4 (+12 224 B), T5, T6 crash - the growth budget of the
+skill file (Japanese text) is between +8 and +12 KB against the +19 KB English needs; 0x35000 is the
+suspected fixed buffer. Round 5 (W1-W5) pins the exact boundary; round 4 (U2/U1) decides whether the
+limit is the whole container (fix: pack sub-files at 64 B) or the skill file alone (fix: shorter text).
 Details: `EXPERIMENT_LOG.md` §21.13–21.17, `HANDOFF.md` §7.
 The project is NOT a finished translation; no full in-game acceptance exists.
 

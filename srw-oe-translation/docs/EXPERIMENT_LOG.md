@@ -3901,3 +3901,40 @@ otwarte w folderze zapamiętanego ISO; nieistniejące ISO ⇒ okno. Odczyt przez
 `:remember` (`<nul set /p`) za etykietą `:pick` — reguła „żadnego wpisywania ścieżek" i testy
 (`WgrajBatRuleTests`, +1) zachowane. Pełny zestaw: 1 058 OK / 1 skipped. Oryginały `config00/configst/
 eventP00/mesbtl00.cpk` pobrane ponownie z Drive (md5 zgodne) po resecie środowiska.
+
+### 21.19 Runda 3 w całości: T1, T3 DZIAŁAJĄ; T4, T5, T6 PADAJĄ → granica między +8 128 a +12 224 B; runda 5
+
+**Wyniki użytkownika (2026-10-15) [ZWERYFIKOWANE w grze]:** T1 (210 942 B) działa, **T3 (217 086 B)
+działa**, **T4 (221 182 B) pada**, T5 (225 278) pada, T6 (228 202) pada. T2 nietestowany (zbędny).
+Największy działający rozmiar `srwDL_Skill00.bin`: **217 086 B** (= oryginał +8 128 B; pac 929 792 B =
+0xE3000); najmniejszy padający: 221 182 B (pac 933 888 B = 0xE4000). Budżet wzrostu z japońską treścią:
+**≥ 8 128 B, < 12 224 B** (build #10 potrzebuje +19 244 B).
+
+Obserwacja: 217 088 = **0x35000** — T3 mieści się w nim z zapasem 2 B. Jeśli gra ma stały bufor 0x35000 na
+ten człon, W1 (217 090 B) padnie i budżet znamy co do bajta (+8 130 B). Analogicznie dla hipotezy
+kontenerowej: pac T3 = 0xE3000 dokładnie, pac T4 = 0xE4000 — drabinka sama nie rozdziela członu od
+kontenera (szczeble dobrałem na okrągłych granicach obu), to robi U2/U1 (runda 4). Nieaktualne
+`EnabledPackedSize/EnabledDataSize` nie są mechanizmem: T3 działał ze starymi wartościami przy pac > oryginał
+(bufor „EnabledDataSize/2 = 923 648" wykluczony) — **T7 z rundy 4 zbędny**, zamiast niego W5.
+
+**Runda 5 — dokładna granica (`RUNDA_5_granica.zip`, 741 169 B, md5 `22ae332d9c6ed328c60530f98a33ca7d`,
+Drive DELIVERY `10vzESMi8y2FFKNoMFwIPxpMfUikzgOqY`).** W1–W4 zbudowane z nagłówkiem jak T1–T6 (pola Enabled*
+stare — `cpk_write.enabled_sizes` wyłączone na czas budowy; jedna zmienna względem T3/T4); W5 = rozmiar T3 z
+przeliczonym nagłówkiem (kontrola nieszkodliwości poprawki; różni się od T3 dokładnie 2 komórkami, bajty
+301–309). Weryfikacja: pola poza `effect` identyczne z oryginałem, `effect` = oryginał + spacje (max 106 B),
+pozostałe sub-pliki bajt w bajt.
+
+| wariant | Skill00 B | wzrost | pac B | nagłówek | md5 config00.cpk |
+|---|---|---|---|---|---|
+| W1_plus_8132B | 217 090 | +8 132 | 931 840 | stary | `4761e349eca7e9a7d5ffb8d9982a3cf8` |
+| W2_plus_9152B | 218 110 | +9 152 | 931 840 | stary | `ccc6ff7282e42b025a559de386a6d0af` |
+| W3_plus_10176B | 219 134 | +10 176 | 931 840 | stary | `ff8df864bdab3a98d7d6f51ba9777a05` |
+| W4_plus_11200B | 220 158 | +11 200 | 933 888 | stary | `45fa9b1c69133bb85556e6f12af66e87` |
+| W5_jak_T3_nowy_naglowek | 217 086 | +8 128 | 929 792 | przeliczony | `14831c70663deecd14e1413276642b7a` |
+
+**Drzewo decyzji dla użytkownika (w `CZYTAJ.txt`):** najpierw U2 (działa ⇒ STOP, poprawka = ciasny pac);
+U2 pada → U1 (działa ⇒ limit członu ⇒ runda 5; pada ⇒ V6: pada ⇒ limit kontenera, działa ⇒ runda 5).
+Runda 5: W1 (pada ⇒ granica 0x35000) → W3 → W2/W4; W5 zawsze. Konsekwencja dla tłumaczenia, jeśli limit
+dotyczy członu: EN Skill00 musi zmieścić się w ok. 217 kB zamiast 228 kB (ciąć ≥ 11 kB z +19 kB wzrostu —
+głównie nazwy: JP max 14 B, EN do 26 B, każda nazwa liczona dwa razy przez `name_level`); jeśli kontenera —
+ciasny pac (905 216 B) daje ok. 24 kB dodatkowego zapasu.

@@ -127,6 +127,10 @@ U2 = ciasny `.pac` (krok 64 B, pac 905 216 < oryginał) z Skill00 jak T6 — je�
 (`configst_pack.rebuild_pac(align=64)` do włączenia w `build_translation_patch`); U1 = kontrola samego pakowania;
 T7 = T6 + przeliczone `EnabledPackedSize/EnabledDataSize` (od teraz `cpk_write` liczy je zawsze). Potem drabinka
 T1/T3/T4. `WGRAJ_DO_ISO.bat` pamięta ISO (`%APPDATA%\SRWOE`).
+**Runda 3 pełna: T1, T3 (217 086 B) DZIAŁAJĄ; T4 (221 182 B), T5, T6 PADAJĄ** ⇒ budżet wzrostu Skill00 w
+[+8 128, +12 224) B; 217 088 = 0x35000 podejrzany jako stały bufor. Runda 5 (§21.19, Drive
+`10vzESMi8y2FFKNoMFwIPxpMfUikzgOqY`): W1 217 090 / W2 218 110 / W3 219 134 / W4 220 158 (stary nagłówek) +
+W5 = T3 z przeliczonym nagłówkiem. Kolejność: U2 → U1 (→ V6) → W1 → W3 → W2/W4 → W5; T7 zbędny.
 
 **Stan 2026-10-14 bardzo późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.15):** build #9 w wariancie B **padł
 identycznie** (`memcpy_jak`, NULL + `bytes>0`). Znaleziona pewna usterka pisarza: w rekordach conv-B
