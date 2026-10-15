@@ -1,4 +1,4 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 późnym wieczorem: pakiet v6, napisy programu gry EXE_TEST1, grafiki interfejsu UI_TEST4 — wszystko w HOKUS_POKUS)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 w nocy: pakiet v6, napisy programu gry w `EBOOT.BIN` ISO (EXE_TEST2) + cheat, grafiki interfejsu UI_TEST4 — wszystko w HOKUS_POKUS)
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08, 679 243 152 bajty, i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski
@@ -9,10 +9,12 @@ Uczciwie o stanie: **to nie jest skończone tłumaczenie.** Od 2026-10-15 pełny
 pakiet v5 + grafiki interfejsu UI_TEST3** („wszystko śmiga”: Loading, nowa gra, sejw, status, walka, listy).
 Osiem zrzutów z buildu #19 pokazało ostatnie japońskie resztki i wszystkie trzy ich źródła są już obsłużone
 w **pakiecie v6** + aktualnych narzędziach (jeszcze nie sprawdzone w grze): (1) **napisy zaszyte w programie
-gry** (`PBOOT.PBP` = aktualizacja 1.08 z folderu DLC): panel broni w walce (`移動後`, `TGT 敵`), komunikaty
-bitewne, linie zdolności broni z 1.08 (`<貫通 Lv2>`, `<ビーム兵器 Lv2>`, `<連携攻撃 Lv2>`), efekt Guard, komendy
-i menu taktyczne, komunikaty o sejwie — nowy plik pakietu `09_executable.jsonl` (397 napisów), a `HOKUS_POKUS`
-pisze teraz także `DLC\PBOOT.PBP` (część 5); (2) **31 całych napisów menu** (`メインパイロット`, `サブパイロット`,
+gry**: panel broni w walce (`移動後`, `TGT 敵`), komunikaty bitewne, linie zdolności broni z 1.08 (`<貫通 Lv2>`,
+`<ビーム兵器 Lv2>`, `<連携攻撃 Lv2>`), efekt Guard, komendy i menu taktyczne, komunikaty o sejwie — nowy plik pakietu
+`09_executable.jsonl` (397 napisów). **Test z 2026-10-15 w nocy:** podmiana samego `PBOOT.PBP` (aktualizacja 1.08
+w folderze DLC) **nic nie zmienia** — PPSSPP jej nie czyta, uruchamia program z ISO (`PSP_GAME/SYSDIR/EBOOT.BIN`);
+kody CWCheat **działają** (sprawdzone). Dlatego `HOKUS_POKUS` wpisuje teraz te napisy **do `EBOOT.BIN` wewnątrz
+`patched.iso`** (plus `DLC\PBOOT.PBP` i plik cheatów jako zapas) — część 5; (2) **31 całych napisów menu** (`メインパイロット`, `サブパイロット`,
 `SELECT パイロット表示変更`, Sort, Page, System Setup…), które pakiet v5 miał tylko w kawałkach; (3) komórki
 grafik (`WPN名`, ucięte „RNG”, „EN Cost”, ścięte ikony części / zdolności) — `UI_TEST4` (część 4).
 Czego nadal brakuje: dialogi rozdziałów 5–8 w większości bez angielskiego (tłumaczenie trwa), ikony `mensys_12`
@@ -22,16 +24,16 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 
 ---
 
-## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15 późnym wieczorem: pakiet v6 + EXE_TEST1 + UI_TEST4
+## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15 w nocy: pakiet v6 + EXE_TEST2 + UI_TEST4
 
 | plik | do czego |
 |---|---|
 | `pakiet_EN_2026-10-15_v6.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v5 (działał w grze w buildzie #19) + `09_executable.jsonl` (napisy programu gry, 408 wierszy / 397 EN) + 31 całych napisów menu + „Coord. Attack”; opis w `CO_NOWEGO_v6.txt` |
-| `EXE_TEST1.zip` | **napisy programu gry bez budowania**: gotowy `PBOOT.PBP` (twój 1.08 z 397 angielskimi napisami; program poza napisami bajt w bajt ten sam) + `cheats\NPJH50521.ini` (te same zmiany jako kody CWCheat — droga zapasowa) + `lista_napisow_exe.txt` + `CZYTAJ_EXE_TEST1.txt` (część 5) |
+| `EXE_TEST2.zip` | **napisy programu gry bez budowania (szybki test, 2 minuty):** `EBOOT.BIN` = program 1.08 z 397 angielskimi napisami, do włożenia w ISO przez `WGRAJ_DO_ISO.bat` + `CZYTAJ_EXE_TEST2.txt` + zapasowy plik cheatów (część 5). Zastępuje `EXE_TEST1` (sam `PBOOT.PBP` — **sprawdzone: PPSSPP go nie czyta**; jego plik cheatów działał) |
 | `UI_TEST4.zip` | **grafiki interfejsu, komplet 26 tekstur z poprawionymi komórkami** po zrzutach z #19 (zastępuje `UI_TEST3`, który działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk` + `CZYTAJ_UI_TEST4.txt`; `HOKUS_POKUS.bat` z aktualnym ZIP-em gałęzi buduje dokładnie to samo |
 | `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
 | `INSTRUKCJA_PL.md` | ten tekst |
-| `_STARE_NIE_UZYWAC\…` | pakiet v5, `KIT_build18` i `UI_TEST3` (wszystkie **działały w grze** w buildzie #19 — odniesienie, zastąpione przez v6 / UI_TEST4), pakiet v4 i `KIT_build17` (działały, dwa błędy tekstu), `UI_TEST1` (wariant A działał) i `UI_TEST2`, pakiety v3 i starsze (padają na Loading) |
+| `_STARE_NIE_UZYWAC\…` | `EXE_TEST1` (PBOOT.PBP — PPSSPP go nie czyta; cheat z niego działał), pakiet v5, `KIT_build18` i `UI_TEST3` (wszystkie **działały w grze** w buildzie #19 — odniesienie, zastąpione przez v6 / UI_TEST4), pakiet v4 i `KIT_build17` (działały, dwa błędy tekstu), `UI_TEST1` (wariant A działał) i `UI_TEST2`, pakiety v3 i starsze (padają na Loading) |
 
 Jak odróżnić pliki: `config00.cpk` z budowy #18 (pakiet v5) ma **936 064 B, md5
 `5c43cf343b9fafde62c3c53c3a6c1e78`**; z budowy #17 (pakiet v4, sprawdzony w grze) ten sam rozmiar, md5
@@ -40,10 +42,11 @@ Jak odróżnić pliki: `config00.cpk` z budowy #18 (pakiet v5) ma **936 064 B, m
 z v5 ma **247 936 B (rozmiar oryginału), md5 `8db9f78108b829526ef5a7176847c5fd`** (z v4:
 `7c6459fa7377b585a5176b5859361da2`; z v3 miał 249 984 B). Z pakietu v6 `config00.cpk`, `configst.cpk`
 i `config01–08.EDAT` budują się na nowo (`configst.cpk` dostaje 31 nowych napisów, więc md5 się zmieni —
-`DIAGNOZA.bat` opisze je jako nowe). `PBOOT.PBP`: **oryginał 1.08 = 6 194 059 B, md5
-`22daece3b6fccc4363dd76ed6a7ec2fb`; z napisami EN (EXE_TEST1 = budowa #20) = 6 191 659 B, md5
-`26689964d2ce4e6cddadb67c8188e923`** — `DIAGNOZA.bat` rozpoznaje oba i mówi, czy `DATA.PSP` w środku jest
-„szyfrowany ~PSP” (oryginał) czy „jawny ELF” (nasz). Każdy inny md5 = stare narzędzia albo stary pakiet
+`DIAGNOZA.bat` opisze je jako nowe). Program gry: w `patched.iso` plik `PSP_GAME/SYSDIR/EBOOT.BIN` ma być
+**jawnym ELF-em 5 531 024 B, md5 `ba4cc05c24e2d98f1edeaefe68228eff`** (ten sam w `EXE_TEST2`), a w oryginalnym
+ISO — szyfrowanym `~PSP` (`DIAGNOZA.bat` pokazuje jedno i drugie). `PBOOT.PBP`: oryginał 1.08 = 6 194 059 B, md5
+`22daece3b6fccc4363dd76ed6a7ec2fb`; z napisami EN = 6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923`
+(PPSSPP go nie czyta — nieszkodliwy). Każdy inny md5 = stare narzędzia albo stary pakiet
 (`DIAGNOZA.bat` sprawdza to za ciebie i rozpoznaje buildy #15/#17/#18/pulaJP po md5).
 
 ---
@@ -67,26 +70,27 @@ potrzebny internet); gdyby się nie udało, buduje **sam tekst** i wyraźnie o t
    folder `pakiet_EN_2026-10-15_v6\` — jego zawartość, nie on sam). Żadnych innych `*.jsonl` obok
    (stary v5/v4 usuń w całości). W v6 jest nowy, dziesiąty plik `09_executable.jsonl` — bez niego
    napisy programu gry zostaną japońskie (`DIAGNOZA.bat` to wypisze).
-3. **`HOKUS_POKUS.bat`** (dwuklik). Dwa okna wyboru: (1) plik `SRW OE 1.08.iso`;
-   (2) **folder z odszyfrowanymi plikami DLC** (zestaw FULL_DLC). **Ten folder musi zawierać też
-   `PBOOT.PBP`** (aktualizacja 1.08 — leży w folderze DLC emulatora obok `*.EDAT`; jeśli twój zestaw
-   FULL_DLC go nie ma, skopiuj go tam z folderu emulatora). Bez niego budowa przejdzie, ale bez napisów
-   programu (w raporcie `executable.container = null`). Czekaj na „Gotowe” (~4 min budowy +
-   przepisanie ISO 680 MB).
-4. **Wynik** w `srw-oe-translation\srw-oe-patch\`: `patched.iso` (tekst rozdziału 1 **i** napisy
-   w grafikach — 6 kontenerów UI, w `build_report.json` klucz `ui_textures`), `DLC\…` (91 plików
-   `*.EDAT` + `config00.cpk`, `configst.cpk` **+ `PBOOT.PBP`** z angielskimi napisami programu),
-   `cheats\NPJH50521.ini` (droga zapasowa, część 5), `build_report.json` (klucz `executable`:
-   `applied` 397, `verified: true`).
+3. **`HOKUS_POKUS.bat`** (dwuklik). Dwa okna wyboru: (1) plik `SRW OE 1.08.iso` — **oryginalne**
+   (program gry jest czytany z niego: `PSP_GAME/SYSDIR/EBOOT.BIN`); (2) **folder z odszyfrowanymi
+   plikami DLC** (zestaw FULL_DLC). `PBOOT.PBP` w tym folderze jest teraz opcjonalny (builder i tak go
+   przepisze, ale PPSSPP go nie czyta). Czekaj na „Gotowe” (~4 min budowy + przepisanie ISO 680 MB).
+4. **Wynik** w `srw-oe-translation\srw-oe-patch\`: `patched.iso` (tekst rozdziału 1, napisy w grafikach
+   — 6 kontenerów UI, klucz `ui_textures` — **i program gry `EBOOT.BIN` z 397 angielskimi napisami**,
+   klucz `executable`), `DLC\…` (91 plików `*.EDAT` + `config00.cpk`, `configst.cpk` + `PBOOT.PBP`),
+   `cheats\NPJH50521.ini` (droga zapasowa, część 5), `build_report.json`. W oknie ma być linia
+   „Program gry [ISO PSP_GAME/SYSDIR/EBOOT.BIN]: 397 z 397 napisów wpisanych, 0 odrzuconych”. Jeśli jest
+   „NIE ZAPISANY” albo „program wzięty z PBOOT.PBP” — budowa się udała, ale prześlij `build_report.json`
+   (to znaczy, że `EBOOT.BIN` w twoim ISO jest innego typu, niż zakładam).
 5. **Zanim cokolwiek skopiujesz — `DIAGNOZA.bat`** (część 2). Dopiero gdy raport mówi
-   „pakiet v6 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK”, a przy `PBOOT.PBP` „DATA.PSP: jawny ELF”,
-   kopiuj. W `build_report.json` jest też pole `skill_total` (Skill00 + 8 pul; ma być ≤ 342 194 B,
-   z v5/v6 wychodzi 340 074 B).
-6. **Wgranie:** kopia zapasowa folderu DLC emulatora (cały folder obok, z dopiskiem `_ORYGINAL` —
-   **w tym oryginalny `PBOOT.PBP`**), potem wszystkie pliki z `srw-oe-patch\DLC\` do folderu DLC
-   emulatora (nadpisać, razem z `PBOOT.PBP`). W PPSSPP uruchom `srw-oe-patch\patched.iso`. Gdyby gra
-   z nowym `PBOOT.PBP` nie wystartowała (hipoteza do sprawdzenia, część 5): przywróć oryginalny
-   `PBOOT.PBP` z kopii i użyj `cheats\NPJH50521.ini`.
+   „pakiet v6 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK”, a przy `patched.iso` „program gry …
+   jawny ELF 1.08 z napisami EN pakietu v6”, kopiuj. W `build_report.json` jest też pole `skill_total`
+   (Skill00 + 8 pul; ma być ≤ 342 194 B, z v5/v6 wychodzi 340 074 B).
+6. **Wgranie:** kopia zapasowa folderu DLC emulatora (cały folder obok, z dopiskiem `_ORYGINAL`),
+   potem wszystkie pliki z `srw-oe-patch\DLC\` do folderu DLC emulatora (nadpisać). W PPSSPP uruchom
+   `srw-oe-patch\patched.iso`. **Na czas pierwszego testu wyłącz cheat `EXE strings EN`** (albo usuń
+   `memstick\PSP\Cheats\NPJH50521.ini`) — inaczej nie wiadomo, czy angielski panel bitwy to zasługa
+   nowego `EBOOT.BIN`, czy cheatu. Gdyby gra z nowym ISO nie wystartowała (hipoteza do sprawdzenia,
+   część 5): wróć do poprzedniego `patched.iso` i włącz cheat — to droga sprawdzona.
 
 Jeśli zamiast „Gotowe” jest „Cos odmowilo”: nie kasuj niczego, prześlij `build_report.json`
 i `DIAGNOZA.txt`.
@@ -206,10 +210,13 @@ i nagłówki 用 / 名 (kontekst niepotwierdzony).
 
 ---
 
-## Część 5 — napisy programu gry: `PBOOT.PBP` (EXE_TEST1 albo wynik `HOKUS_POKUS`) i droga zapasowa CWCheat
+## Część 5 — napisy programu gry: `EBOOT.BIN` w ISO (EXE_TEST2 albo wynik `HOKUS_POKUS`) i droga zapasowa CWCheat
 
-Część napisów nie leży w żadnym pliku danych, tylko w **programie gry** — a dokładnie w aktualizacji 1.08
-(`PBOOT.PBP` w folderze DLC emulatora; PPSSPP uruchamia go zamiast programu z płyty, bo pasuje `DISC_ID`).
+Część napisów nie leży w żadnym pliku danych, tylko w **programie gry**. Ten sam program 1.08 istnieje w dwóch
+miejscach: w ISO jako `PSP_GAME/SYSDIR/EBOOT.BIN` (twoje ISO to zrzut pakietu PSN 1.08) i w folderze DLC jako
+aktualizacja `PBOOT.PBP`. **Sprawdzone 2026-10-15 w nocy: PPSSPP (wydanie) uruchamia ten z ISO, a `PBOOT.PBP`
+w ogóle nie czyta** — podmiana samego PBOOT (dawny EXE_TEST1) nic nie dała, a kody CWCheat z adresami wyliczonymi
+z programu PBOOT zadziałały od razu, co zarazem dowodzi, że oba programy mają napisy w tych samych miejscach.
 Są to: na panelu broni w walce `移動後` (→ Post-Mv) i `TGT 敵/味方/全て` (→ Foe/Ally/All); komunikaty w walce
 (`回避` Evade, `援護防御` Sup. Def, `援護攻撃` Sup. Atk, `ＥＮ不足` Low EN, `射程外` OutRng, `合体攻撃` Comb.Atk,
 `クリティカル` Critical, `突破攻撃` Break, `全包囲！` Surround!); linie zdolności broni dodane w 1.08
@@ -220,29 +227,32 @@ menu taktyczne (Find Status Options Retire Quick Save), `【End Phase】`, komun
 sieci / DLC i nazwa gry w danych sejwu. Razem 408 napisów, 397 po angielsku (11 to symbole i teksty debugowe).
 Angielski jest wpisany **w miejsce** japońskiego (nigdy dłuższy niż miejsce + zera wyrównania — dlatego skróty
 jak „OutRng”, „Comb.Atk”, „Sng”); program poza napisami jest bajt w bajt ten sam. Jedna zmiana techniczna:
-`DATA.PSP` w środku nie jest już zaszyfrowany (zaszyfrować z powrotem nie da się bez kluczy Sony) — **PPSSPP
-według swojego kodu źródłowego ładuje taki nieszyfrowany moduł wprost; w grze tego jeszcze nie sprawdziliśmy
-(to jest główna hipoteza tego zestawu).** Prawdziwe PSP z CFW — nie sprawdzane, poza celem.
+nowy `EBOOT.BIN` nie jest zaszyfrowany (zaszyfrować z powrotem nie da się bez kluczy Sony) — **PPSSPP według
+swojego kodu ładuje taki nieszyfrowany program wprost i tak właśnie robią fanowskie łatki gier PSP; w grze tego
+jeszcze nie sprawdziliśmy (to jest główna hipoteza tego kroku).** Prawdziwe PSP z CFW — nie sprawdzane, poza celem.
 
-Droga A — `EXE_TEST1.zip` (nic nie buduje, 2 minuty):
+Droga A — `EXE_TEST2.zip` (nic nie buduje, 2 minuty):
 
-1. Kopia oryginału: `memstick\PSP\GAME\NPJH50521\PBOOT.PBP` → np. `PBOOT_ORYGINAL.PBP` **w innym folderze**
-   (nie obok pod inną nazwą — PPSSPP czyta tylko `PBOOT.PBP`, ale porządek się przyda).
-2. Skopiuj `PBOOT.PBP` z `EXE_TEST1\` do `memstick\PSP\GAME\NPJH50521\` (nadpisz).
-3. Uruchom grę z dotychczasowego `patched.iso`. Tytuł ma nadal pokazywać wersję 1.08. Sprawdź: walka →
-   panel broni (Post-Mv / TGT Foe), Guard L1 (`Dmg-16% Trigger 12%`), zdolności broni VF-25F (`<Pierce Lv2>`,
-   `<Beam Wpn Lv2>`, `<Coord. Atk Lv2>`), komunikat autozapisu po starcie.
-4. **Gra nie startuje / wisi na logo** → przywróć oryginalny `PBOOT.PBP` i napisz (zrzut + co było na ekranie);
-   wtedy Droga C.
+1. **Wyłącz cheat** `EXE strings EN` w PPSSPP (menu pauzy → Cheaty) albo usuń `memstick\PSP\Cheats\NPJH50521.ini`.
+2. `WGRAJ_DO_ISO.bat`: okno 1 — **oryginalne** `SRW OE 1.08.iso` (może być też ISO z UI_TEST4, byle bez
+   wcześniejszego EXE); okno 2 — rozpakowany folder `EXE_TEST2\` (w środku `EBOOT.BIN`). Wynik:
+   `srw-oe-wgrane\EXE_TEST2\patched.iso`; oryginał nietknięty. Narzędzie odmówi, jeśli w ISO jest już mój program.
+3. Uruchom ten `patched.iso` (folder DLC jak dotąd). Sprawdź: walka → panel broni (Post-Mv / TGT Foe), Guard L1
+   (`Dmg-16% Trigger 12%`), zdolności broni VF-25F (`<Pierce Lv2>`, `<Beam Wpn Lv2>`, `<Coord. Atk Lv2>`),
+   komunikat autozapisu po starcie.
+4. **Gra nie startuje / wisi na logo** → wróć do poprzedniego ISO i napisz (zrzut + co było na ekranie +
+   `srw-oe-wgrane\EXE_TEST2\insert_report.json`); do grania zostaje Droga C.
 
-Droga B — przy budowie `HOKUS_POKUS.bat` (część 1): jeśli wskazany folder DLC zawiera `PBOOT.PBP`, builder
-sam robi to samo i kładzie wynik w `srw-oe-patch\DLC\PBOOT.PBP` (plus `srw-oe-patch\cheats\NPJH50521.ini`).
-Wyłączenie: `python tools\build_translation_patch.py … --no-exe`.
+Droga B — przy budowie `HOKUS_POKUS.bat` (część 1): builder czyta `EBOOT.BIN` z twojego ISO, sprawdza w nim
+japońskie bajty każdego napisu i wpisuje angielski do `patched.iso`; do tego `srw-oe-patch\DLC\PBOOT.PBP`
+(gdy folder DLC go ma) i `srw-oe-patch\cheats\NPJH50521.ini`. Wyłączenie: `… --no-exe`; tylko program:
+`--only EBOOT.BIN`. Gdy `EBOOT.BIN` w ISO ma typ szyfrowania, którego moje narzędzie nie zna, a nagłówek zgadza
+się z PBOOT co do bajta, builder wkłada program z PBOOT i pisze o tym w raporcie („program wzięty z PBOOT.PBP”).
 
-Droga C — zapasowa, bez podmiany `PBOOT.PBP` (kody CWCheat): skopiuj `cheats\NPJH50521.ini` do
+Droga C — sprawdzona i zapasowa (kody CWCheat, **działa — test 2026-10-15**): skopiuj `cheats\NPJH50521.ini` do
 `memstick\PSP\Cheats\` (jeśli plik już tam jest, dopisz zawartość na końcu). W PPSSPP: Ustawienia → System →
 **Włącz cheaty**; w menu pauzy → Cheaty → zaznacz `EXE strings EN`. Te same bajty są wtedy wpisywane w pamięć
-po starcie gry; oryginalny `PBOOT.PBP` zostaje.
+po starcie gry; ISO i `PBOOT.PBP` zostają jakie są. Minus: trzeba pamiętać o włączeniu, i działa tylko w PPSSPP.
 
 Co z tego zestawu NIE pochodzi: „Main Pilot / Sub Pilot / Switch Pilot” i inne napisy menu (to `configst.cpk`
 z pakietu v6 — potrzebna budowa) oraz poprawki grafik (część 4).
@@ -268,7 +278,9 @@ modyfikowany.
   `Sound Setup`, `Sort`, `Page`, `Missions Cleared:`, `[GR Mission]`, `Simulator Mission`, ` Saving...`,
   `%s is now available!` …), „Link Attack” → „Coord. Attack” w 3 opisach. Opis: `CO_NOWEGO_v6.txt`.
 - Budowa z v6 w piaskownicy (#20, bez ISO): `config00.cpk` 936 064 B (Skill00 215 450 B jak v5),
-  `configst.cpk` 372 864 B z 31 nowymi napisami, `PBOOT.PBP` 6 191 659 B md5 `26689964d2ce4e6cddadb67c8188e923`.
+  `configst.cpk` 372 864 B z 31 nowymi napisami, `PBOOT.PBP` 6 191 659 B md5 `26689964d2ce4e6cddadb67c8188e923`;
+  (#21, ISO testowe z prawdziwym programem 1.08): `EBOOT.BIN` w `patched.iso` = jawny ELF 5 531 024 B, md5
+  `ba4cc05c24e2d98f1edeaefe68228eff`, 397 z 397 napisów.
 
 ## Co było w pakiecie v5 (liczby z budowy #18, 2026-10-15 w nocy; v5 działał w grze w buildzie #19)
 
@@ -295,8 +307,8 @@ modyfikowany.
   umiejętności, zakładki intermisji, pasek 気力/援護, walka, opcje, części) maluje osobny krok
   (`UI_TEST4.zip` albo aktualny `HOKUS_POKUS.bat`, część 4); komplet `UI_TEST3` działał w grze (#19),
   poprawki `UI_TEST4` — jeszcze nie. Po japońsku zostają tylko ikony `mensys_12` (czekam na zrzut).
-- Napisy programu gry (komunikat autozapisu, panel broni, komendy) są od v6 w zakresie — ale tylko przez
-  podmianę `PBOOT.PBP` (nieszyfrowany `DATA.PSP`, hipoteza) albo kody CWCheat (część 5); działa to tylko
-  z aktualizacją 1.08 w folderze DLC, nie z samym programem z płyty.
+- Napisy programu gry (komunikat autozapisu, panel broni, komendy) są od v6 w zakresie — przez nowy
+  `EBOOT.BIN` w `patched.iso` (nieszyfrowany program, hipoteza do sprawdzenia w grze) albo kody CWCheat
+  (sprawdzone); sama podmiana `PBOOT.PBP` w folderze DLC nic nie daje (PPSSPP jej nie czyta).
 - Nie zawiera żadnych plików gry: wszystko powstaje z twojego ISO i twoich DLC.
 - Nie działa na zaszyfrowanych plikach DLC ani na ISO innej wersji niż 1.08.

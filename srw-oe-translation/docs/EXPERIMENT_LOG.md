@@ -4917,3 +4917,77 @@ audyt 0 braków. HIPOTEZY: PPSSPP uruchomi `PBOOT.PBP` z jawnym ELF-em (z kodu �
 „OutRng”/„Comb.Atk”/„Gamer:”; `EBOOT.BIN` z ISO = ta sama binarka. NIEZNANE: prawdziwe PSP/CFW z jawnym ELF-em (nie
 sprawdzane, poza celem); czy `＠4<0F>#ｰﾏｰ:` to „Gamer”. Następne: zrzuty z v6 + EXE_TEST1 (panel broni, Guard, VF-25F,
 Main Pilot), `mensys_12`, rozdziały 5–8 bez EN, kalibracja szerokości etykiet.
+
+### 21.33 EXE_TEST1 w grze: podmiana `PBOOT.PBP` NIE DZIAŁA (PPSSPP-wydanie nie czyta aktualizacji), CWCheat DZIAŁA ⇒ program idzie do `EBOOT.BIN` w ISO (build #21, EXE_TEST2); typ 6 w `psp_prx`
+
+**Wejście (2026-10-15, noc):** użytkownik przetestował EXE_TEST1: (a) sama podmiana `PBOOT.PBP` w folderze DLC emulatora
+— **bez żadnej zmiany** (gra rusza, napisy programu japońskie, „jakby emulator w ogóle nie czytał tego pliku”); (b) plik
+CWCheat `NPJH50521.ini` (`_C1 EXE strings EN`) — **napisy po angielsku od razu**. Pyta, czy 1.08 nie siedzi w ISO
+(`EBOOT.BIN`) zamiast w DLC; uruchamia pełną budowę z v6.
+
+**Diagnoza (ze źródeł, potwierdzona obserwacją):**
+* `FindGameUpdatePBOOT` (`Core/PSPLoaders.cpp`) istnieje tylko w **gałęzi master** PPSSPP (komentarz w kodzie odsyła do
+  nowego `Core/Util/PkgUnpack.h`); **wydania** PPSSPP w ogóle nie zaglądają do `ms0:/PSP/GAME/<ID>/PBOOT.PBP` — startują
+  `disc0:/PSP_GAME/SYSDIR/EBOOT.BIN`. Hipoteza §21.32 („PPSSPP uruchomi PBOOT”) była prawdziwa tylko dla mastera —
+  **obalona dla buildu użytkownika** (test (a)).
+* Test (b) to dowód mocniejszy niż md5: cheat wpisuje 2 867 linii pod adresy wyliczone z ELF-a **z PBOOT** (`vaddr − 0x08800000`),
+  a gra pokazuje angielskie napisy bez crasha ⇒ program załadowany z `EBOOT.BIN` ISO ma **ten sam układ napisów** co
+  ELF 1.08 z PBOOT (ISO użytkownika = zrzut PKG 1.08). Tożsamość bajt w bajt nadal niezmierzona (ISO nie ma w sandboxie).
+* Wniosek: napisy programu trzeba wpisać do **`PSP_GAME/SYSDIR/EBOOT.BIN` w `patched.iso`** — standard fanowskich łatek
+  PSP (zdeszyfrowany ELF w miejsce podpisanego `~PSP`; loader PPSSPP bierze `0x7F ELF` wprost, jak w §21.32).
+
+**A. Builder — `exe_step` przepisany (`TOOLS_STAMP 2026-10-15g`, commit `acfa8a9`).** Dwa cele, każdy weryfikowany osobno:
+1. **`EBOOT.BIN` z ISO (główny):** `iso_pack.find_member/read_member("psp_game/sysdir/eboot.bin")` → `~PSP` ⇒
+   `psp_prx.decrypt_prx` (jawny ELF przechodzi bez zmian) → `verify_build` (0 trafień ⇒ „inny wydruk”, nic nie pisze) →
+   `apply_rows` → `iso_patch[klucz] = jawny ELF` ⇒ `patch_iso` dopisuje go na końcu obrazu i przepisuje rekord katalogu
+   (jak kontenery USRDIR; `BOOT.BIN`, `PARAM.SFO` nietknięte). Rozmiar członka: 5 533 424 → 5 531 024 B.
+2. **`PBOOT.PBP` z DLC (drugorzędny):** jak dotąd (`out/DLC/<ścieżka>/PBOOT.PBP`, odczyt zwrotny) — nieszkodliwy, a loader,
+   który honoruje aktualizację (master), pokaże to samo. Brak PBOOT = tylko notatka, nie problem.
+3. **CWCheat** `out/cheats/NPJH50521.ini` z ELF-a, który naprawdę działa (dyskowego; gdy go nie ma — z PBOOT).
+Awaryjnie (zgłaszane jako takie): gdy `EBOOT.BIN` ma tag, którego `psp_prx` nie zna, a jego nagłówek `~PSP` równa się
+nagłówkowi PBOOT we wszystkich polach `EXE_HEADER_FIELDS` (`modname, module_version, elf_size, entry, modinfo_offset,
+bss_size, comp_size, compressed, devkit_version`), do ISO idzie spatchowany ELF **z PBOOT** z flagą `source: PBOOT.PBP`
+i notatką „ten sam build wg nagłówka, nie wg bajtów”; różnica w nagłówku ⇒ odmowa z listą pól. `report["executable"]` =
+`{rows, targets:[{target,name,tag,modname,module_version,elf_md5_in/out,elf_bytes,rows_matching_japanese,applied,skipped,
+empty,written,iso_member_bytes|verified,source?,note?,problems}], primary, applied, skipped, written, notes, problems}`;
+`--only/--skip` znają `EBOOT.BIN` i `PBOOT.PBP`; `--no-exe` bez zmian; podsumowanie CLI po jednej linii na cel
+(„Program gry [ISO PSP_GAME/SYSDIR/EBOOT.BIN]: 397 z 397 …”). Niepowodzenie celu = problem w raporcie, **kod wyjścia 0**
+(reszta łatki stoi; DIAGNOZA to flaguje). Testy: `ExeStepTests` (8) w `tests/test_build_translation_patch.py` — syntetyczne
+ISO z `SYSDIR/EBOOT.BIN` (ELF z `exe_fixtures`), PBP z `_pbp()`, nagłówek `~PSP` z `_fake_psp()` + `mock` dekodera dla
+ścieżki awaryjnej, filtry, dry-run, inny wydruk.
+**Build #21 (sandbox):** syntetyczne ISO = `SYSDIR/EBOOT.BIN` := prawdziwy szyfrowany `DATA.PSP` z PBOOT (tag `0x2E5E10F0`)
++ `USRDIR/config00.cpk, configst.cpk` z `local/inputs`; `--dlc local/dlc_exe` (PBOOT), pakiet v6, `--no-ui-textures`, 15 s:
+`EBOOT.BIN` w `patched.iso` = jawny ELF **5 531 024 B, md5 `ba4cc05c24e2d98f1edeaefe68228eff`** (= `DATA_en.elf` z
+EXE_TEST1), `PBOOT.PBP` md5 `26689964…` (= EXE_TEST1), cheats 2 867 linii, 397/397 na obu celach, 0 odrzuceń.
+
+**B. `psp_prx.py` — typ 6.** Na wypadek, gdyby `EBOOT.BIN` z płyty nosił późniejszy tag retail: `0xD91680F0` / `0xD91681F0`
+(`pspDecryptType6`: jak typ 2, ale 0xD4..0x10C puste, a SHA-1 obejmuje też 0x20-bajtowy ogon ECDSA @0x10C; nagłówek CMD1
+ECDSA ma klucz AES w tym samym miejscu, więc `kirk1_decrypt` bez zmian). Klucze z `PrxDecrypter.cpp` mastera. Dodane też
+sprawdzenie „pole puste” dla typów 2/5 (0xD5..0x12C) jak w PPSSPP. **Żaden plik typu 6 nie przeszedł przez ten kod** —
+przy błędzie SHA-1 lub nie-ELF-ie dekoder odmawia (fail-closed), a builder przechodzi na ścieżkę awaryjną wyżej. PBOOT
+po zmianach: nadal md5 `8ba77a79…` (5,0 s).
+
+**C. `diagnoza.py`.** `KNOWN_ELF` (`8ba77a79…` = jawny 1.08 bez zmian, `ba4cc05c…` = program z v6/#20/#21),
+`describe_eboot` + `describe_iso_eboot`: linia „program gry (PSP_GAME/SYSDIR/EBOOT.BIN)” w sekcji 3 (`patched.iso`) i 5
+(ISO uruchamiane): oryginał `~PSP` (tag, moduł, wersja, `elf_size`) / znany jawny ELF / **NIEZNANY** (flaga); `cheats\`
+liczba linii; `summarize_report` wypisuje cele programu z `build_report.json`, flaguje raport starego buildera („tylko
+PBOOT.PBP — przebuduj”), cel bez wpisów i budowę bez `EBOOT.BIN`. `describe_pboot` nazywa wersję jawnego ELF-a po md5.
+Testy `DiagnozaEbootTests` (2).
+
+**D. `iso_insert.py` (WGRAJ_DO_ISO) przyjmuje `EBOOT.BIN`** → `PSP_GAME/SYSDIR/EBOOT.BIN`: plik z folderu musi być jawnym
+ELF-em; w ISO może być `~PSP` (oryginał) albo nieznany jawny ELF (niektóre konwertery PKG→ISO zostawiają zdeszyfrowany
+program — przyjmowane), odmowa gdy w ISO jest już jeden z moich programów (`KNOWN_BUILT_ELF`, bez `--force`) albo śmieci.
+Test w `tests/test_iso_insert.py`. **EXE_TEST2** (`local/EXE_TEST2/EXE_TEST2.zip`, 1 979 870 B, md5
+`c7ddd9272ca433b66e60daa782980411`; Dysk DELIVERY `1txY813uAuMyFzfLspEG8t1dcS1mSKa13`): `EBOOT.BIN` (= ELF `ba4cc05c…`),
+`CZYTAJ_EXE_TEST2.txt` (wyłączyć cheat → WGRAJ_DO_ISO na ORYGINALNE ISO → sprawdzić panel bitwy/Guard/VF-25F),
+`NPJH50521_cheat_zapasowy.ini.txt`. Próba w sandboxie na syntetycznym ISO: wgrany, odczyt zwrotny zgodny; druga próba na
+wyniku odmawia (identyczny plik).
+
+**Testy: 1 238 OK (1 pominięty)** (`discover tests -q`).
+
+**Potwierdzone / hipotezy / nieznane:** POTWIERDZONE (użytkownik): PPSSPP-wydanie nie czyta `PBOOT.PBP`; CWCheat z adresami
+z ELF-a PBOOT działa w grze ⇒ identyczny układ napisów w programie z ISO. POTWIERDZONE (sandbox): builder wkłada jawny ELF
+do `patched.iso` i odczytuje go z powrotem; EXE_TEST2 przechodzi przez WGRAJ_DO_ISO. HIPOTEZY: PPSSPP uruchomi jawny ELF
+jako `EBOOT.BIN` z ISO (z kodu loadera + praktyka łatek fanowskich — **nie uruchomione**); `EBOOT.BIN` użytkownika ma tag
+`0xD916xxF0` typu 2 (albo 6) i dekoduje się naszym kodem — gdy nie, zadziała ścieżka awaryjna po nagłówku. NIEZNANE: md5
+i tag `EBOOT.BIN` z ISO użytkownika (poprosić o `build_report.json` / DIAGNOZĘ po przebudowie); v6 i UI_TEST4 w grze.

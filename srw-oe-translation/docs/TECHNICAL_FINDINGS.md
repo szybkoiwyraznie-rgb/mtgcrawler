@@ -420,7 +420,7 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
   record in all roles and only notes `skipped: ['record N role effect: two rows, two translations']` in
   `build_report.json` (exit code unchanged). `translation_check.conflicting_duplicates` now reports this as an error.
 
-## The game program carries UI strings; the 1.08 update `PBOOT.PBP` is the program PPSSPP runs (2026-10-15)
+## The game program carries UI strings; release PPSSPP boots the ISO's `EBOOT.BIN`, not `PBOOT.PBP` (2026-10-15)
 
 * Strings with 0 hits in any data container (`移動後`, `TGT 敵/味方/全て`, battle banners `回避`/`援護防御`/`ＥＮ不足`/
   `射程外`, the Guard effect literals `ダメージ-16% 発動率12%` …, the 1.08-only weapon-ability lines `<貫通 Lv2>`,
@@ -440,11 +440,23 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
 * Re-encryption is impossible (KIRK CMD1 signs with Sony keys), so the patched `DATA.PSP` is a plain ELF.
   PPSSPP `Core/HLE/sceKernelModule.cpp` (master) loads a module starting with `0x7F ELF` directly when
   `pspDecryptPRX` does not apply, and `Core/PSPLoaders.cpp::FindGameUpdatePBOOT` boots `ms0:/PSP/GAME/<DISC_ID>/PBOOT.PBP`
-  instead of the disc EBOOT when its PARAM.SFO `DISC_ID` matches (a `DISC_VERSION` mismatch only logs). **Source-verified
-  only — not run in-game.** Fallback that needs no PBOOT change: CWCheat `_S NPJH-50521`, `_C1 EXE strings EN`,
-  `_L 0x2<addr> <u32>` with `addr = vaddr − 0x08800000` (2 867 lines for 397 rows).
-* Patched `PBOOT.PBP`: 6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923` (builder `exe_step` == manual
-  `exe_strings.py apply`); original 1.08: 6 194 059 B, md5 `22daece3b6fccc4363dd76ed6a7ec2fb`.
+  instead of the disc EBOOT when its PARAM.SFO `DISC_ID` matches (a `DISC_VERSION` mismatch only logs) — **but that
+  function is master-only** (its comment references the new `Core/Util/PkgUnpack.h`). **Measured on the user's release
+  PPSSPP (2026-10-15 night): a patched `PBOOT.PBP` in `memstick/PSP/GAME/NPJH50521/` changes nothing; the emulator boots
+  `disc0:/PSP_GAME/SYSDIR/EBOOT.BIN`.** The CWCheat route (`_S NPJH-50521`, `_C1 EXE strings EN`, `_L 0x2<addr> <u32>`,
+  `addr = vaddr − 0x08800000`, 2 867 lines for 397 rows) **works in-game** — and since its addresses come from the PBOOT
+  ELF, the program loaded from the ISO has the same string layout (the ISO is a dump of the 1.08 PKG).
+* Therefore the patch target is `PSP_GAME/SYSDIR/EBOOT.BIN` inside `patched.iso`: decrypt (`psp_prx`: type 2 `0xD916xxF0`
+  retail tags, type 6 `0xD91680F0/81F0` ported without a sample, type 5 updates), verify the Japanese bytes, write the
+  English in place, append the plain ELF into the ISO (`iso_pack.patch_iso` rewrites the directory record; `BOOT.BIN`,
+  `PARAM.SFO` untouched; 5 533 424 → 5 531 024 B). The loader path for a plain `0x7F ELF` is the same for a disc EBOOT
+  as for a PBP `DATA.PSP`; shipping a decrypted EBOOT.BIN is how PSP fan patches work. **Not yet run in-game.** The disc
+  EBOOT's tag and md5 are unknown until the user's rebuilt `build_report.json` arrives; if its tag is unsupported but its
+  `~PSP` header equals PBOOT's in every field (`modname, module_version, elf_size, entry, modinfo_offset, bss_size,
+  comp_size, compressed, devkit_version`), the builder writes the patched PBOOT program there and flags it.
+* Patched program: plain ELF 5 531 024 B, md5 `ba4cc05c24e2d98f1edeaefe68228eff` (package v6, 397 rows; identical from
+  the builder, EXE_TEST1 and EXE_TEST2). Patched `PBOOT.PBP`: 6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923`
+  (builder `exe_step` == manual `exe_strings.py apply`); original 1.08: 6 194 059 B, md5 `22daece3b6fccc4363dd76ed6a7ec2fb`.
 
 ## `sysmes.bin` tail rows never reach the game; half-width kana strings were dropped by the exporter (2026-10-15)
 

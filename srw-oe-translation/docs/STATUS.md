@@ -1,8 +1,24 @@
 # Project status
 
-Last updated: 2026-10-15 (late evening, §21.32)
+Last updated: 2026-10-15 (night, §21.33)
 
-**Latest (2026-10-15, late evening): build #19 (v5 text + UI_TEST3 textures via HOKUS_POKUS) CONFIRMED WORKING in-game
+**Latest (2026-10-15, night): EXE_TEST1 IN-GAME RESULT — swapping `PBOOT.PBP` in the emulator's DLC folder changes
+NOTHING (confirmed: release PPSSPP never reads the update; `FindGameUpdatePBOOT` exists only in master), while the
+CWCheat file `cheats\NPJH50521.ini` turns the program strings English at once (CONFIRMED). The cheat addresses come from
+the PBOOT-derived ELF, so the program PPSSPP boots — `PSP_GAME/SYSDIR/EBOOT.BIN` inside the ISO (a dump of the 1.08
+PKG) — has the same string layout. Consequence: the builder's `exe_step` now patches the ISO's `EBOOT.BIN` as its
+PRIMARY target (decrypt with `psp_prx` → verify Japanese bytes → in-place English → plain ELF appended into
+`patched.iso`), keeps `DLC\PBOOT.PBP` as a secondary target and still writes the cheat file; an undecryptable disc EBOOT
+with a `~PSP` header identical to PBOOT's falls back to the PBOOT program (flagged `source: PBOOT.PBP`). `psp_prx` gained
+the type-6 retail tags (`0xD91680F0/81F0`, ported, no sample run), `diagnoza` classifies `EBOOT.BIN` (original `~PSP` /
+known plain build / unknown) and the report's per-target lines, `WGRAJ_DO_ISO` (`iso_insert`) accepts an `EBOOT.BIN`.
+Sandbox build #21 (synthetic ISO carrying the real encrypted `DATA.PSP` as EBOOT.BIN): 397/397 on both targets, EBOOT in
+`patched.iso` = plain ELF md5 `ba4cc05c…`. `EXE_TEST2.zip` (EBOOT.BIN for WGRAJ_DO_ISO, cheat disabled) on Drive. Tests:
+1 238 OK (1 skipped). STILL A HYPOTHESIS: PPSSPP boots the plain-ELF `EBOOT.BIN` from the ISO (loader source + fan-patch
+practice; not run in-game yet); the user's disc EBOOT tag/md5 are unknown until his rebuilt `build_report.json` arrives.
+The confirmed route for the program strings today is the cheat file. Details: `EXPERIMENT_LOG.md` §21.33.**
+
+**Previous (2026-10-15, late evening): build #19 (v5 text + UI_TEST3 textures via HOKUS_POKUS) CONFIRMED WORKING in-game
 ("everything runs beautifully"). The 8 screenshots of leftovers traced to three sources, all by bytes: (a) the GAME
 PROGRAM — `PBOOT.PBP` (the 1.08 update in the DLC folder) → `DATA.PSP`: `移動後`, `TGT 敵`, Evade / Sup. Def / Low EN
 banners, the Guard effect line, the 1.08-only `<貫通 Lv2>` / `<ビーム兵器 Lv2>` / `<連携攻撃 Lv2>` weapon-ability lines, the

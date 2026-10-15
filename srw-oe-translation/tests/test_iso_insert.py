@@ -78,12 +78,25 @@ class IsoInsertTests(unittest.TestCase):
         self.assertEqual(iso_pack.read_member(out, "psp_game/sysdir/eboot.bin"), b"\x7fELF" + b"EN" * 300)
         self.assertEqual(iso_pack.read_member(out, "psp_game/sysdir/boot.bin"), b"\0" * 16)
         self.assertEqual(iso_pack.read_member(out, "psp_game/usrdir/config00.cpk"), ORIG_CONFIG00)
-        # stacking on the already patched ISO is refused (no ~PSP there any more) unless forced
+        # stacking on an ISO that already carries one of our programs is refused unless forced
+        built_md5 = hashlib.md5(b"\x7fELF" + b"EN" * 300).hexdigest()
+        II.KNOWN_BUILT_ELF[built_md5] = "test build"
+        self.addCleanup(II.KNOWN_BUILT_ELF.pop, built_md5, None)
         (kit / "EBOOT.BIN").write_bytes(b"\x7fELF" + b"EN2" * 300)
         with self.assertRaises(II.InsertError) as cm:
             II.plan(out, kit)
-        self.assertIn("nie jest oryginalnym szyfrowanym programem", str(cm.exception))
+        self.assertIn("to juz test build", str(cm.exception))
         self.assertEqual(len(II.plan(out, kit, force=True)), 1)
+        # a disc whose EBOOT.BIN is an unknown plain ELF (decrypted by the dumping tool) is accepted
+        del II.KNOWN_BUILT_ELF[built_md5]
+        self.assertEqual(II.plan(out, kit)[0]["kind_in_iso"], "ELF")
+        # garbage in the ISO's slot is not
+        tree["PSP_GAME"]["SYSDIR"]["EBOOT.BIN"] = b"JUNK" * 100
+        junk = self.tmp / "junk.iso"
+        junk.write_bytes(iso_pack.build_iso(tree))
+        with self.assertRaises(II.InsertError) as cm:
+            II.plan(junk, kit)
+        self.assertIn("nie jest ISO tej gry", str(cm.exception))
         # a kit whose EBOOT.BIN is not a plain ELF is refused
         (kit / "EBOOT.BIN").write_bytes(b"~PSP" + b"\0" * 100)
         with self.assertRaises(II.InsertError) as cm:

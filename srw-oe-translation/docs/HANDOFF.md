@@ -100,8 +100,9 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   (BEZ speakra). `apply_strings.py` — wkleja tłumaczenia (rośnie).
 - `extract_scenes.py` — sceny z chronologią/nagłówkami/placeholderami (speaker TODO).
 - `scan_translatable.py` — inwentaryzacja; `dlc_catalog.json`, `local/extracted/*.jsonl`.
-- `psp_prx.py` — `PBOOT.PBP`/`EBOOT.BIN`: `pbp_get`/`pbp_replace`, `decrypt_prx` (tag `0x2E5E10F0` typ 5, KIRK w czystym
-  Pythonie, ~5 s), `elf_from(path)` (PBP / `~PSP` / jawny ELF). Stockowy `pspdecrypt` tego tagu NIE zna.
+- `psp_prx.py` — `PBOOT.PBP`/`EBOOT.BIN`: `pbp_get`/`pbp_replace`, `decrypt_prx` (typ 5 `0x2E5Exxxx` — zmierzony na PBOOT;
+  typ 2 `0xD916xxF0` i typ 6 `0xD91680F0/81F0` retail — przeniesione z kodu, bez próbki; KIRK w czystym Pythonie, ~5 s),
+  `elf_from(path)` (PBP / `~PSP` / jawny ELF). Stockowy `pspdecrypt` tagu `0x2E5E10F0` NIE zna.
 - `exe_strings.py` — `extract` (napisy programu z odwołaniem z kodu → wiersze `exe`, `mode slot`, `max_bytes` z wyrównaniem),
   `apply` (w miejscu; odmawia przy innym buildzie), `cheat` (CWCheat `_S NPJH-50521`), `check_en` (budżet, konwersje printf).
 - Testy: `tests/test_sysmes_shift.py`, `test_sysmes_pack.py`, `test_configst_pack.py`, `test_psp_prx.py`, `test_exe_strings.py`,
@@ -343,6 +344,18 @@ sprawdzone: v6, PBOOT z jawnym ELF-em (hipoteza z kodu PPSSPP: `sceKernelModule.
 `PSP/GAME/<DISC_ID>/PBOOT.PBP` zamiast `EBOOT.BIN` z płyty), UI_TEST4.** Droga zapasowa = plik CWCheat. Otwarte: zrzuty z v6,
 `mensys_12`, dialogi 5–8 bez EN, A1/A2, kalibracja szerokości etykiet, „Gamer:”/„OutRng”/„Comb.Atk” do oceny.
 
+**Stan 2026-10-15 noc (`EXPERIMENT_LOG.md` §21.33):** użytkownik: **sama podmiana `PBOOT.PBP` w folderze DLC = ZERO zmian**
+(PPSSPP-wydanie nie czyta aktualizacji; `FindGameUpdatePBOOT` jest tylko w masterze), **CWCheat `NPJH50521.ini` = napisy
+programu po angielsku (DZIAŁA)** ⇒ program, który PPSSPP uruchamia, to `PSP_GAME/SYSDIR/EBOOT.BIN` z ISO i ma ten sam układ
+napisów co ELF z PBOOT. Builder (`TOOLS_STAMP 2026-10-15g`): `exe_step` patchuje **`EBOOT.BIN` w `patched.iso`** (cel główny:
+`psp_prx` → `verify_build` → `apply_rows` → jawny ELF przez `iso_patch`/`patch_iso`), nadal `DLC\PBOOT.PBP` (drugorzędny) i
+`cheats\NPJH50521.ini`; ścieżka awaryjna: nieznany tag EBOOT + identyczny nagłówek `~PSP` z PBOOT ⇒ program z PBOOT z flagą
+`source: PBOOT.PBP`. `psp_prx` zna typ 6 (`0xD91680F0/81F0`, bez próbki). `diagnoza` opisuje `EBOOT.BIN` (oryginał `~PSP` /
+znany jawny ELF `ba4cc05c…` / NIEZNANY) i cele z raportu; `iso_insert` przyjmuje `EBOOT.BIN` (→ `SYSDIR`). Build #21 (sandbox,
+syntetyczne ISO z prawdziwym szyfrowanym `DATA.PSP` jako EBOOT): 397/397, ELF `ba4cc05c…` w ISO. `EXE_TEST2.zip` (EBOOT.BIN do
+WGRAJ_DO_ISO, cheat wyłączyć) na Dysku. **W grze nie sprawdzone: jawny ELF jako `EBOOT.BIN` z ISO (hipoteza z kodu loadera +
+praktyki łatek), v6, UI_TEST4.** Potrzebny `build_report.json` użytkownika po przebudowie (tag/md5 jego EBOOT).
+
 ## 9. Znane pułapki (nie powtarzaj)
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
   (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę
@@ -372,8 +385,10 @@ sprawdzone: v6, PBOOT z jawnym ELF-em (hipoteza z kodu PPSSPP: `sceKernelModule.
 - Napisy programu: tylko w miejscu (`slot`), budżet = bajty JP + wyrównanie do 4 za NUL (`敵` → 3 znaki). Nie da się
   zaszyfrować `DATA.PSP` z powrotem (KIRK CMD1 = podpis Sony) — wynik to jawny ELF; `verify_build` odmawia przy innym
   buildzie (0 trafień ⇒ nic nie zapisane). EN z `% d`-podobnym tekstem łapie się jako konwersja printf (pisz „Dmg”).
-- Folder DLC do HOKUS_POKUS musi zawierać `PBOOT.PBP` (inaczej krok exe nic nie robi i raport ma `executable.container = null`);
-  użytkownik zawsze robi kopię oryginalnego `PBOOT.PBP` przed podmianą.
+- **PPSSPP (wydanie) NIE czyta `PBOOT.PBP` z folderu DLC** (zmierzone 2026-10-15) — program gry to `EBOOT.BIN` z ISO; krok exe
+  buildera patchuje go w `patched.iso` (bez ISO przy budowie zostaje tylko PBOOT + cheat ⇒ napisy programu w grze japońskie,
+  chyba że cheat włączony). `report["executable"]["targets"]` ma wpis per cel; stary klucz `executable.container` już nie istnieje.
+  Użytkownik zawsze robi kopię oryginalnego `PBOOT.PBP` przed podmianą.
 - Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.
 - cmd.exe: `%X:~…%`/`%X:a=b%` dla NIEZDEFINIOWANEGO X usuwa tylko `%X:` i skanuje dalej → linia zamienia
   się w śmieci; w `if` to fatalny błąd składni („The syntax of the command is incorrect"), nawet gdy

@@ -59,9 +59,13 @@ KNOWN_ORIGINALS: Dict[str, str] = {
 }
 SKIPPED_SUFFIXES = {".txt", ".json", ".md", ".zip", ".log", ".csv", ".html", ".bat", ".py", ".exe"}
 #: files that live in PSP_GAME/SYSDIR, not USRDIR: the game program.  A build's ``EBOOT.BIN`` is the
-#: plain (decrypted, string-patched) ELF; the original on the disc is the signed ``~PSP`` - that is
-#: how a previously patched ISO is told apart here (no md5 of the user's disc EBOOT is on record).
+#: plain (decrypted, string-patched) ELF; the original on the disc is the signed ``~PSP`` (some
+#: PKG-to-ISO tools leave a decrypted ELF there - accepted), and a previously patched ISO is told
+#: apart by the md5 of the programs this project has built (no md5 of the user's disc EBOOT is on record).
 SYSDIR_FILES = {"eboot.bin"}
+KNOWN_BUILT_ELF: Dict[str, str] = {
+    "ba4cc05c24e2d98f1edeaefe68228eff": "program z pakietu v6 (397 napisow EN; EXE_TEST2 = build #21)",
+}
 
 
 class InsertError(Exception):
@@ -135,10 +139,13 @@ def plan(iso: Path, folder: Path, force: bool = False) -> List[dict]:
                 raise InsertError(f"{path.name} z folderu nie jest jawnym ELF-em z budowy (naglowek "
                                   f"{new[:4]!r}) - do ISO wchodzi tylko program z HOKUS_POKUS / EXE_TEST. "
                                   f"Nic nie zapisano.")
-            if entry["kind_in_iso"] != "~PSP" and not force:
-                raise InsertError(f"{path.name} w tym ISO nie jest oryginalnym szyfrowanym programem (~PSP), "
-                                  f"tylko {entry['kind_in_iso']} - to ISO bylo juz zmieniane. Wskaz ORYGINALNE "
-                                  f"ISO. Nic nie zapisano.")
+            built = KNOWN_BUILT_ELF.get(entry["md5_in_iso"])
+            if built and not force:
+                raise InsertError(f"{path.name} w tym ISO to juz {built} - to ISO bylo juz zmieniane. "
+                                  f"Wskaz ORYGINALNE ISO, zeby warianty sie nie nakladaly. Nic nie zapisano.")
+            if entry["kind_in_iso"] == "?" and not force:
+                raise InsertError(f"{path.name} w tym ISO nie jest ani szyfrowanym programem (~PSP), ani ELF-em "
+                                  f"(naglowek {current[:4]!r}) - to nie jest ISO tej gry. Nic nie zapisano.")
         known = entry["original_known"]
         if known and entry["md5_in_iso"] != known and not force:
             raise InsertError(f"{path.name} w tym ISO nie jest oryginalny (md5 {entry['md5_in_iso']},"
