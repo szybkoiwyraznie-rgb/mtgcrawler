@@ -4111,3 +4111,55 @@ grze, NIE do bisekcji).
 
 **Stan:** build #12 = pierwszy build z przetłumaczonymi config00+configst, który działa w nowej grze (Loading,
 misja, Spirits, kilkadziesiąt minut gry); wczytanie sejwu z 2. epizodu pada — przyczyna nieznana, runda 6 czeka.
+
+### 21.23 Runda 6 w grze: Z1 PADA, Z2 DZIAŁA, Z3 PADA ⇒ sam przebudowany `srwDL_Skill00.bin`; brak odwołań między rekordami; runda 7 (położenie / rozmiar / treść)
+
+**Wynik użytkownika (2026-10-15, PPSSPP, ISO 1.08, sejw z 2. epizodu z oryginalnej gry):** Z1 (cały config00 #12)
+CRASH; Z2 (cały configst #12) OK; Z3 (config00 oryginalny + tylko `srwDL_Skill00.bin` z #12) CRASH — identyczne
+okno. **Potwierdzone:** przyczyną crasha przy wczytaniu sejwu jest wyłącznie przebudowany `srwDL_Skill00.bin`;
+`configst.cpk` z buildu #12 jest czysty. Z4–Z10 niepotrzebne (Z4 opcjonalnie: czy pozostałe człony config00 są
+czyste).
+
+**Tekst okna crasha (zrzut użytkownika):** `CRC: 2f35f3f3 (not identified)`, `Destination: CPU Jump to ffffffff`,
+`PC: ffffffff`, `RA: 08a62f34`, `Cur thread: SazThread:0x8ad3dd0 (attr 800040ff)`. To **inna sygnatura** niż crash
+na „Loading” (tam `memcpy_jak` z zerowym dst/src): tu skok przez zepsuty/−1 wskaźnik kodu (tablica skoków lub
+wskaźnik funkcji), a nie wyczerpanie sterty. Interpretacja — hipoteza, bez EBOOT-a nie do rozstrzygnięcia statycznie.
+
+**Skan odwołań MIĘDZY rekordami w ORYGINALNYM Skill00** (dotąd słowa testowano tylko względem WŁASNEGO offsetu
+rekordu — stąd `+32`/`+36`; pole obecne tylko w części rekordów, np. wskaźnik na rekord bazowy/nadrzędny, uszłoby
+uwadze). Dla każdego z 1 469 rekordów każde u32 na każdej parzystej pozycji sprawdzono względem (a) zbioru offsetów
+wszystkich rekordów, (b) odległości względnej do innego rekordu, (c) bezwzględnych wskaźników puli ogonowej.
+Wynik: trafienia (a) na pozycji `+8` w 506 rekordach i rozproszone trafienia w polach tekstowych (+80…+154) —
+**wszystkie zbiegi okoliczności**: `+8` to para u16 (0, kategoria 1/2/3), a 131 072 = 0x20000 akurat jest offsetem
+rekordu 959 (`強化人間`), 196 608 = 0x30000 i 65 536 = 0x10000 podobnie; żaden „wskazywany” rekord nie dzieli nazwy
+ze wskazującym (0 z 506); (b) 14 trafień na `+8` tej samej natury; (c) 10 trafień na `+4` (słowo 196 611 = klucz +
+kategoria). **Wniosek (potwierdzone):** w Skill00 nie ma odwołań między rekordami przez offsety; jedyne słowa
+zależne od położenia to `+32` i `+36`, oba przepisywane przez pisarza.
+
+**Pozostałe hipotezy:** (1) sejw (lub stan gry zapisany w nim) trzyma POŁOŻENIA rekordów Skill00 (offsety) —
+wtedy każdy sejw jest związany z układem pliku, własne sejwy z patcha działają, japońskie nie; (2) ścieżka
+wczytywania sejwu ma własny (ciaśniejszy) limit rozmiaru członu; (3) sama angielska TREŚĆ (jakiś łańcuch
+formatowany inaczej na tej ścieżce). Z3 nie rozróżnia ich — stąd runda 7, wszystkie warianty z JAPOŃSKĄ treścią.
+
+**Runda 7 (`local/round7/`, `tools/member_variants.py` + `ISW.rebuild_member`):**
+- **Y1** = oryginalny Skill00 z dwiema edycjami: rekord 0 `effect_brief` `攻撃､命中上昇` → `攻撃､命中` (−4 B),
+  rekord 1468 `effect` + 4 spacje (+4 B) ⇒ **ten sam rozmiar 208 958 B, ta sama pula (bajtowo identyczna), rekordy
+  1..1468 przesunięte o −4 B**, rekordy 1..1467 identyczne poza `+32`/`+36` (sprawdzone). Test położenia.
+  `config00.cpk` 929 920 B md5 `9871ae5dc5b09e3eda9a24e607b4ae43`.
+- **Y2** = drabinka `--ladder 210942` (dawne T1: japoński + spacje), cpk md5 `92a00094eff13d88b1f061799139a75f`.
+- **Y3** = drabinka `--ladder 216518` — **dokładnie rozmiar Skill00 z buildu #12** (cpk 936 064 B jak #12), japoński
+  + spacje, md5 `672815884e2855ca369bd1a8ed145dcb`. (217 086 odrzucone przez bramkę `SKILL00_LIMIT` 216 768.)
+  Pozostałe człony we wszystkich trzech bajtowo identyczne z oryginałem (sprawdzone `members_of`).
+- Odczyt: Y1 CRASH → położenie (hipoteza 1); Y1 OK + Y2 CRASH → limit < 210 942 na ścieżce sejwu; Y2 OK + Y3 CRASH →
+  limit między 210 942 a 216 518; wszystkie OK → treść angielska (runda 8: `half_a`/`half_b`, `names_only`/
+  `effects_only` z #12).
+- Nadal proszone testy A (sejw zrobiony na #13 wczytany na #13) i B (ten sam sejw na oryginale).
+Dostawa `BISEKCJA_SEJW_runda7.zip` 445 085 B md5 `def76dceaf6723d264f8c5e73266d502`, Drive DELIVERY
+`1c-38jFmoeqocMvaMIOGa2ZocRr_gNmlk` (CZYTAJ cp1250 z tabelą odczytu, `ROZMIARY_I_MD5.json`; bez tłumaczeń).
+
+**Konsekwencje projektowe (jeśli Y1 padnie):** układ Skill00 trzeba ZAMROZIĆ przed wydaniem (stałe pojemności
+rekordów; każda późniejsza przebudowa unieważnia sejwy zrobione na patchu) i udokumentować „sejwy z japońskiej gry
+niezgodne — nowa gra”. Użytkownik zadeklarował, że japońskich sejwów nie potrzebuje.
+
+Środowisko: reset piaskownicy w trakcie tury (`local/` wyczyszczone; `config00.cpk` i pakiet v2 pobrane ponownie z
+Dysku, md5 config00 `266366c3bee66130d4b7cb57a1b1e3d4`).

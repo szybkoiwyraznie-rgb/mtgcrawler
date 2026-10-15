@@ -2,7 +2,16 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, night): build #12 WORKS in a new game** (Loading, mission, Spirits list and descriptions
+**Latest (2026-10-15, day): round 6 in-game — Z1 crash, Z2 OK, Z3 crash ⇒ the rebuilt `srwDL_Skill00.bin` ALONE
+makes the chapter-2 save (from the original JP game) crash on load** (`CPU Jump to ffffffff`, RA `08a62f34` — a
+different signature from the Loading crash). A full cross-record scan of the original Skill00 found no
+offset references between records (only `+32`/`+36`, both rewritten), so the remaining split is layout (save
+stores record positions) vs size vs English content: round 7 kit `BISEKCJA_SEJW_runda7.zip` (Y1 same-size
+shifted layout, Y2 210,942 B, Y3 216,518 B = build #12 size, all Japanese text) plus the A/B own-save tests.
+If Y1 crashes, the Skill00 layout must be frozen before release and JP-game saves declared incompatible.
+Details: `EXPERIMENT_LOG.md` §21.23.
+
+**Previous (2026-10-15, night): build #12 WORKS in a new game** (Loading, mission, Spirits list and descriptions
 in English, no crash in a longer session) — the `+32` finding is confirmed. Still open: loading the user's save from
 mid-chapter 2 crashes right after "Start" (same as #11); convention-A members show no position-dependent words,
 DLC_ID identifiers are untouched, so round 6 bisects the members in-game (`BISEKCJA_SEJW_runda6.zip`, Z1–Z10 +
