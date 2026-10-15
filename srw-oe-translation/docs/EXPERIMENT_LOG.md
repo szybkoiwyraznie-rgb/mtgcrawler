@@ -4062,3 +4062,5 @@ config_skill 61 %, config_sysmes 47 %. Reguła szerokości dla menu/tabel wymaga
 rysuje ASCII w połowie komórki) — czekam na zrzuty.
 
 **Stan:** build #12 czeka na test w grze; nic nie jest wykazane jako działające poza Loading/misją buildu #11.
+Pakiet odniesienia buildu #12: `pakiet_EN_2026-10-15_ciasny_v2.zip` 5 247 253 B md5 `a6bbff94ddaeda16d166e381bbffb5ca`,
+Drive Pakiet `1Pn6TsLNk8QVEdW7eJdas4-QyUqp8YpGg` (= pakiet ciasny + 12 wierszy `record_rows_refresh`).
