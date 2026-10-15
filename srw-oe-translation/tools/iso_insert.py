@@ -4,10 +4,12 @@
 The user receives builds and bisection variants as loose files (``config00.cpk``,
 ``configst.cpk`` ...) and cannot put a file "into an ISO" by hand.  This tool takes the original
 ISO and a folder with such files, maps every top-level file of the folder to
-``PSP_GAME/USRDIR/<name>``, and writes ``<out>/patched.iso`` with :func:`iso_pack.patch_iso`
+``PSP_GAME/USRDIR/<name>`` (``EBOOT.BIN`` - the game program of an EXE test kit - to
+``PSP_GAME/SYSDIR/EBOOT.BIN``), and writes ``<out>/patched.iso`` with :func:`iso_pack.patch_iso`
 (the original is only read).  Fail-closed:
 
-* a file whose name the ISO does not have under ``USRDIR`` stops the run (wrong folder);
+* a file whose name the ISO does not have under ``USRDIR`` (``SYSDIR``) stops the run (wrong folder);
+* ``EBOOT.BIN`` must be a plain ELF and must replace the disc's signed ``~PSP`` program;
 * only top-level files are taken - sub-folders (e.g. ``PLAN_B_sub_pliki/V1``) are separate
   variants and are listed as a hint, never merged;
 * the source ISO must still carry the ORIGINAL member for every file being replaced (known
@@ -56,6 +58,10 @@ KNOWN_ORIGINALS: Dict[str, str] = {
     "navisys.cpk": "08d5b99a29c779968b78259a2fc16b40",   # 2 bare RGBA8888 GIMs (navigation buttons)
 }
 SKIPPED_SUFFIXES = {".txt", ".json", ".md", ".zip", ".log", ".csv", ".html", ".bat", ".py", ".exe"}
+#: files that live in PSP_GAME/SYSDIR, not USRDIR: the game program.  A build's ``EBOOT.BIN`` is the
+#: plain (decrypted, string-patched) ELF; the original on the disc is the signed ``~PSP`` - that is
+#: how a previously patched ISO is told apart here (no md5 of the user's disc EBOOT is on record).
+SYSDIR_FILES = {"eboot.bin"}
 
 
 class InsertError(Exception):
@@ -105,9 +111,10 @@ def plan(iso: Path, folder: Path, force: bool = False) -> List[dict]:
             by_path[key.split(";")[0].strip("/")] = (key, lba, size)
     entries = []
     for path in files:
-        wanted = f"psp_game/usrdir/{path.name.lower()}"
+        sub = "sysdir" if path.name.lower() in SYSDIR_FILES else "usrdir"
+        wanted = f"psp_game/{sub}/{path.name.lower()}"
         if wanted not in by_path:
-            raise InsertError(f"W ISO nie ma pliku PSP_GAME/USRDIR/{path.name} - to nie jest plik"
+            raise InsertError(f"W ISO nie ma pliku PSP_GAME/{sub.upper()}/{path.name} - to nie jest plik"
                               f" z tej gry albo wskazano zly folder. Nic nie zapisano.")
         key, lba, size = by_path[wanted]
         with iso.open("rb") as fh:
@@ -121,6 +128,17 @@ def plan(iso: Path, folder: Path, force: bool = False) -> List[dict]:
             raise InsertError(f"{path.name}: plik z folderu jest IDENTYCZNY z tym w ISO"
                               f" (md5 {entry['md5_new']}) - to ISO ma go juz wgranego albo to"
                               f" oryginalny plik. Wskaz oryginalne ISO i folder z buildem.")
+        if sub == "sysdir":
+            entry["kind_new"] = "ELF" if new[:4] == b"\x7fELF" else ("~PSP" if new[:4] == b"~PSP" else "?")
+            entry["kind_in_iso"] = "ELF" if current[:4] == b"\x7fELF" else ("~PSP" if current[:4] == b"~PSP" else "?")
+            if entry["kind_new"] != "ELF":
+                raise InsertError(f"{path.name} z folderu nie jest jawnym ELF-em z budowy (naglowek "
+                                  f"{new[:4]!r}) - do ISO wchodzi tylko program z HOKUS_POKUS / EXE_TEST. "
+                                  f"Nic nie zapisano.")
+            if entry["kind_in_iso"] != "~PSP" and not force:
+                raise InsertError(f"{path.name} w tym ISO nie jest oryginalnym szyfrowanym programem (~PSP), "
+                                  f"tylko {entry['kind_in_iso']} - to ISO bylo juz zmieniane. Wskaz ORYGINALNE "
+                                  f"ISO. Nic nie zapisano.")
         known = entry["original_known"]
         if known and entry["md5_in_iso"] != known and not force:
             raise InsertError(f"{path.name} w tym ISO nie jest oryginalny (md5 {entry['md5_in_iso']},"

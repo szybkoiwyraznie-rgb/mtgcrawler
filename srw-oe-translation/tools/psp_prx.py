@@ -9,15 +9,18 @@ executable is ``PBOOT.PBP`` → ``DATA.PSP`` (tag ``0x2E5E10F0``, decrypt mode 2
 user's DLC folder already contains - but it is KIRK-encrypted, so :mod:`exe_strings` needs this
 module first.
 
-What is ported (and only this - measured on the user's ``PBOOT.PBP``, 2026-10-15):
+What is ported (and only this - the type 5 path measured on the user's ``PBOOT.PBP``,
+2026-10-15; the disc ``EBOOT.BIN`` of the ISO is the other input, see :mod:`build_translation_patch`):
 
 * AES-128 decryption (FIPS-197, table driven), CBC with a zero IV the way libkirk's
   ``AES_cbc_decrypt`` does it;
 * KIRK command 7 (AES-CBC with one of the key-vault keys, ``kirk7``) and command 1 (the
   ``KIRK_CMD1_HEADER`` whose AES key is itself wrapped with the KIRK-1 key);
 * the "type 5" PRX scheme PPSSPP uses for the ``0x2E5Exxxx`` game-update tags (tag key +
-  a fixed 16-byte XOR seed, ``PRXType5::decrypt`` + ``pspFinishType5``) and the plainer "type 2"
-  scheme of the retail ``0xD916xxF0`` EBOOT tags (same steps, no XOR);
+  a fixed 16-byte XOR seed, ``PRXType5::decrypt`` + ``pspFinishType5``), the plainer "type 2"
+  scheme of the retail ``0xD916xxF0`` EBOOT tags (same steps, no XOR) and "type 6"
+  (``0xD91680F0``/``0xD91681F0``: type 2 whose SHA-1 also covers the ECDSA tail at 0x10C -
+  ``pspDecryptType6``; ported from the source, no sample of it has been through this code yet);
 * the SHA-1 check PPSSPP performs is kept - a wrong key fails closed instead of producing noise;
 * gzip-compressed payloads (``comp_attribute & 1``) are inflated.
 
@@ -258,6 +261,10 @@ TAG_KEYS: Dict[int, Tuple[bytes, int, int, Optional[bytes]]] = {
     0xD91623F0: (bytes.fromhex("AA45EB4F62FBD10D71D562D2F5BFA52F"), 0x5D, 2, None),
     0xD91624F0: (bytes.fromhex("61B726AF8BF14158836AC49212CBB1E9"), 0x5D, 2, None),
     0xD91628F0: (bytes.fromhex("49A4FC66DCE76221DB18A750D6A8C1B6"), 0x5D, 2, None),
+    # retail disc executables signed the later way - type 6 (type 2 whose SHA-1 also covers the
+    # 0x20-byte ECDSA tail at 0x10C; the payload itself decrypts exactly like type 2)
+    0xD91680F0: (bytes.fromhex("2C229B123674116749D1D18892F6A1D8"), 0x5D, 6, None),
+    0xD91681F0: (bytes.fromhex("52B6366C8C467F7ACC116299C199BE98"), 0x5D, 6, None),
 }
 
 
@@ -323,9 +330,18 @@ def decrypt_prx(blob: bytes, verify_sha1: bool = True) -> bytes:
     prx = blob[:size]
 
     xorbuf = expand_seed(key, code)
-    # PRXType2/5 view of the header
+    # PRXType2/5/6 view of the header
     tag_bytes = prx[0xD0:0xD4]
-    empty = bytes(0x58)
+    if scheme == 6:
+        # PRXType6: 0xD4..0x10C must be empty, the ECDSA signature tail 0x10C..0x12C is hashed
+        if any(prx[0xD4:0x10C]):
+            raise PrxError("tag 0x%08X: bytes 0xD4..0x10C are not empty - not a type 6 ~PSP" % tag)
+        empty = bytes(0x38) + prx[0x10C:0x12C]
+    else:
+        if any(prx[0xD5:0x12C]):
+            raise PrxError("tag 0x%08X: bytes 0xD5..0x12C are not empty - not a type %d ~PSP"
+                           % (tag, scheme))
+        empty = bytes(0x58)
     ident = bytearray(prx[0x140:0x150])
     sha1 = bytearray(prx[0x12C:0x140])
     kirk_header = bytearray(prx[0x80:0xB0] + prx[0xC0:0xD0])
@@ -349,13 +365,13 @@ def decrypt_prx(blob: bytes, verify_sha1: bool = True) -> bytes:
         ident[:] = region[:0x10]
         sha1[:] = region[0x10:0x24]
         kirk_header[:0x3C] = region[0x24:0x60]
-    elif scheme == 2:
+    elif scheme in (2, 6):
         region = bytearray(bytes(ident) + bytes(sha1) + bytes(kirk_header[:0x3C]))
         region = bytearray(kirk7(bytes(region), code))
         ident[:] = region[:0x10]
         sha1[:] = region[0x10:0x24]
         kirk_header[:0x3C] = region[0x24:0x60]
-    else:  # pragma: no cover - table only holds 2 and 5
+    else:  # pragma: no cover - table only holds 2, 5 and 6
         raise PrxError("scheme %d not implemented" % scheme)
 
     if verify_sha1:

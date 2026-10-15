@@ -72,9 +72,10 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-15f: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-15g: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
-               "executable strings in place (PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat")
+               "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
+               "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
 import exe_strings as EXE            # noqa: E402
@@ -874,7 +875,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
 
     if executable and exe_rows:
-        exe_step(report, store, exe_rows, out, work, only, skip, dry_run)
+        exe_step(report, store, exe_rows, out, work, iso_patch, only, skip, dry_run)
 
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
@@ -892,83 +893,200 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     return report
 
 
+EXE_ISO_MEMBER = "PSP_GAME/SYSDIR/EBOOT.BIN"      # what the emulator / console boots from the disc
+EXE_ISO_KEY = "psp_game/sysdir/eboot.bin"
+EXE_ISO_NAME = "EBOOT.BIN"                        # --only/--skip name of the disc target
+#: ~PSP header fields two prints of the same program share (used only for the fallback below)
+EXE_HEADER_FIELDS = ("modname", "module_version", "elf_size", "entry", "modinfo_offset", "bss_size",
+                     "comp_size", "compressed", "devkit_version")
+
+
+def _exe_elf(blob: bytes) -> Tuple[Optional[bytes], Optional[dict], Optional[str]]:
+    """``~PSP`` or plain-ELF bytes → ``(elf, ~PSP header or None, error or None)``."""
+    if blob[:4] == psp_prx.ELF_MAGIC:
+        return blob, None, None
+    try:
+        header = psp_prx.psp_header(blob)
+    except psp_prx.PrxError as exc:
+        return None, None, str(exc)
+    try:
+        return psp_prx.decrypt_prx(blob), header, None
+    except psp_prx.PrxError as exc:
+        return None, header, str(exc)
+
+
 def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path, work: Path,
-             only: Sequence[str], skip: Sequence[str], dry_run: bool) -> None:
+             iso_patch: Dict[str, bytes], only: Sequence[str], skip: Sequence[str],
+             dry_run: bool) -> None:
     """Write the ``09_executable.jsonl`` English into the game's executable, in place.
 
-    The executable is the 1.08 update ``PBOOT.PBP`` of the DLC folder (its ``DATA.PSP``),
-    decrypted by :mod:`psp_prx` and patched by :func:`exe_strings.apply_rows` - nothing moves,
-    every row is checked against the Japanese bytes at its offset, a row that does not fit or
-    does not match is refused and listed.  The result is ``out/DLC/<same path>/PBOOT.PBP``
-    whose ``DATA.PSP`` is the patched *plain* ELF (PPSSPP loads it; the disc ``EBOOT.BIN``
-    inside the ISO is left alone - with the update present the emulator boots the update).
-    The same byte edits are also written as a CWCheat file (``out/cheats/NPJH50521.ini``)
-    for a setup that cannot swap the executable.  Honours --only/--skip (``PBOOT.PBP``).
+    Two prints of the 1.08 program exist and both are patched when present:
+
+    * ``PSP_GAME/SYSDIR/EBOOT.BIN`` inside the ISO - **the one that runs**: PPSSPP releases
+      (and a console booting the disc) load the disc executable; the ISO the user dumped from
+      the 1.08 PKG carries the 1.08 program there.  Decrypted by :mod:`psp_prx`, patched by
+      :func:`exe_strings.apply_rows` and queued for ``patched.iso`` as a plain ELF (the loader
+      takes a plain ELF in place of the signed ``~PSP``; that is how fan patches ship).
+    * ``PBOOT.PBP`` of the DLC folder (its ``DATA.PSP``) - the same program as a PSN update.
+      Measured 2026-10-15 (user's PPSSPP release build): swapping it alone changes NOTHING,
+      the emulator never reads it; it is still written so a loader that does honour the update
+      (PPSSPP master's ``FindGameUpdatePBOOT``) shows the same English.
+
+    Nothing moves: every row is checked against the Japanese bytes at its offset, a row that does
+    not fit or does not match is refused and listed.  The same edits also go out as a CWCheat
+    file (``out/cheats/NPJH50521.ini``) - the route confirmed in-game the same day.
+
+    Fallback (reported as such): when the ISO ``EBOOT.BIN`` carries a tag :mod:`psp_prx` cannot
+    decrypt but its ``~PSP`` header equals the PBOOT one in every field of
+    :data:`EXE_HEADER_FIELDS`, the patched PBOOT ELF is written as ``EBOOT.BIN`` and the target is
+    flagged ``"source": "PBOOT.PBP"`` - the two are the same build by header, not by bytes.
+    Honours --only/--skip (``EBOOT.BIN``, ``PBOOT.PBP``).
     """
-    summary: dict = {"container": EXE.CONTAINER, "member": EXE.MEMBER, "rows": len(rows),
-                     "applied": 0, "skipped": [], "problems": [], "written": []}
+    summary: dict = {"rows": len(rows), "targets": [], "applied": 0, "skipped": [], "problems": [],
+                     "written": [], "notes": []}
     report["executable"] = summary
-    if not container_selected(EXE.CONTAINER, only, skip):
+    want_iso = store.iso is not None and container_selected(EXE_ISO_NAME, only, skip)
+    want_pboot = container_selected(EXE.CONTAINER, only, skip)
+    if not want_iso and not want_pboot:
         summary["problems"].append("filtered out (--only/--skip)")
         return
-    path = store.dlc_path(EXE.CONTAINER)
-    if path is None:
-        msg = (f"{EXE.CONTAINER} not found under --dlc: the executable strings need the 1.08 "
-               f"update folder (PSP/GAME/NPJH50521/{EXE.CONTAINER}); {len(rows)} rows not written")
+
+    # ---- sources -------------------------------------------------------------------------
+    sources: List[dict] = []          # each: name, label, blob, elf, header, error, rel/key
+    if want_iso:
+        try:
+            key, _lba, _size = iso_pack.find_member(store.iso, EXE_ISO_KEY)
+            blob = iso_pack.read_member(store.iso, EXE_ISO_KEY)
+            elf, header, err = _exe_elf(blob)
+            sources.append({"name": EXE_ISO_NAME, "label": f"ISO {EXE_ISO_MEMBER}", "blob": blob,
+                            "elf": elf, "header": header, "error": err, "key": key})
+        except ValueError:
+            summary["notes"].append(f"{EXE_ISO_MEMBER} not in the ISO")
+    pboot_path = store.dlc_path(EXE.CONTAINER) if want_pboot else None
+    if pboot_path is not None:
+        try:
+            pbp = pboot_path.read_bytes()
+            psp = psp_prx.pbp_get(pbp, EXE.MEMBER)
+            elf, header, err = _exe_elf(psp)
+            sources.append({"name": EXE.CONTAINER, "label": f"DLC {EXE.CONTAINER}/{EXE.MEMBER}",
+                            "blob": psp, "pbp": pbp, "elf": elf, "header": header, "error": err,
+                            "rel": store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER})
+        except Exception as exc:  # noqa: BLE001 - PrxError / KeyError / OSError: reported, not fatal
+            sources.append({"name": EXE.CONTAINER, "label": f"DLC {EXE.CONTAINER}/{EXE.MEMBER}",
+                            "blob": b"", "elf": None, "header": None, "error": str(exc),
+                            "rel": store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER})
+    elif want_pboot:
+        summary["notes"].append(f"{EXE.CONTAINER} not found under --dlc (the 1.08 update; optional "
+                                f"now that the ISO's {EXE_ISO_MEMBER} is patched)")
+    if not sources:
+        msg = (f"no executable to patch: neither {EXE_ISO_MEMBER} in the ISO nor {EXE.CONTAINER} "
+               f"under --dlc; {len(rows)} rows not written")
         summary["problems"].append(msg)
         report["problems"].append(f"executable: {msg}")
         return
-    try:
-        pbp = path.read_bytes()
-        psp = psp_prx.pbp_get(pbp, EXE.MEMBER)
-        elf = psp if psp[:4] == psp_prx.ELF_MAGIC else psp_prx.decrypt_prx(psp)
-    except Exception as exc:  # noqa: BLE001 - PrxError / KeyError / OSError: reported, not fatal
-        summary["problems"].append(f"cannot read the executable: {exc}")
-        report["problems"].append(f"executable: cannot read {path.name}: {exc}")
+
+    # ---- fallback: undecryptable disc EBOOT, header-identical to the decrypted PBOOT ---------
+    by_name = {src["name"]: src for src in sources}
+    disc, update = by_name.get(EXE_ISO_NAME), by_name.get(EXE.CONTAINER)
+    if disc and disc["elf"] is None and disc["header"] and update and update["elf"] is not None \
+            and update["header"]:
+        same = all(disc["header"].get(f) == update["header"].get(f) for f in EXE_HEADER_FIELDS)
+        if same:
+            disc["elf"] = update["elf"]
+            disc["source"] = EXE.CONTAINER
+            disc["notes"] = (f"{disc['error']}; its ~PSP header equals the {EXE.CONTAINER} one in "
+                             f"{', '.join(EXE_HEADER_FIELDS)} - the patched {EXE.CONTAINER} program "
+                             f"is written as {EXE_ISO_MEMBER} (same build by header, not verified "
+                             f"byte for byte)")
+            disc["error"] = None
+        else:
+            diff = [f for f in EXE_HEADER_FIELDS if disc["header"].get(f) != update["header"].get(f)]
+            disc["error"] += f"; ~PSP header differs from {EXE.CONTAINER} in {', '.join(diff)}"
+
+    # ---- patch every source that yielded an ELF ---------------------------------------------
+    cheat_elf: Optional[bytes] = None
+    for src in sources:
+        tgt: dict = {"target": src["label"], "name": src["name"], "applied": 0, "skipped": [],
+                     "problems": []}
+        if src.get("header"):
+            tgt["tag"] = "0x%08X" % src["header"]["tag"]
+            tgt["modname"] = src["header"]["modname"]
+            tgt["module_version"] = src["header"]["module_version"]
+        if src.get("source"):
+            tgt["source"] = src["source"]
+            tgt["note"] = src["notes"]
+            summary["notes"].append(f"{src['label']}: {src['notes']}")
+        summary["targets"].append(tgt)
+        if src["elf"] is None:
+            tgt["problems"].append(f"cannot read the executable: {src['error']}")
+            report["problems"].append(f"executable: {src['label']}: cannot read: {src['error']}")
+            continue
+        elf = src["elf"]
+        md5_in = hashlib.md5(elf).hexdigest()
+        tgt["elf_md5_in"] = md5_in
+        tgt["elf_bytes"] = len(elf)
+        tgt["known"] = EXE.KNOWN_ELF_MD5.get(md5_in)
+        match, total = EXE.verify_build(elf, rows)
+        tgt["rows_matching_japanese"] = match
+        if match == 0:
+            msg = (f"none of the {total} rows finds its Japanese bytes in {src['label']} (ELF md5 "
+                   f"{md5_in}): a different print of the executable - nothing written")
+            tgt["problems"].append(msg)
+            report["problems"].append(f"executable: {msg}")
+            continue
+        patched, exe_report = EXE.apply_rows(elf, rows)
+        tgt["applied"] = exe_report["applied"]
+        tgt["empty"] = exe_report["empty"]
+        tgt["skipped"] = exe_report["skipped"]
+        tgt["elf_md5_out"] = hashlib.md5(patched).hexdigest()
+        if exe_report["skipped"]:
+            report["problems"].append(f"executable: {src['label']}: {len(exe_report['skipped'])} "
+                                      f"row(s) refused (see executable.targets in the report)")
+        if not exe_report["applied"]:
+            continue
+        if src["name"] == EXE_ISO_NAME:
+            cheat_elf = elf                      # the program that actually runs
+            iso_patch[src["key"]] = patched       # plain ELF in place of the signed ~PSP
+            tgt["iso_member_bytes"] = {"original": len(src["blob"]), "patched": len(patched)}
+            tgt["written"] = ("(dry-run) " if dry_run else "") + f"patched.iso:{EXE_ISO_MEMBER}"
+            summary["written"].append(tgt["written"])
+        else:
+            cheat_elf = cheat_elf or elf
+            new_pbp = psp_prx.pbp_replace(src["pbp"], EXE.MEMBER, patched)
+            if dry_run:
+                tgt["written"] = f"(dry-run) DLC/{src['rel']}"
+            else:
+                target = out / "DLC" / src["rel"]
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(new_pbp)
+                tgt["written"] = str(target)
+                report["written"].append(str(target))
+                back = psp_prx.pbp_get(target.read_bytes(), EXE.MEMBER)
+                tgt["verified"] = back == patched
+                if not tgt["verified"]:
+                    report["problems"].append(f"executable: read-back of the written {EXE.CONTAINER} differs")
+            summary["written"].append(tgt["written"])
+
+    # the headline numbers follow the program that runs (disc), else the update
+    primary = next((t for t in summary["targets"] if t["name"] == EXE_ISO_NAME and "elf_md5_in" in t),
+                   None) or next((t for t in summary["targets"] if "elf_md5_in" in t), None)
+    if primary:
+        summary["applied"] = primary["applied"]
+        summary["skipped"] = primary["skipped"]
+        summary["primary"] = primary["name"]
+
+    # ---- CWCheat file: the same bytes as a cheat (the route confirmed in-game) ----------------
+    if cheat_elf is None:
         return
-    md5_in = hashlib.md5(elf).hexdigest()
-    summary["elf_md5_in"] = md5_in
-    summary["known"] = EXE.KNOWN_ELF_MD5.get(md5_in)
-    match, total = EXE.verify_build(elf, rows)
-    summary["rows_matching_japanese"] = match
-    if match == 0:
-        msg = (f"none of the {total} rows finds its Japanese bytes in {path.name} (ELF md5 "
-               f"{md5_in}): a different print of the executable - nothing written")
-        summary["problems"].append(msg)
-        report["problems"].append(f"executable: {msg}")
-        return
-    patched, exe_report = EXE.apply_rows(elf, rows)
-    summary["applied"] = exe_report["applied"]
-    summary["empty"] = exe_report["empty"]
-    summary["skipped"] = exe_report["skipped"]
-    summary["elf_md5_out"] = hashlib.md5(patched).hexdigest()
-    if exe_report["skipped"]:
-        report["problems"].append(f"executable: {len(exe_report['skipped'])} row(s) refused "
-                                  f"(see executable.skipped in the report)")
-    if not exe_report["applied"]:
-        return
-    new_pbp = psp_prx.pbp_replace(pbp, EXE.MEMBER, patched)
-    rel = store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER
-    cheat_text, _ = EXE.cheat_file(elf, rows)
+    cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
     if dry_run:
-        summary["written"].append(f"(dry-run) DLC/{rel}")
         summary["written"].append("(dry-run) cheats/NPJH50521.ini")
         return
-    target = out / "DLC" / rel
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(new_pbp)
-    summary["written"].append(str(target))
-    report["written"].append(str(target))
     cheat = out / "cheats" / "NPJH50521.ini"
     cheat.parent.mkdir(parents=True, exist_ok=True)
     cheat.write_text(cheat_text, encoding="utf-8", newline="\r\n")
     summary["written"].append(str(cheat))
     report["written"].append(str(cheat))
-    # read back: the PBP we wrote yields exactly the patched ELF
-    back = psp_prx.pbp_get(target.read_bytes(), EXE.MEMBER)
-    summary["verified"] = back == patched
-    if not summary["verified"]:
-        report["problems"].append("executable: read-back of the written PBOOT.PBP differs")
 
 
 def ui_texture_step(report: dict, iso: Path, iso_patch: Dict[str, bytes], work: Path,
@@ -1132,7 +1250,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         help="leave the UI texture containers (system.cpk, tacsys.cpk, IM*.cpk) "
                              "original - text only")
     parser.add_argument("--no-exe", action="store_true",
-                        help="skip the executable strings step (PBOOT.PBP -> DATA.PSP in place)")
+                        help="skip the executable strings step (ISO EBOOT.BIN / PBOOT.PBP in place "
+                             "+ cheats/NPJH50521.ini)")
     parser.add_argument("--ui-specs", type=Path, default=None,
                         help="folder with the texture caption specs (default ui_labels/)")
     args = parser.parse_args(argv)
@@ -1157,8 +1276,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"Tekstury UI (napisy w grafikach): {len(names)} -> {', '.join(names)}")
     exe = report.get("executable") or {}
     if exe:
-        print(f"Program gry (PBOOT.PBP): {exe.get('applied', 0)} z {exe.get('rows', 0)} napisów "
-              f"wpisanych, {len(exe.get('skipped') or [])} odrzuconych")
+        for tgt in exe.get("targets") or []:
+            if "elf_md5_in" in tgt:
+                extra = f" (program wzięty z {tgt['source']})" if tgt.get("source") else ""
+                print(f"Program gry [{tgt['target']}]: {tgt.get('applied', 0)} z {exe.get('rows', 0)} "
+                      f"napisów wpisanych, {len(tgt.get('skipped') or [])} odrzuconych{extra}")
+            else:
+                print(f"Program gry [{tgt['target']}]: NIE ZAPISANY - {'; '.join(tgt.get('problems') or [])}")
+        for note in exe.get("notes") or []:
+            print(f"  uwaga: {note}")
+        if not exe.get("targets"):
+            print(f"Program gry: {'; '.join(exe.get('problems') or ['nic do zrobienia'])}")
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")

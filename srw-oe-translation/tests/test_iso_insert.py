@@ -60,6 +60,41 @@ class IsoInsertTests(unittest.TestCase):
         for e in report["members"]:
             self.assertEqual(e["md5_read_back"], e["md5_new"])
 
+    def test_eboot_goes_to_sysdir_and_only_over_the_signed_original(self):
+        tree = {"PSP_GAME": {"PARAM.SFO": b"SFO" * 100,
+                             "SYSDIR": {"EBOOT.BIN": b"~PSP" + b"\0" * 400, "BOOT.BIN": b"\0" * 16},
+                             "USRDIR": {"config00.cpk": ORIG_CONFIG00}}}
+        iso = self.tmp / "disc.iso"
+        iso.write_bytes(iso_pack.build_iso(tree))
+        kit = self.tmp / "EXE_TEST2"
+        kit.mkdir()
+        (kit / "EBOOT.BIN").write_bytes(b"\x7fELF" + b"EN" * 300)
+        (kit / "CZYTAJ.txt").write_text("x", encoding="utf-8")
+        out = self.tmp / "o" / "patched.iso"
+        report = II.insert(iso, kit, out)
+        e = report["members"][0]
+        self.assertEqual((e["file"], e["kind_in_iso"], e["kind_new"]), ("EBOOT.BIN", "~PSP", "ELF"))
+        self.assertEqual(e["iso_key"].lower().split(";")[0].strip("/"), "psp_game/sysdir/eboot.bin")
+        self.assertEqual(iso_pack.read_member(out, "psp_game/sysdir/eboot.bin"), b"\x7fELF" + b"EN" * 300)
+        self.assertEqual(iso_pack.read_member(out, "psp_game/sysdir/boot.bin"), b"\0" * 16)
+        self.assertEqual(iso_pack.read_member(out, "psp_game/usrdir/config00.cpk"), ORIG_CONFIG00)
+        # stacking on the already patched ISO is refused (no ~PSP there any more) unless forced
+        (kit / "EBOOT.BIN").write_bytes(b"\x7fELF" + b"EN2" * 300)
+        with self.assertRaises(II.InsertError) as cm:
+            II.plan(out, kit)
+        self.assertIn("nie jest oryginalnym szyfrowanym programem", str(cm.exception))
+        self.assertEqual(len(II.plan(out, kit, force=True)), 1)
+        # a kit whose EBOOT.BIN is not a plain ELF is refused
+        (kit / "EBOOT.BIN").write_bytes(b"~PSP" + b"\0" * 100)
+        with self.assertRaises(II.InsertError) as cm:
+            II.plan(iso, kit)
+        self.assertIn("nie jest jawnym ELF-em", str(cm.exception))
+        # an ISO without a SYSDIR/EBOOT.BIN names the right folder
+        (kit / "EBOOT.BIN").write_bytes(b"\x7fELF" + b"EN" * 300)
+        with self.assertRaises(II.InsertError) as cm:
+            II.plan(self.iso, kit)
+        self.assertIn("PSP_GAME/SYSDIR/EBOOT.BIN", str(cm.exception))
+
     def test_notes_and_sub_folders_are_not_inserted(self):
         entries = II.plan(self.iso, self.folder)
         self.assertEqual([e["file"] for e in entries], ["config00.cpk", "configst.cpk"])

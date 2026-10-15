@@ -108,14 +108,45 @@ KNOWN_PBOOT: Dict[str, str] = {
 }
 
 
+# md5 -> label of the plain (decrypted) 1.08 program, as the disc EBOOT.BIN or PBOOT's DATA.PSP
+KNOWN_ELF: Dict[str, str] = {
+    "8ba77a79e7d46473671cb87e77553deb": "jawny ELF 1.08 BEZ zmian (napisy programu po japonsku)",
+    "ba4cc05c24e2d98f1edeaefe68228eff": "jawny ELF 1.08 z napisami EN pakietu v6 (397 napisow; build #20/#21)",
+}
+EBOOT_KEY = "psp_game/sysdir/eboot.bin"
+
+
+def describe_eboot(data: bytes) -> Tuple[str, bool]:
+    """``(opis, ok)`` of a disc ``EBOOT.BIN``: the encrypted original, one of our plain builds,
+    or something unknown (``ok`` False)."""
+    if data[:4] == b"~PSP":
+        try:
+            import psp_prx
+            hdr = psp_prx.psp_header(data)
+            detail = (f"tag 0x{hdr['tag']:08X}, modul {hdr['modname']!r} v{hdr['module_version']}, "
+                      f"elf_size {hdr['elf_size']}")
+        except Exception as exc:  # noqa: BLE001 - diagnostics must not break
+            detail = f"naglowek nie do odczytu ({type(exc).__name__})"
+        return f"ORYGINAL szyfrowany ~PSP ({detail}) - napisy programu po japonsku", True
+    if data[:4] == b"\x7fELF":
+        digest = hashlib.md5(data).hexdigest()
+        label = KNOWN_ELF.get(digest)
+        if label:
+            return f"{label}; md5 {digest}", True
+        return f"jawny ELF, NIEZNANY (md5 {digest}, {len(data)} B) - nie z mojej budowy", False
+    return f"nieznany naglowek {data[:4]!r} ({len(data)} B)", False
+
+
 def describe_pboot(path: Path, digest: Optional[str]) -> str:
     label = KNOWN_PBOOT.get(digest or "")
     kind = "?"
     try:
         import psp_prx
         data = psp_prx.pbp_get(path.read_bytes(), "DATA.PSP")
-        kind = "jawny ELF" if data[:4] == psp_prx.ELF_MAGIC else (
-            "szyfrowany ~PSP" if data[:4] == b"~PSP" else "nieznany naglowek")
+        if data[:4] == psp_prx.ELF_MAGIC:
+            kind = KNOWN_ELF.get(hashlib.md5(data).hexdigest(), "jawny ELF (nieznana wersja)")
+        else:
+            kind = "szyfrowany ~PSP" if data[:4] == b"~PSP" else "nieznany naglowek"
     except Exception as exc:  # noqa: BLE001 - diagnostics must not break
         kind = f"nie do odczytu ({type(exc).__name__})"
     return f"{label or 'NIEZNANY PBOOT'}; DATA.PSP: {kind}"
@@ -336,6 +367,31 @@ def summarize_report(rep: Report, path: Path) -> Optional[dict]:
           f"{len(data.get('written') or [])}, iso_members: {data.get('iso_members')}")
     if data.get("tools"):
         rep.p(f"    narzedzia wg raportu: {data.get('tools')}")
+    exe = data.get("executable")
+    if isinstance(exe, dict):
+        targets = exe.get("targets")
+        if targets is None:                       # report of a builder before 2026-10-15g
+            rep.p(f"    program gry (tylko PBOOT.PBP, stary builder): wpisane {exe.get('applied')} z "
+                  f"{exe.get('rows')}, odrzucone {len(exe.get('skipped') or [])}")
+            rep.flag("Raport ze starego buildera: program gry szedl tylko do PBOOT.PBP, ktorego PPSSPP "
+                     "nie czyta - przebuduj HOKUS_POKUS-em, zeby EBOOT.BIN w patched.iso byl po angielsku.")
+        for t in targets or []:
+            if "elf_md5_in" in t:
+                src = f"; program wziety z {t['source']} (zgodnosc tylko wg naglowka)" if t.get("source") else ""
+                rep.p(f"    program gry [{t.get('target')}]: wpisane {t.get('applied')} z {exe.get('rows')}, "
+                      f"odrzucone {len(t.get('skipped') or [])}, md5 ELF {t.get('elf_md5_in')} -> "
+                      f"{t.get('elf_md5_out')}{src}")
+                if not t.get("applied"):
+                    rep.flag(f"Program gry [{t.get('target')}]: nic nie wpisano - {'; '.join(t.get('problems') or ['?'])[:160]}")
+            else:
+                rep.p(f"    program gry [{t.get('target')}]: NIE ZAPISANY - {'; '.join(t.get('problems') or [])[:200]}")
+                rep.flag(f"Program gry [{t.get('target')}] nie zostal spatchowany: "
+                         f"{'; '.join(t.get('problems') or ['?'])[:160]}")
+        if targets is not None and not any(t.get("name") == "EBOOT.BIN" for t in targets):
+            rep.flag("Budowa nie objela EBOOT.BIN z ISO (brak ISO przy budowie albo --skip) - napisy programu "
+                     "w grze beda po japonsku bez cheatow.")
+        for note in exe.get("notes") or []:
+            rep.p(f"      uwaga: {str(note)[:200]}")
     problems = data.get("problems") or []
     fatal = [p for p in problems if ("NOT written" in p or "build broke" in p)]
     absent = [p for p in problems if "not found in the ISO or the DLC folder" in p]
@@ -387,8 +443,15 @@ def section_patch_output(rep: Report, root: Path, originals: Dict[str, int]) -> 
         for name, digest, size in iso_members(iso):
             built[f"iso:{name}"] = digest
             rep.p(f"    w ISO {name:14s} {size:>8} B  md5 {digest}  -> {describe_usrdir(name, digest, size)}")
+        describe_iso_eboot(rep, iso, "    w ISO ")
     else:
         rep.p("  brak patched.iso (budowa bez ISO albo ISO odrzucone)")
+    cheat = out / "cheats" / "NPJH50521.ini"
+    if cheat.exists():
+        lines = cheat.read_text(encoding="utf-8", errors="replace").splitlines()
+        rep.p(f"  cheats\\NPJH50521.ini: {len(lines)} linii (CWCheat 'EXE strings EN' - trasa potwierdzona w grze)")
+    else:
+        rep.p("  brak cheats\\NPJH50521.ini (budowa bez programu gry: --no-exe albo program nie rozpoznany)")
     dlc = out / "DLC"
     if dlc.is_dir():
         files = sorted(p for p in dlc.rglob("*") if p.is_file())
@@ -427,6 +490,21 @@ def describe_usrdir(name: str, digest: str, size: int) -> str:
     if canon and size == canon[1]:
         return f"zmieniony, ten sam rozmiar co moj build ({size} B), inne md5"
     return f"zmieniony (nie oryginal; moj build ma {canon[1]} B)" if canon else "zmieniony"
+
+
+def describe_iso_eboot(rep: Report, iso: Path, indent: str) -> None:
+    """One line about ``PSP_GAME/SYSDIR/EBOOT.BIN`` of ``iso`` - the program the emulator boots."""
+    import iso_pack
+    try:
+        data = iso_pack.read_member(iso, EBOOT_KEY)
+    except Exception as exc:  # noqa: BLE001
+        rep.p(f"{indent}program gry (PSP_GAME/SYSDIR/EBOOT.BIN): blad odczytu: {exc}")
+        rep.flag(f"W {iso.name} nie da sie odczytac PSP_GAME/SYSDIR/EBOOT.BIN ({exc}).")
+        return
+    note, ok = describe_eboot(data)
+    rep.p(f"{indent}program gry (PSP_GAME/SYSDIR/EBOOT.BIN) {len(data):>8} B -> {note}")
+    if not ok:
+        rep.flag(f"EBOOT.BIN w {iso.name}: {note}.")
 
 
 def iso_members(iso: Path, names: Tuple[str, ...] = USRDIR_NAMES) -> List[Tuple[str, str, int]]:
@@ -518,6 +596,7 @@ def section_iso(rep: Report, iso: Path) -> None:
             rep.flag(f"{name} w ISO to {note}.")
         if name not in EXPECTED_BUILD14 and digest != KNOWN_ORIGINALS.get(name):
             rep.flag(f"{name} w ISO jest zmieniony ({note}) - ten kontener nigdy nie byl testowany w grze osobno.")
+    describe_iso_eboot(rep, iso, "  ")
     rep.p("  tekstury UI (napisy w grafikach):")
     for name, digest, msize in iso_members(iso, UI_NAMES):
         if digest == KNOWN_ORIGINALS.get(name):

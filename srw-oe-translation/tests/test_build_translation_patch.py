@@ -482,3 +482,227 @@ class UiTextureStepTests(unittest.TestCase):
         for name, s in specs.items():
             source = s.get("source", "")
             self.assertTrue(any(c in source for c in BTP.UI_TEXTURE_CONTAINERS), f"{name}: {source!r}")
+
+
+def _fake_psp(elf: bytes, tag: int, **overrides) -> bytes:
+    """A 0x150-byte ``~PSP`` header (fields filled from ``elf``) followed by the ELF - only
+    :func:`psp_prx.psp_header` ever parses it; decryption is mocked in the tests that use it."""
+    import psp_prx
+    fields = {"elf_size": len(elf), "psp_size": 0x150 + len(elf), "entry": 0x08804000,
+              "modinfo_offset": 0x1234, "bss_size": 0x5000, "devkit": 0x06060010, "mode": 25,
+              "comp_size": len(elf), "data_offset": 0, "modname": b"srw", "ver": (1, 1)}
+    fields.update(overrides)
+    hdr = bytearray(0x150)
+    struct.pack_into("<IHHBB", hdr, 0, psp_prx.PSP_MAGIC, 0x0200, 0, fields["ver"][1], fields["ver"][0])
+    hdr[0x0A:0x0A + len(fields["modname"])] = fields["modname"]
+    struct.pack_into("<IIIIi", hdr, 0x28, fields["elf_size"], fields["psp_size"], fields["entry"],
+                     fields["modinfo_offset"], fields["bss_size"])
+    struct.pack_into("<II", hdr, 0x78, fields["devkit"], fields["mode"])
+    struct.pack_into("<ii", hdr, 0xB0, fields["comp_size"], fields["data_offset"])
+    struct.pack_into("<I", hdr, 0xD0, tag)
+    return bytes(hdr) + elf
+
+
+def _pbp(data_psp: bytes) -> bytes:
+    import psp_prx
+    parts = [b"\0PSF" + b"\0" * 60, b"", b"", b"", b"", b"", data_psp, b""]
+    header = bytearray(b"\x00PBP" + struct.pack("<I", 0x10000))
+    off = 0x28
+    for part in parts:
+        header += struct.pack("<I", off)
+        off += len(part)
+    blob = bytes(header) + b"".join(parts)
+    assert psp_prx.pbp_get(blob, "DATA.PSP") == data_psp
+    return blob
+
+
+class ExeStepTests(unittest.TestCase):
+    """The executable strings land in the ISO's PSP_GAME/SYSDIR/EBOOT.BIN (the program the
+    emulator boots), in the DLC PBOOT.PBP (the same program as an update) and in a CWCheat
+    file - each target verified against the Japanese bytes, each reported on its own."""
+
+    def setUp(self):
+        import exe_strings as X
+        import iso_pack
+        from test_exe_strings import _fixture
+        self.X, self.iso_pack = X, iso_pack
+        self.b, self.elf = _fixture()
+        rows, _ = X.extract_rows(X.Elf(self.elf))
+        by = {r["jp"]: r for r in rows}
+        by["敵"]["en"] = "Foe"
+        by["移動後"]["en"] = "Post-Mv"
+        self.rows = rows
+        self.expected, rep = X.apply_rows(self.elf, rows)
+        assert rep["applied"] == 2 and not rep["skipped"]
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, self.tmp, True)
+        self.package = self.tmp / "pakiet"
+        self.package.mkdir()
+        for name in BTP.PACKAGE_FILES:
+            text = ""
+            if name == "09_executable.jsonl":
+                text = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
+            (self.package / name).write_text(text, encoding="utf-8")
+
+    def make_iso(self, eboot=None) -> Path:
+        tree = {"PSP_GAME": {"PARAM.SFO": b"SFO" * 100, "USRDIR": {"eventP00.cpk": b"ev" * 400}}}
+        if eboot is not None:
+            tree["PSP_GAME"]["SYSDIR"] = {"EBOOT.BIN": eboot, "BOOT.BIN": b"\0" * 16}
+        iso = self.tmp / "game.iso"
+        iso.write_bytes(self.iso_pack.build_iso(tree))
+        return iso
+
+    def make_dlc(self, data_psp) -> Path:
+        dlc = self.tmp / "dlc"
+        dlc.mkdir(exist_ok=True)
+        (dlc / "PBOOT.PBP").write_bytes(_pbp(data_psp))
+        return dlc
+
+    def run_build(self, iso, dlc, **kw):
+        out = self.tmp / "out"
+        __import__("shutil").rmtree(out, ignore_errors=True)
+        report = BTP.build(iso, dlc, self.package, out, work=self.tmp / "work", ui_textures=False, **kw)
+        return out, report
+
+    def targets(self, report):
+        return {t["name"]: t for t in report["executable"]["targets"]}
+
+    def test_disc_eboot_pboot_and_cheats_are_all_written(self):
+        import psp_prx
+        out, report = self.run_build(self.make_iso(self.elf), self.make_dlc(self.elf))
+        exe = report["executable"]
+        self.assertEqual(exe["primary"], "EBOOT.BIN")
+        self.assertEqual(exe["applied"], 2)
+        self.assertEqual(exe["skipped"], [])
+        tg = self.targets(report)
+        self.assertEqual(sorted(tg), ["EBOOT.BIN", "PBOOT.PBP"])
+        for t in tg.values():
+            self.assertEqual(t["applied"], 2, t)
+            self.assertEqual(t["problems"], [])
+            self.assertEqual(t["elf_md5_out"], __import__("hashlib").md5(self.expected).hexdigest())
+            self.assertNotIn("source", t)
+        self.assertEqual(tg["EBOOT.BIN"]["written"], "patched.iso:PSP_GAME/SYSDIR/EBOOT.BIN")
+        # the disc executable in patched.iso is the patched plain ELF, byte for byte
+        new = self.iso_pack.read_member(out / "patched.iso", "psp_game/sysdir/eboot.bin")
+        self.assertEqual(new, self.expected)
+        self.assertEqual(new[:4], psp_prx.ELF_MAGIC)
+        self.assertIn(b"Foe\0", new)
+        self.assertIn("psp_game/sysdir/eboot.bin", " ".join(report["iso_members"]).lower())
+        # the rest of the ISO is untouched
+        self.assertEqual(self.iso_pack.read_member(out / "patched.iso", "psp_game/usrdir/eventp00.cpk"),
+                         b"ev" * 400)
+        self.assertEqual(self.iso_pack.read_member(out / "patched.iso", "psp_game/sysdir/boot.bin"),
+                         b"\0" * 16)
+        # the update carries the same program
+        pboot = out / "DLC" / "PBOOT.PBP"
+        self.assertTrue(pboot.is_file())
+        self.assertEqual(psp_prx.pbp_get(pboot.read_bytes(), "DATA.PSP"), self.expected)
+        self.assertTrue(tg["PBOOT.PBP"]["verified"])
+        # and the cheat file
+        cheat = (out / "cheats" / "NPJH50521.ini").read_bytes()
+        self.assertIn(b"_S NPJH-50521\r\n", cheat)
+        self.assertIn(b"_C1 EXE strings EN\r\n", cheat)
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)
+
+    def test_the_disc_alone_is_enough(self):
+        out, report = self.run_build(self.make_iso(self.elf), None)
+        exe = report["executable"]
+        self.assertEqual(sorted(self.targets(report)), ["EBOOT.BIN"])
+        self.assertEqual(exe["applied"], 2)
+        self.assertTrue(any("PBOOT.PBP not found" in n for n in exe["notes"]))
+        self.assertEqual(self.iso_pack.read_member(out / "patched.iso", "psp_game/sysdir/eboot.bin"),
+                         self.expected)
+        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)
+
+    def test_pboot_alone_still_works_without_an_iso(self):
+        out, report = self.run_build(None, self.make_dlc(self.elf))
+        exe = report["executable"]
+        self.assertEqual(sorted(self.targets(report)), ["PBOOT.PBP"])
+        self.assertEqual(exe["primary"], "PBOOT.PBP")
+        self.assertEqual(exe["applied"], 2)
+        self.assertFalse((out / "patched.iso").exists())
+        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+
+    def test_no_executable_anywhere_is_a_reported_problem(self):
+        out, report = self.run_build(self.make_iso(None), None)
+        self.assertEqual(report["executable"]["targets"], [])
+        self.assertTrue(any("no executable to patch" in p for p in report["problems"]))
+        self.assertFalse((out / "cheats").exists())
+
+    def test_a_different_print_of_the_program_is_refused(self):
+        other = bytearray(self.elf)
+        off = 0x80 + self.b.addr["enemy"]
+        other[off:off + 2] = b"\x91\xbc"          # 他 instead of 敵: not our build
+        for key in ("after",):
+            o = 0x80 + self.b.addr[key]
+            other[o:o + 2] = b"\x91\xbc"
+        out, report = self.run_build(self.make_iso(bytes(other)), None)
+        t = self.targets(report)["EBOOT.BIN"]
+        self.assertEqual(t["applied"], 0)
+        self.assertTrue(any("different print" in p for p in t["problems"]))
+        self.assertFalse((out / "patched.iso").exists())
+        self.assertFalse((out / "cheats").exists())
+        self.assertTrue(any("different print" in p for p in report["problems"]))
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)      # the rest of the patch stands
+
+    def test_undecryptable_disc_eboot_falls_back_to_the_header_identical_pboot(self):
+        from unittest import mock
+        import psp_prx
+        disc = _fake_psp(self.elf, 0xDEADBEEF)              # tag psp_prx does not know
+        update = _fake_psp(self.elf, 0x2E5E10F0)             # "decrypts" (mocked) to the ELF
+
+        def fake_decrypt(blob, verify_sha1=True):
+            if struct.unpack_from("<I", blob, 0xD0)[0] == 0x2E5E10F0:
+                return blob[0x150:]
+            raise psp_prx.PrxError("unsupported ~PSP tag 0xDEADBEEF (decrypt mode 25)")
+
+        with mock.patch.object(psp_prx, "decrypt_prx", side_effect=fake_decrypt):
+            out, report = self.run_build(self.make_iso(disc), self.make_dlc(update))
+        tg = self.targets(report)
+        self.assertEqual(tg["EBOOT.BIN"]["source"], "PBOOT.PBP")
+        self.assertIn("same build by header", tg["EBOOT.BIN"]["note"])
+        self.assertEqual(tg["EBOOT.BIN"]["applied"], 2)
+        self.assertEqual(tg["EBOOT.BIN"]["tag"], "0xDEADBEEF")
+        self.assertEqual(tg["PBOOT.PBP"]["applied"], 2)
+        self.assertNotIn("source", tg["PBOOT.PBP"])
+        self.assertEqual(self.iso_pack.read_member(out / "patched.iso", "psp_game/sysdir/eboot.bin"),
+                         self.expected)
+        self.assertTrue(any("same build by header" in n for n in report["executable"]["notes"]))
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)
+
+        # a header that differs (another elf_size) gets no such benefit of the doubt
+        disc2 = _fake_psp(self.elf, 0xDEADBEEF, elf_size=len(self.elf) + 16)
+        with mock.patch.object(psp_prx, "decrypt_prx", side_effect=fake_decrypt):
+            out, report = self.run_build(self.make_iso(disc2), self.make_dlc(update))
+        t = self.targets(report)["EBOOT.BIN"]
+        self.assertEqual(t["applied"], 0)
+        self.assertNotIn("source", t)
+        self.assertTrue(any("differs from PBOOT.PBP in elf_size" in p for p in t["problems"]))
+        self.assertFalse((out / "patched.iso").exists())
+        self.assertEqual(self.targets(report)["PBOOT.PBP"]["applied"], 2)   # the update still goes out
+        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+        self.assertTrue(any("cannot read" in p and "differs from PBOOT.PBP" in p for p in report["problems"]))
+
+    def test_filters_and_the_switch(self):
+        iso, dlc = self.make_iso(self.elf), self.make_dlc(self.elf)
+        out, report = self.run_build(iso, dlc, skip=["EBOOT.BIN"])
+        self.assertEqual(sorted(self.targets(report)), ["PBOOT.PBP"])
+        self.assertFalse((out / "patched.iso").exists())
+        out, report = self.run_build(iso, dlc, only=["EBOOT.BIN"])
+        self.assertEqual(sorted(self.targets(report)), ["EBOOT.BIN"])
+        self.assertFalse((out / "DLC").exists())
+        out, report = self.run_build(iso, dlc, skip=["EBOOT.BIN", "PBOOT.PBP"])
+        self.assertEqual(report["executable"]["targets"], [])
+        self.assertIn("filtered out", report["executable"]["problems"][0])
+        out, report = self.run_build(iso, dlc, executable=False)
+        self.assertNotIn("executable", report)
+        self.assertFalse((out / "patched.iso").exists())
+
+    def test_dry_run_writes_nothing_but_reports_the_targets(self):
+        out, report = self.run_build(self.make_iso(self.elf), self.make_dlc(self.elf), dry_run=True)
+        exe = report["executable"]
+        self.assertFalse(out.exists() and (out / "patched.iso").exists())
+        self.assertTrue(all(w.startswith("(dry-run)") for w in exe["written"]))
+        self.assertEqual(self.targets(report)["EBOOT.BIN"]["applied"], 2)
+        self.assertIn("psp_game/sysdir/eboot.bin", " ".join(report["iso_members"]).lower())

@@ -130,7 +130,7 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertEqual(psp_prx.pbp_get(pbp, "DATA.PSP"), elf)
         (self.dlc / "PBOOT.PBP").write_bytes(pbp)
         text = self._run().decode("utf-8-sig")
-        self.assertIn("PBOOT.PBP w folderze DLC: NIEZNANY PBOOT; DATA.PSP: jawny ELF.", text)
+        self.assertIn("PBOOT.PBP w folderze DLC: NIEZNANY PBOOT; DATA.PSP: jawny ELF (nieznana wersja).", text)
         self.assertIn("09_executable.jsonl", text)
 
     def test_build17_config00_is_accepted_and_dlc_configs_are_labelled(self):
@@ -256,3 +256,78 @@ class DiagnozaBatRuleTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DiagnozaEbootTests(unittest.TestCase):
+    """The disc program (PSP_GAME/SYSDIR/EBOOT.BIN) and the executable targets of the report."""
+
+    setUp = DiagnozaReportTests.setUp
+    tearDown = DiagnozaReportTests.tearDown
+    _run = DiagnozaReportTests._run
+
+    def test_disc_eboot_is_classified(self):
+        import struct
+        sys.path.insert(0, str(ROOT / "tools"))
+        import psp_prx
+        hdr = bytearray(0x150)
+        struct.pack_into("<I", hdr, 0, psp_prx.PSP_MAGIC)
+        hdr[0x0A:0x0D] = b"srw"
+        struct.pack_into("<I", hdr, 0x28, 5527160)
+        struct.pack_into("<I", hdr, 0xD0, 0xD91613F0)
+        tree = {"PSP_GAME": {"SYSDIR": {"EBOOT.BIN": bytes(hdr) + b"\0" * 64},
+                             "USRDIR": {name: name.encode() * 50 for name in diagnoza.USRDIR_NAMES}}}
+        iso = self.tmp / "e.iso"
+        iso.write_bytes(iso_pack.build_iso(tree))
+        text = self._run("--iso", str(iso)).decode("utf-8-sig")
+        self.assertIn("program gry (PSP_GAME/SYSDIR/EBOOT.BIN)", text)
+        self.assertIn("ORYGINAL szyfrowany ~PSP (tag 0xD91613F0, modul 'srw' v0.0, elf_size 5527160)", text)
+        self.assertNotIn("EBOOT.BIN w e.iso:", text)          # nothing to flag
+        # a plain ELF nobody built is flagged; our known build is named
+        tree["PSP_GAME"]["SYSDIR"]["EBOOT.BIN"] = b"\x7fELF" + b"\0" * 100
+        iso.write_bytes(iso_pack.build_iso(tree))
+        text = self._run("--iso", str(iso)).decode("utf-8-sig")
+        self.assertIn("jawny ELF, NIEZNANY", text)
+        self.assertIn("- EBOOT.BIN w e.iso: jawny ELF, NIEZNANY", text)
+        note, ok = diagnoza.describe_eboot(b"\x7fELF" + b"\0" * 100)
+        self.assertFalse(ok)
+        self.assertIn("8ba77a79e7d46473671cb87e77553deb", diagnoza.KNOWN_ELF)
+        self.assertIn("ba4cc05c24e2d98f1edeaefe68228eff", diagnoza.KNOWN_ELF)
+        # the patched.iso of the build output gets the same line
+        shutil.copy(iso, self.root / "srw-oe-patch" / "patched.iso")
+        text = self._run().decode("utf-8-sig")
+        self.assertIn("    w ISO program gry (PSP_GAME/SYSDIR/EBOOT.BIN)", text)
+        self.assertIn("EBOOT.BIN w patched.iso: jawny ELF, NIEZNANY", text)
+
+    def test_report_executable_targets_are_summarised(self):
+        report = self.root / "srw-oe-patch" / "build_report.json"
+        data = json.loads(report.read_text(encoding="utf-8"))
+        # old builder: PBOOT only
+        data["executable"] = {"container": "PBOOT.PBP", "rows": 408, "applied": 397, "skipped": []}
+        report.write_text(json.dumps(data), encoding="utf-8")
+        text = self._run().decode("utf-8-sig")
+        self.assertIn("program gry (tylko PBOOT.PBP, stary builder): wpisane 397 z 408", text)
+        self.assertIn("Raport ze starego buildera", text)
+        # new builder: disc + update + a fallback note
+        data["executable"] = {
+            "rows": 408, "applied": 397, "skipped": [], "primary": "EBOOT.BIN",
+            "notes": ["ISO PSP_GAME/SYSDIR/EBOOT.BIN: unsupported ~PSP tag 0xD91680F0; same build by header"],
+            "targets": [
+                {"target": "ISO PSP_GAME/SYSDIR/EBOOT.BIN", "name": "EBOOT.BIN", "applied": 397,
+                 "skipped": [], "problems": [], "elf_md5_in": "8ba77a79e7d46473671cb87e77553deb",
+                 "elf_md5_out": "ba4cc05c24e2d98f1edeaefe68228eff", "source": "PBOOT.PBP"},
+                {"target": "DLC PBOOT.PBP/DATA.PSP", "name": "PBOOT.PBP", "applied": 0, "skipped": [],
+                 "problems": ["cannot read the executable: unsupported ~PSP tag 0x12345678"]}]}
+        report.write_text(json.dumps(data), encoding="utf-8")
+        text = self._run().decode("utf-8-sig")
+        self.assertIn("program gry [ISO PSP_GAME/SYSDIR/EBOOT.BIN]: wpisane 397 z 408, odrzucone 0, md5 ELF "
+                      "8ba77a79e7d46473671cb87e77553deb -> ba4cc05c24e2d98f1edeaefe68228eff; program wziety z "
+                      "PBOOT.PBP (zgodnosc tylko wg naglowka)", text)
+        self.assertIn("program gry [DLC PBOOT.PBP/DATA.PSP]: NIE ZAPISANY - cannot read", text)
+        self.assertIn("- Program gry [DLC PBOOT.PBP/DATA.PSP] nie zostal spatchowany", text)
+        self.assertIn("uwaga: ISO PSP_GAME/SYSDIR/EBOOT.BIN: unsupported", text)
+        self.assertNotIn("Budowa nie objela EBOOT.BIN", text)
+        # a build that never touched the disc program is flagged
+        data["executable"]["targets"] = data["executable"]["targets"][1:]
+        report.write_text(json.dumps(data), encoding="utf-8")
+        text = self._run().decode("utf-8-sig")
+        self.assertIn("Budowa nie objela EBOOT.BIN z ISO", text)
