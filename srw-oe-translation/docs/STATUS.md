@@ -1,8 +1,29 @@
 # Project status
 
-Last updated: 2026-10-15 (evening, §21.31)
+Last updated: 2026-10-15 (late evening, §21.32)
 
-**Latest (2026-10-15, evening): UI batch 3 — the single-kanji ICONS now carry 2-letter codes and `navisys.cpk` is in
+**Latest (2026-10-15, late evening): build #19 (v5 text + UI_TEST3 textures via HOKUS_POKUS) CONFIRMED WORKING in-game
+("everything runs beautifully"). The 8 screenshots of leftovers traced to three sources, all by bytes: (a) the GAME
+PROGRAM — `PBOOT.PBP` (the 1.08 update in the DLC folder) → `DATA.PSP`: `移動後`, `TGT 敵`, Evade / Sup. Def / Low EN
+banners, the Guard effect line, the 1.08-only `<貫通 Lv2>` / `<ビーム兵器 Lv2>` / `<連携攻撃 Lv2>` weapon-ability lines, the
+command and tactical menus, save / network / DLC messages — 0 hits in any data container; (b) `sysmes.bin` WHOLE strings
+written in half-width kana with `0x0F` tokens (`メインパイロット`, `サブパイロット`, `SELECT パイロット表示変更`, Sort, Page, …) — the
+v5 package held only their tails, which the sysmes writer ignores (root cause: the package was never re-merged after the
+whole-string exporter landed, and the exporter's Japanese test skipped half-width katakana); (c) texture UV cells
+(`WPN名`, clipped RNG, EN Cost sliver, half-cut part / ability icons). Fixes: new `tools/psp_prx.py` (pure-Python PRX
+decrypter for tag `0x2E5E10F0`, which stock pspdecrypt does not know; ELF md5 `8ba77a79…`) and `tools/exe_strings.py`
+(408 referenced strings, in-place `slot` rows with alignment slack, printf-conversion check, CWCheat export); 397/408
+translated in the new `09_executable.jsonl`; the builder's `exe_step` writes `DLC\PBOOT.PBP` with a PLAIN-ELF `DATA.PSP`
+(builder output == hand-made `PBOOT_en.PBP`, md5 `26689964…`) plus `cheats\NPJH50521.ini` as the fallback; 31 whole sysmes
+rows added to `04`; `coverage_audit.py` now checks whole sysmes strings and `PBOOT.PBP` (v5 → 33 missing, v6 → 0);
+`sysmes_text` / `translator_export` fixed for the future; texture batch 4 (`mensys_03/07/11/13`, `tacsys_16/18`);
+`diagnoza` knows v6, UI_TEST4 and classifies `PBOOT.PBP` (md5 + header). Package v6 (108 574 rows / 81 220 EN, 0 errors),
+sandbox build #20 (5 containers + PBOOT 397/397 verified), `EXE_TEST1.zip` and `UI_TEST4.zip` on Drive (v5 / KIT18 /
+UI_TEST3 moved to `_STARE_NIE_UZYWAC`). Tests: 1 227 OK (1 skipped). HYPOTHESES, not run in-game: PPSSPP boots a
+`PBOOT.PBP` whose `DATA.PSP` is a plain ELF (source-verified in `sceKernelModule.cpp` only); the ISO `EBOOT.BIN` is the
+same binary; `＠4Gamer:` reading of `ゲーマー`. Details: `EXPERIMENT_LOG.md` §21.32.**
+
+**Previous (2026-10-15, evening): UI batch 3 — the single-kanji ICONS now carry 2-letter codes and `navisys.cpk` is in
 scope. Measured badge geometry (1-px border, 2-px frame, ~10×10 px inner area) allows two letters at 7–9 px; one
 letter would clash with the S/A/B/C/D rank letters drawn next to the terrain badges, three do not fit. Codes:
 terrain GR / AI / SP (`mensys_03`, `mensys_14`), weapon abilities BR Break / AR Arc Shot / PU Push / TH Throw (notched

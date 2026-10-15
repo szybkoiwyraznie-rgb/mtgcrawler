@@ -4798,3 +4798,122 @@ installed … python -m pip install pillow (or --no-ui-textures)”; (2) `HOKUS_
 the_build_falls_back_to_text_only`); (3) test buildera `test_missing_pillow_is_a_clear_build_problem` (PIL zasłonięte
 przez `sys.modules`). `docs/INSTRUKCJA_PATCH_PL.md` część 1: wymaganie Pillow i wynik z 6 kontenerami UI. **Zestaw:
 1 184 testy OK (1 pominięty).** Nowa kopia instrukcji na Dysku — id w `drive_manifest.tsv`.
+
+### 21.32 Build #19 (v5 + UI_TEST3) DZIAŁA W GRZE; 8 zrzutów resztek ⇒ trzy źródła: napisy w PROGRAMIE (`PBOOT.PBP`), całe napisy `sysmes.bin`, komórki tekstur — pakiet v6, EXE_TEST1, UI_TEST4
+
+**Wejście (2026-10-15 wieczór):** użytkownik: build #19 (tekst v5/#18 + tekstury UI_TEST3 przez HOKUS_POKUS) „pięknie
+wszystko śmiga” + 8 zrzutów z resztkami japońskiego: (1) panel broni w walce — `移動後`🚫, `TGT 敵`, „RNG” z uciętym R;
+(2) lista broni — `WPN名`, ucięte „RNG”, „EN Cost” + osierocona litera; (3) lista części — lewe ikony ścięte w połowie;
+(4) lista zdolności — ikony „torso” podcięte, `メインパイロット` pod portretem, `Guard L1` z `ダメージ-16% 発動率12%`;
+(5) `SELECT パイロット表示変更`; (6–8) linie zdolności broni VF-25F: `<貫通 Lv2> 敵の防御-35%`, `<ビーム兵器 Lv2> CTダメージ+6%
+敵の回避-6%`, `<連携攻撃 Lv2> 包囲率+35% グループ全機が攻撃` (obok `<Hit & Away>`, `<Lock-On Lv2>`, `<Break>` po angielsku).
+
+**Diagnoza źródeł (zweryfikowana bajtami, nie zgadywana):**
+* `grep` po CP932 we wszystkich 18 kontenerach USRDIR (`local/inputs`) i 6 kontenerach UI: `移動後`, `発動率`, `貫通 Lv2`,
+  `ビーム兵器 Lv2`, `連携攻撃 Lv2` — **0 trafień w danych**. Wszystkie te napisy leżą w **programie gry**: `PBOOT.PBP`
+  (aktualizacja 1.08 z folderu DLC `PSP/GAME/NPJH50521/`) → `DATA.PSP`. Linie `<… Lv2>` to teksty wprowadzone patchem 1.08
+  (w `srwDL_Skill00` są tylko wersje Lv1 — dlatego `<Break>`/`<Lock-On Lv2>` z puli były angielskie, a te trzy nie).
+* `メインパイロット`, `サブパイロット`, `パイロット表示変更` — `sysmes.bin` w `configst.cpk`, zapisane **półszerokością z tokenami
+  kany `0x0F xx`** (`ﾒｲﾝ<0F>0ｲﾛｯﾄ`). Pakiet v5 miał dla nich tylko wiersze-ogony (patrz niżej), a pisarz sysmes
+  (`_sysmes_edits`) podmienia wyłącznie CAŁE wpisy puli ⇒ nigdy nie trafiały do gry.
+* `WPN名`, ucięte „RNG”, „EN Cost” + litera, ścięte ikony — komórki UV tekstur (`mensys_03`, `mensys_11`, `mensys_13`,
+  `tacsys_16/18`, `mensys_07`): ramki z UI_TEST3 nie pokrywały się z komórkami, których gra używa (patrz §21.31 lekcje).
+
+**A. Program gry — `tools/psp_prx.py` (nowe) i `tools/exe_strings.py` (nowe).** `PBOOT.PBP` 1.08: 6 194 059 B, md5
+`22daece3b6fccc4363dd76ed6a7ec2fb`; PBP bez PSAR; `DATA.PSP` @660 619, 5 533 424 B, nagłówek `~PSP`, tag `0x2E5E10F0`
+(typ 5). Stockowy `pspdecrypt` (John-K) **nie zna tego tagu** (brak seedów `0x2E5Exxxx` w jego kopii `PrxDecrypter`) —
+własny dekoder w czystym Pythonie wg aktualnego `Core/ELF/PrxDecrypter.cpp` PPSSPP (KIRK CMD1/CMD7 na AES-CBC + SHA-1,
+`expandSeed`, `pspFinishType5`; bez numpy, ~5 s). Wynik: jawny ELF **5 531 024 B, md5 `8ba77a79e7d46473671cb87e77553deb`**
+(relokowalny PRX, baza 0x08804000; `vaddr = 0x08804000 + (offset − 0xA0)`). `EBOOT.BIN` z ISO ma ten sam rozmiar —
+tożsamość **niezweryfikowana** (brak ISO w sandboxie). Testy: `tests/test_psp_prx.py` (9: PBP get/replace, KIRK na
+wektorach, odmowa przy złym tagu).
+`exe_strings.py extract`: skan `.rodata`/`.data` po napisach CP932/UTF-8 **z odwołaniem z kodu** (pary `lui/addiu`
+(`%hi/%lo`) po rejestrze i wskaźniki w `.data`; odrzucone: stałe float, tablice, czyste ASCII, śmieci) ⇒ **408 wierszy**
+(`exe_strings_ref.tsv` do przeglądu, `exe_rejects.jsonl`). Schemat wiersza: `category exe`, `id exe:PBOOT.PBP/DATA.PSP:0x<vaddr>`,
+`mode slot`, `max_bytes` = bajty JP + zerowe wyrównanie do 4 za NUL (`slack`), `source{container,member,offset,vaddr,
+refs,encoding[,slack]}`. `check_en` (w `translation_check.py`, gałąź `exe`): EN ≤ `max_bytes`, te same konwersje printf
+w tej samej kolejności (`%d %2d %+3d%% %s`), brak kany, brak bajtów > 0x7F poza UTF-8-owymi wierszami; `apply_rows`
+pisze w miejscu (reszta ELF-a bajt w bajt), `verify_build` odmawia przy innym buildzie (0 trafień ⇒ nic nie zapisane).
+Tłumaczenie **397/408** (11 zostawionych świadomie: `・「」＠0`, czyste szablony printf, teksty debugowe `無頼`/`コードギアス`/
+`機械神`/`コズン`): m.in. `移動後`→`Post-Mv`, `敵/味方/全て`→`Foe/Ally/All`, `回避`→`Evade`, `援護防御/援護攻撃`→`Sup. Def/Sup. Atk`,
+`ＥＮ不足`→`Low EN`, `射程外`→`OutRng`, `合体攻撃`→`Comb.Atk`, `<0F>*ﾒｰ<0F>&-16% 発動率12%` (= ダメージ-16% 発動率12%, 9 literałów Guard po 20 B)→`Dmg-16% Trigger 12%`,
+`<貫通 Lv2>＠0敵の防御-35%`→`<Pierce Lv2>＠0Foe Def-35%`, `<ビーム兵器 Lv2>…`→`<Beam Wpn Lv2>＠0CT Dmg+6% Foe Eva-6%`,
+`<連携攻撃 Lv2>…`→`<Coord. Atk Lv2>＠0Surround+35% Whole group attacks` (+ 2 dalsze linie), komendy `移動 攻撃 精神 パーツ
+能力 待機`→`Move Attack Spirit Parts Ability Wait`, menu `検索 状況表示 オプション リタイア 中断セーブ`→`Find Status Options
+Retire Quick Save`, komunikaty sejwu/sieci/DLC, nazwa gry w danych sejwu (UTF-8). Budżet: `敵` = 2 B + NUL + 1 pad ⇒ 3 znaki
+(„Foe”), `移動` = 4+1+3 ⇒ 7. Niepewne (ocena w grze): `＠4Gamer:` (`ゲーマー`), `OutRng`, `Comb.Atk`, `Sng` (`歌`), `Pincer`.
+Pułapka `FORMAT_RE`: „Dmg” wielką literą, bo `% d` w EN pasowałoby jako konwersja. Testy: `tests/test_exe_strings.py`
+(27, na syntetycznym ELF-ie z `tests/exe_fixtures.py` — odwołania, slack, odcięty ogon, UTF-8, odmowa innego buildu, cheat).
+`PBOOT_en.PBP` (ręcznie, `exe_strings.py apply`): **6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923`**; `DATA.PSP` =
+jawny ELF 5 531 024 B, md5 `ba4cc05c24e2d98f1edeaefe68228eff`; różnice względem oryginału tylko w slotach napisów
+(sprawdzone diffem bajtów).
+**Dlaczego jawny ELF i dlaczego to działa tylko jako hipoteza:** PPSSPP (`Core/HLE/sceKernelModule.cpp`, master) próbuje
+`pspDecryptPRX`, a gdy moduł zaczyna się od `0x7F ELF`, ładuje go wprost — zaszyfrować z powrotem nie da się bez kluczy
+Sony (CMD1 podpisuje), więc jedyna droga to goły ELF. `Core/PSPLoaders.cpp` (`FindGameUpdatePBOOT`): dla gry z płyty
+PPSSPP bierze `ms0:/PSP/GAME/<DISC_ID>/PBOOT.PBP`, gdy `DISC_ID` z jego `PARAM.SFO` pasuje (niezgodna `DISC_VERSION` =
+tylko ostrzeżenie w logu) — to dlatego folder DLC użytkownika ma `PBOOT.PBP` i to on, nie `EBOOT.BIN` z ISO, jest
+programem 1.08. **W grze nie uruchomione** (sandbox bez PPSSPP). Droga zapasowa: `exe_strings.py cheat` ⇒ plik CWCheat
+`_S NPJH-50521` z tymi samymi bajtami (`addr = vaddr − 0x08800000`, 2 867 linii) — działa niezależnie od PBOOT.
+
+**B. Całe napisy `sysmes.bin` (31).** Pakiet v5 miał 2 196 wierszy `config_sysmes` = 1 055 całych napisów + **1 141
+ogonów** ze starego skanera przebiegów (dokładnie liczba z docstringa `sysmes_text.py`) — tzn. pakiet **nigdy nie został
+ponownie scalony** po przejściu eksportera na całe wpisy puli (2026-10-14). Skaner zaczynał przebieg od pierwszego znaku
+japońskiego, więc napisy zaczynające się od `%s`, spacji, `LV1 `, `CT`, `DLC`, `PlayStation` były w pakiecie tylko jako
+ogony (24 napisy). Do tego **7 napisów półszerokością** (`ﾒｲﾝ<0F>0ｲﾛｯﾄ`, `ｻ<0F>3<0F>0ｲﾛｯﾄ`, `ｿｰﾄ`, `<0F>6ｰ<0F>&` = ページ,
+`＠4<0F>#ｰﾏｰ:…` = linia statusu Gamer/CT, `＠1[GRﾐｯｼｮﾝ]`, `ｼﾐｭﾚｰﾀｰﾐｯｼｮﾝ`) odrzucał sam eksporter: test „czy japoński” nie
+obejmował zakresu U+FF61–FF9F. Naprawy: `sysmes_text.has_japanese` (+ półszerokość; eksporter daje teraz 1 087 wierszy,
+31/31 pokrytych), `coverage_audit.sysmes_missing_whole` (każdy wpis puli z japońskim musi być wierszem **w całości** —
+surowo z tokenami albo w formie `table_write.display`; ogony nie liczą się), `coverage_audit.audit_executable`
+(`PBOOT.PBP` przez `psp_prx.elf_from` + `exe_strings.extract_rows`). Audyt na `configst`, `config00`, `PBOOT.PBP`:
+**v5 → 33 braki w `configst.cpk`** (31 całych + 2), **v6 → 0 całych, 0 w PBOOT**, zostają 2 stałe fałszywe trafienia
+(`ターゲットファイル`, `各フォルダ内依存関係` @`configst.pac` 243 862/243 933 — metadane budowy PAC, nie tekst gry).
+Tłumaczenia (31, `mode grow`, kategoria `config_sysmes`, `note: whole string (v6)`): `Main Pilot`, `Sub Pilot`,
+`Switch Pilot` (SELECT パイロット表示変更), `Pilot Parts`, `System Setup 1/2`, `Sound Setup`, `Sort`, `Page`, `Missions
+Cleared:`, `[GR Mission]`, `Simulator Mission`, ` Saving...`, `%s is now available!`, `%s ×…`, `＠4Gamer: … CT …` (niepewne).
+Testy: `tests/test_coverage_audit_whole.py` (6).
+
+**C. Tekstury — partia 4 (`ui_labels/`).** `mensys_03`: `en_cost` [0,53,33,64], `range` [34,53,51,64] (`min_size` 7),
+`hit_weapon` [53,53,71,64], `name_counter` 名 wymazane (nagłówek „WPN”); `mensys_11`: `required` y1 43, `amount` y1 30
+(ramki kończą się nad ikonami, które zaczynają się w y=44); `tacsys_16`: `mission_result_sub` [115,3,211,17],
+`level_up_sub` [0,17,73,32] (nie obcina „!” / „M”); `tacsys_18` `sub_caption` y0 20; `mensys_07` górny rząd y1 15;
+`mensys_13` `terrain` [32,30,56,41] (`min_size` 7 — pierwsza próba odmówiła „Terrain” przy 23 px), `for_suffix` 用 wymazane.
+`ui_texture_patch.py --originals local/ui_originals --out local/ui_build4 --preview-dir local/preview4`: 6 kontenerów,
+0 odmów; podglądy ×4 obejrzane (`mensys_03/11/13`, `tacsys_16`). md5: `system.cpk` `c162146318c56c54fc83377e0c5bc15b`,
+`tacsys.cpk` `d44cddec29ca2df3b501af1df5a05eca`, pozostałe 4 = UI_TEST3. `mensys_12` nadal bez specyfikacji.
+
+**D. Builder.** `build_translation_patch.py` (`TOOLS_STAMP 2026-10-15f`): `PACKAGE_FILES` += `09_executable.jsonl`;
+`owner()` → `exe`; `exe_step` (przed teksturami): `store.dlc_path("PBOOT.PBP")` → `psp_prx` → `verify_build` (0 trafień ⇒
+nic nie pisze) → `apply_rows` → `pbp_replace` → `out/DLC/<ścieżka względna>/PBOOT.PBP` + `out/cheats/NPJH50521.ini` (CRLF)
++ odczyt zwrotny (`verified`); `report["executable"]` = {rows, applied, skipped, problems, elf_md5_in/out, verified…};
+flaga `--no-exe`; linia podsumowania „Program gry (PBOOT.PBP): N z M napisów wpisanych”; `skill_total_check` szuka wyniku
+pod ścieżką względną DLC (zagnieżdżone drzewa). Test exe-only (`--dlc local/dlc_exe`, pakiet tylko 09): PBOOT z buildera
+**md5 = `26689964…` = ręczny `PBOOT_en.PBP`**. `HOKUS_POKUS.bat` bez zmian — krok wykonuje się sam, gdy wskazany folder
+DLC zawiera `PBOOT.PBP` (wynik: `srw-oe-patch\DLC\PBOOT.PBP` + `srw-oe-patch\cheats\NPJH50521.ini`).
+
+**E. Pakiet v6** (`pakiet_EN_2026-10-15_v6`): v5 + `09_executable.jsonl` (408/397) + 31 całych wierszy sysmes dopisanych do
+`04_config_text.jsonl` (16 453 wierszy; ogony z v5 zostają — nieszkodliwe) + „Link Attack” → „Coord. Attack” ×3 w
+`Reference00`; `index.json` zna część 09; `CO_NOWEGO_v6.txt`. `translation_copy.py --resync` 0; `translation_check.py`
+**0 błędów, 108 574 wierszy / 81 220 z EN**. Styl: fragment 196 `Surround+` bez wiodącej spacji (jak `＠0Foe Def-`; budżet
+exe spacji nie mieści). `translator_export.py`: część `09_executable.jsonl` z `local/executable.jsonl` (`exe_strings.py
+extract`) — kolejne eksporty nie zgubią 09. **Build #20** (sandbox, `--dlc local/dlc_full` = dowiązania do 18 oryginałów
+USRDIR + `PBOOT.PBP` pod `PSP/GAME/NPJH50521/`, bez ISO ⇒ bez tekstur): `config00` (Skill00 215 450 B), `config02`,
+`configst` (sysmes 1 182 napisów / 48 224 B, wszystkie 31 nowych EN w środku), `imenu00`, `mesbtl00` + `PBOOT.PBP`
+(397/397, `verified: True`) + `cheats/NPJH50521.ini`; 0 pominięć, 0 błędów weryfikacji. `diagnoza.py`: wersja v6 po md5
+03/04 (`CURRENT_PACKAGE v6`, v5 opisany „użyj v6”), linia `09_executable.jsonl` (BRAK ⇒ pakiet sprzed v6), `PBOOT.PBP` w
+folderze DLC klasyfikowany po md5 (oryginał 1.08 / EXE_TEST1 = #20) i nagłówku `DATA.PSP` (`~PSP` vs jawny ELF),
+`KNOWN_UI` += UI_TEST4. **Testy: 1 227 OK (1 pominięty).** Commity: `1de74f6` (exe w buildzie, testy exe/prx, tekstury 4),
+`6a9ffa4` (audyt całych napisów + PBOOT, eksporter, diagnoza), następny = dokumentacja.
+
+**Dysk (DELIVERY, odpowiedzi API):** `pakiet_EN_2026-10-15_v6.zip` `191uHnfD7bNm53TJGFSh-_CiLnGKK4eHs` (5 332 197 B, md5
+`268518f411870d5dc38e282438166160`); `EXE_TEST1.zip` `1zw8v8H-3BxXof7huQEBRGs7x8pfTMbVY` (2 659 455 B, md5
+`d7684cc0e1aed30cef4d252da87d20f9`: `PBOOT.PBP` = #20, `cheats/NPJH50521.ini`, `lista_napisow_exe.txt` 408 wierszy,
+`CZYTAJ_EXE_TEST1.txt` z procedurą kopii oryginału i drogą CWCheat); `UI_TEST4.zip` `1Ou2VdpoUPVFZeeBULBgF4N8U6VJayESm`
+(310 286 B, md5 `88e22f37c2f1be2a94165f119fe02eb9`). Do `_STARE_NIE_UZYWAC` (bez zmiany nazw): v5 zip, KIT_build18,
+UI_TEST3 (wszystkie działały w #19 — odniesienie).
+
+**Potwierdzone / hipotezy / nieznane:** POTWIERDZONE: build #19 działa w grze; źródła wszystkich 8 resztek (bajty);
+dekoder PRX daje poprawny ELF (sekcje, relokacje, 408 napisów z odwołaniami); PBOOT z buildera = ręczny; v6 0 błędów;
+audyt 0 braków. HIPOTEZY: PPSSPP uruchomi `PBOOT.PBP` z jawnym ELF-em (z kodu źródłowego, nie z uruchomienia); czytelność
+„OutRng”/„Comb.Atk”/„Gamer:”; `EBOOT.BIN` z ISO = ta sama binarka. NIEZNANE: prawdziwe PSP/CFW z jawnym ELF-em (nie
+sprawdzane, poza celem); czy `＠4<0F>#ｰﾏｰ:` to „Gamer”. Następne: zrzuty z v6 + EXE_TEST1 (panel broni, Guard, VF-25F,
+Main Pilot), `mensys_12`, rozdziały 5–8 bez EN, kalibracja szerokości etykiet.

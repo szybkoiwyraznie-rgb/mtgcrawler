@@ -100,7 +100,12 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   (BEZ speakra). `apply_strings.py` — wkleja tłumaczenia (rośnie).
 - `extract_scenes.py` — sceny z chronologią/nagłówkami/placeholderami (speaker TODO).
 - `scan_translatable.py` — inwentaryzacja; `dlc_catalog.json`, `local/extracted/*.jsonl`.
-- Testy: `tests/test_sysmes_shift.py`, `test_sysmes_pack.py`, `test_configst_pack.py`, + reszta (331).
+- `psp_prx.py` — `PBOOT.PBP`/`EBOOT.BIN`: `pbp_get`/`pbp_replace`, `decrypt_prx` (tag `0x2E5E10F0` typ 5, KIRK w czystym
+  Pythonie, ~5 s), `elf_from(path)` (PBP / `~PSP` / jawny ELF). Stockowy `pspdecrypt` tego tagu NIE zna.
+- `exe_strings.py` — `extract` (napisy programu z odwołaniem z kodu → wiersze `exe`, `mode slot`, `max_bytes` z wyrównaniem),
+  `apply` (w miejscu; odmawia przy innym buildzie), `cheat` (CWCheat `_S NPJH-50521`), `check_en` (budżet, konwersje printf).
+- Testy: `tests/test_sysmes_shift.py`, `test_sysmes_pack.py`, `test_configst_pack.py`, `test_psp_prx.py`, `test_exe_strings.py`,
+  `test_coverage_audit_whole.py` + reszta (1 227 OK / 1 pominięty, 2026-10-15).
 
 ## 6. Zasoby (poza git)
 - **Google Drive** (connector `google_drive`, użytkownik podłączył): katalog DLC
@@ -326,6 +331,18 @@ python tools\configst_pack.py pack <orig.cpk> --replacements rep.json --out <out
 python tools\sysmes_pack.py <in.cpk> <out.cpk>          # DEFAULT_EDITS tytułu, dowolna długość, zrzut wpisów 906-911
 ```
 
+**Stan 2026-10-15 późny wieczór (`EXPERIMENT_LOG.md` §21.32):** **build #19 (v5 + UI_TEST3) DZIAŁA w grze.** Resztki z 8
+zrzutów = (a) **napisy w programie** (`PBOOT.PBP` 1.08 → `DATA.PSP`; panel broni `移動後`/`TGT 敵`, komunikaty bitewne, linie
+`<貫通 Lv2>`/`<ビーム兵器 Lv2>`/`<連携攻撃 Lv2>` z 1.08, efekt Guard, komendy, menu, komunikaty sejwu) → `tools/psp_prx.py` +
+`tools/exe_strings.py`, nowa część pakietu `09_executable.jsonl` (408/397), krok `exe_step` buildera (`DLC\PBOOT.PBP` z JAWNYM
+ELF-em w `DATA.PSP` + `cheats\NPJH50521.ini`; `--no-exe`); (b) **31 CAŁYCH napisów `sysmes.bin`** z tokenami kany / wiodącym
+`%s` (`メインパイロット`, `サブパイロット`, `SELECT パイロット表示変更`…) — pakiet miał tylko ogony (pisarz je ignoruje); `coverage_audit`
+sprawdza teraz całe napisy i `PBOOT.PBP` (v6 → 0 braków), `sysmes_text.has_japanese` zna półszerokość; (c) komórki tekstur →
+partia 4 (`UI_TEST4`). Pakiet **v6**, `EXE_TEST1.zip`, `UI_TEST4.zip` na Dysku; `diagnoza` zna v6/PBOOT/UI_TEST4. **W grze nie
+sprawdzone: v6, PBOOT z jawnym ELF-em (hipoteza z kodu PPSSPP: `sceKernelModule.cpp` ładuje goły ELF; `PSPLoaders.cpp` bierze
+`PSP/GAME/<DISC_ID>/PBOOT.PBP` zamiast `EBOOT.BIN` z płyty), UI_TEST4.** Droga zapasowa = plik CWCheat. Otwarte: zrzuty z v6,
+`mensys_12`, dialogi 5–8 bez EN, A1/A2, kalibracja szerokości etykiet, „Gamer:”/„OutRng”/„Comb.Atk” do oceny.
+
 ## 9. Znane pułapki (nie powtarzaj)
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
   (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę
@@ -347,7 +364,16 @@ python tools\sysmes_pack.py <in.cpk> <out.cpk>          # DEFAULT_EDITS tytułu,
   (bajty wskaźników jako tekst) i gubiło teksty z tokenem kany; wpis in-place `slot` i stary
   `rebuild_member` (stare wskaźniki po wzroście rekordów) były błędne — nie wracaj do nich.
 - `coverage_audit.py` jest ślepy na fragmenty rozcięte bajtem sterującym (akceptuje podciągi) —
-  „0 brakujących” dla pul config było fałszywe.
+  „0 brakujących” dla pul config było fałszywe. Od §21.32 sprawdza CAŁE wpisy `sysmes.bin` (ogon ≠ pokrycie:
+  pisarz sysmes podmienia tylko całe napisy; 31 napisów z tokenami `0x0F`/wiodącym `%s` siedziało w grze po japońsku
+  przez 19 buildów) i `PBOOT.PBP`. 2 stałe fałszywe trafienia w `configst.pac` (metadane budowy PAC) — ignorować.
+- Eksporter `sysmes_text.py`: test „czy japoński” MUSI obejmować półszerokość (U+FF61–FF9F) — bez tego napisy
+  `ﾒｲﾝ<0F>0ｲﾛｯﾄ` znikają z pakietu bez śladu. Po zmianie eksportera ZAWSZE `--merge-into` do żywego pakietu.
+- Napisy programu: tylko w miejscu (`slot`), budżet = bajty JP + wyrównanie do 4 za NUL (`敵` → 3 znaki). Nie da się
+  zaszyfrować `DATA.PSP` z powrotem (KIRK CMD1 = podpis Sony) — wynik to jawny ELF; `verify_build` odmawia przy innym
+  buildzie (0 trafień ⇒ nic nie zapisane). EN z `% d`-podobnym tekstem łapie się jako konwersja printf (pisz „Dmg”).
+- Folder DLC do HOKUS_POKUS musi zawierać `PBOOT.PBP` (inaczej krok exe nic nie robi i raport ma `executable.container = null`);
+  użytkownik zawsze robi kopię oryginalnego `PBOOT.PBP` przed podmianą.
 - Szerokość 46 była z pierwszej sceny; limity pisarzy = spis najszerszych linii gry per rodzaj.
 - cmd.exe: `%X:~…%`/`%X:a=b%` dla NIEZDEFINIOWANEGO X usuwa tylko `%X:` i skanuje dalej → linia zamienia
   się w śmieci; w `if` to fatalny błąd składni („The syntax of the command is incorrect"), nawet gdy

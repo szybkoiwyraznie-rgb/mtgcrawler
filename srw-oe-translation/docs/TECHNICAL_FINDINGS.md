@@ -419,3 +419,42 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
   string can have two rows. The writer merges rows per (record, role); on two different English texts it skips the
   record in all roles and only notes `skipped: ['record N role effect: two rows, two translations']` in
   `build_report.json` (exit code unchanged). `translation_check.conflicting_duplicates` now reports this as an error.
+
+## The game program carries UI strings; the 1.08 update `PBOOT.PBP` is the program PPSSPP runs (2026-10-15)
+
+* Strings with 0 hits in any data container (`移動後`, `TGT 敵/味方/全て`, battle banners `回避`/`援護防御`/`ＥＮ不足`/
+  `射程外`, the Guard effect literals `ダメージ-16% 発動率12%` …, the 1.08-only weapon-ability lines `<貫通 Lv2>`,
+  `<ビーム兵器 Lv2>`, `<連携攻撃 Lv2>` (the pool `srwDL_Skill00` has only Lv1), unit commands, tactical menu, save /
+  network / DLC messages, the UTF-8 game title in save data) live in `PBOOT.PBP` → `DATA.PSP` (`~PSP`, tag
+  `0x2E5E10F0`, type 5). The PBP has no PSAR; `DATA.PSP` at 660 619, 5 533 424 B. Decrypted ELF: 5 531 024 B, md5
+  `8ba77a79e7d46473671cb87e77553deb`, relocatable PRX, base 0x08804000, `vaddr = base + (file offset − 0xA0)`.
+  `tools/psp_prx.py` (pure Python, PPSSPP's `PrxDecrypter.cpp` tables incl. the `0x2E5Exxxx` type-5 seeds that the
+  stock John-K `pspdecrypt` lacks). The disc `EBOOT.BIN` has the same size — identity NOT verified.
+* `tools/exe_strings.py` keeps a string only when code references it (`lui`/`addiu` `%hi/%lo` pairs by register or a
+  `.data` pointer): 408 rows (CP932 + one UTF-8 block), review file `exe_strings_ref.tsv`. Constants that decode as
+  CP932 (floats, `UUUU`), constant tables and pure ASCII are rejected.
+* Budget per string = Japanese bytes + the zero padding up to the next 4-byte boundary after the NUL (`slack`);
+  the English is written in place, nothing moves (`敵` 2 B + NUL + 1 pad → 3 chars: "Foe"; `移動` → 7). printf
+  conversions must appear in the same order; kana tokens `0x0F xx` vanish; "Dmg" capitalised because `% d` in
+  English would match the conversion regex. `verify_build` refuses a different executable (0 matches ⇒ no write).
+* Re-encryption is impossible (KIRK CMD1 signs with Sony keys), so the patched `DATA.PSP` is a plain ELF.
+  PPSSPP `Core/HLE/sceKernelModule.cpp` (master) loads a module starting with `0x7F ELF` directly when
+  `pspDecryptPRX` does not apply, and `Core/PSPLoaders.cpp::FindGameUpdatePBOOT` boots `ms0:/PSP/GAME/<DISC_ID>/PBOOT.PBP`
+  instead of the disc EBOOT when its PARAM.SFO `DISC_ID` matches (a `DISC_VERSION` mismatch only logs). **Source-verified
+  only — not run in-game.** Fallback that needs no PBOOT change: CWCheat `_S NPJH-50521`, `_C1 EXE strings EN`,
+  `_L 0x2<addr> <u32>` with `addr = vaddr − 0x08800000` (2 867 lines for 397 rows).
+* Patched `PBOOT.PBP`: 6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923` (builder `exe_step` == manual
+  `exe_strings.py apply`); original 1.08: 6 194 059 B, md5 `22daece3b6fccc4363dd76ed6a7ec2fb`.
+
+## `sysmes.bin` tail rows never reach the game; half-width kana strings were dropped by the exporter (2026-10-15)
+
+* The sysmes writer (`_sysmes_edits` → `sysmes_pack.translate_bytes`) replaces WHOLE pool entries. A package row whose
+  `jp` is only the tail of an entry (the first run-scanner exporter emitted 1 141 such rows: strings starting with
+  `%s`, a space, `LV1 `, `CT`, `DLC`, `PlayStation` or a `0x0F` kana token) is silently ignored. Package v5 still had
+  2 196 sysmes rows = 1 055 whole + 1 141 tails: it was never re-merged after the whole-string exporter landed.
+* Seven entries are written in half-width katakana with `0x0F xx` voiced-kana tokens (`ﾒｲﾝ<0F>0ｲﾛｯﾄ` = メインパイロット,
+  `ｻ<0F>3<0F>0ｲﾛｯﾄ`, `ｿｰﾄ`, `<0F>6ｰ<0F>&` = ページ, `＠4<0F>#ｰﾏｰ:` status line, `＠1[GRﾐｯｼｮﾝ]`, `ｼﾐｭﾚｰﾀｰﾐｯｼｮﾝ`); the
+  exporter's "is Japanese" test did not include U+FF61–FF9F, so they never became rows. Fixed in `sysmes_text.has_japanese`;
+  `coverage_audit.sysmes_missing_whole` now demands the whole string (raw with tokens or `table_write.display` form)
+  and `coverage_audit.audit_executable` covers `PBOOT.PBP`. Two `configst.pac` strings (`ターゲットファイル`,
+  `各フォルダ内依存関係`, PAC build metadata) are permanent false positives.

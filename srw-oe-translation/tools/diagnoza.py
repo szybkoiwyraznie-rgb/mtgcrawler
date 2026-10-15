@@ -62,9 +62,13 @@ KNOWN_UI: Dict[str, str] = {
     "fcb2350f34505ee8f0124a4ef155a4f1": "UI_TEST2 = UI_TEST3 (IM9000.cpk bez zmian miedzy zestawami)",
     # UI_TEST3 (2026-10-15): 26 textures - the icon badges (terrain, weapon abilities, spirit orbs)
     # carry 2-letter codes and navisys.cpk (navigation buttons) joins the set
-    "ee28e8fb17c0b4ddc646f2fbbc1e1313": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
-    "def587de1a8392e20fff3d0d315a1e04": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
-    "ec647a6aaf62d3e5ff19843ccf6d8b22": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
+    "ee28e8fb17c0b4ddc646f2fbbc1e1313": "UI_TEST3 (26 tekstur; dzialal w buildzie #19; system.cpk - zastapiony przez UI_TEST4)",
+    "def587de1a8392e20fff3d0d315a1e04": "UI_TEST3 (26 tekstur; dzialal w buildzie #19; tacsys.cpk - zastapiony przez UI_TEST4)",
+    "ec647a6aaf62d3e5ff19843ccf6d8b22": "UI_TEST3 = UI_TEST4 (navisys.cpk bez zmian miedzy zestawami)",
+    # UI_TEST4 (2026-10-15, po 8 zrzutach z #19): komorki mensys_03/07/11/13, tacsys_16/18 poprawione
+    # (WPN bez 名, RNG nieobciete, EN Cost w swojej komorce, ikony czesci/zdolnosci nie podciete)
+    "c162146318c56c54fc83377e0c5bc15b": "UI_TEST4 (26 tekstur, poprawione komorki; = build z teksturami od 2026-10-15f)",
+    "d44cddec29ca2df3b501af1df5a05eca": "UI_TEST4 (26 tekstur, poprawione komorki; = build z teksturami od 2026-10-15f)",
 }
 
 # md5 -> label of every config00/configst we ever handed out (EXPERIMENT_LOG.md 21.x).
