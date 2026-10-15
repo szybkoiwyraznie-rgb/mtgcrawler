@@ -3853,3 +3853,51 @@ T5 wg wyniku). Dodatkowo: V6 (wzrost `.pac` poza Skill00), S3 (+2 KB z angielsk�
 pamięć DLC + plik, nie o sam człon). Pomiar pojemności: Skill00 ma 64 758 B miejsca na spacje pod
 japońskimi maksimami; `Item00` tylko 6 709 B (dlatego nie ma wariantu „rośnie inny człon o +19 KB").
 Oryginalny `config00.cpk` pobrano ponownie z Drive (md5 `266366c3bee66130d4b7cb57a1b1e3d4` zgodne).
+
+### 21.18 T6 PADA (rozmiar potwierdzony) → runda 4: ciasny `.pac` (U1/U2), nagłówek CPK (T7); `WGRAJ_DO_ISO.bat` pamięta ISO
+
+**Wynik użytkownika (2026-10-15) [ZWERYFIKOWANE w grze]:** **T6_plus_19KB_jak_build pada** — japoński
+tekst + spacje, zero zer, zero angielskiego, rozmiar jak build #10. Crash buildów #6–#10 jest więc skutkiem
+**ROZMIARU** przebudowanego `srwDL_Skill00.bin` (lub kontenera), nie treści. T1/T3/T4 (budżet) jeszcze
+nietestowane.
+
+**Przegląd poziomu CPK (offline, 4 oryginały):** przebudowany kontener różni się od oryginału w nagłówku
+tylko polami `ContentSize`/`EtocOffset` (poprawnie) oraz — **nie aktualizowanymi dotąd** —
+`EnabledPackedSize`/`EnabledDataSize`. Reguła pakera zmierzona na config00, configst (1 plik stored),
+eventP00 (44 członów CRILAYLA), mesbtl00 (76): `EnabledPackedSize = 2·ΣExtractSize`,
+`EnabledDataSize = ΣFileSize + ΣExtractSize` (podwójne liczenie TOC+ITOC w CPKMC2.30.07). ITOC to
+`CpkExtendId` (ID→TocIndex, bez rozmiarów) — nic więcej nie jest nieaktualne. `cpk_write.rebuild` i
+`replace_appended` przeliczają teraz oba pola tą samą regułą (tylko gdy oryginał jej podlega; inna
+konwencja zostaje nietknięta) — `cpk_write.enabled_sizes`, testy `EnabledSizeFieldTests` (5). Prawdopodobieństwo,
+że to przyczyna crasha, oceniam nisko (eventP00 rosło z tymi samymi nieaktualnymi polami i działało w grze),
+ale to jednozmiennowy, tani test: **T7** = T6 + poprawione pola (różnica dokładnie 2 komórki, bajty 301–309).
+
+**Pomiar wypełnienia `.pac`:** 34 sub-pliki config00 leżą co 2 048 B (`data_base` 2 048, katalog 1 372 B);
+suma rozmiarów 881 752 B, pac 923 648 B → **36 864 B samego wyrównania przy kroku 64 B** (38 912 przy 16 B).
+Z `Skill00` +19 244 B i krokiem 64 B pac ma 905 216 B — **mniej niż oryginał**. Jeśli gra sprawdza rozmiar
+kontenera (bufor na cały `.pac` / pamięć), ciasne pakowanie jest zarazem diagnozą i poprawką; jeśli limit
+dotyczy samego członu — nie pomoże. `configst_pack.rebuild_pac(parsed, align=…)` (potęga 2; długość pac nadal
+wielokrotność 2 048), `member_variants --align`, `--labels`; szczebel o rozmiarze oryginału = oryginalne bajty.
+
+**Runda 4 (wszystkie: `config00.cpk`, pozostałe 33 sub-pliki bajt w bajt, kolejność i rozmiary zachowane):**
+
+| wariant | Skill00 B | krok pac | pac B | cpk B | nagłówek Enabled* | md5 |
+|---|---|---|---|---|---|---|
+| U2_pac_ciasny_plus_19KB | 228 202 (= T6) | 64 | 905 216 | 911 488 | stare (jak T6) | `5f7cc82990ba211b410029be8fc4361b` |
+| U1_pac_ciasny | 208 958 (oryginał) | 64 | 886 784 | 893 056 | stare | `b3ee2d4fe39e5769768e29f8f39fd4d8` |
+| T7_plus_19KB_naglowek_cpk | 228 202 (= T6) | 2 048 | 942 080 | 948 352 | poprawione 1 884 160 | `cc92f1973ea6f161c4e5047928602bbe` |
+
+U1/U2 zbudowane PRZED poprawką Enabled* (jedna zmienna względem T6: tylko pakowanie); T7 po niej (jedna
+zmienna: tylko nagłówek). Weryfikacja: offsety sub-plików U1/U2 wielokrotności 64 (nie 2 048), człon U1 ==
+oryginał, człon U2 == człon T6, T7 == T6 poza 2 komórkami. Kolejność testów: U2 (działa ⇒ STOP, poprawka) →
+U1 → drabinka T1/T3/T4 z rundy 3 → T7 → opcjonalnie V6, test bez DLC. Dostawa `RUNDA_4_pac.zip` (466 781 B,
+md5 `8d7889b13d151b1bf93bdbfeb879dd91`) → Drive DELIVERY `1EwulWduWbchzpKy-kUWBz9P6Bo-3sNLR`; zawiera też
+nowy `WGRAJ_DO_ISO.bat` + `tools\{iso_insert,iso_pack,iso9660,pick_path}.py`.
+
+**`WGRAJ_DO_ISO.bat` pamięta ISO (prośba użytkownika 2026-10-15):** pierwsze uruchomienie — okno wyboru jak
+dotąd; po UDANYM wgraniu ścieżka trafia do `%APPDATA%\SRWOE\ostatnie_iso.txt` (i folder do
+`ostatni_folder.txt`); kolejne uruchomienia: `choice /C TN /T 8 /D T` — T albo 8 s = użyj, N = okno wyboru
+otwarte w folderze zapamiętanego ISO; nieistniejące ISO ⇒ okno. Odczyt przez `for /f`, zapis w podprogramie
+`:remember` (`<nul set /p`) za etykietą `:pick` — reguła „żadnego wpisywania ścieżek" i testy
+(`WgrajBatRuleTests`, +1) zachowane. Pełny zestaw: 1 058 OK / 1 skipped. Oryginały `config00/configst/
+eventP00/mesbtl00.cpk` pobrane ponownie z Drive (md5 zgodne) po resecie środowiska.

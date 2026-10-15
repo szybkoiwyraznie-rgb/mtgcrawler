@@ -307,6 +307,32 @@ def _align_up(value: int, align: int) -> int:
     return value if align <= 1 else ((value + align - 1) // align) * align
 
 
+def enabled_sizes(cpk: "Cpk", file_sizes: Dict[int, int], extract_sizes: Dict[int, int]) -> Dict[str, int]:
+    """New values for the header's ``EnabledPackedSize`` / ``EnabledDataSize`` after the members
+    took the given sizes (keyed by member index) - or an empty dict when they must stay.
+
+    Measured on the four originals (config00, configst: 1 stored file each; eventP00: 44 and
+    mesbtl00: 76 CRILAYLA members; all ``CPKMC2.30.07`` with TOC + ITOC): ``EnabledPackedSize ==
+    2 * sum(ExtractSize)`` and ``EnabledDataSize == sum(FileSize) + sum(ExtractSize)`` - the
+    packer's double count over the two tables.  A rebuilt member changes both sums; builds #6-#10
+    and the variants of rounds 1-3 left the two fields at the ORIGINAL totals.  The fields are
+    rewritten with the same rule, and only when the original obeys it (another convention is left
+    untouched rather than guessed).
+    """
+    old_file = sum(m.file_size for m in cpk.members)
+    old_extract = sum(m.extract_size for m in cpk.members)
+    new_file = sum(file_sizes.get(m.index, m.file_size) for m in cpk.members)
+    new_extract = sum(extract_sizes.get(m.index, m.extract_size) for m in cpk.members)
+    out: Dict[str, int] = {}
+    packed = cpk.header.get("EnabledPackedSize")
+    if packed is not None and int(packed) == 2 * old_extract:
+        out["EnabledPackedSize"] = 2 * new_extract
+    data = cpk.header.get("EnabledDataSize")
+    if data is not None and int(data) == old_file + old_extract:
+        out["EnabledDataSize"] = new_file + new_extract
+    return out
+
+
 def decompressed(raw: bytes) -> bytes:
     """The member body to parse: CRILAYLA-decoded when stored compressed, else the raw bytes.
 
@@ -439,6 +465,12 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     delta = len(content) - cpk.content_size
     set_header("ContentSize", len(content))
     set_header("FileSize", len(data) + delta)
+    if target_name is not None and new_blob is not None:
+        changed = next(m for m in members if m.name == target_name)
+        extract = new_extract if new_extract is not None else len(new_blob)
+        for name, value in enabled_sizes(cpk, {changed.index: len(new_blob)},
+                                         {changed.index: extract}).items():
+            set_header(name, value)
     # Any table that sits after the content region moves with it. The real
     # containers keep the TOC ahead of the content so nothing shifts, but that
     # is their layout, not a rule.
@@ -481,6 +513,13 @@ def replace_appended(cpk: Cpk, name: str, blob: bytes) -> bytes:
         col = None
     if col is not None and col.row_offset is not None:
         _write_cell(data, cpk.header_layout.rows_start, col, len(data))
+    for field, value in enabled_sizes(cpk, {member.index: len(blob)}, {member.index: len(blob)}).items():
+        try:
+            col = cpk.header_layout.column(field)
+        except KeyError:
+            continue
+        if col.row_offset is not None:
+            _write_cell(data, cpk.header_layout.rows_start, col, value)
     return bytes(data)
 
 

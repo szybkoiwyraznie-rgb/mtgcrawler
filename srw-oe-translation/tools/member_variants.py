@@ -145,8 +145,13 @@ def check(blob: bytes, kind: str, member: str, reference: bytes) -> dict:
             "size": len(blob), "md5": _md5(blob)}
 
 
-def with_member(original_path: Path, member: str, data: bytes) -> Tuple[bytes, int]:
-    """The original container with ONE sub-file replaced; returns (bytes, pac size)."""
+def with_member(original_path: Path, member: str, data: bytes,
+                align: Optional[int] = None) -> Tuple[bytes, int]:
+    """The original container with ONE sub-file replaced; returns (bytes, pac size).
+
+    ``align`` re-packs the ``.pac`` with that placement unit for ALL sub-files (default: the
+    original 0x800); the member itself may be the original bytes - then only the packing changes.
+    """
     cpk, _members, pac_name = CM.members_of(original_path)
     if pac_name is None:
         raise VariantError("only single-.pac containers are supported")
@@ -158,7 +163,7 @@ def with_member(original_path: Path, member: str, data: bytes) -> Tuple[bytes, i
             hit = True
     if not hit:
         raise VariantError(f"{member} is not in {original_path.name}")
-    new_pac = CSP.rebuild_pac(pac)
+    new_pac = CSP.rebuild_pac(pac) if align is None else CSP.rebuild_pac(pac, align)
     return cpk_write.rebuild(cpk, replacement=(pac_name, new_pac)), len(new_pac)
 
 
@@ -188,6 +193,8 @@ def grow_with_spaces(original: bytes, kind: str, member: str, target_size: int,
     if need < 0 or need % 4:
         raise VariantError(f"target {target_size} must be the original size {len(original)} plus a "
                            f"multiple of 4")
+    if need == 0:
+        return original      # the rung at the original size is the original member, byte for byte
     added = {key: 0 for key in effects}
     while need > 0:
         progressed = False
@@ -210,8 +217,12 @@ def grow_with_spaces(original: bytes, kind: str, member: str, target_size: int,
 
 def build_ladder(original_path: Path, member: str, sizes: Sequence[int], out_dir: Path,
                  labels: Optional[Dict[int, str]] = None, max_field: Optional[int] = None,
-                 max_line: Optional[int] = None) -> List[dict]:
-    """One container per requested member size (original texts + spaces); see grow_with_spaces."""
+                 max_line: Optional[int] = None, align: Optional[int] = None) -> List[dict]:
+    """One container per requested member size (original texts + spaces); see grow_with_spaces.
+
+    ``align`` re-packs the ``.pac`` with a smaller placement unit (sub-files packed closer, same
+    bytes) - a size rung can then be combined with a SMALLER container than the original.
+    """
     kind = ISW._kind_of(member)
     if kind is None:
         raise VariantError(f"{member} is not a convention-B member this tool knows")
@@ -222,12 +233,15 @@ def build_ladder(original_path: Path, member: str, sizes: Sequence[int], out_dir
         label = (labels or {}).get(size, f"T{index}")
         data = grow_with_spaces(original, kind, member, size, max_field, max_line)
         info = check(data, kind, member, original)
-        container, pac_size = with_member(original_path, member, data)
+        container, pac_size = with_member(original_path, member, data, align)
         folder = out_dir / label
         folder.mkdir(parents=True, exist_ok=True)
         target = folder / original_path.name
         target.write_bytes(container)
-        report = {"label": label, "variant": f"spaces_{size}", "member": member,
+        variant = f"spaces_{size}" if size != len(original) else "original_member"
+        if align is not None:
+            variant += f"_pac_align_{align}"
+        report = {"label": label, "variant": variant, "member": member, "pac_align": align or CSP.ALIGN,
                   "member_original_size": len(original), "member_built_size": size,
                   "member_variant": info, "pac_size": pac_size,
                   "container_size": len(container), "container_md5": _md5(container)}
@@ -281,13 +295,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--max-field", type=int, help="ladder: effect field cap in bytes "
                         "(default: the member's own Japanese maximum)")
     parser.add_argument("--max-line", type=int, help="ladder: effect line cap in bytes (default: own maximum)")
+    parser.add_argument("--align", type=int, help="ladder: re-pack the .pac with this placement unit "
+                        "for all sub-files (default: the original 2048)")
+    parser.add_argument("--labels", nargs="+", help="ladder: folder names, one per SIZE (default T1..)")
     args = parser.parse_args(argv)
     if args.ladder is None and args.built is None:
         parser.error("either --built (variants) or --ladder SIZE ... (size ladder) is required")
     try:
         if args.ladder is not None:
-            reports = build_ladder(args.original, args.member, args.ladder, args.out_dir,
-                                   max_field=args.max_field, max_line=args.max_line)
+            if args.labels and len(args.labels) != len(args.ladder):
+                parser.error("--labels needs one name per --ladder SIZE")
+            labels = dict(zip(args.ladder, args.labels)) if args.labels else None
+            reports = build_ladder(args.original, args.member, args.ladder, args.out_dir, labels,
+                                   max_field=args.max_field, max_line=args.max_line, align=args.align)
         else:
             reports = build_all(args.original, args.built, args.member, args.out_dir, args.variants)
     except (VariantError, ISW.WriteError, ValueError) as exc:

@@ -169,6 +169,28 @@ class WgrajBatRuleTests(unittest.TestCase):
         import pick_path
         self.assertEqual(pick_path.PRESETS["files"]["kind"], "dir")
 
+    def test_the_iso_is_remembered_and_offered_with_one_key_never_typed(self):
+        """User, 2026-10-15: "make the bat remember where the original ISO is, I keep pointing
+        at the same file".  The remembered path is offered with `choice` (T or an 8 s timeout =
+        use it, N = the selector window again); it is written only after a successful insert, so
+        an ISO the tool refused is never offered; reading it back uses for /f, not a typed
+        prompt; the selector window stays the way to pick a new one."""
+        text = self._text()
+        main_part = text.partition("\r\n:pick\r\n")[0]
+        self.assertIn("if not defined ISO call :remembered_iso\r\n", main_part)
+        self.assertIn("choice /C TN /N /T 8 /D T /M", text)
+        self.assertIn('for /f "usebackq delims=" %%L in ("%MEMO_ISO%") do set "ISO_MEM=%%L"', text)
+        self.assertIn('if not exist "%ISO_MEM%" (', text)                      # a moved ISO: window again
+        self.assertIn('if "%RESULT%"=="0" call :remember "%MEMO_ISO%" "%ISO%"', main_part)
+        self.assertNotIn('call :remember "', main_part.split('set "RESULT=%ERRORLEVEL%"')[0])
+        self.assertIn('set "MEMODIR=%APPDATA%\\SRWOE"', main_part)
+        self.assertIn('if not defined APPDATA set "MEMODIR=', main_part)
+        # N reopens the window in the remembered ISO's folder; the folder window opens where
+        # the last chosen folder lay
+        self.assertIn('call :pick iso ISO "%ISOINIT%"', main_part)
+        self.assertIn('call :pick files FILES "%DIRINIT%"', main_part)
+        self.assertIn(":remembered_dir\r\n", text)
+
 
 if __name__ == "__main__":
     unittest.main()

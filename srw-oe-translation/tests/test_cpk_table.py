@@ -121,9 +121,11 @@ def build_cpk_packet(tag: bytes, table: bytes) -> bytes:
     return tag + (0xFF).to_bytes(4, "little") + len(table).to_bytes(8, "little") + table
 
 
-def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
+def build_synthetic_cpk(entries: list, *, align: int = 2048, enabled_sizes: bool = False) -> bytes:
     """Build a synthetic CPK file. entries: dicts with dir (str, may be ''),
-    name (str), data (bytes) and id (int). Entry data is uncompressed."""
+    name (str), data (bytes) and id (int). Entry data is uncompressed.
+    ``enabled_sizes`` adds the packer's EnabledPackedSize / EnabledDataSize totals the way
+    the real containers carry them (2 * sum(ExtractSize) and sum(FileSize) + sum(ExtractSize))."""
     toc_columns = [
         ("DirName", 0x5A),
         ("FileName", 0x5A),
@@ -168,6 +170,9 @@ def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
         ("Files", 0x54),
         ("Align", 0x52),
     ]
+    if enabled_sizes:
+        header_columns += [("EnabledPackedSize", 0x56), ("EnabledDataSize", 0x56)]
+    total = sum(len(entry["data"]) for entry in entries)
 
     def build_header(content_offset, content_size, toc_offset, toc_size, itoc_offset, itoc_size):
         row = {
@@ -182,6 +187,9 @@ def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
             "Files": len(entries),
             "Align": align,
         }
+        if enabled_sizes:
+            row["EnabledPackedSize"] = 2 * total
+            row["EnabledDataSize"] = 2 * total
         return build_utf_table("CpkHeader", header_columns, [row])
 
     # The header table's byte size is fixed by its columns, so one fixed-point pass suffices.

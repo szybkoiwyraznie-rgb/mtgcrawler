@@ -21,6 +21,10 @@ is with the user; no name-based skill references were found in any other file.
 2026-10-15: S1 (ORIGINAL Skill00 + zero padding to the built size) crashes too, so the English text is
 not needed for the crash - the file's size is (or the padding); round 3 is a size ladder T1-T6 (Japanese
 text + spaces, structurally valid growth of +2/+4/+8/+12/+16/+19 KB) to find the budget.
+T6 (+19 KB, Japanese text) CRASHES: the size is the cause. Round 4 asks which size - the whole `.pac`
+(U2: sub-files packed at 64 B instead of 2048 B, container smaller than the original even with the
+grown skill file - a fix if it works) or the skill file alone (then the T1-T5 ladder gives the budget).
+`cpk_write` now also refreshes EnabledPackedSize/EnabledDataSize (stale in builds #6-#10; T7 tests it).
 Details: `EXPERIMENT_LOG.md` §21.13–21.17, `HANDOFF.md` §7.
 The project is NOT a finished translation; no full in-game acceptance exists.
 

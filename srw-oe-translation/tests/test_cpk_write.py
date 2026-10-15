@@ -261,5 +261,64 @@ class AlignmentPaddingTests(unittest.TestCase):
         content = bytearray(b"\x00" * 390)
         self.assertEqual(cpk_write._pad_to_alignment(self.Unaligned(), content), content)
 
+class EnabledSizeFieldTests(unittest.TestCase):
+    """EnabledPackedSize / EnabledDataSize follow the members' new sizes (the packer's rule
+    measured on the originals: 2 * sum(ExtractSize) and sum(FileSize) + sum(ExtractSize)).
+    Builds #6-#10 left them at the original totals - a container that grew carried stale
+    totals.  A container with another convention keeps its values."""
+
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.path = Path(temporary.name) / "enabled.cpk"
+        self.path.write_bytes(build_synthetic_cpk(ENTRIES, enabled_sizes=True))
+        self.cpk = cpk_write.load(self.path)
+        self.total = sum(len(e["data"]) for e in ENTRIES)
+
+    def reload(self, data: bytes):
+        out = self.path.with_name("out.cpk")
+        out.write_bytes(data)
+        return cpk_write.load(out)
+
+    def test_fixture_carries_the_packers_totals(self):
+        self.assertEqual(int(self.cpk.header["EnabledPackedSize"]), 2 * self.total)
+        self.assertEqual(int(self.cpk.header["EnabledDataSize"]), 2 * self.total)
+        self.assertEqual(cpk_write.rebuild(self.cpk, None), self.path.read_bytes())
+
+    def test_a_grown_member_moves_both_totals_by_its_growth(self):
+        grown = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(int(grown.header["EnabledPackedSize"]), 2 * (self.total + 750))
+        self.assertEqual(int(grown.header["EnabledDataSize"]), 2 * (self.total + 750))
+        shrunk = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 50)))
+        self.assertEqual(int(shrunk.header["EnabledDataSize"]), 2 * (self.total - 200))
+        appended = self.reload(cpk_write.replace_appended(self.cpk, "third.bin", b"C" * 140))
+        self.assertEqual(int(appended.header["EnabledPackedSize"]), 2 * (self.total + 100))
+        self.assertEqual(int(appended.header["EnabledDataSize"]), 2 * (self.total + 100))
+
+    def test_a_declared_extract_size_counts_in_the_totals(self):
+        packed = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 100, 400)))
+        # file sizes: 100 + 100 + 40 = 240; extract sizes: 100 + 400 + 40 = 540
+        self.assertEqual(int(packed.header["EnabledPackedSize"]), 2 * 540)
+        self.assertEqual(int(packed.header["EnabledDataSize"]), 240 + 540)
+
+    def test_another_convention_is_left_alone(self):
+        stale = bytearray(self.path.read_bytes())
+        col = self.cpk.header_layout.column("EnabledPackedSize")
+        cpk_write._write_cell(stale, self.cpk.header_layout.rows_start, col, 12345)
+        self.path.write_bytes(bytes(stale))
+        cpk = cpk_write.load(self.path)
+        grown = self.reload(cpk_write.rebuild(cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(int(grown.header["EnabledPackedSize"]), 12345)       # unknown rule: kept
+        self.assertEqual(int(grown.header["EnabledDataSize"]), 2 * (self.total + 750))
+
+    def test_a_container_without_the_fields_is_unaffected(self):
+        plain = Path(self.path.parent) / "plain.cpk"
+        plain.write_bytes(build_synthetic_cpk(ENTRIES))
+        cpk = cpk_write.load(plain)
+        self.assertEqual(cpk_write.enabled_sizes(cpk, {1: 1000}, {1: 1000}), {})
+        grown = self.reload(cpk_write.rebuild(cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(len(grown.members), 3)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -122,6 +122,11 @@ rozmiar `.pac`/członu (V6, S1), stałe bufory nazw (JP max 14 B, EN do 26 B —
 **2026-10-15: S1 (oryginał + zera do rozmiaru buildu) PADA** ⇒ treść EN niepotrzebna do crasha. Runda 3 =
 drabinka rozmiaru T1–T6 (`--ladder`: tekst JP + spacje w `effect`, §21.17, Drive `1PtpZT4IfmE_TcV_2swTzFtlVhTwHrT3y`);
 po wyniku: budżet wzrostu Skill00 (albo dowód, że zera były winne) → poprawka pisarza / skracanie EN.
+**T6 PADA (2026-10-15) ⇒ ROZMIAR potwierdzony.** Runda 4 (§21.18, Drive `1EwulWduWbchzpKy-kUWBz9P6Bo-3sNLR`):
+U2 = ciasny `.pac` (krok 64 B, pac 905 216 < oryginał) z Skill00 jak T6 — jeśli działa, to zarazem poprawka
+(`configst_pack.rebuild_pac(align=64)` do włączenia w `build_translation_patch`); U1 = kontrola samego pakowania;
+T7 = T6 + przeliczone `EnabledPackedSize/EnabledDataSize` (od teraz `cpk_write` liczy je zawsze). Potem drabinka
+T1/T3/T4. `WGRAJ_DO_ISO.bat` pamięta ISO (`%APPDATA%\SRWOE`).
 
 **Stan 2026-10-14 bardzo późna noc (najnowszy; `EXPERIMENT_LOG.md` §21.15):** build #9 w wariancie B **padł
 identycznie** (`memcpy_jak`, NULL + `bytes>0`). Znaleziona pewna usterka pisarza: w rekordach conv-B
