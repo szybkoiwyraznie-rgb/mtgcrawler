@@ -1,6 +1,18 @@
 # Project status
 
-Last updated: 2026-10-14 (late night)
+Last updated: 2026-10-15
+
+**Latest (2026-10-15): the crash of `config00.cpk` is a SIZE BUDGET of the skill table member
+`srwDL_Skill00.bin` itself** (in-game matrix: U2 = tighter container + big Skill00 crashes, U1 = tighter container
++ original Skill00 works, W5 = 217 086 B with refreshed CPK header works; T3 217 086 B works, T4 221 182 B
+crashes). The full English of the 2026-10-14 package needs 228 202 B (+19 244 B); the budget is now built in
+(`item_skill_write.SKILL00_LIMIT = 216 768 B`; a member over it refuses its WHOLE container - "NOT written",
+exit 1). `tools/skill_shrink.py` + `config/skill_shrink_rules.tsv` (141 rules: shorter skill names ≤ 13 B,
+` LvN` → ` LN`, Prevail/Break/Cmd:/Carrier/Ship/foe/cut/Dmg/Regen/Crit…, tokens guarded) bring the member to
+**216 518 B** (568 B under the proven-safe size). **Build #11** (`config00.cpk` md5 `abacf828…`, CPK header
+byte-identical to the working W5; `configst.cpk` md5 `512e2397…`) is on Drive as `WGRAJ_build11.zip` and
+awaits ONE in-game test (KROK 1 = config00 alone, KROK 2 = both). Shrunk package of record:
+`pakiet_EN_2026-10-15_ciasny.zip`. Details: `EXPERIMENT_LOG.md` §21.20.
 
 **Latest in-game result (2026-10-14, user, PPSSPP): build #9 (`config00.cpk` with the unit-name fix) CRASHES
 exactly like #8/#6 at the "Loading" screen right after the DLC scan (`memcpy_jak`, `Read/Write Block at

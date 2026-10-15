@@ -39,7 +39,11 @@ contract of a partially filled package.  Rows a writer refuses (a translation to
 slot, a jp that no longer matches the bytes, two rows fighting over one target) are collected in
 ``build_report.json`` with their reason; the build does not stop, because one refused line must
 not hold the other ten thousand hostage.  The exit code is 0 when every container that had rows
-produced a patched file, 1 when something structural broke.
+produced a patched file, 1 when something structural broke.  One exception: a member over its
+in-game size budget (``item_skill_write.MEMBER_SIZE_LIMITS``, today ``srwDL_Skill00.bin`` at
+216 768 B - the game crashes at "Loading" above it, measured 2026-10-15) refuses its WHOLE
+container ("NOT written", exit 1) - shipping the container with that member left Japanese
+would hide the problem; shorten the English with ``tools/skill_shrink.py`` instead.
 
 Usage::
 
@@ -354,6 +358,8 @@ class ContainerBuild:
         dst.parent.mkdir(parents=True, exist_ok=True)
         try:
             summary = func["call"](src, dst, rows)
+        except ISW.SizeBudgetError:
+            raise                                   # the whole container is refused (see build())
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
@@ -805,6 +811,13 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
+        except ISW.SizeBudgetError as exc:
+            # a member over its in-game size budget: nothing of this container is written -
+            # shipping the rest with that member left Japanese would hide the problem
+            builder.report["problems"].append(f"NOT written: {exc}")
+            report["problems"].append(f"{name}: NOT written: {exc}")
+            report["containers"].append(builder.report)
+            continue
         except Exception as exc:
             report["problems"].append(f"{name}: build broke: {exc}")
             report["problems"].append(traceback.format_exc(limit=3))
@@ -884,7 +897,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"Problemy ({len(problems)}) - szczegóły w {report.get('report_path')}:")
         for line in problems[:20]:
             print(f"  {line}")
-    return 1 if any("build broke" in p or "not found" in p for p in problems) else 0
+    return exit_status(problems)
+
+
+def exit_status(problems: Sequence[str]) -> int:
+    """1 when a container was not produced (structural break, missing input, size budget)."""
+    return 1 if any("build broke" in p or "not found" in p or "NOT written" in p
+                    for p in problems) else 0
 
 
 if __name__ == "__main__":

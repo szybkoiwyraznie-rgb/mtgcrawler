@@ -113,6 +113,22 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
+**Stan 2026-10-15 (najnowszy; `EXPERIMENT_LOG.md` §21.20): U2 PADA, U1 DZIAŁA, W5 DZIAŁA ⇒ limit rozmiaru
+SAMEGO członu `srwDL_Skill00.bin`** (nie kontenera, nie nagłówka): bezpieczne 217 086 B, crash od 221 182 B.
+Zrobione: (1) budżet w pisarzu `item_skill_write.SKILL00_LIMIT = 216 768` (`SizeBudgetError`; builder nie
+zapisuje całego kontenera: „NOT written", exit 1 — test e2e na pakiecie 2026-10-14 potwierdza); (2)
+`tools/skill_shrink.py` + `config/skill_shrink_rules.tsv` (141 reguł, pakiet → pakiet, ta sama funkcja na
+wierszach `03` i `04`, straże tokenów/CP932, `SKROCENIA_Skill00.tsv` do przeglądu) ⇒ 228 202 → **216 518 B**;
+(3) **build #11** z `local/pakiet_ciasny` (`config00.cpk` 936 064 B md5 `abacf828…`, nagłówek CPK bajt w bajt
+jak W5; `configst.cpk` md5 `512e2397…`) — `WGRAJ_build11.zip` Drive DELIVERY `1-9wvXVMEVNKVHAaMFPgDA_9hLFjsSe_a`,
+skrócony pakiet `pakiet_EN_2026-10-15_ciasny.zip` Drive Pakiet `1mNZ2wxKypbuKO1_RG_R2R6mk57Zj8CaC`.
+**Czeka na jeden test w grze: KROK 1 (config00), KROK 2 (oba).** Opcjonalnie W3/W4 (W4 działa ⇒ budżet +3 KB).
+Następne po teście: jeśli KROK 1 działa — pełna piątka (eventP00, mesbtl00, imenu00 + DLC) przez
+`HOKUS_POKUS.bat` na skróconym pakiecie; jeśli pada — przyczyna poza rozmiarem Skill00 (wzrost 6 pozostałych
+członów +311 B lub treść) → bisekcja członów z `container_mix.py`. Otwarte: `skill_shrink` nie jest jeszcze
+krokiem `HOKUS_POKUS`/buildera (ręcznie przed buildem po każdej edycji pakietu); 23 wiersze identycznościowe
+Skill00 (` Lv`→`Lv` itp.) builder słusznie pomija.
+
 **Stan 2026-10-14 noc, runda 2 (`EXPERIMENT_LOG.md` §21.16):** build #10 (`config00`) **pada**; V1 (sam
 `DLC_ID00`) działa; **V2 (sam `srwDL_Skill00.bin` z buildu #10) pada** → winny jest przebudowany Skill00, nie
 wskaźnik +36 (poprawiony, nadal pada). Brak odwołań po nazwie umiejętności w innych plikach. W toku: V6/V3/V4

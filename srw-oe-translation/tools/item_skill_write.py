@@ -59,9 +59,40 @@ BOUNDARY_BYTES = 12        # six u16 field boundaries
 PREAMBLE_WORD = 26         # the parameter word sitting between the boundaries and the fields
 POOL_POINTER = 36          # u32: the fragment pool's offset relative to the record start
 
+# In-game size budget of ``srwDL_Skill00.bin`` [ZWERYFIKOWANE w grze, 2026-10-14/15, PPSSPP,
+# "SRW OE 1.08" + original DLC]: the game crashes at "Loading" (memcpy to NULL) once the member
+# is too big, whatever its content - Japanese text padded with spaces to 217 086 B loads (T3 and
+# W5), 221 182 B crashes (T4), 228 202 B crashes (T6/S1/build #10); a tightly packed .pac does
+# not help (U2: pac 905 216 B, member 228 202 B - crashes) while the original member in the same
+# tight pac loads (U1), so the limit sits on this member, not on the archive.  Original size
+# 208 958 B; the largest size that loaded is 217 086 B; the budget below keeps 318 B under it,
+# covering the net growth (+311 B) of the other translated config00 members in case the game
+# allocates them from the same pool (unknown).
+SKILL00_LIMIT = 216_768
+MEMBER_SIZE_LIMITS = {"srwDL_Skill00.bin": SKILL00_LIMIT}
+
 
 class WriteError(Exception):
     """The member or the edit list cannot be rebuilt safely."""
+
+
+class SizeBudgetError(WriteError):
+    """The rebuilt member would exceed its in-game size budget (the game would crash at Loading).
+
+    Raised instead of a plain refusal because a container holding this member must not be
+    written at all: ``build_translation_patch`` turns it into "NOT written" and exit status 1,
+    where an ordinary refusal only drops the rows and ships the rest.
+    """
+
+
+def size_limit_problem(member: str, size: int) -> Optional[str]:
+    """The refusal text when ``member`` rebuilt to ``size`` bytes would crash the game, else None."""
+    limit = MEMBER_SIZE_LIMITS.get(member)
+    if limit is None or size <= limit:
+        return None
+    return (f"{member}: {size} B exceeds the in-game budget of {limit} B (+{size - limit} B over; "
+            f"the game crashes at Loading above it, measured 2026-10-15) - shorten the English "
+            f"(tools/skill_shrink.py); the member is refused")
 
 
 def pool_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
@@ -179,6 +210,9 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
         raise WriteError(f"{member or kind}: the rebuilt pool does not parse ({exc})") from exc
     if check_strings != pool_strings:
         raise WriteError(f"{member or kind}: the rebuilt pool lost strings; the member is refused")
+    too_big = size_limit_problem(member, len(out))
+    if too_big:
+        raise SizeBudgetError(too_big)
     report = {"member": member, "kind": kind, "records": count,
               "edited_records": len(edits), "edited_roles": sum(len(v) for v in edits.values()),
               "pool_pointers_rewritten": rewritten, "pool_strings": len(pool_strings),
@@ -591,6 +625,9 @@ def apply_tail_pool(src: Path, dst: Path, rows: List[dict], dry_run: bool = Fals
             except WriteError as exc:
                 report["problems"].append(f"{sub['name']}: {exc}")
                 continue
+            too_big = size_limit_problem(sub["name"], len(new_blob))
+            if too_big:
+                raise SizeBudgetError(too_big)       # the container must not ship at all
             for index, value in edits.items():
                 wanted[(sub["name"], index)] = value
             report["members"].append({"member": sub["name"], "kind": kind,

@@ -3938,3 +3938,79 @@ Runda 5: W1 (pada ⇒ granica 0x35000) → W3 → W2/W4; W5 zawsze. Konsekwencja
 dotyczy członu: EN Skill00 musi zmieścić się w ok. 217 kB zamiast 228 kB (ciąć ≥ 11 kB z +19 kB wzrostu —
 głównie nazwy: JP max 14 B, EN do 26 B, każda nazwa liczona dwa razy przez `name_level`); jeśli kontenera —
 ciasny pac (905 216 B) daje ok. 24 kB dodatkowego zapasu.
+
+### 21.20 U2 PADA, U1 DZIAŁA, W5 DZIAŁA ⇒ limit rozmiaru samego `srwDL_Skill00.bin`; skrócenie angielskiego do budżetu (`skill_shrink.py`), bramka w pisarzu i orkiestratorze, build #11
+
+**Wyniki użytkownika (2026-10-15) [ZWERYFIKOWANE w grze]:** U2 (ciasny pac 905 216 B + Skill00 228 202 B)
+**pada**; U1 (ciasny pac, oryginalny Skill00) **działa**; W5 (217 086 B, przeliczony nagłówek Enabled*) **działa**.
+W1–W4 nietestowane (użytkownik prosił, by nie mnożyć testów, tylko skrócić tłumaczenie).
+
+**Werdykt [wniosek z macierzy, nie hipoteza]:** gra ogranicza rozmiar **członu `srwDL_Skill00.bin`**, nie
+kontenera (U2: kontener mniejszy od oryginału, Skill00 duży → crash; U1: ten sam ciasny kontener, Skill00
+oryginalny → działa) i nie nagłówka (W5 działa z przeliczonymi Enabled*). Bezpieczny udowodniony rozmiar
+**217 086 B** (T3/W5); pierwszy padający 221 182 B (T4). Podejrzenie o bufor 0x35000 = 217 088 B pozostaje
+hipotezą (W1 nietestowany). Zapytanie użytkownika „nie wystarczy skrócić tłumaczenia *bez grow*?": ścisłe
+„bez grow" pole-po-polu jest niewykonalne — japońskie nazwy mają po 4–6 B (dwa–trzy kanji), angielskie
+odpowiedniki nie zmieszczą się w 4 B; wykonalne i wystarczające jest skrócenie do budżetu **całego członu**.
+
+**Budżet w narzędziach:** `item_skill_write.SKILL00_LIMIT = 216 768 B` (`MEMBER_SIZE_LIMITS`,
+`size_limit_problem`): 217 086 minus 311 B wzrostu netto pozostałych tłumaczonych członów config00 (gdyby
+gra alokowała je ze wspólnej puli — nieznane) i zaokrąglenie w dół; zawsze > oryginał (208 958).
+Egzekwowanie fail-closed: `rebuild_member` i `apply_tail_pool` podnoszą `SizeBudgetError(WriteError)`;
+`build_translation_patch._run_container_step` przepuszcza ten wyjątek, `build()` zapisuje
+`„<kontener>: NOT written: …"` i **nie zapisuje całego kontenera**, `exit_status()` → 1 (zwykła odmowa pisarza
+nadal tylko opuszcza wiersze; wysłanie config00 z japońskim Skill00 „po cichu" ukryłoby problem).
+Test end-to-end na nieskróconym pakiecie 2026-10-14: `--only config00.cpk configst.cpk` → configst zapisany,
+config00 `NOT written: srwDL_Skill00.bin: 228202 B exceeds the in-game budget of 216768 B (+11434 B over…)`,
+exit 1 (4 s). Testy: `tests/test_item_skill_write.py::SizeBudgetTest` (3),
+`tests/test_build_translation_patch.py::SizeBudgetGateTests` (3).
+
+**Narzędzie `tools/skill_shrink.py` + tabela `config/skill_shrink_rules.tsv` (141 reguł; `kind<TAB>from<TAB>to`,
+rodzaje `name` / `phrase` / `exact`).** Pakiet → pakiet: przepisuje EN wierszy Skill00 w `03_skills.jsonl`
+(pola rekordów) **i** w `04_config_text.jsonl` (pula fragmentów + wiersze offsetowe duplikujące pola — ta sama
+funkcja na obu, inaczej `merge_edits` odrzuca rekord), mierzy człon tak jak builder (pula → rekordy; pomija
+wiersze identycznościowe jak `build_translation_patch.identity` — bez tego pomiar różnił się o 5 B: ` Lv`
+skopiowane jako `Lv` itp.), pisze kopię pakietu + `SKROCENIA_Skill00.tsv` (każdy zmieniony wiersz:
+przed/po/zaoszczędzone bajty) + raport JSON; exit 1 gdy nadal ponad budżet. Straże: tokeny (`%s`, `%%`, `＠n`,
+`％x`, `＄`, `＃`, `\n`) muszą przetrwać w tej samej kolejności, wynik CP932, niepusty — inaczej wiersz
+zostaje i jest raportowany (0 takich przypadków). Wbudowane: ` LvN` → ` LN` (konwencja angielskich SRW),
+nagłówek `<Nazwa%sN>` w opisie podąża za regułą nazwy. Testy: `tests/test_skill_shrink.py` (12, syntetyczne).
+
+Decyzje stylu (reguły): Potential→Prevail, Breakthrough→Break, Command:→Cmd:, Mothership→Carrier,
+Battleship→Ship, enemy→foe, reduced→cut, Damage→Dmg, Recovery→Regen, Crit Rate→Crit, Void Counter→No Counter,
+Starting→Start, after battle→post-battle, „On defense, "→„Defending: ", square(s)→sq., `｣ targets, `→`｣: `;
+nazwy ≤ 13 B (304 nazwy po 12 B). Rozkład skrótów: tier 1 (same nazwy) 228 202 → 220 043; + tier 2 (frazy)
+→ 216 770 (o 2 B za dużo); + tier 3 → 216 513 (pomiar bez filtru identyczności) = **216 518 B** po poprawce
+pomiaru = dokładnie to, co wyprodukował builder.
+
+```
+python3 tools/skill_shrink.py --package local/pakiet --original local/usrdir/config00.cpk \
+    --out local/pakiet_ciasny --report local/shrink/report_final.json --top 3
+# srwDL_Skill00.bin: original 208958 B; package English 228202 B (+19244); after 141 rules 216518 B (+7560);
+# budget 216768 B -> FITS; growth by field: effect +2457, effect_brief -486, label +36, name +2882,
+# name_level +1711, pool +812; rows changed 03: 2587, 04: 2003; guard refusals 0; writer refusals 0
+```
+Pozostały wzrost (`--top`): Transform +190 (38 wierszy ×2), Uncanny Power +100 — bez sensownego skrótu.
+Pliki 00–02 i 05–08 skopiowane bajt w bajt (md5 identyczne z `local/pakiet/`).
+
+**Build #11** (`python3 tools/build_translation_patch.py --dlc local/usrdir --package local/pakiet_ciasny
+--out local/build11 --only config00.cpk configst.cpk`, exit 0, 5 s): `config00.cpk` **936 064 B md5
+`abacf828a966bb0dc1e51f555a541eab`** — nagłówek CPK (pierwsze 6 144 B) **bajt w bajt identyczny z W5**
+(ContentSize 929 792, EtocOffset 935 936, Enabled* 1 859 584; pac 929 792 B = 0xE3000 jak oryginał);
+`srwDL_Skill00.bin` **216 518 B** (+7 560; 568 B poniżej W5, 250 B poniżej budżetu), 1 469 rekordów, pula
+720, parsuje, 0 błędów; pozostałe człony jak w #10 (CharaDictionary00 +664, RoboDictionary00 −136,
+Item00 +233, Shop00 −2, DLC_ID00 −208, Reference00 −240). `configst.cpk` 374 912 B md5
+`512e2397c42f8cde7d4f8ae45c0e48d7`. Problemy raportu: 32 konflikty pseudonimów CharaDictionary + 5 slotów
+(znane), configst: 6 wierszy osiągnięć (znane). Względem W5 (działa) jedyne zmienne to treść EN (wykluczona
+jako przyczyna przez T6/S1) i wzrost 6 pozostałych członów (łącznie +311 B, nietestowany osobno).
+
+**Dostawa:** `WGRAJ_build11.zip` 466 417 B md5 `265d11e78323053f7aaaa4c2cafee1ac`, Drive DELIVERY
+`1-9wvXVMEVNKVHAaMFPgDA_9hLFjsSe_a`: `KROK_1_tylko_config00/`, `KROK_2_config00_i_configst/`,
+`WGRAJ_DO_ISO.bat` v2 + `tools/`, `DO_PRZEJRZENIA/SKROCENIA_Skill00.tsv` (4 590 wierszy) +
+`build11_report.json`, `ROZMIARY_I_MD5.json`, `CZYTAJ.txt`. Skrócony pakiet jako pakiet odniesienia:
+`pakiet_EN_2026-10-15_ciasny.zip` 5 245 913 B md5 `f4d7aaaf367c0d72e11de943944eeaab`, Drive Pakiet
+`1mNZ2wxKypbuKO1_RG_R2R6mk57Zj8CaC` (pakiet 2026-10-14 zostaje na Drive; po jego dalszej edycji trzeba
+ponownie przepuścić `skill_shrink.py`, inaczej builder odmówi config00). Jeden test w grze: KROK 1, potem
+KROK 2. Opcjonalnie W3/W4 z rundy 5 (W4 działa ⇒ budżet +3 KB).
+
+**Stan nadal:** żaden pełny build nie został wykazany jako działający w grze; build #11 czeka na test.

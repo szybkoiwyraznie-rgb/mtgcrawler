@@ -14,6 +14,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "tools"))
 
 import build_translation_patch as BTP  # noqa: E402
+import item_skill_write as ISW         # noqa: E402
 import sysmes_pack as SMSP             # noqa: E402
 
 
@@ -266,6 +267,42 @@ class ChainNamingTests(unittest.TestCase):
         self.assertTrue(BTP.filled({"en": " x "}))
         self.assertFalse(BTP.filled({"en": ""}))
         self.assertFalse(BTP.filled({}))
+
+
+class SizeBudgetGateTests(unittest.TestCase):
+    """A member over its in-game size budget refuses the WHOLE container, exit status 1;
+    any other writer failure only drops that step and the build goes on."""
+
+    def test_budget_error_escapes_the_step_runner(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            builder = BTP.ContainerBuild("config00.cpk", b"x", [], Path(tmp))
+
+            def over_budget(src, dst, rows):
+                raise ISW.SizeBudgetError("srwDL_Skill00.bin: 228202 B exceeds the in-game budget")
+
+            with self.assertRaises(ISW.SizeBudgetError):
+                builder._run_container_step("records", {"rows": [{"en": "x"}], "call": over_budget})
+            self.assertEqual(builder.report["problems"], [])      # reported by build(), not here
+
+    def test_other_writer_errors_are_problems_and_the_chain_continues(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            builder = BTP.ContainerBuild("config00.cpk", b"x", [], Path(tmp))
+
+            def broken(src, dst, rows):
+                raise ISW.WriteError("the fragment pool does not parse")
+
+            builder._run_container_step("records", {"rows": [{"en": "x"}], "call": broken})
+            self.assertEqual(builder.report["problems"], ["records: the fragment pool does not parse"])
+            self.assertEqual(builder.current, b"x")
+            self.assertFalse(builder.report["changed"])
+
+    def test_exit_status(self):
+        self.assertEqual(BTP.exit_status([]), 0)
+        self.assertEqual(BTP.exit_status(["tables: x refused: too long"]), 0)
+        self.assertEqual(BTP.exit_status(["config00.cpk: NOT written: srwDL_Skill00.bin: 228202 B "
+                                          "exceeds the in-game budget of 216768 B"]), 1)
+        self.assertEqual(BTP.exit_status(["x.cpk: build broke: boom"]), 1)
+        self.assertEqual(BTP.exit_status(["x.cpk: not found in the ISO or the DLC folder"]), 1)
 
 
 if __name__ == "__main__":

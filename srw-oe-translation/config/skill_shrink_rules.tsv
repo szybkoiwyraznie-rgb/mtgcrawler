@@ -1,0 +1,146 @@
+# skill_shrink rules: kind<TAB>from<TAB>to  (kind: name | phrase | exact); "\n" = line break
+# Names: base skill names (name, "X LvN" -> "Y LN", pool fragments, <X> headers). Keep <= 12 bytes.
+name	Absolute Defense Territory	Abs. Defense
+name	Radiant Wave Barrier	Rad. Barrier
+name	Ace: Fighting Spirit	Ace: Fight
+name	Draw Support Defense	Draw Defense
+name	Assault Breakthrough	Assault Break
+name	Cocoa's Calculation	Cocoa's Calc
+name	Twin Merit Coating	Twin Coating
+name	Shin Getter Vision	Shin G-Vision
+name	Potential: Uncanny	Prevail: Unc.
+name	Curse of the Geass	Geass Curse
+name	Coordinated Attack	Coord. Atk
+name	Combination Attack	Combo Attack
+name	Chain Breakthrough	Chain Break
+name	Emergency Evasion	Emerg. Evade
+name	Anti-Laser Shield	Laser Shield
+name	Push Breakthrough	Push Break
+name	Yaman Descendant	Yaman Heir
+name	Fighter's Spirit	Fight Spirit
+name	Precision Attack	Precise Atk
+name	Perfect Survivor	P. Survivor
+name	Command: Def/Eva	Cmd: Def/Eva
+name	Command: Def/Acc	Cmd: Def/Acc
+name	Command: Atk/Def	Cmd: Atk/Def
+name	Command: Atk/Eva	Cmd: Atk/Eva
+name	Command: Atk/Acc	Cmd: Atk/Acc
+name	Command: Acc/Eva	Cmd: Acc/Eva
+name	Pinpoint Barrier	PP Barrier
+name	B-System Release	B-System Off
+name	Potential: Crit	Prevail: Crit
+name	V-MAX Red Power	V-MAX Red
+name	Organoid Fusion	Org. Fusion
+name	Transform/Purge	Trans./Purge
+name	Ace: Experience	Ace: EXP
+name	Push MAP Attack	Push MAP Atk
+name	Psychic Barrier	Psy. Barrier
+name	Shield Defense	Shield Def.
+name	Argama's Blood	Argama Blood
+name	Police Officer	Police
+name	Meikyou-Shisui	Clear Mind
+name	Potential: Def	Prevail: Def
+name	Potential: Atk	Prevail: Atk
+name	Potential: Eva	Prevail: Eva
+name	Barrier Pierce	Barr. Pierce
+name	Ace: Quickness	Ace: Quick
+name	Cyber-Newtype	Cyber-NT
+name	Artificial PS	Artif. PS
+name	Passive Sonar	Pass. Sonar
+name	Indirect Fire	Arc Shot
+name	Ace: Recovery	Ace: Regen
+name	Ace: Vitality	Ace: Stamina
+name	Double Action	Double Hit
+name	Triple Action	Triple Hit
+name	Potential	Prevail
+name	Breakthrough	Break
+name	Throw/Strong	Throw/Str.
+name	Fixed Object	Fixed Obj.
+# Phrases: literal substrings, applied in this order to every non-name English.
+phrase	Recovery	Regen
+phrase	Damage-	Dmg-
+phrase	damage	dmg
+phrase	Damage	Dmg
+phrase	Breakthrough	Break
+phrase	squares	sq.
+phrase	square	sq.
+phrase	negated	void
+phrase	Negates	Voids
+phrase	Negate	Void
+phrase	negates	voids
+phrase	turn(s)	turn
+phrase	When defending, 	On defense, 
+phrase	when defending	on defense
+phrase	When defending	On defense
+phrase	When triggered, 	On trigger, 
+phrase	When attacking, 	On attack, 
+phrase	When attacking	On attack
+phrase	flinging the enemy	flinging enemy
+phrase	Attacks always hit	Always hits
+phrase	enemies within	enemies in
+phrase	Unit vanishes after self-destructing	Unit lost after use
+phrase	Unit vanishes after detonation	Unit lost after use
+phrase	Shown Atk is the group's combined total	Shown Atk = group total
+phrase	Potential	Prevail
+phrase	Coordinated Attack	Coord. Atk
+phrase	Combination Attack	Combo Attack
+phrase	Emergency Evasion	Emerg. Evade
+phrase	Absolute Defense Territory	Abs. Defense
+phrase	Radiant Wave Barrier	Rad. Barrier
+phrase	Precision Attack	Precise Atk
+phrase	Pinpoint Barrier	PP Barrier
+phrase	Cannot be used for Support Attack	No Support Attack
+phrase	Support Attack	Sup. Attack
+phrase	Support Defend	Sup. Defend
+phrase	Support Defense	Sup. Defense
+# Tier 2 (2026-10-15): unit-class terms, Crit/Surround without "Rate", foe, cut, shorter clauses.
+name	Mothership	Carrier
+name	Battleship	Ship
+phrase	Mothership	Carrier
+phrase	Battleship	Ship
+phrase	Crit Rate	Crit
+phrase	Surround Rate	Surround
+phrase	enemies	foes
+phrase	enemy	foe
+phrase	Enemy	Foe
+phrase	reduced	cut
+phrase	Reduces	Cuts
+phrase	reduces	cuts
+phrase	Void Counter	No Counter
+phrase	Voids foe surround effects	Voids foe Surround
+phrase	Voids surround effects	Voids Surround
+phrase	Can fuse with an Organoid	Can fuse with Organoid
+phrase	Move+1 when moving in the air	Move+1 in the air
+phrase	Move+1 when moving on ground	Move+1 on ground
+phrase	(Also applies if this unit fought)	(Also for own battles)
+phrase	Bomb units cannot be targeted by foes	Bomb units can't be targeted
+phrase	 sq., flinging foe toward self	 sq. toss toward self
+phrase	 sq., flinging foe	 sq. toss
+phrase	Attacks all foes in %s, carries them along	Hits all foes in %s, dragging them
+phrase	After moving, pushes foes 3 more %s	Then pushes foes 3 more %s
+phrase	Attacks all foes in %s, pushes them and moves	Hits all foes in %s, pushing them
+phrase	Fixed %s equal to %s to foes in %s	Fixed %s = %s to foes in %s
+phrase	When HP is low, in battle, a chance of	At low HP, chance in battle of
+phrase	Can clear mines by entering the minefield's %s	Clears mines on entering their %s
+phrase	If a unit able to Sup. Defend is within %s4,\nthat unit can be chosen to Sup. Defend	A unit in %s4 able to Sup. Defend\ncan be picked for it
+phrase	Fully restores HP/EN	Full HP/EN
+phrase	when triggered	on trigger
+phrase	When hit, 	On hit, 
+phrase	When used, 	On use, 
+phrase	When %s condition met:	If %s cond. met:
+phrase	Starting 	Start 
+phrase	after battle, 	post-battle 
+phrase	after battle	post-battle
+phrase	activates Hyper Mode	Hyper Mode on
+phrase	All base stats	All stats
+exact	Can sortie in a %s4 with specific units\nCan swap with another unit in the group\nOnly effective in specific missions	Can sortie in a %s4 with set units\nCan swap with another group unit\nSet missions only
+# Tier 3 (2026-10-15): margin under the budget.
+phrase	On defense, 	Defending: 
+phrase	voids special defenses	voids special Def
+phrase	no Support/Counter	no Sup./Counter
+phrase	｣ targets, 	｣: 
+exact	Nullifies Support Def; Crit rate, Crit dmg up	Voids Sup. Def; Crit/Crit dmg Up
+exact	In battle, on trigger, fully evades foe attack	On trigger, fully evades foe attack
+exact	Sets minimum %s dealt to a ratio of %s	Min %s dealt = ratio of %s
+exact	%sAtk/Acc Up\n%s\nThe higher the foe's Acc, the higher %s	%sAtk/Acc Up\n%s\nHigher foe Acc = higher %s
+phrase	sq.(s)	sq.

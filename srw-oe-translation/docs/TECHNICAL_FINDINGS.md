@@ -299,3 +299,29 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
   in the `+0x40` field of exactly one record in 55 cases; (c) one key (0xe93) occurs in two records.
 - Not established: that the record's name is the speaker in every line, and the four missing keys.
 - Keep the mapping numeric in the repo; the record text is game text and stays under `local/`.
+
+## `srwDL_Skill00.bin` has an in-game SIZE budget (measured in-game, 2026-10-14/15)
+
+Observation matrix (user, PPSSPP, original DLC folder, `config00.cpk` inserted into a copy of the ISO):
+
+| variant | Skill00 member | `.pac` | CPK header | result |
+|---|---|---|---|---|
+| original | 208 958 B | 923 648 B | original | works |
+| T1 (JP text + spaces) | 210 942 B | — | stale Enabled* | works |
+| **T3 / W5** (JP text + spaces) | **217 086 B** | 929 792 B | stale / refreshed | **works** |
+| **T4** (JP text + spaces) | **221 182 B** | 933 888 B | stale | **crash** at "Loading" |
+| T5, T6, S1 (zeros), builds #6–#10 (English) | 225 278 … 228 202 B | — | — | crash |
+| U2 (sub-files packed at 64 B, container SMALLER than the original) | 228 202 B | 905 216 B | — | crash |
+| U1 (same tight container, original Skill00) | 208 958 B | 886 784 B | — | works |
+
+Conclusions [verified by the matrix, mechanism unknown]: the limit is on the **member itself**, not on the
+container size, not on the CPK header fields and not on the content (Japanese padded with spaces crashes exactly
+like English). Largest size proven to load: **217 086 B** (+8 128 B); smallest proven to crash: 221 182 B
+(+12 224 B). 0x35000 = 217 088 B is the suspected fixed buffer (W1 = 217 090 B untested). The crash signature is
+`memcpy_jak` with a NULL `dst`/`src` and `bytes > 0` (a failed allocation, not a zero-length copy).
+Consequence for the writers: `item_skill_write.SKILL00_LIMIT = 216 768 B` (`MEMBER_SIZE_LIMITS`), enforced
+fail-closed (`SizeBudgetError`; the builder refuses the whole container); the English of the skill table must
+fit (`tools/skill_shrink.py`, `config/skill_shrink_rules.tsv`). DLC `SkillNN` members are 15 638 B pool-only
+files (convention C) and are not affected. Whether `srwDL_Item00.bin` (34 566 → 34 799 B in the builds) or the
+configst members have budgets of their own is unknown; `configst.cpk` with grown members loaded to the title
+menu (variant A).

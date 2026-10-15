@@ -555,5 +555,45 @@ class HelperTest(unittest.TestCase):
         self.assertIsNone(ISW._record_from_id("item:config00.cpk/x.bin:12"))
 
 
+class SizeBudgetTest(unittest.TestCase):
+    """The in-game size budget of srwDL_Skill00.bin (measured 2026-10-15) is enforced fail-closed."""
+
+    def test_budget_constants_match_the_measurement(self):
+        # 217 086 B loaded (T3/W5), 221 182 B crashed (T4); the budget stays under the loaded size
+        self.assertEqual(ISW.SKILL00_LIMIT, 216_768)
+        self.assertLess(ISW.SKILL00_LIMIT, 217_086)
+        self.assertGreater(ISW.SKILL00_LIMIT, 208_958)        # the original must always pass
+        self.assertEqual(ISW.MEMBER_SIZE_LIMITS, {"srwDL_Skill00.bin": ISW.SKILL00_LIMIT})
+
+    def test_problem_text_only_above_the_limit_and_only_for_budgeted_members(self):
+        self.assertIsNone(ISW.size_limit_problem("srwDL_Skill00.bin", ISW.SKILL00_LIMIT))
+        self.assertIsNone(ISW.size_limit_problem("srwDL_Item00.bin", 10 ** 7))
+        problem = ISW.size_limit_problem("srwDL_Skill00.bin", ISW.SKILL00_LIMIT + 1)
+        self.assertIn("216768", problem.replace(" ", ""))
+        self.assertIn("+1 B over", problem)
+        self.assertIn("refused", problem)
+
+    def test_rebuild_member_refuses_a_skill00_over_budget_and_allows_one_within(self):
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "地形効果")],
+                            pool_runs=["気力"])
+        original = ISW.MEMBER_SIZE_LIMITS.copy()
+        try:
+            ISW.MEMBER_SIZE_LIMITS["srwDL_Skill00.bin"] = len(blob) + 8
+            out, report = ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain+"}},
+                                             "srwDL_Skill00.bin")
+            self.assertLessEqual(len(out), len(blob) + 8)
+            with self.assertRaises(ISW.SizeBudgetError) as ctx:
+                ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain effect bonus text"}},
+                                   "srwDL_Skill00.bin")
+            self.assertIn("in-game budget", str(ctx.exception))
+            self.assertIsInstance(ctx.exception, ISW.WriteError)
+            # another member of the same size is not budgeted
+            ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain effect bonus text"}},
+                               "srwDL_Skill01.bin")
+        finally:
+            ISW.MEMBER_SIZE_LIMITS.clear()
+            ISW.MEMBER_SIZE_LIMITS.update(original)
+
+
 if __name__ == "__main__":
     unittest.main()
