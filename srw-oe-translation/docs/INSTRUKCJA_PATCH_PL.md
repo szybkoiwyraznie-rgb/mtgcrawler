@@ -1,4 +1,4 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 po testach Y4/Z4, pakiet v4 + UI_TEST1)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 w nocy: pakiet v5 / KIT 18 po pierwszych zrzutach z pełnego patcha, UI_TEST1)
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08, 679 243 152 bajty, i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski
@@ -6,7 +6,10 @@ tekst. Nic z oryginałów nie jest ruszane: ISO i DLC są tylko czytane, wynik l
 
 Uczciwie o stanie: **to nie jest skończone tłumaczenie.** Od 2026-10-15 (testy Y4a / Y4 / Z4) pełny
 zestaw z pakietu v4 — `patched.iso` + cały folder DLC z `HOKUS_POKUS.bat` — **działa w grze**: Loading,
-nowa gra, sejw z 2. rozdziału, ekrany statusu i umiejętności. Czego w nim brakuje: (1) dialogi
+nowa gra, sejw z 2. rozdziału, ekrany statusu i umiejętności. Pierwsze zrzuty z grania pokazały dwa
+błędy tekstu, poprawione w **pakiecie v5 / KIT 18** (jeszcze nie sprawdzonym w grze): nazwy jednostek
+dłuższe niż 14 znaków wchodziły w liście na kolumnę pilota, a opis umiejętności „Coord. Atk” pokazywał
+„Group4” (szczegóły w `CO_NOWEGO_v5.txt`). Czego w nim brakuje: (1) dialogi
 rozdziałów 5–8 są w pakiecie w większości bez angielskiego (tłumaczenie trwa), (2) **etykiety
 systemowe na ekranach statusu / broni / umiejętności / intermisji (攻撃 防御 命中, 能力 改造 武器 機体,
 特殊能力・スキル, 気力, 援護 …) nie są tekstem, tylko obrazkami** — pracuję nad nimi osobno
@@ -17,23 +20,24 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 
 ---
 
-## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15, pakiet v4
+## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15 w nocy, pakiet v5
 
 | plik | do czego |
 |---|---|
-| `pakiet_EN_2026-10-15_v4.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); w środku `CO_NOWEGO_v4.txt` |
-| `KIT_build17_2026-10-15.zip` | pliki z budowy #17 (pakiet v4) do testów bez budowania: `USRDIR_build17\` (5 plików do ISO dla `WGRAJ_DO_ISO.bat`), `DLC_build17_config\` (10 plików do folderu DLC: `config00.cpk`, `configst.cpk`, `config01–08.EDAT`), `DLC_pulaJP_config01-08\` (wariant awaryjny), `CZYTAJ.txt` z planem testów |
+| `pakiet_EN_2026-10-15_v5.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v4 + 124 poprawione wiersze, lista w `POPRAWKI_v5.tsv`, opis w `CO_NOWEGO_v5.txt` |
+| `KIT_build18_2026-10-15.zip` | pliki z budowy #18 (pakiet v5) do testów bez budowania: `USRDIR_build18\` (5 plików do ISO dla `WGRAJ_DO_ISO.bat`), `DLC_build18_config\` (10 plików do folderu DLC: `config00.cpk`, `configst.cpk`, `config01–08.EDAT`), `CZYTAJ.txt`. Pełny efekt v5 (nazwy jednostek rozdziałów 9+, pilot Kuro) daje dopiero `HOKUS_POKUS.bat` z pakietem v5 — KIT pokrywa rozdziały 1–8 |
 | `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
-| `UI_TEST1.zip` | **test grafik interfejsu** (nie część pakietu v4): `system.cpk`, `IM1000.cpk`, `IM3000.cpk` z angielskimi napisami wmalowanymi w tekstury, w dwóch wariantach `A_stored` i `B_crilayla`; wgrywa się je `WGRAJ_DO_ISO.bat` na `patched.iso` z v4 (wskazać PODFOLDER wariantu). Nigdy nie uruchomione w grze — instrukcja w `CZYTAJ_UI_TEST1.txt` w środku |
+| `UI_TEST1.zip` | **test grafik interfejsu** (nie część pakietu): `system.cpk`, `IM1000.cpk`, `IM3000.cpk` z angielskimi napisami wmalowanymi w tekstury, w dwóch wariantach `A_stored` i `B_crilayla`; wgrywa się je `WGRAJ_DO_ISO.bat` **na `patched.iso` z pakietu (v4 lub v5), NIE na oryginalne ISO** (wskazać PODFOLDER wariantu). Instrukcja w `CZYTAJ_UI_TEST1.txt` w środku |
 | `INSTRUKCJA_PL.md` | ten tekst |
-| `_STARE_NIE_UZYWAC\…` | pakiet v3 i `KIT_build15` (ich `config01–08.EDAT` padają na Loading — test Y), oraz wszystko z 14–15.10 sprzed poprawki `+52`. **Nie kopiować.** |
+| `_STARE_NIE_UZYWAC\…` | pakiet v4 i `KIT_build17` (działały w grze, ale z dwoma błędami tekstu — zastąpione przez v5/KIT 18), pakiet v3 i `KIT_build15` (ich `config01–08.EDAT` padają na Loading — test Y), oraz wszystko z 14–15.10 sprzed poprawki `+52`. **Nie kopiować.** |
 
-Jak odróżnić pliki: `config00.cpk` z budowy #17 (pakiet v4) ma **936 064 B, md5
-`80b8fae61b858fb91db35532c4680c6f`** (z budowy #14 / pakietu v3: ten sam rozmiar, md5
-`71d9fcafa37c21513b97c14d1dff8f33`); `configst.cpk` **372 864 B, md5 `6cfe245d5f6ec6dfffd2a829b778a4d7`**
-(bez zmian od #14). `config01.EDAT` z v4 ma **247 936 B (rozmiar oryginału), md5
-`7c6459fa7377b585a5176b5859361da2`**; z v3 miał 249 984 B. Każdy inny md5 = stare narzędzia albo
-stary pakiet (`DIAGNOZA.bat` sprawdza to za ciebie i rozpoznaje buildy #15/#17/pulaJP po md5).
+Jak odróżnić pliki: `config00.cpk` z budowy #18 (pakiet v5) ma **936 064 B, md5
+`5c43cf343b9fafde62c3c53c3a6c1e78`**; z budowy #17 (pakiet v4, sprawdzony w grze) ten sam rozmiar, md5
+`80b8fae61b858fb91db35532c4680c6f`; z budowy #14 / pakietu v3 md5 `71d9fcafa37c21513b97c14d1dff8f33`.
+`configst.cpk` **372 864 B, md5 `6cfe245d5f6ec6dfffd2a829b778a4d7`** (bez zmian od #14). `config01.EDAT`
+z v5 ma **247 936 B (rozmiar oryginału), md5 `8db9f78108b829526ef5a7176847c5fd`** (z v4:
+`7c6459fa7377b585a5176b5859361da2`; z v3 miał 249 984 B). Każdy inny md5 = stare narzędzia albo
+stary pakiet (`DIAGNOZA.bat` sprawdza to za ciebie i rozpoznaje buildy #15/#17/#18/pulaJP po md5).
 
 ---
 
@@ -48,19 +52,19 @@ zaznacz **„Add python.exe to PATH”**. Nic więcej (żadnych bibliotek).
    Rozpakuj do **nowego, pustego** folderu — nie nadpisuj starego rozpakowania (stary folder może
    mieć stare `tools\*.py` i stary `pakiet_EN\`). Interesuje cię podfolder `srw-oe-translation\`.
    Świeży zestaw poznasz po tym, że obok `HOKUS_POKUS.bat` leży **`DIAGNOZA.bat`**.
-2. **Pakiet v4.** Ściągnij z Dysku `pakiet_EN_2026-10-15_v4.zip` i rozpakuj tak, żeby plik
+2. **Pakiet v5.** Ściągnij z Dysku `pakiet_EN_2026-10-15_v5.zip` i rozpakuj tak, żeby plik
    `00_dialogue.jsonl` leżał **bezpośrednio** w `srw-oe-translation\pakiet_EN\` (w zipie jest
-   folder `pakiet_EN_2026-10-15_v4\` — jego zawartość, nie on sam). Żadnych innych `*.jsonl` obok
-   (stary v3 usuń w całości).
+   folder `pakiet_EN_2026-10-15_v5\` — jego zawartość, nie on sam). Żadnych innych `*.jsonl` obok
+   (stary v4/v3 usuń w całości).
 3. **`HOKUS_POKUS.bat`** (dwuklik). Dwa okna wyboru: (1) plik `SRW OE 1.08.iso`;
    (2) **folder z odszyfrowanymi plikami DLC** (zestaw FULL_DLC). Czekaj na „Gotowe”
    (~4 min budowy + przepisanie ISO 680 MB).
 4. **Wynik** w `srw-oe-translation\srw-oe-patch\`: `patched.iso`, `DLC\…` (91 plików `*.EDAT` +
    `config00.cpk`, `configst.cpk`), `build_report.json`.
 5. **Zanim cokolwiek skopiujesz — `DIAGNOZA.bat`** (część 2). Dopiero gdy raport mówi
-   „pakiet v4 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK” i „config00 = BUILD17”, kopiuj.
+   „pakiet v5 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK” i „config00 = BUILD18”, kopiuj.
    W `build_report.json` jest teraz też pole `skill_total` (Skill00 + 8 pul; ma być ≤ 342 194 B,
-   z v4 wychodzi 340 086 B).
+   z v5 wychodzi 340 074 B).
 6. **Wgranie:** kopia zapasowa folderu DLC emulatora (cały folder obok, z dopiskiem `_ORYGINAL`),
    potem wszystkie pliki z `srw-oe-patch\DLC\` do folderu DLC emulatora (nadpisać). W PPSSPP
    uruchom `srw-oe-patch\patched.iso`.
@@ -80,7 +84,7 @@ znajduje sam obok siebie. Wynik: `DIAGNOZA.txt` (otwiera się w Notatniku) — *
 Raport zawiera tylko nazwy, rozmiary i sumy md5 (żadnych bajtów gry) i odpowiada na pytania:
 
 1. czy narzędzia obok `.bat` to świeża gałąź (markery poprawek `+32`, `+36`, `+52`, budżet Skill00);
-2. który pakiet leży w `pakiet_EN\` (v1 z 14.10 / v2 / v3 / v4 — po md5 plików `03`/`04`) i czy nie
+2. który pakiet leży w `pakiet_EN\` (v1 z 14.10 / v2 / v3 / v4 / v5 — po md5 plików `03`/`04`) i czy nie
    jest rozpakowany o jeden folder za głęboko;
 3. co zbudował HOKUS_POKUS (`build_report.json`: odmowy zapisu, brakujące kontenery; md5 plików w
    `patched.iso` i w `DLC\`, rozpoznane po tabeli znanych buildów);
@@ -98,7 +102,8 @@ samych w sobie — wtedy część 3.
 ## Część 3 — runda testów pakietu v4 (ZALICZONA 2026-10-15: Y4a, Y4 i Z4 działają)
 
 Ta runda jest już za nami — zostawiam opis, bo te same kroki służą do odtworzenia stanu „działa”
-po każdej kolejnej zmianie. Wyniki X/Y z 2026-10-15 (X działa, Y pada) były jej podstawą. Za każdym razem **zacznij od
+po każdej kolejnej zmianie (dla pakietu v5 podstaw `KIT_build18` / `DLC_build18_config` /
+`USRDIR_build18` — układ plików jest ten sam; v5 w grze jeszcze nie sprawdzony). Wyniki X/Y z 2026-10-15 (X działa, Y pada) były jej podstawą. Za każdym razem **zacznij od
 przywrócenia folderu DLC emulatora z kopii `_ORYGINAL`**; ISO = **oryginalne** `SRW OE 1.08.iso`,
 chyba że napisano inaczej. Pliki do kopiowania: `KIT_build17_2026-10-15.zip` z Dysku (te same
 bajty co twoja budowa z pakietem v4). Zanotuj: **działa** (tytuł po „Loading”) / **crash** (zrzut PPSSPP).
@@ -135,9 +140,11 @@ w trzech plikach ISO: `system.cpk`, `IM1000.cpk`, `IM3000.cpk`. `UI_TEST1.zip` z
 z angielskimi napisami w dwóch wariantach. **Żaden z nich nie był jeszcze uruchomiony w grze.**
 
 1. Rozpakuj `UI_TEST1.zip` (folder `UI_TEST1\` z podfolderami `A_stored\` i `B_crilayla\`).
-2. `WGRAJ_DO_ISO.bat` → okno ISO: twoje `patched.iso` z pakietu v4 (może być też oryginalne ISO) →
-   okno folderu: **`UI_TEST1\A_stored`** (podfolder wariantu, nie `UI_TEST1`). Wynik:
-   `srw-oe-wgrane\A_stored\patched.iso`.
+2. `WGRAJ_DO_ISO.bat` → okno ISO: **twoje `patched.iso` z pakietu (v5, ewentualnie v4) — NIE
+   oryginalne ISO** (z oryginalnym ISO gra ma japoński `config00.cpk` i `mesbtl00`/`eventP00`/`imenu00`,
+   więc część tekstów będzie po japońsku mimo angielskiego folderu DLC — tak wyglądał zrzut z panelu
+   broni z 15.10 w nocy) → okno folderu: **`UI_TEST1\A_stored`** (podfolder wariantu, nie `UI_TEST1`).
+   Wynik: `srw-oe-wgrane\A_stored\patched.iso`.
 3. Uruchom w PPSSPP z folderem DLC z testu Y4. Sprawdź: zakładki intermisji (Stats / Mods / Arms /
    Unit / Pilot), status jednostki (ATK DEF HIT EVA SIZE MOV), lista broni (EN Cost, RNG, HIT, TGT,
    Will Req), ekran umiejętności (Abilities / Skills, Parts, Spirits), pasek HP/EN/SP („Will”), banner
@@ -166,12 +173,18 @@ Windows ochronił ten komputer” → „Więcej informacji” → „Uruchom mi
 W PPSSPP wskaż z powrotem swoje ISO, przywróć folder DLC z kopii `_ORYGINAL`, usuń
 `srw-oe-patch\`. Żaden oryginalny plik nie był modyfikowany.
 
-## Co dokładnie jest w pakiecie v4 (liczby z budowy #17, 2026-10-15)
+## Co dokładnie jest w pakiecie v5 (liczby z budowy #18, 2026-10-15 w nocy)
 
 - Pakiet: 108 135 wierszy, 77 106 z angielskim + 3 686 identycznych (znaki, liczby); kontrola
   pakietu `translation_check`: 0 błędów. Dialogi fabularne: rozdziały 1–3 w całości, rozdział 4
   ~59 %, rozdziały 5–8 jeszcze po japońsku. Względem v3: 231 tekstów umiejętności skróconych
   (lista w `SKROCENIA_Skill00_v4_tier4_i_pule.tsv`), pule rozdziałów 2–8 = teksty Skill00.
+- Względem v4 (po zrzutach z grania, lista w `POPRAWKI_v5.tsv`): 106 nazw jednostek w listach
+  skróconych do ≤ 14 znaków (np. „Strike Freedom Gundam” → „Strike Freedom”, „VF-25F Messiah B” →
+  „VF-25F (B)”, „/Movie” → nazwa bazowa; pełne nazwy na ekranie statusu bez zmian), 5 krótkich nazw
+  pilotów-sojuszników (np. „Da Cider (Ally)” → „Da Cider/Ally”), 8 opisów „Coord. Atk” / „Group (GR)”
+  bez zbędnej czwórki po „Group” (japoński bajt po `%s` był drugą połową glifu kana ﾌﾟ), pilot Kuro
+  (miał cudzy angielski). Nowe reguły kontroli pakietu pilnują tych trzech rzeczy.
 - Budżety rozmiaru pilnowane przez narzędzia: `srwDL_Skill00.bin` ≤ 216 768 B (zmierzone w grze),
   każda pula `srwDL_Skill01–08.bin` ≤ 15 638 B (= oryginał; przyjęte po teście Y), suma ≤ 342 194 B.
 - Zmienione człony kontenerów są zapisywane **bez kompresji** (oryginał używa CRILAYLA), stąd

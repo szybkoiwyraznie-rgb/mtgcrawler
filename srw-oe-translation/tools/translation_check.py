@@ -40,6 +40,7 @@ import argparse
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -57,6 +58,29 @@ TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-
 BOX_WIDTH = export_strings.TYPICAL_LINE   # the typical dialogue line (46); the hard limit per
 BOXED = ("dialogue", "battle_quote")      # kind is export_strings.box_limit, as in the writers
 CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
+
+# List columns measured on the user's in-game screenshot of the unit list (2026-10-15, PPSSPP at
+# 1967 px wide = 4.1x; half-width glyph pitch ~7 PSP px, full-width ~13 px): the unit-name column
+# is ~105 px = 14.6 half-width cells and the pilot column starts at cell 15, so an ASCII name of
+# 15 cells already touches the pilot name (the game squeezes full-width Japanese to fit, never
+# ASCII).  ``unit_name`` (unit_list ``name``) is the list column -> hard limit; the pilot column
+# (``name_short``/``name_narrow``, which of the two the list draws is not measured) -> warning.
+LIST_CELLS = {"unit_name": 14}
+LIST_CELLS_SOFT = {"character_name_short": 14, "character_name_narrow": 14}
+
+# ``%s`` whose JP completion byte is the second half of a kana glyph.  The engine fills ``%s`` with
+# a pool fragment; 88 Skill00 fragments end in a dangling lead byte (0x0F kana lead, ``＠`` colour
+# lead, ``%``) that the byte right after ``%s`` in the record completes.  The only 0x0F case is
+# fragment 150 ``ｸﾞﾙｰ<0F>`` + ``4`` = ｸﾞﾙｰﾌﾟ (group); its English fragment ``Group`` has no dangling
+# byte, so an English record that keeps ``%s4`` shows ``Group4`` in the game (seen in build #17,
+# battle weapon panel of Coord. Atk).  Measured list: 9 occurrences in 8 records (r236 twice).
+# The value is (byte, occurrences); the other ``%s4`` of the record (r240: the level of
+# ``連携攻撃%s4``) are numbers and stay, so the rule is a count: the English may keep at most
+# ``jp.count("%s4") - occurrences`` of them.
+COMPLETION_BYTE = {
+    f"skill:config00.cpk/srwDL_Skill00.bin:r{n}:effect": ("4", 2 if n == 236 else 1)
+    for n in (236, 237, 238, 239, 240, 241, 651, 652)
+}
 
 
 def tokens(text: str) -> List[str]:
@@ -159,6 +183,20 @@ def controls(text: str) -> List[int]:
     return sorted(ord(ch) for ch in text if ord(ch) < 32 and ch != "\n")
 
 
+def list_cells(text: str) -> int:
+    """Width of a list cell in half-width cells: one per CP932 byte of the drawn characters.
+
+    The game's font has one full-width glyph for every two-byte CP932 code (``∞``, ``α``, ``※``
+    included - ``export_strings.display_width`` counts those East-Asian-ambiguous characters as
+    one) and one half-width glyph per single byte (ASCII, half-width kana).
+    """
+    drawn = "".join(ch for ch in text if unicodedata.category(ch) != "Cc")
+    try:
+        return len(drawn.encode("cp932"))
+    except UnicodeEncodeError:
+        return export_strings.display_width(drawn)
+
+
 def encode(text: str) -> Optional[str]:
     """None when the text encodes to CP932, otherwise the failure message."""
     try:
@@ -233,6 +271,26 @@ def check_row(row: dict, require_complete: bool = False,
         if en_edge.isspace() and en_edge != "\n" and not jp_edge.isspace():
             warnings.append(f"{side} whitespace {en_edge!r} that the jp does not have - the "
                             "writers keep it exactly as written")
+    limit_cells = LIST_CELLS.get(row.get("category") or "")
+    soft_cells = LIST_CELLS_SOFT.get(row.get("category") or "")
+    if limit_cells is not None or soft_cells is not None:
+        width = list_cells(text)
+        if limit_cells is not None and width > limit_cells:
+            errors.append(f"too wide for the unit list column: {width} half-width cells, the "
+                          f"column fits {limit_cells} (ASCII is never squeezed by the game)")
+        elif soft_cells is not None and width > soft_cells:
+            warnings.append(f"wider than the pilot column of the unit list: {width} half-width "
+                            f"cells, measured {soft_cells} (fine for enemies that never sit in "
+                            "the list)")
+    completion = COMPLETION_BYTE.get(row.get("id") or "")
+    if completion:
+        byte, occurrences = completion
+        allowed = max(jp.count("%s" + byte) - occurrences, 0)
+        if text.count("%s" + byte) > allowed:
+            errors.append(f"the byte '{byte}' right after %s is the second half of a kana glyph "
+                          f"(pool fragment ｸﾞﾙｰ<0F> + '{byte}' = ｸﾞﾙｰﾌﾟ) in {occurrences} place(s); "
+                          "the English fragment is 'Group', so write '%s' alone there or the game "
+                          f"shows 'Group{byte}' (at most {allowed} '%s{byte}' may stay)")
     if row.get("category") in BOXED:
         # the same rule the writers refuse by: wider than the game's own widest line of the kind
         kind = row.get("kind") or row.get("category")
@@ -287,6 +345,12 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False,
         report["warnings"].extend(f"{row_id}: {message}" for message in warnings[:3])
         if len(report["errors"]) > 400 and len(report["warnings"]) > 400:
             break
+    for message, ids in conflicting_duplicates(rows):
+        for row_id in ids:
+            report["errors"].append(f"{row_id}: {message}")
+            name = by_id[row_id].get("_file") or by_id[row_id].get("category") or "?"
+            if name in report["files"]:
+                report["files"][name]["errors"] += 1
     report["totals"] = {
         "rows": sum(b["rows"] for b in report["files"].values()),
         "filled": sum(b["filled"] for b in report["files"].values()),
@@ -295,6 +359,37 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False,
         "warnings": sum(b["warnings"] for b in report["files"].values()),
     }
     return report
+
+
+RECORD_MEMBERS = ("srwDL_Skill00.bin", "srwDL_Item00.bin")   # conv-B record members scanned twice
+
+
+def conflicting_duplicates(rows: Iterable[dict]) -> List[Tuple[str, List[str]]]:
+    """Rows of one record member that carry the same Japanese with different English.
+
+    ``03_skills.jsonl``/``02_items.jsonl`` hold the record roles and ``04_config_text.jsonl``
+    scans the same members again under offset ids (``config_skill``/``config_item``).  The
+    writer (``item_skill_write``) merges the rows per record role and, when two rows disagree,
+    SKIPS THE WHOLE RECORD and only notes it in ``build_report.json`` (``skipped``: "two rows,
+    two translations") - build #18, first run: record 236 (Coord. Atk) stayed Japanese in all
+    four roles.  Caught here as an error on every row of the conflict.
+    """
+    groups: Dict[Tuple[str, str, str], Dict[str, List[str]]] = {}
+    for row in rows:
+        source = row.get("source") or {}
+        if source.get("member") not in RECORD_MEMBERS or not (row.get("en") or "").strip():
+            continue
+        key = (source.get("container") or "", source["member"], row.get("jp") or "")
+        groups.setdefault(key, {}).setdefault(row["en"], []).append(row.get("id", "?"))
+    problems = []
+    for (container, member, _jp), by_en in groups.items():
+        if len(by_en) < 2:
+            continue
+        ids = [row_id for id_list in by_en.values() for row_id in id_list]
+        problems.append((f"{len(by_en)} different translations of the same {member} string in "
+                         f"{container} ({', '.join(ids)}) - the writer skips the whole record; "
+                         "give every row the same English", ids))
+    return problems
 
 
 def format_report(report: dict) -> str:
@@ -339,7 +434,7 @@ def main(argv=None) -> int:
                         help="treat an empty en as an error (release check)")
     parser.add_argument("--strict", action="store_true", help="exit 1 on any error")
     parser.add_argument("--token-map", type=Path, default=None,
-                        help="tokeny.tsv with the %s kinds (default: next to the package)")
+                        help="tokeny.tsv with the %%s kinds (default: next to the package)")
     args = parser.parse_args(argv)
 
     rows = collect(args.package)

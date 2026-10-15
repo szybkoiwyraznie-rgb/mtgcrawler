@@ -4515,3 +4515,104 @@ wartość `render_labels` to płótno PRZED kwantyzacją palety (nie równa deko
 krokiem `HOKUS_POKUS`/`build_translation_patch` do czasu potwierdzenia w grze. Otwarte: pozostałe tekstury (walka —
 `tacsys`, `mensys_05/07/10–12/14`, `intsys_03/04`), `.sp`/`sprstd00`/`mesbmp00` niezdekodowane, 256-kolorowa paleta
 (nowe kolory tylko z palety), szerokości komórek `mensys_*`, `IM9000` (zawiera `intsys_03`, brak spec).
+
+### 21.29 Pierwsze zrzuty z GRANIA pełnym patchem (v4/#17): (1) nazwy jednostek wychodzą poza kolumnę listy, (2) japońska linia zdolności na panelu broni ⇒ pakiet v5 / build #18, nowe reguły kontroli (szerokość kolumn list, bajt dopełniający po `%s`, zdublowane wiersze Skill00)
+
+**Wejście (2026-10-15 w nocy, użytkownik, PPSSPP 1967×752 = 4,1× PSP):** zrzut 1 — lista jednostek w intermisji:
+angielskie nazwy (`Strike Freedom Gundam`, `VF-25F Messiah B SP`, `Great Ganbaruger`…) wchodzą na kolumnę pilota;
+imię protagonisty `セイシロウ` japońskie (to imię z japońskiego SEJWU — `char:4501:name` w pakiecie ma „Seishiro Kusanagi”;
+hipoteza, niezmierzona). Zrzut 2 — panel broni w walce: linia zdolności `＠4<連携攻撃Lv3>＠0+15% ｸﾞﾙｰﾌﾟ全機が攻撃` po
+japońsku, a nazwy jednostek na zrzucie 1 po angielsku.
+
+**Diagnoza zrzutu 2 (zmierzone na plikach):** ta linia to `effect` rekordu Skill00 r239 (linia 1) z fragmentami puli
+wstawianymi przez silnik za `%s` — NIE tekst z kodu gry (wcześniejsza robocza hipoteza „w EBOOT” — WYCOFANA; grepowanie
+kontenerów za złożonym napisem było bezcelowe, bo `%s` podstawia silnik). W `config00.cpk` z buildu #17 r239 i cała pula
+są angielskie (`item_skill_records.parse_member`: 0 rekordów z kana/kanji poza r236 w pierwszym przebiegu #18, patrz niżej)
+⇒ w chwili zrzutu gra czytała ORYGINALNY `config00.cpk`. Najprostsze wyjaśnienie zgodne z obydwoma zrzutami: zestaw
+UI_TEST1 nałożony na **oryginalne ISO** (instrukcja część 4 dopuszczała „może być też oryginalne ISO” — BŁĄD, poprawione)
+albo folder DLC bez `config00.cpk` #17; nazwy jednostek (config02 `unit_list02`) były angielskie, bo te siedzą w folderze
+DLC. Rozstrzyga `DIAGNOZA.bat --iso` (sekcja 5: config00 w ISO `266366c3…` = oryginał / `80b8fae6…` = #17). Stan mieszany
+nadal HIPOTEZA do potwierdzenia przez użytkownika.
+
+**Defekt `%s4` (zmierzony, prawdziwy błąd pakietu v4):** pełny skan kontekstów `%s<bajt>` w tekstach rekordów Skill00
+(22 rodzaje nienumeryczne) + 88 fragmentów puli zakończonych zwisającym bajtem (0F / `＠` / `%`): jedyne dopełnienie
+0F przez `%s` to fragment 150 `ｸﾞﾙｰ\x0f` + `4` = ｸﾞﾙｰﾌﾟ (9 miejsc w 8 rekordach: r236 ×2, r237–r241, r651, r652; w pakiecie
+własny JP tych rekordów pokazuje tę samą kana dosłownie: `攻撃力表示は\x0f"ﾙｰ\x0f4全機の合計値`). Angielski fragment
+`Group` nie ma zwisającego bajtu ⇒ v4 w grze dawał „Group4All units attack”. Pozostałe `%s6`/`%s0` to dopełnienia
+koloru (`｢＠`+`6`), gdzie EN pula zachowuje `＠` ⇒ bajt ZOSTAJE; `%s3手前`, `%s1ﾀｰﾝ`, `%s15%%` numeryczne. Item00/
+StatusChange/Spirit/configst Item: bez takich przypadków (Spirit fragment 37 `倍 \x0f.ﾛｯ\x0f` — `%s4` tam = `範囲`+4
+numeryczne). Nagłówkowe słowa 14–18 rekordu to parametry liczbowe, nie indeksy fragmentów (sprawdzone: liczności nie
+zgadzają się z liczbą `%s`); `srwDL_Skill_Tag.bin` (151 par etykieta JP / tag skryptu) też nie jest indeksem `%s`.
+
+**Szerokości list (zmierzone na zrzucie 1, PIL):** rozstaw glifu półszerokiego ≈ 7 px PSP, pełnego ≈ 13 px (gra ściska
+JP pełnej szerokości, ASCII nigdy); pole nazwy 14,6 komórki, tekst pilota od komórki 15; cyfry Lv 14,2 komórki dalej
+⇒ reguła **`unit_name` ≤ 14 komórek** (błąd) i **krótka nazwa pilota ≤ 14** (ostrzeżenie — nie zmierzono, którego z pól
+`name_short`/`name_narrow` lista używa). Komórki liczone **po bajtach CP932** (`translation_check.list_cells`): `∞`,
+`α`, `※` to 2 komórki, choć `east_asian_width` daje „A” — `export_strings.display_width` liczy je jako 1 (nie ruszane,
+bo od niego zależą limity ramek dialogów). v4: 106 wierszy `unit_name` (83 różne EN) > 14, `character_name_short`
+33 > 14 (głównie wrogowie/NPC). Szerokość listy broni w intermisji i tabliczki wroga w walce — NIEZMIERZONE.
+
+**Pakiet v5** (`local/make_v5.py`, jednorazowy; `POPRAWKI_v5.tsv` w pakiecie: id, pole, jp, en_v4, en_v5, powód):
+124 wiersze — 106 `unit_name` (mapa EN→EN: `/Movie` → nazwa bazowa; `VF-25F Messiah B` → `VF-25F (B)`, `… B SP` →
+`VF-25F SP (B)`, `VF-25S … B AP` → `VF-25S AP (B)`; `Strike Freedom Gundam` → `Strike Freedom`; `Wing Gundam Zero[/NB]`
+→ `Wing Zero[/NB]`; `Infinite Justice Gundam` → `∞ Justice`; `God Gundam/Hyper Mode` → `G Gundam/Hyper`; `Gundam Ground
+Type[/GM Head]` → `Ground Gundam` / `Grd Gundam/GM`; `Ryu Knight Zephyr` → `Knight Zephyr`, `Ryu Paladin Lord Zephyr` →
+`Lord Zephyr`, `Ryu Mage/Wizard Magidora` → `Mage Magidora` / `Wiz. Magidora`, `Rune Knight Steru` → `R.Knight Steru`,
+`Dark Knight Steru/Dark Dragon Form` → `D.Steru/Dragon`; `Macross Quarter (Fortress/Storm Attack)` → `M.Quarter/Fort` /
+`M.Quarter/Atk`; `Mass-Produced Metal Knight[/Heavy]` → `MP MetalKnight` / `MP M.Knight/HM`; `Great Ganbaruger` →
+`Gt.Ganbaruger`; `Perfect Daiteioh` → `Perf. Daiteioh`; `Keroro Robo Mk-II` → `Keroro Robo II`; `Iron Kong Mk-II` →
+`Iron Kong MkII`; `Scopedog TC-ISS` → `Scopedog ISS`; `Lancelot Albion` → `Albion`; `Hyaku Shiki/Mega Launcher` → `Hyaku
+Shiki/ML`; `Enhanced Layzner` → `Enh. Layzner`; `Ground-Type Fatty` → `Ground Fatty`; `Benthos Cruiser/Carrier α|β` →
+`B.Cruiser α` / `B.Carrier α|β`; `Giga Nekton αα|ββ` → `G.Nekton αα|ββ`; `Balarant Dual-Role Fighter` → `Balarant Ftr.`,
+`Balarant Land Battleship` → `Balarant L-BB`; `Grados New Giant Space Carrier` → `Giant Carrier`; `Lesrion-/Giga-class
+Space Battleship` → `Lesrion-class` / `Giga-class`; `Dark Dragon Escort Ship/Soldier` → `Dragon Escort` / `Dragon
+Soldier`; `Hulk Gunship Axe Bomber` → `Axe Bomber`; `Eldgear Central Tower` → `Eldgear Tower`; `Eldran's Heroes` →
+`Eldran Heroes`; `Original Death Saurer` → `Orig. D.Saurer`; `Hand Grenade/Deploy` → `Grenade/Deploy`; `Directional
+Mine` → `Direct. Mine`; `Demon God Goburiki` → `Demon Goburiki`; `Guren S.E.I.T.E.N.` → `Guren SEITEN`; `Space Landing
+Craft` → `Landing Craft`; `Heart of Lachesis` → `Lachesis Heart`; `Monskar Neppoon/Medessa` → `Neppoon` / `Medessa`;
+`Spare Unit 399N` → `Spare 399N`; `Cowen & Stinger` → `Cowen&Stinger`), 8 `character_name_short/narrow` (`Da Cider
+(Ally)` → `Da Cider/Ally`, `Schubaltz (Ally)` → `Schubaltz/Ally`, `Mr. Bushido (Ally)` → `Bushido/Ally`, `Cowen &
+Stinger` → `Cowen&Stinger`, `Captain Kusanagi` → `Capt. Kusanagi`) + 3 wiersze `char:4426` (JP クロ, `name_short`/
+`name_full` „Guylos Imperial Officer”, `name_narrow` „Guylos Officer” — cudzy angielski; skan po kluczach: jedyny taki
+przypadek) → `Kuro`; 8 `effect` Skill00: r236 `Surround Up; attacks = all %s units\nShown Atk = %s total\n%s`,
+r237–241 `＠4<Coord. Atk%sN>＠0%s5N%% all %s units attack\nShown Atk = group total\n%s`, r651/652 `Can sortie in a %s
+with set units\n…` + 1 wiersz `04_config_text.jsonl` (`…Skill00.bin:38940`, duplikat r236). `translation_copy --resync`
+0 rozjazdów; `translation_check` 0 błędów. `pakiet_EN_2026-10-15_v5.zip` 5 310 795 B md5 `c0490787121cd7117f0cf2bb77409a1b`.
+
+**Pułapka znaleziona przy budowie (pierwszy przebieg #18):** `04_config_text.jsonl` powtarza wiersze rekordów Skill00
+pod id z offsetem; `item_skill_write` scala wiersze per (rekord, rola) i przy dwóch różnych angielskich **pomija cały
+rekord** (`skipped: ['record 236 role effect: two rows, two translations']`, 4 `verification.failures`, kod wyjścia bez
+zmian) — r236 został japoński we wszystkich 4 rolach. Build #17 nie miał żadnego `skipped` (sprawdzone w raporcie).
+Nowa kontrola `translation_check.conflicting_duplicates` (ten sam kontener+member+jp, różny EN w Skill00/Item00 ⇒ błąd na
+każdym wierszu konfliktu; dialogi wyłączone).
+
+**Nowe reguły w `tools/translation_check.py`** (+15 testów w `tests/test_translation_check.py`, razem 1 164 OK):
+`LIST_CELLS = {unit_name: 14}` (błąd), `LIST_CELLS_SOFT = {character_name_short/narrow: 14}` (ostrzeżenie), `list_cells`
+po bajtach CP932; `COMPLETION_BYTE` (8 rekordów; licznik: EN może zachować najwyżej `jp.count('%s4') − n` — r240 ma
+`連携攻撃%s4` jako poziom, który zostaje); `conflicting_duplicates`. Pakiet v4 pod nowymi regułami: 104 + 8 błędów (tak ma
+być). Poprawka `--token-map` help (`%s` → `%%s`, argparse wstawiał słownik).
+
+**Build #18** (`build_translation_patch.py --dlc local/inputs --package local/pakiet_v5/… --out local/build18`, 20 s,
+13 kontenerów z oryginałów, 0 `skipped`, 0 `verification.failures`, `skill_total` 340 074 `fits`): `config00.cpk`
+936 064 B md5 `5c43cf343b9fafde62c3c53c3a6c1e78` (Skill00 215 450; r236/r239/r651 sprawdzone po odczycie, 0 rekordów
+z kana/kanji, brak `Group4`), `config01.EDAT` 247 936 `8db9f78108b829526ef5a7176847c5fd`, `config02` 159 872
+`aead94463a5ec32d7dc0cef69d3f79c2`, `config03` 118 912 `2921482ca17a32b6b65136cfe3f12ed6`, `config04` 108 672
+`4d7fb680912e96b306ba2c30eabe3af3`, `config05` 110 720 `202e02209e2dd4a1719ca3e389d0091a`, `config06` 75 904
+`98c897edf839f8245bb0c75921513600`, `config07` 73 856 `ac7b2e3db0bf4215a8f52ebcda384d9e`, `config08` 80 000
+`4f77f8ff89d2f4c9ff23814f3f0057f4` (rozmiary = #17 = oryginał poza config02 +2 048); `configst`/`eventP00`/`imenu00`/
+`mesbtl00` = #17. W plikach: `M.Quarter/Fort`, `Wing Zero`, `VF-25F (B)` (unit_list01), `Strike Freedom`, `∞ Justice`
+(unit_list03), `Capt. Kusanagi` (charalist00), `Da Cider/Ally` (charalist01); `Albion`/Kuro siedzą w kontenerach spoza
+lokalnego zestawu (config10+) — buduje je HOKUS_POKUS użytkownika. `diagnoza.py`: BUILD18/v5 w tabelach
+(`ACCEPTED_CONFIG`, `KNOWN_DLC_CONFIG` 32, `PACKAGE_VERSIONS`, `CURRENT_PACKAGE = v5`); próba na `local/build18` →
+„config00.cpk w folderze DLC = BUILD18 (dobrze)”, „WERSJA PAKIETU: v5 — AKTUALNY”.
+
+**Dysk (zweryfikowane odpowiedziami API):** DELIVERY += `pakiet_EN_2026-10-15_v5.zip` (`1l1bhlBm77OfjXJ8n4slkyPv4JFHDgFfH`,
+md5 zgodne) i `KIT_build18_2026-10-15.zip` (`1M7rTKShcR4xYNI1u8q1gIZRh2kDU7TRP`, 870 020 B, md5
+`e44bd2130f1f25af276860ca0386d365`: `USRDIR_build18\` 5 plików, `DLC_build18_config\` 10 plików, `CZYTAJ.txt`);
+v4 zip → `_STARE_NIE_UZYWAC\pakiet_EN_2026-10-15_v4_ZASTAPIONY_PRZEZ_v5.zip`, KIT17 → `…\KIT_build17_2026-10-15_ZASTAPIONY_PRZEZ_KIT18.zip`
+(oba zostają jako odniesienie „działało w grze”); folder Pakiet: kopia v5 (`1iSvoItO5NI_H_t7DIviOcINbS822SRQN`), v4
+przemianowany `_STARY`. `INSTRUKCJA_PL.md` zaktualizowana (v5/KIT 18, część 4: UI_TEST1 TYLKO na `patched.iso`).
+
+**Status:** v5 / build #18 **w grze nie sprawdzone**. Do użytkownika: (1) `DIAGNOZA.bat` z ISO, które uruchamiał przy
+zrzucie 2; (2) czy ekran umiejętności pilota w TEJ SAMEJ sesji jest angielski; (3) zrzut listy broni w intermisji i
+tabliczki wroga z długim imieniem (szerokości niezmierzone); (4) wynik A/B UI_TEST1 na `patched.iso`.

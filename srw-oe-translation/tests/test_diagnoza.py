@@ -87,7 +87,7 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertIn("kontenerow nieznalezionych w ISO/DLC: 1", text)
         self.assertIn("narzedzia wg raportu: stamp", text)
         self.assertIn("1 identycznych z buildem, 1 roznych od buildu", text)
-        self.assertIn("config00.cpk w folderze DLC to NIE BUILD14/BUILD17: NIEZNANY build", text)
+        self.assertIn("config00.cpk w folderze DLC to NIE BUILD14/BUILD17/BUILD18: NIEZNANY build", text)
         self.assertIn("Builder ODMOWIL zapisu", text)
         self.assertIn("Pakiet w pakiet_EN\\ to NIEZNANA", text)
         self.assertIn("(pominiete - nie wskazano ISO)", text)
@@ -102,15 +102,15 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertEqual(diagnoza.EXPECTED_BUILD14["configst.cpk"], "6cfe245d5f6ec6dfffd2a829b778a4d7")
         for digest in diagnoza.KNOWN_DLC_CONFIG:
             self.assertRegex(digest, r"^[0-9a-f]{32}$")
-        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 24)          # 8 x (#15, #17, pulaJP)
+        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 32)          # 8 x (#15, #17, #18, pulaJP)
         for name, table in diagnoza.ACCEPTED_CONFIG.items():
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:
                 self.assertIn(digest, diagnoza.KNOWN_CONFIG)
-        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v4")
-        self.assertTrue(any(label.startswith("v4") and "AKTUALNY" in label
+        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v5")
+        self.assertTrue(any(label.startswith("v5") and "AKTUALNY" in label
                             for label in diagnoza.PACKAGE_VERSIONS.values()))
-        self.assertFalse(any(label.startswith("v3") and "AKTUALNY" in label
+        self.assertFalse(any(label.startswith(("v3", "v4")) and "AKTUALNY" in label
                              for label in diagnoza.PACKAGE_VERSIONS.values()))
 
     def test_build17_config00_is_accepted_and_dlc_configs_are_labelled(self):

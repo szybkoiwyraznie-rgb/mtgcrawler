@@ -387,3 +387,35 @@ strings). The user reports no other overflowing screens so far (new game only; t
 Convention-A records (`table_write` families) hold NO position-dependent words (scan of all prefix words of
 CharaDictionary00/RoboDictionary00/Reference00/DLC_ID00/Shop00/Skill_Tag/Achievement against offset, −offset,
 end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+36`.
+
+## `%s` in Skill00 record texts: the byte AFTER `%s` can be the second half of a pool fragment's last glyph (measured 2026-10-15)
+
+* `effect` texts of `srwDL_Skill00.bin` records hold printf-style `%s` (3 563 of them); the engine fills each with a
+  fragment of the 720-entry tail pool (which fragment is engine-side — the record header words 14–18 are numeric
+  parameters, not fragment indices; `srwDL_Skill_Tag.bin` is a label/script-tag table, not an index).
+* 88 pool fragments end in a dangling lead byte: a `0x0F` kana lead, a `＠` colour lead, or `%`. The byte right after
+  `%s` in the record completes it: `%s6` with fragment `｢＠` → `｢＠6` (colour), `%s4` with fragment 150 `ｸﾞﾙｰ<0F>` →
+  `ｸﾞﾙｰﾌﾟ`. Numeric contexts (`%s3手前`, `%s1ﾀｰﾝ`, `%s15%%`) are plain numbers.
+* Consequence for the English: the English pool fragment keeps `＠` (so colour completions keep their byte) but has no
+  `0x0F` lead (`Group`), so the completion byte must be DROPPED in the English record text — otherwise the game shows
+  `Group4`. Measured list: fragment 150 only, 9 places in 8 records (r236 ×2, r237–r241, r651, r652). Rule in
+  `translation_check.COMPLETION_BYTE` (count-based: r240 also has `連携攻撃%s4` = level 4, which stays).
+* The battle weapon panel shows line 1 of `effect` with the `＠4`/`＠0` colours and a recomputed percentage — a Japanese
+  line there with an English build means the game read a Japanese `config00.cpk` (the text is NOT code-generated).
+
+## Intermission unit list: ASCII is never squeezed; name column = 14 half-width cells (measured on a screenshot, 2026-10-15)
+
+* PPSSPP screenshot 1967×752 (4.1× PSP): half-width glyph pitch ≈ 7 PSP px, full-width ≈ 13 px; the unit-name field is
+  ≈ 105 px = 14.6 cells and the pilot name starts at cell 15; the Lv digits start 14.2 cells after that. Japanese
+  full-width names wider than the field are squeezed by the game, ASCII names are drawn at full pitch and run into the
+  pilot column.
+* Rule: `unit_name` (unit_list `name`) ≤ 14 cells counted in CP932 BYTES (`∞`, `α`, `※` are full-width glyphs = 2 cells
+  although `unicodedata.east_asian_width` says "A"); pilot short names ≤ 14 as a warning (which of `name_short` /
+  `name_narrow` the list draws is not measured). The weapon list and the enemy name plate in battle are unmeasured.
+
+## `item_skill_write` skips a whole record when two package rows disagree (2026-10-15)
+
+* `04_config_text.jsonl` scans `srwDL_Skill00.bin` a second time (category `config_skill`, offset ids), so a record
+  string can have two rows. The writer merges rows per (record, role); on two different English texts it skips the
+  record in all roles and only notes `skipped: ['record N role effect: two rows, two translations']` in
+  `build_report.json` (exit code unchanged). `translation_check.conflicting_duplicates` now reports this as an error.

@@ -6,7 +6,7 @@ impossible to tell whether the crash comes from the new files or from old ones t
 never replaced.  This tool answers that without the user typing anything:
 
 * which **tools** are next to it (fingerprint of the writers; does the +52 fix exist?),
-* which **package** lies in ``pakiet_EN\\`` (v1 of 2026-10-14 / v2 "ciasny" / v3 / v4 / unknown,
+* which **package** lies in ``pakiet_EN\\`` (v1 of 2026-10-14 / v2 "ciasny" / v3 / v4 / v5 / unknown,
   recognised by the md5 of ``03_skills.jsonl`` and ``04_config_text.jsonl``; a nested folder
   is reported too),
 * what ``HOKUS_POKUS.bat`` produced in ``srw-oe-patch\\`` (``build_report.json`` summary, md5 of
@@ -48,6 +48,8 @@ USRDIR_NAMES = ("config00.cpk", "configst.cpk", "eventP00.cpk", "imenu00.cpk", "
 KNOWN_CONFIG: Dict[str, str] = {
     # config00.cpk
     "266366c3bee66130d4b7cb57a1b1e3d4": "ORYGINAL",
+    "5c43cf343b9fafde62c3c53c3a6c1e78": "BUILD18 (pakiet v5: Skill00 215 450 B; = BUILD17 + nazwy list <= 14 znakow, 8 tekstow "
+                                        "Coord. Atk/Group bez '4', Kuro; w grze JESZCZE NIE sprawdzony)",
     "80b8fae61b858fb91db35532c4680c6f": "BUILD17 (pakiet v4: Skill00 215 462 B; SPRAWDZONY W GRZE 2026-10-15: Y4a/Y4/Z4)",
     "71d9fcafa37c21513b97c14d1dff8f33": "BUILD14 (poprawny, sprawdzony w grze; pakiet v2/v3 - starszy niz BUILD17)",
     "3c56686d04cb1c362c7cb72111598879": "build #12 (stary: nieswiezy +52, pada na sejwie z 2. rozdzialu)",
@@ -69,12 +71,14 @@ EXPECTED_BUILD14 = {
     "config00.cpk": "71d9fcafa37c21513b97c14d1dff8f33",
     "configst.cpk": "6cfe245d5f6ec6dfffd2a829b778a4d7",
 }
-# every config00/configst that is fine in the emulator folder today: BUILD14 (tested in the game)
-# and BUILD17 (package v4 - keeps the DLC pools at their original size; accepted in-game 2026-10-15)
+# every config00/configst that is fine in the emulator folder today: BUILD14 (tested in the game),
+# BUILD17 (package v4 - keeps the DLC pools at their original size; accepted in-game 2026-10-15) and
+# BUILD18 (package v5 = BUILD17 + list-name/Coord. Atk corrections; the current hand-out)
 ACCEPTED_CONFIG = {
     "config00.cpk": {"71d9fcafa37c21513b97c14d1dff8f33": "BUILD14",
-                     "80b8fae61b858fb91db35532c4680c6f": "BUILD17"},
-    "configst.cpk": {"6cfe245d5f6ec6dfffd2a829b778a4d7": "BUILD14 (= BUILD17)"},
+                     "80b8fae61b858fb91db35532c4680c6f": "BUILD17",
+                     "5c43cf343b9fafde62c3c53c3a6c1e78": "BUILD18"},
+    "configst.cpk": {"6cfe245d5f6ec6dfffd2a829b778a4d7": "BUILD14 (= BUILD17 = BUILD18)"},
 }
 # md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
 KNOWN_DLC_CONFIG: Dict[str, str] = {
@@ -96,6 +100,15 @@ KNOWN_DLC_CONFIG: Dict[str, str] = {
     "ebeace423570cda94d1d3b1ea23d6435": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
     "60eab71a9ff17806cbfd554401b7a46f": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
     "735cdf6c59febd80d1aacce62ae87b9b": "build #17 (pakiet v4; pula 15 578 B; sprawdzony w grze Y4a/Y4/Z4)",
+    # build #18 (pakiet v5): pule 15 578 B jak #17; nazwy jednostek/pilotow w listach <= 14 znakow
+    "8db9f78108b829526ef5a7176847c5fd": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "aead94463a5ec32d7dc0cef69d3f79c2": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "2921482ca17a32b6b65136cfe3f12ed6": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "4d7fb680912e96b306ba2c30eabe3af3": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "202e02209e2dd4a1719ca3e389d0091a": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "98c897edf839f8245bb0c75921513600": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "ac7b2e3db0bf4215a8f52ebcda384d9e": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
+    "4f77f8ff89d2f4c9ff23814f3f0057f4": "build #18 (pakiet v5; pula 15 578 B; nazwy list <= 14 znakow)",
     # wariant testowy "pula JP": pule oryginalne (15 638 B), reszta EN
     "1bfb935293c5c2f51e719a3176420003": "wariant pulaJP (pula oryginalna, reszta EN)",
     "8eb2ef592fc15e5646df0bdfff2fae54": "wariant pulaJP (pula oryginalna, reszta EN)",
@@ -124,9 +137,11 @@ PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
     ("68c58d144c81b9edf27eb77164d2ca5d", "30f4ad0a7c8b12b7a686dcc01ee3a509"):
         "v3 (2026-10-15) - STARY: pule Skill01-08 (DLC) 17 396 B, rozdzialy 2-8 padaja na Loading",
     ("98d945607e047f4d32cf3b63f7f605d1", "fa8b0e48d2d7e4ca03757a5f731b763f"):
-        "v4 (2026-10-15) - AKTUALNY",
+        "v4 (2026-10-15) - dziala w grze, ale nazwy w listach wychodza poza kolumne i 'Group4' - uzyj v5",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "06e7d6fcc8c17c1cff2d0e7997cca372"):
+        "v5 (2026-10-15) - AKTUALNY",
 }
-CURRENT_PACKAGE = ("v4", "pakiet_EN_2026-10-15_v4.zip")
+CURRENT_PACKAGE = ("v5", "pakiet_EN_2026-10-15_v5.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")
@@ -394,7 +409,7 @@ def section_dlc_folder(rep: Report, dlc: Path, built: Dict[str, str], originals:
                 if accepted:
                     rep.flag(f"{path.name} w folderze DLC = {accepted} (dobrze).")
                 else:
-                    rep.flag(f"{path.name} w folderze DLC to NIE BUILD14/BUILD17: {note}.")
+                    rep.flag(f"{path.name} w folderze DLC to NIE BUILD14/BUILD17/BUILD18: {note}.")
             continue
         notes = []
         if digest in KNOWN_DLC_CONFIG:

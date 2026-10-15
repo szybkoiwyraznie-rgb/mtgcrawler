@@ -1,8 +1,18 @@
 # Project status
 
-Last updated: 2026-10-15
+Last updated: 2026-10-15 (night, §21.29)
 
-**Latest (2026-10-15, night → next day): Y4a, Y4 and Z4 ALL WORK in-game (PPSSPP, ISO 1.08): Loading, new game,
+**Latest (2026-10-15, night, after the first screenshots of actual play with v4/#17): package v5 / build #18 — unit
+and pilot names in the intermission lists ≤ 14 half-width cells (the game squeezes Japanese, never ASCII; measured on
+the user's screenshot), 8 Skill00 `effect` texts without the stray `4` after `%s` (the Japanese byte completes the kana
+fragment ｸﾞﾙｰ<0F>; the English fragment `Group` has no dangling byte, so #17 showed "Group4All units attack"), pilot
+Kuro (foreign English). New `translation_check` rules: list-column width (CP932 bytes), completion byte, conflicting
+duplicate rows of one Skill00/Item00 string (the writer silently skips the whole record otherwise — hit in the first
+#18 run). The Japanese ability line on the user's battle weapon panel is Skill00 r239 rendered from an ORIGINAL
+`config00.cpk` (build #17 is fully English there) — most likely UI_TEST1 applied to the original ISO (the instruction
+allowed it; corrected) — awaiting `DIAGNOZA.bat --iso`. v5/#18 NOT yet run in-game. Details: `EXPERIMENT_LOG.md` §21.29.**
+
+**Previous (2026-10-15, night → next day): Y4a, Y4 and Z4 ALL WORK in-game (PPSSPP, ISO 1.08): Loading, new game,
 the chapter-2 save, pilot status and skill screens — package v4 + build #17 is the first fully accepted TEXT set**
 (the pool budget rule — each `srwDL_Skill0N.bin` ≤ 15 638 B, Skill00 + pools ≤ 342 194 B — holds in every test so
 far; still a measured rule, not a proven mechanism). The user's screenshots then raised the next front: the
