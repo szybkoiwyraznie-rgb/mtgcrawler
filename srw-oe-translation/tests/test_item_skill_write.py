@@ -19,7 +19,9 @@ import item_skill_write as ISW  # noqa: E402
 
 
 def build_record(kind, key, name, effect, name_level="", effect_brief="", label="",
-                 linked=None, tail=(1, 2), level=1):
+                 linked=None, tail=(1, 2), level=1, param_words=None):
+    """One record; ``param_words`` = how many leading tail words precede the parameter pointer's
+    target (the counted pair list ``1, 78, 0`` of the game data), default: all but the last."""
     words = [0] * 20
     if kind == "item":
         words[0] = key
@@ -37,8 +39,11 @@ def build_record(kind, key, name, effect, name_level="", effect_brief="", label=
     for raw in raws:
         blob += raw
         boundaries.append(boundaries[-1] + len(raw))
+    # the measured rule: the u16 at +52 points at the parameter words after the texts
+    # (last boundary + delta, delta = 2..18 bytes in the originals)
+    lead = max(len(tail) - 1, 0) if param_words is None else param_words
     return (struct.pack("<20H", *words) + struct.pack("<6H", *boundaries)
-            + struct.pack("<H", 100) + blob + tail_blob)
+            + struct.pack("<H", boundaries[-1] + 2 * lead) + blob + tail_blob)
 
 
 def build_member(kind, records, pool_runs=(), bare_pool=False, pool_pointers=True,
@@ -591,6 +596,76 @@ class BasePointerTest(unittest.TestCase):
         same, report = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
         self.assertEqual(same, blob)
         self.assertEqual(report["base_pointers_rewritten"], 0)
+
+
+class ParameterPointerTest(unittest.TestCase):
+    """The u16 at +52 is ``last_boundary + delta`` (2230/2230 originals, 2026-10-15); builds
+    #6-#13 copied it verbatim and the chapter-2 save crashed on load."""
+
+    def pointers(self, blob, kind):
+        parsed = ISR.parse_member(blob, kind, "srwDL_Skill00.bin")
+        return [(struct.unpack_from("<H", blob, row["offset"] + 52)[0], row["boundaries"][-1],
+                 row["length"]) for row in parsed["records"]]
+
+    def test_the_fixture_reproduces_the_measured_rule(self):
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32)),
+                                      build_record("skill", 2, "対空", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3)], ["気力"])
+        for pointer, last, length in self.pointers(blob, "skill"):
+            self.assertTrue(last <= pointer <= length)
+        self.assertEqual([p - last for p, last, _ in self.pointers(blob, "skill")], [8, 6])
+        self.assertEqual(ISW.parameter_pointer_faults(blob, ISR.parse_member(blob, "skill")), [])
+
+    def test_the_pointer_follows_the_texts_when_a_record_grows_or_shrinks(self):
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3),
+                                      build_record("skill", 2, "対空", "地形%s6空＠0%s", tail=(1, 78, 2, 2),
+                                                   param_words=3)], ["気力"])
+        before = self.pointers(blob, "skill")
+        grown, _ = ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-Ground (terrain)"},
+                                                      1: {"effect": "x"}}, "srwDL_Skill00.bin")
+        after = ISR.parse_member(grown, "skill", "srwDL_Skill00.bin")
+        self.assertEqual(after["errors"], [])
+        for (pointer, last, length), (old_pointer, old_last, _) in zip(self.pointers(grown, "skill"), before):
+            self.assertEqual(pointer - last, old_pointer - old_last)      # delta kept
+            self.assertTrue(last <= pointer <= length)
+        # record 0 grew, record 1 shrank: the pointers moved with the texts
+        self.assertGreater(self.pointers(grown, "skill")[0][0], before[0][0])
+        self.assertLess(self.pointers(grown, "skill")[1][0], before[1][0])
+        # and the parameter words themselves are intact where the pointer now points
+        for row, tail in zip(after["records"], ((1, 78, 0, 2, 32), (1, 78, 2, 2))):
+            pointer = struct.unpack_from("<H", grown, row["offset"] + 52)[0]
+            words = struct.unpack_from("<%dH" % ((row["length"] - pointer) // 2), grown, row["offset"] + pointer)
+            self.assertEqual(words, tail[3:])
+        self.assertEqual(ISW.parameter_pointer_faults(grown, after), [])
+
+    def test_a_stale_pointer_is_what_builds_6_to_13_shipped(self):
+        # rebuild the way the old writer did (pointer copied verbatim) and show the misread
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3)], ["気力"])
+        row = ISR.parse_member(blob, "skill")["records"][0]
+        rebuilt = ISW.rebuild_record(row, {"name": "Anti-Ground"})
+        stale = bytearray(rebuilt)
+        struct.pack_into("<H", stale, 52, row["header"][ISW.PREAMBLE_WORD])
+        pointer = struct.unpack_from("<H", stale, 52)[0]
+        self.assertLess(pointer, ISR.parse_member(build_member("skill", [bytes(stale)]), "skill")["records"][0]["boundaries"][-1])
+        self.assertEqual(ISW.parameter_pointer_faults(build_member("skill", [bytes(stale)]),
+                                                      ISR.parse_member(build_member("skill", [bytes(stale)]), "skill")), [0])
+
+    def test_a_source_that_breaks_the_rule_is_refused(self):
+        record = bytearray(build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32)))
+        struct.pack_into("<H", record, 52, 20)                 # before the texts
+        blob = build_member("skill", [bytes(record)], ["気力"])
+        with self.assertRaises(ISW.WriteError) as caught:
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-Ground"}}, "srwDL_Skill00.bin")
+        self.assertIn("parameter pointer", str(caught.exception))
+        self.assertIsNone(ISW.parameter_delta(list(struct.unpack_from("<%dH" % (len(record) // 2), record))))
+
+    def test_an_identity_rebuild_keeps_the_bytes(self):
+        blob = build_member("item", [build_record("item", 7, "改造", "%s20", tail=(1, 78, 0, 5)),
+                                     build_record("item", 8, "強化", "%s30", tail=(0,), param_words=0)], ["気力"])
+        same, _ = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
+        self.assertEqual(same, blob)
 
 
 class HelperTest(unittest.TestCase):

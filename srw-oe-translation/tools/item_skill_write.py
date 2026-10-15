@@ -56,9 +56,21 @@ import table_write as TW  # noqa: E402
 
 PARAM_WORDS = 20           # parameter words before the boundary table
 BOUNDARY_BYTES = 12        # six u16 field boundaries
-PREAMBLE_WORD = 26         # the parameter word sitting between the boundaries and the fields
+PREAMBLE_WORD = 26         # u16 at +52: record-relative position of the PARAMETER WORDS (see below)
+LAST_BOUNDARY_WORD = PARAM_WORDS + ISR.BOUNDARY_COUNT - 1   # word 25 = end of the last text field
 BASE_POINTER = 32          # i32: the member start relative to the record (= -record_offset)
 POOL_POINTER = 36          # u32: the fragment pool's offset relative to the record start
+
+# The u16 at +52 is a THIRD record-relative pointer [ZWERYFIKOWANE na 2 230 oryginalnych rekordach,
+# 2026-10-15]: it marks where the numeric parameter words start, i.e. it equals
+# ``last_boundary + delta`` with a record-specific ``delta`` of 2..18 bytes (the counted list of
+# pairs that sits right after the texts: ``1, 78, 0`` = 6 bytes in 1 107 of 1 469 Skill00 records).
+# Builds #6-#13 copied the word verbatim, so in every record whose texts grew or shrank the game
+# read its parameters from inside the text (or past the real words).  A new game survived it; the
+# user's chapter-2 save crashed on load ("CPU Jump to ffffffff") with the rebuilt Skill00 alone,
+# and the Japanese member grown with spaces (Y3, every record touched) crashed the same way.
+# The rebuilt record keeps ``delta``: the pointer follows the texts exactly like +32/+36 follow
+# the record.
 
 # In-game size budget of ``srwDL_Skill00.bin`` [ZWERYFIKOWANE w grze, 2026-10-14/15, PPSSPP,
 # "SRW OE 1.08" + original DLC]: the game crashes at "Loading" (memcpy to NULL) once the member
@@ -153,6 +165,11 @@ def rebuild_record(row: dict, edits: Dict[str, object]) -> bytes:
     header = row.get("header")
     if not header or len(header) <= PREAMBLE_WORD:
         raise WriteError(f"record {row.get('record')}: header too short to rebuild")
+    delta = parameter_delta(header)
+    if delta is None:
+        raise WriteError(f"record {row.get('record')}: the parameter pointer at +{2 * PREAMBLE_WORD} "
+                         f"({header[PREAMBLE_WORD]}) does not sit between the last text boundary "
+                         f"({header[LAST_BOUNDARY_WORD]}) and the record end; refused")
     raws = []
     for role in ISR.FIELDS:
         value = edits.get(role, row.get(role, ""))
@@ -167,10 +184,35 @@ def rebuild_record(row: dict, edits: Dict[str, object]) -> bytes:
     for raw in raws:
         blob += raw
         boundaries.append(boundaries[-1] + len(raw))
+    # the parameter pointer moves with the texts: new last boundary + the record's own delta
     return (struct.pack("<%dH" % PARAM_WORDS, *header[:PARAM_WORDS])
             + struct.pack("<%dH" % ISR.BOUNDARY_COUNT, *boundaries)
-            + struct.pack("<H", header[PREAMBLE_WORD])
+            + struct.pack("<H", boundaries[-1] + delta)
             + blob + tail)
+
+
+def parameter_delta(header: List[int]) -> Optional[int]:
+    """Bytes between the end of the last text field and the parameter words of a record.
+
+    ``None`` when the record does not follow the measured rule (pointer before the texts' end or
+    past the record), which no original record does.
+    """
+    if len(header) <= PREAMBLE_WORD:
+        return None
+    delta = header[PREAMBLE_WORD] - header[LAST_BOUNDARY_WORD]
+    if delta < 0 or header[PREAMBLE_WORD] > 2 * len(header):
+        return None
+    return delta
+
+
+def parameter_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
+    """Records whose u16 at +52 does not lie between the last text boundary and the record end."""
+    faults = []
+    for row in parsed["records"]:
+        pointer = struct.unpack_from("<H", blob, row["offset"] + 2 * PREAMBLE_WORD)[0]
+        if not (row["boundaries"][-1] <= pointer <= row["length"]):
+            faults.append(row["record"])
+    return faults
 
 
 def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
@@ -198,6 +240,13 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
     if faults:
         raise WriteError(f"{member or kind}: {len(faults)} record(s) {faults[:5]} do not carry "
                          f"the member base pointer (-offset) at +{BASE_POINTER}; "
+                         f"the member is refused")
+    # and the u16 at +52 points at the parameter words right after the texts (2230/2230
+    # original records); builds #6-#13 left it stale and the chapter-2 save crashed on load
+    faults = parameter_pointer_faults(blob, parsed)
+    if faults:
+        raise WriteError(f"{member or kind}: {len(faults)} record(s) {faults[:5]} do not carry "
+                         f"the parameter pointer (last boundary + delta) at +{2 * PREAMBLE_WORD}; "
                          f"the member is refused")
     records = [rebuild_record(row, edits.get(row["record"], {})) for row in rows]
     count = len(records)

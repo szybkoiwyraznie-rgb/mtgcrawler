@@ -2,7 +2,17 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, day): round 6 in-game — Z1 crash, Z2 OK, Z3 crash ⇒ the rebuilt `srwDL_Skill00.bin` ALONE
+**Latest (2026-10-15, afternoon): the chapter-2 save crash has a concrete cause in the writer — a THIRD
+record-relative pointer, u16 `+52` (start of the skill's parameter words after the texts), was copied verbatim by
+builds #6–#13**, so every record whose English changed length had the game read its parameters from the wrong
+place (build #12: 1 152 of 1 469 Skill00 records, 458 pointing into the text). Round 7 (Y1 OK, Y2 OK, Y3 crash,
+A OK, B OK) ruled out record positions and save contents; the stale-pointer counts match the matrix exactly.
+`item_skill_write` now moves `+52` with the texts and refuses sources that break the rule (suite 1 093 OK).
+Round 8 kit `RUNDA8_build14.zip`: Y5 (= Y3 with only `+52` fixed) decides pointer vs size; **build #14** = #13 +
+the fix in all five convention-B members; PLAN_B size ladder only if Y5 crashes. Details: `EXPERIMENT_LOG.md`
+§21.23–21.24, `TECHNICAL_FINDINGS.md` (three pointers).
+
+**Previous (2026-10-15, day): round 6 in-game — Z1 crash, Z2 OK, Z3 crash ⇒ the rebuilt `srwDL_Skill00.bin` ALONE
 makes the chapter-2 save (from the original JP game) crash on load** (`CPU Jump to ffffffff`, RA `08a62f34` — a
 different signature from the Loading crash). A full cross-record scan of the original Skill00 found no
 offset references between records (only `+32`/`+36`, both rewritten), so the remaining split is layout (save

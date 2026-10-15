@@ -4163,3 +4163,47 @@ niezgodne — nowa gra”. Użytkownik zadeklarował, że japońskich sejwów ni
 
 Środowisko: reset piaskownicy w trakcie tury (`local/` wyczyszczone; `config00.cpk` i pakiet v2 pobrane ponownie z
 Dysku, md5 config00 `266366c3bee66130d4b7cb57a1b1e3d4`).
+
+### 21.24 Runda 7 w grze: Y1 OK, Y2 OK, Y3 PADA, A OK, B OK ⇒ nie położenie, nie sejw; znaleziony TRZECI wskaźnik rekordu (`+52`, słowa parametrów) nieświeży w buildach #6–#13; pisarz naprawiony; runda 8 (Y5 + build #14)
+
+**Wynik użytkownika (2026-10-15):** Y1 (ten sam rozmiar, rekordy przesunięte o −4) OK; Y2 (210 942 B, japoński +
+spacje) OK; Y3 (216 518 B, japoński + spacje) CRASH — to samo okno; A (sejw zrobiony na #13 wczytany na #13) OK;
+B (ten sam sejw na oryginale) OK. **Potwierdzone:** sejw nie trzyma położeń rekordów (Y1, B); własne sejwy z patcha
+działają i są przenośne na oryginał. Pozostało „rozmiar albo coś, co rośnie z rozmiarem".
+
+**Analiza składu `Skill00` #12 (przyrost +7 560 B):** name +2 882, name_level +1 711, effect +2 457, effect_brief
+−486, label +36, pula +812. Dalsze cięcie o 5,6 KB (do 210 942) wymagałoby zgniecenia nazw do rozmiaru japońskich
+(np. `Transform` ×38 rekordów = +380 B) — odłożone do czasu wyjaśnienia mechanizmu.
+
+**Znalezisko (analiza ogonów rekordów):** w ORYGINALE u16 `+52` = `ostatnia_granica_tekstu + delta`, delta ∈
+{6: 1 107, 10: 212, 14: 60, 18: 90} (Skill00), {6, 10, 18, 2} (Item00/Item), {6} (Spirit), {6, 10, 14} (StatusChange)
+— **2 230 / 2 230 rekordów**, zawsze w przedziale `[ostatnia granica, koniec rekordu]`. Między tekstami a `+52` leży
+lista par z licznikiem (`1, 78, 0` = 6 B), od `+52` do końca rekordu — słowa parametrów (`2, 32, 40, 30, 30` dla
+対地 Lv1). **Pisarz kopiował `+52` dosłownie** (`rebuild_record`: `header[PREAMBLE_WORD]`), więc w każdym rekordzie
+ze zmienioną długością tekstu gra czytała parametry z niewłaściwego miejsca. Policzone na rzeczywistych plikach:
+Y1 — 2 nieświeże (±4 B); Y2 — 496 (wszystkie 4 B za wcześnie, czyli odczyt zaczyna się od końca listy par); Y3 —
+1 463 (1 036 × 4 B, 427 × 8 B; 323 wskazują W TEKST); **#12 — 1 152 (−16…+16 B; 458 w tekst)**; Item00 #12 — 188;
+Spirit — 60/60; Item — 188; StatusChange — 30. Zgadza się z macierzą: nowa gra (mało pilotów/umiejętności) przeżywa,
+sejw z 2. rozdziału (wczytanie parametrów wielu umiejętności) pada skokiem przez śmieci. Parser nie wykrywał tego,
+bo nieświeży wskaźnik zwykle nadal leżał wewnątrz rekordu. (Y2 vs Y3 różnią się też rozmiarem — rozstrzyga Y5.)
+
+**Naprawa (`tools/item_skill_write.py`):** `rebuild_record` zapisuje `nowa_ostatnia_granica + delta` (delta z rekordu
+źródłowego, `parameter_delta`); `parameter_pointer_faults` + odmowa źródła poza `[granica, długość]` (jak `+32`/`+36`);
+komentarz z pomiarem. Testy: `tests/test_item_skill_write.py` — fixture `build_record` realizuje zmierzoną regułę
+(`param_words`), klasa `ParameterPointerTest` (5 testów: reguła, wskaźnik podąża za tekstem przy wzroście i
+skróceniu z identycznymi słowami parametrów, nieświeży wskaźnik buildów #6–#13, odmowa, tożsamość). Pełny zestaw
+**1 093 OK / 1 pominięty**. Weryfikacja na danych: tożsamościowa przebudowa 5 członów = bajtowo identyczna;
+po wydłużeniu nazw wszystkich rekordów wskaźnik `+52` zachowuje deltę, a słowa parametrów są identyczne z
+oryginałem we wszystkich 2 230 rekordach.
+
+**Runda 8 (`local/round8/`, dostawa `RUNDA8_build14.zip` 958 927 B md5 `9ba61e1931696d4725264b507fa2f7ac`, Drive
+DELIVERY `1nGAeQ3Hoa8w6Xvm18vbcfFKdHO4z_Skf`):**
+- **Y5** = Y3 z poprawionym `+52` (różni się od Y3 wyłącznie tym słowem w 1 463 rekordach; 216 518 B; cpk md5
+  `608ffa3c1dd9b3318649224d20411851`). Y5 OK ⇒ przyczyną był wskaźnik, rozmiar 216 518 jest w porządku.
+- **Build #14** = pakiet b13 (v2 + label_fit) zbudowany naprawionym pisarzem: `config00.cpk` 936 064 B md5
+  `71d9fcafa37c21513b97c14d1dff8f33` (różni się od #12/#13 tylko w Skill00 i Item00 — słowa `+52`), `configst.cpk`
+  372 864 B md5 `6cfe245d5f6ec6dfffd2a829b778a4d7` (sysmes 48 228 jak #13; Spirit/Item/StatusChange z poprawką).
+  Rozmiary członów identyczne z #13.
+- **PLAN_B** (tylko gdy Y5 padnie): drabinka japoński + spacje z poprawnym `+52`: L1 211 966, L2 212 990, L3 214 014,
+  L4 215 038 B (md5 w `ROZMIARY_I_MD5.json`).
+Budżet `SKILL00_LIMIT` 216 768 bez zmian (limit z „Loading" pozostaje zmierzony niezależnie: W1/W2).

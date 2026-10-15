@@ -326,7 +326,7 @@ files (convention C) and are not affected. Whether `srwDL_Item00.bin` (34 566 �
 configst members have budgets of their own is unknown; `configst.cpk` with grown members loaded to the title
 menu (variant A).
 
-## Convention-B records carry TWO relative pointers: `+32` (member base) and `+36` (tail pool) — measured 2026-10-15
+## Convention-B records carry THREE relative pointers: `+32` (member base), `+36` (tail pool), `+52` (parameter words) — measured 2026-10-15
 
 Scan of all 20 header words (u16/u32, signed and unsigned) of every record of the five original convention-B
 members (`srwDL_Spirit.bin` 60, `srwDL_Item.bin` 300, `srwDL_StatusChange.bin` 101, `srwDL_Skill00.bin` 1 469,
@@ -338,7 +338,7 @@ members (`srwDL_Spirit.bin` 60, `srwDL_Item.bin` 300, `srwDL_StatusChange.bin` 1
 | i32 `+32` | **`-record_offset`** | 2 230 / 2 230 | member start relative to the record (pointer to the member base) |
 | u32 `+36` | **`tail_offset - record_offset`** | 2 230 / 2 230 | fragment pool relative to the record (known since 2026-10-14) |
 | u16 `+40..+51` | field boundaries | all | record-relative string starts (`STRING_BASE` 54) |
-| u16 `+52` | binary word (204, 260, …) | — | NOT text; `config_text_tables` must not merge it with the first field |
+| u16 `+52` | **`last_boundary + delta`**, delta ∈ {2, 6, 10, 14, 18} B | 2 230 / 2 230 | record-relative start of the **parameter words** that follow the texts (a counted pair list such as `1, 78, 0` sits between the last text and them); NOT text; `config_text_tables` must not merge it with the first field |
 | other words | keys, levels, small indices | — | not position dependent |
 
 Consequence: every writer that shifts records must rewrite **both** words. Builds #6–#11 rewrote `+36` only;
@@ -349,6 +349,19 @@ first mission (which read only the strings) did not [in-game observations of bui
 attribution is the only stale structure left in those members and is awaiting the build #12 test].
 `item_skill_write.rebuild_member` now refuses a source that breaks either rule, rewrites both words per record
 and proves both on its output (`base_pointer_faults`, `pool_pointer_faults`); `member_variants.check` tests both.
+
+**`+52` (found 2026-10-15 after round 7).** Builds #6–#13 copied the word verbatim, so in every record whose texts
+changed length the game read the parameter words from the wrong place (4–16 B early or late; in build #12 1 152 of
+1 469 Skill00 records, 458 of them pointing into the text itself; 188/300 Item00, 60/60 Spirit, 188/300 Item,
+30/101 StatusChange). A new game survived it (chapter 1, few pilots and skills); the user's mid-chapter-2 save
+crashed on load with `CPU Jump to ffffffff` (RA `08a62f34`) — with the rebuilt Skill00 alone (Z3) and with the
+Japanese member grown by spaces to the same size (Y3: 1 463 stale words, 323 into text), while the same member
+shifted by 4 B without text growth (Y1: 2 stale words) and grown by 1 984 B (Y2: 496 stale words, all 4 B early)
+loaded [in-game, user, 2026-10-15]. The record parse never flagged it because the stale pointer usually still
+landed inside the record. `rebuild_record` now writes `new_last_boundary + delta` (delta taken from the source
+record), `parameter_pointer_faults` refuses a source outside `[last_boundary, length]`, and the output is proven
+to keep every parameter word byte-identical (checked on all 2 230 records). Whether this alone explains the
+chapter-2 crash is the round-8 test (Y5 = Y3 with only `+52` corrected; build #14 = build #13 + the fix).
 
 ## `config_text_tables` scan gap: first fields behind a two-byte preamble (2026-10-15)
 
