@@ -891,6 +891,14 @@ def ui_texture_step(report: dict, iso: Path, iso_patch: Dict[str, bytes], work: 
                      "skipped": [], "problems": []}
     report["ui_textures"] = summary
     try:
+        import PIL  # noqa: F401  (the caption renderer needs Pillow; HOKUS_POKUS installs it)
+    except ImportError:
+        msg = ("Pillow (PIL) is not installed - the UI texture step needs it: "
+               "python -m pip install pillow  (or build text only with --no-ui-textures)")
+        summary["problems"].append(msg)
+        report["problems"].append(f"ui textures: build broke: {msg}")
+        return
+    try:
         specs = UTP.load_specs(specs_dir)
     except Exception as exc:  # noqa: BLE001 - reported, never half-applied
         summary["problems"].append(f"specs: {exc}")

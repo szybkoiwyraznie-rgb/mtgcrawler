@@ -355,3 +355,4 @@ UI_TEST3.zip	13fmXgzO_oRfTvh9QkRwxaVvi8ozYCbpO	476609	md5 5fd6b3cab3bf69921ff3f5
 # PRZENIESIONE do _STARE_NIE_UZYWAC: 1N0U-xoLKLyfUQRLeVn8i8Vq6jaJgBnmy -> UI_TEST2_zastapione_przez_UI_TEST3.zip (w grze nie sprawdzony)
 # KOSZ: 1ZVaEB7ypSdkF565U_PRepBX2zUAGaZrA INSTRUKCJA_PL.md (stan v5/KIT 18 + UI_TEST2)
 INSTRUKCJA_PL.md	1jJlXLAJIdUCZDyc-4P380wNaCeUf_wUU	18866	md5 cc147aae987a3465ab5876764b29df93 = docs/INSTRUKCJA_PATCH_PL.md (stan v5/KIT 18 + UI_TEST3: kody 2-literowe, navisys.cpk, tekstury w HOKUS_POKUS)
+# UWAGA 2026-10-15 wieczor: kopia INSTRUKCJA_PL.md na Dysku (1jJlXLAJIdUCZDyc-4P380wNaCeUf_wUU) jest BEZ dopisku o Pillow (ponowny upload zablokowal filtr dostawcy konektora); aktualny tekst = docs/INSTRUKCJA_PATCH_PL.md w ZIP-ie galezi

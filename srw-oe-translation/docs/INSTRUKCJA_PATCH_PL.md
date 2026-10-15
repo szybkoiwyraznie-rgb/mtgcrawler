@@ -47,7 +47,10 @@ stary pakiet (`DIAGNOZA.bat` sprawdza to za ciebie i rozpoznaje buildy #15/#17/#
 ## Część 1 — budowa (jeden `.bat`, 10–15 minut)
 
 Potrzebne raz: **Python 3.9 lub nowszy** — <https://www.python.org/downloads/>, przy instalacji
-zaznacz **„Add python.exe to PATH”**. Nic więcej (żadnych bibliotek).
+zaznacz **„Add python.exe to PATH”**. Do napisów w grafikach interfejsu (część 4) potrzebna jest
+jeszcze biblioteka **Pillow** — `HOKUS_POKUS.bat` sam ją doinstalowuje (`pip install pillow`, raz,
+potrzebny internet); gdyby się nie udało, buduje **sam tekst** i wyraźnie o tym pisze (wtedy ręcznie:
+`python -m pip install pillow` i jeszcze raz `HOKUS_POKUS.bat`).
 
 1. **Świeże narzędzia.** Ściągnij repozytorium jako ZIP: strona repozytorium → gałąź
    `arena/c0e5c9d1-mtgcrawler` → zielony przycisk **Code** → **Download ZIP** (bezpośredni link:
@@ -62,8 +65,9 @@ zaznacz **„Add python.exe to PATH”**. Nic więcej (żadnych bibliotek).
 3. **`HOKUS_POKUS.bat`** (dwuklik). Dwa okna wyboru: (1) plik `SRW OE 1.08.iso`;
    (2) **folder z odszyfrowanymi plikami DLC** (zestaw FULL_DLC). Czekaj na „Gotowe”
    (~4 min budowy + przepisanie ISO 680 MB).
-4. **Wynik** w `srw-oe-translation\srw-oe-patch\`: `patched.iso`, `DLC\…` (91 plików `*.EDAT` +
-   `config00.cpk`, `configst.cpk`), `build_report.json`.
+4. **Wynik** w `srw-oe-translation\srw-oe-patch\`: `patched.iso` (tekst rozdziału 1 **i** napisy
+   w grafikach — 6 kontenerów UI, w `build_report.json` klucz `ui_textures`), `DLC\…` (91 plików
+   `*.EDAT` + `config00.cpk`, `configst.cpk`), `build_report.json`.
 5. **Zanim cokolwiek skopiujesz — `DIAGNOZA.bat`** (część 2). Dopiero gdy raport mówi
    „pakiet v5 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK” i „config00 = BUILD18”, kopiuj.
    W `build_report.json` jest teraz też pole `skill_total` (Skill00 + 8 pul; ma być ≤ 342 194 B,

@@ -4787,3 +4787,14 @@ w razie nieczytelności: piktogramy albo kody jednoliterowe w innym kolorze niż
 
 **Status:** UI_TEST3 i krok builderowy z 6 kontenerami — **w grze nie sprawdzone** (jak UI_TEST2). Commit kodu + specyfikacji:
 `9ff00e9`; dokumentacja — następny commit.
+
+**Dopisek 21.31a (2026-10-15 wieczór) — luka „brak Pillow” w HOKUS_POKUS.** Krok „tekstury UI” buildera potrzebuje
+Pillow; bez niego `UTP.build` rzuca `ImportError`, krok zgłasza problem, a builder (fail-closed) **nie zapisuje w ogóle
+`patched.iso`** — użytkownik z czystym Pythonem 3.14 dostałby pusty wynik bez jasnej przyczyny. Zmiany: (1)
+`build_translation_patch.ui_texture_step` sprawdza `import PIL` na starcie i zgłasza czytelnie „Pillow (PIL) is not
+installed … python -m pip install pillow (or --no-ui-textures)”; (2) `HOKUS_POKUS.bat` po wykryciu Pythona sprawdza
+`%PY% -c "import PIL"`, gdy brak — `%PY% -m pip install pillow`, a gdy nadal brak — buduje z `--no-ui-textures`
+(zmienna `UIFLAG`) i pisze o tym wielkimi literami (żadnego `set /p`; CRLF; test `test_missing_pillow_is_installed_or_
+the_build_falls_back_to_text_only`); (3) test buildera `test_missing_pillow_is_a_clear_build_problem` (PIL zasłonięte
+przez `sys.modules`). `docs/INSTRUKCJA_PATCH_PL.md` część 1: wymaganie Pillow i wynik z 6 kontenerami UI. **Zestaw:
+1 184 testy OK (1 pominięty).** Nowa kopia instrukcji na Dysku — id w `drive_manifest.tsv`.

@@ -196,6 +196,19 @@ class UserFacingBatRuleTests(unittest.TestCase):
     def test_no_delayed_expansion_so_paths_with_bang_survive(self):
         self.assertNotIn("EnableDelayedExpansion", self._text())
 
+    def test_missing_pillow_is_installed_or_the_build_falls_back_to_text_only(self):
+        """2026-10-15: the UI texture step needs Pillow; without it the builder refuses the
+        whole build (fail-closed) and the user would get NO patched.iso.  The bat installs
+        Pillow when missing and otherwise builds text only, saying so loudly."""
+        text = self._text()
+        self.assertIn('%PY% -c "import PIL" >nul 2>&1\r\nif errorlevel 1 (', text)
+        self.assertIn("%PY% -m pip install pillow", text)
+        self.assertIn('set "UIFLAG=--no-ui-textures"', text)
+        self.assertIn('set "UIFLAG="', text)
+        for line in text.split("\r\n"):
+            if "build_translation_patch.py --iso" in line:
+                self.assertTrue(line.endswith(" %UIFLAG%"), line)
+
 
 if __name__ == "__main__":
     unittest.main()

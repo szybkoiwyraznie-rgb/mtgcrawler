@@ -49,6 +49,21 @@ if not defined PY (
   goto :finish
 )
 
+rem  Napisy w grafikach interfejsu (krok "Tekstury UI") potrzebuja biblioteki Pillow.
+rem  Gdy jej nie ma - instaluje; gdy sie nie da - buduje sam tekst (--no-ui-textures) i mowi o tym.
+set "UIFLAG="
+%PY% -c "import PIL" >nul 2>&1
+if errorlevel 1 (
+  echo Brak biblioteki Pillow ^(potrzebna do napisow w grafikach interfejsu^) - instaluje ja teraz:
+  %PY% -m pip install pillow
+)
+%PY% -c "import PIL" >nul 2>&1
+if errorlevel 1 (
+  echo UWAGA: Pillow nadal brak - buduje SAM TEKST, bez napisow w grafikach interfejsu.
+  echo        Zainstaluj recznie: %PY% -m pip install pillow   i uruchom HOKUS_POKUS jeszcze raz.
+  set "UIFLAG=--no-ui-textures"
+)
+
 set "PICK=%TEMP%\srwoe_pick_%RANDOM%.txt"
 set "ISO=%~1"
 set "DLC=%~2"
@@ -118,10 +133,10 @@ echo Tlumaczenie: "%TRANSLATION%"
 echo.
 echo Buduje patch... (kilka-kilkanascie minut; okno samo sie nie zamknie)
 if defined VIEWS (
-  %PY% tools\build_translation_patch.py --iso "%ISO%" --dlc "%DLC%" --package "%PACKAGE%" --views %VIEWS% --out "srw-oe-patch"
+  %PY% tools\build_translation_patch.py --iso "%ISO%" --dlc "%DLC%" --package "%PACKAGE%" --views %VIEWS% --out "srw-oe-patch" %UIFLAG%
 ) else (
   echo Uwaga: nie znaleziono sceny\ ani widoki\ w "%TRANSLATION%" - buduje wprost z JSONL pakietu.
-  %PY% tools\build_translation_patch.py --iso "%ISO%" --dlc "%DLC%" --package "%PACKAGE%" --out "srw-oe-patch"
+  %PY% tools\build_translation_patch.py --iso "%ISO%" --dlc "%DLC%" --package "%PACKAGE%" --out "srw-oe-patch" %UIFLAG%
 )
 set "RESULT=%ERRORLEVEL%"
 

@@ -465,6 +465,17 @@ class UiTextureStepTests(unittest.TestCase):
         self.assertEqual(BTP.exit_status(report["problems"]), 1)
         self.assertFalse((out / "patched.iso").exists())
 
+    def test_missing_pillow_is_a_clear_build_problem(self):
+        import sys
+        from unittest import mock
+        with mock.patch.dict(sys.modules, {"PIL": None}):      # `import PIL` raises ImportError
+            out, report = self.run_build(ui_specs=self.specs)
+        self.assertTrue(any("Pillow" in p for p in report["ui_textures"]["problems"]))
+        self.assertTrue(any("pip install pillow" in p for p in report["problems"]))
+        self.assertEqual(report["ui_textures"]["containers"], [])
+        self.assertEqual(BTP.exit_status(report["problems"]), 1)
+        self.assertFalse((out / "patched.iso").exists())
+
     def test_repo_specs_name_only_known_ui_containers(self):
         # every shipped spec must belong to a container the builder reads from the ISO
         specs = __import__("ui_texture_patch").load_specs(HERE.parent / "ui_labels")
