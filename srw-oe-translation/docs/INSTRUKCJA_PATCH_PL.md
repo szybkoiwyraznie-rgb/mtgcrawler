@@ -19,7 +19,7 @@ to, co ten pakiet ma umożliwić.
 |---|---|
 | `DLC_EN_2026-10-14.zip` | **gotowe pliki DLC** (91 plików `*.EDAT`) — rozdziały 2–8, menu i teksty, które gra czyta z DLC; do skopiowania do folderu DLC emulatora |
 | `pakiet_EN_2026-10-14.zip` | pakiet tłumaczenia z wpisanym angielskim (pliki `00_dialogue.jsonl` … `08_…`, `tokeny.tsv`) — **potrzebny do zbudowania ISO** rozdziału 1 |
-| `USRDIR_EN_2026-10-14.zip` | 5 plików z wnętrza ISO (`config00.cpk`, `configst.cpk`, `eventP00.cpk`, `imenu00.cpk`, `mesbtl00.cpk`) już po podmianie tekstu — do włożenia do KOPII ISO przez `WGRAJ_DO_ISO.bat` (okno 1: oryginalne ISO, okno 2: folder z tymi plikami; wynik `srw-oe-wgrane\<folder>\patched.iso`); **HOKUS_POKUS robi to samo automatycznie z pakietu** |
+| `USRDIR_EN_2026-10-14.zip` | 5 plików z wnętrza ISO (`config00.cpk`, `configst.cpk`, `eventP00.cpk`, `imenu00.cpk`, `mesbtl00.cpk`) już po podmianie tekstu — do włożenia do KOPII ISO przez `WGRAJ_DO_ISO.bat` (okno 1: oryginalne ISO — **zapamiętywane po udanym wgraniu**: następnym razem T lub 8 s = to samo ISO, N = okno wyboru; okno 2: folder z tymi plikami; wynik `srw-oe-wgrane\<folder>\patched.iso`); **HOKUS_POKUS robi to samo automatycznie z pakietu** |
 | `md5sums.txt` | sumy kontrolne wszystkich plików wynikowych |
 | `build_report.json`, `spot_check.json`, `missing.txt` | raport z budowy: co wpisane, co odmówione i dlaczego |
 | `DO_ZROBIENIA_2.md` | lista dla tłumacza (10 tytułów misji skróconych prowizorycznie — do potwierdzenia) |
