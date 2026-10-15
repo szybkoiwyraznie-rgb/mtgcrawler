@@ -356,6 +356,30 @@ syntetyczne ISO z prawdziwym szyfrowanym `DATA.PSP` jako EBOOT): 397/397, ELF `b
 WGRAJ_DO_ISO, cheat wyłączyć) na Dysku. **W grze nie sprawdzone: jawny ELF jako `EBOOT.BIN` z ISO (hipoteza z kodu loadera +
 praktyki łatek), v6, UI_TEST4.** Potrzebny `build_report.json` użytkownika po przebudowie (tag/md5 jego EBOOT).
 
+**Stan 2026-10-16 (`EXPERIMENT_LOG.md` §21.34):** użytkownik: **pełny build v6 DZIAŁA w grze** (intermisja EN, grafika cała;
+program przez cheat). 5 zrzutów resztek (Character Viewer: siatka nie-pilotów, `愛称：`/`声優：` + nazwiska aktorów; Robot
+Viewer: `ボルトロボ`, `邪竜兵`; cały `解説書`) ⇒ cztery przyczyny zmierzone w plikach: (1) **intermisja czyta `imenuNN`**, których
+6 członków to kopie bajt w bajt `configNN` (imenu00–08 wszystkie; 10–19 tylko Chara/RoboDictionary), a wiersze
+Reference/Shop/DLC_ID były adresowane tylko do `configNN`; (2) pisarz `CharaDictionary` zapisywał sloty 0–4 — **slot 5
+(`声優：`+aktor), 10 (nazwa alt.), 11 (krótka nazwa siatki = jedyna nazwa nie-pilota)** nigdy; 146 wierszy `config_leftover`
+„`愛称：X`" kolidowało po cichu z `char:K:nickname`; (3) pisarz `RoboDictionary` zapisywał 0/1/3 — **2 notatka, 4 typ, 5 nazwa
+jednostki bez `unit_list` (wrogowie), 6 nazwa wąska z tokenami** nie; (4) Reference: slot 0 (tytuły sekcji) bez wierszy,
+strona `レベル差補正` tylko jako 27 fragmentów (eksporter odrzuca ciała z tokenem 0x0F). Zrobione: `table_write.PART_SLOT`
+(Chara `voice_actor:(1,5)`, `alt_name:10`, `short_name:11`; Robo `note:2`, `type:4`, `name:5`, `name_narrow:6`), wiersze
+etykiet `label:<rodzina>:<slot>` (`part: label`, `apply_labels` — jedna etykieta dla wszystkich rekordów),
+`build_translation_patch.mirror_identical_members` (wiersze trafiają na każdą identyczną kopię członka, w obie strony;
+`_feeds_member` — wiersze `unit:K:series` z `unit_list` idą za RoboDictionary, bo builder je tam przekierowuje; build #22
+złapał bez tego 6 B różnicy), **NOWE `tools/table_rows_refresh.py`** (`--package --containers config*/imenu* --prune
+--check --report`: dokłada brakujące wiersze z prawdziwych kontenerów, `copy_of`/EN z rodzeństwa, ocenia wiersze offsetowe
+`unreachable`/`stale`/`superseded`, `salvage` EN ze sklejonych, wpisy `tokeny.tsv`; **pokrycie offsetu = wiersz z CAŁYM
+napisem** — fragmenty nie liczą się), `coverage_audit` liczy `愛称：仁` jako pokryte przy osobnych wierszach etykiety i
+tekstu. **Pakiet v7** (109 026 wierszy, 81 672 EN, 0 błędów, coverage 0; **426 nazwisk aktorów celowo bez EN — decyzja**)
+na Dysku `1I_fBkncCExA9Mx3nz10f06R4Umc0VopM`, v6 → `_STARE`; `diagnoza` zna v7. Build #22 (sandbox, ISO z `imenu00.cpk` +
+30 EDAT): 0 pominięć, 0 błędów, pary config/imenu 00–08 identyczne, 0 ciągów JP w pięciu członkach. Testy 1 261 OK.
+**W grze nie sprawdzone: v7 (`imenu00.cpk` 34 984 → 88 232 B — CPK STORED, brak znanego limitu; szerokość „Extra Controls";
+„Voice: " + japońskie nazwisko), EBOOT.BIN-w-ISO (użytkownik testuje), UI_TEST4.** Otwarte: romanizacja aktorów,
+`config_text_tables.record_strings` (ciała z tokenami), dialogi 5–8, `mensys_12`, kalibracja etykiet.
+
 ## 9. Znane pułapki (nie powtarzaj)
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
   (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę

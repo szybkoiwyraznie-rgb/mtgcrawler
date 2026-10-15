@@ -219,9 +219,13 @@ PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
     ("58f557993c6517b6b5ba6ca8bb0a91e4", "06e7d6fcc8c17c1cff2d0e7997cca372"):
         "v5 (2026-10-15) - dziala w grze (build #19), ale bez napisow programu i 31 napisow sysmes - uzyj v6",
     ("58f557993c6517b6b5ba6ca8bb0a91e4", "5e5d4bc953b2e0785764db9584d3aa32"):
-        "v6 (2026-10-15) - AKTUALNY (+09_executable.jsonl, +31 calych napisow sysmes)",
+        "v6 (2026-10-15) - dziala w grze (intermisja EN), ale Character/Robot Viewer i Reference "
+        "maja japonskie resztki - uzyj v7",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "8fda78d6b4c8f59f49bf84b91fdf8e4a"):
+        "v7 (2026-10-16) - AKTUALNY (+sloty Viewerow, etykiety 愛称：/声優：, tytuly i strona "
+        "レベル差補正 w Reference, wiersze dla kopii imenuNN)",
 }
-CURRENT_PACKAGE = ("v6", "pakiet_EN_2026-10-15_v6.zip")
+CURRENT_PACKAGE = ("v7", "pakiet_EN_2026-10-16_v7.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")

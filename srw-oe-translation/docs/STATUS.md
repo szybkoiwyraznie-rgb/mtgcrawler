@@ -1,8 +1,31 @@
 # Project status
 
-Last updated: 2026-10-15 (night, §21.33)
+Last updated: 2026-10-16 (§21.34)
 
-**Latest (2026-10-15, night): EXE_TEST1 IN-GAME RESULT — swapping `PBOOT.PBP` in the emulator's DLC folder changes
+**Latest (2026-10-16): FULL v6 BUILD CONFIRMED IN-GAME (intermission English, graphics intact; program strings via the
+cheat file). The five leftover screenshots — Character Viewer (non-pilot names in the grid, `愛称：` / `声優：` lines and the
+voice-actor names), Robot Viewer foe units (`ボルトロボ`, `邪竜兵`) and the whole Game Reference (`解説書`) — traced to four
+causes, all measured in the files: (1) the intermission reads `imenuNN.cpk/.EDAT`, whose six members are byte-identical
+copies of `configNN`'s, while the Reference / Shop / DLC_ID rows were addressed to `configNN` only (the coverage audit is
+container-agnostic, so it never saw it); (2) the CharaDictionary writer wrote slots 0–4 only — slot 5 (`声優：`+actor), 10
+(alt name) and 11 (the grid's short name, the ONLY name a non-pilot has) were never written, and 146 `config_leftover`
+`愛称：X` rows collided silently with the keyed nickname rows; (3) the RoboDictionary writer wrote slots 0/1/3 only — note
+(2), type (4), the name of units without a `unit_list` entry (5, the foes) and the narrow kana-token name (6) were not;
+(4) Reference section titles (slot 0) had no rows and the `レベル差補正` page existed only as 27 fragments (the exporter
+rejects kana-token bodies). Fixes: `table_write` viewer slots + label rows (`label:<family>:<slot>`, one row per label),
+`build_translation_patch.mirror_identical_members` (rows reach every byte-identical member copy, both ways; the
+`unit_list` series rows follow the RoboDictionary too — build #22 caught a 6-byte difference without that), NEW
+`tools/table_rows_refresh.py` (walks every table member of the real containers, adds the missing rows with `copy_of` /
+sibling English, prunes stale / superseded / unreachable offset rows, salvages glued English, writes `tokeny.tsv`
+entries), `coverage_audit` counts `愛称：仁` as covered when label and text are separate rows. Package v7 (109 026 rows /
+81 672 EN, 0 errors, coverage 0 missing; 426 voice-actor names deliberately left Japanese — decision pending) on Drive,
+v6 moved to `_STARE_NIE_UZYWAC`; `diagnoza` knows v7. Sandbox build #22 (synthetic ISO with `imenu00.cpk` + 30 DLC EDATs):
+0 skipped rows, 0 verification failures, every config/imenu pair 00–08 identical, 0 Japanese runs left in the five
+viewer/reference members. Tests: 1 261 OK (1 skipped). NOT run in-game: v7 (watch: `imenu00.cpk` grows 34 984 → 88 232 B
+because the CPK is re-stored uncompressed; "Extra Controls" header width; "Voice: " + Japanese actor name), the
+EBOOT.BIN-in-ISO route (user testing), UI_TEST4. Details: `EXPERIMENT_LOG.md` §21.34.**
+
+**Previous (2026-10-15, night): EXE_TEST1 IN-GAME RESULT — swapping `PBOOT.PBP` in the emulator's DLC folder changes
 NOTHING (confirmed: release PPSSPP never reads the update; `FindGameUpdatePBOOT` exists only in master), while the
 CWCheat file `cheats\NPJH50521.ini` turns the program strings English at once (CONFIRMED). The cheat addresses come from
 the PBOOT-derived ELF, so the program PPSSPP boots — `PSP_GAME/SYSDIR/EBOOT.BIN` inside the ISO (a dump of the 1.08

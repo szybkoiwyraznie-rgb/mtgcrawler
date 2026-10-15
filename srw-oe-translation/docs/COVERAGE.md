@@ -339,6 +339,19 @@ w kolejności zdarzeń → koniec sceny), bo bez chronologii i kontekstu tłumac
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
    Dzięki temu `CharaDictionary`/`RoboDictionary` z `imenu00` to ten sam zestaw danych co
    `config00` (i dlatego 582 rekordy = 291 × 2 kopie).
+   > **KOREKTA (2026-10-16, §21.34):** duplikat — ale **gra w intermisji czyta kopię `imenuNN`**, nie
+   > `configNN` (zrzuty z pełnego buildu v6: Reference/Shop/DLC_ID angielskie w `config00`, japońskie na
+   > ekranie). Zmierzone md5: `imenu00–08` = wszystkie 6 członków identyczne z `configNN`; `imenu10–19`
+   > tylko `CharaDictionary` i `RoboDictionary`. `coverage_audit` jest niezależny od kontenera i tej
+   > luki nie widzi z założenia — pokrywa ją builder (`mirror_identical_members`: wiersze trafiają na
+   > każdą identyczną kopię członka, `build_report.json["mirrored"]`). Druga korekta tego samego dnia:
+   > pisarz `CharaDictionary` zapisywał sloty 0–4 z 12 (slot 5 `声優：`+aktor, 10 nazwa alternatywna, 11
+   > krótka nazwa siatki Viewera — jedyna nazwa nie-pilota — nigdy), pisarz `RoboDictionary` 0/1/3 z 7
+   > (2 notatka, 4 typ, 5 nazwa jednostki bez `unit_list` = wrogowie, 6 nazwa wąska z tokenami kany),
+   > `Reference` slot 0 (tytuły sekcji) bez wierszy, strona `レベル差補正` tylko jako fragmenty.
+   > `tools/table_rows_refresh.py` dokłada te wiersze z prawdziwych kontenerów i sprząta wiersze
+   > offsetowe nie do zastosowania (pakiet v7: +666 wierszy, −214); audyt liczy `愛称：仁` jako pokryte
+   > przy osobnych wierszach etykiety (`label:srwDL_CharaDictionary:4`) i tekstu.
 2. **Encyklopedia postaci JEST w `CharaDictionary`** — to pole [2] rekordu (szablon `＠０\r` +
    tekst). Dowód: rekord `NoData` (klucz 65535) ma tam `図鑑用のデータが存在していません。`
    („brak danych do encyklopedii”), a 2 dalsze rekordy mają krótkie opisy. Samych **opisów

@@ -470,3 +470,38 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
   `coverage_audit.sysmes_missing_whole` now demands the whole string (raw with tokens or `table_write.display` form)
   and `coverage_audit.audit_executable` covers `PBOOT.PBP`. Two `configst.pac` strings (`ターゲットファイル`,
   `各フォルダ内依存関係`, PAC build metadata) are permanent false positives.
+
+## The intermission reads `imenuNN`, byte-identical copies of `configNN`'s dictionary members; the dictionary writers skipped the Viewer slots (2026-10-16)
+
+**Confirmed (full v6 build in-game + member md5 over all 20 config/imenu pairs):**
+
+- `imenu00.cpk` and `imenu01–08.EDAT` hold six members (`srwDL_BMP`, `srwDL_CharaDictionary`, `srwDL_DLC_ID`,
+  `srwDL_Reference`, `srwDL_Shop`, `srw_DL_RoboDictionary`) that are **byte for byte** the ones packed in
+  `configNN.pac`; `imenu10–19` share only `CharaDictionary` and `RoboDictionary` with `config10–19`. The
+  intermission screens (Character Viewer, Robot Viewer, Game Reference, Shop) draw the **`imenu` copy**: in the v6
+  build the `config00` copy of Reference/Shop/DLC_ID was English and the screen stayed Japanese. The package is
+  container-agnostic for coverage purposes, so `coverage_audit` cannot see this class of gap; the builder now
+  mirrors every container's own rows onto every byte-identical copy of the member (`mirror_identical_members`,
+  both directions, `build_report.json["mirrored"]`), including the `unit_list` series rows that the builder
+  redirects into RoboDictionary slot 3 (without that, build #22 left a 6-byte difference in records 49–51).
+  Mirroring is keyed on the ORIGINAL members' md5, so a pair that differs in the originals is left alone.
+- `srwDL_CharaDictionary` record = 12 pointers: 0 name, 1 voice actor (bare), 2 entry (`＠０\r` template), 3 series,
+  4 `愛称：`+nickname, **5 `声優：`+voice actor, 10 alternative name, 11 short name of the Viewer grid** — for a
+  character without a pilot entry slot 11 is the only name the grid shows. `srw_DL_RoboDictionary` record = 7
+  pointers: 0 `全長 …`, 1 `重量 …`, **2 note, 3 series (from `unit_list`), 4 type (`標準タイプ` / `飛行タイプ`), 5 unit
+  name of units without a `unit_list` record (foes: `ボルトロボ`, `邪竜兵`), 6 narrow name with `0x0F` kana tokens**.
+  `srwDL_Reference`: slot 0 = section title (`解説書：戦術`, `解説書：インターミッション`, `特殊な操作`), 2 = topic,
+  4 = body; record 12's body (`レベル差補正`) carries 12 kana tokens and the exporter's `clean_run` rejected it whole,
+  leaving 27 fragment rows that the writer can never apply (a row's jp must be the whole string).
+- Labels inside a slot (`愛称：X`, `声優：X`) are handled as ONE `part: label` row per label
+  (`label:srwDL_CharaDictionary:4/5`, `source {container: null, member, slot}`), applied to every record after the
+  keyed rows; a leftover row carrying the whole labelled string conflicts with the keyed nickname row and the
+  writer skips BOTH silently (only `build_report.json` shows it) — those 146 rows are pruned.
+- `tools/table_rows_refresh.py` is the repair tool for this family: it walks the real containers, adds the rows the
+  exporters never produced (coverage of an offset = a row whose jp is the WHOLE string), classifies dead offset
+  rows (`unreachable` / `stale` / `superseded`), salvages English from glued rows and writes the `tokeny.tsv`
+  entries from the raw bytes. Package v7 = v6 + 666 rows − 214.
+
+**Hypotheses (not run in-game):** a STORED `imenu00.cpk` of 88 232 B (original 34 984 B) loads like the grown
+`config00.cpk` does; "Extra Controls" fits the Reference header (≤ 15 cells before the page number); `Voice: ` +
+a Japanese actor name renders on the card.

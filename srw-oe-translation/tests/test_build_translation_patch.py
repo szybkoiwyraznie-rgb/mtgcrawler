@@ -249,6 +249,75 @@ class RedirectTests(unittest.TestCase):
         self.assertTrue(any("no RoboDict row" in p for p in builder.report["problems"]))
 
 
+class MirrorTests(unittest.TestCase):
+    """imenuNN holds byte-identical copies of the configNN members: rows addressed to one
+    container reach the other (measured 2026-10-16; the intermission draws the imenu copy)."""
+
+    @staticmethod
+    def row(row_id, jp, container, member, en="EN"):
+        return {"id": row_id, "jp": jp, "en": en, "category": "config_reference",
+                "source": {"container": container, "member": member, "offset": 8}}
+
+    def test_rows_are_copied_to_the_identical_copy_only(self):
+        digests = {"config00.cpk": {"srwDL_Reference00.bin": "aa", "srwDL_Shop00.bin": "bb"},
+                   "imenu00.cpk": {"srwDL_Reference00.bin": "aa", "srwDL_Shop00.bin": "cc"},
+                   "config01.EDAT": {"srwDL_Reference01.bin": "dd"}}
+        per = {"config00.cpk": [self.row("ref", "戦術", "config00.cpk", "srwDL_Reference00.bin"),
+                                self.row("shop", "店", "config00.cpk", "srwDL_Shop00.bin")],
+               "imenu00.cpk": [], "config01.EDAT": []}
+        added = BTP.mirror_identical_members(per, digests)
+        self.assertEqual(added, {"imenu00.cpk": {"config00.cpk": 1}})
+        mirrored = per["imenu00.cpk"]
+        self.assertEqual(len(mirrored), 1)
+        self.assertEqual(mirrored[0]["id"], "ref")
+        self.assertEqual(mirrored[0]["source"]["container"], "imenu00.cpk")
+        self.assertEqual(mirrored[0]["source"]["member"], "srwDL_Reference00.bin")
+        self.assertEqual(mirrored[0]["mirrored_from"], "config00.cpk")
+        self.assertEqual(per["config01.EDAT"], [])                 # different bytes: nothing
+        # the original row is untouched (no shared dict)
+        self.assertEqual(per["config00.cpk"][0]["source"]["container"], "config00.cpk")
+
+    def test_existing_rows_and_broadcast_rows_are_not_duplicated(self):
+        digests = {"config00.cpk": {"srwDL_CharaDictionary00.bin": "aa"},
+                   "imenu00.cpk": {"srwDL_CharaDictionary00.bin": "aa"}}
+        own_a = self.row("char:1:name", "仁", "config00.cpk", "srwDL_CharaDictionary00.bin")
+        own_b = self.row("char:1:name", "仁", "imenu00.cpk", "srwDL_CharaDictionary00.bin")
+        broadcast = self.row("char:2:name", "翔", None, "srwDL_CharaDictionary")
+        per = {"config00.cpk": [own_a, broadcast], "imenu00.cpk": [own_b, broadcast]}
+        added = BTP.mirror_identical_members(per, digests)
+        self.assertEqual(added, {})
+        self.assertEqual(len(per["imenu00.cpk"]), 2)
+
+    def test_unit_series_rows_follow_the_robo_dictionary_copy(self):
+        # build #22: the unit_list series row is redirected into RoboDict slot 3 by the
+        # builder, so it must reach every byte-identical RoboDictionary copy as well
+        digests = {"config00.cpk": {"srw_DL_RoboDictionary00.bin": "aa"},
+                   "imenu00.cpk": {"srw_DL_RoboDictionary00.bin": "aa"}}
+        series = {"id": "unit:3600:series", "category": "unit_series", "part": "series",
+                  "jp": "－－－", "en": "---", "key": "3600",
+                  "source": {"container": "config00.cpk", "member": "unit_list", "offset": "53"}}
+        name = {"id": "unit:3600:name", "category": "unit_name", "part": "name",
+                "jp": "ボルトロボ", "en": "Bolt Robo", "key": "3600",
+                "source": {"container": "config00.cpk", "member": "unit_list", "offset": "53"}}
+        per = {"config00.cpk": [series, name], "imenu00.cpk": []}
+        added = BTP.mirror_identical_members(per, digests)
+        self.assertEqual(added, {"imenu00.cpk": {"config00.cpk": 1}})
+        self.assertEqual([r["id"] for r in per["imenu00.cpk"]], ["unit:3600:series"])
+        self.assertEqual(per["imenu00.cpk"][0]["source"]["container"], "imenu00.cpk")
+        self.assertEqual(per["imenu00.cpk"][0]["source"]["member"], "unit_list")
+        self.assertTrue(BTP._is_unit_series(per["imenu00.cpk"][0]))
+
+    def test_mirroring_goes_both_ways_but_never_chains(self):
+        digests = {"a.cpk": {"m.bin": "x"}, "b.cpk": {"m.bin": "x"}, "c.cpk": {"m.bin": "x"}}
+        per = {"a.cpk": [self.row("ra", "あ", "a.cpk", "m.bin")],
+               "b.cpk": [self.row("rb", "い", "b.cpk", "m.bin")], "c.cpk": []}
+        added = BTP.mirror_identical_members(per, digests)
+        self.assertEqual(added, {"a.cpk": {"b.cpk": 1}, "b.cpk": {"a.cpk": 1},
+                                 "c.cpk": {"a.cpk": 1, "b.cpk": 1}})
+        self.assertEqual(sorted(r["id"] for r in per["c.cpk"]), ["ra", "rb"])
+        self.assertTrue(all(r.get("mirrored_from") for r in per["c.cpk"]))
+
+
 class ChainNamingTests(unittest.TestCase):
     def test_temp_files_keep_the_container_name(self):
         # writers match row.source.container against src.name - the chain must not rename

@@ -4991,3 +4991,96 @@ do `patched.iso` i odczytuje go z powrotem; EXE_TEST2 przechodzi przez WGRAJ_DO_
 jako `EBOOT.BIN` z ISO (z kodu loadera + praktyka łatek fanowskich — **nie uruchomione**); `EBOOT.BIN` użytkownika ma tag
 `0xD916xxF0` typu 2 (albo 6) i dekoduje się naszym kodem — gdy nie, zadziała ścieżka awaryjna po nagłówku. NIEZNANE: md5
 i tag `EBOOT.BIN` z ISO użytkownika (poprosić o `build_report.json` / DIAGNOZĘ po przebudowie); v6 i UI_TEST4 w grze.
+
+### 21.34 Pełny build v6 DZIAŁA W GRZE (intermisja EN); 5 zrzutów resztek w Character Viewer / Robot Viewer / Reference ⇒ cztery przyczyny w pisarzu tabel i w adresowaniu kontenerów — `table_rows_refresh.py`, lustrzane kopie `imenuNN`, pakiet v7, build #22
+
+**Data:** 2026-10-16. **Wejście od użytkownika:** pełny build v6 (stary builder-ZIP, napisy programu przez CWCheat)
+odpalony w grze: intermisja po angielsku, grafika nienaruszona; 5 zrzutów (`local/screens/turn18/`, poza git) z resztkami:
+(1) Character Viewer — siatka: nazwy postaci niebędących pilotami po japońsku; karta: `愛称：…` i `声優：…` (etykiety +
+nazwiska aktorów) po japońsku; (2) Robot Viewer — jednostki wroga `ボルトロボ`, `邪竜兵`; (3) cała sekcja „解説書"
+(Game Reference): tytuły sekcji, tematy i strona „レベル差補正". Życzenie: „idealnie", awaryjnie cheat.
+
+**A. Przyczyny (POTWIERDZONE w plikach gry, `local/dlc_all/` = komplet config00–19 + imenu00–19):**
+1. **Intermisja czyta `imenuNN.cpk/.EDAT`, nie `configNN`.** Zmierzone md5 członków: `imenu00–08` = sześć członków
+   (`srwDL_BMP`, `srwDL_CharaDictionary`, `srwDL_DLC_ID`, `srwDL_Reference`, `srwDL_Shop`, `srw_DL_RoboDictionary`)
+   **bajt w bajt identyczne** z `configNN`; `imenu10–19`: identyczne tylko `CharaDictionary` i `RoboDictionary`.
+   Eksportery adresowały wiersze Reference/Shop/DLC_ID do `configNN` ⇒ kopia config angielska, kopia rysowana japońska.
+   `coverage_audit` jest niezależny od kontenera (ten sam tekst w pakiecie = „pokryty"), więc nie widział luki.
+2. **`CharaDictionary`: pisarz zapisywał tylko sloty 0–4.** Zmierzony układ 12 wskaźników: 0 nazwa, 1 aktor głosowy
+   (goły), 2 wpis (`＠０\r…`), 3 seria, 4 `愛称：`+przezwisko, **5 `声優：`+aktor, 10 nazwa alternatywna, 11 krótka nazwa
+   siatki** (dla nie-pilotów jedyna nazwa w siatce). Do tego 146 wierszy `config_leftover` „`愛称：X`" (cała etykieta +
+   przezwisko) kolidowało z wierszami kluczowanymi `char:K:nickname` — pisarz pomija kolizje po cichu (tylko
+   `build_report.json`).
+3. **`RoboDictionary`: zapisywane sloty 0/1/3.** Układ 7 wskaźników: 0 `全長 …`, 1 `重量 …`, **2 notatka, 3 seria
+   (z `unit_list`), 4 typ (`標準タイプ`/`飛行タイプ`), 5 nazwa jednostki BEZ wpisu w `unit_list` (wrogowie), 6 nazwa
+   wąska z tokenami kany** (`%s7ﾙﾄﾛ%s7` = ボルトロボ).
+4. **`Reference`:** slot 0 (tytuł sekcji: `解説書：戦術`, `解説書：インターミッション`, `特殊な操作`) bez wierszy; rekord 12
+   slot 4 (strona `レベル差補正`, 12 tokenów kany) w pakiecie tylko jako 27 FRAGMENTÓW — eksporter
+   `config_text_tables.record_strings` używa `clean_run`, które odrzuca ciało z tokenem 0x0F, a skaner resztek zapisał
+   odcinki między tokenami; pisarz fragmentu nie wpisuje (odmowa „stale jp").
+
+**B. Narzędzia.**
+* `table_write.py`: `PART_SLOT` Chara `voice_actor:(1,5)` (jeden wiersz karmi oba sloty), `alt_name:10`, `short_name:11`;
+  Robo `note:2`, `type:4`, `name:5`, `name_narrow:6`; `SLOT_LABELS` (`愛称：`, `声優：`), `LABEL_PART="label"`,
+  `apply_labels` — wiersz `label:<rodzina>:<slot>` (źródło `{container:null, member:"srwDL_CharaDictionary", slot:N}`)
+  podmienia etykietę JP→EN w KAŻDYM rekordzie po wierszach kluczowanych; cały napis slotu jako wiersz offsetowy wygrywa
+  z etykietą. Testy `ViewerSlotTests` (7).
+* `build_translation_patch.py`: `member_digests` + `mirror_identical_members` po `attach_containerless` w `build()` —
+  dla każdej pary (członek, md5) w ≥2 kontenerach wiersze własne jednego trafiają do drugiego (`source.container`
+  przepisany, `mirrored_from`), w obie strony, bez łańcuchów; `report["mirrored"] = {cel: {źródło: n}}`. **Build #22
+  pokazał drugą lukę:** wiersze `unit:K:series` (`unit_list`, `－－－`→`---`) builder przekierowuje do RoboDict slot 3
+  (`_redirect_unit_series`) — lustro ich nie kopiowało (członek `unit_list`), `srw_DL_RoboDictionary00.bin` w imenu00
+  różnił się od config00 o 6 B (rekordy 49–51). Poprawka `_feeds_member` (wiersz „należy" do członka też przez
+  przekierowanie); po poprawce **wszystkie pary config/imenu 00–08 w wyniku identyczne**, 10–19 różnią się tylko tam,
+  gdzie różnią się oryginały. `TOOLS_STAMP 2026-10-16b`. Testy `MirrorTests` (4).
+* **NOWE `tools/table_rows_refresh.py`** (`--package … --containers config*.cpk/EDAT imenu*… [--prune] [--check]
+  [--report]`): przechodzi każdy członek rodzin `table_write` (CPK przez `speaker_map.read_members`, PAC przez
+  `configst_pack.parse_pac`), pomija kopie bajt w bajt (`mirrored_skipped`, 59), dokłada brakujące wiersze: etykiety →
+  07; `char:K:<part>` → 07 (kontener jawny); `robonote:K:<part>` → 08 (bez kontenera, broadcast); `reference|dlc_id|shop|
+  skill_tag|achievement:<kontener>/<członek>:<offset>` → 04. `copy_of` do `unit:K:name` / `char:K:nickname` / pierwszego
+  wiersza tej samej (rodzina, jp); EN z rodzeństwa tej samej rodziny. **Pokrycie offsetu = wiersz z CAŁYM napisem jako jp**
+  (`match_form`) — pierwsza wersja liczyła fragmenty wewnątrz ciała jako pokrycie i strona `レベル差補正` NIE dostała
+  wiersza (złapane w przeglądzie wyniku, naprawione, przebieg powtórzony od kopii v6). `stale_rows` ocenia wiersze
+  offsetowe: `unreachable` (offset poza każdym napisem tabeli — pola liczbowe, sklejone bajty), `stale` (jp ≠ napis pod
+  offsetem — fragmenty), `superseded` (`config_leftover` całego slotu z etykietą); `salvage()` przenosi EN ze sklejonego
+  wiersza (`!チョバムアーマーSR` @5913) do nowego (`@5914`, `salvaged_from`). Wpisy `tokeny.tsv` dla nowych wierszy z `%s`
+  (rodzaje zmierzone na bajtach podczas przejścia — `token_map.raw_for_row` nie umie wierszy bez kontenera).
+  Testy `tests/test_table_rows_refresh.py` (12, syntetyczne pule, `family_members` podmienione).
+* `coverage_audit.py`: przebieg `愛称：仁` liczy się jako pokryty, gdy `愛称：` jest osobnym wierszem i `仁` jest w
+  pakiecie (stara reguła „obetnij ≤3 znaki, zostaw ≥3" nie pokrywała krótkich przezwisk po wycięciu wierszy
+  `config_leftover`). Testy `LabelledRunTests` (3).
+* `diagnoza.py`: `PACKAGE_VERSIONS` v7 (md5 04 `8fda78d6…`), `CURRENT_PACKAGE = v7`; v6 opisane jako „działa, ale resztki".
+
+**C. Pakiet v7** (`local/pakiet_v7/pakiet_EN_2026-10-16_v7/`, zip 5 346 472 B md5 `8d0bc933c808f4dc6c927a92c6da14a5`,
+Dysk DELIVERY `1I_fBkncCExA9Mx3nz10f06R4Umc0VopM`; v6 → `_STARE_NIE_UZYWAC`). Komenda:
+`python3 tools/table_rows_refresh.py --package <v7> --containers local/dlc_all/*.EDAT local/dlc_all/*.cpk --prune --report
+refresh_report.json` → „containers 33, label rows 2, keyed 583, offset rows 81 (copies 636, filled from siblings 276,
+salvaged 13, left empty 375), stale 27, superseded 146, unreachable 41, pruned 214, mirrored skipped 59, sidecar 16".
+Uzupełnienie EN (skrypt jednorazowy, poza git): etykiety „Nickname: " / „Voice: ", tytuły „Tactics" / „Intermission" /
+„Extra Controls", `標準タイプ`→„Standard Type", `飛行タイプ`→„Flight Type", placeholdery „Length －－－" / „Weight －－－"
+(pełne kreski jak w nietkniętym placeholderze głosu), `%s7ﾙﾄﾛ%s7`→„Bolt Robo" (0 `%s` w EN — tokeny kany znikają),
+`ルイーズ`→„Louise", `ﾌｧﾐ通ｺﾗ%s7`→„Famitsu Collab", nazwy przedmiotów DLC_ID przez słownik jp→en pakietu, strona
+`レベル差補正` (14 linii, ≤61 komórek), `char:720:nickname` „One"→„Wan" (pies z Go-Saurer; v6 miało „Wan" w resztce).
+**Nazwiska aktorów głosowych (426 wierszy `char:K:voice_actor`) celowo BEZ EN** — decyzja do podjęcia (romanizacja?).
+`translation_copy --resync`: 0 rozjazdów; `translation_check`: **109 026 wierszy, 81 672 EN, 0 błędów**; `coverage_audit`
+(PBOOT + configst + 33 kontenery config/imenu): **brak 2** (stałe metadane PAC). `index.json` przeliczony (47 kategorii),
+`CO_NOWEGO_v7.txt`, `refresh_report.json` w pakiecie.
+
+**D. Build #22 (sandbox, 11 s):** syntetyczne ISO (`local/build22/synthetic.iso` = build #21 + `USRDIR/imenu00.cpk`),
+`--dlc local/dlc_v7` (30 EDAT config01–19/imenu01–19), pakiet v7, pełne kroki: **0 pominiętych, 0 błędów weryfikacji**,
+`mirrored` w obie strony (np. `imenu00.cpk ← config00.cpk: 384`, `config00.cpk ← imenu00.cpk: 38`); `config00.cpk`
+936 064 B, **`imenu00.cpk` 88 232 B (oryginał 34 984 — CPK zapisany STORED)**, `configst.cpk` 372 864 B,
+`imenu01.EDAT` 47 272 B (oryg. 24 744), `config01.EDAT` 249 984 B; Skill total 340 074 ≤ 342 194; exe 397/397.
+W wynikowych `CharaDictionary/RoboDictionary/Reference/DLC_ID/Shop` (ISO i wszystkie EDAT): **0 ciągów japońskich**;
+`Voice: ` ×100, `Nickname: ` ×100, `Bolt Robo` ×8, `Tactics` ×17, `Level Gap Modifier` ×3, `Flight Type` w config01/02.
+`patched.iso` md5 `83924c8a78b4ac6cb0ff145f187870d2` (syntetyczne — bez znaczenia dla użytkownika).
+
+**Testy: 1 261 OK (1 pominięty)** (`discover tests -q`; +12 refresh, +3 audyt, +1 mirror, +7 viewer slots).
+
+**Potwierdzone / hipotezy / nieznane:** POTWIERDZONE (użytkownik): pełny build v6 działa, intermisja EN. POTWIERDZONE
+(pliki): przyczyny 1–4 wyżej; pary config/imenu identyczne po buildzie #22. HIPOTEZY: większy `imenuNN` (STORED, 2,5×)
+ładuje się bez limitu (config00.cpk rośnie od v4 bez problemu, ale imenu nigdy nie był powiększany); „Extra Controls" /
+„Voice: " mieszczą się w nagłówku i wierszu karty; strona `レベル差補正` mieści 14 linii EN. NIEZNANE: v7 w grze;
+EBOOT.BIN-w-ISO (build #21/EXE_TEST2) w grze — użytkownik testuje; UI_TEST4 w grze. Otwarte: romanizacja nazwisk aktorów;
+`config_text_tables.record_strings` nadal odrzuca ciała z tokenami (ponowny eksport od zera odtworzyłby fragmenty —
+`table_rows_refresh --prune` je sprząta).

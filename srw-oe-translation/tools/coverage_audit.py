@@ -33,7 +33,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence
+from typing import Dict, Iterable, List, Optional, Sequence
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -129,14 +129,40 @@ def load_package_texts(package: Path) -> List[str]:
     return texts
 
 
+def slot_labels() -> List[str]:
+    """The labels the game stores in front of a dictionary field (``愛称：``, ``声優：``): the
+    package carries them as ``part: label`` rows and the text behind them as keyed rows, so a
+    run ``愛称：仁`` is covered when both halves are (``table_write.apply_labels``)."""
+    import table_write as TW
+    return sorted({label.decode("cp932") for label in TW.SLOT_LABELS.values()}, key=len,
+                  reverse=True)
+
+
+_LABELS: Optional[List[str]] = None
+
+
 def covered(run: str, blob: str, trim: int = 3) -> bool:
-    """True when the run (or a suffix of it) sits inside some package text."""
+    """True when the run (or a suffix of it) sits inside some package text; a labelled run is
+    covered when the label and the text behind it are."""
+    global _LABELS
     if run in blob:
         return True
     for drop in range(1, min(trim, len(run) - 3) + 1):
         if run[drop:] in blob:
             return True
+    if _LABELS is None:
+        _LABELS = slot_labels()
+    for label in _LABELS:
+        if run.startswith(label) and len(run) > len(label) and run[len(label):] in blob \
+                and _is_row(label, blob):
+            return True
     return False
+
+
+def _is_row(text: str, blob: str) -> bool:
+    """Is ``text`` a whole row of the newline-joined ``blob`` (not just inside one)?"""
+    return blob == text or blob.startswith(text + "\n") or blob.endswith("\n" + text) \
+        or ("\n" + text + "\n") in blob
 
 
 def audit_container(path: Path, blob: str, trim: int = 3,

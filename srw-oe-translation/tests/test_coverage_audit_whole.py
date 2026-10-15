@@ -23,6 +23,27 @@ from exe_fixtures import Builder, cp932  # noqa: E402
 MAIN_PILOT_RAW = b"\xd2\xb2\xdd\x0f0\xb2\xdb\xaf\xc4"
 
 
+class LabelledRunTests(unittest.TestCase):
+    """A dictionary slot ``愛称：仁`` is two rows in the package (the label row and the keyed
+    nickname): the run is covered when both halves are, whatever its length (the plain trim
+    rule needs 3 characters left after the label, so ``愛称：仁`` and ``愛称：ゆう`` used to be
+    reported missing once the whole-string leftover rows were pruned, package v7)."""
+
+    def test_label_plus_text_covers_the_short_runs(self):
+        blob = "\n".join(["愛称：", "仁", "ゆう", "声優：", "田中真弓", "クッキー"])
+        for run in ("愛称：仁", "愛称：ゆう", "声優：田中真弓", "愛称：クッキー"):
+            self.assertTrue(CA.covered(run, blob), run)
+
+    def test_a_missing_half_still_counts_as_missing(self):
+        self.assertFalse(CA.covered("愛称：仁", "\n".join(["愛称：", "飛鳥"])))      # text missing
+        self.assertFalse(CA.covered("愛称：仁", "\n".join(["仁", "声優："])))        # label missing
+        self.assertFalse(CA.covered("愛称：", "\n".join(["愛称：仁"])) is None)
+
+    def test_the_label_must_be_a_whole_row(self):
+        # the label inside some longer row (an old whole-string leftover) is not a label row
+        self.assertFalse(CA.covered("愛称：仁", "\n".join(["愛称：飛鳥", "仁"])))
+
+
 class SysmesWholeStringTests(unittest.TestCase):
     def setUp(self):
         self.pool = SP.make_sysmes([b"Now Loading", "表示切換".encode("cp932"), MAIN_PILOT_RAW,

@@ -258,6 +258,118 @@ class RowResolutionTests(unittest.TestCase):
         self.assertEqual(after[1].strings[0], b"Offset Version")
 
 
+def row_label(slot: int, jp_text: str, en: str, member: str = "srwDL_CharaDictionary",
+              row_id: str = "label") -> dict:
+    return {"id": row_id, "category": "config_label", "part": TW.LABEL_PART, "jp": jp_text,
+            "en": en, "mode": "grow", "source": {"container": None, "member": member,
+                                                 "slot": slot}}
+
+
+def robo_record(key: int, strings) -> bytes:
+    """A 7-pointer record whose unit key sits at +28, like srw_DL_RoboDictionary."""
+    extra = struct.pack("<H", key) + b"\x00" * 6        # pointers end at 28, key at 28
+    return make_record(strings, extra=extra, nptr=7)
+
+
+class ViewerSlotTests(unittest.TestCase):
+    """The slots the Character/Robot Viewer draws [measured 2026-10-16, turn-18 screenshots]:
+    CharaDictionary slot 5 (``声優：`` + voice actor), slot 11 (grid short name) and the label in
+    slot 4; RoboDictionary slot 4 (variant type), 5 (display-name override) and 6 (narrow name)."""
+    MEMBER = "srwDL_CharaDictionary99.bin"
+    ROBO = "srw_DL_RoboDictionary99.bin"
+
+    def setUp(self):
+        base = [jp("日向仁"), jp("松本梨香"), TW.ENTRY_TEMPLATE + jp("図鑑用のデータ"),
+                jp("絶対無敵ライジンオー"), TW.NICKNAME_LABEL + jp("仁"),
+                "声優：松本梨香".encode("cp932"), b"", b"", jp("＠６%s"), b"", b"", jp("仁")]
+        placeholder = [jp("邪竜兵"), jp("－－－"), TW.ENTRY_TEMPLATE + jp("敵"), jp("ダイナギガ"),
+                       TW.NICKNAME_LABEL + jp("邪竜兵"), "声優：－－－".encode("cp932"),
+                       b"", b"", b"", b"", b"", jp("邪竜兵")]
+        self.pool = make_pool([chara_record(501, base), chara_record(325, placeholder)])
+
+    def test_voice_actor_row_feeds_the_bare_and_the_labelled_slot(self):
+        rows = [row_key(501, "voice_actor", "松本梨香", "Rica Matsumoto", self.MEMBER)]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[1], b"Rica Matsumoto")
+        self.assertEqual(after[0].strings[5], "声優：".encode("cp932") + b"Rica Matsumoto")
+
+    def test_label_rows_translate_the_label_in_every_record(self):
+        rows = [row_key(501, "voice_actor", "松本梨香", "Rica Matsumoto", self.MEMBER,
+                        row_id="va"),
+                row_key(501, "nickname", "仁", "Jin", self.MEMBER, row_id="nick"),
+                row_label(4, "愛称：", "Nickname: ", row_id="l4"),
+                row_label(5, "声優：", "Voice: ", row_id="l5")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[4], b"Nickname: Jin")
+        self.assertEqual(after[0].strings[5], b"Voice: Rica Matsumoto")
+        # the untranslated record keeps its text but not the Japanese label
+        self.assertEqual(after[1].strings[4], b"Nickname: " + jp("邪竜兵"))
+        self.assertEqual(after[1].strings[5], b"Voice: " + jp("－－－"))
+        self.assertEqual(after[1].strings[1], jp("－－－"))      # bare slot 1 has no label
+
+    def test_a_label_row_without_english_or_slot_is_refused_only(self):
+        rows = [row_label(4, "愛称：", "", row_id="blank"),
+                {**row_label(4, "愛称：", "Nickname: ", row_id="noslot"),
+                 "source": {"container": None, "member": "srwDL_CharaDictionary"}}]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(modified, self.pool)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(len(report["refused"]), 2)
+
+    def test_a_whole_string_row_beats_the_label_pass(self):
+        spans = TW.record_spans(self.pool)
+        records = TW.parse_pool(self.pool, CHARA)
+        off = spans[0][0] + records[0].pointers[4]
+        rows = [row_offset(off, "愛称：仁", "Alias: Jin", self.MEMBER, row_id="whole"),
+                row_label(4, "愛称：", "Nickname: ", row_id="l4")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[4], b"Alias: Jin")
+        self.assertEqual(after[1].strings[4], b"Nickname: " + jp("邪竜兵"))
+
+    def test_short_name_is_slot_eleven(self):
+        rows = [row_key(501, "short_name", "仁", "Jin", self.MEMBER),
+                row_key(325, "short_name", "邪竜兵", "Dragon Sol.", self.MEMBER, row_id="r2")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[11], b"Jin")
+        self.assertEqual(after[1].strings[11], b"Dragon Sol.")
+        self.assertEqual(after[0].strings[4], TW.NICKNAME_LABEL + jp("仁"))   # slot 4 untouched
+
+    def test_robot_viewer_slots(self):
+        narrow = b"\x0f7" + "ﾙﾄﾛ".encode("cp932") + b"\x0f7"      # ボルトロボ in kana tokens
+        pool = make_pool([robo_record(138, [jp("全長 －－－"), jp("重量 －－－"), b"",
+                                            jp("ダイナギガ"), jp("標準タイプ"), jp("ボルトロボ"),
+                                            narrow])])
+        robo = TW.FAMILY_BY_PREFIX["srw_DL_RoboDictionary"]
+        rows = [row_key(138, "type", "標準タイプ", "Standard Type", self.ROBO, row_id="t"),
+                row_key(138, "name", "ボルトロボ", "Bolt Robo", self.ROBO, row_id="n"),
+                row_key(138, "name_narrow", TW.display(narrow), "BoltRobo", self.ROBO,
+                        row_id="nn"),
+                row_key(138, "length", "全長 －－－", "Length ---", self.ROBO, row_id="len")]
+        modified, report = TW.apply_member(pool, self.ROBO, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, robo)
+        self.assertEqual([after[0].strings[i] for i in (0, 4, 5, 6)],
+                         [b"Length ---", b"Standard Type", b"Bolt Robo", b"BoltRobo"])
+
+    def test_a_narrow_name_that_keeps_a_kana_token_is_refused(self):
+        narrow = b"\x0f7" + "ﾙﾄﾛ".encode("cp932") + b"\x0f7"
+        pool = make_pool([robo_record(138, [b"", b"", b"", b"", b"", jp("ボルトロボ"), narrow])])
+        rows = [row_key(138, "name_narrow", TW.display(narrow), "%s7Bolt%s7", self.ROBO)]
+        modified, report = TW.apply_member(pool, self.ROBO, rows)
+        self.assertEqual(modified, pool)
+        self.assertTrue(report["refused"])
+
+
 class SubContainmentTests(unittest.TestCase):
     """A record with unexplained in-record references is refused alone - row by row - and the
     other records of the member still get their text (before 2026-10-14 the rebuild guard threw

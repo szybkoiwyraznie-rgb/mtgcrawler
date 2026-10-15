@@ -72,10 +72,12 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-15g: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-16b: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
                "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
-               "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat")
+               "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "
+               "mirrored both ways (imenuNN <-> configNN, unit_list series rows follow the "
+               "RoboDictionary), viewer slots 5/11 + 2/4/5/6/10, label rows")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
 import exe_strings as EXE            # noqa: E402
@@ -746,6 +748,79 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
     return per
 
 
+def member_digests(blobs: Dict[str, bytes]) -> Dict[str, Dict[str, str]]:
+    """``{container: {member: md5}}`` of every (sub)member the loaded containers hold."""
+    out: Dict[str, Dict[str, str]] = {}
+    for name, blob in blobs.items():
+        try:
+            members = _members_of_blob(blob)
+        except Exception:
+            continue
+        out[name] = {m: hashlib.md5(d).hexdigest() for m, d in members.items()}
+    return out
+
+
+def _feeds_member(row: dict, member: str) -> bool:
+    """Does this row end up in ``member``?  By address, or by the unit_list -> RoboDict redirect."""
+    source = row.get("source") or {}
+    if source.get("member") == member:
+        return True
+    return member.startswith("srw_DL_RoboDict") and _is_unit_series(row)
+
+
+def mirror_identical_members(per_container: Dict[str, List[dict]],
+                             digests: Dict[str, Dict[str, str]]) -> Dict[str, Dict[str, int]]:
+    """Rows of a member also reach every other container holding a byte-identical copy.
+
+    The intermission reads ``imenuNN`` whose six members are byte-identical to the ``configNN``
+    ones [measured 2026-10-16: imenu00-08 vs config00-08, every member; CharaDictionary and
+    RoboDictionary of imenu10-19 vs config10-19], while the exporters addressed the Reference,
+    Shop and DLC_ID rows to ``configNN`` only - so the config copy was English and the one the
+    game draws stayed Japanese.  For every (member, md5) held by two or more loaded containers,
+    each container's own rows for that member (``source.container`` = that container; the
+    container-less broadcast rows already reach every copy) are duplicated to the others with
+    ``source.container`` retargeted and ``mirrored_from`` naming the origin.  A row the target
+    already has (same ``id`` and ``jp``) is not duplicated.  Returns ``{target: {source: n}}``.
+
+    A row "belongs" to a member when its ``source.member`` is that member - or when the
+    builder redirects it there: the 08 ``unit_list`` series rows are written into RoboDict
+    slot 3 (:func:`_is_unit_series`, ``_redirect_unit_series``), so they follow the
+    RoboDictionary copy too [build #22, 2026-10-16: ``unit:3600:series`` ``－－－`` -> ``---``
+    reached config00's RoboDictionary and not imenu00's - 6 bytes of difference].
+    """
+    holders: Dict[Tuple[str, str], List[str]] = {}
+    for name, members in digests.items():
+        for member, digest in members.items():
+            holders.setdefault((member, digest), []).append(name)
+    added: Dict[str, Dict[str, int]] = {}
+    for (member, _digest), names in sorted(holders.items()):
+        if len(names) < 2:
+            continue
+        for target in names:
+            own = per_container.get(target, [])
+            have = {(r.get("id"), r.get("jp")) for r in own
+                    if (r.get("source") or {}).get("member") == member}
+            for source in names:
+                if source == target:
+                    continue
+                for row in per_container.get(source, []):
+                    src = row.get("source") or {}
+                    if src.get("container") != source or row.get("mirrored_from") \
+                            or not _feeds_member(row, member):
+                        continue
+                    key = (row.get("id"), row.get("jp"))
+                    if key in have:
+                        continue
+                    copy = dict(row)
+                    copy["source"] = dict(src, container=target)
+                    copy["mirrored_from"] = source
+                    per_container.setdefault(target, []).append(copy)
+                    have.add(key)
+                    added.setdefault(target, {}).setdefault(source, 0)
+                    added[target][source] += 1
+    return added
+
+
 def import_views(package: Path, views: Sequence[Path], work: Path) -> Path:
     """Copy the base package into the work dir and import the returned views into it."""
     import translation_copy
@@ -830,6 +905,9 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
             if container_selected(name, only, skip):
                 blobs.setdefault(name, blob)
     per_container = attach_containerless(filled_rows, blobs)
+    # a member held byte-identically by two containers (imenuNN <-> configNN) is translated
+    # once in the package and written to both
+    report["mirrored"] = mirror_identical_members(per_container, member_digests(blobs))
 
     iso_patch: Dict[str, bytes] = {}
     for name in sorted(blobs):
