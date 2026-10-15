@@ -136,7 +136,7 @@ def check(blob: bytes, kind: str, member: str, reference: bytes) -> dict:
     """Re-parse a variant: same record count as the reference, pool pointers right, pool parses."""
     p = parsed(blob, kind, member)
     ref = parsed(reference, kind, member)
-    faults = ISW.pool_pointer_faults(blob, p)
+    faults = ISW.pool_pointer_faults(blob, p) + ISW.base_pointer_faults(blob, p)
     _, strings = ISR.parse_tail_pool(blob, p["tail_offset"])
     if len(p["records"]) != len(ref["records"]) or faults:
         raise VariantError(f"{member}: variant does not hold (records {len(p['records'])}, "

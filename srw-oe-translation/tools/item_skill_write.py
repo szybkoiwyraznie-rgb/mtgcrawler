@@ -57,6 +57,7 @@ import table_write as TW  # noqa: E402
 PARAM_WORDS = 20           # parameter words before the boundary table
 BOUNDARY_BYTES = 12        # six u16 field boundaries
 PREAMBLE_WORD = 26         # the parameter word sitting between the boundaries and the fields
+BASE_POINTER = 32          # i32: the member start relative to the record (= -record_offset)
 POOL_POINTER = 36          # u32: the fragment pool's offset relative to the record start
 
 # In-game size budget of ``srwDL_Skill00.bin`` [ZWERYFIKOWANE w grze, 2026-10-14/15, PPSSPP,
@@ -109,6 +110,28 @@ def pool_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
             faults.append(row["record"])
             continue
         if struct.unpack_from("<I", blob, offset + POOL_POINTER)[0] != tail_offset - offset:
+            faults.append(row["record"])
+    return faults
+
+
+def base_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
+    """Records whose i32 at +32 is not ``-record_offset`` (the member start relative to the record).
+
+    Measured 2026-10-15 on the five original convention-B members: 2230/2230 records carry it
+    (Skill00 1469, Item00 300, Item 300, StatusChange 101, Spirit 60).  Builds #6-#11 copied the
+    word verbatim after moving the records, so in every record but the first the game's
+    ``record + value`` no longer reached the member start - the Loading screen does not care,
+    the pilot's spirit list (hover = crash) and the intermission (crash before it opens) do
+    [ZWERYFIKOWANE w grze, build #11].  A non-empty list on a source means a layout this writer
+    does not understand - refuse it rather than guess.
+    """
+    faults = []
+    for row in parsed["records"]:
+        offset = row["offset"]
+        if offset + BASE_POINTER + 4 > len(blob):
+            faults.append(row["record"])
+            continue
+        if struct.unpack_from("<i", blob, offset + BASE_POINTER)[0] != -offset:
             faults.append(row["record"])
     return faults
 
@@ -168,6 +191,14 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
         raise WriteError(f"{member or kind}: {len(faults)} record(s) {faults[:5]} do not carry "
                          f"the pool pointer (tail_offset - offset) at +{POOL_POINTER}; "
                          f"the member is refused")
+    # likewise the i32 at +32 is the member start relative to the record (-record_offset,
+    # 2230/2230 original records); builds #6-#11 left it stale and the game crashed as soon as
+    # a screen followed it (spirit list hover, intermission)
+    faults = base_pointer_faults(blob, parsed)
+    if faults:
+        raise WriteError(f"{member or kind}: {len(faults)} record(s) {faults[:5]} do not carry "
+                         f"the member base pointer (-offset) at +{BASE_POINTER}; "
+                         f"the member is refused")
     records = [rebuild_record(row, edits.get(row["record"], {})) for row in rows]
     count = len(records)
     offsets, position = [], 8 + 4 * count
@@ -177,6 +208,7 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
     # records and pool both move: every record's pool pointer is recomputed for the new layout
     # (builds #6-#9 copied the old value verbatim, which pointed into the record area)
     rewritten = 0
+    base_rewritten = 0
     patched = []
     for record, offset in zip(records, offsets):
         rec = bytearray(record)
@@ -184,6 +216,11 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
         if struct.unpack_from("<I", rec, POOL_POINTER)[0] != pointer:
             struct.pack_into("<I", rec, POOL_POINTER, pointer)
             rewritten += 1
+        # the member base pointer moves with the record as well (-new offset; build #11 crashed
+        # in the spirit list and before the intermission with the old values)
+        if struct.unpack_from("<i", rec, BASE_POINTER)[0] != -offset:
+            struct.pack_into("<i", rec, BASE_POINTER, -offset)
+            base_rewritten += 1
         patched.append(bytes(rec))
     # the fragment pool keeps its strings but its pointer table holds absolute offsets: it is
     # rebuilt at the new tail position (an unparseable pool refuses the member - fail closed)
@@ -204,6 +241,9 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
     if pool_pointer_faults(out, after):
         raise WriteError(f"{member or kind}: pool pointers wrong after the rebuild; "
                          f"the member is refused")
+    if base_pointer_faults(out, after):
+        raise WriteError(f"{member or kind}: base pointers wrong after the rebuild; "
+                         f"the member is refused")
     try:
         _, check_strings = ISR.parse_tail_pool(out, position)
     except ValueError as exc:
@@ -215,7 +255,8 @@ def rebuild_member(blob: bytes, kind: str, edits: Dict[int, Dict[str, str]],
         raise SizeBudgetError(too_big)
     report = {"member": member, "kind": kind, "records": count,
               "edited_records": len(edits), "edited_roles": sum(len(v) for v in edits.values()),
-              "pool_pointers_rewritten": rewritten, "pool_strings": len(pool_strings),
+              "pool_pointers_rewritten": rewritten, "base_pointers_rewritten": base_rewritten,
+              "pool_strings": len(pool_strings),
               "pool_shift": position - parsed["tail_offset"],
               "old_size": len(blob), "new_size": len(out)}
     return out, report

@@ -41,18 +41,23 @@ def build_record(kind, key, name, effect, name_level="", effect_brief="", label=
             + struct.pack("<H", 100) + blob + tail_blob)
 
 
-def build_member(kind, records, pool_runs=(), bare_pool=False, pool_pointers=True):
+def build_member(kind, records, pool_runs=(), bare_pool=False, pool_pointers=True,
+                 base_pointers=True):
     table_size = 8 + 4 * len(records)
     offsets, position = [], table_size
     for record in records:
         offsets.append(position)
         position += len(record)
-    if pool_pointers:
+    if pool_pointers or base_pointers:
         # the game's layout: every record carries the pool's position relative to itself at +36
+        # and the member start relative to itself (-offset) at +32
         patched = []
         for record, offset in zip(records, offsets):
             rec = bytearray(record)
-            struct.pack_into("<I", rec, 36, position - offset)
+            if pool_pointers:
+                struct.pack_into("<I", rec, 36, position - offset)
+            if base_pointers:
+                struct.pack_into("<i", rec, 32, -offset)
             patched.append(bytes(rec))
         records = patched
     raws = [run.encode("cp932") for run in pool_runs]
@@ -537,6 +542,55 @@ class PoolPointerTest(unittest.TestCase):
         after = ISR.parse_member(grown, "skill")
         self.assertEqual(len(after["records"]), len(parsed["records"]))
         self.assertEqual(ISW.pool_pointer_faults(grown, after), [])
+
+
+class BasePointerTest(unittest.TestCase):
+    """The i32 at +32 of every record is ``-record_offset`` (2230/2230 originals, 2026-10-15)."""
+
+    def bases(self, blob, kind):
+        parsed = ISR.parse_member(blob, kind, "srwDL_Spirit.bin")
+        return [(struct.unpack_from("<i", blob, row["offset"] + 32)[0], -row["offset"])
+                for row in parsed["records"]]
+
+    def test_the_fixture_reproduces_the_measured_rule(self):
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一")], ["気力"])
+        self.assertTrue(all(got == want for got, want in self.bases(blob, "skill")))
+        self.assertEqual(ISW.base_pointer_faults(blob, ISR.parse_member(blob, "skill")), [])
+
+    def test_every_base_pointer_follows_its_record_after_growth(self):
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一"),
+                                      build_record("skill", 3, "感応", "効果二")], ["気力"])
+        before = ISR.parse_member(blob, "skill", "srwDL_Spirit.bin")
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Focus (concentration)"}},
+                                           "srwDL_Spirit.bin")
+        after = ISR.parse_member(grown, "skill", "srwDL_Spirit.bin")
+        self.assertNotEqual(after["records"][1]["offset"], before["records"][1]["offset"])
+        for got, want in self.bases(grown, "skill"):
+            self.assertEqual(got, want)
+        # record 0 stays where it was; records 1 and 2 moved and had their word rewritten
+        self.assertEqual(report["base_pointers_rewritten"], 2)
+        self.assertEqual(report["pool_pointers_rewritten"], 1)
+        self.assertEqual(ISW.base_pointer_faults(grown, after), [])
+
+    def test_a_stale_base_pointer_is_what_build_11_shipped_and_is_now_refused(self):
+        # the stale word of build #11: record 1 moved by 4 bytes but kept -old_offset
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一")], ["気力"],
+                            base_pointers=False)
+        faults = ISW.base_pointer_faults(blob, ISR.parse_member(blob, "skill"))
+        self.assertEqual(faults, [0, 1])
+        with self.assertRaises(ISW.WriteError) as caught:
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Focus"}}, "srwDL_Spirit.bin")
+        self.assertIn("base pointer", str(caught.exception))
+
+    def test_an_identity_rebuild_rewrites_nothing(self):
+        blob = build_member("item", [build_record("item", 7, "改造", "%s20"),
+                                     build_record("item", 8, "強化", "%s30")], ["気力"])
+        same, report = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
+        self.assertEqual(same, blob)
+        self.assertEqual(report["base_pointers_rewritten"], 0)
 
 
 class HelperTest(unittest.TestCase):

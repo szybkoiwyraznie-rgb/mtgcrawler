@@ -317,7 +317,7 @@ Observation matrix (user, PPSSPP, original DLC folder, `config00.cpk` inserted i
 Conclusions [verified by the matrix, mechanism unknown]: the limit is on the **member itself**, not on the
 container size, not on the CPK header fields and not on the content (Japanese padded with spaces crashes exactly
 like English). Largest size proven to load: **217 086 B** (+8 128 B); smallest proven to crash: 221 182 B
-(+12 224 B). 0x35000 = 217 088 B is the suspected fixed buffer (W1 = 217 090 B untested). The crash signature is
+(+12 224 B). 0x35000 = 217 088 B is the suspected fixed buffer (W1 = 217 090 B **loads**, W2 = 218 110 B **crashes** — 2026-10-15; the limit lies in (217 090, 218 110] B). The crash signature is
 `memcpy_jak` with a NULL `dst`/`src` and `bytes > 0` (a failed allocation, not a zero-length copy).
 Consequence for the writers: `item_skill_write.SKILL00_LIMIT = 216 768 B` (`MEMBER_SIZE_LIMITS`), enforced
 fail-closed (`SizeBudgetError`; the builder refuses the whole container); the English of the skill table must
@@ -325,3 +325,37 @@ fit (`tools/skill_shrink.py`, `config/skill_shrink_rules.tsv`). DLC `SkillNN` me
 files (convention C) and are not affected. Whether `srwDL_Item00.bin` (34 566 → 34 799 B in the builds) or the
 configst members have budgets of their own is unknown; `configst.cpk` with grown members loaded to the title
 menu (variant A).
+
+## Convention-B records carry TWO relative pointers: `+32` (member base) and `+36` (tail pool) — measured 2026-10-15
+
+Scan of all 20 header words (u16/u32, signed and unsigned) of every record of the five original convention-B
+members (`srwDL_Spirit.bin` 60, `srwDL_Item.bin` 300, `srwDL_StatusChange.bin` 101, `srwDL_Skill00.bin` 1 469,
+`srwDL_Item00.bin` 300 = 2 230 records) against `offset`, `-offset`, `tail - offset`, `length - offset`,
+`offset + length`:
+
+| word | value | holds in | meaning |
+|---|---|---|---|
+| i32 `+32` | **`-record_offset`** | 2 230 / 2 230 | member start relative to the record (pointer to the member base) |
+| u32 `+36` | **`tail_offset - record_offset`** | 2 230 / 2 230 | fragment pool relative to the record (known since 2026-10-14) |
+| u16 `+40..+51` | field boundaries | all | record-relative string starts (`STRING_BASE` 54) |
+| u16 `+52` | binary word (204, 260, …) | — | NOT text; `config_text_tables` must not merge it with the first field |
+| other words | keys, levels, small indices | — | not position dependent |
+
+Consequence: every writer that shifts records must rewrite **both** words. Builds #6–#11 rewrote `+36` only;
+`+32` stayed `-old_offset` in every record after the first one that grew (build #11: 1 468 of 1 469 Skill00
+records, 294/300 Item00, 294/300 Item, 100/101 StatusChange, 59/60 Spirit). The screens that reached this word
+crashed (pilot → Spirits → hover; loading a mid-chapter-2 save → intermission) while the Loading screen and the
+first mission (which read only the strings) did not [in-game observations of build #11, user, 2026-10-15; the
+attribution is the only stale structure left in those members and is awaiting the build #12 test].
+`item_skill_write.rebuild_member` now refuses a source that breaks either rule, rewrites both words per record
+and proves both on its output (`base_pointer_faults`, `pool_pointer_faults`); `member_variants.check` tests both.
+
+## `config_text_tables` scan gap: first fields behind a two-byte preamble (2026-10-15)
+
+`string_starts` is only applied to the `ISR.KIND_PREFIX` kinds (item, skill). For `srwDL_Spirit.bin` the NUL-run
+scan therefore starts a run at the binary word `+52` whenever both its bytes are non-zero (`04 01` before 集中,
+鉄壁, 感応, 信頼 — 12 `name` fields of records 9–11, 15–20, 39–41); `clean_run` rejects the merged run and the field
+gets no row — the name stayed Japanese in build #11 while `name_level` and `effect_brief` of the same record were
+English. `tools/record_rows_refresh.py` adds such fields as offset rows (English taken from a translated sibling
+field with the identical Japanese). Nine further Spirit fields (`effect` r30–32, `label` r30–35) hold `0x0F` kana
+tokens and still need token-map rows (`pool_rows_refresh`-style); they remain Japanese for now.

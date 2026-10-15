@@ -2,7 +2,19 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15): the crash of `config00.cpk` is a SIZE BUDGET of the skill table member
+**Latest (2026-10-15, evening): build #11 LOADS in-game (Loading, first mission) — the Skill00 size budget
+holds (W1 217 090 B loads, W2 218 110 B crashes). Two further crashes it showed (pilot → Spirits → hover; loading a
+mid-chapter-2 save → crash before the intermission) are attributed to a second position-dependent record word the
+writer never rewrote: `i32@+32 = -record_offset` in every convention-B record (2 230/2 230 originals; stale in
+2 215 records of build #11). `item_skill_write` now rewrites and proves both `+32` and `+36`; 12 spirit-command
+names the export had skipped (集中/鉄壁/感応/信頼 ×3 levels, hidden behind a two-byte preamble) were added by the new
+`tools/record_rows_refresh.py`. **Build #12** (`config00.cpk` md5 `3c56686d…`, same sizes as #11; `configst.cpk`
+md5 `856f8ba5…`) is on Drive as `WGRAJ_build12.zip` and awaits the in-game test (chapter-2 save → intermission;
+Spirits hover). Also observed: English menu texts overflow their boxes — 56 % of the filled UI rows are wider than
+the Japanese in half-width cells; a width rule for menu/table categories is the next design item (needs
+screenshots to calibrate). Details: `EXPERIMENT_LOG.md` §21.21, `TECHNICAL_FINDINGS.md` (two pointers).
+
+**Earlier the same day: the crash of `config00.cpk` is a SIZE BUDGET of the skill table member
 `srwDL_Skill00.bin` itself** (in-game matrix: U2 = tighter container + big Skill00 crashes, U1 = tighter container
 + original Skill00 works, W5 = 217 086 B with refreshed CPK header works; T3 217 086 B works, T4 221 182 B
 crashes). The full English of the 2026-10-14 package needs 228 202 B (+19 244 B); the budget is now built in

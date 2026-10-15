@@ -4014,3 +4014,51 @@ ponownie przepuścić `skill_shrink.py`, inaczej builder odmówi config00). Jede
 KROK 2. Opcjonalnie W3/W4 z rundy 5 (W4 działa ⇒ budżet +3 KB).
 
 **Stan nadal:** żaden pełny build nie został wykazany jako działający w grze; build #11 czeka na test.
+
+### 21.21 Build #11 w grze: Loading OK, misja OK, crash w intermisji i na liście komend duchowych → nieświeży wskaźnik bazowy `+32`; build #12
+
+**Obserwacje użytkownika (2026-10-15, KROK 2 = config00 + configst z buildu #11, oryginalne DLC, PPSSPP):**
+W1 (217 090 B) **ładuje**, W2 (218 110 B) **pada** ⇒ limit `srwDL_Skill00.bin` w (217 090, 218 110]. Build #11:
+boot, Loading, pierwsza misja **działają**; (a) pilot → Spirits: nazwa komendy po japońsku, najechanie na nią →
+niebieski ekran PPSSPP; (b) sejw ze środka 2. epizodu: boot, Loading, pierwsze menu, **crash przed intermisją**;
+(c) napisy w menu w misji wychodzą poza pola (nieskalowane szerokości).
+
+**Analiza (dane, bez gry):** `local/build11` vs oryginał, człon po członie. Skan wszystkich 20 słów nagłówka
+2 230 oryginalnych rekordów konwencji B (Spirit 60, Item 300, StatusChange 101, Skill00 1 469, Item00 300):
+tylko słowo 16 (`i32@+32 = -offset_rekordu`, 2 230/2 230) i słowo 18 (`u32@+36 = tail - offset`, znane) zależą
+od pozycji; słowa ogona to indeksy, nie offsety. Pisarz od buildu #6 przepisywał `+32` dosłownie ⇒ w #11
+nieświeży w 1 468/1 469 rekordów Skill00, 294/300 Item00, 294/300 Item, 100/101 StatusChange, 59/60 Spirit —
+spójne z tym, że Loading/misja (czytają tylko napisy) działają, a lista komend/intermisja padają [hipoteza
+przypisania; jedyna pozostała nieświeża struktura; czeka na test #12]. Druga luka: `config_text_tables.string_starts`
+działa tylko dla item/skill; w `srwDL_Spirit.bin` słowo `+52` (np. `04 01` przed 集中) sklejało się z nazwą,
+`clean_run` odrzucał ciąg ⇒ 12 pól `name` (感応 r9–11, 鉄壁 r15–17, 集中 r18–20, 信頼 r39–41) bez wiersza w pakiecie
+— stąd japońska nazwa z (a). 9 pól z tokenami kany (effect r30–32, label r30–35) też bez wiersza. Item/Item00/
+StatusChange/Skill00: 0 luk.
+
+**Poprawki (testy: pełny zestaw 1 082 OK / 1 pominięty):**
+- `tools/item_skill_write.py`: `BASE_POINTER = 32`, `base_pointer_faults`, odmowa źródła łamiącego regułę,
+  przepisanie `-offset` w każdym rekordzie (`base_pointers_rewritten` w raporcie), dowód na wyjściu;
+  `tools/member_variants.check` sprawdza oba wskaźniki; `tests/test_item_skill_write.py::BasePointerTest`
+  (fixture `build_member` ustawia teraz `+32` i `+36`).
+- `tools/record_rows_refresh.py` (nowe, `tests/test_record_rows_refresh.py`): pola rekordów bez wiersza → wiersze
+  offsetowe `04_config_text.jsonl` z EN z przetłumaczonego pola-rodzeństwa o identycznym jp; pola z bajtami
+  kontrolnymi raportuje, nie dodaje. Uruchomione na `local/pakiet_ciasny`: **+12 wierszy** (Attune ×3, Wall ×3,
+  Focus ×3, Trust ×3), 9 pominiętych (kana), `local/shrink/record_rows_refresh.json`.
+
+**Build #12** (`build_translation_patch.py --dlc local/usrdir --package local/pakiet_ciasny --out local/build12
+--only config00.cpk configst.cpk`, exit 0, 4 s): `config00.cpk` **936 064 B md5 `3c56686d04cb1c362c7cb72111598879`**
+(Skill00 216 518 B — identyczny rozmiar i identyczne pola co #11; różnica względem #11 = 3 006 bajtów wyłącznie
+w słowach `+32`; nagłówek CPK bajt w bajt jak #11), `configst.cpk` **374 912 B md5
+`856f8ba52d366bdf72bc742d50e3af5b`** (Spirit 16 002 B = #11 + 24 B nazw). Dowód po buildzie: `base_pointer_faults`
+= 0 i `pool_pointer_faults` = 0 we wszystkich pięciu członach (w #11 odpowiednio 1 468/294/294/100/59).
+Dostawa `WGRAJ_build12.zip` 466 611 B md5 `7e963e4d8be6d3eba957469a006158ad`, Drive DELIVERY
+`1KJG1dQFinBjIkJF3iXslkfCOeKHmrfS8` (KROK_1, KROK_2, bat + tools, CZYTAJ z planem testu: sejw z 2. epizodu →
+intermisja; Spirits → najechanie; prośba o 2–3 zrzuty ekranu nachodzących napisów).
+
+**Szerokości w menu (c) — pomiar pakietu, bez reguły jeszcze:** z 29 558 wypełnionych wierszy UI (pliki 02–08)
+16 459 (56 %) jest szerszych od japońskiego w komórkach półszerokości (ASCII = 1, CJK = 2), 6 122 o > 4 komórki;
+najgorsze kategorie: weapon_name_short 84 %, mission_title 80 %, character_name_narrow 76 %, config_spirit 75 %,
+config_skill 61 %, config_sysmes 47 %. Reguła szerokości dla menu/tabel wymaga kalibracji z ekranu (czy czcionka
+rysuje ASCII w połowie komórki) — czekam na zrzuty.
+
+**Stan:** build #12 czeka na test w grze; nic nie jest wykazane jako działające poza Loading/misją buildu #11.
