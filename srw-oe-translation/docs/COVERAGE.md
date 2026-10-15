@@ -546,17 +546,18 @@ Kategoria, której audyt „100% tekstu" z definicji nie widzi: etykiety ekranó
 intermisji nie są stringami, tylko bitmapami. Potwierdzone na zrzutach użytkownika po przyjęciu pakietu v4 (tekst
 po angielsku, etykiety wokół po japońsku). Szczegóły formatów i narzędzi: `EXPERIMENT_LOG.md` §21.28.
 
-| kontener | tekstury z japońskim napisem | stan |
+| kontener | tekstury z japońskim napisem | stan (2026-10-15 wieczór, `UI_TEST3` / krok builderowy) |
 |---|---|---|
-| `system.cpk` (CPK bez TOC, 1 member) | `mensys_01` (気力, 援護), `mensys_03` (status/broń), `mensys_08` (umiejętności/części), `mensys_13` (listy jednostek/pilotów) | **spec + podgląd gotowe, w `UI_TEST1`; w grze nie sprawdzone** |
-| | `mensys_05` (Auto Save/Now Loading, 使用中), `mensys_07` (opcje/BGM: 主人公 基本 設定 一括 個別に 曲名 …), `mensys_10` (注意 Lv NEXT EXP), `mensys_11` (獲得 資金 残り 金額 必要 特殊 素材), `mensys_12` (連 特 防 狙 回), `mensys_14` (HP EN 地 空 宇), `mensys_15` (ikony duchów) | nie zaczęte |
-| `IM1000.cpk` / `IM3000.cpk` (TOC, PAC w PAC) | `intsys_01` (zakładki 能力 改造 武器 機体, パイロット, ミッションセレクト, DLコンテンツ) | **spec gotowe, w `UI_TEST1`; w grze nie sprawdzone** |
-| `IM1000`/`IM3000`/`IM9000` | `intsys_03` (ロボ・パイロット 改造ゲージ 連動ユニット サポート 改造段階限界突破), `intsys_04` (強化パーツリスト 所持 交換 交換条件 発生状況 装備 部隊 ボーナス パーツ フル改造ボーナス) | nie zaczęte (komórki znane z TXCL) |
-| `tacsys.cpk` (walka) | `tacsys_07` (攻撃 防御 回避 反撃), `08` (能力詳細 戦闘開始), `09` (援護設定), `10/11` (プレイヤー/エネミーフェイズ), `13` (行動可能ユニット), `14` (戦闘結果), `15` (反撃 攻撃 防御 回避 クリティカル), `16` (ミッションリザルト レベルアップ), `17` (精神コマンド 特殊スキル ゲット), `18` (ゲームオーバー 不可), `vsbg` (LIVEスタート) | nie zaczęte |
-| `navisys.cpk` | `navisys_02` (戦闘 回避 決定 キャンセル 敵艦発見) | nie zaczęte (`cpk_write` odmawia tego pliku — stały `ExtractSize`) |
+| `system.cpk` (CPK bez TOC, 1 member) | `mensys_01` (気力, 援護), `mensys_03` (status/broń + teren 空宇地 → AI SP GR), `mensys_08` (umiejętności/części), `mensys_13` (listy; cechy broni 突曲押投合 → BR AR PU TH CO), `mensys_05`, `mensys_07`, `mensys_10`, `mensys_11`, `mensys_14` (HP EN + teren → GR AI SP), `mensys_15` (kule ducha → VA BU AC FL FO PE WA GA FR DI, badge 包直投 → SR DH TH) | **spec + podgląd gotowe (10 tekstur), w `UI_TEST3` i w `HOKUS_POKUS`; `UI_TEST1` (4 z nich) działał w grze, reszta nie sprawdzona** |
+| | `mensys_12` (連 持 特 防 突 早 狙 回) | nie zaczęte — miejsce użycia w grze niepotwierdzone (czekam na zrzut) |
+| `IM1000.cpk` / `IM3000.cpk` (TOC, PAC w PAC) | `intsys_01` (zakładki), `intsys_03`, `intsys_04`; `IM9000`: `intsys_03` | **spec gotowe, w `UI_TEST3`; `intsys_01` działał w grze (`UI_TEST1`)** |
+| `tacsys.cpk` (walka) | `tacsys_07–11`, `13–18`, `vsbg` (+ badge 包 → SR w `15`, 押/投 → PU/TH w `17`) | **spec gotowe (12 tekstur), w `UI_TEST3`; w grze nie sprawdzone** |
+| `navisys.cpk` (TOC, 2 gołe GIM-y RGBA8888, stały `ExtractSize`) | `navisys_02` (戦闘 回避 ムサイ 決定 キャンセル 敵艦発見 → Battle Evade Musai Confirm Cancel Enemy Sighted); `navisys_01` bez tekstu | **spec gotowe, w `UI_TEST3`; w grze nie sprawdzone** (`cpk_write` obsługuje stały `ExtractSize` od §21.31) |
 | `sprstd00`, `mesbmp00`, `svicon`, `txa00`, pliki `.sp` | nieznane | nie pobrane / nie zdekodowane |
 | `EBOOT.BIN` | komunikat autozapisu i inne stringi w programie | poza zasięgiem projektu |
 
-Świadomie zostawione po japońsku w gotowych specyfikacjach: ikony terenu 空/宇/地, 連, 名, 用, ikony cech broni
-(M 突 曲 押 投 合) — to piktogramy, nie etykiety. Reguła narzędzia: napis, który się nie mieści (po zmniejszeniu fontu
-do `min_size` i ściśnięciu do `squeeze`), zatrzymuje całą budowę — żadnych uciętych etykiet.
+Świadomie zostawione po japońsku: `mensys_12` (j.w.), 6-pikselowe znaczniki 連 w `intsys_01`, nagłówki 名 / 用
+(kontekst niepotwierdzony); piktogramy (ogień, płatek, piorun, M, B) zostają. Ikony jednokanjiowe dostały 2-literowe
+kody (w ~10×10 px wnętrza mieszczą się 2 litery; 1 litera myliłaby się z rangami S/A/B/C/D obok). Reguła narzędzia:
+napis, który się nie mieści (po zmniejszeniu fontu do `min_size` i ściśnięciu do `squeeze`), zatrzymuje całą budowę —
+żadnych uciętych etykiet. Razem: 26 tekstur, 137 napisów / kodów, 6 zachowanych, 4 wymazane (`EXPERIMENT_LOG.md` §21.30–21.31).

@@ -4702,3 +4702,88 @@ z wgranym UI_TEST1 narzędzie odmówi, bo `system.cpk` nie jest oryginalny), `po
 **Status:** UI_TEST1 A — DZIAŁA (zmierzone przez użytkownika). UI_TEST2 (23 tekstury) i krok builderowy — **w grze nie
 sprawdzone**. Otwarte: źródło japońskiej linii panelu broni (świeży `DIAGNOZA.bat`), spacja fragmentu 196 (v6),
 `navisys_02`, ikony jednokanjiowe, pełna rozgrywka jako kryterium przyjęcia.
+
+### 21.31 Ikony jednokanjiowe → kody 2-literowe (teren, cechy broni, kule ducha, badge) + `navisys.cpk` (GIM bez PAC, RGBA8888, stały `ExtractSize`) = UI_TEST3
+
+**Data:** 2026-10-15 (wieczór). **Prośba użytkownika:** zamienić pozostałe ikony z pojedynczym kanji na litery (przykład:
+W = Water, S = Sky, E = Earth „albo coś w tym stylu”) i, jeśli się da, obsłużyć `navisys.cpk`. **Narzędzia:** Python 3.11
+(sandbox), Pillow, `tools/gim_image.py`, `gim_label.py`, `ui_texture_patch.py`, `cpk_write.py`, `cpk_table.py`,
+`assets/fonts/Roboto-Bold.ttf`. **Wejście:** `local/usrdir_ui/*.cpk` (oryginały użytkownika, md5 jak w §21.28/21.30;
+`navisys.cpk` `08d5b99a29c779968b78259a2fc16b40`, 39 048 B). Stan przed: HEAD `310e62d`.
+
+**Pomiar geometrii ikon** (pomocnik lokalny `local/ui_badge.py`: zasięg pikseli nieprzezroczystych, zasięg glifu =
+jasne piksele, kolory wnętrza i ramki; zoomy ×16 w `local/usrdir_ui/zoom3/`; współrzędne `x0,y0,x1,y1` z wyłącznym
+końcem):
+- `mensys_03` (teren, 16 px): 空 nieprzezr. [90,2,105,17], glif [93,5,102,14], wnętrze (0,43,58), ramka (3,66,65);
+  宇 [110,2,125,17] / [113,5,122,14] / (26,0,96); 地 [110,21,125,36] / [113,24,122,33] / (0,75,32). Budowa: 1 px ciemna
+  obwódka + 2 px jasna ramka + ~10×10 px wnętrza. **⇒ mieszczą się 2 litery** (Roboto Bold 7–9 px, ściśnięcie ≤ 0,8);
+  3 litery odmawia dopasowania, 1 litera myliłaby się z literami rang S/A/B/C/D rysowanymi tuż obok (stąd nie W/S/E).
+- `mensys_14` (teren, 14 px, z czerwonymi „skosami” w rogach): wnętrza 地 [33,26,43,36], 空 [48,26,58,36], 宇 [63,26,73,36].
+- `mensys_13` (cechy broni, rząd y 14–29): M (zostaje) [28–44]; 突 glif [46,17,55,27] wnętrze (99,24,16); 曲 [61,18,70,27]
+  (0,46,26); 押 [76,16,85,27] (60,89,0); 投 [91,16,100,27] (50,73,0); „〉投” — karb 101–108 zostaje, 投 [113,16,122,27]
+  (45,66,0); 合 [105,45,115,55] tło dzielone niebieski/czerwony (52,0,189)/(86,0,13) ⇒ `bg_from_column=104`.
+- `tacsys_15` 包 (żółta pinezka) wnętrze [7,19,18,30] (254,174,0); `tacsys_17` 押 [73,4,84,15] (164,137,0), 投 [92,4,103,15]
+  (164,57,0); `mensys_15`: kule 18×17 (rząd 0: x 0/18/36/54/72; rząd 1: y 17–34), badge 包 [108,4,118,13] (233,78,27),
+  直 [93,35,103,45] (`bg_from_column=92`), 投 [108,35,118,45] (zielono-magentowe, `bg_from_column=107`); ogień / płatek /
+  piorun = piktogramy, bez tekstu. `intsys_01` „連” [101,50,112,63]: glif ~6×7 px — za mały, zostaje.
+- `navisys_01`: brak tekstu. `navisys_02` (256×256): 戦闘 czerwony baner glif [23,5,49,17]; 回避 [23,28,49,40]; ムサイ
+  (y 73–89); 決定 / キャンセル (bright [17,133,85,145]); prawa kolumna 戦闘 [184,6,229,20], 回避 [185,32,230,46]; 敵艦発見
+  nieprzezr. [1,221,142,256].
+
+**Kody (decyzja; nazwy z pakietu v5):** teren **GR** Ground / **AI** Air / **SP** Space; cechy broni **BR** 突破攻撃 Break,
+**AR** 曲射 Arc Shot, **PU** 押出 Push, **TH** 押投 Throw (wariant z karbem = 引投 Pull Throw, karb zostaje), **CO** 合体
+Combination; badge **SR** 包囲 Surround, **DH** 直撃 Direct Hit; kule ducha **VA** 熱血 Valor, **BU** 必中 Bullseye, **AC** 加速
+Accel, **FL** 閃き Flash, **FO** 集中 Focus, **PE** 不屈 Persist, **WA** 鉄壁 Wall, **GA** 努力 Gain, **FR** 幸運 Fortune, **DI**
+かく乱 Disrupt. Nawigacja: Battle / Evade / Musai / Confirm / Cancel / Enemy Sighted. Styl specyfikacji: `box` = wnętrze
+ikony, `bg` = zmierzony kolor wnętrza (albo `bg_from_column` dla tła cieniowanego / dzielonego, `clear_opaque_only`
+dla kul), `fill` biały, `outline` = ciemny kolor ramki, `align center`, `size 9 / min_size 6 / squeeze 0.8`.
+
+**`navisys.cpk` — dlaczego `cpk_write` odmawiał i co zmieniono.** `cpk_table`: TOC z 2 wierszami, `ExtractSize` w
+schemacie ze storage 0x30 (STAŁA — jedna wartość 262 348 dla obu członów), `FileSize` 9 392 / 21 816 (CRILAYLA),
+nagłówek `EnabledPackedSize = 2·Σ Extract`, `EnabledDataSize = Σ File + Σ Extract`; człony to **gołe `.gim`** (bez PAC):
+`navisys_01.gim`, `navisys_02.gim` — 256×256 **RGBA8888** 32 bpp swizzled (`source *.tga`), 262 348 = 196 B nagłówka +
+256·256·4. `cpk_write.load` odrzucał kolumnę stałą ⇒ teraz akceptuje stałą TYLKO dla `ExtractSize` (`FileName` /
+`FileSize` / `FileOffset` jako stałe nadal odmowa); `rebuild` / `replace_appended` pomijają zapis komórki stałej i rzucają
+`ValueError`, gdy nowy rozmiar rozpakowany ≠ stała (ponowne kodowanie 256×256 RGBA8888 daje dokładnie 262 348 B, więc
+warunek jest spełniony). **Identyczna przebudowa `navisys.cpk` == oryginał (True).** `gim_image.encode_rgba8888`
+(zapis pikseli 1:1, re-swizzle, nagłówki i długość bez zmian) + `gim_image.encode` (przełącznik INDEX8 / RGBA8888;
+`gim_label` używa go zamiast `encode_index8`). `ui_texture_patch.walk_gims(blob, member_name=…)`: człon, który SAM jest
+GIM-em (nazwa `*.gim` + magic) liczy się jako jedno trafienie; `build` przepisuje kilka członów jednego kontenera TOC
+po kolei (`cpk_write.rebuild` na wyniku poprzedniego), `ContainerResult.members` w raporcie.
+
+**Testy:** `tests/gim_fixtures.py` += `build_rgba8888_gim`, `label_texture_rgba`; `tests/test_gim_image.py::
+Rgba8888EncodeTests` (4: parse/decode, identity swizzled+linear, edycja bez kwantyzacji, formaty nie do pomylenia);
+`tests/test_gim_label.py::BareGimTocContainerTests` (3: `walk_gims` członu-GIM-a, tylko człon ze specyfikacją
+przepisany + stały `ExtractSize` zachowany, dwa człony przepisane jeden na drugim); `tests/test_cpk_write.py::
+ConstantExtractSizeTests` (5) + `build_synthetic_cpk(constant_extract=True, extract=…)`. **Pełny zestaw: 1 182 testy OK
+(1 pominięty)** — `cd srw-oe-translation && python3 -m unittest discover tests -q`.
+
+**Budowa:** `python3 tools/ui_texture_patch.py --originals local/usrdir_ui --out local/ui_build3 --compress stored
+--preview-dir local/usrdir_ui/preview3` — 4,1 s, 6 kontenerów, 0 odmów dopasowania. Rozmiary dopasowania kodów: 7–9 px
+(`mensys_14` GR 7 px najmniejszy po poszerzeniu pól do 10 px; przed poszerzeniem 6 px). Poprawki po podglądzie:
+`navisys_02` pola `cancel` x0 20→12 (zostawał fragment キ), `battle_r`/`evade_r` y0 8→4 (zostawały górne kreski 戦闘),
+`enemy_sighted` y1 254→256 (zostawał dolny rząd 敵艦発見); `mensys_14` pola o 1 px szersze (kolumna 33/48/63 to jeszcze
+wnętrze). Wynik (STORED): `system.cpk` 195 888 B `ee28e8fb17c0b4ddc646f2fbbc1e1313`, `tacsys.cpk` 189 968 B
+`def587de1a8392e20fff3d0d315a1e04`, `navisys.cpk` 280 712 B `ec647a6aaf62d3e5ff19843ccf6d8b22` (człon 262 348 B
+zapisany jak jest), `IM1000/IM3000/IM9000.cpk` bez zmian wobec UI_TEST2 (`e56fd10e…`, `a90121ef…`, `fcb2350f…`). Razem 26
+tekstur, 137 etykiet namalowanych, 6 zachowanych, 4 wymazane (raport `ui_texture_report.json` w zestawie).
+
+**Builder:** `UI_TEXTURE_CONTAINERS` += `navisys.cpk`; `iso_insert.KNOWN_ORIGINALS` += `navisys.cpk` (`08d5b99a…`);
+`diagnoza.UI_NAMES` += `navisys.cpk`, `KNOWN_UI` += 3 md5 UI_TEST3 (IM* opisane jako UI_TEST2 = UI_TEST3). End-to-end na
+syntetycznym ISO (`local/e2e/synth.iso`, `--only` 6 kontenerów UI + `config00.cpk`): 6 kontenerów w `patched.iso` **co do
+bajtu = `local/ui_build3`**, `ui_textures.problems = []`, `skipped = []`.
+
+**Zestaw `UI_TEST3.zip`** (476 609 B, md5 `5fd6b3cab3bf69921ff3f58db5e6f6ef`): `UI_TEST3\` z 6 kontenerami na wierzchu,
+`podglad\PRZED_PO_ikony.png` (wycinki ×12 przed/po), `PRZED_PO_nawigacja.png`, `PRZED_PO_mensys_03/13/15.png`,
+`ui_texture_report.json`, `CZYTAJ_UI_TEST3.txt` (CRLF; legenda kodów, co zostaje po japońsku, prośba o zrzuty).
+Dysk (odpowiedzi API): DELIVERY += `UI_TEST3.zip` (`13fmXgzO_oRfTvh9QkRwxaVvi8ozYCbpO`, md5 zgodne); `UI_TEST2.zip`
+(`1N0U-xoLKLyfUQRLeVn8i8Vq6jaJgBnmy`) → `_STARE_NIE_UZYWAC\UI_TEST2_zastapione_przez_UI_TEST3.zip`. Instrukcja
+(`docs/INSTRUKCJA_PATCH_PL.md`, część 4 = UI_TEST3, legenda kodów) — nowa kopia na Dysku (id w `drive_manifest.tsv`).
+
+**Co zostaje po japońsku (świadomie):** `mensys_12` (連 持 特 防 突 早 狙 回 — miejsce użycia w grze niepotwierdzone,
+proszę o zrzut), znaczniki „連” 6 px w `intsys_01`, nagłówki 用 / 名. **Hipoteza do sprawdzenia w grze:** kody 7–9 px są
+czytelne przy skalowaniu PPSSPP użytkownika (zoomy wyglądają poprawnie, ale to najmniejsze napisy w patchu); alternatywa
+w razie nieczytelności: piktogramy albo kody jednoliterowe w innym kolorze niż rangi.
+
+**Status:** UI_TEST3 i krok builderowy z 6 kontenerami — **w grze nie sprawdzone** (jak UI_TEST2). Commit kodu + specyfikacji:
+`9ff00e9`; dokumentacja — następny commit.

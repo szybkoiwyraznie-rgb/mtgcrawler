@@ -1,4 +1,4 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 po południu: pakiet v5 / KIT 18, grafiki interfejsu UI_TEST2 i w HOKUS_POKUS)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-15 wieczorem: pakiet v5 / KIT 18, grafiki interfejsu UI_TEST3 i w HOKUS_POKUS)
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08, 679 243 152 bajty, i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski
@@ -13,25 +13,26 @@ dłuższe niż 14 znaków wchodziły w liście na kolumnę pilota, a opis umiej�
 rozdziałów 5–8 są w pakiecie w większości bez angielskiego (tłumaczenie trwa), (2) **etykiety
 systemowe na ekranach statusu / broni / umiejętności / intermisji (攻撃 防御 命中, 能力 改造 武器 機体,
 特殊能力・スキル, 気力, 援護 …) nie są tekstem, tylko obrazkami** — pierwszy zestaw (`UI_TEST1`) **działa
-w grze** (test z 15.10), komplet 23 tekstur (walka, opcje, części, ulepszenia) jest w `UI_TEST2.zip` i od tej
-wersji narzędzi `HOKUS_POKUS.bat` wmalowuje je sam (część 4 niżej); ikony z pojedynczym kanji i napisy scen
-nawigacji zostają japońskie; (3) komunikaty z programu gry (autozapis) — poza zasięgiem.
+w grze** (test z 15.10), komplet 26 tekstur (walka, opcje, części, ulepszenia, ikony z 2-literowymi kodami,
+sceny nawigacji) jest w `UI_TEST3.zip` i od tej wersji narzędzi `HOKUS_POKUS.bat` wmalowuje je sam (część 4
+niżej); po japońsku zostają tylko ikony `mensys_12` (czekam na zrzut, gdzie je widać); (3) komunikaty
+z programu gry (autozapis) — poza zasięgiem.
 Drobny znany błąd układu: pasek podpowiedzi w słowniku nachodzi na zakładkę „Pilot”.
 
 Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwiera okno wyboru pliku/folderu.
 
 ---
 
-## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15 po południu, pakiet v5 + UI_TEST2
+## Co jest na Dysku (folder DELIVERY) — stan 2026-10-15 wieczorem, pakiet v5 + UI_TEST3
 
 | plik | do czego |
 |---|---|
 | `pakiet_EN_2026-10-15_v5.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v4 + 124 poprawione wiersze, lista w `POPRAWKI_v5.tsv`, opis w `CO_NOWEGO_v5.txt` |
 | `KIT_build18_2026-10-15.zip` | pliki z budowy #18 (pakiet v5) do testów bez budowania: `USRDIR_build18\` (5 plików do ISO dla `WGRAJ_DO_ISO.bat`), `DLC_build18_config\` (10 plików do folderu DLC: `config00.cpk`, `configst.cpk`, `config01–08.EDAT`), `CZYTAJ.txt`. Pełny efekt v5 (nazwy jednostek rozdziałów 9+, pilot Kuro) daje dopiero `HOKUS_POKUS.bat` z pakietem v5 — KIT pokrywa rozdziały 1–8 |
 | `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
-| `UI_TEST2.zip` | **grafiki interfejsu, komplet 23 tekstur** (zastępuje `UI_TEST1`, którego wariant A działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk` z angielskimi napisami wmalowanymi w tekstury (walka: Attack / Defend / Evade / Counter, bannery, Unit Info, Start Battle, Your turn / Enemy turn…; opcje dźwięku; części; ulepszenia). Wgrywa się `WGRAJ_DO_ISO.bat` **na `patched.iso` z pakietu (v5 lub v4), które NIE ma jeszcze wgranego UI_TEST1** (wskazać folder `UI_TEST2`). Przy budowie od nowa `HOKUS_POKUS.bat` (aktualne narzędzia) robi to sam. Instrukcja w `CZYTAJ_UI_TEST2.txt` w środku |
+| `UI_TEST3.zip` | **grafiki interfejsu, komplet 26 tekstur** (zastępuje `UI_TEST2`; pierwszy zestaw `UI_TEST1` wariant A działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk` z angielskimi napisami wmalowanymi w tekstury (walka: Attack / Defend / Evade / Counter, bannery, Unit Info, Start Battle, Your turn / Enemy turn…; opcje dźwięku; części; ulepszenia; **ikony z 2-literowymi kodami**: teren GR / AI / SP, cechy broni BR / AR / PU / TH / CO, kule ducha VA BU AC FL FO PE WA GA FR DI, badge SR / DH; sceny nawigacji Battle / Evade / Confirm / Cancel / Enemy Sighted). Wgrywa się `WGRAJ_DO_ISO.bat` (**aktualne narzędzia** — starsze nie znają `navisys.cpk`) **na `patched.iso` z pakietu (v5 lub v4), które NIE ma jeszcze wgranego UI_TEST1/2** (wskazać folder `UI_TEST3`). Przy budowie od nowa `HOKUS_POKUS.bat` robi to sam. Legenda kodów i instrukcja w `CZYTAJ_UI_TEST3.txt` w środku |
 | `INSTRUKCJA_PL.md` | ten tekst |
-| `_STARE_NIE_UZYWAC\…` | pakiet v4 i `KIT_build17` (działały w grze, ale z dwoma błędami tekstu — zastąpione przez v5/KIT 18), `UI_TEST1` (wariant A działał — zastąpiony przez `UI_TEST2`), pakiet v3 i `KIT_build15` (ich `config01–08.EDAT` padają na Loading — test Y), oraz wszystko z 14–15.10 sprzed poprawki `+52`. **Nie kopiować.** |
+| `_STARE_NIE_UZYWAC\…` | pakiet v4 i `KIT_build17` (działały w grze, ale z dwoma błędami tekstu — zastąpione przez v5/KIT 18), `UI_TEST1` (wariant A działał) i `UI_TEST2` (zastąpione przez `UI_TEST3`), pakiet v3 i `KIT_build15` (ich `config01–08.EDAT` padają na Loading — test Y), oraz wszystko z 14–15.10 sprzed poprawki `+52`. **Nie kopiować.** |
 
 Jak odróżnić pliki: `config00.cpk` z budowy #18 (pakiet v5) ma **936 064 B, md5
 `5c43cf343b9fafde62c3c53c3a6c1e78`**; z budowy #17 (pakiet v4, sprawdzony w grze) ten sam rozmiar, md5
@@ -135,44 +136,55 @@ z `DLC_build17_config\` + 8 plików z `DLC_pulaJP_config01-08\` (pule japońskie
 Po każdym teście `DIAGNOZA.bat` (okno 1: folder DLC emulatora, okno 2: ISO) i prześlij
 `DIAGNOZA.txt` + zrzut PPSSPP przy crashu. Przy Y4/Z4 dołącz też `srw-oe-patch\build_report.json`.
 
-## Część 4 — grafiki interfejsu: `UI_TEST2.zip` (szybki test) albo `HOKUS_POKUS.bat` (od tej wersji sam)
+## Część 4 — grafiki interfejsu: `UI_TEST3.zip` (szybki test) albo `HOKUS_POKUS.bat` (od tej wersji sam)
 
-Napisy systemowe na ekranach statusu / broni / umiejętności, zakładki intermisji i napisy w walce (okno
-reakcji, bannery, nagłówki tur) są obrazkami w pięciu plikach ISO: `system.cpk`, `tacsys.cpk`,
-`IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`. Pierwszy zestaw (`UI_TEST1`, wariant A = dane bez kompresji)
-**działa w grze** (zrzuty z 15.10) — komplet 23 tekstur w tej samej technice to `UI_TEST2.zip`
-(23 tekstury, 101 napisów; podgląd przed/po w `podglad\`). Nic z UI_TEST2 nie było jeszcze w grze.
+Napisy systemowe na ekranach statusu / broni / umiejętności, zakładki intermisji, napisy w walce (okno
+reakcji, bannery, nagłówki tur), ikony i przyciski scen nawigacji są obrazkami w sześciu plikach ISO:
+`system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk`. Pierwszy zestaw
+(`UI_TEST1`, wariant A = dane bez kompresji) **działa w grze** (zrzuty z 15.10) — komplet 26 tekstur w tej
+samej technice to `UI_TEST3.zip` (26 tekstur, 137 napisów / kodów; podgląd przed/po w `podglad\`). Nic
+z UI_TEST2/UI_TEST3 nie było jeszcze w grze. Ikony z pojedynczym kanji mają teraz **2-literowe kody**
+(w środku ikony jest ~10×10 px — 3 litery się nie mieszczą, a 1 litera myliłaby się z rangami S/A/B/C/D
+obok): teren **GR** Ground / **AI** Air / **SP** Space; cechy broni **BR** Break, **AR** Arc Shot, **PU** Push,
+**TH** Throw (z „karbem” = Pull Throw), **CO** Combination (M i B zostają); badge **SR** Surround, **DH** Direct
+Hit; kule ducha **VA** Valor, **BU** Bullseye, **AC** Accel, **FL** Flash, **FO** Focus, **PE** Persist, **WA** Wall,
+**GA** Gain, **FR** Fortune, **DI** Disrupt. Nawigacja: Battle / Evade / Musai / Confirm / Cancel / Enemy Sighted.
 
 Droga A — szybki test na gotowym `patched.iso` (nic nie buduje):
 
-1. Rozpakuj `UI_TEST2.zip` (folder `UI_TEST2\` z pięcioma `.cpk` na wierzchu).
+1. Rozpakuj `UI_TEST3.zip` (folder `UI_TEST3\` z sześcioma `.cpk` na wierzchu). Pobierz też aktualny ZIP
+   gałęzi z GitHub — starszy `WGRAJ_DO_ISO.bat` nie zna `navisys.cpk` i odmówi.
 2. `WGRAJ_DO_ISO.bat` → okno ISO: **`patched.iso` z pakietu v5 (lub v4), do którego NIE wgrywałeś
-   UI_TEST1** (narzędzie zna md5 oryginalnych plików i odmówi: „system.cpk w tym ISO nie jest
+   UI_TEST1/UI_TEST2** (narzędzie zna md5 oryginalnych plików i odmówi: „system.cpk w tym ISO nie jest
    oryginalny”; w razie czego zbuduj `patched.iso` od nowa albo weź kopię sprzed UI_TEST1) → okno
-   folderu: **`UI_TEST2`**. Wynik: `srw-oe-wgrane\UI_TEST2\patched.iso`.
+   folderu: **`UI_TEST3`**. Wynik: `srw-oe-wgrane\UI_TEST3\patched.iso`.
 3. Uruchom w PPSSPP z tym samym folderem DLC co dotąd. Sprawdź walkę: okno reakcji (Attack / Defend /
    Evade / Counter), bannery (Counter / Attack / Defend / Critical / Evade), ekran przed walką (Unit Info,
    Start Battle, Support Setup), nagłówek tury (Your turn / Enemy turn), Units Ready, wynik walki
    (Level Up!, Spirit Cmd, Skill, Get!); poza walką: opcje dźwięku, ekran części / konwersji (Parts List,
-   Convert, Equip, Team), ekran ulepszeń (Upgrades, Linked Units, Upgrade Limit Break). Zrzuty napisów
-   uciętych, nachodzących lub za małych — szczególnie Counter, Critical, Team, Equip, Spec./Mat.
+   Convert, Equip, Team), ekran ulepszeń (Upgrades, Linked Units, Upgrade Limit Break); ikony: teren
+   GR / AI / SP przy rangach, cechy broni BR AR PU TH CO obok M / B, kule ducha nad jednostką, scena
+   nawigacji (Battle / Evade / Confirm / Cancel / Enemy Sighted). Zrzuty napisów uciętych, nachodzących
+   lub za małych — szczególnie Counter, Critical, Team, Equip, Spec./Mat. i **czy kody na ikonach da się
+   przeczytać przy twoim skalowaniu PPSSPP** (to najmniejsze napisy w patchu, 7–9 px).
 
 Droga B — przy budowie od nowa: po pobraniu aktualnych narzędzi (ZIP gałęzi z GitHub) `HOKUS_POKUS.bat`
-po wstawieniu tekstu **sam** czyta te pięć plików z twojego ISO, wmalowuje napisy i wstawia je do
+po wstawieniu tekstu **sam** czyta te sześć plików z twojego ISO, wmalowuje napisy i wstawia je do
 `patched.iso` (krok „Tekstury UI”; w `build_report.json` klucz `ui_textures`, każdy plik z md5). Jeśli
 któryś napis się nie zmieści, budowa jest przerwana z komunikatem — nic nie jest wstawiane „na pół”.
 Wyłączenie (tylko tekst): `python tools\build_translation_patch.py … --no-ui-textures`.
-`DIAGNOZA.bat` z ISO pokazuje teraz blok „tekstury UI” — oryginał / UI_TEST1 / UI_TEST2 / nieznany.
+`DIAGNOZA.bat` z ISO pokazuje teraz blok „tekstury UI” — oryginał / UI_TEST1 / UI_TEST2 / UI_TEST3 / nieznany.
 
 | wynik | wniosek | następny krok |
 |---|---|---|
 | wszystko czytelne | technika potwierdzona na walce | poprawki pojedynczych napisów ze zrzutów |
 | crash / czarne pola w walce | `tacsys.cpk` inaczej buforowany niż `system.cpk` | zrzut + moment; `WGRAJ_DO_ISO` z samym `system.cpk`+`IM*` (skopiuj je do osobnego folderu) |
 | napis ucięty / nachodzi | komórka węższa niż założona | napisz który — skracam/ściskam konkretny napis |
+| kody na ikonach nieczytelne | 7–9 px to za mało przy twoim skalowaniu | zamieniam na piktogramy / jednoliterowe kody w innym kolorze — do decyzji |
 
-Świadomie po japońsku zostają: ikony z pojedynczym kanji (cechy broni 連 持 特 防 突 早 狙 回, ikony komend
-ducha, badge 包 / 押 / 投, teren 地 空 宇 — za małe na litery) i napisy scen nawigacji (`navisys.cpk`,
-inny format, zapis jeszcze nieobsługiwany).
+Świadomie po japońsku zostają: ikony `mensys_12` (連 持 特 防 突 早 狙 回 — nie wiem na pewno, gdzie gra je
+pokazuje; prześlij zrzut z taką ikoną, dopiszę kody), 6-pikselowe znaczniki „連” w `intsys_01` (za małe)
+i nagłówki 用 / 名 (kontekst niepotwierdzony).
 
 ---
 
@@ -211,8 +223,8 @@ W PPSSPP wskaż z powrotem swoje ISO, przywróć folder DLC z kopii `_ORYGINAL`,
 
 - Pakiet tekstowy nie dotyka grafik. Etykiety systemowe w teksturach (ekrany statusu, broni,
   umiejętności, zakładki intermisji, pasek 気力/援護, walka, opcje, części) maluje osobny krok
-  (`UI_TEST2.zip` albo aktualny `HOKUS_POKUS.bat`, część 4); pierwszy zestaw działał w grze, komplet —
-  jeszcze nie sprawdzony. Ikony z pojedynczym kanji i napisy scen nawigacji zostają japońskie.
+  (`UI_TEST3.zip` albo aktualny `HOKUS_POKUS.bat`, część 4); pierwszy zestaw działał w grze, komplet —
+  jeszcze nie sprawdzony. Po japońsku zostają tylko ikony `mensys_12` (czekam na zrzut).
 - Nie tłumaczy komunikatu o autozapisie po starcie — siedzi w programie gry (`EBOOT.BIN`).
 - Nie zawiera żadnych plików gry: wszystko powstaje z twojego ISO i twoich DLC.
 - Nie działa na zaszyfrowanych plikach DLC ani na ISO innej wersji niż 1.08.

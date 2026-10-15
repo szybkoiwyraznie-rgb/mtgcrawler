@@ -1,8 +1,25 @@
 # Project status
 
-Last updated: 2026-10-15 (afternoon, §21.30)
+Last updated: 2026-10-15 (evening, §21.31)
 
-**Latest (2026-10-15, afternoon): `UI_TEST1 A_stored` WORKS in-game (user's screenshots: intermission tabs, ATK/DEF/HIT/EVA,
+**Latest (2026-10-15, evening): UI batch 3 — the single-kanji ICONS now carry 2-letter codes and `navisys.cpk` is in
+scope. Measured badge geometry (1-px border, 2-px frame, ~10×10 px inner area) allows two letters at 7–9 px; one
+letter would clash with the S/A/B/C/D rank letters drawn next to the terrain badges, three do not fit. Codes:
+terrain GR / AI / SP (`mensys_03`, `mensys_14`), weapon abilities BR Break / AR Arc Shot / PU Push / TH Throw (notched
+variant = Pull Throw) / CO Combination (`mensys_13`; M and B are original), map badges SR Surround / DH Direct Hit /
+PU / TH (`tacsys_15/17`, `mensys_15`), spirit orbs VA BU AC FL FO / PE WA GA FR DI (`mensys_15`, shading copied per
+column, pictograms fire / freeze / stun untouched). `navisys.cpk`: TOC container with two BARE GIMs (no PAC),
+true-colour RGBA8888, `ExtractSize` stored as a schema constant — `cpk_write` now accepts that layout and keeps the
+constant on rebuild (identity rebuild == original), `gim_image.encode_rgba8888` writes true colour back same-size,
+`ui_texture_patch` handles bare-GIM members and several members per TOC container; `navisys_02`: Battle / Evade /
+Musai / Confirm / Cancel / Enemy Sighted (`navisys_01` has no text). Totals: 26 textures, 137 labels painted, 6 kept,
+4 erased, 0 fit refusals, 6 containers. `UI_TEST3.zip` on Drive (supersedes UI_TEST2, moved to `_STARE_NIE_UZYWAC`);
+the builder paints all 6 containers (end-to-end on the synthetic ISO byte-identical to the kit); `iso_insert`,
+`diagnoza` know `navisys.cpk` / UI_TEST3. Still Japanese: `mensys_12` (連 持 特 防 突 早 狙 回 — where the game shows
+them is unconfirmed; screenshot requested), the 6-px link markers in `intsys_01`, 用 / 名. NOT yet in-game: UI_TEST2,
+UI_TEST3, builds #19+. Details: `EXPERIMENT_LOG.md` §21.31.**
+
+**Previous (2026-10-15, afternoon): `UI_TEST1 A_stored` WORKS in-game (user's screenshots: intermission tabs, ATK/DEF/HIT/EVA,
 Will, Support in English, no crash) ⇒ the game accepts `.pac` members stored uncompressed, and that is the only variant
 shipped from now on. Second batch done the same way: 23 textures total (18 new — battle `tacsys.cpk`: Attack / Defend /
 Evade / Counter, Counter Attack / Defend / Critical / Evade banners, Unit Info, Start Battle, Support Setup, Will, Units

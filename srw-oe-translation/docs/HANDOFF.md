@@ -29,7 +29,7 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 - **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
   `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
   `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.
-- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **336 OK**, 1 skipped).
+- **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **1 182 OK**, 1 skipped; 2026-10-15 wieczór).
 
 ## 2. Kontenery tekstu — klasyfikacja grow vs fixed
 | Kontener | Plik(i) | Tryb | Stan |
@@ -128,6 +128,15 @@ jeśli A działa, reszta tekstur (walka `tacsys_07–18`, `mensys_05/07/10–12/
 `navisys_02` — wymaga obsługi stałego `ExtractSize` w `cpk_write`), potem integracja z builderem za bramkami;
 nadal otwarte z tekstu: pasek podpowiedzi słownika nad zakładką „Pilot", dialogi rozdziałów 5–8 bez EN (~27 k
 wierszy), nieunikalne id, wiodąca spacja, A1/A2.
+
+**Stan 2026-10-15 wieczór (`EXPERIMENT_LOG.md` §21.30–21.31):** UI_TEST1 A_stored DZIAŁA w grze ⇒ tylko STORED.
+Komplet tekstur: 26 (`system` 10, `tacsys` 12, `intsys_01/03/04` w `IM1000/3000/9000`, `navisys_02`), 137 napisów / kodów;
+ikony jednokanjiowe → kody 2-literowe (teren GR/AI/SP, cechy broni BR/AR/PU/TH/CO, badge SR/DH, kule ducha VA…DI);
+`navisys.cpk` = TOC z 2 gołymi GIM-ami RGBA8888 i stałym `ExtractSize` (`cpk_write` to obsługuje, `gim_image.encode_rgba8888`).
+`build_translation_patch.py` maluje 6 kontenerów UI do `patched.iso` sam (`UI_TEXTURE_CONTAINERS`, `--no-ui-textures`).
+Dysk DELIVERY: `UI_TEST3.zip` (zastąpił UI_TEST2 → `_STARE_NIE_UZYWAC`). **W grze nie sprawdzone: UI_TEST2/3, build #19+.**
+Po japońsku: `mensys_12` (czekam na zrzut), znaczniki 連 6 px, 名 / 用. Otwarte z tekstu: źródło japońskiej linii panelu
+broni (świeży `DIAGNOZA.bat`), spacja fragmentu 196 (v6), dialogi 5–8, A1/A2.
 
 **Stan 2026-10-15 noc (`EXPERIMENT_LOG.md` §21.26–21.27):** testy X/Y w grze: **X działa** (`patched.iso`
 z przebudowanymi `eventP00`/`mesbtl00`/`imenu00` STORED + config #14, oryginalny folder DLC — gra do słownika),
