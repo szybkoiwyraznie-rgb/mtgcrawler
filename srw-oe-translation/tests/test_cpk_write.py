@@ -322,3 +322,63 @@ class EnabledSizeFieldTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ConstantExtractSizeTests(unittest.TestCase):
+    """``navisys.cpk`` stores ``ExtractSize`` once in the TOC schema (both GIM members unpack
+    to 262 348 B).  The writer accepts that layout as long as a replacement keeps the shared
+    size - which a same-size texture rewrite does - and refuses anything else."""
+
+    ENTRIES = [
+        {"dir": "", "name": "navisys_01.gim", "data": b"A" * 300, "id": 0},
+        {"dir": "", "name": "navisys_02.gim", "data": b"B" * 300, "id": 1},
+    ]
+
+    def write(self, **kwargs) -> tuple:
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        path = Path(temporary.name) / "navisys.cpk"
+        path.write_bytes(build_synthetic_cpk(self.ENTRIES, constant_extract=True, **kwargs))
+        return path, path.read_bytes()
+
+    def test_fixture_really_stores_extract_size_once(self):
+        path, _ = self.write()
+        cpk = cpk_write.load(path)
+        self.assertIsNone(cpk.toc_layout.column("ExtractSize").row_offset)
+        self.assertEqual([m.extract_size for m in cpk.members], [300, 300])
+
+    def test_identity_rebuild_still_reproduces_the_file(self):
+        path, original = self.write()
+        self.assertEqual(cpk_write.rebuild(cpk_write.load(path), None), original)
+
+    def test_a_same_size_replacement_is_written_and_reads_back(self):
+        path, _ = self.write(enabled_sizes=True)
+        new_blob = b"Z" * 300
+        out = cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", new_blob, 300))
+        path.write_bytes(out)
+        reference = cpk_table.read_cpk_table(path)["entries"]
+        self.assertEqual([(e["name"], e["file_size"], e["extract_size"]) for e in reference],
+                         [("navisys_01.gim", 300, 300), ("navisys_02.gim", 300, 300)])
+        second = reference[1]
+        self.assertEqual(out[second["absolute_offset"]:second["absolute_offset"] + 300], new_blob)
+
+    def test_a_compressed_member_may_change_packed_size_but_not_unpacked_size(self):
+        # navisys_02 is CRILAYLA in the original: FileSize 21 816, ExtractSize 262 348.
+        entries = [dict(self.ENTRIES[0]), dict(self.ENTRIES[1], data=b"B" * 120, extract=300)]
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        path = Path(temporary.name) / "navisys.cpk"
+        path.write_bytes(build_synthetic_cpk(entries, constant_extract=True))
+        out = cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", b"Q" * 300, 300))
+        path.write_bytes(out)
+        reference = cpk_table.read_cpk_table(path)["entries"]
+        self.assertEqual((reference[1]["file_size"], reference[1]["extract_size"]), (300, 300))
+        self.assertEqual((reference[0]["file_size"], reference[0]["extract_size"]), (300, 300))
+
+    def test_a_different_unpacked_size_is_refused(self):
+        path, _ = self.write()
+        with self.assertRaises(ValueError) as ctx:
+            cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", b"Z" * 301, 301))
+        self.assertIn("constant-storage", str(ctx.exception))
+        with self.assertRaises(ValueError):
+            cpk_write.replace_appended(cpk_write.load(path), "navisys_02.gim", b"Z" * 299)

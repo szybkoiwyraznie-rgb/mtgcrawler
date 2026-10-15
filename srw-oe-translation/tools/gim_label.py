@@ -318,7 +318,7 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
     if report.errors:
         raise LabelError("captions do not fit:\n" + report.summary())
     new_rgba = canvas.tobytes()
-    return gim_image.encode_index8(gim, new_rgba), report, new_rgba
+    return gim_image.encode(gim, new_rgba), report, new_rgba
 
 
 def preview(gim_raw: bytes, out: Path, scale: int = 4, boxes: Optional[Sequence[Sequence[int]]] = None) -> Path:

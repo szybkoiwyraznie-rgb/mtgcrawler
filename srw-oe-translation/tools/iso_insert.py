@@ -53,6 +53,7 @@ KNOWN_ORIGINALS: Dict[str, str] = {
     "IM3000.cpk": "5447d366aa01f8060138ecf4ae2ed80f",
     "tacsys.cpk": "0e29a50724e7eec384a6ab2555539e32",
     "IM9000.cpk": "2a490e70670c2ff374764635225fbaff",
+    "navisys.cpk": "08d5b99a29c779968b78259a2fc16b40",   # 2 bare RGBA8888 GIMs (navigation buttons)
 }
 SKIPPED_SUFFIXES = {".txt", ".json", ".md", ".zip", ".log", ".csv", ".html", ".bat", ".py", ".exe"}
 

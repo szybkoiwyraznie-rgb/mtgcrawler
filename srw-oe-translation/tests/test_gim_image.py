@@ -10,7 +10,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import gim_image  # noqa: E402
-from gim_fixtures import LABEL_PALETTE, build_index8_gim, build_ui_pac, label_texture  # noqa: E402
+from gim_fixtures import (LABEL_PALETTE, build_index8_gim, build_rgba8888_gim, build_ui_pac,  # noqa: E402
+                          label_texture, label_texture_rgba)
 
 
 class GimDecodeTests(unittest.TestCase):
@@ -99,6 +100,50 @@ class GimEncodeTests(unittest.TestCase):
         g = gim_image.parse(label_texture())
         with self.assertRaises(gim_image.GimError):
             gim_image.encode_index8(g, b"\x00" * 10)
+
+
+class Rgba8888EncodeTests(unittest.TestCase):
+    """True-colour textures (the navisys.cpk pair) are written back pixel for pixel."""
+
+    def test_parses_and_decodes_the_true_colour_shape(self):
+        g = gim_image.parse(label_texture_rgba())
+        self.assertEqual((g.width, g.height, g.image.format, g.image.pixel_order), (64, 32, 3, 1))
+        self.assertIsNone(g.palette)
+        self.assertIn("RGBA8888", gim_image.describe(g))
+        rgba, w, h = gim_image.decode(g)
+        self.assertEqual(tuple(rgba[(5 * 64 + 5) * 4:(5 * 64 + 5) * 4 + 4]), LABEL_PALETTE[2])
+        self.assertEqual(tuple(rgba[(20 * 64 + 40) * 4:(20 * 64 + 40) * 4 + 4]), LABEL_PALETTE[12])
+
+    def test_identity_round_trip_is_byte_exact(self):
+        for swizzled in (True, False):
+            raw = build_rgba8888_gim(32, 16, bytes(range(256)) * 8, swizzled=swizzled)
+            g = gim_image.parse(raw)
+            rgba, _, _ = gim_image.decode(g)
+            self.assertEqual(gim_image.encode_rgba8888(g, rgba), raw)
+            self.assertEqual(gim_image.encode(g, rgba), raw)
+
+    def test_edited_pixels_land_exactly_and_nothing_else_moves(self):
+        raw = label_texture_rgba()
+        g = gim_image.parse(raw)
+        rgba = bytearray(gim_image.decode(g)[0])
+        rgba[(10 * 64 + 50) * 4:(10 * 64 + 50) * 4 + 4] = bytes((1, 2, 3, 4))   # not a palette colour: no quantising
+        out = gim_image.encode(g, bytes(rgba))
+        self.assertEqual(len(out), len(raw))
+        back, _, _ = gim_image.decode(gim_image.parse(out))
+        self.assertEqual(bytes(back), bytes(rgba))
+        # headers untouched: everything up to the pixel data is identical
+        start = g.image_block.data + g.image.offsets[0]
+        self.assertEqual(out[:start], raw[:start])
+
+    def test_formats_are_not_mixed_up(self):
+        truecolour = gim_image.parse(label_texture_rgba())
+        indexed = gim_image.parse(label_texture())
+        with self.assertRaises(gim_image.GimError):
+            gim_image.encode_index8(truecolour, bytes(64 * 32 * 4))
+        with self.assertRaises(gim_image.GimError):
+            gim_image.encode_rgba8888(indexed, bytes(64 * 32 * 4))
+        with self.assertRaises(gim_image.GimError):
+            gim_image.encode_rgba8888(truecolour, b"short")
 
 
 class PacIndexTests(unittest.TestCase):

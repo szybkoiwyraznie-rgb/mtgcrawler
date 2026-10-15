@@ -1,0 +1,438 @@
+{
+ "texture": "mensys_15",
+ "source": "system.cpk — 128x64 INDEX8; spirit-effect orbs (熱 必 加 閃 集 / 不 鉄 努 幸 乱) and status badges (包 直 投) shown on units in battle",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 9,
+ "min_size": 6,
+ "squeeze": 0.8,
+ "labels": [
+  {
+   "id": "valor",
+   "jp": "熱",
+   "en": "VA",
+   "box": [
+    3,
+    3,
+    15,
+    14
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    52,
+    12,
+    11,
+    255
+   ],
+   "bg_from_column": 2,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Valor (package name); vertical shading copied from column 2",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "bullseye",
+   "jp": "必",
+   "en": "BU",
+   "box": [
+    21,
+    3,
+    33,
+    14
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    52,
+    12,
+    11,
+    255
+   ],
+   "bg_from_column": 20,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Bullseye (package name); vertical shading copied from column 20",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "accel",
+   "jp": "加",
+   "en": "AC",
+   "box": [
+    39,
+    3,
+    51,
+    14
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    34,
+    84,
+    255
+   ],
+   "bg_from_column": 38,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Accel (package name); vertical shading copied from column 38",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "flash",
+   "jp": "閃",
+   "en": "FL",
+   "box": [
+    57,
+    3,
+    69,
+    14
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    34,
+    84,
+    255
+   ],
+   "bg_from_column": 56,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Flash (package name); vertical shading copied from column 56",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "focus",
+   "jp": "集",
+   "en": "FO",
+   "box": [
+    75,
+    3,
+    87,
+    14
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    34,
+    84,
+    255
+   ],
+   "bg_from_column": 74,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Focus (package name); vertical shading copied from column 74",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "persist",
+   "jp": "不",
+   "en": "PE",
+   "box": [
+    3,
+    20,
+    15,
+    31
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    54,
+    23,
+    0,
+    255
+   ],
+   "bg_from_column": 2,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Persist (package name); vertical shading copied from column 2",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "wall",
+   "jp": "鉄",
+   "en": "WA",
+   "box": [
+    21,
+    20,
+    33,
+    31
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    54,
+    23,
+    0,
+    255
+   ],
+   "bg_from_column": 20,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Wall (package name); vertical shading copied from column 20",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "gain",
+   "jp": "努",
+   "en": "GA",
+   "box": [
+    39,
+    20,
+    51,
+    31
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    12,
+    36,
+    22,
+    255
+   ],
+   "bg_from_column": 38,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Gain (package name); vertical shading copied from column 38",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "fortune",
+   "jp": "幸",
+   "en": "FR",
+   "box": [
+    57,
+    20,
+    69,
+    31
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    12,
+    36,
+    22,
+    255
+   ],
+   "bg_from_column": 56,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Fortune (package name); vertical shading copied from column 56",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "disrupt",
+   "jp": "乱",
+   "en": "DI",
+   "box": [
+    75,
+    20,
+    87,
+    31
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    53,
+    7,
+    75,
+    255
+   ],
+   "bg_from_column": 74,
+   "clear_opaque_only": true,
+   "note": "spirit orb: Disrupt (package name); vertical shading copied from column 74",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "surround",
+   "jp": "包",
+   "en": "SR",
+   "box": [
+    108,
+    4,
+    118,
+    13
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    91,
+    24,
+    2,
+    255
+   ],
+   "bg": [
+    233,
+    78,
+    27,
+    255
+   ],
+   "note": "orange circle badge: Surround",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "direct_hit",
+   "jp": "直",
+   "en": "DH",
+   "box": [
+    93,
+    35,
+    103,
+    45
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    98,
+    71,
+    51,
+    255
+   ],
+   "bg_from_column": 92,
+   "note": "orange square badge: 直撃 = Direct Hit",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "throw",
+   "jp": "投",
+   "en": "TH",
+   "box": [
+    108,
+    35,
+    118,
+    45
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    60,
+    40,
+    255
+   ],
+   "bg_from_column": 107,
+   "note": "green/magenta badge: Throw (split kept via column 107)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "fire",
+   "jp": "(flame)",
+   "en": null,
+   "box": [
+    90,
+    0,
+    106,
+    16
+   ],
+   "note": "pictogram, no text"
+  },
+  {
+   "id": "freeze",
+   "jp": "(snowflake)",
+   "en": null,
+   "box": [
+    90,
+    16,
+    106,
+    32
+   ],
+   "note": "pictogram, no text"
+  },
+  {
+   "id": "stun",
+   "jp": "(lightning)",
+   "en": null,
+   "box": [
+    106,
+    16,
+    120,
+    32
+   ],
+   "note": "pictogram, no text"
+  }
+ ]
+}

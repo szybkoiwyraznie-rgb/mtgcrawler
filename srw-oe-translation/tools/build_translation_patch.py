@@ -104,7 +104,7 @@ SKIP_CATEGORIES = {"config_item_drop"}
 #: specs in ui_labels/).  They hold no package text; the builder rewrites them from the ISO
 #: when --iso is given.  Members are written STORED - the only variant verified in the game
 #: (UI_TEST1 A_stored, 2026-10-15); our CRILAYLA encoder is still untested in-game.
-UI_TEXTURE_CONTAINERS = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk")
+UI_TEXTURE_CONTAINERS = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk", "navisys.cpk")
 UI_TEXTURE_COMPRESS = "stored"
 
 

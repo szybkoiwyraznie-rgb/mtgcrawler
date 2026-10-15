@@ -222,12 +222,19 @@ def load(path: Path) -> Cpk:
     # A column CRIWARE could store once in the schema has no per-row cell to
     # patch; resizing a member would mean promoting it and changing every row's
     # width, which is not what this writer does. Refuse rather than guess.
-    constant = [c.name for c in (name_col, size_col, extract_col, offset_col) if c.row_offset is None]
+    # ``ExtractSize`` is the one exception: ``navisys.cpk`` (two 256x256 GIMs,
+    # both 262 348 B unpacked) stores it once for both rows, and a same-size
+    # texture rewrite keeps that value - ``rebuild`` checks the replacement
+    # against the constant and refuses anything else.
+    constant = [c.name for c in (name_col, size_col, offset_col) if c.row_offset is None]
     if constant:
         raise ValueError(
             f"{path.name}: {', '.join(constant)} are constant-storage columns, so members "
             "cannot be resized without rebuilding the whole TOC row layout"
         )
+    constant_extract: Optional[int] = None
+    if extract_col.row_offset is None:
+        constant_extract = int(reference["entries"][0]["extract_size"]) if reference["entries"] else None
 
     # String values are byte offsets into the table's string pool, which starts
     # eight bytes into the @UTF table (the same base cpk_table uses).
@@ -247,7 +254,8 @@ def load(path: Path) -> Cpk:
                 index=i,
                 name=name,
                 file_size=file_size,
-                extract_size=_read_cell(data, row_start, extract_col),
+                extract_size=(constant_extract if extract_col.row_offset is None
+                              else _read_cell(data, row_start, extract_col)),
                 relative_offset=relative,
                 row_start=row_start,
                 blob=data[data_base + relative:data_base + relative + file_size],
@@ -450,8 +458,18 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
         _write_cell(out, member.row_start, offset_col, new_relative[member.index])
         if member.name == target_name and new_blob is not None:
             _write_cell(out, member.row_start, size_col, len(new_blob))
-            _write_cell(out, member.row_start, extract_col,
-                        new_extract if new_extract is not None else len(new_blob))
+            wanted_extract = new_extract if new_extract is not None else len(new_blob)
+            if extract_col.row_offset is None:
+                # constant-storage ExtractSize (navisys.cpk): the schema holds one
+                # value for every row, so the replacement must keep it exactly.
+                if wanted_extract != member.extract_size:
+                    raise ValueError(
+                        f"{cpk.path.name}: ExtractSize is a constant-storage column "
+                        f"({member.extract_size}); a member unpacking to {wanted_extract} "
+                        "bytes cannot be written without rebuilding the TOC schema"
+                    )
+            else:
+                _write_cell(out, member.row_start, extract_col, wanted_extract)
 
     def set_header(name: str, value: int) -> None:
         try:
@@ -506,7 +524,15 @@ def replace_appended(cpk: Cpk, name: str, blob: bytes) -> bytes:
     _write_cell(data, member.row_start, cpk.toc_layout.column("FileOffset"),
                 new_abs - cpk.data_base)
     _write_cell(data, member.row_start, cpk.toc_layout.column("FileSize"), len(blob))
-    _write_cell(data, member.row_start, cpk.toc_layout.column("ExtractSize"), len(blob))
+    extract_col = cpk.toc_layout.column("ExtractSize")
+    if extract_col.row_offset is None:
+        if len(blob) != member.extract_size:
+            raise ValueError(
+                f"{cpk.path.name}: ExtractSize is a constant-storage column "
+                f"({member.extract_size}); cannot append a {len(blob)}-byte member"
+            )
+    else:
+        _write_cell(data, member.row_start, extract_col, len(blob))
     try:
         col = cpk.header_layout.column("FileSize")
     except KeyError:

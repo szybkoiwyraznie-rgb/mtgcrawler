@@ -69,8 +69,9 @@ class ContainerResult:
     original_md5: str
     new_size: int = 0
     new_md5: str = ""
-    member_size: int = 0
-    member_stored_as: int = 0
+    member_size: int = 0          # unpacked bytes of the rewritten member(s), summed
+    member_stored_as: int = 0     # packed bytes of the rewritten member(s), summed
+    members: List[dict] = field(default_factory=list)   # [{name, index, size, stored_as}]
     textures: List[str] = field(default_factory=list)
     labels: Dict[str, List[dict]] = field(default_factory=dict)
 
@@ -93,8 +94,14 @@ def load_specs(spec_dir: Path) -> Dict[str, dict]:
     return specs
 
 
-def walk_gims(blob: bytes, prefix: str = "") -> List[Tuple[str, int, int]]:
-    """(path, absolute offset, size) of every ``*.gim`` in a PAC, nested PACs included."""
+def walk_gims(blob: bytes, prefix: str = "", member_name: str = "") -> List[Tuple[str, int, int]]:
+    """(path, absolute offset, size) of every ``*.gim`` in a PAC, nested PACs included.
+
+    A member that *is* a GIM (``navisys.cpk`` holds ``navisys_01.gim`` / ``navisys_02.gim``
+    directly, no PAC around them) counts as one hit covering the whole blob.
+    """
+    if member_name.lower().endswith(".gim") and blob[:4] == gim_image.MAGIC[:4]:
+        return [(prefix + member_name, 0, len(blob))]
     try:
         entries = gim_image.pac_entries(blob)
     except gim_image.GimError:
@@ -179,45 +186,64 @@ def build(originals: Path, out_dir: Path, specs: Dict[str, dict], compress: str,
             members = speaker_map.read_members(cpk_path)
         except Exception:  # not a container we can read (fail per file, report)
             continue
-        wanted = False
-        for _, blob in members:
-            if any(Path(p).stem in specs for p, _, _ in walk_gims(blob)):
-                wanted = True
-                break
-        if not wanted:
+        # which members hold a spec'd texture (PAC members are walked, GIM members count whole)
+        targets: List[Tuple[int, str, bytes, List[Tuple[str, int, int]]]] = []
+        for index, (member_name, blob) in enumerate(members):
+            hits = walk_gims(blob, member_name=member_name)
+            if any(Path(p).stem in specs for p, _, _ in hits):
+                targets.append((index, member_name, blob, hits))
+        if not targets:
             continue
         data = cpk_path.read_bytes()
         kind = container_kind(cpk_path)
         res = ContainerResult(cpk_path.name, kind, len(data), md5(data))
-        if len(members) != 1:
-            raise UiPatchError(f"{cpk_path.name}: {len(members)} members — this tool handles the "
-                               f"single-member UI containers only")
-        member_name, blob = members[0]
-        hits = walk_gims(blob)
-        new_blob, expected = patch_member(blob, hits, specs, res, preview_dir)
-        # everything outside the GIM spans must be byte-identical
-        check = bytearray(new_blob)
-        for off, raw in expected.items():
-            check[off:off + len(raw)] = blob[off:off + len(raw)]
-        if bytes(check) != blob:
-            raise UiPatchError(f"{cpk_path.name}: bytes outside the textures changed")
-        packed = store(new_blob, compress)
-        if kind == "itoc":
-            cpk = cpk_itoc_write.load(cpk_path)
-            new_data = cpk_itoc_write.rebuild(cpk, {0: (packed, len(new_blob))})
-        else:
-            cpk = cpk_write.load(cpk_path)
-            new_data = cpk_write.rebuild(cpk, (member_name, packed, len(new_blob)))
+        if kind == "itoc" and len(members) != 1:
+            raise UiPatchError(f"{cpk_path.name}: {len(members)} members in an ITOC-only container — "
+                               f"cpk_itoc_write handles single-member containers only")
         out_path = out_dir / cpk_path.name
-        out_path.write_bytes(new_data)
-        verify_container(out_path, 0, member_name, new_blob)
-        # and the textures decode to what we rendered
-        back = speaker_map.read_members(out_path)[0][1]
-        for off, raw in expected.items():
-            if back[off:off + len(raw)] != raw:
-                raise UiPatchError(f"{cpk_path.name}: texture at {off} did not survive the rebuild")
+        current = cpk_path            # the container the next rewrite starts from
+        rewritten: List[Tuple[int, str, bytes, Dict[int, bytes]]] = []
+        for index, member_name, blob, hits in targets:
+            new_blob, expected = patch_member(blob, hits, specs, res, preview_dir)
+            # everything outside the GIM spans must be byte-identical
+            check = bytearray(new_blob)
+            for off, raw in expected.items():
+                check[off:off + len(raw)] = blob[off:off + len(raw)]
+            if bytes(check) != blob:
+                raise UiPatchError(f"{cpk_path.name}/{member_name}: bytes outside the textures changed")
+            packed = store(new_blob, compress)
+            if kind == "itoc":
+                cpk = cpk_itoc_write.load(current)
+                new_data = cpk_itoc_write.rebuild(cpk, {0: (packed, len(new_blob))})
+            else:
+                cpk = cpk_write.load(current)
+                new_data = cpk_write.rebuild(cpk, (member_name, packed, len(new_blob)))
+            out_path.write_bytes(new_data)
+            current = out_path        # a second member is rewritten on top of the first
+            rewritten.append((index, member_name, new_blob, expected))
+            res.member_size += len(new_blob)
+            res.member_stored_as += len(packed)
+            res.members.append({"name": member_name, "index": index, "size": len(new_blob),
+                                "stored_as": len(packed)})
+        new_data = out_path.read_bytes()
+        back_members = speaker_map.read_members(out_path)
+        if len(back_members) != len(members):
+            raise UiPatchError(f"{cpk_path.name}: {len(back_members)} members after the rebuild, "
+                               f"expected {len(members)}")
+        for index, member_name, new_blob, expected in rewritten:
+            verify_container(out_path, index, member_name, new_blob)
+            # and the textures decode to what we rendered
+            back = back_members[index][1]
+            for off, raw in expected.items():
+                if back[off:off + len(raw)] != raw:
+                    raise UiPatchError(f"{cpk_path.name}/{member_name}: texture at {off} did not "
+                                       f"survive the rebuild")
+        # untouched members must read back byte-identical too
+        touched = {index for index, _, _, _ in rewritten}
+        for index, (member_name, blob) in enumerate(members):
+            if index not in touched and back_members[index][1] != blob:
+                raise UiPatchError(f"{cpk_path.name}/{member_name}: an untouched member changed")
         res.new_size, res.new_md5 = len(new_data), md5(new_data)
-        res.member_size, res.member_stored_as = len(new_blob), len(packed)
         results.append(res)
     if not results:
         raise UiPatchError(f"no container in {originals} holds a spec'd texture")

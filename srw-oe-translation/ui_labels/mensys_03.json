@@ -1,224 +1,290 @@
 {
-  "texture": "mensys_03",
-  "source": "system.cpk (member 0, system PAC) — 128x64 INDEX8; drawn on the unit/pilot status and weapon screens",
-  "font": "assets/fonts/Roboto-Bold.ttf",
-  "size": 12,
-  "min_size": 8,
-  "labels": [
-    {
-      "id": "sub_pilot",
-      "jp": "サブパイロット",
-      "en": "Sub Pilot",
-      "box": [
-        7,
-        1,
-        66,
-        13
-      ]
-    },
-    {
-      "id": "atk",
-      "jp": "攻撃",
-      "en": "ATK",
-      "box": [
-        2,
-        15,
-        24,
-        27
-      ]
-    },
-    {
-      "id": "def",
-      "jp": "防御",
-      "en": "DEF",
-      "box": [
-        29,
-        15,
-        51,
-        27
-      ]
-    },
-    {
-      "id": "hit",
-      "jp": "命中",
-      "en": "HIT",
-      "box": [
-        56,
-        15,
-        78,
-        27
-      ]
-    },
-    {
-      "id": "eva",
-      "jp": "回避",
-      "en": "EVA",
-      "box": [
-        2,
-        29,
-        24,
-        41
-      ]
-    },
-    {
-      "id": "size",
-      "jp": "サイズ",
-      "en": "SIZE",
-      "box": [
-        29,
-        29,
-        51,
-        41
-      ]
-    },
-    {
-      "id": "move",
-      "jp": "移動",
-      "en": "MOV",
-      "box": [
-        56,
-        29,
-        78,
-        41
-      ]
-    },
-    {
-      "id": "target",
-      "jp": "対象",
-      "en": "TGT",
-      "box": [
-        0,
-        42,
-        19,
-        53
-      ]
-    },
-    {
-      "id": "will_req",
-      "jp": "必要気力",
-      "en": "Will Req",
-      "box": [
-        19,
-        42,
-        58,
-        53
-      ]
-    },
-    {
-      "id": "name_counter",
-      "jp": "名",
-      "en": null,
-      "box": [
-        58,
-        42,
-        68,
-        53
-      ],
-      "note": "single 10 px glyph (counter for people, e.g. 2名); usage not seen on screen yet — kept"
-    },
-    {
-      "id": "en_cost",
-      "jp": "消費EN",
-      "en": "EN Cost",
-      "box": [
-        0,
-        53,
-        30,
-        64
-      ]
-    },
-    {
-      "id": "range",
-      "jp": "射程",
-      "en": "RNG",
-      "box": [
-        30,
-        53,
-        51,
-        64
-      ]
-    },
-    {
-      "id": "hit_weapon",
-      "jp": "命中",
-      "en": "HIT",
-      "box": [
-        51,
-        53,
-        71,
-        64
-      ]
-    },
-    {
-      "id": "weapon",
-      "jp": "武器",
-      "en": "WPN",
-      "box": [
-        84,
-        48,
-        105,
-        60
-      ]
-    },
-    {
-      "id": "area",
-      "jp": "範囲",
-      "en": "Area",
-      "box": [
-        109,
-        53,
-        128,
-        64
-      ]
-    },
-    {
-      "id": "terrain_air",
-      "jp": "空",
-      "en": null,
-      "box": [
-        90,
-        2,
-        105,
-        17
-      ],
-      "note": "terrain icon (air) — icons kept for now"
-    },
-    {
-      "id": "terrain_space",
-      "jp": "宇",
-      "en": null,
-      "box": [
-        110,
-        2,
-        125,
-        17
-      ],
-      "note": "terrain icon (space) — kept"
-    },
-    {
-      "id": "terrain_ground",
-      "jp": "地",
-      "en": null,
-      "box": [
-        110,
-        21,
-        125,
-        36
-      ],
-      "note": "terrain icon (ground) — kept"
-    }
-  ],
-  "squeeze": 0.8,
-  "fill": [
-    230,
-    230,
-    230,
+ "texture": "mensys_03",
+ "source": "system.cpk (member 0, system PAC) — 128x64 INDEX8; drawn on the unit/pilot status and weapon screens",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "labels": [
+  {
+   "id": "sub_pilot",
+   "jp": "サブパイロット",
+   "en": "Sub Pilot",
+   "box": [
+    7,
+    1,
+    66,
+    13
+   ]
+  },
+  {
+   "id": "atk",
+   "jp": "攻撃",
+   "en": "ATK",
+   "box": [
+    2,
+    15,
+    24,
+    27
+   ]
+  },
+  {
+   "id": "def",
+   "jp": "防御",
+   "en": "DEF",
+   "box": [
+    29,
+    15,
+    51,
+    27
+   ]
+  },
+  {
+   "id": "hit",
+   "jp": "命中",
+   "en": "HIT",
+   "box": [
+    56,
+    15,
+    78,
+    27
+   ]
+  },
+  {
+   "id": "eva",
+   "jp": "回避",
+   "en": "EVA",
+   "box": [
+    2,
+    29,
+    24,
+    41
+   ]
+  },
+  {
+   "id": "size",
+   "jp": "サイズ",
+   "en": "SIZE",
+   "box": [
+    29,
+    29,
+    51,
+    41
+   ]
+  },
+  {
+   "id": "move",
+   "jp": "移動",
+   "en": "MOV",
+   "box": [
+    56,
+    29,
+    78,
+    41
+   ]
+  },
+  {
+   "id": "target",
+   "jp": "対象",
+   "en": "TGT",
+   "box": [
+    0,
+    42,
+    19,
+    53
+   ]
+  },
+  {
+   "id": "will_req",
+   "jp": "必要気力",
+   "en": "Will Req",
+   "box": [
+    19,
+    42,
+    58,
+    53
+   ]
+  },
+  {
+   "id": "name_counter",
+   "jp": "名",
+   "en": null,
+   "box": [
+    58,
+    42,
+    68,
+    53
+   ],
+   "note": "single 10 px glyph (counter for people, e.g. 2名); usage not seen on screen yet — kept"
+  },
+  {
+   "id": "en_cost",
+   "jp": "消費EN",
+   "en": "EN Cost",
+   "box": [
+    0,
+    53,
+    30,
+    64
+   ]
+  },
+  {
+   "id": "range",
+   "jp": "射程",
+   "en": "RNG",
+   "box": [
+    30,
+    53,
+    51,
+    64
+   ]
+  },
+  {
+   "id": "hit_weapon",
+   "jp": "命中",
+   "en": "HIT",
+   "box": [
+    51,
+    53,
+    71,
+    64
+   ]
+  },
+  {
+   "id": "weapon",
+   "jp": "武器",
+   "en": "WPN",
+   "box": [
+    84,
+    48,
+    105,
+    60
+   ]
+  },
+  {
+   "id": "area",
+   "jp": "範囲",
+   "en": "Area",
+   "box": [
+    109,
+    53,
+    128,
+    64
+   ]
+  },
+  {
+   "id": "terrain_air",
+   "jp": "空",
+   "en": "AI",
+   "box": [
+    93,
+    5,
+    103,
+    15
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
     255
-  ],
-  "outline": [
+   ],
+   "outline": [
     0,
+    30,
+    45,
+    255
+   ],
+   "bg": [
     0,
+    43,
+    58,
+    255
+   ],
+   "note": "terrain badge: Air (blue frame); 2-letter code, status-screen rank letters sit next to it so single A/S would clash",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "terrain_space",
+   "jp": "宇",
+   "en": "SP",
+   "box": [
+    113,
+    5,
+    123,
+    15
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    10,
     0,
-    200
-  ]
+    50,
+    255
+   ],
+   "bg": [
+    26,
+    0,
+    96,
+    255
+   ],
+   "note": "terrain badge: Space (purple frame)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "terrain_ground",
+   "jp": "地",
+   "en": "GR",
+   "box": [
+    113,
+    24,
+    123,
+    34
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    40,
+    15,
+    255
+   ],
+   "bg": [
+    0,
+    75,
+    32,
+    255
+   ],
+   "note": "terrain badge: Ground (green frame)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  }
+ ],
+ "squeeze": 0.8,
+ "fill": [
+  230,
+  230,
+  230,
+  255
+ ],
+ "outline": [
+  0,
+  0,
+  0,
+  200
+ ]
 }

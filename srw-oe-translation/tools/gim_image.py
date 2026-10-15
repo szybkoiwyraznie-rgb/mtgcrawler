@@ -327,12 +327,54 @@ def nearest_index(palette: List[Tuple[int, int, int, int]], rgba: Tuple[int, int
     return best
 
 
+def encode_rgba8888(gim: Gim, rgba: bytes, frame: int = 0) -> bytes:
+    """Return a copy of ``gim.raw`` with frame ``frame`` of a true-colour (RGBA8888) texture
+    replaced by ``rgba`` (row-major, width*height*4 bytes), re-swizzled when the original is.
+
+    No quantisation is involved; padding columns/rows beyond width/height, every header and
+    the byte length are untouched (``navisys.cpk`` holds two such 256x256 textures).
+    """
+    info = gim.image
+    if info.format != 3:
+        raise GimError(f"encode_rgba8888 needs an RGBA8888 texture, not {info.format_name}")
+    w, h = info.width, info.height
+    if len(rgba) != w * h * 4:
+        raise GimError(f"pixel buffer is {len(rgba)} bytes, expected {w * h * 4}")
+    bpp = info.bpp or 32
+    pitch = -(-((w * bpp + 7) // 8) // (info.pitch_align or 16)) * (info.pitch_align or 16)
+    rows = -(-h // (info.height_align or 8)) * (info.height_align or 8)
+    block = gim.image_block
+    start = block.data + info.offsets[frame]
+    end = start + pitch * rows
+    if end > block.start + block.size:
+        raise GimError("pixel data runs past the image block")
+    linear = bytearray(_pixel_bytes(gim, info, block, frame)[0])
+    for y in range(h):
+        linear[y * pitch:y * pitch + w * 4] = rgba[y * w * 4:(y + 1) * w * 4]
+    data = bytes(linear)
+    if info.pixel_order == 1:
+        data = _swizzle(data, pitch, rows)
+    out = bytearray(gim.raw)
+    out[start:end] = data
+    if len(out) != len(gim.raw):
+        raise GimError("internal error: re-encoded GIM changed size")
+    return bytes(out)
+
+
+def encode(gim: Gim, rgba: bytes, frame: int = 0) -> bytes:
+    """Same-size re-encode of one frame: INDEX8 through the existing palette, RGBA8888 as is."""
+    if gim.image.format == 3:
+        return encode_rgba8888(gim, rgba, frame)
+    return encode_index8(gim, rgba, frame)
+
+
 def encode_index8(gim: Gim, rgba: bytes, frame: int = 0) -> bytes:
     """Return a copy of ``gim.raw`` with frame ``frame`` replaced by ``rgba`` (row-major
     RGBA8888, width*height*4 bytes), re-quantised to the EXISTING palette and re-swizzled.
 
-    Only INDEX8 textures are supported; the palette, every header and the byte length of
-    the file are untouched, so the result can be spliced back into its PAC/CPK slot.
+    Only INDEX8 textures are supported (see :func:`encode` for the format switch); the
+    palette, every header and the byte length of the file are untouched, so the result can
+    be spliced back into its PAC/CPK slot.
     """
     info = gim.image
     if info.format != 5:

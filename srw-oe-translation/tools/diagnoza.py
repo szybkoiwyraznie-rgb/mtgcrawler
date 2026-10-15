@@ -44,7 +44,7 @@ from iso_insert import KNOWN_ORIGINALS  # noqa: E402
 
 USRDIR_NAMES = ("config00.cpk", "configst.cpk", "eventP00.cpk", "imenu00.cpk", "mesbtl00.cpk")
 #: UI texture containers (captions painted into GIM textures; tools/ui_texture_patch.py)
-UI_NAMES = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk")
+UI_NAMES = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk", "navisys.cpk")
 # md5 -> label of the UI texture containers handed out (all members STORED)
 KNOWN_UI: Dict[str, str] = {
     # UI_TEST1 (2026-10-15): 5 textures (intsys_01, mensys_01/03/08/13); A_stored WORKS in the game
@@ -55,11 +55,16 @@ KNOWN_UI: Dict[str, str] = {
     "0362fa7a4a91b0b051c2caf73eb262bb": "UI_TEST1 B_crilayla (nie testowany)",
     "5458d0824b87461c1847481acde0ab04": "UI_TEST1 B_crilayla (nie testowany)",
     # UI_TEST2 (2026-10-15): 23 textures incl. the battle set (tacsys) - also what BUILD19+ puts in patched.iso
-    "3799c559ab05b5aa17580e0aaca68f9c": "UI_TEST2 (= build z teksturami, 23 tekstury)",
-    "432ea0178198ffb747674234eb489f3f": "UI_TEST2 (= build z teksturami, 23 tekstury)",
-    "e56fd10e46cd547d9e9b813983b51c5b": "UI_TEST2 (= build z teksturami, 23 tekstury)",
-    "a90121ef791412eee61e1b36b6306d26": "UI_TEST2 (= build z teksturami, 23 tekstury)",
-    "fcb2350f34505ee8f0124a4ef155a4f1": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+    "3799c559ab05b5aa17580e0aaca68f9c": "UI_TEST2 (23 tekstury; system.cpk - zastapiony przez UI_TEST3)",
+    "432ea0178198ffb747674234eb489f3f": "UI_TEST2 (23 tekstury; tacsys.cpk - zastapiony przez UI_TEST3)",
+    "e56fd10e46cd547d9e9b813983b51c5b": "UI_TEST2 = UI_TEST3 (IM1000.cpk bez zmian miedzy zestawami)",
+    "a90121ef791412eee61e1b36b6306d26": "UI_TEST2 = UI_TEST3 (IM3000.cpk bez zmian miedzy zestawami)",
+    "fcb2350f34505ee8f0124a4ef155a4f1": "UI_TEST2 = UI_TEST3 (IM9000.cpk bez zmian miedzy zestawami)",
+    # UI_TEST3 (2026-10-15): 26 textures - the icon badges (terrain, weapon abilities, spirit orbs)
+    # carry 2-letter codes and navisys.cpk (navigation buttons) joins the set
+    "ee28e8fb17c0b4ddc646f2fbbc1e1313": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
+    "def587de1a8392e20fff3d0d315a1e04": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
+    "ec647a6aaf62d3e5ff19843ccf6d8b22": "UI_TEST3 (26 tekstur, ikony literowe; = build z teksturami)",
 }
 
 # md5 -> label of every config00/configst we ever handed out (EXPERIMENT_LOG.md 21.x).

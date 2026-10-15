@@ -54,6 +54,23 @@ def build_index8_gim(width: int, height: int, palette: Sequence[RGBA], indices: 
     return b"MIG.00.1PSP\x00" + b"\x00" * 4 + root
 
 
+def build_rgba8888_gim(width: int, height: int, rgba: bytes, swizzled: bool = True,
+                       name: str = "synthetic.tga") -> bytes:
+    """True-colour (RGBA8888, 32 bpp) texture without a palette block - the shape of the two
+    ``navisys_*.gim`` members (256x256, swizzled, ``source *.tga``)."""
+    if (width * 4) % 16 or height % 8:
+        raise ValueError("fixture wants tile-aligned sizes")
+    if len(rgba) != width * height * 4:
+        raise ValueError("rgba buffer size mismatch")
+    pitch = width * 4
+    pixels = swizzle(rgba, pitch, height) if swizzled else bytes(rgba)
+    image = _block(0x04, _info(3, 1 if swizzled else 0, width, height, 32, 16, 8, len(pixels)) + pixels)
+    picture = _block(0x03, b"", container=True, inner=image)
+    fileinfo = _block(0xFF, name.encode() + b"\x00owner\x00date\x00GimConv 1.50\x00")
+    root = _block(0x02, b"", container=True, inner=picture + fileinfo)
+    return b"MIG.00.1PSP\x00" + b"\x00" * 4 + root
+
+
 def build_ui_pac(entries: List[Tuple[str, bytes]], first_word: int = 0x10, name_len: int = 0x20) -> bytes:
     """``u32 first, u32 count, u32 name_len, u32 0`` + entries ``u32 off, u32 size, char[name_len]``."""
     index_size = 0x10 + len(entries) * (8 + name_len)
@@ -88,3 +105,15 @@ def label_texture(width: int = 64, height: int = 32) -> bytes:
             idx[y * width + x] = 7 if border else 2
     idx[20 * width + 40] = 12
     return build_index8_gim(width, height, LABEL_PALETTE, idx)
+
+
+def label_texture_rgba(width: int = 64, height: int = 32) -> bytes:
+    """True-colour twin of :func:`label_texture`: same fake glyph (white box, dark outline)
+    at (4..20, 4..16) over transparent white, same red pixel at (40, 20)."""
+    rgba = bytearray(bytes(LABEL_PALETTE[0]) * (width * height))
+    for y in range(4, 16):
+        for x in range(4, 20):
+            border = x in (4, 19) or y in (4, 15)
+            rgba[(y * width + x) * 4:(y * width + x) * 4 + 4] = bytes(LABEL_PALETTE[7] if border else LABEL_PALETTE[2])
+    rgba[(20 * width + 40) * 4:(20 * width + 40) * 4 + 4] = bytes(LABEL_PALETTE[12])
+    return build_rgba8888_gim(width, height, bytes(rgba))

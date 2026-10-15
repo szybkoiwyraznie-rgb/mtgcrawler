@@ -16,8 +16,9 @@ import gim_image  # noqa: E402
 import gim_label  # noqa: E402
 import speaker_map  # noqa: E402
 import ui_texture_patch  # noqa: E402
-from gim_fixtures import build_ui_pac, label_texture  # noqa: E402
+from gim_fixtures import build_ui_pac, label_texture, label_texture_rgba  # noqa: E402
 from test_cpk_itoc_write import build_itoc_only_cpk  # noqa: E402
+from test_cpk_table import build_synthetic_cpk  # noqa: E402
 
 try:
     import PIL  # noqa: F401
@@ -236,6 +237,68 @@ class UiTexturePatchTests(unittest.TestCase):
         report = json.loads((out / "ui_texture_report.json").read_text(encoding="utf-8"))
         self.assertEqual(report["containers"][0]["name"], "system.cpk")
         self.assertNotIn("blob", json.dumps(report))
+
+
+@unittest.skipUnless(HAVE_PIL, "Pillow not installed")
+class BareGimTocContainerTests(unittest.TestCase):
+    """navisys.cpk shape: a TOC container whose members ARE textures (no PAC), true colour,
+    with ExtractSize stored once as a schema constant."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.originals = self.root / "orig"
+        self.originals.mkdir()
+        self.tex1 = label_texture_rgba()
+        self.tex2 = label_texture_rgba()
+        cpk = build_synthetic_cpk([{"name": "navisys_01.gim", "data": self.tex1, "id": 0},
+                                   {"name": "navisys_02.gim", "data": self.tex2, "id": 1}],
+                                  enabled_sizes=True, constant_extract=True)
+        (self.originals / "navisys.cpk").write_bytes(cpk)
+        self.specs = self.root / "specs"
+        self.specs.mkdir()
+        self.spec2 = spec(texture="navisys_02")
+        (self.specs / "navisys_02.json").write_text(json.dumps(self.spec2), encoding="utf-8")
+
+    def _build(self):
+        out = self.root / "out"
+        results = ui_texture_patch.build(self.originals, out, ui_texture_patch.load_specs(self.specs), "stored")
+        return out, results
+
+    def test_walk_treats_a_gim_member_as_one_whole_texture(self):
+        self.assertEqual(ui_texture_patch.walk_gims(self.tex2, member_name="navisys_02.gim"),
+                         [("navisys_02.gim", 0, len(self.tex2))])
+        self.assertEqual(ui_texture_patch.walk_gims(self.tex2), [])          # no name, no PAC index: nothing
+        self.assertEqual(ui_texture_patch.walk_gims(b"x" * 64, member_name="a.gim"), [])
+
+    def test_only_the_spec_d_member_is_rewritten(self):
+        out, results = self._build()
+        self.assertEqual([r.name for r in results], ["navisys.cpk"])
+        res = results[0]
+        self.assertEqual(res.kind, "toc")
+        self.assertEqual(res.textures, ["navisys_02.gim"])
+        self.assertEqual([m["name"] for m in res.members], ["navisys_02.gim"])
+        self.assertEqual(res.labels["navisys_02.gim"][0]["en"], "ATK")
+        back = dict(speaker_map.read_members(out / "navisys.cpk"))
+        self.assertEqual(back["navisys_01.gim"], self.tex1)
+        expected, _, _ = gim_label.render_labels(self.tex2, self.spec2)
+        self.assertEqual(back["navisys_02.gim"], expected)
+        self.assertNotEqual(expected, self.tex2)
+        self.assertEqual(len(expected), len(self.tex2))      # constant ExtractSize must still hold
+
+    def test_two_spec_d_members_are_rewritten_on_top_of_each_other(self):
+        spec1 = spec(texture="navisys_01")
+        spec1["labels"][0]["en"] = "DEF"
+        (self.specs / "navisys_01.json").write_text(json.dumps(spec1), encoding="utf-8")
+        out, results = self._build()
+        res = results[0]
+        self.assertEqual(res.textures, ["navisys_01.gim", "navisys_02.gim"])
+        self.assertEqual([m["index"] for m in res.members], [0, 1])
+        back = dict(speaker_map.read_members(out / "navisys.cpk"))
+        self.assertEqual(back["navisys_01.gim"], gim_label.render_labels(self.tex1, spec1)[0])
+        self.assertEqual(back["navisys_02.gim"], gim_label.render_labels(self.tex2, self.spec2)[0])
+        self.assertNotEqual(back["navisys_01.gim"], back["navisys_02.gim"])
 
 
 if __name__ == "__main__":

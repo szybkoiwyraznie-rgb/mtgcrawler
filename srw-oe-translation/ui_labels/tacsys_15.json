@@ -169,14 +169,36 @@
   {
    "id": "surround_badge",
    "jp": "包",
-   "en": null,
+   "en": "SR",
    "box": [
-    8,
-    20,
-    28,
-    40
+    7,
+    19,
+    18,
+    30
    ],
-   "note": "16-px kanji badge (包囲 = surround attack); no readable 2-letter form at this size yet"
+   "note": "yellow map-pin badge: 包囲 = Surround",
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    72,
+    45,
+    0,
+    255
+   ],
+   "bg": [
+    254,
+    174,
+    0,
+    255
+   ],
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
   }
  ]
 }
