@@ -1,0 +1,41 @@
+{
+ "texture": "mensys_05",
+ "source": "system.cpk — 256x32 INDEX8; digits, CLEAR, Auto Save/Now Loading and the 使用中 banner",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 10,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "in_use",
+   "jp": "使用中",
+   "en": "In Use",
+   "box": [
+    208,
+    18,
+    243,
+    30
+   ],
+   "clear": [
+    207,
+    17,
+    244,
+    30
+   ],
+   "bg_from_column": 244,
+   "align": "center",
+   "fill": [
+    245,
+    190,
+    80,
+    255
+   ],
+   "outline": [
+    40,
+    16,
+    16,
+    255
+   ]
+  }
+ ]
+}

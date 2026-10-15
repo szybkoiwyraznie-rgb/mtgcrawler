@@ -1,0 +1,33 @@
+{
+ "texture": "tacsys_10",
+ "source": "tacsys.cpk — 256x32 INDEX8; PLAYER PHASE banner, katakana sub-caption",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "sub_caption",
+   "jp": "プレイヤーフェイズ",
+   "en": "Your turn",
+   "box": [
+    1,
+    17,
+    101,
+    31
+   ],
+   "fill": [
+    176,
+    232,
+    255,
+    255
+   ],
+   "outline": [
+    16,
+    56,
+    112,
+    255
+   ]
+  }
+ ]
+}

@@ -43,6 +43,24 @@ if str(HERE) not in sys.path:
 from iso_insert import KNOWN_ORIGINALS  # noqa: E402
 
 USRDIR_NAMES = ("config00.cpk", "configst.cpk", "eventP00.cpk", "imenu00.cpk", "mesbtl00.cpk")
+#: UI texture containers (captions painted into GIM textures; tools/ui_texture_patch.py)
+UI_NAMES = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk")
+# md5 -> label of the UI texture containers handed out (all members STORED)
+KNOWN_UI: Dict[str, str] = {
+    # UI_TEST1 (2026-10-15): 5 textures (intsys_01, mensys_01/03/08/13); A_stored WORKS in the game
+    "4862e1f34ef68c7b631d146995722dfe": "UI_TEST1 A_stored (dziala w grze)",
+    "6695d4da2cfccde08bf6e2c51be1974d": "UI_TEST1 A_stored (dziala w grze)",
+    "541c20d50c28ab0a3d0b6944c02093e4": "UI_TEST1 A_stored (dziala w grze)",
+    "7be64db85b7662566b63b2071f7b7826": "UI_TEST1 B_crilayla (nie testowany)",
+    "0362fa7a4a91b0b051c2caf73eb262bb": "UI_TEST1 B_crilayla (nie testowany)",
+    "5458d0824b87461c1847481acde0ab04": "UI_TEST1 B_crilayla (nie testowany)",
+    # UI_TEST2 (2026-10-15): 23 textures incl. the battle set (tacsys) - also what BUILD19+ puts in patched.iso
+    "3799c559ab05b5aa17580e0aaca68f9c": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+    "432ea0178198ffb747674234eb489f3f": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+    "e56fd10e46cd547d9e9b813983b51c5b": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+    "a90121ef791412eee61e1b36b6306d26": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+    "fcb2350f34505ee8f0124a4ef155a4f1": "UI_TEST2 (= build z teksturami, 23 tekstury)",
+}
 
 # md5 -> label of every config00/configst we ever handed out (EXPERIMENT_LOG.md 21.x).
 KNOWN_CONFIG: Dict[str, str] = {
@@ -375,10 +393,10 @@ def describe_usrdir(name: str, digest: str, size: int) -> str:
     return f"zmieniony (nie oryginal; moj build ma {canon[1]} B)" if canon else "zmieniony"
 
 
-def iso_members(iso: Path) -> List[Tuple[str, str, int]]:
+def iso_members(iso: Path, names: Tuple[str, ...] = USRDIR_NAMES) -> List[Tuple[str, str, int]]:
     import iso_pack
     out = []
-    for name in USRDIR_NAMES:
+    for name in names:
         try:
             data = iso_pack.read_member(iso, f"psp_game/usrdir/{name}")
         except Exception as exc:  # noqa: BLE001
@@ -458,6 +476,18 @@ def section_iso(rep: Report, iso: Path) -> None:
             rep.flag(f"{name} w ISO to {note}.")
         if name not in EXPECTED_BUILD14 and digest != KNOWN_ORIGINALS.get(name):
             rep.flag(f"{name} w ISO jest zmieniony ({note}) - ten kontener nigdy nie byl testowany w grze osobno.")
+    rep.p("  tekstury UI (napisy w grafikach):")
+    for name, digest, msize in iso_members(iso, UI_NAMES):
+        if digest == KNOWN_ORIGINALS.get(name):
+            note = "ORYGINAL (napisy japonskie)"
+        elif digest in KNOWN_UI:
+            note = KNOWN_UI[digest]
+        elif digest.startswith("blad"):
+            note = ""
+        else:
+            note = "zmieniony - nie znam tego pliku"
+            rep.flag(f"{name} w ISO nie jest ani oryginalny, ani z zadnego mojego zestawu UI ({digest}).")
+        rep.p(f"  {name:14s} {msize:>8} B  md5 {digest}  -> {note}")
 
 
 def main(argv=None) -> int:

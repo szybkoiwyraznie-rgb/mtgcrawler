@@ -1,0 +1,78 @@
+{
+ "texture": "tacsys_17",
+ "source": "tacsys.cpk — 128x64 INDEX8; level-up pop-up captions (new spirit / skill) and the 押/投 badges",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "spirit_cmd",
+   "jp": "精神コマンド",
+   "en": "Spirit Cmd",
+   "box": [
+    0,
+    0,
+    66,
+    13
+   ]
+  },
+  {
+   "id": "skill",
+   "jp": "特殊スキル",
+   "en": "Skill",
+   "box": [
+    0,
+    14,
+    60,
+    27
+   ]
+  },
+  {
+   "id": "level_up",
+   "jp": "レベルアップ!",
+   "en": "Level Up!",
+   "box": [
+    0,
+    28,
+    62,
+    42
+   ]
+  },
+  {
+   "id": "get",
+   "jp": "ゲット!",
+   "en": "Get!",
+   "box": [
+    0,
+    42,
+    38,
+    55
+   ]
+  },
+  {
+   "id": "push_badge",
+   "jp": "押",
+   "en": null,
+   "box": [
+    76,
+    3,
+    92,
+    18
+   ],
+   "note": "push-out marker badge; kept"
+  },
+  {
+   "id": "throw_badge",
+   "jp": "投",
+   "en": null,
+   "box": [
+    96,
+    3,
+    112,
+    18
+   ],
+   "note": "throw marker badge; kept"
+  }
+ ]
+}

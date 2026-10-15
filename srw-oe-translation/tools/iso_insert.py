@@ -51,6 +51,8 @@ KNOWN_ORIGINALS: Dict[str, str] = {
     "system.cpk": "75b0d0d44f1afb3af027b93e38e223c6",
     "IM1000.cpk": "54077cbbf76c06251a220f9085bb2fc3",
     "IM3000.cpk": "5447d366aa01f8060138ecf4ae2ed80f",
+    "tacsys.cpk": "0e29a50724e7eec384a6ab2555539e32",
+    "IM9000.cpk": "2a490e70670c2ff374764635225fbaff",
 }
 SKIPPED_SUFFIXES = {".txt", ".json", ".md", ".zip", ".log", ".csv", ".html", ".bat", ".py", ".exe"}
 

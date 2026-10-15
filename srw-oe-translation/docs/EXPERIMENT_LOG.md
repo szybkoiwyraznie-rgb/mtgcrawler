@@ -4616,3 +4616,89 @@ przemianowany `_STARY`. `INSTRUKCJA_PL.md` zaktualizowana (v5/KIT 18, część 4
 **Status:** v5 / build #18 **w grze nie sprawdzone**. Do użytkownika: (1) `DIAGNOZA.bat` z ISO, które uruchamiał przy
 zrzucie 2; (2) czy ekran umiejętności pilota w TEJ SAMEJ sesji jest angielski; (3) zrzut listy broni w intermisji i
 tabliczki wroga z długim imieniem (szerokości niezmierzone); (4) wynik A/B UI_TEST1 na `patched.iso`.
+
+### 21.30 UI_TEST1 `A_stored` DZIAŁA W GRZE ⇒ komplet 23 tekstur interfejsu (walka `tacsys.cpk`, opcje, części, ulepszenia) = UI_TEST2; malowanie tekstur wbudowane w `build_translation_patch.py` (HOKUS_POKUS); linia zdolności na panelu broni — źródła zmierzone
+
+**Wejście (2026-10-15, użytkownik):** (1) zrzuty z gry: zestaw `UI_TEST1\A_stored` nałożony na `patched.iso` — zakładki
+intermisji, ATK/DEF/HIT/EVA, Will, Support po angielsku, bez czarnych pól i bez crasha ⇒ **gra toleruje człony
+`.pac` zapisane bez kompresji (wariant A, „stored”)** — to jest teraz jedyny wariant, jaki wysyłamy (B_crilayla nigdy
+nie sprawdzony w grze, `crilayla.compress` pozostaje niezweryfikowany). Decyzja użytkownika: przetłumaczyć TĄ SAMĄ
+drogą wszystkie pozostałe grafiki interfejsu (walka przede wszystkim). (2) ponowny zrzut japońskiej linii zdolności na
+panelu broni w walce (`image-1.png`), sejw z 2. rozdziału, użytkownik podtrzymuje, że to był pełny zestaw; załączony
+`DIAGNOZA.txt` jest ze starszego przebiegu (sprzed tego testu) — nie rozstrzyga.
+
+**Linia panelu broni — co zmierzono na plikach (bez zmiany modelu):** składniki widoczne na zrzucie
+(`＠4<連携攻撃Lv`, `＠0+`, `% 包囲率+`, `ｸﾞﾙｰﾌﾟ`, `全機が攻撃`) to fragmenty puli nr 202/196/710/361/150; w zestawie
+lokalnym występują WYŁĄCZNIE w `srwDL_Skill00.bin` (pula ogonowa od 193 328) i w `srwDL_Skill01–08.bin` (pule DLC);
+skan 6 kontenerów UI (`system`, `tacsys`, `IM1000/3000/9000`, `navisys`, po rozpakowaniu członów) — **0 trafień**, więc
+to nie jest tekstura. W buildach #17 i #18 wszystkie pięć fragmentów jest angielskich (`<Coord. Atk Lv`, `+`,
+`Surround+`, `Group`, `All units attack`) ⇒ w chwili zrzutu silnik składał linię z JAPOŃSKIEJ puli. Która pula —
+nie wiadomo (model: w rozdziale N silnik może czytać pulę `srwDL_Skill0N.bin` z `config0N.EDAT`, nie pulę Skill00).
+HIPOTEZA do rozstrzygnięcia: w folderze DLC użytkownika leży `config02.EDAT` z wariantu diagnostycznego
+`DLC_pulaJP` z KIT 17 (md5 `8eb2ef59…`, pula japońska — celowo) albo oryginalny `config02.EDAT`. Rozstrzyga ŚWIEŻY
+`DIAGNOZA.bat` (okno 1: folder DLC emulatora, okno 2: ISO, z którym grał) — sekcja DLC pokazuje md5 `config02.EDAT`
+(`aead9446…` = #18, `a7f034d1…` = #17, `8eb2ef59…` = pulaJP). Przy okazji: EN fragmentu 196 straciło spację wiodącą
+(JP ` 包囲率+` → EN `Surround+`), więc złożona linia da `+15%Surround+` zamiast `+15% Surround+` — kosmetyka, do
+pakietu v6 (wiersze `04_config_text.jsonl` dla Skill00:193328 i Skill01–08, razem z wierszami `03_skills.jsonl`).
+
+**Narzędzia (zmiany):**
+- `tools/gim_label.py`: `en: ""` = WYMAZANIE etykiety (tło z `bg`/`bg_from_column`, bez tekstu) — do katakany pod
+  angielskimi nagłówkami (`BATTLE RESULT`/`LEVEL UP!`/`MISSION RESULT`/`GAME OVER` miały pod spodem バトルリザルト itd.);
+  `clear` (prostokąt czyszczony przed malowaniem; musi zawierać `box`, inaczej odmowa) i `clear_opaque_only`
+  (czyści tylko piksele kryjące — tła z alfą zostają). Raport etykiety: `kept`/`erased`.
+- `tools/ui_texture_patch.py`: `erased` w raporcie; 18 nowych specyfikacji `ui_labels/*.json` (razem 23):
+  `tacsys_07` (Attack/Defend/Evade/Counter — okno reakcji), `tacsys_08/09` (bannery Counter Attack / Defend
+  Critical Evade), `tacsys_10` (Unit Info), `tacsys_11` (Start Battle / Support Setup), `tacsys_13` (Will / Units
+  Ready), `tacsys_14` (katakana pod LEVEL UP! wymazana), `tacsys_15` (Spirit Cmd / Skill / Level Up! / Get! / LIVE START),
+  `tacsys_16` (katakana pod BATTLE RESULT / MISSION RESULT wymazana), `tacsys_17` (Your turn / Enemy turn pod
+  PLAYER/ENEMY PHASE; BONUS! zostaje), `tacsys_18` (badge N/A zamiast 不可; GAME OVER katakana wymazana),
+  `tacsys_vsbg` (badge Will), `mensys_05` (In Use), `mensys_07` (opcje dźwięku: Hero / Basic / Setup / All / Each /
+  Song / Selected / OK / Main Theme / Upgrades / Ranking), `mensys_10` (NOTE), `mensys_11` (Gain / Funds / Left /
+  Cost / Req. / Spec. / Mat.), `intsys_03` (Unit / Pilot / Upgrades / Linked Units / Support / Upgrade Limit Break),
+  `intsys_04` (Parts List / Owned / Convert / Conditions / Progress / Equip / Team / Bonus / Parts / Full Upgrade
+  Bonus). Lekcje: `fill` na poziomie specyfikacji jest kwantyzowany do palety tekstury — kolor musi istnieć w palecie
+  razem z alfą (szarości `intsys_04` mają alfa 204; kryjąca jasna szarość mapowała się na beż); sąsiednie etykiety w
+  jednym wierszu muszą być STYCZNE albo mieć `clear`; etykiety w kolumnie potrzebują dokładnych zakresów wierszy
+  glifów (nakładka wymazała BONUS! w `tacsys_17` — poprawione); segmentacja przerw po alfie zawodzi, działa jasność +
+  podgląd ×8. Celowo bez zmian: `mensys_12` (kanji cech broni 連 持 特 防 突 早 狙 回), `mensys_15` (ikony komend
+  ducha), badge 包 / 押 / 投 i ikony terenu 地 空 宇 (za małe na litery); `navisys_02` (戦闘 回避 決定 キャンセル
+  敵艦発見) zablokowane — `cpk_write` odmawia zapisu `navisys.cpk`; `intsys_05`, `mensys_06/14`, `titsys_01/02`,
+  `tacsys_21/22` nie mają japońskich napisów.
+- Budowa: `python3 tools/ui_texture_patch.py --originals local/usrdir_ui --out local/ui_build2 --compress stored
+  --preview-dir local/usrdir_ui/preview2` (~4 s) → 5 kontenerów, 0 odmów dopasowania; 23 unikatowe tekstury
+  (27 z kopiami w IM1000/IM3000/IM9000), 101 etykiet namalowanych, 10 zachowanych (`en: null`), 4 wymazane; najmocniejsze
+  ściśnięcie poziome 0,80 (`Mods`, `mensys_08`, `mensys_13`). Wyniki (człony `.pac` STORED): `system.cpk` 77 976 →
+  195 888 B md5 `3799c559ab05b5aa17580e0aaca68f9c` (8 tekstur), `tacsys.cpk` 77 952 → 189 968 B
+  `432ea0178198ffb747674234eb489f3f` (12), `IM1000.cpk` 63 616 → 166 016 B `e56fd10e46cd547d9e9b813983b51c5b` (3),
+  `IM3000.cpk` 92 288 → 252 032 B `a90121ef791412eee61e1b36b6306d26` (3), `IM9000.cpk` 82 048 → 204 928 B
+  `fcb2350f34505ee8f0124a4ef155a4f1` (1). Oryginały: `tacsys` `0e29a507…`, `IM9000` `2a490e70…` (dopisane do
+  `iso_insert.KNOWN_ORIGINALS`).
+- **`tools/build_translation_patch.py` — krok „tekstury UI” w HOKUS_POKUS:** po wstawieniu kontenerów tekstowych
+  builder czyta z ISO użytkownika 5 kontenerów UI (`UI_TEXTURE_CONTAINERS`), maluje je według `ui_labels/` i wstawia do
+  `patched.iso`; zawsze STORED (`UI_TEXTURE_COMPRESS`); odmowa dopasowania dowolnej etykiety ⇒ `problems`
+  „ui textures: build broke: …” ⇒ kod wyjścia 1 (fail-closed, jak reszta); brak kontenera w ISO ⇒ `skipped`. Flagi
+  `--no-ui-textures`, `--ui-specs <folder>`; raport `build_report.json` → `ui_textures{compress,specs,containers,
+  skipped,problems}`. `tools/diagnoza.py`: sekcja ISO wypisuje blok „tekstury UI (napisy w grafikach)” z klasyfikacją
+  (oryginał / UI_TEST1 A / B / UI_TEST2 / nieznany). Testy: `UiTextureStepTests` (4) w
+  `tests/test_build_translation_patch.py`, `test_ui_texture_containers_are_classified` w `tests/test_diagnoza.py`,
+  wymazywanie w `tests/test_gim_label.py`; **pełny zestaw: 1 169 testów OK (1 pominięty)**.
+- **Próba end-to-end builderem** na syntetycznym ISO (`local/e2e/synth.iso`: 5 kontenerów dyskowych z `local/inputs` +
+  6 kontenerów UI z `local/usrdir_ui`, format jak `iso_pack.build_iso`) i folderze DLC z config01–08:
+  `build_translation_patch.py --iso … --dlc … --package local/pakiet_v5/… --out local/e2e/out` — 24 s, `problems` tylko
+  „not found” dla config10–29 (w zestawie lokalnym ich nie ma). md5 członów `patched.iso`: kontenery tekstowe =
+  build #18 (`config00` `5c43cf34…`, `configst` `6cfe245d…`, `eventP00` `ac538959…`, `imenu00` `ee66a6f8…`, `mesbtl00`
+  `00e10760…`), kontenery UI = `local/ui_build2` (md5 wyżej, co do bajtu), `navisys.cpk` nietknięty `08d5b99a…`.
+  ⇒ następny `HOKUS_POKUS.bat` użytkownika (build #19) da `patched.iso` z tekstem v5 i tymi teksturami bez osobnego
+  wgrywania.
+
+**Zestaw dla użytkownika `UI_TEST2.zip`** (697 302 B, md5 `4bf920b567a65a2eec27d4a99df8c125`): folder `UI_TEST2\`
+z 5 kontenerami NA WIERZCHU (dla `WGRAJ_DO_ISO.bat`; na `patched.iso` v5/v4 z ORYGINALNYMI kontenerami UI — na ISO
+z wgranym UI_TEST1 narzędzie odmówi, bo `system.cpk` nie jest oryginalny), `podglad\PRZED_PO_walka.png`,
+`PRZED_PO_menu.png`, `PRZED_PO_z_UI_TEST1.png` (w podfolderze — PNG na wierzchu przerwałby wstawianie),
+`ui_texture_report.json`, `CZYTAJ_UI_TEST2.txt` (CRLF). Dysk (odpowiedzi API): DELIVERY += `UI_TEST2.zip`
+(`1N0U-xoLKLyfUQRLeVn8i8Vq6jaJgBnmy`, md5 zgodne); `UI_TEST1.zip` → `_STARE_NIE_UZYWAC\UI_TEST1_zastapione_przez_UI_TEST2.zip`
+(ten sam id `1ex7qluz248VV7Xsgs-MaIPwR8q435T4P`; działał w grze — zostaje jako odniesienie).
+
+**Status:** UI_TEST1 A — DZIAŁA (zmierzone przez użytkownika). UI_TEST2 (23 tekstury) i krok builderowy — **w grze nie
+sprawdzone**. Otwarte: źródło japońskiej linii panelu broni (świeży `DIAGNOZA.bat`), spacja fragmentu 196 (v6),
+`navisys_02`, ikony jednokanjiowe, pełna rozgrywka jako kryterium przyjęcia.

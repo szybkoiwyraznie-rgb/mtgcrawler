@@ -4,6 +4,7 @@ edit matcher, the unit_series redirect and the chain naming that keeps writers' 
 matching honest."""
 from __future__ import annotations
 
+import json
 import struct
 import sys
 import tempfile
@@ -12,6 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "tools"))
+sys.path.insert(0, str(HERE))
 
 import build_translation_patch as BTP  # noqa: E402
 import item_skill_write as ISW         # noqa: E402
@@ -370,3 +372,102 @@ class SkillTotalCheckTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class UiTextureStepTests(unittest.TestCase):
+    """The builder paints the UI textures of the ISO's USRDIR containers (system.cpk …) and
+    queues them for patched.iso — fail-closed, filterable, reported."""
+
+    def setUp(self):
+        try:
+            import PIL  # noqa: F401
+        except ImportError:  # pragma: no cover
+            self.skipTest("Pillow not installed")
+        import crilayla
+        import iso_pack
+        from gim_fixtures import build_ui_pac, label_texture
+        from test_cpk_itoc_write import build_itoc_only_cpk
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, self.tmp, True)
+        self.texture = label_texture()
+        pac = build_ui_pac([("layout.bin", b"L" * 100),
+                            ("tex.pac", build_ui_pac([("mensys_03.gim", self.texture)], first_word=0x800))])
+        self.system_cpk = build_itoc_only_cpk([(0, crilayla.compress(pac), len(pac))])
+        tree = {"PSP_GAME": {"PARAM.SFO": b"SFO" * 100,
+                             "USRDIR": {"system.cpk": self.system_cpk, "eventP00.cpk": b"ev" * 400}}}
+        self.iso = self.tmp / "game.iso"
+        self.iso.write_bytes(iso_pack.build_iso(tree))
+        self.specs = self.tmp / "specs"
+        self.specs.mkdir()
+        (self.specs / "mensys_03.json").write_text(json.dumps(
+            {"texture": "mensys_03", "size": 10, "min_size": 7,
+             "labels": [{"id": "atk", "jp": "攻撃", "en": "ATK", "box": [2, 3, 22, 17]}]}), encoding="utf-8")
+        self.package = self.tmp / "pakiet"
+        self.package.mkdir()
+        for name in BTP.PACKAGE_FILES:
+            (self.package / name).write_text("", encoding="utf-8")
+
+    def run_build(self, **kw):
+        out = self.tmp / "out"
+        report = BTP.build(self.iso, None, self.package, out, work=self.tmp / "work", **kw)
+        return out, report
+
+    def test_textures_are_painted_from_the_iso_and_land_in_patched_iso(self):
+        import iso_pack
+        import speaker_map
+        import gim_image
+        out, report = self.run_build(ui_specs=self.specs)
+        ui = report["ui_textures"]
+        self.assertEqual(ui["compress"], "stored")
+        self.assertEqual([c["name"] for c in ui["containers"]], ["system.cpk"])
+        self.assertEqual(ui["problems"], [])
+        self.assertTrue(any("not in the ISO" in s for s in ui["skipped"]))   # tacsys.cpk, IM*.cpk
+        self.assertTrue((out / "patched.iso").is_file())
+        new = iso_pack.read_member(out / "patched.iso", "psp_game/usrdir/system.cpk")
+        self.assertNotEqual(new, self.system_cpk)
+        members = speaker_map.read_members(self.tmp / "work" / "ui_build" / "system.cpk")
+        self.assertEqual(len(members), 1)
+        # the painted texture is inside and differs from the original only in the box
+        blob = members[0][1]
+        off = blob.find(self.texture[:16])
+        self.assertGreaterEqual(off, 0)
+        painted = blob[off:off + len(self.texture)]
+        self.assertNotEqual(painted, self.texture)
+        rgba, w, h = gim_image.decode(gim_image.parse(painted))
+        orig, _, _ = gim_image.decode(gim_image.parse(self.texture))
+        for y in range(h):
+            for x in range(w):
+                if not (2 <= x < 22 and 3 <= y < 17):
+                    p = (y * w + x) * 4
+                    self.assertEqual(rgba[p:p + 4], orig[p:p + 4], (x, y))
+        # the untouched eventP00.cpk is still the original
+        self.assertEqual(iso_pack.read_member(out / "patched.iso", "psp_game/usrdir/eventP00.cpk"), b"ev" * 400)
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)
+
+    def test_switch_off_and_container_filters_leave_the_textures_alone(self):
+        out, report = self.run_build(ui_specs=self.specs, ui_textures=False)
+        self.assertNotIn("ui_textures", report)
+        self.assertFalse((out / "patched.iso").exists())
+        out, report = self.run_build(ui_specs=self.specs, skip=["system.cpk"])
+        self.assertEqual(report["ui_textures"]["containers"], [])
+        self.assertTrue(any("filtered out" in s for s in report["ui_textures"]["skipped"]))
+        self.assertFalse((out / "patched.iso").exists())
+
+    def test_a_caption_that_does_not_fit_is_a_build_problem_not_a_half_patch(self):
+        (self.specs / "mensys_03.json").write_text(json.dumps(
+            {"texture": "mensys_03", "size": 10, "min_size": 7,
+             "labels": [{"id": "atk", "jp": "攻撃", "en": "A caption far too long for the box",
+                         "box": [2, 3, 22, 17]}]}), encoding="utf-8")
+        out, report = self.run_build(ui_specs=self.specs)
+        self.assertEqual(report["ui_textures"]["containers"], [])
+        self.assertTrue(report["ui_textures"]["problems"])
+        self.assertTrue(any("ui textures: build broke" in p for p in report["problems"]))
+        self.assertEqual(BTP.exit_status(report["problems"]), 1)
+        self.assertFalse((out / "patched.iso").exists())
+
+    def test_repo_specs_name_only_known_ui_containers(self):
+        # every shipped spec must belong to a container the builder reads from the ISO
+        specs = __import__("ui_texture_patch").load_specs(HERE.parent / "ui_labels")
+        for name, s in specs.items():
+            source = s.get("source", "")
+            self.assertTrue(any(c in source for c in BTP.UI_TEXTURE_CONTAINERS), f"{name}: {source!r}")

@@ -1,0 +1,61 @@
+{
+ "texture": "tacsys_09",
+ "source": "tacsys.cpk — 128x64 INDEX8; support-setup caption + white flash copy of 戦闘開始",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 18,
+ "min_size": 11,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "support_setup",
+   "jp": "援護設定",
+   "en": "Support Setup",
+   "box": [
+    14,
+    3,
+    114,
+    30
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    246,
+    214,
+    255
+   ],
+   "outline": [
+    175,
+    60,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "start_battle_flash",
+   "jp": "戦闘開始",
+   "en": "Start Battle",
+   "box": [
+    43,
+    38,
+    118,
+    58
+   ],
+   "align": "center",
+   "size": 15,
+   "min_size": 9,
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    255,
+    255,
+    255,
+    150
+   ],
+   "note": "white flash overlay drawn when the button is pressed"
+  }
+ ]
+}

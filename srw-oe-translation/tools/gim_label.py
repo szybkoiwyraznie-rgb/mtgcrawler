@@ -17,14 +17,19 @@ Spec file (JSON, one per texture)::
         {"id": "atk", "jp": "攻撃", "en": "ATK", "box": [2, 15, 24, 27]},
         {"id": "name", "jp": "名", "en": null, "box": [58, 42, 68, 53], "note": "kept"}]}
 
-``en: null`` keeps the Japanese pixels (documented, not forgotten).  Optional per-label
+``en: null`` keeps the Japanese pixels (documented, not forgotten); ``en: ""`` ERASES the
+box without drawing anything (used for katakana sub-captions under English banners such as
+PLAYER PHASE / プレイヤーフェイズ, where a translation would only repeat the English).  Optional per-label
 keys (spec-level defaults allowed for all but ``clear``/``align``): ``size``,
 ``min_size``, ``squeeze`` (minimum horizontal condensing, 1.0 = never), ``align``
 (left/center/right), ``fill``/``outline`` ([r, g, b] or [r, g, b, a]; default =
 brightest/darkest frequent colours of the original glyphs), ``clear`` (box to blank when
 it is larger than the text box), ``bg`` (colour the cleared box is filled with; default =
 the texture's transparent colour) or ``bg_from_column`` (x of a clean column whose pixels
-are copied across every cleared row — keeps vertical gradients of banners intact).
+are copied across every cleared row — keeps vertical gradients of banners intact),
+``clear_opaque_only`` (true = only pixels that were opaque in the original are repainted,
+so a generous clear box over a slanted / hexagonal banner never bleeds onto its transparent
+surroundings).
 
 Fitting is fail-closed: a caption that does not fit its box at ``min_size`` is reported
 and the tool exits 1 — nothing is written half-done.
@@ -62,6 +67,7 @@ class LabelResult:
     text_width: Optional[int] = None
     x_scale: float = 1.0
     skipped: bool = False
+    erased: bool = False
     error: Optional[str] = None
 
 
@@ -79,6 +85,8 @@ class RenderReport:
         for r in self.labels:
             if r.skipped:
                 lines.append(f"  - {r.id:14s} kept (en = null)")
+            elif r.erased:
+                lines.append(f"  x {r.id:14s} erased (en = \"\")")
             elif r.error:
                 lines.append(f"  ! {r.id:14s} {r.en!r}: {r.error}")
             else:
@@ -213,6 +221,20 @@ def render_caption(font_path: Path, text: str, size: int, fill: RGBA, outline: R
 
 # ---------------------------------------------------------------- main entry
 
+def _clear_box(px, clear: Tuple[int, int, int, int], bg_col, bg: RGBA, opaque_only: bool) -> None:
+    """Repaint ``clear`` with ``bg`` (or, per row, the pixel of column ``bg_col``).
+
+    The column is sampled BEFORE any pixel of the row is overwritten, so ``bg_col`` may even
+    lie inside the box.  With ``opaque_only`` pixels that are transparent in the original
+    are left alone (slanted / hexagonal banner ends)."""
+    for y in range(clear[1], clear[3]):
+        row_bg = px[int(bg_col), y] if bg_col is not None else bg
+        for x in range(clear[0], clear[2]):
+            if opaque_only and px[x, y][3] == 0:
+                continue
+            px[x, y] = row_bg
+
+
 def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes, RenderReport, bytes]:
     """Apply ``spec`` to ``gim_raw``.  Returns (new_gim_raw, report, canvas_rgba) where
     ``canvas_rgba`` is the rendered RGBA buffer *before* palette quantisation (for previews).
@@ -244,10 +266,20 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         if en is None:
             res.skipped = True
             continue
-        if not isinstance(en, str) or not en.strip():
-            res.error = "en must be a non-empty string or null"
+        if not isinstance(en, str) or (en and not en.strip()):
+            res.error = "en must be a string (\"\" = erase), or null (= keep)"
             continue
         fill_o, outline_o, transparent = glyph_colours(rgba, w, box)
+        if en == "":
+            clear = _box(lab["clear"], w, h, f"label {lid} clear") if lab.get("clear") else box
+            bg_col = lab.get("bg_from_column")
+            bg = _rgba(lab.get("bg"), transparent)
+            if bg_col is not None and not 0 <= int(bg_col) < w:
+                res.error = f"bg_from_column {bg_col} outside the texture"
+                continue
+            _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")))
+            res.erased = True
+            continue
         fill = _rgba(lab.get("fill") or spec.get("fill"), fill_o)
         outline = _rgba(lab.get("outline") or spec.get("outline"), outline_o)
         clear = _box(lab["clear"], w, h, f"label {lid} clear") if lab.get("clear") else box
@@ -271,10 +303,7 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         if bg_col is not None and not 0 <= int(bg_col) < w:
             res.error = f"bg_from_column {bg_col} outside the texture"
             continue
-        for y in range(clear[1], clear[3]):
-            row_bg = px[int(bg_col), y] if bg_col is not None else bg
-            for x in range(clear[0], clear[2]):
-                px[x, y] = row_bg
+        _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")))
         align = lab.get("align", "left")
         bw, bh = box[2] - box[0], box[3] - box[1]
         if align == "center":

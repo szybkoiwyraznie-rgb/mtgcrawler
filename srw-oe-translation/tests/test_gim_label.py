@@ -85,6 +85,31 @@ class RenderLabelsTests(unittest.TestCase):
         self.assertEqual(new, raw)
         self.assertTrue(report.labels[0].skipped)
 
+    def test_empty_en_erases_the_box_without_drawing(self):
+        raw = label_texture()
+        s = spec()
+        s["labels"][0]["en"] = ""
+        new, report, canvas = gim_label.render_labels(raw, s)
+        self.assertTrue(report.labels[0].erased)
+        self.assertNotEqual(new, raw)
+        gim = gim_image.parse(new)
+        rgba, w, h = gim_image.decode(gim)
+        orig, _, _ = gim_image.decode(gim_image.parse(raw))
+        x0, y0, x1, y1 = s["labels"][0]["box"]
+        # every pixel inside the box is now the texture's transparent colour …
+        box_pixels = {pixel(rgba, w, x, y) for y in range(y0, y1) for x in range(x0, x1)}
+        self.assertEqual(len(box_pixels), 1)
+        self.assertEqual(next(iter(box_pixels))[3], 0)
+        # … and nothing outside the box changed
+        for y in range(h):
+            for x in range(w):
+                if not (x0 <= x < x1 and y0 <= y < y1):
+                    self.assertEqual(pixel(rgba, w, x, y), pixel(orig, w, x, y), (x, y))
+        # whitespace-only is still a spec error (neither erase nor caption)
+        s["labels"][0]["en"] = "   "
+        with self.assertRaises(gim_label.LabelError):
+            gim_label.render_labels(raw, s)
+
     def test_caption_that_does_not_fit_is_refused_not_clipped(self):
         s = spec()
         s["labels"][0]["en"] = "A caption far too long for twenty pixels"

@@ -142,7 +142,7 @@ def patch_member(blob: bytes, hits: List[Tuple[str, int, int]], specs: Dict[str,
         report.textures.append(path)
         report.labels[path] = [
             {"id": r.id, "en": r.en, "box": list(r.box), "size": r.size, "text_width": r.text_width,
-             "x_scale": r.x_scale, "kept": r.skipped} for r in rep.labels]
+             "x_scale": r.x_scale, "kept": r.skipped, "erased": r.erased} for r in rep.labels]
         if preview_dir:
             gim_label.preview(raw, preview_dir / f"{texture}_before.png", 4,
                               [lab["box"] for lab in spec["labels"]])

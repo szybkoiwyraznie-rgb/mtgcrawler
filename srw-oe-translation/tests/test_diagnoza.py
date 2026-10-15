@@ -157,6 +157,23 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertIn("mesbtl00.cpk w ISO jest zmieniony", text)
         self.assertIn("config00.cpk w ISO to NIEZNANY build", text)
 
+    def test_ui_texture_containers_are_classified(self):
+        """system.cpk / tacsys.cpk / IM*.cpk: original, one of our UI kits, or unknown."""
+        tree = {"PSP_GAME": {"USRDIR": {**{name: name.encode() * 50 for name in diagnoza.USRDIR_NAMES},
+                                        "system.cpk": b"ui" * 100, "tacsys.cpk": b"tc" * 100}}}
+        iso = self.tmp / "y.iso"
+        iso.write_bytes(iso_pack.build_iso(tree))
+        text = self._run("--iso", str(iso)).decode("utf-8-sig")
+        self.assertIn("tekstury UI", text)
+        self.assertIn("system.cpk w ISO nie jest ani oryginalny, ani z zadnego mojego zestawu UI", text)
+        self.assertIn("IM1000.cpk", text)   # listed even when the ISO lacks it (read error line)
+        # the known kits are labelled, originals too
+        import hashlib
+        self.assertIn("3799c559ab05b5aa17580e0aaca68f9c", diagnoza.KNOWN_UI)
+        self.assertEqual(diagnoza.KNOWN_UI["4862e1f34ef68c7b631d146995722dfe"].split()[0], "UI_TEST1")
+        for name in diagnoza.UI_NAMES:
+            self.assertIn(name, diagnoza.KNOWN_ORIGINALS if hasattr(diagnoza, "KNOWN_ORIGINALS") else {}, name)
+
     def test_describe_usrdir_recognises_originals_and_canonical_builds(self):
         self.assertEqual(diagnoza.describe_usrdir("config00.cpk", "266366c3bee66130d4b7cb57a1b1e3d4", 1),
                          "ORYGINAL")

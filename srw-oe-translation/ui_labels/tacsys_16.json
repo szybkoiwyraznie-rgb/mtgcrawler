@@ -1,0 +1,34 @@
+{
+ "texture": "tacsys_16",
+ "source": "tacsys.cpk — 256x32 INDEX8; LEVEL UP! / MISSION RESULT banners, katakana sub-captions",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "mission_result_sub",
+   "jp": "ミッションリザルト",
+   "en": "",
+   "box": [
+    112,
+    3,
+    207,
+    17
+   ],
+   "note": "erased — repeats MISSION RESULT"
+  },
+  {
+   "id": "level_up_sub",
+   "jp": "レベルアップ!",
+   "en": "",
+   "box": [
+    0,
+    17,
+    77,
+    32
+   ],
+   "note": "erased — repeats LEVEL UP!"
+  }
+ ]
+}

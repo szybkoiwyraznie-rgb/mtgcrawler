@@ -71,8 +71,8 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-15d: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
-               "skill total 342194, copies resync")
+TOOLS_STAMP = ("2026-10-15e: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+               "skill total 342194, copies resync, UI textures (stored) from ui_labels/")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
 import inline_names as IN            # noqa: E402
@@ -84,6 +84,7 @@ import quotes_apply as QA            # noqa: E402
 import slot_apply as SLA             # noqa: E402
 import sysmes_pack as SMSP           # noqa: E402
 import table_write as TW             # noqa: E402
+import ui_texture_patch as UTP       # noqa: E402
 
 PACKAGE_FILES = (
     "00_dialogue.jsonl",
@@ -98,6 +99,13 @@ PACKAGE_FILES = (
 
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
 SKIP_CATEGORIES = {"config_item_drop"}
+
+#: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
+#: specs in ui_labels/).  They hold no package text; the builder rewrites them from the ISO
+#: when --iso is given.  Members are written STORED - the only variant verified in the game
+#: (UI_TEST1 A_stored, 2026-10-15); our CRILAYLA encoder is still untested in-game.
+UI_TEXTURE_CONTAINERS = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk")
+UI_TEXTURE_COMPRESS = "stored"
 
 
 class BuildError(RuntimeError):
@@ -771,7 +779,8 @@ def parse_filter(spec: str) -> Tuple[List[str], List[str]]:
 
 def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
-          dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = ()) -> dict:
+          dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
+          ui_textures: bool = True, ui_specs: Optional[Path] = None) -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     work = Path(work) if work else out / "work"
@@ -848,6 +857,9 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
 
     skill_total_check(report, blobs, iso_patch, out, dry_run)
 
+    if iso is not None and ui_textures:
+        ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
+
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
         target = out / "patched.iso"
@@ -862,6 +874,63 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     report["report_path"] = str(report_path)
     return report
+
+
+def ui_texture_step(report: dict, iso: Path, iso_patch: Dict[str, bytes], work: Path,
+                    only: Sequence[str], skip: Sequence[str], specs_dir: Optional[Path]) -> None:
+    """Paint the English captions into the UI textures of the ISO's USRDIR containers.
+
+    The originals are read from the ISO into ``work/ui_originals`` (never from the user's
+    folders), rebuilt by :func:`ui_texture_patch.build` (fit is fail-closed, bytes outside the
+    textures must stay identical, every member is read back) and queued for ``patched.iso``.
+    A failure is a build problem (exit 1) and leaves those containers untouched; the text
+    containers are not affected either way.  Honours --only/--skip like every container.
+    """
+    specs_dir = Path(specs_dir) if specs_dir else UTP.DEFAULT_SPECS
+    summary: dict = {"compress": UI_TEXTURE_COMPRESS, "specs": str(specs_dir), "containers": [],
+                     "skipped": [], "problems": []}
+    report["ui_textures"] = summary
+    try:
+        specs = UTP.load_specs(specs_dir)
+    except Exception as exc:  # noqa: BLE001 - reported, never half-applied
+        summary["problems"].append(f"specs: {exc}")
+        report["problems"].append(f"ui textures: build broke: specs: {exc}")
+        return
+    originals = work / "ui_originals"
+    out_dir = work / "ui_build"
+    shutil.rmtree(originals, ignore_errors=True)
+    shutil.rmtree(out_dir, ignore_errors=True)
+    originals.mkdir(parents=True, exist_ok=True)
+    keys: Dict[str, str] = {}
+    for name in UI_TEXTURE_CONTAINERS:
+        if not container_selected(name, only, skip):
+            summary["skipped"].append(f"{name}: filtered out (--only/--skip)")
+            continue
+        try:
+            key, _lba, _size = iso_pack.find_member(iso, f"psp_game/usrdir/{name}")
+        except ValueError:
+            summary["skipped"].append(f"{name}: not in the ISO")
+            continue
+        clean = key.split(";")[0].strip("/")
+        (originals / name).write_bytes(iso_pack.read_member(iso, clean))
+        keys[name] = key
+    if not keys:
+        return
+    try:
+        results = UTP.build(originals, out_dir, specs, UI_TEXTURE_COMPRESS)
+    except Exception as exc:  # noqa: BLE001 - UiPatchError / LabelError / GimError / ValueError
+        summary["problems"].append(str(exc))
+        report["problems"].append(f"ui textures: build broke: {exc}")
+        return
+    for res in results:
+        entry = _jsonable(vars(res))
+        summary["containers"].append(entry)
+        if res.name in keys:
+            iso_patch[keys[res.name]] = (out_dir / res.name).read_bytes()
+    built = {r.name for r in results}
+    for name in keys:
+        if name not in built:
+            summary["skipped"].append(f"{name}: no spec'd texture inside")
 
 
 # The largest "Skill00 + the eight DLC pools" that booted in the game (variant W1, 2026-10-15:
@@ -955,6 +1024,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--filter", action="append", default=[], metavar="SPEC",
                         help="only=glob,glob or skip=glob,glob - the one-argument form of "
                              "--only/--skip (what BISEKCJA.bat passes); repeatable")
+    parser.add_argument("--no-ui-textures", action="store_true",
+                        help="leave the UI texture containers (system.cpk, tacsys.cpk, IM*.cpk) "
+                             "original - text only")
+    parser.add_argument("--ui-specs", type=Path, default=None,
+                        help="folder with the texture caption specs (default ui_labels/)")
     args = parser.parse_args(argv)
 
     only, skip = list(args.only), list(args.skip)
@@ -963,12 +1037,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         only += more_only
         skip += more_skip
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
-                   work=args.work, dry_run=args.dry_run, only=only, skip=skip)
+                   work=args.work, dry_run=args.dry_run, only=only, skip=skip,
+                   ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]
     problems = report["problems"]
     print(f"Kontenery z tłumaczeniem: {len(changed)} -> {', '.join(changed) if changed else '(brak)'}")
+    ui = report.get("ui_textures") or {}
+    if ui.get("containers"):
+        names = [c["name"] for c in ui["containers"]]
+        print(f"Tekstury UI (napisy w grafikach): {len(names)} -> {', '.join(names)}")
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")

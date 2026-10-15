@@ -1,8 +1,24 @@
 # Project status
 
-Last updated: 2026-10-15 (night, §21.29)
+Last updated: 2026-10-15 (afternoon, §21.30)
 
-**Latest (2026-10-15, night, after the first screenshots of actual play with v4/#17): package v5 / build #18 — unit
+**Latest (2026-10-15, afternoon): `UI_TEST1 A_stored` WORKS in-game (user's screenshots: intermission tabs, ATK/DEF/HIT/EVA,
+Will, Support in English, no crash) ⇒ the game accepts `.pac` members stored uncompressed, and that is the only variant
+shipped from now on. Second batch done the same way: 23 textures total (18 new — battle `tacsys.cpk`: Attack / Defend /
+Evade / Counter, Counter Attack / Defend / Critical / Evade banners, Unit Info, Start Battle, Support Setup, Will, Units
+Ready, Spirit Cmd / Skill / Level Up! / Get!, Your turn / Enemy turn, N/A badge; menus: sound options, In Use, NOTE,
+Gain / Funds / Cost / Req.; intermission `intsys_03/04`: Upgrades, Linked Units, Upgrade Limit Break, Parts List, Convert,
+Equip, Team …) in 5 containers (`system`, `tacsys`, `IM1000`, `IM3000`, `IM9000`), 101 labels painted, 4 katakana
+sub-captions erased, 0 fit refusals. `UI_TEST2.zip` on Drive (supersedes UI_TEST1). **`build_translation_patch.py`
+(HOKUS_POKUS) now paints these textures into `patched.iso` itself** (fail-closed step, `--no-ui-textures` to disable;
+end-to-end on a synthetic ISO: text containers byte-identical to build #18, UI containers byte-identical to UI_TEST2).
+Weapon-panel ability line: its five pool fragments exist only in `srwDL_Skill00/0N.bin`, 0 hits in UI containers, and are
+English in builds #17/#18 ⇒ the game composed it from a JAPANESE pool at the time of the screenshot (hypothesis: the
+`DLC_pulaJP` diagnostic `config02.EDAT` from KIT 17, or an original EDAT, in the user's DLC folder) — awaiting a fresh
+`DIAGNOZA.bat`. Kept Japanese on purpose: single-kanji badges (`mensys_12/15`, 包/押/投, terrain), `navisys_02` (writer
+blocked). UI_TEST2 and build #19 NOT yet run in-game. Details: `EXPERIMENT_LOG.md` §21.30.**
+
+**Previous (2026-10-15, night, after the first screenshots of actual play with v4/#17): package v5 / build #18 — unit
 and pilot names in the intermission lists ≤ 14 half-width cells (the game squeezes Japanese, never ASCII; measured on
 the user's screenshot), 8 Skill00 `effect` texts without the stray `4` after `%s` (the Japanese byte completes the kana
 fragment ｸﾞﾙｰ<0F>; the English fragment `Group` has no dangling byte, so #17 showed "Group4All units attack"), pilot
