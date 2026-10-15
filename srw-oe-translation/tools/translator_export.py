@@ -504,6 +504,10 @@ def main(argv=None) -> int:
         "06_scenes.jsonl": scenes,
         "07_names_characters.jsonl": character_rows(local),
         "08_names_units_weapons.jsonl": unit_rows(local),
+        # strings of the game program (PBOOT.PBP -> DATA.PSP), measured by
+        # ``tools/exe_strings.py extract --exe <PBOOT.PBP> --out local/executable.jsonl``;
+        # in-place slots (``mode`` = slot, ``max_bytes`` = Japanese bytes + alignment slack)
+        "09_executable.jsonl": extra_rows(local, "executable.jsonl"),
     }
 
     # the output folder holds exactly the files of this run: name files were renumbered

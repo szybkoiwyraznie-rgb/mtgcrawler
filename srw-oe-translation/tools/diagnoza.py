@@ -97,6 +97,26 @@ EXPECTED_BUILD14 = {
 # every config00/configst that is fine in the emulator folder today: BUILD14 (tested in the game),
 # BUILD17 (package v4 - keeps the DLC pools at their original size; accepted in-game 2026-10-15) and
 # BUILD18 (package v5 = BUILD17 + list-name/Coord. Atk corrections; the current hand-out)
+# md5 -> label of the executable updates seen (PBOOT.PBP = the 1.08 update; the exe strings live there)
+KNOWN_PBOOT: Dict[str, str] = {
+    "22daece3b6fccc4363dd76ed6a7ec2fb": "ORYGINAL 1.08 (DATA.PSP szyfrowany ~PSP; napisy programu po japonsku)",
+    "26689964d2ce4e6cddadb67c8188e923": "EXE_TEST1 = build #20 (pakiet v6; DATA.PSP jawny ELF, 397 napisow EN)",
+}
+
+
+def describe_pboot(path: Path, digest: Optional[str]) -> str:
+    label = KNOWN_PBOOT.get(digest or "")
+    kind = "?"
+    try:
+        import psp_prx
+        data = psp_prx.pbp_get(path.read_bytes(), "DATA.PSP")
+        kind = "jawny ELF" if data[:4] == psp_prx.ELF_MAGIC else (
+            "szyfrowany ~PSP" if data[:4] == b"~PSP" else "nieznany naglowek")
+    except Exception as exc:  # noqa: BLE001 - diagnostics must not break
+        kind = f"nie do odczytu ({type(exc).__name__})"
+    return f"{label or 'NIEZNANY PBOOT'}; DATA.PSP: {kind}"
+
+
 ACCEPTED_CONFIG = {
     "config00.cpk": {"71d9fcafa37c21513b97c14d1dff8f33": "BUILD14",
                      "80b8fae61b858fb91db35532c4680c6f": "BUILD17",
@@ -162,12 +182,15 @@ PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
     ("98d945607e047f4d32cf3b63f7f605d1", "fa8b0e48d2d7e4ca03757a5f731b763f"):
         "v4 (2026-10-15) - dziala w grze, ale nazwy w listach wychodza poza kolumne i 'Group4' - uzyj v5",
     ("58f557993c6517b6b5ba6ca8bb0a91e4", "06e7d6fcc8c17c1cff2d0e7997cca372"):
-        "v5 (2026-10-15) - AKTUALNY",
+        "v5 (2026-10-15) - dziala w grze (build #19), ale bez napisow programu i 31 napisow sysmes - uzyj v6",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "5e5d4bc953b2e0785764db9584d3aa32"):
+        "v6 (2026-10-15) - AKTUALNY (+09_executable.jsonl, +31 calych napisow sysmes)",
 }
-CURRENT_PACKAGE = ("v5", "pakiet_EN_2026-10-15_v5.zip")
+CURRENT_PACKAGE = ("v6", "pakiet_EN_2026-10-15_v6.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")
+OPTIONAL_PACKAGE_FILES = ("09_executable.jsonl",)   # since v6: strings of the game program
 
 # writer features and the source text that proves they are present
 TOOL_FEATURES = (
@@ -278,7 +301,11 @@ def section_package(rep: Report, root: Path) -> Optional[str]:
     version, sums = package_version(folder)
     for name in PACKAGE_FILES:
         rep.p(f"  {name:28s} {sums.get(name, 'BRAK')}")
-    extra = sorted(p.name for p in folder.iterdir() if p.is_file() and p.name not in PACKAGE_FILES)
+    for name in OPTIONAL_PACKAGE_FILES:
+        present = (folder / name).exists()
+        rep.p(f"  {name:28s} {md5_of(folder / name) if present else 'BRAK (pakiet sprzed v6 - napisy programu zostana japonskie)'}")
+    extra = sorted(p.name for p in folder.iterdir() if p.is_file()
+                   and p.name not in PACKAGE_FILES and p.name not in OPTIONAL_PACKAGE_FILES)
     if extra:
         rep.p(f"  inne pliki: {', '.join(extra[:12])}{' ...' if len(extra) > 12 else ''}")
     rep.p(f"  WERSJA PAKIETU: {version}")
@@ -424,6 +451,12 @@ def section_dlc_folder(rep: Report, dlc: Path, built: Dict[str, str], originals:
     for path in files:
         size = path.stat().st_size
         digest = md5_of(path) if size <= MD5_LIMIT else None
+        if path.name.upper() == "PBOOT.PBP":
+            digest = md5_of(path)
+            note = describe_pboot(path, digest)
+            rep.p(f"  {path.name:18s} {size:>9} B  md5 {digest}  -> {note}")
+            rep.flag(f"PBOOT.PBP w folderze DLC: {note}.")
+            continue
         if path.name in USRDIR_NAMES and digest:
             note = describe_usrdir(path.name, digest, size)
             rep.p(f"  {path.name:18s} {size:>9} B  md5 {digest}  -> {note}")

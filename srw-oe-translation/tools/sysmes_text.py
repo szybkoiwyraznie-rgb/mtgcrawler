@@ -53,6 +53,19 @@ def sysmes_blob(path: Path) -> bytes:
     raise ValueError(f"{path} has no member {MEMBER}")
 
 
+def has_japanese(text: str) -> bool:
+    """Kana / kanji / full-width punctuation -- and HALF-WIDTH katakana (U+FF61..U+FF9F).
+
+    The half-width range was missing until 2026-10-15: the pool strings written with the
+    ``0x0F xx`` voiced-kana tokens (``ﾒｲﾝ<0F>0ｲﾛｯﾄ`` = メインパイロット, ``ｻ<0F>3<0F>0ｲﾛｯﾄ`` = サブ
+    パイロット, ``ｿｰﾄ``, ``<0F>6ｰ<0F>&`` = ページ, ``＠1[GRﾐｯｼｮﾝ]``, ``ｼﾐｭﾚｰﾀｰﾐｯｼｮﾝ``, the ``＠4<0F>#ｰﾏｰ:``
+    status line) were dropped here, so they never reached the package and stayed Japanese in
+    the game (build #19 screenshots).  The builder's sysmes writer needs the WHOLE string.
+    """
+    return any("\u3040" <= ch <= "\u9fff" or "\uff61" <= ch <= "\uff9f"
+               or ch in "、。「」！？…ー『』（）／" for ch in text)
+
+
 def pool_strings(sm: bytes) -> List[dict]:
     """One row per pool string (the table entry's whole text), Japanese ones only."""
     parsed = SP.parse(sm)
@@ -64,7 +77,7 @@ def pool_strings(sm: bytes) -> List[dict]:
             continue
         if not text:
             continue
-        if not any("\u3040" <= ch <= "\u9fff" or ch in "、。「」！？…ー『』（）／" for ch in text):
+        if not has_japanese(text):
             continue
         out.append({"id": f"sysmes:{CONTAINER}/{MEMBER}:{offset}", "category": "config_sysmes",
                     "part": "text", "jp": text, "en": "", "bytes": len(raw), "mode": "grow",

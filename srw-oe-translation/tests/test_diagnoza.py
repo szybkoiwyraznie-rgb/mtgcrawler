@@ -107,11 +107,31 @@ class DiagnozaReportTests(unittest.TestCase):
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:
                 self.assertIn(digest, diagnoza.KNOWN_CONFIG)
-        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v5")
-        self.assertTrue(any(label.startswith("v5") and "AKTUALNY" in label
+        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v6")
+        self.assertTrue(any(label.startswith("v6") and "AKTUALNY" in label
                             for label in diagnoza.PACKAGE_VERSIONS.values()))
-        self.assertFalse(any(label.startswith(("v3", "v4")) and "AKTUALNY" in label
+        self.assertFalse(any(label.startswith(("v3", "v4", "v5")) and "AKTUALNY" in label
                              for label in diagnoza.PACKAGE_VERSIONS.values()))
+        for digest in diagnoza.KNOWN_PBOOT:
+            self.assertRegex(digest, r"^[0-9a-f]{32}$")
+        self.assertIn("22daece3b6fccc4363dd76ed6a7ec2fb", diagnoza.KNOWN_PBOOT)   # original 1.08
+        self.assertIn("26689964d2ce4e6cddadb67c8188e923", diagnoza.KNOWN_PBOOT)   # EXE_TEST1 / #20
+
+    def test_pboot_in_the_dlc_folder_is_classified_by_md5_and_header(self):
+        import struct
+        sys.path.insert(0, str(ROOT / "tools"))
+        import psp_prx
+        # a minimal PBP whose DATA.PSP is a plain ELF: unknown md5, header recognised
+        elf = b"\x7fELF" + b"\0" * 60
+        offsets = [0x28] * 8
+        offsets[6] = 0x28          # DATA.PSP
+        offsets[7] = 0x28 + len(elf)
+        pbp = b"\0PBP" + struct.pack("<I", 0x10000) + struct.pack("<8I", *offsets) + elf
+        self.assertEqual(psp_prx.pbp_get(pbp, "DATA.PSP"), elf)
+        (self.dlc / "PBOOT.PBP").write_bytes(pbp)
+        text = self._run().decode("utf-8-sig")
+        self.assertIn("PBOOT.PBP w folderze DLC: NIEZNANY PBOOT; DATA.PSP: jawny ELF.", text)
+        self.assertIn("09_executable.jsonl", text)
 
     def test_build17_config00_is_accepted_and_dlc_configs_are_labelled(self):
         (self.dlc / "config00.cpk").write_bytes(b"x")
