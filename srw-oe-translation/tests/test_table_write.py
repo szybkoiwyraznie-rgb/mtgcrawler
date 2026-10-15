@@ -430,5 +430,40 @@ class PoolCTests(unittest.TestCase):
         self.assertEqual(strings[1], b"Skill note")        # its neighbour is still written
 
 
+class PoolBudgetTests(unittest.TestCase):
+    """The DLC skill pools (srwDL_Skill01-08.bin) may not outgrow their original 15 638 B: a
+    pool over it refuses its whole container (SizeBudgetError), like Skill00 (test Y, 2026-10-15)."""
+
+    def test_the_eight_dlc_pools_are_budgeted_at_their_original_size(self):
+        for n in range(1, 9):
+            self.assertEqual(TW.POOL_SIZE_LIMITS[f"srwDL_Skill0{n}.bin"], 15_638)
+        self.assertNotIn("srwDL_Skill00.bin", TW.POOL_SIZE_LIMITS)   # Skill00 is item_skill_write's
+        self.assertNotIn("srwDL_Item01.bin", TW.POOL_SIZE_LIMITS)
+        self.assertIsNone(TW.pool_size_limit_problem("srwDL_Skill01.bin", 15_638))
+        self.assertIsNone(TW.pool_size_limit_problem("srwDL_Item01.bin", 10 ** 6))
+        problem = TW.pool_size_limit_problem("srwDL_Skill03.bin", 17_396)
+        self.assertIn("17396 B exceeds the in-game budget of 15638 B (+1758 B over", problem)
+        self.assertIn("skill_shrink.py --dlc-original", problem)
+
+    def test_a_pool_over_budget_raises_the_container_level_refusal(self):
+        import item_skill_write as ISW
+        blob, offs, _strings = PoolCTests().build()
+        original = dict(TW.POOL_SIZE_LIMITS)
+        try:
+            TW.POOL_SIZE_LIMITS["srwDL_Item01.bin"] = len(blob) + 4
+            rows = [row_offset(offs[1], "スキル説明", "Skill note", "srwDL_Item01.bin")]
+            modified, report = TW.apply_member(blob, "srwDL_Item01.bin", rows)   # fits (+0 B)
+            self.assertEqual(report["problems"], [])
+            self.assertLessEqual(len(modified), len(blob) + 4)
+            rows = [row_offset(offs[1], "スキル説明", "A much longer skill description",
+                               "srwDL_Item01.bin")]
+            with self.assertRaises(ISW.SizeBudgetError) as ctx:
+                TW.apply_member(blob, "srwDL_Item01.bin", rows)
+            self.assertIn("exceeds the in-game budget", str(ctx.exception))
+        finally:
+            TW.POOL_SIZE_LIMITS.clear()
+            TW.POOL_SIZE_LIMITS.update(original)
+
+
 if __name__ == "__main__":
     unittest.main()

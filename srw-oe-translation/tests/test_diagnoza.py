@@ -34,7 +34,8 @@ class DiagnozaReportTests(unittest.TestCase):
         self.root = self.tmp / "srw-oe-translation"
         (self.root / "tools").mkdir(parents=True)
         for name in ("item_skill_write.py", "build_translation_patch.py", "cpk_write.py",
-                     "iso_insert.py", "iso_pack.py", "diagnoza.py", "drive_manifest.tsv"):
+                     "iso_insert.py", "iso_pack.py", "diagnoza.py", "drive_manifest.tsv",
+                     "table_write.py"):
             shutil.copy(ROOT / "tools" / name, self.root / "tools" / name)
         for bat in ("HOKUS_POKUS.bat", "WGRAJ_DO_ISO.bat", "BISEKCJA.bat"):
             shutil.copy(ROOT / bat, self.root / bat)
@@ -80,12 +81,13 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertNotIn(b"\n", raw.replace(b"\r\n", b""))         # CRLF only
         text = raw.decode("utf-8-sig")
         self.assertIn("TAK  wskaznik parametrow +52", text)        # the shipped writer has the fix
+        self.assertIn("TAK  budzet pul DLC Skill01-08", text)
         self.assertIn("WERSJA PAKIETU: NIEZNANA", text)
         self.assertIn("NOT written / build broke: 1", text)
         self.assertIn("kontenerow nieznalezionych w ISO/DLC: 1", text)
         self.assertIn("narzedzia wg raportu: stamp", text)
         self.assertIn("1 identycznych z buildem, 1 roznych od buildu", text)
-        self.assertIn("config00.cpk w folderze DLC to NIE BUILD14: NIEZNANY build", text)
+        self.assertIn("config00.cpk w folderze DLC to NIE BUILD14/BUILD17: NIEZNANY build", text)
         self.assertIn("Builder ODMOWIL zapisu", text)
         self.assertIn("Pakiet w pakiet_EN\\ to NIEZNANA", text)
         self.assertIn("(pominiete - nie wskazano ISO)", text)
@@ -98,6 +100,39 @@ class DiagnozaReportTests(unittest.TestCase):
                 self.assertRegex(digest, r"^[0-9a-f]{32}$")
         self.assertEqual(diagnoza.EXPECTED_BUILD14["config00.cpk"], "71d9fcafa37c21513b97c14d1dff8f33")
         self.assertEqual(diagnoza.EXPECTED_BUILD14["configst.cpk"], "6cfe245d5f6ec6dfffd2a829b778a4d7")
+        for digest in diagnoza.KNOWN_DLC_CONFIG:
+            self.assertRegex(digest, r"^[0-9a-f]{32}$")
+        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 24)          # 8 x (#15, #17, pulaJP)
+        for name, table in diagnoza.ACCEPTED_CONFIG.items():
+            self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
+            for digest in table:
+                self.assertIn(digest, diagnoza.KNOWN_CONFIG)
+        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v4")
+        self.assertTrue(any(label.startswith("v4") and "AKTUALNY" in label
+                            for label in diagnoza.PACKAGE_VERSIONS.values()))
+        self.assertFalse(any(label.startswith("v3") and "AKTUALNY" in label
+                             for label in diagnoza.PACKAGE_VERSIONS.values()))
+
+    def test_build17_config00_is_accepted_and_dlc_configs_are_labelled(self):
+        (self.dlc / "config00.cpk").write_bytes(b"x")
+        real = diagnoza.md5_of
+        build17 = "80b8fae61b858fb91db35532c4680c6f"
+        pool15 = "6199c7dec872e6d10767ac952e872a14"
+
+        def fake_md5(path):
+            if path.name == "config00.cpk":
+                return build17
+            if path.name == "config01.EDAT":
+                return pool15
+            return real(path)
+
+        diagnoza.md5_of = fake_md5
+        try:
+            text = self._run().decode("utf-8-sig")
+        finally:
+            diagnoza.md5_of = real
+        self.assertIn("config00.cpk w folderze DLC = BUILD17 (dobrze).", text)
+        self.assertIn("build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)", text)
 
     def test_nested_package_folder_is_reported(self):
         pkg = self.root / "pakiet_EN"

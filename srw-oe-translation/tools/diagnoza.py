@@ -6,7 +6,7 @@ impossible to tell whether the crash comes from the new files or from old ones t
 never replaced.  This tool answers that without the user typing anything:
 
 * which **tools** are next to it (fingerprint of the writers; does the +52 fix exist?),
-* which **package** lies in ``pakiet_EN\\`` (v1 of 2026-10-14 / v2 "ciasny" / v3 / unknown,
+* which **package** lies in ``pakiet_EN\\`` (v1 of 2026-10-14 / v2 "ciasny" / v3 / v4 / unknown,
   recognised by the md5 of ``03_skills.jsonl`` and ``04_config_text.jsonl``; a nested folder
   is reported too),
 * what ``HOKUS_POKUS.bat`` produced in ``srw-oe-patch\\`` (``build_report.json`` summary, md5 of
@@ -48,7 +48,8 @@ USRDIR_NAMES = ("config00.cpk", "configst.cpk", "eventP00.cpk", "imenu00.cpk", "
 KNOWN_CONFIG: Dict[str, str] = {
     # config00.cpk
     "266366c3bee66130d4b7cb57a1b1e3d4": "ORYGINAL",
-    "71d9fcafa37c21513b97c14d1dff8f33": "BUILD14 (poprawny, sprawdzony w grze)",
+    "80b8fae61b858fb91db35532c4680c6f": "BUILD17 (pakiet v4: Skill00 215 462 B; kandydat, w grze jeszcze nie sprawdzony)",
+    "71d9fcafa37c21513b97c14d1dff8f33": "BUILD14 (poprawny, sprawdzony w grze; pakiet v2/v3)",
     "3c56686d04cb1c362c7cb72111598879": "build #12 (stary: nieswiezy +52, pada na sejwie z 2. rozdzialu)",
     "abacf828a966bb0dc1e51f555a541eab": "build #11 (stary: nieswiezy +32/+52, pada w intermisji)",
     "372513258059c47217013e0fce138d78": "build #10 (stary: Skill00 za duzy, pada na Loading)",
@@ -68,6 +69,43 @@ EXPECTED_BUILD14 = {
     "config00.cpk": "71d9fcafa37c21513b97c14d1dff8f33",
     "configst.cpk": "6cfe245d5f6ec6dfffd2a829b778a4d7",
 }
+# every config00/configst that is fine in the emulator folder today: BUILD14 (tested in the game)
+# and BUILD17 (package v4 - the candidate that keeps the DLC pools at their original size)
+ACCEPTED_CONFIG = {
+    "config00.cpk": {"71d9fcafa37c21513b97c14d1dff8f33": "BUILD14",
+                     "80b8fae61b858fb91db35532c4680c6f": "BUILD17"},
+    "configst.cpk": {"6cfe245d5f6ec6dfffd2a829b778a4d7": "BUILD14 (= BUILD17)"},
+}
+# md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
+KNOWN_DLC_CONFIG: Dict[str, str] = {
+    # build #15 (pakiet v3): pule Skill01-08 17 396 B - test Y 2026-10-15 padl na Loading
+    "6199c7dec872e6d10767ac952e872a14": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "e21939c44fbbedbab3e4ec2d782e08e9": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "a701413af928d3d7ccad5233d4e78456": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "8e4ab123da231b00f3893a76306f87da": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "8f2a6292322f3d04d93e44277b462e48": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "41b25268ddbd97cca2963960ca266f68": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "75c1101fac48de719b899cf0dba95ff1": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    "bbeddd5eb5049b00e318d76128e23706": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
+    # build #17 (pakiet v4): pule 15 578 B (< oryginal 15 638 B)
+    "7c6459fa7377b585a5176b5859361da2": "build #17 (pakiet v4; pula 15 578 B)",
+    "a7f034d10cc07c771bfc975aeec73b5b": "build #17 (pakiet v4; pula 15 578 B)",
+    "6af12bab9c1b81db9952beff2279205b": "build #17 (pakiet v4; pula 15 578 B)",
+    "9a8a771573ccd68eceadfc9a111c95b1": "build #17 (pakiet v4; pula 15 578 B)",
+    "e3694678a42f1d78d2f10d80bcfdb004": "build #17 (pakiet v4; pula 15 578 B)",
+    "ebeace423570cda94d1d3b1ea23d6435": "build #17 (pakiet v4; pula 15 578 B)",
+    "60eab71a9ff17806cbfd554401b7a46f": "build #17 (pakiet v4; pula 15 578 B)",
+    "735cdf6c59febd80d1aacce62ae87b9b": "build #17 (pakiet v4; pula 15 578 B)",
+    # wariant testowy "pula JP": pule oryginalne (15 638 B), reszta EN
+    "1bfb935293c5c2f51e719a3176420003": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "8eb2ef592fc15e5646df0bdfff2fae54": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "35face1f8c3b904d24c1b71c4b90f197": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "8b5f08da3c9bd9bbf2abb6c49a3487fb": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "0fdc2d6abce956c03fe3dfe7d6673dff": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "8c9216f74b6fe06371880e169e9119ce": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "43006c180269e950377068918179651f": "wariant pulaJP (pula oryginalna, reszta EN)",
+    "e103d1efa90d620a93f321e6137a8911": "wariant pulaJP (pula oryginalna, reszta EN)",
+}
 # the three other USRDIR containers as built from package v3 with the 2026-10-15 tools
 CANONICAL_USRDIR = {
     "eventP00.cpk": ("ac538959fdef3d47eeb38d0e2282adb0", 260568),
@@ -84,8 +122,11 @@ PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
     ("68c58d144c81b9edf27eb77164d2ca5d", "042cfa4abe66cfc38fe9de090dc88d2d"):
         "b13 (roboczy, nie wydany)",
     ("68c58d144c81b9edf27eb77164d2ca5d", "30f4ad0a7c8b12b7a686dcc01ee3a509"):
-        "v3 (2026-10-15) - AKTUALNY",
+        "v3 (2026-10-15) - STARY: pule Skill01-08 (DLC) 17 396 B, rozdzialy 2-8 padaja na Loading",
+    ("98d945607e047f4d32cf3b63f7f605d1", "fa8b0e48d2d7e4ca03757a5f731b763f"):
+        "v4 (2026-10-15) - AKTUALNY",
 }
+CURRENT_PACKAGE = ("v4", "pakiet_EN_2026-10-15_v4.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")
@@ -96,6 +137,7 @@ TOOL_FEATURES = (
     ("item_skill_write.py", "POOL_POINTER", "wskaznik puli +36"),
     ("item_skill_write.py", "base_pointer_faults", "wskaznik bazowy +32"),
     ("item_skill_write.py", "parameter_pointer_faults", "wskaznik parametrow +52 (sejw z 2. rozdzialu)"),
+    ("table_write.py", "POOL_SIZE_LIMITS", "budzet pul DLC Skill01-08 (Loading rozdzialow 2-8, test Y)"),
 )
 MD5_LIMIT = 8 * 1024 * 1024  # bigger files in the DLC folder are listed with their size only
 
@@ -202,9 +244,9 @@ def section_package(rep: Report, root: Path) -> Optional[str]:
     if extra:
         rep.p(f"  inne pliki: {', '.join(extra[:12])}{' ...' if len(extra) > 12 else ''}")
     rep.p(f"  WERSJA PAKIETU: {version}")
-    if not version.startswith("v3"):
-        rep.flag(f"Pakiet w pakiet_EN\\ to {version.split(' - ')[0]} - powinien byc v3 "
-                 "(pakiet_EN_2026-10-15_v3.zip).")
+    if not version.startswith(CURRENT_PACKAGE[0]):
+        rep.flag(f"Pakiet w pakiet_EN\\ to {version.split(' - ')[0]} - powinien byc "
+                 f"{CURRENT_PACKAGE[0]} ({CURRENT_PACKAGE[1]}).")
     return version
 
 
@@ -288,6 +330,8 @@ def section_patch_output(rep: Report, root: Path, originals: Dict[str, int]) -> 
             size = path.stat().st_size
             note = describe_usrdir(path.name, digest, size) if path.name in USRDIR_NAMES else \
                 size_note(path.name, size, originals)
+            if digest in KNOWN_DLC_CONFIG:
+                note = f"{note} {KNOWN_DLC_CONFIG[digest]}".strip()
             rep.p(f"    {path.name:18s} {size:>8} B  md5 {digest}  {note}")
     else:
         rep.p("  brak folderu DLC\\ w wyniku")
@@ -345,13 +389,16 @@ def section_dlc_folder(rep: Report, dlc: Path, built: Dict[str, str], originals:
         if path.name in USRDIR_NAMES and digest:
             note = describe_usrdir(path.name, digest, size)
             rep.p(f"  {path.name:18s} {size:>9} B  md5 {digest}  -> {note}")
-            if path.name in EXPECTED_BUILD14:
-                if digest == EXPECTED_BUILD14[path.name]:
-                    rep.flag(f"{path.name} w folderze DLC = BUILD14 (dobrze).")
+            if path.name in ACCEPTED_CONFIG:
+                accepted = ACCEPTED_CONFIG[path.name].get(digest)
+                if accepted:
+                    rep.flag(f"{path.name} w folderze DLC = {accepted} (dobrze).")
                 else:
-                    rep.flag(f"{path.name} w folderze DLC to NIE BUILD14: {note}.")
+                    rep.flag(f"{path.name} w folderze DLC to NIE BUILD14/BUILD17: {note}.")
             continue
         notes = []
+        if digest in KNOWN_DLC_CONFIG:
+            notes.append(KNOWN_DLC_CONFIG[digest])
         if digest and path.name in built:
             if built[path.name] == digest:
                 same += 1
@@ -391,7 +438,8 @@ def section_iso(rep: Report, iso: Path) -> None:
     for name, digest, msize in iso_members(iso):
         note = describe_usrdir(name, digest, msize)
         rep.p(f"  {name:14s} {msize:>8} B  md5 {digest}  -> {note}")
-        if name in EXPECTED_BUILD14 and digest not in (EXPECTED_BUILD14[name], KNOWN_ORIGINALS[name]):
+        if name in ACCEPTED_CONFIG and digest not in ACCEPTED_CONFIG[name] \
+                and digest != KNOWN_ORIGINALS[name]:
             rep.flag(f"{name} w ISO to {note}.")
         if name not in EXPECTED_BUILD14 and digest != KNOWN_ORIGINALS.get(name):
             rep.flag(f"{name} w ISO jest zmieniony ({note}) - ten kontener nigdy nie byl testowany w grze osobno.")

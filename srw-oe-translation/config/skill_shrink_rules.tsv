@@ -144,3 +144,86 @@ exact	In battle, on trigger, fully evades foe attack	On trigger, fully evades fo
 exact	Sets minimum %s dealt to a ratio of %s	Min %s dealt = ratio of %s
 exact	%sAtk/Acc Up\n%s\nThe higher the foe's Acc, the higher %s	%sAtk/Acc Up\n%s\nHigher foe Acc = higher %s
 phrase	sq.(s)	sq.
+# Tier 4 (2026-10-15, test Y): the 720 fragments shared by Skill00's tail pool and the eight
+# DLC pools srwDL_Skill01-08.bin must not outgrow the original pools (15 638 B each) - the
+# DLC chapters crashed at Loading with them at 17 396 B. Same style as tiers 1-3.
+phrase	within range	in range
+phrase	Within range	In range
+phrase	fully restores HP/EN	full HP/EN
+phrase	When using weapons, 	On weapon use: 
+phrase	Crit rate dmg	Crit dmg
+phrase	Attacks all foes in range	Hits all foes in range
+phrase	Unit vanishes after using weapon	Unit lost after use
+phrase	Unit vanishes	Unit lost
+phrase	 when moving in the air	 in the air
+phrase	 when moving on ground	 on ground
+phrase	recovers each turn	Regen each turn
+phrase	recover each turn	Regen each turn
+phrase	Minimum hit chance	Min. hit chance
+phrase	minimum hit chance	min. hit chance
+phrase	cannot be used for Sup. Attack	no Sup. Attack
+phrase	Same as Transform; enters System Released state	Like Transform; System Released
+phrase	Same as Transform; enters System Active state	Like Transform; System Active
+phrase	At turn start, 	Turn start: 
+exact	The higher the foe's Acc, the higher the activation rate	Higher foe Acc = higher activation
+exact	Hit Rate Taken in consecutive battles +	Consec. battle Hit Taken+
+exact	Cannot be used for Support or Counter	No use in Support/Counter
+exact	Can clear mines by entering the minefield	Enter minefield to clear mines
+exact	Can move with remaining Move after attacking	Can still move after attacking
+exact	Hits all foes in range, pushes them and moves	Hits all foes in range, pushing them
+exact	Hits all foes in range, carrying them along	Hits all foes in range, dragging them
+exact	Hits all foes in range and moves	Hits all foes in range, moves
+exact	Can stack with same unit; Sup. Attack within stack	Stacks w/ same unit; Sup. Atk in stack
+exact	Receives no counterattack	No counterattack
+exact	Can transform into another form	Can transform
+exact	Can change into another form	Can change form
+exact	Can change into a specific unit	Changes into a set unit
+exact	Can switch with another unit within	Can swap with a unit inside
+exact	Restores HP/EN of carried units 	Carried units recover HP/EN 
+exact	flings the foe toward self	tosses foe toward self
+exact	After battle, spends SP to recover HP/EN	Post-battle, spends SP for HP/EN
+exact	After battle, attacking ally's Will+	Post-battle, attacker's Will+
+exact	After battle, attacking ally's Will Up	Post-battle, attacker's Will Up
+exact	that unit can be chosen to Sup. Defend	it can be picked to Sup. Defend
+exact	Weapon that requires specific units	Weapon needing set units
+exact	Effective only in certain missions	Set missions only
+exact	HP shows the total of all stacked units	HP = total of stacked units
+exact	HP multiplied by number of stacked units	HP x number of stacked units
+exact	Can carry and launch allied units	Can carry/launch allies
+exact	Can house and launch allied units	Can house/launch allies
+exact	Can move ignoring terrain and units	Moves through terrain/units
+exact	Consumes a set amount of EN	Uses a set amount of EN
+exact	Kotaro, Yosuke and Rikiya's Will	Kotaro/Yosuke/Rikiya's Will
+exact	Kenichi, Kinta and Yoji's Will	Kenichi/Kinta/Yoji's Will
+exact	Momotaro and Hiryu's Will	Momotaro/Hiryu's Will
+exact	Voids foe Sup. Defense; allied Sup. Attack disabled	Voids foe Sup. Def.; allied Sup. Atk off
+exact	Changes minimum hit chance	Changes min. hit chance
+exact	Uses EN each turn; HP Regen post-battle	EN cost each turn; HP Regen post-battle
+exact	Voids foe special defenses	Voids foe special Def
+exact	% Voids special defenses	% Voids special Def
+exact	Trigger hint: Lamuness, Da Cider	Hint: Lamuness, Da Cider
+exact	Each turn, units aboard and 	Each turn, units aboard & 
+exact	turn, raises Def of allies in range	turn, allies in range Def Up
+# Tier 4b: the pools were still 153 B over after tier 4a; "Sup. Def." and "Trigger" were
+# already the majority spelling in the package, so they become the only one here.
+phrase	Sup. Defense	Sup. Def.
+phrase	Sup. Attack	Sup. Atk
+phrase	Activation	Trigger
+phrase	After battle, 	Post-battle 
+phrase	unit(s) 	units 
+phrase	Crit rate, Crit dmg	Crit rate/dmg
+phrase	 value Down	 Down
+phrase	Can combine into 	Combines into 
+phrase	certain units	set units
+exact	If a unit able to Sup. Defend is within	If a Sup. Defender is within
+exact	After moving, pushes foes more	Post-move: pushes foes more
+exact	At low HP, chance in battle of	Low HP: chance in battle of
+exact	Nullifies counters, extra dmg	Voids counter, extra dmg
+exact	Can switch with a specific unit	Can swap with a set unit
+exact	Can attack regardless of obstacles	Attacks through obstacles
+exact	When triggered,	On trigger,
+exact	Credits earned Up, Crit Up	Credits Up, Crit Up
+exact	Fully evades foe attack	Fully evades attack
+exact	When Will condition met,	At Will threshold,
+exact	Attacks and pushes all foes in range	Hits and pushes all foes in range
+exact	Total of all units	Sum of all units

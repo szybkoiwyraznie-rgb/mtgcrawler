@@ -235,6 +235,27 @@ def rebuild_pool(b: bytes, family: Family,
 
 # --------------------------------------------------------------------------- convention C
 
+# In-game size budget of the DLC skill fragment pools (2026-10-15, test Y): the original ISO
+# with the eight rebuilt config01-08.EDAT (every ``srwDL_Skill0N.bin`` grown 15 638 -> 17 396 B)
+# crashed at "Loading" with the stack of the Skill00 size crash, the rebuilt ISO with the
+# original EDATs booted.  Until an in-game ladder says otherwise a pool may not outgrow its
+# original (every one is 15 638 B); a pool over it refuses its WHOLE container (SizeBudgetError,
+# "NOT written") exactly like Skill00 - shorten with ``tools/skill_shrink.py --dlc-original``.
+POOL_SIZE_LIMITS: Dict[str, int] = {f"srwDL_Skill0{n}.bin": 15_638 for n in range(1, 9)}
+
+
+def pool_size_limit_problem(member: str, size: int) -> Optional[str]:
+    """The refusal text when the convention-C ``member`` rebuilt to ``size`` bytes is over its
+    in-game budget, else None."""
+    limit = POOL_SIZE_LIMITS.get(member)
+    if limit is None or size <= limit:
+        return None
+    return (f"{member}: {size} B exceeds the in-game budget of {limit} B (+{size - limit} B over; "
+            f"the DLC chapters crash at Loading above it, measured 2026-10-15) - shorten the "
+            f"shared skill fragments (tools/skill_shrink.py --dlc-original); the container is "
+            f"refused")
+
+
 def parse_pool_c(b: bytes) -> Tuple[List[int], List[bytes]]:
     """(offsets, strings-without-NUL) of a convention-C member (pure string pool)."""
     if len(b) < 12:
@@ -671,6 +692,10 @@ def apply_member(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[byte
         modified = rebuild_pool(blob, family, plan["edits"])
     else:
         modified = rebuild_pool_c(blob, plan["edits"])
+        problem = pool_size_limit_problem(sub_name, len(modified))
+        if problem:
+            import item_skill_write  # noqa: E402  (lazy: item_skill_write imports this module)
+            raise item_skill_write.SizeBudgetError(problem)
     report["problems"] += verify_member(blob, modified, plan)
     report["bytes"] = len(modified) - len(blob)
     if report["problems"]:

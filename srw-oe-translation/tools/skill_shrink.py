@@ -42,10 +42,28 @@ leaves the row's English alone and the row is reported.  The same function rewri
 and ``04`` rows of one field, so the two sources never disagree (``merge_edits`` would refuse the
 record).  Exit status 1 when the measured member is still over the budget.
 
+The DLC fragment pools (2026-10-15, test Y)
+-------------------------------------------
+``config01-08.EDAT`` each carry ``srwDL_Skill0N.bin``: a convention-C pool of the same 720
+fragments that sit in the tail pool of ``Skill00`` (every chapter has its own copy).  In the
+game, ORIGINAL ISO + the eight rebuilt EDATs crashed at "Loading" with the stack of the Skill00
+size crash, while the rebuilt ISO with ORIGINAL EDATs booted - the only growth in those EDATs
+that matters by size is the pools (+1 758 B each).  Whether the budget is one arena for
+Skill00 + the eight pools or a 16 KiB slot per pool is open; both readings are satisfied by
+"no pool larger than its original" (``POOL_LIMIT``) plus "Skill00 + 8 pools no larger than the
+largest total that ever booted" (``SKILL_TOTAL_LIMIT``), so those are the gates here.
+
+Hence ``--dlc-original DIR`` (folder with the original ``config01..08.EDAT``): the pool rows of
+``04`` get the English of the Skill00 row with the same Japanese (one pool text per fragment,
+shortened by the same rules; the pools were at the pre-shrink English before) and ``copy_of``
+pointing at that row, every pool is measured with the real pool writer, and the exit status
+is 1 when a pool or the total is over its budget.
+
 Usage::
 
     python tools/skill_shrink.py --package local/pakiet --original local/usrdir/config00.cpk \\
-        --rules config/skill_shrink_rules.tsv --out local/pakiet_ciasny --report local/shrink.json
+        --dlc-original local/inputs --rules config/skill_shrink_rules.tsv \\
+        --out local/pakiet_ciasny --report local/shrink.json
 """
 from __future__ import annotations
 
@@ -68,6 +86,14 @@ import item_skill_write as ISW  # noqa: E402
 import table_write as TW  # noqa: E402
 
 MEMBER = "srwDL_Skill00.bin"
+POOL_RE = re.compile(r"^srwDL_Skill0([1-8])\.bin$")
+# Every original DLC pool is 15 638 B (8 header + 720 x 4 offsets + 12 750 B of text).  The
+# in-game result "original ISO + rebuilt EDATs (pools 17 396 B) crashes at Loading, rebuilt ISO
+# (Skill00 216 518 B) + original EDATs boots" is read conservatively: a pool may not outgrow its
+# original, and Skill00 + the eight pools may not exceed the largest total that booted
+# (variant W1: 217 090 + 8 x 15 638).  Relax only after a measured in-game ladder.
+POOL_LIMIT = 15_638
+SKILL_TOTAL_LIMIT = 342_194
 SKILLS_FILE = "03_skills.jsonl"
 CONFIG_FILE = "04_config_text.jsonl"
 RULE_KINDS = ("name", "phrase", "exact")
@@ -182,7 +208,12 @@ def identity(row: dict) -> bool:
 
 def translated(row: dict) -> bool:
     """A Skill00 row the builder would write: filled English that is not the Japanese."""
-    return is_skill00(row) and bool(TW.english(row)) and not identity(row)
+    return is_skill00(row) and filled(row)
+
+
+def filled(row: dict) -> bool:
+    """Any row the builder would write: filled English that is not the Japanese."""
+    return bool(TW.english(row)) and not identity(row)
 
 
 def known_skill_names(rows3: Iterable[dict]) -> set:
@@ -291,10 +322,104 @@ def remaining(rows3: List[dict], rows4: List[dict], tail_offset: int, top: int =
     return rows[:top]
 
 
+# ----------------------------------------------------------------------------- the DLC pools
+
+def pool_member(row: dict) -> Optional[str]:
+    member = (row.get("source") or {}).get("member") or ""
+    return member if POOL_RE.match(member) else None
+
+
+def sync_pools(rows4: List[dict]) -> Tuple[List[dict], List[dict], List[str]]:
+    """Give every grow row of ``srwDL_Skill01..08.bin`` the English of the Skill00 row with the
+    same Japanese and ``copy_of`` = that row's id.
+
+    Skill00 lists one Japanese several times (the inline record texts repeat); all of them
+    carry one English.  ``copy_of`` needs an id that is unique in the file (583 tail-pool rows
+    of Skill00 share the id of the pool start, so ``translation_copy`` could not tell them
+    apart): the copy source is the highest-offset twin with a unique id, and a fragment whose
+    twins all share an id gets the English only.  Slot rows (fixed-width leftovers) and
+    fragments without a Skill00 twin are left alone and reported."""
+    by_jp: Dict[str, List[dict]] = collections.defaultdict(list)
+    id_count: Dict[str, int] = collections.Counter(row.get("id") for row in rows4)
+    for row in rows4:
+        if (row.get("source") or {}).get("member") == MEMBER and translated(row):
+            by_jp[row["jp"]].append(row)
+    out, changes, problems = [], [], []
+    for row in rows4:
+        member = pool_member(row)
+        if member is None or row.get("mode") == "slot" or not filled(row):
+            out.append(row)
+            continue
+        twins = by_jp.get(row["jp"])
+        if not twins:
+            problems.append(f"{row.get('id')}: no Skill00 row with this Japanese")
+            out.append(row)
+            continue
+        englishes = {TW.english(t) for t in twins}
+        if len(englishes) > 1:
+            problems.append(f"{row.get('id')}: Skill00 rows disagree on the English {sorted(englishes)!r}")
+            out.append(row)
+            continue
+        unique = [t for t in twins if id_count[t.get("id")] == 1]
+        source = max(unique, key=lambda t: (t.get("source") or {}).get("offset") or 0) \
+            if unique else None
+        en = TW.english(twins[0])
+        copy_of = source.get("id") if source is not None else row.get("copy_of")
+        if en == TW.english(row) and row.get("copy_of") == copy_of:
+            out.append(row)
+            continue
+        copy = dict(row)
+        changes.append({"id": row.get("id"), "part": "pool", "jp": row.get("jp"),
+                        "before": TW.english(row), "after": en,
+                        "saved": len(TW.english(row).encode("cp932")) - len(en.encode("cp932"))})
+        copy["en"] = en
+        if copy_of:
+            copy["copy_of"] = copy_of
+        out.append(copy)
+    return out, changes, problems
+
+
+def pool_blob(edat: Path, member: str) -> bytes:
+    _, subs, _ = CM.members_of(edat)
+    if member not in subs:
+        raise ShrinkError(f"{edat}: no {member} inside")
+    return subs[member]
+
+
+def measure_pools(dlc_original: Path, rows4: List[dict]) -> Dict[str, dict]:
+    """``{member: {original, size, fits, refused}}`` for every pool whose original EDAT is in
+    the folder, rebuilt with the real pool writer from the rows of that member."""
+    result: Dict[str, dict] = {}
+    by_member: Dict[str, List[dict]] = collections.defaultdict(list)
+    for row in rows4:
+        member = pool_member(row)
+        if member is not None and filled(row):      # the builder skips identity rows too
+            by_member[member].append(row)
+    for member, rows in sorted(by_member.items()):
+        n = POOL_RE.match(member).group(1)
+        edat = dlc_original / f"config0{n}.EDAT"
+        if not edat.is_file():
+            result[member] = {"original": None, "size": None, "fits": None,
+                              "problem": f"{edat.name} not in {dlc_original}"}
+            continue
+        blob = pool_blob(edat, member)
+        try:
+            modified, report = TW.apply_member(blob, member, rows)
+        except TW.TableError as exc:
+            result[member] = {"original": len(blob), "size": None, "fits": False, "problem": str(exc)}
+            continue
+        result[member] = {"original": len(blob), "size": len(modified),
+                          "fits": len(modified) <= POOL_LIMIT,
+                          "refused": len(report.get("refused", [])) + len(report.get("problems", []))}
+    return result
+
+
 # ----------------------------------------------------------------------------- the run
 
 def run(package: Path, original: Path, rules_path: Path, out: Optional[Path],
-        report_path: Optional[Path], limit: int, level_suffix: str, top: int) -> dict:
+        report_path: Optional[Path], limit: int, level_suffix: str, top: int,
+        dlc_original: Optional[Path] = None, pool_limit: int = POOL_LIMIT,
+        total_limit: int = SKILL_TOTAL_LIMIT) -> dict:
     rules = load_rules(rules_path)
     rows3 = read_jsonl(package / SKILLS_FILE)
     rows4 = read_jsonl(package / CONFIG_FILE)
@@ -312,6 +437,20 @@ def run(package: Path, original: Path, rules_path: Path, out: Optional[Path],
               "fits": after["size"] <= limit, "over_by": max(0, after["size"] - limit),
               "remaining": remaining(new3, new4, ISR.parse_member(blob, "skill", MEMBER)["tail_offset"],
                                      top)}
+    pool_changes: List[dict] = []
+    if dlc_original is not None:
+        pools_before = measure_pools(dlc_original, rows4)
+        new4, pool_changes, pool_problems = sync_pools(new4)
+        pools_after = measure_pools(dlc_original, new4)
+        sizes = [v["size"] for v in pools_after.values() if v.get("size") is not None]
+        total = after["size"] + sum(sizes)
+        report["pools"] = {"limit": pool_limit, "before": pools_before, "after": pools_after,
+                           "synced_rows": len(pool_changes), "problems": pool_problems,
+                           "all_fit": bool(sizes) and all(v["fits"] for v in pools_after.values()),
+                           "total": total, "total_limit": total_limit,
+                           "total_fits": total <= total_limit and len(sizes) == 8}
+        report["changed_rows"][CONFIG_FILE] += len(pool_changes)
+        report["fits"] = report["fits"] and report["pools"]["all_fit"] and report["pools"]["total_fits"]
     if out is not None:
         out.mkdir(parents=True, exist_ok=True)
         for path in sorted(package.iterdir()):
@@ -321,7 +460,7 @@ def run(package: Path, original: Path, rules_path: Path, out: Optional[Path],
         write_jsonl(out / CONFIG_FILE, new4)
         with (out / "SKROCENIA_Skill00.tsv").open("w", encoding="utf-8", newline="\n") as handle:
             handle.write("id\tpart\tjp\ten_before\ten_after\tsaved_bytes\n")
-            for change in changes3 + changes4:
+            for change in changes3 + changes4 + pool_changes:
                 handle.write("\t".join(str(change[k]).replace("\n", "\\n").replace("\t", " ")
                                        for k in ("id", "part", "jp", "before", "after", "saved"))
                              + "\n")
@@ -343,10 +482,17 @@ def main(argv=None) -> int:
                         help="member budget in bytes (default: the measured in-game limit)")
     parser.add_argument("--keep-lv", action="store_true", help="keep ' LvN' instead of ' LN'")
     parser.add_argument("--top", type=int, default=40, help="remaining texts to list")
+    parser.add_argument("--dlc-original", type=Path,
+                        help="folder with the original config01..08.EDAT: sync + measure the DLC pools")
+    parser.add_argument("--pool-limit", type=int, default=POOL_LIMIT,
+                        help="budget of one DLC pool (default: its original size)")
+    parser.add_argument("--total-limit", type=int, default=SKILL_TOTAL_LIMIT,
+                        help="budget of Skill00 + the eight pools (default: the largest total that booted)")
     args = parser.parse_args(argv)
     try:
         report = run(args.package, args.original, args.rules, args.out, args.report, args.limit,
-                     " Lv" if args.keep_lv else " L", args.top)
+                     " Lv" if args.keep_lv else " L", args.top, args.dlc_original,
+                     args.pool_limit, args.total_limit)
     except (ShrinkError, ISW.WriteError, OSError) as exc:
         print(f"skill_shrink: {exc}", file=sys.stderr)
         return 2
@@ -362,6 +508,19 @@ def main(argv=None) -> int:
         print("  refused:", line)
     for row in report["remaining"][:args.top]:
         print(f"  +{row['growth']:>4} x{row['rows']:<3} [{row['part']}] {row['en']!r}")
+    pools = report.get("pools")
+    if pools:
+        for member, info in pools["after"].items():
+            was = pools["before"].get(member, {}).get("size")
+            state = "?" if info.get("fits") is None else ("FITS" if info["fits"] else "OVER")
+            print(f"  {member}: original {info.get('original')} B; before {was} B; after "
+                  f"{info.get('size')} B; budget {pools['limit']} B -> {state}"
+                  + (f"; {info['problem']}" if info.get("problem") else ""))
+        print(f"  pools synced rows: {pools['synced_rows']}; problems: {len(pools['problems'])}; "
+              f"Skill00 + 8 pools = {pools['total']} B / {pools['total_limit']} B -> "
+              f"{'FITS' if pools['total_fits'] else 'OVER'}")
+        for line in pools["problems"][:10]:
+            print("  pool:", line)
     return 0 if report["fits"] else 1
 
 

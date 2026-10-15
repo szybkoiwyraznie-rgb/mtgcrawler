@@ -2,7 +2,23 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, late evening): the user's FULL patch (provenance unknown) CRASHES at "Loading" with the
+**Latest (2026-10-15, night): tests X/Y in-game split the full-patch crash — X (patched.iso with the rebuilt
+`eventP00`/`mesbtl00`/`imenu00` + config #14, ORIGINAL DLC folder) WORKS into the dictionary screen; Y (original
+ISO + the complete 91-EDAT build #15) CRASHES at "Loading" with the exact build-#8 stack.** The only sub-file
+that grows in every chapter in a way matching that stack is the DLC skill fragment pool `srwDL_Skill01–08.bin`
+(15 638 → 17 396 B each; Skill00 + 8 pools: original 334 062, X 341 622 works, Y 355 686 crashes). HYPOTHESIS,
+not proof: one arena for Skill00 + the eight pools, bound between 342 194 (W1 works) and 343 214 (W2 crashes).
+Package **v4** = v3 + Tier 4 shortening rules (219 total) + pools re-synced to the shortened Skill00 English
+(`skill_shrink.py --dlc-original`; a package defect — 583 Skill00 tail rows share one id — is worked around by
+`copy_of` only on unique ids): every pool 15 578 B, Skill00 215 462 B, total 340 086 B. Gates now in the tools:
+pool ≤ 15 638 B is FATAL in `table_write.py` (container "NOT written"), builder reports `skill_total` ≤ 342 194.
+**Build #17** (config00 md5 `80b8fae6…`, config01–08 at original sizes) + `KIT_build17_2026-10-15.zip` and the v4
+package are on Drive (v3/KIT15 moved to `_STARE_NIE_UZYWAC`, instruction replaced and verified). Next, in-game by
+the user: Y4a (original DLC + the 10 config files of build #17) → Y4 (full v4 DLC build) → Z4 (full patch +
+chapter-2 save); Y3 (Japanese pools) only if Y4a crashes. Known layout bug: the dictionary hint bar overlaps the
+"Pilot" tab. v4/#17 have NOT been run in-game yet. Details: `EXPERIMENT_LOG.md` §21.27.
+
+**Previous (2026-10-15, late evening): the user's FULL patch (provenance unknown) CRASHES at "Loading" with the
 exact build-#8 stack** (`memcpy_jak` ← `z_un_08b3d554` …, `Read/Write Block at 00000000`). Two findings: (1) my
 fault — the Drive `INSTRUKCJA_PL.md` was still the 2026-10-14 text pointing at package v1 and the build-#6 kits
 (all now moved to `_STARE_NIE_UZYWAC`, instruction rewritten and re-uploaded, KIT_build15 uploaded); (2) the

@@ -71,7 +71,8 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = "2026-10-15c: conv-B +32/+36/+52, Skill00 budget 216768, copies resync"
+TOOLS_STAMP = ("2026-10-15d: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+               "skill total 342194, copies resync")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
 import inline_names as IN            # noqa: E402
@@ -845,6 +846,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
 
+    skill_total_check(report, blobs, iso_patch, out, dry_run)
+
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
         target = out / "patched.iso"
@@ -859,6 +862,78 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     report["report_path"] = str(report_path)
     return report
+
+
+# The largest "Skill00 + the eight DLC pools" that booted in the game (variant W1, 2026-10-15:
+# 217 090 + 8 x 15 638).  Whether the budget is one shared arena or per member is open; this
+# sum is the conservative reading and is reported, not enforced per container (each member has
+# its own gate), so a build whose members all fit but whose sum does not is still flagged.
+SKILL_TOTAL_LIMIT = 342_194
+SKILL_MEMBERS = {"config00.cpk": "srwDL_Skill00.bin",
+                 **{f"config0{n}.EDAT": f"srwDL_Skill0{n}.bin" for n in range(1, 9)}}
+
+
+def skill_total_check(report: dict, blobs: Dict[str, bytes], iso_patch: Dict[str, bytes],
+                      out: Path, dry_run: bool) -> None:
+    """Sum the skill members of the containers this build produced (originals for the ones it
+    did not touch) and flag a sum over ``SKILL_TOTAL_LIMIT`` in the report."""
+    sizes: Dict[str, int] = {}
+    missing: List[str] = []
+    for container, member in SKILL_MEMBERS.items():
+        blob = None
+        for key, patched in iso_patch.items():          # built for the ISO (config00.cpk)
+            if key.rsplit("/", 1)[-1].lower() == container.lower():
+                blob = patched
+        written = None if dry_run else (out / "DLC" / container)
+        if blob is None and written is not None and written.exists():
+            blob = written.read_bytes()                 # built for the DLC folder
+        if blob is None and container in blobs:
+            blob = blobs[container]                     # untouched (or refused): the original
+        if blob is None:
+            missing.append(container)
+            continue
+        try:
+            subs = _members_of_blob(blob)
+        except Exception as exc:                   # noqa: BLE001 - report, never break a build
+            report["problems"].append(f"skill total: {container}: {exc}")
+            return
+        if member not in subs:
+            missing.append(container)
+            continue
+        sizes[member] = len(subs[member])
+    total = sum(sizes.values())
+    report["skill_total"] = {"members": sizes, "total": total, "limit": SKILL_TOTAL_LIMIT,
+                             "missing": missing,
+                             "fits": (total <= SKILL_TOTAL_LIMIT) if not missing else None}
+    if missing:
+        return                                      # not all nine were available - nothing to judge
+    if total > SKILL_TOTAL_LIMIT:
+        report["problems"].append(
+            f"skill total: Skill00 + 8 DLC pools = {total} B exceeds {SKILL_TOTAL_LIMIT} B "
+            f"(+{total - SKILL_TOTAL_LIMIT} B; the largest total that booted in the game) - "
+            f"shorten with tools/skill_shrink.py --dlc-original before shipping")
+
+
+def _members_of_blob(blob: bytes) -> Dict[str, bytes]:
+    """``{sub-file name: bytes}`` of a one-``.pac`` container held in memory (``cpk_write.load``
+    reads from a path, so the blob goes through a temporary file)."""
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as handle:
+        handle.write(blob)
+        path = Path(handle.name)
+    try:
+        cpk = cpk_write.load(path)
+    finally:
+        path.unlink(missing_ok=True)
+    subs: Dict[str, bytes] = {}
+    for member in cpk.members:
+        body = cpk_write.decompressed(member.blob)
+        if member.name.lower().endswith(".pac"):
+            for sub in CSP.parse_pac(body)["subs"]:
+                subs[sub["name"]] = sub["data"]
+        else:
+            subs[member.name] = body
+    return subs
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:

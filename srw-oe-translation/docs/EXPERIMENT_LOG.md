@@ -4324,3 +4324,93 @@ ISO + pełny `srw-oe-patch\DLC\` (91 EDAT + config #14) ⇒ testuje EDAT-y. Dale
 `BISEKCJA.bat` H / I. KIT = `USRDIR_build15\` (5 plików), trzy foldery bisekcji, `DLC_config01-08\`,
 `ROZMIARY_I_MD5.txt`, `CZYTAJ.txt`. Pełny kanoniczny zestaw 91 EDAT nie był tu budowany (83 oryginały do pobrania z
 Dysku) — użytkownik buduje lokalnie, `DIAGNOZA.bat` potwierdza md5 config00/configst.
+
+### 21.27 Testy X/Y w grze: X DZIAŁA, Y PADA ⇒ pule fragmentów `srwDL_Skill01–08.bin`; pakiet v4 (Tier 4 + synchronizacja pul), bramki pul i sumy, build #17, KIT 17
+
+**Wynik użytkownika (2026-10-15, PPSSPP, ISO 1.08, zgłoszenie „X - działa ok, Y - crash" + `DIAGNOZA.txt` + 2 zrzuty):**
+
+* **X DZIAŁA** — `patched.iso` 681 873 408 B (w ISO: config00 #14 `71d9fcaf…`, configst `6cfe245d…`, eventP00
+  `ac538959…`, imenu00 `ee66a6f8…`, mesbtl00 `00e10760…`) + **oryginalny** folder DLC: Loading, tytuł, gra do ekranu
+  słownika (zrzut: słownik pilota po angielsku; **błąd układu**: pasek podpowiedzi „□ Play Line △ Change Expression"
+  nachodzi na zakładkę „Pilot" — do skrócenia, nie crash).
+* **Y PADA** — oryginalne ISO + folder DLC = pełny build #15 (340 plików; `DIAGNOZA.txt`: 99 kontenerów / 98 zmienionych
+  / 94 zapisane, 0 problemów; config01–08 md5 `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`,
+  `41b25268…`, `75c1101f…`, `bbeddd5e…`): crash na „Loading" z **dokładnie** stosem buildu #8 (`memcpy_jak` ←
+  `z_un_08b3d554+08c` ← … ← `z_un_08b40908+018`, CRC 05f2347c).
+* Wniosek (potwierdzony tylko do poziomu „który zestaw plików"): `eventP00`/`imenu00`/`mesbtl00` STORED są OK przy
+  starcie; winny jest coś w 91 EDAT (config #14 w tej konfiguracji przechodził wcześniej, test T3/W1).
+
+**Analiza rozmiarów (tu, `cpk_write` + `configst_pack.parse_pac`, oryginały z Dysku vs build #15/#16):** każdy
+`config0N.EDAT` = jeden `.pac` STORED z podplikami wyrównanymi do 0x800; jedyny podplik rosnący w każdym z ośmiu
+rozdziałów w sposób, który pasuje do stosu „Skill00 za duży", to **`srwDL_Skill0N.bin`: 15 638 → 17 396 B (+1 758)**
+(konwencja C: u32 8, u32 0, 720 posortowanych wskaźników, 720 fragmentów NUL; identyczna pula we wszystkich 8
+rozdziałach; `Item0N` 1 154 → 1 195; słowniki/DLC_ID/Reference −72…+416). Suma Skill00 + 8 pul: oryginał 334 062,
+X (działa) 341 622, Y/#14 355 686. **Hipotezy budżetu:** A1 jedna arena Skill00 + 8 pul, B ∈ [342 194, 343 214)
+(W1 217 090 + 8×15 638 = 342 194 działał; W2 218 110 + … = 343 214 padł) — zgodna ze WSZYSTKIMI testami; A2 slot
+16 KiB na pulę. Obie spełnia reguła: **każda pula ≤ 15 638 (oryginał) i Skill00 ≤ 216 768** ⇒ suma ≤ 341 872.
+Nie rozróżniono A1/A2 (wymagałoby drabinki w grze); przyjęto regułę zachowawczą.
+
+**Odkrycie w pakiecie:** wszystkie 720 japońskich fragmentów każdej puli DLC istnieją wśród 4 307 wierszy ogona
+Skill00 w `04_config_text.jsonl` (unikalne JP→EN, 0 niejednoznacznych), ale tylko 124 wiersze pul miały `copy_of`,
+a 189 z 720 miało DŁUŻSZY angielski niż skrócona wersja Skill00 (np. „Negates enemy Support Defense" vs „Voids foe
+Sup. Defense") — rozjazd rozdział 1 vs 2–8 od Tier 1–3. Sama synchronizacja daje pulę 16 469 B (+831 nad oryginał);
+dedup identycznych fragmentów (−805) odrzucony jako ryzykowny (zmienia liczbę/układ wskaźników). **583 wiersze ogona
+Skill00 w `04` mają jeden wspólny id** (`…srwDL_Skill00.bin:193328` = początek puli) — `copy_of` na nie jest
+niejednoznaczne (`translation_copy` bierze ostatni wiersz o danym id ⇒ 401 „source text differs" przy pierwszej
+próbie); naprawione: `copy_of` tylko na bliźniaka o unikalnym id, inaczej sam angielski.
+
+**Zmiany w narzędziach (commit tej sesji):**
+
+* `tools/skill_shrink.py`: `--dlc-original DIR` (oryginalne `config01..08.EDAT`) ⇒ `sync_pools` (angielski wiersza
+  Skill00 o tym samym JP dla każdego wiersza `grow` pul Skill01–08, `copy_of` gdy id unikalne; wiersze `slot` i bez
+  bliźniaka nietknięte, raportowane), `measure_pools` (prawdziwy pisarz `table_write.apply_member`, wiersze
+  tożsamościowe pominięte jak w builderze ⇒ pomiar = build co do bajtu: 15 578), bramki `POOL_LIMIT = 15 638`,
+  `SKILL_TOTAL_LIMIT = 342 194`; kod wyjścia 1 gdy pula lub suma ponad; `SKROCENIA_*.tsv` dostaje wiersze `pool`.
+* `config/skill_shrink_rules.tsv` Tier 4a/4b (+73 reguł, razem 219): m.in. `within range→in range`,
+  `Sup. Defense→Sup. Def.`, `Sup. Attack→Sup. Atk`, `Activation→Trigger`, `After battle, →Post-battle `,
+  `When using weapons, →On weapon use: `, `Attacks all foes in range→Hits all foes in range`, `Unit vanishes→Unit
+  lost`, `unit(s) →units `, `Crit rate, Crit dmg→Crit rate/dmg`, `Can combine into →Combines into `, 50 `exact`
+  (np. „The higher the foe's Acc, the higher the activation rate" → „Higher foe Acc = higher activation",
+  „Effective only in certain missions" → „Set missions only"). 0 odmów strażnika tokenów.
+* `tools/table_write.py`: `POOL_SIZE_LIMITS` (Skill01–08 = 15 638) + `pool_size_limit_problem`; `apply_member`
+  rzuca `item_skill_write.SizeBudgetError` (import leniwy) ⇒ builder: **„NOT written", kod 1** (sprawdzone na v3 z
+  `--only config01.EDAT`: `srwDL_Skill01.bin: 17396 B exceeds the in-game budget of 15638 B (+1758 B over …)`).
+* `tools/build_translation_patch.py`: `skill_total_check` po pętli kontenerów — suma Skill00 + 8 pul z bajtów
+  zbudowanych (`iso_patch` / `out/DLC`) lub oryginałów, pole `skill_total` w `build_report.json`, linia problemu
+  (niefatalna) gdy > 342 194 lub `fits: null` gdy brak któregoś z 9 kontenerów; `TOOLS_STAMP 2026-10-15d`.
+* `tools/diagnoza.py`: pakiet v4 = AKTUALNY (odcisk `98d94560…`/`fa8b0e48…`), v3 = STARY; `ACCEPTED_CONFIG`
+  (config00: BUILD14 `71d9fcaf…` i BUILD17 `80b8fae6…`); `KNOWN_DLC_CONFIG` (24 md5: config01–08 z buildu #15,
+  #17 i wariantu pulaJP, etykietowane w sekcjach 3/4); marker `POOL_SIZE_LIMITS` w narzędziach.
+* Testy: `tests/test_skill_shrink.py` (+3: sync, limity, measure_pools), `tests/test_table_write.py`
+  (`PoolBudgetTests`), `tests/test_build_translation_patch.py` (`SkillTotalCheckTests`), `tests/test_diagnoza.py`
+  (+1). Pełny zestaw: **1 114 OK / 1 pominięty**.
+
+**Pakiet v4** (`local/pakiet_v4/pakiet_EN_2026-10-15_v4`, zip 5 304 843 B md5 `52f1e143b8ddfd4b20020803286f5ee5`;
+odcisk 03/04 `98d945607e047f4d32cf3b63f7f605d1` / `fa8b0e48d2d7e4ca03757a5f731b763f`): `skill_shrink` na v3 z
+`--dlc-original` ⇒ 03: 45 wierszy, 04: 186 wierszy Skill00 + 2 336 wierszy pul (231 różnych tekstów), 1 176 wierszy
+pul z `copy_of`; `translation_copy --resync` 0, `--check` 0 rozjazdów; `translation_check` 0 błędów (108 135
+wierszy). Pliki: `CO_NOWEGO_v4.txt`, `SKROCENIA_Skill00_v4_tier4_i_pule.tsv`, `SKROCENIA_Skill00_v3_tier1-3.tsv`.
+Pomiar: Skill00 215 462 B, każda pula 15 578 B, suma 340 086 B (< 341 622 układu X).
+
+**Build #17 (tu; 13 kontenerów z oryginałów z Dysku, 20 s):** config00 936 064 B md5
+`80b8fae61b858fb91db35532c4680c6f` (Skill00 215 462); configst `6cfe245d…` (= #14, bez zmian); eventP00
+`ac538959…`, imenu00 `ee66a6f8…`, mesbtl00 `00e10760…` (= #15, bez zmian — v4 nie dotyka tych kontenerów);
+config01–08.EDAT **rozmiary = oryginał** (config02 +2 048 przez słowniki): md5 `7c6459fa7377b585a5176b5859361da2`,
+`a7f034d10cc07c771bfc975aeec73b5b`, `6af12bab9c1b81db9952beff2279205b`, `9a8a771573ccd68eceadfc9a111c95b1`,
+`e3694678a42f1d78d2f10d80bcfdb004`, `ebeace423570cda94d1d3b1ea23d6435`, `60eab71a9ff17806cbfd554401b7a46f`,
+`735cdf6c59febd80d1aacce62ae87b9b`; `skill_total.total` 340 086, `fits: true`, 0 problemów poza „not found" dla
+83 nieobecnych EDAT. **Wariant pulaJP** (build #16 z v3 z wyzerowanym `en` 5 760 wierszy pul; pule bajtowo
+oryginalne, reszta EN): md5 `1bfb9352…`, `8eb2ef59…`, `35face1f…`, `8b5f08da…`, `0fdc2d6a…`, `8c9216f7…`,
+`43006c18…`, `e103d1ef…` — test awaryjny Y3.
+
+**Dysk (zweryfikowane `list_files`):** DELIVERY = `pakiet_EN_2026-10-15_v4.zip` (`1KYew02vngGXwcGL5QveGW9-ixNnWccq3`),
+`KIT_build17_2026-10-15.zip` (`1efl3N_NWL3W2BCLMyBrVX2h3w_em6YUP`, 1 050 474 B, md5 `ffc63137…`: `USRDIR_build17\`,
+`DLC_build17_config\` 10 plików, `DLC_pulaJP_config01-08\`, `CZYTAJ.txt`), nowa `INSTRUKCJA_PL.md`
+(`1NXTOPrDGKTdUI9bdZaUnTWq4Xrdw7jeS`; stara w koszu), `RUNDA8_build14.zip`, `_STARE_NIE_UZYWAC\` (+ v3 i KIT 15
+przemianowane z opisem przyczyny). Folder Pakiet: kopia v4, v3 przemianowany `_STARY`.
+
+**Runda dla użytkownika (INSTRUKCJA część 3):** Y4a (oryginalny DLC + 10 plików config z KIT 17, oryginalne ISO) →
+Y4 (+ 91 EDAT z własnej budowy v4) → Z4 (`patched.iso` + folder Y4; sejw z 2. rozdziału, nowa gra, lista umiejętności
+w rozdziale 2); Y3 tylko gdy Y4a padnie. **Status: pakiet v4 i build #17 w grze jeszcze nie sprawdzone.**
+Otwarte: pasek podpowiedzi słownika (układ), notatka dla tłumacza, kana-tokeny 9 pól duchów, utrata wiodącej spacji
+w fragmentach EN (builder zostawia bajty JP przy tożsamości ` Lv`→`Lv`), A1 vs A2 (drabinka pul).

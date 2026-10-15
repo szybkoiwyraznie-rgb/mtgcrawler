@@ -213,6 +213,115 @@ class PackageTest(unittest.TestCase):
             self.assertEqual(report2["over_by"], report2["after"]["size"] - 1)
             self.assertNotIn("out", report2)
 
+    def test_sync_pools_copies_skill00_english_and_points_copy_of_at_a_unique_row(self):
+        src00 = {"container": "config00.cpk", "member": MEMBER}
+        rows4 = [
+            # Skill00: the inline row (unique id, low offset), the tail-pool row (unique id)
+            {"id": "skill:config00.cpk/srwDL_Skill00.bin:100", "jp": "回復", "en": "Regen",
+             "source": dict(src00, offset=100)},
+            {"id": "skill:config00.cpk/srwDL_Skill00.bin:900", "jp": "回復", "en": "Regen",
+             "source": dict(src00, offset=900)},
+            # 583 real tail rows share one id: two of them here, one Japanese each
+            {"id": "skill:config00.cpk/srwDL_Skill00.bin:800", "jp": "敵", "en": "foe",
+             "source": dict(src00, offset=800)},
+            {"id": "skill:config00.cpk/srwDL_Skill00.bin:800", "jp": "味方", "en": "ally",
+             "source": dict(src00, offset=800)},
+            # an untranslated Skill00 row is no source
+            {"id": "skill:config00.cpk/srwDL_Skill00.bin:950", "jp": "気力", "en": "",
+             "source": dict(src00, offset=950)},
+        ]
+        src01 = {"container": "config01.EDAT", "member": "srwDL_Skill01.bin"}
+        pool = [
+            {"id": "skill:config01.EDAT/srwDL_Skill01.bin:10", "jp": "回復", "en": "Recovery",
+             "mode": "grow", "source": dict(src01, offset=10)},
+            {"id": "skill:config01.EDAT/srwDL_Skill01.bin:20", "jp": "敵", "en": "enemy",
+             "mode": "grow", "source": dict(src01, offset=20)},
+            {"id": "skill:config01.EDAT/srwDL_Skill01.bin:30", "jp": "気力", "en": "Will",
+             "mode": "grow", "source": dict(src01, offset=30)},
+            {"id": "skill:config01.EDAT/srwDL_Skill01.bin:40", "jp": "謎", "en": "Mystery",
+             "mode": "grow", "source": dict(src01, offset=40)},
+            {"id": "leftover:config01.EDAT/srwDL_Skill01.bin:50", "jp": "味方", "en": "allies",
+             "mode": "slot", "max_bytes": 7, "source": dict(src01, offset=50)},
+            {"id": "skill:config01.EDAT/srwDL_Skill01.bin:60", "jp": "味方", "en": "",
+             "mode": "grow", "source": dict(src01, offset=60)},
+        ]
+        out, changes, problems = SS.sync_pools(rows4 + pool)
+        by_id = {}
+        for row in out:
+            by_id.setdefault(row["id"], row)
+        synced = by_id["skill:config01.EDAT/srwDL_Skill01.bin:10"]
+        self.assertEqual(synced["en"], "Regen")
+        # the highest-offset twin with a unique id is the copy source
+        self.assertEqual(synced["copy_of"], "skill:config00.cpk/srwDL_Skill00.bin:900")
+        shared = by_id["skill:config01.EDAT/srwDL_Skill01.bin:20"]
+        self.assertEqual(shared["en"], "foe")
+        self.assertNotIn("copy_of", shared)          # its only twin shares an id with another row
+        self.assertEqual(by_id["skill:config01.EDAT/srwDL_Skill01.bin:30"]["en"], "Will")
+        self.assertEqual(by_id["skill:config01.EDAT/srwDL_Skill01.bin:40"]["en"], "Mystery")
+        self.assertEqual(by_id["leftover:config01.EDAT/srwDL_Skill01.bin:50"]["en"], "allies")
+        self.assertEqual(by_id["skill:config01.EDAT/srwDL_Skill01.bin:60"]["en"], "")
+        self.assertEqual([c["id"] for c in changes],
+                         ["skill:config01.EDAT/srwDL_Skill01.bin:10",
+                          "skill:config01.EDAT/srwDL_Skill01.bin:20"])
+        self.assertEqual(changes[0]["saved"], len("Recovery") - len("Regen"))
+        self.assertEqual(len(problems), 2)            # 気力 (untranslated twin) and 謎 (no twin)
+        self.assertTrue(all("no Skill00 row" in p for p in problems))
+        # Skill00 rows and the order of the file are untouched
+        self.assertEqual([r["id"] for r in out], [r["id"] for r in rows4 + pool])
+        self.assertEqual(out[:5], rows4)
+        # a second pass changes nothing
+        out2, changes2, _ = SS.sync_pools(out)
+        self.assertEqual(out2, out)
+        self.assertEqual(changes2, [])
+
+    def test_pool_budgets_are_the_original_pool_and_the_largest_total_that_booted(self):
+        self.assertEqual(SS.POOL_LIMIT, 15_638)
+        self.assertEqual(SS.SKILL_TOTAL_LIMIT, 342_194)
+        import table_write as TW
+        self.assertEqual(set(TW.POOL_SIZE_LIMITS.values()), {SS.POOL_LIMIT})
+        self.assertEqual(SS.pool_member({"source": {"member": "srwDL_Skill08.bin"}}),
+                         "srwDL_Skill08.bin")
+        self.assertIsNone(SS.pool_member({"source": {"member": "srwDL_Skill00.bin"}}))
+        self.assertIsNone(SS.pool_member({"source": {"member": "srwDL_Item01.bin"}}))
+
+    def test_measure_pools_uses_the_pool_writer_and_skips_identity_rows(self):
+        import struct
+        import table_write as TW
+        strings = ["回復".encode("cp932"), " Lv".encode("cp932"), "敵".encode("cp932")]
+        table_start = 8
+        pool_start = table_start + 4 * len(strings)
+        offs, pos = [], pool_start
+        for text in strings:
+            offs.append(pos)
+            pos += len(text) + 1
+        blob = struct.pack("<2I", table_start, 0) + b"".join(struct.pack("<I", o) for o in offs) \
+            + b"".join(t + b"\x00" for t in strings)
+        src01 = {"container": "config01.EDAT", "member": "srwDL_Skill01.bin"}
+        rows4 = [{"id": "a", "jp": "回復", "en": "Regen", "mode": "grow",
+                  "source": dict(src01, offset=offs[0])},
+                 {"id": "b", "jp": " Lv", "en": "Lv", "mode": "grow",          # identity: skipped
+                  "source": dict(src01, offset=offs[1])},
+                 {"id": "c", "jp": "敵", "en": "", "mode": "grow",            # empty: skipped
+                  "source": dict(src01, offset=offs[2])}]
+        real = SS.pool_blob
+        SS.pool_blob = lambda edat, member: blob
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                tmp = Path(tmp)
+                (tmp / "config01.EDAT").write_bytes(b"not read")
+                result = SS.measure_pools(tmp, rows4)
+        finally:
+            SS.pool_blob = real
+        info = result["srwDL_Skill01.bin"]
+        self.assertEqual(info["original"], len(blob))
+        self.assertEqual(info["size"], len(blob) + len(b"Regen") - len("回復".encode("cp932")))
+        self.assertTrue(info["fits"])
+        self.assertEqual(info["refused"], 0)
+        with tempfile.TemporaryDirectory() as tmp:
+            result = SS.measure_pools(Path(tmp), rows4)          # no EDAT there
+        self.assertIsNone(result["srwDL_Skill01.bin"]["size"])
+        self.assertIn("not in", result["srwDL_Skill01.bin"]["problem"])
+
     def test_identity_rows_are_neither_measured_nor_rewritten(self):
         # " Lv" copied back as "Lv": the builder keeps the Japanese bytes, so must the measurement
         pointers, _ = ISR.parse_tail_pool(self.blob, self.parsed["tail_offset"])

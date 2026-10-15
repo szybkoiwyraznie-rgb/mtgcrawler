@@ -305,5 +305,68 @@ class SizeBudgetGateTests(unittest.TestCase):
         self.assertEqual(BTP.exit_status(["x.cpk: not found in the ISO or the DLC folder"]), 1)
 
 
+class SkillTotalCheckTests(unittest.TestCase):
+    """Skill00 + the eight DLC pools are summed at the end of a build: the built bytes where the
+    build produced them (ISO patch or DLC folder), the originals elsewhere; a sum over the largest
+    total that booted (342 194 B) is a problem line, an incomplete set is only reported."""
+
+    def setUp(self):
+        self.real = BTP._members_of_blob
+        # a fake container: b"<member>=<size>" -> {member: size bytes}
+        BTP._members_of_blob = lambda blob: {
+            blob.split(b"=")[0].decode(): b"\0" * int(blob.split(b"=")[1])}
+
+    def tearDown(self):
+        BTP._members_of_blob = self.real
+
+    def blobs(self, skill00: int, pool: int):
+        out = {"config00.cpk": f"srwDL_Skill00.bin={skill00}".encode()}
+        for n in range(1, 9):
+            out[f"config0{n}.EDAT"] = f"srwDL_Skill0{n}.bin={pool}".encode()
+        return out
+
+    def test_limits_match_the_measured_configuration(self):
+        self.assertEqual(BTP.SKILL_TOTAL_LIMIT, 342_194)            # W1: 217 090 + 8 x 15 638
+        self.assertEqual(BTP.SKILL_MEMBERS["config00.cpk"], "srwDL_Skill00.bin")
+        self.assertEqual(BTP.SKILL_MEMBERS["config08.EDAT"], "srwDL_Skill08.bin")
+        self.assertEqual(len(BTP.SKILL_MEMBERS), 9)
+
+    def test_sum_within_the_limit_is_reported_without_a_problem(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            report = {"problems": []}
+            BTP.skill_total_check(report, self.blobs(216_768, 15_638), {}, Path(tmp), False)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["skill_total"]["total"], 216_768 + 8 * 15_638)
+        self.assertTrue(report["skill_total"]["fits"])
+        self.assertEqual(report["skill_total"]["missing"], [])
+
+    def test_built_bytes_win_over_the_originals(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            (out / "DLC").mkdir()
+            for n in range(1, 9):                                    # the build wrote the pools
+                (out / "DLC" / f"config0{n}.EDAT").write_bytes(f"srwDL_Skill0{n}.bin=17396".encode())
+            iso_patch = {"PSP_GAME/USRDIR/config00.cpk": b"srwDL_Skill00.bin=216518"}
+            report = {"problems": []}
+            BTP.skill_total_check(report, self.blobs(208_958, 15_638), iso_patch, out, False)
+        total = 216_518 + 8 * 17_396                                 # build #15: crashed (test Y)
+        self.assertEqual(report["skill_total"]["total"], total)
+        self.assertFalse(report["skill_total"]["fits"])
+        self.assertEqual(len(report["problems"]), 1)
+        self.assertIn(f"{total} B exceeds 342194 B", report["problems"][0])
+        self.assertIn("skill_shrink.py --dlc-original", report["problems"][0])
+        self.assertEqual(BTP.exit_status(report["problems"]), 0)    # flagged, not fatal
+
+    def test_an_incomplete_set_is_not_judged(self):
+        blobs = self.blobs(300_000, 15_638)
+        del blobs["config05.EDAT"]
+        with tempfile.TemporaryDirectory() as tmp:
+            report = {"problems": []}
+            BTP.skill_total_check(report, blobs, {}, Path(tmp), True)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["skill_total"]["missing"], ["config05.EDAT"])
+        self.assertIsNone(report["skill_total"]["fits"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -113,7 +113,25 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
-**Stan 2026-10-15 wieczór (najnowszy; `EXPERIMENT_LOG.md` §21.23–21.25):** rekordy conv-B mają **TRZY**
+**Stan 2026-10-15 noc (najnowszy; `EXPERIMENT_LOG.md` §21.26–21.27):** testy X/Y w grze: **X działa** (`patched.iso`
+z przebudowanymi `eventP00`/`mesbtl00`/`imenu00` STORED + config #14, oryginalny folder DLC — gra do słownika),
+**Y pada** na „Loading" stosem buildu #8 (oryginalne ISO + pełny build #15, 91 EDAT). Jedyny podplik rosnący we
+wszystkich rozdziałach zgodnie z tym stosem: pula fragmentów `srwDL_Skill01–08.bin` 15 638 → 17 396 B (suma
+Skill00 + 8 pul: oryginał 334 062, X 341 622 OK, Y 355 686 crash). **HIPOTEZA** (jedna arena Skill00 + pule,
+granica w [342 194, 343 214)) — niesprawdzona w grze. Zrobione: pakiet **v4** (Tier 4, 219 reguł; pule = angielski
+Skill00 przez `skill_shrink.py --dlc-original`; `copy_of` tylko na unikalne id — 583 wiersze ogona Skill00 w `04`
+dzielą jeden id!) ⇒ pule 15 578 B, Skill00 215 462 B, suma 340 086 B; bramki: `table_write.POOL_SIZE_LIMITS`
+(15 638, fatalna), `build_translation_patch.skill_total_check` (342 194, raport `skill_total`), `skill_shrink`
+kod 1 ponad limit; **build #17** (config00 md5 `80b8fae6…`, config01–08 rozmiar oryginału; md5 w
+`diagnoza.py::KNOWN_DLC_CONFIG`), `KIT_build17_2026-10-15.zip` (+ wariant pulaJP = build #16), v4 i nowa
+`INSTRUKCJA_PL.md` na Dysku DELIVERY (v3/KIT15 w `_STARE_NIE_UZYWAC`). **Czeka na test użytkownika:** Y4a →
+Y4 → Z4 (Y3 awaryjnie). Gdy Y4a padnie a Y3 działa: pule bajt-w-bajt tej samej długości (treść, nie rozmiar);
+gdy oba padną: `config00` v4 sam, potem słowniki/Item/DLC_ID w `config01–08` przez `container_mix.py`.
+Otwarte: pasek podpowiedzi słownika nachodzi na zakładkę „Pilot" (skrócić etykiety `sysmes`/imenu), nieunikalne
+id w pakiecie (ekstraktor; naprawa = sufiks), wiodąca spacja ` Lv`→`Lv` (builder pomija wiersz tożsamościowy —
+zostają bajty JP), A1/A2 (drabinka pul), 83 EDAT nigdy osobno w grze.
+
+**Stan 2026-10-15 wieczór (`EXPERIMENT_LOG.md` §21.23–21.25):** rekordy conv-B mają **TRZY**
 wskaźniki względne: `+32` (baza członu), `+36` (pula), **`+52` = `ostatnia_granica_tekstu + delta` (słowa
 parametrów za tekstami)** — pisarz kopiował `+52` dosłownie do buildu #13; sejw z 2. rozdziału padał
 (`Jump to ffffffff`). Naprawione (`parameter_delta`, `parameter_pointer_faults`, testy), **potwierdzone w grze
