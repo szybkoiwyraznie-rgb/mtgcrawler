@@ -2,7 +2,17 @@
 
 Last updated: 2026-10-15
 
-**Latest (2026-10-15, afternoon): the chapter-2 save crash has a concrete cause in the writer — a THIRD
+**Latest (2026-10-15, evening): CONFIRMED IN-GAME — build #14 loads the user's mid-chapter-2 save and the skill
+descriptions read correctly; Y5 (= Y3 with only the `+52` word corrected) loads where Y3 crashed**, so the
+chapter-2 crash was the stale parameter pointer, not the member size (the Loading budget 216 768 B stays as
+measured). Build #14 is the first build that passes Loading, a new game and the chapter-2 save. Package **v3**
+(= v2 + button-bar label rule + 408 DLC pool copies re-synced to the shortened Skill00 fragments,
+`translation_copy.py --resync`; `translation_check` 0 errors) is on Drive; building config00/configst from it
+reproduces build #14 byte for byte. Next: the user builds the FULL patch locally (`HOKUS_POKUS.bat`, fresh
+branch ZIP, v3 in `pakiet_EN\`) and tests the chapter-2 save on the complete set, then plays from the start —
+the 94 other containers have never run in-game past Loading. Details: `EXPERIMENT_LOG.md` §21.25.
+
+**Previous (2026-10-15, afternoon): the chapter-2 save crash has a concrete cause in the writer — a THIRD
 record-relative pointer, u16 `+52` (start of the skill's parameter words after the texts), was copied verbatim by
 builds #6–#13**, so every record whose English changed length had the game read its parameters from the wrong
 place (build #12: 1 152 of 1 469 Skill00 records, 458 pointing into the text). Round 7 (Y1 OK, Y2 OK, Y3 crash,

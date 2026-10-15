@@ -360,8 +360,10 @@ shifted by 4 B without text growth (Y1: 2 stale words) and grown by 1 984 B (Y2:
 loaded [in-game, user, 2026-10-15]. The record parse never flagged it because the stale pointer usually still
 landed inside the record. `rebuild_record` now writes `new_last_boundary + delta` (delta taken from the source
 record), `parameter_pointer_faults` refuses a source outside `[last_boundary, length]`, and the output is proven
-to keep every parameter word byte-identical (checked on all 2 230 records). Whether this alone explains the
-chapter-2 crash is the round-8 test (Y5 = Y3 with only `+52` corrected; build #14 = build #13 + the fix).
+to keep every parameter word byte-identical (checked on all 2 230 records). **Confirmed in-game (round 8,
+user, 2026-10-15): Y5 — Y3 with only the `+52` word corrected in 1 463 records — loads the chapter-2 save that
+Y3 crashed on, and build #14 (= #13 + the fix) loads it with sensible skill descriptions.** The size of the
+member (216 518 B) is therefore fine on the save path; the only size limit remains the Loading one above.
 
 ## `config_text_tables` scan gap: first fields behind a two-byte preamble (2026-10-15)
 

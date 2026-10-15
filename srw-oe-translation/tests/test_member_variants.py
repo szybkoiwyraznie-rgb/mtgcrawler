@@ -117,6 +117,13 @@ class MemberVariantsTests(unittest.TestCase):
         self.assertEqual(self.pool(grown), self.pool(self.original))
         parsed = ISR.parse_member(grown, "skill", MEMBER)
         self.assertEqual(ISW.pool_pointer_faults(grown, parsed), [])
+        # the parameter pointer (+52) moved with the grown effects (Y3 -> Y5, 2026-10-15)
+        self.assertEqual(ISW.parameter_pointer_faults(grown, parsed), [])
+        po = ISR.parse_member(self.original, "skill", MEMBER)
+        for a, b in zip(po["records"], parsed["records"]):
+            delta_a = struct.unpack_from("<H", self.original, a["offset"] + 52)[0] - a["boundaries"][-1]
+            delta_b = struct.unpack_from("<H", grown, b["offset"] + 52)[0] - b["boundaries"][-1]
+            self.assertEqual(delta_a, delta_b)
         # round robin keeps every effect under the caps; a cap that is already full refuses
         # (each 5-byte effect has room for 8 spaces under a 16-byte cap: 4 records x 8 = 32)
         big = MV.grow_with_spaces(self.original, "skill", MEMBER, size + 32, max_field=16, max_line=16)

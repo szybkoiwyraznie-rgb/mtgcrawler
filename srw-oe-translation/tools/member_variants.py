@@ -133,10 +133,12 @@ def make_variant(name: str, original: bytes, built: bytes, kind: str, member: st
 
 
 def check(blob: bytes, kind: str, member: str, reference: bytes) -> dict:
-    """Re-parse a variant: same record count as the reference, pool pointers right, pool parses."""
+    """Re-parse a variant: same record count as the reference, the three record pointers
+    (+32 base, +36 pool, +52 parameter words) in range, pool parses."""
     p = parsed(blob, kind, member)
     ref = parsed(reference, kind, member)
-    faults = ISW.pool_pointer_faults(blob, p) + ISW.base_pointer_faults(blob, p)
+    faults = (ISW.pool_pointer_faults(blob, p) + ISW.base_pointer_faults(blob, p)
+              + ISW.parameter_pointer_faults(blob, p))
     _, strings = ISR.parse_tail_pool(blob, p["tail_offset"])
     if len(p["records"]) != len(ref["records"]) or faults:
         raise VariantError(f"{member}: variant does not hold (records {len(p['records'])}, "

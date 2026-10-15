@@ -13,9 +13,18 @@ This tool copies ``en`` from the source row, so every text is translated once:
 * the source text must still equal the target ``jp`` (a moved or edited row is refused, not guessed),
 * a file is rewritten only when at least one of its rows was filled.
 
+``--resync`` is the one exception to "never overwritten": after a tool rewrote the SOURCE rows
+(``skill_shrink.py`` shortened the Skill00 fragment pool on 2026-10-15; the 8 DLC copies
+``config01-08.EDAT/srwDL_Skill01-08.bin`` kept the old English, 408 rows) the copies are set to the
+source's current ``en`` again - still only where the Japanese matches, and every overwritten row is
+counted in ``resynced``.  The build writes a copy row's own ``en``, so an out-of-sync copy ships a
+different text in chapters 2-8 than in chapter 1 (``translation_check`` reports it as
+"copy differs from its source row").
+
 Usage:
     python tools/translation_copy.py --package local/translation            # fill
     python tools/translation_copy.py --package local/translation --check    # report only
+    python tools/translation_copy.py --package local/translation --resync   # copies follow edited sources
 """
 from __future__ import annotations
 
@@ -43,11 +52,15 @@ def load_package(paths) -> Tuple[List[Path], Dict[Path, List[dict]]]:
     return files, {path: ISW.read_package(path) for path in files}
 
 
-def copy_rows(rows: List[dict], check_only: bool = False) -> dict:
-    """Fill every row that has ``copy_of`` from its source. Returns the counters and problems."""
+def copy_rows(rows: List[dict], check_only: bool = False, resync: bool = False) -> dict:
+    """Fill every row that has ``copy_of`` from its source. Returns the counters and problems.
+
+    ``resync`` also overwrites a filled copy whose ``en`` differs from the source's (counted in
+    ``resynced``); without it such a row is left alone and counted in ``already``.
+    """
     by_id = {row["id"]: row for row in rows if row.get("id")}
     report = {"rows": len(rows), "copies": 0, "filled": 0, "already": 0, "source_empty": 0,
-              "missing_source": 0, "text_mismatch": 0, "problems": []}
+              "missing_source": 0, "text_mismatch": 0, "resynced": 0, "problems": []}
     for row in rows:
         source_id = row.get("copy_of")
         if not source_id:
@@ -63,7 +76,12 @@ def copy_rows(rows: List[dict], check_only: bool = False) -> dict:
             report["problems"].append(f"{row['id']}: source text differs from {source_id}")
             continue
         if (row.get("en") or "").strip():
-            report["already"] += 1
+            if resync and (source.get("en") or "").strip() and row["en"] != source["en"]:
+                if not check_only:
+                    row["en"] = source["en"]
+                report["resynced"] += 1
+            else:
+                report["already"] += 1
             continue
         if not (source.get("en") or "").strip():
             report["source_empty"] += 1
@@ -87,6 +105,9 @@ def main(argv=None) -> int:
     parser.add_argument("--package", type=Path, nargs="+", required=True,
                         help="package JSONL files, or a directory holding them")
     parser.add_argument("--check", action="store_true", help="only report what would be filled")
+    parser.add_argument("--resync", action="store_true",
+                        help="also overwrite filled copies whose English differs from their source "
+                             "(after a tool rewrote the source rows)")
     args = parser.parse_args(argv)
 
     files, rows_by_file = load_package(args.package)
@@ -94,7 +115,7 @@ def main(argv=None) -> int:
     all_rows = [row for path in files for row in rows_by_file[path]
                 if "id" in row and "en" in row]
     before = {id(row): (row.get("en") or "") for row in all_rows}
-    report = copy_rows(all_rows, check_only=args.check)
+    report = copy_rows(all_rows, check_only=args.check, resync=args.resync)
     if not args.check:
         touched = [path for path in files
                    if any((row.get("en") or "") != before[id(row)] for row in rows_by_file[path])]

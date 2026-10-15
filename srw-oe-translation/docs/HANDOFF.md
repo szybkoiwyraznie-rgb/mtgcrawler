@@ -113,6 +113,19 @@ pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.
   pracujemy na tym, co mamy (configst via CPK, config07 decrypted, eventP00 via CPK).
 
 ## 7. Zadania OTWARTE (kolejność)
+**Stan 2026-10-15 wieczór (najnowszy; `EXPERIMENT_LOG.md` §21.23–21.25):** rekordy conv-B mają **TRZY**
+wskaźniki względne: `+32` (baza członu), `+36` (pula), **`+52` = `ostatnia_granica_tekstu + delta` (słowa
+parametrów za tekstami)** — pisarz kopiował `+52` dosłownie do buildu #13; sejw z 2. rozdziału padał
+(`Jump to ffffffff`). Naprawione (`parameter_delta`, `parameter_pointer_faults`, testy), **potwierdzone w grze
+A/B (Y3 pada ↔ Y5 = Y3 + sam `+52` działa); build #14** (`config00` md5 `71d9fcaf…`, `configst` `6cfe245d…`)
+przechodzi Loading, nową grę i sejw z 2. rozdziału. Sejwy nie zależą od układu pliku (Y1, B). Budżet Skill00
+216 768 B (Loading) bez zmian. Pakiet **v3** (`1ptwsZAtLb-6_0ydGfFOakXlWjBKIa3iB`): v2 + `label_fit` + 408 kopii
+puli DLC po `translation_copy.py --resync` (0 błędów). **Następne:** pełny patch u użytkownika
+(`HOKUS_POKUS.bat`, świeży ZIP gałęzi + v3) → sejw z 2. rozdziału na pełnym zestawie → gra od początku;
+pozostałe 94 kontenery nigdy nie działały w grze poza Loading. Pułapki: `skill_shrink`/`label_fit` nie
+aktualizują wierszy-kopii (`copy_of`) — po każdym z nich `translation_copy.py --resync` i `translation_check`
+z finalnego pakietu; `check_report.txt` w zipie v2 był nieaktualny.
+
 **Stan 2026-10-15 (najnowszy; `EXPERIMENT_LOG.md` §21.20): U2 PADA, U1 DZIAŁA, W5 DZIAŁA ⇒ limit rozmiaru
 SAMEGO członu `srwDL_Skill00.bin`** (nie kontenera, nie nagłówka): bezpieczne 217 086 B, crash od 221 182 B.
 Zrobione: (1) budżet w pisarzu `item_skill_write.SKILL00_LIMIT = 216 768` (`SizeBudgetError`; builder nie

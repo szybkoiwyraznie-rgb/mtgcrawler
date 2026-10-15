@@ -31,6 +31,22 @@ class CopyRowsTest(unittest.TestCase):
         self.assertEqual(rows[1]["en"], "uno")
         self.assertEqual((report["filled"], report["already"]), (0, 1))
 
+    def test_resync_makes_a_filled_copy_follow_an_edited_source(self):
+        # skill_shrink rewrote the Skill00 pool row; the DLC copy kept the old English
+        rows = [row("base", "ﾀﾞﾒｰｼﾞ", "Dmg"), row("copy", "ﾀﾞﾒｰｼﾞ", "Damage", copy_of="base"),
+                row("same", "ﾀﾞﾒｰｼﾞ", "Dmg", copy_of="base"), row("moved", "命中", "Hit", copy_of="base")]
+        report = TC.copy_rows(rows, check_only=True, resync=True)
+        self.assertEqual(rows[1]["en"], "Damage")                       # check only
+        self.assertEqual((report["resynced"], report["already"], report["text_mismatch"]), (1, 1, 1))
+        report = TC.copy_rows(rows, resync=True)
+        self.assertEqual(rows[1]["en"], "Dmg")
+        self.assertEqual(rows[3]["en"], "Hit")                          # jp differs: never touched
+        self.assertEqual((report["resynced"], report["already"], report["filled"]), (1, 1, 0))
+        # without the flag nothing is overwritten
+        rows[1]["en"] = "Damage"
+        report = TC.copy_rows(rows)
+        self.assertEqual((rows[1]["en"], report["resynced"], report["already"]), ("Damage", 0, 2))
+
     def test_edited_source_text_is_refused(self):
         rows = [row("base", "一", "one"), row("copy", "二", "", copy_of="base")]
         report = TC.copy_rows(rows)

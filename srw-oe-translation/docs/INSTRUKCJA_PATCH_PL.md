@@ -1,4 +1,19 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja krok po kroku (stan 2026-10-14)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja krok po kroku (stan 2026-10-14, aktualizacja 2026-10-15)
+
+> **Aktualizacja 2026-10-15 (build #14, pakiet v3).** Procedura poniżej jest bez zmian, zmieniły się pliki:
+> 1. **Narzędzia:** ściągnij **świeży ZIP gałęzi** (krok 1 drogi B) — pisarz tabel umiejętności dostał trzy
+>    poprawki (budżet rozmiaru `Skill00`, wskaźnik `+32`, wskaźnik `+52`). Stare narzędzia zbudują pliki,
+>    które padają przy wczytaniu sejwu z 2. rozdziału.
+> 2. **Pakiet:** `pakiet_EN_2026-10-15_v3.zip` (folder „Pakiet” na Dysku) zamiast `pakiet_EN_2026-10-14.zip`
+>    — rozpakuj do `srw-oe-translation\pakiet_EN\` (plik `00_dialogue.jsonl` bezpośrednio w `pakiet_EN\`,
+>    stare pliki usuń). Gotowe paczki `DLC_EN_2026-10-14.zip` i `USRDIR_EN_2026-10-14.zip` są **nieaktualne**
+>    (zbudowane starym pisarzem) — nie kopiuj ich.
+> 3. **Kontrola po budowie:** w `srw-oe-patch\` (ISO: `patched.iso`; DLC: `DLC\…`) plik `config00.cpk` ma mieć
+>    936 064 B i md5 `71d9fcafa37c21513b97c14d1dff8f33`, `configst.cpk` 372 864 B i md5
+>    `6cfe245d5f6ec6dfffd2a829b778a4d7` (= sprawdzony w grze build #14). Inny md5 = stare narzędzia lub stary pakiet.
+> 4. **Kolejność testów:** najpierw wczytaj sejw z 2. rozdziału na pełnym zestawie (patched.iso + wszystkie pliki
+>    z `srw-oe-patch\DLC\` skopiowane do folderu DLC emulatora, po kopii zapasowej), potem nowa gra.
+>    Rozdziały 2–8 z tłumaczeniem nie były jeszcze nigdy uruchomione — zrzut ekranu + nazwa miejsca wystarczą.
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08 i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski tekst.

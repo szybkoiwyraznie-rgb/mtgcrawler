@@ -4207,3 +4207,38 @@ DELIVERY `1nGAeQ3Hoa8w6Xvm18vbcfFKdHO4z_Skf`):**
 - **PLAN_B** (tylko gdy Y5 padnie): drabinka japoński + spacje z poprawnym `+52`: L1 211 966, L2 212 990, L3 214 014,
   L4 215 038 B (md5 w `ROZMIARY_I_MD5.json`).
 Budżet `SKILL00_LIMIT` 216 768 bez zmian (limit z „Loading" pozostaje zmierzony niezależnie: W1/W2).
+
+### 21.25 Runda 8 w grze: Y5 DZIAŁA, build #14 wczytuje sejw z 2. rozdziału ⇒ przyczyna crasha = nieświeży `+52` (potwierdzone A/B); pakiet v3 (etykiety + 408 kopii puli DLC); następny krok: pełny patch przez `HOKUS_POKUS.bat`
+
+**Wynik użytkownika (2026-10-15):** **Y5 OK** (= Y3 z poprawionym `+52`, 216 518 B — Y3 padało), **BUILD14 OK**:
+sejw z połowy 2. epizodu wczytuje się, „wszystkie opisy wyglądają sensownie". PLAN_B nie uruchamiany
+(niepotrzebny). **Potwierdzone w grze (A/B: Y3 ↔ Y5 różnią się wyłącznie słowem `+52` w 1 463 rekordach):**
+crash przy wczytaniu sejwu z 2. rozdziału w buildach #11–#13 powodował nieświeży wskaźnik słów parametrów
+`+52`, nie rozmiar członu; rozmiar 216 518 B jest w porządku także na ścieżce sejwu. Budżet „Loading"
+(`SKILL00_LIMIT` 216 768, pomiar W1/W2) pozostaje w mocy i niezależny.
+
+**Stan buildu #14 = pierwszy build, który: ładuje się (Loading), działa w nowej grze (misja, Spirits), wczytuje
+sejw z 2. rozdziału i pokazuje sensowne opisy umiejętności.** Nieprzetestowane w grze: pozostałe 94 kontenery
+pełnego patcha (eventP00/mesbtl00/imenu00 w ISO i 91 plików DLC) po zmianach pisarzy z 2026-10-15 — budowane
+tą samą ścieżką, ale ostatni pełny test w grze (2026-10-14, EN2) kończył się crashem na „Loading" z powodu
+rozmiaru Skill00, więc rozdziały 2–8 z tłumaczeniem nigdy nie były uruchomione.
+
+**Porządki po wyniku:** `member_variants.check` sprawdza też `+52` (`parameter_pointer_faults`); test
+`test_grow_with_spaces…` dowodzi zachowania delty. `translation_check` na pakiecie v2/b13: **401 błędów „copy
+differs from its source row"** — 408 wierszy-kopii puli `config01–08.EDAT/srwDL_Skill01–08.bin` (51 na
+kontener) zostało przy przed-skróceniowym angielskim (`Damage` vs `Dmg`), bo `skill_shrink` przepisał tylko
+wiersze Skill00, a builder pisze własne `en` kopii — rozdziały 2–8 dostałyby inne, dłuższe fragmenty niż
+rozdział 1. Nowe `tools/translation_copy.py --resync` (jedyny wyjątek od „nigdy nie nadpisuj": kopia podąża za
+zmienionym źródłem, tylko przy zgodnym jp, licznik `resynced`; test). Raport v2 w zipie (0 błędów) pochodził
+sprzed zmiany czytnika/skrótu — pułapka: `check_report.txt` trzeba generować z finalnego pakietu.
+
+**Pakiet v3** = v2 + `label_fit` (382 wiersze sysmes) + `--resync` (408 kopii): `translation_check` **108 135
+wierszy, 0 błędów**. Budowa config00/configst z v3 = **bajtowo BUILD14** (md5 `71d9fcaf…`, `6cfe245d…`).
+`pakiet_EN_2026-10-15_v3.zip` 5 247 878 B md5 `41378d6c315af41ea370a55d640715a4`, Drive Pakiet
+`1ptwsZAtLb-6_0ydGfFOakXlWjBKIa3iB` (w środku `CO_NOWEGO_v3.txt`, `check_report.txt`).
+
+**Następny krok (użytkownik, lokalnie):** świeży ZIP gałęzi (pisarz po poprawce `+52` — stare narzędzia dałyby
+znów nieświeże `+52`), v3 do `pakiet_EN\`, `HOKUS_POKUS.bat` → `srw-oe-patch\patched.iso` + `DLC\…`; kontrola:
+md5 `config00.cpk`/`configst.cpk` z wyniku = BUILD14; test 1 = sejw z 2. rozdziału na pełnym zestawie (ISO +
+wszystkie pliki DLC), test 2 = nowa gra do 2. rozdziału. `INSTRUKCJA_PATCH_PL.md` dostała ramkę „Aktualizacja
+2026-10-15".
