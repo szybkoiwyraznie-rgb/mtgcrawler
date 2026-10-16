@@ -5981,3 +5981,27 @@ one-click (poprzednio brakowało plików do ikon).
   Potrzebna treść z ekranu usera (paste/screenshot) do identyfikacji wiersza.
   Robot Viewer (nazwy wrogów): builder mirruje RoboDictionary do config00 (build 00:21
   przebudował config00.cpk) — oczekiwane EN w aktualnym ISO; potwierdzi user przy okazji.
+
+### 21.57 Robot Viewer i okno nagrody: mechanizm rozszyfrowany na md5-identycznym rebuildzie (2026-10-17)
+
+User przeslal screeny ze swiezego buildu: (1) Robot Viewer (Ryu Knight): nazwy glownie EN,
+ale 邪竜兵 ×2 JP + stopka 標準タイプ JP; (2) okno nagrody: „First Clear Bonus:" naklada sie
+na kolumne wartosci (Cash+5200).
+
+Metoda: rebuild config00.cpk z JP oryginalu (`266366c3…`) + pakiet v11 = **md5 identyczny
+z ISO usera (`f128e675…`, 936 064 B)** — mam bajtowo to, co user. Fakty:
+- unit_list02.bin (nie „unit_list"): fresh rebuild/v16 = EN `Dragon Soldier` ×9; JP orig = ×9 JP.
+- RoboDict02 fresh: name EN ×3, **narrow ×3 JP + type ×3 JP (bramka gated)**; v16: cale JP (z wyboru).
+- RoboDict00 (global): 'Bolt Robo' ×8 EN, 'Standard Type' ×3 EN; **Nie zawiera 430-432 ani
+  Go-Saurer/Gandoppler/Escort/Neppoon** (v9 rowniez ich nie mial — byl JP po nazwach).
+- Widok: lista = globalny slownik + fallback do slownika rozdzialu. Uzytkownik ma v16
+  (JP slowniki z selekcji na `"` — hipoteza falsyfikowana §21.54) → fallback daje JP.
+  **v16 do wycofania: obecny build ma wlasne configi 01-19 z EN nazwami (ksztalt v13,
+  wczytywanie udowodnione).** Ewentualny resztkowy JP po wycofaniu: sloty narrow/type
+  strony config (gated) — decyduje sie dopiero po tescie (lista czyta name czy narrow).
+- FIX nagrody: sysmes 14444/14447/34528/34531 `First Clear Bonus:` → **`First Clear:`**
+  (04_config_text md5 `bc499162…`).
+- **WYDANIE v13:** `srw-oe-translation-v13.zip` 7 224 947 B, md5 `26d3a9fd…` (v12 + fix
+  nagrody; changelog z ostrzezeniem o wycofaniu v16). Drive (root wydawniczy).
+- Otwarte potencjalnie: stopka 標準タイプ dla jednostek tylko-rozdzialowych (gated robo_type;
+  kosmetyka) i — gdyby lista czytala narrow — wieszanie bramki na narrow (osobna decyzja).
