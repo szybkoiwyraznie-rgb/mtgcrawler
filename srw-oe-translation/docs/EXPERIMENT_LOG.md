@@ -5612,3 +5612,18 @@ końcowego.
 z folderu `D:\SRWOE\NPJH50521_v9` (imenu01 v9 już jest). Spodziewane: DZIAŁA (kształt imenu01
 jest dowiedziony) → encyklopedia rozdz. 2–8 znów pełna EN. Jeśli pada → imenu02–08 wracają do
 oryginałów, a analiza bierze pod uwagę, że coś w imenu02–08 różni się od imenu01.
+
+### 21.44 Priorytet użytkownika: 100% tłumaczenia, potem patcher (2026-10-16)
+
+**Decyzja użytkownika:** nie „bezpieczny stan do grania", tylko pełne tłumaczenie najpierw; potem
+naprawa patcher.zip (kit dystrybucyjny PATCH.bat z sesji 8 — zawiera NARZĘDZIA sprzed dzisiejszych
+poprawek, więc buduje zatrute config01–08 → stąd „nie działa"; odbudowa kitu aktualnymi narzędziami
+dopiero po potwierdzeniu pełnego stanu w grze).
+
+**Ścieżka do 100% (wg zawartości v9) — JEDEN test:** folder v9 w całości + config01–08 v13 na wierzch
+(v13 = dokładnie to, co aktualny builder z pełnego pakietu buduje na stronę config — 8/8 md5 dowód
+§21.43). Obejmuje imenu01–08 v9 (pełne EN słowników — strona imenu toleruje), eventP/evept/mesbtl
+połowy A v9 (nigdy osobno nietestowane, ale przyczyna crashu była wyłącznie w config01–08) i połowę B.
+Po DZIAŁA: spis braków do domknięcia 100% = 13 odrzuconych mission notes, wiersze źródłowe rozdz. 5–8
+(świeże tłumaczenie z JP), 325 wierszy-śmieci, tekstury 連/名/用, po tym — rebuild patcher.zip
+aktualnymi narzędziami i jego test.
