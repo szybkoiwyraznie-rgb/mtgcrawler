@@ -5203,6 +5203,8 @@ v8 → STARY, v9 → AKTUALNY, `CURRENT_PACKAGE = v9`. Test pin v9.
 
 **Testy:** `discover tests -q` → patrz koniec sekcji (po uruchomieniu).
 
+**F2. Naprawa exe strings:** 7 z 9 JP-only exe strings przetłumaczono: `無頼` → „Burai", `「」` → `" "`, `＜コードギアス` → „<Code Geass", `機械神` → „The Machine God", `コズン` → „Cozun", `・` → „·". Pozostałe 2 to tokeny silnika (`%s%s%-TEXT_SPACE_ROBOs…`, `＠0`) — nie są tekstem dla gracza. Pakiet v9 FINAL: 109 026 EN / 2 JP.
+
 **Potwierdzone / nieznane:** POTWIERDZONE: import scen działa, 23 030 nowych EN, format sceny.zip kompatybilny.
 NIEZNANE: v9 w grze (nie budowano); jakość tłumaczeń ch.6–7 (1 362+1 539 JP — Tłumacz może jeszcze uzupełnić);
 13 odrzuconych notatek misji — do skrócenia lub zaakceptowania (etykiety poza polem w grze).
