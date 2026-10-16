@@ -5890,3 +5890,33 @@ Plan: (1) user zostawia wczytujący się stan (pełny v9 + config v13 + JP imenu
 DIAGNOZA.bat (zip na Drive, §21.51) → fakty o DLC i ISO; (2) po fakty: JEDEN test config v16
 (v13 z słownikami bajt-w-bajt JP — tylko listy EN; ewentualnie najpierw tylko restore
 short/alt_name jako JP). Bez dalszych ślepych testów.
+
+### 21.53 User robi czysty build (JP ISO + JP DLC + v11); v16 = configi 01-19 ze slownikami JP; test v5 (2026-10-16)
+
+User zbudowal HOKUS_POKUS-em z biezacego repo (798cd015) na JP ISO 1.08 + pelnym JP DLC
+(pakiet v11). Raport: 21 „problemow" = oczekiwana bramka spare (config01-19) + 2 odrzucone
+wiersze exe (PBOOT/DATA.PSP, ignorowane przez PPSSPP) — build zgodny z projektem.
+
+Przygotowanie v16: Sciagniete JP config09-19 (orig folder; config09 `542702dc…` 18 560 B,
+config10/11 32 896, config12/13/14 34 944, config15/16/17 30 848, config18 24 704,
+config19 32 896). Rebuild config01-19 biezacym builderem (out_v16base; config09 przetworzony
+z 0 krokow → builder nie zapisuje → JP zostaje). Surgery v16: w kazdym configNN podmiana
+`srwDL_CharaDictionaryNN` + `srw_DL_RoboDictionaryNN` na bajty JP (parse_pac → swap →
+rebuild_pac → `_replace_member`). Wynik: 19 plikow (config01 `5e35a37e…`, 02 `ac0c2cad…`,
+03 `2627db86…`, 04 `4eb372b7…`, 05 `85238292…`, 06 `2bb0f6ad…`, 07 `142765ab…`,
+08 `a0afb244…`, 09 JP `542702dc…`, 10 `ecf473ed…`, 11 `0f3b79ce…`, 12 `9afd1115…`,
+13 `35f6e169…`, 14 `a70e8ea0…`, 15 `67ca30a6…`, 16 `d29d0d03…`, 17 `a37d4da3…`,
+18 `504833ef…`, 19 `6f5de53e…`); rozmiary == bazowym buildowi (247 936/157 824/...).
+zip `config01-19_v16.zip` md5 `78145d30…` (1 315 112 B, 19 plikow) + INSTRUKCJA_test_v5.txt.
+
+Test v5 (JEDNA sesja): (1) caly folder DLC ze swiezego buildu usera do emulatora (usuwa
+mix er), (2) na wierzch config01-19 v16, (3) misja 0-0 → dialogi? Wyniki: OK (dialogi EN,
+tabliczki mogly zostac JP — slowniki config sa JP z wyboru) / nic → DIAGNOZA.txt / crash
+(slowniki JP crashuja — bylby zaskoczeniem). Folder testowy na Drive sprzatniety: pozostaja
+DIAGNOZA_narzedzia.zip, config01-19_v16.zip, INSTRUKCJA_test_v5.txt; reszta (eventy testowe,
+build18, v15a, stare instrukcje, imenu JP zip) do kosza.
+
+Uzasadnienie v16 wobec historii crashy: v12A/v14 crashowaly przy EN slownikach z NOWYMI
+slotami (v7-era cells); v16 przywraca ORYGINALNE bajty JP (rozmiary oryginalow) — zero
+modyfikacji struktury slownika; ryzyko Loading-crasha minimalne. Jezeli i to crashuje,
+wina lezy w sprzezeniu config↔reszta i DIAGNOZA wskaże where.
