@@ -1,6 +1,12 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.39)
+Last updated: 2026-10-16 (§21.40)
+
+**Latest (2026-10-16, §21.40): v11 PADAŁO — katalog DLC uniewinniony.** Zostają 2 grupy podejrzanych:
+słowniki (CharaDict/RoboDict) i listy nazw (unit_list/charalist). Przypadek: wariant „#17 + listy z v11"
+okazał się md5 w md5 = **build #18 (sprawdzony w grze)** — odnaleziony ostatni działający stan DLC.
+**v12 = JEDEN test decydujący (folder_A = #17 + słowniki z v11): pada → winne słowniki; działa → winne
+listy nazw (folder_B == #18, zapas nie wymaga testu).** Szczegóły: `EXPERIMENT_LOG.md` §21.40.**
 
 **Latest (2026-10-16, §21.39): v10 PADAŁO — koperta sfalsyfikowana (build #17 config02 = 159 872 B >
 oryginał DZIAŁAŁ w Y4a; odtworzyłem #17 1:1 z historii PR #13). Diff „działał(#17) ↔ padał(v10)" =

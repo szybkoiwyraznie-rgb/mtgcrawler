@@ -5507,3 +5507,26 @@ rozmiary oryginałów. md5 v11 w diagnoza.KNOWN_DLC_CONFIG.
 eksperymentem (drabinka szerokości jak dla sysmes titles). Jeśli v11 PADA → winne pozostają klasy
 {unit_listNN, charalistNN, CharaDictNN, RoboDictNN} na ścieżce DLC; następny krok = ich revert do
 bajtów #17 (to odtwarza #17 1:1 = gwarantowany stan działający) i bisekcja tych 4 klas.
+
+### 21.40 v11 PADAŁO → katalog DLC uniewinniony → pozostają 2 grupy → v12 (2026-10-16)
+
+**Wynik v11 (użytkownik):** PADA w tym samym miejscu. Katalog DLC (DLC_ID01–07 + Reference03/08,
+przywrócone 1:1 do oryginałów) NIE jest winny. Stan wiedzy po sekcjach zwłok:
+- v11 vs #17 (oboa działający/padający znane) różnią się WYŁĄCZNIE klasami: `unit_listNN`
+  (renames v9), `charalistNN` (1–3 komórki), `CharaDictionaryNN`+`RoboDictionaryNN` (sloty
+  viewerów v7 + skrócenia serii v10).
+- działające `imenu01.EDAT` v9 ma bajt w bajt te same CharaDict01/RoboDict01 v9-treści co padający
+  config01 — więc sama treść słowników działa… w innym kontenerze; różnica imenu01-v9↔v11 to tylko
+  skrócenia serii v10.
+- **Przypadek szczęścia:** wariant diagnostyczny „#17 + listy nazw z v11" wyszedł md5 w md5 =
+  **build #18 (pakiet v5, sprawdzony w grze)** — odnaleziony działający stan DLC! (unit_list
+  v5-renames „≤ 14 znaków" działały; slotów viewerów jeszcze nie było).
+
+**v12 (jedna runda, jeden decydujący test):** wariant **A** = #17 + CharaDict01–07/RoboDict01–08
+z v11 (weryfikacja człon-po-członie: poza słownikami wszystko == #17). Wynik:
+- A **PADA** → winne słowniki (jedyna zmiana względem działającego #17),
+- A **DZIAŁA** → winne listy nazw (unit_list01–08/charalist01/03/07 v9-treść; bo folder_B =
+  #17 + listy z v11 == build #18, działający — nie wymaga testu).
+folder_B dostarczony jako bezpieczny zapas (build #18 z EN). Rozmiary A: jak v9/v10 (bez znaczenia).
+MD5 w diagnoza po testach. Następne kroki po wyniku A: fix offline w winnej grupie (sloty →
+drabinka szerokości; renames → powrót do v5-treści #18), potem JEDEN test potwierdzający.
