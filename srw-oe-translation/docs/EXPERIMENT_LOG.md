@@ -5685,3 +5685,46 @@ Stan po Kroku-1 (pełny folder v9 + config01–08 v13): gra działa, tekst głó
 
 Następny krok: plik `eventP01.EDAT` usera z emulatora → md5 → (1) podmiana albo (2) bisekcja
 formatu. Po zamknięciu (c): runda ISO (glify + globalny RoboDict00 + resztki exe) jako JEDEN test.
+
+### 21.46 Misja 2.1 `"` — hash usera = rebuild → polowanie na format; ZNALEZIONE stare kotwice 0x13E (2026-10-16, offline)
+
+Stan wejściowy: md5 pliku usera z emulatora = `61136b1c…` = mój rebuild → plik poprawny,
+objaw mimo to jest. Wykluczenia (wszystkie sprawdzone bajtowo):
+- pliki towarzyszące (`_Entry.dat` 1024 B, `_edit.dat`, `_ext.dat`) identyczne orig↔build
+  (tytuł w `_ext.dat` przetłumaczony, oba egzemplarze — +0x18 i +0xb8);
+- spacer rekordów: 434 = 434, typy w kolejności zgodne, 145 rekordów tekstowych z poprawnie
+  przeliczonymi rozmiarami, nagłówki bloków (36/76/148 B, „ENCK") identyczne;
+- koperta CPK: ta sama reguła co w oryginale (sloty co 0x800 liczone po rozmiarze ZAPISANYM;
+  nasze człony stored zamiast CRILAYLA — to samo jest w config v13, który działa → koperta niewinna);
+- teoria „cudzysłowów w pakiecie" — sfalsyfikowana (iluzja repr; realnie 5 wierszy eventP01
+  z quote na brzegu, 207 w całym pakiecie — kosmetyka do uporządkowania, nie przyczyna masy);
+- wariant PAD (EN dosunięte do długości JP) — martwy tor diagnostyczny: moja transformacja
+  dała U+FFFD, builder część kroków odmówił; NIE wyciągać z niego wniosków.
+
+**ZNALAZIONE [ZWERYFIKOWANE na bajtach]:** rekord **0x13E** niesie bezwzględne u32-offsety do
+puli tekstów członu. DL102_20.bin: `0x13E@88` słowo = 1133 (kotwica `\n` tekstu なにっ！\r\n,
+span 1124..1134) i `0x13E@104` słowo = 1124 (start tego tekstu). Po tłumaczeniu teksty się
+przesunęły, offsety zostały → silnik czytał ze starych miejsc: w buildzie 1124 wpada w środek
+„What?!\r\n", 1133 w bajt 0x8F (tofu), inne kotwice w pola typów rekordów 0x222 (`22 02 00 00`
+→ render `"` + stop na bajcie kontrolnym) — zgodne z objawem „pojedynczy cudzysłów".
+Rozdział 1 działa, bo jego człony zasadniczo nie mają 0x13E (w eventP00 tylko DL102_11: 1 szt.).
+Statystyka dokładnych trafień w starty tekstów wskazuje też 0x12C/0x160/0x171/0x218/0x168/0x258/
+0x176/0x189, ale te same typy niosą wartości-id (`0x155` słowo = id 10010 = jednocześnie start
+spanu) → **remap ograniczony do 0x13E**; pozostałe typy tylko logowane (dotknięcie = korupcja id).
+
+FIX (`event_text_apply.py`): `remap_text_anchors()` po wzroście tekstów — mapa spanów wg
+indeksu rekordu (kolejność stała), słowa 0x13E przemapowywane linioowo (kotwice „start" i
+„\\n"; `_map_inside`), pozostałe typy tylko suspects w raporcie. `apply_member` woła po wzroście,
+przed `verify`. Testy: `tests/test_event_anchor_remap.py` (3: start za tekstem, kotwica `\\n`,
+kolizja id nietknięta); suite **1 284 OK**/24 skipped/308 subtests.
+
+Rebuild eventP01.EDAT (pakiet v11): **3 remapy 0x13E** (DL102_20: 1124→1120, 1133→1127;
+DL103_20: 1128→1104), 0 stale po remapie, problems 0, spacer czysty.
+**md5 `0106b2378e6898ca83a1bf336ed63425`, 582 456 B** (vs stary build `61136b1c…`).
+
+Test wysłany (folder Drive „eventP01 test 2026-10-16 (misja 2.1)"): KROK 1 eventP01 naprawiony;
+KROK 2 oryginał JP (kontrola); KROK 3 config01-08 **build #18** (out12B, 8/8 md5 z diagnozy —
+słowniki PEŁNE, bez gubienia wierszy spare). Drzewo decyzyjne: 1→koniec; 2 rozdziela
+event↔reszta; 3 rozdziela config v13 (zgubione wiersze słowników = podejrzany o `"` gdy 2 pokaże JP)
+↔ głębsza przyczyna (EBOOT/ISO). Po teście: jeśli #18 → budowa config „v15" (treść v13 + pełne
+słowniki); jeżeli dopiero krok 4 → diagnostyka EBOOT.

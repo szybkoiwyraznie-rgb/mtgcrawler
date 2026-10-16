@@ -2,6 +2,13 @@
 
 Last updated: 2026-10-16 (§21.43)
 
+**Latest (2026-10-16, §21.46): misja 2.1 `"`.** Hash pliku usera = rebuild → polowanie po
+formacie: rekordy **0x13E** niosą bezwzględne offsety do puli tekstów; po tłumaczeniu zostały
+stare (silnik czytał śmieci — m.in. `"`, tofu, `?!`). Pisarz: `remap_text_anchors()` (tylko
+0x13E; inne typy = ryzyko korupcji id), testy +3, suite 1 284 OK. eventP01 naprawiony
+(`0106b237…`). Test 3-krokowy na Drive (naprawiony eventP01 / oryginał JP / config #18).
+Priorytet bez zmian: 100% w grze → patcher.zip.
+
 **Latest (2026-10-16, §21.43): v14 PADAŁO (mój błąd: slot 5 „Voice:" nie miał pokrycia w działających
 stanach), ALE przełom: imenu01 v9 (pełne EN, podwojony rozmiar) działa u użytkownika cały czas →
 trująca jest tylko strona config. Builder utrwala fix: configNN.EDAT zawsze traci spare-sloty
