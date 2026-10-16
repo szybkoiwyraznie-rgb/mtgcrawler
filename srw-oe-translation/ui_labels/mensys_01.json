@@ -1,0 +1,95 @@
+{
+  "texture": "mensys_01",
+  "source": "system.cpk — 128x64 INDEX8; HP/EN/SP/Will bars and the support banners",
+  "font": "assets/fonts/Roboto-Bold.ttf",
+  "size": 12,
+  "min_size": 8,
+  "squeeze": 0.8,
+  "labels": [
+    {
+      "id": "will",
+      "jp": "気力",
+      "en": "Will",
+      "box": [
+        22,
+        1,
+        42,
+        12
+      ],
+      "fill": [
+        252,
+        75,
+        5,
+        255
+      ],
+      "outline": [
+        0,
+        0,
+        0,
+        200
+      ]
+    },
+    {
+      "id": "support_banner",
+      "jp": "援護",
+      "en": "Support",
+      "box": [
+        66,
+        2,
+        98,
+        16
+      ],
+      "align": "center",
+      "fill": [
+        255,
+        255,
+        0,
+        255
+      ],
+      "outline": [
+        75,
+        26,
+        0,
+        255
+      ],
+      "bg_from_column": 62,
+      "clear": [
+        64,
+        2,
+        100,
+        17
+      ]
+    },
+    {
+      "id": "support_banner_short",
+      "jp": "援",
+      "en": "Sup",
+      "box": [
+        111,
+        2,
+        126,
+        12
+      ],
+      "align": "center",
+      "fill": [
+        255,
+        255,
+        0,
+        255
+      ],
+      "outline": [
+        75,
+        26,
+        0,
+        255
+      ],
+      "bg_from_column": 62,
+      "clear": [
+        109,
+        2,
+        127,
+        13
+      ]
+    }
+  ]
+}

@@ -28,9 +28,10 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 | 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
 | 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); tekst: nazwa **4 001 B** (273 unikalne, max 20 B) + efekt **3 941 B** (max 66 B); pola `name_level`/`effect_brief`/`label` puste w 300/300 (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`) | **ekstrakcja + zapis domknięte** | znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy; ten sam plik leży w dwóch kontenerach — trzeba wypełnić oba wiersze |
 | 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **pięć pól tekstu**: nazwa 10 322 B (189 unikalnych, tokeny 0x0F) + `name_level` **15 032 B** + efekt 40 208 B (1 237 unikalnych, max 106 B) + `effect_brief` **7 161 B** + etykieta 99 B (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`, 19 testów) | **ekstrakcja + zapis domknięte** | nazwy z tokenami 0x0F do rozwiązania (`token_solve`); klucz rekordu niepowiązany z inną tabelą w przekazanych plikach `[OTWARTE]` |
-| 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes=stała/shift, reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
+| 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes = CAŁE wpisy puli (pisarz podmienia tylko całe napisy — wiersz-ogon nigdy nie trafia do gry; audyt `sysmes_missing_whole` od §21.32), reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
 | 9 | Mapy / shop / drop | `srwDL_Map_S`, `bg2dlist`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | **nazwy map i teł zlokalizowane** (§3f, znalezisko 15): `srwDL_Map_S` 15 nazw / 412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19 z tekstem: 5 etykiet kategorii `パイロット用パーツ` itp.); ItemDrop 1092 rekordy (5 stringów) | grow (slot + NUL) | **zdekodowane** | skąd sklep bierze nazwy itemów (nie z `srwDL_Shop`) — do ustalenia; nazwy map mają prefiks id (`53_…`), więc slot ma stałą szerokość do zmierzenia |
 | 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **ekstrakcja domknięta** (`tools/mission_text.py`, 20 testów, 871 rekordów, 0 błędów) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; uwagi do misji **zduplikowane** w slotach +24/+184 (deduplikacja przy eksporcie) |
+| 11 | **Napisy programu gry** (nowa kategoria 2026-10-15, §21.32) | `PBOOT.PBP` (aktualizacja 1.08 w folderze DLC) → `DATA.PSP` (`~PSP` tag `0x2E5E10F0` → jawny ELF 5 531 024 B, md5 `8ba77a79…`; `tools/psp_prx.py`) | **408 napisów z odwołaniem z kodu** (`tools/exe_strings.py extract`: pary `lui/addiu` i wskaźniki `.data`; CP932 + 1 UTF-8 blok nazwy gry): panel broni w walce (`移動後`, `TGT 敵/味方/全て`), komunikaty bitewne, linie zdolności broni z 1.08 (`<貫通 Lv2>` …), efekt Guard, komendy, menu taktyczne, komunikaty sejwu/sieci/DLC; **397 z EN**, 11 zostawionych (symbole, czyste szablony printf, debug) | **slot — w miejscu**, `max_bytes` = bajty JP + wyrównanie do 4 (zapis `exe_step` buildera → **`EBOOT.BIN` w `patched.iso`** (jawny ELF) + `DLC\PBOOT.PBP` + `cheats\NPJH50521.ini` CWCheat) | **ekstrakcja + zapis gotowe; w grze: CWCheat DZIAŁA (2026-10-15), sama podmiana `PBOOT.PBP` NIE działa (PPSSPP-wydanie jej nie czyta), `EBOOT.BIN` z ISO (build #21 / `EXE_TEST2`) NIE sprawdzony** | `[HIPOTEZA]` PPSSPP uruchamia jawny ELF jako `EBOOT.BIN` z ISO (kod loadera + praktyka łatek, nie test); prawdziwe PSP poza celem; tag/md5 `EBOOT.BIN` użytkownika nieznane (cheat dowodzi tego samego układu napisów); krótkie budżety (`敵` → 3 B) |
 
 Razem dla tabel z pkt 6–8 (`tools/config_text_tables.py`, 20 kontenerów + `configst`):
 **11 254 rekordy, 12 599 stringów, 208 KB tekstu; unikalnych 4208 (3518 z kanji/kana), 89,3 KB.**
@@ -59,7 +60,15 @@ Zapis: `local/text_tables/*.jsonl` + `unique_strings.jsonl` + `summary.json` (gi
 Zmierzona budowa tabel `[ZWERYFIKOWANE]`:
 - **Konwencja A**: `u32 liczba` pod +0, offsety rekordów od +4; pierwszy offset = 4 + 4·liczba.
 - **Konwencja B**: `u32 offset ogona` pod +0, `u32 liczba` pod +4, offsety od +8; rekordy kończą się
-  pod offsetem ogona, a dalej leży **pula ogonowa** (teksty-fragmenty), też wyciągana.
+  pod offsetem ogona, a dalej leży **pula fragmentów** z **własną tablicą u32 bezwzględnych
+  offsetów** pod offsetem ogona (układ konwencji C bez 8-bajtowego nagłówka; zmierzone 2026-10-14 na
+  wszystkich pięciu pulach: Skill00 720 napisów, Item00/Item 76, StatusChange 71, Spirit 39; pierwszy
+  wskaźnik = offset ogona + 4·n, każdy napis kończy się dokładnie na następnym wskaźniku). Czytnik
+  daje jeden wiersz na wskaźnik; napisy z tokenami sterującymi (`ﾀﾞﾒｰｼﾞ` = `0x0F 0x2A ﾒｰ 0x0F 0x26`)
+  są eksportowane w formie `%s` — do 2026-10-14 filtr kontrolek odrzucał je w całości i **137 z 720
+  fragmentów Skill00** (plus kopie DLC; łącznie 125 unikalnych tekstów) nie było w pakiecie, czego
+  `coverage_audit` nie widział, bo jego skan też rwie przebiegi na bajtach sterujących.
+  `tools/pool_rows_refresh.py` dopisuje te wiersze do istniejącego pakietu.
 - **Konwencja C**: `u32 start tablicy` pod +0 (zawsze 8), `u32 0` pod +4, tablica od +8 do wartości
   `u32[8]` (samoograniczająca się); wpisy to offsety stringów puli. Tak zbudowane są pliki DLC
   `Item01–08`/`Skill01–08`.
@@ -69,9 +78,10 @@ Zmierzona budowa tabel `[ZWERYFIKOWANE]`:
 - **Dekodowanie**: przebieg czysty = CP932 bez znaków sterujących (poza `\n`) i bez private-use;
   dzięki temu opis efektu `%s2倍\n5%s` (bez kanji) też jest wyciągany.
 
-Pomiar relacji DLC ↔ płyta `[ZWERYFIKOWANE]`: pula `srwDL_Item01–08` jest podzbiorem puli ogonowej
-`Item00` (75/75 tekstów bez nowych); pula `Skill01–08` zawiera wszystkie 583 teksty ogona `Skill00`
-plus ~239 jedno- do trzyznakowych fragmentów formatujących. **DLC nie wnosi nowych tekstów itemów/skilli.**
+Pomiar relacji DLC ↔ płyta `[ZWERYFIKOWANE]` (po tablicach wskaźników, 2026-10-14): pula
+`srwDL_Item01–08` = 76 napisów = pula `Item00`; pula `Skill01–08` = 720 napisów = pula `Skill00`
+(wcześniejsze „583 + ~239 fragmentów formatujących" było artefaktem naiwnego cięcia na NUL).
+**DLC nie wnosi nowych tekstów itemów/skilli.**
 
 ## 3a. Cytaty bitewne — domknięcie (pkt 2)
 
@@ -189,10 +199,13 @@ Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rek
 * Tekst: itemy — 300 nazw (4 001 B, 273 unikalne, max 20 B) + 300 efektów (3 941 B, max 66 B);
   umiejętności — 1 469 nazw (10 322 B, **189 unikalnych**, max 14 B) + 1 469 efektów (40 208 B,
   1 237 unikalnych, max 106 B).
-* **Pliki DLC nie wnoszą tekstu**: `Item01–08` to 8 identycznych kopii (76 wpisów), a wszystkie
-  76 wpisów leży w puli ogona `Item00` (152 przebiegi / 1 146 B); `Skill01/03–08` to 7 identycznych
-  kopii, `Skill02` różni się kosmetycznie, 720 wpisów każda — wszystkie 720 są w puli ogona
-  `Skill00` (1 458 przebiegów / 15 630 B), 0 nowych. `configst/srwDL_Item.bin` = kopia `Item00`.
+* **Pliki DLC nie wnoszą tekstu**: `Item01–08` to 8 identycznych kopii (76 wpisów) puli `Item00`;
+  `Skill01–08` — 720 wpisów każda — to kopie puli `Skill00` (720 napisów po tablicy wskaźników).
+  `configst/srwDL_Item.bin` = kopia `Item00`.
+* **Pula fragmentów rośnie** (od 2026-10-14): `item_skill_write.apply_tail_pool` przepisuje napisy
+  puli o dowolnej długości i przelicza tablicę wskaźników; `rebuild_member` po wzroście rekordów
+  przesuwa pulę i przepina jej tablicę (do tej daty zostawiał stare wskaźniki — zbudowane wcześniej
+  `config00.cpk`/`configst.cpk` ze wzrostem rekordów miały pulę wskazującą w złe miejsce).
 
 Artefakty (gitignored): `local/item_skill.jsonl`, `local/item_skill_summary.json`.
 
@@ -280,6 +293,21 @@ o nieaktualnych nazwach (`10_`, `11_`, `strings.csv` bez `--csv`), więc numerac
 (0 wierszy bez nazwy), **cytaty 26 932/27 383 = 98,35%** (451 wierszy = 14 kluczy, patrz wiersz 2).
 Wiersze narracji/helpów/etykiet nie mają mówcy z definicji. `speaker.jp = null` znaczy „oddaj ID”.
 
+**Korekta 2026-10-14 (Sesja 7, cz. 18) — higiena wierszy `04`:** próba pełnoskalowa na realnych
+kontenerach pokazała w `04_config_text.jsonl` trzy rzeczy do poprawienia po stronie eksportu
+(wszystkie [ZWERYFIKOWANE] na config00/configst/config01): (a) **84 „sieroty"** — runy, na które nie
+wskazuje żaden wskaźnik ani granica pola rekordu (`' N'` = u16 20000, `'0u'` = 30000: ceny i
+identyfikatory w Shop/Item/Achievement/Skill), eksport je teraz pomija (`orphan: true` w surowym
+`text_tables`); (b) **53 napisy „przycięte do wskaźnika"** — run zaczynał się bajtem poprzedniego pola
+(`!チョバムアーマーSR`, nagłówki Reference `\x02\x05解説書：戦術`, które filtr kontrolek odrzucał w
+całości), teraz wiersz niesie dokładnie napis, który czyta gra (`snapped: true`); (c) **927 wierszy
+puli ogonowej** konwencji B (Skill00 583, StatusChange 109, Item 86+86, Spirit 63; wspólny `id` =
+start puli) były `grow` bez limitu, a pisarz pisze je **w miejscu** — eksport oznacza je teraz
+`mode: slot`, `max_bytes = bytes`. Liczby wierszy w tabeli wyżej (12 631 → 15 368 w pakiecie z Drive)
+są sprzed tych zmian; kolejny eksport je zaktualizuje. Semantyka `max_bytes` w całym łańcuchu =
+**bajty angielskiego bez NUL-a** (jak w instrukcji tłumacza); `text_runs_export` i `slot_apply`
+dostosowane (wcześniej liczyły NUL do limitu — rozjazd o 1 B między walidatorem a pisarzem).
+
 ## 3h. Sceny — blok kontekstu dla tłumacza (nowe wymaganie użytkownika, cz. 10)
 
 Wymaganie: tekst fabularny ma iść do tłumacza **blokami scen** (nagłówek: miejsce i czas → elementy
@@ -311,6 +339,19 @@ w kolejności zdarzeń → koniec sceny), bo bez chronologii i kontekstu tłumac
 1. `imenu00.cpk` to **duplikat** zawartości `config00.pac` (te same 6 członków), nie osobny kontener.
    Dzięki temu `CharaDictionary`/`RoboDictionary` z `imenu00` to ten sam zestaw danych co
    `config00` (i dlatego 582 rekordy = 291 × 2 kopie).
+   > **KOREKTA (2026-10-16, §21.34):** duplikat — ale **gra w intermisji czyta kopię `imenuNN`**, nie
+   > `configNN` (zrzuty z pełnego buildu v6: Reference/Shop/DLC_ID angielskie w `config00`, japońskie na
+   > ekranie). Zmierzone md5: `imenu00–08` = wszystkie 6 członków identyczne z `configNN`; `imenu10–19`
+   > tylko `CharaDictionary` i `RoboDictionary`. `coverage_audit` jest niezależny od kontenera i tej
+   > luki nie widzi z założenia — pokrywa ją builder (`mirror_identical_members`: wiersze trafiają na
+   > każdą identyczną kopię członka, `build_report.json["mirrored"]`). Druga korekta tego samego dnia:
+   > pisarz `CharaDictionary` zapisywał sloty 0–4 z 12 (slot 5 `声優：`+aktor, 10 nazwa alternatywna, 11
+   > krótka nazwa siatki Viewera — jedyna nazwa nie-pilota — nigdy), pisarz `RoboDictionary` 0/1/3 z 7
+   > (2 notatka, 4 typ, 5 nazwa jednostki bez `unit_list` = wrogowie, 6 nazwa wąska z tokenami kany),
+   > `Reference` slot 0 (tytuły sekcji) bez wierszy, strona `レベル差補正` tylko jako fragmenty.
+   > `tools/table_rows_refresh.py` dokłada te wiersze z prawdziwych kontenerów i sprząta wiersze
+   > offsetowe nie do zastosowania (pakiet v7: +666 wierszy, −214); audyt liczy `愛称：仁` jako pokryte
+   > przy osobnych wierszach etykiety (`label:srwDL_CharaDictionary:4`) i tekstu.
 2. **Encyklopedia postaci JEST w `CharaDictionary`** — to pole [2] rekordu (szablon `＠０\r` +
    tekst). Dowód: rekord `NoData` (klucz 65535) ma tam `図鑑用のデータが存在していません。`
    („brak danych do encyklopedii”), a 2 dalsze rekordy mają krótkie opisy. Samych **opisów
@@ -512,3 +553,40 @@ itemy dostępne w grze i z DLC, więc pytanie „skąd sklep czyta nazwy itemów
 * **Do zrobienia**: rekordy inne niż dialog i narracja (633 wiersze), pozostałe pola o stałej szerokości
   (`*_ext.dat`, `milstP`, `bgmlist`, `bg2dlist`, `srwDL_Map_S`, `groupunit`), `sysmes.bin`,
   przebudowa ISO i test w PPSSPP (po stronie użytkownika).
+
+## 6. Napisy systemowe w GRAFICE (tekstury GIM) — stan po 2026-10-15
+
+Kategoria, której audyt „100% tekstu" z definicji nie widzi: etykiety ekranów statusu / broni / umiejętności /
+intermisji nie są stringami, tylko bitmapami. Potwierdzone na zrzutach użytkownika po przyjęciu pakietu v4 (tekst
+po angielsku, etykiety wokół po japońsku). Szczegóły formatów i narzędzi: `EXPERIMENT_LOG.md` §21.28.
+
+| kontener | tekstury z japońskim napisem | stan (2026-10-15 późny wieczór, `UI_TEST4` / krok builderowy; `UI_TEST3` **działał w grze — build #19**) |
+|---|---|---|
+| `system.cpk` (CPK bez TOC, 1 member) | `mensys_01` (気力, 援護), `mensys_03` (status/broń + teren 空宇地 → AI SP GR), `mensys_08` (umiejętności/części), `mensys_13` (listy; cechy broni 突曲押投合 → BR AR PU TH CO), `mensys_05`, `mensys_07`, `mensys_10`, `mensys_11`, `mensys_14` (HP EN + teren → GR AI SP), `mensys_15` (kule ducha → VA BU AC FL FO PE WA GA FR DI, badge 包直投 → SR DH TH) | **spec + podgląd gotowe (10 tekstur), w `UI_TEST3` i w `HOKUS_POKUS`; `UI_TEST1` (4 z nich) działał w grze, reszta nie sprawdzona** |
+| | `mensys_12` (連 持 特 防 突 早 狙 回) | nie zaczęte — miejsce użycia w grze niepotwierdzone (czekam na zrzut) |
+| `IM1000.cpk` / `IM3000.cpk` (TOC, PAC w PAC) | `intsys_01` (zakładki), `intsys_03`, `intsys_04`; `IM9000`: `intsys_03` | **spec gotowe, w `UI_TEST3`; `intsys_01` działał w grze (`UI_TEST1`)** |
+| `tacsys.cpk` (walka) | `tacsys_07–11`, `13–18`, `vsbg` (+ badge 包 → SR w `15`, 押/投 → PU/TH w `17`) | **spec gotowe (12 tekstur), w `UI_TEST3`; w grze nie sprawdzone** |
+| `navisys.cpk` (TOC, 2 gołe GIM-y RGBA8888, stały `ExtractSize`) | `navisys_02` (戦闘 回避 ムサイ 決定 キャンセル 敵艦発見 → Battle Evade Musai Confirm Cancel Enemy Sighted); `navisys_01` bez tekstu | **spec gotowe, w `UI_TEST3`; w grze nie sprawdzone** (`cpk_write` obsługuje stały `ExtractSize` od §21.31) |
+| `sprstd00`, `mesbmp00`, `svicon`, `txa00`, pliki `.sp` | nieznane | nie pobrane / nie zdekodowane |
+| `PSP_GAME/SYSDIR/EBOOT.BIN` w ISO (program, który PPSSPP uruchamia) = `PBOOT.PBP` → `DATA.PSP` (ten sam program 1.08 jako aktualizacja; ten sam układ napisów — dowód: CWCheat działa) | nie tekstury — **napisy w programie** (408; wiersz 11 tabeli zbiorczej) | **w zakresie od 2026-10-15 (§21.32–21.33): 397 EN w `09_executable.jsonl`, zapis `exe_step` do `EBOOT.BIN` w `patched.iso` + PBOOT + cheat; w grze działa tylko cheat (sprawdzone), EBOOT nie sprawdzony** |
+
+Świadomie zostawione po japońsku: `mensys_12` (j.w.), 6-pikselowe znaczniki 連 w `intsys_01`, nagłówki 名 / 用
+(kontekst niepotwierdzony); piktogramy (ogień, płatek, piorun, M, B) zostają. Ikony jednokanjiowe dostały 2-literowe
+kody (w ~10×10 px wnętrza mieszczą się 2 litery; 1 litera myliłaby się z rangami S/A/B/C/D obok). Reguła narzędzia:
+napis, który się nie mieści (po zmniejszeniu fontu do `min_size` i ściśnięciu do `squeeze`), zatrzymuje całą budowę —
+żadnych uciętych etykiet. Razem: 26 tekstur, 137 napisów / kodów, 6 zachowanych, 4 wymazane (`EXPERIMENT_LOG.md` §21.30–21.31). Partia 4 (§21.32, po zrzutach z buildu #19): komórki `mensys_03` (nagłówek „WPN” bez 名, „RNG” od x=34, „EN Cost” w komórce 0–33), `mensys_11` (ramki nad ikonami), `mensys_13` (`Terrain` węższa, 用 wymazane), `tacsys_16/18`, `mensys_07` — `UI_TEST4` (w grze nie sprawdzone). Lekcja: komórka UV gry może różnić się od namalowanej ramki; ramka nie może sięgać ikon w następnym rzędzie; zawsze oglądać podgląd ×4.
+
+## 7. Co audyt pokrycia NIE widzi (stan 2026-10-16, §21.35)
+
+`coverage_audit.py` liczy, czy każdy przebieg tekstu kontenera ma wiersz w pakiecie — nie liczy, czy pisarz go wpisał.
+Trzy rodzaje ślepych plam znalezione skanem bajtów WYNIKU budowy (nie wejścia): (1) **odmowy pisarza** (7 osiągnięć z EN
+od tygodni odrzucanych przez strażnika odwołań w rekordzie — tylko w `problems` kontenera w `build_report.json`);
+(2) **pola z tokenami kany `0x0F`** (`srwDL_Spirit.bin` 幸運/祝福, `srwDL_Skill_Tag.bin` `特技／ﾀﾞﾒｰｼﾞ率`) — eksporter
+`config_text_tables.record_strings` je odrzuca, więc nie było czego pokrywać; od §21.35 `record_rows_refresh` /
+`table_rows_refresh` dokładają je jako wiersze w formie wyświetlanej (`%s` + `tokeny.tsv`); (3) **wiersz z EN = JP**
+(`SRWHPｺﾗﾎ` ×8 w DLC_ID — „pokryty", a zostawał po japońsku). Procedura po każdym buildzie: `skipped` +
+`verification.failures` + `problems` każdego kontenera + skan członków wyniku regexem z kaną półszeroką. Pozostałe
+japońskie napisy w wyniku #23b (config00 + imenu00 + configst + config01.EDAT): 34 etykiety `srwDL_CalcType.bin` bez
+wierszy (62 inne mają sloty EN; **nieznane, czy tabela jest wyświetlana**; audyt ich nie zgłasza — do wyjaśnienia),
+`＜主人公名＞`, nawiasy `｢｣`, liczby odczytane jako kana. Nazwiska aktorów (`char:K:voice_actor`, 426) były łacińskie od
+v4 — notatka v7 o „celowo bez EN" była błędna.

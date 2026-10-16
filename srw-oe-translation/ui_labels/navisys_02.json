@@ -1,0 +1,219 @@
+{
+ "texture": "navisys_02",
+ "source": "navisys.cpk (member navisys_02.gim, a bare GIM, no PAC) — 256x256 INDEX8; navigation-scene buttons and the 敵艦発見 banner",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 14,
+ "min_size": 9,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "battle_l",
+   "jp": "戦闘",
+   "en": "Battle",
+   "box": [
+    10,
+    4,
+    66,
+    20
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    90,
+    0,
+    0,
+    255
+   ],
+   "bg_from_column": 8,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "evade_l",
+   "jp": "回避",
+   "en": "Evade",
+   "box": [
+    10,
+    28,
+    66,
+    44
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    100,
+    50,
+    0,
+    255
+   ],
+   "bg_from_column": 8,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "musai",
+   "jp": "ムサイ",
+   "en": "Musai",
+   "box": [
+    10,
+    73,
+    84,
+    89
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    20,
+    90,
+    255
+   ],
+   "bg_from_column": 8,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "confirm",
+   "jp": "決定",
+   "en": "Confirm",
+   "box": [
+    16,
+    105,
+    92,
+    123
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    20,
+    90,
+    255
+   ],
+   "bg_from_column": 12,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "cancel",
+   "jp": "キャンセル",
+   "en": "Cancel",
+   "box": [
+    12,
+    131,
+    92,
+    148
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    20,
+    90,
+    255
+   ],
+   "bg_from_column": 12,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "battle_r",
+   "jp": "戦闘",
+   "en": "Battle",
+   "box": [
+    170,
+    4,
+    246,
+    24
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    60,
+    0,
+    0,
+    255
+   ],
+   "bg_from_column": 166,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "evade_r",
+   "jp": "回避",
+   "en": "Evade",
+   "box": [
+    170,
+    30,
+    246,
+    50
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    60,
+    20,
+    0,
+    255
+   ],
+   "bg_from_column": 166,
+   "clear_opaque_only": true
+  },
+  {
+   "id": "enemy_sighted",
+   "jp": "敵艦発見",
+   "en": "Enemy Sighted",
+   "box": [
+    0,
+    220,
+    146,
+    256
+   ],
+   "align": "left",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    20,
+    20,
+    20,
+    255
+   ],
+   "size": 26,
+   "min_size": 14,
+   "note": "big banner; original glyph span x 0-145, kept inside it"
+  }
+ ]
+}

@@ -299,3 +299,227 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
   in the `+0x40` field of exactly one record in 55 cases; (c) one key (0xe93) occurs in two records.
 - Not established: that the record's name is the speaker in every line, and the four missing keys.
 - Keep the mapping numeric in the repo; the record text is game text and stays under `local/`.
+
+## `srwDL_Skill00.bin` has an in-game SIZE budget (measured in-game, 2026-10-14/15)
+
+Observation matrix (user, PPSSPP, original DLC folder, `config00.cpk` inserted into a copy of the ISO):
+
+| variant | Skill00 member | `.pac` | CPK header | result |
+|---|---|---|---|---|
+| original | 208 958 B | 923 648 B | original | works |
+| T1 (JP text + spaces) | 210 942 B | — | stale Enabled* | works |
+| **T3 / W5** (JP text + spaces) | **217 086 B** | 929 792 B | stale / refreshed | **works** |
+| **T4** (JP text + spaces) | **221 182 B** | 933 888 B | stale | **crash** at "Loading" |
+| T5, T6, S1 (zeros), builds #6–#10 (English) | 225 278 … 228 202 B | — | — | crash |
+| U2 (sub-files packed at 64 B, container SMALLER than the original) | 228 202 B | 905 216 B | — | crash |
+| U1 (same tight container, original Skill00) | 208 958 B | 886 784 B | — | works |
+
+Conclusions [verified by the matrix, mechanism unknown]: the limit is on the **member itself**, not on the
+container size, not on the CPK header fields and not on the content (Japanese padded with spaces crashes exactly
+like English). Largest size proven to load: **217 086 B** (+8 128 B); smallest proven to crash: 221 182 B
+(+12 224 B). 0x35000 = 217 088 B is the suspected fixed buffer (W1 = 217 090 B **loads**, W2 = 218 110 B **crashes** — 2026-10-15; the limit lies in (217 090, 218 110] B). The crash signature is
+`memcpy_jak` with a NULL `dst`/`src` and `bytes > 0` (a failed allocation, not a zero-length copy).
+Consequence for the writers: `item_skill_write.SKILL00_LIMIT = 216 768 B` (`MEMBER_SIZE_LIMITS`), enforced
+fail-closed (`SizeBudgetError`; the builder refuses the whole container); the English of the skill table must
+fit (`tools/skill_shrink.py`, `config/skill_shrink_rules.tsv`). DLC `SkillNN` members are 15 638 B pool-only
+files (convention C) and are not affected. Whether `srwDL_Item00.bin` (34 566 → 34 799 B in the builds) or the
+configst members have budgets of their own is unknown; `configst.cpk` with grown members loaded to the title
+menu (variant A).
+
+## Convention-B records carry THREE relative pointers: `+32` (member base), `+36` (tail pool), `+52` (parameter words) — measured 2026-10-15
+
+Scan of all 20 header words (u16/u32, signed and unsigned) of every record of the five original convention-B
+members (`srwDL_Spirit.bin` 60, `srwDL_Item.bin` 300, `srwDL_StatusChange.bin` 101, `srwDL_Skill00.bin` 1 469,
+`srwDL_Item00.bin` 300 = 2 230 records) against `offset`, `-offset`, `tail - offset`, `length - offset`,
+`offset + length`:
+
+| word | value | holds in | meaning |
+|---|---|---|---|
+| i32 `+32` | **`-record_offset`** | 2 230 / 2 230 | member start relative to the record (pointer to the member base) |
+| u32 `+36` | **`tail_offset - record_offset`** | 2 230 / 2 230 | fragment pool relative to the record (known since 2026-10-14) |
+| u16 `+40..+51` | field boundaries | all | record-relative string starts (`STRING_BASE` 54) |
+| u16 `+52` | **`last_boundary + delta`**, delta ∈ {2, 6, 10, 14, 18} B | 2 230 / 2 230 | record-relative start of the **parameter words** that follow the texts (a counted pair list such as `1, 78, 0` sits between the last text and them); NOT text; `config_text_tables` must not merge it with the first field |
+| other words | keys, levels, small indices | — | not position dependent |
+
+Consequence: every writer that shifts records must rewrite **both** words. Builds #6–#11 rewrote `+36` only;
+`+32` stayed `-old_offset` in every record after the first one that grew (build #11: 1 468 of 1 469 Skill00
+records, 294/300 Item00, 294/300 Item, 100/101 StatusChange, 59/60 Spirit). The screens that reached this word
+crashed (pilot → Spirits → hover; loading a mid-chapter-2 save → intermission) while the Loading screen and the
+first mission (which read only the strings) did not [in-game observations of build #11, user, 2026-10-15; the
+attribution is the only stale structure left in those members and is awaiting the build #12 test].
+`item_skill_write.rebuild_member` now refuses a source that breaks either rule, rewrites both words per record
+and proves both on its output (`base_pointer_faults`, `pool_pointer_faults`); `member_variants.check` tests both.
+
+**`+52` (found 2026-10-15 after round 7).** Builds #6–#13 copied the word verbatim, so in every record whose texts
+changed length the game read the parameter words from the wrong place (4–16 B early or late; in build #12 1 152 of
+1 469 Skill00 records, 458 of them pointing into the text itself; 188/300 Item00, 60/60 Spirit, 188/300 Item,
+30/101 StatusChange). A new game survived it (chapter 1, few pilots and skills); the user's mid-chapter-2 save
+crashed on load with `CPU Jump to ffffffff` (RA `08a62f34`) — with the rebuilt Skill00 alone (Z3) and with the
+Japanese member grown by spaces to the same size (Y3: 1 463 stale words, 323 into text), while the same member
+shifted by 4 B without text growth (Y1: 2 stale words) and grown by 1 984 B (Y2: 496 stale words, all 4 B early)
+loaded [in-game, user, 2026-10-15]. The record parse never flagged it because the stale pointer usually still
+landed inside the record. `rebuild_record` now writes `new_last_boundary + delta` (delta taken from the source
+record), `parameter_pointer_faults` refuses a source outside `[last_boundary, length]`, and the output is proven
+to keep every parameter word byte-identical (checked on all 2 230 records). **Confirmed in-game (round 8,
+user, 2026-10-15): Y5 — Y3 with only the `+52` word corrected in 1 463 records — loads the chapter-2 save that
+Y3 crashed on, and build #14 (= #13 + the fix) loads it with sensible skill descriptions.** The size of the
+member (216 518 B) is therefore fine on the save path; the only size limit remains the Loading one above.
+
+## `config_text_tables` scan gap: first fields behind a two-byte preamble (2026-10-15)
+
+`string_starts` is only applied to the `ISR.KIND_PREFIX` kinds (item, skill). For `srwDL_Spirit.bin` the NUL-run
+scan therefore starts a run at the binary word `+52` whenever both its bytes are non-zero (`04 01` before 集中,
+鉄壁, 感応, 信頼 — 12 `name` fields of records 9–11, 15–20, 39–41); `clean_run` rejects the merged run and the field
+gets no row — the name stayed Japanese in build #11 while `name_level` and `effect_brief` of the same record were
+English. `tools/record_rows_refresh.py` adds such fields as offset rows (English taken from a translated sibling
+field with the identical Japanese). Nine further Spirit fields (`effect` r30–32, `label` r30–35) hold `0x0F` kana
+tokens; since 2026-10-16 (§21.35) `record_rows_refresh` adds them as rows in the DISPLAY form (`table_write.display`:
+one `%s` per control byte — the form `item_skill_write.plan_offset_edits` already accepts through `match_form`), with
+the `tokeny.tsv` kinds computed straight from the field bytes (`token_map.kinds_of`), `bytes` = the real field length,
+and `copy_of` for repeats of the same text in the member. Package v8 carries the nine rows; build #23b left 0 Japanese
+runs in `srwDL_Spirit.bin`.
+
+## `srwDL_Achievement.bin`: the target count at +8 defeated the in-record-reference guard for weeks (2026-10-16)
+
+Seven achievements (`ミッション 30種クリア`, `総プレイ時間 30時間`, `総撃墜数 100達成`, `パイロット Lv10/Lv40達成`,
+`10段階改造 50機達成`, `所持ユニット 30以上`) had English since the early packages but never reached the file: the
+convention-A writer refused the whole record with `unexplained in-record references (offsets [(8, 30)])`. Reason, measured
+on all 75 records: +0 (=28) and +4 are the two string pointers; **+8 is the u32 target count** (1/30/40/100), +12 a flag
+(1 for the Lv goals), +16 a u16 index, +18/+20 u16 text ids, +24 u16 points, +26 u16 category. A count of 30/40/100 or an
+index ≥ 28 equals a string offset inside the record, so the guard took it for a pointer and left the record "as is". The
+refusal is reported ONLY in the container's `problems` list of `build_report.json` (not in `skipped`), which is why the
+row counts looked clean. Fix: `Family(2, exempt=((8, 28),))` (the same mechanism as DLC_ID's `(32, 56)`); edit-free
+rebuild is byte-identical, 0 unexplained references remain. Lesson: after every build read the per-container
+`problems`, not just `skipped` / `verification.failures`, and scan the built members for Japanese runs INCLUDING
+half-width kana (`U+FF61–FF9F` minus `｢｣･`) — the 2026-10-16 morning regex missed `SRWHPｺﾗﾎ` and `特技／ﾀﾞﾒｰｼﾞ率`.
+
+## Button-bar labels are drawn in slots sized by the JAPANESE label (in-game, 2026-10-15)
+
+Two screenshots of build 12: "□ Spirit Commands △ Quick Stats ○ Action Commands" and "□ Play Line △ Change
+Expression ○ Pilot" — each next icon lands at the position the Japanese label (精神コマンド 12 cells, 簡易能力 8,
+台詞再生 8, 表情変更 8) would have ended, with less than one cell of gap; ASCII glyphs take half a cell. Since a label
+measured at runtime would not overlap, the slot positions are constants of the Japanese layout. Rule for such labels
+(`tools/label_fit.py`): `cells(English) <= cells(Japanese)`, cells = CP932 bytes without control tokens (`＠n`) and
+printf fields. Applied to every one-line `sysmes.bin` string of ≤ 16 bytes (bar labels and menu labels share
+strings). The user reports no other overflowing screens so far (new game only; the intermission is unreached).
+Convention-A records (`table_write` families) hold NO position-dependent words (scan of all prefix words of
+CharaDictionary00/RoboDictionary00/Reference00/DLC_ID00/Shop00/Skill_Tag/Achievement against offset, −offset,
+end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+36`.
+
+## `%s` in Skill00 record texts: the byte AFTER `%s` can be the second half of a pool fragment's last glyph (measured 2026-10-15)
+
+* `effect` texts of `srwDL_Skill00.bin` records hold printf-style `%s` (3 563 of them); the engine fills each with a
+  fragment of the 720-entry tail pool (which fragment is engine-side — the record header words 14–18 are numeric
+  parameters, not fragment indices; `srwDL_Skill_Tag.bin` is a label/script-tag table, not an index).
+* 88 pool fragments end in a dangling lead byte: a `0x0F` kana lead, a `＠` colour lead, or `%`. The byte right after
+  `%s` in the record completes it: `%s6` with fragment `｢＠` → `｢＠6` (colour), `%s4` with fragment 150 `ｸﾞﾙｰ<0F>` →
+  `ｸﾞﾙｰﾌﾟ`. Numeric contexts (`%s3手前`, `%s1ﾀｰﾝ`, `%s15%%`) are plain numbers.
+* Consequence for the English: the English pool fragment keeps `＠` (so colour completions keep their byte) but has no
+  `0x0F` lead (`Group`), so the completion byte must be DROPPED in the English record text — otherwise the game shows
+  `Group4`. Measured list: fragment 150 only, 9 places in 8 records (r236 ×2, r237–r241, r651, r652). Rule in
+  `translation_check.COMPLETION_BYTE` (count-based: r240 also has `連携攻撃%s4` = level 4, which stays).
+* The battle weapon panel shows line 1 of `effect` with the `＠4`/`＠0` colours and a recomputed percentage — a Japanese
+  line there with an English build means the game read a Japanese `config00.cpk` (the text is NOT code-generated).
+
+## Intermission unit list: ASCII is never squeezed; name column = 14 half-width cells (measured on a screenshot, 2026-10-15)
+
+* PPSSPP screenshot 1967×752 (4.1× PSP): half-width glyph pitch ≈ 7 PSP px, full-width ≈ 13 px; the unit-name field is
+  ≈ 105 px = 14.6 cells and the pilot name starts at cell 15; the Lv digits start 14.2 cells after that. Japanese
+  full-width names wider than the field are squeezed by the game, ASCII names are drawn at full pitch and run into the
+  pilot column.
+* Rule: `unit_name` (unit_list `name`) ≤ 14 cells counted in CP932 BYTES (`∞`, `α`, `※` are full-width glyphs = 2 cells
+  although `unicodedata.east_asian_width` says "A"); pilot short names ≤ 14 as a warning (which of `name_short` /
+  `name_narrow` the list draws is not measured). The weapon list and the enemy name plate in battle are unmeasured.
+
+## `item_skill_write` skips a whole record when two package rows disagree (2026-10-15)
+
+* `04_config_text.jsonl` scans `srwDL_Skill00.bin` a second time (category `config_skill`, offset ids), so a record
+  string can have two rows. The writer merges rows per (record, role); on two different English texts it skips the
+  record in all roles and only notes `skipped: ['record N role effect: two rows, two translations']` in
+  `build_report.json` (exit code unchanged). `translation_check.conflicting_duplicates` now reports this as an error.
+
+## The game program carries UI strings; release PPSSPP boots the ISO's `EBOOT.BIN`, not `PBOOT.PBP` (2026-10-15)
+
+* Strings with 0 hits in any data container (`移動後`, `TGT 敵/味方/全て`, battle banners `回避`/`援護防御`/`ＥＮ不足`/
+  `射程外`, the Guard effect literals `ダメージ-16% 発動率12%` …, the 1.08-only weapon-ability lines `<貫通 Lv2>`,
+  `<ビーム兵器 Lv2>`, `<連携攻撃 Lv2>` (the pool `srwDL_Skill00` has only Lv1), unit commands, tactical menu, save /
+  network / DLC messages, the UTF-8 game title in save data) live in `PBOOT.PBP` → `DATA.PSP` (`~PSP`, tag
+  `0x2E5E10F0`, type 5). The PBP has no PSAR; `DATA.PSP` at 660 619, 5 533 424 B. Decrypted ELF: 5 531 024 B, md5
+  `8ba77a79e7d46473671cb87e77553deb`, relocatable PRX, base 0x08804000, `vaddr = base + (file offset − 0xA0)`.
+  `tools/psp_prx.py` (pure Python, PPSSPP's `PrxDecrypter.cpp` tables incl. the `0x2E5Exxxx` type-5 seeds that the
+  stock John-K `pspdecrypt` lacks). The disc `EBOOT.BIN` has the same size — identity NOT verified.
+* `tools/exe_strings.py` keeps a string only when code references it (`lui`/`addiu` `%hi/%lo` pairs by register or a
+  `.data` pointer): 408 rows (CP932 + one UTF-8 block), review file `exe_strings_ref.tsv`. Constants that decode as
+  CP932 (floats, `UUUU`), constant tables and pure ASCII are rejected.
+* Budget per string = Japanese bytes + the zero padding up to the next 4-byte boundary after the NUL (`slack`);
+  the English is written in place, nothing moves (`敵` 2 B + NUL + 1 pad → 3 chars: "Foe"; `移動` → 7). printf
+  conversions must appear in the same order; kana tokens `0x0F xx` vanish; "Dmg" capitalised because `% d` in
+  English would match the conversion regex. `verify_build` refuses a different executable (0 matches ⇒ no write).
+* Re-encryption is impossible (KIRK CMD1 signs with Sony keys), so the patched `DATA.PSP` is a plain ELF.
+  PPSSPP `Core/HLE/sceKernelModule.cpp` (master) loads a module starting with `0x7F ELF` directly when
+  `pspDecryptPRX` does not apply, and `Core/PSPLoaders.cpp::FindGameUpdatePBOOT` boots `ms0:/PSP/GAME/<DISC_ID>/PBOOT.PBP`
+  instead of the disc EBOOT when its PARAM.SFO `DISC_ID` matches (a `DISC_VERSION` mismatch only logs) — **but that
+  function is master-only** (its comment references the new `Core/Util/PkgUnpack.h`). **Measured on the user's release
+  PPSSPP (2026-10-15 night): a patched `PBOOT.PBP` in `memstick/PSP/GAME/NPJH50521/` changes nothing; the emulator boots
+  `disc0:/PSP_GAME/SYSDIR/EBOOT.BIN`.** The CWCheat route (`_S NPJH-50521`, `_C1 EXE strings EN`, `_L 0x2<addr> <u32>`,
+  `addr = vaddr − 0x08800000`, 2 867 lines for 397 rows) **works in-game** — and since its addresses come from the PBOOT
+  ELF, the program loaded from the ISO has the same string layout (the ISO is a dump of the 1.08 PKG).
+* Therefore the patch target is `PSP_GAME/SYSDIR/EBOOT.BIN` inside `patched.iso`: decrypt (`psp_prx`: type 2 `0xD916xxF0`
+  retail tags, type 6 `0xD91680F0/81F0` ported without a sample, type 5 updates), verify the Japanese bytes, write the
+  English in place, append the plain ELF into the ISO (`iso_pack.patch_iso` rewrites the directory record; `BOOT.BIN`,
+  `PARAM.SFO` untouched; 5 533 424 → 5 531 024 B). The loader path for a plain `0x7F ELF` is the same for a disc EBOOT
+  as for a PBP `DATA.PSP`; shipping a decrypted EBOOT.BIN is how PSP fan patches work. **Not yet run in-game.** The disc
+  EBOOT's tag and md5 are unknown until the user's rebuilt `build_report.json` arrives; if its tag is unsupported but its
+  `~PSP` header equals PBOOT's in every field (`modname, module_version, elf_size, entry, modinfo_offset, bss_size,
+  comp_size, compressed, devkit_version`), the builder writes the patched PBOOT program there and flags it.
+* Patched program: plain ELF 5 531 024 B, md5 `ba4cc05c24e2d98f1edeaefe68228eff` (package v6, 397 rows; identical from
+  the builder, EXE_TEST1 and EXE_TEST2). Patched `PBOOT.PBP`: 6 191 659 B, md5 `26689964d2ce4e6cddadb67c8188e923`
+  (builder `exe_step` == manual `exe_strings.py apply`); original 1.08: 6 194 059 B, md5 `22daece3b6fccc4363dd76ed6a7ec2fb`.
+
+## `sysmes.bin` tail rows never reach the game; half-width kana strings were dropped by the exporter (2026-10-15)
+
+* The sysmes writer (`_sysmes_edits` → `sysmes_pack.translate_bytes`) replaces WHOLE pool entries. A package row whose
+  `jp` is only the tail of an entry (the first run-scanner exporter emitted 1 141 such rows: strings starting with
+  `%s`, a space, `LV1 `, `CT`, `DLC`, `PlayStation` or a `0x0F` kana token) is silently ignored. Package v5 still had
+  2 196 sysmes rows = 1 055 whole + 1 141 tails: it was never re-merged after the whole-string exporter landed.
+* Seven entries are written in half-width katakana with `0x0F xx` voiced-kana tokens (`ﾒｲﾝ<0F>0ｲﾛｯﾄ` = メインパイロット,
+  `ｻ<0F>3<0F>0ｲﾛｯﾄ`, `ｿｰﾄ`, `<0F>6ｰ<0F>&` = ページ, `＠4<0F>#ｰﾏｰ:` status line, `＠1[GRﾐｯｼｮﾝ]`, `ｼﾐｭﾚｰﾀｰﾐｯｼｮﾝ`); the
+  exporter's "is Japanese" test did not include U+FF61–FF9F, so they never became rows. Fixed in `sysmes_text.has_japanese`;
+  `coverage_audit.sysmes_missing_whole` now demands the whole string (raw with tokens or `table_write.display` form)
+  and `coverage_audit.audit_executable` covers `PBOOT.PBP`. Two `configst.pac` strings (`ターゲットファイル`,
+  `各フォルダ内依存関係`, PAC build metadata) are permanent false positives.
+
+## The intermission reads `imenuNN`, byte-identical copies of `configNN`'s dictionary members; the dictionary writers skipped the Viewer slots (2026-10-16)
+
+**Confirmed (full v6 build in-game + member md5 over all 20 config/imenu pairs):**
+
+- `imenu00.cpk` and `imenu01–08.EDAT` hold six members (`srwDL_BMP`, `srwDL_CharaDictionary`, `srwDL_DLC_ID`,
+  `srwDL_Reference`, `srwDL_Shop`, `srw_DL_RoboDictionary`) that are **byte for byte** the ones packed in
+  `configNN.pac`; `imenu10–19` share only `CharaDictionary` and `RoboDictionary` with `config10–19`. The
+  intermission screens (Character Viewer, Robot Viewer, Game Reference, Shop) draw the **`imenu` copy**: in the v6
+  build the `config00` copy of Reference/Shop/DLC_ID was English and the screen stayed Japanese. The package is
+  container-agnostic for coverage purposes, so `coverage_audit` cannot see this class of gap; the builder now
+  mirrors every container's own rows onto every byte-identical copy of the member (`mirror_identical_members`,
+  both directions, `build_report.json["mirrored"]`), including the `unit_list` series rows that the builder
+  redirects into RoboDictionary slot 3 (without that, build #22 left a 6-byte difference in records 49–51).
+  Mirroring is keyed on the ORIGINAL members' md5, so a pair that differs in the originals is left alone.
+- `srwDL_CharaDictionary` record = 12 pointers: 0 name, 1 voice actor (bare), 2 entry (`＠０\r` template), 3 series,
+  4 `愛称：`+nickname, **5 `声優：`+voice actor, 10 alternative name, 11 short name of the Viewer grid** — for a
+  character without a pilot entry slot 11 is the only name the grid shows. `srw_DL_RoboDictionary` record = 7
+  pointers: 0 `全長 …`, 1 `重量 …`, **2 note, 3 series (from `unit_list`), 4 type (`標準タイプ` / `飛行タイプ`), 5 unit
+  name of units without a `unit_list` record (foes: `ボルトロボ`, `邪竜兵`), 6 narrow name with `0x0F` kana tokens**.
+  `srwDL_Reference`: slot 0 = section title (`解説書：戦術`, `解説書：インターミッション`, `特殊な操作`), 2 = topic,
+  4 = body; record 12's body (`レベル差補正`) carries 12 kana tokens and the exporter's `clean_run` rejected it whole,
+  leaving 27 fragment rows that the writer can never apply (a row's jp must be the whole string).
+- Labels inside a slot (`愛称：X`, `声優：X`) are handled as ONE `part: label` row per label
+  (`label:srwDL_CharaDictionary:4/5`, `source {container: null, member, slot}`), applied to every record after the
+  keyed rows; a leftover row carrying the whole labelled string conflicts with the keyed nickname row and the
+  writer skips BOTH silently (only `build_report.json` shows it) — those 146 rows are pruned.
+- `tools/table_rows_refresh.py` is the repair tool for this family: it walks the real containers, adds the rows the
+  exporters never produced (coverage of an offset = a row whose jp is the WHOLE string), classifies dead offset
+  rows (`unreachable` / `stale` / `superseded`), salvages English from glued rows and writes the `tokeny.tsv`
+  entries from the raw bytes. Package v7 = v6 + 666 rows − 214.
+
+**Hypotheses (not run in-game):** a STORED `imenu00.cpk` of 88 232 B (original 34 984 B) loads like the grown
+`config00.cpk` does; "Extra Controls" fits the Reference header (≤ 15 cells before the page number); `Voice: ` +
+a Japanese actor name renders on the card.

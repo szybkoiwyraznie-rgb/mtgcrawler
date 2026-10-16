@@ -1,0 +1,136 @@
+{
+ "texture": "intsys_04",
+ "source": "IM1000.cpk (same bytes in IM3000) — 128x64 INDEX8; parts list / conversion captions",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 11,
+ "min_size": 7,
+ "squeeze": 0.85,
+ "fill": [
+  230,
+  230,
+  230,
+  204
+ ],
+ "labels": [
+  {
+   "id": "parts_list",
+   "jp": "強化パーツリスト",
+   "en": "Parts List",
+   "box": [
+    1,
+    1,
+    69,
+    15
+   ]
+  },
+  {
+   "id": "owned",
+   "jp": "所持",
+   "en": "Owned",
+   "box": [
+    69,
+    1,
+    99,
+    15
+   ]
+  },
+  {
+   "id": "convert",
+   "jp": "変換",
+   "en": "Convert",
+   "box": [
+    99,
+    1,
+    128,
+    15
+   ]
+  },
+  {
+   "id": "conditions",
+   "jp": "変換条件",
+   "en": "Conditions",
+   "box": [
+    1,
+    15,
+    49,
+    29
+   ]
+  },
+  {
+   "id": "progress",
+   "jp": "発生状況",
+   "en": "Progress",
+   "box": [
+    49,
+    15,
+    95,
+    29
+   ]
+  },
+  {
+   "id": "equipped",
+   "jp": "(装備)",
+   "en": "Equip",
+   "box": [
+    1,
+    29,
+    33,
+    38
+   ],
+   "size": 8,
+   "min_size": 6
+  },
+  {
+   "id": "squad",
+   "jp": "部隊",
+   "en": "Team",
+   "box": [
+    33,
+    29,
+    55,
+    38
+   ],
+   "size": 8,
+   "min_size": 6
+  },
+  {
+   "id": "bonus",
+   "jp": "ボーナス",
+   "en": "Bonus",
+   "box": [
+    55,
+    29,
+    97,
+    38
+   ],
+   "size": 8,
+   "min_size": 6
+  },
+  {
+   "id": "parts",
+   "jp": "パーツ",
+   "en": "Parts",
+   "box": [
+    97,
+    29,
+    128,
+    38
+   ],
+   "size": 8,
+   "min_size": 6
+  },
+  {
+   "id": "full_upgrade_bonus",
+   "jp": "フル改造ボーナス",
+   "en": "Full Upgrade Bonus",
+   "box": [
+    1,
+    38,
+    111,
+    55
+   ],
+   "size": 13,
+   "min_size": 9
+  }
+ ]
+}

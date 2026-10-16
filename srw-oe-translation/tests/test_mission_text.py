@@ -113,7 +113,7 @@ class ParseMemberTests(unittest.TestCase):
         slots = {s["role"]: s for s in rows[0]["slots"]}
         self.assertEqual(slots["note_a"]["text"], slots["note_b"]["text"])
         self.assertEqual(slots["note_a"]["span"], 160)
-        self.assertEqual(slots["title"]["span"], 44)
+        self.assertEqual(slots["title"]["span"], 40)      # +384..+388 are two u16 fields
         self.assertIn("19話", slots["title"]["text"])
 
     def test_every_record_of_a_stride_is_read(self):
@@ -138,6 +138,38 @@ class ParseMemberTests(unittest.TestCase):
         rows = MT.parse_member("bg2dlist.bin", blob, "bg_name")
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["slots"][0]["text"], "赤宇宙")
+
+
+class SlotSizeTests(unittest.TestCase):
+    def test_measured_fields_of_the_four_name_tables(self):
+        self.assertEqual(MT.slot_size_at("srwDL_Map_S.bin", 16), 32)
+        self.assertEqual(MT.slot_size_at("srwDL_Map_S.bin", 16 + 160 * 7), 32)
+        self.assertEqual(MT.slot_size_at("bg2dlist.bin", 4 + 112 * 3), 24)
+        self.assertEqual(MT.slot_size_at("groupunit00.bin", 100), 32)
+        self.assertEqual(MT.slot_size_at("milstP01.bin", 128 * 2 + 10), 40)
+
+    def test_bgmlist_slots_reach_the_next_slot(self):
+        self.assertEqual(MT.slot_size_at("bgmlist00.bin", 20), 64)
+        self.assertEqual(MT.slot_size_at("bgmlist00.bin", 192 + 84), 60)
+        self.assertEqual(MT.slot_size_at("bgmlist00.bin", 144), 48)
+
+    def test_offsets_that_are_not_a_slot_start_and_unknown_members(self):
+        self.assertIsNone(MT.slot_size_at("srwDL_Map_S.bin", 20))     # inside the name
+        self.assertIsNone(MT.slot_size_at("srwDL_Map_S.bin", 0))      # the header
+        self.assertIsNone(MT.slot_size_at("milstP00.bin", 0))         # before the title
+        self.assertIsNone(MT.slot_size_at("srwDL_Item00.bin", 16))
+
+    def test_ext_dat_needs_the_file_size(self):
+        self.assertIsNone(MT.slot_size_at("DL100_01_ext.dat", 344))
+        # the title slot stops before the two u16 fields that end the record (+384, +386)
+        self.assertEqual(MT.slot_size_at("DL100_01_ext.dat", 344, blob_size=388), 40)
+        self.assertEqual(MT.slot_size_at("DL100_01_ext.dat", 24, blob_size=388), 160)
+
+    def test_parse_member_reports_the_measured_span(self):
+        blob = bytearray(16 + 160)
+        blob[16:16 + 4] = "宇宙".encode("cp932")
+        rows = MT.parse_member("srwDL_Map_S.bin", bytes(blob), "map_name")
+        self.assertEqual(rows[0]["slots"][0]["span"], 32)
 
 
 class CollectTests(unittest.TestCase):
@@ -233,7 +265,7 @@ class MainTests(unittest.TestCase):
             self.assertTrue(out.exists())
             rows = [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines()]
             self.assertEqual(rows[0]["kind"], "mission_title")
-            self.assertEqual(rows[0]["slots"][0]["span"], 118)
+            self.assertEqual(rows[0]["slots"][0]["span"], 40)     # the measured title field
             summary = json.loads(summary_path.read_text(encoding="utf-8"))
             self.assertEqual(summary["error_count"], 0)
             self.assertEqual(summary["per_kind"]["mission_title"]["filled_slots"], 1)

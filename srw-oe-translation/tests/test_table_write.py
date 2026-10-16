@@ -100,6 +100,22 @@ class PoolRebuildTests(unittest.TestCase):
         self.assertEqual(records[1].strings, [b"X", jp("Ａ")])
         self.assertEqual(records[0].strings, [jp("名前"), jp("せりふ")])
 
+    def test_edited_record_keeps_even_offsets_and_lengths(self):
+        # every original pool record (1,051 measured) starts at an even offset and has an even
+        # length; an edit that would make a record odd gets one zero byte of padding
+        self.assertTrue(all(len(r) % 2 == 0 for r in [make_record([jp("名前"), jp("せりふ")])]))
+        edited = TW.rebuild_pool(self.pool, FAM2, {(0, 1): b"ABC"})      # 8 + 5 + 4 + 2 = 19
+        spans = TW.record_spans(edited)
+        self.assertEqual([s % 2 for s, _ in spans] + [(e - s) % 2 for s, e in spans], [0] * 4)
+        records = TW.parse_pool(edited, FAM2)
+        self.assertEqual(records[0].strings, [jp("名前"), b"ABC"])
+        self.assertEqual(records[0].tail, b"\x00\x00\x00")               # the original 2 + 1 pad
+        self.assertEqual(records[1].strings, [jp("長い名前"), jp("Ａ")])
+        self.assertEqual(edited[spans[1][0]:], self.pool[TW.record_spans(self.pool)[1][0]:])
+        # an untouched record is never padded, even when it is odd itself
+        odd_pool = make_pool([make_record([b"a", b"b"]) + b"\x00"])         # 8 + 2 + 2 + 2 + 1 = 15
+        self.assertEqual(TW.rebuild_pool(odd_pool, FAM2), odd_pool)
+
     def test_unexplained_reference_refuses_the_edit(self):
         # the extra prefix word at +8 points into the record's own string region (byte 21 of
         # the record sits inside string 1 and is not one of the two pointers)
@@ -111,6 +127,25 @@ class PoolRebuildTests(unittest.TestCase):
         with self.assertRaises(TW.TableError):
             TW.rebuild_pool(pool, FAM2, {(0, 0): b"Boom"})
         self.assertEqual(TW.rebuild_pool(pool, FAM2), pool)            # without edits it stands
+
+    def test_achievement_count_words_are_exempt(self):
+        # the Achievement record keeps its target count at +8 (30 missions, 30 hours, 100 kills),
+        # a flag at +12 and the index/text ids/points/category at +16..+28 - numbers that land
+        # inside the string range by arithmetic; the real family exempts +8..+28, so the seven
+        # records the generic guard refused in builds #22/#23 are editable [2026-10-16]
+        fam = TW.FAMILY_BY_PREFIX["srwDL_Achievement"]
+        rec = bytearray(make_record([jp("ミッション 30種クリア"), b""], extra=b"\x00" * 20))
+        struct.pack_into("<I", rec, 8, 30)             # the count 30 >= 28 = first string offset
+        struct.pack_into("<I", rec, 16, 32)            # the index word
+        pool = make_pool([bytes(rec)])
+        self.assertTrue(TW.parse_pool(pool, FAM2.__class__(pointers=2))[0].unexplained_refs)
+        parsed = TW.parse_pool(pool, fam)
+        self.assertEqual(parsed[0].unexplained_refs, [])
+        edited = TW.rebuild_pool(pool, fam, {(0, 0): b"Clear 30 Different Missions"})
+        again = TW.parse_pool(edited, fam)
+        self.assertEqual(again[0].strings[0], b"Clear 30 Different Missions")
+        self.assertEqual(again[0].prefix[8:28], bytes(rec[8:28]))     # the numbers stay verbatim
+        self.assertEqual(TW.rebuild_pool(pool, fam), pool)
 
     def test_pointer_table_offset_variant(self):
         rec = bytearray(make_record([b"id", jp("タグ"), jp("Ｂ")], ptr_start=8, nptr=3))
@@ -242,24 +277,183 @@ class RowResolutionTests(unittest.TestCase):
         self.assertEqual(after[1].strings[0], b"Offset Version")
 
 
-class SubContainmentTests(unittest.TestCase):
-    """A member whose rebuild raises is refused alone; the container step survives."""
+def row_label(slot: int, jp_text: str, en: str, member: str = "srwDL_CharaDictionary",
+              row_id: str = "label") -> dict:
+    return {"id": row_id, "category": "config_label", "part": TW.LABEL_PART, "jp": jp_text,
+            "en": en, "mode": "grow", "source": {"container": None, "member": member,
+                                                 "slot": slot}}
 
-    def test_a_raising_member_is_contained(self):
-        rec = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
-        struct.pack_into("<I", rec, 68, 73)      # a word pointing into its own string area
-        pool = make_pool([bytes(rec)])
+
+def robo_record(key: int, strings) -> bytes:
+    """A 7-pointer record whose unit key sits at +28, like srw_DL_RoboDictionary."""
+    extra = struct.pack("<H", key) + b"\x00" * 6        # pointers end at 28, key at 28
+    return make_record(strings, extra=extra, nptr=7)
+
+
+class ViewerSlotTests(unittest.TestCase):
+    """The slots the Character/Robot Viewer draws [measured 2026-10-16, turn-18 screenshots]:
+    CharaDictionary slot 5 (``声優：`` + voice actor), slot 11 (grid short name) and the label in
+    slot 4; RoboDictionary slot 4 (variant type), 5 (display-name override) and 6 (narrow name)."""
+    MEMBER = "srwDL_CharaDictionary99.bin"
+    ROBO = "srw_DL_RoboDictionary99.bin"
+
+    def setUp(self):
+        base = [jp("日向仁"), jp("松本梨香"), TW.ENTRY_TEMPLATE + jp("図鑑用のデータ"),
+                jp("絶対無敵ライジンオー"), TW.NICKNAME_LABEL + jp("仁"),
+                "声優：松本梨香".encode("cp932"), b"", b"", jp("＠６%s"), b"", b"", jp("仁")]
+        placeholder = [jp("邪竜兵"), jp("－－－"), TW.ENTRY_TEMPLATE + jp("敵"), jp("ダイナギガ"),
+                       TW.NICKNAME_LABEL + jp("邪竜兵"), "声優：－－－".encode("cp932"),
+                       b"", b"", b"", b"", b"", jp("邪竜兵")]
+        self.pool = make_pool([chara_record(501, base), chara_record(325, placeholder)])
+
+    def test_voice_actor_row_feeds_the_bare_and_the_labelled_slot(self):
+        rows = [row_key(501, "voice_actor", "松本梨香", "Rica Matsumoto", self.MEMBER)]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[1], b"Rica Matsumoto")
+        self.assertEqual(after[0].strings[5], "声優：".encode("cp932") + b"Rica Matsumoto")
+
+    def test_label_rows_translate_the_label_in_every_record(self):
+        rows = [row_key(501, "voice_actor", "松本梨香", "Rica Matsumoto", self.MEMBER,
+                        row_id="va"),
+                row_key(501, "nickname", "仁", "Jin", self.MEMBER, row_id="nick"),
+                row_label(4, "愛称：", "Nickname: ", row_id="l4"),
+                row_label(5, "声優：", "Voice: ", row_id="l5")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[4], b"Nickname: Jin")
+        self.assertEqual(after[0].strings[5], b"Voice: Rica Matsumoto")
+        # the untranslated record keeps its text but not the Japanese label
+        self.assertEqual(after[1].strings[4], b"Nickname: " + jp("邪竜兵"))
+        self.assertEqual(after[1].strings[5], b"Voice: " + jp("－－－"))
+        self.assertEqual(after[1].strings[1], jp("－－－"))      # bare slot 1 has no label
+
+    def test_a_label_row_without_english_or_slot_is_refused_only(self):
+        rows = [row_label(4, "愛称：", "", row_id="blank"),
+                {**row_label(4, "愛称：", "Nickname: ", row_id="noslot"),
+                 "source": {"container": None, "member": "srwDL_CharaDictionary"}}]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(modified, self.pool)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(len(report["refused"]), 2)
+
+    def test_a_whole_string_row_beats_the_label_pass(self):
+        spans = TW.record_spans(self.pool)
+        records = TW.parse_pool(self.pool, CHARA)
+        off = spans[0][0] + records[0].pointers[4]
+        rows = [row_offset(off, "愛称：仁", "Alias: Jin", self.MEMBER, row_id="whole"),
+                row_label(4, "愛称：", "Nickname: ", row_id="l4")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[4], b"Alias: Jin")
+        self.assertEqual(after[1].strings[4], b"Nickname: " + jp("邪竜兵"))
+
+    def test_short_name_is_slot_eleven(self):
+        rows = [row_key(501, "short_name", "仁", "Jin", self.MEMBER),
+                row_key(325, "short_name", "邪竜兵", "Dragon Sol.", self.MEMBER, row_id="r2")]
+        modified, report = TW.apply_member(self.pool, self.MEMBER, rows)
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, CHARA)
+        self.assertEqual(after[0].strings[11], b"Jin")
+        self.assertEqual(after[1].strings[11], b"Dragon Sol.")
+        self.assertEqual(after[0].strings[4], TW.NICKNAME_LABEL + jp("仁"))   # slot 4 untouched
+
+    def test_robot_viewer_slots(self):
+        narrow = b"\x0f7" + "ﾙﾄﾛ".encode("cp932") + b"\x0f7"      # ボルトロボ in kana tokens
+        pool = make_pool([robo_record(138, [jp("全長 －－－"), jp("重量 －－－"), b"",
+                                            jp("ダイナギガ"), jp("標準タイプ"), jp("ボルトロボ"),
+                                            narrow])])
+        robo = TW.FAMILY_BY_PREFIX["srw_DL_RoboDictionary"]
+        rows = [row_key(138, "type", "標準タイプ", "Standard Type", self.ROBO, row_id="t"),
+                row_key(138, "name", "ボルトロボ", "Bolt Robo", self.ROBO, row_id="n"),
+                row_key(138, "name_narrow", TW.display(narrow), "BoltRobo", self.ROBO,
+                        row_id="nn"),
+                row_key(138, "length", "全長 －－－", "Length ---", self.ROBO, row_id="len")]
+        modified, report = TW.apply_member(pool, self.ROBO, rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(report["refused"], [])
+        after = TW.parse_pool(modified, robo)
+        self.assertEqual([after[0].strings[i] for i in (0, 4, 5, 6)],
+                         [b"Length ---", b"Standard Type", b"Bolt Robo", b"BoltRobo"])
+
+    def test_a_narrow_name_that_keeps_a_kana_token_is_refused(self):
+        narrow = b"\x0f7" + "ﾙﾄﾛ".encode("cp932") + b"\x0f7"
+        pool = make_pool([robo_record(138, [b"", b"", b"", b"", b"", jp("ボルトロボ"), narrow])])
+        rows = [row_key(138, "name_narrow", TW.display(narrow), "%s7Bolt%s7", self.ROBO)]
+        modified, report = TW.apply_member(pool, self.ROBO, rows)
+        self.assertEqual(modified, pool)
+        self.assertTrue(report["refused"])
+
+
+class SubContainmentTests(unittest.TestCase):
+    """A record with unexplained in-record references is refused alone - row by row - and the
+    other records of the member still get their text (before 2026-10-14 the rebuild guard threw
+    the whole member away: 78 achievement rows for one guarded record)."""
+
+    def test_a_guarded_record_is_refused_alone(self):
+        guarded = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
+        struct.pack_into("<I", guarded, 68, 73)  # a word pointing into its own string area
+        clean = chara_record(502, [jp("月城飛鳥"), jp("山口勝平")])
+        pool = make_pool([bytes(guarded), clean])
         spans = TW.record_spans(pool)
         parsed = TW.parse_pool(pool, CHARA)
         self.assertTrue(parsed[0].unexplained_refs)
+        self.assertFalse(parsed[1].unexplained_refs)
         rows = [row_offset(spans[0][0] + parsed[0].pointers[0], "日向仁", "Hinata Jin",
-                           "srwDL_CharaDictionary99.bin")]
-        summary = {"members": 0, "edits": 0, "refused": 0, "problems": [], "per_member": {},
-                   "resolved": []}
-        blob, report = TW._apply_sub("srwDL_CharaDictionary99.bin", pool, rows, summary)
-        self.assertIsNone(blob)
-        self.assertIsNone(report)
-        self.assertTrue(any("unexplained" in p for p in summary["problems"]))
+                           "srwDL_CharaDictionary99.bin", row_id="guarded"),
+                row_offset(spans[1][0] + parsed[1].pointers[0], "月城飛鳥", "Tsukishiro Asuka",
+                           "srwDL_CharaDictionary99.bin", row_id="clean")]
+        blob, report = TW.apply_member(pool, "srwDL_CharaDictionary99.bin", rows)
+        self.assertEqual(report["problems"], [])
+        self.assertEqual(len(report["refused"]), 1)
+        self.assertIn("guarded: record 0 has unexplained in-record references",
+                      report["refused"][0])
+        after = TW.parse_pool(blob, CHARA)
+        self.assertEqual(after[0].strings[0], jp("日向仁"))          # untouched
+        self.assertEqual(after[1].strings[0], b"Tsukishiro Asuka")  # written
+
+    def test_the_rebuild_guard_still_stands_behind_the_row_filter(self):
+        rec = bytearray(chara_record(501, [jp("日向仁"), jp("松本梨香")]))
+        struct.pack_into("<I", rec, 68, 73)
+        pool = make_pool([bytes(rec)])
+        with self.assertRaises(TW.TableError):
+            TW.rebuild_pool(pool, CHARA, {(0, 0): b"Boom"})
+
+
+class DlcIdNumbersTests(unittest.TestCase):
+    def test_the_numeric_prefix_of_a_dlc_id_record_is_not_a_reference(self):
+        # 8 pointers, then price / running number / packed / packed / points / flags (+32..+55)
+        # and two bytes, first string at +58 - the measured layout
+        strings = [jp("経験値 ２倍 Lv1"), jp("経験値 ２倍 Lv1"), jp("部隊パーツ"), b"", b"X", b"Y", b"Z", b""]
+        pos = 58
+        ptrs = []
+        for st in strings:
+            ptrs.append(pos)
+            pos += len(st) + 1
+        numbers = struct.pack("<6I", 2000, 73, 10, 0, 100, 67436544) + b"\x00\x00"
+        rec = (b"".join(struct.pack("<I", q) for q in ptrs) + numbers
+               + b"".join(st + b"\x00" for st in strings) + b"\x00\x00")
+        pool = make_pool([rec])
+        fam = TW.family_of("srwDL_DLC_ID00.bin")
+        parsed = TW.parse_pool(pool, fam)
+        self.assertEqual(parsed[0].unexplained_refs, [])
+        out = TW.rebuild_pool(pool, fam, {(0, 0): b"EXP x2 Lv1"})
+        after = TW.parse_pool(out, fam)
+        self.assertEqual(after[0].strings[0], b"EXP x2 Lv1")
+        self.assertEqual(after[0].prefix[32:58], numbers)      # the numbers ride along untouched
+
+
+class EnglishTests(unittest.TestCase):
+    def test_english_is_kept_as_written_and_blank_means_untranslated(self):
+        self.assertEqual(TW.english({"en": "　Sub　"}), "　Sub　")
+        self.assertEqual(TW.english({"en": "Text\n"}), "Text\n")
+        self.assertEqual(TW.english({"en": " \n "}), "")
+        self.assertEqual(TW.english({"en": None}), "")
+        self.assertEqual(TW.english({}), "")
 
 
 class TokenTests(unittest.TestCase):
@@ -365,6 +559,41 @@ class PoolCTests(unittest.TestCase):
         _o, strings = TW.parse_pool_c(modified)
         self.assertEqual(strings[0], jp("アイテム"))       # the conflicted string stays Japanese
         self.assertEqual(strings[1], b"Skill note")        # its neighbour is still written
+
+
+class PoolBudgetTests(unittest.TestCase):
+    """The DLC skill pools (srwDL_Skill01-08.bin) may not outgrow their original 15 638 B: a
+    pool over it refuses its whole container (SizeBudgetError), like Skill00 (test Y, 2026-10-15)."""
+
+    def test_the_eight_dlc_pools_are_budgeted_at_their_original_size(self):
+        for n in range(1, 9):
+            self.assertEqual(TW.POOL_SIZE_LIMITS[f"srwDL_Skill0{n}.bin"], 15_638)
+        self.assertNotIn("srwDL_Skill00.bin", TW.POOL_SIZE_LIMITS)   # Skill00 is item_skill_write's
+        self.assertNotIn("srwDL_Item01.bin", TW.POOL_SIZE_LIMITS)
+        self.assertIsNone(TW.pool_size_limit_problem("srwDL_Skill01.bin", 15_638))
+        self.assertIsNone(TW.pool_size_limit_problem("srwDL_Item01.bin", 10 ** 6))
+        problem = TW.pool_size_limit_problem("srwDL_Skill03.bin", 17_396)
+        self.assertIn("17396 B exceeds the in-game budget of 15638 B (+1758 B over", problem)
+        self.assertIn("skill_shrink.py --dlc-original", problem)
+
+    def test_a_pool_over_budget_raises_the_container_level_refusal(self):
+        import item_skill_write as ISW
+        blob, offs, _strings = PoolCTests().build()
+        original = dict(TW.POOL_SIZE_LIMITS)
+        try:
+            TW.POOL_SIZE_LIMITS["srwDL_Item01.bin"] = len(blob) + 4
+            rows = [row_offset(offs[1], "スキル説明", "Skill note", "srwDL_Item01.bin")]
+            modified, report = TW.apply_member(blob, "srwDL_Item01.bin", rows)   # fits (+0 B)
+            self.assertEqual(report["problems"], [])
+            self.assertLessEqual(len(modified), len(blob) + 4)
+            rows = [row_offset(offs[1], "スキル説明", "A much longer skill description",
+                               "srwDL_Item01.bin")]
+            with self.assertRaises(ISW.SizeBudgetError) as ctx:
+                TW.apply_member(blob, "srwDL_Item01.bin", rows)
+            self.assertIn("exceeds the in-game budget", str(ctx.exception))
+        finally:
+            TW.POOL_SIZE_LIMITS.clear()
+            TW.POOL_SIZE_LIMITS.update(original)
 
 
 if __name__ == "__main__":

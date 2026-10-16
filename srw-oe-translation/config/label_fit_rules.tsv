@@ -1,0 +1,235 @@
+# label_fit rules for sysmes.bin short labels (2026-10-15): jp<TAB>en
+# Rule: a one-line label of <= 16 Japanese bytes is drawn in a slot the Japanese layout sized -
+# the button bar places the next icon at the Japanese label's width [confirmed in game, build 12:
+# "Spirit Commands" (15 cells) over 精神コマンド (12) ran into the next icon] - so the English may
+# not be wider than the Japanese: display cells = bytes with the control tokens (＠n, %s) removed.
+# Tokens of the Japanese (＠4, ＠6, %s) are kept in the English, count and order.
+表示切換	Display
+発進	Go
+連動切換	Link
+能力	Stat
+ページ切換	Next Page
+ぺージ切換	Next Page
+＠6出撃数	＠6Sortie
+出撃中	Active
+＠4報酬	＠4Loot
+＠4クリア報酬 ：	＠4Clear Bonus:
+＠6資金	＠6Cash
+資金	Cash
+検索	Find
+強化パーツ	Enh. Parts
+戦績／部隊パーツ	Records & Parts
+選択中	Chosen
+システム設定	System Setup
+ＥＣ交換	EC Trade
+資材パーツ交換	Material Trade
+＠4ＥＣ交換	＠4EC Trade
+総ターン数	Turn Total
+ヘルプタイトル仮	Help title (tmp)
+ヘルプ内容仮	Help (tmp)
+＠4初期ＳＰ	＠4Base SP
+＠4初期気力	＠4BaseWill
+＠4攻撃	＠4ATK
+＠4防御	＠4DEF
+＠4命中	＠4HIT
+＠4回避	＠4EVA
+＠4強化パーツ	＠4Enh. Parts
+＠4改造段階	＠4Upg. Lv
+パーツ装備	Equip Part
+精神コマンド	Spirit Cmds
+改造	Upg.
+改造ゲージ	Upg. Gauge
+フル改造ボーナス	Full Upg. Bonus
+入力	Edit
+決定	OK
+購入	Buy
+制限解除	Uncap
+改造制限解除	Upg. Uncap
+必要資金	Cost
+必要ＥＣ	EC Cost
+資金が足りません	Not enough Cash
+残り資金	Balance
+武器消費EN-50％	Weapon EN -50％
+連続戦闘補正無効	No Chain Penalty
+鑑賞モード	View Mode
+機体説明	Info
+ポーズ変更	Pose
+回転	Spin
+表示ON/OFF	Show/Hide
+表示変更	Display
+台詞再生	Voice
+表情変更	Face
+武器	Arms
+装備変更	Equip
+強化パーツ／機体	Enh. Parts/Unit
+強化パーツ／回復	Enh. Parts/Heal
+素材パーツ	Materials
+＠4必要なパーツ	＠4Parts Needed
+＠4必要資金	＠4Cost
+＠4必要ＥＣ	＠4EC Cost
+に交換しますか？	Trade for this?
+機体用強化パーツ	Unit Enh. Parts
+回復用パーツ	Heal Parts
+＠4素材パーツ	＠4Materials
+部隊パーツ	Squad Part
+達成目標	Goals
+戦績	Log
+ＥＣ特典一覧	EC Perk List
+プレイ成績	Play Stats
+あと	Left
+資金２倍	Cash x2
+回 制限解除可能	 uncaps left
+成績	Stat
+撃墜成績	Kills
+総撃墜数　：	Total Kills:
+撃墜王　　：	Top Ace:
+数：	Qty:
+累計ｸﾘｱ数 ：	All Clears:
+総獲得資金：	Total Cash:
+目標達成数：	Goals Met:
+切替	Swap
+システム設定１	System Setup 1
+システム設定２	System Setup 2
+サウンド設定	Sound Setup
+設定１	Opts 1
+設定２	Opts 2
+設定	Opts
+初期設定に戻す	Reset Defaults
+主人公名変更	Rename Hero
+設定画面へ	To Options
+ソート内容の記憶	Keep Sort Order
+個別に設定	Set Each
+戻す	Undo
+敵攻撃時のＢＧＭ	Enemy Attack BGM
+敵側	Foe
+通常	Std.
+ボイス優先	Voice Prio
+設定曲に戻す	Use Set Song
+再生	Play
+特殊スキル	Skills
+特殊能力	Ability
+武器特殊能力	Wpn Ability
+精神コマンド検索	Search Spirits
+特殊スキル検索	Search Skills
+特殊能力検索	Find Ability
+武器特殊能力検索	Find Wpn Ability
+パーツ検索	Find Parts
+カテゴリ切換	Category
+種類選択	Type
+装備中	In Use
+味方ロボット	Ally Robots
+敵ロボット	Foe Robots
+ＢＧＭ全集	All BGM
+機体切替	Unit
+更新	Set
+先のミッションへ	To Next Missions
+１章	Ch.1
+２章	Ch.2
+３章	Ch.3
+４章	Ch.4
+５章	Ch.5
+６章	Ch.6
+７章	Ch.7
+８章	Ch.8
+報酬：	Loot:
+出撃：	Deploy
+クリア回数 ：	Clear Count:
+総出撃	Sortie
+強制出撃	Forced
+クリア報酬 ：	Clear Bonus:
+ミッション概要	Mission Brief
+＠4<<出現敵>>＠0	＠4<<Enemy>>＠0
+強化パーツ：	Enh. Parts:
+敗北条件：	Defeat if:
+地形制限：	Terrain:
+制限ユニット：	Barred Units:
+制限パイロット：	Barred Pilots:
+迎撃部隊	Defense
+出撃数	Sortie
+報酬パーツ	Loot Parts
+部隊編成	Lineup
+出撃母艦：	Carrier:
+編成画面	Lineup
+攻撃部隊	Offense
+連動	Link
+編成完了	Finish
+自分で編成	Custom
+固定編成	Preset
+編成１：%s	Team 1: %s
+編成２：%s	Team 2: %s
+編成３：%s	Team 3: %s
+編成４：%s	Team 4: %s
+編成５：%s	Team 5: %s
+出撃不可	Grounded
+編成できません。	Cannot add unit.
+主人公名設定	Hero Name
+姓	L.
+名	F.
+愛称	Nick
+名の入力	Forename
+姓の入力	Surname
+愛称の入力	Nickname
+話%s	Ep%s
+部隊編成完了	Lineup Done
+中断ロード	Quick Load
+中断セーブ	Quick Save
+編成確認	Review
+再度編成	Re-form
+部隊保存	Save
+連続ミッション	Mission Chain
+地形：	Terr.:
+出撃選択する	Deploy Unit
+＠4部隊パーツ	＠4Squad Part
+コンテナ	Crate
+＠4獲得パーツ	＠4Parts Won
+簡易能力	Stats
+行動コマンド	Action Cmds
+部隊決定	Confirm
+改編	Edit
+編成順	Order
+回＠1%+3d%%＠0	EV＠1%+3d%%＠0
+命＠1%+3d%%＠0	HT＠1%+3d%%＠0
+防＠1%+3d%%＠0	DF＠1%+3d%%＠0
+攻＠1%+3d%%＠0	AT＠1%+3d%%＠0
+被CT＠1%+3d%%＠0	Crit＠1%+3d%%＠0
+＠0回＠1%3d%%＠0	＠0EV＠1%3d%%＠0
+回＠1%3d%%＠0	EV＠1%3d%%＠0
+発動＠2%+3d%%＠0	Proc＠2%+3d%%＠0
+回＠2%+3d%%＠0	EV＠2%+3d%%＠0
+防＠2%+3d%%＠0	DF＠2%+3d%%＠0
+命＠2%+3d%%＠0	HT＠2%+3d%%＠0
+命%+3d%%	HT%+3d%%
+防＠2%+3d%%	DF＠2%+3d%%
+攻＠2%+3d%%＠0	AT＠2%+3d%%＠0
+命､回＠2%+3d＠0	HT/EV＠2%+3d＠0
+回＠2%+3d＠0	EV＠2%+3d＠0
+防､命＠2%+3d＠0	DF/HT＠2%+3d＠0
+命＠2%+3d＠0	HT＠2%+3d＠0
+上昇＠2%+3d＠0	Up＠2%+3d＠0
+報酬	Loot
+資材パーツ一覧	Material List
+初期ＳＰ	Base SP
+初期気力	BaseWill
+攻撃	ATK
+防御	DEF
+命中	HIT
+回避	EVA
+改造段階	Upg. Lv
+回避補正+30％	Eva Mod +30％
+獲得条件	Criteria
+特典	Perk
+必要なパーツ	Parts Needed
+獲得率UP	Drop Up
+ゲージ表示	Gauge
+勝利条件>>＠0	Victory>>＠0
+出現敵>>＠0	Enemy>>＠0
+強制出撃>>＠0	Forced>>＠0
+出撃不可>>＠0	Grounded>>＠0
+資金：%-16d	Cash: %-16d
+入手	Got
+　×%2d 入手	 x%2d Got
+　入手	 Got
+できません＠0	Not avail.＠0
+獲得パーツ	Parts Won
+効果	Eff.
+撃墜エース:資金	Ace Pilot: Cash

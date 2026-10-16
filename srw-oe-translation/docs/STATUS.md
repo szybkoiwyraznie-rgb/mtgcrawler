@@ -1,6 +1,261 @@
 # Project status
 
-Last updated: 2026-10-12
+Last updated: 2026-10-16 (§21.36)
+
+**Latest (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
+Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
+without macrons; 2 rows are the `NoData` placeholder) — one misreading fixed (`高乃麗` "Rei" → "Urara Takano"), the full
+list is `aktorzy_glosowi.tsv` in the package. A byte scan of every built member (now including half-width kana) found
+three REAL leftovers, all in `configst.cpk`: the Fortune/Bless spirit descriptions (kana-token fields the record refresher
+only reported), five `Skill_Tag` strings (configst was not in the v7 refresh) and seven achievements with English for
+weeks that `table_write` REFUSED because the record's target count (30/40/100) looked like an in-record pointer (visible
+only in the container `problems` of `build_report.json`). Fixes: `Family(2, exempt=((8, 28),))` for Achievement (layout
+measured on 75 records), `record_rows_refresh` adds token fields as display-form rows (`%s` per control byte, `tokeny.tsv`
+entries computed straight from the field bytes), `table_rows_refresh` run over configst. Package v8 = v7 + 12 corrected
+English values (Takano ×4, `SRWHPｺﾗﾎ` → "SRW Web Collab" ×8) + 14 rows − 8 junk/obsolete rows: 109 032 rows / 81 678 EN /
+0 errors; on Drive, v7 moved to `_STARE_NIE_UZYWAC`, `diagnoza` expects v8 (and checks the Achievement exemption in the
+tools). Sandbox build #23b (config00 + imenu00 + configst, plus config01.EDAT separately): 0 skipped, configst problems 0,
+0 readable Japanese runs in Spirit / Skill_Tag / Achievement. Still unknown: whether `srwDL_CalcType.bin` (34 untranslated
+formula labels) is ever displayed; nothing of v7/v8 confirmed in-game yet. Tests: 1 266 OK (1 skipped).**
+
+**Previous (2026-10-16, §21.34): FULL v6 BUILD CONFIRMED IN-GAME (intermission English, graphics intact; program strings via the
+cheat file). The five leftover screenshots — Character Viewer (non-pilot names in the grid, `愛称：` / `声優：` lines and the
+voice-actor names), Robot Viewer foe units (`ボルトロボ`, `邪竜兵`) and the whole Game Reference (`解説書`) — traced to four
+causes, all measured in the files: (1) the intermission reads `imenuNN.cpk/.EDAT`, whose six members are byte-identical
+copies of `configNN`'s, while the Reference / Shop / DLC_ID rows were addressed to `configNN` only (the coverage audit is
+container-agnostic, so it never saw it); (2) the CharaDictionary writer wrote slots 0–4 only — slot 5 (`声優：`+actor), 10
+(alt name) and 11 (the grid's short name, the ONLY name a non-pilot has) were never written, and 146 `config_leftover`
+`愛称：X` rows collided silently with the keyed nickname rows; (3) the RoboDictionary writer wrote slots 0/1/3 only — note
+(2), type (4), the name of units without a `unit_list` entry (5, the foes) and the narrow kana-token name (6) were not;
+(4) Reference section titles (slot 0) had no rows and the `レベル差補正` page existed only as 27 fragments (the exporter
+rejects kana-token bodies). Fixes: `table_write` viewer slots + label rows (`label:<family>:<slot>`, one row per label),
+`build_translation_patch.mirror_identical_members` (rows reach every byte-identical member copy, both ways; the
+`unit_list` series rows follow the RoboDictionary too — build #22 caught a 6-byte difference without that), NEW
+`tools/table_rows_refresh.py` (walks every table member of the real containers, adds the missing rows with `copy_of` /
+sibling English, prunes stale / superseded / unreachable offset rows, salvages glued English, writes `tokeny.tsv`
+entries), `coverage_audit` counts `愛称：仁` as covered when label and text are separate rows. Package v7 (109 026 rows /
+81 672 EN, 0 errors, coverage 0 missing; ~~426 voice-actor names deliberately left Japanese~~ — WRONG, see §21.35) on Drive,
+v6 moved to `_STARE_NIE_UZYWAC`; `diagnoza` knows v7. Sandbox build #22 (synthetic ISO with `imenu00.cpk` + 30 DLC EDATs):
+0 skipped rows, 0 verification failures, every config/imenu pair 00–08 identical, 0 Japanese runs left in the five
+viewer/reference members. Tests: 1 261 OK (1 skipped). NOT run in-game: v7 (watch: `imenu00.cpk` grows 34 984 → 88 232 B
+because the CPK is re-stored uncompressed; "Extra Controls" header width; "Voice: " + Japanese actor name), the
+EBOOT.BIN-in-ISO route (user testing), UI_TEST4. Details: `EXPERIMENT_LOG.md` §21.34.**
+
+**Previous (2026-10-15, night): EXE_TEST1 IN-GAME RESULT — swapping `PBOOT.PBP` in the emulator's DLC folder changes
+NOTHING (confirmed: release PPSSPP never reads the update; `FindGameUpdatePBOOT` exists only in master), while the
+CWCheat file `cheats\NPJH50521.ini` turns the program strings English at once (CONFIRMED). The cheat addresses come from
+the PBOOT-derived ELF, so the program PPSSPP boots — `PSP_GAME/SYSDIR/EBOOT.BIN` inside the ISO (a dump of the 1.08
+PKG) — has the same string layout. Consequence: the builder's `exe_step` now patches the ISO's `EBOOT.BIN` as its
+PRIMARY target (decrypt with `psp_prx` → verify Japanese bytes → in-place English → plain ELF appended into
+`patched.iso`), keeps `DLC\PBOOT.PBP` as a secondary target and still writes the cheat file; an undecryptable disc EBOOT
+with a `~PSP` header identical to PBOOT's falls back to the PBOOT program (flagged `source: PBOOT.PBP`). `psp_prx` gained
+the type-6 retail tags (`0xD91680F0/81F0`, ported, no sample run), `diagnoza` classifies `EBOOT.BIN` (original `~PSP` /
+known plain build / unknown) and the report's per-target lines, `WGRAJ_DO_ISO` (`iso_insert`) accepts an `EBOOT.BIN`.
+Sandbox build #21 (synthetic ISO carrying the real encrypted `DATA.PSP` as EBOOT.BIN): 397/397 on both targets, EBOOT in
+`patched.iso` = plain ELF md5 `ba4cc05c…`. `EXE_TEST2.zip` (EBOOT.BIN for WGRAJ_DO_ISO, cheat disabled) on Drive. Tests:
+1 238 OK (1 skipped). STILL A HYPOTHESIS: PPSSPP boots the plain-ELF `EBOOT.BIN` from the ISO (loader source + fan-patch
+practice; not run in-game yet); the user's disc EBOOT tag/md5 are unknown until his rebuilt `build_report.json` arrives.
+The confirmed route for the program strings today is the cheat file. Details: `EXPERIMENT_LOG.md` §21.33.**
+
+**Previous (2026-10-15, late evening): build #19 (v5 text + UI_TEST3 textures via HOKUS_POKUS) CONFIRMED WORKING in-game
+("everything runs beautifully"). The 8 screenshots of leftovers traced to three sources, all by bytes: (a) the GAME
+PROGRAM — `PBOOT.PBP` (the 1.08 update in the DLC folder) → `DATA.PSP`: `移動後`, `TGT 敵`, Evade / Sup. Def / Low EN
+banners, the Guard effect line, the 1.08-only `<貫通 Lv2>` / `<ビーム兵器 Lv2>` / `<連携攻撃 Lv2>` weapon-ability lines, the
+command and tactical menus, save / network / DLC messages — 0 hits in any data container; (b) `sysmes.bin` WHOLE strings
+written in half-width kana with `0x0F` tokens (`メインパイロット`, `サブパイロット`, `SELECT パイロット表示変更`, Sort, Page, …) — the
+v5 package held only their tails, which the sysmes writer ignores (root cause: the package was never re-merged after the
+whole-string exporter landed, and the exporter's Japanese test skipped half-width katakana); (c) texture UV cells
+(`WPN名`, clipped RNG, EN Cost sliver, half-cut part / ability icons). Fixes: new `tools/psp_prx.py` (pure-Python PRX
+decrypter for tag `0x2E5E10F0`, which stock pspdecrypt does not know; ELF md5 `8ba77a79…`) and `tools/exe_strings.py`
+(408 referenced strings, in-place `slot` rows with alignment slack, printf-conversion check, CWCheat export); 397/408
+translated in the new `09_executable.jsonl`; the builder's `exe_step` writes `DLC\PBOOT.PBP` with a PLAIN-ELF `DATA.PSP`
+(builder output == hand-made `PBOOT_en.PBP`, md5 `26689964…`) plus `cheats\NPJH50521.ini` as the fallback; 31 whole sysmes
+rows added to `04`; `coverage_audit.py` now checks whole sysmes strings and `PBOOT.PBP` (v5 → 33 missing, v6 → 0);
+`sysmes_text` / `translator_export` fixed for the future; texture batch 4 (`mensys_03/07/11/13`, `tacsys_16/18`);
+`diagnoza` knows v6, UI_TEST4 and classifies `PBOOT.PBP` (md5 + header). Package v6 (108 574 rows / 81 220 EN, 0 errors),
+sandbox build #20 (5 containers + PBOOT 397/397 verified), `EXE_TEST1.zip` and `UI_TEST4.zip` on Drive (v5 / KIT18 /
+UI_TEST3 moved to `_STARE_NIE_UZYWAC`). Tests: 1 227 OK (1 skipped). HYPOTHESES, not run in-game: PPSSPP boots a
+`PBOOT.PBP` whose `DATA.PSP` is a plain ELF (source-verified in `sceKernelModule.cpp` only); the ISO `EBOOT.BIN` is the
+same binary; `＠4Gamer:` reading of `ゲーマー`. Details: `EXPERIMENT_LOG.md` §21.32.**
+
+**Previous (2026-10-15, evening): UI batch 3 — the single-kanji ICONS now carry 2-letter codes and `navisys.cpk` is in
+scope. Measured badge geometry (1-px border, 2-px frame, ~10×10 px inner area) allows two letters at 7–9 px; one
+letter would clash with the S/A/B/C/D rank letters drawn next to the terrain badges, three do not fit. Codes:
+terrain GR / AI / SP (`mensys_03`, `mensys_14`), weapon abilities BR Break / AR Arc Shot / PU Push / TH Throw (notched
+variant = Pull Throw) / CO Combination (`mensys_13`; M and B are original), map badges SR Surround / DH Direct Hit /
+PU / TH (`tacsys_15/17`, `mensys_15`), spirit orbs VA BU AC FL FO / PE WA GA FR DI (`mensys_15`, shading copied per
+column, pictograms fire / freeze / stun untouched). `navisys.cpk`: TOC container with two BARE GIMs (no PAC),
+true-colour RGBA8888, `ExtractSize` stored as a schema constant — `cpk_write` now accepts that layout and keeps the
+constant on rebuild (identity rebuild == original), `gim_image.encode_rgba8888` writes true colour back same-size,
+`ui_texture_patch` handles bare-GIM members and several members per TOC container; `navisys_02`: Battle / Evade /
+Musai / Confirm / Cancel / Enemy Sighted (`navisys_01` has no text). Totals: 26 textures, 137 labels painted, 6 kept,
+4 erased, 0 fit refusals, 6 containers. `UI_TEST3.zip` on Drive (supersedes UI_TEST2, moved to `_STARE_NIE_UZYWAC`);
+the builder paints all 6 containers (end-to-end on the synthetic ISO byte-identical to the kit); `iso_insert`,
+`diagnoza` know `navisys.cpk` / UI_TEST3. Still Japanese: `mensys_12` (連 持 特 防 突 早 狙 回 — where the game shows
+them is unconfirmed; screenshot requested), the 6-px link markers in `intsys_01`, 用 / 名. NOT yet in-game: UI_TEST2,
+UI_TEST3, builds #19+. Details: `EXPERIMENT_LOG.md` §21.31.**
+
+**Previous (2026-10-15, afternoon): `UI_TEST1 A_stored` WORKS in-game (user's screenshots: intermission tabs, ATK/DEF/HIT/EVA,
+Will, Support in English, no crash) ⇒ the game accepts `.pac` members stored uncompressed, and that is the only variant
+shipped from now on. Second batch done the same way: 23 textures total (18 new — battle `tacsys.cpk`: Attack / Defend /
+Evade / Counter, Counter Attack / Defend / Critical / Evade banners, Unit Info, Start Battle, Support Setup, Will, Units
+Ready, Spirit Cmd / Skill / Level Up! / Get!, Your turn / Enemy turn, N/A badge; menus: sound options, In Use, NOTE,
+Gain / Funds / Cost / Req.; intermission `intsys_03/04`: Upgrades, Linked Units, Upgrade Limit Break, Parts List, Convert,
+Equip, Team …) in 5 containers (`system`, `tacsys`, `IM1000`, `IM3000`, `IM9000`), 101 labels painted, 4 katakana
+sub-captions erased, 0 fit refusals. `UI_TEST2.zip` on Drive (supersedes UI_TEST1). **`build_translation_patch.py`
+(HOKUS_POKUS) now paints these textures into `patched.iso` itself** (fail-closed step, `--no-ui-textures` to disable;
+end-to-end on a synthetic ISO: text containers byte-identical to build #18, UI containers byte-identical to UI_TEST2).
+Weapon-panel ability line: its five pool fragments exist only in `srwDL_Skill00/0N.bin`, 0 hits in UI containers, and are
+English in builds #17/#18 ⇒ the game composed it from a JAPANESE pool at the time of the screenshot (hypothesis: the
+`DLC_pulaJP` diagnostic `config02.EDAT` from KIT 17, or an original EDAT, in the user's DLC folder) — awaiting a fresh
+`DIAGNOZA.bat`. Kept Japanese on purpose: single-kanji badges (`mensys_12/15`, 包/押/投, terrain), `navisys_02` (writer
+blocked). UI_TEST2 and build #19 NOT yet run in-game. Details: `EXPERIMENT_LOG.md` §21.30.**
+
+**Previous (2026-10-15, night, after the first screenshots of actual play with v4/#17): package v5 / build #18 — unit
+and pilot names in the intermission lists ≤ 14 half-width cells (the game squeezes Japanese, never ASCII; measured on
+the user's screenshot), 8 Skill00 `effect` texts without the stray `4` after `%s` (the Japanese byte completes the kana
+fragment ｸﾞﾙｰ<0F>; the English fragment `Group` has no dangling byte, so #17 showed "Group4All units attack"), pilot
+Kuro (foreign English). New `translation_check` rules: list-column width (CP932 bytes), completion byte, conflicting
+duplicate rows of one Skill00/Item00 string (the writer silently skips the whole record otherwise — hit in the first
+#18 run). The Japanese ability line on the user's battle weapon panel is Skill00 r239 rendered from an ORIGINAL
+`config00.cpk` (build #17 is fully English there) — most likely UI_TEST1 applied to the original ISO (the instruction
+allowed it; corrected) — awaiting `DIAGNOZA.bat --iso`. v5/#18 NOT yet run in-game. Details: `EXPERIMENT_LOG.md` §21.29.**
+
+**Previous (2026-10-15, night → next day): Y4a, Y4 and Z4 ALL WORK in-game (PPSSPP, ISO 1.08): Loading, new game,
+the chapter-2 save, pilot status and skill screens — package v4 + build #17 is the first fully accepted TEXT set**
+(the pool budget rule — each `srwDL_Skill0N.bin` ≤ 15 638 B, Skill00 + pools ≤ 342 194 B — holds in every test so
+far; still a measured rule, not a proven mechanism). The user's screenshots then raised the next front: the
+system labels on the status / weapon / skill screens (攻撃 防御 命中 回避, tabs 能力 改造 武器 機体, 特殊能力・スキル,
+気力, 援護 …) are still Japanese. They are NOT text — they are **GIM textures** inside `system.cpk`, `IM1000.cpk`,
+`IM3000.cpk` (never in scope until now). New offline tool chain (`tools/gim_image.py` decoder + same-size INDEX8
+encoder, identity 52/52; `tools/cpk_itoc_write.py` for TOC-less CPKs; `tools/gim_label.py` fail-closed caption
+renderer driven by `ui_labels/*.json`; `tools/ui_texture_patch.py` container builder) rewrote 5 textures
+(`intsys_01`, `mensys_01/03/08/13`: Stats/Mods/Arms/Unit/Pilot tabs, ATK DEF HIT EVA SIZE MOV, EN Cost RNG HIT TGT
+Will Req, Abilities / Skills, Parts, Spirits, Will, Support …). `UI_TEST1.zip` on Drive (variants `A_stored` and
+`B_crilayla`, 3 containers each) — **nothing of this has run in-game yet**; it is deliberately not a HOKUS_POKUS step.
+Battle textures (`tacsys`), `mensys_05/07/10–12/14`, `intsys_03/04`, `.sp`/`sprstd`/`mesbmp` remain Japanese.
+Details: `EXPERIMENT_LOG.md` §21.28.
+
+**Previous (2026-10-15, night): tests X/Y in-game split the full-patch crash — X (patched.iso with the rebuilt
+`eventP00`/`mesbtl00`/`imenu00` + config #14, ORIGINAL DLC folder) WORKS into the dictionary screen; Y (original
+ISO + the complete 91-EDAT build #15) CRASHES at "Loading" with the exact build-#8 stack.** The only sub-file
+that grows in every chapter in a way matching that stack is the DLC skill fragment pool `srwDL_Skill01–08.bin`
+(15 638 → 17 396 B each; Skill00 + 8 pools: original 334 062, X 341 622 works, Y 355 686 crashes). HYPOTHESIS,
+not proof: one arena for Skill00 + the eight pools, bound between 342 194 (W1 works) and 343 214 (W2 crashes).
+Package **v4** = v3 + Tier 4 shortening rules (219 total) + pools re-synced to the shortened Skill00 English
+(`skill_shrink.py --dlc-original`; a package defect — 583 Skill00 tail rows share one id — is worked around by
+`copy_of` only on unique ids): every pool 15 578 B, Skill00 215 462 B, total 340 086 B. Gates now in the tools:
+pool ≤ 15 638 B is FATAL in `table_write.py` (container "NOT written"), builder reports `skill_total` ≤ 342 194.
+**Build #17** (config00 md5 `80b8fae6…`, config01–08 at original sizes) + `KIT_build17_2026-10-15.zip` and the v4
+package are on Drive (v3/KIT15 moved to `_STARE_NIE_UZYWAC`, instruction replaced and verified). Next, in-game by
+the user: Y4a (original DLC + the 10 config files of build #17) → Y4 (full v4 DLC build) → Z4 (full patch +
+chapter-2 save); Y3 (Japanese pools) only if Y4a crashes. Known layout bug: the dictionary hint bar overlaps the
+"Pilot" tab. v4/#17 have NOT been run in-game yet. Details: `EXPERIMENT_LOG.md` §21.27.
+
+**Previous (2026-10-15, late evening): the user's FULL patch (provenance unknown) CRASHES at "Loading" with the
+exact build-#8 stack** (`memcpy_jak` ← `z_un_08b3d554` …, `Read/Write Block at 00000000`). Two findings: (1) my
+fault — the Drive `INSTRUKCJA_PL.md` was still the 2026-10-14 text pointing at package v1 and the build-#6 kits
+(all now moved to `_STARE_NIE_UZYWAC`, instruction rewritten and re-uploaded, KIT_build15 uploaded); (2) the
+three ISO containers `eventP00`/`mesbtl00`/`imenu00` and the 91 EDATs have NEVER been run in-game with the
+fixed writers (bisection letters C/D/E/G were never executed). Build #15 here (v3, 13 containers) reproduces #14
+for config00/configst; the other files grow 1.6–2.9× because changed members are STORED (uncompressed content
+grows ≤ 6 %) — a boot-time memory budget on whole files is an open hypothesis. New read-only `DIAGNOZA.bat`
+(`tools/diagnoza.py`) reports which tools/package/build/emulator files are actually in place, with md5 tables
+of every shipped build; `build_report.json` now carries a tools stamp. Next: user runs DIAGNOZA, then test X
+(original DLC + patched.iso) and test Y (original ISO + full DLC build), then container bisection via
+`WGRAJ_DO_ISO.bat` / `BISEKCJA.bat`. Details: `EXPERIMENT_LOG.md` §21.26.
+
+**Previous (2026-10-15, evening): CONFIRMED IN-GAME — build #14 loads the user's mid-chapter-2 save and the skill
+descriptions read correctly; Y5 (= Y3 with only the `+52` word corrected) loads where Y3 crashed**, so the
+chapter-2 crash was the stale parameter pointer, not the member size (the Loading budget 216 768 B stays as
+measured). Build #14 is the first build that passes Loading, a new game and the chapter-2 save. Package **v3**
+(= v2 + button-bar label rule + 408 DLC pool copies re-synced to the shortened Skill00 fragments,
+`translation_copy.py --resync`; `translation_check` 0 errors) is on Drive; building config00/configst from it
+reproduces build #14 byte for byte. Next: the user builds the FULL patch locally (`HOKUS_POKUS.bat`, fresh
+branch ZIP, v3 in `pakiet_EN\`) and tests the chapter-2 save on the complete set, then plays from the start —
+the 94 other containers have never run in-game past Loading. Details: `EXPERIMENT_LOG.md` §21.25.
+
+**Previous (2026-10-15, afternoon): the chapter-2 save crash has a concrete cause in the writer — a THIRD
+record-relative pointer, u16 `+52` (start of the skill's parameter words after the texts), was copied verbatim by
+builds #6–#13**, so every record whose English changed length had the game read its parameters from the wrong
+place (build #12: 1 152 of 1 469 Skill00 records, 458 pointing into the text). Round 7 (Y1 OK, Y2 OK, Y3 crash,
+A OK, B OK) ruled out record positions and save contents; the stale-pointer counts match the matrix exactly.
+`item_skill_write` now moves `+52` with the texts and refuses sources that break the rule (suite 1 093 OK).
+Round 8 kit `RUNDA8_build14.zip`: Y5 (= Y3 with only `+52` fixed) decides pointer vs size; **build #14** = #13 +
+the fix in all five convention-B members; PLAN_B size ladder only if Y5 crashes. Details: `EXPERIMENT_LOG.md`
+§21.23–21.24, `TECHNICAL_FINDINGS.md` (three pointers).
+
+**Previous (2026-10-15, day): round 6 in-game — Z1 crash, Z2 OK, Z3 crash ⇒ the rebuilt `srwDL_Skill00.bin` ALONE
+makes the chapter-2 save (from the original JP game) crash on load** (`CPU Jump to ffffffff`, RA `08a62f34` — a
+different signature from the Loading crash). A full cross-record scan of the original Skill00 found no
+offset references between records (only `+32`/`+36`, both rewritten), so the remaining split is layout (save
+stores record positions) vs size vs English content: round 7 kit `BISEKCJA_SEJW_runda7.zip` (Y1 same-size
+shifted layout, Y2 210,942 B, Y3 216,518 B = build #12 size, all Japanese text) plus the A/B own-save tests.
+If Y1 crashes, the Skill00 layout must be frozen before release and JP-game saves declared incompatible.
+Details: `EXPERIMENT_LOG.md` §21.23.
+
+**Previous (2026-10-15, night): build #12 WORKS in a new game** (Loading, mission, Spirits list and descriptions
+in English, no crash in a longer session) — the `+32` finding is confirmed. Still open: loading the user's save from
+mid-chapter 2 crashes right after "Start" (same as #11); convention-A members show no position-dependent words,
+DLC_ID identifiers are untouched, so round 6 bisects the members in-game (`BISEKCJA_SEJW_runda6.zip`, Z1–Z10 +
+two save experiments). Button-bar labels overflow because the bar places icons at the JAPANESE label width:
+new rule `cells(EN) <= cells(JP)` for one-line `sysmes.bin` labels ≤ 16 B (`tools/label_fit.py`,
+`config/label_fit_rules.tsv`, 280 rows → 4 left), shipped as **build #13** (= #12 + shorter labels;
+`configst.cpk` md5 `27a8cdea…`). Details: `EXPERIMENT_LOG.md` §21.22.
+
+**Earlier (2026-10-15, evening): build #11 LOADS in-game (Loading, first mission) — the Skill00 size budget
+holds (W1 217 090 B loads, W2 218 110 B crashes). Two further crashes it showed (pilot → Spirits → hover; loading a
+mid-chapter-2 save → crash before the intermission) are attributed to a second position-dependent record word the
+writer never rewrote: `i32@+32 = -record_offset` in every convention-B record (2 230/2 230 originals; stale in
+2 215 records of build #11). `item_skill_write` now rewrites and proves both `+32` and `+36`; 12 spirit-command
+names the export had skipped (集中/鉄壁/感応/信頼 ×3 levels, hidden behind a two-byte preamble) were added by the new
+`tools/record_rows_refresh.py`. **Build #12** (`config00.cpk` md5 `3c56686d…`, same sizes as #11; `configst.cpk`
+md5 `856f8ba5…`) is on Drive as `WGRAJ_build12.zip` and awaits the in-game test (chapter-2 save → intermission;
+Spirits hover). Also observed: English menu texts overflow their boxes — 56 % of the filled UI rows are wider than
+the Japanese in half-width cells; a width rule for menu/table categories is the next design item (needs
+screenshots to calibrate). Details: `EXPERIMENT_LOG.md` §21.21, `TECHNICAL_FINDINGS.md` (two pointers).
+
+**Earlier the same day: the crash of `config00.cpk` is a SIZE BUDGET of the skill table member
+`srwDL_Skill00.bin` itself** (in-game matrix: U2 = tighter container + big Skill00 crashes, U1 = tighter container
++ original Skill00 works, W5 = 217 086 B with refreshed CPK header works; T3 217 086 B works, T4 221 182 B
+crashes). The full English of the 2026-10-14 package needs 228 202 B (+19 244 B); the budget is now built in
+(`item_skill_write.SKILL00_LIMIT = 216 768 B`; a member over it refuses its WHOLE container - "NOT written",
+exit 1). `tools/skill_shrink.py` + `config/skill_shrink_rules.tsv` (141 rules: shorter skill names ≤ 13 B,
+` LvN` → ` LN`, Prevail/Break/Cmd:/Carrier/Ship/foe/cut/Dmg/Regen/Crit…, tokens guarded) bring the member to
+**216 518 B** (568 B under the proven-safe size). **Build #11** (`config00.cpk` md5 `abacf828…`, CPK header
+byte-identical to the working W5; `configst.cpk` md5 `512e2397…`) is on Drive as `WGRAJ_build11.zip` and
+awaits ONE in-game test (KROK 1 = config00 alone, KROK 2 = both). Shrunk package of record:
+`pakiet_EN_2026-10-15_ciasny.zip`. Details: `EXPERIMENT_LOG.md` §21.20.
+
+**Latest in-game result (2026-10-14, user, PPSSPP): build #9 (`config00.cpk` with the unit-name fix) CRASHES
+exactly like #8/#6 at the "Loading" screen right after the DLC scan (`memcpy_jak`, `Read/Write Block at
+00000000 (sz: 0)` — per the PPSSPP source that means a `memcpy` with `bytes > 0` and a NULL `dst`/`src`).
+Bisection so far: A (`configst.cpk` only) works to the title menu; B (`config00.cpk` only) crashes with #8 and
+#9. A structural review of `srwDL_Skill00.bin` then found a real writer defect: in every convention-B record
+(Skill00/Item00/Item/Spirit/StatusChange) the u32 at `+36` is the fragment pool's position RELATIVE to the
+record (`tail_offset − record_offset`, 2230/2230 original records measured); builds #6–#9 copied it
+verbatim (and mis-read 46 as record cross references), so after growth 1468/1469 Skill00 and 274/300 Item00
+records pointed into the record area instead of the pool table. `item_skill_write` now recomputes the word
+for every record and proves it on the output (fail-closed on sources that break the rule). Build #10
+(`config00.cpk` md5 `37251325…`, `configst.cpk` md5 `ee1aae95…`) differs from #9/#8 only in those words (plus
+pool parity in configst) and is on Drive with sub-file bisection variants V1–V6 (`tools/container_mix.py`)
+as plan B. UPDATE (same night): build #10 STILL crashes; sub-file bisection says V1 (DLC list only) works and V2 (the
+rebuilt `srwDL_Skill00.bin` alone, pool pointers right) crashes — so the pointer defect was real but not
+the cause. Round 2 (`tools/member_variants.py`, S1–S7: size / records vs pool / names vs effects / halves)
+is with the user; no name-based skill references were found in any other file.
+2026-10-15: S1 (ORIGINAL Skill00 + zero padding to the built size) crashes too, so the English text is
+not needed for the crash - the file's size is (or the padding); round 3 is a size ladder T1-T6 (Japanese
+text + spaces, structurally valid growth of +2/+4/+8/+12/+16/+19 KB) to find the budget.
+T6 (+19 KB, Japanese text) CRASHES: the size is the cause. Round 4 asks which size - the whole `.pac`
+(U2: sub-files packed at 64 B instead of 2048 B, container smaller than the original even with the
+grown skill file - a fix if it works) or the skill file alone (then the T1-T5 ladder gives the budget).
+`cpk_write` now also refreshes EnabledPackedSize/EnabledDataSize (stale in builds #6-#10; T7 tests it).
+Round 3 complete: T1 and T3 (+8 128 B) work, T4 (+12 224 B), T5, T6 crash - the growth budget of the
+skill file (Japanese text) is between +8 and +12 KB against the +19 KB English needs; 0x35000 is the
+suspected fixed buffer. Round 5 (W1-W5) pins the exact boundary; round 4 (U2/U1) decides whether the
+limit is the whole container (fix: pack sub-files at 64 B) or the skill file alone (fix: shorter text).
+Details: `EXPERIMENT_LOG.md` §21.13–21.17, `HANDOFF.md` §7.
+The project is NOT a finished translation; no full in-game acceptance exists.
 
 ## Target
 
@@ -628,3 +883,97 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
   i finalny patch — bez zmian wobec planu; nowa reguła %s nic w łańcuchu budowania nie łamie
   (odmowy token-only SLA zamienią się w zapisy).
 
+
+## 2026-10-14 — próba pełnoskalowa na realnych kontenerach: pięć błędów pisarzy/pakietu zamkniętych
+
+* **Pomocniki odtworzone w repo** (zapowiedź z poprzedniego wpisu): `tools/scale_fill.py`
+  (syntetyczne wypełnienie pakietu pod te same bramy co prawdziwe tłumaczenie, `--smoke` = 1 wiersz
+  na rodzinę) i `tools/patch_spot_check.py` (czyta zbudowane kontenery i liczy, które EN naprawdę
+  wylądowały; pełna lista braków — build_report trzyma tylko pierwsze odmowy). Oba z testami.
+* **Znalezione i naprawione [ZWERYFIKOWANE na config00/config01/configst/eventP00]:**
+  1. pisarz slotów ufał heurystyce „zera = padding" i **nadpisałby zerowe pole binarne** za
+     krótszą nazwą mapy (`srwDL_Map_S` +32); teraz `mission_text.SPECS` niesie zmierzone rozmiary
+     pól (mapa 32, tło 24, tytuł misji 40, oddział 32 B) i tną budżet pisarza, walidatora i filla;
+  2. **wszystkie pisarze ucinały skrajne białe znaki EN** (`\n`, spacje, U+3000 wyśrodkowanych
+     tytułów, ` Lv` kolumn) — wspólny `table_write.english()`; walidator ostrzega o dodanej spacji;
+  3. slot po bajtach binarnych bez NUL-a (`bg2dlist`, `milstP01`) — 15 „uczciwych" odmów z v7 było
+     błędem; przy okazji pętla zapisu **zerowałaby pole binarne za nazwą tła** — naprawione, zapis
+     nie może wyjść poza zmierzony slot (0 bajtów poza slotami na 6 członkach);
+  4. `max_bytes` liczony z NUL-em w `slot_apply`/`text_runs_export`, bez NUL-a w walidatorze i
+     instrukcji — jedna semantyka (bajty EN), pozycja terminatora sprawdzana jawnie;
+  5. strażnik „niewyjaśnione odwołania" odrzucał całe członki (78 achievement, 171 DLC_ID) — teraz
+     per wiersz; rekordy DLC_ID mają zmierzony blok liczb (+32 cena, +36 numer, +48 punkty) →
+     wyjątek rodziny, DLC_ID00/01 piszą się (139+60 edycji).
+* **Higiena pakietu 04 (eksport):** 84 „sieroty" (ceny/identyfikatory dekodujące się jako `' N'`,
+  `'0u'`) pomijane; 53 napisy przycięte do wskaźnika (26 nagłówków Reference wraca do pakietu,
+  `!チョバムアーマーSR` bez bajtu licznika); 927 wierszy puli ogonowej B (Skill00/StatusChange/
+  Item/Spirit) oznaczone `slot` + `max_bytes = bytes`, bo pisarz pisze je w miejscu — pakiet
+  z Drive (sprzed zmian) ma je jeszcze jako `grow`; **następny eksport na maszynie użytkownika
+  naprawi plik**, a `TRANSLATOR_PACKAGE.md` (v5, lokalnie — Drive README dalej v4, bez wysyłki
+  bez zgody) mówi tłumaczowi, jak czytać stare widoki (limity 05: 39/31/23/31 B zamiast
+  117/159/111/99; fragmenty opisów = limit długości oryginału; spacje skrajne są częścią tekstu).
+* **Wyniki (6 kontenerów, 7 vs 8 JSONL):** smoke 93/8/1 (8 = udokumentowane odmowy); scale
+  v8a 25 289 trafionych / 1 334 braków → v8d **26 032 / 482** (base) i **30 929 / 482** (full,
+  z 03: +4 897 trafionych, 0 nowych braków; 13 odmów „token-only" z v7 to zapisy); walidator
+  0 błędów; build ~110 s. Pozostałe braki = polityka (robonote bez rekordu 144, pseudonimy 77,
+  nierozkodowalne Map_S 5, ItemDrop bez pisarza 10) + sieroty/przycięcia, które znikają po
+  eksporcie (≈70) + DLC_ID (po wyjątku rodziny: 13 → po eksporcie 0). Szczegóły: EXPERIMENT_LOG cz. 18.
+* **Otwarte [HIPOTEZA]:** jak gra adresuje fragmenty puli ogonowej (słowa ogona rekordów to
+  parametry, nie offsety) — wzrost puli wymaga testu w grze; do tego czasu w miejscu.
+* Testy: **942 OK (1 skipped)**.
+* **Następny krok:** eksport pakietu na maszynie użytkownika (nowe limity 05, sieroty, pula w
+  miejscu) → podmiana Robocze/Pakiet na Drive po zgodzie → pełny przebieg HOKUS_POKUS z ISO +
+  DLC i test w PPSSPP (w grze do sprawdzenia: tytuły misji z nowym limitem, nazwa tła po
+  binariach, DLC_ID w menu pobierania, fragment opisu umiejętności w miejscu).
+
+
+## 2026-10-14 — pierwszy prawdziwy import tłumaczeń i budowa na 13 kontenerach z Drive
+
+* **Import `EN.zip` [ZWERYFIKOWANE]:** 61 468 elementów z EN → **61 322 w pakiecie, 41 odrzuconych**
+  (9 opisów sysmes bez pierwszej linijki doklejanej przez grę, 32 nazwy za długie na zmierzone pola
+  23/31/39 B). Po kopiach: 79 612 wierszy z EN w pakiecie (108 123 wierszy), walidator 0 błędów.
+* **Pula ogonowa Skill/Item/Spirit/StatusChange ma własną tablicę wskaźników u32 [ZWERYFIKOWANE]** —
+  hipoteza „w miejscu" z poprzedniego wpisu odwołana: pisarz przebudowuje tablicę i napisy
+  (`item_skill_write.rebuild_pool`, krok `tail-pool` przed rekordami), fragmenty rosną. Przy okazji
+  wyszło, że **125 tekstów z tokenem kany nigdy nie było w pakiecie** (`clean_run` je odrzucał, a
+  `coverage_audit` tego nie widzi) — `tools/pool_rows_refresh.py` dopisał je (+1 127 wierszy z kopiami,
+  −85 śmieci); są puste i czekają na tłumacza.
+* **Szerokość linii:** 46 było z pierwszej sceny; spis całego skryptu daje dialog 52 (316 linii gry ma 50),
+  cytat 50, narracja 56. Pisarze i walidator używają teraz najszerszej linii gry per rodzaj
+  (`export_strings.GAME_WIDEST`), 46 zostaje zalecane; `\r` nie liczy się do szerokości. **W grze
+  niesprawdzone** (hipoteza: czcionka ASCII półszeroka).
+* **Budowa (13 kontenerów: config00/01/02–08, configst, eventP00, imenu00, mesbtl00; 91 s):**
+  **38 598 z 39 290 sprawdzalnych tekstów wylądowało, 101 braków** (wszystkie znane: 38 bez rekordu
+  w słowniku robotów, 31 przycięte/nierozkodowalne resztki, 13+11 śmieciowe wiersze liczb, 6 achievement,
+  2 pseudonimy), 591 za krótkich do sprawdzenia; 40 322 wiersze z EN czekają na kontenery spoza Drive.
+  Rozmiary rosną (mesbtl00 349 KB → 1 010 KB), bo zmienione członki CPK są zapisywane stored.
+  Hashe i kroki: EXPERIMENT_LOG cz. 19. Wyjścia + `DO_ZROBIENIA.md` + nowe widoki idą na Drive.
+* **Nie jest to grywalny patch całości:** brak ISO (rozdział 1 poza DLC), brak kontenerów rozdziałów 2–8
+  poza config02–08, zero testów w grze dla tej budowy. Testy: **971 OK (1 skipped)**.
+* **Następny krok:** test w PPSSPP na zbudowanych kontenerach (pula umiejętności, linie 47–52, DLC_ID);
+  tłumacz: `DO_ZROBIENIA.md`; wgranie pozostałych kontenerów na Drive; ponowny eksport pakietu.
+
+## 2026-10-14 — import `EN2.zip`, wszystkie 96 kontenerów zbudowane, pakiet do wgrania na Dysku
+
+* **Import `EN2.zip` [ZWERYFIKOWANE]:** sceny 17 353 elementów (0 odrzuconych), widoki v2 **44 051
+  wpisanych, 0 odrzuconych, 0 nieznanych** — w tym wszystkie 41 poprawek i 126 nowych tekstów. Tokeny kany
+  w EN tłumacza (`%s*%s&`) importer usuwa sam (`strip_kana_tokens`); `pool_rows_refresh` dopisuje
+  `tokeny.tsv` (5 225 wpisów = 100 % wierszy z `%s`). Pakiet: 108 123 wiersze, **80 780 z EN, 27 343 puste
+  (same dialogi)**, 0 błędów.
+* **Pole tytułu misji w `*_ext.dat` ma 40 B, nie 44 [ZWERYFIKOWANE]:** za tytułem leżą dwa u16 gry.
+  Limit 39 w narzędziach i pakiecie; 10 tytułów skrócono prowizorycznie (`Ep.`) — do potwierdzenia
+  przez tłumacza (`DO_ZROBIENIA_2.md`).
+* **Budowa #6 na wszystkich 96 kontenerach (5 USRDIR + 91 DLC, 197 s): 96/96, 0 problemów;
+  deterministyczna (dwa przebiegi #5/#5b bajt w bajt równe). Spot check: 80 084 teksty odnalezione
+  w plikach wynikowych, 63 braki** (31 resztki tablic, 13 liczniki DLC_ID, 11 puste rekordy skill —
+  śmieci eksportu; 6 achievementów; 2 przydomki), 633 za krótkie do sprawdzenia.
+* **Fabuła w buildzie:** rozdziały 1–3 (eventP00–03) 100 %, rozdział 4 59 %, rozdziały 5–8 0 %;
+  scenki poboczne eventP09/13/20–26 95–100 %, eventP27–32 0 %, evept101–102 100 %, evept103–108 9–71 %
+  (128 scen w całości, 1 częściowo, 164 puste). Wszystko poza dialogami: 100 % wpisane.
+* **Do wgrania (Drive „SRW OE - PATCH 2026-10-14 (EN2)"):** `DLC_EN_2026-10-14.zip` (91 EDAT, gotowe
+  do skopiowania do folderu DLC emulatora), `pakiet_EN_2026-10-14.zip` + `HOKUS_POKUS.bat`
+  (buduje `patched.iso` z ISO użytkownika i te same DLC), `USRDIR_EN_2026-10-14.zip`, raporty, md5,
+  `docs/INSTRUKCJA_PATCH_PL.md`. Hashe/kroki: EXPERIMENT_LOG cz. 20.
+* **Nie jest to skończone tłumaczenie i nie było testu w grze dla tej budowy** — to pierwszy pakiet,
+  który pozwala taki test zrobić (linie 47–52, stored mesbtl00 1 MB, pula umiejętności, DLC_ID, tytuły).
+  Testy: **977 OK (1 skipped)**.

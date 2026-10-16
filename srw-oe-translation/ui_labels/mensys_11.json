@@ -1,0 +1,92 @@
+{
+ "texture": "mensys_11",
+ "source": "system.cpk — 128x64 INDEX8; funds captions of the shop / upgrade screens",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 10,
+ "min_size": 7,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "gained",
+   "jp": "獲得",
+   "en": "Gain",
+   "box": [
+    1,
+    1,
+    26,
+    17
+   ]
+  },
+  {
+   "id": "funds",
+   "jp": "資金",
+   "en": "Funds",
+   "box": [
+    27,
+    1,
+    54,
+    17
+   ]
+  },
+  {
+   "id": "remaining",
+   "jp": "残り",
+   "en": "Left",
+   "box": [
+    1,
+    17,
+    26,
+    32
+   ]
+  },
+  {
+   "id": "amount",
+   "jp": "金額",
+   "en": "Cost",
+   "box": [
+    27,
+    17,
+    54,
+    30
+   ]
+  },
+  {
+   "id": "required",
+   "jp": "必要",
+   "en": "Req.",
+   "box": [
+    1,
+    32,
+    30,
+    43
+   ],
+   "note": "box ends at y=43: the prohibition/person icons below start at y=44 (UI_TEST3 cut their tops)"
+  },
+  {
+   "id": "special",
+   "jp": "特殊",
+   "en": "Spec.",
+   "box": [
+    65,
+    52,
+    88,
+    64
+   ],
+   "size": 8,
+   "min_size": 6
+  },
+  {
+   "id": "material",
+   "jp": "素材",
+   "en": "Mat.",
+   "box": [
+    89,
+    52,
+    115,
+    64
+   ],
+   "size": 8,
+   "min_size": 6
+  }
+ ]
+}

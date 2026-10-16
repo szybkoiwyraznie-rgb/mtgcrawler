@@ -8,19 +8,26 @@ distance to the next string for the leftover scan).  This writer takes rows at t
 * the row's offset lands inside one NUL-delimited span of the member, and the row's ``jp`` must
   read back from that span (in the file's own form or in the ``%s`` display form -
   :func:`table_write.match_form` decides, so control tokens are put back byte for byte);
-* the translation must fit: ``len(bytes) + 1 <= max_bytes`` (a row without ``max_bytes`` gets
-  the span itself as the budget, which is the strictest honest reading);
-* the budget area behind the span must be clean zero padding - a slot whose declared room is
-  taken by other bytes is refused, not overwritten;
+* the translation must fit: ``len(bytes) <= max_bytes`` - ``max_bytes`` counts the English
+  bytes, not the terminator, exactly as the package check and the translator manual read it
+  (a row without ``max_bytes`` gets the span itself as the limit, the strictest honest reading);
+* in the fixed-stride tables ``mission_text`` measured (mission titles, BGM, map/background/
+  group names, ``*_ext.dat``) the measured slot size caps the limit whatever the row says -
+  an older package carried the whole record as ``max_bytes`` there, and the zero-valued binary
+  fields behind a short name look exactly like padding;
+* every byte the write newly occupies behind the original span - the growth area *and the
+  position of the new terminator* - must be clean zero padding, so a limit a row over-claims can
+  only ever run into the fail-closed refusal, never into the next string;
 * the write is in place: the span becomes ``translation + NUL padding``, the member never
   changes size, and the verification re-reads the result and diffs everything outside the
   written spans against the original.
 
 Rows this writer owns in the full build: the ``05`` slot tables of the config and event
-containers (mission notes and titles, BGM titles, map/background/group names), the leftover
-slot rows of ``04`` (``srwDL_CalcType``, ``srwDL_Map_S``, the charalist cell), and the
-tail-pool rows of the convention-B members that :mod:`item_skill_write` refuses to resize
-(the mixed binary/text tails of ``srwDL_Skill00`` and friends).
+containers (mission notes and titles, BGM titles, map/background/group names) and the leftover
+slot rows of ``04`` (``srwDL_CalcType``, ``srwDL_Map_S``, the charalist cell).  The ``pool=True``
+mode below (tail-pool strings written in place, found by content) is no longer used by the
+orchestrator: the fragment pools turned out to carry their own u32 pointer table (2026-10-14),
+so :mod:`item_skill_write` rebuilds them with growth instead.
 
 Fail-closed like every writer here: a refused row is reported with its reason and the member is
 left byte-identical when anything about the result does not verify.
@@ -45,6 +52,7 @@ if str(HERE) not in sys.path:
 import configst_pack as CSP   # noqa: E402
 import cpk_write              # noqa: E402
 import inline_names as IN     # noqa: E402
+import mission_text as MT     # noqa: E402
 import table_write as TW      # noqa: E402
 
 #: package files whose slot-mode rows this writer applies
@@ -56,6 +64,12 @@ def span_around(data: bytes, offset: int) -> Tuple[int, bytes]:
     start = data.rfind(b"\x00", 0, offset) + 1
     end = data.find(b"\x00", offset)
     return start, data[start:end if end >= 0 else len(data)]
+
+
+def slot_span(data: bytes, offset: int) -> Tuple[int, bytes]:
+    """(offset, bytes) of the NUL-terminated string that starts at ``offset``."""
+    end = data.find(b"\x00", offset)
+    return offset, data[offset:end if end >= 0 else len(data)]
 
 
 def pool_spans(data: bytes, start: int) -> List[Tuple[int, bytes]]:
@@ -77,30 +91,34 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
                  pool: bool = False) -> Tuple[bytes, dict]:
     """Write every fitting row in place.  Returns (bytes, report).
 
-    ``pool=True`` is the tail-pool pass of the orchestrator: the package marks every string of
-    a convention-B tail pool with the pool's *start* offset (one id for the whole pool), so a
-    pool row is looked up by content among the NUL-delimited runs at or after that offset and
-    every occurrence is written in place (the pool holds duplicate runs and any of them can be
-    the one the game reads).  In-place means same size or shorter: the pool is copied verbatim
-    by the record rebuild and its strings sit back to back, so a longer translation is refused
-    and the string stays Japanese.
+    ``pool=True`` (kept for the tests and as a fallback, unused by the orchestrator since the
+    pools' pointer tables were measured): the package marks every string of a convention-B tail
+    pool with the pool's *start* offset (one id for the whole pool), so a pool row is looked up
+    by content among the NUL-delimited runs at or after that offset and every occurrence is
+    written in place.  In-place means same size or shorter: the strings sit back to back, so a
+    longer translation is refused and the string stays Japanese.
     """
     report = {"member": member, "applied": 0, "refused": [], "problems": [], "bytes": 0,
               "regions": []}
     out = bytearray(blob)
-    planned: Dict[int, Tuple[bytes, str]] = {}      # span start -> (value, row id)
+    planned: Dict[int, Tuple[bytes, str, int]] = {}  # span start -> (value, row id, span length)
     spans_cache: Dict[int, List[Tuple[int, bytes]]] = {}
     for row in rows:
         row_id = row.get("id")
         source = row.get("source") or {}
         offset = source.get("offset")
-        en = (row.get("en") or "").strip()
+        en = TW.english(row)
         if not en:
             continue
         if not isinstance(offset, int):
             report["refused"].append(f"{row_id}: no byte offset")
             continue
-        start, span = span_around(blob, offset)
+        if not pool and MT.slot_size_at(member or "", offset, len(blob)) is not None:
+            # a measured fixed slot starts exactly at the row's offset; the bytes before it are
+            # the record's own binary fields (bg2dlist: u16 id right before the name), not text
+            start, span = slot_span(blob, offset)
+        else:
+            start, span = span_around(blob, offset)
         targets: List[Tuple[int, bytes, Optional[str]]] = []
         if pool:
             # every occurrence of the row's string in the pool gets the same English: the
@@ -134,14 +152,21 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
             except TW.TableError as exc:
                 report["refused"].append(f"{row_id}: {exc}")
                 continue
-            budget = int(row.get("max_bytes") or 0) or (len(span) + 1)
-            if len(value) + 1 > budget:
+            # max_bytes counts the English bytes (checker/manual semantics); the limit here is
+            # the same number, and the terminator is accounted for by the padding check below
+            limit = int(row.get("max_bytes") or 0) or len(span)
+            fixed = MT.slot_size_at(member, start, len(blob)) if member else None
+            if fixed is not None and fixed - 1 < limit:
+                limit = fixed - 1               # the measured field, not the row's claim
+            if len(value) > limit:
                 report["refused"].append(
-                    f"{row_id}: {len(value)} bytes + NUL do not fit the {budget}-byte budget")
+                    f"{row_id}: {len(value)} bytes do not fit the {limit}-byte limit"
+                    + (" (measured fixed slot)" if fixed is not None and limit == fixed - 1
+                       else ""))
                 continue
-            # only the bytes the write newly occupies behind the original span must be clean
-            # padding; the rest of the budget area is never touched
-            if any(blob[start + len(span):start + len(value)]):
+            # every byte the write newly occupies behind the original span, terminator
+            # included, must be clean padding; the rest of the slot is never touched
+            if any(blob[start + len(span):start + len(value) + 1]):
                 report["refused"].append(
                     f"{row_id}: the growth area behind the span is not clean padding")
                 continue
@@ -150,18 +175,23 @@ def apply_member(blob: bytes, rows: Iterable[dict], member: str = "",
                 if previous[0] != value:
                     report["refused"].append(
                         f"{row_id}: conflicts with {previous[1]} on the span at {start}")
-                    planned[start] = (b"", "__conflict__")
+                    planned[start] = (b"", "__conflict__", 0)
                 continue
-            planned[start] = (value, row_id)
+            planned[start] = (value, row_id, len(span))
     written: List[Tuple[int, int]] = []
-    for start, (value, row_id) in sorted(planned.items()):
+    for start, (value, row_id, span_length) in sorted(planned.items()):
         if row_id == "__conflict__":
             continue
-        _span_start, span = span_around(blob, start)
         budget_end = start + len(value)
-        # pad to the end of the original span, so a shorter translation leaves zeros, not
-        # leftovers of the Japanese text
-        end = max(budget_end, start + len(span))
+        # pad to the end of the span that was matched (never re-measured from a NUL further
+        # back - that would spill zeros over the record's binary fields behind a fixed slot),
+        # so a shorter translation leaves zeros, not leftovers of the Japanese text
+        end = max(budget_end + 1, start + span_length)
+        fixed = MT.slot_size_at(member, start, len(blob)) if member else None
+        if fixed is not None and end > start + fixed:
+            report["problems"].append(
+                f"{row_id}: write {start}..{end} would leave the {fixed}-byte slot at {start}")
+            return blob, report
         out[start:end] = value + b"\x00" * (end - start - len(value))
         written.append((start, end))
         report["applied"] += 1

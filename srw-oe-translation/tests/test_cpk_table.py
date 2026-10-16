@@ -121,34 +121,44 @@ def build_cpk_packet(tag: bytes, table: bytes) -> bytes:
     return tag + (0xFF).to_bytes(4, "little") + len(table).to_bytes(8, "little") + table
 
 
-def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
+def build_synthetic_cpk(entries: list, *, align: int = 2048, enabled_sizes: bool = False,
+                        constant_extract: bool = False) -> bytes:
     """Build a synthetic CPK file. entries: dicts with dir (str, may be ''),
-    name (str), data (bytes) and id (int). Entry data is uncompressed."""
+    name (str), data (bytes) and id (int). Entry data is uncompressed.
+    ``enabled_sizes`` adds the packer's EnabledPackedSize / EnabledDataSize totals the way
+    the real containers carry them (2 * sum(ExtractSize) and sum(FileSize) + sum(ExtractSize)).
+    ``constant_extract`` stores ExtractSize once in the schema (storage 0x30) the way
+    ``navisys.cpk`` does - every entry must then unpack to the same size; an ``extract``
+    key on an entry overrides the stored size (to mimic a compressed member)."""
+    extract_sizes = [entry.get("extract", len(entry["data"])) for entry in entries]
+    if constant_extract and len(set(extract_sizes)) != 1:
+        raise ValueError("constant_extract needs every entry to unpack to the same size")
     toc_columns = [
         ("DirName", 0x5A),
         ("FileName", 0x5A),
         ("FileSize", 0x54),
-        ("ExtractSize", 0x54),
+        ("ExtractSize", 0x34 if constant_extract else 0x54),
         ("FileOffset", 0x56),
         ("ID", 0x54),
         ("UserString", 0x1A),
     ]
     content = bytearray()
     toc_rows = []
-    for entry in entries:
+    for entry, extract in zip(entries, extract_sizes):
         toc_rows.append(
             {
                 "DirName": entry.get("dir", ""),
                 "FileName": entry["name"],
                 "FileSize": len(entry["data"]),
-                "ExtractSize": len(entry["data"]),
+                "ExtractSize": extract,
                 "FileOffset": len(content),
                 "ID": entry.get("id"),
                 "UserString": None,
             }
         )
         content.extend(entry["data"])
-    toc_table = build_utf_table("CpkTocInfo", toc_columns, toc_rows)
+    toc_constants = {"ExtractSize": extract_sizes[0]} if constant_extract else None
+    toc_table = build_utf_table("CpkTocInfo", toc_columns, toc_rows, constants=toc_constants)
     itoc_columns = [("ID", 0x54), ("TocIndex", 0x54)]
     itoc_rows = [
         {"ID": entry.get("id"), "TocIndex": index}
@@ -168,6 +178,10 @@ def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
         ("Files", 0x54),
         ("Align", 0x52),
     ]
+    if enabled_sizes:
+        header_columns += [("EnabledPackedSize", 0x56), ("EnabledDataSize", 0x56)]
+    total = sum(len(entry["data"]) for entry in entries)
+    total_extract = sum(extract_sizes)
 
     def build_header(content_offset, content_size, toc_offset, toc_size, itoc_offset, itoc_size):
         row = {
@@ -182,6 +196,9 @@ def build_synthetic_cpk(entries: list, *, align: int = 2048) -> bytes:
             "Files": len(entries),
             "Align": align,
         }
+        if enabled_sizes:
+            row["EnabledPackedSize"] = 2 * total_extract
+            row["EnabledDataSize"] = total + total_extract
         return build_utf_table("CpkHeader", header_columns, [row])
 
     # The header table's byte size is fixed by its columns, so one fixed-point pass suffices.

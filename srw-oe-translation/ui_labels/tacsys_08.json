@@ -1,0 +1,58 @@
+{
+ "texture": "tacsys_08",
+ "source": "tacsys.cpk — 128x64 INDEX8; battle-preview captions (transparent background)",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 20,
+ "min_size": 12,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "unit_info",
+   "jp": "能力詳細",
+   "en": "Unit Info",
+   "box": [
+    14,
+    3,
+    114,
+    30
+   ],
+   "align": "center",
+   "fill": [
+    232,
+    242,
+    255,
+    255
+   ],
+   "outline": [
+    10,
+    40,
+    150,
+    255
+   ]
+  },
+  {
+   "id": "start_battle",
+   "jp": "戦闘開始",
+   "en": "Start Battle",
+   "box": [
+    15,
+    36,
+    113,
+    63
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    160,
+    20,
+    10,
+    255
+   ]
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "texture": "mensys_10",
+ "source": "system.cpk — 128x64 INDEX8; frame shapes, the 注意 badge, Lv / NEXT EXP",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 11,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "caution",
+   "jp": "注意",
+   "en": "NOTE",
+   "box": [
+    77,
+    37,
+    106,
+    52
+   ],
+   "align": "center"
+  }
+ ]
+}

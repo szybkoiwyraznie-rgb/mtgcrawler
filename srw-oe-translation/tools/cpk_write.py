@@ -222,12 +222,19 @@ def load(path: Path) -> Cpk:
     # A column CRIWARE could store once in the schema has no per-row cell to
     # patch; resizing a member would mean promoting it and changing every row's
     # width, which is not what this writer does. Refuse rather than guess.
-    constant = [c.name for c in (name_col, size_col, extract_col, offset_col) if c.row_offset is None]
+    # ``ExtractSize`` is the one exception: ``navisys.cpk`` (two 256x256 GIMs,
+    # both 262 348 B unpacked) stores it once for both rows, and a same-size
+    # texture rewrite keeps that value - ``rebuild`` checks the replacement
+    # against the constant and refuses anything else.
+    constant = [c.name for c in (name_col, size_col, offset_col) if c.row_offset is None]
     if constant:
         raise ValueError(
             f"{path.name}: {', '.join(constant)} are constant-storage columns, so members "
             "cannot be resized without rebuilding the whole TOC row layout"
         )
+    constant_extract: Optional[int] = None
+    if extract_col.row_offset is None:
+        constant_extract = int(reference["entries"][0]["extract_size"]) if reference["entries"] else None
 
     # String values are byte offsets into the table's string pool, which starts
     # eight bytes into the @UTF table (the same base cpk_table uses).
@@ -247,7 +254,8 @@ def load(path: Path) -> Cpk:
                 index=i,
                 name=name,
                 file_size=file_size,
-                extract_size=_read_cell(data, row_start, extract_col),
+                extract_size=(constant_extract if extract_col.row_offset is None
+                              else _read_cell(data, row_start, extract_col)),
                 relative_offset=relative,
                 row_start=row_start,
                 blob=data[data_base + relative:data_base + relative + file_size],
@@ -305,6 +313,32 @@ def _pad_to_alignment(cpk: Cpk, content: bytearray) -> bytearray:
 
 def _align_up(value: int, align: int) -> int:
     return value if align <= 1 else ((value + align - 1) // align) * align
+
+
+def enabled_sizes(cpk: "Cpk", file_sizes: Dict[int, int], extract_sizes: Dict[int, int]) -> Dict[str, int]:
+    """New values for the header's ``EnabledPackedSize`` / ``EnabledDataSize`` after the members
+    took the given sizes (keyed by member index) - or an empty dict when they must stay.
+
+    Measured on the four originals (config00, configst: 1 stored file each; eventP00: 44 and
+    mesbtl00: 76 CRILAYLA members; all ``CPKMC2.30.07`` with TOC + ITOC): ``EnabledPackedSize ==
+    2 * sum(ExtractSize)`` and ``EnabledDataSize == sum(FileSize) + sum(ExtractSize)`` - the
+    packer's double count over the two tables.  A rebuilt member changes both sums; builds #6-#10
+    and the variants of rounds 1-3 left the two fields at the ORIGINAL totals.  The fields are
+    rewritten with the same rule, and only when the original obeys it (another convention is left
+    untouched rather than guessed).
+    """
+    old_file = sum(m.file_size for m in cpk.members)
+    old_extract = sum(m.extract_size for m in cpk.members)
+    new_file = sum(file_sizes.get(m.index, m.file_size) for m in cpk.members)
+    new_extract = sum(extract_sizes.get(m.index, m.extract_size) for m in cpk.members)
+    out: Dict[str, int] = {}
+    packed = cpk.header.get("EnabledPackedSize")
+    if packed is not None and int(packed) == 2 * old_extract:
+        out["EnabledPackedSize"] = 2 * new_extract
+    data = cpk.header.get("EnabledDataSize")
+    if data is not None and int(data) == old_file + old_extract:
+        out["EnabledDataSize"] = new_file + new_extract
+    return out
 
 
 def decompressed(raw: bytes) -> bytes:
@@ -424,8 +458,18 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
         _write_cell(out, member.row_start, offset_col, new_relative[member.index])
         if member.name == target_name and new_blob is not None:
             _write_cell(out, member.row_start, size_col, len(new_blob))
-            _write_cell(out, member.row_start, extract_col,
-                        new_extract if new_extract is not None else len(new_blob))
+            wanted_extract = new_extract if new_extract is not None else len(new_blob)
+            if extract_col.row_offset is None:
+                # constant-storage ExtractSize (navisys.cpk): the schema holds one
+                # value for every row, so the replacement must keep it exactly.
+                if wanted_extract != member.extract_size:
+                    raise ValueError(
+                        f"{cpk.path.name}: ExtractSize is a constant-storage column "
+                        f"({member.extract_size}); a member unpacking to {wanted_extract} "
+                        "bytes cannot be written without rebuilding the TOC schema"
+                    )
+            else:
+                _write_cell(out, member.row_start, extract_col, wanted_extract)
 
     def set_header(name: str, value: int) -> None:
         try:
@@ -439,6 +483,12 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     delta = len(content) - cpk.content_size
     set_header("ContentSize", len(content))
     set_header("FileSize", len(data) + delta)
+    if target_name is not None and new_blob is not None:
+        changed = next(m for m in members if m.name == target_name)
+        extract = new_extract if new_extract is not None else len(new_blob)
+        for name, value in enabled_sizes(cpk, {changed.index: len(new_blob)},
+                                         {changed.index: extract}).items():
+            set_header(name, value)
     # Any table that sits after the content region moves with it. The real
     # containers keep the TOC ahead of the content so nothing shifts, but that
     # is their layout, not a rule.
@@ -474,13 +524,28 @@ def replace_appended(cpk: Cpk, name: str, blob: bytes) -> bytes:
     _write_cell(data, member.row_start, cpk.toc_layout.column("FileOffset"),
                 new_abs - cpk.data_base)
     _write_cell(data, member.row_start, cpk.toc_layout.column("FileSize"), len(blob))
-    _write_cell(data, member.row_start, cpk.toc_layout.column("ExtractSize"), len(blob))
+    extract_col = cpk.toc_layout.column("ExtractSize")
+    if extract_col.row_offset is None:
+        if len(blob) != member.extract_size:
+            raise ValueError(
+                f"{cpk.path.name}: ExtractSize is a constant-storage column "
+                f"({member.extract_size}); cannot append a {len(blob)}-byte member"
+            )
+    else:
+        _write_cell(data, member.row_start, extract_col, len(blob))
     try:
         col = cpk.header_layout.column("FileSize")
     except KeyError:
         col = None
     if col is not None and col.row_offset is not None:
         _write_cell(data, cpk.header_layout.rows_start, col, len(data))
+    for field, value in enabled_sizes(cpk, {member.index: len(blob)}, {member.index: len(blob)}).items():
+        try:
+            col = cpk.header_layout.column(field)
+        except KeyError:
+            continue
+        if col.row_offset is not None:
+            _write_cell(data, cpk.header_layout.rows_start, col, value)
     return bytes(data)
 
 

@@ -44,7 +44,21 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import name_table_write as NMT  # noqa: E402
 import scene_map as SMAP  # noqa: E402
+
+
+def cell_budget(family: str, part: str) -> Optional[int]:
+    """``max_bytes`` of a fixed name-table cell (width minus its NUL), or None when not a cell.
+
+    ``charalist`` / ``unit_list`` / ``wp_list`` records are fixed-stride: the writer
+    (:mod:`name_table_write`) refuses anything longer, so the package must say so up front
+    (``mode: slot``) instead of letting the translator find out from the build report.
+    """
+    cells = NMT.SPECS.get(family, {}).get("cells", {})
+    if part not in cells:
+        return None
+    return cells[part][1] - 1
 
 
 def load_jsonl(path: Path) -> List[dict]:
@@ -223,12 +237,16 @@ def config_rows(local: Path) -> List[dict]:
         for item in load_jsonl(path):
             for string in item.get("strings", []):
                 text = string.get("text") or ""
-                if not text:
-                    continue
-                # convention-B tail-pool items carry one record_offset (the pool start) and a
-                # rel per string; convention-C items point at each string already (rel 0) -
-                # the sum is the true offset in both cases
+                if not text or string.get("orphan"):
+                    continue          # orphan: a binary field that decodes (' N' = 20000), not text
+                # pool items (the convention-B fragment pool behind the item/skill records and
+                # the convention-C DLC members) point at each string already (rel 0); the older
+                # convention-B export carried one record_offset (the pool start) and a rel per
+                # string - the sum is the true offset in both cases.  Every pool has a pointer
+                # table, so its strings grow like any record text (item_skill_write.apply_tail_pool,
+                # table_write for convention C)
                 offset = item.get("record_offset", 0) + string.get("rel", 0)
+                size = string.get("bytes") or row_bytes(text)
                 rows.append(
                     {
                         "id": f"{kind}:{item['container']}/{item['member']}:{offset}",
@@ -236,7 +254,7 @@ def config_rows(local: Path) -> List[dict]:
                         "part": "text",
                         "jp": text,
                         "en": "",
-                        "bytes": string.get("bytes") or row_bytes(text),
+                        "bytes": size,
                         "mode": "grow",
                         "max_bytes": None,
                         "source": {
@@ -311,6 +329,7 @@ def character_rows(local: Path) -> List[dict]:
         if not text or not text.strip():
             return
         ident = (field, text)
+        budget = cell_budget("charalist", field) if member.startswith("charalist") else None
         rows.append(
             {
                 "id": f"char:{key}:{field}",
@@ -319,8 +338,8 @@ def character_rows(local: Path) -> List[dict]:
                 "jp": text,
                 "en": "",
                 "bytes": row_bytes(text),
-                "mode": "grow",
-                "max_bytes": None,
+                "mode": "grow" if budget is None else "slot",
+                "max_bytes": budget,
                 "key": key,
                 "duplicate": ident in seen,
                 "source": {"container": container, "member": member, "offset": offset},
@@ -353,10 +372,12 @@ def unit_rows(local: Path) -> List[dict]:
         with units_csv.open(encoding="utf-8", newline="") as handle:
             for record in csv.DictReader(handle):
                 unit = record.get("unit_id")
-                for field, column in (("name", "name"), ("name_display", "name_display"), ("series", "series")):
+                for field, column in (("name", "name"), ("name_short", "name_short"),
+                                      ("name_display", "name_display"), ("series", "series")):
                     text = record.get(column, "")
                     if not text:
                         continue
+                    budget = cell_budget("unit_list", field)
                     rows.append(
                         {
                             "id": f"unit:{unit}:{field}",
@@ -365,8 +386,8 @@ def unit_rows(local: Path) -> List[dict]:
                             "jp": text,
                             "en": "",
                             "bytes": row_bytes(text),
-                            "mode": "grow",
-                            "max_bytes": None,
+                            "mode": "grow" if budget is None else "slot",
+                            "max_bytes": budget,
                             "key": unit,
                             "source": {"container": record.get("container"), "member": "unit_list",
                                        "offset": record.get("unit_index")},
@@ -382,6 +403,7 @@ def unit_rows(local: Path) -> List[dict]:
                 text = weapon.get(field) or ""
                 if not text:
                     continue
+                budget = cell_budget("wp_list", field)
                 rows.append(
                     {
                         "id": f"weapon:{unit}:{weapon.get('index')}:{field}",
@@ -390,8 +412,8 @@ def unit_rows(local: Path) -> List[dict]:
                         "jp": text,
                         "en": "",
                         "bytes": row_bytes(text),
-                        "mode": "grow",
-                        "max_bytes": None,
+                        "mode": "grow" if budget is None else "slot",
+                        "max_bytes": budget,
                         "key": unit,
                         "source": {"container": container, "member": "wp_list",
                                    "offset": weapon.get("index")},
@@ -482,6 +504,10 @@ def main(argv=None) -> int:
         "06_scenes.jsonl": scenes,
         "07_names_characters.jsonl": character_rows(local),
         "08_names_units_weapons.jsonl": unit_rows(local),
+        # strings of the game program (PBOOT.PBP -> DATA.PSP), measured by
+        # ``tools/exe_strings.py extract --exe <PBOOT.PBP> --out local/executable.jsonl``;
+        # in-place slots (``mode`` = slot, ``max_bytes`` = Japanese bytes + alignment slack)
+        "09_executable.jsonl": extra_rows(local, "executable.jsonl"),
     }
 
     # the output folder holds exactly the files of this run: name files were renumbered
@@ -542,6 +568,9 @@ def main(argv=None) -> int:
     index["notes"] = [
         "mode=grow: the container rebuild accepts any string length (dialogue, quotes, config pools).",
         "mode=slot: the string sits in a fixed span; max_bytes is that span minus its NUL.",
+        "Name tables are fixed cells: unit name 31 B, unit short name 31 B (half-width kana in the "
+        "original, English goes in plain), unit display name 63 B, weapon name 63 B, weapon short "
+        "name 31 B, character list name 31 / full 43 / narrow 19 B.",
         "suggested_max on item/skill rows is the original reserved width (a UI hint, not a limit).",
         "speaker.jp = null means the project has no name for that key yet (see index.speaker).",
         "Only the dialogue and quote rows carry a speaker; narration/help/label rows do not.",

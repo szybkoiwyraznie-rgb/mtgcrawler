@@ -325,3 +325,49 @@ README.md	1I0Cg5Nt9Gq5rkA_YoM4svPa27Lnvof8d	19699
 # KOSZ: 1InctJsL2m2QuBNsSYDeKxyP0Dner6Sy_ README.md (błędna reguła „zostaw <0x0F>")
 tokeny.tsv (Pakiet do tłumaczenia)	10Vgx0YcDEZcUkaQICg7Qmoqo9X6977ny	337708
 tokeny.tsv (Robocze JSONL)	13zkOFzTm3xuhcT8G7LCv13c3zyHJIDiE	337708
+
+# 2026-10-15 (wieczor, runda v4) — DELIVERY (1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr):
+pakiet_EN_2026-10-15_v4.zip	1KYew02vngGXwcGL5QveGW9-ixNnWccq3	5304843	md5 52f1e143b8ddfd4b20020803286f5ee5
+KIT_build17_2026-10-15.zip	1efl3N_NWL3W2BCLMyBrVX2h3w_em6YUP	1050474	md5 ffc631375d650f689ae5906066dd1f29 (USRDIR_build17, DLC_build17_config, DLC_pulaJP_config01-08, CZYTAJ.txt)
+INSTRUKCJA_PL.md	1NXTOPrDGKTdUI9bdZaUnTWq4Xrdw7jeS	11190	= docs/INSTRUKCJA_PATCH_PL.md (stan v4)
+# KOSZ: 1tZV-q2jJiGPLx47Ao3QU66vQgKOm8cBQ INSTRUKCJA_PL.md (stan v3)
+# przeniesione do _STARE_NIE_UZYWAC (1wV4hEhULZVtd8R2u04ODl5YwnV18vH-U):
+#   18Els3xba9KJ2SrHt9m6o9UTXOTgxodkk pakiet_EN_2026-10-15_v3_STARY_pule_Skill01-08_za_duze.zip
+#   1Gd_-DvhDnpQU2UPM5FUkTPTpcUq8LU3D KIT_build15_2026-10-15_STARY_config01-08_padaja_na_Loading.zip
+# Pakiet do tlumaczenia (15zExy5JpoZt_obcgK8xruCsHkZYhVlwo):
+pakiet_EN_2026-10-15_v4.zip (kopia)	1Zx_LDyb5Lud3XS7b81P8gs1zHJbpM4XR	5304843
+#   1ptwsZAtLb-6_0ydGfFOakXlWjBKIa3iB przemianowany na pakiet_EN_2026-10-15_v3_STARY.zip
+# 2026-10-15 (po Y4a/Y4/Z4 OK; tekstury UI) — DELIVERY (1mQaFQlVjn_Io93cVeY3jLKj3Cy0pvkPr):
+UI_TEST1_zastapione_przez_UI_TEST2.zip	1ex7qluz248VV7Xsgs-MaIPwR8q435T4P	484348	sha256 8df4302a90516a9984e919eb6da23a8b97cf0ea773add5f46c7dc86d6fb19f63 (A_stored + B_crilayla: system/IM1000/IM3000.cpk) — A_stored DZIALA W GRZE (2026-10-15); przeniesiony do _STARE_NIE_UZYWAC, zastapiony przez UI_TEST2
+INSTRUKCJA_PL.md	12fKL69l7Y3Xye77tGtfHxWYlPzTtgN2-	13713	= docs/INSTRUKCJA_PATCH_PL.md (stan po Y4/Z4 + czesc 4 UI_TEST1)
+# KOSZ: 1NXTOPrDGKTdUI9bdZaUnTWq4Xrdw7jeS INSTRUKCJA_PL.md (stan v4 przed testami)
+# --- 2026-10-15 w nocy: pakiet v5 / KIT 18 (po pierwszych zrzutach z grania v4/#17) ---
+pakiet_EN_2026-10-15_v5.zip	1l1bhlBm77OfjXJ8n4slkyPv4JFHDgFfH	5310795	md5 c0490787121cd7117f0cf2bb77409a1b (DELIVERY; = v4 + 124 poprawki: POPRAWKI_v5.tsv, CO_NOWEGO_v5.txt) — W GRZE NIE SPRAWDZONY
+pakiet_EN_2026-10-15_v5.zip (kopia)	1iSvoItO5NI_H_t7DIviOcINbS822SRQN	5310795	folder Pakiet
+KIT_build18_2026-10-15.zip	1M7rTKShcR4xYNI1u8q1gIZRh2kDU7TRP	870020	md5 e44bd2130f1f25af276860ca0386d365 (USRDIR_build18 5 plikow, DLC_build18_config 10 plikow, CZYTAJ.txt) — W GRZE NIE SPRAWDZONY
+# KOSZ: 1g3iPwsUBl2ghDfSTrkV-D_2sgmyhIV7H INSTRUKCJA_PL.md (stan v5/KIT 18, czesc 4 = UI_TEST1)
+INSTRUKCJA_PL.md	1ZVaEB7ypSdkF565U_PRepBX2zUAGaZrA	17203	md5 80688b47037d0759c68e388825c0d83a = docs/INSTRUKCJA_PATCH_PL.md (stan v5/KIT 18 + UI_TEST2 + tekstury w HOKUS_POKUS)
+# KOSZ: 12fKL69l7Y3Xye77tGtfHxWYlPzTtgN2- INSTRUKCJA_PL.md (stan po Y4/Z4 + czesc 4)
+# PRZENIESIONE do _STARE_NIE_UZYWAC: 1KYew02vngGXwcGL5QveGW9-ixNnWccq3 -> pakiet_EN_2026-10-15_v4_ZASTAPIONY_PRZEZ_v5.zip; 1efl3N_NWL3W2BCLMyBrVX2h3w_em6YUP -> KIT_build17_2026-10-15_ZASTAPIONY_PRZEZ_KIT18.zip (oba dzialaly w grze — odniesienie); folder Pakiet: 1Zx_LDyb5Lud3XS7b81P8gs1zHJbpM4XR -> pakiet_EN_2026-10-15_v4_STARY.zip
+UI_TEST2.zip	1N0U-xoLKLyfUQRLeVn8i8Vq6jaJgBnmy	697302	md5 4bf920b567a65a2eec27d4a99df8c125 (folder DELIVERY; UI_TEST2/: system tacsys IM1000 IM3000 IM9000 .cpk STORED = local/ui_build2, 23 tekstury / 101 napisow, podglad/PRZED_PO_*.png, ui_texture_report.json, CZYTAJ_UI_TEST2.txt) — W GRZE NIE SPRAWDZONY
+# --- 2026-10-15 wieczor: UI_TEST3 (ikony literowe + navisys.cpk) ---
+UI_TEST3.zip	13fmXgzO_oRfTvh9QkRwxaVvi8ozYCbpO	476609	md5 5fd6b3cab3bf69921ff3f58db5e6f6ef (folder DELIVERY; UI_TEST3/: system tacsys IM1000 IM3000 IM9000 navisys .cpk STORED = local/ui_build3, 26 tekstur / 137 napisow i kodow, podglad/PRZED_PO_*.png, ui_texture_report.json, CZYTAJ_UI_TEST3.txt) — W GRZE NIE SPRAWDZONY
+# PRZENIESIONE do _STARE_NIE_UZYWAC: 1N0U-xoLKLyfUQRLeVn8i8Vq6jaJgBnmy -> UI_TEST2_zastapione_przez_UI_TEST3.zip (w grze nie sprawdzony)
+# KOSZ: 1ZVaEB7ypSdkF565U_PRepBX2zUAGaZrA INSTRUKCJA_PL.md (stan v5/KIT 18 + UI_TEST2)
+INSTRUKCJA_PL.md	1jJlXLAJIdUCZDyc-4P380wNaCeUf_wUU	18866	md5 cc147aae987a3465ab5876764b29df93 = docs/INSTRUKCJA_PATCH_PL.md (stan v5/KIT 18 + UI_TEST3: kody 2-literowe, navisys.cpk, tekstury w HOKUS_POKUS)
+# UWAGA 2026-10-15 wieczor: kopia INSTRUKCJA_PL.md na Dysku (1jJlXLAJIdUCZDyc-4P380wNaCeUf_wUU) jest BEZ dopisku o Pillow (ponowny upload zablokowal filtr dostawcy konektora); aktualny tekst = docs/INSTRUKCJA_PATCH_PL.md w ZIP-ie galezi
+
+# --- 2026-10-15 pozny wieczor: pakiet v6 (napisy programu + cale napisy sysmes), EXE_TEST1, UI_TEST4 ---
+pakiet_EN_2026-10-15_v6.zip	191uHnfD7bNm53TJGFSh-_CiLnGKK4eHs	5332197	md5 268518f411870d5dc38e282438166160 (DELIVERY; = v5 + 09_executable.jsonl 408 wierszy/397 EN + 31 calych napisow sysmes w 04 + "Coord. Attack" x3; 108 574 wierszy, 81 220 EN, 0 bledow; CO_NOWEGO_v6.txt) — W GRZE NIE SPRAWDZONY (build #19 = v5 + UI_TEST3 dzialal)
+EXE_TEST1.zip	1zw8v8H-3BxXof7huQEBRGs7x8pfTMbVY	2659455	md5 d7684cc0e1aed30cef4d252da87d20f9 (DELIVERY; EXE_TEST1/: PBOOT.PBP 6 191 659 B md5 26689964d2ce4e6cddadb67c8188e923 = build #20 (DATA.PSP jawny ELF 5 531 024 B md5 ba4cc05c24e2d98f1edeaefe68228eff, 397 napisow EN), cheats/NPJH50521.ini 2 867 linii CWCheat, lista_napisow_exe.txt 408 wierszy, CZYTAJ_EXE_TEST1.txt) — W GRZE 2026-10-15: sam PBOOT.PBP NIE DZIALA (PPSSPP-wydanie go nie czyta), cheats DZIALAJA; przeniesiony do _STARE_NIE_UZYWAC; oryginal PBOOT.PBP 1.08: 6 194 059 B md5 22daece3b6fccc4363dd76ed6a7ec2fb
+UI_TEST4.zip	1Ou2VdpoUPVFZeeBULBgF4N8U6VJayESm	310286	md5 88e22f37c2f1be2a94165f119fe02eb9 (DELIVERY; UI_TEST4/: system tacsys navisys IM1000 IM3000 IM9000 .cpk STORED = local/ui_build4; system c162146318c56c54fc83377e0c5bc15b, tacsys d44cddec29ca2df3b501af1df5a05eca, reszta = UI_TEST3; ui_texture_report.json, CZYTAJ_UI_TEST4.txt) — W GRZE NIE SPRAWDZONY (UI_TEST3 dzialal w #19)
+# PRZENIESIONE do _STARE_NIE_UZYWAC (1wV4hEhULZVtd8R2u04ODl5YwnV18vH-U), nazwy bez zmian: 1l1bhlBm77OfjXJ8n4slkyPv4JFHDgFfH pakiet_EN_2026-10-15_v5.zip (dzialal w grze, build #19 — odniesienie), 1M7rTKShcR4xYNI1u8q1gIZRh2kDU7TRP KIT_build18_2026-10-15.zip, 13fmXgzO_oRfTvh9QkRwxaVvi8ozYCbpO UI_TEST3.zip (dzialal w #19)
+# --- 2026-10-15 noc: EXE_TEST2 = program gry jako EBOOT.BIN do WGRAJ_DO_ISO (PPSSPP uruchamia program z ISO, nie PBOOT) ---
+EXE_TEST2.zip	1txY813uAuMyFzfLspEG8t1dcS1mSKa13	1979870	md5 c7ddd9272ca433b66e60daa782980411 (DELIVERY; EXE_TEST2/: EBOOT.BIN = jawny ELF 5 531 024 B md5 ba4cc05c24e2d98f1edeaefe68228eff (program 1.08 z PBOOT + 397 napisow EN pakietu v6 = build #21), CZYTAJ_EXE_TEST2.txt, NPJH50521_cheat_zapasowy.ini.txt) — W GRZE NIE SPRAWDZONY (cheat z tymi samymi bajtami dziala)
+
+# --- 2026-10-16: pakiet v7 (sloty Viewerow, etykiety, Reference, kopie imenuNN) ---
+pakiet_EN_2026-10-16_v7.zip	1I_fBkncCExA9Mx3nz10f06R4Umc0VopM	5346472	md5 8d0bc933c808f4dc6c927a92c6da14a5 (DELIVERY; = v6 + tools/table_rows_refresh.py --prune: +222 wierszy 07 (label:srwDL_CharaDictionary:4/5, char:K:voice_actor/short_name/alt_name/entry/series), +363 wierszy 08 (robonote:K:note/type/name/name_narrow/length/weight), +81 wierszy 04 (reference tytuly sekcji + cala strona レベル差補正, dlc_id/shop per kontener), -214 wierszy offsetowych nie do zastosowania; char:720:nickname -> Wan; 109 026 wierszy, 81 672 EN, 0 bledow, coverage 0 (2 stale metadane PAC); CO_NOWEGO_v7.txt, refresh_report.json) — W GRZE NIE SPRAWDZONY (build #22 w sandboxie: 0 pominietych, pary config/imenu 00-08 identyczne)
+pakiet_EN_2026-10-16_v8.zip	1NjwHBIHna8IEmt8yMjjBfMrsoEO0EMnn	5340660	md5 55708b7d21cda646e55247bdea452a4f (DELIVERY; = v7 + 12 poprawionych EN (高乃麗 -> Urara Takano x4, DLC_ID 'SRWHPｺﾗﾎ' -> 'SRW Web Collab' x8) + 14 nowych wierszy configst (5 skill_tag z tokenami kany, 9 pol Spirit rodziny Fortune/Bless przez record_rows_refresh w formie wyswietlanej + tokeny.tsv) - 8 usunietych (6 smieci Achievement, 2 leftover Spirit); 7 osiagniec wymaga table_write z exempt (8,28); aktorzy_glosowi.tsv; 109 032 wierszy / 81 678 EN / 0 bledow; md5 03 58f557993c6517b6b5ba6ca8bb0a91e4, 04 bfdeb302248c2e58647a46a117277e4a, 07 5bdf43a50a9c9d31592bc3b325dc4fd0)
+pakiet_EN_2026-10-16_v9.zip	1ie-ye8MBFUtRVxQh9qBwyB3AvH_WRDWS	6168955	v9 FINAL: v8 + sceny EN3 + exe fix (109026 EN / 2 JP engine tokens)
+# PRZENIESIONE do _STARE_NIE_UZYWAC (1wV4hEhULZVtd8R2u04ODl5YwnV18vH-U): 191uHnfD7bNm53TJGFSh-_CiLnGKK4eHs pakiet_EN_2026-10-15_v6.zip (dzialal w grze: intermisja EN; resztki JP w Viewerach i Reference)
+# PRZENIESIONE do _STARE_NIE_UZYWAC (1wV4hEhULZVtd8R2u04ODl5YwnV18vH-U): 1I_fBkncCExA9Mx3nz10f06R4Umc0VopM pakiet_EN_2026-10-16_v7.zip (nie sprawdzony w grze; opisy ducha Fortune/Bless, 5 tagow Skill_Tag i 7 osiagniec zostawaly japonskie - zastapiony przez v8 2026-10-16)

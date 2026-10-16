@@ -19,7 +19,9 @@ import item_skill_write as ISW  # noqa: E402
 
 
 def build_record(kind, key, name, effect, name_level="", effect_brief="", label="",
-                 linked=None, tail=(1, 2), level=1):
+                 linked=None, tail=(1, 2), level=1, param_words=None):
+    """One record; ``param_words`` = how many leading tail words precede the parameter pointer's
+    target (the counted pair list ``1, 78, 0`` of the game data), default: all but the last."""
     words = [0] * 20
     if kind == "item":
         words[0] = key
@@ -37,17 +39,37 @@ def build_record(kind, key, name, effect, name_level="", effect_brief="", label=
     for raw in raws:
         blob += raw
         boundaries.append(boundaries[-1] + len(raw))
+    # the measured rule: the u16 at +52 points at the parameter words after the texts
+    # (last boundary + delta, delta = 2..18 bytes in the originals)
+    lead = max(len(tail) - 1, 0) if param_words is None else param_words
     return (struct.pack("<20H", *words) + struct.pack("<6H", *boundaries)
-            + struct.pack("<H", 100) + blob + tail_blob)
+            + struct.pack("<H", boundaries[-1] + 2 * lead) + blob + tail_blob)
 
 
-def build_member(kind, records, pool_runs=()):
+def build_member(kind, records, pool_runs=(), bare_pool=False, pool_pointers=True,
+                 base_pointers=True):
     table_size = 8 + 4 * len(records)
     offsets, position = [], table_size
     for record in records:
         offsets.append(position)
         position += len(record)
-    pool = b"".join(run.encode("cp932") + b"\x00" for run in pool_runs)
+    if pool_pointers or base_pointers:
+        # the game's layout: every record carries the pool's position relative to itself at +36
+        # and the member start relative to itself (-offset) at +32
+        patched = []
+        for record, offset in zip(records, offsets):
+            rec = bytearray(record)
+            if pool_pointers:
+                struct.pack_into("<I", rec, 36, position - offset)
+            if base_pointers:
+                struct.pack_into("<i", rec, 32, -offset)
+            patched.append(bytes(rec))
+        records = patched
+    raws = [run.encode("cp932") for run in pool_runs]
+    if bare_pool or not raws:
+        pool = b"".join(raw + b"\x00" for raw in raws)
+    else:
+        pool = ISR.build_tail_pool(position, raws)      # the game's layout: table, then strings
     return (struct.pack("<2I", position, len(records))
             + b"".join(struct.pack("<I", o) for o in offsets)
             + b"".join(records) + pool)
@@ -58,8 +80,11 @@ class RebuildRecordTest(unittest.TestCase):
         return build_record("item", 10000, "改造制限解除", "%s20%s\n%s", tail=(2, 6, 100))
 
     def test_identity_without_edits(self):
-        row = ISR.parse_member(build_member("item", [self.record()]), "item")["records"][0]
-        self.assertEqual(ISW.rebuild_record(row, {}), self.record())
+        blob = build_member("item", [self.record()])
+        parsed = ISR.parse_member(blob, "item")
+        row = parsed["records"][0]
+        stored = blob[row["offset"]:parsed["tail_offset"]]      # as laid out, pool pointer set
+        self.assertEqual(ISW.rebuild_record(row, {}), stored)
 
     def test_growth_updates_boundaries_and_keeps_alignment(self):
         row = ISR.parse_member(build_member("item", [self.record()]), "item")["records"][0]
@@ -112,6 +137,27 @@ class RebuildMemberTest(unittest.TestCase):
         self.assertEqual(again["records"][1]["name_level"], "対地 Lv1")   # untouched record
         self.assertEqual(again["tail_pool"], ["最大SP+"])
 
+    def test_the_pool_table_is_repointed_after_growth(self):
+        # the pool's pointers are absolute: after the records grow, the table must follow
+        blob = self.member()
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"effect": "a much longer effect text than the Japanese one had"}})
+        shift = report["pool_shift"]
+        self.assertGreater(shift, 0)
+        tail = struct.unpack_from("<I", grown, 0)[0]
+        pointers, strings = ISR.parse_tail_pool(grown, tail)
+        self.assertEqual(strings, ["最大SP+".encode("cp932")])
+        self.assertEqual(pointers, [tail + 4])
+        old_tail = struct.unpack_from("<I", blob, 0)[0]
+        self.assertEqual(pointers[0], struct.unpack_from("<I", blob, old_tail)[0] + shift)
+        self.assertEqual(grown[tail:], ISR.build_tail_pool(tail, strings))
+
+    def test_a_pool_without_a_table_refuses_the_member(self):
+        # fail closed: a verbatim copy would leave whatever the pool holds pointing at old bytes
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "効果", level=0)],
+                            pool_runs=("最大SP+",), bare_pool=True)
+        with self.assertRaises(ISW.WriteError):
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-ground"}})
+
     def test_unknown_record_is_refused(self):
         with self.assertRaises(ISW.WriteError):
             ISW.rebuild_member(self.member(), "skill", {9: {"name": "x"}})
@@ -144,6 +190,12 @@ class PlanEditsTest(unittest.TestCase):
     def test_empty_target_is_skipped(self):
         edits, _, stats = ISW.plan_edits([self.row(en="  ")], "srwDL_Skill00.bin", self.parsed())
         self.assertEqual((edits, stats["empty"]), ({}, 1))
+
+    def test_edge_whitespace_of_the_english_is_kept(self):
+        # a column-aligning space or a trailing line break is the translator's, not noise
+        edits, _, _ = ISW.plan_edits([self.row(en=" Anti-ground\n")], "srwDL_Skill00.bin",
+                                     self.parsed())
+        self.assertEqual(edits, {0: {"name": " Anti-ground\n"}})
 
     def test_stale_source_text_is_refused(self):
         edits, skipped, stats = ISW.plan_edits([self.row(jp="対空")], "srwDL_Skill00.bin", self.parsed())
@@ -281,14 +333,14 @@ class OffsetAdapterTest(unittest.TestCase):
         self.assertEqual(edits, {1: {"effect": b"Anti-air effect"}})
         self.assertEqual(skipped, [])
 
-    def test_tail_offsets_are_left_to_the_slot_writer(self):
+    def test_tail_offsets_are_left_to_the_pool_writer(self):
         offset = self.parsed["tail_offset"] + 1
         edits, skipped, stats = ISW.plan_offset_edits(
             [self.row(offset, "tail fragment", "x")],
             "srwDL_Skill00.bin", self.parsed, self.blob, "c")
         self.assertEqual(edits, {})
         self.assertEqual(stats["tail"], 1)
-        self.assertIn("slot writer", skipped[0])
+        self.assertIn("pool writer", skipped[0])
 
     def test_an_offset_with_a_different_jp_is_refused(self):
         edits, skipped, stats = ISW.plan_offset_edits(
@@ -364,40 +416,256 @@ class OffsetAdapterTest(unittest.TestCase):
         self.assertTrue(any("two rows, two translations" in p for p in problems))
 
 
-class CrossRefTest(unittest.TestCase):
-    def test_mutual_word_at_36_is_repointed_after_growth(self):
-        rec0 = bytearray(build_record("skill", 1000, "対地", "効果零"))
-        rec1 = bytearray(build_record("skill", 1001, "対空", "効果一"))
-        blob = build_member("skill", [bytes(rec0), bytes(rec1)])
-        parsed = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
-        off0 = parsed["records"][0]["offset"]
-        off1 = parsed["records"][1]["offset"]
-        rec0 = bytearray(blob[off0:off1])
-        rec1 = bytearray(blob[off1:parsed["tail_offset"]])
-        struct.pack_into("<I", rec0, 36, off1)      # record 0 points at record 1
-        struct.pack_into("<I", rec1, 36, off0)      # and back - the measured mutual pair
-        blob = blob[:off0] + bytes(rec0) + bytes(rec1) + blob[parsed["tail_offset"]:]
+class PoolWriterTest(unittest.TestCase):
+    """plan_pool_edits / rebuild_pool: the fragment pool grows, its table is recomputed."""
+
+    def setUp(self):
+        self.blob = build_member("skill", [
+            build_record("skill", 1000, "対地", "地形効果"),
+        ], pool_runs=["気力", "%s軽減", "気力"])
+        self.parsed = ISR.parse_member(self.blob, "skill", "srwDL_Skill00.bin")
+        self.tail = self.parsed["tail_offset"]
+        self.pointers, _ = ISR.parse_tail_pool(self.blob, self.tail)
+
+    def row(self, offset, jp, en, row_id="skill:c/srwDL_Skill00.bin:pool"):
+        return {"id": row_id, "category": "config_skill", "part": "text", "jp": jp, "en": en,
+                "mode": "grow",
+                "source": {"container": "c", "member": "srwDL_Skill00.bin", "offset": offset}}
+
+    def test_a_shared_offset_row_fills_every_string_with_that_text(self):
+        edits, skipped, stats = ISW.plan_pool_edits(
+            [self.row(self.tail, "気力", "Will")], "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual((edits, skipped), ({0: b"Will", 2: b"Will"}, []))
+        self.assertEqual((stats["applied"], stats["strings"]), (1, 2))
+
+    def test_an_exact_offset_row_fills_its_string_only(self):
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[2], "気力", "Morale")], "srwDL_Skill00.bin", self.parsed,
+            self.blob, "c")
+        self.assertEqual((edits, skipped), ({2: b"Morale"}, []))
+
+    def test_growth_is_allowed_and_the_table_follows(self):
+        edits, _, _ = ISW.plan_pool_edits(
+            [self.row(self.tail, "気力", "Will (morale gauge)"),
+             self.row(self.tail, "%s軽減", "%s reduction")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        out = ISW.rebuild_pool(self.blob, self.parsed, edits)
+        self.assertEqual(out[:self.tail], self.blob[:self.tail])      # records untouched
+        pointers, strings = ISR.parse_tail_pool(out, self.tail)
+        self.assertEqual(strings, [b"Will (morale gauge)", b"%s reduction", b"Will (morale gauge)"])
+        self.assertEqual(pointers[0], self.tail + 12)
+        self.assertEqual(ISR.parse_member(out, "skill")["records"][0]["name"], "対地")
+
+    def test_a_stale_jp_and_an_offset_in_the_table_are_refused(self):
+        edits, skipped, stats = ISW.plan_pool_edits(
+            [self.row(self.tail, "別の文", "Other"), self.row(self.tail + 4, "%s軽減", "x")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertEqual(stats["mismatch"], 2)
+        self.assertEqual(len(skipped), 2)
+
+    def test_an_offset_inside_a_string_matches_that_whole_string(self):
+        # the leftover scan anchors a run a few bytes into the pool string it read
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[1] + 2, "%s軽減", "%s reduction"),
+             self.row(self.pointers[1] + 2, "軽減", "cut")],      # a partial jp is not the string
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {1: b"%s reduction"})
+        self.assertEqual(len(skipped), 1)
+
+    def test_two_translations_for_one_string_refuse_it(self):
+        edits, skipped, _ = ISW.plan_pool_edits(
+            [self.row(self.pointers[0], "気力", "Will", "a"), self.row(self.pointers[0], "気力", "Morale", "b")],
+            "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual(edits, {})
+        self.assertTrue(any("conflicts" in message for message in skipped))
+
+    def test_record_rows_are_not_pool_rows(self):
+        offset = self.parsed["records"][0]["offset"] + self.parsed["records"][0]["name_offset"]
+        edits, _, stats = ISW.plan_pool_edits(
+            [self.row(offset, "対地", "Anti-ground")], "srwDL_Skill00.bin", self.parsed, self.blob, "c")
+        self.assertEqual((edits, stats["rows"]), ({}, 0))
+
+
+class PoolPointerTest(unittest.TestCase):
+    """The u32 at +36 of every record is ``tail_offset - record_offset`` (2230/2230 originals)."""
+
+    def pointers(self, blob, kind):
+        parsed = ISR.parse_member(blob, kind, "srwDL_Skill00.bin")
+        return [(struct.unpack_from("<I", blob, row["offset"] + 36)[0],
+                 parsed["tail_offset"] - row["offset"]) for row in parsed["records"]]
+
+    def test_the_fixture_reproduces_the_measured_rule(self):
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "効果零"),
+                                      build_record("skill", 1001, "対空", "効果一")], ["気力"])
+        self.assertTrue(all(got == want for got, want in self.pointers(blob, "skill")))
+        self.assertEqual(ISW.pool_pointer_faults(blob, ISR.parse_member(blob, "skill")), [])
+
+    def test_every_pool_pointer_is_recomputed_after_growth(self):
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "効果零"),
+                                      build_record("skill", 1001, "対空", "効果一"),
+                                      build_record("skill", 1002, "対海", "効果二")], ["気力"])
+        before = ISR.parse_member(blob, "skill", "srwDL_Skill00.bin")
         grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-ground weapon"}},
                                            "srwDL_Skill00.bin")
-        # only the word that really moves counts: record 0 keeps its offset, so its referrer
-        # needs no patch and is not counted
-        self.assertEqual(report["cross_refs_remapped"], 1)
         after = ISR.parse_member(grown, "skill", "srwDL_Skill00.bin")
-        new0 = after["records"][0]["offset"]
-        new1 = after["records"][1]["offset"]
-        self.assertEqual(struct.unpack_from("<I", grown, new0 + 36)[0], new1)
-        self.assertEqual(struct.unpack_from("<I", grown, new1 + 36)[0], new0)
-        self.assertNotEqual(new1, off1)             # record 1 really moved
+        self.assertGreater(after["tail_offset"], before["tail_offset"])     # the pool moved
+        self.assertEqual(after["records"][0]["offset"], before["records"][0]["offset"])
+        self.assertNotEqual(after["records"][1]["offset"], before["records"][1]["offset"])
+        for got, want in self.pointers(grown, "skill"):
+            self.assertEqual(got, want)
+        # the pool moved by the growth of record 0: record 0's distance to it changed, while
+        # records 1 and 2 moved by the same amount as the pool and keep their word
+        self.assertEqual(report["pool_pointers_rewritten"], 1)
+        self.assertEqual(ISW.pool_pointer_faults(grown, after), [])
 
-    def test_a_word_at_36_that_is_no_offset_stays(self):
+    def test_an_identity_rebuild_keeps_the_pointers_and_the_bytes(self):
+        blob = build_member("item", [build_record("item", 7, "改造", "%s20"),
+                                     build_record("item", 8, "強化", "%s30")], ["気力"])
+        same, report = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
+        self.assertEqual(same, blob)
+        self.assertEqual(report["pool_pointers_rewritten"], 0)
+
+    def test_a_source_that_breaks_the_rule_is_refused(self):
         rec0 = bytearray(build_record("skill", 1000, "対地", "効果零"))
-        struct.pack_into("<I", rec0, 36, 7)
-        blob = build_member("skill", [bytes(rec0)])
-        grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Longer name here"}},
-                                           "srwDL_Skill00.bin")
-        self.assertEqual(report["cross_refs_remapped"], 0)
+        blob = build_member("skill", [bytes(rec0)], ["気力"], pool_pointers=False)
+        self.assertEqual(ISW.pool_pointer_faults(blob, ISR.parse_member(blob, "skill")), [0])
+        with self.assertRaises(ISW.WriteError) as caught:
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Longer name here"}},
+                               "srwDL_Skill00.bin")
+        self.assertIn("pool pointer", str(caught.exception))
+
+    def test_the_old_cross_reference_reading_is_gone(self):
+        # 46 Skill00 records had tail_offset - offset coincide with another record's offset; the
+        # old writer took them for cross references and re-pointed only those - the pointer rule
+        # explains them all and the rebuilt member must satisfy it for every record
+        rec = [build_record("skill", 1000 + i, "対地", "効果零") for i in range(4)]
+        blob = build_member("skill", rec, ["気力"])
+        parsed = ISR.parse_member(blob, "skill")
+        grown, _ = ISW.rebuild_member(blob, "skill", {i: {"effect": "A longer effect text"}
+                                                      for i in range(4)}, "srwDL_Skill00.bin")
+        after = ISR.parse_member(grown, "skill")
+        self.assertEqual(len(after["records"]), len(parsed["records"]))
+        self.assertEqual(ISW.pool_pointer_faults(grown, after), [])
+
+
+class BasePointerTest(unittest.TestCase):
+    """The i32 at +32 of every record is ``-record_offset`` (2230/2230 originals, 2026-10-15)."""
+
+    def bases(self, blob, kind):
+        parsed = ISR.parse_member(blob, kind, "srwDL_Spirit.bin")
+        return [(struct.unpack_from("<i", blob, row["offset"] + 32)[0], -row["offset"])
+                for row in parsed["records"]]
+
+    def test_the_fixture_reproduces_the_measured_rule(self):
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一")], ["気力"])
+        self.assertTrue(all(got == want for got, want in self.bases(blob, "skill")))
+        self.assertEqual(ISW.base_pointer_faults(blob, ISR.parse_member(blob, "skill")), [])
+
+    def test_every_base_pointer_follows_its_record_after_growth(self):
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一"),
+                                      build_record("skill", 3, "感応", "効果二")], ["気力"])
+        before = ISR.parse_member(blob, "skill", "srwDL_Spirit.bin")
+        grown, report = ISW.rebuild_member(blob, "skill", {0: {"name": "Focus (concentration)"}},
+                                           "srwDL_Spirit.bin")
+        after = ISR.parse_member(grown, "skill", "srwDL_Spirit.bin")
+        self.assertNotEqual(after["records"][1]["offset"], before["records"][1]["offset"])
+        for got, want in self.bases(grown, "skill"):
+            self.assertEqual(got, want)
+        # record 0 stays where it was; records 1 and 2 moved and had their word rewritten
+        self.assertEqual(report["base_pointers_rewritten"], 2)
+        self.assertEqual(report["pool_pointers_rewritten"], 1)
+        self.assertEqual(ISW.base_pointer_faults(grown, after), [])
+
+    def test_a_stale_base_pointer_is_what_build_11_shipped_and_is_now_refused(self):
+        # the stale word of build #11: record 1 moved by 4 bytes but kept -old_offset
+        blob = build_member("skill", [build_record("skill", 1, "集中", "効果零"),
+                                      build_record("skill", 2, "鉄壁", "効果一")], ["気力"],
+                            base_pointers=False)
+        faults = ISW.base_pointer_faults(blob, ISR.parse_member(blob, "skill"))
+        self.assertEqual(faults, [0, 1])
+        with self.assertRaises(ISW.WriteError) as caught:
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Focus"}}, "srwDL_Spirit.bin")
+        self.assertIn("base pointer", str(caught.exception))
+
+    def test_an_identity_rebuild_rewrites_nothing(self):
+        blob = build_member("item", [build_record("item", 7, "改造", "%s20"),
+                                     build_record("item", 8, "強化", "%s30")], ["気力"])
+        same, report = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
+        self.assertEqual(same, blob)
+        self.assertEqual(report["base_pointers_rewritten"], 0)
+
+
+class ParameterPointerTest(unittest.TestCase):
+    """The u16 at +52 is ``last_boundary + delta`` (2230/2230 originals, 2026-10-15); builds
+    #6-#13 copied it verbatim and the chapter-2 save crashed on load."""
+
+    def pointers(self, blob, kind):
+        parsed = ISR.parse_member(blob, kind, "srwDL_Skill00.bin")
+        return [(struct.unpack_from("<H", blob, row["offset"] + 52)[0], row["boundaries"][-1],
+                 row["length"]) for row in parsed["records"]]
+
+    def test_the_fixture_reproduces_the_measured_rule(self):
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32)),
+                                      build_record("skill", 2, "対空", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3)], ["気力"])
+        for pointer, last, length in self.pointers(blob, "skill"):
+            self.assertTrue(last <= pointer <= length)
+        self.assertEqual([p - last for p, last, _ in self.pointers(blob, "skill")], [8, 6])
+        self.assertEqual(ISW.parameter_pointer_faults(blob, ISR.parse_member(blob, "skill")), [])
+
+    def test_the_pointer_follows_the_texts_when_a_record_grows_or_shrinks(self):
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3),
+                                      build_record("skill", 2, "対空", "地形%s6空＠0%s", tail=(1, 78, 2, 2),
+                                                   param_words=3)], ["気力"])
+        before = self.pointers(blob, "skill")
+        grown, _ = ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-Ground (terrain)"},
+                                                      1: {"effect": "x"}}, "srwDL_Skill00.bin")
         after = ISR.parse_member(grown, "skill", "srwDL_Skill00.bin")
-        self.assertEqual(struct.unpack_from("<I", grown, after["records"][0]["offset"] + 36)[0], 7)
+        self.assertEqual(after["errors"], [])
+        for (pointer, last, length), (old_pointer, old_last, _) in zip(self.pointers(grown, "skill"), before):
+            self.assertEqual(pointer - last, old_pointer - old_last)      # delta kept
+            self.assertTrue(last <= pointer <= length)
+        # record 0 grew, record 1 shrank: the pointers moved with the texts
+        self.assertGreater(self.pointers(grown, "skill")[0][0], before[0][0])
+        self.assertLess(self.pointers(grown, "skill")[1][0], before[1][0])
+        # and the parameter words themselves are intact where the pointer now points
+        for row, tail in zip(after["records"], ((1, 78, 0, 2, 32), (1, 78, 2, 2))):
+            pointer = struct.unpack_from("<H", grown, row["offset"] + 52)[0]
+            words = struct.unpack_from("<%dH" % ((row["length"] - pointer) // 2), grown, row["offset"] + pointer)
+            self.assertEqual(words, tail[3:])
+        self.assertEqual(ISW.parameter_pointer_faults(grown, after), [])
+
+    def test_a_stale_pointer_is_what_builds_6_to_13_shipped(self):
+        # rebuild the way the old writer did (pointer copied verbatim) and show the misread
+        blob = build_member("skill", [build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32),
+                                                   param_words=3)], ["気力"])
+        row = ISR.parse_member(blob, "skill")["records"][0]
+        rebuilt = ISW.rebuild_record(row, {"name": "Anti-Ground"})
+        stale = bytearray(rebuilt)
+        struct.pack_into("<H", stale, 52, row["header"][ISW.PREAMBLE_WORD])
+        pointer = struct.unpack_from("<H", stale, 52)[0]
+        self.assertLess(pointer, ISR.parse_member(build_member("skill", [bytes(stale)]), "skill")["records"][0]["boundaries"][-1])
+        self.assertEqual(ISW.parameter_pointer_faults(build_member("skill", [bytes(stale)]),
+                                                      ISR.parse_member(build_member("skill", [bytes(stale)]), "skill")), [0])
+
+    def test_a_source_that_breaks_the_rule_is_refused(self):
+        record = bytearray(build_record("skill", 1, "対地", "地形%s", tail=(1, 78, 0, 2, 32)))
+        struct.pack_into("<H", record, 52, 20)                 # before the texts
+        blob = build_member("skill", [bytes(record)], ["気力"])
+        with self.assertRaises(ISW.WriteError) as caught:
+            ISW.rebuild_member(blob, "skill", {0: {"name": "Anti-Ground"}}, "srwDL_Skill00.bin")
+        self.assertIn("parameter pointer", str(caught.exception))
+        self.assertIsNone(ISW.parameter_delta(list(struct.unpack_from("<%dH" % (len(record) // 2), record))))
+
+    def test_an_identity_rebuild_keeps_the_bytes(self):
+        blob = build_member("item", [build_record("item", 7, "改造", "%s20", tail=(1, 78, 0, 5)),
+                                     build_record("item", 8, "強化", "%s30", tail=(0,), param_words=0)], ["気力"])
+        same, _ = ISW.rebuild_member(blob, "item", {}, "srwDL_Item00.bin")
+        self.assertEqual(same, blob)
 
 
 class HelperTest(unittest.TestCase):
@@ -414,6 +682,46 @@ class HelperTest(unittest.TestCase):
         self.assertEqual(ISW._record_from_id("item:config00.cpk/srwDL_Item00.bin:r12:effect"), 12)
         self.assertEqual(ISW._record_from_id("skill:config00.cpk/x.bin:r0:name"), 0)
         self.assertIsNone(ISW._record_from_id("item:config00.cpk/x.bin:12"))
+
+
+class SizeBudgetTest(unittest.TestCase):
+    """The in-game size budget of srwDL_Skill00.bin (measured 2026-10-15) is enforced fail-closed."""
+
+    def test_budget_constants_match_the_measurement(self):
+        # 217 086 B loaded (T3/W5), 221 182 B crashed (T4); the budget stays under the loaded size
+        self.assertEqual(ISW.SKILL00_LIMIT, 216_768)
+        self.assertLess(ISW.SKILL00_LIMIT, 217_086)
+        self.assertGreater(ISW.SKILL00_LIMIT, 208_958)        # the original must always pass
+        self.assertEqual(ISW.MEMBER_SIZE_LIMITS, {"srwDL_Skill00.bin": ISW.SKILL00_LIMIT})
+
+    def test_problem_text_only_above_the_limit_and_only_for_budgeted_members(self):
+        self.assertIsNone(ISW.size_limit_problem("srwDL_Skill00.bin", ISW.SKILL00_LIMIT))
+        self.assertIsNone(ISW.size_limit_problem("srwDL_Item00.bin", 10 ** 7))
+        problem = ISW.size_limit_problem("srwDL_Skill00.bin", ISW.SKILL00_LIMIT + 1)
+        self.assertIn("216768", problem.replace(" ", ""))
+        self.assertIn("+1 B over", problem)
+        self.assertIn("refused", problem)
+
+    def test_rebuild_member_refuses_a_skill00_over_budget_and_allows_one_within(self):
+        blob = build_member("skill", [build_record("skill", 1000, "対地", "地形効果")],
+                            pool_runs=["気力"])
+        original = ISW.MEMBER_SIZE_LIMITS.copy()
+        try:
+            ISW.MEMBER_SIZE_LIMITS["srwDL_Skill00.bin"] = len(blob) + 8
+            out, report = ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain+"}},
+                                             "srwDL_Skill00.bin")
+            self.assertLessEqual(len(out), len(blob) + 8)
+            with self.assertRaises(ISW.SizeBudgetError) as ctx:
+                ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain effect bonus text"}},
+                                   "srwDL_Skill00.bin")
+            self.assertIn("in-game budget", str(ctx.exception))
+            self.assertIsInstance(ctx.exception, ISW.WriteError)
+            # another member of the same size is not budgeted
+            ISW.rebuild_member(blob, "skill", {0: {"effect": "Terrain effect bonus text"}},
+                               "srwDL_Skill01.bin")
+        finally:
+            ISW.MEMBER_SIZE_LIMITS.clear()
+            ISW.MEMBER_SIZE_LIMITS.update(original)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,158 @@
+{
+ "texture": "tacsys_07",
+ "source": "tacsys.cpk — 128x64 INDEX8; the four battle-reply buttons (flat parallelogram banners)",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 15,
+ "min_size": 10,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "attack",
+   "jp": "攻撃",
+   "en": "Attack",
+   "box": [
+    14,
+    4,
+    54,
+    24
+   ],
+   "clear": [
+    12,
+    1,
+    56,
+    25
+   ],
+   "clear_opaque_only": true,
+   "bg": [
+    155,
+    0,
+    43,
+    255
+   ],
+   "align": "center",
+   "fill": [
+    253,
+    255,
+    76,
+    255
+   ],
+   "outline": [
+    40,
+    20,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "defend",
+   "jp": "防御",
+   "en": "Defend",
+   "box": [
+    78,
+    4,
+    118,
+    24
+   ],
+   "clear": [
+    76,
+    1,
+    120,
+    25
+   ],
+   "clear_opaque_only": true,
+   "bg": [
+    0,
+    158,
+    47,
+    255
+   ],
+   "align": "center",
+   "fill": [
+    253,
+    255,
+    76,
+    255
+   ],
+   "outline": [
+    40,
+    20,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "evade",
+   "jp": "回避",
+   "en": "Evade",
+   "box": [
+    14,
+    36,
+    54,
+    56
+   ],
+   "clear": [
+    12,
+    33,
+    56,
+    57
+   ],
+   "clear_opaque_only": true,
+   "bg": [
+    0,
+    80,
+    191,
+    255
+   ],
+   "align": "center",
+   "fill": [
+    253,
+    255,
+    76,
+    255
+   ],
+   "outline": [
+    40,
+    20,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "counter",
+   "jp": "反撃",
+   "en": "Counter",
+   "box": [
+    74,
+    36,
+    119,
+    56
+   ],
+   "clear": [
+    72,
+    33,
+    120,
+    57
+   ],
+   "clear_opaque_only": true,
+   "bg": [
+    158,
+    47,
+    0,
+    255
+   ],
+   "align": "center",
+   "fill": [
+    253,
+    255,
+    76,
+    255
+   ],
+   "outline": [
+    40,
+    20,
+    0,
+    255
+   ]
+  }
+ ]
+}

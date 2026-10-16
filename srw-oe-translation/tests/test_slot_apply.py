@@ -62,7 +62,7 @@ class BasicWriteTests(unittest.TestCase):
         rows = [row("a", 0, "テスト", "X" * 20, max_bytes=16)]
         out, report = SLA.apply_member(self.blob, rows)
         self.assertEqual(out, self.blob)
-        self.assertIn("do not fit the 16-byte budget", report["refused"][0])
+        self.assertIn("do not fit the 16-byte limit", report["refused"][0])
 
     def test_short_en_never_touches_the_dirty_budget_area(self):
         # budget 70 reaches into the next run, but a 4-byte EN only replaces the 6-byte span:
@@ -80,9 +80,13 @@ class BasicWriteTests(unittest.TestCase):
         self.assertEqual(out, dirty)
         self.assertIn("growth area", report["refused"][0])
         clean = b"test\x00\x00\x00\x00" + b"name\x00"
+        # 8 bytes would put the terminator on the "n" of the next string: refused, not glued
         out, report = SLA.apply_member(clean, rows)
+        self.assertEqual(out, clean)
+        self.assertIn("growth area", report["refused"][0])
+        out, report = SLA.apply_member(clean, [row("a", 0, "test", "ABCDEFG", max_bytes=12)])
         self.assertEqual(report["applied"], 1)
-        self.assertEqual(out[0:8], b"ABCDEFGH")
+        self.assertEqual(out[0:8], b"ABCDEFG\x00")
         self.assertEqual(out[8:], clean[8:])
 
     def test_stale_jp_refused(self):
@@ -112,6 +116,145 @@ class BasicWriteTests(unittest.TestCase):
         out, report = SLA.apply_member(self.blob, rows)
         self.assertEqual(out, self.blob)
         self.assertEqual(report["applied"], 0)
+
+
+class LimitSemanticsTests(unittest.TestCase):
+    def test_max_bytes_counts_the_english_bytes_like_the_checker_and_the_manual(self):
+        # 16 bytes of room after the 6-byte span (gap 64): a 16-byte English fits exactly
+        blob = member("テスト")
+        out, report = SLA.apply_member(blob, [row("a", 0, "テスト", "X" * 16, max_bytes=16)])
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(out[0:17], b"X" * 16 + b"\x00")
+        out, report = SLA.apply_member(blob, [row("a", 0, "テスト", "X" * 17, max_bytes=16)])
+        self.assertIn("17 bytes do not fit the 16-byte limit", report["refused"][0])
+
+    def test_without_max_bytes_the_span_is_the_limit(self):
+        blob = b"\x00" + "名前".encode("cp932") + b"\x00" + "次".encode("cp932") + b"\x00"
+        out, report = SLA.apply_member(blob, [row("a", 1, "名前", "Name")])
+        self.assertEqual(out[1:6], b"Name\x00")
+        self.assertEqual(out[6:], blob[6:])
+        out, report = SLA.apply_member(blob, [row("a", 1, "名前", "Names")])
+        self.assertEqual(out, blob)
+        self.assertIn("5 bytes do not fit the 4-byte limit", report["refused"][0])
+
+
+class WhitespaceIsKeptTests(unittest.TestCase):
+    def test_a_trailing_line_break_and_a_centring_space_are_written_as_given(self):
+        blob = member("　サブ　", "説明\n")
+        rows = [row("a", 0, "　サブ　", "　Sub　", max_bytes=64),
+                row("b", 64, "説明\n", "Text\n", max_bytes=64)]
+        out, report = SLA.apply_member(blob, rows)
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(out[0:len("　Sub　".encode("cp932"))], "　Sub　".encode("cp932"))
+        self.assertEqual(out[64:70], b"Text\n\x00")
+
+    def test_a_whitespace_only_english_is_untranslated(self):
+        blob = member("テスト")
+        out, report = SLA.apply_member(blob, [row("a", 0, "テスト", " \n ", max_bytes=64)])
+        self.assertEqual(out, blob)
+        self.assertEqual(report["applied"], 0)
+
+
+class BinaryPrefixSlotTests(unittest.TestCase):
+    """bg2dlist: ``u16 id`` bytes sit right before the name with no NUL between them."""
+
+    def blob(self):
+        # header 4 (count), stride 112, name at +0 of the record, binary from +28; the last
+        # bytes of record 0 (0c 0d 0e 0f, measured) sit directly before record 1's name
+        blob = bytearray(4 + 112 * 2)
+        blob[0:4] = (2).to_bytes(4, "little")
+        blob[4:8] = "宇宙".encode("cp932")
+        blob[4 + 28] = 0x02
+        blob[112:116] = b"\x0c\x0d\x0e\x0f"
+        blob[116:120] = "宇宙".encode("cp932")
+        blob[116 + 28] = 0x02
+        blob[116 + 32] = 0x10
+        return bytes(blob)
+
+    def test_name_after_binary_bytes_is_written_and_nothing_behind_the_slot_changes(self):
+        blob = self.blob()
+        rows = [row("bg_name:config00.cpk/bg2dlist.bin:r1:name", 116, "宇宙", "Space", max_bytes=111)]
+        out, report = SLA.apply_member(blob, rows, member="bg2dlist.bin")
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[112:116], b"\x0c\x0d\x0e\x0f")
+        self.assertEqual(out[116:122], b"Space\x00")
+        self.assertEqual(out[116 + 28], 0x02)          # the binary field behind the slot survives
+        self.assertEqual(out[116 + 32], 0x10)
+        changed = [i for i in range(len(blob)) if blob[i] != out[i]]
+        self.assertEqual(changed, [116, 117, 118, 119, 120])
+
+    def test_a_shorter_english_pads_only_the_matched_span(self):
+        blob = bytearray(self.blob())
+        blob[116:122] = "宇宙空".encode("cp932")
+        rows = [row("bg_name:config00.cpk/bg2dlist.bin:r1:name", 116, "宇宙空", "Sp", max_bytes=111)]
+        out, report = SLA.apply_member(bytes(blob), rows, member="bg2dlist.bin")
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(out[116:123], b"Sp\x00\x00\x00\x00\x00")
+        self.assertEqual(out[116 + 28], 0x02)
+
+
+class FixedSlotCapTests(unittest.TestCase):
+    """The measured field sizes of mission_text cap the budget whatever the row says."""
+
+    def map_s(self):
+        # srwDL_Map_S: 16-byte header, 160-byte records, a 32-byte name, then binary fields
+        # that are zero in this record (exactly the case the padding test cannot see)
+        blob = bytearray(16 + 160 * 2)
+        name = "宇宙マップ".encode("cp932")
+        blob[16:16 + len(name)] = name
+        blob[16 + 36:16 + 40] = b"\xcd\xcc\x4c\x3d"       # a float at +36
+        other = "月面".encode("cp932")
+        blob[176:176 + len(other)] = other
+        return bytes(blob)
+
+    def test_a_stale_record_wide_budget_is_capped_at_the_measured_field(self):
+        blob = self.map_s()
+        rows = [row("m", 16, "宇宙マップ", "x" * 34, max_bytes=159, member_name="srwDL_Map_S.bin")]
+        out, report = SLA.apply_member(blob, rows, member="srwDL_Map_S.bin")
+        self.assertEqual(out, blob)
+        self.assertIn("31-byte limit (measured fixed slot)", report["refused"][0])
+
+    def test_a_translation_that_fits_the_measured_field_is_written(self):
+        blob = self.map_s()
+        rows = [row("m", 16, "宇宙マップ", "x" * 31, max_bytes=159, member_name="srwDL_Map_S.bin")]
+        out, report = SLA.apply_member(blob, rows, member="srwDL_Map_S.bin")
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(out[16:47], b"x" * 31)
+        self.assertEqual(out[47:52], b"\x00" * 5)
+        self.assertEqual(out[52:], blob[52:])
+
+    def ext_dat(self, tail=b"\x03\x00\x02\x00"):
+        # *_ext.dat: one 388-byte record, the title at +344, two u16 fields at +384/+386
+        blob = bytearray(388)
+        title = "11話\n闇に開く扉".encode("cp932")
+        blob[344:344 + len(title)] = title
+        blob[384:388] = tail
+        return bytes(blob)
+
+    def test_an_ext_dat_title_stops_before_the_record_fields(self):
+        # 40-43 English bytes fit the old 44-byte reading and would overwrite the fields -
+        # on a record whose fields are zero the padding test alone cannot see it
+        for tail in (b"\x03\x00\x02\x00", b"\x00\x00\x00\x00"):
+            blob = self.ext_dat(tail)
+            rows = [row("t", 344, "11話\n闇に開く扉", "Episode 11\nThe Door That Opens in Darkness",
+                        max_bytes=43, member_name="DL311_12_ext.dat")]
+            out, report = SLA.apply_member(blob, rows, member="DL311_12_ext.dat")
+            self.assertEqual(out, blob)
+            self.assertIn("39-byte limit (measured fixed slot)", report["refused"][0])
+            rows = [row("t", 344, "11話\n闇に開く扉", "Ep. 11\nThe Door That Opens in Darkness",
+                        max_bytes=43, member_name="DL311_12_ext.dat")]
+            out, report = SLA.apply_member(blob, rows, member="DL311_12_ext.dat")
+            self.assertEqual(report["applied"], 1)
+            self.assertEqual(out[384:388], tail)
+            self.assertEqual(out[344:382], b"Ep. 11\nThe Door That Opens in Darkness")
+            self.assertEqual(out[382:384], b"\x00\x00")
+
+    def test_unknown_members_keep_the_row_budget(self):
+        blob = member("テスト", "名前")
+        rows = [row("a", 0, "テスト", "x" * 40, max_bytes=64)]
+        out, report = SLA.apply_member(blob, rows, member="whatever.bin")
+        self.assertEqual(report["applied"], 1)
 
 
 class TokenFormTests(unittest.TestCase):

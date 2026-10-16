@@ -1,0 +1,48 @@
+{
+ "texture": "tacsys_vsbg",
+ "source": "tacsys.cpk — 128x64 INDEX8; LIVE START caption (pink) and its white flash copy",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 20,
+ "min_size": 12,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "live_start",
+   "jp": "LIVEスタート",
+   "en": "LIVE START",
+   "box": [
+    10,
+    5,
+    120,
+    31
+   ],
+   "align": "center"
+  },
+  {
+   "id": "live_start_flash",
+   "jp": "LIVEスタート",
+   "en": "LIVE START",
+   "box": [
+    40,
+    35,
+    122,
+    54
+   ],
+   "align": "center",
+   "size": 14,
+   "min_size": 9,
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    255,
+    255,
+    255,
+    150
+   ]
+  }
+ ]
+}

@@ -50,15 +50,24 @@ def build_record(kind, key, name, effect, name_level="", effect_brief="", label=
     return record
 
 
-def build_member(kind, records, pool_runs=(), tail_padding=0):
-    """Convention B member: header, offsets, records, tail pool."""
+def build_member(kind, records, pool_runs=(), tail_padding=0, bare_pool=False):
+    """Convention B member: header, offsets, records, tail pool.
+
+    The pool is laid out as the game files have it - a u32 table of absolute string offsets,
+    then the strings; ``bare_pool=True`` writes the strings without a table (the shape the first
+    reading of these files assumed), for the fallback test.
+    """
     table_size = 8 + 4 * len(records)
     offsets, position = [], table_size
     for record in records:
         offsets.append(position)
         position += len(record)
     tail_offset = position + tail_padding
-    pool = b"".join(run.encode("cp932") + b"\x00" for run in pool_runs)
+    raws = [run.encode("cp932") for run in pool_runs]
+    if bare_pool or not raws:
+        pool = b"".join(raw + b"\x00" for raw in raws)
+    else:
+        pool = ISR.build_tail_pool(tail_offset, raws)
     return (struct.pack("<2I", tail_offset, len(records))
             + b"".join(struct.pack("<I", o) for o in offsets)
             + b"".join(records) + b"\x00" * tail_padding + pool)
@@ -115,6 +124,47 @@ class ParseItemTest(unittest.TestCase):
     def test_tail_pool_is_split_into_runs(self):
         parsed = ISR.parse_member(self.member(), "item")
         self.assertEqual(parsed["tail_pool"], ["最大SP+", "回のみ使用可"])
+
+
+class TailPoolTableTest(unittest.TestCase):
+    """The fragment pool starts with a u32 table of absolute string offsets (measured on all
+    five pools, 2026-10-14) - the reader uses it, and round-trips the bytes."""
+
+    def member(self, **kw):
+        return build_member("item", [build_record("item", 1, "A", "B")],
+                            pool_runs=("最大SP+", "%s", "回のみ使用可"), **kw)
+
+    def test_the_table_is_read_and_the_strings_fill_the_pool(self):
+        blob = self.member()
+        tail = struct.unpack_from("<I", blob, 0)[0]
+        pointers, strings = ISR.parse_tail_pool(blob, tail)
+        self.assertEqual(pointers[0], tail + 12)
+        self.assertEqual(strings, [b"\x8d\xc5\x91\xe5SP+", b"%s", "回のみ使用可".encode("cp932")])
+        self.assertEqual(ISR.build_tail_pool(tail, strings), blob[tail:])
+
+    def test_a_member_without_a_pool_is_empty_not_an_error(self):
+        blob = build_member("item", [build_record("item", 1, "A", "B")])
+        self.assertEqual(ISR.parse_tail_pool(blob, len(blob)), ([], []))
+
+    def test_a_pool_without_a_table_is_refused_by_the_reader(self):
+        blob = self.member(bare_pool=True)
+        tail = struct.unpack_from("<I", blob, 0)[0]
+        with self.assertRaises(ValueError):
+            ISR.parse_tail_pool(blob, tail)
+        # split_pool still lists the runs of such a region (exports never lose text)
+        self.assertEqual(ISR.split_pool(blob, tail), ["最大SP+", "%s", "回のみ使用可"])
+
+    def test_a_pointer_into_the_middle_of_a_string_is_refused(self):
+        blob = bytearray(self.member())
+        tail = struct.unpack_from("<I", blob, 0)[0]
+        second = struct.unpack_from("<I", blob, tail + 4)[0]
+        struct.pack_into("<I", blob, tail + 4, second + 1)
+        with self.assertRaises(ValueError):
+            ISR.parse_tail_pool(bytes(blob), tail)
+
+    def test_build_refuses_a_nul_inside_a_string(self):
+        with self.assertRaises(ValueError):
+            ISR.build_tail_pool(100, [b"a\x00b"])
 
     def test_linked_id_mismatch_is_reported(self):
         record = bytearray(build_record("item", 10000, "A", "B"))

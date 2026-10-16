@@ -76,12 +76,17 @@ rodzaje tej linii:
 | linia `limit:` | co znaczy |
 |---|---|
 | `limit: 117 B (stała szerokość — dłuższe się nie zmieści)` | **twardy limit**. Miejsce w grze ma dokładnie tyle bajtów; dłuższy tekst **nie zostanie wpisany** (narzędzie go odrzuci i poda, o ile trzeba skrócić). Jeden znak japoński = 2 B, jeden znak angielski = 1 B. |
-| `limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 3 linii` | tekst rysowany w oknie gry. Długość całego tekstu jest dowolna (gra przebudowuje rozmiary), ale **każda linia** ma się mieścić: trzymaj się 46, absolutne maksimum zmierzone w grze to 52 jednostki (jednostka = szerokość połowy znaku; znak japoński ma 2). `oryginał: N linii` mówi, na ile linii łamał się japoński — **zostaw tyle samo**. |
+| `limit: 46 jedn. na linię (twardy limit 52 jedn. — tyle gra sama rysuje w tym miejscu); oryginał: 3 linii` | tekst rysowany w oknie gry. Długość całego tekstu jest dowolna (gra przebudowuje rozmiary), ale **każda linia** ma się mieścić: trzymaj się 46; twardy limit to tyle, ile sama gra rysuje w tym rodzaju tekstu — **dialog 52, cytat bitewny 50** jednostek (jednostka = szerokość połowy znaku; znak japoński ma 2; znaki sterujące jak `\r` nie liczą się). `oryginał: N linii` mówi, na ile linii łamał się japoński — **zostaw tyle samo**. |
 | `limit: bez twardego limitu (pole rośnie) — trzymaj się długości oryginału (najdłuższy w tej kategorii: 18 jedn.)` | nazwy w listach, serie, opisy. Długość jest dowolna, ale interfejs gry ma stałą szerokość listy — **nie przekraczaj długości oryginału** więcej niż o ~⅓. Liczba w nawiasie to najdłuższy oryginał w tej samej kategorii: to praktyczna granica. |
 
 Uwaga: „dowolna długość" przy dialogach **nie znaczy „bez konsekwencji"** — tekst wpisany do gry
 musi się jeszcze mieścić w oknie. Dlatego liczba linii i szerokość linii są w limicie, a nasze
-narzędzia odrzucają linię szerszą niż 52 jednostki.
+narzędzia odrzucają linię szerszą niż to, co gra sama rysuje w danym rodzaju tekstu (dialog 52,
+cytat 50, podpowiedź misji 66, pozostałe 46 jednostek). Skąd te liczby: policzyliśmy szerokość
+każdej japońskiej linii w całym skrypcie (2026-10-14) — 316 linii dialogu ma 50 jednostek, cztery
+mają 52. Do 2026-10-14 narzędzia odrzucały wszystko powyżej 46 (liczba z pierwszej sceny); czy linie
+47–52 znaków łacińskich mieszczą się w oknie tak samo jak japońskie, **jeszcze nie sprawdziliśmy w
+grze** — 46 pozostaje zalecane.
 
 ### Elementy bez linii `EN:` (dziedziczenie)
 
@@ -121,7 +126,7 @@ To prawdziwy początek sceny 15/293 z pliku `epizod-02.md` (lista uczestników s
 - miejsce: シャフトエンタープライズ／オフィス (element 11)
 - miejsce: 特車二課／格納庫 (element 19)
 - miejsce: 自衛隊演習場／指揮所 (element 45)
-- limit: dialog — 46 jedn. na linię (gra sama używa do 52), narracja — do 50 jedn.; liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)
+- limit: dialog — 46 jedn. na linię (twardy limit 52 — tyle gra sama rysuje), narracja — do 56 jedn.; liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)
 - uczestnicy:
   - 自衛隊員
   - 内海 — 機動警察パトレイバー
@@ -145,8 +150,8 @@ Co jest czym:
 * **`## Scena 15/293 — …`** — numer sceny (kolejność gry) i japoński tytuł misji.
 * **`- odcinek:` / `- miejsce:`** — kontekst: który odcinek i gdzie scena się dzieje
   (miejsce też jest do przetłumaczenia — jako element w środku sceny).
-* **`- limit:`** — ile wolno napisać w tej scenie (dialog 46 jednostek na linię, narracja 50).
-  Szczegóły w sekcji 1.
+* **`- limit:`** — ile wolno napisać w tej scenie (dialog 46 jednostek na linię, twardy limit 52;
+  narracja do 56). Szczegóły w sekcji 1.
 * **`- uczestnicy:`** — wszystkie postacie mówiące w tej scenie, po japońsku, z **serią**, z której
   pochodzą. To podpowiedź dla Ciebie — nie tłumaczy się tego.
 * **`T1. [Tytuł misji]`** — tytuł misji (widać go w menu gry). Wpisujesz go tutaj, w scenie, w której
@@ -258,10 +263,10 @@ a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam
 - seria: 機動戦士ガンダム 第０８ＭＳ小隊
 
 1. [Kwestia] 「守ったら負ける！」
-   limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 1 linii
+   limit: 46 jedn. na linię (twardy limit 50 jedn. — tyle gra sama rysuje w tym miejscu); oryginał: 1 linii
    EN:
 2. [Kwestia] 「あの時の二の舞はゴメンだ！」
-   limit: 46 jedn. na linię (gra sama używa do 52 jedn.); oryginał: 1 linii
+   limit: 46 jedn. na linię (twardy limit 50 jedn. — tyle gra sama rysuje w tym miejscu); oryginał: 1 linii
    EN:
 ```
 
@@ -356,8 +361,32 @@ nie ma w liście — są jednoznaczne same w sobie.
 * Te pliki są podzielone na **sekcje** (`## Sekcja 1/31 — config_achievement`), a w środku elementy po
   kolei. To teksty menu, podpowiedzi, nazwy duchów, typów umiejętności, tytuły map i BGM.
 * `teksty-misji.md` ma **twarde limity miejsca** — pisze to wprost linia `limit:` przy każdym
-  elemencie (np. `limit: 117 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;
+  elemencie (np. `limit: 39 B`). Tekst dłuższy zostanie odrzucony z podaniem, o ile bajtów skrócić;
   tu nie da się „przekroczyć o trochę".
+  **Uwaga do widoków wysłanych przed 2026-10-14:** przy tytułach misji, nazwach map, teł i oddziałów
+  stoją tam limity za duże (117/159/111/99 B) — to był cały rekord, nie samo pole tekstu. Prawdziwe
+  miejsce to **tytuł misji 39 B, nazwa mapy 31 B, nazwa tła 23 B, nazwa oddziału 31 B** (zmierzone na
+  plikach gry; narzędzie i tak nie wpisze nic dłuższego). Widoki generowane od 2026-10-14 mają już
+  poprawne liczby. Po pierwszym wgraniu `EN.zip` 32 takie nazwy były za długie — lista z numerami
+  elementów jest w pliku `DO_ZROBIENIA.md` obok zbudowanych kontenerów.
+* **Fragmenty opisów umiejętności, przedmiotów, duchów i stanów** (w `teksty-config.md` sekcje
+  `config_skill`, `config_item`, `config_spirit`, `config_status_change` — krótkie kawałki typu
+  `気力`, `発動すると`, `%s\n%s`) leżą w grze w jednej wspólnej puli z własną tablicą adresów
+  (zmierzone 2026-10-14), więc **rosną jak każdy inny tekst** — napis „bez twardego limitu" jest
+  prawdziwy. (Wcześniejsza wersja tego akapitu kazała trzymać się długości oryginału — to był błąd
+  naszego czytnika, nie ograniczenie gry.) Gra skleja z tych kawałków całe zdania opisu, więc
+  zachowaj spacje skrajne i interpunkcję dokładnie jak w oryginale.
+* **Nowe elementy w sekcjach `config_skill` / `config_item` / `config_spirit` (2026-10-14):** około
+  125 fragmentów z tokenem kany (`%s*ﾒｰ%s&` = ﾀﾞﾒｰｼﾞ „obrażenia", np. `防御時､%s*ﾒｰ%s&-`,
+  `(ﾗｲ%s&ﾝｵｰと合体)`) wcześniej w ogóle nie trafiło do pakietu — pojawiają się w nowych widokach
+  z pustą linią `EN:`. Zasada `%s` jak w umiejętnościach: token kany w angielskim znika, literalny
+  `%s` zostaje. Kopie w sekcjach DLC (`Skill01–08`, `Item01–08`, `srwDL_Item`) są oznaczone jako
+  dziedziczące — wpisuje się tylko raz.
+* **Spacje na początku i końcu są częścią tekstu.** Japoński ma czasem wyśrodkowany tytuł
+  (`　　 サブミッション　　`), spację wyrównującą kolumnę (` Lv`) albo znak nowej linii na końcu opisu
+  (`\n`). Narzędzia wpisują angielski **dokładnie tak, jak go napiszesz** — ze spacjami i `\n` włącznie
+  — więc zachowaj to, co ma oryginał (walidator ostrzega, gdy dodasz spację skrajną, której oryginał
+  nie ma). Sam tekst złożony wyłącznie z białych znaków znaczy „nie przetłumaczone".
 * W tych plikach bywają tokeny `＠0`, `＠4`, `＠6`, `＠9` — to odwołania do nazw i liczb z gry.
   Zostaw je w tym samym miejscu.
 

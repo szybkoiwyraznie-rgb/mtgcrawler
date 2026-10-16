@@ -1,0 +1,157 @@
+{
+ "texture": "mensys_07",
+ "source": "system.cpk — 256x32 INDEX8; sound-test / option captions",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 10,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "fill": [
+  232,
+  232,
+  232,
+  255
+ ],
+ "outline": [
+  34,
+  34,
+  34,
+  255
+ ],
+ "labels": [
+  {
+   "id": "protagonist",
+   "jp": "主人公",
+   "en": "Hero",
+   "box": [
+    1,
+    1,
+    35,
+    15
+   ]
+  },
+  {
+   "id": "basic",
+   "jp": "基本",
+   "en": "Basic",
+   "box": [
+    37,
+    1,
+    61,
+    15
+   ]
+  },
+  {
+   "id": "settings",
+   "jp": "設定",
+   "en": "Setup",
+   "box": [
+    61,
+    1,
+    85,
+    15
+   ]
+  },
+  {
+   "id": "all_at_once",
+   "jp": "一括",
+   "en": "All",
+   "box": [
+    86,
+    1,
+    111,
+    15
+   ]
+  },
+  {
+   "id": "individually",
+   "jp": "個別に",
+   "en": "Each",
+   "box": [
+    112,
+    1,
+    146,
+    15
+   ]
+  },
+  {
+   "id": "track_title",
+   "jp": "曲名",
+   "en": "Song",
+   "box": [
+    148,
+    1,
+    170,
+    15
+   ]
+  },
+  {
+   "id": "now_selected",
+   "jp": "現在選択中",
+   "en": "Selected",
+   "box": [
+    172,
+    1,
+    229,
+    15
+   ]
+  },
+  {
+   "id": "confirm",
+   "jp": "確認",
+   "en": "OK",
+   "box": [
+    17,
+    16,
+    44,
+    30
+   ],
+   "size": 13,
+   "align": "center",
+   "fill": [
+    0,
+    204,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    30,
+    60,
+    255
+   ]
+  },
+  {
+   "id": "main_theme",
+   "jp": "メインテーマ曲",
+   "en": "Main Theme",
+   "box": [
+    81,
+    16,
+    151,
+    28
+   ]
+  },
+  {
+   "id": "upgrade_level",
+   "jp": "改造段階",
+   "en": "Upgrades",
+   "box": [
+    153,
+    16,
+    193,
+    28
+   ]
+  },
+  {
+   "id": "ranking",
+   "jp": "ランキング",
+   "en": "Ranking",
+   "box": [
+    195,
+    16,
+    240,
+    28
+   ]
+  }
+ ]
+}

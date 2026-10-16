@@ -1,0 +1,22 @@
+{
+ "texture": "tacsys_14",
+ "source": "tacsys.cpk — 256x32 INDEX8; BATTLE RESULT banner, katakana sub-caption",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "sub_caption",
+   "jp": "戦闘結果",
+   "en": "",
+   "box": [
+    0,
+    17,
+    50,
+    31
+   ],
+   "note": "erased — repeats BATTLE RESULT"
+  }
+ ]
+}

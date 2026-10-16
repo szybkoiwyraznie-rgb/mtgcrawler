@@ -1,0 +1,204 @@
+{
+ "texture": "tacsys_15",
+ "source": "tacsys.cpk — 128x64 INDEX8; in-battle reply banners (hexagonal, vertical gradients) + the 包 badge",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "counter",
+   "jp": "反撃",
+   "en": "Counter",
+   "box": [
+    36,
+    4,
+    78,
+    18
+   ],
+   "clear": [
+    35,
+    1,
+    79,
+    19
+   ],
+   "clear_opaque_only": true,
+   "bg_from_column": 40,
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    0,
+    255
+   ],
+   "outline": [
+    74,
+    13,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "attack",
+   "jp": "攻撃",
+   "en": "Attack",
+   "box": [
+    86,
+    4,
+    125,
+    18
+   ],
+   "clear": [
+    84,
+    1,
+    128,
+    19
+   ],
+   "clear_opaque_only": true,
+   "bg_from_column": 87,
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    0,
+    255
+   ],
+   "outline": [
+    74,
+    13,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "defend",
+   "jp": "防御",
+   "en": "Defend",
+   "box": [
+    86,
+    24,
+    125,
+    38
+   ],
+   "clear": [
+    84,
+    21,
+    128,
+    39
+   ],
+   "clear_opaque_only": true,
+   "bg_from_column": 87,
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    8,
+    60,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "critical",
+   "jp": "クリティカル",
+   "en": "Critical",
+   "box": [
+    27,
+    44,
+    78,
+    58
+   ],
+   "clear": [
+    24,
+    41,
+    80,
+    59
+   ],
+   "clear_opaque_only": true,
+   "bg_from_column": 26,
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    0,
+    255
+   ],
+   "outline": [
+    74,
+    13,
+    0,
+    255
+   ]
+  },
+  {
+   "id": "evade",
+   "jp": "回避",
+   "en": "Evade",
+   "box": [
+    86,
+    44,
+    125,
+    58
+   ],
+   "clear": [
+    84,
+    41,
+    128,
+    59
+   ],
+   "clear_opaque_only": true,
+   "bg_from_column": 87,
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    19,
+    59,
+    255
+   ]
+  },
+  {
+   "id": "surround_badge",
+   "jp": "包",
+   "en": "SR",
+   "box": [
+    7,
+    19,
+    18,
+    30
+   ],
+   "note": "yellow map-pin badge: 包囲 = Surround",
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    72,
+    45,
+    0,
+    255
+   ],
+   "bg": [
+    254,
+    174,
+    0,
+    255
+   ],
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  }
+ ]
+}

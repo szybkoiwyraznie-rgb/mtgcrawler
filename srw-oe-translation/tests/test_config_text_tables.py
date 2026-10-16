@@ -139,12 +139,40 @@ class ExtractMemberTest(unittest.TestCase):
         self.assertTrue(rows[2]["pool"])
         self.assertEqual(rows[2]["strings"][0]["text"], "%s2")
 
+    def test_item_records_plus_tail_pool_with_its_pointer_table(self):
+        # the game's layout (measured on all five pools 2026-10-14): the tail starts with a u32
+        # table of absolute string offsets - one row per pointer, the string's own offset as
+        # record_offset, and a string with the game's 0x0F kana tokens shown as %s, not dropped
+        import item_skill_records as ISR
+        rec0 = b"\x10\x27\x00\x00" + b"\x00" * 46 + "改造制限解除".encode("cp932")
+        head = table_b([rec0])
+        tail_at = struct.unpack_from("<I", head, 0)[0]
+        raws = ["%s2".encode("cp932"), "防御時､".encode("cp932") + b"\x0f*\xd2\xb0\x0f&-",
+                b"% \x0f"]
+        blob = head + ISR.build_tail_pool(tail_at, raws)
+        out = CT.extract_member("c.EDAT", "srwDL_Item00.bin", blob, "item")
+        pool = [r for r in out["rows"] if r.get("pool")]
+        self.assertEqual([(r["record_offset"], r["strings"][0]["text"]) for r in pool],
+                         [(tail_at + 12, "%s2"), (tail_at + 16, "防御時､%s*ﾒｰ%s&-"),
+                          (tail_at + 16 + len(raws[1]) + 1, "% %s")])
+        self.assertEqual([r["pool_index"] for r in pool], [0, 1, 2])
+        self.assertEqual(pool[1]["strings"][0]["bytes"], len(raws[1]))
+        self.assertEqual(out["stats"]["strings"], 4)
+
+    def test_pool_text_keeps_tokenised_fragments_and_drops_token_only_runs(self):
+        self.assertEqual(CT.pool_text("気力".encode("cp932")), ("気力", True))
+        self.assertEqual(CT.pool_text(b"\x0f*\xd2\xb0\x0f&"), ("%s*ﾒｰ%s&", True))
+        self.assertEqual(CT.pool_text(b"\x0f*\x0f&"), (None, False))
+        self.assertEqual(CT.pool_text(b"\x82\xc5\x0f"), ("で%s", True))
+        self.assertEqual(CT.pool_text(b"\x0f"), (None, False))
+
     def test_pool_member_convention_c(self):
-        blob = table_c(["対地".encode("cp932"), "攻撃､命中上昇".encode("cp932")])
+        blob = table_c(["対地".encode("cp932"), "攻撃､命中上昇".encode("cp932"),
+                        b"CT\x0f*\xd2\xb0\x0f&+"])
         out = CT.extract_member("c.EDAT", "srwDL_Skill01.bin", blob, "skill")
         self.assertEqual(out["stats"]["convention"], "C")
         self.assertEqual([r["strings"][0]["text"] for r in out["rows"]],
-                         ["対地", "攻撃､命中上昇"])
+                         ["対地", "攻撃､命中上昇", "CT%s*ﾒｰ%s&+"])
 
     def test_empty_member_is_not_an_error(self):
         out = CT.extract_member("c", "srwDL_Item09.bin", b"\x00\x00\x00\x00", "item")
@@ -155,6 +183,84 @@ class ExtractMemberTest(unittest.TestCase):
     def test_unrecognised_table_is_an_error(self):
         out = CT.extract_member("c", "srwDL_Item99.bin", b"\x01" * 64, "item")
         self.assertEqual(out["stats"]["error"], "table not recognised")
+
+
+def shop_record(label: bytes, price: int) -> bytes:
+    """Convention-A shop record (family: 2 pointers at +0): pointers, a u32 price, the strings."""
+    head = 12
+    ptr0 = head
+    ptr1 = head + len(label) + 1
+    return (struct.pack("<2I", ptr0, ptr1) + struct.pack("<I", price)
+            + label + b"\x00" + b"\x00")
+
+
+class LayoutCheckTest(unittest.TestCase):
+    """Runs are judged against the member's own pointer / boundary tables."""
+
+    def test_a_price_that_decodes_is_an_orphan_and_the_label_is_kept(self):
+        # u32 30000 = 30 75 00 00 -> the run "0u" that used to become a shop row
+        blob = table_a([shop_record("武器屋".encode("cp932"), 30000)])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        strings = out["rows"][0]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in strings],
+                         [("0u", True), ("武器屋", False)])
+        self.assertTrue(out["stats"]["layout_checked"])
+        self.assertEqual((out["stats"]["orphans"], out["stats"]["snapped"]), (1, 0))
+
+    def test_a_run_with_a_prefix_byte_is_snapped_to_the_pointer_target(self):
+        # the byte before the string is a count field that happens to be printable ("!")
+        label = "チョバムアーマーSR".encode("cp932")
+        rec = struct.pack("<2I", 12, 12 + len(label) + 1) + b"\x00\x00\x00" + b"!" + label + b"\x00\x00"
+        blob = table_a([rec])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        strings = out["rows"][0]["strings"]
+        self.assertEqual(len(strings), 1)
+        self.assertEqual(strings[0]["text"], "チョバムアーマーSR")
+        self.assertTrue(strings[0]["snapped"])
+        self.assertEqual(strings[0]["rel"], 12)
+        self.assertEqual(strings[0]["bytes"], len(label))
+
+    def test_a_control_prefixed_heading_is_recovered_by_snapping(self):
+        # reference headings start with formatting bytes 02 05 that the control filter rejects
+        heading = "解説書：戦術".encode("cp932")
+        rec = struct.pack("<2I", 10, 10 + len(heading) + 1) + b"\x02\x05" + heading + b"\x00\x00"
+        blob = table_a([rec])
+        out = CT.extract_member("config00.cpk", "srwDL_Shop00.bin", blob, "shop")
+        self.assertEqual([s["text"] for s in out["rows"][0]["strings"]], ["解説書：戦術"])
+
+    def test_members_without_a_measured_layout_keep_every_run(self):
+        rec = b"\x00" * 8 + b"0u\x00\x00" + "気合".encode("cp932") + b"\x00"
+        blob = table_b([rec])
+        out = CT.extract_member("configst.cpk", "srwDL_Spirit.bin", blob, "spirit")
+        self.assertFalse(out["stats"]["layout_checked"])
+        self.assertEqual([s["text"] for s in out["rows"][0]["strings"]], ["0u", "気合"])
+        self.assertFalse(any(s.get("orphan") for s in out["rows"][0]["strings"]))
+
+    def test_item_record_fields_are_judged_but_the_tail_pool_is_not(self):
+        import item_skill_records as ISR
+        fields = ["改造制限解除", "", "改造の上限を解除する", "", ""]
+        body = b""
+        bounds = []
+        pos = ISR.STRING_BASE
+        for text in fields:
+            bounds.append(pos)
+            raw = text.encode("cp932") + b"\x00"
+            body += raw
+            pos += len(raw)
+        bounds.append(pos)
+        header = bytearray(ISR.STRING_BASE)
+        struct.pack_into("<3H", header, 0, 10000, 10000, 10000)
+        struct.pack_into("<H", header, 24, 20000)            # price 20 4E -> " N"
+        struct.pack_into("<6H", header, ISR.BOUNDARY_TABLE, *bounds)
+        rec = bytes(header) + body
+        blob = table_b([rec], tail=b"0u\x00" + "%s2".encode("cp932") + b"\x00")
+        out = CT.extract_member("config00.cpk", "srwDL_Item00.bin", blob, "item")
+        rec_strings = out["rows"][0]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in rec_strings],
+                         [(" N", True), ("改造制限解除", False), ("改造の上限を解除する", False)])
+        pool_strings = out["rows"][1]["strings"]
+        self.assertEqual([(s["text"], bool(s.get("orphan"))) for s in pool_strings],
+                         [("0u", False), ("%s2", False)])
 
 
 class UniqueStringsTest(unittest.TestCase):

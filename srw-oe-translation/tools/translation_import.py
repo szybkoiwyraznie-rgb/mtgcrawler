@@ -106,9 +106,14 @@ def restore_trailing_breaks(text: str, jp: str) -> str:
     translator fixes the view.
     """
     tail = jp[len(jp.rstrip("\r\n")):]
-    breaks = tail.count("\n")
-    if breaks and jp.count("\n") - text.count("\n") == breaks:
-        return text + "\n" * breaks
+    if not tail:
+        return text
+    body = text.rstrip("\r\n")
+    # the translator may have typed the tail in full, in part (``⏎`` on its own line, without
+    # the empty line that follows it in the view) or not at all - whatever was typed, the game
+    # gets exactly the Japanese tail, as long as every *inner* break of the text is there
+    if jp.rstrip("\r\n").count("\n") == body.count("\n"):
+        return body + tail
     return text
 
 
@@ -286,9 +291,12 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
             if kind == "table":
                 element = resolve_table(plan.get(table, []), group, token)
                 expected = (element[0].get("jp") if element else "") or ""
-                view_jp = content["jp"]
+                # the view shows the first line of the Japanese with the invisible characters as
+                # markers (``<0x0F>``, ``⏎`` - table_view.render_markers) and an editor may drop
+                # a trailing space, so the comparison happens on the game's bytes, right-trimmed
+                view_jp = restore_markers(content["jp"]).rstrip(" ")
                 if element is not None and view_jp and \
-                        view_jp != restore_markers(expected).split("\n")[0]:
+                        view_jp != expected.split("\n")[0].rstrip(" "):
                     element = None           # the view was rendered from other package rows
             else:
                 single = resolve(lookup, group, token)
@@ -301,6 +309,12 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
                     f"{name}:{group}:{token} ({content['blocks'] + 1} linii EN — liczy się ostatnia, "
                     f"pusta: usuń nadmiarową)")
             english = restore_trailing_breaks(content["en"], element[0].get("jp") or "")
+            # a translator who keeps every placeholder copies the kana tokens too
+            # (``%s*%s&Damage`` for ``%s*ﾒｰ%s&``); the sidecar says which %s are kana tokens
+            # and they leave the English here, with the glyph byte after them (never a bare %s)
+            pct = next((token_map[row["id"]] for row in element if row.get("id") in token_map),
+                       None)
+            english = TC.strip_kana_tokens(english, element[0].get("jp") or "", pct)
             if all((row.get("en") or "") == english for row in element):
                 report["unchanged"] += 1
                 continue

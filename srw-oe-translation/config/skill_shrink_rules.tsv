@@ -1,0 +1,229 @@
+# skill_shrink rules: kind<TAB>from<TAB>to  (kind: name | phrase | exact); "\n" = line break
+# Names: base skill names (name, "X LvN" -> "Y LN", pool fragments, <X> headers). Keep <= 12 bytes.
+name	Absolute Defense Territory	Abs. Defense
+name	Radiant Wave Barrier	Rad. Barrier
+name	Ace: Fighting Spirit	Ace: Fight
+name	Draw Support Defense	Draw Defense
+name	Assault Breakthrough	Assault Break
+name	Cocoa's Calculation	Cocoa's Calc
+name	Twin Merit Coating	Twin Coating
+name	Shin Getter Vision	Shin G-Vision
+name	Potential: Uncanny	Prevail: Unc.
+name	Curse of the Geass	Geass Curse
+name	Coordinated Attack	Coord. Atk
+name	Combination Attack	Combo Attack
+name	Chain Breakthrough	Chain Break
+name	Emergency Evasion	Emerg. Evade
+name	Anti-Laser Shield	Laser Shield
+name	Push Breakthrough	Push Break
+name	Yaman Descendant	Yaman Heir
+name	Fighter's Spirit	Fight Spirit
+name	Precision Attack	Precise Atk
+name	Perfect Survivor	P. Survivor
+name	Command: Def/Eva	Cmd: Def/Eva
+name	Command: Def/Acc	Cmd: Def/Acc
+name	Command: Atk/Def	Cmd: Atk/Def
+name	Command: Atk/Eva	Cmd: Atk/Eva
+name	Command: Atk/Acc	Cmd: Atk/Acc
+name	Command: Acc/Eva	Cmd: Acc/Eva
+name	Pinpoint Barrier	PP Barrier
+name	B-System Release	B-System Off
+name	Potential: Crit	Prevail: Crit
+name	V-MAX Red Power	V-MAX Red
+name	Organoid Fusion	Org. Fusion
+name	Transform/Purge	Trans./Purge
+name	Ace: Experience	Ace: EXP
+name	Push MAP Attack	Push MAP Atk
+name	Psychic Barrier	Psy. Barrier
+name	Shield Defense	Shield Def.
+name	Argama's Blood	Argama Blood
+name	Police Officer	Police
+name	Meikyou-Shisui	Clear Mind
+name	Potential: Def	Prevail: Def
+name	Potential: Atk	Prevail: Atk
+name	Potential: Eva	Prevail: Eva
+name	Barrier Pierce	Barr. Pierce
+name	Ace: Quickness	Ace: Quick
+name	Cyber-Newtype	Cyber-NT
+name	Artificial PS	Artif. PS
+name	Passive Sonar	Pass. Sonar
+name	Indirect Fire	Arc Shot
+name	Ace: Recovery	Ace: Regen
+name	Ace: Vitality	Ace: Stamina
+name	Double Action	Double Hit
+name	Triple Action	Triple Hit
+name	Potential	Prevail
+name	Breakthrough	Break
+name	Throw/Strong	Throw/Str.
+name	Fixed Object	Fixed Obj.
+# Phrases: literal substrings, applied in this order to every non-name English.
+phrase	Recovery	Regen
+phrase	Damage-	Dmg-
+phrase	damage	dmg
+phrase	Damage	Dmg
+phrase	Breakthrough	Break
+phrase	squares	sq.
+phrase	square	sq.
+phrase	negated	void
+phrase	Negates	Voids
+phrase	Negate	Void
+phrase	negates	voids
+phrase	turn(s)	turn
+phrase	When defending, 	On defense, 
+phrase	when defending	on defense
+phrase	When defending	On defense
+phrase	When triggered, 	On trigger, 
+phrase	When attacking, 	On attack, 
+phrase	When attacking	On attack
+phrase	flinging the enemy	flinging enemy
+phrase	Attacks always hit	Always hits
+phrase	enemies within	enemies in
+phrase	Unit vanishes after self-destructing	Unit lost after use
+phrase	Unit vanishes after detonation	Unit lost after use
+phrase	Shown Atk is the group's combined total	Shown Atk = group total
+phrase	Potential	Prevail
+phrase	Coordinated Attack	Coord. Atk
+phrase	Combination Attack	Combo Attack
+phrase	Emergency Evasion	Emerg. Evade
+phrase	Absolute Defense Territory	Abs. Defense
+phrase	Radiant Wave Barrier	Rad. Barrier
+phrase	Precision Attack	Precise Atk
+phrase	Pinpoint Barrier	PP Barrier
+phrase	Cannot be used for Support Attack	No Support Attack
+phrase	Support Attack	Sup. Attack
+phrase	Support Defend	Sup. Defend
+phrase	Support Defense	Sup. Defense
+# Tier 2 (2026-10-15): unit-class terms, Crit/Surround without "Rate", foe, cut, shorter clauses.
+name	Mothership	Carrier
+name	Battleship	Ship
+phrase	Mothership	Carrier
+phrase	Battleship	Ship
+phrase	Crit Rate	Crit
+phrase	Surround Rate	Surround
+phrase	enemies	foes
+phrase	enemy	foe
+phrase	Enemy	Foe
+phrase	reduced	cut
+phrase	Reduces	Cuts
+phrase	reduces	cuts
+phrase	Void Counter	No Counter
+phrase	Voids foe surround effects	Voids foe Surround
+phrase	Voids surround effects	Voids Surround
+phrase	Can fuse with an Organoid	Can fuse with Organoid
+phrase	Move+1 when moving in the air	Move+1 in the air
+phrase	Move+1 when moving on ground	Move+1 on ground
+phrase	(Also applies if this unit fought)	(Also for own battles)
+phrase	Bomb units cannot be targeted by foes	Bomb units can't be targeted
+phrase	 sq., flinging foe toward self	 sq. toss toward self
+phrase	 sq., flinging foe	 sq. toss
+phrase	Attacks all foes in %s, carries them along	Hits all foes in %s, dragging them
+phrase	After moving, pushes foes 3 more %s	Then pushes foes 3 more %s
+phrase	Attacks all foes in %s, pushes them and moves	Hits all foes in %s, pushing them
+phrase	Fixed %s equal to %s to foes in %s	Fixed %s = %s to foes in %s
+phrase	When HP is low, in battle, a chance of	At low HP, chance in battle of
+phrase	Can clear mines by entering the minefield's %s	Clears mines on entering their %s
+phrase	If a unit able to Sup. Defend is within %s4,\nthat unit can be chosen to Sup. Defend	A unit in %s4 able to Sup. Defend\ncan be picked for it
+phrase	Fully restores HP/EN	Full HP/EN
+phrase	when triggered	on trigger
+phrase	When hit, 	On hit, 
+phrase	When used, 	On use, 
+phrase	When %s condition met:	If %s cond. met:
+phrase	Starting 	Start 
+phrase	after battle, 	post-battle 
+phrase	after battle	post-battle
+phrase	activates Hyper Mode	Hyper Mode on
+phrase	All base stats	All stats
+exact	Can sortie in a %s4 with specific units\nCan swap with another unit in the group\nOnly effective in specific missions	Can sortie in a %s4 with set units\nCan swap with another group unit\nSet missions only
+# Tier 3 (2026-10-15): margin under the budget.
+phrase	On defense, 	Defending: 
+phrase	voids special defenses	voids special Def
+phrase	no Support/Counter	no Sup./Counter
+phrase	｣ targets, 	｣: 
+exact	Nullifies Support Def; Crit rate, Crit dmg up	Voids Sup. Def; Crit/Crit dmg Up
+exact	In battle, on trigger, fully evades foe attack	On trigger, fully evades foe attack
+exact	Sets minimum %s dealt to a ratio of %s	Min %s dealt = ratio of %s
+exact	%sAtk/Acc Up\n%s\nThe higher the foe's Acc, the higher %s	%sAtk/Acc Up\n%s\nHigher foe Acc = higher %s
+phrase	sq.(s)	sq.
+# Tier 4 (2026-10-15, test Y): the 720 fragments shared by Skill00's tail pool and the eight
+# DLC pools srwDL_Skill01-08.bin must not outgrow the original pools (15 638 B each) - the
+# DLC chapters crashed at Loading with them at 17 396 B. Same style as tiers 1-3.
+phrase	within range	in range
+phrase	Within range	In range
+phrase	fully restores HP/EN	full HP/EN
+phrase	When using weapons, 	On weapon use: 
+phrase	Crit rate dmg	Crit dmg
+phrase	Attacks all foes in range	Hits all foes in range
+phrase	Unit vanishes after using weapon	Unit lost after use
+phrase	Unit vanishes	Unit lost
+phrase	 when moving in the air	 in the air
+phrase	 when moving on ground	 on ground
+phrase	recovers each turn	Regen each turn
+phrase	recover each turn	Regen each turn
+phrase	Minimum hit chance	Min. hit chance
+phrase	minimum hit chance	min. hit chance
+phrase	cannot be used for Sup. Attack	no Sup. Attack
+phrase	Same as Transform; enters System Released state	Like Transform; System Released
+phrase	Same as Transform; enters System Active state	Like Transform; System Active
+phrase	At turn start, 	Turn start: 
+exact	The higher the foe's Acc, the higher the activation rate	Higher foe Acc = higher activation
+exact	Hit Rate Taken in consecutive battles +	Consec. battle Hit Taken+
+exact	Cannot be used for Support or Counter	No use in Support/Counter
+exact	Can clear mines by entering the minefield	Enter minefield to clear mines
+exact	Can move with remaining Move after attacking	Can still move after attacking
+exact	Hits all foes in range, pushes them and moves	Hits all foes in range, pushing them
+exact	Hits all foes in range, carrying them along	Hits all foes in range, dragging them
+exact	Hits all foes in range and moves	Hits all foes in range, moves
+exact	Can stack with same unit; Sup. Attack within stack	Stacks w/ same unit; Sup. Atk in stack
+exact	Receives no counterattack	No counterattack
+exact	Can transform into another form	Can transform
+exact	Can change into another form	Can change form
+exact	Can change into a specific unit	Changes into a set unit
+exact	Can switch with another unit within	Can swap with a unit inside
+exact	Restores HP/EN of carried units 	Carried units recover HP/EN 
+exact	flings the foe toward self	tosses foe toward self
+exact	After battle, spends SP to recover HP/EN	Post-battle, spends SP for HP/EN
+exact	After battle, attacking ally's Will+	Post-battle, attacker's Will+
+exact	After battle, attacking ally's Will Up	Post-battle, attacker's Will Up
+exact	that unit can be chosen to Sup. Defend	it can be picked to Sup. Defend
+exact	Weapon that requires specific units	Weapon needing set units
+exact	Effective only in certain missions	Set missions only
+exact	HP shows the total of all stacked units	HP = total of stacked units
+exact	HP multiplied by number of stacked units	HP x number of stacked units
+exact	Can carry and launch allied units	Can carry/launch allies
+exact	Can house and launch allied units	Can house/launch allies
+exact	Can move ignoring terrain and units	Moves through terrain/units
+exact	Consumes a set amount of EN	Uses a set amount of EN
+exact	Kotaro, Yosuke and Rikiya's Will	Kotaro/Yosuke/Rikiya's Will
+exact	Kenichi, Kinta and Yoji's Will	Kenichi/Kinta/Yoji's Will
+exact	Momotaro and Hiryu's Will	Momotaro/Hiryu's Will
+exact	Voids foe Sup. Defense; allied Sup. Attack disabled	Voids foe Sup. Def.; allied Sup. Atk off
+exact	Changes minimum hit chance	Changes min. hit chance
+exact	Uses EN each turn; HP Regen post-battle	EN cost each turn; HP Regen post-battle
+exact	Voids foe special defenses	Voids foe special Def
+exact	% Voids special defenses	% Voids special Def
+exact	Trigger hint: Lamuness, Da Cider	Hint: Lamuness, Da Cider
+exact	Each turn, units aboard and 	Each turn, units aboard & 
+exact	turn, raises Def of allies in range	turn, allies in range Def Up
+# Tier 4b: the pools were still 153 B over after tier 4a; "Sup. Def." and "Trigger" were
+# already the majority spelling in the package, so they become the only one here.
+phrase	Sup. Defense	Sup. Def.
+phrase	Sup. Attack	Sup. Atk
+phrase	Activation	Trigger
+phrase	After battle, 	Post-battle 
+phrase	unit(s) 	units 
+phrase	Crit rate, Crit dmg	Crit rate/dmg
+phrase	 value Down	 Down
+phrase	Can combine into 	Combines into 
+phrase	certain units	set units
+exact	If a unit able to Sup. Defend is within	If a Sup. Defender is within
+exact	After moving, pushes foes more	Post-move: pushes foes more
+exact	At low HP, chance in battle of	Low HP: chance in battle of
+exact	Nullifies counters, extra dmg	Voids counter, extra dmg
+exact	Can switch with a specific unit	Can swap with a set unit
+exact	Can attack regardless of obstacles	Attacks through obstacles
+exact	When triggered,	On trigger,
+exact	Credits earned Up, Crit Up	Credits Up, Crit Up
+exact	Fully evades foe attack	Fully evades attack
+exact	When Will condition met,	At Will threshold,
+exact	Attacks and pushes all foes in range	Hits and pushes all foes in range
+exact	Total of all units	Sum of all units

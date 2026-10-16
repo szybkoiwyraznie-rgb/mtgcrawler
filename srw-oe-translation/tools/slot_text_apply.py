@@ -40,10 +40,10 @@ def spec_for(kind: str, role: str = "title") -> dict:
     spec = mission_text.SPECS.get(kind)
     if spec is None:
         raise SlotError(f"no measured layout for kind {kind!r}")
-    for offset, name in spec["slots"]:
+    for position, (offset, name, _size) in enumerate(spec["slots"]):
         if name == role:
-            return {"header": spec["header"], "stride": spec["stride"], "slot": offset,
-                    "role": role, "next_slots": [o for o, _ in spec["slots"] if o > offset]}
+            return {"kind": kind, "header": spec["header"], "stride": spec["stride"],
+                    "slot": offset, "role": role, "position": position}
     raise SlotError(f"kind {kind!r} has no slot {role!r}")
 
 
@@ -53,11 +53,12 @@ def records(blob: bytes, spec: dict) -> int:
 
 
 def slot_span(blob: bytes, spec: dict, index: int) -> Tuple[int, int]:
-    """(start, end) of the room a slot has: to the next slot or the end of its record."""
+    """(start, end) of the room a slot has: its measured size (``mission_text.SPECS``)."""
     stride = spec["stride"] or len(blob)
     base = spec["header"] + index * stride
-    end = base + (min(spec["next_slots"]) if spec["next_slots"] else stride)
-    return base + spec["slot"], end
+    start = base + spec["slot"]
+    size = mission_text.slot_span(mission_text.SPECS[spec["kind"]], spec["position"], stride)
+    return start, min(start + size, base + stride)
 
 
 def read_slot(blob: bytes, spec: dict, index: int) -> str:

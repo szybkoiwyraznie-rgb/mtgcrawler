@@ -1,30 +1,23 @@
 #!/usr/bin/env python3
-"""Shift-based (grow/shrink) translation of sysmes strings + integrity check.
+"""DEPRECATED shim - the shift model this module implemented was wrong.
 
-Unlike equal-length mode, this MOVES the pool: each edited string is replaced by a
-different-length one, everything after it shifts by ``delta``, and every offset word
-in the table that pointed at or after the edit is rewritten (strictly-greater; the
-edited string's own pointer keeps its position). Strings that contain a shared tail
-(another table entry pointing inside their slot) are skipped, since moving them would
-break the tail.
-
-Integrity check (no boot needed): the multiset of all decoded strings before and after
-must differ ONLY by the edited strings (old removed, English added). Any other change
-means corruption.
+It treated the sysmes table as absolute pointers into a pool starting at 0x2500 and
+shifted only the words "after" an edit.  The measured layout (2026-10-14, see
+:mod:`sysmes_pack`) is a table of offsets RELATIVE to ``0x10 + count*8 - 4`` with one
+entry per sequential string, so the old ``_grow`` left every pointer inside a
+0x24fc-byte window stale - exactly the "labels off by one slot" seen in the three
+title-screen boots.  Everything here now delegates to :func:`sysmes_pack.translate`,
+which rewrites the whole table consistently.
 """
 from __future__ import annotations
 
-import struct
 import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-import configst_pack  # noqa: E402
-import cpk_write  # noqa: E402
-import extract_structured as es  # noqa: E402
-from sysmes_pack import POOL_MIN, string_starts, _pad4  # noqa: E402
+import sysmes_pack as SP  # noqa: E402
 
 SHIFT_EDITS = {
     "ライブラリー": "LIBRARY",
@@ -34,87 +27,29 @@ SHIFT_EDITS = {
 }
 
 
-def _pointers(sm):
-    return {struct.unpack_from("<I", sm, p)[0]
-            for p in range(0, POOL_MIN, 4)
-            if POOL_MIN <= struct.unpack_from("<I", sm, p)[0] < len(sm)}
+def shift_translate(sm: bytes, edits):
+    new, report = SP.translate(sm, edits)
+    lines = [(k, f"replaced ({report['replaced_entries']} entries in total)")
+             for k in edits if k not in report["unmatched"]]
+    lines += [(k, "not a whole pool string") for k in report["unmatched"]]
+    return new, lines
 
 
-def _has_tail(sm, off, nxt, pointers):
-    return any(off < p < nxt for p in pointers)
-
-
-def _grow(sm, off, new_text):
-    starts = string_starts(sm)
-    nxt = next((s for s in starts if s > off), len(sm))
-    old_len = len(sm)
-    nb = _pad4(new_text.encode("cp932") + b"\x00")
-    delta = len(nb) - (nxt - off)
-    new = bytearray(sm[:off] + nb + sm[nxt:])
-    for pos in range(0, POOL_MIN, 4):
-        v = struct.unpack_from("<I", new, pos)[0]
-        if POOL_MIN <= v < old_len and v > off:
-            struct.pack_into("<I", new, pos, v + delta)
-    struct.pack_into("<I", new, 4, len(new))
-    return bytes(new)
-
-
-def shift_translate(sm, edits):
-    pointers = _pointers(sm)
-    report = []
-    for old, new in edits.items():
-        while True:
-            hits = [a for a, t in es.scan_runs(sm, 1, 2)
-                    if t == old and a >= POOL_MIN]
-            hits = [a for a in hits if not _has_tail(
-                sm, a, next((s for s in string_starts(sm) if s > a), len(sm)), pointers)]
-            if not hits:
-                break
-            sm = _grow(sm, hits[0], new)
-            report.append((old, f"grew @{hits[0]:#x}"))
-    return sm, report
-
-
-def texts_multiset(sm):
-    out = {}
-    for a, t in es.scan_runs(sm, 2, 4):  # real strings only (>=2 wide chars)
-        out[t] = out.get(t, 0) + 1
-    return out
-
-
-def verify(orig, new, edits):
-    a, b = texts_multiset(orig), texts_multiset(new)
-    diff = {k: b.get(k, 0) - a.get(k, 0) for k in set(a) | set(b)}
-    diff = {k: v for k, v in diff.items() if v}
-    # English output is ASCII (0 wide chars) and thus invisible to the multiset;
-    # the check's job is only to prove no NON-edited JP string changed.
-    for old, newt in edits.items():
-        diff.pop(old, None); diff.pop(newt, None)
-    for k, v in diff.items():
-        print(f"  UNEXPECTED delta: {k!r} {v}")
-    return not diff
-
-
-def main():
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/c.cpk")
-    dst = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("/tmp/configst_shift.cpk")
-    cpk = cpk_write.load(src)
-    parsed = configst_pack.parse_pac(cpk.members[0].blob)
-    orig = None
-    for s in parsed["subs"]:
-        if s["name"] == "sysmes.bin":
-            orig = s["data"]
-            s["data"], report = shift_translate(s["data"], SHIFT_EDITS)
-    for old, msg in report:
-        print(f"  {old!r}: {msg}")
-    print("integrity ok:", verify(orig, [s for s in parsed["subs"]
-          if s["name"] == "sysmes.bin"][0]["data"], SHIFT_EDITS))
-    new_pac = configst_pack.rebuild_pac(parsed)
-    cpk_write.rebuild(cpk, replacement=("configst.pac", new_pac)) and None
-    out = cpk_write.rebuild(cpk, replacement=("configst.pac", new_pac))
-    dst.write_bytes(out)
-    print("patched ->", dst)
+def verify(original: bytes, new: bytes, edits) -> bool:
+    """True when the only differences are the requested edits (table + pool consistent)."""
+    wanted = {k.encode("cp932"): v.encode("cp932") for k, v in edits.items()}
+    return not SP.verify(original, new, wanted)
 
 
 if __name__ == "__main__":
-    main()
+    import configst_pack
+    import cpk_write
+
+    src = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("google_drive/configst.cpk")
+    dst = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("/tmp/configst_shift.cpk")
+    SP.rebuild_cpk(src, dst, SHIFT_EDITS)
+    cpk = cpk_write.load(dst)
+    pac = configst_pack.parse_pac(cpk.members[0].blob)
+    sm = [s for s in pac["subs"] if s["name"] == "sysmes.bin"][0]["data"]
+    for line in SP.dump_entries(sm, sorted(SP.TITLE_ENTRIES)):
+        print("  ", line)

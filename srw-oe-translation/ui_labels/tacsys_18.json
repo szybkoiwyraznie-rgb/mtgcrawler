@@ -1,0 +1,52 @@
+{
+ "texture": "tacsys_18",
+ "source": "tacsys.cpk — 256x32 INDEX8; GAME OVER banner, katakana sub-caption, and the ! 不可 badge",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 11,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "sub_caption",
+   "jp": "ゲームオーバー",
+   "en": "",
+   "box": [
+    40,
+    20,
+    128,
+    32
+   ],
+   "note": "erased — repeats GAME OVER; from y=20 so the banner shadow at y=18-19 stays"
+  },
+  {
+   "id": "not_possible",
+   "jp": "不可",
+   "en": "N/A",
+   "box": [
+    229,
+    5,
+    254,
+    19
+   ],
+   "bg": [
+    0,
+    0,
+    0,
+    136
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    239,
+    0,
+    255
+   ],
+   "outline": [
+    60,
+    56,
+    0,
+    255
+   ]
+  }
+ ]
+}

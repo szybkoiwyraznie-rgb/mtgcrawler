@@ -11,14 +11,14 @@ per kind reads them all.
 
 Measured layouts 2026-10-12 [ZWERYFIKOWANE] (config00/config01 plus the 224 ``*_ext.dat`` members):
 
-| kind | file | header | stride | slots (role) | records (config00) |
+| kind | file | header | stride | slots (role, size) | records (config00) |
 |---|---|---|---|---|---|
-| ``mission_note`` | ``*_ext.dat`` (event containers) | 0 | whole file | +24 note_a, +184 note_b, +344 title | 1 per file (388 B; 2 files 348 B) |
-| ``mission_title`` | ``milstP<NN>.bin`` | 0 | 128 | +10 title | 15 |
-| ``bgm_title`` | ``bgmlist<NN>.bin`` | 0 | 192 | +20 title, +84 narrow title, +144 series | 164 |
-| ``map_name`` | ``srwDL_Map_S.bin`` | 16 | 160 | +0 name | 20 |
-| ``bg_name`` | ``bg2dlist.bin`` | 4 (count in word 0) | 112 | +0 name | 73 |
-| ``group_name`` | ``groupunit<NN>.bin`` | 0 | 100 | +0 name | 16 |
+| ``mission_note`` | ``*_ext.dat`` (event containers) | 0 | whole file | +24 note_a 160, +184 note_b 160, +344 title 40 | 1 per file (388 B; 2 files 348 B) |
+| ``mission_title`` | ``milstP<NN>.bin`` | 0 | 128 | +10 title 40 | 15 |
+| ``bgm_title`` | ``bgmlist<NN>.bin`` | 0 | 192 | +20 title 64, +84 narrow title 60, +144 series 48 | 164 |
+| ``map_name`` | ``srwDL_Map_S.bin`` | 16 | 160 | +0 name 32 | 20 |
+| ``bg_name`` | ``bg2dlist.bin`` | 4 (count in word 0) | 112 | +0 name 24 | 73 |
+| ``group_name`` | ``groupunit<NN>.bin`` | 0 | 100 | +0 name 32 | 16 |
 
 Evidence for the strides: every clean text run of a file starts at ``header + i*stride + slot`` for
 the slots above (``milstP``: 15 runs all ≡ 10 mod 128; ``bgmlist``: runs at 20/84/144 plus 192-aligned
@@ -27,8 +27,28 @@ repeats; ``bg2dlist``: 8180 = 4 + 73*112; ``srwDL_Map_S``: 3216 = 16 + 20*160; `
 only the name slot is read.  Notes are duplicated in ``*_ext.dat`` slots ``note_a``/``note_b``
 (identical strings), which the export deduplicates.
 
-The tool reports each slot's **span** (bytes from the slot start to the next slot or record end) -
-that is the hard budget for a translation, the same role the slot pairs play for items.
+Slot **sizes** (2026-10-14, config00/config01 + eventP00) [ZWERYFIKOWANE]: the first slot of a
+record is NOT the whole record - binary fields follow the text.  Measured as the first byte
+position that is non-zero in *any* record after the text's NUL: ``srwDL_Map_S`` +36 and seven
+names cut at exactly 32 bytes (five of them in the middle of a double-byte character, so the
+field is 32 wide and the game itself truncated them); ``milstP`` +50 (an ASCII field ``P00``
+follows the title); ``groupunit`` +32; ``bg2dlist`` +28 (set to 24 - a zero-valued 4-byte field
+just before the non-zero one cannot be excluded, and the longest name is 16 bytes).  ``bgmlist``
+and ``*_ext.dat`` showed nothing but zeros between a text and the next slot, so their sizes stay
+the distance to the next slot.  Before this measurement the span of those four kinds reached the
+record end (160/118/100/112): a long translation would have passed the package check and the
+slot writer's "clean padding" test on a record whose binary fields happen to be zero.
+
+``*_ext.dat`` title (2026-10-14, 213 title records over all 96 text containers) [ZWERYFIKOWANE]:
+the record does NOT end with the title - its last four bytes (+384, +386) are two little-endian
+u16 fields (values 1-7 in the DLC chapters, ``03 00 02 00`` ...; zeros only in eventP00), never
+text.  The title slot is therefore 40 bytes (+344..+384), not 44: with 44 the writer refused
+eight 40-43-byte English titles on records whose fields are non-zero ("growth area is not clean
+padding") and would have written a 40-43-byte title over the zero fields of a chapter-1 record.
+
+The tool reports each slot's **span** = that size - the hard budget for a translation, the same
+role the slot pairs play for items.  :func:`slot_size_at` answers the same question for one
+offset, for the writers and the package check.
 
 Game text: the output belongs under the ignored ``local/`` folder.
 
@@ -53,51 +73,92 @@ if str(HERE) not in sys.path:
 import inline_names as IN  # noqa: E402
 import speaker_map as SM  # noqa: E402
 
-# kind -> (member prefix, container family, header, stride, slots(offset, role))
+# kind -> (member prefix, container family, header, stride, slots(offset, role, size))
+# size None = up to the next slot or the record end (measured: nothing but zeros in between)
 SPECS: Dict[str, dict] = {
     "mission_note": {
         "suffix": "_ext.dat",
         "family": "event",
         "header": 0,
         "stride": None,  # one record per file: stride = len(blob)
-        "slots": ((24, "note_a"), (184, "note_b"), (344, "title")),
+        "slots": ((24, "note_a", None), (184, "note_b", None), (344, "title", 40)),  # +384: 2 x u16
     },
     "mission_title": {
         "prefix": "milstP",
         "family": "config",
         "header": 0,
         "stride": 128,
-        "slots": ((10, "title"),),
+        "slots": ((10, "title", 40),),
     },
     "bgm_title": {
         "prefix": "bgmlist",
         "family": "config",
         "header": 0,
         "stride": 192,
-        "slots": ((20, "title"), (84, "title_narrow"), (144, "series")),
+        "slots": ((20, "title", None), (84, "title_narrow", None), (144, "series", None)),
     },
     "map_name": {
         "prefix": "srwDL_Map_S",
         "family": "config",
         "header": 16,
         "stride": 160,
-        "slots": ((0, "name"),),
+        "slots": ((0, "name", 32),),
     },
     "bg_name": {
         "prefix": "bg2dlist",
         "family": "config",
         "header": 4,
         "stride": 112,
-        "slots": ((0, "name"),),
+        "slots": ((0, "name", 24),),
     },
     "group_name": {
         "prefix": "groupunit",
         "family": "config",
         "header": 0,
         "stride": 100,
-        "slots": ((0, "name"),),
+        "slots": ((0, "name", 32),),
     },
 }
+
+
+def slot_span(spec: dict, position: int, stride: int) -> int:
+    """The byte size of slot ``position`` of a record: its measured size, else up to the next slot."""
+    offset, _role, size = spec["slots"][position]
+    if size is not None:
+        return size
+    if position + 1 < len(spec["slots"]):
+        return spec["slots"][position + 1][0] - offset
+    return stride - offset
+
+
+def family_for(member: str) -> str:
+    """``event`` for the ``*_ext.dat`` members of the event containers, else ``config``."""
+    return "event" if member.lower().endswith("_ext.dat") else "config"
+
+
+def slot_size_at(member: str, offset: int, blob_size: Optional[int] = None,
+                 family: Optional[str] = None) -> Optional[int]:
+    """The fixed slot size when ``offset`` is exactly a slot start of a known member, else None.
+
+    ``blob_size`` is needed for the one-record-per-file kinds (``*_ext.dat``), whose stride is
+    the file itself.  Writers and the package check use this as a hard cap on top of whatever a
+    (possibly older) package row says in ``max_bytes``.
+    """
+    kind = kind_for(member, family or family_for(member))
+    if kind is None or offset < 0:
+        return None
+    spec = SPECS[kind]
+    stride = spec["stride"] or blob_size
+    if not stride:
+        return None
+    relative = offset - spec["header"]
+    if relative < 0:
+        return None
+    within = relative % stride
+    for position, (slot_offset, _role, _size) in enumerate(spec["slots"]):
+        if within == slot_offset:
+            return slot_span(spec, position, stride)
+    return None
 
 
 def decode(raw: bytes) -> Tuple[Optional[str], bool]:
@@ -140,12 +201,11 @@ def parse_member(member: str, blob: bytes, kind: str) -> List[dict]:
     for index in range((len(blob) - header) // stride):
         base = header + index * stride
         slots = []
-        for position, (offset, role) in enumerate(spec["slots"]):
+        for position, (offset, role, _size) in enumerate(spec["slots"]):
             start = base + offset
             if start >= len(blob):
                 continue
-            next_offset = spec["slots"][position + 1][0] if position + 1 < len(spec["slots"]) else stride
-            end = min(base + next_offset, len(blob))
+            end = min(start + slot_span(spec, position, stride), len(blob))
             raw = blob[start:end].split(b"\x00")[0]
             text, has_cjk = decode(raw)
             slots.append(

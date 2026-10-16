@@ -77,8 +77,8 @@ def build_local(root: Path) -> None:
     (root / "units").mkdir(parents=True, exist_ok=True)
     (root / "units/units.csv").write_text(
         "container,unit_index,unit_id,base_id,name,name_display,weapon_count,series,model_dir,"
-        "robo_member_index\r\nconfig00.cpk,0,1,1,ライジンオー,ライジンオー,8,絶対無敵ライジンオー,"
-        "r0001,0\r\n", encoding="utf-8")
+        "robo_member_index,name_short\r\nconfig00.cpk,0,1,1,ライジンオー,ライジンオー,8,絶対無敵ライジンオー,"
+        "r0001,0,ﾗｲｼﾞﾝｵｰ\r\n", encoding="utf-8")
     (root / "units/unit_weapons.json").write_text(json.dumps({
         "units": [{"container": "config00.cpk", "unit_id": 1, "weapons": [
             {"name": "ライジンクロー", "name_short": "ﾗｲｼﾞﾝｸﾛｰ", "index": 0}]}],
@@ -168,6 +168,44 @@ class RowTests(unittest.TestCase):
         self.assertEqual(rows[0]["id"], "reference:config00.cpk/srwDL_Reference00.bin:174")
         self.assertEqual(rows[0]["category"], "config_reference")
 
+    def test_pool_rows_grow_and_carry_the_string_offset(self):
+        # every pool (convention-B tail and convention-C DLC) has a u32 pointer table, so its
+        # strings grow like record text; the new export gives each string its own offset
+        # (record_offset), the older one a shared pool start plus a rel per string
+        with tempfile.TemporaryDirectory() as tmp:
+            local = Path(tmp)
+            (local / "text_tables").mkdir()
+            (local / "text_tables" / "skill.jsonl").write_text("\n".join(json.dumps(item, ensure_ascii=False) for item in [
+                {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "kind": "skill",
+                 "record": 3, "record_offset": 500,
+                 "strings": [{"rel": 54, "bytes": 4, "text": "対地", "has_cjk": True}]},
+                {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "kind": "skill",
+                 "record": None, "record_offset": 193328, "pool": True,
+                 "strings": [{"rel": 0, "bytes": 4, "text": "気力", "has_cjk": True},
+                             {"rel": 5, "bytes": 10, "text": "発動すると", "has_cjk": True}]},
+                {"container": "config01.EDAT", "member": "srwDL_Skill01.bin", "kind": "skill",
+                 "record": 0, "record_offset": 2340, "pool": True,
+                 "strings": [{"rel": 0, "bytes": 4, "text": "気力", "has_cjk": True}]},
+            ]) + "\n", encoding="utf-8")
+            rows = TE.config_rows(local)
+        self.assertEqual([(r["mode"], r["max_bytes"]) for r in rows],
+                         [("grow", None), ("grow", None), ("grow", None), ("grow", None)])
+        self.assertEqual([r["id"].rsplit(":", 1)[1] for r in rows], ["554", "193328", "193333", "2340"])
+
+    def test_config_rows_drop_orphan_strings(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            local = Path(tmp)
+            (local / "text_tables").mkdir()
+            (local / "text_tables" / "shop.jsonl").write_text(json.dumps({
+                "container": "config00.cpk", "member": "srwDL_Shop00.bin", "kind": "shop",
+                "record": 0, "record_offset": 732,
+                "strings": [{"rel": 12, "bytes": 2, "text": "0u", "has_cjk": False, "orphan": True},
+                            {"rel": 16, "bytes": 6, "text": "武器屋", "has_cjk": True}],
+            }, ensure_ascii=False) + "\n", encoding="utf-8")
+            rows = TE.config_rows(local)
+        self.assertEqual([(r["id"], r["jp"]) for r in rows],
+                         [("shop:config00.cpk/srwDL_Shop00.bin:748", "武器屋")])
+
     def test_mission_rows_expand_slots(self):
         rows = TE.mission_rows(self.root)
         self.assertEqual(rows[0]["id"], "mission_title:config00.cpk/milstP00.bin:r2:title")
@@ -179,14 +217,30 @@ class RowTests(unittest.TestCase):
         parts = sorted(r["part"] for r in rows)
         self.assertEqual(parts, ["name", "name_full", "name_narrow", "name_short", "nickname",
                                 "series", "voice_actor"])
-        self.assertTrue(all(r["mode"] == "grow" for r in rows))
+        # dictionary strings grow (pool); the charalist cells are fixed 32/44/20-byte slots
+        by_part = {r["part"]: r for r in rows}
+        for part in ("name", "nickname", "series", "voice_actor"):
+            self.assertEqual((by_part[part]["mode"], by_part[part]["max_bytes"]), ("grow", None))
+        self.assertEqual((by_part["name_short"]["mode"], by_part["name_short"]["max_bytes"]), ("slot", 31))
+        self.assertEqual(by_part["name_full"]["max_bytes"], 43)
+        self.assertEqual(by_part["name_narrow"]["max_bytes"], 19)
 
     def test_unit_rows_include_weapons_and_robo_notes(self):
         rows = TE.unit_rows(self.root)
         kinds = sorted({r["category"] for r in rows})
         self.assertEqual(kinds, ["robo_length", "robo_series", "robo_weight", "unit_name",
-                                 "unit_name_display", "unit_series", "weapon_name", "weapon_name_short"])
+                                 "unit_name_display", "unit_name_short", "unit_series",
+                                 "weapon_name", "weapon_name_short"])
         self.assertFalse([r for r in rows if "－－－" in r["jp"]])
+        by_id = {r["id"]: r for r in rows}
+        self.assertEqual(by_id["unit:1:name_short"]["jp"], "ﾗｲｼﾞﾝｵｰ")
+        # fixed cells carry their byte budget (build #8 lesson: the writer refuses longer text)
+        self.assertEqual((by_id["unit:1:name"]["mode"], by_id["unit:1:name"]["max_bytes"]), ("slot", 31))
+        self.assertEqual(by_id["unit:1:name_short"]["max_bytes"], 31)
+        self.assertEqual(by_id["unit:1:name_display"]["max_bytes"], 63)
+        self.assertEqual((by_id["unit:1:series"]["mode"], by_id["unit:1:series"]["max_bytes"]), ("grow", None))
+        self.assertEqual(by_id["weapon:1:0:name"]["max_bytes"], 63)
+        self.assertEqual(by_id["weapon:1:0:name_short"]["max_bytes"], 31)
 
 
 class MainTests(unittest.TestCase):

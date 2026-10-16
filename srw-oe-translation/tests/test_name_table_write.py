@@ -3,7 +3,8 @@
 
 The layouts encoded here are the measured ones (docs/EXPERIMENT_LOG.md):
 charalist 172-byte records (key u16 @ +96, cells 0/32/76 of 32/44/20 bytes),
-unit_list 384-byte records (key u16 @ +84, cells 0 and 140 of 64 bytes),
+unit_list 384-byte records (key u16 @ +84, name cell 0 of 32 bytes, half-width kana short
+name cell 32 of 32 bytes, display cell 140 of 64 bytes),
 wp_list offset-table records (unit_id u32 @ +0, count u32 @ +4, 256-byte weapon
 entries from +12; entry name @ +32 cell 64, short @ +96 cell 32).
 """
@@ -35,9 +36,13 @@ def charalist_record(key: int, short: str, full: str, narrow: str) -> bytes:
     return bytes(rec)
 
 
-def unit_record(key: int, name: str, display: str) -> bytes:
+KANA_SHORT = "ｶﾞﾝ".encode("cp932") + b"\x0f\x2a" + "ﾑ".encode("cp932")   # ｶﾞﾝ{2A}ﾑ, {2A} = ダ
+
+
+def unit_record(key: int, name: str, display: str, short: bytes = KANA_SHORT) -> bytes:
     rec = bytearray(384)
-    rec[0:64] = cell(name, 64)
+    rec[0:32] = cell(name, 32)
+    rec[32:32 + len(short)] = short
     rec[140:204] = cell(display, 64)
     struct.pack_into("<H", rec, 84, key)
     return bytes(rec)
@@ -146,10 +151,70 @@ class UnitListTests(unittest.TestCase):
         out, report = NMT.apply_member(self.blob, "unit_list00.bin", rows)
         self.assertEqual(report["applied"], 2)
         rec0 = out[0:384]
-        self.assertEqual(rec0[0:64], cell("Gundam", 64))
+        self.assertEqual(rec0[0:32], cell("Gundam", 32))
         self.assertEqual(rec0[140:204], cell("Gundam GM", 64))
         self.assertEqual(struct.unpack_from("<H", rec0, 84)[0], 501)   # key intact
         self.assertEqual(out[384:], self.blob[384:])
+
+    def test_name_cell_is_32_bytes_and_short_is_derived_not_emptied(self):
+        # Build #8 lesson: the 64-byte "name cell" wiped the kana short name at +32 of every
+        # unit; the real cell is 32 bytes and the short cell gets the English name instead.
+        rows = [row("u1", "name", 501, "ガンダム", "Gundam", member="unit_list")]
+        out, report = NMT.apply_member(self.blob, "unit_list00.bin", rows)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(report["derived_short"], 1)
+        self.assertEqual(report["short_kept"], 0)
+        self.assertEqual(report["token_loss"], 1)              # the {2A} glyph token is gone
+        rec0 = out[0:384]
+        self.assertEqual(rec0[0:32], cell("Gundam", 32))
+        self.assertEqual(rec0[32:64], cell("Gundam", 32))
+        self.assertNotEqual(rec0[32:64].strip(b"\x00"), b"")  # never an empty short name
+        self.assertEqual(out[384:], self.blob[384:])           # record 1 untouched (no row)
+        self.assertEqual(out[384 + 32:384 + 64], self.blob[384 + 32:384 + 64])
+
+    def test_explicit_short_row_wins_over_derivation(self):
+        rows = [row("u1", "name", 501, "ガンダム", "Gundam", member="unit_list"),
+                row("u1s", "name_short", 501, "ｶﾞﾝダﾑ", "GUNDAM", member="unit_list")]  # mapped form
+        out, report = NMT.apply_member(self.blob, "unit_list00.bin", rows)
+        self.assertEqual(report["applied"], 2)
+        self.assertEqual(report["derived_short"], 0)
+        self.assertEqual(out[32:64], cell("GUNDAM", 32))
+        self.assertEqual(out[0:32], cell("Gundam", 32))
+
+    def test_name_longer_than_31_bytes_is_refused_and_short_kept(self):
+        rows = [row("u1", "name", 501, "ガンダム", "G" * 32, member="unit_list")]
+        out, report = NMT.apply_member(self.blob, "unit_list00.bin", rows)
+        self.assertEqual(out, self.blob)
+        self.assertEqual(report["applied"], 0)
+        self.assertIn("do not fit the 31-byte cell", report["refused"][0])
+
+    def test_full_cell_without_nul_accepts_an_overrun_jp(self):
+        # three DLC names fill the 32-byte cell without a terminator; the old exporter read on
+        # into the kana cell, so the package jp is "cell text + kana" - still the same cell
+        name16 = "パーフェクトダイテイオー／ムービ"                 # exactly 32 bytes, no NUL
+        full = bytearray(unit_record(501, "", "x"))
+        full[0:32] = name16.encode("cp932")
+        blob = bytes(full) + unit_record(502, "ガンダム", "y")
+        self.assertEqual(blob[0:32], name16.encode("cp932"))
+        rows = [row("u1", "name", 501, name16 + "ﾊﾟｰﾌｪｸﾄ", "Perfect Daiteioh/Movie",
+                    member="unit_list")]
+        out, report = NMT.apply_member(blob, "unit_list01.bin", rows)
+        self.assertEqual(report["applied"], 1, report["refused"])
+        self.assertEqual(out[0:32], cell("Perfect Daiteioh/Movie", 32))
+        # a jp that merely shares a prefix with a terminated cell is still refused
+        rows = [row("u2", "name", 502, "ガンダムＸ", "Gundam X", member="unit_list")]
+        out, report = NMT.apply_member(blob, "unit_list01.bin", rows)
+        self.assertEqual(report["applied"], 0)
+        self.assertIn("jp does not match", report["refused"][0])
+
+    def test_short_kept_when_english_name_fits_name_but_not_short(self):
+        # both cells are 32 bytes, so a fitting name always fits the short cell as well; the
+        # short_kept branch guards a future wider name cell - exercised through the report keys
+        rows = [row("u1", "name", 501, "ガンダム", "G" * 31, member="unit_list")]
+        out, report = NMT.apply_member(self.blob, "unit_list00.bin", rows)
+        self.assertEqual(report["applied"], 1)
+        self.assertEqual(report["derived_short"], 1)
+        self.assertEqual(out[32:64], b"G" * 31 + b"\x00")
 
     def test_unknown_part_is_skipped(self):
         rows = [row("u1", "series", 501, "ガンダム", "Gundam")]

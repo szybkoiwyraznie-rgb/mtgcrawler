@@ -261,5 +261,124 @@ class AlignmentPaddingTests(unittest.TestCase):
         content = bytearray(b"\x00" * 390)
         self.assertEqual(cpk_write._pad_to_alignment(self.Unaligned(), content), content)
 
+class EnabledSizeFieldTests(unittest.TestCase):
+    """EnabledPackedSize / EnabledDataSize follow the members' new sizes (the packer's rule
+    measured on the originals: 2 * sum(ExtractSize) and sum(FileSize) + sum(ExtractSize)).
+    Builds #6-#10 left them at the original totals - a container that grew carried stale
+    totals.  A container with another convention keeps its values."""
+
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.path = Path(temporary.name) / "enabled.cpk"
+        self.path.write_bytes(build_synthetic_cpk(ENTRIES, enabled_sizes=True))
+        self.cpk = cpk_write.load(self.path)
+        self.total = sum(len(e["data"]) for e in ENTRIES)
+
+    def reload(self, data: bytes):
+        out = self.path.with_name("out.cpk")
+        out.write_bytes(data)
+        return cpk_write.load(out)
+
+    def test_fixture_carries_the_packers_totals(self):
+        self.assertEqual(int(self.cpk.header["EnabledPackedSize"]), 2 * self.total)
+        self.assertEqual(int(self.cpk.header["EnabledDataSize"]), 2 * self.total)
+        self.assertEqual(cpk_write.rebuild(self.cpk, None), self.path.read_bytes())
+
+    def test_a_grown_member_moves_both_totals_by_its_growth(self):
+        grown = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(int(grown.header["EnabledPackedSize"]), 2 * (self.total + 750))
+        self.assertEqual(int(grown.header["EnabledDataSize"]), 2 * (self.total + 750))
+        shrunk = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 50)))
+        self.assertEqual(int(shrunk.header["EnabledDataSize"]), 2 * (self.total - 200))
+        appended = self.reload(cpk_write.replace_appended(self.cpk, "third.bin", b"C" * 140))
+        self.assertEqual(int(appended.header["EnabledPackedSize"]), 2 * (self.total + 100))
+        self.assertEqual(int(appended.header["EnabledDataSize"]), 2 * (self.total + 100))
+
+    def test_a_declared_extract_size_counts_in_the_totals(self):
+        packed = self.reload(cpk_write.rebuild(self.cpk, ("second.bin", b"B" * 100, 400)))
+        # file sizes: 100 + 100 + 40 = 240; extract sizes: 100 + 400 + 40 = 540
+        self.assertEqual(int(packed.header["EnabledPackedSize"]), 2 * 540)
+        self.assertEqual(int(packed.header["EnabledDataSize"]), 240 + 540)
+
+    def test_another_convention_is_left_alone(self):
+        stale = bytearray(self.path.read_bytes())
+        col = self.cpk.header_layout.column("EnabledPackedSize")
+        cpk_write._write_cell(stale, self.cpk.header_layout.rows_start, col, 12345)
+        self.path.write_bytes(bytes(stale))
+        cpk = cpk_write.load(self.path)
+        grown = self.reload(cpk_write.rebuild(cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(int(grown.header["EnabledPackedSize"]), 12345)       # unknown rule: kept
+        self.assertEqual(int(grown.header["EnabledDataSize"]), 2 * (self.total + 750))
+
+    def test_a_container_without_the_fields_is_unaffected(self):
+        plain = Path(self.path.parent) / "plain.cpk"
+        plain.write_bytes(build_synthetic_cpk(ENTRIES))
+        cpk = cpk_write.load(plain)
+        self.assertEqual(cpk_write.enabled_sizes(cpk, {1: 1000}, {1: 1000}), {})
+        grown = self.reload(cpk_write.rebuild(cpk, ("second.bin", b"B" * 1000)))
+        self.assertEqual(len(grown.members), 3)
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class ConstantExtractSizeTests(unittest.TestCase):
+    """``navisys.cpk`` stores ``ExtractSize`` once in the TOC schema (both GIM members unpack
+    to 262 348 B).  The writer accepts that layout as long as a replacement keeps the shared
+    size - which a same-size texture rewrite does - and refuses anything else."""
+
+    ENTRIES = [
+        {"dir": "", "name": "navisys_01.gim", "data": b"A" * 300, "id": 0},
+        {"dir": "", "name": "navisys_02.gim", "data": b"B" * 300, "id": 1},
+    ]
+
+    def write(self, **kwargs) -> tuple:
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        path = Path(temporary.name) / "navisys.cpk"
+        path.write_bytes(build_synthetic_cpk(self.ENTRIES, constant_extract=True, **kwargs))
+        return path, path.read_bytes()
+
+    def test_fixture_really_stores_extract_size_once(self):
+        path, _ = self.write()
+        cpk = cpk_write.load(path)
+        self.assertIsNone(cpk.toc_layout.column("ExtractSize").row_offset)
+        self.assertEqual([m.extract_size for m in cpk.members], [300, 300])
+
+    def test_identity_rebuild_still_reproduces_the_file(self):
+        path, original = self.write()
+        self.assertEqual(cpk_write.rebuild(cpk_write.load(path), None), original)
+
+    def test_a_same_size_replacement_is_written_and_reads_back(self):
+        path, _ = self.write(enabled_sizes=True)
+        new_blob = b"Z" * 300
+        out = cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", new_blob, 300))
+        path.write_bytes(out)
+        reference = cpk_table.read_cpk_table(path)["entries"]
+        self.assertEqual([(e["name"], e["file_size"], e["extract_size"]) for e in reference],
+                         [("navisys_01.gim", 300, 300), ("navisys_02.gim", 300, 300)])
+        second = reference[1]
+        self.assertEqual(out[second["absolute_offset"]:second["absolute_offset"] + 300], new_blob)
+
+    def test_a_compressed_member_may_change_packed_size_but_not_unpacked_size(self):
+        # navisys_02 is CRILAYLA in the original: FileSize 21 816, ExtractSize 262 348.
+        entries = [dict(self.ENTRIES[0]), dict(self.ENTRIES[1], data=b"B" * 120, extract=300)]
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        path = Path(temporary.name) / "navisys.cpk"
+        path.write_bytes(build_synthetic_cpk(entries, constant_extract=True))
+        out = cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", b"Q" * 300, 300))
+        path.write_bytes(out)
+        reference = cpk_table.read_cpk_table(path)["entries"]
+        self.assertEqual((reference[1]["file_size"], reference[1]["extract_size"]), (300, 300))
+        self.assertEqual((reference[0]["file_size"], reference[0]["extract_size"]), (300, 300))
+
+    def test_a_different_unpacked_size_is_refused(self):
+        path, _ = self.write()
+        with self.assertRaises(ValueError) as ctx:
+            cpk_write.rebuild(cpk_write.load(path), ("navisys_02.gim", b"Z" * 301, 301))
+        self.assertIn("constant-storage", str(ctx.exception))
+        with self.assertRaises(ValueError):
+            cpk_write.replace_appended(cpk_write.load(path), "navisys_02.gim", b"Z" * 299)

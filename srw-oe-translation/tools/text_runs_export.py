@@ -22,10 +22,12 @@ filters -- each one printed in the report so nothing is dropped silently:
 * control placeholder: the run is nothing but a text-engine control (``＠０``, ``＠６``), the
   template the game fills in at run time.
 
-``max_bytes`` is the length limit: the space from the run to the next string start in the same
-member, capped at ``--max-slot``.  These members keep their strings in a pool with a pointer
-table, so a longer translation needs the pointer rewrite (``tools/sysmes_pack.py`` does that for
-``sysmes.bin``); until then the limit is what fits in place.
+``max_bytes`` is the length limit in English bytes (the terminator not counted - the same reading
+as ``translation_check`` and the translator manual): the string's own span, or for an unusable
+span the space from the run to the next string start in the same member, capped at
+``--max-slot``.  These members keep their strings in a pool with a pointer table, so a longer
+translation needs the pointer rewrite (``tools/sysmes_pack.py`` does that for ``sysmes.bin``);
+until then the limit is what fits in place.
 
 Usage::
 
@@ -181,7 +183,7 @@ def growable(data: bytes) -> bool:
 
 
 def row_text(data: bytes, offset: int, text: str, max_span: int = 128) -> tuple:
-    """``(text for the translator, limit in bytes)`` for the string that ``offset`` sits in.
+    """``(text for the translator, limit in English bytes)`` for the string ``offset`` sits in.
 
     The unit the game stores is the NUL-delimited record, so that is the unit the translator gets:
     a template such as ``…の「＠３」コマンドで出現`` is one string, not three fragments, and the
@@ -199,9 +201,9 @@ def row_text(data: bytes, offset: int, text: str, max_span: int = 128) -> tuple:
             except UnicodeEncodeError:
                 pass
             else:
-                return decoded, len(span) + 1
+                return decoded, len(span)
     slot = min(next_start(data, offset) - offset, max_span)
-    return text, max(slot, run_bytes) + 1
+    return text, max(slot - 1, run_bytes)
 
 
 def find_rows(path: Path, blob: str, trim: int = 3, max_slot: int = 256,

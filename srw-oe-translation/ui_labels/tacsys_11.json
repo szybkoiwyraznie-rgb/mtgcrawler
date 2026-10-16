@@ -1,0 +1,64 @@
+{
+ "texture": "tacsys_11",
+ "source": "tacsys.cpk — 256x32 INDEX8; ENEMY PHASE banner, katakana sub-caption and the HP/EN/SP/気力 recovery badges",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.85,
+ "labels": [
+  {
+   "id": "sub_caption",
+   "jp": "エネミーフェイズ",
+   "en": "Enemy turn",
+   "box": [
+    1,
+    16,
+    88,
+    29
+   ],
+   "fill": [
+    255,
+    190,
+    160,
+    255
+   ],
+   "outline": [
+    120,
+    30,
+    20,
+    255
+   ]
+  },
+  {
+   "id": "will_badge",
+   "jp": "気力",
+   "en": "Will",
+   "box": [
+    218,
+    18,
+    238,
+    30
+   ],
+   "bg": [
+    0,
+    0,
+    0,
+    136
+   ],
+   "align": "center",
+   "size": 10,
+   "fill": [
+    255,
+    129,
+    0,
+    255
+   ],
+   "outline": [
+    60,
+    25,
+    0,
+    255
+   ]
+  }
+ ]
+}

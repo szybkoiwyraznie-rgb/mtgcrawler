@@ -20,15 +20,17 @@ offsets honest:
 
 1. story dialogue (:mod:`event_text_apply`) and battle quotes (:mod:`quotes_apply`) - both grow
    their own containers the way the measured smoke tests proved;
-2. the **tail-pool rows** of the convention-B members (:mod:`slot_apply`, in place) - they must
-   be written *before* the record rebuild moves the tail, and the rebuild then carries the
-   translated bytes along untouched;
+2. the **fragment-pool rows** of the convention-B members (``item_skill_write.apply_tail_pool``):
+   the pool behind the item/skill/spirit/status records has its own u32 pointer table (measured
+   2026-10-14), so its strings are rewritten at any length and the table recomputed - *before*
+   the record rebuild, which then moves the whole pool and re-points its table;
 3. the record writers: :mod:`item_skill_write` (items/skills/spirits/status changes, growing the
-   record region and remapping the ``+36`` cross references) and :mod:`table_write` (the
+   record region and recomputing every record's ``+36`` pool pointer) and :mod:`table_write` (the
    dictionary/pool families, growing);
 4. :mod:`name_table_write` for the fixed name cells (charalist/unit_list/wp_list);
-5. ``sysmes.bin`` through :mod:`sysmes_pack` (the whole pool is rebuilt, every equal string is
-   replaced at once);
+5. ``sysmes.bin`` through :mod:`sysmes_pack` (the sequential pool is rewritten string by
+   string and the relative pointer table recomputed - measured layout, see that module; every
+   pool string equal to a row's jp is replaced at once, at any length);
 6. everything else measured as ``mode: slot`` through :mod:`slot_apply` (mission notes and
    titles, BGM titles, map/background/group names, leftover slots).
 
@@ -37,7 +39,11 @@ contract of a partially filled package.  Rows a writer refuses (a translation to
 slot, a jp that no longer matches the bytes, two rows fighting over one target) are collected in
 ``build_report.json`` with their reason; the build does not stop, because one refused line must
 not hold the other ten thousand hostage.  The exit code is 0 when every container that had rows
-produced a patched file, 1 when something structural broke.
+produced a patched file, 1 when something structural broke.  One exception: a member over its
+in-game size budget (``item_skill_write.MEMBER_SIZE_LIMITS``, today ``srwDL_Skill00.bin`` at
+216 768 B - the game crashes at "Loading" above it, measured 2026-10-15) refuses its WHOLE
+container ("NOT written", exit 1) - shipping the container with that member left Japanese
+would hide the problem; shorten the English with ``tools/skill_shrink.py`` instead.
 
 Usage::
 
@@ -48,6 +54,8 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import fnmatch
+import hashlib
 import json
 import re
 import shutil
@@ -61,17 +69,29 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import configst_pack as CSP          # noqa: E402
+
+# Written into build_report.json so a report tells which writers produced it (the user's copy
+# of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
+TOOLS_STAMP = ("2026-10-16b: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+               "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
+               "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
+               "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "
+               "mirrored both ways (imenuNN <-> configNN, unit_list series rows follow the "
+               "RoboDictionary), viewer slots 5/11 + 2/4/5/6/10, label rows")
 import cpk_write                     # noqa: E402
 import event_text_apply as ETA       # noqa: E402
+import exe_strings as EXE            # noqa: E402
 import inline_names as IN            # noqa: E402
 import item_skill_records as ISR     # noqa: E402
 import item_skill_write as ISW       # noqa: E402
 import iso_pack                      # noqa: E402
 import name_table_write as NMT       # noqa: E402
+import psp_prx                       # noqa: E402
 import quotes_apply as QA            # noqa: E402
 import slot_apply as SLA             # noqa: E402
 import sysmes_pack as SMSP           # noqa: E402
 import table_write as TW             # noqa: E402
+import ui_texture_patch as UTP       # noqa: E402
 
 PACKAGE_FILES = (
     "00_dialogue.jsonl",
@@ -82,10 +102,18 @@ PACKAGE_FILES = (
     "05_mission_text.jsonl",
     "07_names_characters.jsonl",
     "08_names_units_weapons.jsonl",
+    "09_executable.jsonl",
 )
 
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
 SKIP_CATEGORIES = {"config_item_drop"}
+
+#: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
+#: specs in ui_labels/).  They hold no package text; the builder rewrites them from the ISO
+#: when --iso is given.  Members are written STORED - the only variant verified in the game
+#: (UI_TEST1 A_stored, 2026-10-15); our CRILAYLA encoder is still untested in-game.
+UI_TEXTURE_CONTAINERS = ("system.cpk", "tacsys.cpk", "IM1000.cpk", "IM3000.cpk", "IM9000.cpk", "navisys.cpk")
+UI_TEXTURE_COMPRESS = "stored"
 
 
 class BuildError(RuntimeError):
@@ -113,6 +141,20 @@ def filled(row: dict) -> bool:
     return bool((row.get("en") or "").strip())
 
 
+def identity(row: dict) -> bool:
+    """English == Japanese (exactly or up to surrounding whitespace): nothing to write.
+
+    The exporters showed the translator some strings that are not text at all - PSN content
+    ids (``JP0700-NPJH50521_00-ADDPACKAGE000002-J001 ``, with its trailing space), column
+    labels like `` N`` - and he copied them back, sometimes trimmed.  Writing the copy back
+    would alter bytes the game compares (build #6 lost that trailing space), so such rows
+    leave the original bytes alone.
+    """
+    en, jp = row.get("en"), row.get("jp")
+    return isinstance(en, str) and isinstance(jp, str) and bool(en.strip()) \
+        and en.strip() == jp.strip()
+
+
 def owner(row: dict) -> str:
     """Which writer owns this row's bytes.
 
@@ -126,6 +168,8 @@ def owner(row: dict) -> str:
     category = row.get("category") or ""
     if category in SKIP_CATEGORIES:
         return "skip"
+    if category == EXE.CATEGORY:
+        return "exe"            # the executable's own strings: exe_step, never a container
     source = row.get("source") or {}
     member = source.get("member") or ""
     which = row.get("__file") or ""
@@ -200,6 +244,9 @@ class ContainerStore:
             key, lba, size = self._iso_keys[name]
             return iso_pack.read_member(self.iso, key.split(";")[0].strip("/"))
         return self._dlc_paths[name].read_bytes()
+
+    def dlc_path(self, name: str) -> Optional[Path]:
+        return self._dlc_paths.get(name)
 
     def dlc_relpath(self, name: str) -> Optional[str]:
         path = self._dlc_paths.get(name)
@@ -337,6 +384,8 @@ class ContainerBuild:
         dst.parent.mkdir(parents=True, exist_ok=True)
         try:
             summary = func["call"](src, dst, rows)
+        except ISW.SizeBudgetError:
+            raise                                   # the whole container is refused (see build())
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
@@ -365,13 +414,13 @@ class ContainerBuild:
                 if member not in offsets:
                     offsets[member] = self._tail_offset(member)
                 if offsets[member] is not None and offset >= offsets[member]:
-                    tails.append(row)      # tail pool: written in place, before any rebuild
+                    tails.append(row)      # fragment pool: rebuilt with its table, before the records
                     continue
             by_owner.setdefault(owner(row), []).append(row)
 
         self._eta(by_owner.get("eta", []))
         self._qa(by_owner.get("qa", []))
-        self._slot_pass("tail-slots", tails, pool=True)   # tail-pool rows: located by content
+        self._tail_pool(tails)                            # pool rows: by content or exact offset
         self._isw(by_owner.get("isw", []))
         self._tw(by_owner.get("tw", []))
         self._nmt(by_owner.get("nmt", []))
@@ -404,6 +453,12 @@ class ContainerBuild:
                     if path.exists():
                         path.unlink()
             self._advance(new, f"dialogue {member}", summary or {})
+            # the event writer reports its refusals (a line wider than the box) and skips (a
+            # jp no longer at its offset) in their own lists - they belong in the build report
+            # like every other writer's, not only in the per-step detail
+            for key in ("refused", "skipped", "problems"):
+                self.report["problems"].extend(f"dialogue {member}: {p}"
+                                               for p in (summary or {}).get(key) or [])
 
     def _qa(self, rows: List[dict]) -> None:
         rows = [r for r in rows if filled(r)]
@@ -439,6 +494,15 @@ class ContainerBuild:
         except Exception:
             return None
         return None
+
+    def _tail_pool(self, rows: List[dict]) -> None:
+        """The fragment pools behind the item/skill/spirit/status records: strings rewritten at
+        any length, pointer table recomputed (``item_skill_write.apply_tail_pool``).  Runs before
+        the record rebuild, which then re-points the grown pool at its new offset."""
+        self._run_container_step("tail-pool", {
+            "rows": rows,
+            "call": lambda s, d, r: ISW.apply_tail_pool(s, d, r),
+        })
 
     def _isw(self, rows: List[dict]) -> None:
         self._run_container_step("records", {
@@ -494,24 +558,26 @@ class ContainerBuild:
             if blob is None:
                 self.report["problems"].append(f"{step}: {self.name} holds no sysmes.bin")
                 return
-            edits, problems = _sysmes_edits(blob, rows)
+            edits, problems, notes = _sysmes_edits(blob, rows)
             self.report["problems"].extend(f"{step}: {p}" for p in problems)
+            self.report.setdefault("info", []).extend(f"{step}: {n}" for n in notes)
             if not edits:
                 self._advance(None, step, {})
                 return
-            # apply_edits rebuilds the whole pool: every referenced string gets its own
-            # copy, so any length is safe and the shared-tail blind spot of the in-place
-            # equal_translate (which also cannot see strings holding a newline) is gone
-            modified = SMSP.apply_edits(blob, edits)
-            replaced = sum(modified.count(en.encode("cp932")) for en in edits.values())
-            missing = [k for k, v in edits.items()
-                       if v.encode("cp932") not in modified]
-            for key in missing:
+            # translate_bytes keeps the measured layout: count strings in sequence, the
+            # k-th pointer word = relative offset of the k-th string, ids untouched
+            modified, result = SMSP.translate_bytes(blob, edits)
+            bad = SMSP.verify(blob, modified, edits)
+            if bad:
+                raise BuildError("sysmes verify: " + "; ".join(bad[:5]))
+            for key in result["unmatched"]:
                 self.report["problems"].append(f"{step}: {key[:16]!r} did not land in the pool")
             self.report.setdefault("info", []).append(
-                f"{step}: {len(edits)} strings requested, {replaced} copies in the new pool")
+                f"{step}: {result['replaced']} strings -> {result['replaced_entries']} pool "
+                f"entries rewritten, {result['size'][0]} -> {result['size'][1]} B")
             new = _replace_member(self.current, "sysmes.bin", modified)
-            self._advance(new, step, {"applied": len(edits) - len(missing)})
+            self._advance(new, step, {"applied": result["replaced"],
+                                      "entries": result["replaced_entries"]})
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
@@ -519,11 +585,9 @@ class ContainerBuild:
             if not self.dry_run:
                 src.unlink(missing_ok=True)
 
-    def _slot_pass(self, step: str, rows: List[dict], pool: bool = False) -> None:
+    def _slot_pass(self, step: str, rows: List[dict]) -> None:
         rows = [r for r in rows if filled(r) and isinstance((r.get("source") or {}).get("offset"), int)]
-        call = SLA.apply_container if not pool else \
-            (lambda src, dst, r: SLA.apply_container(src, dst, r, pool=True))
-        self._run_container_step(step, {"rows": rows, "call": call})
+        self._run_container_step(step, {"rows": rows, "call": SLA.apply_container})
 
 
 def _iter_members(path: Path) -> Iterable[Tuple[str, bytes]]:
@@ -570,34 +634,44 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
         tmp.unlink(missing_ok=True)
 
 
-def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[str]]:
-    """{string in the file: english} - the row jp is matched in whatever form it arrived.
+def _sysmes_edits(blob: bytes, rows: List[dict]
+                  ) -> Tuple[Dict[bytes, bytes], List[str], List[str]]:
+    """{whole pool string bytes: english bytes} from the rows, plus problems and notes.
 
-    ``apply_edits`` encodes the values with a plain ``str.encode("cp932")``, so a row whose
-    jp is the ``%s`` display form gets its tokens resolved here: the English is encoded
-    against the file's own bytes (:func:`table_write.encode_en`) and handed over as the
-    cp932-decodable string of those exact bytes - control tokens included, they round-trip.
+    A row's jp is matched against every WHOLE string of the pool (the table has exactly one
+    entry per string, :func:`sysmes_pack.parse`) in whatever form it arrived - the file's own
+    or the ``%s`` display form - and the English is encoded against the file's bytes
+    (:func:`table_write.encode_en`, control tokens included).  Rows whose jp is only the tail
+    of a longer string (the old run scanner exported 1,141 such fragments) are not strings
+    of their own: they are counted in the notes and ignored, the whole string's row wins.
     """
-    edits: Dict[str, str] = {}
+    edits: Dict[bytes, bytes] = {}
     problems: List[str] = []
-    strings = []
-    for start in SMSP.string_starts(blob):
-        end = blob.find(b"\x00", start)
-        raw = blob[start:end if end >= 0 else len(blob)]
-        if raw:
-            strings.append(raw)
-    for raw in strings:
-        matches = []
-        for row in rows:
-            form = TW.match_form(row.get("jp"), raw)
-            if form is not None:
-                matches.append((row, form))
-        if not matches:
-            continue
+    notes: List[str] = []
+    strings = [s for s in SMSP.parse(blob).strings if s]
+    decoded = [raw.decode("cp932", "replace") for raw in strings]
+    displays = [TW.display(raw) for raw in strings]
+    # the same lookup order as table_write.match_form: the file's own form first
+    by_raw: Dict[str, bytes] = {}
+    by_display: Dict[str, bytes] = {}
+    for raw, text, shown in zip(strings, decoded, displays):
+        by_raw.setdefault(text, raw)
+        by_display.setdefault(shown, raw)
+    matches: Dict[bytes, List[Tuple[dict, str]]] = {}
+    unmatched_rows: List[dict] = []
+    for row in rows:
+        jp = row.get("jp")
+        if jp in by_raw:
+            matches.setdefault(by_raw[jp], []).append((row, "raw"))
+        elif jp in by_display:
+            matches.setdefault(by_display[jp], []).append((row, "display"))
+        else:
+            unmatched_rows.append(row)
+    for raw, found in matches.items():
         encoded = set()
-        for row, form in matches:
+        for row, form in found:
             try:
-                encoded.add(TW.encode_en((row.get("en") or "").strip(), raw, form))
+                encoded.add(TW.encode_en(TW.english(row), raw, form))
             except TW.TableError as exc:
                 problems.append(f"sysmes row {row.get('id')}: {exc}")
         if len(encoded) > 1:
@@ -606,19 +680,26 @@ def _sysmes_edits(blob: bytes, rows: List[dict]) -> Tuple[Dict[str, str], List[s
         if not encoded:
             continue
         value = encoded.pop()
-        try:
-            key = raw.decode("cp932")
-        except UnicodeDecodeError:
-            problems.append(f"sysmes string {raw[:12]!r}: not clean cp932, left alone")
+        if b"\x00" in value:
+            problems.append(f"sysmes string {raw[:12]!r}: translation contains NUL")
             continue
-        edits[key] = value.decode("cp932")
-    unmatched = 0
-    for row in rows:
-        if not any(TW.match_form(row.get("jp"), raw) is not None for raw in strings):
-            unmatched += 1
-    if unmatched:
-        problems.append(f"{unmatched} sysmes rows do not occur in this sysmes.bin (stale jp)")
-    return edits, problems
+        edits[raw] = value
+    fragments = 0
+    stale = 0
+    for row in unmatched_rows:
+        jp = row.get("jp") or ""
+        tail = bool(jp) and any(text.endswith(jp) and text != jp
+                                for forms in (decoded, displays) for text in forms)
+        if tail:
+            fragments += 1
+        else:
+            stale += 1
+    if fragments:
+        notes.append(f"{fragments} sysmes rows are tails of longer strings (not pool entries), "
+                     f"ignored")
+    if stale:
+        problems.append(f"{stale} sysmes rows do not occur in this sysmes.bin (stale jp)")
+    return edits, problems, notes
 
 
 def _jsonable(value, depth: int = 0):
@@ -667,6 +748,79 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
     return per
 
 
+def member_digests(blobs: Dict[str, bytes]) -> Dict[str, Dict[str, str]]:
+    """``{container: {member: md5}}`` of every (sub)member the loaded containers hold."""
+    out: Dict[str, Dict[str, str]] = {}
+    for name, blob in blobs.items():
+        try:
+            members = _members_of_blob(blob)
+        except Exception:
+            continue
+        out[name] = {m: hashlib.md5(d).hexdigest() for m, d in members.items()}
+    return out
+
+
+def _feeds_member(row: dict, member: str) -> bool:
+    """Does this row end up in ``member``?  By address, or by the unit_list -> RoboDict redirect."""
+    source = row.get("source") or {}
+    if source.get("member") == member:
+        return True
+    return member.startswith("srw_DL_RoboDict") and _is_unit_series(row)
+
+
+def mirror_identical_members(per_container: Dict[str, List[dict]],
+                             digests: Dict[str, Dict[str, str]]) -> Dict[str, Dict[str, int]]:
+    """Rows of a member also reach every other container holding a byte-identical copy.
+
+    The intermission reads ``imenuNN`` whose six members are byte-identical to the ``configNN``
+    ones [measured 2026-10-16: imenu00-08 vs config00-08, every member; CharaDictionary and
+    RoboDictionary of imenu10-19 vs config10-19], while the exporters addressed the Reference,
+    Shop and DLC_ID rows to ``configNN`` only - so the config copy was English and the one the
+    game draws stayed Japanese.  For every (member, md5) held by two or more loaded containers,
+    each container's own rows for that member (``source.container`` = that container; the
+    container-less broadcast rows already reach every copy) are duplicated to the others with
+    ``source.container`` retargeted and ``mirrored_from`` naming the origin.  A row the target
+    already has (same ``id`` and ``jp``) is not duplicated.  Returns ``{target: {source: n}}``.
+
+    A row "belongs" to a member when its ``source.member`` is that member - or when the
+    builder redirects it there: the 08 ``unit_list`` series rows are written into RoboDict
+    slot 3 (:func:`_is_unit_series`, ``_redirect_unit_series``), so they follow the
+    RoboDictionary copy too [build #22, 2026-10-16: ``unit:3600:series`` ``－－－`` -> ``---``
+    reached config00's RoboDictionary and not imenu00's - 6 bytes of difference].
+    """
+    holders: Dict[Tuple[str, str], List[str]] = {}
+    for name, members in digests.items():
+        for member, digest in members.items():
+            holders.setdefault((member, digest), []).append(name)
+    added: Dict[str, Dict[str, int]] = {}
+    for (member, _digest), names in sorted(holders.items()):
+        if len(names) < 2:
+            continue
+        for target in names:
+            own = per_container.get(target, [])
+            have = {(r.get("id"), r.get("jp")) for r in own
+                    if (r.get("source") or {}).get("member") == member}
+            for source in names:
+                if source == target:
+                    continue
+                for row in per_container.get(source, []):
+                    src = row.get("source") or {}
+                    if src.get("container") != source or row.get("mirrored_from") \
+                            or not _feeds_member(row, member):
+                        continue
+                    key = (row.get("id"), row.get("jp"))
+                    if key in have:
+                        continue
+                    copy = dict(row)
+                    copy["source"] = dict(src, container=target)
+                    copy["mirrored_from"] = source
+                    per_container.setdefault(target, []).append(copy)
+                    have.add(key)
+                    added.setdefault(target, {}).setdefault(source, 0)
+                    added[target][source] += 1
+    return added
+
+
 def import_views(package: Path, views: Sequence[Path], work: Path) -> Path:
     """Copy the base package into the work dir and import the returned views into it."""
     import translation_copy
@@ -685,9 +839,35 @@ def import_views(package: Path, views: Sequence[Path], work: Path) -> Path:
     return target
 
 
+def container_selected(name: str, only: Sequence[str] = (), skip: Sequence[str] = ()) -> bool:
+    """Case-insensitive glob filter on container file names (``configst.cpk``, ``eventP*``).
+
+    ``only`` empty = everything; ``skip`` wins over ``only``.  This is the bisection knob: a
+    build limited to one container (or one family) tells which file makes the game crash.
+    """
+    lower = name.lower()
+    if any(fnmatch.fnmatch(lower, pat.lower()) for pat in skip):
+        return False
+    return not only or any(fnmatch.fnmatch(lower, pat.lower()) for pat in only)
+
+
+def parse_filter(spec: str) -> Tuple[List[str], List[str]]:
+    """``only=glob,glob`` / ``skip=glob,glob`` (the form the .bat passes) -> (only, skip)."""
+    kind, sep, globs = spec.partition("=")
+    kind = kind.strip().lower()
+    if not sep or kind not in ("only", "skip"):
+        raise BuildError(f"filter must be only=... or skip=..., got {spec!r}")
+    names = [g.strip() for g in globs.split(",") if g.strip()]
+    if not names:
+        raise BuildError(f"filter {spec!r} names no container")
+    return (names, []) if kind == "only" else ([], names)
+
+
 def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
-          dry_run: bool = False) -> dict:
+          dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
+          ui_textures: bool = True, ui_specs: Optional[Path] = None,
+          executable: bool = True) -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     work = Path(work) if work else out / "work"
@@ -697,14 +877,20 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
 
     rows = load_rows(package)
     filled_rows = [r for r in rows if filled(r)]
+    identity_rows = sum(1 for r in filled_rows if identity(r))
+    filled_rows = [r for r in filled_rows if not identity(r)]
+    exe_rows = [r for r in filled_rows if owner(r) == "exe"]
+    filled_rows = [r for r in filled_rows if owner(r) != "exe"]
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
+                    "identity_rows": identity_rows, "tools": TOOLS_STAMP,
                     "containers": [], "problems": [], "dry_run": dry_run,
                     "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
-                    "written": []}
+                    "only": list(only), "skip": list(skip), "written": []}
 
     store = ContainerStore(iso, dlc)
     names = sorted({(r.get("source") or {}).get("container")
                     for r in filled_rows if (r.get("source") or {}).get("container")})
+    names = [n for n in names if container_selected(n, only, skip)]
     blobs: Dict[str, bytes] = {}
     for name in names:
         where = store.locations(name)
@@ -716,8 +902,12 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     # every plausible file of the DLC folder and of the ISO USRDIR becomes a candidate
     if any((r.get("source") or {}).get("container") is None for r in filled_rows):
         for name, blob in store.candidates(blobs).items():
-            blobs.setdefault(name, blob)
+            if container_selected(name, only, skip):
+                blobs.setdefault(name, blob)
     per_container = attach_containerless(filled_rows, blobs)
+    # a member held byte-identically by two containers (imenuNN <-> configNN) is translated
+    # once in the package and written to both
+    report["mirrored"] = mirror_identical_members(per_container, member_digests(blobs))
 
     iso_patch: Dict[str, bytes] = {}
     for name in sorted(blobs):
@@ -727,6 +917,13 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
+        except ISW.SizeBudgetError as exc:
+            # a member over its in-game size budget: nothing of this container is written -
+            # shipping the rest with that member left Japanese would hide the problem
+            builder.report["problems"].append(f"NOT written: {exc}")
+            report["problems"].append(f"{name}: NOT written: {exc}")
+            report["containers"].append(builder.report)
+            continue
         except Exception as exc:
             report["problems"].append(f"{name}: build broke: {exc}")
             report["problems"].append(traceback.format_exc(limit=3))
@@ -750,6 +947,14 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
 
+    skill_total_check(report, blobs, iso_patch, out, dry_run, store)
+
+    if iso is not None and ui_textures:
+        ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
+
+    if executable and exe_rows:
+        exe_step(report, store, exe_rows, out, work, iso_patch, only, skip, dry_run)
+
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
         target = out / "patched.iso"
@@ -766,6 +971,340 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     return report
 
 
+EXE_ISO_MEMBER = "PSP_GAME/SYSDIR/EBOOT.BIN"      # what the emulator / console boots from the disc
+EXE_ISO_KEY = "psp_game/sysdir/eboot.bin"
+EXE_ISO_NAME = "EBOOT.BIN"                        # --only/--skip name of the disc target
+#: ~PSP header fields two prints of the same program share (used only for the fallback below)
+EXE_HEADER_FIELDS = ("modname", "module_version", "elf_size", "entry", "modinfo_offset", "bss_size",
+                     "comp_size", "compressed", "devkit_version")
+
+
+def _exe_elf(blob: bytes) -> Tuple[Optional[bytes], Optional[dict], Optional[str]]:
+    """``~PSP`` or plain-ELF bytes → ``(elf, ~PSP header or None, error or None)``."""
+    if blob[:4] == psp_prx.ELF_MAGIC:
+        return blob, None, None
+    try:
+        header = psp_prx.psp_header(blob)
+    except psp_prx.PrxError as exc:
+        return None, None, str(exc)
+    try:
+        return psp_prx.decrypt_prx(blob), header, None
+    except psp_prx.PrxError as exc:
+        return None, header, str(exc)
+
+
+def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path, work: Path,
+             iso_patch: Dict[str, bytes], only: Sequence[str], skip: Sequence[str],
+             dry_run: bool) -> None:
+    """Write the ``09_executable.jsonl`` English into the game's executable, in place.
+
+    Two prints of the 1.08 program exist and both are patched when present:
+
+    * ``PSP_GAME/SYSDIR/EBOOT.BIN`` inside the ISO - **the one that runs**: PPSSPP releases
+      (and a console booting the disc) load the disc executable; the ISO the user dumped from
+      the 1.08 PKG carries the 1.08 program there.  Decrypted by :mod:`psp_prx`, patched by
+      :func:`exe_strings.apply_rows` and queued for ``patched.iso`` as a plain ELF (the loader
+      takes a plain ELF in place of the signed ``~PSP``; that is how fan patches ship).
+    * ``PBOOT.PBP`` of the DLC folder (its ``DATA.PSP``) - the same program as a PSN update.
+      Measured 2026-10-15 (user's PPSSPP release build): swapping it alone changes NOTHING,
+      the emulator never reads it; it is still written so a loader that does honour the update
+      (PPSSPP master's ``FindGameUpdatePBOOT``) shows the same English.
+
+    Nothing moves: every row is checked against the Japanese bytes at its offset, a row that does
+    not fit or does not match is refused and listed.  The same edits also go out as a CWCheat
+    file (``out/cheats/NPJH50521.ini``) - the route confirmed in-game the same day.
+
+    Fallback (reported as such): when the ISO ``EBOOT.BIN`` carries a tag :mod:`psp_prx` cannot
+    decrypt but its ``~PSP`` header equals the PBOOT one in every field of
+    :data:`EXE_HEADER_FIELDS`, the patched PBOOT ELF is written as ``EBOOT.BIN`` and the target is
+    flagged ``"source": "PBOOT.PBP"`` - the two are the same build by header, not by bytes.
+    Honours --only/--skip (``EBOOT.BIN``, ``PBOOT.PBP``).
+    """
+    summary: dict = {"rows": len(rows), "targets": [], "applied": 0, "skipped": [], "problems": [],
+                     "written": [], "notes": []}
+    report["executable"] = summary
+    want_iso = store.iso is not None and container_selected(EXE_ISO_NAME, only, skip)
+    want_pboot = container_selected(EXE.CONTAINER, only, skip)
+    if not want_iso and not want_pboot:
+        summary["problems"].append("filtered out (--only/--skip)")
+        return
+
+    # ---- sources -------------------------------------------------------------------------
+    sources: List[dict] = []          # each: name, label, blob, elf, header, error, rel/key
+    if want_iso:
+        try:
+            key, _lba, _size = iso_pack.find_member(store.iso, EXE_ISO_KEY)
+            blob = iso_pack.read_member(store.iso, EXE_ISO_KEY)
+            elf, header, err = _exe_elf(blob)
+            sources.append({"name": EXE_ISO_NAME, "label": f"ISO {EXE_ISO_MEMBER}", "blob": blob,
+                            "elf": elf, "header": header, "error": err, "key": key})
+        except ValueError:
+            summary["notes"].append(f"{EXE_ISO_MEMBER} not in the ISO")
+    pboot_path = store.dlc_path(EXE.CONTAINER) if want_pboot else None
+    if pboot_path is not None:
+        try:
+            pbp = pboot_path.read_bytes()
+            psp = psp_prx.pbp_get(pbp, EXE.MEMBER)
+            elf, header, err = _exe_elf(psp)
+            sources.append({"name": EXE.CONTAINER, "label": f"DLC {EXE.CONTAINER}/{EXE.MEMBER}",
+                            "blob": psp, "pbp": pbp, "elf": elf, "header": header, "error": err,
+                            "rel": store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER})
+        except Exception as exc:  # noqa: BLE001 - PrxError / KeyError / OSError: reported, not fatal
+            sources.append({"name": EXE.CONTAINER, "label": f"DLC {EXE.CONTAINER}/{EXE.MEMBER}",
+                            "blob": b"", "elf": None, "header": None, "error": str(exc),
+                            "rel": store.dlc_relpath(EXE.CONTAINER) or EXE.CONTAINER})
+    elif want_pboot:
+        summary["notes"].append(f"{EXE.CONTAINER} not found under --dlc (the 1.08 update; optional "
+                                f"now that the ISO's {EXE_ISO_MEMBER} is patched)")
+    if not sources:
+        msg = (f"no executable to patch: neither {EXE_ISO_MEMBER} in the ISO nor {EXE.CONTAINER} "
+               f"under --dlc; {len(rows)} rows not written")
+        summary["problems"].append(msg)
+        report["problems"].append(f"executable: {msg}")
+        return
+
+    # ---- fallback: undecryptable disc EBOOT, header-identical to the decrypted PBOOT ---------
+    by_name = {src["name"]: src for src in sources}
+    disc, update = by_name.get(EXE_ISO_NAME), by_name.get(EXE.CONTAINER)
+    if disc and disc["elf"] is None and disc["header"] and update and update["elf"] is not None \
+            and update["header"]:
+        same = all(disc["header"].get(f) == update["header"].get(f) for f in EXE_HEADER_FIELDS)
+        if same:
+            disc["elf"] = update["elf"]
+            disc["source"] = EXE.CONTAINER
+            disc["notes"] = (f"{disc['error']}; its ~PSP header equals the {EXE.CONTAINER} one in "
+                             f"{', '.join(EXE_HEADER_FIELDS)} - the patched {EXE.CONTAINER} program "
+                             f"is written as {EXE_ISO_MEMBER} (same build by header, not verified "
+                             f"byte for byte)")
+            disc["error"] = None
+        else:
+            diff = [f for f in EXE_HEADER_FIELDS if disc["header"].get(f) != update["header"].get(f)]
+            disc["error"] += f"; ~PSP header differs from {EXE.CONTAINER} in {', '.join(diff)}"
+
+    # ---- patch every source that yielded an ELF ---------------------------------------------
+    cheat_elf: Optional[bytes] = None
+    for src in sources:
+        tgt: dict = {"target": src["label"], "name": src["name"], "applied": 0, "skipped": [],
+                     "problems": []}
+        if src.get("header"):
+            tgt["tag"] = "0x%08X" % src["header"]["tag"]
+            tgt["modname"] = src["header"]["modname"]
+            tgt["module_version"] = src["header"]["module_version"]
+        if src.get("source"):
+            tgt["source"] = src["source"]
+            tgt["note"] = src["notes"]
+            summary["notes"].append(f"{src['label']}: {src['notes']}")
+        summary["targets"].append(tgt)
+        if src["elf"] is None:
+            tgt["problems"].append(f"cannot read the executable: {src['error']}")
+            report["problems"].append(f"executable: {src['label']}: cannot read: {src['error']}")
+            continue
+        elf = src["elf"]
+        md5_in = hashlib.md5(elf).hexdigest()
+        tgt["elf_md5_in"] = md5_in
+        tgt["elf_bytes"] = len(elf)
+        tgt["known"] = EXE.KNOWN_ELF_MD5.get(md5_in)
+        match, total = EXE.verify_build(elf, rows)
+        tgt["rows_matching_japanese"] = match
+        if match == 0:
+            msg = (f"none of the {total} rows finds its Japanese bytes in {src['label']} (ELF md5 "
+                   f"{md5_in}): a different print of the executable - nothing written")
+            tgt["problems"].append(msg)
+            report["problems"].append(f"executable: {msg}")
+            continue
+        patched, exe_report = EXE.apply_rows(elf, rows)
+        tgt["applied"] = exe_report["applied"]
+        tgt["empty"] = exe_report["empty"]
+        tgt["skipped"] = exe_report["skipped"]
+        tgt["elf_md5_out"] = hashlib.md5(patched).hexdigest()
+        if exe_report["skipped"]:
+            report["problems"].append(f"executable: {src['label']}: {len(exe_report['skipped'])} "
+                                      f"row(s) refused (see executable.targets in the report)")
+        if not exe_report["applied"]:
+            continue
+        if src["name"] == EXE_ISO_NAME:
+            cheat_elf = elf                      # the program that actually runs
+            iso_patch[src["key"]] = patched       # plain ELF in place of the signed ~PSP
+            tgt["iso_member_bytes"] = {"original": len(src["blob"]), "patched": len(patched)}
+            tgt["written"] = ("(dry-run) " if dry_run else "") + f"patched.iso:{EXE_ISO_MEMBER}"
+            summary["written"].append(tgt["written"])
+        else:
+            cheat_elf = cheat_elf or elf
+            new_pbp = psp_prx.pbp_replace(src["pbp"], EXE.MEMBER, patched)
+            if dry_run:
+                tgt["written"] = f"(dry-run) DLC/{src['rel']}"
+            else:
+                target = out / "DLC" / src["rel"]
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(new_pbp)
+                tgt["written"] = str(target)
+                report["written"].append(str(target))
+                back = psp_prx.pbp_get(target.read_bytes(), EXE.MEMBER)
+                tgt["verified"] = back == patched
+                if not tgt["verified"]:
+                    report["problems"].append(f"executable: read-back of the written {EXE.CONTAINER} differs")
+            summary["written"].append(tgt["written"])
+
+    # the headline numbers follow the program that runs (disc), else the update
+    primary = next((t for t in summary["targets"] if t["name"] == EXE_ISO_NAME and "elf_md5_in" in t),
+                   None) or next((t for t in summary["targets"] if "elf_md5_in" in t), None)
+    if primary:
+        summary["applied"] = primary["applied"]
+        summary["skipped"] = primary["skipped"]
+        summary["primary"] = primary["name"]
+
+    # ---- CWCheat file: the same bytes as a cheat (the route confirmed in-game) ----------------
+    if cheat_elf is None:
+        return
+    cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
+    if dry_run:
+        summary["written"].append("(dry-run) cheats/NPJH50521.ini")
+        return
+    cheat = out / "cheats" / "NPJH50521.ini"
+    cheat.parent.mkdir(parents=True, exist_ok=True)
+    cheat.write_text(cheat_text, encoding="utf-8", newline="\r\n")
+    summary["written"].append(str(cheat))
+    report["written"].append(str(cheat))
+
+
+def ui_texture_step(report: dict, iso: Path, iso_patch: Dict[str, bytes], work: Path,
+                    only: Sequence[str], skip: Sequence[str], specs_dir: Optional[Path]) -> None:
+    """Paint the English captions into the UI textures of the ISO's USRDIR containers.
+
+    The originals are read from the ISO into ``work/ui_originals`` (never from the user's
+    folders), rebuilt by :func:`ui_texture_patch.build` (fit is fail-closed, bytes outside the
+    textures must stay identical, every member is read back) and queued for ``patched.iso``.
+    A failure is a build problem (exit 1) and leaves those containers untouched; the text
+    containers are not affected either way.  Honours --only/--skip like every container.
+    """
+    specs_dir = Path(specs_dir) if specs_dir else UTP.DEFAULT_SPECS
+    summary: dict = {"compress": UI_TEXTURE_COMPRESS, "specs": str(specs_dir), "containers": [],
+                     "skipped": [], "problems": []}
+    report["ui_textures"] = summary
+    try:
+        import PIL  # noqa: F401  (the caption renderer needs Pillow; HOKUS_POKUS installs it)
+    except ImportError:
+        msg = ("Pillow (PIL) is not installed - the UI texture step needs it: "
+               "python -m pip install pillow  (or build text only with --no-ui-textures)")
+        summary["problems"].append(msg)
+        report["problems"].append(f"ui textures: build broke: {msg}")
+        return
+    try:
+        specs = UTP.load_specs(specs_dir)
+    except Exception as exc:  # noqa: BLE001 - reported, never half-applied
+        summary["problems"].append(f"specs: {exc}")
+        report["problems"].append(f"ui textures: build broke: specs: {exc}")
+        return
+    originals = work / "ui_originals"
+    out_dir = work / "ui_build"
+    shutil.rmtree(originals, ignore_errors=True)
+    shutil.rmtree(out_dir, ignore_errors=True)
+    originals.mkdir(parents=True, exist_ok=True)
+    keys: Dict[str, str] = {}
+    for name in UI_TEXTURE_CONTAINERS:
+        if not container_selected(name, only, skip):
+            summary["skipped"].append(f"{name}: filtered out (--only/--skip)")
+            continue
+        try:
+            key, _lba, _size = iso_pack.find_member(iso, f"psp_game/usrdir/{name}")
+        except ValueError:
+            summary["skipped"].append(f"{name}: not in the ISO")
+            continue
+        clean = key.split(";")[0].strip("/")
+        (originals / name).write_bytes(iso_pack.read_member(iso, clean))
+        keys[name] = key
+    if not keys:
+        return
+    try:
+        results = UTP.build(originals, out_dir, specs, UI_TEXTURE_COMPRESS)
+    except Exception as exc:  # noqa: BLE001 - UiPatchError / LabelError / GimError / ValueError
+        summary["problems"].append(str(exc))
+        report["problems"].append(f"ui textures: build broke: {exc}")
+        return
+    for res in results:
+        entry = _jsonable(vars(res))
+        summary["containers"].append(entry)
+        if res.name in keys:
+            iso_patch[keys[res.name]] = (out_dir / res.name).read_bytes()
+    built = {r.name for r in results}
+    for name in keys:
+        if name not in built:
+            summary["skipped"].append(f"{name}: no spec'd texture inside")
+
+
+# The largest "Skill00 + the eight DLC pools" that booted in the game (variant W1, 2026-10-15:
+# 217 090 + 8 x 15 638).  Whether the budget is one shared arena or per member is open; this
+# sum is the conservative reading and is reported, not enforced per container (each member has
+# its own gate), so a build whose members all fit but whose sum does not is still flagged.
+SKILL_TOTAL_LIMIT = 342_194
+SKILL_MEMBERS = {"config00.cpk": "srwDL_Skill00.bin",
+                 **{f"config0{n}.EDAT": f"srwDL_Skill0{n}.bin" for n in range(1, 9)}}
+
+
+def skill_total_check(report: dict, blobs: Dict[str, bytes], iso_patch: Dict[str, bytes],
+                      out: Path, dry_run: bool, store: Optional["ContainerStore"] = None) -> None:
+    """Sum the skill members of the containers this build produced (originals for the ones it
+    did not touch) and flag a sum over ``SKILL_TOTAL_LIMIT`` in the report."""
+    sizes: Dict[str, int] = {}
+    missing: List[str] = []
+    for container, member in SKILL_MEMBERS.items():
+        blob = None
+        for key, patched in iso_patch.items():          # built for the ISO (config00.cpk)
+            if key.rsplit("/", 1)[-1].lower() == container.lower():
+                blob = patched
+        rel = (store.dlc_relpath(container) if store is not None else None) or container
+        written = None if dry_run else (out / "DLC" / rel)
+        if blob is None and written is not None and written.exists():
+            blob = written.read_bytes()                 # built for the DLC folder
+        if blob is None and container in blobs:
+            blob = blobs[container]                     # untouched (or refused): the original
+        if blob is None:
+            missing.append(container)
+            continue
+        try:
+            subs = _members_of_blob(blob)
+        except Exception as exc:                   # noqa: BLE001 - report, never break a build
+            report["problems"].append(f"skill total: {container}: {exc}")
+            return
+        if member not in subs:
+            missing.append(container)
+            continue
+        sizes[member] = len(subs[member])
+    total = sum(sizes.values())
+    report["skill_total"] = {"members": sizes, "total": total, "limit": SKILL_TOTAL_LIMIT,
+                             "missing": missing,
+                             "fits": (total <= SKILL_TOTAL_LIMIT) if not missing else None}
+    if missing:
+        return                                      # not all nine were available - nothing to judge
+    if total > SKILL_TOTAL_LIMIT:
+        report["problems"].append(
+            f"skill total: Skill00 + 8 DLC pools = {total} B exceeds {SKILL_TOTAL_LIMIT} B "
+            f"(+{total - SKILL_TOTAL_LIMIT} B; the largest total that booted in the game) - "
+            f"shorten with tools/skill_shrink.py --dlc-original before shipping")
+
+
+def _members_of_blob(blob: bytes) -> Dict[str, bytes]:
+    """``{sub-file name: bytes}`` of a one-``.pac`` container held in memory (``cpk_write.load``
+    reads from a path, so the blob goes through a temporary file)."""
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as handle:
+        handle.write(blob)
+        path = Path(handle.name)
+    try:
+        cpk = cpk_write.load(path)
+    finally:
+        path.unlink(missing_ok=True)
+    subs: Dict[str, bytes] = {}
+    for member in cpk.members:
+        body = cpk_write.decompressed(member.blob)
+        if member.name.lower().endswith(".pac"):
+            for sub in CSP.parse_pac(body)["subs"]:
+                subs[sub["name"]] = sub["data"]
+        else:
+            subs[member.name] = body
+    return subs
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--iso", type=Path, help="the game ISO (chapter 1 inside)")
@@ -777,13 +1316,55 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--out", type=Path, default=Path("local/patch"))
     parser.add_argument("--work", type=Path)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--only", nargs="*", default=[], metavar="GLOB",
+                        help="patch only these containers (file-name globs, e.g. configst.cpk "
+                             "eventP*); everything else stays original")
+    parser.add_argument("--skip", nargs="*", default=[], metavar="GLOB",
+                        help="leave these containers original (globs; wins over --only)")
+    parser.add_argument("--filter", action="append", default=[], metavar="SPEC",
+                        help="only=glob,glob or skip=glob,glob - the one-argument form of "
+                             "--only/--skip (what BISEKCJA.bat passes); repeatable")
+    parser.add_argument("--no-ui-textures", action="store_true",
+                        help="leave the UI texture containers (system.cpk, tacsys.cpk, IM*.cpk) "
+                             "original - text only")
+    parser.add_argument("--no-exe", action="store_true",
+                        help="skip the executable strings step (ISO EBOOT.BIN / PBOOT.PBP in place "
+                             "+ cheats/NPJH50521.ini)")
+    parser.add_argument("--ui-specs", type=Path, default=None,
+                        help="folder with the texture caption specs (default ui_labels/)")
     args = parser.parse_args(argv)
 
+    only, skip = list(args.only), list(args.skip)
+    for spec in args.filter:
+        more_only, more_skip = parse_filter(spec)
+        only += more_only
+        skip += more_skip
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
-                   work=args.work, dry_run=args.dry_run)
+                   work=args.work, dry_run=args.dry_run, only=only, skip=skip,
+                   ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
+                   executable=not args.no_exe)
+    if only or skip:
+        print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]
     problems = report["problems"]
     print(f"Kontenery z tłumaczeniem: {len(changed)} -> {', '.join(changed) if changed else '(brak)'}")
+    ui = report.get("ui_textures") or {}
+    if ui.get("containers"):
+        names = [c["name"] for c in ui["containers"]]
+        print(f"Tekstury UI (napisy w grafikach): {len(names)} -> {', '.join(names)}")
+    exe = report.get("executable") or {}
+    if exe:
+        for tgt in exe.get("targets") or []:
+            if "elf_md5_in" in tgt:
+                extra = f" (program wzięty z {tgt['source']})" if tgt.get("source") else ""
+                print(f"Program gry [{tgt['target']}]: {tgt.get('applied', 0)} z {exe.get('rows', 0)} "
+                      f"napisów wpisanych, {len(tgt.get('skipped') or [])} odrzuconych{extra}")
+            else:
+                print(f"Program gry [{tgt['target']}]: NIE ZAPISANY - {'; '.join(tgt.get('problems') or [])}")
+        for note in exe.get("notes") or []:
+            print(f"  uwaga: {note}")
+        if not exe.get("targets"):
+            print(f"Program gry: {'; '.join(exe.get('problems') or ['nic do zrobienia'])}")
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")
@@ -791,7 +1372,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"Problemy ({len(problems)}) - szczegóły w {report.get('report_path')}:")
         for line in problems[:20]:
             print(f"  {line}")
-    return 1 if any("build broke" in p or "not found" in p for p in problems) else 0
+    return exit_status(problems)
+
+
+def exit_status(problems: Sequence[str]) -> int:
+    """1 when a container was not produced (structural break, missing input, size budget)."""
+    return 1 if any("build broke" in p or "not found" in p or "NOT written" in p
+                    for p in problems) else 0
 
 
 if __name__ == "__main__":

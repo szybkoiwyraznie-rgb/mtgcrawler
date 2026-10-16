@@ -39,8 +39,15 @@ def parse_pac(pac: bytes) -> Dict:
             "entry": entry, "subs": subs, "orig_len": len(pac)}
 
 
-def rebuild_pac(parsed: Dict) -> bytes:
-    """Rebuild the PAC from parsed['subs'] (each {'name','data'}), re-deriving offsets."""
+def rebuild_pac(parsed: Dict, align: int = ALIGN) -> bytes:
+    """Rebuild the PAC from parsed['subs'] (each {'name','data'}), re-deriving offsets.
+
+    ``align`` is the placement unit of the sub-files (the originals use 0x800 = one UMD sector);
+    a smaller unit packs the same sub-files into a smaller PAC (config00: 34 sub-files, 36 KB of
+    sector padding).  The PAC's total length stays a multiple of ALIGN either way.
+    """
+    if align <= 0 or align & (align - 1):
+        raise ValueError(f"align must be a power of two, not {align}")
     subs = parsed["subs"]
     data_base = parsed["data_base"]
     name_len = parsed["name_len"]
@@ -48,7 +55,7 @@ def rebuild_pac(parsed: Dict) -> bytes:
     layout = []
     running = data_base
     for s in subs:
-        off = _align_up(running, ALIGN)
+        off = _align_up(running, align)
         layout.append((s, off))
         running = off + len(s["data"])
     out = bytearray()

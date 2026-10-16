@@ -1,0 +1,322 @@
+{
+ "texture": "mensys_13",
+ "source": "system.cpk — 128x64 INDEX8; unit/pilot list headers and attribute icons",
+ "font": "assets/fonts/Roboto-Bold.ttf",
+ "size": 12,
+ "min_size": 8,
+ "squeeze": 0.8,
+ "fill": [
+  230,
+  230,
+  230,
+  255
+ ],
+ "outline": [
+  0,
+  0,
+  0,
+  200
+ ],
+ "labels": [
+  {
+   "id": "unit",
+   "jp": "ユニット",
+   "en": "Unit",
+   "box": [
+    2,
+    1,
+    38,
+    13
+   ]
+  },
+  {
+   "id": "pilot",
+   "jp": "パイロット",
+   "en": "Pilot",
+   "box": [
+    43,
+    0,
+    86,
+    13
+   ]
+  },
+  {
+   "id": "will",
+   "jp": "気力",
+   "en": "Will",
+   "box": [
+    106,
+    1,
+    127,
+    13
+   ]
+  },
+  {
+   "id": "trait",
+   "jp": "特性",
+   "en": "Trait",
+   "box": [
+    3,
+    14,
+    25,
+    27
+   ]
+  },
+  {
+   "id": "terrain",
+   "jp": "地形",
+   "en": "Terrain",
+   "box": [
+    32,
+    30,
+    56,
+    41
+   ],
+   "min_size": 7
+  },
+  {
+   "id": "equip",
+   "jp": "装備",
+   "en": "Equip",
+   "box": [
+    0,
+    44,
+    22,
+    57
+   ]
+  },
+  {
+   "id": "unit_body",
+   "jp": "機体",
+   "en": "Unit",
+   "box": [
+    41,
+    44,
+    63,
+    56
+   ]
+  },
+  {
+   "id": "recover",
+   "jp": "回復",
+   "en": "Heal",
+   "box": [
+    65,
+    43,
+    87,
+    56
+   ]
+  },
+  {
+   "id": "for_suffix",
+   "jp": "用",
+   "en": "",
+   "box": [
+    89,
+    44,
+    100,
+    56
+   ],
+   "note": "erased: suffix glyph 用 drawn after 機体/パイロット (\"Unit用\" otherwise); no English equivalent"
+  },
+  {
+   "id": "attr_break",
+   "jp": "突",
+   "en": "BR",
+   "box": [
+    46,
+    17,
+    56,
+    27
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    50,
+    0,
+    25,
+    255
+   ],
+   "bg": [
+    99,
+    24,
+    16,
+    255
+   ],
+   "note": "weapon ability icon: 突破攻撃 = Break (M / B letters of MAP / Beam are original)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "attr_arc",
+   "jp": "曲",
+   "en": "AR",
+   "box": [
+    61,
+    18,
+    71,
+    28
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    0,
+    25,
+    12,
+    255
+   ],
+   "bg": [
+    0,
+    46,
+    26,
+    255
+   ],
+   "note": "weapon ability icon: 曲射 = Arc Shot",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "attr_push",
+   "jp": "押",
+   "en": "PU",
+   "box": [
+    76,
+    16,
+    86,
+    28
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    23,
+    33,
+    0,
+    255
+   ],
+   "bg": [
+    60,
+    89,
+    0,
+    255
+   ],
+   "note": "weapon ability icon: 押出 = Push",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "attr_throw",
+   "jp": "投",
+   "en": "TH",
+   "box": [
+    91,
+    16,
+    101,
+    28
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    23,
+    33,
+    0,
+    255
+   ],
+   "bg": [
+    50,
+    73,
+    0,
+    255
+   ],
+   "note": "weapon ability icon: 押投 = Throw",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "attr_pull_throw",
+   "jp": "投",
+   "en": "TH",
+   "box": [
+    113,
+    16,
+    123,
+    28
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    23,
+    33,
+    0,
+    255
+   ],
+   "bg": [
+    45,
+    66,
+    0,
+    255
+   ],
+   "note": "weapon ability icon with the 〉 notch: 引投 = Pull Throw (notch kept)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  },
+  {
+   "id": "attr_combo",
+   "jp": "合",
+   "en": "CO",
+   "box": [
+    105,
+    45,
+    115,
+    55
+   ],
+   "align": "center",
+   "fill": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "outline": [
+    1,
+    0,
+    64,
+    255
+   ],
+   "bg_from_column": 104,
+   "note": "weapon ability icon: 合体攻撃 = Combination attack (blue/red split kept via column 104)",
+   "size": 9,
+   "min_size": 6,
+   "squeeze": 0.8
+  }
+ ]
+}

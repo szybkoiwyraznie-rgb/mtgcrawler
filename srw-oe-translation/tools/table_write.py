@@ -15,7 +15,7 @@ than the Japanese original fits everywhere the pool form is used:
     srwDL_DLC_ID             8        0          -               config00-19
     srwDL_Shop               2        0          -               config00-19
     srwDL_Skill_Tag          5        8          u32 id @ +0     configst
-    srwDL_Achievement        2        0          -               configst
+    srwDL_Achievement        2        0          -               configst (+8..+28 numbers, exempt)
 
 Rebuild rules (all measured, all fail-closed):
 
@@ -39,9 +39,14 @@ Row addressing, matching the package:
 * ``04`` offset rows carry the byte offset of the string inside the member; the writer maps it to
   (record, pointer index) and refuses a row whose ``jp`` is not the string found there;
 * ``07``/``08`` rows carry the record ``key`` and a ``part``: CharaDictionary
-  name/voice_actor/entry/series/nickname -> slots 0/1/2/3/4, RoboDictionary
-  length/weight/series -> slots 0/1/3.  The entry slot keeps its ``＠０\\r`` template prefix and
-  the nickname slot its ``愛称：`` label when the row's jp is the bare text behind them;
+  name/voice_actor/entry/series/nickname/alt_name/short_name -> slots 0/(1+5)/2/3/4/10/11,
+  RoboDictionary length/weight/note/series/type/name/name_narrow -> slots 0/1/2/3/4/5/6.  The entry slot keeps its
+  ``＠０\\r`` template prefix and the labelled slots (``愛称：仁``, ``声優：松本梨香``) their label
+  when the row's jp is the bare text behind them; the label itself is translated by a
+  ``part: label`` row (``config_label``, ``source.slot`` = the slot) and swapped in afterwards for
+  every record that carries it - also where the text behind it is the ``－－－`` placeholder or
+  still Japanese, so one label never appears half-translated [measured 2026-10-16: the Character
+  Viewer draws slot 5 and slot 11, not the bare slot 1; the Robot Viewer draws slot 5/6 when set];
 * ``%s`` in a row is the display of one control byte of the original string (the export's
   ``text_of``); the writer puts the i-th control byte back for the i-th ``%s`` of the English and
   refuses a row whose counts differ, so a token can move inside the sentence but never vanish.
@@ -91,21 +96,43 @@ FAMILY_BY_PREFIX: Dict[str, Family] = {
     "srwDL_CharaDictionary": Family(12, 0, ("u16", 0x40), exempt=((0x30, 0x40),)),
     "srw_DL_RoboDictionary": Family(7, 0, ("u16", 28)),
     "srwDL_Reference": Family(10),
-    "srwDL_DLC_ID": Family(8),
+    # DLC_ID record: 8 pointers, then 26 bytes of numbers before the first string at +58 -
+    # +32 price (0/2000/3000/4000/5000), +36 running number 45..106 or a packed u16 pair,
+    # +40/+44 packed small fields, +48 points (0/50/100/150/200, tracks the price), +52 flags
+    # [ZWERYFIKOWANE 2026-10-14, 51 records of DLC_ID00/01]; the running number and the points
+    # land inside the string range by arithmetic coincidence (73..106 >= 58), not as pointers
+    "srwDL_DLC_ID": Family(8, exempt=((32, 56),)),
     "srwDL_Shop": Family(2),
     "srwDL_Skill_Tag": Family(5, ptr_start=8, key=("u32", 0)),
-    "srwDL_Achievement": Family(2),
+    # Achievement record: 2 pointers (+0 always 28, +4 the empty second string), then numbers -
+    # +8 target count (1..100: missions, hours, kills, Lv, units), +12 flag, +16 u16 index,
+    # +18/+20 u16 text ids, +24 u16 points, +26 u16 category [ZWERYFIKOWANE 2026-10-16, all 75
+    # records of configst]; a count of 30/40/100 or an index of 32/45 lands inside the string
+    # range (>= 28) by arithmetic, not as a pointer - 7 records (30 missions, 30 hours, 100 kills,
+    # Lv10, Lv40, 50 units upgraded, 30 units owned) stayed Japanese in builds #22/#23 because
+    # the guard refused them
+    "srwDL_Achievement": Family(2, exempt=((8, 28),)),
 }
 
-#: 07/08 part -> pointer slot, per family prefix.
-PART_SLOT: Dict[str, Dict[str, int]] = {
-    "srwDL_CharaDictionary": {"name": 0, "voice_actor": 1, "entry": 2, "series": 3,
-                              "nickname": 4},
-    "srw_DL_RoboDictionary": {"length": 0, "weight": 1, "series": 3},
+#: 07/08 part -> pointer slot(s), per family prefix.  A tuple names every slot one part feeds:
+#: the voice actor stands bare in slot 1 and behind its label in slot 5 (the Character Viewer
+#: draws slot 5), so a single row keeps both copies in step.
+PART_SLOT: Dict[str, Dict[str, object]] = {
+    "srwDL_CharaDictionary": {"name": 0, "voice_actor": (1, 5), "entry": 2, "series": 3,
+                              "nickname": 4, "alt_name": 10, "short_name": 11},
+    "srw_DL_RoboDictionary": {"length": 0, "weight": 1, "note": 2, "series": 3, "type": 4,
+                              "name": 5, "name_narrow": 6},
 }
 
 ENTRY_TEMPLATE = "＠０\r".encode("cp932")
-NICKNAME_LABEL = "愛称：".encode("cp932")
+#: label prefixes the game stores inside a slot's string (``愛称：仁``, ``声優：松本梨香``): the
+#: keyed row carries the text behind the label, a ``part: label`` row carries the label
+SLOT_LABELS: Dict[Tuple[str, int], bytes] = {
+    ("srwDL_CharaDictionary", 4): "愛称：".encode("cp932"),
+    ("srwDL_CharaDictionary", 5): "声優：".encode("cp932"),
+}
+NICKNAME_LABEL = SLOT_LABELS[("srwDL_CharaDictionary", 4)]
+LABEL_PART = "label"
 
 
 def family_of(member: str) -> Optional[Family]:
@@ -212,7 +239,13 @@ def rebuild_pool(b: bytes, family: Family,
             body += text + b"\x00"
         for j, value in enumerate(ptrs):
             struct.pack_into("<I", prefix, family.ptr_start + 4 * j, value)
-        new_recs.append(bytes(prefix) + bytes(body) + rec.tail)
+        new = bytes(prefix) + bytes(body) + rec.tail
+        if i in by_rec and len(new) % 2:
+            # measured on every original pool (config00, configst, config01-08: 1,051 records):
+            # record offsets and lengths are always even; an edited record keeps that invariant
+            # with one zero byte of padding, an untouched record is copied verbatim
+            new += b"\x00"
+        new_recs.append(new)
     head = bytearray(4 + 4 * len(new_recs))
     struct.pack_into("<I", head, 0, len(new_recs))
     pos = len(head)
@@ -223,6 +256,27 @@ def rebuild_pool(b: bytes, family: Family,
 
 
 # --------------------------------------------------------------------------- convention C
+
+# In-game size budget of the DLC skill fragment pools (2026-10-15, test Y): the original ISO
+# with the eight rebuilt config01-08.EDAT (every ``srwDL_Skill0N.bin`` grown 15 638 -> 17 396 B)
+# crashed at "Loading" with the stack of the Skill00 size crash, the rebuilt ISO with the
+# original EDATs booted.  Until an in-game ladder says otherwise a pool may not outgrow its
+# original (every one is 15 638 B); a pool over it refuses its WHOLE container (SizeBudgetError,
+# "NOT written") exactly like Skill00 - shorten with ``tools/skill_shrink.py --dlc-original``.
+POOL_SIZE_LIMITS: Dict[str, int] = {f"srwDL_Skill0{n}.bin": 15_638 for n in range(1, 9)}
+
+
+def pool_size_limit_problem(member: str, size: int) -> Optional[str]:
+    """The refusal text when the convention-C ``member`` rebuilt to ``size`` bytes is over its
+    in-game budget, else None."""
+    limit = POOL_SIZE_LIMITS.get(member)
+    if limit is None or size <= limit:
+        return None
+    return (f"{member}: {size} B exceeds the in-game budget of {limit} B (+{size - limit} B over; "
+            f"the DLC chapters crash at Loading above it, measured 2026-10-15) - shorten the "
+            f"shared skill fragments (tools/skill_shrink.py --dlc-original); the container is "
+            f"refused")
+
 
 def parse_pool_c(b: bytes) -> Tuple[List[int], List[bytes]]:
     """(offsets, strings-without-NUL) of a convention-C member (pure string pool)."""
@@ -392,6 +446,19 @@ def match_form(jp: Optional[str], original: bytes) -> Optional[str]:
     return None
 
 
+def english(row: dict) -> str:
+    """The row's English exactly as written, or ``""`` when it is blank (untranslated).
+
+    The writers used to ``strip()`` the English.  That silently dropped what the package check
+    had just insisted on - a trailing ``\\n`` matching the jp - and the leading/trailing spaces
+    that centre a mission title (``　　 サブミッション　　``), indent a sysmes line or align a
+    skill column (`` Lv``).  Whitespace is the translator's; only an all-whitespace cell means
+    "not translated" (the event and quote writers never stripped).
+    """
+    en = row.get("en") or ""
+    return en if en.strip() else ""
+
+
 def encode_en(en: str, original: bytes, form: str) -> bytes:
     """The bytes to store for a translation validated against ``original`` in ``form``."""
     if form == "raw":
@@ -402,15 +469,12 @@ def encode_en(en: str, original: bytes, form: str) -> bytes:
     return encode_target(en, original)
 
 
-def keyed_target(part: str, en: str, original: bytes, family_member: str) -> bytes:
-    """Slot bytes for a key+part row: template/label prefixes stay, the text behind them changes."""
-    text = encode_target(en, original)
-    if part == "entry" and original.startswith(ENTRY_TEMPLATE):
-        return ENTRY_TEMPLATE + text
-    if part == "nickname" and original.startswith(NICKNAME_LABEL) \
-            and family_member.startswith("srwDL_CharaDictionary"):
-        return NICKNAME_LABEL + text
-    return text
+def part_slots(sub_name: str, part: Optional[str]) -> Tuple[int, ...]:
+    """Every pointer slot a 07/08 ``part`` feeds in this member's family (empty when none)."""
+    slots = PART_SLOT.get(sub_name_prefix(sub_name), {}).get(part or "")
+    if slots is None:
+        return ()
+    return tuple(slots) if isinstance(slots, tuple) else (int(slots),)
 
 
 # --------------------------------------------------------------------------- rows -> edits
@@ -466,14 +530,22 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
         edits: Dict[Tuple[int, int], bytes] = {}
         resolved: List[tuple] = []
         refused: List[str] = []
+        labels = [r for r in rows if r.get("part") == LABEL_PART]
         for row in rows:
-            en = (row.get("en") or "").strip()
-            if not en:
+            en = english(row)
+            if not en or row.get("part") == LABEL_PART:
                 continue                      # partial package: the string stays Japanese
             source = row.get("source") or {}
             targets = resolve_one(row, en, blob, spans, records, by_offset, keyed, family,
                                   sub_name, refused, ranges)
             for (i, j), value in targets:
+                if records[i].unexplained_refs:
+                    # the rebuild guard would refuse the whole member for this one record;
+                    # refuse the row here so the other records still get their text
+                    refused.append(f"{row.get('id')}: record {i} has unexplained in-record "
+                                   f"references (offsets {records[i].unexplained_refs[:3]}); "
+                                   f"left as is")
+                    continue
                 resolved.append((sub_name, i, j, row.get("id")))
                 if (i, j) in edits and edits[(i, j)] != value:
                     refused.append(
@@ -483,6 +555,8 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
                         edits[(i, j)] = value  # offset rows carry the full labeled string
                     continue
                 edits[(i, j)] = value
+        if labels:
+            apply_labels(labels, sub_name, records, edits, resolved, refused)
         return {"convention": "A", "edits": edits, "resolved": resolved, "member": sub_name,
                 "records": len(records), "refused": refused}, problems
     # convention C?
@@ -500,7 +574,7 @@ def resolve_rows(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[dict
     resolved = []
     refused = []
     for row in rows:
-        en = (row.get("en") or "").strip()
+        en = english(row)
         if not en:
             continue
         source = row.get("source") or {}
@@ -559,27 +633,32 @@ def resolve_one(row: dict, en: str, blob: bytes, spans, records, by_offset, keye
     if row.get("category") == "config_item_drop":
         refused.append(f"{row.get('id')}: ItemDrop rows are binary noise; skipped")
         return []
-    if row.get("key") is not None and family.key is not None \
-            and row.get("part") in PART_SLOT.get(sub_name_prefix(sub_name), {}):
-        slot = PART_SLOT[sub_name_prefix(sub_name)][row["part"]]
+    slots = part_slots(sub_name, row.get("part")) if row.get("key") is not None \
+        and family.key is not None else ()
+    if slots:
         matches = keyed.get(int(row["key"]), [])
         if not matches:
             refused.append(f"{row.get('id')}: no record with key {row['key']}")
             return []
         out = []
         for i in matches:
-            original = records[i].strings[slot]
-            prefix = template_prefix(row["part"], original, sub_name)
-            form = match_form(row.get("jp"), original[len(prefix):])
-            if form is None:
-                refused.append(f"{row.get('id')}: jp does not match record {i} slot {slot}")
-                return []
-            try:
-                value = prefix + encode_en(en, original[len(prefix):], form)
-            except TableError as exc:
-                refused.append(f"{row.get('id')}: {exc}")
-                return []
-            out.append(((i, slot), value))
+            for slot in slots:
+                original = records[i].strings[slot]
+                prefix = template_prefix(row["part"], original, sub_name, slot)
+                form = match_form(row.get("jp"), original[len(prefix):])
+                if form is None:
+                    # one row, several slots (voice actor bare + labelled): a secondary copy this
+                    # record does not carry is simply absent, anything else is a stale row
+                    if slot != slots[0] and not original:
+                        continue
+                    refused.append(f"{row.get('id')}: jp does not match record {i} slot {slot}")
+                    return []
+                try:
+                    value = prefix + encode_en(en, original[len(prefix):], form)
+                except TableError as exc:
+                    refused.append(f"{row.get('id')}: {exc}")
+                    return []
+                out.append(((i, slot), value))
         return out
     offset = source.get("offset")
     ij = by_offset.get(offset) if isinstance(offset, int) else None
@@ -616,13 +695,57 @@ def sub_name_prefix(sub_name: str) -> str:
     return sub_name
 
 
-def template_prefix(part: str, original: bytes, sub_name: str) -> bytes:
+def template_prefix(part: str, original: bytes, sub_name: str, slot: Optional[int] = None
+                    ) -> bytes:
+    """The bytes in front of a keyed row's text that the row does not carry: the entry template
+    or the slot's label (see :data:`SLOT_LABELS`)."""
     if part == "entry" and original.startswith(ENTRY_TEMPLATE):
         return ENTRY_TEMPLATE
-    if part == "nickname" and sub_name.startswith("srwDL_CharaDictionary") \
-            and original.startswith(NICKNAME_LABEL):
-        return NICKNAME_LABEL
+    if slot is None:
+        slots = part_slots(sub_name, part)
+        slot = slots[0] if slots else None
+    label = SLOT_LABELS.get((sub_name_prefix(sub_name), slot)) if slot is not None else None
+    if label and original.startswith(label):
+        return label
     return b""
+
+
+def apply_labels(rows: Iterable[dict], sub_name: str, records: List["Record"],
+                 edits: Dict[Tuple[int, int], bytes], resolved: List[tuple],
+                 refused: List[str]) -> None:
+    """Swap a translated label into every record's slot that starts with it.
+
+    A ``part: label`` row (``jp`` = the label as stored, ``source.slot`` = the slot, ``en`` = the
+    English label) applies to the slot of EVERY record of the member - after the keyed rows, so a
+    record whose text behind the label was translated gets ``Voice: Rica Matsumoto`` and one
+    whose text is the placeholder or still Japanese gets ``Voice: －－－`` / ``Voice: 松本梨香``:
+    the label is one string for the translator, never a per-record decision.  A label the slot
+    does not carry (or that another row already replaced whole) is left alone.
+    """
+    for row in rows:
+        en = english(row)
+        source = row.get("source") or {}
+        slot = source.get("slot")
+        if not en or not isinstance(slot, int):
+            refused.append(f"{row.get('id')}: a label row needs source.slot and English")
+            continue
+        try:
+            jp_label = (row.get("jp") or "").encode("cp932")
+            en_label = en.encode("cp932")
+        except UnicodeEncodeError as exc:
+            refused.append(f"{row.get('id')}: label is not CP932-encodable: {exc}")
+            continue
+        if not jp_label or not (0 <= slot < len(records[0].strings) if records else False):
+            refused.append(f"{row.get('id')}: slot {slot} / label {row.get('jp')!r} unusable here")
+            continue
+        for i, rec in enumerate(records):
+            if rec.unexplained_refs or not rec.strings[slot].startswith(jp_label):
+                continue
+            current = edits.get((i, slot), rec.strings[slot])
+            if not current.startswith(jp_label):
+                continue                   # a whole-string row already replaced it
+            edits[(i, slot)] = en_label + current[len(jp_label):]
+            resolved.append((sub_name, i, slot, row.get("id")))
 
 
 # --------------------------------------------------------------------------- rebuild + verify
@@ -640,6 +763,10 @@ def apply_member(blob: bytes, sub_name: str, rows: Iterable[dict]) -> Tuple[byte
         modified = rebuild_pool(blob, family, plan["edits"])
     else:
         modified = rebuild_pool_c(blob, plan["edits"])
+        problem = pool_size_limit_problem(sub_name, len(modified))
+        if problem:
+            import item_skill_write  # noqa: E402  (lazy: item_skill_write imports this module)
+            raise item_skill_write.SizeBudgetError(problem)
     report["problems"] += verify_member(blob, modified, plan)
     report["bytes"] = len(modified) - len(blob)
     if report["problems"]:
@@ -675,8 +802,11 @@ def verify_member(original: bytes, modified: bytes, plan: dict) -> List[str]:
             struct.pack_into("<I", kept, family.ptr_start + 4 * j, 0)
         if bytes(keep) != bytes(kept):
             problems.append(f"record {i}: non-pointer prefix bytes changed")
-        if ra.tail != rc.tail:
-            problems.append(f"record {i}: tail changed")
+        edited = any(key[0] == i for key in plan["edits"])
+        if rc.tail != ra.tail and not (edited and rc.tail == ra.tail + b"\x00"):
+            problems.append(f"record {i}: tail changed")     # one zero pad byte keeps it even
+        if edited and (len(rc.prefix) + sum(len(t) + 1 for t in rc.strings) + len(rc.tail)) % 2:
+            problems.append(f"record {i}: odd record length after the rebuild")
         for j in range(family.pointers):
             want = plan["edits"].get((i, j), ra.strings[j])
             if rc.strings[j] != want:
