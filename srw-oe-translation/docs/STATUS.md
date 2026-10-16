@@ -1,6 +1,19 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.37)
+Last updated: 2026-10-16 (§21.38)
+
+**Latest (2026-10-16, §21.38): PRZYCZYNA CRASHU DLC v9 ZNALEZIONA I NAPRAWIONA OFFLINE.** Gra trzyma
+stały bufor per plik DLC `configNN.EDAT` = oryginał zaokrąglony w górę do 0x800; v9 config01
+(249 984 B) i config02 (159 872 B) siedziały dokładnie 128 B nad granicą i padały na Loading
+(koperta rodzinowa — podwojony imenu01.EDAT działa, boot-scan config01–46 §21.12). Dowód: reprodukcja
+bajt w bajt padających plików + odtworzenie DZIAŁAJĄCEGO builda #17 z historii PR #13 (md5 `7c6459fa…`
+z listy Y4a) i diff człon po członie (pule/listy == #17, słowniki == imenu01, jedyna różnica globalna
+= +1 kwant). FIX: (1) brama koperty w builderze (limit = align_up(oryginał, 0x800); drabinka pełny →
+bez slotów viewerów po stronie config (UI czyta imenuNN) → odmowa fail-closed); (2) pakiet v10: 4
+reguły skróceń robo (Ryu Knight, VOTOMS, Code Geass, Length→Len.) ratujące config02; (3) trim padu
+PAC odpada (EToc musi być na 0x800 — zmierzone). **8 plików config01–08 v10 zbudowanych, wszystkie
+≤ oryginałów; JEDEN test weryfikacyjny do wykonania** (instrukcja na Drive). Testy 1 287 OK/24
+pominięte. Szczegóły: `EXPERIMENT_LOG.md` §21.38.**
 
 **Latest (2026-10-16, §21.37): v9 (pełny build HOKUS_POKUS) PADA na „Loading" — pierwszy w grze test NARAZ
 podmiany EBOOT.BIN (exe_step, nigdy nie boota; możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9 (też

@@ -160,6 +160,20 @@ ACCEPTED_CONFIG = {
 }
 # md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
 KNOWN_DLC_CONFIG: Dict[str, str] = {
+    # build v10 (pakiet v10, brama koperty): config01 bez slotow viewerow po stronie config
+    # (UI czyta imenu01), config02 pelny po skroceniu "Lord of Lords Ryu Knight"/"Armored
+    # Trooper VOTOMS"/"Code Geass: ..."/"Length " (reguly koperty); rozmiary = oryginaly
+    "3857e834deec86693e79f0ed44a087a2": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "a7c41844cfbc53cb3a5d6ca960c1ab45": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "784cbed59d35e3814d1c74a18c957d6d": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "8a3eb91a2126cd785ec5b9559729b84b": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "85433cf45a2fe4dbf4a99b552c907923": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "49194979d028059614e43221f81c2b14": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "19dbb4ee440300d972ce59f3326d52aa": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    "1953264dc57d67d24ba583b858fcea0d": "build v10 (pakiet v10; koperta OK; sprawdzony do testu 2026-10-16)",
+    # v9 (pakiet v9): przekroczone koperty - crash na Loading (sweep 2026-10-16)
+    "809e252d01c2c13477971bd5c873ce18": "v9 config01 (249 984 B - koperta +1 kwant; PADAL w sweepie 2026-10-16)",
+    "576906fdb1c594c6202ebaad13d63630": "v9 config02 (159 872 B - koperta +1 kwant; PADAL w sweepie 2026-10-16)",
     # build #15 (pakiet v3): pule Skill01-08 17 396 B - test Y 2026-10-15 padl na Loading
     "6199c7dec872e6d10767ac952e872a14": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
     "e21939c44fbbedbab3e4ec2d782e08e9": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",

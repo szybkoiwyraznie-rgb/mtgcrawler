@@ -103,7 +103,7 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertEqual(diagnoza.EXPECTED_BUILD14["configst.cpk"], "6cfe245d5f6ec6dfffd2a829b778a4d7")
         for digest in diagnoza.KNOWN_DLC_CONFIG:
             self.assertRegex(digest, r"^[0-9a-f]{32}$")
-        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 32)          # 8 x (#15, #17, #18, pulaJP)
+        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 42)          # 8 v10 + 2 v9-crashery + 8 x (#15, #17, #18, pulaJP)
         for name, table in diagnoza.ACCEPTED_CONFIG.items():
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:

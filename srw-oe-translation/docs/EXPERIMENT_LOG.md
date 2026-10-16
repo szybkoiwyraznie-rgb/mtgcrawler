@@ -5406,3 +5406,64 @@ Protokół kolejny: **sweep pojedynczych plików** — kolejność od największ
 reszta po kolei; każdy: skopiuj z v9, boot ISO (cheat OFF), zapisz wynik; plik, po którym pada =
 winowajca, przywrócić i kontynuować sweep dalej (może być więcej niż jeden winny). Połówki `_a/_b`
 w `dlc_test.py`: `konfig_imenu_a` = `config0[1-8]` + `imenu0[1-8]` — zgodnie z wynikiem.
+
+**Sweep pojedynczych plików (2026-10-16):** `config01.EDAT` v9 = **PADA**; `imenu01.EDAT` v9 =
+**DZIAŁA**; `config02–08` wgrane razem = **PADA** (w bloku był config02). Użytkownik: fix offline,
+zero dalszych rund po kolei.
+
+### 21.38 Przyczyna crashu config01–08 znaleziona offline: KOPERTA ROZMIARU PLIKU configNN.EDAT (2026-10-16)
+
+**Reprodukcja offline bajt w bajt.** Z Dysku: oryginały `config01/02/imenu01.EDAT` + `pakiet_EN_
+2026-10-16_v9.zip`; budowa `--only` aktualnymi narzędziami dała **md5 identyczne z padającymi
+plikami użytkownika** (config01 `809e252d…` 249 984 B; config02 `576906fd…` 159 872 B; imenu01
+`6b906b6d…` 47 272 B) — builder jest deterministyczny, mamy padający plik w laboratorium.
+
+**Eliminacja członów (config01):** po sekcji CPK→PAC→podpliki: słowniki+DLC_ID v9 są **bajt w bajt
+identyczne z działającym imenu01** (niewinne); `srwDL_Skill01.bin` (15 578) i `srwDL_Item01.bin`
+(1 195) oraz `wp_list01/bgmlist01/milstP01` są **bajt w bajt identyczne z buildem #17 (Y4a —
+działał w grze)** (niewinne). Prawdziwe narzędzie: z gałęzi PR #13 (`arena/c0e5c9d1-mtgcrawler`,
+historia pośrednia przetrwała squash!) odtworzyłem narzędzia builda #17 (commit `c5e41b6`) i
+przebudowałem config01 z pakietem v4: **md5 `7c6459fa…` = pierwszy z listy „sprawdzony w grze
+Y4a/Y4/Z4"** — mam parę działający↔padający. Różnice: TYLKO słowniki+DLC_ID (+700 B, sloty
+viewerów v7) i renames nazw w `unit_list01/charalist01` (ASCII, NUL-terminated, ten sam pisarz
+działa w połowie B) oraz **+2 048 B na cały plik**.
+
+**Wniosek [ZWERYFIKOWANE na parach plików]: gra trzyma stały bufor per plik DLC configNN.EDAT
+wielkości oryginał zaokrąglony w górę do 0x800** — v9 config01 (249 984) i config02 (159 872)
+siedziały **dokładnie 128 B (1 kwant 0x800) nad granicą** align_up(oryginał, 0x800) = 249 856 /
+159 744 i padały na Loading; wszystko ≤ oryginału działało (#17, połowa B, config03–08), a nawet
+**podwojony imenu01.EDAT działa** — koperta jest rodzinowa (imenu/eventP/mesbtl mają inną ścieżkę
+ładowania; boot-scan config01–46 widziany w logu IO PPSSPP, §21.12). Wzrost v9: sloty viewerów v7
+(broadcast do imenuNN i configNN) urósły słowniki config01 o +1 175 B = +1 kwant PAC-a (podpliki
+są ustawiane na granicach 0x800; RoboDict02 w config02 urósł +376 przy luzie 6 B → +1 kwant).
+
+**Czego NIE da się zrobić (zmierzone):** ucięcie końcowego padu PAC-a (`rebuild_pac tail_align`)
+nic nie daje — warstwa CPK dobija koniec zawartości do 0x800, bo **EToc musi siedzieć na granicy
+0x800** (zmierzone crashem w erze ISO; `cpk_write._pad_to_alignment`). Ciasniejsze pakowanie
+podplików (<0x800) niewypróbowane w grze — odpada. Kwantyzacja: rozmiar pliku zawsze ≡ 128
+(mod 0x800), więc granica praktycznie = „rozmiar pliku nie może przekroczyć oryginału o nowy
+kwant".
+
+**Fix (3 warstwy, zbudowane i sprawdzone offline):**
+1. **Brama koperty w builderze** (`build_translation_patch.py`): dla `configNN.EDAT` limit =
+   `align_up(oryginał, 0x800)`; drabinka: pełny build → (za duży) odłóż **sloty viewerów**
+   (voice_actor/alt_name/short_name/note/type/name_narrow) z kopii config-strony słowników
+   (UI i tak czyta słowniki z imenuNN — §21.34; rdzeń name/nickname/series/length/weight
+   zostaje) → (nadal za duży) **odmowa całego kontenera** (fail-closed jak budżet Skill00).
+2. **Pakiet v10** (na bazie v9): 4 reguły skróceń w wierszach robo, które ratują config02
+   (jego RoboDict02 musiał zejść −320 B, inaczej nawet bez slotów był +1 kwant):
+   „Lord of Lords Ryu Knight"→„Ryu Knight" (36 wierszy), „Armored Trooper VOTOMS"→„VOTOMS"
+   (38; wariant „…: Red Shoulder Document" bez zmian), „Code Geass: Lelouch of the
+   Rebellion"→„Code Geass" (24), „Length "→„Len. " (304). Same skrócenia → wszystkie pliki
+   tylko maleją / mieszczą się w kopertach.
+3. **`configst_pack.rebuild_pac(tail_align=)`** + `trim_pac_tail()` — narzędzie zostaje
+   (przydatne do pomiarów), brama z niego rezygnuje po pomiarze (patrz wyżej).
+
+**Wynik budowy config01–08 z pakietu v10 (wszystkie ≤ oryginałów; JEDEN zestaw do testu):**
+config01 247 936 (md5 `3857e834…`; sloty viewerów odłożone po stronie config — 161 wierszy;
+imenu01 jako jedyny źródło slotów), config02 157 824 (`a7c41844…`; PEŁNA treść), config03
+118 912 (`784cbed5…`), config04 108 672 (`8a3eb91a…`), config05 110 720 (`85433cf4…`), config06
+75 904 (`49194979…`), config07 73 856 (`19dbb4ee…`), config08 80 000 (`1953264d…`). `srwDL_Skill01/
+Item01/wp_list01/bgmlist01/milstP01` bajt w bajt = stany sprawdzone w grze; RoboDict02 = 6 122 B
+(< oryginał 6 138). Testy: +10 ( envelope/tail_align), całość **1 287 OK** (24 pominięte).
+diagnoza: md5 v10 i padających v9 w KNOWN_DLC_CONFIG.

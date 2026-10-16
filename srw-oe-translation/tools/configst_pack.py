@@ -16,7 +16,7 @@ re-deriving the directory offsets. `rebuild` is byte-identical when nothing chan
 from __future__ import annotations
 
 import struct
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 ALIGN = 0x800
 DIR_OFF = 0x10
@@ -39,13 +39,22 @@ def parse_pac(pac: bytes) -> Dict:
             "entry": entry, "subs": subs, "orig_len": len(pac)}
 
 
-def rebuild_pac(parsed: Dict, align: int = ALIGN) -> bytes:
+def rebuild_pac(parsed: Dict, align: int = ALIGN, tail_align: Optional[int] = None) -> bytes:
     """Rebuild the PAC from parsed['subs'] (each {'name','data'}), re-deriving offsets.
 
     ``align`` is the placement unit of the sub-files (the originals use 0x800 = one UMD sector);
     a smaller unit packs the same sub-files into a smaller PAC (config00: 34 sub-files, 36 KB of
     sector padding).  The PAC's total length stays a multiple of ALIGN either way.
+
+    ``tail_align`` (default: ``align``) is the unit the TRAILING pad after the last sub-file is
+    rounded to.  Sub-file offsets never depend on it, so a smaller tail (0x10) only strips the
+    final zero padding - used by the DLC size envelope to pull an overgrown configNN.EDAT back
+    under the original file's size without moving a single offset.
     """
+    if tail_align is None:
+        tail_align = align
+    if tail_align <= 0 or tail_align & (tail_align - 1):
+        raise ValueError(f"tail_align must be a power of two, not {tail_align}")
     if align <= 0 or align & (align - 1):
         raise ValueError(f"align must be a power of two, not {align}")
     subs = parsed["subs"]
@@ -69,7 +78,7 @@ def rebuild_pac(parsed: Dict, align: int = ALIGN) -> bytes:
         if len(out) < off:
             out += b"\x00" * (off - len(out))
         out += s["data"]
-    out += b"\x00" * (_align_up(len(out), ALIGN) - len(out))  # trailing pad to ALIGN
+    out += b"\x00" * (_align_up(len(out), tail_align) - len(out))  # trailing pad
     return bytes(out)
 
 
