@@ -1,8 +1,20 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.36)
+Last updated: 2026-10-16 (§21.37)
 
-**Latest (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
+**Latest (2026-10-16, §21.37): v9 (pełny build HOKUS_POKUS) PADA na „Loading" — pierwszy w grze test NARAZ
+podmiany EBOOT.BIN (exe_step, nigdy nie boota; możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9 (też
+nigdy). Przyczyna NIEZNANA — rozdziela ją test A/B: nowe `EBOOT_TEST.bat` + `tools/eboot_swap.py` robią z
+istniejącego `patched.iso` kopię z ORYGINALNYM programem z oryginalnego ISO 1.08 (zmiana TYLKO `EBOOT.BIN`,
+dane builda bajt w bajt; fail-closed: kolejność `~PSP`/ELF, identyczne programy, nasz znany ELF jako
+„oryginał", odczyt kontrolny; 17 nowych testów, całość 1 283 OK, 24 pominięte). Przed testem: `DIAGNOZA.bat`
+(który wariant EBOOT wpisała budowa — ELF płyty czy fallback PBOOT — i md5, z `executable.targets`) oraz
+CHEAT WYŁĄCZONY (adresy cheatu × podmieniony program = nieprzetestowana kombinacja). E1 działa ⇒ winny
+EBOOT (napisy programu wracają na pewny CWCheat); pada na Loading ⇒ winne dane (BISEKCJA A–I; podejrzani:
+`imenu00.cpk` 34 984 → 88 232 B, configst Achievement/tokeny, eventy/mesbtl z 23 030 nowych EN). Szczegóły:
+`EXPERIMENT_LOG.md` §21.37.**
+
+**Previous (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
 Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
 without macrons; 2 rows are the `NoData` placeholder) — one misreading fixed (`高乃麗` "Rei" → "Urara Takano"), the full
 list is `aktorzy_glosowi.tsv` in the package. A byte scan of every built member (now including half-width kana) found

@@ -317,6 +317,17 @@ wiersze z liczb znikną, `coverage_audit` nadal nie widzi fragmentów rozciętyc
 4. **apply** (wklejanie tłumaczeń) dla każdej puli NUL + pełny pipeline xdelta.
 5. Dopiero 1–4 gotowe i przetestowane → tłumaczenie.
 
+**Stan 2026-10-16 najnowszy (`EXPERIMENT_LOG.md` §21.37):** v9 (pełny build HOKUS_POKUS) **PADA na
+„Loading"** — pierwszy w grze test zarazem podmiany EBOOT.BIN (exe_step: jawny ELF w ISO, nigdy nie boota;
+możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9. Winowajca NIEZNANY. Nowe `tools/eboot_swap.py` +
+`EBOOT_TEST.bat`: z istniejącego `patched.iso` robi kopię z ORYGINALNYM programem z oryginalnego ISO 1.08
+(zmienia TYLKO EBOOT.BIN; fail-closed jak `iso_insert`; zapamiętuje oryginalne ISO). Drzewko: (0)
+`DIAGNOZA.bat` → `DIAGNOZA.txt` (wariant EBOOT w buildzie + md5 z `executable.targets`); (1) TEST E1 = wynik
+`EBOOT_TEST` z WYŁĄCZONYM cheatem → działa ⇒ winny EBOOT (napisy programu na CWCheat do naprawy); pada ⇒
+winne dane ⇒ `BISEKCJA.bat` A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst Achievement+tokeny,
+eventy/mesbtl z 23 030 nowych EN). Podczas crasha cheat mógł być włączony (adresy z ELFa PBOOT × podmieniony
+program = zanieczyszczenie testu) — w A/B cheat OFF. Testy 1 283 OK (24 pominięte).
+
 ## 8. Komendy (PC użytkownika, PowerShell)
 ```powershell
 cd D:\SRWOE\mtgcrawler\srw-oe-translation

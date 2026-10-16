@@ -5208,3 +5208,61 @@ v8 → STARY, v9 → AKTUALNY, `CURRENT_PACKAGE = v9`. Test pin v9.
 **Potwierdzone / nieznane:** POTWIERDZONE: import scen działa, 23 030 nowych EN, format sceny.zip kompatybilny.
 NIEZNANE: v9 w grze (nie budowano); jakość tłumaczeń ch.6–7 (1 362+1 539 JP — Tłumacz może jeszcze uzupełnić);
 13 odrzuconych notatek misji — do skrócenia lub zaakceptowania (etykiety poza polem w grze).
+
+## §21.37 (2026-10-16) — v9 PADA na „Loading" u użytkownika; test A/B programu (eboot_swap.py, EBOOT_TEST.bat)
+
+**A. Zgłoszenie:** użytkownik zbudował v9 przez `HOKUS_POKUS.bat` (pełny build: 96 kontenerów + tekstury UI +
+exe_step) i uruchomił `patched.iso`: **gra pada na ekranie „Loading..."**. Poprzedni potwierdzony w grze stan
+to era v6 (§21.34: intermisja EN, grafika cała, program przez cheat) — od tamtej budowy zmieniły się NARAZ dwie
+niezależne grupy, z których każda sama w sobie może tłumaczyć crash:
+
+- (a) **PODMIANA PROGRAMU** — `exe_step` pierwszy raz w życiu wszedł do buildu użytkownika:
+  `PSP_GAME/SYSDIR/EBOOT.BIN` w `patched.iso` to od teraz jawny ELF (napisy programu EN). NIGDY nie uruchomione
+  w grze (build #21 tylko piaskownica, §21.33). Dwa możliwe warianty wg `build_report.json`:
+  ELF z odszyfrowanego EBOOT płyty **albo** fallback `source: PBOOT.PBP` (program aktualizacji 1.08 napisany
+  w miejsce programu płyty). Znany md5 ELFa v6: `ba4cc05c…`; md5 ELFa v9 NIEZNANE (7 napisów doszło w §21.36 F2,
+  więc ELF v9 jest inny niż v6). Gdyby PPSSPP nie uruchamiał gołego ELFa, gra nie doeszłaby do „Loading" —
+  ale fallback PBOOT-program z danymi płyty albo uszkodzone odszyfrowanie (typ 6 bez próbki, §21.33) mogą
+  psuć właśnie fazę ładowania danych.
+- (b) **DANE v7+v8+v9** — lustrzane `imenuNN` (`imenu00.cpk` 34 984 → 88 232 B), sloty viewerów
+  (Chara 5/10/11, Robo 2/4/5/6), wiersze etykiet, `Achievement` exempt `(8,28)`, pola z tokenami kany w
+  configst (§21.34–21.35), 23 030 nowych EN dialogów (grow eventów/mesbtl) + 4 373 wiersze-kopie z resync
+  (§21.36). Też NIGDY nie testowane w grze.
+
+„Loading" to faza otwierania EDAT DLC (stare crashe #6/#8/#10/#15 pełnej piątki padały tu, gdy program
+startował poprawnie) — hipoteza użytkownika wskazuje EBOOT, ale dane są równie mocnym podejrzanym. Która
+grupa jest winna — **NIEZNANE**; rozdziela to test A/B.
+
+**B. Zanieczyszczenie cheatem:** jeżeli podczas crasha był włączony plik CWCheat `NPJH50521.ini` (adresy
+liczone z ELFa PBOOT), to w kombinacji z PODMIENIONYM EBOOT pisze po nieprzetestowanym układzie — w testach
+A/B cheat ma być **WYŁĄCZONY**. (Przy oryginalnym EBOOT cheat był wielokrotnie sprawdzony — czysty.)
+
+**C. Nowe narzędzia:** `tools/eboot_swap.py` + `EBOOT_TEST.bat` — bierze `patched.iso` z budowy i ORYGINALNE
+ISO 1.08, zwraca **kopię buildu z oryginalnym programem** (zmienia TYLKO `PSP_GAME/SYSDIR/EBOOT.BIN`; wszystkie
+kontenery danych builda zostają bajt w bajt — potwierdzone odczytem w teście). Fail-closed jak `iso_insert`:
+odmowa tego samego pliku / identycznych programów / złej kolejności (oryginał ma być `~PSP`, build jawnym
+ELF-em; `--force` świadomie inaczej) / naszego znanego programu jako „oryginału" (`KNOWN_BUILT_ELF` z
+`iso_insert`) / wyjścia na któreś z wejść; odczyt kontrolny EBOOT z wyniku; raport `eboot_swap_report.json`;
+wydruk tylko rozmiary/md5/rodzaj. Bat: dwa okna wyboru (`call :pick`), zapamiętuje oryginalne ISO
+(`%APPDATA%\SRWOE\ostatnie_iso.txt`, wspólnie z `WGRAJ_DO_ISO`), okno trzyma się otwarte. Testy: **17 nowych**
+(`tests/test_eboot_swap.py`, w tym reguły okien wyboru batu); całość **1 283 OK** (24 pominięte).
+
+**D. Plan (drzewko decyzyjne):**
+0. `DIAGNOZA.bat` (istniejące) na buildzie v9 → wysłać `DIAGNOZA.txt` (+ sekcję `executable.targets` z
+   `build_report.json`): powie, CO budowa wpisała do EBOOT (ELF płyty czy fallback PBOOT — flaga `source`)
+   i jakie md5. Bez tego nie wiadomo, który wariant drogi ELF w ogóle testujemy.
+1. **TEST E1** = `EBOOT_TEST.bat` (patched.iso v9 + oryginalne ISO) → `patched_EBOOT_oryginalny.iso`,
+   cheat WYŁĄCZONY, uruchomić i przejść: Loading → menu → intermisja → misja → sejw.
+   - **DZIAŁA** ⇒ winna podmiana EBOOT.BIN; napisy programu wracają na pewną drogę CWCheat do czasu naprawy
+     drogi ELF (kierunki wg raportu: fallback PBOOT-vs-płyta, odszyfrowanie typu 6, obsługa gołego ELFa —
+     ta ostatnia mało prawdopodobna, fanowskie patche tak działają).
+   - **PADA na Loading** ⇒ winne DANE v7/v8/v9; droga EBOOT czysta; bisekcja kontenerów `BISEKCJA.bat` (A–I)
+     — podejrzani wg skali zmian: `imenu00.cpk` (+153 %, nigdy w grze), `configst` (Achievement + tokeny),
+     eventy/mesbtl z 23 030 nowych EN.
+2. Niezależnie od wyniku: `DIAGNOZA.txt`, `build_report.json` (sekcja `executable`) i `eboot_swap_report.json`
+   wracają do rozmowy; ten wpis jest wtedy uzupełniany.
+
+**Potwierdzone / nieznane:** POTWIERDZONE: v9 (pełny build HOKUS_POKUS) pada u użytkownika na „Loading"
+(pierwszy w grze test stacka v7+v8+v9 i zarazem pierwsza w grze podmiana EBOOT.BIN). NIEZNANE: przyczyna
+(program vs dane), który wariant EBOOT w ogóle zbudowano (fallback?), stan cheatu podczas crasha. Nadal NIE
+POTWIERDZONE w grze: dane v7/v8/v9, EBOOT-w-ISO (jawny ELF), UI_TEST4, `srwDL_CalcType.bin`.
