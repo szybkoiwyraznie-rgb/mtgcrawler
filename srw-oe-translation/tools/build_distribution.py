@@ -65,21 +65,30 @@ def _resolve(tools_dir: Path) -> set[str]:
     return needed
 
 
-# ── main ───────────────────────────────────────────────────────────────
+# ── main ───────────────────────────────────────────────
 
 def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser(description="Build the standalone one-click distribution zip.")
+    ap.add_argument("--package", metavar="DIR",
+                    help="translation package dir (default: newest local/pakiet_v*/pakiet_EN_*)")
+    ap.add_argument("--version", metavar="V", help="version label for the zip name (default: from CO_NOWEGO)")
+    args = ap.parse_args()
+
     repo = Path(__file__).resolve().parent.parent  # srw-oe-translation/
     tools_dir = repo / "tools"
 
     # version from the latest CO_NOWEGO
-    version = "9"
-    co_files = sorted(repo.glob("local/pakiet_v*/CO_NOWEGO_v*.txt"), reverse=True)
-    if co_files:
-        # extract version number from filename
-        import re
-        m = re.search(r"v(\d+)", co_files[0].name)
-        if m:
-            version = m.group(1)
+    version = args.version
+    if version is None:
+        version = "9"
+        co_files = sorted(repo.glob("local/pakiet_v*/pakiet_EN_*/CO_NOWEGO_v*.txt"), reverse=True)
+        if co_files:
+            # extract version number from filename
+            import re
+            m = re.search(r"v(\d+)", co_files[0].name)
+            if m:
+                version = m.group(1)
 
     out_dir = repo / "local" / "dist"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -90,16 +99,21 @@ def main() -> None:
     needed_stems = _resolve(tools_dir)
     print(f"Tools needed: {len(needed_stems)} files")
 
-    # Find the latest translation package
-    # Find the latest translation package (directory, not zip)
-    pkg_dirs = sorted(
-        [d for d in repo.glob("local/pakiet_v*/pakiet_EN_*") if d.is_dir()],
-        reverse=True,
-    )
-    if not pkg_dirs:
-        print("ERROR: No translation package found in local/pakiet_v*/")
-        sys.exit(1)
-    pkg_dir = pkg_dirs[0]
+    # Find the translation package
+    if args.package:
+        pkg_dir = Path(args.package)
+        if not pkg_dir.is_dir():
+            print(f"ERROR: package dir not found: {pkg_dir}")
+            sys.exit(1)
+    else:
+        pkg_dirs = sorted(
+            [d for d in repo.glob("local/pakiet_v*/pakiet_EN_*") if d.is_dir()],
+            reverse=True,
+        )
+        if not pkg_dirs:
+            print("ERROR: No translation package found in local/pakiet_v*/ (use --package DIR)")
+            sys.exit(1)
+        pkg_dir = pkg_dirs[0]
     print(f"Package: {pkg_dir.name}")
 
     # Build zip
@@ -119,6 +133,17 @@ def main() -> None:
         for f in sorted(pkg_dir.iterdir()):
             if f.is_file():
                 zf.write(f, f"translation/{f.name}")
+
+        # UI texture caption specs + fonts (the icon pipeline reads both;
+        # their absence is why earlier dists "brakowaly plikow do ikon")
+        for extra in ("ui_labels", "assets"):
+            src_dir = repo / extra
+            if src_dir.is_dir():
+                for f in sorted(src_dir.rglob("*")):
+                    if f.is_file():
+                        zf.write(f, str(f.relative_to(repo)))
+            else:
+                print(f"WARNING: {extra}/ missing - icon captions will not build")
 
         # Tools
         for stem in sorted(needed_stems):

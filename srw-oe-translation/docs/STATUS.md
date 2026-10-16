@@ -1,6 +1,9 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.43)
+Last updated: 2026-10-17 (§21.56)
+
+
+**Latest (2026-10-17, §21.56): `"` WYJAŚNIONY I NAPRAWIONY.** Mechanizm: exe strings naruszyły tablicę interpunkcyjną EBOOT (「 　」 co 4 B) → silnik rysował sam `"`; fix = revert 3 wierszy (§21.54, potwierdzone grą §21.55). DLC uniewinnione (JP ISO + EN DLC = dialogi OK); configi v16 (słowniki JP) w grze OK. Backlog: glif 連→LNK, exe 404/404, patcher v12 (ui_labels+assets/fonts w zipie — poprawka „braku ikon”). Otwarte: info o nagrodzie (czeka treść z ekranu usera), potwierdzenie nazw wrogów w Robot Viewer na świeżym ISO. Kit: srw-oe-translation-v12.zip (md5 6a53774b…).
 
 **Latest (2026-10-16, §21.46): misja 2.1 `"`.** Hash pliku usera = rebuild → polowanie po
 formacie: rekordy **0x13E** niosą bezwzględne offsety do puli tekstów; po tłumaczeniu zostały

@@ -495,3 +495,5 @@ półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokena
   znikają) — commit+push wcześnie, wyniki z `local/` od razu na Drive.
 - Każde nowe wiersze puli (`pool_rows_refresh`) muszą od razu dostać wpis w `tokeny.tsv`, inaczej
   pisarz odmawia po cichu przy budowie (126 tekstów w #4).
+
+- (2026-10-17) **Pułapka tablicy interpunkcyjnej EBOOT:** komórki co 4 B przy 0x08bf9fbc (・ 「 　」) są czytane strukturalnie przez silnik dialogów — NIGDY nie zmieniać ich długości bajtowej (EN zamiast JP = w oknie dialogowym tylko `"`); w pakiecie na zawsze en:=jp dla 0x08bf9fbc/9fc0/9fc4/9fc8.

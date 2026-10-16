@@ -5,16 +5,160 @@
   "size": 12,
   "min_size": 8,
   "squeeze": 0.8,
-  "fill": [255, 255, 255, 255],
-  "outline": [0, 0, 0, 230],
+  "fill": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "outline": [
+    0,
+    0,
+    0,
+    230
+  ],
   "labels": [
-    {"id": "tab_stats", "jp": "能力", "en": "Stats", "box": [1, 21, 29, 35], "align": "center", "cell": [0, 20, 30, 36]},
-    {"id": "tab_upgrade", "jp": "改造", "en": "Mods", "box": [31, 21, 59, 35], "align": "center", "cell": [30, 20, 60, 36]},
-    {"id": "tab_weapons", "jp": "武器", "en": "Arms", "box": [61, 21, 89, 35], "align": "center", "cell": [60, 20, 90, 36]},
-    {"id": "tab_unit", "jp": "機体", "en": "Unit", "box": [91, 21, 119, 35], "align": "center", "cell": [90, 20, 120, 36]},
-    {"id": "tab_pilot", "jp": "パイロット", "en": "Pilot", "box": [1, 37, 45, 51], "align": "center", "cell": [0, 36, 46, 52]},
-    {"id": "mission_select", "jp": "ミッションセレクト", "en": "Mission Select", "box": [47, 37, 121, 47], "align": "center", "cell": [46, 36, 122, 48]},
-    {"id": "dl_content", "jp": "DLコンテンツ", "en": "DL Content", "box": [1, 53, 59, 63], "align": "center", "cell": [0, 52, 60, 64]},
-    {"id": "link_icon", "jp": "連", "en": null, "box": [100, 48, 113, 64], "note": "linked-unit icon (blue square) — kept"}
+    {
+      "id": "tab_stats",
+      "jp": "能力",
+      "en": "Stats",
+      "box": [
+        1,
+        21,
+        29,
+        35
+      ],
+      "align": "center",
+      "cell": [
+        0,
+        20,
+        30,
+        36
+      ]
+    },
+    {
+      "id": "tab_upgrade",
+      "jp": "改造",
+      "en": "Mods",
+      "box": [
+        31,
+        21,
+        59,
+        35
+      ],
+      "align": "center",
+      "cell": [
+        30,
+        20,
+        60,
+        36
+      ]
+    },
+    {
+      "id": "tab_weapons",
+      "jp": "武器",
+      "en": "Arms",
+      "box": [
+        61,
+        21,
+        89,
+        35
+      ],
+      "align": "center",
+      "cell": [
+        60,
+        20,
+        90,
+        36
+      ]
+    },
+    {
+      "id": "tab_unit",
+      "jp": "機体",
+      "en": "Unit",
+      "box": [
+        91,
+        21,
+        119,
+        35
+      ],
+      "align": "center",
+      "cell": [
+        90,
+        20,
+        120,
+        36
+      ]
+    },
+    {
+      "id": "tab_pilot",
+      "jp": "パイロット",
+      "en": "Pilot",
+      "box": [
+        1,
+        37,
+        45,
+        51
+      ],
+      "align": "center",
+      "cell": [
+        0,
+        36,
+        46,
+        52
+      ]
+    },
+    {
+      "id": "mission_select",
+      "jp": "ミッションセレクト",
+      "en": "Mission Select",
+      "box": [
+        47,
+        37,
+        121,
+        47
+      ],
+      "align": "center",
+      "cell": [
+        46,
+        36,
+        122,
+        48
+      ]
+    },
+    {
+      "id": "dl_content",
+      "jp": "DLコンテンツ",
+      "en": "DL Content",
+      "box": [
+        1,
+        53,
+        59,
+        63
+      ],
+      "align": "center",
+      "cell": [
+        0,
+        52,
+        60,
+        64
+      ]
+    },
+    {
+      "id": "link_icon",
+      "jp": "連",
+      "en": "LNK",
+      "box": [
+        100,
+        48,
+        113,
+        64
+      ],
+      "note": "linked-unit icon (blue square); EN 'LNK' badge-style jak terrain badges",
+      "size": 9,
+      "min_size": 6,
+      "squeeze": 0.8,
+      "align": "center"
+    }
   ]
 }

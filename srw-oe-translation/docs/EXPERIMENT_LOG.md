@@ -5945,3 +5945,39 @@ FIX: `09_executable_fix_cudzyslowy.jsonl` (md5 `ba8e2a8a…`, 142 749 B) = v11 0
 wierszami en:=jp; upload na Drive + INSTRUKCJA_test_v6.txt (podmiana w pakiet_EN →
 HOKUS_POKUS → test 0-0/2-1; wyniki FIX OK / FIX nic / FIX crash). Plan B gdyby FIX nic:
 revert kolejnych ryzykownych dlugosci-zmieniajacych wierszy (＞→>, 倍→x, 地/空/防/命→3-literowe).
+
+### 21.55 WYNIK TESTU v6: FIX OK — dialogi działają; problem `"` ZAMKNIĘTY (2026-10-17)
+
+User po podmianie 09_executable (revert 3 wierszy tablicy interpunkcyjnej) i rebuildzie
+HOKUS_POKUS: **DZIAŁA — dialogi są** (misje 0-0 i 2-1). Mechanizm z §21.54 potwierdzony
+grą: uszkodzenie tablicy interpunkcyjnej EBOOT (「 　」→ ASCII) = pojedynczy `"` zamiast
+dialogu. Cudzysłowy kwestii wracają do wyglądu JP 「…」 (struktura, nie treść).
+Stan po fixie: pełny build (ISO+DLC) z 1 linii (JP ISO 1.08 + JP DLC + pakiet v11-fix),
+configi v16, wszystko spójne. Backlog na życzenie usera: (1) glify 連/名/用 w ikonach,
+(2) JP nazwy mechów enemy (Robot Viewer), (3) za długie info o nagrodzie, (4) patcher
+one-click (poprzednio brakowało plików do ikon).
+
+### 21.56 Backlog: glif 連→LNK; exe 404/404 (2 resztki naprawione); patcher v12 (ui_labels+assets w zipie) (2026-10-17)
+
+- **Glif 連** (ui_labels/intsys_01.json `link_icon`, box 13×16): en ''→**'LNK'**, size 9 /
+  min 6 / squeeze 0.8 / center (styl jak terrain badges). 名/用 pozostają wymazane (gra
+  rysuje tam tekst dynamicznie - erase jest poprawny); pictogramy bez tekstu. Jedyne
+  widoczne JP w ikonach po v12: brak w ramach 26 specyfikacji.
+- **exe resztki → 404/404:** `0x08bf9fbc` ・→· (U+00B7, cp932 refuse) → **en:=jp identity**
+  (komórka tablicy interpunkcyjnej - po lekcji §21.54 nie ruszać długości; znak
+  przestankowy, nie treść). `0x08bfa0b4` '　機械神' 16 B > budget 11 → **' MachineGod'**
+  (11 B exact; składa się z '<Code Geass' + '>' w sąsiednich slotach). Pakiet finalny:
+  `09_executable.jsonl` md5 `f7dd28ef…`.
+- **Patcher one-click (przyczyna „braku plików do ikon"):** (1) build_distribution.py
+  nie pakował `ui_labels/` ani `assets/fonts/` (font Roboto wymagany przez specy) —
+  DODANE; (2) PATCH.bat: tekstury i tak domyślnie ON (`--no-ui-textures` to opt-out,
+  Pillow instalowany zawsze przez bata) — bez zmian; (3) dodane `--package/--version`;
+  staging `local/pakiet_v11/pakiet_EN_v11/` (25 plików + CO_NOWEGO_v12.txt).
+- **WYDANIE: `local/dist/srw-oe-translation-v12.zip`** 7 224 375 B, md5 `6a53774b…`;
+  140 plików: PATCH.bat, README, translation 26 (w tym 09 z fixem dialogów f7dd28ef),
+  tools 36, ui_labels 26, assets 3, docs 47. Weryfikacja zawartości zipa offline OK.
+- **Otwarte:** „za długie info o nagrodzie" — etykiety sysmes krótkie (Loot/Clear Bonus);
+  przepełnienie robi najpewniej długa EN nazwa przedmiotu składana w oknie nagrody.
+  Potrzebna treść z ekranu usera (paste/screenshot) do identyfikacji wiersza.
+  Robot Viewer (nazwy wrogów): builder mirruje RoboDictionary do config00 (build 00:21
+  przebudował config00.cpk) — oczekiwane EN w aktualnym ISO; potwierdzi user przy okazji.
