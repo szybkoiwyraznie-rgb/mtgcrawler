@@ -15,9 +15,17 @@ package row addresses - neither a record row (``record`` + ``part``) nor an offs
 field's exact offset - a normal ``grow`` offset row of ``04_config_text.jsonl``.  When another
 field of the same record carries the identical Japanese and is already translated (the spirit's
 ``name_level`` and ``effect_brief`` repeat its ``name``), the new row takes that English, so the
-game shows one name everywhere; otherwise ``en`` stays empty for the translator.  Fields holding
-control bytes (the ``0x0F xx`` kana tokens) are reported, not added: their rows need the token
-map of ``tools/pool_rows_refresh.py`` and stay with the translator package tooling.
+game shows one name everywhere; otherwise ``en`` stays empty for the translator.
+
+Fields holding control bytes (the ``0x0F xx`` kana tokens) used to be reported, not added - so
+the nine fields of the 幸運 (Fortune) spirit family (``敵撃墜時､獲得資金2倍 ﾄﾞﾛｯﾌﾟ率上昇…``, its
+area variant and the three ``Lv1-3 … 2倍 ﾄﾞﾛｯﾌﾟ率+5％`` effect lines) stayed Japanese through
+build #23 [ZMIERZONE 2026-10-16 na wyjściowym ``configst.cpk``].  Since 2026-10-16 such a field
+gets a row too, with its ``jp`` in the package's display form (every control byte as ``%s``,
+``table_write.display``) - the form the offset planner of ``item_skill_write`` already accepts
+(``table_write.match_form`` → ``encode_target``) - and its ``tokeny.tsv`` entry (``--dlc`` folder
+resolves the kinds), so the checker knows which ``%s`` are kana glyphs that vanish from the
+English.  Repeats of one text inside a member point at the first row with ``copy_of``.
 
 Nothing is removed and no existing English is changed.
 
@@ -39,6 +47,8 @@ if str(HERE) not in sys.path:
 import container_mix as CM          # noqa: E402
 import item_skill_records as ISR    # noqa: E402
 import item_skill_write as ISW      # noqa: E402
+import table_write as TW            # noqa: E402
+import token_map as TM              # noqa: E402
 
 CONFIG_FILE = "04_config_text.jsonl"
 PACKAGE_FILES = ("02_items.jsonl", "03_skills.jsonl", "04_config_text.jsonl")
@@ -81,9 +91,18 @@ def sibling_english(rows: Iterable[dict], member: str, record: dict, jp: str) ->
     return None
 
 
+def has_control(text: str) -> bool:
+    """True when the field text carries a control byte other than the line break."""
+    return any(ord(ch) < 0x20 and ch != "\n" for ch in text)
+
+
 def missing_fields(blob: bytes, member: str, container: str, kind: str, covered_offsets: set,
                    covered_fields: set) -> Tuple[List[dict], List[str]]:
-    """(record fields without any row, control-byte fields skipped) of one member."""
+    """(record fields without any row, problems) of one member.
+
+    A field with control bytes (kana tokens) is returned with ``tokens=True`` and its ``text``
+    in the display form (``%s`` per control byte); a plain field keeps the file's own text.
+    """
     parsed = ISR.parse_member(blob, kind, member, container)
     if parsed["errors"]:
         return [], [f"{member}: does not parse ({parsed['errors'][:2]}); skipped"]
@@ -96,12 +115,34 @@ def missing_fields(blob: bytes, member: str, container: str, kind: str, covered_
             offset = record["offset"] + record[f"{role}_offset"]
             if (member, offset) in covered_offsets or (member, record["record"], role) in covered_fields:
                 continue
-            if any(ord(ch) < 0x20 and ch != "\n" for ch in text):
-                skipped.append(f"{member}: record {record['record']} {role} holds control bytes "
-                               f"(kana tokens) - needs the token map, not added: {text[:30]!r}")
-                continue
-            out.append({"record": record, "role": role, "offset": offset, "text": text})
+            tokens = has_control(text)
+            if tokens:
+                raw = ISW.field_raw(blob, record, role)
+                shown = TW.display(raw)
+                if not shown or TW.match_form(shown, raw) != "display":
+                    skipped.append(f"{member}: record {record['record']} {role} holds control "
+                                   f"bytes the display form cannot show; not added: {text[:30]!r}")
+                    continue
+                text = shown
+            out.append({"record": record, "role": role, "offset": offset, "text": text,
+                        "tokens": tokens,
+                        "raw": ISW.field_raw(blob, record, role) if tokens else None})
     return out, skipped
+
+
+def merge_sidecar(package: Path, entries: List[Tuple[str, str, str]]) -> int:
+    """Add ``(id, kinds, jp-json)`` entries to the package's ``tokeny.tsv`` (created when
+    missing; an existing id is replaced).  Returns the number of entries written."""
+    if not entries:
+        return 0
+    sidecar = package / TM.SIDECAR_NAME
+    existing = TM.load_map(sidecar) if sidecar.is_file() else {}
+    merged: Dict[str, Tuple[str, str]] = {ident: (",".join(kinds), json.dumps(jp, ensure_ascii=False))
+                                          for ident, (jp, kinds) in existing.items()}
+    for ident, kinds, jp in entries:
+        merged[ident] = (kinds, jp)
+    TM.write_map(sidecar, [(ident, kinds, jp) for ident, (kinds, jp) in merged.items()])
+    return len(entries)
 
 
 def refresh(package: Path, containers: Dict[str, Path], check: bool = False) -> dict:
@@ -112,6 +153,9 @@ def refresh(package: Path, containers: Dict[str, Path], check: bool = False) -> 
     added: List[dict] = []
     skipped: List[str] = []
     prefilled = 0
+    token_rows = 0
+    copies = 0
+    sidecar: List[Tuple[str, str, str]] = []
     for container in sorted(containers):
         _, subs, _ = CM.members_of(containers[container])
         for member in sorted(subs):
@@ -121,6 +165,7 @@ def refresh(package: Path, containers: Dict[str, Path], check: bool = False) -> 
             fields, member_skipped = missing_fields(subs[member], member, container, kind,
                                                     covered_offsets, covered_fields)
             skipped.extend(member_skipped)
+            first_by_text: Dict[str, str] = {}
             for field in fields:
                 en = sibling_english(all_rows, member, field["record"], field["text"])
                 if en is not None:
@@ -133,8 +178,24 @@ def refresh(package: Path, containers: Dict[str, Path], check: bool = False) -> 
                                   "offset": field["offset"]},
                        "note": f"record {field['record']['record']} {field['role']} "
                                f"(record_rows_refresh 2026-10-15)"}
+                if field.get("tokens"):
+                    token_rows += 1
+                    row["note"] += "; kana tokens shown as %s - see tokeny.tsv"
+                    # the display form folds the byte that follows a token into the text, so the
+                    # jp byte count is the field's real length, not len(display.encode())
+                    row["bytes"] = len(field["raw"])
+                    sidecar.append((row["id"], ",".join(TM.kinds_of(field["raw"])),
+                                    json.dumps(field["text"], ensure_ascii=False)))
+                first = first_by_text.get(field["text"])
+                if first is not None:
+                    row["copy_of"] = first
+                    copies += 1
+                else:
+                    first_by_text[field["text"]] = row["id"]
                 added.append(row)
     report = {"package": str(package), "added": len(added), "prefilled": prefilled,
+              "token_rows": token_rows, "copies": copies, "sidecar_entries": 0,
+              "sidecar": [{"id": i, "kinds": k} for i, k, _ in sidecar],
               "skipped": skipped, "rows": [{"id": r["id"], "jp": r["jp"], "en": r["en"]}
                                            for r in added], "written": False}
     if added and not check:
@@ -143,6 +204,8 @@ def refresh(package: Path, containers: Dict[str, Path], check: bool = False) -> 
             for row in added:
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
         report["written"] = True
+        # the token kinds come straight from the field bytes (no second container lookup)
+        report["sidecar_entries"] = merge_sidecar(package, sidecar)
     return report
 
 
@@ -170,8 +233,10 @@ def main(argv=None) -> int:
         return 2
     report = refresh(args.package, containers, check=args.check)
     print(f"{args.package}: {report['added']} field(s) without a row"
-          f" ({report['prefilled']} English prefilled from the same record);"
-          f" {len(report['skipped'])} skipped; written: {report['written']}")
+          f" ({report['prefilled']} English prefilled from the same record,"
+          f" {report['token_rows']} with kana tokens, {report['copies']} copies);"
+          f" {len(report['skipped'])} skipped; tokeny.tsv +{report['sidecar_entries']};"
+          f" written: {report['written']}")
     for row in report["rows"]:
         print(f"  + {row['id']}  {row['jp']!r} -> {row['en']!r}")
     for line in report["skipped"]:

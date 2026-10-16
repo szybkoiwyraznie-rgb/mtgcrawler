@@ -222,10 +222,13 @@ PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
         "v6 (2026-10-15) - dziala w grze (intermisja EN), ale Character/Robot Viewer i Reference "
         "maja japonskie resztki - uzyj v7",
     ("58f557993c6517b6b5ba6ca8bb0a91e4", "8fda78d6b4c8f59f49bf84b91fdf8e4a"):
-        "v7 (2026-10-16) - AKTUALNY (+sloty Viewerow, etykiety 愛称：/声優：, tytuly i strona "
-        "レベル差補正 w Reference, wiersze dla kopii imenuNN)",
+        "v7 (2026-10-16) - STARY: opisy ducha Fortune/Bless, 5 tagow Skill_Tag i 7 osiagniec "
+        "zostawaly japonskie, 'Rei Takano' zamiast 'Urara Takano' - uzyj v8",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "bfdeb302248c2e58647a46a117277e4a"):
+        "v8 (2026-10-16) - AKTUALNY (v7 + pola Spirit/Skill_Tag z tokenami kany, poprawki "
+        "nazwisk i DLC_ID; osiagniecia wymagaja narzedzi z 2026-10-16b+ - table_write exempt)",
 }
-CURRENT_PACKAGE = ("v7", "pakiet_EN_2026-10-16_v7.zip")
+CURRENT_PACKAGE = ("v8", "pakiet_EN_2026-10-16_v8.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")
@@ -238,6 +241,10 @@ TOOL_FEATURES = (
     ("item_skill_write.py", "base_pointer_faults", "wskaznik bazowy +32"),
     ("item_skill_write.py", "parameter_pointer_faults", "wskaznik parametrow +52 (sejw z 2. rozdzialu)"),
     ("table_write.py", "POOL_SIZE_LIMITS", "budzet pul DLC Skill01-08 (Loading rozdzialow 2-8, test Y)"),
+    ("table_write.py", "\"srwDL_Achievement\": Family(2, exempt=",
+     "slowa +8..+28 rekordu osiagniec wylaczone z testu wskaznikow (7 osiagniec po angielsku, v8)"),
+    ("build_translation_patch.py", "mirror_identical_members",
+     "kopiowanie wierszy na identyczne czlony imenuNN/configNN (Character/Robot Viewer, Reference)"),
 )
 MD5_LIMIT = 8 * 1024 * 1024  # bigger files in the DLC folder are listed with their size only
 

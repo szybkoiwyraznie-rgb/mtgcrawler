@@ -1,4 +1,4 @@
-# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-16: pakiet v7 — Character/Robot Viewer i Reference po angielsku; napisy programu gry w `EBOOT.BIN` ISO (EXE_TEST2) + cheat; grafiki interfejsu UI_TEST4 — wszystko w HOKUS_POKUS)
+# Jak nałożyć angielskie tłumaczenie SRW OE — instrukcja (stan 2026-10-16: pakiet v8 — Character/Robot Viewer, Reference, opisy ducha Fortune/Bless i osiągnięcia po angielsku; napisy programu gry w `EBOOT.BIN` ISO (EXE_TEST2) + cheat; grafiki interfejsu UI_TEST4 — wszystko w HOKUS_POKUS)
 
 To jest instrukcja dla osoby, która ma **własne** japońskie pliki gry (ISO rozdziału 1 w wersji
 1.08, 679 243 152 bajty, i odszyfrowane pliki DLC rozdziałów 2–8) i chce zobaczyć na nich angielski
@@ -24,7 +24,22 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 
 ---
 
-## Co jest na Dysku (folder DELIVERY) — stan 2026-10-16: pakiet v7 + EXE_TEST2 + UI_TEST4
+## Co jest na Dysku (folder DELIVERY) — stan 2026-10-16: pakiet v8 + EXE_TEST2 + UI_TEST4
+
+> **Nowe 2026-10-16 (później) — pakiet v8 + sprostowanie.** W notatce do v7 napisałem, że nazwiska
+> aktorów głosowych „zostają po japońsku". **To była nieprawda** — 424 z 426 wierszy miało łacinkę już od
+> v4 („Voice: Rica Matsumoto", „Voice: Megumi Hayashibara"; 2 wiersze to placeholder `NoData` z pustego
+> rekordu). Poprawiłem jedno błędne odczytanie (`高乃麗` „Rei" → **„Urara Takano"**), pełna lista nazwisk
+> jest w pakiecie: `aktorzy_glosowi.tsv`. Przy okazji przeskanowałem bajt po bajcie każdy plik z budowy
+> i znalazłem trzy prawdziwe japońskie resztki (wszystkie w `configst.cpk`): opisy ducha **Fortune/Bless**
+> (幸運/祝福), 5 etykiet **„Skill/Dmg Rate"** i **7 osiągnięć** („Clear 30 Different Missions", „Reach Pilot
+> Lv40"…), które miały angielski od tygodni, ale pisarz je odrzucał (liczba „30" w rekordzie wyglądała mu
+> jak wskaźnik). v8 = v7 + te poprawki (109 032 wierszy, 81 678 po angielsku, 0 błędów) — opis w
+> `CO_NOWEGO_v8.txt`. **Do budowy v8 potrzebny jest ŚWIEŻY ZIP gałęzi** (poprawka pisarza osiągnięć jest
+> w narzędziach, nie w pakiecie; `DIAGNOZA.bat` sprawdza obie rzeczy). **W grze ani v7, ani v8 jeszcze nie
+> sprawdzone** — po buildzie proszę o zrzuty: Character Viewer (karta pilota z linią „Voice: …" i karta
+> nie-pilota), Robot Viewer (jednostka wroga), Reference (lista sekcji + strona „Level Gap Modifier"),
+> lista osiągnięć, opis ducha Fortune/Bless (karta pilota → Spirit).
 
 > **Nowe 2026-10-16 — pakiet v7.** Pełny build v6 działał w grze (intermisja po angielsku), ale Character
 > Viewer (nazwy nie-pilotów w siatce, wiersze `愛称：` / `声優：`), Robot Viewer (`ボルトロボ`, `邪竜兵`) i cała
@@ -32,14 +47,14 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 > czyta w intermisji kopie `imenuNN`, a tłumaczenie szło tylko do `configNN`; pisarz słowników pomijał
 > część pól (krótka nazwa w siatce, `声優：`, typ i nazwa robota wroga); strona „różnica poziomów” była w
 > pakiecie tylko w kawałkach. v7 = v6 + te wiersze (109 026 wierszy, 81 672 po angielsku, 0 błędów),
-> opis w `CO_NOWEGO_v7.txt`. **Nazwiska aktorów głosowych zostają po japońsku** (celowo — do decyzji, czy
-> je romanizować). Budowa jak dotąd: HOKUS_POKUS na ORYGINALNYM ISO + folderze DLC; **w grze v7 jeszcze
+> opis w `CO_NOWEGO_v7.txt`. ~~**Nazwiska aktorów głosowych zostają po japońsku**~~ (**nieprawda — patrz
+> wyżej, v8**). Budowa jak dotąd: HOKUS_POKUS na ORYGINALNYM ISO + folderze DLC; **w grze v7 jeszcze
 > nie sprawdzony** — po buildzie proszę o zrzuty Character Viewer (karta nie-pilota), Robot Viewer
 > (jednostka wroga) i Reference (lista sekcji + strona „Level Gap Modifier”).
 
 | plik | do czego |
 |---|---|
-| `pakiet_EN_2026-10-16_v7.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v6 (działał w grze) + pola Character/Robot Viewer, etykiety `Nickname: ` / `Voice: `, tytuły i strona „Level Gap Modifier” w Reference, wiersze dla kopii `imenuNN`; opis w `CO_NOWEGO_v7.txt` |
+| `pakiet_EN_2026-10-16_v8.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v7 (pola Character/Robot Viewer, etykiety `Nickname: ` / `Voice: `, Reference, kopie `imenuNN`) + opisy ducha Fortune/Bless, etykiety „Skill/Dmg Rate", poprawka „Urara Takano" i „SRW Web Collab"; 7 osiągnięć wchodzi dzięki poprawce w narzędziach (świeży ZIP gałęzi); opis w `CO_NOWEGO_v8.txt`, nazwiska aktorów w `aktorzy_glosowi.tsv` |
 | `EXE_TEST2.zip` | **napisy programu gry bez budowania (szybki test, 2 minuty):** `EBOOT.BIN` = program 1.08 z 397 angielskimi napisami, do włożenia w ISO przez `WGRAJ_DO_ISO.bat` + `CZYTAJ_EXE_TEST2.txt` + zapasowy plik cheatów (część 5). Zastępuje `EXE_TEST1` (sam `PBOOT.PBP` — **sprawdzone: PPSSPP go nie czyta**; jego plik cheatów działał) |
 | `UI_TEST4.zip` | **grafiki interfejsu, komplet 26 tekstur z poprawionymi komórkami** po zrzutach z #19 (zastępuje `UI_TEST3`, który działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk` + `CZYTAJ_UI_TEST4.txt`; `HOKUS_POKUS.bat` z aktualnym ZIP-em gałęzi buduje dokładnie to samo |
 | `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
@@ -76,10 +91,10 @@ potrzebny internet); gdyby się nie udało, buduje **sam tekst** i wyraźnie o t
    Rozpakuj do **nowego, pustego** folderu — nie nadpisuj starego rozpakowania (stary folder może
    mieć stare `tools\*.py` i stary `pakiet_EN\`). Interesuje cię podfolder `srw-oe-translation\`.
    Świeży zestaw poznasz po tym, że obok `HOKUS_POKUS.bat` leży **`DIAGNOZA.bat`**.
-2. **Pakiet v7.** Ściągnij z Dysku `pakiet_EN_2026-10-16_v7.zip` i rozpakuj tak, żeby plik
+2. **Pakiet v8.** Ściągnij z Dysku `pakiet_EN_2026-10-16_v8.zip` i rozpakuj tak, żeby plik
    `00_dialogue.jsonl` leżał **bezpośrednio** w `srw-oe-translation\pakiet_EN\` (w zipie jest
-   folder `pakiet_EN_2026-10-16_v7\` — jego zawartość, nie on sam). Żadnych innych `*.jsonl` obok
-   (stary v6/v5 usuń w całości). Od v6 jest dziesiąty plik `09_executable.jsonl` — bez niego
+   folder `pakiet_EN_2026-10-16_v8\` — jego zawartość, nie on sam). Żadnych innych `*.jsonl` obok
+   (stary v7/v6 usuń w całości). Od v6 jest dziesiąty plik `09_executable.jsonl` — bez niego
    napisy programu gry zostaną japońskie (`DIAGNOZA.bat` to wypisze).
 3. **`HOKUS_POKUS.bat`** (dwuklik). Dwa okna wyboru: (1) plik `SRW OE 1.08.iso` — **oryginalne**
    (program gry jest czytany z niego: `PSP_GAME/SYSDIR/EBOOT.BIN`); (2) **folder z odszyfrowanymi
@@ -93,7 +108,7 @@ potrzebny internet); gdyby się nie udało, buduje **sam tekst** i wyraźnie o t
    „NIE ZAPISANY” albo „program wzięty z PBOOT.PBP” — budowa się udała, ale prześlij `build_report.json`
    (to znaczy, że `EBOOT.BIN` w twoim ISO jest innego typu, niż zakładam).
 5. **Zanim cokolwiek skopiujesz — `DIAGNOZA.bat`** (część 2). Dopiero gdy raport mówi
-   „pakiet v7 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK”, a przy `patched.iso` „program gry …
+   „pakiet v8 — AKTUALNY”, „`+52` TAK”, „budżet pul DLC TAK”, „TAK słowa +8..+28 rekordu osiągnięć …”, a przy `patched.iso` „program gry …
    jawny ELF 1.08 z napisami EN pakietu v6”, kopiuj. W `build_report.json` jest też pole `skill_total`
    (Skill00 + 8 pul; ma być ≤ 342 194 B, z v5/v6 wychodzi 340 074 B).
 6. **Wgranie:** kopia zapasowa folderu DLC emulatora (cały folder obok, z dopiskiem `_ORYGINAL`),
@@ -281,14 +296,36 @@ W PPSSPP wskaż z powrotem swoje ISO, przywróć folder DLC z kopii `_ORYGINAL` 
 `PBOOT.PBP`), wyłącz cheaty (jeśli włączałeś), usuń `srw-oe-patch\`. Żaden oryginalny plik nie był
 modyfikowany.
 
-## Co dokładnie jest w pakiecie v7 (2026-10-16; = v6 + pola, których pisarz nie zapisywał)
+## Co dokładnie jest w pakiecie v8 (2026-10-16, później; = v7 + resztki configst + sprostowanie)
+
+- 109 032 wiersze, 81 678 z angielskim; `translation_check`: 0 błędów; audyt pokrycia: 0 braków (poza 2
+  stałymi metadanymi PAC). Względem v7: **12 poprawionych** angielskich (`高乃麗` → „Urara Takano" ×4;
+  `SRWHPｺﾗﾎ` → „SRW Web Collab" ×8 — etykieta źródła paczki DLC, w v7 miała w EN japoński oryginał),
+  **14 nowych wierszy** (5 × „Skill/Dmg Rate [1–4]" w `srwDL_Skill_Tag.bin`; 9 pól ducha Fortune/Bless w
+  `srwDL_Spirit.bin` — opis „On kill: Credits x2, Drop Rate Up / Lasts until a kill / Lv up: Drop effect
+  Up, SP cost Down", wariant „by 1 ally (self) in range" i linie efektu „Lv1 … x2, Drop Rate +5％" — pola z
+  tokenami kany, zapisane w formie „wyświetlanej" z `%s` i wpisami w `tokeny.tsv`), **8 usuniętych**
+  (6 śmieci w `achievement:` — bajty binarne, 2 stare wiersze `leftover:` Spirit zastąpione przez wiersze
+  pól). Nazwiska aktorów: **bez zmian poza Takano** — były łacińskie od v4 (`aktorzy_glosowi.tsv`: 142
+  nazwiska, jp → en, liczba wierszy, przykładowe postacie).
+- Narzędzia (świeży ZIP gałęzi): pisarz tabel nie bierze już liczby docelowej osiągnięcia (+8..+28 rekordu)
+  za wskaźnik — 7 osiągnięć z angielskim od dawna wreszcie wchodzi do pliku; `DIAGNOZA.bat` sprawdza tę
+  poprawkę („TAK słowa +8..+28 rekordu osiągnięć …") i kopiowanie na `imenuNN`.
+- Build w piaskownicy (#23b: `config00.cpk` + `imenu00.cpk` + `configst.cpk`; osobno `config01.EDAT`):
+  0 pominiętych wierszy, 0 problemów w `configst.cpk`, **0 czytelnych japońskich napisów** w Spirit /
+  Skill_Tag / Achievement; `configst.cpk` 372 864 B (jak v7). Co ZOSTAJE japońskie świadomie/nieznane:
+  34 etykiety w `srwDL_CalcType.bin` (tabela wzorów obliczeń — **nie wiem, czy gra ją gdziekolwiek
+  pokazuje**; 62 inne etykiety tej tabeli mają angielski), `＜主人公名＞` (znacznik imienia gracza), dialogi
+  rozdziałów 5–8 (27 343 wiersze bez angielskiego — osobny etap). **W grze nie sprawdzone.**
+
+## Co dokładnie było w pakiecie v7 (2026-10-16; = v6 + pola, których pisarz nie zapisywał)
 
 - 109 026 wierszy, 81 672 z angielskim; `translation_check`: 0 błędów; audyt pokrycia: 0 braków (poza 2
   stałymi metadanymi PAC). Nowe względem v6 (`tools/table_rows_refresh.py --prune`, raport
   `refresh_report.json` w pakiecie): etykiety `愛称：` → `Nickname: ` i `声優：` → `Voice: ` (jeden wiersz
   na etykietę, `label:srwDL_CharaDictionary:4/5`), krótkie nazwy postaci w siatce Character Viewera
   (`char:K:short_name`, 219 — dla nie-pilotów to była jedyna nazwa), nazwiska aktorów (`char:K:voice_actor`,
-  426 — **bez EN, celowo**), nazwa alternatywna (1); w Robot Viewerze notatka / typ (`Standard Type`,
+  426 — ~~bez EN, celowo~~ **sprostowanie v8: miały łacinkę od v4**), nazwa alternatywna (1); w Robot Viewerze notatka / typ (`Standard Type`,
   `Flight Type`) / nazwa jednostki wroga (`Bolt Robo` …) / nazwa wąska bez tokenów kany, placeholdery
   `Length －－－` / `Weight －－－`; w Reference tytuły sekcji (`Tactics`, `Intermission`, `Extra Controls`) i
   cała strona `Level Gap Modifier` (14 linii); wiersze DLC_ID / Shop dla każdego kontenera (13 odzyskało

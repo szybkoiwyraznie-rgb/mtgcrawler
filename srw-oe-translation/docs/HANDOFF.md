@@ -373,12 +373,30 @@ złapał bez tego 6 B różnicy), **NOWE `tools/table_rows_refresh.py`** (`--pac
 --check --report`: dokłada brakujące wiersze z prawdziwych kontenerów, `copy_of`/EN z rodzeństwa, ocenia wiersze offsetowe
 `unreachable`/`stale`/`superseded`, `salvage` EN ze sklejonych, wpisy `tokeny.tsv`; **pokrycie offsetu = wiersz z CAŁYM
 napisem** — fragmenty nie liczą się), `coverage_audit` liczy `愛称：仁` jako pokryte przy osobnych wierszach etykiety i
-tekstu. **Pakiet v7** (109 026 wierszy, 81 672 EN, 0 błędów, coverage 0; **426 nazwisk aktorów celowo bez EN — decyzja**)
+tekstu. **Pakiet v7** (109 026 wierszy, 81 672 EN, 0 błędów, coverage 0; ~~426 nazwisk aktorów celowo bez EN~~ — BŁĄD, patrz niżej)
 na Dysku `1I_fBkncCExA9Mx3nz10f06R4Umc0VopM`, v6 → `_STARE`; `diagnoza` zna v7. Build #22 (sandbox, ISO z `imenu00.cpk` +
 30 EDAT): 0 pominięć, 0 błędów, pary config/imenu 00–08 identyczne, 0 ciągów JP w pięciu członkach. Testy 1 261 OK.
 **W grze nie sprawdzone: v7 (`imenu00.cpk` 34 984 → 88 232 B — CPK STORED, brak znanego limitu; szerokość „Extra Controls";
-„Voice: " + japońskie nazwisko), EBOOT.BIN-w-ISO (użytkownik testuje), UI_TEST4.** Otwarte: romanizacja aktorów,
+„Voice: " + japońskie nazwisko), EBOOT.BIN-w-ISO (użytkownik testuje), UI_TEST4.** Otwarte: ~~romanizacja aktorów~~,
 `config_text_tables.record_strings` (ciała z tokenami), dialogi 5–8, `mensys_12`, kalibracja etykiet.
+
+**Stan 2026-10-16, później (§21.35) — KOREKTA + pakiet v8:** zdanie „426 nazwisk aktorów bez EN" było **fałszywe**: 424/426
+wierszy `char:K:voice_actor` miało łacinkę od v4 (kolejność zachodnia, Hepburn bez makronów; 2 = placeholder `NoData`),
+pełna lista `aktorzy_glosowi.tsv` w pakiecie; jedna poprawka `高乃麗` „Rei" → **„Urara Takano"**. Skan bajtów KAŻDEGO
+członka wyniku (regex teraz z kaną półszeroką) znalazł trzy prawdziwe resztki, wszystkie w `configst.cpk`: opisy ducha
+幸運/祝福 (pola z tokenami kany — `record_rows_refresh` je tylko raportował), 5 napisów `Skill_Tag` (configst nie było w
+odświeżeniu v7) i **7 osiągnięć z EN od tygodni, których `table_write` ODMAWIAŁ** (liczba docelowa 30/40/100 pod +8
+wyglądała jak wskaźnik wewnątrz rekordu; widać to TYLKO w `problems` kontenera w `build_report.json`, nie w `skipped`).
+Naprawy: `"srwDL_Achievement": Family(2, exempt=((8, 28),))` (układ zmierzony na 75 rekordach), `record_rows_refresh`
+dokłada pola z tokenami jako wiersze w formie wyświetlanej (`%s` za bajt sterujący, `tokeny.tsv` liczone z bajtów pola,
+`copy_of` dla powtórzeń), `table_rows_refresh … configst.cpk --prune`. **Pakiet v8** = v7 + 12 poprawionych EN (Takano
+×4, `SRWHPｺﾗﾎ`→„SRW Web Collab" ×8) + 14 wierszy − 8 śmieci: **109 032 / 81 678 EN / 0 błędów**, Dysk DELIVERY
+`1NjwHBIHna8IEmt8yMjjBfMrsoEO0EMnn` (zip md5 `55708b7d…`), v7 → `_STARE`; `diagnoza` oczekuje v8 i sprawdza w narzędziach
+`exempt` Achievement + `mirror_identical_members`. Build #23b (sandbox, config00 + imenu00 + configst; osobno
+config01.EDAT): 0 pominięć, configst problems 0, 0 czytelnych napisów JP w Spirit/Skill_Tag/Achievement. **Nieznane:**
+czy `srwDL_CalcType.bin` (34 etykiety wzorów bez wierszy, 62 ze slotami EN) jest gdziekolwiek wyświetlany; v7/v8 w grze.
+Po KAŻDYM buildzie: `skipped` + `verification.failures` + **`problems` każdego kontenera** + skan JP członków (kana
+półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokenami.
 
 ## 9. Znane pułapki (nie powtarzaj)
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana

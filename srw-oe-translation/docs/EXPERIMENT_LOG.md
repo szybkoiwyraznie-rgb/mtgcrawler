@@ -5061,7 +5061,7 @@ Uzupełnienie EN (skrypt jednorazowy, poza git): etykiety „Nickname: " / „Vo
 (pełne kreski jak w nietkniętym placeholderze głosu), `%s7ﾙﾄﾛ%s7`→„Bolt Robo" (0 `%s` w EN — tokeny kany znikają),
 `ルイーズ`→„Louise", `ﾌｧﾐ通ｺﾗ%s7`→„Famitsu Collab", nazwy przedmiotów DLC_ID przez słownik jp→en pakietu, strona
 `レベル差補正` (14 linii, ≤61 komórek), `char:720:nickname` „One"→„Wan" (pies z Go-Saurer; v6 miało „Wan" w resztce).
-**Nazwiska aktorów głosowych (426 wierszy `char:K:voice_actor`) celowo BEZ EN** — decyzja do podjęcia (romanizacja?).
+~~**Nazwiska aktorów głosowych (426 wierszy `char:K:voice_actor`) celowo BEZ EN** — decyzja do podjęcia (romanizacja?).~~ **[BŁĄD — skorygowane w §21.35: 424/426 wierszy MIAŁO już zapis łaciński (np. „Rica Matsumoto"), 2 to placeholder `NoData`; `check_report.txt` v7 pokazywał 07 = 3 610/3 610 wypełnionych.]**
 `translation_copy --resync`: 0 rozjazdów; `translation_check`: **109 026 wierszy, 81 672 EN, 0 błędów**; `coverage_audit`
 (PBOOT + configst + 33 kontenery config/imenu): **brak 2** (stałe metadane PAC). `index.json` przeliczony (47 kategorii),
 `CO_NOWEGO_v7.txt`, `refresh_report.json` w pakiecie.
@@ -5084,3 +5084,92 @@ W wynikowych `CharaDictionary/RoboDictionary/Reference/DLC_ID/Shop` (ISO i wszys
 EBOOT.BIN-w-ISO (build #21/EXE_TEST2) w grze — użytkownik testuje; UI_TEST4 w grze. Otwarte: romanizacja nazwisk aktorów;
 `config_text_tables.record_strings` nadal odrzuca ciała z tokenami (ponowny eksport od zera odtworzyłby fragmenty —
 `table_rows_refresh --prune` je sprząta).
+
+### 21.35. Korekta: nazwiska aktorów BYŁY zromanizowane; skan wyjścia configst — Spirit/Skill_Tag/Achievement po japońsku; pakiet v8 (2026-10-16)
+
+**Pytanie użytkownika:** zromanizować 426 wierszy `char:K:voice_actor` (nie czyta żadnego znaku japońskiego — bez łacinki
+nie odróżni nazwiska od reszty).
+
+**A. Korekta [ZWERYFIKOWANE na pliku v7].** Twierdzenie z §21.34 / `CO_NOWEGO_v7.txt` / HANDOFF / INSTRUKCJA, że wiersze
+aktorów „zostają po japońsku, EN puste", było **fałszywe**: w `07_names_characters.jsonl` v7 **424 z 426** wierszy
+`voice_actor` mają EN łaciński (kolejność zachodnia imię + nazwisko, Hepburn bez makronów: `松本梨香`→„Rica Matsumoto",
+`林原めぐみ`→„Megumi Hayashibara", `島田敏`→„Bin Shimada", `ＴＡＲＡＫＯ`→„Tarako", `三宅健太 広瀬正志`→„K. Miyake/M.
+Hirose"); 2 pozostałe to `NoData` (rekord 65535, placeholder, EN = `NoData` celowo). Pochodzą z pakietów v4–v6
+(kategoria `character_voice_actor` eksportera). Build #22 miał 0 ciągów JP w `CharaDictionary` — nazwiska były w tym
+policzone; `check_report.txt` v7 pokazywał 07 = 3 610/3 610 wypełnionych. Skąd błąd: statystyka „left empty 375"
+raportu `table_rows_refresh` dotyczyła innych wierszy, a nie sprawdziłem pliku przed napisaniem notatki. Przegląd 142
+unikatowych nazwisk (z własnej wiedzy — sandbox nie ma dostępu do źródeł poza github/pypi): **1 błąd**: `高乃麗` „Rei
+Takano" → **„Urara Takano"** (głos postaci 峯崎拳一 / 田辺久美子 wg pakietu; 麗 w jej nazwisku czyta się うらら). Lista
+jp→en z liczbą wierszy i przykładami postaci: `aktorzy_glosowi.tsv` w pakiecie (142 wiersze, plik informacyjny).
+
+**B. Skan „co jeszcze zostaje po japońsku" [ZMIERZONE].** Reset sandboxa (HEAD cofnięty, `local/` pusty) → `git reset
+--mixed origin/…`, pobrane z Dysku `config00.cpk`, `imenu00.cpk`, `configst.cpk`, `config01.EDAT` (md5 jak w manifeście).
+Build #23 (syntetyczne ISO `iso_pack.py repack` z trzema plikami USRDIR, `--only config00.cpk imenu00.cpk configst.cpk
+--no-exe --no-ui-textures`, pakiet v8-robocze): 0 pominiętych, imenu00 ≡ config00 we wszystkich 6 członkach, mirror
+`imenu00 ← config00: 460`. Skan **każdego członka** wyniku (przebiegi NUL, dekodowanie CP932, tylko przebiegi bez bajtów
+sterujących, regex kana/kanji **plus kana półszeroka** `｡-ﾟ` bez `｢｣･` — regex z §21.34 półszerokiej nie obejmował):
+`config00.cpk` i `config01.EDAT`: 0 czytelnych napisów JP (zostają liczby odczytane jako kana: `ﾔ\uf8f2\n`, `ffｦ?`).
+**`configst.cpk`: trzy prawdziwe resztki:**
+1. `srwDL_Spirit.bin` — 7 napisów rodziny 幸運/祝福 (Fortune/Bless, rekordy 30–35): opis `敵撃墜時､獲得資金2倍
+   ﾄﾞﾛｯﾌﾟ率上昇\n撃墜するまで継続\n…` ×3, wariant obszarowy `範囲内の味方1機（自機）の敵撃墜時\n…` ×3, linie efektu
+   `＠6%s1%s0\nLv1%s40%s2倍 ﾄﾞﾛｯﾌﾟ率+5％` (Lv1–3). Pola mają tokeny kany `0x0F`; `record_rows_refresh` od 2026-10-15 je
+   **tylko raportował** („needs the token map, not added"). Dwa wiersze `leftover:…Spirit.bin:7427/8106` (mode slot)
+   trafiały w pola rekordów 30 i 33 (offset wewnątrz pola; `match_form` = display) — stąd w wyniku 4 z 6 opisów JP, nie 6.
+2. `srwDL_Skill_Tag.bin` — 5 napisów `特技／ﾀﾞﾒｰｼﾞ率`, `…率1`–`率4` (tokeny kany; eksporter odrzucał; v7 odświeżało
+   `table_rows_refresh` tylko kontenerami config/imenu z `local/dlc_all`, **bez configst**).
+3. `srwDL_Achievement.bin` — 7 osiągnięć z EN od dawna (`ミッション 30種クリア`→„Clear 30 Different Missions", `総プレイ時間
+   30時間`, `総撃墜数 100達成`, `パイロット Lv10/Lv40達成`, `10段階改造 50機達成`, `所持ユニット 30以上`), **pisarz odmawiał**:
+   `refused: record N has unexplained in-record references (offsets [(8, 30)])` — widoczne tylko w `problems` kontenera
+   `build_report.json` (nie w `skipped`), od buildu #22 co najmniej. Układ rekordu zmierzony na 75 rekordach: +0 (=28) i +4
+   dwa wskaźniki, **+8 liczba docelowa** (1/30/40/100), +12 flaga (1 przy Lv), +16 u16 indeks, +18/+20 u16 id tekstów,
+   +24 u16 punkty, +26 u16 kategoria. Liczba 30/40/100 lub indeks 32/45 ≥ 28 = offset pierwszego napisu → strażnik brał
+   je za wskaźniki. Poza tym `srwDL_CalcType.bin` (configst): 96 napisów JP, 62 mają wiersze slot z EN (zastosowane:
+   „Formula" ×3, „Acc/Eva Check"), 34 bez wierszy (`武器／命中補正`, `表示命中率`, `精神／必中`…) — tabela wzorów obliczeń;
+   **NIEZNANE, czy gra ją gdziekolwiek wyświetla** — nietknięte (audyt pokrycia tych 34 nie zgłasza — do wyjaśnienia).
+
+**C. Naprawy.**
+* `tools/table_write.py`: `"srwDL_Achievement": Family(2, exempt=((8, 28),))` (komentarz z układem); edit-free rebuild
+  bajt w bajt; po poprawce 0 `unexplained_refs` na 75 rekordach. Test `test_achievement_count_words_are_exempt`.
+* `tools/record_rows_refresh.py`: pole z bajtami sterującymi dostaje wiersz w **formie wyświetlanej** (`table_write.display`
+  — `%s` za bajt sterujący; planista offsetowy `item_skill_write.plan_offset_edits` już ją przyjmuje przez `match_form` →
+  `encode_target`), `bytes` = długość pola, `note` z „kana tokens shown as %s", **wpis `tokeny.tsv` liczony wprost z bajtów
+  pola** (`token_map.kinds_of`, bez drugiego szukania kontenera — `merge_sidecar`), powtórzenia tego samego tekstu w
+  członku → `copy_of` pierwszego wiersza; raport `token_rows`, `copies`, `sidecar_entries`, `sidecar`. Przebieg na
+  configst: 9 pól (2 EN z rodzeństwa = z wierszy leftover), kinds `L,L,L,L,T,T` dla linii efektu (4 literalne `%s` gry
+  zostają), `T,T,T,T` / `T×6` dla opisów. Testy 3 (zaktualizowane + `test_repeated_token_texts_point_at_the_first_row`).
+* `table_rows_refresh --containers configst.cpk config00.cpk imenu00.cpk --prune`: +5 wierszy `skill_tag:` (tokeny.tsv
+  `T`), usunięte 6 `achievement:` nieosiągalnych (` N`, `0u`, `Pﾃ` — bajty binarne).
+* `diagnoza.py`: `PACKAGE_VERSIONS` v8 (md5 04 `bfdeb302…`), v7 → STARY, `CURRENT_PACKAGE = v8`; `TOOL_FEATURES` +2
+  (`"srwDL_Achievement": Family(2, exempt=` w `table_write.py`, `mirror_identical_members` w builderze). Test pin v8.
+
+**D. Pakiet v8** (`local/pakiet_v8/pakiet_EN_2026-10-16_v8/`, zip 5 340 660 B md5 `55708b7d21cda646e55247bdea452a4f`,
+Dysk DELIVERY `1NjwHBIHna8IEmt8yMjjBfMrsoEO0EMnn`; v7 → `_STARE_NIE_UZYWAC`; md5 03 `58f557993c6517b6b5ba6ca8bb0a91e4`,
+04 `bfdeb302248c2e58647a46a117277e4a`, 07 `5bdf43a50a9c9d31592bc3b325dc4fd0`). = v7 + **12 poprawionych EN** (`高乃麗`
+×4 → „Urara Takano"; `dlc_id:…DLC_ID00.bin:{6761…7827}` ×8 `SRWHPｺﾗﾎ` → „SRW Web Collab" — etykieta źródła paczki DLC
+obcięta w oryginale do 8 B, w v7 EN = JP, czyli zostałaby po japońsku) + **14 nowych wierszy** (5 `skill_tag:` → „Skill/Dmg
+Rate", „…Rate 1–4"; 9 `spirit:configst.cpk/srwDL_Spirit.bin:{7352,7393,7580,7622,7812,7854,8093,8353,8613}` → „On kill:
+Credits x2, Drop Rate Up\nLasts until a kill\nLv up: Drop effect Up, SP cost Down\n＠6<Growth Type>", „On kill by 1 ally
+(self) in range:\n…", „＠6%s1%s0\nLv1%s40%s x2, Drop Rate +5％" — 4 literalne `%s` jak w sąsiednich liniach rodziny 努力/Gain,
+`％` pełnej szerokości jak w JP) − **8 usuniętych** (6 śmieci Achievement, 2 `leftover:…Spirit.bin:7427/8106` — ich EN
+przeniesione do wierszy pól, żeby jedno pole miało jeden wiersz). `index.json` przeliczony (47 kategorii, notatka v8),
+`CO_NOWEGO_v8.txt` (z korektą do v7; w `CO_NOWEGO_v7.txt` błędny nawias oznaczony „[KOREKTA w v8]"), `aktorzy_glosowi.tsv`,
+`refresh_report_v8.json`, `record_refresh_report_v8.json`. `translation_copy --resync`: 0 rozjazdów; `translation_check`:
+**109 032 wierszy, 81 678 EN, 0 błędów**; `coverage_audit --dir local/in` (config00 + configst + imenu00): brak 2 (PAC).
+
+**E. Build #23b (sandbox, pakiet v8 + nowe narzędzia):** `--only config00.cpk imenu00.cpk configst.cpk --no-exe
+--no-ui-textures`: 0 pominiętych, **`configst.cpk` problems 0** (7 odmów Achievement zniknęło), `srwDL_Spirit.bin` 15 982 B /
+`Skill_Tag` 11 152 B / `Achievement` 5 540 B — **0 czytelnych napisów JP w każdym z trzech**; „Clear 30 Different Missions" 1,
+„Reach Pilot Lv40" 1, „Skill/Dmg Rate" 5, „On kill: Credits x2" 3, „Drop Rate +5％" 1; `config00.cpk` 936 064 B, `imenu00.cpk`
+90 280 B (6 członków ≡ config00); `Voice: Urara Takano` 2, `Rei Takano` 0, `SRW Web Collab` 8 w DLC_ID00. Osobny build
+`--dlc local/in/dlc --only config01.EDAT`: 249 984 B, 0 pominiętych, 0 czytelnych napisów JP w 20 członkach. `problems`
+typu `robonote:50:series: no record with key 50` = wiersze kluczowane innych kontenerów (jak w #22). Synthetic ISO bez
+EBOOT/`--no-exe` — bez znaczenia dla użytkownika.
+
+**Testy:** `discover tests -q` → **1 266 OK, 1 skipped** (`eventP01.zip`); +2 względem §21.34 (`test_achievement_count_words_are_exempt`, `test_repeated_token_texts_point_at_the_first_row`).
+
+**Potwierdzone / hipotezy / nieznane:** POTWIERDZONE (pliki): nazwiska aktorów zromanizowane w v4–v8; trzy resztki
+configst i ich przyczyny; po #23b 0 JP w Spirit/Skill_Tag/Achievement. HIPOTEZY: „Voice: Megumi Hayashibara" (25 komórek)
+mieści się w wierszu karty Character Viewera (JP maks. 22 komórki); linie efektu Fortune z 4 literalnymi `%s` renderują
+się jak linie Gain (ta sama budowa `＠6%s1%s…`); opis osiągnięć mieści się w liście (EN do 30 znaków, oryginał ≤ 12
+pełnej szerokości = 24 komórki). NIEZNANE: v7/v8 w grze (nic z v7 nie było jeszcze sprawdzone); czy `srwDL_CalcType.bin`
+jest wyświetlany; EBOOT.BIN-w-ISO (EXE_TEST2) i UI_TEST4 w grze — użytkownik testuje.

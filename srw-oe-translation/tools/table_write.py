@@ -15,7 +15,7 @@ than the Japanese original fits everywhere the pool form is used:
     srwDL_DLC_ID             8        0          -               config00-19
     srwDL_Shop               2        0          -               config00-19
     srwDL_Skill_Tag          5        8          u32 id @ +0     configst
-    srwDL_Achievement        2        0          -               configst
+    srwDL_Achievement        2        0          -               configst (+8..+28 numbers, exempt)
 
 Rebuild rules (all measured, all fail-closed):
 
@@ -104,7 +104,14 @@ FAMILY_BY_PREFIX: Dict[str, Family] = {
     "srwDL_DLC_ID": Family(8, exempt=((32, 56),)),
     "srwDL_Shop": Family(2),
     "srwDL_Skill_Tag": Family(5, ptr_start=8, key=("u32", 0)),
-    "srwDL_Achievement": Family(2),
+    # Achievement record: 2 pointers (+0 always 28, +4 the empty second string), then numbers -
+    # +8 target count (1..100: missions, hours, kills, Lv, units), +12 flag, +16 u16 index,
+    # +18/+20 u16 text ids, +24 u16 points, +26 u16 category [ZWERYFIKOWANE 2026-10-16, all 75
+    # records of configst]; a count of 30/40/100 or an index of 32/45 lands inside the string
+    # range (>= 28) by arithmetic, not as a pointer - 7 records (30 missions, 30 hours, 100 kills,
+    # Lv10, Lv40, 50 units upgraded, 30 units owned) stayed Japanese in builds #22/#23 because
+    # the guard refused them
+    "srwDL_Achievement": Family(2, exempt=((8, 28),)),
 }
 
 #: 07/08 part -> pointer slot(s), per family prefix.  A tuple names every slot one part feeds:

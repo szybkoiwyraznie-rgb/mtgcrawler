@@ -107,10 +107,10 @@ class DiagnozaReportTests(unittest.TestCase):
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:
                 self.assertIn(digest, diagnoza.KNOWN_CONFIG)
-        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v7")
-        self.assertTrue(any(label.startswith("v7") and "AKTUALNY" in label
+        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v8")
+        self.assertTrue(any(label.startswith("v8") and "AKTUALNY" in label
                             for label in diagnoza.PACKAGE_VERSIONS.values()))
-        self.assertFalse(any(label.startswith(("v3", "v4", "v5", "v6")) and "AKTUALNY" in label
+        self.assertFalse(any(label.startswith(("v3", "v4", "v5", "v6", "v7")) and "AKTUALNY" in label
                              for label in diagnoza.PACKAGE_VERSIONS.values()))
         for digest in diagnoza.KNOWN_PBOOT:
             self.assertRegex(digest, r"^[0-9a-f]{32}$")

@@ -128,6 +128,25 @@ class PoolRebuildTests(unittest.TestCase):
             TW.rebuild_pool(pool, FAM2, {(0, 0): b"Boom"})
         self.assertEqual(TW.rebuild_pool(pool, FAM2), pool)            # without edits it stands
 
+    def test_achievement_count_words_are_exempt(self):
+        # the Achievement record keeps its target count at +8 (30 missions, 30 hours, 100 kills),
+        # a flag at +12 and the index/text ids/points/category at +16..+28 - numbers that land
+        # inside the string range by arithmetic; the real family exempts +8..+28, so the seven
+        # records the generic guard refused in builds #22/#23 are editable [2026-10-16]
+        fam = TW.FAMILY_BY_PREFIX["srwDL_Achievement"]
+        rec = bytearray(make_record([jp("ミッション 30種クリア"), b""], extra=b"\x00" * 20))
+        struct.pack_into("<I", rec, 8, 30)             # the count 30 >= 28 = first string offset
+        struct.pack_into("<I", rec, 16, 32)            # the index word
+        pool = make_pool([bytes(rec)])
+        self.assertTrue(TW.parse_pool(pool, FAM2.__class__(pointers=2))[0].unexplained_refs)
+        parsed = TW.parse_pool(pool, fam)
+        self.assertEqual(parsed[0].unexplained_refs, [])
+        edited = TW.rebuild_pool(pool, fam, {(0, 0): b"Clear 30 Different Missions"})
+        again = TW.parse_pool(edited, fam)
+        self.assertEqual(again[0].strings[0], b"Clear 30 Different Missions")
+        self.assertEqual(again[0].prefix[8:28], bytes(rec[8:28]))     # the numbers stay verbatim
+        self.assertEqual(TW.rebuild_pool(pool, fam), pool)
+
     def test_pointer_table_offset_variant(self):
         rec = bytearray(make_record([b"id", jp("タグ"), jp("Ｂ")], ptr_start=8, nptr=3))
         struct.pack_into("<I", rec, 0, 12345)      # the Skill_Tag id word before the pointers

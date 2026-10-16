@@ -373,7 +373,25 @@ scan therefore starts a run at the binary word `+52` whenever both its bytes are
 gets no row — the name stayed Japanese in build #11 while `name_level` and `effect_brief` of the same record were
 English. `tools/record_rows_refresh.py` adds such fields as offset rows (English taken from a translated sibling
 field with the identical Japanese). Nine further Spirit fields (`effect` r30–32, `label` r30–35) hold `0x0F` kana
-tokens and still need token-map rows (`pool_rows_refresh`-style); they remain Japanese for now.
+tokens; since 2026-10-16 (§21.35) `record_rows_refresh` adds them as rows in the DISPLAY form (`table_write.display`:
+one `%s` per control byte — the form `item_skill_write.plan_offset_edits` already accepts through `match_form`), with
+the `tokeny.tsv` kinds computed straight from the field bytes (`token_map.kinds_of`), `bytes` = the real field length,
+and `copy_of` for repeats of the same text in the member. Package v8 carries the nine rows; build #23b left 0 Japanese
+runs in `srwDL_Spirit.bin`.
+
+## `srwDL_Achievement.bin`: the target count at +8 defeated the in-record-reference guard for weeks (2026-10-16)
+
+Seven achievements (`ミッション 30種クリア`, `総プレイ時間 30時間`, `総撃墜数 100達成`, `パイロット Lv10/Lv40達成`,
+`10段階改造 50機達成`, `所持ユニット 30以上`) had English since the early packages but never reached the file: the
+convention-A writer refused the whole record with `unexplained in-record references (offsets [(8, 30)])`. Reason, measured
+on all 75 records: +0 (=28) and +4 are the two string pointers; **+8 is the u32 target count** (1/30/40/100), +12 a flag
+(1 for the Lv goals), +16 a u16 index, +18/+20 u16 text ids, +24 u16 points, +26 u16 category. A count of 30/40/100 or an
+index ≥ 28 equals a string offset inside the record, so the guard took it for a pointer and left the record "as is". The
+refusal is reported ONLY in the container's `problems` list of `build_report.json` (not in `skipped`), which is why the
+row counts looked clean. Fix: `Family(2, exempt=((8, 28),))` (the same mechanism as DLC_ID's `(32, 56)`); edit-free
+rebuild is byte-identical, 0 unexplained references remain. Lesson: after every build read the per-container
+`problems`, not just `skipped` / `verification.failures`, and scan the built members for Japanese runs INCLUDING
+half-width kana (`U+FF61–FF9F` minus `｢｣･`) — the 2026-10-16 morning regex missed `SRWHPｺﾗﾎ` and `特技／ﾀﾞﾒｰｼﾞ率`.
 
 ## Button-bar labels are drawn in slots sized by the JAPANESE label (in-game, 2026-10-15)
 

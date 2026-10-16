@@ -575,3 +575,18 @@ po angielsku, etykiety wokół po japońsku). Szczegóły formatów i narzędzi:
 kody (w ~10×10 px wnętrza mieszczą się 2 litery; 1 litera myliłaby się z rangami S/A/B/C/D obok). Reguła narzędzia:
 napis, który się nie mieści (po zmniejszeniu fontu do `min_size` i ściśnięciu do `squeeze`), zatrzymuje całą budowę —
 żadnych uciętych etykiet. Razem: 26 tekstur, 137 napisów / kodów, 6 zachowanych, 4 wymazane (`EXPERIMENT_LOG.md` §21.30–21.31). Partia 4 (§21.32, po zrzutach z buildu #19): komórki `mensys_03` (nagłówek „WPN” bez 名, „RNG” od x=34, „EN Cost” w komórce 0–33), `mensys_11` (ramki nad ikonami), `mensys_13` (`Terrain` węższa, 用 wymazane), `tacsys_16/18`, `mensys_07` — `UI_TEST4` (w grze nie sprawdzone). Lekcja: komórka UV gry może różnić się od namalowanej ramki; ramka nie może sięgać ikon w następnym rzędzie; zawsze oglądać podgląd ×4.
+
+## 7. Co audyt pokrycia NIE widzi (stan 2026-10-16, §21.35)
+
+`coverage_audit.py` liczy, czy każdy przebieg tekstu kontenera ma wiersz w pakiecie — nie liczy, czy pisarz go wpisał.
+Trzy rodzaje ślepych plam znalezione skanem bajtów WYNIKU budowy (nie wejścia): (1) **odmowy pisarza** (7 osiągnięć z EN
+od tygodni odrzucanych przez strażnika odwołań w rekordzie — tylko w `problems` kontenera w `build_report.json`);
+(2) **pola z tokenami kany `0x0F`** (`srwDL_Spirit.bin` 幸運/祝福, `srwDL_Skill_Tag.bin` `特技／ﾀﾞﾒｰｼﾞ率`) — eksporter
+`config_text_tables.record_strings` je odrzuca, więc nie było czego pokrywać; od §21.35 `record_rows_refresh` /
+`table_rows_refresh` dokładają je jako wiersze w formie wyświetlanej (`%s` + `tokeny.tsv`); (3) **wiersz z EN = JP**
+(`SRWHPｺﾗﾎ` ×8 w DLC_ID — „pokryty", a zostawał po japońsku). Procedura po każdym buildzie: `skipped` +
+`verification.failures` + `problems` każdego kontenera + skan członków wyniku regexem z kaną półszeroką. Pozostałe
+japońskie napisy w wyniku #23b (config00 + imenu00 + configst + config01.EDAT): 34 etykiety `srwDL_CalcType.bin` bez
+wierszy (62 inne mają sloty EN; **nieznane, czy tabela jest wyświetlana**; audyt ich nie zgłasza — do wyjaśnienia),
+`＜主人公名＞`, nawiasy `｢｣`, liczby odczytane jako kana. Nazwiska aktorów (`char:K:voice_actor`, 426) były łacińskie od
+v4 — notatka v7 o „celowo bez EN" była błędna.

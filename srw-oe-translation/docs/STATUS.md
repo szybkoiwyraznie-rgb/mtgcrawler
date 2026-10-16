@@ -1,8 +1,24 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.34)
+Last updated: 2026-10-16 (§21.35)
 
-**Latest (2026-10-16): FULL v6 BUILD CONFIRMED IN-GAME (intermission English, graphics intact; program strings via the
+**Latest (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
+Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
+without macrons; 2 rows are the `NoData` placeholder) — one misreading fixed (`高乃麗` "Rei" → "Urara Takano"), the full
+list is `aktorzy_glosowi.tsv` in the package. A byte scan of every built member (now including half-width kana) found
+three REAL leftovers, all in `configst.cpk`: the Fortune/Bless spirit descriptions (kana-token fields the record refresher
+only reported), five `Skill_Tag` strings (configst was not in the v7 refresh) and seven achievements with English for
+weeks that `table_write` REFUSED because the record's target count (30/40/100) looked like an in-record pointer (visible
+only in the container `problems` of `build_report.json`). Fixes: `Family(2, exempt=((8, 28),))` for Achievement (layout
+measured on 75 records), `record_rows_refresh` adds token fields as display-form rows (`%s` per control byte, `tokeny.tsv`
+entries computed straight from the field bytes), `table_rows_refresh` run over configst. Package v8 = v7 + 12 corrected
+English values (Takano ×4, `SRWHPｺﾗﾎ` → "SRW Web Collab" ×8) + 14 rows − 8 junk/obsolete rows: 109 032 rows / 81 678 EN /
+0 errors; on Drive, v7 moved to `_STARE_NIE_UZYWAC`, `diagnoza` expects v8 (and checks the Achievement exemption in the
+tools). Sandbox build #23b (config00 + imenu00 + configst, plus config01.EDAT separately): 0 skipped, configst problems 0,
+0 readable Japanese runs in Spirit / Skill_Tag / Achievement. Still unknown: whether `srwDL_CalcType.bin` (34 untranslated
+formula labels) is ever displayed; nothing of v7/v8 confirmed in-game yet. Tests: 1 266 OK (1 skipped).**
+
+**Previous (2026-10-16, §21.34): FULL v6 BUILD CONFIRMED IN-GAME (intermission English, graphics intact; program strings via the
 cheat file). The five leftover screenshots — Character Viewer (non-pilot names in the grid, `愛称：` / `声優：` lines and the
 voice-actor names), Robot Viewer foe units (`ボルトロボ`, `邪竜兵`) and the whole Game Reference (`解説書`) — traced to four
 causes, all measured in the files: (1) the intermission reads `imenuNN.cpk/.EDAT`, whose six members are byte-identical
@@ -18,7 +34,7 @@ rejects kana-token bodies). Fixes: `table_write` viewer slots + label rows (`lab
 `tools/table_rows_refresh.py` (walks every table member of the real containers, adds the missing rows with `copy_of` /
 sibling English, prunes stale / superseded / unreachable offset rows, salvages glued English, writes `tokeny.tsv`
 entries), `coverage_audit` counts `愛称：仁` as covered when label and text are separate rows. Package v7 (109 026 rows /
-81 672 EN, 0 errors, coverage 0 missing; 426 voice-actor names deliberately left Japanese — decision pending) on Drive,
+81 672 EN, 0 errors, coverage 0 missing; ~~426 voice-actor names deliberately left Japanese~~ — WRONG, see §21.35) on Drive,
 v6 moved to `_STARE_NIE_UZYWAC`; `diagnoza` knows v7. Sandbox build #22 (synthetic ISO with `imenu00.cpk` + 30 DLC EDATs):
 0 skipped rows, 0 verification failures, every config/imenu pair 00–08 identical, 0 Japanese runs left in the five
 viewer/reference members. Tests: 1 261 OK (1 skipped). NOT run in-game: v7 (watch: `imenu00.cpk` grows 34 984 → 88 232 B
