@@ -1,0 +1,35 @@
+# Episode 06 — Connect Force arrives in the Frontier system, repels Grados and Balarant, picks up Sheryl and Ranka, and heads for Planet Zi as Van meets Herman and his rival Raven
+
+Connect Force warps out in the Frontier system and docks at Connect Station by the Vajra homeworld. Ozma reports intruders; a Grados battleship (with Gablae scouting for the Posaydal Army) and a Balarant ship with ATs are defeated in orbit and on the ground while Sheryl and Ranka sing live for the troops, and the two singers then join Connect Force on an official "outer-universe tour." Grados, Balarant and Pentagona announce the ISTO alliance, the Guylos Empire under Regent Prozen goes on the offensive, and the Helic Republic asks Connect for help; Connect Force breaks through an ISTO Lesrion-class battleship in Planet Zi's orbit and then destroys ISTO's forward base and half-built Warp Gate in the system. On Planet Zi, Van's group meets Colonel Rob Herman, who admired Van's late father, and Van is humiliated by Raven and his black Organoid Shadow. Hauling supplies to Mt. Ossa Fortress earns Moonbay's group priority entry into New Helic City, where President Louise thanks them and prepares to ask a favor.
+
+## Scene 48 — Macross Frontier
+The Ark Ship warps out in the Frontier system; Bobby notes Vasage made the warp-section entry easy, and Seishiro admits to Himari that crossing a warp cross-section is genuinely dangerous. At Connect Station, Seishiro briefs the newcomers (Goto, Ota, Shinshi, Bright, Maria) on the system's Warp Gates. Ozma, now Defense Chief, reports intercepted military comms; Sheryl and Ranka butt into the call from the command room, Sheryl demands Alto come to her room, and the pair decide to sing for Connect Force. Grados SPTs appear (Eiji realizes the Grados-Balarant alliance is expanding via a captured Warp Gate); Wilder splits the fleet, and the Macross Quarter destroys the Grados mothership while Eiji fails to talk an elite pilot into surrendering. Gablae arrives on a reluctant recon mission, trades insults with Adeu, Chum, Masaki and Michel ("history repeats itself"), and withdraws, promising a reckoning.
+
+## Scene 49 — Macross Frontier (variant)
+A near-identical branch of Scene 48; only Masaki's and Gablae's exchange is reworded (Masaki: "You can't catch the Masoukishin of Wind!").
+
+## Scene 50 — The Vajra Homeworld
+White Base engages the hidden Balarant ship on the surface while Ranka's concert is broadcast; Balarant ATs ambush from creeks and rocks. Chirico notes hell looks the same in every universe, Shinobu enjoys fighting to music (Sara fears a "Cyber Beast Force concert"), and the Balarant captain abandons ship. In the conference room, Sheryl ("Feeling cultured?") and Ranka announce they will travel with Connect Force, officially as goodwill and PR concerts for Connect, now the Frontier's biggest sponsor. Alto objects but gives in; the Patlabor crew realize they are the security detail. The Macross Quarter's Song command becomes available.
+
+## Scene 51 — The ISTO Fleet
+Narration introduces Planet Zi and the Zoids, the founding of the ISTO (Balarant, Grados, Pentagona), Prozen's push to unify Zi so Guylos can deal with ISTO as an equal, and the Helic Republic's plea to Connect. In the cafeteria, Seishiro explains the Zoid Zone and Zoid cores, Keroro mocks Pekoponian science, and Shinshi refuses to think about distances. In the hangar, Shige mounts the VF-25 Super Pack, Sakaki asks for more maintenance crew, and Alto is assigned as Skull's attacker. In Planet Zi's orbit, a Balarant Lesrion-class battleship with Grados SPTs attacks; Eiji argues with a soldier who calls conquered peoples "inferior races," and the enemy is routed before descent.
+
+## Scene 52 — Operation: Sever the Warp Route
+Navigation logs from the sunk ISTO ship reveal ISTO's forward base, where it is building a Warp Gate using one seized from Connect; with only a one-sided Warp Ring, ISTO cannot yet send a large fleet. Seishiro explains that new space-time links tend to open nearby and can be intercepted. The Macross Quarter strike group (Raijin-Oh, GoShogun, Kamille, Kamina, Setsuna, Eiji) attacks; Kamina hates the enemy's "skulking," Kamille decries another pointless war. The base surrenders and a survey team goes in.
+
+## Scene 53 — The Black Organoid
+Van, Fiona, Moonbay and Irvine reach a Republic checkpoint, where soldiers report Zeke to Colonel Rob Herman. Herman learns Van is the son of Major Dan Flyheight, a Zoid hero he admires, and Van explains he named Zeke after his father's Command Wolf. Raven attacks in a Saber Tiger, wipes out the defenders, cruelly tormenting disabled Zoids, and Van charges in; Raven mocks him ("as bad at handling Zoids as you are at fighting"), then reveals his own Organoid, Shadow. Van rallies by using the Liger's shield; Raven, annoyed when Imperial troops want a share of the glory, leaves them the field, tells Van to get stronger and gives his name. Afterward Herman offers Van a place under him; Van refuses to keep his promise to Fiona, Irvine refuses too, and Herman grants supplies and passage.
+
+## Scene 54 — Deliver Supplies to the Republic
+To jump the week-long queue into New Helic City, Moonbay takes Herman's job hauling supplies to Mt. Ossa Fortress by a dangerous shortcut. Karl Schubaltz orders Redlers to stop the Gustav; Moonbay refuses to dump the cargo ("I'd rather die"), and Van and Irvine escort her through the valley to the fortress's AA cover. In New Helic City they get VIP treatment and an audience with President Louise, Herman's mother; she grants access to the National Archaeological Institute and introduces Dr. D, and Van and Fiona rush off. Louise vows to keep pursuing peace, warns that a large Imperial force is massing at the ceasefire line to strike the capital, and asks Moonbay and Irvine for a favor.
+
+## Character state at end of episode
+- Connect Force has crossed from the Frontier system into the Zoid Zone and is descending to Planet Zi to aid the Helic Republic; ISTO's forward base and Warp Gate in the system are destroyed.
+- ISTO (Balarant, Grados, Pentagona) has been formally announced and far outnumbers Connect; it is courting the Guylos Empire, whose Regent Prozen has launched an offensive.
+- Sheryl and Ranka travel with Connect Force on an official goodwill/PR tour and sing in battle (Macross Quarter Song command); Sheryl has unfinished business with Alto.
+- Ozma is Defense Chief of the Frontier capital; Alto leads Skull Squadron and now flies the VF-25 Super Pack.
+- Gablae is scouting for the Posaydal Army and has sworn to meet Connect Force again.
+- Van knows Raven and Shadow, was outclassed, and burns for a rematch; Raven wants Van to grow stronger and ignores Imperial orders.
+- Rob Herman respects Van as Dan Flyheight's son and has an open offer for Van and Irvine to join the army; both declined for now.
+- Van and Fiona have access to the National Archaeological Institute and an introduction to Dr. D to research Zoid Eve.
+- President Louise (Herman's mother) seeks peace but expects an Imperial attack on New Helic City and is about to ask Moonbay's group for help.

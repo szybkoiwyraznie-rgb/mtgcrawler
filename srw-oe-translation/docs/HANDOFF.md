@@ -380,6 +380,10 @@ na Dysku `1I_fBkncCExA9Mx3nz10f06R4Umc0VopM`, v6 → `_STARE`; `diagnoza` zna v7
 „Voice: " + japońskie nazwisko), EBOOT.BIN-w-ISO (użytkownik testuje), UI_TEST4.** Otwarte: ~~romanizacja aktorów~~,
 `config_text_tables.record_strings` (ciała z tokenami), dialogi 5–8, `mensys_12`, kalibracja etykiet.
 
+**Stan 2026-10-16, później (§21.36) — Import scen + pakiet v9:** `EN3.zip` od Tłumacza — 23 030 nowych EN w dialogach.
+Dialogi: 44 506 / 4 374 JP. Ogółem: 109 019 EN / 9 JP (exe). Materiały Tłumacza → `docs/translator/`. Dysk v9.
+v8 → STARY. Nie testowane w grze.
+
 **Stan 2026-10-16, później (§21.35) — KOREKTA + pakiet v8:** zdanie „426 nazwisk aktorów bez EN" było **fałszywe**: 424/426
 wierszy `char:K:voice_actor` miało łacinkę od v4 (kolejność zachodnia, Hepburn bez makronów; 2 = placeholder `NoData`),
 pełna lista `aktorzy_glosowi.tsv` w pakiecie; jedna poprawka `高乃麗` „Rei" → **„Urara Takano"**. Skan bajtów KAŻDEGO

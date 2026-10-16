@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.35)
+Last updated: 2026-10-16 (§21.36)
 
 **Latest (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
 Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn

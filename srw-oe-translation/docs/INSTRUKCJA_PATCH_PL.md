@@ -26,7 +26,11 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 
 ## Co jest na Dysku (folder DELIVERY) — stan 2026-10-16: pakiet v8 + EXE_TEST2 + UI_TEST4
 
-> **Nowe 2026-10-16 (później) — pakiet v8 + sprostowanie.** W notatce do v7 napisałem, że nazwiska
+> **Nowe 2026-10-16 (§21.36) — pakiet v9 + import scen.** Wersja: **v9** (`pakiet_EN_2026-10-16_v9.zip`).
+> v9 = v8 + tłumaczenie dialogów (EN3.zip, 23 030 nowych EN). Dialogi: 44 506 / 4 374 JP. Ogółem: 109 019 EN / 9 JP.
+> `DIAGNOZA.bat` oczekuje: **„pakiet v9 — AKTUALNY"**. Wymaga świeżego ZIP gałęzi. Nie testowane w grze.
+
+> **Nowe 2026-10-16 (później) — pakiet v8 + sprostowanie (STARY — uzyj v9).** W notatce do v7 napisałem, że nazwiska
 > aktorów głosowych „zostają po japońsku". **To była nieprawda** — 424 z 426 wierszy miało łacinkę już od
 > v4 („Voice: Rica Matsumoto", „Voice: Megumi Hayashibara"; 2 wiersze to placeholder `NoData` z pustego
 > rekordu). Poprawiłem jedno błędne odczytanie (`高乃麗` „Rei" → **„Urara Takano"**), pełna lista nazwisk

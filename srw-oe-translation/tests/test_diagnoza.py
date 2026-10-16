@@ -97,7 +97,8 @@ class DiagnozaReportTests(unittest.TestCase):
             self.assertRegex(digest, r"^[0-9a-f]{32}$")
         for pair in diagnoza.PACKAGE_VERSIONS:
             for digest in pair:
-                self.assertRegex(digest, r"^[0-9a-f]{32}$")
+                self.assertTrue(digest == "" or re.match(r"^[0-9a-f]{32}$", digest),
+                                f"bad digest in key: {pair!r}")
         self.assertEqual(diagnoza.EXPECTED_BUILD14["config00.cpk"], "71d9fcafa37c21513b97c14d1dff8f33")
         self.assertEqual(diagnoza.EXPECTED_BUILD14["configst.cpk"], "6cfe245d5f6ec6dfffd2a829b778a4d7")
         for digest in diagnoza.KNOWN_DLC_CONFIG:
@@ -107,10 +108,10 @@ class DiagnozaReportTests(unittest.TestCase):
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:
                 self.assertIn(digest, diagnoza.KNOWN_CONFIG)
-        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v8")
-        self.assertTrue(any(label.startswith("v8") and "AKTUALNY" in label
+        self.assertEqual(diagnoza.CURRENT_PACKAGE[0], "v9")
+        self.assertTrue(any(label.startswith("v9") and "AKTUALNY" in label
                             for label in diagnoza.PACKAGE_VERSIONS.values()))
-        self.assertFalse(any(label.startswith(("v3", "v4", "v5", "v6", "v7")) and "AKTUALNY" in label
+        self.assertFalse(any(label.startswith(("v3", "v4", "v5", "v6", "v7", "v8")) and "AKTUALNY" in label
                              for label in diagnoza.PACKAGE_VERSIONS.values()))
         for digest in diagnoza.KNOWN_PBOOT:
             self.assertRegex(digest, r"^[0-9a-f]{32}$")

@@ -5173,3 +5173,36 @@ mieści się w wierszu karty Character Viewera (JP maks. 22 komórki); linie efe
 się jak linie Gain (ta sama budowa `＠6%s1%s…`); opis osiągnięć mieści się w liście (EN do 30 znaków, oryginał ≤ 12
 pełnej szerokości = 24 komórki). NIEZNANE: v7/v8 w grze (nic z v7 nie było jeszcze sprawdzone); czy `srwDL_CalcType.bin`
 jest wyświetlany; EBOOT.BIN-w-ISO (EXE_TEST2) i UI_TEST4 w grze — użytkownik testuje.
+
+---
+
+## §21.36 (2026-10-16) — Import tłumaczenia scen, pakiet v9
+
+**A. Tło:** Tłumacz dostarczył EN3.zip — pełne tłumaczenie dialogów (sceny epizod-00…34 + simulator) oraz zestaw
+roboczy (glossariusz, voice_cards, STYLE.md, briefy, bible odcinków). Wszystkie sceny miały `EN:` wypełnione.
+
+**B. Import:** `translation_import.py --views local/en3/sceny --package local/pakiet_v8/pakiet_EN_2026-10-16_v8`:
+36 widoków, 40 462 elementów z tekstem, **23 030 zaimportowanych**, 17 419 bez zmian (już EN z v8), 0 nieznanych,
+**13 odrzuconych** (12 notatek misji za długich o 1–10 B vs limit 39; 1 dialog `DL830_50:12044` — pusta linia EN
+ucięta przez parser). Naprawiono ręcznie dialog z `\\n` na 3 linie jak JP.
+
+**C. Resync:** `translation_copy --resync`: 4 373 wiersze kopii uzyskały EN z oryginałów. Dialogi: **44 506 EN / 4 374 JP**
+(było 21 538 / 27 341). Reszta JP: ch.6 (1 362), ch.7 (1 539), ch.8 (881), ch.5 (357), ch.0 (38), ch.4 (197).
+Ogółem w pakiecie: **109 325 wierszy, 109 019 EN, 9 JP-only** (tylko exe strings — jak v8).
+
+**D. Pakiet v9:** `local/pakiet_v9/pakiet_EN_2026-10-16_v9/`, zip 6 168 914 B md5 `7167b6013aa2b58a694064360d20894f`.
+Dysk DELIVERY `1h9TvNSmKZBjzpi7Uru2fkx1gcZFreVYl`. md5 03 `58f55799…`, 04 `bfdeb302…`, 00 `1ff48a0d…`.
+`translation_check`: same ostrzeżenia configst jak v8 (cosmetic width). `CO_NOWEGO_v9.txt`, `index.json` v9.
+
+**E. Narzędzia:** `diagnoza.py`: `PACKAGE_VERSIONS` rozszerzone o 3-elementowy klucz (03, 04, 00 dialogue md5),
+v8 → STARY, v9 → AKTUALNY, `CURRENT_PACKAGE = v9`. Test pin v9.
+
+**F. Materiały translatorskie do repo:** `docs/translator/` — `glossary.json` (537 KB, postacie/serie/terminy),
+`glossary_extra.tsv` (56 KB, mechy/bronie), `voice_cards.md` (210 KB, karty głosu postaci), `STYLE.md` (przewodnik stylu),
+`WSTEP.md` (status PL), `briefy/` (5 briefów), `bible/` (36 streszczeń odcinków). `README.md` z opisem.
+
+**Testy:** `discover tests -q` → patrz koniec sekcji (po uruchomieniu).
+
+**Potwierdzone / nieznane:** POTWIERDZONE: import scen działa, 23 030 nowych EN, format sceny.zip kompatybilny.
+NIEZNANE: v9 w grze (nie budowano); jakość tłumaczeń ch.6–7 (1 362+1 539 JP — Tłumacz może jeszcze uzupełnić);
+13 odrzuconych notatek misji — do skrócenia lub zaakceptowania (etykiety poza polem w grze).

@@ -1,0 +1,32 @@
+# Episode 04 — Connect Force seals the Grados gateway on Mars, purges Invaders and Mechanized Beasts, gains GoShogun, while Zero and C.C. land in the Pentagona World
+
+Connect Force, now joined with Skull Squadron (Macross Quarter) in Martian space, postpones its warp to the Frontier system to deal with the Grados advance force exposed by defector Eiji. Using ancient Martian ruins that connect to another universe, Grados had planned to take Mars; Connect Force sinks their warship, drives off Gosterro and secures the ruins, and Suol reveals his past link to Eiji's father, Dr. Asuka (Apollo X). Suol then explains Connect's darkest secret: Balarant stole one of Connect's Warp Gates and now allies with Grados and Pentagona to expand across universes. Invaders and then Mechanized Beasts (with a Dark Go-Saurer copy and a fortress) appear around Mars via Mucus Gates; Himari locates a gate by feel, and the Good Thunder Team (GoShogun), flung through time and space, joins Connect Force. In the Pentagona World, Lelouch and C.C. arrive with the Gawain; as Zero he saves Daba's rebels at Little Sei with a brilliant terrain-based plan, and C.C. warns him not to use Geass in this strange universe.
+
+## Scene 33 — Strike the Grados Warship
+Aboard White Base, Himari and Seishiro discuss Eiji turning against his homeworld; Seishiro believes many Gradosians oppose the invasions and that Connect must cooperate without dishonoring them. At the briefing Eiji explains Grados reached Mars through ancient ruins in a mountain valley; his father found them during Apollo X and was transported to a Grados colony, and Suol (once in the Federation's deep-space agency) calls Dr. Asuka a fellow pioneer. Connect Force fights the interception force; the Grados ship scuttles itself, and Gosterro rants at everyone (Alto, Amuro, Kamille, Daba, the Ganba Team, Ken, Domon, Chirico, the Red Shoulders, Ota) before fleeing with a vow to drag Eiji's head home. Back at the station, Eiji wants to liberate Grados's colonies; Suol says Connect can't move yet. In the observation deck Himari dreams of alien food and clothes beyond the Warp Gate and reveals that the Chief asked her to "loosen up" Seishiro. In the command center Suol reveals Balarant posed as Connect's friend to steal an old Warp Gate, now guarded by tens of thousands of ships, and has pacts with Grados and Pentagona.
+
+## Scene 34 — (duplicate fragment)
+Branch copy of Scene 33 lines (Seishiro/Himari talk, briefing, mission conditions, Suol's closing lines). Translated identically, without window-clear tokens.
+
+## Scene 35 — The Invaders' Clutches
+In White Base's hangar Keroro gushes over the Guntank and nearly leaks future Zeon prototypes (Juaggu) to Kai, who teases him; Keroro jokes that Kai shouldn't "awaken as a journalist" yet. Alone, Keroro resolves to avoid Gundam trivia so as not to change history. Connect's bio-sensors plus Getter Ray sonar detect Invaders on Mars; Suol explains Mucus Gates drift through space-time like spores in astronomical numbers. Go warns Invaders may target Connect's Warp Gate, so White Base goes down while the Macross Quarter guards the station. The Getter Team vows to fight to the last Invader; Wilder notes Connect Force is battle-ready enough for fleet action.
+
+## Scene 36 — The Time Etranger
+In the cafeteria Seishiro vainly demands the Keroro Robo Mk-II's specs; Himari tames Keroro ("Kero") with beef stew and Seishiro decides to leave him to her; the Raijin-Oh kids feared Keroro would be dissected. Mechanized Beasts appear in the Martian asteroid belt; White Base is in dock being refitted, so the Macross Quarter sorties. The Good Thunder Team (Shingo, Remy, Killy) warp in near a fortress and suspect they've jumped into the future. Himari senses the Mucus Gate on Seishiro's request. Wilder accepts Shingo's "other world" story at once; together they beat a Dark Go-Saurer copy (the kids call it "a fake of a fake") and the fortress, which the Macross Cannon finishes. The Good Thunder Team joins on a give-and-take basis, and Keroro is mistaken for a pet robot.
+
+## Scene 37 — Lelouch of the Rebellion
+Narration introduces the Pentagona World (twin suns Sans; planets Gastogal, Tridetoal, Fa, Coam, Mizun) under Oldna Posaydal, and Mizun's rebel base Little Sei facing annihilation. Daba plans a breakout with the L-Gaim and Leccee's Novel D-Sserd while Amm and Kyao load the Turner. Lelouch wakes in a wasteland, C.C. picks him up in the Gawain, and he decides to side with "whoever is worth more." As Zero he offers help, presents a terrain-based plan, and tells Daba the Black Knights stand against anyone who abuses power; Daba entrusts him with command. Privately C.C. warns him not to use Geass here, and he admits he knew this wasn't Earth. Zero's plan routs the regulars with the Gawain's firepower and the Turner escapes into space; narration says Zero and C.C. gain influence among the rebels and later push them toward Connect.
+
+## Scenes 38–39 — (duplicate fragments)
+Branch copies of Scene 37 lines (Zero's battle comments, the planning debate, the C.C. corridor talk, the rout). Translated identically, without window-clear tokens.
+
+## Character state at end of episode
+- The Grados advance force on Mars is destroyed and the Martian ruins are under Connect's study and defense; Gosterro escaped and swore revenge on Eiji.
+- Eiji wants to liberate the Grados-colonized planet beyond the ruins; Suol agrees in principle but won't commit Connect Force yet. Suol knew Eiji's father, Dr. Asuka.
+- Connect Force knows Balarant (Astragius Galaxy) stole a Warp Gate from Connect and allies with Grados and Pentagona; Balarant fields millions of ships and is deadlocked with Gilgamesh.
+- Mucus Gates spread like spores; Invaders and the Mechanization Empire use them around Mars. Himari can now locate Mucus Gates on purpose ("Himari Sensor" developing).
+- Suol assigned Himari to "loosen up" Seishiro; she teases him about it.
+- Keroro is in Connect Force, hides his robot's specs, fears changing Gundam history, and adores Himari ("Kero"); he calls her "Ms. Himari" and Seishiro "Mr. ＜主人公名＞".
+- The Good Thunder Team (GoShogun) joined Connect Force; they came from another world, perhaps from the past, by the Beamler's guidance.
+- White Base is being refitted for deep space; the Macross Quarter and White Base operate as a fleet. The expedition through the Warp Gate is being prepared.
+- Zero and C.C. are in the Pentagona World with the Gawain, allied with Daba's rebels on the Turner; Lelouch must not use Geass there.

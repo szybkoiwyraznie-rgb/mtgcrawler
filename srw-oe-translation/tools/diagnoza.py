@@ -204,31 +204,33 @@ CANONICAL_USRDIR = {
     "mesbtl00.cpk": ("00e10760c204e75133169b3455b19608", 994008),
 }
 
-# package versions by the md5 of 03_skills.jsonl / 04_config_text.jsonl
-PACKAGE_VERSIONS: Dict[Tuple[str, str], str] = {
-    ("6bccde6c26cf68079d91cc2f622954fc", "e507178333591fbfc6cfb3123239a19f"):
+# package versions by the md5 of 03_skills.jsonl / 04_config_text.jsonl / 00_dialogue.jsonl
+PACKAGE_VERSIONS: Dict[Tuple[str, str, str], str] = {
+    ("6bccde6c26cf68079d91cc2f622954fc", "e507178333591fbfc6cfb3123239a19f", ""):
         "v1 (2026-10-14) - STARY: Skill00 nieskrocony, z nowymi narzedziami config00 NIE jest zapisywany",
-    ("68c58d144c81b9edf27eb77164d2ca5d", "8955a292e8f084674fe174d3f49879d0"):
+    ("68c58d144c81b9edf27eb77164d2ca5d", "8955a292e8f084674fe174d3f49879d0", ""):
         "v2 'ciasny' (2026-10-15) - daje config00 jak BUILD14, ale kopie Skill01-08 nieskrocone",
-    ("68c58d144c81b9edf27eb77164d2ca5d", "042cfa4abe66cfc38fe9de090dc88d2d"):
+    ("68c58d144c81b9edf27eb77164d2ca5d", "042cfa4abe66cfc38fe9de090dc88d2d", ""):
         "b13 (roboczy, nie wydany)",
-    ("68c58d144c81b9edf27eb77164d2ca5d", "30f4ad0a7c8b12b7a686dcc01ee3a509"):
+    ("68c58d144c81b9edf27eb77164d2ca5d", "30f4ad0a7c8b12b7a686dcc01ee3a509", ""):
         "v3 (2026-10-15) - STARY: pule Skill01-08 (DLC) 17 396 B, rozdzialy 2-8 padaja na Loading",
-    ("98d945607e047f4d32cf3b63f7f605d1", "fa8b0e48d2d7e4ca03757a5f731b763f"):
+    ("98d945607e047f4d32cf3b63f7f605d1", "fa8b0e48d2d7e4ca03757a5f731b763f", ""):
         "v4 (2026-10-15) - dziala w grze, ale nazwy w listach wychodza poza kolumne i 'Group4' - uzyj v5",
-    ("58f557993c6517b6b5ba6ca8bb0a91e4", "06e7d6fcc8c17c1cff2d0e7997cca372"):
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "06e7d6fcc8c17c1cff2d0e7997cca372", ""):
         "v5 (2026-10-15) - dziala w grze (build #19), ale bez napisow programu i 31 napisow sysmes - uzyj v6",
-    ("58f557993c6517b6b5ba6ca8bb0a91e4", "5e5d4bc953b2e0785764db9584d3aa32"):
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "5e5d4bc953b2e0785764db9584d3aa32", ""):
         "v6 (2026-10-15) - dziala w grze (intermisja EN), ale Character/Robot Viewer i Reference "
         "maja japonskie resztki - uzyj v7",
-    ("58f557993c6517b6b5ba6ca8bb0a91e4", "8fda78d6b4c8f59f49bf84b91fdf8e4a"):
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "8fda78d6b4c8f59f49bf84b91fdf8e4a", ""):
         "v7 (2026-10-16) - STARY: opisy ducha Fortune/Bless, 5 tagow Skill_Tag i 7 osiagniec "
         "zostawaly japonskie, 'Rei Takano' zamiast 'Urara Takano' - uzyj v8",
-    ("58f557993c6517b6b5ba6ca8bb0a91e4", "bfdeb302248c2e58647a46a117277e4a"):
-        "v8 (2026-10-16) - AKTUALNY (v7 + pola Spirit/Skill_Tag z tokenami kany, poprawki "
-        "nazwisk i DLC_ID; osiagniecia wymagaja narzedzi z 2026-10-16b+ - table_write exempt)",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "bfdeb302248c2e58647a46a117277e4a", "cdc8b8e33a60fe6d8feb249cada1eb16"):
+        "v8 (2026-10-16) - STARY: sceny ch.0/4-8 bez tlumaczenia - uzyj v9",
+    ("58f557993c6517b6b5ba6ca8bb0a91e4", "bfdeb302248c2e58647a46a117277e4a", "1ff48a0df545c0b497198a603cde1da8"):
+        "v9 (2026-10-16) - AKTUALNY (v8 + tlumaczenie scen EN3.zip, 109019 EN / 9 JP-only; "
+        "dialogi 44506 EN; wymaga narzedzi 2026-10-16b+)",
 }
-CURRENT_PACKAGE = ("v8", "pakiet_EN_2026-10-16_v8.zip")
+CURRENT_PACKAGE = ("v9", "pakiet_EN_2026-10-16_v9.zip")
 PACKAGE_FILES = ("00_dialogue.jsonl", "01_battle_quotes.jsonl", "02_items.jsonl", "03_skills.jsonl",
                  "04_config_text.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                  "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "tokeny.tsv")
@@ -321,8 +323,9 @@ def package_version(folder: Path) -> Tuple[str, Dict[str, str]]:
         path = folder / name
         if path.exists():
             sums[name] = md5_of(path)
-    key = (sums.get("03_skills.jsonl", ""), sums.get("04_config_text.jsonl", ""))
-    return PACKAGE_VERSIONS.get(key, "NIEZNANA (inne md5 03/04 niz w wydanych pakietach)"), sums
+    key = (sums.get("03_skills.jsonl", ""), sums.get("04_config_text.jsonl", ""),
+           sums.get("00_dialogue.jsonl", ""))
+    return PACKAGE_VERSIONS.get(key, "NIEZNANA (inne md5 03/04/00 niz w wydanych pakietach)"), sums
 
 
 def section_package(rep: Report, root: Path) -> Optional[str]:
