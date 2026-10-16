@@ -5365,3 +5365,33 @@ wskazywał ORYGINAŁ 1.08):**
   **T2 = E1** (`EBOOT_TEST.bat` ze ŚWIEŻYM `tools/eboot_swap.py`) → działa ⇒ EBOOT; pada ⇒ dane ISO →
   BISEKCJA A (configst) / E (imenu00) / B (config00), tekstury osobno. Litery BISEKCJI budują od
   oryginału i tego samego pakietu — deterministyczny builder odtwarza stan padającego builda per grupa.
+
+**WYNIK T1 + POTWIERDZENIE EBOOT (2026-10-16 wieczór/noc):** użytkownik podmienił folder DLC emulatora
+na ORYGINALNY (`D:\SRWOE\NPJH50521`) i uruchomił v9 `patched.iso`: **GRA DZIAŁA**. Jednocześnie
+**SPATCHOWANY EBOOT POTWIERDZONY W GRZE** — zdolności broni z 1.08 (`<貫通 Lv2>` itd., napisy programu)
+są po angielsku (przy cheat OFF, zgodnie z instrukcją T1; jego oryginalne ISO ma EBOOT jako jawny ELF,
+więc jedynym źródłem tych napisów jest nasz ELF w ISO). Konsekwencje [ZWERYFIKOWANE]:
+- droga „jawny ELF jako EBOOT.BIN w ISO" DZIAŁA — napisy programu mają trwały kanał (cheat tylko
+  awaryjny);
+- **cała strona ISO v9 jest dobra**: config00, configst (v8/v9 pisarze, Achievement, tokeny), imenu00
+  (v7 mirror + sloty viewerów), eventP00/mesbtl00, tekstury (UI_TEST4 delta włącznie) — wszystko
+  przyjęte w grze;
+- **winne jest DLC v9** — pierwszy test w historii, w którym cały zestaw DLC z pełnym pakietem v7+v8+v9
+  poszedł do gry naraz (era v4/Y4a była ostatnim przyjętym zestawem).
+
+**Narzędzie bisekcji DLC: `tools/dlc_test.py` + `DLC_TEST.bat`.** Runda = podmiana JEDNEJ GRUPY plików
+v9 w folderze DLC EMULATORA czystym kopiowaniem (żadnej budowy; gra czyta `...\PSP\GAME\NPJH50521`
+jako luźne pliki) + jeden boot. Grupy: `konfig_imenu` (config*.EDAT + imenu*.EDAT), `eventy`
+(eventP*.EDAT + evept*.EDAT), `mesbtl` (mesbtl*.EDAT), `wszystko`, połówki `_a`/`_b` (a = rozdziały
+1–8 / eventP01–09+evept101–104 / mesbtl01–15; b = reszta), przywracanie `r_<grupa>` i `oryginaly`
+(cały folder do oryginałów). Fail-closed: foldery parami różne, kopiowane tylko pliki obecne po obu
+stronach i różne md5, odczyt kontrolny każdego pliku, pusty plan = błąd z podpowiedzią, raport
+`srw-oe-dlc-test\raport_<wariant>.json`, wydruk tylko nazwy/rozmiary/md5; nic nigdy nie jest usuwane.
+Bat: 3 okna ścieżek (działający / v9 / oryginały) + okno listy wariantów (`pick_choice custom`),
+reguły okien jak zawsze. Testy: **15 nowych**, całość **1 301 OK** (24 pominięte).
+
+**PROTOKÓŁ (kolejność rund; start = folder DLC pełny ORYGINAŁÓW, stan po T1; ISO v9 i CHEAT OFF
+bez zmian):** R1 `konfig_imenu` (historia Y: pule Skill01–08 w config0X padały na Loading — główny
+podejrzany) → R2 `eventy` → R3 `mesbtl`; grupa, po której pada, wygrywa i jest rozbijana połówkami
+(do pojedynczego pliku), reszta wraca na oryginały. Po wskazaniu pliku: analiza offline (budowa vs
+oryginał człon po członie) i bramka w pisarzu/pakiecie.

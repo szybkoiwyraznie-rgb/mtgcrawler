@@ -17,7 +17,18 @@ wracają na pewny CWCheat); pada na Loading ⇒ winne dane — jeśli źródłem
 przebudowa z oryginału; jeśli oryginał: BISEKCJA A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
 Achievement/tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
 
-**Latest (2026-10-16, §21.37 odczyt raportu): build_report.json padającego v9 rozstrzyga exe:** EBOOT
+**Latest (2026-10-16, §21.37 WYNIK T1): GRA DZIAŁA z v9 ISO + ORYGINALNYM DLC — a przy cheat OFF
+zdolności broni 1.08 są po angielsku, czyli JAWNY ELF JAKO EBOOT.BIN POTWIERDZONY W GRZE. Strona ISO
+v9 przyjęta w całości (config00, configst, imenu00 z pisarzami v7/v8, eventP00/mesbtl00, tekstury
+UI_TEST4). Winne: DLC v9 (cały zestaw po raz pierwszy w grze). Nowe `tools/dlc_test.py` +
+`DLC_TEST.bat` — bisekcja DLC CZYSTE KOPIOWANIE: runda = jedna grupa v9 plików w folderze emulatora +
+boot; grupy `konfig_imenu`/`eventy`/`mesbtl` + połówki `_a`/`_b` + przywracanie `r_*`/`oryginaly`;
+fail-closed (foldery parami różne, tylko różne-md5 obecne po obu stronach, odczyt kontrolny, raport
+JSON); 15 nowych testów, całość 1 301 OK (24 pominięte). PROTOKÓŁ: start = DLC oryginalne, R1
+`konfig_imenu` (podejrzany nr 1, historia Y) → R2 `eventy` → R3 `mesbtl`; padająca grupa = rozbijanie
+połówkami do pliku. Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
+
+**Previous (2026-10-16, §21.37 odczyt raportu): build_report.json padającego v9 rozstrzyga exe:** EBOOT
 płyty = znany ELF PBOOT (`8ba77a79…`), 402/404 w miejscu, out = `4d8b8a85…` z DIAGNOZY ⇒ **EBOOT niskie
 podejrzenie** (goły ELF z ISO bootuje mu codziennie; mechanizm = działający CWCheat). `eventP00`/
 `mesbtl00` = bajty już działające w grze (kanon v3). Podejrzani: **DLC v9** (nigdy w grze),

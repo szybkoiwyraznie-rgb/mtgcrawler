@@ -344,6 +344,15 @@ czyszczenia. **PLAN: T1 = v9 ISO + ORYGINALNE DLC (zamiana folderu NPJH50521 w e
 działa ⇒ DLC → BISEKCJA I/H; pada ⇒ T2 = E1 (świeży eboot_swap) → działa ⇒ EBOOT; pada ⇒ BISEKCJA
 A/E/B + tekstury.
 
+**WYNIK T1 (`EXPERIMENT_LOG.md` §21.37): GRA DZIAŁA ⇒ winne DLC v9; JAWNY ELF JAKO EBOOT.BIN
+POTWIERDZONY W GRZE (zdolności 1.08 po angielsku przy cheat OFF); cała strona ISO v9 przyjęta
+(config00/configst/imenu00 v7-v9, eventP00/mesbtl00, tekstury UI_TEST4).** Nowe `tools/dlc_test.py` +
+`DLC_TEST.bat`: bisekcja DLC czystym kopiowaniem — runda = jedna grupa (`konfig_imenu` / `eventy` /
+`mesbtl`, połówki `_a`/`_b`, `wszystko`) podmieniona na v9 w folderze EMULATORA + boot; przywracanie
+`r_<grupa>` / `oryginaly`; fail-closed (foldery parami różne, tylko różne-md5, odczyt kontrolny,
+raport JSON). Kolejność: R1 konfig_imenu → R2 eventy → R3 mesbtl; padająca grupa rozbijana połówkami.
+Testy 1 301 OK (24 pominięte).
+
 ## 8. Komendy (PC użytkownika, PowerShell)
 ```powershell
 cd D:\SRWOE\mtgcrawler\srw-oe-translation
