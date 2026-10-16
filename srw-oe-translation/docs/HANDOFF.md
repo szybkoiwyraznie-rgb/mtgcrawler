@@ -439,13 +439,13 @@ Po KAŻDYM buildzie: `skipped` + `verification.failures` + **`problems` każdego
 półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokenami.
 
 ## 9. Znane pułapki (nie powtarzaj)
-- **Koperta rozmiaru pliku `configNN.EDAT` (DLC, zmierzone 2026-10-16 §21.38):** gra ma stały bufor
-  per plik = oryginał zaokrąglony w górę do 0x800; przekroczenie o nowy kwant 0x800 = crash na Loading
-  (v9 config01 249 984 > 249 856 i config02 159 872 > 159 744 — oba dokładnie +128 nad granicą).
-  Rodzinowa: podwojony `imenu01.EDAT` działa (inna ścieżka ładowania). Builder ma bramkę
-  (`DLC_ENVELOPE_RE` + `envelope_limit`): pełny → bez slotów viewerów po stronie config → odmowa.
-  Ucięcie padu PAC-a nic nie daje: EToc CPK musi być na 0x800 (`cpk_write._pad_to_alignment`,
-  zmierzone crashem w erze ISO); ciasniejsze pakowanie podplików niewypróbowane w grze.
+- **Katalog DLC `srwDL_DLC_ID01–07` (2026-10-16 §21.39, HIPOTEZA SILNA):** tłumaczenie tytułów/opisów
+  rozdziałów w tabeli katalogu DLC współpadło z crashem „Loading" (v9, v10), a każdy stan działający
+  miał je po japońsku (#17) albo nietknięte (połowa B: wiersze tylko dla rozdz. 00–07; imenu01: brak
+  członu). EN tytuły wracają dopiero po drabince szerokości (jak sysmes titles). Koperta rozmiaru
+  PLIKU configNN.EDAT została SFALSYFIKOWANA (build #17 config02 = oryginał + 1 kwant 0x800 działał);
+  bramy rozmiaru pliku w builderze NIE ma — jest tylko budżet członów (POOL_SIZE_LIMITS, Skill00).
+  Ucięcie padu PAC-a nic nie daje: EToc CPK musi być na 0x800 (`cpk_write._pad_to_alignment`).
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
   (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę
   w 84/84 rekordach config00 (build #6–#8). Nigdy nie zostawiaj komórki tablicy nazw pustej; „najdłuższa

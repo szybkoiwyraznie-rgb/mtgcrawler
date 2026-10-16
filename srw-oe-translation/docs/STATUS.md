@@ -1,6 +1,15 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.38)
+Last updated: 2026-10-16 (§21.39)
+
+**Latest (2026-10-16, §21.39): v10 PADAŁO — koperta sfalsyfikowana (build #17 config02 = 159 872 B >
+oryginał DZIAŁAŁ w Y4a; odtworzyłem #17 1:1 z historii PR #13). Diff „działał(#17) ↔ padał(v10)" =
+5 klas członów; teza: przetłumaczony KATALOG DLC (srwDL_DLC_ID01–07: tytuły/opisy rozdziałów, od v7;
+wiersze tylko dla rozdz. 00–07 → połowa B i imenu01 naturalnie czyste; #17 miał je po japońsku).
+**v11 = v10 z katalogiem DLC przywróconym do bajtów ORYGINAŁÓW 1:1** (DLC_ID01–07 + Reference03/08;
+EN wrócą po drabince szerokości) — KANDYDAT JEDNEGO TESTU. Bramę koperty usunięto z buildera
+(fałszywe odmowy). Jeśli v11 padnie: revert {unit_list, charalist, CharaDict, RoboDict} do #17
+(= gwarantowany stan działający) i bisekcja 4 klas. Szczegóły: `EXPERIMENT_LOG.md` §21.39.**
 
 **Latest (2026-10-16, §21.38): PRZYCZYNA CRASHU DLC v9 ZNALEZIONA I NAPRAWIONA OFFLINE.** Gra trzyma
 stały bufor per plik DLC `configNN.EDAT` = oryginał zaokrąglony w górę do 0x800; v9 config01

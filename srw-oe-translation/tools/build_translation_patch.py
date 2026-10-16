@@ -590,51 +590,6 @@ class ContainerBuild:
         self._run_container_step(step, {"rows": rows, "call": SLA.apply_container})
 
 
-# DLC configNN.EDAT size envelope (2026-10-16, crash of v9 config01/config02): the game
-# keeps a fixed buffer per DLC config file sized to the ORIGINAL file rounded up to one
-# 0x800 sector, and the boot DLC scan (config01..config46, PPSSPP IO log 21.12) crashes at
-# Loading when a rebuilt configNN.EDAT outgrows it: v9 config01 measured 249 984 B and
-# config02 159 872 B - both EXACTLY 128 B (one 0x800 quantum) over align_up(original, 0x800)
-# (249 856 / 159 744) - and both crashed (user sweep: config01 alone, then config02-08),
-# while every rebuild at or under the original ran (build #17, half B, config03-08) and even
-# a doubled imenu01.EDAT ran, so the envelope is family-specific (imenu/eventP/mesbtl load
-# through a different path).  The v7 viewer-slot rows grew the config01/02 dictionaries past
-# the line, so the gate: (1) strips the nested .pac's TRAILING zero pad (offsets untouched,
-# no text lost, ~1.8 KB); (2) if still over, additionally drops the viewer-slot parts of the
-# Chara/Robo dictionary copies from THIS container (the dictionary UI reads imenuNN - 21.34;
-# name/nickname/series/length/weight rows always stay); (3) refuses the container if it
-# still does not fit - nothing of it is written, like the Skill00 budget.
-DLC_ENVELOPE_RE = re.compile(r"^config\d+\.EDAT$", re.IGNORECASE)
-DICT_MEMBER_RE = re.compile(r"^(srwDL_CharaDictionary|srw_DL_RoboDictionary)", re.IGNORECASE)
-#: the v7 viewer-slot parts (table_write PART_SLOT Chara voice_actor/alt_name/short_name,
-#: Robo note/type/name_narrow) - display-only data the dictionary UI draws from imenuNN
-ENVELOPE_SPARE_PARTS = {"voice_actor", "alt_name", "short_name", "note", "type", "name_narrow"}
-
-
-def envelope_limit(original_size: int) -> int:
-    """The in-game buffer for a DLC configNN.EDAT: the original file rounded up to 0x800."""
-    return (original_size + 0x7FF) & ~0x7FF
-
-
-def envelope_droppable(row: dict) -> bool:
-    """True for a row the configNN.EDAT copy may lose when it must fit its envelope: the
-    viewer-slot parts of the Chara/Robo dictionary members, and mirror-duplicated rows of
-    those members - never a core name/series/length/weight row and never a non-dictionary
-    member (the gate stays conservative outside the spare copies)."""
-    member = (row.get("source") or {}).get("member") or ""
-    if not DICT_MEMBER_RE.match(member):
-        return False
-    return row.get("part") in ENVELOPE_SPARE_PARTS or bool(row.get("mirrored_from"))
-
-
-def container_build_permutation(name: str, original_size: int, final_size: int) -> Optional[str]:
-    """``'drop-mirrored'`` when the over-envelope rebuild should be retried without the
-    mirror-duplicated rows, else ``'refuse'``."""
-    if final_size <= original_size:
-        return None
-    return "drop-mirrored"
-
-
 def _iter_members(path: Path) -> Iterable[Tuple[str, bytes]]:
     cpk = cpk_write.load(path)
     for member in cpk.members:
@@ -674,36 +629,6 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
                     break
         if replacement is None:
             raise BuildError(f"{sub_name} is not a member of the container")
-        return cpk_write.rebuild(cpk, replacement=replacement)
-    finally:
-        tmp.unlink(missing_ok=True)
-
-
-def trim_pac_tail(container: bytes) -> Optional[bytes]:
-    """The container with a nested ``.pac`` member's TRAILING zero pad stripped.
-
-    Sub-file offsets and the directory stay byte-identical (only the zeros after the last
-    sub-file are cut; the pad unit drops from 0x800 to 0x10), so a reader that walks the
-    directory is unaffected - the member is just shorter.  Returns None when there is no
-    ``.pac`` member or no padding to reclaim.
-    """
-    import tempfile
-    with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as fh:
-        fh.write(container)
-        tmp = Path(fh.name)
-    try:
-        cpk = cpk_write.load(tmp)
-        replacement = None
-        for member in cpk.members:
-            if not member.name.lower().endswith(".pac"):
-                continue
-            pac = CSP.parse_pac(cpk_write.decompressed(member.blob))
-            trimmed = CSP.rebuild_pac(pac, tail_align=0x10)
-            if len(trimmed) < len(cpk_write.decompressed(member.blob)):
-                replacement = (member.name, trimmed)
-                break
-        if replacement is None:
-            return None
         return cpk_write.rebuild(cpk, replacement=replacement)
     finally:
         tmp.unlink(missing_ok=True)
@@ -989,37 +914,9 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
         if not mine:
             continue
-        limit = envelope_limit(len(blobs[name])) if DLC_ENVELOPE_RE.match(name) else None
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
-            if limit is not None and len(final) > limit:
-                trimmed = trim_pac_tail(final)
-                if trimmed is not None and len(trimmed) <= limit:
-                    note = (f"envelope: rebuilt {len(final)} B over the in-game limit {limit} B - "
-                            f"kept everything, stripped the nested .pac's trailing zero pad "
-                            f"({len(final) - len(trimmed)} B, offsets untouched)")
-                    report["problems"].append(f"{name}: {note}")
-                    final = trimmed
-                elif any(envelope_droppable(r) for r in mine):
-                    slim = [r for r in mine if not envelope_droppable(r)]
-                    builder = ContainerBuild(name, blobs[name], slim, work / name,
-                                             dry_run=dry_run)
-                    final = builder.run()
-                    if len(final) > limit:
-                        raise ISW.SizeBudgetError(
-                            f"rebuilt {len(final)} B exceeds the in-game envelope {limit} B "
-                            f"(DLC config buffer, analog of the Skill00 budget) even without "
-                            f"the viewer-slot rows - shorten this container's own rows")
-                    note = (f"envelope: rebuilt over the in-game limit {limit} B - held back "
-                            f"{len(mine) - len(slim)} viewer-slot rows from THIS copy "
-                            f"(the dictionary UI reads imenuNN, the configNN copy is a spare)")
-                    report["problems"].append(f"{name}: {note}")
-                else:
-                    raise ISW.SizeBudgetError(
-                        f"rebuilt {len(final)} B exceeds the in-game envelope {limit} B "
-                        f"(DLC config buffer, analog of the Skill00 budget) and the container "
-                        f"has no droppable viewer-slot rows - shorten its own rows")
         except ISW.SizeBudgetError as exc:
             # a member over its in-game size budget: nothing of this container is written -
             # shipping the rest with that member left Japanese would hide the problem

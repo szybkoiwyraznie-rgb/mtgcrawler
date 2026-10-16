@@ -5413,6 +5413,8 @@ zero dalszych rund po kolei.
 
 ### 21.38 Przyczyna crashu config01–08 znaleziona offline: KOPERTA ROZMIARU PLIKU configNN.EDAT (2026-10-16)
 
+**[SFALSYFIKOWANE tego samego dnia — patrz §21.39: test v10 (rozmiary = oryginały) padł tak samo, a odtworzony build #17 config02 = 159 872 B (oryginał + 1 kwant) był SPRWDZONY W GRZE (Y4a). Rozmiar pliku nie jest przyczyną; poniższy opis zostaje jako historia.]**
+
 **Reprodukcja offline bajt w bajt.** Z Dysku: oryginały `config01/02/imenu01.EDAT` + `pakiet_EN_
 2026-10-16_v9.zip`; budowa `--only` aktualnymi narzędziami dała **md5 identyczne z padającymi
 plikami użytkownika** (config01 `809e252d…` 249 984 B; config02 `576906fd…` 159 872 B; imenu01
@@ -5467,3 +5469,41 @@ imenu01 jako jedyny źródło slotów), config02 157 824 (`a7c41844…`; PEŁNA 
 Item01/wp_list01/bgmlist01/milstP01` bajt w bajt = stany sprawdzone w grze; RoboDict02 = 6 122 B
 (< oryginał 6 138). Testy: +10 ( envelope/tail_align), całość **1 287 OK** (24 pominięte).
 diagnoza: md5 v10 i padających v9 w KNOWN_DLC_CONFIG.
+
+### 21.39 Test v10 PADAŁ → koperta sfalsyfikowana → winny KATALOG DLC (DLC_ID01–07) → v11 (2026-10-16)
+
+**Wynik testu v10 (użytkownik):** 8 plików v10 (rozmiary = oryginały) wgrać, boot OK, **pada w tym
+samym miejscu na „Loading"** z tym samym komunikatem. Koperta rozmiaru pliku NIE była przyczyną.
+
+**Twardy dowód przeciwko kopercie (offline):** odtworzyłem build #17 z pakietu v4 narzędziami z
+commita `c5e41b6` (gałąź `arena/c0e5c9d1-mtgcrawler` PR #13) — **wszystkie 8 md5 zgodne z listą
+„sprawdzony w grze Y4a/Y4/Z4"**; w tym config02 = **159 872 B = oryginał + 1 kwant 0x800 — i DZIAŁAŁ**.
+Rozmiar pliku (w kwantach 0x800) jest więc eksonerowany całkowicie. Bramę koperty usunięto z buildera
+(dawałaby fałszywe odmowy); `rebuild_pac(tail_align=)` zostaje jako narzędzie pomiarowe.
+
+**Nowa para „działał ↔ pada":** #17 (md5 z listy) ↔ v10. Diff człon po członie, 8 plików — różnice
+TYLKO w klasach: `unit_listNN` (renames v5), `charalistNN` (1–3 komórki), `CharaDictionaryNN` +
+`RoboDictionaryNN` (sloty viewerów v7 + skrócenia serii), `srwDL_DLC_ID01–07` (tytuły rozdziałów +
+opisy pobierania — **przetłumaczone dopiero od v7**), `srwDL_Reference03/08` (sloty v7). Pule
+Skill/Item, wp_list, bgmlist, milstP = bajt w bajt == #17 (eksonerowane).
+
+**Teza: przetłumaczony KATALOG DLC.** `srwDL_DLC_ID` = tabela katalogu zawartości do pobrania:
+tytuły („第２章 本編" → „Chapter 2 Main Story"), opisy („第１章の本編をダウンロードします。" →
+„Download the Chapter 1 main story."), ID zawartości (`JP0700-NPJH50521_…`, wiersze-identyczności).
+Dopasowanie dowodów: (1) połowa B DZIAŁAŁA — wiersze DLC_ID istnieją **tylko dla rozdziałów 00–07**,
+konfiguracja 09–46 nietknięta; (2) imenu01 DZIAŁAŁ — **nie ma członu DLC_ID**; (3) #17 DZIAŁAŁ —
+DLC_ID01–07 po japońsku; (4) każde padanie (v9 sweep, v9 pełny, v10) = DLC_ID01–07 po angielsku;
+(5) ISO-side DLC_ID00 (EN, T1) działa — katalog płyty to inny konsument niż katalog folderu DLC;
+(6) konsumencki parser ma sztywne formaty (ID zawartości). Crash w momencie budowy/użycia katalogu
+przy ładowaniu rozdziału — spójne z „Loading…".
+
+**v11 (kandydat testu):** pakiet v11 = v10 z opróżnionymi wierszami `config_dlc_id` (DLC_ID01–07)
+i `reference` (Reference03/08) → te człony zostają **bajt w bajt ORYGINAŁAMI** (zweryfikowano 1:1);
+wszystko inne jak v10/v9 (sloty viewerów EN, renames nazw, EN pule, 4 reguły skróceń robo).
+Rozmiary: config01 249 984 (= v9; rozmiar bez znaczenia — patrz wyżej), config02 157 824, 03–08 =
+rozmiary oryginałów. md5 v11 w diagnoza.KNOWN_DLC_CONFIG.
+
+**Protokół następnych kroków:** jeśli v11 DZIAŁA → winny katalog DLC; EN tytuły wrócą osobnym
+eksperymentem (drabinka szerokości jak dla sysmes titles). Jeśli v11 PADA → winne pozostają klasy
+{unit_listNN, charalistNN, CharaDictNN, RoboDictNN} na ścieżce DLC; następny krok = ich revert do
+bajtów #17 (to odtwarza #17 1:1 = gwarantowany stan działający) i bisekcja tych 4 klas.
