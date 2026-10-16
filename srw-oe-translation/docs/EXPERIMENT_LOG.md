@@ -5816,3 +5816,30 @@ Wynik A: dialogi wracają (EN z eventów v9) → wina imenu v9; FIX: imenu zbudo
 zgodnymi z config v13 (ta sama reguła spare). Wynik B: `"` dalej → wina samego gubienia
 wierszy w config v13; FIX: config v15 (pełne słowniki) — z ryzykiem znanym z v12A/v14
 (tokenowy slot do izolacji).
+
+### 21.50 imenu uniewinnione; v13 vs #18 różni się TYLKO słownikami (+DLC_ID); test v4: #18 → v15a (2026-10-16)
+
+Wynik testu imenu (user): JP imenu01–08 → dialogi dalej `"` → **imenu v9 uniewinnione**.
+Eliminacja T1→dziś dla misji 0-0 (eventP00 z ISO ten sam, imenu teraz JP): zostaje
+**config01–08 v13** jako bezpośredni podejrzany.
+
+Diff strukturalny (bajtowo, config01 i config02): v13 vs #18 różnią się WYŁĄCZNIE
+`srwDL_CharaDictionaryNN.bin` (v13 o ~350–400 B MNIEJSZY), `srw_DL_RoboDictionaryNN.bin`
+(v13 o ~130–370 B mniejszy) i `srwDL_DLC_IDNN.bin`; wszystkie listy (charalist, unit_list,
+wp_list, milstP, mesbmp, Skill/Item pool) **identyczne bajt w bajt**. Mniejszy słownik =
+skrócenia + gubione wiersze spare (§21.43). Mechanizm hipotezy: brakujące/przesunięte wpisy
+słownika postaci psują lookup mówcy okna dialogowego → render `"` (dotyczy wszystkich
+rozdziałów; narracja bez mówcy działa — zgodne z każdym dotychczasowym obserwacją).
+
+Przygotowane i wysłane (folder „eventP01 test 2026-10-16 (misja 2.1)"):
+- **v15a** = config01–08 v13 ze słownikami podmienionymi bajt-w-bajt z #18 (surgery:
+  parse_pac → swap 2 członów → rebuild_pac → `_replace_member`; config01: 2 człony,
+  config02–07: 2, config08: 1 — CharaDict08 identyczny). zip md5 `f426f4c5…`;
+  config01 `c51ed769…` (247 936), config02 `3aaac8ea…` (159 872), config03 `57c15439…`,
+  config04 `b748f51c…`, config05 `28a178b3…`, config06 `da7b01d6…`, config07 `fce32baa…`,
+  config08 `9ee88e2b…` (po 1–2 remapy rozmiarów 247 936/159 872 itd. jak w v13).
+- INSTRUKCJA_test_v4.txt: KROK 1 = #18 (z JP imenu, które user już ma — para
+  historycznie sprawdzona; wcześniejszy crash #18 był z imenu v9); KROK 2 = v15a.
+Drzewo: 18 OK → slowniki/roznica potwierdzona; v15a OK → v15a = nowa linia configów
+(zostaje); v15a zły → hybrydy na DLC_ID/resztę. 18 zły → config odpada, wraca
+EBOOT/ISO/emulator (prośba o md5 ISO).
