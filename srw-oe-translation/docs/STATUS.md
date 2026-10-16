@@ -17,6 +17,13 @@ wracają na pewny CWCheat); pada na Loading ⇒ winne dane — jeśli źródłem
 przebudowa z oryginału; jeśli oryginał: BISEKCJA A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
 Achievement/tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
 
+**Previous (2026-10-16, §21.37 addendum): E1 próba 1 odmówiła — ORYGINAŁ UŻYTKOWNIKA MA JUŻ ODSZYFROWANY
+EBOOT (jawny ELF, nie `~PSP`) [ZMIERZONE]**; `exe_step` łatał więc ELF płyty w miejscu (nieznany md5
+`4d8b8a85…` = ELF płyty + napisy EN, najpewniej bez PBOOT-fallbacku). `eboot_swap` poprawiony: para ELF→ELF
+rozstrzygana po zawartości (równe rozmiary + różne bajty japońskie w oryginale vs ASCII w buildzie; odwrócona
+kolejność / dwa załatane / różne wydruki → odmowa; `--force` omija; profil różnic w raporcie). Testy 1 286 OK.
+E1 uruchamia się tym samym `EBOOT_TEST.bat` (zapamiętane ISO działa).
+
 **Previous (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
 Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
 without macrons; 2 rows are the `NoData` placeholder) — one misreading fixed (`高乃麗` "Rei" → "Urara Takano"), the full

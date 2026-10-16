@@ -5303,3 +5303,20 @@ POTWIERDZONE w grze: dane v7/v8/v9, EBOOT-w-ISO (jawny ELF), UI_TEST4, `srwDL_Ca
   jeśli źródło było oryginalne → `BISEKCJA.bat` A–I (podejrzani: `imenu00`, `configst`, eventy/mesbtl DLC).
   Pytania do użytkownika: (1) które ISO wskazał HOKUS_POKUS (oryginał 1.08 czy poprzedni patched.iso?),
   (2) `build_report.json` — sekcja `package` i `executable`.
+
+**Próba E1 nr 1 (2026-10-16 wieczór): NIE ruszyła — odkrycie przy okazji.** `EBOOT_TEST.bat` odmówił:
+„EBOOT.BIN w ORYGINALNYM ISO jest jawnym ELF-em, a w BUILDU ELF". **Nowy fakt o danych użytkownika
+[ZMIERZONE]: jego oryginalne `SRW OE 1.08.iso` ma program JUŻ ODSZYFROWANY (jawny ELF, nie `~PSP`)** —
+znane zachowanie narzędzi zrzucających PKG na ISO (zakładał je komentarz w `iso_insert.py`, projekt tego
+md5 nie notuje). Konsekwencje: (a) `exe_step` w buildzie v9 NA PEWNO łatał w miejscu ELF płyty (bez
+deszyfrowania typu 6, bez fallbacku PBOOT — chyba że źródłem był inny ISO), więc nieznany md5 `4d8b8a85…`
+to najpewniej „ELF płyty + ~400 napisów EN"; (b) jedyną nieweryfikowaną częścią drogi EBOOT pozostaje
+sam boot gołego ELFa z ISO. Naprawa narzędzia: `eboot_swap` przyjmował tylko kierunek `~PSP→ELF`; teraz
+parę ELF→ELF rozstrzyga KLASYFIKATOR ZAWARTOŚCI (`elf_direction`): oba ELFe muszą mieć RÓWNY rozmiar
+(in-place niczego nie przesuwa; różne rozmiary = dwa różne wydruki → odmowa), a różne bajty (sklejane
+w plastry, próg 1 MB) liczone są klasą: strona z ≥32 bajtami ≥0x80 przeważającą 2:1 = japoński oryginał,
+czysta ASCII = nalatany build (`jp->en` przepuszczony, `en->jp` = „kolejność ODWROCONA", remis = odmowa;
+`--force` dalej omija klasyfikację; profil różnic idzie do raportu i wydruku — same liczby). Symulacja na
+realnej skali (5 531 024 B, 398 plastrów, 14 181 różnic): kierunek rozpoznany w 0,07 s, w obie strony.
+Testy: +4 (para JP→EN bez force, odwrócona odmowa, dwa angielskie ELFe odmowa, różne rozmiary odmowa),
+łącznie **1 286 OK** (24 pominięte). Bat bez zmian — użytkownik uruchamia E1 tym samym plikiem.

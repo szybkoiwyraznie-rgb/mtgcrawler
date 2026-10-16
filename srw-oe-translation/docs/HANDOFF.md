@@ -328,7 +328,9 @@ oryginalne ISO). Drzewko: (1) TEST E1 z WYŁĄCZONYM cheatem → działa ⇒ win
 CWCheat do naprawy); pada ⇒ winne dane ⇒ jeśli źródłem był poprzedni patched.iso: czysta przebudowa z
 oryginału, jeśli oryginał: `BISEKCJA.bat` A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
 Achievement+tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Podczas crasha cheat mógł być włączony (adresy
-z ELFa PBOOT × podmieniony program = zanieczyszczenie testu) — w A/B cheat OFF. Testy 1 283 OK (24 pominięte).
+z ELFa PBOOT × podmieniony program = zanieczyszczenie testu) — w A/B cheat OFF. Testy 1 286 OK (24 pominięte). E1 próba 1: odmowa kierunku — **oryginał użytkownika ma EBOOT już
+odszyfrowany (jawny ELF)**; `eboot_swap` rozstrzyga teraz parę ELF→ELF po zawartości (równe rozmiary,
+różnice JP-vs-ASCII); E1 = ten sam bat, ponowne uruchomienie.
 
 ## 8. Komendy (PC użytkownika, PowerShell)
 ```powershell

@@ -76,14 +76,47 @@ class EbootSwapTests(unittest.TestCase):
         with self.assertRaises(ES.SwapError):
             ES.swap(other, self.build, self.out)
 
-    def test_an_elf_in_the_original_iso_means_wrong_order(self):
-        # source ELF + target ELF: ambiguous, refused; --force is the explicit override
+    def test_an_elf_pair_of_different_sizes_is_refused(self):
+        # two plain ELFs whose sizes differ are two different PRINTS, not an in-place patch
         donor = _iso(self.tmp / "inny.iso", BUILD_EBOOT + b"x", USRDIR_ORIG)
-        with self.assertRaises(ES.SwapError):
+        with self.assertRaises(ES.SwapError) as ctx:
             ES.plan(donor, self.build, self.out)
+        self.assertIn("ROZNYCH rozmiarow", str(ctx.exception))
+        # --force is the explicit override
         forced = ES.swap(donor, self.build, self.out, force=True)
         self.assertEqual(iso_pack.read_member(self.out, ES.EBOOT_KEY), BUILD_EBOOT + b"x")
         self.assertEqual(forced["source"]["kind"], "ELF")
+
+    def test_a_japanese_elf_original_and_a_patched_elf_build_swap_without_force(self):
+        # measured 2026-10-16: the user's 1.08 dump carries a PLAIN ELF; same size as the
+        # build's in-place patch, Japanese-looking in the original, ASCII in the build
+        orig_elf = b"\x7fELF" + (b"\x82\xa0\x83\x41" * 25 + b"\x00" * 100) * 4   # 804 B
+        build_elf = b"\x7fELF" + (b"Play this! " * 10 + b"\x00" * 90) * 4        # 804 B
+        self.assertEqual(len(orig_elf), len(build_elf))
+        donor = _iso(self.tmp / "dump.iso", orig_elf, USRDIR_ORIG)
+        build = _iso(self.tmp / "build.iso", build_elf, USRDIR_NEW)
+        entry = ES.swap(donor, build, self.out)
+        self.assertEqual(entry["elf_diff"]["direction"], "jp->en")
+        self.assertEqual(iso_pack.read_member(self.out, ES.EBOOT_KEY), orig_elf)
+        self.assertEqual(iso_pack.read_member(self.out, "psp_game/usrdir/config00.cpk"), USRDIR_NEW)
+
+    def test_a_reversed_elf_pair_is_refused(self):
+        orig_elf = b"\x7fELF" + (b"\x82\xa0\x83\x41" * 25 + b"\x00" * 100) * 4   # 804 B
+        build_elf = b"\x7fELF" + (b"Play this! " * 10 + b"\x00" * 90) * 4        # 804 B
+        donor = _iso(self.tmp / "dump.iso", build_elf, USRDIR_ORIG)
+        build = _iso(self.tmp / "build.iso", orig_elf, USRDIR_NEW)
+        with self.assertRaises(ES.SwapError) as ctx:
+            ES.swap(donor, build, self.out)
+        self.assertIn("Kolejnosc ODWROCONA", str(ctx.exception))
+        self.assertFalse(self.out.exists())
+
+    def test_two_english_elves_are_refused(self):
+        a = _iso(self.tmp / "a.iso", b"\x7fELF" + b"Play this! " * 50, USRDIR_ORIG)
+        b = _iso(self.tmp / "b.iso", b"\x7fELF" + b"Run away!! " * 50, USRDIR_NEW)
+        with self.assertRaises(ES.SwapError) as ctx:
+            ES.swap(a, b, self.out)
+        self.assertIn("roznic nie da sie", str(ctx.exception))
+        self.assertFalse(self.out.exists())
 
     def test_a_build_without_a_plain_elf_has_nothing_to_revert(self):
         other_orig = _iso(self.tmp / "inny.iso", ORIG_EBOOT + b"\x09", USRDIR_ORIG)
