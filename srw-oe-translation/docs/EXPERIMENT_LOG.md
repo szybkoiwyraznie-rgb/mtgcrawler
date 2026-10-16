@@ -5843,3 +5843,22 @@ Przygotowane i wysłane (folder „eventP01 test 2026-10-16 (misja 2.1)"):
 Drzewo: 18 OK → slowniki/roznica potwierdzona; v15a OK → v15a = nowa linia configów
 (zostaje); v15a zły → hybrydy na DLC_ID/resztę. 18 zły → config odpada, wraca
 EBOOT/ISO/emulator (prośba o md5 ISO).
+
+### 21.51 Korekta usera: config01-08 NIGDY nie działały u niego; koniec testów configów; droga = DIAGNOZA (2026-10-16)
+
+User (słusznie, stanowczo): „te pliki powodują crash i dokładnie tak się stało… ONE NIGDY
+NIE DZIAŁAŁY. ZAWSZE DAWAŁY CRASH na Loading" — także #18 i v15a (v15a najwyraźniej też
+crashnął, user przerwał). Zostaje v13 jako jedyny wczytujący się zestaw. Koniec wysyłania
+config01-08 do testów. KOREKTA STANU WIEDZY: wpisy „#17/#18 sprawdzony w grze" z wczesnej ery
+nie przenoszą się na dzisiejszy stan usera (kombinacja z imenu/eventami z innych er).
+
+Ścieżka po korekcie: mesbtl02 rebuild offline — człony mesbtl zawierają WYŁĄCZNIE 0xC8/0xC9
+(nic do remapowania; stale-pointers nie dotyczy mesbtl od środka). Pięć wierszy exe z `"` tylko
+w DATA.PSP (PBOOT, ignorowany). Nie mając już wiarygodnej mapy „co jest faktycznie wgrane"
+(moje modele stanu usera okazywały się nieaktualne/kolidujące), jedyną rzetelną drogą jest
+ZEBRANIE FAKTÓW: DIAGNOZA.bat + aktualne tools (zip na Drive, 560 960 B, md5 `e0eaa751…`) —
+tylko czyta: md5 każdego pliku folderu DLC + 5 członów ISO (config00/mesbtl00/imenu00/
+eventP00/configst) + rozpoznaje znane buildy (KNOWN_*). User odsyła DIAGNOZA.txt → porównanie
+offline → wyznaczenie winowajcy bez dalszych testów-kopyć. Dodatkowe pytanie w treści: czy
+w PPSSPP włączone cheaty (Cheats/NPJH50521.ini z ery EXE_TEST — poki w EBOOT mogą trafiać
+w złe adresy przy innym buildzie ISO).
