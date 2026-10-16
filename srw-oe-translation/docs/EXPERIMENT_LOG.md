@@ -5620,10 +5620,18 @@ naprawa patcher.zip (kit dystrybucyjny PATCH.bat z sesji 8 — zawiera NARZĘDZI
 poprawek, więc buduje zatrute config01–08 → stąd „nie działa"; odbudowa kitu aktualnymi narzędziami
 dopiero po potwierdzeniu pełnego stanu w grze).
 
-**Ścieżka do 100% (wg zawartości v9) — JEDEN test:** folder v9 w całości + config01–08 v13 na wierzch
-(v13 = dokładnie to, co aktualny builder z pełnego pakietu buduje na stronę config — 8/8 md5 dowód
-§21.43). Obejmuje imenu01–08 v9 (pełne EN słowników — strona imenu toleruje), eventP/evept/mesbtl
-połowy A v9 (nigdy osobno nietestowane, ale przyczyna crashu była wyłącznie w config01–08) i połowę B.
-Po DZIAŁA: spis braków do domknięcia 100% = 13 odrzuconych mission notes, wiersze źródłowe rozdz. 5–8
-(świeże tłumaczenie z JP), 325 wierszy-śmieci, tekstury 連/名/用, po tym — rebuild patcher.zip
-aktualnymi narzędziami i jego test.
+**KOREKTA (użytkownik zakwestionował, weryfikacja wiersz-po-wierszu pakietu v9 2026-10-16): tekst
+jest przetłumaczony w 100%.** Lista „braków" z pierwotnego zapisu była błędna — sprawdzono:
+- 293 „puste" w 06_scenes = strukturalne wiersze-indeksy scen (nie tekst; wskazywane przez nie
+  wiersze dialogowe są przetłumaczone), + 2 wiersze dialogowe z samą spacją (nic do tłumaczenia);
+- 3 645 identity = 「…」/PSN-ID/tytuły muzyczne — celowo identyczne, nie braki;
+- exe: 2 puste JP + 2 tokeny silnikowe (celowo JP) — reszta EN, 0 identity;
+- 12 „odrzuconych" notatek misji MA angielski (poprzednią wersję); odrzucono tylko nowszy wariant
+  z EN3 (za szeroki: 49 > 39) — kosmetyka, nie brak;
+- „Reszta JP ch.6-7…" w CO_NOWEGO_v9 opisywała stan PRZED importem EN3 (23 030 nowych EN) — po
+  imporcie 0,0% wierszy JP w każdym rozdziale (liczone per eventP: dialogi/cytaty/notatki);
+- 325 problemów w build_report = wiersze-stubble wskazujące nieistniejące rekordy (higiena pakietu,
+  brak widocznego tekstu).
+Prawdziwe pozostałości (poza tekstem): podpisy tekstur 連/名/用 (6-px, §21.35), ewentualny re-wording
+12 notatek, rebuild patcher.zip. Wniosek: JEDEN test (folder v9 + config01–08 v13) przesuwa grę do
+100% zawartości pakietu; po nim rebuild patchera.
