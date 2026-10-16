@@ -5920,3 +5920,28 @@ Uzasadnienie v16 wobec historii crashy: v12A/v14 crashowaly przy EN slownikach z
 slotami (v7-era cells); v16 przywraca ORYGINALNE bajty JP (rozmiary oryginalow) — zero
 modyfikacji struktury slownika; ryzyko Loading-crasha minimalne. Jezeli i to crashuje,
 wina lezy w sprzezeniu config↔reszta i DIAGNOZA wskaże where.
+
+### 21.54 MECHANIZM `"` ZNALEZIONY: tablica interpunkcyjna EBOOT (「 　」) uszkodzona przez exe strings; FIX = revert 3 wierszy (2026-10-17)
+
+Rozstrzygajacy test usera: **JP ISO 1.08 + DLC z wlasnego buildu (configi v16 na wierzchu)
+= misja 2-1 EN, dialogi WYSWIETLAJA SIE poprawnie.** → caly DLC (eventy, mesbtle, configi,
+imenu) niewinny; wina zawartosci ISO. v16 potwierdzone w grze jako bezpieczne (md5 w
+DIAGNOZA sekcja 4 zgadzają sie z §21.53: config01 `5e35a37e…` itd.).
+
+DIAGNOZA (2 sztuki: stan „pelnego v9" i stan po buildzie 00:21): ISO = budowa 00:21
+(EBOOT `4d8b8a85…` = output raportu 8ba77a79→4d8b8a85; user przeniosl build i odpala z
+innego katalogu - oba skany spójne). config00/configst/imenu00 w ISO = stare buildy
+(nieznane md5), eventP00/mesbtl00 = era v3/2026-10-15 == czyste rebuildy. PBOOT.PBP w DLC
+(6,19 MB) - PPSSPP release ignoruje.
+
+Mechanizm (HIPOTEZA MOCNA, spójna 1:1 z artefaktem): w 09_executable wiersze
+`0x08bf9fbc/9fc0/9fc4/9fc8` = 4 komórki co 4 bajty - tablica interpunkcyjna silnika
+dialogów (・ 「 　」). Zastosowane 3 (「→`"`, 　→``, 」→`"`) zmienily dlugosci bajtowe
+(2B SJIS → 1B ASCII); 9fbc (・→·) odrzucony przez codec - przypadkowo uratowany. Silnik
+czytajacy uszkodzona komork otwarcia cytatu rysuje pojedynczy `"` i porzuca reszte linii
+- dokladnie artefakt usera; narracja (bez cytatów) nietknieta; JP EBOOT (test usera) = OK.
+
+FIX: `09_executable_fix_cudzyslowy.jsonl` (md5 `ba8e2a8a…`, 142 749 B) = v11 09 z tymi 3
+wierszami en:=jp; upload na Drive + INSTRUKCJA_test_v6.txt (podmiana w pakiet_EN →
+HOKUS_POKUS → test 0-0/2-1; wyniki FIX OK / FIX nic / FIX crash). Plan B gdyby FIX nic:
+revert kolejnych ryzykownych dlugosci-zmieniajacych wierszy (＞→>, 倍→x, 地/空/防/命→3-literowe).
