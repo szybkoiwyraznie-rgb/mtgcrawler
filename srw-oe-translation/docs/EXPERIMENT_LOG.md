@@ -5530,3 +5530,34 @@ z v11 (weryfikacja człon-po-członie: poza słownikami wszystko == #17). Wynik:
 folder_B dostarczony jako bezpieczny zapas (build #18 z EN). Rozmiary A: jak v9/v10 (bez znaczenia).
 MD5 w diagnoza po testach. Następne kroki po wyniku A: fix offline w winnej grupie (sloty →
 drabinka szerokości; renames → powrót do v5-treści #18), potem JEDEN test potwierdzający.
+
+### 21.41 v12A PADAŁO → winne SŁOWNIKI → v13: słowniki bez nowych slotów v7 (2026-10-16)
+
+**Wynik v12A (użytkownik): PADA.** #17 + CharaDict01–07/RoboDict01–08 z v11 = jedyna zmienna —
+**słowniki są winne crashowi „Loading"** [ZWERYFIKOWANE testem]. (folder_B = #17 + listy z v11
+okazał się md5 w md5 = build #18, sprawdzony w grze — listy nazw v5-unit/v9-renomowane są
+eksonerowane jako przyczyna.)
+
+**Mapa slotów słowników (z diffu #17↔v11, string-po-string; #17 = ostatni działający):**
+- JUŻ EN w #17 (działało): Chara slot 1 (głos: „Ai Orikasa"), slot 4 („Nickname: …" z etykietą),
+  slot 2 (opisy entry, c2 „…fused with the Death Saurer core."), slot 3 (pełne serie), Robo
+  slot 0 („Length 28.4m"), slot 1 („Weight 65.7t"), slot 3 (pełne serie).
+- NOWOŚCI v7 (JP w #17 → EN w v11 — JEDYNE realne różnice poza skróceniami): Chara slot 5
+  („Voice: …" — dubel głosu z etykietą), slot 11 (short_name: kana → ASCII), slot 10 (alt_name,
+  1 szt.), Robo slot 2 (note: „(Battleship unit)"), slot 4 (type: „Summoned by King Squasher…"),
+  slot 5/6 (name_narrow: „Dragon Soldier"), + wypełnienie EN w rekordach, które w #17 były JP
+  (broadcast partów na 100 % rekordów: Length/Weight/series/labels).
+- Treść czysta (zero tokenów/kontrolnych/procentów) — mechanizm crashu NIE wynika z treści stringów;
+  do wyjaśnienia wymagałby debugera (ppsspp io/log może nie sięgnąć). Praktycznie: odsuwać nowe
+  sloty, trzymać sprawdzone.
+
+**v13 (kandydat stabilizacji, pakiet na bazie v11):** identity (JP-orzynał) dla kategorii
+character_voice_actor/short_name/alt_name/entry, config_label, robo_note/type/name_narrow,
+robo_weight (996 wierszy odłożonych) — słowniki zostają EN tylko tam, gdzie EN było już w #17
+(name/nickname/series/length) + bezpieczne skrócenia v10 („Len." < „Length", krótkie serie).
+unit_list/charalist == v11 (weryfikacja 1:1), reszta == v11 (pule == #17 bajty). md5:
+config01 fb949ddb…, 02 e07fe858…, 03 83dcd387…, 04 2c831dcc…, 05 02af3a85…, 06 b68550ca…,
+07 f69f6a9d…, 08 696e6583….
+**Protokół:** v13 DZIAŁA → winne nowe sloty v7 (dokładny slot wyłoni drabinka offline-analizowana,
+wrótki per-slot w kolejnych buildach); v13 PADA → słowniki 1:1 #17 (v14, ostatni schodek) —
+wtedy jedyną różnicą od działającego stanu byłyby skrócenia i listy v9.

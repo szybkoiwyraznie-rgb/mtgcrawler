@@ -1,6 +1,12 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.40)
+Last updated: 2026-10-16 (§21.41)
+
+**Latest (2026-10-16, §21.41): v12A PADAŁO — SŁOWNIKI WINNE [test].** Mapa slotów z diffu #17↔v11:
+EN w #17 działało (głos slot1, „Nickname:" slot4, entry, Weight, serie); nowe od v7 = Chara slot 5
+(„Voice:"), slot 11 (krótkie nazwy), slot 10, Robo note/type/narrow + EN- broadcast na rekordy JP.
+**v13** = słowniki EN tylko w polach z #17 (+ skrócenia), nowe sloty JP, reszta jak v11 — kandydat
+jednego testu. Szczegóły: `EXPERIMENT_LOG.md` §21.41.**
 
 **Latest (2026-10-16, §21.40): v11 PADAŁO — katalog DLC uniewinniony.** Zostają 2 grupy podejrzanych:
 słowniki (CharaDict/RoboDict) i listy nazw (unit_list/charalist). Przypadek: wariant „#17 + listy z v11"
