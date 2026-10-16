@@ -5269,3 +5269,37 @@ wydruk tylko rozmiary/md5/rodzaj. Bat: dwa okna wyboru (`call :pick`), zapamięt
 (pierwszy w grze test stacka v7+v8+v9 i zarazem pierwsza w grze podmiana EBOOT.BIN). NIEZNANE: przyczyna
 (program vs dane), który wariant EBOOT w ogóle zbudowano (fallback?), stan cheatu podczas crasha. Nadal NIE
 POTWIERDZONE w grze: dane v7/v8/v9, EBOOT-w-ISO (jawny ELF), UI_TEST4, `srwDL_CalcType.bin`.
+
+**DIAGNOZA użytkownika (2026-10-16 wieczór, `DIAGNOZA_z_pelnego_v9.txt`, dotyczy padającego v9):**
+- **Narzędzia CZYSTE:** wszystkie 7 md5 z sekcji 1 (`build_translation_patch` c924e5ac…, `item_skill_write`
+  ce889d01…, `cpk_write` 32d07592…, `iso_insert` d4701cb9…, HOKUS_POKUS 1eb59864…, WGRAJ 85a9fe09…,
+  BISEKCJA 91e83d8d…) = aktualna gałąź; wszystkie bramki TAK (budżety, +32/+36/+52, Achievement exempt,
+  mirror). Build na pewno v9-era narzędziami.
+- **Provenance buildu NIEZNANY:** obok batów nie ma `srw-oe-patch\` (brak `build_report.json`) ani
+  `pakiet_EN\` (pakiet wskazywany oknem — NIE WIADOMO KTÓREGO). Do wyjaśnienia: `build_report.json`
+  (pole `package` + sekcja `executable`) i odpowiedź, KTÓRE ISO posłużyło za źródło.
+- **ISO `I:\ISOS\PSP SRW OE\patched.iso`** (688 736 256 B; oryginał 679 243 152 → +9 493 104, spodziewane
+  przy STORED): `eventP00` 260 568 B i `mesbtl00` 994 008 B = **bajt w bajt build z pakietu v3 / narzędzi
+  2026-10-15** (spójne i ze świeżej przebudowy, gdyby wiersze tych kontenerów nie zmieniły się od v3, i ze
+  stacka — nierozróżnialne); `imenu00` 90 280 B — nie pasuje do żadnego zarejestrowanego buildu; `config00`
+  936 064 B (klasa rozmiaru buildów ze skróconymi pulami) i `configst` 372 864 B — md5 nieznane, „nie żaden
+  z wydanych plików" (dla świeżej przebudowy v9 to oczekiwane); tekstury = UI_TEST4 / UI_TEST3-era (zgodne
+  z planem). **EBOOT.BIN = jawny ELF md5 `4d8b8a85d097214495e94f238bd07091`, 5 531 024 B — NIEZNANY**:
+  zgodny ze ŚWIEŻYM łatem programu z płyty użytkownika (piaskownica zna tylko ELF z PBOOT `ba4cc05c…`),
+  ale też z ELFeem ODZIEDZICZONYM ze stacka — **`build_translation_patch` nie ma bramki na nieoryginalne
+  źródłowe ISO** (ma ją tylko `iso_insert`); gdyby źródłem był poprzedni `patched.iso` z już załatanym
+  EBOOT, `exe_step` znalazłby 0 japońskich trafień i nic nie napisał, zostawiając stary ELF. Rozstrzygnie
+  to `build_report.json` (`executable.targets[].elf_md5_in/out`, flaga `source`, licznik applied).
+- **Folder DLC emulatora** (`C:\Games\ppsspp\memstick\PSP\GAME\NPJH50521`, 340 plików): pełny zestaw v9;
+  `config01` i `config02` KAŻDY +2 048 B względem oryginału (249 984 / 159 872 — prawdopodobnie wiersze
+  lustrzane/refresh; niegroźnie wyglądające, do zapamiętania), `config03–46` rozmiary oryginałów,
+  `eventP01` 582 456 vs 326 456, `mesbtl01` 827 960 vs 283 192, `evept101–108` ~2× oryginału (STORED).
+  Jedyny potwierdzony w grze pełny zestaw DLC to v4-era (Y4a) — czyli dane DLC v9 to równoległy podejrzany
+  obok kontenerów ISO. `PBOOT.PBP` w folderze DLC też załatawy (jawny ELF w DATA.PSP, 6 191 659 B) — dla
+  wydania PPSSPP bez znaczenia (nie czyta go); zachować kopię oryginału.
+- **Wniosek dla TESTU E1:** bez zmian — E1 (`EBOOT_TEST.bat`) nadal czyściej wszystko rozdziela: działa ⇒
+  winny EBOOT; pada ⇒ DANE, a wtedy kolejny krok zależy od provenance: (a) jeśli źródłem był poprzedni
+  patched.iso → CZYSTA przebudowa z prawdziwego oryginału 1.08 (jeden build, bez stacka) i test tego; (b)
+  jeśli źródło było oryginalne → `BISEKCJA.bat` A–I (podejrzani: `imenu00`, `configst`, eventy/mesbtl DLC).
+  Pytania do użytkownika: (1) które ISO wskazał HOKUS_POKUS (oryginał 1.08 czy poprzedni patched.iso?),
+  (2) `build_report.json` — sekcja `package` i `executable`.

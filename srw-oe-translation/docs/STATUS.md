@@ -4,15 +4,18 @@ Last updated: 2026-10-16 (§21.37)
 
 **Latest (2026-10-16, §21.37): v9 (pełny build HOKUS_POKUS) PADA na „Loading" — pierwszy w grze test NARAZ
 podmiany EBOOT.BIN (exe_step, nigdy nie boota; możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9 (też
-nigdy). Przyczyna NIEZNANA — rozdziela ją test A/B: nowe `EBOOT_TEST.bat` + `tools/eboot_swap.py` robią z
+nigdy). DIAGNOZA (sekcja 1): narzędzia CZYSTE (7/7 md5 = gałąź); EBOOT = jawny ELF md5 `4d8b8a85…` NIEZNANY
+(zgodny ze świeżym łatem programu z płyty, ale też z dziedziczeniem ze stacka — builder NIE MA bramki na
+nieoryginalne źródłowe ISO); `eventP00`/`mesbtl00` w ISO = build v3-era bajt w bajt; brak `build_report.json`
+i `pakiet_EN` obok batów — niewiadome, którego pakietu i JAKIEGO ISO użyto (pytania do użytkownika + raport).
+Przyczyna NIEZNANA — rozdziela ją test A/B: nowe `EBOOT_TEST.bat` + `tools/eboot_swap.py` robią z
 istniejącego `patched.iso` kopię z ORYGINALNYM programem z oryginalnego ISO 1.08 (zmiana TYLKO `EBOOT.BIN`,
 dane builda bajt w bajt; fail-closed: kolejność `~PSP`/ELF, identyczne programy, nasz znany ELF jako
-„oryginał", odczyt kontrolny; 17 nowych testów, całość 1 283 OK, 24 pominięte). Przed testem: `DIAGNOZA.bat`
-(który wariant EBOOT wpisała budowa — ELF płyty czy fallback PBOOT — i md5, z `executable.targets`) oraz
-CHEAT WYŁĄCZONY (adresy cheatu × podmieniony program = nieprzetestowana kombinacja). E1 działa ⇒ winny
-EBOOT (napisy programu wracają na pewny CWCheat); pada na Loading ⇒ winne dane (BISEKCJA A–I; podejrzani:
-`imenu00.cpk` 34 984 → 88 232 B, configst Achievement/tokeny, eventy/mesbtl z 23 030 nowych EN). Szczegóły:
-`EXPERIMENT_LOG.md` §21.37.**
+„oryginał", odczyt kontrolny; 17 nowych testów, całość 1 283 OK, 24 pominięte). Przed testem: CHEAT WYŁĄCZONY
+(adresy cheatu × podmieniony program = nieprzetestowana kombinacja). E1 działa ⇒ winny EBOOT (napisy programu
+wracają na pewny CWCheat); pada na Loading ⇒ winne dane — jeśli źródłem był poprzedni patched.iso: CZYSTA
+przebudowa z oryginału; jeśli oryginał: BISEKCJA A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
+Achievement/tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
 
 **Previous (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
 Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
