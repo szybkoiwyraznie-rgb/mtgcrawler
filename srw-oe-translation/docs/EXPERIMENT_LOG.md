@@ -5862,3 +5862,31 @@ eventP00/configst) + rozpoznaje znane buildy (KNOWN_*). User odsyła DIAGNOZA.tx
 offline → wyznaczenie winowajcy bez dalszych testów-kopyć. Dodatkowe pytanie w treści: czy
 w PPSSPP włączone cheaty (Cheats/NPJH50521.ini z ery EXE_TEST — poki w EBOOT mogą trafiać
 w złe adresy przy innym buildzie ISO).
+
+### 21.52 Korekty usera i fakty: ISO eventP00 == czysty rebuild; korelacja `"` ↔ config v13; plan (2026-10-16)
+
+Korekty usera (przyjęte bez zastrzeżeń): (1) dialogi SĄ w eventPXX — teza o evept jako źródle
+dialogów cofnięta; (2) config01–08 u usera NIGDY nie działały (zawsze crash na Loading,
+bisekcja: DLC→config→pierwsza ósemka); v15a też crashnął; (3) cheaty OFF od dawna.
+
+Fakty offline tej tury:
+- **eventP00 v9 z ISO (`a3b1dfc3…`, 258 520 B) == mój świeży rebuild z JP+pakietu (42/44
+  członów identycznych; jedyne różnice: DL102_11_ext.dat — stary wariant tytułu).** Pisarz
+  eventów niezmieniony, remap 0x13e nie zmienia eventP00 (jego 0x13e nie celuje w teksty).
+  → dane dialogów 0-0 w ISO są NIEZEPSUTE; „stare narzędzia w ISO" wykluczone.
+- Rozmiary słowników config01: CharaDict JP 15 688 / v13 15 712 / #18 16 104; RoboDict JP
+  9 702 / v13 9 672 / #18 9 800. v13 ≠ JP ≠ #18 (WSZYSTKIE trzy różne).
+- **Kluczowa korelacja (z relacji usera): `"` występował wyłącznie przy config01–08 v13
+  w folderze; z japońskimi configami dialogi działały.** v13 dropi na stronie config kategorie
+  {voice_actor, short_name, alt_name, entry, config_label, robo_note, type, name_narrow,
+  weight} — jeśli tabliczka mówcy okna dialogowego czyta short/alt_name, lookup w v13 failuje
+  (kategorie nieobecne) → render `"`, narracja bez mówcy nietknięta, JP eventy nie pomagają
+  (awaria warstwy config, nie tekstu). Zgodne z każdym dotychczasowym faktem.
+- Ryzyko: v15a (v13 + pełne EN słowniki #18) crashował → dotykaniu słowników towarzyszy
+  ryzyko Loading-crash; JP słowniki (rozmiary oryginalne) są najlepszym kandydatem na
+  bezpieczne przywrócenie (oryginalne bajty = oryginalne offsety).
+
+Plan: (1) user zostawia wczytujący się stan (pełny v9 + config v13 + JP imenu) i odpala
+DIAGNOZA.bat (zip na Drive, §21.51) → fakty o DLC i ISO; (2) po fakty: JEDEN test config v16
+(v13 z słownikami bajt-w-bajt JP — tylko listy EN; ewentualnie najpierw tylko restore
+short/alt_name jako JP). Bez dalszych ślepych testów.
