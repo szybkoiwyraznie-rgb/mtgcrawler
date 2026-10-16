@@ -5395,3 +5395,14 @@ bez zmian):** R1 `konfig_imenu` (historia Y: pule Skill01–08 w config0X padał
 podejrzany) → R2 `eventy` → R3 `mesbtl`; grupa, po której pada, wygrywa i jest rozbijana połówkami
 (do pojedynczego pliku), reszta wraca na oryginały. Po wskazaniu pliku: analiza offline (budowa vs
 oryginał człon po członie) i bramka w pisarzu/pakiecie.
+
+**Bisekcja DLC, runda 1–3 (2026-10-16 noc):** R1 `konfig_imenu` (całość) = **PADA**; przywrócono
+oryginały; połowa **B** (config09+config10–46, imenu10–32) = **DZIAŁA** ⇒ winna część leży w połowie
+**A: config01–08.EDAT + imenu01–08.EDAT** (16 plików). Użytkownik preferuje ręczne kopiowanie
+(`copy /Y`) zamiast `DLC_TEST.bat` (bat działa raz na uruchomienie i za każdym razem żąda ścieżek —
+UWAGA na przyszłość: baki mają zapamiętywać ścieżki w `%APPDATA%\SRWOE` jak `WGRAJ_DO_ISO.bat`).
+Protokół kolejny: **sweep pojedynczych plików** — kolejność od największego wzrostu: `imenu01`
+(24 744 → 47 272 B), potem `config01` (+2 048), `config02` (+2 048), `imenu02` (20 648 → 34 984),
+reszta po kolei; każdy: skopiuj z v9, boot ISO (cheat OFF), zapisz wynik; plik, po którym pada =
+winowajca, przywrócić i kontynuować sweep dalej (może być więcej niż jeden winny). Połówki `_a/_b`
+w `dlc_test.py`: `konfig_imenu_a` = `config0[1-8]` + `imenu0[1-8]` — zgodnie z wynikiem.
