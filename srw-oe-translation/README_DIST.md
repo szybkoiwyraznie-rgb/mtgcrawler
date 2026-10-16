@@ -2,9 +2,9 @@
 
 Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 
-> **Status:** The game is NOT fully translated yet. Menu, UI, items, skills,
-> character names, battle quotes, and story dialogue for chapters 1–8 are in English.
-> Some chapter 6–7 scenes may still be in Japanese. This is a work in progress.
+> **Status:** The game is fully translated — all menus, UI, items, skills,
+> character names, battle quotes, and story dialogue (chapters 1–8) are in English.
+> Two internal engine format strings remain in Japanese (not visible to the player).
 
 ---
 
