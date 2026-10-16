@@ -5320,3 +5320,48 @@ czysta ASCII = nalatany build (`jp->en` przepuszczony, `en->jp` = „kolejność
 realnej skali (5 531 024 B, 398 plastrów, 14 181 różnic): kierunek rozpoznany w 0,07 s, w obie strony.
 Testy: +4 (para JP→EN bez force, odwrócona odmowa, dwa angielskie ELFe odmowa, różne rozmiary odmowa),
 łącznie **1 286 OK** (24 pominięte). Bat bez zmian — użytkownik uruchamia E1 tym samym plikiem.
+
+**Odczyt `build_report.json` padającego v9 (2026-10-16 wieczór; odpowiedzi użytkownika: HOKUS_POKUS
+wskazywał ORYGINAŁ 1.08):**
+- **Źródła CZYSTE:** `iso = D:\SRWOE\SRW OE 1.08.iso` (oryginał), `dlc = D:\SRWOE\NPJH50521`
+  (oryginalny folder wejściowy). **UWAGA:** build szedł z INNEGO klona gałęzi —
+  `D:\mtgcrawler-arena-c0e5c9d1-mtgcrawler\srw-oe-translation\` (pakiet = `pakiet_EN` TAM), TOOLS_STAMP
+  `2026-10-16b` (era v7: mirror, sloty viewerów). DIAGNOZA sekcja 1 weryfikowała narzędzia w klonie
+  798cd015, nie w c0e5c9d1 — ale rapot sam opisuje dokładnie ten zestaw cech, a BISEKCJA/HOKUS przy
+  ponownej budowie MAJĄ wskazać TEN SAM folder pakietu, żeby litery odtwarzały dokładnie to, co padło.
+- **Wiersze:** 109 032 / filled 104 977 / identity 3 645; `skill_total` 340 074 < 342 194 (bramka OK);
+  dry_run false, bez --only/--skip (pełna budowa).
+- **EXE ROZSTRZYGNIĘTE [ZMIERZONE]:** oba cele mają `elf_md5_in = 8ba77a79…` (ZNANY: „SRW OE 1.08
+  update, PBOOT.PBP, module srw v1.1") — czyli **EBOOT z płyty użytkownika jest bajt w bajt tym samym
+  znanym ELF-em co DATA.PSP z PBOOT** (stąd `known` bez fallbacku; brak flagi `source`, brak not).
+  404/404 wierszy trafiło w japońskie bajty, **402 naniesione w miejscu**, 2 bezpiecznie odmówione:
+  (1) U+00B7 „·" NIE MA odwzorowania w CP932 — poprawka §21.36 F2 `・`→`·` jest NIEKODOWALNA (do
+  poprawy w pakiecie: zostawić JP albo inny znak); (2) 16 > 11 B (do skrócenia). `elf_md5_out`
+  `4d8b8a85…` = dokładnie ten „NIEZNANY" ELF z DIAGNOZY ISO. **Konsekwencja dla hipotezy EBOOT:**
+  (a) „goły ELF z ISO bootuje się" jest już potwierdzone CODZIENNĄ GRĄ użytkownika (jego oryginalne
+  ISO ma EBOOT jako jawny ELF i gra działa); (b) łatający zapis = ten sam mechanizm co DZIAŁAJĄCY
+  plik CWCheat (te same bajty, te same adresy, weryfikacja JP przed zapisem). EBOOT z podejrzanego
+  nr 1 spada do niskiego prawdopodobieństwa — argument użytkownika (logo się pokazuje, pada dopiero
+  Loading = historycznie faza crashy od DANYCH: #6 sysmes, #10 Skill00, #15 stack) jest SŁUSZNY.
+- **Kontenery ISO — podejrzani zawężeni [ZMIERZONE]:** `eventP00` md5 `ac538959…` (260 568 B) i
+  `mesbtl00` `00e10760…` (994 008 B) = KANONICZNE buildy z pakietu v3 / narzędzi 2026-10-15 — te same
+  bajty, które już DZIAŁAŁY w grze (era #17–#19). „Mój build ma 57 512 B" w DIAGNOZIE to tylko opis
+  kanonu v3 (`diagnoza.CANONICAL_USRDIR`), nie rozbieżność; imenu00 v9 = 90 280 B (v7: 88 232 + v9
+  treść + wyrównanie CPK). Pozostaje: **config00, configst, imenu00 (pisarze v7/v8 — nigdy w grze),
+  system+tacsys (delta UI_TEST4 — nigdy w grze; reszta tekstur = UI_TEST3, działająca w #19), EBOOT
+  (niskie)**.
+- **DLC — cały zestaw v9 nigdy w grze:** ostatni przyjęty zestaw DLC = era v4 (Y4a). Nowe od v6:
+  23 030 nowych EN dialogów (eventP*/evept* ~2× rozmiaru), mesbtl*, sloty viewerów v7 w
+  config01–08/imenu01+ (config01/config02 każdy +2 048 B vs oryginał).
+- **325 odmówionych wierszy** (kontenery): niemal wszystkie „robonote:…: no record with key" w
+  config01–19/imenu oraz „label:… slot 4/5 unusable" w CharaDictionary 08/09/16–18 — bezpieczne
+  POMINIĘCIA (JP zostaje), ale to śmieciowe wiersze pakietu do wyczyszczenia przy następnej wersji;
+  nie są zgodną przyczyną crasha (pisarz odmawia, nie pisze).
+- **PLAN (kolejność testów, każda tania):** **T1 = v9 ISO + ORYGINALNE DLC** (bez pobierania: w folderze
+  emulatora `memstick\PSP\GAME` zmienić nazwę `NPJH50521` → `NPJH50521_v9`, wgrać kopię oryginalnego
+  `D:\SRWOE\NPJH50521` jako `NPJH50521`, boot `patched.iso`, CHEAT OFF; po teście nazwy z powrotem):
+  DZIAŁA ⇒ winne DLC v9 (EBOOT uniewinniony automatycznie — ten sam w obu konfiguracjach) → dalej
+  BISEKCJA I (DLC bez dialogów) / H (samo DLC dialogowe); PADA na Loading ⇒ winne ISO-side albo EBOOT →
+  **T2 = E1** (`EBOOT_TEST.bat` ze ŚWIEŻYM `tools/eboot_swap.py`) → działa ⇒ EBOOT; pada ⇒ dane ISO →
+  BISEKCJA A (configst) / E (imenu00) / B (config00), tekstury osobno. Litery BISEKCJI budują od
+  oryginału i tego samego pakietu — deterministyczny builder odtwarza stan padającego builda per grupa.

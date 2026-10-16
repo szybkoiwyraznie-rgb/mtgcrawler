@@ -332,6 +332,18 @@ z ELFa PBOOT × podmieniony program = zanieczyszczenie testu) — w A/B cheat OF
 odszyfrowany (jawny ELF)**; `eboot_swap` rozstrzyga teraz parę ELF→ELF po zawartości (równe rozmiary,
 różnice JP-vs-ASCII); E1 = ten sam bat, ponowne uruchomienie.
 
+**build_report.json padającego v9 odczytany (§21.37):** źródła czyste (oryginalne ISO+DLC; build z KLONA
+c0e5c9d1, pakiet `pakiet_EN` TAM — BISEKCJA ma wskazać ten sam folder pakietu); **exe rozstrzygnięte**:
+EBOOT płyty = bajt w bajt znany ELF PBOOT (`8ba77a79…`), 404/404 trafień, 402 w miejscu, 2 odmowy
+(U+00B7 niekodowalny w CP932 — poprawić w pakiecie; 16>11), out `4d8b8a85…` = ELF z DIAGNOZY ⇒ EBOOT
+spada do niskiego podejrzenia (goły ELF z ISO bootuje mu codziennie; mechanizm = działający cheat).
+`eventP00`/`mesbtl00` w ISO = kanon v3 (`ac538959…`/`00e10760…`) = bajty już DZIAŁAŁE w grze. Podejrzani:
+DLC v9 (wszystko, nigdy w grze), config00/configst/imenu00 (v7/v8 pisarze), system+tacsys (UI_TEST4).
+325 odmów = śmieciowe wiersze pakietu (robonote „no record with key", label slot 4/5) — bezpieczne, do
+czyszczenia. **PLAN: T1 = v9 ISO + ORYGINALNE DLC (zamiana folderu NPJH50521 w emulatorze, cheat OFF)**:
+działa ⇒ DLC → BISEKCJA I/H; pada ⇒ T2 = E1 (świeży eboot_swap) → działa ⇒ EBOOT; pada ⇒ BISEKCJA
+A/E/B + tekstury.
+
 ## 8. Komendy (PC użytkownika, PowerShell)
 ```powershell
 cd D:\SRWOE\mtgcrawler\srw-oe-translation

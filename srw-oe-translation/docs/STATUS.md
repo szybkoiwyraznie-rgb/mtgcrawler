@@ -17,6 +17,16 @@ wracają na pewny CWCheat); pada na Loading ⇒ winne dane — jeśli źródłem
 przebudowa z oryginału; jeśli oryginał: BISEKCJA A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
 Achievement/tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
 
+**Latest (2026-10-16, §21.37 odczyt raportu): build_report.json padającego v9 rozstrzyga exe:** EBOOT
+płyty = znany ELF PBOOT (`8ba77a79…`), 402/404 w miejscu, out = `4d8b8a85…` z DIAGNOZY ⇒ **EBOOT niskie
+podejrzenie** (goły ELF z ISO bootuje mu codziennie; mechanizm = działający CWCheat). `eventP00`/
+`mesbtl00` = bajty już działające w grze (kanon v3). Podejrzani: **DLC v9** (nigdy w grze),
+config00/configst/imenu00 (v7/v8), system+tacsys (UI_TEST4); 325 odmów = śmieciowe wiersze pakietu.
+Build szedł z klona c0e5c9d1 (pakiet tam) — BISEKCJA/HOKUS wskazywać TEN pakiet. **PLAN: T1 = v9 ISO +
+ORYGINALNE DLC** (zamiana folderu `NPJH50521` w emulatorze na kopię `D:\SRWOE\NPJH50521`, cheat OFF):
+działa ⇒ DLC → BISEKCJA I/H; pada ⇒ T2 = E1 (świeży `eboot_swap.py`) → działa ⇒ EBOOT; pada ⇒ BISEKCJA
+A/E/B + tekstury. Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
+
 **Previous (2026-10-16, §21.37 addendum): E1 próba 1 odmówiła — ORYGINAŁ UŻYTKOWNIKA MA JUŻ ODSZYFROWANY
 EBOOT (jawny ELF, nie `~PSP`) [ZMIERZONE]**; `exe_step` łatał więc ELF płyty w miejscu (nieznany md5
 `4d8b8a85…` = ELF płyty + napisy EN, najpewniej bez PBOOT-fallbacku). `eboot_swap` poprawiony: para ELF→ELF
