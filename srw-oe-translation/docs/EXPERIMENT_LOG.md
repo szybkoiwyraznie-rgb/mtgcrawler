@@ -5635,3 +5635,53 @@ jest przetłumaczony w 100%.** Lista „braków" z pierwotnego zapisu była bł�
 Prawdziwe pozostałości (poza tekstem): podpisy tekstur 連/名/用 (6-px, §21.35), ewentualny re-wording
 12 notatek, rebuild patcher.zip. Wniosek: JEDEN test (folder v9 + config01–08 v13) przesuwa grę do
 100% zawartości pakietu; po nim rebuild patchera.
+
+### 21.45 Triage zgłoszeń ze screenów Krok-1: misja 2.1 `"`, JP nazwy wrogów, glify (2026-10-16, offline)
+
+Stan po Kroku-1 (pełny folder v9 + config01–08 v13): gra działa, tekst głównie EN. Trzy zgłoszenia.
+
+**(c) Misja 2.1 — dialogi wszystkich postaci = znak `"` [W TOKU]**
+
+- Pakiet czysty: eventP02 (misja 2.1 = DL102_20/30?) 4 077/4 077 EN; wiersze dialogowe DL102_20
+  (181 dialogów) — 0 z ASCII-quote na brzegu EN; jp bez 「」.
+- Pobrany z Drive plik DLC `eventP01.EDAT` (id `1IcqZvZ9…`, 326 456 B, md5 `f6c73f54…`) = ORYGINAŁ JP
+  (295 runów JP w DL102_20.bin), nie build.
+- Rebuild bieżącymi narzędziami (orig + pakiet_v11, `--only eventP01.EDAT`, bez ui/exe):
+  582 456 B, md5 `61136b1c7e0392a3538dbbf86ebf7bd8`. DL102_20.bin: 295→0 runów JP, 8→274 runów EN
+  (np. „JSDF Training Range", „HQ, HQ! Please respond!"), 0 samotnych `"`+NUL; pole długości bloku
+  po location zaktualizowane 52→44 (zgodnie z nową długością). Podwójony tekst EN jest w pliku.
+- Format EVNT (DL102_20.bin): nagłówek `EDAT`+rozmiar, sekcje `EVNT`/`ECHK`, wpisy indeksu
+  (offset, długość, pole-wartość), potem ciągi tekstów; pisarz aktualizuje rozmiary sekcji i pola.
+- Pisarz eventów (`event_text_apply.py`, `table_rows_refresh.py`) NIEZMIENIONY od `5aefd04` — ten sam
+  kod, który zbudował zweryfikowany w grze eventP00.cpk (ISO, T1).
+- Kit dystrybucyjny `srw-oe-translation-v9.zip` (z Drive, 6 833 409 B): PATCH.bat buduje ISO+DLC
+  narzędziami z kitu; translation/*.jsonl == pakiet v9 (md5 zgodne); tools różnią się od repo w
+  2 plikach: `build_translation_patch.py` (era koperty) i `configst_pack.py` (wyłącznie parametr
+  `tail_align`, domyślnie zachowanie identyczne) → eventy z kitu == eventy z bieżącego repo.
+- Wniosek: poprawnie zbudowany eventP01.EDAT nie może wyświetlać `"` z treści, którą zawiera.
+  Hipotezy: (1) u usera plik inny niż rebuild (stary mix z folderu v9 z 14.10) — do rozstrzygnięcia
+  md5 pliku z emulatora; (2) subtelny problem formatu DL102 (pole długości/indeks) — bisekcja
+  offline, jeżeli (1) odpadnie. Oczekiwanie na `eventP01.EDAT` usera z folderu DLC w emulatorze.
+  Mój rebuild (kandydat na podmianę): 582 456 B, `61136b1c7e0392a3538dbbf86ebf7bd8`.
+
+**(b) Robot Viewer — JP nazwy wrogów (邪竜兵) [ROZPOZNANE, fix w rundzie ISO]**
+
+- Pakiet: `08_names_units_weapons.jsonl` ma 954 wierszy RoboDictionary, ale tylko 7 `name` +
+  7 `name_narrow` (w tym 邪竜兵→„Dragon Soldier"); reszta = series/length/weight/type/note.
+  Kontener pusty („") = sloty per-rozdział configNN.EDAT.
+- `RoboDictionary00` (globalny słownik, ISO config00.cpk): **0 wierszy** — nigdy nie eksportowany.
+- v13 celowo nie pisze na stronę config slotów bez pokrycia w #17 (w tym `robo_name_narrow`) —
+  kategoria crashowa (v12A/v14); dlatego widok czyta JP z configNN (narrow JP) albo z globalnego
+  RoboDict00 (JP, nietknięty).
+- Fix bez ryzyka config: wpisać EN nazwy (7 + uzupełnienie eksportu o pełną listę) do globalnego
+  RoboDict00 w ISO (config00.cpk) — w nadchodzącej rundzie rebuildu ISO (razem z (a) i resztkami exe).
+  Ewentualna weryfikacja, czy widok czyta configNN narrow, dopiero gdyby fix ISO nie zadziałał.
+
+**(a) Glify 連/名/用 → EN [WYKONALNE, zaplanowane]**
+
+- Pipeline tekstur istnieje i jest zweryfikowany w grze (STORED GIM, `ui_texture_patch.py` + specs
+  `ui_labels`). Do dopisania: specs dla 3 glifów (6-px wysokość podpisu, §21.35) — wpis EN zamiast
+  連/名/用. Termin: ta sama runda ISO co (b).
+
+Następny krok: plik `eventP01.EDAT` usera z emulatora → md5 → (1) podmiana albo (2) bisekcja
+formatu. Po zamknięciu (c): runda ISO (glify + globalny RoboDict00 + resztki exe) jako JEDEN test.
