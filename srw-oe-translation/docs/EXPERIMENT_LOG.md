@@ -5788,3 +5788,31 @@ Hipotezy pozostałe (do rozstrzygnięcia testem/kontekstem):
 (2) dialogi oceniane przez usera to inny widok niż scenka (mid-battle/intermecja) → prośba
     o screen z `"` (kontekst okna) — zidentyfikuje który strumień tekstu;
 (3) mix/obce pliki w folderze DLC → prośba o `dir` folderu DLC do porównania z zestawem v9.
+
+### 21.49 Misja 0-0 też `"` → wspólny mianownik: imenu v9 = słowniki; teoria rozjazdu słowników (2026-10-16)
+
+Kluczowy raport usera: **misja 0-0 (eventP00.cpk, dawniej działająca) też pokazuje `"`** →
+coś wspólnego dla wszystkich misji, spoza plików eventów. KROK B v2 (config #18) = crash na
+Loading (przewidywany przez usera — ale UWAGA: #18 był kiedyś "sprawdzony w grze" z JP imenu;
+crash dziś = kombinacja #18 + imenu v9, co samo w sobie jest nowym faktem o sprzężeniu
+config↔imenu). Screen: `"` w oknie scenki filmowej (dół ekranu, portret) = kanał dialogów
+z mówcą; narracja działa.
+
+Analiza (bajtowo): **imenuNN.EDAT v9 vs oryginał różni się WYŁĄCZNIE słownikami**
+(imenu01: srwDL_CharaDictionary01 15 688→16 688 B, srw_DL_RoboDictionary01 9 702→9 790 B;
+żadnych czcionek/layotów — "imenu" to kontener słowników rozdziału dla menu/encyklopedii).
+Okno dialogowe z portretem rozwiązuje mówcę przez słownik postaci → teoria: config v13
+(builder gubi wiersze spare słowników na stronie config) + imenu v9 (pełne słowniki v7-era)
+= rozjazd tabel mówców → lookup failuje → render `"`; dotyczy wszystkich rozdziałów (0–8),
+bo config01–08 v13 wszędzie mają zgubione wiersze. Zgoda z historią: w erze #17–#19
+(konfig wąskie) imenu były JP (spójne wąskie) → dialogi działały; imenu v9 przetestowany
+jako pojedynczy plik (imenu01) na tle JP-configów → działał (boot/GUI), ale nigdy nie był
+testowany w parze z config v13 przy dialogach.
+
+TEST v3 (Drive, folder „eventP01 test 2026-10-16 (misja 2.1)"): imenu01-08_oryginalne_JP.zip
+(8 plików; md5 w opisie; imenu01 `ea35a0f9…`, 02 `ad04d83c…`, 03 `887c8887…`, 04 `6fcdf2a5…`,
+05 `7e30d464…`, 06 `a2a753a1…`, 07 `3aecd672…`, 08 `fbc24e83…`) + INSTRUKCJA_imenu_test.txt.
+Wynik A: dialogi wracają (EN z eventów v9) → wina imenu v9; FIX: imenu zbudowane słownikami
+zgodnymi z config v13 (ta sama reguła spare). Wynik B: `"` dalej → wina samego gubienia
+wierszy w config v13; FIX: config v15 (pełne słowniki) — z ryzykiem znanym z v12A/v14
+(tokenowy slot do izolacji).
