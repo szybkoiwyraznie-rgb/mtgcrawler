@@ -5728,3 +5728,39 @@ słowniki PEŁNE, bez gubienia wierszy spare). Drzewo decyzyjne: 1→koniec; 2 r
 event↔reszta; 3 rozdziela config v13 (zgubione wiersze słowników = podejrzany o `"` gdy 2 pokaże JP)
 ↔ głębsza przyczyna (EBOOT/ISO). Po teście: jeśli #18 → budowa config „v15" (treść v13 + pełne
 słowniki); jeżeli dopiero krok 4 → diagnostyka EBOOT.
+
+### 21.47 Misja 2.1: pomyłka pliku (DG Cells = eventP02), test v1 bez rozstrzygnięcia; todo First Clear Bonus (2026-10-16)
+
+Wyniki testu v1 u usera: KROK 1 (eventP01 z remapem 0x13E) — dalej `"`; KROK 2 (eventP01 JP
+oryginał) — **nic się nie zmienia**: narracja/nazwy/tytuły dalej EN, dialogi dalej `"`.
+Wniosek: eventP01 nie zasila tej misji. Identyfikacja właściwego pliku po tekście usera
+(„Doki Doki Space, in a certain galaxy."): **The Terror of the DG Cells = eventP02.EDAT,
+człon DL105_50.bin** (narracja + dialogi; tytuł też w DL105_50_ext.dat @344 i
+config02.EDAT/milstP02.bin). Poprzednie utożsamienie „misja 2.1 = DL102_20" (JSDF Training
+Range) było błędne — to inna misja rozdziału 2.
+
+Wykluczenia (DL105_50, orig↔build, bajtowo):
+- nagłówki bloków identyczne; 0x222 (3 szt., pary i32: −476/−3509/−3429 + dodatnie-id) — payloady
+  identyczne orig↔build; brak 0x13E w tym członie; 0xCA/0xD9/0xDA (separatory/stopka) identyczne;
+- **żadne słowo u32 w pliku (orig i build) nie wskazuje na pozycje, z których odczyt renderowałby
+  `"` ani na rekordy 0x222** (0 trafień) — mechanizm „wskaźnik wpada w 0x22" sfalsyfikowany;
+- kontrola porządkowa weryfikatora: porównywanie słów po absolutnych pozycjach jest bezwartościowe
+  po przesunięciu rekordów (tylko pary rekordów po indeksie mają sens).
+
+Kontekst: rozdział 1 (eventP00) działa z 289 wartościami „wewnątrz spanów" uznawanymi przez moje
+heurystyki za kotwice — samo „wartość w tekście" nie dowodzi wskaźnika; stale 0x13E z DL102_11
+(eventP00) nie psują tam gry. Zatem remap 0x13E (§21.46) jest poprawną naprawą rzeczywistych
+wskaźników, ale NIE dowiedzianym fixem `"`. eventP02 naprawiony remapem: 5 szt. (DL206_12: 1129→1185,
+DL206_70: 1127→1176, DL208_11: 1078→1084 i 1079→1084, DL209_35: 1124→1147);
+**md5 `78469ce755fcd5df9b3e7053664ae17a`, 650 104 B**.
+
+Test v2 (folder Drive „eventP01 test 2026-10-16 (misja 2.1)", INSTRUKCJA_misja21.txt):
+KROK A eventP02 JP oryginał (`60316f46…`, 367 480 B) — dialogi JP? → wina naszego eventP02;
+KROK B config01–08 **#18** (eventP02 bez zmian) — dialogi EN? → wina config v13 (słowniki);
+KROK C (tylko po A) eventP02 naprawiony. KROK D = nic → diagnostyka EBOOT/ISO po mojej stronie.
+Nota: pisarz eventów był dotąd weryfikowany w grze tylko na rozdziale 1 (eventP00); rozdziały 2+
+to pierwsze realne testy — stąd obserwowane problemy mogą dotyczyć wszystkich misji 2+.
+
+**TODO (kolejka czystki, zgłoszenie usera):** napis „First Clear Bonus" za szeroki — zachodzi na
+„Cash +5200" na ekranie nagród (overlap layoutowy; szukać w exe/config labelach szerokości
+„First Clear Bonus" vsJP oryginał, ewentualnie skrócić/złamać wiersz).
