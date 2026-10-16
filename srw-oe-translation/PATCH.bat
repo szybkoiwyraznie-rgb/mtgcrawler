@@ -1,7 +1,29 @@
 @echo off
-chcp 65001 >nul 2>&1
-setlocal EnableDelayedExpansion
-title SRW OE English Translation Patcher
+rem ============================================================================
+rem  SRW OE English Translation - One-Click Patcher
+rem
+rem  Double-click to patch your game.  Windows opens a file-picker for your ISO
+rem  and DLC folder - you never type a path by hand.
+rem
+rem  Output: output\patched.iso  (load in PPSSPP)
+rem          output\DLC\         (copy to memstick\PSP\GAME\NPJH50521\)
+rem          output\build_report.json
+rem ============================================================================
+setlocal
+cd /d "%~dp0"
+rem --- keep window open after double-click (same trick as HOKUS_POKUS.bat) ---
+if not defined SRW_KEEP_WINDOW set "SRW_KEEP_WINDOW=1" & cmd /k ""%~f0" %*" & exit /b
+echo [PATCH] folder: %~dp0
+ver
+chcp 65001 >nul
+set "PYTHONIOENCODING=utf-8"
+
+rem --- Locate folders ---
+set "BASE=%~dp0"
+set "TOOLS=%BASE%tools"
+set "PKG=%BASE%translation"
+set "OUT=%BASE%output"
+set "PICK=%TOOLS%pick_path.py"
 
 echo.
 echo  ============================================
@@ -10,16 +32,10 @@ echo   One-Click Patcher
 echo  ============================================
 echo.
 
-rem --- Locate this script's own folder ---
-set "BASE=%~dp0"
-set "TOOLS=%BASE%tools"
-set "PKG=%BASE%translation"
-set "OUT=%BASE%output"
-set "PICK=%TOOLS%pick_path.py"
-
 rem ============================================================
 rem  STEP 1: Check / install Python
 rem ============================================================
+set "PY="
 where python >nul 2>&1
 if %errorlevel%==0 (
     for /f "delims=" %%V in ('python --version 2^>^&1') do set "PYVER=%%V"
@@ -55,8 +71,7 @@ if %errorlevel%==0 (
 echo  [X] Could not install Python automatically.
 echo      Please install Python 3.8+ from https://www.python.org/
 echo      Make sure to check "Add Python to PATH" during installation.
-pause
-exit /b 1
+goto :finish
 
 :check_pip
 rem ============================================================
@@ -77,8 +92,7 @@ if %errorlevel%==0 (
 
 echo  [X] Could not install Pillow. Try manually:
 echo      %PY% -m pip install pillow
-pause
-exit /b 1
+goto :finish
 
 rem ============================================================
 rem  STEP 3: Select ISO file
@@ -88,16 +102,14 @@ echo.
 echo  Select your game ISO file (SRW OE 1.08.iso)...
 %PY% "%PICK%" iso --out "%BASE%chosen_iso.txt" --title "Select game ISO"
 if not exist "%BASE%chosen_iso.txt" (
-    echo  [X] No ISO selected. Exiting.
-    pause
-    exit /b 1
+    echo  [X] No ISO selected.
+    goto :finish
 )
 set /p "ISOFILE=" < "%BASE%chosen_iso.txt"
 del "%BASE%chosen_iso.txt" >nul 2>&1
 if not defined ISOFILE (
-    echo  [X] No ISO selected. Exiting.
-    pause
-    exit /b 1
+    echo  [X] No ISO selected.
+    goto :finish
 )
 echo  [OK] ISO: %ISOFILE%
 
@@ -146,9 +158,7 @@ if defined DLCFOLDER (
 if %errorlevel% neq 0 (
     echo.
     echo  [X] Build FAILED. Check the output above for errors.
-    echo      Report the issue with the full error text.
-    pause
-    exit /b 1
+    goto :finish
 )
 
 rem ============================================================
@@ -161,11 +171,14 @@ echo  ============================================
 echo.
 echo  Output folder: %OUT%
 echo.
-if exist "%OUT%\patched.iso" echo  - patched.iso (use this in PPSSPP)
-if exist "%OUT%\DLC" echo  - DLC\ (copy to memstick\PSP\GAME\NPJH50521\)
-if exist "%OUT%\cheats" echo  - cheats\NPJH50521.ini (copy to memstick\PSP\Cheats\)
-if exist "%OUT%\build_report.json" echo  - build_report.json (details)
+if exist "%OUT%\patched.iso" echo  - patched.iso  (load in PPSSPP)
+if exist "%OUT%\DLC"         echo  - DLC\         (copy to memstick\PSP\GAME\NPJH50521\)
+if exist "%OUT%\build_report.json" echo  - build_report.json
 echo.
 echo  Full instructions: see README.md
 echo.
-pause
+
+:finish
+echo.
+echo  Press any key to close this window.
+pause >nul

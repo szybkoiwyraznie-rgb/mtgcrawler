@@ -4,7 +4,6 @@ Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 
 > **Status:** The game is fully translated — all menus, UI, items, skills,
 > character names, battle quotes, and story dialogue (chapters 1–8) are in English.
-> Two internal engine format strings remain in Japanese (not visible to the player).
 
 ---
 
@@ -34,11 +33,9 @@ Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
    |---|---|
    | `patched.iso` | Open in PPSSPP (File → Load...) |
    | `DLC\NPJH50521\` | Copy to `memstick\PSP\GAME\NPJH50521\` |
-   | `cheats\NPJH50521.ini` | Copy to `memstick\PSP\Cheats\NPJH50521.ini` |
    | `build_report.json` | Technical details (not needed for playing) |
 
-4. **Play!** Load `patched.iso` in PPSSPP. Enable cheats in PPSSPP settings
-   for the best experience (the cheat file unlocks DLC content).
+4. **Play!** Load `patched.iso` in PPSSPP.
 
 ## Folder structure after unzip
 
