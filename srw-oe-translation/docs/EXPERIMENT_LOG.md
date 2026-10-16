@@ -5230,8 +5230,11 @@ niezależne grupy, z których każda sama w sobie może tłumaczyć crash:
   (§21.36). Też NIGDY nie testowane w grze.
 
 „Loading" to faza otwierania EDAT DLC (stare crashe #6/#8/#10/#15 pełnej piątki padały tu, gdy program
-startował poprawnie) — hipoteza użytkownika wskazuje EBOOT, ale dane są równie mocnym podejrzanym. Która
-grupa jest winna — **NIEZNANE**; rozdziela to test A/B.
+startował poprawnie) — hipoteza użytkownika wskazuje EBOOT, ale dane są równie mocnym podejrzanym. Użytkownik
+wskał też dwa konkretne commity sesji 7 jako podejrzane (PR #13): `a6dd0e0` = pisarze v7 (sloty viewerów,
+lustrzane imenu, `table_rows_refresh`) — podejrzany (b); `c61c9d1` = „v9 FINAL", w tym 7 nowych napisów exe —
+czyli dokładnie ELF, który `exe_step` wpisał do EBOOT builda (md5 inny niż znany v6 `ba4cc05c…`) — podejrzany
+(a). Która grupa jest winna — **NIEZNANE**; rozdziela to test A/B.
 
 **B. Zanieczyszczenie cheatem:** jeżeli podczas crasha był włączony plik CWCheat `NPJH50521.ini` (adresy
 liczone z ELFa PBOOT), to w kombinacji z PODMIENIONYM EBOOT pisze po nieprzetestowanym układzie — w testach
