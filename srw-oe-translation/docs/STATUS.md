@@ -1,6 +1,12 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.41)
+Last updated: 2026-10-16 (§21.42)
+
+**Latest (2026-10-16, §21.42): v13 DZIAŁA ✅ — rozdziały DLC znów gramy po angielsku.** Winne
+crashowi: nowe sloty v7 w słownikach (Voice:/short_name/alt_name/note/type/narrow). Aktualny stan
+działający: ISO v9 + config01–08 **v13** + połowa B i imenu01 v9. **v14** (na Drive) = v13 + głosy
+(slot 1 i „Voice:" slot 5), wagi, etykiety, entry — pola o strukturze z działających stanów; JEDEN
+test. Szczegóły: `EXPERIMENT_LOG.md` §21.42.**
 
 **Latest (2026-10-16, §21.41): v12A PADAŁO — SŁOWNIKI WINNE [test].** Mapa slotów z diffu #17↔v11:
 EN w #17 działało (głos slot1, „Nickname:" slot4, entry, Weight, serie); nowe od v7 = Chara slot 5

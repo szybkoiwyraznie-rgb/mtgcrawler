@@ -160,16 +160,24 @@ ACCEPTED_CONFIG = {
 }
 # md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
 KNOWN_DLC_CONFIG: Dict[str, str] = {
-    # build v11 (pakiet v11 = v10 minus katalog DLC): DLC_ID01-07 + Reference03/08 = ORYGINALY
-    # 1:1 (kandydat testu 2026-10-16; teza: winny crashu jest przetlumaczony katalog DLC)
-    "b0da512ba9603a565b665e4db886571d": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "b0a89d6885d3b5d3cbc243c74708a6a7": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "2375a1a9f50c6a5120a0c8ce5c58a5b5": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "f721dffffd408260c7ea5c21362878c9": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "90a6a9abca1c9535db90b743da8d984e": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "2aa88fbf259794668e9b764a60bb93f8": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "e1a189b161dad9609839d38097622769": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
-    "90c40e34b2c9e5a33cde01be2221c837": "build v11 (pakiet v11; katalog DLC JP; kandydat testu 2026-10-16)",
+    # build v13 (pakiet v13): slowniki bez nowych slotow v7 - DZIALA W GRZE (2026-10-16)!
+    "fb949ddb94e4430c09c13d8b6facd0a1": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "e07fe8583e57fd9616d3ab2e05d4565a": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "83dcd387125e80beba8e8bd02fab57a7": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "2c831dcc49a3df54de8dee6da88abde3": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "02af3a8556fad15a589187192dc0da43": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "b68550ca3db87d4052f97340cae52aaf": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "f69f6a9daa24e36610431fca07d0149e": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "696e6583eac758150e620f43fe0693dd": "build v13 (DZIALA W GRZE 2026-10-16)",
+    # build v11 (pakiet v11 = v10 minus katalog DLC): PADAL (katalog DLC uniewinniony)
+    "b0da512ba9603a565b665e4db886571d": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "b0a89d6885d3b5d3cbc243c74708a6a7": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "2375a1a9f50c6a5120a0c8ce5c58a5b5": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "f721dffffd408260c7ea5c21362878c9": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "90a6a9abca1c9535db90b743da8d984e": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "2aa88fbf259794668e9b764a60bb93f8": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "e1a189b161dad9609839d38097622769": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "90c40e34b2c9e5a33cde01be2221c837": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
     # v10 (pakiet v10, brama koperty): rozmiary = oryginaly, a mimo to PADAL - koperta
     # sfalsyfikowana (build #17 config02 = 159 872 B > oryginal i DZIALAL)
     "3857e834deec86693e79f0ed44a087a2": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",

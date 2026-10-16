@@ -5561,3 +5561,23 @@ config01 fb949ddb…, 02 e07fe858…, 03 83dcd387…, 04 2c831dcc…, 05 02af3a8
 **Protokół:** v13 DZIAŁA → winne nowe sloty v7 (dokładny slot wyłoni drabinka offline-analizowana,
 wrótki per-slot w kolejnych buildach); v13 PADA → słowniki 1:1 #17 (v14, ostatni schodek) —
 wtedy jedyną różnicą od działającego stanu byłyby skrócenia i listy v9.
+
+### 21.42 v13 DZIAŁA ✅ — pierwszy od v6 pełny działający zestaw DLC z treścią v9 (2026-10-16)
+
+**Wynik v13 (użytkownik): DZIAŁA** — boot, zapisy, rozdziały 2–3, walka, encyklopedia. Stan
+działający: patched.iso v9 + DLC config01–08 v13 + imenu01 i połowa B v9. Słowniki EN tylko w
+polach z #17 (nazwa/pseudonim/serie/„Len."), nowe sloty v7 JP, listy nazw v9, pule == #17 bajty.
+
+**Wniosek [ZWERYFIKOWANE]: crash powoduje CONAJMNIEJ JEDEN z nowych slotów v7 w słownikach:**
+Chara slot 5 („Voice: …"), slot 11 (short_name kana→ASCII), slot 10 (alt_name), Robo note (slot 2),
+type (slot 4), name_narrow (slot 5/6). Wykluczone (działa w v13 lub #17): voice slot 1 (czysty),
+„Nickname:" slot 4, entry, Weight/Length EN, serie, renames unit_list/charalist, cały katalog DLC,
+rozmiary plików, pule Skill/Item. Odkrycie: v7 pisarz voice_actor zapisuje DWA sloty naraz (1,5) —
+w #17 EN był tylko slot 1.
+
+**v14 (odzyskanie 737 wierszy o strukturze z działających stanów):** voice_actor (slot 1 jak #17 +
+slot 5 „Voice: …" analog „Nickname: …"), robo_weight („Weight …" jak #17), config_label, entry.
+Zostają JP: short_name, alt_name, note, type, name_narrow. Weryfikacja: v14 = v13 + wyłącznie te
+pola. Wynik v14 rozstrzygnie: działa → został tylko mały zestaw (drabinka 2–3 rund do 100%);
+pada → winny w {slot 5 Voice:, weight…} mimo analogii → schodzimy na slot 1 bez slotu 5.
+md5 v14: 41b80765… 11537970… d88f6992… 444ea7b1… 77cf8c13… c9aceadd… 59fdc2a1… 90c40e34… (01..08).
