@@ -5764,3 +5764,27 @@ to pierwsze realne testy — stąd obserwowane problemy mogą dotyczyć wszystki
 **TODO (kolejka czystki, zgłoszenie usera):** napis „First Clear Bonus" za szeroki — zachodzi na
 „Cash +5200" na ekranie nagród (overlap layoutowy; szukać w exe/config labelach szerokości
 „First Clear Bonus" vsJP oryginał, ewentualnie skrócić/złamać wiersz).
+
+### 21.48 Misja 2.1: JP eventP02 → narracja JP, dialogi dalej `"` → dialogi NIE z eventP02; potrzebne B + kontekst (2026-10-16)
+
+Wyniki testu v2 (user): eventP02 naprawiony → `"`, eventP02 oryginał JP → **narracja i nazwy JP,
+dialogi dalej `"`**. Wniosek twierdzący: plik jest czytany (narracja się zmienia), ale dialogów
+misji nie dostarcza eventP02 — nawet japońskie nie są wyświetlane. `"` istnieje u usera przy
+100% oryginalnym eventP02 → źródło `"` jest w innym pliku.
+
+Wykluczenia offline w tej turze:
+- config02.EDAT/pac: 20 podplików (słowniki, listy, milstP02, mesbmp02 216 B...) — brak treści
+  dialogowych; dialogi misji nie siedzą w config02 bezpośrednio;
+- kit 14.10 vs repo: quotes_apply/evnt_walk/cpk_write identyczne; event build różni się tylko
+  o remap 0x13E → mesbtl02/evept02 z kit-era == obecne narzędzia;
+- evept101–108 = człony z sufiksami liter (B–J) misji; DL105_50 (DG Cells) NIE ma rozszerzeń
+  (DL105_50B/C nie istnieją w pakiecie) → scenki misji tylko w eventP02;
+- wiersze pakietu z en == dosłowny `"`: tylko 2, w 09_executable (PBOOT/DATA.PSP, tłumaczenie
+  「」→") — menu, PPSSPP release ignoruje DLC PBOOT — niewinne.
+
+Hipotezy pozostałe (do rozstrzygnięcia testem/kontekstem):
+(1) config v13 (zgubione wiersze słowników) pośrednio psuje ładowanie dialogów misji 2+ →
+    KROK B (config #18) rozstrzyga;
+(2) dialogi oceniane przez usera to inny widok niż scenka (mid-battle/intermecja) → prośba
+    o screen z `"` (kontekst okna) — zidentyfikuje który strumień tekstu;
+(3) mix/obce pliki w folderze DLC → prośba o `dir` folderu DLC do porównania z zestawem v9.
