@@ -160,6 +160,15 @@ ACCEPTED_CONFIG = {
 }
 # md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
 KNOWN_DLC_CONFIG: Dict[str, str] = {
+    # build v14 (pakiet v14 = v13 + glosy/wagi/etykiety/entry): PADAL - slot 5 "Voice:" nigdy
+    # nie byl EN w dzialajacym stanie; glosy sa bezpieczne tylko na stronie imenu
+    "41b80765fc429f6c61dd9eccd4298327": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "11537970d16ffc43abde56c944a83cee": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "d88f6992665f4abca0b348e023a1582a": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "444ea7b173a8d03dbd6cbca3aacbbf41": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "77cf8c13272cc41823d127953af72be1": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "c9aceadd74b6bfcb8ece23647d17ecd8": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "59fdc2a136aa07616cf5e77a3cbef95d": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
     # build v13 (pakiet v13): slowniki bez nowych slotow v7 - DZIALA W GRZE (2026-10-16)!
     "fb949ddb94e4430c09c13d8b6facd0a1": "build v13 (DZIALA W GRZE 2026-10-16)",
     "e07fe8583e57fd9616d3ab2e05d4565a": "build v13 (DZIALA W GRZE 2026-10-16)",

@@ -108,6 +108,28 @@ PACKAGE_FILES = (
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
 SKIP_CATEGORIES = {"config_item_drop"}
 
+# configNN.EDAT dictionary spare slots (2026-10-16, v12A/v13/v14 user tests): the v7 viewer
+# slots of the Chara/Robo dictionary copies CRASH the game when written into the configNN
+# side, while the byte-identical imenuNN side runs (imenu01.EDAT v9 - doubled in size, full
+# EN slots - stayed in the emulator folder through every test; v12A "#17 + v11 dictionaries
+# in config01-08" crashed, v13 with these rows held back ran).  The dictionary UI reads the
+# imenuNN copies (21.34), so the config side stays at its #17 shape (name/nickname/series/
+# length EN only) and loses nothing the player can see.
+DLC_CONFIG_RE = re.compile(r"^config\d+\.EDAT$", re.IGNORECASE)
+CONFIG_DICT_SPARE_CATEGORIES = {
+    "character_voice_actor", "character_short_name", "character_alt_name",
+    "character_entry", "config_label", "robo_note", "robo_type",
+    "robo_name_narrow", "robo_weight",
+}
+
+
+def config_side_spare_row(row: dict) -> bool:
+    """True for a row that must not reach a configNN.EDAT dictionary copy: the v7 viewer
+    slots (voice_actor with the 'Voice:' label, short_name, alt_name, entry, labels,
+    robo note/type/name_narrow/weight).  The imenuNN copies keep them all."""
+    return row.get("category") in CONFIG_DICT_SPARE_CATEGORIES
+
+
 #: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
 #: specs in ui_labels/).  They hold no package text; the builder rewrites them from the ISO
 #: when --iso is given.  Members are written STORED - the only variant verified in the game
@@ -914,6 +936,14 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
         if not mine:
             continue
+        if DLC_CONFIG_RE.match(name):
+            spare_count = sum(1 for r in mine if config_side_spare_row(r))
+            if spare_count:
+                mine = [r for r in mine if not config_side_spare_row(r)]
+                report["problems"].append(
+                    f"{name}: held back {spare_count} v7 viewer-slot rows from the config-side "
+                    f"dictionary copies (the config-side DLC scan crashes on them - v12A/v14 "
+                    f"2026-10-16; the dictionary UI reads imenuNN, which keeps them)")
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()

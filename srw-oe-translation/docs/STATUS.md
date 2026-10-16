@@ -1,6 +1,13 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.42)
+Last updated: 2026-10-16 (§21.43)
+
+**Latest (2026-10-16, §21.43): v14 PADAŁO (mój błąd: slot 5 „Voice:" nie miał pokrycia w działających
+stanach), ALE przełom: imenu01 v9 (pełne EN, podwojony rozmiar) działa u użytkownika cały czas →
+trująca jest tylko strona config. Builder utrwala fix: configNN.EDAT zawsze traci spare-sloty
+słowników (weryfikacja: pełny pakiet → config01–08 bajt w bajt = v13), imenuNN zachowuje pełne EN.
+Następny test (opcjonalny): config01–08 v13 + imenu02–08 v9 z folderu NPJH50521_v9 → encyklopedia
+rozdz. 2–8 pełna EN. Szczegóły: `EXPERIMENT_LOG.md` §21.43.**
 
 **Latest (2026-10-16, §21.42): v13 DZIAŁA ✅ — rozdziały DLC znów gramy po angielsku.** Winne
 crashowi: nowe sloty v7 w słownikach (Voice:/short_name/alt_name/note/type/narrow). Aktualny stan

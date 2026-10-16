@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
+import build_translation_patch as BTP  # noqa: E402
 import diagnoza  # noqa: E402
 import iso_pack  # noqa: E402
 import pick_path  # noqa: E402
@@ -103,7 +104,7 @@ class DiagnozaReportTests(unittest.TestCase):
         self.assertEqual(diagnoza.EXPECTED_BUILD14["configst.cpk"], "6cfe245d5f6ec6dfffd2a829b778a4d7")
         for digest in diagnoza.KNOWN_DLC_CONFIG:
             self.assertRegex(digest, r"^[0-9a-f]{32}$")
-        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 58)          # 8 v13 + 8 v11 + 8 v10 + 2 v9 + 8 x (#15, #17, #18, pulaJP)
+        self.assertEqual(len(diagnoza.KNOWN_DLC_CONFIG), 65)          # 7 v14 (+1 == v13) + 8 v13 + 8 v11 + 8 v10 + 2 v9 + 8 x (#15, #17, #18, pulaJP)
         for name, table in diagnoza.ACCEPTED_CONFIG.items():
             self.assertIn(diagnoza.EXPECTED_BUILD14[name], table)
             for digest in table:
@@ -254,6 +255,23 @@ class DiagnozaBatRuleTests(unittest.TestCase):
         self.assertIn('call :pick iso_run ISO ""\r\n  if errorlevel 1 set "ISO="', text)
         self.assertIn('call :pick dlc_emu DLC ""\r\n  if errorlevel 1 goto :finish', text)
 
+
+
+
+class ConfigSideSpareRowTests(unittest.TestCase):
+    """configNN.EDAT keeps its dictionaries at the #17 shape (v12A/v13/v14 tests, 2026-10-16);
+    the imenuNN copies keep the v7 viewer-slot rows (the dictionary UI reads imenuNN)."""
+
+    def test_v7_viewer_slot_categories_are_spare_on_the_config_side(self):
+        for cat in ("character_voice_actor", "character_short_name", "character_alt_name",
+                    "character_entry", "config_label", "robo_note", "robo_type",
+                    "robo_name_narrow", "robo_weight"):
+            self.assertTrue(BTP.config_side_spare_row({"category": cat}), cat)
+
+    def test_proven_english_fields_are_never_spare(self):
+        for cat in ("character_name", "character_nickname", "character_series",
+                    "robo_name", "robo_series", "robo_length", "config_dlc_id"):
+            self.assertFalse(BTP.config_side_spare_row({"category": cat}), cat)
 
 if __name__ == "__main__":
     unittest.main()

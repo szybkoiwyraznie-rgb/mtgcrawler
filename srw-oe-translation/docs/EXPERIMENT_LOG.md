@@ -5581,3 +5581,34 @@ Zostają JP: short_name, alt_name, note, type, name_narrow. Weryfikacja: v14 = v
 pola. Wynik v14 rozstrzygnie: działa → został tylko mały zestaw (drabinka 2–3 rund do 100%);
 pada → winny w {slot 5 Voice:, weight…} mimo analogii → schodzimy na slot 1 bez slotu 5.
 md5 v14: 41b80765… 11537970… d88f6992… 444ea7b1… 77cf8c13… c9aceadd… 59fdc2a1… 90c40e34… (01..08).
+
+### 21.43 v14 PADAŁO (błąd projektowy: slot 5) → PRZEŁOM: strona imenu toleruje wszystko →
+### builder config-strony zachowawczy na stałe (2026-10-16)
+
+**Wynik v14 (użytkownik): PADA.** Wina mojego projektu: slot 5 („Voice: …") **nigdy nie był EN
+w żadnym działającym stanie** (w #17 był JP „声優：…"); analogia do działającego „Nickname:"
+(slot 4) była błędna. v14 przywróciło też wagi/etykiety/entry (te miały pokrycie w #17), więc
+winny padu to slot 5 lub szerokość broadcastu — nie rozstrzygane, bo:
+
+**PRZEŁOM — obserwacja ze stanu użytkownika:** `imenu01.EDAT` v9 (47 272 B, **podwojony**,
+z PEŁNYMI slotami EN — „Voice:", krótkie nazwy, wagi itd.) siedzi w folderze emulatora od sweepa
+i **działa przez wszystkie testy v13/v14**. Czyli te same treści słowników, które wywracają grę
+po stronie configNN, są nieszkodliwe po stronie imenuNN (a loader imenu toleruje nawet podwojenie
+rozmiaru). Encyklopedia czyta imenuNN (21.34) — **gracz nic nie traci**.
+
+**Fix trwały (w builderze):** `configNN.EDAT` zawsze traci wiersze kategorii spare
+(`config_side_spare_row`: voice_actor/short_name/alt_name/entry/config_label/robo_note/robo_type/
+robo_name_narrow/robo_weight), imenuNN je zachowuje. Weryfikacja: pełny pakiet v11 + nowy builder
+→ config01–08 **bajt w bajt = działające v13** (8/8 md5). Od teraz HOKUS_POKUS jest bezpieczny
+z konstrukcji; pakiety nie potrzebują ręcznegoIdentity-droppingu.
+
+**Odpowiedź na pytanie o „pełny DLC":** prawda — przetestowany stan to config01–08 v13 +
+imenu01 v9 + połowa B v9 (boot, dostęp do rozdz. 9+) + oryginały w pozostałych plikach połowy A
+(imenu02–08, eventP01–09, evept101–104, mesbtl01–15). Pełny zestaw DLC EN doczeka osobnego testu
+końcowego.
+
+**v15-test (jedna runda, bez nowych plików ode mnie):** (1) przywrócić config01–08 **v13**
+(pliki z zipa v13 — v14 w folderze padają!), (2) dołożyć `imenu02.EDAT`–`imenu08.EDAT` **v9**
+z folderu `D:\SRWOE\NPJH50521_v9` (imenu01 v9 już jest). Spodziewane: DZIAŁA (kształt imenu01
+jest dowiedziony) → encyklopedia rozdz. 2–8 znów pełna EN. Jeśli pada → imenu02–08 wracają do
+oryginałów, a analiza bierze pod uwagę, że coś w imenu02–08 różni się od imenu01.
