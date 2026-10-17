@@ -6619,3 +6619,22 @@ stale-JP/istniejącego klucza/innego błędu. 4 nowe testy: PASS. Walidator ma j
 raportować te udowodnione braki keyspace, nie twierdzić „zero refused”. Kod ZIP-a
 nie zmienił się; poprawiono tylko samodzielny walidator wydania. Próba jest ponawiana
 w świeżym folderze, bez używania starych wyjść jako wyniku nowej komendy.
+
+**21.64 — końcowe bramki offline PASS:** pełny suite po doprecyzowaniu walidatora:
+**1493 passed,1 skipped,382 subtests passed w45,55s**. Z wypakowanego tego samego
+v17ZIP zbudowano świeży fixture ISO (oryginalne EBOOT/eventP00/lmap) i DLC z celowo
+zagnieżdżonym chapter04. Builder + niezależny odczyt plików z wynikowego ISO:
+271/271 map,30081/30081 komórek, pełna niezmienność liczb/geometrii/tekstur/nazw
+katalogu PAC; oryginały bez zmian. EBOOT zgodny z oczekiwanym patchem, .text identity,
+Basic Training zachowane. Po stronie DLC płaskie pliki,12/12 pól EN i0 kopii zgłoszonych
+JP tytułów w rekordach. Dodatkowo ręcznie porównano oryginalne i wynikowe rekordy:
+`prefix[32:]` oraz `strings[3:]` identyczne dla obu rekordów w obu plikach — ceny,
+flagi, payload i identyfikatory PSN nietknięte.
+
+Wynik lmap156174576B, SHA-256
+`88e943c091c113a564312ca87a640b8df5edeb43d75d11c69a6c45f1518b2694`.
+Zastane broadcasty RoboDict597/896 rozliczone osobno, nie ukryte jako „0 refused”.
+Raport `docs/qa-v17/release-verification.json`. ZIP148 plików /7245833B, SHA-256
+`5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`, MD5
+`3089509c1e1f4741dcf2a14f981b4bae`. CRC ZIP i CRLF CHECK_DLC.bat sprawdzone.
+Jeszcze nie wykonano testu gameplay/PPSSPP; wynik dotyczy offline i odczytu bajtów.

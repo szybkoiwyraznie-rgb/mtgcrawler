@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "scope": "Real originals + actual extracted distribution on minimal ISO fixture; not gameplay/PPSSPP",
+  "kit_name": "srw-oe-translation-v17.zip",
+  "kit_bytes": 7245833,
+  "kit_sha256": "5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937",
+  "kit_files": 148,
+  "validated_broadcast_notes": [
+    {
+      "container": "config04.EDAT",
+      "member": "srw_DL_RoboDictionary04.bin",
+      "count": 597,
+      "classification": "global broadcast IDs absent from this chapter; not failed target writes"
+    },
+    {
+      "container": "imenu04.EDAT",
+      "member": "srw_DL_RoboDictionary04.bin",
+      "count": 896,
+      "classification": "global broadcast IDs absent from this chapter; not failed target writes"
+    }
+  ],
+  "input_sha256": {
+    "EBOOT.BIN": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+    "eventP00.cpk": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa",
+    "lmap.cpk": "448d61e65330b48be99986630a5e4c4f87d24c99ee0270117d20fe7b8bbe6bb9",
+    "config04.EDAT": "bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09",
+    "imenu04.EDAT": "c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121",
+    "config26.EDAT": "dbc3e29d26e2f28340ed5874873c28cce949fc85b7a43a1cf2aab19289d29b7f",
+    "config27.EDAT": "d9ed0c478b6b6f422e0269d7b9bcc71492da3b6e614fad48c1fbf7bb708d3a2c"
+  },
+  "maps": {
+    "copies": 271,
+    "name_cells": 30081,
+    "all_numeric_and_non_name_bytes_unchanged": true,
+    "output_bytes": 156174576,
+    "output_sha256": "88e943c091c113a564312ca87a640b8df5edeb43d75d11c69a6c45f1518b2694"
+  },
+  "dlc": {
+    "schema_version": 1,
+    "read_only": true,
+    "scope": "Selected installed-folder file bytes, not the emulator's loaded RAM or save state",
+    "passed": true,
+    "missing_files": [],
+    "multiple_copies": [],
+    "files": [
+      {
+        "file": "config04.EDAT",
+        "bytes": 108672,
+        "sha256": "e6d61b1a299a3a3336ba0232ad6a52654f0406df0f00d28d6a0b1d64fdd3c832",
+        "md5": "1eab355eba8f729eb69bf46aa59006c1",
+        "passed": true,
+        "missing_payloads": [],
+        "records": {
+          "config26.pac": {
+            "expected_title": "Return of the Goburiki Army",
+            "title_slots": [
+              "Return of the Goburiki Army",
+              "Return of the Goburiki Army"
+            ],
+            "titles_english": true,
+            "description_matches_package": true,
+            "reported_jp_occurrences": 0
+          },
+          "config27.pac": {
+            "expected_title": "The Bandits' Tragedy",
+            "title_slots": [
+              "The Bandits' Tragedy",
+              "The Bandits' Tragedy"
+            ],
+            "titles_english": true,
+            "description_matches_package": true,
+            "reported_jp_occurrences": 0
+          }
+        },
+        "member_bytes": 746,
+        "member_sha256": "5a95807403b17f6ec2ade8efc262391a684dfa5ba844e195b91df55b75762d0f",
+        "relative_path": "config04.EDAT"
+      },
+      {
+        "file": "imenu04.EDAT",
+        "bytes": 28840,
+        "sha256": "f48d00d085e738ed602d958b21fe53bc74550a95ba8b0ea8ff32cac9240f7efe",
+        "md5": "1af165925a3aebe8afaa159ad128cdd4",
+        "passed": true,
+        "missing_payloads": [],
+        "records": {
+          "config26.pac": {
+            "expected_title": "Return of the Goburiki Army",
+            "title_slots": [
+              "Return of the Goburiki Army",
+              "Return of the Goburiki Army"
+            ],
+            "titles_english": true,
+            "description_matches_package": true,
+            "reported_jp_occurrences": 0
+          },
+          "config27.pac": {
+            "expected_title": "The Bandits' Tragedy",
+            "title_slots": [
+              "The Bandits' Tragedy",
+              "The Bandits' Tragedy"
+            ],
+            "titles_english": true,
+            "description_matches_package": true,
+            "reported_jp_occurrences": 0
+          }
+        },
+        "member_bytes": 746,
+        "member_sha256": "5a95807403b17f6ec2ade8efc262391a684dfa5ba844e195b91df55b75762d0f",
+        "relative_path": "imenu04.EDAT"
+      }
+    ]
+  },
+  "iso_member_readback": true,
+  "eboot_text_unchanged": true,
+  "basic_training_preserved": true,
+  "source_files_unchanged": true,
+  "flat_deployment_from_nested_input": true
+}

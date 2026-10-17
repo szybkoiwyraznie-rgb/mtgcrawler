@@ -112,3 +112,28 @@ untouched. Earlier one-test failure exposed that title mirroring depended on
 unrelated containerless-name rows: fixed by explicitly discovering both available
 DLC title copies, then all deployment tests pass. Full suite and packaged-kit
 verification are next; actual gameplay confirmation is still pending.
+
+## Final offline validation — PASS
+
+Final full suite: **1493 passed, 1 skipped, 382 subtests passed** (45.55 s).
+The actual 148-file v17 ZIP was extracted into a fresh build folder. Its own
+builder patched real original map/DLC/event/executable data in a minimal ISO
+fixture (not a bootable full-game test). Independent read-back from the resulting
+ISO checked **271 maps / 30,081 names**, all numeric attributes and every byte of
+geometry/textures/directory outside the name cells. EBOOT `.text` and the prior
+Basic Training title-card fix are unchanged. Original inputs remain identical.
+
+DLC: all 12 target name/description fields pass, zero reported JP-title remnants
+in their catalog records, flat deployment from a deliberately nested chapter-4
+input. Extra comparison of each original/rebuilt DLC record proved equality of
+the non-text prefix after byte 32 and all payload/PSN strings (slots 3–7).
+
+Inherited global RoboDict broadcasts are not falsely called zero refusals:
+597/896 rows reference IDs genuinely absent from chapter 4; their entire counts
+and messages were reconciled against original data. Other refusals still fail.
+Details: `qa-v17/release-verification.json`.
+
+Kit: **7,245,833 B**, SHA-256
+`5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`.
+Runtime confirmation on the owner's installation remains pending; the reproduced
+folder-layout defect is not proof of his exact local layout/save-state behaviour.
