@@ -6638,3 +6638,18 @@ Raport `docs/qa-v17/release-verification.json`. ZIP148 plików /7245833B, SHA-25
 `5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`, MD5
 `3089509c1e1f4741dcf2a14f981b4bae`. CRC ZIP i CRLF CHECK_DLC.bat sprawdzone.
 Jeszcze nie wykonano testu gameplay/PPSSPP; wynik dotyczy offline i odczytu bajtów.
+
+**21.64 — DOSTAWA v17:** upload pojedynczego `srw-oe-translation-v17.zip` do istniejącego
+folderu SRW OE; wcześniejsze wydania i uprawnienia nietknięte. Przed:0 plików o tej
+nazwie; po:1, bez dalszej strony/niepełnego wyszukiwania. ID
+`1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw`, 7245833B, MD5
+`3089509c1e1f4741dcf2a14f981b4bae`. Download-back do google_drive porównany całymi
+bajtami z lokalnym ZIP-em: PASS, nie tylko metadane. Manifest `qa-v17/delivery.json`.
+Końcowy raport testów1493/1skip/382subtests i rzeczywisty extracted-kit read-back
+są w Git. Nowe narzędzia/naprawy/checkpointy wypychano etapami do PR17.
+
+Stan dla właściciela: kit dostarczony i sprawdzony offline. Potwierdzenie terenu i
+obu tytułów na jego instalacji jeszcze oczekuje; nie twierdzimy, że sam stary sejw
+lub zagnieżdżony folder jest już dowiedzioną przyczyną jego screenów. Kolejny dowód,
+gdy objaw pozostanie: DLC_TITLE_CHECK.json z faktycznie używanego folderu gry.
+Sejwów nie usuwać. Dostarczony katalog mechów i scenariusze00–34 nie były zmieniane.

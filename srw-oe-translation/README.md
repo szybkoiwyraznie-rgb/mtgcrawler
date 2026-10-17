@@ -1,6 +1,12 @@
 # SRT OE English Translation — Research Workspace
 
-**Status (2026-10-17):** the owner reported the complete English translation as `PATCH15.zip`. Subsequent mission 0-1 feedback is addressed in **kit v16**: player-name substitution keys, narrow UI labels, 21 DLC titles and the Basic Training title card. Automated tests and byte-level build checks pass; in-game confirmation of these new fixes is pending. See [`docs/STATUS.md`](docs/STATUS.md) and `pakiet_EN/CO_NOWEGO_v16.txt`. The sections below are the project history.
+**Status (2026-10-17):** [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) is delivered: missing map terrain
+names, flat/unambiguous DLC deployment and actual field read-back for the reported
+chapter-4 DLC entries. Full suite **1493 passed, 1 skipped, 382 subtests passed**;
+extracted-kit/ISO verification and Drive read-back pass. On-device confirmation is
+still pending; the exact owner-side cause of the two v16 JP titles is not proven.
+See [`docs/QA_V17.md`](docs/QA_V17.md), [`docs/STATUS.md`](docs/STATUS.md) and
+`pakiet_EN/CO_NOWEGO_v17.txt`. Preserve original inputs/saves. Earlier sections are history.
 
 ## Mech reference catalogue — delivered
 

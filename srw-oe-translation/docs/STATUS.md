@@ -1,8 +1,24 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.63 — dostarczony katalog mechów)
+Last updated: 2026-10-17 (§21.64 — kit v17 dostarczony, QA w grze oczekuje)
 
-**Najnowsze (§21.63): katalog mechów ukończony w zakresie dostępnych danych i dostarczony.**
+**Najnowsze (§21.64): [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony.**
+`宇宙構造物` -> `Space Str.`; cała odnaleziona rodzina: 111 nazw w 271 kopiach
+attr.par/lmap, 30081 zapisanych komórek. Liczby, geometria i tekstury nietknięte.
+DLC04: nazwy były już EN w odtworzonym v16; dodano dwa pozostałe JP opisy i twardą
+kontrolę odczytu wszystkich 12 pól obu kopii. Odtworzony błąd procesu v16: wejściowe
+podfoldery były przenoszone do output/DLC i mogły nie trafić do katalogu gry.
+V17 daje płaskie pliki, obsługuje różnice liter i odmawia niejednoznacznych backupów.
+**Nie ustalono, czy dokładnie ten układ występował u właściciela.** Stary sejw nie
+jest automatycznie dowodem save state. CHECK_DLC.bat czyta zainstalowane pliki bez
+zmiany czegokolwiek; jeśli objaw zostanie, potrzebny DLC_TITLE_CHECK.json.
+Testy: **1493 passed,1 skipped,382 subtests**. Wypakowany rzeczywisty ZIP i fixture
+ISO z oryginalnymi plikami sprawdzone bajtowo; to nie boot pełnej gry/PPSSPP.
+ZIP 7245833B, pobranie zwrotne Drive identyczne. [Dowody i granice](QA_V17.md),
+[manifest](qa-v17/delivery.json). Oryginały/sejwy zachować. Lmap rośnie do156174576B
+(STORED), a ISO dopisuje zmienione człony — większy plik jest oczekiwany.
+
+**Poprzednia dostawa (§21.63): katalog mechów ukończony w zakresie dostępnych danych.**
 [`srwoe_mech_catalog.md`](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view):
 761 353 B, pełny odczyt zwrotny Drive identyczny bajtowo. 393 rekordy jednostek
 (własne/wrogie, formy, obiekty i rekordy filmowe), 1485 wpisów broni/akcji;

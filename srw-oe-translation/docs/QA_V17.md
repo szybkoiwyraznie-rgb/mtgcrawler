@@ -1,4 +1,16 @@
-# QA v17 — two DLC activation titles and a terrain label (in progress)
+# QA v17 — delivered kit; runtime confirmation pending
+
+**Delivered 2026-10-17:** [srw-oe-translation-v17.zip](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view),
+7,245,833 bytes, SHA-256 `5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`.
+Drive download-back is byte-identical. Final suite: **1493 passed, 1 skipped,
+382 subtests passed**. Extracted-kit/ISO/map/DLC read-back PASS.
+[Delivery manifest](qa-v17/delivery.json) · [Verification](qa-v17/release-verification.json).
+
+The terrain family and the reproduced nested-DLC deployment defect are addressed
+in the kit. The exact cause of the owner's two remaining v16 titles is **not
+proven**; on-device confirmation remains open. If they persist, run CHECK_DLC.bat
+against the installed folder and return DLC_TITLE_CHECK.json. Preserve saves.
+The investigation checkpoints below are historical, not a request to redo them.
 
 New owner report, 2026-10-17, after the mech catalogue delivery:
 

@@ -526,3 +526,32 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
 **Hypotheses (not run in-game):** a STORED `imenu00.cpk` of 88 232 B (original 34 984 B) loads like the grown
 `config00.cpk` does; "Extra Controls" fits the Reference header (≤ 15 cells before the page number); `Voice: ` +
 a Japanese actor name renders on the card.
+
+## v17 terrain text is in map attr.par, not an EBOOT string or GIM (2026-10-17)
+
+- Original `lmap.cpk`: 271 PAC members, each with the **same 9284-byte attr.par**.
+  Header u32 count145; records64B; name is the first32B (CP932/NUL/zero padding),
+  remaining32B are opaque numeric attributes. 111 nonempty /34 empty names.
+- `宇宙構造物` is record38 at +2436. New short label `Space Str.`. Storage31B is
+  not the screen budget: the writer uses a conservative12-cell ASCII limit.
+- Same-size PAC splice; all headers, numerical attributes and other asset bytes
+  are preserved. Batched CPK reconstruction handles all271 members once. Changed
+  members are STORED; result156174576B vs original81379568B. ISO uses append, so
+  its increase is not just the difference between these two CPK sizes.
+- Independent read-back from an ISO rebuilt by the extracted kit checked all271
+  payloads and30081 name cells. This is not emulator/gameplay confirmation.
+
+## v17 DLC deployment/read-back boundary (2026-10-17)
+
+- The two reported short DLC titles already exist as EN in reproduced v16 config04
+  and imenu04. The two long descriptions still contained their JP copies; v17
+  fills those too, with unchanged non-text prefix and payload/PSN identifiers.
+- Reproduced bug: recursive input discovery + preserving its directory hierarchy
+  can emit `DLC/chapter04/config04.EDAT`, which is not the file the game reads at
+  `NPJH50521/config04.EDAT`. v17 outputs flat filenames, performs case-insensitive
+  discovery and refuses duplicate EDAT/CPK/PBP basenames. The owner's actual layout
+  is not independently confirmed; do not turn this mechanism into an asserted cause.
+- Build-time checks address records by immutable config26/config27 payload/product
+  IDs and inspect actual title/description bytes, not merely package row counts.
+  CHECK_DLC.bat verifies the installed folder read-only. A file PASS cannot tell
+  what resources are already cached in an emulator save state.

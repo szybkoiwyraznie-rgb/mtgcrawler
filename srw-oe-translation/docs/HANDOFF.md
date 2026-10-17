@@ -4,7 +4,27 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
-## Najnowsze przekazanie — 2026-10-17, katalog mechów
+## Najnowsze przekazanie — 2026-10-17, QA v17
+
+[Kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony, 7245833B, read-back Drive identyczny.
+Mapa: 111 nazw w271 kopiach attr.par, cel `Space Str.`, bez zmian liczbowych/geometrii.
+DLC: dwie nazwy już były EN w odtworzonym v16; usunięto też JP z opisów tych rekordów,
+sprawdzono12 pól. Naprawiony **odtworzony** błąd wyniku w podfolderach źródłowych;
+output/DLC jest teraz płaski, duplikaty wejścia są odmową, nie wyborem pierwszej kopii.
+Przyczyna na komputerze właściciela niepotwierdzona. Odpowiedział: pełnyv16, stary
+sejw, większość wcześniejszych nazw EN; nie utożsamiać tego z potwierdzonym save state.
+Jeśli te dwie nazwy zostaną JP: CHECK_DLC.bat -> zainstalowany folder -> JSON do analizy.
+Nie kasować zapisów, normalny sejw można wczytać po zimnym uruchomieniu nowej gry.
+
+1493 testy OK,1 skipped,382 subtests; faktyczny wypakowany kit przetestowany na
+minimalnym fixture ISO z realnymi oryginałami. Nie było pełnego bootu/gameplay.
+Dwa znane broadcasty słownika597/896 rozliczone z faktycznie nieobecnymi ID, nie
+przemilczane jako0refused. Dane/liczniki/dostawa: [QA_V17](QA_V17.md) i `qa-v17/`.
+Lmap156174576B STORED, większeISO zamierzone. Duże wyniki tylko w local/qa-v17/build;
+żadnych binariów/obrazków w Git. Katalog mechów/epizody pozostają wydanymi migawkami;
+test katalogu pobiera jego EN z przypiętego commitu, a nie z nowszej gry.
+
+## Poprzednie przekazanie — 2026-10-17, katalog mechów
 
 Zlecenie katalogu jest **dostarczone**, z jawnymi granicami danych:
 [Markdown i procedura reprodukcji](mech-catalog/README.md), 393 rekordy jednostek /
