@@ -409,8 +409,11 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
 ## `%s` in Skill00 record texts: the byte AFTER `%s` can be the second half of a pool fragment's last glyph (measured 2026-10-15)
 
 * `effect` texts of `srwDL_Skill00.bin` records hold printf-style `%s` (3 563 of them); the engine fills each with a
-  fragment of the 720-entry tail pool (which fragment is engine-side — the record header words 14–18 are numeric
-  parameters, not fragment indices; `srwDL_Skill_Tag.bin` is a label/script-tag table, not an index).
+  fragment of the 720-entry tail pool. **Resolved during the catalogue investigation, 2026-10-17 (§21.63):**
+  the FOUR BYTES at record `+28..+31` are the fragment indices, not the u16 words previously inspected.
+  EBOOT `.text +0xe5afc` loads them with `lbu`, reads the pool pointer table and passes four string arguments
+  to the formatter. `srwDL_Skill_Tag.bin` is still not that index. Base descriptions must also honor the
+  1.08 executable override selector at `.text +0xe5d44`; 20 base descriptions use executable strings.
 * 88 pool fragments end in a dangling lead byte: a `0x0F` kana lead, a `＠` colour lead, or `%`. The byte right after
   `%s` in the record completes it: `%s6` with fragment `｢＠` → `｢＠6` (colour), `%s4` with fragment 150 `ｸﾞﾙｰ<0F>` →
   `ｸﾞﾙｰﾌﾟ`. Numeric contexts (`%s3手前`, `%s1ﾀｰﾝ`, `%s15%%`) are plain numbers.

@@ -67,3 +67,44 @@ Full extracted records are ignored, not committed.
 Still investigating runtime field semantics, description formatting, pilot roles,
 weapon categories, starting/later availability and numerical parameters. A valid
 foreign-key relationship alone is not a complete gameplay interpretation.
+
+## Engine/description checkpoint
+
+Read-only disassembly and memory-only execution of the matching 1.08 executable
+(SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`).
+Addresses below are **relative to PRX .text**, not PSP runtime addresses.
+
+- `0x219a98` consumes weapon +244/+248 as two skills. Lookup `0x217c40` compares
+  Skill00 **alias at +2**, skips signed-negative levels, selects first level 0/1
+  (otherwise lowest available). This is the catalogue's base-level selection rule.
+- Skill update `0x21f0a8` iterates the three native unit references at +118/+120/+122.
+  Pilot update `0x21f838` reads four aliases at +128..134, compares the four bytes
+  +136..139 with pilot level, and uses +140..143 as level-growth intervals. The
+  separate +156 reference is read by the bonus path at `0x21f94c`; Spirits are not
+  these fields. Do not confuse Spirit Power / Fight Spirit skills with Spirit Commands.
+- Weapon +242 is a conditional gate: `0xe9b70` returns true for zero, otherwise
+  tests a game flag (with a mode-dependent -128 remap for IDs >=1024). A zero gate
+  is **not proof of availability from the start of the campaign**. Exact unlock
+  missions are not decoded yet. Weapon +196 has the nonzero-entry predicate at
+  `0xe9b64`; 1274 entries have it, 211 do not (many explicitly named animations).
+- Weapon initial data `0x219a98` reads signed ranges +12/+14, stored power +222,
+  hit modifier +226 and EN +228. The update at `0x21f1e8` starts with +222 and
+  interpolates against +224 before additional modifiers. Catalogue statistics
+  will be stored base values, not a promise of current battle-screen damage.
+- **Description formatting solved:** four **bytes +28..31** index the tail pool.
+  Earlier u16-word interpretations were wrong. The game loads them with `lbu`
+  at `0xe5b84..0xe5bac` and formats four string arguments at `0xe5c34`.
+  Legacy translation pool rows share an ID/offset; match their JP **content** to
+  the actual pool string, not just their repeated ID. All first 256 pool entries
+  have unambiguous English in the existing package.
+- **20 base-level descriptions are overridden by the 1.08 executable**, so the
+  table alone is not authoritative. `mech_catalog_engine.py` executes only the
+  selector `0xe5d44` in Unicorn 2.1.4, with a 100,000-instruction bound. All 254
+  base aliases returned normally. The memory-only English copy accepts 405
+  translation slots with zero skips; `.text` remains byte-identical. Checked
+  offsets/hashes only are in `mech-catalog/engine-map.json`; no game code/text is
+  embedded in the committed map. This is **not** a full gameplay/PPSSPP test.
+
+The group table and incomplete series metadata need separate treatment; neither
+unit +86 nor +88 is a universal series-inheritance key (counterexamples exist).
+The generator/verifier and final Markdown delivery are still in progress.

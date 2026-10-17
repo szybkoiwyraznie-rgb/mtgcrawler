@@ -20,8 +20,8 @@ import speaker_map
 import table_write
 import unit_weapons
 
-PACKAGE_FILES = ("03_skills.jsonl", "04_config_text.jsonl", "07_names_characters.jsonl",
-                 "08_names_units_weapons.jsonl")
+PACKAGE_FILES = ("03_skills.jsonl", "04_config_text.jsonl", "05_mission_text.jsonl",
+                 "07_names_characters.jsonl", "08_names_units_weapons.jsonl", "09_executable.jsonl")
 CONFIG_FILES = ("config00.cpk",) + tuple(f"config{i:02}.EDAT" for i in range(1, 20)) + ("configst.cpk",)
 
 

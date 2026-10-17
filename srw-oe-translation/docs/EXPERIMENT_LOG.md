@@ -6376,3 +6376,27 @@ konsumentów w kodzie, opisów bazowych i dostępności; nie deklarujemy jeszcze
 kompletnego katalogu. Sprawdzono także u16tbl: to wyłącznie konwersja JIS/Unicode,
 nie parametry jednostek. Pobrano oryginalny EBOOT do analizy read-only; Capstone
 5.0.6 zainstalowany w ignorowanym venv, żadnego kodu gry nie publikujemy.
+
+**21.63 — checkpoint czytania silnika:** potwierdzono w kodzie konsumenta klucze
+zdolności broni +244/+248, bazowy wybór rekordu po aliasie +2 i poziomie 0/1,
+trzy referencje jednostki i cztery postaci. Wstępnie rozdzielono pole bramki broni
++242 od parametrów EN/Will oraz wpisy z dodatnim selektorem +196 od animacji.
+Nie nazywamy zerowej bramki dowodem „od początku gry” ani wartości dodatniej
+konkretną misją odblokowania. Szczegóły adresów w `MECH_CATALOG.md`.
+
+Najważniejsze odkrycie: składniki `%s` są indeksowane CZTEREMA BAJTAMI +28..31,
+a nie słowami u16. To rozwiązuje składanie pełnych opisów z istniejącego EN bez
+zgadywania. Pierwsze dopasowanie po offsetach nie znalazło 61 niepustych fragmentów:
+stary eksport ma wiele różnych fragmentów pod tym samym ID/początkiem puli.
+Dopasowanie dokładnej treści JP rozwiązuje wszystkie pierwsze 256 wpisów, bez
+zmian w przekładzie. Skorygowano mylący historyczny punkt TECHNICAL_FINDINGS.
+
+EBOOT 1.08 ma dodatkowo 20 nadpisań **bazowych** opisów (m.in. Beam Weapon,
+Organoid, Instinct, Pierce, Coord. Atk). Nowy śledzony `mech_catalog_engine.py`
+wykonał tylko selektor opisów w Unicorn 2.1.4, w ograniczonej pamięci, na kopii
+EN wyłącznie w RAM: 254/254 wywołania wróciły; 405 slotów tekstowych zaakceptowanych,
+0 odrzuceń, bajty `.text` oryginalne. EBOOT i kontenery na dysku nietknięte.
+Zapisano wyłącznie metadane wskazań/hashów w `docs/mech-catalog/engine-map.json`;
+pełne zrzuty/disassembly pozostają lokalne. Dodano opcjonalny probe MIPS (Capstone
+5.0.6), SHA-256 bramkę wydania i 9 testów syntetycznych; łącznie nowe testy 19/19 PASS.
+To nie jest test całej gry w emulatorze. Finalny katalog jeszcze w toku.
