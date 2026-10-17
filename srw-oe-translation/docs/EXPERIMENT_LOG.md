@@ -6507,3 +6507,21 @@ PR #17 otwarty, gałąź przypisana bez zmian. Tytuły DLC są już EN w pakieci
 w obu polach `DLC_ID04`; teren nie ma pełnego literalnego wpisu w JSONL.
 Przyczyna pozostaje nieustalona — sama obecność EN w pakiecie nie dowodzi, że
 właściwa kopia trafia do gry. Plan i kryteria w `docs/QA_V17.md`.
+
+**21.64 — checkpoint reprodukcji:** pobrano faktycznie dostarczony v16 ZIP;
+SHA-256 zgodny z §21.61, CRC OK, wypakowano 143 pliki. Builder z tego kitu,
+`--dlc google_drive --only config04.EDAT imenu04.EDAT config26.EDAT config27.EDAT
+--no-ui-textures --no-exe`: 4 pliki, 0 problemów. Odczyt rzeczywistych wyjść:
+obie nazwy × dwa pola × config/imenu są EN; DLC_ID04 752→766 B, kopie identyczne.
+Tytuły milstP26/27 również EN. Nie odtworzono JP tytułów ze screenów. Potrzebne
+ustalenie wersji/kopii w grze; nie nazywamy samej reprodukcji naprawą zgłoszenia.
+Hashes i zakres w `docs/qa-v17/v16-reproduction.json`.
+
+Teren: brak pełnego literalnego tekstu w EBOOT/configach, bez dopasowania też w
+system/tacsys/tactics/celldata. Obejrzano arkusz istniejących GIM system/tacsys,
+bez właściwego podpisu. Celldata ma nagłówek TXCL (układ komórek sprite'ów), nie
+tekst terenu. Następny kierunek: pliki map. Jedna próba diagnostyczna błędnie
+wywołała parser PAC na bezpośrednim członie imenu (46 B); przerwana, nic nie zapisano
+w oryginałach. Druga błędnie sprawdzała indeksy jako elementy listy `Record.strings`
+i wypisała None; poprawny odczyt listy potwierdził faktyczne bajty EN. To błędy
+skryptu diagnostycznego, nie błędy buildera.
