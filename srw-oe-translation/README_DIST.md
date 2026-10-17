@@ -2,9 +2,9 @@
 
 Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 
-> **Status:** everything prepared so far ships in English — menus, UI, items, skills,
-> character/robot names, battle quotes and story dialogue (chapters 1–8 DLC + ISO base).
-> Coverage details live in `docs/COVERAGE.md`; the project keeps growing.
+> **v17:** adds map terrain names, flat/unambiguous DLC deployment, and explicit
+> read-back checks for the two reported chapter-4 DLC titles. Visual/gameplay QA
+> continues; see `translation/CO_NOWEGO_v17.txt`. Existing saves must be preserved.
 
 ---
 
@@ -33,16 +33,44 @@ Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
    | File | What to do with it |
    |---|---|
    | `patched.iso` | Open in PPSSPP (File → Load...) |
-   | `DLC\NPJH50521\` | Copy to `memstick\PSP\GAME\NPJH50521\` |
+   | `DLC\` | Copy the **files inside** directly into the existing `memstick\PSP\GAME\NPJH50521\` folder |
    | `build_report.json` | Technical details (not needed for playing) |
 
-4. **Play!** Load `patched.iso` in PPSSPP.
+4. **Keep backups and existing saves.** Build from the original Japanese ISO and
+   decrypted DLC, not a previous patched ISO or a mixture of original/old outputs.
+   Overlay the flat files from `output\DLC\` onto the existing complete installed
+   DLC folder. Do not nest an extra `DLC`, chapter or `NPJH50521` folder inside it,
+   and do not delete untouched original DLC/audio files.
+
+5. **Cold-start the game** using the new `patched.iso`, then load a normal in-game
+   save. An old emulator save state can retain old resources in RAM. There is no
+   need to delete saves. Previously claimed DLC bonuses may not pop up again.
+
+### If the two DLC names still appear Japanese
+
+Run **CHECK_DLC.bat**, select the **installed** NPJH50521 folder actually used by
+PPSSPP (not the original backup or patcher's output), and send `DLC_TITLE_CHECK.json`.
+This is read-only: no game/save files are changed. It reports the actual title
+fields, matching descriptions, hashes, missing files and duplicate backup copies.
+A file PASS verifies disk bytes, not the contents of an old emulator save state.
+
+### Terrain labels and output size
+
+The missing `宇宙構造物` label is now **Space Str.** (Space Structure). The same
+terrain-name table exists in 271 map archives; v17 handles all copies and all 111
+nonempty names. Only fixed-size name cells change; numeric attributes, geometry
+and texture bytes are preserved. Map members use the established STORED CPK path,
+so rebuilt `lmap.cpk` is about **156 MB** instead of 81 MB. The ISO packer appends
+changed members rather than reclaiming old sectors, so the output ISO grows too.
+Allow at least **3 GB free workspace** (recommended; the exact requirement depends
+on the selected game/DLC and backups). This larger file is expected, not an error.
 
 ## Folder structure after unzip
 
 ```
 SRW-OE-Patch/
 ├── PATCH.bat              ← double-click this
+├── CHECK_DLC.bat          ← read-only installed-file check
 ├── README.md              ← this file
 ├── translation/           ← translation data (JSONL files, glossary)
 │   ├── 00_dialogue.jsonl
@@ -68,7 +96,9 @@ SRW-OE-Patch/
 **Build fails** — Read the error message. Most common causes:
 - ISO is not `SRW OE 1.08` (different version)
 - DLC files are encrypted (need to be decrypted first)
-- Not enough disk space (~500 MB free recommended)
+- Not enough disk space (at least 3 GB free workspace recommended)
+- Duplicate .EDAT/.CPK/.PBP filenames in backup/decryption subfolders; select a
+  clean input folder. v17 refuses ambiguous copies instead of silently choosing one.
 
 **Game crashes after patching** — Report the issue. Include `build_report.json`.
 

@@ -10,8 +10,10 @@ This is the tool ``HOKUS_POKUS.bat`` calls.  It takes
   optionally with the filled ``sceny/`` and ``widoki/`` views next to it - they are imported
   first, exactly like :mod:`translation_import` + :mod:`translation_copy` do by hand),
 
-and writes ``out/patched.iso`` plus ``out/DLC/<the same relative paths>`` - only the files that
-actually changed.  Nothing of the user's is modified in place: the ISO is read member by member
+and writes ``out/patched.iso`` plus ``out/DLC/<container filename>`` - only the files that
+actually changed. DLC output is flat, ready to copy directly into NPJH50521 even when the
+selected input has chapter/decryption subfolders. Ambiguous duplicate container names are
+refused, not silently resolved to the first backup.  Nothing of the user's is modified in place: the ISO is read member by member
 (:func:`iso_pack.read_member`) and the patched copy gets the changed members appended
 (:func:`iso_pack.patch_iso`); the DLC files are read, never written.
 
@@ -72,7 +74,7 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-16b: conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-17-v17: map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
                "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
                "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "
@@ -92,6 +94,8 @@ import slot_apply as SLA             # noqa: E402
 import sysmes_pack as SMSP           # noqa: E402
 import table_write as TW             # noqa: E402
 import ui_texture_patch as UTP       # noqa: E402
+import terrain_names as TERRAIN      # noqa: E402
+import check_dlc_titles as DLC_TITLES # noqa: E402
 
 PACKAGE_FILES = (
     "00_dialogue.jsonl",
@@ -103,6 +107,7 @@ PACKAGE_FILES = (
     "07_names_characters.jsonl",
     "08_names_units_weapons.jsonl",
     "09_executable.jsonl",
+    "10_map_terrain.jsonl",
 )
 
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
@@ -194,6 +199,8 @@ def owner(row: dict) -> str:
     category = row.get("category") or ""
     if category in SKIP_CATEGORIES:
         return "skip"
+    if category == TERRAIN.CATEGORY:
+        return "terrain"        # the large map archive has a separate single-pass path
     if category == EXE.CATEGORY:
         return "exe"            # the executable's own strings: exe_step, never a container
     source = row.get("source") or {}
@@ -248,10 +255,19 @@ class ContainerStore:
         self.dlc = dlc
         self._iso_keys: Dict[str, Tuple[str, int, int]] = {}
         self._dlc_paths: Dict[str, Path] = {}
+        self._dlc_fold: Dict[str, Path] = {}
         if dlc is not None:
             for path in sorted(dlc.rglob("*")):
-                if path.is_file():
-                    self._dlc_paths.setdefault(path.name, path)
+                if not path.is_file():
+                    continue
+                folded = path.name.casefold()
+                previous = self._dlc_fold.get(folded)
+                if previous is not None and path.suffix.lower() in (".edat", ".cpk", ".pbp"):
+                    a, b = previous.relative_to(dlc), path.relative_to(dlc)
+                    raise BuildError(f"ambiguous DLC filename {path.name}: {a} / {b}; "
+                                     "select a clean decrypted-input folder, without duplicate backups")
+                self._dlc_paths.setdefault(path.name, path)
+                self._dlc_fold.setdefault(folded, path)
 
     def locations(self, name: str) -> List[str]:
         out = []
@@ -261,7 +277,7 @@ class ContainerStore:
                 out.append("iso")
             except ValueError:
                 pass
-        if name in self._dlc_paths:
+        if name.casefold() in self._dlc_fold:
             out.append("dlc")
         return out
 
@@ -269,16 +285,21 @@ class ContainerStore:
         if where == "iso":
             key, lba, size = self._iso_keys[name]
             return iso_pack.read_member(self.iso, key.split(";")[0].strip("/"))
-        return self._dlc_paths[name].read_bytes()
+        return self._dlc_fold[name.casefold()].read_bytes()
 
     def dlc_path(self, name: str) -> Optional[Path]:
-        return self._dlc_paths.get(name)
+        return self._dlc_fold.get(name.casefold())
 
     def dlc_relpath(self, name: str) -> Optional[str]:
-        path = self._dlc_paths.get(name)
+        """Deployment path: game files are flat inside NPJH50521, not under input backups."""
+        path = self.dlc_path(name)
         if path is None or self.dlc is None:
             return None
-        return str(path.relative_to(self.dlc))
+        return Path(name).name
+
+    def dlc_source_relpath(self, name: str) -> Optional[str]:
+        path = self.dlc_path(name)
+        return str(path.relative_to(self.dlc)) if path is not None and self.dlc is not None else None
 
     def iso_key(self, name: str) -> Optional[str]:
         found = self._iso_keys.get(name)
@@ -288,10 +309,11 @@ class ContainerStore:
                    ) -> Dict[str, bytes]:
         """Every plausible container file not already loaded, name -> bytes."""
         pattern = _PLAUSIBLE
+        existing_folded = {name.casefold() for name in existing}
         out: Dict[str, bytes] = {}
         if self.dlc is not None:
             for name, path in self._dlc_paths.items():
-                if name in existing or name in out:
+                if name.casefold() in existing_folded or name.casefold() in {n.casefold() for n in out}:
                     continue
                 try:
                     if path.stat().st_size > limit:
@@ -314,7 +336,7 @@ class ContainerStore:
                 if is_dir or size > limit or "usrdir" not in key.lower():
                     continue
                 base = key.split(";")[0].split("/")[-1]
-                if base in existing or base in out:
+                if base.casefold() in existing_folded or base.casefold() in {n.casefold() for n in out}:
                     continue
                 if not (base.lower().endswith((".cpk", ".edat")) or pattern.search(base)):
                     continue
@@ -907,16 +929,36 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     filled_rows = [r for r in filled_rows if not identity(r)]
     exe_rows = [r for r in filled_rows if owner(r) == "exe"]
     filled_rows = [r for r in filled_rows if owner(r) != "exe"]
+    terrain_rows = [r for r in filled_rows if owner(r) == "terrain"]
+    filled_rows = [r for r in filled_rows if owner(r) != "terrain"]
+    dlc_expected = DLC_TITLES.expectations(filled_rows)
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
                     "identity_rows": identity_rows, "tools": TOOLS_STAMP,
                     "containers": [], "problems": [], "dry_run": dry_run,
                     "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
                     "only": list(only), "skip": list(skip), "written": []}
 
-    store = ContainerStore(iso, dlc)
+    try:
+        store = ContainerStore(iso, dlc)
+    except BuildError as exc:
+        report["problems"].append(f"DLC inputs: NOT written: {exc}")
+        target = work if dry_run else out
+        target.mkdir(parents=True, exist_ok=True)
+        report_path = target / "build_report.json"
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        report["report_path"] = str(report_path)
+        return report
+    report["dlc_output_layout"] = "flat filenames; copy files directly into memstick/PSP/GAME/NPJH50521"
     names = sorted({(r.get("source") or {}).get("container")
                     for r in filled_rows if (r.get("source") or {}).get("container")})
     names = [n for n in names if container_selected(n, only, skip)]
+    if dlc_expected:
+        # Do not make activation-title mirroring depend on unrelated containerless
+        # character/robot rows happening to be present in the selected package.
+        for target in DLC_TITLES.FILES:
+            if target not in names and container_selected(target, only, skip) and store.locations(target):
+                names.append(target)
+        names.sort()
     blobs: Dict[str, bytes] = {}
     for name in names:
         where = store.locations(name)
@@ -938,7 +980,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     iso_patch: Dict[str, bytes] = {}
     for name in sorted(blobs):
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
-        if not mine:
+        reported_dlc = name.casefold() in {n.casefold() for n in DLC_TITLES.FILES} and bool(dlc_expected)
+        if not mine and not reported_dlc:
             continue
         if DLC_CONFIG_RE.match(name):
             spare_count = sum(1 for r in mine if config_side_spare_row(r))
@@ -950,6 +993,19 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
+            if reported_dlc:
+                # A successful writer count is not proof that the reported titles
+                # reached the output. Check actual fields by immutable payload IDs.
+                check_path = builder.work / "qa-final" / name
+                check_path.parent.mkdir(parents=True, exist_ok=True)
+                check_path.write_bytes(final)
+                try:
+                    result = DLC_TITLES.inspect_container(check_path, dlc_expected)
+                finally:
+                    check_path.unlink(missing_ok=True)
+                builder.report["dlc_title_check"] = result
+                if not result["passed"]:
+                    raise BuildError("reported DLC activation fields did not read back as package English")
         except ISW.SizeBudgetError as exc:
             # a member over its in-game size budget: nothing of this container is written -
             # shipping the rest with that member left Japanese would hide the problem
@@ -977,10 +1033,14 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                     target.parent.mkdir(parents=True, exist_ok=True)
                     target.write_bytes(final)
                     report["written"].append(str(target))
+                    report.setdefault("dlc_source_paths", {})[name] = store.dlc_source_relpath(name)
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
 
     skill_total_check(report, blobs, iso_patch, out, dry_run, store)
+
+    if terrain_rows:
+        terrain_step(report, store, terrain_rows, out, work, iso_patch, only, skip, dry_run)
 
     if iso is not None and ui_textures:
         ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
@@ -1003,6 +1063,61 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     report["report_path"] = str(report_path)
     return report
+
+
+
+def terrain_step(report: dict, store: ContainerStore, rows: List[dict], out: Path,
+                 work: Path, iso_patch: Dict[str, bytes], only: Sequence[str],
+                 skip: Sequence[str], dry_run: bool) -> None:
+    """Keep the 81 MB map archive out of generic dictionary discovery/mirroring.
+
+    Apply once per physical input location; never substitute the ISO's bytes for
+    a different DLC-side file with the same name. Inputs are only read.
+    """
+    name = TERRAIN.CONTAINER
+    result = {"rows": len(rows), "targets": [], "problems": []}
+    report["terrain"] = result
+    if not container_selected(name, only, skip):
+        result["status"] = "filtered"
+        return
+    locations = store.locations(name)
+    if not locations:
+        message = f"{name}: not found in the ISO or DLC folder (terrain names)"
+        result["problems"].append(message)
+        report["problems"].append(message)
+        return
+    for where in locations:
+        folder = work / "terrain" / where
+        folder.mkdir(parents=True, exist_ok=True)
+        src, dst = folder / name, folder / ("patched-" + name)
+        try:
+            src.write_bytes(store.read(name, where))
+            details = TERRAIN.apply_container(src, dst, rows, dry_run=dry_run)
+            result["targets"].append({"location": where, **details})
+            if dry_run:
+                continue
+            if where == "iso":
+                key = store.iso_key(name)
+                if key is None:
+                    raise BuildError("terrain ISO member key missing")
+                iso_patch[key] = dst.read_bytes()
+            else:
+                rel = store.dlc_relpath(name)
+                if rel is None:
+                    raise BuildError("terrain DLC relative path missing")
+                target = out / "DLC" / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(dst, target)
+                report["written"].append(str(target))
+        except Exception as exc:
+            message = f"{name}: NOT written: terrain name verification: {exc}"
+            result["problems"].append(message)
+            report["problems"].append(message)
+        finally:
+            # No proprietary map copies are retained among the tool files.
+            src.unlink(missing_ok=True)
+            dst.unlink(missing_ok=True)
+    result["status"] = "failed" if result["problems"] else "verified"
 
 
 EXE_ISO_MEMBER = "PSP_GAME/SYSDIR/EBOOT.BIN"      # what the emulator / console boots from the disc
@@ -1406,6 +1521,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(f"  uwaga: {note}")
         if not exe.get("targets"):
             print(f"Program gry: {'; '.join(exe.get('problems') or ['nic do zrobienia'])}")
+    terrain = report.get("terrain") or {}
+    for target in terrain.get("targets", []):
+        print(f"Nazwy terenu [{target['location']}]: {target['copies']} map, "
+              f"{target['applied']} komórek; {target['original_bytes']} -> {target['new_bytes']} B")
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")

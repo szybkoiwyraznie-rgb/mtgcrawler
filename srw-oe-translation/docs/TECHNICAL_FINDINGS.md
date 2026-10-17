@@ -409,8 +409,11 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
 ## `%s` in Skill00 record texts: the byte AFTER `%s` can be the second half of a pool fragment's last glyph (measured 2026-10-15)
 
 * `effect` texts of `srwDL_Skill00.bin` records hold printf-style `%s` (3 563 of them); the engine fills each with a
-  fragment of the 720-entry tail pool (which fragment is engine-side — the record header words 14–18 are numeric
-  parameters, not fragment indices; `srwDL_Skill_Tag.bin` is a label/script-tag table, not an index).
+  fragment of the 720-entry tail pool. **Resolved during the catalogue investigation, 2026-10-17 (§21.63):**
+  the FOUR BYTES at record `+28..+31` are the fragment indices, not the u16 words previously inspected.
+  EBOOT `.text +0xe5afc` loads them with `lbu`, reads the pool pointer table and passes four string arguments
+  to the formatter. `srwDL_Skill_Tag.bin` is still not that index. Base descriptions must also honor the
+  1.08 executable override selector at `.text +0xe5d44`; 20 base descriptions use executable strings.
 * 88 pool fragments end in a dangling lead byte: a `0x0F` kana lead, a `＠` colour lead, or `%`. The byte right after
   `%s` in the record completes it: `%s6` with fragment `｢＠` → `｢＠6` (colour), `%s4` with fragment 150 `ｸﾞﾙｰ<0F>` →
   `ｸﾞﾙｰﾌﾟ`. Numeric contexts (`%s3手前`, `%s1ﾀｰﾝ`, `%s15%%`) are plain numbers.
@@ -523,3 +526,32 @@ end, length − offset, next offset: 0 hits) — unlike convention B's `+32`/`+3
 **Hypotheses (not run in-game):** a STORED `imenu00.cpk` of 88 232 B (original 34 984 B) loads like the grown
 `config00.cpk` does; "Extra Controls" fits the Reference header (≤ 15 cells before the page number); `Voice: ` +
 a Japanese actor name renders on the card.
+
+## v17 terrain text is in map attr.par, not an EBOOT string or GIM (2026-10-17)
+
+- Original `lmap.cpk`: 271 PAC members, each with the **same 9284-byte attr.par**.
+  Header u32 count145; records64B; name is the first32B (CP932/NUL/zero padding),
+  remaining32B are opaque numeric attributes. 111 nonempty /34 empty names.
+- `宇宙構造物` is record38 at +2436. New short label `Space Str.`. Storage31B is
+  not the screen budget: the writer uses a conservative12-cell ASCII limit.
+- Same-size PAC splice; all headers, numerical attributes and other asset bytes
+  are preserved. Batched CPK reconstruction handles all271 members once. Changed
+  members are STORED; result156174576B vs original81379568B. ISO uses append, so
+  its increase is not just the difference between these two CPK sizes.
+- Independent read-back from an ISO rebuilt by the extracted kit checked all271
+  payloads and30081 name cells. This is not emulator/gameplay confirmation.
+
+## v17 DLC deployment/read-back boundary (2026-10-17)
+
+- The two reported short DLC titles already exist as EN in reproduced v16 config04
+  and imenu04. The two long descriptions still contained their JP copies; v17
+  fills those too, with unchanged non-text prefix and payload/PSN identifiers.
+- Reproduced bug: recursive input discovery + preserving its directory hierarchy
+  can emit `DLC/chapter04/config04.EDAT`, which is not the file the game reads at
+  `NPJH50521/config04.EDAT`. v17 outputs flat filenames, performs case-insensitive
+  discovery and refuses duplicate EDAT/CPK/PBP basenames. The owner's actual layout
+  is not independently confirmed; do not turn this mechanism into an asserted cause.
+- Build-time checks address records by immutable config26/config27 payload/product
+  IDs and inspect actual title/description bytes, not merely package row counts.
+  CHECK_DLC.bat verifies the installed folder read-only. A file PASS cannot tell
+  what resources are already cached in an emulator save state.

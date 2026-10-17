@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "status": "delivered; offline verified; gameplay confirmation pending",
+  "kit_source_commit": "fd8e9410355eb667d828ab8f599b2a21e65da8f7",
+  "verification_code_commit": "c1ac9e12309293ff5eb7890f716b4fb08da50e74",
+  "pull_request": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/pull/17",
+  "artifact": {
+    "name": "srw-oe-translation-v17.zip",
+    "bytes": 7245833,
+    "sha256": "5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937",
+    "md5": "3089509c1e1f4741dcf2a14f981b4bae",
+    "drive_id": "1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw",
+    "drive_url": "https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view",
+    "drive_parent_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "drive_readback_byte_identical": true,
+    "files": 148,
+    "tools": 38,
+    "translation_files": 31,
+    "translator_docs": 47,
+    "game_files_in_zip": false
+  },
+  "terrain": {
+    "copies": 271,
+    "name_cells": 30081,
+    "all_numeric_and_non_name_bytes_unchanged": true,
+    "output_bytes": 156174576,
+    "output_sha256": "88e943c091c113a564312ca87a640b8df5edeb43d75d11c69a6c45f1518b2694"
+  },
+  "dlc": {
+    "title_records": 2,
+    "title_slots_per_record": 2,
+    "description_slots_per_record": 1,
+    "container_copies": 2,
+    "checked_english_fields": 12,
+    "reported_jp_title_occurrences": 0,
+    "non_text_prefix_and_payload_psn_strings_unchanged": true,
+    "v16_titles_already_english_on_provided_originals": true,
+    "nested_deployment_defect_reproduced": true,
+    "owners_actual_folder_layout_confirmed": false,
+    "flat_output": true,
+    "duplicate_source_names_refused": true,
+    "read_only_installed_checker": "CHECK_DLC.bat"
+  },
+  "tests": {
+    "python": "3.11.2",
+    "pytest": "9.1.1",
+    "passed": 1493,
+    "skipped": 1,
+    "subtests_passed": 382,
+    "seconds": 45.55,
+    "new_tests_this_task": 55,
+    "package_rows": 109144,
+    "package_errors": 0,
+    "package_warnings": 3394,
+    "package_empty_rows": 149,
+    "extracted_kit_validation": "PASS",
+    "minimal_iso_fixture_only": true,
+    "all_original_inputs_unchanged": true,
+    "eboot_text_unchanged": true
+  },
+  "validated_legacy_broadcast_notes": [
+    {
+      "container": "config04.EDAT",
+      "member": "srw_DL_RoboDictionary04.bin",
+      "count": 597,
+      "classification": "global broadcast IDs absent from this chapter; not failed target writes"
+    },
+    {
+      "container": "imenu04.EDAT",
+      "member": "srw_DL_RoboDictionary04.bin",
+      "count": 896,
+      "classification": "global broadcast IDs absent from this chapter; not failed target writes"
+    }
+  ],
+  "verification_report": "release-verification.json",
+  "verification_report_sha256": "1667a7f49a82871e5573b7866cfb6a06eea25905bad020a218b023bba93519c5",
+  "tool_sha256": {
+    "build_translation_patch.py": "8e48ac26401252e156657e6b69e01f4fd4efd4107f52c7b74abf2eb3887bb115",
+    "cpk_write.py": "da588cf9e641663496d7217056a69917c6058d5ca1d113ab54f604f97aaae559",
+    "terrain_names.py": "e5de69276a888d170421232bb33357967bc868113d96c22d1f150f23d7ef5967",
+    "check_dlc_titles.py": "3429f2fcf5863d6a8e82394ed300626c6d8b75ab202c79dc75ac7b88a54b60d0",
+    "verify_qa_v17_release.py": "7e65bfe598751d05ecc70b5167c5df4e09dceaf9ba2c3c633d725eff0984d787",
+    "translation_check.py": "94c43fc73ccc295b054388525babfab41fd00d51435dd1f7e121f5ef884a551f",
+    "build_distribution.py": "b28383038c4184ca33c50d04d0a5ec523ff4ecc97445c2212b742f05e095da5b"
+  },
+  "limits": [
+    "No full-game PPSSPP/PSP boot or screenshot confirmation was performed.",
+    "The two short DLC titles were already English in the reproduced delivered v16 kit. The exact cause on the owner installation is not established.",
+    "The nested-input deployment defect was reproduced on a controlled input, not inferred to be the owner exact folder layout.",
+    "A normal in-game save is not a confirmed emulator save state; do not delete saves. A file check does not inspect emulator RAM.",
+    "The map archive grows to 156174576 bytes with STORED members, and the ISO append strategy grows the ISO too.",
+    "Inherited dictionary out-of-keyspace broadcasts (597/896) are explicitly reconciled; they are not claimed to be zero refusals.",
+    "The delivered mech catalogue and reading episodes remain unchanged; their source snapshots are historical."
+  ]
+}

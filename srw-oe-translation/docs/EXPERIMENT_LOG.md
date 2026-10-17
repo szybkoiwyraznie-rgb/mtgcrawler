@@ -6068,3 +6068,657 @@ ery probe'owej z 10.10: `registry.json` (2.8 MB — rejestr wywołań YACpkTool)
 przescanowana: jedyne duże pliki = pakiet (decyzja usera §21.58) + dokumentacja;
 `test-patches/eventP00-scena1.json` zostaje (żywe odwołania: PATCH_ISO_TEST.bat,
 iso_test_patch.py, build_test_spec.py, dokumentacja).
+
+
+### 21.61 QA misji 0-1: imię gracza, wąskie etykiety, nazwy DLC i karta Basic Training — kit v16 (2026-10-17)
+
+**Nowe zgłoszenie użytkownika po PATCH15:** Himari pokazuje dosłownie znacznik imienia,
+Foe/Oth nachodzą na liczniki, Post-Mv na ikonę, nazwy dodatków pozostają JP.
+To nowe poprawki po zakończonym handoffie, nie wznowienie historycznego backlogu.
+
+**Materiały i diagnoza [ZWERYFIKOWANE offline]:**
+- Trzy załączone PNG oraz `scr.rar` z folderu projektu na Drive: 22 JPEG (Clipboard-4,
+  Clipboard-8–28). Archiwum zawiera 21 komunikatów aktywacji DLC i kartę tytułową
+  `初等訓練`, a nie nazwy ekwipunku. Kopie obrazów i plików gry wyłącznie w ignorowanych
+  katalogach; oryginałów na Drive nie zmieniono.
+- Edycja źródłowa: NPJH50521, JP 1.08. EBOOT to jawny ELF, 5 531 024 B,
+  MD5 `8ba77a79e7d46473671cb87e77553deb`; PBOOT 6 194 059 B,
+  MD5 `22daece3b6fccc4363dd76ed6a7ec2fb`. Wszystkie 408 wierszy exe pasują do źródłowego ELF.
+- Dialog Himari `dlg:eventP00.cpk/DL100_01.bin:2872` poprawnie zachowuje `＜主人公名＞`,
+  lecz 09_executable zamieniał cztery klucze (nazwisko/imię/pseudonim/pełne imię)
+  przy `0x08bf9f70/80/90/a0` na angielskie etykiety. Niespójność jest w programie,
+  nie w imieniu wpisanym przez gracza. Przywrócono `en := jp`, bez hardkodowania Seishiro.
+  `exe_strings.ENGINE_LITERALS` chroni te klucze oraz tablicę interpunkcji z §21.54–55:
+  eksport zachowuje oryginał, checker/pisarz/CWCheat odmawiają jego tłumaczenia.
+  Faktyczne podstawienie imienia w PPSSPP pozostaje do potwierdzenia.
+- Status: `0x08bf7190` Foe → `F.`, `0x08bf7194` Oth → `O.`; panel broni:
+  `0x08bf8598` Post-Mv → `P-Mv`. Oddzielne, konserwatywne limity ekranowe 2/2/4
+  komórki półszerokie w `exe_strings.check_en` (zapas bajtów ≠ miejsce w UI).
+  Inne wystąpienia Foe pozostają bez zmian; dopasowanie wizualne wymaga testu w grze.
+- 21 rekordów `srwDL_DLC_ID01–07.bin` miało puste EN po historycznym wyłączeniu katalogu
+  w bisekcji Loading (§21.39). Przywrócono **tylko sloty nazw 0 i 1**: 42 wiersze 04,
+  z zachowaniem `copy_of`. Nazwy misji spójne z istniejącymi tłumaczeniami 05; rozdziały
+  2–8, Cybuster oraz Tactical Simulator Alpha/Beta. Mirroring przenosi je także do
+  imenu01–07: razem **84 przetłumaczone pola nazw**. Sloty 2–7 (w tym opisy/ID PSN),
+  ceny, flagi i bramki słowników pozostają bez zmian.
+- Basic Training istniało w `milstP00.bin` (lista misji), ale nie miało wiersza dla
+  `eventP00.cpk/DL100_01_ext.dat:+344` (karta wejścia). Dodano ten wiersz do 05,
+  limit 39 B + NUL w 40-bajtowym polu; dwa u16 przy +384/+386 zachowane.
+
+**Porównanie z baseline z bieżącego repo, nie z nieznanym ISO użytkownika:**
+- Rebuild bazowy i poprawiony na tych samych oryginałach: 15 fizycznych kontenerów,
+  0 problemów. CPK/PAC/pule sprawdzane istniejącymi bramkami round-trip/read-back.
+- config01–07: zmienia się WYŁĄCZNIE DLC_IDNN; rozmiary bez zmian względem baseline
+  i oryginałów: 247 936 / 157 824 / 118 912 / 108 672 / 110 720 / 75 904 / 73 856 B.
+- imenu01–07: także wyłącznie DLC_IDNN, katalog bajt w bajt identyczny z kopią config.
+  Ze względu na przejście zmienionych członów na STORED rozmiary rosną: imenu01 +4096 B,
+  imenu02–06 +2048 B, imenu07 bez zmian. Nie twierdzimy, że wszystkie pliki są tej
+  samej wielkości. Dotychczasowa bramka słowników nie jest poluzowana.
+- eventP00: jedyny zmieniony człon względem baseline to DL100_01_ext.dat (388 B,
+  różnice tylko +344..+383). CPK 260 568 → 262 616 B (STORED zmienionego członu).
+  Wszystkie dialogi, komendy i pozostałe człony są identyczne z baseline.
+- EBOOT: nadal 5 531 024 B, tylko 7 pól / 74 różne bajty względem baseline;
+  sekcja `.text` byte-identical z oryginałem. Wynik MD5 `dabec6391ecb88d5585bffd047da9a1c`,
+  SHA-256 `3ecea0e6a7aac3991fd36352896b3258141e981cb76874fb30caa800f5e51f5d`.
+
+**Narzędzia i komendy:** Python 3.11.2; Pillow 13.0.0; pytest 9.1.1;
+pytest-subtests 0.15.0; Node v22.22.3; node-unrar-js 2.0.2 (tylko lokalne rozpakowanie
+RAR, nie zależność patchera). `$PY` oznacza `local/.venv/bin/python`, cwd = srw-oe-translation.
+
+```sh
+$PY -m pytest tests -q
+$PY tools/translation_check.py --package pakiet_EN --strict --out local/qa-20261017/package-check.txt
+$PY tools/build_distribution.py --out local/qa-20261017/release
+# Następnie builder Z WYPAKOWANEGO ZIP-a, nie z checkoutu:
+$PY local/qa-20261017/unpacked-kit/tools/build_translation_patch.py \
+  --iso local/qa-20261017/validation-input.iso \
+  --dlc local/qa-20261017/validation-dlc \
+  --package local/qa-20261017/unpacked-kit/translation \
+  --out local/qa-20261017/kit-build-clean \
+  --only 'config0[1-7].EDAT' 'imenu0[1-7].EDAT' eventP00.cpk EBOOT.BIN PBOOT.PBP \
+  --no-ui-textures
+```
+
+- Suite: **1322 passed, 1 skipped, 382 subtests passed** (15,28 s).
+  Nowy `test_mission01_feedback.py`: blokada tłumaczenia stałych (eksport/check/apply/cheat),
+  limity ekranowe, wszystkie 42 wiersze nazw i ich `copy_of`, syntetyczna przebudowa obu
+  pól katalogu bez zmiany ID/flag/opisów, osobne cele listy misji i karty tytułowej.
+- Kontrola pakietu: 109 033 wiersze tekstowe, 0 błędów, 3396 uwag (zastane ostrzeżenia
+  długości/puste pola w pozostałej części pakietu nie są nowym zakresem tej poprawki).
+- Test wypakowanego kitu: syntetyczne małe ISO zawierające rzeczywiste oryginalne EBOOT
+  i eventP00 + rzeczywiste DLC; NIE pełne ISO i NIE boot w emulatorze. 397/397 zmian exe
+  w obu celach (EBOOT oraz PBOOT; 4 przywrócone klucze to teraz identity, nie edycje),
+  0 odrzuceń, 0 problemów; odczyt EBOOT/eventP00 z wynikowego ISO oraz 14 EDAT równy
+  niezależnemu buildowi. Oba wynikowe ELF identyczne; cheatów domyślnie brak.
+- Pierwsze nieudane próby diagnostyczne (bez zmiany plików wejściowych): wywołanie
+  `cpk_write.rebuild(c, {})` używało złej sygnatury (poprawnie `rebuild(c)`); pierwszy
+  test pakietu zwinął różne wiersze U+3000 do jednego klucza JP (149 passed / 1 failed,
+  poprawiony przez adresowanie tablicy po vaddr, reszta pustych pól pozostaje nietknięta);
+  asercja liczby raportów buildera oczekiwała 15, ale są 16 z aliasem wielkości liter
+  eventP00/eventp00. Sprawdzono 15 fizycznych celów po normalizacji nazw i ich bajty;
+  nie zmieniano w tej turze istniejącego routingu buildera.
+
+**Wydanie:** `srw-oe-translation-v16.zip` — kompletny kit, bez plików gry; 143 pliki
+(36 narzędzi, 29 plików pakietu, 47 dokumentów tłumacza, launcher/README/fonty/specy UI).
+ZIP CRC oraz brak ISO/EDAT/CPK/BIN/PBP sprawdzone. Upload na Drive do istniejącego folderu
+projektu, bez nadpisywania starszych wydań i bez zmiany uprawnień:
+`1AHsLPKWTTnEh7G7Sovsld7kfqQalDet-`. Rozmiar i MD5 z odpowiedzi uploadu zgodne z plikiem lokalnym.
+
+**Do potwierdzenia przez użytkownika:** świeży build z oryginałów, zimny start gry (nie
+stary save state): podstawienie wybranego imienia, odstępy przy licznikach/ikonie,
+Basic Training oraz nazwy DLC. Nie kasować sejwów; odebrane już bonusy DLC nie muszą
+wyświetlić powiadomień ponownie. Instrukcja w CO_NOWEGO_v16.txt. Nie deklarujemy testu
+w PPSSPP ani na PSP. Poprzednie wydania i oryginały zachowane jako rollback.
+
+**Sumy kontrolne tej sesji:**
+
+- `scr.rar`: 3,722,370 B; SHA-256 `6b047d964623ea1359676ce6d6a83f01db12a6b3b6c4531a124f49025572ca2d`.
+- kit v16: 7,229,500 B; MD5 `b4e98e7b37678aeb590f8f30a2ad73a2`; SHA-256 `f648c21803640b5498bedaec2d5d83ef1f4e5e2bf7cc47e39c5e99a47009872a`.
+
+Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
+
+| Plik | Bajty | SHA-256 |
+|---|---:|---|
+| `config01.EDAT` | 247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
+| `config02.EDAT` | 157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
+| `config03.EDAT` | 118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
+| `config04.EDAT` | 108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
+| `config05.EDAT` | 110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
+| `config06.EDAT` | 75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
+| `config07.EDAT` | 73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
+| `imenu01.EDAT` | 24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
+| `imenu02.EDAT` | 20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
+| `imenu03.EDAT` | 18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
+| `imenu04.EDAT` | 20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
+| `imenu05.EDAT` | 18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
+| `imenu06.EDAT` | 18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
+| `imenu07.EDAT` | 18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
+| `eventP00.cpk` | 162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
+| `EBOOT.BIN` | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
+
+
+### 21.62 Odzyskanie pracy poprzedniego agenta i finał czytelniczy 34 — checkpoint (2026-10-17)
+
+- Wymóg właściciela: PR od początku sesji i commit + push po każdym spójnym fragmencie,
+  także nieukończonego epizodu. Zapisany w obu AGENTS.md; stare polecenia wskazujące
+  inną gałąź usunięte z sekcji workflow HANDOFF. PR #17, pierwszy checkpoint `250f6a5`
+  z v16 i regułą wypchnięty; hash lokalny = remote = PR head.
+- Patch Drive `01a14994-bba4-7d88-9b91-7a659ed35a4d.patch`: 62 658 B,
+  SHA-256 `b50bde42559f9a44aa1ab821543aefd2509ee8eb6e6985a56cf8a712a99b162d`,
+  MD5 `fd050883743001d000bb8510e27ca901`. Archiwum oryginalnych bajtów:
+  `docs/recovered/01a14994-bba4-7d88-9b91-7a659ed35a4d.patch`.
+- `git apply --stat/--numstat`: tylko 918 dodanych linii EXPERIMENT_LOG.md.
+  **Patch nie zawiera generatora, planów, weryfikatorów ani gotowych epizodów.**
+  `git apply --check` odmawia z powodu równoległego dopisania §21.61 (QA v16).
+  Żadnej historii nie nadpisano: pełny odzyskany dopisek zapisany czytelnie w
+  `docs/READING_SCRIPT_HISTORY.md`, z oryginalną numeracją w osobnym dokumencie.
+- Drive „English reading script”: 40 plików, 00–33 i sześć ZIP-ów, brak 34;
+  wyszukiwanie nazw generatorów nie zwróciło ich kopii. Epizod 33 pobrany jako wzór
+  układu; wcześniejsze dostawy pozostają bez zmian. Dawne twierdzenia PASS są
+  relacją poprzedniego agenta, nie odtworzonymi obecnie testami.
+- Finał 34: według odzyskanego dziennika siedem scen i 7471 niepustych wpisów,
+  różniące się zakończenia i kopia jednej z późniejszych wersji. W toku: niezależne
+  rozliczenie obecnych źródeł, odtworzenie generatora/weryfikatora w śledzonym tools/,
+  zachowanie końcowych wypowiedzi oraz wszystkich wariantów. Nie zmieniamy przekładu
+  ani plików gry. Gotowy tekst pozostanie na Drive, kod/testy/plan i manifest w Git.
+
+**Checkpoint źródeł finału (po odzyskaniu historii):** dodano śledzony,
+read-only `tools/reading_script_source.py` i 14 syntetycznych testów (`unittest`,
+Python 3.11.2): **14/14 PASS**. Niezależnie odtworzony inwentarz siedmiu scen
+potwierdza 7471 wpisów prozy, 306/382 różnice względem bazowego finału i po dwie
+nowe znaczące pozycje metadanych. Seq 253 jest kopią 252, a 257 kopią **256**
+po normalizacji CRLF/zawijania, nie po zgadywaniu z `variant_of`. Akapity,
+interpunkcja i zmiany samych rozmówców pozostają znaczące. Odczytane i sprawdzone
+SHA-256 źródeł są w `docs/reading-script/episode_34_sources.json`; trzy źródła
+narracji/nazw są identyczne z historycznymi, `05_mission_text` ma zmiany QA v16.
+Znalezione `＃？？？` zachowują anonimowość; `Adeu's card` nie wolno zgubić jako
+technicznego `label`. Plan redakcyjny, renderer i dostawa finału nadal w toku.
+
+**Checkpoint przeglądu i planu:** cały angielski seq 251/252/254 obejrzany bez
+skracania wpisów (1–140 / 1–140 / 1–1759), następnie komplet 306 zmian E oraz
+wszystkie różnice F względem E. Pełne tożsamości wyrównanych wpisów sprawdzają
+części wspólne; nowe fragmenty F obejmują 54 wypowiedzi w walce i pożegnania
+na Pentagonie. Metadane obu wariantów zachowane. Dodany śledzony plan
+`docs/reading-script/episode_34.json`: porażka 251:132–133 oddzielona od sukcesu,
+cytowane wypowiedzi warunkowe/sytuacyjne, granice epilogów, dwa wpisy kontekstu
+w wariantach, bez twierdzeń o dokładnych aktywatorach. To nie nowe tłumaczenie.
+
+Doprecyzowano rozmówców: kolizje skróconych imion (Shinobu, Shiro, Koji,
+Karen, Hayato, Michel, Mai) rozróżnione wyłącznie pełnymi angielskimi nazwami
+z istniejącego pakietu. Prefix `???` nadal ma pierwszeństwo. Testy źródeł:
+**16/16 PASS**; inwentarz bez zmian; wszystkie granice planu trafiają w zachowane
+wpisy, żaden plik pakietu niezmieniony. Renderer/weryfikator/dostawa jeszcze w toku.
+
+**Checkpoint renderera (weryfikacja niezależna jeszcze w toku):**
+`tools/build_reading_script.py` wygenerował roboczy finał do ignorowanego
+`local/reading-script/srwoe_episode_34.md` i audyt pełnego pokrycia 7723 rekordów.
+Własne zabezpieczenia generatora: 7471 wpisów prozy = 3338 wyświetlonych + 4133
+identycznych aliasów; 210 metadanych = 94 wyświetlone + 116 aliasów; 42 rekordy
+wyłącznie UI/warunków gry wykluczone z prozy. Wyświetlono 386 wypowiedzi
+warunkowych/sytuacyjnych oraz dwie alternatywnej porażki. Żadnych skrótów treści:
+warianty zawierają pełne zmienione wpisy i sąsiadujący kontekst; części wspólne
+mają sprawdzone, monotoniczne wyrównanie, a aliasy kończą się na pokazanym tekście.
+
+Roboczy MD: 212 920 B, SHA-256
+`4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`.
+Obejrzano początek, granicę alternatywnej porażki, obydwa dodatki i ostatnie kwestie.
+To **nie jest jeszcze dostawa ani wynik niezależnego verifiera**. Renderer i plan
+są w Git; pełny tekst i szczegółowy audyt pozostają ignorowane.
+
+**Checkpoint niezależnej kontroli:** `tools/verify_reading_script.py` nie importuje
+renderera ani modułu źródłowego. Ponownie czyta cztery JSONL, rozwiązuje nazwy i
+anonimowe prefiksy, porównuje pełne tożsamości wpisów, sam wyznacza okna kontekstu
+(przez sumę przedziałów, nie `get_grouped_opcodes`) i parsuje każdy blok Markdownu
+z powrotem do rozmówcy, akapitów, tekstu oraz trybu cytowania. Sprawdza także
+nagłówki, noty redakcyjne, cały manifest inwentarza, kolejność, łańcuchy aliasów
+oraz brak dodatkowego tekstu poza rozliczonymi blokami.
+
+- Bieżący finał: **PASS — 7 scen, 7723 rekordy źródłowe, 3570 bloków wyjścia**.
+  MD pozostaje bajt w bajt 212 920 B / SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`.
+- `python3 -m unittest discover -s srw-oe-translation/tests -p 'test_reading_script_*.py' -v`:
+  **37/37 PASS**. Syntetyczne mutacje naprawiają hash, rozmiar i wszystkie offsety,
+  zanim verifier odrzuci zmianę treści, akapitów, nazw, anonimowości, kolejności,
+  brak wariantu, błędny alias, wyciek tokenu, zniknięcie znaczącej etykiety,
+  warunkowego cytowania, etykiety porażki lub dodaną nawigację.
+- Regeneracja deterministyczna; testy pełnego round-trip, escapingu Markdownu,
+  powtórzonych kwestii i wariantu różniącego się tylko rozmówcą przechodzą.
+- `git diff --exit-code -- srw-oe-translation/pakiet_EN`: **PASS**, źródła bez zmian.
+  Dostawa Drive i końcowy pełny zestaw regresji jeszcze przed nami.
+
+**Checkpoint mutacji na prawdziwym finale:** dodano śledzony
+`tests/test_reading_script_episode34.py`, korzystający z istniejącego pakietu,
+ale zmieniający wyłącznie tymczasowe kopie wygenerowanego tekstu i audytu.
+`python3 -m unittest discover -s srw-oe-translation/tests -p 'test_reading_script_episode34.py' -v`:
+**20/20 PASS w 13,042 s**: poprawny bazowy read-back + deterministyczność, niezmienność
+pakietu oraz **18/18 odrzuconych mutacji semantycznych** (naprawione SHA/rozmiary/offsety).
+Obejmują ostatnie kwestie bazowego finału i E, nowe fragmenty walki i pożegnań F,
+końcową myśl F, utratę powtórzenia wewnątrz sceny, nagłówka czasu, Adeu's card,
+zmianę rozmówcy, ujawnienie `???`, błędny alias J→baza zamiast J→F, zmianę narracji,
+kolejności, warunkowości i porażki oraz dodaną nawigację lub wymyślone zakończenie.
+Kompaktowy raport kontroli bazowego artefaktu zapisany w śledzonym
+`docs/reading-script/episode_34.verification.json`; bez pełnego tekstu i audytu w Git.
+
+**Finał ukończony, dostarczony i odczytany z Drive.**
+
+- Dawny ignorowany `local/.venv/bin/python` nie przetrwał odtworzenia środowiska
+  (próba sprawdzenia wersji zakończyła się 127 już po udanym pushu checkpointu).
+  Odtworzono go przez `python3 -m venv local/.venv`, zainstalowano pytest 9.1.1,
+  pytest-subtests 0.15.0 i Pillow 13.0.0. Produkcyjne narzędzia czytelnicze wymagają
+  wyłącznie standardowej biblioteki Pythona 3.11+.
+- Z korzenia repo: `srw-oe-translation/local/.venv/bin/python -m pytest srw-oe-translation/tests -q`:
+  **1379 passed, 1 skipped, 382 subtests passed w 25,28 s**. Log w ignorowanym
+  `local/reading-script/pytest-full.log`. W tym 57 testów nowych narzędzi.
+- Ponowna regeneracja po testach jest **bajt w bajt identyczna**; niezależny verifier
+  ponownie PASS, raport identyczny ze śledzonym `episode_34.verification.json`.
+  Oryginalny patch i jego archiwum w Git porównane bajt w bajt; wszystkie 918
+  dodanych linii tworzy niezmieniony końcowy fragment `READING_SCRIPT_HISTORY.md`.
+- Przed uploadem dokładne wyszukiwanie `srwoe_episode_34.md` w docelowym folderze
+  zwróciło zero plików. Utworzono **jeden** nowy plik, bez nadpisywania innych
+  epizodów i bez zmian uprawnień:
+  [`srwoe_episode_34.md`](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view),
+  **212 920 B**, SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`,
+  MD5 `3f5a1edade4fa8f01100417d8724ad31`.
+- Końcowe `list_files`: **41 plików** — 35 pojedynczych Markdownów **00–34**
+  i sześć wcześniejszych ZIP-ów; brak dalszej strony i niepełnego wyszukiwania.
+  ID/rozmiar/MD5 finału zgodne z uploadem i lokalnym wynikiem. `download_file`
+  pobrał nowy plik do `google_drive/srwoe_episode_34.md`: **pełna równość bajtów
+  z lokalnym finalnym Markdownem**, nie tylko zgodność metadanych API.
+- `git diff --exit-code 250f6a5 -- srw-oe-translation/pakiet_EN`: PASS.
+  Wydanie czytelnicze nie zmieniło żadnego wiersza przekładu ani pliku gry.
+  Nie odtwarzano starych testów epizodów 00–33, nie deklarowano emulatorowego
+  ustalenia kolejności/aktywatorów. Poprawki QA v16 nadal czekają na osobny test PPSSPP.
+- Finalny manifest dostawy/testów/hashów narzędzi:
+  `docs/reading-script/episode_34.delivery.json`. Pełne MD i audyt pozostają poza Git;
+  narzędzia, testy, cały plan, raport, oryginalny patch i jego odzyskana treść są w Git.
+
+**Punkt kontynuacji: numerowane wydanie `story` 00–34 ukończone. Brak niedokończonego
+finału. Sceny `simulator` są osobnym zakresem, nie kontynuacją tego zlecenia.**
+
+**Zamknięcie przekazania w GitHub:** dostawa/dokumentacja wypchnięta w `848287f`.
+`gh pr edit 17` w zainstalowanym gh 2.23.0 nie zadziałało z powodu wycofanego pola
+GraphQL `repository.pullRequest.projectCards` (Projects classic), nie z powodu
+uwierzytelnienia. Tytuł i komplet checklist dostawy ustawiono przez
+`gh api --method PATCH repos/szybkoiwyraznie-rgb/mtgcrawler/pulls/17 --input …`.
+Osobny odczyt REST potwierdził dokładną zgodność tytułu/treści oraz head `848287f`
+z lokalnym HEAD. PR #17 pozostaje otwarty/draft; nie scalano ani nie zmieniano
+innych gałęzi. Ostatni checkpoint poniżej obejmuje wyłącznie zapis tego obejścia.
+
+### 21.63 Katalog mechów, pilotów, broni i zdolności — rozpoczęcie (2026-10-17)
+
+Nowe zlecenie po dostawie finału 34: jeden Markdown dla jednostek własnych i wrogich,
+z angielską nazwą, serią, pilotami i ich umiejętnościami (bez spirits), bronią,
+zdolnościami broni/mechów i opisami bazowymi; statystyki oraz późniejsze odblokowania
+wyłącznie, jeśli można potwierdzić ich interpretację. Punkt startowy: czysty `aa178c7`,
+przypisana gałąź bez zmian; otwarty PR #17 ponownie użyty. Zasady i zakres zapisane
+w `docs/MECH_CATALOG.md`; przed badaniem nie deklarujemy kompletności powiązań.
+Pełny katalog i dane gry poza Git; narzędzia/testy/ustalenia wypychane etapami.
+
+**21.63 — checkpoint inwentarza:** pobrano oryginalne config00/configst oraz
+config01–19 (łącznie 21 kontenerów), ponownie odczytano roster, jednostki i bronie.
+393/393 ID jednostek zgodne z globalnym indeksem i przekładem; wszystkie 1485
+wpisów broni/akcji zgodne po `(unit_id, slot)` i treści JP. Nie usunięto dwóch
+starych rozbieżności liczników (2940 i 3246). Cztery JSONL przekładu czytane tylko
+read-only. Śledzony `mech_catalog_sources.py`, manifest hashów/rozmiarów bez danych
+gry, 10 testów syntetycznych: PASS.
+
+Pierwsze dwie próby nowego rygorystycznego czytnika słusznie zatrzymały pracę nad
+założeniami: stara dokumentacja o posortowanych wp_list jest nieaktualna dla
+config01/02/04, a trzy nazwy filmowe mają znany nadmiarowy odczyt starego eksportu
+za granicą 32 B. Poprawiono walidację do unikatowości ID i **dokładnego** odczytu
+historycznych bajtów, z dodatkową kontrolą pełnych nazw display; nie poluzowano
+jej do dopasowania dowolnego prefiksu. Pakietu EN nie zmieniano.
+
+Odkryte powiązania kandydackie: Skill00 `+2` (alias rodziny) rozwiązuje 1651/1651
+referencji broni, 526/526 normalnych i 92/92 dodatkowych referencji postaci oraz
+514/516 referencji jednostek. Brak aliasów 110/230 pozostaje jawny. Domyślne pola
+jednostki +98..106: 535/535 trafia w tabelę postaci. Czeka potwierdzenie semantyki
+konsumentów w kodzie, opisów bazowych i dostępności; nie deklarujemy jeszcze
+kompletnego katalogu. Sprawdzono także u16tbl: to wyłącznie konwersja JIS/Unicode,
+nie parametry jednostek. Pobrano oryginalny EBOOT do analizy read-only; Capstone
+5.0.6 zainstalowany w ignorowanym venv, żadnego kodu gry nie publikujemy.
+
+**21.63 — checkpoint czytania silnika:** potwierdzono w kodzie konsumenta klucze
+zdolności broni +244/+248, bazowy wybór rekordu po aliasie +2 i poziomie 0/1,
+trzy referencje jednostki i cztery postaci. Wstępnie rozdzielono pole bramki broni
++242 od parametrów EN/Will oraz wpisy z dodatnim selektorem +196 od animacji.
+Nie nazywamy zerowej bramki dowodem „od początku gry” ani wartości dodatniej
+konkretną misją odblokowania. Szczegóły adresów w `MECH_CATALOG.md`.
+
+Najważniejsze odkrycie: składniki `%s` są indeksowane CZTEREMA BAJTAMI +28..31,
+a nie słowami u16. To rozwiązuje składanie pełnych opisów z istniejącego EN bez
+zgadywania. Pierwsze dopasowanie po offsetach nie znalazło 61 niepustych fragmentów:
+stary eksport ma wiele różnych fragmentów pod tym samym ID/początkiem puli.
+Dopasowanie dokładnej treści JP rozwiązuje wszystkie pierwsze 256 wpisów, bez
+zmian w przekładzie. Skorygowano mylący historyczny punkt TECHNICAL_FINDINGS.
+
+EBOOT 1.08 ma dodatkowo 20 nadpisań **bazowych** opisów (m.in. Beam Weapon,
+Organoid, Instinct, Pierce, Coord. Atk). Nowy śledzony `mech_catalog_engine.py`
+wykonał tylko selektor opisów w Unicorn 2.1.4, w ograniczonej pamięci, na kopii
+EN wyłącznie w RAM: 254/254 wywołania wróciły; 405 slotów tekstowych zaakceptowanych,
+0 odrzuceń, bajty `.text` oryginalne. EBOOT i kontenery na dysku nietknięte.
+Zapisano wyłącznie metadane wskazań/hashów w `docs/mech-catalog/engine-map.json`;
+pełne zrzuty/disassembly pozostają lokalne. Dodano opcjonalny probe MIPS (Capstone
+5.0.6), SHA-256 bramkę wydania i 9 testów syntetycznych; łącznie nowe testy 19/19 PASS.
+To nie jest test całej gry w emulatorze. Finalny katalog jeszcze w toku.
+
+**21.63 — checkpoint generatora / wersja robocza:** dodano śledzony `mech_catalog.py`.
+Pierwszy pełny MD w ignorowanym `local/mech-catalog/`: 393 rekordy jednostek,
+1485 wpisów broni/akcji, 535 przypisań załogi (201 różnych domyślnych postaci),
+516 referencji natywnych zdolności (2 nierozwiązane), 121 bramek warunkowych broni.
+Zachowano 211 wpisów z zerowym selektorem oddzielnie od 1274 wpisów niezerowych.
+Powiązania alternatywnych profili postaci przez +100 (w tym allied) są pokazane
+osobno: np. Bernard nie może dostać połączonego zestawu zdolności wroga i sojusznika.
+Brak wpisów w trzech slotach natywnych u 115 rekordów opisano jako brak przypisania,
+**nie „brak jakichkolwiek efektów w grze”**. Każdy rekord nadal ma sekcję zdolności.
+
+16 grup z `groupunit00` ma rekordy **100 B** (potwierdzone offsetami nazw z
+05_mission_text, licznikami i ID członków); 53 różne jednostki są wymienione jawnie.
+Warunkowe GR i ST są objaśnione oddzielnie, bez arbitralnego nadawania wszystkim.
+Seria: 302 bezpośrednie wpisy słownika, 57 po jawnej nazwie formy, 14 jawnie oznaczonych
+skojarzeń z serią domyślnego pilota; 20 braków pozostawiono otwarcie (głównie obiekty
+oraz spare, ale też Medea/Zahatt/LCT). Numery +86/+88 nie są uniwersalnym kluczem
+serii — realne kontrprzykłady wykluczają taki skrót.
+
+30 testów syntetycznych nowych narzędzi PASS. Roboczy katalog wygenerowany, obejrzano
+Gundam/Guncannon/Exart/Fire Zephyr/Berniego. **Jeszcze nie dostarczono**: trwa przegląd
+opisów i osobna kontrola. Zauważono rzeczywisty problem istniejącego angielskiego
+szablonu Plant: kolejność `%s` daje „fixed Range … in Dmg”. Wymaga jawnej korekty
+redakcyjnej katalogu na podstawie JP, nie zgadywania ani cichej zmiany pakietu gry.
+
+**21.63 — checkpoint przeglądu opisów:** obejrzano wszystkie 249 złożonych opisów
+bazowych. Po odczycie oryginalnych szablonów JP dodano 17 jawnych, ograniczonych
+korekt **tylko katalogu**: zamienione miejsca Range/Dmg w Plant/Detonate/Self-Destruct,
+zdublowane fragmenty Beam Weapon, resztka bajtu kany `Group 4`, sformułowanie
+wspólnego fragmentu przy trzech rzutach, redundantne On attack/On hit i Damage,
+niezgrabne „3 more pushes” zamiast odległości. Nie zmieniono wartości liczbowych
+balansu ani danych przekładu; usuwana „4” jest udowodnionym zakończeniem tokenu kany,
+nie parametrem. `description-errata.json` ma hashe obu źródeł i powody; nie stosuje
+korekt do zmienionych danych bez ponownego przeglądu. 32 testy nowych narzędzi PASS.
+Roboczy MD: 761 353 B, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.
+Osobna kontrola całego artefaktu, testy mutacyjne i dostawa nadal w toku.
+
+**21.63 — checkpoint weryfikacji:** nowy verifier porównuje fakty modelu świeżo
+z binarnymi źródłami i EN (osobne wyliczenia pól/profili/serii/opisów, bez wywołań
+helperów modelu generatora), sprawdza każdy wydrukowany rekord i pełne opisy
+w Markdownie. Dopiero na końcu wspólny canonical-render uszczelnia pozostałe
+noty/układ; ta równość nie zastępuje niezależnej kontroli danych.
+CLI z `--replay-engine`: PASS, 393 jednostki, 1485 wierszy broni/akcji, 535 przypisań
+załogi, 249 opisów bazowych, 16 grup, 20 nadpisań EXE, 17 korekt katalogu; wszystkie
+liczniki i niepewności rozliczone. Ponownie odtworzone 254 wywołania selektora zgodne
+z mapą. Brak pozostałości JP, `%s`, `＠` w gotowym tekście.
+
+`test_mech_catalog_integration.py`: **26/26 PASS w 15,722 s**, w tym 24 odrzucone
+mutacje semantyczne z naprawionymi hashami/rozmiarami/odtworzonym modelem i MD.
+Negatywne przypadki nie mogą przechodzić tylko dzięki kontroli checksum: ustanowiono
+poprawny baseline, sprawdzano powód odrzucenia. 32 testy syntetyczne + 26 integracyjnych
+= 58 nowych testów. Każda korupcja dotyczyła kopii tymczasowej. Oryginały i pakiet EN
+bajtowo bez zmian. Kompaktowy raport w `docs/mech-catalog/verification.json`.
+Pełny suite projektu i upload nadal przed nami; plik czytelniczy pozostaje 761 353 B.
+
+**21.63 — ostatnie potwierdzenie semantyki i regresja:** pełny suite projektu na
+checkpoint b34085d: **1437 passed, 1 skipped, 382 subtests passed w 41,62 s**.
+Dodatkowe oględziny spakowanych odczytów (`lwr/lwl`, nie tylko `lh/lhu`) potwierdziły
+pętlę pięciu pilotów: `.text 0x212bdc` pobiera rekord jednostki, `0x212c04..0x212c4c`
+czyta +98 + 2*i, rozwiązuje przez `0xa91dc` i dodaje przez `0x21bee4`, i < 5.
+To dowód konsumenta dla 535 przypisań, a nie jedynie zbieżność z nazwanymi ID.
+Probe rozszerzony o LWL/LWR i test syntetyczny (testy tego modułu 10/10 PASS).
+Nie zmieniło to faktów ani bajtów katalogu; po tej zmianie narzędzia będzie jeszcze
+końcowy suite. Drive potwierdził istniejący folder „SRW OE” i brak pliku o docelowej nazwie.
+
+**21.63 — DOSTAWA ZAKOŃCZONA (z jawnymi ograniczeniami danych).**
+
+- Końcowy pełny suite po dodaniu packed-load probe:
+  `srw-oe-translation/local/.venv/bin/python -m pytest srw-oe-translation/tests -q`
+  → **1438 passed, 1 skipped, 382 subtests passed w 42,02 s**. 59 nowych testów
+  katalogu: 33 syntetyczne i 26 rzeczywistych (w tym 24 mutacje). Log pozostaje
+  w ignorowanym `local/mech-catalog/pytest-final.log`.
+- Ponowna generacja: identyczne bajty. Verifier z `--replay-engine`: PASS, raport
+  identyczny ze śledzonym `docs/mech-catalog/verification.json`. Wszystkie 254
+  wybory opisów bazowych potwierdzone ponownie. Oryginały i EN bez zmian;
+  `git diff --exit-code aa178c7 -- srw-oe-translation/pakiet_EN`: PASS.
+- Docelowy folder Drive „SRW OE” potwierdzony przez `get_file`. Dokładne listowanie
+  nazwy przed uploadem: zero plików; po uploadzie: **jeden**, bez następnej strony
+  i niepełnego wyszukiwania. Utworzono tylko nowy Markdown; bez nadpisywania
+  wcześniejszych epizodów/kitów i bez zmiany uprawnień.
+- [`srwoe_mech_catalog.md`](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+  — **761 353 B**, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`,
+  MD5 `cfb4ae34d01623c867329b86f3328107`.
+  `download_file` pobrał go do `google_drive/srwoe_mech_catalog.md`; porównanie całych
+  bajtów z finalnym lokalnym plikiem: **PASS**, nie tylko porównanie metadanych API.
+- Finalny manifest dostawy/środowiska/hashów narzędzi i lista brakujących serii:
+  `docs/mech-catalog/delivery.json`. Komendy odtworzenia: `docs/mech-catalog/README.md`.
+  Kod/testy/dowody są śledzone, pełny tekst i audyt/model poza Git.
+
+Zakres wyniku: pełny spis 393 rekordów i 1485 wpisów, nie 393 różne grywalne mechy
+ani pełna symulacja wszystkich efektów w grze. Seria: 302 fakty słownika, 57 jawnych
+form, 14 oznaczonych skojarzeń z pilotem, 20 braków. Dwie natywne referencje 110/230
+nierozpoznane. Brak slotów u 115 rekordów nie oznacza braku efektów grupowych/ST,
+wyposażenia lub skryptów. Bramka broni nie została zamieniona w zgadywaną misję
+odblokowania. Nie wykonano testu gameplay/PPSSPP, nie zmieniono pakietu ani gry;
+17 korekt opisów pozostaje ograniczonych do katalogu. Osobne oczekiwanie na
+potwierdzenie QA v16 w PPSSPP pozostaje bez zmian.
+
+### 21.64 QA v17 — dwa tytuły aktywacji DLC i nazwa terenu (2026-10-17)
+
+Nowe zgłoszenie właściciela: `復活のゴブーリキ軍団`, `盗賊団の悲劇` w komunikatach
+bonusu po 0-1 oraz `宇宙構造物` w panelu terenu. Obejrzano wszystkie trzy załączniki;
+kopie tylko w ignorowanym `local/qa-v17/screens/`. Start z czystego `ccf66a2`,
+PR #17 otwarty, gałąź przypisana bez zmian. Tytuły DLC są już EN w pakiecie v16
+w obu polach `DLC_ID04`; teren nie ma pełnego literalnego wpisu w JSONL.
+Przyczyna pozostaje nieustalona — sama obecność EN w pakiecie nie dowodzi, że
+właściwa kopia trafia do gry. Plan i kryteria w `docs/QA_V17.md`.
+
+**21.64 — checkpoint reprodukcji:** pobrano faktycznie dostarczony v16 ZIP;
+SHA-256 zgodny z §21.61, CRC OK, wypakowano 143 pliki. Builder z tego kitu,
+`--dlc google_drive --only config04.EDAT imenu04.EDAT config26.EDAT config27.EDAT
+--no-ui-textures --no-exe`: 4 pliki, 0 problemów. Odczyt rzeczywistych wyjść:
+obie nazwy × dwa pola × config/imenu są EN; DLC_ID04 752→766 B, kopie identyczne.
+Tytuły milstP26/27 również EN. Nie odtworzono JP tytułów ze screenów. Potrzebne
+ustalenie wersji/kopii w grze; nie nazywamy samej reprodukcji naprawą zgłoszenia.
+Hashes i zakres w `docs/qa-v17/v16-reproduction.json`.
+
+Teren: brak pełnego literalnego tekstu w EBOOT/configach, bez dopasowania też w
+system/tacsys/tactics/celldata. Obejrzano arkusz istniejących GIM system/tacsys,
+bez właściwego podpisu. Celldata ma nagłówek TXCL (układ komórek sprite'ów), nie
+tekst terenu. Następny kierunek: pliki map. Jedna próba diagnostyczna błędnie
+wywołała parser PAC na bezpośrednim członie imenu (46 B); przerwana, nic nie zapisano
+w oryginałach. Druga błędnie sprawdzała indeksy jako elementy listy `Record.strings`
+i wypisała None; poprawny odczyt listy potwierdził faktyczne bajty EN. To błędy
+skryptu diagnostycznego, nie błędy buildera.
+
+**21.64 — zlokalizowany teren:** nowy read-only `text_resource_probe.py`, 5 testów
+syntetycznych PASS. eventP00: 44 liście, brak celu; lmap: **4880 liści, 271 kopii**
+`lNNN.pac/attr.par` z napisem. Skan 57,743 s, bez zmian wejścia, jeden człon CPK
+naraz. Attr: 9284 B, hash `2a0e46bd16d26627c33bb26eab0d844ae484d4bb06ced36fc2dff2bc8ae3a3d0`,
+count145, 64 B/rekord, nazwa32 B, 111 niepustych nazw; cel rekord38/offset2436.
+Wszystkie kopie identyczne. Metadane w `qa-v17/terrain-source.json`; nie publikujemy
+map/tekstur/binarnych parametrów. Stare „same grafiki/brak tekstu” nie obejmowało tej
+zagnieżdżonej rodziny. Plan: tłumaczyć wyłącznie komórki nazw, dowieść niezmienności
+liczb, geometrii i obrazów oraz sprawdzić wszystkie kopie, nie tylko pierwszą.
+
+Właściciel doprecyzował: v16 w całości, stary sejw, około90% poprzednich nazw DLC
+już EN; tylko dwie z obecnych screenów JP. Nie uznajemy tego za potwierdzone użycie
+save state ani za dowód błędnej instalacji. Dwie nazwy w odtworzonym v16 nadal EN;
+przypadek runtime otwarty. Wstępny skan stałej1064 (kolumnaSMES) w EBOOT nie znalazł
+bezpośredniego ładowania; nie wyciągamy z tego wniosku o źródle tytułu.
+
+**21.64 — checkpoint pisarza i nazw:** dodano 111 EN komórek nazw w osobnym
+`10_map_terrain.jsonl` (91 różnych nazw, limit ekranowy12, slot32B); 34 puste rekordy
+nietknięte. `宇宙構造物` -> `Space Str.`. Wyłącznie nazwy; zachowujemy kolory/flagi/
+liczby. Pełny hash attr po odtworzeniu JP odmawia obcego wydania lub zmienionych
+atrybutów. Ponowne zastosowanie jest identity. Pakiet/integracja jeszcze WIP;
+nie zmieniono żadnego z sześciu źródeł zamrożonego katalogu mechów.
+
+CPK: nowe `rebuild_many`, stary interfejs jednoelementowy zachowany; 48 testów
+pisarzy CPK PASS (w tym8 nowych batch). Terrain: 15 testów PASS, m.in. wszystkie
+kopie, header/liczby/geometry/texture niezmienione, brakująca nazwa, zły rekord,
+nieznany hash, zbyt szeroki EN, idempotencja. Pierwsze wyliczenie rzeczywistego
+attr: 9284B bez zmiany długości, SHA-256 EN
+`70e5db46bab0287b2ce1f0bb7d0162d49772748a51128648babc2284e4d9d200`.
+Wybrano STORED dla map (bez nowej niesprawdzonej kompresji). Łączne rozpakowane
+PAC155586736B; pakowane81089928B. Realny CPK/build i odbiór w grze nadal przed nami.
+
+**21.64 — checkpoint integracji i realnego lmap:** główny builder ma osobny tor
+terenu (bez trzykrotnego sniffingu dużego CPK), ładuje 10_map_terrain i stosuje limit
+12 komórek także w checkerze pakietu. Realny build: **271 map /30081 nazw**, odczyt
+wszystkich członów PASS; lmap81379568→156174576B. Poza nazwami zero zmian w parametrach,
+geometrii/teksturach. Metadane `qa-v17/terrain-build.json`, duże wyniki tylko w
+ignorowanym/wyłączonym ze snapshotów `local/qa-v17/build/`.
+
+**Wykryty i odtworzony błąd wdrożenia v16:** wejście `chapter04/config04.EDAT` tworzy
+`output/DLC/chapter04/config04.EDAT`, nie plik w katalogu głównym używanym przez grę.
+V17 daje płaski output, dopasowanie bez rozróżnienia liter, odmawia niejednoznacznych
+kopii w backupach. Rzeczywisty układ folderów użytkownika nadal niepotwierdzony —
+nie udajemy, że mechanizm został udowodniony na jego komputerze.
+
+Uzupełnione wyłącznie dwa opisy katalogowe DLC_ID04:128/121B zamiast139/131B, zachowana
+kolejność/kolor i cztery linie. Po przebudowie wszystkie12 pól obu kopii EN, liczba
+wystąpień obu JP tytułów0. config04:108672B,
+SHA-256 `e6d61b1a299a3a3336ba0232ad6a52654f0406df0f00d28d6a0b1d64fdd3c832`;
+imenu04:28840B, `f48d00d085e738ed602d958b21fe53bc74550a95ba8b0ea8ff32cac9240f7efe`.
+Nowy kontrakt odczytu po payload-ID podnosi błąd zamiast sukcesu przy cichym noop.
+CHECK_DLC.bat/JSON czyta FAKTYCZNIE zainstalowane pliki, bez modyfikacji zapisów.
+
+Pierwszy zestaw integracyjny:120 PASS/1 FAIL — minimalny pakiet ujawnił zależność
+mirroringu tytułów od obecności luźnych wierszy nazw postaci. Dodano jawne odkrywanie
+obu dostępnych kopii; końcowy zestaw **126 PASS w18,34s**. Pięć testów toru terenu,
+cztery wdrożenia, czternaście kontraktu DLC oraz wcześniejsze testy buildera/pickerów
+sprawdzone. Checker pakietu: **109144 wiersze,0 błędów,3394 zastane uwagi,149 pustych**.
+
+Test dostarczonego katalogu mechów czyta historyczne sześć JSONL z zadeklarowanego
+commitu aa178c7, gdy bieżąca gra dostaje nowe QA. Żadnego checkoutu/zmiany gałęzi;
+hashe historyczne weryfikowane i bieżące pliki sprawdzane na niezmienność. Nie
+przepisano manifestu ani nie regenerowano/reuploadowano dostarczonego katalogu.
+Pełny suite i test z wypakowanego końcowego kitu w toku. Dodano śledzony, odtwarzalny
+`verify_qa_v17_release.py` do takiej walidacji — nie skrypt pozostawiony tylko lokalnie.
+
+Brama `git diff --check` początkowo odrzuciła CRLF nowego CHECK_DLC.bat. Repo już
+wymaga `.bat -text` (CRLF mają pozostać także w GitHub ZIP), więc nie zamieniano
+skryptu na LF. Dodano standardowe atrybuty kontroli whitespace z `cr-at-eol` dla
+BAT, zachowując dotychczasowe bajty i sprawdzanie pozostałych białych znaków.
+
+**21.64 — kandydat dystrybucji:** wygenerowano v17 ZIP z repo (148 plików:38 narzędzi,
+31 plików pakietu,47 dokumentów tłumacza, launchery/fonty/specy). Nowe CHECK_DLC.bat
+jest w zestawie, CRLF zachowane. Index/check_report opisują bieżące109144 wiersze,
+0 błędów /3394 uwagi. README ma poprawną, płaską instrukcję kopiowania, ostrzeżenie
+o większym lmap i zachowaniu normalnych sejwów. To kandydat do testu z wypakowanego
+ZIP-a; nie wykonano jeszcze uploadu v17 ani nie deklarujemy gameplay.
+
+**21.64 — pełny suite i pierwsza próba końcowej walidacji:**
+pełny pytest: **1489 passed,1 skipped,382 subtests passed w46,89s**.
+Builder z wypakowanego końcowego ZIP-a wykonał realny lmap, nested-DLC i minimalne
+ISO poprawnie; top-level0 problemów, wszystkie docelowe pola DLC przeszły kontrakt.
+Nowy zbyt szeroki assert walidatora („zero wszelkich refused”) zatrzymał sprawdzanie
+na zastanych broadcastach globalnego RoboDict do częściowego słownika rozdziału4.
+To nie zgłoszony tytuł DLC ani odmowa zapisu istniejącego rekordu.
+
+Nie usunięto kontroli ostrzeżeń. Dodano ścisłe rozliczenie: oryginalny słownik ma18
+ID; dokładnie597 (config04) i896 (imenu04) globalnych wierszy wskazują nieobecne ID.
+Porównywane są pełne liczniki oraz konkretne komunikaty, z zachowaniem odmowy dla
+stale-JP/istniejącego klucza/innego błędu. 4 nowe testy: PASS. Walidator ma jawnie
+raportować te udowodnione braki keyspace, nie twierdzić „zero refused”. Kod ZIP-a
+nie zmienił się; poprawiono tylko samodzielny walidator wydania. Próba jest ponawiana
+w świeżym folderze, bez używania starych wyjść jako wyniku nowej komendy.
+
+**21.64 — końcowe bramki offline PASS:** pełny suite po doprecyzowaniu walidatora:
+**1493 passed,1 skipped,382 subtests passed w45,55s**. Z wypakowanego tego samego
+v17ZIP zbudowano świeży fixture ISO (oryginalne EBOOT/eventP00/lmap) i DLC z celowo
+zagnieżdżonym chapter04. Builder + niezależny odczyt plików z wynikowego ISO:
+271/271 map,30081/30081 komórek, pełna niezmienność liczb/geometrii/tekstur/nazw
+katalogu PAC; oryginały bez zmian. EBOOT zgodny z oczekiwanym patchem, .text identity,
+Basic Training zachowane. Po stronie DLC płaskie pliki,12/12 pól EN i0 kopii zgłoszonych
+JP tytułów w rekordach. Dodatkowo ręcznie porównano oryginalne i wynikowe rekordy:
+`prefix[32:]` oraz `strings[3:]` identyczne dla obu rekordów w obu plikach — ceny,
+flagi, payload i identyfikatory PSN nietknięte.
+
+Wynik lmap156174576B, SHA-256
+`88e943c091c113a564312ca87a640b8df5edeb43d75d11c69a6c45f1518b2694`.
+Zastane broadcasty RoboDict597/896 rozliczone osobno, nie ukryte jako „0 refused”.
+Raport `docs/qa-v17/release-verification.json`. ZIP148 plików /7245833B, SHA-256
+`5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`, MD5
+`3089509c1e1f4741dcf2a14f981b4bae`. CRC ZIP i CRLF CHECK_DLC.bat sprawdzone.
+Jeszcze nie wykonano testu gameplay/PPSSPP; wynik dotyczy offline i odczytu bajtów.
+
+**21.64 — DOSTAWA v17:** upload pojedynczego `srw-oe-translation-v17.zip` do istniejącego
+folderu SRW OE; wcześniejsze wydania i uprawnienia nietknięte. Przed:0 plików o tej
+nazwie; po:1, bez dalszej strony/niepełnego wyszukiwania. ID
+`1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw`, 7245833B, MD5
+`3089509c1e1f4741dcf2a14f981b4bae`. Download-back do google_drive porównany całymi
+bajtami z lokalnym ZIP-em: PASS, nie tylko metadane. Manifest `qa-v17/delivery.json`.
+Końcowy raport testów1493/1skip/382subtests i rzeczywisty extracted-kit read-back
+są w Git. Nowe narzędzia/naprawy/checkpointy wypychano etapami do PR17.
+
+Stan dla właściciela: kit dostarczony i sprawdzony offline. Potwierdzenie terenu i
+obu tytułów na jego instalacji jeszcze oczekuje; nie twierdzimy, że sam stary sejw
+lub zagnieżdżony folder jest już dowiedzioną przyczyną jego screenów. Kolejny dowód,
+gdy objaw pozostanie: DLC_TITLE_CHECK.json z faktycznie używanego folderu gry.
+Sejwów nie usuwać. Dostarczony katalog mechów i scenariusze00–34 nie były zmieniane.
+
+### 21.65 Katalog mechów — usunięcie technicznych nagłówków (2026-10-18)
+
+Na prośbę właściciela, globalnie (nie tylko Exart): usunięte 393 kotwice HTML,
+393 sufiksy „— Unit N” z nagłówków i 393 wiersze „Data: …”. Numery/pochodzenie
+pozostają w modelu i audycie, bez zmiany danych gry. Powiązane 133 odsyłacze do
+usuniętych kotwic stają się tekstem; numeryczne odwołania serii używają nazw
+mechów. Pozostałe sekcje, ID postaci i informacje merytoryczne nie były usuwane.
+
+Pierwsze wydanie zachowane lokalnie; dokładne stare manifesty/raport w
+`docs/mech-catalog/revisions/01.*.json`. Nowy renderer i verifier nie potrzebują
+kotwic: sprawdzają uporządkowane nagłówki i zawartość osobno dla każdego rekordu,
+także gdy nazwy się powtarzają. 66 testów katalogu PASS (7 nowych). Odczyt nowego
+MD przeciw oryginalnym źródłom i przypiętemu historycznemu EN: PASS 393/1485.
+Pełny model identyczny; wszystkie tabele broni, opisy zdolności oraz nagłówki
+pilotów/profili są bajtowo takie same. Dokładny diff dopuszcza wyłącznie wskazane
+usunięcia i konieczne rozpakowanie odsyłaczy; dowód `presentation-v2.json`.
+Pierwszy dodatkowy test porównania wszystkich punktorów objął także punktorową
+listę grup z celowo zmienionymi linkami; zakres zawężono do treści zdolności.
+Pełny test dopuszczalnego diffu przeszedł przed i po tym doprecyzowaniu.
+
+Nowy plik lokalny: 707653 B, SHA-256
+`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+Przed zmianą zdalną potwierdzono, że dotychczasowy plik Drive nadal odpowiada
+wersji 1 (761353 B, MD5 cfb4ae34d01623c867329b86f3328107); brak cudzych zmian do
+nadpisania. Plan dostawy: osobna wersja v2, oryginał zachowany. Nie dotykano kitu
+v17 ani pakietu tłumaczenia. PR17 ponownie użyty; finalna dostawa jeszcze w toku.
+
+**21.65 — DOSTAWA v2:** pełny suite **1500 passed,1 skipped,382 subtests passed
+w45,34s**. Weryfikacja całego finalnego MD względem niezmienionych źródeł i ponowne
+254 wywołania selektora opisów: PASS. 707653B, SHA-256
+`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+Nowy plik `srwoe_mech_catalog_v2.md` na Drive: `1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj`.
+Przed uploadem0 /po1 dopasowań nazwy, pełny download-back bajtowo identyczny,
+MD5 `16aaaf7f2f21b1b6291907e8f42c0511`. Oryginalny plik Drive pozostał nietknięty;
+nie zmieniano uprawnień. Aktualne manifesty/raport wskazują v2, historyczne v1 są
+w revisions/. Pakiet EN, gra i wydany kit v17 nie były modyfikowane w tym zadaniu.
+
+### 21.66 Katalog mechów — dalsze uproszczenie prezentacji (2026-10-18)
+
+Rozszerzona prośba właściciela (a–h), dla całego katalogu. Poprzednie usunięcia
+kotwic HTML/sufiksów Unit/wierszy Data pozostają. Z v2 usunięto dodatkowo: 302
+potwierdzone dopiski „unit dictionary”, 535 sufiksów „— Character N” i 569 „(ID N)”
+w nagłówkach pilotów/profili (także alternatywnych); 139 powtarzanych zdań o
+wykluczeniu Spirit Commands oraz 113 not o zachowaniu dodatkowych wpisów.
+Nazwy/umiejętności/broń/statystyki i rozdzielenie zwykłych oraz specjalnych wpisów
+pozostają bez zmian. Kwalifikacje serii wywnioskowanych/nieustalonych zachowane —
+nie zamieniamy niepewnych informacji w fakty. Innych identyfikatorów ani pól,
+o które właściciel nie prosił, nie usuwano.
+
+Pełny model jest identyczny z v1/v2 (SHA-256 modelu ff6d896ec720ca6a42474cc686c9e7a798d8a13be845e5567400b667a73918b0).
+Dokładne porównanie v2→v3 dopuszcza wyłącznie pięć wskazanych transformacji;
+wszystkie tabele broni, punktory zdolności, nazwy jednostek i nagłówki klasyfikacji
+akcji są bajtowo takie same. Dowód: `docs/mech-catalog/presentation-v3.json`.
+Poprzednie MD/audyt zachowane lokalnie, dokładne manifesty/raporty v2 w revisions/02.*.
+75 testów katalogu PASS (9 nowych); renderer i verifier uwzględniają nowy układ.
+Nowy plik lokalny: 667590 B, SHA-256
+`19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`.
+PR17 ponownie użyty; finalna dostawa i pełna regresja w toku. Gra/kit/pakiet bez zmian.
+
+**21.66 — DOSTAWA v3:** pełny suite **1509 passed,1 skipped,382 subtests passed
+w46,84s**. Cały finalny MD sprawdzony przeciw niezmienionym źródłom historycznym;
+254 wybory opisów bazowych ponownie potwierdzone. Poprzedni plik Drive nadal miał
+hash v2 — nie było innych zmian użytkownika do pominięcia. Utworzono osobne
+`srwoe_mech_catalog_v3.md`, ID `1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt`.
+Przed uploadem0/po1 dopasowań nazwy, rozmiar667590B, MD5
+`1db3f99dd821fa4211b4f4f3e961d5df`; pobranie zwrotne w całości bajtowo identyczne.
+Starsze pliki i uprawnienia nietknięte. Aktualne manifest/raport wskazują v3,
+historyczne v2 są zachowane w revisions/. Pakiet gry oraz kit v17 bez zmian.

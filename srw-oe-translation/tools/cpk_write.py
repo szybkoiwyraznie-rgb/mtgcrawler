@@ -30,8 +30,8 @@ the rewrite possible, both measured on the real samples rather than assumed:
 0x800))``.  Only the content region and the header's size fields move; the EToc
 sits after the content and is carried along unchanged.
 
-There is no CRILAYLA compressor in this repository, only ``crilayla.decompress``,
-so a member that changes is written *stored* (``FileSize == ExtractSize``).  That
+By default a member that changes is written *stored*
+(``FileSize == ExtractSize``), without recompressing untouched members.  That
 is legal, and it is the same as leaving "Force Compress" unchecked when
 repacking, which is what the working Korean patch did.
 """
@@ -354,39 +354,49 @@ def decompressed(raw: bytes) -> bytes:
 
 
 def rebuild(cpk: Cpk, replacement=None) -> bytes:
-    """Reassemble the container, optionally swapping in a new blob for one member.
+    """Backward-compatible one-member interface; see :func:`rebuild_many`."""
+    if replacement is None:
+        return rebuild_many(cpk, {})
+    if len(replacement) == 3:
+        name, blob, extract = replacement
+    else:
+        name, blob = replacement
+        extract = len(blob)
+    if extract is None:
+        extract = len(blob)
+    return rebuild_many(cpk, {name: (blob, extract)})
 
-    The replacement is written stored, so its ``FileSize`` and ``ExtractSize``
-    both become the new length.  Members keep their positions until the changed
-    one is passed; from there on they shift by the size change rounded up to
-    ``Align``.  When nothing moves, the content region is copied verbatim, so a
-    no-change rebuild cannot disturb padding.
+
+def rebuild_many(cpk: Cpk, replacements: Dict[str, Tuple[bytes, int]]) -> bytes:
+    """Reassemble once for any number of replacements, in physical member order.
+
+    Values are ``(stored_bytes, uncompressed_size)``. Callers normally use STORED
+    data (both lengths equal). Empty changes preserve the original byte-for-byte.
+    Untouched member blobs are carried verbatim; changed offsets, size totals and
+    post-content tables are updated in one pass. No 271 successive map rebuilds.
     """
     data = cpk.data
     members = cpk.members
-
-    target_name: Optional[str] = None
-    new_blob: Optional[bytes] = None
-    new_extract: Optional[int] = None
-    if replacement is not None:
-        if len(replacement) == 3:
-            target_name, new_blob, new_extract = replacement
-        else:
-            target_name, new_blob = replacement
-        if not any(m.name == target_name for m in members):
-            raise ValueError(f"{target_name!r} is not a member of {cpk.path.name}")
+    known = {m.name for m in members}
+    missing = set(replacements) - known
+    if missing:
+        raise ValueError(f"{sorted(missing)!r} is not a member of {cpk.path.name}")
+    if replacements and len(known) != len(members):
+        raise ValueError("ambiguous duplicate CPK member names")
+    for name, (blob, extract) in replacements.items():
+        if not isinstance(blob, (bytes, bytearray)) or not isinstance(extract, int) or extract < 0:
+            raise ValueError(f"invalid replacement for {name!r}")
 
     def _size(member: Member) -> int:
-        if member.name == target_name and new_blob is not None:
-            return len(new_blob)
-        return member.file_size
+        return len(replacements[member.name][0]) if member.name in replacements else member.file_size
 
     ordered = sorted(members, key=lambda m: m.relative_offset)
     shift = 0
     new_relative: Dict[int, int] = {}
     for position, member in enumerate(ordered):
         new_relative[member.index] = member.relative_offset + shift
-        if member.name == target_name and new_blob is not None:
+        if member.name in replacements:
+            new_blob = replacements[member.name][0]
             delta = len(new_blob) - member.file_size
             if delta >= 0:
                 # Round the growth up to Align, so a grown member cannot overlap
@@ -410,8 +420,7 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
                     freed = min(freed, max(0, gap))
                 shift -= freed
 
-    moved = shift != 0 or (new_blob is not None and len(new_blob) != next(
-        m.file_size for m in members if m.name == target_name))
+    moved = shift != 0 or any(_size(m) != m.file_size for m in members)
 
     if moved:
         # Member offsets are relative to data_base, while the content region
@@ -434,17 +443,18 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
         content.extend(b"\x00" * (new_size - len(content)))
         for member in ordered:
             dest = _at(new_relative[member.index])
-            blob = new_blob if (member.name == target_name and new_blob is not None) else member.blob
+            blob = replacements[member.name][0] if member.name in replacements else member.blob
             content[dest:dest + len(blob)] = blob
         del content[new_size:]
     else:
         # Nothing shifted: keep the content region verbatim so untouched padding
         # survives, and splice the replacement in place if it was the same size.
         content = bytearray(data[cpk.content_offset:cpk.content_offset + cpk.content_size])
-        if target_name is not None and new_blob is not None:
-            member = next(m for m in members if m.name == target_name)
+        for member in members:
+            if member.name not in replacements:
+                continue
             at = cpk.data_base + member.relative_offset - cpk.content_offset
-            content[at:at + member.file_size] = new_blob
+            content[at:at + member.file_size] = replacements[member.name][0]
 
     content = _pad_to_alignment(cpk, content)
 
@@ -456,9 +466,9 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     offset_col = cpk.toc_layout.column("FileOffset")
     for member in members:
         _write_cell(out, member.row_start, offset_col, new_relative[member.index])
-        if member.name == target_name and new_blob is not None:
+        if member.name in replacements:
+            new_blob, wanted_extract = replacements[member.name]
             _write_cell(out, member.row_start, size_col, len(new_blob))
-            wanted_extract = new_extract if new_extract is not None else len(new_blob)
             if extract_col.row_offset is None:
                 # constant-storage ExtractSize (navisys.cpk): the schema holds one
                 # value for every row, so the replacement must keep it exactly.
@@ -483,11 +493,10 @@ def rebuild(cpk: Cpk, replacement=None) -> bytes:
     delta = len(content) - cpk.content_size
     set_header("ContentSize", len(content))
     set_header("FileSize", len(data) + delta)
-    if target_name is not None and new_blob is not None:
-        changed = next(m for m in members if m.name == target_name)
-        extract = new_extract if new_extract is not None else len(new_blob)
-        for name, value in enabled_sizes(cpk, {changed.index: len(new_blob)},
-                                         {changed.index: extract}).items():
+    if replacements:
+        sizes = {m.index: len(replacements[m.name][0]) for m in members if m.name in replacements}
+        extracts = {m.index: replacements[m.name][1] for m in members if m.name in replacements}
+        for name, value in enabled_sizes(cpk, sizes, extracts).items():
             set_header(name, value)
     # Any table that sits after the content region moves with it. The real
     # containers keep the TOC ahead of the content so nothing shifts, but that

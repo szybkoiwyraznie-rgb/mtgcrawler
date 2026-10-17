@@ -1,0 +1,32 @@
+{
+  "status": "DLC titles already EN in reproduced delivered v16; runtime report unresolved",
+  "delivered_v16_sha256": "f648c21803640b5498bedaec2d5d83ef1f4e5e2bf7cc47e39c5e99a47009872a",
+  "screens": {
+    "screen-1.png": "57e1f44963e2cfb1fcee276b00025d9041d493667177b004807fb8498feecae4",
+    "screen-2.png": "5beff4eda42a2fc1fdcfdf4f94efd2a50599f3c727ff811102a12e79ce9434a8",
+    "screen-3.png": "e60adc9b8bd34ebdf33cce8a4e67763be459a549ce00b1b569930b4dabbddc0c"
+  },
+  "reproduced_files": {
+    "config04.EDAT": {
+      "bytes": 108672,
+      "sha256": "d62128bb1929b31277f6d3d3bc75a1e618e2b711bedceedf3d305860d05f12a9",
+      "md5": "3aba6db5065ecd35ec7b04d3007d4c9b"
+    },
+    "config26.EDAT": {
+      "bytes": 12416,
+      "sha256": "4dc221d3dc5710e11f413dbdae583a2cce98c26ead4bc7d2a68cf8a4ed813d71",
+      "md5": "aa1f49a1803f2482a22e480480f1510b"
+    },
+    "config27.EDAT": {
+      "bytes": 12416,
+      "sha256": "ac2f85b159213bdddcf178a175298310fd27f7e75b2b16165f3f913a034a9cc0",
+      "md5": "d3a4ed5b075b2fe654c6e72832694259"
+    },
+    "imenu04.EDAT": {
+      "bytes": 28840,
+      "sha256": "8a907c7789250e8339f45383c1b50ebe2aa4634992b068ab2dbc529594fce52d",
+      "md5": "f33ebc1bb1e15de7f404ee095a8e8e3f"
+    }
+  },
+  "scope": "4 DLC containers from actual extracted delivered kit; no gameplay test"
+}

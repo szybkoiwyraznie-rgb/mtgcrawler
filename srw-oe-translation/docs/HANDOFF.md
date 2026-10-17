@@ -4,18 +4,82 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
+## Najnowsze przekazanie — 2026-10-18, katalog v3
+
+[Prezentacja v3](mech-catalog/README.md) uwzględnia całą listę (a–h) właściciela.
+Poza wcześniejszymi usunięciami nie ma już tagów unit dictionary, identyfikatorów
+pilotów/profili ani dwóch wskazanych zdań powtarzanych przy pilotach/wpisach
+specjalnych. Nazwy, wartości/opisy i klasyfikacja wpisów pozostają. Nie przywracać
+usuniętych elementów i nie usuwać przy okazji niepewności lub innych danych.
+Oryginały v1/v2 oraz ich manifesty są zachowane; v3 ma własny link Drive.
+Gra/kit v17 bez zmian; to wyłącznie prezentacja tego samego modelu.
+
+## Poprzednie przekazanie — 2026-10-18, układ katalogu mechów v2
+
+[Prezentacja v2](mech-catalog/README.md) usuwa trzy elementy wskazane przez właściciela
+z wszystkich rekordów: kotwicę HTML, „— Unit N” w nagłówku i linię Data. Informacje
+o pilotach/broni/zdolnościach oraz cały model pozostają identyczne. Źródła i ID są
+nadal w audycie. Pierwsze wydanie/manifest zachowane, v2 ma osobny link Drive.
+Nie przywracać tych technicznych nagłówków w następnych regeneracjach. Nie usuwać
+przy okazji innych pól, o które właściciel nie prosił. Gra/kit v17 bez zmian.
+
+## Poprzednie przekazanie — 2026-10-17, QA v17
+
+[Kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony, 7245833B, read-back Drive identyczny.
+Mapa: 111 nazw w271 kopiach attr.par, cel `Space Str.`, bez zmian liczbowych/geometrii.
+DLC: dwie nazwy już były EN w odtworzonym v16; usunięto też JP z opisów tych rekordów,
+sprawdzono12 pól. Naprawiony **odtworzony** błąd wyniku w podfolderach źródłowych;
+output/DLC jest teraz płaski, duplikaty wejścia są odmową, nie wyborem pierwszej kopii.
+Przyczyna na komputerze właściciela niepotwierdzona. Odpowiedział: pełnyv16, stary
+sejw, większość wcześniejszych nazw EN; nie utożsamiać tego z potwierdzonym save state.
+Jeśli te dwie nazwy zostaną JP: CHECK_DLC.bat -> zainstalowany folder -> JSON do analizy.
+Nie kasować zapisów, normalny sejw można wczytać po zimnym uruchomieniu nowej gry.
+
+1493 testy OK,1 skipped,382 subtests; faktyczny wypakowany kit przetestowany na
+minimalnym fixture ISO z realnymi oryginałami. Nie było pełnego bootu/gameplay.
+Dwa znane broadcasty słownika597/896 rozliczone z faktycznie nieobecnymi ID, nie
+przemilczane jako0refused. Dane/liczniki/dostawa: [QA_V17](QA_V17.md) i `qa-v17/`.
+Lmap156174576B STORED, większeISO zamierzone. Duże wyniki tylko w local/qa-v17/build;
+żadnych binariów/obrazków w Git. Katalog mechów/epizody pozostają wydanymi migawkami;
+test katalogu pobiera jego EN z przypiętego commitu, a nie z nowszej gry.
+
+## Poprzednie przekazanie — 2026-10-17, katalog mechów
+
+Zlecenie katalogu jest **dostarczone**, z jawnymi granicami danych:
+[Markdown i procedura reprodukcji](mech-catalog/README.md), 393 rekordy jednostek /
+1485 wpisów broni-akcji. Piloci i alternatywne profile, umiejętności bez Spirits,
+opisy bazowe (również nadpisania EXE 1.08), podstawowe statystyki i bramki broni.
+Braki: 20 serii, 2 natywne referencje zdolności, nieustalone konkretne misje bramek;
+nie nazywać tego kompletną symulacją gry. 17 napraw tekstu dotyczy **wyłącznie
+katalogu**, nie przekładu gry. Pełny suite 1438 OK / 1 skipped / 382 subtests.
+Read-back Drive bajtowo identyczny. Cały kod/testy/ustalenia i manifesty w PR #17;
+pełny MD/audyt/binarne źródła ignorowane. Dalsze dekodowanie konkretnych bramek
+lub backport poprawek opisów do gry to osobne zadanie, nie cicha część tej dostawy.
+
+## Poprzednie przekazanie — 2026-10-17, finał czytelniczy
+
+Odzyskanie patcha i **epizod 34 są zakończone**. Pełny numerowany `story` do czytania
+00–34 jest na Drive; nie rozpoczynaj ponownie 34 ani nie traktuj go jako brakującego
+przekładu gry. [Narzędzia, plan i raport dostawy](reading-script/README.md) są w Git.
+Oryginał patcha w `docs/recovered/`, odzyskane 918 linii dziennika w
+`READING_SCRIPT_HISTORY.md`; stary patch nie zawierał dawnych generatorów/planów.
+Nowe narzędzia odtworzono i wypychano etapami w PR #17. Pełny suite: 1379 OK,
+1 skipped, 382 subtests; pobranie 34 z Drive identyczne bajt w bajt. Pełnego tekstu
+nie dodawano do Git. Osobne potwierdzenie poprawek QA v16 w PPSSPP nadal oczekuje.
+Zasada nowy PR/ciągły commit + push w obu AGENTS.md pozostaje obowiązkowa.
+
 ## 0. Cel
 Przetłumaczyć **całą grę** SRW OE (PSP) na angielski; dostarczyć jako **`.xdelta`** na
 japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdzie to możliwe.
 **Nic nie tłumaczymy, dopóki setup nie obejmuje 100% kategorii** (decyzja użytkownika).
 
 ## 1. Środowisko i ograniczenia (KRYTYCZNE)
-- Repo: `mtgcrawler`, branch **`arena/c656a5df-mtgcrawler`** (tylko ten; push tylko tu).
+- Repo: `mtgcrawler`; pracuj i wypychaj **wyłącznie gałąź przypisaną do bieżącej sesji przez Arena**, nigdy historyczną nazwę z dawnych wpisów. **Obowiązek:** PR na początku sesji, commit + push po każdym spójnym fragmencie pracy (także nieukończonego epizodu). Pełna reguła w głównym `AGENTS.md`.
 - Cała praca pod **`srw-oe-translation/`**.
 - `.gitignore` wyklucza `google_drive/` i `srw-oe-translation/local/` — **NIGDY nie commituj**
   ISO/EDAT/CPK ani pełnego skryptu JP.
 - **Modyfikacja plików gry jest częścią projektu** (wg użytkownika, 2026-10-17); pliki gry NIE są publikowane na GitHubie — tylko lokalnie i przez Google Drive. Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
-- **Stan (2026-10-17, wg użytkownika):** gra w 100% przetłumaczona, pełne tłumaczenie = `PATCH15.zip`. Brak otwartych zadań i issues. Sekcje 7 i dalej opisują historię, nie aktualne zadania.
+- **Stan (2026-10-17):** po przekazaniu kompletnego `PATCH15.zip` użytkownik zgłosił nowe poprawki QA misji 0-1. Kit **v16** naprawia znaczniki imienia, wąskie etykiety, nazwy DLC i kartę Basic Training. Testy automatyczne/offline zaliczone, potwierdzenie w grze oczekuje. Bieżący stan: początek `STATUS.md`, szczegóły `EXPERIMENT_LOG.md` §21.61. Sekcje 7 i dalej opisują historię, nie aktualne zadania.
 - Tłumaczenie **fresh** (Akurasu odrzucone). Nie nazywaj projektu „przetłumaczonym”.
 - **Każdy `.bat` dla użytkownika otwiera OKNO WYBORU pliku/folderu — nigdy nie każe wpisywać
   ścieżki z palca.** Użytkownik zwracał na to uwagę dwa razy (2026-10-12 `PATCH_ISO_TEST.bat`,
@@ -24,9 +88,10 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
   `HOKUS_POKUS.bat` — kopiuj go do nowych batów. `set /p` na ścieżkę tylko jako awaryjne
   wyjście, gdy `pick_path.py` zwróci 3 (Python bez Tk). Pilnuje tego test
   `tests/test_pick_path.py::UserFacingBatRuleTests`.
-- **Piaskownica robi rollbacki** (HEAD potrafi wrócić do bazy `d4e2488`). Po rollbacku:
-  `git add -A && git commit && git pull --rebase origin arena/c656a5df-mtgcrawler && git push`.
-  Pliki w workspace trwają niezależnie od commitów.
+- **Nie polegaj na trwałości piaskownicy ani samego Drive.** Po każdym spójnym fragmencie:
+  przejrzyj zmiany → dodaj wyłącznie pliki przeznaczone do repo → commit → push na gałąź
+  bieżącej sesji → sprawdź head PR. Przy odzyskiwaniu najpierw sprawdź stan lokalny/zdalny;
+  nie stosuj ślepo dawnych poleceń rebase/force-push ani `git add -A` na plikach gry.
 - **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
   `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
   `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.
