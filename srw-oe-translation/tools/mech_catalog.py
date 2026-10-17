@@ -340,12 +340,17 @@ def render(model):
         value = "; ".join(series["titles"]) if series["titles"] else "Not recorded in the available unit/pilot dictionaries"
         qualifier = {"unit_dictionary": "unit dictionary", "labelled_form": "form-derived; see provenance",
                      "pilot_association": "pilot-associated only; not a unit-dictionary entry", "unrecorded": "unresolved"}[series["method"]]
-        put(f"**Series:** {md(value)} — *{qualifier}*.")
+        # Only the redundant confirmed-source tag is hidden. Keep inferred or
+        # unresolved series explicitly qualified rather than promoting them to facts.
+        if series["method"] == "unit_dictionary":
+            put(f"**Series:** {md(value)}")
+        else:
+            put(f"**Series:** {md(value)} — *{qualifier}*.")
         if series["method"] == "labelled_form":
             put("Series source: " + ", ".join(md(names[key]) for key in series["source_ids"]) + ".")
         put("### Default pilot / crew and special skills")
         for pilot in u["pilots"]:
-            put(f"#### Slot {pilot['slot'] + 1}: {md(pilot['name'])} — Character {pilot['character_id']}")
+            put(f"#### Slot {pilot['slot'] + 1}: {md(pilot['name'])}")
             if pilot["name"] in ("---", "NoData"):
                 put("The data assigns a placeholder, not a named pilot.")
             if len(pilot["profiles"]) > 1:
@@ -353,12 +358,12 @@ def render(model):
                     "the skill sets below are not simultaneous abilities.")
             for n, profile in enumerate(pilot["profiles"]):
                 label = "Assigned profile" if n == 0 else "Linked alternate profile"
-                put(f"**{label}: {md(profile['name'])} (ID {profile['character_id']})**")
+                put(f"**{label}: {md(profile['name'])}**")
                 if profile["skills"]:
                     put("\n".join(f"- {ability(ref['alias_id'])} *Learn-level field: {ref['learn_level']}.*"
                                   for ref in profile["skills"]))
                 else:
-                    put("No native special-skill assignment in this character record. Spirit Commands are intentionally excluded.")
+                    put("No native special-skill assignment in this character record.")
                 if profile["ace_alias"]:
                     put("**Ace bonus (separate unlock; not assumed active):**\n\n- " + ability(profile["ace_alias"]))
         put("### Native machine abilities")
@@ -375,8 +380,6 @@ def render(model):
             if not ws:
                 continue
             put("#### " + heading)
-            if not selected:
-                put("These are retained for completeness. Do not read their stored numbers as normal selectable attacks.")
             lines = ["| Slot | English name | Base power | Range | Hit | EN | Will | Gate | Abilities — base descriptions |",
                      "|---:|---|---:|:---:|---:|---:|---:|---|---|"]
             for w in ws:

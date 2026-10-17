@@ -6690,3 +6690,25 @@ Przed uploadem0 /po1 dopasowań nazwy, pełny download-back bajtowo identyczny,
 MD5 `16aaaf7f2f21b1b6291907e8f42c0511`. Oryginalny plik Drive pozostał nietknięty;
 nie zmieniano uprawnień. Aktualne manifesty/raport wskazują v2, historyczne v1 są
 w revisions/. Pakiet EN, gra i wydany kit v17 nie były modyfikowane w tym zadaniu.
+
+### 21.66 Katalog mechów — dalsze uproszczenie prezentacji (2026-10-18)
+
+Rozszerzona prośba właściciela (a–h), dla całego katalogu. Poprzednie usunięcia
+kotwic HTML/sufiksów Unit/wierszy Data pozostają. Z v2 usunięto dodatkowo: 302
+potwierdzone dopiski „unit dictionary”, 535 sufiksów „— Character N” i 569 „(ID N)”
+w nagłówkach pilotów/profili (także alternatywnych); 139 powtarzanych zdań o
+wykluczeniu Spirit Commands oraz 113 not o zachowaniu dodatkowych wpisów.
+Nazwy/umiejętności/broń/statystyki i rozdzielenie zwykłych oraz specjalnych wpisów
+pozostają bez zmian. Kwalifikacje serii wywnioskowanych/nieustalonych zachowane —
+nie zamieniamy niepewnych informacji w fakty. Innych identyfikatorów ani pól,
+o które właściciel nie prosił, nie usuwano.
+
+Pełny model jest identyczny z v1/v2 (SHA-256 modelu ff6d896ec720ca6a42474cc686c9e7a798d8a13be845e5567400b667a73918b0).
+Dokładne porównanie v2→v3 dopuszcza wyłącznie pięć wskazanych transformacji;
+wszystkie tabele broni, punktory zdolności, nazwy jednostek i nagłówki klasyfikacji
+akcji są bajtowo takie same. Dowód: `docs/mech-catalog/presentation-v3.json`.
+Poprzednie MD/audyt zachowane lokalnie, dokładne manifesty/raporty v2 w revisions/02.*.
+75 testów katalogu PASS (9 nowych); renderer i verifier uwzględniają nowy układ.
+Nowy plik lokalny: 667590 B, SHA-256
+`19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`.
+PR17 ponownie użyty; finalna dostawa i pełna regresja w toku. Gra/kit/pakiet bez zmian.

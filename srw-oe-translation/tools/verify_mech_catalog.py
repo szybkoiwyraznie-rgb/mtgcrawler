@@ -286,6 +286,12 @@ def verify(configs, package, elf_path, manifest_path, map_path, errata_path, mar
     check(not re.search(r'<a\b[^>]*\bid=[\"\']unit-\d+', document, re.I), "Technical unit anchor remains")
     check(not re.search(r"^\*Data: |^## .* — Unit \d+$|\]\(#unit-\d+\)", document, re.M),
           "Technical unit metadata or dangling anchor link remains")
+    check(" — *unit dictionary*." not in document, "Redundant unit dictionary tag remains")
+    check(not re.search(r"^#### Slot .* — Character \d+$|^\*\*(?:Assigned profile|Linked alternate profile):.* \(ID \d+\)\*\*$",
+                        document, re.M), "Technical pilot/profile ID remains")
+    check("Spirit Commands are intentionally excluded." not in document, "Repeated Spirit Commands notice remains")
+    check("These are retained for completeness. Do not read their stored numbers as normal selectable attacks." not in document,
+          "Repeated non-selectable-entry notice remains")
     skills = expected_skills
 
     def ability(alias):
@@ -304,13 +310,13 @@ def verify(configs, package, elf_path, manifest_path, map_path, errata_path, mar
         for title in ("### Default pilot / crew and special skills", "### Native machine abilities", "### Weapons and listed actions"):
             check(block.count(title) == 1, "Missing catalogue section")
         heads = re.findall(r"^#### Slot .+$", block, re.M)
-        expected_heads = [f"#### Slot {p['slot']+1}: {escape(p['name'])} — Character {p['character_id']}" for p in u["pilots"]]
+        expected_heads = [f"#### Slot {p['slot']+1}: {escape(p['name'])}" for p in u["pilots"]]
         check(heads == expected_heads, "Markdown pilot assignment/name mismatch")
         profile_heads, bullets = [], []
         for p in u["pilots"]:
             for j, profile in enumerate(p["profiles"]):
                 role = "Assigned profile" if j == 0 else "Linked alternate profile"
-                profile_heads.append(f"**{role}: {escape(profile['name'])} (ID {profile['character_id']})**")
+                profile_heads.append(f"**{role}: {escape(profile['name'])}**")
                 bullets += [f"- {ability(s['alias_id'])} *Learn-level field: {s['learn_level']}.*" for s in profile["skills"]]
                 if profile["ace_alias"]:
                     bullets.append("- " + ability(profile["ace_alias"]))

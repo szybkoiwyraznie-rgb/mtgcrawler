@@ -122,6 +122,39 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
     def test_missing_clean_unit_heading_is_rejected(self):
         self.reject(lambda text: text.replace("## Exart\n\n", "", 1))
 
+    def test_additional_reader_cleanup_preserves_names_and_classification(self):
+        text = self.baseline_text
+        self.assertNotIn(" — *unit dictionary*.", text)
+        self.assertNotIn(" — Character ", text)
+        self.assertNotIn("**Assigned profile: Seishiro Kusanagi (ID 4501)**", text)
+        self.assertIn("#### Slot 2: Himari Yaegaki\n", text)
+        self.assertIn("**Assigned profile: Himari Yaegaki**", text)
+        self.assertNotIn("Spirit Commands are intentionally excluded.", text)
+        self.assertNotIn("These are retained for completeness.", text)
+        self.assertIn("Additional entries — zero selector (animations / special records)", text)
+        self.assertIn("pilot-associated only; not a unit-dictionary entry", text)
+
+    def test_reintroduced_dictionary_tag_is_rejected(self):
+        self.reject(lambda text: text.replace("**Series:** Super Robot Wars Original\n",
+                    "**Series:** Super Robot Wars Original — *unit dictionary*.\n", 1))
+
+    def test_reintroduced_pilot_character_id_is_rejected(self):
+        self.reject(lambda text: text.replace("#### Slot 1: Seishiro Kusanagi\n",
+                    "#### Slot 1: Seishiro Kusanagi — Character 4501\n", 1))
+
+    def test_reintroduced_profile_id_is_rejected(self):
+        self.reject(lambda text: text.replace("**Assigned profile: Seishiro Kusanagi**",
+                    "**Assigned profile: Seishiro Kusanagi (ID 4501)**", 1))
+
+    def test_reintroduced_spirit_notice_is_rejected(self):
+        self.reject(lambda text: text.replace("No native special-skill assignment in this character record.",
+                    "No native special-skill assignment in this character record. Spirit Commands are intentionally excluded.", 1))
+
+    def test_reintroduced_special_entry_notice_is_rejected(self):
+        self.reject(lambda text: text.replace("#### Additional entries — zero selector (animations / special records)\n",
+                    "#### Additional entries — zero selector (animations / special records)\n\n"
+                    "These are retained for completeness. Do not read their stored numbers as normal selectable attacks.\n", 1))
+
     def test_dropped_internal_unit_is_detected(self):
         self.current["units"] = [u for u in self.current["units"] if u["unit_id"] != 3999]
         self.current["summary"]["units"] -= 1
