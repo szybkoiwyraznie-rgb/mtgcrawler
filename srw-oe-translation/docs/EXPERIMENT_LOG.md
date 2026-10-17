@@ -6058,3 +6058,13 @@ README; (5) PATCH.zip jako automatyczny Release.
 - **README korzenia po angielsku** (target = angielskojezyczny gracz); wiersz DLC z
   nazwa narzedzia deszyfrowania usera: `psnpkgdecryptextract` (tez w README_DIST tabela
   wymagan).
+
+### 21.60 Test foe robots: WYGRANE; porządki korzenia (2026-10-17)
+
+User: „wszystko śmiga z plikami z drive, robot przetłumaczony" — **foe robots potwierdzone
+w grze** (narrow+type strony config; §21.58/21.59). Porządki repo: usunięte z gita artefakty
+ery probe'owej z 10.10: `registry.json` (2.8 MB — rejestr wywołań YACpkTool) i
+`diagnostics_20261010-142640.zip` (1.9 MB, 1120 plików logów/prob). Reszta drzewa
+przescanowana: jedyne duże pliki = pakiet (decyzja usera §21.58) + dokumentacja;
+`test-patches/eventP00-scena1.json` zostaje (żywe odwołania: PATCH_ISO_TEST.bat,
+iso_test_patch.py, build_test_spec.py, dokumentacja).
