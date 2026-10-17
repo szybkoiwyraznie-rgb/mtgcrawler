@@ -1,6 +1,6 @@
 # SRT OE English Translation — Research Workspace
 
-**Status:** technical feasibility / proof-of-concept only. There is no playable English patch yet.
+**Status (2026-10-17):** the game is fully translated into English. The complete translation ships as `PATCH15.zip` (per the project owner). The sections below are the project history.
 
 ## Goal
 

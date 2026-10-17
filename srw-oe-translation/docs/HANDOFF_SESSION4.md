@@ -52,7 +52,7 @@ Stan: nic nie jest przetłumaczone ani zakończone. Brak wykazanego, działając
 - Nie tłumaczyć nic, dopóki setup nie pokryje 100% kategorii tekstu.
 - Nie używać skryptu Akurasu jako źródła.
 - Nie commitować ISO, EDAT, CPK, BIN/DAT, zapisów, audio, obrazów ani pełnego japońskiego skryptu. `local/` i `google_drive/` są w gitignore.
-- Nie modyfikować oryginalnych plików gry.
+- Modyfikacja plików gry jest częścią projektu; pliki gry nie są publikowane na GitHubie (lokalnie + Google Drive). (Zasada zaktualizowana 2026-10-17.)
 - Nie wpisywać ścieżek absolutnych ani nazw użytkowników do commitowanych plików.
 - Oznaczać fakty `[ZWERYFIKOWANE]`, a hipotezy `[HIPOTEZA]` lub `[NIEZWERYFIKOWANE]`.
 - Dokumentacja i komunikacja z użytkownikiem po polsku. Bez liczb szesnastkowych w rozmowie z użytkownikiem (podawać dziesiętnie).

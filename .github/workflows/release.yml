@@ -1,4 +1,4 @@
-name: Release PATCH
+name: Release translation patch
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -26,24 +26,42 @@ jobs:
 
       - name: Resolve version and zip path
         id: ver
+        shell: bash
         working-directory: srw-oe-translation
         run: |
+          set -euo pipefail
           ZIP="$(ls local/release/srw-oe-translation-v*.zip | sort -V | tail -1)"
           VER="$(basename "$ZIP" .zip | sed 's/.*-v//')"
-          echo "zip=$ZIP" >> "$GITHUB_OUTPUT"
+          # Store the path relative to the repository root, because later steps run there.
+          echo "zip=srw-oe-translation/$ZIP" >> "$GITHUB_OUTPUT"
           echo "version=$VER" >> "$GITHUB_OUTPUT"
           echo "Built $ZIP (v$VER)"
 
       - name: Create or update the GitHub Release
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          VER: ${{ steps.ver.outputs.version }}
+          ZIP: ${{ steps.ver.outputs.zip }}
         run: |
-          TAG="patch-v${{ steps.ver.outputs.version }}"
-          NOTES="Kit one-click (PATCH.bat) z pakietem tlumaczenia v${{ steps.ver.outputs.version }}.
+          set -euo pipefail
+          TAG="patch-v${VER}"
+          test -f "$ZIP" || { echo "::error::Zip not found: $ZIP"; exit 1; }
 
-          Uzycie: rozpakuj, uruchom PATCH.bat, wskaz swoje ISO SRW OE 1.08 (JP) i folder DLC (NPJH50521).
-          Wymaga wlasnej, oryginalnej kopii gry. Projekt fanowski, niepowiazany z Bandai Namco.
-          Zmiany w tym wydaniu: srw-oe-translation/pakiet_EN/CO_NOWEGO_v${{ steps.ver.outputs.version }}.txt w repozytorium."
-          gh release view "$TAG" >/dev/null 2>&1 \
-            || gh release create "$TAG" --title "PATCH v${{ steps.ver.outputs.version }}" --notes "$NOTES"
-          gh release upload "$TAG" "${{ steps.ver.outputs.zip }}" --clobber
+          NOTES_FILE="$RUNNER_TEMP/release-notes.md"
+          cat > "$NOTES_FILE" <<EOF
+          English translation patch for Super Robot Wars: Operation Extend (PSP, NPJH50521), version v${VER}.
+
+          This is a one-click kit: unzip it, run PATCH.bat, and select your own copy of the
+          Japanese SRW OE 1.08 ISO and your DLC folder (NPJH50521). Requires PPSSPP.
+
+          You need your own legally obtained copy of the game. This is a non-commercial fan project,
+          not affiliated with Bandai Namco. No game data is included in this release.
+          EOF
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG exists, updating the asset."
+          else
+            gh release create "$TAG" --title "SRW OE English patch v${VER}" --notes-file "$NOTES_FILE"
+          fi
+          gh release upload "$TAG" "$ZIP" --clobber

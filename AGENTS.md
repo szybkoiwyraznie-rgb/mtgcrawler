@@ -16,10 +16,11 @@ Project guardrails:
 
 - Keep all SRW OE work under `srw-oe-translation/`; do not mix it into the crawler application.
 - Do not add or request the user's ISO, EDAT/CPK archives, extracted BIN/DAT files, saves, audio, images, or a full extracted Japanese script. Work against files kept locally by the user.
-- Never modify the user's only/original game files. Use copies and record which exact edition/version was tested.
+- Modifying the game files is the core of the project. Work on the user's own game files as needed, keep the results local, and record which exact edition/version was used.
+- Game files, ISOs, DLC, and derived builds are never published to GitHub. Keep them local and exchange them with the user via Google Drive.
 - Clearly label confirmed observations, hypotheses, and unknowns. The current `FF FF ... 00 00` text-block interpretation is only a heuristic until tested across files.
 - The user wants a fresh English translation from the Japanese game. They explicitly rejected the low-quality Akurasu script as a translation source; do not base the translation on it.
-- No playable patch or in-game acceptance has been demonstrated yet. Do not describe the project as translated or complete.
+- Per the user (2026-10-17): the game is 100% translated into English, and the complete translation ships as `PATCH15.zip`. There are no open tasks or issues. Read `docs/STATUS.md` for history only.
 - Log commands, tool versions, results, hashes, and failures in `docs/EXPERIMENT_LOG.md`. Do not put personal Windows usernames or local absolute paths into committed documentation.
 - The intended distribution model is a patch applied to a user's own matching game files, not distribution of game data. Final format and legal review remain undecided.
 - Use the session-assigned Git branch and repository workflow; do not switch branches.
