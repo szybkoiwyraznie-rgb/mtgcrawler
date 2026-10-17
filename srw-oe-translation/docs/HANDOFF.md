@@ -4,6 +4,18 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
+## Najnowsze przekazanie — 2026-10-17, finał czytelniczy
+
+Odzyskanie patcha i **epizod 34 są zakończone**. Pełny numerowany `story` do czytania
+00–34 jest na Drive; nie rozpoczynaj ponownie 34 ani nie traktuj go jako brakującego
+przekładu gry. [Narzędzia, plan i raport dostawy](reading-script/README.md) są w Git.
+Oryginał patcha w `docs/recovered/`, odzyskane 918 linii dziennika w
+`READING_SCRIPT_HISTORY.md`; stary patch nie zawierał dawnych generatorów/planów.
+Nowe narzędzia odtworzono i wypychano etapami w PR #17. Pełny suite: 1379 OK,
+1 skipped, 382 subtests; pobranie 34 z Drive identyczne bajt w bajt. Pełnego tekstu
+nie dodawano do Git. Osobne potwierdzenie poprawek QA v16 w PPSSPP nadal oczekuje.
+Zasada nowy PR/ciągły commit + push w obu AGENTS.md pozostaje obowiązkowa.
+
 ## 0. Cel
 Przetłumaczyć **całą grę** SRW OE (PSP) na angielski; dostarczyć jako **`.xdelta`** na
 japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdzie to możliwe.

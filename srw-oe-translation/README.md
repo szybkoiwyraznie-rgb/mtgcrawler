@@ -2,6 +2,16 @@
 
 **Status (2026-10-17):** the owner reported the complete English translation as `PATCH15.zip`. Subsequent mission 0-1 feedback is addressed in **kit v16**: player-name substitution keys, narrow UI labels, 21 DLC titles and the Basic Training title card. Automated tests and byte-level build checks pass; in-game confirmation of these new fixes is pending. See [`docs/STATUS.md`](docs/STATUS.md) and `pakiet_EN/CO_NOWEGO_v16.txt`. The sections below are the project history.
 
+## English reading edition — episodes 00–34 complete
+
+The final [episode 34 Markdown](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
+is delivered and independently verified, including all unique finale/epilogue variants.
+This uses the existing English package; it does not change the translation or game.
+Recovered history, tracked tools, reviewed plan, tests and delivery hashes:
+[`docs/reading-script/README.md`](docs/reading-script/README.md). The original Drive
+patch is archived byte-for-byte in Git. Full project suite: 1379 passed, 1 skipped,
+382 subtests passed. Earlier reading episodes remain on Drive; `simulator` is out of scope.
+
 ## Goal
 
 Investigate a patch translating the Japanese PSP release of **Super Robot Taisen: Operation Extend** into English. The user confirmed the target ID as `NPJH50521`, described the base image as `SRW OE 1.08.iso` (reported size: 664,324 KB), and has the game data/DLC installed for PPSSPP.

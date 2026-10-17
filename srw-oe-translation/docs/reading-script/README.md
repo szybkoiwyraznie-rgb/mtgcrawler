@@ -5,7 +5,7 @@ never use previously generated Markdown as a translation source. See
 [the recovered history](../READING_SCRIPT_HISTORY.md) for the delivered 00–33 editions.
 The original recovery patch is archived in `../recovered/`.
 
-## Checkpoint: reading edition generated and independently verified; delivery pending
+## Completed and delivered — 2026-10-17
 
 `episode_34_sources.json` is an independently recomputed inventory, not the lost
 agent's plan. It records all seven scenes, 7471 nonempty prose entries and exact
@@ -42,9 +42,21 @@ variant bases and context policy. All three base scenes were read in full; all E
 changes and F/E differences were reviewed. Shared short names are disambiguated
 using existing package full names (e.g. the two Shinobus), not guessed identities.
 
-Pending: final full-project regression and Drive delivery. The current edition passes
-independent full-source verification, 37 synthetic reading-tool tests and 20 tests
-on the actual finale (including 18 semantic corruptions with repaired hashes/offsets). Old PASS claims in
+**Delivered:** [`srwoe_episode_34.md`](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
+(212,920 bytes; SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`).
+Downloaded back from Drive and compared byte-for-byte. The existing
+[reading folder](https://drive.google.com/drive/folders/1zBVlAv_Nu-2hynN86f-vml7Yy823q22H)
+now contains all 35 individual episodes **00–34** and the six previous batch archives.
+Only 34 was uploaded in this recovery; earlier files and permissions were untouched.
+The numbered story reading edition is complete; `simulator` scenes are separate.
+
+**Verification:** 7471 source prose entries = 3338 displayed + 4133 proven reading
+aliases; all 210 meaningful metadata entries accounted for. Full independent
+read-back of 7723 source records / 3570 output blocks. All **57 reading-tool tests**
+pass (37 synthetic + 20 actual-finale tests, including 18 semantic corruptions with
+repaired hashes/offsets). Full project suite: **1379 passed, 1 skipped, 382 subtests
+passed** (Python 3.11.2 / pytest 9.1.1). See `episode_34.verification.json` and
+`episode_34.delivery.json` for the compact report and delivery/tool provenance. Old PASS claims in
 the recovered log are historical, not claims that the missing old tests ran here.
 
 ## Reproduce episode 34

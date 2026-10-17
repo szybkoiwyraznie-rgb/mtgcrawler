@@ -1,8 +1,22 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.61 — QA misji 0-1, kit v16)
+Last updated: 2026-10-17 (§21.62 — odzyskana historia czytelnicza i ukończony finał 34)
 
-**Najnowsze (§21.61): poprawki po nowych zrzutach z misji 0-1 przygotowane w v16.**
+**Najnowsze (§21.62): finał angielskiego scenariusza do czytania 34 ukończony i dostarczony.**
+Na Drive jest komplet pojedynczych epizodów **00–34**. [Epizod 34](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
+ma 212 920 B; pobranie zwrotne jest identyczne bajt w bajt. Pełne 7471 wpisów prozy
+rozliczone: 3338 pokazane, 4133 identyczne aliasy; zachowane wszystkie unikalne
+zakończenia, metadane, rozmówcy i myśli, wydzielone dialogi warunkowe i porażka.
+To wydanie istniejącego angielskiego z `pakiet_EN`, **nie nowy przekład ani patch gry**.
+Pełny suite: **1379 passed, 1 skipped, 382 subtests passed**; 57 nowych testów czytelniczych.
+Patch poprzedniego agenta zarchiwizowany 1:1 w `docs/recovered/`, wszystkie 918
+odzyskanych linii w `READING_SCRIPT_HISTORY.md`, bez nadpisania historii QA v16.
+Patch zawierał wyłącznie dziennik — potrzebne narzędzia/plan odtworzono i zapisano
+w Git wraz z testami. Instrukcje i manifest: [`reading-script/README.md`](reading-script/README.md).
+Epizodów 00–33 nie regenerowano; ich dawne wyniki testów są historią. Sceny `simulator`
+nie należą do ukończonej serii `story`. PR #17 zawiera kolejne wypchnięte checkpointy.
+
+**Osobny stan QA gry (§21.61): poprawki misji 0-1 przygotowane w v16.**
 Przywrócone cztery znaczniki imienia gracza w EBOOT (bez hardkodowania Seishiro),
 Foe/Oth → `F.`/`O.`, Post-Mv → `P-Mv`; 21 tytułów DLC w obu polach nazw oraz kopiach
 config/imenu (84 pola), brakująca karta `Basic Training` w DL100_01_ext.dat.

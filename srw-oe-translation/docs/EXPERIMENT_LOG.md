@@ -6297,3 +6297,39 @@ zmianę rozmówcy, ujawnienie `???`, błędny alias J→baza zamiast J→F, zmia
 kolejności, warunkowości i porażki oraz dodaną nawigację lub wymyślone zakończenie.
 Kompaktowy raport kontroli bazowego artefaktu zapisany w śledzonym
 `docs/reading-script/episode_34.verification.json`; bez pełnego tekstu i audytu w Git.
+
+**Finał ukończony, dostarczony i odczytany z Drive.**
+
+- Dawny ignorowany `local/.venv/bin/python` nie przetrwał odtworzenia środowiska
+  (próba sprawdzenia wersji zakończyła się 127 już po udanym pushu checkpointu).
+  Odtworzono go przez `python3 -m venv local/.venv`, zainstalowano pytest 9.1.1,
+  pytest-subtests 0.15.0 i Pillow 13.0.0. Produkcyjne narzędzia czytelnicze wymagają
+  wyłącznie standardowej biblioteki Pythona 3.11+.
+- Z korzenia repo: `srw-oe-translation/local/.venv/bin/python -m pytest srw-oe-translation/tests -q`:
+  **1379 passed, 1 skipped, 382 subtests passed w 25,28 s**. Log w ignorowanym
+  `local/reading-script/pytest-full.log`. W tym 57 testów nowych narzędzi.
+- Ponowna regeneracja po testach jest **bajt w bajt identyczna**; niezależny verifier
+  ponownie PASS, raport identyczny ze śledzonym `episode_34.verification.json`.
+  Oryginalny patch i jego archiwum w Git porównane bajt w bajt; wszystkie 918
+  dodanych linii tworzy niezmieniony końcowy fragment `READING_SCRIPT_HISTORY.md`.
+- Przed uploadem dokładne wyszukiwanie `srwoe_episode_34.md` w docelowym folderze
+  zwróciło zero plików. Utworzono **jeden** nowy plik, bez nadpisywania innych
+  epizodów i bez zmian uprawnień:
+  [`srwoe_episode_34.md`](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view),
+  **212 920 B**, SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`,
+  MD5 `3f5a1edade4fa8f01100417d8724ad31`.
+- Końcowe `list_files`: **41 plików** — 35 pojedynczych Markdownów **00–34**
+  i sześć wcześniejszych ZIP-ów; brak dalszej strony i niepełnego wyszukiwania.
+  ID/rozmiar/MD5 finału zgodne z uploadem i lokalnym wynikiem. `download_file`
+  pobrał nowy plik do `google_drive/srwoe_episode_34.md`: **pełna równość bajtów
+  z lokalnym finalnym Markdownem**, nie tylko zgodność metadanych API.
+- `git diff --exit-code 250f6a5 -- srw-oe-translation/pakiet_EN`: PASS.
+  Wydanie czytelnicze nie zmieniło żadnego wiersza przekładu ani pliku gry.
+  Nie odtwarzano starych testów epizodów 00–33, nie deklarowano emulatorowego
+  ustalenia kolejności/aktywatorów. Poprawki QA v16 nadal czekają na osobny test PPSSPP.
+- Finalny manifest dostawy/testów/hashów narzędzi:
+  `docs/reading-script/episode_34.delivery.json`. Pełne MD i audyt pozostają poza Git;
+  narzędzia, testy, cały plan, raport, oryginalny patch i jego odzyskana treść są w Git.
+
+**Punkt kontynuacji: numerowane wydanie `story` 00–34 ukończone. Brak niedokończonego
+finału. Sceny `simulator` są osobnym zakresem, nie kontynuacją tego zlecenia.**
