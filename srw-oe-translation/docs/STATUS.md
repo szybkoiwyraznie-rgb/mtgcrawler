@@ -1,8 +1,82 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.58; status note added 2026-10-17)
+Last updated: 2026-10-18 (§21.66 — prezentacja katalogu v3)
 
-> **Aktualny stan (2026-10-17, wg właściciela projektu):** gra jest w 100% przetłumaczona na angielski.
+**Najnowsze (§21.66): prezentacja katalogu v3 dostarczona.**
+[Nowy Markdown](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view),
+667590 B. Pełna lista (a–h): poprzednie usunięcia zachowane, dodatkowo bez tagów
+unit dictionary, ID wszystkich pilotów/profili oraz dwóch wskazanych powtarzanych
+komunikatów. Model/dane, bronie/statystyki/opisy oraz klasyfikacja wpisów specjalnych
+bez zmian; niepewności nadal oznaczone. 1509 PASS,1 skipped,382 subtests; download-back
+identyczny. Poprzednie wydania zachowane. Gra i kit v17 bez zmian.
+
+**Poprzednia prezentacja (§21.65): katalog mechów — prezentacja v2 dostarczona.**
+[Nowy Markdown](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view),
+707653 B. Usunięto kotwice HTML, sufiksy „— Unit N” i wiersze „Data: …” dla wszystkich
+393 rekordów; model/dane, bronie, umiejętności i piloci bez zmian. Odsyłacze do
+usuniętych kotwic zamieniono na czytelny tekst. Pierwsze wydanie zachowane.
+1500 testów PASS,1 skipped,382 subtests; odczyt zwrotny Drive identyczny. Szczegóły:
+[README katalogu](mech-catalog/README.md). Nie zmieniano gry ani kitu v17.
+
+**Osobny stan QA gry (§21.64): [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony.**
+`宇宙構造物` -> `Space Str.`; cała odnaleziona rodzina: 111 nazw w 271 kopiach
+attr.par/lmap, 30081 zapisanych komórek. Liczby, geometria i tekstury nietknięte.
+DLC04: nazwy były już EN w odtworzonym v16; dodano dwa pozostałe JP opisy i twardą
+kontrolę odczytu wszystkich 12 pól obu kopii. Odtworzony błąd procesu v16: wejściowe
+podfoldery były przenoszone do output/DLC i mogły nie trafić do katalogu gry.
+V17 daje płaskie pliki, obsługuje różnice liter i odmawia niejednoznacznych backupów.
+**Nie ustalono, czy dokładnie ten układ występował u właściciela.** Stary sejw nie
+jest automatycznie dowodem save state. CHECK_DLC.bat czyta zainstalowane pliki bez
+zmiany czegokolwiek; jeśli objaw zostanie, potrzebny DLC_TITLE_CHECK.json.
+Testy: **1493 passed,1 skipped,382 subtests**. Wypakowany rzeczywisty ZIP i fixture
+ISO z oryginalnymi plikami sprawdzone bajtowo; to nie boot pełnej gry/PPSSPP.
+ZIP 7245833B, pobranie zwrotne Drive identyczne. [Dowody i granice](QA_V17.md),
+[manifest](qa-v17/delivery.json). Oryginały/sejwy zachować. Lmap rośnie do156174576B
+(STORED), a ISO dopisuje zmienione człony — większy plik jest oczekiwany.
+
+**Poprzednia dostawa (§21.63): katalog mechów ukończony w zakresie dostępnych danych.**
+[`srwoe_mech_catalog.md`](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view):
+761 353 B, pełny odczyt zwrotny Drive identyczny bajtowo. 393 rekordy jednostek
+(własne/wrogie, formy, obiekty i rekordy filmowe), 1485 wpisów broni/akcji;
+535 przypisań pilotów/załóg, osobne profile alternatywne, zdolności bez Spirits,
+opisy bazowe, statystyki broni i jawne bramki warunkowe. Dane z oryginalnej 1.08
+oraz istniejącego EN; 20 nadpisań opisów w EBOOT uwzględnionych. 17 poprawek
+złożonego tekstu **tylko w katalogu**, bez zmian pakietu lub plików gry.
+Pozostałe braki są oznaczone: 20 serii, 2 referencje zdolności (110/230), brak
+potwierdzonych misji odblokowania; puste sloty natywne nie oznaczają braku efektów
+systemowych. 302 serie są bezpośrednie, 57 po jawnej nazwie formy, 14 to oznaczone
+skojarzenia z pilotem. Pełny suite: **1438 passed, 1 skipped, 382 subtests passed**;
+59 nowych testów, w tym 24 mutacje semantyczne. Narzędzia, dowody, testy i manifest
+w Git/PR #17. [Szczegóły i reprodukcja](mech-catalog/README.md).
+
+**Poprzednia dostawa (§21.62): finał angielskiego scenariusza do czytania 34 ukończony.**
+Na Drive jest komplet pojedynczych epizodów **00–34**. [Epizod 34](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
+ma 212 920 B; pobranie zwrotne jest identyczne bajt w bajt. Pełne 7471 wpisów prozy
+rozliczone: 3338 pokazane, 4133 identyczne aliasy; zachowane wszystkie unikalne
+zakończenia, metadane, rozmówcy i myśli, wydzielone dialogi warunkowe i porażka.
+To wydanie istniejącego angielskiego z `pakiet_EN`, **nie nowy przekład ani patch gry**.
+Pełny suite: **1379 passed, 1 skipped, 382 subtests passed**; 57 nowych testów czytelniczych.
+Patch poprzedniego agenta zarchiwizowany 1:1 w `docs/recovered/`, wszystkie 918
+odzyskanych linii w `READING_SCRIPT_HISTORY.md`, bez nadpisania historii QA v16.
+Patch zawierał wyłącznie dziennik — potrzebne narzędzia/plan odtworzono i zapisano
+w Git wraz z testami. Instrukcje i manifest: [`reading-script/README.md`](reading-script/README.md).
+Epizodów 00–33 nie regenerowano; ich dawne wyniki testów są historią. Sceny `simulator`
+nie należą do ukończonej serii `story`. PR #17 zawiera kolejne wypchnięte checkpointy.
+
+**Osobny stan QA gry (§21.61): poprawki misji 0-1 przygotowane w v16.**
+Przywrócone cztery znaczniki imienia gracza w EBOOT (bez hardkodowania Seishiro),
+Foe/Oth → `F.`/`O.`, Post-Mv → `P-Mv`; 21 tytułów DLC w obu polach nazw oraz kopiach
+config/imenu (84 pola), brakująca karta `Basic Training` w DL100_01_ext.dat.
+Pisarz chroni stałe silnika i osobne limity ekranowe. Rozmiary config01–07 bez zmian;
+pozostałe pola katalogu i bramki słowników nietknięte. **1322 testy OK, 1 pominięty;
+0 błędów kontroli pakietu; build z wypakowanego kitu i odczyt wyników sprawdzone offline.**
+Kit `srw-oe-translation-v16.zip` na Drive (`1AHsLPKWTTnEh7G7Sovsld7kfqQalDet-`).
+**Oczekuje tylko potwierdzenie tych nowych poprawek w PPSSPP** — nie wykonano testu
+emulatorowego. Zimny start z nowego buildu, nie stary save state; sejwów nie kasować.
+Szczegóły, komendy, hashe i ograniczenia: `EXPERIMENT_LOG.md` §21.61,
+`pakiet_EN/CO_NOWEGO_v16.txt`. Starsze zadania poniżej pozostają historią.
+
+> **Stan przekazania PRZED nowymi zgłoszeniami QA (2026-10-17, wg właściciela projektu):** gra jest w 100% przetłumaczona na angielski.
 > Pełne tłumaczenie = `PATCH15.zip` (dostarczane lokalnie / przez Google Drive, nie na GitHubie).
 > Brak otwartych zadań i issues — wszystkie zostały wyjaśnione i zamknięte.
 > Poniższe wpisy („Latest", „Open", „Still open", „Otwarte") opisują **historię prac** i są nieaktualne jako lista zadań.

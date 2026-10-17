@@ -1,0 +1,926 @@
+diff --git a/srw-oe-translation/docs/EXPERIMENT_LOG.md b/srw-oe-translation/docs/EXPERIMENT_LOG.md
+index fd6e834..b02fa16 100644
+--- a/srw-oe-translation/docs/EXPERIMENT_LOG.md
++++ b/srw-oe-translation/docs/EXPERIMENT_LOG.md
+@@ -6068,3 +6068,921 @@ ery probe'owej z 10.10: `registry.json` (2.8 MB — rejestr wywołań YACpkTool)
+ przescanowana: jedyne duże pliki = pakiet (decyzja usera §21.58) + dokumentacja;
+ `test-patches/eventP00-scena1.json` zostaje (żywe odwołania: PATCH_ISO_TEST.bat,
+ iso_test_patch.py, build_test_spec.py, dokumentacja).
++
++### 21.61 Czytelny scenariusz fabularny — próbka epizodu 0 (2026-10-17)
++
++Nowe zadanie użytkownika: czytelny angielski scenariusz Markdown, z tłumaczeniem
++wprost z projektu, nie z `srwoe_example.md`. Użytkownik zaakceptował wydzielenie
++rozmów warunkowych bez zgadywania dokładnych wyzwalaczy. Pierwsza próbka obejmuje
++**epizod 0**, czyli obie misje **Basic Training** i **Rescue White Base**.
++
++- Źródła: `pakiet_EN/00_dialogue.jsonl`, `05_mission_text.jsonl`, `06_scenes.jsonl`
++  i `07_names_characters.jsonl`; sceny `eventP00.cpk/DL100_01.bin` oraz
++  `eventP00.cpk/DL100_02.bin` (japońska edycja 1.08, `NPJH50521`). `EN3.zip` służy
++  do orientacji w scenach, przykład wyłącznie jako wzór formy, nie źródło przekładu.
++- Artefakt poza Gitem: `local/reading-script/srwoe_episode_00.md`, **21 089 B**,
++  SHA-256 `9eb86dd608cdadce12764fe820899efaef4c10408abe5414b0970e035f0a9fbe`.
++  Kopia na Drive w folderze `SRW OE` obok przykładu:
++  `https://drive.google.com/file/d/1NxvAAzxVnbNfAnlwn7BOaiWzQzKAioND/view`.
++- Układ przygotowany redakcyjnie, nie przez dekoder warunków VM. Zachowano
++  **242/242 wpisy dialogowe**, **11/11 wpisów narracyjnych** (17 akapitów) oraz
++  6 przetłumaczonych nagłówków miejsca/czasu, w kolejności źródłowej. 32 wpisy
++  sytuacyjne/warunkowe wyróżnione blokiem cytatu; bez twierdzeń o progach HP,
++  numerach tur ani pewnej kolejności ich odtwarzania. Pominięto wyłącznie
++  10 warunków zwycięstwa/porażki i 4 techniczne etykiety sceny/kamery.
++- Bez przeredagowywania kwestii: złączono łamanie wierszy okien gry; zachowano
++  akapity narracji i oryginalną interpunkcję; 8 monologów w nawiasach wyróżniono
++  kursywą. Pięć placeholderów imienia zastąpiono domyślnym `Seishiro` z tabel
++  postaci; etykiety mówców pochodzą z pakietu (Suol: pełne `Suol Douglas`).
++  W dokumencie jawnie odróżniono nagłówki redakcyjne od tekstu gry.
++- Polecenia (Python **3.11.2**, tylko biblioteka standardowa, z korzenia repo):
++  `python3 srw-oe-translation/local/reading-script/build_episode_00.py` oraz
++  `python3 srw-oe-translation/local/reading-script/verify_episode_00.py`.
++  Generator, niezależny weryfikator i mapa audytowa pozostają w ignorowanym
++  katalogu lokalnym. Weryfikator ponownie odczytuje gotowy Markdown i porównuje
++  tekst/nazwy/kolejność ze źródłem, bez importowania generatora.
++- **Wynik: PASS** — pełna zgodność dialogów i narracji po dozwolonym składzie
++  białych znaków oraz podstawieniu imienia; brak zgubionych/zduplikowanych
++  wpisów, nierozwiązanych placeholderów, japońskiego tekstu i bajtów sterujących;
++  odnośniki spisu treści poprawne; hashe źródeł niezmienione. `git check-ignore`
++  potwierdza wykluczenie artefaktu. Testów gry nie uruchamiano: brak zmian
++  w tłumaczeniu, narzędziach patchujących, ISO czy DLC.
++
++SHA-256 źródeł użytych do próbki:
++
++| Plik w `pakiet_EN/` | SHA-256 |
++|---|---|
++| `00_dialogue.jsonl` | `4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee` |
++| `05_mission_text.jsonl` | `f22cdc1ad8662d37ccc8701420d5c7d56b3aea76ce3cef187ad56dbe7f4314d6` |
++| `06_scenes.jsonl` | `5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4` |
++| `07_names_characters.jsonl` | `f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b` |
++
++### 21.62 Scenariusz epizodu 0 — bez początkowego spisu linków (2026-10-17)
++
++- Użytkownik zaakceptował formę próbki, ale nie chce początkowej listy odnośników
++  do sekcji: nic nie wnosi i źle otwiera się w jego czytniku. Nie dodawać jej
++  również do kolejnych epizodów.
++- Usunięto wyłącznie pięć pozycji listy; porównanie bajtowe przed/po potwierdziło,
++  że cała pozostała zawartość jest niezmieniona. Generator lokalny nie dodaje
++  już tej listy, a weryfikator sprawdza jej brak zamiast poprawności kotwic.
++- Powtórzone polecenia z §21.61: `build_episode_00.py` i `verify_episode_00.py`,
++  Python 3.11.2. **PASS**: 242/242 dialogi, 11/11 wpisów narracyjnych, 32 kwestie
++  warunkowe, 8 monologów; hashe pakietu bez zmian, brak początkowych linków.
++- Nowy artefakt: `local/reading-script/srwoe_episode_00.md`, **20 922 B**,
++  SHA-256 `23f3961f6a046c1374518e10c012360ad6afe4e0ad8a8425975a1cbf4b88130b`.
++  Nadpisano treść istniejącego pliku Drive `1NxvAAzxVnbNfAnlwn7BOaiWzQzKAioND`
++  (ten sam link, bez duplikatu); rozmiar i MD5 z odpowiedzi Drive odpowiadają
++  plikowi lokalnemu: `d42d302a996c782392c4dc26b2864e25`.
++
++
++---
++
++### 21.63 Angielski scenariusz do czytania — epizody 01–06 (2026-10-17)
++
++**Zlecenie i zakres.** Po akceptacji formatu epizodu 00 użytkownik rozszerzył
++zadanie na kolejne epizody w porządku gry, do granicy kontekstu. Przygotowano
++kompletną partię **01–06**, bez zmieniania wcześniejszego epizodu 00. Źródłem
++angielskiego pozostał wyłącznie bieżący `pakiet_EN`: `00_dialogue.jsonl`,
++`05_mission_text.jsonl`, `06_scenes.jsonl`, `07_names_characters.jsonl`.
++Przykładowy Markdown służył jedynie jako wzór układu, nigdy jako źródło tłumaczenia.
++
++**Forma i przegląd ręczny.** Zachowano narrację, kolejność wypowiedzi,
++śródtytuły miejsca/czasu/misji, sceny przejściowe, myśli, rozmówców i akapity.
++Nie dodano początkowej nawigacji ani spisu linków. Dialogi warunkowe/sytuacyjne
++są wyraźnie wydzielone i opisane ogólnie, bez wymyślonych warunków HP/tury czy
++zastępowania tekstu streszczeniami. Zmiany ograniczono do prezentacji zgodnej
++z pilotem: łamania wierszy, oznaczeń rozmówców, domyślnych imion z projektu
++w tokenach oraz usunięcia technicznych prefiksów/poleceń z warstwy czytelniczej.
++Nazwy i ich rozróżnienia pochodzą z tabel projektu; np. identyfikator 1159
++jest przypisany do Uragana, a krótką nazwą 3130 jest Gablae. Nie poprawiano
++ani nie tłumaczono ponownie angielskiego dialogu.
++
++Przejrzano **52 źródłowe sceny: 39 podstawowych misji, 9 pełnych kopii i 4
++zmienione warianty**. Powiązanie wariantu/kopii musi być jawne w metadanych;
++sam podobny plik lub numer porządkowy nie wystarcza. Każda pomijana kopia jest
++sprawdzana również względem tekstu angielskiego, rodzaju wpisu i rozmówcy,
++a nie wyłącznie japońskiego tekstu. Powtórzenia bitewnych rozmów wewnątrz
++sceny pozostawiono jako osobne bloki, nie jako kopie DLC do usunięcia.
++Warianty zmienione zachowują nowe wypowiedzi z kontekstem; wariant epizodu 03
++ma również jawnie zaznaczoną pominiętą wypowiedź i dodatkowy nagłówek miejsca.
++
++**Pokrycie źródła — niezależnie sprawdzone:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone wpisy | Identyczne kopie reprezentowane innym wpisem | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 01 | 1 371 | 1 035 | 336 | 107 | 73 038 |
++| 02 | 2 306 | 1 361 | 945 | 222 | 91 034 |
++| 03 | 1 548 | 1 021 | 527 | 300 | 75 657 |
++| 04 | 1 209 | 644 | 565 | 100 | 49 959 |
++| 05 | 1 239 | 1 239 | 0 | 162 | 82 520 |
++| 06 | 994 | 795 | 199 | 153 | 56 241 |
++| **Łącznie** | **8 667** | **6 095** | **2 572** | **1 044** | **428 449** |
++
++W epizodzie 05 pominięto dodatkowo dokładnie jeden pusty odstęp: brak treści
++zarówno po angielsku, jak i po japońsku. Jest wyszczególniony w audycie;
++nie jest brakującym lub nieprzetłumaczonym zdaniem. Liczba słów wszystkich
++sześciu Markdownów, łącznie z nagłówkami/notami (`wc -w`), wynosi **67 973**.
++
++**Narzędzia i testy.** Skrypty standardowej biblioteki Python 3.11.2 działają
++wyłącznie w ignorowanym `local/reading-script/`. `build_episodes.py` odczytuje
++plany redakcyjne i tworzy Markdowny oraz mapy pokrycia. `verify_episodes.py`
++nie importuje generatora: porównuje tekst, kolejność, rozmówców, akapity,
++cytowania, tytuły i powtórzone nagłówki bezpośrednio ze źródłami; samodzielnie
++sprawdza wyrównanie zmienionych wariantów, noty o pominięciach, kompletność
++pokrycia i bezpieczeństwo aliasów. Kontroluje także wykluczenia technicznych
++metadanych, brak japońskich/sterujących pozostałości oraz brak początkowych
++linków. Ręczny przegląd wszystkich scen podstawowych i różnic wariantów
++udokumentowano w sześciu lokalnych planach. Nie deklarowano odtworzenia
++warunków silnika gry.
++
++Wyniki końcowe:
++
++- `python3 srw-oe-translation/local/reading-script/build_episodes.py 1 2 3 4 5 6` — **PASS**.
++- `python3 srw-oe-translation/local/reading-script/verify_episodes.py 1 2 3 4 5 6` — **6/6 PASS**.
++- `python3 srw-oe-translation/local/reading-script/mutation_test.py` — **10/10 PASS**:
++  wykryto zmieniony angielski, błędnego rozmówcę, zgubioną nową wypowiedź DLC,
++  przestawione dosłowne wypowiedzi, usunięte oznaczenie cytatu warunkowego,
++  zgubiony powtórzony nagłówek, ciche pominięcie w alternatywnej wersji,
++  przywróconą początkową nawigację, niebezpieczny alias kopii i próbę nadpisania
++  chronologii źródła audytem. Test przywraca Markdown i audyt bajt w bajt;
++  późniejsza weryfikacja wszystkich sześciu plików również przeszła.
++- Ponowny `verify_episode_00.py` — **PASS**; epizod 00 zachował 20 922 B i SHA-256
++  `23f3961f6a046c1374518e10c012360ad6afe4e0ad8a8425975a1cbf4b88130b`.
++- SHA-256 czterech źródeł pozostały zgodne z §21.61; `git diff` potwierdza brak
++  zmian w `pakiet_EN`. Nie zmieniano patchera ani gry; nie są to testy w emulatorze.
++- Końcowe generowanie zachowało bajty wszystkich wcześniej dostarczonych
++  plików 01–06. Po zapakowaniu sprawdzono CRC ZIP oraz równość bajtów wszystkich
++  sześciu członków z osobnymi Markdownami.
++- Końcowe wyszukiwanie Drive zwróciło dokładnie osiem właściwych plików:
++  niezmieniony 00, sześć 01–06 i ZIP; wszystkie identyfikatory, rozmiary i MD5
++  zgodne z lokalnym manifestem. Brak duplikatów nazw i dalszej strony wyników.
++
++Odciski wersji lokalnych narzędzi:
++
++- `build_episodes.py` — SHA-256 `856141073f5d1d009a8d30cbdb1b89cf3aace709bd7f667b7d7634e2142fe3cd`.
++- `verify_episodes.py` — SHA-256 `246552a963cf00877e5b361c27c72d2fd897262faef37fb63426fc21a60d4937`.
++- `mutation_test.py` — SHA-256 `0cafc75df13b42353daf4fbb2c120f22b704af39d7cc68f981625e3d77bd9ae2`.
++
++**Artefakty i dostawa.** Pełny tekst i narzędzia pozostały poza Git:
++`local/reading-script/srwoe_episode_01.md`–`srwoe_episode_06.md`, plany
++`plans/episode_01.json`–`episode_06.json`, audyty `episode_01_audit.json`–
++`episode_06_audit.json`, `mutation_test_results.json`, `deliveries.json`
++oraz ZIP. Nie przesyłano ponownie plików 00–05 i nie zmieniano uprawnień Drive.
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_01.md` | `a0d0c6986c2ad377544b97b6e62b1d57b51f2d7fd732be9193e470d8e2844fb1` | [Drive](https://drive.google.com/file/d/1g014Dfq03AKB5tnovZi_fll7Pd3DkF57/view) |
++| `srwoe_episode_02.md` | `2767dfc8e071ec1a1fb40c3b21a7f53153a511d92aeb5fb2cc11bc81e045c82b` | [Drive](https://drive.google.com/file/d/1Q-8QIfgSx32lre0EGwQOkr2mvghnnbdw/view) |
++| `srwoe_episode_03.md` | `fbd2c507a95e51449269631b045249b63757b3c120f8e554d5d16df002f60a80` | [Drive](https://drive.google.com/file/d/130TMu0_rF7NTO5XYMySbt1o_PAru8hQd/view) |
++| `srwoe_episode_04.md` | `5e2c0c6899ecfd1049c6e7c266744d989a2f74e00b72473b803ec5613babebef` | [Drive](https://drive.google.com/file/d/1pOp2Kw1GdQleU6V840K0ZnS1noPdmagn/view) |
++| `srwoe_episode_05.md` | `bfb394345227d36f3e34c1209a841bcaa3175a1e1781be7b0eed88f2fe51390f` | [Drive](https://drive.google.com/file/d/1XggpVZWiBIBF_3u61hFDzaNVKXYjweXp/view) |
++| `srwoe_episode_06.md` | `384f95eeb23052b4ff6aa6096eb2aa1dd5726e982d13b25eb615a146d6d70730` | [Drive](https://drive.google.com/file/d/1dMVoZgz9xjgpBRz-zWxQ4Ekysa0icWoc/view) |
++
++Pakiet zbiorczy [`srwoe_episodes_01-06.zip`](https://drive.google.com/file/d/160RQkIJNk9Ak2G6WXbkdgxxBqbJJZdeN/view) —
++**154,392 B**, dokładnie sześć powyższych Markdownów, bez
++źródeł, audytów, narzędzi i epizodu 00. SHA-256
++`55198a2274333c4d6b9cdf6d9e6ca00e2bfbab6570ed6e1730de6362893a9f3a`;
++MD5 `58f2011b4ed8827f3c88747c28919fcb`.
++
++**Punkt kontynuacji: ukończono i dostarczono epizody 01–06; następny jest 07.**
++Nie rozpoczęto opracowania epizodu 07. W repozytorium dopisano jedynie metadane
++tej próby do dziennika, bez pełnych tekstów, wygenerowanych danych ani nowej
++wersji tłumaczenia gry.
++
++
++---
++
++### 21.64 Angielski scenariusz do czytania — kontynuacja 07–10 (2026-10-17)
++
++**Zlecenie.** Użytkownik poprosił o kontynuację od epizodu 07 tym samym trybem.
++Ukończono i dostarczono **07–10**, w kolejności `06_scenes.jsonl`, z angielskim
++wprost z bieżącego `pakiet_EN`. Zachowano zatwierdzony układ, bez początkowego
++spisu linków, bez ponownego tłumaczenia, streszczania dialogów ani dodawania
++wymyślonych akcji i dokładnych warunków HP/tury. Pełne źródła, narzędzia i
++wyniki pozostają lokalne/na Drive, a nie w Git.
++
++**Przegląd.** Partia obejmuje **34 sceny źródłowe: 26 podstawowych misji,
++5 pełnych identycznych kopii i 3 zmienione warianty**. Sceny podstawowe
++przejrzano porcjami w lokalnym widoku angielskim; konsolowe skracanie długich
++wierszy nie wpływa na generowanie ani kontrolę pełnego tekstu. Ręczne plany
++`plans/episode_07.json`–`episode_10.json` określają śródtytuły i wydzielone
++rozmowy warunkowe/sytuacyjne. Narracja, rozmowy, myśli, znaczące nagłówki i
++kolejność źródłowa pozostały zachowane.
++
++- **07:** sześć podstawowych misji. Dwa pełne warianty są identyczne z bazą;
++  drugi wariant *Doki Doki Space* jest identyczny z pierwszym zmienionym
++  wariantem. Cztery zmiany angielskiego w tym wariancie pokazano w 12 wpisach
++  z kontekstem. Anonimowych głosów nie zastąpiono odgadniętymi tożsamościami.
++- **08:** sześć podstawowych misji. Porównano oba kontenery *Rare Metal Mining*
++  (wariant ma ten sam basename, co nie wystarcza do uznania go za kopię).
++  Zachowano 17 nowych/zmienionych wpisów w 36 wpisach kontekstowych, w tym
++  dodatkowe wypowiedzi Booty oraz powtórzony raport górniczy. Nie usunięto
++  powtórzeń wewnątrz jednej wersji. Zmiany samych paneli pomocy/przedmiotów
++  nie są nową narracją i nie weszły do warstwy czytelniczej.
++- **09:** osiem podstawowych misji. Wariant *Seed of the Mucus* różni się
++  trzema wypowiedziami, zachowanymi w pięciu wpisach z kontekstem; wariant
++  *Griffon VS Alphonse* jest pełną identyczną kopią. Retrospekcję ucieczki
++  Ark Ship i powrót do rozmowy wyraźnie rozdzielono; obie zapowiedzi rozdziału 3
++  zachowano, nie uznając ich za techniczny tekst do odrzucenia.
++- **10:** sześć podstawowych misji. Zachowano rozmowy o Himari/Vasage,
++  pożegnania i spotkanie z dr Kusanagi. Kopia *Space Fortress Solomon* ma
++  identyczny angielski. Warunkowe/alternatywne rozwiązania walki z Consconem
++  wydzielono, aby zatopienie okrętu i kapitulacja nie wyglądały na gwarantowane
++  kolejne wydarzenia. Nie deklarowano zdekodowania ich dokładnych aktywatorów.
++
++**Kontrola prefiksów — zatrzymanie i poprawka lokalnej prezentacji.** Pierwszy
++inwentarz zatrzymał się zgodnie z zabezpieczeniem na nieznanym prefiksie
++`Yui/Mai` w epizodzie 09. Obejrzano pełny rekord źródłowy
++`dlg:eventP02.EDAT/DL209_20.bin:12848` (order 165): mimo pojedynczego ID rozmówcy
++tekst ma jawny wspólny prefiks. Generator i niezależny verifier rozszerzono
++wyłącznie o ten potwierdzony przypadek, renderując wspólną etykietę
++`Yui / Mai`, zamiast błędnie przypisywać całą wypowiedź tylko Yui. Angielska
++wypowiedź nie została zmieniona. Nowe, nieznane prefiksy nadal zatrzymują pracę.
++
++**Pokrycie i rozmiary:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 07 | 2330 | 1458 | 872 | 235 | 105866 |
++| 08 | 1140 | 999 | 141 | 185 | 71349 |
++| 09 | 1453 | 1061 | 392 | 125 | 76437 |
++| 10 | 1067 | 936 | 131 | 169 | 64177 |
++| **Łącznie** | **5990** | **4454** | **1536** | **714** | **317829** |
++
++W partii nie ma pominiętych pustych wpisów prozy. Liczba słów czterech plików,
++łącznie z nagłówkami i notami, wynosi **50861** przy jawnym
++`LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1); liczba słów zależy od reguł locale.
++
++**Narzędzia i wyniki testów (Python 3.11.2, standardowa biblioteka):**
++
++- `python3 srw-oe-translation/local/reading-script/build_episodes.py 1 2 3 4 5 6 7 8 9 10`
++  — **PASS**; końcowa regeneracja nie zmieniła bajtów żadnego dostarczonego pliku.
++- `python3 srw-oe-translation/local/reading-script/verify_episodes.py 1 2 3 4 5 6 7 8 9 10`
++  — **10/10 PASS**. Kontrola pełnego angielskiego, rozmówców, akapitów, kolejności,
++  cytowań, źródeł tytułów, pokrycia, metadanych, wyrównania wariantów i aliasów.
++  Dodatkowo verifier wyprowadza z planów wymagane nagłówki redakcyjne i
++  warunkowe wraz z licznością, niezależnie od generatora: zgubienie etykiety
++  retrospekcji lub alternatywnego zakończenia nie może przejść tylko dlatego,
++  że wszystkie wypowiedzi nadal są w pliku.
++- `python3 srw-oe-translation/local/reading-script/mutation_test.py` — **10/10 PASS**
++  ponownie, dla wcześniejszych przypadków regresji z epizodu 03.
++- `python3 srw-oe-translation/local/reading-script/mutation_test_batch_07_10.py`
++  — **10/10 PASS**, z celowo naprawionymi hashami uszkodzonych plików, aby
++  odrzucenie było semantyczne: zmieniona narracja DLC, zgubiona nowa wypowiedź
++  Booty, zgubione powtórzenie raportu górniczego, zły wspólny rozmówca,
++  brak granicy retrospekcji, brak etykiety kapitulacji Conscona, początkowa
++  nawigacja, zgubiony cytat bitewny, niebezpieczny alias oraz przedstawienie
++  kapitulacji jako bezwarunkowej fabuły. Wszystkie Markdowny i audyty
++  przywrócone **bajt w bajt**, ponowna kontrola 07–10: **PASS**.
++- `verify_episode_00.py` — **PASS**, w tym kontrola niezmienionych czterech
++  źródeł. Plik 00 nadal ma 20 922 B i SHA-256 z §21.62–21.63.
++- ZIP: standardowe `zipfile`, deflate 9, stałe metadane; CRC i porównanie
++  każdego rozpakowanego członka z osobnym Markdownem — **PASS**.
++- Końcowy `Drive search_files` zwrócił **13** właściwych plików: 00–10 oraz dwa
++  ZIP-y. Porównano wszystkie zwrócone ID/nazwy/rozmiary/MD5 z lokalnymi bajtami
++  i manifestami — **13/13 PASS**, bez duplikatów, dalszej strony i niepełnego
++  wyszukiwania. Nie przesyłano ponownie 00–06, nie zmieniano uprawnień Drive.
++- `git diff --check`, sprawdzenie ignorowania artefaktów oraz brak zmian
++  w `pakiet_EN` — **PASS**. Nie zmieniano patchera/gry i nie wykonywano testów
++  w emulatorze; jest to kontrola tekstowego wydania do czytania.
++
++Wersje narzędzi (wszystkie wyłącznie w ignorowanym `local/reading-script/`):
++
++- `build_episodes.py`: SHA-256 `6c3f60619f6c4b5ea63ab4bb926587348eeeb8c6b7279eed2a63131912f1a7c6`.
++- `verify_episodes.py`: SHA-256 `9d3335bb957d2600620b961d39ec28acf13a4cf83428391975c74b598f7db579`.
++- `mutation_test_batch_07_10.py`: SHA-256 `331ea411c9b6b65d8f9e2b82ff276cfe79a443546c089b0fbb024f6e6fbf8b97`.
++- `review_english.py`: SHA-256 `ac28ec38a1cc6e8eaf467a233005b85a645fec12d5f899d5f73233b5861be3c7`.
++
++**Dostawa:**
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_07.md` | `20bc702e5ad25a549e55eb0c76df639402bfa965c274caee8e6c6f62a6586bae` | [Drive](https://drive.google.com/file/d/1gyENdN0No5ew6LsqiyP9_uQ3prpR3-Ss/view) |
++| `srwoe_episode_08.md` | `d266500d5d7103c373fccc3253ac99e02db8d0a5d60914dfcbceb757bb8b81c8` | [Drive](https://drive.google.com/file/d/1ZT9cSNPUIJpOYu3jotslhNG2f_tOdBKk/view) |
++| `srwoe_episode_09.md` | `175404063e73dfb597bf608faebecac65129c3be58e2b250f7f9daab036fd613` | [Drive](https://drive.google.com/file/d/1t8dpgtVHvwq4HqI0mzQ6CwBcP98j7f1g/view) |
++| `srwoe_episode_10.md` | `59624af9a59e46598755ca107dff23def57d4f761bca447b4de0c1ab81361faf` | [Drive](https://drive.google.com/file/d/1abdbKxfy3QwTxaIUCMtAWr8efAdHU9ka/view) |
++
++[`srwoe_episodes_07-10.zip`](https://drive.google.com/file/d/1G1EclEchBQtI3eoQ69dI1CQ9sGYj1gSO/view) — **113708 B**,
++wyłącznie cztery powyższe Markdowny, bez źródeł, audytów i narzędzi.
++SHA-256 `9ebe48bc958ccea0588ffdbc689916542ff7f9bce313313e10a46caa490a6196`;
++MD5 `dce863d05834f87be090597adff207e4`.
++
++Lokalne audyty, plany, wyniki obu zestawów testów, `batch_07_10_metrics.json`,
++`bundle_07_10.json`, `drive_verified_07_10.json` i `deliveries.json` pozostają
++ignorowane. Manifest zachowuje historię obu ZIP-ów oraz wszystkich dostaw.
++
++**Punkt kontynuacji: dostarczone 01–10; ostatni ukończony 10, następny 11.**
++Epizodu 11 nie rozpoczęto redakcyjnie; wykonano jedynie inwentarz dalszych scen.
++W Git dopisano wyłącznie metadane do dziennika, bez pełnego tekstu skryptów.
++
++
++---
++
++### 21.65 Angielski scenariusz do czytania — kontynuacja 11–16 (2026-10-17)
++
++**Zlecenie.** Po dostawie 07–10 użytkownik poprosił „kontynuuj”. Ukończono
++kolejno **11–16** w zatwierdzonym układzie: angielski wprost z `pakiet_EN`,
++bez początkowych linków nawigacyjnych, nowego tłumaczenia, streszczeń,
++wymyślonych akcji i deklarowania nieustalonych dokładnych aktywatorów.
++Pełne wydania czytelnicze, narzędzia, plany i audyty pozostają w ignorowanym
++`local/reading-script/` oraz na Drive. Nie modyfikowano gry ani patchera.
++
++**Przegląd i decyzje redakcyjne.** Partia obejmuje **46 scen źródłowych:
++38 podstawowych misji, 7 pełnych identycznych kopii i 1 zmieniony wariant**.
++Przeglądano angielski w porcjach przy pomocy `review_english.py` oraz
++porównano warianty po pełnym angielskim, rodzaju wpisu, rozmówcy i znaczących
++metadanych. Skracanie długich wierszy dotyczy wyłącznie konsolowego podglądu;
++generator i niezależny verifier używają pełnych JSONL. Plany
++`plans/episode_11.json`–`episode_16.json` zapisują przejrzane śródtytuły,
++granice retrospekcji, zapowiedzi i rozmowy warunkowe/sytuacyjne.
++
++- **11:** sześć misji podstawowych. W wariancie seq 90 względem 89 zmienia
++  się jedna wypowiedź; pokazano ją z dwoma sąsiednimi wpisami kontekstu.
++  Seq 91 jest identyczny z tym zmienionym wariantem, nie z tekstem bazowym;
++  seq 93, 95 i 99 są pełnymi identycznymi kopiami odpowiednich baz.
++  Zachowano oba źródłowe powtórzenia rozmowy o nadejściu kolejnych oddziałów.
++  Nie przedstawiono nieudanego zatrzymania Solar Ray i udanego rozwiązania
++  jako kolejnych wydarzeń tej samej rozgrywki.
++- **12:** sześć misji podstawowych i dwie pełne kopie. Retrospekcja i powrót
++  do teraźniejszości mają osobne granice. Anonimowe pierwsze wypowiedzi i
++  głosy końcowe pozostają anonimowe, także gdy kontekst sugeruje tożsamość.
++  Zachowano myśli i rozwój wątków bohaterów, bez zastępowania ich opisami.
++- **13:** siedem misji podstawowych, bez kopii. Zachowano rozbudowany finał
++  na Zi, myśli, humorystyczny interludium oraz pozorną zapowiedź Da Cidera,
++  wyraźnie oddzieloną od właściwych zapowiedzi rozdziału 4. Rozpoznano
++  znaczący nagłówek miejsca z technicznym prefiksem w seq 108, order 4:
++  `dlg:eventP03.EDAT/DL313_11.bin:648`. Zachowano źródłowe miejsce, usuwając
++  wyłącznie prefiks, a nie pomijając cały nagłówek.
++- **14:** siedem misji podstawowych, bez kopii. Zachowano oba powtórzenia
++  wypowiedzi Zero wewnątrz seq 116. W seq 121 trzynaście wpisów ma jawny
++  prefiks `Neo Zeon Soldier`, choć ID 1256 w tabeli ogólnej nazywa się
++  `Zeon Soldier`. Obejrzano pełne rekordy, w tym
++  `dlg:eventP04.EDAT/DL414_50.bin:3260` (order 42); etykieta konkretnego
++  wpisu wynika z prefiksu. Nie zmieniono globalnej nazwy tego ID.
++- **15:** siedem misji podstawowych i jedna pełna kopia (128 → 127).
++  Zachowano oba powtórzone wejścia Tokwana oraz wszystkie trzy ośmiowpisowe
++  powtórzenia rozmowy Galdena z żołnierzami klanu. Nie są to redundantne
++  kopie DLC. Oddzielono porażkę od udanego zatrzymania spadającej kolonii.
++  Sam techniczny opis ujęcia grupowego w seq 126, order 65, pominięto po
++  przeglądzie metadanych; wszystkie pięć końcowych wpisów narracji pozostało.
++- **16:** pięć misji podstawowych, bez kopii. Zachowano dialogi łamiące
++  czwartą ścianę, interludium i anonimowego obserwatora. Fabularna porażka
++  operacji w Manid Canyon wraz z jej konsekwencjami pozostaje w głównej
++  narracji: nie uznano jej za opcjonalny ekran przegranej do odrzucenia.
++
++**Dwie kontrolowane zmiany lokalnych narzędzi.** Generator i niezależny
++verifier dopuszczają teraz przejrzane usunięcie jednego znaku technicznego
++prefiksu z wybranego nagłówka źródłowego; jawny override musi być dokładnie
++pozostałą częścią oryginalnego angielskiego i nie może zmieniać słów.
++Nagłówek nadal jest rozliczony swoim ID źródłowym. Oba narzędzia rozszerzono
++również o potwierdzony prefiks `Neo Zeon Soldier`. Inne nieznane prefiksy
++nadal zatrzymują pracę; nie ma ogólnego mechanizmu zgadywania rozmówców.
++Zmiany te nie zmieniły bajtów żadnego wcześniej dostarczonego Markdownu.
++
++**Pokrycie i rozmiary:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 11 | 1388 | 731 | 657 | 148 | 55117 |
++| 12 | 1140 | 787 | 353 | 138 | 53091 |
++| 13 | 1025 | 1025 | 0 | 239 | 74496 |
++| 14 | 1200 | 1200 | 0 | 269 | 80736 |
++| 15 | 1021 | 897 | 124 | 271 | 70069 |
++| 16 | 784 | 784 | 0 | 139 | 56323 |
++| **Łącznie** | **6558** | **5424** | **1134** | **1204** | **389832** |
++
++W partii nie ma pustych pominiętych wpisów prozy. Sześć plików zawiera
++**62517 słów** wraz z nagłówkami/notami, przy jawnym
++`LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1). Łączne pokrycie dostarczonych
++01–16, bez pilota 00: **21215** wpisów źródłowych, **15973** pokazanych,
++**5242** dokładne aliasy, **2962** warunkowe/sytuacyjne; **1136110 B**.
++
++**Narzędzia i wykonane testy (Python 3.11.2, standardowa biblioteka):**
++
++- `python3 srw-oe-translation/local/reading-script/build_episodes.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16`
++  — **PASS**. Regeneracja końcowa nie zmieniła bajtów żadnego z 16
++  przesłanych osobno Markdownów; 00 również pozostał niezmieniony.
++- `python3 srw-oe-translation/local/reading-script/verify_episodes.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16`
++  — **16/16 PASS**: pełny angielski, rozmówcy, akapity, kolejność, cytowania,
++  tytuły i nagłówki z licznością, kompletność, warianty, aliasy i hashe.
++- `python3 srw-oe-translation/local/reading-script/verify_episode_00.py`
++  — **PASS**: 242 dialogi, 11 wpisów narracji / 17 akapitów, 32 wpisy
++  warunkowe, 8 monologów wewnętrznych, nagłówki i brak początkowych linków.
++  Pilot nadal ma **20922 B** i SHA-256 z §21.62–21.64.
++- `mutation_test.py` i `mutation_test_batch_07_10.py` — ponownie
++  **10/10 + 10/10 PASS**, z przywróceniem pierwotnych bajtów.
++- `mutation_test_batch_11_16.py` — **17/17 PASS**: 15 mutacji tekstów,
++  nagłówków/planów i etykiet, z celowo naprawionymi hashami, oraz dwa testy
++  odrzucania nieznanego prefiksu wyłącznie w pamięci. Odrzucono m.in.
++  usuwanie powtórzeń wewnątrz scen, zgubienie zmienionego tekstu DLC,
++  złą tożsamość żołnierza, zgadywanie anonimowych głosów, utratę granic
++  retrospekcji/zapowiedzi, zmianę słów źródłowego nagłówka, zlanie
++  alternatywnej porażki z główną fabułą i odwrotny błąd dla Manid Canyon.
++  Wszystkie **49** kontrolowanych Markdownów, audytów i planów przywrócono
++  bajt w bajt. Ponowna kontrola 11–16: **PASS**. Łącznie **37/37** testów.
++- Cztery używane źródła `pakiet_EN` nadal mają te same SHA-256 co przed
++  próbą i w poprzednich sekcjach. Testy nie zapisywały do źródeł.
++- ZIP: `zipfile`, deflate 9, stałe metadane; wyłącznie sześć nowych
++  Markdownów, poprawne CRC i zgodność bajtów każdego członka z osobnym
++  plikiem — **PASS**.
++- Końcowe `Drive search_files` zwróciło **20** plików: 00–16 i trzy ZIP-y.
++  Wszystkie obserwowane ID/nazwy/rozmiary/MD5 porównano z manifestem oraz
++  lokalnymi bajtami — **20/20 PASS**, bez duplikatów, dalszej strony i
++  niepełnego wyszukiwania. Nie przesyłano ponownie 00–10 i starych ZIP-ów;
++  nie zmieniano uprawnień Drive.
++- `git diff --check`, sprawdzenie ignorowania artefaktów i brak zmian
++  źródeł — **PASS**. Jedyna modyfikacja śledzona w Git to metadane dziennika.
++  Nie przeprowadzano testów w emulatorze: jest to wydanie tekstowe do czytania.
++
++Wersje narzędzi, wyłącznie w ignorowanym `local/reading-script/`:
++
++- `build_episodes.py`: SHA-256 `609022a7c7ce428fc3f0e9e0183ea1cb0d467646c8739df78ead249d28dd5822`.
++- `verify_episodes.py`: SHA-256 `25d4d124979660ec3eb8b540b8c0af0a55cea52348c69f33fb46ffee0bba22c1`.
++- `mutation_test_batch_11_16.py`: SHA-256 `093ecf592d4f5e32c4afcdca775f184c8ceb7dd7bc0e6c99d9ae5525e38d77ac`.
++- `review_variants.py`: SHA-256 `454c5ea268c4d442ca538a4d2de333417743ccc22eadfba8a2d1b27d8dc64698`.
++- `record_delivery.py`: SHA-256 `3f2de3efac03f928e97317593811e3678dbc6323e8d50ccd4090652f6c924679`.
++- `review_english.py` pozostał niezmieniony względem §21.64.
++
++**Dostawa:**
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_11.md` | `c2d9efa0feeb7b95f7a68629e61c7e2c6b591efd46a14abc950c5add9505c768` | [Drive](https://drive.google.com/file/d/1XbVAqYE7T6q79EQb2Q-aWcWOq8iNwqW4/view) |
++| `srwoe_episode_12.md` | `902b40e68f7239097632cd2f7e387a3855c5911c0ca4fea18d3ed28ea8818307` | [Drive](https://drive.google.com/file/d/1R-jA5_yqM5X2WP5MREdJecNGAp23f0E1/view) |
++| `srwoe_episode_13.md` | `178d5a1d021bbbf3fc337bf0f274e3b526897f4baeffce03f625ec61a5de0b96` | [Drive](https://drive.google.com/file/d/1NRQRlm9Do64F5VPYM3_mG28Tw6t4tRol/view) |
++| `srwoe_episode_14.md` | `bfea24b32d70ef49cc664fd42202aa7690d7e7209246792981ee322e4cba9025` | [Drive](https://drive.google.com/file/d/1Q2Dq1vyhCuoFl47rP4JasS43F3F4k2RQ/view) |
++| `srwoe_episode_15.md` | `c729cbd16237d0be677fe3ed1dadd0a42313e37eee5e7f20f029a3371a7ca843` | [Drive](https://drive.google.com/file/d/1BN2xSVLN8rPLEnQk_rlLTM1KvkXexDDh/view) |
++| `srwoe_episode_16.md` | `f372ba5fdda40c74330cf3e4acf4e0ff5ca9e811134264637ac696b5b41ebe20` | [Drive](https://drive.google.com/file/d/10hG81EBXbIwpMS87KztApSpLqF9D_fym/view) |
++
++[`srwoe_episodes_11-16.zip`](https://drive.google.com/file/d/1f5_A4v6LAlyleM2YOO18Xh4iTWKk2DRx/view) — **142128 B**,
++wyłącznie sześć powyższych Markdownów, bez źródeł, audytów i narzędzi.
++SHA-256 `183da25fe8b703a6dccf8bd30b0a0d844123d54705693c3a7193aebf7d6fe0b5`;
++MD5 `f92851ca27f869da9c259db4c917d3d3`.
++
++Lokalnie zapisano także `batch_11_16_metrics.json`, `bundle_11_16.json`,
++`drive_observed_11_16.json`, `drive_verified_11_16.json`, wyniki trzech
++zestawów testów, fingerprinty przywrócenia i metryki zbiorcze 01–16.
++`deliveries.json` zachowuje historię wszystkich 16 dostaw indywidualnych,
++trzech ZIP-ów i poprzednich kontroli Drive.
++
++**Punkt kontynuacji: dostarczone 01–16; ostatni ukończony 16, następny 17.**
++Epizodu 17 nie rozpoczęto redakcyjnie; dostępny jest tylko wcześniejszy
++inwentarz metadanych dalszych scen. Nie ma planu ani artefaktu 17.
++
++
++---
++
++### 21.66 Angielski scenariusz do czytania — kontynuacja 17–22 (2026-10-17)
++
++**Zlecenie.** Użytkownik ponownie poprosił „kontynuuj”. Opracowano i dostarczono
++kolejno **17–22**, w układzie zatwierdzonego pilota: angielski bezpośrednio
++z bieżącego `pakiet_EN`, bez początkowych linków nawigacyjnych, streszczania,
++ponownego tłumaczenia, dopisywania akcji i nieustalonych dokładnych warunków.
++Poprzednie pliki 00–16 i trzy ZIP-y pozostały niezmienione. Pełne nowe teksty,
++plany, narzędzia i audyty są wyłącznie lokalne/na Drive, a nie w Git.
++
++**Przegląd.** Partia obejmuje **46 scen źródłowych: 37 misji podstawowych,
++8 pełnych identycznych kopii oraz 1 zmieniony wariant**. Angielski i metadane
++przeglądano porcjami przy pomocy `review_english.py`; różnice wersji sprawdzono
++przez `review_variants.py` na pełnym angielskim, rodzaju wpisu, rozmówcy
++i znaczących metadanych. Ograniczanie szerokości w konsoli dotyczy wyłącznie
++podglądu. Generowanie i niezależna kontrola zawsze używają pełnych JSONL.
++
++- **17:** siedem podstawowych misji i jedna identyczna kopia (137 → 136,
++  230 wpisów). Zachowano wszystkie trzy powtórzone siedmiowpisowe wymiany
++  przy odwrocie Gosterra oraz obie identyczne wypowiedzi żołnierzy Balarant.
++  Ich wystąpienia wewnątrz tej samej wersji nie zostały zdeduplikowane.
++  Anonimowe wejście rozmówcy pozostaje anonimowe. Znaczący nagłówek
++  `Gilgamesh Army HQ`, sklasyfikowany jako `label`, jawnie zachowano.
++  Zapowiedź rozdziału 5 oddzielono od aktualnej fabuły; sam opis ujęcia
++  obrazu nie stał się wymyśloną narracją.
++- **18:** sześć podstawowych misji i jedna identyczna kopia (144 → 143,
++  86 wpisów). Zachowano pełny finał wyzwolenia i jego polityczne następstwa,
++  wszystkie rozmowy z Le Cainem, myśl Chirica i wątek Lido/Uoodo.
++  Powtórzone etykiety technicznych ujęć kapsuły oraz końcowy opis grupy
++  jednostek pominięto, nie usuwając żadnej wypowiedzi ani narracji.
++- **19:** siedem podstawowych misji, bez kopii. Zachowano wszystkie rozmowy
++  po odwrocie z Axis, negocjacje i zakończenie operacji przy bramie ISTO.
++  Postacie dzielące krótkie imiona rozróżniono pełnymi angielskimi nazwami
++  z tabel projektu, m.in. Michael Blanc / Michel Ninorich i dwaj Hayato.
++- **20:** sześć podstawowych misji, bez kopii. Oba identyczne ośmiowpisowe
++  zakończenia obrony stacji zachowano jako osobne wymiany sytuacyjne.
++  Wizję Himari i powrót do teraźniejszości wyraźnie rozdzielono; zachowano
++  odzyskanie Raiko Blade, rozmowę o przeszłości/przyszłości i Shiden Sword.
++  Cały interludium Da Cidera, żarty o rozgrywce i wewnętrzny głos Himari
++  pozostały, zamiast zostać błędnie uznane za techniczne instrukcje.
++- **21:** pięć podstawowych misji. Wariant 164 jest identyczną kopią 163.
++  Wariant 166 **nie** jest dokładną kopią 165: dwie wypowiedzi zostały
++  rozdzielone na cztery wpisy, różni się wydłużona wokalizacja oraz końcowa
++  interpunkcja. Zachowano wszystkie cztery zmienione wpisy z trzema wpisami
++  kontekstu, pod osobną sekcją wersji DLC, bez scalania i normalizacji.
++  Zachowano finały Black Knight/Goburiki, przyłączenie Ple, wątek nowych KMF
++  i oba źródłowe wystąpienia nagłówka hangaru.
++- **22:** sześć podstawowych misji i pięć pełnych kopii: 171 → 170,
++  174/175/176 → 173, 180 → 179. Rozdzielono porażki od udanych rozwiązań
++  operacji DG oraz Solar Ray. Obie dziewięciowpisowe rozmowy taktyczne
++  o Gundam Heads pozostały; nie dodawano do fabuły danych z paneli pułapek.
++  Zachowano myśli Keroro, spotkanie jego oddziału i cały szkolny epilog.
++  Nagłówek miejsca z prefiksem w seq 179, order 131,
++  `dlg:eventP06.EDAT/DL622_60.bin:15752`, zachowano jako `Space, Debris`:
++  usunięto tylko techniczny prefiks i odstępy układu, nie zmieniając słów.
++
++**Pokrycie i rozmiary:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 17 | 1267 | 1037 | 230 | 161 | 72523 |
++| 18 | 982 | 896 | 86 | 220 | 66083 |
++| 19 | 815 | 815 | 0 | 221 | 61104 |
++| 20 | 965 | 965 | 0 | 248 | 67798 |
++| 21 | 1328 | 797 | 531 | 270 | 59094 |
++| 22 | 1628 | 843 | 785 | 235 | 56956 |
++| **Łącznie** | **6985** | **5353** | **1632** | **1355** | **383558** |
++
++Brak pustych pominiętych wpisów prozy w nowej partii. Sześć plików zawiera
++**61332 słowa** wraz z nagłówkami/notami, przy jawnym
++`LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1). Pokrycie dostarczonych 01–22,
++bez pilota 00: **28200** wpisów źródłowych, **21326** pokazanych,
++**6874** dokładne aliasy, **4317** warunkowe/sytuacyjne; **1519668 B**.
++
++**Narzędzia i wykonane testy (Python 3.11.2, standardowa biblioteka):**
++
++- `build_episodes.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22`
++  uruchomiony przez `python3` z `srw-oe-translation/local/reading-script/`
++  — **PASS**; końcowa regeneracja nie zmieniła bajtów 22 plików przesłanych
++  osobno. Nie przesyłano ponownie poprzednich Markdownów i ZIP-ów.
++- Analogiczne `verify_episodes.py` dla 01–22 — **22/22 PASS**: pełny angielski,
++  postacie, akapity, kolejność, cytowania, tytuły i nagłówki z licznością,
++  kompletność, metadane, podział wersji i poprawność aliasów.
++- `verify_episode_00.py` — **PASS**, w tym niezmienione hashe źródeł, brak
++  początkowych linków i nadal **20922 B** pilota z SHA-256 z §21.62–21.65.
++- Trzy wcześniejsze zestawy negatywne uruchomiono ponownie:
++  `mutation_test.py`, `mutation_test_batch_07_10.py`,
++  `mutation_test_batch_11_16.py` — **10/10 + 10/10 + 17/17 PASS**.
++- `mutation_test_batch_17_22.py` — ostatecznie **18/18 PASS**, z celowo
++  naprawionymi hashami, aby odrzucenie nie wynikało ze starej sumy kontrolnej.
++  Sprawdzono usuwanie powtórzeń wewnątrz scen, zgubienie zapowiedzi/granicy
++  wizji, zgadywanie anonimowej tożsamości, mylenie wspólnych imion, utratę
++  myśli i epilogu, scalenie oddzielnych wypowiedzi DLC bez utraty słów,
++  zmianę drobnej wokalizacji, niebezpieczny alias, utratę źródłowych miejsc,
++  niedozwolone przepisanie nagłówka oraz przedstawienie porażki jako fabuły.
++- **Poprawka konstrukcji testu, nie verifiera ani publikacji:** pierwsze
++  uruchomienie nowego zestawu przeszło 12 przypadków, po czym test aliasu
++  oczekiwał błędu semantycznego, ale został zatrzymany wcześniej przez
++  zabezpieczenie spójności widocznych ID. Uzupełniono mutację o spójne
++  rozliczenie usuniętego wpisu, bez osłabiania żadnego zabezpieczenia.
++  Ponowne uruchomienie odrzuciło ją jako `bad alias`; cały zestaw 18/18 PASS.
++  Pierwszy i końcowy przebieg przywróciły wszystkie pliki.
++- Łącznie **55/55 różnych przypadków** w czterech końcowych zestawach.
++  Wszystkie **67** kontrolowanych Markdownów, planów i audytów pozostały
++  bajt w bajt zgodne z fingerprintami sprzed mutacji; cztery źródła
++  `pakiet_EN` nadal mają dotychczasowe SHA-256. Testy nie zapisują do źródeł.
++- ZIP: `zipfile`, deflate 9, stałe metadane. CRC i porównanie wszystkich
++  sześciu członków z osobnymi plikami — **PASS**; bez źródeł i narzędzi.
++- Końcowe `Drive search_files`: **27/27 PASS** — 00–22 i cztery ZIP-y,
++  wszystkie obserwowane ID/nazwy/rozmiary/MD5 zgodne z lokalnymi bajtami
++  i manifestami, bez duplikatów, dalszej strony i niepełnego wyszukiwania.
++  Nie zmieniano uprawnień Drive.
++- `git diff --check`, ignorowanie pełnych artefaktów i kontrola zakresu
++  modyfikacji — **PASS**. W Git zmieniony jest tylko dziennik metadanych.
++  Nie modyfikowano gry/patchera i nie wykonywano prób w emulatorze.
++
++Generator, niezależny verifier i pomocnicze czytniki nie wymagały zmian;
++SHA-256 pozostają jak w §21.65. Nowy lokalny zestaw
++`mutation_test_batch_17_22.py` ma SHA-256
++`c9206ced045f43b87b39f284cdedd3d9af10b962e8394bf2cde40d5bcec26b78`.
++Plany i audyty zachowują dokładne źródła i sumy kontrolne każdej emisji.
++
++**Dostawa:**
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_17.md` | `4c012accd65776a6eaf6a58a2d692ba2364a684f30d7e172a9f357bdca6ccd1b` | [Drive](https://drive.google.com/file/d/1mh34_Dh25pN5UtakUZu0ayit8M1BWUBy/view) |
++| `srwoe_episode_18.md` | `afe96bfb629304d9abd4ceecc69c1a9ca36f6aafca5b3c7070abaf3ec4d00661` | [Drive](https://drive.google.com/file/d/17_X64l3JsDYeHHXSZabMmXxIaocxxWd-/view) |
++| `srwoe_episode_19.md` | `e32195e1b6428f00536749263e42ed955e42dd46fb86df49ba11b24ef2eb255a` | [Drive](https://drive.google.com/file/d/1DAXYmmyubhC2PeOsYb7t7MD5egFfvD4h/view) |
++| `srwoe_episode_20.md` | `bed18cbafc420106dc5a77a050108167369ce5b87c44e3f7ab4b2f17ea614d55` | [Drive](https://drive.google.com/file/d/1sZkdY0FW3u66LXgtlDWBhwRRvUF4Y4Kr/view) |
++| `srwoe_episode_21.md` | `20151855887be5d9dee4327b4d543d178d42c86bd0c154b1f69844018bc18418` | [Drive](https://drive.google.com/file/d/1ErUTbShfxIcS9zBwav0mB9I1JoZBbx3E/view) |
++| `srwoe_episode_22.md` | `fe940bba4250debe21a9395e00f5da6937110b67c4a54d85ac51886f57884683` | [Drive](https://drive.google.com/file/d/1KfGF6ACmOB5DceYuAwyiUPpu4ivLJVSm/view) |
++
++[`srwoe_episodes_17-22.zip`](https://drive.google.com/file/d/1YIwuyO9goWZc_EdRXuXrx8-gpWA7GZve/view) — **139118 B**,
++wyłącznie sześć powyższych Markdownów. SHA-256
++`345ce731b180463296fd72441ac436b6048959a6d04305c2fd187b9aca77f6aa`;
++MD5 `e305f731fe59e9a1e638f2d674109754`.
++
++Lokalnie, poza Git: plany i audyty 17–22, `batch_17_22_metrics.json`,
++`bundle_17_22.json`, `drive_observed_17_22.json`, `drive_verified_17_22.json`,
++`pre_final_fingerprints_17_22.json`, `cumulative_metrics_01_22.json` i wyniki
++czterech zestawów testów. `deliveries.json` zachowuje 22 dostawy indywidualne,
++historię czterech ZIP-ów i poprzednich kontroli Drive.
++
++**Punkt kontynuacji: dostarczone 01–22; ostatni ukończony 22, następny 23.**
++Epizodu 23 nie rozpoczęto redakcyjnie; istnieje tylko inwentarz metadanych
++kolejnych scen. Nie ma planu ani artefaktu 23.
++
++
++---
++
++### 21.67 Angielski scenariusz do czytania — kontynuacja 23–28 (2026-10-17)
++
++**Zlecenie.** Użytkownik ponownie poprosił „kontynuuj”. Ukończono i dostarczono
++kolejno **23–28** w zatwierdzonym formacie. Angielski pochodzi wyłącznie
++z bieżącego `pakiet_EN`, bez ponownego tłumaczenia, wygładzania, streszczeń,
++dopisanych akcji i zgadywania dokładnych aktywatorów. Nie dodawano
++początkowych linków nawigacyjnych. Poprzednie 00–22 i cztery ZIP-y pozostały
++bajt w bajt niezmienione; nie przesyłano ich ponownie.
++
++**Przegląd.** Partia obejmuje **42 sceny źródłowe: 35 misji podstawowych
++i 7 pełnych identycznych kopii**, bez zmienionych wariantów angielskiej prozy.
++Każdą misję przejrzano w porcjach przy pomocy `review_english.py`, a wersje
++porównano przez `review_variants.py`: pełny angielski, rodzaj wpisu, rozmówca
++i znaczące metadane. Konsolowe skracanie szerokości nie zmienia danych;
++generator i niezależny verifier zawsze sprawdzają kompletne wpisy JSONL.
++Plany 23–28 zapisują podział scen, warunkowe/sytuacyjne rozmowy oraz epilogi.
++
++- **23:** sześć podstawowych misji i kopia 182 → 181 (201 wpisów).
++  Zachowano oba raporty o zatopieniu okrętu i obie czterowpisowe rozmowy
++  o White Base. Interludium Zero/C.C., obrażenia Ple Two, wycofanie Haman,
++  myśli Seishira i ostrzeżenie Vasage pozostały w źródłowym brzmieniu.
++  Nie zastąpiono losów postaci informacjami z innego dzieła lub streszczeniem.
++  Dwa samodzielne opisy jednostek w metadanych pominięto jako techniczne
++  ujęcia, nie jako wypowiedzi ani znaczące miejsca.
++- **24:** pięć podstawowych misji, bez kopii. Zachowano całą historię wizji
++  matki Himari, jej decyzję oraz wyjaśnienia naukowców jako ich wypowiedzi,
++  a nie dopisaną narrację o pewnych faktach. Obie końcowe kwestie Kaminy
++  i Simona mają osobne oznaczenia sytuacyjne. Dwa kolejne źródłowe wpisy
++  Seishira, choć składają się na jedno zdanie, nie zostały scalone.
++- **25:** sześć podstawowych misji i kopia 196 → 195 (355 wpisów).
++  Zachowano po trzy wystąpienia obu powtórzonych deklaracji Dark Dragon
++  Soldiers oraz trzy identyczne kwestie Vanilli. Wszystkie **22 wyświetlane
++  anonimowe kwestie** pozostały anonimowe, także pięć parentetycznych
++  wypowiedzi głosu docierającego do Kena i podziemne interludium na Zi.
++  Nie odgadnięto tożsamości na podstawie późniejszych ujawnień.
++  Porażkę przechwycenia odróżniono od udanego rozwiązania. Cały finał Drago
++  i późniejsze rozmowy zachowano.
++- **26:** sześć podstawowych misji i kopie 203/204 → 202 (po 239 wpisów).
++  Różnią się niektóre samodzielne panele warunków zwycięstwa, lecz nie proza
++  i znaczące miejsca; nie przenoszono ich danych do opisu wyzwalaczy fabuły.
++  Pierwsze dwa głosy pozostają anonimowe. Zachowano milczenie Shadow bez
++  dopisania losu, którego tekst nie potwierdza wprost, przebudzenie
++  Ultrasaurusa i myśl Hermana. Zachowano również jednoznaczne wypowiedzi
++  o ocaleniu, obrażeniach i powrocie Gregore'a/Bymana, bez dopisywania
++  interpretacji niedopowiedzianej rozmowy o rodzinie Murzy.
++- **27:** pięć podstawowych misji i kopia 210 → 209 (349 wpisów).
++  Zachowano anonimowe wejście Kikaishina, wypowiedź Vasage, cały finał
++  Mechanization Empire, rozmowę o siostrze Shinna oraz pełne polityczne
++  i osobiste wątki Gablae/Olibee. Znaczący źródłowy nagłówek `Gastogal`
++  w seq 213, order 164, `dlg:eventP07.EDAT/DL727_60.bin:19140`, zachowano
++  przez jawne usunięcie jednego technicznego prefiksu, bez zmiany słów.
++- **28:** siedem podstawowych misji i kopie 216 → 215 (215 wpisów) oraz
++  218 → 217 (415 wpisów). Obie identyczne kwestie Hiryu pozostają osobne.
++  Zachowano anonimowy pierwszy głos Ypsilona, myśl Chirica, rozdzielenie
++  porażki od udanego przechwycenia, pełny finał Pentagony, polityczne
++  epilogi, stan Olibee i całą późniejszą rozmowę Amm/Leccee. Zachowano
++  źródłowe etykiety Posaydal, Amandra i True Posaydal zamiast je ujednolicać.
++
++**Pokrycie i rozmiary:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 23 | 1011 | 810 | 201 | 333 | 57284 |
++| 24 | 499 | 499 | 0 | 110 | 35218 |
++| 25 | 1188 | 833 | 355 | 335 | 62759 |
++| 26 | 1298 | 820 | 478 | 151 | 54658 |
++| 27 | 1235 | 886 | 349 | 279 | 66957 |
++| 28 | 1692 | 1062 | 630 | 369 | 75379 |
++| **Łącznie** | **6923** | **4910** | **2013** | **1577** | **352255** |
++
++Brak pustych pominiętych wpisów prozy w partii. Łącznie **56650 słów** wraz
++z nagłówkami/notami przy jawnym `LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1).
++Pokrycie dostarczonych 01–28, bez pilota: **35123** wpisy źródłowe,
++**26236** wyświetlonych, **8887** dokładnych aliasów, **5894** wpisy
++warunkowe/sytuacyjne; **1871923 B** Markdownów.
++
++**Narzędzia i wykonane testy (Python 3.11.2, standardowa biblioteka):**
++
++- `build_episodes.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28`
++  uruchomiony przez `python3` z `srw-oe-translation/local/reading-script/`
++  — **PASS**; wszystkie 28 indywidualnie dostarczonych Markdownów nadal
++  ma identyczne bajty. Pełny przebieg zapisano w `rebuild_01_28.log`.
++- `verify_episodes.py` dla tego samego zakresu — **28/28 PASS**. Pełne słowa
++  źródłowe, postacie, akapity, kolejność, cytowania, tytuły i nagłówki z ich
++  licznością, źródłowe pokrycie, metadane i aliasy. Pełny wynik:
++  `verify_01_28.log`.
++- `verify_episode_00.py` — **PASS**; pilot nadal ma **20922 B** i SHA-256
++  z §21.62–21.66, bez początkowych linków. Cztery źródła `pakiet_EN` nadal
++  mają dotychczasowe sumy kontrolne.
++- Cztery wcześniejsze zestawy negatywne ponownie: `mutation_test.py`,
++  `mutation_test_batch_07_10.py`, `mutation_test_batch_11_16.py`,
++  `mutation_test_batch_17_22.py` — **10/10 + 10/10 + 17/17 + 18/18 PASS**.
++- Nowy `mutation_test_batch_23_28.py` — **20/20 PASS**, z celowo naprawionymi
++  hashami. Odrzucono usuwanie identycznych powtórzeń, zmianę źródłowych losów
++  bohaterów, usuwanie myśli i epilogów, scalanie dwóch wpisów bez utraty słów,
++  gubienie jednej z alternatywnych kwestii, przedwczesne odgadywanie anonimowych
++  głosów, zlanie porażki z główną fabułą, utratę znaczącego miejsca,
++  niedozwoloną zmianę jego angielskiego, fałszywy alias i początkową nawigację.
++- Łącznie **75/75 różnych przypadków** w pięciu zestawach, bez nowych błędów
++  wykonania lub konieczności zmian w generatorze/verifierze. Wszystkie
++  **85** kontrolowanych Markdownów, planów i audytów przywrócono bajt w bajt
++  do fingerprintów sprzed mutacji. Testy nie zapisują do źródeł gry ani
++  `pakiet_EN`; cztery hashe źródeł ponownie zgodne.
++- ZIP: `zipfile`, deflate 9, stałe metadane; dokładnie sześć nowych Markdownów,
++  poprawne CRC i zgodność każdego członka z osobno dostarczonym plikiem
++  — **PASS**.
++- Końcowe `Drive search_files`: **34/34 PASS** — 00–28 i pięć ZIP-ów.
++  Wszystkie obserwowane ID/nazwy/rozmiary/MD5 porównano z manifestami
++  i lokalnymi bajtami; brak duplikatów, dalszej strony i niepełnego
++  wyszukiwania. Nie zmieniano uprawnień Drive.
++- `git diff --check`, sprawdzenie ignorowania pełnych artefaktów i zakresu
++  zmian — **PASS**. Jedyna modyfikacja śledzona w Git to dziennik metadanych.
++  Nie modyfikowano gry/patchera ani nie wykonywano prób w emulatorze.
++
++Generator i niezależny verifier pozostały bez zmian (SHA-256 jak w §21.65).
++Nowy lokalny `mutation_test_batch_23_28.py`: SHA-256
++`31e928be2b528af531af2edccf5d78ec3d29e5c17b2e96c17997c0eadb4f3e1a`.
++Plany i audyty przechowują źródła tytułów, nagłówków, pełne rozliczenie wpisów
++oraz hashe materiałów wejściowych i wyników.
++
++**Dostawa:**
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_23.md` | `7ca65be164200e27790f2afe4643d8888090ff26eebe89ee6c2eabf7a5dc3f31` | [Drive](https://drive.google.com/file/d/14xU2PCis2zwLzuYqiIh98FmEEw2e2Zhl/view) |
++| `srwoe_episode_24.md` | `abf40588734ffefeb94eda1c580e09b0ee0123f56d6a553c51524552d39dd1ad` | [Drive](https://drive.google.com/file/d/1vO3qfLjxXJ_7xfeR9FDg1SySnSRP1xPZ/view) |
++| `srwoe_episode_25.md` | `c07db496eb3a615ed42d60e6233e8e774d409a2e4069ade657633641c7d365c6` | [Drive](https://drive.google.com/file/d/1bPDuot33X9WdmbnG1pekRm1jCi-VcbmH/view) |
++| `srwoe_episode_26.md` | `bb934e94b7b939bc53883fe7d66d1471a8b680a3b00fafd824352d344da79d07` | [Drive](https://drive.google.com/file/d/14Kqk8qMDA1tsa51YzMmUBNr2Lni0D98K/view) |
++| `srwoe_episode_27.md` | `f92e2d5b5f7198a4040d6cafa69e902695efad543b9b93726ce4edd98733ac6d` | [Drive](https://drive.google.com/file/d/1rVUagoFCBc_-o_Iod-4j-PO2mWSuLhMy/view) |
++| `srwoe_episode_28.md` | `99b72e1a8dca708ea4fa05d1c499d21ea0d9ad65565e03361eda2b2c820a767e` | [Drive](https://drive.google.com/file/d/1LzENfM5ZzrRU8kb-Tx7o1FQwPfNoA1zh/view) |
++
++[`srwoe_episodes_23-28.zip`](https://drive.google.com/file/d/1wGzODEcd5F1MPbbBP-Lv6q50Jp4gTF7j/view) — **128140 B**,
++wyłącznie sześć powyższych Markdownów. SHA-256
++`a45fe284a1d481f17ae65af3ce289e00b0b2841fed84d2d441155410080f8163`;
++MD5 `5c7d5b6f9135dceba22e37afe9ce151a`.
++
++Lokalnie, poza Git: plany i audyty 23–28, `batch_23_28_metrics.json`,
++`bundle_23_28.json`, `drive_observed_23_28.tsv`/`.json`,
++`drive_verified_23_28.json`, `pre_final_fingerprints_23_28.json`,
++`cumulative_metrics_01_28.json`, logi regeneracji/weryfikacji i wyniki pięciu
++zestawów testów. `deliveries.json` zachowuje 28 dostaw indywidualnych,
++historię pięciu ZIP-ów i poprzednich kontroli Drive.
++
++**Punkt kontynuacji: dostarczone 01–28; ostatni ukończony 28, następny 29.**
++Epizodu 29 nie rozpoczęto redakcyjnie; istnieje tylko inwentarz metadanych
++kolejnych scen. Nie ma planu ani artefaktu 29.
++
++
++---
++
++### 21.68 Angielski scenariusz do czytania — kontynuacja 29–33 (2026-10-17)
++
++**Zlecenie.** Użytkownik ponownie poprosił „kontynuuj”. Opracowano kolejno
++**29–33**, w zatwierdzonym układzie: angielski wyłącznie z `pakiet_EN`,
++bez początkowych linków nawigacyjnych, nowego tłumaczenia, streszczeń,
++dopisywania akcji i ustalania nieznanych dokładnych aktywatorów. Finał 34
++nie jest częścią tej dostawy: ma rozbudowane, znacząco różne wersje zakończenia
++i wymaga osobnego pełnego przeglądu, bez obcinania epilogów.
++
++**Przegląd.** Nowa partia obejmuje **28 scen źródłowych: 23 misje podstawowe,
++3 pełne identyczne kopie i 2 zmienione warianty**. Używano porcjowanego
++`review_english.py` oraz pełnego porównania `review_variants.py` po angielskim,
++rodzaju wpisu, rozmówcy i znaczących metadanych. Skracanie szerokości konsoli
++nie dotyczy danych generatora ani niezależnej kontroli. Pełne teksty, narzędzia,
++plany i audyty nadal pozostają w ignorowanym `local/reading-script/` i na Drive.
++
++- **29:** cztery misje podstawowe. Wariant 225 względem 224 różni się
++  początkowym wielokropkiem w jednej kwestii Adeu; zachowano dokładne oba
++  brzmienia, zmienione z dwoma wpisami kontekstu. Nie uznano różnicy
++  interpunkcyjnej za nieistotną. Zachowano anonimowe śmiechy przed nazwaniem
++  Cowena/Stingera, myśli Hermana i dr. D oraz znaczący prefiksowany nagłówek
++  miejsca `Ultrasaurus` (seq 224, order 3).
++- **30:** sześć misji podstawowych i dwie kopie: 231 → 230 (515 wpisów),
++  233 → 232 (59 wpisów). Zachowano wizje i decyzje Fiony, anonimowe wejście
++  Ravena, oba osobne fragmenty Go-Saurer/King Go-Saurer, pełny finał Zi,
++  myśli i rozmowy po bitwach, posiłek między misjami oraz konferencję,
++  na której nazwano Operation Extend. Porażka pozostaje osobno oznaczona.
++  Prefiksowane miejsce `Wasteland` zachowano bez przepisania jego angielskiego.
++- **31:** pięć misji podstawowych. Wariant 237 względem 236 zmienia
++  **tylko rozmówcę**, nie słowa: order 30 jest `???` w bazie, a `Masaki`
++  w DLC. Pełne rekordy `dlg:eventP08.EDAT/DL831_11.bin:4096` i
++  `dlg:evept106.EDAT/DL831_11G.bin:4096` sprawdzono osobno. Późniejszy wpis
++  ma nawet `copy_of`, ale nie uprawnia to do pominięcia zmienionej etykiety.
++  Pokazano ją z dwoma wpisami kontekstu, nie odgadując tożsamości w bazie.
++  Zachowano także oba rozpoznania form Saurera i pełny epilog bitwy z Invaderami.
++- **32:** cztery misje podstawowe, bez kopii. Dziewięć źródłowych wypowiedzi
++  w seq 244 ma jawny angielski prefiks roli: **2 × Pentagona Soldier**,
++  **7 × Pentagona Officer**. Obejrzano wszystkie pełne rekordy, w tym
++  `dlg:eventP08.EDAT/DL832_30.bin:1136` (order 9) oraz `:1216` (order 10).
++  Ich stockowe ID 3180/3185 w tabeli nadal nazywają się Posaydal Soldier /
++  Posaydal Officer. Tylko te konkretne wpisy otrzymują etykietę zgodną
++  z jawnym prefiksem; globalnych nazw nie przemianowano.
++- **33:** cztery misje podstawowe i kopia 248 → 247 (80 wpisów).
++  Zachowano całość nagrań z wiadomościami rodzin i nauczycieli, listy czytane
++  przez nauczycieli, historię Mucusów, rozmowę o przyszłości i przygotowania
++  na Genesis. Kolejne źródłowe fragmenty listów nie zostały scalone.
++  Kontekstowy nagłówek `Recoral Galaxy`, seq 249/order 170,
++  `dlg:eventP08.EDAT/DL833_50.bin:13124`, zachowano po usunięciu samego
++  technicznego prefiksu. Jeden spacer, seq 250/order 3,
++  `dlg:eventP08.EDAT/DL833_60.bin:432`, ma JP równy jednej spacji i EN pusty:
++  jawnie sprawdzono i zapisano jego pominięcie, zamiast odrzucać brak tłumaczenia.
++
++**Kontrolowana zmiana prezentacji.** Generator oraz niezależny verifier
++rozszerzono wyłącznie o dwa potwierdzone prefiksy `Pentagona Soldier` /
++`Pentagona Officer`. Wypowiedzi po prefiksie zachowują pełny angielski.
++Nie zastosowano ogólnego usuwania nieznanych prefiksów ani globalnej zmiany
++nazw. Dwa testy wykazały odrzucanie nowego nieprzejrzanego prefiksu, a dwa
++kolejne potwierdziły powrót do stockowej nazwy dla skopiowanego w pamięci
++rekordu bez prefiksu. Ponowna regeneracja nie zmieniła bajtów wcześniejszych
++plików 00–31 ani żadnej bieżącej dostawy.
++
++**Pokrycie i rozmiary:**
++
++| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
++|---|---:|---:|---:|---:|---:|
++| 29 | 663 | 537 | 126 | 138 | 37698 |
++| 30 | 1708 | 1134 | 574 | 310 | 75541 |
++| 31 | 692 | 608 | 84 | 279 | 46192 |
++| 32 | 398 | 398 | 0 | 124 | 31141 |
++| 33 | 748 | 668 | 80 | 93 | 47988 |
++| **Łącznie** | **4209** | **3345** | **864** | **944** | **238560** |
++
++Jeden rzeczywisty pusty spacer jest rozliczony osobno. Łącznie **38419 słów**
++wraz z nagłówkami/notami przy `LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1).
++Pokrycie 01–33 bez pilota: **39332** niepuste wpisy źródłowe, **29581**
++wyświetlonych, **9751** dokładnych aliasów, **6838** warunkowych/sytuacyjnych;
++**2110483 B** Markdownów.
++
++**Narzędzia i wykonane kontrole (Python 3.11.2, standardowa biblioteka):**
++
++- `python3 srw-oe-translation/local/reading-script/build_episodes.py $(seq 1 33)`
++  — **PASS**, pełny wynik w `rebuild_01_33.log`. Wszystkie 33 pliki przesłane
++  indywidualnie i pięć wcześniejszych ZIP-ów nadal są bajt w bajt zgodne
++  z manifestami. Nie przesyłano ich ponownie.
++- Analogiczne `verify_episodes.py $(seq 1 33)` — **33/33 PASS**, pełny wynik
++  `verify_01_33.log`: angielski, etykiety, akapity, kolejność, cytowania,
++  tytuły, nagłówki z licznością, kompletność, metadane, warianty i aliasy.
++- `verify_episode_00.py` — **PASS**. Pilot nadal ma **20922 B** i SHA-256
++  z poprzednich sekcji, bez początkowych linków. Cztery źródła `pakiet_EN`
++  nadal mają dotychczasowe SHA-256; nie zmieniano ich treści.
++- Pięć wcześniejszych zestawów ponownie: `mutation_test.py`,
++  `mutation_test_batch_07_10.py`, `mutation_test_batch_11_16.py`,
++  `mutation_test_batch_17_22.py`, `mutation_test_batch_23_28.py`
++  — **10/10 + 10/10 + 17/17 + 18/18 + 20/20 PASS**.
++- `mutation_test_batch_29_33.py` — **25/25 PASS**: 21 mutacji z celowo
++  naprawionymi hashami oraz cztery kontrole prefiksów/nazw wyłącznie w pamięci.
++  Odrzucono normalizowanie różnicy DLC, zgadywanie głosów, zgubienie miejsca,
++  pominięcie myśli/interludiów/listów, usunięcie wariantu formy robota,
++  zlanie porażki z fabułą, scalanie wpisów listu bez utraty słów, zmianę
++  etykiety tylko w jednym wydaniu, fałszywy alias i początkową nawigację.
++  Nowe role nie powodują globalnego przemianowania stockowych wpisów.
++- Łącznie **100/100 różnych przypadków** w sześciu zestawach. Wszystkie
++  **100** kontrolowanych Markdownów, planów i audytów przywrócono do bajtów
++  zapisanych przed mutacjami. Powtórna kontrola źródeł również **PASS**.
++  Testy nie zapisują do `pakiet_EN` ani plików gry.
++- ZIP: `zipfile`, deflate 9, stałe metadane. Dokładnie pięć nowych Markdownów,
++  poprawne CRC i identyczne bajty względem osobnych dostaw — **PASS**.
++- Końcowe `Drive search_files`: **40/40 PASS** — 00–33 i sześć ZIP-ów,
++  zgodne obserwowane ID/nazwy/rozmiary/MD5 oraz lokalne SHA-256; bez
++  duplikatów, dalszej strony i niepełnego wyszukiwania. Nie zmieniano
++  uprawnień Drive.
++- `git diff --check`, kontrola ignorowania pełnych tekstów/narzędzi i zakresu
++  zmian — **PASS**. W Git zmieniony jest tylko dziennik metadanych.
++  Nie modyfikowano patchera/gry ani nie przeprowadzano prób w emulatorze.
++
++Wersje narzędzi, wszystkie wyłącznie w ignorowanym `local/reading-script/`:
++
++- `build_episodes.py`: SHA-256 `05c36803442027b3d898a06b76434e2c69b0839a08bcb687e535d369317bce97`.
++- `verify_episodes.py`: SHA-256 `cc2b82d08c2cda1f0ceba4db283d70eaf85c8d3a571214d429046b58daa15a2d`.
++- `mutation_test_batch_29_33.py`: SHA-256 `4ec381fa6075d47f29e185e3f4a756bc723484720ba24759c747f1cb4d9a140e`.
++
++**Dostawa:**
++
++| Plik | SHA-256 | Dostarczony plik |
++|---|---|---|
++| `srwoe_episode_29.md` | `11684b3e368b6f8f22b96f4802cf4290ae68d426a0d5d178735be3e6c2b3906d` | [Drive](https://drive.google.com/file/d/1sEvxRgGv8hXyCDQUbmxlAKO5xDOu4d3M/view) |
++| `srwoe_episode_30.md` | `e34c2145fc880c39810bbd68c05d0f280294f0a0077be72b6ece6af1125072c4` | [Drive](https://drive.google.com/file/d/1DF-EzgSJw0GkC6-VnuMJhkMdnGIks1lc/view) |
++| `srwoe_episode_31.md` | `3ea43e64dd7626a0847d00880dfc51be2dda277ba064b90f5d85ea78f8c626fb` | [Drive](https://drive.google.com/file/d/1Gr8hnQ0xAg0vy4W5ca85RlJWXoJAdwX8/view) |
++| `srwoe_episode_32.md` | `484d62d188414479121a11a3e349762a66c73ba1a8826de2404418100d6f3d59` | [Drive](https://drive.google.com/file/d/1CEvhj7ihoh-cO6miLRNTBAfBiapsgjhH/view) |
++| `srwoe_episode_33.md` | `08a87b1098c6635008ba1d21e273aa4047dd6d824b867f458c17b012025ee859` | [Drive](https://drive.google.com/file/d/1ISN4Xns7q8c8COTNX6yvGw9z1hMt_dnR/view) |
++
++[`srwoe_episodes_29-33.zip`](https://drive.google.com/file/d/1xdTJAmvKrWF9s_Eeld_OOfog6W3Y0_GR/view) — **87177 B**,
++wyłącznie pięć powyższych Markdownów. SHA-256
++`449988eaee2795518de6f7fb345daa385c5d0c21487311d43c1266b4336387a6`;
++MD5 `9b40e9d22c1ffa13ee8068d60e5c3e57`.
++
++Poza Git zapisano także plany/audyty 29–33, `batch_29_33_metrics.json`,
++`bundle_29_33.json`, `drive_observed_29_33.tsv`/`.json`,
++`drive_verified_29_33.json`, `pre_final_fingerprints_29_33.json`,
++`cumulative_metrics_01_33.json`, wyniki sześciu zestawów i logi pełnej kontroli.
++`deliveries.json` zachowuje 33 dostawy indywidualne oraz sześć ZIP-ów
++z historią poprzednich kontroli Drive.
++
++**Punkt kontynuacji: dostarczone 01–33; ostatni ukończony 33, następny 34.**
++Dla 34 wykonano wyłącznie inwentarz i algorytmiczne porównanie pełnych
++sygnatur angielskich/metadanych, zapisane w `episode_34_inventory.json`
++z `reviewed: false`. To ostatni numerowany epizod w mapie `story`.
++Jego siedem scen zawiera 7471 niepustych wpisów, w tym bazowy finał z 1702
++wpisami. Dwie późniejsze wersje różnią się od tej bazy 306/382 wpisami
++i dodają po dwa nagłówki metadanych; jeszcze jedna jest dokładną kopią
++późniejszej wersji. Potrzebny jest pełny przegląd, zachowanie wszystkich
++unikalnych końcowych wypowiedzi i prawidłowa prezentacja metadanych wariantów.
++Nie ma planu, audytu, Markdownu ani dostawy 34. Sceny `simulator` są odrębną
++serią źródłową; ten punkt kontynuacji dotyczy numerowanych epizodów `story`.

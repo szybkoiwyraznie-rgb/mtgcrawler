@@ -1,6 +1,35 @@
 # SRT OE English Translation — Research Workspace
 
-**Status (2026-10-17):** the game is fully translated into English. The complete translation ships as `PATCH15.zip` (per the project owner). The sections below are the project history.
+**Status (2026-10-17):** [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) is delivered: missing map terrain
+names, flat/unambiguous DLC deployment and actual field read-back for the reported
+chapter-4 DLC entries. Full suite **1493 passed, 1 skipped, 382 subtests passed**;
+extracted-kit/ISO verification and Drive read-back pass. On-device confirmation is
+still pending; the exact owner-side cause of the two v16 JP titles is not proven.
+See [`docs/QA_V17.md`](docs/QA_V17.md), [`docs/STATUS.md`](docs/STATUS.md) and
+`pakiet_EN/CO_NOWEGO_v17.txt`. Preserve original inputs/saves. Earlier sections are history.
+
+## Mech reference catalogue — delivered
+
+[English Markdown catalogue, presentation v3](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view)
+covers **393 registered unit records and 1485 weapon/action entries**, including
+friendly/enemy variants, default crew and alternate profiles, non-Spirit pilot
+skills, base weapon statistics/effects and native machine abilities. Inferences,
+missing series/skill references and unresolved unlock timing are labelled.
+Presentation v3 retains the clean machine headings and also removes pilot ID
+suffixes, confirmed-dictionary tags and the two repeated notices requested by the
+owner. Game data and descriptive content are unchanged. Full source verification
+and Drive read-back pass; suite: **1509 passed, 1 skipped, 382 subtests passed**.
+[Reproduce it / evidence / delivery manifest](docs/mech-catalog/README.md).
+
+## English reading edition — episodes 00–34 complete
+
+The final [episode 34 Markdown](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
+is delivered and independently verified, including all unique finale/epilogue variants.
+This uses the existing English package; it does not change the translation or game.
+Recovered history, tracked tools, reviewed plan, tests and delivery hashes:
+[`docs/reading-script/README.md`](docs/reading-script/README.md). The original Drive
+patch is archived byte-for-byte in Git. Full project suite: 1379 passed, 1 skipped,
+382 subtests passed. Earlier reading episodes remain on Drive; `simulator` is out of scope.
 
 ## Goal
 

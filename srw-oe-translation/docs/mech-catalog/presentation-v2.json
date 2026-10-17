@@ -1,0 +1,17 @@
+{
+  "revision": 2,
+  "date": "2026-10-18",
+  "input_sha256": "e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef",
+  "output_sha256": "9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab",
+  "output_bytes": 707653,
+  "removed": {
+    "unit_html_anchors": 393,
+    "unit_id_heading_suffixes": 393,
+    "data_lines": 393
+  },
+  "unit_anchor_links_rendered_as_text": 133,
+  "model_unchanged": true,
+  "model_sha256": "ff6d896ec720ca6a42474cc686c9e7a798d8a13be845e5567400b667a73918b0",
+  "weapon_rows_ability_bullets_pilot_profile_headings_byte_identical": true,
+  "only_requested_removals_and_link_cleanup": true
+}

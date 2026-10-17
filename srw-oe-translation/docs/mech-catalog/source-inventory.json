@@ -1,0 +1,1812 @@
+{
+  "summary": {
+    "status": "inventory-only",
+    "containers": 21,
+    "units": 393,
+    "weapon_entries": 1485,
+    "characters": 404,
+    "skill_records": 1469,
+    "skill_families": 193,
+    "skill_alias_ids": 254,
+    "groups": 16,
+    "group_member_slots": 57,
+    "skill_pool_entries": 720,
+    "index_count_mismatches": [
+      {
+        "unit_id": 2940,
+        "index": 3,
+        "actual": 4
+      },
+      {
+        "unit_id": 3246,
+        "index": 0,
+        "actual": 1
+      }
+    ],
+    "legacy_unterminated_name_overreads": [
+      10160,
+      10702,
+      12217
+    ],
+    "reference_candidates": {
+      "unit_98_106_character_refs": {
+        "nonzero": 535,
+        "resolved": 535,
+        "unresolved": {}
+      },
+      "unit_108_116_character_refs": {
+        "nonzero": 440,
+        "resolved": 439,
+        "unresolved": {
+          "733": 1
+        }
+      },
+      "unit_118_122_skill_refs": {
+        "nonzero": 516,
+        "resolved": 514,
+        "unresolved": {
+          "110": 1,
+          "230": 1
+        }
+      },
+      "character_128_134_skill_refs": {
+        "nonzero": 526,
+        "resolved": 526,
+        "unresolved": {}
+      },
+      "character_156_skill_ref": {
+        "nonzero": 92,
+        "resolved": 92,
+        "unresolved": {}
+      },
+      "weapon_244_248_skill_refs": {
+        "nonzero": 1651,
+        "resolved": 1651,
+        "unresolved": {}
+      }
+    },
+    "package_sha256": {
+      "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
+      "04_config_text.jsonl": "74dfe7a0c567e9bbff908dad57a4d52b4487b7679514101ceef7adf28d49386e",
+      "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+      "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+      "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+      "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
+    }
+  },
+  "inputs": [
+    {
+      "name": "config00.cpk",
+      "bytes": 929920,
+      "sha256": "d38b0ccae89d460afcbd7ad3411391aaae8a9c3e77f2e9f6d7b9c317a3806582",
+      "md5": "266366c3bee66130d4b7cb57a1b1e3d4",
+      "members": [
+        {
+          "member": "bg2dlist.bin",
+          "bytes": 8180,
+          "sha256": "550c5037a3e3dc5d0d0da21eff9ac5ad7e61229a3ba8c035104fd52bd04dec70"
+        },
+        {
+          "member": "grouplist.bin",
+          "bytes": 5372,
+          "sha256": "b06c1b563e31d501a86cf48fa70e04fd012e4b72605e7a68ae09dd0e90ee234c"
+        },
+        {
+          "member": "spcamlist.bin",
+          "bytes": 6604,
+          "sha256": "6cc54185f481de3307b998f626458afc771d72e901264aeae9479c99e49cd53e"
+        },
+        {
+          "member": "unit_index_list.bin",
+          "bytes": 3148,
+          "sha256": "f70e9ea1ffe5fc436eedca08b5c0675d2f1dc7af50152ce6112baecbfe3ff5b4"
+        },
+        {
+          "member": "spcamscriptlist.bin",
+          "bytes": 3304,
+          "sha256": "10653b630d6820f4d730c82a95125aae8cd118fb018182e4cd3c7a518fedfaaf"
+        },
+        {
+          "member": "effsetlist.bin",
+          "bytes": 307820,
+          "sha256": "ac1c9a098822e3ae77a4aa7fef3f25a87244be8dfa76148f9a3a805a902cdfae"
+        },
+        {
+          "member": "lmaplist.bin",
+          "bytes": 546,
+          "sha256": "982ecf9a17d1d904fb02bfc4a8bd2a354a04fcc553a6ef592aec5cfcaed81724"
+        },
+        {
+          "member": "mapwpn_range.bin",
+          "bytes": 4656,
+          "sha256": "1b6f1c806b548533488db2a5528c282d08c69e52f671a0083b68728e5755ddfe"
+        },
+        {
+          "member": "srwDL_robo_Union.bin",
+          "bytes": 12060,
+          "sha256": "86ad6c0d88c0b532d35efb5414a34fbe14eaeaaab2bbd90b2e472d57606af166"
+        },
+        {
+          "member": "SESys_list.bin",
+          "bytes": 14744,
+          "sha256": "386eb5b66b015375b359d812d32b875b29e8652e71836f3d28cedccd264fe520"
+        },
+        {
+          "member": "srwDL_Map_S.bin",
+          "bytes": 3216,
+          "sha256": "326abc2e5e992f64ed5d0169d151f29e177287d826c43b7500cd06596993f639"
+        },
+        {
+          "member": "movie_list.bin",
+          "bytes": 360,
+          "sha256": "7909931faa24c74b799b30c3a4a911637af92a0b3cc39d4de734dfad5091f4ef"
+        },
+        {
+          "member": "robolist.bin",
+          "bytes": 8716,
+          "sha256": "9d8446989c87dbfbcf01d70cc8336d0faa24f46bc7dce0c116573e169b5e95f0"
+        },
+        {
+          "member": "unitfacelist00.bin",
+          "bytes": 924,
+          "sha256": "e13df1c2fe52466d611108be6c36858e04edf96c4ae4199b39730d12d8844f84"
+        },
+        {
+          "member": "srwDL_Skill00.bin",
+          "bytes": 208958,
+          "sha256": "377f11b2b30f3b015ee173049dbe84cc2902cf673de761e1b262afe66ccd3b2c"
+        },
+        {
+          "member": "srwDL_CharaDictionary00.bin",
+          "bytes": 21226,
+          "sha256": "af03a6d1bfe3ca5d13eb4ff827ba45b5daf7c0777180dfd3258bfb8afb51daa0"
+        },
+        {
+          "member": "srw_DL_RoboDictionary00.bin",
+          "bytes": 9442,
+          "sha256": "9c6e80a17cd1a7ce467be4afd2d646960956381a3297d6a6b06b102d3c1544e3"
+        },
+        {
+          "member": "bgmlist00.bin",
+          "bytes": 31488,
+          "sha256": "d3a0cdbb6ecf6c8feef066548e675997cb3f05490aa5f4d8e178389bf1a71e47"
+        },
+        {
+          "member": "sprstd_res00.bin",
+          "bytes": 336,
+          "sha256": "d2fe8db150009ef302a2f6d756571e16f4f9a38e2ff7739526b3132ea7b31d46"
+        },
+        {
+          "member": "milstP00.bin",
+          "bytes": 1920,
+          "sha256": "5e32579cd0cb613ab9766226507e626f064f3d7eea9c6d99c127bd7b47543a57"
+        },
+        {
+          "member": "movlst00.bin",
+          "bytes": 104,
+          "sha256": "ef1ecb35189f9115e7eabd89a0a6726004ab7e28398a564295c6ff44bcd5c58d"
+        },
+        {
+          "member": "groupunit00.bin",
+          "bytes": 1600,
+          "sha256": "d34da9a195f164aeac016fa6ee0591264d5e7bf8877f460e17af9d6a87528741"
+        },
+        {
+          "member": "srwDL_BMP00.bin",
+          "bytes": 400,
+          "sha256": "f6d739e4f056e2d6a792071043a4f87e71d37d1428a84cca8a76d7cb198ae9cd"
+        },
+        {
+          "member": "eftexlst00.bin",
+          "bytes": 6310,
+          "sha256": "060b57b2997851d6d21ec75e4623dd4e6e6f73b0761c903b79fc89fd67b38b5c"
+        },
+        {
+          "member": "srwDL_Item00.bin",
+          "bytes": 34566,
+          "sha256": "3650523be01a0064137c1e028f3a45c2bb89d298bbd5be9cf2f51f1c53ec8756"
+        },
+        {
+          "member": "srwDL_Shop00.bin",
+          "bytes": 12450,
+          "sha256": "2c9c474220ebe57184f135f96c045269e26630c25a4217fa4d554d1d494dcbd0"
+        },
+        {
+          "member": "srwDL_DLC_ID00.bin",
+          "bytes": 8422,
+          "sha256": "c6d1214a557d0ba58263f47f2a2c1f25d4ef3ba45219744fa324d5a0d9719495"
+        },
+        {
+          "member": "srwDL_Reference00.bin",
+          "bytes": 17656,
+          "sha256": "f643aa4e083a88e7f2291477197c1cdc3adf53d2d391b559150a7c0199fd6972"
+        },
+        {
+          "member": "unit_list00.bin",
+          "bytes": 32256,
+          "sha256": "7fea41c51a8d32472cfd2584f3a0994dacd909d11080471d3624a41336d9c868"
+        },
+        {
+          "member": "wp_list00.bin",
+          "bytes": 70724,
+          "sha256": "8f81a96ed5a37f860de2c5ba89d991e86ee5dd7c7f13c2e6c791c052b6c63598"
+        },
+        {
+          "member": "charalist00.bin",
+          "bytes": 23048,
+          "sha256": "c5edd25871d438404b96fa0d850c3847801be9f0e196d64faed2433d57bbfdeb"
+        },
+        {
+          "member": "texanmptn00.bin",
+          "bytes": 19744,
+          "sha256": "98d2fe50e6b4cedcff53ee74d468a90b378de562cce4efcb5542a0a03e142ed6"
+        },
+        {
+          "member": "robo_cpkid00.bin",
+          "bytes": 336,
+          "sha256": "bb1fe1101c32732481a68b5265dfb2b8f395bc90c49af457a22a87ae11bacb96"
+        },
+        {
+          "member": "mesbmp00.bin",
+          "bytes": 1116,
+          "sha256": "a1d57ca4aaaf947e99630170e2750ccc650c93ca71c29dec8e585ec8e7b4f3b1"
+        }
+      ]
+    },
+    {
+      "name": "config01.EDAT",
+      "bytes": 247936,
+      "sha256": "1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431",
+      "md5": "10a6b9f82855eb02cebc8db44e1b25cb",
+      "members": [
+        {
+          "member": "config01.txt",
+          "bytes": 32,
+          "sha256": "e979ccdb49cd7acd2d1072946df43dc891fdff2f37e208f6c8ce3ec9837ebca7"
+        },
+        {
+          "member": "cnfrls01.cfg",
+          "bytes": 2,
+          "sha256": "9dcf97a184f32623d11a73124ceb99a5709b083721e878a16d78f596718ba7b2"
+        },
+        {
+          "member": "unit_list01.bin",
+          "bytes": 38016,
+          "sha256": "437870fd63c625921d09a8f611289c8fcf6bb0363ab90f6a731c647d2b0aaaf0"
+        },
+        {
+          "member": "wp_list01.bin",
+          "bytes": 99124,
+          "sha256": "a4ebfce32b794731e7b894310e6e2ca36c76f813588ae5ecb16a8368fd789e5c"
+        },
+        {
+          "member": "charalist01.bin",
+          "bytes": 17544,
+          "sha256": "b276f2fdcfec021223eb5c034252e258e036316dda35692108c7fadf6a5040e4"
+        },
+        {
+          "member": "unitfacelist01.bin",
+          "bytes": 924,
+          "sha256": "3d6c982df93aec80b33159b5c9ea6aa4ee219842bd97b7c2584172e6c5ac183e"
+        },
+        {
+          "member": "srwDL_Skill01.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_CharaDictionary01.bin",
+          "bytes": 15688,
+          "sha256": "6448b48a46498a7f17c2c553b28151669a042d777bb5da034c523a5ca9fe3fc1"
+        },
+        {
+          "member": "srw_DL_RoboDictionary01.bin",
+          "bytes": 9702,
+          "sha256": "2ac07a093637682b9030830f788ee67b174e57a688cd78b43d63228b81763996"
+        },
+        {
+          "member": "bgmlist01.bin",
+          "bytes": 7104,
+          "sha256": "dbd604ca05c3f0fae3b151026e0990613dc56e67177b5e8c8de2b4f26cb03cf5"
+        },
+        {
+          "member": "sprstd_res01.bin",
+          "bytes": 384,
+          "sha256": "b514f31339c78b4666808d4e56be33a77476874ac1cc83b5835a8039ba8bd143"
+        },
+        {
+          "member": "milstP01.bin",
+          "bytes": 3968,
+          "sha256": "6980f8d2bb7ef4367dfffe63872857cc93b5d2b87d31d1d4136733258e8b5c06"
+        },
+        {
+          "member": "srwDL_BMP01.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "movlst01.bin",
+          "bytes": 120,
+          "sha256": "395018b177951f2f71459938a50bd8a0f394403242ed287f8a0cb58c410e2f36"
+        },
+        {
+          "member": "srwDL_Item01.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop01.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID01.bin",
+          "bytes": 3336,
+          "sha256": "f2b24dda13d3f6bcf8ae65eb2f43c5ef8809e409051dde49aaa6fead9bcae6c4"
+        },
+        {
+          "member": "srwDL_Reference01.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "robo_cpkid01.bin",
+          "bytes": 332,
+          "sha256": "2acbb1a13c34c1d360298f1516a781a55772ee45c1f83c0193ef40c137341f79"
+        },
+        {
+          "member": "mesbmp01.bin",
+          "bytes": 324,
+          "sha256": "32340c1aab3ed43f6091114827abc8b1f2cdf944bf4e2c5e780c65a56d61b251"
+        }
+      ]
+    },
+    {
+      "name": "config02.EDAT",
+      "bytes": 157824,
+      "sha256": "7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053",
+      "md5": "4c904d0ad57ff955adafe119f7bda735",
+      "members": [
+        {
+          "member": "config02.txt",
+          "bytes": 32,
+          "sha256": "03f71d0cb09fee4cedb97639e6126f6b8cb4fd95ba9a89257aead73e9c63bf94"
+        },
+        {
+          "member": "cnfrls02.cfg",
+          "bytes": 3,
+          "sha256": "36df8eaa58f53c3bfb6bcf9dfbe9617ef023b192bb7c4a479926198a463401dc"
+        },
+        {
+          "member": "srwDL_CharaDictionary02.bin",
+          "bytes": 7516,
+          "sha256": "44117afe385eb004ce0f784c3dfe14734fbd3e12d981c466faa45082aa6f14cb"
+        },
+        {
+          "member": "srw_DL_RoboDictionary02.bin",
+          "bytes": 6138,
+          "sha256": "a985a3d713143eb54f78ecd538c179b9048d7011de5d5eb0e586d253ffc37f6f"
+        },
+        {
+          "member": "bgmlist02.bin",
+          "bytes": 1728,
+          "sha256": "38f61269aab2bd571cfd735ecfc8682186b93e5240130c121f049ce8288b0799"
+        },
+        {
+          "member": "sprstd_res02.bin",
+          "bytes": 144,
+          "sha256": "686a97193e57323e20a2779d41c1c00fac6d808512bded20cb8c22b6be2745e0"
+        },
+        {
+          "member": "unit_list02.bin",
+          "bytes": 21888,
+          "sha256": "722f9e20bbae11bef9f3d1b8e9e7284cdd2dccb983238e573a3a9e3cc678be6e"
+        },
+        {
+          "member": "milstP02.bin",
+          "bytes": 4352,
+          "sha256": "15ea1ff6dc67e03687265a19a2871bf7c4afb1f89d4ee1edffd1292e3b1b9870"
+        },
+        {
+          "member": "charalist02.bin",
+          "bytes": 9460,
+          "sha256": "2df15e1c7b58af438fa289da09a14da9a93cdce99744ff39abec904adb5649fb"
+        },
+        {
+          "member": "unitfacelist02.bin",
+          "bytes": 636,
+          "sha256": "d36d27a143d60dbf7ca00019398ab0e7494f34af795d1bb2450111b6acda4fc6"
+        },
+        {
+          "member": "wp_list02.bin",
+          "bytes": 53396,
+          "sha256": "8ed6970763f9a2060afd30b9aebffff0c828ab360e58056e2092ca86734958e7"
+        },
+        {
+          "member": "eftexlst02.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "member": "srwDL_BMP02.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_Skill02.bin",
+          "bytes": 15638,
+          "sha256": "53c47edb06e9fa4e58867cc2a03bddac2435f803a0ada7769c9762812f6f1704"
+        },
+        {
+          "member": "srwDL_Item02.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop02.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID02.bin",
+          "bytes": 756,
+          "sha256": "636218fd1c20d98c23557b93b009fc357812deec8aa0c46ffbf1d67ccf5dc59b"
+        },
+        {
+          "member": "srwDL_Reference02.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "robo_cpkid02.bin",
+          "bytes": 220,
+          "sha256": "6cc66bb2ac49cd41a8d3336bcbbc470a0321a04d97815539a291e6db8acf9504"
+        },
+        {
+          "member": "mesbmp02.bin",
+          "bytes": 216,
+          "sha256": "215c0ebc1f78bedc6be327c1e24433a4e68c62d7aff1c1cef3757ba11d35bb90"
+        }
+      ]
+    },
+    {
+      "name": "config03.EDAT",
+      "bytes": 118912,
+      "sha256": "420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511",
+      "md5": "262c949e7e7a5e9de38a4b0a0b8ab61f",
+      "members": [
+        {
+          "member": "config03.txt",
+          "bytes": 32,
+          "sha256": "51c276380052ddabd864ffd780cf13479b4f9d26855f4591e6930eb3de277bab"
+        },
+        {
+          "member": "cnfrls03.cfg",
+          "bytes": 4,
+          "sha256": "5c42fbeb8424c28e5c3daf9334c3a2572fc99702d1c4bcf92c5cb9f5c32635f6"
+        },
+        {
+          "member": "srwDL_CharaDictionary03.bin",
+          "bytes": 4316,
+          "sha256": "fa20c62cb4b6983e50e020ffc9c78d62c861091f091e03dcd90af212dd0fd1ad"
+        },
+        {
+          "member": "srw_DL_RoboDictionary03.bin",
+          "bytes": 3062,
+          "sha256": "9f4524832331ed067c4e6b99c69f08738bbf0b02f9d456d35810f6b8900f1442"
+        },
+        {
+          "member": "bgmlist03.bin",
+          "bytes": 768,
+          "sha256": "63253627c3108d5af1619aef435b06f56daa6d67e30d22ff1ca0b949cd9e84af"
+        },
+        {
+          "member": "sprstd_res03.bin",
+          "bytes": 128,
+          "sha256": "4b68f784890266444abddd979d134fe17c239a1149e990b0855c2d879a49c098"
+        },
+        {
+          "member": "unit_list03.bin",
+          "bytes": 9600,
+          "sha256": "6439d91d78f4dd774a72078c383db9ea0372387f12b0bc246f83d33a86f5728d"
+        },
+        {
+          "member": "milstP03.bin",
+          "bytes": 4224,
+          "sha256": "eae9bd188dbf2b6c335d00241a8a58625d55d18cd5892d84aaf06dbcf50d1cc3"
+        },
+        {
+          "member": "charalist03.bin",
+          "bytes": 5332,
+          "sha256": "f7fd3679d02ae6f989d74d7336e8453c55d086a358a13884f5fbc8eb9f6d2d31"
+        },
+        {
+          "member": "unitfacelist03.bin",
+          "bytes": 288,
+          "sha256": "77b8aa18611b461cd58fa53a80af743931e78e88c3287c2eec3bea9603c8d02a"
+        },
+        {
+          "member": "wp_list03.bin",
+          "bytes": 33428,
+          "sha256": "52913d7cfb255ce820753ca0e9401d825b5296602ae1dfef490cc04725fea242"
+        },
+        {
+          "member": "srwDL_BMP03.bin",
+          "bytes": 46,
+          "sha256": "1e1dd88d68f0bd7a4b39c2bb0214acf811ad667d74345e6cf64aaaac3752b6d5"
+        },
+        {
+          "member": "srwDL_Skill03.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item03.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop03.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID03.bin",
+          "bytes": 752,
+          "sha256": "fa61124dde8891479fe52017f078b645e8d2f22f8f9bf5ad278ae1106e8d0476"
+        },
+        {
+          "member": "srwDL_Reference03.bin",
+          "bytes": 2592,
+          "sha256": "caec9fdb17a3f7147ec8fee07d604d3b5d527d04ee8e13ebaaa203f776803f00"
+        },
+        {
+          "member": "robo_cpkid03.bin",
+          "bytes": 100,
+          "sha256": "1b503c72f79450620426bc96c6d721e220cf369ad25ff92e2666d2e279be1971"
+        },
+        {
+          "member": "mesbmp03.bin",
+          "bytes": 96,
+          "sha256": "98d0252be673bc691cfdbf5e514a1490dab26e586fc2e8c4615c7303a143523d"
+        }
+      ]
+    },
+    {
+      "name": "config04.EDAT",
+      "bytes": 108672,
+      "sha256": "bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09",
+      "md5": "6dc8ad36720c63039294b6d73826734e",
+      "members": [
+        {
+          "member": "config04.txt",
+          "bytes": 32,
+          "sha256": "97ae62d29137c1100a1ce36fde7a36e3a706f4bfe72ce34c28ee98e31558f8ef"
+        },
+        {
+          "member": "cnfrls04.cfg",
+          "bytes": 5,
+          "sha256": "af94b290bab4c91f393aefb5f393f42d5b350d8b230cb75db3b6295d36fe1c89"
+        },
+        {
+          "member": "srwDL_CharaDictionary04.bin",
+          "bytes": 5224,
+          "sha256": "815628ea349593d0655689e94b452b1082d949b051842a14996461dd9dfd1eeb"
+        },
+        {
+          "member": "srw_DL_RoboDictionary04.bin",
+          "bytes": 2402,
+          "sha256": "f4a0e35e105875b4865f9d0baf1198112d6fe8325e3731c2896b0b91d20ae780"
+        },
+        {
+          "member": "bgmlist04.bin",
+          "bytes": 576,
+          "sha256": "b7a3750a817441da864107effa24c20444944c5d9c36aef0d40992a190635611"
+        },
+        {
+          "member": "sprstd_res04.bin",
+          "bytes": 192,
+          "sha256": "7069de33ad96cd13ec447b691c622a3fd00976da64887eacaa09d0d38539bf99"
+        },
+        {
+          "member": "unit_list04.bin",
+          "bytes": 10368,
+          "sha256": "d3d0a6356afca24ca79ccaaa8e14a0041491597a26a5d2d284db1dd5cba596ed"
+        },
+        {
+          "member": "milstP04.bin",
+          "bytes": 4352,
+          "sha256": "38bb9ccffda293912f5bf52f470c558a3f8f49749e0ceb3440b6fd663e3bafdd"
+        },
+        {
+          "member": "charalist04.bin",
+          "bytes": 4300,
+          "sha256": "04716aa1f0709c2ce5eee1de9423cd3842ee7cf54a948b3267e2fb07bd6260ea"
+        },
+        {
+          "member": "unitfacelist04.bin",
+          "bytes": 216,
+          "sha256": "9c71f8de922ae87b59e29b0fc69336adb178c3020e7aef39cf2895442840a3f4"
+        },
+        {
+          "member": "wp_list04.bin",
+          "bytes": 23732,
+          "sha256": "a7327ed226be552c9dce4b809099145a678b3bbb83696b653e382345d2c621f3"
+        },
+        {
+          "member": "srwDL_BMP04.bin",
+          "bytes": 46,
+          "sha256": "c091193689375efdc7e44c0d2608178427c4613c269baa4da3c9244962d12137"
+        },
+        {
+          "member": "srwDL_Skill04.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item04.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop04.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID04.bin",
+          "bytes": 752,
+          "sha256": "be53a739a53db8127049a5312004bcfe8ff5a98e8cd2b51bce677c1324ebb007"
+        },
+        {
+          "member": "srwDL_Reference04.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "robo_cpkid04.bin",
+          "bytes": 84,
+          "sha256": "22968b49139c6af80529ed31e8e80ebc10282a1d6e26cc36b90f2fdfbeb2866f"
+        },
+        {
+          "member": "mesbmp04.bin",
+          "bytes": 90,
+          "sha256": "7416b37276dea0e3754ccb26fbb9990f939a95e22cfc0ac522c1f2958f8b0cce"
+        }
+      ]
+    },
+    {
+      "name": "config05.EDAT",
+      "bytes": 110720,
+      "sha256": "f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9",
+      "md5": "308830778b58424ea87ba528f5de1db4",
+      "members": [
+        {
+          "member": "config05.txt",
+          "bytes": 32,
+          "sha256": "83fa662a6367834bc997cb22490eea16c18fbff28288f0137a241f493ef71ef8"
+        },
+        {
+          "member": "cnfrls05.cfg",
+          "bytes": 6,
+          "sha256": "387847da16e588a8a4ce16aa561a3a7a2bd0d94873d509f295c2e660a1824127"
+        },
+        {
+          "member": "srwDL_CharaDictionary05.bin",
+          "bytes": 2692,
+          "sha256": "f61023284ed497ec50421e38a39430ca045bd5b500f0388e7ce4bc00687aa4ba"
+        },
+        {
+          "member": "srw_DL_RoboDictionary05.bin",
+          "bytes": 2382,
+          "sha256": "b97fe9decf7b282639cef813478c89c72c4ebe414e4b56c1e092ee5f63546104"
+        },
+        {
+          "member": "bgmlist05.bin",
+          "bytes": 192,
+          "sha256": "db71e94a1274773275f053f3de187ab1cb98528466dc1d67057821d2227ff8b8"
+        },
+        {
+          "member": "sprstd_res05.bin",
+          "bytes": 120,
+          "sha256": "2a2df797fa6e8da644a843d0f3dcb3c55607cef0b6377f484882b96ff8f55a2f"
+        },
+        {
+          "member": "unit_list05.bin",
+          "bytes": 10368,
+          "sha256": "78e8dbd3b087fac7eac9481326196b82d78fe4cba0b1d2e98cb0c1110b29d5a6"
+        },
+        {
+          "member": "milstP05.bin",
+          "bytes": 4224,
+          "sha256": "075fff9c1bbf620769f7cc0c977c300a5e9bf3eafcdadd45d32f856a16a03745"
+        },
+        {
+          "member": "charalist05.bin",
+          "bytes": 2236,
+          "sha256": "53d664ed337a9ebb235e3a643cebf3016ce8783b832b4a5872df7a83fbcea459"
+        },
+        {
+          "member": "unitfacelist05.bin",
+          "bytes": 228,
+          "sha256": "aeec5ca861fae4e2ee3d2b72b0062f3b7d8a6b945879cfdde3a6cb6d5f6f31de"
+        },
+        {
+          "member": "wp_list05.bin",
+          "bytes": 29108,
+          "sha256": "6c2965c5fbe2418edd9158428acbeb62b2bb520693bd0afb52f9056a664a3bf2"
+        },
+        {
+          "member": "srwDL_BMP05.bin",
+          "bytes": 46,
+          "sha256": "a8e2229c47bf9a9ec8039c9ec01bb5dc367e09625578a93d34b54f71164fdca9"
+        },
+        {
+          "member": "srwDL_Skill05.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item05.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop05.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID05.bin",
+          "bytes": 742,
+          "sha256": "4fefedf9641f8c131b3a8cf7383d690cc74313ba40ffc1de0b798235702084d6"
+        },
+        {
+          "member": "srwDL_Reference05.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "robo_cpkid05.bin",
+          "bytes": 96,
+          "sha256": "749e9b2d8f327b9cf28ea575e1016689914d5c794e7b866a0a831f6a65c5bcfb"
+        },
+        {
+          "member": "mesbmp05.bin",
+          "bytes": 78,
+          "sha256": "36171c1ca69a4cc3c0859a4510bcc05fb4aa7f01d7479489dfd2b8ec3c4e00d0"
+        }
+      ]
+    },
+    {
+      "name": "config06.EDAT",
+      "bytes": 75904,
+      "sha256": "a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e",
+      "md5": "1d6b0ad2739cfdc936d0ad441eb979dc",
+      "members": [
+        {
+          "member": "config06.txt",
+          "bytes": 32,
+          "sha256": "607c956bc931a796df45e277717dffc7d6013173ed10ec1a562c9aa2708c09bc"
+        },
+        {
+          "member": "cnfrls06.cfg",
+          "bytes": 7,
+          "sha256": "39ce80afe95cbcd5b7b387adf4a92dd2cbc42c1a4d7884ec888939ca077d6689"
+        },
+        {
+          "member": "srwDL_CharaDictionary06.bin",
+          "bytes": 656,
+          "sha256": "07da07c8d2400e90590f8bf229ada2be36c0c2e1c544576581942ab602416da3"
+        },
+        {
+          "member": "srw_DL_RoboDictionary06.bin",
+          "bytes": 932,
+          "sha256": "c9d9912ace8250e6297224f6f73e1546fe9577894b56795555442a88d0875291"
+        },
+        {
+          "member": "sprstd_res06.bin",
+          "bytes": 32,
+          "sha256": "acc93f58f6498e78ab57a87639754c9941f9b53ed9290266a7e17df77e02a879"
+        },
+        {
+          "member": "unit_list06.bin",
+          "bytes": 5376,
+          "sha256": "89610e69207467453ae59b064ba54593d12160bfac883246a604640b437e2a75"
+        },
+        {
+          "member": "milstP06.bin",
+          "bytes": 4096,
+          "sha256": "1993bcd20559f399daa18f9c4df64033e34b46a1203f558e8bb408ea5e039b4f"
+        },
+        {
+          "member": "charalist06.bin",
+          "bytes": 688,
+          "sha256": "eeba4ab787033d2ee3efb8595ce5778b9098fd77e1bb03edd43f514a8f800ee8"
+        },
+        {
+          "member": "unitfacelist06.bin",
+          "bytes": 96,
+          "sha256": "6712de19bbc3826f4c8d96ad87f606c690d9625c716495830683db6551875556"
+        },
+        {
+          "member": "wp_list06.bin",
+          "bytes": 12260,
+          "sha256": "3127dd2dfb2324615756bf30ef4c1fe2fea5a295f5ed19b4bf4cd15b9e5c55ca"
+        },
+        {
+          "member": "srwDL_BMP06.bin",
+          "bytes": 46,
+          "sha256": "2820b55e0a3998d9129b6353a914fb362faf9d9307e683db141f06c76d71ec3f"
+        },
+        {
+          "member": "srwDL_Skill06.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item06.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop06.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID06.bin",
+          "bytes": 674,
+          "sha256": "db7f8938aec93cb98e47a62459f4c46d0502be4804d505e8f1b83a2f913abfaa"
+        },
+        {
+          "member": "robo_cpkid06.bin",
+          "bytes": 40,
+          "sha256": "508d792813dd6d9e7866373eab7686816b8245aca9fec1e3debc240fc3da82a6"
+        },
+        {
+          "member": "srwDL_Reference06.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "mesbmp06.bin",
+          "bytes": 78,
+          "sha256": "7e6da466b52cf9e048b45d3e9b89209afb300beb964bcac40f9e4d4e54848c7e"
+        }
+      ]
+    },
+    {
+      "name": "config07.EDAT",
+      "bytes": 73856,
+      "sha256": "734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8",
+      "md5": "62ee3ee0fd0d5f3e9558f06c1611030c",
+      "members": [
+        {
+          "member": "config07.txt",
+          "bytes": 32,
+          "sha256": "223af17b5c272f0ca6798746c782bc7fadd37bc1e98f78e5014613a7cb1f0b46"
+        },
+        {
+          "member": "cnfrls07.cfg",
+          "bytes": 8,
+          "sha256": "0573b309040d77b800342cf73b2bd929cd9aa4078f3e7ba0f1dd85ebaa60e1b5"
+        },
+        {
+          "member": "srwDL_CharaDictionary07.bin",
+          "bytes": 1216,
+          "sha256": "80b1e48fc1952c0b3daa6dc5d068826ee6ed4bc23ede90f7553b1c06b3978e2d"
+        },
+        {
+          "member": "srw_DL_RoboDictionary07.bin",
+          "bytes": 918,
+          "sha256": "9098ff14edc7546ca3bab49d4c41487e3a86d96e00cc8b5b13add9710d6560eb"
+        },
+        {
+          "member": "sprstd_res07.bin",
+          "bytes": 16,
+          "sha256": "23fa53e01592c8ac34f98280d7fc1af53f0b77805f515b6cfa70b91632b7168a"
+        },
+        {
+          "member": "unit_list07.bin",
+          "bytes": 4224,
+          "sha256": "e3e5bbd13643f997517509c2d6077b11654153457259b174576c1ebfc1bb1079"
+        },
+        {
+          "member": "milstP07.bin",
+          "bytes": 3840,
+          "sha256": "968ccd5141587114a795ff3ff0863ef91bf60ea93166cbf7d267d671dd7e6324"
+        },
+        {
+          "member": "charalist07.bin",
+          "bytes": 1376,
+          "sha256": "3f812781384ad6ea3628a50e8e3b217117a1af0c2cfd8930b67ebbfba498d824"
+        },
+        {
+          "member": "unitfacelist07.bin",
+          "bytes": 108,
+          "sha256": "8efaed63060c0771c6afa881c4036831451c9cc934adfeaa06d69137b35757aa"
+        },
+        {
+          "member": "wp_list07.bin",
+          "bytes": 9908,
+          "sha256": "6b3bd4b27c2d13dd454c5e07148a66be078b3bb949fd4b76d0455b12c64c8e4c"
+        },
+        {
+          "member": "srwDL_BMP07.bin",
+          "bytes": 46,
+          "sha256": "8271bb2fae2a1be4044d11f11e5890909881c56b4e722b22b6f3cda6e3c87972"
+        },
+        {
+          "member": "srwDL_Skill07.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item07.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop07.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID07.bin",
+          "bytes": 298,
+          "sha256": "9b676d105af1511cafc89b3bb9ec46d910a454094b5e4b4dec1fb164dafda919"
+        },
+        {
+          "member": "robo_cpkid07.bin",
+          "bytes": 36,
+          "sha256": "d1ffd950e0089303767e18b1d19ab93f5330c5a112a206d39e81ec546e1f5497"
+        },
+        {
+          "member": "srwDL_Reference07.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "mesbmp07.bin",
+          "bytes": 66,
+          "sha256": "221baa25d809b693b954c935527b67e660ff5b9ecc68cf75b8f630087151a2c7"
+        }
+      ]
+    },
+    {
+      "name": "config08.EDAT",
+      "bytes": 80000,
+      "sha256": "a296487ace9e5b8d2ca8af16f6969a52dc3d601678c3089d8c822e92531bf7fa",
+      "md5": "0410475057f7f52b3806ee82db350774",
+      "members": [
+        {
+          "member": "config08.txt",
+          "bytes": 32,
+          "sha256": "bc94fe5148470358dc9b2cd4b72c646e5be5db8bd807e0353d752b579f3fa883"
+        },
+        {
+          "member": "cnfrls08.cfg",
+          "bytes": 9,
+          "sha256": "57dedc9803847f0c6e9769fc7b2d61dd7f2dd574dde6942306e52866fbfd986e"
+        },
+        {
+          "member": "srwDL_CharaDictionary08.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srw_DL_RoboDictionary08.bin",
+          "bytes": 1158,
+          "sha256": "d3a5cc22c9c8717263409b05dd2eabe2586cc5d4a930b6254aa4b0aef9d06651"
+        },
+        {
+          "member": "bgmlist08.bin",
+          "bytes": 384,
+          "sha256": "bcc1151b2e86dc35aa7825e1cbaed5d0073207ed1fb6bd4ab272f9f3e9927c79"
+        },
+        {
+          "member": "unit_list08.bin",
+          "bytes": 5376,
+          "sha256": "2074628a35ab29f40180c29336b4a5df49a170711029b00bc7e80a1da0f469b7"
+        },
+        {
+          "member": "milstP08.bin",
+          "bytes": 3968,
+          "sha256": "107c15f7ce0d01b96522cd2b601db6eccb42f3565bd4b94b41968a05cd3ecc27"
+        },
+        {
+          "member": "charalist08.bin",
+          "bytes": 172,
+          "sha256": "2c9a49798107b8976a36be119dffeefe075d187c12b19de0e28ab70dc01ab528"
+        },
+        {
+          "member": "unitfacelist08.bin",
+          "bytes": 96,
+          "sha256": "ae97ca249cb1b6522c290027467530273bf50ad6f0e2ba08b5907023d489c917"
+        },
+        {
+          "member": "wp_list08.bin",
+          "bytes": 16100,
+          "sha256": "daa6fa7e26ce0859c4bb40b82426a975e7c80cc2bf7782834147423ae8ef30b2"
+        },
+        {
+          "member": "srwDL_BMP08.bin",
+          "bytes": 46,
+          "sha256": "01f77606da1de003688635e5167455792a18dfc98bf7a961b14aa28a0cf9419a"
+        },
+        {
+          "member": "srwDL_Skill08.bin",
+          "bytes": 15638,
+          "sha256": "37167610164c02c63ad0feacbc46f5c8af5ee53fdfd2514b8e06de947ad70594"
+        },
+        {
+          "member": "srwDL_Item08.bin",
+          "bytes": 1154,
+          "sha256": "92cd232fa1c208aca599dbd95d461bbc3a316dda3e570aa996f4aaaf42630af7"
+        },
+        {
+          "member": "srwDL_Shop08.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_DLC_ID08.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "robo_cpkid08.bin",
+          "bytes": 56,
+          "sha256": "0e8e489cb7511e9fbe783e3d3ef4265aa5400deb1921bfd4446d546b962f0cff"
+        },
+        {
+          "member": "srwDL_Reference08.bin",
+          "bytes": 750,
+          "sha256": "3c9b2a82f28e8be8b7b0a90a8262132dc7ee3d2b90e57fd3ca307c016fd9bc79"
+        },
+        {
+          "member": "mesbmp08.bin",
+          "bytes": 24,
+          "sha256": "06e882592f2a095714cad5067f2a74752429bde4ddda8ae4e2fa34339457fb67"
+        }
+      ]
+    },
+    {
+      "name": "config09.EDAT",
+      "bytes": 18560,
+      "sha256": "5e4dcbd9195d89b856d0195577aa16be0de8a9f21e5576914497777b29ff47f9",
+      "md5": "542702dc1c551fe25f4d9b5a4858b3ea",
+      "members": [
+        {
+          "member": "config09.txt",
+          "bytes": 32,
+          "sha256": "481568d3ecfdcc0744d341ca441ddd40d0a4540926b640817847976545e58fc9"
+        },
+        {
+          "member": "srwDL_CharaDictionary09.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srw_DL_RoboDictionary09.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srwDL_Reference09.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "mesbmp09.bin",
+          "bytes": 6,
+          "sha256": "3e9547c6d3a6675dd5413327efb69446b51b502413b7460b97ee38be1773ce4a"
+        }
+      ]
+    },
+    {
+      "name": "config10.EDAT",
+      "bytes": 32896,
+      "sha256": "df1efb612b48b6ce82482a2ecfb67270c0a0e6e0f55fe9168abb8c48e064c12d",
+      "md5": "f17c0b632c601be1ad28e6e8aeb4504d",
+      "members": [
+        {
+          "member": "config10.txt",
+          "bytes": 32,
+          "sha256": "041da928f929a32a54c06818a70373b5cf86ba277e9e86f4aa55de6516db517b"
+        },
+        {
+          "member": "srwDL_CharaDictionary10.bin",
+          "bytes": 1108,
+          "sha256": "9dde277a3bf8ba18911abe9fd3f54ca439fec4641dc913f4bb0491c9e5013d7a"
+        },
+        {
+          "member": "srw_DL_RoboDictionary10.bin",
+          "bytes": 504,
+          "sha256": "0b045bcafc58f4708eacb08696ad1fc276acfe856fd83b8df599fe1133c458ee"
+        },
+        {
+          "member": "sprstd_res10.bin",
+          "bytes": 40,
+          "sha256": "d9dd58d7e857d2f52a0240eab167f5cd19d409cc340ce4164a3a80dcf1a0a2c3"
+        },
+        {
+          "member": "unit_list10.bin",
+          "bytes": 1536,
+          "sha256": "e5d5f1f2bf914502cc08fa5f6ff7210d31171ee1117b9351442dced480632207"
+        },
+        {
+          "member": "unitfacelist10.bin",
+          "bytes": 48,
+          "sha256": "6d6100d7b8fb02b8cf6161d76b2239a179307e14fd1ba53d2546e9fb1cf2ebe0"
+        },
+        {
+          "member": "wp_list10.bin",
+          "bytes": 4164,
+          "sha256": "0042052e1e39092e35e9801f2ce95eaf6c96b61143aa4867a0825bf9fd84bb59"
+        },
+        {
+          "member": "charalist10.bin",
+          "bytes": 860,
+          "sha256": "e2b26b18fed463eaff79dc5e546ec085f050b720575fa6a09a5596c10f2b81e0"
+        },
+        {
+          "member": "robo_cpkid10.bin",
+          "bytes": 16,
+          "sha256": "83480a43cf32633026f2d0768a3b5edbe16c3e63bdab4bf485b2816955eb55bf"
+        },
+        {
+          "member": "mesbmp10.bin",
+          "bytes": 30,
+          "sha256": "166dbee4f6512b9792b9231c725183591aec039fae6f044d82daa23c575836da"
+        }
+      ]
+    },
+    {
+      "name": "config11.EDAT",
+      "bytes": 32896,
+      "sha256": "0d1ad19ab3c73eb9b72f833af945526531b33c5e92c1771b7cef00194d1360d9",
+      "md5": "db6149251a6cdc691b709bd59e47e741",
+      "members": [
+        {
+          "member": "config11.txt",
+          "bytes": 32,
+          "sha256": "133215c04208c105f64b4a6aa63ca9e52349bedd98e28cd88cbeeca9558b8cba"
+        },
+        {
+          "member": "srwDL_CharaDictionary11.bin",
+          "bytes": 674,
+          "sha256": "3dccc56a595e3e53eb0d46229687ca7a3f5dfeb667939cc968695bc405400686"
+        },
+        {
+          "member": "srw_DL_RoboDictionary11.bin",
+          "bytes": 392,
+          "sha256": "bd22701dddb140bdbfa32d5ddaacf67c35a48ee49e446df8f13d29ca4ba9a081"
+        },
+        {
+          "member": "bgmlist11.bin",
+          "bytes": 768,
+          "sha256": "e2f238f0c13fe7da6d6eb40ff8677f3d25fa5816e709b920149f2b975e6d6385"
+        },
+        {
+          "member": "sprstd_res11.bin",
+          "bytes": 16,
+          "sha256": "b3f99cf8cec47115f3bd391d91c729cb8df59d8bc00fcb831503fdf578d653dd"
+        },
+        {
+          "member": "unit_list11.bin",
+          "bytes": 1152,
+          "sha256": "9202a4a71ef4d9b275de669e50d913965790726f0bde8b614ab12524f2141af3"
+        },
+        {
+          "member": "charalist11.bin",
+          "bytes": 1204,
+          "sha256": "f5e55752659c6b8b272e5005cdde6d011d7cc7075beeac29a220412b2704c50f"
+        },
+        {
+          "member": "unitfacelist11.bin",
+          "bytes": 36,
+          "sha256": "595b5489f2273109b4444bf4a18fefd43521409c218f8bab7299c110ef6defa3"
+        },
+        {
+          "member": "robo_cpkid11.bin",
+          "bytes": 12,
+          "sha256": "51b2d549e592943288058e3a10638812fea03732434659a5990225efda495bdc"
+        },
+        {
+          "member": "wp_list11.bin",
+          "bytes": 3636,
+          "sha256": "398150df6a0d13b47b1f1e0b5fb0e1623034dac724d42ced343eb641ce2009f2"
+        },
+        {
+          "member": "mesbmp11.bin",
+          "bytes": 18,
+          "sha256": "7d9fb8f55704e44ea841324b208383f26f4c36796e3dde31d9d3440a204cdae1"
+        }
+      ]
+    },
+    {
+      "name": "config12.EDAT",
+      "bytes": 34944,
+      "sha256": "2d1c63f2a3f88fffa9a02fbcd7d86ec6cb74ab07aae0f658e7e128b28df761d8",
+      "md5": "dbea87ae705f68683e4767e2a8315378",
+      "members": [
+        {
+          "member": "config12.txt",
+          "bytes": 32,
+          "sha256": "95ec085a4160386db5becb7c2b0fef4a28c8c85d207f1d5216c9333df919d6b7"
+        },
+        {
+          "member": "srwDL_CharaDictionary12.bin",
+          "bytes": 928,
+          "sha256": "4e6ffd87de67421c3b70f1bfcea1fe252e25c2ae591c108653410cba75c6096b"
+        },
+        {
+          "member": "srw_DL_RoboDictionary12.bin",
+          "bytes": 394,
+          "sha256": "b10579bfcb2bcfb73905bde85dc841255904e9035043c9199de63f2e7e50516e"
+        },
+        {
+          "member": "bgmlist12.bin",
+          "bytes": 192,
+          "sha256": "a8fc062e7ef7dc4b3f7c75d82f4519cb874e766be5b032ece8cd1cd427660737"
+        },
+        {
+          "member": "sprstd_res12.bin",
+          "bytes": 48,
+          "sha256": "2bcc0c1586bda873d0df1fc146d9d8a4419d72011469e8bac25e4502a19abf46"
+        },
+        {
+          "member": "unit_list12.bin",
+          "bytes": 1536,
+          "sha256": "437eaf9be49e88e6fe6bd61b5df2c3546813d4335454bf067bb1a15d3d85c9f8"
+        },
+        {
+          "member": "unitfacelist12.bin",
+          "bytes": 48,
+          "sha256": "ab6478af66489e578a47fe67ec260a07ca9a9b168ac0bd69518cdad397d0fb79"
+        },
+        {
+          "member": "robo_cpkid12.bin",
+          "bytes": 16,
+          "sha256": "a9087f2366a47f6dc2cea697f24a183c2a5f9b4e8edd81631daf71fb70aab094"
+        },
+        {
+          "member": "wp_list12.bin",
+          "bytes": 5700,
+          "sha256": "4620552a8237f954848bda536e569f9703aea5637fb8e7264d5c1ee955e56965"
+        },
+        {
+          "member": "charalist12.bin",
+          "bytes": 1892,
+          "sha256": "c9236477451c89f01864edde341c52946992b79ac9a6f0eba7fd9f3d3e698cf4"
+        },
+        {
+          "member": "mesbmp12.bin",
+          "bytes": 6,
+          "sha256": "d26025951540215f3b938015a9d277371e74a66a98734f800af4621a2d45be28"
+        }
+      ]
+    },
+    {
+      "name": "config13.EDAT",
+      "bytes": 34944,
+      "sha256": "b55d1818ba9da809db9209d9d401d46c766f3a4b5b7b759d1069917e7a545b2d",
+      "md5": "f98569a5d3908f1e80e69e74139fe656",
+      "members": [
+        {
+          "member": "config13.txt",
+          "bytes": 32,
+          "sha256": "2ced8b5e7c3b41137ab1503b45c7c31d4011d97b0248dd7fd6071160bc8915a1"
+        },
+        {
+          "member": "srwDL_CharaDictionary13.bin",
+          "bytes": 452,
+          "sha256": "d599fd19135ad4b8dde49c0fe6766495d482d535694fc13cd59a74087e74f823"
+        },
+        {
+          "member": "srw_DL_RoboDictionary13.bin",
+          "bytes": 428,
+          "sha256": "93ad5eff820877a7ccfc08055c8b78bad7701175539c5dbb657f120bb82f3ce7"
+        },
+        {
+          "member": "sprstd_res13.bin",
+          "bytes": 56,
+          "sha256": "123652db62766db33859373c939b4806cc76149534547f98b8e10811ebd1aaed"
+        },
+        {
+          "member": "charalist13.bin",
+          "bytes": 344,
+          "sha256": "a218870d47dcc86715ac3b2120f1d43bd9db492359013d4c0643d7188ac02fce"
+        },
+        {
+          "member": "unit_list13.bin",
+          "bytes": 1920,
+          "sha256": "d2d0a1089676eaf8eb8ff0fa394e110376a06b4e544db18f749e1949a07d35b2"
+        },
+        {
+          "member": "unitfacelist13.bin",
+          "bytes": 36,
+          "sha256": "2d11d3296681a69220d01302e2cd4357bb636ad58aa72640d229cb9e16be7ef4"
+        },
+        {
+          "member": "wp_list13.bin",
+          "bytes": 4436,
+          "sha256": "635c4a847c13a9c3ee649068f1290d3cf5cc81d3f6f283f5ffedcec80b10c953"
+        },
+        {
+          "member": "bgmlist13.bin",
+          "bytes": 384,
+          "sha256": "dba7ee38ad1a585638ba96f6deff9d5027f8cf6c563e9d9eac170cdd9a6e9711"
+        },
+        {
+          "member": "robo_cpkid13.bin",
+          "bytes": 20,
+          "sha256": "3ffecbca9d438b973392acf61262e70c102ed67260adaa9062d47fc397155414"
+        },
+        {
+          "member": "mesbmp13.bin",
+          "bytes": 24,
+          "sha256": "0bd2799313a1bab616368187f0d45dfc5bd14273c581e4b9f21cafd297b10698"
+        }
+      ]
+    },
+    {
+      "name": "config14.EDAT",
+      "bytes": 34944,
+      "sha256": "a5b61ccee11ca2346427ab3894882da8205fb230d7d8787af76e27bd026b4c80",
+      "md5": "f8bd587c238b8c02021d23686512c90b",
+      "members": [
+        {
+          "member": "config14.txt",
+          "bytes": 32,
+          "sha256": "3d5755c8c8a80045e90981e23b7f4905b034c67fe7f89089670876fd5016f962"
+        },
+        {
+          "member": "srwDL_CharaDictionary14.bin",
+          "bytes": 218,
+          "sha256": "9166a88fd0ca20a50447e83b01ba0a356c18c140659658f4b5df3c42090a159e"
+        },
+        {
+          "member": "srw_DL_RoboDictionary14.bin",
+          "bytes": 464,
+          "sha256": "a4fa474ff9719160c574b852c97cec99443de9c8c0e56f9a1bb4274e84b224f0"
+        },
+        {
+          "member": "sprstd_res14.bin",
+          "bytes": 32,
+          "sha256": "c934d60755cc0d5d9c6a6f9ff6ea9125f13c35b7748d13a85133e3de686426ba"
+        },
+        {
+          "member": "unit_list14.bin",
+          "bytes": 1920,
+          "sha256": "5f0d77b3c86241c70864a9a8044be5f62e678d8deb08e5ca2a43c97712b3eba3"
+        },
+        {
+          "member": "unitfacelist14.bin",
+          "bytes": 48,
+          "sha256": "c73b30b11d1fb7f000e1045acc279aaf955d92ebbaef8016e883decc88e9ea7b"
+        },
+        {
+          "member": "wp_list14.bin",
+          "bytes": 4692,
+          "sha256": "3083ca9c44326446533a36870a8facc7c8e4ea4cfd1bd10661b9f5de1a7ebd9f"
+        },
+        {
+          "member": "bgmlist14.bin",
+          "bytes": 384,
+          "sha256": "6dc0728da2bea31ce8a41588fd2dc77ac82367a9d64cb42428bae1876ea428b6"
+        },
+        {
+          "member": "charalist14.bin",
+          "bytes": 172,
+          "sha256": "8af355c9ff82f6fbac09974bf2c9a8698b679d50d145af0431a6d96b631487be"
+        },
+        {
+          "member": "robo_cpkid14.bin",
+          "bytes": 20,
+          "sha256": "f98145eb5cd693c44253f029d3116d6166cb89708e80b6538e7b36413c86b718"
+        },
+        {
+          "member": "mesbmp14.bin",
+          "bytes": 12,
+          "sha256": "2f3a6755813d66cb981bea2ba43b1420543e2078a5f84a9247ce2fb198333a6f"
+        }
+      ]
+    },
+    {
+      "name": "config15.EDAT",
+      "bytes": 30848,
+      "sha256": "57f75e1824159615176d3cc2279aa5ada02f2e47e74874969d91fe426064a7e8",
+      "md5": "1f7437da38392fe91f69a3a2bcad96a1",
+      "members": [
+        {
+          "member": "config15.txt",
+          "bytes": 32,
+          "sha256": "add9df778c41ab6219a87a6dbe0184681bde194b40f237d00d3985e25ebe1c96"
+        },
+        {
+          "member": "srwDL_CharaDictionary15.bin",
+          "bytes": 472,
+          "sha256": "f365997a886870c8aa4ec285b73fea5110f0d7a724289d1a95f763f0e98ca9eb"
+        },
+        {
+          "member": "srw_DL_RoboDictionary15.bin",
+          "bytes": 276,
+          "sha256": "5bfbc0645d8da61df796e43763bb1241a13667d611227ea0a0ba86e8cd89bb70"
+        },
+        {
+          "member": "sprstd_res15.bin",
+          "bytes": 32,
+          "sha256": "5c32f3bce078b3d77eae609ea9e40220c420914f2c82b195805331fc5ae58f59"
+        },
+        {
+          "member": "unit_list15.bin",
+          "bytes": 768,
+          "sha256": "44aaf083c8759549594ea19870f789c4257cdbf79d89c8c5ae92c97310636b77"
+        },
+        {
+          "member": "unitfacelist15.bin",
+          "bytes": 24,
+          "sha256": "3e96290c6096356037d4a0b359604aecf127341b42c5432613b27f25b502d360"
+        },
+        {
+          "member": "wp_list15.bin",
+          "bytes": 2852,
+          "sha256": "ef6f9cadcd076818dc581aae94eff4935f34a912821dc1d8ec22cb96660cc1a7"
+        },
+        {
+          "member": "charalist15.bin",
+          "bytes": 344,
+          "sha256": "ce2f95d9b2bdd0e786966b3c57b85df618400cb64d32ebee075307c1d705601a"
+        },
+        {
+          "member": "robo_cpkid15.bin",
+          "bytes": 8,
+          "sha256": "5b64c6e985768ea5f8e165150e4a8db0d74cd2beff52a0c09d62bb403369f1a5"
+        },
+        {
+          "member": "mesbmp15.bin",
+          "bytes": 24,
+          "sha256": "f4b86628f5a021c6e8d3fa849fe1ca23a7be87e7f2b7c89b6004eec2e8996c6f"
+        }
+      ]
+    },
+    {
+      "name": "config16.EDAT",
+      "bytes": 30848,
+      "sha256": "a0a5655d11a81c83418302a2ef11caa47204a5025c1204fbe00348e3f0a9bff2",
+      "md5": "015f29abf9f9a46c09e7d1b6d7c8c961",
+      "members": [
+        {
+          "member": "config16.txt",
+          "bytes": 32,
+          "sha256": "d90429213f3ed9d6d60efcbebe28d00edaea3c253b345c6e5a9fe43ba3af1cdf"
+        },
+        {
+          "member": "srwDL_CharaDictionary16.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srw_DL_RoboDictionary16.bin",
+          "bytes": 262,
+          "sha256": "91a460511ccfae1c03f29262344df7203c125c8259dfeeba13db1176002878a1"
+        },
+        {
+          "member": "sprstd_res16.bin",
+          "bytes": 8,
+          "sha256": "e403294a7cea6bdd40f5e7c369fabb73992ca8cd2cfb7277e74c49d7313728b5"
+        },
+        {
+          "member": "unit_list16.bin",
+          "bytes": 768,
+          "sha256": "b990789c45234c25b8766216cdab488719c31119c92c0c42823445a6fd9a987d"
+        },
+        {
+          "member": "unitfacelist16.bin",
+          "bytes": 24,
+          "sha256": "7f0760be03675d9f66ac386bbf37ccfd75161e34495cf59c4bf4d660f78299cd"
+        },
+        {
+          "member": "bgmlist16.bin",
+          "bytes": 384,
+          "sha256": "3a90852e75678be3a0ea9225e9ae6fdf11ed3536c5e1a2e731622afbaa903317"
+        },
+        {
+          "member": "wp_list16.bin",
+          "bytes": 3364,
+          "sha256": "cf5c0e903135c6205d2bd1bff2f3e3adfbf0252c5ee99c4afc388819049f03e8"
+        },
+        {
+          "member": "robo_cpkid16.bin",
+          "bytes": 8,
+          "sha256": "c6b9b3503d7dbb5c2425a7a4014f1fae44833dec39de1dd9fd54a7ea18d00724"
+        },
+        {
+          "member": "mesbmp16.bin",
+          "bytes": 18,
+          "sha256": "6d31bffaf726b9ca6b773f735cbe787cde1cc6548059ec795f859c86752c755e"
+        }
+      ]
+    },
+    {
+      "name": "config17.EDAT",
+      "bytes": 30848,
+      "sha256": "72a7d24a6207955f052a5f08059d2d73a72ac9a63341f05497318dbf6c3c699e",
+      "md5": "197ed7d895433b310ce83c1ff5b0939e",
+      "members": [
+        {
+          "member": "config17.txt",
+          "bytes": 32,
+          "sha256": "2f1ccc0fa3ae1fc514705ea24c24f1ff41e573c0e52699e2a1a534939e416e31"
+        },
+        {
+          "member": "srwDL_CharaDictionary17.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srw_DL_RoboDictionary17.bin",
+          "bytes": 384,
+          "sha256": "3b85ac0e073752c39e7415942bbf031cd56224603ee0f117f05bc062d6607506"
+        },
+        {
+          "member": "unit_list17.bin",
+          "bytes": 1536,
+          "sha256": "e6a080b0e1d82a392f0721e96cf2f5ac0e6086c2510323c060b38e3cb7365b22"
+        },
+        {
+          "member": "unitfacelist17.bin",
+          "bytes": 36,
+          "sha256": "848f7d2ccfcea999aa2485bcbe2d837ec5de6cf3406d19b52652654e41c58a27"
+        },
+        {
+          "member": "bgmlist17.bin",
+          "bytes": 192,
+          "sha256": "4f9973bb54cdb9a60447380d742ed348316c0794b526d05cd2276c0bb1179c41"
+        },
+        {
+          "member": "wp_list17.bin",
+          "bytes": 5188,
+          "sha256": "e4071fd5557a2f68fd33013ee992e8a99503448b27750c312f898958550c2dd2"
+        },
+        {
+          "member": "robo_cpkid17.bin",
+          "bytes": 16,
+          "sha256": "06a5713e3ceb829ce8c48b79f4d329a49c97e7da8bf4d12aa792738ebb61ee96"
+        },
+        {
+          "member": "mesbmp17.bin",
+          "bytes": 24,
+          "sha256": "4ab1b84fd276a51fd603f7cb062e9a55d6f7fd5a255793a2d2e363663aaa8e7c"
+        }
+      ]
+    },
+    {
+      "name": "config18.EDAT",
+      "bytes": 24704,
+      "sha256": "c20cbdff64897a69bb1ead08ee77e2669e77a00b2a06ca5ec150abde7e9c72bd",
+      "md5": "37fed9039d4c9a238ae626ad49a0346c",
+      "members": [
+        {
+          "member": "config18.txt",
+          "bytes": 32,
+          "sha256": "ee256de3dabe31fe2967ca9d794d2b6a80ff4525828fcb2944e76113b259a1fd"
+        },
+        {
+          "member": "srwDL_CharaDictionary18.bin",
+          "bytes": 4,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "member": "srw_DL_RoboDictionary18.bin",
+          "bytes": 154,
+          "sha256": "ae033bf4b4c41578e061e5b2c5be506b2a86d26ccac68d68f656f76e01f21583"
+        },
+        {
+          "member": "unit_list18.bin",
+          "bytes": 384,
+          "sha256": "98ea5feb6b4ed3091c928a24196673c29f25297a4ed0674353880862443dbd9f"
+        },
+        {
+          "member": "unitfacelist18.bin",
+          "bytes": 12,
+          "sha256": "68214976e776918629cec8c212fae5b2dce542080f45ee34928869671b44444b"
+        },
+        {
+          "member": "wp_list18.bin",
+          "bytes": 788,
+          "sha256": "8de438cd869da459706fbbb8c831a72b0a01fc66e4e7962c1adeeecd9275ae78"
+        },
+        {
+          "member": "robo_cpkid18.bin",
+          "bytes": 4,
+          "sha256": "9cf89f95f9633c0dc1de13022f46a62a5e8b5634bdd004f1cd6df2e6d6b5be80"
+        },
+        {
+          "member": "mesbmp18.bin",
+          "bytes": 12,
+          "sha256": "e606f99f2c0bf867dc12330abfe3b67e3eed5c707690be4fbe8bdbb291f4390d"
+        }
+      ]
+    },
+    {
+      "name": "config19.EDAT",
+      "bytes": 32896,
+      "sha256": "3c82c30edd69d64ecf5ddc4dec721d8eb5681d6191a92890dd15be780e3ed989",
+      "md5": "506aefb12286a5c5567a801cc6cbdf65",
+      "members": [
+        {
+          "member": "config19.txt",
+          "bytes": 32,
+          "sha256": "404c48dc2d507a7d80252b4b67c718c61924f069f108e71fe23d9204f7435ceb"
+        },
+        {
+          "member": "srwDL_CharaDictionary19.bin",
+          "bytes": 678,
+          "sha256": "d5f22dea1698dd112ca28ec546c8b847b7bd0850fc22c2c7894020251627b6a7"
+        },
+        {
+          "member": "srw_DL_RoboDictionary19.bin",
+          "bytes": 286,
+          "sha256": "3528cefff50598f6ee16b3f168b2ec648157e8b4bea548f9b98ae5a418d3cbbc"
+        },
+        {
+          "member": "sprstd_res19.bin",
+          "bytes": 24,
+          "sha256": "eb92d679b895ad72f1201f788ae12408e60794652f4f7ef083fbebe4f3e8b2b5"
+        },
+        {
+          "member": "charalist19.bin",
+          "bytes": 516,
+          "sha256": "162e07633ba30a36e1035a9943e250199859582558f827528444f77382614e07"
+        },
+        {
+          "member": "unit_list19.bin",
+          "bytes": 1920,
+          "sha256": "ea1df2d939029fcc1d8fb6fb1c9ead64ffa3892c99eed99c617d12fef090061c"
+        },
+        {
+          "member": "unitfacelist19.bin",
+          "bytes": 24,
+          "sha256": "58c9636cd5bd7cd2e59fbe461028cdcd94a5abea2e02973193cd0182f76eecf0"
+        },
+        {
+          "member": "bgmlist19.bin",
+          "bytes": 192,
+          "sha256": "45224ed045319885404215c545db0ced362bd75236f815ac29146cdf215233a4"
+        },
+        {
+          "member": "wp_list19.bin",
+          "bytes": 3924,
+          "sha256": "bcbf05a5e7138c6b5390fd98765825901e72063b99cc62b171314e68cc8864ae"
+        },
+        {
+          "member": "robo_cpkid19.bin",
+          "bytes": 20,
+          "sha256": "d650d16483fddcac00c9ad901ff41a0457bb149b9c0c458821d0c36b71cabc49"
+        },
+        {
+          "member": "mesbmp19.bin",
+          "bytes": 6,
+          "sha256": "b7b840d9c56a39c30a4a2813a0664c0876b015f1af0ad6506fdb1473f38be70b"
+        }
+      ]
+    },
+    {
+      "name": "configst.cpk",
+      "bytes": 376960,
+      "sha256": "e5e9892fb5a5be1e58de09d36aea6bf75e9a23ef88586318278cf040137b332b",
+      "md5": "c87e404032fc5cadc7aae22f15f6833b",
+      "members": [
+        {
+          "member": "srwDL_SysCam.bin",
+          "bytes": 764,
+          "sha256": "72efd022339939052f0e52b5ba5e1f3e1e86208695b63bffbb014a080fdb869a"
+        },
+        {
+          "member": "srwDL_Dmg.bin",
+          "bytes": 63200,
+          "sha256": "2400076d8c814340b8e856db4d88785d0ac2ce5c0e0a1c6f5a1aa2ea3661b855"
+        },
+        {
+          "member": "eftex_list.bin",
+          "bytes": 6310,
+          "sha256": "060b57b2997851d6d21ec75e4623dd4e6e6f73b0761c903b79fc89fd67b38b5c"
+        },
+        {
+          "member": "srwDL_StatusChange.bin",
+          "bytes": 10779,
+          "sha256": "2caa9456df08595199ffacc9b5e37c4a8d81de7b514d793cbd832e32c51b8c47"
+        },
+        {
+          "member": "srwDL_HP_Ratio_Skill.bin",
+          "bytes": 4920,
+          "sha256": "b88652632b6716a63a874cc36362fd812b85e851712b7276643e41ae8f754052"
+        },
+        {
+          "member": "srwDL_Spirit.bin",
+          "bytes": 14992,
+          "sha256": "531c817037389f429b76bc1c0378debbacf9ce571a0a3bc5e811701524ef59b5"
+        },
+        {
+          "member": "srwDL_Item.bin",
+          "bytes": 34566,
+          "sha256": "3650523be01a0064137c1e028f3a45c2bb89d298bbd5be9cf2f51f1c53ec8756"
+        },
+        {
+          "member": "srwDL_CalcType.bin",
+          "bytes": 38680,
+          "sha256": "e78b19424b2e1ac0eefbcb1bccdcdf6dd18015448a3009178536817049c4ae72"
+        },
+        {
+          "member": "sndvol.bin",
+          "bytes": 512,
+          "sha256": "2b59420e3c0f395e5ea68eded0e4cdb34a359ea1eb9a325d4d913236d9687e2e"
+        },
+        {
+          "member": "srwDL_TuneUpMoney.bin",
+          "bytes": 1816,
+          "sha256": "8ed9d9659d91faccff14dbae596004c2dee1bb73fed318764a500ab663f5a501"
+        },
+        {
+          "member": "sysmes.bin",
+          "bytes": 51280,
+          "sha256": "8ba2a72b08bab4a228c7101fa4ab1c375b3ef1ee382cb96fcf3c56f13e2e9f03"
+        },
+        {
+          "member": "bpnlres.bin",
+          "bytes": 196,
+          "sha256": "ee5695c2d6c429eab3e0db9cde2ece080772f535d5389dd15ace6ded069e463f"
+        },
+        {
+          "member": "Makefile",
+          "bytes": 5420,
+          "sha256": "b82c8f66ecaced5a00c59dce8ac886c397aa6b4102ae44ecc7cfb133f82bd7f1"
+        },
+        {
+          "member": "srwDL_Skill_Tag.bin",
+          "bytes": 10812,
+          "sha256": "f7f5f12dd86cc28249d6f6aa42beb3511c93122e348987ca306cac01132e28d0"
+        },
+        {
+          "member": "srwDL_Achievement.bin",
+          "bytes": 5202,
+          "sha256": "af883a4e924416823a01c612106d7e6e86b601937c56bfe456b9cd2ccb903ef5"
+        },
+        {
+          "member": "srwDL_Rank.bin",
+          "bytes": 112,
+          "sha256": "19233d0f4cbca164f881c05b6ac9b99d66aea1ff81e69ab84aba15de486870f1"
+        },
+        {
+          "member": "srwDL_SysNumber.bin",
+          "bytes": 2964,
+          "sha256": "eed2d8459461c9f61d275646435747ba98cdd12a2f664aa1f61290db7714f74a"
+        },
+        {
+          "member": "EfRTbl.bin",
+          "bytes": 13636,
+          "sha256": "9fd3e19d34ae3dd14c46d5594cbdde48c5b3ccf09f5c7641c9781279140c6d0f"
+        },
+        {
+          "member": "srwDL_LVBalance.bin",
+          "bytes": 2344,
+          "sha256": "0df274d4a7025c773499dc40b69763264f720bf66e69f5558f275fb2a053cb26"
+        },
+        {
+          "member": "srwDL_ItemDrop.bin",
+          "bytes": 74252,
+          "sha256": "e5b35f9473f93b8168f6add05691c3177a00c0a930f0989a932328e747355ee3"
+        },
+        {
+          "member": "Copyright.bin",
+          "bytes": 400,
+          "sha256": "0611e427424d9868fefc0e205adb9fb82436a0aa06575cdbd42239666b5b1c2f"
+        }
+      ]
+    }
+  ]
+}

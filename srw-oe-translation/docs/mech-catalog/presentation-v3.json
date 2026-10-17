@@ -1,0 +1,20 @@
+{
+  "revision": 3,
+  "date": "2026-10-18",
+  "input_sha256": "9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab",
+  "output_sha256": "19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7",
+  "output_bytes": 667590,
+  "removed_this_revision": {
+    "unit_dictionary_qualifiers": 302,
+    "character_id_heading_suffixes": 535,
+    "pilot_profile_id_suffixes": 569,
+    "repeated_spirit_command_notices": 139,
+    "repeated_special_entry_notices": 113
+  },
+  "previous_unit_anchor_id_and_data_line_removals_preserved": true,
+  "model_unchanged": true,
+  "model_sha256": "ff6d896ec720ca6a42474cc686c9e7a798d8a13be845e5567400b667a73918b0",
+  "weapon_tables_ability_bullets_unit_names_and_action_classification_byte_identical": true,
+  "uncertainty_qualifiers_preserved": true,
+  "only_requested_removals": true
+}
