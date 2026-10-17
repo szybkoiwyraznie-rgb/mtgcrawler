@@ -6352,3 +6352,27 @@ wyłącznie, jeśli można potwierdzić ich interpretację. Punkt startowy: czys
 przypisana gałąź bez zmian; otwarty PR #17 ponownie użyty. Zasady i zakres zapisane
 w `docs/MECH_CATALOG.md`; przed badaniem nie deklarujemy kompletności powiązań.
 Pełny katalog i dane gry poza Git; narzędzia/testy/ustalenia wypychane etapami.
+
+**21.63 — checkpoint inwentarza:** pobrano oryginalne config00/configst oraz
+config01–19 (łącznie 21 kontenerów), ponownie odczytano roster, jednostki i bronie.
+393/393 ID jednostek zgodne z globalnym indeksem i przekładem; wszystkie 1485
+wpisów broni/akcji zgodne po `(unit_id, slot)` i treści JP. Nie usunięto dwóch
+starych rozbieżności liczników (2940 i 3246). Cztery JSONL przekładu czytane tylko
+read-only. Śledzony `mech_catalog_sources.py`, manifest hashów/rozmiarów bez danych
+gry, 10 testów syntetycznych: PASS.
+
+Pierwsze dwie próby nowego rygorystycznego czytnika słusznie zatrzymały pracę nad
+założeniami: stara dokumentacja o posortowanych wp_list jest nieaktualna dla
+config01/02/04, a trzy nazwy filmowe mają znany nadmiarowy odczyt starego eksportu
+za granicą 32 B. Poprawiono walidację do unikatowości ID i **dokładnego** odczytu
+historycznych bajtów, z dodatkową kontrolą pełnych nazw display; nie poluzowano
+jej do dopasowania dowolnego prefiksu. Pakietu EN nie zmieniano.
+
+Odkryte powiązania kandydackie: Skill00 `+2` (alias rodziny) rozwiązuje 1651/1651
+referencji broni, 526/526 normalnych i 92/92 dodatkowych referencji postaci oraz
+514/516 referencji jednostek. Brak aliasów 110/230 pozostaje jawny. Domyślne pola
+jednostki +98..106: 535/535 trafia w tabelę postaci. Czeka potwierdzenie semantyki
+konsumentów w kodzie, opisów bazowych i dostępności; nie deklarujemy jeszcze
+kompletnego katalogu. Sprawdzono także u16tbl: to wyłącznie konwersja JIS/Unicode,
+nie parametry jednostek. Pobrano oryginalny EBOOT do analizy read-only; Capstone
+5.0.6 zainstalowany w ignorowanym venv, żadnego kodu gry nie publikujemy.
