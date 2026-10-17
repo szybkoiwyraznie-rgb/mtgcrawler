@@ -6046,3 +6046,15 @@ README; (5) PATCH.zip jako automatyczny Release.
 - **WYDANIE v14:** `srw-oe-translation-v14.zip` 7 226 319 B, md5 `f1833375…` (v13 + wydanie
   narrow/type + wyciszenie + bez cheatów). local/ znowu wyparował między turami (limity
   migawek; gitignore'owane katalogi są best-effort) — trwałe źródła: Drive + git.
+
+### 21.59 Korekty usera: README EN, test foe robots bez pelnego builda, psnpkgdecryptextract (2026-10-17)
+
+- **Test bez builda:** config01-19 (bez 09 — builder bez zmian) z linii v14 zbudowane z JP
+  oryginalow + pakiet_EN: rozmiary == oryginaly (koperta trzyma), RoboDict02 `Dragon
+  Soldier` x6 (name+narrow), `Standard Type` x3, JP 0. Zip `config01-19_foe_robots_test.zip`
+  md5 `5cda3602…` (1 296 450 B) + INSTRUKCJA_foe_robots_test.txt → folder testowy Drive.
+  User podmienia 18 EDAT w folderze gry, ISO bez zmian. Wyniki: WYGRANE / JP-FOE / CRASH
+  (rollback = stare pliki).
+- **README korzenia po angielsku** (target = angielskojezyczny gracz); wiersz DLC z
+  nazwa narzedzia deszyfrowania usera: `psnpkgdecryptextract` (tez w README_DIST tabela
+  wymagan).
