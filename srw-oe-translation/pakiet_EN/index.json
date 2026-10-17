@@ -1,0 +1,318 @@
+{
+  "parts": {
+    "00_dialogue.jsonl": {
+      "rows": 48881,
+      "jp_bytes": 2308235,
+      "unique_jp": 32020,
+      "kind": "text"
+    },
+    "01_battle_quotes.jsonl": {
+      "rows": 27383,
+      "jp_bytes": 814683,
+      "unique_jp": 16930,
+      "kind": "text"
+    },
+    "02_items.jsonl": {
+      "rows": 1200,
+      "jp_bytes": 15884,
+      "unique_jp": 443,
+      "kind": "text"
+    },
+    "03_skills.jsonl": {
+      "rows": 4932,
+      "jp_bytes": 72816,
+      "unique_jp": 2878,
+      "kind": "text"
+    },
+    "04_config_text.jsonl": {
+      "rows": 16326,
+      "jp_bytes": 341101,
+      "unique_jp": 6110,
+      "kind": "text"
+    },
+    "05_mission_text.jsonl": {
+      "rows": 1284,
+      "jp_bytes": 28513,
+      "unique_jp": 821,
+      "kind": "text"
+    },
+    "07_names_characters.jsonl": {
+      "rows": 3610,
+      "jp_bytes": 39523,
+      "unique_jp": 1036,
+      "kind": "text"
+    },
+    "08_names_units_weapons.jsonl": {
+      "rows": 5008,
+      "jp_bytes": 72834,
+      "unique_jp": 2033,
+      "kind": "text"
+    },
+    "09_executable.jsonl": {
+      "rows": 408,
+      "jp_bytes": 10310,
+      "unique_jp": 358,
+      "kind": "text"
+    },
+    "06_scenes.jsonl": {
+      "rows": 293,
+      "jp_bytes": 2308235,
+      "unique_jp": 0,
+      "kind": "structure"
+    }
+  },
+  "categories": {
+    "battle_quote": {
+      "rows": 27383,
+      "jp_bytes": 814683
+    },
+    "bg_name": {
+      "rows": 73,
+      "jp_bytes": 793
+    },
+    "bgm_title": {
+      "rows": 566,
+      "jp_bytes": 12554
+    },
+    "character_alt_name": {
+      "rows": 1,
+      "jp_bytes": 26
+    },
+    "character_entry": {
+      "rows": 6,
+      "jp_bytes": 200
+    },
+    "character_name": {
+      "rows": 582,
+      "jp_bytes": 7512
+    },
+    "character_name_full": {
+      "rows": 402,
+      "jp_bytes": 5040
+    },
+    "character_name_narrow": {
+      "rows": 404,
+      "jp_bytes": 2121
+    },
+    "character_name_short": {
+      "rows": 404,
+      "jp_bytes": 3118
+    },
+    "character_nickname": {
+      "rows": 582,
+      "jp_bytes": 4008
+    },
+    "character_series": {
+      "rows": 582,
+      "jp_bytes": 12414
+    },
+    "character_short_name": {
+      "rows": 219,
+      "jp_bytes": 1650
+    },
+    "character_voice_actor": {
+      "rows": 426,
+      "jp_bytes": 3422
+    },
+    "config_achievement": {
+      "rows": 75,
+      "jp_bytes": 1421
+    },
+    "config_dlc_id": {
+      "rows": 312,
+      "jp_bytes": 10535
+    },
+    "config_item": {
+      "rows": 1917,
+      "jp_bytes": 22536
+    },
+    "config_item_drop": {
+      "rows": 5,
+      "jp_bytes": 10
+    },
+    "config_label": {
+      "rows": 2,
+      "jp_bytes": 12
+    },
+    "config_leftover": {
+      "rows": 366,
+      "jp_bytes": 8767
+    },
+    "config_reference": {
+      "rows": 264,
+      "jp_bytes": 18497
+    },
+    "config_shop": {
+      "rows": 5,
+      "jp_bytes": 66
+    },
+    "config_skill": {
+      "rows": 10244,
+      "jp_bytes": 160785
+    },
+    "config_skill_tag": {
+      "rows": 299,
+      "jp_bytes": 2903
+    },
+    "config_spirit": {
+      "rows": 339,
+      "jp_bytes": 10101
+    },
+    "config_status_change": {
+      "rows": 273,
+      "jp_bytes": 2257
+    },
+    "config_sysmes": {
+      "rows": 2227,
+      "jp_bytes": 103223
+    },
+    "dialogue": {
+      "rows": 48881,
+      "jp_bytes": 2308235
+    },
+    "event_leftover": {
+      "rows": 6,
+      "jp_bytes": 165
+    },
+    "exe": {
+      "rows": 408,
+      "jp_bytes": 10310
+    },
+    "group_name": {
+      "rows": 16,
+      "jp_bytes": 228
+    },
+    "item": {
+      "rows": 1200,
+      "jp_bytes": 15884
+    },
+    "map_name": {
+      "rows": 15,
+      "jp_bytes": 412
+    },
+    "mission_note": {
+      "rows": 305,
+      "jp_bytes": 8649
+    },
+    "mission_title": {
+      "rows": 303,
+      "jp_bytes": 5712
+    },
+    "robo_length": {
+      "rows": 304,
+      "jp_bytes": 3279
+    },
+    "robo_name": {
+      "rows": 7,
+      "jp_bytes": 58
+    },
+    "robo_name_narrow": {
+      "rows": 7,
+      "jp_bytes": 54
+    },
+    "robo_note": {
+      "rows": 15,
+      "jp_bytes": 296
+    },
+    "robo_series": {
+      "rows": 301,
+      "jp_bytes": 6954
+    },
+    "robo_type": {
+      "rows": 17,
+      "jp_bytes": 418
+    },
+    "robo_weight": {
+      "rows": 303,
+      "jp_bytes": 3260
+    },
+    "skill": {
+      "rows": 4932,
+      "jp_bytes": 72816
+    },
+    "unit_name": {
+      "rows": 393,
+      "jp_bytes": 4990
+    },
+    "unit_name_display": {
+      "rows": 393,
+      "jp_bytes": 7570
+    },
+    "unit_series": {
+      "rows": 302,
+      "jp_bytes": 6937
+    },
+    "weapon_name": {
+      "rows": 1485,
+      "jp_bytes": 23728
+    },
+    "weapon_name_short": {
+      "rows": 1481,
+      "jp_bytes": 15290
+    }
+  },
+  "speaker": {
+    "dialogue": {
+      "rows": 45265,
+      "named": 45263,
+      "unnamed": 2,
+      "unnamed_percent": 0.0
+    },
+    "battle_quote": {
+      "rows": 27383,
+      "named": 26932,
+      "unnamed": 451,
+      "unnamed_percent": 1.65
+    }
+  },
+  "scenes": {
+    "scenes": 293,
+    "with_mission_title": 279,
+    "with_title_percent": 95.22,
+    "with_place": 212,
+    "episodes": 35,
+    "simulator": 36,
+    "first": "eventP00.cpk/DL100_01.bin",
+    "last": "evept103.EDAT/SM021D.bin"
+  },
+  "totals": {
+    "rows": 109032,
+    "jp_bytes": 3703899,
+    "files": [
+      "00_dialogue.jsonl",
+      "01_battle_quotes.jsonl",
+      "02_items.jsonl",
+      "03_skills.jsonl",
+      "04_config_text.jsonl",
+      "05_mission_text.jsonl",
+      "07_names_characters.jsonl",
+      "08_names_units_weapons.jsonl",
+      "09_executable.jsonl"
+    ],
+    "structure_files": [
+      "06_scenes.jsonl"
+    ]
+  },
+  "notes": [
+    "mode=grow: the container rebuild accepts any string length (dialogue, quotes, config pools).",
+    "mode=slot: the string sits in a fixed span; max_bytes is that span minus its NUL.",
+    "suggested_max on item/skill rows is the original reserved width (a UI hint, not a limit).",
+    "speaker.jp = null means the project has no name for that key yet (see index.speaker).",
+    "Only the dialogue and quote rows carry a speaker; narration/help/label rows do not.",
+    "Keep strings CP932-encodable; keep the in-game placeholders (＠0-＠9, ％s, ＄) intact.",
+    "00_dialogue rows are grouped by scene and ordered by the game's own byte order;",
+    "each row carries scene (the scene id) and order (its position inside that scene);",
+    "06_scenes lists every scene with its episode, mission title, places and element counts.",
+    "v6 (2026-10-15): 09_executable.jsonl = 408 strings of the 1.08 executable (PBOOT.PBP -> DATA.PSP), mode slot, max_bytes incl. alignment slack; 31 whole sysmes.bin strings (0x0F tokens / leading %s or space) added to 04 - their v5 rows were tails only and never applied.",
+    "v7 (2026-10-16): tools/table_rows_refresh.py added the Character/Robot Viewer slots the writer left Japanese (label rows label:<family>:<slot> for 愛称：/声優：, char:K:voice_actor/alt_name/short_name/entry/series, robonote:K:note/type/name/name_narrow + length/weight placeholders), the Reference section/topic titles and the whole tokenised bodies (reference:<container>/<member>:<offset>), DLC_ID/Shop rows per container; 214 stale/superseded/unreachable offset rows pruned (config_leftover 愛称：X duplicates, fragments of tokenised bodies, glued runs); imenuNN containers are byte-identical copies of configNN and are mirrored by the builder.",
+    "v8 (2026-10-16): 109 032 rows. Corrected EN: 高乃麗 -> Urara Takano (4 rows), DLC_ID 'SRWHPｺﾗﾎ' -> 'SRW Web Collab' (8 rows). New rows for strings that stayed Japanese in the configst.cpk output of builds #22/#23: 5 Skill_Tag strings with kana tokens (特技／ﾀﾞﾒｰｼﾞ率 .. 率4, table_rows_refresh), 9 Spirit record fields of the Fortune/Bless family with kana tokens (record_rows_refresh now adds them in display form + tokeny.tsv); 7 Achievement rows were refused by the writer's reference guard (counts at +8..+28 looked like pointers) - table_write exempts those words now, no package change needed. Removed: 6 junk achievement rows (binary bytes read as text) and the 2 tail-only Spirit leftover rows superseded by the new field rows. The v7 note claiming the voice-actor rows had no English was wrong - 424/426 char:K:voice_actor rows carry romanised names (Western order, Hepburn without macrons), listed in aktorzy_glosowi.tsv."
+  ],
+  "package_version": 9,
+  "created": "2026-10-16 13:40",
+  "description": "v9 = v8 + Translator scene translations (EN3.zip, 23030 new rows, 44505/48881 dialogue EN)",
+  "dialogue_stats": {
+    "total": 48881,
+    "en": 44505,
+    "jp_only": 4374
+  }
+}

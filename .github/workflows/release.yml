@@ -1,0 +1,49 @@
+name: Release PATCH
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the distribution zip
+        working-directory: srw-oe-translation
+        run: python tools/build_distribution.py
+
+      - name: Resolve version and zip path
+        id: ver
+        working-directory: srw-oe-translation
+        run: |
+          ZIP="$(ls local/release/srw-oe-translation-v*.zip | sort -V | tail -1)"
+          VER="$(basename "$ZIP" .zip | sed 's/.*-v//')"
+          echo "zip=$ZIP" >> "$GITHUB_OUTPUT"
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "Built $ZIP (v$VER)"
+
+      - name: Create or update the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="patch-v${{ steps.ver.outputs.version }}"
+          NOTES="Kit one-click (PATCH.bat) z pakietem tlumaczenia v${{ steps.ver.outputs.version }}.
+
+          Uzycie: rozpakuj, uruchom PATCH.bat, wskaz swoje ISO SRW OE 1.08 (JP) i folder DLC (NPJH50521).
+          Wymaga wlasnej, oryginalnej kopii gry. Projekt fanowski, niepowiazany z Bandai Namco.
+          Zmiany w tym wydaniu: srw-oe-translation/pakiet_EN/CO_NOWEGO_v${{ steps.ver.outputs.version }}.txt w repozytorium."
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --title "PATCH v${{ steps.ver.outputs.version }}" --notes "$NOTES"
+          gh release upload "$TAG" "${{ steps.ver.outputs.zip }}" --clobber

@@ -1,0 +1,54 @@
+PAKIET v6 (2026-10-15, wieczor) = pakiet v5 + dwa nowe zrodla tekstu po 8 zrzutach z buildu #19
+(build #19 = v5 + tekstury UI_TEST3 dzialal: "wszystko smiga").
+
+1. NOWY PLIK 09_executable.jsonl - napisy zaszyte w PROGRAMIE GRY (PBOOT.PBP -> DATA.PSP, aktualizacja
+   1.08; ELF md5 8ba77a79e7d46473671cb87e77553deb). 408 wierszy, 397 z angielskim, 11 zostawionych
+   celowo (symbole: ・ 「 」, czyste formaty %s, teksty debugowe: 無頼, コードギアス, 機械神, コズン).
+   To stad byly japonskie resztki na zrzutach: panel broni w walce (移動後 -> Post-Mv, 敵/味方/全て ->
+   Foe/Ally/All), komunikaty bitewne (回避 Evade, 援護防御 Sup. Def, EN不足 Low EN, 射程外, 合体攻撃...),
+   linie zdolnosci z 1.08 (<貫通 Lv2> 敵の防御-35% -> <Pierce Lv2>Foe Def-35%, <ビーム兵器 Lv2> ->
+   <Beam Wpn Lv2>CT Dmg+6% Foe Eva-6%, <連携攻撃 Lv2> -> <Coord. Atk Lv2>Surround+35% ...),
+   efekt Guard (ダメージ-16% 発動率12% -> Dmg-16% Trigger 12%), komendy (移動 攻撃 精神 ...), menu
+   taktyczne (検索 状況表示 オプション リタイア 中断セーブ), komunikaty o sejwie/DLC/sieci, nazwa
+   gry w danych sejwu (UTF-8).
+   Tryb "slot": angielski musi sie zmiescic w max_bytes = dlugosc japonskiego + zerowe bajty
+   wyrownania do 4 za terminatorem (dlatego 敵 (2 B) -> "Foe", 移動 (4 B) -> "Attack"). Zadnego
+   przesuwania bajtow. Zachowane musza byc wszystkie konwersje printf (%d %2d %+3d%% %s) w tej samej
+   kolejnosci; token kany 0x0F znika z EN. Kontrola: tools/translation_check.py (uzywa
+   exe_strings.check_en). Zapis: tools/build_translation_patch.py (krok "executable", wynik
+   DLC\...\PBOOT.PBP z NIESZYFROWANYM ELF-em w DATA.PSP + cheats\NPJH50521.ini jako zapasowa
+   droga CWCheat) albo recznie tools/exe_strings.py apply.
+   Slownictwo jak w v5: Will, Atk/Def/Acc/Eva, Foe Def-, Surround+, Trigger, Sup. Def / Sup. Atk,
+   Coord. Atk, Pierce, Break/Push/Throw, Quick Save (中断セーブ), Anim OFF (戦闘デモOFF).
+   Niepewne (do oceny w grze): "Gamer:" (ゲーマー, nieznany status z CT), "OutRng" (射程外, 6 B),
+   "Comb.Atk" (合体攻撃, 8 B), "Sng" (歌, 3 B), "Pincer" (挟撃), "Full SR"/"SR" (全包囲/包囲率).
+
+2. 04_config_text.jsonl: +31 CALYCH napisow z sysmes.bin (configst.cpk), ktorych w v5 nie bylo -
+   stary skaner obcinal poczatek (token kany 0x0F, wiodace %s albo spacja, "LV1 ", "CT", "DLC",
+   "PlayStation"), wiec w pakiecie byly tylko OGONY, a pisarz sysmes ogonow nie wpisuje (ignoruje
+   jako fragment). Dlatego w grze zostaly: メインパイロット (-> Main Pilot), サブパイロット (Sub Pilot),
+   SELECT パイロット表示変更 (-> Switch Pilot), パイロット用パーツ (Pilot Parts), システム設定１/２
+   (System Setup 1/2), サウンド設定 x3 (Sound Setup), ソート (Sort), ページ (Page), クリアミッション数：
+   (Missions Cleared:), [GRミッション] / シミュレーターミッション, komunikaty " セーブ中です。..."
+   (" Saving..."), " タイトルに戻ります。...", "%sが使用可能になりました！" (-> "%s is now available!"),
+   "%s ×..." itd. Pelna lista: wiersze z "note": "whole string (v6)". Wiersze-ogony z v5 zostaly
+   (nieszkodliwe). Audyt pokrycia (tools/coverage_audit.py) sprawdza teraz CALE napisy sysmes
+   i PBOOT.PBP: brak = 0 (zostaja 2 napisy metadanych budowy PAC: ターゲットファイル, 各フォルダ内依存関係).
+
+3. Slownik: "Link Attack" -> "Coord. Attack" w 3 opisach Reference00 (spojnie z Coord. Atk).
+
+4. check_report.txt: 0 bledow (108 574 wierszy, 81 220 z angielskim); translation_copy --check: 0.
+
+Budowa z tego pakietu w sandboxie (build #20, TOOLS_STAMP 2026-10-15f, --dlc z oryginalami USRDIR +
+PBOOT.PBP; bez ISO, wiec bez tekstur UI):
+  config00.cpk     936 064 B (Skill00 215 450 B jak v5)
+  configst.cpk     372 864 B (sysmes.bin 48 224 B, 1 182 napisow; 31 nowych EN w srodku - sprawdzone)
+  config02.EDAT    159 872 B, imenu00.cpk 57 512 B, mesbtl00.cpk 994 008 B
+  PBOOT.PBP      6 191 659 B  md5 26689964d2ce4e6cddadb67c8188e923 (DATA.PSP = jawny ELF
+                 5 531 024 B md5 ba4cc05c24e2d98f1edeaefe68228eff; 397/397 wierszy wpisanych,
+                 0 odrzuconych, odczyt zwrotny OK); cheats\NPJH50521.ini 2 867 linii.
+
+W GRZE JESZCZE NIE SPRAWDZONY. HIPOTEZA do sprawdzenia: PPSSPP laduje PBOOT.PBP z nieszyfrowanym
+DATA.PSP (tak wynika z kodu PPSSPP: sceKernelModule.cpp bierze goly ELF, gdy modul nie jest ~PSP).
+Jesli gra nie wystartuje z podmienionym PBOOT.PBP - przywrocic oryginal i uzyc cheats\NPJH50521.ini
+(PPSSPP: memstick\PSP\Cheats\, wlaczyc cheaty w ustawieniach) - te same bajty wpisywane w pamiec.

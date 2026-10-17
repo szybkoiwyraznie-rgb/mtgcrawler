@@ -1,8 +1,110 @@
 # Project status
 
-Last updated: 2026-10-16 (§21.36)
+Last updated: 2026-10-17 (§21.58)
 
-**Latest (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
+
+**Latest (2026-10-17, §21.58): kit v14.** Foe Robots: narrow+type wydane do strony config (oryginalne komórki; weryfikacja: RoboDict02 EN ×6, JP 0, rozmiary = oryginały; rollback = v13). Build wyciszony (bramka/probe = „Uwagi planowe”), cheaty opt-out (--cwcheat). README korzenia + workflow Release (v14 opublikowana ręcznie, tag patch-v14; decyzja o automatyzacji = pytanie do usera). Suite 1 285 OK.
+**Latest (2026-10-17, §21.57): Robot Viewer/nagroda rozgryzione md5-identycznym rebuildem.** Lista czyta globalny słownik (config00) z fallbackiem do rozdziału; JP 邪竜兵 = słowniki v16 (celowo JP, era `"` — do wycofania). Build ma własne configi 01-19 z EN nazwami. 'First Clear Bonus:' → 'First Clear:' (nakładanie kolumn). Kit v13: md5 26d3a9fd….
+**Latest (2026-10-17, §21.56): `"` WYJAŚNIONY I NAPRAWIONY.** Mechanizm: exe strings naruszyły tablicę interpunkcyjną EBOOT (「 　」 co 4 B) → silnik rysował sam `"`; fix = revert 3 wierszy (§21.54, potwierdzone grą §21.55). DLC uniewinnione (JP ISO + EN DLC = dialogi OK); configi v16 (słowniki JP) w grze OK. Backlog: glif 連→LNK, exe 404/404, patcher v12 (ui_labels+assets/fonts w zipie — poprawka „braku ikon”). Otwarte: info o nagrodzie (czeka treść z ekranu usera), potwierdzenie nazw wrogów w Robot Viewer na świeżym ISO. Kit: srw-oe-translation-v12.zip (md5 6a53774b…).
+
+**Latest (2026-10-16, §21.46): misja 2.1 `"`.** Hash pliku usera = rebuild → polowanie po
+formacie: rekordy **0x13E** niosą bezwzględne offsety do puli tekstów; po tłumaczeniu zostały
+stare (silnik czytał śmieci — m.in. `"`, tofu, `?!`). Pisarz: `remap_text_anchors()` (tylko
+0x13E; inne typy = ryzyko korupcji id), testy +3, suite 1 284 OK. eventP01 naprawiony
+(`0106b237…`). Test 3-krokowy na Drive (naprawiony eventP01 / oryginał JP / config #18).
+Priorytet bez zmian: 100% w grze → patcher.zip.
+
+**Latest (2026-10-16, §21.43): v14 PADAŁO (mój błąd: slot 5 „Voice:" nie miał pokrycia w działających
+stanach), ALE przełom: imenu01 v9 (pełne EN, podwojony rozmiar) działa u użytkownika cały czas →
+trująca jest tylko strona config. Builder utrwala fix: configNN.EDAT zawsze traci spare-sloty
+słowników (weryfikacja: pełny pakiet → config01–08 bajt w bajt = v13), imenuNN zachowuje pełne EN.
+Następny test (opcjonalny): config01–08 v13 + imenu02–08 v9 z folderu NPJH50521_v9 → encyklopedia
+rozdz. 2–8 pełna EN. Szczegóły: `EXPERIMENT_LOG.md` §21.43.**
+
+**Latest (2026-10-16, §21.42): v13 DZIAŁA ✅ — rozdziały DLC znów gramy po angielsku.** Winne
+crashowi: nowe sloty v7 w słownikach (Voice:/short_name/alt_name/note/type/narrow). Aktualny stan
+działający: ISO v9 + config01–08 **v13** + połowa B i imenu01 v9. **v14** (na Drive) = v13 + głosy
+(slot 1 i „Voice:" slot 5), wagi, etykiety, entry — pola o strukturze z działających stanów; JEDEN
+test. Szczegóły: `EXPERIMENT_LOG.md` §21.42.**
+
+**Latest (2026-10-16, §21.41): v12A PADAŁO — SŁOWNIKI WINNE [test].** Mapa slotów z diffu #17↔v11:
+EN w #17 działało (głos slot1, „Nickname:" slot4, entry, Weight, serie); nowe od v7 = Chara slot 5
+(„Voice:"), slot 11 (krótkie nazwy), slot 10, Robo note/type/narrow + EN- broadcast na rekordy JP.
+**v13** = słowniki EN tylko w polach z #17 (+ skrócenia), nowe sloty JP, reszta jak v11 — kandydat
+jednego testu. Szczegóły: `EXPERIMENT_LOG.md` §21.41.**
+
+**Latest (2026-10-16, §21.40): v11 PADAŁO — katalog DLC uniewinniony.** Zostają 2 grupy podejrzanych:
+słowniki (CharaDict/RoboDict) i listy nazw (unit_list/charalist). Przypadek: wariant „#17 + listy z v11"
+okazał się md5 w md5 = **build #18 (sprawdzony w grze)** — odnaleziony ostatni działający stan DLC.
+**v12 = JEDEN test decydujący (folder_A = #17 + słowniki z v11): pada → winne słowniki; działa → winne
+listy nazw (folder_B == #18, zapas nie wymaga testu).** Szczegóły: `EXPERIMENT_LOG.md` §21.40.**
+
+**Latest (2026-10-16, §21.39): v10 PADAŁO — koperta sfalsyfikowana (build #17 config02 = 159 872 B >
+oryginał DZIAŁAŁ w Y4a; odtworzyłem #17 1:1 z historii PR #13). Diff „działał(#17) ↔ padał(v10)" =
+5 klas członów; teza: przetłumaczony KATALOG DLC (srwDL_DLC_ID01–07: tytuły/opisy rozdziałów, od v7;
+wiersze tylko dla rozdz. 00–07 → połowa B i imenu01 naturalnie czyste; #17 miał je po japońsku).
+**v11 = v10 z katalogiem DLC przywróconym do bajtów ORYGINAŁÓW 1:1** (DLC_ID01–07 + Reference03/08;
+EN wrócą po drabince szerokości) — KANDYDAT JEDNEGO TESTU. Bramę koperty usunięto z buildera
+(fałszywe odmowy). Jeśli v11 padnie: revert {unit_list, charalist, CharaDict, RoboDict} do #17
+(= gwarantowany stan działający) i bisekcja 4 klas. Szczegóły: `EXPERIMENT_LOG.md` §21.39.**
+
+**Latest (2026-10-16, §21.38): PRZYCZYNA CRASHU DLC v9 ZNALEZIONA I NAPRAWIONA OFFLINE.** Gra trzyma
+stały bufor per plik DLC `configNN.EDAT` = oryginał zaokrąglony w górę do 0x800; v9 config01
+(249 984 B) i config02 (159 872 B) siedziały dokładnie 128 B nad granicą i padały na Loading
+(koperta rodzinowa — podwojony imenu01.EDAT działa, boot-scan config01–46 §21.12). Dowód: reprodukcja
+bajt w bajt padających plików + odtworzenie DZIAŁAJĄCEGO builda #17 z historii PR #13 (md5 `7c6459fa…`
+z listy Y4a) i diff człon po członie (pule/listy == #17, słowniki == imenu01, jedyna różnica globalna
+= +1 kwant). FIX: (1) brama koperty w builderze (limit = align_up(oryginał, 0x800); drabinka pełny →
+bez slotów viewerów po stronie config (UI czyta imenuNN) → odmowa fail-closed); (2) pakiet v10: 4
+reguły skróceń robo (Ryu Knight, VOTOMS, Code Geass, Length→Len.) ratujące config02; (3) trim padu
+PAC odpada (EToc musi być na 0x800 — zmierzone). **8 plików config01–08 v10 zbudowanych, wszystkie
+≤ oryginałów; JEDEN test weryfikacyjny do wykonania** (instrukcja na Drive). Testy 1 287 OK/24
+pominięte. Szczegóły: `EXPERIMENT_LOG.md` §21.38.**
+
+**Latest (2026-10-16, §21.37): v9 (pełny build HOKUS_POKUS) PADA na „Loading" — pierwszy w grze test NARAZ
+podmiany EBOOT.BIN (exe_step, nigdy nie boota; możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9 (też
+nigdy). DIAGNOZA (sekcja 1): narzędzia CZYSTE (7/7 md5 = gałąź); EBOOT = jawny ELF md5 `4d8b8a85…` NIEZNANY
+(zgodny ze świeżym łatem programu z płyty, ale też z dziedziczeniem ze stacka — builder NIE MA bramki na
+nieoryginalne źródłowe ISO); `eventP00`/`mesbtl00` w ISO = build v3-era bajt w bajt; brak `build_report.json`
+i `pakiet_EN` obok batów — niewiadome, którego pakietu i JAKIEGO ISO użyto (pytania do użytkownika + raport).
+Przyczyna NIEZNANA — rozdziela ją test A/B: nowe `EBOOT_TEST.bat` + `tools/eboot_swap.py` robią z
+istniejącego `patched.iso` kopię z ORYGINALNYM programem z oryginalnego ISO 1.08 (zmiana TYLKO `EBOOT.BIN`,
+dane builda bajt w bajt; fail-closed: kolejność `~PSP`/ELF, identyczne programy, nasz znany ELF jako
+„oryginał", odczyt kontrolny; 17 nowych testów, całość 1 283 OK, 24 pominięte). Przed testem: CHEAT WYŁĄCZONY
+(adresy cheatu × podmieniony program = nieprzetestowana kombinacja). E1 działa ⇒ winny EBOOT (napisy programu
+wracają na pewny CWCheat); pada na Loading ⇒ winne dane — jeśli źródłem był poprzedni patched.iso: CZYSTA
+przebudowa z oryginału; jeśli oryginał: BISEKCJA A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
+Achievement/tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
+
+**Latest (2026-10-16, §21.37 WYNIK T1): GRA DZIAŁA z v9 ISO + ORYGINALNYM DLC — a przy cheat OFF
+zdolności broni 1.08 są po angielsku, czyli JAWNY ELF JAKO EBOOT.BIN POTWIERDZONY W GRZE. Strona ISO
+v9 przyjęta w całości (config00, configst, imenu00 z pisarzami v7/v8, eventP00/mesbtl00, tekstury
+UI_TEST4). Winne: DLC v9 (cały zestaw po raz pierwszy w grze). Nowe `tools/dlc_test.py` +
+`DLC_TEST.bat` — bisekcja DLC CZYSTE KOPIOWANIE: runda = jedna grupa v9 plików w folderze emulatora +
+boot; grupy `konfig_imenu`/`eventy`/`mesbtl` + połówki `_a`/`_b` + przywracanie `r_*`/`oryginaly`;
+fail-closed (foldery parami różne, tylko różne-md5 obecne po obu stronach, odczyt kontrolny, raport
+JSON); 15 nowych testów, całość 1 301 OK (24 pominięte). PROTOKÓŁ: start = DLC oryginalne, R1
+`konfig_imenu` (podejrzany nr 1, historia Y) → R2 `eventy` → R3 `mesbtl`; padająca grupa = rozbijanie
+połówkami do pliku. Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
+
+**Previous (2026-10-16, §21.37 odczyt raportu): build_report.json padającego v9 rozstrzyga exe:** EBOOT
+płyty = znany ELF PBOOT (`8ba77a79…`), 402/404 w miejscu, out = `4d8b8a85…` z DIAGNOZY ⇒ **EBOOT niskie
+podejrzenie** (goły ELF z ISO bootuje mu codziennie; mechanizm = działający CWCheat). `eventP00`/
+`mesbtl00` = bajty już działające w grze (kanon v3). Podejrzani: **DLC v9** (nigdy w grze),
+config00/configst/imenu00 (v7/v8), system+tacsys (UI_TEST4); 325 odmów = śmieciowe wiersze pakietu.
+Build szedł z klona c0e5c9d1 (pakiet tam) — BISEKCJA/HOKUS wskazywać TEN pakiet. **PLAN: T1 = v9 ISO +
+ORYGINALNE DLC** (zamiana folderu `NPJH50521` w emulatorze na kopię `D:\SRWOE\NPJH50521`, cheat OFF):
+działa ⇒ DLC → BISEKCJA I/H; pada ⇒ T2 = E1 (świeży `eboot_swap.py`) → działa ⇒ EBOOT; pada ⇒ BISEKCJA
+A/E/B + tekstury. Szczegóły: `EXPERIMENT_LOG.md` §21.37.**
+
+**Previous (2026-10-16, §21.37 addendum): E1 próba 1 odmówiła — ORYGINAŁ UŻYTKOWNIKA MA JUŻ ODSZYFROWANY
+EBOOT (jawny ELF, nie `~PSP`) [ZMIERZONE]**; `exe_step` łatał więc ELF płyty w miejscu (nieznany md5
+`4d8b8a85…` = ELF płyty + napisy EN, najpewniej bez PBOOT-fallbacku). `eboot_swap` poprawiony: para ELF→ELF
+rozstrzygana po zawartości (równe rozmiary + różne bajty japońskie w oryginale vs ASCII w buildzie; odwrócona
+kolejność / dwa załatane / różne wydruki → odmowa; `--force` omija; profil różnic w raporcie). Testy 1 286 OK.
+E1 uruchamia się tym samym `EBOOT_TEST.bat` (zapamiętane ISO działa).
+
+**Previous (2026-10-16, §21.35): CORRECTION + PACKAGE v8. The §21.34 claim "426 voice-actor names deliberately left
 Japanese" was WRONG: 424/426 `char:K:voice_actor` rows already carried Latin names since v4 (Western order, Hepburn
 without macrons; 2 rows are the `NoData` placeholder) — one misreading fixed (`高乃麗` "Rei" → "Urara Takano"), the full
 list is `aktorzy_glosowi.tsv` in the package. A byte scan of every built member (now including half-width kana) found

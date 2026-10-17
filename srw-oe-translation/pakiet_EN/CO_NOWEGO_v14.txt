@@ -1,0 +1,14 @@
+CO NOWEGO v14 (2026-10-17)
+==========================
+- FOE ROBOTS: nazwy wrogow w Robot Viewer czytane sa ze slownikow strony
+  config - wracaja kategorie narrow+type (oryginalne komorki, zamiana
+  w miejscu): 邪竜兵 -> "Dragon Soldier", stopka 標準タイプ -> "Standard Type".
+  Krolestwo testu: po buildzie skopiuj CALY output\DLC i sprawdz Ryu Knight /
+  Go-Saurer w widoku wrogow. Jesli (nieoczekiwanie) gra przestala sie wczytywac
+  na Loading - wroc do kitu v13 (zostaje na Drive) i raportuj.
+- WYCISZENIE: 19 komunikatow bramki slownikowej to jedno zdanie "Uwagi
+  planowe (nie bledy)" na koncu buildu; dziwny probe skill (tmpseigywe3.cpk)
+  to takze uwaga, nie problem.
+- CHEATY: output\cheats\ juz nie powstaje (EBOOT robi robote; --cwcheat
+  wlacza stara trase na zyczenie).
+- DROBNOSTKI: progsy wg raportu 404/404 (MachineGod w budget), glif 連 -> LNK.

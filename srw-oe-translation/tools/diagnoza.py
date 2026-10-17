@@ -160,6 +160,46 @@ ACCEPTED_CONFIG = {
 }
 # md5 -> label of the config01-08.EDAT builds handed out (the DLC skill pools live there)
 KNOWN_DLC_CONFIG: Dict[str, str] = {
+    # build v14 (pakiet v14 = v13 + glosy/wagi/etykiety/entry): PADAL - slot 5 "Voice:" nigdy
+    # nie byl EN w dzialajacym stanie; glosy sa bezpieczne tylko na stronie imenu
+    "41b80765fc429f6c61dd9eccd4298327": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "11537970d16ffc43abde56c944a83cee": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "d88f6992665f4abca0b348e023a1582a": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "444ea7b173a8d03dbd6cbca3aacbbf41": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "77cf8c13272cc41823d127953af72be1": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "c9aceadd74b6bfcb8ece23647d17ecd8": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    "59fdc2a136aa07616cf5e77a3cbef95d": "build v14 (PADAL 2026-10-16; slot 5 Voice nie mial pokrycia)",
+    # build v13 (pakiet v13): slowniki bez nowych slotow v7 - DZIALA W GRZE (2026-10-16)!
+    "fb949ddb94e4430c09c13d8b6facd0a1": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "e07fe8583e57fd9616d3ab2e05d4565a": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "83dcd387125e80beba8e8bd02fab57a7": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "2c831dcc49a3df54de8dee6da88abde3": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "02af3a8556fad15a589187192dc0da43": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "b68550ca3db87d4052f97340cae52aaf": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "f69f6a9daa24e36610431fca07d0149e": "build v13 (DZIALA W GRZE 2026-10-16)",
+    "696e6583eac758150e620f43fe0693dd": "build v13 (DZIALA W GRZE 2026-10-16)",
+    # build v11 (pakiet v11 = v10 minus katalog DLC): PADAL (katalog DLC uniewinniony)
+    "b0da512ba9603a565b665e4db886571d": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "b0a89d6885d3b5d3cbc243c74708a6a7": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "2375a1a9f50c6a5120a0c8ce5c58a5b5": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "f721dffffd408260c7ea5c21362878c9": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "90a6a9abca1c9535db90b743da8d984e": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "2aa88fbf259794668e9b764a60bb93f8": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "e1a189b161dad9609839d38097622769": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    "90c40e34b2c9e5a33cde01be2221c837": "build v11 (PADAL 2026-10-16; katalog DLC uniewinniony)",
+    # v10 (pakiet v10, brama koperty): rozmiary = oryginaly, a mimo to PADAL - koperta
+    # sfalsyfikowana (build #17 config02 = 159 872 B > oryginal i DZIALAL)
+    "3857e834deec86693e79f0ed44a087a2": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "a7c41844cfbc53cb3a5d6ca960c1ab45": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "784cbed59d35e3814d1c74a18c957d6d": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "8a3eb91a2126cd785ec5b9559729b84b": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "85433cf45a2fe4dbf4a99b552c907923": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "49194979d028059614e43221f81c2b14": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "19dbb4ee440300d972ce59f3326d52aa": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    "1953264dc57d67d24ba583b858fcea0d": "build v10 (PADAL w tescie 2026-10-16; koperta nie byla przyczyna)",
+    # v9 (pakiet v9): PADAL (sweep 2026-10-16; przyczyna nieznana w momencie builda)
+    "809e252d01c2c13477971bd5c873ce18": "v9 config01 (PADAL w sweepie 2026-10-16)",
+    "576906fdb1c594c6202ebaad13d63630": "v9 config02 (PADAL w sweepie 2026-10-16)",
     # build #15 (pakiet v3): pule Skill01-08 17 396 B - test Y 2026-10-15 padl na Loading
     "6199c7dec872e6d10767ac952e872a14": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",
     "e21939c44fbbedbab3e4ec2d782e08e9": "build #15 (pakiet v3; pula 17 396 B - padl w tescie Y)",

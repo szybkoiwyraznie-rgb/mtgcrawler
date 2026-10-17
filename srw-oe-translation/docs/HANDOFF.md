@@ -317,6 +317,42 @@ wiersze z liczb znikną, `coverage_audit` nadal nie widzi fragmentów rozciętyc
 4. **apply** (wklejanie tłumaczeń) dla każdej puli NUL + pełny pipeline xdelta.
 5. Dopiero 1–4 gotowe i przetestowane → tłumaczenie.
 
+**Stan 2026-10-16 najnowszy (`EXPERIMENT_LOG.md` §21.37):** v9 (pełny build HOKUS_POKUS) **PADA na
+„Loading"** — pierwszy w grze test zarazem podmiany EBOOT.BIN (exe_step: jawny ELF w ISO, nigdy nie boota;
+możliwy fallback `source: PBOOT.PBP`) i danych v7/v8/v9. Winowajca NIEZNANY. DIAGNOZA: narzędzia czyste
+(7/7 md5 gałęzi); EBOOT = jawny ELF `4d8b8a85…` NIEZNANY (świeży łatem płyty ALBO odziedziczony ze stacka —
+**builder nie ma bramki na nieoryginalne źródłowe ISO**); brak build_report.json i pakiet_EN obok batów.
+Nowe `tools/eboot_swap.py` + `EBOOT_TEST.bat`: z istniejącego `patched.iso` robi kopię z ORYGINALNYM
+programem z oryginalnego ISO 1.08 (zmienia TYLKO EBOOT.BIN; fail-closed jak `iso_insert`; zapamiętuje
+oryginalne ISO). Drzewko: (1) TEST E1 z WYŁĄCZONYM cheatem → działa ⇒ winny EBOOT (napisy programu na
+CWCheat do naprawy); pada ⇒ winne dane ⇒ jeśli źródłem był poprzedni patched.iso: czysta przebudowa z
+oryginału, jeśli oryginał: `BISEKCJA.bat` A–I (podejrzani: `imenu00.cpk` 34 984 → 88 232 B, configst
+Achievement+tokeny, eventy/mesbtl DLC z 23 030 nowych EN). Podczas crasha cheat mógł być włączony (adresy
+z ELFa PBOOT × podmieniony program = zanieczyszczenie testu) — w A/B cheat OFF. Testy 1 286 OK (24 pominięte). E1 próba 1: odmowa kierunku — **oryginał użytkownika ma EBOOT już
+odszyfrowany (jawny ELF)**; `eboot_swap` rozstrzyga teraz parę ELF→ELF po zawartości (równe rozmiary,
+różnice JP-vs-ASCII); E1 = ten sam bat, ponowne uruchomienie.
+
+**build_report.json padającego v9 odczytany (§21.37):** źródła czyste (oryginalne ISO+DLC; build z KLONA
+c0e5c9d1, pakiet `pakiet_EN` TAM — BISEKCJA ma wskazać ten sam folder pakietu); **exe rozstrzygnięte**:
+EBOOT płyty = bajt w bajt znany ELF PBOOT (`8ba77a79…`), 404/404 trafień, 402 w miejscu, 2 odmowy
+(U+00B7 niekodowalny w CP932 — poprawić w pakiecie; 16>11), out `4d8b8a85…` = ELF z DIAGNOZY ⇒ EBOOT
+spada do niskiego podejrzenia (goły ELF z ISO bootuje mu codziennie; mechanizm = działający cheat).
+`eventP00`/`mesbtl00` w ISO = kanon v3 (`ac538959…`/`00e10760…`) = bajty już DZIAŁAŁE w grze. Podejrzani:
+DLC v9 (wszystko, nigdy w grze), config00/configst/imenu00 (v7/v8 pisarze), system+tacsys (UI_TEST4).
+325 odmów = śmieciowe wiersze pakietu (robonote „no record with key", label slot 4/5) — bezpieczne, do
+czyszczenia. **PLAN: T1 = v9 ISO + ORYGINALNE DLC (zamiana folderu NPJH50521 w emulatorze, cheat OFF)**:
+działa ⇒ DLC → BISEKCJA I/H; pada ⇒ T2 = E1 (świeży eboot_swap) → działa ⇒ EBOOT; pada ⇒ BISEKCJA
+A/E/B + tekstury.
+
+**WYNIK T1 (`EXPERIMENT_LOG.md` §21.37): GRA DZIAŁA ⇒ winne DLC v9; JAWNY ELF JAKO EBOOT.BIN
+POTWIERDZONY W GRZE (zdolności 1.08 po angielsku przy cheat OFF); cała strona ISO v9 przyjęta
+(config00/configst/imenu00 v7-v9, eventP00/mesbtl00, tekstury UI_TEST4).** Nowe `tools/dlc_test.py` +
+`DLC_TEST.bat`: bisekcja DLC czystym kopiowaniem — runda = jedna grupa (`konfig_imenu` / `eventy` /
+`mesbtl`, połówki `_a`/`_b`, `wszystko`) podmieniona na v9 w folderze EMULATORA + boot; przywracanie
+`r_<grupa>` / `oryginaly`; fail-closed (foldery parami różne, tylko różne-md5, odczyt kontrolny,
+raport JSON). Kolejność: R1 konfig_imenu → R2 eventy → R3 mesbtl; padająca grupa rozbijana połówkami.
+Testy 1 301 OK (24 pominięte).
+
 ## 8. Komendy (PC użytkownika, PowerShell)
 ```powershell
 cd D:\SRWOE\mtgcrawler\srw-oe-translation
@@ -403,6 +439,13 @@ Po KAŻDYM buildzie: `skipped` + `verification.failures` + **`problems` każdego
 półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokenami.
 
 ## 9. Znane pułapki (nie powtarzaj)
+- **Katalog DLC `srwDL_DLC_ID01–07` (2026-10-16 §21.39, HIPOTEZA SILNA):** tłumaczenie tytułów/opisów
+  rozdziałów w tabeli katalogu DLC współpadło z crashem „Loading" (v9, v10), a każdy stan działający
+  miał je po japońsku (#17) albo nietknięte (połowa B: wiersze tylko dla rozdz. 00–07; imenu01: brak
+  członu). EN tytuły wracają dopiero po drabince szerokości (jak sysmes titles). Koperta rozmiaru
+  PLIKU configNN.EDAT została SFALSYFIKOWANA (build #17 config02 = oryginał + 1 kwant 0x800 działał);
+  bramy rozmiaru pliku w builderze NIE ma — jest tylko budżet członów (POOL_SIZE_LIMITS, Skill00).
+  Ucięcie padu PAC-a nic nie daje: EToc CPK musi być na 0x800 (`cpk_write._pad_to_alignment`).
 - `unit_list<NN>.bin` (384 B/rekord): `name` @+0 to komórka **32 B**, @+32 leży półszeroka kana
   (skrócona nazwa, w 100 % rekordów), `name_display` @+140 (64 B). Pisarz z komórką „64" zerował kanę
   w 84/84 rekordach config00 (build #6–#8). Nigdy nie zostawiaj komórki tablicy nazw pustej; „najdłuższa
@@ -452,3 +495,9 @@ półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokena
   znikają) — commit+push wcześnie, wyniki z `local/` od razu na Drive.
 - Każde nowe wiersze puli (`pool_rows_refresh`) muszą od razu dostać wpis w `tokeny.tsv`, inaczej
   pisarz odmawia po cichu przy budowie (126 tekstów w #4).
+
+- (2026-10-17) **Pułapka tablicy interpunkcyjnej EBOOT:** komórki co 4 B przy 0x08bf9fbc (・ 「 　」) są czytane strukturalnie przez silnik dialogów — NIGDY nie zmieniać ich długości bajtowej (EN zamiast JP = w oknie dialogowym tylko `"`); w pakiecie na zawsze en:=jp dla 0x08bf9fbc/9fc0/9fc4/9fc8.
+
+- (2026-10-17) **Pułapki środowiska:** gitignorowane katalogi (`srw-oe-translation/local/`, `google_drive/`) są w tym środowisku **best-effort** — potrafią zniknąć między turami (limity migawek); trwałe źródła = git + Drive (wszystko da się odtworzyć z kitów i folderu oryginałów). Katalogi o nazwie `dist/` są w ogóle niepersystowane — buildy zipów trzymać w `local/release/`.
+- (2026-10-17) **Release bez pakietu w git:** workflow `.github/workflows/release.yml` buduje zip z repo, ale pakiet jest gitignorowany → CI nie zbuduje zipa, póki user nie zdecyduje (commit pakietu vs ręczne `gh release create patch-vN <zip>`). Nie commitować pakietu samowolnie (reguła .gitignore/AGENTS).
+- (2026-10-17) **DECYZJA USERA: pakiet_EN/ COMMITOWANY** (wcześniejsza reguła „never committed" odwołana przez usera wprost; repo publiczne — user świadomy). Powód: automated Release workflow buduje zip z repo. Lokalny staging `local/` zostaje gitignorowany.

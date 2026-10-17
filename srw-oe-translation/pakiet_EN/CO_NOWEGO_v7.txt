@@ -1,0 +1,61 @@
+PAKIET v7 (2026-10-16) = pakiet v6 + wiersze dla pol, ktorych pisarz tabel w ogole nie zapisywal
+(po 5 zrzutach z pelnego buildu v6: intermisja po angielsku, ale Character Viewer / Robot Viewer /
+Reference mialy japonskie resztki).
+
+PRZYCZYNY (potwierdzone w plikach gry):
+ a) Intermisja czyta imenuNN.cpk/EDAT, a nie configNN. Szesc plikow w imenuNN to BAJT W BAJT kopie
+    tych z configNN (zmierzone: imenu00-08 wszystkie, imenu10-19 tylko CharaDictionary i
+    RoboDictionary). Wiersze Reference/Shop/DLC_ID byly adresowane tylko do configNN -> kopia config
+    byla angielska, a ta, ktora gra rysuje, zostala japonska. Builder (build_translation_patch.py)
+    kopiuje teraz wiersze na kazda identyczna kopie (pole "mirrored" w build_report.json) i w obie
+    strony; po buildzie #22 wszystkie pary config/imenu 00-08 sa identyczne.
+ b) Slownik postaci (srwDL_CharaDictionary): pisarz zapisywal tylko sloty 0-4. Slot 5 = "声優：" +
+    aktor glosowy, slot 11 = krotka nazwa w siatce Viewera (dla nie-pilotow to byla jedyna nazwa),
+    slot 10 = nazwa alternatywna - nigdy nie byly zapisywane. Do tego wiersze "config_leftover"
+    "愛称：X" (cala etykieta + przezwisko) kolidowaly z wierszami kluczowanymi char:K:nickname
+    (pisarz pomija kolizje po cichu).
+ c) Slownik robotow (srw_DL_RoboDictionary): zapisywane byly sloty 0/1/3; slot 2 = notatka,
+    4 = typ (標準タイプ / 飛行タイプ), 5 = nazwa jednostki BEZ wpisu w unit_list (wrogowie:
+    ボルトロボ, 邪竜兵), 6 = nazwa waska z tokenami kany - nie.
+ d) Reference (解説書): tytuly sekcji w slocie 0 (解説書：戦術, 解説書：インターミッション, 特殊な操作)
+    nie mialy wierszy; strona "レベル差補正" (rekord 12, slot 4) miala w pakiecie tylko FRAGMENTY
+    (eksporter odrzucal cialo z tokenami kany 0x0F), a pisarz fragmentow nie wpisuje.
+
+CO NOWEGO W PLIKACH (tools/table_rows_refresh.py --prune, raport: refresh_report.json):
+ 07_names_characters.jsonl  +222 wierszy: label:srwDL_CharaDictionary:4 ("愛称：" -> "Nickname: ") i :5
+    ("声優：" -> "Voice: ") - JEDNA etykieta dla wszystkich rekordow; char:K:voice_actor (426 lacznie,
+    [KOREKTA w v8: ten nawias byl bledny - wiersze aktorow MIALY juz angielski
+    zapis lacinski, np. 松本梨香 -> Rica Matsumoto; patrz CO_NOWEGO_v8.txt]), char:K:short_name (219,
+    copy_of char:K:nickname albo pierwszy wiersz z tym samym tekstem), char:K:alt_name (1),
+    char:K:entry / :series dla rekordow spoza eksportu.
+ 08_names_units_weapons.jsonl +363: robonote:K:note (15), :type (17; 標準タイプ -> Standard Type,
+    飛行タイプ -> Flight Type), :name (7; np. %s7ﾙﾄﾛ%s7 -> Bolt Robo = "Bolt Robo" tez w waskiej
+    nazwie :name_narrow bez tokenow kany), placeholdery 全長 －－－ / 重量 －－－ -> "Length －－－" /
+    "Weight －－－" (151 + 166 wierszy, pelne kreski jak w nietknietym placeholderze glosu).
+ 04_config_text.jsonl +81: reference:<kontener>/<plik>:<offset> dla tytulow sekcji (Tactics,
+    Intermission, Extra Controls) i CALEGO ciala strony レベル差補正 (14 linii, 12 tokenow kany
+    znika z EN - zobacz tokeny.tsv), dlc_id/shop per kontener (13 wierszy dostalo EN "uratowane"
+    ze sklejonych wierszy, pole salvaged_from).
+ USUNIETE 214 wierszy offsetowych, ktorych pisarz nigdy nie mogl zastosowac (lista w
+    refresh_report.json "pruned"): 146 "superseded" (config_leftover 愛称：X - teraz etykieta +
+    wiersz kluczowany), 27 "stale" (fragmenty cial z tokenami), 41 "unreachable" (offset poza
+    kazdym napisem tabeli - sklejone bajty, pola liczbowe).
+ Drobne: char:720:nickname ワン "One" -> "Wan" (pies z Go-Saurer; w v6 resztka miala "Wan").
+ tokeny.tsv: +16 wpisow dla nowych wierszy z %s (kinds T = token kany, znika z EN).
+ index.json: kategorie przeliczone (47), notatka v7.
+
+KONTROLA: translation_check: 109 026 wierszy, 81 672 z EN, 0 bledow; translation_copy --resync: 0
+ rozjazdow; coverage_audit (33 kontenery config/imenu + configst + PBOOT): brak = 2 (te same 2 napisy
+ metadanych PAC co zawsze). Audyt liczy teraz "愛称：仁" jako pokryte, gdy etykieta i tekst za nia
+ sa osobnymi wierszami.
+
+BUILD #22 w sandboxie (TOOLS_STAMP 2026-10-16b, syntetyczne ISO z config00/configst/imenu00 +
+ EBOOT.BIN, --dlc = 30 EDAT config01-19/imenu01-19): 0 pominietych, 0 bledow weryfikacji;
+ config00.cpk 936 064 B, imenu00.cpk 88 232 B (oryginal 34 984 - CPK zapisany bez kompresji),
+ configst.cpk 372 864 B; imenu01.EDAT 47 272 B (oryg. 24 744), config01.EDAT 249 984 B.
+ W plikach wyjsciowych CharaDictionary/RoboDictionary/Reference/DLC_ID/Shop: 0 ciagow japonskich.
+ W GRZE JESZCZE NIE SPRAWDZONE: wiekszy imenuNN (brak znanego limitu), szerokosc "Extra Controls"
+ w naglowku Reference, "Voice: " + nazwisko aktora (pisane lacinka, np. "Voice: Rica Matsumoto").
+
+JAK ZBUDOWAC: jak v6 - swiezy ZIP galezi, pakiet do srw-oe-translation\pakiet_EN\, HOKUS_POKUS.bat
+ (ORYGINALNE ISO + folder z odszyfrowanym DLC), potem DIAGNOZA.bat.

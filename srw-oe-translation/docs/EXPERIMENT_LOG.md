@@ -5208,3 +5208,863 @@ v8 → STARY, v9 → AKTUALNY, `CURRENT_PACKAGE = v9`. Test pin v9.
 **Potwierdzone / nieznane:** POTWIERDZONE: import scen działa, 23 030 nowych EN, format sceny.zip kompatybilny.
 NIEZNANE: v9 w grze (nie budowano); jakość tłumaczeń ch.6–7 (1 362+1 539 JP — Tłumacz może jeszcze uzupełnić);
 13 odrzuconych notatek misji — do skrócenia lub zaakceptowania (etykiety poza polem w grze).
+
+## §21.37 (2026-10-16) — v9 PADA na „Loading" u użytkownika; test A/B programu (eboot_swap.py, EBOOT_TEST.bat)
+
+**A. Zgłoszenie:** użytkownik zbudował v9 przez `HOKUS_POKUS.bat` (pełny build: 96 kontenerów + tekstury UI +
+exe_step) i uruchomił `patched.iso`: **gra pada na ekranie „Loading..."**. Poprzedni potwierdzony w grze stan
+to era v6 (§21.34: intermisja EN, grafika cała, program przez cheat) — od tamtej budowy zmieniły się NARAZ dwie
+niezależne grupy, z których każda sama w sobie może tłumaczyć crash:
+
+- (a) **PODMIANA PROGRAMU** — `exe_step` pierwszy raz w życiu wszedł do buildu użytkownika:
+  `PSP_GAME/SYSDIR/EBOOT.BIN` w `patched.iso` to od teraz jawny ELF (napisy programu EN). NIGDY nie uruchomione
+  w grze (build #21 tylko piaskownica, §21.33). Dwa możliwe warianty wg `build_report.json`:
+  ELF z odszyfrowanego EBOOT płyty **albo** fallback `source: PBOOT.PBP` (program aktualizacji 1.08 napisany
+  w miejsce programu płyty). Znany md5 ELFa v6: `ba4cc05c…`; md5 ELFa v9 NIEZNANE (7 napisów doszło w §21.36 F2,
+  więc ELF v9 jest inny niż v6). Gdyby PPSSPP nie uruchamiał gołego ELFa, gra nie doeszłaby do „Loading" —
+  ale fallback PBOOT-program z danymi płyty albo uszkodzone odszyfrowanie (typ 6 bez próbki, §21.33) mogą
+  psuć właśnie fazę ładowania danych.
+- (b) **DANE v7+v8+v9** — lustrzane `imenuNN` (`imenu00.cpk` 34 984 → 88 232 B), sloty viewerów
+  (Chara 5/10/11, Robo 2/4/5/6), wiersze etykiet, `Achievement` exempt `(8,28)`, pola z tokenami kany w
+  configst (§21.34–21.35), 23 030 nowych EN dialogów (grow eventów/mesbtl) + 4 373 wiersze-kopie z resync
+  (§21.36). Też NIGDY nie testowane w grze.
+
+„Loading" to faza otwierania EDAT DLC (stare crashe #6/#8/#10/#15 pełnej piątki padały tu, gdy program
+startował poprawnie) — hipoteza użytkownika wskazuje EBOOT, ale dane są równie mocnym podejrzanym. Użytkownik
+wskał też dwa konkretne commity sesji 7 jako podejrzane (PR #13): `a6dd0e0` = pisarze v7 (sloty viewerów,
+lustrzane imenu, `table_rows_refresh`) — podejrzany (b); `c61c9d1` = „v9 FINAL", w tym 7 nowych napisów exe —
+czyli dokładnie ELF, który `exe_step` wpisał do EBOOT builda (md5 inny niż znany v6 `ba4cc05c…`) — podejrzany
+(a). Która grupa jest winna — **NIEZNANE**; rozdziela to test A/B.
+
+**B. Zanieczyszczenie cheatem:** jeżeli podczas crasha był włączony plik CWCheat `NPJH50521.ini` (adresy
+liczone z ELFa PBOOT), to w kombinacji z PODMIENIONYM EBOOT pisze po nieprzetestowanym układzie — w testach
+A/B cheat ma być **WYŁĄCZONY**. (Przy oryginalnym EBOOT cheat był wielokrotnie sprawdzony — czysty.)
+
+**C. Nowe narzędzia:** `tools/eboot_swap.py` + `EBOOT_TEST.bat` — bierze `patched.iso` z budowy i ORYGINALNE
+ISO 1.08, zwraca **kopię buildu z oryginalnym programem** (zmienia TYLKO `PSP_GAME/SYSDIR/EBOOT.BIN`; wszystkie
+kontenery danych builda zostają bajt w bajt — potwierdzone odczytem w teście). Fail-closed jak `iso_insert`:
+odmowa tego samego pliku / identycznych programów / złej kolejności (oryginał ma być `~PSP`, build jawnym
+ELF-em; `--force` świadomie inaczej) / naszego znanego programu jako „oryginału" (`KNOWN_BUILT_ELF` z
+`iso_insert`) / wyjścia na któreś z wejść; odczyt kontrolny EBOOT z wyniku; raport `eboot_swap_report.json`;
+wydruk tylko rozmiary/md5/rodzaj. Bat: dwa okna wyboru (`call :pick`), zapamiętuje oryginalne ISO
+(`%APPDATA%\SRWOE\ostatnie_iso.txt`, wspólnie z `WGRAJ_DO_ISO`), okno trzyma się otwarte. Testy: **17 nowych**
+(`tests/test_eboot_swap.py`, w tym reguły okien wyboru batu); całość **1 283 OK** (24 pominięte).
+
+**D. Plan (drzewko decyzyjne):**
+0. `DIAGNOZA.bat` (istniejące) na buildzie v9 → wysłać `DIAGNOZA.txt` (+ sekcję `executable.targets` z
+   `build_report.json`): powie, CO budowa wpisała do EBOOT (ELF płyty czy fallback PBOOT — flaga `source`)
+   i jakie md5. Bez tego nie wiadomo, który wariant drogi ELF w ogóle testujemy.
+1. **TEST E1** = `EBOOT_TEST.bat` (patched.iso v9 + oryginalne ISO) → `patched_EBOOT_oryginalny.iso`,
+   cheat WYŁĄCZONY, uruchomić i przejść: Loading → menu → intermisja → misja → sejw.
+   - **DZIAŁA** ⇒ winna podmiana EBOOT.BIN; napisy programu wracają na pewną drogę CWCheat do czasu naprawy
+     drogi ELF (kierunki wg raportu: fallback PBOOT-vs-płyta, odszyfrowanie typu 6, obsługa gołego ELFa —
+     ta ostatnia mało prawdopodobna, fanowskie patche tak działają).
+   - **PADA na Loading** ⇒ winne DANE v7/v8/v9; droga EBOOT czysta; bisekcja kontenerów `BISEKCJA.bat` (A–I)
+     — podejrzani wg skali zmian: `imenu00.cpk` (+153 %, nigdy w grze), `configst` (Achievement + tokeny),
+     eventy/mesbtl z 23 030 nowych EN.
+2. Niezależnie od wyniku: `DIAGNOZA.txt`, `build_report.json` (sekcja `executable`) i `eboot_swap_report.json`
+   wracają do rozmowy; ten wpis jest wtedy uzupełniany.
+
+**Potwierdzone / nieznane:** POTWIERDZONE: v9 (pełny build HOKUS_POKUS) pada u użytkownika na „Loading"
+(pierwszy w grze test stacka v7+v8+v9 i zarazem pierwsza w grze podmiana EBOOT.BIN). NIEZNANE: przyczyna
+(program vs dane), który wariant EBOOT w ogóle zbudowano (fallback?), stan cheatu podczas crasha. Nadal NIE
+POTWIERDZONE w grze: dane v7/v8/v9, EBOOT-w-ISO (jawny ELF), UI_TEST4, `srwDL_CalcType.bin`.
+
+**DIAGNOZA użytkownika (2026-10-16 wieczór, `DIAGNOZA_z_pelnego_v9.txt`, dotyczy padającego v9):**
+- **Narzędzia CZYSTE:** wszystkie 7 md5 z sekcji 1 (`build_translation_patch` c924e5ac…, `item_skill_write`
+  ce889d01…, `cpk_write` 32d07592…, `iso_insert` d4701cb9…, HOKUS_POKUS 1eb59864…, WGRAJ 85a9fe09…,
+  BISEKCJA 91e83d8d…) = aktualna gałąź; wszystkie bramki TAK (budżety, +32/+36/+52, Achievement exempt,
+  mirror). Build na pewno v9-era narzędziami.
+- **Provenance buildu NIEZNANY:** obok batów nie ma `srw-oe-patch\` (brak `build_report.json`) ani
+  `pakiet_EN\` (pakiet wskazywany oknem — NIE WIADOMO KTÓREGO). Do wyjaśnienia: `build_report.json`
+  (pole `package` + sekcja `executable`) i odpowiedź, KTÓRE ISO posłużyło za źródło.
+- **ISO `I:\ISOS\PSP SRW OE\patched.iso`** (688 736 256 B; oryginał 679 243 152 → +9 493 104, spodziewane
+  przy STORED): `eventP00` 260 568 B i `mesbtl00` 994 008 B = **bajt w bajt build z pakietu v3 / narzędzi
+  2026-10-15** (spójne i ze świeżej przebudowy, gdyby wiersze tych kontenerów nie zmieniły się od v3, i ze
+  stacka — nierozróżnialne); `imenu00` 90 280 B — nie pasuje do żadnego zarejestrowanego buildu; `config00`
+  936 064 B (klasa rozmiaru buildów ze skróconymi pulami) i `configst` 372 864 B — md5 nieznane, „nie żaden
+  z wydanych plików" (dla świeżej przebudowy v9 to oczekiwane); tekstury = UI_TEST4 / UI_TEST3-era (zgodne
+  z planem). **EBOOT.BIN = jawny ELF md5 `4d8b8a85d097214495e94f238bd07091`, 5 531 024 B — NIEZNANY**:
+  zgodny ze ŚWIEŻYM łatem programu z płyty użytkownika (piaskownica zna tylko ELF z PBOOT `ba4cc05c…`),
+  ale też z ELFeem ODZIEDZICZONYM ze stacka — **`build_translation_patch` nie ma bramki na nieoryginalne
+  źródłowe ISO** (ma ją tylko `iso_insert`); gdyby źródłem był poprzedni `patched.iso` z już załatanym
+  EBOOT, `exe_step` znalazłby 0 japońskich trafień i nic nie napisał, zostawiając stary ELF. Rozstrzygnie
+  to `build_report.json` (`executable.targets[].elf_md5_in/out`, flaga `source`, licznik applied).
+- **Folder DLC emulatora** (`C:\Games\ppsspp\memstick\PSP\GAME\NPJH50521`, 340 plików): pełny zestaw v9;
+  `config01` i `config02` KAŻDY +2 048 B względem oryginału (249 984 / 159 872 — prawdopodobnie wiersze
+  lustrzane/refresh; niegroźnie wyglądające, do zapamiętania), `config03–46` rozmiary oryginałów,
+  `eventP01` 582 456 vs 326 456, `mesbtl01` 827 960 vs 283 192, `evept101–108` ~2× oryginału (STORED).
+  Jedyny potwierdzony w grze pełny zestaw DLC to v4-era (Y4a) — czyli dane DLC v9 to równoległy podejrzany
+  obok kontenerów ISO. `PBOOT.PBP` w folderze DLC też załatawy (jawny ELF w DATA.PSP, 6 191 659 B) — dla
+  wydania PPSSPP bez znaczenia (nie czyta go); zachować kopię oryginału.
+- **Wniosek dla TESTU E1:** bez zmian — E1 (`EBOOT_TEST.bat`) nadal czyściej wszystko rozdziela: działa ⇒
+  winny EBOOT; pada ⇒ DANE, a wtedy kolejny krok zależy od provenance: (a) jeśli źródłem był poprzedni
+  patched.iso → CZYSTA przebudowa z prawdziwego oryginału 1.08 (jeden build, bez stacka) i test tego; (b)
+  jeśli źródło było oryginalne → `BISEKCJA.bat` A–I (podejrzani: `imenu00`, `configst`, eventy/mesbtl DLC).
+  Pytania do użytkownika: (1) które ISO wskazał HOKUS_POKUS (oryginał 1.08 czy poprzedni patched.iso?),
+  (2) `build_report.json` — sekcja `package` i `executable`.
+
+**Próba E1 nr 1 (2026-10-16 wieczór): NIE ruszyła — odkrycie przy okazji.** `EBOOT_TEST.bat` odmówił:
+„EBOOT.BIN w ORYGINALNYM ISO jest jawnym ELF-em, a w BUILDU ELF". **Nowy fakt o danych użytkownika
+[ZMIERZONE]: jego oryginalne `SRW OE 1.08.iso` ma program JUŻ ODSZYFROWANY (jawny ELF, nie `~PSP`)** —
+znane zachowanie narzędzi zrzucających PKG na ISO (zakładał je komentarz w `iso_insert.py`, projekt tego
+md5 nie notuje). Konsekwencje: (a) `exe_step` w buildzie v9 NA PEWNO łatał w miejscu ELF płyty (bez
+deszyfrowania typu 6, bez fallbacku PBOOT — chyba że źródłem był inny ISO), więc nieznany md5 `4d8b8a85…`
+to najpewniej „ELF płyty + ~400 napisów EN"; (b) jedyną nieweryfikowaną częścią drogi EBOOT pozostaje
+sam boot gołego ELFa z ISO. Naprawa narzędzia: `eboot_swap` przyjmował tylko kierunek `~PSP→ELF`; teraz
+parę ELF→ELF rozstrzyga KLASYFIKATOR ZAWARTOŚCI (`elf_direction`): oba ELFe muszą mieć RÓWNY rozmiar
+(in-place niczego nie przesuwa; różne rozmiary = dwa różne wydruki → odmowa), a różne bajty (sklejane
+w plastry, próg 1 MB) liczone są klasą: strona z ≥32 bajtami ≥0x80 przeważającą 2:1 = japoński oryginał,
+czysta ASCII = nalatany build (`jp->en` przepuszczony, `en->jp` = „kolejność ODWROCONA", remis = odmowa;
+`--force` dalej omija klasyfikację; profil różnic idzie do raportu i wydruku — same liczby). Symulacja na
+realnej skali (5 531 024 B, 398 plastrów, 14 181 różnic): kierunek rozpoznany w 0,07 s, w obie strony.
+Testy: +4 (para JP→EN bez force, odwrócona odmowa, dwa angielskie ELFe odmowa, różne rozmiary odmowa),
+łącznie **1 286 OK** (24 pominięte). Bat bez zmian — użytkownik uruchamia E1 tym samym plikiem.
+
+**Odczyt `build_report.json` padającego v9 (2026-10-16 wieczór; odpowiedzi użytkownika: HOKUS_POKUS
+wskazywał ORYGINAŁ 1.08):**
+- **Źródła CZYSTE:** `iso = D:\SRWOE\SRW OE 1.08.iso` (oryginał), `dlc = D:\SRWOE\NPJH50521`
+  (oryginalny folder wejściowy). **UWAGA:** build szedł z INNEGO klona gałęzi —
+  `D:\mtgcrawler-arena-c0e5c9d1-mtgcrawler\srw-oe-translation\` (pakiet = `pakiet_EN` TAM), TOOLS_STAMP
+  `2026-10-16b` (era v7: mirror, sloty viewerów). DIAGNOZA sekcja 1 weryfikowała narzędzia w klonie
+  798cd015, nie w c0e5c9d1 — ale rapot sam opisuje dokładnie ten zestaw cech, a BISEKCJA/HOKUS przy
+  ponownej budowie MAJĄ wskazać TEN SAM folder pakietu, żeby litery odtwarzały dokładnie to, co padło.
+- **Wiersze:** 109 032 / filled 104 977 / identity 3 645; `skill_total` 340 074 < 342 194 (bramka OK);
+  dry_run false, bez --only/--skip (pełna budowa).
+- **EXE ROZSTRZYGNIĘTE [ZMIERZONE]:** oba cele mają `elf_md5_in = 8ba77a79…` (ZNANY: „SRW OE 1.08
+  update, PBOOT.PBP, module srw v1.1") — czyli **EBOOT z płyty użytkownika jest bajt w bajt tym samym
+  znanym ELF-em co DATA.PSP z PBOOT** (stąd `known` bez fallbacku; brak flagi `source`, brak not).
+  404/404 wierszy trafiło w japońskie bajty, **402 naniesione w miejscu**, 2 bezpiecznie odmówione:
+  (1) U+00B7 „·" NIE MA odwzorowania w CP932 — poprawka §21.36 F2 `・`→`·` jest NIEKODOWALNA (do
+  poprawy w pakiecie: zostawić JP albo inny znak); (2) 16 > 11 B (do skrócenia). `elf_md5_out`
+  `4d8b8a85…` = dokładnie ten „NIEZNANY" ELF z DIAGNOZY ISO. **Konsekwencja dla hipotezy EBOOT:**
+  (a) „goły ELF z ISO bootuje się" jest już potwierdzone CODZIENNĄ GRĄ użytkownika (jego oryginalne
+  ISO ma EBOOT jako jawny ELF i gra działa); (b) łatający zapis = ten sam mechanizm co DZIAŁAJĄCY
+  plik CWCheat (te same bajty, te same adresy, weryfikacja JP przed zapisem). EBOOT z podejrzanego
+  nr 1 spada do niskiego prawdopodobieństwa — argument użytkownika (logo się pokazuje, pada dopiero
+  Loading = historycznie faza crashy od DANYCH: #6 sysmes, #10 Skill00, #15 stack) jest SŁUSZNY.
+- **Kontenery ISO — podejrzani zawężeni [ZMIERZONE]:** `eventP00` md5 `ac538959…` (260 568 B) i
+  `mesbtl00` `00e10760…` (994 008 B) = KANONICZNE buildy z pakietu v3 / narzędzi 2026-10-15 — te same
+  bajty, które już DZIAŁAŁY w grze (era #17–#19). „Mój build ma 57 512 B" w DIAGNOZIE to tylko opis
+  kanonu v3 (`diagnoza.CANONICAL_USRDIR`), nie rozbieżność; imenu00 v9 = 90 280 B (v7: 88 232 + v9
+  treść + wyrównanie CPK). Pozostaje: **config00, configst, imenu00 (pisarze v7/v8 — nigdy w grze),
+  system+tacsys (delta UI_TEST4 — nigdy w grze; reszta tekstur = UI_TEST3, działająca w #19), EBOOT
+  (niskie)**.
+- **DLC — cały zestaw v9 nigdy w grze:** ostatni przyjęty zestaw DLC = era v4 (Y4a). Nowe od v6:
+  23 030 nowych EN dialogów (eventP*/evept* ~2× rozmiaru), mesbtl*, sloty viewerów v7 w
+  config01–08/imenu01+ (config01/config02 każdy +2 048 B vs oryginał).
+- **325 odmówionych wierszy** (kontenery): niemal wszystkie „robonote:…: no record with key" w
+  config01–19/imenu oraz „label:… slot 4/5 unusable" w CharaDictionary 08/09/16–18 — bezpieczne
+  POMINIĘCIA (JP zostaje), ale to śmieciowe wiersze pakietu do wyczyszczenia przy następnej wersji;
+  nie są zgodną przyczyną crasha (pisarz odmawia, nie pisze).
+- **PLAN (kolejność testów, każda tania):** **T1 = v9 ISO + ORYGINALNE DLC** (bez pobierania: w folderze
+  emulatora `memstick\PSP\GAME` zmienić nazwę `NPJH50521` → `NPJH50521_v9`, wgrać kopię oryginalnego
+  `D:\SRWOE\NPJH50521` jako `NPJH50521`, boot `patched.iso`, CHEAT OFF; po teście nazwy z powrotem):
+  DZIAŁA ⇒ winne DLC v9 (EBOOT uniewinniony automatycznie — ten sam w obu konfiguracjach) → dalej
+  BISEKCJA I (DLC bez dialogów) / H (samo DLC dialogowe); PADA na Loading ⇒ winne ISO-side albo EBOOT →
+  **T2 = E1** (`EBOOT_TEST.bat` ze ŚWIEŻYM `tools/eboot_swap.py`) → działa ⇒ EBOOT; pada ⇒ dane ISO →
+  BISEKCJA A (configst) / E (imenu00) / B (config00), tekstury osobno. Litery BISEKCJI budują od
+  oryginału i tego samego pakietu — deterministyczny builder odtwarza stan padającego builda per grupa.
+
+**WYNIK T1 + POTWIERDZENIE EBOOT (2026-10-16 wieczór/noc):** użytkownik podmienił folder DLC emulatora
+na ORYGINALNY (`D:\SRWOE\NPJH50521`) i uruchomił v9 `patched.iso`: **GRA DZIAŁA**. Jednocześnie
+**SPATCHOWANY EBOOT POTWIERDZONY W GRZE** — zdolności broni z 1.08 (`<貫通 Lv2>` itd., napisy programu)
+są po angielsku (przy cheat OFF, zgodnie z instrukcją T1; jego oryginalne ISO ma EBOOT jako jawny ELF,
+więc jedynym źródłem tych napisów jest nasz ELF w ISO). Konsekwencje [ZWERYFIKOWANE]:
+- droga „jawny ELF jako EBOOT.BIN w ISO" DZIAŁA — napisy programu mają trwały kanał (cheat tylko
+  awaryjny);
+- **cała strona ISO v9 jest dobra**: config00, configst (v8/v9 pisarze, Achievement, tokeny), imenu00
+  (v7 mirror + sloty viewerów), eventP00/mesbtl00, tekstury (UI_TEST4 delta włącznie) — wszystko
+  przyjęte w grze;
+- **winne jest DLC v9** — pierwszy test w historii, w którym cały zestaw DLC z pełnym pakietem v7+v8+v9
+  poszedł do gry naraz (era v4/Y4a była ostatnim przyjętym zestawem).
+
+**Narzędzie bisekcji DLC: `tools/dlc_test.py` + `DLC_TEST.bat`.** Runda = podmiana JEDNEJ GRUPY plików
+v9 w folderze DLC EMULATORA czystym kopiowaniem (żadnej budowy; gra czyta `...\PSP\GAME\NPJH50521`
+jako luźne pliki) + jeden boot. Grupy: `konfig_imenu` (config*.EDAT + imenu*.EDAT), `eventy`
+(eventP*.EDAT + evept*.EDAT), `mesbtl` (mesbtl*.EDAT), `wszystko`, połówki `_a`/`_b` (a = rozdziały
+1–8 / eventP01–09+evept101–104 / mesbtl01–15; b = reszta), przywracanie `r_<grupa>` i `oryginaly`
+(cały folder do oryginałów). Fail-closed: foldery parami różne, kopiowane tylko pliki obecne po obu
+stronach i różne md5, odczyt kontrolny każdego pliku, pusty plan = błąd z podpowiedzią, raport
+`srw-oe-dlc-test\raport_<wariant>.json`, wydruk tylko nazwy/rozmiary/md5; nic nigdy nie jest usuwane.
+Bat: 3 okna ścieżek (działający / v9 / oryginały) + okno listy wariantów (`pick_choice custom`),
+reguły okien jak zawsze. Testy: **15 nowych**, całość **1 301 OK** (24 pominięte).
+
+**PROTOKÓŁ (kolejność rund; start = folder DLC pełny ORYGINAŁÓW, stan po T1; ISO v9 i CHEAT OFF
+bez zmian):** R1 `konfig_imenu` (historia Y: pule Skill01–08 w config0X padały na Loading — główny
+podejrzany) → R2 `eventy` → R3 `mesbtl`; grupa, po której pada, wygrywa i jest rozbijana połówkami
+(do pojedynczego pliku), reszta wraca na oryginały. Po wskazaniu pliku: analiza offline (budowa vs
+oryginał człon po członie) i bramka w pisarzu/pakiecie.
+
+**Bisekcja DLC, runda 1–3 (2026-10-16 noc):** R1 `konfig_imenu` (całość) = **PADA**; przywrócono
+oryginały; połowa **B** (config09+config10–46, imenu10–32) = **DZIAŁA** ⇒ winna część leży w połowie
+**A: config01–08.EDAT + imenu01–08.EDAT** (16 plików). Użytkownik preferuje ręczne kopiowanie
+(`copy /Y`) zamiast `DLC_TEST.bat` (bat działa raz na uruchomienie i za każdym razem żąda ścieżek —
+UWAGA na przyszłość: baki mają zapamiętywać ścieżki w `%APPDATA%\SRWOE` jak `WGRAJ_DO_ISO.bat`).
+Protokół kolejny: **sweep pojedynczych plików** — kolejność od największego wzrostu: `imenu01`
+(24 744 → 47 272 B), potem `config01` (+2 048), `config02` (+2 048), `imenu02` (20 648 → 34 984),
+reszta po kolei; każdy: skopiuj z v9, boot ISO (cheat OFF), zapisz wynik; plik, po którym pada =
+winowajca, przywrócić i kontynuować sweep dalej (może być więcej niż jeden winny). Połówki `_a/_b`
+w `dlc_test.py`: `konfig_imenu_a` = `config0[1-8]` + `imenu0[1-8]` — zgodnie z wynikiem.
+
+**Sweep pojedynczych plików (2026-10-16):** `config01.EDAT` v9 = **PADA**; `imenu01.EDAT` v9 =
+**DZIAŁA**; `config02–08` wgrane razem = **PADA** (w bloku był config02). Użytkownik: fix offline,
+zero dalszych rund po kolei.
+
+### 21.38 Przyczyna crashu config01–08 znaleziona offline: KOPERTA ROZMIARU PLIKU configNN.EDAT (2026-10-16)
+
+**[SFALSYFIKOWANE tego samego dnia — patrz §21.39: test v10 (rozmiary = oryginały) padł tak samo, a odtworzony build #17 config02 = 159 872 B (oryginał + 1 kwant) był SPRWDZONY W GRZE (Y4a). Rozmiar pliku nie jest przyczyną; poniższy opis zostaje jako historia.]**
+
+**Reprodukcja offline bajt w bajt.** Z Dysku: oryginały `config01/02/imenu01.EDAT` + `pakiet_EN_
+2026-10-16_v9.zip`; budowa `--only` aktualnymi narzędziami dała **md5 identyczne z padającymi
+plikami użytkownika** (config01 `809e252d…` 249 984 B; config02 `576906fd…` 159 872 B; imenu01
+`6b906b6d…` 47 272 B) — builder jest deterministyczny, mamy padający plik w laboratorium.
+
+**Eliminacja członów (config01):** po sekcji CPK→PAC→podpliki: słowniki+DLC_ID v9 są **bajt w bajt
+identyczne z działającym imenu01** (niewinne); `srwDL_Skill01.bin` (15 578) i `srwDL_Item01.bin`
+(1 195) oraz `wp_list01/bgmlist01/milstP01` są **bajt w bajt identyczne z buildem #17 (Y4a —
+działał w grze)** (niewinne). Prawdziwe narzędzie: z gałęzi PR #13 (`arena/c0e5c9d1-mtgcrawler`,
+historia pośrednia przetrwała squash!) odtworzyłem narzędzia builda #17 (commit `c5e41b6`) i
+przebudowałem config01 z pakietem v4: **md5 `7c6459fa…` = pierwszy z listy „sprawdzony w grze
+Y4a/Y4/Z4"** — mam parę działający↔padający. Różnice: TYLKO słowniki+DLC_ID (+700 B, sloty
+viewerów v7) i renames nazw w `unit_list01/charalist01` (ASCII, NUL-terminated, ten sam pisarz
+działa w połowie B) oraz **+2 048 B na cały plik**.
+
+**Wniosek [ZWERYFIKOWANE na parach plików]: gra trzyma stały bufor per plik DLC configNN.EDAT
+wielkości oryginał zaokrąglony w górę do 0x800** — v9 config01 (249 984) i config02 (159 872)
+siedziały **dokładnie 128 B (1 kwant 0x800) nad granicą** align_up(oryginał, 0x800) = 249 856 /
+159 744 i padały na Loading; wszystko ≤ oryginału działało (#17, połowa B, config03–08), a nawet
+**podwojony imenu01.EDAT działa** — koperta jest rodzinowa (imenu/eventP/mesbtl mają inną ścieżkę
+ładowania; boot-scan config01–46 widziany w logu IO PPSSPP, §21.12). Wzrost v9: sloty viewerów v7
+(broadcast do imenuNN i configNN) urósły słowniki config01 o +1 175 B = +1 kwant PAC-a (podpliki
+są ustawiane na granicach 0x800; RoboDict02 w config02 urósł +376 przy luzie 6 B → +1 kwant).
+
+**Czego NIE da się zrobić (zmierzone):** ucięcie końcowego padu PAC-a (`rebuild_pac tail_align`)
+nic nie daje — warstwa CPK dobija koniec zawartości do 0x800, bo **EToc musi siedzieć na granicy
+0x800** (zmierzone crashem w erze ISO; `cpk_write._pad_to_alignment`). Ciasniejsze pakowanie
+podplików (<0x800) niewypróbowane w grze — odpada. Kwantyzacja: rozmiar pliku zawsze ≡ 128
+(mod 0x800), więc granica praktycznie = „rozmiar pliku nie może przekroczyć oryginału o nowy
+kwant".
+
+**Fix (3 warstwy, zbudowane i sprawdzone offline):**
+1. **Brama koperty w builderze** (`build_translation_patch.py`): dla `configNN.EDAT` limit =
+   `align_up(oryginał, 0x800)`; drabinka: pełny build → (za duży) odłóż **sloty viewerów**
+   (voice_actor/alt_name/short_name/note/type/name_narrow) z kopii config-strony słowników
+   (UI i tak czyta słowniki z imenuNN — §21.34; rdzeń name/nickname/series/length/weight
+   zostaje) → (nadal za duży) **odmowa całego kontenera** (fail-closed jak budżet Skill00).
+2. **Pakiet v10** (na bazie v9): 4 reguły skróceń w wierszach robo, które ratują config02
+   (jego RoboDict02 musiał zejść −320 B, inaczej nawet bez slotów był +1 kwant):
+   „Lord of Lords Ryu Knight"→„Ryu Knight" (36 wierszy), „Armored Trooper VOTOMS"→„VOTOMS"
+   (38; wariant „…: Red Shoulder Document" bez zmian), „Code Geass: Lelouch of the
+   Rebellion"→„Code Geass" (24), „Length "→„Len. " (304). Same skrócenia → wszystkie pliki
+   tylko maleją / mieszczą się w kopertach.
+3. **`configst_pack.rebuild_pac(tail_align=)`** + `trim_pac_tail()` — narzędzie zostaje
+   (przydatne do pomiarów), brama z niego rezygnuje po pomiarze (patrz wyżej).
+
+**Wynik budowy config01–08 z pakietu v10 (wszystkie ≤ oryginałów; JEDEN zestaw do testu):**
+config01 247 936 (md5 `3857e834…`; sloty viewerów odłożone po stronie config — 161 wierszy;
+imenu01 jako jedyny źródło slotów), config02 157 824 (`a7c41844…`; PEŁNA treść), config03
+118 912 (`784cbed5…`), config04 108 672 (`8a3eb91a…`), config05 110 720 (`85433cf4…`), config06
+75 904 (`49194979…`), config07 73 856 (`19dbb4ee…`), config08 80 000 (`1953264d…`). `srwDL_Skill01/
+Item01/wp_list01/bgmlist01/milstP01` bajt w bajt = stany sprawdzone w grze; RoboDict02 = 6 122 B
+(< oryginał 6 138). Testy: +10 ( envelope/tail_align), całość **1 287 OK** (24 pominięte).
+diagnoza: md5 v10 i padających v9 w KNOWN_DLC_CONFIG.
+
+### 21.39 Test v10 PADAŁ → koperta sfalsyfikowana → winny KATALOG DLC (DLC_ID01–07) → v11 (2026-10-16)
+
+**Wynik testu v10 (użytkownik):** 8 plików v10 (rozmiary = oryginały) wgrać, boot OK, **pada w tym
+samym miejscu na „Loading"** z tym samym komunikatem. Koperta rozmiaru pliku NIE była przyczyną.
+
+**Twardy dowód przeciwko kopercie (offline):** odtworzyłem build #17 z pakietu v4 narzędziami z
+commita `c5e41b6` (gałąź `arena/c0e5c9d1-mtgcrawler` PR #13) — **wszystkie 8 md5 zgodne z listą
+„sprawdzony w grze Y4a/Y4/Z4"**; w tym config02 = **159 872 B = oryginał + 1 kwant 0x800 — i DZIAŁAŁ**.
+Rozmiar pliku (w kwantach 0x800) jest więc eksonerowany całkowicie. Bramę koperty usunięto z buildera
+(dawałaby fałszywe odmowy); `rebuild_pac(tail_align=)` zostaje jako narzędzie pomiarowe.
+
+**Nowa para „działał ↔ pada":** #17 (md5 z listy) ↔ v10. Diff człon po członie, 8 plików — różnice
+TYLKO w klasach: `unit_listNN` (renames v5), `charalistNN` (1–3 komórki), `CharaDictionaryNN` +
+`RoboDictionaryNN` (sloty viewerów v7 + skrócenia serii), `srwDL_DLC_ID01–07` (tytuły rozdziałów +
+opisy pobierania — **przetłumaczone dopiero od v7**), `srwDL_Reference03/08` (sloty v7). Pule
+Skill/Item, wp_list, bgmlist, milstP = bajt w bajt == #17 (eksonerowane).
+
+**Teza: przetłumaczony KATALOG DLC.** `srwDL_DLC_ID` = tabela katalogu zawartości do pobrania:
+tytuły („第２章 本編" → „Chapter 2 Main Story"), opisy („第１章の本編をダウンロードします。" →
+„Download the Chapter 1 main story."), ID zawartości (`JP0700-NPJH50521_…`, wiersze-identyczności).
+Dopasowanie dowodów: (1) połowa B DZIAŁAŁA — wiersze DLC_ID istnieją **tylko dla rozdziałów 00–07**,
+konfiguracja 09–46 nietknięta; (2) imenu01 DZIAŁAŁ — **nie ma członu DLC_ID**; (3) #17 DZIAŁAŁ —
+DLC_ID01–07 po japońsku; (4) każde padanie (v9 sweep, v9 pełny, v10) = DLC_ID01–07 po angielsku;
+(5) ISO-side DLC_ID00 (EN, T1) działa — katalog płyty to inny konsument niż katalog folderu DLC;
+(6) konsumencki parser ma sztywne formaty (ID zawartości). Crash w momencie budowy/użycia katalogu
+przy ładowaniu rozdziału — spójne z „Loading…".
+
+**v11 (kandydat testu):** pakiet v11 = v10 z opróżnionymi wierszami `config_dlc_id` (DLC_ID01–07)
+i `reference` (Reference03/08) → te człony zostają **bajt w bajt ORYGINAŁAMI** (zweryfikowano 1:1);
+wszystko inne jak v10/v9 (sloty viewerów EN, renames nazw, EN pule, 4 reguły skróceń robo).
+Rozmiary: config01 249 984 (= v9; rozmiar bez znaczenia — patrz wyżej), config02 157 824, 03–08 =
+rozmiary oryginałów. md5 v11 w diagnoza.KNOWN_DLC_CONFIG.
+
+**Protokół następnych kroków:** jeśli v11 DZIAŁA → winny katalog DLC; EN tytuły wrócą osobnym
+eksperymentem (drabinka szerokości jak dla sysmes titles). Jeśli v11 PADA → winne pozostają klasy
+{unit_listNN, charalistNN, CharaDictNN, RoboDictNN} na ścieżce DLC; następny krok = ich revert do
+bajtów #17 (to odtwarza #17 1:1 = gwarantowany stan działający) i bisekcja tych 4 klas.
+
+### 21.40 v11 PADAŁO → katalog DLC uniewinniony → pozostają 2 grupy → v12 (2026-10-16)
+
+**Wynik v11 (użytkownik):** PADA w tym samym miejscu. Katalog DLC (DLC_ID01–07 + Reference03/08,
+przywrócone 1:1 do oryginałów) NIE jest winny. Stan wiedzy po sekcjach zwłok:
+- v11 vs #17 (oboa działający/padający znane) różnią się WYŁĄCZNIE klasami: `unit_listNN`
+  (renames v9), `charalistNN` (1–3 komórki), `CharaDictionaryNN`+`RoboDictionaryNN` (sloty
+  viewerów v7 + skrócenia serii v10).
+- działające `imenu01.EDAT` v9 ma bajt w bajt te same CharaDict01/RoboDict01 v9-treści co padający
+  config01 — więc sama treść słowników działa… w innym kontenerze; różnica imenu01-v9↔v11 to tylko
+  skrócenia serii v10.
+- **Przypadek szczęścia:** wariant diagnostyczny „#17 + listy nazw z v11" wyszedł md5 w md5 =
+  **build #18 (pakiet v5, sprawdzony w grze)** — odnaleziony działający stan DLC! (unit_list
+  v5-renames „≤ 14 znaków" działały; slotów viewerów jeszcze nie było).
+
+**v12 (jedna runda, jeden decydujący test):** wariant **A** = #17 + CharaDict01–07/RoboDict01–08
+z v11 (weryfikacja człon-po-członie: poza słownikami wszystko == #17). Wynik:
+- A **PADA** → winne słowniki (jedyna zmiana względem działającego #17),
+- A **DZIAŁA** → winne listy nazw (unit_list01–08/charalist01/03/07 v9-treść; bo folder_B =
+  #17 + listy z v11 == build #18, działający — nie wymaga testu).
+folder_B dostarczony jako bezpieczny zapas (build #18 z EN). Rozmiary A: jak v9/v10 (bez znaczenia).
+MD5 w diagnoza po testach. Następne kroki po wyniku A: fix offline w winnej grupie (sloty →
+drabinka szerokości; renames → powrót do v5-treści #18), potem JEDEN test potwierdzający.
+
+### 21.41 v12A PADAŁO → winne SŁOWNIKI → v13: słowniki bez nowych slotów v7 (2026-10-16)
+
+**Wynik v12A (użytkownik): PADA.** #17 + CharaDict01–07/RoboDict01–08 z v11 = jedyna zmienna —
+**słowniki są winne crashowi „Loading"** [ZWERYFIKOWANE testem]. (folder_B = #17 + listy z v11
+okazał się md5 w md5 = build #18, sprawdzony w grze — listy nazw v5-unit/v9-renomowane są
+eksonerowane jako przyczyna.)
+
+**Mapa slotów słowników (z diffu #17↔v11, string-po-string; #17 = ostatni działający):**
+- JUŻ EN w #17 (działało): Chara slot 1 (głos: „Ai Orikasa"), slot 4 („Nickname: …" z etykietą),
+  slot 2 (opisy entry, c2 „…fused with the Death Saurer core."), slot 3 (pełne serie), Robo
+  slot 0 („Length 28.4m"), slot 1 („Weight 65.7t"), slot 3 (pełne serie).
+- NOWOŚCI v7 (JP w #17 → EN w v11 — JEDYNE realne różnice poza skróceniami): Chara slot 5
+  („Voice: …" — dubel głosu z etykietą), slot 11 (short_name: kana → ASCII), slot 10 (alt_name,
+  1 szt.), Robo slot 2 (note: „(Battleship unit)"), slot 4 (type: „Summoned by King Squasher…"),
+  slot 5/6 (name_narrow: „Dragon Soldier"), + wypełnienie EN w rekordach, które w #17 były JP
+  (broadcast partów na 100 % rekordów: Length/Weight/series/labels).
+- Treść czysta (zero tokenów/kontrolnych/procentów) — mechanizm crashu NIE wynika z treści stringów;
+  do wyjaśnienia wymagałby debugera (ppsspp io/log może nie sięgnąć). Praktycznie: odsuwać nowe
+  sloty, trzymać sprawdzone.
+
+**v13 (kandydat stabilizacji, pakiet na bazie v11):** identity (JP-orzynał) dla kategorii
+character_voice_actor/short_name/alt_name/entry, config_label, robo_note/type/name_narrow,
+robo_weight (996 wierszy odłożonych) — słowniki zostają EN tylko tam, gdzie EN było już w #17
+(name/nickname/series/length) + bezpieczne skrócenia v10 („Len." < „Length", krótkie serie).
+unit_list/charalist == v11 (weryfikacja 1:1), reszta == v11 (pule == #17 bajty). md5:
+config01 fb949ddb…, 02 e07fe858…, 03 83dcd387…, 04 2c831dcc…, 05 02af3a85…, 06 b68550ca…,
+07 f69f6a9d…, 08 696e6583….
+**Protokół:** v13 DZIAŁA → winne nowe sloty v7 (dokładny slot wyłoni drabinka offline-analizowana,
+wrótki per-slot w kolejnych buildach); v13 PADA → słowniki 1:1 #17 (v14, ostatni schodek) —
+wtedy jedyną różnicą od działającego stanu byłyby skrócenia i listy v9.
+
+### 21.42 v13 DZIAŁA ✅ — pierwszy od v6 pełny działający zestaw DLC z treścią v9 (2026-10-16)
+
+**Wynik v13 (użytkownik): DZIAŁA** — boot, zapisy, rozdziały 2–3, walka, encyklopedia. Stan
+działający: patched.iso v9 + DLC config01–08 v13 + imenu01 i połowa B v9. Słowniki EN tylko w
+polach z #17 (nazwa/pseudonim/serie/„Len."), nowe sloty v7 JP, listy nazw v9, pule == #17 bajty.
+
+**Wniosek [ZWERYFIKOWANE]: crash powoduje CONAJMNIEJ JEDEN z nowych slotów v7 w słownikach:**
+Chara slot 5 („Voice: …"), slot 11 (short_name kana→ASCII), slot 10 (alt_name), Robo note (slot 2),
+type (slot 4), name_narrow (slot 5/6). Wykluczone (działa w v13 lub #17): voice slot 1 (czysty),
+„Nickname:" slot 4, entry, Weight/Length EN, serie, renames unit_list/charalist, cały katalog DLC,
+rozmiary plików, pule Skill/Item. Odkrycie: v7 pisarz voice_actor zapisuje DWA sloty naraz (1,5) —
+w #17 EN był tylko slot 1.
+
+**v14 (odzyskanie 737 wierszy o strukturze z działających stanów):** voice_actor (slot 1 jak #17 +
+slot 5 „Voice: …" analog „Nickname: …"), robo_weight („Weight …" jak #17), config_label, entry.
+Zostają JP: short_name, alt_name, note, type, name_narrow. Weryfikacja: v14 = v13 + wyłącznie te
+pola. Wynik v14 rozstrzygnie: działa → został tylko mały zestaw (drabinka 2–3 rund do 100%);
+pada → winny w {slot 5 Voice:, weight…} mimo analogii → schodzimy na slot 1 bez slotu 5.
+md5 v14: 41b80765… 11537970… d88f6992… 444ea7b1… 77cf8c13… c9aceadd… 59fdc2a1… 90c40e34… (01..08).
+
+### 21.43 v14 PADAŁO (błąd projektowy: slot 5) → PRZEŁOM: strona imenu toleruje wszystko →
+### builder config-strony zachowawczy na stałe (2026-10-16)
+
+**Wynik v14 (użytkownik): PADA.** Wina mojego projektu: slot 5 („Voice: …") **nigdy nie był EN
+w żadnym działającym stanie** (w #17 był JP „声優：…"); analogia do działającego „Nickname:"
+(slot 4) była błędna. v14 przywróciło też wagi/etykiety/entry (te miały pokrycie w #17), więc
+winny padu to slot 5 lub szerokość broadcastu — nie rozstrzygane, bo:
+
+**PRZEŁOM — obserwacja ze stanu użytkownika:** `imenu01.EDAT` v9 (47 272 B, **podwojony**,
+z PEŁNYMI slotami EN — „Voice:", krótkie nazwy, wagi itd.) siedzi w folderze emulatora od sweepa
+i **działa przez wszystkie testy v13/v14**. Czyli te same treści słowników, które wywracają grę
+po stronie configNN, są nieszkodliwe po stronie imenuNN (a loader imenu toleruje nawet podwojenie
+rozmiaru). Encyklopedia czyta imenuNN (21.34) — **gracz nic nie traci**.
+
+**Fix trwały (w builderze):** `configNN.EDAT` zawsze traci wiersze kategorii spare
+(`config_side_spare_row`: voice_actor/short_name/alt_name/entry/config_label/robo_note/robo_type/
+robo_name_narrow/robo_weight), imenuNN je zachowuje. Weryfikacja: pełny pakiet v11 + nowy builder
+→ config01–08 **bajt w bajt = działające v13** (8/8 md5). Od teraz HOKUS_POKUS jest bezpieczny
+z konstrukcji; pakiety nie potrzebują ręcznegoIdentity-droppingu.
+
+**Odpowiedź na pytanie o „pełny DLC":** prawda — przetestowany stan to config01–08 v13 +
+imenu01 v9 + połowa B v9 (boot, dostęp do rozdz. 9+) + oryginały w pozostałych plikach połowy A
+(imenu02–08, eventP01–09, evept101–104, mesbtl01–15). Pełny zestaw DLC EN doczeka osobnego testu
+końcowego.
+
+**v15-test (jedna runda, bez nowych plików ode mnie):** (1) przywrócić config01–08 **v13**
+(pliki z zipa v13 — v14 w folderze padają!), (2) dołożyć `imenu02.EDAT`–`imenu08.EDAT` **v9**
+z folderu `D:\SRWOE\NPJH50521_v9` (imenu01 v9 już jest). Spodziewane: DZIAŁA (kształt imenu01
+jest dowiedziony) → encyklopedia rozdz. 2–8 znów pełna EN. Jeśli pada → imenu02–08 wracają do
+oryginałów, a analiza bierze pod uwagę, że coś w imenu02–08 różni się od imenu01.
+
+### 21.44 Priorytet użytkownika: 100% tłumaczenia, potem patcher (2026-10-16)
+
+**Decyzja użytkownika:** nie „bezpieczny stan do grania", tylko pełne tłumaczenie najpierw; potem
+naprawa patcher.zip (kit dystrybucyjny PATCH.bat z sesji 8 — zawiera NARZĘDZIA sprzed dzisiejszych
+poprawek, więc buduje zatrute config01–08 → stąd „nie działa"; odbudowa kitu aktualnymi narzędziami
+dopiero po potwierdzeniu pełnego stanu w grze).
+
+**KOREKTA (użytkownik zakwestionował, weryfikacja wiersz-po-wierszu pakietu v9 2026-10-16): tekst
+jest przetłumaczony w 100%.** Lista „braków" z pierwotnego zapisu była błędna — sprawdzono:
+- 293 „puste" w 06_scenes = strukturalne wiersze-indeksy scen (nie tekst; wskazywane przez nie
+  wiersze dialogowe są przetłumaczone), + 2 wiersze dialogowe z samą spacją (nic do tłumaczenia);
+- 3 645 identity = 「…」/PSN-ID/tytuły muzyczne — celowo identyczne, nie braki;
+- exe: 2 puste JP + 2 tokeny silnikowe (celowo JP) — reszta EN, 0 identity;
+- 12 „odrzuconych" notatek misji MA angielski (poprzednią wersję); odrzucono tylko nowszy wariant
+  z EN3 (za szeroki: 49 > 39) — kosmetyka, nie brak;
+- „Reszta JP ch.6-7…" w CO_NOWEGO_v9 opisywała stan PRZED importem EN3 (23 030 nowych EN) — po
+  imporcie 0,0% wierszy JP w każdym rozdziale (liczone per eventP: dialogi/cytaty/notatki);
+- 325 problemów w build_report = wiersze-stubble wskazujące nieistniejące rekordy (higiena pakietu,
+  brak widocznego tekstu).
+Prawdziwe pozostałości (poza tekstem): podpisy tekstur 連/名/用 (6-px, §21.35), ewentualny re-wording
+12 notatek, rebuild patcher.zip. Wniosek: JEDEN test (folder v9 + config01–08 v13) przesuwa grę do
+100% zawartości pakietu; po nim rebuild patchera.
+
+### 21.45 Triage zgłoszeń ze screenów Krok-1: misja 2.1 `"`, JP nazwy wrogów, glify (2026-10-16, offline)
+
+Stan po Kroku-1 (pełny folder v9 + config01–08 v13): gra działa, tekst głównie EN. Trzy zgłoszenia.
+
+**(c) Misja 2.1 — dialogi wszystkich postaci = znak `"` [W TOKU]**
+
+- Pakiet czysty: eventP02 (misja 2.1 = DL102_20/30?) 4 077/4 077 EN; wiersze dialogowe DL102_20
+  (181 dialogów) — 0 z ASCII-quote na brzegu EN; jp bez 「」.
+- Pobrany z Drive plik DLC `eventP01.EDAT` (id `1IcqZvZ9…`, 326 456 B, md5 `f6c73f54…`) = ORYGINAŁ JP
+  (295 runów JP w DL102_20.bin), nie build.
+- Rebuild bieżącymi narzędziami (orig + pakiet_v11, `--only eventP01.EDAT`, bez ui/exe):
+  582 456 B, md5 `61136b1c7e0392a3538dbbf86ebf7bd8`. DL102_20.bin: 295→0 runów JP, 8→274 runów EN
+  (np. „JSDF Training Range", „HQ, HQ! Please respond!"), 0 samotnych `"`+NUL; pole długości bloku
+  po location zaktualizowane 52→44 (zgodnie z nową długością). Podwójony tekst EN jest w pliku.
+- Format EVNT (DL102_20.bin): nagłówek `EDAT`+rozmiar, sekcje `EVNT`/`ECHK`, wpisy indeksu
+  (offset, długość, pole-wartość), potem ciągi tekstów; pisarz aktualizuje rozmiary sekcji i pola.
+- Pisarz eventów (`event_text_apply.py`, `table_rows_refresh.py`) NIEZMIENIONY od `5aefd04` — ten sam
+  kod, który zbudował zweryfikowany w grze eventP00.cpk (ISO, T1).
+- Kit dystrybucyjny `srw-oe-translation-v9.zip` (z Drive, 6 833 409 B): PATCH.bat buduje ISO+DLC
+  narzędziami z kitu; translation/*.jsonl == pakiet v9 (md5 zgodne); tools różnią się od repo w
+  2 plikach: `build_translation_patch.py` (era koperty) i `configst_pack.py` (wyłącznie parametr
+  `tail_align`, domyślnie zachowanie identyczne) → eventy z kitu == eventy z bieżącego repo.
+- Wniosek: poprawnie zbudowany eventP01.EDAT nie może wyświetlać `"` z treści, którą zawiera.
+  Hipotezy: (1) u usera plik inny niż rebuild (stary mix z folderu v9 z 14.10) — do rozstrzygnięcia
+  md5 pliku z emulatora; (2) subtelny problem formatu DL102 (pole długości/indeks) — bisekcja
+  offline, jeżeli (1) odpadnie. Oczekiwanie na `eventP01.EDAT` usera z folderu DLC w emulatorze.
+  Mój rebuild (kandydat na podmianę): 582 456 B, `61136b1c7e0392a3538dbbf86ebf7bd8`.
+
+**(b) Robot Viewer — JP nazwy wrogów (邪竜兵) [ROZPOZNANE, fix w rundzie ISO]**
+
+- Pakiet: `08_names_units_weapons.jsonl` ma 954 wierszy RoboDictionary, ale tylko 7 `name` +
+  7 `name_narrow` (w tym 邪竜兵→„Dragon Soldier"); reszta = series/length/weight/type/note.
+  Kontener pusty („") = sloty per-rozdział configNN.EDAT.
+- `RoboDictionary00` (globalny słownik, ISO config00.cpk): **0 wierszy** — nigdy nie eksportowany.
+- v13 celowo nie pisze na stronę config slotów bez pokrycia w #17 (w tym `robo_name_narrow`) —
+  kategoria crashowa (v12A/v14); dlatego widok czyta JP z configNN (narrow JP) albo z globalnego
+  RoboDict00 (JP, nietknięty).
+- Fix bez ryzyka config: wpisać EN nazwy (7 + uzupełnienie eksportu o pełną listę) do globalnego
+  RoboDict00 w ISO (config00.cpk) — w nadchodzącej rundzie rebuildu ISO (razem z (a) i resztkami exe).
+  Ewentualna weryfikacja, czy widok czyta configNN narrow, dopiero gdyby fix ISO nie zadziałał.
+
+**(a) Glify 連/名/用 → EN [WYKONALNE, zaplanowane]**
+
+- Pipeline tekstur istnieje i jest zweryfikowany w grze (STORED GIM, `ui_texture_patch.py` + specs
+  `ui_labels`). Do dopisania: specs dla 3 glifów (6-px wysokość podpisu, §21.35) — wpis EN zamiast
+  連/名/用. Termin: ta sama runda ISO co (b).
+
+Następny krok: plik `eventP01.EDAT` usera z emulatora → md5 → (1) podmiana albo (2) bisekcja
+formatu. Po zamknięciu (c): runda ISO (glify + globalny RoboDict00 + resztki exe) jako JEDEN test.
+
+### 21.46 Misja 2.1 `"` — hash usera = rebuild → polowanie na format; ZNALEZIONE stare kotwice 0x13E (2026-10-16, offline)
+
+Stan wejściowy: md5 pliku usera z emulatora = `61136b1c…` = mój rebuild → plik poprawny,
+objaw mimo to jest. Wykluczenia (wszystkie sprawdzone bajtowo):
+- pliki towarzyszące (`_Entry.dat` 1024 B, `_edit.dat`, `_ext.dat`) identyczne orig↔build
+  (tytuł w `_ext.dat` przetłumaczony, oba egzemplarze — +0x18 i +0xb8);
+- spacer rekordów: 434 = 434, typy w kolejności zgodne, 145 rekordów tekstowych z poprawnie
+  przeliczonymi rozmiarami, nagłówki bloków (36/76/148 B, „ENCK") identyczne;
+- koperta CPK: ta sama reguła co w oryginale (sloty co 0x800 liczone po rozmiarze ZAPISANYM;
+  nasze człony stored zamiast CRILAYLA — to samo jest w config v13, który działa → koperta niewinna);
+- teoria „cudzysłowów w pakiecie" — sfalsyfikowana (iluzja repr; realnie 5 wierszy eventP01
+  z quote na brzegu, 207 w całym pakiecie — kosmetyka do uporządkowania, nie przyczyna masy);
+- wariant PAD (EN dosunięte do długości JP) — martwy tor diagnostyczny: moja transformacja
+  dała U+FFFD, builder część kroków odmówił; NIE wyciągać z niego wniosków.
+
+**ZNALAZIONE [ZWERYFIKOWANE na bajtach]:** rekord **0x13E** niesie bezwzględne u32-offsety do
+puli tekstów członu. DL102_20.bin: `0x13E@88` słowo = 1133 (kotwica `\n` tekstu なにっ！\r\n,
+span 1124..1134) i `0x13E@104` słowo = 1124 (start tego tekstu). Po tłumaczeniu teksty się
+przesunęły, offsety zostały → silnik czytał ze starych miejsc: w buildzie 1124 wpada w środek
+„What?!\r\n", 1133 w bajt 0x8F (tofu), inne kotwice w pola typów rekordów 0x222 (`22 02 00 00`
+→ render `"` + stop na bajcie kontrolnym) — zgodne z objawem „pojedynczy cudzysłów".
+Rozdział 1 działa, bo jego człony zasadniczo nie mają 0x13E (w eventP00 tylko DL102_11: 1 szt.).
+Statystyka dokładnych trafień w starty tekstów wskazuje też 0x12C/0x160/0x171/0x218/0x168/0x258/
+0x176/0x189, ale te same typy niosą wartości-id (`0x155` słowo = id 10010 = jednocześnie start
+spanu) → **remap ograniczony do 0x13E**; pozostałe typy tylko logowane (dotknięcie = korupcja id).
+
+FIX (`event_text_apply.py`): `remap_text_anchors()` po wzroście tekstów — mapa spanów wg
+indeksu rekordu (kolejność stała), słowa 0x13E przemapowywane linioowo (kotwice „start" i
+„\\n"; `_map_inside`), pozostałe typy tylko suspects w raporcie. `apply_member` woła po wzroście,
+przed `verify`. Testy: `tests/test_event_anchor_remap.py` (3: start za tekstem, kotwica `\\n`,
+kolizja id nietknięta); suite **1 284 OK**/24 skipped/308 subtests.
+
+Rebuild eventP01.EDAT (pakiet v11): **3 remapy 0x13E** (DL102_20: 1124→1120, 1133→1127;
+DL103_20: 1128→1104), 0 stale po remapie, problems 0, spacer czysty.
+**md5 `0106b2378e6898ca83a1bf336ed63425`, 582 456 B** (vs stary build `61136b1c…`).
+
+Test wysłany (folder Drive „eventP01 test 2026-10-16 (misja 2.1)"): KROK 1 eventP01 naprawiony;
+KROK 2 oryginał JP (kontrola); KROK 3 config01-08 **build #18** (out12B, 8/8 md5 z diagnozy —
+słowniki PEŁNE, bez gubienia wierszy spare). Drzewo decyzyjne: 1→koniec; 2 rozdziela
+event↔reszta; 3 rozdziela config v13 (zgubione wiersze słowników = podejrzany o `"` gdy 2 pokaże JP)
+↔ głębsza przyczyna (EBOOT/ISO). Po teście: jeśli #18 → budowa config „v15" (treść v13 + pełne
+słowniki); jeżeli dopiero krok 4 → diagnostyka EBOOT.
+
+### 21.47 Misja 2.1: pomyłka pliku (DG Cells = eventP02), test v1 bez rozstrzygnięcia; todo First Clear Bonus (2026-10-16)
+
+Wyniki testu v1 u usera: KROK 1 (eventP01 z remapem 0x13E) — dalej `"`; KROK 2 (eventP01 JP
+oryginał) — **nic się nie zmienia**: narracja/nazwy/tytuły dalej EN, dialogi dalej `"`.
+Wniosek: eventP01 nie zasila tej misji. Identyfikacja właściwego pliku po tekście usera
+(„Doki Doki Space, in a certain galaxy."): **The Terror of the DG Cells = eventP02.EDAT,
+człon DL105_50.bin** (narracja + dialogi; tytuł też w DL105_50_ext.dat @344 i
+config02.EDAT/milstP02.bin). Poprzednie utożsamienie „misja 2.1 = DL102_20" (JSDF Training
+Range) było błędne — to inna misja rozdziału 2.
+
+Wykluczenia (DL105_50, orig↔build, bajtowo):
+- nagłówki bloków identyczne; 0x222 (3 szt., pary i32: −476/−3509/−3429 + dodatnie-id) — payloady
+  identyczne orig↔build; brak 0x13E w tym członie; 0xCA/0xD9/0xDA (separatory/stopka) identyczne;
+- **żadne słowo u32 w pliku (orig i build) nie wskazuje na pozycje, z których odczyt renderowałby
+  `"` ani na rekordy 0x222** (0 trafień) — mechanizm „wskaźnik wpada w 0x22" sfalsyfikowany;
+- kontrola porządkowa weryfikatora: porównywanie słów po absolutnych pozycjach jest bezwartościowe
+  po przesunięciu rekordów (tylko pary rekordów po indeksie mają sens).
+
+Kontekst: rozdział 1 (eventP00) działa z 289 wartościami „wewnątrz spanów" uznawanymi przez moje
+heurystyki za kotwice — samo „wartość w tekście" nie dowodzi wskaźnika; stale 0x13E z DL102_11
+(eventP00) nie psują tam gry. Zatem remap 0x13E (§21.46) jest poprawną naprawą rzeczywistych
+wskaźników, ale NIE dowiedzianym fixem `"`. eventP02 naprawiony remapem: 5 szt. (DL206_12: 1129→1185,
+DL206_70: 1127→1176, DL208_11: 1078→1084 i 1079→1084, DL209_35: 1124→1147);
+**md5 `78469ce755fcd5df9b3e7053664ae17a`, 650 104 B**.
+
+Test v2 (folder Drive „eventP01 test 2026-10-16 (misja 2.1)", INSTRUKCJA_misja21.txt):
+KROK A eventP02 JP oryginał (`60316f46…`, 367 480 B) — dialogi JP? → wina naszego eventP02;
+KROK B config01–08 **#18** (eventP02 bez zmian) — dialogi EN? → wina config v13 (słowniki);
+KROK C (tylko po A) eventP02 naprawiony. KROK D = nic → diagnostyka EBOOT/ISO po mojej stronie.
+Nota: pisarz eventów był dotąd weryfikowany w grze tylko na rozdziale 1 (eventP00); rozdziały 2+
+to pierwsze realne testy — stąd obserwowane problemy mogą dotyczyć wszystkich misji 2+.
+
+**TODO (kolejka czystki, zgłoszenie usera):** napis „First Clear Bonus" za szeroki — zachodzi na
+„Cash +5200" na ekranie nagród (overlap layoutowy; szukać w exe/config labelach szerokości
+„First Clear Bonus" vsJP oryginał, ewentualnie skrócić/złamać wiersz).
+
+### 21.48 Misja 2.1: JP eventP02 → narracja JP, dialogi dalej `"` → dialogi NIE z eventP02; potrzebne B + kontekst (2026-10-16)
+
+Wyniki testu v2 (user): eventP02 naprawiony → `"`, eventP02 oryginał JP → **narracja i nazwy JP,
+dialogi dalej `"`**. Wniosek twierdzący: plik jest czytany (narracja się zmienia), ale dialogów
+misji nie dostarcza eventP02 — nawet japońskie nie są wyświetlane. `"` istnieje u usera przy
+100% oryginalnym eventP02 → źródło `"` jest w innym pliku.
+
+Wykluczenia offline w tej turze:
+- config02.EDAT/pac: 20 podplików (słowniki, listy, milstP02, mesbmp02 216 B...) — brak treści
+  dialogowych; dialogi misji nie siedzą w config02 bezpośrednio;
+- kit 14.10 vs repo: quotes_apply/evnt_walk/cpk_write identyczne; event build różni się tylko
+  o remap 0x13E → mesbtl02/evept02 z kit-era == obecne narzędzia;
+- evept101–108 = człony z sufiksami liter (B–J) misji; DL105_50 (DG Cells) NIE ma rozszerzeń
+  (DL105_50B/C nie istnieją w pakiecie) → scenki misji tylko w eventP02;
+- wiersze pakietu z en == dosłowny `"`: tylko 2, w 09_executable (PBOOT/DATA.PSP, tłumaczenie
+  「」→") — menu, PPSSPP release ignoruje DLC PBOOT — niewinne.
+
+Hipotezy pozostałe (do rozstrzygnięcia testem/kontekstem):
+(1) config v13 (zgubione wiersze słowników) pośrednio psuje ładowanie dialogów misji 2+ →
+    KROK B (config #18) rozstrzyga;
+(2) dialogi oceniane przez usera to inny widok niż scenka (mid-battle/intermecja) → prośba
+    o screen z `"` (kontekst okna) — zidentyfikuje który strumień tekstu;
+(3) mix/obce pliki w folderze DLC → prośba o `dir` folderu DLC do porównania z zestawem v9.
+
+### 21.49 Misja 0-0 też `"` → wspólny mianownik: imenu v9 = słowniki; teoria rozjazdu słowników (2026-10-16)
+
+Kluczowy raport usera: **misja 0-0 (eventP00.cpk, dawniej działająca) też pokazuje `"`** →
+coś wspólnego dla wszystkich misji, spoza plików eventów. KROK B v2 (config #18) = crash na
+Loading (przewidywany przez usera — ale UWAGA: #18 był kiedyś "sprawdzony w grze" z JP imenu;
+crash dziś = kombinacja #18 + imenu v9, co samo w sobie jest nowym faktem o sprzężeniu
+config↔imenu). Screen: `"` w oknie scenki filmowej (dół ekranu, portret) = kanał dialogów
+z mówcą; narracja działa.
+
+Analiza (bajtowo): **imenuNN.EDAT v9 vs oryginał różni się WYŁĄCZNIE słownikami**
+(imenu01: srwDL_CharaDictionary01 15 688→16 688 B, srw_DL_RoboDictionary01 9 702→9 790 B;
+żadnych czcionek/layotów — "imenu" to kontener słowników rozdziału dla menu/encyklopedii).
+Okno dialogowe z portretem rozwiązuje mówcę przez słownik postaci → teoria: config v13
+(builder gubi wiersze spare słowników na stronie config) + imenu v9 (pełne słowniki v7-era)
+= rozjazd tabel mówców → lookup failuje → render `"`; dotyczy wszystkich rozdziałów (0–8),
+bo config01–08 v13 wszędzie mają zgubione wiersze. Zgoda z historią: w erze #17–#19
+(konfig wąskie) imenu były JP (spójne wąskie) → dialogi działały; imenu v9 przetestowany
+jako pojedynczy plik (imenu01) na tle JP-configów → działał (boot/GUI), ale nigdy nie był
+testowany w parze z config v13 przy dialogach.
+
+TEST v3 (Drive, folder „eventP01 test 2026-10-16 (misja 2.1)"): imenu01-08_oryginalne_JP.zip
+(8 plików; md5 w opisie; imenu01 `ea35a0f9…`, 02 `ad04d83c…`, 03 `887c8887…`, 04 `6fcdf2a5…`,
+05 `7e30d464…`, 06 `a2a753a1…`, 07 `3aecd672…`, 08 `fbc24e83…`) + INSTRUKCJA_imenu_test.txt.
+Wynik A: dialogi wracają (EN z eventów v9) → wina imenu v9; FIX: imenu zbudowane słownikami
+zgodnymi z config v13 (ta sama reguła spare). Wynik B: `"` dalej → wina samego gubienia
+wierszy w config v13; FIX: config v15 (pełne słowniki) — z ryzykiem znanym z v12A/v14
+(tokenowy slot do izolacji).
+
+### 21.50 imenu uniewinnione; v13 vs #18 różni się TYLKO słownikami (+DLC_ID); test v4: #18 → v15a (2026-10-16)
+
+Wynik testu imenu (user): JP imenu01–08 → dialogi dalej `"` → **imenu v9 uniewinnione**.
+Eliminacja T1→dziś dla misji 0-0 (eventP00 z ISO ten sam, imenu teraz JP): zostaje
+**config01–08 v13** jako bezpośredni podejrzany.
+
+Diff strukturalny (bajtowo, config01 i config02): v13 vs #18 różnią się WYŁĄCZNIE
+`srwDL_CharaDictionaryNN.bin` (v13 o ~350–400 B MNIEJSZY), `srw_DL_RoboDictionaryNN.bin`
+(v13 o ~130–370 B mniejszy) i `srwDL_DLC_IDNN.bin`; wszystkie listy (charalist, unit_list,
+wp_list, milstP, mesbmp, Skill/Item pool) **identyczne bajt w bajt**. Mniejszy słownik =
+skrócenia + gubione wiersze spare (§21.43). Mechanizm hipotezy: brakujące/przesunięte wpisy
+słownika postaci psują lookup mówcy okna dialogowego → render `"` (dotyczy wszystkich
+rozdziałów; narracja bez mówcy działa — zgodne z każdym dotychczasowym obserwacją).
+
+Przygotowane i wysłane (folder „eventP01 test 2026-10-16 (misja 2.1)"):
+- **v15a** = config01–08 v13 ze słownikami podmienionymi bajt-w-bajt z #18 (surgery:
+  parse_pac → swap 2 członów → rebuild_pac → `_replace_member`; config01: 2 człony,
+  config02–07: 2, config08: 1 — CharaDict08 identyczny). zip md5 `f426f4c5…`;
+  config01 `c51ed769…` (247 936), config02 `3aaac8ea…` (159 872), config03 `57c15439…`,
+  config04 `b748f51c…`, config05 `28a178b3…`, config06 `da7b01d6…`, config07 `fce32baa…`,
+  config08 `9ee88e2b…` (po 1–2 remapy rozmiarów 247 936/159 872 itd. jak w v13).
+- INSTRUKCJA_test_v4.txt: KROK 1 = #18 (z JP imenu, które user już ma — para
+  historycznie sprawdzona; wcześniejszy crash #18 był z imenu v9); KROK 2 = v15a.
+Drzewo: 18 OK → slowniki/roznica potwierdzona; v15a OK → v15a = nowa linia configów
+(zostaje); v15a zły → hybrydy na DLC_ID/resztę. 18 zły → config odpada, wraca
+EBOOT/ISO/emulator (prośba o md5 ISO).
+
+### 21.51 Korekta usera: config01-08 NIGDY nie działały u niego; koniec testów configów; droga = DIAGNOZA (2026-10-16)
+
+User (słusznie, stanowczo): „te pliki powodują crash i dokładnie tak się stało… ONE NIGDY
+NIE DZIAŁAŁY. ZAWSZE DAWAŁY CRASH na Loading" — także #18 i v15a (v15a najwyraźniej też
+crashnął, user przerwał). Zostaje v13 jako jedyny wczytujący się zestaw. Koniec wysyłania
+config01-08 do testów. KOREKTA STANU WIEDZY: wpisy „#17/#18 sprawdzony w grze" z wczesnej ery
+nie przenoszą się na dzisiejszy stan usera (kombinacja z imenu/eventami z innych er).
+
+Ścieżka po korekcie: mesbtl02 rebuild offline — człony mesbtl zawierają WYŁĄCZNIE 0xC8/0xC9
+(nic do remapowania; stale-pointers nie dotyczy mesbtl od środka). Pięć wierszy exe z `"` tylko
+w DATA.PSP (PBOOT, ignorowany). Nie mając już wiarygodnej mapy „co jest faktycznie wgrane"
+(moje modele stanu usera okazywały się nieaktualne/kolidujące), jedyną rzetelną drogą jest
+ZEBRANIE FAKTÓW: DIAGNOZA.bat + aktualne tools (zip na Drive, 560 960 B, md5 `e0eaa751…`) —
+tylko czyta: md5 każdego pliku folderu DLC + 5 członów ISO (config00/mesbtl00/imenu00/
+eventP00/configst) + rozpoznaje znane buildy (KNOWN_*). User odsyła DIAGNOZA.txt → porównanie
+offline → wyznaczenie winowajcy bez dalszych testów-kopyć. Dodatkowe pytanie w treści: czy
+w PPSSPP włączone cheaty (Cheats/NPJH50521.ini z ery EXE_TEST — poki w EBOOT mogą trafiać
+w złe adresy przy innym buildzie ISO).
+
+### 21.52 Korekty usera i fakty: ISO eventP00 == czysty rebuild; korelacja `"` ↔ config v13; plan (2026-10-16)
+
+Korekty usera (przyjęte bez zastrzeżeń): (1) dialogi SĄ w eventPXX — teza o evept jako źródle
+dialogów cofnięta; (2) config01–08 u usera NIGDY nie działały (zawsze crash na Loading,
+bisekcja: DLC→config→pierwsza ósemka); v15a też crashnął; (3) cheaty OFF od dawna.
+
+Fakty offline tej tury:
+- **eventP00 v9 z ISO (`a3b1dfc3…`, 258 520 B) == mój świeży rebuild z JP+pakietu (42/44
+  członów identycznych; jedyne różnice: DL102_11_ext.dat — stary wariant tytułu).** Pisarz
+  eventów niezmieniony, remap 0x13e nie zmienia eventP00 (jego 0x13e nie celuje w teksty).
+  → dane dialogów 0-0 w ISO są NIEZEPSUTE; „stare narzędzia w ISO" wykluczone.
+- Rozmiary słowników config01: CharaDict JP 15 688 / v13 15 712 / #18 16 104; RoboDict JP
+  9 702 / v13 9 672 / #18 9 800. v13 ≠ JP ≠ #18 (WSZYSTKIE trzy różne).
+- **Kluczowa korelacja (z relacji usera): `"` występował wyłącznie przy config01–08 v13
+  w folderze; z japońskimi configami dialogi działały.** v13 dropi na stronie config kategorie
+  {voice_actor, short_name, alt_name, entry, config_label, robo_note, type, name_narrow,
+  weight} — jeśli tabliczka mówcy okna dialogowego czyta short/alt_name, lookup w v13 failuje
+  (kategorie nieobecne) → render `"`, narracja bez mówcy nietknięta, JP eventy nie pomagają
+  (awaria warstwy config, nie tekstu). Zgodne z każdym dotychczasowym faktem.
+- Ryzyko: v15a (v13 + pełne EN słowniki #18) crashował → dotykaniu słowników towarzyszy
+  ryzyko Loading-crash; JP słowniki (rozmiary oryginalne) są najlepszym kandydatem na
+  bezpieczne przywrócenie (oryginalne bajty = oryginalne offsety).
+
+Plan: (1) user zostawia wczytujący się stan (pełny v9 + config v13 + JP imenu) i odpala
+DIAGNOZA.bat (zip na Drive, §21.51) → fakty o DLC i ISO; (2) po fakty: JEDEN test config v16
+(v13 z słownikami bajt-w-bajt JP — tylko listy EN; ewentualnie najpierw tylko restore
+short/alt_name jako JP). Bez dalszych ślepych testów.
+
+### 21.53 User robi czysty build (JP ISO + JP DLC + v11); v16 = configi 01-19 ze slownikami JP; test v5 (2026-10-16)
+
+User zbudowal HOKUS_POKUS-em z biezacego repo (798cd015) na JP ISO 1.08 + pelnym JP DLC
+(pakiet v11). Raport: 21 „problemow" = oczekiwana bramka spare (config01-19) + 2 odrzucone
+wiersze exe (PBOOT/DATA.PSP, ignorowane przez PPSSPP) — build zgodny z projektem.
+
+Przygotowanie v16: Sciagniete JP config09-19 (orig folder; config09 `542702dc…` 18 560 B,
+config10/11 32 896, config12/13/14 34 944, config15/16/17 30 848, config18 24 704,
+config19 32 896). Rebuild config01-19 biezacym builderem (out_v16base; config09 przetworzony
+z 0 krokow → builder nie zapisuje → JP zostaje). Surgery v16: w kazdym configNN podmiana
+`srwDL_CharaDictionaryNN` + `srw_DL_RoboDictionaryNN` na bajty JP (parse_pac → swap →
+rebuild_pac → `_replace_member`). Wynik: 19 plikow (config01 `5e35a37e…`, 02 `ac0c2cad…`,
+03 `2627db86…`, 04 `4eb372b7…`, 05 `85238292…`, 06 `2bb0f6ad…`, 07 `142765ab…`,
+08 `a0afb244…`, 09 JP `542702dc…`, 10 `ecf473ed…`, 11 `0f3b79ce…`, 12 `9afd1115…`,
+13 `35f6e169…`, 14 `a70e8ea0…`, 15 `67ca30a6…`, 16 `d29d0d03…`, 17 `a37d4da3…`,
+18 `504833ef…`, 19 `6f5de53e…`); rozmiary == bazowym buildowi (247 936/157 824/...).
+zip `config01-19_v16.zip` md5 `78145d30…` (1 315 112 B, 19 plikow) + INSTRUKCJA_test_v5.txt.
+
+Test v5 (JEDNA sesja): (1) caly folder DLC ze swiezego buildu usera do emulatora (usuwa
+mix er), (2) na wierzch config01-19 v16, (3) misja 0-0 → dialogi? Wyniki: OK (dialogi EN,
+tabliczki mogly zostac JP — slowniki config sa JP z wyboru) / nic → DIAGNOZA.txt / crash
+(slowniki JP crashuja — bylby zaskoczeniem). Folder testowy na Drive sprzatniety: pozostaja
+DIAGNOZA_narzedzia.zip, config01-19_v16.zip, INSTRUKCJA_test_v5.txt; reszta (eventy testowe,
+build18, v15a, stare instrukcje, imenu JP zip) do kosza.
+
+Uzasadnienie v16 wobec historii crashy: v12A/v14 crashowaly przy EN slownikach z NOWYMI
+slotami (v7-era cells); v16 przywraca ORYGINALNE bajty JP (rozmiary oryginalow) — zero
+modyfikacji struktury slownika; ryzyko Loading-crasha minimalne. Jezeli i to crashuje,
+wina lezy w sprzezeniu config↔reszta i DIAGNOZA wskaże where.
+
+### 21.54 MECHANIZM `"` ZNALEZIONY: tablica interpunkcyjna EBOOT (「 　」) uszkodzona przez exe strings; FIX = revert 3 wierszy (2026-10-17)
+
+Rozstrzygajacy test usera: **JP ISO 1.08 + DLC z wlasnego buildu (configi v16 na wierzchu)
+= misja 2-1 EN, dialogi WYSWIETLAJA SIE poprawnie.** → caly DLC (eventy, mesbtle, configi,
+imenu) niewinny; wina zawartosci ISO. v16 potwierdzone w grze jako bezpieczne (md5 w
+DIAGNOZA sekcja 4 zgadzają sie z §21.53: config01 `5e35a37e…` itd.).
+
+DIAGNOZA (2 sztuki: stan „pelnego v9" i stan po buildzie 00:21): ISO = budowa 00:21
+(EBOOT `4d8b8a85…` = output raportu 8ba77a79→4d8b8a85; user przeniosl build i odpala z
+innego katalogu - oba skany spójne). config00/configst/imenu00 w ISO = stare buildy
+(nieznane md5), eventP00/mesbtl00 = era v3/2026-10-15 == czyste rebuildy. PBOOT.PBP w DLC
+(6,19 MB) - PPSSPP release ignoruje.
+
+Mechanizm (HIPOTEZA MOCNA, spójna 1:1 z artefaktem): w 09_executable wiersze
+`0x08bf9fbc/9fc0/9fc4/9fc8` = 4 komórki co 4 bajty - tablica interpunkcyjna silnika
+dialogów (・ 「 　」). Zastosowane 3 (「→`"`, 　→``, 」→`"`) zmienily dlugosci bajtowe
+(2B SJIS → 1B ASCII); 9fbc (・→·) odrzucony przez codec - przypadkowo uratowany. Silnik
+czytajacy uszkodzona komork otwarcia cytatu rysuje pojedynczy `"` i porzuca reszte linii
+- dokladnie artefakt usera; narracja (bez cytatów) nietknieta; JP EBOOT (test usera) = OK.
+
+FIX: `09_executable_fix_cudzyslowy.jsonl` (md5 `ba8e2a8a…`, 142 749 B) = v11 09 z tymi 3
+wierszami en:=jp; upload na Drive + INSTRUKCJA_test_v6.txt (podmiana w pakiet_EN →
+HOKUS_POKUS → test 0-0/2-1; wyniki FIX OK / FIX nic / FIX crash). Plan B gdyby FIX nic:
+revert kolejnych ryzykownych dlugosci-zmieniajacych wierszy (＞→>, 倍→x, 地/空/防/命→3-literowe).
+
+### 21.55 WYNIK TESTU v6: FIX OK — dialogi działają; problem `"` ZAMKNIĘTY (2026-10-17)
+
+User po podmianie 09_executable (revert 3 wierszy tablicy interpunkcyjnej) i rebuildzie
+HOKUS_POKUS: **DZIAŁA — dialogi są** (misje 0-0 i 2-1). Mechanizm z §21.54 potwierdzony
+grą: uszkodzenie tablicy interpunkcyjnej EBOOT (「 　」→ ASCII) = pojedynczy `"` zamiast
+dialogu. Cudzysłowy kwestii wracają do wyglądu JP 「…」 (struktura, nie treść).
+Stan po fixie: pełny build (ISO+DLC) z 1 linii (JP ISO 1.08 + JP DLC + pakiet v11-fix),
+configi v16, wszystko spójne. Backlog na życzenie usera: (1) glify 連/名/用 w ikonach,
+(2) JP nazwy mechów enemy (Robot Viewer), (3) za długie info o nagrodzie, (4) patcher
+one-click (poprzednio brakowało plików do ikon).
+
+### 21.56 Backlog: glif 連→LNK; exe 404/404 (2 resztki naprawione); patcher v12 (ui_labels+assets w zipie) (2026-10-17)
+
+- **Glif 連** (ui_labels/intsys_01.json `link_icon`, box 13×16): en ''→**'LNK'**, size 9 /
+  min 6 / squeeze 0.8 / center (styl jak terrain badges). 名/用 pozostają wymazane (gra
+  rysuje tam tekst dynamicznie - erase jest poprawny); pictogramy bez tekstu. Jedyne
+  widoczne JP w ikonach po v12: brak w ramach 26 specyfikacji.
+- **exe resztki → 404/404:** `0x08bf9fbc` ・→· (U+00B7, cp932 refuse) → **en:=jp identity**
+  (komórka tablicy interpunkcyjnej - po lekcji §21.54 nie ruszać długości; znak
+  przestankowy, nie treść). `0x08bfa0b4` '　機械神' 16 B > budget 11 → **' MachineGod'**
+  (11 B exact; składa się z '<Code Geass' + '>' w sąsiednich slotach). Pakiet finalny:
+  `09_executable.jsonl` md5 `f7dd28ef…`.
+- **Patcher one-click (przyczyna „braku plików do ikon"):** (1) build_distribution.py
+  nie pakował `ui_labels/` ani `assets/fonts/` (font Roboto wymagany przez specy) —
+  DODANE; (2) PATCH.bat: tekstury i tak domyślnie ON (`--no-ui-textures` to opt-out,
+  Pillow instalowany zawsze przez bata) — bez zmian; (3) dodane `--package/--version`;
+  staging `local/pakiet_v11/pakiet_EN_v11/` (25 plików + CO_NOWEGO_v12.txt).
+- **WYDANIE: `local/dist/srw-oe-translation-v12.zip`** 7 224 375 B, md5 `6a53774b…`;
+  140 plików: PATCH.bat, README, translation 26 (w tym 09 z fixem dialogów f7dd28ef),
+  tools 36, ui_labels 26, assets 3, docs 47. Weryfikacja zawartości zipa offline OK.
+- **Otwarte:** „za długie info o nagrodzie" — etykiety sysmes krótkie (Loot/Clear Bonus);
+  przepełnienie robi najpewniej długa EN nazwa przedmiotu składana w oknie nagrody.
+  Potrzebna treść z ekranu usera (paste/screenshot) do identyfikacji wiersza.
+  Robot Viewer (nazwy wrogów): builder mirruje RoboDictionary do config00 (build 00:21
+  przebudował config00.cpk) — oczekiwane EN w aktualnym ISO; potwierdzi user przy okazji.
+
+### 21.57 Robot Viewer i okno nagrody: mechanizm rozszyfrowany na md5-identycznym rebuildzie (2026-10-17)
+
+User przeslal screeny ze swiezego buildu: (1) Robot Viewer (Ryu Knight): nazwy glownie EN,
+ale 邪竜兵 ×2 JP + stopka 標準タイプ JP; (2) okno nagrody: „First Clear Bonus:" naklada sie
+na kolumne wartosci (Cash+5200).
+
+Metoda: rebuild config00.cpk z JP oryginalu (`266366c3…`) + pakiet v11 = **md5 identyczny
+z ISO usera (`f128e675…`, 936 064 B)** — mam bajtowo to, co user. Fakty:
+- unit_list02.bin (nie „unit_list"): fresh rebuild/v16 = EN `Dragon Soldier` ×9; JP orig = ×9 JP.
+- RoboDict02 fresh: name EN ×3, **narrow ×3 JP + type ×3 JP (bramka gated)**; v16: cale JP (z wyboru).
+- RoboDict00 (global): 'Bolt Robo' ×8 EN, 'Standard Type' ×3 EN; **Nie zawiera 430-432 ani
+  Go-Saurer/Gandoppler/Escort/Neppoon** (v9 rowniez ich nie mial — byl JP po nazwach).
+- Widok: lista = globalny slownik + fallback do slownika rozdzialu. Uzytkownik ma v16
+  (JP slowniki z selekcji na `"` — hipoteza falsyfikowana §21.54) → fallback daje JP.
+  **v16 do wycofania: obecny build ma wlasne configi 01-19 z EN nazwami (ksztalt v13,
+  wczytywanie udowodnione).** Ewentualny resztkowy JP po wycofaniu: sloty narrow/type
+  strony config (gated) — decyduje sie dopiero po tescie (lista czyta name czy narrow).
+- FIX nagrody: sysmes 14444/14447/34528/34531 `First Clear Bonus:` → **`First Clear:`**
+  (04_config_text md5 `bc499162…`).
+- **WYDANIE v13:** `srw-oe-translation-v13.zip` 7 224 947 B, md5 `26d3a9fd…` (v12 + fix
+  nagrody; changelog z ostrzezeniem o wycofaniu v16). Drive (root wydawniczy).
+- Otwarte potencjalnie: stopka 標準タイプ dla jednostek tylko-rozdzialowych (gated robo_type;
+  kosmetyka) i — gdyby lista czytala narrow — wieszanie bramki na narrow (osobna decyzja).
+
+### 21.58 Backlog usera: foe robots (narrow+type wydane), wyciszenie builda, cheaty opt-out, workflow Release, README (2026-10-17)
+
+User (screeny z buildu v13): (1) „Problemy (20)" podczas pracy patchera — czy musi się
+pokazywać? (2) usunąć cheaty z pakietu; (3) Foe Robots dalej JP (邪竜兵 ×2); (4) porządne
+README; (5) PATCH.zip jako automatyczny Release.
+
+- **(3) Foe Robots — ścieżka odczytu potwierdzona:** lista wrogów czyta słowniki strony
+  config (kopie RoboDictionaryNN), a dla jednostek tylko-rozdziałowych spada z globalnego
+  (config00) do rozdziału; czyta slot **name_narrow** (+type na stopce). W v13-line narrow/
+  type były bramkowane → JP. **Wydane:** `robo_name_narrow` + `robo_type` wracają do strony
+  config (to ORYGINALNE komórki JP — zamiana treści w miejscu, ta sama klasa operacji co
+  name/series/length); dalej bramkowane (v7 NOWE sloty + note/weight): voice_actor,
+  short_name, alt_name, entry, config_label, robo_note, robo_weight. Weryfikacja offline
+  (rebuild config01/02/04 z JP + pakiet_EN): RoboDict02 `Dragon Soldier` ×6 (name+narrow),
+  `Standard Type` ×3, JP 0; unit_list02 EN ×9; **rozmiary plików = oryginały** (247 936 /
+  157 824 / 108 672 — koperta trzyma). Ryzyko Loading-crasha oszacowane niskie (pierwotne
+  crashery = nowe sloty v7; dokładny toksyczny slot nieizolowany) — rollback = kit v13.
+- **(1) Wyciszenie:** komunikaty bramki (19×) i probe skill (tmpseigywe3.cpk „not a CPK
+  container ('\x00PSP')" — EDAT-magic w członie oryginału; przyczyna nieudomowiona, guard
+  dodany) idą do `report["notes"]`; stdout pokazuje JEDNO zdanie „Uwagi planowe (nie
+  błędy): … N wierszy w M plikach". „Problemy" = tylko realne (NOT written / build broke /
+  not found — jak w exit_status).
+- **(2) Cheaty:** `cheats/NPJH50521.ini` NIE jest już pisany domyślnie (EBOOT = udowodniona
+  trasa); opt-in `--cwcheat`. Zip nigdy ich nie zawierał (output folder — teraz czysty).
+- **Testy:** 4 testy exe (oczekiwały cheat-ini) → domyślnie brak / test pełny z
+  `cwcheat=True`; test bramki: narrow/type NIE są spare (+nowy test 21.58). **Suite 1 285
+  OK / 24 skipped / 308 subtests.**
+- **(4) README:** nowy README korzenia (PL: szybki start, co po angielsku, struktura,
+  disclaimer), README_DIST status bez „fully translated" (zasada), srw-oe-translation/README
+  do odświeżenia w osobnym kroku.
+- **(5) Release:** `.github/workflows/release.yml` (push main + workflow_dispatch, buduje
+  zip `build_distribution.py`, tworzy `patch-vN` i uploaduje) — **ALE** pakiet jest
+  gitignorowany (`.gitignore`: „proprietary text / game files, never committed"), więc CI
+  nie ma z czego zbudować zipa; **v14 opublikowana ręcznie przez `gh release create`
+  (tag patch-v14)**. Decyzja usera: (a) commit pakietu → pełna automatyka (repo publiczne —
+  wielkość ~200 KB tekstów jp+en), albo (b) zasada trzyma się → releases ręczne jedną
+  komendą (dokumentacja w README/HANDOFF).
+- **WYDANIE v14:** `srw-oe-translation-v14.zip` 7 226 319 B, md5 `f1833375…` (v13 + wydanie
+  narrow/type + wyciszenie + bez cheatów). local/ znowu wyparował między turami (limity
+  migawek; gitignore'owane katalogi są best-effort) — trwałe źródła: Drive + git.
+
+### 21.59 Korekty usera: README EN, test foe robots bez pelnego builda, psnpkgdecryptextract (2026-10-17)
+
+- **Test bez builda:** config01-19 (bez 09 — builder bez zmian) z linii v14 zbudowane z JP
+  oryginalow + pakiet_EN: rozmiary == oryginaly (koperta trzyma), RoboDict02 `Dragon
+  Soldier` x6 (name+narrow), `Standard Type` x3, JP 0. Zip `config01-19_foe_robots_test.zip`
+  md5 `5cda3602…` (1 296 450 B) + INSTRUKCJA_foe_robots_test.txt → folder testowy Drive.
+  User podmienia 18 EDAT w folderze gry, ISO bez zmian. Wyniki: WYGRANE / JP-FOE / CRASH
+  (rollback = stare pliki).
+- **README korzenia po angielsku** (target = angielskojezyczny gracz); wiersz DLC z
+  nazwa narzedzia deszyfrowania usera: `psnpkgdecryptextract` (tez w README_DIST tabela
+  wymagan).
+
+### 21.60 Test foe robots: WYGRANE; porządki korzenia (2026-10-17)
+
+User: „wszystko śmiga z plikami z drive, robot przetłumaczony" — **foe robots potwierdzone
+w grze** (narrow+type strony config; §21.58/21.59). Porządki repo: usunięte z gita artefakty
+ery probe'owej z 10.10: `registry.json` (2.8 MB — rejestr wywołań YACpkTool) i
+`diagnostics_20261010-142640.zip` (1.9 MB, 1120 plików logów/prob). Reszta drzewa
+przescanowana: jedyne duże pliki = pakiet (decyzja usera §21.58) + dokumentacja;
+`test-patches/eventP00-scena1.json` zostaje (żywe odwołania: PATCH_ISO_TEST.bat,
+iso_test_patch.py, build_test_spec.py, dokumentacja).

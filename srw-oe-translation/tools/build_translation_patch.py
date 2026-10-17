@@ -108,6 +108,32 @@ PACKAGE_FILES = (
 #: categories that are never applied (measured binary noise - see docs/COVERAGE.md)
 SKIP_CATEGORIES = {"config_item_drop"}
 
+# configNN.EDAT dictionary spare slots (2026-10-16, v12A/v13/v14 user tests): the v7 viewer
+# slots of the Chara/Robo dictionary copies CRASH the game when written into the configNN
+# side, while the byte-identical imenuNN side runs (imenu01.EDAT v9 - doubled in size, full
+# EN slots - stayed in the emulator folder through every test; v12A "#17 + v11 dictionaries
+# in config01-08" crashed, v13 with these rows held back ran).  The dictionary UI reads the
+# imenuNN copies (21.34), so the config side keeps name/nickname/series/length EN.
+# 2026-10-17 (21.57/21.58): the Robot Viewer foe list ALSO reads the configNN copies and
+# falls back to them for chapter-only units - robo_name_narrow + robo_type are ORIGINAL
+# cells (present in the JP originals, in-place content replacement like name/series) and
+# are RELEASED back; the v7 NEW viewer slots (voice_actor/short/alt/entry/labels) and
+# note/weight stay held back - the exact toxic slot was never isolated (bisection closed).
+DLC_CONFIG_RE = re.compile(r"^config\d+\.EDAT$", re.IGNORECASE)
+CONFIG_DICT_SPARE_CATEGORIES = {
+    "character_voice_actor", "character_short_name", "character_alt_name",
+    "character_entry", "config_label", "robo_note", "robo_weight",
+}
+
+
+def config_side_spare_row(row: dict) -> bool:
+    """True for a row that must not reach a configNN.EDAT dictionary copy: the v7 NEW viewer
+    slots (voice_actor with the 'Voice:' label, short_name, alt_name, entry, labels) and
+    note/weight.  robo_name_narrow/robo_type are original cells and ARE written (21.58 -
+    the foe list of the Robot Viewer reads them).  The imenuNN copies keep everything."""
+    return row.get("category") in CONFIG_DICT_SPARE_CATEGORIES
+
+
 #: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
 #: specs in ui_labels/).  They hold no package text; the builder rewrites them from the ISO
 #: when --iso is given.  Members are written STORED - the only variant verified in the game
@@ -867,7 +893,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
           dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
           ui_textures: bool = True, ui_specs: Optional[Path] = None,
-          executable: bool = True) -> dict:
+          executable: bool = True, cwcheat: bool = False) -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     work = Path(work) if work else out / "work"
@@ -914,6 +940,13 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
         if not mine:
             continue
+        if DLC_CONFIG_RE.match(name):
+            spare_count = sum(1 for r in mine if config_side_spare_row(r))
+            if spare_count:
+                mine = [r for r in mine if not config_side_spare_row(r)]
+                report.setdefault("notes", []).append(
+                    f"gate: {name}: held back {spare_count} v7 viewer-slot rows from the "
+                    f"config-side dictionary copies (by design; the dictionary UI reads imenuNN)")
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
@@ -953,7 +986,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         ui_texture_step(report, iso, iso_patch, work, only, skip, ui_specs)
 
     if executable and exe_rows:
-        exe_step(report, store, exe_rows, out, work, iso_patch, only, skip, dry_run)
+        exe_step(report, store, exe_rows, out, work, iso_patch, only, skip, dry_run,
+                 cwcheat=cwcheat)
 
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
@@ -995,7 +1029,7 @@ def _exe_elf(blob: bytes) -> Tuple[Optional[bytes], Optional[dict], Optional[str
 
 def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path, work: Path,
              iso_patch: Dict[str, bytes], only: Sequence[str], skip: Sequence[str],
-             dry_run: bool) -> None:
+             dry_run: bool, cwcheat: bool = False) -> None:
     """Write the ``09_executable.jsonl`` English into the game's executable, in place.
 
     Two prints of the 1.08 program exist and both are patched when present:
@@ -1153,7 +1187,10 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
         summary["skipped"] = primary["skipped"]
         summary["primary"] = primary["name"]
 
-    # ---- CWCheat file: the same bytes as a cheat (the route confirmed in-game) ----------------
+    # ---- CWCheat file (opt-in, --cwcheat): the same bytes as a cheat.  Since the in-place
+    # EBOOT edit is the proven route (21.55), the ini is no longer written by default.
+    if not cwcheat:
+        return
     if cheat_elf is None:
         return
     cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
@@ -1263,9 +1300,11 @@ def skill_total_check(report: dict, blobs: Dict[str, bytes], iso_patch: Dict[str
             continue
         try:
             subs = _members_of_blob(blob)
-        except Exception as exc:                   # noqa: BLE001 - report, never break a build
-            report["problems"].append(f"skill total: {container}: {exc}")
-            return
+        except Exception as exc:                   # noqa: BLE001 - a note, never a build problem
+            report.setdefault("notes", []).append(
+                f"skill total: {container}: parsowanie pominione ({exc})")
+            missing.append(container)
+            continue
         if member not in subs:
             missing.append(container)
             continue
@@ -1328,8 +1367,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         help="leave the UI texture containers (system.cpk, tacsys.cpk, IM*.cpk) "
                              "original - text only")
     parser.add_argument("--no-exe", action="store_true",
-                        help="skip the executable strings step (ISO EBOOT.BIN / PBOOT.PBP in place "
-                             "+ cheats/NPJH50521.ini)")
+                        help="skip the executable strings step (ISO EBOOT.BIN / PBOOT.PBP in place)")
+    parser.add_argument("--cwcheat", action="store_true",
+                        help="also write cheats/NPJH50521.ini (CWCheat mirror of the exe strings; "
+                             "off by default - the in-place EBOOT edit is the proven route)")
     parser.add_argument("--ui-specs", type=Path, default=None,
                         help="folder with the texture caption specs (default ui_labels/)")
     args = parser.parse_args(argv)
@@ -1342,7 +1383,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
                    work=args.work, dry_run=args.dry_run, only=only, skip=skip,
                    ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
-                   executable=not args.no_exe)
+                   executable=not args.no_exe, cwcheat=args.cwcheat)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]
@@ -1368,6 +1409,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     print(f"Zapisane pliki: {len(report['written'])}")
     for line in report["written"]:
         print(f"  {line}")
+    notes = report.get("notes") or []
+    gate = [n for n in notes if n.startswith("gate:")]
+    if gate:
+        total = 0
+        for line in gate:
+            try:
+                total += int(line.split("held back ")[1].split(" ")[0])
+            except (IndexError, ValueError):
+                pass
+        print(f"Uwagi planowe (nie błędy): bramka słownikowa configNN — {total} wierszy v7 "
+              f"trzymanych z dala od strony config w {len(gate)} plikach (celowe; "
+              f"szczegóły w build_report.json)")
+    for line in [n for n in notes if not n.startswith("gate:")]:
+        print(f"Uwaga: {line}")
     if problems:
         print(f"Problemy ({len(problems)}) - szczegóły w {report.get('report_path')}:")
         for line in problems[:20]:

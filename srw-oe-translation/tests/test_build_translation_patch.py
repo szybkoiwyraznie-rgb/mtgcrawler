@@ -638,7 +638,7 @@ class ExeStepTests(unittest.TestCase):
 
     def test_disc_eboot_pboot_and_cheats_are_all_written(self):
         import psp_prx
-        out, report = self.run_build(self.make_iso(self.elf), self.make_dlc(self.elf))
+        out, report = self.run_build(self.make_iso(self.elf), self.make_dlc(self.elf), cwcheat=True)
         exe = report["executable"]
         self.assertEqual(exe["primary"], "EBOOT.BIN")
         self.assertEqual(exe["applied"], 2)
@@ -681,7 +681,7 @@ class ExeStepTests(unittest.TestCase):
         self.assertTrue(any("PBOOT.PBP not found" in n for n in exe["notes"]))
         self.assertEqual(self.iso_pack.read_member(out / "patched.iso", "psp_game/sysdir/eboot.bin"),
                          self.expected)
-        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+        self.assertFalse((out / "cheats").exists())   # CWCheat is opt-in (--cwcheat) since 21.58
         self.assertEqual(BTP.exit_status(report["problems"]), 0)
 
     def test_pboot_alone_still_works_without_an_iso(self):
@@ -691,7 +691,7 @@ class ExeStepTests(unittest.TestCase):
         self.assertEqual(exe["primary"], "PBOOT.PBP")
         self.assertEqual(exe["applied"], 2)
         self.assertFalse((out / "patched.iso").exists())
-        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+        self.assertFalse((out / "cheats").exists())   # CWCheat is opt-in
 
     def test_no_executable_anywhere_is_a_reported_problem(self):
         out, report = self.run_build(self.make_iso(None), None)
@@ -750,7 +750,7 @@ class ExeStepTests(unittest.TestCase):
         self.assertTrue(any("differs from PBOOT.PBP in elf_size" in p for p in t["problems"]))
         self.assertFalse((out / "patched.iso").exists())
         self.assertEqual(self.targets(report)["PBOOT.PBP"]["applied"], 2)   # the update still goes out
-        self.assertTrue((out / "cheats" / "NPJH50521.ini").is_file())
+        self.assertFalse((out / "cheats").exists())   # CWCheat is opt-in
         self.assertTrue(any("cannot read" in p and "differs from PBOOT.PBP" in p for p in report["problems"]))
 
     def test_filters_and_the_switch(self):

@@ -2,8 +2,9 @@
 
 Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 
-> **Status:** The game is fully translated — all menus, UI, items, skills,
-> character names, battle quotes, and story dialogue (chapters 1–8) are in English.
+> **Status:** everything prepared so far ships in English — menus, UI, items, skills,
+> character/robot names, battle quotes and story dialogue (chapters 1–8 DLC + ISO base).
+> Coverage details live in `docs/COVERAGE.md`; the project keeps growing.
 
 ---
 
@@ -12,7 +13,7 @@ Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 | Requirement | Notes |
 |---|---|
 | **Game ISO** | `SRW OE 1.08.iso` — your own legally obtained copy |
-| **DLC files** (optional) | Decrypted DLC folder (`NPJH50521`) for chapters 2–8 |
+| **DLC files** (optional) | Decrypted DLC folder (`NPJH50521`) for chapters 2–8, e.g. decrypted with `psnpkgdecryptextract` |
 | **PPSSPP** | PSP emulator — https://www.ppsspp.org/ |
 | **Windows 10/11** | The patcher is a `.bat` script |
 | **Python 3.8+** | Auto-installed if missing (needs `winget`) |

@@ -51,6 +51,26 @@ class ConfigstPackTests(unittest.TestCase):
         self.assertGreater(reparsed["subs"][1]["offset"], off_b_before)
         self.assertEqual(reparsed["subs"][1]["data"], b"\x02" * 100)
 
+    def test_tail_align_trims_only_the_trailing_pad(self):
+        """tail_align=0x10 strips the zeros after the last sub-file; offsets stay put."""
+        pac = make_pac([("a.bin", b"\x01" * 100), ("b.bin", b"\x02" * 5000)])
+        parsed = cp.parse_pac(pac)
+        trimmed = cp.rebuild_pac(parsed, tail_align=0x10)
+        self.assertLessEqual(len(trimmed), len(pac))
+        a, b = cp.parse_pac(pac), cp.parse_pac(trimmed)
+        self.assertEqual([(s["name"], s["offset"], s["size"]) for s in a["subs"]],
+                         [(s["name"], s["offset"], s["size"]) for s in b["subs"]])
+        self.assertEqual([s["data"] for s in a["subs"]], [s["data"] for s in b["subs"]])
+        # and a pac WITH a tail pad shrinks (the default keeps the full pad)
+        padded = make_pac([("a.bin", b"\x01" * 100), ("b.bin", b"\x02" * 100)]) + b"\x00" * 1500
+        self.assertLess(len(cp.rebuild_pac(cp.parse_pac(padded), tail_align=0x10)),
+                        len(cp.rebuild_pac(cp.parse_pac(padded))))
+
+    def test_tail_align_must_be_power_of_two(self):
+        parsed = cp.parse_pac(make_pac([("a.bin", b"\x01")]))
+        with self.assertRaises(ValueError):
+            cp.rebuild_pac(parsed, tail_align=100)
+
 
 if __name__ == "__main__":
     unittest.main()

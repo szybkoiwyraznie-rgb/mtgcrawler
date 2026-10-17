@@ -85,6 +85,14 @@ TEXT_START = {
     RECORD_LABEL_ID: 12,
     RECORD_LABEL_ALT: 8,
 }
+#: Records measured to carry **absolute u32 offsets into the member's text pool** (2026-10-16,
+#: eventP01 ``DL102_20.bin`` [ZWERYFIKOWANE]: two 0x13E payload words pointed exactly at a
+#: dialogue's text start (1124) and at a mid-text line anchor (+9); after the texts moved both
+#: still held the old numbers and the game rendered garbage from the old position - reported
+#: as single stray characters (``"`` landed on a ``0x222`` type field byte).  A 0x13E word is
+#: remapped wherever it falls inside the old span; every other record type gets the conservative
+#: treatment (only a word that hits a span start exactly, and every remap is reported).
+ANCHOR_RECORD_TYPES = {0x13E}
 #: kinds measured in two shapes (2026-10-13, eventP00): 0x1BA labels sit bare at +8 in
 #: DL100_01.bin and carry a u32 id before the text at +12 in DL102_11.bin; 0x14F was only
 #: seen with an id, but its bare shape is admitted so a row offset decides, never a guess.
@@ -421,6 +429,112 @@ def box_problems(text: str, kind: Optional[str] = "dialogue") -> List[str]:
     return problems
 
 
+def _flat_records(blob: bytes) -> List[Tuple[int, int, int]]:
+    """(offset, type, size) of every record of the member, wrappers included, in file order."""
+    out: List[Tuple[int, int, int]] = []
+    blocks, _errors = EW.blocks(blob)
+    for block in blocks:
+        if block["chain_start"] is None:
+            continue
+        for offset, rtype, size in EW.walk_chain(blob, block["chain_start"], block["end"]):
+            out.append((offset, rtype, size))
+            if rtype == RECORD_WRAPPER:
+                out.extend(EW.walk_chain(blob, offset + 8, offset + size))
+    return out
+
+
+def _text_spans(blob: bytes, records: List[Tuple[int, int, int]]) -> Dict[int, Tuple[int, int]]:
+    """Record index -> (text start, text end) for every text-bearing record with a text."""
+    spans: Dict[int, Tuple[int, int]] = {}
+    for index, (offset, rtype, size) in enumerate(records):
+        record = {"type": rtype, "offset": offset, "size": size}
+        start = text_start_of(blob, record)
+        if start is None:
+            continue
+        raw = blob[offset + start:offset + size].split(b"\x00", 1)[0]
+        if raw:
+            spans[index] = (offset + start, offset + start + len(raw))
+    return spans
+
+
+def remap_text_anchors(before: bytes, after: bytes) -> Tuple[bytes, List[dict]]:
+    """Re-point absolute text offsets that growing the texts invalidated.
+
+    Some non-text records carry u32 offsets into the member's text pool (measured: 0x13E,
+    see :data:`ANCHOR_RECORD_TYPES`).  After the texts move, such a word still holds the old
+    offset and the game reads garbage there.  Records keep their order when the writer grows
+    texts, so the n-th text span of ``before`` is the n-th text span of ``after``: a word that
+    fell inside the old n-th span is rewritten to the same relative position inside the new
+    n-th span.  0x13E words are remapped wherever they fall inside a span; every other record
+    type only when the word hits a span start exactly, and every remap lands in the returned
+    fix list so a build report can show them all.
+    """
+    old_records = _flat_records(before)
+    new_records = _flat_records(after)
+    if len(old_records) != len(new_records):
+        return after, [{"problem": f"record count changed ({len(old_records)} -> "
+                                    f"{len(new_records)}), anchors left alone"}]
+    old_spans = _text_spans(before, old_records)
+    new_spans = _text_spans(after, new_records)
+    #: (old start, old end, new start) of every text span, in record order
+    span_map = [(old_spans[i][0], old_spans[i][1], new_spans[i][0])
+                for i in sorted(old_spans) if i in new_spans]
+    fixes: List[dict] = []
+    out = bytearray(after)
+    for index, (offset, rtype, size) in enumerate(new_records):
+        if rtype == EW.TYPE_WRAPPER or rtype in TEXT_START:
+            continue                       # wrapper: payload is records; text kinds: u16 words
+        payload_at = offset + 8
+        for word in range(payload_at, offset + size - 3, 4):
+            value = struct.unpack_from("<I", out, word)[0]
+            hit = None
+            for span_start, span_end, new_start in span_map:
+                if span_start <= value < span_end:
+                    hit = (span_start, new_start)
+                    break
+            if hit is None:
+                continue
+            if rtype not in ANCHOR_RECORD_TYPES:
+                # Only 0x13E is measured to carry text offsets; every other exact-hit word is
+                # indistinguishable from an id that happens to equal a text start (measured
+                # 2026-10-16: a 0x155 word held the _Entry id 10010 while a text span started
+                # at the same byte), so remapping it would corrupt the id.  Logged, untouched.
+                fixes.append({"record": rtype, "at": word, "value": value,
+                              "note": "inside a text span; not a measured anchor type; "
+                                      "left alone"})
+                continue
+            new_value = _map_inside(before, after, hit, value)
+            if new_value == value:
+                continue
+            struct.pack_into("<I", out, word, new_value)
+            fixes.append({"record": rtype, "at": word, "old": value, "new": new_value})
+    return bytes(out), fixes
+
+
+def _map_inside(before: bytes, after: bytes, hit: Tuple[int, int], value: int) -> int:
+    """New position of ``value`` inside the moved span.
+
+    ``hit`` = (old start, new start).  A word at the old span start maps to the new start.
+    A word deeper inside maps line-wise: the text is a ``\\n``-separated list of lines (measured
+    on the real members), so the word is either on a ``\\n`` byte itself (line-end anchor) or
+    inside line k - it maps to the same line's ``\\n`` or line start in the new text, clamped
+    to the new span when the new text has fewer lines.
+    """
+    old_start, new_start = hit
+    if value == old_start:
+        return new_start
+    old_text = before[old_start:old_start + (value - old_start) + 1]
+    line = old_text.count(b"\n") - (1 if old_text.endswith(b"\n") else 0)
+    at_newline = old_text.endswith(b"\n")
+    new_text = after[new_start:new_start + 4000].split(b"\x00", 1)[0]
+    positions = [i for i, byte in enumerate(new_text) if byte == 0x0A]
+    if at_newline:
+        return new_start + positions[line] if line < len(positions) \
+            else new_start + len(new_text)
+    line_starts = [0] + [i + 1 for i in positions]
+    return new_start + (line_starts[line] if line < len(line_starts) else len(new_text))
+
+
 def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> Tuple[bytes, dict]:
     """Apply every row to the member and return the new member plus a report.
 
@@ -473,6 +587,9 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
         out = grow_text(out, record, en, edat_at)
         report["applied"] += 1
         report["changed"].append((offset, jp, en))
+    if report["changed"]:
+        out, anchor_fixes = remap_text_anchors(blob, out)
+        report["anchor_fixes"] = anchor_fixes
     if verify_result and report["changed"]:
         report["problems"] = verify(blob, out, report["changed"], edat_at)
     return out, report

@@ -1,0 +1,14 @@
+Pakiet v9 (2026-10-16) — Tłumaczenie scen
+=============================================
+
+Zmiany wzgl. v8:
+- Import scen z EN3.zip (Tłumacz): 23 030 nowych wierszy EN w dialogach
+- Dialogi: 44 505 EN / 4 374 JP-only (było 21 538 / 27 341 w v8)
+- Reszta JP: głównie ch.6-7 (1 362+1 539), ch.8 (881), ch.0 (38), ch.5 (357), ch.4 (197)
+- Resync kopii: 4 373 wiersze uzyskały EN z oryginałów
+- 13 odrzuconych: 12 notatki misji za długie (max 49 vs limit 39), 1 dialog ze złą liczbą \n
+- 10 JP-only (1 dialog + 9 exe strings — jak v8)
+- check_report.txt: same ostrzeżenia configst (jak v8)
+
+Narzędzia: te same co v8 (2026-10-16b)
+Wymaga: HOKUS_POKUS ze świeżego ZIP gałęzi

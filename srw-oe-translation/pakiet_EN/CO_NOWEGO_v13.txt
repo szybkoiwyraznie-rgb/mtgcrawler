@@ -1,0 +1,10 @@
+CO NOWEGO v13 (2026-10-17)
+==========================
+- OKNO NAGRODY: etykieta "First Clear Bonus:" byla za dluga i nakladala sie
+  na kolumne wartosci (Cash+...) - skrocona do "First Clear:".
+- (v12) fix dialogow (tablica interpunkcyjna EBOOT), ikony (ui_labels + font),
+  glif 連→LNK, exe 404/404.
+- WAZNE dla aktualizacji z nizszych wersji: po buildzie skopiuj DO FOLDERU GRY
+  caly output\DLC (build ma wlasne configi 01-19 z angielskimi nazwami -
+  NIE uzywaj juz recznych podmianek config01-19_v16.zip z czasow szukania
+  cudzyslowow; to one zostawialy japonskie nazwy w Robot Viewer).
