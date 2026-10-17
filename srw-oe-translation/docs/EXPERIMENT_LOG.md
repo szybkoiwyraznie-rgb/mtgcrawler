@@ -6221,3 +6221,15 @@ Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
   rozliczenie obecnych źródeł, odtworzenie generatora/weryfikatora w śledzonym tools/,
   zachowanie końcowych wypowiedzi oraz wszystkich wariantów. Nie zmieniamy przekładu
   ani plików gry. Gotowy tekst pozostanie na Drive, kod/testy/plan i manifest w Git.
+
+**Checkpoint źródeł finału (po odzyskaniu historii):** dodano śledzony,
+read-only `tools/reading_script_source.py` i 14 syntetycznych testów (`unittest`,
+Python 3.11.2): **14/14 PASS**. Niezależnie odtworzony inwentarz siedmiu scen
+potwierdza 7471 wpisów prozy, 306/382 różnice względem bazowego finału i po dwie
+nowe znaczące pozycje metadanych. Seq 253 jest kopią 252, a 257 kopią **256**
+po normalizacji CRLF/zawijania, nie po zgadywaniu z `variant_of`. Akapity,
+interpunkcja i zmiany samych rozmówców pozostają znaczące. Odczytane i sprawdzone
+SHA-256 źródeł są w `docs/reading-script/episode_34_sources.json`; trzy źródła
+narracji/nazw są identyczne z historycznymi, `05_mission_text` ma zmiany QA v16.
+Znalezione `＃？？？` zachowują anonimowość; `Adeu's card` nie wolno zgubić jako
+technicznego `label`. Plan redakcyjny, renderer i dostawa finału nadal w toku.

@@ -1,0 +1,140 @@
+{
+  "source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "scenes": [
+    {
+      "seq": 251,
+      "id": "eventP08.EDAT/DL834_11.bin",
+      "title": "Into Genesis",
+      "rows": 140,
+      "prose": 134,
+      "metadata": 2,
+      "kinds": {
+        "narration": 3,
+        "location": 2,
+        "dialogue": 131,
+        "help": 1,
+        "condition_victory": 2,
+        "condition_defeat": 1
+      }
+    },
+    {
+      "seq": 252,
+      "id": "eventP08.EDAT/DL834_12.bin",
+      "title": "The Hopes Entrusted",
+      "rows": 140,
+      "prose": 134,
+      "metadata": 1,
+      "kinds": {
+        "narration": 4,
+        "dialogue": 130,
+        "help": 1,
+        "condition_victory": 2,
+        "condition_defeat": 2,
+        "location": 1
+      }
+    },
+    {
+      "seq": 253,
+      "id": "evept104.EDAT/DL834_12E.bin",
+      "title": "The Hopes Entrusted",
+      "rows": 140,
+      "prose": 134,
+      "metadata": 1,
+      "kinds": {
+        "narration": 4,
+        "dialogue": 130,
+        "help": 1,
+        "condition_victory": 2,
+        "condition_defeat": 2,
+        "location": 1
+      },
+      "variant_of": "eventP08.EDAT/DL834_12.bin",
+      "changed_prose": 0,
+      "changed_metadata": 0,
+      "exact_reading_alias_of": "eventP08.EDAT/DL834_12.bin"
+    },
+    {
+      "seq": 254,
+      "id": "eventP08.EDAT/DL834_13.bin",
+      "title": "Operation Extend",
+      "rows": 1759,
+      "prose": 1702,
+      "metadata": 50,
+      "kinds": {
+        "narration": 8,
+        "dialogue": 1694,
+        "condition_victory": 4,
+        "condition_defeat": 3,
+        "location": 45,
+        "scene_title": 5
+      }
+    },
+    {
+      "seq": 255,
+      "id": "evept104.EDAT/DL834_13E.bin",
+      "title": "Operation Extend",
+      "rows": 1802,
+      "prose": 1743,
+      "metadata": 52,
+      "kinds": {
+        "narration": 8,
+        "dialogue": 1735,
+        "condition_victory": 4,
+        "condition_defeat": 3,
+        "location": 45,
+        "scene_title": 6,
+        "label": 1
+      },
+      "variant_of": "eventP08.EDAT/DL834_13.bin",
+      "changed_prose": 306,
+      "changed_metadata": 2
+    },
+    {
+      "seq": 256,
+      "id": "evept105.EDAT/DL834_13F.bin",
+      "title": "Operation Extend",
+      "rows": 1871,
+      "prose": 1812,
+      "metadata": 52,
+      "kinds": {
+        "narration": 8,
+        "dialogue": 1804,
+        "condition_victory": 4,
+        "condition_defeat": 3,
+        "location": 45,
+        "scene_title": 6,
+        "label": 1
+      },
+      "variant_of": "eventP08.EDAT/DL834_13.bin",
+      "changed_prose": 382,
+      "changed_metadata": 2
+    },
+    {
+      "seq": 257,
+      "id": "evept108.EDAT/DL834_13J.bin",
+      "title": "Operation Extend",
+      "rows": 1871,
+      "prose": 1812,
+      "metadata": 52,
+      "kinds": {
+        "narration": 8,
+        "dialogue": 1804,
+        "condition_victory": 4,
+        "condition_defeat": 3,
+        "location": 45,
+        "scene_title": 6,
+        "label": 1
+      },
+      "variant_of": "eventP08.EDAT/DL834_13.bin",
+      "changed_prose": 382,
+      "changed_metadata": 2,
+      "exact_reading_alias_of": "evept105.EDAT/DL834_13F.bin"
+    }
+  ],
+  "prose": 7471
+}
