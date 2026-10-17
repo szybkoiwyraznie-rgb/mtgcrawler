@@ -6436,3 +6436,21 @@ nie parametrem. `description-errata.json` ma hashe obu źródeł i powody; nie s
 korekt do zmienionych danych bez ponownego przeglądu. 32 testy nowych narzędzi PASS.
 Roboczy MD: 761 353 B, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.
 Osobna kontrola całego artefaktu, testy mutacyjne i dostawa nadal w toku.
+
+**21.63 — checkpoint weryfikacji:** nowy verifier porównuje fakty modelu świeżo
+z binarnymi źródłami i EN (osobne wyliczenia pól/profili/serii/opisów, bez wywołań
+helperów modelu generatora), sprawdza każdy wydrukowany rekord i pełne opisy
+w Markdownie. Dopiero na końcu wspólny canonical-render uszczelnia pozostałe
+noty/układ; ta równość nie zastępuje niezależnej kontroli danych.
+CLI z `--replay-engine`: PASS, 393 jednostki, 1485 wierszy broni/akcji, 535 przypisań
+załogi, 249 opisów bazowych, 16 grup, 20 nadpisań EXE, 17 korekt katalogu; wszystkie
+liczniki i niepewności rozliczone. Ponownie odtworzone 254 wywołania selektora zgodne
+z mapą. Brak pozostałości JP, `%s`, `＠` w gotowym tekście.
+
+`test_mech_catalog_integration.py`: **26/26 PASS w 15,722 s**, w tym 24 odrzucone
+mutacje semantyczne z naprawionymi hashami/rozmiarami/odtworzonym modelem i MD.
+Negatywne przypadki nie mogą przechodzić tylko dzięki kontroli checksum: ustanowiono
+poprawny baseline, sprawdzano powód odrzucenia. 32 testy syntetyczne + 26 integracyjnych
+= 58 nowych testów. Każda korupcja dotyczyła kopii tymczasowej. Oryginały i pakiet EN
+bajtowo bez zmian. Kompaktowy raport w `docs/mech-catalog/verification.json`.
+Pełny suite projektu i upload nadal przed nami; plik czytelniczy pozostaje 761 353 B.

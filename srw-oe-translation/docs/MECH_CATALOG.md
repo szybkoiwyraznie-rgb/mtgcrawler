@@ -135,3 +135,23 @@ balance values are not changed. The game translation package is **untouched**;
 these are not silently backported game fixes. Tests refuse a repair after either
 source changes. Runtime alternate pilot profiles also get an explicit note that
 their skills are alternatives, not simultaneous bonuses.
+
+## Verification checkpoint
+
+`verify_mech_catalog.py` re-reads the private originals and independently checks
+all model facts (IDs, names, profiles, skill slots, minimum levels, stats, gates,
+groups, series provenance and complete formatted descriptions). It does not call
+the generator's model/description/series helpers for those checks. It also checks
+every actual Markdown unit, pilot/profile header, full ability bullet and all
+1485 weapon rows. A final shared canonical-render comparison seals the remaining
+notes/layout; it is not the source-fact verification. `--replay-engine` repeats
+all 254 bounded selector calls and checks the recorded override map.
+
+Current result: **PASS**, no Japanese-script/printf/control leftovers. All **26
+real-input tests** pass, including **24 semantic mutations** with rebuilt MD,
+metadata, hashes and lengths: lost units/weapons/animations/support pilots,
+merged enemy/ally profiles, wrong aliases/levels/descriptions/stats/gates, invented
+abilities, missing groups, inference promoted to fact and hidden unknowns. Tests
+only corrupt temporary copies. Together with 32 synthetic tests: 58 new tests.
+The real-input class is explicitly skipped when private originals are absent;
+none of those inputs is committed. Final full-project regression/upload pending.
