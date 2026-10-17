@@ -14,7 +14,8 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 - Cała praca pod **`srw-oe-translation/`**.
 - `.gitignore` wyklucza `google_drive/` i `srw-oe-translation/local/` — **NIGDY nie commituj**
   ISO/EDAT/CPK ani pełnego skryptu JP.
-- **Nie modyfikuj oryginałów.** Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
+- **Modyfikacja plików gry jest częścią projektu** (wg użytkownika, 2026-10-17); pliki gry NIE są publikowane na GitHubie — tylko lokalnie i przez Google Drive. Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
+- **Stan (2026-10-17, wg użytkownika):** gra w 100% przetłumaczona, pełne tłumaczenie = `PATCH15.zip`. Brak otwartych zadań i issues. Sekcje 7 i dalej opisują historię, nie aktualne zadania.
 - Tłumaczenie **fresh** (Akurasu odrzucone). Nie nazywaj projektu „przetłumaczonym”.
 - **Każdy `.bat` dla użytkownika otwiera OKNO WYBORU pliku/folderu — nigdy nie każe wpisywać
   ścieżki z palca.** Użytkownik zwracał na to uwagę dwa razy (2026-10-12 `PATCH_ISO_TEST.bat`,

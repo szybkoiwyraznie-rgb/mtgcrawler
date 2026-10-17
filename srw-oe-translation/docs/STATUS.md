@@ -1,6 +1,12 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.58)
+Last updated: 2026-10-17 (§21.58; status note added 2026-10-17)
+
+> **Aktualny stan (2026-10-17, wg właściciela projektu):** gra jest w 100% przetłumaczona na angielski.
+> Pełne tłumaczenie = `PATCH15.zip` (dostarczane lokalnie / przez Google Drive, nie na GitHubie).
+> Brak otwartych zadań i issues — wszystkie zostały wyjaśnione i zamknięte.
+> Poniższe wpisy („Latest", „Open", „Still open", „Otwarte") opisują **historię prac** i są nieaktualne jako lista zadań.
+> Zasada modyfikacji plików gry: modyfikacja jest częścią projektu; publikacja plików gry na GitHubie jest wykluczona.
 
 
 **Latest (2026-10-17, §21.58): kit v14.** Foe Robots: narrow+type wydane do strony config (oryginalne komórki; weryfikacja: RoboDict02 EN ×6, JP 0, rozmiary = oryginały; rollback = v13). Build wyciszony (bramka/probe = „Uwagi planowe”), cheaty opt-out (--cwcheat). README korzenia + workflow Release (v14 opublikowana ręcznie, tag patch-v14; decyzja o automatyzacji = pytanie do usera). Suite 1 285 OK.

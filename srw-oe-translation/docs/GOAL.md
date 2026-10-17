@@ -16,7 +16,7 @@
 - Nie tłumaczyć, dopóki konfiguracja nie obejmuje 100% kategorii tekstu.
 - Grow tam, gdzie kontener pozwala; stała szerokość tylko tam, gdzie struktura na to nie pozwala.
 - Nie używać skryptu Akurasu jako źródła.
-- Oryginalnych plików gry nie modyfikować; pliki gry, dane i pełne skrypty tylko w `local/` i `google_drive/` (gitignore).
+- Modyfikacja plików gry jest częścią projektu. Pliki gry, dane, buildy i pełne skrypty są przechowywane tylko lokalnie (`local/`, `google_drive/`, gitignore) i nie są publikowane na GitHubie; wymiana z użytkownikiem przez Google Drive.
 - Etykiety: `[ZWERYFIKOWANE]` vs `[HIPOTEZA]`.
 - Dokumentacja i komunikacja z użytkownikiem po polsku; użytkownik nie zna heksów, więc podawać liczby dziesiętne.
 - Logować wszystko w `docs/EXPERIMENT_LOG.md`.
