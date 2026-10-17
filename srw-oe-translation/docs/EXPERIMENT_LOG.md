@@ -6248,3 +6248,19 @@ Karen, Hayato, Michel, Mai) rozróżnione wyłącznie pełnymi angielskimi nazwa
 z istniejącego pakietu. Prefix `???` nadal ma pierwszeństwo. Testy źródeł:
 **16/16 PASS**; inwentarz bez zmian; wszystkie granice planu trafiają w zachowane
 wpisy, żaden plik pakietu niezmieniony. Renderer/weryfikator/dostawa jeszcze w toku.
+
+**Checkpoint renderera (weryfikacja niezależna jeszcze w toku):**
+`tools/build_reading_script.py` wygenerował roboczy finał do ignorowanego
+`local/reading-script/srwoe_episode_34.md` i audyt pełnego pokrycia 7723 rekordów.
+Własne zabezpieczenia generatora: 7471 wpisów prozy = 3338 wyświetlonych + 4133
+identycznych aliasów; 210 metadanych = 94 wyświetlone + 116 aliasów; 42 rekordy
+wyłącznie UI/warunków gry wykluczone z prozy. Wyświetlono 386 wypowiedzi
+warunkowych/sytuacyjnych oraz dwie alternatywnej porażki. Żadnych skrótów treści:
+warianty zawierają pełne zmienione wpisy i sąsiadujący kontekst; części wspólne
+mają sprawdzone, monotoniczne wyrównanie, a aliasy kończą się na pokazanym tekście.
+
+Roboczy MD: 212 920 B, SHA-256
+`4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`.
+Obejrzano początek, granicę alternatywnej porażki, obydwa dodatki i ostatnie kwestie.
+To **nie jest jeszcze dostawa ani wynik niezależnego verifiera**. Renderer i plan
+są w Git; pełny tekst i szczegółowy audyt pozostają ignorowane.
