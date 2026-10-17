@@ -59,6 +59,12 @@
       "jp_bytes": 2308235,
       "unique_jp": 0,
       "kind": "structure"
+    },
+    "10_map_terrain.jsonl": {
+      "rows": 111,
+      "jp_bytes": 880,
+      "unique_jp": 91,
+      "kind": "text"
     }
   },
   "categories": {
@@ -249,6 +255,10 @@
     "weapon_name_short": {
       "rows": 1481,
       "jp_bytes": 15290
+    },
+    "terrain_name": {
+      "rows": 111,
+      "jp_bytes": 880
     }
   },
   "speaker": {
@@ -276,8 +286,8 @@
     "last": "evept103.EDAT/SM021D.bin"
   },
   "totals": {
-    "rows": 109033,
-    "jp_bytes": 3703907,
+    "rows": 109144,
+    "jp_bytes": 3704787,
     "files": [
       "00_dialogue.jsonl",
       "01_battle_quotes.jsonl",
@@ -287,7 +297,8 @@
       "05_mission_text.jsonl",
       "07_names_characters.jsonl",
       "08_names_units_weapons.jsonl",
-      "09_executable.jsonl"
+      "09_executable.jsonl",
+      "10_map_terrain.jsonl"
     ],
     "structure_files": [
       "06_scenes.jsonl"
@@ -306,11 +317,12 @@
     "v6 (2026-10-15): 09_executable.jsonl = 408 strings of the 1.08 executable (PBOOT.PBP -> DATA.PSP), mode slot, max_bytes incl. alignment slack; 31 whole sysmes.bin strings (0x0F tokens / leading %s or space) added to 04 - their v5 rows were tails only and never applied.",
     "v7 (2026-10-16): tools/table_rows_refresh.py added the Character/Robot Viewer slots the writer left Japanese (label rows label:<family>:<slot> for 愛称：/声優：, char:K:voice_actor/alt_name/short_name/entry/series, robonote:K:note/type/name/name_narrow + length/weight placeholders), the Reference section/topic titles and the whole tokenised bodies (reference:<container>/<member>:<offset>), DLC_ID/Shop rows per container; 214 stale/superseded/unreachable offset rows pruned (config_leftover 愛称：X duplicates, fragments of tokenised bodies, glued runs); imenuNN containers are byte-identical copies of configNN and are mirrored by the builder.",
     "v8 (2026-10-16): 109 032 rows. Corrected EN: 高乃麗 -> Urara Takano (4 rows), DLC_ID 'SRWHPｺﾗﾎ' -> 'SRW Web Collab' (8 rows). New rows for strings that stayed Japanese in the configst.cpk output of builds #22/#23: 5 Skill_Tag strings with kana tokens (特技／ﾀﾞﾒｰｼﾞ率 .. 率4, table_rows_refresh), 9 Spirit record fields of the Fortune/Bless family with kana tokens (record_rows_refresh now adds them in display form + tokeny.tsv); 7 Achievement rows were refused by the writer's reference guard (counts at +8..+28 looked like pointers) - table_write exempts those words now, no package change needed. Removed: 6 junk achievement rows (binary bytes read as text) and the 2 tail-only Spirit leftover rows superseded by the new field rows. The v7 note claiming the voice-actor rows had no English was wrong - 424/426 char:K:voice_actor rows carry romanised names (Western order, Hepburn without macrons), listed in aktorzy_glosowi.tsv.",
-    "v16 (2026-10-17): preserved four executable player-name lookup markers; shortened three executable UI labels with separate screen budgets; filled both title fields for 21 DLC catalogue entries (42 rows, mirrored to imenu); added the separate Basic Training title-card row in DL100_01_ext.dat. Other catalogue fields and dictionary safety gates are unchanged. Emulator confirmation pending."
+    "v16 (2026-10-17): preserved four executable player-name lookup markers; shortened three executable UI labels with separate screen budgets; filled both title fields for 21 DLC catalogue entries (42 rows, mirrored to imenu); added the separate Basic Training title-card row in DL100_01_ext.dat. Other catalogue fields and dictionary safety gates are unchanged. Emulator confirmation pending.",
+    "v17 in progress (2026-10-17): 10_map_terrain.jsonl adds 111 fixed 32-byte attr.par name cells (91 distinct nonempty labels); 12-cell UI budget. Numeric attributes and empty slots must be unchanged. Pipeline integration and real map read-back still pending at this checkpoint; DLC runtime report unresolved."
   ],
-  "package_version": 16,
+  "package_version": 17,
   "created": "2026-10-16 13:40",
-  "description": "v16: mission 0-1 QA fixes (player-name keys, UI widths, DLC catalogue titles and Basic Training title card)",
+  "description": "v17 in progress: map terrain names and targeted DLC activation-title verification; not yet released",
   "dialogue_stats": {
     "total": 48881,
     "en": 48879,

@@ -1,0 +1,11 @@
+CO NOWEGO v17 — W TRAKCIE, JESZCZE NIEWYDANE
+==========================================
+Nazwy terenu w attr.par / lmap.cpk: 111 nazw, 271 kopii map.
+Zgloszone "宇宙構造物" -> "Space Str." (Space Structure).
+Dopisano obsluge komorek nazw bez zmiany liczbowych parametrow terenu.
+Testy syntetyczne OK; integracja calego buildera i realny read-back w toku.
+
+Dwa tytuly DLC: w odtworzonym, dostarczonym v16 oba pola nazw sa juz EN
+w config04 i imenu04. Raport uzytkownika na v16 ze starym sejwem nadal
+jest otwarty. Nie traktujemy poprawnego lokalnego buildu jako dowodu
+naprawy stanu gry ani nie zalecamy kasowania sejwow.

@@ -60,3 +60,19 @@ Owner clarification: **v16 in full, an old save, most earlier DLC names now EN;
 only these two remain JP**. Do not equate "old save" with a confirmed emulator
 save state, and do not blame it without evidence. The installed-file/loaded-state
 mismatch remains open after the successful source-kit reproduction.
+
+## Writer checkpoint (not yet integrated/released)
+
+`terrain_names.py` has a fixed-slot, full-fingerprint guard, complete 111-row
+coverage, idempotent read-back and masks proving preservation outside the name
+cells. New `10_map_terrain.jsonl` uses concise EN labels (max 12 screen cells),
+with full explanatory English retained as metadata. All 34 empty names stay empty.
+The reported label becomes **Space Str.**; no defense/movement/colour data changes.
+
+`cpk_write.rebuild_many` provides a one-pass batch rebuild instead of rebuilding
+an 81 MB archive 271 times. Old single-member API preserved. 48 CPK writer tests
+(8 new batch cases included) and 15 terrain tests pass. All map members will be
+stored, not recompressed with an unverified encoder. Sum of extracted PAC sizes
+is 155,586,736 B vs 81,089,928 B compressed; the larger output/ISO is expected and
+must be documented. Production pipeline integration and real-file verification
+remain pending. Package v17 is explicitly marked unfinished, not a shipped kit.

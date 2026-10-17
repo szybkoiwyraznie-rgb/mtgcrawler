@@ -6541,3 +6541,19 @@ już EN; tylko dwie z obecnych screenów JP. Nie uznajemy tego za potwierdzone u
 save state ani za dowód błędnej instalacji. Dwie nazwy w odtworzonym v16 nadal EN;
 przypadek runtime otwarty. Wstępny skan stałej1064 (kolumnaSMES) w EBOOT nie znalazł
 bezpośredniego ładowania; nie wyciągamy z tego wniosku o źródle tytułu.
+
+**21.64 — checkpoint pisarza i nazw:** dodano 111 EN komórek nazw w osobnym
+`10_map_terrain.jsonl` (91 różnych nazw, limit ekranowy12, slot32B); 34 puste rekordy
+nietknięte. `宇宙構造物` -> `Space Str.`. Wyłącznie nazwy; zachowujemy kolory/flagi/
+liczby. Pełny hash attr po odtworzeniu JP odmawia obcego wydania lub zmienionych
+atrybutów. Ponowne zastosowanie jest identity. Pakiet/integracja jeszcze WIP;
+nie zmieniono żadnego z sześciu źródeł zamrożonego katalogu mechów.
+
+CPK: nowe `rebuild_many`, stary interfejs jednoelementowy zachowany; 48 testów
+pisarzy CPK PASS (w tym8 nowych batch). Terrain: 15 testów PASS, m.in. wszystkie
+kopie, header/liczby/geometry/texture niezmienione, brakująca nazwa, zły rekord,
+nieznany hash, zbyt szeroki EN, idempotencja. Pierwsze wyliczenie rzeczywistego
+attr: 9284B bez zmiany długości, SHA-256 EN
+`70e5db46bab0287b2ce1f0bb7d0162d49772748a51128648babc2284e4d9d200`.
+Wybrano STORED dla map (bez nowej niesprawdzonej kompresji). Łączne rozpakowane
+PAC155586736B; pakowane81089928B. Realny CPK/build i odbiór w grze nadal przed nami.
