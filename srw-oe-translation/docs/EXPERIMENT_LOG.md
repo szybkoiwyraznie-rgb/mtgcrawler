@@ -6195,3 +6195,29 @@ Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
 | `imenu07.EDAT` | 18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
 | `eventP00.cpk` | 162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
 | `EBOOT.BIN` | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
+
+
+### 21.62 Odzyskanie pracy poprzedniego agenta i finał czytelniczy 34 — checkpoint (2026-10-17)
+
+- Wymóg właściciela: PR od początku sesji i commit + push po każdym spójnym fragmencie,
+  także nieukończonego epizodu. Zapisany w obu AGENTS.md; stare polecenia wskazujące
+  inną gałąź usunięte z sekcji workflow HANDOFF. PR #17, pierwszy checkpoint `250f6a5`
+  z v16 i regułą wypchnięty; hash lokalny = remote = PR head.
+- Patch Drive `01a14994-bba4-7d88-9b91-7a659ed35a4d.patch`: 62 658 B,
+  SHA-256 `b50bde42559f9a44aa1ab821543aefd2509ee8eb6e6985a56cf8a712a99b162d`,
+  MD5 `fd050883743001d000bb8510e27ca901`. Archiwum oryginalnych bajtów:
+  `docs/recovered/01a14994-bba4-7d88-9b91-7a659ed35a4d.patch`.
+- `git apply --stat/--numstat`: tylko 918 dodanych linii EXPERIMENT_LOG.md.
+  **Patch nie zawiera generatora, planów, weryfikatorów ani gotowych epizodów.**
+  `git apply --check` odmawia z powodu równoległego dopisania §21.61 (QA v16).
+  Żadnej historii nie nadpisano: pełny odzyskany dopisek zapisany czytelnie w
+  `docs/READING_SCRIPT_HISTORY.md`, z oryginalną numeracją w osobnym dokumencie.
+- Drive „English reading script”: 40 plików, 00–33 i sześć ZIP-ów, brak 34;
+  wyszukiwanie nazw generatorów nie zwróciło ich kopii. Epizod 33 pobrany jako wzór
+  układu; wcześniejsze dostawy pozostają bez zmian. Dawne twierdzenia PASS są
+  relacją poprzedniego agenta, nie odtworzonymi obecnie testami.
+- Finał 34: według odzyskanego dziennika siedem scen i 7471 niepustych wpisów,
+  różniące się zakończenia i kopia jednej z późniejszych wersji. W toku: niezależne
+  rozliczenie obecnych źródeł, odtworzenie generatora/weryfikatora w śledzonym tools/,
+  zachowanie końcowych wypowiedzi oraz wszystkich wariantów. Nie zmieniamy przekładu
+  ani plików gry. Gotowy tekst pozostanie na Drive, kod/testy/plan i manifest w Git.
