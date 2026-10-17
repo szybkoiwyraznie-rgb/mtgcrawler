@@ -6497,3 +6497,13 @@ wyposażenia lub skryptów. Bramka broni nie została zamieniona w zgadywaną mi
 odblokowania. Nie wykonano testu gameplay/PPSSPP, nie zmieniono pakietu ani gry;
 17 korekt opisów pozostaje ograniczonych do katalogu. Osobne oczekiwanie na
 potwierdzenie QA v16 w PPSSPP pozostaje bez zmian.
+
+### 21.64 QA v17 — dwa tytuły aktywacji DLC i nazwa terenu (2026-10-17)
+
+Nowe zgłoszenie właściciela: `復活のゴブーリキ軍団`, `盗賊団の悲劇` w komunikatach
+bonusu po 0-1 oraz `宇宙構造物` w panelu terenu. Obejrzano wszystkie trzy załączniki;
+kopie tylko w ignorowanym `local/qa-v17/screens/`. Start z czystego `ccf66a2`,
+PR #17 otwarty, gałąź przypisana bez zmian. Tytuły DLC są już EN w pakiecie v16
+w obu polach `DLC_ID04`; teren nie ma pełnego literalnego wpisu w JSONL.
+Przyczyna pozostaje nieustalona — sama obecność EN w pakiecie nie dowodzi, że
+właściwa kopia trafia do gry. Plan i kryteria w `docs/QA_V17.md`.
