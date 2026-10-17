@@ -6603,3 +6603,19 @@ jest w zestawie, CRLF zachowane. Index/check_report opisują bieżące109144 wie
 0 błędów /3394 uwagi. README ma poprawną, płaską instrukcję kopiowania, ostrzeżenie
 o większym lmap i zachowaniu normalnych sejwów. To kandydat do testu z wypakowanego
 ZIP-a; nie wykonano jeszcze uploadu v17 ani nie deklarujemy gameplay.
+
+**21.64 — pełny suite i pierwsza próba końcowej walidacji:**
+pełny pytest: **1489 passed,1 skipped,382 subtests passed w46,89s**.
+Builder z wypakowanego końcowego ZIP-a wykonał realny lmap, nested-DLC i minimalne
+ISO poprawnie; top-level0 problemów, wszystkie docelowe pola DLC przeszły kontrakt.
+Nowy zbyt szeroki assert walidatora („zero wszelkich refused”) zatrzymał sprawdzanie
+na zastanych broadcastach globalnego RoboDict do częściowego słownika rozdziału4.
+To nie zgłoszony tytuł DLC ani odmowa zapisu istniejącego rekordu.
+
+Nie usunięto kontroli ostrzeżeń. Dodano ścisłe rozliczenie: oryginalny słownik ma18
+ID; dokładnie597 (config04) i896 (imenu04) globalnych wierszy wskazują nieobecne ID.
+Porównywane są pełne liczniki oraz konkretne komunikaty, z zachowaniem odmowy dla
+stale-JP/istniejącego klucza/innego błędu. 4 nowe testy: PASS. Walidator ma jawnie
+raportować te udowodnione braki keyspace, nie twierdzić „zero refused”. Kod ZIP-a
+nie zmienił się; poprawiono tylko samodzielny walidator wydania. Próba jest ponawiana
+w świeżym folderze, bez używania starych wyjść jako wyniku nowej komendy.

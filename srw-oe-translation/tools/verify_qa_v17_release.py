@@ -92,6 +92,61 @@ def verify_maps(original, output, package):
             "output_bytes":output.stat().st_size,"output_sha256":sha(output)}
 
 
+
+def validated_broadcast_misses(report, originals, package):
+    """Allow ONLY global RoboDict rows whose IDs provably do not exist in a chapter.
+
+    The legacy writer calls these row-level skips `refused` and samples the first
+    eight into container.problems. Reconcile the ENTIRE refusal count against the
+    original keyspace; do not blanket-ignore writer warnings or test only the
+    top-level problems array. Any in-range/stale-JP/structural refusal still fails.
+    """
+    import build_translation_patch as bp
+    import table_write as tw
+    global_rows = [r for r in bp.load_rows(package) if bp.filled(r) and not bp.identity(r)
+                   and (r.get("source") or {}).get("container") is None]
+    notes = []
+    for container in report['containers']:
+        name = container['container']
+        allowed = set()
+        for step in container.get('steps',[]):
+            detail = step.get('detail') or {}
+            if not detail.get('refused'):
+                continue
+            require(step['step']=='tables' and isinstance(detail['refused'],int),
+                    'unexpected non-table writer refusal')
+            require(name in originals,'refusal from a container without a checked original')
+            pool = {}
+            for member,blob in speaker_map.read_members(originals[name]):
+                subs = [(x['name'],x['data']) for x in configst_pack.parse_pac(blob)['subs']] if member.endswith('.pac') else [(member,blob)]
+                pool.update(subs)
+            reconciled = 0
+            for member, result in detail.get('per_member',{}).items():
+                require(not result.get('problems'),'member structural error')
+                count = result.get('refused',0)
+                if not count:
+                    continue
+                require(member.startswith('srw_DL_RoboDictionary') and member in pool,
+                        'unexpected refused member')
+                raw = pool[member];family=tw.family_of(member)
+                keys={tw.record_key(raw,span,family) for span in tw.record_spans(raw)}
+                absent=[r for r in global_rows if tw.member_matches(r['source'].get('member'),member)
+                        and r.get('key') is not None and int(r['key']) not in keys
+                        and not (bp.DLC_CONFIG_RE.match(name) and bp.config_side_spare_row(r))]
+                require(len(absent)==count,'refusal count exceeds independently proven absent global IDs')
+                reconciled += count
+                messages={f"tables: {member}: refused: {r['id']}: no record with key {r['key']}" for r in absent}
+                allowed.update(messages)
+                notes.append({'container':name,'member':member,'count':count,
+                              'classification':'global broadcast IDs absent from this chapter; not failed target writes'})
+            require(reconciled==detail['refused'],'unreconciled table refusals')
+            require(all('tables: '+msg in allowed for msg in detail.get('problems',[])),
+                    'unexpected table refusal detail')
+        require(all(msg in allowed for msg in container.get('problems',[])),
+                'unexpected container-level writer refusal')
+    return notes
+
+
 def main(argv=None):
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--kit",type=Path,required=True)
@@ -135,7 +190,7 @@ def main(argv=None):
         subprocess.run(cmd,check=True,stdout=log,stderr=subprocess.STDOUT)
     report=json.loads((output/'build_report.json').read_bytes())
     require(not report['problems'],'builder reported problems')
-    require(not any(c.get('problems') for c in report['containers']),'container-level writer refusal')
+    broadcast_notes=validated_broadcast_misses(report,originals,package)
     require(report['terrain']['status']=='verified','terrain step absent or failed')
     for target in report.get('executable',{}).get('targets',[]):
         require(not target.get('skipped') and not target.get('problems'),'executable rows refused')
@@ -161,7 +216,7 @@ def main(argv=None):
         require(all(x['reported_jp_occurrences']==0 for x in r['records'].values()),'reported JP title remains in DLC catalog')
     require(before=={name:sha(path) for name,path in originals.items()},'original inputs modified')
     result={'status':'PASS','scope':'Real originals + actual extracted distribution on minimal ISO fixture; not gameplay/PPSSPP',
-            'kit_name':a.kit.name,'kit_bytes':a.kit.stat().st_size,'kit_sha256':sha(a.kit),'kit_files':count,
+            'kit_name':a.kit.name,'kit_bytes':a.kit.stat().st_size,'kit_sha256':sha(a.kit),'kit_files':count,'validated_broadcast_notes':broadcast_notes,
             'input_sha256':before,'maps':maps,'dlc':dlc_report,'iso_member_readback':True,'eboot_text_unchanged':True,
             'basic_training_preserved':True,'source_files_unchanged':True,'flat_deployment_from_nested_input':True}
     a.report.parent.mkdir(parents=True,exist_ok=True)
