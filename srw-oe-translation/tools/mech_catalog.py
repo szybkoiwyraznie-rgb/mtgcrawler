@@ -323,6 +323,7 @@ def render(model):
         f"{s['units_with_no_native_skill_assignment']} records have no nonzero native-skill slot. "
         "Many are animation/utility entries or use group/system mechanics. See the conditional-systems appendix.")
     group_by_id = {g["id"]: g for g in model["groups"]}
+    names = {u["unit_id"]: u["name"] for u in model["units"]}
     skills = model["skills"]
     def ability(alias):
         skill = skills.get(str(alias))
@@ -332,17 +333,16 @@ def render(model):
     for u in model["units"]:
         first = len(blocks)
         put("---")
-        put(f'<a id="unit-{u["unit_id"]}"></a>\n\n## {md(u["name"])} — Unit {u["unit_id"]}')
-        source = u["source"]
-        put(f"*Data: {md(source['container'])}/{md(source['member'])}, record {source['unit_index']}; "
-            f"base-ID field {u['base_id']}. List label: {md(u['list_name'])}.*")
+        # Reader-facing headings contain only the machine name. IDs and source
+        # provenance remain in the model/audit, not in each Markdown entry.
+        put(f"## {md(u['name'])}")
         series = u["series"]
         value = "; ".join(series["titles"]) if series["titles"] else "Not recorded in the available unit/pilot dictionaries"
         qualifier = {"unit_dictionary": "unit dictionary", "labelled_form": "form-derived; see provenance",
                      "pilot_association": "pilot-associated only; not a unit-dictionary entry", "unrecorded": "unresolved"}[series["method"]]
         put(f"**Series:** {md(value)} — *{qualifier}*.")
         if series["method"] == "labelled_form":
-            put("Series source: " + ", ".join(f"[unit {key}](#unit-{key})" for key in series["source_ids"]) + ".")
+            put("Series source: " + ", ".join(md(names[key]) for key in series["source_ids"]) + ".")
         put("### Default pilot / crew and special skills")
         for pilot in u["pilots"]:
             put(f"#### Slot {pilot['slot'] + 1}: {md(pilot['name'])} — Character {pilot['character_id']}")
@@ -394,9 +394,8 @@ def render(model):
         "whether a state is active depends on runtime grouping or scenario setup.")
     put("- " + ability(589) + "\n- " + ability(646))
     put("## Explicit group table")
-    names = {u["unit_id"]: u["name"] for u in model["units"]}
     for group in model["groups"]:
-        members = ", ".join(f"[{md(names[k])}](#unit-{k}) (ID {k})" for k in group["unit_ids"])
+        members = ", ".join(f"{md(names[k])} (ID {k})" for k in group["unit_ids"])
         put(f"- **{md(group['name'])}** (group {group['id']}): {members}.")
     put("## Provenance and limitations")
     put("Sources: original config00.cpk, config01–19.EDAT and configst.cpk; original Japanese 1.08 EBOOT; "

@@ -6653,3 +6653,30 @@ obu tytułów na jego instalacji jeszcze oczekuje; nie twierdzimy, że sam stary
 lub zagnieżdżony folder jest już dowiedzioną przyczyną jego screenów. Kolejny dowód,
 gdy objaw pozostanie: DLC_TITLE_CHECK.json z faktycznie używanego folderu gry.
 Sejwów nie usuwać. Dostarczony katalog mechów i scenariusze00–34 nie były zmieniane.
+
+### 21.65 Katalog mechów — usunięcie technicznych nagłówków (2026-10-18)
+
+Na prośbę właściciela, globalnie (nie tylko Exart): usunięte 393 kotwice HTML,
+393 sufiksy „— Unit N” z nagłówków i 393 wiersze „Data: …”. Numery/pochodzenie
+pozostają w modelu i audycie, bez zmiany danych gry. Powiązane 133 odsyłacze do
+usuniętych kotwic stają się tekstem; numeryczne odwołania serii używają nazw
+mechów. Pozostałe sekcje, ID postaci i informacje merytoryczne nie były usuwane.
+
+Pierwsze wydanie zachowane lokalnie; dokładne stare manifesty/raport w
+`docs/mech-catalog/revisions/01.*.json`. Nowy renderer i verifier nie potrzebują
+kotwic: sprawdzają uporządkowane nagłówki i zawartość osobno dla każdego rekordu,
+także gdy nazwy się powtarzają. 66 testów katalogu PASS (7 nowych). Odczyt nowego
+MD przeciw oryginalnym źródłom i przypiętemu historycznemu EN: PASS 393/1485.
+Pełny model identyczny; wszystkie tabele broni, opisy zdolności oraz nagłówki
+pilotów/profili są bajtowo takie same. Dokładny diff dopuszcza wyłącznie wskazane
+usunięcia i konieczne rozpakowanie odsyłaczy; dowód `presentation-v2.json`.
+Pierwszy dodatkowy test porównania wszystkich punktorów objął także punktorową
+listę grup z celowo zmienionymi linkami; zakres zawężono do treści zdolności.
+Pełny test dopuszczalnego diffu przeszedł przed i po tym doprecyzowaniu.
+
+Nowy plik lokalny: 707653 B, SHA-256
+`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+Przed zmianą zdalną potwierdzono, że dotychczasowy plik Drive nadal odpowiada
+wersji 1 (761353 B, MD5 cfb4ae34d01623c867329b86f3328107); brak cudzych zmian do
+nadpisania. Plan dostawy: osobna wersja v2, oryginał zachowany. Nie dotykano kitu
+v17 ani pakietu tłumaczenia. PR17 ponownie użyty; finalna dostawa jeszcze w toku.

@@ -274,8 +274,18 @@ def verify(configs, package, elf_path, manifest_path, map_path, errata_path, mar
 
     expected_order = sorted(units, key=lambda uid: (names[uid]["en"].casefold(), uid))
     check([u["unit_id"] for u in model["units"]] == expected_order, "Unit order mismatch")
-    anchors = list(re.finditer(r'^<a id="unit-(\d+)"></a>$', document, re.M))
-    check([int(m[1]) for m in anchors] == expected_order, "Missing/extra Markdown unit")
+    # Unit IDs are deliberately absent from reader-facing headings. Pair every
+    # visible H2 with the independently verified, ordered unit list; duplicate
+    # names remain separate entries, checked by their respective contents below.
+    headings = list(re.finditer(r"^## (.+)$", document, re.M))
+    expected_headings = (["How to read this catalogue"]
+                         + [escape(units[uid]["name"]) for uid in expected_order]
+                         + ["Conditional system abilities", "Explicit group table", "Provenance and limitations"])
+    check([m[1] for m in headings] == expected_headings, "Missing/extra/reordered Markdown unit heading")
+    unit_headings = headings[1:1+len(expected_order)]
+    check(not re.search(r'<a\b[^>]*\bid=[\"\']unit-\d+', document, re.I), "Technical unit anchor remains")
+    check(not re.search(r"^\*Data: |^## .* — Unit \d+$|\]\(#unit-\d+\)", document, re.M),
+          "Technical unit metadata or dangling anchor link remains")
     skills = expected_skills
 
     def ability(alias):
@@ -286,11 +296,11 @@ def verify(configs, package, elf_path, manifest_path, map_path, errata_path, mar
         return f"**{escape(label)}:** {escape(s['description'])}"
 
     checked_rows = 0
-    for index, match in enumerate(anchors):
-        uid = int(match[1]); u = units[uid]
-        end = anchors[index+1].start() if index+1 < len(anchors) else document.index("## Conditional system abilities", match.end())
+    for index, match in enumerate(unit_headings):
+        uid = expected_order[index]; u = units[uid]
+        end = headings[index+2].start()
         block = document[match.start():end]
-        check(f"## {escape(u['name'])} — Unit {uid}\n" in block, "Markdown unit heading changed")
+        check(f"## {escape(u['name'])}\n" in block, "Markdown unit heading changed")
         for title in ("### Default pilot / crew and special skills", "### Native machine abilities", "### Weapons and listed actions"):
             check(block.count(title) == 1, "Missing catalogue section")
         heads = re.findall(r"^#### Slot .+$", block, re.M)

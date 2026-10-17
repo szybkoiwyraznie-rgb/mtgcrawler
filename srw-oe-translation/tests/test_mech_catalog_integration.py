@@ -104,6 +104,24 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
         self.assertEqual(self.baseline["counts_checked"]["base_descriptions"], 249)
         self.assertEqual(self.baseline_text, render(self.current)[0])
 
+    def test_clean_headings_keep_every_unit_and_all_internal_metadata(self):
+        self.assertIn("## Exart\n\n**Series:**", self.baseline_text)
+        self.assertNotIn('<a id="unit-', self.baseline_text)
+        self.assertNotRegex(self.baseline_text, r" — Unit \d+")
+        self.assertNotIn("*Data: ", self.baseline_text)
+        self.assertNotIn("](#unit-", self.baseline_text)
+        self.assertEqual(self.unit(3900)["source"]["member"], "unit_list00.bin")
+        self.assertEqual(len(self.current["units"]), 393)
+
+    def test_reintroduced_unit_anchor_is_rejected(self):
+        self.reject(lambda text: text.replace("## Exart\n", '<a id="unit-3900"></a>\n\n## Exart\n', 1))
+
+    def test_reintroduced_data_line_is_rejected(self):
+        self.reject(lambda text: text.replace("## Exart\n", "## Exart\n\n*Data: fixture.cpk; record 63.*\n", 1))
+
+    def test_missing_clean_unit_heading_is_rejected(self):
+        self.reject(lambda text: text.replace("## Exart\n\n", "", 1))
+
     def test_dropped_internal_unit_is_detected(self):
         self.current["units"] = [u for u in self.current["units"] if u["unit_id"] != 3999]
         self.current["summary"]["units"] -= 1

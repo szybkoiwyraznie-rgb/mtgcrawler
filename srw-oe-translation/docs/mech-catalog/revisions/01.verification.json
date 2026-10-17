@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "output_bytes": 761353,
+  "output_sha256": "e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef",
+  "source_container_count": 21,
+  "source_package_sha256": {
+    "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
+    "04_config_text.jsonl": "74dfe7a0c567e9bbff908dad57a4d52b4487b7679514101ceef7adf28d49386e",
+    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+    "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+    "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
+  },
+  "engine_selector_replayed": true,
+  "counts_checked": {
+    "units": 393,
+    "weapons_and_actions": 1485,
+    "default_crew_assignments": 535,
+    "native_machine_skill_assignments": 516,
+    "base_descriptions": 249,
+    "groups": 16,
+    "executable_base_overrides": 20,
+    "catalogue_only_description_errata": 17,
+    "nonzero_weapon_selectors": 1274,
+    "zero_weapon_selectors": 211,
+    "conditional_weapon_gates": 121,
+    "unique_default_characters": 201,
+    "units_with_no_native_skill_assignment": 115,
+    "unresolved_native_references": [
+      {
+        "unit_id": 10115,
+        "slot": 0,
+        "alias_id": 110
+      },
+      {
+        "unit_id": 491,
+        "slot": 0,
+        "alias_id": 230
+      }
+    ],
+    "series_methods": {
+      "unit_dictionary": 302,
+      "labelled_form": 57,
+      "pilot_association": 14,
+      "unrecorded": 20
+    },
+    "units_explicitly_in_groups": 53
+  },
+  "summary": {
+    "units": 393,
+    "weapons_and_actions": 1485,
+    "nonzero_weapon_selectors": 1274,
+    "zero_weapon_selectors": 211,
+    "conditional_weapon_gates": 121,
+    "default_crew_assignments": 535,
+    "unique_default_characters": 201,
+    "native_machine_skill_assignments": 516,
+    "units_with_no_native_skill_assignment": 115,
+    "unresolved_native_references": [
+      {
+        "unit_id": 10115,
+        "slot": 0,
+        "alias_id": 110
+      },
+      {
+        "unit_id": 491,
+        "slot": 0,
+        "alias_id": 230
+      }
+    ],
+    "series_methods": {
+      "unit_dictionary": 302,
+      "unrecorded": 20,
+      "labelled_form": 57,
+      "pilot_association": 14
+    },
+    "groups": 16,
+    "units_explicitly_in_groups": 53,
+    "base_descriptions": 249,
+    "executable_base_overrides": 20,
+    "catalogue_only_description_errata": 17
+  }
+}
