@@ -52,6 +52,38 @@ No new build should be produced until this feedback arrives.
   Do not present them as translated user-visible text, and do not "fix" them without
   evidence from the container structure.
 
+## Potential translation gap found 2026-10-17 — evidence needed before editing
+
+Running the release gate over the package finds **149 empty `en` rows** (known count,
+but never classified):
+
+```sh
+python3 tools/translation_check.py --package pakiet_EN --require-complete
+# 109,144 rows, 108,995 filled, 149 empty, 149 errors, 3,241 notes
+```
+
+All 149 are outside the accepted story text: 143 in `04_config_text.jsonl`
+(103 `config_dlc_id`, 40 `config_reference`), 2 blank dialogue rows whose `jp` is a
+single space, and 3 executable rows. **Every one of the 143 config rows is in
+`config01`–`config08`; `config00` has zero empties.** Of those, 35 repeat a Japanese
+string that is translated in another row, and **108 unique strings have no English
+copy anywhere in the package**. They include:
+
+- chapter-download descriptions ("Download the Chapter 2 main story…");
+- additional-mission / unit / simulator download descriptions;
+- in-game help pages such as the **stack-unit system** and **download notes**, which
+  occur only in `srwDL_Reference03/08`, not in `srwDL_Reference00`.
+
+Hypothesis, **not proven**: the game may read the chapter-specific `configNN`
+reference/DLC tables, in which case those help pages and download texts stay Japanese.
+The 2026-10-17 owner report covers only two DLC titles and one terrain label, so this
+was not observed in game. Do **not** translate or rebuild these rows on the strength
+of the file layout alone: first establish which `configNN` tables the game actually
+displays (runtime check or container-read evidence), then translate the confirmed
+subset with the established terminology and rebuild a kit.
+
+**Decision needed from the owner before this becomes work.**
+
 ## Verification baseline in the agent sandbox
 
 This checkout has **no game files**: `local/`, `google_drive/` and any ISO/EDAT are
