@@ -6525,3 +6525,19 @@ wywołała parser PAC na bezpośrednim członie imenu (46 B); przerwana, nic nie
 w oryginałach. Druga błędnie sprawdzała indeksy jako elementy listy `Record.strings`
 i wypisała None; poprawny odczyt listy potwierdził faktyczne bajty EN. To błędy
 skryptu diagnostycznego, nie błędy buildera.
+
+**21.64 — zlokalizowany teren:** nowy read-only `text_resource_probe.py`, 5 testów
+syntetycznych PASS. eventP00: 44 liście, brak celu; lmap: **4880 liści, 271 kopii**
+`lNNN.pac/attr.par` z napisem. Skan 57,743 s, bez zmian wejścia, jeden człon CPK
+naraz. Attr: 9284 B, hash `2a0e46bd16d26627c33bb26eab0d844ae484d4bb06ced36fc2dff2bc8ae3a3d0`,
+count145, 64 B/rekord, nazwa32 B, 111 niepustych nazw; cel rekord38/offset2436.
+Wszystkie kopie identyczne. Metadane w `qa-v17/terrain-source.json`; nie publikujemy
+map/tekstur/binarnych parametrów. Stare „same grafiki/brak tekstu” nie obejmowało tej
+zagnieżdżonej rodziny. Plan: tłumaczyć wyłącznie komórki nazw, dowieść niezmienności
+liczb, geometrii i obrazów oraz sprawdzić wszystkie kopie, nie tylko pierwszą.
+
+Właściciel doprecyzował: v16 w całości, stary sejw, około90% poprzednich nazw DLC
+już EN; tylko dwie z obecnych screenów JP. Nie uznajemy tego za potwierdzone użycie
+save state ani za dowód błędnej instalacji. Dwie nazwy w odtworzonym v16 nadal EN;
+przypadek runtime otwarty. Wstępny skan stałej1064 (kolumnaSMES) w EBOOT nie znalazł
+bezpośredniego ładowania; nie wyciągamy z tego wniosku o źródle tytułu.

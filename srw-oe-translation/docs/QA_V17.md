@@ -40,3 +40,23 @@ system/tacsys/tactics or celldata (CP932/UTF16 checks; EBOOT also tested as UTF8
 swapped-SJIS words). Current system/tacsys GIM sheets inspected; no matching caption.
 `celldata.bin` is a TXCL sprite-cell layout, not a table of the pictured terrain names.
 Next investigate map resources; do not replace an unrelated UI texture.
+
+## Terrain source located
+
+`lmap.cpk` (81,379,568 B; hashes in `qa-v17/terrain-source.json`) contains **271**
+byte-identical `lNNN.pac/attr.par` files. Each is 9,284 B: u32 count **145**, then
+145 × **64-byte records**. The first **32 bytes** of each record are its NUL-padded
+name, the following 32 bytes are numeric attributes. There are **111 nonempty name
+cells** (91 distinct nonempty labels). The reported label is **record 38 / +2436**;
+its numeric word at +44 is 10, consistent with the pictured +10, but no numeric
+field needs to be reinterpreted or edited to translate the name.
+
+Read-only streaming probe scanned 4,880 leaf resources, keeping one CPK member in
+memory at a time; all 271 matches have the same attr SHA-256. Earlier UI-only
+coverage missed this map parameter family. It is text, not a painted GIM caption.
+The original eventP00 has no match. No patch has been built at this checkpoint.
+
+Owner clarification: **v16 in full, an old save, most earlier DLC names now EN;
+only these two remain JP**. Do not equate "old save" with a confirmed emulator
+save state, and do not blame it without evidence. The installed-file/loaded-state
+mismatch remains open after the successful source-kit reproduction.
