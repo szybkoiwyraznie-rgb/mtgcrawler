@@ -108,3 +108,16 @@ Addresses below are **relative to PRX .text**, not PSP runtime addresses.
 The group table and incomplete series metadata need separate treatment; neither
 unit +86 nor +88 is a universal series-inheritance key (counterexamples exist).
 The generator/verifier and final Markdown delivery are still in progress.
+
+## Full draft generated — not yet delivered
+
+`mech_catalog.py` creates one Markdown with all 393 unit records / 1485 weapon-table
+entries. Uses 249 concrete base descriptions (five alias groups have only negative-
+level template rows), including 20 executable overrides. Linked alternate character
+profiles stay separate; no Spirit Command fields are used. All 16 group records
+(100-byte stride) and their 53 distinct explicit member IDs are accounted for.
+
+Series provenance is visible: 302 direct, 57 explicit-form-derived, 14 pilot-
+associated inferences, 20 unresolved. Native ability refs 110/230 remain unresolved.
+The draft is under ignored `local/mech-catalog/`; independent verification and
+review of source-description formatting/English defects are still pending.

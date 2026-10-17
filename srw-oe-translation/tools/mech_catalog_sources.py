@@ -107,6 +107,19 @@ def skill_rows(data):
     return rows
 
 
+def group_rows(data):
+    result = []
+    for index, raw in enumerate(fixed_rows(data, 100)):
+        key, count = halfwords(raw, 32, 2)
+        units = halfwords(raw, 36, 8)
+        need(key > 0 and 0 < count <= 8, "Invalid group ID/member count")
+        need(all(units[:count]) and not any(units[count:]), "Group membership/count mismatch")
+        result.append({"record": index, "key": key, "members": units[:count],
+                       "offset": index * 100, "raw_hex": raw.hex()})
+    need(len(result) == len({r["key"] for r in result}), "Duplicate group ID")
+    return result
+
+
 def read_members(directory):
     members, manifest = {}, []
     for name in CONFIG_FILES:
@@ -153,7 +166,13 @@ def collect(directory, package):
                 need(row["key"] not in characters, "Duplicate global character ID")
                 row.update(container=container, member=member)
                 characters[row["key"]] = row
-    skills = skill_rows(members["config00.cpk", "srwDL_Skill00.bin"])
+    skill_blob = members["config00.cpk", "srwDL_Skill00.bin"]
+    skills = skill_rows(skill_blob)
+    pool_start = struct.unpack_from("<I", skill_blob)[0]
+    pointers, strings = item_skill_records.parse_tail_pool(skill_blob, pool_start)
+    pool = [{"index": i, "offset": off, "raw_hex": raw.hex()} for i, (off, raw) in enumerate(zip(pointers, strings))]
+    groups = group_rows(members["config00.cpk", "groupunit00.bin"])
+    need(all(uid in units for g in groups for uid in g["members"]), "Unknown group member unit")
     index = unit_weapons.unit_index_rows(members["config00.cpk", "unit_index_list.bin"])
     need(bool(index) and unit_weapons.unit_index_offset_chain(index), "Invalid global unit/weapon index")
     need(set(units) == set(weapons) == {r["unit_id"] for r in index}, "Incomplete global unit/weapon coverage")
@@ -202,11 +221,14 @@ def collect(directory, package):
     summary = {"status": "inventory-only", "containers": len(inputs), "units": len(units),
                "weapon_entries": len(expected_wp), "characters": len(characters), "skill_records": len(skills),
                "skill_families": len({r["family"] for r in skills}), "skill_alias_ids": len(aliases),
+               "groups": len(groups), "group_member_slots": sum(len(g["members"]) for g in groups),
+               "skill_pool_entries": len(pool),
                "index_count_mismatches": mismatches, "legacy_unterminated_name_overreads": legacy_names,
                "reference_candidates": candidates,
                "package_sha256": package_hashes}
     return {"summary": summary, "inputs": inputs, "units": list(units.values()),
-            "weapons": list(weapons.values()), "characters": list(characters.values()), "skills": skills}
+            "weapons": list(weapons.values()), "characters": list(characters.values()), "skills": skills,
+            "skill_pool_start": pool_start, "skill_pool": pool, "groups": groups}
 
 
 def main(argv=None):

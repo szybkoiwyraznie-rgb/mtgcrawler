@@ -8,6 +8,9 @@
     "skill_records": 1469,
     "skill_families": 193,
     "skill_alias_ids": 254,
+    "groups": 16,
+    "group_member_slots": 57,
+    "skill_pool_entries": 720,
     "index_count_mismatches": [
       {
         "unit_id": 2940,

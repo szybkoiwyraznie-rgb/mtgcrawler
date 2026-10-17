@@ -6400,3 +6400,27 @@ Zapisano wyłącznie metadane wskazań/hashów w `docs/mech-catalog/engine-map.j
 pełne zrzuty/disassembly pozostają lokalne. Dodano opcjonalny probe MIPS (Capstone
 5.0.6), SHA-256 bramkę wydania i 9 testów syntetycznych; łącznie nowe testy 19/19 PASS.
 To nie jest test całej gry w emulatorze. Finalny katalog jeszcze w toku.
+
+**21.63 — checkpoint generatora / wersja robocza:** dodano śledzony `mech_catalog.py`.
+Pierwszy pełny MD w ignorowanym `local/mech-catalog/`: 393 rekordy jednostek,
+1485 wpisów broni/akcji, 535 przypisań załogi (201 różnych domyślnych postaci),
+516 referencji natywnych zdolności (2 nierozwiązane), 121 bramek warunkowych broni.
+Zachowano 211 wpisów z zerowym selektorem oddzielnie od 1274 wpisów niezerowych.
+Powiązania alternatywnych profili postaci przez +100 (w tym allied) są pokazane
+osobno: np. Bernard nie może dostać połączonego zestawu zdolności wroga i sojusznika.
+Brak wpisów w trzech slotach natywnych u 115 rekordów opisano jako brak przypisania,
+**nie „brak jakichkolwiek efektów w grze”**. Każdy rekord nadal ma sekcję zdolności.
+
+16 grup z `groupunit00` ma rekordy **100 B** (potwierdzone offsetami nazw z
+05_mission_text, licznikami i ID członków); 53 różne jednostki są wymienione jawnie.
+Warunkowe GR i ST są objaśnione oddzielnie, bez arbitralnego nadawania wszystkim.
+Seria: 302 bezpośrednie wpisy słownika, 57 po jawnej nazwie formy, 14 jawnie oznaczonych
+skojarzeń z serią domyślnego pilota; 20 braków pozostawiono otwarcie (głównie obiekty
+oraz spare, ale też Medea/Zahatt/LCT). Numery +86/+88 nie są uniwersalnym kluczem
+serii — realne kontrprzykłady wykluczają taki skrót.
+
+30 testów syntetycznych nowych narzędzi PASS. Roboczy katalog wygenerowany, obejrzano
+Gundam/Guncannon/Exart/Fire Zephyr/Berniego. **Jeszcze nie dostarczono**: trwa przegląd
+opisów i osobna kontrola. Zauważono rzeczywisty problem istniejącego angielskiego
+szablonu Plant: kolejność `%s` daje „fixed Range … in Dmg”. Wymaga jawnej korekty
+redakcyjnej katalogu na podstawie JP, nie zgadywania ani cichej zmiany pakietu gry.
