@@ -1,8 +1,16 @@
 # Project status
 
-Last updated: 2026-10-18 (§21.65 — uproszczony układ katalogu mechów)
+Last updated: 2026-10-18 (§21.66 — prezentacja katalogu v3)
 
-**Najnowsze (§21.65): katalog mechów — prezentacja v2 dostarczona.**
+**Najnowsze (§21.66): prezentacja katalogu v3 dostarczona.**
+[Nowy Markdown](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view),
+667590 B. Pełna lista (a–h): poprzednie usunięcia zachowane, dodatkowo bez tagów
+unit dictionary, ID wszystkich pilotów/profili oraz dwóch wskazanych powtarzanych
+komunikatów. Model/dane, bronie/statystyki/opisy oraz klasyfikacja wpisów specjalnych
+bez zmian; niepewności nadal oznaczone. 1509 PASS,1 skipped,382 subtests; download-back
+identyczny. Poprzednie wydania zachowane. Gra i kit v17 bez zmian.
+
+**Poprzednia prezentacja (§21.65): katalog mechów — prezentacja v2 dostarczona.**
 [Nowy Markdown](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view),
 707653 B. Usunięto kotwice HTML, sufiksy „— Unit N” i wiersze „Data: …” dla wszystkich
 393 rekordów; model/dane, bronie, umiejętności i piloci bez zmian. Odsyłacze do

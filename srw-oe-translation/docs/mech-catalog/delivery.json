@@ -3,16 +3,16 @@
   "date": "2026-10-18",
   "status": "delivered-and-read-back-verified",
   "scope": "All registered unit and weapon/action records; data-backed catalogue with explicit unresolved fields, not an exhaustive gameplay simulation",
-  "tooling_checkpoint": "5a14d604e240ca444f026dce67ac4116a355feed",
+  "tooling_checkpoint": "9a16a311d3748f38fe2841b4e868583a0e85acd0",
   "source_package_commit": "aa178c7264514d0c36c102393705cdacb6e0ab77",
   "pull_request": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/pull/17",
   "artifact": {
-    "name": "srwoe_mech_catalog_v2.md",
-    "bytes": 707653,
-    "sha256": "9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab",
-    "md5": "16aaaf7f2f21b1b6291907e8f42c0511",
-    "drive_id": "1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj",
-    "drive_url": "https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view",
+    "name": "srwoe_mech_catalog_v3.md",
+    "bytes": 667590,
+    "sha256": "19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7",
+    "md5": "1db3f99dd821fa4211b4f4f3e961d5df",
+    "drive_id": "1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt",
+    "drive_url": "https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view",
     "drive_parent_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
     "read_back_byte_identical": true
   },
@@ -58,8 +58,8 @@
     "mech_catalog_sources.py": "0877acee95153b52aa8cedcbc2db207100d4f0eeefaa5f2bb49a002351c5820a",
     "mech_catalog_probe.py": "51b545d0e908603ca491bbca2d6fb4a26748f3b6e5eb2e2c37964ccb9da73b95",
     "mech_catalog_engine.py": "08ccd08823a2ea3ee044db4a4385ab0136a8d7493bdd922da2a8c9da1b5bff53",
-    "mech_catalog.py": "719b95bee69df19a02db06636bf75c49584ed7808ca310cf1fe4e450a33f8719",
-    "verify_mech_catalog.py": "d82dc95a87433e18184b225fb7dad9b206ce6ab677800a939763cd2d4e70d418"
+    "mech_catalog.py": "ed32ee9d857307e4b763a9502b39189fc7720c379e273ce885537b62e9ff16d5",
+    "verify_mech_catalog.py": "23b6daf664915a89299b48b3f6b65d3fa9665ba32a0d337643c3e4d785f03825"
   },
   "tests": {
     "python": "3.11.2",
@@ -69,18 +69,18 @@
     "capstone": "5.0.6",
     "unicorn": "2.1.4",
     "full_project": {
-      "passed": 1500,
+      "passed": 1509,
       "skipped": 1,
       "subtests_passed": 382,
-      "seconds": 45.34
+      "seconds": 46.84
     },
-    "new_tests": 66,
-    "synthetic_tests": 36,
-    "real_input_tests": 30,
-    "semantic_mutations_rejected": 27,
+    "new_tests": 75,
+    "synthetic_tests": 39,
+    "real_input_tests": 36,
+    "semantic_mutations_rejected": 32,
     "engine_base_aliases_replayed": 254,
     "original_files_and_package_unchanged": true,
-    "new_presentation_tests": 7
+    "new_presentation_tests": 9
   },
   "unrecorded_series": [
     {
@@ -174,9 +174,9 @@
     "Seventeen source-checked wording repairs apply only to the catalogue; no game translation or binary was changed.",
     "Pure description-selector emulation is not a full PPSSPP/gameplay test."
   ],
-  "presentation_revision": 2,
-  "previous_delivery": "revisions/01.delivery.json",
-  "presentation_proof": "presentation-v2.json",
+  "presentation_revision": 3,
+  "previous_delivery": "revisions/02.delivery.json",
+  "presentation_proof": "presentation-v3.json",
   "presentation_changes": {
     "unit_anchors_removed": 393,
     "unit_id_suffixes_removed": 393,
@@ -184,6 +184,15 @@
     "old_unit_links_rendered_as_text": 133,
     "model_unchanged": true,
     "gameplay_text_unchanged": true,
-    "original_drive_file_preserved": true
+    "original_drive_file_preserved": true,
+    "removed_this_revision": {
+      "unit_dictionary_qualifiers": 302,
+      "character_id_heading_suffixes": 535,
+      "pilot_profile_id_suffixes": 569,
+      "repeated_spirit_command_notices": 139,
+      "repeated_special_entry_notices": 113
+    },
+    "all_prior_cleanup_retained": true,
+    "older_drive_editions_preserved": true
   }
 }

@@ -6712,3 +6712,13 @@ Poprzednie MD/audyt zachowane lokalnie, dokładne manifesty/raporty v2 w revisio
 Nowy plik lokalny: 667590 B, SHA-256
 `19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`.
 PR17 ponownie użyty; finalna dostawa i pełna regresja w toku. Gra/kit/pakiet bez zmian.
+
+**21.66 — DOSTAWA v3:** pełny suite **1509 passed,1 skipped,382 subtests passed
+w46,84s**. Cały finalny MD sprawdzony przeciw niezmienionym źródłom historycznym;
+254 wybory opisów bazowych ponownie potwierdzone. Poprzedni plik Drive nadal miał
+hash v2 — nie było innych zmian użytkownika do pominięcia. Utworzono osobne
+`srwoe_mech_catalog_v3.md`, ID `1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt`.
+Przed uploadem0/po1 dopasowań nazwy, rozmiar667590B, MD5
+`1db3f99dd821fa4211b4f4f3e961d5df`; pobranie zwrotne w całości bajtowo identyczne.
+Starsze pliki i uprawnienia nietknięte. Aktualne manifest/raport wskazują v3,
+historyczne v2 są zachowane w revisions/. Pakiet gry oraz kit v17 bez zmian.

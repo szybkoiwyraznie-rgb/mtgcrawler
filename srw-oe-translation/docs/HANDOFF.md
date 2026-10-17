@@ -4,7 +4,17 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
-## Najnowsze przekazanie — 2026-10-18, układ katalogu mechów
+## Najnowsze przekazanie — 2026-10-18, katalog v3
+
+[Prezentacja v3](mech-catalog/README.md) uwzględnia całą listę (a–h) właściciela.
+Poza wcześniejszymi usunięciami nie ma już tagów unit dictionary, identyfikatorów
+pilotów/profili ani dwóch wskazanych zdań powtarzanych przy pilotach/wpisach
+specjalnych. Nazwy, wartości/opisy i klasyfikacja wpisów pozostają. Nie przywracać
+usuniętych elementów i nie usuwać przy okazji niepewności lub innych danych.
+Oryginały v1/v2 oraz ich manifesty są zachowane; v3 ma własny link Drive.
+Gra/kit v17 bez zmian; to wyłącznie prezentacja tego samego modelu.
+
+## Poprzednie przekazanie — 2026-10-18, układ katalogu mechów v2
 
 [Prezentacja v2](mech-catalog/README.md) usuwa trzy elementy wskazane przez właściciela
 z wszystkich rekordów: kotwicę HTML, „— Unit N” w nagłówku i linię Data. Informacje

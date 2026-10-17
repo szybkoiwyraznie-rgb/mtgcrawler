@@ -1,9 +1,10 @@
 # Mech reference catalogue — completed data-backed edition
 
-**Presentation update 2026-10-18:** [revision 2](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view)
-omits HTML unit anchors, “— Unit N” heading suffixes and per-unit Data lines.
-All data/definitions are unchanged; the first-edition facts and delivery notes
-below remain historical. Current delivery: [README](mech-catalog/README.md).
+**Current presentation — 2026-10-18:** [revision 3](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view)
+implements the owner's (a–h) removals: no technical machine headers, confirmed-
+dictionary tag, pilot/profile ID suffixes or the two specified repeated notices.
+All data/definitions remain unchanged. Earlier delivery notes below are historical;
+current coverage/proof/delivery: [README](mech-catalog/README.md).
 
 **Delivered 2026-10-17:** [srwoe_mech_catalog.md](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view),
 761,353 bytes, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.

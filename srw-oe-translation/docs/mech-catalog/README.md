@@ -1,21 +1,27 @@
 # SRW OE mech catalogue — delivered data-backed edition
 
-**Current presentation revision 2 — 2026-10-18:**
-[srwoe_mech_catalog_v2.md on Drive](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view)
-— **707,653 bytes**, SHA-256
-`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+**Current presentation revision 3 — 2026-10-18:**
+[srwoe_mech_catalog_v3.md on Drive](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view)
+— **667,590 bytes**, SHA-256
+`19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`.
 Downloaded back and compared byte-for-byte.
 
-At the owner's request, all 393 machine headings now contain **only their names**:
-no HTML unit anchors, no “— Unit N” suffix and no per-machine “Data: …” line.
-Identifiers/provenance remain in the audit. Old anchor links are plain text; series
-cross-references use machine names. Other IDs, content and uncertainty labels are
-not removed. The entire data model, weapon tables, ability text and pilot/profile
-headings are unchanged. See `presentation-v2.json` for the exact-diff proof.
+The owner's complete presentation request (a–h) applies to **every** unit/crew entry:
+- No unit HTML anchor, “— Unit N” heading suffix or per-unit “Data: …” line (v2).
+- No “— unit dictionary” tag after directly sourced series names.
+- No “— Character N” or “(ID N)” suffix in any pilot/profile heading, including alternates.
+- No repeated “Spirit Commands are intentionally excluded.” sentence beside pilots.
+- No repeated “These are retained for completeness…” paragraph before special-entry tables.
 
-[Original edition](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
-is preserved separately. Its exact delivery/verification metadata are archived in
-`revisions/01.*.json`; its source snapshot remains the basis of revision 2.
+Names, descriptions, stats, weapon tables and the distinction between ordinary and
+special records remain unchanged. Inferred/unresolved series stay qualified; their
+uncertainty is not promoted to a fact. All source IDs/provenance remain in the audit.
+Exact diff proof: `presentation-v3.json`; the complete model hash is unchanged.
+
+[First edition](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+and [v2](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view)
+are preserved separately, with exact metadata in `revisions/01.*.json` and
+`revisions/02.*.json`. No game data or translations were changed by these revisions.
 
 ## Coverage
 
@@ -44,7 +50,7 @@ Animation and utility records are retained, not silently discarded or called att
 ## Explicit limits — no guesses
 
 - Series: **302 direct**, **57 form-derived**, **14 pilot-associated inferences**,
-  **20 not recorded**. The method is labelled per unit; the latter include objects,
+  **20 not recorded**. Inferred/unresolved cases are labelled; the latter include objects,
   spares and some ships/units, not just missing English. List in `delivery.json`.
 - Skill reference **110** in unit **10115** (King Go-Saurer/Movie) and **230** in
   unit **491** (Fire Zephyr/Later) are unresolved and visible.
@@ -62,9 +68,9 @@ Animation and utility records are retained, not silently discarded or called att
 
 ## Verification
 
-**1500 passed, 1 skipped, 382 subtests passed** — full project suite, 45.34 s.
-Catalogue suite: **66 tests** (7 added for this presentation revision): 36 synthetic
-+ 30 real-input tests. The latter reject **27 semantic mutations** even after document/audit hashes and sizes are repaired.
+**1509 passed, 1 skipped, 382 subtests passed** — full project suite, 46.84 s.
+Catalogue suite: **75 tests** (9 added for this presentation revision): 39 synthetic
++ 36 real-input tests. The latter reject **32 semantic mutations** even after document/audit hashes and sizes are repaired.
 Original input and package hashes remained unchanged. Regeneration is byte-identical.
 
 `verify_mech_catalog.py` checks facts against freshly read binary/English sources
@@ -84,8 +90,8 @@ six JSONL files named by `source-inventory.json` from that Git revision into an
 ignored folder (`git show <revision>:srw-oe-translation/pakiet_EN/<file>`), then
 use `local/mech-catalog/frozen-source` for that folder in the commands below. The real-input regression test does this
 read-only when the working package has changed. No branch switch or checkout is
-performed. The first-edition Markdown/hashes are preserved in the revision archive; revision 2
-changes only presentation and retains the identical frozen model.
+performed. The first-edition Markdown/hashes are preserved in the revision archive; revisions 2 and 3
+change only presentation and retains the identical frozen model.
 
 Use **original decrypted** config00.cpk, config01–19.EDAT and configst.cpk together
 in an ignored input directory, plus the matching original EBOOT.BIN. The commands
@@ -98,15 +104,15 @@ python3 tools/mech_catalog.py --configs ../google_drive --package local/mech-cat
   --source-manifest docs/mech-catalog/source-inventory.json \
   --engine-map docs/mech-catalog/engine-map.json \
   --errata docs/mech-catalog/description-errata.json \
-  --out local/mech-catalog/srwoe_mech_catalog_v2.md \
-  --audit local/mech-catalog/catalog_v2.audit.json
+  --out local/mech-catalog/srwoe_mech_catalog_v3.md \
+  --audit local/mech-catalog/catalog_v3.audit.json
 python3 tools/verify_mech_catalog.py --configs ../google_drive --package local/mech-catalog/frozen-source \
   --elf ../google_drive/EBOOT.BIN \
   --source-manifest docs/mech-catalog/source-inventory.json \
   --engine-map docs/mech-catalog/engine-map.json \
   --errata docs/mech-catalog/description-errata.json \
-  --markdown local/mech-catalog/srwoe_mech_catalog_v2.md \
-  --audit local/mech-catalog/catalog_v2.audit.json \
+  --markdown local/mech-catalog/srwoe_mech_catalog_v3.md \
+  --audit local/mech-catalog/catalog_v3.audit.json \
   --report local/mech-catalog/verification.json
 python3 -m unittest discover -s tests -p 'test_mech_catalog*.py' -v
 ```
