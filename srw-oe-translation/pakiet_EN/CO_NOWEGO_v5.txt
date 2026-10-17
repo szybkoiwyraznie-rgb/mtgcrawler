@@ -1,0 +1,49 @@
+﻿PAKIET v5 (2026-10-15, noc) = pakiet v4 + 124 poprawione wiersze po pierwszym uruchomieniu
+pelnego patcha w grze (build #17 dzialal: Loading, nowa gra, sejw z 2. rozdzialu, ekrany statusu).
+Pelna lista zmian: POPRAWKI_v5.tsv (kolumny: id, pole, jp, en_v4, en_v5, powod).
+
+1. Lista jednostek w intermisji (zrzut uzytkownika): angielskie nazwy jednostek dluzsze niz
+   14 znakow wchodzily na kolumne pilota (gra sciska japonskie znaki pelnej szerokosci, ASCII
+   nigdy). Pomiar ze zrzutu: kolumna nazwy = ~105 px = 14,6 komorki polszerokosci, kolumna pilota
+   zaczyna sie od komorki 15. Nowa regula (tools/translation_check.py): unit_name <= 14 komorek
+   (blad), krotkie nazwy pilotow <= 14 (ostrzezenie). 106 wierszy unit_name (83 rozne nazwy)
+   skrocono, np. "Strike Freedom Gundam" -> "Strike Freedom", "Wing Gundam Zero" -> "Wing Zero",
+   "VF-25F Messiah B" -> "VF-25F (B)", "Ryu Knight Zephyr" -> "Knight Zephyr", "/Movie" -> nazwa
+   bazowa. Dlugie nazwy na ekranie statusu (unit_name_display) bez zmian.
+   5 krotkich nazw pilotow-sojusznikow: "Da Cider (Ally)" -> "Da Cider/Ally", "Schubaltz (Ally)" ->
+   "Schubaltz/Ally", "Mr. Bushido (Ally)" -> "Bushido/Ally", "Cowen & Stinger" -> "Cowen&Stinger",
+   "Captain Kusanagi" -> "Capt. Kusanagi". Nazwy wrogow/NPC > 14 (np. "Neo Zeon Soldier") zostaly -
+   nie siedza w liscie gracza; szerokosc tabliczki w walce niezmierzona.
+2. Umiejetnosci "Coord. Atk" (Skill00 r236-r241) i "Group (GR)" (r651, r652): w japonskim tekscie
+   po %s stoi bajt '4', ktory jest druga polowa glifu kana (fragment puli "GURU<0F>" + '4' =
+   "GURUUPU" = grupa). Angielski fragment to "Group" bez zwisajacego bajtu, wiec w grze bylo
+   "Group4All units attack". W v5 '4' znika (9 miejsc, 8 rekordow); liczba %s bez zmian.
+   Regula w translation_check (COMPLETION_BYTE) + test. Uwaga: 04_config_text.jsonl powtarza
+   wiersze Skill00 - przy roznym angielskim w dwoch wierszach writer pomija CALY rekord (tak bylo
+   w pierwszym przebiegu buildu #18: r236 zostal japonski); teraz kontrola pakietu to lapie.
+3. Postac 4426 (Kuro, config19/charalist19): name_short/name_full/name_narrow mialy obcy
+   angielski ("Guylos Imperial Officer" / "Guylos Officer") -> "Kuro".
+4. check_report.txt: 0 bledow (108 135 wierszy, 80 792 z angielskim); translation_copy --check: 0.
+
+Budowa z tego pakietu (build #18, narzedzia TOOLS_STAMP 2026-10-15d, 13 kontenerow z oryginalow):
+  config00.cpk     936 064 B  md5 5c43cf343b9fafde62c3c53c3a6c1e78
+  config01.EDAT    247 936 B  md5 8db9f78108b829526ef5a7176847c5fd
+  config02.EDAT    159 872 B  md5 aead94463a5ec32d7dc0cef69d3f79c2
+  config03.EDAT    118 912 B  md5 2921482ca17a32b6b65136cfe3f12ed6
+  config04.EDAT    108 672 B  md5 4d7fb680912e96b306ba2c30eabe3af3
+  config05.EDAT    110 720 B  md5 202e02209e2dd4a1719ca3e389d0091a
+  config06.EDAT     75 904 B  md5 98c897edf839f8245bb0c75921513600
+  config07.EDAT     73 856 B  md5 ac7b2e3db0bf4215a8f52ebcda384d9e
+  config08.EDAT     80 000 B  md5 4f77f8ff89d2f4c9ff23814f3f0057f4
+  configst.cpk     372 864 B  md5 6cfe245d5f6ec6dfffd2a829b778a4d7
+  eventP00.cpk     260 568 B  md5 ac538959fdef3d47eeb38d0e2282adb0
+  imenu00.cpk       57 512 B  md5 ee66a6f824a54f2ee27c8309db16294a
+  mesbtl00.cpk     994 008 B  md5 00e10760c204e75133169b3455b19608
+  Skill00 215 450 B (v4: 215 462); pule Skill01-08 15 578 B; Skill00 + 8 pul = 340 074 B.
+  configst.cpk, eventP00.cpk, imenu00.cpk, mesbtl00.cpk = build #17 (bez zmian).
+  config01-08.EDAT: rozmiary = oryginal (config02 +2 048 B przez slowniki, jak w #17).
+Pozostale 83 pliki EDAT buduja sie z FULL_DLC tak samo jak z v4 (nazwy jednostek rozdzialow 9+
+i Kuro w config19 sa w pakiecie; tu ich nie ma, bo lokalnie sa tylko oryginaly config00-08).
+
+W GRZE JESZCZE NIE SPRAWDZONY. Procedura jak dla v4: HOKUS_POKUS z pakietem v5 (albo KIT_build18)
+-> DIAGNOZA ("pakiet v5 - AKTUALNY", "config00 = BUILD18") -> folder DLC emulatora + patched.iso.

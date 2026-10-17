@@ -1,0 +1,11 @@
+PAKIET v11 (2026-10-16) - na bazie v10, jedna zmiana: WYCOFANE tlumaczenie KATALOGU DLC
+(srwDL_DLC_ID01-07: tytuly rozdzialow "Chapter N Main Story" i opisy pobierania oraz
+srwDL_Reference03/08) - w tych czlonach znow jest japonski ORYGINAL 1:1.
+
+Dlaczego: build #17 (Y4a - dzialal w grze) mial te czlony po japonsku; v9/v10 mialy je
+po angielsku i padaly. Kazdy stan gry, ktory dzialal, mial katalog DLC nietkniety
+(polowa B nie ma w ogole edycji DLC_ID; imenu01 nie ma czlonu DLC_ID).
+Do ponownego podejscia z angielskimi tytulami: potrzebna drabinka szerokosci jak dla
+sysmes (osobny eksperyment).
+
+Reszta bez zmian wzgledem v10: 4 reguly skrocen robo, sloty viewerow, nazwy, pule, exe.

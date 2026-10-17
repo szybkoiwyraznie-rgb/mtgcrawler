@@ -1,0 +1,15 @@
+PAKIET v10 (2026-10-16) - na bazie v9, jedna zmiana: 4 reguly skrocen w wierszach robo,
+ktore dla rozdzialu 2 przekraczaly koperte rozmiaru pliku config02.EDAT (gra ma staly bufor
+per plik DLC = oryginal zaokraglony do 0x800; v9 config02 mial +1 kwant 0x800 i padal):
+
+1. "Lord of Lords Ryu Knight"  -> "Ryu Knight"   (36 wierszy serii mechanow)
+2. "Armored Trooper VOTOMS"    -> "VOTOMS"       (38 wierszy; wariant "...: Red Shoulder
+                                                    Document" pozostaje pelny)
+3. "Code Geass: Lelouch of the Rebellion" -> "Code Geass" (24 wiersze)
+4. "Length " -> "Len. "                           (304 wiersze dlugosci mechanow, wszystkie
+                                                   rozdzialy; pliki tylko maleja)
+
+Bez zmian: dialogi, cytaty, przedmioty, umiejetnosci, sceny, exe, wszystko inne.
+Reguly obowiazuja tez w pozniejszych rozdzialach, w ktorych te serie wystepuja (same skrocenia).
+Budowa config01-08 z v10: wszystkie pliki <= oryginalow (koperta OK).
+Szczegoly: EXPERIMENT_LOG 21.38, diagnoza KNOWN_DLC_CONFIG (md5 v10).

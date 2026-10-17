@@ -1,0 +1,10 @@
+CO NOWEGO v12 (2026-10-17)
+==========================
+- DIALOGI NAPRAWIONE: poprzednie wydania psuly tablice interpunkcyjna EBOOT
+  (cytaty 「 」 i spacja miedzy nimi) - w oknie dialogowym pojawial sie sam znak
+  ". Cytaty wokolu kwestii mowcow maja wyglad japonski 「...」 (element struktury).
+- IKONY: do zippedu dolaczone ui_labels/ (specy napisow) i assets/fonts/ (font
+  Roboto) - poprzednio czesc ikon pozostala po japonsku albo build failowal.
+- Glif 連 przy sprzezonych jednostkach -> "LNK".
+- exe: komplet 404/404 wierszy (dlugie tytuly serii skrocone do budgetu).
+- Zawartosc tlumaczenia = era v11 (100% przygotowanych tekstow).

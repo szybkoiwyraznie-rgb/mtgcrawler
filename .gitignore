@@ -3,9 +3,9 @@
 google_drive/
 srw-oe-translation/local/
 
-# The translation package with the game's script (JSONL) unpacked next to HOKUS_POKUS.bat,
-# and the patch that bat writes: proprietary text / game files, never committed
-srw-oe-translation/pakiet_EN/
+# The patch output that the bats write next to them: game files, never committed
+# (the translation package pakiet_EN/ is committed since 2026-10-17 - user decision,
+#  required by the automated Release workflow; the local staging stays ignored)
 srw-oe-translation/srw-oe-patch/
 srw-oe-translation/srw-oe-bisekcja/
 srw-oe-translation/srw-oe-wgrane/

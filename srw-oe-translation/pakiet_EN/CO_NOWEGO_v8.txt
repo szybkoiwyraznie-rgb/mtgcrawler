@@ -1,0 +1,76 @@
+PAKIET v8 (2026-10-16) = pakiet v7 + 12 poprawionych wierszy + 14 nowych wierszy dla napisow,
+ktore w wyjsciowym configst.cpk buildow #22/#23 zostawaly japonskie, - 8 wierszy usunietych.
+Razem 109 032 wiersze (v7: 109 026), 81 678 z angielskim, 0 bledow.
+
+KOREKTA DO OPISU v7: w CO_NOWEGO_v7.txt (i w dokumentach z tego dnia) napisalem, ze 426 wierszy
+ z nazwiskami aktorow glosowych (char:K:voice_actor) nie ma angielskiego i "zostaja po japonsku".
+ To bylo NIEPRAWDA - sprawdzone w pliku: 424 z 426 wierszy mialy juz zapis lacinski (zachodnia
+ kolejnosc imie + nazwisko, Hepburn bez makronow), np. 松本梨香 -> "Rica Matsumoto",
+ 林原めぐみ -> "Megumi Hayashibara", 島田敏 -> "Bin Shimada"; pozostale 2 to techniczny
+ placeholder "NoData" (rekord 65535, nie jest postacia). Karta Character Viewera dostaje wiec
+ "Voice: Rica Matsumoto", nie japonskie nazwisko. Juz build #22 (v7) mial 0 ciagow japonskich
+ w CharaDictionary - te nazwiska byly w tym policzone.
+
+POPRAWIONE WIERSZE (12):
+ 07_names_characters.jsonl  4 wiersze: 高乃麗 "Rei Takano" -> "Urara Takano" (aktorka Kenichiego
+    Minezakiego i Kumiko Tanabe z Gosaurera; 麗 w jej nazwisku czyta sie "Urara", nie "Rei").
+    Pozostale 141 nazwisk przejrzane - bez zmian. Pelna lista: aktorzy_glosowi.tsv
+    (aktor_jp, aktor_en, liczba wierszy, liczba postaci, przyklady postaci EN/JP).
+ 04_config_text.jsonl  8 wierszy config_dlc_id: "SRWHPｺﾗﾎ" (etykieta zrodla paczki DLC, w grze
+    obcieta do 8 znakow polszerokiej kany - "SRW HP (strona domowa) kolaboracja") miala EN = JP,
+    czyli zostawalaby po japonsku. Teraz "SRW Web Collab" (analogicznie do "Famitsu Collab").
+
+NOWE WIERSZE (14) - znalezione skanem wyjsciowego configst.cpk po buildzie #23 (szukalem
+ kazdego czytelnego napisu z kana/kanji, takze polszeroka kana, we WSZYSTKICH czlonkach):
+ 04_config_text.jsonl  +5 skill_tag:configst.cpk/srwDL_Skill_Tag.bin:* - "特技／ﾀﾞﾒｰｼﾞ率",
+    "...率1".."率4" (ﾀﾞﾒｰｼﾞ zapisane tokenami kany 0x0F, eksporter je odrzucal; v7 odswiezalo
+    tylko kontenery config/imenu, nie configst) -> "Skill/Dmg Rate", "Skill/Dmg Rate 1".."4".
+ 04_config_text.jsonl  +9 spirit:configst.cpk/srwDL_Spirit.bin:* - pola rekordow 30-35 rodziny
+    幸運/祝福 (Fortune / Bless): opis "敵撃墜時､獲得資金2倍 ﾄﾞﾛｯﾌﾟ率上昇..." (x3), wariant
+    obszarowy "範囲内の味方1機..." (x3) i linie efektu "Lv1 ... 2倍 ﾄﾞﾛｯﾌﾟ率+5％" (Lv1-3).
+    Te pola maja tokeny kany; tools/record_rows_refresh.py do tej pory tylko je RAPORTOWAL
+    ("needs the token map, not added") - teraz dodaje je w formie wyswietlanej (%s za kazdy
+    bajt sterujacy) razem z wpisami tokeny.tsv (L = literal %s gry, zostaje; T = token kany,
+    znika z EN). EN: "On kill: Credits x2, Drop Rate Up / Lasts until a kill / Lv up: Drop
+    effect Up, SP cost Down / <Growth Type>", "＠6%s1%s0\nLv1%s40%s x2, Drop Rate +5％" itd.
+    (4 literalne %s zostaja - jak w sasiednich, juz przetlumaczonych liniach rodziny 努力/Gain).
+
+BEZ ZMIANY W PAKIECIE, ALE NAPRAWIONE W NARZEDZIACH: 7 osiagniec (srwDL_Achievement.bin:
+ "ミッション 30種クリア", "総プレイ時間 30時間", "総撃墜数 100達成", "パイロット Lv10/Lv40達成",
+ "10段階改造 50機達成", "所持ユニット 30以上") mialo EN od dawna, ale pisarz tabel ODMAWIAL
+ ich zapisu: liczba docelowa (30, 40, 100) albo indeks rekordu lezal w zakresie napisow i
+ wygladal na wskaznik ("unexplained in-record references"). Zmierzony uklad rekordu (75
+ rekordow): +0/+4 dwa wskazniki, +8 liczba docelowa, +12 flaga, +16 indeks, +18/+20 id
+ tekstow, +24 punkty, +26 kategoria - slowa +8..+28 sa teraz wylaczone z testu wskaznikow
+ (table_write.FAMILY_BY_PREFIX, jak wczesniej dla DLC_ID). Po buildzie #23b: 0 odmow.
+
+USUNIETE (8): 6 wierszy achievement:configst.cpk/srwDL_Achievement.bin:{2828,2896,2968,3768,
+ 3896,4998} - bajty binarne odczytane jako tekst (" N", "0u", "Pﾃ"; tools/table_rows_refresh.py
+ --prune: "offset lies in no string of the member"); 2 wiersze leftover:configst.cpk/
+ srwDL_Spirit.bin:{7427,8106} (mode slot) - ich EN przeniesione do nowych wierszy pol
+ spirit:...:7393 / :8093 (jeden napis = jeden wiersz, zeby nie bylo dwoch wierszy na to samo pole).
+
+NOWY PLIK aktorzy_glosowi.tsv (142 nazwiska; informacyjny, builder go nie czyta).
+ refresh_report_v8.json / record_refresh_report_v8.json - raporty narzedzi odswiezajacych.
+
+SKAN "czy cos jeszcze zostaje po japonsku" (build #23b w sandboxie: config00.cpk, imenu00.cpk,
+ configst.cpk z ISO oraz config01.EDAT; kazdy czlonek, kazdy czytelny napis):
+ - CharaDictionary / RoboDictionary / Reference / DLC_ID / Shop (config00 = imenu00 bajt w
+   bajt), Spirit, Skill_Tag, Achievement, Skill00/01, Item00/01, unit_list, wp_list, charalist:
+   0 czytelnych napisow japonskich; zostaja tylko smieci binarne (liczby odczytane jako kana).
+ - srwDL_CalcType.bin (configst): 89 japonskich napisow typu "最終ダメージ", "表示命中率" -
+   tabela wzorow obliczen (nazwy zmiennych, wyrazenia "<0.01"); NIE WIADOMO, czy gra je
+   kiedykolwiek wyswietla (zadnego ekranu z nimi nie widzielismy) - celowo nietkniete.
+ - W pakiecie: nawiasy ｢ ｣ i placeholder ＜主人公名＞ (imie gracza, gra podstawia je sama) -
+   celowo zostaja; 28 wierszy "smieci" z EN = JP (pisarz zapisuje identyczne bajty).
+ - Nadal bez EN (znane): dialogi rozdz. 5-8 (27 343 wiersze), 11 napisow exe.
+
+KONTROLA: translation_check: 109 032 wiersze, 81 678 z EN, 0 bledow; translation_copy --resync:
+ 0 rozjazdow. coverage_audit na dostepnych kontenerach (configst + config00 + imenu00 +
+ config01): brak = 2 (te same metadane PAC co zawsze).
+
+JAK ZBUDOWAC: jak v6/v7 - swiezy ZIP galezi (narzedzia sie zmienily: table_write,
+ record_rows_refresh), pakiet do srw-oe-translation\pakiet_EN\, HOKUS_POKUS.bat (ORYGINALNE
+ ISO + folder z odszyfrowanym DLC), potem DIAGNOZA.bat (oczekiwane: "pakiet v8 - AKTUALNY").
+ W GRZE DO SPRAWDZENIA (v7 tez nie byl): Character Viewer (karta: "Voice: ..."), Robot Viewer
+ (wrog), Reference, lista osiagniec (Achievements), opis komendy ducha Fortune / Bless.
