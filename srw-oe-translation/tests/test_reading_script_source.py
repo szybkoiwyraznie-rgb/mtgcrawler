@@ -78,6 +78,26 @@ class ReadingSourceTests(unittest.TestCase):
     def test_short_name_fallback(self):
         self.assertEqual(synthetic_source().make_entry(row(key=2)).speaker, "Bob")
 
+    def test_shared_short_names_use_sourced_full_names(self):
+        source = synthetic_source()
+        source.names[2]["name_short"] = {"Alice"}
+        source.names[1]["name_full"] = {"Alice North"}
+        source.names[2]["name_full"] = {"Alice South"}
+        source.rows = {"scene": [row(key=1), row(key=2)]}
+        source.prepare_speakers()
+        self.assertEqual(source.make_entry(row(key=1)).speaker, "Alice North")
+        self.assertEqual(source.make_entry(row(key=2)).speaker, "Alice South")
+        self.assertEqual(source.make_entry(row(key=1, jp="＃？？？\nfixture")).speaker, "???")
+
+    def test_duplicate_portraits_do_not_force_a_full_name(self):
+        source = synthetic_source()
+        source.names[2]["name_short"] = {"Alice"}
+        source.names[1]["name_full"] = {"Alice North"}
+        source.names[2]["name_full"] = {"Alice North"}
+        source.rows = {"scene": [row(key=1), row(key=2)]}
+        source.prepare_speakers()
+        self.assertEqual(source.make_entry(row(key=1)).speaker, "Alice")
+
     def test_conflicting_names_stop_work(self):
         source = synthetic_source()
         source.names[1]["nickname"].add("Another Alice")

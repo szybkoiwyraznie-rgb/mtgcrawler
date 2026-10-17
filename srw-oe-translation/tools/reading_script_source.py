@@ -105,13 +105,33 @@ class ReadingSource:
                 raise ValueError(f"Empty English: {row['id']}")
             self.rows[scene].append(row)
             self.by_id[row["id"]] = row
-            if row["kind"] in PROSE | HEADINGS:
-                self.entries[scene].append(self.make_entry(row))
         for scene, rows in self.rows.items():
             if not rows or [r["order"] for r in rows] != sorted({r["order"] for r in rows}):
                 raise ValueError(f"Missing or unordered source rows: {scene}")
             if len(rows) != self.scene_by_id[scene]["rows"]:
                 raise ValueError(f"Scene row count disagrees with source index: {scene}")
+        self.prepare_speakers()
+        for scene, rows in self.rows.items():
+            self.entries[scene] = [self.make_entry(r) for r in rows if r["kind"] in PROSE | HEADINGS]
+
+    def prepare_speakers(self) -> None:
+        """Disambiguate shared short names, using only the package's full names."""
+        groups = defaultdict(set)
+        for rows in self.rows.values():
+            for row in rows:
+                if row["kind"] == "dialogue":
+                    key = (row.get("speaker") or {}).get("id")
+                    groups[self.name(key)].add(key)
+        self.display_names = {}
+        for short, keys in groups.items():
+            full = {}
+            for key in keys:
+                values = self.names[key]["name_full"] or self.names[key]["name"] or {short}
+                if len(values) != 1:
+                    raise ValueError(f"Conflicting full names: {key}")
+                full[key] = next(iter(values))
+            if len(set(full.values())) > 1:
+                self.display_names.update(full)
 
     def name(self, key: int) -> str:
         for part in ("nickname", "name_short", "name", "name_full"):
@@ -136,7 +156,8 @@ class ReadingSource:
             if en_override and jp_override and en_override != jp_override:
                 raise ValueError(f"Conflicting inline speaker: {row['id']}")
             override = en_override or jp_override
-            speaker = override or self.name(raw_speaker.get("id"))
+            key = raw_speaker.get("id")
+            speaker = override or getattr(self, "display_names", {}).get(key) or self.name(key)
             if en_override:
                 en = en.split("\n", 1)[1] if "\n" in en else ""
         elif row["kind"] in HEADINGS:
@@ -212,6 +233,7 @@ def main(argv=None) -> int:
     parser.add_argument("--start", type=int, default=1)
     parser.add_argument("--end", type=int, default=10**9)
     parser.add_argument("--changed", action="store_true", help="Changed variant entries only")
+    parser.add_argument("--against", type=int, help="Review against this scene seq instead of the base")
     args = parser.parse_args(argv)
     source = ReadingSource(args.package, args.episode)
     if args.review is None:
@@ -220,7 +242,8 @@ def main(argv=None) -> int:
     scene = next(s for s in source.scenes if s["seq"] == args.review)
     entries = source.entries[scene["id"]]
     if args.changed:
-        base = scene["variant_of"]
+        base = (next(s["id"] for s in source.scenes if s["seq"] == args.against)
+                if args.against is not None else scene["variant_of"])
         entries = [e for tag, _, _, begin, end in source.alignment(base, scene["id"])
                    if tag != "equal" for e in entries[begin:end]]
     for entry in entries:

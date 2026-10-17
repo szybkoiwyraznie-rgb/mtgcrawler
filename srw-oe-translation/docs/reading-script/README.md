@@ -5,7 +5,7 @@ never use previously generated Markdown as a translation source. See
 [the recovered history](../READING_SCRIPT_HISTORY.md) for the delivered 00–33 editions.
 The original recovery patch is archived in `../recovered/`.
 
-## Checkpoint: source inventory complete; editorial plan/output still in progress
+## Checkpoint: source inventory and editorial plan complete; renderer in progress
 
 `episode_34_sources.json` is an independently recomputed inventory, not the lost
 agent's plan. It records all seven scenes, 7471 nonempty prose entries and exact
@@ -16,7 +16,7 @@ separate v16 QA fixes; dialogue, scene index and name sources are unchanged.
 - seq 253: exact reading alias of 252 after joining soft wraps/normalizing CRLF.
 - seq 255/256: 306/382 changed/new prose entries relative to 254, each with two
   additional meaningful headings (including **Adeu's card**, a `label`, not a UI
-  control to discard). They require individual editorial review.
+  control to discard). Both have now been reviewed.
 - seq 257: exact reading alias of **256**, not 254. English, paragraph boundaries,
   entry kinds, speaker identities and meaningful metadata were compared.
 - The four `＃？？？` speaker overrides stay anonymous even though their portrait's
@@ -37,6 +37,10 @@ generated Markdown, detailed audits and bundles in ignored `local/`; deliver the
 reading edition on Drive. Commit tools, synthetic tests, editorial plans and
 provenance/verification manifests to Git after each coherent checkpoint.
 
-Pending: reviewed scene boundaries/conditional dialogue, rendering, independent
-verification including mutation tests, final Drive delivery. Old PASS claims in
+`episode_34.json` records the reviewed boundaries, conditional/failure exchanges,
+variant bases and context policy. All three base scenes were read in full; all E
+changes and F/E differences were reviewed. Shared short names are disambiguated
+using existing package full names (e.g. the two Shinobus), not guessed identities.
+
+Pending: rendering, independent verification including mutation tests, final Drive delivery. Old PASS claims in
 the recovered log are historical, not claims that the missing old tests ran here.

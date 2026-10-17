@@ -6233,3 +6233,18 @@ SHA-256 źródeł są w `docs/reading-script/episode_34_sources.json`; trzy źr�
 narracji/nazw są identyczne z historycznymi, `05_mission_text` ma zmiany QA v16.
 Znalezione `＃？？？` zachowują anonimowość; `Adeu's card` nie wolno zgubić jako
 technicznego `label`. Plan redakcyjny, renderer i dostawa finału nadal w toku.
+
+**Checkpoint przeglądu i planu:** cały angielski seq 251/252/254 obejrzany bez
+skracania wpisów (1–140 / 1–140 / 1–1759), następnie komplet 306 zmian E oraz
+wszystkie różnice F względem E. Pełne tożsamości wyrównanych wpisów sprawdzają
+części wspólne; nowe fragmenty F obejmują 54 wypowiedzi w walce i pożegnania
+na Pentagonie. Metadane obu wariantów zachowane. Dodany śledzony plan
+`docs/reading-script/episode_34.json`: porażka 251:132–133 oddzielona od sukcesu,
+cytowane wypowiedzi warunkowe/sytuacyjne, granice epilogów, dwa wpisy kontekstu
+w wariantach, bez twierdzeń o dokładnych aktywatorach. To nie nowe tłumaczenie.
+
+Doprecyzowano rozmówców: kolizje skróconych imion (Shinobu, Shiro, Koji,
+Karen, Hayato, Michel, Mai) rozróżnione wyłącznie pełnymi angielskimi nazwami
+z istniejącego pakietu. Prefix `???` nadal ma pierwszeństwo. Testy źródeł:
+**16/16 PASS**; inwentarz bez zmian; wszystkie granice planu trafiają w zachowane
+wpisy, żaden plik pakietu niezmieniony. Renderer/weryfikator/dostawa jeszcze w toku.

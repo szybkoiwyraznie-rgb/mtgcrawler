@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "episode": 34,
+  "reviewed": true,
+  "source_manifest": "episode_34_sources.json",
+  "context_entries": 2,
+  "review_notes": [
+    "Full English reviewed without clipped entries: seq 251 orders 1–140, seq 252 orders 1–140, seq 254 orders 1–1759.",
+    "All 306 changed/new prose entries and two new metadata entries of E reviewed against the base; all F/E changes reviewed, including the additional resistance exchanges and Pentagona farewells. Unchanged spans checked by complete identities, not filenames.",
+    "Only CRLF, outer whitespace and soft line wrapping are normalized. Paragraphs, punctuation, thoughts, speakers and meaningful labels remain significant.",
+    "The failure exchange in seq 251 orders 132–133 is alternative, not an event after successful entry. Timed warnings and optional battle exchanges are quoted; no exact engine triggers are inferred.",
+    "F orders 104–159 include extra situational exchanges; F battle quotations continue through 389. Main epilogues start at base/E 411 and F 465.",
+    "All source location/time headings are retained, including Adeu's card (label) and the extra Central Connect Station heading. Anonymous inline prefixes override known portrait identities.",
+    "Variant excerpts use two complete entries of neighboring context; separated excerpts are not presented as consecutive gameplay. Exact aliases are 253→252 and 257→256.",
+    "Shared short names are disambiguated using existing English full names from the package, never guessed identities. The protagonist token is replaced only for this reading edition."
+  ],
+  "scenes": [
+    {
+      "seq": 251,
+      "id": "eventP08.EDAT/DL834_11.bin",
+      "reviewed": true,
+      "mode": "full",
+      "chapter": 1,
+      "sections": [
+        {
+          "at": 1,
+          "mode": "story",
+          "heading": null
+        },
+        {
+          "at": 28,
+          "mode": "story",
+          "heading": "Approaching the entry"
+        },
+        {
+          "at": 44,
+          "mode": "conditional",
+          "heading": "Conditional dialogue — crossing the outer shell"
+        },
+        {
+          "at": 64,
+          "mode": "conditional",
+          "heading": "Situational dialogue — the shockwave and the defenders"
+        },
+        {
+          "at": 78,
+          "mode": "conditional",
+          "heading": "Conditional dialogue — reinforcements"
+        },
+        {
+          "at": 92,
+          "mode": "conditional",
+          "heading": "Situational dialogue — time warnings"
+        },
+        {
+          "at": 100,
+          "mode": "conditional",
+          "heading": "Situational dialogue — Vasage's support"
+        },
+        {
+          "at": 112,
+          "mode": "story",
+          "heading": "Securing the entry"
+        },
+        {
+          "at": 132,
+          "mode": "failure",
+          "heading": "Alternative failure outcome — the entry closes"
+        },
+        {
+          "at": 134,
+          "mode": "story",
+          "heading": null
+        }
+      ]
+    },
+    {
+      "seq": 252,
+      "id": "eventP08.EDAT/DL834_12.bin",
+      "reviewed": true,
+      "mode": "full",
+      "chapter": 2,
+      "sections": [
+        {
+          "at": 1,
+          "mode": "story",
+          "heading": null
+        },
+        {
+          "at": 5,
+          "mode": "story",
+          "heading": "The last door to the core"
+        },
+        {
+          "at": 27,
+          "mode": "story",
+          "heading": "Vasage's proposal"
+        },
+        {
+          "at": 46,
+          "mode": "story",
+          "heading": "Clearing a path for Gurren Lagann"
+        },
+        {
+          "at": 61,
+          "mode": "conditional",
+          "heading": "Conditional dialogue — trusting the team"
+        },
+        {
+          "at": 79,
+          "mode": "conditional",
+          "heading": "Situational dialogue — a Mucus swarm"
+        },
+        {
+          "at": 87,
+          "mode": "story",
+          "heading": "Simon reaches the wall"
+        },
+        {
+          "at": 101,
+          "mode": "conditional",
+          "heading": "Situational dialogue — progress inside the wall"
+        },
+        {
+          "at": 105,
+          "mode": "story",
+          "heading": "Opening the breach"
+        },
+        {
+          "at": 114,
+          "mode": "story",
+          "heading": null
+        }
+      ]
+    },
+    {
+      "seq": 253,
+      "id": "evept104.EDAT/DL834_12E.bin",
+      "reviewed": true,
+      "mode": "alias",
+      "of": 252
+    },
+    {
+      "seq": 254,
+      "id": "eventP08.EDAT/DL834_13.bin",
+      "reviewed": true,
+      "mode": "full",
+      "chapter": 3,
+      "sections": [
+        {
+          "at": 1,
+          "mode": "story",
+          "heading": null
+        },
+        {
+          "at": 4,
+          "mode": "story",
+          "heading": "The heart of Genesis"
+        },
+        {
+          "at": 27,
+          "mode": "story",
+          "heading": "Damage to the core"
+        },
+        {
+          "at": 31,
+          "mode": "story",
+          "heading": "Reinforcements and the other fronts"
+        },
+        {
+          "at": 57,
+          "mode": "story",
+          "heading": "The Emperor's true form"
+        },
+        {
+          "at": 104,
+          "mode": "conditional",
+          "heading": "Conditional and situational dialogue — facing the Mucus Emperor"
+        },
+        {
+          "at": 336,
+          "mode": "story",
+          "heading": "Into the core"
+        },
+        {
+          "at": 350,
+          "mode": "story",
+          "heading": "After the final attack"
+        },
+        {
+          "at": 380,
+          "mode": "story",
+          "heading": "Reports from the other fronts"
+        },
+        {
+          "at": 400,
+          "mode": "story",
+          "heading": "Vasage and the Recoral"
+        },
+        {
+          "at": 411,
+          "mode": "story",
+          "heading": "Epilogues — after the Mucus war"
+        }
+      ]
+    },
+    {
+      "seq": 255,
+      "id": "evept104.EDAT/DL834_13E.bin",
+      "reviewed": true,
+      "mode": "variant",
+      "of": 254,
+      "label": "E",
+      "sections": [
+        {
+          "at": 1,
+          "mode": "story",
+          "heading": null
+        },
+        {
+          "at": 4,
+          "mode": "story",
+          "heading": "The heart of Genesis"
+        },
+        {
+          "at": 27,
+          "mode": "story",
+          "heading": "Damage to the core"
+        },
+        {
+          "at": 31,
+          "mode": "story",
+          "heading": "Reinforcements and the other fronts"
+        },
+        {
+          "at": 57,
+          "mode": "story",
+          "heading": "The Emperor's true form"
+        },
+        {
+          "at": 104,
+          "mode": "conditional",
+          "heading": "Conditional and situational dialogue — facing the Mucus Emperor"
+        },
+        {
+          "at": 336,
+          "mode": "story",
+          "heading": "Into the core"
+        },
+        {
+          "at": 350,
+          "mode": "story",
+          "heading": "After the final attack"
+        },
+        {
+          "at": 380,
+          "mode": "story",
+          "heading": "Reports from the other fronts"
+        },
+        {
+          "at": 400,
+          "mode": "story",
+          "heading": "Vasage and the Recoral"
+        },
+        {
+          "at": 411,
+          "mode": "story",
+          "heading": "Epilogues — after the Mucus war"
+        }
+      ]
+    },
+    {
+      "seq": 256,
+      "id": "evept105.EDAT/DL834_13F.bin",
+      "reviewed": true,
+      "mode": "variant",
+      "of": 254,
+      "label": "F",
+      "sections": [
+        {
+          "at": 1,
+          "mode": "story",
+          "heading": null
+        },
+        {
+          "at": 4,
+          "mode": "story",
+          "heading": "The heart of Genesis"
+        },
+        {
+          "at": 27,
+          "mode": "story",
+          "heading": "Damage to the core"
+        },
+        {
+          "at": 31,
+          "mode": "story",
+          "heading": "Reinforcements and the other fronts"
+        },
+        {
+          "at": 57,
+          "mode": "story",
+          "heading": "The Emperor's true form"
+        },
+        {
+          "at": 104,
+          "mode": "conditional",
+          "heading": "Situational dialogue — the Emperor's resistance"
+        },
+        {
+          "at": 161,
+          "mode": "conditional",
+          "heading": "Conditional dialogue — facing the Mucus Emperor"
+        },
+        {
+          "at": 390,
+          "mode": "story",
+          "heading": "Into the core"
+        },
+        {
+          "at": 404,
+          "mode": "story",
+          "heading": "After the final attack"
+        },
+        {
+          "at": 434,
+          "mode": "story",
+          "heading": "Reports from the other fronts"
+        },
+        {
+          "at": 454,
+          "mode": "story",
+          "heading": "Vasage and the Recoral"
+        },
+        {
+          "at": 465,
+          "mode": "story",
+          "heading": "Epilogues — after the Mucus war"
+        }
+      ]
+    },
+    {
+      "seq": 257,
+      "id": "evept108.EDAT/DL834_13J.bin",
+      "reviewed": true,
+      "mode": "alias",
+      "of": 256
+    }
+  ]
+}
