@@ -6333,3 +6333,12 @@ Kompaktowy raport kontroli bazowego artefaktu zapisany w śledzonym
 
 **Punkt kontynuacji: numerowane wydanie `story` 00–34 ukończone. Brak niedokończonego
 finału. Sceny `simulator` są osobnym zakresem, nie kontynuacją tego zlecenia.**
+
+**Zamknięcie przekazania w GitHub:** dostawa/dokumentacja wypchnięta w `848287f`.
+`gh pr edit 17` w zainstalowanym gh 2.23.0 nie zadziałało z powodu wycofanego pola
+GraphQL `repository.pullRequest.projectCards` (Projects classic), nie z powodu
+uwierzytelnienia. Tytuł i komplet checklist dostawy ustawiono przez
+`gh api --method PATCH repos/szybkoiwyraznie-rgb/mtgcrawler/pulls/17 --input …`.
+Osobny odczyt REST potwierdził dokładną zgodność tytułu/treści oraz head `848287f`
+z lokalnym HEAD. PR #17 pozostaje otwarty/draft; nie scalano ani nie zmieniano
+innych gałęzi. Ostatni checkpoint poniżej obejmuje wyłącznie zapis tego obejścia.
