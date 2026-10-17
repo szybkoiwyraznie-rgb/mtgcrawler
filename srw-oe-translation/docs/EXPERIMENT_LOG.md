@@ -6005,3 +6005,44 @@ z ISO usera (`f128e675…`, 936 064 B)** — mam bajtowo to, co user. Fakty:
   nagrody; changelog z ostrzezeniem o wycofaniu v16). Drive (root wydawniczy).
 - Otwarte potencjalnie: stopka 標準タイプ dla jednostek tylko-rozdzialowych (gated robo_type;
   kosmetyka) i — gdyby lista czytala narrow — wieszanie bramki na narrow (osobna decyzja).
+
+### 21.58 Backlog usera: foe robots (narrow+type wydane), wyciszenie builda, cheaty opt-out, workflow Release, README (2026-10-17)
+
+User (screeny z buildu v13): (1) „Problemy (20)" podczas pracy patchera — czy musi się
+pokazywać? (2) usunąć cheaty z pakietu; (3) Foe Robots dalej JP (邪竜兵 ×2); (4) porządne
+README; (5) PATCH.zip jako automatyczny Release.
+
+- **(3) Foe Robots — ścieżka odczytu potwierdzona:** lista wrogów czyta słowniki strony
+  config (kopie RoboDictionaryNN), a dla jednostek tylko-rozdziałowych spada z globalnego
+  (config00) do rozdziału; czyta slot **name_narrow** (+type na stopce). W v13-line narrow/
+  type były bramkowane → JP. **Wydane:** `robo_name_narrow` + `robo_type` wracają do strony
+  config (to ORYGINALNE komórki JP — zamiana treści w miejscu, ta sama klasa operacji co
+  name/series/length); dalej bramkowane (v7 NOWE sloty + note/weight): voice_actor,
+  short_name, alt_name, entry, config_label, robo_note, robo_weight. Weryfikacja offline
+  (rebuild config01/02/04 z JP + pakiet_EN): RoboDict02 `Dragon Soldier` ×6 (name+narrow),
+  `Standard Type` ×3, JP 0; unit_list02 EN ×9; **rozmiary plików = oryginały** (247 936 /
+  157 824 / 108 672 — koperta trzyma). Ryzyko Loading-crasha oszacowane niskie (pierwotne
+  crashery = nowe sloty v7; dokładny toksyczny slot nieizolowany) — rollback = kit v13.
+- **(1) Wyciszenie:** komunikaty bramki (19×) i probe skill (tmpseigywe3.cpk „not a CPK
+  container ('\x00PSP')" — EDAT-magic w członie oryginału; przyczyna nieudomowiona, guard
+  dodany) idą do `report["notes"]`; stdout pokazuje JEDNO zdanie „Uwagi planowe (nie
+  błędy): … N wierszy w M plikach". „Problemy" = tylko realne (NOT written / build broke /
+  not found — jak w exit_status).
+- **(2) Cheaty:** `cheats/NPJH50521.ini` NIE jest już pisany domyślnie (EBOOT = udowodniona
+  trasa); opt-in `--cwcheat`. Zip nigdy ich nie zawierał (output folder — teraz czysty).
+- **Testy:** 4 testy exe (oczekiwały cheat-ini) → domyślnie brak / test pełny z
+  `cwcheat=True`; test bramki: narrow/type NIE są spare (+nowy test 21.58). **Suite 1 285
+  OK / 24 skipped / 308 subtests.**
+- **(4) README:** nowy README korzenia (PL: szybki start, co po angielsku, struktura,
+  disclaimer), README_DIST status bez „fully translated" (zasada), srw-oe-translation/README
+  do odświeżenia w osobnym kroku.
+- **(5) Release:** `.github/workflows/release.yml` (push main + workflow_dispatch, buduje
+  zip `build_distribution.py`, tworzy `patch-vN` i uploaduje) — **ALE** pakiet jest
+  gitignorowany (`.gitignore`: „proprietary text / game files, never committed"), więc CI
+  nie ma z czego zbudować zipa; **v14 opublikowana ręcznie przez `gh release create`
+  (tag patch-v14)**. Decyzja usera: (a) commit pakietu → pełna automatyka (repo publiczne —
+  wielkość ~200 KB tekstów jp+en), albo (b) zasada trzyma się → releases ręczne jedną
+  komendą (dokumentacja w README/HANDOFF).
+- **WYDANIE v14:** `srw-oe-translation-v14.zip` 7 226 319 B, md5 `f1833375…` (v13 + wydanie
+  narrow/type + wyciszenie + bez cheatów). local/ znowu wyparował między turami (limity
+  migawek; gitignore'owane katalogi są best-effort) — trwałe źródła: Drive + git.

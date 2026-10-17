@@ -259,14 +259,19 @@ class DiagnozaBatRuleTests(unittest.TestCase):
 
 
 class ConfigSideSpareRowTests(unittest.TestCase):
-    """configNN.EDAT keeps its dictionaries at the #17 shape (v12A/v13/v14 tests, 2026-10-16);
-    the imenuNN copies keep the v7 viewer-slot rows (the dictionary UI reads imenuNN)."""
+    """configNN.EDAT keeps its dictionaries free of the v7 NEW viewer slots (v12A/v13/v14
+    tests, 2026-10-16); the imenuNN copies keep them (the dictionary UI reads imenuNN).
+    Since 21.58 robo_name_narrow/robo_type are original cells and ARE written (the Robot
+    Viewer foe list reads them from the configNN copies)."""
 
     def test_v7_viewer_slot_categories_are_spare_on_the_config_side(self):
         for cat in ("character_voice_actor", "character_short_name", "character_alt_name",
-                    "character_entry", "config_label", "robo_note", "robo_type",
-                    "robo_name_narrow", "robo_weight"):
+                    "character_entry", "config_label", "robo_note", "robo_weight"):
             self.assertTrue(BTP.config_side_spare_row({"category": cat}), cat)
+
+    def test_original_robo_cells_are_written_since_2158(self):
+        for cat in ("robo_type", "robo_name_narrow"):
+            self.assertFalse(BTP.config_side_spare_row({"category": cat}), cat)
 
     def test_proven_english_fields_are_never_spare(self):
         for cat in ("character_name", "character_nickname", "character_series",

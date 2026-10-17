@@ -71,8 +71,9 @@ def main() -> None:
     import argparse
     ap = argparse.ArgumentParser(description="Build the standalone one-click distribution zip.")
     ap.add_argument("--package", metavar="DIR",
-                    help="translation package dir (default: newest local/pakiet_v*/pakiet_EN_*)")
+                    help="translation package dir (default: pakiet_EN/, then local staging)")
     ap.add_argument("--version", metavar="V", help="version label for the zip name (default: from CO_NOWEGO)")
+    ap.add_argument("--out", metavar="DIR", help="output dir for the zip (default: local/release)")
     args = ap.parse_args()
 
     repo = Path(__file__).resolve().parent.parent  # srw-oe-translation/
@@ -82,7 +83,10 @@ def main() -> None:
     version = args.version
     if version is None:
         version = "9"
-        co_files = sorted(repo.glob("local/pakiet_v*/pakiet_EN_*/CO_NOWEGO_v*.txt"), reverse=True)
+        co_files = list(repo.glob("pakiet_EN/CO_NOWEGO_v*.txt")) \
+            + list(repo.glob("local/pakiet_v*/pakiet_EN_*/CO_NOWEGO_v*.txt"))
+        import re as _re
+        co_files.sort(key=lambda p: (lambda m: int(m.group(1)) if m else 0)(_re.search(r"v(\d+)", p.name)), reverse=True)
         if co_files:
             # extract version number from filename
             import re
@@ -90,7 +94,7 @@ def main() -> None:
             if m:
                 version = m.group(1)
 
-    out_dir = repo / "local" / "dist"
+    out_dir = Path(args.out) if args.out else repo / "local" / "release"
     out_dir.mkdir(parents=True, exist_ok=True)
     zip_name = f"srw-oe-translation-v{version}.zip"
     zip_path = out_dir / zip_name
@@ -99,19 +103,21 @@ def main() -> None:
     needed_stems = _resolve(tools_dir)
     print(f"Tools needed: {len(needed_stems)} files")
 
-    # Find the translation package
+    # Find the translation package: the committed pakiet_EN/ first, then local staging
     if args.package:
         pkg_dir = Path(args.package)
         if not pkg_dir.is_dir():
             print(f"ERROR: package dir not found: {pkg_dir}")
             sys.exit(1)
+    elif (repo / "pakiet_EN").is_dir():
+        pkg_dir = repo / "pakiet_EN"
     else:
         pkg_dirs = sorted(
             [d for d in repo.glob("local/pakiet_v*/pakiet_EN_*") if d.is_dir()],
             reverse=True,
         )
         if not pkg_dirs:
-            print("ERROR: No translation package found in local/pakiet_v*/ (use --package DIR)")
+            print("ERROR: No translation package found (use --package DIR)")
             sys.exit(1)
         pkg_dir = pkg_dirs[0]
     print(f"Package: {pkg_dir.name}")

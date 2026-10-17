@@ -1,8 +1,9 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.57)
+Last updated: 2026-10-17 (§21.58)
 
 
+**Latest (2026-10-17, §21.58): kit v14.** Foe Robots: narrow+type wydane do strony config (oryginalne komórki; weryfikacja: RoboDict02 EN ×6, JP 0, rozmiary = oryginały; rollback = v13). Build wyciszony (bramka/probe = „Uwagi planowe”), cheaty opt-out (--cwcheat). README korzenia + workflow Release (v14 opublikowana ręcznie, tag patch-v14; decyzja o automatyzacji = pytanie do usera). Suite 1 285 OK.
 **Latest (2026-10-17, §21.57): Robot Viewer/nagroda rozgryzione md5-identycznym rebuildem.** Lista czyta globalny słownik (config00) z fallbackiem do rozdziału; JP 邪竜兵 = słowniki v16 (celowo JP, era `"` — do wycofania). Build ma własne configi 01-19 z EN nazwami. 'First Clear Bonus:' → 'First Clear:' (nakładanie kolumn). Kit v13: md5 26d3a9fd….
 **Latest (2026-10-17, §21.56): `"` WYJAŚNIONY I NAPRAWIONY.** Mechanizm: exe strings naruszyły tablicę interpunkcyjną EBOOT (「 　」 co 4 B) → silnik rysował sam `"`; fix = revert 3 wierszy (§21.54, potwierdzone grą §21.55). DLC uniewinnione (JP ISO + EN DLC = dialogi OK); configi v16 (słowniki JP) w grze OK. Backlog: glif 連→LNK, exe 404/404, patcher v12 (ui_labels+assets/fonts w zipie — poprawka „braku ikon”). Otwarte: info o nagrodzie (czeka treść z ekranu usera), potwierdzenie nazw wrogów w Robot Viewer na świeżym ISO. Kit: srw-oe-translation-v12.zip (md5 6a53774b…).
 

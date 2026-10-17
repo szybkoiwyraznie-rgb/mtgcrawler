@@ -497,3 +497,6 @@ półszeroka też) — audyt pokrycia nie widzi odmów pisarza ani pól z tokena
   pisarz odmawia po cichu przy budowie (126 tekstów w #4).
 
 - (2026-10-17) **Pułapka tablicy interpunkcyjnej EBOOT:** komórki co 4 B przy 0x08bf9fbc (・ 「 　」) są czytane strukturalnie przez silnik dialogów — NIGDY nie zmieniać ich długości bajtowej (EN zamiast JP = w oknie dialogowym tylko `"`); w pakiecie na zawsze en:=jp dla 0x08bf9fbc/9fc0/9fc4/9fc8.
+
+- (2026-10-17) **Pułapki środowiska:** gitignorowane katalogi (`srw-oe-translation/local/`, `google_drive/`) są w tym środowisku **best-effort** — potrafią zniknąć między turami (limity migawek); trwałe źródła = git + Drive (wszystko da się odtworzyć z kitów i folderu oryginałów). Katalogi o nazwie `dist/` są w ogóle niepersystowane — buildy zipów trzymać w `local/release/`.
+- (2026-10-17) **Release bez pakietu w git:** workflow `.github/workflows/release.yml` buduje zip z repo, ale pakiet jest gitignorowany → CI nie zbuduje zipa, póki user nie zdecyduje (commit pakietu vs ręczne `gh release create patch-vN <zip>`). Nie commitować pakietu samowolnie (reguła .gitignore/AGENTS).
