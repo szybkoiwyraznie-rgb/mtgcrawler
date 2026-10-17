@@ -10,12 +10,12 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 **Nic nie tłumaczymy, dopóki setup nie obejmuje 100% kategorii** (decyzja użytkownika).
 
 ## 1. Środowisko i ograniczenia (KRYTYCZNE)
-- Repo: `mtgcrawler`, branch **`arena/c656a5df-mtgcrawler`** (tylko ten; push tylko tu).
+- Repo: `mtgcrawler`; pracuj i wypychaj **wyłącznie gałąź przypisaną do bieżącej sesji przez Arena**, nigdy historyczną nazwę z dawnych wpisów. **Obowiązek:** PR na początku sesji, commit + push po każdym spójnym fragmencie pracy (także nieukończonego epizodu). Pełna reguła w głównym `AGENTS.md`.
 - Cała praca pod **`srw-oe-translation/`**.
 - `.gitignore` wyklucza `google_drive/` i `srw-oe-translation/local/` — **NIGDY nie commituj**
   ISO/EDAT/CPK ani pełnego skryptu JP.
 - **Modyfikacja plików gry jest częścią projektu** (wg użytkownika, 2026-10-17); pliki gry NIE są publikowane na GitHubie — tylko lokalnie i przez Google Drive. Etykietuj fakty `[ZWERYFIKOWANE]` vs hipotezy.
-- **Stan (2026-10-17, wg użytkownika):** gra w 100% przetłumaczona, pełne tłumaczenie = `PATCH15.zip`. Brak otwartych zadań i issues. Sekcje 7 i dalej opisują historię, nie aktualne zadania.
+- **Stan (2026-10-17):** po przekazaniu kompletnego `PATCH15.zip` użytkownik zgłosił nowe poprawki QA misji 0-1. Kit **v16** naprawia znaczniki imienia, wąskie etykiety, nazwy DLC i kartę Basic Training. Testy automatyczne/offline zaliczone, potwierdzenie w grze oczekuje. Bieżący stan: początek `STATUS.md`, szczegóły `EXPERIMENT_LOG.md` §21.61. Sekcje 7 i dalej opisują historię, nie aktualne zadania.
 - Tłumaczenie **fresh** (Akurasu odrzucone). Nie nazywaj projektu „przetłumaczonym”.
 - **Każdy `.bat` dla użytkownika otwiera OKNO WYBORU pliku/folderu — nigdy nie każe wpisywać
   ścieżki z palca.** Użytkownik zwracał na to uwagę dwa razy (2026-10-12 `PATCH_ISO_TEST.bat`,
@@ -24,9 +24,10 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
   `HOKUS_POKUS.bat` — kopiuj go do nowych batów. `set /p` na ścieżkę tylko jako awaryjne
   wyjście, gdy `pick_path.py` zwróci 3 (Python bez Tk). Pilnuje tego test
   `tests/test_pick_path.py::UserFacingBatRuleTests`.
-- **Piaskownica robi rollbacki** (HEAD potrafi wrócić do bazy `d4e2488`). Po rollbacku:
-  `git add -A && git commit && git pull --rebase origin arena/c656a5df-mtgcrawler && git push`.
-  Pliki w workspace trwają niezależnie od commitów.
+- **Nie polegaj na trwałości piaskownicy ani samego Drive.** Po każdym spójnym fragmencie:
+  przejrzyj zmiany → dodaj wyłącznie pliki przeznaczone do repo → commit → push na gałąź
+  bieżącej sesji → sprawdź head PR. Przy odzyskiwaniu najpierw sprawdź stan lokalny/zdalny;
+  nie stosuj ślepo dawnych poleceń rebase/force-push ani `git add -A` na plikach gry.
 - **Wydajność:** `cpk_write.load(cpk)` jest WOLNE (deszyfruje EDAT); do skanów używaj
   `cpk_table.read_cpk_table` (tylko ITOC). Kopiuj duży cpk do `/tmp/c.cpk` (find-loopy na
   `google_drive/*.cpk` potrafią zawiesić piaskownicę). Nie iteruj `cpk_write.load` w pętli.

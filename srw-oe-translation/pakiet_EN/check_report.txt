@@ -1,22 +1,21 @@
 # Raport kontroli pakietu
 
 plik                         wiersze  wypełnione   puste  błędy  uwagi
-00_dialogue.jsonl              48881       48878       3      0      3
+00_dialogue.jsonl              48881       48879       2      0      2
 01_battle_quotes.jsonl         27383       27383       0      0      0
 02_items.jsonl                  1200        1200       0      0    364
 03_skills.jsonl                 4932        4932       0      0   2722
-04_config_text.jsonl           16326       16326       0      0    119
-05_mission_text.jsonl           1284        1284       0      0      0
+04_config_text.jsonl           16326       16181     145      0    268
+05_mission_text.jsonl           1285        1285       0      0      0
 07_names_characters.jsonl       3610        3610       0      0     36
 08_names_units_weapons.jsonl    5008        5008       0      0      0
-09_executable.jsonl              408         397      11      0     11
+09_executable.jsonl              408         404       4      0      4
 
-RAZEM: 109032 wierszy, 109018 wypełnionych, 14 pustych, 0 błędów, 3255 uwag
+RAZEM: 109033 wierszy, 108882 wypełnionych, 151 pustych, 0 błędów, 3396 uwag
 (pominięto 293 wierszy strukturalnych: 06_scenes)
 
 ## UWAGI (pierwsze 200)
   dlg:eventP01.EDAT/DL105_40.bin:696: untranslated (empty en)
-  dlg:eventP08.EDAT/DL830_50.bin:12044: untranslated (empty en)
   dlg:eventP08.EDAT/DL833_60.bin:432: untranslated (empty en)
   item:config00.cpk/srwDL_Item00.bin:r0:name: wider than the game's field: 19 > suggested_max 12
   item:config00.cpk/srwDL_Item00.bin:r4:name: wider than the game's field: 21 > suggested_max 20
@@ -215,3 +214,4 @@ RAZEM: 109032 wierszy, 109018 wypełnionych, 14 pustych, 0 błędów, 3255 uwag
   item:configst.cpk/srwDL_Item.bin:r18:effect: wider than the game's field: 34 > suggested_max 27
   item:configst.cpk/srwDL_Item.bin:r19:effect: wider than the game's field: 37 > suggested_max 30
   item:configst.cpk/srwDL_Item.bin:r20:effect: wider than the game's field: 37 > suggested_max 30
+  item:configst.cpk/srwDL_Item.bin:r21:effect: wider than the game's field: 37 > suggested_max 30

@@ -1,0 +1,49 @@
+CO NOWEGO v16 (2026-10-17)
+==========================
+Poprawki po przejsciu misji 0-1 i przegladzie scr.rar:
+
+1. IMIE BOHATERA
+   Przywrocone cztery znaczniki silnika: imie, nazwisko, pseudonim i pelne
+   imie. Wczesniej program szukal angielskich znacznikow, a dialogi mialy
+   poprawne japonskie klucze. Gra ma teraz znowu podstawic imie gracza
+   (np. Seishiro), a nie wyswietlac doslownie znacznik. Nie wpisujemy imienia
+   na sztywno w dialogi. Patcher odmawia tlumaczenia tych stalych i chroni
+   rowniez tablice interpunkcyjna naprawiona we wczesniejszym wydaniu.
+
+2. SZEROKOSC UI
+   Panel Status: Foe -> F. (Foe), Oth -> O. (Other).
+   Panel broni: Post-Mv -> P-Mv (post-move / po ruchu).
+   Dodane osobne limity ekranowe: zapas bajtow w programie nie oznacza
+   dodatkowego miejsca obok licznika albo ikony. Inne etykiety Foe bez zmian.
+
+3. NAZWY DLC
+   21 tytulow dodatkow w komunikatach aktywacji: rozdzialy 2-8, dodatkowe
+   misje, Cybuster i Tactical Simulator Alpha/Beta. Oba pola nazwy kazdego
+   dodatku sa EN, zarowno w config01-07, jak i w kopiach imenu01-07.
+   Te tytuly byly puste w pakiecie po historycznej bisekcji problemu Loading.
+   Opisy katalogowe, identyfikatory PSN, ceny, flagi oraz bramki slownikow
+   nie sa zmieniane w tej poprawce.
+
+4. BASIC TRAINING
+   Dodany brakujacy tytul w DL100_01_ext.dat (ekran rozpoczecia misji 0-1).
+   Tytul na liscie misji byl juz EN; to osobne miejsce przechowywania tekstu.
+
+INSTALACJA
+----------
+Rozpakuj caly kit v16 do NOWEGO folderu i uruchom PATCH.bat.
+Wskaz ORYGINALNE japonskie ISO 1.08 oraz ORYGINALNY odszyfrowany folder DLC,
+a nie poprzedni patched.iso ani DLC z poprzedniego buildu.
+Uruchom nowy output\patched.iso i skopiuj cala zawartosc output\DLC\ do
+memstick\PSP\GAME\NPJH50521\ (po zrobieniu kopii obecnego folderu).
+Sejwow nie usuwaj. Do sprawdzenia poprawki zamknij gre i uruchom ja od nowa;
+nie wczytuj starego save state emulatora z programem sprzed poprawki.
+Zachowaj poprzedni dzialajacy build jako mozliwosc powrotu.
+
+WERYFIKACJA
+-----------
+Testy automatyczne i kontrola bajtow na oryginalnych plikach 1.08 zaliczone.
+Nazwy DLC sprawdzone w 84 polach obu kopii katalogu; config01-07 nie rosna.
+Nowy wyglad w PPSSPP i podstawienie wybranego imienia wymagaja potwierdzenia
+w grze. Komunikaty aktywacji DLC moga nie wyswietlic sie ponownie na sejwie,
+ktory juz odebral bonusy: sprawdz liste dodatkow lub osobny nowy profil,
+bez kasowania istniejacych zapisow.

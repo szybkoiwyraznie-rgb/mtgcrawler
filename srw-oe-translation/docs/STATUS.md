@@ -1,8 +1,21 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.58; status note added 2026-10-17)
+Last updated: 2026-10-17 (§21.61 — QA misji 0-1, kit v16)
 
-> **Aktualny stan (2026-10-17, wg właściciela projektu):** gra jest w 100% przetłumaczona na angielski.
+**Najnowsze (§21.61): poprawki po nowych zrzutach z misji 0-1 przygotowane w v16.**
+Przywrócone cztery znaczniki imienia gracza w EBOOT (bez hardkodowania Seishiro),
+Foe/Oth → `F.`/`O.`, Post-Mv → `P-Mv`; 21 tytułów DLC w obu polach nazw oraz kopiach
+config/imenu (84 pola), brakująca karta `Basic Training` w DL100_01_ext.dat.
+Pisarz chroni stałe silnika i osobne limity ekranowe. Rozmiary config01–07 bez zmian;
+pozostałe pola katalogu i bramki słowników nietknięte. **1322 testy OK, 1 pominięty;
+0 błędów kontroli pakietu; build z wypakowanego kitu i odczyt wyników sprawdzone offline.**
+Kit `srw-oe-translation-v16.zip` na Drive (`1AHsLPKWTTnEh7G7Sovsld7kfqQalDet-`).
+**Oczekuje tylko potwierdzenie tych nowych poprawek w PPSSPP** — nie wykonano testu
+emulatorowego. Zimny start z nowego buildu, nie stary save state; sejwów nie kasować.
+Szczegóły, komendy, hashe i ograniczenia: `EXPERIMENT_LOG.md` §21.61,
+`pakiet_EN/CO_NOWEGO_v16.txt`. Starsze zadania poniżej pozostają historią.
+
+> **Stan przekazania PRZED nowymi zgłoszeniami QA (2026-10-17, wg właściciela projektu):** gra jest w 100% przetłumaczona na angielski.
 > Pełne tłumaczenie = `PATCH15.zip` (dostarczane lokalnie / przez Google Drive, nie na GitHubie).
 > Brak otwartych zadań i issues — wszystkie zostały wyjaśnione i zamknięte.
 > Poniższe wpisy („Latest", „Open", „Still open", „Otwarte") opisują **historię prac** i są nieaktualne jako lista zadań.

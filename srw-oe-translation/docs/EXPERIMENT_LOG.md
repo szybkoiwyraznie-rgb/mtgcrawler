@@ -6068,3 +6068,130 @@ ery probe'owej z 10.10: `registry.json` (2.8 MB — rejestr wywołań YACpkTool)
 przescanowana: jedyne duże pliki = pakiet (decyzja usera §21.58) + dokumentacja;
 `test-patches/eventP00-scena1.json` zostaje (żywe odwołania: PATCH_ISO_TEST.bat,
 iso_test_patch.py, build_test_spec.py, dokumentacja).
+
+
+### 21.61 QA misji 0-1: imię gracza, wąskie etykiety, nazwy DLC i karta Basic Training — kit v16 (2026-10-17)
+
+**Nowe zgłoszenie użytkownika po PATCH15:** Himari pokazuje dosłownie znacznik imienia,
+Foe/Oth nachodzą na liczniki, Post-Mv na ikonę, nazwy dodatków pozostają JP.
+To nowe poprawki po zakończonym handoffie, nie wznowienie historycznego backlogu.
+
+**Materiały i diagnoza [ZWERYFIKOWANE offline]:**
+- Trzy załączone PNG oraz `scr.rar` z folderu projektu na Drive: 22 JPEG (Clipboard-4,
+  Clipboard-8–28). Archiwum zawiera 21 komunikatów aktywacji DLC i kartę tytułową
+  `初等訓練`, a nie nazwy ekwipunku. Kopie obrazów i plików gry wyłącznie w ignorowanych
+  katalogach; oryginałów na Drive nie zmieniono.
+- Edycja źródłowa: NPJH50521, JP 1.08. EBOOT to jawny ELF, 5 531 024 B,
+  MD5 `8ba77a79e7d46473671cb87e77553deb`; PBOOT 6 194 059 B,
+  MD5 `22daece3b6fccc4363dd76ed6a7ec2fb`. Wszystkie 408 wierszy exe pasują do źródłowego ELF.
+- Dialog Himari `dlg:eventP00.cpk/DL100_01.bin:2872` poprawnie zachowuje `＜主人公名＞`,
+  lecz 09_executable zamieniał cztery klucze (nazwisko/imię/pseudonim/pełne imię)
+  przy `0x08bf9f70/80/90/a0` na angielskie etykiety. Niespójność jest w programie,
+  nie w imieniu wpisanym przez gracza. Przywrócono `en := jp`, bez hardkodowania Seishiro.
+  `exe_strings.ENGINE_LITERALS` chroni te klucze oraz tablicę interpunkcji z §21.54–55:
+  eksport zachowuje oryginał, checker/pisarz/CWCheat odmawiają jego tłumaczenia.
+  Faktyczne podstawienie imienia w PPSSPP pozostaje do potwierdzenia.
+- Status: `0x08bf7190` Foe → `F.`, `0x08bf7194` Oth → `O.`; panel broni:
+  `0x08bf8598` Post-Mv → `P-Mv`. Oddzielne, konserwatywne limity ekranowe 2/2/4
+  komórki półszerokie w `exe_strings.check_en` (zapas bajtów ≠ miejsce w UI).
+  Inne wystąpienia Foe pozostają bez zmian; dopasowanie wizualne wymaga testu w grze.
+- 21 rekordów `srwDL_DLC_ID01–07.bin` miało puste EN po historycznym wyłączeniu katalogu
+  w bisekcji Loading (§21.39). Przywrócono **tylko sloty nazw 0 i 1**: 42 wiersze 04,
+  z zachowaniem `copy_of`. Nazwy misji spójne z istniejącymi tłumaczeniami 05; rozdziały
+  2–8, Cybuster oraz Tactical Simulator Alpha/Beta. Mirroring przenosi je także do
+  imenu01–07: razem **84 przetłumaczone pola nazw**. Sloty 2–7 (w tym opisy/ID PSN),
+  ceny, flagi i bramki słowników pozostają bez zmian.
+- Basic Training istniało w `milstP00.bin` (lista misji), ale nie miało wiersza dla
+  `eventP00.cpk/DL100_01_ext.dat:+344` (karta wejścia). Dodano ten wiersz do 05,
+  limit 39 B + NUL w 40-bajtowym polu; dwa u16 przy +384/+386 zachowane.
+
+**Porównanie z baseline z bieżącego repo, nie z nieznanym ISO użytkownika:**
+- Rebuild bazowy i poprawiony na tych samych oryginałach: 15 fizycznych kontenerów,
+  0 problemów. CPK/PAC/pule sprawdzane istniejącymi bramkami round-trip/read-back.
+- config01–07: zmienia się WYŁĄCZNIE DLC_IDNN; rozmiary bez zmian względem baseline
+  i oryginałów: 247 936 / 157 824 / 118 912 / 108 672 / 110 720 / 75 904 / 73 856 B.
+- imenu01–07: także wyłącznie DLC_IDNN, katalog bajt w bajt identyczny z kopią config.
+  Ze względu na przejście zmienionych członów na STORED rozmiary rosną: imenu01 +4096 B,
+  imenu02–06 +2048 B, imenu07 bez zmian. Nie twierdzimy, że wszystkie pliki są tej
+  samej wielkości. Dotychczasowa bramka słowników nie jest poluzowana.
+- eventP00: jedyny zmieniony człon względem baseline to DL100_01_ext.dat (388 B,
+  różnice tylko +344..+383). CPK 260 568 → 262 616 B (STORED zmienionego członu).
+  Wszystkie dialogi, komendy i pozostałe człony są identyczne z baseline.
+- EBOOT: nadal 5 531 024 B, tylko 7 pól / 74 różne bajty względem baseline;
+  sekcja `.text` byte-identical z oryginałem. Wynik MD5 `dabec6391ecb88d5585bffd047da9a1c`,
+  SHA-256 `3ecea0e6a7aac3991fd36352896b3258141e981cb76874fb30caa800f5e51f5d`.
+
+**Narzędzia i komendy:** Python 3.11.2; Pillow 13.0.0; pytest 9.1.1;
+pytest-subtests 0.15.0; Node v22.22.3; node-unrar-js 2.0.2 (tylko lokalne rozpakowanie
+RAR, nie zależność patchera). `$PY` oznacza `local/.venv/bin/python`, cwd = srw-oe-translation.
+
+```sh
+$PY -m pytest tests -q
+$PY tools/translation_check.py --package pakiet_EN --strict --out local/qa-20261017/package-check.txt
+$PY tools/build_distribution.py --out local/qa-20261017/release
+# Następnie builder Z WYPAKOWANEGO ZIP-a, nie z checkoutu:
+$PY local/qa-20261017/unpacked-kit/tools/build_translation_patch.py \
+  --iso local/qa-20261017/validation-input.iso \
+  --dlc local/qa-20261017/validation-dlc \
+  --package local/qa-20261017/unpacked-kit/translation \
+  --out local/qa-20261017/kit-build-clean \
+  --only 'config0[1-7].EDAT' 'imenu0[1-7].EDAT' eventP00.cpk EBOOT.BIN PBOOT.PBP \
+  --no-ui-textures
+```
+
+- Suite: **1322 passed, 1 skipped, 382 subtests passed** (15,28 s).
+  Nowy `test_mission01_feedback.py`: blokada tłumaczenia stałych (eksport/check/apply/cheat),
+  limity ekranowe, wszystkie 42 wiersze nazw i ich `copy_of`, syntetyczna przebudowa obu
+  pól katalogu bez zmiany ID/flag/opisów, osobne cele listy misji i karty tytułowej.
+- Kontrola pakietu: 109 033 wiersze tekstowe, 0 błędów, 3396 uwag (zastane ostrzeżenia
+  długości/puste pola w pozostałej części pakietu nie są nowym zakresem tej poprawki).
+- Test wypakowanego kitu: syntetyczne małe ISO zawierające rzeczywiste oryginalne EBOOT
+  i eventP00 + rzeczywiste DLC; NIE pełne ISO i NIE boot w emulatorze. 397/397 zmian exe
+  w obu celach (EBOOT oraz PBOOT; 4 przywrócone klucze to teraz identity, nie edycje),
+  0 odrzuceń, 0 problemów; odczyt EBOOT/eventP00 z wynikowego ISO oraz 14 EDAT równy
+  niezależnemu buildowi. Oba wynikowe ELF identyczne; cheatów domyślnie brak.
+- Pierwsze nieudane próby diagnostyczne (bez zmiany plików wejściowych): wywołanie
+  `cpk_write.rebuild(c, {})` używało złej sygnatury (poprawnie `rebuild(c)`); pierwszy
+  test pakietu zwinął różne wiersze U+3000 do jednego klucza JP (149 passed / 1 failed,
+  poprawiony przez adresowanie tablicy po vaddr, reszta pustych pól pozostaje nietknięta);
+  asercja liczby raportów buildera oczekiwała 15, ale są 16 z aliasem wielkości liter
+  eventP00/eventp00. Sprawdzono 15 fizycznych celów po normalizacji nazw i ich bajty;
+  nie zmieniano w tej turze istniejącego routingu buildera.
+
+**Wydanie:** `srw-oe-translation-v16.zip` — kompletny kit, bez plików gry; 143 pliki
+(36 narzędzi, 29 plików pakietu, 47 dokumentów tłumacza, launcher/README/fonty/specy UI).
+ZIP CRC oraz brak ISO/EDAT/CPK/BIN/PBP sprawdzone. Upload na Drive do istniejącego folderu
+projektu, bez nadpisywania starszych wydań i bez zmiany uprawnień:
+`1AHsLPKWTTnEh7G7Sovsld7kfqQalDet-`. Rozmiar i MD5 z odpowiedzi uploadu zgodne z plikiem lokalnym.
+
+**Do potwierdzenia przez użytkownika:** świeży build z oryginałów, zimny start gry (nie
+stary save state): podstawienie wybranego imienia, odstępy przy licznikach/ikonie,
+Basic Training oraz nazwy DLC. Nie kasować sejwów; odebrane już bonusy DLC nie muszą
+wyświetlić powiadomień ponownie. Instrukcja w CO_NOWEGO_v16.txt. Nie deklarujemy testu
+w PPSSPP ani na PSP. Poprzednie wydania i oryginały zachowane jako rollback.
+
+**Sumy kontrolne tej sesji:**
+
+- `scr.rar`: 3,722,370 B; SHA-256 `6b047d964623ea1359676ce6d6a83f01db12a6b3b6c4531a124f49025572ca2d`.
+- kit v16: 7,229,500 B; MD5 `b4e98e7b37678aeb590f8f30a2ad73a2`; SHA-256 `f648c21803640b5498bedaec2d5d83ef1f4e5e2bf7cc47e39c5e99a47009872a`.
+
+Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
+
+| Plik | Bajty | SHA-256 |
+|---|---:|---|
+| `config01.EDAT` | 247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
+| `config02.EDAT` | 157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
+| `config03.EDAT` | 118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
+| `config04.EDAT` | 108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
+| `config05.EDAT` | 110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
+| `config06.EDAT` | 75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
+| `config07.EDAT` | 73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
+| `imenu01.EDAT` | 24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
+| `imenu02.EDAT` | 20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
+| `imenu03.EDAT` | 18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
+| `imenu04.EDAT` | 20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
+| `imenu05.EDAT` | 18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
+| `imenu06.EDAT` | 18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
+| `imenu07.EDAT` | 18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
+| `eventP00.cpk` | 162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
+| `EBOOT.BIN` | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |

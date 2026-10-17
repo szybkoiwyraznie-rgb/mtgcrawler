@@ -82,6 +82,26 @@ SHT_PSP_REL = 0x700000A0
 FORMAT_RE = re.compile(r"%(?:%|-?[A-Z_]{2,}s|[-+ 0#]*\d*(?:\.\d+)?[hlL]?[diouxXeEfgGcsp])")
 COLOUR_RE = re.compile("＠.")
 
+# These are parser keys / dialogue punctuation, NOT player-facing labels. The event script
+# keeps the Japanese name markers and the executable matches them literally before inserting
+# the player's chosen name. Translating either side breaks that substitution. The punctuation
+# table was already confirmed in-game in EXPERIMENT_LOG §21.54–55; protect it here too, not just
+# in one package revision. Match by value so extraction of another build stays safe.
+ENGINE_LITERALS = frozenset({
+    "＜主人公姓＞", "＜主人公名＞", "＜主人公愛称＞", "＜＜主人公名フルネーム＞＞",
+    "・", "「", "　", "」",
+})
+
+# Screen limits are separate from storage slack. Mission 0-1 screenshots (2026-10-17): the
+# 3-byte Foe/Oth slots collide with the counters; Post-Mv (7 bytes) hits the prohibition icon.
+# Conservative half-width-cell budgets for these specific 1.08 labels only. Other copies of
+# 敵 in the weapon UI are not the status-panel counter and keep their own translation.
+LABEL_CELL_LIMITS = {
+    "0x08bf7190": 2,   # status: enemy count
+    "0x08bf7194": 2,   # status: other count
+    "0x08bf8598": 4,   # weapon panel: usable after moving, before its icon
+}
+
 
 class ExeError(Exception):
     pass
@@ -480,7 +500,8 @@ def _row(container: str, member: str, rel: int, offset: int, raw: bytes, text: s
         "category": CATEGORY,
         "part": _part_of(text, rel),
         "jp": text,
-        "en": "",
+        # Preserve engine literals on export instead of offering them for translation.
+        "en": text if text in ENGINE_LITERALS else "",
         "bytes": region,
         "mode": "slot",
         "max_bytes": budget,
@@ -524,6 +545,8 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
     encoding = source.get("encoding") or "cp932"
     exact = bool(source.get("exact"))
     jp = row.get("jp") or ""
+    if jp in ENGINE_LITERALS and en != jp:
+        return None, "engine literal must stay byte-identical to jp (not a display label)"
     if "\x0f" in en:
         return None, "english carries a 0x0F kana token"
     jp_fmt = FORMAT_RE.findall(re.sub("\x0f.", "", jp))
@@ -543,6 +566,11 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
             budget, region, slack)
     if len(enc) > budget:
         return None, "over budget: %d > max_bytes %d" % (len(enc), budget)
+    cell_limit = LABEL_CELL_LIMITS.get(str(source.get("vaddr", "")).lower())
+    if cell_limit is not None and len(enc) > cell_limit:
+        # These three labels are plain CP932, with one half-width cell per encoded byte.
+        return None, "too wide for the UI: %d > %d half-width cells (storage slack is not screen space)" % (
+            len(enc), cell_limit)
     if exact:
         jp_dangling = jp.endswith("＠")
         if jp_dangling != en.endswith("＠"):
