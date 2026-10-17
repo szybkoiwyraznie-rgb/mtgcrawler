@@ -6284,3 +6284,16 @@ oraz brak dodatkowego tekstu poza rozliczonymi blokami.
   powtórzonych kwestii i wariantu różniącego się tylko rozmówcą przechodzą.
 - `git diff --exit-code -- srw-oe-translation/pakiet_EN`: **PASS**, źródła bez zmian.
   Dostawa Drive i końcowy pełny zestaw regresji jeszcze przed nami.
+
+**Checkpoint mutacji na prawdziwym finale:** dodano śledzony
+`tests/test_reading_script_episode34.py`, korzystający z istniejącego pakietu,
+ale zmieniający wyłącznie tymczasowe kopie wygenerowanego tekstu i audytu.
+`python3 -m unittest discover -s srw-oe-translation/tests -p 'test_reading_script_episode34.py' -v`:
+**20/20 PASS w 13,042 s**: poprawny bazowy read-back + deterministyczność, niezmienność
+pakietu oraz **18/18 odrzuconych mutacji semantycznych** (naprawione SHA/rozmiary/offsety).
+Obejmują ostatnie kwestie bazowego finału i E, nowe fragmenty walki i pożegnań F,
+końcową myśl F, utratę powtórzenia wewnątrz sceny, nagłówka czasu, Adeu's card,
+zmianę rozmówcy, ujawnienie `???`, błędny alias J→baza zamiast J→F, zmianę narracji,
+kolejności, warunkowości i porażki oraz dodaną nawigację lub wymyślone zakończenie.
+Kompaktowy raport kontroli bazowego artefaktu zapisany w śledzonym
+`docs/reading-script/episode_34.verification.json`; bez pełnego tekstu i audytu w Git.

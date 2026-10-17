@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "episode": 34,
+  "output_bytes": 212920,
+  "output_sha256": "4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8",
+  "source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "plan_sha256": "8b2601bbf46e8388597cc332dfc21a37f1be2604424adebd8fa372a62a0391ba",
+  "source_rows_checked": 7723,
+  "source_scenes_checked": 7,
+  "output_blocks_checked": 3570,
+  "metrics": {
+    "metadata_alias": 116,
+    "metadata_shown": 94,
+    "metadata_source": 210,
+    "prose_alias": 4133,
+    "prose_conditional": 386,
+    "prose_failure": 2,
+    "prose_shown": 3338,
+    "prose_source": 7471,
+    "prose_story": 2950,
+    "technical_source": 42,
+    "technical_technical": 42
+  }
+}

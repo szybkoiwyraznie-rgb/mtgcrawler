@@ -43,7 +43,8 @@ changes and F/E differences were reviewed. Shared short names are disambiguated
 using existing package full names (e.g. the two Shinobus), not guessed identities.
 
 Pending: final full-project regression and Drive delivery. The current edition passes
-independent full-source verification and all 37 synthetic reading-tool tests. Old PASS claims in
+independent full-source verification, 37 synthetic reading-tool tests and 20 tests
+on the actual finale (including 18 semantic corruptions with repaired hashes/offsets). Old PASS claims in
 the recovered log are historical, not claims that the missing old tests ran here.
 
 ## Reproduce episode 34
