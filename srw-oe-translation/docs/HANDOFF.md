@@ -4,7 +4,16 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
-## Najnowsze przekazanie — 2026-10-17, QA v17
+## Najnowsze przekazanie — 2026-10-18, układ katalogu mechów
+
+[Prezentacja v2](mech-catalog/README.md) usuwa trzy elementy wskazane przez właściciela
+z wszystkich rekordów: kotwicę HTML, „— Unit N” w nagłówku i linię Data. Informacje
+o pilotach/broni/zdolnościach oraz cały model pozostają identyczne. Źródła i ID są
+nadal w audycie. Pierwsze wydanie/manifest zachowane, v2 ma osobny link Drive.
+Nie przywracać tych technicznych nagłówków w następnych regeneracjach. Nie usuwać
+przy okazji innych pól, o które właściciel nie prosił. Gra/kit v17 bez zmian.
+
+## Poprzednie przekazanie — 2026-10-17, QA v17
 
 [Kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony, 7245833B, read-back Drive identyczny.
 Mapa: 111 nazw w271 kopiach attr.par, cel `Space Str.`, bez zmian liczbowych/geometrii.

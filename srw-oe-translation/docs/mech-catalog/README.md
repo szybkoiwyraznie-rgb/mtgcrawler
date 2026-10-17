@@ -1,10 +1,21 @@
 # SRW OE mech catalogue — delivered data-backed edition
 
-**Completed 2026-10-17:** [srwoe_mech_catalog.md on Drive](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
-— **761,353 bytes**, SHA-256
-`e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.
-Downloaded back and compared byte-for-byte. One Markdown file, English names and
-descriptions from the existing package, supplemented by the matching original game data.
+**Current presentation revision 2 — 2026-10-18:**
+[srwoe_mech_catalog_v2.md on Drive](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view)
+— **707,653 bytes**, SHA-256
+`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+Downloaded back and compared byte-for-byte.
+
+At the owner's request, all 393 machine headings now contain **only their names**:
+no HTML unit anchors, no “— Unit N” suffix and no per-machine “Data: …” line.
+Identifiers/provenance remain in the audit. Old anchor links are plain text; series
+cross-references use machine names. Other IDs, content and uncertainty labels are
+not removed. The entire data model, weapon tables, ability text and pilot/profile
+headings are unchanged. See `presentation-v2.json` for the exact-diff proof.
+
+[Original edition](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+is preserved separately. Its exact delivery/verification metadata are archived in
+`revisions/01.*.json`; its source snapshot remains the basis of revision 2.
 
 ## Coverage
 
@@ -51,14 +62,14 @@ Animation and utility records are retained, not silently discarded or called att
 
 ## Verification
 
-**1438 passed, 1 skipped, 382 subtests passed** — full project suite, 42.02 s.
-Includes **59 new tests**: 33 synthetic + 26 real-input tests. The latter reject
-**24 semantic mutations** even after document/audit hashes and sizes are repaired.
+**1500 passed, 1 skipped, 382 subtests passed** — full project suite, 45.34 s.
+Catalogue suite: **66 tests** (7 added for this presentation revision): 36 synthetic
++ 30 real-input tests. The latter reject **27 semantic mutations** even after document/audit hashes and sizes are repaired.
 Original input and package hashes remained unchanged. Regeneration is byte-identical.
 
 `verify_mech_catalog.py` checks facts against freshly read binary/English sources
-without calling the generator's model/description/series helpers. It checks every
-Markdown unit/pilot/profile header, complete ability bullet, and all weapon rows.
+without calling the generator's model/description/series helpers. It pairs the ordered machine-name H2 headings with verified internal IDs (including
+duplicate names) and checks every Markdown unit/pilot/profile header, complete ability bullet, and all weapon rows.
 Only then does shared canonical rendering seal the remaining notes/layout.
 `--replay-engine` also reproduced all **254** base selector decisions.
 See `verification.json`, `delivery.json` and [field evidence](../MECH_CATALOG.md).
@@ -71,9 +82,10 @@ changes unrelated DLC descriptions in 04; do not rewrite the historical manifest
 or silently regenerate/re-upload the catalogue against new inputs. Export the
 six JSONL files named by `source-inventory.json` from that Git revision into an
 ignored folder (`git show <revision>:srw-oe-translation/pakiet_EN/<file>`), then
-use that folder as `--package` below. The real-input regression test does this
+use `local/mech-catalog/frozen-source` for that folder in the commands below. The real-input regression test does this
 read-only when the working package has changed. No branch switch or checkout is
-performed. The delivered Markdown and its original hashes stay unchanged.
+performed. The first-edition Markdown/hashes are preserved in the revision archive; revision 2
+changes only presentation and retains the identical frozen model.
 
 Use **original decrypted** config00.cpk, config01–19.EDAT and configst.cpk together
 in an ignored input directory, plus the matching original EBOOT.BIN. The commands
@@ -81,20 +93,20 @@ below use the flat download directory from this session. Full outputs remain ign
 Normal generation/verification uses Python 3.11+ and its standard library only.
 
 ```sh
-python3 tools/mech_catalog.py --configs ../google_drive --package pakiet_EN \
+python3 tools/mech_catalog.py --configs ../google_drive --package local/mech-catalog/frozen-source \
   --elf ../google_drive/EBOOT.BIN \
   --source-manifest docs/mech-catalog/source-inventory.json \
   --engine-map docs/mech-catalog/engine-map.json \
   --errata docs/mech-catalog/description-errata.json \
-  --out local/mech-catalog/srwoe_mech_catalog.md \
-  --audit local/mech-catalog/catalog.audit.json
-python3 tools/verify_mech_catalog.py --configs ../google_drive --package pakiet_EN \
+  --out local/mech-catalog/srwoe_mech_catalog_v2.md \
+  --audit local/mech-catalog/catalog_v2.audit.json
+python3 tools/verify_mech_catalog.py --configs ../google_drive --package local/mech-catalog/frozen-source \
   --elf ../google_drive/EBOOT.BIN \
   --source-manifest docs/mech-catalog/source-inventory.json \
   --engine-map docs/mech-catalog/engine-map.json \
   --errata docs/mech-catalog/description-errata.json \
-  --markdown local/mech-catalog/srwoe_mech_catalog.md \
-  --audit local/mech-catalog/catalog.audit.json \
+  --markdown local/mech-catalog/srwoe_mech_catalog_v2.md \
+  --audit local/mech-catalog/catalog_v2.audit.json \
   --report local/mech-catalog/verification.json
 python3 -m unittest discover -s tests -p 'test_mech_catalog*.py' -v
 ```
@@ -104,11 +116,11 @@ venv, inventory the inputs, then run the memory-only selector. The map contains
 only addresses/IDs/hashes, not game code or full text:
 
 ```sh
-python3 tools/mech_catalog_sources.py --configs ../google_drive --package pakiet_EN \
+python3 tools/mech_catalog_sources.py --configs ../google_drive --package local/mech-catalog/frozen-source \
   --out local/mech-catalog/source-inventory.json \
   --summary local/mech-catalog/source-summary.json
 python3 tools/mech_catalog_engine.py --elf ../google_drive/EBOOT.BIN \
-  --package pakiet_EN --inventory local/mech-catalog/source-inventory.json \
+  --package local/mech-catalog/frozen-source --inventory local/mech-catalog/source-inventory.json \
   --out local/mech-catalog/replayed-engine-map.json
 ```
 

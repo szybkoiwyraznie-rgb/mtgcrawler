@@ -1,8 +1,16 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.64 — kit v17 dostarczony, QA w grze oczekuje)
+Last updated: 2026-10-18 (§21.65 — uproszczony układ katalogu mechów)
 
-**Najnowsze (§21.64): [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony.**
+**Najnowsze (§21.65): katalog mechów — prezentacja v2 dostarczona.**
+[Nowy Markdown](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view),
+707653 B. Usunięto kotwice HTML, sufiksy „— Unit N” i wiersze „Data: …” dla wszystkich
+393 rekordów; model/dane, bronie, umiejętności i piloci bez zmian. Odsyłacze do
+usuniętych kotwic zamieniono na czytelny tekst. Pierwsze wydanie zachowane.
+1500 testów PASS,1 skipped,382 subtests; odczyt zwrotny Drive identyczny. Szczegóły:
+[README katalogu](mech-catalog/README.md). Nie zmieniano gry ani kitu v17.
+
+**Osobny stan QA gry (§21.64): [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) dostarczony.**
 `宇宙構造物` -> `Space Str.`; cała odnaleziona rodzina: 111 nazw w 271 kopiach
 attr.par/lmap, 30081 zapisanych komórek. Liczby, geometria i tekstury nietknięte.
 DLC04: nazwy były już EN w odtworzonym v16; dodano dwa pozostałe JP opisy i twardą

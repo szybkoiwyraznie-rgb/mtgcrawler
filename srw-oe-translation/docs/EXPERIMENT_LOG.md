@@ -6680,3 +6680,13 @@ Przed zmianą zdalną potwierdzono, że dotychczasowy plik Drive nadal odpowiada
 wersji 1 (761353 B, MD5 cfb4ae34d01623c867329b86f3328107); brak cudzych zmian do
 nadpisania. Plan dostawy: osobna wersja v2, oryginał zachowany. Nie dotykano kitu
 v17 ani pakietu tłumaczenia. PR17 ponownie użyty; finalna dostawa jeszcze w toku.
+
+**21.65 — DOSTAWA v2:** pełny suite **1500 passed,1 skipped,382 subtests passed
+w45,34s**. Weryfikacja całego finalnego MD względem niezmienionych źródeł i ponowne
+254 wywołania selektora opisów: PASS. 707653B, SHA-256
+`9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab`.
+Nowy plik `srwoe_mech_catalog_v2.md` na Drive: `1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj`.
+Przed uploadem0 /po1 dopasowań nazwy, pełny download-back bajtowo identyczny,
+MD5 `16aaaf7f2f21b1b6291907e8f42c0511`. Oryginalny plik Drive pozostał nietknięty;
+nie zmieniano uprawnień. Aktualne manifesty/raport wskazują v2, historyczne v1 są
+w revisions/. Pakiet EN, gra i wydany kit v17 nie były modyfikowane w tym zadaniu.

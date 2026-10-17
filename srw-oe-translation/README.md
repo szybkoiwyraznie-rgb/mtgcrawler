@@ -10,13 +10,14 @@ See [`docs/QA_V17.md`](docs/QA_V17.md), [`docs/STATUS.md`](docs/STATUS.md) and
 
 ## Mech reference catalogue — delivered
 
-[One English Markdown catalogue](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+[English Markdown catalogue, presentation v2](https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view)
 covers **393 registered unit records and 1485 weapon/action entries**, including
 friendly/enemy variants, default crew and alternate profiles, non-Spirit pilot
 skills, base weapon statistics/effects and native machine abilities. Inferences,
 missing series/skill references and unresolved unlock timing are labelled.
-The package/game files were not modified. Full source verification and Drive
-read-back pass; project suite: **1438 passed, 1 skipped, 382 subtests passed**.
+Presentation v2 removes per-machine HTML anchors, unit-ID suffixes and source
+metadata lines; game data and descriptive content are unchanged. Full source
+verification and Drive read-back pass; suite: **1500 passed, 1 skipped, 382 subtests passed**.
 [Reproduce it / evidence / delivery manifest](docs/mech-catalog/README.md).
 
 ## English reading edition — episodes 00–34 complete

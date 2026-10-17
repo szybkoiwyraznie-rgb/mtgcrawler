@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "status": "delivered-and-read-back-verified",
   "scope": "All registered unit and weapon/action records; data-backed catalogue with explicit unresolved fields, not an exhaustive gameplay simulation",
-  "tooling_checkpoint": "04867ae3d8a00e258bca1846c69f7cc187a9b7d9",
+  "tooling_checkpoint": "5a14d604e240ca444f026dce67ac4116a355feed",
   "source_package_commit": "aa178c7264514d0c36c102393705cdacb6e0ab77",
   "pull_request": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/pull/17",
   "artifact": {
-    "name": "srwoe_mech_catalog.md",
-    "bytes": 761353,
-    "sha256": "e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef",
-    "md5": "cfb4ae34d01623c867329b86f3328107",
-    "drive_id": "1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC",
-    "drive_url": "https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view",
+    "name": "srwoe_mech_catalog_v2.md",
+    "bytes": 707653,
+    "sha256": "9456f07bc4a398c6ed584c82eddbfb2033cce9567c411a7a268dedb5d9b833ab",
+    "md5": "16aaaf7f2f21b1b6291907e8f42c0511",
+    "drive_id": "1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj",
+    "drive_url": "https://drive.google.com/file/d/1uDgRdtFqVVx7eel5jqkFBwT1zMCJcjlj/view",
     "drive_parent_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
     "read_back_byte_identical": true
   },
@@ -58,8 +58,8 @@
     "mech_catalog_sources.py": "0877acee95153b52aa8cedcbc2db207100d4f0eeefaa5f2bb49a002351c5820a",
     "mech_catalog_probe.py": "51b545d0e908603ca491bbca2d6fb4a26748f3b6e5eb2e2c37964ccb9da73b95",
     "mech_catalog_engine.py": "08ccd08823a2ea3ee044db4a4385ab0136a8d7493bdd922da2a8c9da1b5bff53",
-    "mech_catalog.py": "3fe19fdf7c36c6f1b7f96b79b2e11b2391de1bd54aaae21e48b921e43061e053",
-    "verify_mech_catalog.py": "33fec7358d7fad852bddc2df5ed89e13f27f137ede4ce45902b51266a38fac32"
+    "mech_catalog.py": "719b95bee69df19a02db06636bf75c49584ed7808ca310cf1fe4e450a33f8719",
+    "verify_mech_catalog.py": "d82dc95a87433e18184b225fb7dad9b206ce6ab677800a939763cd2d4e70d418"
   },
   "tests": {
     "python": "3.11.2",
@@ -69,17 +69,18 @@
     "capstone": "5.0.6",
     "unicorn": "2.1.4",
     "full_project": {
-      "passed": 1438,
+      "passed": 1500,
       "skipped": 1,
       "subtests_passed": 382,
-      "seconds": 42.02
+      "seconds": 45.34
     },
-    "new_tests": 59,
-    "synthetic_tests": 33,
-    "real_input_tests": 26,
-    "semantic_mutations_rejected": 24,
+    "new_tests": 66,
+    "synthetic_tests": 36,
+    "real_input_tests": 30,
+    "semantic_mutations_rejected": 27,
     "engine_base_aliases_replayed": 254,
-    "original_files_and_package_unchanged": true
+    "original_files_and_package_unchanged": true,
+    "new_presentation_tests": 7
   },
   "unrecorded_series": [
     {
@@ -172,5 +173,17 @@
     "Statistics are stored base fields, not current battle-screen values after modifiers.",
     "Seventeen source-checked wording repairs apply only to the catalogue; no game translation or binary was changed.",
     "Pure description-selector emulation is not a full PPSSPP/gameplay test."
-  ]
+  ],
+  "presentation_revision": 2,
+  "previous_delivery": "revisions/01.delivery.json",
+  "presentation_proof": "presentation-v2.json",
+  "presentation_changes": {
+    "unit_anchors_removed": 393,
+    "unit_id_suffixes_removed": 393,
+    "data_lines_removed": 393,
+    "old_unit_links_rendered_as_text": 133,
+    "model_unchanged": true,
+    "gameplay_text_unchanged": true,
+    "original_drive_file_preserved": true
+  }
 }
