@@ -6596,3 +6596,10 @@ Brama `git diff --check` początkowo odrzuciła CRLF nowego CHECK_DLC.bat. Repo 
 wymaga `.bat -text` (CRLF mają pozostać także w GitHub ZIP), więc nie zamieniano
 skryptu na LF. Dodano standardowe atrybuty kontroli whitespace z `cr-at-eol` dla
 BAT, zachowując dotychczasowe bajty i sprawdzanie pozostałych białych znaków.
+
+**21.64 — kandydat dystrybucji:** wygenerowano v17 ZIP z repo (148 plików:38 narzędzi,
+31 plików pakietu,47 dokumentów tłumacza, launchery/fonty/specy). Nowe CHECK_DLC.bat
+jest w zestawie, CRLF zachowane. Index/check_report opisują bieżące109144 wiersze,
+0 błędów /3394 uwagi. README ma poprawną, płaską instrukcję kopiowania, ostrzeżenie
+o większym lmap i zachowaniu normalnych sejwów. To kandydat do testu z wypakowanego
+ZIP-a; nie wykonano jeszcze uploadu v17 ani nie deklarujemy gameplay.
