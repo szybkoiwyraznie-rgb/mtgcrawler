@@ -6454,3 +6454,13 @@ poprawny baseline, sprawdzano powód odrzucenia. 32 testy syntetyczne + 26 integ
 = 58 nowych testów. Każda korupcja dotyczyła kopii tymczasowej. Oryginały i pakiet EN
 bajtowo bez zmian. Kompaktowy raport w `docs/mech-catalog/verification.json`.
 Pełny suite projektu i upload nadal przed nami; plik czytelniczy pozostaje 761 353 B.
+
+**21.63 — ostatnie potwierdzenie semantyki i regresja:** pełny suite projektu na
+checkpoint b34085d: **1437 passed, 1 skipped, 382 subtests passed w 41,62 s**.
+Dodatkowe oględziny spakowanych odczytów (`lwr/lwl`, nie tylko `lh/lhu`) potwierdziły
+pętlę pięciu pilotów: `.text 0x212bdc` pobiera rekord jednostki, `0x212c04..0x212c4c`
+czyta +98 + 2*i, rozwiązuje przez `0xa91dc` i dodaje przez `0x21bee4`, i < 5.
+To dowód konsumenta dla 535 przypisań, a nie jedynie zbieżność z nazwanymi ID.
+Probe rozszerzony o LWL/LWR i test syntetyczny (testy tego modułu 10/10 PASS).
+Nie zmieniło to faktów ani bajtów katalogu; po tej zmianie narzędzia będzie jeszcze
+końcowy suite. Drive potwierdził istniejący folder „SRW OE” i brak pliku o docelowej nazwie.

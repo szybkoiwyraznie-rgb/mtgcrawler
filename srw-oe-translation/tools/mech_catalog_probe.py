@@ -36,8 +36,8 @@ def find_clusters(text, offsets, radius=20, minimum=2):
     accesses = []
     for index, word in enumerate(words):
         opcode, base, immediate = word >> 26, (word >> 21) & 31, word & 65535
-        # LB, LH, LW, LBU, LHU, LWC1 and ADDIU (array-base calculation).
-        if opcode in (32, 33, 35, 36, 37, 49, 9) and immediate in offsets and base != 29:
+        # LB/LH/LW/LBU/LHU, packed-struct LWL/LWR, LWC1, and ADDIU.
+        if opcode in (32, 33, 34, 35, 36, 37, 38, 49, 9) and immediate in offsets and base != 29:
             accesses.append((index, base, immediate, opcode))
     clusters, last = [], -100000
     for index, base, immediate, opcode in accesses:

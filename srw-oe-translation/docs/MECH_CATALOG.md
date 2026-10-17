@@ -155,3 +155,13 @@ abilities, missing groups, inference promoted to fact and hidden unknowns. Tests
 only corrupt temporary copies. Together with 32 synthetic tests: 58 new tests.
 The real-input class is explicitly skipped when private originals are absent;
 none of those inputs is committed. Final full-project regression/upload pending.
+
+### Default crew proved in the consumer
+
+The constructor at PRX `.text +0x212bdc` gets the unit record via `0xe83f8`,
+then `0x212c04..0x212c4c` reads packed halfwords at **+98 + 2*i**, resolves each
+through the character lookup `0xa91dc`, adds it through `0x21bee4`, and repeats
+for **five slots**. The first is also stored separately as the primary character.
+This corroborates the 535 assignments structurally, rather than merely matching
+small numbers to character IDs. The probe now includes LWL/LWR (a plain LH/LHU
+search misses packed-structure readers). A synthetic packed-load test passes.

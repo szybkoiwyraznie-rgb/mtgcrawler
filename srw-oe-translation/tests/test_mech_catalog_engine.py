@@ -46,6 +46,11 @@ class EngineSelectionTests(unittest.TestCase):
         other = struct.pack("<4I", load(16, 244), 0, load(17, 248), 0)
         self.assertEqual(find_clusters(other, {244, 248}), [])
 
+    def test_packed_structure_loads_are_included(self):
+        text = struct.pack("<2I", (38 << 26) | (16 << 21) | 98,
+                           (34 << 26) | (16 << 21) | 101)
+        self.assertEqual(len(find_clusters(text, {98, 101})), 1)
+
     def test_stack_offsets_are_not_structural_evidence(self):
         text = struct.pack("<2I", (37 << 26) | (29 << 21) | 244, (37 << 26) | (29 << 21) | 248)
         self.assertEqual(find_clusters(text, {244, 248}), [])
