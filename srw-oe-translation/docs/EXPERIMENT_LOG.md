@@ -6342,3 +6342,13 @@ uwierzytelnienia. Tytuł i komplet checklist dostawy ustawiono przez
 Osobny odczyt REST potwierdził dokładną zgodność tytułu/treści oraz head `848287f`
 z lokalnym HEAD. PR #17 pozostaje otwarty/draft; nie scalano ani nie zmieniano
 innych gałęzi. Ostatni checkpoint poniżej obejmuje wyłącznie zapis tego obejścia.
+
+### 21.63 Katalog mechów, pilotów, broni i zdolności — rozpoczęcie (2026-10-17)
+
+Nowe zlecenie po dostawie finału 34: jeden Markdown dla jednostek własnych i wrogich,
+z angielską nazwą, serią, pilotami i ich umiejętnościami (bez spirits), bronią,
+zdolnościami broni/mechów i opisami bazowymi; statystyki oraz późniejsze odblokowania
+wyłącznie, jeśli można potwierdzić ich interpretację. Punkt startowy: czysty `aa178c7`,
+przypisana gałąź bez zmian; otwarty PR #17 ponownie użyty. Zasady i zakres zapisane
+w `docs/MECH_CATALOG.md`; przed badaniem nie deklarujemy kompletności powiązań.
+Pełny katalog i dane gry poza Git; narzędzia/testy/ustalenia wypychane etapami.
