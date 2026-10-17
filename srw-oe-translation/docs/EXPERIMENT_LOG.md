@@ -6557,3 +6557,42 @@ attr: 9284B bez zmiany długości, SHA-256 EN
 `70e5db46bab0287b2ce1f0bb7d0162d49772748a51128648babc2284e4d9d200`.
 Wybrano STORED dla map (bez nowej niesprawdzonej kompresji). Łączne rozpakowane
 PAC155586736B; pakowane81089928B. Realny CPK/build i odbiór w grze nadal przed nami.
+
+**21.64 — checkpoint integracji i realnego lmap:** główny builder ma osobny tor
+terenu (bez trzykrotnego sniffingu dużego CPK), ładuje 10_map_terrain i stosuje limit
+12 komórek także w checkerze pakietu. Realny build: **271 map /30081 nazw**, odczyt
+wszystkich członów PASS; lmap81379568→156174576B. Poza nazwami zero zmian w parametrach,
+geometrii/teksturach. Metadane `qa-v17/terrain-build.json`, duże wyniki tylko w
+ignorowanym/wyłączonym ze snapshotów `local/qa-v17/build/`.
+
+**Wykryty i odtworzony błąd wdrożenia v16:** wejście `chapter04/config04.EDAT` tworzy
+`output/DLC/chapter04/config04.EDAT`, nie plik w katalogu głównym używanym przez grę.
+V17 daje płaski output, dopasowanie bez rozróżnienia liter, odmawia niejednoznacznych
+kopii w backupach. Rzeczywisty układ folderów użytkownika nadal niepotwierdzony —
+nie udajemy, że mechanizm został udowodniony na jego komputerze.
+
+Uzupełnione wyłącznie dwa opisy katalogowe DLC_ID04:128/121B zamiast139/131B, zachowana
+kolejność/kolor i cztery linie. Po przebudowie wszystkie12 pól obu kopii EN, liczba
+wystąpień obu JP tytułów0. config04:108672B,
+SHA-256 `e6d61b1a299a3a3336ba0232ad6a52654f0406df0f00d28d6a0b1d64fdd3c832`;
+imenu04:28840B, `f48d00d085e738ed602d958b21fe53bc74550a95ba8b0ea8ff32cac9240f7efe`.
+Nowy kontrakt odczytu po payload-ID podnosi błąd zamiast sukcesu przy cichym noop.
+CHECK_DLC.bat/JSON czyta FAKTYCZNIE zainstalowane pliki, bez modyfikacji zapisów.
+
+Pierwszy zestaw integracyjny:120 PASS/1 FAIL — minimalny pakiet ujawnił zależność
+mirroringu tytułów od obecności luźnych wierszy nazw postaci. Dodano jawne odkrywanie
+obu dostępnych kopii; końcowy zestaw **126 PASS w18,34s**. Pięć testów toru terenu,
+cztery wdrożenia, czternaście kontraktu DLC oraz wcześniejsze testy buildera/pickerów
+sprawdzone. Checker pakietu: **109144 wiersze,0 błędów,3394 zastane uwagi,149 pustych**.
+
+Test dostarczonego katalogu mechów czyta historyczne sześć JSONL z zadeklarowanego
+commitu aa178c7, gdy bieżąca gra dostaje nowe QA. Żadnego checkoutu/zmiany gałęzi;
+hashe historyczne weryfikowane i bieżące pliki sprawdzane na niezmienność. Nie
+przepisano manifestu ani nie regenerowano/reuploadowano dostarczonego katalogu.
+Pełny suite i test z wypakowanego końcowego kitu w toku. Dodano śledzony, odtwarzalny
+`verify_qa_v17_release.py` do takiej walidacji — nie skrypt pozostawiony tylko lokalnie.
+
+Brama `git diff --check` początkowo odrzuciła CRLF nowego CHECK_DLC.bat. Repo już
+wymaga `.bat -text` (CRLF mają pozostać także w GitHub ZIP), więc nie zamieniano
+skryptu na LF. Dodano standardowe atrybuty kontroli whitespace z `cr-at-eol` dla
+BAT, zachowując dotychczasowe bajty i sprawdzanie pozostałych białych znaków.

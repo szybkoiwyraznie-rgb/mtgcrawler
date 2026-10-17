@@ -1,11 +1,57 @@
-CO NOWEGO v17 — W TRAKCIE, JESZCZE NIEWYDANE
-==========================================
-Nazwy terenu w attr.par / lmap.cpk: 111 nazw, 271 kopii map.
-Zgloszone "宇宙構造物" -> "Space Str." (Space Structure).
-Dopisano obsluge komorek nazw bez zmiany liczbowych parametrow terenu.
-Testy syntetyczne OK; integracja calego buildera i realny read-back w toku.
+CO NOWEGO v17 (2026-10-17)
+==========================
 
-Dwa tytuly DLC: w odtworzonym, dostarczonym v16 oba pola nazw sa juz EN
-w config04 i imenu04. Raport uzytkownika na v16 ze starym sejwem nadal
-jest otwarty. Nie traktujemy poprawnego lokalnego buildu jako dowodu
-naprawy stanu gry ani nie zalecamy kasowania sejwow.
+1. NAZWY TERENU
+   Zgloszone 宇宙構造物 -> Space Str. (Space Structure).
+   Odnaleziona osobna tabela attr.par w lmap.cpk. Patcher obejmuje wszystkie
+   271 kopii i wszystkie 111 niepustych nazw (91 roznych), a nie tylko jedna
+   mape. Nazwy maja osobny limit ekranowy 12 znakow. Kolory, flagi, statystyki,
+   geometria i tekstury nie sa zmieniane. Puste rekordy pozostaja puste.
+
+2. DWA TYTULY DLC Z ROZDZIALU 4
+   Return of the Goburiki Army / The Bandits' Tragedy:
+   oba pola nazw byly juz EN w odtworzonym v16. W v17 przetlumaczone sa tez
+   pozostajace JP opisy tych dwoch wpisow, zawierajace kolejne kopie tytulow.
+   Builder sprawdza faktyczne pola w config04 i imenu04 po zapisie, po stalych
+   identyfikatorach dodatkow, nie tylko po liczbie wpisow w pakiecie.
+   Same testy plikow nie potwierdzaja jeszcze stanu widocznego na Twoim sejwie.
+
+3. SCIEZKI DLC — RZECZYWISTY BLAD PROCESU
+   v16 zachowywal podfoldery wejscia w output\DLC. Np. plik z chapter04\
+   trafial do output\DLC\chapter04\, a gra szuka go bezposrednio w NPJH50521.
+   Mechanizm odtworzono; nie zakladamy, ze tak wygladal Twoj konkretny folder.
+   v17 zapisuje DLC plasko, wyszukuje nazwy bez roznicy wielkosci liter oraz
+   odmawia wyboru pierwszej kopii, jesli w podfolderach sa duplikaty plikow.
+
+4. KONTROLA PLIKOW FAKTYCZNIE UZYWANYCH PRZEZ GRE
+   CHECK_DLC.bat otwiera okno wyboru ZAINSTALOWANEGO folderu NPJH50521.
+   Niczego nie zmienia. Wynik: DLC_TITLE_CHECK.json z nazwami, hashami oraz
+   informacja o brakach, niezgodnosciach i kopiach zapasowych.
+   Jesli dwa tytuly nadal sa JP, przeslij ten raport zamiast samego screena.
+
+INSTALACJA
+----------
+Rozpakuj caly kit v17 do NOWEGO folderu. Uruchom PATCH.bat.
+Wskaz ORYGINALNE japonskie ISO 1.08 i ORYGINALNY odszyfrowany folder DLC.
+Nie buduj na poprzednim patched.iso ani na mieszance oryginalow i starych
+wynikow. Zachowaj poprzedni dzialajacy build oraz wszystkie sejwy.
+
+Uruchamiaj nowe output\patched.iso.
+Skopiuj PLIKI z output\DLC\ bezposrednio do istniejacego pelnego folderu
+memstick\PSP\GAME\NPJH50521\, nadpisujac odpowiadajace im pliki.
+Nie dokladaj kolejnego poziomu DLC/chapter04/NPJH50521 i nie kasuj pozostalych
+oryginalnych plikow. Stare pliki w niewlasciwych podfolderach nie zastapia
+wlasciwych plikow w katalogu glownym gry.
+
+Zamknij gre i uruchom ja od nowa; normalny sejw w grze mozna zachowac/wczytac.
+Save state emulatora to inna rzecz: moze trzymac stare zasoby w RAM.
+Odebrane bonusy DLC nie musza pokazac powiadomien ponownie; nie kasuj zapisow.
+
+ROZMIAR I BEZPIECZENSTWO
+-----------------------
+lmap.cpk po przebudowie STORED ma ok.156 MB zamiast81 MB. Nie uzywamy nowej,
+niesprawdzonej kompresji. ISO rosnie rowniez dlatego, ze zmienione czlony sa
+bezpiecznie dopisywane, a stare sektory nie sa odzyskiwane. Zalecane co
+najmniej3 GB wolnego miejsca roboczego; dokladne potrzeby zaleza od wejscia.
+Patcher kontroluje wszystkie kopie i odczytuje zapisane bajty. To nie zastepuje
+potwierdzenia wygladu w PPSSPP. Nie zmieniano zapisow ani logiki gry.

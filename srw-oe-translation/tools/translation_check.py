@@ -236,6 +236,13 @@ def check_row(row: dict, require_complete: bool = False,
         message = "untranslated (empty en)"
         (errors if require_complete else warnings).append(message)
         return errors, warnings
+    if row.get("category") == "terrain_name":
+        import terrain_names
+        try:
+            terrain_names.validate_row(row)
+        except terrain_names.TerrainError as exc:
+            errors.append(str(exc))
+        return errors, warnings
     if row.get("category") == exe_strings.CATEGORY:
         # executable strings: the in-place writer's own rules (byte budget incl. alignment
         # slack, printf conversions in order, exact segments, UTF-8 rows) are the check

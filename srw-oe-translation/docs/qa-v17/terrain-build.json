@@ -1,0 +1,17 @@
+{
+  "location": "dlc",
+  "applied": 30081,
+  "copies": 271,
+  "changed_members": 271,
+  "compression": "stored",
+  "original_bytes": 81379568,
+  "new_bytes": 156174576,
+  "problems": [],
+  "original_sha256": "448d61e65330b48be99986630a5e4c4f87d24c99ee0270117d20fe7b8bbe6bb9",
+  "new_sha256": "88e943c091c113a564312ca87a640b8df5edeb43d75d11c69a6c45f1518b2694",
+  "unchanged_non_name_bytes": true,
+  "readback_verified": true,
+  "status": "PASS \u2014 real original lmap rebuilt/read back; full extracted-kit ISO validation pending",
+  "changed_name_cells": 30081,
+  "outside_names_unchanged": true
+}

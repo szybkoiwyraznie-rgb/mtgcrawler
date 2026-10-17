@@ -76,3 +76,39 @@ stored, not recompressed with an unverified encoder. Sum of extracted PAC sizes
 is 155,586,736 B vs 81,089,928 B compressed; the larger output/ISO is expected and
 must be documented. Production pipeline integration and real-file verification
 remain pending. Package v17 is explicitly marked unfinished, not a shipped kit.
+
+## Pipeline + deployment checkpoint
+
+Real original lmap was rebuilt through the normal builder's dedicated terrain
+step: **271 maps / 30,081 name cells**, all member payloads read back exactly.
+Output **156,174,576 B**. Non-name attributes and all geometry/texture bytes stay
+unchanged; STORED avoids introducing untested compression. The large archive
+bypasses unrelated dictionary discovery, so it is not decompressed three times.
+
+A **separate, reproduced deployment defect** was found in v16: DLC input under
+`chapter04/config04.EDAT` was written to `output/DLC/chapter04/config04.EDAT`.
+Copying that tree into NPJH50521 leaves its root config04 untouched. This matches
+a possible failure mechanism for only the two chapter-4 titles, but the owner's
+actual local directory layout has **not** been verified. v17 emits flat filenames,
+resolves case-insensitively, deduplicates discovered case aliases and refuses
+ambiguous .EDAT/.CPK/.PBP backup copies instead of silently choosing the first.
+
+The two remaining Japanese **descriptions** in DLC_ID04 were also translated
+(128/121 B vs 139/131 B JP), eliminating their additional copies of the reported
+titles. Current originals rebuild to 12/12 English text fields across config/imenu
+(two records × name0/name1/description × two copies), zero reported JP-title
+occurrences, preserved PSN identities/numeric fields. A postcondition reads actual
+rebuilt fields by payload ID; a silent writer noop fails the build.
+
+`CHECK_DLC.bat` + `check_dlc_titles.py` inspect the installed folder read-only,
+including hashes, both title fields, filled descriptions, missing/encrypted files
+and duplicate copies. A PASS is not a statement about cached emulator RAM/save
+states. No save files are modified or deleted.
+
+126 targeted tests pass (including the frozen delivered-catalogue regression).
+Its English source is now explicitly read from the delivery's pinned Git revision
+if the current game package changes; the historical catalogue/manifest remain
+untouched. Earlier one-test failure exposed that title mirroring depended on
+unrelated containerless-name rows: fixed by explicitly discovering both available
+DLC title copies, then all deployment tests pass. Full suite and packaged-kit
+verification are next; actual gameplay confirmation is still pending.

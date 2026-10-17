@@ -65,6 +65,16 @@ See `verification.json`, `delivery.json` and [field evidence](../MECH_CATALOG.md
 
 ## Reproduce (from `srw-oe-translation/`)
 
+**Historical English snapshot:** this delivered catalogue is pinned to the
+`source_package_commit` in `delivery.json` (`aa178c7...`). Subsequent game QA (v17)
+changes unrelated DLC descriptions in 04; do not rewrite the historical manifest
+or silently regenerate/re-upload the catalogue against new inputs. Export the
+six JSONL files named by `source-inventory.json` from that Git revision into an
+ignored folder (`git show <revision>:srw-oe-translation/pakiet_EN/<file>`), then
+use that folder as `--package` below. The real-input regression test does this
+read-only when the working package has changed. No branch switch or checkout is
+performed. The delivered Markdown and its original hashes stay unchanged.
+
 Use **original decrypted** config00.cpk, config01–19.EDAT and configst.cpk together
 in an ignored input directory, plus the matching original EBOOT.BIN. The commands
 below use the flat download directory from this session. Full outputs remain ignored.

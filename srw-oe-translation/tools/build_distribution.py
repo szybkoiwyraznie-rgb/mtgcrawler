@@ -131,6 +131,12 @@ def main() -> None:
         else:
             print("WARNING: PATCH.bat not found")
 
+        # Read-only check of the actually installed DLC folder, useful when a
+        # correct build differs from what the game has loaded.
+        checker_bat = repo / "CHECK_DLC.bat"
+        if checker_bat.exists():
+            zf.write(checker_bat, "CHECK_DLC.bat")
+
         # README.md (use README_DIST.md if available, else README.md)
         readme = repo / "README_DIST.md" if (repo / "README_DIST.md").exists() else repo / "README.md"
         zf.write(readme, "README.md")

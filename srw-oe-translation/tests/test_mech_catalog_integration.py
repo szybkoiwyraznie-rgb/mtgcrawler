@@ -1,6 +1,7 @@
 """Optional real-input catalogue regression and semantic mutations.
 
-Requires the user's original private containers; no game bytes are test fixtures.
+Requires the user's original private containers and the delivered catalogue's
+pinned English snapshot; no game bytes are test fixtures.
 Every mutation is confined to temporary output. The document, its audit, hashes,
 byte count, and span map are rebuilt together, so checksum rejection is not enough.
 """
@@ -8,6 +9,7 @@ from pathlib import Path
 import copy
 import hashlib
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -23,20 +25,42 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.configs = PROJECT.parent / "google_drive"
-        cls.package = PROJECT / "pakiet_EN"
+        cls.working_package = PROJECT / "pakiet_EN"
+        cls.package = cls.working_package
         cls.elf = cls.configs / "EBOOT.BIN"
         if not all((cls.configs / n).is_file() for n in CONFIG_FILES) or not cls.elf.is_file():
             raise unittest.SkipTest("Private original game inputs are not present (not stored in Git)")
         cls.manifest = PROJECT / "docs/mech-catalog/source-inventory.json"
         cls.engine = PROJECT / "docs/mech-catalog/engine-map.json"
         cls.errata = PROJECT / "docs/mech-catalog/description-errata.json"
+        cls.temp = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.temp.cleanup)
+        # This tests the DELIVERED catalogue, whose English inputs are pinned.
+        # Later game QA may change unrelated rows in the same JSONL. Read the
+        # documented revision; never reset files or switch the working branch.
+        snapshot = json.loads(cls.manifest.read_bytes())["summary"]["package_sha256"]
+        cls.working_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in cls.working_package.glob("*.jsonl")}
+        if any(cls.working_hashes.get(name) != digest for name,digest in snapshot.items()):
+            delivery = json.loads((PROJECT/"docs/mech-catalog/delivery.json").read_bytes())
+            commit = delivery["source_package_commit"]
+            assert len(commit)==40 and all(c in "0123456789abcdef" for c in commit)
+            cls.package = Path(cls.temp.name)/"frozen-package"
+            cls.package.mkdir()
+            for name,digest in snapshot.items():
+                assert Path(name).name==name and name.endswith(".jsonl")
+                spec = f"{commit}:srw-oe-translation/pakiet_EN/{name}"
+                try:
+                    data = subprocess.check_output(["git","show",spec],cwd=PROJECT.parent,stderr=subprocess.PIPE)
+                except subprocess.CalledProcessError as exc:
+                    raise unittest.SkipTest("Pinned historical English revision is absent from this checkout") from exc
+                assert hashlib.sha256(data).hexdigest()==digest
+                (cls.package/name).write_bytes(data)
         cls.source = collect(cls.configs, cls.package)
         cls.model = build_model(cls.source, cls.package, cls.elf.read_bytes(),
                                json.loads(cls.engine.read_bytes()), json.loads(cls.errata.read_bytes()))
         cls.initial_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                               for p in [cls.elf] + [cls.configs / n for n in CONFIG_FILES]}
-        cls.temp = tempfile.TemporaryDirectory()
-        cls.addClassCleanup(cls.temp.cleanup)
         cls.md = Path(cls.temp.name) / "catalog.md"
         cls.audit_path = Path(cls.temp.name) / "audit.json"
         cls.baseline_text, positions = render(cls.model)
@@ -190,6 +214,8 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
         self.assertEqual(current, self.initial_hashes)
         self.assertEqual(collect(self.configs, self.package)["summary"]["package_sha256"],
                          self.source["summary"]["package_sha256"])
+        self.assertEqual({p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                          for p in self.working_package.glob("*.jsonl")}, self.working_hashes)
 
 
 if __name__ == "__main__":
