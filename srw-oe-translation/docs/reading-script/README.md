@@ -5,7 +5,7 @@ never use previously generated Markdown as a translation source. See
 [the recovered history](../READING_SCRIPT_HISTORY.md) for the delivered 00–33 editions.
 The original recovery patch is archived in `../recovered/`.
 
-## Checkpoint: source inventory and editorial plan complete; renderer in progress
+## Checkpoint: reading edition generated and independently verified; delivery pending
 
 `episode_34_sources.json` is an independently recomputed inventory, not the lost
 agent's plan. It records all seven scenes, 7471 nonempty prose entries and exact
@@ -28,7 +28,7 @@ New read-only tooling and tests are **tracked and pushed**, unlike the lost tool
 python3 tools/reading_script_source.py --package pakiet_EN
 python3 tools/reading_script_source.py --package pakiet_EN --review 254 --start 1 --end 180
 python3 tools/reading_script_source.py --package pakiet_EN --review 255 --changed
-python3 -m unittest discover -s tests -p 'test_reading_script_source.py' -v
+python3 -m unittest discover -s tests -p 'test_reading_script_*.py' -v
 ```
 
 The review command prints the full English of each selected entry, never an
@@ -42,5 +42,33 @@ variant bases and context policy. All three base scenes were read in full; all E
 changes and F/E differences were reviewed. Shared short names are disambiguated
 using existing package full names (e.g. the two Shinobus), not guessed identities.
 
-Pending: rendering, independent verification including mutation tests, final Drive delivery. Old PASS claims in
+Pending: final full-project regression and Drive delivery. The current edition passes
+independent full-source verification and all 37 synthetic reading-tool tests. Old PASS claims in
 the recovered log are historical, not claims that the missing old tests ran here.
+
+## Reproduce episode 34
+
+Run from `srw-oe-translation/` (Python 3.11+, no third-party packages):
+
+```sh
+python3 tools/build_reading_script.py --package pakiet_EN \
+  --plan docs/reading-script/episode_34.json \
+  --out local/reading-script/srwoe_episode_34.md \
+  --audit local/reading-script/episode_34.audit.json
+python3 tools/verify_reading_script.py --package pakiet_EN \
+  --plan docs/reading-script/episode_34.json \
+  --markdown local/reading-script/srwoe_episode_34.md \
+  --audit local/reading-script/episode_34.audit.json \
+  --report local/reading-script/episode_34.verification.json
+```
+
+The builder refuses an unreviewed plan, changed source inventory, unsafe alias,
+unknown prefix/token/kind, missing English, conflicting names or incomplete coverage.
+The verifier imports neither the builder nor its source module. It re-reads the
+original package and parses all Markdown source blocks, not merely their hashes.
+Source hashes, editorial headings, source order, quotation state and variant windows
+are all checked. Mutation tests deliberately repair hashes and offsets first.
+
+Do not use JP `variant_of`/`copy_of`, matching basenames or identical prose alone
+as evidence for an alias: speaker identities, paragraph boundaries and meaningful
+metadata must also match. No in-scene repeated line is discarded.

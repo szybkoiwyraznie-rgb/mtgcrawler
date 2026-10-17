@@ -6264,3 +6264,23 @@ Roboczy MD: 212 920 B, SHA-256
 Obejrzano początek, granicę alternatywnej porażki, obydwa dodatki i ostatnie kwestie.
 To **nie jest jeszcze dostawa ani wynik niezależnego verifiera**. Renderer i plan
 są w Git; pełny tekst i szczegółowy audyt pozostają ignorowane.
+
+**Checkpoint niezależnej kontroli:** `tools/verify_reading_script.py` nie importuje
+renderera ani modułu źródłowego. Ponownie czyta cztery JSONL, rozwiązuje nazwy i
+anonimowe prefiksy, porównuje pełne tożsamości wpisów, sam wyznacza okna kontekstu
+(przez sumę przedziałów, nie `get_grouped_opcodes`) i parsuje każdy blok Markdownu
+z powrotem do rozmówcy, akapitów, tekstu oraz trybu cytowania. Sprawdza także
+nagłówki, noty redakcyjne, cały manifest inwentarza, kolejność, łańcuchy aliasów
+oraz brak dodatkowego tekstu poza rozliczonymi blokami.
+
+- Bieżący finał: **PASS — 7 scen, 7723 rekordy źródłowe, 3570 bloków wyjścia**.
+  MD pozostaje bajt w bajt 212 920 B / SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`.
+- `python3 -m unittest discover -s srw-oe-translation/tests -p 'test_reading_script_*.py' -v`:
+  **37/37 PASS**. Syntetyczne mutacje naprawiają hash, rozmiar i wszystkie offsety,
+  zanim verifier odrzuci zmianę treści, akapitów, nazw, anonimowości, kolejności,
+  brak wariantu, błędny alias, wyciek tokenu, zniknięcie znaczącej etykiety,
+  warunkowego cytowania, etykiety porażki lub dodaną nawigację.
+- Regeneracja deterministyczna; testy pełnego round-trip, escapingu Markdownu,
+  powtórzonych kwestii i wariantu różniącego się tylko rozmówcą przechodzą.
+- `git diff --exit-code -- srw-oe-translation/pakiet_EN`: **PASS**, źródła bez zmian.
+  Dostawa Drive i końcowy pełny zestaw regresji jeszcze przed nami.
