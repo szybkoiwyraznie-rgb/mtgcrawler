@@ -6424,3 +6424,15 @@ Gundam/Guncannon/Exart/Fire Zephyr/Berniego. **Jeszcze nie dostarczono**: trwa p
 opisów i osobna kontrola. Zauważono rzeczywisty problem istniejącego angielskiego
 szablonu Plant: kolejność `%s` daje „fixed Range … in Dmg”. Wymaga jawnej korekty
 redakcyjnej katalogu na podstawie JP, nie zgadywania ani cichej zmiany pakietu gry.
+
+**21.63 — checkpoint przeglądu opisów:** obejrzano wszystkie 249 złożonych opisów
+bazowych. Po odczycie oryginalnych szablonów JP dodano 17 jawnych, ograniczonych
+korekt **tylko katalogu**: zamienione miejsca Range/Dmg w Plant/Detonate/Self-Destruct,
+zdublowane fragmenty Beam Weapon, resztka bajtu kany `Group 4`, sformułowanie
+wspólnego fragmentu przy trzech rzutach, redundantne On attack/On hit i Damage,
+niezgrabne „3 more pushes” zamiast odległości. Nie zmieniono wartości liczbowych
+balansu ani danych przekładu; usuwana „4” jest udowodnionym zakończeniem tokenu kany,
+nie parametrem. `description-errata.json` ma hashe obu źródeł i powody; nie stosuje
+korekt do zmienionych danych bez ponownego przeglądu. 32 testy nowych narzędzi PASS.
+Roboczy MD: 761 353 B, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.
+Osobna kontrola całego artefaktu, testy mutacyjne i dostawa nadal w toku.

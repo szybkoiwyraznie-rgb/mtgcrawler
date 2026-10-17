@@ -1,11 +1,12 @@
 """Synthetic catalogue presentation tests; no copied game text fixtures."""
 from pathlib import Path
 import struct
+import hashlib
 import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from mech_catalog import format_description, clean_description, canonical_form_name, md, unique
+from mech_catalog import format_description, clean_description, canonical_form_name, md, unique, apply_errata
 from mech_catalog_sources import group_rows
 
 
@@ -46,6 +47,24 @@ class CatalogueTests(unittest.TestCase):
     def test_duplicate_keys_cannot_silently_overwrite(self):
         with self.assertRaises(ValueError):
             unique([{"id": 1}, {"id": 1}], lambda r: r["id"])
+
+    def test_catalogue_erratum_is_scoped_to_both_source_texts(self):
+        skills = {1: {"key": 2, "base_level": 1, "description": "Old wording.", "origin": {}}}
+        row = {"key": 2, "part": "effect", "jp": "synthetic source"}
+        fix = {"alias_id": 1, "key": 2, "base_level": 1,
+               "expected_description_sha256": hashlib.sha256(b"Old wording.").hexdigest(),
+               "source_jp_sha256": hashlib.sha256(b"synthetic source").hexdigest(),
+               "description": "Clear wording.", "reason": "fixture"}
+        errata = {"schema_version": 1, "reviewed": True, "catalogue_only": True, "entries": [fix]}
+        apply_errata(skills, [row], errata)
+        self.assertEqual(skills[1]["description"], "Clear wording.")
+        self.assertEqual(row["jp"], "synthetic source")
+        with self.assertRaisesRegex(ValueError, "source English changed"):
+            apply_errata(skills, [row], errata)
+
+    def test_unreviewed_erratum_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Unreviewed"):
+            apply_errata({}, [], {"schema_version": 1, "reviewed": False, "catalogue_only": True})
 
     def test_group_has_a_100_byte_record_and_explicit_count(self):
         raw = bytearray(100)

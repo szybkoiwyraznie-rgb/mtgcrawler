@@ -127,18 +127,39 @@ def base_skills(source, package, image, engine_map):
     return result
 
 
+def apply_errata(skills, source_rows, errata):
+    need(errata.get("schema_version") == 1 and errata.get("reviewed") is True
+         and errata.get("catalogue_only") is True, "Unreviewed description errata")
+    effects = unique((r for r in source_rows if r["part"] == "effect"), lambda r: r["key"])
+    seen = set()
+    for fix in errata["entries"]:
+        alias = fix["alias_id"]
+        need(alias in skills and alias not in seen, "Unknown/duplicate erratum alias")
+        seen.add(alias)
+        skill = skills[alias]
+        need(skill["key"] == fix["key"] and skill["base_level"] == fix["base_level"], "Erratum base mismatch")
+        need(hashlib.sha256(skill["description"].encode()).hexdigest() == fix["expected_description_sha256"],
+             "Erratum source English changed; review again")
+        need(hashlib.sha256(effects[fix["key"]]["jp"].encode()).hexdigest() == fix["source_jp_sha256"],
+             "Erratum source Japanese changed; review again")
+        skill["description"] = clean_description(fix["description"])
+        skill["origin"]["catalogue_erratum"] = fix["reason"]
+
+
 def canonical_form_name(jp):
     # Only explicit slash-labelled forms and one explicit cinematic suffix.
     name = unicodedata.normalize("NFKC", jp).split("/")[0]
     return re.sub(r"\(必殺技用\)$", "", name)
 
 
-def build_model(source, package, original_elf, engine_map):
+def build_model(source, package, original_elf, engine_map, errata=None):
     need(hashlib.sha256(original_elf).hexdigest() == engine_map["executable_sha256"], "Executable hash mismatch")
     need(hashlib.sha256((package / "09_executable.jsonl").read_bytes()).hexdigest() ==
          engine_map["executable_translation_sha256"], "Executable translation hash mismatch")
     image, _ = english_image(original_elf, package)
     skills = base_skills(source, package, image, engine_map)
+    if errata is not None:
+        apply_errata(skills, rows(package, "03_skills.jsonl"), errata)
     unit_text = rows(package, "08_names_units_weapons.jsonl")
     names = unique((r for r in unit_text if r["category"] == "unit_name_display"), lambda r: int(r["key"]))
     short = unique((r for r in unit_text if r["category"] == "unit_name"), lambda r: int(r["key"]))
@@ -251,7 +272,8 @@ def build_model(source, package, original_elf, engine_map):
                "units_with_no_native_skill_assignment": sum(not u["native_skills"] for u in units),
                "unresolved_native_references": unknown, "series_methods": dict(counts),
                "groups": len(groups), "units_explicitly_in_groups": sum(bool(u["group_ids"]) for u in units),
-               "base_descriptions": len(skills), "executable_base_overrides": sum(s["origin"]["kind"] == "executable_1_08" for s in skills.values())}
+               "base_descriptions": len(skills), "executable_base_overrides": sum(s["origin"]["kind"] == "executable_1_08" for s in skills.values()),
+               "catalogue_only_description_errata": sum("catalogue_erratum" in s["origin"] for s in skills.values())}
     return {"schema_version": 1, "summary": summary, "source_package_sha256": source["summary"]["package_sha256"],
             "units": sorted(units, key=lambda u: (u["name"].casefold(), u["unit_id"])),
             "skills": {str(k): v for k, v in skills.items()}, "groups": groups}
@@ -280,7 +302,9 @@ def render(model):
     put("- Names and descriptions come from the existing English package. No Spirit Commands are listed. "
         "Skills such as Spirit Power, Fight Spirit and Ace: Spirit are **skills**, not Spirit Commands.\n"
         "- Descriptions use the engine's base-record choice (usually Lv1, or an unlevelled record). "
-        "The 20 base-description overrides in the 1.08 executable take precedence over the data table.\n"
+        "The 20 base-description overrides in the 1.08 executable take precedence over the data table. "
+        "Seventeen source-checked, catalogue-only wording repairs fix broken placeholder order, split word stems "
+        "and redundant fragments; they do not change game balance values or the translation package.\n"
         "- Pilot/crew slots are the unit's default data assignments. Linked alternate character profiles "
         "are shown separately; enemy and allied skill sets must not be merged. Scenario overrides are not exhaustively decoded.\n"
         "- Power, range, hit modifier, EN and Will are **stored base weapon fields**, before level, upgrade, "
@@ -317,11 +341,16 @@ def render(model):
         qualifier = {"unit_dictionary": "unit dictionary", "labelled_form": "form-derived; see provenance",
                      "pilot_association": "pilot-associated only; not a unit-dictionary entry", "unrecorded": "unresolved"}[series["method"]]
         put(f"**Series:** {md(value)} — *{qualifier}*.")
+        if series["method"] == "labelled_form":
+            put("Series source: " + ", ".join(f"[unit {key}](#unit-{key})" for key in series["source_ids"]) + ".")
         put("### Default pilot / crew and special skills")
         for pilot in u["pilots"]:
             put(f"#### Slot {pilot['slot'] + 1}: {md(pilot['name'])} — Character {pilot['character_id']}")
             if pilot["name"] in ("---", "NoData"):
                 put("The data assigns a placeholder, not a named pilot.")
+            if len(pilot["profiles"]) > 1:
+                put("This character has a linked alternate profile. Runtime side/form selects the profile; "
+                    "the skill sets below are not simultaneous abilities.")
             for n, profile in enumerate(pilot["profiles"]):
                 label = "Assigned profile" if n == 0 else "Linked alternate profile"
                 put(f"**{label}: {md(profile['name'])} (ID {profile['character_id']})**")
@@ -377,7 +406,9 @@ def render(model):
         "in the project's docs/mech-catalog/ and docs/MECH_CATALOG.md. The detailed audit stays with the local build.\n\n"
         "This is an offline data reference, not a full gameplay test. It does not infer exact recruitment/unlock missions, "
         "arbitrary pilot swaps, current battle damage, or every dynamically applied status/equipment effect. "
-        "Names and terminology are the existing translation, including its abbreviations.")
+        "Names and terminology are the existing translation, including its abbreviations. The 17 catalogue-only "
+        "description repairs are enumerated in docs/mech-catalog/description-errata.json with source hashes and reasons; "
+        "the underlying package and game files are unchanged.")
     text = "".join(blocks)
     position, spans = 0, []
     for block in blocks:
@@ -393,11 +424,12 @@ def main(argv=None):
     ap.add_argument("--elf", type=Path, required=True)
     ap.add_argument("--source-manifest", type=Path, required=True)
     ap.add_argument("--engine-map", type=Path, required=True)
+    ap.add_argument("--errata", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--audit", type=Path, required=True)
     args = ap.parse_args(argv)
     need(args.out.resolve() != args.audit.resolve(), "Output paths must differ")
-    protected = {args.elf.resolve(), args.source_manifest.resolve(), args.engine_map.resolve()}
+    protected = {args.elf.resolve(), args.source_manifest.resolve(), args.engine_map.resolve(), args.errata.resolve()}
     for output in (args.out, args.audit):
         need(output.resolve() not in protected and not output.resolve().is_relative_to(args.package.resolve())
              and not output.resolve().is_relative_to(args.configs.resolve()), "Refusing to overwrite inputs")
@@ -405,11 +437,13 @@ def main(argv=None):
     expected = json.loads(args.source_manifest.read_bytes())
     need(source["inputs"] == expected["inputs"] and source["summary"]["package_sha256"] ==
          expected["summary"]["package_sha256"], "Source snapshot mismatch")
-    model = build_model(source, args.package, args.elf.read_bytes(), json.loads(args.engine_map.read_bytes()))
+    model = build_model(source, args.package, args.elf.read_bytes(), json.loads(args.engine_map.read_bytes()),
+                        json.loads(args.errata.read_bytes()))
     text, positions = render(model)
     data = text.encode("utf-8")
     audit = {"schema_version": 1, "output_bytes": len(data), "output_sha256": hashlib.sha256(data).hexdigest(),
              "engine_map_sha256": hashlib.sha256(args.engine_map.read_bytes()).hexdigest(),
+             "description_errata_sha256": hashlib.sha256(args.errata.read_bytes()).hexdigest(),
              "source_manifest_sha256": hashlib.sha256(args.source_manifest.read_bytes()).hexdigest(),
              "model": model, "positions": positions}
     for path, content in ((args.out, data), (args.audit, (json.dumps(audit, ensure_ascii=False, indent=2)+"\n").encode())):

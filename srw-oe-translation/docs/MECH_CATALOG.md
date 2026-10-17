@@ -121,3 +121,17 @@ Series provenance is visible: 302 direct, 57 explicit-form-derived, 14 pilot-
 associated inferences, 20 unresolved. Native ability refs 110/230 remain unresolved.
 The draft is under ignored `local/mech-catalog/`; independent verification and
 review of source-description formatting/English defects are still pending.
+
+## Catalogue-only description repairs
+
+All 249 concrete base descriptions were reviewed. The English package has several
+formatting defects that become obvious only after the four fragments are joined:
+Range/Damage argument order in Plant, Detonate and Self-Destruct; duplicated split
+Beam Weapon stems; the kana-completion byte after Group; over-specific shared
+"Pushes" wording used by throws; redundant on-hit/damage fragments. The catalogue
+has **17 explicitly reviewed repairs**, guarded by the prior rendered English hash
+and original Japanese hash in `mech-catalog/description-errata.json`. Numerical
+balance values are not changed. The game translation package is **untouched**;
+these are not silently backported game fixes. Tests refuse a repair after either
+source changes. Runtime alternate pilot profiles also get an explicit note that
+their skills are alternatives, not simultaneous bonuses.

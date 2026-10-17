@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "catalogue_only": true,
+  "reviewed": true,
+  "policy": "Only source-evidenced wording/printf-stem corrections in the reference catalogue; no translation-package or game edits. No numerical balance changes.",
+  "entries": [
+    {
+      "alias_id": 540,
+      "key": 780,
+      "base_level": 1,
+      "expected_description_sha256": "f061992277f1034d53652a1187a47e7458052b0fb3766f75a586e4174aca7674",
+      "source_jp_sha256": "c58be7c04321252992276324f06e7a9277e919be55b208fec677dee83fd60501",
+      "description": "On hit: Will+1",
+      "reason": "Join the Japanese attack + on-hit condition as one English condition; do not imply a bonus on a missed attack."
+    },
+    {
+      "alias_id": 577,
+      "key": 907,
+      "base_level": 0,
+      "expected_description_sha256": "8d2a0c5e702089704aa46724ab4bc0b02210d274bbd0a716336fcf90eab891f8",
+      "source_jp_sha256": "9f620b91674e96725efe7c76a6e9ea38af0ffe24075e0f83eec207e8ac2da1b0",
+      "description": "On hit: SP+4 Will+1",
+      "reason": "Join the Japanese attack + on-hit condition as one English condition; do not imply a bonus on a missed attack."
+    },
+    {
+      "alias_id": 581,
+      "key": 911,
+      "base_level": 0,
+      "expected_description_sha256": "705f2f47c27bbeaf15e0efd8f45fd109640fe2c261795a2ffb5b696fe5468dfe",
+      "source_jp_sha256": "69943c08a38642f9745fa4be99c4faf4b1db377c2572c6e2cacf300944103f2c",
+      "description": "On hit: Foe Will-10",
+      "reason": "Join the Japanese attack + on-hit condition as one English condition; do not imply a bonus on a missed attack."
+    },
+    {
+      "alias_id": 582,
+      "key": 912,
+      "base_level": 0,
+      "expected_description_sha256": "a81332d16b0287763dac112098fdbd14ac7fe860b6756f6c0cdb74761c77466d",
+      "source_jp_sha256": "3dd50a492e9edcf3a00f35664754b25237db156fc4b517590cd4e12cf9ee8f66",
+      "description": "On hit: EN+5 SP+2",
+      "reason": "Join the Japanese attack + on-hit condition as one English condition; do not imply a bonus on a missed attack."
+    },
+    {
+      "alias_id": 584,
+      "key": 914,
+      "base_level": 0,
+      "expected_description_sha256": "f0617a1762843cd554998e907042176460fe7f35aea87eb61e7045a0b0400596",
+      "source_jp_sha256": "f562d0548b58d498d740fe0705fced7b6431bb419c00826a940c12429e410547",
+      "description": "On hit: SP+1 Will+3",
+      "reason": "Join the Japanese attack + on-hit condition as one English condition; do not imply a bonus on a missed attack."
+    },
+    {
+      "alias_id": 603,
+      "key": 2161,
+      "base_level": 1,
+      "expected_description_sha256": "ac7ee372a246646adaa356378e4f10d34466ebd05be95e330d19c7edcde54124",
+      "source_jp_sha256": "5f10b12868968b45fa695a1531e53095242a5d234c7ee1d09926cc6e50975b23",
+      "description": "\"Beam Weapon\" attacks: Dmg-400\nPlus Dmg-20%",
+      "reason": "The original Japanese splits the voiced initial glyph from the remainder of Beam Weapon; the English literal already contains Beam, so the translated stem must not be appended again."
+    },
+    {
+      "alias_id": 608,
+      "key": 2211,
+      "base_level": 1,
+      "expected_description_sha256": "a30505cc8354c0d3833b73349628abf962f7f0d364e4c488ae52ad5b757bc91b",
+      "source_jp_sha256": "02f8be173f7a4946611bfc36ae275c9d35a0db52df34b9f6812b016c670ccff5",
+      "description": "Non-Beam Weapon attacks: Dmg-800\nEN-4",
+      "reason": "Same split Beam Weapon stem; preserve the Japanese exclusion condition and the existing English non-beam qualifier."
+    },
+    {
+      "alias_id": 631,
+      "key": 2441,
+      "base_level": 1,
+      "expected_description_sha256": "a71a0e2687a5983626c594c33d6faebe4b3e3996acfb5355ae9940de6e973e87",
+      "source_jp_sha256": "58eca0e2bade0e136c3341aa319266c52c355ecdcbfc655fe0dedd04b95cf1f1",
+      "description": "Throws the foe 1 square.\nFall damage 1000.\nVoids foe support defense; allied support attacks are disabled.",
+      "reason": "The shared distance fragment was translated as Pushes, but this skill's Japanese verb is throw; preserve distance, damage and support restrictions."
+    },
+    {
+      "alias_id": 632,
+      "key": 2451,
+      "base_level": 1,
+      "expected_description_sha256": "737940ebe596a6bdc490d80696a46499de481eee0c57912bbe635076281059cf",
+      "source_jp_sha256": "bdc28c7c972f3b5917bc4110de242d7dd23f978d8b4cb29641752083c2487785",
+      "description": "Throws the foe 9 squares.\nFall damage 1000.\nVoids foe support defense; allied support attacks are disabled.",
+      "reason": "Same shared distance-fragment problem for the stronger throw; preserve the source's nine-square base distance."
+    },
+    {
+      "alias_id": 633,
+      "key": 2461,
+      "base_level": 0,
+      "expected_description_sha256": "bb14edbe6a239c0bdba29e2fbd7f92a3f7562a905c0ee8096a3496c4d4a2b442",
+      "source_jp_sha256": "31aec22b5779ce82b90c4615fddfe0a5ae9f838152daa0b5501bc37696d43e7f",
+      "description": "Attacks all foes in range and moves, dragging them along.\nAfter moving, pushes foes a further 3 squares.\nNo additional Push damage; cannot be used for support attacks or counters.",
+      "reason": "The Japanese says distance 3 followed by the push verb, not three additional pushes."
+    },
+    {
+      "alias_id": 647,
+      "key": 2601,
+      "base_level": 0,
+      "expected_description_sha256": "8d52222de99deb3864dd9fa0e3d91d1bad5042d99a5bb2cd0c1ed86444f96b11",
+      "source_jp_sha256": "22d7ce17cb2c17a9f55d1aafbaa0f2376e1098a97ee93be66002ba5233db2f96",
+      "description": "If a unit in the Group can provide support defense, it can be selected to do so.",
+      "reason": "The 4 completes the original pool fragment's dangling 0x0F kana token (Group); it is not group number four."
+    },
+    {
+      "alias_id": 654,
+      "key": 2671,
+      "base_level": 1,
+      "expected_description_sha256": "18075b6e41dac3895d6c8a29deb808cebe661cc419eac856853508e79262fb3e",
+      "source_jp_sha256": "828b52caecda8222cd98f4e3ddeeca8280f7a8cf73054a8b92c45f3f8a26b71c",
+      "description": "Deals damage to foes within range.\nThe unit is lost after use.",
+      "reason": "Japanese printf argument order is Range then Damage; the English template reversed their semantic positions."
+    },
+    {
+      "alias_id": 695,
+      "key": 3081,
+      "base_level": 0,
+      "expected_description_sha256": "338d1ac5e9afcdf284494c15e04224c7a5a643e6caa22d21ce599cf29e4d7c40",
+      "source_jp_sha256": "9173ac20e910859bbecc81ebe6d5e4953eaad3367aed7ee24c4a5a3f595955a1",
+      "description": "Can plant bomb units on the map.\n'Detonate' deals fixed damage to foes within range.\nBomb units cannot be targeted by enemy attacks.",
+      "reason": "Japanese printf argument order is setup text, Range, Damage; repair the English Range/Damage reversal without changing game data."
+    },
+    {
+      "alias_id": 814,
+      "key": 3611,
+      "base_level": 1,
+      "expected_description_sha256": "5e8ceae89dffefc86a2b6f9b3211942cfab8dcddc2075cf72a27221f67dbf746",
+      "source_jp_sha256": "2ff1048597cb81827f9228cbe57b350fa790bd8a95d6aa7fef7ee90ae6de4050",
+      "description": "Deals fixed damage equal to weapon attack power to foes within range.\nThe unit is lost after use.",
+      "reason": "Japanese printf order is Range, Weapon Attack, Damage; the English template used these arguments in the wrong positions."
+    },
+    {
+      "alias_id": 824,
+      "key": 3695,
+      "base_level": 1,
+      "expected_description_sha256": "b2608794aac6d974b3a5d9e117f9ec48599562a5f4426471b5fcf1a52a4cd7dd",
+      "source_jp_sha256": "d8bee206bbf207d5b20c33bafef68d98cdee544f5f6eded81f66a4fe3d05895f",
+      "description": "Throws the foe 1 square toward the user.\nFall damage 1000.\nVoids foe support defense; allied support attacks are disabled.",
+      "reason": "Same shared distance-fragment problem for the pull throw; retain the source direction toward the user."
+    },
+    {
+      "alias_id": 827,
+      "key": 3725,
+      "base_level": 1,
+      "expected_description_sha256": "3ce2f521b41d1155c348cc5b329a19d0cc921c03b6dff023669d63a7913c4d36",
+      "source_jp_sha256": "bf75f04c25919eb74567672d03c9a65d5097076b79643a65eab3d00d07471f26",
+      "description": "\"Beam Weapon\" attacks: Dmg-16%\nPlus EN+4",
+      "reason": "Same split Beam Weapon stem; no damage/EN value changes."
+    },
+    {
+      "alias_id": 984,
+      "key": 4170,
+      "base_level": 1,
+      "expected_description_sha256": "628cdc54dcbbb98353852c413fdd113aa3eb8f13c1e3e232d8e1bfa0042686f3",
+      "source_jp_sha256": "df7ac379d8738e75277a85fc7af23f875f3aea1e1ea3c99ec3fcd82a62e9733a",
+      "description": "Damage dealt x1.1\nDef+4%",
+      "reason": "Remove a duplicated damage noun introduced when an English literal and its translated fragment were joined."
+    }
+  ]
+}
