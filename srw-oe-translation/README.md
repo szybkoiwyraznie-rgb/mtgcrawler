@@ -2,6 +2,17 @@
 
 **Status (2026-10-17):** the owner reported the complete English translation as `PATCH15.zip`. Subsequent mission 0-1 feedback is addressed in **kit v16**: player-name substitution keys, narrow UI labels, 21 DLC titles and the Basic Training title card. Automated tests and byte-level build checks pass; in-game confirmation of these new fixes is pending. See [`docs/STATUS.md`](docs/STATUS.md) and `pakiet_EN/CO_NOWEGO_v16.txt`. The sections below are the project history.
 
+## Mech reference catalogue — delivered
+
+[One English Markdown catalogue](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+covers **393 registered unit records and 1485 weapon/action entries**, including
+friendly/enemy variants, default crew and alternate profiles, non-Spirit pilot
+skills, base weapon statistics/effects and native machine abilities. Inferences,
+missing series/skill references and unresolved unlock timing are labelled.
+The package/game files were not modified. Full source verification and Drive
+read-back pass; project suite: **1438 passed, 1 skipped, 382 subtests passed**.
+[Reproduce it / evidence / delivery manifest](docs/mech-catalog/README.md).
+
 ## English reading edition — episodes 00–34 complete
 
 The final [episode 34 Markdown](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)

@@ -4,7 +4,20 @@
 > `docs/EXTRACTION_MAP.md`, `docs/TRANSLATION_GUIDELINES.md`, `docs/EXPERIMENT_LOG.md`,
 > `docs/STATUS.md`. Wszystko poniżej = stan na moment handoffu.
 
-## Najnowsze przekazanie — 2026-10-17, finał czytelniczy
+## Najnowsze przekazanie — 2026-10-17, katalog mechów
+
+Zlecenie katalogu jest **dostarczone**, z jawnymi granicami danych:
+[Markdown i procedura reprodukcji](mech-catalog/README.md), 393 rekordy jednostek /
+1485 wpisów broni-akcji. Piloci i alternatywne profile, umiejętności bez Spirits,
+opisy bazowe (również nadpisania EXE 1.08), podstawowe statystyki i bramki broni.
+Braki: 20 serii, 2 natywne referencje zdolności, nieustalone konkretne misje bramek;
+nie nazywać tego kompletną symulacją gry. 17 napraw tekstu dotyczy **wyłącznie
+katalogu**, nie przekładu gry. Pełny suite 1438 OK / 1 skipped / 382 subtests.
+Read-back Drive bajtowo identyczny. Cały kod/testy/ustalenia i manifesty w PR #17;
+pełny MD/audyt/binarne źródła ignorowane. Dalsze dekodowanie konkretnych bramek
+lub backport poprawek opisów do gry to osobne zadanie, nie cicha część tej dostawy.
+
+## Poprzednie przekazanie — 2026-10-17, finał czytelniczy
 
 Odzyskanie patcha i **epizod 34 są zakończone**. Pełny numerowany `story` do czytania
 00–34 jest na Drive; nie rozpoczynaj ponownie 34 ani nie traktuj go jako brakującego

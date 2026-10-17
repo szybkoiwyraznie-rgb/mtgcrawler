@@ -6464,3 +6464,36 @@ To dowód konsumenta dla 535 przypisań, a nie jedynie zbieżność z nazwanymi 
 Probe rozszerzony o LWL/LWR i test syntetyczny (testy tego modułu 10/10 PASS).
 Nie zmieniło to faktów ani bajtów katalogu; po tej zmianie narzędzia będzie jeszcze
 końcowy suite. Drive potwierdził istniejący folder „SRW OE” i brak pliku o docelowej nazwie.
+
+**21.63 — DOSTAWA ZAKOŃCZONA (z jawnymi ograniczeniami danych).**
+
+- Końcowy pełny suite po dodaniu packed-load probe:
+  `srw-oe-translation/local/.venv/bin/python -m pytest srw-oe-translation/tests -q`
+  → **1438 passed, 1 skipped, 382 subtests passed w 42,02 s**. 59 nowych testów
+  katalogu: 33 syntetyczne i 26 rzeczywistych (w tym 24 mutacje). Log pozostaje
+  w ignorowanym `local/mech-catalog/pytest-final.log`.
+- Ponowna generacja: identyczne bajty. Verifier z `--replay-engine`: PASS, raport
+  identyczny ze śledzonym `docs/mech-catalog/verification.json`. Wszystkie 254
+  wybory opisów bazowych potwierdzone ponownie. Oryginały i EN bez zmian;
+  `git diff --exit-code aa178c7 -- srw-oe-translation/pakiet_EN`: PASS.
+- Docelowy folder Drive „SRW OE” potwierdzony przez `get_file`. Dokładne listowanie
+  nazwy przed uploadem: zero plików; po uploadzie: **jeden**, bez następnej strony
+  i niepełnego wyszukiwania. Utworzono tylko nowy Markdown; bez nadpisywania
+  wcześniejszych epizodów/kitów i bez zmiany uprawnień.
+- [`srwoe_mech_catalog.md`](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view)
+  — **761 353 B**, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`,
+  MD5 `cfb4ae34d01623c867329b86f3328107`.
+  `download_file` pobrał go do `google_drive/srwoe_mech_catalog.md`; porównanie całych
+  bajtów z finalnym lokalnym plikiem: **PASS**, nie tylko porównanie metadanych API.
+- Finalny manifest dostawy/środowiska/hashów narzędzi i lista brakujących serii:
+  `docs/mech-catalog/delivery.json`. Komendy odtworzenia: `docs/mech-catalog/README.md`.
+  Kod/testy/dowody są śledzone, pełny tekst i audyt/model poza Git.
+
+Zakres wyniku: pełny spis 393 rekordów i 1485 wpisów, nie 393 różne grywalne mechy
+ani pełna symulacja wszystkich efektów w grze. Seria: 302 fakty słownika, 57 jawnych
+form, 14 oznaczonych skojarzeń z pilotem, 20 braków. Dwie natywne referencje 110/230
+nierozpoznane. Brak slotów u 115 rekordów nie oznacza braku efektów grupowych/ST,
+wyposażenia lub skryptów. Bramka broni nie została zamieniona w zgadywaną misję
+odblokowania. Nie wykonano testu gameplay/PPSSPP, nie zmieniono pakietu ani gry;
+17 korekt opisów pozostaje ograniczonych do katalogu. Osobne oczekiwanie na
+potwierdzenie QA v16 w PPSSPP pozostaje bez zmian.

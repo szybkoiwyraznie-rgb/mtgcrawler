@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "status": "delivered-and-read-back-verified",
+  "scope": "All registered unit and weapon/action records; data-backed catalogue with explicit unresolved fields, not an exhaustive gameplay simulation",
+  "tooling_checkpoint": "04867ae3d8a00e258bca1846c69f7cc187a9b7d9",
+  "source_package_commit": "aa178c7264514d0c36c102393705cdacb6e0ab77",
+  "pull_request": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/pull/17",
+  "artifact": {
+    "name": "srwoe_mech_catalog.md",
+    "bytes": 761353,
+    "sha256": "e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef",
+    "md5": "cfb4ae34d01623c867329b86f3328107",
+    "drive_id": "1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC",
+    "drive_url": "https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view",
+    "drive_parent_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "read_back_byte_identical": true
+  },
+  "summary": {
+    "units": 393,
+    "weapons_and_actions": 1485,
+    "nonzero_weapon_selectors": 1274,
+    "zero_weapon_selectors": 211,
+    "conditional_weapon_gates": 121,
+    "default_crew_assignments": 535,
+    "unique_default_characters": 201,
+    "native_machine_skill_assignments": 516,
+    "units_with_no_native_skill_assignment": 115,
+    "unresolved_native_references": [
+      {
+        "unit_id": 10115,
+        "slot": 0,
+        "alias_id": 110
+      },
+      {
+        "unit_id": 491,
+        "slot": 0,
+        "alias_id": 230
+      }
+    ],
+    "series_methods": {
+      "unit_dictionary": 302,
+      "unrecorded": 20,
+      "labelled_form": 57,
+      "pilot_association": 14
+    },
+    "groups": 16,
+    "units_explicitly_in_groups": 53,
+    "base_descriptions": 249,
+    "executable_base_overrides": 20,
+    "catalogue_only_description_errata": 17
+  },
+  "verification_report": "verification.json",
+  "source_manifest_sha256": "2cd8368f3da033d26e2642257975c0be73463527500602011ffcc8ffcbede5c2",
+  "engine_map_sha256": "16eede9c42840ce1cf05aa3693a52bd50745c17ffe29bc079946cd221dc4d86e",
+  "description_errata_sha256": "60ecda7bcaa2d43b9dd7fd03ffa649ce3ec66646c64ce80749560d7dd3c4a3ae",
+  "tool_sha256": {
+    "mech_catalog_sources.py": "0877acee95153b52aa8cedcbc2db207100d4f0eeefaa5f2bb49a002351c5820a",
+    "mech_catalog_probe.py": "51b545d0e908603ca491bbca2d6fb4a26748f3b6e5eb2e2c37964ccb9da73b95",
+    "mech_catalog_engine.py": "08ccd08823a2ea3ee044db4a4385ab0136a8d7493bdd922da2a8c9da1b5bff53",
+    "mech_catalog.py": "3fe19fdf7c36c6f1b7f96b79b2e11b2391de1bd54aaae21e48b921e43061e053",
+    "verify_mech_catalog.py": "33fec7358d7fad852bddc2df5ed89e13f27f137ede4ce45902b51266a38fac32"
+  },
+  "tests": {
+    "python": "3.11.2",
+    "pytest": "9.1.1",
+    "pytest_subtests": "0.15.0",
+    "pillow": "13.0.0",
+    "capstone": "5.0.6",
+    "unicorn": "2.1.4",
+    "full_project": {
+      "passed": 1438,
+      "skipped": 1,
+      "subtests_passed": 382,
+      "seconds": 42.02
+    },
+    "new_tests": 59,
+    "synthetic_tests": 33,
+    "real_input_tests": 26,
+    "semantic_mutations_rejected": 24,
+    "engine_base_aliases_replayed": 254,
+    "original_files_and_package_unchanged": true
+  },
+  "unrecorded_series": [
+    {
+      "unit_id": 2960,
+      "name": "B-SFTV-AT-105 Zahatt"
+    },
+    {
+      "unit_id": 3670,
+      "name": "Container"
+    },
+    {
+      "unit_id": 3630,
+      "name": "Control Unit (Mega Castle)"
+    },
+    {
+      "unit_id": 3620,
+      "name": "Crystal Pillar"
+    },
+    {
+      "unit_id": 3655,
+      "name": "Directional Mine"
+    },
+    {
+      "unit_id": 3656,
+      "name": "Directional Mine"
+    },
+    {
+      "unit_id": 3657,
+      "name": "Directional Mine"
+    },
+    {
+      "unit_id": 3610,
+      "name": "H-Bomb Missile"
+    },
+    {
+      "unit_id": 3632,
+      "name": "Heart of Lachesis"
+    },
+    {
+      "unit_id": 2943,
+      "name": "LCT-05-AT Space Landing Craft"
+    },
+    {
+      "unit_id": 1040,
+      "name": "Medea"
+    },
+    {
+      "unit_id": 3982,
+      "name": "Mucus Gate M IN"
+    },
+    {
+      "unit_id": 3984,
+      "name": "Mucus Gate S DR"
+    },
+    {
+      "unit_id": 3660,
+      "name": "Repair Unit"
+    },
+    {
+      "unit_id": 3640,
+      "name": "Spaceship"
+    },
+    {
+      "unit_id": 3995,
+      "name": "Spare Unit 3995"
+    },
+    {
+      "unit_id": 3996,
+      "name": "Spare Unit 3996"
+    },
+    {
+      "unit_id": 3997,
+      "name": "Spare Unit 3997"
+    },
+    {
+      "unit_id": 3998,
+      "name": "Spare Unit 3998"
+    },
+    {
+      "unit_id": 3999,
+      "name": "Spare Unit 3999"
+    }
+  ],
+  "limitations": [
+    "Series provenance: 302 dictionary facts, 57 explicitly named form derivations, 14 labelled pilot associations, 20 unresolved records.",
+    "Native skill references 110 (unit 10115) and 230 (unit 491) have no matching definition; no name/effect is guessed.",
+    "115 records have no assignment in the three native machine-skill slots; this does not exclude runtime group/stack/equipment/scripted effects.",
+    "Default crew and linked alternate profiles are not an exhaustive decode of all scenario-specific pilot overrides.",
+    "Positive weapon gate IDs are reported, but exact unlock missions/timing are not established; zero is not proof of starting availability.",
+    "Statistics are stored base fields, not current battle-screen values after modifiers.",
+    "Seventeen source-checked wording repairs apply only to the catalogue; no game translation or binary was changed.",
+    "Pure description-selector emulation is not a full PPSSPP/gameplay test."
+  ]
+}

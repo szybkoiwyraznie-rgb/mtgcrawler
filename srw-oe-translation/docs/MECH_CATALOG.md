@@ -1,4 +1,12 @@
-# Mech reference catalogue — investigation in progress
+# Mech reference catalogue — completed data-backed edition
+
+**Delivered 2026-10-17:** [srwoe_mech_catalog.md](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view),
+761,353 bytes, SHA-256 `e6891909282eb9d621bdf88229f27e47a942e88705e2110bbc206741693320ef`.
+All 393 unit records / 1485 weapon-action slots accounted for; remaining unknown
+fields are explicit, not a claim of exhaustive gameplay knowledge. Drive read-back
+is byte-identical. Final suite: **1438 passed, 1 skipped, 382 subtests passed**.
+[Final coverage, limits, commands and manifests](mech-catalog/README.md).
+The investigation checkpoints below are historical; the final file is delivered.
 
 Requested 2026-10-17: one Markdown catalogue covering both friendly and enemy
 machines, using the existing English translation and, where necessary, the user's

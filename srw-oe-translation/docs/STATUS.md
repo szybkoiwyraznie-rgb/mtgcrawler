@@ -1,8 +1,23 @@
 # Project status
 
-Last updated: 2026-10-17 (§21.62 — odzyskana historia czytelnicza i ukończony finał 34)
+Last updated: 2026-10-17 (§21.63 — dostarczony katalog mechów)
 
-**Najnowsze (§21.62): finał angielskiego scenariusza do czytania 34 ukończony i dostarczony.**
+**Najnowsze (§21.63): katalog mechów ukończony w zakresie dostępnych danych i dostarczony.**
+[`srwoe_mech_catalog.md`](https://drive.google.com/file/d/1cBbPxTiY-MFASz2H3UJ1aS7SmSD-8uQC/view):
+761 353 B, pełny odczyt zwrotny Drive identyczny bajtowo. 393 rekordy jednostek
+(własne/wrogie, formy, obiekty i rekordy filmowe), 1485 wpisów broni/akcji;
+535 przypisań pilotów/załóg, osobne profile alternatywne, zdolności bez Spirits,
+opisy bazowe, statystyki broni i jawne bramki warunkowe. Dane z oryginalnej 1.08
+oraz istniejącego EN; 20 nadpisań opisów w EBOOT uwzględnionych. 17 poprawek
+złożonego tekstu **tylko w katalogu**, bez zmian pakietu lub plików gry.
+Pozostałe braki są oznaczone: 20 serii, 2 referencje zdolności (110/230), brak
+potwierdzonych misji odblokowania; puste sloty natywne nie oznaczają braku efektów
+systemowych. 302 serie są bezpośrednie, 57 po jawnej nazwie formy, 14 to oznaczone
+skojarzenia z pilotem. Pełny suite: **1438 passed, 1 skipped, 382 subtests passed**;
+59 nowych testów, w tym 24 mutacje semantyczne. Narzędzia, dowody, testy i manifest
+w Git/PR #17. [Szczegóły i reprodukcja](mech-catalog/README.md).
+
+**Poprzednia dostawa (§21.62): finał angielskiego scenariusza do czytania 34 ukończony.**
 Na Drive jest komplet pojedynczych epizodów **00–34**. [Epizod 34](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
 ma 212 920 B; pobranie zwrotne jest identyczne bajt w bajt. Pełne 7471 wpisów prozy
 rozliczone: 3338 pokazane, 4133 identyczne aliasy; zachowane wszystkie unikalne
