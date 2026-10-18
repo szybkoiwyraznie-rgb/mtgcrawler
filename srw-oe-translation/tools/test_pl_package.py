@@ -26,6 +26,13 @@ if str(HERE) not in sys.path:
 import text_codec  # noqa: E402
 
 LETTERS = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
+# First screen shows all 18 letters and an ASCII/spacing control together.
+OPENING_PANELS = {
+    1: ("PL V3 / 1 - FONT CHECK", "A: acelnoszz ACELNOSZZ",
+        "P: ąćęłńóśźż ĄĆĘŁŃÓŚŹŻ", "G: |aąa|cćc|eęe|lłl|"),
+    2: ("PL V3 / 2 - WIDTH / BASELINE", "A: |AAA|CCC|EEE|LLL|",
+        "P: |AĄA|CĆC|EĘE|LŁL|", "P: |nńn|oóo|sśs|zźz|zżz|"),
+}
 LINE_BUDGET = 40            # the dialogue box holds 46 (52) units per line; stay clearly under
 SCENE = "eventP00.cpk/DL100_01.bin"
 MISSION_TITLE = "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:title"
@@ -43,7 +50,7 @@ def probe_line(number: int, total: int, rotation: int) -> str:
     base = f"TEST PL {number}/{total}: "
     room = LINE_BUDGET - len(base)
     run = LETTERS[rotation % 18:] + LETTERS[:rotation % 18]
-    while len(run) * 2 > room:
+    while len(run) > room:
         run = run[:-1]
     return base + run
 
@@ -51,6 +58,11 @@ def probe_line(number: int, total: int, rotation: int) -> str:
 def probe_text(jp: str, index: int) -> str:
     """A probe with the structure of the Japanese: line count, blank lines, trailing break."""
     lines = (jp or "").replace("\r", "").split("\n")
+    if index in OPENING_PANELS:
+        panel = iter(OPENING_PANELS[index])
+        if sum(bool(line.strip()) for line in lines) != 4:
+            raise ValueError("opening panel needs the measured four nonblank lines")
+        return "\n".join(next(panel) if line.strip() else "" for line in lines)
     total = sum(1 for line in lines if line.strip())
     seen = 0
     out = []
@@ -71,7 +83,7 @@ def probe_text(jp: str, index: int) -> str:
             room = LINE_BUDGET - text_codec.display_width(probe) \
                 - text_codec.display_width(token)
             run = LETTERS[(seen + index) % 18:] + LETTERS[:(seen + index) % 18]
-            while run and text_codec.display_width(token) + len(run) * 2 > \
+            while run and text_codec.display_width(token) + len(run) > \
                     LINE_BUDGET - len(f"TEST PL {seen}/{total}: "):
                 run = run[:-1]
             probe = f"TEST PL {seen}/{total}: " + token + run
@@ -83,7 +95,7 @@ def weapon_probe(index: int, part: str) -> str:
     rotation = LETTERS[index % 18:] + LETTERS[:index % 18]
     if part == "name":
         run = rotation
-        while len(run) * 2 + len(f"TEST W{index + 1}: ") > 44:      # cell: 64 bytes
+        while len(run) + len(f"TEST W{index + 1}: ") > 44:      # cell: 64 bytes
             run = run[:-1]
         return f"TEST W{index + 1}: " + run
     return f"T{index + 1} {rotation[:4]}"                            # short cell: 32 bytes
@@ -102,6 +114,8 @@ def build(package: Path, out: Path) -> dict:
             if not line.strip():
                 continue
             row = json.loads(line)
+            if "jp" in row:
+                row["pl"] = ""  # never inherit unrelated filled translator rows
             if path.name == "00_dialogue.jsonl" and row.get("scene") == SCENE \
                     and (row.get("order") or 99) <= LAST_OPENING_ROW:
                 row["pl"] = probe_text(row.get("jp") or "", row["order"])
@@ -113,7 +127,7 @@ def build(package: Path, out: Path) -> dict:
                 row["pl"] = UNIT_ROWS[row["id"]]
                 counts["unit_rows"] += 1
             elif path.name.startswith("08_") and row.get("id") in WEAPON_ROWS:
-                weapon, index = row["id"].split(":")[2], int(row["id"].split(":")[2])
+                index = int(row["id"].split(":")[2])
                 row["pl"] = weapon_probe(index, row["part"])
                 counts["weapon_rows"] += 1
             rows.append(row)

@@ -33,8 +33,8 @@ TOOL_STEMS: set[str] = set()  # filled by _resolve
 
 TOOLS_TO_ALWAYS_INCLUDE = {"pick_path.py"}  # not in build chain but needed by .bat
 
-def _resolve(tools_dir: Path) -> set[str]:
-    """BFS from build_translation_patch.py through local imports."""
+def _resolve(tools_dir: Path, entry_points=("build_translation_patch",)) -> set[str]:
+    """BFS from entry points through local imports (including function-local imports)."""
     tool_stems = {f.stem for f in tools_dir.glob("*.py")}
 
     def local_deps(fname: str) -> set[str]:
@@ -56,7 +56,7 @@ def _resolve(tools_dir: Path) -> set[str]:
                         deps.add(mod)
         return deps
 
-    queue = ["build_translation_patch"]
+    queue = list(entry_points)
     needed = set(queue)
     while queue:
         cur = queue.pop(0)
@@ -174,6 +174,10 @@ def main() -> None:
             p = tools_dir / f"{stem}.py"
             if p.exists():
                 zf.write(p, f"tools/{stem}.py")
+
+        # Data files are runtime dependencies too, invisible to the AST import graph.
+        for data in sorted((tools_dir / "data").glob("*.json")):
+            zf.write(data, f"tools/data/{data.name}")
 
         # Docs/translator (the English kit carries the translator reference material;
         # the Polish kit ships only the end-user README - the translator material went
