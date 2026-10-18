@@ -65,6 +65,7 @@ import cpk_write              # noqa: E402
 import inline_names as IN     # noqa: E402
 import speaker_map as SM      # noqa: E402
 import table_write as TW      # noqa: E402
+import text_codec             # noqa: E402
 import unit_weapons as UW     # noqa: E402
 
 PACKAGE_FILES = ("07_names_characters.jsonl", "08_names_units_weapons.jsonl")
@@ -98,7 +99,7 @@ def family_of(member: str) -> Optional[str]:
 
 
 def cstring(blob: bytes, start: int, width: int) -> bytes:
-    return blob[start:start + width].split(b"\x00", 1)[0]
+    return text_codec.cstring(blob, start, start + width)
 
 
 def record_starts(blob: bytes, family: str) -> List[Tuple[int, int]]:

@@ -426,3 +426,73 @@ class ConflictingDuplicateTest(unittest.TestCase):
         src = {"container": "eventP00.cpk", "member": "DL100_01.bin", "offset": 1}
         rows = [row("はい", "Yes", id="a", source=src), row("はい", "Right", id="b", source=dict(src, offset=2))]
         self.assertFalse([e for e in TC.check_rows(rows)["errors"] if "different translations" in e])
+
+
+def prow(jp, pl, **extra):
+    """A package row with the translation in the ``pl`` field (the Polish package shape)."""
+    base = {"id": "dlg:eventP00.cpk/DL100_01.bin:1844", "category": "dialogue", "part": "dialogue",
+            "jp": jp, "en": "reference", "pl": pl}
+    base.update(extra)
+    return base
+
+
+class PlFieldTest(unittest.TestCase):
+    """``--field pl``: the text comes from ``pl``, encoding/width go through pl_text."""
+
+    def test_polish_letters_pass_the_pl_field(self):
+        errors, _warnings = TC.check_row(prow("テスト", "Zażółć gęślą jaźń"), field="pl")
+        self.assertFalse([e for e in errors if "not encodable" in e])
+
+    def test_polish_letters_fail_the_en_field(self):
+        errors, _warnings = TC.check_row(row("テスト", "Zażółć"), field="en")
+        self.assertTrue(any("not CP932-encodable" in e for e in errors))
+
+    def test_empty_pl_is_reported_as_untranslated(self):
+        _errors, warnings = TC.check_row(prow("テスト", ""), field="pl")
+        self.assertIn("untranslated (empty pl)", warnings)
+
+    def test_pl_letter_costs_two_bytes_of_a_slot(self):
+        # ą = two private-code bytes: "ąą" fits a 4-byte slot, "ąąą" does not
+        self.assertFalse(TC.check_row(prow("テスト", "ąą", max_bytes=4), field="pl")[0])
+        errors = TC.check_row(prow("テスト", "ąąą", max_bytes=4), field="pl")[0]
+        self.assertTrue(any("over budget" in e for e in errors))
+
+    def test_pl_letter_counts_two_box_units(self):
+        # 30 Polish letters = 60 units: over the 52-unit dialogue warning line as pl,
+        # but the same 30 characters as plain ASCII are fine
+        text = "ą" * 30
+        _errors, warnings = TC.check_row(prow("テスト", text), field="pl")
+        self.assertTrue(any("wide, the in-game box fits" in w for w in warnings))
+        _errors, warnings = TC.check_row(prow("テスト", "a" * 30), field="pl")
+        self.assertFalse([w for w in warnings if "in-game box" in w])
+
+    def test_exe_rows_refuse_polish_letters_under_pl(self):
+        # the executable writer is CP932-only: fail closed until an in-game proof exists
+        errors, _warnings = TC.check_row(
+            prow("テスト", "ą", category="exe", source={"encoding": "cp932"}), field="pl")
+        self.assertTrue(errors)
+
+    def test_terrain_rows_refuse_polish_letters_under_pl(self):
+        import terrain_names
+        base = {"category": "terrain_name", "part": "name", "record": 0, "mode": "slot",
+                "max_bytes": terrain_names.NAME_SIZE - 1,
+                "source": {"container": terrain_names.CONTAINER,
+                           "member": terrain_names.MEMBER, "offset": 4}}
+        errors, _warnings = TC.check_row(prow("森", "Łąka", **base), field="pl")
+        self.assertTrue(any("printable ASCII" in e for e in errors), errors)
+        errors, _warnings = TC.check_row(prow("森", "Laka", **base), field="pl")
+        self.assertFalse(errors, errors)
+
+    def test_check_rows_counts_the_pl_field(self):
+        report = TC.check_rows([prow("はい", "Tak", id="a"), prow("いいえ", "", id="b")], field="pl")
+        self.assertEqual(report["totals"]["filled"], 1)
+        self.assertEqual(report["totals"]["empty"], 1)
+
+    def test_conflicting_duplicates_read_the_pl_field(self):
+        src = {"container": "config00.cpk", "member": "srwDL_Skill00.bin", "offset": 1}
+        rows = [prow("囲む", "Otoczyć", id="a", category="config_skill", source=src),
+                prow("囲む", "Oskrzydlić", id="b", category="config_skill",
+                     source=dict(src, offset=38940))]
+        report = TC.check_rows(rows, field="pl")
+        conflicts = [e for e in report["errors"] if "different translations of the same" in e]
+        self.assertEqual(len(conflicts), 2)

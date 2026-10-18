@@ -72,6 +72,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import text_codec  # noqa: E402
 import configst_pack as CSP   # noqa: E402
 import cpk_write              # noqa: E402
 import inline_names as IN     # noqa: E402
@@ -419,7 +420,7 @@ def encode_target(en: str, original: bytes) -> bytes:
     out = bytearray()
     for i, piece in enumerate(pieces):
         try:
-            out += piece.replace("\n", "\x0a").encode("cp932")
+            out += text_codec.encode(piece.replace("\n", "\x0a"))
         except UnicodeEncodeError as exc:
             raise TableError(f"target is not CP932-encodable: {exc}") from exc
         if i < len(kept):
@@ -463,7 +464,7 @@ def encode_en(en: str, original: bytes, form: str) -> bytes:
     """The bytes to store for a translation validated against ``original`` in ``form``."""
     if form == "raw":
         try:
-            return en.replace("\n", "\x0a").encode("cp932")
+            return text_codec.encode(en.replace("\n", "\x0a"))
         except UnicodeEncodeError as exc:
             raise TableError(f"target is not CP932-encodable: {exc}") from exc
     return encode_target(en, original)

@@ -413,3 +413,44 @@ class VerifyTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PolishSlotTests(unittest.TestCase):
+    """The Polish letters are private two-byte codes (0x82FA..0x830B) - the slot writer must
+    put them in like any other bytes, and the byte-window verify must not re-read them."""
+
+    def test_polish_letters_land_in_the_slot(self):
+        import text_codec
+        text_codec.set_lang("pl")
+        self.addCleanup(text_codec.set_lang, "en")
+        import pl_text
+        blob = member("初等訓練")                     # 8 bytes of Japanese + zero padding
+        rows = [row("mission_note:x:r0:title", 0, "初等訓練",
+                    "TEST PL: Zażółć gęślą jaźń", max_bytes=39)]
+        out, report = SLA.apply_member(blob, rows)
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(report["applied"], 1)
+        expected = pl_text.encode("TEST PL: Zażółć gęślą jaźń")
+        self.assertEqual(out[0:len(expected)], expected)
+        self.assertEqual(out[len(expected)], 0)                    # terminator behind it
+        self.assertEqual(out[64:], blob[64:])                      # neighbour untouched
+        # the checker's rule holds: the probe fits the 39-byte budget of a mission title
+        self.assertLessEqual(len(expected), 39)
+
+    def test_the_nul_trail_of_s_does_not_confuse_the_span_search(self):
+        # ś is 0x8300: its trail byte is a literal NUL. The writer scans the ORIGINAL
+        # (Japanese) blob for spans, so the write itself is unaffected; this pins that a
+        # Polish text written in front of a later row's span does not shift anything.
+        import text_codec
+        text_codec.set_lang("pl")
+        self.addCleanup(text_codec.set_lang, "en")
+        import pl_text
+        blob = member(" 初等訓練", "名前")            # run 0 @0, run 1 @64
+        rows = [row("t", 1, " 初等訓練", "ś Ś Źdźbło", max_bytes=32),
+                row("n", 64, "名前", "ĄĆĘŁŃÓŚŹŻ", max_bytes=32)]
+        out, report = SLA.apply_member(blob, rows)
+        self.assertEqual(report["refused"], [])
+        self.assertEqual(report["applied"], 2)
+        first = pl_text.encode("ś Ś Źdźbło")
+        self.assertEqual(out[0:len(first)], first)
+        self.assertEqual(out[64:64 + 18], pl_text.encode("ĄĆĘŁŃÓŚŹŻ"))

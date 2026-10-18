@@ -47,6 +47,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import text_codec  # noqa: E402
 import configst_pack  # noqa: E402
 import cpk_write  # noqa: E402
 import inline_names as IN  # noqa: E402
@@ -151,7 +152,7 @@ def base_pointer_faults(blob: bytes, parsed: dict) -> List[int]:
 def encode(text: str) -> bytes:
     """CP932 bytes of a translation, refused when the font's charset cannot hold it."""
     try:
-        return text.encode("cp932")
+        return text_codec.encode(text)
     except UnicodeEncodeError as exc:
         raise WriteError(f"target is not CP932-encodable: {exc}") from exc
 

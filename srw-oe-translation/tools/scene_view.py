@@ -153,19 +153,30 @@ def mission_elements(scene: dict, mission: Dict[str, dict]) -> List[Tuple[str, s
     return found
 
 
-def element_line(row: dict) -> List[str]:
-    """The Japanese text of one element plus the ``EN:`` line to fill (or the note for a copy)."""
+def _block(row: dict, field: str) -> str:
+    """One ``EN:`` / ``PL:`` block line of an element (the invisible characters as markers)."""
+    text = (row.get(field) or "").replace("\r", "⏎").replace("\x0f", "<0x0F>")
+    return f"   {field.upper()}: {text.replace(chr(10), chr(10) + '   ')}".rstrip()
+
+
+def element_line(row: dict, lang: str = "en") -> List[str]:
+    """The Japanese text of one element plus the fill line(s) (or the note for a copy).
+
+    ``lang="pl"`` renders the English as a read-only reference block and the ``PL:`` slot
+    under it; ``lang="en"`` renders the plain ``EN:`` slot of the English flow.
+    """
     text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
     lines = [f"{row['order']}. [{label(row)}] {text}"]
     if row.get("copy_of"):
         lines.append("   (tłumaczenie dziedziczone automatycznie — nie wpisuj tu nic)")
         return lines
-    english = (row.get("en") or "").replace("\r", "⏎").replace("\x0f", "<0x0F>")
-    lines.append(f"   EN: {english.replace(chr(10), chr(10) + '   ')}".rstrip())
+    lines.append(_block(row, "en"))
+    if lang == "pl":
+        lines.append(_block(row, "pl"))
     return lines
 
 
-def render_scene(scene: dict, rows: List[dict], package: dict) -> str:
+def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en") -> str:
     mission = (scene.get("mission") or "(bez tytułu)").replace("\n", " ")
     lines = [f"## Scena {scene['seq']}/{scene.get('total', '?')} — {mission}"]
     if scene.get("episode") is not None:
@@ -197,23 +208,27 @@ def render_scene(scene: dict, rows: List[dict], package: dict) -> str:
     for token, name, row in elements:
         text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
         lines.append(f"{token}. [{name}] {text}")
-        english = (row.get("en") or "").replace("\r", "⏎").replace("\x0f", "<0x0F>")
-        lines.append(f"   EN: {english.replace(chr(10), chr(10) + '   ')}".rstrip())
+        lines.append(_block(row, "en"))
+        if lang == "pl":
+            lines.append(_block(row, "pl"))
     if lines[-1] != "":
         lines.append("")
 
     for row in sorted(rows, key=lambda item: item["order"]):
-        lines.extend(element_line(row))
+        lines.extend(element_line(row, lang))
     lines.append("")
     lines.append("_koniec sceny_")
     lines.append("")
     return "\n".join(lines)
 
 
-def render_index(scenes: List[dict]) -> str:
+def render_index(scenes: List[dict], lang: str = "en") -> str:
+    fill = ("`PL:`" if lang == "pl" else "`EN:`")
+    reference = (" (linia `EN:` nad nią to gotowe tłumaczenie angielskie — kontekst i terminologia;"
+                 " nie zmieniaj jej)" if lang == "pl" else "")
     lines = ["# Spis scen", "",
-             "Widok do czytania i do pracy: pod każdym elementem jest linia `EN:` — tam wpisuje się",
-             "tłumaczenie. Gotowe pliki wracają do pakietu jednym poleceniem "
+             f"Widok do czytania i do pracy: pod każdym elementem jest linia {fill} — tam wpisuje się",
+             f"tłumaczenie{reference}. Gotowe pliki wracają do pakietu jednym poleceniem "
              "`tools/translation_import.py`.", "",
              "Kolejność jest kolejnością gry: odcinek, misja, wariant (DLC). "
              f"Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) to numer wiersza w `06_scenes.jsonl`.", "",
@@ -235,12 +250,13 @@ def render_index(scenes: List[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, object]:
+def write_views(package: Path, out: Path, force: bool = False, lang: str = "en") -> Dict[str, object]:
     """Write ``spis-scen.md`` plus one script file per episode into ``out``.
 
-    A view file that already carries English a translator typed (``EN:`` lines that the package does
-    not know yet) is **left alone**, so regenerating the list can never throw the work away; use
-    ``force`` to overwrite it anyway.
+    A view file that already carries a translation a translator typed (fill lines that the package
+    does not know yet) is **left alone**, so regenerating the list can never throw the work away;
+    use ``force`` to overwrite it anyway.  ``lang="pl"`` renders the Polish views: the English
+    block stays as a reference and the ``PL:`` slot is filled from the package's ``pl`` field.
     """
     data = load_package(package)
     rows, scenes = data["rows"], data["scenes"]
@@ -252,7 +268,7 @@ def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, obje
         by_scene[row["scene"]].append(row)
     for scene in scenes:
         scene["total"] = len(scenes)
-    (out / "spis-scen.md").write_text(render_index(scenes), encoding="utf-8")
+    (out / "spis-scen.md").write_text(render_index(scenes, lang), encoding="utf-8")
 
     groups: Dict[str, List[dict]] = collections.defaultdict(list)
     for scene in scenes:
@@ -267,17 +283,18 @@ def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, obje
     for name, group in sorted(groups.items()):
         body = [f"# {name.replace('.md', '').replace('-', ' ')}", ""]
         for scene in sorted(group, key=lambda item: item["seq"]):
-            body.append(render_scene(scene, by_scene.get(scene["id"], []), data))
+            body.append(render_scene(scene, by_scene.get(scene["id"], []), data, lang))
         text = "\n".join(body)
         target = out / name
         if not force and target.exists():
             edited = 0
-            for (scene_key, token), value in TI.parse_view(target.read_text(encoding="utf-8")).items():
+            for (scene_key, token), value in TI.parse_view(
+                    target.read_text(encoding="utf-8"), field=lang).items():
                 row = TI.resolve(lookup, scene_key, token)
-                if row is None or (row.get("en") or "") != value:
+                if row is None or (row.get(lang) or "") != value:
                     edited += 1
             if edited:
-                counts["skipped"].append(f"{name} ({edited} linii EN do zaimportowania)")
+                counts["skipped"].append(f"{name} ({edited} linii {lang.upper()} do zaimportowania)")
                 continue
         target.write_text(text, encoding="utf-8")
         counts["files"][name] = 1
@@ -285,7 +302,7 @@ def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, obje
 
 
 def make_zip(out: Path, archive: Path) -> int:
-    files = sorted(out.glob("*.md"))
+    files = sorted(out.glob("*.md")) + sorted(out.glob("*.txt"))   # views + the instruction
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as handle:
         for path in files:
             handle.write(path, path.name)
@@ -296,16 +313,18 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--package", type=Path, default=Path("local/translation"))
     parser.add_argument("--out", type=Path, default=Path("local/translation/sceny"))
-    parser.add_argument("--zip", action="store_true", help="also pack the view into sceny.zip")
+    parser.add_argument("--lang", choices=("en", "pl"), default="en",
+                        help="pl = Polish views: EN block as reference + the PL: slot to fill")
+    parser.add_argument("--zip", action="store_true", help="also pack the view into sceny[_PL].zip")
     parser.add_argument("--force", action="store_true",
-                        help="overwrite view files that still hold untransferred English")
+                        help="overwrite view files that still hold untransferred translations")
     args = parser.parse_args(argv)
 
-    counts = write_views(args.package, args.out, force=args.force)
+    counts = write_views(args.package, args.out, force=args.force, lang=args.lang)
     print(json.dumps(counts, ensure_ascii=False, indent=1))
     print("wrote", args.out)
     if args.zip:
-        archive = args.out.parent / "sceny.zip"
+        archive = args.out.parent / ("sceny_PL.zip" if args.lang == "pl" else "sceny.zip")
         print(f"zip: {make_zip(args.out, archive)} files -> {archive}")
     return 0
 

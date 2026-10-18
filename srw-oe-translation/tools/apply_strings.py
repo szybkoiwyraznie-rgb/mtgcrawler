@@ -11,7 +11,9 @@ Safety, fail closed:
   ``source`` (so a stale/mismatched table never clobbers the wrong bytes);
 * every target line's display width must fit the in-game dialogue box (default 46 half-width
   units, see docs/HANDOFF.md §2); over-wide targets are refused, not clipped;
-* the target must encode in CP932.
+* the target must encode in CP932 - or, with ``lang="pl"``, in the Polish codec of
+  ``tools/pl_text.py`` (the 18 letters become the private two-byte codes the patched
+  font draws, everything else stays CP932; the letters count as width 2).
 
 Records within one member are applied in descending ``record_offset`` order so an edit never
 shifts a record that is still to be processed.
@@ -21,7 +23,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
-from typing import List, Optional
+from typing import Callable, List, Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -29,27 +31,40 @@ import cpk_write
 import crilayla
 import export_strings
 import grow_event_text
+import pl_text
 
 BOX_WIDTH = 46  # in-game dialogue box, half-width units (docs/HANDOFF.md §2)
 
 
-def check_target(target: str, budget: int = BOX_WIDTH) -> List[str]:
+def _codec(lang: str) -> tuple[Callable[[str], bytes], Callable[[str], int]]:
+    """(encoder, width) for the language: pl uses the private-code codec, en is CP932."""
+    if lang == "pl":
+        return pl_text.encode, pl_text.display_width
+    if lang == "en":
+        return (lambda s: s.encode("cp932")), export_strings.display_width
+    raise ValueError(f"unknown lang {lang!r} (expected 'en' or 'pl')")
+
+
+def check_target(target: str, budget: int = BOX_WIDTH, lang: str = "en") -> List[str]:
+    _encode, width = _codec(lang)
     problems = []
     for line in target.split("\n"):
-        w = export_strings.display_width(line)
+        w = width(line)
         if w > budget:
             problems.append(f"a target line is {w} wide, budget is {budget}: {line!r}")
     return problems
 
 
-def apply_to_member(data: bytes, rows: List[dict], budget: int = BOX_WIDTH) -> bytes:
+def apply_to_member(data: bytes, rows: List[dict], budget: int = BOX_WIDTH,
+                    lang: str = "en") -> bytes:
     """Return the member with every applicable row's record rewritten to its target."""
+    encode, _width = _codec(lang)
     out = data
     for row in sorted(rows, key=lambda r: r["record_offset"], reverse=True):
         target = row.get("target", "")
         if not target:
             continue
-        problems = check_target(target, budget)
+        problems = check_target(target, budget, lang)
         if problems:
             raise ValueError("; ".join(problems))
         off = row["record_offset"]
@@ -59,14 +74,15 @@ def apply_to_member(data: bytes, rows: List[dict], budget: int = BOX_WIDTH) -> b
                 f"record at {off} no longer matches its recorded source; refusing to apply"
             )
         try:
-            encoded = target.encode("cp932")
+            encoded = encode(target)
         except UnicodeEncodeError as e:
-            raise ValueError(f"target at {off} does not encode in cp932: {e}")
+            raise ValueError(f"target at {off} does not encode for lang {lang!r}: {e}")
         out = grow_event_text.grow_record(out, off, encoded)
     return out
 
 
-def apply_package(cpk_path: Path, strings_path: Path, out_path: Path, budget: int = BOX_WIDTH) -> dict:
+def apply_package(cpk_path: Path, strings_path: Path, out_path: Path, budget: int = BOX_WIDTH,
+                  lang: str = "en") -> dict:
     import shutil
 
     rows = json.loads(Path(strings_path).read_text(encoding="utf-8"))
@@ -89,7 +105,7 @@ def apply_package(cpk_path: Path, strings_path: Path, out_path: Path, budget: in
             if crilayla.is_crilayla(member.blob)
             else member.blob
         )
-        new_body = apply_to_member(body, member_rows, budget)
+        new_body = apply_to_member(body, member_rows, budget, lang)
         image = cpk_write.rebuild(cpk, (member_name, new_body))
         out_path.write_bytes(image)
         current = out_path  # next member rebuilds on top of the previous result
@@ -104,10 +120,16 @@ def main(argv: Optional[list[str]] = None) -> int:
         i = args.index("--budget")
         budget = int(args[i + 1])
         del args[i:i + 2]
+    lang = "en"
+    if "--lang" in args:
+        i = args.index("--lang")
+        lang = args[i + 1]
+        del args[i:i + 2]
     if len(args) != 3:
-        print("usage: apply_strings.py <package.EDAT|cpk> <strings.json> <out> [--budget N]")
+        print("usage: apply_strings.py <package.EDAT|cpk> <strings.json> <out> "
+              "[--budget N] [--lang en|pl]")
         return 2
-    summary = apply_package(Path(args[0]), Path(args[1]), Path(args[2]), budget)
+    summary = apply_package(Path(args[0]), Path(args[1]), Path(args[2]), budget, lang)
     print(json.dumps(summary))
     return 0
 

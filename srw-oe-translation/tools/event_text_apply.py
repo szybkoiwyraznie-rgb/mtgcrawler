@@ -55,7 +55,8 @@ if str(HERE) not in sys.path:
 
 import cpk_write          # noqa: E402
 import evnt_walk as EW    # noqa: E402
-import export_strings     # noqa: E402
+import export_strings
+import text_codec     # noqa: E402
 import speaker_map as SM  # noqa: E402
 
 RECORD_TEXT = 0xC9
@@ -128,7 +129,7 @@ def text_start_of(blob: bytes, record: dict) -> Optional[int]:
     offset, size = record["offset"], record["size"]
     payload = blob[offset + RECORD_HEADER:offset + size]
     for start in starts:
-        text = payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
+        text = text_codec.cstring(payload, start - RECORD_HEADER)
         if padded_size(len(text), start) == size and not any(payload[start - RECORD_HEADER + len(text):]):
             return start
     return starts[0]
@@ -180,13 +181,18 @@ def parse_block_records(blob: bytes) -> Tuple[List[dict], List[str]]:
 
 
 def text_of(blob: bytes, record: dict) -> bytes:
-    """The text bytes of a record (everything before the first NUL of its payload)."""
+    """The text bytes of a record (everything before the first NUL of its payload).
+
+    The read is Shift-JIS-aware (:func:`text_codec.cstring`): the Polish letters sit at
+    0x82FA..0x830B and their trails can be 0x00..0x0B, so a blind NUL split would cut a
+    Polish text at its first ś.
+    """
     start = text_start_of(blob, record)
     if start is None:
         raise ValueError(f"record type {record['type']:#x} has no text field I know")
     offset, size = record["offset"], record["size"]
     payload = blob[offset + RECORD_HEADER:offset + size]
-    return payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
+    return text_codec.cstring(payload, start - RECORD_HEADER)
 
 
 def find_record(blob: bytes, text_offset: int, text: bytes) -> Optional[dict]:
@@ -422,7 +428,7 @@ def box_problems(text: str, kind: Optional[str] = "dialogue") -> List[str]:
     problems = []
     limit = export_strings.box_limit(kind)
     for line in text.split("\n"):
-        width = export_strings.display_width(line)
+        width = text_codec.display_width(line)
         if width > limit:
             problems.append(f"a line is {width} wide, the game's own {kind or 'dialogue'} lines "
                             f"reach {limit}")
@@ -451,7 +457,7 @@ def _text_spans(blob: bytes, records: List[Tuple[int, int, int]]) -> Dict[int, T
         start = text_start_of(blob, record)
         if start is None:
             continue
-        raw = blob[offset + start:offset + size].split(b"\x00", 1)[0]
+        raw = text_codec.cstring(blob, offset + start, offset + size)
         if raw:
             spans[index] = (offset + start, offset + start + len(raw))
     return spans
@@ -526,7 +532,7 @@ def _map_inside(before: bytes, after: bytes, hit: Tuple[int, int], value: int) -
     old_text = before[old_start:old_start + (value - old_start) + 1]
     line = old_text.count(b"\n") - (1 if old_text.endswith(b"\n") else 0)
     at_newline = old_text.endswith(b"\n")
-    new_text = after[new_start:new_start + 4000].split(b"\x00", 1)[0]
+    new_text = text_codec.cstring(after, new_start, new_start + 4000)
     positions = [i for i, byte in enumerate(new_text) if byte == 0x0A]
     if at_newline:
         return new_start + positions[line] if line < len(positions) \
@@ -558,7 +564,7 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
     for row in ordered:
         offset = int(row["source"]["offset"])
         jp = (row["jp"] or "").encode("cp932")
-        en = (row["en"] or "").encode("cp932")
+        en = text_codec.encode(row["en"] or "")
         if blob[offset:offset + len(jp)] != jp:
             report["skipped"].append(f"{row['id']}: the Japanese text is not at {offset}")
             continue
@@ -577,9 +583,9 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
                 continue
         else:
             # narration is drawn in a wider field, so its width is a note, not a refusal
-            wide = [(export_strings.display_width(line), line)
+            wide = [(text_codec.display_width(line), line)
                     for line in (row["en"] or "").split("\n")
-                    if export_strings.display_width(line) > NARRATION_WIDTH]
+                    if text_codec.display_width(line) > NARRATION_WIDTH]
             if wide:
                 report["notes"].append(
                     f"{row['id']}: narration line {wide[0][0]} wide, widest measured is "
