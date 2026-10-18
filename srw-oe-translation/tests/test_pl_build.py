@@ -45,9 +45,9 @@ class PlLangTestCase(unittest.TestCase):
 
 class TextCodecTests(PlLangTestCase):
     def test_encode_and_width_under_pl(self):
-        self.assertEqual(text_codec.encode("ą"), b"\x82\xfa")
+        self.assertEqual(text_codec.encode("ą"), b"\xd5")
         self.assertEqual(text_codec.encode("a"), b"a")
-        self.assertEqual(text_codec.display_width("ąa"), 3)
+        self.assertEqual(text_codec.display_width("ąa"), 2)
         self.assertEqual(text_codec.field(), "pl")
 
     def test_en_is_cp932(self):
@@ -94,10 +94,10 @@ class WriterPlTests(PlLangTestCase):
         modified, report = ETA.apply_member(blob, rows)
         self.assertGreaterEqual(modified.find(pl_text.encode("Rozumiem, startuję!")), 0)
 
-    def test_box_problems_count_pl_letters_double(self):
-        wide = ETA.box_problems("ą" * 30, "dialogue")
-        self.assertTrue(wide)
-        self.assertFalse(ETA.box_problems("a" * 30, "dialogue"))
+    def test_box_problems_count_pl_letters_like_ascii(self):
+        self.assertEqual(ETA.box_problems("ą" * 60, "dialogue") != [],
+                         ETA.box_problems("a" * 60, "dialogue") != [])
+        self.assertFalse(ETA.box_problems("ą" * 30, "dialogue"))
 
 
 class LoadRowsPlTests(unittest.TestCase):
@@ -175,9 +175,6 @@ class FontStepTests(unittest.TestCase):
         body = crilayla.decompress(cpk.blob(row)).data
         members, _order = font_pl.parse_container(body)
         values = struct.unpack("<%dH" % (len(members["kanjiL.tbl"]) // 2), members["kanjiL.tbl"])
-        for code in font_pl.PL_CODES:
-            self.assertGreaterEqual(values[code - font_pl.TABLE_FIRST], 0)
-            self.assertNotEqual(values[code - font_pl.TABLE_FIRST], font_pl.TABLE_ABSENT)
         found = font_pl.verify_container(body)
         self.assertEqual(len(found), 18)
         self.assertTrue(all(info["ink"] > 8 for info in found.values()))
@@ -367,7 +364,7 @@ class OnlyFilterPlTests(PlLangTestCase):
                                                      "psp_game/usrdir/config00.cpk"))
         members = {m.name: cpk_write.decompressed(m.blob) for m in cpk_write.load(config_path).members}
         unit_list = members["unit_list"]
-        self.assertEqual(unit_list[0:10], pl_text.encode("Zażółć"))
+        self.assertEqual(unit_list[0:6], pl_text.encode("Zażółć"))  # one byte per letter; NUL after
         self.assertIn(pl_text.encode("TEST PL: Zażółć gęślą jaźń"), unit_list)
         wp_list = members["wp_list"]
         self.assertIn(pl_text.encode("TEST W1: ąćęłńóśźż"), wp_list)
