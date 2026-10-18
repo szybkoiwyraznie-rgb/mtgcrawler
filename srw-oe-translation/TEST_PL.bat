@@ -7,7 +7,7 @@ rem    - font.cpk        (the 18 Polish letters added to the game font)
 rem    - eventP00.cpk    (the opening of mission 0-0: narration + dialogues)
 rem    - config00.cpk    (the Exart mech: its name and its weapons)
 rem
-rem  The texts are PROBES (PL V3 panels at the start of mission 0-0), not translations.
+rem  The texts are PROBES (PL V4 natural-text panels at the start of mission 0-0), not translations.
 rem  Goal: see with your own eyes, in game, that the Polish letters render.
 rem
 rem  Output:  output\patched.iso   (load in PPSSPP, start a NEW GAME)
@@ -16,7 +16,7 @@ rem ============================================================================
 setlocal
 cd /d "%~dp0"
 if not defined SRW_KEEP_WINDOW set "SRW_KEEP_WINDOW=1" & cmd /k ""%~f0" %*" & exit /b
-echo [TEST PL] folder: %~dp0
+echo [TEST PL V4] folder: %~dp0
 ver
 chcp 65001 >nul
 set "PYTHONIOENCODING=utf-8"
@@ -94,8 +94,8 @@ if exist "output\patched.iso"          echo  - patched.iso         (load in PPSS
 if exist "output\build_report.json"    echo  - build_report.json
 echo.
 echo  What to check in game (see README_TEST_PL.md):
-echo   New Game - take a screenshot of the FIRST PL V3 / 1 panel.
-echo   It contains all 18 letters, ASCII and spacing controls together.
+echo   New Game - take a screenshot of the FIRST DIALOGUE.
+echo   It starts: Lacznosc dziala. Slychac mnie wyraznie?
 echo   No menu search or weapon screen is needed.
 
 :finish

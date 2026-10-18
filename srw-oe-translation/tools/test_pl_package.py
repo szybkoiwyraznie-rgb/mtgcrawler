@@ -5,8 +5,8 @@ The small in-game test (``TEST_PL.bat``) patches only ``eventP00.cpk config00.cp
 This script takes the Polish package (``local/pakiet_PL``) and fills the ``pl`` field of exactly
 the elements the player sees at the start of mission 0-0 and on the Exart unit screen with
 **probe texts**: every Polish letter (ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż) in place of a real
-translation, with the line structure of the Japanese kept (line count, blank lines, the trailing
-break, the ＜主人公名＞ token), so what the patcher writes is what the checker and the game accept.
+translation, with dialogue line counts, trailing breaks and the ＜主人公名＞ token kept
+(narration 3–6 is intentionally shortened in v4), so what the patcher writes is what the checker and the game accept.
 
 Rows whose ``pl`` stays empty are left untouched by the build (the original Japanese stays in
 the game), so the test patch changes nothing beyond the probed elements.
@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -26,12 +27,35 @@ if str(HERE) not in sys.path:
 import text_codec  # noqa: E402
 
 LETTERS = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
-# First screen shows all 18 letters and an ASCII/spacing control together.
+# v3 rendering was confirmed by owner screenshots. v4 changes only probe text.
+KIT_VERSION = "4"
 OPENING_PANELS = {
-    1: ("PL V3 / 1 - FONT CHECK", "A: acelnoszz ACELNOSZZ",
-        "P: ąćęłńóśźż ĄĆĘŁŃÓŚŹŻ", "G: |aąa|cćc|eęe|lłl|"),
-    2: ("PL V3 / 2 - WIDTH / BASELINE", "A: |AAA|CCC|EEE|LLL|",
-        "P: |AĄA|CĆC|EĘE|LŁL|", "P: |nńn|oóo|sśs|zźz|zżz|"),
+    1: ("PL V4 - PROBA CZYTELNOSCI",
+        "Łączność działa. Słychać mnie wyraźnie?",
+        "Chcę dziś dokończyć próbę osłony.",
+        "Sprawdźmy też źródło zasilania."),
+    2: ("PL V4 - MALE I WIELKIE LITERY",
+        "Żaneta i Łukasz kończą ćwiczenia.",
+        "Śmiało! Włącz osłonę i ruszaj naprzód.",
+        "Zażółć gęślą jaźń. ĄĆĘŁŃÓŚŹŻ."),
+}
+# Invented font-test prose, NOT translations of the Japanese story. Narration
+# 3..6 is deliberately shortened so the owner need not scroll 12 alphabet runs.
+NATURAL_ROWS = {
+    3: "To próbka do oceny czytelności napisów.\nNie jest tłumaczeniem scenariusza.",
+    4: "Ważne są kształty liter i odstępy.\nPorównaj zwykłe litery z polskimi.",
+    5: "Następne zdania pojawią się w dialogu.\nNie trzeba szukać niczego w menu.",
+    6: "Za chwilę krótka próba łączności.\nMożesz sprawdzić ją na jednym ekranie.",
+    7: "PL V4 - Próba łączności",
+    8: "(Łączność działa. Słychać mnie wyraźnie?\nChcę dziś dokończyć próbę osłony.)",
+    9: "(Muszę zachować spokój i czujność.\nPrzed nami jeszcze długa droga.)",
+    10: "(Włączę osłonę, sprawdzę łączność\n i ostrożnie ruszę naprzód.\n Nie mogę dziś popełnić błędu.)",
+    11: "(To tylko próba polskich napisów.\n Dzięki niej ocenię kształt liter.\n Sprawdzę też odstępy między słowami.)",
+    12: "Stacja łączności",
+    13: "Łączność działa. Możemy zacząć.",
+    14: "Słyszę cię wyraźnie. Wszystko działa.",
+    15: "＜主人公名＞, słyszysz mnie?",
+    16: "Tak, słyszę cię. Włączam osłonę.\nMożemy rozpocząć ćwiczenia.",
 }
 LINE_BUDGET = 40            # the dialogue box holds 46 (52) units per line; stay clearly under
 SCENE = "eventP00.cpk/DL100_01.bin"
@@ -56,13 +80,20 @@ def probe_line(number: int, total: int, rotation: int) -> str:
 
 
 def probe_text(jp: str, index: int) -> str:
-    """A probe with the structure of the Japanese: line count, blank lines, trailing break."""
+    """Natural test prose; preserve dialogue/token structure, shorten long narration."""
     lines = (jp or "").replace("\r", "").split("\n")
     if index in OPENING_PANELS:
         panel = iter(OPENING_PANELS[index])
         if sum(bool(line.strip()) for line in lines) != 4:
             raise ValueError("opening panel needs the measured four nonblank lines")
         return "\n".join(next(panel) if line.strip() else "" for line in lines)
+    if index in NATURAL_ROWS:
+        text = NATURAL_ROWS[index]
+        if re.findall(r"＜[^＞]*＞", text) != re.findall(r"＜[^＞]*＞", jp):
+            raise ValueError("natural probe would change a player-name token")
+        if index >= 7 and len(text.split("\n")) != len(lines):
+            raise ValueError("natural dialogue probe would change its line count")
+        return text + ("\n" if jp.endswith("\n") else "")
     total = sum(1 for line in lines if line.strip())
     seen = 0
     out = []
@@ -80,8 +111,6 @@ def probe_text(jp: str, index: int) -> str:
             line = line[:start] + line[end:]
         probe = probe_line(seen, total, seen + index)
         if token:
-            room = LINE_BUDGET - text_codec.display_width(probe) \
-                - text_codec.display_width(token)
             run = LETTERS[(seen + index) % 18:] + LETTERS[:(seen + index) % 18]
             while run and text_codec.display_width(token) + len(run) > \
                     LINE_BUDGET - len(f"TEST PL {seen}/{total}: "):

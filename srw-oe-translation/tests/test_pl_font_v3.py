@@ -48,23 +48,57 @@ class RendererTests(unittest.TestCase):
 
 
 class PanelTests(unittest.TestCase):
-    def test_first_screen_has_every_letter_and_ascii_control(self):
+    def test_first_screen_has_natural_polish_prose(self):
         panel = test_pl_package.probe_text("a\nb\nc\nd\n", 1)
-        self.assertIn("PL V3 / 1", panel)
-        for letter in font_pl.PL_LETTERS:
-            self.assertIn(letter, panel)
-        self.assertIn("A: acelnoszz ACELNOSZZ", panel)
-        self.assertIn("G: |aąa|cćc|eęe|lłl|", panel)
+        self.assertIn("PL V4", panel)
+        self.assertIn("Łączność działa. Słychać mnie wyraźnie?", panel)
+        self.assertIn("Chcę dziś dokończyć próbę osłony.", panel)
+        self.assertNotIn("TEST PL 1/", panel)
+        for letter in "łśćąęń":
+            self.assertIn(letter, panel.lower())
         self.assertEqual(panel.count("\n"), 4)
         self.assertTrue(panel.endswith("\n"))
         for line in panel.splitlines():
             self.assertLessEqual(pl_text.display_width(line), 40)
 
+    def test_two_panels_cover_all_18_letters(self):
+        panels = "\n".join("\n".join(lines) for lines in test_pl_package.OPENING_PANELS.values())
+        for letter in font_pl.PL_LETTERS:
+            self.assertIn(letter, panels)
+
+    def test_first_dialogue_natural_text_and_structure(self):
+        value = test_pl_package.probe_text("a\nb", 8)
+        self.assertTrue(value.startswith("(Łączność działa."))
+        self.assertTrue(value.endswith(".)"))
+        self.assertEqual(len(value.split("\n")), 2)
+        for letter in "łśćąęń":
+            self.assertIn(letter, value.lower())
+        for line in value.splitlines():
+            self.assertLessEqual(pl_text.display_width(line), 40)
+
+    def test_long_narration_is_shortened_not_repeated_alphabet(self):
+        source = "\n".join(["original"] * 15) + "\n"
+        text = test_pl_package.probe_text(source, 3)
+        self.assertEqual(len(text.splitlines()), 2)
+        self.assertTrue(text.endswith("\n"))
+        self.assertIn("Nie jest tłumaczeniem scenariusza.", text)
+
+    def test_natural_prose_never_loses_source_tokens(self):
+        with self.assertRaises(ValueError):
+            test_pl_package.probe_text("＜主人公名＞", 13)
+        with self.assertRaises(ValueError):
+            test_pl_package.probe_text("changed line structure", 8)
+
+    def test_all_natural_lines_fit_one_byte_width_budget(self):
+        for text in test_pl_package.NATURAL_ROWS.values():
+            for line in text.splitlines():
+                self.assertLessEqual(pl_text.display_width(line), 40)
+
     def test_second_panel_preserves_blank_lines(self):
         value = test_pl_package.probe_text("a\nb\n\nc\nd\n", 2)
         self.assertEqual([bool(x) for x in value.split("\n")],
                          [True, True, False, True, True, False])
-        self.assertIn("WIDTH / BASELINE", value)
+        self.assertIn("MALE I WIELKIE LITERY", value)
 
     def test_changed_source_structure_refused(self):
         with self.assertRaises(ValueError):
@@ -133,7 +167,7 @@ class KitTests(unittest.TestCase):
         bat = (self.extracted / "TEST_PL.bat").read_text(encoding="utf-8")
         self.assertLess(bat.index('"tools\\verify_pl_test.py"'), bat.index("BUILD COMPLETE!"))
         self.assertIn("PL_VERIFY.json", bat)
-        self.assertIn("FIRST PL V3 / 1", bat)
+        self.assertIn("FIRST DIALOGUE", bat)
 
     def test_real_input_fixture_extracted_kit(self):
         private = ROOT.parent / "google_drive"

@@ -1,6 +1,20 @@
 # PL font: renderer mapping correction (2026-10-18)
 
-## Confirmed by static executable analysis, not yet by PPSSPP
+## Owner runtime result (2026-10-18)
+
+The owner supplied two screenshots from TEST_PL v3 and said it looks good. Polish
+lowercase/uppercase diacritics are visible in the opening panels; the original
+ASCII controls are readable, and the guarded mixed strings also render. This is
+owner-side in-game evidence for v3, not just a bitmap preview. It does not prove
+all screens, token substitution, exact pixel advances or a full Polish build.
+Screenshots are not committed.
+
+The owner asked to assess natural prose in the first dialogue as well. V4 changes
+only the diagnostic strings and shortens the repetitive opening narration; the
+font and codec are unchanged. The sentences are invented font-test text, not a
+translation of the game. V4 runtime confirmation remains separate from v3.
+
+## Original static evidence (before the owner's runtime result)
 
 Private owner input: Japanese 1.08 disc-side `EBOOT.BIN`, 5,531,024 bytes,
 plain ELF. `font.cpk` SHA-256

@@ -133,7 +133,10 @@ def verify(original: Path, patched: Path, package: Path) -> dict:
         for line in panel:
             if pl_text.encode(line) not in opening:
                 failures.append("missing mandatory first-screen line")
-    return {"ok": not failures, "failures": failures, "font_cells": len(physical),
+    for text in probes.NATURAL_ROWS.values():
+        if pl_text.encode(text) not in opening:
+            failures.append("missing mandatory natural-text probe")
+    return {"kit_version": probes.KIT_VERSION, "ok": not failures, "failures": failures, "font_cells": len(physical),
             "opening_rows": checked, "unit_weapon_rows": name_rows, "hashes": hashes,
             "scope": "ISO byte read-back, not emulator gameplay"}
 

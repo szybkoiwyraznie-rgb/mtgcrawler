@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the reproducible, game-data-free PL v3 batch font-test kit."""
+"""Build the reproducible, game-data-free PL v4 natural-text font-test kit."""
 from __future__ import annotations
 
 import argparse
@@ -40,7 +40,7 @@ def build(out: Path, package: Path = ROOT / "pakiet_EN") -> dict:
             for path in sorted(probes.iterdir()):
                 if path.suffix in (".jsonl", ".tsv"):
                     zf.write(path, f"translation/{path.name}")
-            zf.writestr("KIT_VERSION.txt", "PL font batch test v3 / 2026-10-18\n")
+            zf.writestr("KIT_VERSION.txt", f"PL natural-text font test v{test_pl_package.KIT_VERSION} / 2026-10-18\n")
     with zipfile.ZipFile(out) as zf:
         names = zf.namelist()
         if len(names) != len(set(names)):
@@ -54,7 +54,7 @@ def build(out: Path, package: Path = ROOT / "pakiet_EN") -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", type=Path,
-                    default=ROOT / "local/release/srw-oe-test-pl-v3.zip")
+                    default=ROOT / f"local/release/srw-oe-test-pl-v{test_pl_package.KIT_VERSION}.zip")
     ap.add_argument("--package", type=Path, default=ROOT / "pakiet_EN")
     args = ap.parse_args()
     print(json.dumps(build(args.out, args.package), indent=2))
