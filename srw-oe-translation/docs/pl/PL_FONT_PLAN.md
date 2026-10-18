@@ -50,3 +50,11 @@ Pakiet testowy **srw-oe-test-pl-v2.zip** na Dysku (`1GheEOtFzQm4pHv_VlOJqfs0hsFd
   względem `local/font_pl.cpk`); (3) silnik ma cache/kopię fontu.
 - Następny krok: `build_report.json` z `output\` oraz diagnostyczny test (solidny blok w ASCII 'Q'
   i w katakanie 0xD5), żeby rozdzielić (1) i (2).
+
+## Wynik testu diagnostycznego (2026-10-18, zrzut właściciela) [ZWERYFIKOWANE ze zrzutu]
+- W misji 0-0 litera ASCII `e` w nazwach (np. „Seishiro”, nazwa jednostki u góry ekranu) jest pełnym
+  czarnym blokiem. Zmiana w `ank.fta` działa dla ASCII.
+- Katakany NIE sprawdzone: w misji 0-0 nie ma napisów z katakaną. Wynik dla katakany pozostaje
+  nierozstrzygnięty; potrzebny ekran z katakaną (np. japońskie napisy UI).
+- Pakiet diagnostyczny v2 (`srw-oe-test-diag-v2.zip`) zawiera pełne `tools/` i `TEST_DIAG.bat`
+  z wyborem ISO (commit 8cad3e3). Poprzedni v1 był złożony ręcznie i nie działał.
