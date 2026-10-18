@@ -342,6 +342,39 @@ def build_font_cpk(font_cpk: Path, out_path: Optional[Path] = None) -> Tuple[dic
     return info, patched
 
 
+def patch_font_blob(blob: bytes) -> Tuple[bytes, dict]:
+    """Patch a ``font.cpk`` held in memory; returns (patched CPK image, summary).
+
+    The ITOC writer reads from a file, so the blob takes a turn through a temp file -
+    the input bytes are never modified in place anywhere.
+    """
+    import tempfile
+    with tempfile.NamedTemporaryFile(suffix=".cpk", delete=False) as handle:
+        handle.write(blob)
+        tmp = Path(handle.name)
+    try:
+        cpk = cpk_itoc_write.load(tmp)
+        if len(cpk.rows) != 1:
+            raise ValueError("expected the one-entry ITOC font container")
+        row = cpk.rows[0]
+        raw = cpk.blob(row)
+        body = crilayla.decompress(raw).data if crilayla.is_crilayla(raw) else raw
+        patched, info = extend_container(body)
+        packed = crilayla.compress(patched)
+        image = cpk_itoc_write.rebuild(cpk, {row.id: (packed, len(patched))})
+        info.update({
+            "extract_before": len(body),
+            "extract_after": len(patched),
+            "stored_before": len(raw),
+            "stored_after": len(packed),
+            "image_size": len(image),
+            "verify": verify_container(patched),
+        })
+        return image, info
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 # ---------------------------------------------------------------------------------------
 # Preview PNG (no third-party imaging library in the sandbox)
 # ---------------------------------------------------------------------------------------

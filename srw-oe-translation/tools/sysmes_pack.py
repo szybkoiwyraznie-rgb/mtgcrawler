@@ -52,6 +52,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 import configst_pack  # noqa: E402
+import text_codec  # noqa: E402
 import cpk_write  # noqa: E402
 
 MAGIC = b"SMES"
@@ -140,7 +141,7 @@ def build(parsed: Sysmes, strings: Sequence[bytes]) -> bytes:
 
 def make_sysmes(strings: Sequence[Union[bytes, str]], ids: Sequence[int] | None = None) -> bytes:
     """A fresh sysmes.bin from scratch (fixture helper; documents the layout)."""
-    raw = [s.encode("cp932") if isinstance(s, str) else bytes(s) for s in strings]
+    raw = [text_codec.encode(s) if isinstance(s, str) else bytes(s) for s in strings]
     count = len(raw)
     if count < 1:
         raise SysmesError("need at least one string")
@@ -200,7 +201,7 @@ def translate(sm: bytes, edits: Mapping[str, str]) -> Tuple[bytes, Dict[str, obj
         except UnicodeDecodeError:
             continue
         if key in edits:
-            by_bytes[s] = edits[key].encode("cp932")
+            by_bytes[s] = text_codec.encode(edits[key])
     out, report = translate_bytes(sm, by_bytes)
     report["unmatched"] = [k for k in edits
                            if k.encode("cp932", errors="replace") not in by_bytes]
@@ -220,7 +221,7 @@ def grow_one(sm: bytes, off: int, new_text: str) -> bytes:
     parsed = parse(sm)
     k = parsed.index_at(off)
     strings = list(parsed.strings)
-    strings[k] = new_text.encode("cp932")
+    strings[k] = text_codec.encode(new_text)
     return build(parsed, strings)
 
 

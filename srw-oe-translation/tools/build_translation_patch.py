@@ -52,6 +52,13 @@ Usage::
     python3 tools/build_translation_patch.py --iso ~/ISO/NPJH50521.iso --dlc ~/FULL_DLC \
         --package local/translation --out local/patch [--views local/translation/sceny \
         local/translation/widoki] [--dry-run]
+
+``--lang pl`` switches the package language: rows are read from the ``pl`` field, the
+writers encode through the Polish codec (:mod:`text_codec` → :mod:`pl_text`, the 18
+diacritics as private two-byte codes), and the ISO's ``font.cpk`` is extended with the
+18 glyphs (:mod:`font_pl`) before anything else is queued for ``patched.iso``.  The
+executable strings step stays CP932-strict: a Polish letter in an exe row is refused
+with a reason instead of written.
 """
 from __future__ import annotations
 
@@ -93,6 +100,7 @@ import quotes_apply as QA            # noqa: E402
 import slot_apply as SLA             # noqa: E402
 import sysmes_pack as SMSP           # noqa: E402
 import table_write as TW             # noqa: E402
+import text_codec                    # noqa: E402
 import ui_texture_patch as UTP       # noqa: E402
 import terrain_names as TERRAIN      # noqa: E402
 import check_dlc_titles as DLC_TITLES # noqa: E402
@@ -153,7 +161,7 @@ class BuildError(RuntimeError):
 
 # --------------------------------------------------------------------------- row routing
 
-def load_rows(package: Path) -> List[dict]:
+def load_rows(package: Path, lang: str = "en") -> List[dict]:
     rows: List[dict] = []
     for name in PACKAGE_FILES:
         path = Path(package) / name
@@ -163,6 +171,10 @@ def load_rows(package: Path) -> List[dict]:
             if not line.strip():
                 continue
             row = json.loads(line)
+            if lang == "pl" and "pl" in row:
+                # a Polish package translates the ``pl`` field; every writer keeps
+                # reading ``en``, so the field is mapped once, here, at load time
+                row["en"] = row.get("pl") or ""
             row["__file"] = name
             rows.append(row)
     return rows
@@ -911,19 +923,64 @@ def parse_filter(spec: str) -> Tuple[List[str], List[str]]:
     return (names, []) if kind == "only" else ([], names)
 
 
+FONT_ISO_KEY = "psp_game/usrdir/font.cpk"
+
+
+def font_step(report: dict, iso: Optional[Path], iso_patch: Dict[str, bytes],
+              only: Sequence[str], skip: Sequence[str], dry_run: bool) -> None:
+    """Polish only: extend the ISO's ``font.cpk`` with the 18 diacritic glyphs.
+
+    The font lives in the disc image (USRDIR), not in the DLC, so the step needs ``--iso``.
+    The patched image is queued for ``patched.iso`` like any other ISO member; a font the
+    step refuses to touch is a build problem, because shipping a Polish patch without the
+    letters would show every diacritic as a broken glyph.
+    """
+    import font_pl
+    step = "font"
+    entry: dict = {"containers": [], "problems": []}
+    report[step] = entry
+    if iso is None:
+        entry["problems"].append("the Polish font patch needs the ISO (font.cpk is a disc file)")
+        report["problems"].append(f"{step}: NOT written: no ISO given")
+        return
+    if not container_selected("font.cpk", only, skip):
+        entry["skipped"] = ["font.cpk filtered out"]
+        return
+    try:
+        key, _lba, _size = iso_pack.find_member(iso, FONT_ISO_KEY)
+        image, summary = font_pl.patch_font_blob(iso_pack.read_member(iso, key))
+        entry["containers"] = [{"name": "font.cpk",
+                                "glyphs": summary["glyphs"],
+                                "first_slot": summary["first_slot"],
+                                "codes": summary["codes"],
+                                "extract": [summary["extract_before"], summary["extract_after"]],
+                                "stored": [summary["stored_before"], summary["stored_after"]],
+                                "image_size": summary["image_size"],
+                                "written": "(dry-run) queued for patched.iso" if dry_run
+                                           else f"patched.iso:{key}"}]
+        iso_patch[key] = image
+    except Exception as exc:
+        entry["problems"].append(str(exc))
+        report["problems"].append(f"{step}: NOT written: font.cpk: {exc}")
+
+
 def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
           dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
           ui_textures: bool = True, ui_specs: Optional[Path] = None,
-          executable: bool = True, cwcheat: bool = False) -> dict:
+          executable: bool = True, cwcheat: bool = False, lang: str = "en") -> dict:
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
+    if views and lang == "pl":
+        raise BuildError("--views is the English package's import path; a Polish package "
+                         "arrives filled in the 'pl' field of the JSONL files")
+    text_codec.set_lang(lang)
     work = Path(work) if work else out / "work"
     work.mkdir(parents=True, exist_ok=True)
     if views:
         package = import_views(package, views, work)
 
-    rows = load_rows(package)
+    rows = load_rows(package, lang)
     filled_rows = [r for r in rows if filled(r)]
     identity_rows = sum(1 for r in filled_rows if identity(r))
     filled_rows = [r for r in filled_rows if not identity(r)]
@@ -933,7 +990,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     filled_rows = [r for r in filled_rows if owner(r) != "terrain"]
     dlc_expected = DLC_TITLES.expectations(filled_rows)
     report: dict = {"package": str(package), "rows": len(rows), "filled": len(filled_rows),
-                    "identity_rows": identity_rows, "tools": TOOLS_STAMP,
+                    "identity_rows": identity_rows, "tools": TOOLS_STAMP, "lang": lang,
                     "containers": [], "problems": [], "dry_run": dry_run,
                     "iso": str(iso) if iso else None, "dlc": str(dlc) if dlc else None,
                     "only": list(only), "skip": list(skip), "written": []}
@@ -1048,6 +1105,9 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     if executable and exe_rows:
         exe_step(report, store, exe_rows, out, work, iso_patch, only, skip, dry_run,
                  cwcheat=cwcheat)
+
+    if lang == "pl":
+        font_step(report, iso, iso_patch, only, skip, dry_run)
 
     if iso_patch and iso is not None and not dry_run:
         out.mkdir(parents=True, exist_ok=True)
@@ -1488,6 +1548,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                              "off by default - the in-place EBOOT edit is the proven route)")
     parser.add_argument("--ui-specs", type=Path, default=None,
                         help="folder with the texture caption specs (default ui_labels/)")
+    parser.add_argument("--lang", choices=("en", "pl"), default="en",
+                        help="package language: en = the 'en' field, CP932 (default); "
+                             "pl = the 'pl' field, Polish private-code codec + font patch")
     args = parser.parse_args(argv)
 
     only, skip = list(args.only), list(args.skip)
@@ -1498,7 +1561,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
                    work=args.work, dry_run=args.dry_run, only=only, skip=skip,
                    ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
-                   executable=not args.no_exe, cwcheat=args.cwcheat)
+                   executable=not args.no_exe, cwcheat=args.cwcheat, lang=args.lang)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]

@@ -55,7 +55,8 @@ if str(HERE) not in sys.path:
 
 import cpk_write          # noqa: E402
 import evnt_walk as EW    # noqa: E402
-import export_strings     # noqa: E402
+import export_strings
+import text_codec     # noqa: E402
 import speaker_map as SM  # noqa: E402
 
 RECORD_TEXT = 0xC9
@@ -422,7 +423,7 @@ def box_problems(text: str, kind: Optional[str] = "dialogue") -> List[str]:
     problems = []
     limit = export_strings.box_limit(kind)
     for line in text.split("\n"):
-        width = export_strings.display_width(line)
+        width = text_codec.display_width(line)
         if width > limit:
             problems.append(f"a line is {width} wide, the game's own {kind or 'dialogue'} lines "
                             f"reach {limit}")
@@ -558,7 +559,7 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
     for row in ordered:
         offset = int(row["source"]["offset"])
         jp = (row["jp"] or "").encode("cp932")
-        en = (row["en"] or "").encode("cp932")
+        en = text_codec.encode(row["en"] or "")
         if blob[offset:offset + len(jp)] != jp:
             report["skipped"].append(f"{row['id']}: the Japanese text is not at {offset}")
             continue
@@ -577,9 +578,9 @@ def apply_member(blob: bytes, rows: List[dict], verify_result: bool = True) -> T
                 continue
         else:
             # narration is drawn in a wider field, so its width is a note, not a refusal
-            wide = [(export_strings.display_width(line), line)
+            wide = [(text_codec.display_width(line), line)
                     for line in (row["en"] or "").split("\n")
-                    if export_strings.display_width(line) > NARRATION_WIDTH]
+                    if text_codec.display_width(line) > NARRATION_WIDTH]
             if wide:
                 report["notes"].append(
                     f"{row['id']}: narration line {wide[0][0]} wide, widest measured is "
