@@ -1,5 +1,16 @@
 # Next step — current state and open work
 
+**PL2 return (2026-10-18):** audited actual PL2.zip. Leading spaces preserved in
+all 634 config fields; all 33 prior join suspects corrected in 1421 format previews.
+**Skill00 remains 217454 B vs 216768 (+686 B)**; normal builder refuses it,
+no bypass/new oversized test. All eight physical DLC pools build/read back at
+15331 B each (307 B margin). Delivered quotes are **11801/19841**, not reported
+13460 — request newest MD export before further edits. One glossary full/short
+variant to review, no import errors. Fixed EN-only chapter-4 DLC readback for PL.
+1626 tests OK/27 skipped; no playable ISO/runtime claim. See
+[PL2_RETURN_REVIEW.md](pl/PL2_RETURN_REVIEW.md). Keep translator's literary work;
+next: latest MD export and remaining ≥686 B of actual Skill00 savings.
+
 **Masaki v17 update (2026-10-18):** delivered-kit reproduction confirms the
 reported JP/EN mix in the config19 dictionary while imenu19 is fully EN. The
 global config-side viewer safety gate is the cause of those held-back fields;

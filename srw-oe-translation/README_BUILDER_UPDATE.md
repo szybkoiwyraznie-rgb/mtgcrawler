@@ -1,4 +1,4 @@
-# Aktualizacja buildera EN i PL — Masaki / Shiro / Kuro
+# Aktualizacja buildera EN i PL — Masaki i kontrola DLC PL
 
 Ten sam ZIP aktualizuje narzędzia w istniejącym builderze angielskim lub polskim.
 Nie jest pełnym patchem gry ani nowym kompletnym tłumaczeniem PL.
@@ -31,3 +31,8 @@ nie omija tego ograniczenia i nie skraca literacko tekstu tłumacza.
 
 `BUILDER_TOOLS.json` podaje wersję i sumy SHA-256 dołączonych narzędzi.
 Aktualizacja zawiera pełny zestaw ich zależności, nie tylko jeden skrypt.
+
+Aktualizacja po audycie PL2 obejmuje również odczyt kontrolny tytułów DLC
+rozdziału 4 kodekiem aktywnego języka. Poprzednia kontrola CP932 błędnie
+odrzucała poprawne polskie bajty. Nadal sprawdzane są oba pola tytułu, opis
+i identyfikatory DLC; kontrola nie jest wyłączana.

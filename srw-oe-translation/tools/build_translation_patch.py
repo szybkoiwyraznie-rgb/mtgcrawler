@@ -81,7 +81,7 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-18-v17-masaki-integrated: EN/PL existing-cell Character19 fix + map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-18-v17-masaki-integrated-pl-dlc-codec: EN/PL existing-cell Character19 fix + map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
                "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
                "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "

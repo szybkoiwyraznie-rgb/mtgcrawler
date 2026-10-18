@@ -7358,3 +7358,27 @@ validation and delivery still pending; do not claim installed old kits updated.
 - PL2 glossary has one conflicting JP key (full/abbreviated Potencjał forms), not
   0 conflicts; report to translator without rewriting his terminology.
 - Complete reports/private outputs remain ignored; finished delivery/docs pending.
+
+### 2026-10-18 — PL2 audit completion, delivery assembly
+
+- Ordinary all-eight-DLC build after language-aware title check: 0 problems.
+  Each Skill01–08 is15331 B/720strings,696 requested edits byte-readback OK,
+  including82 leading-space edits/pool. Original inputs SHA256 unchanged.
+- Independent size delta using real record/pool plans:5219 B record text saved,
+  +1 B alignment effect,2004 B pool saved, total7224 B. Same actual217454 B guard
+  refusal from full builder/direct writer; source config00 retained, not silently
+  shipped as a partial translated table. No clamp, bypass or translator prose edits.
+- Local verifier fixes (not production changes): restored PL codec before direct
+  table-writer comparison (default EN cannot encode diacritics), used convention-C
+  parser/int-index plans instead of convention-A record parser. Matched production
+  outputs for all pools. Do not reuse projection15382 as an actual DLC measurement.
+- Targeted new DLC fixture initially used invalid offset0 for both title slots;
+  corrected to real pointer offsets and explicit rows for both slots. Both slots,
+  descriptions, identifiers and EN default behaviour stay guarded.
+- Full suite initially leaked PL codec from the new builder test into old EN tests;
+  added test tearDown, rerun: **1626 tests OK/27 skipped,28.127s**.
+- Prepared tools-only updater with latest codec fix/stamp and full closure,
+  `BUILDER_EN_PL_UPDATE_PO_AUDYCIE_PL2.zip`,257695B/45files,
+  SHA256 c35d15eb27aa9d86776dea27c073992030d1da07107f51934c89cce154f9f925.
+  No translation/launchers/game assets included. Main audit bundle assembles only
+  reports/text + this updater, not the blocked patch or miniature ISO.

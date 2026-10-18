@@ -13,6 +13,7 @@ import check_dlc_titles as dc
 import build_translation_patch as bp
 import table_write as tw
 import pl_text
+import text_codec
 import iso_pack
 from test_cpk_table import build_synthetic_cpk
 from test_table_write import make_pool, make_record
@@ -35,6 +36,9 @@ def container_bytes(blob):
 
 
 class DlcTitleCheckTests(unittest.TestCase):
+    def tearDown(self):
+        text_codec.set_lang("en")
+
     def test_japanese_titles_fail_even_when_table_is_structurally_valid(self):
         report = dc.inspect_table(table())
         self.assertFalse(report['passed'])
