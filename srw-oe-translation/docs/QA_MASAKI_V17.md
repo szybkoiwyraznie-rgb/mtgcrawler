@@ -79,3 +79,17 @@ python tools/masaki_viewer_test.py --baseline local/qa-masaki-v17/reproduced/DLC
 Wyjście musi być nowe/puste. Oryginał i baza v17 nie są nadpisywane. Generowane
 EDAT-y, pełne odczyty pól i screenshot są wyłącznie lokalne/prywatne. Do repo trafiają
 narzędzie, syntetyczne regresje, ustalenia i manifest dostawy, nie binaria gry.
+
+## Dostawa prywatna
+
+[v17_MASAKI_TEST1.zip](https://drive.google.com/file/d/1RW-thcVUA7QcMLxG63eqBsejR8h3BZv5/view)
+— 4307 B, zawiera tylko testowy `config19.EDAT`, krótką instrukcję i raport odczytu.
+Pobrany z Drive ponownie: bajtowo identyczny, wszystkie CRC zgodne. Udostępniania
+nie zmieniano. Binarium jest wyłącznie w prywatnej paczce, nie w GitHub.
+[Manifest](masaki-v17-test1-delivery.json). SHA256 ZIP:
+`11ab934011727393ac7c85163c7b6dfd99e217dc942a33d42603650787eb0b0f`.
+
+Pełny zestaw po zmianach: **1610 testów OK, 28 pominiętych** (prywatne dane nieobecne
+w tym środowisku). Odczyt oryginalnych config19/imenu19 i przygotowanej poprawki
+został sprawdzony niezależnie od tych pominięć. Potwierdzenie gry po podmianie pliku
+pozostaje otwarte. Nie należy z powodu tej próby włączać wszystkich pól configNN.

@@ -7255,3 +7255,19 @@ fully-English imenu19 produced by actual v17 byte-for-byte. Fixed config MD5
 Added QA_MASAKI_V17.md, corrected misleading builder note that every viewer reads
 imenu. No global safety exception, no runtime-tested/released fix claim. Private
 one-file test delivery and final full tests pending.
+
+### 2026-10-18 — Masaki TEST1 private one-file delivery
+
+Delivered v17_MASAKI_TEST1.zip 4307 B, 3 entries (config19.EDAT/CZYTAJ.md/verify JSON),
+SHA256 11ab934011727393ac7c85163c7b6dfd99e217dc942a33d42603650787eb0b0f,
+MD5 52a66b1ad2d5d54422daa3c91a0c0ee2. Drive 1RW-thcVUA7QcMLxG63eqBsejR8h3BZv5,
+no sharing changes. Download-back byte-identical; ZIP CRCs and extracted EDAT equal.
+Final fixed dictionary again compared directly to actual-v17-built imenu19: byte
+identical (706 B). Metadata/receipt only committed, binary/screenshot ignored/private.
+
+Instructions: back up active config19 outside DLC, replace only this one file,
+cold boot and normal save to same Library screen, one screenshot. No new ISO,
+New Game, save deletion, font change or skill-size experiment. Runtime not tested;
+old wider config01-08 crash cause not isolated, hence no global gate release.
+Full suite 1610 OK / 28 skipped,31.134 s; real input reproduction/readback performed
+separately and passed. Updated STATUS/NEXT_STEP/AGENTS and delivery manifest.
