@@ -1,13 +1,21 @@
 # Next step — current state and open work
 
-> **Latest PL handoff (2026-10-18, after PR #19):** the Polish-stage sections
-> below describe the earlier two-byte implementation and are historical. The
-> current codec uses single-byte half-width-katakana codes. The v2 runtime test
-> still displayed Japanese katakana, not Polish letters. The diagnostic test
-> confirmed the `ank.fta` change for ASCII `e` only; katakana rendering remains
-> unresolved. Continue from [`pl/PL_FONT_PLAN.md`](pl/PL_FONT_PLAN.md), especially
-> its final two result sections, and [`../README_TEST_DIAG.md`](../README_TEST_DIAG.md).
-> Do not treat Polish glyph rendering as working or build a full PL release yet.
+> **Latest PL handoff (2026-10-18, PR #20): TEST_PL v3 delivered.**
+> The old two-byte sections below are historical. Static analysis of the owner's
+> ELF proved ordinary katakana uses `byte - 0x40` in `ank.fta`, not `byte - 0x20`.
+> A separate bitmap preview exposed the reversed paired-pixel order: low nibble
+> is the left pixel. Both are fixed. The [v3 kit](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view)
+> puts all 18 letters, ASCII and spacing controls on the **first opening panel**
+> of mission 0-0. It independently verifies the resulting ISO automatically.
+> 1553 unittest tests OK (25 skipped); extracted delivered-kit CLI and original
+> container fixture read-back pass. **No sandbox PPSSPP runtime result.**
+> Details: [`pl/PL_FONT_MAPPING.md`](pl/PL_FONT_MAPPING.md),
+> [`pl/test-v3-delivery.json`](pl/test-v3-delivery.json),
+> [`../README_TEST_PL.md`](../README_TEST_PL.md).
+> Owner need only run `TEST_PL.bat`, New Game from the resulting ISO and show
+> the first `PL V3 / 1` panel. Do not ask them to hunt for katakana in menus or
+> build an ISO per hypothesis. Do not ship a full PL translation before runtime
+> rendering confirmation and the returned translator material.
 
 **Updated 2026-10-17 (UTC).** This page replaces the old "superseded plan" notice.
 It lists only what is still open; the delivered products are frozen snapshots and

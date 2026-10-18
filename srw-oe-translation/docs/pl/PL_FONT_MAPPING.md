@@ -59,3 +59,13 @@ to raw `21 43 65 87` bytes, and the independent ISO verifier packs the JSON art
 itself rather than calling the font writer's packing/index helpers. Original
 ASCII bitmap bytes remain unchanged. The local preview is derived game data and
 is not committed or included in the kit.
+
+## Delivery and completed checks
+
+[TEST_PL v3](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view)
+is delivered; [manifest](test-v3-delivery.json). The read-only MIPS probe and batch
+kit listed in the initial checkpoint are now implemented and tested. Final suite:
+1553 unittest tests OK (25 skipped). The delivered ZIP's isolated CLI build and
+independent read-back pass using original containers in an ISO fixture. A corrupt
+glyph is detected. First-panel PPSSPP screenshot remains pending, not a blocker
+requiring the owner to investigate the technical mapping.

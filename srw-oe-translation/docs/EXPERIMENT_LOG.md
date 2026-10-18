@@ -6722,3 +6722,107 @@ Przed uploadem0/po1 dopasowań nazwy, rozmiar667590B, MD5
 `1db3f99dd821fa4211b4f4f3e961d5df`; pobranie zwrotne w całości bajtowo identyczne.
 Starsze pliki i uprawnienia nietknięte. Aktualne manifest/raport wskazują v3,
 historyczne v2 są zachowane w revisions/. Pakiet gry oraz kit v17 bez zmian.
+
+## 2026-10-18 — PL v3: autonomous renderer analysis, two font fixes, one batch screen (PR #20)
+
+**Owner direction:** do static/offline work without routing every hypothesis through the owner.
+If runtime confirmation is necessary, place labelled probes at the start of mission 0-0;
+batch several observations in one ISO. The agent can inspect supplied screenshots.
+
+**Private inputs:** downloaded from the existing Drive originals into ignored `google_drive/`:
+`font.cpk` 242896 B, `eventP00.cpk` 162264 B, `config00.cpk` 929920 B,
+plain ELF `EBOOT.BIN` 5531024 B. SHA-256 values and delivery metadata are in
+`pl/test-v3-delivery.json`; no game data, derived ISO or bitmap preview was staged.
+Two other same-named historical BOOT/EBOOT candidates downloaded as entirely zero
+files (5438600/8388608 B), so they were not evidence and were not used. The valid
+ELF is `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`.
+
+**Environment:** Python 3.11.2. System `pip install pillow capstone` refused due to
+PEP 668 (externally managed environment); switched to an ignored `.venv`, Pillow
+13.0.0, Capstone 5.0.7. Neither dependency is needed by the delivered kit.
+
+**Confirmed static observation:** ordinary one-byte glyph lookup at ELF-relative
+0xDC1F8 (file 0xDC298) subtracts 0x20 for ASCII but **0x40 for katakana**, then
+multiplies by 56. The previous writer and verifier both used -0x20, a shared
+wrong assumption. `font_ank_probe.py` checks the measured instruction window and
+executes the small branch/arithmetic fragment, including branch-likely delay slots,
+for all 160 ordinary one-byte codes. Unknown/mutated windows are refused.
+No executable patch is made. Example: D5 selects physical cell 149, not 181.
+
+**Second correction:** offline previews from original/patched ISO bitmap cells
+showed original ASCII coherent under **low-nibble-left** interpretation, while
+high-first swaps every neighbouring pixel pair. Changed packing and reading;
+explicit raw `21 43 65 87` regression prevents a self-consistent but wrong round
+trip. The independent ISO verifier computes physical cells and packs JSON pixels
+without the writer's index/packing helpers. Original ASCII and all other font
+members/cells remain byte-identical. This is static/bitmap evidence, NOT gameplay.
+
+**Batch probe:** `test_pl_package.py` now puts all 18 letters, ASCII comparison and
+spacing guards into the first four-line panel (`PL V3 / 1`); the second panel adds
+width/baseline controls. Other opening lines preserve line/blank/token structure;
+all one-byte letters now fit without the obsolete double-width truncation. Only
+36 rows filled (16 opening + 1 title + 3 unit + 16 weapons); unrelated returned
+translator `pl` values are cleared in this diagnostic package. EN source unchanged.
+
+**Kit:** reproducible contents via `tools/build_pl_test_kit.py`; AST dependency
+closure for builder and verifier, 11 package JSONL files + TSV sidecars, glyph JSON,
+TEST_PL.bat and simple README, 64 files total. Found/fixed a distribution omission:
+AST imports alone do not include `tools/data/pl_glyphs_8x14.json`; both this kit
+and `build_distribution.py` now include runtime JSON data. TEST_PL runs the
+independent verifier before claiming completion and writes `output/PL_VERIFY.json`.
+No DLC, EBOOT or UI-texture changes. Original ISO and saves remain untouched.
+
+**Commands / results** (from repository root; outputs under ignored `local/`):
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_font_pl.py
+# Initial index fix: 13 tests OK; final nibble regression raises this to 14.
+python srw-oe-translation/tools/font_ank_probe.py google_drive/EBOOT.BIN \
+  --out srw-oe-translation/local/font_mapping.json
+python srw-oe-translation/tools/test_pl_package.py \
+  --package srw-oe-translation/pakiet_EN --out srw-oe-translation/local/test_PL_v3
+python srw-oe-translation/tools/translation_check.py \
+  --package srw-oe-translation/local/test_PL_v3 --field pl
+# 36 filled, 0 errors; empty rows intentionally skipped, not a full PL package.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 14 tests OK, including actual private containers and extracted-kit CLI.
+python -m unittest discover -s srw-oe-translation/tests -p 'test_*pl*.py'
+# 166 tests OK (after nibble fix).
+python -m unittest discover -s srw-oe-translation/tests
+# FINAL: 1553 tests, OK (25 skipped), 38.423 s.
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v3.zip
+```
+
+Built a small ISO9660 **fixture**, containing the three real original containers,
+with `iso_pack.build_iso`. Both the repo CLI and the CLI from the actual delivered
+ZIP (extracted to a fresh folder, Python `-I`) ran:
+
+```sh
+python -I tools/build_translation_patch.py --iso <fixture.iso> \
+  --package translation --out output --lang pl \
+  --only eventP00.cpk config00.cpk font.cpk --no-ui-textures
+python -I tools/verify_pl_test.py --original <fixture.iso> \
+  --iso output/patched.iso --package translation --out output/PL_VERIFY.json
+```
+
+Result: no build problems; 18 physical font cells, all 16 opening rows and 19
+unit/weapon rows found in the actual ISO; exact mission-title cell patch and other
+members/fonts unchanged. The original fixture hash is unchanged. A deliberately
+corrupted output glyph fails verification at cell 149. Early verifier development
+caught an invalid CPK `.blob()` API call, then flagged the deliberately modified
+mission-title member and nested config PAC; corrected the reader and explicitly
+checked allowed title bytes/nested name tables rather than suppressing the failures.
+Final independent result: `ok: true`, no failures. New font CPK SHA-256
+`4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863`.
+
+**Delivered:** [srw-oe-test-pl-v3.zip](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view),
+6413077 B, SHA-256 `de0c8fef000f35ea6ed86726eb6d60e27aec46d8c99cfc102d6212fa6a9a9727`.
+Drive download-back identical. Manifest: `pl/test-v3-delivery.json`.
+Code/tests/docs checkpointed and pushed on the session branch, PR #20.
+
+**Limits:** no full-game ISO boot/PPSSPP or Windows BAT execution in this sandbox.
+The local bitmap preview was visually inspected but is not an emulator screenshot.
+The one remaining owner action is a screenshot of the **first** `PL V3 / 1` panel
+from the new build/New Game; no menu search, weapon screen or repeated builds needed.
+This does not complete the full Polish translation or establish final in-game widths.

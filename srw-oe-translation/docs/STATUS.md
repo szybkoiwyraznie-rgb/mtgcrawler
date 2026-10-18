@@ -1,6 +1,20 @@
 # Project status
 
-Last updated: 2026-10-18 (§21.66 — prezentacja katalogu v3)
+Last updated: 2026-10-18 (PL font test v3 — PR #20)
+
+**Najnowsze PL: [TEST_PL v3](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view) dostarczony.**
+Analiza prywatnego ELF ujawniła błędny indeks: katakana czytana z `bajt−0x40`,
+nie `bajt−0x20`. Podgląd bitmap ujawnił drugi błąd: piksele należy pakować młodszym
+nibblem jako lewym. Obie poprawki zapisane w kodzie; niezależne testy fizycznych
+bajtów i wykonanie małego fragmentu MIPS (ze slotami opóźnienia skoków).
+Jedna pierwsza plansza misji 0-0 pokazuje 18 liter, ASCII i odstępy. Kit sprawdza
+ISO po budowie, bez udziału właściciela. 1553 unittest OK (25 skipped); rzeczywiste
+kontenery font/event/config w fixture ISO + uruchomienie narzędzi z wypakowanego
+wydawanego ZIP sprawdzone. Nie uruchomiono pełnej gry/PPSSPP ani Windows BAT.
+Pobranie zwrotne Drive identyczne. **Oczekiwany tylko screenshot pierwszej planszy
+`PL V3 / 1` po New Game**, nie szukanie katakany w menu. To test techniczny, nie
+pełne PL; EN/katalog/scenariusz bez zmian. [Dowody](pl/PL_FONT_MAPPING.md),
+[manifest](pl/test-v3-delivery.json).
 
 **Najnowsze (§21.66): prezentacja katalogu v3 dostarczona.**
 [Nowy Markdown](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view),

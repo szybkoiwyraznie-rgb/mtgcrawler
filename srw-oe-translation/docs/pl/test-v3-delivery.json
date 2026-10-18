@@ -1,0 +1,157 @@
+{
+  "name": "srw-oe-test-pl-v3.zip",
+  "bytes": 6413077,
+  "sha256": "de0c8fef000f35ea6ed86726eb6d60e27aec46d8c99cfc102d6212fa6a9a9727",
+  "files": 64,
+  "probe_counts": {
+    "files": 11,
+    "dialogue_rows": 16,
+    "mission_rows": 1,
+    "unit_rows": 3,
+    "weapon_rows": 16
+  },
+  "scope": "patch tools and probe package only; no game files",
+  "date": "2026-10-18",
+  "drive_id": "16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K",
+  "drive_url": "https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view",
+  "drive_download_back_equal": true,
+  "tests": {
+    "runner": "python -m unittest discover -s srw-oe-translation/tests",
+    "total": 1553,
+    "skipped": 25,
+    "result": "OK"
+  },
+  "read_back": {
+    "ok": true,
+    "failures": [],
+    "font_cells": 18,
+    "opening_rows": 16,
+    "unit_weapon_rows": 19,
+    "hashes": {
+      "original": {
+        "font_sha256": "a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6",
+        "event_sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa"
+      },
+      "patched": {
+        "font_sha256": "4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863",
+        "event_sha256": "adeac15c133efaa4cef74241010c46498470671f5b46b681d9096858480f0380"
+      }
+    },
+    "scope": "ISO byte read-back, not emulator gameplay"
+  },
+  "input_hashes": {
+    "font.cpk": {
+      "bytes": 242896,
+      "sha256": "a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6"
+    },
+    "eventP00.cpk": {
+      "bytes": 162264,
+      "sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa"
+    },
+    "EBOOT.BIN": {
+      "bytes": 5531024,
+      "sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052"
+    },
+    "config00.cpk": {
+      "bytes": 929920,
+      "sha256": "d38b0ccae89d460afcbd7ad3411391aaae8a9c3e77f2e9f6d7b9c317a3806582"
+    }
+  },
+  "renderer_cells": {
+    "ą": {
+      "byte": "0xd5",
+      "index": 149,
+      "offset": 8344
+    },
+    "ć": {
+      "byte": "0xdb",
+      "index": 155,
+      "offset": 8680
+    },
+    "ę": {
+      "byte": "0xd0",
+      "index": 144,
+      "offset": 8064
+    },
+    "ł": {
+      "byte": "0xd8",
+      "index": 152,
+      "offset": 8512
+    },
+    "ń": {
+      "byte": "0xd6",
+      "index": 150,
+      "offset": 8400
+    },
+    "ó": {
+      "byte": "0xd1",
+      "index": 145,
+      "offset": 8120
+    },
+    "ś": {
+      "byte": "0xd3",
+      "index": 147,
+      "offset": 8232
+    },
+    "ź": {
+      "byte": "0xd9",
+      "index": 153,
+      "offset": 8568
+    },
+    "ż": {
+      "byte": "0xda",
+      "index": 154,
+      "offset": 8624
+    },
+    "Ą": {
+      "byte": "0xd2",
+      "index": 146,
+      "offset": 8176
+    },
+    "Ć": {
+      "byte": "0xd7",
+      "index": 151,
+      "offset": 8456
+    },
+    "Ę": {
+      "byte": "0xb2",
+      "index": 114,
+      "offset": 6384
+    },
+    "Ł": {
+      "byte": "0xa7",
+      "index": 103,
+      "offset": 5768
+    },
+    "Ń": {
+      "byte": "0xca",
+      "index": 138,
+      "offset": 7728
+    },
+    "Ó": {
+      "byte": "0xac",
+      "index": 108,
+      "offset": 6048
+    },
+    "Ś": {
+      "byte": "0xb8",
+      "index": 120,
+      "offset": 6720
+    },
+    "Ź": {
+      "byte": "0xce",
+      "index": 142,
+      "offset": 7952
+    },
+    "Ż": {
+      "byte": "0xae",
+      "index": 110,
+      "offset": 6160
+    }
+  },
+  "verification_limits": [
+    "ISO fixture contains the owner original font/event/config containers, not a bootable full game.",
+    "Delivered ZIP was extracted and its CLI build + verifier run in isolation. Windows BAT inspected, not executed on Windows.",
+    "No PPSSPP runtime check in this sandbox. First-panel owner screenshot pending."
+  ]
+}

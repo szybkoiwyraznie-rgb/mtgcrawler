@@ -1,6 +1,14 @@
 # Polskie litery: plan zmiany fontu (checkpoint 2026-10-18)
 
-Status (2026-10-18, po commicie 8497268): implementacja gotowa, testy jednostkowe 1535 OK.
+**Aktualizacja po PR #19 (2026-10-18, PR #20):** naprawiono dwie przyczyny:
+indeks katakany to `bajt − 0x40`, a lewy piksel jest w młodszym nibblu bajtu.
+[Dowody i granice](PL_FONT_MAPPING.md), [manifest TEST_PL v3](test-v3-delivery.json).
+[V3 na Drive](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view)
+ma wszystkie 18 liter + ASCII + odstępy na pierwszej planszy misji 0-0;
+automatyczny odczyt ISO po budowie. 1553 testy OK (25 skipped), offline/extracted-kit
+sprawdzone; **potwierdzenie obrazu w PPSSPP nadal oczekiwane**. Poniżej historia.
+
+Status historyczny (2026-10-18, po commicie 8497268): implementacja gotowa, testy jednostkowe 1535 OK.
 Pakiet testowy **srw-oe-test-pl-v2.zip** na Dysku (`1GheEOtFzQm4pHv_VlOJqfs0hsFdiEazi`).
 **Nic nie jest jeszcze potwierdzone w grze** - czeka na test PPSSPP właściciela.
 
