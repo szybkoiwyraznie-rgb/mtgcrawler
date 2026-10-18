@@ -1,5 +1,12 @@
 # Polskie litery: plan zmiany fontu (checkpoint 2026-10-18)
 
+**Najnowsze (2026-10-18):** właściciel przesłał dwa zrzuty v3 i ocenił wygląd
+pozytywnie. Na jego prośbę [v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view)
+zawiera naturalne próbki w pierwszym dialogu, bez zmiany fontu/kodeka.
+[Manifest](test-v4-delivery.json); 1558 unittest OK (25 skipped), offline read-back
+wydanego ZIP sprawdzony. V4 nie jest tłumaczeniem i nie ma jeszcze potwierdzenia
+runtime; poprzednie v3 ma potwierdzenie otwierającej sceny. Dalsze sekcje są historią.
+
 **Aktualizacja po PR #19 (2026-10-18, PR #20):** naprawiono dwie przyczyny:
 indeks katakany to `bajt − 0x40`, a lewy piksel jest w młodszym nibblu bajtu.
 [Dowody i granice](PL_FONT_MAPPING.md), [manifest TEST_PL v3](test-v3-delivery.json).

@@ -1,6 +1,16 @@
 # Project status
 
-Last updated: 2026-10-18 (PL font test v3 — PR #20)
+Last updated: 2026-10-18 (PL v3 runtime positive, natural-text test v4 — PR #20)
+
+**Najnowsze PL: v3 potwierdzony na zrzutach właściciela; [TEST_PL v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view) dostarczony.**
+Właściciel ocenił font pozytywnie i poprosił o naturalne zdania w pierwszym dialogu.
+V4 ma wymyślone próbki polskiej prozy (nie przekład scenariusza), w tym ł/ś/ć/ą/ę/ń
+w pierwszej kwestii; długie ciągi testowe w narracji 3–6 zastąpione dwiema liniami.
+Font i kodek bez zmian; SHA-256 font.cpk identyczny z v3. 1558 unittest OK
+(25 skipped); rzeczywiście wydany ZIP wypakowany, CLI i odczyt ISO z oryginalnymi
+kontenerami sprawdzone, pobranie zwrotne Drive identyczne. V4 nie uruchomiono tu
+w PPSSPP. Screenshoty v3 potwierdzają scenę otwierającą, nie wszystkie ekrany gry.
+[Manifest v4](pl/test-v4-delivery.json). Starsze stany poniżej są historią.
 
 **Najnowsze PL: [TEST_PL v3](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view) dostarczony.**
 Analiza prywatnego ELF ujawniła błędny indeks: katakana czytana z `bajt−0x40`,

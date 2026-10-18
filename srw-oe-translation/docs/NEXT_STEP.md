@@ -1,21 +1,22 @@
 # Next step — current state and open work
 
-> **Latest PL handoff (2026-10-18, PR #20): TEST_PL v3 delivered.**
-> The old two-byte sections below are historical. Static analysis of the owner's
-> ELF proved ordinary katakana uses `byte - 0x40` in `ank.fta`, not `byte - 0x20`.
-> A separate bitmap preview exposed the reversed paired-pixel order: low nibble
-> is the left pixel. Both are fixed. The [v3 kit](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view)
-> puts all 18 letters, ASCII and spacing controls on the **first opening panel**
-> of mission 0-0. It independently verifies the resulting ISO automatically.
-> 1553 unittest tests OK (25 skipped); extracted delivered-kit CLI and original
-> container fixture read-back pass. **No sandbox PPSSPP runtime result.**
+> **Latest PL handoff (2026-10-18, PR #20): v3 runtime positive; v4 delivered.**
+> The owner supplied two screenshots and approved the appearance of the v3 Polish
+> letters. This confirms opening-scene rendering, not every game screen/full PL.
+> At the owner's request [TEST_PL v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view)
+> now puts natural diagnostic Polish prose in the **first dialogue** (including
+> ł/ś/ć/ą/ę/ń) and shortens the repetitive narration. These are invented font-test
+> sentences, not translations. Font/codec are unchanged; the resulting font CPK
+> hash is identical to v3. 1558 unittest tests OK (25 skipped); isolated delivered
+> ZIP build/read-back on original-container fixture ISO pass. V4 gameplay remains
+> separate from the positive v3 screenshots; no sandbox emulator run is claimed.
 > Details: [`pl/PL_FONT_MAPPING.md`](pl/PL_FONT_MAPPING.md),
-> [`pl/test-v3-delivery.json`](pl/test-v3-delivery.json),
+> [`pl/test-v4-delivery.json`](pl/test-v4-delivery.json),
 > [`../README_TEST_PL.md`](../README_TEST_PL.md).
-> Owner need only run `TEST_PL.bat`, New Game from the resulting ISO and show
-> the first `PL V3 / 1` panel. Do not ask them to hunt for katakana in menus or
-> build an ISO per hypothesis. Do not ship a full PL translation before runtime
-> rendering confirmation and the returned translator material.
+> If evaluating v4, use `TEST_PL.bat` on the original ISO, New Game and the first
+> dialogue — no menu hunt or repeated hypothesis-by-hypothesis builds. Full PL
+> still awaits returned translator material and pipeline checks; do not claim
+> the external translation has been completed.
 
 **Updated 2026-10-17 (UTC).** This page replaces the old "superseded plan" notice.
 It lists only what is still open; the delivered products are frozen snapshots and

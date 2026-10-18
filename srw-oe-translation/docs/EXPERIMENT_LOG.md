@@ -6826,3 +6826,61 @@ The local bitmap preview was visually inspected but is not an emulator screensho
 The one remaining owner action is a screenshot of the **first** `PL V3 / 1` panel
 from the new build/New Game; no menu search, weapon screen or repeated builds needed.
 This does not complete the full Polish translation or establish final in-game widths.
+
+## 2026-10-18 — v3 owner runtime positive; v4 natural Polish first-dialogue probes
+
+**Owner evidence:** two screenshots supplied in chat (`image-1.png`, `image-2.png`),
+showing the v3 alphabet/spacing panels and subsequent narration. Visual inspection:
+Polish upper/lowercase diacritics render, ASCII remains readable, guarded mixed
+strings are present. Owner: “wygląda dobrze :)”, then asked for natural Polish
+sentences with ł/ś/ć/ą/ę/ń in the first dialogue. This is a positive runtime result
+for v3's opening scene, NOT confirmation of all screens, exact pixel widths or
+full Polish translation. Screenshots are not copied into Git.
+
+**Changes:** v4 keeps the exact v3 font/codecs and replaces the first 16 opening
+probe rows with natural Polish test prose. First actual dialogue:
+
+```text
+(Łączność działa. Słychać mnie wyraźnie?
+Chcę dziś dokończyć próbę osłony.)
+```
+
+These are invented diagnostic sentences, not translations of the game. Dialogue
+line counts, the player-name token and trailing breaks are retained. Long opening
+narration rows 3–6 are deliberately shortened to two lines; no 12-line alphabet
+scrolling. First two panels also contain prose; the second retains all uppercase
+letters and a pangram. EN package untouched. Source-token/line-count mismatches
+fail closed. Independent verifier additionally requires all natural probes.
+Version v3 remains archived; no new font glyphs or codec changes.
+
+**Commands/results** (Python 3.11.2):
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 19 tests OK, including isolated extracted-kit CLI with original containers.
+python -m unittest discover -s srw-oe-translation/tests
+# 1558 tests in 36.771s, OK (25 skipped).
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v4.zip; 64 files; 36 filled probe rows.
+```
+
+Extracted the actual delivered ZIP to a fresh ignored folder and ran its CLI with
+Python `-I`, `--lang pl --only eventP00.cpk config00.cpk font.cpk --no-ui-textures`
+on the same fixture ISO containing the three real original containers. Then ran
+`verify_pl_test.py --original <fixture.iso> --iso output/patched.iso --package
+translation --out output/PL_VERIFY.json`. Result: `kit_version: 4`, `ok: true`, no
+failures, 18 font cells, 16 opening entries, 19 unit/weapon probes and mission
+cell present. All 14 natural-text row values found in the final member. Font CPK
+SHA-256 `4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863`,
+identical to v3. New event CPK SHA-256
+`abc9cfd9a66bf224c55876bc0f857a0e3f9f122f291aab10b167f8ade9621d16`.
+
+**Delivered:** [srw-oe-test-pl-v4.zip](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view),
+6414164 B, SHA-256 `183e39b3d08aa87bda74fc5aa25a46409287dc3d07f32127e18ed905b299dbc1`.
+Drive download-back is byte-identical. `pl/test-v4-delivery.json` records the
+scope and limits; code and tests pushed on the session branch/PR #20.
+
+**Limits:** v4 not run in this sandbox's PPSSPP or on Windows. V3 user runtime
+success and v4 offline checks are separate evidence. Owner can assess v4 with
+one screenshot of the first dialogue (or first prose panel); no menu search.
+No game files, screenshots, builds or filled translator package added to Git.

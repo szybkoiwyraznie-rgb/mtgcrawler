@@ -81,5 +81,6 @@ is delivered; [manifest](test-v3-delivery.json). The read-only MIPS probe and ba
 kit listed in the initial checkpoint are now implemented and tested. Final suite:
 1553 unittest tests OK (25 skipped). The delivered ZIP's isolated CLI build and
 independent read-back pass using original containers in an ISO fixture. A corrupt
-glyph is detected. First-panel PPSSPP screenshot remains pending, not a blocker
-requiring the owner to investigate the technical mapping.
+glyph is detected. At delivery the first-panel screenshot was pending; the owner
+has since supplied it (positive v3 result above). V4 natural-text kit and its
+separate offline checks are recorded in [its manifest](test-v4-delivery.json).
