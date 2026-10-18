@@ -7205,3 +7205,19 @@ skipped check). Instructions: BAT selects original working 1.08 ISO, two images 
 once; run A cold/New Game first, B only if A fails; same DLC/settings, no save states,
 no deleting saves. Crash A alone does not isolate size; B has equal total size, not
 identical pool/record split. Manifest docs/pl/test-skills-full-v1-delivery.json.
+
+### 2026-10-18 — owner runtime result: both intact-skill A/B variants crash
+
+Owner reports both versions fail and proposes shortening. Record exactly: full PL
+Skill00 A 224678 B and original-JP-plus-spaces B 224678 B crash; no stage/signature
+provided. Do NOT silently label it Loading or claim an exact threshold/allocator.
+Supports size/layout issue rather than Polish wording alone; common font/EBOOT/setup
+and differing record/pool split mean not a proof of unique cause. No new build asked.
+
+Next agreed practical route: external translator shortens to existing guards;
+Skill00 over by 7910 B, shared-pool projection over by 1748 B. Pool savings count
+inside the whole-member savings, NOT 7910+1748. Preserve glossary/control tokens,
+repair fragment pairs, prioritise repeated names/level variants/shared descriptions.
+Measure actual writer output before next batched runtime test; no new font hunt or
+repeat of over-budget A/B. Updated delivery manifest, review and AGENTS handoff.
+Documentation/metadata only; delivered ZIP and translator/game inputs unchanged.

@@ -153,3 +153,18 @@ cztery TSV oraz `review.json`. **60 597 B**, lokalna kontrola CRC wszystkich pli
 ZIP OK; rozmiar i MD5 zwrócone przez Drive zgodne z lokalną paczką. Nie zmieniano
 udostępniania. Nie zawiera binariów gry ani nowego tłumaczenia zastępującego pracę.
 SHA256: `1cc03f74b43987fce87e0e5d2d85ce9ca7d79d6a3251a54a23010798c6f1de49`.
+
+## Wynik testu pełnego PL — aktualizacja właściciela 2026-10-18
+
+Właściciel uruchomił warianty A/B: **oba padają**. A zawierał pełne umiejętności PL,
+B japońskie teksty powiększone spacjami; oba Skill00 miały 224 678 B. Nie podano
+etapu ani komunikatu awarii. Wynik wspiera problem rozmiaru/układu, ale nie wyznacza
+dokładnego limitu silnika ani nie izoluje wszystkich wspólnych zmian testów.
+Przyjmujemy teraz skracanie do obecnych zachowawczych bramek jako dalszą drogę.
+
+Cel: Skill00 ≤216 768 B (obecnie +7910 B); współdzielona pula do budżetu DLC
+15 638 B (projekcja obecnie +1748 B). **Oszczędność na puli wchodzi do tych 7910 B,
+nie należy dodawać obu nadwyżek.** Najpierw powtarzalne nazwy/warianty poziomów
+i wspólne fragmenty; nie każde z 2082 ostrzeżeń pola wymaga osobnego skrótu.
+Zachować tokeny, sens i słownik, poprawić znane złożenia. Kolejny zwrot mierzymy
+writerami przed zrobieniem następnego testu, bez powtarzania testów fontu.

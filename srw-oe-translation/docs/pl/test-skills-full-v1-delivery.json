@@ -65,7 +65,7 @@
     }
   },
   "scope": "tools + translator text only; no game binaries; builds A/B on user ISO",
-  "runtime_tested": false,
+  "runtime_tested": true,
   "date": "2026-10-18",
   "drive_id": "1VBAwu-_PJGff_3mbKXdWxetB8FBRheMU",
   "drive_url": "https://drive.google.com/file/d/1VBAwu-_PJGff_3mbKXdWxetB8FBRheMU/view",
@@ -101,5 +101,15 @@
     "result": "OK",
     "skipped": 26,
     "seconds": 26.774
+  },
+  "owner_runtime": {
+    "date": "2026-10-18",
+    "reported_by": "owner",
+    "A_full_PL_224678_bytes": "crash",
+    "B_JP_same_size_224678_bytes": "crash",
+    "crash_stage": "not specified",
+    "error_signature": "not supplied",
+    "interpretation": "Both outcomes support a size/layout-related runtime restriction rather than Polish wording alone; exact allocator/cap not established, common font/executable/setup changes not independently isolated.",
+    "next_step": "Shorten external PL skills and shared pool to existing conservative budgets, retain token/fragment consistency; measure actual writer bytes before the next batched runtime test."
   }
 }
