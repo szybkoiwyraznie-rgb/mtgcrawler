@@ -145,7 +145,8 @@ CONFIG_DICT_SPARE_CATEGORIES = {
 
 
 def config_side_spare_row(row: dict) -> bool:
-    """True for a row that must not reach a configNN.EDAT dictionary copy: the v7 NEW viewer
+    """Default quarantine predicate; verified_character19_rows may narrowly override it.
+    These configNN.EDAT fields are held back by default: the v7 NEW viewer
     slots (voice_actor with the 'Voice:' label, short_name, alt_name, entry, labels) and
     note/weight.  robo_name_narrow/robo_type are original cells and ARE written (21.58 -
     the foe list of the Robot Viewer reads them).  The imenuNN copies keep everything."""
