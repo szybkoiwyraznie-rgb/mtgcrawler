@@ -238,3 +238,14 @@ class ExhaustiveAuditRegressions(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ReturnedTranslationPercentTests(unittest.TestCase):
+    def test_literal_percent_followed_by_polish_word_is_not_printf(self):
+        self.assertEqual(C.tokens('50% obrażeń, 10% i 20% Group'), [])
+        self.assertEqual(C.tokens('% EN+'), [])
+        self.assertEqual(C.check_row(dict(jp='50%', pl='50% obrażeń'), field='pl')[0], [])
+
+    def test_real_printf_and_escaped_percent_still_protected(self):
+        self.assertEqual(C.tokens('%02d / %s / %%'), ['%02d', '%s', '%%'])
+        self.assertTrue(C.check_row(dict(jp='%02d', pl='2'), field='pl')[0])

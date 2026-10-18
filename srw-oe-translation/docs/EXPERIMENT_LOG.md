@@ -7069,3 +7069,15 @@ Validation: `python -m unittest discover -s srw-oe-translation/tests` — 1592 t
 OK, 25 skipped, 39.142 s. Includes isolated regenerated kit against the three
 original containers and independent read-back with the corrected captions.
 `git diff --check` clean.
+
+## 2026-10-18 — returned PL.zip review, checkpoint 1
+
+Owner requests answers to translator questions, not a release/full integration.
+Downloaded private `PL.zip` (Drive `1sWC3IlSHLd_6uDy84Q08VJwzMQS3UlEt`,
+891620 B); extracted views and nested working glossary locally only. Do not execute
+translator-supplied scripts or alter the returned archive. Initial strict check of
+9 MD files: source fingerprints/JP resolve; 24360 filled elements; 77 refusals,
+all caused by our generic token regex misreading literal percent + space + a word
+(e.g. Polish "% obrażeń" as printf "% o"). Fixed generic parsing to exclude the
+space flag; executable keeps its separate full printf checker. Regression gate
+passes. Detailed returned-package/binary/fragment/size review still in progress.

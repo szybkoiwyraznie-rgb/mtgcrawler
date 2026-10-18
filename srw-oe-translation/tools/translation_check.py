@@ -63,7 +63,10 @@ import pl_text  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
 EXT_DAT_RECORD = 388   # the measured one-record ``*_ext.dat`` file (mission_text)
-TOKEN_RE = re.compile(r"＜主人公(?:名|姓)＞|＠[0-9]|%%|%[-+ #0]*(?:[0-9]+|\*)?(?:\.[0-9*]+)?[diuoxXfFeEgGcsp]|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
+# Ordinary prose contains literal percentages followed by words ("50% obrażeń",
+# "% EN+"). Do NOT treat a space as a printf flag here: it invents % o/% E tokens.
+# Executable strings use their dedicated full printf parser in exe_strings.check_en.
+TOKEN_RE = re.compile(r"＜主人公(?:名|姓)＞|＠[0-9]|%%|%[-+#0]*(?:[0-9]+|\*)?(?:\.[0-9*]+)?[diuoxXfFeEgGcsp]|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
 BOX_WIDTH = export_strings.TYPICAL_LINE   # the typical dialogue line (46); the hard limit per
 BOXED = ("dialogue", "battle_quote")      # kind is export_strings.box_limit, as in the writers
 CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
