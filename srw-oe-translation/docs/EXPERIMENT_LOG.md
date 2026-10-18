@@ -7129,3 +7129,8 @@ Original PL.zip metadata MD5 matches unchanged local bytes. Worksheet adds MD gr
 element addresses and original EN reference so translator need not inspect JSONL.
 Reran real-input audit with these columns: all counts/measurements unchanged;
 5 synthetic audit tests pass. PR20 verified OPEN/DRAFT, correct assigned head branch.
+
+Final handoff: AGENTS.md points to returned-PL review, preserving partial-import
+scope and unresolved runtime/DLC limits. Audit now fails closed on any offset-row
+refusal other than pool deferral (pool writer separately verified); actual-input
+rerun unchanged. Final full suite: 1599 tests, OK, 27 skipped, 25.891 s.

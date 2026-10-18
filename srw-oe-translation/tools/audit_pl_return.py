@@ -192,7 +192,9 @@ def review(archive, package, out, originals=None):
             for index, value in pool_edits.items():
                 pool[index] = value
             records, refused, _ = W.plan_edits(mapped, member, parsed, 'config00.cpk', blob)
-            offsets, _deferred, _ = W.plan_offset_edits(mapped, member, parsed, blob, 'config00.cpk')
+            offsets, deferred, offset_stats = W.plan_offset_edits(mapped, member, parsed, blob, 'config00.cpk')
+            if offset_stats['mismatch'] or any(not x.endswith('tail-pool row, left to the pool writer') for x in deferred):
+                raise ValueError('skill offset writer refused a non-pool field')
             edits, conflicts = W.merge_edits(records, offsets)
             if refused or conflicts:
                 raise ValueError('skill record plans conflict')
