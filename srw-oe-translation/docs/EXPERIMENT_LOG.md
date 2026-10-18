@@ -7027,3 +7027,24 @@ Executable slots reject PL letters even in UTF-8 regions (font path unverified).
 Instructions corrected and unified with JSONL handoff. Full suite: 1591 tests OK,
 25 skipped, 40.158 s, including original-container extracted-kit verification.
 Final deterministic release build/upload follows this checkpoint.
+
+### PL translator v2 delivery — complete
+
+Final generator command (checkpoint `0053e01`):
+`python tools/build_pl_translator_views.py --package pakiet_EN --out local/release/pl_views_v2`.
+Exact ZIP CRC, file inventory/bytes vs generated folders and source-stamped blank
+import passed (46 MD files). Both uploaded privately beside originals and downloaded
+back; byte equality + SHA256 confirmed. Originals not renamed/overwritten.
+
+- `sceny_PL_sprawdzone_v2.zip`: 3078178 B, 39 entries,
+  SHA256 `225521b2b371d995dfc66fceadecbfae981abbb4e0397fb56b9fd518f4170598`,
+  Drive `1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB`.
+- `widoki_PL_sprawdzone_v2.zip`: 1204212 B, 11 entries,
+  SHA256 `d797e91518702bbc3be97be33e2b940ae784a7270a5f91aaa2e50c68da5350c9`,
+  Drive `1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_`.
+
+Report `docs/pl/TRANSLATOR_VIEWS_AUDIT.md`, numeric delivery manifest
+`docs/pl/translator-views-v2-delivery.json`. No synthetic translations are in these
+handoff ZIPs. Use both together and audited import/build tools, not old v1 patcher.
+Remaining uncertainty: unclassified leftovers, unmeasured layouts/variable expansion,
+actual translated-game QA and owner v5 runtime result. No 100% all-screen claim.
