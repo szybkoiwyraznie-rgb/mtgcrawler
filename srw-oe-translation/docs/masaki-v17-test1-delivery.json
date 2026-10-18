@@ -98,7 +98,7 @@
   },
   "dictionary_matches_already_english_v17_imenu19_byte_for_byte": true,
   "dictionary_sha256": "3f16a4a7ffb633ab0aadc2140c065717c75bb2d8af34dc3c91cd99d6df3b8fc7",
-  "runtime_tested": false,
+  "runtime_tested": true,
   "tests": {
     "run": 1610,
     "result": "OK",
@@ -106,5 +106,13 @@
     "seconds": 31.134
   },
   "game_binaries_in_github": false,
-  "game_binary_in_private_delivery": true
+  "game_binary_in_private_delivery": true,
+  "owner_runtime": {
+    "date": "2026-10-18",
+    "feedback": "wszystko pięknie przetłumaczone",
+    "result": "accepted",
+    "scope": "reported Character Viewer fields after the focused config19 test",
+    "limits": "No claim of all-chapter stability, all dictionaries, or a global gate exception.",
+    "integration": "Focused fix confirmed; not yet folded into standard full builder/release."
+  }
 }

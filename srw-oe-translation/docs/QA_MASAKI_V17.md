@@ -1,5 +1,12 @@
 # v17 — mieszane języki w Library → Characters dla Masakiego
 
+**Potwierdzenie właściciela, 2026-10-18:** po podmianie testowego config19
+„wszystko pięknie przetłumaczone”. Poprawka wyświetlanych pól na zgłoszonym ekranie
+zaakceptowana. Poniższe opisy oczekiwania na test dokumentują wcześniejszy etap.
+Nie jest to test wszystkich rozdziałów ani zgoda na globalne zdjęcie blokady.
+Wąską poprawkę należy zachować przy następnym pełnym wydaniu; standardowy builder
+nie został jeszcze zmieniony tak, aby stosował ją automatycznie.
+
 **2026-10-18, PR #20.** Zgłoszenie właściciela: po misji 0-0 i zastosowaniu bonusów
 DLC na ekranie Character Viewer lista Masaki/Shiro/Kuro jest japońska, pełne imię
 Masaki Andoh i seria są angielskie, podpis pseudonimu JP + wartość Masaki EN,

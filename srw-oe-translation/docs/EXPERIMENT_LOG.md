@@ -7271,3 +7271,14 @@ New Game, save deletion, font change or skill-size experiment. Runtime not teste
 old wider config01-08 crash cause not isolated, hence no global gate release.
 Full suite 1610 OK / 28 skipped,31.134 s; real input reproduction/readback performed
 separately and passed. Updated STATUS/NEXT_STEP/AGENTS and delivery manifest.
+
+### 2026-10-18 — owner accepts Masaki Character Viewer test
+
+Owner reports "wszystko pięknie przetłumaczone" after the focused config19 test.
+Mark reported visible Character Viewer fields accepted, no repeat screenshot/test
+needed. Do not extrapolate to all-chapter stability or remove config-wide guard.
+Update receipt, QA/status/next-step and AGENTS. Standard builder integration remains
+open for the next full release; the verified one-file override must be preserved.
+Delivered ZIP and code unchanged. Documentation-only: JSON parse and diff check.
+Git snapshot metadata again started at a6e2f58; SHA256-verified every working file
+against pushed 0f78c3e before mixed metadata reset, without file changes.

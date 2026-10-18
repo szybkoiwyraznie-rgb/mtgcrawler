@@ -4,7 +4,8 @@
 reported JP/EN mix in the config19 dictionary while imenu19 is fully EN. The
 global config-side viewer safety gate is the cause of those held-back fields;
 not missing translator work. A private existing-cell-only TEST1 for three
-characters is delivered; normal gate stays enabled, runtime approval pending.
+characters is delivered and owner-confirmed ("wszystko pięknie przetłumaczone").
+Normal gate stays enabled; narrow integration into the next full release remains open.
 See [QA_MASAKI_V17.md](QA_MASAKI_V17.md). One DLC file, no new ISO/font cycle.
 
 **V5 runtime update (2026-10-18): owner accepts the font on two opening
