@@ -47,18 +47,24 @@ Pliki:
 
 ## 2. Polskie znaki diakrytyczne
 
-Font gry został rozszerzony o **18 liter**: `ą ć ę ł ń ó ś ź ż` oraz `Ą Ć Ę Ł Ń Ó Ś Ź Ż`.
+Font gry ma 18 polskich liter: `ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż`. Każda z nich zajmuje
+**jedną jednostkę szerokości**, tak jak zwykła litera angielska (od wersji TEST_PL v2, 2026-10-18).
 Możesz ich swobodnie używać w `"pl"`.
 
-**Nic poza tym.** Każdy inny znak spoza CP932 to twardy błąd importu. Konsekwencje:
+**Nic poza tym.** Każdy inny znak spoza CP932 to twardy błąd importu:
 
-- **Nie ma** „ü", „ö", „é", „ā" ani żadnych innych znaków diakrytycznych.
-- **Nie ma** polskiego cudzysłowu otwierającego `„` ani półpauzy `–` i pauzy `—`.
-- **Są** (w CP932, po 2 bajty/jednostki szerokości): `“ ” ‘ ’ …` oraz ASCII `" ' - ( ) [ ] ? !`.
-  Cudzysłów i myślnik wybierz sam — byle konsekwentnie w całej grze (zapisz decyzję
-  w `dokumenty/glossary_pl.tsv`).
-- ASCII (`a-z 0-9 ! ? …`) = 1 bajt/1 jednostka; litera PL = 2 bajty/2 jednostki
-  (rysuje się z komórki pełnej szerokości); znak japoński/fullwidth = 2/2.
+- **Nie ma** „ü", „ö", „é", „ā" ani innych diakrytyków poza listą wyżej.
+- **Nie ma** polskiego cudzysłowu otwierającego `„`, półpauzy `–` ani pauzy `—`.
+- **Są**: `“ ” ‘ ’ …` oraz ASCII `" ' - ( ) [ ] ? !`. Cudzysłów i myślnik wybierz sam,
+  byle konsekwentnie w całej grze (zapisz decyzję w `dokumenty/glossary_pl.tsv`).
+- **Nie wolno** używać półszerokich katakan (`ｱ ｲ ｳ…`, U+FF61–U+FF9F). Ich bajty zajmują
+  litery polskie w grze, więc taki znak zostanie odrzucony.
+
+## 2a. Co się zmieniło (2026-10-18)
+
+Poprzednia wersja TEST_PL miała polskie litery za szerokie (dwie jednostki). Obecna wersja
+używa jednobajtowych glifów i liczy każdą literę jak zwykłą. Liczenie budżetów z §4 jest
+zaktualizowane: litera PL = 1 jednostka.
 
 ## 3. Tokeny i kontrolki (twarde)
 
@@ -74,9 +80,9 @@ Możesz ich swobodnie używać w `"pl"`.
 ## 4. Budżety (twarde)
 
 - **`max_bytes`** — twardy limit bajtów CAŁEGO tekstu (slot o stałym rozmiarze).
-  Litera PL liczy się jako 2 bajty, znak fullwidth jako 2, ASCII jako 1.
+  Litera PL liczy się jako 1 bajt (tak jak ASCII), znak fullwidth jako 2.
 - **Dialogi/cytaty**: szerokość linii ≤ **46** jednostek (absolutne maksimum 52);
-  litera PL = 2 jednostki.
+  litera PL = 1 jednostka.
 - **`suggested_max`** — ostrzeżenie (pole UI; nie przekraczaj zbytnio).
 - Wiersze z `"mode": "grow"` mogą być dowolnie długie bajtowo — limit jest tylko
   szerokością linii na ekranie.

@@ -1,6 +1,8 @@
 # Polskie litery: plan zmiany fontu (checkpoint 2026-10-18)
 
-Status: **plan + w toku. Nic nie jest jeszcze potwierdzone w grze.**
+Status (2026-10-18, po commicie 8497268): implementacja gotowa, testy jednostkowe 1535 OK.
+Pakiet testowy **srw-oe-test-pl-v2.zip** na Dysku (`1GheEOtFzQm4pHv_VlOJqfs0hsFdiEazi`).
+**Nic nie jest jeszcze potwierdzone w grze** - czeka na test PPSSPP właściciela.
 
 ## Wynik testu v1 (zrzuty właściciela)
 - Gra się uruchamia, brak crasha.
@@ -23,3 +25,12 @@ Status: **plan + w toku. Nic nie jest jeszcze potwierdzone w grze.**
 - Każdy wiersz pakietu PL musi być przetłumaczony, inaczej zostanie japońska katakana
   wyświetlona jako polska litera. Pakiet PL nie może zostawiać JP (walidator).
 - Katakana w `ank.fta` może być używana poza tekstem pakietu (grafika/ikony) - do sprawdzenia w grze.
+
+## Wykonane (2026-10-18)
+- `tools/font_pl.py`: zapis 18 glifów do `ank.fta` pod bajty PL_BYTES (kanji nietknięte).
+- `tools/data/pl_glyphs_8x14.json`: glify wygenerowane przez `tools/make_pl_glyphs.py`
+  (Roboto Medium, linia bazowa jak w grze, wysokość wielkich liter jak 'H' w grze).
+- `tools/pl_text.py`: kodek jednobajtowy; half-width katakana w tekście PL = błąd.
+- `tests/`: 1535 OK. Pakiet testowy v2 sprawdzony `translation_check --field pl`: 0 błędów.
+- Dokumentacja tłumacza (`docs/translator_pl/INSTRUKCJA_PL.md` §2, §2a, §4): szerokość 1.
+- Nieprzetestowane w grze: kształty ł/Ż i szerokość (hipoteza), walidacja w PPSSPP.
