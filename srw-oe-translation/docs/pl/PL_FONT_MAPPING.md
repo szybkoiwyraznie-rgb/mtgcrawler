@@ -5,6 +5,7 @@
 Private owner input: Japanese 1.08 disc-side `EBOOT.BIN`, 5,531,024 bytes,
 plain ELF. `font.cpk` SHA-256
 `a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6`.
+EBOOT SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`.
 Only tools/findings are committed; originals and disassembly stay ignored.
 
 The ELF has segment 0 at file offset 0xA0, relative address zero. The glyph
@@ -42,3 +43,19 @@ file-level checks are not a substitute for actual PPSSPP rendering confirmation.
 13 tests OK, including raw physical offsets and unchanged-cell checks.
 A standalone re-check of the executable mapping and a batch opening-scene kit
 are the next coherent work chunk. No new runtime result is claimed.
+
+## Second correction: paired-pixel order
+
+An offline preview made from the actual patched ISO compared the original ASCII
+cells and PL cells under both nibble orders. Original ASCII (`acelnoszz ACELNOSZZ`)
+is coherent with **low nibble = left pixel**, high nibble = right pixel; the old
+high-first interpretation swaps every adjacent pixel pair. The old PL rasterizer
+packed high-first, so the former verifier again agreed with the writer while
+using a wrong image interpretation. This explains another source of malformed
+marks; it is bitmap evidence, not a claim that v3 has run in PPSSPP.
+
+The corrected packer/reader use low-first. A regression pins `[1,2,3,4,5,6,7,8]`
+to raw `21 43 65 87` bytes, and the independent ISO verifier packs the JSON art
+itself rather than calling the font writer's packing/index helpers. Original
+ASCII bitmap bytes remain unchanged. The local preview is derived game data and
+is not committed or included in the kit.

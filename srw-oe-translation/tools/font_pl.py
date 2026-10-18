@@ -26,7 +26,7 @@ Container layout (``font.cpk``, decompressed; measured)
 -------------------------------------------------------
 header: u32 dir_offset=0x10, u32 count=7, u32 name_len=0x20; directory of
 (u32 offset, u32 size, name[32]) records.  ``ank.fta`` is 192 glyphs x 56 B
-(8 x 14 px, 4 bpp, two pixels per byte, high nibble first). The renderer uses
+(8 x 14 px, 4 bpp, two pixels per byte, low nibble first). The renderer uses
 index = byte - 0x20 for ASCII, but byte - 0x40 for half-width katakana.
 See docs/pl/PL_FONT_MAPPING.md: the former universal -0x20 assumption was wrong.
 """
@@ -160,7 +160,7 @@ def read_ank_glyph(ank: bytes, byte: int) -> List[List[int]]:
     for y in range(ANK_ROWS):
         px: List[int] = []
         for value in cell[y * 4:(y + 1) * 4]:
-            px.extend(((value >> 4) & 0xF, value & 0xF))
+            px.extend((value & 0xF, (value >> 4) & 0xF))
         rows.append(px)
     return rows
 
@@ -172,7 +172,7 @@ def ank_cell(rows: Sequence[Sequence[int]]) -> bytes:
     out = bytearray()
     for row in rows:
         for x in range(0, ANK_COLS, 2):
-            out.append(((row[x] & 0xF) << 4) | (row[x + 1] & 0xF))
+            out.append((row[x] & 0xF) | ((row[x + 1] & 0xF) << 4))
     return bytes(out)
 
 

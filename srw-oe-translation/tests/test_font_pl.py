@@ -125,6 +125,12 @@ class PatchTests(unittest.TestCase):
         self.assertEqual(set(verify), set(font_pl.PL_LETTERS))
         self.assertTrue(all(row["ok"] for row in verify.values()))
 
+    def test_nibbles_are_low_pixel_first_not_a_self_consistent_wrong_roundtrip(self):
+        rows = [[1, 2, 3, 4, 5, 6, 7, 8]] * 14
+        self.assertEqual(font_pl.ank_cell(rows), bytes.fromhex("21 43 65 87") * 14)
+        physical = b"\x00" * (69 * 56) + bytes.fromhex("21 43 65 87") * 14
+        self.assertEqual(font_pl.read_ank_glyph(physical, ord("e")), rows)
+
     def test_ank_cell_round_trip(self):
         art = font_pl.load_glyphs()["ą"]
         cell = font_pl.ank_cell(art)

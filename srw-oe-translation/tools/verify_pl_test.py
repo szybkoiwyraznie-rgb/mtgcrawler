@@ -85,7 +85,8 @@ def verify(original: Path, patched: Path, package: Path) -> dict:
         # Independent from font_pl.ank_index/read_ank_glyph (the old self-check
         # shared the writer's wrong mapping). Matches measured MIPS instructions.
         index = byte - 0x40
-        physical[index] = font_pl.ank_cell(expected[letter])
+        physical[index] = bytes(row[x] | (row[x + 1] << 4)
+                                for row in expected[letter] for x in range(0, 8, 2))
     for index in range(len(a) // 56):
         target = physical.get(index, a[index * 56:(index + 1) * 56])
         if b[index * 56:(index + 1) * 56] != target:
