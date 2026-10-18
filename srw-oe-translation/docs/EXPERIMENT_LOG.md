@@ -7081,3 +7081,38 @@ all caused by our generic token regex misreading literal percent + space + a wor
 (e.g. Polish "% obrażeń" as printf "% o"). Fixed generic parsing to exclude the
 space flag; executable keeps its separate full printf checker. Regression gate
 passes. Detailed returned-package/binary/fragment/size review still in progress.
+
+### Returned PL review checkpoint 2 — actual input and writer evidence
+
+After percent-token fix: strict source-stamped import of 9 MD files accepts all
+24360 filled elements, propagates 7580 PL copies. Working copy has 32744 filled
+text rows, 0 validator errors; 76400 empty rows reflect the partial handoff.
+EN/JP/metadata and original PL.zip remain unchanged. Imported into ignored copy only.
+
+Added `tools/audit_pl_return.py`: read nested glossary as data, never execute supplied
+scripts; source-preserving import, per-view warning/empty-field TSVs, original EBOOT
+write/read-back, original skill-pool/record size measurement and literal four-argument
+formatting previews. All detailed translation/game-derived output stays under local/.
+Actual private inputs downloaded: config00.cpk 929920 B, configst.cpk 376960 B,
+matching original EBOOT.BIN 5531024 B (SHA256 26e7f1a...2052).
+
+All 28 empty config elements classified: 18 offsets outside every one of the five
+item/skill text fields (14 record-header +24, 4 numeric tails); 10 ItemDrop binary
+noise rows already refused by table_write. Do not ask translator to fill them.
+EBOOT: 399 fields applied, 0 skipped; 68 contain a colour lead (63 complete codes,
+5 split leads); all source colour controls preserved, encoded slots read back exact.
+Warnings reproduced per visible MD element: skills 2082, items 138, genuinely soft.
+BUT builder of original config00 refuses current Skill00: 224678 B vs safe guard
+216768 B = 7910 B over. Same number independently measured from record/pool lengths;
+no budget guard removed, no release generated. Pool grows 1748 B (same-pool DLC
+projection 17386 B vs conservative 15638 B; not an actual EDAT build verification).
+
+Literal table formatting uses record bytes +28..31 for four pool indices, no added
+spaces (unlike the reading catalogue formatter). 1421 fields assembled; 33 fields
+using pool entry 37 exhibit the broken `...roń...` join. Example current output
+`Broń niewiązkowaroń wiązkowa`; fragment 263 also needs contextual review, not a
+blind capital-B insertion. No claim these previews replace runtime rendering or
+all executable overrides. Glossary: 187 distinct keys, no conflicting duplicate keys.
+Tests: 1599 OK, 27 skipped, 26.107 s; two extra skips vs earlier runs because private
+font/event originals are absent in this sandbox. Original config/EBOOT checks above
+ran independently and passed/refused exactly as stated. diff check clean.
