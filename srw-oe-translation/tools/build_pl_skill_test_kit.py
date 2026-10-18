@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package intact returned PL skills as a private, game-data-free A/B test kit."""
+"""Package intact returned PL skills as a private, game-binary-free A/B test kit."""
 import argparse
 import hashlib
 import json

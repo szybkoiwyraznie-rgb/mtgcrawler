@@ -59,6 +59,16 @@ def experimental_budget():
         W.MEMBER_SIZE_LIMITS.update(saved)
 
 
+def grow_control(original, size):
+    """Native Japanese control must not run through the PL-reserved-katakana codec."""
+    previous = text_codec.lang()
+    try:
+        text_codec.set_lang('en')
+        return M.grow_with_spaces(original, 'skill', MEMBER, size)
+    finally:
+        text_codec.set_lang(previous)
+
+
 def select_package(source, target, override_offsets):
     """Keep PL verbatim only for Skill00 and its 20 executable base overrides."""
     target.mkdir(parents=True, exist_ok=False)
@@ -223,12 +233,15 @@ def build(iso, package, out, acknowledgement):
             expected_exe, exe_report = E.apply_rows(original_elf, exe_rows)
             if exe_report['skipped'] or iso_pack.read_member(a_iso, EXE) != expected_exe:
                 raise ValueError('executable slot write/read-back failed')
+            text_section = E.Elf(original_elf).section('.text')
+            if text_section is None or original_elf[text_section.offset:text_section.offset+text_section.size] != expected_exe[text_section.offset:text_section.offset+text_section.size]:
+                raise ValueError('executable code .text changed')
             exe_a = expected_exe
             scope_a = verify_iso_scope(iso, a_iso, {CONFIG,FONT,EXE})
             a_named = a_dir / 'A_PELNE_UMIEJETNOSCI_PL.iso'
             a_iso.rename(a_named)
             # Control changes no numeric data: current writer fixes +32/+36/+52 as it pads.
-            control = M.grow_with_spaces(source_skill, 'skill', MEMBER, len(full))
+            control = grow_control(source_skill, len(full))
             check_b = M.check(control, 'skill', MEMBER, source_skill)
             b_parsed = R.parse_member(control,'skill',MEMBER)
             original_parsed = R.parse_member(source_skill,'skill',MEMBER)
@@ -253,6 +266,8 @@ def build(iso, package, out, acknowledgement):
             iso_pack.patch_iso(iso,b_iso,{CONFIG:config_b,FONT:font_a,EXE:exe_a})
             if iso_pack.read_member(b_iso,CONFIG) != config_b or skill_member(config_b)[0] != control:
                 raise ValueError('B ISO read-back failed')
+            if iso_pack.read_member(b_iso,FONT) != font_a or iso_pack.read_member(b_iso,EXE) != exe_a:
+                raise ValueError('A/B common font/executable differ')
             scope_b = verify_iso_scope(iso,b_iso,{CONFIG,FONT,EXE})
             report.update({'skill_bytes_A':len(full),'skill_bytes_B':len(control),
                            'over_guard_bytes':max(0,len(full)-W.SKILL00_LIMIT),
@@ -260,7 +275,7 @@ def build(iso, package, out, acknowledgement):
                            'B':{**check_b,'iso':str(b_iso),'sha256':file_sha(b_iso),'scope':scope_b,
                                 'japanese_text_and_pool_preserved':True},
                            'common_font':{'ok':True,'glyphs':18,'style':'native-ascii-plus-marks-v1'},
-                           'common_executable_fields':exe_report['applied'],
+                           'common_executable_fields':exe_report['applied'], 'executable_code_text_unchanged':True,
                            'returned_snapshot':json.loads((package/'SKILL_TEST_SNAPSHOT.json').read_text(encoding='utf-8'))})
     finally:
         text_codec.set_lang(old_lang)

@@ -44,6 +44,39 @@ class TrialTests(unittest.TestCase):
             self.assertEqual(actual[1],{**other,'pl':''})
             self.assertEqual(counts['03_skills.jsonl'],1)
 
+class NativeControlTests(unittest.TestCase):
+    def test_japanese_control_uses_native_codec_and_restores_pl(self):
+        from test_item_skill_write import build_member, build_record
+        import text_codec
+        import item_skill_records as R
+        blob=build_member('skill',[build_record('skill',1000,'ｶﾅ','攻撃ｶﾅ'),build_record('skill',1001,'長い名前','長い説明テキスト')],pool_runs=['気力'])
+        previous=text_codec.lang()
+        try:
+            text_codec.set_lang('pl')
+            with T.experimental_budget():
+                padded=T.grow_control(blob,len(blob)+4)
+            self.assertEqual(text_codec.lang(),'pl')
+            self.assertEqual(len(padded),len(blob)+4)
+            before=R.parse_member(blob,'skill',T.MEMBER)['records'][0]
+            after=R.parse_member(padded,'skill',T.MEMBER)['records'][0]
+            self.assertEqual(W.field_raw(padded,after,'effect'),W.field_raw(blob,before,'effect')+b'    ')
+            self.assertEqual(W.field_raw(padded,after,'name'),W.field_raw(blob,before,'name'))
+        finally:
+            text_codec.set_lang(previous)
+
+    def test_codec_restored_when_control_writer_refuses(self):
+        from unittest.mock import patch
+        import text_codec
+        previous=text_codec.lang()
+        try:
+            text_codec.set_lang('pl')
+            with patch.object(T.M,'grow_with_spaces',side_effect=ValueError('synthetic refusal')):
+                with self.assertRaisesRegex(ValueError,'synthetic refusal'):
+                    T.grow_control(b'fixture',123)
+            self.assertEqual(text_codec.lang(),'pl')
+        finally:
+            text_codec.set_lang(previous)
+
 
 if __name__=='__main__':
     unittest.main()

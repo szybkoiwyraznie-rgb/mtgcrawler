@@ -10,7 +10,7 @@ chcp 65001 >nul
 set "PYTHONIOENCODING=utf-8"
 echo.
 echo  TEST UMIEJETNOSCI PL - PELNY TEKST OD TLUMACZA
- echo  Eksperyment A/B. Bez skrotow. To NIE jest gotowy patch.
+echo  Eksperyment A/B. Bez skrotow. To NIE jest gotowy patch.
 echo  Oryginalne ISO i zapisy gry pozostana bez zmian.
 echo.
 set "PY="

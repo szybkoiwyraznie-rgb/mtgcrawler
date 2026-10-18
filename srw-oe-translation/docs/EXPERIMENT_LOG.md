@@ -7168,3 +7168,15 @@ guard is removed in a finally-restored scope; standard builder policy unchanged.
 Synthetic guard/opt-in/verbatim tests pass. First local kit generated (not delivered).
 Actual-container ISO-fixture execution and independent read-back STILL PENDING.
 Do not claim runtime QA or bootable full ISO from the miniature fixture.
+
+Intact-skill fixture checkpoint: isolated copied-kit run using original config00,
+font and plain EBOOT in a four-file miniature ISO (not a playable game). A builds
+224678 B, 4932 record fields and 696 edited pool entries read back verbatim; all
+1469 numeric tails/pointers preserved; only Skill00 changed among config subfiles.
+Initial control failed because Japanese strings passed through active PL codec;
+fixed by temporarily using native CP932 ONLY for original-JP padding and restoring
+PL even on failure. Regression tests cover reserved katakana and exception restore.
+A/B rerun successful: both 224678 B, B retains JP/pool/numerics, identical font and
+20 skill override strings, no other logical ISO file changes. Original unchanged,
+normal guard restored. Added explicit executable .text equality check; final ZIP
+and its isolated run still pending. No PPSSPP/runtime claim.
