@@ -7221,3 +7221,25 @@ repair fragment pairs, prioritise repeated names/level variants/shared descripti
 Measure actual writer output before next batched runtime test; no new font hunt or
 repeat of over-budget A/B. Updated delivery manifest, review and AGENTS handoff.
 Documentation/metadata only; delivered ZIP and translator/game inputs unchanged.
+
+### 2026-10-18 — v17 Masaki Character Viewer: actual delivered-kit reproduction
+
+Owner screenshot after mission 0-0 DLC bonuses: list Masaki/Shiro/Kuro JP, full name
+Masaki Andoh and series EN, nickname label JP/value Masaki EN, actor label/value JP.
+No claim about when this first appeared. Screenshot stays private, never Git.
+Git snapshot metadata had reverted to base a6e2f58; fetched assigned branch and
+SHA256-verified every tracked working file equals pushed 02567c5 before mixed reset
+of index/HEAD. No user files overwritten, assigned branch/PR20 retained.
+
+Downloaded actual v17 ZIP (SHA256 matches 5afdd00f...87937), original config19.EDAT
+32896 B and imenu19.EDAT 18600 B. Extracted kit builder (not current substitute),
+EN only, original two containers -> zero build problems. Its log gate holds back
+326 rows on config19. Both original CharaDictionary19 pools byte-identical.
+Actual output config19 for key4420: slot0/3 EN, slot4 JP label + Masaki, slot1/5/11
+JP. Keys4424/4426 analogous. imenu19 has all EN fields including labels and actor.
+This exactly reproduces screenshot content in the config-side bytes; it strongly
+supports this DLC viewer path selecting config19, but no runtime pointer trace.
+Cause is NOT absent EN: CONFIG_DICT_SPARE_CATEGORIES gate intentionally blocks
+voice_actor, short_name and labels globally after old config01-08 crashes.
+Do not remove that safety gate globally. Focused existing-slot-only patch for three
+config19 character records and its read-back/tests are next; runtime still pending.
