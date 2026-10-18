@@ -1,0 +1,554 @@
+{
+  "name": "srw-oe-test-pl-v5.zip",
+  "bytes": 6415373,
+  "sha256": "2ed8000ef9c4c61cb10b0d0b81b1b51bbfa2b8165a8c5c09aaabeef8931fec33",
+  "files": 64,
+  "probe_counts": {
+    "files": 11,
+    "dialogue_rows": 16,
+    "mission_rows": 1,
+    "unit_rows": 3,
+    "weapon_rows": 16
+  },
+  "scope": "patch tools and probe package only; no game files",
+  "date": "2026-10-18",
+  "drive_id": "13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD",
+  "drive_url": "https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view",
+  "drive_download_back_equal": true,
+  "style": "native-ascii-plus-marks-v1",
+  "read_back": {
+    "kit_version": "5",
+    "ok": true,
+    "failures": [],
+    "font_cells": 18,
+    "native_font": {
+      "ok": true,
+      "failures": [],
+      "style": "native-ascii-plus-marks-v1",
+      "letters": {
+        "ą": {
+          "base": "a",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ć": {
+          "base": "c",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ę": {
+          "base": "e",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ł": {
+          "base": "l",
+          "accent_pixels_changed": 4,
+          "native_peak": 6,
+          "output_peak": 6
+        },
+        "ń": {
+          "base": "n",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ó": {
+          "base": "o",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ś": {
+          "base": "s",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ź": {
+          "base": "z",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ż": {
+          "base": "z",
+          "accent_pixels_changed": 2,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ą": {
+          "base": "A",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ć": {
+          "base": "C",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ę": {
+          "base": "E",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ł": {
+          "base": "L",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ń": {
+          "base": "N",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ó": {
+          "base": "O",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ś": {
+          "base": "S",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ź": {
+          "base": "Z",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ż": {
+          "base": "Z",
+          "accent_pixels_changed": 2,
+          "native_peak": 9,
+          "output_peak": 9
+        }
+      }
+    },
+    "opening_rows": 16,
+    "unit_weapon_rows": 19,
+    "hashes": {
+      "original": {
+        "font_sha256": "a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6",
+        "event_sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa"
+      },
+      "patched": {
+        "font_sha256": "e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f",
+        "event_sha256": "b7ed5ae6a6deb32991b7b0e1d2d7c894d89a7d5e22a0cb2b1b8d788116446928"
+      }
+    },
+    "scope": "ISO byte read-back, not emulator gameplay"
+  },
+  "tests": {
+    "runner": "python -m unittest discover -s srw-oe-translation/tests",
+    "total": 1569,
+    "skipped": 25,
+    "result": "OK"
+  },
+  "v4_runtime_evidence": {
+    "source": "four owner screenshots in chat; not stored in Git",
+    "confirmed": "Text renders in opening narration/dialogue, scene title and the Zażółć unit-name header.",
+    "feedback": "Polish letters too bold/full; lowercase bodies seem 1–2 pixels lower."
+  },
+  "bitmap_metrics": {
+    "ą": {
+      "base": "a",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 179
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 381
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 179
+      }
+    },
+    "ć": {
+      "base": "c",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 145
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 299
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 145
+      }
+    },
+    "ę": {
+      "base": "e",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 181
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 370
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 181
+      }
+    },
+    "ł": {
+      "base": "l",
+      "native": {
+        "peak_value": 6,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 72
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 208
+      },
+      "v5": {
+        "peak_value": 6,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 85
+      }
+    },
+    "ń": {
+      "base": "n",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 154
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 353
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 154
+      }
+    },
+    "ó": {
+      "base": "o",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 155
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 358
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 155
+      }
+    },
+    "ś": {
+      "base": "s",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 149
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 322
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 149
+      }
+    },
+    "ź": {
+      "base": "z",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 144
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 296
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 144
+      }
+    },
+    "ż": {
+      "base": "z",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 144
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 296
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 5,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 144
+      }
+    },
+    "Ą": {
+      "base": "A",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 185
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 344
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 185
+      }
+    },
+    "Ć": {
+      "base": "C",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 137
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 345
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 137
+      }
+    },
+    "Ę": {
+      "base": "E",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 153
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 366
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 153
+      }
+    },
+    "Ł": {
+      "base": "L",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 126
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 294
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 144
+      }
+    },
+    "Ń": {
+      "base": "N",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 248
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 536
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 248
+      }
+    },
+    "Ó": {
+      "base": "O",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 163
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 419
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 163
+      }
+    },
+    "Ś": {
+      "base": "S",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 160
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 382
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 160
+      }
+    },
+    "Ź": {
+      "base": "Z",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 132
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 338
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 132
+      }
+    },
+    "Ż": {
+      "base": "Z",
+      "native": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 132
+      },
+      "v4": {
+        "peak_value": 15,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 346
+      },
+      "v5": {
+        "peak_value": 9,
+        "body_top_y4plus_threshold4": 4,
+        "body_bottom_threshold4": 11,
+        "body_coverage_sum_y4_to_11": 132
+      }
+    }
+  },
+  "distribution_guards": [
+    "Native ASCII cells are read from user originals only; no original/derived game bitmap JSON or image is included.",
+    "Kit ships composition code, no runtime Roboto glyph JSON.",
+    "Only diacritic masks may differ from original ASCII bodies; original ASCII glyphs unchanged."
+  ],
+  "verification_limits": [
+    "Isolated extracted delivered ZIP build/verify passed using original font/event/config containers in a fixture ISO, not a full-game boot.",
+    "Illustrative local bitmap preview inspected; not an emulator screenshot.",
+    "V5 runtime look and feel remains unconfirmed. V4 screenshots are not a v5 runtime result."
+  ]
+}

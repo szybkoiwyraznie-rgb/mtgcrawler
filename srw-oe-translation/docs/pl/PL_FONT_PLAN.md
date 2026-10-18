@@ -1,5 +1,13 @@
 # Polskie litery: plan zmiany fontu (checkpoint 2026-10-18)
 
+**Najnowsze v5 (2026-10-18):** v4 potwierdzony w grze, ale właściciel zgłosił
+zbyt grube i nieco za niskie polskie litery. [V5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view)
+kopiuje oryginalne korpusy ASCII i dodaje tylko maski diakrytyków; nie rasteruje
+Roboto i nie przechowuje bitmap gry w repo/kit. [Styl i dowody](PL_FONT_STYLE.md),
+[manifest](test-v5-delivery.json). 1569 unittest OK (25 skipped), isolated kit
+read-back + niezależny audyt natywnych korpusów OK; **runtime v5 niepotwierdzony**.
+Dalsze sekcje są historią.
+
 **Najnowsze (2026-10-18):** właściciel przesłał dwa zrzuty v3 i ocenił wygląd
 pozytywnie. Na jego prośbę [v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view)
 zawiera naturalne próbki w pierwszym dialogu, bez zmiany fontu/kodeka.

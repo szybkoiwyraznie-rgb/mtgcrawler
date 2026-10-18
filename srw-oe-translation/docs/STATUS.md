@@ -1,6 +1,19 @@
 # Project status
 
-Last updated: 2026-10-18 (PL v3 runtime positive, natural-text test v4 — PR #20)
+Last updated: 2026-10-18 (PL v4 runtime/style feedback; native font v5 — PR #20)
+
+**Najnowsze PL: v4 działa; [TEST_PL v5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view) dopasowuje styl fontu.**
+Cztery zrzuty właściciela pokazują działający tekst w narracji, dialogu, tytule
+sceny i nazwie jednostki; uwagi o grubości i wysokości potwierdzone pomiarem bitmap.
+V5 nie rasteruje Roboto: kopiuje korpusy ASCII z własnego oryginalnego fontu gry
+podczas budowy i dodaje tylko małe maski diakrytyków. Bez skalowania, przesuwania
+ani pogrubienia; źródłowe ASCII bez zmian. Korpusy i krycie sprawdzane niezależnym
+odczytem ISO, żadne bitmapy gry/pochodne JSON nie są w Git ani w paczce.
+1569 unittest OK (25 skipped), wydany ZIP wypakowany i jego CLI sprawdzone na fixture
+ISO z oryginalnymi kontenerami; Drive download-back identyczny. Teksty v4 zachowane
+(poza etykietami wersji). **V5 nie uruchomiono tu w PPSSPP; wygląd runtime oczekuje
+oceny**, czego nie zastępuje potwierdzenie v4. [Dowody stylu](pl/PL_FONT_STYLE.md),
+[manifest v5](pl/test-v5-delivery.json). Starsze stany poniżej są historią.
 
 **Najnowsze PL: v3 potwierdzony na zrzutach właściciela; [TEST_PL v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view) dostarczony.**
 Właściciel ocenił font pozytywnie i poprosił o naturalne zdania w pierwszym dialogu.

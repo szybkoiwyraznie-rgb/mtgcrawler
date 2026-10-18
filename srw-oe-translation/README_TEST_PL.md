@@ -1,46 +1,46 @@
-# TEST_PL v4 — naturalne polskie zdania w pierwszym dialogu
+# TEST_PL v5 — polskie litery dopasowane do oryginalnego fontu
 
-**V3 działa w grze:** właściciel przesłał zrzuty pokazujące polskie litery i ocenił
-wygląd pozytywnie. V4 **nie zmienia fontu ani kodeka**. Zamiast ciągów alfabetu
-wstawia krótkie, naturalne zdania, żeby ocenić czytelność w normalnym tekście.
-To wymyślone próbki techniczne, **nie tłumaczenie japońskiego scenariusza**.
+W zrzutach v4 widać działające polskie napisy, ale litery z Roboto są pełniejsze,
+a korpusy części małych liter niższe od znaków gry. **V5 nie używa już Roboto.**
 
-## Jak uruchomić
+Podczas budowy kopiuje oryginalne `a/c/e/l/n/o/s/z` (i wielkie odpowiedniki) z Twojego
+fontu i dodaje tylko ogonki, kreski oraz kropki. Korpusy zachowują oryginalne piksele,
+wysokość, położenie i krycie. Nie są skalowane ani pogrubiane. Font i pochodne bitmapy
+nie są dołączone do paczki — bazę pobiera ona z Twojego własnego ISO.
+
+## Jak sprawdzić — ten sam tekst co w v4
 
 1. Rozpakuj **cały ZIP do nowego folderu**. Uruchom **`TEST_PL.bat`** i wybierz
    swoje **oryginalne ISO SRW OE 1.08**, nie wynik poprzedniego patchowania.
-2. Otwórz **`output\patched.iso`** w PPSSPP od zimnego startu i wybierz **New Game**.
-   Nie wczytuj save state i nie kasuj zwykłych zapisów.
-3. Wystarczy screenshot **pierwszego okna dialogowego**. Tekst zaczyna się tak:
+2. Otwórz nowe **`output\patched.iso`** w PPSSPP od zimnego startu i wybierz
+   **New Game**. Nie wczytuj save state i nie kasuj zwykłych zapisów.
+3. Wystarczy screenshot pierwszej planszy **`PL V5`** lub pierwszego dialogu:
 
 ```text
 (Łączność działa. Słychać mnie wyraźnie?
 Chcę dziś dokończyć próbę osłony.)
 ```
 
-W tych dwóch liniach są m.in. wszystkie wskazane znaki **ł, ś, ć, ą, ę, ń**,
-a także ź i ó. Kolejne kwestie sprawdzają m.in. ż oraz imię gracza:
+Porównaj grubość i wysokość **ą/ę/ć/ś/ń/ó/ł** ze zwykłymi literami obok nich.
+Na kolejnej planszy pozostają wielkie litery i `Zażółć gęślą jaźń`.
+Naturalne zdania z v4 są bez zmian; zmieniły się tylko glify i etykiety wersji.
+Nie trzeba szukać niczego w menu ani dochodzić do listy broni. To nadal wymyślone
+próbki techniczne, **nie tłumaczenie japońskiego scenariusza**.
 
-```text
-Łączność działa. Możemy zacząć.
-Słyszę cię wyraźnie. Wszystko działa.
-```
-
-Naturalne zdania są również od razu na pierwszej planszy `PL V4`, przed dialogiem.
-Druga plansza zachowuje komplet wielkich liter i pangram `Zażółć gęślą jaźń`.
-Pozostałe plansze skrócono: nie trzeba już przewijać dwunastu powtarzanych ciągów
-alfabetu. Nie trzeba szukać niczego w menu ani dochodzić do listy broni.
-
-## Automatyczna kontrola
+## Co kontroluje automat
 
 Po budowie narzędzie czyta wynikowe ISO i tworzy **`output\PL_VERIFY.json`**:
-sprawdza 18 fizycznych komórek fontu, pozostałe glify/człony fontu, 16 wpisów
-początku misji (w tym nowe zdania), pole tytułu i 19 prób nazw jednostek/broni.
-W razie błędu nie zgłasza gotowego testu. To kontrola plików; w tym środowisku
-nie uruchomiono v4 w PPSSPP.
+
+- 18 fizycznych komórek fontu i dokładne zachowanie korpusów poza maską diakrytyku;
+- oryginalne krycie oraz niezmienione litery ASCII i pozostałe człony fontu;
+- 16 wpisów początku misji, pole tytułu i 19 prób nazw jednostek/broni.
+
+W razie błędu nie zgłasza gotowego testu. Kontrola plików i lokalny podgląd bitmap
+przeszły; **v5 nie uruchomiono tutaj w PPSSPP**. Zrzuty właściciela potwierdzają
+wcześniejsze v4, nie nowy wygląd v5.
 
 Zmienia tylko `font.cpk`, `eventP00.cpk` i `config00.cpk`. Nie wymaga DLC,
 nie zmienia EBOOT, tekstur ani zapisów. Oryginalne ISO pozostaje nietknięte.
-Wymagany Python 3; dodatkowe biblioteki graficzne nie są potrzebne.
+Wymagany Python 3; Pillow ani inne biblioteki graficzne nie są potrzebne.
 Pakiet nie zawiera plików gry. W razie błędu budowy prześlij komunikat oraz
-dostępny `build_report.json` lub `PL_VERIFY.json` — nie rób kolejnych prób w ciemno.
+`build_report.json` lub `PL_VERIFY.json` — nie rób kolejnych prób w ciemno.

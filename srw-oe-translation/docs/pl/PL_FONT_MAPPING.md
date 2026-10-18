@@ -1,5 +1,13 @@
 # PL font: renderer mapping correction (2026-10-18)
 
+## Latest styling handoff
+
+V4 screenshots now confirm prose rendering (narration/dialogue/title/unit name),
+but the owner reports weight/height mismatch. V5 replaces external rasterization
+with native ASCII bodies plus sparse accents, preserving the mapping documented
+below. See [style evidence](PL_FONT_STYLE.md) and [v5 manifest](test-v5-delivery.json).
+V5 runtime appearance is not yet confirmed; the following v3/v4 notes are history.
+
 ## Owner runtime result (2026-10-18)
 
 The owner supplied two screenshots from TEST_PL v3 and said it looks good. Polish

@@ -45,3 +45,13 @@ original containers in a synthetic ISO fixture. Local nearest-neighbour previews
 were inspected; they are derived game art, remain ignored and are not an emulator
 screenshot. V5 runtime appearance still needs confirmation. Natural test prose
 from v4 is unchanged, apart from version labels.
+
+## Delivery
+
+[TEST_PL v5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view)
+is delivered; [manifest and numeric metrics](test-v5-delivery.json). Final suite:
+1569 unittest tests OK (25 skipped), including corruption/missing-mark mutations.
+The actual delivered ZIP was extracted and run with isolated Python on a fixture
+ISO containing real original font/event/config containers. All 18 native-body
+and coverage audits pass; unselected font/ASCII/event/config members are unchanged.
+V5 runtime aesthetics are still unconfirmed. Earlier owner's screenshots are v4.

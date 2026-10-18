@@ -6884,3 +6884,79 @@ scope and limits; code and tests pushed on the session branch/PR #20.
 success and v4 offline checks are separate evidence. Owner can assess v4 with
 one screenshot of the first dialogue (or first prose panel); no menu search.
 No game files, screenshots, builds or filled translator package added to Git.
+
+## 2026-10-18 — v4 runtime confirmed with style feedback; native-body PL font v5
+
+**Owner evidence:** four chat screenshots (`image-1.png` through `image-4.png`)
+show v4 natural Polish prose in opening narration, scene title and dialogue, plus
+the `Zażółć` unit-name header. Owner: works, but PL appears bold/full and lowercase
+bodies seem 1–2 pixels lower. Screenshots remain outside Git. This expands v4
+runtime evidence to those screens, not the whole game or full Polish package.
+
+**Autonomous measurement:** inspected original `ank.fta` vs legacy v4 raster at
+8×14, low-nibble-left, using the known original font SHA-256
+`a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6`.
+Original ASCII peak values: usually 9/15, lowercase l 6/15; old PL raster reaches
+15/15. Native c/e/n/o/s meaningful body pixels start at row 4, the old PL bodies at
+row 5. Differences vary by letter (native a's strong pixels start at row 5 too),
+so do not claim that every PL letter is exactly 1 or 2 pixels low. Numeric body
+metrics (no pixel arrays) are in `pl/test-v5-delivery.json`.
+
+**Change:** new pure-Python `pl_glyph_compose.py` copies native ASCII bodies from
+the user's font at build time, without scaling, shifting, centering or boldening.
+Only sparse acute/dot/ogonek/crossing-stroke masks are added (2–6 permitted mask
+positions, 2 or 4 actual pixels changed on each real source glyph). Coverage
+adapts to the native peak; tails use free rows 12–13, accents use headroom, ł/Ł
+cross the measured native stem. Invalid/blank/unsupported source geometry fails
+closed. Code contains only recipes; no original or derived glyph bitmap JSON
+is committed or bundled. `make_pl_glyphs.py`/Roboto JSON retained as historical
+v2–v4 tooling, unused by v5. No Pillow or external font needed at build time.
+
+**Tests/verification:** patched `font_pl` uses composition from the input font;
+independent ISO read-back adds `verify_native` to compare original ASCII bodies
+against physical `byte−0x40` cells, preserving every pixel outside accent masks,
+source ASCII and peak values. Tests reject boldening, vertical shifts, missing
+marks, mutated source ASCII, blank cells and insufficient space; all other cells
+and font members remain unchanged. Synthetic native-source fixtures contain only
+invented shapes. Existing PL one-byte mapping/low-nibble-first packing unchanged.
+Natural sentences from v4 remain unchanged except version labels (PL V5).
+
+**Commands / environment:** Python 3.11.2; local preview uses Pillow 13.0.0 in the
+ignored venv (not a kit dependency). Original/base, v4 and v5 nearest-neighbour
+bitmap previews inspected; illustrative coverage visualization, not PPSSPP output.
+Preview files are derived game art and stay under ignored local/.
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_font_pl.py
+# 14 tests OK.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_native_font.py
+# 11 tests OK, including private real font and mutation cases.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 19 tests OK, including isolated extracted-kit real-container fixture check.
+python -m unittest discover -s srw-oe-translation/tests
+# FINAL: 1569 tests in 37.353s, OK (25 skipped).
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v5.zip, 64 files, no game files or native raster JSON.
+```
+
+Extracted the actual delivered ZIP to a fresh ignored folder and ran its
+`build_translation_patch.py` with isolated Python (`-I`), `--lang pl --only
+ eventP00.cpk config00.cpk font.cpk --no-ui-textures`, on the existing ISO9660 fixture
+containing the three real original containers. Then ran its `verify_pl_test.py`
+against the original and output ISO: `ok: true`, 18 native glyphs audited, all
+16 opening entries and 19 unit/weapon probes present, exact mission-title cell.
+Original ASCII, other font members and nonselected event/config members unchanged.
+Native/output peak values identical for all 18. New font CPK SHA-256
+`e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f`;
+event CPK `b7ed5ae6a6deb32991b7b0e1d2d7c894d89a7d5e22a0cb2b1b8d788116446928`
+(version labels changed, prose unchanged). No failure in these test runs.
+
+**Delivered:** [srw-oe-test-pl-v5.zip](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view),
+6415373 B, SHA-256 `2ed8000ef9c4c61cb10b0d0b81b1b51bbfa2b8165a8c5c09aaabeef8931fec33`.
+Drive download-back is byte-identical. Manifest: `pl/test-v5-delivery.json`;
+code/tests/docs checkpointed and pushed to session branch, PR #20.
+
+**Limits:** v5 styling not booted in sandbox PPSSPP; Windows BAT not executed.
+Owner v4 runtime success is distinct from v5 offline source-body preservation.
+One first-panel/dialogue screenshot is sufficient to judge the revised appearance;
+no menu hunt or additional hypothesis-by-hypothesis kit. No full PL translation.

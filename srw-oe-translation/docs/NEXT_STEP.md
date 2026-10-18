@@ -1,22 +1,22 @@
 # Next step — current state and open work
 
-> **Latest PL handoff (2026-10-18, PR #20): v3 runtime positive; v4 delivered.**
-> The owner supplied two screenshots and approved the appearance of the v3 Polish
-> letters. This confirms opening-scene rendering, not every game screen/full PL.
-> At the owner's request [TEST_PL v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view)
-> now puts natural diagnostic Polish prose in the **first dialogue** (including
-> ł/ś/ć/ą/ę/ń) and shortens the repetitive narration. These are invented font-test
-> sentences, not translations. Font/codec are unchanged; the resulting font CPK
-> hash is identical to v3. 1558 unittest tests OK (25 skipped); isolated delivered
-> ZIP build/read-back on original-container fixture ISO pass. V4 gameplay remains
-> separate from the positive v3 screenshots; no sandbox emulator run is claimed.
-> Details: [`pl/PL_FONT_MAPPING.md`](pl/PL_FONT_MAPPING.md),
-> [`pl/test-v4-delivery.json`](pl/test-v4-delivery.json),
+> **Latest PL handoff (2026-10-18, PR #20): v4 works; native-style v5 delivered.**
+> Four owner screenshots confirm v4 opening prose, dialogue, scene title and unit
+> name. Feedback: Polish letters too bold and lowercase bodies too low. The old
+> Roboto raster has peak value 15 vs native 9 (lowercase l 6); some bodies start
+> at row 5 vs native row 4. [TEST_PL v5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view)
+> composes accents over **pixel-identical native ASCII bodies** at build time.
+> No game bitmap is committed/shipped; only accent recipes. No scaling/shifting,
+> original ASCII remains unchanged. Natural v4 probe sentences are unchanged,
+> apart from version labels. 1569 unittest tests OK (25 skipped); isolated actual
+> ZIP build/read-back with original-container fixture ISO pass; native-body audit
+> catches boldening/shifting/missing marks. **V5 runtime styling is unconfirmed.**
+> Details: [`pl/PL_FONT_STYLE.md`](pl/PL_FONT_STYLE.md),
+> [`pl/test-v5-delivery.json`](pl/test-v5-delivery.json),
 > [`../README_TEST_PL.md`](../README_TEST_PL.md).
-> If evaluating v4, use `TEST_PL.bat` on the original ISO, New Game and the first
-> dialogue — no menu hunt or repeated hypothesis-by-hypothesis builds. Full PL
-> still awaits returned translator material and pipeline checks; do not claim
-> the external translation has been completed.
+> One first-panel or first-dialogue screenshot suffices if evaluating appearance;
+> no menu hunt or hypothesis-by-hypothesis rebuild. Full PL translator material
+> remains external/pending; no claim of a finished Polish translation.
 
 **Updated 2026-10-17 (UTC).** This page replaces the old "superseded plan" notice.
 It lists only what is still open; the delivered products are frozen snapshots and
