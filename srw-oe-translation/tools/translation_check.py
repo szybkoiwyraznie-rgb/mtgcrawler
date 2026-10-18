@@ -25,6 +25,12 @@ The checher is deliberately strict about everything the game cares about and for
 Rows with an empty ``en`` are reported as untranslated, not as errors, so the check can be run while
 translating.  ``--require-complete`` turns them into errors for a release check.
 
+``--field pl`` checks a Polish package instead: the text comes from the ``pl`` field, encoding
+and width go through ``tools/pl_text.py`` (the 18 letters count 2 bytes / 2 half-width cells,
+like any two-byte glyph), and the executable/terrain rows keep their strict CP932/ASCII slot
+rules - a Polish letter there is reported as an error, because those writers have no private-code
+path (fail closed until the in-game test proves otherwise).
+
 The text is compared **as it is written**, not stripped: a third of the Japanese dialogue lines end
 with a real line break, and stripping the translation would report a break mismatch on correct work.
 Only a whitespace-only ``en`` counts as untranslated.
@@ -33,6 +39,7 @@ Usage::
 
     python tools/translation_check.py --package local/translation
     python tools/translation_check.py --package local/translation --require-complete --strict
+    python tools/translation_check.py --package local/pakiet_PL --field pl
 """
 from __future__ import annotations
 
@@ -52,6 +59,7 @@ import exe_strings  # noqa: E402
 import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
 import mission_text as MT  # noqa: E402
+import pl_text  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
 EXT_DAT_RECORD = 388   # the measured one-record ``*_ext.dat`` file (mission_text)
@@ -184,27 +192,41 @@ def controls(text: str) -> List[int]:
     return sorted(ord(ch) for ch in text if ord(ch) < 32 and ch != "\n")
 
 
-def list_cells(text: str) -> int:
+def list_cells(text: str, field: str = "en") -> int:
     """Width of a list cell in half-width cells: one per CP932 byte of the drawn characters.
 
     The game's font has one full-width glyph for every two-byte CP932 code (``∞``, ``α``, ``※``
     included - ``export_strings.display_width`` counts those East-Asian-ambiguous characters as
-    one) and one half-width glyph per single byte (ASCII, half-width kana).
+    one) and one half-width glyph per single byte (ASCII, half-width kana).  A Polish letter is
+    drawn from a full-width ``kanji.fta`` cell, so under ``field="pl"`` it counts as its two
+    private-code bytes.
     """
     drawn = "".join(ch for ch in text if unicodedata.category(ch) != "Cc")
+    if field == "pl":
+        return len(pl_text.encode(drawn))
     try:
         return len(drawn.encode("cp932"))
     except UnicodeEncodeError:
         return export_strings.display_width(drawn)
 
 
-def encode(text: str) -> Optional[str]:
-    """None when the text encodes to CP932, otherwise the failure message."""
+def encode(text: str, field: str = "en") -> Optional[str]:
+    """None when the text encodes for its language, otherwise the failure message."""
     try:
-        text.encode("cp932")
+        if field == "pl":
+            pl_text.encode(text)
+        else:
+            text.encode("cp932")
     except UnicodeEncodeError as exc:
+        if field == "pl":
+            return f"not encodable for pl ({exc.reason} at {exc.start})"
         return f"not CP932-encodable ({exc.reason} at {exc.start})"
     return None
+
+
+def width_of(text: str, field: str = "en") -> int:
+    """Display width in half-width units under the field's codec."""
+    return pl_text.display_width(text) if field == "pl" else export_strings.display_width(text)
 
 
 def fixed_slot_limit(row: dict) -> Optional[int]:
@@ -226,39 +248,43 @@ def fixed_slot_limit(row: dict) -> Optional[int]:
 
 
 def check_row(row: dict, require_complete: bool = False,
-              pct: Optional[Tuple[str, List[str]]] = None) -> Tuple[List[str], List[str]]:
+              pct: Optional[Tuple[str, List[str]]] = None,
+              field: str = "en") -> Tuple[List[str], List[str]]:
     """(errors, warnings) for one package row; ``pct`` is its ``tokeny.tsv`` entry."""
     errors: List[str] = []
     warnings: List[str] = []
-    text = row.get("en") or ""
+    label = "English" if field == "en" else "Polish"
+    text = row.get(field) or ""
     jp = row.get("jp") or ""
     if not text.strip():
-        message = "untranslated (empty en)"
+        message = f"untranslated (empty {field})"
         (errors if require_complete else warnings).append(message)
         return errors, warnings
     if row.get("category") == "terrain_name":
         import terrain_names
         try:
-            terrain_names.validate_row(row)
+            terrain_names.validate_row({**row, "en": text})
         except terrain_names.TerrainError as exc:
             errors.append(str(exc))
         return errors, warnings
     if row.get("category") == exe_strings.CATEGORY:
         # executable strings: the in-place writer's own rules (byte budget incl. alignment
-        # slack, printf conversions in order, exact segments, UTF-8 rows) are the check
-        patch, why = exe_strings.check_en(row)
+        # slack, printf conversions in order, exact segments, UTF-8 rows) are the check.
+        # The writer is CP932-only, so under field="pl" a Polish letter is refused here -
+        # deliberately fail closed for the slots without a private-code path.
+        patch, why = exe_strings.check_en({**row, "en": text})
         if patch is None:
             errors.append(why or "refused by exe_strings.check_en")
         if text.count("\n") != jp.count("\n"):
             errors.append(f"line breaks changed: {jp.count(chr(10))} -> {text.count(chr(10))}")
         return errors, warnings
-    problem = encode(text)
+    problem = encode(text, field)
     if problem:
         errors.append(problem)
     expected = expected_tokens(jp, pct)
     if not same_tokens(tokens(text), expected):
         if expected != tokens(jp):
-            errors.append(f"control tokens changed: the English must carry {expected} (the kana "
+            errors.append(f"control tokens changed: the {label} must carry {expected} (the kana "
                           f"tokens 0x0F of the jp are dropped with their glyph, tokeny.tsv), "
                           f"got {tokens(text)}")
         else:
@@ -268,13 +294,14 @@ def check_row(row: dict, require_complete: bool = False,
     jp_controls = [code for code in controls(jp) if code != 0x0F]
     en_controls = controls(text)
     if 0x0F in en_controls:
-        errors.append("the <0x0F> token must not stay in the English text - in Japanese it and "
-                      "the character after it are one voiced kana glyph; write the English plain")
+        errors.append(f"the <0x0F> token must not stay in the {label} text - in Japanese it and "
+                      "the character after it are one voiced kana glyph; write the text plain")
     if [code for code in en_controls if code != 0x0F] != jp_controls:
         errors.append("control characters changed: "
                       f"{[hex(code) for code in controls(jp)]} -> "
                       f"{[hex(code) for code in en_controls]}")
-    size = len(text.encode("cp932")) if not problem else 0
+    size = 0 if problem else len(
+        pl_text.encode(text) if field == "pl" else text.encode("cp932"))
     fixed = fixed_slot_limit(row)
     if fixed is not None and (row.get("max_bytes") is None or fixed < row["max_bytes"]):
         if size > fixed:
@@ -291,7 +318,7 @@ def check_row(row: dict, require_complete: bool = False,
     limit_cells = LIST_CELLS.get(row.get("category") or "")
     soft_cells = LIST_CELLS_SOFT.get(row.get("category") or "")
     if limit_cells is not None or soft_cells is not None:
-        width = list_cells(text)
+        width = list_cells(text, field)
         if limit_cells is not None and width > limit_cells:
             errors.append(f"too wide for the unit list column: {width} half-width cells, the "
                           f"column fits {limit_cells} (ASCII is never squeezed by the game)")
@@ -306,13 +333,14 @@ def check_row(row: dict, require_complete: bool = False,
         if text.count("%s" + byte) > allowed:
             errors.append(f"the byte '{byte}' right after %s is the second half of a kana glyph "
                           f"(pool fragment ｸﾞﾙｰ<0F> + '{byte}' = ｸﾞﾙｰﾌﾟ) in {occurrences} place(s); "
-                          "the English fragment is 'Group', so write '%s' alone there or the game "
-                          f"shows 'Group{byte}' (at most {allowed} '%s{byte}' may stay)")
+                          f"the {label} fragment is the word before %s ('Group' in {label}), so "
+                          f"write '%s' alone there or the game shows 'Group{byte}' "
+                          f"(at most {allowed} '%s{byte}' may stay)")
     if row.get("category") in BOXED:
         # the same rule the writers refuse by: wider than the game's own widest line of the kind
         kind = row.get("kind") or row.get("category")
         limit = export_strings.box_limit(kind)
-        widths = [export_strings.display_width(line) for line in text.split("\n")]
+        widths = [width_of(line, field) for line in text.split("\n")]
         over = [width for width in widths if width > limit]
         if over and kind != "narration":   # narration is a note in the writer, not a refusal
             which = widths.index(max(widths)) + 1
@@ -322,7 +350,8 @@ def check_row(row: dict, require_complete: bool = False,
 
 
 def check_rows(rows: Iterable[dict], require_complete: bool = False,
-               token_map: Optional[Dict[str, Tuple[str, List[str]]]] = None) -> dict:
+               token_map: Optional[Dict[str, Tuple[str, List[str]]]] = None,
+               field: str = "en") -> dict:
     """Per-file counters plus the first problems of every kind.
 
     Rows that a DLC re-release repeats carry ``copy_of``: the translation is not written twice, so
@@ -341,17 +370,17 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False,
                                                    "errors": 0, "warnings": 0})
         bucket["rows"] += 1
         pct = token_map.get(row.get("id")) if token_map else None
-        errors, warnings = check_row(row, require_complete, pct=pct)
+        errors, warnings = check_row(row, require_complete, pct=pct, field=field)
         source = by_id.get(row.get("copy_of")) if row.get("copy_of") else None
         if source is not None:
-            if (row.get("en") or "").strip() and (row["en"] or "") != (source.get("en") or ""):
+            if (row.get(field) or "").strip() and (row[field] or "") != (source.get(field) or ""):
                 errors.append("copy differs from its source row "
                               f"({row['copy_of']})")
-            elif not (row.get("en") or "").strip() and (source.get("en") or "").strip() \
+            elif not (row.get(field) or "").strip() and (source.get(field) or "").strip() \
                     and not require_complete:
                 warnings.append(f"copy of {row['copy_of']} can be filled by "
                                 "tools/translation_copy.py")
-        if (row.get("en") or "").strip():
+        if (row.get(field) or "").strip():
             bucket["filled"] += 1
         else:
             bucket["empty"] += 1
@@ -362,7 +391,7 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False,
         report["warnings"].extend(f"{row_id}: {message}" for message in warnings[:3])
         if len(report["errors"]) > 400 and len(report["warnings"]) > 400:
             break
-    for message, ids in conflicting_duplicates(rows):
+    for message, ids in conflicting_duplicates(rows, field):
         for row_id in ids:
             report["errors"].append(f"{row_id}: {message}")
             name = by_id[row_id].get("_file") or by_id[row_id].get("category") or "?"
@@ -381,8 +410,8 @@ def check_rows(rows: Iterable[dict], require_complete: bool = False,
 RECORD_MEMBERS = ("srwDL_Skill00.bin", "srwDL_Item00.bin")   # conv-B record members scanned twice
 
 
-def conflicting_duplicates(rows: Iterable[dict]) -> List[Tuple[str, List[str]]]:
-    """Rows of one record member that carry the same Japanese with different English.
+def conflicting_duplicates(rows: Iterable[dict], field: str = "en") -> List[Tuple[str, List[str]]]:
+    """Rows of one record member that carry the same Japanese with different translations.
 
     ``03_skills.jsonl``/``02_items.jsonl`` hold the record roles and ``04_config_text.jsonl``
     scans the same members again under offset ids (``config_skill``/``config_item``).  The
@@ -394,18 +423,18 @@ def conflicting_duplicates(rows: Iterable[dict]) -> List[Tuple[str, List[str]]]:
     groups: Dict[Tuple[str, str, str], Dict[str, List[str]]] = {}
     for row in rows:
         source = row.get("source") or {}
-        if source.get("member") not in RECORD_MEMBERS or not (row.get("en") or "").strip():
+        if source.get("member") not in RECORD_MEMBERS or not (row.get(field) or "").strip():
             continue
         key = (source.get("container") or "", source["member"], row.get("jp") or "")
-        groups.setdefault(key, {}).setdefault(row["en"], []).append(row.get("id", "?"))
+        groups.setdefault(key, {}).setdefault(row[field], []).append(row.get("id", "?"))
     problems = []
-    for (container, member, _jp), by_en in groups.items():
-        if len(by_en) < 2:
+    for (container, member, _jp), by_text in groups.items():
+        if len(by_text) < 2:
             continue
-        ids = [row_id for id_list in by_en.values() for row_id in id_list]
-        problems.append((f"{len(by_en)} different translations of the same {member} string in "
+        ids = [row_id for id_list in by_text.values() for row_id in id_list]
+        problems.append((f"{len(by_text)} different translations of the same {member} string in "
                          f"{container} ({', '.join(ids)}) - the writer skips the whole record; "
-                         "give every row the same English", ids))
+                         f"give every row the same text", ids))
     return problems
 
 
@@ -448,7 +477,9 @@ def main(argv=None) -> int:
                         help="package JSONL files, or a directory holding them")
     parser.add_argument("--out", type=Path, default=None, help="where to write the text report")
     parser.add_argument("--require-complete", action="store_true",
-                        help="treat an empty en as an error (release check)")
+                        help="treat an empty translation field as an error (release check)")
+    parser.add_argument("--field", choices=("en", "pl"), default="en",
+                        help="which field holds the translation (pl = Polish private-code codec)")
     parser.add_argument("--strict", action="store_true", help="exit 1 on any error")
     parser.add_argument("--token-map", type=Path, default=None,
                         help="tokeny.tsv with the %%s kinds (default: next to the package)")
@@ -460,8 +491,9 @@ def main(argv=None) -> int:
     if sidecar:
         print(f"mapa tokenów: {sidecar} ({len(token_map)} wierszy)")
     else:
-        print("mapa tokenów: brak (tokeny.tsv obok pakietu) - każde %s z jp musi zostać w EN")
-    report = check_rows(rows, require_complete=args.require_complete, token_map=token_map)
+        print("mapa tokenów: brak (tokeny.tsv obok pakietu) - każde %s z jp musi zostać w tłumaczeniu")
+    report = check_rows(rows, require_complete=args.require_complete, token_map=token_map,
+                        field=args.field)
     text = format_report(report)
     print(text)
     out = args.out or (args.package[0] / "check_report.txt" if args.package[0].is_dir()
