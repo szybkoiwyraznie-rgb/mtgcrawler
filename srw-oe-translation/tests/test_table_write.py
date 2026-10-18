@@ -574,6 +574,8 @@ class PoolBudgetTests(unittest.TestCase):
         self.assertIsNone(TW.pool_size_limit_problem("srwDL_Item01.bin", 10 ** 6))
         problem = TW.pool_size_limit_problem("srwDL_Skill03.bin", 17_396)
         self.assertIn("17396 B exceeds the in-game budget of 15638 B (+1758 B over", problem)
+        self.assertIn("conservative safety guard", problem)
+        self.assertIn("exact pool ceiling unknown", problem)
         self.assertIn("skill_shrink.py --dlc-original", problem)
 
     def test_a_pool_over_budget_raises_the_container_level_refusal(self):

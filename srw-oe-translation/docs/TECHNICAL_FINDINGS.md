@@ -314,17 +314,32 @@ Observation matrix (user, PPSSPP, original DLC folder, `config00.cpk` inserted i
 | U2 (sub-files packed at 64 B, container SMALLER than the original) | 228 202 B | 905 216 B | — | crash |
 | U1 (same tight container, original Skill00) | 208 958 B | 886 784 B | — | works |
 
-Conclusions [verified by the matrix, mechanism unknown]: the limit is on the **member itself**, not on the
-container size, not on the CPK header fields and not on the content (Japanese padded with spaces crashes exactly
-like English). Largest size proven to load: **217 086 B** (+8 128 B); smallest proven to crash: 221 182 B
-(+12 224 B). 0x35000 = 217 088 B is the suspected fixed buffer (W1 = 217 090 B **loads**, W2 = 218 110 B **crashes** — 2026-10-15; the limit lies in (217 090, 218 110] B). The crash signature is
-`memcpy_jak` with a NULL `dst`/`src` and `bytes > 0` (a failed allocation, not a zero-length copy).
-Consequence for the writers: `item_skill_write.SKILL00_LIMIT = 216 768 B` (`MEMBER_SIZE_LIMITS`), enforced
-fail-closed (`SizeBudgetError`; the builder refuses the whole container); the English of the skill table must
-fit (`tools/skill_shrink.py`, `config/skill_shrink_rules.tsv`). DLC `SkillNN` members are 15 638 B pool-only
-files (convention C) and are not affected. Whether `srwDL_Item00.bin` (34 566 → 34 799 B in the builds) or the
-configst members have budgets of their own is unknown; `configst.cpk` with grown members loaded to the title
-menu (variant A).
+**Qualification audited 2026-10-18:** these are runtime observations, NOT a proven exact
+per-member limit and NOT a PSP hardware/file-format limit. Later W1 (217 090 B) loaded
+and W2 (218 110 B) failed at Loading. This brackets the observed transition for that
+configuration only; it does not prove every larger size fails or identify the allocator.
+The earlier fixed-buffer hypothesis `0x35000 = 217 088 B` is not established (W1 even
+loaded two bytes above it). Smaller `.pac` packing did not fix U2, so container size
+alone is not the explanation. A member-related or shared allocation limit remains plausible.
+The crash signature is `memcpy_jak` with a NULL pointer; failed allocation is an
+interpretation, not an identified allocator call/constant.
+
+`item_skill_write.SKILL00_LIMIT = 216 768 B` is a **conservative software guard**:
+217 086 B (T3/W5 success) minus 311 B growth of other config00 members, rounded down
+(total margin 318 B). It predates the later W1/W2 result. Removing/increasing this
+guard is technically possible; that alone does not fix runtime failures. Neither a
+storage optimisation nor an EBOOT allocation patch has been proven impossible.
+The distinct chapter-2 save crash was later fixed by relocating `+52`; do not count
+it as evidence for a size limit (EXPERIMENT_LOG 21.24–21.25).
+
+**DLC correction to the earlier “not affected” claim:** convention-C Skill01–08 pools
+also received conservative guards after the X/Y tests (EXPERIMENT_LOG 21.27).
+Original pools 15 638 B each worked; a changed EDAT set with 17 396 B pools failed.
+The individual pool ceiling was not isolated. A shared arena for Skill00 plus eight
+pools and per-pool capacity constraints both fit the observations; the 15 638 B guard
+uses original size rather than a measured one-byte threshold. Current supported
+builds must fit these guards unless a separately validated engineering change replaces them.
+The current 224 678 B PL member has NOT itself been runtime-tested.
 
 ## Convention-B records carry THREE relative pointers: `+32` (member base), `+36` (tail pool), `+52` (parameter words) — measured 2026-10-15
 

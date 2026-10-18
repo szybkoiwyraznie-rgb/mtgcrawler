@@ -700,6 +700,9 @@ class SizeBudgetTest(unittest.TestCase):
         problem = ISW.size_limit_problem("srwDL_Skill00.bin", ISW.SKILL00_LIMIT + 1)
         self.assertIn("216768", problem.replace(" ", ""))
         self.assertIn("+1 B over", problem)
+        self.assertIn("conservative safety guard", problem)
+        self.assertIn("exact engine ceiling unknown", problem)
+        self.assertNotIn("game crashes at Loading above it", problem)
         self.assertIn("refused", problem)
 
     def test_rebuild_member_refuses_a_skill00_over_budget_and_allows_one_within(self):

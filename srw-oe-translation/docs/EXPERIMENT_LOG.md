@@ -7134,3 +7134,23 @@ Final handoff: AGENTS.md points to returned-PL review, preserving partial-import
 scope and unresolved runtime/DLC limits. Audit now fails closed on any offset-row
 refusal other than pool deferral (pool writer separately verified); actual-input
 rerun unchanged. Final full suite: 1599 tests, OK, 27 skipped, 25.891 s.
+
+### 2026-10-18 — owner asks whether the Skill00 budget is real or a builder policy
+
+Audited provenance in sections 21.19–21.20, 21.24–21.25 and 21.27, not merely the
+code constant. 216768 is policy: T3/W5 217086 success minus 311 other-member growth,
+rounded down (318 total margin). Later W1 217090 succeeded, W2 218110 failed at
+Loading in that setup. There is no identified fixed buffer/allocation instruction,
+no general PSP format limit, no proof of a separate member-only ceiling; shared
+Skill00 + DLC arena still fits. Fixed 0x35000 hypothesis is not established, and
+current 224678 PL has not run. The distinct chapter-2 save crash was +52, fixed.
+DLC 15638 guard also uses original size conservatively, not a measured one-byte cap.
+
+Corrected overclaims in writer errors/docstrings, shrink-tool explanation, builder
+module docs, TECHNICAL_FINDINGS and returned-PL reply. Retain ALL numeric guards and
+refusal behaviour; add test assertions that diagnostics say conservative/unknown
+ceiling, rather than guaranteeing a crash above the guard. No game patch, new
+runtime result or Drive replacement. Earlier delivered ZIP is unchanged; current
+report explicitly identifies that its budget advice has been qualified.
+Validation after wording correction: 1599 tests OK, 27 skipped (25.692 s), diff
+check clean. No numerical limit, patch bytes, translator inputs or Drive artifact changed.

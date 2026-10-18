@@ -43,7 +43,7 @@ slot, a jp that no longer matches the bytes, two rows fighting over one target) 
 not hold the other ten thousand hostage.  The exit code is 0 when every container that had rows
 produced a patched file, 1 when something structural broke.  One exception: a member over its
 in-game size budget (``item_skill_write.MEMBER_SIZE_LIMITS``, today ``srwDL_Skill00.bin`` at
-216 768 B - the game crashes at "Loading" above it, measured 2026-10-15) refuses its WHOLE
+216 768 B - a conservative guard based on Loading failures, NOT an exact proven engine ceiling) refuses its WHOLE
 container ("NOT written", exit 1) - shipping the container with that member left Japanese
 would hide the problem; shorten the English with ``tools/skill_shrink.py`` instead.
 

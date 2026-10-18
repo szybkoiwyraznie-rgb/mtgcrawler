@@ -73,15 +73,16 @@ POOL_POINTER = 36          # u32: the fragment pool's offset relative to the rec
 # The rebuilt record keeps ``delta``: the pointer follows the texts exactly like +32/+36 follow
 # the record.
 
-# In-game size budget of ``srwDL_Skill00.bin`` [ZWERYFIKOWANE w grze, 2026-10-14/15, PPSSPP,
-# "SRW OE 1.08" + original DLC]: the game crashes at "Loading" (memcpy to NULL) once the member
-# is too big, whatever its content - Japanese text padded with spaces to 217 086 B loads (T3 and
-# W5), 221 182 B crashes (T4), 228 202 B crashes (T6/S1/build #10); a tightly packed .pac does
-# not help (U2: pac 905 216 B, member 228 202 B - crashes) while the original member in the same
-# tight pac loads (U1), so the limit sits on this member, not on the archive.  Original size
-# 208 958 B; the largest size that loaded is 217 086 B; the budget below keeps 318 B under it,
-# covering the net growth (+311 B) of the other translated config00 members in case the game
-# allocates them from the same pool (unknown).
+# Conservative runtime-safety guard, NOT a proven exact engine/hardware ceiling.
+# PPSSPP / OE 1.08 + original DLC, 2026-10-14/15: padded Japanese member loaded at
+# 217 086 B (T3/W5), later 217 090 B (W1); 218 110 B (W2) failed at Loading.
+# Smaller enclosing .pac did not rescue a 228 202 B member (U2 vs original-member U1).
+# That supports a runtime memory/allocation problem, but does NOT prove a separate
+# fixed-size buffer for this member: a shared Skill00 + DLC-pool arena also fits.
+# The chosen guard is 217 086 - 311 B of other config00 growth, rounded down,
+# reserving 318 B in total. It is policy based on tests, not a PSP format limit.
+# No allocation site/size constant has been identified or patched in EBOOT.
+# See docs/TECHNICAL_FINDINGS.md and EXPERIMENT_LOG sections 21.20 / 21.27.
 SKILL00_LIMIT = 216_768
 MEMBER_SIZE_LIMITS = {"srwDL_Skill00.bin": SKILL00_LIMIT}
 
@@ -91,7 +92,7 @@ class WriteError(Exception):
 
 
 class SizeBudgetError(WriteError):
-    """The rebuilt member would exceed its in-game size budget (the game would crash at Loading).
+    """The rebuilt member would exceed the conservative runtime-safety budget.
 
     Raised instead of a plain refusal because a container holding this member must not be
     written at all: ``build_translation_patch`` turns it into "NOT written" and exit status 1,
@@ -100,13 +101,13 @@ class SizeBudgetError(WriteError):
 
 
 def size_limit_problem(member: str, size: int) -> Optional[str]:
-    """The refusal text when ``member`` rebuilt to ``size`` bytes would crash the game, else None."""
+    """The refusal text when size exceeds policy; this does not predict a runtime crash."""
     limit = MEMBER_SIZE_LIMITS.get(member)
     if limit is None or size <= limit:
         return None
     return (f"{member}: {size} B exceeds the in-game budget of {limit} B (+{size - limit} B over; "
-            f"the game crashes at Loading above it, measured 2026-10-15) - shorten the English "
-            f"(tools/skill_shrink.py); the member is refused")
+            f"conservative safety guard from 2026-10-15 tests, exact engine ceiling unknown) - "
+            f"shorten the translation or investigate runtime allocation; the member is refused")
 
 
 def pool_pointer_faults(blob: bytes, parsed: dict) -> List[int]:

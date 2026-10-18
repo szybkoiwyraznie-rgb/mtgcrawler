@@ -40,7 +40,7 @@ Potwierdzono **2082 ostrzeżenia w umiejętnościach i 138 w przedmiotach**, lic
 widoczne elementy MD. Są to rzeczywiście zalecenia długości pojedynczych pól,
 nie polecenie skrócenia każdego tekstu do rozmiaru japońskiego.
 
-**Jest jednak dodatkowy twardy problem całego pliku umiejętności:**
+**Jest jednak dodatkowa blokada bezpieczeństwa w builderze całego pliku umiejętności:**
 
 | Pomiar | Bajty zapisu gry |
 |---|---:|
@@ -49,20 +49,30 @@ nie polecenie skrócenia każdego tekstu do rozmiaru japońskiego.
 | Przyjęty bezpieczny budżet buildera | **216 768** |
 | Nadwyżka | **7 910** |
 
-Builder odmówił wydania kontenera — to nie tylko potencjalne przycięcie napisu.
-Budżet wynika z wcześniejszych testów ładowania gry, nie z ograniczenia ZIP-a.
+Builder odmówił wydania kontenera. **216 768 B nie jest udowodnionym twardym limitem
+PSP ani dokładną granicą gry.** Jest zachowawczą bramką wpisaną przez autora narzędzi
+na podstawie wcześniejszych awarii przy większych danych.
 
-Potrzebna jest zwięźlejsza wersja tekstów umiejętności: szczególnie nazw, wariantów
-z poziomem i powtarzalnych opisów. Nie skracaj mechanicznie wszystkich ostrzeżeń;
-wybierz sensowne, spójne skróty do UI i zapisz pełne oraz krótkie formy w słowniku.
-Orientacyjnie trzeba odzyskać co najmniej około 8 kB **w kodowaniu gry**, z zapasem;
-ostateczny wynik musi być ponownie zmierzony przez autora, ponieważ dochodzi
-wyrównanie rekordów. Rozmiar UTF-8 pliku MD nie jest właściwą miarą.
+Pochodzenie wartości: 217 086 B działało w testach T3/W5; odjęto 311 B wzrostu innych
+członów i zaokrąglono w dół (łącznie 318 B marginesu). Późniejsze testy W1/W2:
+217 090 B działało, 218 110 B padało na Loading w tamtej konfiguracji. Nie odnaleziono
+w EBOOT konkretnego bufora/alokacji ani nie udowodniono osobnego limitu tego członu;
+możliwy jest również wspólny budżet z pulami DLC. Obecnych 224 678 B PL nie testowano
+w grze. **7910 B to nadwyżka względem polityki buildera, nie zmierzona ilość, o jaką
+przekroczono niezmienny limit silnika.**
 
-Pula wspólnych fragmentów urosła dodatkowo o 1748 B. Dla DLC z tą samą pulą
-projekcja daje 17 386 B wobec bezpiecznego budżetu 15 638 B. To wyliczenie na
-fragmentach, nie test budowy rzeczywistych ośmiu EDAT-ów; pula również wymaga
-skrócenia/kontroli. Nie omijamy zabezpieczeń rozmiaru.
+Jeśli pozostajemy przy obecnym sprawdzonym sposobie budowy, potrzebna jest
+zwięźlejsza wersja nazw i opisów mieszcząca się w bramce, z pomiarem w kodowaniu gry,
+nie według rozmiaru UTF-8 MD. Nie należy jednak uznawać skracania za jedyną możliwą
+technicznie drogę: autor patcha może zbadać optymalizację zapisu lub alokację w grze.
+Samo podniesienie liczby w Pythonie usuwa blokadę narzędzia, ale nie stanowi naprawy gry.
+
+Pula wspólnych fragmentów urosła o 1748 B. Projekcja DLC wynosi 17 386 B wobec
+zachowawczej bramki 15 638 B; tej drugiej też nie wyznaczono jako dokładnej granicy
+silnika. Rzeczywiste EDAT-y zwrotu nie były budowane/testowane w grze.
+**Doprecyzowanie z 2026-10-18 po pytaniu właściciela:** wcześniejsze sformułowanie
+„twardy problem / potrzebne skrócenie” było zbyt kategoryczne. Decyzja: skróty lub
+badanie zwiększenia budżetu, nie automatyczna wina tłumacza.
 
 ### 4. Składane fragmenty w grupie 17
 
@@ -108,7 +118,8 @@ To nie jest deklaracja literackiej weryfikacji każdej pozycji. Krótkie wariant
 powinny być zapisane obok form pełnych, nie zmieniać po cichu terminologii.
 
 Możesz kontynuować pozostałe sceny i kategorie. Przed integracją tej części trzeba
-jednak skrócić umiejętności do budżetu oraz poprawić złożenia. Samo „0 błędów”
+jednak rozwiązać przekroczenie bramki (skróty albo zweryfikowane rozwiązanie techniczne)
+oraz poprawić złożenia. Samo „0 błędów”
 walidatora pojedynczych pól nie zamyka tych dwóch problemów.
 
 ## Uwaga autora patcha o walidatorze
@@ -136,7 +147,8 @@ Dokładny SHA256 wejściowego `PL.zip`:
 
 [PL_audyt_i_kontekst_dla_tlumacza_2026-10-18.zip](https://drive.google.com/file/d/1PxXC3Kq_NcHWhro0bk6u0fI1wyEPzKqG/view)
 
-Zawiera tę odpowiedź (bez niniejszego odsyłacza), czytelny Markdown z 33 przykładami,
+Zawiera pierwotną wersję odpowiedzi, sprzed powyższego doprecyzowania budżetu,
+czytelny Markdown z 33 przykładami,
 cztery TSV oraz `review.json`. **60 597 B**, lokalna kontrola CRC wszystkich plików
 ZIP OK; rozmiar i MD5 zwrócone przez Drive zgodne z lokalną paczką. Nie zmieniano
 udostępniania. Nie zawiera binariów gry ani nowego tłumaczenia zastępującego pracę.
