@@ -7116,3 +7116,16 @@ all executable overrides. Glossary: 187 distinct keys, no conflicting duplicate 
 Tests: 1599 OK, 27 skipped, 26.107 s; two extra skips vs earlier runs because private
 font/event originals are absent in this sandbox. Original config/EBOOT checks above
 ran independently and passed/refused exactly as stated. diff check clean.
+
+### Returned PL review delivery
+
+Added forwardable Polish response `docs/pl/RETURNED_PL_REVIEW.md` and non-game-data
+receipt `returned-pl-review-delivery.json`. Private worksheet bundle (7 text files,
+60597 B) uploaded beside original PL.zip, Drive ID 1PxXC3Kq_NcHWhro0bk6u0fI1wyEPzKqG.
+Local ZIP CRCs valid; Drive size/MD5 match (e2ec09bc45995eab905aef17d76b6cd1).
+SHA256 1cc03f74b43987fce87e0e5d2d85ce9ca7d79d6a3251a54a23010798c6f1de49.
+No sharing changed, no source/game binaries in bundle or Git. No download-back claim.
+Original PL.zip metadata MD5 matches unchanged local bytes. Worksheet adds MD group/
+element addresses and original EN reference so translator need not inspect JSONL.
+Reran real-input audit with these columns: all counts/measurements unchanged;
+5 synthetic audit tests pass. PR20 verified OPEN/DRAFT, correct assigned head branch.

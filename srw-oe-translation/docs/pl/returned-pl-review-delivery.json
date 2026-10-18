@@ -1,0 +1,49 @@
+{
+  "review_date": "2026-10-18",
+  "source": {
+    "name": "PL.zip",
+    "drive_id": "1sWC3IlSHLd_6uDy84Q08VJwzMQS3UlEt",
+    "bytes": 891620,
+    "md5": "9a0a00e9b3544b6f4aabc356fbacff08",
+    "sha256": "f26a97af0c2b7bd5d8d73e24cb84835509983c0a5d04d4844e922a887b8a538b",
+    "drive_metadata_matches_local": true,
+    "modified": false
+  },
+  "delivery": {
+    "name": "PL_audyt_i_kontekst_dla_tlumacza_2026-10-18.zip",
+    "drive_id": "1PxXC3Kq_NcHWhro0bk6u0fI1wyEPzKqG",
+    "bytes": 60597,
+    "md5": "e2ec09bc45995eab905aef17d76b6cd1",
+    "sha256": "1cc03f74b43987fce87e0e5d2d85ce9ca7d79d6a3251a54a23010798c6f1de49",
+    "local_zip_crc_all_members_ok": true,
+    "drive_size_and_md5_match_local": true,
+    "downloaded_back": false,
+    "sharing_changed": false,
+    "contains_game_binaries": false,
+    "files": ["ODPOWIEDZ_DLA_TLUMACZA.md", "fragment-join-review.md", "fragment-join-review.tsv", "assembled-skills.tsv", "empty-fields.tsv", "warnings.tsv", "review.json"]
+  },
+  "verified": {
+    "returned_md_files": 9,
+    "accepted_visible_elements": 24360,
+    "import_refusals": 0,
+    "pl_copies_filled": 7580,
+    "original_en_jp_metadata_unchanged": true,
+    "binary_empty_config_slots": 28,
+    "exe_fields_written_and_read_back": 399,
+    "exe_fields_with_colour_lead": 68,
+    "exe_fields_with_complete_colour_code": 63,
+    "skills_md_soft_length_warnings": 2082,
+    "items_md_soft_length_warnings": 138,
+    "skill00_final_builder_bytes": 224678,
+    "skill00_safe_budget_bytes": 216768,
+    "skill00_over_budget_bytes": 7910,
+    "pool_growth_bytes": 1748,
+    "literal_table_fields_formatted": 1421,
+    "ron_fragment_join_suspects": 33,
+    "glossary_keys": 187,
+    "glossary_conflicting_keys": 0,
+    "runtime_tested": false,
+    "actual_dlc_edat_build_tested": false,
+    "patch_delivered": false
+  }
+}

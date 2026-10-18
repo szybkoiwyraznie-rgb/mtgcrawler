@@ -205,6 +205,13 @@ def review(archive, package, out, originals=None):
                 'same_pool_dlc_projection_bytes':8+len(R.build_tail_pool(8,pool)),
                 'same_pool_dlc_budget':skill_shrink.POOL_LIMIT,
                 'dlc_projection_note':'projection for the same 720 fragments/8-byte header, not actual EDAT build verification'}
+            locations, references = defaultdict(list), {}
+            for group_number, group in enumerate(plan['umiejetnosci.md'], 1):
+                for element_number, element in enumerate(group, 1):
+                    for row in element:
+                        key = (row.get('record'), row.get('part'))
+                        locations[key].append(f'umiejetnosci.md: grupa {group_number}, element {element_number}')
+                        references[key] = row.get('en') or ''
             assembled, suspects = [], []
             for record in parsed['records']:
                 indices = list(blob[record['offset']+28:record['offset']+32])
@@ -214,12 +221,13 @@ def review(archive, package, out, originals=None):
                     if b'%s' not in template:
                         continue
                     final = pl_text.decode(format_fragments(template, arguments))
-                    entry = (record['record'], record['key'], record['level'], role, json.dumps(indices),
-                             pl_text.decode(template), final)
+                    entry = (record['record'], record['key'], record['level'], role,
+                             '; '.join(dict.fromkeys(locations[(record['record'], role)])), json.dumps(indices),
+                             references.get((record['record'], role), ''), pl_text.decode(template), final)
                     assembled.append(entry)
                     if re.search(r'(?<![Bb])roń', final):
                         suspects.append(entry)
-            columns = ['record','key','level','part','pool_indices','template_PL','assembled_PL']
+            columns = ['record','key','level','part','view_element','pool_indices','reference_EN','template_PL','assembled_PL']
             tsv(out/'assembled-skills.tsv',columns,assembled)
             tsv(out/'fragment-join-review.tsv',columns,suspects)
             result['fragments'] = {'table_fields_assembled':len(assembled), 'ron_join_suspects':len(suspects),
