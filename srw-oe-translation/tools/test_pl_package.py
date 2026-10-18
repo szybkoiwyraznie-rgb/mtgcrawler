@@ -27,14 +27,14 @@ if str(HERE) not in sys.path:
 import text_codec  # noqa: E402
 
 LETTERS = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
-# v4 prose renders; v5 keeps the prose and adjusts native font styling only.
+# v5 native font accepted in owner runtime test; post-delivery caption spelling fixed.
 KIT_VERSION = "5"
 OPENING_PANELS = {
-    1: ("PL V5 - PROBA CZYTELNOSCI",
+    1: ("PL V5 - PRÓBA CZYTELNOŚCI",
         "Łączność działa. Słychać mnie wyraźnie?",
         "Chcę dziś dokończyć próbę osłony.",
         "Sprawdźmy też źródło zasilania."),
-    2: ("PL V5 - MALE I WIELKIE LITERY",
+    2: ("PL V5 - MAŁE I WIELKIE LITERY",
         "Żaneta i Łukasz kończą ćwiczenia.",
         "Śmiało! Włącz osłonę i ruszaj naprzód.",
         "Zażółć gęślą jaźń. ĄĆĘŁŃÓŚŹŻ."),

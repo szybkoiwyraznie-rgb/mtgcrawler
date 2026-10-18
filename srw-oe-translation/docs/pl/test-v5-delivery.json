@@ -549,6 +549,22 @@
   "verification_limits": [
     "Isolated extracted delivered ZIP build/verify passed using original font/event/config containers in a fixture ISO, not a full-game boot.",
     "Illustrative local bitmap preview inspected; not an emulator screenshot.",
-    "V5 runtime look and feel remains unconfirmed. V4 screenshots are not a v5 runtime result."
-  ]
+    "At delivery: V5 runtime look and feel remains unconfirmed. V4 screenshots are not a v5 runtime result."
+  ],
+  "subsequent_runtime_feedback": {
+    "date": "2026-10-18",
+    "source": "owner: two v5 runtime screenshots and explicit positive feedback",
+    "result": "native-style v5 appearance accepted in shown opening narration/dialogue; no further styling objections",
+    "caption_diagnosis": {
+      "delivered_first": "PL V5 - PROBA CZYTELNOSCI",
+      "delivered_second": "PL V5 - MALE I WIELKIE LITERY",
+      "cause": "ASCII-only caption literals verified directly in the delivered ZIP translation/00_dialogue.jsonl, not missing font accents",
+      "corrected_source_first": "PL V5 - PRÓBA CZYTELNOŚCI",
+      "corrected_source_second": "PL V5 - MAŁE I WIELKIE LITERY"
+    },
+    "font_or_codec_changed": false,
+    "existing_drive_zip_replaced": false,
+    "new_runtime_test_requested": false,
+    "limits": "Acceptance applies to shown opening screens, not all layouts or a complete Polish translation. Screenshots not committed."
+  }
 }

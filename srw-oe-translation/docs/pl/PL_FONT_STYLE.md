@@ -1,5 +1,19 @@
 # PL font styling v5 — native ASCII bodies (2026-10-18)
 
+## V5 runtime feedback — accepted (2026-10-18)
+
+The owner supplied two **v5** runtime screenshots (opening narration and dialogue)
+and reports that the font otherwise looks excellent, with no further objections.
+Missing Ł/Ś in the all-caps headings are **source-text mistakes**, not dropped font
+marks: the exact delivered ZIP contains `PROBA CZYTELNOSCI` and
+`MALE I WIELKIE LITERY`. It also omits Ó in PROBA. Corrected source captions now
+read `PRÓBA CZYTELNOŚCI` and `MAŁE I WIELKIE LITERY`; regression pins both.
+No glyph, codec, body, spacing or accent recipe is changed. The existing Drive ZIP
+remains immutable and still contains the old captions; no new build/test is needed
+to establish the diagnosis. Do not ask the owner for another font-test cycle.
+Acceptance is for the demonstrated screens, not all future translated layouts.
+The screenshots remain private, outside Git.
+
 ## Owner feedback and evidence
 
 Four owner screenshots confirm TEST_PL v4 prose renders in the opening narration,
@@ -43,7 +57,7 @@ accents and original-ASCII corruption and require failures.
 11 native-style tests and 19 extracted-kit/panel tests pass, including the private
 original containers in a synthetic ISO fixture. Local nearest-neighbour previews
 were inspected; they are derived game art, remain ignored and are not an emulator
-screenshot. V5 runtime appearance still needs confirmation. Natural test prose
+screenshot. At this initial checkpoint, V5 runtime appearance still needed confirmation. Natural test prose
 from v4 is unchanged, apart from version labels.
 
 ## Delivery
@@ -54,4 +68,4 @@ is delivered; [manifest and numeric metrics](test-v5-delivery.json). Final suite
 The actual delivered ZIP was extracted and run with isolated Python on a fixture
 ISO containing real original font/event/config containers. All 18 native-body
 and coverage audits pass; unselected font/ASCII/event/config members are unchanged.
-V5 runtime aesthetics are still unconfirmed. Earlier owner's screenshots are v4.
+At delivery runtime aesthetics were unconfirmed; the subsequent v5 result is recorded above.

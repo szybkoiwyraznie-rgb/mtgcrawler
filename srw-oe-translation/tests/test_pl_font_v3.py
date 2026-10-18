@@ -94,11 +94,18 @@ class PanelTests(unittest.TestCase):
             for line in text.splitlines():
                 self.assertLessEqual(pl_text.display_width(line), 40)
 
+    def test_panel_captions_use_real_polish_letters_not_ascii_spellings(self):
+        expected = {1: "PL V5 - PRÓBA CZYTELNOŚCI", 2: "PL V5 - MAŁE I WIELKIE LITERY"}
+        for panel, heading in expected.items():
+            self.assertEqual(test_pl_package.OPENING_PANELS[panel][0], heading)
+            self.assertEqual(pl_text.decode(pl_text.encode(heading)), heading)
+            self.assertLessEqual(pl_text.display_width(heading), 40)
+
     def test_second_panel_preserves_blank_lines(self):
         value = test_pl_package.probe_text("a\nb\n\nc\nd\n", 2)
         self.assertEqual([bool(x) for x in value.split("\n")],
                          [True, True, False, True, True, False])
-        self.assertIn("MALE I WIELKIE LITERY", value)
+        self.assertIn("MAŁE I WIELKIE LITERY", value)
 
     def test_changed_source_structure_refused(self):
         with self.assertRaises(ValueError):

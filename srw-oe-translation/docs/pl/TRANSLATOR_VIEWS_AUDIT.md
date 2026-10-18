@@ -85,7 +85,9 @@ To pełne sprawdzenie **kontraktu wyodrębnionego pakietu i importu**, nie dowó
 - testy układu po rzeczywistym tłumaczeniu, zwłaszcza pól o niezmierzonym limicie UI;
 - rozwijane przez grę zmienne `%s` / imię gracza, których wynik zależy od kontekstu;
 - niepotwierdzone 364 `leftover:` i napisy/tekstury niewyodrębnione do tej bazy;
-- wygląd v5 w PPSSPP: wynik testu właściciela nadal oczekiwany;
+- aktualizacja po wydaniu: właściciel zaakceptował wygląd v5 na dwóch zrzutach
+  otwierającej narracji/dialogu; nagłówki bez Ł/Ś/Ó były tekstami ASCII w źródle,
+  nie awarią fontu. Nie jest to test wszystkich ekranów;
 - program i teren bez polskich liter — to jawne ograniczenie, nie „naprawione” fontem.
 
 Pełny syntetyczny import nie oznacza zbudowania i obejrzenia w grze wszystkich

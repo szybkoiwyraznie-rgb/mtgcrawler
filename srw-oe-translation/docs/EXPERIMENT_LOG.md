@@ -7048,3 +7048,24 @@ Report `docs/pl/TRANSLATOR_VIEWS_AUDIT.md`, numeric delivery manifest
 handoff ZIPs. Use both together and audited import/build tools, not old v1 patcher.
 Remaining uncertainty: unclassified leftovers, unmeasured layouts/variable expansion,
 actual translated-game QA and owner v5 runtime result. No 100% all-screen claim.
+
+## 2026-10-18 — owner accepts v5 runtime styling; caption typo diagnosis
+
+Owner supplied two new v5 runtime screenshots (opening narration and dialogue),
+reports missing Ł in MALE and Ś in CZYTELNOSCI, otherwise excellent appearance and
+no further objections. Read the actual previously delivered private ZIP
+`srw-oe-test-pl-v5.zip`, `translation/00_dialogue.jsonl`, opening rows 1/2:
+headings are literally `PL V5 - PROBA CZYTELNOSCI` and
+`PL V5 - MALE I WIELKIE LITERY`. Thus the missing accents (including Ó in PROBA)
+were never present in the payload; this is not a missing-glyph/font-style fault.
+Corrected source headings to `PRÓBA CZYTELNOŚCI` / `MAŁE I WIELKIE LITERY`;
+added exact-spelling, codec roundtrip and width regression. No font/codec/recipe
+changes and no replacement delivery or further owner test requested. Existing
+Drive ZIP and release hashes remain unchanged; subsequent feedback appended to
+manifests rather than rewriting the delivery evidence. Screenshots remain private.
+Acceptance applies to the shown opening screens, not every future translated UI.
+
+Validation: `python -m unittest discover -s srw-oe-translation/tests` — 1592 tests
+OK, 25 skipped, 39.142 s. Includes isolated regenerated kit against the three
+original containers and independent read-back with the corrected captions.
+`git diff --check` clean.

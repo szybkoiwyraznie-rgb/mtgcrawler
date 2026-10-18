@@ -1,5 +1,12 @@
 # Project status
 
+**V5 runtime update (2026-10-18): owner accepts the font on two opening
+narration/dialogue screenshots, with no further styling objections.** Missing
+Ł/Ś (also Ó) in all-caps headings were ASCII caption literals in the exact delivered
+ZIP, not a font defect. Source captions corrected; font/codec unchanged. No new
+font build/test requested. [Details](pl/PL_FONT_STYLE.md). Older pending notes below
+refer to the state at delivery, not the latest feedback.
+
 **Translator PL audit complete (2026-10-18, PR #20).** Replace the old
 `sceny_PL.zip` / `widoki_PL.zip` with checked **v2** archives linked in
 [`pl/TRANSLATOR_VIEWS_AUDIT.md`](pl/TRANSLATOR_VIEWS_AUDIT.md).
@@ -8,7 +15,7 @@ All 109144 extracted text rows classified: 108761 editable/inherited, 19 protect
 Full synthetic PL import/copy/check/build-load passed; 1591 tests OK, 25 skipped.
 Tools from `0053e01` or newer are required; use `--lang pl --require-template`.
 Next: external translator fills PL only; later validate returned text and runtime
-layout. No literary PL translation done; **font v5 runtime feedback still pending**.
+layout. No literary PL translation done; **v5 opening-screen appearance now accepted by owner**.
 Manifest: [`pl/translator-views-v2-delivery.json`](pl/translator-views-v2-delivery.json).
 
 Last updated: 2026-10-18 (PL v4 runtime/style feedback; native font v5 — PR #20)

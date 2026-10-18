@@ -5,7 +5,10 @@ zbyt grube i nieco za niskie polskie litery. [V5](https://drive.google.com/file/
 kopiuje oryginalne korpusy ASCII i dodaje tylko maski diakrytyków; nie rasteruje
 Roboto i nie przechowuje bitmap gry w repo/kit. [Styl i dowody](PL_FONT_STYLE.md),
 [manifest](test-v5-delivery.json). 1569 unittest OK (25 skipped), isolated kit
-read-back + niezależny audyt natywnych korpusów OK; **runtime v5 niepotwierdzony**.
+read-back + niezależny audyt natywnych korpusów OK. **Właściciel potwierdził wygląd
+v5 w otwierającej narracji/dialogu** na dwóch nowych zrzutach, bez dalszych uwag
+do fontu. Brak Ł/Ś (także Ó) w nagłówkach wynikał z tekstów ASCII w paczce,
+nie z glifów. Pisownia poprawiona w źródle; bez zmiany fontu i bez nowego testu.
 Dalsze sekcje są historią.
 
 **Najnowsze (2026-10-18):** właściciel przesłał dwa zrzuty v3 i ocenił wygląd
