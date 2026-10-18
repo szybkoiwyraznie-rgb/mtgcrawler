@@ -7180,3 +7180,28 @@ A/B rerun successful: both 224678 B, B retains JP/pool/numerics, identical font 
 20 skill override strings, no other logical ISO file changes. Original unchanged,
 normal guard restored. Added explicit executable .text equality check; final ZIP
 and its isolated run still pending. No PPSSPP/runtime claim.
+
+### 2026-10-18 — intact PL skill A/B test delivered, runtime pending
+
+Final `TEST_UMIEJETNOSCI_PL_PELNE_AB_v1.zip`: 6480979 B / 69 files,
+SHA256 d04ff5f93e912e1d01d57a8eeb0a18d1cf70271e0ff7718dbbf63a03ce21a842,
+MD5 e5fc5b526a8da8c3692f669d17d42f37. Uploaded beside translator return, Drive
+1VBAwu-_PJGff_3mbKXdWxetB8FBRheMU; downloaded back, bytes/SHA/CRC identical.
+No sharing changes. No ISO or proprietary binary/font bitmap inside ZIP.
+
+Final ZIP extracted into a fresh isolated folder, every .py compiles and its actual
+CLI builds A/B from original-container miniature ISO. A/B 224678 B, 1469 records,
+720 pool entries each. A 4932 record fields and 696 pool edits match returned PL
+exactly; source package PL selected 4932 skills + 4290 config counterparts + 20 exe
+skill overrides, all other categories blank in private test snapshot. No shrinking
+or fragment repairs. B retains JP + effect trailing spaces, original pool/numerics.
+Same native v5 font and same 20 executable data slots in both; ELF .text unchanged.
+All 4 fixture ISO files compared: only config00/font/EBOOT differ; other 33 config
+subfiles unchanged. Source ISO hash unchanged. Guard restored. Fixture is NOT a
+playable full game; actual user ISO build, Windows BAT and PPSSPP execution pending.
+
+Full tests: 1604 OK, 26 skipped, 26.774 s (downloaded private font enables one formerly
+skipped check). Instructions: BAT selects original working 1.08 ISO, two images built
+once; run A cold/New Game first, B only if A fails; same DLC/settings, no save states,
+no deleting saves. Crash A alone does not isolate size; B has equal total size, not
+identical pool/record split. Manifest docs/pl/test-skills-full-v1-delivery.json.
