@@ -29,6 +29,7 @@ import configst_pack  # noqa: E402
 import cpk_write  # noqa: E402
 import mission_text  # noqa: E402
 import speaker_map as SM  # noqa: E402
+import text_codec  # noqa: E402
 
 
 class SlotError(ValueError):
@@ -64,9 +65,9 @@ def slot_span(blob: bytes, spec: dict, index: int) -> Tuple[int, int]:
 def read_slot(blob: bytes, spec: dict, index: int) -> str:
     stride = spec["stride"] or len(blob)
     base = spec["header"] + index * stride + spec["slot"]
-    raw = blob[base:base + stride - spec["slot"]].split(b"\x00", 1)[0]
+    raw = text_codec.cstring(blob, base, base + stride - spec["slot"])
     try:
-        return raw.decode("cp932")
+        return text_codec.decode(raw)
     except UnicodeDecodeError:
         return ""
 
@@ -84,7 +85,7 @@ def write_slots(blob: bytes, spec: dict, edits: Dict[int, str]) -> Tuple[bytes, 
             raise SlotError(f"record {index} is outside the file ({records(blob, spec)} records)")
         start, end = slot_span(blob, spec, index)
         try:
-            text = edits[index].encode("cp932")
+            text = text_codec.encode(edits[index])
         except UnicodeEncodeError as error:
             raise SlotError(f"record {index}: {error}") from error
         room = end - start

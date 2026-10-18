@@ -57,3 +57,31 @@ def display_width(text: str) -> int:
     if _LANG == "pl":
         return pl_text.display_width(text)
     return export_strings.display_width(text)
+
+
+def cstring(data: bytes, start: int = 0, end: int = None) -> bytes:
+    """The NUL-terminated text at ``data[start:end]``, Shift-JIS-aware.
+
+    A NUL that is the trail byte of a double-byte character does not terminate anything: the
+    Polish letters sit at 0x82FA..0x830B, and ś (0x8300) carries a literal 0x00 trail.  For
+    plain ASCII and for real Shift-JIS (whose trails never reach the control range) the result
+    is exactly the old ``split(b"\\x00")[0]``.
+    """
+    end = len(data) if end is None else end
+    position = start
+    while position < end:
+        byte = data[position]
+        if byte == 0:
+            return data[start:position]
+        if 0x81 <= byte <= 0x9F or 0xE0 <= byte <= 0xFC:
+            position += 2              # a double-byte character: the trail may be any byte
+        else:
+            position += 1
+    return data[start:end]
+
+
+def decode(data: bytes) -> str:
+    """Text for game bytes under the current language (strict; errors propagate)."""
+    if _LANG == "pl":
+        return pl_text.decode(data)
+    return data.decode("cp932")

@@ -323,15 +323,24 @@ def widest_by_part(rows: List[dict]) -> Dict[str, int]:
     return found
 
 
-def render(view: str, rows: List[dict], characters: Dict[object, dict] = None) -> str:
+def render(view: str, rows: List[dict], characters: Dict[object, dict] = None,
+           lang: str = "en") -> str:
     """The whole ``*.md`` view of one table file."""
     found = groups(view, rows, characters or {})
     widest = widest_by_part(rows)
-    lines = [f"# {TITLES[view]}", "",
-             "Pod każdym elementem jest linia `limit:` (ile wolno napisać) i linia `EN:` — tam "
-             "wpisuje się tłumaczenie. Elementy bez linii `EN:` dziedziczą tłumaczenie z elementu, "
-             "który ma ten sam tekst — nic tam nie wpisuj. Gotowy plik wraca do pakietu jednym "
-             "poleceniem `tools/translation_import.py`.", ""]
+    if lang == "pl":
+        intro = ("Pod każdym elementem jest linia `limit:` (ile wolno napisać), linia `EN:` — "
+                 "gotowe tłumaczenie angielskie (kontekst i terminologia — NIE zmieniaj jej) — "
+                 "i linia `PL:` — tam wpisuje się tłumaczenie polskie. Elementy bez linii `PL:` "
+                 "dziedziczą tłumaczenie z elementu, który ma ten sam tekst — nic tam nie wpisuj. "
+                 "Gotowy plik wraca do pakietu jednym poleceniem "
+                 "`tools/translation_import.py --lang pl`.")
+    else:
+        intro = ("Pod każdym elementem jest linia `limit:` (ile wolno napisać) i linia `EN:` — tam "
+                 "wpisuje się tłumaczenie. Elementy bez linii `EN:` dziedziczą tłumaczenie z "
+                 "elementu, który ma ten sam tekst — nic tam nie wpisuj. Gotowy plik wraca do "
+                 "pakietu jednym poleceniem `tools/translation_import.py`.")
+    lines = [f"# {TITLES[view]}", "", intro, ""]
     for index, group in enumerate(found, start=1):
         word = GROUP_WORD[view]
         lines.append(f"## {word} {index}/{len(found)}{group['label']}")
@@ -347,8 +356,9 @@ def render(view: str, rows: List[dict], characters: Dict[object, dict] = None) -
                 continue
             lines.append(f"   limit: {limit_note(view, element, widest)}"
                          .replace("limit: limit: ", "limit: "))
-            english = render_markers(row.get("en") or "").replace("\n", "\n   ")
-            lines.append(f"   EN: {english}".rstrip())
+            lines.append(f"   EN: {render_markers(row.get('en') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
+            if lang == "pl":
+                lines.append(f"   PL: {render_markers(row.get('pl') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
         lines.append("")
     return "\n".join(lines)
 
@@ -380,8 +390,12 @@ def lookup(package: Path) -> Dict[str, List[List[List[dict]]]]:
     return plan_from({source: load(package, source) for source, _, _, _ in FILES})
 
 
-def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, object]:
-    """Write the six table views into ``out`` (a view with unsaved English is left alone)."""
+def write_views(package: Path, out: Path, force: bool = False, lang: str = "en") -> Dict[str, object]:
+    """Write the six table views into ``out`` (a view with unsaved work is left alone).
+
+    ``lang="pl"`` renders the Polish views: the English block as a read-only reference and
+    the ``PL:`` slot filled from the package's ``pl`` field.
+    """
     out.mkdir(parents=True, exist_ok=True)
     plan = lookup(package)
     counts: Dict[str, object] = {"files": {}, "skipped": []}
@@ -390,15 +404,16 @@ def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, obje
         if not rows:
             continue
         text = render(view, rows, character_context({source: load(package, source)
-                                                     for source, _, _, _ in FILES}))
+                                                     for source, _, _, _ in FILES}), lang)
         target = out / view
         if not force and target.exists():
             edited = 0
+            marker = "PL:" if lang == "pl" else "EN:"
             for line in target.read_text(encoding="utf-8").splitlines():
-                if line.strip().startswith("EN:") and line.split("EN:", 1)[1].strip():
+                if line.strip().startswith(marker) and line.split(marker, 1)[1].strip():
                     edited += 1
             if edited:
-                counts["skipped"].append(f"{view} ({edited} linii EN do zaimportowania)")
+                counts["skipped"].append(f"{view} ({edited} linii {lang.upper()} do zaimportowania)")
                 continue
         target.write_text(text, encoding="utf-8")
         counts["files"][view] = sum(len(group) for group in plan[view])
@@ -406,7 +421,7 @@ def write_views(package: Path, out: Path, force: bool = False) -> Dict[str, obje
 
 
 def make_zip(out: Path, archive: Path) -> int:
-    files = sorted(out.glob("*.md"))
+    files = sorted(out.glob("*.md")) + sorted(out.glob("*.txt"))   # views + the instruction
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as handle:
         for path in files:
             handle.write(path, path.name)
@@ -417,16 +432,18 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--package", type=Path, default=Path("local/translation"))
     parser.add_argument("--out", type=Path, default=Path("local/translation/widoki"))
-    parser.add_argument("--zip", action="store_true", help="also pack the views into widoki.zip")
+    parser.add_argument("--lang", choices=("en", "pl"), default="en",
+                        help="pl = Polish views: EN block as reference + the PL: slot to fill")
+    parser.add_argument("--zip", action="store_true", help="also pack the views into widoki[_PL].zip")
     parser.add_argument("--force", action="store_true",
-                        help="overwrite views that still hold untransferred English")
+                        help="overwrite views that still hold untransferred translations")
     args = parser.parse_args(argv)
 
-    counts = write_views(args.package, args.out, force=args.force)
+    counts = write_views(args.package, args.out, force=args.force, lang=args.lang)
     print(json.dumps(counts, ensure_ascii=False, indent=1))
     print("wrote", args.out)
     if args.zip:
-        archive = args.out.parent / "widoki.zip"
+        archive = args.out.parent / ("widoki_PL.zip" if args.lang == "pl" else "widoki.zip")
         print(f"zip: {make_zip(args.out, archive)} files -> {archive}")
     return 0
 

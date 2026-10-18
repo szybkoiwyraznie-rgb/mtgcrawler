@@ -425,7 +425,7 @@ class ContainerBuild:
 
     def _advance(self, blob: bytes, step: str, summary: dict) -> None:
         if blob is None or blob == self.current:
-            self.report["steps"].append({"step": step, "applied": 0, "detail": summary})
+            self.report["steps"].append({"step": step, "applied": 0, "detail": _shrink(summary)})
             return
         self.current = blob
         self.step_no += 1

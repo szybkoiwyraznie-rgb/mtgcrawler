@@ -474,3 +474,90 @@ class MainTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+VIEW_PL = """## Scena 1/1 — 初等訓練
+- odcinek: ０話 メインミッション (episode 0)
+- plik gry: eventP00.cpk / DL100_01.bin
+
+1. [Dialog - セイシロウ・クサナギ] さて、訓練の時間だ。\\\\nミッションをはじめよう。
+   EN: Now then, it is time for training.
+   Let the mission begin.
+   PL: Czas na trening.
+   Zaczynajmy misję.
+2. [Dialog - ヒマリ・ヤエガキ] 感度良好だ！
+   EN: Loud and clear!
+   PL: Głośno i wyraźnie!
+
+_koniec sceny_
+"""
+
+
+class PolishFlowTest(unittest.TestCase):
+    """The Polish views: the EN block is a read-only reference, the PL block is the work."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self._tmp.name)
+        self.package = package(self.root)          # rows with no pl field - the import adds it
+        self.view = self.root / "epizod-00.md"
+        self.view.write_text(VIEW_PL, encoding="utf-8")
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def test_both_blocks_are_parsed_and_kept_apart(self):
+        full = TI.parse_view_full(VIEW_PL)
+        self.assertEqual(full[(SCENE, "1")]["en"],
+                         "Now then, it is time for training.\nLet the mission begin.")
+        self.assertEqual(full[(SCENE, "1")]["pl"], "Czas na trening.\nZaczynajmy misję.")
+        self.assertEqual(TI.parse_view(VIEW_PL, field="pl")[(SCENE, "2")], "Głośno i wyraźnie!")
+        self.assertEqual(TI.parse_view(VIEW_PL, field="en")[(SCENE, "2")], "Loud and clear!")
+
+    def test_polish_lands_in_pl_and_the_english_reference_is_ignored(self):
+        report = TI.import_views(TI.read_views([self.view]), self.package, field="pl")
+        self.assertEqual((report["imported"], report["unchanged"]), (2, 0))
+        self.assertEqual([r["pl"] for r in rows_of(self.package)],
+                         ["Czas na trening.\nZaczynajmy misję.", "Głośno i wyraźnie!"])
+        # the EN block of a Polish view is a reference: it must never leak into the en field
+        self.assertEqual([r["en"] for r in rows_of(self.package)], ["", ""])
+
+    def test_second_run_is_idempotent(self):
+        views = TI.read_views([self.view])
+        TI.import_views(views, self.package, field="pl")
+        report = TI.import_views(views, self.package, field="pl")
+        self.assertEqual((report["imported"], report["unchanged"]), (0, 2))
+
+    def test_the_polish_letters_become_the_private_font_codes(self):
+        import pl_text
+        TI.import_views(TI.read_views([self.view]), self.package, field="pl")
+        data = pl_text.encode(rows_of(self.package)[1]["pl"])
+        self.assertEqual(data[:3], b"G\x82\xfd")           # Gł = G + ł (slot 0x82FD)
+        self.assertIn(b"\x83\x00", data)                   # ś of "Głośno"
+        self.assertIn(b"\x83\x01", data)                   # ź of "wyraźnie"
+        self.assertEqual(pl_text.decode(data), "Głośno i wyraźnie!")
+
+    def test_a_character_outside_the_polish_font_is_refused(self):
+        broken = self.root / "broken.md"
+        broken.write_text(VIEW_PL.replace("PL: Głośno i wyraźnie!", "PL: „Cudzyslow"),
+                          encoding="utf-8")
+        report = TI.import_views(TI.read_views([broken]), self.package, field="pl")
+        self.assertEqual(report["imported"], 1)            # only the clean element
+        self.assertTrue(any("encodable" in message for message in report["rejected"]))
+        self.assertEqual(rows_of(self.package)[1].get("pl", ""), "")
+
+    def test_a_polish_line_break_change_is_refused(self):
+        broken = self.root / "broken.md"
+        broken.write_text(VIEW_PL.replace("   PL: Czas na trening.\n   Zaczynajmy misję.",
+                                          "   PL: Czas na trening. Zaczynajmy misję."),
+                          encoding="utf-8")
+        report = TI.import_views(TI.read_views([broken]), self.package, field="pl")
+        self.assertTrue(any("line breaks changed" in message for message in report["rejected"]))
+
+    def test_two_pl_blocks_are_flagged(self):
+        doubled = self.root / "doubled.md"
+        doubled.write_text(VIEW_PL.replace("   PL: Głośno i wyraźnie!",
+                                           "   PL: Głośno i wyraźnie!\n   PL: i druga linia"),
+                           encoding="utf-8")
+        report = TI.import_views(TI.read_views([doubled]), self.package, field="pl")
+        self.assertTrue(any("PL" in message for message in report["duplicated"]))

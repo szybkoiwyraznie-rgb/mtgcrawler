@@ -129,7 +129,7 @@ def text_start_of(blob: bytes, record: dict) -> Optional[int]:
     offset, size = record["offset"], record["size"]
     payload = blob[offset + RECORD_HEADER:offset + size]
     for start in starts:
-        text = payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
+        text = text_codec.cstring(payload, start - RECORD_HEADER)
         if padded_size(len(text), start) == size and not any(payload[start - RECORD_HEADER + len(text):]):
             return start
     return starts[0]
@@ -181,13 +181,18 @@ def parse_block_records(blob: bytes) -> Tuple[List[dict], List[str]]:
 
 
 def text_of(blob: bytes, record: dict) -> bytes:
-    """The text bytes of a record (everything before the first NUL of its payload)."""
+    """The text bytes of a record (everything before the first NUL of its payload).
+
+    The read is Shift-JIS-aware (:func:`text_codec.cstring`): the Polish letters sit at
+    0x82FA..0x830B and their trails can be 0x00..0x0B, so a blind NUL split would cut a
+    Polish text at its first ś.
+    """
     start = text_start_of(blob, record)
     if start is None:
         raise ValueError(f"record type {record['type']:#x} has no text field I know")
     offset, size = record["offset"], record["size"]
     payload = blob[offset + RECORD_HEADER:offset + size]
-    return payload[start - RECORD_HEADER:].split(b"\x00", 1)[0]
+    return text_codec.cstring(payload, start - RECORD_HEADER)
 
 
 def find_record(blob: bytes, text_offset: int, text: bytes) -> Optional[dict]:
@@ -452,7 +457,7 @@ def _text_spans(blob: bytes, records: List[Tuple[int, int, int]]) -> Dict[int, T
         start = text_start_of(blob, record)
         if start is None:
             continue
-        raw = blob[offset + start:offset + size].split(b"\x00", 1)[0]
+        raw = text_codec.cstring(blob, offset + start, offset + size)
         if raw:
             spans[index] = (offset + start, offset + start + len(raw))
     return spans
@@ -527,7 +532,7 @@ def _map_inside(before: bytes, after: bytes, hit: Tuple[int, int], value: int) -
     old_text = before[old_start:old_start + (value - old_start) + 1]
     line = old_text.count(b"\n") - (1 if old_text.endswith(b"\n") else 0)
     at_newline = old_text.endswith(b"\n")
-    new_text = after[new_start:new_start + 4000].split(b"\x00", 1)[0]
+    new_text = text_codec.cstring(after, new_start, new_start + 4000)
     positions = [i for i, byte in enumerate(new_text) if byte == 0x0A]
     if at_newline:
         return new_start + positions[line] if line < len(positions) \

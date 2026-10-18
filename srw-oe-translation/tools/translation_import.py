@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Move the English a translator typed into the scene view (``*.md``) back into the package.
+"""Move the translation a translator typed into the scene view (``*.md``) back into the package.
 
 The scene view (``tools/scene_view.py`` -> ``sceny/*.md``, shipped as ``sceny.zip``) is the reading
 copy: every element of every scene in game order, with its place, its participants and its Japanese
@@ -9,6 +9,19 @@ mission title and notes), which stay the single source of truth the game is buil
 
 The view carries an empty ``EN:`` line under every element, so the translator only types after the
 colon::
+
+    ## Scena 1/293 — 初等訓練
+    - odcinek: ０話 メインミッション (episode 0)
+
+    T1. [Tytuł misji] 初等訓練
+       EN: Basic Training
+    1. [Dialog - セイシロウ・クサナギ] さて、訓練の時間だ。
+       EN: Now then, it is time for training.
+
+With ``--lang pl`` the Polish views are read instead: they carry the English as a read-only
+reference block (``EN:``) plus the ``PL:`` slot the translator fills, and the Polish lands in
+the ``pl`` field of the package - validated with the rules of ``translation_check --field pl``
+(the 18 letters as private font codes, width counted in half-width units).
 
     ## Scena 1/293 — 初等訓練
     - odcinek: ０話 メインミッション (episode 0)
@@ -68,6 +81,7 @@ SCENE_FILE_RE = re.compile(r"^- plik gry: (.+?) / (.+?)\s*$")   # older views ca
 ELEMENT_RE = re.compile(r"^(\d+)\. \[(.*?)\] (.*)$")
 META_RE = re.compile(r"^(T\d+|N\d+)\. \[(.*?)\] (.*)$")
 EN_RE = re.compile(r"^\s*EN:\s?(.*)$")
+PL_RE = re.compile(r"^\s*PL:\s?(.*)$")
 
 
 def read_views(paths: Iterable[Path]) -> Dict[Path, str]:
@@ -118,74 +132,86 @@ def restore_trailing_breaks(text: str, jp: str) -> str:
 
 
 def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
-    """{(group, element): {"en": english, "jp": japanese first line}} of every element of a view.
+    """{(group, element): {"en"/"pl": text, "jp": japanese first line}} of every element.
 
     ``group`` is ``grp:<number>`` for the heading of a view (the scene number in a scene view, the
     number of the group in a table view) or the ``container/member`` of an older view that still
     carried the game file name.  ``element`` is the number of the element (``"3"``) or the mission
     element (``"T1"``, ``"N1"``).  An element is always a group heading, one ``N. [Label] text``
-    line, its continuation lines and an optional ``EN:`` block; the Japanese first line is kept so
-    the importer can tell a stale view from a good one.
+    line, its continuation lines and the ``EN:``/``PL:`` blocks under it (an English view carries
+    only ``EN:``; a Polish view carries the English as a read-only reference plus the ``PL:``
+    slot); the Japanese first line is kept so the importer can tell a stale view from a good one.
     """
     found: Dict[Tuple[str, str], Dict[str, str]] = {}
     group: Optional[str] = None
     token: Optional[str] = None
     jp: Optional[str] = None
-    english: Optional[List[str]] = None
-    blocks = 0                       # how many ``EN:`` blocks the element carries (two = a mistake)
+    blocks: Dict[str, int] = {}     # how many blocks of each prefix the element carries (2 = a mistake)
+    text_by_field: Dict[str, List[str]] = {}
+    open_field: Optional[str] = None   # the block the continuation lines belong to
 
     def close() -> None:
-        nonlocal blocks
         if group is None or token is None:
             return
-        joined = "\n".join(line.rstrip(" ") for line in english or []).strip("\n")
-        if joined.strip():
-            found[(group, token)] = {"en": restore_markers(joined),
-                                     "jp": (jp or "").rstrip(" "), "blocks": blocks}
-        blocks = 0
+        entry: Dict[str, str] = {"jp": (jp or "").rstrip(" ")}
+        for field, lines in text_by_field.items():
+            joined = "\n".join(line.rstrip(" ") for line in lines).strip("\n")
+            if joined.strip():
+                entry[field] = restore_markers(joined)
+        if any(field in entry for field in ("en", "pl")):
+            entry["blocks"] = blocks.get("en", 0)
+            entry["pl_blocks"] = blocks.get("pl", 0)
+            found[(group, token)] = entry
+        text_by_field.clear()
+        blocks.clear()
 
     for raw in text.splitlines():
         heading = GROUP_HEAD_RE.match(raw)
         if heading:
             close()
-            english, token, jp = None, None, None
+            text_by_field, token, jp, open_field = {}, None, None, None
             group = f"grp:{int(heading.group(1))}"
             continue
         match = SCENE_FILE_RE.match(raw)
         if match:
             close()
-            english, token, jp = None, None, None
+            text_by_field, token, jp, open_field = {}, None, None, None
             group = f"{match.group(1)}/{match.group(2)}"
             continue
         if raw.startswith("## ") or raw.startswith("- "):
             close()
-            english, token, jp = None, None, None
+            text_by_field, token, jp, open_field = {}, None, None, None
             continue
         if raw.strip() == "_koniec sceny_":
             close()
-            english, token, jp = None, None, None
+            text_by_field, token, jp, open_field = {}, None, None, None
             continue
         element = ELEMENT_RE.match(raw) or META_RE.match(raw)
         if element:
             close()
             token = element.group(1)
             jp = element.group(3)
-            english = None
+            text_by_field, open_field = {}, None
             continue
-        if raw.strip().startswith("EN:"):
-            if english is not None:
-                blocks += 1          # the element had an ``EN:`` block already
-            english = [raw[raw.index("EN:") + 3:].lstrip(" ")]
+        en_match = EN_RE.match(raw)
+        pl_match = PL_RE.match(raw)
+        if en_match or pl_match:
+            field = "en" if en_match else "pl"
+            content = (en_match or pl_match).group(1)
+            if field in text_by_field:
+                blocks[field] = blocks.get(field, 0) + 1   # the element had a block already
+            text_by_field[field] = [content.lstrip(" ")]
+            open_field = field
             continue
-        if english is not None:
-            english.append(raw[3:] if raw.startswith("   ") else raw)
+        if open_field is not None:
+            text_by_field[open_field].append(raw[3:] if raw.startswith("   ") else raw)
     close()
     return found
 
 
-def parse_view(text: str) -> Dict[Tuple[str, str], str]:
-    """``{(group, element): english}`` - what the view holds, for comparing with the package."""
-    return {key: value["en"] for key, value in parse_view_full(text).items()}
+def parse_view(text: str, field: str = "en") -> Dict[Tuple[str, str], str]:
+    """``{(group, element): text}`` of one field - what the view holds, for comparing."""
+    return {key: value[field] for key, value in parse_view_full(text).items() if field in value}
 
 
 def load_rows(package: Path) -> Tuple[List[dict], Dict[str, List[dict]]]:
@@ -263,8 +289,14 @@ def view_kind(name: object) -> str:
     return "table" if file_name in table_view.VIEW_TO_FILE else "scene"
 
 
-def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> dict:
-    """Write the English of the views into the package; ``apply=False`` only reports."""
+def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
+                 field: str = "en") -> dict:
+    """Write the translation of the views into the package; ``apply=False`` only reports.
+
+    ``field`` says which slot the views fill: ``en`` (the ``EN:`` lines, the English flow)
+    or ``pl`` (the ``PL:`` lines of the Polish views - there the ``EN:`` block is a
+    read-only reference and is never imported).
+    """
     import table_view                     # deferred: table_view imports this module for the markers
 
     rows, by_file = load_rows(package)
@@ -276,9 +308,9 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
     sidecar = TMAP.find_sidecar([Path(package)])
     token_map = TMAP.load_map(sidecar) if sidecar else {}
 
-    report = {"views": len(views), "elements_with_text": 0, "imported": 0, "unchanged": 0,
-              "unknown": [], "rejected": [], "duplicated": [], "written": [], "rows": len(rows),
-              "token_map": str(sidecar) if sidecar else None}
+    report = {"views": len(views), "field": field, "elements_with_text": 0, "imported": 0,
+              "unchanged": 0, "unknown": [], "rejected": [], "duplicated": [], "written": [],
+              "rows": len(rows), "token_map": str(sidecar) if sidecar else None}
     touched: Dict[str, List[dict]] = {}
     for name, text in views.items():
         kind = view_kind(name)
@@ -287,6 +319,8 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
             view_name = view_name.rsplit(":", 1)[-1]
         table = view_name if view_name in table_view.VIEW_TO_FILE else None
         for (group, token), content in sorted(parse_view_full(text).items()):
+            if field not in content:
+                continue                      # the other language's block (or none)
             report["elements_with_text"] += 1
             if kind == "table":
                 element = resolve_table(plan.get(table, []), group, token)
@@ -304,30 +338,32 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True) -> d
             if not element:
                 report["unknown"].append(f"{name}:{group}:{token}")
                 continue
-            if content.get("blocks"):
+            if content.get("blocks" if field == "en" else "pl_blocks"):
                 report["duplicated"].append(
-                    f"{name}:{group}:{token} ({content['blocks'] + 1} linii EN — liczy się ostatnia, "
-                    f"pusta: usuń nadmiarową)")
-            english = restore_trailing_breaks(content["en"], element[0].get("jp") or "")
+                    f"{name}:{group}:{token} ({content['blocks' if field == 'en' else 'pl_blocks'] + 1}"
+                    f" linii {field.upper()} — liczy się ostatnia, pusta: usuń nadmiarową)")
+            typed = restore_trailing_breaks(content[field], element[0].get("jp") or "")
             # a translator who keeps every placeholder copies the kana tokens too
             # (``%s*%s&Damage`` for ``%s*ﾒｰ%s&``); the sidecar says which %s are kana tokens
-            # and they leave the English here, with the glyph byte after them (never a bare %s)
+            # and they leave the translation here, with the glyph byte after them (never a bare %s)
             pct = next((token_map[row["id"]] for row in element if row.get("id") in token_map),
                        None)
-            english = TC.strip_kana_tokens(english, element[0].get("jp") or "", pct)
-            if all((row.get("en") or "") == english for row in element):
+            typed = TC.strip_kana_tokens(typed, element[0].get("jp") or "", pct)
+            if all((row.get(field) or "") == typed for row in element):
                 report["unchanged"] += 1
                 continue
             problems = []
             for row in element:
-                errors, _ = TC.check_row(dict(row, en=english),
-                                         pct=token_map.get(row.get("id")))
+                candidate = dict(row)
+                candidate[field] = typed
+                errors, _ = TC.check_row(candidate, pct=token_map.get(row.get("id")),
+                                         field=field)
                 problems.extend(f"{row.get('id', '?')}: {message}" for message in errors)
             if problems:
                 report["rejected"].extend(problems)
                 continue
             for row in element:
-                row["en"] = english
+                row[field] = typed
                 touched.setdefault(row["_file"], []).append(row)
             report["imported"] += 1
     if apply:
@@ -349,18 +385,21 @@ def main(argv=None) -> int:
                         help="scene view files, a folder of *.md, or a sceny.zip")
     parser.add_argument("--package", type=Path, default=Path("local/translation"),
                         help="folder with the package JSONL (the files that get written)")
+    parser.add_argument("--lang", choices=("en", "pl"), default="en",
+                        help="which slot the views fill: en = the EN: lines (default), "
+                             "pl = the PL: lines of the Polish views (EN: is the reference there)")
     parser.add_argument("--check", action="store_true", help="report only, write nothing")
     args = parser.parse_args(argv)
 
     views = read_views(args.views)
-    report = import_views(views, args.package, apply=not args.check)
+    report = import_views(views, args.package, apply=not args.check, field=args.lang)
     summary = {key: value for key, value in report.items()
                if key not in ("unknown", "rejected", "duplicated")}
     print(json.dumps(summary, ensure_ascii=False, indent=1))
     for message in report["rejected"][:40]:
         print(f"odrzucone: {message}")
     for message in report["duplicated"][:40]:
-        print(f"dwie linie EN: {message}")
+        print(f"dwie linie: {message}")
     for message in report["unknown"][:40]:
         print(f"nieznane: {message}")
     return 0

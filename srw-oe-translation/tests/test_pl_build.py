@@ -10,6 +10,7 @@ maps ``pl`` onto it while loading - so what these tests pin down is the codec ro
 from __future__ import annotations
 
 import json
+import struct
 import sys
 import tempfile
 import unittest
@@ -205,3 +206,179 @@ class FontStepTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class OnlyFilterPlTests(PlLangTestCase):
+    """TEST_PL.bat's build end to end: ``--only eventP00.cpk config00.cpk font.cpk --lang pl``.
+
+    Synthetic containers in the real formats (a DL100_01.bin with narration and dialogue, a
+    config00.cpk with the Exart unit_list and wp_list records, the synthetic font container):
+    the build must patch all three - and the font step only runs when font.cpk is selected,
+    which is why TEST_PL.bat lists it in --only explicitly.
+    """
+
+    # ---- the synthetic config00.cpk --------------------------------------------
+
+    UNIT_LIST_WEAPONS = (("マルチ・ランチャー", "ﾏﾙﾁ･ﾗﾝﾁｬｰ"),
+                         ("ライコウ・ブレード", "ﾗｲｺｳ･ブﾚｰﾄ"),
+                         ("ウェーバー・ガン", "ｳｪｰバｰ･ｶﾞﾝ"),
+                         ("ライコウ・ブレード／突破", "ﾗｲｺｳ･ﾌﾞﾚｰﾄﾞ"),
+                         ("エクセス・ブラスト", "ｴｸｾｽ･ﾌﾞﾗｽﾄ"),
+                         ("エンペリオン・グランツ", "ｴﾝﾍﾟﾘｵﾝ"),
+                         ("ヴァリオ・リフレクト", "ﾊﾞﾘｵ･ﾘﾌﾚｸﾄ"),
+                         ("紫電の太刀", "ｼﾃﾞﾝﾉﾀﾁ"))
+
+    @staticmethod
+    def unit_list_member() -> bytes:
+        out = b""
+        for key, display in ((3900, "エグザート"), (3905, "エグザート／紫電の太刀")):
+            record = bytearray(384)
+            name = "エグザート".encode("cp932")
+            record[0:len(name)] = name                      # name cell @ +0
+            short = "ｴｸﾞｻﾞｰﾄ".encode("cp932")
+            record[32:32 + len(short)] = short              # kana short cell @ +32
+            record[140:140 + len(display.encode("cp932"))] = display.encode("cp932")
+            struct.pack_into("<H", record, 84, key)         # key u16 @ +84
+            out += bytes(record)
+        return out
+
+    def wp_list_member(self) -> bytes:
+        entries = b""
+        for name, short in self.UNIT_LIST_WEAPONS:
+            entry = bytearray(256)
+            raw = name.encode("cp932")
+            entry[32:32 + len(raw)] = raw                   # name cell @ +32
+            raw = short.encode("cp932")
+            entry[96:96 + len(raw)] = raw                   # short cell @ +96
+            entries += bytes(entry)
+        record = struct.pack("<III", 3900, len(self.UNIT_LIST_WEAPONS), 0) + entries
+        return struct.pack("<II", 0, 8) + record            # offset table, first record @ +8
+
+    # ---- the package -----------------------------------------------------------
+
+    def scene_rows(self, narration_offset, dialogue_offsets):
+        def row(ident, offset, jp, pl, kind):
+            return {"id": ident, "category": "dialogue", "part": kind, "kind": kind,
+                    "jp": jp, "en": "", "pl": pl, "scene": "eventP00.cpk/DL100_01.bin",
+                    "source": {"container": "eventP00.cpk", "member": "DL100_01.bin",
+                               "offset": offset}}
+        return [row("dlg:narration", narration_offset, "ナレーション。\n二行目。",
+                    "TEST PL 1/2: ąćęłńóśźż\nTEST PL 2/2: ĄĆĘŁŃÓŚŹŻ", "narration"),
+                row("dlg:a", dialogue_offsets[0], "さて、訓練の時間だ。",
+                    "TEST PL: Zażółć gęślą jaźń", "dialogue"),
+                row("dlg:b", dialogue_offsets[1], "感度良好だ！",
+                    "TEST PL: ĄĆĘŁŃÓŚŹŻ", "dialogue")]
+
+    def name_rows(self):
+        rows = []
+
+        def add(ident, key, part, jp, pl, offset=None):
+            source = {"container": "config00.cpk", "member": "unit_list" if key != 3900 or part in
+                      ("name", "name_display") and offset is None else "wp_list"}
+            if offset is not None:
+                source = {"container": "config00.cpk", "member": "wp_list", "offset": offset}
+            rows.append({"id": ident, "category": "weapon_name" if offset is not None
+                         else "unit_name", "part": part, "jp": jp, "en": "", "pl": pl,
+                         "key": key, "source": source})
+
+        add("unit:3900:name", 3900, "name", "エグザート", "Zażółć")
+        add("unit:3900:name_display", 3900, "name_display", "エグザート",
+            "TEST PL: Zażółć gęślą jaźń")
+        add("unit:3905:name_display", 3905, "name_display", "エグザート／紫電の太刀",
+            "TEST PL: ĄĆĘŁŃÓŚŹŻ")
+        for index, (name, short) in enumerate(self.UNIT_LIST_WEAPONS):
+            add(f"weapon:3900:{index}:name", 3900, "name", name,
+                f"TEST W{index + 1}: ąćęłńóśźż", offset=index)
+            add(f"weapon:3900:{index}:name_short", 3900, "name_short", short,
+                f"T{index + 1} ĄĆĘŁŃÓŚŹŻ", offset=index)
+        return rows
+
+    # ---- the fixture -----------------------------------------------------------
+
+    def setUp(self):
+        super().setUp()
+        self._tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name)
+
+        from test_event_text_apply import member_with_narration
+        from test_cpk_table import build_synthetic_cpk
+        blob, narration_offsets, dialogue_offsets, _table = member_with_narration(
+            ["ナレーション。\n二行目。".encode("cp932")],
+            ["さて、訓練の時間だ。".encode("cp932"), "感度良好だ！".encode("cp932")])
+        self.event_member = blob
+        font_container = _synthetic_container()
+        self.font_cpk = build_itoc_only_cpk(
+            [(0, crilayla.compress(font_container), len(font_container))])
+        self.config_cpk = build_synthetic_cpk(
+            [{"dir": "", "name": "unit_list", "data": self.unit_list_member(), "id": 0},
+             {"dir": "", "name": "wp_list", "data": self.wp_list_member(), "id": 1}])
+        self.event_cpk = build_synthetic_cpk(
+            [{"dir": "", "name": "DL100_01.bin", "data": blob, "id": 0}])
+
+        self.iso = self.root / "game.iso"
+        self.iso.write_bytes(iso_pack.build_iso({
+            "PSP_GAME": {"PARAM.SFO": b"SFO" * 100,
+                         "USRDIR": {"font.cpk": self.font_cpk,
+                                    "eventP00.cpk": self.event_cpk,
+                                    "config00.cpk": self.config_cpk}}}))
+
+        self.package = self.root / "test_PL"
+        self.package.mkdir()
+        with (self.package / "00_dialogue.jsonl").open("w", encoding="utf-8") as handle:
+            for row in self.scene_rows(narration_offsets[0], dialogue_offsets):
+                handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+        with (self.package / "08_names_units_weapons.jsonl").open("w", encoding="utf-8") as handle:
+            for row in self.name_rows():
+                handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    def run_build(self, **kw):
+        out = self.root / "out"
+        return out, BTP.build(self.iso, None, self.package, out,
+                              work=self.root / "work",
+                              only=("eventP00.cpk", "config00.cpk", "font.cpk"),
+                              ui_textures=False, **kw)
+
+    def test_the_three_containers_land_in_the_patch(self):
+        import cpk_write
+        out, report = self.run_build(lang="pl")
+        self.assertEqual(report["problems"], [])
+        self.assertTrue((out / "patched.iso").is_file())
+        by_name = {entry["container"]: entry for entry in report["containers"]}
+        self.assertTrue(by_name["eventP00.cpk"]["changed"])
+        self.assertTrue(by_name["config00.cpk"]["changed"])
+        self.assertEqual(report["font"]["containers"][0]["glyphs"], 18)
+        self.assertEqual(report["font"]["containers"][0]["written"],
+                         "patched.iso:psp_game/usrdir/font.cpk")
+
+        # the dialogue: the PL probes are in the member as the private font codes
+        event_path = self.root / "rb_event.cpk"
+        event_path.write_bytes(iso_pack.read_member(out / "patched.iso",
+                                                    "psp_game/usrdir/eventP00.cpk"))
+        dl = next(m for m in cpk_write.load(event_path).members if m.name == "DL100_01.bin")
+        blob = cpk_write.decompressed(dl.blob)
+        self.assertIn(pl_text.encode("TEST PL 1/2: ąćęłńóśźż\nTEST PL 2/2: ĄĆĘŁŃÓŚŹŻ"), blob)
+        self.assertIn(pl_text.encode("TEST PL: Zażółć gęślą jaźń"), blob)
+        self.assertNotIn("さて、訓練の時間だ。".encode("cp932"), blob)
+
+        # the unit and weapon cells
+        config_path = self.root / "rb_config.cpk"
+        config_path.write_bytes(iso_pack.read_member(out / "patched.iso",
+                                                     "psp_game/usrdir/config00.cpk"))
+        members = {m.name: cpk_write.decompressed(m.blob) for m in cpk_write.load(config_path).members}
+        unit_list = members["unit_list"]
+        self.assertEqual(unit_list[0:10], pl_text.encode("Zażółć"))
+        self.assertIn(pl_text.encode("TEST PL: Zażółć gęślą jaźń"), unit_list)
+        wp_list = members["wp_list"]
+        self.assertIn(pl_text.encode("TEST W1: ąćęłńóśźż"), wp_list)
+        self.assertIn(pl_text.encode("T8 ĄĆĘŁŃÓŚŹŻ"), wp_list)
+        self.assertNotIn("マルチ・ランチャー".encode("cp932"), wp_list)
+
+    def test_without_font_in_only_the_font_step_stays_out(self):
+        out = Path(self.root / "out-nofont")
+        report = BTP.build(self.iso, None, self.package, out, work=self.root / "work2",
+                           only=("eventP00.cpk", "config00.cpk"), ui_textures=False, lang="pl")
+        self.assertEqual(report["problems"], [])
+        self.assertTrue((out / "patched.iso").is_file())
+        self.assertEqual(iso_pack.read_member(out / "patched.iso",
+                                              "psp_game/usrdir/font.cpk"), self.font_cpk)

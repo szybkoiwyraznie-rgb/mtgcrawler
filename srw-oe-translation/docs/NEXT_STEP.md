@@ -93,7 +93,7 @@ Polish stage the seven USRDIR originals were re-downloaded from Drive into the i
 
 ```sh
 cd srw-oe-translation
-python3 -m unittest discover tests      # 1,536 tests, OK (25 skipped), ~30 s
+python3 -m unittest discover tests      # 1,547 tests, OK (25 skipped), ~30 s
 ```
 
 `pytest` is not installed in the sandbox. Delivery documents report 1,493–1,509
@@ -133,10 +133,82 @@ translating**. Delivered so far (all on the session branch, PR #18):
   `local/release/srw-oe-translation-pl-v1.zip` (88 files). Built with the still
   empty package — runnable today: the font patch alone can be checked in game.
 
-Waiting on the owner: (1) the filled `pakiet_PL` back from the translator model,
-(2) an in-game check of `srw-oe-translation-pl-v1.zip` (does the font render the
-18 letters, and how wide do they really advance). After that: commit the filled
-package as `pakiet_PL/`, rebuild the kit, release.
+### Translator handoff v2 (2026-10-18, owner's correction)
+
+The JSONL handoff (`pakiet_PL_v1.zip`) was **rejected by the owner**: the package
+for the translator must have *exactly the same shape as `sceny.zip` and `widoki.zip`*
+— md files with context, speakers, expected lengths — because the translation is
+to be literary and context-embedded, not purely technical. Delivered:
+
+* `scene_view.py --lang pl` / `table_view.py --lang pl` — render the same views
+  as the EN flow, with the English kept as a read-only `EN:` reference block and
+  the empty `PL:` slot under it (headers adjusted, zip named `sceny_PL.zip` /
+  `widoki_PL.zip`, the instruction rides along as `INSTRUKCJA_PL.txt`).
+* `translation_import.py --lang pl` — parses the `PL:` blocks in parallel to
+  `EN:`, validates with `TC.check_row(..., field="pl")`, writes `row["pl"]`, and
+  never touches `en` (the reference). Round trip pinned by
+  `tests/test_translation_import.py::PolishFlowTest` (7 tests).
+* Generated from `local/pakiet_PL` and uploaded to Drive (folder `SRW OE`):
+  `sceny_PL.zip` (38 files, 2.8 MB) and `widoki_PL.zip` (8 files, 1.2 MB);
+  the instruction also lives in `docs/INSTRUKCJA_WIDOKI_PL.md`.
+
+### Small in-game PL test (2026-10-18, owner's request)
+
+Before any full patch, the owner wants a test patcher that swaps the elements of
+the ISO so Polish subtitles and font are visible at the start of mission 0-0, in
+the Exart mech description and its weapons. Delivered:
+
+* `tools/test_pl_package.py` → `local/test_PL`: the real package with **probe
+  texts** (no translation) in `pl` for the opening of mission 0-0 (dialogue rows
+  1–16 of `eventP00.cpk/DL100_01.bin`: narration, location header, Seishiro and
+  Himari lines, the `＜主人公名＞` token row), the mission title, and the Exart
+  name/display/8 weapons in `config00.cpk`. `translation_check --field pl`:
+  36 filled rows, 0 errors. Empty `pl` rows are skipped by the build (original
+  bytes stay), so nothing else changes.
+* `TEST_PL.bat` + `README_TEST_PL.md` — the test kit
+  `local/release/srw-oe-test-pl-v1.zip` (87 files; tools carry all fixes below),
+  uploaded to Drive. It patches **only** `eventP00.cpk config00.cpk font.cpk`
+  (`--only ... --no-ui-textures`, no DLC) into `output/patched.iso`.
+
+**PL bugs found by the e2e and fixed** (the font-only kit v1 never exercised
+these paths): the 18 PL codes are 0x82FA–0x830B, so `ś` (0x8300) carries a
+literal NUL trail — every reader that NUL-split a text broke on it.
+
+* `text_codec.cstring(data, start, end)` — Shift-JIS-aware NUL-terminated read
+  (a NUL that is the trail of a double-byte char does not terminate); used by
+  `event_text_apply` (`text_of`, `text_start_of`, `_text_spans`, `_map_inside`)
+  and `name_table_write.cstring`. For valid SJIS/ASCII input the result is
+  byte-identical to the old `split(b"\x00")[0]`.
+* `text_codec.decode()` added (pl ⇄ cp932 per lang); `slot_text_apply` now
+  encodes through `text_codec` instead of hardcoded cp932.
+* `build_translation_patch._advance` shrinks the summary in the no-change
+  branch too (raw bytes in `detail` crashed the JSON report dump).
+* `slot_apply` (the orchestrator's slot writer) was audited: it writes through
+  `TW.encode_en` (codec-aware) and verifies by byte windows, so it was already
+  PL-safe — pinned by `tests/test_slot_apply.py::PolishSlotTests`.
+* New e2e: `tests/test_pl_build.py::OnlyFilterPlTests` — synthetic containers
+  in the real formats (DL100_01.bin narration+dialogue, config00 unit_list +
+  wp_list with the Exart records, the font container), full
+  `BTP.build(..., only=(eventP00, config00, font), lang="pl")`, readback of the
+  PL bytes from `patched.iso`, plus the negative test that `font.cpk` must be
+  listed in `--only` for the font step to run.
+* Suite: **1,547 tests OK (25 skipped)**.
+
+Waiting on the owner: (1) run `srw-oe-test-pl-v1.zip` → `TEST_PL.bat` on the
+real ISO and report whether all 18 letters render (and which do not, and where:
+subtitles / mech name / weapon names); (2) the filled `sceny_PL`/`widoki_PL`
+md files back from the translator. After both: import with
+`translation_import.py --lang pl`, commit `pakiet_PL/`, rebuild the full kit,
+release.
+
+### Notes for the full PL patch (not needed for the test)
+
+The remaining NUL-split readers (`table_write`, `item_skill_write`,
+`config_text_tables`, `mission_text`, `event_dialogue` extractor,
+`slot_text_apply.read_slot` for re-reads) have not been audited for the 0x00
+trail of `ś` — none of them is on the test kit's path (event writers, name
+cells, font, byte-window verifies). Audit them before the first full PL build
+that fills 02/03/04 rows.
 
 ## Before starting new work
 
