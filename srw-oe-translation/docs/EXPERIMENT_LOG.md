@@ -7320,3 +7320,21 @@ validation and delivery still pending; do not claim installed old kits updated.
 - Existing downloaded kits require the overlay (Git push alone does not update
   user directories). Shared code now automatic in both normal entrypoints;
   global spare-field gate elsewhere and ordinary PL Skill00 budgets remain enabled.
+
+### 2026-10-18 — PL2 return, first audit checkpoint (physical build pending)
+
+- Downloaded user-named `PL2.zip`, Drive `1-qf3wc-6X5uI9ZweDKsJiBb_PuMyZogQ`,
+  1958693 B, archive CRC OK. Read returned/nested text as data only; no scripts run.
+- Strict import to ignored private copy: 36161 elements, 7580 copies, no rejected,
+  unknown or duplicate elements. Original EN/JP metadata and source package preserved.
+- Confirmed 634 nonempty config fields have meaningful leading ASCII spaces.
+  Audit now verifies exact imported prefix and codec bytes; synthetic regression
+  preserves two leading spaces and one trailing space. Importer itself unchanged.
+- Initial audit hit an unsupported assumption: it tried to diagnose untranslated
+  battle quotes as binary Item/Skill fields and requested missing mesbtl assets.
+  Fixed audit classification only (not game writer/import rules); 8 focused tests OK.
+- Delivered outer cytaty.md has **11801 / 19841** nonempty PL fields, confirmed both
+  by raw PL-line count and parser, not reported 13460. Do not invent missing progress
+  or execute the translator's state scripts; clarify in finished receipt.
+- Member/pool measurement, normal builder output/readback, old/new 33 join comparison
+  and full suite remain pending at this checkpoint.

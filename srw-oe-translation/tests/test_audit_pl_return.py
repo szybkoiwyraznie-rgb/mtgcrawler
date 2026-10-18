@@ -40,6 +40,46 @@ class ReviewTests(unittest.TestCase):
             self.assertEqual(result['entries'], 1)
             self.assertEqual(result['conflicting_keys'], 1)
 
+    def test_untranslated_quote_is_not_a_binary_skill_field(self):
+        class NoAssets:
+            def member(self, *args):
+                raise AssertionError('empty quote must not load private assets')
+        row = dict(id='quote:1', category='battle_quote',
+                   source=dict(container='mesbtl01.EDAT', member='p4420.pac', offset=12))
+        details = A.diagnose_empty_fields([('cytaty.md', 'grp:1', '1', row)], NoAssets())
+        self.assertEqual(len(details), 1)
+        self.assertEqual(details[0][-1], 'empty PL translation slot; not a binary-field claim')
+
+    def test_binary_item_drop_still_has_its_original_diagnosis(self):
+        class Assets:
+            def member(self, *args):
+                self.loaded = args
+                return b'binary sentinel'
+        assets = Assets()
+        row = dict(id='cfg:1', category='config_item_drop',
+                   source=dict(container='configst.cpk', member='srwDL_ItemDrop.bin', offset=0))
+        details = A.diagnose_empty_fields([('teksty-config.md', 'grp:1', '1', row)], assets)
+        self.assertEqual(assets.loaded, ('configst.cpk', 'srwDL_ItemDrop.bin'))
+        self.assertIn('binary ItemDrop table', details[0][-1])
+
+    def test_meaningful_leading_spaces_survive_parser_import_and_codec(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); package = root/'EN'; package.mkdir()
+            row = dict(id='cfg:test', jp='字', en='Text', part='text')
+            (package/'04_config_text.jsonl').write_text(json.dumps(row, ensure_ascii=False)+'\n', encoding='utf-8')
+            (package/'tokeny.tsv').write_text('# empty\n')
+            text = H.package_stamp(package)+'\n'+V.render('teksty-config.md', [row], lang='pl')
+            # One separator space + TWO meaningful spaces, and a trailing space.
+            text = text.replace('   PL:', '   PL:   Lv ')
+            archive = root/'PL.zip'
+            with zipfile.ZipFile(archive, 'w') as z:
+                z.writestr('PL/widoki/teksty-config.md', text)
+            result = A.review(archive, package, root/'review')
+            imported = json.loads((root/'review/package/04_config_text.jsonl').read_text())['pl']
+            self.assertEqual(imported, '  Lv ')
+            self.assertEqual(result['leading_spaces']['visible_fields'], 1)
+            self.assertTrue(result['leading_spaces']['exact_prefix_and_codec_bytes_preserved'])
+
     def test_review_imports_only_into_copy_and_preserves_source(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); package = root / 'EN'; package.mkdir()

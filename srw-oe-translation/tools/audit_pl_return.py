@@ -77,6 +77,38 @@ def glossary(archive):
             'sha256': hashlib.sha256(body).hexdigest()}
 
 
+def diagnose_empty_fields(empty, containers):
+    details = []
+    cache = {}
+    for filename, group, token, row in empty:
+        src = row.get('source') or {}
+        key = src.get('container'), src.get('member')
+        # Untranslated battle quotes (and other editable prose) are not binary
+        # Item/Skill offsets. Do not require their private assets or misparse them.
+        if row.get('category') not in ('config_item', 'config_item_drop', 'config_skill'):
+            details.append((filename, group, token, row['id'], key[0], key[1], src.get('offset'),
+                            None, 'empty PL translation slot; not a binary-field claim'))
+            continue
+        blob = containers.member(*key)
+        inside, relative = [], None
+        if 'ItemDrop' in key[1]:
+            diagnosis = 'binary ItemDrop table; already refused by table_write.resolve_one'
+        else:
+            if key not in cache:
+                cache[key] = R.parse_member(blob, 'skill' if 'Skill' in key[1] else 'item', key[1], key[0])
+            parsed = cache[key]
+            if parsed['errors']:
+                raise ValueError('cannot prove empty-row location in an unparsed member')
+            record = next((r for r in parsed['records'] if r['offset'] <= src['offset'] < r['offset']+r['length']), None)
+            if record:
+                relative = src['offset'] - record['offset']
+                inside = [f for f in R.FIELDS if record['offset']+record[f+'_offset'] <= src['offset'] <
+                          record['offset']+record[f+'_offset']+record[f+'_slot']]
+            diagnosis = 'outside all five text fields' if record and not inside else 'UNRESOLVED'
+        details.append((filename, group, token, row['id'], key[0], key[1], src.get('offset'), relative, diagnosis))
+    return details
+
+
 def review(archive, package, out, originals=None):
     if out.exists() and any(out.iterdir()):
         raise ValueError('output must be new/empty; refusing to overwrite work')
@@ -92,13 +124,15 @@ def review(archive, package, out, originals=None):
     rows, by_file = I.load_rows(target)
     token_map = TM.load_map(target / 'tokeny.tsv')
     plan = V.plan_from(by_file, lang='pl')
-    empty, warnings, counts = [], [], {}
+    empty, warnings, counts, leading = [], [], {}, []
     for name, text in views.items():
         filename = str(name).replace('\\', '/').rsplit('/', 1)[-1].rsplit(':', 1)[-1]
         if filename not in plan:
             continue
         bucket = counts[filename] = Counter()
-        for (group, token), entry in I.parse_view_full(text, include_empty=True).items():
+        parsed_view = I.parse_view_full(text, include_empty=True)
+        bucket['visible_elements'] = len(parsed_view)
+        for (group, token), entry in parsed_view.items():
             element = I.resolve_table(plan[filename], group, token)
             if not element:
                 raise ValueError('unresolved source element')
@@ -109,6 +143,14 @@ def review(archive, package, out, originals=None):
             if entry.get('pl'):
                 bucket['filled_pl_slots'] += 1
                 typed = I.restore_trailing_breaks(entry['pl'], row.get('jp') or '')
+                spaces = len(typed) - len(typed.lstrip(' '))
+                if spaces:
+                    for target_row in element:
+                        imported = target_row.get('pl') or ''
+                        if (len(imported) - len(imported.lstrip(' ')) != spaces or
+                                not pl_text.encode(imported).startswith(b' ' * spaces)):
+                            raise ValueError('meaningful leading spaces lost during PL import')
+                    leading.append((filename, group, token, spaces, len(element)))
                 errors, notes = C.check_row({**row, 'pl': typed}, field='pl', pct=token_map.get(row['id']))
                 if errors:
                     raise ValueError('import accepted a row that the checker refuses')
@@ -118,10 +160,13 @@ def review(archive, package, out, originals=None):
                     if 'suggested_max' in note:
                         bucket['suggested_length_warnings'] += 1
     tsv(out / 'warnings.tsv', ['file', 'group', 'element', 'part', 'warning'], warnings)
+    tsv(out / 'leading-spaces.tsv', ['file', 'group', 'element', 'leading_ascii_spaces', 'imported_rows'], leading)
     checked = C.check_rows(rows, field='pl', token_map=token_map)
     result = {'scope': 'returned partial translation; static import, byte writers and table-format preview, NOT runtime QA',
               'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(), 'md_files': len(views),
               'imported_elements': report['imported'], 'copies_filled': report['copies']['filled'],
+              'leading_spaces': {'visible_fields': len(leading), 'imported_rows_checked': sum(r[4] for r in leading),
+                                 'exact_prefix_and_codec_bytes_preserved': True},
               'validation': checked['totals'], 'views': counts, 'glossary': glossary(archive),
               'reference_fields_unchanged': True, 'original_archive_unchanged': True}
     originals_rows, _ = I.load_rows(package)
@@ -131,28 +176,7 @@ def review(archive, package, out, originals=None):
         raise ValueError('import changed source/reference fields')
     if originals:
         containers = TM.Containers([originals])
-        details = []
-        cache = {}
-        for filename, group, token, row in empty:
-            src = row.get('source') or {}
-            key = src.get('container'), src.get('member')
-            blob = containers.member(*key)
-            inside, relative = [], None
-            if 'ItemDrop' in key[1]:
-                diagnosis = 'binary ItemDrop table; already refused by table_write.resolve_one'
-            else:
-                if key not in cache:
-                    cache[key] = R.parse_member(blob, 'skill' if 'Skill' in key[1] else 'item', key[1], key[0])
-                parsed = cache[key]
-                if parsed['errors']:
-                    raise ValueError('cannot prove empty-row location in an unparsed member')
-                record = next((r for r in parsed['records'] if r['offset'] <= src['offset'] < r['offset']+r['length']), None)
-                if record:
-                    relative = src['offset'] - record['offset']
-                    inside = [f for f in R.FIELDS if record['offset']+record[f+'_offset'] <= src['offset'] <
-                              record['offset']+record[f+'_offset']+record[f+'_slot']]
-                diagnosis = 'outside all five text fields' if record and not inside else 'UNRESOLVED'
-            details.append((filename, group, token, row['id'], key[0], key[1], src.get('offset'), relative, diagnosis))
+        details = diagnose_empty_fields(empty, containers)
         tsv(out / 'empty-fields.tsv', ['file','group','element','id','container','member','offset','relative_offset','diagnosis'], details)
         result['empty_field_diagnoses'] = dict(Counter(d[-1] for d in details))
 
