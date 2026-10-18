@@ -49,6 +49,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import pl_handoff as PH
 import export_strings as ES      # noqa: E402  (display_width -> the width the game draws)
 import translation_check as TC   # noqa: E402  (fixed_slot_limit -> the measured slot sizes)
 import translation_import as TI   # noqa: E402  (render_markers -> markers_for)
@@ -59,7 +60,7 @@ WIDEST_LINE = ES.GAME_WIDEST["dialogue"]   # 52 - the hard limit of a dialogue l
 TYPICAL_LINE = ES.TYPICAL_LINE             # 46 - what most of the game's lines stay within
 
 
-def limit_note(view: str, element: List[dict], widest: Dict[str, int]) -> str:
+def limit_note(view: str, element: List[dict], widest: Dict[str, int], lang: str = "en") -> str:
     """What the translator may write for one element, in one line.
 
     Three cases, and the note always says which one it is:
@@ -72,6 +73,8 @@ def limit_note(view: str, element: List[dict], widest: Dict[str, int]) -> str:
       note gives the longest original in that category as a guide, so the translator stays in the
       game's own proportions.
     """
+    if lang == "pl":
+        return PH.limit_note(element)
     rows = element
     first = rows[0]
     budgets = []
@@ -143,6 +146,8 @@ FILES = (
     ("03_skills.jsonl", "umiejetnosci.md", "umiejetnosci", "Umiejętność"),
     ("04_config_text.jsonl", "teksty-config.md", "teksty config", "Sekcja"),
     ("05_mission_text.jsonl", "teksty-misji.md", "teksty misji", "Sekcja"),
+    ("09_executable.jsonl", "program.md", "teksty programu — ograniczenia specjalne", "Sekcja"),
+    ("10_map_terrain.jsonl", "teren.md", "nazwy terenu — tylko ASCII", "Sekcja"),
 )
 VIEW_TO_FILE = {view: source for source, view, _, _ in FILES}
 FILE_TO_VIEW = {source: view for source, view, _, _ in FILES}
@@ -243,7 +248,7 @@ def element_key(view: str, row: dict) -> str:
     translator writes the text once and every row of the element gets it.  The flat ``text``
     categories (04, 05) have no fields - there every single row is an element of its own.
     """
-    if view in ("teksty-config.md", "teksty-misji.md"):
+    if view in ("teksty-config.md", "teksty-misji.md", "program.md", "teren.md"):
         return str(row.get("id"))
     if view == "mechy.md" and str(row.get("id") or "").startswith("weapon:"):
         parts = str(row["id"]).split(":")
@@ -326,6 +331,7 @@ def widest_by_part(rows: List[dict]) -> Dict[str, int]:
 def render(view: str, rows: List[dict], characters: Dict[object, dict] = None,
            lang: str = "en") -> str:
     """The whole ``*.md`` view of one table file."""
+    rows = PH.eligible(rows, lang)
     found = groups(view, rows, characters or {})
     widest = widest_by_part(rows)
     if lang == "pl":
@@ -354,10 +360,11 @@ def render(view: str, rows: List[dict], characters: Dict[object, dict] = None,
                 lines.append("   (ten sam tekst co wcześniej — tłumaczenie dziedziczy się "
                              "automatycznie, nic tu nie wpisuj)")
                 continue
-            lines.append(f"   limit: {limit_note(view, element, widest)}"
+            lines.append(f"   limit: {limit_note(view, element, widest, lang)}"
                          .replace("limit: limit: ", "limit: "))
             lines.append(f"   EN: {render_markers(row.get('en') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
-            if lang == "pl":
+            if lang == "pl" and not (row.get("category") == PH.exe_strings.CATEGORY
+                                       and row.get("jp") in PH.exe_strings.ENGINE_LITERALS):
                 lines.append(f"   PL: {render_markers(row.get('pl') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
         lines.append("")
     return "\n".join(lines)
@@ -370,7 +377,7 @@ def load(package: Path, source: str) -> List[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def plan_from(rows_by_file: Dict[str, List[dict]]) -> Dict[str, List[List[List[dict]]]]:
+def plan_from(rows_by_file: Dict[str, List[dict]], lang: str = "en") -> Dict[str, List[List[List[dict]]]]:
     """The plan of every view built from rows that are already loaded (they are the package rows).
 
     Both the renderer and the importer build the plan with this function, so the numbers of a view
@@ -381,13 +388,13 @@ def plan_from(rows_by_file: Dict[str, List[dict]]) -> Dict[str, List[List[List[d
     plan: Dict[str, List[List[List[dict]]]] = {}
     for source, view, _, _ in FILES:
         plan[view] = [group["elements"]
-                      for group in groups(view, rows_by_file.get(source, []), characters)]
+                      for group in groups(view, PH.eligible(rows_by_file.get(source, []), lang), characters)]
     return plan
 
 
-def lookup(package: Path) -> Dict[str, List[List[List[dict]]]]:
+def lookup(package: Path, lang: str = "en") -> Dict[str, List[List[List[dict]]]]:
     """``{view file: [[[row, ...], ...], ...]}`` - the plan of every view of a package on disk."""
-    return plan_from({source: load(package, source) for source, _, _, _ in FILES})
+    return plan_from({source: load(package, source) for source, _, _, _ in FILES}, lang=lang)
 
 
 def write_views(package: Path, out: Path, force: bool = False, lang: str = "en") -> Dict[str, object]:
@@ -397,14 +404,19 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
     the ``PL:`` slot filled from the package's ``pl`` field.
     """
     out.mkdir(parents=True, exist_ok=True)
-    plan = lookup(package)
+    plan = lookup(package, lang=lang)
+    stamp = PH.package_stamp(package) if lang == "pl" else ""
     counts: Dict[str, object] = {"files": {}, "skipped": []}
     for source, view, _, _ in FILES:
+        if lang == "en" and source.startswith(("09_", "10_")):
+            continue
         rows = load(package, source)
         if not rows:
             continue
         text = render(view, rows, character_context({source: load(package, source)
                                                      for source, _, _, _ in FILES}), lang)
+        if stamp:
+            text = stamp + "\n" + text
         target = out / view
         if not force and target.exists():
             edited = 0

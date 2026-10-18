@@ -275,7 +275,7 @@ class OnlyFilterPlTests(PlLangTestCase):
             if offset is not None:
                 source = {"container": "config00.cpk", "member": "wp_list", "offset": offset}
             rows.append({"id": ident, "category": "weapon_name" if offset is not None
-                         else "unit_name", "part": part, "jp": jp, "en": "", "pl": pl,
+                         else ("unit_name_display" if part == "name_display" else "unit_name"), "part": part, "jp": jp, "en": "", "pl": pl,
                          "key": key, "source": source})
 
         add("unit:3900:name", 3900, "name", "エグザート", "Zażółć")

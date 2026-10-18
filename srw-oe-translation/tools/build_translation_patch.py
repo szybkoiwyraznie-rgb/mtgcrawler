@@ -171,12 +171,34 @@ def load_rows(package: Path, lang: str = "en") -> List[dict]:
             if not line.strip():
                 continue
             row = json.loads(line)
-            if lang == "pl" and "pl" in row:
+            if lang == "pl":
                 # a Polish package translates the ``pl`` field; every writer keeps
                 # reading ``en``, so the field is mapped once, here, at load time
                 row["en"] = row.get("pl") or ""
             row["__file"] = name
             rows.append(row)
+    if lang == "pl":
+        import translation_copy
+        import translation_check
+        import token_map
+        sidecar = token_map.find_sidecar([Path(package)])
+        pct = token_map.load_map(sidecar) if sidecar else {}
+        copies = translation_copy.copy_rows(rows, field="pl", resync=True, token_map=pct)
+        if copies["problems"]:
+            raise BuildError("invalid PL copy graph: " + "; ".join(copies["problems"][:10]))
+        for row in rows:
+            row["en"] = row.get("pl") or ""
+            if row["en"].strip():
+                errors, _ = translation_check.check_row(row, field="pl", pct=pct.get(row.get("id")))
+                # Narration uses the measured grow/reflow writer; TEST_PL v4/v5 deliberately
+                # shortens the opening prose. Translator imports still preserve source breaks.
+                if row.get("kind") == "narration":
+                    errors = [e for e in errors if not e.startswith("line breaks changed:")]
+                if errors:
+                    raise BuildError(f"invalid PL row {row.get('id')}: " + "; ".join(errors))
+        conflicts = translation_check.conflicting_duplicates(rows, field="pl")
+        if conflicts:
+            raise BuildError("conflicting PL duplicates: " + conflicts[0][0])
     return rows
 
 

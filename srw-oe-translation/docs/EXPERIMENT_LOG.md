@@ -6976,3 +6976,26 @@ PL dialogue during import validation, protect printf/player-name tokens, encode
 record labels through the selected codec. CP932 decoder now handles F0–FC leads.
 Tests: `test_pl_handoff.py` 5 OK; `test_translation_check.py` 70 OK; diff check clean.
 No claim of full game-layout verification; v5 runtime result still pending.
+
+### PL handoff checkpoint 2 — import / copies / view contract
+
+PL import now compares complete multiline JP, refuses duplicate blocks/elements and
+conflicting edits, exposes nonzero CLI failure, and writes atomically on a clean
+report. Optional `--require-template` checks the generated source fingerprint.
+Explicit PL copies resync after import and at build load; chains resolve independently
+of row order. Real data exposed reused IDs, including self-ID copies across chapter
+tables: resolve by ID + JP, preferring the canonical non-copy, not last-row-wins.
+17,031 copy rows in the real EN package: no missing/stale sources or cycles after fix.
+No PL-to-EN reference leakage or English fallback for missing `pl` is allowed.
+Mirroring has an explicit `--field pl` path but is NOT run heuristically by import.
+
+PL views now share writer-derived byte/cell notes per element, omit 372 `leftover:`
+decode artifacts (not confirmed visible strings), and add `program.md` / `teren.md`
+for the previously absent 09/10 categories. Engine literals stay read-only; executable
+slots retain their special writer, terrain is ASCII-only. EN view shape preserved.
+Full suite: 1582 tests, OK, 25 skipped, 37.380 s. Includes isolated TEST_PL kit build
+against the three original private containers and independent output read-back.
+Build preflight deliberately allows narration reflow used by v4/v5; translator import
+retains conservative source-line-count rules. Synthetic fixture's display-name category
+corrected (it had incorrectly called all name parts the 14-cell unit-list field).
+Corrected translator archives/coverage manifest not yet released at this checkpoint.

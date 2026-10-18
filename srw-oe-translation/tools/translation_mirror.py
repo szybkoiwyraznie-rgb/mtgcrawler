@@ -44,39 +44,46 @@ def mirror_key(row: dict) -> Tuple[str, object, object]:
     return (row.get("jp") or "", source.get("container"), source.get("member"))
 
 
-def mirror_rows(rows: List[dict], check_only: bool = False) -> dict:
+def mirror_rows(rows: List[dict], check_only: bool = False, field: str = "en", token_map=None) -> dict:
     """Fill every empty name/label row that has a translated twin; returns the counters and problems."""
     index: Dict[Tuple[str, object, object], List[dict]] = {}
     for row in rows:
-        if "id" in row and "jp" in row and "en" in row and row.get("category") not in SPOKEN:
+        if "id" in row and "jp" in row and "jp" in row and row.get("category") not in SPOKEN:
             index.setdefault(mirror_key(row), []).append(row)
     report = {"rows": len(rows), "with_twin": 0, "filled": 0, "waiting": 0, "conflicts": [],
               "problems": []}
     for row in rows:
-        if "id" not in row or "jp" not in row or "en" not in row:
+        if "id" not in row or "jp" not in row:
             continue
-        if row.get("category") in SPOKEN or (row.get("en") or "").strip():
+        if row.get("category") in SPOKEN or (row.get(field) or "").strip():
             continue
         twins = [twin for twin in index.get(mirror_key(row), ()) if twin is not row]
-        translated = [twin for twin in twins if (twin.get("en") or "").strip()]
+        translated = [twin for twin in twins if (twin.get(field) or "").strip()]
         if not twins:
             continue
         report["with_twin"] += 1
         if not translated:
             report["waiting"] += 1
             continue
-        texts = {twin["en"] for twin in translated}
+        texts = {twin[field] for twin in translated}
         if len(texts) > 1:
             report["conflicts"].append(
                 f"{row['id']}: twins disagree ({', '.join(sorted(t['id'] for t in translated))})")
             continue
         text = texts.pop()
-        if row.get("max_bytes") is not None and len(text.encode("cp932")) > row["max_bytes"]:
-            report["problems"].append(f"{row['id']}: text of its twin is wider than max_bytes "
-                                      f"{row['max_bytes']}")
+        import translation_check
+        if field == "pl":
+            errors, _ = translation_check.check_row({**row, field: text}, field=field,
+                                      pct=(token_map or {}).get(row.get("id")))
+        else:
+            errors = ([f"text of its twin is wider than max_bytes {row['max_bytes']}"]
+                      if row.get("max_bytes") is not None and len(text.encode("cp932")) > row["max_bytes"]
+                      else [])
+        if errors:
+            report["problems"].extend(f"{row['id']}: {e}" for e in errors)
             continue
         if not check_only:
-            row["en"] = text
+            row[field] = text
         report["filled"] += 1
     return report
 
@@ -86,17 +93,22 @@ def main(argv=None) -> int:
     parser.add_argument("--package", type=Path, nargs="+", required=True,
                         help="package JSONL files, or a directory holding them")
     parser.add_argument("--check", action="store_true", help="only report what would be filled")
+    parser.add_argument("--field", choices=("en", "pl"), default="en")
     args = parser.parse_args(argv)
+    field = args.field
 
     files, rows_by_file = TC.load_package(args.package)
     files = [path for path in files if not path.name.startswith("06_")]   # the scene index has no text
     all_rows = [row for path in files for row in rows_by_file[path]
-                if "id" in row and "jp" in row and "en" in row]
-    before = {id(row): (row.get("en") or "") for row in all_rows}
-    report = mirror_rows(all_rows, check_only=args.check)
+                if "id" in row and "jp" in row and "jp" in row]
+    before = {id(row): (row.get(field) or "") for row in all_rows}
+    import token_map as TMAP
+    sidecar = TMAP.find_sidecar(args.package)
+    report = mirror_rows(all_rows, check_only=args.check, field=field,
+                         token_map=TMAP.load_map(sidecar) if sidecar else {})
     if not args.check:
         touched = [path for path in files
-                   if any((row.get("en") or "") != before[id(row)] for row in rows_by_file[path])]
+                   if any((row.get(field) or "") != before[id(row)] for row in rows_by_file[path])]
         TC.write_package(files, rows_by_file, touched)
         print("written files:", ", ".join(path.name for path in touched) or "none")
     print(json.dumps(report, ensure_ascii=False, indent=1))
