@@ -6960,3 +6960,19 @@ code/tests/docs checkpointed and pushed to session branch, PR #20.
 Owner v4 runtime success is distinct from v5 offline source-body preservation.
 One first-panel/dialogue screenshot is sufficient to judge the revised appearance;
 no menu hunt or additional hypothesis-by-hypothesis kit. No full PL translation.
+
+## 2026-10-18 — PL translator archive audit, checkpoint 1
+
+Scope corrected by owner to `sceny_PL.zip` + `widoki_PL.zip`, not the patch kit.
+Original private archives: SHA256 `faea2f565ffd03d7659e9c05e8e5580d2002312b32acd54ed9c0cf0631b11d12`
+and `30e1064f92eeee74d73ca2b3a23809c31b0e014c3027ed0cc04d07d64ee7f29f`.
+Confirmed stale two-cell instructions; fixed name records were marked grow/no limit;
+PL copies had EN-only propagation; executable/terrain views absent; leftover decode
+artifacts were included. Audit/regeneration still in progress at this checkpoint.
+
+First fixes: count CP932 two-byte symbols as two PL display cells (PL letters still
+one), validate actual name-record byte budgets from writer SPECS, reject over-wide
+PL dialogue during import validation, protect printf/player-name tokens, encode
+record labels through the selected codec. CP932 decoder now handles F0–FC leads.
+Tests: `test_pl_handoff.py` 5 OK; `test_translation_check.py` 70 OK; diff check clean.
+No claim of full game-layout verification; v5 runtime result still pending.

@@ -732,7 +732,7 @@ def apply_labels(rows: Iterable[dict], sub_name: str, records: List["Record"],
             continue
         try:
             jp_label = (row.get("jp") or "").encode("cp932")
-            en_label = en.encode("cp932")
+            en_label = text_codec.encode(en)
         except UnicodeEncodeError as exc:
             refused.append(f"{row.get('id')}: label is not CP932-encodable: {exc}")
             continue
