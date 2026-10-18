@@ -1167,12 +1167,12 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 check_path.parent.mkdir(parents=True, exist_ok=True)
                 check_path.write_bytes(final)
                 try:
-                    result = DLC_TITLES.inspect_container(check_path, dlc_expected)
+                    result = DLC_TITLES.inspect_container(check_path, dlc_expected, lang=lang)
                 finally:
                     check_path.unlink(missing_ok=True)
                 builder.report["dlc_title_check"] = result
                 if not result["passed"]:
-                    raise BuildError("reported DLC activation fields did not read back as package English")
+                    raise BuildError("reported DLC activation fields did not read back as active package language")
         except ISW.SizeBudgetError as exc:
             # a member over its in-game size budget: nothing of this container is written -
             # shipping the rest with that member left Japanese would hide the problem

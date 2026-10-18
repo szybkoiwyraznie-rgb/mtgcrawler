@@ -7338,3 +7338,23 @@ validation and delivery still pending; do not claim installed old kits updated.
   or execute the translator's state scripts; clarify in finished receipt.
 - Member/pool measurement, normal builder output/readback, old/new 33 join comparison
   and full suite remain pending at this checkpoint.
+
+### 2026-10-18 — PL2 physical measurement and language-aware DLC QA checkpoint
+
+- Corrected audit runs (old PL and PL2) complete: PL2 strict import 36161/0 errors,
+  634 exact leading-space prefixes preserved, all 33 prior join suspects changed,
+  1421 assembled fields, no remaining `roń` detector matches, `::` or double spaces.
+- **Skill00 still 217454 B vs 216768 policy (+686 B)**, down 7224 B from 224678.
+  Confirmed by normal builder and direct writer with its guard enabled; refused
+  config00 is NOT shipped. No new oversized test/bypass and no literary shortening.
+- Same-pool projection 15382 B; actual eight DLC builds/readback each **15331 B**
+  vs 15638 (307 B margin), 720 strings, 696 requested edits checked per pool.
+  Do not confuse the Skill00-tail projection with the physical DLC pool result.
+- All-eight-pool build exposed pre-existing EN-only DLC title QA: it decoded PL
+  diacritic bytes as CP932 and falsely rejected config04. Fixed codec selection,
+  compares actual bytes to active-language package, keeps immutable product/payload
+  checks and refusal on mismatches. PL checker requires explicit package expectations,
+  no English fallback. Three new synthetic regressions; 17 DLC-title tests OK.
+- PL2 glossary has one conflicting JP key (full/abbreviated Potencjał forms), not
+  0 conflicts; report to translator without rewriting his terminology.
+- Complete reports/private outputs remain ignored; finished delivery/docs pending.
