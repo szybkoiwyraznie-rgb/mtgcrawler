@@ -89,12 +89,36 @@ class PatchTests(unittest.TestCase):
 
     def test_other_ank_cells_untouched(self):
         used = set(font_pl.PL_BYTES)
-        for byte in range(0x20, 0x20 + 192):
+        for byte in list(range(0x20, 0x80)) + list(range(0xA0, 0xE0)):
             if byte in used:
                 continue
             a = font_pl.read_ank_glyph(self.members_before["ank.fta"], byte)
             b = font_pl.read_ank_glyph(self.members_after["ank.fta"], byte)
             self.assertEqual(a, b, hex(byte))
+
+    def test_raw_physical_offsets_match_renderer_not_old_writer(self):
+        # Independent raw slices: do NOT use the patched reader for verification.
+        before = self.members_before["ank.fta"]
+        after = self.members_after["ank.fta"]
+        glyphs = font_pl.load_glyphs()
+        changed = set()
+        for letter, byte in zip(font_pl.PL_LETTERS, font_pl.PL_BYTES):
+            index = byte - 0x40
+            changed.add(index)
+            self.assertEqual(after[index * 56:(index + 1) * 56],
+                             font_pl.ank_cell(glyphs[letter]))
+        for index in range(len(before) // 56):
+            if index not in changed:
+                self.assertEqual(after[index * 56:(index + 1) * 56],
+                                 before[index * 56:(index + 1) * 56], index)
+
+    def test_ascii_and_katakana_index_boundaries(self):
+        for byte, expected in ((0x20, 0), (0x7F, 95), (0xA0, 96),
+                               (0xA1, 97), (0xD5, 149), (0xDF, 159)):
+            self.assertEqual(font_pl.ank_index(byte), expected)
+        for byte in (0, 0x1F, 0x80, 0x9F, 0xE0, 256):
+            with self.assertRaises(ValueError):
+                font_pl.ank_index(byte)
 
     def test_verify_reports_all_ok(self):
         verify = font_pl.verify_container(self.after)
@@ -106,7 +130,7 @@ class PatchTests(unittest.TestCase):
         cell = font_pl.ank_cell(art)
         self.assertEqual(len(cell), font_pl.ANK_CELL)
         self.assertEqual([list(r) for r in art], [list(r) for r in font_pl.read_ank_glyph(
-            b"\x00" * (font_pl.ANK_CELL * 0x81) + cell, 0x20 + 0x81)])
+            b"\x00" * (font_pl.ANK_CELL * 0x61) + cell, 0xA1)])
 
 
 if __name__ == "__main__":

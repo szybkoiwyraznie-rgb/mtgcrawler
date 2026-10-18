@@ -26,7 +26,9 @@ Container layout (``font.cpk``, decompressed; measured)
 -------------------------------------------------------
 header: u32 dir_offset=0x10, u32 count=7, u32 name_len=0x20; directory of
 (u32 offset, u32 size, name[32]) records.  ``ank.fta`` is 192 glyphs x 56 B
-(8 x 14 px, 4 bpp, two pixels per byte, high nibble first); index = byte - 0x20.
+(8 x 14 px, 4 bpp, two pixels per byte, high nibble first). The renderer uses
+index = byte - 0x20 for ASCII, but byte - 0x40 for half-width katakana.
+See docs/pl/PL_FONT_MAPPING.md: the former universal -0x20 assumption was wrong.
 """
 from __future__ import annotations
 
@@ -52,7 +54,7 @@ ANK = "ank.fta"
 ANK_CELL = 56          # 8 x 14 @4bpp
 ANK_COLS = 8
 ANK_ROWS = 14
-ANK_FIRST = 0x20       # index = byte - ANK_FIRST
+ANK_FIRST = 0x20       # first ASCII byte (katakana has a different base)
 
 GLYPH_TABLE = HERE / "data" / "pl_glyphs_8x14.json"
 
@@ -135,9 +137,22 @@ def pack_container(members: Dict[str, bytes], order: Sequence[str], align: int =
 # ---------------------------------------------------------------------------------------
 
 
+def ank_index(byte: int) -> int:
+    """Renderer's single-byte index: ASCII -0x20, katakana -0x40.
+
+    Reject the SJIS lead/control gap rather than treating it as glyph codes.
+    The spare cells 160..191 are not addressed by these ordinary one-byte codes.
+    """
+    if 0x20 <= byte < 0x80:
+        return byte - 0x20
+    if 0xA0 <= byte <= 0xDF:
+        return byte - 0x40
+    raise ValueError(f"not an ordinary ank byte: {byte:#x}")
+
+
 def read_ank_glyph(ank: bytes, byte: int) -> List[List[int]]:
     """14 rows x 8 columns of 4-bit coverage for the one-byte code ``byte``."""
-    index = byte - ANK_FIRST
+    index = ank_index(byte)
     if not 0 <= index < len(ank) // ANK_CELL:
         raise ValueError(f"byte {byte:#04x} outside the ank table")
     cell = ank[index * ANK_CELL:(index + 1) * ANK_CELL]
@@ -165,7 +180,7 @@ def build_ank_patch(ank: bytes, glyphs: Dict[str, List[List[int]]]) -> bytes:
     """Return ``ank.fta`` with the 18 Polish cells written over their katakana bytes."""
     out = bytearray(ank)
     for letter, byte in pl_byte_map().items():
-        index = byte - ANK_FIRST
+        index = ank_index(byte)
         start = index * ANK_CELL
         if start + ANK_CELL > len(out):
             raise ValueError(f"byte {byte:#04x} outside ank.fta")
