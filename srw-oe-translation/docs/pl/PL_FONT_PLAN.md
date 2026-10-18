@@ -34,3 +34,19 @@ Pakiet testowy **srw-oe-test-pl-v2.zip** na Dysku (`1GheEOtFzQm4pHv_VlOJqfs0hsFd
 - `tests/`: 1535 OK. Pakiet testowy v2 sprawdzony `translation_check --field pl`: 0 błędów.
 - Dokumentacja tłumacza (`docs/translator_pl/INSTRUKCJA_PL.md` §2, §2a, §4): szerokość 1.
 - Nieprzetestowane w grze: kształty ł/Ż i szerokość (hipoteza), walidacja w PPSSPP.
+
+## Wynik testu v2 (2026-10-18, zrzuty właściciela) - BŁĘDNE ZAŁOŻENIE
+- Nowy `patched.iso` nie pokazuje polskich liter: w grze bajty katakany (0xA1-0xDF) rysują się
+  **oryginalnymi katakanami** (np. Ó=0xAC pokazuje się jako katakana, a nie jako litera PL).
+  [ZWERYFIKOWANE na zrzutach]
+- Założenie „bajt katakany = komórka `ank.fta` pod indeksem bajt-0x20” NIE zostało potwierdzone
+  i wygląda na błędne lub niekompletne. Przesłanki:
+  - w oryginalnym `ank.fta` komórki pod bajtami katakany mają tusz (57 z 63), więc gra mogłaby
+    czytać je stamtąd, ale nadpisane komórki nie zmieniły wyglądu w grze;
+  - komórka pod 0xDA (ż) jest w oryginale pusta, a w grze widać katakanę, więc glif nie pochodzi z tej komórki.
+  [ZWERYFIKOWANE w pliku; przyczyna NIEZNANA]
+- Hipotezy do sprawdzenia (w kolejności): (1) gra czyta katakany z innej tablicy (`kanji21`/`kanji22`
+  albo inny indeks); (2) patched.iso nie zawiera zmienionego `font.cpk` (sprawdzić md5 w ISO
+  względem `local/font_pl.cpk`); (3) silnik ma cache/kopię fontu.
+- Następny krok: `build_report.json` z `output\` oraz diagnostyczny test (solidny blok w ASCII 'Q'
+  i w katakanie 0xD5), żeby rozdzielić (1) i (2).
