@@ -100,3 +100,39 @@ Pełny zestaw po zmianach: **1610 testów OK, 28 pominiętych** (prywatne dane n
 w tym środowisku). Odczyt oryginalnych config19/imenu19 i przygotowanej poprawki
 został sprawdzony niezależnie od tych pominięć. Potwierdzenie gry po podmianie pliku
 pozostaje otwarte. Nie należy z powodu tej próby włączać wszystkich pól configNN.
+
+## Integracja zwykłego buildera EN/PL — zakończona 2026-10-18
+
+Powyższa procedura TEST1 to historia zaakceptowanego eksperymentu; nie prośba
+ponownego testowania tego samego ekranu. Zwykły `build_translation_patch.py`,
+używany przez oba launchery, stosuje teraz tę poprawkę automatycznie:
+
+- wyjątek tylko dla config19/srwDL_CharaDictionary19, dokładnie trzech znanych
+  kluczy i istniejących slotów1/4/5/11; nieznany układ pozostaje za bramką;
+- aktywny pakiet EN lub PL, bez zaszytego tekstu EN i bez fallbacku PL→EN;
+- po pełnym łańcuchu przebudowy kontenera obowiązkowy odczyt fizycznych komórek;
+- puste pola i szablony bez zmian; pozostałe configy/kategorie nadal chronione.
+
+Zestaw **1620 testów OK, 28 pominiętych**, w tym zwykłe wejścia EN/PL, znaki
+polskie, pusty PL bez EN fallbacku, nieznane rekordy/puste komórki, inne configy,
+błąd odczytu i kompletność aktualizatora.
+
+Dodatkowo na prywatnych oryginalnych config19/imenu19: rozpakowano rzeczywisty
+kit v17 i nałożono aktualizator, uruchomiono jego CLI EN oraz PL. PL pochodzi
+ze ścisłego source-stamped importu zwróconego PL.zip do osobnej kopii pakietu.
+Oba przebiegi: 0 problemów, 8 zwolnionych wierszy, 12 fizycznych pól, readback OK.
+**Cały wynikowy EN config19 jest bajtowo identyczny z zaakceptowanym TEST1**
+(SHA256 `84525e62f258ec54b13cda6144d8758beae2125cdee6b986aaf7472f10da8951`).
+Niezależnie porównano 24 komórki EN/PL z surowymi polami językowymi JSONL,
+nie tylko z planem writera. Pola szablonów/puste bez zmian, pakiety i oryginały
+nietknięte. PL różni się od EN zgodnie z dostarczonym PL, bez redakcji tekstu.
+Miniaturowy ISO użyty do wejścia CLI to nie gra — nie ma nowej deklaracji
+runtime ani testu wszystkich rozdziałów. Za długi Skill00 w PL nadal blokowany.
+
+[BUILDER_EN_PL_MASAKI_UPDATE.zip](https://drive.google.com/file/d/1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2/view)
+— wspólna aktualizacja obu istniejących kitów, 257303 B / 45 plików, tylko
+narzędzia z zależnościami + instrukcja/manifest. Nie nadpisuje translation/,
+launcherów ani save'ów. Rozpakować obok PATCH.bat, zastąpić tools/ i budować
+jak dotąd. Nie zmienia już zbudowanego ISO/DLC bez ponownego builda.
+Download-back identyczny; CRC i SHA256 wszystkich narzędzi zweryfikowane.
+[Manifest dostawy](masaki-builder-update-delivery.json). Brak binariów gry w GitHub.

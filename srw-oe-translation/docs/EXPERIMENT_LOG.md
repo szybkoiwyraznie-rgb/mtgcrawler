@@ -7295,3 +7295,28 @@ updated. Eight synthetic tests include normal EN/PL build entry points, PL accen
 and labels distinct from EN, empty PL untouched, other configs/spares held, invalid
 shape/empty cells and read-back mismatch. All pass. Real-input/packaged update
 validation and delivery still pending; do not claim installed old kits updated.
+
+### 2026-10-18 — Masaki shared EN/PL integration delivered
+
+- Checkpoints `7d3c537` (shared physical whitelist + 8 tests) and `92e9b96`
+  (tools-only updater + complete dependency closure + 2 distribution tests) pushed PR20.
+- `python -m unittest discover -s tests`: **1620 tests / 26.280s, OK, 28 skipped**.
+- Built `BUILDER_EN_PL_MASAKI_UPDATE.zip` with `tools/build_builder_update.py`:
+  257303 B, 45 files, no translation/launchers/game binaries. SHA256
+  `2e8a2ffc35c7203edf19baa68d7eb00413b9acf516f760500ac9ee66625cdadd`.
+- Isolated delivered-v17 extraction + updater overlay; actual CLI EN and PL builds
+  against original private config19/imenu19, filtered to those two containers.
+  PL: strict source-stamped returned PL.zip import into a private package copy;
+  translator-supplied scripts never executed, no literary edits. Both 0 problems,
+  8 released rows /12 existing cells, readback verified. EN entire config19 equals
+  owner-accepted TEST1 byte-for-byte. PL dictionary distinct, its 12 target cells
+  independently compared directly to raw PL JSONL (EN's 12 likewise checked).
+  Blank/template slots2/6/7/8/9/10 unchanged, packages/originals untouched.
+  Local `local/character19-integration/` holds reports and private outputs;
+  miniature ISO is fixture only, not playable; no new runtime claim.
+- Private Drive upload ID `1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2`; download-back exact,
+  all CRCs and all manifest tool hashes checked against current sources.
+  No sharing changes. Receipt `docs/masaki-builder-update-delivery.json`.
+- Existing downloaded kits require the overlay (Git push alone does not update
+  user directories). Shared code now automatic in both normal entrypoints;
+  global spare-field gate elsewhere and ordinary PL Skill00 budgets remain enabled.

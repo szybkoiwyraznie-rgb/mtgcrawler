@@ -5,8 +5,14 @@ reported JP/EN mix in the config19 dictionary while imenu19 is fully EN. The
 global config-side viewer safety gate is the cause of those held-back fields;
 not missing translator work. A private existing-cell-only TEST1 for three
 characters is delivered and owner-confirmed ("wszystko pięknie przetłumaczone").
-Normal gate stays enabled; narrow integration into the next full release remains open.
-See [QA_MASAKI_V17.md](QA_MASAKI_V17.md). One DLC file, no new ISO/font cycle.
+Narrow integration is now active automatically in the normal shared **EN and PL**
+builder; global gate stays enabled elsewhere. The EN container is byte-identical
+to accepted TEST1; PL uses its own source-stamped returned fields (no EN fallback).
+[Tools-only updater](https://drive.google.com/file/d/1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2/view)
+for both existing kits is delivered; no translations/launchers/game files included.
+1620 tests OK/28 skipped; isolated updated-kit EN/PL builds and independent
+original-DLC readback pass. No playable ISO/full-game QA here. See
+[QA_MASAKI_V17.md](QA_MASAKI_V17.md) and [delivery receipt](masaki-builder-update-delivery.json).
 
 **V5 runtime update (2026-10-18): owner accepts the font on two opening
 narration/dialogue screenshots, with no further styling objections.** Missing
