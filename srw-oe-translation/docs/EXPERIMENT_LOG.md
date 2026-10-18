@@ -7382,3 +7382,19 @@ validation and delivery still pending; do not claim installed old kits updated.
   SHA256 c35d15eb27aa9d86776dea27c073992030d1da07107f51934c89cce154f9f925.
   No translation/launchers/game assets included. Main audit bundle assembles only
   reports/text + this updater, not the blocked patch or miniature ISO.
+
+### 2026-10-18 — PL2 audit privately delivered and verified
+
+- Code/docs checkpoint29686ed pushed. Extracted tools-only updater CLI tested
+  independently of repository modules: EN0problems; PL exactly expected +686B
+  config00 refusal, DLC4 active-codec readback/output passes. No translation edits.
+- Uploaded `PL2_AUDYT_DLA_TLUMACZA.zip`,454888B/16files, Drive
+  `17pn6ak1zEeXQNAKpQRlI5Zw0uDlF1mhU`, same private delivery folder, no sharing change.
+  SHA256 `965eaaac67085515274d256703f26c63e126c9275c8a1124546cf2937759ad48`.
+  Download-back byte-identical; outer/nested ZIP CRCs, every report hash and tool
+  hash verified against current sources. Receipt `docs/pl/pl2-return-review-delivery.json`.
+- Contains response/metrics,634-space audit,33-before/after comparison,1421 assembled
+  fields, glossary full/short variants, warnings and updated EN/PL tools-only ZIP.
+  No game binaries, full patch, translated package, font, ISO, save or screenshots.
+- Final handoff: ask for latest exported MD (delivered11801vsreported13460 quotes)
+  and remaining≥686B of physical Skill00 savings; no repeated runtime test now.

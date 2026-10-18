@@ -94,3 +94,15 @@ Prywatna paczka audytu zawiera odpowiedź do tłumacza, adresy i porównanie 33 
 1421 złożeń, kontrolę spacji, metryki pól i aktualizator narzędzi EN/PL. Aktualizator
 nie zawiera przekładów ani plików gry; nie omija pozostałych 686 B. Do GitHub
 trafiają wyłącznie narzędzia/testy, ustalenia i manifest, nie binaria ani prywatny PL.
+
+## Dostawa
+
+[PL2_AUDYT_DLA_TLUMACZA.zip](https://drive.google.com/file/d/17pn6ak1zEeXQNAKpQRlI5Zw0uDlF1mhU/view)
+— 454888 B / 16 plików, raporty/TSV i zagnieżdżony aktualizator narzędzi.
+Ponownie pobrano: bajtowo identyczny, CRC obu ZIP-ów i wszystkie hashe raportów
+oraz narzędzi zgodne. Udostępniania nie zmieniano.
+[Manifest](pl2-return-review-delivery.json).
+
+Wyodrębniony aktualizator sprawdzono w izolacji, poza ścieżką modułów repo:
+CLI EN na oryginalnych kontenerach — 0 problemów; CLI PL — tylko oczekiwana
+odmowa +686 B, poprawna kontrola i zapis DLC4. To nie nowy kompletny kit PL.
