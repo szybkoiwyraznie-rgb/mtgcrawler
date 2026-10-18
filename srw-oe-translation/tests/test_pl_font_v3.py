@@ -50,7 +50,7 @@ class RendererTests(unittest.TestCase):
 class PanelTests(unittest.TestCase):
     def test_first_screen_has_natural_polish_prose(self):
         panel = test_pl_package.probe_text("a\nb\nc\nd\n", 1)
-        self.assertIn("PL V4", panel)
+        self.assertIn("PL V5", panel)
         self.assertIn("Łączność działa. Słychać mnie wyraźnie?", panel)
         self.assertIn("Chcę dziś dokończyć próbę osłony.", panel)
         self.assertNotIn("TEST PL 1/", panel)
@@ -144,7 +144,8 @@ class KitTests(unittest.TestCase):
     def test_archive_is_complete_and_game_data_free(self):
         with zipfile.ZipFile(self.zip) as zf:
             names = zf.namelist()
-        self.assertIn("tools/data/pl_glyphs_8x14.json", names)
+        self.assertNotIn("tools/data/pl_glyphs_8x14.json", names)
+        self.assertIn("tools/pl_glyph_compose.py", names)
         self.assertIn("tools/verify_pl_test.py", names)
         self.assertIn("tools/test_pl_package.py", names)
         self.assertIn("TEST_PL.bat", names)

@@ -22,6 +22,7 @@ import cpk_write
 import font_pl
 import iso_pack
 import pl_text
+import pl_glyph_compose
 import test_pl_package as probes
 
 
@@ -79,7 +80,7 @@ def verify(original: Path, patched: Path, package: Path) -> dict:
     a, b = before["ank.fta"], after["ank.fta"]
     if len(a) != len(b):
         failures.append("ank size changed")
-    expected = font_pl.load_glyphs()
+    expected = font_pl.load_glyphs(a)
     physical = {}
     for letter, byte in zip(font_pl.PL_LETTERS, font_pl.PL_BYTES):
         # Independent from font_pl.ank_index/read_ank_glyph (the old self-check
@@ -91,6 +92,8 @@ def verify(original: Path, patched: Path, package: Path) -> dict:
         target = physical.get(index, a[index * 56:(index + 1) * 56])
         if b[index * 56:(index + 1) * 56] != target:
             failures.append(f"wrong physical ank cell {index}")
+    native = pl_glyph_compose.verify_native(a, b, font_pl.pl_byte_map())
+    failures.extend(native["failures"])
     old, new = events
     if set(old) != set(new):
         failures.append("event member set changed")
@@ -136,7 +139,7 @@ def verify(original: Path, patched: Path, package: Path) -> dict:
     for text in probes.NATURAL_ROWS.values():
         if pl_text.encode(text) not in opening:
             failures.append("missing mandatory natural-text probe")
-    return {"kit_version": probes.KIT_VERSION, "ok": not failures, "failures": failures, "font_cells": len(physical),
+    return {"kit_version": probes.KIT_VERSION, "ok": not failures, "failures": failures, "font_cells": len(physical), "native_font": native,
             "opening_rows": checked, "unit_weapon_rows": name_rows, "hashes": hashes,
             "scope": "ISO byte read-back, not emulator gameplay"}
 

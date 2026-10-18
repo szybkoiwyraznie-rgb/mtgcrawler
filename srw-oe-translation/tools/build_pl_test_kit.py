@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the reproducible, game-data-free PL v4 natural-text font-test kit."""
+"""Build the reproducible, game-data-free PL v5 native-style font-test kit."""
 from __future__ import annotations
 
 import argparse
@@ -35,7 +35,6 @@ def build(out: Path, package: Path = ROOT / "pakiet_EN") -> dict:
             zf.write(ROOT / "README_TEST_PL.md", "README_TEST_PL.md")
             for stem in sorted(deps):
                 zf.write(tools / f"{stem}.py", f"tools/{stem}.py")
-            zf.write(tools / "data/pl_glyphs_8x14.json", "tools/data/pl_glyphs_8x14.json")
             # Only package data, no local reports, release notes, fonts or game containers.
             for path in sorted(probes.iterdir()):
                 if path.suffix in (".jsonl", ".tsv"):

@@ -19,8 +19,10 @@ The Polish translation replaces every Japanese string, so the katakana bytes bel
 free in the finished game.  Each letter takes one of them; its glyph lives in the 8x14
 ``ank.fta`` cell, so it advances 8 px like ASCII.
 
-Glyphs come from ``tools/data/pl_glyphs_8x14.json`` (made by ``tools/make_pl_glyphs.py``
-from the shipped Roboto Medium), so the build needs no imaging library.
+Since TEST_PL v5 glyphs are composed from the user's original ASCII cells at build
+time by ``pl_glyph_compose``. Only sparse accents are added: body height, weight
+and coverage remain native. No original bitmap is shipped; no imaging library
+or external font is needed. The old Roboto JSON is historical, not a build input.
 
 Container layout (``font.cpk``, decompressed; measured)
 -------------------------------------------------------
@@ -33,7 +35,6 @@ See docs/pl/PL_FONT_MAPPING.md: the former universal -0x20 assumption was wrong.
 from __future__ import annotations
 
 import argparse
-import json
 import struct
 import sys
 from pathlib import Path
@@ -56,8 +57,6 @@ ANK_COLS = 8
 ANK_ROWS = 14
 ANK_FIRST = 0x20       # first ASCII byte (katakana has a different base)
 
-GLYPH_TABLE = HERE / "data" / "pl_glyphs_8x14.json"
-
 #: Polish letters in the order of the glyph table; each one takes one katakana byte.
 PL_LETTERS: Tuple[str, ...] = tuple("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
 
@@ -78,13 +77,10 @@ def katakana_byte_to_letter() -> Dict[int, str]:
     return {b: ch for ch, b in pl_byte_map().items()}
 
 
-def load_glyphs() -> Dict[str, List[List[int]]]:
-    doc = json.loads(GLYPH_TABLE.read_text(encoding="utf-8"))
-    glyphs = doc["glyphs"]
-    missing = [ch for ch in PL_LETTERS if ch not in glyphs]
-    if missing:
-        raise ValueError(f"glyph table lacks {missing}")
-    return {ch: glyphs[ch] for ch in PL_LETTERS}
+def load_glyphs(ank: bytes) -> Dict[str, List[List[int]]]:
+    """Compose the letters from original ASCII cells, never an external raster."""
+    import pl_glyph_compose
+    return pl_glyph_compose.compose(ank)
 
 
 # ---------------------------------------------------------------------------------------
@@ -198,10 +194,11 @@ def extend_container(data: bytes) -> Tuple[bytes, dict]:
     members, order = parse_container(data)
     if ANK not in members:
         raise ValueError("font container is missing ank.fta")
-    glyphs = load_glyphs()
+    glyphs = load_glyphs(members[ANK])
     members[ANK] = build_ank_patch(members[ANK], glyphs)
     info = {
         "glyphs": len(PL_LETTERS),
+        "style": "native-ascii-plus-marks-v1",
         "bytes": [f"0x{b:02X}" for b in PL_BYTES],
         "ank_size": len(members[ANK]),
     }
@@ -209,9 +206,9 @@ def extend_container(data: bytes) -> Tuple[bytes, dict]:
 
 
 def verify_container(data: bytes) -> dict:
-    """Re-read the patched container: every Polish letter must draw its table glyph."""
+    """Re-read glyphs against untouched ASCII source cells and accent recipes."""
     members, _order = parse_container(data)
-    glyphs = load_glyphs()
+    glyphs = load_glyphs(members[ANK])
     out = {}
     for letter, byte in pl_byte_map().items():
         art = read_ank_glyph(members[ANK], byte)

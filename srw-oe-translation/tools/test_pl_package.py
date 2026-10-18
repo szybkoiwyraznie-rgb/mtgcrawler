@@ -27,14 +27,14 @@ if str(HERE) not in sys.path:
 import text_codec  # noqa: E402
 
 LETTERS = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
-# v3 rendering was confirmed by owner screenshots. v4 changes only probe text.
-KIT_VERSION = "4"
+# v4 prose renders; v5 keeps the prose and adjusts native font styling only.
+KIT_VERSION = "5"
 OPENING_PANELS = {
-    1: ("PL V4 - PROBA CZYTELNOSCI",
+    1: ("PL V5 - PROBA CZYTELNOSCI",
         "Łączność działa. Słychać mnie wyraźnie?",
         "Chcę dziś dokończyć próbę osłony.",
         "Sprawdźmy też źródło zasilania."),
-    2: ("PL V4 - MALE I WIELKIE LITERY",
+    2: ("PL V5 - MALE I WIELKIE LITERY",
         "Żaneta i Łukasz kończą ćwiczenia.",
         "Śmiało! Włącz osłonę i ruszaj naprzód.",
         "Zażółć gęślą jaźń. ĄĆĘŁŃÓŚŹŻ."),
@@ -46,7 +46,7 @@ NATURAL_ROWS = {
     4: "Ważne są kształty liter i odstępy.\nPorównaj zwykłe litery z polskimi.",
     5: "Następne zdania pojawią się w dialogu.\nNie trzeba szukać niczego w menu.",
     6: "Za chwilę krótka próba łączności.\nMożesz sprawdzić ją na jednym ekranie.",
-    7: "PL V4 - Próba łączności",
+    7: "PL V5 - Próba łączności",
     8: "(Łączność działa. Słychać mnie wyraźnie?\nChcę dziś dokończyć próbę osłony.)",
     9: "(Muszę zachować spokój i czujność.\nPrzed nami jeszcze długa droga.)",
     10: "(Włączę osłonę, sprawdzę łączność\n i ostrożnie ruszę naprzód.\n Nie mogę dziś popełnić błędu.)",
