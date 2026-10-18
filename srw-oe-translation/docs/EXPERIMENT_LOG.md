@@ -7243,3 +7243,15 @@ Cause is NOT absent EN: CONFIG_DICT_SPARE_CATEGORIES gate intentionally blocks
 voice_actor, short_name and labels globally after old config01-08 crashes.
 Do not remove that safety gate globally. Focused existing-slot-only patch for three
 config19 character records and its read-back/tests are next; runtime still pending.
+
+Masaki focused repair checkpoint: `masaki_viewer_test.py` leaves normal gate enabled,
+accepts measured English v17 baseline, edits only existing slots 1/4/5/11 of keys
+4420/4424/4426. Six synthetic regressions pass (scope, idempotence, wrong source,
+missing key, no spare population, v17 name/series precondition). Actual read-back:
+12 slots changed, dictionary 658->706 B, config19 remains 32896 B; all 10 other
+subfiles untouched, base unchanged. Entire corrected CharaDictionary19 equals the
+fully-English imenu19 produced by actual v17 byte-for-byte. Fixed config MD5
+077d4b17529f0d2d6d80ef8706935dc8, baseline 514434967daacf1afd588378794c1b20.
+Added QA_MASAKI_V17.md, corrected misleading builder note that every viewer reads
+imenu. No global safety exception, no runtime-tested/released fix claim. Private
+one-file test delivery and final full tests pending.

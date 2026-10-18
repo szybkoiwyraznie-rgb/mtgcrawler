@@ -126,7 +126,11 @@ SKIP_CATEGORIES = {"config_item_drop"}
 # side, while the byte-identical imenuNN side runs (imenu01.EDAT v9 - doubled in size, full
 # EN slots - stayed in the emulator folder through every test; v12A "#17 + v11 dictionaries
 # in config01-08" crashed, v13 with these rows held back ran).  The dictionary UI reads the
-# imenuNN copies (21.34), so the config side keeps name/nickname/series/length EN.
+# imenuNN copies in those tests (21.34), so config keeps name/nickname/series/length EN.
+# 2026-10-18 Masaki v17 report: DLC Character Viewer content matches the held-back
+# config19 copy, not the fully English imenu19. Do NOT assume every viewer path
+# reads imenu. Keep this global safety gate; test the narrow existing-cell repair
+# separately (masaki_viewer_test.py, docs/QA_MASAKI_V17.md).
 # 2026-10-17 (21.57/21.58): the Robot Viewer foe list ALSO reads the configNN copies and
 # falls back to them for chapter-only units - robo_name_narrow + robo_type are ORIGINAL
 # cells (present in the JP originals, in-place content replacement like name/series) and
@@ -1067,7 +1071,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 mine = [r for r in mine if not config_side_spare_row(r)]
                 report.setdefault("notes", []).append(
                     f"gate: {name}: held back {spare_count} v7 viewer-slot rows from the "
-                    f"config-side dictionary copies (by design; the dictionary UI reads imenuNN)")
+                    f"config-side dictionary copies (safety gate; some DLC viewer paths may read configNN)")
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
