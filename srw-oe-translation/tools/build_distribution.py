@@ -3,16 +3,19 @@
 
 Run from the repository root::
 
-    python3 tools/build_distribution.py
+    python3 tools/build_distribution.py                # English kit (pakiet_EN)
+    python3 tools/build_distribution.py --lang pl      # Polish kit (local/pakiet_PL)
 
-Produces: ``local/dist/srw-oe-translation-v<VERSION>.zip``
+Produces: ``local/release/srw-oe-translation[-pl]-v<VERSION>.zip``
 
 What goes in the zip:
-  PATCH.bat              — one-click launcher
-  README.md              — user instructions (copied from README_DIST.md)
+  PATCH.bat              — one-click launcher (PATCH.bat for EN, PATCH_PL.bat for PL;
+                           both land as PATCH.bat inside the kit)
+  README.md              — user instructions (README_DIST.md / README_DIST_PL.md)
   translation/           — the JSONL package files + tokeny.tsv
   tools/                 — build_translation_patch.py + all its transitive deps + pick_path.py
-  docs/translator/       — glossary, voice cards, style guide, bible, briefs
+  ui_labels/, assets/    — UI texture caption specs and fonts (EN kit also carries
+                           docs/translator/, the translator reference material)
 """
 from __future__ import annotations
 
@@ -72,22 +75,26 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Build the standalone one-click distribution zip.")
     ap.add_argument("--package", metavar="DIR",
                     help="translation package dir (default: pakiet_EN/, then local staging)")
+    ap.add_argument("--lang", choices=("en", "pl"), default="en",
+                    help="kit language: pl ships PATCH.bat with --lang pl, the PL README, "
+                         "and takes the package from local/pakiet_PL by default")
     ap.add_argument("--version", metavar="V", help="version label for the zip name (default: from CO_NOWEGO)")
     ap.add_argument("--out", metavar="DIR", help="output dir for the zip (default: local/release)")
     args = ap.parse_args()
 
     repo = Path(__file__).resolve().parent.parent  # srw-oe-translation/
     tools_dir = repo / "tools"
+    pl = args.lang == "pl"
 
     # version from the latest CO_NOWEGO
     version = args.version
     if version is None:
-        version = "9"
+        version = "1" if pl else "9"
         co_files = list(repo.glob("pakiet_EN/CO_NOWEGO_v*.txt")) \
             + list(repo.glob("local/pakiet_v*/pakiet_EN_*/CO_NOWEGO_v*.txt"))
         import re as _re
         co_files.sort(key=lambda p: (lambda m: int(m.group(1)) if m else 0)(_re.search(r"v(\d+)", p.name)), reverse=True)
-        if co_files:
+        if co_files and not pl:
             # extract version number from filename
             import re
             m = re.search(r"v(\d+)", co_files[0].name)
@@ -96,7 +103,8 @@ def main() -> None:
 
     out_dir = Path(args.out) if args.out else repo / "local" / "release"
     out_dir.mkdir(parents=True, exist_ok=True)
-    zip_name = f"srw-oe-translation-v{version}.zip"
+    zip_name = (f"srw-oe-translation-pl-v{version}.zip" if pl
+                else f"srw-oe-translation-v{version}.zip")
     zip_path = out_dir / zip_name
 
     # Resolve tool deps
@@ -109,7 +117,9 @@ def main() -> None:
         if not pkg_dir.is_dir():
             print(f"ERROR: package dir not found: {pkg_dir}")
             sys.exit(1)
-    elif (repo / "pakiet_EN").is_dir():
+    elif pl and (repo / "local" / "pakiet_PL").is_dir():
+        pkg_dir = repo / "local" / "pakiet_PL"
+    elif (repo / "pakiet_EN").is_dir() and not pl:
         pkg_dir = repo / "pakiet_EN"
     else:
         pkg_dirs = sorted(
@@ -120,16 +130,16 @@ def main() -> None:
             print("ERROR: No translation package found (use --package DIR)")
             sys.exit(1)
         pkg_dir = pkg_dirs[0]
-    print(f"Package: {pkg_dir.name}")
+    print(f"Package: {pkg_dir.name} (lang={args.lang})")
 
     # Build zip
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        # PATCH.bat
-        patch_bat = repo / "PATCH.bat"
+        # PATCH.bat (the PL kit ships the Polish launcher under the same name)
+        patch_bat = repo / ("PATCH_PL.bat" if pl else "PATCH.bat")
         if patch_bat.exists():
             zf.write(patch_bat, "PATCH.bat")
         else:
-            print("WARNING: PATCH.bat not found")
+            print(f"WARNING: {patch_bat.name} not found")
 
         # Read-only check of the actually installed DLC folder, useful when a
         # correct build differs from what the game has loaded.
@@ -137,8 +147,10 @@ def main() -> None:
         if checker_bat.exists():
             zf.write(checker_bat, "CHECK_DLC.bat")
 
-        # README.md (use README_DIST.md if available, else README.md)
-        readme = repo / "README_DIST.md" if (repo / "README_DIST.md").exists() else repo / "README.md"
+        # README.md (use README_DIST_PL.md / README_DIST.md if available, else README.md)
+        candidates = [repo / "README_DIST_PL.md", repo / "README_DIST.md", repo / "README.md"] \
+            if pl else [repo / "README_DIST.md", repo / "README.md"]
+        readme = next(p for p in candidates if p.exists())
         zf.write(readme, "README.md")
 
         # Translation package files
@@ -163,9 +175,11 @@ def main() -> None:
             if p.exists():
                 zf.write(p, f"tools/{stem}.py")
 
-        # Docs/translator
+        # Docs/translator (the English kit carries the translator reference material;
+        # the Polish kit ships only the end-user README - the translator material went
+        # out separately in pakiet_PL.zip)
         translator_dir = repo / "docs" / "translator"
-        if translator_dir.exists():
+        if translator_dir.exists() and not pl:
             for f in sorted(translator_dir.rglob("*")):
                 if f.is_file():
                     rel = f.relative_to(repo)

@@ -45,6 +45,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gim_image  # noqa: E402
+import text_codec  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_FONT = "assets/fonts/Roboto-Bold.ttf"
@@ -260,7 +261,10 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
             raise LabelError(f"duplicate label id {lid!r}")
         seen.add(lid)
         box = _box(lab["box"], w, h, f"label {lid}")
-        en = lab.get("en")
+        # under lang="pl" a "pl" caption wins when the spec carries one; otherwise the
+        # English caption stays (short UI labels like ATK are fine untranslated)
+        field = text_codec.field()
+        en = lab.get(field) if field in lab else lab.get("en")
         res = LabelResult(lid, en, box)
         report.labels.append(res)
         if en is None:

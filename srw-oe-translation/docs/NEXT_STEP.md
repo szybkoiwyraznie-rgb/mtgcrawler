@@ -87,17 +87,56 @@ subset with the established terminology and rebuild a kit.
 ## Verification baseline in the agent sandbox
 
 This checkout has **no game files**: `local/`, `google_drive/` and any ISO/EDAT are
-absent by design. Only offline/synthetic checks can run here.
+absent by design. Only offline/synthetic checks can run here. (During the 2026-10-18
+Polish stage the seven USRDIR originals were re-downloaded from Drive into the ignored
+`google_drive/` and `local/font_ID00000.bin` was re-extracted; both are untracked.)
 
 ```sh
 cd srw-oe-translation
-python3 -m unittest discover tests      # 1,474 tests, OK (25 skipped), ~43 s
+python3 -m unittest discover tests      # 1,536 tests, OK (25 skipped), ~30 s
 ```
 
 `pytest` is not installed in the sandbox. Delivery documents report 1,493–1,509
 passed under their own pytest environment; the different count is a runner
 difference, not a failing suite. Real-input tests skip without the private
 originals (this is expected).
+
+## Polish stage (2026-10-18, in progress)
+
+Goal: a full PL pipeline analogous to EN, with the translator work done by an
+external specialized model. The agent prepares code and packages only — **no
+translating**. Delivered so far (all on the session branch, PR #18):
+
+* `tools/font_pl.py` — appends the 18 diacritic glyphs (ą ć ę ł ń ó ś ź ż + uppercase)
+  to `kanji.fta` as slots 3540–3557 and points the free JIS row-4 codes
+  0x82FA–0x830B at them via `kanjiL.tbl`. Full round: `font.cpk` →
+  `local/font_pl.cpk` (identity gate on the original passes, read-back verifies
+  all 18). Composing art = the game's own `ank.fta` Latin glyphs + a drawn mark.
+* `tools/pl_text.py` — the PL codec: 18 letters ⇄ private two-byte codes, rest CP932
+  (both directions fail closed; the codes are illegal CP932, so no aliasing).
+  `display_width` counts a PL letter 2 (conservative hypothesis pending in-game test).
+* `tools/apply_strings.py --lang pl`, `tools/translation_check.py --field pl`
+  (exe/terrain rows stay CP932/ASCII-strict on purpose).
+* `tools/pl_package_build.py` + `docs/translator_pl/INSTRUKCJA_PL.md` — the
+  translator handoff. `pakiet_PL.zip` (61 files, 6.3 MB) generated from `pakiet_EN`
+  (109,144 rows, `pl` field added) and uploaded to Drive as `pakiet_PL_v1.zip`.
+  This **supersedes the obsolete `widoki.zip`/`sceny.zip`** packages.
+* `tools/text_codec.py` + writer funnel points (`event_text_apply`, `table_write`,
+  `item_skill_write`, `sysmes_pack`, `gim_label` caption pick) —
+  `build_translation_patch.py --lang pl` maps `pl`→`en` at load, encodes through
+  the PL codec, and runs `font_step` (extends the ISO's `font.cpk`, queued for
+  `patched.iso`; needs `--iso`; honors `--only/--skip`). `--views` is refused
+  under `pl` (that import path is EN-only). `exe_strings` is untouched: a PL
+  letter in an exe row is refused with a reason (fail closed until proven).
+* Kit: `PATCH_PL.bat` (file/folder pickers, same flow as EN) +
+  `README_DIST_PL.md` + `build_distribution.py --lang pl` →
+  `local/release/srw-oe-translation-pl-v1.zip` (88 files). Built with the still
+  empty package — runnable today: the font patch alone can be checked in game.
+
+Waiting on the owner: (1) the filled `pakiet_PL` back from the translator model,
+(2) an in-game check of `srw-oe-translation-pl-v1.zip` (does the font render the
+18 letters, and how wide do they really advance). After that: commit the filled
+package as `pakiet_PL/`, rebuild the kit, release.
 
 ## Before starting new work
 

@@ -153,6 +153,7 @@ def write_index(out: Path, package: Path, stats: Dict[str, dict]) -> Path:
 def make_zip(out: Path, zip_path: Path) -> int:
     """Zip the package contents (instruction first) for the Drive handoff."""
     files = sorted(p for p in out.rglob("*") if p.is_file())
+    files = [p for p in files if p.name != "check_report.txt"]   # a local checker artifact
     files.sort(key=lambda p: (p.name != INSTRUCTION.name, str(p.relative_to(out))))
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         for path in files:
