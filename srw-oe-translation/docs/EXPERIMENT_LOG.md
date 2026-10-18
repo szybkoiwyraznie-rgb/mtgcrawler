@@ -7154,3 +7154,17 @@ runtime result or Drive replacement. Earlier delivered ZIP is unchanged; current
 report explicitly identifies that its budget advice has been qualified.
 Validation after wording correction: 1599 tests OK, 27 skipped (25.692 s), diff
 check clean. No numerical limit, patch bytes, translator inputs or Drive artifact changed.
+
+### 2026-10-18 — owner requests intact PL skills above the guard: A/B test checkpoint
+
+PR20 reused, assigned branch unchanged. No full ISO available locally or on Drive
+(search .iso/.ISO); use same one-click local-ISO-build delivery as font tests.
+Downloaded original font.cpk from existing Drive source, 242896 B, ignored/private.
+Added opt-in `pl_skill_size_test.py`, private-kit builder, BAT and instructions.
+A retains returned Skill00 PL and 20 executable base-description overrides, accepted
+v5 font; B uses Japanese Skill00 padded with spaces to equal A's size, same font
+and executable. Neither changes DLC or other translated categories. Only Skill00
+guard is removed in a finally-restored scope; standard builder policy unchanged.
+Synthetic guard/opt-in/verbatim tests pass. First local kit generated (not delivered).
+Actual-container ISO-fixture execution and independent read-back STILL PENDING.
+Do not claim runtime QA or bootable full ISO from the miniature fixture.
