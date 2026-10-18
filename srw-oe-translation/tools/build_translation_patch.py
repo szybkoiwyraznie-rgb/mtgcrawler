@@ -928,7 +928,7 @@ FONT_ISO_KEY = "psp_game/usrdir/font.cpk"
 
 def font_step(report: dict, iso: Optional[Path], iso_patch: Dict[str, bytes],
               only: Sequence[str], skip: Sequence[str], dry_run: bool) -> None:
-    """Polish only: extend the ISO's ``font.cpk`` with the 18 diacritic glyphs.
+    """Polish only: write the 18 Polish glyphs into the ISO's ``font.cpk`` (ank.fta).
 
     The font lives in the disc image (USRDIR), not in the DLC, so the step needs ``--iso``.
     The patched image is queued for ``patched.iso`` like any other ISO member; a font the
@@ -951,8 +951,7 @@ def font_step(report: dict, iso: Optional[Path], iso_patch: Dict[str, bytes],
         image, summary = font_pl.patch_font_blob(iso_pack.read_member(iso, key))
         entry["containers"] = [{"name": "font.cpk",
                                 "glyphs": summary["glyphs"],
-                                "first_slot": summary["first_slot"],
-                                "codes": summary["codes"],
+                                "bytes": summary["bytes"],
                                 "extract": [summary["extract_before"], summary["extract_after"]],
                                 "stored": [summary["stored_before"], summary["stored_after"]],
                                 "image_size": summary["image_size"],

@@ -451,20 +451,17 @@ class PlFieldTest(unittest.TestCase):
         _errors, warnings = TC.check_row(prow("テスト", ""), field="pl")
         self.assertIn("untranslated (empty pl)", warnings)
 
-    def test_pl_letter_costs_two_bytes_of_a_slot(self):
-        # ą = two private-code bytes: "ąą" fits a 4-byte slot, "ąąą" does not
-        self.assertFalse(TC.check_row(prow("テスト", "ąą", max_bytes=4), field="pl")[0])
-        errors = TC.check_row(prow("テスト", "ąąą", max_bytes=4), field="pl")[0]
+    def test_pl_letter_costs_one_byte_of_a_slot(self):
+        # ą = one katakana-range byte (2026-10-18): "ąąąą" fits a 4-byte slot, "ąąąąą" does not
+        self.assertFalse(TC.check_row(prow("テスト", "ąąąą", max_bytes=4), field="pl")[0])
+        errors = TC.check_row(prow("テスト", "ąąąąą", max_bytes=4), field="pl")[0]
         self.assertTrue(any("over budget" in e for e in errors))
 
-    def test_pl_letter_counts_two_box_units(self):
-        # 30 Polish letters = 60 units: over the 52-unit dialogue warning line as pl,
-        # but the same 30 characters as plain ASCII are fine
-        text = "ą" * 30
-        _errors, warnings = TC.check_row(prow("テスト", text), field="pl")
-        self.assertTrue(any("wide, the in-game box fits" in w for w in warnings))
-        _errors, warnings = TC.check_row(prow("テスト", "a" * 30), field="pl")
-        self.assertFalse([w for w in warnings if "in-game box" in w])
+    def test_pl_letter_counts_one_box_unit(self):
+        # a Polish letter is one unit like ASCII: the same length gives the same warnings
+        _e, warn_pl = TC.check_row(prow("テスト", "ą" * 60), field="pl")
+        _e, warn_ascii = TC.check_row(prow("テスト", "a" * 60), field="pl")
+        self.assertEqual([w for w in warn_pl if "box" in w], [w for w in warn_ascii if "box" in w])
 
     def test_exe_rows_refuse_polish_letters_under_pl(self):
         # the executable writer is CP932-only: fail closed until an in-game proof exists

@@ -1,24 +1,18 @@
 #!/usr/bin/env python3
-"""Polish text codec for the PL patch: 18 letters as private two-byte codes.
+"""Polish text codec for the PL patch: 18 letters as one-byte half-width katakana codes.
 
-The game font (``tools/font_pl.py``) learns the letters ą ć ę ł ń ó ś ź ż and their
-uppercase forms as ``kanji.fta`` slots 3540-3557, reachable through ``kanjiL.tbl`` cells
-for the two-byte codes 0x82FA-0x830B.  Both properties are measurable on the shipped
-codec stack:
+The game font (``tools/font_pl.py``) draws the letters ą ć ę ł ń ó ś ź ż and their uppercase
+forms in the 8x14 ``ank.fta`` cells of 18 half-width katakana bytes (0xA1-0xDF).  A letter
+therefore advances one cell, like any ASCII letter (owner's requirement, 2026-10-18).
 
-* none of the 18 letters encodes in CP932, so plain ``str.encode("cp932")`` fails on every
-  Polish target - this module substitutes the letters with their codes *first* and only
-  then CP932-encodes the rest (fail closed: anything else unencodable still raises);
-* none of the 18 codes decodes in CP932 (``illegal multibyte sequence``), so a stray code
-  can never masquerade as a different character - :func:`decode` recognizes the codes
-  explicitly and CP932-decodes everything between them.
-
-Width
+Rules
 -----
-A letter drawn from the 14 px ``kanji.fta`` cell advances like any other two-byte glyph
-(hypothesis pending the in-game test, conservative by design): :func:`display_width`
-counts it 2, the same as CJK.  If the game advances less, lines only wrap earlier; the
-46-unit dialogue budget from ``docs/HANDOFF.md`` §2 stays honoured.
+* a Polish letter encodes as its single byte (:data:`font_pl.PL_BYTES`);
+* a half-width katakana character (U+FF61-U+FF9F) in Polish text is an **error**: its CP932
+  byte is one of the 63 katakana bytes, and the 18 of them are taken by Polish letters
+  (fail closed; the Polish text has no katakana);
+* everything else encodes as CP932;
+* :func:`decode` maps the 18 bytes back to letters (analysis only; katakana is not decoded).
 """
 from __future__ import annotations
 
@@ -33,54 +27,62 @@ if str(HERE) not in sys.path:
 
 import font_pl  # noqa: E402
 
-# letter -> two-byte code (font_pl is the single source of truth; import its map)
-PL_TO_CODE: Dict[str, int] = font_pl.pl_code_map()
-CODE_TO_PL: Dict[bytes, str] = {
-    code.to_bytes(2, "big"): letter for letter, code in PL_TO_CODE.items()
-}
-PL_LETTERS = frozenset(PL_TO_CODE)
+#: letter -> single game byte (font_pl is the single source of truth)
+PL_TO_BYTE: Dict[str, int] = font_pl.pl_byte_map()
+BYTE_TO_PL: Dict[int, str] = {b: ch for ch, b in PL_TO_BYTE.items()}
+PL_LETTERS = frozenset(PL_TO_BYTE)
+
+
+def _is_halfwidth_katakana(ch: str) -> bool:
+    return 0xFF61 <= ord(ch) <= 0xFF9F
 
 
 def encode(text: str, errors: str = "strict") -> bytes:
-    """``text`` as game bytes: Polish letters as their private codes, rest as CP932."""
+    """``text`` as game bytes: Polish letters as their single bytes, the rest as CP932."""
     out = bytearray()
     for ch in text:
-        code = PL_TO_CODE.get(ch)
-        if code is not None:
-            out += code.to_bytes(2, "big")
-        else:
-            try:
-                out += ch.encode("cp932")
-            except UnicodeEncodeError:
-                if errors != "strict":
-                    continue
-                raise
+        byte = PL_TO_BYTE.get(ch)
+        if byte is not None:
+            out.append(byte)
+            continue
+        if _is_halfwidth_katakana(ch):
+            # its CP932 byte is one of the bytes taken by Polish letters
+            if errors != "strict":
+                continue
+            raise UnicodeEncodeError("cp932", text, 0, 1,
+                                     "half-width katakana is reserved for Polish letters")
+        try:
+            out += ch.encode("cp932")
+        except UnicodeEncodeError:
+            if errors != "strict":
+                continue
+            raise
     return bytes(out)
 
 
 def decode(data: bytes) -> str:
-    """Game bytes back to text; the 18 private codes become Polish letters again."""
+    """Game bytes back to text; the 18 katakana bytes become Polish letters again."""
     out = []
-    plain = bytearray()  # run of ordinary CP932 bytes between private codes
+    plain = bytearray()
     i = 0
     n = len(data)
     while i < n:
         b = data[i]
-        if 0x81 <= b <= 0x9F or 0xE0 <= b <= 0xEF:  # CP932 lead byte
-            pair = data[i:i + 2]
-            letter = CODE_TO_PL.get(pair)
-            if letter is not None:
+        if b in BYTE_TO_PL:
+            if plain:
                 out.append(plain.decode("cp932"))
                 plain = bytearray()
-                out.append(letter)
-                i += 2
-                continue
+            out.append(BYTE_TO_PL[b])
+            i += 1
+            continue
+        if 0x81 <= b <= 0x9F or 0xE0 <= b <= 0xEF:  # CP932 lead byte
             plain += data[i:i + 2]
             i += 2
         else:
             plain += data[i:i + 1]
             i += 1
-    out.append(plain.decode("cp932"))
+    if plain:
+        out.append(plain.decode("cp932"))
     return "".join(out)
 
 
@@ -90,12 +92,17 @@ def is_pl(text: str) -> bool:
 
 
 def display_width(s: str) -> int:
-    """``export_strings.display_width`` with the Polish letters counted as full-width."""
+    """Width in ASCII-letter units: a Polish letter is one unit, like Latin.
+
+    Full-width (CJK) characters still count two; control characters count zero.
+    """
     total = 0
     for ch in s:
         if unicodedata.category(ch) == "Cc":
             continue
-        if ch in PL_LETTERS or unicodedata.east_asian_width(ch) in ("W", "F"):
+        if ch in PL_LETTERS:
+            total += 1
+        elif unicodedata.east_asian_width(ch) in ("W", "F"):
             total += 2
         else:
             total += 1

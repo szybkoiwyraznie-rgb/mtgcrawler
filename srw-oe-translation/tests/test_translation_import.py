@@ -532,9 +532,9 @@ class PolishFlowTest(unittest.TestCase):
         import pl_text
         TI.import_views(TI.read_views([self.view]), self.package, field="pl")
         data = pl_text.encode(rows_of(self.package)[1]["pl"])
-        self.assertEqual(data[:3], b"G\x82\xfd")           # Gł = G + ł (slot 0x82FD)
-        self.assertIn(b"\x83\x00", data)                   # ś of "Głośno"
-        self.assertIn(b"\x83\x01", data)                   # ź of "wyraźnie"
+        self.assertEqual(data[:2], b"G\xd8")               # Gł = G + ł (byte 0xD8)
+        self.assertIn(b"\xd3", data)                       # ś of "Głośno"
+        self.assertIn(b"\xd9", data)                       # ź of "wyraźnie"
         self.assertEqual(pl_text.decode(data), "Głośno i wyraźnie!")
 
     def test_a_character_outside_the_polish_font_is_refused(self):

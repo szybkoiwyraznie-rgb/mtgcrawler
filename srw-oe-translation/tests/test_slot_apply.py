@@ -453,4 +453,4 @@ class PolishSlotTests(unittest.TestCase):
         self.assertEqual(report["applied"], 2)
         first = pl_text.encode("ś Ś Źdźbło")
         self.assertEqual(out[0:len(first)], first)
-        self.assertEqual(out[64:64 + 18], pl_text.encode("ĄĆĘŁŃÓŚŹŻ"))
+        self.assertEqual(out[64:64 + 9], pl_text.encode("ĄĆĘŁŃÓŚŹŻ"))  # one byte per letter
