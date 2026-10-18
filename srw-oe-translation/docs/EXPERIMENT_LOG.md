@@ -7282,3 +7282,16 @@ open for the next full release; the verified one-file override must be preserved
 Delivered ZIP and code unchanged. Documentation-only: JSON parse and diff check.
 Git snapshot metadata again started at a6e2f58; SHA256-verified every working file
 against pushed 0f78c3e before mixed metadata reset, without file changes.
+
+### 2026-10-18 — owner requests immediate EN/PL builder integration
+
+PR20 reused, assigned branch clean at e013c22. Added shared gate exception based
+on physical input: only config19 / Character19, exactly keys4420/4424/4426,
+pre-existing slots1/4/5/11, empty spare cells preserved, no unexplained refs. Each
+released active-language row must resolve against original JP; combined nickname/
+label expectations read back after the container chain before shipping. No embedded
+English, no PL fallback; unrecognised shapes remain behind the global gate. Stamp
+updated. Eight synthetic tests include normal EN/PL build entry points, PL accents
+and labels distinct from EN, empty PL untouched, other configs/spares held, invalid
+shape/empty cells and read-back mismatch. All pass. Real-input/packaged update
+validation and delivery still pending; do not claim installed old kits updated.

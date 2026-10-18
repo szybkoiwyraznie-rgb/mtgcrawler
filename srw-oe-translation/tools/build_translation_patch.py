@@ -81,7 +81,7 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-17-v17: map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-18-v17-masaki-integrated: EN/PL existing-cell Character19 fix + map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
                "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
                "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "
@@ -129,8 +129,9 @@ SKIP_CATEGORIES = {"config_item_drop"}
 # imenuNN copies in those tests (21.34), so config keeps name/nickname/series/length EN.
 # 2026-10-18 Masaki v17 report: DLC Character Viewer content matches the held-back
 # config19 copy, not the fully English imenu19. Do NOT assume every viewer path
-# reads imenu. Keep this global safety gate; test the narrow existing-cell repair
-# separately (masaki_viewer_test.py, docs/QA_MASAKI_V17.md).
+# reads imenu. Owner accepted the narrow existing-cell repair. The shared EN/PL
+# builder now releases only physically verified Character19 cells (see below);
+# all other guarded categories/containers remain held back.
 # 2026-10-17 (21.57/21.58): the Robot Viewer foe list ALSO reads the configNN copies and
 # falls back to them for chapter-only units - robo_name_narrow + robo_type are ORIGINAL
 # cells (present in the JP originals, in-place content replacement like name/series) and
@@ -149,6 +150,78 @@ def config_side_spare_row(row: dict) -> bool:
     note/weight.  robo_name_narrow/robo_type are original cells and ARE written (21.58 -
     the foe list of the Robot Viewer reads them).  The imenuNN copies keep everything."""
     return row.get("category") in CONFIG_DICT_SPARE_CATEGORIES
+
+
+CHARACTER19_MEMBER = "srwDL_CharaDictionary19.bin"
+CHARACTER19_KEYS = {4420, 4424, 4426}
+CHARACTER19_SLOTS = {1, 4, 5, 11}
+
+
+def verified_character19_rows(name: str, blob: bytes, rows: List[dict]) -> Tuple[List[dict], dict]:
+    """Release only the owner-accepted physical cells, using the active language's rows.
+
+    No English strings/fallback and no global category exception. Unknown shapes,
+    empty cells, stale JP or unresolvable rows stay behind the existing gate.
+    Broadcast labels are safe only when the WHOLE pool has the three known keys.
+    """
+    detail = {"released_rows": 0, "physical_cells": 0, "status": "not_applicable"}
+    if name.casefold() != "config19.edat":
+        return [], detail
+    candidates = []
+    for row in rows:
+        src = row.get("source") or {}
+        if src.get("container") not in (None, name) or src.get("member") not in (CHARACTER19_MEMBER, "srwDL_CharaDictionary"):
+            continue
+        cat, part = row.get("category"), row.get("part")
+        if ((cat == "character_voice_actor" and part == "voice_actor" or
+             cat == "character_short_name" and part == "short_name") and row.get("key") in CHARACTER19_KEYS):
+            candidates.append(row)
+        elif (cat == "config_label" and part == "label" and row.get("key") is None
+              and src.get("slot") in (4, 5)
+              and row.get("jp") == TW.SLOT_LABELS[("srwDL_CharaDictionary", src["slot"])].decode("cp932")):
+            candidates.append(row)
+    if not candidates:
+        return [], detail
+    detail["status"] = "held_back"
+    try:
+        pool = _members_of_blob(blob)[CHARACTER19_MEMBER]
+        family = TW.family_of(CHARACTER19_MEMBER)
+        records, spans = TW.parse_pool(pool, family), TW.record_spans(pool)
+        keys = [TW.record_key(pool, span, family) for span in spans]
+        if len(keys) != 3 or set(keys) != CHARACTER19_KEYS:
+            raise BuildError("unknown Character19 key set; safety gate retained")
+        if any(rec.unexplained_refs or any(not rec.strings[j] for j in CHARACTER19_SLOTS)
+               or any(rec.strings[j] for j in (6, 7, 10)) for rec in records):
+            raise BuildError("unknown/empty Character19 cells; safety gate retained")
+        released, targets = [], set()
+        for row in candidates:
+            plan, problems = TW.resolve_rows(pool, CHARACTER19_MEMBER, [row])
+            cells = set(plan["edits"])
+            if (not problems and not plan["refused"] and cells
+                and all(keys[i] in CHARACTER19_KEYS and j in CHARACTER19_SLOTS for i, j in cells)):
+                released.append(row)
+                targets.update(cells)
+        # Full active-row plan includes ordinary nickname edits BEFORE label replacement.
+        # It is necessary for an exact PL/EN read-back expectation of slots 4 and 5.
+        selected = [r for r in rows if not config_side_spare_row(r) or any(r is x for x in released)]
+        full_plan, problems = TW.resolve_rows(pool, CHARACTER19_MEMBER, selected)
+        if problems:
+            raise BuildError("Character19 full plan refused: " + str(problems))
+        expected = {cell: full_plan["edits"][cell] for cell in targets}
+        detail.update(status="verified", released_rows=len(released), physical_cells=len(expected),
+                      keys=sorted(keys), slots=sorted({j for i, j in expected}))
+        # Internal bytes stay out of JSON reports; caller checks them before writing container.
+        detail["_expected"] = expected
+        return released, detail
+    except (KeyError, ValueError, TW.TableError, BuildError) as exc:
+        detail["reason"] = str(exc)
+        return [], detail
+
+
+def verify_character19_result(blob: bytes, expected: dict) -> None:
+    records = TW.parse_pool(_members_of_blob(blob)[CHARACTER19_MEMBER], TW.family_of(CHARACTER19_MEMBER))
+    if any(records[i].strings[j] != value for (i, j), value in expected.items()):
+        raise BuildError("Character19 active-language field read-back differs; container refused")
 
 
 #: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
@@ -1065,16 +1138,27 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         reported_dlc = name.casefold() in {n.casefold() for n in DLC_TITLES.FILES} and bool(dlc_expected)
         if not mine and not reported_dlc:
             continue
+        viewer_expected = {}
         if DLC_CONFIG_RE.match(name):
-            spare_count = sum(1 for r in mine if config_side_spare_row(r))
+            released, viewer_detail = verified_character19_rows(name, blobs[name], mine)
+            viewer_expected = viewer_detail.pop("_expected", {})
+            if viewer_detail["status"] != "not_applicable":
+                report.setdefault("character_viewer_fix", {})[name] = viewer_detail
+            released_ids = {id(r) for r in released}
+            held = [r for r in mine if config_side_spare_row(r) and id(r) not in released_ids]
+            spare_count = len(held)
             if spare_count:
-                mine = [r for r in mine if not config_side_spare_row(r)]
+                held_ids = {id(r) for r in held}
+                mine = [r for r in mine if id(r) not in held_ids]
                 report.setdefault("notes", []).append(
                     f"gate: {name}: held back {spare_count} v7 viewer-slot rows from the "
                     f"config-side dictionary copies (safety gate; some DLC viewer paths may read configNN)")
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
+            if viewer_expected:
+                verify_character19_result(final, viewer_expected)
+                report["character_viewer_fix"][name]["readback_ok"] = True
             if reported_dlc:
                 # A successful writer count is not proof that the reported titles
                 # reached the output. Check actual fields by immutable payload IDs.
