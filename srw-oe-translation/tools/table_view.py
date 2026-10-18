@@ -329,9 +329,9 @@ def widest_by_part(rows: List[dict]) -> Dict[str, int]:
 
 
 def render(view: str, rows: List[dict], characters: Dict[object, dict] = None,
-           lang: str = "en") -> str:
+           lang: str = "en", token_map=None, retained_ids=()) -> str:
     """The whole ``*.md`` view of one table file."""
-    rows = PH.eligible(rows, lang)
+    rows = PH.eligible(rows, lang, retained_ids)
     found = groups(view, rows, characters or {})
     widest = widest_by_part(rows)
     if lang == "pl":
@@ -362,9 +362,10 @@ def render(view: str, rows: List[dict], characters: Dict[object, dict] = None,
                 continue
             lines.append(f"   limit: {limit_note(view, element, widest, lang)}"
                          .replace("limit: limit: ", "limit: "))
+            if lang == "pl" and PH.token_note(element, token_map):
+                lines.append("   tokeny: " + PH.token_note(element, token_map))
             lines.append(f"   EN: {render_markers(row.get('en') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
-            if lang == "pl" and not (row.get("category") == PH.exe_strings.CATEGORY
-                                       and row.get("jp") in PH.exe_strings.ENGINE_LITERALS):
+            if lang == "pl" and not PH.readonly_reason(row):
                 lines.append(f"   PL: {render_markers(row.get('pl') or '').replace(chr(10), chr(10) + '   ')}".rstrip())
         lines.append("")
     return "\n".join(lines)
@@ -385,10 +386,11 @@ def plan_from(rows_by_file: Dict[str, List[dict]], lang: str = "en") -> Dict[str
     field read from several chapter tables); all of them carry the same text.
     """
     characters = character_context(rows_by_file)
+    retained_ids = PH.retained_leftovers([r for rs in rows_by_file.values() for r in rs])
     plan: Dict[str, List[List[List[dict]]]] = {}
     for source, view, _, _ in FILES:
         plan[view] = [group["elements"]
-                      for group in groups(view, PH.eligible(rows_by_file.get(source, []), lang), characters)]
+                      for group in groups(view, PH.eligible(rows_by_file.get(source, []), lang, retained_ids), characters)]
     return plan
 
 
@@ -406,6 +408,9 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
     out.mkdir(parents=True, exist_ok=True)
     plan = lookup(package, lang=lang)
     stamp = PH.package_stamp(package) if lang == "pl" else ""
+    sidecar = TI.TMAP.find_sidecar([Path(package)])
+    token_map = TI.TMAP.load_map(sidecar) if sidecar else {}
+    retained_ids = PH.retained_leftovers([r for source, _, _, _ in FILES for r in load(package, source)])
     counts: Dict[str, object] = {"files": {}, "skipped": []}
     for source, view, _, _ in FILES:
         if lang == "en" and source.startswith(("09_", "10_")):
@@ -414,7 +419,7 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
         if not rows:
             continue
         text = render(view, rows, character_context({source: load(package, source)
-                                                     for source, _, _, _ in FILES}), lang)
+                                                     for source, _, _, _ in FILES}), lang, token_map=token_map, retained_ids=retained_ids)
         if stamp:
             text = stamp + "\n" + text
         target = out / view

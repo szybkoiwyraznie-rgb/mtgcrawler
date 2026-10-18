@@ -160,7 +160,7 @@ def _block(row: dict, field: str) -> str:
     return f"   {field.upper()}: {text.replace(chr(10), chr(10) + '   ')}".rstrip()
 
 
-def element_line(row: dict, lang: str = "en") -> List[str]:
+def element_line(row: dict, lang: str = "en", token_map=None) -> List[str]:
     """The Japanese text of one element plus the fill line(s) (or the note for a copy).
 
     ``lang="pl"`` renders the English as a read-only reference block and the ``PL:`` slot
@@ -168,11 +168,13 @@ def element_line(row: dict, lang: str = "en") -> List[str]:
     """
     text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
     lines = [f"{row['order']}. [{label(row)}] {text}"]
-    if row.get("copy_of"):
+    if row.get("copy_of") or (lang == "pl" and PH.readonly_reason(row)):
         lines.append("   (tłumaczenie dziedziczone automatycznie — nie wpisuj tu nic)")
         return lines
     if lang == "pl":
         lines.append("   limit: " + PH.limit_note([row]))
+        if PH.token_note([row], token_map):
+            lines.append("   tokeny: " + PH.token_note([row], token_map))
     lines.append(_block(row, "en"))
     if lang == "pl":
         lines.append(_block(row, "pl"))
@@ -180,6 +182,7 @@ def element_line(row: dict, lang: str = "en") -> List[str]:
 
 
 def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en") -> str:
+    token_map = package.get("token_map") or {}
     mission = (scene.get("mission") or "(bez tytułu)").replace("\n", " ")
     lines = [f"## Scena {scene['seq']}/{scene.get('total', '?')} — {mission}"]
     if scene.get("episode") is not None:
@@ -217,6 +220,12 @@ def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en")
         lines.append(f"{token}. [{name}] {text}")
         if lang == "pl":
             lines.append("   limit: " + PH.limit_note([row]))
+        if lang == "pl":
+            if PH.token_note([row], token_map):
+                lines.append("   tokeny: " + PH.token_note([row], token_map))
+            if row.get("copy_of") or PH.readonly_reason(row) or (token == "T1" and scene.get("mission_inherited")):
+                lines.append("   (tłumaczenie dziedziczone — nic tu nie wpisuj)")
+                continue
         lines.append(_block(row, "en"))
         if lang == "pl":
             lines.append(_block(row, "pl"))
@@ -224,7 +233,7 @@ def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en")
         lines.append("")
 
     for row in sorted(rows, key=lambda item: item["order"]):
-        lines.extend(element_line(row, lang))
+        lines.extend(element_line(row, lang, token_map))
     lines.append("")
     lines.append("_koniec sceny_")
     lines.append("")
@@ -268,6 +277,8 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
     block stays as a reference and the ``PL:`` slot is filled from the package's ``pl`` field.
     """
     data = load_package(package)
+    sidecar = TI.TMAP.find_sidecar([Path(package)])
+    data["token_map"] = TI.TMAP.load_map(sidecar) if sidecar else {}
     rows, scenes = PH.eligible(data["rows"], lang), data["scenes"]
     stamp = PH.package_stamp(package) if lang == "pl" else ""
     lookup = TI.scene_lookup(rows)

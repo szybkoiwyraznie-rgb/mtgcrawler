@@ -17,6 +17,9 @@ that lives in the same member of the same container and is already translated:
 * a donor text that does not fit the target's ``max_bytes`` is reported, not written,
 * two donors with different text are a conflict: nothing is written, the pair is reported.
 
+Polish: pass ``--field pl``. English remains the default and is not used as a PL fallback.
+PL candidates are validated against the target writer's own byte/cell limits.
+
 Usage:
     python tools/translation_mirror.py --package local/translation            # fill
     python tools/translation_mirror.py --package local/translation --check    # report only

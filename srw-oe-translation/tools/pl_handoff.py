@@ -11,14 +11,30 @@ import translation_check as TC
 STAMP_RE = re.compile(r'<!-- SRWOE-PL-VIEWS:2 source-sha256:([0-9a-f]{64}) -->')
 
 
-def excluded_reason(row):
-    if str(row.get('id', '')).startswith('leftover:'):
+def excluded_reason(row, retained_ids=()):
+    if str(row.get('id', '')).startswith('leftover:') and row.get('id') not in retained_ids:
         return 'leftover decode/binary artifact; not a confirmed visible string'
     return None
 
 
-def eligible(rows, lang='en'):
-    return [r for r in rows if lang != 'pl' or excluded_reason(r) is None]
+def readonly_reason(row):
+    if not (row.get('jp') or '').strip():
+        return 'puste pole / białe znaki strukturalne'
+    if row.get('jp') == 'NoData':
+        return 'NoData — znacznik pustego rekordu, nie nazwa do tłumaczenia'
+    if row.get('category') == exe_strings.CATEGORY and row.get('jp') in exe_strings.ENGINE_LITERALS:
+        return 'literał silnika'
+    return None
+
+
+def retained_leftovers(rows):
+    """Do not quarantine a leftover that is the canonical source of a structured visible row."""
+    return {r['copy_of'] for r in rows if not str(r.get('id', '')).startswith('leftover:')
+            and str(r.get('copy_of', '')).startswith('leftover:')}
+
+
+def eligible(rows, lang='en', retained_ids=()):
+    return [r for r in rows if lang != 'pl' or excluded_reason(r, retained_ids) is None]
 
 
 def fingerprint(rows_by_file):
@@ -48,6 +64,8 @@ def limit_note(element):
     if budgets:
         notes.append(f'maks. {min(budgets)} B tekstu (bez końcowego NUL)')
     for row in element:
+        if readonly_reason(row):
+            notes.append('NIE TŁUMACZ: ' + readonly_reason(row))
         category = row.get('category') or ''
         if category == 'terrain_name':
             notes.append('tylko ASCII; maks. 12 znaków/celi; bez polskich liter')
@@ -77,3 +95,19 @@ def limit_note(element):
     if not budgets and not any(r.get('category') in ('dialogue', 'battle_quote', 'terrain_name') for r in element):
         notes.insert(0, 'pole przebudowywane; brak zmierzonego limitu UI — nie obietnica nieograniczonej długości')
     return '; '.join(dict.fromkeys(notes))
+
+
+def token_note(element, token_map=None):
+    row = element[0]
+    jp = row.get('jp') or ''
+    pct = (token_map or {}).get(row.get('id'))
+    required = TC.expected_tokens(jp, pct)
+    kana = TC.kana_signatures(jp, pct)
+    parts = []
+    if required:
+        parts.append('zachowaj kolejność i liczbę: ' + json.dumps(required, ensure_ascii=False))
+    if kana:
+        parts.append('usuń znaczniki japońskich głosek (nie są zmiennymi): ' + json.dumps(kana, ensure_ascii=False))
+    if '\x0f' in jp:
+        parts.append('nie kopiuj <0x0F> ani bajtu dopełniającego japoński znak')
+    return '; '.join(parts)

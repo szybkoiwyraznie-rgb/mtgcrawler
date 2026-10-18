@@ -21,6 +21,9 @@ counted in ``resynced``.  The build writes a copy row's own ``en``, so an out-of
 different text in chapters 2-8 than in chapter 1 (``translation_check`` reports it as
 "copy differs from its source row").
 
+Polish: pass ``--field pl``. English remains the default and is not used as a PL fallback.
+PL candidates are validated against the target writer's own byte/cell limits.
+
 Usage:
     python tools/translation_copy.py --package local/translation            # fill
     python tools/translation_copy.py --package local/translation --check    # report only

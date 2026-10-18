@@ -78,7 +78,7 @@ import translation_check as TC  # noqa: E402
 MARKERS = (("\u23ce", "\r"), ("<0x0F>", "\x0f"))   # the view shows them, the game needs bytes
 GROUP_HEAD_RE = re.compile(r"^## .+? (\d+)/\d+")
 SCENE_FILE_RE = re.compile(r"^- plik gry: (.+?) / (.+?)\s*$")   # older views carried the file name
-ELEMENT_RE = re.compile(r"^(\d+)\. \[(.*?)\] (.*)$")
+ELEMENT_RE = re.compile(r"^(\d+)\. \[((?:[^\[\]]|\[[^\[\]]*\])*)\] (.*)$")
 META_RE = re.compile(r"^(T\d+|N\d+)\. \[(.*?)\] (.*)$")
 EN_RE = re.compile(r"^\s*EN:\s?(.*)$")
 PL_RE = re.compile(r"^\s*PL:\s?(.*)$")
@@ -132,7 +132,7 @@ def restore_trailing_breaks(text: str, jp: str) -> str:
 
 
 def parse_view_full(text: str, include_empty: bool = False) -> Dict[Tuple[str, str], Dict[str, str]]:
-    """{(group, element): {"en"/"pl": text, "jp": japanese first line}} of every element.
+    """{(group, element): {"en"/"pl": text, "jp": first line, "jp_full": complete Japanese}} of every element.
 
     ``group`` is ``grp:<number>`` for the heading of a view (the scene number in a scene view, the
     number of the group in a table view) or the ``container/member`` of an older view that still
@@ -140,7 +140,7 @@ def parse_view_full(text: str, include_empty: bool = False) -> Dict[Tuple[str, s
     element (``"T1"``, ``"N1"``).  An element is always a group heading, one ``N. [Label] text``
     line, its continuation lines and the ``EN:``/``PL:`` blocks under it (an English view carries
     only ``EN:``; a Polish view carries the English as a read-only reference plus the ``PL:``
-    slot); the Japanese first line is kept so the importer can tell a stale view from a good one.
+    slot); complete JP is retained for fail-closed Polish imports.
     """
     found: Dict[Tuple[str, str], Dict[str, str]] = {}
     group: Optional[str] = None
@@ -208,10 +208,10 @@ def parse_view_full(text: str, include_empty: bool = False) -> Dict[Tuple[str, s
             content = (en_match or pl_match).group(1)
             if field in text_by_field:
                 blocks[field] = blocks.get(field, 0) + 1   # the element had a block already
-            text_by_field[field] = [content.lstrip(" ") if field == "en" else content]
+            text_by_field[field] = [content]
             open_field = field
             continue
-        if raw.startswith("   limit:") or raw.startswith("   ("):
+        if raw.startswith(("   limit:", "   tokeny:", "   (tłumaczenie", "   (ten sam tekst")):
             continue
         if open_field is not None:
             if open_field == "en" or raw.startswith("   "):
@@ -326,6 +326,7 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
               "rows": len(rows), "token_map": str(sidecar) if sidecar else None}
     import pl_handoff as PH
     import translation_copy as COPY
+    retained_ids = PH.retained_leftovers(rows)
     source_hash = PH.fingerprint(by_file) if field == "pl" else None
     before = {id(r): r.get(field) or "" for r in rows}
     assigned = {}
@@ -367,8 +368,11 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
                 shown = re.sub(r"\\+n", "\n", restore_markers(content["jp_full"]))
                 expected = element[0].get("jp") or ""
                 normalize = lambda t: "\n".join(line.rstrip(" ") for line in t.split("\n"))
-                if normalize(shown) != normalize(expected) or any(PH.excluded_reason(r) for r in element):
+                if normalize(shown) != normalize(expected) or any(PH.excluded_reason(r, retained_ids) for r in element):
                     element = None
+            if element and field == "pl" and any(PH.readonly_reason(r) for r in element):
+                report["rejected"].append(f"{name}:{group}:{token}: protected literal/empty field")
+                continue
             if not element:
                 report["unknown"].append(f"{name}:{group}:{token}")
                 continue

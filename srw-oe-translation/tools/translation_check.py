@@ -275,6 +275,8 @@ def check_row(row: dict, require_complete: bool = False,
         # slack, printf conversions in order, exact segments, UTF-8 rows) are the check.
         # The writer is CP932-only, so under field="pl" a Polish letter is refused here -
         # deliberately fail closed for the slots without a private-code path.
+        if field == "pl" and pl_text.is_pl(text):
+            errors.append("executable slots have no verified Polish font/codec path; use ASCII spelling")
         patch, why = exe_strings.check_en({**row, "en": text})
         if patch is None:
             errors.append(why or "refused by exe_strings.check_en")

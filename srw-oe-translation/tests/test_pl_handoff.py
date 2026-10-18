@@ -43,10 +43,6 @@ class LimitTests(unittest.TestCase):
         self.assertEqual(C.check_row(row, field='pl')[0], [])
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class CopyAndImportTests(unittest.TestCase):
     def test_copy_chain_and_language_isolation(self):
         import translation_copy as COPY
@@ -86,7 +82,6 @@ class CopyAndImportTests(unittest.TestCase):
             path.write_text(json.dumps(dict(id='a', scene='s', order=1, jp='字\n文', en='EN'), ensure_ascii=False)+'\n')
             # Use the legacy scene file identifier to keep the synthetic package minimal.
             text = '- plik gry: s / x\n1. [Dialog] 字\n   文\n   EN: EN\n   PL: Łódź\n   Dalej\n'
-            text = text.replace('s / x', 's / x')
             row = json.loads(path.read_text()); row['scene'] = 's/x'
             path.write_text(json.dumps(row, ensure_ascii=False)+'\n')
             text = H.package_stamp(package) + '\n' + text
@@ -147,3 +142,99 @@ class ViewContractTests(unittest.TestCase):
         report = COPY.copy_rows(rows, field='pl')
         self.assertEqual(report['problems'], [])
         self.assertEqual([r['pl'] for r in rows], ['Łódź'] * 3)
+
+
+class ExhaustiveAuditRegressions(unittest.TestCase):
+    def test_nested_copy_label_does_not_leak_into_japanese(self):
+        import translation_import as I
+        parsed = I.parse_view_full('## Scena 1/1 — X\n1. [[kopia] Narracja] 字\n   \n', include_empty=True)
+        self.assertEqual(parsed[('grp:1', '1')]['jp_full'], '字\n')
+
+    def test_parenthesized_continuation_is_not_metadata(self):
+        import translation_import as I
+        text = '## Scena 1/1 — X\n1. [Dialog] 字\n   EN: English\n   (thought)\n   PL: Polski\n   (myśl)\n'
+        entry = I.parse_view_full(text)[('grp:1', '1')]
+        self.assertEqual(entry['en'], 'English\n(thought)')
+        self.assertEqual(entry['pl'], 'Polski\n(myśl)')
+
+    def test_english_reference_leading_padding_survives_parser(self):
+        import translation_import as I
+        entry = I.parse_view_full('## Scena 1/1 — X\n1. [Dialog] 字\n   EN:    Saving\n   PL:\n')
+        self.assertEqual(entry[('grp:1', '1')]['en'], '   Saving')
+
+    def test_visible_copy_keeps_its_leftover_root_in_the_plan(self):
+        import table_view as V
+        import pl_handoff as H
+        root = dict(id='leftover:x', jp='字', en='Text', part='text')
+        child = dict(id='robonote:1:type', jp='字', en='Text', part='type', copy_of='leftover:x')
+        files = {'04_config_text.jsonl': [root], '08_names_units_weapons.jsonl': [child]}
+        plan = V.plan_from(files, lang='pl')
+        self.assertEqual(plan['teksty-config.md'][0][0], [root])
+        self.assertFalse(H.excluded_reason(root, H.retained_leftovers([root, child])))
+
+    def test_executable_utf8_is_not_proof_of_polish_font_support(self):
+        import exe_strings
+        row = dict(jp='字', pl='ą', category=exe_strings.CATEGORY,
+                   bytes=3, max_bytes=3, source={'encoding': 'utf-8'})
+        self.assertTrue(any('no verified Polish' in e for e in C.check_row(row, field='pl')[0]))
+
+    def test_mirror_pl_uses_pl_not_english_and_validates_target(self):
+        import translation_mirror as M
+        source = {'container': 'a', 'member': 'charalist'}
+        rows = [dict(id='a', jp='字', en='EN', pl='Łódź', source=source),
+                dict(id='b', jp='字', en='Other EN', source=source, part='name_narrow')]
+        self.assertEqual(M.mirror_rows(rows, field='pl')['filled'], 1)
+        self.assertEqual(rows[1]['pl'], 'Łódź')
+        self.assertEqual(rows[1]['en'], 'Other EN')
+        rows[0]['pl'] = 'ł' * 20; del rows[1]['pl']
+        self.assertTrue(M.mirror_rows(rows, field='pl')['problems'])
+        self.assertNotIn('pl', rows[1])
+
+    def test_record_labels_use_polish_codec(self):
+        from types import SimpleNamespace
+        import table_write as W
+        import text_codec
+        records = [SimpleNamespace(strings=['声：人'.encode('cp932')], unexplained_refs=[])]
+        edits, resolved, refused = {}, [], []
+        text_codec.set_lang('pl')
+        try:
+            W.apply_labels([dict(id='label', jp='声：', en='Głos:', source={'slot': 0})], 'test', records,
+                           edits, resolved, refused)
+            self.assertEqual(refused, [])
+            self.assertEqual(edits[(0, 0)], pl_text.encode('Głos:') + '人'.encode('cp932'))
+        finally:
+            text_codec.set_lang('en')
+
+    def test_seed_preserves_structural_newline_cr_newline_tail(self):
+        import build_pl_translator_views as B
+        row = dict(jp='字\n文\n\r\n')
+        seed = B.seed(row, {})
+        self.assertEqual(seed, 'Ł\nŁ\n\r\n')
+
+    def test_reproducible_packaged_handoff_and_full_roundtrip(self):
+        import tempfile
+        import json
+        import build_pl_translator_views as B
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); package = root / 'EN'; package.mkdir()
+            files = {
+                '00_dialogue.jsonl': [dict(id='dlg:a', jp='字\n文\n', en='One\nTwo\n',
+                    scene='a/b.bin', order=1, category='dialogue', kind='dialogue')],
+                '06_scenes.jsonl': [dict(id='a/b.bin', seq=1, container='a', member='b.bin',
+                    episode=0, sections=[], rows=1, counts={'dialogue': 1})],
+                '04_config_text.jsonl': [dict(id='cfg:a', jp='文', en='Text', part='text')],
+            }
+            for name, rows in files.items():
+                (package / name).write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in rows))
+            first = B.build(package, root / 'first')
+            second = B.build(package, root / 'second')
+            self.assertTrue(first['ok'])
+            self.assertEqual(first['uncovered_rows'], 0)
+            self.assertTrue(first['synthetic_import']['idempotent'])
+            self.assertEqual(first['archives'], second['archives'])
+            with self.assertRaisesRegex(ValueError, 'refusing to overwrite'):
+                B.build(package, root / 'first')
+
+
+if __name__ == '__main__':
+    unittest.main()

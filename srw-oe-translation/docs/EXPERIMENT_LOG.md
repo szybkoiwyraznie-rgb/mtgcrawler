@@ -6999,3 +6999,31 @@ Build preflight deliberately allows narration reflow used by v4/v5; translator i
 retains conservative source-line-count rules. Synthetic fixture's display-name category
 corrected (it had incorrectly called all name parts the 14-cell unit-list field).
 Corrected translator archives/coverage manifest not yet released at this checkpoint.
+
+### PL handoff checkpoint 3 — exhaustive archive gate
+
+Added reproducible `build_pl_translator_views.py`: generate new/empty handoff only,
+check every JP/EN reference against the input rows, test empty import, mechanically
+fill ALL editable PL slots, import/copy/check/build-load, prove reference metadata
+unchanged and second import byte-identical. No literary translation performed.
+
+The exhaustive pass found further defects invisible in small samples: nested
+`[[kopia] ...]` labels confused the parser; parenthesized continuation lines could
+be swallowed as metadata; leading EN padding was stripped. Fixed with regressions.
+It also corrected the earlier blanket leftover quarantine: 8 `leftover:` roots are
+canonical sources of 24 structured catalogue fields. Preserve these, quarantine only
+364 unclassified leftover rows. No claim that every leftover is binary garbage.
+`NoData`, empty/whitespace fields and engine literals are read-only (19 rows).
+
+Actual extraction: 109144 text + 293 structural rows; 108780 represented text rows;
+108761 synthetically filled PL rows + 19 read-only + 364 quarantined = 109144.
+All 17031 explicit copy rows covered; 0 uncovered rows. Synthetic full import:
+84153 changed elements, 16262 newly filled copies, 0 validation errors; references
+unchanged, idempotent, PL-only build load passed. These are offline contract/roundtrip
+results, NOT complete game-container or runtime-layout coverage for 108761 strings.
+
+Token requirements and kana-token removals are now shown at each relevant element.
+Executable slots reject PL letters even in UTF-8 regions (font path unverified).
+Instructions corrected and unified with JSONL handoff. Full suite: 1591 tests OK,
+25 skipped, 40.158 s, including original-container extracted-kit verification.
+Final deterministic release build/upload follows this checkpoint.
