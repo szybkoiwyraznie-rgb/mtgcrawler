@@ -1,5 +1,14 @@
 # Next step — current state and open work
 
+> **Latest PL handoff (2026-10-18, after PR #19):** the Polish-stage sections
+> below describe the earlier two-byte implementation and are historical. The
+> current codec uses single-byte half-width-katakana codes. The v2 runtime test
+> still displayed Japanese katakana, not Polish letters. The diagnostic test
+> confirmed the `ank.fta` change for ASCII `e` only; katakana rendering remains
+> unresolved. Continue from [`pl/PL_FONT_PLAN.md`](pl/PL_FONT_PLAN.md), especially
+> its final two result sections, and [`../README_TEST_DIAG.md`](../README_TEST_DIAG.md).
+> Do not treat Polish glyph rendering as working or build a full PL release yet.
+
 **Updated 2026-10-17 (UTC).** This page replaces the old "superseded plan" notice.
 It lists only what is still open; the delivered products are frozen snapshots and
 must not be regenerated or re-uploaded without a new owner request.
