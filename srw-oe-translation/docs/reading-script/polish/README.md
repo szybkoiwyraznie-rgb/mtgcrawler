@@ -1,4 +1,44 @@
-# Polish reading editions — episodes 00–03 and catalogue v3
+# Polish reading editions — episodes 00–03 and catalogue v4
+
+## Latest catalogue v4 — roster-first unit headings
+
+- **[Catalogue v4 PL](https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view)**
+- **[Episodes00–03 + catalogue v4 (ZIP)](https://drive.google.com/file/d/1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0/view)**
+
+Owner's format applies to every unit: `Roster name (Display name)`, identical
+names shown once. Exact example: **Real PG Gundam (Gundam (Keroro))**; Keroro is
+the source spelling. All393 source-bound name pairs checked;242headings change,
+151identical pairs stay single. Existing section order preserved, including
+nonunique display-name ordering by frozen EN name + numeric source ID.
+
+Only the headings changed. Restoring the old393headings reproduces the entire
+v3 document **byte-for-byte**: descriptions,1485weapon rows, numbers, aliases,
+notes, uncertainty and v3 cosmetic removals retained. No literary rewriting,
+EN-only errata application or full model/game regeneration. English catalogue
+and game/translation snapshots unchanged; **ISO NO / DLC NO**.
+
+The safe presentation-only path pins the delivered v3 file and EN/PL08name-file
+hashes; validates all physical/JP metadata; binds both name roles by ID, never
+by a possibly duplicate heading. No original21game containers are needed.
+Reproduction after materializing PL (08file is unchanged from PL3):
+
+```sh
+python tools/revise_polish_catalogue_names.py \
+  --catalogue local/srwoe_mech_catalog_v3_PL.md \
+  --english pakiet_EN --polish local/polish-reading/pl3 \
+  --out local/catalogue-v4/srwoe_mech_catalog_v4_PL.md \
+  --report local/catalogue-v4/verification.json
+```
+
+`polish_mech_catalog.render()` and the full reading/catalogue orchestrator also
+use this format and emit v4; `render(..., roster_first=False)` preserves historic
+v3 output for verification. Independent rendered-stat verifier checks the new
+headings too.7new focused tests;1712full tests OK/3skip. Both delivered files
+downloaded back byte-identically, ZIP CRC and four unchanged episode members
+verified. Receipts: `catalogue-roster-first.json`, `catalogue-v4.delivery.json`.
+
+Older deliveries below are preserved, not overwritten.
+
 
 ## Missing Episode 0 added — 2026-10-19
 
@@ -113,7 +153,7 @@ Original English files and folder sharing were not changed. The ZIP contains
 only the four requested Markdown editions, no game files or intermediate audits.
 
 
-## Name lookup: Real PG Gundam
+## Historical v3 name lookup: Real PG Gundam
 
 The delivered `srwoe_mech_catalog_v3_PL.md` lists this unit under **Gundam
 (Keroro)** (series **Sgt. Frog**, default pilot **Sierżant Keroro**). It is not a

@@ -1,0 +1,80 @@
+{
+  "units": 393,
+  "changed_headings": 242,
+  "unchanged_headings": 151,
+  "non_heading_bytes_identical": true,
+  "unit_order_unchanged": true,
+  "schema": 1,
+  "input_sha256": "dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462",
+  "output_sha256": "ec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca",
+  "output_bytes": 723499,
+  "english_names_sha256": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+  "polish_names_sha256": "60742411cc774d5b479602bd6e7df8ad82a67a8469da9dbbd7ba6956513cd8ba",
+  "weapon_rows": 1485,
+  "english_catalogue_changed": false,
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "date": "2026-10-19",
+  "language": "pl",
+  "presentation_version": 4,
+  "source_commit": "e652107",
+  "files": [
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 723499,
+      "sha256": "ec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca",
+      "md5": "45aff876fcbfe1be5e122a948ce9c60f",
+      "drive_id": "146dxudsT9vEzGua6s--Z58s_QP8m_yF0",
+      "url": "https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_reading_PL3_00-03_catalog_v4.zip",
+      "bytes": 159934,
+      "sha256": "e6eabae91d579e602f7aa2d2bb9504ef7cc8fb023c7eaf4b5a4bda9052677480",
+      "md5": "74fc29438361d7ff7818ea1b099dda74",
+      "drive_id": "1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0",
+      "url": "https://drive.google.com/file/d/1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0/view",
+      "download_back_byte_identical": true
+    }
+  ],
+  "unchanged_episode_members": [
+    {
+      "name": "srwoe_episode_00_PL.md",
+      "sha256": "f72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97",
+      "identical": true
+    },
+    {
+      "name": "srwoe_episode_01_PL.md",
+      "sha256": "e9d8f6337b085002f63d2e1d73cf07052359876b0895464638592c5211bc5c47",
+      "identical": true
+    },
+    {
+      "name": "srwoe_episode_02_PL.md",
+      "sha256": "6639161f591931b1a5cb56705bdae4be9889282dd6388b0365100592691a966c",
+      "identical": true
+    },
+    {
+      "name": "srwoe_episode_03_PL.md",
+      "sha256": "2ed477846d2fa9ee6b723acbdbeed0fb2c1aed88ad6894cba5be0b080ea4d4ec",
+      "identical": true
+    }
+  ],
+  "zip_crc_and_five_members_verified": true,
+  "sharing_changed": false,
+  "previous_files_overwritten": false,
+  "full_model_regenerated": false,
+  "verification_method": "Hash-pinned delivered PL v3 plus physical/JP-bound name pairs; restore every old heading and require original document byte-for-byte",
+  "tests": {
+    "focused": 7,
+    "total": 1712,
+    "skipped": 3,
+    "result": "OK",
+    "seconds": 60.099
+  },
+  "installation": {
+    "iso_replace": false,
+    "dlc_recopy": false,
+    "scope": "Reading/reference Markdown only"
+  }
+}

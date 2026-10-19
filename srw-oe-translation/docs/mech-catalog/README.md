@@ -138,3 +138,14 @@ absent, as in a public checkout; synthetic tests need no proprietary inputs.
 Source/code snapshots are pinned by `delivery.json`. All eligible code, tests,
 findings and manifests were committed and pushed in stages to PR #17. Full Markdown,
 audit/model dumps and all game binaries remain outside Git. There is no new game kit.
+
+
+## Polish catalogue presentation v4 — roster-first headings
+
+The English v3 above stays unchanged. PL-only owner revision:
+[Catalogue v4 PL](https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view)
+uses roster name first, followed by differing display name in parentheses; identical
+names once. Example `Real PG Gundam (Gundam (Keroro))`. All393name pairs checked,
+242headers changed, all other document bytes/order/stats/descriptions untouched.
+[PL proof, bundle and reproduction](../reading-script/polish/README.md).
+No model/game rebuild or change to numeric facts, uncertainty labels or EN output.

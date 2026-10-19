@@ -7755,3 +7755,17 @@ old/new renderer equality, independent weapon verifier and non-heading corruptio
 Private output723499B/SHAec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca;
 new5member bundle copies all4episode00–03 bytes unchanged, catalogue v4 only.
 Full suite and private Drive delivery pending; no game/snapshot/EN changes.
+
+PL catalogue roster-first v4 delivered Drive146dxudsT9vEzGua6s--Z58s_QP8m_yF0,
+723499B/SHAec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca.
+Updated5member bundle Drive1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0,159934B,
+SHAe6eabae91d579e602f7aa2d2bb9504ef7cc8fb023c7eaf4b5a4bda9052677480.
+Both downloaded back identical; ZIP CRC and four episode bytes unchanged. All393
+name pairs bound,242headers changed,151identical pairs once; restoration yields
+exact original v3 bytes including1485weapon rows, all numbers/text/notes/order.
+7focused tests,1712full OK/3skip(60.099s). English renderer/data, PL game snapshot,
+ISO/DLC untouched; no model/original21container rebuild claimed. Tools/source
+checkpoint e652107 pushed; receipts reading-script/polish/catalogue-v4.delivery.json.
+Historical git aa178c object unavailable in current shallow clone, not needed:
+current EN08 matches hash-pinned original inventory d59b2ca9..., full PL08 matches
+old delivery60742411...; exact heading/source sequence verified on delivered file.

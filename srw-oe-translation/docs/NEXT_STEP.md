@@ -1,5 +1,16 @@
 # Next step — current state and open work
 
+**PL catalogue naming revision v4 DELIVERED (2026-10-19).**
+[Catalogue](https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view),
+[00–03+catalogue v4 ZIP](https://drive.google.com/file/d/1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0/view).
+Roster name first, differing display name in parentheses, identical pair once.
+393source-bound pairs;242headers changed,151same; exact non-heading byte proof
+preserves all1485weapon rows and descriptions. Four episode files unchanged.
+1712tests OK/3skip; both downloads byte-identical. Only reading presentation:
+no EN/source/game changes or ISO/DLC transfer. [Receipt](reading-script/polish/catalogue-v4.delivery.json).
+Do not restart completed exports or reinterpret this as runtime/game changes.
+
+
 **Latest model-viewer UI follow-up (2026-10-19): v2.5 delivered.**
 [Download](https://drive.google.com/file/d/1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8/view).
 Clipped L/R/analog/SELECT labels now `Zmień jedn.`/`Obr.`/`Ukryj`; only4sysmes
