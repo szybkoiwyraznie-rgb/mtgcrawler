@@ -7629,3 +7629,12 @@ d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb; Drive
 1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR, download-back exact/CRC/all hashes verified.
 No game data/shared access changes. Runtime/PPSSPP still owner-pending; one normal
 save/cold-start Seishiro details+levels/selection/reopen and save/footer check.
+
+2026-10-19 delivery clarification (no code/package change): owner requests explicit
+ISO/DLC replacement requirements on EVERY future handoff, since DLC transfer is
+burdensome. For v2.3 versus installed v2.2 on tested PPSSPP1.20.4, replace ISO only;
+retain current DLC. Shared executable builder also changes PBOOT.PBP, but measured
+release-loader path runs disc EBOOT, not update PBOOT. No new DLC content edits in
+this batch; do not generalize exception to other loaders/future releases. Recorded
+standing instruction in root AGENTS and version-specific follow-up doc. Docs only;
+no runtime tests or distribution rebuild needed for this clarification.

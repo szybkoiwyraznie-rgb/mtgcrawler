@@ -117,3 +117,17 @@ Seishiro mech-viewer -> Spirits details; inspect name and levels, change selecte
 Spirit, close/reopen. Then save warning + both compact footer strips. One coherent
 kit; no per-hypothesis ISO cycles, no new font/over-budget tests. Preserve originals
 and saves. v2.2 remains superseded/runtime-regressed; do not overlay patched ISO.
+
+## Installation clarification — owner PPSSPP1.20.4, v2.2 -> v2.3
+
+**Replace ISO: YES. Recopy rebuilt DLC: NO for this update on the owner's tested
+release loader.** Keep the DLC already used for the v2.2 test. New content edits
+in this batch are disc configst/sysmes and executable strings/cache code; no
+DLC content-container correction was added. The shared executable builder DOES
+also regenerate update PBOOT.PBP, so saying no DLC output bytes changed would be
+incorrect. The measured PPSSPP release path runs disc EBOOT and ignores that
+update copy (see executable-step loader evidence); no PBOOT recopy is needed
+for this owner's current setup. Do not extend to loaders honoring update PBOOT.
+
+Owner explicitly requires every future handoff to say ISO YES/NO and DLC YES/NO,
+including an exact subset when appropriate. Avoid unnecessary DLC recopying.
