@@ -7638,3 +7638,9 @@ release-loader path runs disc EBOOT, not update PBOOT. No new DLC content edits 
 this batch; do not generalize exception to other loaders/future releases. Recorded
 standing instruction in root AGENTS and version-specific follow-up doc. Docs only;
 no runtime tests or distribution rebuild needed for this clarification.
+
+2026-10-19 third UI batch: owner confirms Skupienie/details no crash on v2.3.
+Seven screenshots report system-dialog font incompatibility (restore EN), missing
+Spirit/skill join spaces, Results/Parts overflow and dirty texture header, Results
+stat overlaps and persistent Search overlap; remove routine launcher font chatter.
+Recorded in UI_QA_THIRD_2026-10-19.md before changes. No new runtime fix claimed.
