@@ -21,7 +21,23 @@
     1,
     69,
     15
-   ]
+   ],
+   "pl": "Lista części",
+   "pl_layout": {
+    "box": [
+     0,
+     0,
+     76,
+     12
+    ],
+    "clear": [
+     0,
+     0,
+     76,
+     12
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "owned",
@@ -32,7 +48,25 @@
     1,
     99,
     15
-   ]
+   ],
+   "pl": "Masz",
+   "pl_layout": {
+    "box": [
+     76,
+     0,
+     100,
+     12
+    ],
+    "clear": [
+     76,
+     0,
+     100,
+     12
+    ],
+    "align": "center",
+    "size": 9,
+    "min_size": 7
+   }
   },
   {
    "id": "convert",
@@ -43,7 +77,25 @@
     1,
     128,
     15
-   ]
+   ],
+   "pl": "Wym.",
+   "pl_layout": {
+    "box": [
+     100,
+     0,
+     128,
+     12
+    ],
+    "clear": [
+     100,
+     0,
+     128,
+     12
+    ],
+    "align": "center",
+    "size": 9,
+    "min_size": 7
+   }
   },
   {
    "id": "conditions",
@@ -54,7 +106,23 @@
     15,
     49,
     29
-   ]
+   ],
+   "pl": "Warunki",
+   "pl_layout": {
+    "box": [
+     0,
+     12,
+     48,
+     24
+    ],
+    "clear": [
+     0,
+     12,
+     48,
+     24
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "progress",
@@ -65,7 +133,23 @@
     15,
     95,
     29
-   ]
+   ],
+   "pl": "Postęp",
+   "pl_layout": {
+    "box": [
+     48,
+     12,
+     96,
+     24
+    ],
+    "clear": [
+     48,
+     12,
+     128,
+     24
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "equipped",
@@ -78,7 +162,23 @@
     38
    ],
    "size": 8,
-   "min_size": 6
+   "min_size": 6,
+   "pl": "(Zał.)",
+   "pl_layout": {
+    "box": [
+     0,
+     24,
+     33,
+     36
+    ],
+    "clear": [
+     0,
+     24,
+     33,
+     36
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "squad",
@@ -91,7 +191,23 @@
     38
    ],
    "size": 8,
-   "min_size": 6
+   "min_size": 6,
+   "pl": "Cz.",
+   "pl_layout": {
+    "box": [
+     33,
+     24,
+     55,
+     36
+    ],
+    "clear": [
+     33,
+     24,
+     55,
+     36
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "bonus",
@@ -104,7 +220,23 @@
     38
    ],
    "size": 8,
-   "min_size": 6
+   "min_size": 6,
+   "pl": "Premia",
+   "pl_layout": {
+    "box": [
+     55,
+     24,
+     97,
+     36
+    ],
+    "clear": [
+     55,
+     24,
+     97,
+     36
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "parts",
@@ -117,7 +249,23 @@
     38
    ],
    "size": 8,
-   "min_size": 6
+   "min_size": 6,
+   "pl": "oddz.",
+   "pl_layout": {
+    "box": [
+     97,
+     24,
+     128,
+     36
+    ],
+    "clear": [
+     97,
+     24,
+     128,
+     36
+    ],
+    "align": "center"
+   }
   },
   {
    "id": "full_upgrade_bonus",
@@ -130,7 +278,25 @@
     55
    ],
    "size": 13,
-   "min_size": 9
+   "min_size": 9,
+   "pl": "Premia ulepsz.",
+   "pl_layout": {
+    "box": [
+     0,
+     36,
+     112,
+     55
+    ],
+    "clear": [
+     0,
+     36,
+     128,
+     55
+    ],
+    "align": "center",
+    "size": 13,
+    "min_size": 9
+   }
   }
  ]
 }

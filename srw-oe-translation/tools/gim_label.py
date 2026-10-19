@@ -256,6 +256,13 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
     default_min = int(spec.get("min_size", DEFAULT_MIN_SIZE))
     seen = set()
     for lab in spec.get("labels", []):
+        # Language-scoped atlas repair: EN geometry remains byte-for-byte unchanged.
+        if text_codec.lang() == 'pl' and 'pl_layout' in lab:
+            layout = lab['pl_layout']
+            allowed = {'box','clear','size','min_size','squeeze','align','bg','fill','outline'}
+            if not isinstance(layout, dict) or set(layout) - allowed:
+                raise LabelError('invalid PL label layout override')
+            lab = {**lab, **layout}
         lid = str(lab.get("id", "?"))
         if lid in seen:
             raise LabelError(f"duplicate label id {lid!r}")

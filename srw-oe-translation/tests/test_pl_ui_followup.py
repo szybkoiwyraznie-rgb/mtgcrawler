@@ -26,12 +26,13 @@ class FollowupTests(unittest.TestCase):
 
     def test_every_edit_is_source_bound_and_physically_encodable(self):
         self.assertEqual(len(self.plan),193)
+        later={e['id']:e['after']for e in json.loads((ROOT/'config/pl/ui-third-2026-10-19.json').read_text())['changes']}
         self.assertEqual(len({e['source_sha256']for e in self.plan}),193)
         for e in self.plan:
             with self.subTest(id=e['id']):
                 row=self.rows[e['source_sha256']]
                 self.assertEqual(row['id'],e['id'])
-                self.assertEqual(self.entries[e['source_sha256']]['pl'],e['after'])
+                self.assertEqual(self.entries[e['source_sha256']]['pl'],later.get(e['id'],e['after']))
                 self.assertEqual(C.tokens(e['before']),C.tokens(e['after']))
                 self.assertEqual(e['before'].count('\n'),e['after'].count('\n'))
                 self.assertEqual(pl_text.decode(pl_text.encode(e['after'])),e['after'])
@@ -46,7 +47,10 @@ class FollowupTests(unittest.TestCase):
             self.assertEqual(row['source']['encoding'],'cp932')
             self.assertEqual(plain(e['after']),e['before'])
             self.assertEqual(len(pl_text.encode(e['after'])),len(e['before'].encode('cp932')))
-            self.assertIsNotNone(E.check_en({**row,'en':e['after']},target_lang='pl')[0],e['id'])
+            result=E.check_en({**row,'en':e['after']},target_lang='pl')[0]
+            if row['source']['vaddr'].lower() in E.SYSTEM_FONT_VADDRS:
+                self.assertIsNone(result)  # owner proved these are NOT bitmap-font strings
+            else:self.assertIsNotNone(result,e['id'])
         save=next(e for e in edits if e['id'].endswith('0x08bf34bf'))
         self.assertIn('Nie wyjmuj nośnika ani nie wyłączaj konsoli.',save['after'])
         ids={e['id']for e in edits}

@@ -552,6 +552,10 @@ def encode_target(text: str, encoding: str, target_lang: Optional[str] = None) -
     return encode_text(text, encoding)
 
 
+# Proven sceUtilityMsgDialog consumers, NOT the patched bitmap-font renderer.
+SYSTEM_FONT_VADDRS = frozenset({'0x08bf3678','0x08bf3f00','0x08bf3f1c'})
+
+
 def check_en(row: dict, target_lang: Optional[str] = None) -> Tuple[Optional[bytes], Optional[str]]:
     """Encode the row's English for its region; ``(bytes, None)`` or ``(None, reason)``.
 
@@ -576,6 +580,8 @@ def check_en(row: dict, target_lang: Optional[str] = None) -> Tuple[Optional[byt
     language = target_lang if target_lang is not None else text_codec.lang()
     if language == "pl" and encoding == "utf-8" and pl_text.is_pl(en):
         return None, "no verified Polish font/codec path for UTF-8 save-data strings; use ASCII spelling"
+    if language == 'pl' and str(source.get('vaddr','')).lower() in SYSTEM_FONT_VADDRS and pl_text.is_pl(en):
+        return None, 'PSP system dialog has no patched Polish glyphs; use reviewed ASCII/English'
     try:
         enc = encode_target(en, encoding, target_lang)
         region = len(encode_text(jp, encoding))

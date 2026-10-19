@@ -7644,3 +7644,15 @@ Seven screenshots report system-dialog font incompatibility (restore EN), missin
 Spirit/skill join spaces, Results/Parts overflow and dirty texture header, Results
 stat overlaps and persistent Search overlap; remove routine launcher font chatter.
 Recorded in UI_QA_THIRD_2026-10-19.md before changes. No new runtime fix claimed.
+
+Third UI implementation checkpoint: system font traced to sceUtilityMsgDialog
+NID2ad8e239 (a88b4->1cf5e0->1cf73c), English fallbacks3exe+2sysmes with PL-glyph
+guards. Removed routine launcher echo, kept actual missing-ISO guard. Private
+original intsys_04 shows original header row24..35 vs old patched29..37; PL-only
+layout/clearing fixed, EN geometry unchanged. Actual format audit120Spirit+1985
+Skill fields ->57/412 fields corrected by space-only TEMPLATE edits, pools intact;
+38exe overrides plus15labels.14fullslots use compact L-level/Obr. labels, no gate
+bypass.924 source-bound snapshot edits. First spacing prototype falsely counted
+split colour digits as text; corrected AFTER-substitution colour removal, explicit
+regression tests, zero remaining candidates for reviewed rules. Materialization
+passes;11new focused tests. Full suite/real-size/standalone verification pending.
