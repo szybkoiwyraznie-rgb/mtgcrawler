@@ -7594,3 +7594,13 @@ TOC reader on ITOC font CPK; switched to existing font reader, no asset change.
 Drive12mZhkIjpxe9PgRAadD5FeOYHkmhUhVyk downloaded back byte-identical, CRC/member
 hashes passed, sharing unchanged. Receipts/physical metadata in docs/pl/;
 all proprietary builds/inputs remain ignored. No gameplay confirmation yet.
+
+### 2026-10-19 — owner rejects v2.2 Spirit-details regression
+
+Four new owner screenshots: missing saving-warning accents, two clipped button
+strips, Spirit-details crash. PC08a14904 maps210904; return089a60a0 maps1a20a0.
+Original caller1a209c reads cache+14; v2.2 shifted drawable to+2c but missed this
+consumer. Original name bytes leave0x65 there for Skupienie, then callee+8 reads
+0x6d as reported. Earlier186 stubbed constructor/draw tests missed this path.
+Recorded as a real regression; investigating tail-buffer repair preserving all
+old field offsets, plus broader executable spelling audit/compact button labels.
