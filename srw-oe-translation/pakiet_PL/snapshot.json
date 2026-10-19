@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "kind": "partial PL text-only release snapshot",
+  "source_return": {
+    "name": "PL3.zip",
+    "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351"
+  },
+  "entries": 65566,
+  "data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+  "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
+  "game_binaries_included": false
+}
