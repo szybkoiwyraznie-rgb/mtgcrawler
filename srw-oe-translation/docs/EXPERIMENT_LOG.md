@@ -7730,3 +7730,11 @@ rows metadata equal,4PL changes,78324DLC rows unchanged.1705tests OK/3skip. Exis
 Install current PPSSPP ISO path: ISOyes/DLCno/PBOOTno. Runtime labels pending,
 not all-game or v2.4 visual approval. No reading/prose/cache/font modifications.
 Receipts docs/pl/{ui-mech-viewer-verification,pl3-ui-mech-viewer-delivery}.json.
+
+Owner catalogue lookup: Real PG Gundam is present as heading Gundam (Keroro),
+Sgt. Frog/pilot Sierżant Keroro. Confirmed same source key1002: name=Real PG Gundam,
+name_display=Gundam (Keroro); catalogue renderer selects display name and omits
+list-name alias. Delivered PL v3 bytes rechecked against archived SHA dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462.
+One matching section, no literal Real PG alias, so owner's search failure is real
+but no missing unit. Documented lookup only, no output/source/game modifications;
+ISO/DLC unchanged. No full-suite rerun for documentation-only explanation.

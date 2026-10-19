@@ -111,3 +111,15 @@ source packages or game files. No game/font rebuild or new runtime claim.
 
 Original English files and folder sharing were not changed. The ZIP contains
 only the four requested Markdown editions, no game files or intermediate audits.
+
+
+## Name lookup: Real PG Gundam
+
+The delivered `srwoe_mech_catalog_v3_PL.md` lists this unit under **Gundam
+(Keroro)** (series **Sgt. Frog**, default pilot **Sierżant Keroro**). It is not a
+missing unit: both names bind to unit1002. The catalogue heading uses PL
+`unit:1002:name_display` (`Gundam (Keroro)`), while PL `unit:1002:name` is
+`Real PG Gundam`. The existing v3 output does not print the latter alias, so
+searching for it returns no match. Search for `Gundam (Keroro)` instead.
+Checked the actual delivered file from the hash-verified bundle, not just the
+source table. This note does NOT rename/regenerate the catalogue or game package.
