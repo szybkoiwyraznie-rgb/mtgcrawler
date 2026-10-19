@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Polish counterparts of the three delivered early reading editions.
+"""Build Polish counterparts of the delivered early reading editions (including the prologue episode).
 
 The delivered EN Markdown is an editorial reference, never a translation source.
 Every prose block is rebound to an ordered physical source row before reading PL.
@@ -46,12 +46,22 @@ def recover_blocks(source, reference):
                     for variant in variants:
                         keys.setdefault(normalize_reference(variant), set()).add((sid, entry.order, entry.id, mode, level))
     current, variant, last = None, False, 0
+    episode_zero = {s.get('episode') for s in source.scenes} == {0}
     used, out = set(), []
     base_scenes = iter(s for s in source.scenes if not s.get('variant_of'))
-    for index, block in enumerate(reference.decode('utf-8').strip().split('\n\n')):
+    reference_blocks = reference.decode('utf-8').strip().split('\n\n')
+    max_parts = max(len(k.split('\n\n')) for k in keys)
+    skip_until = 0
+    for index, block in enumerate(reference_blocks):
+        if index < skip_until:
+            continue
         if block.startswith('## Editorial notes'): break
         if block.startswith('## DLC text variant'):
             variant = True
+            continue
+        if block.startswith('## ') and episode_zero and block not in ('## Prologue', '## Interlude'):
+            need(current is not None, 'Episode 0 section before source scene')
+            out.append({'heading': block, 'block': index})
             continue
         if block.startswith('## '):
             scene = next(base_scenes)
@@ -59,9 +69,14 @@ def recover_blocks(source, reference):
             out.append({'mission': current, 'block': index})
             continue
         if not current or variant: continue
-        options = [x for x in keys.get(normalize_reference(block), set()) if x[0] == current and x[1] > last]
+        options = []
+        for parts in range(1, max_parts + 1):
+            combined = '\n\n'.join(reference_blocks[index:index + parts])
+            options.extend((*x, parts) for x in keys.get(normalize_reference(combined), set())
+                           if x[0] == current and x[1] > last)
         if options:
-            _, last, rid, mode, level = min(options, key=lambda x: (x[1], x[3] != 'story', x[2], x[4]))
+            _, last, rid, mode, level, parts = min(options, key=lambda x: (x[1], x[3] != 'story', x[2], x[4]))
+            skip_until = index + parts
             used.add(rid)
             out.append({'row': rid, 'mode': mode, 'level': level, 'block': index})
         elif block.startswith('#'):
@@ -76,6 +91,7 @@ def recover_blocks(source, reference):
 
 
 def validate_plan(plan, source, reference):
+    need({s.get('episode') for s in source.scenes} == {plan['episode']}, 'Episode/source selection differs')
     need(plan.get('schema') == 1 and plan.get('reviewed') is True, 'Unreviewed Polish editorial plan')
     need(plan['reference_sha256'] == sha(reference), 'Delivered English reference changed')
     need(plan['english_source_sha256'] == source.hashes, 'English source changed; review the bindings again')
@@ -83,10 +99,12 @@ def validate_plan(plan, source, reference):
     need(blocks == recover_blocks(source, reference), 'Editorial plan/source mapping differs')
     reference_blocks = reference.decode().strip().split('\n\n')
     for b in plan['blocks']:
-        if 'mission' in b:
+        if 'mission_row' in b:
             title = ' '.join(paragraphs(source.missions[b['mission_row']]['en']))
             need(title == reference_blocks[b['block']][3:], 'Mission-title identity differs')
-        if 'heading' in b:
+        elif 'mission' in b:
+            need(plan['episode'] == 0 and b.get('pl', '').strip(), 'Missing source mission title')
+        if 'heading' in b and 'mission_row' not in b:
             need(b.get('pl', '').startswith(b['heading'].split(' ', 1)[0] + ' '), 'Missing Polish editorial heading')
 
 
@@ -142,9 +160,13 @@ def build(plan, english, polish, reference):
             blocks_by_scene[current].append(block)
     title_maps = {}
     for sid, blocks in blocks_by_scene.items():
-        mission = polish.missions[blocks[0]['mission_row']]
-        need(bool(mission.get('pl', '').strip()), f'Missing Polish mission {mission["id"]}')
-        title_maps[sid] = ' '.join(paragraphs(mission['pl']))
+        first = blocks[0]
+        if 'mission_row' in first:
+            mission = polish.missions[first['mission_row']]
+            need(bool(mission.get('pl', '').strip()), f'Missing Polish mission {mission["id"]}')
+            title_maps[sid] = ' '.join(paragraphs(mission['pl']))
+        else:
+            title_maps[sid] = first['pl']
     def show(entry, mode, role='shown', level=3):
         put(reading_entry(entry, mode, level), entry.id, role)
         coverage[entry.id] = {'status': role}
@@ -158,6 +180,10 @@ def build(plan, english, polish, reference):
                 if 'row' in b:
                     need(en_entries[b['row']].kind == pl_entries[b['row']].kind, 'Entry kind changed')
                     show(pl_entries[b['row']], b['mode'], level=b['level'])
+                elif 'mission_row' in b:
+                    mission = polish.missions[b['mission_row']]
+                    need(bool(mission.get('pl', '').strip()), f'Missing Polish mission {mission["id"]}')
+                    put(b['heading'].split(' ', 1)[0] + ' ' + ' '.join(paragraphs(mission['pl'])))
                 else:
                     put(b['pl'])
             seen.append(sid)
@@ -243,11 +269,13 @@ def main(argv=None):
     parser.add_argument('--references', type=Path, required=True)
     parser.add_argument('--plans', type=Path, default=Path('docs/reading-script/polish'))
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--episodes', type=int, nargs='+', choices=range(4), default=(0, 1, 2, 3),
+                        help='Select only requested episodes; 0 includes the prologue/training')
     args = parser.parse_args(argv)
     need(all(not args.out.resolve().is_relative_to(p.resolve()) for p in
              (args.english, args.polish, args.references, args.plans)), 'Refusing output among inputs')
     args.out.mkdir(parents=True, exist_ok=True)
-    for episode in (1, 2, 3):
+    for episode in args.episodes:
         plan = json.loads((args.plans / f'episode_{episode:02}.json').read_bytes())
         reference = (args.references / f'srwoe_episode_{episode:02}.md').read_bytes()
         en = EarlyReadingSource(args.english, episode)

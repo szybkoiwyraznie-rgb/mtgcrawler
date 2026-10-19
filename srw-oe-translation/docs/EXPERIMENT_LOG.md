@@ -7680,3 +7680,22 @@ EN+PL release-pair build/verification passes, CI39283036474 queued at handoff.
 Explicit ISOyes/DLCno/PBOOTno upgrade scope in README and receipts, same owner
 PPSSPP loader only. PR20 still open, no merge or public-main release. No new
 PPSSPP runtime claim. Final receipt docs/pl/pl3-ui-third-delivery.json.
+
+Owner requests missing Polish reading Episode0 (2026-10-19). Earlier PL delivery
+was01–03+catalogue, no00. Downloaded delivered English00 reference20922B and bound
+ALL253 prose rows (242dialogue+11narration) from two story scenes to existing PL3;
+no new translation/fallback/package/game changes. New reviewed ID/editorial plan
+reading-script/polish/episode_00.json handles Prologue/Interlude before source-bound
+mission titles. Recovery now handles one multi-paragraph source record spanning
+multiple reference blocks, preserving the WHOLE Polish record's own paragraph
+boundaries. CLI --episodes0 selects only00; all-early default covers00–03.
+Independent verifier:253shown/0aliases/259textspans; no residual JP. Output21728B,
+SHAf72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97.
+Downloaded earlier PL bundle, all4oldmember hashes match archived receipt; English
+01–03 refs restored only for regression: ALL THREE regenerated Polish editions
+byte-identical to delivered originals. Catalogue NOT regenerated/modified. New
+five-member bundle copies old4members exactly and adds00 only.21focused tests pass
+(including6new synthetic tests for0scene/section mapping, multi-paragraph coverage,
+missing PL title, reference/episode binding and semantic corruption). Full suite
+and Drive delivery pending at this checkpoint. Outputs/audits stay ignored under
+local/polish-reading-zero/. ISO/DLC untouched; no install necessary.

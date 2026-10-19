@@ -28,7 +28,7 @@ def main(argv=None):
     need(not args.elf.resolve().is_relative_to(args.out.resolve()), 'Refusing output around original ELF')
     args.out.mkdir(parents=True, exist_ok=True)
     verification = {}
-    for episode in (1, 2, 3):
+    for episode in (0, 1, 2, 3):
         plan = json.loads((docs / f'reading-script/polish/episode_{episode:02}.json').read_bytes())
         en, pl = R.EarlyReadingSource(args.english, episode), R.EarlyReadingSource(args.polish, episode, 'pl')
         reference = (args.references / f'srwoe_episode_{episode:02}.md').read_bytes()
