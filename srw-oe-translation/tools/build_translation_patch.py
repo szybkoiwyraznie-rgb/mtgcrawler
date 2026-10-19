@@ -55,10 +55,11 @@ Usage::
 
 ``--lang pl`` switches the package language: rows are read from the ``pl`` field, the
 writers encode through the Polish codec (:mod:`text_codec` → :mod:`pl_text`, the 18
-diacritics as private two-byte codes), and the ISO's ``font.cpk`` is extended with the
+diacritics as single-byte half-width codes), and the ISO's ``font.cpk`` is extended with the
 18 glyphs (:mod:`font_pl`) before anything else is queued for ``patched.iso``.  The
-executable strings step stays CP932-strict: a Polish letter in an exe row is refused
-with a reason instead of written.
+executable display targets use the same Polish font codec; original JP source checks
+stay CP932. UTF-8 system save-data strings retain UTF-8 and refuse Polish glyphs.
+The PL executable step also expands the hash-gated menu name cache (8 to32 bytes).
 """
 from __future__ import annotations
 

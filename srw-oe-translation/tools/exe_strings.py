@@ -25,7 +25,8 @@ strings are 4-byte aligned, so ``敵`` owns 3 bytes and ``移動`` 7), must keep
 ``%-TEXT_SPACE_ROBOs``…) in order, must not carry a ``0x0F`` kana token, and the Japanese bytes
 must still be at the offset or the row is refused and reported - a different print of the game
 is never half-patched.  Strings the save-data layer reads are UTF-8 (``第%d話までクリア``) and
-are written back as UTF-8; everything else is cp932.
+are written back as UTF-8; other targets select CP932 (EN) or the native
+half-width Polish font codec (PL). Original Japanese matching always stays CP932/UTF-8.
 
 Rows follow the package schema (``category: exe``, ``mode: slot``, ``max_bytes``) so
 :mod:`translation_check`, :mod:`translation_copy` and the builder treat them like the other
@@ -65,6 +66,8 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import psp_prx  # noqa: E402
+import pl_text  # noqa: E402
+import text_codec  # noqa: E402
 
 LOAD_BASE = 0x08804000          # where the PSP loads segment 0 of the boot module
 CWCHEAT_BASE = 0x08800000       # CWCheat addresses are offsets from here
@@ -101,6 +104,9 @@ LABEL_CELL_LIMITS = {
     "0x08bf7194": 2,   # status: other count
     "0x08bf8598": 4,   # weapon panel: usable after moving, before its icon
 }
+
+# Owner's PL status screenshot: compact captions without changing shipped EN labels.
+PL_LABEL_CELL_LIMITS = {"0x08bf7198": 4, "0x08bf71a0": 8, "0x08bf71ac": 4}
 
 
 class ExeError(Exception):
@@ -532,7 +538,21 @@ def write_rows(path: Path, rows: Iterable[dict]) -> int:
 # apply
 # --------------------------------------------------------------------------------------------
 
-def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
+def encode_target(text: str, encoding: str, target_lang: Optional[str] = None) -> bytes:
+    """Select only the DISPLAY target codec; original JP matching stays encode_text.
+
+    UTF-8 save metadata belongs to the system layer, not our patched ank font.
+    Keep its encoding unchanged; check_en separately refuses Polish glyphs there.
+    """
+    language = target_lang if target_lang is not None else text_codec.lang()
+    if language not in ("en", "pl"):
+        raise ValueError("unknown executable target language")
+    if encoding != "utf-8" and language == "pl":
+        return pl_text.encode(text)
+    return encode_text(text, encoding)
+
+
+def check_en(row: dict, target_lang: Optional[str] = None) -> Tuple[Optional[bytes], Optional[str]]:
     """Encode the row's English for its region; ``(bytes, None)`` or ``(None, reason)``.
 
     The returned bytes are exactly ``row["bytes"]`` long: NUL-padded for an ordinary slot,
@@ -553,8 +573,11 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
     en_fmt = FORMAT_RE.findall(en)
     if jp_fmt != en_fmt:
         return None, "printf conversions differ: jp %s vs en %s" % (jp_fmt, en_fmt)
+    language = target_lang if target_lang is not None else text_codec.lang()
+    if language == "pl" and encoding == "utf-8" and pl_text.is_pl(en):
+        return None, "no verified Polish font/codec path for UTF-8 save-data strings; use ASCII spelling"
     try:
-        enc = encode_text(en, encoding)
+        enc = encode_target(en, encoding, target_lang)
         region = len(encode_text(jp, encoding))
     except (UnicodeEncodeError, UnicodeDecodeError) as exc:
         return None, "cannot encode: %s" % exc
@@ -567,6 +590,8 @@ def check_en(row: dict) -> Tuple[Optional[bytes], Optional[str]]:
     if len(enc) > budget:
         return None, "over budget: %d > max_bytes %d" % (len(enc), budget)
     cell_limit = LABEL_CELL_LIMITS.get(str(source.get("vaddr", "")).lower())
+    if language == "pl":
+        cell_limit = PL_LABEL_CELL_LIMITS.get(str(source.get("vaddr", "")).lower(), cell_limit)
     if cell_limit is not None and len(enc) > cell_limit:
         # These three labels are plain CP932, with one half-width cell per encoded byte.
         return None, "too wide for the UI: %d > %d half-width cells (storage slack is not screen space)" % (

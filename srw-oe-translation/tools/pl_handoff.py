@@ -74,8 +74,11 @@ def limit_note(element):
                 notes.append('NIE TŁUMACZ: literał silnika, pozostaje JP')
             else:
                 codec = (row.get('source') or {}).get('encoding', 'cp932')
-                notes.append(f'wyjątek: zapis {codec}; bez polskiego kodeka/fontu; zachowaj printf')
-                cell_limit = exe_strings.LABEL_CELL_LIMITS.get(str((row.get('source') or {}).get('vaddr', '')).lower())
+                if codec == 'utf-8':
+                    notes.append('wyjątek: UTF-8 zapisu systemowego; bez polskich liter; zachowaj printf')
+                else:
+                    notes.append('kodek PL półszerokiej czcionki gry; oryginał CP932; zachowaj printf')
+                cell_limit = {**exe_strings.LABEL_CELL_LIMITS, **exe_strings.PL_LABEL_CELL_LIMITS}.get(str((row.get('source') or {}).get('vaddr', '')).lower())
                 if cell_limit:
                     notes.append(f'maks. {cell_limit} celi etykiety')
         if category in ('dialogue', 'battle_quote'):

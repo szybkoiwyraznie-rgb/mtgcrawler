@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "review": "Owner headings/status UI QA; shared 0x3529b8 game-font renderer; CP932 source checks unchanged",
+  "changes": [
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7148",
+      "source_sha256": "54b90cb5e8de03734b6a9d65e015b1032e6af51f24732cf54bced2a72b4ec79b",
+      "before": "<< Zwyciestwo >>",
+      "after": "<< Zwycięstwo >>",
+      "max_cells": 19
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf715c",
+      "source_sha256": "c8a9a3b6444d054a003b212014a6cb1cdb0d1ba7c3dd7f80025736d87ba5439a",
+      "before": "<< Porazka >>",
+      "after": "<< Porażka >>",
+      "max_cells": 15
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7198",
+      "source_sha256": "edb26deaa931d65d3403894885a2e1a54ad5acea7fa85d8a9daf6046420c7ccc",
+      "before": "Sojusz",
+      "after": "Sw.",
+      "max_cells": 4
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf71a0",
+      "source_sha256": "c9c5bafdd9c87acc9e2c619958d392e2831f0065915bfc7dda68eae1325338b6",
+      "before": "Na okrecie",
+      "after": "Pokład",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf71ac",
+      "source_sha256": "238c48d737b4d26a909802a441f04975291e08fa02b0e91b6f6f487da77443ba",
+      "before": "Fundusz",
+      "after": "Kr.",
+      "max_cells": 4
+    }
+  ]
+}

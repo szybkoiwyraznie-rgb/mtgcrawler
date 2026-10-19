@@ -276,11 +276,9 @@ def check_row(row: dict, require_complete: bool = False,
     if row.get("category") == exe_strings.CATEGORY:
         # executable strings: the in-place writer's own rules (byte budget incl. alignment
         # slack, printf conversions in order, exact segments, UTF-8 rows) are the check.
-        # The writer is CP932-only, so under field="pl" a Polish letter is refused here -
-        # deliberately fail closed for the slots without a private-code path.
-        if field == "pl" and pl_text.is_pl(text):
-            errors.append("executable slots have no verified Polish font/codec path; use ASCII spelling")
-        patch, why = exe_strings.check_en({**row, "en": text})
+        # Display targets select the PL ank codec; source matching remains CP932.
+        # UTF-8 save metadata is not drawn with our patched font (writer refuses PL).
+        patch, why = exe_strings.check_en({**row, "en": text}, target_lang=field)
         if patch is None:
             errors.append(why or "refused by exe_strings.check_en")
         if text.count("\n") != jp.count("\n"):

@@ -7524,3 +7524,12 @@ synthetic tests passed. Optional read-only Unicorn2.1.4 probe:3 original failure
 186 patched passes/guard bytes intact,60 physical names (max16 B),31-byte boundary
 included. Probe SHA/report in `docs/pl/ui-cache-offline-verification.json`; no
 game bytes committed. Full kit readback/runtime still pending; see UI QA doc.
+
+### 2026-10-19 — executable Polish display codec, source checks unchanged
+
+Verified Victory/Defeat ->0x20f364 ->0x3529b8 and Docked ->0x352b4c ->0x3529b8,
+sharing game-font rendering with Spirit names. Added separate PL display-target
+encoder; JP CP932/UTF-8 matching/budgets unchanged; UTF-8 system-save Polish glyphs
+still refused. Five owner/status label edits, with PL-only cell limits. Tests:
+27 executable +24 handoff +4 PL executable passed; complete PL snapshot validated.
+No font alteration or PPSSPP claim. See UI QA checkpoint C.
