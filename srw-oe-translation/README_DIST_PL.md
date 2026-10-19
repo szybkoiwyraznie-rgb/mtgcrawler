@@ -51,7 +51,8 @@ gry/save'ów i nie dowodzi, co emulator trzyma w starym stanie RAM.
   w scenach zostały zachowane przy imporcie, ale nie przeprowadzono ręcznej korekty
   wszystkich mówców.
 - Pozostało **158 zgłoszonych wcześniej uwag do złożeń**, głównie odstępów
-  po dwukropkach. Nie naprawialiśmy ich automatycznie za tłumacza.
+  po dwukropkach, np. `Po aktyw.:Obraż.`. To nie jest liczba błędów łamania
+  linii. Nie naprawialiśmy tych złożeń automatycznie za tłumacza.
 - Miękkie ostrzeżenia o długości/layoutach nadal istnieją. Sprawdzanie limitów
   bajtów i celi nie zastępuje oglądania tekstów w grze; zalecenie46 celi jest
   czymś innym niż twardy limit danej ramki.

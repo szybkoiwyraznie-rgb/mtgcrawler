@@ -99,7 +99,6 @@ rem ===== Build =====
 echo.
 echo  ============================================
 echo   Building Polish translation patch...
-echo   (the font step takes a moment - it recompresses font.cpk)
 echo  ============================================
 echo.
 

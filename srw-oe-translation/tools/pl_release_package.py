@@ -130,7 +130,7 @@ def materialize(base, stored, out):
                     totals=checked['totals'], files=checked['files'],
                     runtime_tested=False,
                     known_issues=['Battle-quote grammatical gender not fully speaker-reviewed',
-                                  '158 translator-reported formatting findings remain',
+                                  '158 translator-reported skill-description assembly spacing findings remain (not line-wrap errors)',
                                   'Line-width/layout warnings require game QA; story after episode03 incomplete'])
     out.mkdir(parents=True)
     for name, group in by_file.items():

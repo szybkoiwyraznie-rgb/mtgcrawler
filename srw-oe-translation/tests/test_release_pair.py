@@ -36,6 +36,8 @@ class PairTests(unittest.TestCase):
     def test_pl_has_coverage_correct_launchers_and_no_missing_metadata(self):
         with zipfile.ZipFile(self.out/self.records['pl']['name'])as z:
             self.assertIn(b'--lang pl',z.read('PATCH.bat'))
+            self.assertNotIn(b'the font step takes a moment',z.read('PATCH.bat'))
+            self.assertNotIn(b'recompresses font.cpk',z.read('PATCH.bat'))
             self.assertIn(b'--lang pl',z.read('CHECK_DLC.bat'))
             self.assertIn('translation/tokeny.tsv',z.namelist())
             c=json.loads(z.read('translation/PL_COVERAGE.json'))
