@@ -7710,3 +7710,11 @@ Independent253prose/259span check passes;21focused tests, full1703tests OK/3skip
 (52.872s). No new literary text, story/source/game edits, catalogue regeneration,
 ISO/DLC transfer or prior-delivery overwrite. Source/tools checkpoint6e2f276
 pushed to assigned branch/PR20. Receipt reading-script/polish/episode_00.delivery.json.
+
+Model-viewer screenshot follow-up: three clipped/colliding labels bound to four
+whole sysmes roots19028/45684/21284/21292. PL-only source plan shortens to
+Zmień jedn.(11cells), Obr.(4), Ukryj(5); original JP slots12/4/10. Both identical
+unit-switch JP roots synchronized; no global replacement in help/exe captions.
+Normal snapshot guard applied;2focused tests pass incl synthetic sysmes duplicate
+planner/roundtrip. No cache/font/code/skill/reading changes. Full physical build,
+suite and private v2.5 delivery pending; ISOyes/DLCno intent needs confirmation.

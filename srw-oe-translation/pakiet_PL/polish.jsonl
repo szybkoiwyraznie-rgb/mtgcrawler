@@ -44391,7 +44391,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Zasięg","source_sha256":"545c916374649463e145b9d8cab0cfe6ffac5de446b07f350dd9ba184bc4111e"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:2054","pl":"Wskazane","source_sha256":"545e74f7c64f2c24bfbad9f2cb37d3e2982753a4adaa7b3014a098e3d68dd218"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:108792","pl":"%s 128 %s\nAtk/%s32%% %s16%%","source_sha256":"545fb009f7a4950820f0b8c948a27b9aace0083d3d012ae0cf4f4c33620773c9"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19028","pl":"Zmień jednostkę","source_sha256":"54647585bad93df33fdc09ca52c4149ec4a4339c6e6caffbfd47accc84f88e90"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19028","pl":"Zmień jedn.","source_sha256":"54647585bad93df33fdc09ca52c4149ec4a4339c6e6caffbfd47accc84f88e90"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15428","pl":"% Siła kryt.+","source_sha256":"5469ab132982017de0f4f82bd2a7ed1dde3f86c99d808561a14cdf4beb0256eb"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:3204","pl":"PASSAGE_TURN","source_sha256":"546b2bd4e70780b29de8ebc4f7377ecf1bb3a68dd86f2784e7266d82cd791b7c"}
 {"file":"04_config_text.jsonl","id":"achievement:configst.cpk/srwDL_Achievement.bin:4874","pl":"Posiadaj co najmniej 70 jednostek","source_sha256":"546d543736f87081a3ae12d652b4aa1488da1a270743249b9db7cb0cc9ba6864"}
@@ -48477,12 +48477,12 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:3124","pl":"Sojusznicy","source_sha256":"954f7584a38ae72acc214bf8f68c3b2e394c7ed1bd153ed68f49c2c8991507a9"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config02.EDAT/srwDL_DLC_ID02.bin:108","pl":"Pobierz dodatkową misję\n\"Wydobycie metali rzadkich\".\n＠4Może wymagać postępów\nw fabule głównej rozdziału 2.","source_sha256":"95507c3110e23941c99a3ba32cc9656cb0909d27b6e35bafbfd8723b9bc8751c"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:43536","pl":"Rozpocznij Super Robot Wars Operation Extend [wersja darmowa].","source_sha256":"9551959d6271bd5152a49691148eacc481147fc1ffb98a0c5b667247c610febe"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21284","pl":"Obrót","source_sha256":"9557c455a260a12e324b8e75e4a6a6c23a87f87a091d517529766eef7aab9e1c"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21284","pl":"Obr.","source_sha256":"9557c455a260a12e324b8e75e4a6a6c23a87f87a091d517529766eef7aab9e1c"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6047","pl":"Bez uników","source_sha256":"955c9815532a9b4616c83c2870063511005abfdc249702aa05a4f2b3ddf5d640"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50638","pl":"Nadpisanie zapisu usunie wszystkie kupione ＠6części oddziału＠4.＠0\nMimo to rozpocząć grę?","source_sha256":"955cf94899128eead0b52486f9310c1ea23d4498174027004ee3af34a26d7faf"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:14558","pl":" Na większego: Cel+%","source_sha256":"9560c666dc0af07f9cb1b028889183250dfd1f0c5fa0e340a681a966f3fbe49b"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:33420","pl":"HP+","source_sha256":"9560c66a6bf72ea011bc262866571d28b5cb407a2b0b5ba929edfa7aaa692ed2"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21292","pl":"Pokaż/ukryj","source_sha256":"956b970ac7b034d3805b35d91fa15d303d6dc3503dbb023d8567ec7367803dc8"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21292","pl":"Ukryj","source_sha256":"956b970ac7b034d3805b35d91fa15d303d6dc3503dbb023d8567ec7367803dc8"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:1997","pl":"%s x2\n5%s","source_sha256":"957480dc0d62ba83513b726708211c53c5f80c333752a762672a18ffe86ca7fa"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:45524","pl":"Teren:","source_sha256":"957e6ff2d6c020f196696557cf06f9f95be4a7684bb5fa70d9f0809d4bf8556b"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:9261","pl":"Obr/Unik+","source_sha256":"9585055a58da6b7df6bcdefd971ed43ade4586e4d49c2b311acf2f228bf2e8c4"}
@@ -55167,7 +55167,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15552","pl":"Szansa%","source_sha256":"ffd269f5693770705c47c853eba7df0265fd646bb88bcfc482e5b7b0b383ab54"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:14198","pl":"Odnowa HP co turę","source_sha256":"ffd7224dcafc57ea9aa6b212ef53a56070329ad88184d5e91229cf8b55aa9eb9"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:715","pl":"Unik+","source_sha256":"ffd97caec034ed054e5c111bc18dd2c50ad7551783e392c2329347a1415e9308"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:45684","pl":"Zmień jednostkę","source_sha256":"ffdb2c5e8454ba449d3643dd67e2e41a4994f3007037c342a2781326b7b2579d"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:45684","pl":"Zmień jedn.","source_sha256":"ffdb2c5e8454ba449d3643dd67e2e41a4994f3007037c342a2781326b7b2579d"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:12957","pl":"Na mniejszych:","source_sha256":"ffe18b70e3f568cee26dc810fc7eca27abc845fdfa632cd222a42bdb5840a26e"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:11912","pl":"Wymaga wybranych jedn.","source_sha256":"ffe37f4ef4083d253f5eb68930fd8fd76797fd5e16f9f2b975cbf5cd3db975d4"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config00.cpk/srwDL_DLC_ID00.bin:2119","pl":"JP0700-NPJH50521_00-I10020","source_sha256":"ffebc1c150e5ba40ac29c2fb5115ba9de8a29777b266d850c6a86c85e9aa6600"}

@@ -80,6 +80,20 @@ Kontrola bajtów/obrazów nie zastępuje oględzin w PPSSPP. Po przebudowie wyst
 jedna próba: komunikat startowy, opis Skupienia/umiejętności i wskazane ekrany
 Wyników/części/przerwy. Zimny start i zwykły zapis, nie stary save-state.
 
+## Widok oglądania mechów — v2.5-PL3-UI
+
+Wąskie podpowiedzi przycisków z tego ekranu są krótsze:
+**Zmień jedn.**, **Obr.**, **Ukryj**. SELECT nadal przełącza widoczność napisów;
+„Ukryj” nazywa czynność dostępną, gdy te podpowiedzi są widoczne. Zmieniają się
+wyłącznie trzy etykiety (cztery źródłowe wpisy, bo zmiana jednostki ma dwie kopie).
+Pozostałe poprawki v2.4, font i zaakceptowana poprawka Skupienia bez zmian.
+
+**Po v2.4 na Twojej obecnej konfiguracji PPSSPP: ISO — TAK; DLC — NIE.**
+Przebuduj i podmień `patched.iso`, pozostaw obecne DLC. Nowej kopii `PBOOT.PBP`
+nie trzeba przenosić przy używanym przez Ciebie uruchamianiu z ISO. Nie jest to
+ogólna zasada dla innych loaderów. Oględziny w grze nadal są potrzebne — testy
+bajtów nie stanowią potwierdzenia układu napisów w PPSSPP.
+
 ## Uruchomienie
 
 Potrzebne: Windows10/11, Python3.10+ (zalecany3.12), Pillow, PPSSPP i kilka GB
