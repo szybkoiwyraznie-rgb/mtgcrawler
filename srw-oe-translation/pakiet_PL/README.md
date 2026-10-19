@@ -37,7 +37,7 @@ widoki/cytaty i epizody00–03 zaimportowane; dalsza fabuła częściowo pusta.
 Rodzaj gramatyczny niektórych cytatów, zgłoszone158 złożeń i układ dłuższych
 linii pozostają do przeglądu tłumacza/runtime QA. Snapshot nie usuwa tych uwag.
 
-Owner UI QA follow-up (2026-10-19): the snapshot now includes57 source-bound compact
+Historical v2.2 owner UI QA follow-up (2026-10-19): the snapshot now includes57 source-bound compact
 label/spelling corrections and22 recovered structured base mission-note fields.
 The original PL3 return hash remains historical provenance, NOT a claim that
 owner UI corrections were in that archive. Separate plans/hashes are recorded in
@@ -45,3 +45,13 @@ owner UI corrections were in that archive. Separate plans/hashes are recorded in
 Full `Skupienie` stays unchanged; its repair is a guarded executable cache-layout
 fix, not a snapshot abbreviation. These changes have offline gates; owner runtime
 confirmation is pending.
+
+Current **v2.4-PL3-UI** owner batch (2026-10-19): v2.3 full Skupienie/details
+now owner-confirmed working without crash. The accepted14-word tail buffer/native
+font stay unchanged. Latest925source-bound corrections add template join spaces
+(audited120Spirit/1985Skill fields), compact Results/drop/Search labels and English
+on proven PSP SYSTEM-font consumers. PL-only atlas geometry clears stale header
+glyphs; EN render unchanged. Skill00216488<=216768 B. These are not new literary
+translation or all-screen runtime approval. See `docs/pl/UI_QA_THIRD_2026-10-19.md`
+and its two verification/delivery receipts. Current owner PPSSPP ISO path: replace
+ISO only, **no DLC/PBOOT recopy**. Cold-start visual approval of this batch pending.

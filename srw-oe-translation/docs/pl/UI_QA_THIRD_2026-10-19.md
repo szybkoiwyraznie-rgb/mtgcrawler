@@ -119,3 +119,12 @@ Owner test remains a single cold-start run (ordinary game save, not save-state):
 startup SYSTEM is English; Skupienie Lv1 spaces and another skill header; Parts
 header/drop label; Results numbers; □/△ intermission footer. No repeat cache/font
 hypothesis test. Runtime acceptance of this third UI batch still pending.
+
+### Delivered kit
+
+[srw-oe-translation-pl-v2.4-PL3-UI.zip](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view)
+7404376B/91members, Drive size/MD5 equals local ZIP. Local CRC + all90payload SHA
+checks pass; all91members byte-identical to physically verified kit. No game assets.
+Receipt `pl3-ui-third-delivery.json`. Source6797a7f pushed on assigned branch/PR20;
+local EN+PL release-pair validation passes. GitHub Actions39283036474 queued at
+delivery, NOT claimed successful. No merge/main publication.

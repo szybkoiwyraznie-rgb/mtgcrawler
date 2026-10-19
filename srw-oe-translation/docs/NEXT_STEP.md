@@ -1,5 +1,20 @@
 # Next step — current state and open work
 
+**Latest owner UI batch (2026-10-19): v2.4-PL3-UI delivered.**
+[Download](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view).
+Owner NOW accepts v2.3 Skupienie/details without crash; no further cache/font
+experiment. New925source-bound fixes: proven PSP SYSTEM consumers stay English,
+all120Spirit/1985Skill description fields checked for fragment-join spaces, compact
+Results/drop/Search labels, PL-only Parts atlas cleanup with EN render unchanged.
+Normal authentic six-file NONPLAYABLE ISO CLI/readback pass;1697tests OK/3skip;
+Skill00216488<=216768 (280margin), all numeric mechanics/fragment pools unchanged.
+**Current PPSSPP1.20.4 upgrade: ISO YES; DLC NO; no PBOOT recopy for ISO path.**
+One cold-start ordinary-save UI check pending (not all-game approval).
+[Details/receipts](pl/UI_QA_THIRD_2026-10-19.md). Local EN+PL release pair passes;
+GitHub Actions queued at handoff, no claim of CI success/main publication. Older
+size/test/runtime-pending notes below are historical, not next tasks to repeat.
+
+
 **PL3 release (2026-10-19):** partial standalone PL patcher delivered from actual
 PL3.zip. Quotes19841/19841, all editable visible views filled (protected/binary
 blanks preserved), scenes00–03 fully filled after copies.0 import/validation errors;

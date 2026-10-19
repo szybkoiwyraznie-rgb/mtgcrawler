@@ -7671,3 +7671,12 @@ Installation current PPSSPP path: ISO YES; DLC NO; new PBOOT transfer not needed
 Receipt docs/pl/ui-third-physical-verification.json; final kit v2.4-PL3-UI being
 packaged, Drive delivery receipt to follow. Inherited8dictionary warnings unchanged,
 DLC absent total fits null openly recorded; no proprietary bytes in Git.
+
+v2.4-PL3-UI delivered on private Drive1O8p3IdvyTYLLrenmAwhj83613t20Nkjr,
+7404376B/91members/SHA5e879aa1cdc35ea951938de95944c0fb25b6bb75c612d2a11e63bd056eaf0b35.
+CRC/all90payload hashes pass, all91members equal physically tested kit; Drive
+size+MD5 equals local ZIP (no download-back claim). Source6797a7f pushed; local
+EN+PL release-pair build/verification passes, CI39283036474 queued at handoff.
+Explicit ISOyes/DLCno/PBOOTno upgrade scope in README and receipts, same owner
+PPSSPP loader only. PR20 still open, no merge or public-main release. No new
+PPSSPP runtime claim. Final receipt docs/pl/pl3-ui-third-delivery.json.

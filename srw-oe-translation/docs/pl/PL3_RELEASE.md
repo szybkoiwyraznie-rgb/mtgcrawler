@@ -1,5 +1,17 @@
 # PL3 — sprawdzony częściowy patcher i automatyczne wydania (2026-10-19)
 
+## Aktualizacja UI — najnowszy kit v2.4
+
+**[v2.4-PL3-UI — samodzielny patcher](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view)**
+supersedes the historical kits below. Owner accepts v2.3 Skupienie/details/no crash;
+this batch keeps that repair/font and fixes system-font routing, description joins,
+compact labels and Parts atlas cleanup. **ISO TAK / DLC NIE**, no PBOOT recopy in
+the owner's accepted PPSSPP ISO path. All120/1985 description fields audited;
+Skill00216488B (280Bmargin),1697tests OK/3skipped, normal authentic limited-fixture
+CLI/readback and EN+PL release-pair pass. New UI runtime approval pending.
+[Verification and installation scope](UI_QA_THIRD_2026-10-19.md),
+[delivery receipt](pl3-ui-third-delivery.json). Below: historical PL3 import evidence.
+
 ## Dostawa patchera
 
 **[srw-oe-translation-pl-v2.1-PL3.zip](https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view)**
