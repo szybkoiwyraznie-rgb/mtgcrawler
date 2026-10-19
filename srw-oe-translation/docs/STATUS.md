@@ -1253,3 +1253,12 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 * **Nie jest to skończone tłumaczenie i nie było testu w grze dla tej budowy** — to pierwszy pakiet,
   który pozwala taki test zrobić (linie 47–52, stored mesbtl00 1 MB, pula umiejętności, DLC_ID, tytuły).
   Testy: **977 OK (1 skipped)**.
+
+### 2026-10-19 — Polish reading/reference export delivered
+
+Four owner-requested PL3 counterparts (episodes01–03 + mech catalogue v3) are
+on Drive, individually and in one ZIP; all5 files download-back verified.
+5225 prose rows covered,393 catalogue unit records/1485 weapon-action entries;
+PL aliases rechecked, v3 cosmetics/uncertainty retained. No game/source changes
+or fresh literary translation.1695 tests OK/24 skipped.
+See [Polish reading editions](reading-script/polish/README.md) and delivery receipt.

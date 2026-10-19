@@ -292,3 +292,9 @@ that fills 02/03/04 rows.
    the simulator reading companion, or a deeper catalogue pass.
 3. Never commit ISO/EDAT/CPK/BIN/saves/screenshots; exchange them via Drive and keep
    outputs under ignored `local/`.
+
+Polish reading/reference handoff (2026-10-19): episodes01–03 and catalogue v3
+are now delivered and verified, not pending work. See
+`docs/reading-script/polish/README.md` / `delivery.json`. Do not regenerate or
+retranslate them unless the owner asks or returns corrected PL source. The
+existing translator/QA follow-up remains separate; this export changes no game.

@@ -41,16 +41,19 @@ python tools/build_polish_reading_editions.py \
   --polish local/polish-reading/pl3 --references ../google_drive \
   --configs ../google_drive --elf ../google_drive/EBOOT.BIN \
   --out local/polish-reading/final
-python -m unittest discover -s tools -p test_polish_reading.py
+python -m unittest discover -s tests -p test_polish_reading.py
 ```
 
 The build reproduces EN v3 byte-for-byte, binds Polish records by physical/JP
 metadata, requires selected PL text (no EN fallback), verifies non-text fact
 equality, independently parses all1485 rendered weapon rows, and checks every
 shown Polish text span and every prose alias back to its source. Full models,
-span/alias audits and `verification.json` remain private. At this checkpoint,
-the four files build/read back successfully and15 focused tests pass; upload
-and final delivery checks are pending.
+span/alias audits and `verification.json` remain private. The four files and their four-member ZIP are delivered in the existing private
+reading folder. Each was downloaded back byte-for-byte; ZIP CRC and member
+contents also match. See `delivery.json` for links, sizes and hashes.
+
+Checks:15 focused tests; full suite **1695 tests OK,24 skipped** (99.959s).
+No residual Japanese in any of the four outputs.
 
 The catalogue preserves v3 cosmetics and uncertainty labels, unresolved110/230,
 separate allied/enemy profiles, and115 empty native-slot sets. Its PL3 skill
@@ -60,3 +63,15 @@ this export is not an agent rewrite or an application of EN-only errata to PL.
 Private Markdown, raw inputs, extracted models and materialized PL3 stay under
 ignored `local/polish-reading/` / the private Drive folder. Tools never modify
 source packages or game files. No game/font rebuild or new runtime claim.
+
+
+## Download
+
+- [All four Markdown files (ZIP)](https://drive.google.com/file/d/1PvJEuwmDQ_tbWAyNa_4AupiiJkMaK0Iy/view)
+- [Episode01](https://drive.google.com/file/d/1HswEniL12rfQ4F9VkFFC1AbMiCkFuMsW/view)
+- [Episode02](https://drive.google.com/file/d/1dhzRi46iZQJAp3v3C0H1D2KCrFNXTjPo/view)
+- [Episode03](https://drive.google.com/file/d/1E96yqvC6-sxBd-LPze7THIXbNqIO9sxn/view)
+- [Mech catalogue v3](https://drive.google.com/file/d/1t-D3ghVlnMF1NQqn9XQ6D_kOUSza0ml5/view)
+
+Original English files and folder sharing were not changed. The ZIP contains
+only the four requested Markdown editions, no game files or intermediate audits.

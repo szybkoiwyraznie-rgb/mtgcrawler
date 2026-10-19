@@ -7482,3 +7482,24 @@ validation and delivery still pending; do not claim installed old kits updated.
   hashes verified, sharing unchanged. SHA256
   c373b8ba7748def3a4ddb44d3eff89629a89e171065617a6b71a1cbd0ee46dcb.
   Receipt docs/pl/pl3-launcher-cleanup-delivery.json. Old v2 receipt preserved.
+
+## 2026-10-19 — Polish reading editions01–03 and mech catalogue v3
+
+Owner requested four PL counterparts. Materialized current source-bound PL3;
+recovered early editorial plans by full ordered EN source-row matching, not text
+replacement/agent literary translation. All5225 prose rows covered. Rechecked
+PL aliases independently of EN (ep03:1011 shown unique /537 aliases); retained
+conditional quotes, contextual variants and explicit omitted-passage notes.
+Reproduced frozen EN catalogue v3 byte-for-byte from original inventory before
+localizing physically bound PL fields. All393 unit records/1485 weapon rows,
+base selectors/20 override offsets, stats/profiles/inference labels/110+230
+gaps preserved, along with owner v3 cosmetics. Did not apply17 EN-only wording
+errata to PL; no source/game/font modification or runtime claim.
+
+Commands: `pl_release_package.py materialize`; `build_polish_reading_editions.py`
+(see docs/reading-script/polish/README.md); focused unittest15 OK; full
+`python -m unittest discover -s tests`:1695 tests OK,24 skipped,99.959s.
+Independent source-span/alias and rendered weapon-stat verification passed;
+no residual JP. Four MDs + four-member ZIP uploaded to existing reading folder,
+all5 downloaded back byte-identical; ZIP CRC/member bytes verified. Private
+text/models remain ignored. Receipt/links: `docs/reading-script/polish/delivery.json`.

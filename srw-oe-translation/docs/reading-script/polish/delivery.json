@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "date": "2026-10-19",
+  "language": "pl",
+  "translation_source": "accepted PL3 source-bound snapshot",
+  "snapshot_data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+  "snapshot_metadata_sha256": "e0e8239b1128ba3dfb626015b5698284b9ea56f05c993156f72bccd9cb78fe83",
+  "english_catalogue_source_commit": "aa178c7264514d0c36c102393705cdacb6e0ab77",
+  "english_catalogue_v3_reproduced_sha256": "19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7",
+  "polish_package_sha256": {
+    "09_executable.jsonl": "ba67d2ff71060aa0096eadd8961cc7cc3339dc1eafb5c6c7d86ace300c419524",
+    "08_names_units_weapons.jsonl": "60742411cc774d5b479602bd6e7df8ad82a67a8469da9dbbd7ba6956513cd8ba",
+    "00_dialogue.jsonl": "a15e7a31adc2387c59f28fe365d4a2146bb5081827acb8b948204bc869e7221d",
+    "07_names_characters.jsonl": "f232f494d1bf61fbf711bcb05f71bbbca24c7ab35252f8547df55145d9835bdc",
+    "03_skills.jsonl": "c9d0c945f042e7051365bc36f872d8d246f99f2427c8e53898c32037c80475cc",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "05_mission_text.jsonl": "0a24fc9031cffd98752cdedd5df94cd875315fe5e89d4787463007bbf9a0355e",
+    "04_config_text.jsonl": "7d8da9a4195578bb74ff323bbb257b94c27448b0c7e46e06c5181f42e13a4e16"
+  },
+  "verification": {
+    "episode_01": {
+      "prose_total": 1371,
+      "shown_unique": 1035,
+      "aliased": 336,
+      "verified_text_spans": 1061
+    },
+    "episode_02": {
+      "prose_total": 2306,
+      "shown_unique": 1361,
+      "aliased": 945,
+      "verified_text_spans": 1387
+    },
+    "episode_03": {
+      "prose_total": 1548,
+      "shown_unique": 1011,
+      "aliased": 537,
+      "verified_text_spans": 1024
+    },
+    "catalogue": {
+      "units": 393,
+      "weapon_rows": 1485,
+      "numeric_and_assignment_facts_equal": true,
+      "unresolved_native_references": [
+        {
+          "unit_id": 10115,
+          "slot": 0,
+          "alias_id": 110
+        },
+        {
+          "unit_id": 491,
+          "slot": 0,
+          "alias_id": 230
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "name": "srwoe_episode_01_PL.md",
+      "bytes": 75600,
+      "sha256": "e9d8f6337b085002f63d2e1d73cf07052359876b0895464638592c5211bc5c47",
+      "md5": "6c30f3a78e1b7e071f019d1a7b1ca215",
+      "drive_id": "1HswEniL12rfQ4F9VkFFC1AbMiCkFuMsW",
+      "drive_url": "https://drive.google.com/file/d/1HswEniL12rfQ4F9VkFFC1AbMiCkFuMsW/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_episode_02_PL.md",
+      "bytes": 93225,
+      "sha256": "6639161f591931b1a5cb56705bdae4be9889282dd6388b0365100592691a966c",
+      "md5": "249b8a590528656d756680218d2fc750",
+      "drive_id": "1dhzRi46iZQJAp3v3C0H1D2KCrFNXTjPo",
+      "drive_url": "https://drive.google.com/file/d/1dhzRi46iZQJAp3v3C0H1D2KCrFNXTjPo/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_episode_03_PL.md",
+      "bytes": 78207,
+      "sha256": "2ed477846d2fa9ee6b723acbdbeed0fb2c1aed88ad6894cba5be0b080ea4d4ec",
+      "md5": "50be874ba9e9eacc2bace25bbe9aa1e1",
+      "drive_id": "1E96yqvC6-sxBd-LPze7THIXbNqIO9sxn",
+      "drive_url": "https://drive.google.com/file/d/1E96yqvC6-sxBd-LPze7THIXbNqIO9sxn/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_mech_catalog_v3_PL.md",
+      "bytes": 720144,
+      "sha256": "dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462",
+      "md5": "f6e7b70e3125d8414e8545d1b0d78f13",
+      "drive_id": "1t-D3ghVlnMF1NQqn9XQ6D_kOUSza0ml5",
+      "drive_url": "https://drive.google.com/file/d/1t-D3ghVlnMF1NQqn9XQ6D_kOUSza0ml5/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_reading_PL3.zip",
+      "bytes": 151608,
+      "sha256": "72cbd32b77a6fe4d07630ff985efb0ead016c90301492a44624f4f04fcfeb1d5",
+      "md5": "56c00f83b8b0f2de167a7200e513a095",
+      "drive_id": "1PvJEuwmDQ_tbWAyNa_4AupiiJkMaK0Iy",
+      "drive_url": "https://drive.google.com/file/d/1PvJEuwmDQ_tbWAyNa_4AupiiJkMaK0Iy/view",
+      "download_back_byte_identical": true
+    }
+  ],
+  "drive_parent": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+  "zip_crc_and_four_members_verified": true,
+  "sharing_changed": false,
+  "english_originals_overwritten": false,
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "english_catalogue_errata_applied_to_polish": false,
+  "catalogue_v3_presentation_preserved": true,
+  "checks": {
+    "focused_tests": 15,
+    "full_suite_tests": 1695,
+    "full_suite_skipped": 24,
+    "full_suite_seconds": 99.959,
+    "full_suite_result": "OK",
+    "residual_japanese_in_outputs": 0
+  },
+  "limits": [
+    "Reading/reference export, not a gameplay or UI-layout test",
+    "PL3 terminology and shortened skill descriptions preserved; known assembly-spacing issues are not silently rewritten",
+    "393 unit records do not mean 393 distinct playable designs",
+    "Series inferences and unresolved native skill references 110/230 remain labelled",
+    "Private full text/model/span audits are not published to GitHub"
+  ]
+}

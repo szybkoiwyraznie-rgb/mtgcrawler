@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Reproduce and verify all four private Polish reading/reference deliverables."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 

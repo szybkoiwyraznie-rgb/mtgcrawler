@@ -3,7 +3,7 @@ import copy
 import unittest
 from pathlib import Path
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'tools'))
 import polish_mech_catalog as C
 from polish_reading_source import EarlyReadingSource
 
