@@ -1,0 +1,199 @@
+{
+  "version": "2.3-PL3-UI",
+  "runtime_tested": false,
+  "fixture": "NONPLAYABLE miniature ISO with authentic five containers/ELF; synthetic PBP wrapper with authentic DATA.PSP; normal extracted-kit CLI filtered to these inputs",
+  "cli_exit_status": 0,
+  "top_level_problems": [],
+  "inherited_nested_config00_dictionary_refusals": [
+    "tables: srw_DL_RoboDictionary00.bin: refused: unit:3990:series: no record with key 3990",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:50:series: no record with key 50",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:50:length: no record with key 50",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:50:weight: no record with key 50",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:65:series: no record with key 65",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:65:length: no record with key 65",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:65:weight: no record with key 65",
+    "tables: srw_DL_RoboDictionary00.bin: refused: robonote:124:series: no record with key 124"
+  ],
+  "other_containers_problems": [],
+  "executable": {
+    "selected_nonempty_rows": 399,
+    "physically_applied": 397,
+    "whole_disc_and_update_equal_expected": true,
+    "physical_sha256": "a5a87dd71e46fddab0feca0568fc10b0a89a6e3227eb7d0e9993383d8fea7ff0",
+    "accent_only_fields_checked": 178,
+    "text_section_changes_only_reviewed_14_words": true,
+    "old_external_field_offsets_unchanged": true,
+    "system_utf8_save_fields_unchanged": true
+  },
+  "sysmes": {
+    "count": 1182,
+    "id_words_unchanged": true,
+    "previous_and_new_labels_checked": 67,
+    "new_physical_entries_changed": 15,
+    "all_other_configst_members_equal_baseline": true
+  },
+  "font": {
+    "physical_equals_accepted_native_patch": true,
+    "sha256": "e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f",
+    "summary": {
+      "glyphs": 18,
+      "style": "native-ascii-plus-marks-v1",
+      "bytes": [
+        "0xD5",
+        "0xDB",
+        "0xD0",
+        "0xD8",
+        "0xD6",
+        "0xD1",
+        "0xD3",
+        "0xD9",
+        "0xDA",
+        "0xD2",
+        "0xD7",
+        "0xB2",
+        "0xA7",
+        "0xCA",
+        "0xAC",
+        "0xB8",
+        "0xCE",
+        "0xAE"
+      ],
+      "ank_size": 10752,
+      "extract_before": 397504,
+      "extract_after": 397504,
+      "stored_before": 238800,
+      "stored_after": 258135,
+      "image_size": 262231,
+      "verify": {
+        "ą": {
+          "byte": 213,
+          "ink": 25,
+          "ok": true
+        },
+        "ć": {
+          "byte": 219,
+          "ink": 23,
+          "ok": true
+        },
+        "ę": {
+          "byte": 208,
+          "ink": 25,
+          "ok": true
+        },
+        "ł": {
+          "byte": 216,
+          "ink": 12,
+          "ok": true
+        },
+        "ń": {
+          "byte": 214,
+          "ink": 20,
+          "ok": true
+        },
+        "ó": {
+          "byte": 209,
+          "ink": 23,
+          "ok": true
+        },
+        "ś": {
+          "byte": 211,
+          "ink": 24,
+          "ok": true
+        },
+        "ź": {
+          "byte": 217,
+          "ink": 20,
+          "ok": true
+        },
+        "ż": {
+          "byte": 218,
+          "ink": 19,
+          "ok": true
+        },
+        "Ą": {
+          "byte": 210,
+          "ink": 30,
+          "ok": true
+        },
+        "Ć": {
+          "byte": 215,
+          "ink": 24,
+          "ok": true
+        },
+        "Ę": {
+          "byte": 178,
+          "ink": 23,
+          "ok": true
+        },
+        "Ł": {
+          "byte": 167,
+          "ink": 24,
+          "ok": true
+        },
+        "Ń": {
+          "byte": 202,
+          "ink": 36,
+          "ok": true
+        },
+        "Ó": {
+          "byte": 172,
+          "ink": 28,
+          "ok": true
+        },
+        "Ś": {
+          "byte": 184,
+          "ink": 26,
+          "ok": true
+        },
+        "Ź": {
+          "byte": 206,
+          "ink": 24,
+          "ok": true
+        },
+        "Ż": {
+          "byte": 174,
+          "ink": 23,
+          "ok": true
+        }
+      }
+    }
+  },
+  "skill_total": {
+    "members": {
+      "srwDL_Skill00.bin": 215764
+    },
+    "total": 215764,
+    "limit": 342194,
+    "missing": [
+      "config01.EDAT",
+      "config02.EDAT",
+      "config03.EDAT",
+      "config04.EDAT",
+      "config05.EDAT",
+      "config06.EDAT",
+      "config07.EDAT",
+      "config08.EDAT"
+    ],
+    "fits": null
+  },
+  "tests": {
+    "command": "PYTHONPATH=local/research-deps python -m unittest discover -s tests",
+    "tests": 1685,
+    "skipped": 2,
+    "result": "OK"
+  },
+  "ci": {
+    "run": 39262933249,
+    "commit": "4e265e6e36b4fdea03c75652eb364ecf7f55551e",
+    "conclusion": "success",
+    "build_both_kits": "success",
+    "publish": "skipped"
+  },
+  "zip": {
+    "name": "srw-oe-translation-pl-v2.3-PL3-UI.zip",
+    "bytes": 7402213,
+    "sha256": "d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb",
+    "members": 91,
+    "crc_and_manifest_hashes_verified": true
+  }
+}

@@ -7613,3 +7613,19 @@ PL edits:178 accent-only/same-byte executable fields +15 compact button labels.
 Three UTF-8 system rows untouched. Sysmes scan45 ambiguous words reviewed/context
 correct, not changed.9 focused tests pass. See follow-up doc/cache receipt; full
 suite/standalone distribution still pending. Inputs/screenshots remain private.
+
+Follow-up final:1685 tests OK/2 skipped with isolated dependencies. Extracted
+v2.3-PL3-UI normal CLI authentic-container NONPLAYABLE fixture (five containers,
+ELF, synthetic PBP wrapper), scoped --only available inputs, exit0. Pillow missing
+on first attempt fixed/repeated fresh output; failed result not delivered.
+Whole expected disc/update ELF equal;399 fields/397 writes/178 independently-read
+new accent fields; .text ONLY14 words.67 old/new sysmes bindings/1182 IDs pass;
+same-CLI baseline shows only15 sysmes strings changed, all other configst members
+identical. Accepted font exact; Skill00215764B/1004margin.8DLC pools absent, total
+fit null; inherited8config00 dictionary refusals remain. Actual standalone Spirit
+names re-probed:186 cases/930 details calls pass,3historical0x6d failures repeat.
+CI39262933249 SUCCESS tests/both kits; publish skipped. ZIP7402213B/91members/
+d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb; Drive
+1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR, download-back exact/CRC/all hashes verified.
+No game data/shared access changes. Runtime/PPSSPP still owner-pending; one normal
+save/cold-start Seishiro details+levels/selection/reopen and save/footer check.

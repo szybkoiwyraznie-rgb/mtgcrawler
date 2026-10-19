@@ -64,5 +64,6 @@
   "fixed_cases": 186,
   "original_corrupt_cases": 3,
   "guard_bytes_unchanged": true,
-  "full_focus_name_preserved": true
+  "full_focus_name_preserved": true,
+  "physical_name_source": "actual extracted standalone build: configst.cpk/srwDL_Spirit.bin"
 }

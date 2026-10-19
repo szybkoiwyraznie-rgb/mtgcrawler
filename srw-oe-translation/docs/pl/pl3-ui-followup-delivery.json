@@ -1,0 +1,22 @@
+{
+  "version": "2.3-PL3-UI",
+  "drive_id": "1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR",
+  "url": "https://drive.google.com/file/d/1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR/view",
+  "name": "srw-oe-translation-pl-v2.3-PL3-UI.zip",
+  "bytes": 7402213,
+  "members": 91,
+  "sha256": "d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb",
+  "md5": "5908a880f6de7bc7b038dc1b0fef3e5c",
+  "download_back_identical": true,
+  "zip_crc_passed": true,
+  "all_manifest_member_hashes_verified": true,
+  "no_game_data_included": true,
+  "sharing_changed": false,
+  "runtime_tested": false,
+  "source_commit": "4e265e6e36b4fdea03c75652eb364ecf7f55551e",
+  "ci_run": 39262933249,
+  "ci_conclusion": "success",
+  "physical_readback": "ui-followup-physical-verification.json",
+  "actual_mips_scope": "ui-followup-cache-verification.json",
+  "owner_test": "Cold start with ordinary game save; Seishiro mech inspection -> Spirits details, names/levels, change selection, close/reopen; save warning and both button strips."
+}

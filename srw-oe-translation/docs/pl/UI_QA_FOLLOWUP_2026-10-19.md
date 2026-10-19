@@ -69,3 +69,51 @@ slot; physical standalone readback and owner visual confirmation pending.
 
 Checks so far:6 cache unit tests,3 new source-bound follow-up tests; authentic
 configst-only rebuild reports no problems. Full suite/standalone/CI still pending.
+
+## Final offline verification and private delivery
+
+v2.3-PL3-UI ZIP:7402213 bytes,91 members,
+SHA-256 `d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb`.
+Drive `1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR`; downloaded back, exact bytes/ZIP CRC/
+all manifest member hashes verified; sharing unchanged; no game data included.
+Receipt `pl3-ui-followup-delivery.json`.
+
+Full suite:1685 tests OK (2 skipped), with isolated Pillow/Unicorn/Capstone.
+CI39262933249 on4e265e6 SUCCESS: tests and BOTH EN/PL kits verified, publish
+correctly SKIPPED for PR. EN source package unchanged. Earlier local CLI attempt
+failed because Pillow was missing; installed isolated dependency, repeated to a
+new output directory and verified the successful result. Failed output not shipped.
+
+Extracted final kit CLI, unmodified normal guards, on a **NONPLAYABLE** miniature
+ISO containing authentic configst/font/config00/eventP00/mesbtl00/ELF; synthetic
+PBP wrapper containing authentic DATA.PSP. Filtered only to these available inputs
+(does NOT retest all DLC/complete-game pipeline). Exit0, no top-level problems.
+Both output executable copies equal whole expected ELF,399 selected fields
+(397 actual writes,2 identity fields),178 new spelling fields read independently,
+.text differs in ONLY14 reviewed words. All67 old/new sysmes label bindings
+checked physically (including five prior colour-prefix suffix aliases); all1182
+IDs preserved; compared with baseline rebuilt through SAME CLI, ONLY15 physical
+sysmes entries differ and ALL other configst members equal baseline.
+
+Font equals accepted native18-cell PL patch, no new font change. Skill00 remains
+215764B (1004B under216768B limit); eight DLC skill pools NOT rechecked in this
+limited fixture (missing inputs reported, total-fit null, not falsely counted as
+passing). Eight nested config00 dictionary missing-key refusals remain; no new
+configst/event/mesbtl problems. This is not a zero-nested-warning/full-game claim.
+The old raw helper-only baseline comparison was invalid because the normal CLI
+also routes containerless rows; repeated baseline via same CLI before comparison.
+
+Re-ran MIPS probe with Spirit names extracted from THIS actual standalone ISO:
+186 name cases/930 details calls pass; all three historical0x6d failures reproduced.
+`ui-followup-physical-verification.json` records scope, hashes, missing-DLC limits.
+
+"Original prefix preserved" means the layout/offsets of all NON-NAME fields;
+the former8-byte inline name is now unused and its four address calculations
+point to the appended32-byte array. It does not mean every dynamic prefix byte
+is identical to an object storing the old inline name.
+
+Owner confirmation still REQUIRED: cold-start, ordinary save (no old savestate),
+Seishiro mech-viewer -> Spirits details; inspect name and levels, change selected
+Spirit, close/reopen. Then save warning + both compact footer strips. One coherent
+kit; no per-hypothesis ISO cycles, no new font/over-budget tests. Preserve originals
+and saves. v2.2 remains superseded/runtime-regressed; do not overlay patched ISO.
