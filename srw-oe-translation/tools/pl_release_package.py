@@ -57,6 +57,7 @@ def fresh(out, base):
 
 def snapshot(base, package, out, source_name, source_sha256):
     fresh(out, base)
+    fresh(out, package)
     _, original = I.load_rows(base)
     _, translated = I.load_rows(package)
     if set(original) != set(translated):
@@ -92,6 +93,7 @@ def snapshot(base, package, out, source_name, source_sha256):
 
 def materialize(base, stored, out):
     fresh(out, base)
+    fresh(out, stored)
     manifest = json.loads((stored/MANIFEST).read_text(encoding='utf-8'))
     data = (stored/DATA).read_bytes()
     if manifest.get('schema') != SCHEMA or hashlib.sha256(data).hexdigest() != manifest.get('data_sha256'):

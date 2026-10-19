@@ -1,93 +1,74 @@
-# Super Robot Wars OE — Polish Translation Patch (v1)
+# Super Robot Wars OE — częściowy patcher PL (PL3)
 
-Fanowskie tłumaczenie gry **Super Robot Wars OE** (PSP) na język polski.
-Tekst bazuje na kompletnym tłumaczeniu angielskim (patch v17) przetłumaczonym
-na polski; polskie znaki diakrytyczne są dodawane do fontu gry.
+Paczka buduje polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
+odszyfrowanym DLC NPJH50521. Nie zawiera plików gry ani gotowego ISO.
 
-> **v1 (PL):** pierwszy kit polski. Font gry (`font.cpk`) jest rozszerzany o 18 glifów
-> (ą ć ę ł ń ó ś ź ż oraz wersaliki) — to dzieje się automatycznie w trakcie patchowania,
-> niczego nie trzeba wgrywać osobno. Tłumaczenie tekstu jest w trakcie (pole `pl`
-> w pakiecie); wiersze jeszcze nieprzetłumaczone zostają po japońsku/angielsku.
+## Co zawiera ten przekład
 
----
+- Aktualny, sprawdzony import **PL3.zip**: widoki, **19841/19841** widocznych pól
+  cytatów bitewnych i dialogi z eksportów epizodów **00–03** wraz z ich kopiami.
+- Dalsza fabuła nie jest ukończona. Puste pola PL pozostają w oryginalnej grze;
+  nie są automatycznie wypełniane angielską wersją tekstową.
+- `translation/PL_COVERAGE.json` zawiera pochodzenie i dokładne liczby aktualnego
+  pakietu. Pełne pokrycie widocznych slotów nie oznacza przetłumaczenia każdego
+  tekstu silnika, odkrycia wszystkich zasobów ani sprawdzenia wszystkich ekranów.
+- Poprawka Masaki/Shiro/Kuro działa automatycznie w normalnym builderze.
+- Font v5 dodaje polskie akcenty do rodzimych jednobajtowych komórek `ank.fta`
+  podczas budowania na Twoim ISO. Litera PL zajmuje jedną celę, jak ASCII.
+  Nie trzeba osobno wgrywać fontu. Wygląd zaakceptowano na pokazanych ekranach
+  początkowych; nie jest to deklaracja QA całej gry.
 
-## Co jest potrzebne
+## Uruchomienie
 
-| Wymaganie | Uwagi |
-|---|---|
-| **ISO gry** | `SRW OE 1.08.iso` — własna, legalnie zdobyta kopia. **Wymagane** — font patch działa na pliku z płyty |
-| **Pliki DLC** (opcjonalnie) | Odszyfrowany folder DLC (`NPJH50521`) z rozdziałami 2–8 |
-| **PPSSPP** | Emulator PSP — https://www.ppsspp.org/ |
-| **Windows 10/11** | Patcher to skrypt `.bat` |
-| **Python 3.8+** | Instaluje się sam, jeśli brak (przez `winget`) |
-| **Pillow** | Biblioteka obrazów Pythona — instaluje się sam |
+Potrzebne: Windows10/11, Python3.10+ (zalecany3.12), Pillow, PPSSPP i kilka GB
+wolnego miejsca. Launcher próbuje zainstalować brakującego Pythona/Pillow.
 
-## Szybki start
+1. Rozpakuj **cały ZIP** do nowego folderu. Nie nakładaj go na starszy kit.
+2. Uruchom **PATCH.bat**, wybierz oryginalne ISO i odszyfrowany folder DLC
+   (albo Anuluj, jeśli budujesz tylko płytę).
+3. Wynik w `output/`:
+   - `patched.iso` — otwórz w PPSSPP, zawiera również font PL;
+   - `DLC/` — pliki ze środka nałóż na istniejący kompletny folder
+     `memstick/PSP/GAME/NPJH50521/`, nie jako dodatkowy podfolder;
+   - `build_report.json` — zachowaj; opisuje zapisane pola i ewentualne odmowy.
+4. **Nie instaluj wyniku z komunikatem Build FAILED.** Podeślij raport zamiast
+   uruchamiać częściowe pliki z nieudanego przebiegu.
+5. Uruchom PPSSPP na zimno i wczytaj zwykły zapis z gry, nie stary save-state.
+   Nie usuwaj zapisów. Zachowaj kopie oryginalnego ISO/DLC i save'ów.
 
-1. **Rozpakuj** archiwum do dowolnego folderu (np. `C:\Gry\SRW-OE-Patch-PL\`).
+Buduj na oryginałach, nie na wcześniej spatchowanym ISO ani mieszance starych
+wyników z nowymi. Oryginały wejściowe pozostają nietknięte. Obecność zachowanych
+nieprzetłumaczonych zasobów w wynikowym ISO jest normalna dla częściowego patcha.
 
-2. **Kliknij dwukrotnie `PATCH.bat`**. Skrypt:
-   - sprawdzi Pythona i Pillow (dograi je, jeśli trzeba),
-   - poprosi o **wybranie ISO gry** (okno wyboru pliku),
-   - poprosi o **wybranie folderu DLC** (albo Anuluj, aby pominąć DLC),
-   - zbuduje pliki patcha — w tym kroku **rozszerza font gry o polskie glify**
-     (rekompresja `font.cpk` chwilę trwa, to normalne).
+`CHECK_DLC.bat` to opcjonalna kontrola tylko do odczytu: sprawdza dwa zgłaszane
+wcześniej tytuły DLC rozdziału4 i opis względem bieżącego **PL**. Nie modyfikuje
+gry/save'ów i nie dowodzi, co emulator trzyma w starym stanie RAM.
 
-3. **Wynik** znajdziesz w podfolderze `output\`:
-   | Plik | Co z nim zrobić |
-   |---|---|
-   | `patched.iso` | Otwórz w PPSSPP (File → Load...) — zawiera też polski font |
-   | `DLC\` | Skopiuj **pliki ze środka** do istniejącego `memstick\PSP\GAME\NPJH50521\` |
-   | `build_report.json` | Szczegóły techniczne (niepotrzebne do grania) |
+## Znane ograniczenia — nie ukrywamy ich w wydaniu
 
-4. **Zachowaj kopie zapasowe i istniejące save'y.** Buduj na oryginalnym
-   japońskim ISO i odszyfrowanym DLC — nie na wcześniejszym spatchowanym ISO
-   ani na mieszance oryginału ze starymi wynikami. Pliki z `output\DLC\`
-   nakładaj na kompletny, zainstalowany folder DLC (bez zagnieżdżania
-   dodatkowych podfolderów i bez usuwania nietkniętych plików).
+- Tłumacz zgłosił możliwy **zły rodzaj gramatyczny w niektórych cytatach**;
+  kompletność19841 pól nie oznacza zakończonej korekty językowej. Poprawki rodzaju
+  w scenach zostały zachowane przy imporcie, ale nie przeprowadzono ręcznej korekty
+  wszystkich mówców.
+- Pozostało **158 zgłoszonych wcześniej uwag do złożeń**, głównie odstępów
+  po dwukropkach. Nie naprawialiśmy ich automatycznie za tłumacza.
+- Miękkie ostrzeżenia o długości/layoutach nadal istnieją. Sprawdzanie limitów
+  bajtów i celi nie zastępuje oglądania tekstów w grze; zalecenie46 celi jest
+  czymś innym niż twardy limit danej ramki.
+- Umiejętności mieszczą się w normalnych bramkach rozmiaru po skrótach PL3.
+  Nie ma obejścia limitów z historycznych testów A/B. Build zatrzyma wysyłkę
+  kontenera, jeśli kolejna wersja znowu przekroczy budżet.
+- Napisy w grafikach są osobnymi specyfikacjami `ui_labels/`: część może nadal
+  używać EN, jeśli nie ma podpisu PL. Ten fallback nie dotyczy tekstowego pola PL.
+- Nie przeprowadzono tu gry na pełnym autentycznym ISO. Próby na rzeczywistych
+  kontenerach w miniaturowym ISO sprawdzają bajty/pipeline, nie grywalność całości.
 
-5. **Uruchom grę na zimno** z nowym `patched.iso`, potem wczytaj zwykły save
-   z gry. Stary save-state emulatora może trzymać w RAM stare zasoby.
-   Nie trzeba usuwać zapisów gry.
+## Automatyczne wydania
 
-## Co jest po polsku, a co nie (stan v1)
+Po scaleniu do main workflow buduje **EN i PL z jednego commita**, sprawdza oba
+ZIP-y i publikuje razem z sumami SHA256. PR-y dostają artefakty do kontroli,
+ale nie publikują wydania. Polski tekst pochodzi z wersjonowanego snapshotu,
+nie z plików na czyimś dysku ani z dostępności Drive w czasie działania CI.
 
-- **Dialogi, cytaty bojowe, przedmioty, umiejętności, teksty UI, misje,
-  imiona, jednostki, bronie** — tłumaczone z polskiego pakietu `translation\`
-  (pole `pl`). Wiersze jeszcze puste zostają w oryginale — patch jest
-  częściowy z założenia, dopóki pakiet nie zostanie w całości wypełniony.
-- **Font** — 18 polskich liter doklejonych do `kanji.fta`; reszta fontu
-  nietknięta bajt w bajt.
-- **Stringi w programie gry** (`EBOOT`) — tylko ASCII: tam, gdzie polski
-  tekst użyłby diakrytyków, build odmawia wiersza i zapisuje powód
-  w `build_report.json` (sekcja `executable`).
-- **Podpisy terenu** — tylko ASCII, max 12 znaków (limit komórek ekranowych).
-- **Napisy w teksturach UI** — rysowane z `ui_labels\`; spec-y mogą dostać
-  pole `pl` (fallback: angielski).
-
-## Znane ograniczenia
-
-- Polska litera zajmuje na ekranie pełną szerokość (jak znak japoński):
-  limit 46 jednostek na linię dialogu jest pilnowany przez build.
-- Wiersze odrzucone (za długie, niekodowalne, niespójne tokeny) NIE psują
-  całości — zostają oryginalne, a powód jest w `build_report.json`.
-- Rozmiar: `patched.iso` rośnie (dopisywanie zmienionych memberów);
-  `lmap.cpk` po przebudowaniu ~156 MB. Miej **min. 3 GB** wolnego miejsca.
-
-## Struktura folderu po rozpakowaniu
-
-```
-PATCH.bat              ← uruchom to
-CHECK_DLC.bat          ← diagnostyka DLC (tylko odczyt)
-README.md              ← ten plik
-translation\           ← pakiet tłumaczenia (JSONL, pole "pl")
-tools\                 ← skrypty budujące
-ui_labels\, assets\    ← specyfikacje napisów w teksturach UI
-```
-
-## Zgłaszanie problemów
-
-Przy problemach wyślij `output\build_report.json` (zawiera listę odrzuconych
-wierszy z powodami). Gdy po instalacji DLC nazwy rozdziałów są nadal
-japońskie — uruchom `CHECK_DLC.bat` na **zainstalowanym** folderze NPJH50521
-i prześlij `DLC_TITLE_CHECK.json`.
+To niekomercyjny projekt fanowski, niezwiązany z Bandai Namco. Wymagana jest
+własna legalna kopia gry. Nie rozpowszechniaj wynikowego ISO ani plików DLC.
