@@ -109,6 +109,45 @@ def diagnose_empty_fields(empty, containers):
     return details
 
 
+def verify_view_roundtrip(views, by_file, token_map):
+    """Check every explicit PL block after copy propagation, plus scene alias coverage.
+
+    A source-stamped import must not silently lose a fresh gender/name correction to
+    an older copy donor. This compares normalized MD directly with final row values.
+    """
+    plan = V.plan_from(by_file, lang='pl')
+    lookup = I.scene_lookup([r for group in by_file.values() for r in group])
+    explicit, backing, scenes = 0, 0, {}
+    for name, text in views.items():
+        filename = str(name).replace('\\', '/').rsplit('/', 1)[-1].rsplit(':', 1)[-1]
+        table = filename in plan
+        bucket = Counter()
+        for (group, token), entry in I.parse_view_full(text, include_empty=True).items():
+            element = I.resolve_table(plan[filename], group, token) if table else [I.resolve(lookup, group, token)]
+            if not element or element[0] is None:
+                raise ValueError('roundtrip cannot resolve a source element')
+            row = element[0]
+            if not table:
+                bucket['visible_elements'] += 1
+                bucket['filled_after_copies'] += bool(row.get('pl'))
+                if not row.get('pl'):
+                    bucket['empty_after_copies'] += 1
+            if not entry.get('pl'):
+                continue
+            typed = I.restore_trailing_breaks(entry['pl'], row.get('jp') or '')
+            pct = next((token_map[r['id']] for r in element if r['id'] in token_map), None)
+            typed = C.strip_kana_tokens(typed, row.get('jp') or '', pct)
+            if any(r.get('pl') != typed for r in element):
+                raise ValueError('explicit PL lost/overwritten after import: '+filename+':'+group+':'+token)
+            explicit += 1
+            backing += len(element)
+            bucket['explicit_PL'] += 1
+        if not table:
+            scenes[filename] = dict(bucket)
+    return dict(explicit_elements_checked=explicit, backing_rows_checked=backing,
+                explicit_mismatches=0, scenes=scenes)
+
+
 def review(archive, package, out, originals=None):
     if out.exists() and any(out.iterdir()):
         raise ValueError('output must be new/empty; refusing to overwrite work')
@@ -168,7 +207,8 @@ def review(archive, package, out, originals=None):
               'leading_spaces': {'visible_fields': len(leading), 'imported_rows_checked': sum(r[4] for r in leading),
                                  'exact_prefix_and_codec_bytes_preserved': True},
               'validation': checked['totals'], 'views': counts, 'glossary': glossary(archive),
-              'reference_fields_unchanged': True, 'original_archive_unchanged': True}
+              'reference_fields_unchanged': True, 'original_archive_unchanged': True,
+              'view_roundtrip': verify_view_roundtrip(views, by_file, token_map)}
     originals_rows, _ = I.load_rows(package)
     if len(rows) != len(originals_rows) or any(
         {k: v for k, v in a.items() if k != 'pl'} != {k: v for k, v in b.items() if k != 'pl'}

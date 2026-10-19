@@ -80,6 +80,18 @@ class ReviewTests(unittest.TestCase):
             self.assertEqual(result['leading_spaces']['visible_fields'], 1)
             self.assertTrue(result['leading_spaces']['exact_prefix_and_codec_bytes_preserved'])
 
+    def test_roundtrip_refuses_explicit_speaker_gender_correction_lost_to_copy(self):
+        scene = dict(id='scene:one', seq=1, container='eventP00.cpk')
+        row = dict(id='dlg:one', scene='scene:one', order=1, jp='了解！', en='Roger!', pl='Przyjąłem!')
+        files = {'00_dialogue.jsonl':[row], '06_scenes.jsonl':[scene]}
+        view = '## Scena 1/1\n1. [Dialog] 了解！\n   PL: Przyjęłam!\n'
+        with self.assertRaisesRegex(ValueError, 'lost/overwritten'):
+            A.verify_view_roundtrip({'epizod-01.md':view}, files, {})
+        row['pl'] = 'Przyjęłam!'
+        result = A.verify_view_roundtrip({'epizod-01.md':view}, files, {})
+        self.assertEqual(result['explicit_mismatches'],0)
+        self.assertEqual(result['scenes']['epizod-01.md']['filled_after_copies'],1)
+
     def test_review_imports_only_into_copy_and_preserves_source(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); package = root / 'EN'; package.mkdir()

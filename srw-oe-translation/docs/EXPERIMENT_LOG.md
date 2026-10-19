@@ -7417,3 +7417,27 @@ validation and delivery still pending; do not claim installed old kits updated.
   deterministic materialization against current EN package in CI; validate both,
   build/publish two artifacts together from main. No Drive credentials in CI.
   Package/binary fixture verification, full suite, workflow and delivery pending.
+
+### 2026-10-19 — PL3 extracted-kit binary/CI checkpoint
+
+- Versioned text-only PL snapshot9f84c5c committed (65566 bindings,65577 filled
+  physical package rows,109437 rows exact roundtrip). Binding is file+full source
+  metadata hash, not reused IDs. No JP/raw archive/game binaries in snapshot.
+- Workflow/distribution checkpoint89fdc87 pushed; actual GitHub run39225476467
+  SUCCESS: Linux/Python3.12 tests + BOTH language kits + artifact upload. Publish
+  correctly SKIPPED on PR. Main publication becomes active only after merge;
+  did not merge or publish an unmerged branch. No Drive secrets/game inputs in CI.
+- Extracted actual `srw-oe-translation-pl-v2-PL3.zip`, checked all file hashes,
+  ran its own CLI against authentic config00/configst/font/eventP00/mesbtl00/EBOOT
+  and config01–08 in a NONPLAYABLE miniature ISO: exit0/0problems, normal guards.
+  Physically read Skill00=215764B/1469records, all three pointer contracts OK;
+  each physical DLC pool15329B/720strings/309B margin. Native font18cells verified,
+  non-ank members/sourceISO/original inputs unchanged;397 nonidentity EBOOT writes.
+- Every scene element (including copies) filled: ep00=273/273,01=1452/1452,
+  02=2416/2416,03=1601/1601. A new audit helper compares every explicit MD PL to
+  final package after copy propagation (catches stale donor/gender/name reversion):
+  48326 explicit elements/56672 backing rows,0mismatches.48307 imported +19unchanged.
+  Regression tests9OK. No literary correction made; quote gender/158 findings open.
+- Full suite before last audit regression:1643OK/25skips69.808s. Final suite pending.
+  Local optional YAML parser unavailable (PyYAML); actual GitHub workflow parsed and
+  executed successfully, so no extra dependency introduced just for local parsing.
