@@ -2,7 +2,7 @@
 
 ## Dostawa patchera
 
-**[srw-oe-translation-pl-v2-PL3.zip](https://drive.google.com/file/d/1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb/view)**
+**[srw-oe-translation-pl-v2.1-PL3.zip](https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view)**
 
 Pełny samodzielny kit, nie aktualizator kilku narzędzi: rozpakować do nowego
 folderu i uruchomić `PATCH.bat` na własnym oryginalnym ISO1.08/odszyfrowanym DLC.
@@ -100,3 +100,17 @@ PR bez prośby właściciela. Lokalne testy końcowe: **1644 OK/25 pominiętych,
 
 [Manifest dostawy](pl3-release-delivery.json) zapisuje SHA256/CRC/download-back
 oraz granice weryfikacji. Binaria/pełne odczyty pozostają prywatne/ignorowane.
+
+## Korekta launchera v2.1 (2026-10-19)
+
+Usunięto komunikat `(the font step takes a moment - it recompresses font.cpk)`
+z normalnego PATCH.bat. Działanie fontu/buildera bez zmian. Doprecyzowano, że
+158 uwag od tłumacza dotyczy składania opisów i odstępów, np. `Po aktyw.:Obraż.`,
+a nie158 błędów łamania linii. Layout to osobno wygląd tekstu w ramce w grze.
+Nie poprawiano za tłumacza tych158 miejsc, rodzaju ani dalszych epizodów.
+
+Nowy pełny ZIP v2.1:7397155B/90plików. Narzędzia buildera, przekład JSONL,
+tokeny i zasoby są bajtowo identyczne z v2. Zmieniły się tylko launcher,
+instrukcja, objaśnienie w PL_COVERAGE i manifest ZIP.6 testów wydania OK;
+CRC/hashe i download-back zgodne. Historyczny manifest v2 pozostaje nietknięty;
+[aktualny manifest v2.1](pl3-launcher-cleanup-delivery.json).

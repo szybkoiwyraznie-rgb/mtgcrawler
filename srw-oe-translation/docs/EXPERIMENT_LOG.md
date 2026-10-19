@@ -7464,3 +7464,21 @@ validation and delivery still pending; do not claim installed old kits updated.
 - PR20/assigned branch holds all eligible source/snapshot/workflow/docs. No merge
   or main publication performed; user-requested dual Release automation starts
   publishing after merge. CI consumes current source-bound snapshot offline.
+
+### 2026-10-19 — clarify158 findings; remove launcher font-step chatter
+
+- Owner asked about ambiguous "158 uwag formatowania i layouty" and quoted console
+  message. Clarified:158 translator-reported skill-description assembly/spacing
+  findings (e.g. `Po aktyw.:Obraż.`), not158 line-wrap errors. Layout QA is separate.
+- Removed only that echo from normal PATCH_PL.bat, clarified README/coverage notes,
+  added packaged-launcher regression.6 focused release tests OK/18.898s.
+  Code7165b0c pushed. Initial git-add used repo-prefixed paths from project cwd;
+  corrected relative paths before staging/commit; no partial work lost.
+- Full standalone v2.1-PL3 built:7397155B/90files. Compared every member to v2:
+  only PATCH.bat/README/PL_COVERAGE/RELEASE_MANIFEST differ; ALL builder modules,
+  translationJSONL/tokens/assets byte-identical. No font/gameplay/translation change
+  or new runtime test. Historical TEST_PL.bat experiment intentionally unchanged.
+- Drive1jkVKOzRyy8QE58elwLqezi19-iNXRNGq, download-back identical, CRC/all member
+  hashes verified, sharing unchanged. SHA256
+  c373b8ba7748def3a4ddb44d3eff89629a89e171065617a6b71a1cbd0ee46dcb.
+  Receipt docs/pl/pl3-launcher-cleanup-delivery.json. Old v2 receipt preserved.

@@ -6,7 +6,7 @@ blanks preserved), scenes00–03 fully filled after copies.0 import/validation e
 634 leading spaces preserved;48326 explicit MD blocks compared after propagation,
 0 mismatches. **Physical Skill00215764B (1004B margin)**,8 DLC pools15329B each
 (309B margin), extracted-kit CLI on authentic-container NONPLAYABLE fixture0problems.
-[Download PL patcher](https://drive.google.com/file/d/1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb/view).
+[Download PL patcher](https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view).
 EN+PL workflow now tested successfully on GitHub Actions; publishes BOTH only
 on main after merge, not from PR. Source-bound PL text snapshot tracked, no Drive
 secrets/game data in CI. **PR20 still open; main publication awaits merge.**
