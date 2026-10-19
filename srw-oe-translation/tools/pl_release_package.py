@@ -127,6 +127,7 @@ def materialize(base, stored, out):
     checked = validate(by_file, base)
     coverage = dict(schema=1, language='pl', partial=True, source_return=manifest['source_return'],
                     snapshot_sha256=hashlib.sha256(data).hexdigest(),
+                    owner_ui_corrections=manifest.get('owner_ui_corrections', []),
                     totals=checked['totals'], files=checked['files'],
                     runtime_tested=False,
                     known_issues=['Battle-quote grammatical gender not fully speaker-reviewed',

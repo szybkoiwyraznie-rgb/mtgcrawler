@@ -220,7 +220,9 @@ def main() -> None:
                           validation=checked["totals"], game_data_included=False,
                           sha256_by_file={n: hashlib.sha256(zf.read(n)).hexdigest() for n in zf.namelist()})
         if pl and (pkg_dir / "PL_COVERAGE.json").exists():
-            provenance["source_return"] = json.loads((pkg_dir / "PL_COVERAGE.json").read_text(encoding="utf-8"))["source_return"]
+            coverage = json.loads((pkg_dir / "PL_COVERAGE.json").read_text(encoding="utf-8"))
+            provenance["source_return"] = coverage["source_return"]
+            provenance["owner_ui_corrections"] = coverage.get("owner_ui_corrections", [])
         zf.writestr("RELEASE_MANIFEST.json",json.dumps(provenance,ensure_ascii=False,indent=2)+"\n")
 
     with zipfile.ZipFile(zip_path) as zf:

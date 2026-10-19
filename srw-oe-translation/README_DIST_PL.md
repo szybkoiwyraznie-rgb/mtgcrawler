@@ -18,6 +18,23 @@ odszyfrowanym DLC NPJH50521. Nie zawiera plików gry ani gotowego ISO.
   Nie trzeba osobno wgrywać fontu. Wygląd zaakceptowano na pokazanych ekranach
   początkowych; nie jest to deklaracja QA całej gry.
 
+## Poprawki z 10 zrzutów — paczka UI z 19.10.2026
+
+- Krótsze etykiety: **Statystyki**, **R. 1–R. 8**, **Strona**, **Kr.**,
+  **Jedn.**, **Razem**, **Nagroda:** i **1. raz:**; krótsza pomoc „Wyniki i części”.
+- Panel statusu: **Pokład**, **Sw.**, **Kr.**; nagłówki **Zwycięstwo** i **Porażka**
+  z polskimi znakami, bez zmiany zaakceptowanego wyglądu fontu.
+- Uzupełniony polski komunikat o stałym składzie w misjach początkowych;
+  dodatkowa informacja o sojuszniczym NPC Medea nie została usunięta.
+- Pełne **Skupienie** zostaje. Naprawa powiększa zbyt małe pole nazwy w menu,
+  zamiast skracać nazwę. Zapis wskaźnika grafiki nie nadpisuje już jej końcówki
+  w sprawdzonym teście kodu MIPS. Builder odmawia tej zmiany dla innego niż
+  rozpoznany pliku wykonywalnego, zamiast zgadywać adresy.
+
+To jedna zbiorcza poprawka. Kontrola bajtów i test kodu nie zastępują próby w grze:
+**potwierdzenie tych ekranów w PPSSPP nadal jest potrzebne**. Nie trzeba wykonywać
+osobnego testu fontu ani budować osobnego ISO dla każdej etykiety.
+
 ## Uruchomienie
 
 Potrzebne: Windows10/11, Python3.10+ (zalecany3.12), Pillow, PPSSPP i kilka GB

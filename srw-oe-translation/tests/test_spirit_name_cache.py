@@ -51,6 +51,18 @@ class CacheTests(unittest.TestCase):
         self.assertEqual(len(S.cheat_lines()),69)
         self.assertIn('_L 0x201A8B30 0xAE02002C',S.cheat_lines())
 
+    def test_record_writer_refuses_names_beyond_the_repaired_cache(self):
+        import item_skill_write as W
+        import item_skill_records as R
+        import text_codec
+        from test_item_skill_write import build_record, build_member
+        raw=build_member('spirit',[build_record('spirit',1,'Name','Effect')])
+        row=R.parse_member(raw,'spirit')['records'][0]
+        text_codec.set_lang('pl');self.addCleanup(text_codec.set_lang,'en')
+        W.rebuild_record(row,{'name':'A'*31})
+        with self.assertRaisesRegex(W.WriteError,'repaired menu cache'):
+            W.rebuild_record(row,{'name':'A'*32})
+
     def test_original_suffix_overwrite_and_new_layout(self):
         text=b'Skupienie\0'
         for pointer in (0x004a5ad7,0x0012d738):

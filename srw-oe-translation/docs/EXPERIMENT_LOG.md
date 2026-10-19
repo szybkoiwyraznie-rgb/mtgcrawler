@@ -7544,3 +7544,15 @@ plan. Full materialization passed;2 promotion +15 reading tests passed. Rebound
 only05 source-file hashes in reading plans after metadata-only append, and scoped
 catalogue05 binding checks to consumed group names. No literary/reading output
 change or EN text-output change; physical final build still pending.
+
+### 2026-10-19 — final UI packaging gates and baseline maintenance
+
+Added PL Spirit-name31-byte+NUL guard matching repaired32-byte cache, preserved
+owner correction provenance in coverage/release manifests, and documented the
+single-batch UI kit workflow. First full run:1690 tests, one obsolete CP932-only
+assertion and the historical episode34 whole05 hash failed (not gameplay errors).
+Updated the executable regression to supported display/unsupported UTF-8 system
+paths. Finale tests now reconstruct the exact historical05 bytes by removing only
+the22 reviewed later UI-note IDs and require its ORIGINAL hash; no delivered
+finale/prose/manifest changed. Focused20 finale +71 validation +5 cache tests pass.
+Full suite and isolated release readback follow; failed run retained ignored.

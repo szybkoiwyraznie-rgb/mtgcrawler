@@ -176,6 +176,11 @@ def rebuild_record(row: dict, edits: Dict[str, object]) -> bytes:
     for role in ISR.FIELDS:
         value = edits.get(role, row.get(role, ""))
         raws.append((value if isinstance(value, bytes) else encode(value)) + b"\x00")
+    if row.get("kind") == "spirit" and text_codec.lang() == "pl":
+        import spirit_name_cache
+        if len(raws[0]) > spirit_name_cache.NAME_BYTES:
+            raise WriteError(f"Spirit name exceeds repaired menu cache: {len(raws[0]) - 1} > "
+                             f"{spirit_name_cache.NAME_BYTES - 1} bytes plus NUL")
     tail = b"".join(struct.pack("<H", word) for word in row.get("tail", []))
     # every real record is a multiple of 4 bytes long and the slack always sits in the last field
     fixed = PARAM_WORDS * 2 + BOUNDARY_BYTES + 2 + len(tail)
