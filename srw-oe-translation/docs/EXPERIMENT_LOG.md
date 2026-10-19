@@ -7398,3 +7398,22 @@ validation and delivery still pending; do not claim installed old kits updated.
   No game binaries, full patch, translated package, font, ISO, save or screenshots.
 - Final handoff: ask for latest exported MD (delivered11801vsreported13460 quotes)
   and remaining≥686B of physical Skill00 savings; no repeated runtime test now.
+
+### 2026-10-19 — PL3 initial audit checkpoint; PL release automation requested
+
+- Actual `PL3.zip` from Drive1e-k_dILG9N09LcwxzOHUu4QqF1rlkvK9,2748884B,
+  SHA256 d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351.
+  Strict import into ignored copy:48307 visible elements,8924 copies,0 errors;
+  references/source/archive unchanged; no returned scripts executed.
+- Skill00 writer projection now215764B,1004B below216768 policy. Same-tail-pool
+  projection15380B; actual physical ISO/DLC measurements pending.634 leading-space
+  fields preserved;1421 assembly previews,0 old `ron` detector hits.
+- Quotes actually19841/19841; glossary319keys/0 conflicting keys.13 MD files,
+  includes epizod00–03. Independently compared every explicit imported MD value
+  (after marker/kana/trailing-break normalization) to package:0 mismatches, including
+  speaker-aware dialogue corrections. Scene field/alias coverage still being audited.
+- Owner requests actual partial PL patcher ZIP and EN+PL releases after merges.
+  Plan: commit a text-only, source-bound PL overlay (no JP/game binaries/raw archive),
+  deterministic materialization against current EN package in CI; validate both,
+  build/publish two artifacts together from main. No Drive credentials in CI.
+  Package/binary fixture verification, full suite, workflow and delivery pending.
