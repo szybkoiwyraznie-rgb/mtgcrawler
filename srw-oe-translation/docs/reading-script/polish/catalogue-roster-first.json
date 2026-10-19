@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "scope": "PL-only headings: roster name first; differing display name in parentheses; identical names once. Preserve existing unit order and every non-heading byte.",
+  "input_sha256": "dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462",
+  "english_names_sha256": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+  "polish_names_sha256": "60742411cc774d5b479602bd6e7df8ad82a67a8469da9dbbd7ba6956513cd8ba",
+  "units": 393,
+  "weapon_rows": 1485
+}

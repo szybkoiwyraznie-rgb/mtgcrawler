@@ -130,7 +130,16 @@ def facts(model):
     return m
 
 
-def render(model):
+def unit_heading(unit, roster_first=True):
+    """PL presentation only; keep the two independently sourced names intact."""
+    display, roster = unit['name'], unit['list_name']
+    need(bool(display.strip()) and bool(roster.strip()), 'Missing catalogue unit name')
+    if not roster_first:
+        return M.md(display)
+    return M.md(roster if roster == display else f'{roster} ({display})')
+
+
+def render(model, roster_first=True):
     """v3 layout: keep uncertainty, omit the owner's removed repeated metadata."""
     blocks = []
     def put(value): blocks.append(value + '\n\n')
@@ -174,7 +183,7 @@ def render(model):
         suffix = f" (poziom bazowy {skill['base_level']})" if skill['base_level'] else ' (bez poziomu)'
         return f"**{md(skill['name'] + suffix)}:** {md(skill['description'])}"
     for u in model['units']:
-        put('---'); put('## ' + md(u['name']))
+        put('---'); put('## ' + unit_heading(u, roster_first))
         series = u['series']
         value = '; '.join(series['titles']) or 'Brak wpisu w dostępnych słownikach jednostek i pilotów'
         qualifier = {'labelled_form': 'ustalona na podstawie oznaczonej formy; zobacz źródło',

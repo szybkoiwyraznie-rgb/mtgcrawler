@@ -7738,3 +7738,20 @@ list-name alias. Delivered PL v3 bytes rechecked against archived SHA dc1b1f58d1
 One matching section, no literal Real PG alias, so owner's search failure is real
 but no missing unit. Documented lookup only, no output/source/game modifications;
 ISO/DLC unchanged. No full-suite rerun for documentation-only explanation.
+
+Owner PL catalogue naming request: roster name first, differing display name in
+parentheses, identical pair once. Source example corrected to existing Keroro
+spelling (not Kororo). PL renderer+independent verifier updated; historical
+roster_first=False remains reproducible. English renderer/data untouched.
+New guarded read-only presentation revision tool binds all393pairs against
+hash-pinned frozen EN08 (matches current) and delivered PL08. Delivered v3 input
+SHA checked; old model order recovered via frozen EN display casefold/numericID,
+not guessed from duplicate headings. New v4 changes242headings,151same names kept
+once. Independently restore old headings and require exact WHOLE original bytes:
+all descriptions/statistics/1485weapon rows/order/notes intact. No original21game
+containers needed for this presentation-only edit; do not claim model regenerated.
+7focused tests pass incl source mutation, duplicate name IDs, nested parentheses,
+old/new renderer equality, independent weapon verifier and non-heading corruption.
+Private output723499B/SHAec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca;
+new5member bundle copies all4episode00–03 bytes unchanged, catalogue v4 only.
+Full suite and private Drive delivery pending; no game/snapshot/EN changes.

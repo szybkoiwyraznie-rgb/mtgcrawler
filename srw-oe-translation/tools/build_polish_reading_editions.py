@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce and verify all four private Polish reading/reference deliverables."""
+"""Reproduce and verify all five private Polish reading/reference deliverables."""
 import argparse
 import json
 from pathlib import Path
@@ -49,7 +49,7 @@ def main(argv=None):
     need(R.sha(reference) == expected_sha and M.render(model)[0].encode() == reference,
          'English catalogue v3 was not reproduced byte-for-byte')
     polish = C.localize(model, source, args.catalogue_english, args.polish)
-    path = args.out / 'srwoe_mech_catalog_v3_PL.md'
+    path = args.out / 'srwoe_mech_catalog_v4_PL.md'
     path.write_text(C.render(polish), encoding='utf-8')
     verification['catalogue'] = V.verify_catalogue(path.read_text(encoding='utf-8'), model, polish)
     need(path.read_text(encoding='utf-8') == C.render(polish), 'Catalogue output readback differs')

@@ -54,13 +54,18 @@ def verify_episode(text, audit, source):
             'aliased': len(expected - shown), 'verified_text_spans': len(audit['blocks'])}
 
 
-def verify_catalogue(text, english, polish):
+def verify_catalogue(text, english, polish, roster_first=True):
     need(facts(english) == facts(polish), 'Catalogue facts changed')
     sections = re.split(r'^## ', text, flags=re.M)
     need(len(sections) == len(polish['units']) + 5, 'Catalogue section count differs')
     count = 0
     for unit, section in zip(polish['units'], sections[2:2 + len(polish['units'])]):
-        need(section.splitlines()[0] == M.md(unit['name']), 'Unit heading/order changed')
+        heading = unit['name']
+        if roster_first:
+            heading = unit['list_name']
+            if heading != unit['name']:
+                heading += ' (' + unit['name'] + ')'
+        need(section.splitlines()[0] == M.md(heading), 'Unit heading/order changed')
         rows = re.findall(r'^\| \d+ \|.*$', section, flags=re.M)
         expected = [w for selected in (True, False) for w in unit['weapons'] if bool(w['selector']) == selected]
         need(len(rows) == len(expected), f'Weapon rows missing: {unit["unit_id"]}')
