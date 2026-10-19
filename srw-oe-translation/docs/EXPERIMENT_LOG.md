@@ -7566,3 +7566,15 @@ failed on money suffix14539: coloured root14536 still had old text (likewise1471
 Corrected reviewed source roots and removed unrelated dormant ace suffix50438;
 rebased provenance chain from original pre-QA snapshot.51 sysmes +5 executable
 labels now active. Added alias/root regression; fresh final kit/retest pending.
+
+### 2026-10-19 — source-bound PL sysmes alias planner and failure escalation
+
+Second independent readback failed on plain funds: the legacy suffix inside ace
+caption voted on a different whole pool entry with same JP. Also found one extra
+unit-count root35308. PL planner now filters aliases by original physical offset
+before text matching, verifies JP at actual pool starts, and raises all sysmes
+planning/write failures to the outer build (no success with hidden refusal).
+EN route unchanged. Four synthetic regressions passed; current actual PL roots
+plan with zero problems. Final reviewed labels52+5;22 structured notes. Previous
+1712-test full run passed but cannot substitute for this new writer's full and
+physical rerun; both still pending here.

@@ -396,6 +396,14 @@
     },
     {
       "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:35308",
+      "source_sha256": "d3dc087e71fc5f91d400d693b0aa1206bdd3389807778183594d4e1d3cfe6c53",
+      "before": "Jednostki",
+      "after": "Jedn.",
+      "max_cells": 6
+    },
+    {
+      "file": "04_config_text.jsonl",
       "id": "sysmes:configst.cpk/sysmes.bin:43456",
       "source_sha256": "e52fb056fd7929e621558d0e9b9802b0cdc4f2ab5778cd6364776db43729d4a0",
       "before": "Następna strona",

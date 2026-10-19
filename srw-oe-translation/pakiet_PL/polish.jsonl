@@ -52471,7 +52471,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:94132","pl":"%s25%%/turę; po walce HP+21%%","source_sha256":"d3c6e076f90083374bf41a95c5607ec4dd43ca6a4d75d22ce5a1a021d46bd05f"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Co turę Morale+","source_sha256":"d3cafc7efcf395e1947daa9af3aca035e146dbb84f26bd7dc7c82d80c4fd1308"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:37312","pl":"Leksykon","source_sha256":"d3cbe688f2c42f634829be16f7d173e02d01727fc90bfb9ef47f45db491ec255"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35308","pl":"Jednostki","source_sha256":"d3dc087e71fc5f91d400d693b0aa1206bdd3389807778183594d4e1d3cfe6c53"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35308","pl":"Jedn.","source_sha256":"d3dc087e71fc5f91d400d693b0aa1206bdd3389807778183594d4e1d3cfe6c53"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:151898","pl":"%s%sAtk/%s","source_sha256":"d3ea29eb8baa5444e0da0b86075c75d5d7c4082444ee56dd1375bc96136d1154"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:2382","pl":"Fundusze x2 Lv2","source_sha256":"d3ea2b6fefaec332ab9e157fcecb2ee066bc013905231f123c764fa9376548a1"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"N-Jammer Canceller","source_sha256":"d3eb34053d0ef4d3dca4944e97ca957faf8538867330b8736153863f0a1db16a"}

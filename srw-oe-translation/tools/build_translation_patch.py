@@ -722,6 +722,8 @@ class ContainerBuild:
             edits, problems, notes = _sysmes_edits(blob, rows)
             self.report["problems"].extend(f"{step}: {p}" for p in problems)
             self.report.setdefault("info", []).extend(f"{step}: {n}" for n in notes)
+            if problems and text_codec.lang() == "pl":
+                raise BuildError("PL sysmes plan refused: " + "; ".join(problems[:5]))
             if not edits:
                 self._advance(None, step, {})
                 return
@@ -742,6 +744,8 @@ class ContainerBuild:
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
+            if text_codec.lang() == "pl":
+                raise BuildError(f"PL sysmes NOT written: {exc}") from exc
         finally:
             if not self.dry_run:
                 src.unlink(missing_ok=True)
@@ -809,7 +813,10 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
     edits: Dict[bytes, bytes] = {}
     problems: List[str] = []
     notes: List[str] = []
-    strings = [s for s in SMSP.parse(blob).strings if s]
+    parsed = SMSP.parse(blob)
+    starts = set(parsed.starts)
+    at_offset = dict(zip(parsed.starts, parsed.strings))
+    strings = [s for s in parsed.strings if s]
     decoded = [raw.decode("cp932", "replace") for raw in strings]
     displays = [TW.display(raw) for raw in strings]
     # the same lookup order as table_write.match_form: the file's own form first
@@ -822,6 +829,18 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
     unmatched_rows: List[dict] = []
     for row in rows:
         jp = row.get("jp")
+        # A legacy suffix can have the SAME text as another whole entry (e.g.
+        # money inside an ace caption). It still does not own that other entry.
+        # PL source rows carry physical offsets; filter before matching by text.
+        # Keep the shipped EN route unchanged.
+        if text_codec.lang() == "pl" and (row.get("source") or {}).get("offset") not in starts:
+            unmatched_rows.append(row)
+            continue
+        if text_codec.lang() == "pl":
+            original = at_offset[(row.get("source") or {})["offset"]]
+            if jp not in (original.decode("cp932", "replace"), TW.display(original)):
+                problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
+                continue
         if jp in by_raw:
             matches.setdefault(by_raw[jp], []).append((row, "raw"))
         elif jp in by_display:

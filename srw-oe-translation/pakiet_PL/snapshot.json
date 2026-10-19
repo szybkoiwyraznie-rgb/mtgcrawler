@@ -6,28 +6,28 @@
     "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351"
   },
   "entries": 65588,
-  "data_sha256": "c8f8cea87adc2b25f6cc8c542f3d8b6ecb33ff02a88ea3aaba101fa1f6853ee6",
+  "data_sha256": "2dbf752abb90a1a7afb2b33fce8e21069c75c21817e8f3d10c5f43aade3ee8ef",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
     {
       "plan": "ui-qa-2026-10-19.json",
-      "sha256": "d70eedda13f52a6a4554caedc2573abed267cdbc3a4f94556a11af5cf669c26c",
+      "sha256": "8f1051f752ba14bc889ccef54c7187a46a42571765c4e6dd90a91fc74d1a094b",
       "previous_data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
-      "entries": 51,
+      "entries": 52,
       "runtime_tested": false
     },
     {
       "plan": "ui-qa-executable-2026-10-19.json",
       "sha256": "9c271a7b1a9b80a5c8c05c34c06ae2dbba48ba84920f771eccf97ca59119feb1",
-      "previous_data_sha256": "1270c96ecf6bc9357771019f7e0256e3e15fed14078b5c4281d72902ae896b2d",
+      "previous_data_sha256": "1b364c33bcde73649c0b3d399add9d472a1e1ba3ef36e172ba0f6b73125d102e",
       "entries": 5,
       "runtime_tested": false
     },
     {
       "plan": "ui-qa-mission-notes-2026-10-19.json",
       "sha256": "6b67bb7045429dc33d0077ce5163fef1ced44f3fd52fb08f4c7ca26d9bc9d166",
-      "previous_data_sha256": "8fe0385c78d390b1b0ced53856c7f3abdb082d0eccbb79be33259845f746920c",
+      "previous_data_sha256": "76ec650158a088dbb812df5b83c1521debb9b42bdf26f017b04517076907dd27",
       "entries": 22,
       "runtime_tested": false
     }
