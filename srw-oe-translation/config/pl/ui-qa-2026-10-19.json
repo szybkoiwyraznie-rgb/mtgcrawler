@@ -44,10 +44,26 @@
     },
     {
       "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:14536",
+      "source_sha256": "c1b03bf09ef3cf2656713a1c20ab9e66f3544818e4bc4feb7e3aa9fad73d3929",
+      "before": "＠6Fundusze",
+      "after": "＠6Kr.",
+      "max_cells": 4
+    },
+    {
+      "file": "04_config_text.jsonl",
       "id": "sysmes:configst.cpk/sysmes.bin:14539",
       "source_sha256": "62a5d25793fc9a31d3bfc094d5c58e4bf634463aa5975bd1b8d4c92f982a1f57",
       "before": "Fundusze",
       "after": "Kr.",
+      "max_cells": 4
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:14716",
+      "source_sha256": "d2b88b5f9aa226f432fba52f8531b8f3a785fcc522607e00f86d92eb42bba96a",
+      "before": "＠6Fundusze",
+      "after": "＠6Kr.",
       "max_cells": 4
     },
     {
@@ -390,14 +406,6 @@
       "file": "04_config_text.jsonl",
       "id": "sysmes:configst.cpk/sysmes.bin:46740",
       "source_sha256": "5dee63c264a39a7b39ddfc58f5c8c4529a9a3b5e9020d030cb7ec457651becc7",
-      "before": "Fundusze",
-      "after": "Kr.",
-      "max_cells": 4
-    },
-    {
-      "file": "04_config_text.jsonl",
-      "id": "sysmes:configst.cpk/sysmes.bin:50438",
-      "source_sha256": "028ff6a5d7d7e5758f0137fa7ce881227144dd45add85b126c70157bbdd00067",
       "before": "Fundusze",
       "after": "Kr.",
       "max_cells": 4

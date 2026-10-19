@@ -39397,7 +39397,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:9580","pl":"Po ruchu: wróg o","source_sha256":"0272fb7860bcd9c7ee9e4f46880ad89fa44498817cbd877d0c5f7f01cce17344"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:14526","pl":"\"Ryu Hi","source_sha256":"027a37cc8018a1289496f7a0b855e18657d4c73ce3bace0bc8842396dc52f786"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:11531","pl":"Tytuł","source_sha256":"027f31a7f0d13fa46ba930415ddb72b22a871b01ea671dfb326beaa6c10638c5"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50438","pl":"Kr.","source_sha256":"028ff6a5d7d7e5758f0137fa7ce881227144dd45add85b126c70157bbdd00067"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50438","pl":"Fundusze","source_sha256":"028ff6a5d7d7e5758f0137fa7ce881227144dd45add85b126c70157bbdd00067"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:91620","pl":"Odnowa %s","source_sha256":"0293bd5ed02bf47043bca4be6a3f64ea00134a5212e0ef51595ba9906cc9608d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:52998","pl":"Odnowa EN","source_sha256":"02a52baf83f197c980026d5cbfa9e09f3d8e35300e05b72d38dc43a4dd2b2b6a"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:11455","pl":"(Braiger, Brai Star)","source_sha256":"02a8e5f65a4564da26306fa6739ceb644e1ed488e5c784b7a0fca8d1d7930841"}
@@ -51274,7 +51274,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:2974","pl":"Po aktyw.:","source_sha256":"c1a155cb65c841dd319ab01c7834733c0f9a59b91b4b88358bc4d28ef6e65949"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:5424","pl":"Lv","source_sha256":"c1a269f1d887e154411fd603bca768add9e4a745a3d4193c805e8f1dc89f3579"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:14079","pl":"(Billbine)","source_sha256":"c1ac0ee799748c46f1709a275cc46a39dc2128f35dcfb87e9546758bb6958d8e"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14536","pl":"＠6Fundusze","source_sha256":"c1b03bf09ef3cf2656713a1c20ab9e66f3544818e4bc4feb7e3aa9fad73d3929"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14536","pl":"＠6Kr.","source_sha256":"c1b03bf09ef3cf2656713a1c20ab9e66f3544818e4bc4feb7e3aa9fad73d3929"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:180694","pl":"%s9","source_sha256":"c1bcb3933f6d861b82ab026891d8a60e3a90dd584f8af242f648daa97775a077"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:6234","pl":"Pakiet EN S","source_sha256":"c1c1dc2b44d21c8392d1115c4e11a5fc7c05c15ab067b6fc4d4624c52f2e5b37"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:10654","pl":"Dodatkowe obrażenia","source_sha256":"c1c229f2d08ab8d022fad7eb68107dc9d4f1b3b05d2b3b08a609eec02a21a7ca"}
@@ -52396,7 +52396,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:14015","pl":"(z Daiteioh)","source_sha256":"d2b0b2416f6193754d5eb85326b842b883e40c8fbf423aa91a1c49f273ceadc1"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:33420","pl":"Fundusze+","source_sha256":"d2b654773179f636117683122b08a194ae49a64268431e6d67c9eeed8da9dba2"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:914","pl":"HP","source_sha256":"d2b86c1e0252779876e7f09227f076f171b02882599c7e8abf4e6d925b1a7daa"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14716","pl":"＠6Fundusze","source_sha256":"d2b88b5f9aa226f432fba52f8531b8f3a785fcc522607e00f86d92eb42bba96a"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14716","pl":"＠6Kr.","source_sha256":"d2b88b5f9aa226f432fba52f8531b8f3a785fcc522607e00f86d92eb42bba96a"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:7791","pl":"%s15\n%s","source_sha256":"d2ba15d2fae2ddeebeb3da98bec6424f9b0c429ba4554233b6c1c6253ccc8e2e"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:4498","pl":"Morale+4%s\n%s\nOdnowa 1%s1%s","source_sha256":"d2be01d6d2e149620f25d8fb32848740b89df53cf80416e6a54fbf06aefc3b91"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35044","pl":"Obrona","source_sha256":"d2c48da3e217246e8a1cf04288b2b521061397e347b88287644a5294a99116f6"}

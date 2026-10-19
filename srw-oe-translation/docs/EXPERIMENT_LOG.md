@@ -7556,3 +7556,13 @@ paths. Finale tests now reconstruct the exact historical05 bytes by removing onl
 the22 reviewed later UI-note IDs and require its ORIGINAL hash; no delivered
 finale/prose/manifest changed. Focused20 finale +71 validation +5 cache tests pass.
 Full suite and isolated release readback follow; failed run retained ignored.
+
+### 2026-10-19 — independent UI physical readback caught sysmes aliases
+
+Full suite1711 OK/24 skipped,104.039s. First isolated91-file UI kit CLI exit0,
+Skill00215764 B/1004 B margin,8 pools15329 B/309 B margin,18 native font cells,
+all pointer gates preserved. A second, independent per-field readback correctly
+failed on money suffix14539: coloured root14536 still had old text (likewise14716).
+Corrected reviewed source roots and removed unrelated dormant ace suffix50438;
+rebased provenance chain from original pre-QA snapshot.51 sysmes +5 executable
+labels now active. Added alias/root regression; fresh final kit/retest pending.

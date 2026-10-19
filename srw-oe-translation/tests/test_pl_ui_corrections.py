@@ -57,11 +57,19 @@ class UICorrectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             self.run_plan([self.edit, self.edit])
 
+    def test_reviewed_funds_aliases_include_writable_colour_prefixed_roots(self):
+        plan = json.loads((ROOT/'config/pl/ui-qa-2026-10-19.json').read_text())
+        edits = {int(e['id'].rsplit(':', 1)[1]):e for e in plan['changes']}
+        for root, alias in ((14536,14539),(14716,14719)):
+            self.assertEqual(edits[root]['after'], '＠6' + edits[alias]['after'])
+        # This is a suffix inside a longer ace caption, not a separate money field.
+        self.assertNotIn(50438, edits)
+
     def test_checked_in_labels_have_expected_binding_and_cell_fit(self):
         plan = json.loads((ROOT/'config/pl/ui-qa-2026-10-19.json').read_text())
         rows = {R.binding(r):r for r in R.I.load_rows(ROOT/'pakiet_EN')[0]}
         entries = {e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
-        self.assertEqual(len(plan['changes']), 50)
+        self.assertEqual(len(plan['changes']), 51)
         for edit in plan['changes']:
             row = rows[edit['source_sha256']]
             self.assertEqual(row['id'], edit['id'])
