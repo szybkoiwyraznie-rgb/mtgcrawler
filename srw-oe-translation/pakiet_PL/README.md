@@ -55,3 +55,11 @@ glyphs; EN render unchanged. Skill00216488<=216768 B. These are not new literary
 translation or all-screen runtime approval. See `docs/pl/UI_QA_THIRD_2026-10-19.md`
 and its two verification/delivery receipts. Current owner PPSSPP ISO path: replace
 ISO only, **no DLC/PBOOT recopy**. Cold-start visual approval of this batch pending.
+
+Model-viewer v2.5-PL3-UI supplement:4source-bound standalone sysmes edits only:
+unit switch `Zmień jedn.` (two whole-root copies), rotation `Obr.`, SELECT `Ukryj`.
+Existing control semantics unchanged. No changes to long help text, executable,
+font, descriptions, DLC rows or reading editions. Physical readback isolates4
+strings; all other resources byte-identical to v2.4. See
+`docs/pl/UI_MECH_VIEWER_2026-10-19.md`. Current owner ISO loader: replace ISO only,
+no DLC/PBOOT recopy. Visual confirmation remains pending.

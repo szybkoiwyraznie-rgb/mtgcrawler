@@ -1,5 +1,16 @@
 # Next step — current state and open work
 
+**Latest model-viewer UI follow-up (2026-10-19): v2.5 delivered.**
+[Download](https://drive.google.com/file/d/1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8/view).
+Clipped L/R/analog/SELECT labels now `Zmień jedn.`/`Obr.`/`Ukryj`; only4sysmes
+physical entries changed. All other text/resources/code/font/skills identical to
+v2.4.1705tests OK3skip, normal extracted-kit NONPLAYABLE authentic six-file CLI
+and independent readback pass; actual PPSSPP visual check pending.
+**ISO YES / DLC NO / no PBOOT recopy** on owner's accepted ISO-loading path.
+[Proof and receipt](pl/UI_MECH_VIEWER_2026-10-19.md). Preserve accepted Skupienie/cache/
+font; no new hypothesis experiments. Reading00 supplement below remains complete.
+
+
 **Polish reading supplement (2026-10-19): missing Episode00 DELIVERED.**
 [Episode00 PL](https://drive.google.com/file/d/1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL/view),
 [complete00–03+catalogue ZIP](https://drive.google.com/file/d/1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ/view).

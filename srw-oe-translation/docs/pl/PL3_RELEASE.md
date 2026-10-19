@@ -1,5 +1,15 @@
 # PL3 — sprawdzony częściowy patcher i automatyczne wydania (2026-10-19)
 
+## Latest: v2.5 model-viewer captions
+
+**[v2.5-PL3-UI](https://drive.google.com/file/d/1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8/view)**
+shortens clipped model-viewer L/R/analog/SELECT prompts to `Zmień jedn.`, `Obr.`,
+`Ukryj`. Only4physical sysmes entries differ from v2.4; all code/font/skills/other
+resources identical.1705tests OK/3skip, normal authentic limited-fixture CLI and
+readback pass; visual runtime approval pending. **ISO YES / DLC NO / no PBOOT
+recopy** on owner's accepted PPSSPP ISO path. [Proof/receipt](UI_MECH_VIEWER_2026-10-19.md).
+Earlier v2.4 fixes remain included, no new font/cache experiment.
+
 ## Aktualizacja UI — najnowszy kit v2.4
 
 **[v2.4-PL3-UI — samodzielny patcher](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view)**

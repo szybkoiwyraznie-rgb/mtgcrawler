@@ -30,3 +30,32 @@ No game bytes or owner screenshot in Git; private work under `local/pl-mech-view
 Installation scope intended and to be verified: current accepted PPSSPP ISO-loading
 setup, ISO YES, DLC NO; no PBOOT copy for this loader. Expected changes isolated to
 configst/sysmes; no code/font/skill/pool/reading-script changes.
+
+
+## Verified and delivered — v2.5-PL3-UI
+
+[Standalone ZIP](https://drive.google.com/file/d/1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8/view)
+7404887B/91members/SHA886dba74f65f4a69151db176f367d725148ea953a7ad31135cc72c41f2ac1e0d.
+Downloaded back byte-identically; CRC/all90payload SHA checks pass. Source532d0d5
+pushed on assigned branch/PR20. No GitHub CI-success claim made here.
+
+Normal extracted ZIP CLI rebuilt the same authentic six-file NONPLAYABLE fixture,
+exit0/no top-level problems. Independent readback vs v2.4 proves only4 sysmes
+physical strings changed; all1182 keys and all other strings unchanged. All other
+configst members identical. FULL config00/font/IM1000/IM3000/EBOOT bytes identical
+to v2.4, including accepted cache/font, skill records/fragment pools and atlas fixes.
+All materialized package rows compared in order, metadata equal, only4 PL changes;
+all78324 DLC-backed source rows unchanged. Full suite **1705tests OK/3skipped**.
+See `ui-mech-viewer-verification.json` and `pl3-ui-mech-viewer-delivery.json`.
+Eight inherited nested dictionary warnings remain; full skill-total fits:null with
+DLC absent is not a new nine-file proof. No safeguards disabled, assets/screenshots
+not committed, private fixture isn't playable. New visual fit still needs PPSSPP.
+
+### Installation
+
+Current owner PPSSPP1.20.4 ISO-loading path, upgrade from v2.4:
+**ISO YES** — rebuild/replace `patched.iso`. **DLC NO** — keep existing files.
+**PBOOT.PBP NO recopy** for this loader. Only configst/sysmes changes physically;
+regenerated outputs are not automatically required installation files. Not a
+universal rule for other loaders. Cold-start/ordinary save, open model viewer,
+check L/R header and analog/SELECT prompts. No new cache/font test requested.

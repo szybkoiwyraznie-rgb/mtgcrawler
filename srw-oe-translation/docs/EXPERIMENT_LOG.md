@@ -7718,3 +7718,15 @@ unit-switch JP roots synchronized; no global replacement in help/exe captions.
 Normal snapshot guard applied;2focused tests pass incl synthetic sysmes duplicate
 planner/roundtrip. No cache/font/code/skill/reading changes. Full physical build,
 suite and private v2.5 delivery pending; ISOyes/DLCno intent needs confirmation.
+
+Model-viewer v2.5 delivered Drive1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8,
+7404887B/91members/SHA886dba74f65f4a69151db176f367d725148ea953a7ad31135cc72c41f2ac1e0d.
+Download-back identical, CRC90payload hashes verified. Normal extracted-kit CLI
+six-authentic-file NONPLAYABLE fixture exit0/no top-level problems; only4sysmes
+strings changed,1182keys unchanged. FULL other5ISO member bytes (config00/font/
+IM1000/IM3000/EBOOT) + all other configst members identical to v2.4. All source
+rows metadata equal,4PL changes,78324DLC rows unchanged.1705tests OK/3skip. Existing
+8nested dictionary warnings/absentDLC total fits:null documented, no gate bypass.
+Install current PPSSPP ISO path: ISOyes/DLCno/PBOOTno. Runtime labels pending,
+not all-game or v2.4 visual approval. No reading/prose/cache/font modifications.
+Receipts docs/pl/{ui-mech-viewer-verification,pl3-ui-mech-viewer-delivery}.json.
