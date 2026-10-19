@@ -1,5 +1,14 @@
 # Next step — current state and open work
 
+**Polish reading supplement (2026-10-19): missing Episode00 DELIVERED.**
+[Episode00 PL](https://drive.google.com/file/d/1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL/view),
+[complete00–03+catalogue ZIP](https://drive.google.com/file/d/1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ/view).
+All253prose rows retained (242dialogue+11narration), independently source-verified;
+old01–03/catalogue bytes unchanged.1703tests OK/3skip, both outputs download-back
+identical. No story/source/game changes or new translation. ISO/DLC NO changes.
+[Details/receipt](reading-script/polish/README.md). Do not restart completed exports.
+
+
 **Latest owner UI batch (2026-10-19): v2.4-PL3-UI delivered.**
 [Download](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view).
 Owner NOW accepts v2.3 Skupienie/details without crash; no further cache/font

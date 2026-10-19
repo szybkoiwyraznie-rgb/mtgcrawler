@@ -1,4 +1,40 @@
-# Polish reading editions — episodes 01–03 and catalogue v3
+# Polish reading editions — episodes 00–03 and catalogue v3
+
+## Missing Episode 0 added — 2026-10-19
+
+- **[Episode00 PL](https://drive.google.com/file/d/1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL/view)**
+- **[Complete five-file ZIP: episodes00–03 + catalogue v3](https://drive.google.com/file/d/1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ/view)**
+
+The earlier four-file ZIP below omitted00. This supplements it without overwriting
+any prior delivery: ALL four old members (01–03/catalogue) are byte-identical.
+Episode00 includes Prologue, Basic Training, Interlude and Rescue White Base,
+retaining all242dialogue+11narration entries from the two source scenes. Existing
+PL3 text only, no new translation/EN fallback. Source-bound PL mission titles;
+editorial signposts match the existing reading format. Both outputs downloaded
+back byte-identically, five-member ZIP CRC/contents verified. Independent verifier:
+253prose rows directly shown,0aliases,259verified text spans, no residual Japanese.
+Full suite1703tests OK/3skip;21focused tests. See `episode_00.delivery.json`.
+
+Episode0 differs structurally: two source scenes but four top-level sections;
+Prologue/Interlude precede the actual mission titles. Multi-paragraph source rows
+may span several EN reference blocks: recovery binds them as WHOLE source records
+and emits their own PL paragraph boundaries, without fragmentwise retranslation.
+English01–03 regression regeneration reproduced all three previous PL deliveries
+byte-for-byte. Catalogue wasn't regenerated. **ISO NO / DLC NO**: reading files only.
+
+To reproduce only the missing edition (no catalogue/game inputs needed):
+
+```sh
+python tools/polish_reading_script.py --english pakiet_EN \
+  --polish local/polish-reading/pl3 --references ../google_drive \
+  --episodes 0 --out local/polish-reading-zero/final
+python -m unittest discover -s tests -p 'test_polish_reading*.py'
+```
+
+`polish_reading_script.py` now defaults to00–03; `--episodes 0` selects only00.
+The full catalogue+reading orchestrator below also includes00 now and needs its
+EN reference in addition to the original four. Historical delivery evidence follows.
+
 
 Owner request (2026-10-19): Polish counterparts of delivered episodes 01–03 and
 mech catalogue v3, using the accepted PL3 snapshot. This is a reading/reference
@@ -32,7 +68,7 @@ not new story events. Conditional sections and DLC excerpts remain blockquotes.
 1. Materialize the current accepted PL3 with `tools/pl_release_package.py`.
 2. Export catalogue files03/04/05/07/08/09 from frozen commit above using
    `git show` into an ignored directory (do NOT switch/reset branches).
-3. Place the four delivered EN Markdown references and original inputs in private
+3. Place the five delivered EN Markdown references and original inputs in private
    directories. Run, from the project root:
 
 ```sh
@@ -65,7 +101,7 @@ ignored `local/polish-reading/` / the private Drive folder. Tools never modify
 source packages or game files. No game/font rebuild or new runtime claim.
 
 
-## Download
+## Original 01–03 delivery (historical four-file bundle)
 
 - [All four Markdown files (ZIP)](https://drive.google.com/file/d/1PvJEuwmDQ_tbWAyNa_4AupiiJkMaK0Iy/view)
 - [Episode01](https://drive.google.com/file/d/1HswEniL12rfQ4F9VkFFC1AbMiCkFuMsW/view)

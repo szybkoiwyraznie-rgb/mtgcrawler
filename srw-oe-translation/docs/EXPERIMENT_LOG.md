@@ -7699,3 +7699,14 @@ five-member bundle copies old4members exactly and adds00 only.21focused tests pa
 missing PL title, reference/episode binding and semantic corruption). Full suite
 and Drive delivery pending at this checkpoint. Outputs/audits stay ignored under
 local/polish-reading-zero/. ISO/DLC untouched; no install necessary.
+
+Polish reading00 delivered: Drive1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL,21728B,
+SHAf72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97.
+New complete five-member reading ZIP (00–03+unchanged catalogue) Drive
+1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ,159084B,
+SHA892f77ff1a063af05cc58301e5637cb84e627d960a6c44a3033c8545a1511ab7.
+Both downloaded back byte-identically, ZIP CRC and old4member hashes verified.
+Independent253prose/259span check passes;21focused tests, full1703tests OK/3skip
+(52.872s). No new literary text, story/source/game edits, catalogue regeneration,
+ISO/DLC transfer or prior-delivery overwrite. Source/tools checkpoint6e2f276
+pushed to assigned branch/PR20. Receipt reading-script/polish/episode_00.delivery.json.

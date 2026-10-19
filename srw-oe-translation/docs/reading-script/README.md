@@ -85,3 +85,11 @@ are all checked. Mutation tests deliberately repair hashes and offsets first.
 Do not use JP `variant_of`/`copy_of`, matching basenames or identical prose alone
 as evidence for an alias: speaker identities, paragraph boundaries and meaningful
 metadata must also match. No in-scene repeated line is discarded.
+
+
+## Polish early editions
+
+The Polish set now includes the previously missing **Episode00**, alongside01–03
+and catalogue v3. [PL downloads, source bindings and verification](polish/README.md).
+This is a separate PL3 reading export, not a change to the complete English00–34
+set, catalogue facts, literary translation or game package.
