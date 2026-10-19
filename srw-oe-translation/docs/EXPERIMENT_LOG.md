@@ -7503,3 +7503,13 @@ Independent source-span/alias and rendered weapon-stat verification passed;
 no residual JP. Four MDs + four-member ZIP uploaded to existing reading folder,
 all5 downloaded back byte-identical; ZIP CRC/member bytes verified. Private
 text/models remain ignored. Receipt/links: `docs/reading-script/polish/delivery.json`.
+
+### 2026-10-19 — PL UI QA checkpoint A (PR20)
+
+Reviewed ten owner screenshots; committed source-bound plan and 50 compact PL
+sysmes edits. Kept colours, two-line help and JP cell-width fit; EN, skill/story
+prose, font and Spirit unchanged. Four new correction regressions passed and
+whole PL snapshot materialized/validated. Executable accents/mission notes and
+Spirit runtime suffix investigation are still pending; no new runtime claim.
+See `docs/pl/UI_QA_2026-10-19.md`. Python3 standard-library tools; ignored
+Capstone/Unicorn research dependencies do not enter release or Git.

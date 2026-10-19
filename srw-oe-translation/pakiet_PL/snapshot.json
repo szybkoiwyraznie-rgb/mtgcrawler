@@ -6,7 +6,16 @@
     "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351"
   },
   "entries": 65566,
-  "data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+  "data_sha256": "339b6529a3f0501a13f459a2a5ff9e08cac9eda43bb84ff4f4580fabcb191d1c",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
-  "game_binaries_included": false
+  "game_binaries_included": false,
+  "owner_ui_corrections": [
+    {
+      "plan": "ui-qa-2026-10-19.json",
+      "sha256": "2a6082ad29ce966987ba0f1eb89453883ef4457679b2f0373c388401f9ab63e8",
+      "previous_data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+      "entries": 50,
+      "runtime_tested": false
+    }
+  ]
 }
