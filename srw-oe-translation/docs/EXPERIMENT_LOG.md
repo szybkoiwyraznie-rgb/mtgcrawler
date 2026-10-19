@@ -7513,3 +7513,14 @@ whole PL snapshot materialized/validated. Executable accents/mission notes and
 Spirit runtime suffix investigation are still pending; no new runtime claim.
 See `docs/pl/UI_QA_2026-10-19.md`. Python3 standard-library tools; ignored
 Capstone/Unicorn research dependencies do not enter release or Git.
+
+### 2026-10-19 — PL Spirit name cache overwrite reproduced/fixed offline
+
+Actual MIPS strcpy at0x36731c and draw0x1a4a30 reproduce a pointer overwriting
+`Skupienie` byte8 after all three constructors. Hash/exact-word-gated69-instruction
+layout repair expands inline cache8->32 B and ten allocation sites40->64 B,
+including external pilot-viewer flags. Full name retained, EN unchanged. Four
+synthetic tests passed. Optional read-only Unicorn2.1.4 probe:3 original failures,
+186 patched passes/guard bytes intact,60 physical names (max16 B),31-byte boundary
+included. Probe SHA/report in `docs/pl/ui-cache-offline-verification.json`; no
+game bytes committed. Full kit readback/runtime still pending; see UI QA doc.

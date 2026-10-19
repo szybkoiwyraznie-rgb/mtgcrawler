@@ -1431,7 +1431,16 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
             tgt["problems"].append(msg)
             report["problems"].append(f"executable: {msg}")
             continue
-        patched, exe_report = EXE.apply_rows(elf, rows)
+        code_image = elf
+        if text_codec.lang() == "pl":
+            import spirit_name_cache
+            try:
+                code_image, tgt["spirit_name_cache"] = spirit_name_cache.apply(elf)
+            except ValueError as exc:
+                tgt["problems"].append(str(exc))
+                report["problems"].append(f"executable: {src['label']}: {exc}")
+                continue
+        patched, exe_report = EXE.apply_rows(code_image, rows)
         tgt["applied"] = exe_report["applied"]
         tgt["empty"] = exe_report["empty"]
         tgt["skipped"] = exe_report["skipped"]
@@ -1479,6 +1488,9 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
     if cheat_elf is None:
         return
     cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
+    if text_codec.lang() == "pl":
+        import spirit_name_cache
+        cheat_text += "\n".join(spirit_name_cache.cheat_lines()) + "\n"
     if dry_run:
         summary["written"].append("(dry-run) cheats/NPJH50521.ini")
         return
