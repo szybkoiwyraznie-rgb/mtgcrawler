@@ -1,0 +1,240 @@
+{
+  "scope": "Physical readback of isolated standalone UI kit, authentic-container NONPLAYABLE fixture",
+  "sysmes_labels_checked": 52,
+  "sysmes_count": 1182,
+  "sysmes_ids_unchanged": true,
+  "mission_notes_checked": 22,
+  "mission_members": 11,
+  "mission_bytes_outside_notes_identical_to_previous_PL": true,
+  "executable_fields": 399,
+  "executable_full_expected_bytes_match": true,
+  "code_patch_words_checked": 69,
+  "font_members_identical_to_previous_PL": true,
+  "english_executable_identical_to_pre_QA": true,
+  "english_added_source_rows_all_empty_targets": true,
+  "runtime_tested": false,
+  "build_report_executable_applied": 397,
+  "pre_existing_dictionary_refusals_unchanged": true,
+  "new_sysmes_problems": [],
+  "integrity": {
+    "kind": "extracted delivered kit CLI against authentic containers in NONPLAYABLE fixture ISO",
+    "exit_status": 0,
+    "problems": [],
+    "Skill00_bytes": 215764,
+    "Skill00_limit": 216768,
+    "Skill00_headroom": 1004,
+    "Skill00_records": 1469,
+    "all_three_pointer_contracts_ok": true,
+    "physical_DLC_pools": {
+      "config01.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config02.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config03.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config04.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config05.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config06.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config07.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      },
+      "config08.EDAT": {
+        "bytes": 15329,
+        "strings": 720,
+        "headroom": 309
+      }
+    },
+    "font_native_cell_verification": {
+      "ok": true,
+      "failures": [],
+      "style": "native-ascii-plus-marks-v1",
+      "letters": {
+        "ą": {
+          "base": "a",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ć": {
+          "base": "c",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ę": {
+          "base": "e",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ł": {
+          "base": "l",
+          "accent_pixels_changed": 4,
+          "native_peak": 6,
+          "output_peak": 6
+        },
+        "ń": {
+          "base": "n",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ó": {
+          "base": "o",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ś": {
+          "base": "s",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ź": {
+          "base": "z",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "ż": {
+          "base": "z",
+          "accent_pixels_changed": 2,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ą": {
+          "base": "A",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ć": {
+          "base": "C",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ę": {
+          "base": "E",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ł": {
+          "base": "L",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ń": {
+          "base": "N",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ó": {
+          "base": "O",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ś": {
+          "base": "S",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ź": {
+          "base": "Z",
+          "accent_pixels_changed": 4,
+          "native_peak": 9,
+          "output_peak": 9
+        },
+        "Ż": {
+          "base": "Z",
+          "accent_pixels_changed": 2,
+          "native_peak": 9,
+          "output_peak": 9
+        }
+      }
+    },
+    "non_ank_font_members_unchanged": true,
+    "source_ISO_and_inputs_unchanged": true,
+    "production_containers": [
+      {
+        "container": "config00.cpk",
+        "changed": true
+      },
+      {
+        "container": "config01.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config02.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config03.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config04.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config05.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config06.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config07.EDAT",
+        "changed": true
+      },
+      {
+        "container": "config08.EDAT",
+        "changed": true
+      },
+      {
+        "container": "configst.cpk",
+        "changed": true
+      },
+      {
+        "container": "eventP00.cpk",
+        "changed": true
+      },
+      {
+        "container": "mesbtl00.cpk",
+        "changed": true
+      }
+    ],
+    "exe_fields": 397,
+    "runtime_tested": false
+  }
+}

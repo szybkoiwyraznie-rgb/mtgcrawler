@@ -7578,3 +7578,19 @@ EN route unchanged. Four synthetic regressions passed; current actual PL roots
 plan with zero problems. Final reviewed labels52+5;22 structured notes. Previous
 1712-test full run passed but cannot substitute for this new writer's full and
 physical rerun; both still pending here.
+
+### 2026-10-19 — batched UI kit delivered and downloaded back
+
+v2.2-PL3-UI:7401598 B/91 files, SHA-256
+b1fe9a6440a5813db5bf2ce52a1178b791c467a4c76e6d4bd1069418f978888f.
+Final1717 tests OK/24 skips,105.944s. Isolated standalone CLI exit0 on authentic
+containers in NONPLAYABLE fixture;52 sysmes +5 executable labels +22 mission
+slots and69 code words physically read back, entire expected ELF matched. Font
+members identical to accepted prior PL; Skill00215764/216768,8 pools15329/15638,
+all pointers/native cells/source hashes pass. Earlier72 reported missing-key
+notes in9 dictionary containers match pre-QA fixture exactly; not hidden as
+zero inherited problems. No new sysmes conflict. Readback helper initially tried
+TOC reader on ITOC font CPK; switched to existing font reader, no asset change.
+Drive12mZhkIjpxe9PgRAadD5FeOYHkmhUhVyk downloaded back byte-identical, CRC/member
+hashes passed, sharing unchanged. Receipts/physical metadata in docs/pl/;
+all proprietary builds/inputs remain ignored. No gameplay confirmation yet.

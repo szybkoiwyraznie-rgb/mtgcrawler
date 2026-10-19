@@ -2,6 +2,7 @@
 import sys
 from pathlib import Path
 import unittest
+import tempfile
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 import build_translation_patch as B
@@ -34,6 +35,18 @@ class RootTests(unittest.TestCase):
     def test_wrong_jp_at_a_valid_offset_is_not_redirected_elsewhere(self):
         _,problems,_=B._sysmes_edits(self.blob,[{**self.rows[0],'jp':'資金'}])
         self.assertTrue(any('JP differs at its source offset' in p for p in problems))
+
+    def test_container_escalates_plan_failure_without_writing_partial_sysmes(self):
+        rows=self.rows[:2]+[{**self.rows[1],'en':'Other'}]
+        with tempfile.TemporaryDirectory() as tmp:
+            builder=B.ContainerBuild('configst.cpk',b'unchanged',rows,Path(tmp))
+            with patch.object(B,'_iter_members',return_value=[('sysmes.bin',self.blob)]), \
+                 patch.object(B,'_replace_member') as replace:
+                with self.assertRaisesRegex(B.BuildError,'PL sysmes NOT written'):
+                    builder._sysmes(rows)
+                replace.assert_not_called()
+            self.assertEqual(builder.current,b'unchanged')
+            self.assertFalse(builder.report['changed'])
 
     def test_english_route_keeps_existing_conflict_behaviour(self):
         T.set_lang('en')
