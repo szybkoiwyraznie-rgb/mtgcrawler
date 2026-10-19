@@ -15,9 +15,14 @@ import mech_catalog as M
 from mech_catalog_sources import PACKAGE_FILES, need
 
 
-def localized_rows(english, polish, filename):
+def localized_rows(english, polish, filename, category=None):
     en = M.rows(english, filename)
     pl = M.rows(polish, filename)
+    if category is not None:
+        # Catalogue uses only group names from mission metadata; new, unrelated
+        # mission-note slots must not attach to or invalidate frozen catalogue facts.
+        en = [r for r in en if r.get('category') == category]
+        pl = [r for r in pl if r.get('category') == category]
     def binding(r):
         return json.dumps({k: v for k, v in r.items() if k not in ('en', 'pl')}, sort_keys=True, ensure_ascii=False)
     original = {binding(r) for r in en}
@@ -38,7 +43,8 @@ def text(row):
 
 def localize(model, source, english, polish):
     out = copy.deepcopy(model)
-    data = {f: localized_rows(english, polish, f) for f in PACKAGE_FILES}
+    data = {f: localized_rows(english, polish, f, 'group_name' if f == '05_mission_text.jsonl' else None)
+            for f in PACKAGE_FILES}
     skills = M.unique(data['03_skills.jsonl'], lambda r: (r['key'], r['part']))
     used = set()
     for skill in out['skills'].values():

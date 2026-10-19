@@ -36,3 +36,12 @@ Stan nie jest pełnym ani w całości przetestowanym w grze tłumaczeniem:
 widoki/cytaty i epizody00–03 zaimportowane; dalsza fabuła częściowo pusta.
 Rodzaj gramatyczny niektórych cytatów, zgłoszone158 złożeń i układ dłuższych
 linii pozostają do przeglądu tłumacza/runtime QA. Snapshot nie usuwa tych uwag.
+
+Owner UI QA follow-up (2026-10-19): the snapshot now includes55 source-bound compact
+label/spelling corrections and22 recovered structured base mission-note fields.
+The original PL3 return hash remains historical provenance, NOT a claim that
+owner UI corrections were in that archive. Separate plans/hashes are recorded in
+`snapshot.json` under `owner_ui_corrections`; see `docs/pl/UI_QA_2026-10-19.md`.
+Full `Skupienie` stays unchanged; its repair is a guarded executable cache-layout
+fix, not a snapshot abbreviation. These changes have offline gates; owner runtime
+confirmation is pending.

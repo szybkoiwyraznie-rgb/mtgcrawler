@@ -7533,3 +7533,14 @@ encoder; JP CP932/UTF-8 matching/budgets unchanged; UTF-8 system-save Polish gly
 still refused. Five owner/status label edits, with PL-only cell limits. Tests:
 27 executable +24 handoff +4 PL executable passed; complete PL snapshot validated.
 No font alteration or PPSSPP claim. See UI QA checkpoint C.
+
+### 2026-10-19 — base mission notes promoted from measured source slots
+
+Original eventP00 independently parsed:11x388 B members,22 notes at24/184 with
+160 B slots. Added structured metadata with empty EN targets; PL reuses accepted
+identical fixed-roster note, preserves Medea NPC second line/colours. Generic
+leftover quarantine unchanged.22 immutable PL bindings/member hashes in reviewed
+plan. Full materialization passed;2 promotion +15 reading tests passed. Rebound
+only05 source-file hashes in reading plans after metadata-only append, and scoped
+catalogue05 binding checks to consumed group names. No literary/reading output
+change or EN text-output change; physical final build still pending.

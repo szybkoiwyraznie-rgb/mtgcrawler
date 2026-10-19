@@ -55235,6 +55235,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config00.cpk/milstP00.bin:r1:title","pl":"Szkolenie podstawowe","source_sha256":"0d554be158d2a776b7271246483ba36b71905dcfa7275eec48e1ce177abf6f22"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r157:series","pl":"Super Robot Wars Original","source_sha256":"0d9ad21780b1be43938d2f48cb74085722975ac1d31df1b1940f00cb4c381175"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r108:title","pl":"Dobra nowina","source_sha256":"0df222446d0c981bca2dc60d7f175933b6d223e940e2cf636a411b81ffefefc5"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"0dfa8536c19b09e5f3d379e9cf506a411ed37f494bcfab5a2edcd611c42e2368"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config08.EDAT/bgmlist08.bin:r0:title","pl":"Chaos i pustka","source_sha256":"0e18c0de59d28e46cec86425c390c58c8edfb9de88fdfb1a77941214abea86f6"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config02.EDAT/milstP02.bin:r25:title","pl":"Szturm na Sunsę","source_sha256":"0e1bded48e1cb6b65c775d9bed2042525ed0f273c2b0735d0b27ffd7dde27682"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r33:series","pl":"Blue Comet SPT Layzner","source_sha256":"0e2590b89f20298825a336315bfc99b02bd280e23b7865f7088bb57f6bf98c78"}
@@ -55301,6 +55302,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config07.EDAT/milstP07.bin:r20:title","pl":"The Last Red Shoulder","source_sha256":"1a8cd1e03ac3ff059d20686c6c9ca459fca8fe48d458c9411ca095fa3e3445c8"}
 {"file":"05_mission_text.jsonl","id":"map_name:config00.cpk/srwDL_Map_S.bin:r7:name","pl":"64_Mapa ataku 10 (ciemna pustka","source_sha256":"1ab5fdafca6c9f0e695ab6025ec6d87b4b3a4d860cf7b24d9aaa4a9ca491ff13"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config02.EDAT/milstP02.bin:r29:title","pl":"Ep. 9-3: Zarodek Mucus","source_sha256":"1ad612ee6e3a75da90ac99eab21607ab8145490d758e26f30c7b1f076425f92a"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"1ad8e0dc6521765a110423d10374262f37e27e20138c5384bf9ca4b9ae8fa76a"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r65:title","pl":"Melodia zła","source_sha256":"1b0e7adce8b2d29c430bfa648bd7cb40f97fd1627c3c81a06edcd7c21c7a5b9b"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r26:title","pl":"Da Cider Błyskawica","source_sha256":"1b2c6e2bfbf9527e5ed36e645f912bd89c2e0d27c7c4c21b066f15fc33d87e21"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config07.EDAT/milstP07.bin:r16:title","pl":"Ep. 28-1: First Attack","source_sha256":"1b37a47ed4fdd3f76b8bb46682815cf38338575f52a0a9bf3c44b2756f98cb8e"}
@@ -55312,6 +55314,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP01.EDAT/DL102_30_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"1c539b7c8db2aff37b4a6121053aa49ab64baab56b36990aaeb74ab92b6d7e2e"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config08.EDAT/milstP08.bin:r23:title","pl":"Ep. 33-2: Gatekeeper","source_sha256":"1c78f83d546c46f1823adb2bceae7ab0f003d39d9f8d12e38b25b49e42b606fc"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r74:series","pl":"Super Robot Wars Original","source_sha256":"1c8d72980f102c7e0b6641bfd279830fe97d9542d93247a9950cf9e24d281402"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"1ca3a294dd8d5aced6b83e9c8a15f8334905c358adfb233f07ec860f19344538"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config08.EDAT/milstP08.bin:r16:title","pl":"Ep. 32-1: Galaktyka Recoral","source_sha256":"1ca8fbf8a3eb3c62fb83b3df557d63c50e47611b98703b5e26403dad617803ee"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP08.EDAT/DL830_50_ext.dat:r0:title","pl":"Konsensus","source_sha256":"1d168a044a107023c7a72c0027ed03ce6a42b5aaff1d7329f3b8e943a1df4a17"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r22:title_narrow","pl":"Smash the Spiral!","source_sha256":"1d5e7962501a785b19e810291d7dcb235345d4c373fe52b8a5bd194f6896ba73"}
@@ -55340,6 +55343,7 @@
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r20:title","pl":"Płonący zapał w sercu","source_sha256":"207eccd23b6271b85eea864a735aa6662b4bfab5bc1209687f96cd0008721dcf"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r1:title","pl":"Kiseki no Jushin","source_sha256":"2084d4f0348c364e90815b0f950a1ebaf0c8f60243d762d70d1f71ed1eb4d08b"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP02.EDAT/DL105_70_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"20e7644c362cfd54201fc9d200bcdde1e0e969abc1b26b88b9143065dbb47891"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"21452f9cc1ae99ce3a98a10228abc8189108b4bb0ad2dcf011f5d1a886a8682e"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r119:title","pl":"Looking One Step Ahead!","source_sha256":"215849f9ebd14df520b7825016e4eb47ae25f5249ea26d1086c3047815be18af"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r94:title","pl":"Świat wart ochrony","source_sha256":"216b7fe2344079c65c1f172638598801f5c66be1f0fe7d47199428667907424e"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP04.EDAT/DL414_11_ext.dat:r0:title","pl":"Ep. 14\nWar Cloud","source_sha256":"2189e6cb543bc6ff1a3a416d692355bf14393308df9ea070e6fe1935d8693365"}
@@ -55350,6 +55354,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r2:title","pl":"Ep. 18: Misje główne","source_sha256":"229f82439b664e6178797fa1c59e1cc4471a54aa7458f5def18e88396470a509"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config03.EDAT/bgmlist03.bin:r1:title_narrow","pl":"ignited","source_sha256":"22c9a827e70f41ed779cb701882941318894df1491f7fb4de5e96b066fa79c77"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r23:title","pl":"Stalowy lament","source_sha256":"22f8d3c52a7e310ad3f888dfe13b236f62d43f955c08164b9f00d9c90375972e"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"22fe80a2041c3e304e93a529613ec45157886056e7f59d200ef901a5b92da39d"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r10:series","pl":"Genki Bakuhatsu Ganbaruger","source_sha256":"2317e9703e957114151300010265e462afa6a160f92d4eefad71f5e3c5dee821"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config02.EDAT/milstP02.bin:r11:title","pl":"Ep. 7-1: Twierdza Mount Ossa","source_sha256":"232d1ab520f35c9bd57eb49b53c7f2e574694a020cfe624262d8994cb6ae97a4"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP05.EDAT/DL519_12_ext.dat:r0:title","pl":"Ep. 19\nSzturmowy desant na Axis","source_sha256":"2394585a87dd86e7f5bd92a098fbe80c2a5bbdb4d415345b13751bfdc9d326ef"}
@@ -55409,6 +55414,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r20:title","pl":"Ep. 20-1: Brama warp nr 203","source_sha256":"2e087231131987658fdddb2088d4d547cfb881556ce502d0079bcd1e310968fa"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config27.EDAT/milstP27.bin:r0:title","pl":"Tragedia rabusiów","source_sha256":"2e99388049c10e0614c24e945c232d031079387c44c152592eeb85c4e1672f98"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP01.EDAT/DL105_30_ext.dat:r0:title","pl":"Źródła ambicji","source_sha256":"2ec0f836455a7458f70ca6e293c1a7a5790ca6415b83c4799d1ca1e20ce9d8bb"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"2ec759e357a6a19229b1d35c1c774ef3394f64bd836e12c4897e2928d8fb9bab"}
 {"file":"05_mission_text.jsonl","id":"map_name:config00.cpk/srwDL_Map_S.bin:r17:name","pl":"306_Mapa Larva","source_sha256":"2ee76dcf6eaa53954ba484fe5ad822329b050795abab18ed1bc0acce333d497e"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r119:title_narrow","pl":"Looking One Step Ahead!","source_sha256":"2ee8bcce4de512d0343b7ddf1c7b33312c8a413dd7227ea330ea878106575869"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r40:name","pl":"Pustkowie, kanion","source_sha256":"2f2b17bee0eed59e44701cfbf4213a9eefe4acb24f33e36e15656f5cdc161088"}
@@ -55433,6 +55439,7 @@
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r48:title","pl":"Ride on the Slick Beat","source_sha256":"3274ce961e997de1cea41827c643ecefa570bf5fc9a1c29cc9f4fafff36bd58f"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r86:series","pl":"Super Robot Wars Original","source_sha256":"32a44203fec49bb8fd865733824d493e4d350f216fc284a55854fd938f5a5333"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r0:title","pl":"Ikari no Jushin","source_sha256":"32c3ea745a8c956b00540fa21e77d0e25b6fd113eb8b30443fd6851f1b352a86"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"32dd1b9689e463eff046c47f26f33ad177796ef9832aec1976f58186f4f4b0eb"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r127:title","pl":"Dżingiel tytułowy (Marsz)","source_sha256":"33001ca7f7870324f0f6ea0cda461eb7d41e0c1d2d027d28f8a1ba433deb37ec"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP04.EDAT/DL414_50_ext.dat:r0:title","pl":"Chłopiec z Shangri-La","source_sha256":"3307b75793a5804da332df17630ab0204be12fe729ff2082efc08a5426ffe4bc"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP05.EDAT/DL520_12_ext.dat:r0:title","pl":"Ep. 20\nDziedzictwo miecza","source_sha256":"333a840d38b882b509e9b5713a8cedee5984c95e44073b062aa1cf1606ad165d"}
@@ -55482,8 +55489,10 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config03.EDAT/milstP03.bin:r2:title","pl":"Ep. 10: Misje główne","source_sha256":"3dbec1cf866dec5042ea04c76af72f6439894056dfe1580f14a5786920d8076d"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config06.EDAT/milstP06.bin:r5:title","pl":"Misje poboczne","source_sha256":"3df103c53f7ad3fa9ad2880393713ac9e5a2869b0d0a62e576f28f23395a69c3"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r36:title","pl":"Funky Step of the Stranger","source_sha256":"3e73c1e0311b507b3cb9f02f7a7d67b668ef3b0c7dbe7d20d424aec7b686a788"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"3e8ce95223d1fa1435dd33b83d46728c8e463eb1454dbff5965856154d505e47"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r149:title","pl":"Dżingiel tytułowy (Preludium do bitwy)","source_sha256":"3efa98f20df0b82d105d44bdbff490bd830505d459017022d537cc57cfeeaba7"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config03.EDAT/bgmlist03.bin:r3:series","pl":"Aura Battler Dunbine","source_sha256":"3f2873f1a201b0c71f1ef8b92dccf35569ee5629d104d619a60025c6c46571f9"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"3f5f5e55093ce36de5b7c4ee9d3495c0b39c0755cc1ea93498aeb8278ac9abc6"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r42:name","pl":"Skały i góry, szare","source_sha256":"3fc6124dc1dfbb2d1b7f19ba25d0e6ff310bdf55956db0a563ad350a1d18c127"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP04.EDAT/DL313_55_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"3fc76d37ed8af1057b5b6a620c37a6f030dd906627ab330a5913452485edf990"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config16.EDAT/bgmlist16.bin:r0:title_narrow","pl":"SALLY","source_sha256":"3fe0720a6656ec8377a818f038561ccc470c0b311d680ae0cf2c796edd8f70b9"}
@@ -55498,6 +55507,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config06.EDAT/milstP06.bin:r4:title","pl":"Ep. 22-3: Devil Gundam, ostatnia runda","source_sha256":"42061f40a35996178cdb56f073ea25db073f50f5ebc944aac5515e6edf0a7cfe"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP03.EDAT/DL310_60_ext.dat:r0:title","pl":"Kosmiczna twierdza Solomon","source_sha256":"420c165d223600c15f7cbc32759e92abd704cf711e6bb11f4d10f388bb0382dc"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config32.EDAT/milstP32.bin:r3:title","pl":"SIM: Wojna watażków","source_sha256":"423ee7d43722ef0591d1ab84e1d93d9a83482d63918fc5f0d8b15e6c88600d3f"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"4248e2768c3c214a4eadae2866372f2c231bc747661a6538ae21319dca6779f3"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r3:series","pl":"Ryu Knight","source_sha256":"42abb9157c1d107e7856bb9ec629eefb43566b1b19811e4393055f251a506369"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r13:title_narrow","pl":"Bojowy zapał","source_sha256":"42adaf0fe5a035a87f9e6f9a8a06bc8447e8ce853a1317b1014098d1450205e3"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP05.EDAT/DL521_20_ext.dat:r0:title","pl":"Awangarda komórek DG","source_sha256":"42c04cac62e556a0bd9fec2b339c41a4e4b09ab077dc4eb80a5fbbcb15320b47"}
@@ -55509,9 +55519,11 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config03.EDAT/milstP03.bin:r5:title","pl":"Misje poboczne","source_sha256":"440c8413de325cf8df2a396a44020e76ed72f14d6ad2fcfe78f327ef755bd60c"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP03.EDAT/DL311_11_ext.dat:r0:title","pl":"Ep. 11\nOperacja Odbicie Arki","source_sha256":"44a7436fdce0448c71896be9385d55ef62297a0d9725673a1a5424550f4c0a6c"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP05.EDAT/DL519_11_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"44a7b541e33d6ae4575e4ff304816a398e294d248a7fef8f13637d3f9d614594"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"44dc9a073895ef97d2ac38989217f4261da407c07b9cce9ab734b9670bb40d45"}
 {"file":"05_mission_text.jsonl","id":"map_name:config00.cpk/srwDL_Map_S.bin:r0:name","pl":"53_Mapa ataku 1 (ciemne niebo)","source_sha256":"44ea582dd40f6b499f752c3961783f6666489807368665e91dbf474df108309e"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r33:name","pl":"VOTOMS","source_sha256":"44f27d9afa16dbf705f1a39e646d0b923b424b15424314b2aa497ac3c7cf3186"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r23:name","pl":"Jaskinia, sople","source_sha256":"4557839d7cd5a2350a461a77223e56a11d16f48c5ff4a47c347b3b0829f34a45"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.\nJako sojuszniczy NPC pojawi się ＠6Medea＠0.","source_sha256":"456699c69294ed4eabc4ab7bd049441597ab2afd6ab0b661880de45470ac9fe4"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r12:title","pl":"OO GUNDAM","source_sha256":"45a876fa45a5562b3434f46bb0c8cf90518f4ace11a1aa500a2649c2f88ac8c7"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r1:title_narrow","pl":"Kiseki no Jushin","source_sha256":"45c3af0170d00c69df33b7797445d9fab4266c3c7576a5194bf2cfcad4338228"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r17:title","pl":"Arashi no Naka de Kagayaite","source_sha256":"461373254eb933ca9415facba928e50f6f15cc18e7f6e37efb184d478afba426"}
@@ -55524,6 +55536,7 @@
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r22:name","pl":"Morze","source_sha256":"46f156f5326c497f08a108c2f8e416dde2234963315e6b31c0505ed871493b7e"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r80:title","pl":"Totalna bitwa","source_sha256":"46fd89eb29c339837ada0d6ad2e004b82c1ad60f6d9b8393b6e6e4403d2ef42f"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP01.EDAT/DL102_90_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"47217268ad13ccc88a31ac78d857b35b0bcddb02a95321d7986c59ae35802a87"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"4738b225613e0d06feb4d02c75340e4a5c6cfdeeeb97b939464fc7215d2a8afc"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config07.EDAT/milstP07.bin:r8:title","pl":"Ep. 27: Misje główne","source_sha256":"47486c62c02dc4af191756cfd463f5e89f9f5b210ff952f2feaaae2ca48d4e55"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r7:title","pl":"Me serce spokojne jak woda - lecz dłoń płonie jak ogień","source_sha256":"479db4090315deed9f527697d27844ad90eb19a8a6f84fcc54410afbebc781d4"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config24.EDAT/milstP24.bin:r0:title","pl":"Operacja: zatrzymać Solar Ray","source_sha256":"47a58439597a1c8c972cc9f8e9d814c751c3cb46fc26ac51269fa53bd6e2514a"}
@@ -55574,6 +55587,7 @@
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r115:title","pl":"Podstępne knowania","source_sha256":"518cae7e0bcc124ec05a47e7dda211ad55f64c0386ee6b29738691b2f7632430"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r125:title","pl":"Dżingiel tytułowy (Zapał)","source_sha256":"519f47ce528c12f99bdb77e719339bda4864e73013d93bccdfede66fe6cfdaab"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r144:title","pl":"Dżingiel tytułowy (Osobliwość)","source_sha256":"51c44ea2ae6c5e22491f39b743c113d87b404baeef78442bf9d269cacd1e8841"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"51dd6d0de36cf20dce184a50176c2036c68b974d0fd78d0ccfb83af096c7fdad"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config11.EDAT/bgmlist11.bin:r1:title","pl":"L-Gaim -TIME FOR L-GAIM-","source_sha256":"51fbec84b1326aaafe3af0c0d1dd4a415614831bbf49975c81426b090470f32a"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config04.EDAT/milstP04.bin:r21:title","pl":"Ep. 16-1: Atak armii Goburikiego","source_sha256":"520ffd6bc0cd9d6c5bbc8e5533c073f7c27348abd7bfe6900bf93eb627d7a358"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r87:series","pl":"Super Robot Wars Original","source_sha256":"5236c0a407147f045534c891ef4df40a4799f577a93b2bea49fc2b9d72a541b0"}
@@ -55615,6 +55629,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP01.EDAT/DL102_70_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"581e7a6215bcbbf010fc4b4b8471fc3f76db874af1d76d18ff8e7217b15f199c"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config03.EDAT/milstP03.bin:r6:title","pl":"Rozmowa z Wysłannikiem","source_sha256":"5874b815056eaa4e3e70cf45e4ecd2a73fec37534e27dd281b6bb27197d52310"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r11:title_narrow","pl":"Great Ganbaruger: cios specjalny","source_sha256":"588914dc82320fe79d31d137ef1166bc9550edb221edf18962dc700fc499cce8"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"58a74e3c66ed1fe8babf1ceb065356e0581efe8a0cc2af48980e5b35fe2d9fdb"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP02.EDAT/DL105_50_ext.dat:r0:title","pl":"Groza komórek DG","source_sha256":"5920a34e920d30d330159a2fb2b642cb9c0c582f060df07e9b386283a3a04900"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP03.EDAT/DL312_12_ext.dat:r0:title","pl":"Ep. 12\nOperacja oczyszczania","source_sha256":"59701c2cc826978319536879c83b1f3fbee7202599d3d3f2c9ba9927f59745e5"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP03.EDAT/DL312_40_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"597f9a1d129799b7e0c2481150283f188251e3fe88c18582a1d40702ffa76615"}
@@ -55804,6 +55819,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP06.EDAT/DL624_12_ext.dat:r0:title","pl":"Ep. 24\nPojedynek z Viralem","source_sha256":"7bd5d4c2fea3d32fc3ed4685c0e14610746e5510ff1156d496d1223445f010d4"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config04.EDAT/milstP04.bin:r3:title","pl":"Ep. 14-1: War Cloud","source_sha256":"7be387a08b7e3abea83851d8dab564c74d3f8346c279cc723737297bd7058c0f"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP01.EDAT/DL105_30_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"7be937eb759c6565e82ff921a96cc71a9addf9099c5aead60dd2f2c5ee72bf54"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"7c08a0f0f872bdd01e285a15044997853c91dce894383b152c9207d23d0b495e"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r133:series","pl":"Super Robot Wars Original","source_sha256":"7c5bdf0b98fd08933e7d507c687af95ec311784ff6f6f5aca33038123e7350ab"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r83:title","pl":"Leniwa chwila","source_sha256":"7cc3673b6468cd2269634823c4117a487f216755fbeda48a624839ee5daceec4"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config02.EDAT/milstP02.bin:r19:title","pl":"Ep. 8-1: Earthtia","source_sha256":"7cc93561ba2d96a2059db42b6cd902800355c44e319cb57dc32011cbb10ba0a0"}
@@ -55851,6 +55867,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP02.EDAT/DL208_12_ext.dat:r0:title","pl":"Ep. 8\nPiraci Mrocznego Smoka","source_sha256":"85504be80c59140e3c0ab088b0b27e79caf6bf860022142a1b1a4ff7e64df129"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r50:title","pl":"Mur do pokonania","source_sha256":"85605100fea5b6167240498d3b6b872bcbca2395a7e3411861229f18fe494666"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r36:series","pl":"Mobile Suit Gundam 0080: War in the Pocket","source_sha256":"8573286aa5d14d2ffb1b78ec0452de0348e7b536e6c289b88b7b11fcd44f90a7"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.\nJako sojuszniczy NPC pojawi się ＠6Medea＠0.","source_sha256":"85aa66b19723c263c43db734b67291336389f5ec230bd768573f0c03cea1dbda"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP08.EDAT/DL830_60_ext.dat:r0:title","pl":"Uruchomienie pierścienia warp","source_sha256":"85aeae6d800eb2d5d1c638e5923f423b0552275d644512d224baeb3bd8426d12"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r50:name","pl":"Skaliste góry, brązowe","source_sha256":"861ffb63c54cffbf606481153080c367b0196d091e4fcf76eec3495538d4398d"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r68:title","pl":"Spiritual Pressure","source_sha256":"8654c34d65c67fe54274805e86cc4b0f500ac52a7a4c2bb2c5fcc5a6da342107"}
@@ -55879,6 +55896,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_title:config02.EDAT/milstP02.bin:r22:title","pl":"Da Cider powraca","source_sha256":"8ca7f3e0b58030c15e3674efb603283a7b9a836295d9babe5d31199f85aa5ca4"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r43:name","pl":"Skały i góry, brązowe","source_sha256":"8cb65d5392bfdff34137319b7cf8ca5fd41cbf27e695396a75d33605ce2bf7c3"}
 {"file":"05_mission_text.jsonl","id":"map_name:config00.cpk/srwDL_Map_S.bin:r4:name","pl":"59_Mapa ataku 5 (fiol. pustka)","source_sha256":"8cdbb1998a1e2c68d0af324e418c66375aae4ecab2f5d4edd2b61023b20d934c"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"8d335439150d5fdc3edc64362a5edc61bbcb64f0cc440270a1fc39fceadc39ac"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config01.EDAT/milstP01.bin:r14:title","pl":"Napaść na bazę marsjańską","source_sha256":"8d37793dec6925c85a958f1216c468335a6dae79d60dab89a4b438c77f5554c1"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config06.EDAT/milstP06.bin:r14:title","pl":"Wspólny front","source_sha256":"8d40ad69305347a80b12fdd9310807abc61e1aa8673221be7489a3ee28b6a746"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP08.EDAT/DL831_20_ext.dat:r0:title","pl":"Poszukiwania w bramie warp","source_sha256":"8d68a30583eae465d738a683f6f8f7fd7b197d2d31d40d5088bd6421cd7251fb"}
@@ -56252,6 +56270,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP07.EDAT/DL728_20_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"d6a206d5243d85b55ab272902b1ee4c882563828d19e51e8485d7eaadb1b3bec"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r4:title","pl":"Ep. 18-2: Wyzwanie Le Caina","source_sha256":"d6b1852e0e73335a0ff3425f89dc97c5def29686d61e4cacac7252661f80f0ef"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r55:series","pl":"Super Robot Wars Original","source_sha256":"d6f532bacc2d6c4545047e771504ef86037e8b07e4601836205aab8c8211c883"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"d6f568073c073e9208f80ea9a8cf491f0f496ed83ee8541efa8a6f32188a1bcf"}
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP25.EDAT/DL313_70_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"d752b2b5ba7f98c60897c6588c286a0021eb2b1b6fe52d85c0a292a26c7eef78"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r142:title","pl":"Dżingiel tytułowy (Groza)","source_sha256":"d7dad6cd6e175ee116122afeeaf7fa7438ad73d451ad4c409762e7a2965d1c65"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config06.EDAT/milstP06.bin:r1:title","pl":"Ep. 22: Misje główne","source_sha256":"d7e5d2fc0fec4f1da65e942563b25f86f251b1f2391b9b980a9be6eee785f071"}
@@ -56306,6 +56325,7 @@
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r3:title_narrow","pl":"RUN ~Kyo ga Kawaru Magic~","source_sha256":"e3103074e8c7c5019c526f989467e4b292cf90b18be57f6eb5bf153df5f1d847"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r24:title_narrow","pl":"NIKOPOL","source_sha256":"e3a470221052c8fdb4ff3da52ad3950fd345c009f0ace161927a86fd35e5f1d8"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r8:name","pl":"Pustkowie","source_sha256":"e3baa70a4e18bb61b8514a1e85eb993aa19158f5c5912db1c633d3ea023a1588"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_b","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"e3cc5e8618c2c5b55445c30904ca754b199c8fc6396943439e48144b367bcc01"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r1:title","pl":"Ewoluujące komórki DG","source_sha256":"e3ec462ac7f5fe449a9151035adfb830aed698b2b1daeb44d325e34556bdcb9f"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config02.EDAT/bgmlist02.bin:r2:title_narrow","pl":"Good-by Tears","source_sha256":"e3fd254d52ac39679964a9b703a242eb75d3c566db918033adc50a4969a848ec"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config07.EDAT/milstP07.bin:r3:title","pl":"Ep. 26-3: Odrodzenie Ultrasaurusa","source_sha256":"e3fe90ae325ccaf4dcfe5569e88b57c4c20fc4bdb0aeb20f22eddfd5b40eceaf"}
@@ -56321,6 +56341,7 @@
 {"file":"05_mission_text.jsonl","id":"mission_note:eventP32.EDAT/SM019_ext.dat:r0:title","pl":"Symulator\nZeon w kosmosie - trening","source_sha256":"e55336a351d8b5e28b2779b1ce7b58125f7112927f9aaac8ace375b39eecc200"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r23:title_narrow","pl":"Stalowy lament","source_sha256":"e5761c901e00638eb8d733a2bfec89cf48537e05f39e888a6d5a5752e2a62819"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config03.EDAT/milstP03.bin:r32:title","pl":"Sen lelka","source_sha256":"e5b474b26d136b896916686b5becd215131fcad6b06708afe5188b9624fe3a84"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"e6054209eeda926e69e14fe86643024a53a7918da087651bd2510e8125c2db2c"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config11.EDAT/bgmlist11.bin:r0:title","pl":"Nightmare","source_sha256":"e63dfb0cff979a3beec4960d415f681c4e4a5934264aad4450dba0b0d6c27905"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r27:title","pl":"Hello Darwin! ~Kokishin On Demand~","source_sha256":"e65f60054f974c75693c1cc3a445d3773cc5a265a50f93f3ea920f1d9530850a"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r107:title","pl":"Intryga z objazdami","source_sha256":"e66bf993c8b6b9fc2c8294df18f882dd97a8c65ff5ebf4085fcc61ac8410b3c2"}
@@ -56435,6 +56456,7 @@
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r60:name","pl":"Miasto w ogniu","source_sha256":"f9b7ec50b94d1afc04d521f4fce304bd766ae2a04313d895bc16af907fd6f63a"}
 {"file":"05_mission_text.jsonl","id":"mission_title:config05.EDAT/milstP05.bin:r16:title","pl":"Mr. Bushido","source_sha256":"f9eb8051be34d3d12739d84f6617fc3601c98b60f44f6498da45cec7c5e63aec"}
 {"file":"05_mission_text.jsonl","id":"bg_name:config00.cpk/bg2dlist.bin:r59:name","pl":"Urwisko, maszyny","source_sha256":"fa0b29bc59a71a46daf85b5bdc9854da7d5b87bf4b5e03f276a6aea0f78dc16d"}
+{"file":"05_mission_text.jsonl","id":"mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_a","pl":"W tej misji skład jednostek jest z góry ustalony.","source_sha256":"faacf0a198ec6799aa73aac413a46338f2ec1f1824c6c303282b0becbbc0c051"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r113:series","pl":"Super Robot Wars Original","source_sha256":"fae718e3845045ab99ddc8c274850f1f01951d2d3903a0f5a3ebb73f961d7820"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config01.EDAT/bgmlist01.bin:r30:title_narrow","pl":"Honoo no Sadame (dżingiel)","source_sha256":"faef1ee8e21929268b73dfd046b3f8bd4b299c8b24e65896ee99dcae6111d342"}
 {"file":"05_mission_text.jsonl","id":"bgm_title:config00.cpk/bgmlist00.bin:r151:series","pl":"Super Robot Wars Original","source_sha256":"fbe1617aeb4b33414562f87e737e368e1a1c1ab1c9e42f9c5165bd84278cdd2a"}

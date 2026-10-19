@@ -5,7 +5,7 @@
   "reference_sha256": "a0d0c6986c2ad377544b97b6e62b1d57b51f2d7fd732be9193e470d8e2844fb1",
   "english_source_sha256": {
     "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
-    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "05_mission_text.jsonl": "aaa121d3860a14e26685fa327d6c7a691d153277aeb560ad2408ad8e3ea82caf",
     "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
     "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
   },

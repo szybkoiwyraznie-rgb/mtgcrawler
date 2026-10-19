@@ -5,8 +5,8 @@
     "name": "PL3.zip",
     "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351"
   },
-  "entries": 65566,
-  "data_sha256": "4da88cea39190b004c405dec7fd499e5220a92e96722fed930b26eb9c8a7e2bf",
+  "entries": 65588,
+  "data_sha256": "99657de1574afbf11d87a265974ff07c1a5ffcfa678c818bdbf2e4ced31148f4",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -22,6 +22,13 @@
       "sha256": "9c271a7b1a9b80a5c8c05c34c06ae2dbba48ba84920f771eccf97ca59119feb1",
       "previous_data_sha256": "339b6529a3f0501a13f459a2a5ff9e08cac9eda43bb84ff4f4580fabcb191d1c",
       "entries": 5,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-qa-mission-notes-2026-10-19.json",
+      "sha256": "6b67bb7045429dc33d0077ce5163fef1ced44f3fd52fb08f4c7ca26d9bc9d166",
+      "previous_data_sha256": "4da88cea39190b004c405dec7fd499e5220a92e96722fed930b26eb9c8a7e2bf",
+      "entries": 22,
       "runtime_tested": false
     }
   ]
