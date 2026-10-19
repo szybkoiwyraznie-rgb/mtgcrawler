@@ -1,5 +1,19 @@
 # Next step — current state and open work
 
+**PL3 release (2026-10-19):** partial standalone PL patcher delivered from actual
+PL3.zip. Quotes19841/19841, all editable visible views filled (protected/binary
+blanks preserved), scenes00–03 fully filled after copies.0 import/validation errors;
+634 leading spaces preserved;48326 explicit MD blocks compared after propagation,
+0 mismatches. **Physical Skill00215764B (1004B margin)**,8 DLC pools15329B each
+(309B margin), extracted-kit CLI on authentic-container NONPLAYABLE fixture0problems.
+[Download PL patcher](https://drive.google.com/file/d/1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb/view).
+EN+PL workflow now tested successfully on GitHub Actions; publishes BOTH only
+on main after merge, not from PR. Source-bound PL text snapshot tracked, no Drive
+secrets/game data in CI. **PR20 still open; main publication awaits merge.**
+1644 tests OK/25 skipped. Quote gender/158 formatting findings/later story/runtime
+QA remain open; not a literary/full-game approval. This supersedes PL2's686B
+blocker below. See [PL3_RELEASE.md](pl/PL3_RELEASE.md) and its delivery receipt.
+
 **PL2 return (2026-10-18):** audited actual PL2.zip. Leading spaces preserved in
 all 634 config fields; all 33 prior join suspects corrected in 1421 format previews.
 **Skill00 remains 217454 B vs 216768 (+686 B)**; normal builder refuses it,

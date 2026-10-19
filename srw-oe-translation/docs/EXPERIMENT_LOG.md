@@ -7441,3 +7441,26 @@ validation and delivery still pending; do not claim installed old kits updated.
 - Full suite before last audit regression:1643OK/25skips69.808s. Final suite pending.
   Local optional YAML parser unavailable (PyYAML); actual GitHub workflow parsed and
   executed successfully, so no extra dependency introduced just for local parsing.
+
+### 2026-10-19 — PL3 complete kit delivered; dual-language workflow verified
+
+- Final full suite1644tests OK/25skips68.832s. Actual GitHub run39226067711
+  SUCCESS on01b9a9d: both kits built/validated/uploaded; publish correctly SKIPPED
+  on PR. Run API metadata available; downloading raw Actions logs redirects to
+  a host blocked in sandbox (EOF), did not retry or mistake this for auth failure.
+- Uploaded standalone `srw-oe-translation-pl-v2-PL3.zip`,7397107B/90files,
+  Drive1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb, SHA256
+  bc075a088e907ba880503da107831b52736e43ba5f86028760dd40642287fc2e.
+  Download-back byte-identical; CRC/all member hashes/PL launcher+checker confirmed.
+  No sharing changes or game binaries. Receipt docs/pl/pl3-release-delivery.json.
+- Further coverage audit: every editable visible view filled; exceptions4NoData,
+  9engine literals,28 proven binary fields, intentionally blank. Episode00–03
+  after-copy elements273/1452/2416/1601 all filled. Soft46-cell guideline exceeded
+  on8/109/297/242 lines; maxima50/55/56/53, no current kind-specific hard-limit
+  violation. Not a proof of screen fit; narration/dialogue limits differ.
+- No literary or grammatical-gender edits: all returned explicit strings retained;
+  user runtime/gameplay QA,158 reported format findings, quote gender and later
+  episodes remain open. No repeat font/Masaki/oversized A/B request.
+- PR20/assigned branch holds all eligible source/snapshot/workflow/docs. No merge
+  or main publication performed; user-requested dual Release automation starts
+  publishing after merge. CI consumes current source-bound snapshot offline.
