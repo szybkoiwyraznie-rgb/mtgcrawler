@@ -7656,3 +7656,18 @@ bypass.924 source-bound snapshot edits. First spacing prototype falsely counted
 split colour digits as text; corrected AFTER-substitution colour removal, explicit
 regression tests, zero remaining candidates for reviewed rules. Materialization
 passes;11new focused tests. Full suite/real-size/standalone verification pending.
+
+Third UI verification completed: full normal extracted-kit build/readback (authentic
+six-file NONPLAYABLE ISO), 1697 tests OK/3skip. First sysmes build correctly refused
+whole-JP duplicate40068/44704 conflicting PL/EN; reviewed fallback synchronized to
+both, no guard bypass. Final925source changes, zero DLC-source changes; all120/1985
+physical descriptions checked,57/412effects changed by186/689spaces; numeric tails,
+argument indices, token/newline counts, shared pools unchanged. Skill00216488<=216768
+(margin280, +724 including35net alignment), Spirit17635(+204 incl18net alignment).
+397exe writes verified exact, .text/cache unchanged, native font exact accepted SHA.
+17sysmes physical strings,1182keys unchanged. Both IMs verified intsys_04-only change
+vs prior PL spec; English authentic GIM output byte-identical. No runtime claim.
+Installation current PPSSPP path: ISO YES; DLC NO; new PBOOT transfer not needed.
+Receipt docs/pl/ui-third-physical-verification.json; final kit v2.4-PL3-UI being
+packaged, Drive delivery receipt to follow. Inherited8dictionary warnings unchanged,
+DLC absent total fits null openly recorded; no proprietary bytes in Git.

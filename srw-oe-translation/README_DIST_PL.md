@@ -56,6 +56,30 @@ podglądu maszyny Seishiro i otwórz szczegóły Duchów. Sprawdź nazwę i pozi
 zmień zaznaczony Duch, wyjdź i otwórz ponownie. Potwierdź też zapis i oba paski
 przycisków. Nie usuwaj zapisów ani oryginałów.
 
+## Kolejna partia UI — v2.4-PL3-UI
+
+**Instalacja po v2.3 na Twoim PPSSPP: ISO — TAK; DLC — NIE.**
+Zostaw obecne DLC. Builder może odbudować również `PBOOT.PBP`, ale używana przez
+Ciebie ścieżka PPSSPP uruchamia program z ISO. Nie trzeba go ponownie kopiować.
+
+- Skupienie i wejście do szczegółów Duchów zostały już potwierdzone w grze;
+  zaakceptowana poprawka pamięci pozostaje bez zmian.
+- Systemowy komunikat startowy jest po angielsku: ten ekran PSP używa innego
+  fontu, nie polskich komórek bitmapowych gry. Tak samo zabezpieczono cztery inne
+  prześledzone systemowe ostrzeżenia. Nie zmieniono zaakceptowanego fontu gry.
+- Odstępy w opisach Duchów i umiejętności: kontrola wszystkich 120/1985
+  wypełnionych pól opisów i skrótów z fizycznie odbudowanych tabel. Poprawki
+  dotyczą składania fragmentów, nie nowego przekładu ani zmiany działania zdolności.
+  W ciasnych napisach silnika użyto `L1`–`L5` i `Obr.:`, aby zmieścić odstęp.
+- Krótsze pola Wyników, **Szansa części+** i podpowiedź **Szk.** w wąskiej
+  ramce przycisku. Wyczyszczony i spolszczony atlas nagłówka części.
+- Usunięto zbędną informację o foncie z normalnego przebiegu launchera;
+  kontrola poprawnego wejściowego ISO nadal działa.
+
+Kontrola bajtów/obrazów nie zastępuje oględzin w PPSSPP. Po przebudowie wystarczy
+jedna próba: komunikat startowy, opis Skupienia/umiejętności i wskazane ekrany
+Wyników/części/przerwy. Zimny start i zwykły zapis, nie stary save-state.
+
 ## Uruchomienie
 
 Potrzebne: Windows10/11, Python3.10+ (zalecany3.12), Pillow, PPSSPP i kilka GB

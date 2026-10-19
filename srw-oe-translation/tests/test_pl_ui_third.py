@@ -26,8 +26,8 @@ class ThirdTests(unittest.TestCase):
         cls.entries={e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
 
     def test_source_bound_tokens_no_pool_changes_and_physical_budgets(self):
-        self.assertEqual(len(self.plan),924)
-        self.assertEqual(len({e['id']for e in self.plan}),924)
+        self.assertEqual(len(self.plan),925)
+        self.assertEqual(len({e['id']for e in self.plan}),925)
         reasons={}
         for e in self.plan:
             with self.subTest(id=e['id']):
@@ -59,7 +59,7 @@ class ThirdTests(unittest.TestCase):
                 _,why=E.check_en({**row,'en':'Błąd'},target_lang='pl')
                 self.assertIn('PSP system dialog',why)
         self.assertEqual(seen,3)
-        for offset in (39944,40068):
+        for offset in (39944,40068,44704):
             e=next(e for e in self.plan if e['id'].endswith('sysmes.bin:'+str(offset)))
             self.assertTrue(e['after'].isascii())
         T.set_lang('pl');self.addCleanup(T.set_lang,'en')

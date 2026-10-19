@@ -7942,6 +7942,15 @@
     },
     {
       "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:44704",
+      "source_sha256": "52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd",
+      "before": "Zapis nieudany.\nKontynuować bez zapisu?",
+      "after": "Save failed.\nContinue without saving?",
+      "max_cells": 24,
+      "reason": "proven PSP system-dialog text: English"
+    },
+    {
+      "file": "04_config_text.jsonl",
       "id": "sysmes:configst.cpk/sysmes.bin:27276",
       "source_sha256": "1a092cb7fdcadd4f3490609d128e2d360745be9854c10e8c90f0b77cf0abd504",
       "before": "Ukończone misje:",

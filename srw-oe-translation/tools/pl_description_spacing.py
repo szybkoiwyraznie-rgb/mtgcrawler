@@ -74,4 +74,6 @@ def propose(template, arguments=()):
         raise ValueError('proposal would alter formatter tokens')
     if revised.replace(' ','') != template.replace(' ','') or revised.count('\n') != template.count('\n'):
         raise ValueError('proposal is not space-only')
+    if expand(revised, arguments)[0].replace(' ', '') != visible.replace(' ', ''):
+        raise ValueError('proposal changes visible text or splits a colour control')
     return revised, unresolved

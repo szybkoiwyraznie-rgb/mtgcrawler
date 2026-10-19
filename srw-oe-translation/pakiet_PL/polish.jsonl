@@ -44270,7 +44270,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:11831","pl":" Warunek: Sayaka, Jun","source_sha256":"529ba80cebad271d6529dfc2edde5997b3a33d33b80f5eec6493c48d1239affb"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:407","pl":"HP+","source_sha256":"52a118b4cd234287967dc3197f2450f8d484471b2f546555dd391eeba62084a3"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:7632","pl":"Bez dodatk. obraż. pchnięcia, bez kontry","source_sha256":"52a6aec7c32d389225f14f954b2c4ac59750b503a0d9728af505021d3c87f386"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44704","pl":"Zapis nieudany.\nKontynuować bez zapisu?","source_sha256":"52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44704","pl":"Save failed.\nContinue without saving?","source_sha256":"52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:81588","pl":"%s 110 %s EN-4\n%s-900\n%s10%%","source_sha256":"52a9db50d81927f12d44db533af1f905d88a564d8dd799e5f6040237a1d5b3f5"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5714","pl":"Nie do wsparcia ani kontry","source_sha256":"52aa98efede74eadbde8e9c0dee6ff3d64cf35af44346fe54b33e82d4f93ca04"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:26609","pl":"poziom(ów) - teraz dostępne.\n＠4<Uwaga>\n＠4Ulepszenia powyżej 10. poziomu nie podnoszą\npoziomu zdolności maszyny ani broni.","source_sha256":"52acd2e20f6b2a4126dd7071a334f649583f1e067d854f29f378cadf7462c55a"}

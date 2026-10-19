@@ -21,6 +21,10 @@ class SpacingTests(unittest.TestCase):
         self.assertEqual(S.propose(before,args),(before,[]))
         self.assertEqual(S.expand('%s0%s',['＠','Unik+20%'])[0],'Unik+20%')
 
+    def test_unsafe_insertion_into_split_control_is_rejected(self):
+        with self.assertRaisesRegex(ValueError,'colour control'):
+            S.propose('<Header>＠%s',['0Obr-30%'])
+
     def test_no_global_placeholder_spacing_or_word_rewrite(self):
         for before,args in [('Non-b%s',['eam']),('Bro%s',['ń']),('LV%s',['1']),('Lv1',[''])]:
             self.assertEqual(S.propose(before,args),(before,[]))

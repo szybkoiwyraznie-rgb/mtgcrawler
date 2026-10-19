@@ -1,0 +1,160 @@
+{
+  "version": "2.4-PL3-UI",
+  "runtime_tested": false,
+  "owner_v23_focus_details_accepted": true,
+  "fixture": "NONPLAYABLE six-authentic-file miniature ISO; normal CLI extracted distribution ZIP",
+  "cli_exit_status": 0,
+  "top_level_problems": [],
+  "unchanged_originals": true,
+  "descriptions": {
+    "spirit": {
+      "records": 60,
+      "audited_populated_effect_fields": 120,
+      "changed_fields": {
+        "effect": 57
+      },
+      "inserted_spaces": 186,
+      "member_before": 17431,
+      "member_after": 17635,
+      "aligned_size_delta": 204,
+      "pool_count": 39,
+      "pool_fragments_byte_identical": true,
+      "other_text_fields_identical": true,
+      "all_numeric_parameters_and_tails_identical": true,
+      "all_pointer_deltas_valid": true,
+      "tokens_and_newlines_preserved": true,
+      "all_reviewed_patterns_resolved": true
+    },
+    "skill": {
+      "records": 1469,
+      "audited_populated_effect_fields": 1985,
+      "changed_fields": {
+        "effect": 412
+      },
+      "inserted_spaces": 689,
+      "member_before": 215764,
+      "member_after": 216488,
+      "aligned_size_delta": 724,
+      "pool_count": 720,
+      "pool_fragments_byte_identical": true,
+      "other_text_fields_identical": true,
+      "all_numeric_parameters_and_tails_identical": true,
+      "all_pointer_deltas_valid": true,
+      "tokens_and_newlines_preserved": true,
+      "all_reviewed_patterns_resolved": true
+    }
+  },
+  "skill_00_original_limit": {
+    "limit": 216768,
+    "physical": 216488,
+    "margin": 280
+  },
+  "skill_total": {
+    "members": {
+      "srwDL_Skill00.bin": 216488
+    },
+    "total": 216488,
+    "limit": 342194,
+    "missing": [
+      "config01.EDAT",
+      "config02.EDAT",
+      "config03.EDAT",
+      "config04.EDAT",
+      "config05.EDAT",
+      "config06.EDAT",
+      "config07.EDAT",
+      "config08.EDAT"
+    ],
+    "fits": null
+  },
+  "source_changes": 925,
+  "dlc": {
+    "source_rows_checked": 78324,
+    "source_rows_changed": 0,
+    "shared_item_and_skill_fragment_pools_unchanged": true,
+    "edat_recopy_required": false,
+    "physical_dlc_rebuilt_this_batch": false,
+    "scope": "Same PPSSPP ISO-loading setup and accepted v2.3 DLC. No assertion of universal loader behaviour."
+  },
+  "sysmes": {
+    "count": 1182,
+    "keys_unchanged": true,
+    "source_rows_checked": 18,
+    "physical_strings_changed": 17,
+    "utility_english_roots": [
+      39944,
+      40068,
+      44704
+    ]
+  },
+  "exe": {
+    "physically_applied": 397,
+    "exact_normal_patcher_output": true,
+    "sha256": "967c24cda1fa590ba46cbc44722fbec0e2cf5cd9a1b65d2ad24fc94a86ba1126",
+    "text_section_identical_to_accepted_v23": true,
+    "cache_instructions_unchanged": true,
+    "startup_data_pointer_word_unchanged": true,
+    "system_english_vaddrs": [
+      "0x08bf3678",
+      "0x08bf3f00",
+      "0x08bf3f1c"
+    ],
+    "game_font_identical_to_v23": true
+  },
+  "ui_atlas": [
+    {
+      "container": "IM1000.cpk",
+      "member": "srwDL_Inter_Tex.pac",
+      "texture": "intsys_04.gim",
+      "gim_bytes": 9500,
+      "physical_sha256": "a4adc225bd9ae7b7b108770960636fd985b7ae73b86be1f0e3c2d8df587d5255",
+      "english_byte_identical": true,
+      "pl_fits": true
+    },
+    {
+      "container": "IM3000.cpk",
+      "member": "srwDL_UnitParam_Tex.pac",
+      "texture": "intsys_04.gim",
+      "gim_bytes": 9500,
+      "physical_sha256": "a4adc225bd9ae7b7b108770960636fd985b7ae73b86be1f0e3c2d8df587d5255",
+      "english_byte_identical": true,
+      "pl_fits": true
+    }
+  ],
+  "installation": {
+    "iso_replace": true,
+    "dlc_replace": false,
+    "update_pboot_copy_required": false,
+    "required_output": "patched.iso only, accepted PPSSPP1.20.4 ISO loading setup",
+    "regenerated_not_required": "DLC outputs and PBOOT.PBP if a full-input builder emits them"
+  },
+  "inherited_config00_dictionary_refusals": [
+    "srw_DL_RoboDictionary00.bin: refused: unit:3990:series: no record with key 3990",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:50:series: no record with key 50",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:50:length: no record with key 50",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:50:weight: no record with key 50",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:65:series: no record with key 65",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:65:length: no record with key 65",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:65:weight: no record with key 65",
+    "srw_DL_RoboDictionary00.bin: refused: robonote:124:series: no record with key 124"
+  ],
+  "verification_caveats": [
+    "No PPSSPP/gameplay test of this batch.",
+    "DLC not re-downloaded/rebuilt; content unchanged vs accepted v2.3.",
+    "Filtered total-size report fits=null because eight DLC absent.",
+    "Legacy records report CP932-only verifier misreads reserved PL glyphs; raw PL codec readback independently checked all revised fields.",
+    "Eight inherited nested dictionary refusals, no new refusal; do not infer global zero warnings."
+  ],
+  "tests": {
+    "command": "PYTHONPATH=local/research-deps python -m unittest discover -s tests",
+    "run": 1697,
+    "skipped": 3,
+    "result": "OK"
+  },
+  "baseline_methods": {
+    "text": "Prior v2.3 materialized package, normal CLI config00/configst build",
+    "code": "Current unchanged accepted 14-word cache patch on authentic original; exact normal EXE patcher output",
+    "font": "Exact SHA256 against archived accepted v2.3 receipt",
+    "texture": "Re-render original PAC with immutable b01a28c atlas spec for v2.3 comparison; actual new PAC readback; EN render byte comparison"
+  }
+}

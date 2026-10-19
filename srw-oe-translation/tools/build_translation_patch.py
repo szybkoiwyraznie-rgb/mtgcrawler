@@ -841,7 +841,7 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
             if jp not in (original.decode("cp932", "replace"), TW.display(original)):
                 problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
                 continue
-        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068):
+        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068,44704):
             # IDs0x367/0x36a reach sceUtilityMsgDialog, not ank.fta.
             import pl_text
             if pl_text.is_pl(TW.english(row)):
