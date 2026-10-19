@@ -1,0 +1,68 @@
+{
+  "kind": "PL menu name cache",
+  "instructions": 14,
+  "name_bytes_before": 8,
+  "name_bytes_after": 32,
+  "object_bytes_before": 40,
+  "object_bytes_after": 72,
+  "name_offset_before": 12,
+  "name_offset_after": 40,
+  "original_field_offsets_unchanged": true,
+  "layout": "tail-name-v2",
+  "constructor_allocation_sites": 10,
+  "runtime_tested": false,
+  "original_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+  "patched_sha256": "195d93dcfbb97d7b5b84732f83a024e5ff70b1b9d8db7ef151fa6f1c5a54efc3",
+  "historical_v22_crash_reproduced": [
+    {
+      "constructor": "0x1a4830",
+      "regression_read_address": "0x6d",
+      "details_source": "0x65"
+    },
+    {
+      "constructor": "0x1a48b8",
+      "regression_read_address": "0x6d",
+      "details_source": "0x65"
+    },
+    {
+      "constructor": "0x1a4938",
+      "regression_read_address": "0x6d",
+      "details_source": "0x65"
+    }
+  ],
+  "details_consumer_offsets": [
+    "0x1a209c",
+    "0x1a1d80",
+    "0x1a3574",
+    "0x1a6ccc",
+    "0x1a7008"
+  ],
+  "actual_details_callee": "0x210904 (not stubbed)",
+  "details_calls_per_fixed_case": 5,
+  "fixed_details_calls": 930,
+  "scope": "Memory-only execution of original/patched constructors, strcpy, draw, full details-selection caller1a201c and callee210904 plus four external details-update call slices; other UI/getter callees stubbed, NOT PPSSPP",
+  "unicorn": "2.1.4",
+  "constructors": [
+    {
+      "constructor": "0x1a4830",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    },
+    {
+      "constructor": "0x1a48b8",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    },
+    {
+      "constructor": "0x1a4938",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    }
+  ],
+  "physical_names": 60,
+  "maximum_physical_name_bytes": 16,
+  "fixed_cases": 186,
+  "original_corrupt_cases": 3,
+  "guard_bytes_unchanged": true,
+  "full_focus_name_preserved": true
+}

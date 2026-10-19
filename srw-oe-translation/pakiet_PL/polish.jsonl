@@ -40664,7 +40664,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:9095","pl":" Atakuje wrogów w zasięgu, wlecze","source_sha256":"17a081066fcce2e1b3d8781008dfd7dd17b7b1c59be97b31b2b072ebd9d902e0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:127118","pl":"%s%s\n%s","source_sha256":"17a1c0866dc42e21fbe867043a6a452030b6fa8343a9d2c85b4acf611c31cbe8"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:13746","pl":"ilot: SP/Morale+","source_sha256":"17a40b98a1904f8857a828fc05592154e388a96cc04f64affc29aef3aba5008c"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:16880","pl":"Ulepszenia","source_sha256":"17a82ebe3090724458a2119a549faa2e95b83c69d02fbc45234d1cf3a53192fa"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:16880","pl":"Ulepsz","source_sha256":"17a82ebe3090724458a2119a549faa2e95b83c69d02fbc45234d1cf3a53192fa"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config00.cpk/srwDL_DLC_ID00.bin:4239","pl":"JP0700-NPJH50521_00-I100260000000000-J001","source_sha256":"17acbbd8347a55915e2aa36eb146b313c532ce3a8fc52b2507595ef86fa98580"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11356","pl":" Warunek:","source_sha256":"17b8c18165f4917732bcec403ae50381ab2af64ea8a000d157e59362192ed096"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:10085","pl":"Cel/Unik/Kryt/SP co turę+","source_sha256":"17b91eca074852915d31160ce907f5b87394bcccad2e12a0622f7c4c8f057b22"}
@@ -42123,7 +42123,7 @@
 {"file":"04_config_text.jsonl","id":"dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1758","pl":"Pobierz fabułę główną rozdziału 7.\n＠4Do gry wymagane jest ukończenie\nfabuły głównej rozdziału 6.","source_sha256":"2fc9581c64d9e5e5c24a186397187f15aac11ebece1486a0e728abdc7cfead03"}
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:748","pl":"Maks. Morale+","source_sha256":"2fc9c6bc91328181de630ed493459eb93f010e1b50ca2236a5505044bf28cd7d"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:9424","pl":"Pojmanie 3","source_sha256":"2fcccd09bb77fc293dd6a5353d2a306baf1e82148e3fd80041b1dbd24939c34c"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:34396","pl":"Zmień widok","source_sha256":"2fced390266feeef0d66bf5250be064b50cbdbc804125f826993a3f69c2b479b"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:34396","pl":"Widok","source_sha256":"2fced390266feeef0d66bf5250be064b50cbdbc804125f826993a3f69c2b479b"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42199","pl":"Mistrzostwo:        ＠0Cel/Unik/Kryt＠2%+3d%%＠0","source_sha256":"2fd139981a66cb411b010818c818ef7efd0f6dca420b7182911ffb28cc8c6ce5"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:165992","pl":"Potenc. Atk","source_sha256":"2fd2ee0be7d0336c2492316dda5bdb2ef44c7ff77eb6aad40f598995394238d9"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:188509","pl":"Siła woli Lv6","source_sha256":"2fd5ffc88f2eac5674dcd0612cd58b17ac47a467384a10ba3dd74608ee72e03a"}
@@ -42738,7 +42738,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:15351","pl":"% lub mniej: szansa","source_sha256":"39fea29269ec9af5f8f4bae9e440ce17338267f15449bac82f973becf8a99ae3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:149098","pl":"Anom. ocalały","source_sha256":"3a0de6b68b7558864d58e771358167707218495358fadc893edd591dab77d0d5"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19983","pl":"Wybierz jedną, aby przełączyć się\nna jej widok.","source_sha256":"3a174338124b7c112c970aa254a6deab3c03b9281701be80409ec58cb97c5f41"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31720","pl":"Zmień widok","source_sha256":"3a1777c748aa16dced5366b8f2d3c121fdcf9e4bd59b634108b956b3858e1fb4"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31720","pl":"Widok","source_sha256":"3a1777c748aa16dced5366b8f2d3c121fdcf9e4bd59b634108b956b3858e1fb4"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20721","pl":"＠6Zdolności broni＠0 wzrosły o poziom.","source_sha256":"3a1ab407d6ab9dd4b6d7889fbbc8b0ff4436e982e770d208f2f3b630e62cd37d"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:14549","pl":"\"＠","source_sha256":"3a1abbe4347bae0cd22f7fc36d3776aa716181fc4e9e3175346a4a1b62c7587a"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:10442","pl":"(Brai Thunder, Brai Star)","source_sha256":"3a1f0cb7347f720fccc2a93d109235d10d7c09842cf29bc51f01c98c9bff22f1"}
@@ -42955,7 +42955,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:197940","pl":" Stałe obraż. wrogom w zasięgu","source_sha256":"3d49b82b9c5dd644db5d60b5701c9640d69250cf7bc8148ea51ba29c70aa1c94"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15323","pl":"tura: Obr wroga%","source_sha256":"3d50c34fa6cc05f405106db943350939f6a1e61a217d0315d2becb9a9199db78"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:1045","pl":"Fundusze+","source_sha256":"3d536c41e6b1f7ca9b05fb736fd35f1e72b5c5ec2785f9d17bdb990b6f80fcc1"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15968","pl":"Ulepszenia","source_sha256":"3d58c839a23e7beba6e79a9be1e27a68df6f903838d4e2639d23eda593799264"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15968","pl":"Ulepsz","source_sha256":"3d58c839a23e7beba6e79a9be1e27a68df6f903838d4e2639d23eda593799264"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:9973","pl":" Atakuje i odpycha wrogów w zasięgu","source_sha256":"3d5d947c38a8a4238eb05d7b594234b84e6284b3cf7e8769fdc80242143b1509"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:87878","pl":"Transf.","source_sha256":"3d63b0b0df5b3889498555a80ca201f3385bd65a6fa858df8d1d1f6683081ab1"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:378","pl":"Wzrost parametrów","source_sha256":"3d64a580efccee65b1f355b5056dc7dc3ed6c0b7ab9be7a72bce12836e74c440"}
@@ -42993,7 +42993,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:38324","pl":"Przywróć ustawienia domyślne.\nCzy na pewno?","source_sha256":"3e0ebd690978aad0566347f84ddd78bb9a0e936df5edf1020993bebec1c4dc26"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:11777","pl":"Zamiana z wybraną jedn.","source_sha256":"3e11a14e9f589e70e07859b3a9291f13ee1871cb2b2d9964999cc547c82aceba"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:6327","pl":"HP+","source_sha256":"3e146e369d7835fab70df67be2b7eea4aba347468f58ffb46866408d870ba6b6"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15708","pl":"Ulepszenia","source_sha256":"3e1b8f260955c0b14e0090f1b1aa429fb6c0e6845b596be1af305ec91dc29329"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15708","pl":"Ulepsz","source_sha256":"3e1b8f260955c0b14e0090f1b1aa429fb6c0e6845b596be1af305ec91dc29329"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31100","pl":"Duchy","source_sha256":"3e3a174ee62cca6ea9fe4e5fcf1db119d6e709a4d284bb659403ace55ef74690"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:8258","pl":"SPIRIT_MONEY_UP","source_sha256":"3e3b3de11c366738aac1e6c4b80f53601ab3f7962183d352f1bc0f002bfc4280"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:158538","pl":"Mistrz","source_sha256":"3e3d70f7f4a08dee4a4834649d98e24841b78c1c6029dd34d2724cf4f2ef99d6"}
@@ -43959,7 +43959,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11838","pl":"Wybrane jedn. łączą się i","source_sha256":"4d5411fc9673aa50502762c48c9b0452eedfa89fa7fb3322548a321fedd1aed8"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12491","pl":"Atk/Obr/Unik/Kryt+","source_sha256":"4d541f9ce22c18394fd6cf9e486677a55afcc8e974d0358b27166374d51e2acb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:157626","pl":"%s5%sCel/%s16%%","source_sha256":"4d55d870e37f5158109a6e900cf19280d7bbf5c5a34a19d14da2944a776385f2"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31468","pl":"Zmień widok","source_sha256":"4d619f6af0ff98067a5e6aa8ff36a8d19bcf009070f756b1153cc1bb55c25c4f"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31468","pl":"Widok","source_sha256":"4d619f6af0ff98067a5e6aa8ff36a8d19bcf009070f756b1153cc1bb55c25c4f"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:28928","pl":"Głosy przy wyborze jedn.","source_sha256":"4d660b3f471f11b95ee2d3c4625d6eb2941f4f3d4473a43f117d10c9ec4a3e98"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:5313","pl":"Wsparcie: Atk/Obr+","source_sha256":"4d66b967a8d2304beb6d6fee15122f7beba22f480fc203e200621ae9bb9d08a3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:24511","pl":"Spętanie Lv2","source_sha256":"4d75196fe70e994382b81583275da695a4ed2a7c5803e0338f704cd6ed04db52"}
@@ -45985,7 +45985,7 @@
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:797","pl":"Co turę: Morale+","source_sha256":"6d10699cb9ad6a4171d84485622fe9d4872bb1b10acc04ac96817a80b955b45c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:186690","pl":"%s wroga-28 %s45%%","source_sha256":"6d12971b20282c392e4d90d3b391c306a6f0fe752b9ff7610eab8772743600a5"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:6042","pl":"Spadek obrony 9","source_sha256":"6d13a20ac90a0d97eeadae6632491099eceeb1808c6c77465256f675b8af99c6"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31796","pl":"Zmień widok","source_sha256":"6d189b444d11e33d3b2757d2fb685d99247d155231123d3d556954076613843e"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31796","pl":"Widok","source_sha256":"6d189b444d11e33d3b2757d2fb685d99247d155231123d3d556954076613843e"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:8064","pl":"jedn.: EN+","source_sha256":"6d1fbed2ec31137c74f93a007bddbd0ce2f8e1a7c3bd115f39282f065827a2ae"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:4525","pl":"Jeśli sojusznicy atakującego są w zasięgu broniącej się\njednostki, występuje \"＠6Efekt okrążenia＠0\".\n\"＠6Efekt okrążenia＠0\" zwiększa siłę ataku i celność.\n\n＠4<Strefa okrążenia>＠0\n4 pola przylegające do broniącego się (przód, tył, boki).\n\n＠4<Efekt okrążenia>＠0\nKażde zajęte pole strefy zwiększa wskaźnik okrążenia\no 5％, a tym samym siłę ataku i celność o 5％.\n\n2 kierunki dają 10％, 4 kierunki - 20％.\nZdolności broni, np. \"＠6Atak skoordynowany＠0\",\nmogą dodatkowo zwiększyć wskaźnik okrążenia.","source_sha256":"6d2369703e0ea56c9bf0183e6c6bad8a107b6c696103737877baa1b133e379f2"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:11953","pl":"Po uniku: EN+","source_sha256":"6d277fc7b3978d46b7a5bc5046efeee25637e756987de6585542c26273c8a1af"}
@@ -48747,7 +48747,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:8478","pl":"%s20\n%s","source_sha256":"99f26c70c09873624f7d991f20d8413aadfd2c4c0ea7fd712d9ab4dd099e2572"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:48256","pl":"%s6Okręt＠0%s6Okręt-matka＠0%sAtk x2\nOdporn.: \"＠6Przebicie＠0\" \"＠6%s0\", \"＠6Rzut＠0\"","source_sha256":"99f718511d0f9e560442e24c824eb4925448a7cc3d20c63dc814bf51a41f81c1"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:2504","pl":"Przy trafieniu","source_sha256":"99fd78da5f212081e4f436dde3f95afb238ae2e8667c157106f445d96e5292da"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15720","pl":"Zmień widok jednostek","source_sha256":"9a0546737cec0ee85f4420ae3dcea0197acdc9d69e6bd1cac4c05753f3d5d42f"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15720","pl":"Widok","source_sha256":"9a0546737cec0ee85f4420ae3dcea0197acdc9d69e6bd1cac4c05753f3d5d42f"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:4254","pl":"Ikinari dango","source_sha256":"9a07b2a2d6d582dd60c508bea6a505fd7dcf575fef0cc5c095b34b3a1768c88e"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:3124","pl":"Sojusznicy","source_sha256":"9a08b668d25d6448f2c9812f1be8965eecfab77d238e870c0d01ae091e961bf5"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:14497","pl":"Główne założenia i opis\nMaks. rozmiar tekstu:","source_sha256":"9a0dd6b7ab8b2ad256961881cac478571138797fdadaadfb6f311e65368f95da"}
@@ -49324,7 +49324,7 @@
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:9326","pl":"Opis systemów związanych z walką.","source_sha256":"a2cd99fbd1ee00cb0c7f6894968821e437219f20ad0c0d39ba8f2e96a55be8e7"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:6554","pl":"V-MAX Red","source_sha256":"a2cf48fabc1803028191c2b657f33b4d5b5678f56dd704760f8b177edbc08711"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:13026","pl":"+: Atk+","source_sha256":"a2d560c3e27236c8fbc864dfbeb40dcf46d7752481cbd04830199700f7b25d0c"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:9488","pl":"Zmień widok","source_sha256":"a2dba327f102e4722f0e35e1a3f1129fd767a441238dea7beebf44b80ecdf509"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:9488","pl":"Widok","source_sha256":"a2dba327f102e4722f0e35e1a3f1129fd767a441238dea7beebf44b80ecdf509"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:466","pl":"Niezłomność 1","source_sha256":"a2ddcd137db606f2d1f01dafaad760eaab0a8d4ab6c4e53b537fb66120d48d4c"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:9275","pl":" Atakuje wrogów w zasięgu, spycha","source_sha256":"a2de0c3de905e3659d1f3a892aa5cd0de83e653150b65f8201b5ef5e69a49692"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18596","pl":"＠4Ruch","source_sha256":"a2dfd3aa6786c1a78d1fece00e51b44ba7db7949702c00644f657fff735f42e3"}
@@ -50999,7 +50999,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:39832","pl":"Razem     %8d\nFundusze  %8d","source_sha256":"bd824652fc5cf51a345b2bccbf51b17edfd2cfa91cda7eab9c2f54b6401221b0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:54446","pl":"Odtwórz","source_sha256":"bd882ad1698a7d93cccdc43f5a0c3f06f221e3d45fcf570471551c5b6d5f8435"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:14109","pl":"+: Atk+","source_sha256":"bd917be5abf6af8e17881dfb95331bd8d0e0ab059b75fe541e09cdaea471a3e0"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:13656","pl":"Zmień widok","source_sha256":"bd91f8863ad03ee5e0674cd5e6b29e68282c72ab8d260ae02c0c48530ff11b46"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:13656","pl":"Widok","source_sha256":"bd91f8863ad03ee5e0674cd5e6b29e68282c72ab8d260ae02c0c48530ff11b46"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:25745","pl":"Wyssanie EN Lv5","source_sha256":"bd987d903dd496bf49e55c046642e127cdb0940d513304ce544910192e40e496"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:14350","pl":"ruger)","source_sha256":"bd9ad32be840e24fb371a0b063072724ce8ee276b696174192d4d63c70efb202"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5886","pl":"Kryt+","source_sha256":"bd9e5be2e05ff5bf5a55c598fb176842a7939d5b244a95a117fc5d34d7f55331"}
@@ -51082,7 +51082,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:8211","pl":"x Obr wroga-","source_sha256":"bef78aacc016bd112dc6f7d21397cccc9ea8b76c7180420b8017c6ee967f206d"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:13655","pl":"(G-Fortress)","source_sha256":"bef928a24311701316435f51fa745ec9a151d08018e17009176b9950f07d824a"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:7676","pl":" tura: Obr sojuszników obok+","source_sha256":"befb1e8cbb48b3497df1c7b67982e1a0e7424b9be39439c17b30ad4c7e6181ea"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:27184","pl":"Zmień widok","source_sha256":"befb372d2af7f4428502320536a6a19e6ed892fb8f3440ca5f7e43d141121d3a"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:27184","pl":"Widok","source_sha256":"befb372d2af7f4428502320536a6a19e6ed892fb8f3440ca5f7e43d141121d3a"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Odporn. na ogień","source_sha256":"bf04957060bc1c579327a41f12659b60f4569bf5725ec66ba4671f784e4fe9de"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:7668","pl":" Obraż.","source_sha256":"bf08762b0644c17f62e1ece6addaa87670b91b49434c87103a8cd7549823c69a"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10581","pl":" Warunek: Tsurugi, Ryu Doruk","source_sha256":"bf09439ddd157b79f616f1d0b79beb8a497eb97574f6166ff1f686ddba888ba9"}
@@ -51160,7 +51160,7 @@
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:7727","pl":"Tekst dodatkowy","source_sha256":"c014131da87f36aa52ed9b7a675f25641a06c049b4de8ad7bb83f4e5d257a2bf"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:168350","pl":"Potenc. Kryt","source_sha256":"c014343598d84e4ccccea96d469cdb9d9d7f2278c12bc575fc89424d5917ee39"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5121","pl":" Sojusznicy obok: SP+","source_sha256":"c0152ecfdadd6318521773d7a32a844ce9c3f9100374bd8ce0bfe59c62f07d0b"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31592","pl":"Zmień widok","source_sha256":"c0178e2c1835eb0deecfd79a5807d75f97a0d37b1695f8ba3a385b512f48b89e"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31592","pl":"Widok","source_sha256":"c0178e2c1835eb0deecfd79a5807d75f97a0d37b1695f8ba3a385b512f48b89e"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:25448","pl":"Zostało","source_sha256":"c02208fa9f616163b6b493ddc5cbb6c0261a731fa08030f62c697e019e0bc0fa"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:4967","pl":"(więksi od siebie)","source_sha256":"c025d62e24239832081caf5a13ae82b2171058a85624a6967a5e6b20b9883123"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10296","pl":"(Ryu Wizard Magidora)","source_sha256":"c0296e5dabe7abb5cc27a90c462d90a912fa99e2f844d6e083c2b77542cc18d8"}
@@ -51352,7 +51352,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:5860","pl":"Zadawane obraż.","source_sha256":"c29c9de394e2a672609bdf09189cb5ed10f67cae0086da46eb8f67899f8d97d8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:37744","pl":"Ksywa","source_sha256":"c29de22702ab9fb99f193ace52045760bf1f41527557620cb430fe8de81979d2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:114048","pl":"Bez okrążenia","source_sha256":"c2a4042af5bff245d038af421b0ea9982ebbc3f815ffb40811528f665a0430d6"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31676","pl":"Zmień widok","source_sha256":"c2a879647b895b12377887e61a278095f0915460ef7c6b5a5885c5661dc0efcf"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31676","pl":"Widok","source_sha256":"c2a879647b895b12377887e61a278095f0915460ef7c6b5a5885c5661dc0efcf"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:13692","pl":"Cel/Unik+","source_sha256":"c2ac04d67630ef17c51adb8143ee7505c8330a875055b232e608136ff2c6947b"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:140340","pl":"%s125%s Atk+45%%","source_sha256":"c2aef1594237ba1182cde650c32206b79d421664768f01fb509fa18bf5528833"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:32233","pl":"＠6W miarę postępów fabuły pojawią się nowe hasła.","source_sha256":"c2afdab5db8e2c5eb6f563c398abb90147ca8ff66e8e742147d9fa75dd90a9c0"}
@@ -51396,7 +51396,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:80147","pl":"Radiobariera Lv1","source_sha256":"c32d4cf9ddaa7d9c22dc77e4c62ad2b7da9865cd2bd76520d6972f84f25b7187"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:8307","pl":"Ruch przez teren i jedn.","source_sha256":"c3344307aec095aa326bb37c38579a97d3ef5cbf20bcfefb2f1c03846b759472"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:38212","pl":"Zatwierdź imię bohatera.\n＠6Możesz je zmienić w dowolnym momencie gry.","source_sha256":"c33603c8e7f02a02d69a070b77ab4a939595be81417b3d0aa019178bf3945f64"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18052","pl":"Zmień widok","source_sha256":"c33d168825e7ebbcd776b58351db4d1025295eb33278fc3ae597ab966352697d"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18052","pl":"Widok","source_sha256":"c33d168825e7ebbcd776b58351db4d1025295eb33278fc3ae597ab966352697d"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:15440","pl":"%: szansa","source_sha256":"c34054b6827c63f1683db1953383e363a41be4066432cdc3c5606710a62f4cad"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:28507","pl":"nawet gdy zmienia się ekran.","source_sha256":"c340edc15e63951aafe52b10587b54931a99c93fdc4a473527d92858788f02b8"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:5144","pl":"SPIRIT_GRD_UP_2","source_sha256":"c346d0202e7f8f2bad241d0b27d0692ea0f419b2545f004d4508b5f50e12bbf3"}
@@ -54577,7 +54577,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:4877","pl":"Co turę EN-","source_sha256":"f5f8fa3acc55987da33b5999254a5662253f2d8d78abe2ca9fa54a3420208bba"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:8596","pl":"<Śpiew Lv","source_sha256":"f5fa6ae877a98967f378b669cac389d179bad963ccff2289fd17497beba90528"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:9243","pl":"Na okręty Lv4","source_sha256":"f5fd7ef5182f7545c8384b0970df3f52b8c6c8d479a20ba98bb2bd2b9f3d7eb6"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21008","pl":"Zmień widok","source_sha256":"f5ff75b7a204e5516cb479e0a64ee60465d93bbf809071d3cd186419806c5796"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21008","pl":"Widok","source_sha256":"f5ff75b7a204e5516cb479e0a64ee60465d93bbf809071d3cd186419806c5796"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:7812","pl":"＠6%s1%s0\nLv3%s30%s x2, szansa na łup +20％","source_sha256":"f60150f9c85ba1ad0b02e042420181f74fff6b4eaf1953d0961632c9703cc08a"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:3190","pl":"Mijające tury","source_sha256":"f603ce928783b7d5595961a380d4235c140bb7f2956eaf4d5bd911046f6ed5b5"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:2255","pl":"Tekst dodatkowy","source_sha256":"f604c320f8cfc6d4c554ac81cc1671e70fee8a153f73d7c5c98f243f0ab46836"}
@@ -65076,33 +65076,33 @@
 {"file":"08_names_units_weapons.jsonl","id":"unit:3986:name_display","pl":"Mucus Gate L DR","source_sha256":"ffb395b6db2a7529a167d821882fd2b1a6bb3847d6e27393e7a3b7f188a48a82"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:3983:weight","pl":"Weight －－－","source_sha256":"ffbf763f451de915fc625e08c3a2cc12a8acd5b604bfda3542a9df7464825ef9"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:3932:name","pl":"Nekton Shooter","source_sha256":"ffda9c90f4b30c56bb02f15544ecb173b57cc4767642134109ae91c35bf4d9c4"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a02","pl":"Obraz.-20% Sz. 16%","source_sha256":"0007667b0fc93cc98d61ca772846f8c7f0dc993736b12d50de092a5c56376202"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a02","pl":"Obraż.-20% Sz. 16%","source_sha256":"0007667b0fc93cc98d61ca772846f8c7f0dc993736b12d50de092a5c56376202"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf93a0","pl":"Spw","source_sha256":"00e75a906decddd1e72afc0ef0262e8df0396add897195ede1b9685f9c06e14a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3ac8","pl":"Zestaw 3","source_sha256":"018ca6c7755af8319c9b42b898ec657093c0f0bc5a80d40d86c7762fd33f9a59"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9310","pl":"Duchy","source_sha256":"01a8877b2d4c582955da310390e9a5bd511154d63f49c4b604ff81f54b654a96"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8f94","pl":"＠０Cel＠２%+3d%%","source_sha256":"035b4f4d147d46bae86831bdd08b3c493960b610444ebb9776795733a0ffebfa"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5270","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nMniej obraz.\nNie unika atakow","source_sha256":"047be9366bb3eea845e97bd351bab9dbca4b4c9d36e107438ce9bf38f8de1f20"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5270","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nMniej obraż.\nNie unika ataków","source_sha256":"047be9366bb3eea845e97bd351bab9dbca4b4c9d36e107438ce9bf38f8de1f20"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48fb","pl":"Unik-28%","source_sha256":"060fb9f6b04b1f0be15aa71281f6777ed1bb550923246a78a3736d3fd7f29824"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3ab8","pl":"Zestaw 2","source_sha256":"06f9feb26a670b7e0f820d77cfd491f701ca5bfab7a3e9d946db462287b5b81f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9250","pl":"Sojusz","source_sha256":"077a98d9dd415aac0076d3ed98fd06f6fc326b3179915c4c57083727f7037716"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf43af","pl":"Arara Korara Yokkora III","source_sha256":"0799c398d2a74c62cc29ef662cc8e408fad90f86be6458cdc61741e7f2836425"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b55","pl":"Obraz.-20%","source_sha256":"08439324e98498fe426a0dfa31a57c09a64eafabe74b64ff18a43a92b8eab3a6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa6fc","pl":"Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.","source_sha256":"0892820a454358c37393898b6b24b383974c09a4a775f5ae75929225ff203444"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b55","pl":"Obraż.-20%","source_sha256":"08439324e98498fe426a0dfa31a57c09a64eafabe74b64ff18a43a92b8eab3a6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa6fc","pl":"Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.","source_sha256":"0892820a454358c37393898b6b24b383974c09a4a775f5ae75929225ff203444"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8200","pl":"Obr","source_sha256":"0953b06422549904907362bbf6bd9b60166a67aeb3ab761446cbc683e035f48f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f4d","pl":"Morale 126+\nCel,Unik+18 Kryt+16%\nSP+10 co ture","source_sha256":"0a82878ef2c3a9272b108d1cac046e7f4c0a66683e624692df050cdcb3640375"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f4d","pl":"Morale 126+\nCel,Unik+18 Kryt+16%\nSP+10 co turę","source_sha256":"0a82878ef2c3a9272b108d1cac046e7f4c0a66683e624692df050cdcb3640375"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e72","pl":"Keron Lv9","source_sha256":"0ab03d12112d46bb3458aa91a301dc37edf40223edcf29e71914b0fc25dc9c94"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e36","pl":"Keron Lv3","source_sha256":"0aba9767c1ebb9dfd8d97b484d9abd16dc9992bbaceb3cb2be188abed0ddda64"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d34","pl":"Upadek","source_sha256":"0c1043f8793f597a7e4a488b87f8ed634afcf0f02b871e5a83ec9a0cffe89392"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfdaf4","pl":"??????","source_sha256":"0c6f355afaaacc57d8c1da4ca7e999640742ce84c0c0481336fcc1f4f703b69c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf81f8","pl":"Lad","source_sha256":"0c7ff52f8f309eb7437b6f61249f59eb36210bdaae7683ae76c76d0b1dccadf8"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4d16","pl":"Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Cel,Unik+","source_sha256":"0d47c413ec924c7a5269a095ee41617f028f0d2b157fb26b993002eab6dd9ba3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b6b","pl":"Okraz.+20%","source_sha256":"0e6d01d4846bf43bf2d35d4b33f1c4922cbe3a1540553c25c7299d95c8e5a8da"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74f8","pl":"Anim. WYL","source_sha256":"0e8a21ceb8b7e9aa4cbef50c587914ed214144efc4df85c0a8e7291c44c24f9a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf81f8","pl":"Ląd","source_sha256":"0c7ff52f8f309eb7437b6f61249f59eb36210bdaae7683ae76c76d0b1dccadf8"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4d16","pl":"Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Cel,Unik+","source_sha256":"0d47c413ec924c7a5269a095ee41617f028f0d2b157fb26b993002eab6dd9ba3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b6b","pl":"Okrąż.+20%","source_sha256":"0e6d01d4846bf43bf2d35d4b33f1c4922cbe3a1540553c25c7299d95c8e5a8da"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74f8","pl":"Anim. WYŁ","source_sha256":"0e8a21ceb8b7e9aa4cbef50c587914ed214144efc4df85c0a8e7291c44c24f9a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9328","pl":"Czekaj","source_sha256":"101d58753d7209b6ea424faac0e0d93bfc994fb23c148e485bac58497f868c95"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4bbc","pl":"Atk,Obr,Cel+10","source_sha256":"10850214302621554c64aa80ff3b669f75014b0e1ae133341b13c189c40fa722"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8594","pl":"Wr.","source_sha256":"10e92697d688ae62e652004d64a8cade2e9519de457da8981a0f7fd1e50a0b66"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4d5f","pl":"Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Obr,Cel+","source_sha256":"11ae8cae6f7d2a3ae5879ff80c10fd96c31f7b314a057be77f40f3ce04b35640"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8228","pl":"Lad: brak wst.","source_sha256":"12211baf59478d85463eff2de30e0717b3fd4f098627fbc55f555a9007c7b346"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4d5f","pl":"Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Obr,Cel+","source_sha256":"11ae8cae6f7d2a3ae5879ff80c10fd96c31f7b314a057be77f40f3ce04b35640"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8228","pl":"Ląd: brak wst.","source_sha256":"12211baf59478d85463eff2de30e0717b3fd4f098627fbc55f555a9007c7b346"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2c8c","pl":"SP","source_sha256":"13200b2976694989b5c671ecc0182bf9696d4803c4d04e3c82f63705c8fe2531"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95e4","pl":"[Opcje]","source_sha256":"13a8fef5029ea6e96d4a8fd73da092eb5799bc8a24308cf6bdbf851438dfa994"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9640","pl":"Zmiana","source_sha256":"1444c8e14064d10b52a215c86979f64dd87c09ec08bb6fa44a87f80f2f7f6ea6"}
@@ -65110,152 +65110,152 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9770","pl":">","source_sha256":"14b2bc7b8b8f27710752555abe79ce577caa447906973e5e191f7cd063828df2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cec","pl":"Za dal.","source_sha256":"1501eb34a681b83bfb9e8b99454bd2df166c922ff7f22200fbdaee4bd3a35761"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c036cc","pl":"Seishiro","source_sha256":"1508c676a93b825ab499f29e85aaac2ede67c150d019310af1220082adf067fb"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c8e","pl":"Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: param.+","source_sha256":"154bc70140431d217eb8a40259730438a7d695b936bb4da4fa1a0745e7cf6eb6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c8e","pl":"Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: param.+","source_sha256":"154bc70140431d217eb8a40259730438a7d695b936bb4da4fa1a0745e7cf6eb6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d18","pl":"Zderzenie","source_sha256":"15dae7aa4d2d9cac4eafdd680880ff832531c9f021a20a61a0bef835d7e7bf0b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c03b88","pl":"OK","source_sha256":"1648888104cc5db7f2ded0034cd0949fe7075880b76649462dba33b82acc2296"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf50ed","pl":"Morale 140+: Atk,Obr,Unik+","source_sha256":"1714a91a841624feda8cfe042045510d58ef1b9fff3f5a22437ba585eabac06b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9368","pl":"Ladow.","source_sha256":"172171df93f89b18a199f1b1b6c4628c3b9db50a8b90bb6551aefd1f78a81736"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9368","pl":"Ładow.","source_sha256":"172171df93f89b18a199f1b1b6c4628c3b9db50a8b90bb6551aefd1f78a81736"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c16","pl":"Atk,Obr,Cel+20","source_sha256":"17390b4213522ca62f63bd292747851ca57e09f4a30aea2bfe193ec6b2cc65e6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7194","pl":"In","source_sha256":"1742bf95bfb2ec07027386d75133cc2c00172a95c71761f8d81de0bac976eef5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8584","pl":"Sojusz","source_sha256":"176ba97d3e8c377bbc329eb9987986f22bbaa8007bfb8bdd1a962af933990b93"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf43a0","pl":"CV:Koji Totani","source_sha256":"177d6f3c8fdcace357690c6cfc5d2b6308aab9e539e202dda7c6f1825f14d325"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bda","pl":"＠4<Okrazenie Lv3>＠0+30%","source_sha256":"17d9672c4ecffec677b445c550ff7cea68febd580e96bd2e01ce43c4dca1ca74"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf597c","pl":"Obrona:Obraz.-34%\nEN-5","source_sha256":"18152b526f03e5844d4de4fd6f964d26b00fcbc888172c8cbf07cf7f77b373b9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bda","pl":"＠4<Okrążenie Lv3>＠0+30%","source_sha256":"17d9672c4ecffec677b445c550ff7cea68febd580e96bd2e01ce43c4dca1ca74"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf597c","pl":"Obrona:Obraż.-34%\nEN-5","source_sha256":"18152b526f03e5844d4de4fd6f964d26b00fcbc888172c8cbf07cf7f77b373b9"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3988","pl":"Ukonczone do Ep. %d","source_sha256":"183e3d6a2e4b510f4afaeb806fb583fe816d20c2a6627b7fa3a35725d2391b54"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cac","pl":"EN","source_sha256":"184574d618a84536e92666d32c40ea5fdc3c3352c651c252567163ab1e5edcd8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7aa8","pl":"**","source_sha256":"1846e1f96357ce30f9857f36b51ff613b4ccf08884761d464f76c494509c8fec"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5141","pl":"＠4<Hyper Lv2>＠0Morale 140+ Atk+45% Obr,Unik+15%","source_sha256":"1939b47caa1326f22155e0f7b4875a6d48382aae855e05b4ef1f6accfd0d8971"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa606","pl":"＠0\nZdobyto F:%10d  EC:%10d\nRazem   F:%10d  EC:%10d","source_sha256":"19e781dcf365de75e603f3815d11bbbf50b748089b0468fb996702e4d72decaf"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9380","pl":"Detonuj","source_sha256":"1ad3b36e6f8027a0bb9dcd28046318658c86839a60844bdf868cd699b2ab7e82"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bf6","pl":"＠4<Okrazenie Lv4>＠0+35%","source_sha256":"1bbf31adda25c12133a7a611f3cb3a825d33306ea8d8aef2af018dfd8f262651"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bf6","pl":"＠4<Okrążenie Lv4>＠0+35%","source_sha256":"1bbf31adda25c12133a7a611f3cb3a825d33306ea8d8aef2af018dfd8f262651"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b1d","pl":"＠4<Penetracja Lv4>＠0Obr-45%","source_sha256":"1bc4f2b90cd3ba6d940748ab00822fdd7a5dec87dcbc618fa93272f42022823e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4eb4","pl":"Morale 129+\nCel,Unik+12 Kryt+10%\nSP+10 co ture","source_sha256":"1bd4b43a76c6c48b72583ddc482409803fe657baf56d47b128d0da5382097cfd"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ccd","pl":"Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Cel,Unik+","source_sha256":"1c58779ef299aaa43eb265fd7dd8c09abbda3c8f7edf2e8ab0fc5f55a4c75278"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9378","pl":"Podloz.","source_sha256":"1c7cdcc6977cbe7d880f994ea40ec028c59ae744d4005da3d1930f9a22d21813"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4eb4","pl":"Morale 129+\nCel,Unik+12 Kryt+10%\nSP+10 co turę","source_sha256":"1bd4b43a76c6c48b72583ddc482409803fe657baf56d47b128d0da5382097cfd"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ccd","pl":"Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Cel,Unik+","source_sha256":"1c58779ef299aaa43eb265fd7dd8c09abbda3c8f7edf2e8ab0fc5f55a4c75278"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9378","pl":"Podłoż.","source_sha256":"1c7cdcc6977cbe7d880f994ea40ec028c59ae744d4005da3d1930f9a22d21813"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4904","pl":"＠4<Spowolnienie Lv2>＠0600 1t Unik-22% Sz.35%","source_sha256":"1ca1743bbce82af5574bf2fb756573e1a2b6f0fd64612194f2726069b637cbd3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5461","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-18%\nNie unika atakow","source_sha256":"1dfa732ebd55e44db8c2d13de01ff3ad022565ac4025196f35bb46e88fc957b5"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5461","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-18%\nNie unika ataków","source_sha256":"1dfa732ebd55e44db8c2d13de01ff3ad022565ac4025196f35bb46e88fc957b5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa5e0","pl":"Otrzymano %s x%2d.","source_sha256":"1e167073d94c83b3c5244b452a970dac6589d5851530f0f582b0a41a470dd538"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d00","pl":"Atak MAP","source_sha256":"1e624d2582ebd7a5e1b2fe09d169472c09ccbd09acb3a0910ecd5b7b25cb3925"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5250","pl":"Duzy Lv7","source_sha256":"1eae12051d9c4d37e3efc5cf28d38f7f6503a2f18bc790b5df3fec4220f2b3b9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c19768","pl":"Pomin","source_sha256":"1fb51f6030d70c47fa2777fa3c1a869f13169272078ddf74d1c950ebf5c259f5"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5250","pl":"Duży Lv7","source_sha256":"1eae12051d9c4d37e3efc5cf28d38f7f6503a2f18bc790b5df3fec4220f2b3b9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c19768","pl":"Pomiń","source_sha256":"1fb51f6030d70c47fa2777fa3c1a869f13169272078ddf74d1c950ebf5c259f5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3ad8","pl":"Zestaw 4","source_sha256":"1ffe5b33586abbe417e3ae3c831cf8397649dc66cc27b484b824fc1bf853837a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4970","pl":"＠4<Spowolnienie Lv4>＠01000 1t Unik-26% Sz.45%","source_sha256":"203cd0cb80753dec049a8b712f5ffa22ebf060a3d76e26b301999fb517bc6c22"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b59","pl":"Moze zmienic forme\n(Wing Caliber)","source_sha256":"205259025e683e5cf46b23f9b5f233d2da0e2bd2730743f13fc3b301981b3f09"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b59","pl":"Może zmienić formę\n(Wing Caliber)","source_sha256":"205259025e683e5cf46b23f9b5f233d2da0e2bd2730743f13fc3b301981b3f09"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9338","pl":"MAP","source_sha256":"2074898dd63ff0e9a7ff7a6748034828357af09e55474916eab3891352bcacc6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a17","pl":"Obraz.-22% Sz. 18%","source_sha256":"212c219b09d64999fa40794ed0d50a8e22bcab4ba667d943288135381595dc6b"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a17","pl":"Obraż.-22% Sz. 18%","source_sha256":"212c219b09d64999fa40794ed0d50a8e22bcab4ba667d943288135381595dc6b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf716c","pl":"<< Status >>","source_sha256":"2190b30adbbcb9ba52df530d9f8430e880907e60520ad985746e502c5289583f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6b40","pl":"Nast. str.","source_sha256":"23490ee046b9ac0bd080ec22d1ae8233339a883a45c05ad8beb9983d93e46d14"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf71ac","pl":"Kr.","source_sha256":"238c48d737b4d26a909802a441f04975291e08fa02b0e91b6f6f487da77443ba"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e82","pl":"Morale 130+\nCel,Unik+10 Kryt+8%\nSP+10 co ture","source_sha256":"25da5b767143f573b7274a25862a18b60c0d76c1130cf2f2f2664ba4ed7ffb16"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e82","pl":"Morale 130+\nCel,Unik+10 Kryt+8%\nSP+10 co turę","source_sha256":"25da5b767143f573b7274a25862a18b60c0d76c1130cf2f2f2664ba4ed7ffb16"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf49a7","pl":"＠4<Spowolnienie Lv5>＠01200 1t Unik-28% Sz.50%","source_sha256":"25e67a72609a71ef52e0da719dcd7055421582b6e4938de49a772a3981ac832c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92f0","pl":"Polacz.","source_sha256":"26032db2fdeb1b398d294383e2bba8a2b03db74adaec54df8f3c9693bef59b24"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a94","pl":"＠4<Bron wiazkowa Lv5>＠0Kryt+12% Unik-12%","source_sha256":"26e42af5ada61a9910efe868eca0f4ad76a70911addf9c7f2022664b0396dd15"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92f0","pl":"Połącz.","source_sha256":"26032db2fdeb1b398d294383e2bba8a2b03db74adaec54df8f3c9693bef59b24"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a94","pl":"＠4<Broń wiązkowa Lv5>＠0Kryt+12% Unik-12%","source_sha256":"26e42af5ada61a9910efe868eca0f4ad76a70911addf9c7f2022664b0396dd15"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf51ab","pl":"＠4<Hyper Lv4>＠0Morale 140+ Atk+55% Obr,Unik+25%","source_sha256":"270c8db0bd3cd4f1e03c1793d302516dd7941f5be446caa4c8b3a27ff73863ff"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfe6a8","pl":"Blad wczytania szybkiego zapisu.","source_sha256":"27c0b1b8482c972989e9ccdb6c3e8e0e2d1938d0603d09cfa61141ebee46dcc1"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf67c0","pl":"Okrazenie","source_sha256":"27ce0b179732d2ee3873305b68f186612a6e356e992528f16a2578d55599cd07"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfe6a8","pl":"Błąd wczytania szybkiego zapisu.","source_sha256":"27c0b1b8482c972989e9ccdb6c3e8e0e2d1938d0603d09cfa61141ebee46dcc1"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf67c0","pl":"Okrążenie","source_sha256":"27ce0b179732d2ee3873305b68f186612a6e356e992528f16a2578d55599cd07"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf39a4","pl":"Bohater Lv%d  Czas gry %d:%02d:%02d\n%sLacznie tur %d\nFundusze %d\nEC %d","source_sha256":"282135d4643f51d85c92bf99f20ffcb012002221d43a3385d32b890206eddcf9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bff8cc","pl":"Zadnej jednostce nie mozna teraz ustawic BGM.","source_sha256":"28f4baf2a3a78b05e1e39be0683af632a37d83287c9cd2a81dc54ab139f5ef6e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bff8cc","pl":"Żadnej jednostce nie można teraz ustawić BGM.","source_sha256":"28f4baf2a3a78b05e1e39be0683af632a37d83287c9cd2a81dc54ab139f5ef6e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f38","pl":"Gotowe","source_sha256":"298e81c1ba01ba9cbc7241b0fde8df5b0568228144a1ecebd90e789b693cf4fe"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5628","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-10%","source_sha256":"29b3343b9cbc0ef4b81e4830a151f22736ae3347ab61a74b2f4d56b27fa1297b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf521a","pl":"Duzy Lv1","source_sha256":"2a9d3d96642d6e69f0f7fa22e1982518f8f002bdc76d750a135af0ad1387ef85"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5628","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-10%","source_sha256":"29b3343b9cbc0ef4b81e4830a151f22736ae3347ab61a74b2f4d56b27fa1297b"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf521a","pl":"Duży Lv1","source_sha256":"2a9d3d96642d6e69f0f7fa22e1982518f8f002bdc76d750a135af0ad1387ef85"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4dc1","pl":"Cel,Unik+12","source_sha256":"2adff506d848672b52edd4ba6fa8ce1d2e04f477a1d921d8ee3d0b45c8107e26"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf51e0","pl":"＠4<Hyper Lv5>＠0Morale 140+ Atk+60% Obr,Unik+30%","source_sha256":"2b252a6740efd03b0a2b04daf59bb14ada9817556d866eb9e41f5d710e5c97bc"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4bab","pl":"Atk,Obr,Cel+8","source_sha256":"2b60d976cb8cee4bc9c721c4a95716990450061cba147fb0a076279b31b2a707"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e54","pl":"Keron Lv6","source_sha256":"2d0472e5604d81775fae31ece4606f786424968b3b6eec1e0b2ac6d646ef6443"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55ff","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-8%","source_sha256":"2eaa17b38883714777d670fd848bfeaeaf7c4029b423385e15ca63ebe1412693"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b2d","pl":"Kryt+100%/sila+36%","source_sha256":"2ec14bf7ceeb528783072a9aee61449315918c62f17552a1bb9dcf15630edcc4"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf57fb","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-16%","source_sha256":"2fa33ff3e4508865be99c268c1364fb1aaa370fe7a1b85fa7f437206fdd6b09f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55ff","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-8%","source_sha256":"2eaa17b38883714777d670fd848bfeaeaf7c4029b423385e15ca63ebe1412693"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b2d","pl":"Kryt+100%/siła+36%","source_sha256":"2ec14bf7ceeb528783072a9aee61449315918c62f17552a1bb9dcf15630edcc4"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf57fb","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-16%","source_sha256":"2fa33ff3e4508865be99c268c1364fb1aaa370fe7a1b85fa7f437206fdd6b09f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9308","pl":"Przem.","source_sha256":"309d991e309777d1876fc4b6cb18c3b81b67511765255cad1b4deac49723bc92"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa0c0","pl":"Cozun","source_sha256":"313cc29d8ec939b4cdfbac5babc0d730da4d76214eae5cb3736fac8b6055d788"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3ae8","pl":"Zestaw 5","source_sha256":"31461e93670cdf578ba2ae09c731bdb58a1a70be2b6616d6c28274c6df778c43"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4df5","pl":"Cel,Unik+20","source_sha256":"33538743089f7abcf71a1352b4afb61081baa3e9f0967b8ea70e7b466c996040"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e2c","pl":"Keron Lv2","source_sha256":"33f40011e4dd39d6fd7a49260268f82f6d9547a8904d771842f68dfee17df741"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf71b8","pl":"EC","source_sha256":"3500fc888e480d0fb41983b19a975b8b21e35612de9df18cfabab625e57d6035"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf58d3","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-24%","source_sha256":"3582b5db90e12ee6ce7316f224f66a55381a89bd3796384f4a199bbbaec055a0"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cc8","pl":"Oslona","source_sha256":"358418d6fc518e26a9e929e41a3d864e9ab5f06d2db4e5bdb6fce62047b8fdfe"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf58d3","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-24%","source_sha256":"3582b5db90e12ee6ce7316f224f66a55381a89bd3796384f4a199bbbaec055a0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cc8","pl":"Osłona","source_sha256":"358418d6fc518e26a9e929e41a3d864e9ab5f06d2db4e5bdb6fce62047b8fdfe"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2c94","pl":"Morale","source_sha256":"3601cbef233e149ed2cf0e58bf870b336079e7b610405d98beeb0d8fc29a6e31"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9348","pl":"Grupowy","source_sha256":"37cb9de95247e8135a63e8e2342f9e3cfd7a4b10e3bc511aeb1dbd85f7611bb9"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82d8","pl":"Samotn.","source_sha256":"380fe09162f10932f240e6d3f067f87ca3fa8b5de1eed7eb7f2c44a415b201c5"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f00","pl":"Zmienic wolne rozmieszczenie?","source_sha256":"3884dc78baddecb3554e613aa9dfab3b8c910175bfb1afc6a962de60f5d6dc5c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a56","pl":"Obraz.-28% Sz. 24%","source_sha256":"3af33bd96f48d2c06f7c98bedd7442fa26bff8e292ebafa8ac0165b9013dfbd3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56a6","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-16%","source_sha256":"3c07c27a804ef3820ea802db7c3ee7acecb9614d31012933e1376231eef94af3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f00","pl":"Zmienić wolne rozmieszczenie?","source_sha256":"3884dc78baddecb3554e613aa9dfab3b8c910175bfb1afc6a962de60f5d6dc5c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a56","pl":"Obraż.-28% Sz. 24%","source_sha256":"3af33bd96f48d2c06f7c98bedd7442fa26bff8e292ebafa8ac0165b9013dfbd3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56a6","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-16%","source_sha256":"3c07c27a804ef3820ea802db7c3ee7acecb9614d31012933e1376231eef94af3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cd4","pl":"Wsp. ataku","source_sha256":"3c9eb8452a5320706565d9e18c284ce7c11b83128f2f4976af2829c29141caad"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92b0","pl":"Ruch","source_sha256":"3cbbc5be6da0fab2330507b8ae8957df4deb2e2629da17eb5a0abf57c0238bd7"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7528","pl":"Przelacz GR","source_sha256":"3cc094eb120006523900db572045ebe9c55de0da7671bb4fc1f00152c936cf57"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5909","pl":"Obrona:Obraz.-24%\nEN-5","source_sha256":"3d56f94b63ba62b3a120cbb8eaaf105394d3b6a974cc213e6691d6d13b5bc66b"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7528","pl":"Przełącz GR","source_sha256":"3cc094eb120006523900db572045ebe9c55de0da7671bb4fc1f00152c936cf57"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5909","pl":"Obrona:Obraż.-24%\nEN-5","source_sha256":"3d56f94b63ba62b3a120cbb8eaaf105394d3b6a974cc213e6691d6d13b5bc66b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d0c","pl":"Przebicie","source_sha256":"3ddaf66b9b6bda54cbce397c9b08acb3066f54f0d005f198b513f241d4700a33"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c19f80","pl":"Wiazk. Gatling/M","source_sha256":"3ed381caf6084eb201c37e4a0c68f90276f33ca03754d7c77241f252b03289c9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c19f80","pl":"Wiązk. Gatling/M","source_sha256":"3ed381caf6084eb201c37e4a0c68f90276f33ca03754d7c77241f252b03289c9"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8f7c","pl":"＠４Teren","source_sha256":"4089e2d8a29f5f70bb4798418d4c8a29efd60da047d7dbde509b6afed67ed700"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf540e","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-16%\nNie unika atakow","source_sha256":"418bc41149602dc2660232985eb9fc104b6ffed7bf726ad423cb356de61ee67d"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf540e","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-16%\nNie unika ataków","source_sha256":"418bc41149602dc2660232985eb9fc104b6ffed7bf726ad423cb356de61ee67d"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3a90","pl":"Kusanagi","source_sha256":"42365f4065a283605e8d14114382bed6c7402a6e1f430bd65a17b85637ee06a3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf957c","pl":"Szukaj","source_sha256":"42e638a379dec7aee9605aeabc1458fb2a752edb5820345f7b09e8b8c86e3725"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa65b","pl":"＠0\nZdobyto F:%10d  EC:%10d\nRazem   F:%10d  EC:%10d","source_sha256":"43361e7e7bd2759737d4e7be13d1261e9d66e8f55ec65b37dce56ac7e2a20728"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf83a4","pl":"Wstecz","source_sha256":"446649b182a310cc2494f6a2e2b1cd355956c81c5c007909d6a27179c1e20913"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf567c","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-14%","source_sha256":"449d2bada95f9ec94d91e94d2a956e9b8d5a873b8661e9a86980af3b4e529dec"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf567c","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-14%","source_sha256":"449d2bada95f9ec94d91e94d2a956e9b8d5a873b8661e9a86980af3b4e529dec"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf93a4","pl":"Podziem","source_sha256":"459da558b546ed9c17f906d09c7b0c455704b2e7e40464bcdd8b0217eb700ebf"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92e0","pl":"Pow.","source_sha256":"45cb11bec4b0f9ffc370183ff26804a9b72ccb23b0c44e43aae7ed0906ac3e9c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4de8","pl":"Cel,Unik+18","source_sha256":"463ef0a31cfe0a0d3f748d6f48c9654ae5201821d8258671c1ae379114ee0278"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b19","pl":"Kryt+100%/sila+32%","source_sha256":"4718d7f77107336d1f81d684504d965fc7388028c9162543214af77a11ae1b6e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b19","pl":"Kryt+100%/siła+32%","source_sha256":"4718d7f77107336d1f81d684504d965fc7388028c9162543214af77a11ae1b6e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9388","pl":"Autodes","source_sha256":"47919ff35cc32dae353a0365a33d8517315906f46a2c7acb0d1a04c085c0fdb6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf50db","pl":"Atk,Obr,Cel+24","source_sha256":"47afe59007856f58162d68c68e9ee8b2c07c13ee45429b6a0962ffeb4cfed6d7"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c03790","pl":"Nie udalo sie wczytac dodatkowych danych gry.\n          Powrot do ekranu tytulowego.","source_sha256":"47bba3b6307cbe0caf678353ded22511c9ff072aae480c8d6c58ff170ef11c1a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5507","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-22%\nNie unika atakow","source_sha256":"4821b171224a96bdb0a47f37d61fcf339dc211a9e798c27449e942ede82aa36e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c03790","pl":"Nie udało się wczytać dodatkowych danych gry.\n          Powrót do ekranu tytułowego.","source_sha256":"47bba3b6307cbe0caf678353ded22511c9ff072aae480c8d6c58ff170ef11c1a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5507","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-22%\nNie unika ataków","source_sha256":"4821b171224a96bdb0a47f37d61fcf339dc211a9e798c27449e942ede82aa36e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e68","pl":"Keron Lv8","source_sha256":"483222f5c59073daffc756c688006739b752d266183764c3530013f915e1af65"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4dce","pl":"Cel,Unik+14","source_sha256":"48bd75392ad8ff7235c831d280e80f0f2ac31a4d5428df0a0e114dabfbfbdc98"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c19771","pl":"Historia","source_sha256":"493f9564d5cebe036693c66a7095b95f048e57f3fe4bb89743c77169aac97f68"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf81fc","pl":"Pow","source_sha256":"4a5b11d3315188a05455516e2970c6cc6ac265d7a03e704825e394d28dc4efe9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3f00","pl":"Blad polaczenia.","source_sha256":"4a937c9e27da5ee15b94de57d40d3f3530f772cb8132cd542efeda4d871d1d1b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8238","pl":"Brak wstepu","source_sha256":"4ac4ba88cfd6e2ad0fc7cc1b9b27953fb11bc9da67409ba8dbd2a4e52ef4d10c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3f00","pl":"Błąd połączenia.","source_sha256":"4a937c9e27da5ee15b94de57d40d3f3530f772cb8132cd542efeda4d871d1d1b"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8238","pl":"Brak wstępu","source_sha256":"4ac4ba88cfd6e2ad0fc7cc1b9b27953fb11bc9da67409ba8dbd2a4e52ef4d10c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ac3","pl":"＠4<Penetracja Lv1>＠0Obr-30%","source_sha256":"4bf2e400b2e04d9a33d90d9c85275f1b0a10c2e4dd5fda4d5c763fdefe3aec05"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf555a","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-24%\nNie unika atakow","source_sha256":"4c46f30864908150464ade4fee32c3301aada6b3e7c087629c0705a4f04fd8db"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf555a","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-24%\nNie unika ataków","source_sha256":"4c46f30864908150464ade4fee32c3301aada6b3e7c087629c0705a4f04fd8db"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48b0","pl":"Psi-bariera","source_sha256":"4ca74e3a52f4bd2350dfcb3ddfa44d14558b344bdc38cf0870220f28335a84fe"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9294","pl":"Morale+%d","source_sha256":"4db238863c2baa325be197f07fef5ae1a4549952e3cf42988b2c3208fd3840bd"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b97","pl":"Okraz.+40%","source_sha256":"4dfe0c4c1473fb1c2df5683f50db86932bbdf57820dd879a696ab0965a20662e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5759","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-10%","source_sha256":"4eea420b0ad9121db4da1396093004fd1b57da20f0358716944fa575c84e2817"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf53bb","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-14%\nNie unika atakow","source_sha256":"4f87e0963c1532ae22733e291d501919552df2acf5189585aeb625e81e4049f9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5cd7","pl":"＠4<Atak grupowy Lv2>＠0Okrazenie+35% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku","source_sha256":"4fa2a45dd12fdf5cde8888d80036ef8b5129dfc911716f779dbebbc640da5b7e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b97","pl":"Okrąż.+40%","source_sha256":"4dfe0c4c1473fb1c2df5683f50db86932bbdf57820dd879a696ab0965a20662e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5759","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-10%","source_sha256":"4eea420b0ad9121db4da1396093004fd1b57da20f0358716944fa575c84e2817"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf53bb","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-14%\nNie unika ataków","source_sha256":"4f87e0963c1532ae22733e291d501919552df2acf5189585aeb625e81e4049f9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5cd7","pl":"＠4<Atak grupowy Lv2>＠0Okrążenie+35% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku","source_sha256":"4fa2a45dd12fdf5cde8888d80036ef8b5129dfc911716f779dbebbc640da5b7e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e4a","pl":"Keron Lv5","source_sha256":"4fb70e785c558fa7503f5b8cbdbeb0ca10748131c1898f67c96774e6217df2a2"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5937","pl":"Obrona:Obraz.-28%\nEN-5","source_sha256":"4fdbd462c679f89c5b18f8245a2d40e049117201cbcdcaf690c877acc4edee82"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5937","pl":"Obrona:Obraż.-28%\nEN-5","source_sha256":"4fdbd462c679f89c5b18f8245a2d40e049117201cbcdcaf690c877acc4edee82"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7190","pl":"Wr","source_sha256":"500ff1c8008794358fa7f6be2b3c8160f36d44376a4fcf416b06893534067b57"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7ab8","pl":"Wsp.","source_sha256":"50b3aa66f04257afcc2bea4bf0fe9398822c867e2e56287375f8bd29311f46e1"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b8c","pl":"Okraz.+35%","source_sha256":"50e6b10e550fea263d6f2581d08df264824228c9d726dd2ac19137a333fb18b9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5724","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-8%","source_sha256":"5192313a955fa18871a207c734a9a89f3c83ff8c395b92dc07f72b36857c4071"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b8c","pl":"Okrąż.+35%","source_sha256":"50e6b10e550fea263d6f2581d08df264824228c9d726dd2ac19137a333fb18b9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5724","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-8%","source_sha256":"5192313a955fa18871a207c734a9a89f3c83ff8c395b92dc07f72b36857c4071"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92b8","pl":"Atak","source_sha256":"519bc2a46ef9755972370e152a98ec1f6bac426aee78f27ed15affcffb8c9c6f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92d8","pl":"Lad","source_sha256":"521bd947a8da25cb2ae8980e13f718d3c21e15d416f70d1e80e5eb35678589e0"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5235","pl":"Duzy Lv4","source_sha256":"522910edd345c443c3ae02a5684ca7e850ca298927d46a64db474a5a21734a42"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92d8","pl":"Ląd","source_sha256":"521bd947a8da25cb2ae8980e13f718d3c21e15d416f70d1e80e5eb35678589e0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5235","pl":"Duży Lv4","source_sha256":"522910edd345c443c3ae02a5684ca7e850ca298927d46a64db474a5a21734a42"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7148","pl":"<< Zwycięstwo >>","source_sha256":"54b90cb5e8de03734b6a9d65e015b1032e6af51f24732cf54bced2a72b4ec79b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfe054","pl":"Symulator nie jest jeszcze dostepny.","source_sha256":"554b88f752c0473d807a71c06edc6de8bf91ce5dfb7b33fb1021c80601c95636"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5215","pl":"Duzy","source_sha256":"56146d22dbfeb974ad2bc1e44ce33a454a5e58f38035a65796da6195aa4e81cd"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b76","pl":"Okraz.+25%","source_sha256":"56e682ddb3dfd171651481777ed7f354fee36915fb1757eccb85734d62c663fc"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f80","pl":"Morale 125+\nCel,Unik+20 Kryt+18%\nSP+10 co ture","source_sha256":"56f7307f1913a248442261763ec0ea7cdc82f376da901c83e4f10f0a33a315f5"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfe054","pl":"Symulator nie jest jeszcze dostępny.","source_sha256":"554b88f752c0473d807a71c06edc6de8bf91ce5dfb7b33fb1021c80601c95636"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5215","pl":"Duży","source_sha256":"56146d22dbfeb974ad2bc1e44ce33a454a5e58f38035a65796da6195aa4e81cd"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b76","pl":"Okrąż.+25%","source_sha256":"56e682ddb3dfd171651481777ed7f354fee36915fb1757eccb85734d62c663fc"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f80","pl":"Morale 125+\nCel,Unik+20 Kryt+18%\nSP+10 co turę","source_sha256":"56f7307f1913a248442261763ec0ea7cdc82f376da901c83e4f10f0a33a315f5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e22","pl":"Keron Lv1","source_sha256":"575dad71846aff91d929b3a0aed296d5c599e3e013724398be3e940a1d7732db"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5993","pl":"Obrona:Obraz.-36%\nEN-5","source_sha256":"57db2c93dc8eaf92a41c15247868437f83255862488fbe53c5f175a25852179c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a95","pl":"Kryt/sila kr.+","source_sha256":"5807bd4a29cc722f2b8da7b3868d4948d07854a68b2708ebbd09945aece50db2"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf522c","pl":"Duzy Lv3","source_sha256":"592e8df8084a3ea9820097e03d540d2aa0c002a181b14041a254529b33133fe1"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5993","pl":"Obrona:Obraż.-36%\nEN-5","source_sha256":"57db2c93dc8eaf92a41c15247868437f83255862488fbe53c5f175a25852179c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a95","pl":"Kryt/siła kr.+","source_sha256":"5807bd4a29cc722f2b8da7b3868d4948d07854a68b2708ebbd09945aece50db2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf522c","pl":"Duży Lv3","source_sha256":"592e8df8084a3ea9820097e03d540d2aa0c002a181b14041a254529b33133fe1"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8598","pl":"PoRu","source_sha256":"5a269ef7f01e94bcfe8028486ea0783a77b1c7d6c3d06d983df8b9fea504caf0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa080","pl":"Po %d","source_sha256":"5b2f648a048272f9c49fd0c7b3c31e8a57d77f87f7065d4706af6ade2e045166"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3940","pl":"Super Robot Wars Operation Extend","source_sha256":"5b9164bd0b357a99a09a7a718e3ffe9679283586797f7107cb8f16c5d003d867"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf52c3","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-8%\nNie unika atakow","source_sha256":"5dca29031ae88102df1aab0b617607f1c85c9531f744fdc7192320b7d3cee726"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9318","pl":"Czesci","source_sha256":"5e26961df47f561af144ce67733a325f221aaede079077d8f937ccaed3e11939"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf52c3","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-8%\nNie unika ataków","source_sha256":"5dca29031ae88102df1aab0b617607f1c85c9531f744fdc7192320b7d3cee726"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9318","pl":"Części","source_sha256":"5e26961df47f561af144ce67733a325f221aaede079077d8f937ccaed3e11939"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c3a","pl":"Atk,Obr,Cel+24","source_sha256":"5ed3e499b2dc3299d38a3d9ba98d94cc2e7b03fde7f251cda6080d88d7c189f0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c2a6d0","pl":"Kozun Graham          Koji Totani","source_sha256":"5eda7050aace7696820fe409d2d4ec34bb353c870142fb479d0daa28eb6dbe4f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf38a4","pl":"Kpt. %s","source_sha256":"5f81f06c5d1cdb06045ce69d584756373d6742414e81820e8c33e4ac3b24db47"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b60","pl":"Obraz.-20%","source_sha256":"6012e33b8ec77498e9922205897b994ab7e5fda1d52b92d029fb0e91618e35a6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3f1c","pl":"Ta zawartosc ma ograniczenie wiekowe i jest niedostepna.","source_sha256":"602c6c8b6ecb67923d94dd7dc6147ebb6f6b3de3065242d362ba4ff973e9a0bc"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a80","pl":"Obraz.-32% Sz. 28%","source_sha256":"60303d76eb5941697a3d21d502f0b9134261b4e0b922743c92b57e6a6ebe1cd2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b60","pl":"Obraż.-20%","source_sha256":"6012e33b8ec77498e9922205897b994ab7e5fda1d52b92d029fb0e91618e35a6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3f1c","pl":"Ta zawartość ma ograniczenie wiekowe i jest niedostępna.","source_sha256":"602c6c8b6ecb67923d94dd7dc6147ebb6f6b3de3065242d362ba4ff973e9a0bc"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a80","pl":"Obraż.-32% Sz. 28%","source_sha256":"60303d76eb5941697a3d21d502f0b9134261b4e0b922743c92b57e6a6ebe1cd2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cc0","pl":"Unik","source_sha256":"606dc6ea0b2c81a1f72da52ca124f13569c5ca4f7ea856ef1475d684bd8fb9df"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf925c","pl":"Wszyst.","source_sha256":"609c682db7041c8d26211df96b9b3f71710752dd5ca1b145962ce5db52859eed"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf45b8","pl":"W niektorych misjach na mapie taktycznej znajduja sie ＠6kontenery＠0\ni ＠6moduly naprawy＠0.\n\nKontener jest oznaczony na mapie jako \"＠6TRESURE＠0\".\nZakoncz na nim ruch (Czekaj), aby zdobyc czesc.\n\nModuly naprawy sa oznaczone na mapie jako \"＠6HP＠0\" i \"＠6EN＠0\".\nZakoncz na nim ruch (Czekaj), aby odnowic HP lub EN.\n\n＠4<Pojawianie sie kontenerow>＠0\nPrzy pierwszym podejsciu do misji kontenery moga sie nie pojawic.\nPonowne rozegranie ukonczonej misji\nmoze sprawic, ze pojawia sie nowe kontenery.\nNiektore pojawiaja sie tylko, gdy w skladzie sa okreslone jednostki.","source_sha256":"623be5457f043a2ea705e6fc91de6e7de7aaf482c17c28a1ba836ddfb9f860ab"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf45b8","pl":"W niektórych misjach na mapie taktycznej znajdują się ＠6kontenery＠0\ni ＠6moduły naprawy＠0.\n\nKontener jest oznaczony na mapie jako \"＠6TRESURE＠0\".\nZakończ na nim ruch (Czekaj), aby zdobyć część.\n\nModuły naprawy są oznaczone na mapie jako \"＠6HP＠0\" i \"＠6EN＠0\".\nZakończ na nim ruch (Czekaj), aby odnowić HP lub EN.\n\n＠4<Pojawianie się kontenerów>＠0\nPrzy pierwszym podejściu do misji kontenery mogą się nie pojawić.\nPonowne rozegranie ukończonej misji\nmoże sprawić, że pojawią się nowe kontenery.\nNiektóre pojawiają się tylko, gdy w składzie są określone jednostki.","source_sha256":"623be5457f043a2ea705e6fc91de6e7de7aaf482c17c28a1ba836ddfb9f860ab"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c29890","pl":"＠4Spirala:＠0Atk＠2%+2d%%＠0Mor＠2%+1d＠0(boj)＠2%+1d＠0(zstr)＠0","source_sha256":"635e47737ce0e84d780a7ce649e5ead392b562975713be3c5851ddd0fcf359de"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59c1","pl":"Obrona:Obraz.-40%\nEN-5","source_sha256":"63776e6005b5dca704832e3d735f050b6ada15c52c213cc8558deed3ae4cc61f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf85dc","pl":"Nie udalo sie wczytac zapisu.\n  Brak dodatkowych danych potrzebnych do kontynuacji.\n","source_sha256":"63935767cafa267b326859dc87a0d18b600b3f2ead72e3646c62563cba0ffc3f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5f52","pl":"Otrz. obraz.-20%","source_sha256":"64e99172146138b9f9abcc405a3b6ecf896f615ac8d6bbd1968552a8eaa345b2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59c1","pl":"Obrona:Obraż.-40%\nEN-5","source_sha256":"63776e6005b5dca704832e3d735f050b6ada15c52c213cc8558deed3ae4cc61f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf85dc","pl":"Nie udało się wczytać zapisu.\n  Brak dodatkowych danych potrzebnych do kontynuacji.\n","source_sha256":"63935767cafa267b326859dc87a0d18b600b3f2ead72e3646c62563cba0ffc3f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5f52","pl":"Otrz. obraż.-20%","source_sha256":"64e99172146138b9f9abcc405a3b6ecf896f615ac8d6bbd1968552a8eaa345b2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa595","pl":"Premia z patcha 3 zastosowana\nFundusze: +200000\nEC: +2000","source_sha256":"64f07c34cb3c4cda8d122df2e15066ef43442aa83a29da18239db61b456f3e08"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5093","pl":"Atk,Obr,Cel+16","source_sha256":"64fbd4ad9c1d5815edce5b46d1d56cde7044d0b1d1dc1acdc55bda3f9f250a04"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82f4","pl":"*Wezw. Oslony","source_sha256":"6594bff4d0255adcd79a2dc18d7cccc2940a37ef98aaca4babaa19b7848fcb90"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82f4","pl":"*Wezw. Osłony","source_sha256":"6594bff4d0255adcd79a2dc18d7cccc2940a37ef98aaca4babaa19b7848fcb90"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9584","pl":"Status","source_sha256":"65ef0b1938d31229bff31c747d8ffb544c0db88b17db8b284bdc280fa6795a56"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56d0","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-18%","source_sha256":"668efb22e31a97f80bf73be19c6dfc462669b178f5e551dde8354bf00c84fa0e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5adf","pl":"Kryt+70%/sila+20%","source_sha256":"67302655bf7c05f8808eb6dae31b9c219e779a4e2bcc10304467aeb1ebdcba06"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56d0","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-18%","source_sha256":"668efb22e31a97f80bf73be19c6dfc462669b178f5e551dde8354bf00c84fa0e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5adf","pl":"Kryt+70%/siła+20%","source_sha256":"67302655bf7c05f8808eb6dae31b9c219e779a4e2bcc10304467aeb1ebdcba06"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9320","pl":"Zdoln.","source_sha256":"68472673311b1acb325bc157776a8a2fab06f4636ab94639f68de7a71bc82300"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92c8","pl":"Naprawa","source_sha256":"6ab21d0eb37c6e8b399828487aa04ccc64b2ad793ee57106272a81c66e7ae9f7"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa54d","pl":"Premia z patcha 2 zastosowana\nFundusze: +200000\nEC: +2000","source_sha256":"6bba2e1f57a9410e9d0aacfe7a750fa8e6449da0c0dfa813d796e5dca69fccca"}
@@ -65263,188 +65263,188 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92c0","pl":"Magia","source_sha256":"6c6b6de6dba96c190eb61df49f3ce9c7fb12b327c0b8274cafd169824346378a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9760","pl":"Dr %s","source_sha256":"6efbb0028bacb257e3dacf5014f2195790e4e6a830dedb62ca74ce3384532823"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92a0","pl":"Mina kier.","source_sha256":"71b60952ea974246f07648b88c2446ad7aa80f9760311f11e6ae31772777c909"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf57c5","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-14%","source_sha256":"71c09f732127f47fbc657cc698a00d237cbba125fe0c5b857cd3d3044af56f98"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf57c5","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-14%","source_sha256":"71c09f732127f47fbc657cc698a00d237cbba125fe0c5b857cd3d3044af56f98"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c03b80","pl":"Wstecz","source_sha256":"71f5256520b1610df8d1ae5d48d27d06950d7b4a6065b6e295f531208bd8e40e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf78e8","pl":"Nie","source_sha256":"723698b08fdde3e471f79914ebe7289b900b13544ad42d0056e9a7381c97eb12"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9614","pl":"[Debug]","source_sha256":"72cd8b5ed2fe298019327d292a467ec4f3388bf022de7e4c8faeefe5a2c3a37e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4bf2","pl":"Atk,Obr,Cel+16","source_sha256":"736b4654c3c1da0082a2cad6ae7b6963f914686511260a1176c8824fc5e79e0a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b81","pl":"Okraz.+30%","source_sha256":"74cc8bc290b2de33c4d58df0d2b9d39cc8fa22474bb6c3be19da3bf1d41d4165"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b81","pl":"Okrąż.+30%","source_sha256":"74cc8bc290b2de33c4d58df0d2b9d39cc8fa22474bb6c3be19da3bf1d41d4165"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95a8","pl":"Szybki zap.","source_sha256":"74fff50f073fbd04daa7fd87d8a6a4bc2baabd8fc582f32e8361972fd5ce66a3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf504c","pl":"Atk,Obr,Cel+8","source_sha256":"75fdeeb200bb525bd7058da2fa948f4a7ccf150d3ede51e5558e57a981c3de07"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c5a","pl":"Okraz.+50%","source_sha256":"771dc6a5bc2482994b058a7f91c5b68af7516e549bd9db8b02d26ef529e36ca6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c5a","pl":"Okrąż.+50%","source_sha256":"771dc6a5bc2482994b058a7f91c5b68af7516e549bd9db8b02d26ef529e36ca6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf493a","pl":"＠4<Spowolnienie Lv3>＠0800 1t Unik-24% Sz.40%","source_sha256":"775648e006318ff22df2bc420477e35b68f67ddeadb1081690b67c2a73c9baaf"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74cc","pl":"Przeglad","source_sha256":"778f255de4684c48cebb72fd430a98fb8e964cb814e50ad603db0e352e7dda2d"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74cc","pl":"Przegląd","source_sha256":"778f255de4684c48cebb72fd430a98fb8e964cb814e50ad603db0e352e7dda2d"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4bce","pl":"Atk,Obr,Cel+12","source_sha256":"77d54fd9c64f1a1a62d01ad62aded9dfcd3d783f86f3ee2457b6edf5148e9c53"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4be0","pl":"Atk,Obr,Cel+14","source_sha256":"798f0a34529912ea191149aab87f126811f6cc4d68c1aa1ec1273b582a23c1bb"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8360","pl":"Anim. WYL","source_sha256":"7a10ad472c217341fa982bb7395c5c0ec715c0b420a4add5814e28ad4f271666"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8360","pl":"Anim. WYŁ","source_sha256":"7a10ad472c217341fa982bb7395c5c0ec715c0b420a4add5814e28ad4f271666"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48d4","pl":"Psi-bariera","source_sha256":"7a192a0106fa57c6c959fe03e8d86ef72edc0c9511e3eef94f1618df8768693a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9728","pl":"[T] Poprz. (+R: szybko)  [O] Nast. (+R: szybko)","source_sha256":"7dfec0504824a129863c02f03c767292b400c63e722f5f7ca956ed4e8ec41411"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c293d8","pl":"??","source_sha256":"7f10fa5c15d0fe0edb165118a7b2bc2fe2974a4d94c23b0317bbf04f9fc94d78"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5ab9","pl":"Kryt+50%/sila+12%","source_sha256":"7f6340bab59591c03b1f43823a344fcd349a820e8406d0780362f61a7b6efe4f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c4f","pl":"Okraz.+45%","source_sha256":"80bee430a830f50148b20b3c6a77873435a0c85e4b4776629a36e6215de0b41a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5ab9","pl":"Kryt+50%/siła+12%","source_sha256":"7f6340bab59591c03b1f43823a344fcd349a820e8406d0780362f61a7b6efe4f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c4f","pl":"Okrąż.+45%","source_sha256":"80bee430a830f50148b20b3c6a77873435a0c85e4b4776629a36e6215de0b41a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74e4","pl":"Status wroga","source_sha256":"81021792c2b1e4a305bc6b241413db0506a44c0faeba9299298419f5da3f5a0d"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5acc","pl":"Kryt+60%/sila+16%","source_sha256":"81632f451b1a96697343229e7bb92c6c85b180d6ee7a991a27912acd315c548c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5acc","pl":"Kryt+60%/siła+16%","source_sha256":"81632f451b1a96697343229e7bb92c6c85b180d6ee7a991a27912acd315c548c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9768","pl":"Kpt. %s","source_sha256":"83b2f726877a08d88b45b22f2806b1dacf22c773d2e928144e32de663b65cf95"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf50a5","pl":"Atk,Obr,Cel+18","source_sha256":"84a66fb8274d6a528e3a423d1929726e87b7646e66511835f9b8c6250e00d7b8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5f30","pl":"Cel/Unik+30%","source_sha256":"84c1dc43808a35901fc9990c884668945c97030331a6270c610e3b0a79e28cc6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5019","pl":"Morale 120+\nCel,Unik+26 Kryt+24%\nSP+10 co ture","source_sha256":"852dbb6c42f44b62ae287f501165984e8db225f2dd649365ac5f2c6d2f3dfa82"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8280","pl":"Okrazenie","source_sha256":"85f57498fc520fb30921ee21006de560328778a699d7a6f9d6f56dd0efbc356a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5019","pl":"Morale 120+\nCel,Unik+26 Kryt+24%\nSP+10 co turę","source_sha256":"852dbb6c42f44b62ae287f501165984e8db225f2dd649365ac5f2c6d2f3dfa82"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8280","pl":"Okrążenie","source_sha256":"85f57498fc520fb30921ee21006de560328778a699d7a6f9d6f56dd0efbc356a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4db4","pl":"Cel,Unik+10","source_sha256":"868d14ed3a5edad6ac35a41f3f180b96fca9795062912f89b03dfa6a369ee935"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c15e80","pl":"Nieuz.","source_sha256":"869e52f50192cc75ee4aa176aaa98ba016e97df1383e85ebefd3d1e7606c721c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c15e80","pl":"Nieuż.","source_sha256":"869e52f50192cc75ee4aa176aaa98ba016e97df1383e85ebefd3d1e7606c721c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf828c","pl":"Atk/Cel","source_sha256":"872add4108f14b88242b59e7f1bd03975b142871f4a9865ebe489b6fd915690c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5920","pl":"Obrona:Obraz.-26%\nEN-5","source_sha256":"879a77e1ceacd09f7fa97af7eceb95dd30f4b152f42bfefc8bba4eb7fde49efb"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5920","pl":"Obrona:Obraż.-26%\nEN-5","source_sha256":"879a77e1ceacd09f7fa97af7eceb95dd30f4b152f42bfefc8bba4eb7fde49efb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf959c","pl":"Rezygnacja","source_sha256":"87c7122918df83ecceabac7d656c9ae34263608bea54641f2c68793cf876cb14"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c28","pl":"Atk,Obr,Cel+22","source_sha256":"889b8b75fb229d8cae7d4e460ea39fbaf098bfb5043ca72ac7d146c785aaf309"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf858c","pl":"Wszyst.","source_sha256":"894d54bb6241d00ce3e5f6f48e0530cb855f6675ef45c7c87a6b47613d560d98"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cf4","pl":"Atak lacz.","source_sha256":"899a54581b26bc4f8d874d78e789d439aa00e462a670c66206eaf8400e017c67"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9264","pl":"Modul naprawy","source_sha256":"8b31372958a8124b6bfc6a2dc71c09c5aa6e01b2846193e5f4860d4d66224d79"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c4c","pl":"Rozbroj: wejdz w zasieg miny","source_sha256":"8b3cb1900e8f2c04fca759b6a0f388248243092f5098674d8a0ae999ef33dd11"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9ff4","pl":"Pominac te scene?\nCzy na pewno?","source_sha256":"8bba598a1c2142025f7314d1a6c33c4547e4206c955ff0c9416c643e3fdc033a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9398","pl":"Zamien","source_sha256":"8c0ca2932da902d138c53e3e733c0dea7ce692823e52599532a97c58c51e78aa"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5dbb","pl":"＠4<Atak grupowy Lv4>＠0Okrazenie+45% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku","source_sha256":"8c1169cf4403f7eb8113d11e290f12e6780593bedc5a18db9a1bf7ee323fb8d2"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82b4","pl":"Pel.okr","source_sha256":"8c25c30a9186f9684850b60380353545b22efe31b7374efc96272667a1e13ba0"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c29538","pl":"Nie udalo sie wczytac zapisu.\nBrak dodatkowych danych potrzebnych do kontynuacji.\nZamknij gre, zainstaluj je i uruchom ponownie.\nJesli kontynuujesz, zapis zostanie zresetowany\ni caly dotychczasowy postep przepadnie.","source_sha256":"8c59147ed353b1d5674026188a4fbd4589889ecd724ad90387e769505541987a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cf4","pl":"Atak łącz.","source_sha256":"899a54581b26bc4f8d874d78e789d439aa00e462a670c66206eaf8400e017c67"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9264","pl":"Moduł naprawy","source_sha256":"8b31372958a8124b6bfc6a2dc71c09c5aa6e01b2846193e5f4860d4d66224d79"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c4c","pl":"Rozbroj: wejdź w zasięg miny","source_sha256":"8b3cb1900e8f2c04fca759b6a0f388248243092f5098674d8a0ae999ef33dd11"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9ff4","pl":"Pominąć tę scenę?\nCzy na pewno?","source_sha256":"8bba598a1c2142025f7314d1a6c33c4547e4206c955ff0c9416c643e3fdc033a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9398","pl":"Zamień","source_sha256":"8c0ca2932da902d138c53e3e733c0dea7ce692823e52599532a97c58c51e78aa"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5dbb","pl":"＠4<Atak grupowy Lv4>＠0Okrążenie+45% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku","source_sha256":"8c1169cf4403f7eb8113d11e290f12e6780593bedc5a18db9a1bf7ee323fb8d2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82b4","pl":"Peł.okr","source_sha256":"8c25c30a9186f9684850b60380353545b22efe31b7374efc96272667a1e13ba0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c29538","pl":"Nie udało się wczytać zapisu.\nBrak dodatkowych danych potrzebnych do kontynuacji.\nZamknij grę, zainstaluj je i uruchom ponownie.\nJeśli kontynuujesz, zapis zostanie zresetowany\ni cały dotychczasowy postęp przepadnie.","source_sha256":"8c59147ed353b1d5674026188a4fbd4589889ecd724ad90387e769505541987a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b3b","pl":"＠4<Penetracja Lv5>＠0Obr-50%","source_sha256":"8ceab92047dde806b3d33200190b8ef749c8512a68f89121cd1166714cbb0296"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95f4","pl":"[Rezygnacja]","source_sha256":"8d7b6955f6201272681f889ecaa1d42b1411ba9b42c122efc68e831b9503122c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5262","pl":"Duzy Lv9","source_sha256":"8e9059f0bd85cb3f6111a2dadfb6d6943779d4e2c929c7a9f161af98bf27ef74"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5262","pl":"Duży Lv9","source_sha256":"8e9059f0bd85cb3f6111a2dadfb6d6943779d4e2c929c7a9f161af98bf27ef74"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ae1","pl":"＠4<Penetracja Lv2>＠0Obr-35%","source_sha256":"8e94a2f975ecc4d3cdd5d2320d0949fe6bca367fa02125aa007306ef18ef3693"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cb4","pl":"Pelne okr.!","source_sha256":"8ed7e0f7f80f48b99973195ec50663b3e539d21045a4f53be79e0d0f15562923"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2cb4","pl":"Pełne okr.!","source_sha256":"8ed7e0f7f80f48b99973195ec50663b3e539d21045a4f53be79e0d0f15562923"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c033f0","pl":"Brak aktualizacji.","source_sha256":"8f14870d0593116fd1118f4c3e427ccc3eced1bcab718fa9e5dd1eb67ef56e31"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8e38","pl":"??????","source_sha256":"9085305155dfb7c0614c22c2b8a1dd5b9b9d5ebc2df9bc330095ce07bd1b5b6a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e5e","pl":"Keron Lv7","source_sha256":"9178257b0229b525e0d22836a4e5c7b3c2aae8e51c399be85ba85c01086d07d1"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5d49","pl":"＠4<Atak grupowy Lv3>＠0Okrazenie+40% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku","source_sha256":"91e5158c5bb21b19b9e8f6de6ee21734e5401bd638d79b90dd23d7710a8fc246"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa699","pl":"Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.","source_sha256":"924a9d3529dc2975280697b3c185646e3a934644bda7a39b1f97ee9e83731e32"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5d49","pl":"＠4<Atak grupowy Lv3>＠0Okrążenie+40% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku","source_sha256":"91e5158c5bb21b19b9e8f6de6ee21734e5401bd638d79b90dd23d7710a8fc246"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa699","pl":"Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.","source_sha256":"924a9d3529dc2975280697b3c185646e3a934644bda7a39b1f97ee9e83731e32"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9648","pl":"Transf.","source_sha256":"92e4c5e720406a8a3f0343a0c0203b824f2742a3c6927faaa79db536d2b91ef4"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7260","pl":"Wybierz jednostke do zamiany.","source_sha256":"943a8fd8a731d44b6062b1471eaa121b57c3abf9e559115fd8ec22ae21f4afd9"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7260","pl":"Wybierz jednostkę do zamiany.","source_sha256":"943a8fd8a731d44b6062b1471eaa121b57c3abf9e559115fd8ec22ae21f4afd9"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8310","pl":"<Bez wsp. ataku>","source_sha256":"9494840f313e4792f27917e548863e0df09847b09ff79759bf58d0ef444d9320"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c12","pl":"＠4<Okrazenie Lv5>＠0+40%","source_sha256":"94e224cd71772cb9a80f6b904f86dd53db9eeff5304a7f0eff805d9696795fe0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c12","pl":"＠4<Okrążenie Lv5>＠0+40%","source_sha256":"94e224cd71772cb9a80f6b904f86dd53db9eeff5304a7f0eff805d9696795fe0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf78e0","pl":"Tak","source_sha256":"94e49db6389396731e8f8922593b554a8dacc52eacd42d2a48b62b46329f4f9f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5965","pl":"Obrona:Obraz.-32%\nEN-5","source_sha256":"953c69f1da628db95e157a31a005ad1458ce3993e0bcf91f3945f3b8c53cfb00"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5965","pl":"Obrona:Obraż.-32%\nEN-5","source_sha256":"953c69f1da628db95e157a31a005ad1458ce3993e0bcf91f3945f3b8c53cfb00"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf506f","pl":"Atk,Obr,Cel+12","source_sha256":"96279f3c0573c0a01460da33563415e3984e4dae2909780c688a550ca79f37c9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3e70","pl":"Blad podczas stosowania zawartosci.\nZamknij gre, a nastepnie w menu\n\"Lista pobran\" wybierz \"Aktualizuj\".","source_sha256":"96be32b090af2589e6bcc5bb38c460aab806e1711de4a39862eeea313d4d65be"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3e70","pl":"Błąd podczas stosowania zawartości.\nZamknij grę, a następnie w menu\n\"Lista pobrań\" wybierz \"Aktualizuj\".","source_sha256":"96be32b090af2589e6bcc5bb38c460aab806e1711de4a39862eeea313d4d65be"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82d4","pl":"x","source_sha256":"96be9adfe85881656f7dc822416631baf9eab87dc8ab67f4d25a0cd8780a2e59"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5247","pl":"Duzy Lv6","source_sha256":"9753ff0b393e4570fc738bd9a4273819a385c3f63d5ec1c6a11a86573162105e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82e0","pl":"Bez okrazenia","source_sha256":"9788edc0585a0747f5ad9e8cab33d584e5bcaece1bb1d5847fe059a2b3c287c6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5247","pl":"Duży Lv6","source_sha256":"9753ff0b393e4570fc738bd9a4273819a385c3f63d5ec1c6a11a86573162105e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82e0","pl":"Bez okrążenia","source_sha256":"9788edc0585a0747f5ad9e8cab33d584e5bcaece1bb1d5847fe059a2b3c287c6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3768","pl":"%s %s","source_sha256":"97e6a0ce961087d01d518a99eb1ff2c451596318b099626ac009a7f50ef5f1d3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59d8","pl":"Obraz.-16% Sz. 12%","source_sha256":"992fa82b4c985f46da9162805b03ca4a1c3109df678e99e6f851da5ff58403d8"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59d8","pl":"Obraż.-16% Sz. 12%","source_sha256":"992fa82b4c985f46da9162805b03ca4a1c3109df678e99e6f851da5ff58403d8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92e8","pl":"Start","source_sha256":"99bdeaeb3b257db0fdaa04d1393b5d575064fceefa27a32582d40929e94afca5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf389c","pl":"Dr %s","source_sha256":"99c7ffd5913b3671ca7cb9013a14c2a2249ab936fc4e3078f3db5fd1f80f17fa"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8378","pl":"Zmien jedn. wsp.","source_sha256":"9b34858e3e9997a6ef2ca9c4fb07e2391e01176d7364fce578a44727fba80c68"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9330","pl":"Zwykly","source_sha256":"9be3958323d52679d2c98aecb35dc92d72c173e311c707ba2979514469ee60a2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8378","pl":"Zmień jedn. wsp.","source_sha256":"9b34858e3e9997a6ef2ca9c4fb07e2391e01176d7364fce578a44727fba80c68"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9330","pl":"Zwykły","source_sha256":"9be3958323d52679d2c98aecb35dc92d72c173e311c707ba2979514469ee60a2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e0f","pl":"Cel,Unik+24","source_sha256":"9c5f21df92e1c265ac957e8ff667c9d37512c48f4af113af10e083b77494aa2d"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56fa","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-20%","source_sha256":"9ced7ae151d7c6986bac41784a8a2b5c81e541434709ed66b82f7ceaac97f1cb"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf56fa","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-20%","source_sha256":"9ced7ae151d7c6986bac41784a8a2b5c81e541434709ed66b82f7ceaac97f1cb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8fbc","pl":"＠４Teren      ＠０Obr","source_sha256":"9cef57a3127e6a1c2a9dafb1e44785e557fdf258848276e327d25f9b90d153db"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9358","pl":"Obrona","source_sha256":"9df9eff8356bc9233f24cab8475ddbf3754aee4bea3f2ab0751915762ff4aa3e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4330","pl":"Good-bye Tears","source_sha256":"9e28d2753012280a0872e3f4c71f67abb49a9fb674e2bf9bfeda9003bf097b68"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48bc","pl":"Psi-bariera","source_sha256":"9e76e2f1676503838538c51c528659de4bd497e049c169086779d0e8d057818a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82a0","pl":"Atak grup.","source_sha256":"a078a81739c07530d18495e38aa15fca233bd35d185baea454695d6a75f5e99c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82c4","pl":"Efekt","source_sha256":"a0d404e870123234cfa23e3f9c6efcf513e959ada383a3d9ef24347e2ce8ed7b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5368","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-12%\nNie unika atakow","source_sha256":"a1e0017350f219d5386dbf387f8492b39d78b8eb0477329c15a9399a4f6ad058"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5368","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-12%\nNie unika ataków","source_sha256":"a1e0017350f219d5386dbf387f8492b39d78b8eb0477329c15a9399a4f6ad058"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8398","pl":"Zm. broni","source_sha256":"a229581549fcd9c8006dea8f76a7f8e367956ad66a45de75228213ca62064ea9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f1a","pl":"Morale 127+\nCel,Unik+16 Kryt+14%\nSP+10 co ture","source_sha256":"a25082d27277768414591d66855d1c3aa20034d5e118032d33deabd3e161f2c8"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4f1a","pl":"Morale 127+\nCel,Unik+16 Kryt+14%\nSP+10 co turę","source_sha256":"a25082d27277768414591d66855d1c3aa20034d5e118032d33deabd3e161f2c8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2ce0","pl":"Brak EN","source_sha256":"a2dd62dbe448e65bdc2f9c3bcd507d0a53e4e383c85edd78e5764c2a22979915"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9360","pl":"Unik","source_sha256":"a36e5eceb1a15cfacc32f66f396d702240e1a1e944dfd0507918f7f903a30d34"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6b4c","pl":"Dalej","source_sha256":"a56f36ba083dfe337559e7750798d884f97b33f69f82466545eb05a4901dc172"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c65","pl":"＠4<Atak grupowy Lv1>＠0Okrazenie+30% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku","source_sha256":"a584fe59c6f8d0e84abfd35527067c6e2b073527364c5a2ab1253a0847ecb42f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c65","pl":"＠4<Atak grupowy Lv1>＠0Okrążenie+30% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku","source_sha256":"a584fe59c6f8d0e84abfd35527067c6e2b073527364c5a2ab1253a0847ecb42f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c036c0","pl":"Kusanagi","source_sha256":"a67817454535dcb0c1ede941388a46a122729f0a6d8db5e43f5eaa842ef7c39a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5259","pl":"Duzy Lv8","source_sha256":"a70622d9c9bd07f7a48e86c4e20fad52a53477eb3b053cdf86541e6290478dd3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f28","pl":"Zmien jedn.","source_sha256":"a86561fd07fb9d8b2c3a0ff09aec9f4e9481098e25a3cbf4c10dec9357f44feb"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5259","pl":"Duży Lv8","source_sha256":"a70622d9c9bd07f7a48e86c4e20fad52a53477eb3b053cdf86541e6290478dd3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f28","pl":"Zmień jedn.","source_sha256":"a86561fd07fb9d8b2c3a0ff09aec9f4e9481098e25a3cbf4c10dec9357f44feb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9590","pl":"Opcje","source_sha256":"a88a04485ac2fcdb2a8058333c2983411997215f3628d6f182bca66ce7f211ef"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8fa8","pl":"＠０Unik＠２%+3d%%","source_sha256":"a9f1cdfdbae9a8fda872bc6bbb9cebda3fe0bc168c9a2112c4207d432b79467b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8214","pl":"Cel","source_sha256":"aa3da0bd763e96f9d0ff75e1efe4ddc6870435c82847699af12b1bb675e642db"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bff4ac","pl":"Seishiro","source_sha256":"ab30eec8ad51565c815a73f0b81e5f7b68729851224747ed00d3a24e1ea23eb2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48c8","pl":"Psi-bariera","source_sha256":"abae8b4720e68f307251f51f32750d496fe39f72eb4a84aaf2042a2108c999da"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3e1c","pl":"Zastosowac te czesci oddzialu?\n(Nadwyzke ponad 99 dodam, gdy spadnie ponizej 99.)","source_sha256":"abe3d0f39da84e99126d1b30c41ffc831a74906bfb54bfe1d4f180a14955306f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55d6","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-6%","source_sha256":"ac9081692e38dfc5a8121b467d573c86ce1e6627752915cf47b0be9b97037983"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5867","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-20%","source_sha256":"ad1b514258bb65db0e0d6c5b1d70bc078ce1d478c22b2aae8336c1c2800a93df"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b87","pl":"Moze zmienic forme\n(Prowler)","source_sha256":"adb23c37685a8be3af2fc43cf2b2eb93931c2f7f69f30e355c6fc8bcee7318af"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5ba2","pl":"＠4<Okrazenie Lv1>＠0+20%","source_sha256":"ae15853df9bcdce17863dde857683419ebd256cc0ddf7dc6655512875f16d5e2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3e1c","pl":"Zastosować te części oddziału?\n(Nadwyżkę ponad 99 dodam, gdy spadnie poniżej 99.)","source_sha256":"abe3d0f39da84e99126d1b30c41ffc831a74906bfb54bfe1d4f180a14955306f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55d6","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-6%","source_sha256":"ac9081692e38dfc5a8121b467d573c86ce1e6627752915cf47b0be9b97037983"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5867","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-20%","source_sha256":"ad1b514258bb65db0e0d6c5b1d70bc078ce1d478c22b2aae8336c1c2800a93df"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4b87","pl":"Może zmienić formę\n(Prowler)","source_sha256":"adb23c37685a8be3af2fc43cf2b2eb93931c2f7f69f30e355c6fc8bcee7318af"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5ba2","pl":"＠4<Okrążenie Lv1>＠0+20%","source_sha256":"ae15853df9bcdce17863dde857683419ebd256cc0ddf7dc6655512875f16d5e2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa506","pl":"Premia z patcha zastosowana\nFundusze: +200000\nEC: +2000","source_sha256":"ae7fbb9177e59d1f2d3b9ba246dcc1e7b21cfff94626e58e0b11c22a8692bdcf"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8fdc","pl":"%+3d%%＠０ Cel","source_sha256":"aee92e4dbf2bef78ca4c28dda75eb4d55d718d5ae629e08fd4260fc008f463de"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9638","pl":"Start","source_sha256":"afb858648757c3ac1ab4a3ced6a8a61eaa8ce9926a206f63fe932f2aa2d77857"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6b0c","pl":"Zakonczyc zmiane ukladu?","source_sha256":"aff3f3aced8ce5895659b9c076c2ed084d0539fa97c048f2a3fe2ff93a77c69a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8354","pl":"Bron wsp.","source_sha256":"b036fdebc8d6f7ef5235be1a142ecbf1f819ff7a28aafd11730ff1f60bd667be"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82ac","pl":"Okraz.","source_sha256":"b06029228f8b48b54976f06f6577537ae05a51207b95e8619155180ec7c834d2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6b0c","pl":"Zakończyć zmianę układu?","source_sha256":"aff3f3aced8ce5895659b9c076c2ed084d0539fa97c048f2a3fe2ff93a77c69a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8354","pl":"Broń wsp.","source_sha256":"b036fdebc8d6f7ef5235be1a142ecbf1f819ff7a28aafd11730ff1f60bd667be"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82ac","pl":"Okrąż.","source_sha256":"b06029228f8b48b54976f06f6577537ae05a51207b95e8619155180ec7c834d2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9370","pl":"Zmiana","source_sha256":"b07be5618e18f5c093343715ff734f22ef5cf58b112f598626e57e4b865c22fd"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf54b4","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-20%\nNie unika atakow","source_sha256":"b0e48addae8d80f1e0429c4d992439aba1c84af62fe10291a41efd1dc24a9b48"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c6d","pl":"Rozbroj: wejdz w zasieg miny","source_sha256":"b11800bb469c41e4c75c58daa811f5cf9e3f7e23a91c5ad11b213a9363a85379"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5f3f","pl":"Kryt/sila kr.+50%","source_sha256":"b1c143122a1c3d890c1703aece6ee5a84000110893b67bcf4524843f3cedd0ce"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c39","pl":"Okraz.+35%","source_sha256":"b1d7bc932125a8b17cba414ceb8250eaf1a374c2cba146739a46348b91448070"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf54b4","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-20%\nNie unika ataków","source_sha256":"b0e48addae8d80f1e0429c4d992439aba1c84af62fe10291a41efd1dc24a9b48"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c6d","pl":"Rozbroj: wejdź w zasięg miny","source_sha256":"b11800bb469c41e4c75c58daa811f5cf9e3f7e23a91c5ad11b213a9363a85379"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5f3f","pl":"Kryt/siła kr.+50%","source_sha256":"b1c143122a1c3d890c1703aece6ee5a84000110893b67bcf4524843f3cedd0ce"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c39","pl":"Okrąż.+35%","source_sha256":"b1d7bc932125a8b17cba414ceb8250eaf1a374c2cba146739a46348b91448070"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7180","pl":"Tury","source_sha256":"b2554e6d7f5849658bd84dbd999b1d22625a211768a5d999b5fe1ba72aa09ddd"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bff4a0","pl":"Kusanagi","source_sha256":"b266a4d8669622219019caa082c18599fd4f21eb19cdde749d5bcf6701ee18f6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c0353a","pl":"Laczy sie z siecia, aby dodac\nczesci oddzialu kupione poza\ngra.","source_sha256":"b2b2341faca0ccec51295188645d027f3d4e237676a995fcbb18120d99ea5cdc"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c0353a","pl":"Łączy się z siecią, aby dodać\nczęści oddziału kupione poza\ngrą.","source_sha256":"b2b2341faca0ccec51295188645d027f3d4e237676a995fcbb18120d99ea5cdc"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa0a4","pl":"<Code Geass","source_sha256":"b3764ea261d3754c52a1b989863d57418207918beb22b7ab2f8f8e584debbf0a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c01cd0","pl":"Trwa seria misji.\nShin Getter Robo walczyl w poprzedniej misji i nie mozna go wybrac.","source_sha256":"b3fbec24cc771b70b9c4fc45d2a1a5867f425a9815f71c2efd6906400c6ca1bd"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c01cd0","pl":"Trwa seria misji.\nShin Getter Robo walczył w poprzedniej misji i nie można go wybrać.","source_sha256":"b3fbec24cc771b70b9c4fc45d2a1a5867f425a9815f71c2efd6906400c6ca1bd"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9300","pl":"Transf.","source_sha256":"b6ef58529050be2a63dbeea5900e0d12ae0f8c2e5a7d96fac4821ca845b1d206"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a65","pl":"＠4<Bron wiazkowa Lv4>＠0Kryt+10% Unik-10%","source_sha256":"b772fb9f5391bc39c6d6370ec61f0ab323b0a16294c2d5119cfc4a1d37d24822"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bbe","pl":"＠4<Okrazenie Lv2>＠0+25%","source_sha256":"b891d3e67d849614bef04e2b570284e818d63abfcae832c7c6fc7b1dc093dd64"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5315","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-10%\nNie unika atakow","source_sha256":"bbb14ed3afb7b5c254aa62614c1432f48ab6f671122aea53479e38a81382c445"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a65","pl":"＠4<Broń wiązkowa Lv4>＠0Kryt+10% Unik-10%","source_sha256":"b772fb9f5391bc39c6d6370ec61f0ab323b0a16294c2d5119cfc4a1d37d24822"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5bbe","pl":"＠4<Okrążenie Lv2>＠0+25%","source_sha256":"b891d3e67d849614bef04e2b570284e818d63abfcae832c7c6fc7b1dc093dd64"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5315","pl":"Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-10%\nNie unika ataków","source_sha256":"bbb14ed3afb7b5c254aa62614c1432f48ab6f671122aea53479e38a81382c445"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c00a04","pl":"＠0","source_sha256":"bcfd0fc01af2cb83ad7e4752c291f95dcf40517c76455ea8180c985dc4b5fb8d"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4fe6","pl":"Morale 122+\nCel,Unik+24 Kryt+22%\nSP+10 co ture","source_sha256":"bda792cafe540047212c68414b87f5f916182c5ced18e419171e087e147fdcf0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4fe6","pl":"Morale 122+\nCel,Unik+24 Kryt+22%\nSP+10 co turę","source_sha256":"bda792cafe540047212c68414b87f5f916182c5ced18e419171e087e147fdcf0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9604","pl":"[Szybki zapis]","source_sha256":"bdc2fc1dec1fc2e6ebf1d931140e177705bacae33fa2e548d1f66f82f9b388ca"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3678","pl":"Gra obsluguje automatyczny zapis.\nPodczas autozapisu miga lampka dostepu \"Memory Stick\"; nie wyjmuj wtedy nosnika ani nie wylaczaj konsoli.","source_sha256":"be0666baa43a0ebe48e1255c7ff20bc1c2f4436a4469e67752308bba0e3e6129"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3678","pl":"Gra obsługuje automatyczny zapis.\nPodczas autozapisu miga lampka dostępu \"Memory Stick\"; nie wyjmuj wtedy nośnika ani nie wyłączaj konsoli.","source_sha256":"be0666baa43a0ebe48e1255c7ff20bc1c2f4436a4469e67752308bba0e3e6129"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf93ac","pl":"Kosmos","source_sha256":"be779a6fe03484cc4012b51d73984595a20427c2eab9ce91681b7c790c102059"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c44","pl":"Okraz.+40%","source_sha256":"bf8d03ece6162cd22112a35c7c1896895f37a2e819f9c73f7354eeb4c66e8528"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c44","pl":"Okrąż.+40%","source_sha256":"bf8d03ece6162cd22112a35c7c1896895f37a2e819f9c73f7354eeb4c66e8528"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5176","pl":"＠4<Hyper Lv3>＠0Morale 140+ Atk+50% Obr,Unik+20%","source_sha256":"bfc95cd804ad27bbdfb62ade7c23f48954978b9c6be8cf34b24bf1c88bb56e44"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55ad","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-4%","source_sha256":"c0ce52b990247c0c10e0afabb64c4e66d32a43524c8ee75609a5bb0700b1805e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8298","pl":"Okraz.","source_sha256":"c15dfee13bc87b8c1eb4ac04396a56f0084b78fe60442e3f288a66ac4c87b67b"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a2c","pl":"Obraz.-24% Sz. 20%","source_sha256":"c22239aaf8149ee6f20cd96050303b0ae5d8457bda45587df2439693c0afd96c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b05","pl":"Kryt+100%/sila+28%","source_sha256":"c23f54e4f3ca1f707510801539a4ef3a38a0134c4f5d43b7e8541ce106d54c44"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf836c","pl":"Przeglad","source_sha256":"c2da69224579cf731e4430238376bc2c508fd42ed80db0f62c92e9a0764821a3"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4fb3","pl":"Morale 124+\nCel,Unik+22 Kryt+20%\nSP+10 co ture","source_sha256":"c2f5dfa17020f3f59d42572949f590526b801ea6786388764e6614142b5630b8"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a38","pl":"＠4<Bron wiazkowa Lv3>＠0Kryt+8% Unik-8%","source_sha256":"c40fa6fd799e631d5e2079399d60565c49adb899f49780097edc5c33540622d5"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf55ad","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-4%","source_sha256":"c0ce52b990247c0c10e0afabb64c4e66d32a43524c8ee75609a5bb0700b1805e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8298","pl":"Okrąż.","source_sha256":"c15dfee13bc87b8c1eb4ac04396a56f0084b78fe60442e3f288a66ac4c87b67b"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a2c","pl":"Obraż.-24% Sz. 20%","source_sha256":"c22239aaf8149ee6f20cd96050303b0ae5d8457bda45587df2439693c0afd96c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b05","pl":"Kryt+100%/siła+28%","source_sha256":"c23f54e4f3ca1f707510801539a4ef3a38a0134c4f5d43b7e8541ce106d54c44"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf836c","pl":"Przegląd","source_sha256":"c2da69224579cf731e4430238376bc2c508fd42ed80db0f62c92e9a0764821a3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4fb3","pl":"Morale 124+\nCel,Unik+22 Kryt+20%\nSP+10 co turę","source_sha256":"c2f5dfa17020f3f59d42572949f590526b801ea6786388764e6614142b5630b8"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a38","pl":"＠4<Broń wiązkowa Lv3>＠0Kryt+8% Unik-8%","source_sha256":"c40fa6fd799e631d5e2079399d60565c49adb899f49780097edc5c33540622d5"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4da8","pl":"Cel,Unik+8","source_sha256":"c428a3ddacea337aab7c82a21dbfe9c18c65d76ce01c752cf3c2e4cc265b7965"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f40","pl":"Wybierz jednostke do wymiany.","source_sha256":"c44ed21e0f7631a8f2854dd4fa792531e4a7ebc964ed1dc34cc2d330d27d89f7"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf6f40","pl":"Wybierz jednostkę do wymiany.","source_sha256":"c44ed21e0f7631a8f2854dd4fa792531e4a7ebc964ed1dc34cc2d330d27d89f7"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8244","pl":"------","source_sha256":"c6fcdcb4c5b4430e57861f7f76f163a370441663636f4795b99c82f9c1396efb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf85a0","pl":"Info","source_sha256":"c6fe0297b29f8192c448c1640e17a6bd4c8d4b7a98a5a1315b5cc1a3c00b29eb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9274","pl":"HP+%d","source_sha256":"c7496a581a983fcd70c80ff084e7bed8c1224b03628b6fcce71c6c53161fb5aa"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95b4","pl":"[Koniec fazy]","source_sha256":"c7ecef4727f861e4ebc12ae94f254e098408c3b9f5db9638d7c293f800627295"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf715c","pl":"<< Porażka >>","source_sha256":"c8a9a3b6444d054a003b212014a6cb1cdb0d1ba7c3dd7f80025736d87ba5439a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf71a0","pl":"Pokład","source_sha256":"c9c5bafdd9c87acc9e2c619958d392e2831f0065915bfc7dda68eae1325338b6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9650","pl":"Zamien","source_sha256":"cc86d5d4f5c9c3214065d87eeebe9fb01fad1036c433bf5e1f2de0bf69f5d7a2"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf34bf","pl":"Zapisywanie...\nNie wyjmuj nosnika ani nie wylaczaj konsoli.","source_sha256":"cdcf5c4c46f2a5c313408530011c4ddca7624ba68f4319f6ac31464bb4c0eb68"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf594e","pl":"Obrona:Obraz.-30%\nEN-5","source_sha256":"ce44c781b3e225faecb74fbbedf092e0a4522563962e4b9420cf50bc0f9ca7ec"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ee7","pl":"Morale 128+\nCel,Unik+14 Kryt+12%\nSP+10 co ture","source_sha256":"cf19a65aabc7189c8c647772dc90441725e2795874da68d23050b7e1c8db795a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9650","pl":"Zamień","source_sha256":"cc86d5d4f5c9c3214065d87eeebe9fb01fad1036c433bf5e1f2de0bf69f5d7a2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf34bf","pl":"Zapisywanie...\nNie wyjmuj nośnika ani nie wyłączaj konsoli.","source_sha256":"cdcf5c4c46f2a5c313408530011c4ddca7624ba68f4319f6ac31464bb4c0eb68"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf594e","pl":"Obrona:Obraż.-30%\nEN-5","source_sha256":"ce44c781b3e225faecb74fbbedf092e0a4522563962e4b9420cf50bc0f9ca7ec"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ee7","pl":"Morale 128+\nCel,Unik+14 Kryt+12%\nSP+10 co turę","source_sha256":"cf19a65aabc7189c8c647772dc90441725e2795874da68d23050b7e1c8db795a"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4848","pl":"Pilot:","source_sha256":"cf5465429d18e874969d23db977a0823427df601da7abdc8e980f7e5300f0b31"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf49de","pl":"＠4<Bron wiazkowa Lv1>＠0Kryt+4% Unik-4%","source_sha256":"d13f2e17d71166431172738a930b7128bbab29772ef410ce8cd611febcea074f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a6b","pl":"Obraz.-30% Sz. 26%","source_sha256":"d21b81a47966eb44ce14d9d85a89585218eac9f077ee6fa211bda4ab70812b29"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf49de","pl":"＠4<Broń wiązkowa Lv1>＠0Kryt+4% Unik-4%","source_sha256":"d13f2e17d71166431172738a930b7128bbab29772ef410ce8cd611febcea074f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a6b","pl":"Obraż.-30% Sz. 26%","source_sha256":"d21b81a47966eb44ce14d9d85a89585218eac9f077ee6fa211bda4ab70812b29"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95d4","pl":"[Status]","source_sha256":"d23a29bc67599c94be37c3b692315db31448b766ad090cc6f1d07ae9f7e2aa7d"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9350","pl":"Kontra","source_sha256":"d25530d8e08fb295600f22363d85e51bf0a7b1c4ac01ba6bef9f7bc8187922ca"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d3c","pl":"Schwyt.","source_sha256":"d2c7cc3d7eff358af82c14d7649967cd4ab25ab6745862d109af8d92a4e5118f"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5831","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-18%","source_sha256":"d2f13f43c5ec3d2c905b9eea28599729249783f36d23b938a162aa3a4d7b9b6e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5831","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-18%","source_sha256":"d2f13f43c5ec3d2c905b9eea28599729249783f36d23b938a162aa3a4d7b9b6e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e40","pl":"Keron Lv4","source_sha256":"d336b8587906b4692bf22e411049f3841f940e7b7090521e2d81c7c4609e9d0e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48e0","pl":"Unik-22%","source_sha256":"d47543b02305df21403fa13a4408fe1f7d5f786e1c7c7630b4768d969d96d08b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7244","pl":"Brak szybkiego zapisu.","source_sha256":"d52d8e64ed8c58c44e1b3a27f5862046b4487aeaee38de949c784b07c4429390"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c0338b","pl":"Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.","source_sha256":"d55ef7790aaa0fe7d95b86b76fa72bb4f1ab4b26ee033ac4b26241f9abb543b2"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c0338b","pl":"Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.","source_sha256":"d55ef7790aaa0fe7d95b86b76fa72bb4f1ab4b26ee033ac4b26241f9abb543b2"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9258","pl":"Wr.","source_sha256":"d6b0cae1447b101adfcb2e852d8359604aa1eea94dd53b38dffcad8942cf60ee"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c2e","pl":"Okraz.+30%","source_sha256":"d752b79bfbad4b80263b45f96fafcc5405ab898fc46b70b368e2702fa397640e"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf71c8","pl":"Jesli istnieje szybki zapis, mozna go wczytac.\nWczytac szybki zapis?","source_sha256":"d78746b0e0984ee8b6d3898ad3582733c7b7fe0af4182fffa60f6ca77f0a1b5d"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59aa","pl":"Obrona:Obraz.-38%\nEN-5","source_sha256":"d83cd63695ebfb018a6600e25f3051e0c8018095b99a7e6e45ed45ba71253b76"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf578f","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-12%","source_sha256":"d8802bbe21c0a172dfd47e0187d7b5e14bb0176f9c7a6be8c2a37f59a3ed83c0"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5c2e","pl":"Okrąż.+30%","source_sha256":"d752b79bfbad4b80263b45f96fafcc5405ab898fc46b70b368e2702fa397640e"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf71c8","pl":"Jeśli istnieje szybki zapis, można go wczytać.\nWczytać szybki zapis?","source_sha256":"d78746b0e0984ee8b6d3898ad3582733c7b7fe0af4182fffa60f6ca77f0a1b5d"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59aa","pl":"Obrona:Obraż.-38%\nEN-5","source_sha256":"d83cd63695ebfb018a6600e25f3051e0c8018095b99a7e6e45ed45ba71253b76"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf578f","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-12%","source_sha256":"d8802bbe21c0a172dfd47e0187d7b5e14bb0176f9c7a6be8c2a37f59a3ed83c0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92d0","pl":"Zaop.","source_sha256":"d8cb1605e68748a2ce39412bfdd305ae9c5311aedefde881cc7783f75d1d1a69"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5652","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-12%","source_sha256":"d96622311d04982f4b4a567e5dfdb24c8e8382a276a10f49db9a7df7eb47a8a6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5652","pl":"Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-12%","source_sha256":"d96622311d04982f4b4a567e5dfdb24c8e8382a276a10f49db9a7df7eb47a8a6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95c8","pl":"[Szukaj]","source_sha256":"d9bd7ee9a1fea23f4dc78ca5dda3ce272afd8d64ab3abca719dae1db3186e7f8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9390","pl":"Zdejmij","source_sha256":"dac1c48673afe7e7543ddfdf58ece70df1fb2a97ab026e86110e8dc1a7a786e9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7220","pl":"Blad wczytania szybkiego zapisu.","source_sha256":"dbec65c4e1c0554ba20317fe137796de2d245143349e364d84a7825674433193"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5223","pl":"Duzy Lv2","source_sha256":"dcdf845f88fbba7648e379d5b6a43e8713605da0f5e84de2eefbb33d2479b9cf"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a0b","pl":"＠4<Bron wiazkowa Lv2>＠0Kryt+6% Unik-6%","source_sha256":"dd8fe02ad5c46187de82153ae8ca72f08084f5e8f8c1be3fc3675410d0963fa6"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7220","pl":"Błąd wczytania szybkiego zapisu.","source_sha256":"dbec65c4e1c0554ba20317fe137796de2d245143349e364d84a7825674433193"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5223","pl":"Duży Lv2","source_sha256":"dcdf845f88fbba7648e379d5b6a43e8713605da0f5e84de2eefbb33d2479b9cf"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4a0b","pl":"＠4<Broń wiązkowa Lv2>＠0Kryt+6% Unik-6%","source_sha256":"dd8fe02ad5c46187de82153ae8ca72f08084f5e8f8c1be3fc3675410d0963fa6"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf838c","pl":"Zm. jedn.","source_sha256":"ddd44053d29e48c2f8ac760b0a9263e630b41fcb469e850fb709a479cda4234b"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf50c9","pl":"Atk,Obr,Cel+22","source_sha256":"df9b9a7a16ed52bd9294e4218686e0602949ab6fe4ad80d45f893d0233802fe0"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf429e","pl":"Czesci: 190 rodzajow","source_sha256":"e0221ebc2d088820a967a38b2c01335315abbe9fbbcaa83f0ac63a7663cd87b7"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf429e","pl":"Części: 190 rodzajów","source_sha256":"e0221ebc2d088820a967a38b2c01335315abbe9fbbcaa83f0ac63a7663cd87b7"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d24","pl":"Presja","source_sha256":"e21003db68103c75a7ce329ef86a5642c06ee3ab14eba4f6de0af216609ca607"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b41","pl":"Kryt+100%/sila+40%","source_sha256":"e2e5e9dc4ed32780d4a8bb9f56ff00e227d2c1c6e8c7ce3478bc9ace2ad1fc09"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf589d","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-22%","source_sha256":"e3670b80efe337016ddbbd9225afd505f3291bcf55d9687511d29e51c91a15e8"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5b41","pl":"Kryt+100%/siła+40%","source_sha256":"e2e5e9dc4ed32780d4a8bb9f56ff00e227d2c1c6e8c7ce3478bc9ace2ad1fc09"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf589d","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-22%","source_sha256":"e3670b80efe337016ddbbd9225afd505f3291bcf55d9687511d29e51c91a15e8"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf3aa8","pl":"Zestaw 1","source_sha256":"e36bae8ba2d36deba104eadfca2146d772e9b5f050873414f69d48c95ceb5ec6"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8218","pl":"Lad: bez post.","source_sha256":"e3dad3dded66277fd91d21e6dbf53487d4bb623acd427e330235d407d66a44a5"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74c0","pl":"Ladow.","source_sha256":"e45a6b04eea48630520b7ad313095fc61cbe02bcd4005fa800c02d80ce7956c3"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8218","pl":"Ląd: bez post.","source_sha256":"e3dad3dded66277fd91d21e6dbf53487d4bb623acd427e330235d407d66a44a5"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf74c0","pl":"Ładow.","source_sha256":"e45a6b04eea48630520b7ad313095fc61cbe02bcd4005fa800c02d80ce7956c3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48f2","pl":"Unik-26%","source_sha256":"e50efece5dc786281010c20c4d2eb6ff06e35add93e75f4b19de532bf8ed6c3c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5aa7","pl":"Kryt+30%/sila+8%","source_sha256":"e6b43d602093d78a62f51d8e499dd1f52fa3aedbd0402f057b02c52d07e6df64"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5aa7","pl":"Kryt+30%/siła+8%","source_sha256":"e6b43d602093d78a62f51d8e499dd1f52fa3aedbd0402f057b02c52d07e6df64"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5081","pl":"Atk,Obr,Cel+14","source_sha256":"e7a25823d3616770b5ceacd16a2d8fd6efdcd293b67b357b8b6056d4faa2dc28"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf510c","pl":"＠4<Hyper Lv1>＠0Morale 140+ Atk+40% Obr,Unik+10%","source_sha256":"e7f11813188c11962ecf3cd668f4ca5e4d1f1107270dc4f269d6f5c97fd532f9"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2c9c","pl":"Krytyczne!","source_sha256":"e8097e3e57e1df3989b814633ffacfaa62dc43bb9b754daedb8f620323371d58"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4c04","pl":"Atk,Obr,Cel+18","source_sha256":"e8a94ea3f522eb5314fb12dcd282551314d16ddd87257a26f2d7fcc868f33806"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf50b7","pl":"Atk,Obr,Cel+20","source_sha256":"e934f800053f8258a8221c54a642f88101c75f83173fbac54e24bf6156a392f4"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5af2","pl":"Kryt+80%/sila+24%","source_sha256":"ead8721ead8948d00c670b2b025ed6f65cee085942f21960650354b91ace9fb4"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5af2","pl":"Kryt+80%/siła+24%","source_sha256":"ead8721ead8948d00c670b2b025ed6f65cee085942f21960650354b91ace9fb4"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9340","pl":"Przeb.","source_sha256":"eb3a0a72c9a720bee23ac463236353c856a1a0006c6d88793b5adc285bff7313"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa0b4","pl":"Kikaishin","source_sha256":"ec7d0d2127133182bb7b4b41f06c74f677a8b1a68bbb873ae96a480d582123c4"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7aa0","pl":"??","source_sha256":"ed04513848f1bdb569c4c111d6451a52252905ec19a68d3ba5fc19f2a0e616ee"}
@@ -65452,15 +65452,15 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf7198","pl":"Sw.","source_sha256":"edb26deaa931d65d3403894885a2e1a54ad5acea7fa85d8a9daf6046420c7ccc"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9280","pl":"EN+%d","source_sha256":"eded355f9eb0dab213efe1800d28803531621e517262c1faa7f6a3c7a2ba60b3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e1c","pl":"Keron","source_sha256":"ee3ecd373f05618783153dab6c64d11aa8e70283b5a85ccb86aa39b92c0544b4"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5e2d","pl":"＠4<Atak grupowy Lv5>＠0Okrazenie+50% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku","source_sha256":"ee466b75b85723632cf03334de9c16d5764c93764d91e29b7e840b0432ac8587"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf523e","pl":"Duzy Lv5","source_sha256":"efafb2e6cb30bb49b57504f8549f46ceff274dc90347d3e576f475983e84d14a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8e4c","pl":"*Wezw. Oslony","source_sha256":"f0226ea3628fe6c97cfe5775e8b0be7cb4286c6ca8c5c2a54e528ba401118c7f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5e2d","pl":"＠4<Atak grupowy Lv5>＠0Okrążenie+50% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku","source_sha256":"ee466b75b85723632cf03334de9c16d5764c93764d91e29b7e840b0432ac8587"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf523e","pl":"Duży Lv5","source_sha256":"efafb2e6cb30bb49b57504f8549f46ceff274dc90347d3e576f475983e84d14a"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8e4c","pl":"*Wezw. Osłony","source_sha256":"f0226ea3628fe6c97cfe5775e8b0be7cb4286c6ca8c5c2a54e528ba401118c7f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c009c4","pl":"%s%s%-TEXT_SPACE_ROBOs＠0%s%-TEXT_SPACE_PILOTEs＠0%s","source_sha256":"f0e7a2e39df834d264d6d6bacd23c1cca8c3d2ef5c6b1fa3d59499b80b74bab8"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c29613","pl":"Zresetowac zapis?","source_sha256":"f1a37731b6db17533e95496c574d1290ecc23658451eef479bfdadc0af29f86c"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08c29613","pl":"Zresetować zapis?","source_sha256":"f1a37731b6db17533e95496c574d1290ecc23658451eef479bfdadc0af29f86c"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48e9","pl":"Unik-24%","source_sha256":"f1eeed32bde0b72577b91f058101b569e4a4f002ee4e96a912247dba5072cdd9"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5e9f","pl":"Wentylator czastek","source_sha256":"f22222bd11d483442d84643352c531cb0ba94ee5beeb1c09afc95ff7dd002e41"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59ed","pl":"Obraz.-18% Sz. 14%","source_sha256":"f43e95a8dcca8d0ffd4c2c6e8d274d4558a7181338c71f8ee22b2deb0964c0fd"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf832c","pl":"<Bez Oslony>","source_sha256":"f59b761cef27d1d3692a221c9c5cd539d2d23f60bef3dfbfdaba00fb03125337"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5e9f","pl":"Wentylator cząstek","source_sha256":"f22222bd11d483442d84643352c531cb0ba94ee5beeb1c09afc95ff7dd002e41"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf59ed","pl":"Obraż.-18% Sz. 14%","source_sha256":"f43e95a8dcca8d0ffd4c2c6e8d274d4558a7181338c71f8ee22b2deb0964c0fd"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf832c","pl":"<Bez Osłony>","source_sha256":"f59b761cef27d1d3692a221c9c5cd539d2d23f60bef3dfbfdaba00fb03125337"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e7c","pl":"Keron","source_sha256":"f5adf8be392634e6542d837b5f0f0ac7ff478014415d9c56873f40db5ec60c8f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf92f8","pl":"Jazda","source_sha256":"f6fc447ae1354d84eaa3a130b06b9dd0a0ce63afd3df8875ca6c117c27e53691"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4aff","pl":"＠4<Penetracja Lv3>＠0Obr-40%","source_sha256":"f736817b6d07be7393de839ac85816444945679d3391de08f2a0c40029c1fb18"}
@@ -65470,9 +65470,9 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9560","pl":"Sterowanie","source_sha256":"f9ea670badc9865fbbc4833cca83373bc6755cbc8b6a619abeefdca23b4b6fa3"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8348","pl":"Jedn. wsp.","source_sha256":"faa9ec676a9a77f43901ceb2074d5141af65141f4fe3b907082dbfa12774a8d0"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bfa074","pl":"Przed %d","source_sha256":"fb55fda41a8c7a2192dab2a691d001bbdfcbb911a504d2574f9455f07f2f590c"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a41","pl":"Obraz.-26% Sz. 22%","source_sha256":"fcdeffdbbd67567172e41e760691c276b6f82c9e6bd3fb117c3e9627d33f3605"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a41","pl":"Obraż.-26% Sz. 22%","source_sha256":"fcdeffdbbd67567172e41e760691c276b6f82c9e6bd3fb117c3e9627d33f3605"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf8f60","pl":"Zdoln.","source_sha256":"fcf4c03e83169f26e3c097737cfa0d1cc9f53cf0f3a070d21e2e88bcb577db25"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf526b","pl":"Duzy","source_sha256":"fec9a337306fa5e14ce350e47f7480d4d9038bde8be7e2dc6d07db205ae3c4cb"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf526b","pl":"Duży","source_sha256":"fec9a337306fa5e14ce350e47f7480d4d9038bde8be7e2dc6d07db205ae3c4cb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82bc","pl":"Kleszcz","source_sha256":"ff4eb4e00cb933469f951db059e76078e0d2598312069c076ec266466f8c09aa"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e02","pl":"Cel,Unik+22","source_sha256":"ff6da567b103680c6258a983e27e94ada962a2863764210a73a18bb68adc98d1"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r57:name","pl":"Sniezka","source_sha256":"0215b5b9028c0b2d3412a45b9f696d008d39290fd09d4a0ffda9cb90690a58cf"}

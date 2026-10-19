@@ -46,3 +46,5 @@ Project guardrails:
 - Log commands, tool versions, results, hashes, and failures in `docs/EXPERIMENT_LOG.md`. Do not put personal Windows usernames or local absolute paths into committed documentation.
 - The intended distribution model is a patch applied to a user's own matching game files, not distribution of game data. Final format and legal review remain undecided.
 - Use the session-assigned Git branch and repository workflow; do not switch branches.
+
+- PL UI v2.2 cache repair is RUNTIME-REGRESSED (owner Spirit-details crash0x6d). Do not claim prior186-case probe sufficient. Follow-up `docs/pl/UI_QA_FOLLOWUP_2026-10-19.md`: replace69-word field-shift patch with14-word tail-name buffer, preserve original40-byte object prefix, ten allocations72B, four name-address changes. Historical module reproduces0x6d through actual1a201c/210904 calls; new186 name cases/930 details calls pass in Unicorn with other UI callees stubbed (NOT PPSSPP). Source-bound193 PL UI changes (178 accent-only/same-byte executable +15 compact prompts), system UTF-8 save-list strings deliberately unchanged. Full suite/standalone/private delivery pending at this checkpoint.

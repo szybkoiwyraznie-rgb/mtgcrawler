@@ -24,8 +24,8 @@ class CacheTests(unittest.TestCase):
             self.assertEqual(struct.unpack_from('<I',patched,offset+address)[0],new)
             struct.pack_into('<I',restored,offset+address,old)
         self.assertEqual(bytes(restored),raw)
-        self.assertEqual(len(S.PATCHES),69)
-        self.assertEqual(len({a for a,_,_ in S.PATCHES}),69)
+        self.assertEqual(len(S.PATCHES),14)
+        self.assertEqual(len({a for a,_,_ in S.PATCHES}),14)
 
     def test_mismatch_truncation_and_repeat_refused(self):
         raw,offset = self.fixture()
@@ -35,21 +35,32 @@ class CacheTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'unreviewed executable'):
             S.apply(raw)
 
-    def test_allocation_and_member_moves_stay_consistent(self):
+    def test_tail_allocation_and_four_name_addresses_stay_consistent(self):
         allocations=0
         for addr,old,new in S.PATCHES:
             if old==0x34050028:
-                self.assertEqual(new,0x34050040)
+                self.assertEqual(new,0x34050048)
                 allocations+=1
             else:
                 self.assertEqual(old>>16,new>>16)
-                self.assertIn(old&65535,(0x14,0x18,0x20,0x24))
-                self.assertEqual((new&65535)-(old&65535),24)
+                self.assertEqual(old&65535,0x0c)
+                self.assertEqual(new&65535,S.NAME_OFFSET)
                 self.assertLess(new&65535,S.OBJECT_BYTES)
         self.assertEqual(allocations,10)
-        self.assertEqual(S.NAME_OFFSET+S.NAME_BYTES,0x2c)
-        self.assertEqual(len(S.cheat_lines()),69)
-        self.assertIn('_L 0x201A8B30 0xAE02002C',S.cheat_lines())
+        self.assertEqual(S.NAME_OFFSET,40)
+        self.assertEqual(S.NAME_OFFSET+S.NAME_BYTES,S.OBJECT_BYTES)
+        self.assertEqual(len(S.cheat_lines()),14)
+        self.assertIn('_L 0x201A8A48 0x26130028',S.cheat_lines())
+
+    def test_existing_fields_and_all_known_details_consumers_are_untouched(self):
+        addresses={a for a,_,_ in S.PATCHES}
+        for address in (0x1509ec,0x1509f8,0x1a209c,0x1a1d80,0x1a3574,
+                        0x1a6ccc,0x1a7008,0x1a4b30):
+            self.assertNotIn(address,addresses)
+        allocations={a for a,old,_ in S.PATCHES if old==0x34050028}
+        self.assertEqual(len(allocations),10)
+        name_refs={a for a,old,_ in S.PATCHES if old!=0x34050028}
+        self.assertEqual(name_refs,{0x1a4870,0x1a48d0,0x1a495c,0x1a4a48})
 
     def test_record_writer_refuses_names_beyond_the_repaired_cache(self):
         import item_skill_write as W
@@ -69,9 +80,9 @@ class CacheTests(unittest.TestCase):
             old=bytearray(40);old[12:12+len(text)]=text
             struct.pack_into('<I',old,20,pointer)
             self.assertNotEqual(bytes(old[12:]).split(b'\0')[0],text[:-1])
-            new=bytearray(S.OBJECT_BYTES);new[12:12+len(text)]=text
-            struct.pack_into('<I',new,44,pointer)
-            self.assertEqual(bytes(new[12:]).split(b'\0')[0],text[:-1])
+            new=bytearray(S.OBJECT_BYTES);new[S.NAME_OFFSET:S.NAME_OFFSET+len(text)]=text
+            struct.pack_into('<I',new,20,pointer)
+            self.assertEqual(bytes(new[S.NAME_OFFSET:]).split(b'\0')[0],text[:-1])
 
 
 if __name__=='__main__':unittest.main()

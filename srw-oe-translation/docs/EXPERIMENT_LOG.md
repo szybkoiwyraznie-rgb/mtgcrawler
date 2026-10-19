@@ -7604,3 +7604,12 @@ consumer. Original name bytes leave0x65 there for Skupienie, then callee+8 reads
 0x6d as reported. Earlier186 stubbed constructor/draw tests missed this path.
 Recorded as a real regression; investigating tail-buffer repair preserving all
 old field offsets, plus broader executable spelling audit/compact button labels.
+
+Follow-up checkpoint:14-word tail-buffer replacement implemented; all original
+field offsets stay unchanged. Actual-MIPS historical69-word patch reproduces0x6d
+via three constructors; replacement186 cases/930 real details calls pass (other
+UI/getter functions stubbed, NOT PPSSPP). Source ELF hashes unchanged.193 explicit
+PL edits:178 accent-only/same-byte executable fields +15 compact button labels.
+Three UTF-8 system rows untouched. Sysmes scan45 ambiguous words reviewed/context
+correct, not changed.9 focused tests pass. See follow-up doc/cache receipt; full
+suite/standalone distribution still pending. Inputs/screenshots remain private.

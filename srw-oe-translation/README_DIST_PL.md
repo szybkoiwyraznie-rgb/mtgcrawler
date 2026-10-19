@@ -35,6 +35,27 @@ To jedna zbiorcza poprawka. Kontrola bajtów i test kodu nie zastępują próby 
 **potwierdzenie tych ekranów w PPSSPP nadal jest potrzebne**. Nie trzeba wykonywać
 osobnego testu fontu ani budować osobnego ISO dla każdej etykiety.
 
+## Poprawka po kolejnych 4 zrzutach — v2.3-PL3-UI
+
+- Zastępuje wadliwą poprawkę v2.2, która powodowała crash przy wejściu do
+  szczegółów Duchów. **Skupienie** pozostaje pełne. Nowe miejsce na nazwę jest
+  na końcu obiektu; dotychczasowe pola i wskaźniki nie są przesuwane.
+- Test odtwarza odczyt błędnego adresu `0x6D` ze starej poprawki, a nowy kod
+  przechodzi ten sam odcinek wejścia do szczegółów i cztery odcinki aktualizacji.
+  To test pamięci/kodu MIPS z częścią funkcji zastąpionych atrapami, **nie PPSSPP**.
+- Krótsze podpowiedzi przycisków: **Ulepsz**, **Widok**.
+- Polskie znaki w ostrzeżeniu zapisu i innych napisach silnika: m.in. **nośnika**,
+  **wyłączaj**, **Osłona**, **Okrążenie**, **Części**, komunikaty błędów.
+  Zmieniono wyłącznie pisownię, bez powiększania tych napisów w pamięci.
+- Dwa opisy w systemowej liście zapisów nadal mają pisownię ASCII. Używają
+  innego, systemowego fontu UTF-8; nie wstawiamy tam niezweryfikowanych glifów PL.
+
+Rozpakuj do nowego folderu i przebuduj z oryginałów. Nie nakładaj nowego kodu
+na wcześniej spatchowane ISO. Po zimnym starcie wczytaj normalny zapis, wejdź do
+podglądu maszyny Seishiro i otwórz szczegóły Duchów. Sprawdź nazwę i poziomy,
+zmień zaznaczony Duch, wyjdź i otwórz ponownie. Potwierdź też zapis i oba paski
+przycisków. Nie usuwaj zapisów ani oryginałów.
+
 ## Uruchomienie
 
 Potrzebne: Windows10/11, Python3.10+ (zalecany3.12), Pillow, PPSSPP i kilka GB

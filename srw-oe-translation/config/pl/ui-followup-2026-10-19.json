@@ -1,0 +1,1550 @@
+{
+  "schema": 1,
+  "review": "Owner four-screen follow-up: source-bound executable spelling audit (not dialogue), compact button strips; system UTF-8 save labels excluded.",
+  "changes": [
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf2cb4",
+      "source_sha256": "8ed7e0f7f80f48b99973195ec50663b3e539d21045a4f53be79e0d0f15562923",
+      "before": "Pelne okr.!",
+      "after": "Pełne okr.!",
+      "max_cells": 11
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf2cc8",
+      "source_sha256": "358418d6fc518e26a9e929e41a3d864e9ab5f06d2db4e5bdb6fce62047b8fdfe",
+      "before": "Oslona",
+      "after": "Osłona",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf2cf4",
+      "source_sha256": "899a54581b26bc4f8d874d78e789d439aa00e462a670c66206eaf8400e017c67",
+      "before": "Atak lacz.",
+      "after": "Atak łącz.",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf34bf",
+      "source_sha256": "cdcf5c4c46f2a5c313408530011c4ddca7624ba68f4319f6ac31464bb4c0eb68",
+      "before": "Zapisywanie...\nNie wyjmuj nosnika ani nie wylaczaj konsoli.",
+      "after": "Zapisywanie...\nNie wyjmuj nośnika ani nie wyłączaj konsoli.",
+      "max_cells": 44
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3678",
+      "source_sha256": "be0666baa43a0ebe48e1255c7ff20bc1c2f4436a4469e67752308bba0e3e6129",
+      "before": "Gra obsluguje automatyczny zapis.\nPodczas autozapisu miga lampka dostepu \"Memory Stick\"; nie wyjmuj wtedy nosnika ani nie wylaczaj konsoli.",
+      "after": "Gra obsługuje automatyczny zapis.\nPodczas autozapisu miga lampka dostępu \"Memory Stick\"; nie wyjmuj wtedy nośnika ani nie wyłączaj konsoli.",
+      "max_cells": 105
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3e1c",
+      "source_sha256": "abe3d0f39da84e99126d1b30c41ffc831a74906bfb54bfe1d4f180a14955306f",
+      "before": "Zastosowac te czesci oddzialu?\n(Nadwyzke ponad 99 dodam, gdy spadnie ponizej 99.)",
+      "after": "Zastosować te części oddziału?\n(Nadwyżkę ponad 99 dodam, gdy spadnie poniżej 99.)",
+      "max_cells": 50
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3e70",
+      "source_sha256": "96be32b090af2589e6bcc5bb38c460aab806e1711de4a39862eeea313d4d65be",
+      "before": "Blad podczas stosowania zawartosci.\nZamknij gre, a nastepnie w menu\n\"Lista pobran\" wybierz \"Aktualizuj\".",
+      "after": "Błąd podczas stosowania zawartości.\nZamknij grę, a następnie w menu\n\"Lista pobrań\" wybierz \"Aktualizuj\".",
+      "max_cells": 36
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3f00",
+      "source_sha256": "4a937c9e27da5ee15b94de57d40d3f3530f772cb8132cd542efeda4d871d1d1b",
+      "before": "Blad polaczenia.",
+      "after": "Błąd połączenia.",
+      "max_cells": 16
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3f1c",
+      "source_sha256": "602c6c8b6ecb67923d94dd7dc6147ebb6f6b3de3065242d362ba4ff973e9a0bc",
+      "before": "Ta zawartosc ma ograniczenie wiekowe i jest niedostepna.",
+      "after": "Ta zawartość ma ograniczenie wiekowe i jest niedostępna.",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf429e",
+      "source_sha256": "e0221ebc2d088820a967a38b2c01335315abbe9fbbcaa83f0ac63a7663cd87b7",
+      "before": "Czesci: 190 rodzajow",
+      "after": "Części: 190 rodzajów",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf45b8",
+      "source_sha256": "623be5457f043a2ea705e6fc91de6e7de7aaf482c17c28a1ba836ddfb9f860ab",
+      "before": "W niektorych misjach na mapie taktycznej znajduja sie ＠6kontenery＠0\ni ＠6moduly naprawy＠0.\n\nKontener jest oznaczony na mapie jako \"＠6TRESURE＠0\".\nZakoncz na nim ruch (Czekaj), aby zdobyc czesc.\n\nModuly naprawy sa oznaczone na mapie jako \"＠6HP＠0\" i \"＠6EN＠0\".\nZakoncz na nim ruch (Czekaj), aby odnowic HP lub EN.\n\n＠4<Pojawianie sie kontenerow>＠0\nPrzy pierwszym podejsciu do misji kontenery moga sie nie pojawic.\nPonowne rozegranie ukonczonej misji\nmoze sprawic, ze pojawia sie nowe kontenery.\nNiektore pojawiaja sie tylko, gdy w skladzie sa okreslone jednostki.",
+      "after": "W niektórych misjach na mapie taktycznej znajdują się ＠6kontenery＠0\ni ＠6moduły naprawy＠0.\n\nKontener jest oznaczony na mapie jako \"＠6TRESURE＠0\".\nZakończ na nim ruch (Czekaj), aby zdobyć część.\n\nModuły naprawy są oznaczone na mapie jako \"＠6HP＠0\" i \"＠6EN＠0\".\nZakończ na nim ruch (Czekaj), aby odnowić HP lub EN.\n\n＠4<Pojawianie się kontenerów>＠0\nPrzy pierwszym podejściu do misji kontenery mogą się nie pojawić.\nPonowne rozegranie ukończonej misji\nmoże sprawić, że pojawią się nowe kontenery.\nNiektóre pojawiają się tylko, gdy w składzie są określone jednostki.",
+      "max_cells": 69
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf49de",
+      "source_sha256": "d13f2e17d71166431172738a930b7128bbab29772ef410ce8cd611febcea074f",
+      "before": "＠4<Bron wiazkowa Lv1>＠0Kryt+4% Unik-4%",
+      "after": "＠4<Broń wiązkowa Lv1>＠0Kryt+4% Unik-4%",
+      "max_cells": 40
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4a0b",
+      "source_sha256": "dd8fe02ad5c46187de82153ae8ca72f08084f5e8f8c1be3fc3675410d0963fa6",
+      "before": "＠4<Bron wiazkowa Lv2>＠0Kryt+6% Unik-6%",
+      "after": "＠4<Broń wiązkowa Lv2>＠0Kryt+6% Unik-6%",
+      "max_cells": 40
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4a38",
+      "source_sha256": "c40fa6fd799e631d5e2079399d60565c49adb899f49780097edc5c33540622d5",
+      "before": "＠4<Bron wiazkowa Lv3>＠0Kryt+8% Unik-8%",
+      "after": "＠4<Broń wiązkowa Lv3>＠0Kryt+8% Unik-8%",
+      "max_cells": 40
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4a65",
+      "source_sha256": "b772fb9f5391bc39c6d6370ec61f0ab323b0a16294c2d5119cfc4a1d37d24822",
+      "before": "＠4<Bron wiazkowa Lv4>＠0Kryt+10% Unik-10%",
+      "after": "＠4<Broń wiązkowa Lv4>＠0Kryt+10% Unik-10%",
+      "max_cells": 42
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4a94",
+      "source_sha256": "26e42af5ada61a9910efe868eca0f4ad76a70911addf9c7f2022664b0396dd15",
+      "before": "＠4<Bron wiazkowa Lv5>＠0Kryt+12% Unik-12%",
+      "after": "＠4<Broń wiązkowa Lv5>＠0Kryt+12% Unik-12%",
+      "max_cells": 42
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4b59",
+      "source_sha256": "205259025e683e5cf46b23f9b5f233d2da0e2bd2730743f13fc3b301981b3f09",
+      "before": "Moze zmienic forme\n(Wing Caliber)",
+      "after": "Może zmienić formę\n(Wing Caliber)",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4b87",
+      "source_sha256": "adb23c37685a8be3af2fc43cf2b2eb93931c2f7f69f30e355c6fc8bcee7318af",
+      "before": "Moze zmienic forme\n(Prowler)",
+      "after": "Może zmienić formę\n(Prowler)",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c4c",
+      "source_sha256": "8b3cb1900e8f2c04fca759b6a0f388248243092f5098674d8a0ae999ef33dd11",
+      "before": "Rozbroj: wejdz w zasieg miny",
+      "after": "Rozbroj: wejdź w zasięg miny",
+      "max_cells": 28
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c6d",
+      "source_sha256": "b11800bb469c41e4c75c58daa811f5cf9e3f7e23a91c5ad11b213a9363a85379",
+      "before": "Rozbroj: wejdz w zasieg miny",
+      "after": "Rozbroj: wejdź w zasięg miny",
+      "max_cells": 28
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c8e",
+      "source_sha256": "154bc70140431d217eb8a40259730438a7d695b936bb4da4fa1a0745e7cf6eb6",
+      "before": "Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: param.+",
+      "after": "Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: param.+",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4ccd",
+      "source_sha256": "1c58779ef299aaa43eb265fd7dd8c09abbda3c8f7edf2e8ab0fc5f55a4c75278",
+      "before": "Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Cel,Unik+",
+      "after": "Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Cel,Unik+",
+      "max_cells": 23
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4d16",
+      "source_sha256": "0d47c413ec924c7a5269a095ee41617f028f0d2b157fb26b993002eab6dd9ba3",
+      "before": "Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Cel,Unik+",
+      "after": "Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Cel,Unik+",
+      "max_cells": 23
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4d5f",
+      "source_sha256": "11ae8cae6f7d2a3ae5879ff80c10fd96c31f7b314a057be77f40f3ce04b35640",
+      "before": "Fuzja z Organoidem\nPo fuzji pelne HP/EN\nOrganoid: Atk,Obr,Cel+",
+      "after": "Fuzja z Organoidem\nPo fuzji pełne HP/EN\nOrganoid: Atk,Obr,Cel+",
+      "max_cells": 22
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4e82",
+      "source_sha256": "25da5b767143f573b7274a25862a18b60c0d76c1130cf2f2f2664ba4ed7ffb16",
+      "before": "Morale 130+\nCel,Unik+10 Kryt+8%\nSP+10 co ture",
+      "after": "Morale 130+\nCel,Unik+10 Kryt+8%\nSP+10 co turę",
+      "max_cells": 19
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4eb4",
+      "source_sha256": "1bd4b43a76c6c48b72583ddc482409803fe657baf56d47b128d0da5382097cfd",
+      "before": "Morale 129+\nCel,Unik+12 Kryt+10%\nSP+10 co ture",
+      "after": "Morale 129+\nCel,Unik+12 Kryt+10%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4ee7",
+      "source_sha256": "cf19a65aabc7189c8c647772dc90441725e2795874da68d23050b7e1c8db795a",
+      "before": "Morale 128+\nCel,Unik+14 Kryt+12%\nSP+10 co ture",
+      "after": "Morale 128+\nCel,Unik+14 Kryt+12%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f1a",
+      "source_sha256": "a25082d27277768414591d66855d1c3aa20034d5e118032d33deabd3e161f2c8",
+      "before": "Morale 127+\nCel,Unik+16 Kryt+14%\nSP+10 co ture",
+      "after": "Morale 127+\nCel,Unik+16 Kryt+14%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f4d",
+      "source_sha256": "0a82878ef2c3a9272b108d1cac046e7f4c0a66683e624692df050cdcb3640375",
+      "before": "Morale 126+\nCel,Unik+18 Kryt+16%\nSP+10 co ture",
+      "after": "Morale 126+\nCel,Unik+18 Kryt+16%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f80",
+      "source_sha256": "56f7307f1913a248442261763ec0ea7cdc82f376da901c83e4f10f0a33a315f5",
+      "before": "Morale 125+\nCel,Unik+20 Kryt+18%\nSP+10 co ture",
+      "after": "Morale 125+\nCel,Unik+20 Kryt+18%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4fb3",
+      "source_sha256": "c2f5dfa17020f3f59d42572949f590526b801ea6786388764e6614142b5630b8",
+      "before": "Morale 124+\nCel,Unik+22 Kryt+20%\nSP+10 co ture",
+      "after": "Morale 124+\nCel,Unik+22 Kryt+20%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4fe6",
+      "source_sha256": "bda792cafe540047212c68414b87f5f916182c5ced18e419171e087e147fdcf0",
+      "before": "Morale 122+\nCel,Unik+24 Kryt+22%\nSP+10 co ture",
+      "after": "Morale 122+\nCel,Unik+24 Kryt+22%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5019",
+      "source_sha256": "852dbb6c42f44b62ae287f501165984e8db225f2dd649365ac5f2c6d2f3dfa82",
+      "before": "Morale 120+\nCel,Unik+26 Kryt+24%\nSP+10 co ture",
+      "after": "Morale 120+\nCel,Unik+26 Kryt+24%\nSP+10 co turę",
+      "max_cells": 20
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5215",
+      "source_sha256": "56146d22dbfeb974ad2bc1e44ce33a454a5e58f38035a65796da6195aa4e81cd",
+      "before": "Duzy",
+      "after": "Duży",
+      "max_cells": 4
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf521a",
+      "source_sha256": "2a9d3d96642d6e69f0f7fa22e1982518f8f002bdc76d750a135af0ad1387ef85",
+      "before": "Duzy Lv1",
+      "after": "Duży Lv1",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5223",
+      "source_sha256": "dcdf845f88fbba7648e379d5b6a43e8713605da0f5e84de2eefbb33d2479b9cf",
+      "before": "Duzy Lv2",
+      "after": "Duży Lv2",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf522c",
+      "source_sha256": "592e8df8084a3ea9820097e03d540d2aa0c002a181b14041a254529b33133fe1",
+      "before": "Duzy Lv3",
+      "after": "Duży Lv3",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5235",
+      "source_sha256": "522910edd345c443c3ae02a5684ca7e850ca298927d46a64db474a5a21734a42",
+      "before": "Duzy Lv4",
+      "after": "Duży Lv4",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf523e",
+      "source_sha256": "efafb2e6cb30bb49b57504f8549f46ceff274dc90347d3e576f475983e84d14a",
+      "before": "Duzy Lv5",
+      "after": "Duży Lv5",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5247",
+      "source_sha256": "9753ff0b393e4570fc738bd9a4273819a385c3f63d5ec1c6a11a86573162105e",
+      "before": "Duzy Lv6",
+      "after": "Duży Lv6",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5250",
+      "source_sha256": "1eae12051d9c4d37e3efc5cf28d38f7f6503a2f18bc790b5df3fec4220f2b3b9",
+      "before": "Duzy Lv7",
+      "after": "Duży Lv7",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5259",
+      "source_sha256": "a70622d9c9bd07f7a48e86c4e20fad52a53477eb3b053cdf86541e6290478dd3",
+      "before": "Duzy Lv8",
+      "after": "Duży Lv8",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5262",
+      "source_sha256": "8e9059f0bd85cb3f6111a2dadfb6d6943779d4e2c929c7a9f161af98bf27ef74",
+      "before": "Duzy Lv9",
+      "after": "Duży Lv9",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf526b",
+      "source_sha256": "fec9a337306fa5e14ce350e47f7480d4d9038bde8be7e2dc6d07db205ae3c4cb",
+      "before": "Duzy",
+      "after": "Duży",
+      "max_cells": 4
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5270",
+      "source_sha256": "047be9366bb3eea845e97bd351bab9dbca4b4c9d36e107438ce9bf38f8de1f20",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nMniej obraz.\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nMniej obraż.\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf52c3",
+      "source_sha256": "5dca29031ae88102df1aab0b617607f1c85c9531f744fdc7192320b7d3cee726",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-8%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-8%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5315",
+      "source_sha256": "bbb14ed3afb7b5c254aa62614c1432f48ab6f671122aea53479e38a81382c445",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-10%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-10%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5368",
+      "source_sha256": "a1e0017350f219d5386dbf387f8492b39d78b8eb0477329c15a9399a4f6ad058",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-12%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-12%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf53bb",
+      "source_sha256": "4f87e0963c1532ae22733e291d501919552df2acf5189585aeb625e81e4049f9",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-14%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-14%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf540e",
+      "source_sha256": "418bc41149602dc2660232985eb9fc104b6ffed7bf726ad423cb356de61ee67d",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-16%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-16%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5461",
+      "source_sha256": "1dfa732ebd55e44db8c2d13de01ff3ad022565ac4025196f35bb46e88fc957b5",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-18%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-18%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf54b4",
+      "source_sha256": "b0e48addae8d80f1e0429c4d992439aba1c84af62fe10291a41efd1dc24a9b48",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-20%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-20%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5507",
+      "source_sha256": "4821b171224a96bdb0a47f37d61fcf339dc211a9e798c27449e942ede82aa36e",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-22%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-22%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf555a",
+      "source_sha256": "4c46f30864908150464ade4fee32c3301aada6b3e7c087629c0705a4f04fd8db",
+      "before": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraz.-24%\nNie unika atakow",
+      "after": "Odporny: ＠6Przebicie＠0/＠6Odepch.＠0/＠6Rzut＠0\nObraż.-24%\nNie unika ataków",
+      "max_cells": 49
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf55ad",
+      "source_sha256": "c0ce52b990247c0c10e0afabb64c4e66d32a43524c8ee75609a5bb0700b1805e",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-4%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-4%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf55d6",
+      "source_sha256": "ac9081692e38dfc5a8121b467d573c86ce1e6627752915cf47b0be9b97037983",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-6%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-6%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf55ff",
+      "source_sha256": "2eaa17b38883714777d670fd848bfeaeaf7c4029b423385e15ca63ebe1412693",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-8%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-8%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5628",
+      "source_sha256": "29b3343b9cbc0ef4b81e4830a151f22736ae3347ab61a74b2f4d56b27fa1297b",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-10%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-10%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5652",
+      "source_sha256": "d96622311d04982f4b4a567e5dfdb24c8e8382a276a10f49db9a7df7eb47a8a6",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-12%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-12%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf567c",
+      "source_sha256": "449d2bada95f9ec94d91e94d2a956e9b8d5a873b8661e9a86980af3b4e529dec",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-14%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-14%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf56a6",
+      "source_sha256": "3c07c27a804ef3820ea802db7c3ee7acecb9614d31012933e1376231eef94af3",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-16%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-16%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf56d0",
+      "source_sha256": "668efb22e31a97f80bf73be19c6dfc462669b178f5e551dde8354bf00c84fa0e",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-18%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-18%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf56fa",
+      "source_sha256": "9ced7ae151d7c6986bac41784a8a2b5c81e541434709ed66b82f7ceaac97f1cb",
+      "before": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraz.-20%",
+      "after": "Odp.: ＠6Odepch.＠0/＠6Rzut＠0\nObraż.-20%",
+      "max_cells": 30
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5724",
+      "source_sha256": "5192313a955fa18871a207c734a9a89f3c83ff8c395b92dc07f72b36857c4071",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-8%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-8%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5759",
+      "source_sha256": "4eea420b0ad9121db4da1396093004fd1b57da20f0358716944fa575c84e2817",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-10%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-10%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf578f",
+      "source_sha256": "d8802bbe21c0a172dfd47e0187d7b5e14bb0176f9c7a6be8c2a37f59a3ed83c0",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-12%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-12%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf57c5",
+      "source_sha256": "71c09f732127f47fbc657cc698a00d237cbba125fe0c5b857cd3d3044af56f98",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-14%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-14%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf57fb",
+      "source_sha256": "2fa33ff3e4508865be99c268c1364fb1aaa370fe7a1b85fa7f437206fdd6b09f",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-16%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-16%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5831",
+      "source_sha256": "d2f13f43c5ec3d2c905b9eea28599729249783f36d23b938a162aa3a4d7b9b6e",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-18%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-18%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5867",
+      "source_sha256": "ad1b514258bb65db0e0d6c5b1d70bc078ce1d478c22b2aae8336c1c2800a93df",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-20%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-20%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf589d",
+      "source_sha256": "e3670b80efe337016ddbbd9225afd505f3291bcf55d9687511d29e51c91a15e8",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-22%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-22%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf58d3",
+      "source_sha256": "3582b5db90e12ee6ce7316f224f66a55381a89bd3796384f4a199bbbaec055a0",
+      "before": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraz.-24%",
+      "after": "Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-24%",
+      "max_cells": 41
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5909",
+      "source_sha256": "3d56f94b63ba62b3a120cbb8eaaf105394d3b6a974cc213e6691d6d13b5bc66b",
+      "before": "Obrona:Obraz.-24%\nEN-5",
+      "after": "Obrona:Obraż.-24%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5920",
+      "source_sha256": "879a77e1ceacd09f7fa97af7eceb95dd30f4b152f42bfefc8bba4eb7fde49efb",
+      "before": "Obrona:Obraz.-26%\nEN-5",
+      "after": "Obrona:Obraż.-26%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5937",
+      "source_sha256": "4fdbd462c679f89c5b18f8245a2d40e049117201cbcdcaf690c877acc4edee82",
+      "before": "Obrona:Obraz.-28%\nEN-5",
+      "after": "Obrona:Obraż.-28%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf594e",
+      "source_sha256": "ce44c781b3e225faecb74fbbedf092e0a4522563962e4b9420cf50bc0f9ca7ec",
+      "before": "Obrona:Obraz.-30%\nEN-5",
+      "after": "Obrona:Obraż.-30%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5965",
+      "source_sha256": "953c69f1da628db95e157a31a005ad1458ce3993e0bcf91f3945f3b8c53cfb00",
+      "before": "Obrona:Obraz.-32%\nEN-5",
+      "after": "Obrona:Obraż.-32%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf597c",
+      "source_sha256": "18152b526f03e5844d4de4fd6f964d26b00fcbc888172c8cbf07cf7f77b373b9",
+      "before": "Obrona:Obraz.-34%\nEN-5",
+      "after": "Obrona:Obraż.-34%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5993",
+      "source_sha256": "57db2c93dc8eaf92a41c15247868437f83255862488fbe53c5f175a25852179c",
+      "before": "Obrona:Obraz.-36%\nEN-5",
+      "after": "Obrona:Obraż.-36%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59aa",
+      "source_sha256": "d83cd63695ebfb018a6600e25f3051e0c8018095b99a7e6e45ed45ba71253b76",
+      "before": "Obrona:Obraz.-38%\nEN-5",
+      "after": "Obrona:Obraż.-38%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59c1",
+      "source_sha256": "63776e6005b5dca704832e3d735f050b6ada15c52c213cc8558deed3ae4cc61f",
+      "before": "Obrona:Obraz.-40%\nEN-5",
+      "after": "Obrona:Obraż.-40%\nEN-5",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59d8",
+      "source_sha256": "992fa82b4c985f46da9162805b03ca4a1c3109df678e99e6f851da5ff58403d8",
+      "before": "Obraz.-16% Sz. 12%",
+      "after": "Obraż.-16% Sz. 12%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59ed",
+      "source_sha256": "f43e95a8dcca8d0ffd4c2c6e8d274d4558a7181338c71f8ee22b2deb0964c0fd",
+      "before": "Obraz.-18% Sz. 14%",
+      "after": "Obraż.-18% Sz. 14%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a02",
+      "source_sha256": "0007667b0fc93cc98d61ca772846f8c7f0dc993736b12d50de092a5c56376202",
+      "before": "Obraz.-20% Sz. 16%",
+      "after": "Obraż.-20% Sz. 16%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a17",
+      "source_sha256": "212c219b09d64999fa40794ed0d50a8e22bcab4ba667d943288135381595dc6b",
+      "before": "Obraz.-22% Sz. 18%",
+      "after": "Obraż.-22% Sz. 18%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a2c",
+      "source_sha256": "c22239aaf8149ee6f20cd96050303b0ae5d8457bda45587df2439693c0afd96c",
+      "before": "Obraz.-24% Sz. 20%",
+      "after": "Obraż.-24% Sz. 20%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a41",
+      "source_sha256": "fcdeffdbbd67567172e41e760691c276b6f82c9e6bd3fb117c3e9627d33f3605",
+      "before": "Obraz.-26% Sz. 22%",
+      "after": "Obraż.-26% Sz. 22%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a56",
+      "source_sha256": "3af33bd96f48d2c06f7c98bedd7442fa26bff8e292ebafa8ac0165b9013dfbd3",
+      "before": "Obraz.-28% Sz. 24%",
+      "after": "Obraż.-28% Sz. 24%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a6b",
+      "source_sha256": "d21b81a47966eb44ce14d9d85a89585218eac9f077ee6fa211bda4ab70812b29",
+      "before": "Obraz.-30% Sz. 26%",
+      "after": "Obraż.-30% Sz. 26%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a80",
+      "source_sha256": "60303d76eb5941697a3d21d502f0b9134261b4e0b922743c92b57e6a6ebe1cd2",
+      "before": "Obraz.-32% Sz. 28%",
+      "after": "Obraż.-32% Sz. 28%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a95",
+      "source_sha256": "5807bd4a29cc722f2b8da7b3868d4948d07854a68b2708ebbd09945aece50db2",
+      "before": "Kryt/sila kr.+",
+      "after": "Kryt/siła kr.+",
+      "max_cells": 14
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5aa7",
+      "source_sha256": "e6b43d602093d78a62f51d8e499dd1f52fa3aedbd0402f057b02c52d07e6df64",
+      "before": "Kryt+30%/sila+8%",
+      "after": "Kryt+30%/siła+8%",
+      "max_cells": 16
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5ab9",
+      "source_sha256": "7f6340bab59591c03b1f43823a344fcd349a820e8406d0780362f61a7b6efe4f",
+      "before": "Kryt+50%/sila+12%",
+      "after": "Kryt+50%/siła+12%",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5acc",
+      "source_sha256": "81632f451b1a96697343229e7bb92c6c85b180d6ee7a991a27912acd315c548c",
+      "before": "Kryt+60%/sila+16%",
+      "after": "Kryt+60%/siła+16%",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5adf",
+      "source_sha256": "67302655bf7c05f8808eb6dae31b9c219e779a4e2bcc10304467aeb1ebdcba06",
+      "before": "Kryt+70%/sila+20%",
+      "after": "Kryt+70%/siła+20%",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5af2",
+      "source_sha256": "ead8721ead8948d00c670b2b025ed6f65cee085942f21960650354b91ace9fb4",
+      "before": "Kryt+80%/sila+24%",
+      "after": "Kryt+80%/siła+24%",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b05",
+      "source_sha256": "c23f54e4f3ca1f707510801539a4ef3a38a0134c4f5d43b7e8541ce106d54c44",
+      "before": "Kryt+100%/sila+28%",
+      "after": "Kryt+100%/siła+28%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b19",
+      "source_sha256": "4718d7f77107336d1f81d684504d965fc7388028c9162543214af77a11ae1b6e",
+      "before": "Kryt+100%/sila+32%",
+      "after": "Kryt+100%/siła+32%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b2d",
+      "source_sha256": "2ec14bf7ceeb528783072a9aee61449315918c62f17552a1bb9dcf15630edcc4",
+      "before": "Kryt+100%/sila+36%",
+      "after": "Kryt+100%/siła+36%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b41",
+      "source_sha256": "e2e5e9dc4ed32780d4a8bb9f56ff00e227d2c1c6e8c7ce3478bc9ace2ad1fc09",
+      "before": "Kryt+100%/sila+40%",
+      "after": "Kryt+100%/siła+40%",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b55",
+      "source_sha256": "08439324e98498fe426a0dfa31a57c09a64eafabe74b64ff18a43a92b8eab3a6",
+      "before": "Obraz.-20%",
+      "after": "Obraż.-20%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b60",
+      "source_sha256": "6012e33b8ec77498e9922205897b994ab7e5fda1d52b92d029fb0e91618e35a6",
+      "before": "Obraz.-20%",
+      "after": "Obraż.-20%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b6b",
+      "source_sha256": "0e6d01d4846bf43bf2d35d4b33f1c4922cbe3a1540553c25c7299d95c8e5a8da",
+      "before": "Okraz.+20%",
+      "after": "Okrąż.+20%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b76",
+      "source_sha256": "56e682ddb3dfd171651481777ed7f354fee36915fb1757eccb85734d62c663fc",
+      "before": "Okraz.+25%",
+      "after": "Okrąż.+25%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b81",
+      "source_sha256": "74cc8bc290b2de33c4d58df0d2b9d39cc8fa22474bb6c3be19da3bf1d41d4165",
+      "before": "Okraz.+30%",
+      "after": "Okrąż.+30%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b8c",
+      "source_sha256": "50e6b10e550fea263d6f2581d08df264824228c9d726dd2ac19137a333fb18b9",
+      "before": "Okraz.+35%",
+      "after": "Okrąż.+35%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5b97",
+      "source_sha256": "4dfe0c4c1473fb1c2df5683f50db86932bbdf57820dd879a696ab0965a20662e",
+      "before": "Okraz.+40%",
+      "after": "Okrąż.+40%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5ba2",
+      "source_sha256": "ae15853df9bcdce17863dde857683419ebd256cc0ddf7dc6655512875f16d5e2",
+      "before": "＠4<Okrazenie Lv1>＠0+20%",
+      "after": "＠4<Okrążenie Lv1>＠0+20%",
+      "max_cells": 25
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5bbe",
+      "source_sha256": "b891d3e67d849614bef04e2b570284e818d63abfcae832c7c6fc7b1dc093dd64",
+      "before": "＠4<Okrazenie Lv2>＠0+25%",
+      "after": "＠4<Okrążenie Lv2>＠0+25%",
+      "max_cells": 25
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5bda",
+      "source_sha256": "17d9672c4ecffec677b445c550ff7cea68febd580e96bd2e01ce43c4dca1ca74",
+      "before": "＠4<Okrazenie Lv3>＠0+30%",
+      "after": "＠4<Okrążenie Lv3>＠0+30%",
+      "max_cells": 25
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5bf6",
+      "source_sha256": "1bbf31adda25c12133a7a611f3cb3a825d33306ea8d8aef2af018dfd8f262651",
+      "before": "＠4<Okrazenie Lv4>＠0+35%",
+      "after": "＠4<Okrążenie Lv4>＠0+35%",
+      "max_cells": 25
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c12",
+      "source_sha256": "94e224cd71772cb9a80f6b904f86dd53db9eeff5304a7f0eff805d9696795fe0",
+      "before": "＠4<Okrazenie Lv5>＠0+40%",
+      "after": "＠4<Okrążenie Lv5>＠0+40%",
+      "max_cells": 25
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c2e",
+      "source_sha256": "d752b79bfbad4b80263b45f96fafcc5405ab898fc46b70b368e2702fa397640e",
+      "before": "Okraz.+30%",
+      "after": "Okrąż.+30%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c39",
+      "source_sha256": "b1d7bc932125a8b17cba414ceb8250eaf1a374c2cba146739a46348b91448070",
+      "before": "Okraz.+35%",
+      "after": "Okrąż.+35%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c44",
+      "source_sha256": "bf8d03ece6162cd22112a35c7c1896895f37a2e819f9c73f7354eeb4c66e8528",
+      "before": "Okraz.+40%",
+      "after": "Okrąż.+40%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c4f",
+      "source_sha256": "80bee430a830f50148b20b3c6a77873435a0c85e4b4776629a36e6215de0b41a",
+      "before": "Okraz.+45%",
+      "after": "Okrąż.+45%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c5a",
+      "source_sha256": "771dc6a5bc2482994b058a7f91c5b68af7516e549bd9db8b02d26ef529e36ca6",
+      "before": "Okraz.+50%",
+      "after": "Okrąż.+50%",
+      "max_cells": 10
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5c65",
+      "source_sha256": "a584fe59c6f8d0e84abfd35527067c6e2b073527364c5a2ab1253a0847ecb42f",
+      "before": "＠4<Atak grupowy Lv1>＠0Okrazenie+30% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku",
+      "after": "＠4<Atak grupowy Lv1>＠0Okrążenie+30% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5cd7",
+      "source_sha256": "4fa2a45dd12fdf5cde8888d80036ef8b5129dfc911716f779dbebbc640da5b7e",
+      "before": "＠4<Atak grupowy Lv2>＠0Okrazenie+35% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku",
+      "after": "＠4<Atak grupowy Lv2>＠0Okrążenie+35% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5d49",
+      "source_sha256": "91e5158c5bb21b19b9e8f6de6ee21734e5401bd638d79b90dd23d7710a8fc246",
+      "before": "＠4<Atak grupowy Lv3>＠0Okrazenie+40% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku",
+      "after": "＠4<Atak grupowy Lv3>＠0Okrążenie+40% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5dbb",
+      "source_sha256": "8c1169cf4403f7eb8113d11e290f12e6780593bedc5a18db9a1bf7ee323fb8d2",
+      "before": "＠4<Atak grupowy Lv4>＠0Okrazenie+45% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku",
+      "after": "＠4<Atak grupowy Lv4>＠0Okrążenie+45% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5e2d",
+      "source_sha256": "ee466b75b85723632cf03334de9c16d5764c93764d91e29b7e840b0432ac8587",
+      "before": "＠4<Atak grupowy Lv5>＠0Okrazenie+50% Atakuje cala grupa\nAtk = suma grupy\nIgnoruje Oslone, bez Wsparcia ataku",
+      "after": "＠4<Atak grupowy Lv5>＠0Okrążenie+50% Atakuje całą grupą\nAtk = suma grupy\nIgnoruje Osłonę, bez Wsparcia ataku",
+      "max_cells": 56
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5e9f",
+      "source_sha256": "f22222bd11d483442d84643352c531cb0ba94ee5beeb1c09afc95ff7dd002e41",
+      "before": "Wentylator czastek",
+      "after": "Wentylator cząstek",
+      "max_cells": 18
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5f3f",
+      "source_sha256": "b1c143122a1c3d890c1703aece6ee5a84000110893b67bcf4524843f3cedd0ce",
+      "before": "Kryt/sila kr.+50%",
+      "after": "Kryt/siła kr.+50%",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5f52",
+      "source_sha256": "64e99172146138b9f9abcc405a3b6ecf896f615ac8d6bbd1968552a8eaa345b2",
+      "before": "Otrz. obraz.-20%",
+      "after": "Otrz. obraż.-20%",
+      "max_cells": 16
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf67c0",
+      "source_sha256": "27ce0b179732d2ee3873305b68f186612a6e356e992528f16a2578d55599cd07",
+      "before": "Okrazenie",
+      "after": "Okrążenie",
+      "max_cells": 9
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6b0c",
+      "source_sha256": "aff3f3aced8ce5895659b9c076c2ed084d0539fa97c048f2a3fe2ff93a77c69a",
+      "before": "Zakonczyc zmiane ukladu?",
+      "after": "Zakończyć zmianę układu?",
+      "max_cells": 24
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6f00",
+      "source_sha256": "3884dc78baddecb3554e613aa9dfab3b8c910175bfb1afc6a962de60f5d6dc5c",
+      "before": "Zmienic wolne rozmieszczenie?",
+      "after": "Zmienić wolne rozmieszczenie?",
+      "max_cells": 29
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6f28",
+      "source_sha256": "a86561fd07fb9d8b2c3a0ff09aec9f4e9481098e25a3cbf4c10dec9357f44feb",
+      "before": "Zmien jedn.",
+      "after": "Zmień jedn.",
+      "max_cells": 11
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6f40",
+      "source_sha256": "c44ed21e0f7631a8f2854dd4fa792531e4a7ebc964ed1dc34cc2d330d27d89f7",
+      "before": "Wybierz jednostke do wymiany.",
+      "after": "Wybierz jednostkę do wymiany.",
+      "max_cells": 29
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf71c8",
+      "source_sha256": "d78746b0e0984ee8b6d3898ad3582733c7b7fe0af4182fffa60f6ca77f0a1b5d",
+      "before": "Jesli istnieje szybki zapis, mozna go wczytac.\nWczytac szybki zapis?",
+      "after": "Jeśli istnieje szybki zapis, można go wczytać.\nWczytać szybki zapis?",
+      "max_cells": 46
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7220",
+      "source_sha256": "dbec65c4e1c0554ba20317fe137796de2d245143349e364d84a7825674433193",
+      "before": "Blad wczytania szybkiego zapisu.",
+      "after": "Błąd wczytania szybkiego zapisu.",
+      "max_cells": 32
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7260",
+      "source_sha256": "943a8fd8a731d44b6062b1471eaa121b57c3abf9e559115fd8ec22ae21f4afd9",
+      "before": "Wybierz jednostke do zamiany.",
+      "after": "Wybierz jednostkę do zamiany.",
+      "max_cells": 29
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf74c0",
+      "source_sha256": "e45a6b04eea48630520b7ad313095fc61cbe02bcd4005fa800c02d80ce7956c3",
+      "before": "Ladow.",
+      "after": "Ładow.",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf74cc",
+      "source_sha256": "778f255de4684c48cebb72fd430a98fb8e964cb814e50ad603db0e352e7dda2d",
+      "before": "Przeglad",
+      "after": "Przegląd",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf74f8",
+      "source_sha256": "0e8a21ceb8b7e9aa4cbef50c587914ed214144efc4df85c0a8e7291c44c24f9a",
+      "before": "Anim. WYL",
+      "after": "Anim. WYŁ",
+      "max_cells": 9
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7528",
+      "source_sha256": "3cc094eb120006523900db572045ebe9c55de0da7671bb4fc1f00152c936cf57",
+      "before": "Przelacz GR",
+      "after": "Przełącz GR",
+      "max_cells": 11
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf81f8",
+      "source_sha256": "0c7ff52f8f309eb7437b6f61249f59eb36210bdaae7683ae76c76d0b1dccadf8",
+      "before": "Lad",
+      "after": "Ląd",
+      "max_cells": 3
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8218",
+      "source_sha256": "e3dad3dded66277fd91d21e6dbf53487d4bb623acd427e330235d407d66a44a5",
+      "before": "Lad: bez post.",
+      "after": "Ląd: bez post.",
+      "max_cells": 14
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8228",
+      "source_sha256": "12211baf59478d85463eff2de30e0717b3fd4f098627fbc55f555a9007c7b346",
+      "before": "Lad: brak wst.",
+      "after": "Ląd: brak wst.",
+      "max_cells": 14
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8238",
+      "source_sha256": "4ac4ba88cfd6e2ad0fc7cc1b9b27953fb11bc9da67409ba8dbd2a4e52ef4d10c",
+      "before": "Brak wstepu",
+      "after": "Brak wstępu",
+      "max_cells": 11
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8280",
+      "source_sha256": "85f57498fc520fb30921ee21006de560328778a699d7a6f9d6f56dd0efbc356a",
+      "before": "Okrazenie",
+      "after": "Okrążenie",
+      "max_cells": 9
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8298",
+      "source_sha256": "c15dfee13bc87b8c1eb4ac04396a56f0084b78fe60442e3f288a66ac4c87b67b",
+      "before": "Okraz.",
+      "after": "Okrąż.",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82ac",
+      "source_sha256": "b06029228f8b48b54976f06f6577537ae05a51207b95e8619155180ec7c834d2",
+      "before": "Okraz.",
+      "after": "Okrąż.",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82b4",
+      "source_sha256": "8c25c30a9186f9684850b60380353545b22efe31b7374efc96272667a1e13ba0",
+      "before": "Pel.okr",
+      "after": "Peł.okr",
+      "max_cells": 7
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82e0",
+      "source_sha256": "9788edc0585a0747f5ad9e8cab33d584e5bcaece1bb1d5847fe059a2b3c287c6",
+      "before": "Bez okrazenia",
+      "after": "Bez okrążenia",
+      "max_cells": 13
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82f4",
+      "source_sha256": "6594bff4d0255adcd79a2dc18d7cccc2940a37ef98aaca4babaa19b7848fcb90",
+      "before": "*Wezw. Oslony",
+      "after": "*Wezw. Osłony",
+      "max_cells": 13
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf832c",
+      "source_sha256": "f59b761cef27d1d3692a221c9c5cd539d2d23f60bef3dfbfdaba00fb03125337",
+      "before": "<Bez Oslony>",
+      "after": "<Bez Osłony>",
+      "max_cells": 12
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8354",
+      "source_sha256": "b036fdebc8d6f7ef5235be1a142ecbf1f819ff7a28aafd11730ff1f60bd667be",
+      "before": "Bron wsp.",
+      "after": "Broń wsp.",
+      "max_cells": 9
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8360",
+      "source_sha256": "7a10ad472c217341fa982bb7395c5c0ec715c0b420a4add5814e28ad4f271666",
+      "before": "Anim. WYL",
+      "after": "Anim. WYŁ",
+      "max_cells": 9
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf836c",
+      "source_sha256": "c2da69224579cf731e4430238376bc2c508fd42ed80db0f62c92e9a0764821a3",
+      "before": "Przeglad",
+      "after": "Przegląd",
+      "max_cells": 8
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8378",
+      "source_sha256": "9b34858e3e9997a6ef2ca9c4fb07e2391e01176d7364fce578a44727fba80c68",
+      "before": "Zmien jedn. wsp.",
+      "after": "Zmień jedn. wsp.",
+      "max_cells": 16
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf85dc",
+      "source_sha256": "63935767cafa267b326859dc87a0d18b600b3f2ead72e3646c62563cba0ffc3f",
+      "before": "Nie udalo sie wczytac zapisu.\n  Brak dodatkowych danych potrzebnych do kontynuacji.\n",
+      "after": "Nie udało się wczytać zapisu.\n  Brak dodatkowych danych potrzebnych do kontynuacji.\n",
+      "max_cells": 53
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8e4c",
+      "source_sha256": "f0226ea3628fe6c97cfe5775e8b0be7cb4286c6ca8c5c2a54e528ba401118c7f",
+      "before": "*Wezw. Oslony",
+      "after": "*Wezw. Osłony",
+      "max_cells": 13
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9264",
+      "source_sha256": "8b31372958a8124b6bfc6a2dc71c09c5aa6e01b2846193e5f4860d4d66224d79",
+      "before": "Modul naprawy",
+      "after": "Moduł naprawy",
+      "max_cells": 13
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf92d8",
+      "source_sha256": "521bd947a8da25cb2ae8980e13f718d3c21e15d416f70d1e80e5eb35678589e0",
+      "before": "Lad",
+      "after": "Ląd",
+      "max_cells": 3
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf92f0",
+      "source_sha256": "26032db2fdeb1b398d294383e2bba8a2b03db74adaec54df8f3c9693bef59b24",
+      "before": "Polacz.",
+      "after": "Połącz.",
+      "max_cells": 7
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9318",
+      "source_sha256": "5e26961df47f561af144ce67733a325f221aaede079077d8f937ccaed3e11939",
+      "before": "Czesci",
+      "after": "Części",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9330",
+      "source_sha256": "9be3958323d52679d2c98aecb35dc92d72c173e311c707ba2979514469ee60a2",
+      "before": "Zwykly",
+      "after": "Zwykły",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9368",
+      "source_sha256": "172171df93f89b18a199f1b1b6c4628c3b9db50a8b90bb6551aefd1f78a81736",
+      "before": "Ladow.",
+      "after": "Ładow.",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9378",
+      "source_sha256": "1c7cdcc6977cbe7d880f994ea40ec028c59ae744d4005da3d1930f9a22d21813",
+      "before": "Podloz.",
+      "after": "Podłoż.",
+      "max_cells": 7
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9398",
+      "source_sha256": "8c0ca2932da902d138c53e3e733c0dea7ce692823e52599532a97c58c51e78aa",
+      "before": "Zamien",
+      "after": "Zamień",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9650",
+      "source_sha256": "cc86d5d4f5c9c3214065d87eeebe9fb01fad1036c433bf5e1f2de0bf69f5d7a2",
+      "before": "Zamien",
+      "after": "Zamień",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf9ff4",
+      "source_sha256": "8bba598a1c2142025f7314d1a6c33c4547e4206c955ff0c9416c643e3fdc033a",
+      "before": "Pominac te scene?\nCzy na pewno?",
+      "after": "Pominąć tę scenę?\nCzy na pewno?",
+      "max_cells": 17
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bfa699",
+      "source_sha256": "924a9d3529dc2975280697b3c185646e3a934644bda7a39b1f97ee9e83731e32",
+      "before": "Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.",
+      "after": "Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.",
+      "max_cells": 36
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bfa6fc",
+      "source_sha256": "0892820a454358c37393898b6b24b383974c09a4a775f5ae75929225ff203444",
+      "before": "Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.",
+      "after": "Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.",
+      "max_cells": 36
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bfe054",
+      "source_sha256": "554b88f752c0473d807a71c06edc6de8bf91ce5dfb7b33fb1021c80601c95636",
+      "before": "Symulator nie jest jeszcze dostepny.",
+      "after": "Symulator nie jest jeszcze dostępny.",
+      "max_cells": 36
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bfe6a8",
+      "source_sha256": "27c0b1b8482c972989e9ccdb6c3e8e0e2d1938d0603d09cfa61141ebee46dcc1",
+      "before": "Blad wczytania szybkiego zapisu.",
+      "after": "Błąd wczytania szybkiego zapisu.",
+      "max_cells": 32
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bff8cc",
+      "source_sha256": "28f4baf2a3a78b05e1e39be0683af632a37d83287c9cd2a81dc54ab139f5ef6e",
+      "before": "Zadnej jednostce nie mozna teraz ustawic BGM.",
+      "after": "Żadnej jednostce nie można teraz ustawić BGM.",
+      "max_cells": 45
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c01cd0",
+      "source_sha256": "b3fbec24cc771b70b9c4fc45d2a1a5867f425a9815f71c2efd6906400c6ca1bd",
+      "before": "Trwa seria misji.\nShin Getter Robo walczyl w poprzedniej misji i nie mozna go wybrac.",
+      "after": "Trwa seria misji.\nShin Getter Robo walczył w poprzedniej misji i nie można go wybrać.",
+      "max_cells": 67
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c0338b",
+      "source_sha256": "d55ef7790aaa0fe7d95b86b76fa72bb4f1ab4b26ee033ac4b26241f9abb543b2",
+      "before": "Wystapil blad polaczenia sieciowego.\nZamknij gre, a nastepnie\nsprobuj polaczyc sie ponownie.",
+      "after": "Wystąpił błąd połączenia sieciowego.\nZamknij grę, a następnie\nspróbuj połączyć się ponownie.",
+      "max_cells": 36
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c0353a",
+      "source_sha256": "b2b2341faca0ccec51295188645d027f3d4e237676a995fcbb18120d99ea5cdc",
+      "before": "Laczy sie z siecia, aby dodac\nczesci oddzialu kupione poza\ngra.",
+      "after": "Łączy się z siecią, aby dodać\nczęści oddziału kupione poza\ngrą.",
+      "max_cells": 29
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c03790",
+      "source_sha256": "47bba3b6307cbe0caf678353ded22511c9ff072aae480c8d6c58ff170ef11c1a",
+      "before": "Nie udalo sie wczytac dodatkowych danych gry.\n          Powrot do ekranu tytulowego.",
+      "after": "Nie udało się wczytać dodatkowych danych gry.\n          Powrót do ekranu tytułowego.",
+      "max_cells": 45
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c15e80",
+      "source_sha256": "869e52f50192cc75ee4aa176aaa98ba016e97df1383e85ebefd3d1e7606c721c",
+      "before": "Nieuz.",
+      "after": "Nieuż.",
+      "max_cells": 6
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c19768",
+      "source_sha256": "1fb51f6030d70c47fa2777fa3c1a869f13169272078ddf74d1c950ebf5c259f5",
+      "before": "Pomin",
+      "after": "Pomiń",
+      "max_cells": 5
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c19f80",
+      "source_sha256": "3ed381caf6084eb201c37e4a0c68f90276f33ca03754d7c77241f252b03289c9",
+      "before": "Wiazk. Gatling/M",
+      "after": "Wiązk. Gatling/M",
+      "max_cells": 16
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c29538",
+      "source_sha256": "8c59147ed353b1d5674026188a4fbd4589889ecd724ad90387e769505541987a",
+      "before": "Nie udalo sie wczytac zapisu.\nBrak dodatkowych danych potrzebnych do kontynuacji.\nZamknij gre, zainstaluj je i uruchom ponownie.\nJesli kontynuujesz, zapis zostanie zresetowany\ni caly dotychczasowy postep przepadnie.",
+      "after": "Nie udało się wczytać zapisu.\nBrak dodatkowych danych potrzebnych do kontynuacji.\nZamknij grę, zainstaluj je i uruchom ponownie.\nJeśli kontynuujesz, zapis zostanie zresetowany\ni cały dotychczasowy postęp przepadnie.",
+      "max_cells": 51
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08c29613",
+      "source_sha256": "f1a37731b6db17533e95496c574d1290ecc23658451eef479bfdadc0af29f86c",
+      "before": "Zresetowac zapis?",
+      "after": "Zresetować zapis?",
+      "max_cells": 17
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:9488",
+      "source_sha256": "a2dba327f102e4722f0e35e1a3f1129fd767a441238dea7beebf44b80ecdf509",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:13656",
+      "source_sha256": "bd91f8863ad03ee5e0674cd5e6b29e68282c72ab8d260ae02c0c48530ff11b46",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:15708",
+      "source_sha256": "3e1b8f260955c0b14e0090f1b1aa429fb6c0e6845b596be1af305ec91dc29329",
+      "before": "Ulepszenia",
+      "after": "Ulepsz",
+      "max_cells": 6
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:15720",
+      "source_sha256": "9a0546737cec0ee85f4420ae3dcea0197acdc9d69e6bd1cac4c05753f3d5d42f",
+      "before": "Zmień widok jednostek",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:15968",
+      "source_sha256": "3d58c839a23e7beba6e79a9be1e27a68df6f903838d4e2639d23eda593799264",
+      "before": "Ulepszenia",
+      "after": "Ulepsz",
+      "max_cells": 6
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:16880",
+      "source_sha256": "17a82ebe3090724458a2119a549faa2e95b83c69d02fbc45234d1cf3a53192fa",
+      "before": "Ulepszenia",
+      "after": "Ulepsz",
+      "max_cells": 6
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:18052",
+      "source_sha256": "c33d168825e7ebbcd776b58351db4d1025295eb33278fc3ae597ab966352697d",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21008",
+      "source_sha256": "f5ff75b7a204e5516cb479e0a64ee60465d93bbf809071d3cd186419806c5796",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:27184",
+      "source_sha256": "befb372d2af7f4428502320536a6a19e6ed892fb8f3440ca5f7e43d141121d3a",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31468",
+      "source_sha256": "4d619f6af0ff98067a5e6aa8ff36a8d19bcf009070f756b1153cc1bb55c25c4f",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31592",
+      "source_sha256": "c0178e2c1835eb0deecfd79a5807d75f97a0d37b1695f8ba3a385b512f48b89e",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31676",
+      "source_sha256": "c2a879647b895b12377887e61a278095f0915460ef7c6b5a5885c5661dc0efcf",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31720",
+      "source_sha256": "3a1777c748aa16dced5366b8f2d3c121fdcf9e4bd59b634108b956b3858e1fb4",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31796",
+      "source_sha256": "6d189b444d11e33d3b2757d2fb685d99247d155231123d3d556954076613843e",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:34396",
+      "source_sha256": "2fced390266feeef0d66bf5250be064b50cbdbc804125f826993a3f69c2b479b",
+      "before": "Zmień widok",
+      "after": "Widok",
+      "max_cells": 5
+    }
+  ]
+}
