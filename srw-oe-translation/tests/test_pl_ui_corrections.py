@@ -69,12 +69,14 @@ class UICorrectionTests(unittest.TestCase):
         plan = json.loads((ROOT/'config/pl/ui-qa-2026-10-19.json').read_text())
         rows = {R.binding(r):r for r in R.I.load_rows(ROOT/'pakiet_EN')[0]}
         entries = {e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
+        later = json.loads((ROOT/'config/pl/ui-seven-2026-10-20.json').read_text())['changes']
+        superseded = {e['source_sha256']:e['after'] for e in later}
         self.assertEqual(len(plan['changes']), 52)
         for edit in plan['changes']:
             row = rows[edit['source_sha256']]
             self.assertEqual(row['id'], edit['id'])
             self.assertEqual(row['source']['member'], 'sysmes.bin')
-            self.assertEqual(entries[edit['source_sha256']]['pl'], edit['after'])
+            self.assertEqual(entries[edit['source_sha256']]['pl'], superseded.get(edit['source_sha256'], edit['after']))
             self.assertEqual(C.tokens(edit['before']), C.tokens(edit['after']))
             self.assertEqual(edit['before'].count('\n'), edit['after'].count('\n'))
             for line in edit['after'].split('\n'):

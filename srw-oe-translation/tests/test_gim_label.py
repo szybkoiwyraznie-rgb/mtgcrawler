@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gim_image  # noqa: E402
 import gim_label  # noqa: E402
 import speaker_map  # noqa: E402
+import text_codec  # noqa: E402
 import ui_texture_patch  # noqa: E402
 from gim_fixtures import build_ui_pac, label_texture, label_texture_rgba  # noqa: E402
 from test_cpk_itoc_write import build_itoc_only_cpk  # noqa: E402
@@ -85,6 +86,47 @@ class RenderLabelsTests(unittest.TestCase):
         new, report, _ = gim_label.render_labels(raw, s)
         self.assertEqual(new, raw)
         self.assertTrue(report.labels[0].skipped)
+
+    def test_polish_caption_override_does_not_change_english(self):
+        raw = label_texture()
+        s = spec()
+        s["labels"][0]["pl"] = "SK"
+        previous = text_codec.lang()
+        try:
+            text_codec.set_lang("en")
+            _, english, _ = gim_label.render_labels(raw, s)
+            text_codec.set_lang("pl")
+            _, polish, _ = gim_label.render_labels(raw, s)
+        finally:
+            text_codec.set_lang(previous)
+        self.assertEqual(english.labels[0].en, "ATK")
+        self.assertEqual(polish.labels[0].en, "SK")
+        self.assertFalse(english.errors)
+        self.assertFalse(polish.errors)
+
+    def test_polish_active_spirit_orb_labels_are_localized_and_fit(self):
+        localized = {
+            "valor": "ZA", "bullseye": "CE", "accel": "PE", "flash": "PR",
+            "focus": "SK", "persist": "NI", "wall": "MU", "gain": "WY",
+            "fortune": "FT", "disrupt": "ZM",
+        }
+        spec_path = ROOT / "ui_labels/mensys_15.json"
+        orb_spec = gim_label.load_spec(spec_path)
+        orbs = {lab["id"]: lab for lab in orb_spec["labels"] if lab["id"] in localized}
+        self.assertEqual(set(orbs), set(localized))
+        for label_id, expected in localized.items():
+            with self.subTest(orb=label_id):
+                lab = orbs[label_id]
+                self.assertEqual(lab.get("pl"), expected)
+                self.assertEqual(len(expected), 2)
+                x0, y0, x1, y1 = lab["box"]
+                size, _, _ = gim_label.fit_size(
+                    ROOT / orb_spec.get("font", gim_label.DEFAULT_FONT), expected,
+                    x1 - x0, y1 - y0, lab.get("size", orb_spec.get("size", 9)),
+                    lab.get("min_size", orb_spec.get("min_size", 6)),
+                    lab.get("squeeze", orb_spec.get("squeeze", 1.0)))
+                self.assertIsNotNone(size)
+        self.assertEqual(orbs["focus"]["en"], "FO")
 
     def test_empty_en_erases_the_box_without_drawing(self):
         raw = label_texture()

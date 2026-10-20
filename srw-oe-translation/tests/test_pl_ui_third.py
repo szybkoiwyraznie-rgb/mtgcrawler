@@ -24,6 +24,8 @@ class ThirdTests(unittest.TestCase):
         cls.plan=json.loads((ROOT/'config/pl/ui-third-2026-10-19.json').read_text())['changes']
         cls.rows={R.binding(r):r for r in R.I.load_rows(ROOT/'pakiet_EN')[0]}
         cls.entries={e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
+        later=json.loads((ROOT/'config/pl/ui-seven-2026-10-20.json').read_text())['changes']
+        cls.superseded={e['source_sha256']:e['after'] for e in later}
 
     def test_source_bound_tokens_no_pool_changes_and_physical_budgets(self):
         self.assertEqual(len(self.plan),925)
@@ -33,7 +35,8 @@ class ThirdTests(unittest.TestCase):
             with self.subTest(id=e['id']):
                 row=self.rows[e['source_sha256']]
                 self.assertEqual(row['id'],e['id'])
-                self.assertEqual(self.entries[e['source_sha256']]['pl'],e['after'])
+                self.assertEqual(self.entries[e['source_sha256']]['pl'],
+                                 self.superseded.get(e['source_sha256'],e['after']))
                 self.assertEqual(C.tokens(e['after']),C.tokens(e['before']))
                 self.assertEqual(e['after'].count('\n'),e['before'].count('\n'))
                 self.assertEqual(pl_text.decode(pl_text.encode(e['after'])),e['after'])

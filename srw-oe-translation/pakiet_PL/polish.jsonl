@@ -65908,7 +65908,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Trafienie: rzut do siebie","source_sha256":"49ac577d2dab298980296eef9c4f4138e9f585434e824672e4860af4aea85d61"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5979","pl":" Atk broni+","source_sha256":"49ac7276ab399ecdd2940dde4f81f38116618120aa3b2116cc09664032ab85c1"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:25904","pl":"：30 misji]\n＠6Najpierw zużywane są części niższego poziomu.","source_sha256":"49aebdc11c444dc53508e5c435e579b6e82ac8a30aae93dc9b1d11d288d952b2"}
-{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9972","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"49b08c8dede3f4e171e6c4dd13dfa7485a05ee9a800d497ba36fb7b764cd8eb5"}
+{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9972","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"49b08c8dede3f4e171e6c4dd13dfa7485a05ee9a800d497ba36fb7b764cd8eb5"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:62558","pl":"Ciężki panc.","source_sha256":"49c42c2dc685933c6565f47a077f57e2ceb8ac291b388f630387743988c26e46"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:10184","pl":"Zmiana: Gold Foot/Gold Mask","source_sha256":"49c790585d45e22a329778f0bb648a7b48df65d0d96121fcf1d10c8ee20426c4"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:465","pl":"Morale+","source_sha256":"49cab0a9d67dd6e384b8544b36af10c6e515febe7c0250d92bdd7eb2f588b7ea"}
@@ -67325,7 +67325,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:5265","pl":"(bez kontry tylko gdy trafi)","source_sha256":"60501b50b0dd80d6e64757ba30a69070ce573adef075723bf04f4fb46f44a1ab"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:8680","pl":"(Getter","source_sha256":"60532d67ede743a18d0453c472409e2752fab3863a139bd3dd46289bf4590bdd"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:33468","pl":"Pobierz części oddziału,\nktóre dadzą ci przewagę w grze.\n＠6Części oddziału działają\nsamym faktem posiadania.","source_sha256":"60538c926d696380bb1cf6019d0ce0d2a8f36ac03c0590d316994f8d21cfe111"}
-{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9692","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"6054525930aa5f8a04c79e109137fc3a5c01e296f694b5e0a5247a9977cf1634"}
+{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9692","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"6054525930aa5f8a04c79e109137fc3a5c01e296f694b5e0a5247a9977cf1634"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:138144","pl":"%s Atk/%s30%%\n%s\n%s40%%+(traf. wroga/10)","source_sha256":"605b21b259ebd38c1d010911da8951aa02341cb367676f3500f1eb8b47827751"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:14827","pl":"tura: Atk/Cel/Unik wroga%","source_sha256":"60711037d203a7f82f9cd228e46440b49ba78fd01ba601aa4f2c3ba4a01ec186"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:6108","pl":"Po aktyw. wysysa EN","source_sha256":"6083dbc500d4062da3521d21360affdf31970a1e12858ef7a87c7dace26a6100"}
@@ -70395,7 +70395,7 @@
 {"file":"04_config_text.jsonl","id":"achievement:configst.cpk/srwDL_Achievement.bin:550","pl":"Ukończ rozdział 5","source_sha256":"9137e7b6fc8ae3236041638757a58ac2c200458c2f0031738de69618ac43dbbb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:124920","pl":"%s 110 %s\n%s4%% %s8%%","source_sha256":"913bb9047aaa18d73ba295d19cbd826959ad7ddcf2ab0c8454317213d79f655e"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:151158","pl":"%s 4%s Atk/%s10%%","source_sha256":"913c3c386e78bec115ca8998681f10c26b8fb16ca5b61af3ed1da99d3533cbdb"}
-{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9412","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"913e0b3a6507f069270cce77c931a29fde2618108fb8ec28108d101e2c861c18"}
+{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:9412","pl":"＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP","source_sha256":"913e0b3a6507f069270cce77c931a29fde2618108fb8ec28108d101e2c861c18"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:40776","pl":"＠4Potencjał:                ＠0Szansa＠2%+3d%%＠0","source_sha256":"913f80ff24d983466491f26c69f623548bbc2756329a5710a5907f341bae7124"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:5784","pl":"RELEASE","source_sha256":"9142e52836aedc4fa1f0d35f45ae4bcfdddc0cc39eb9b1a14e430fcfc8d03ba5"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14856","pl":"Zdobyto część: %s.","source_sha256":"914454a1386a19a9d296c66ed569608a7f68139f3fb87046fd59d090b0d80dd0"}
@@ -70748,7 +70748,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4299","pl":"N-Jammer Canceller","source_sha256":"96d29376c76418ff1c4832b2d819658abac09cd82fa0572bff98abd245c93ed0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:88739","pl":"Transf.","source_sha256":"96db21ab1c1c12e49a9ee0fbea42beb4a6f3a6a88bd7751fe4c60a7b8628e33d"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:33420","pl":"Morale+","source_sha256":"96def1e080fe4d8fcb81b3a5ed298673669d6242cca3377073591d0333d622d5"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15952","pl":"Statystyki","source_sha256":"96e0417263f676d1e32f5f6c8132b52e5d37dba4c9a04f34633b10cab3d16c69"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15952","pl":"Stat.","source_sha256":"96e0417263f676d1e32f5f6c8132b52e5d37dba4c9a04f34633b10cab3d16c69"}
 {"file":"04_config_text.jsonl","id":"item:config01.EDAT/srwDL_Item01.bin:378","pl":"Wzrost parametrów","source_sha256":"96e3ffdc3a375de2538d6357f437b9eef613022bf982375e2977f6915fc3b5a1"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:32286","pl":"Obr+20","source_sha256":"96e42094596a8841b2e8aa73b91bb2278f93868ca3a6322808f4d224f6245a39"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:21314","pl":"Okruch Gene-Pla","source_sha256":"96e50248fb7d5b515a8642d03d1f4200e1b498c832f169cbd59bb59fda3a79f9"}
@@ -73048,7 +73048,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:7149","pl":"Mniej obraż.","source_sha256":"bb7477640fb90b86cd89d933597db44e85e5503f04c6990d5de576d502bfd8a6"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:155286","pl":"Dow. Obr/Cel","source_sha256":"bb7c05c8781ac8b1bcc7bf2e9ddf4d6737cc97274f23c60b3bea5b653634bfac"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:185632","pl":"ASURA Lv9","source_sha256":"bb7d22b88ca3e923b2e45da4bf73f326e2d3628bfdfc144ccfbdb3d9620f4d6c"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:16776","pl":"Statystyki","source_sha256":"bb7d8271e9ac5600200e5627a1a4d6e547bea40d1907b71b40ba95bf3a454c25"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:16776","pl":"Stat.","source_sha256":"bb7d8271e9ac5600200e5627a1a4d6e547bea40d1907b71b40ba95bf3a454c25"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:190772","pl":"Co turę %s10%%","source_sha256":"bb820e3b0b98860724cadb0543d8ef57290dc8e70c37ec698d0242326b6a79ca"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:161338","pl":"Zawsze trafia","source_sha256":"bb8ce0603ce7023d2989c83ae1157fe268722bf1be902de416d31aba116d2ac5"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:6306","pl":"Spadek celności 3","source_sha256":"bb93d9e96f7471831b26bd2d337b1e8770f9b16cab8c81bc391c0e2d1496a999"}

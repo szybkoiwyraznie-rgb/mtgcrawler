@@ -34,7 +34,8 @@
    "note": "spirit orb: Valor (package name); vertical shading copied from column 2",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "ZA"
   },
   {
    "id": "bullseye",
@@ -64,7 +65,8 @@
    "note": "spirit orb: Bullseye (package name); vertical shading copied from column 20",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "CE"
   },
   {
    "id": "accel",
@@ -94,7 +96,8 @@
    "note": "spirit orb: Accel (package name); vertical shading copied from column 38",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "PE"
   },
   {
    "id": "flash",
@@ -124,7 +127,8 @@
    "note": "spirit orb: Flash (package name); vertical shading copied from column 56",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "PR"
   },
   {
    "id": "focus",
@@ -154,7 +158,8 @@
    "note": "spirit orb: Focus (package name); vertical shading copied from column 74",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "SK"
   },
   {
    "id": "persist",
@@ -184,7 +189,8 @@
    "note": "spirit orb: Persist (package name); vertical shading copied from column 2",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "NI"
   },
   {
    "id": "wall",
@@ -214,7 +220,8 @@
    "note": "spirit orb: Wall (package name); vertical shading copied from column 20",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "MU"
   },
   {
    "id": "gain",
@@ -244,7 +251,8 @@
    "note": "spirit orb: Gain (package name); vertical shading copied from column 38",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "WY"
   },
   {
    "id": "fortune",
@@ -274,7 +282,8 @@
    "note": "spirit orb: Fortune (package name); vertical shading copied from column 56",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "FT"
   },
   {
    "id": "disrupt",
@@ -304,7 +313,8 @@
    "note": "spirit orb: Disrupt (package name); vertical shading copied from column 74",
    "size": 9,
    "min_size": 6,
-   "squeeze": 0.8
+   "squeeze": 0.8,
+   "pl": "ZM"
   },
   {
    "id": "surround",
