@@ -7769,3 +7769,12 @@ checkpoint e652107 pushed; receipts reading-script/polish/catalogue-v4.delivery.
 Historical git aa178c object unavailable in current shallow clone, not needed:
 current EN08 matches hash-pinned original inventory d59b2ca9..., full PL08 matches
 old delivery60742411...; exact heading/source sequence verified on delivered file.
+
+Seven-screen UI investigation 2026-10-20: recovered assigned remote1026470 vs
+stale sandbox Git metadata by fetch+mixed reset (files preserved, clean match).
+Original eventP00 shows title at344 in all11ext members; old promotion covered
+22note slots only, just1structured title remains in package. This explains mission2
+Japanese title in both list/start objective footer; global title audit pending.
+60Spirit records/20families show7names >9cells; preserve full9cell Skupienie and
+accepted cache/font, compact only long name fields/aliases. Batch docs in
+pl/UI_SIX_2026-10-20.md, no new kit or snapshot yet; PR20 remains open.
