@@ -7802,3 +7802,11 @@ source rows unchanged. Skilltotal339120<=342194/fits:true, no missing9members;
 Skill00216488<=216768. Inherited80nested dictionary refusals unchanged, no runtime
 claim. Current PPSSPP1.20.4 upgrade ISOYES/DLCNO/PBOOTNO recopy, not all loaders.
 README/receipt/proof under docs/pl/UI_SIX_2026-10-20.md and ui-six-verification.json.
+
+PL4 return received2026-10-20:5254438B/SHA974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931,
+Drive1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V.31MD/22episodes00–21+9views,
+CRCpass. Recover sandbox stale Git metadata via fetch/mixed-reset to0d2d044,
+files preserved/clean; no originals/privatefixture survived. Currentsourcehas
+32audited ENempty PL-only missions: exact projection restores original70c6...stamp.
+Raw import preflight0unknown/dup,3programlabels exceed newwidthguards; keep owner
+UI changes instead of relaxingguards. No snapshot/kit yet, PL4_RETURN_REVIEW.md.
