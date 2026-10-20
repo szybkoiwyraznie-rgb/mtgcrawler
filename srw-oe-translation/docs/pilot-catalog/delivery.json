@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "date": "2026-10-21",
+  "language": "pl",
+  "source_commit": "57f09e1",
+  "branch": "arena/df413232-mtgcrawler",
+  "pull_request": 22,
+  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, Spirit Commands, Pilot Skills, unlock schedules, and Ace Bonuses",
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "previous_files_overwritten": false,
+  "sharing_changed": false,
+  "files": [
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 634758,
+      "lines": 6096,
+      "sha256": "bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e",
+      "md5": "728d0b85d83e7b650ec49fe3fc9d726b",
+      "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+      "drive_id": "1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t",
+      "url": "https://drive.google.com/file/d/1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t/view",
+      "download_back_byte_identical": true
+    }
+  ],
+  "counts": {
+    "total_character_records": 404,
+    "playable_main_profiles": 92,
+    "playable_standalone_profiles": 80,
+    "playable_recruited_override_profiles": 12,
+    "sub_pilot_profiles": 45,
+    "enemy_and_rival_combat_profiles": 117,
+    "rival_enemy_profiles_with_override": 13,
+    "other_enemy_combat_profiles": 104,
+    "non_combat_records": 150,
+    "spirit_families": 20,
+    "spirit_records": 60,
+    "pilot_skill_families": 80,
+    "pilot_skill_level_records": 536,
+    "executable_1_08_pilot_skill_overrides": 38,
+    "ace_bonus_profiles": 92,
+    "story_flag_skill_upgrades": 1
+  },
+  "verification": {
+    "manifest": "docs/pilot-catalog/verification.json",
+    "engine_map": "docs/pilot-catalog/engine-map.json",
+    "unicorn_0x21f4ec_executions": 7307,
+    "unicorn_mismatches": 0,
+    "focused_tests": 5,
+    "total_tests": 1751,
+    "skipped_tests": 32,
+    "result": "OK"
+  },
+  "installation": {
+    "iso_replace": false,
+    "dlc_recopy": false,
+    "scope": "Reading/reference Markdown only"
+  }
+}
