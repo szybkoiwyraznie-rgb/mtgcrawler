@@ -172,16 +172,19 @@ class ExhaustiveAuditRegressions(unittest.TestCase):
         self.assertEqual(plan['teksty-config.md'][0][0], [root])
         self.assertFalse(H.excluded_reason(root, H.retained_leftovers([root, child])))
 
-    def test_only_screenshot_confirmed_zaku_type_leftovers_are_retained(self):
+    def test_only_audited_robo_dictionary_type_captions_are_retained(self):
+        import re
         import pl_handoff as H
-        ids = set(H.OWNER_VISIBLE_LEFTOVERS)
-        self.assertEqual(ids, {
-            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
-            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252',
-            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124',
-            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252',
-        })
-        for row_id in ids:
+        import pl_release_package as R
+        root = Path(__file__).resolve().parents[1]
+        rows, _ = R.I.load_rows(root / 'pakiet_EN')
+        expected = {r['id'] for r in rows if r.get('category') == 'config_leftover'
+                    and r.get('jp', '').endswith('タイプ')
+                    and re.fullmatch(r'srw_DL_RoboDictionary\d{2}\.bin',
+                                     str((r.get('source') or {}).get('member', '')))}
+        self.assertEqual(set(H.OWNER_VISIBLE_LEFTOVERS), expected)
+        self.assertEqual(len(expected), 36)
+        for row_id in expected:
             self.assertIsNone(H.excluded_reason({'id': row_id}, H.retained_leftovers([])))
         self.assertIn('leftover decode', H.excluded_reason({'id': 'leftover:unreviewed'}, H.retained_leftovers([])))
 

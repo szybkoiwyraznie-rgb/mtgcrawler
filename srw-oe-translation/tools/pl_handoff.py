@@ -27,14 +27,46 @@ def readonly_reason(row):
     return None
 
 
-# Owner screenshot (2026-10-20) proves these two global Zaku type captions are visible
-# in Enemy Robots. Keep this exact source-bound pair in PL handoffs; all other generic
-# config_leftover scans remain quarantined. config00/imenu00 are byte-identical mirrors.
+# The owner screenshot confirms the Zaku type footer is visible in Enemy Robots. A
+# source audit covers all extracted RoboDictionary `タイプ` rows in config/imenu mirrors;
+# only these exact IDs are retained, while unlisted generic leftovers stay quarantined.
 OWNER_VISIBLE_LEFTOVERS = {
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1045',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1185',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1337',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:3470',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:3630',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6051',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6195',
+    'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:5702',
+    'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:5866',
+    'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:6642',
+    'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:6808',
+    'leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:1639',
+    'leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:3515',
+    'leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:3917',
+    'leftover:config04.EDAT/srw_DL_RoboDictionary04.bin:1126',
+    'leftover:config07.EDAT/srw_DL_RoboDictionary07.bin:248',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:1045',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:1185',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:1337',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:3470',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:3630',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6051',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6195',
+    'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:5702',
+    'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:5866',
+    'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:6642',
+    'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:6808',
+    'leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:1639',
+    'leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:3515',
+    'leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:3917',
+    'leftover:imenu04.EDAT/srw_DL_RoboDictionary04.bin:1126',
+    'leftover:imenu07.EDAT/srw_DL_RoboDictionary07.bin:248',
 }
 
 

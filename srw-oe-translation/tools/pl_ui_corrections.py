@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import pl_release_package as R
@@ -52,12 +53,17 @@ def apply(stored: Path, plan_path: Path, out: Path, base: Path | None = None) ->
                     row.get('en') != edit.get('source_en')):
                 raise ValueError('stale/unknown source addition: ' + edit['id'])
             source = row.get('source') or {}
+            container = str(source.get('container', ''))
+            member = str(source.get('member', ''))
+            container_match = re.fullmatch(r'(?:config|imenu)(\d{2})\.(?:cpk|EDAT)', container)
+            member_match = re.fullmatch(r'srw_DL_RoboDictionary(\d{2})\.bin', member)
             if (source.get('container') != edit.get('container') or
                     source.get('member') != edit.get('member') or
                     source.get('offset') != edit.get('offset') or
-                    source.get('member') != 'srw_DL_RoboDictionary00.bin' or
-                    source.get('container') not in ('config00.cpk', 'imenu00.cpk')):
-                raise ValueError('UI addition is outside the reviewed RoboDictionary00 source: ' + edit['id'])
+                    not container_match or not member_match or
+                    container_match.group(1) != member_match.group(1) or
+                    not row.get('jp', '').endswith('タイプ')):
+                raise ValueError('UI addition is outside the reviewed RoboDictionary type-caption source: ' + edit['id'])
             if key in targets:
                 raise ValueError('source addition already exists in snapshot: ' + edit['id'])
             if edit.get('max_bytes') != row.get('max_bytes'):
