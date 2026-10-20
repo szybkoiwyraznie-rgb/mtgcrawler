@@ -5,8 +5,8 @@
     "name": "PL4.zip",
     "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
   },
-  "entries": 87819,
-  "data_sha256": "1fc2050a17438b644c94be5f4ac25c27dfa7da14692a4bd676690a4b8ea2f0d4",
+  "entries": 87823,
+  "data_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -86,6 +86,14 @@
       "sha256": "b62a573dd86c9a8f0c415f6242fac36486f115e1628c5717939c84210a675123",
       "previous_data_sha256": "0433717c63f6e514e9a44061da2b8fe22fd1c4985b96c3caa3af3d6a6bdee47f",
       "entries": 32,
+      "operation": "source-bound additions",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-zaku-char-pilot-footer-2026-10-20.json",
+      "sha256": "360c0491b6db26c58444233d2b3bd020ac55eb51bb4499610bd5c8fd7b5eb972",
+      "previous_data_sha256": "1fc2050a17438b644c94be5f4ac25c27dfa7da14692a4bd676690a4b8ea2f0d4",
+      "entries": 4,
       "operation": "source-bound additions",
       "runtime_tested": false
     }

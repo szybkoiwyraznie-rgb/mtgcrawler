@@ -39,6 +39,6 @@ All translations pass the PL codec/row checks and fit their measured byte limits
 
 ## Verification and limits
 
-The PL snapshot now has **87,819 entries**. Materialization reports **0 hard errors** (25,129 warnings remain). Regression tests check the complete 18-caption/36-row inventory, binding/source identity, Polish byte fit, PL handoff visibility, table-writer routing, and that Char's Zaku reuses the two existing weapon labels.
+The type-caption update produced 87,819 snapshot entries. A later screenshot exposed the separate `Pilot: Char` footer, documented in `UI_ZAKU_CHAR_PILOT_2026-10-20.md`; the cumulative snapshot now has **87,823 entries**. Final materialization reports **0 hard errors** (25,125 warnings remain). Regression tests check the complete 18-caption/36-row type inventory, the exact Char-pilot source bindings, Polish byte fit, PL handoff visibility, table-writer routing, and that Char's Zaku reuses the two existing weapon labels.
 
 The original game images are not available in this workspace. No physical ISO rebuild or in-game visual confirmation is claimed. These sources include global `config00.cpk`/`imenu00.cpk` as well as extracted `configNN.EDAT`/`imenuNN.EDAT` mirrors, so the relevant installed game data must be rebuilt with the updated PL package; this is not a DLC-only or save-file change.

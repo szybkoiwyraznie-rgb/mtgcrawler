@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "changes": [
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376",
+      "source_sha256": "3356f1189729cbe8a0729559b22f832be5abbbb886e8b55d0d9277ed5ec7b47c",
+      "source_jp": "パイロット：シャア",
+      "source_en": "Pilot: Char",
+      "container": "config00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2376,
+      "max_bytes": 19,
+      "after": "Pilot: Char"
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185",
+      "source_sha256": "45437dee6bf534ff8b00e1fc31f1a96ce7fac28c38a6062e40dfe522965aa658",
+      "source_jp": "パイロット：シャア",
+      "source_en": "Pilot: Char",
+      "container": "config01.EDAT",
+      "member": "srw_DL_RoboDictionary01.bin",
+      "offset": 3185,
+      "max_bytes": 19,
+      "after": "Pilot: Char"
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376",
+      "source_sha256": "7938e7fe5d3f1b588f4bcb6c343864fa53f0ab60ac66f97cc4bae436c4992625",
+      "source_jp": "パイロット：シャア",
+      "source_en": "Pilot: Char",
+      "container": "imenu00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2376,
+      "max_bytes": 19,
+      "after": "Pilot: Char"
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185",
+      "source_sha256": "26d7e5e5546e42368c9a54b22eb0558e2ceb0c16684c2a6af56acee14dc43be1",
+      "source_jp": "パイロット：シャア",
+      "source_en": "Pilot: Char",
+      "container": "imenu01.EDAT",
+      "member": "srw_DL_RoboDictionary01.bin",
+      "offset": 3185,
+      "max_bytes": 19,
+      "after": "Pilot: Char"
+    }
+  ]
+}

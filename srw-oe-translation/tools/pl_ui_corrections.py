@@ -57,13 +57,16 @@ def apply(stored: Path, plan_path: Path, out: Path, base: Path | None = None) ->
             member = str(source.get('member', ''))
             container_match = re.fullmatch(r'(?:config|imenu)(\d{2})\.(?:cpk|EDAT)', container)
             member_match = re.fullmatch(r'srw_DL_RoboDictionary(\d{2})\.bin', member)
+            jp_source = row.get('jp', '')
+            pilot_caption = jp_source.startswith('パイロット：') and row.get('en', '').startswith('Pilot: ')
+            type_caption = jp_source.endswith('タイプ')
             if (source.get('container') != edit.get('container') or
                     source.get('member') != edit.get('member') or
                     source.get('offset') != edit.get('offset') or
                     not container_match or not member_match or
                     container_match.group(1) != member_match.group(1) or
-                    not row.get('jp', '').endswith('タイプ')):
-                raise ValueError('UI addition is outside the reviewed RoboDictionary type-caption source: ' + edit['id'])
+                    not (type_caption or pilot_caption)):
+                raise ValueError('UI addition is outside the reviewed RoboDictionary caption source: ' + edit['id'])
             if key in targets:
                 raise ValueError('source addition already exists in snapshot: ' + edit['id'])
             if edit.get('max_bytes') != row.get('max_bytes'):

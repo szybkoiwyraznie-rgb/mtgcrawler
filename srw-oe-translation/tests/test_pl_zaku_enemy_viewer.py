@@ -17,6 +17,13 @@ import translation_check as C
 
 PLAN_PATH = ROOT / "config/pl/ui-zaku-enemy-robot-2026-10-20.json"
 TYPE_PLAN_PATH = ROOT / "config/pl/ui-robot-type-captions-2026-10-20.json"
+PILOT_PLAN_PATH = ROOT / "config/pl/ui-zaku-char-pilot-footer-2026-10-20.json"
+PILOT_EXPECTED = {
+    "leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376": "Pilot: Char",
+    "leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376": "Pilot: Char",
+    "leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185": "Pilot: Char",
+    "leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185": "Pilot: Char",
+}
 CAPTIONS = {
     "「ガトリングガン」タイプ": "Typ: karabin Gatlinga",
     "「ロングキャノン」タイプ": "Typ: długie działo",
@@ -71,12 +78,14 @@ class ZakuEnemyViewerTests(unittest.TestCase):
     def setUpClass(cls):
         cls.plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
         cls.type_plan = json.loads(TYPE_PLAN_PATH.read_text(encoding="utf-8"))
+        cls.pilot_plan = json.loads(PILOT_PLAN_PATH.read_text(encoding="utf-8"))
         rows, _ = R.I.load_rows(ROOT / "pakiet_EN")
         cls.source = {row["id"]: row for row in rows}
         cls.type_rows = [row for row in rows if row.get("category") == "config_leftover"
                          and row.get("jp", "").endswith("タイプ")
                          and (row.get("source") or {}).get("member", "").startswith("srw_DL_RoboDictionary")]
         cls.all_expected = {row["id"]: CAPTIONS[row["jp"]] for row in cls.type_rows}
+        cls.all_visible_expected = {**cls.all_expected, **PILOT_EXPECTED}
         cls.snapshot = [json.loads(line) for line in
                         (ROOT / "pakiet_PL/polish.jsonl").read_text(encoding="utf-8").splitlines()]
         cls.entries = {row["source_sha256"]: row for row in cls.snapshot}
@@ -118,7 +127,7 @@ class ZakuEnemyViewerTests(unittest.TestCase):
         expected_new = set(self.all_expected) - set(EXPECTED)
         self.assertEqual(set(edits), expected_new)
         self.assertEqual(len(edits), 32)
-        self.assertEqual(set(H.OWNER_VISIBLE_LEFTOVERS), set(self.all_expected))
+        self.assertEqual(set(H.OWNER_VISIBLE_LEFTOVERS), set(self.all_visible_expected))
         for row in self.type_rows:
             with self.subTest(row=row["id"]):
                 binding = R.binding(row)
@@ -140,6 +149,30 @@ class ZakuEnemyViewerTests(unittest.TestCase):
         self.assertEqual(self.source["weapon:1053:0:name"]["en"], "Zaku Machine Gun")
         self.assertEqual(self.source["weapon:1053:1:name"]["en"], "Zaku Bazooka")
 
+    def test_char_pilot_footer_is_source_bound_in_all_four_mirrors(self):
+        edits = {edit["id"]: edit for edit in self.pilot_plan["changes"]}
+        self.assertEqual(set(edits), set(PILOT_EXPECTED))
+        for row_id, text in PILOT_EXPECTED.items():
+            with self.subTest(row=row_id):
+                row = self.source[row_id]
+                binding = R.binding(row)
+                edit = edits[row_id]
+                self.assertEqual(row["jp"], "パイロット：シャア")
+                self.assertEqual(row["en"], "Pilot: Char")
+                self.assertEqual(edit["source_sha256"], binding)
+                self.assertEqual(edit["offset"], row["source"]["offset"])
+                self.assertLessEqual(len(pl_text.encode(text)), row["max_bytes"])
+                self.assertEqual(C.check_row({**row, "pl": text}, field="pl")[0], [])
+                self.assertEqual(self.entries[binding]["pl"], text)
+                self.assertEqual(B.owner({**row, "__file": edit["file"]}), "tw")
+        self.assertNotIn("leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567",
+                         self.all_visible_expected)
+        history = json.loads((ROOT / "pakiet_PL/snapshot.json").read_text(encoding="utf-8"))["owner_ui_corrections"]
+        record = next(item for item in history if item["plan"] == PILOT_PLAN_PATH.name)
+        self.assertEqual(record["entries"], 4)
+        self.assertEqual(record["operation"], "source-bound additions")
+        self.assertFalse(record["runtime_tested"])
+
     def test_polish_materialization_routes_caption_rows_to_the_robo_dictionary_writer(self):
         with tempfile.TemporaryDirectory() as tmp:
             materialized = Path(tmp) / "pl"
@@ -147,19 +180,19 @@ class ZakuEnemyViewerTests(unittest.TestCase):
             self.assertEqual(report["totals"]["errors"], 0)
             loaded = B.load_rows(materialized, lang="pl")
         by_id = {row["id"]: row for row in loaded}
-        for row_id, text in self.all_expected.items():
+        for row_id, text in self.all_visible_expected.items():
             self.assertEqual(by_id[row_id]["en"], text)
             self.assertEqual(B.owner(by_id[row_id]), "tw")
             self.assertFalse(B.config_side_spare_row(by_id[row_id]))
 
     def test_confirmed_leftovers_are_visible_in_pl_handoff_but_generic_leftovers_stay_hidden(self):
-        rows = [self.source[row_id] for row_id in self.all_expected]
+        rows = [self.source[row_id] for row_id in self.all_visible_expected]
         noise = {"id": "leftover:unreviewed", "category": "config_leftover",
                  "jp": "未確認", "en": "unreviewed", "part": "text"}
         view_plan = V.plan_from({"04_config_text.jsonl": rows + [noise]}, lang="pl")
         visible = {row["id"] for group in view_plan["teksty-config.md"]
                    for element in group for row in element}
-        self.assertTrue(set(self.all_expected).issubset(visible))
+        self.assertTrue(set(self.all_visible_expected).issubset(visible))
         self.assertNotIn(noise["id"], visible)
 
     def test_measured_table_writer_replaces_the_type_slot_from_its_source_offset(self):

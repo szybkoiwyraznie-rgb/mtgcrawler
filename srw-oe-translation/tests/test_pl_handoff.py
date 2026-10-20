@@ -172,18 +172,27 @@ class ExhaustiveAuditRegressions(unittest.TestCase):
         self.assertEqual(plan['teksty-config.md'][0][0], [root])
         self.assertFalse(H.excluded_reason(root, H.retained_leftovers([root, child])))
 
-    def test_only_audited_robo_dictionary_type_captions_are_retained(self):
+    def test_only_audited_robo_dictionary_footers_are_retained(self):
         import re
         import pl_handoff as H
         import pl_release_package as R
         root = Path(__file__).resolve().parents[1]
         rows, _ = R.I.load_rows(root / 'pakiet_EN')
-        expected = {r['id'] for r in rows if r.get('category') == 'config_leftover'
-                    and r.get('jp', '').endswith('タイプ')
-                    and re.fullmatch(r'srw_DL_RoboDictionary\d{2}\.bin',
-                                     str((r.get('source') or {}).get('member', '')))}
+        expected_types = {r['id'] for r in rows if r.get('category') == 'config_leftover'
+                          and r.get('jp', '').endswith('タイプ')
+                          and re.fullmatch(r'srw_DL_RoboDictionary\d{2}\.bin',
+                                           str((r.get('source') or {}).get('member', '')))}
+        char_pilot_ids = {
+            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376',
+            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376',
+            'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185',
+            'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185',
+        }
+        expected = expected_types | char_pilot_ids
         self.assertEqual(set(H.OWNER_VISIBLE_LEFTOVERS), expected)
-        self.assertEqual(len(expected), 36)
+        self.assertEqual(len(expected_types), 36)
+        self.assertEqual(len(expected), 40)
+        self.assertNotIn('leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567', expected)
         for row_id in expected:
             self.assertIsNone(H.excluded_reason({'id': row_id}, H.retained_leftovers([])))
         self.assertIn('leftover decode', H.excluded_reason({'id': 'leftover:unreviewed'}, H.retained_leftovers([])))

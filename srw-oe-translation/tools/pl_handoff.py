@@ -27,19 +27,21 @@ def readonly_reason(row):
     return None
 
 
-# The owner screenshot confirms the Zaku type footer is visible in Enemy Robots. A
-# source audit covers all extracted RoboDictionary `タイプ` rows in config/imenu mirrors;
-# only these exact IDs are retained, while unlisted generic leftovers stay quarantined.
+# Owner screenshots confirm Zaku weapon-type and Char pilot footers are visible in
+# Enemy Robots. The source audit covers every extracted weapon-type caption plus the
+# exact Char pilot mirrors; unlisted generic leftovers remain quarantined.
 OWNER_VISIBLE_LEFTOVERS = {
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1045',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1185',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1337',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:3470',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:3630',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6051',
     'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6195',
+    'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185',
     'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:5702',
     'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:5866',
     'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:6642',
@@ -54,10 +56,12 @@ OWNER_VISIBLE_LEFTOVERS = {
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:1337',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:3470',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:3630',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6051',
     'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6195',
+    'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185',
     'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:5702',
     'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:5866',
     'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:6642',

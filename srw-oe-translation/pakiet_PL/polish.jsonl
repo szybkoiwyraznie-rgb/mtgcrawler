@@ -63756,6 +63756,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44752","pl":"Premiowe fundusze: +%d","source_sha256":"26d1c0a4f6801ae48bd7f7753d3ceafd947392c30a86b56f696538dc48bcf43c"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:3479","pl":" Po aktyw.:","source_sha256":"26d6f220b847c7317b36c0e4ba9c8627e0cf6a77dc95d87eaea2473e0b26627b"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:7551","pl":"Broń %s50 Koszt%s10%%\nAtk+10 %s300\n%s","source_sha256":"26d71da7668b730a90d099da23e0e79dcabf79806d3b4e0791eb271036b3e1f0"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185","pl":"Pilot: Char","source_sha256":"26d7e5e5546e42368c9a54b22eb0558e2ceb0c16684c2a6af56acee14dc43be1"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:3427","pl":"＠","source_sha256":"26ddee88e84e25e540cc6cfeb72ccdf3e18789e30ece3594c7ff8f6822f1603d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:39197","pl":"Okrążenie+5%","source_sha256":"26ddfb1ced7fc2fa994e7fbab7c67d77291be00e47476d1ebfc86e231da7570a"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:185242","pl":"Cel/%s15","source_sha256":"26de565f9eae3c1629a85e1fcaff50df57ef3516504fddcc65553496ae25af89"}
@@ -64523,6 +64524,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:8880","pl":"pola ruchu","source_sha256":"334d2146901b6fddec3f4af2ec471e8d6190c135959211563f5d6b63dc7de792"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:1788","pl":"%s\n15%s\n%s","source_sha256":"335121217ce3ef425577b36f43408d0849f006b6e65d36748394cbd481fd0311"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:9845","pl":"~Atk+","source_sha256":"33524b26f779dd1be330ab0188bd6a7edc3c1ea10aa5045f6465e58193c9fc9a"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376","pl":"Pilot: Char","source_sha256":"3356f1189729cbe8a0729559b22f832be5abbbb886e8b55d0d9277ed5ec7b47c"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:38005","pl":"Możesz je zmienić w dowolnym momencie gry.","source_sha256":"3359435447dc0a75ee394d576048b39eeacdb7f05d5e2888fb9e095f4e2050d5"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:41497","pl":"Cel＠2%+3d%% ＠0Unik＠2%+3d%%＠0","source_sha256":"335946053134f5af3ec2e8741621624f83033b45e5c7578f449a6dc335cc7fc7"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:13999","pl":"<Odpychający MAP>＠","source_sha256":"335a5d0ae4b11e922cfa1f5b07761301d9f849618138f040be0434e307586354"}
@@ -65642,6 +65644,7 @@
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:1073","pl":"Ulepszenia do ","source_sha256":"453eb533cbf97fd8e761598c9141471ecd7f0d3b0b8d72d84c2011dc53a8e4cd"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"<Na kosmos Lv","source_sha256":"453edffcdc3a4d7ca77df1e6ef118ba6ceb3452acf6543ad684184a31ec1386b"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:41456","pl":"Un＠2%+3d%%＠0","source_sha256":"4540044d63906ec74a9a8a116595e91cbd94f86e873021ea526a2d0398c003db"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185","pl":"Pilot: Char","source_sha256":"45437dee6bf534ff8b00e1fc31f1a96ce7fac28c38a6062e40dfe522965aa658"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:3878","pl":"Gundam Ez8 może dać Osłonę","source_sha256":"4548c69ef37a9c6b3f7555cc8378d514e1e001b3c6a996550fd2ad8bc77faff3"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:12592","pl":"Zmień klasę na inną postać.\nZmiana klasy w pełni odnawia HP i EN.\n＠4(Do końca misji nie można cofnąć zmiany klasy)＠0\nCzy na pewno?","source_sha256":"454944736252e89a6f390485e31cf1689f8ced844ad8f382a5d176153a3f5981"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:11567","pl":" Warunek: Koji, Tetsuya, Ryoma","source_sha256":"454972c5c85052a16091ce5d77bf764a12a74f49372847f3dc8103c188955a61"}
@@ -68932,6 +68935,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:9241","pl":"Odporn. na zimno","source_sha256":"792f093eef0b8e0b44cc0d179aa5942ae0fc10885cdf06760f66b32ad065ddf6"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:9446","pl":"Unik R","source_sha256":"792f609b1c376e6277ef5352ad9dba14adcb2426616f9e258507d040a39ea4ce"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:6419","pl":"\" - tylko mapy z nim","source_sha256":"7935f33feedd7850c1ad8a2723b0398dfadbf585daacba76b9db784a576f3a59"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376","pl":"Pilot: Char","source_sha256":"7938e7fe5d3f1b588f4bcb6c343864fa53f0ab60ac66f97cc4bae436c4992625"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:184158","pl":"Zwiad","source_sha256":"7939a23040cb947393b347725af8fdca55486a975a26cb2653417f02d6c90a42"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20528","pl":"Zużycie EN broni -50％","source_sha256":"793cc56ee2236718267d9b43c88c7ff837a2bcd57060c4d69918a2605d37220f"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:15599","pl":"% Morale","source_sha256":"793ec2e9c0dbd2b135a5873ee291c02511e71d2ac901caf87d14fa81a4890d39"}

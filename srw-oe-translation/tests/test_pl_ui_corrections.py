@@ -68,6 +68,23 @@ class UICorrectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'stale/unknown source addition'):
             U.apply(self.stored, self.plan, self.root/'stale', base=base)
 
+    def test_source_bound_char_pilot_caption_is_allowed_as_a_reviewed_robo_dictionary_row(self):
+        source = dict(id='leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376',
+                      category='config_leftover', part='text', jp='パイロット：シャア',
+                      en='Pilot: Char', bytes=19, mode='slot', max_bytes=19,
+                      source=dict(container='config00.cpk', member='srw_DL_RoboDictionary00.bin', offset=2376))
+        base = self.root/'base-pilot'; base.mkdir()
+        (base/'04_config_text.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf-8')
+        addition = dict(operation='add', file='04_config_text.jsonl', id=source['id'],
+                        source_sha256=R.binding(source), source_jp=source['jp'], source_en=source['en'],
+                        container='config00.cpk', member='srw_DL_RoboDictionary00.bin', offset=2376,
+                        max_bytes=19, after='Pilot: Char')
+        self.plan.write_text(json.dumps(dict(schema=1, changes=[addition]), ensure_ascii=False))
+        result = U.apply(self.stored, self.plan, self.root/'added-pilot', base=base)
+        entries = [json.loads(line) for line in (self.root/'added-pilot'/R.DATA).read_text().splitlines()]
+        self.assertEqual(next(e for e in entries if e['id'] == source['id'])['pl'], 'Pilot: Char')
+        self.assertEqual(result['owner_ui_corrections'][-1]['operation'], 'source-bound additions')
+
     def test_stale_source_or_previous_text_is_refused(self):
         for field in ('source_sha256', 'id', 'before'):
             with self.subTest(field=field):
