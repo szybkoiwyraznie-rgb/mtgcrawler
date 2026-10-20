@@ -1,5 +1,7 @@
 # Next step — current state and open work
 
+**PL4 translator return integrated and source-bound (2026-10-20).** [v2.7-PL4 kit](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view). All nine views and episodes00–21 imported; 67,143 explicit blocks strict-checked/read back, no rejects/unknowns. 28,078/28,079 visible episode elements have PL; the lone empty is structural whitespace. All1,283 local owner-UI bindings and32 promoted mission rows preserved;57 TM correction records match. Overall validator0 hard errors/25,165 soft warnings. New text maps to25 specific DLC EDAT containers; full physical build/outputs and runtime remain pending because original assets are absent here. [Coverage/install limits](pl/PL4_RETURN_REVIEW.md). Do not overwrite user UI/protagonist/cache/font. Episodes22–34/simulator remain incomplete.
+
 **Seven-screen PL UI batch v2.6 DELIVERED (2026-10-20).**
 [Download](https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view).
 100existing PL edits (90Spirit name aliases,9sysmes,1terrain),10missing base

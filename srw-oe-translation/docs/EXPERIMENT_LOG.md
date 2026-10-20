@@ -7789,6 +7789,23 @@ old/new filtered available-file fixture with0problems. Delivery/fulltests pendin
 Historical reading plans/outputs untouched; exact bound ENempty append projection
 restores old hash, mutation tests refuse source/EN edits. See UI_SIX doc.
 
+PL4 merge (2026-10-20): Drive1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V,5254438B,
+SHA974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931,CRCpass.
+Strict stamped import on private projection removing exactly32 promoted mission
+rows:67143explicit PL blocks,0unknown/reject/duplicates,0hard validator errors;
+independent view readback 67143blocks/75489backingrows/0mismatch. All1283owner-UI
+bindings preserved;32owner mission rows reinserted. New delta22185rows in00_dialogue
+(22185new filled,6existing changed); all source containers DLC EDAT. 25 source
+containers listed in docs/pl/PL4_RETURN_REVIEW.md. Episode00–21 visible content
+28078/28079 filled; one row JP whitespace-only.57 saved TM corrections in six
+per-episode files all match exported views; protagonist name not hardcoded in PL.
+Package total87794/109176 filled,0harderrors/25165soft warnings. Episodes22–34+
+simulator remain partial. Snapshot 87783deduplicated bindings,sha876645f90b2bff7f6bfe20a9cf9d563bcb841d14a257c77866fc9d24dbf79585,
+exact materialization/readback against current EN. No original full ISO/DLC set in
+sandbox: no physical builder/DLC output/runtime proof; do not claim it. No translator
+scripts executed, no source-language/package rows overwritten. Details/limits
+in PL4_RETURN_REVIEW.md; private count/hash proof in snapshot/coverage.
+
 Seven-screen UI v2.6 DELIVERED: Drive1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg,
 7406218B/91members/SHA3ec082aa3da78d368c8452413cbcb0847f58d98665083c007ba56871d15794e6,
 MD528372b31cb8f14020944d8ef474e0aff. Download-back exact/CRC/90payloadSHAchecks pass.
@@ -7808,5 +7825,10 @@ Drive1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V.31MD/22episodes00–21+9views,
 CRCpass. Recover sandbox stale Git metadata via fetch/mixed-reset to0d2d044,
 files preserved/clean; no originals/privatefixture survived. Currentsourcehas
 32audited ENempty PL-only missions: exact projection restores original70c6...stamp.
-Raw import preflight0unknown/dup,3programlabels exceed newwidthguards; keep owner
-UI changes instead of relaxingguards. No snapshot/kit yet, PL4_RETURN_REVIEW.md.
+The final private overlay keeps the reviewed short UI wording rather than
+weakening the three narrow program-label width checks. Snapshot PL4 is committed
+with all1283 protected owner bindings. Static patcher kit v2.7-PL4: Drive
+1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF,8119658B,SHA1156ffc4455a18fbb8b2151afccc71c5f0e352a58b578b2027ff3e06fbafe78d,
+MD540b1373c52540b0f3b6e2e8e973c4f3f; 91 ZIP members/90 payload hashes. Drive
+download-back exact, CRC/all hashes pass. Full suite1727 OK/30 skipped. No
+original full ISO/DLC in this sandbox, so no physical build/readback.

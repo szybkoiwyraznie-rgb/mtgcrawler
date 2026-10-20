@@ -1,7 +1,16 @@
 # Aktualny częściowy przekład PL do automatycznych wydań
 
-Źródło: sprawdzony import `PL3.zip` (2026-10-19). Ten katalog jest przeznaczony
-do kontroli wersji i budowania wydań na prośbę właściciela projektu.
+**Najnowszy import PL4 (2026-10-20):** wszystkie widoki i epizody00–21.
+Ścisły import:67,143 jawnych pól,0 odmów/obcych/duplikatów; readback0 różnic.
+1,283 wiązań naszych lokalnych poprawek UI oraz32 osobnych tytułów/uwag misji
+zachowane. 57 zapisanych poprawek pamięci przejrzanych. 28,078/28,079 widocznych
+elementów epizodów00–21 wypełnionych (jeden pusty rekord to biały znak JP).
+Łączna walidacja:87,794/109,176 wierszy wypełnionych,0 twardych błędów,
+25,165 miękkich ostrzeżeń. Nie ukończono epizodów22–34/symulatora ani runtime QA.
+Szczegóły: `docs/pl/PL4_RETURN_REVIEW.md`.
+
+Poprzednie źródło: sprawdzony import `PL3.zip` (2026-10-19); jego skróty i UI
+pozostają zachowane. Ten katalog służy do kontroli wersji i budowania wydań.
 
 - `polish.jsonl`: wyłącznie polskie teksty i wiązania do źródła; bez JP,
   pełnej kopii pakietu EN, archiwum tłumacza i bez binariów gry.

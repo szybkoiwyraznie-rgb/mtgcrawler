@@ -91,6 +91,39 @@ class PlReleaseTests(unittest.TestCase):
         self.write(self.pkg,[dict(self.rows[0],jp='違',pl='Text'),dict(self.rows[1],pl='Text')])
         with self.assertRaisesRegex(ValueError,'binding'):self.freeze()
 
+    def test_owner_bindings_restore_pl4_overwrites_by_source_not_id(self):
+        protected = {P.binding(self.rows[0])}
+        incoming = [dict(self.rows[0], pl='new translator text'), dict(self.rows[1], pl='new translator text')]
+        source = [dict(self.rows[0], pl='short local UI label'), dict(self.rows[1], pl='second value')]
+        summary = P.preserve_bound_values({'04_config_text.jsonl': incoming},
+                                          {'04_config_text.jsonl': source},
+                                          {('04_config_text.jsonl', value) for value in protected})
+        self.assertEqual(incoming[0]['pl'], 'short local UI label')
+        self.assertEqual(incoming[1]['pl'], 'new translator text')
+        self.assertEqual(summary, {'bindings': 1, 'rows_restored': 1})
+
+    def test_owner_binding_restore_refuses_stale_or_disagreeing_alias(self):
+        key = ('04_config_text.jsonl', P.binding(self.rows[0]))
+        with self.assertRaisesRegex(ValueError, 'missing'):
+            P.preserve_bound_values({'04_config_text.jsonl': [dict(self.rows[1], pl='x')]},
+                                    {'04_config_text.jsonl': [dict(self.rows[0], pl='y')]}, {key})
+        with self.assertRaisesRegex(ValueError, 'aliases disagree'):
+            P.preserve_bound_values({'04_config_text.jsonl': [dict(self.rows[0], pl='x')]},
+                                    {'04_config_text.jsonl': [dict(self.rows[0], pl='y'), dict(self.rows[0], pl='z')]},
+                                    {key})
+
+    def test_snapshot_can_carry_forward_ui_provenance(self):
+        prior=self.root/'prior.json';audit=self.root/'audit.json'
+        prior.write_text(json.dumps({'owner_ui_corrections':[{'plan':'ui.json','entries':1}]}))
+        audit.write_text(json.dumps({'restored_owner_bindings':1}))
+        m=P.snapshot(self.base,self.pkg,self.stored,'PL4.zip','a'*64,
+                     owner_ui_from=prior,merge_provenance=audit)
+        self.assertEqual(m['owner_ui_corrections'],[{'plan':'ui.json','entries':1}])
+        self.assertEqual(m['merge_provenance'],{'restored_owner_bindings':1})
+        P.materialize(self.base,self.stored,self.out)
+        coverage=json.loads((self.out/'PL_COVERAGE.json').read_text())
+        self.assertEqual(coverage['merge_provenance'],{'restored_owner_bindings':1})
+
     def test_output_never_overwrites_existing_work(self):
         self.freeze();self.out.mkdir()
         with self.assertRaisesRegex(ValueError,'refusing'):P.materialize(self.base,self.stored,self.out)

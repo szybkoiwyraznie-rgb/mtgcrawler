@@ -1,9 +1,41 @@
-# Super Robot Wars OE — częściowy patcher PL (PL3)
+# Super Robot Wars OE — częściowy patcher PL (PL4)
 
 Paczka buduje polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC NPJH50521. Nie zawiera plików gry ani gotowego ISO.
 
-## Najnowsza poprawka siedmiu zrzutów — v2.6-PL3-UI
+## Najnowszy import PL4 — v2.7 (2026-10-20)
+
+Paczka patchera **v2.7-PL4** zawiera 91 plików; po pobraniu sprawdź hash
+z przekazania wydania.
+
+Zintegrowano zwrot tłumacza PL4: wszystkie dziewięć widoków oraz fabuła
+**epizodów 00–21**. Odczyt sprawdził 28 078/28 079 elementów; jedyny pusty
+slot to biały znak strukturalny, nie dialog. Pełny pakiet ma 87 794/109 176
+wypełnionych wierszy. Walidator zgłosił 0 twardych błędów, ale pozostaje
+25 165 miękkich ostrzeżeń długości/układu — to nie jest runtime QA. Epizody
+22–34 i symulator są nadal nieukończone.
+
+Wszystkie **1 283** wiązania naszych wcześniejszych skrótów i poprawek UI
+zachowano; wróciły też wszystkie 32 osobne tytuły/uwagi misji. 57 trwałych
+poprawek pamięci tłumaczeń sprawdzono względem zwrotu. Imię protagonisty nie
+jest wpisane na sztywno w polskim wierszu epizodu 13. Skrypty z archiwum
+stanu tłumacza nie były uruchamiane.
+
+**Przyrost PL4 dotyczy 25 plików DLC `.EDAT`:**
+`eventP01.EDAT`, `eventP02.EDAT`, `eventP03.EDAT`, `eventP04.EDAT`,
+`eventP05.EDAT`, `eventP06.EDAT`, `eventP13.EDAT`, `eventP20.EDAT`,
+`eventP21.EDAT`, `eventP22.EDAT`, `eventP23.EDAT`, `eventP24.EDAT`,
+`eventP25.EDAT`, `eventP26.EDAT`, `eventP27.EDAT`, `eventP28.EDAT`,
+`eventP29.EDAT`, `evept101.EDAT`, `evept102.EDAT`, `evept103.EDAT`,
+`evept104.EDAT`, `evept105.EDAT`, `evept106.EDAT`, `evept107.EDAT`,
+`evept108.EDAT`. Dla aktualizacji z v2.6 nie oczekujemy zmian ISO ani PBOOT;
+nowe teksty wymagają tych DLC. To zakres ustalony z metadanych źródła — w tym
+sandboxie nie ma pełnego oryginalnego ISO/DLC, więc builder nie wykonał
+fizycznego odczytu wyjść. Po lokalnym uruchomieniu kopiuj tylko pliki pokazane
+w jego raporcie. Wydanie nie zawiera ISO/DLC gry. Szczegóły:
+[`docs/pl/PL4_RETURN_REVIEW.md`](docs/pl/PL4_RETURN_REVIEW.md).
+
+## Poprzednia poprawka siedmiu zrzutów — v2.6-PL3-UI
 
 **Aktualizacja z v2.5 na Twoim PPSSPP 1.20.4: ISO — TAK; DLC — NIE.**
 Przebuduj z oryginałów i podmień tylko `patched.iso`. Zostaw obecne DLC;
@@ -29,10 +61,11 @@ przebudowa ISO, bez osobnego testu fontu czy kolejnego eksperymentu z buforem.
 
 ## Co zawiera ten przekład
 
-- Aktualny, sprawdzony import **PL3.zip**: widoki, **19841/19841** widocznych pól
-  cytatów bitewnych i dialogi z eksportów epizodów **00–03** wraz z ich kopiami.
-- Dalsza fabuła nie jest ukończona. Puste pola PL pozostają w oryginalnej grze;
-  nie są automatycznie wypełniane angielską wersją tekstową.
+- Aktualny sprawdzony import **PL4.zip**: widoki oraz epizody **00–21**; wszystkie
+  28 078 widoczne, niepuste elementy fabuły przetłumaczone, a jeden strukturalny
+  biały rekord JP pozostaje pusty. Wypełniono 87 794/109 176 wierszy pakietu.
+- Dalsza fabuła nie jest ukończona. Epizody22–34 i symulator pozostają puste;
+  PL nie ma fallbacku do EN. Pakiet ma też 25 165 miękkich ostrzeżeń układu.
 - `translation/PL_COVERAGE.json` zawiera pochodzenie i dokładne liczby aktualnego
   pakietu. Pełne pokrycie widocznych slotów nie oznacza przetłumaczenia każdego
   tekstu silnika, odkrycia wszystkich zasobów ani sprawdzenia wszystkich ekranów.

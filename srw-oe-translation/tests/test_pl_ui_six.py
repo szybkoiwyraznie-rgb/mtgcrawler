@@ -19,7 +19,6 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import audit_mission_titles as A
 import pl_release_package as R
 import pl_text
-import pl_ui_corrections as UI
 import polish_reading_script as READING
 import slot_apply as SLOT
 import text_codec
@@ -52,24 +51,27 @@ class BatchTests(unittest.TestCase):
                 self.assertLessEqual(pl_text.display_width(edit['after']), edit['max_cells'])
                 self.assertEqual(pl_text.decode(pl_text.encode(edit['after'])), edit['after'])
 
-    def test_prior_snapshot_can_be_reconstructed_exactly_and_plan_replayed(self):
-        added = {e['source_sha256'] for e in self.titles['entries']}
-        changes = {e['source_sha256']: e for e in self.plan['changes']}
-        previous = [dict(e, pl=changes[e['source_sha256']]['before']) if e['source_sha256'] in changes else e
-                    for e in self.snapshot if e['source_sha256'] not in added]
-        data = ''.join(R.canonical(e) + '\n' for e in previous).encode()
+    def test_historical_ui_plan_chain_survives_the_PL4_snapshot(self):
         meta = load(ROOT / 'pakiet_PL/snapshot.json')
         history = meta['owner_ui_corrections']
-        self.assertEqual(hashlib.sha256(data).hexdigest(), history[-2]['previous_data_sha256'])
-        self.assertEqual(len(previous), 65588)
-        with tempfile.TemporaryDirectory() as tmp:
-            before = Path(tmp) / 'before'; before.mkdir()
-            (before / R.DATA).write_bytes(data)
-            (before / R.MANIFEST).write_text(json.dumps(dict(schema=1, entries=len(previous), data_sha256=hashlib.sha256(data).hexdigest())))
-            revised = UI.apply(before, ROOT / 'config/pl/ui-six-2026-10-20.json', Path(tmp) / 'after')
-            self.assertEqual(revised['data_sha256'], history[-1]['previous_data_sha256'])
-        for h in history[-2:]:
-            self.assertEqual(hashlib.sha256((ROOT / 'config/pl' / h['plan']).read_bytes()).hexdigest(), h['sha256'])
+        current = {e['source_sha256']: e['pl'] for e in self.snapshot}
+        last_value_by_binding = {}
+        for h in history:
+            path = ROOT / 'config/pl' / h['plan']
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), h['sha256'])
+            plan = load(path)
+            edits = plan.get('changes') or plan.get('entries')
+            self.assertEqual(len(edits), h['entries'])
+            for edit in edits:
+                last_value_by_binding[edit['source_sha256']] = edit.get('after', edit.get('pl'))
+        self.assertEqual(len(last_value_by_binding), 1283)
+        for binding, expected in last_value_by_binding.items():
+            self.assertEqual(current.get(binding), expected, binding)
+        merge = meta['merge_provenance']
+        self.assertEqual(merge['source_archive']['name'], 'PL4.zip')
+        self.assertEqual(merge['preservation']['reviewed_owner_bindings'], 1283)
+        self.assertEqual(merge['preservation']['restored_bindings'], 1283)
+        self.assertEqual(merge['strict_source_bound_import']['view_roundtrip_mismatches'], 0)
 
     def test_review_covers_all_sixty_spirit_records_and_three_name_aliases(self):
         review = self.plan['spirit_review']

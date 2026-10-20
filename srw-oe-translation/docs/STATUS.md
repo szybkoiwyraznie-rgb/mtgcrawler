@@ -1,5 +1,17 @@
 # Project status
 
+**PL4 partial return integrated and v2.7-PL4 kit delivered (2026-10-20).**
+[Download](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view);
+All nine views plus episodes00–21: strict import67,143 explicit blocks,0 errors,
+0 stale/unknown/duplicate,exact roundtrip.1,283 existing owner-UI source bindings
+plus32 mission rows retained;57 translator correction-file entries round-trip.
+Episodes00–21 contain28,078/28,079 PL visible entries (one whitespace-only
+structural blank). Package validator:87,794/109,176 filled,0 hard errors/25,165
+soft warnings. New PL4 rows map only to25 DLC EDAT names; originals unavailable
+in this sandbox, so actual physical build/DLC output/runtime remains unverified.
+Episodes22–34 and simulator remain unfinished. See
+[PL4 audit](pl/PL4_RETURN_REVIEW.md); keep UI/protagonist/cache/font corrections.
+
 **PL UI v2.6 delivered (2026-10-20):** seven owner screenshots addressed in one
 text-only batch, all527mission title fields checked/read back,10missing base
 copies filled, all20Spirit families compact-name reviewed.1724tests OK/2skip;

@@ -55,7 +55,7 @@ def fresh(out, base):
         raise ValueError('output must be new; refusing to overwrite work')
 
 
-def snapshot(base, package, out, source_name, source_sha256):
+def snapshot(base, package, out, source_name, source_sha256, owner_ui_from=None, merge_provenance=None):
     fresh(out, base)
     fresh(out, package)
     _, original = I.load_rows(base)
@@ -85,10 +85,52 @@ def snapshot(base, package, out, source_name, source_sha256):
                     entries=len(entries), data_sha256=hashlib.sha256(data).hexdigest(),
                     bindings='file + all non-language row metadata; excludes en/pl/internal fields',
                     game_binaries_included=False)
+    if owner_ui_from is not None:
+        prior = json.loads(Path(owner_ui_from).read_text(encoding='utf-8'))
+        manifest['owner_ui_corrections'] = prior.get('owner_ui_corrections', [])
+    if merge_provenance is not None:
+        manifest['merge_provenance'] = json.loads(Path(merge_provenance).read_text(encoding='utf-8'))
     out.mkdir(parents=True)
     (out/DATA).write_bytes(data)
     (out/MANIFEST).write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return manifest
+
+
+def preserve_bound_values(target_by_file, reference_by_file, bindings):
+    """Restore selected PL values by immutable source binding, never by reusable IDs.
+
+    ``bindings`` is an iterable of ``(file, binding_sha256)`` keys. Every key must
+    exist in both packages, and all physical aliases must agree before or after
+    restoration. Returns a compact count for an auditable merge receipt.
+    """
+    requested = set(bindings)
+    reference = defaultdict(list)
+    target = defaultdict(list)
+    for name, rows in reference_by_file.items():
+        for row in rows:
+            key = (name, binding(row))
+            if key in requested:
+                reference[key].append(row)
+    for name, rows in target_by_file.items():
+        for row in rows:
+            key = (name, binding(row))
+            if key in requested:
+                target[key].append(row)
+    expected = {}
+    for key in requested:
+        ref, dst = reference.get(key, []), target.get(key, [])
+        if not ref or not dst:
+            raise ValueError(f'protected source binding missing: {key[0]}:{key[1]}')
+        values = {r.get('pl') or '' for r in ref}
+        if len(values) != 1:
+            raise ValueError(f'protected source aliases disagree: {key[0]}:{key[1]}')
+        expected[key] = next(iter(values))
+    restored = 0
+    for key, rows in target.items():
+        for row in rows:
+            row['pl'] = expected[key]
+            restored += 1
+    return {'bindings': len(expected), 'rows_restored': restored}
 
 
 def materialize(base, stored, out):
@@ -128,11 +170,12 @@ def materialize(base, stored, out):
     coverage = dict(schema=1, language='pl', partial=True, source_return=manifest['source_return'],
                     snapshot_sha256=hashlib.sha256(data).hexdigest(),
                     owner_ui_corrections=manifest.get('owner_ui_corrections', []),
+                    merge_provenance=manifest.get('merge_provenance'),
                     totals=checked['totals'], files=checked['files'],
                     runtime_tested=False,
                     known_issues=['Battle-quote grammatical gender not fully speaker-reviewed',
                                   '158 translator-reported skill-description assembly spacing findings remain (not line-wrap errors)',
-                                  'Line-width/layout warnings require game QA; story after episode03 incomplete'])
+                                  'Line-width/layout warnings require game QA; consult the return audit for story coverage'])
     out.mkdir(parents=True)
     for name, group in by_file.items():
         (out/name).write_text(''.join(json.dumps({k:v for k,v in r.items() if not k.startswith('_')},
@@ -149,10 +192,13 @@ def main():
     s = sub.add_parser('snapshot')
     for name in ('base','package','out'):s.add_argument('--'+name,type=Path,required=True)
     s.add_argument('--source-name',required=True);s.add_argument('--source-sha256',required=True)
+    s.add_argument('--owner-ui-from',type=Path,help='preserve reviewed UI-correction provenance from a prior snapshot')
+    s.add_argument('--merge-provenance',type=Path,help='JSON audit metadata for a guarded returned-translation merge')
     m = sub.add_parser('materialize')
     for name in ('base','stored','out'):m.add_argument('--'+name,type=Path,required=True)
     a=p.parse_args()
-    if a.command=='snapshot':r=snapshot(a.base,a.package,a.out,a.source_name,a.source_sha256)
+    if a.command=='snapshot':r=snapshot(a.base,a.package,a.out,a.source_name,a.source_sha256,
+                                       owner_ui_from=a.owner_ui_from,merge_provenance=a.merge_provenance)
     else:r=materialize(a.base,a.stored,a.out)
     print(json.dumps(r,ensure_ascii=False,indent=2))
 
