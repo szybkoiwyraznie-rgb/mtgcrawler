@@ -7832,3 +7832,30 @@ with all1283 protected owner bindings. Static patcher kit v2.7-PL4: Drive
 MD540b1373c52540b0f3b6e2e8e973c4f3f; 91 ZIP members/90 payload hashes. Drive
 download-back exact, CRC/all hashes pass. Full suite1727 OK/30 skipped. No
 original full ISO/DLC in this sandbox, so no physical build/readback.
+
+Polish pilot, Spirit Command, and skill catalogue (2026-10-21):
+1. Verified 21 original game containers (`config00.cpk`, `config01.EDAT`–`config19.EDAT`,
+   `configst.cpk`) byte-for-byte against `docs/mech-catalog/source-inventory.json`,
+   decrypted 1.08 `DATA.PSP` (`5,531,024 B`, SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`),
+   and materialized offline `pakiet_PL` (`snapshot_sha256` `4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2`).
+2. Reverse engineered 1.08 `.text` pilot progression & lookup routines (`0x0e009c`,
+   `0x0e5680`, `0x0e5980..0x0e59b0`, `0x0e5d44`, `0x0e78b4`, `0x0c69a0`,
+   `0x148b70..0x148c64`, `0x21ba98`, `0x21df58`, `0x21f4ec..0x21f998`). Confirmed why
+   closed PR #21 (`pilot_skills*.py`) was invalid (misread `srwDL_CharaDictionary`
+   32-bit string offsets as skill IDs) and replaced cleanly from first principles with
+   `tools/pilot_catalog_probe.py`, `tools/pilot_catalog.py`, `tools/verify_pilot_catalog.py`,
+   and `tests/test_pilot_catalog.py`.
+3. Executed unmodified 1.08 `.text 0x0e5d44` across all `1,469` `Skill` + `60` `Spirit`
+   records (`112` total / `38` pilot-skill 1.08 ELF overrides, `0` Spirit overrides)
+   and executed unmodified `.text 0x21f4ec` in Unicorn across all `404` `charalist`
+   records + synthetic `step == 0` profile (`7,307 / 7,307` exact matches, `0` mismatches).
+4. Rendered `srwoe_pilot_catalog_PL.md`: `634,758 B`, `6,096` lines,
+   SHA-256 `bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e`,
+   MD5 `728d0b85d83e7b650ec49fe3fc9d726b` (`404` characters = `92` playable + `45` sub-pilots +
+   `117` enemy/rival + `150` non-combat; `20` Spirit families / `60` tiers; `80` pilot/Ace
+   skill families / `536` tiers; `0` CJK / control tokens).
+5. Uploaded to Google Drive `1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t` (folder
+   `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`), verified Drive server `sha256_checksum` +
+   `md5_checksum` + `4,096`-char UTF-8 read-back prefix exact match. Full repository test
+   suite: `1,751 OK, skipped=32`. Manifests in `docs/pilot-catalog/`.
+
