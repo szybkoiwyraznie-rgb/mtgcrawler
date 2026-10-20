@@ -132,7 +132,8 @@ class BindingAndVerificationTests(unittest.TestCase):
             source = EarlyReadingSource(project / 'pakiet_EN', episode)
             plan = json.loads((project / f'docs/reading-script/polish/episode_{episode:02}.json').read_bytes())
             self.assertTrue(plan['reviewed'])
-            self.assertEqual(source.hashes, plan['english_source_sha256'])
+            from polish_reading_script import validate_source_bindings
+            validate_source_bindings(source, plan['english_source_sha256'])
             expected = {e.id for sid, entries in source.entries.items() if not source.scene_by_id[sid].get('variant_of')
                         for e in entries if e.kind in ('dialogue', 'narration')}
             shown, last, current = set(), 0, None

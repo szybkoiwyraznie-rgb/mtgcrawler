@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "review": "Independent originals, all packaged mission title containers plus two blank348B event members/config09; hashes and counts only.",
+  "title_fields": 527,
+  "sources": [
+    {
+      "name": "config00.cpk",
+      "sha256": "d38b0ccae89d460afcbd7ad3411391aaae8a9c3e77f2e9f6d7b9c317a3806582",
+      "title_fields": 15,
+      "ext_members": 0
+    },
+    {
+      "name": "config01.EDAT",
+      "sha256": "1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431",
+      "title_fields": 31,
+      "ext_members": 0
+    },
+    {
+      "name": "config02.EDAT",
+      "sha256": "7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053",
+      "title_fields": 34,
+      "ext_members": 0
+    },
+    {
+      "name": "config03.EDAT",
+      "sha256": "420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511",
+      "title_fields": 33,
+      "ext_members": 0
+    },
+    {
+      "name": "config04.EDAT",
+      "sha256": "bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09",
+      "title_fields": 34,
+      "ext_members": 0
+    },
+    {
+      "name": "config05.EDAT",
+      "sha256": "f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9",
+      "title_fields": 33,
+      "ext_members": 0
+    },
+    {
+      "name": "config06.EDAT",
+      "sha256": "a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e",
+      "title_fields": 32,
+      "ext_members": 0
+    },
+    {
+      "name": "config07.EDAT",
+      "sha256": "734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8",
+      "title_fields": 30,
+      "ext_members": 0
+    },
+    {
+      "name": "config08.EDAT",
+      "sha256": "a296487ace9e5b8d2ca8af16f6969a52dc3d601678c3089d8c822e92531bf7fa",
+      "title_fields": 31,
+      "ext_members": 0
+    },
+    {
+      "name": "config09.EDAT",
+      "sha256": "5e4dcbd9195d89b856d0195577aa16be0de8a9f21e5576914497777b29ff47f9",
+      "title_fields": 0,
+      "ext_members": 0
+    },
+    {
+      "name": "config20.EDAT",
+      "sha256": "ecbe5a144d3153227f58a6a0720b7066275c7f000653e43c3a50488165f13f1f",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config21.EDAT",
+      "sha256": "e73809a664e6e2a23fb115988f4f9569e2c5b383feb53c670ba74b75f8135261",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config22.EDAT",
+      "sha256": "198c6fa30df1789416243d29eedde58f5d3c9f5b1c08763d16d3a3f146bb6d0a",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config23.EDAT",
+      "sha256": "cb56eb21e599090bf3ef69d7df4f2c3cbcc305c218fc0c238fe135fc38af7a81",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config24.EDAT",
+      "sha256": "27b2e050022dc9cdda104d5fdfc80a0a78f82bf081649ad739976e54e0a4955e",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config25.EDAT",
+      "sha256": "9ecabd34ad8b865606ec1e80222cfbe8bb822dc3433ccbc50888b3b3e412476a",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config26.EDAT",
+      "sha256": "dbc3e29d26e2f28340ed5874873c28cce949fc85b7a43a1cf2aab19289d29b7f",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config27.EDAT",
+      "sha256": "d9ed0c478b6b6f422e0269d7b9bcc71492da3b6e614fad48c1fbf7bb708d3a2c",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config28.EDAT",
+      "sha256": "b61c735a308c17d2eb9a54ea2395672fca4813e9fd42fd6f26f62bada95f07e0",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config29.EDAT",
+      "sha256": "de88bee346305b69422f0c12a7e61ee9cdb78d992414aa3f8e4063d335f8f5f7",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config30.EDAT",
+      "sha256": "4fd6316f96a2a71624d8f95039ff5805560c57e20f39f724cddbcb954a17d21a",
+      "title_fields": 2,
+      "ext_members": 0
+    },
+    {
+      "name": "config31.EDAT",
+      "sha256": "d13c1eafd34b527922d19592a77162356970ae88a03b0d2eeb5a3e8704774d4b",
+      "title_fields": 4,
+      "ext_members": 0
+    },
+    {
+      "name": "config32.EDAT",
+      "sha256": "a396fc2489d3fceedb761a3691c8143caffcd37a18e6a5a2c48811078c87a6a8",
+      "title_fields": 4,
+      "ext_members": 0
+    },
+    {
+      "name": "eventP00.cpk",
+      "sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa",
+      "title_fields": 11,
+      "ext_members": 11
+    },
+    {
+      "name": "eventP01.EDAT",
+      "sha256": "4081e8b60797dbccde09de16ea9f52213dbd29473ed6074c912d642405d70c30",
+      "title_fields": 22,
+      "ext_members": 22
+    },
+    {
+      "name": "eventP02.EDAT",
+      "sha256": "aab5ecb665e102d5ee2e7a879789e3c184cc68deb99c8a376ff0cb4ef3c42ab0",
+      "title_fields": 24,
+      "ext_members": 24
+    },
+    {
+      "name": "eventP03.EDAT",
+      "sha256": "7342172d06430ecdf951463317cf877052a935021d0898831fd34f0f68a72149",
+      "title_fields": 23,
+      "ext_members": 23
+    },
+    {
+      "name": "eventP04.EDAT",
+      "sha256": "8004c00f952375bfd0649aa74474df1e1fc524f97e442759cccf8bb42d9420fc",
+      "title_fields": 24,
+      "ext_members": 24
+    },
+    {
+      "name": "eventP05.EDAT",
+      "sha256": "749a01ff9f3a389cd5634913ff5f829b036e4766b86cab6b27bc9dca0a49400b",
+      "title_fields": 23,
+      "ext_members": 23
+    },
+    {
+      "name": "eventP06.EDAT",
+      "sha256": "4e35e8ff23ce124dada90820a20adb2a73ee1d1775bb246c7783ce1511a6f69f",
+      "title_fields": 23,
+      "ext_members": 23
+    },
+    {
+      "name": "eventP07.EDAT",
+      "sha256": "0f4b63ea0675a533b321aaeddb374b8fcf4dc2fc7fea8ca5e9aba75745b44255",
+      "title_fields": 22,
+      "ext_members": 22
+    },
+    {
+      "name": "eventP08.EDAT",
+      "sha256": "2e2462f41177df638c473719cfcc23acdcd7098bf3ed1066c6aa0d478439d665",
+      "title_fields": 22,
+      "ext_members": 22
+    },
+    {
+      "name": "eventP09.EDAT",
+      "sha256": "5c854988f716f175c0ff9be10fbcf34298085d65fd55ea35f8cdb8bc9a4153ac",
+      "title_fields": 0,
+      "ext_members": 1
+    },
+    {
+      "name": "eventP13.EDAT",
+      "sha256": "7fabfee1aa2331fff73a49ff3e943a48e145744c3e04cd415bd6a478466ccb3c",
+      "title_fields": 0,
+      "ext_members": 1
+    },
+    {
+      "name": "eventP20.EDAT",
+      "sha256": "e56172fe99f3db20caf2af3a5be31d11953a3a65b23513cd3079fac012b6dce6",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP21.EDAT",
+      "sha256": "74354cc70ff1f4f91d84efa07e3b73ff838886058bb01280cda222bfdb4996e5",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP22.EDAT",
+      "sha256": "d6f30fcc6906aad2db74d7f6d01aca0e4f876003628435d29c52b86e687d68dc",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP23.EDAT",
+      "sha256": "ab8d2b4d5f9f77c54fa619fb98cf34bc698529732c8a8ccb43e1294ba773f671",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP24.EDAT",
+      "sha256": "b40e623f2db30b69065c128192a4e62f4e7be06e40b0823f7454d522af56f71c",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP25.EDAT",
+      "sha256": "eb4fb025647757656dfb59ef551650baa22172fbf424951d11a187da9f27b779",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP26.EDAT",
+      "sha256": "ee6124bc99d03466dce1f81462873e724e6539d53fe849afd6a65a7f3d542c73",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP27.EDAT",
+      "sha256": "e6c6724eae032ae0245d8dafb637a8ff4216c67918d4a125f1f4ea12b5e15ef1",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP28.EDAT",
+      "sha256": "28882e45a54473ca5a6ea0a196dc5516b75d44419b9cdf25dc20998a17d153f9",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP29.EDAT",
+      "sha256": "170ef18d055f493275707eaefdb3fd7c0f5833198f329bd421ba58d147c414eb",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP30.EDAT",
+      "sha256": "9eabcfa3be85fc0a8a5aed202c82c7939c3fb25a54162c8f8ae8c3292935656a",
+      "title_fields": 2,
+      "ext_members": 2
+    },
+    {
+      "name": "eventP31.EDAT",
+      "sha256": "68ffa36971a67932ec168684285f5b1cc2ba9c6ba55271cb2b05238657171d48",
+      "title_fields": 4,
+      "ext_members": 4
+    },
+    {
+      "name": "eventP32.EDAT",
+      "sha256": "2a5d2f81915dcff66785ca97b1790c9db8c19416ebca1a1fc1edfe3cf0a45422",
+      "title_fields": 4,
+      "ext_members": 4
+    }
+  ]
+}

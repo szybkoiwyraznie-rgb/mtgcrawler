@@ -5,8 +5,8 @@
     "name": "PL3.zip",
     "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351"
   },
-  "entries": 65588,
-  "data_sha256": "a5db7a7a20be32b2d1e388961703b41ebe0eb185d7775a1830b66cbcd1a2ba0d",
+  "entries": 65598,
+  "data_sha256": "06acd106a5294dca65505e69ead4349a345e078f81c83a9ae5903a52ef903bce",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -50,6 +50,20 @@
       "sha256": "3477dc6876c19b66abb5793fa7835c61230298d4678f3400806a2dbd3d9a2f77",
       "previous_data_sha256": "70f4ba2f193fb08be20694151acd5f0b1cea49adb1d59d55703081728a990cca",
       "entries": 4,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-six-2026-10-20.json",
+      "sha256": "29fbebe7d776ccef03c1a5e1346d3607a202bf542e7816679270d469fb54711c",
+      "previous_data_sha256": "a5db7a7a20be32b2d1e388961703b41ebe0eb185d7775a1830b66cbcd1a2ba0d",
+      "entries": 100,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-mission-titles-2026-10-20.json",
+      "sha256": "c5ed360d3306d654f1f6888e05e2a193af80b1911e322367153d4c2adf442f47",
+      "previous_data_sha256": "66e54e9fbe93b32598cfa23bef2929fe81359eb814b5f71e52eb024657ba6f71",
+      "entries": 10,
       "runtime_tested": false
     }
   ]

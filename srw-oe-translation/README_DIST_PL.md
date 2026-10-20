@@ -3,6 +3,30 @@
 Paczka buduje polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC NPJH50521. Nie zawiera plików gry ani gotowego ISO.
 
+## Najnowsza poprawka siedmiu zrzutów — v2.6-PL3-UI
+
+**Aktualizacja z v2.5 na Twoim PPSSPP 1.20.4: ISO — TAK; DLC — NIE.**
+Przebuduj z oryginałów i podmień tylko `patched.iso`. Zostaw obecne DLC;
+nie kopiuj ponownie `PBOOT.PBP`. To zakres tej aktualizacji w używanej przez
+Ciebie ścieżce uruchamiania z ISO, nie instrukcja pierwszej instalacji.
+
+- Krótsze nagłówki: **Tr.:**, **OK**, **Sort**, **Łącz**, **Str.**
+  (`Łącz` to łączenie jednostek, nie powiększenie obrazu).
+- Przycisk przejścia dalej w wynikach: **OK** zamiast ucinanego „Dalej”.
+- Ostrzeżenie terenowe: **Ląd: zakaz** — jednostka nie może wejść na ląd.
+- Uzupełnione osobne kopie tytułów w dziesięciu misjach podstawowych,
+  m.in. **Na ratunek White Base**. Kontrola wszystkich **527 pól tytułów**
+  w menu i danych misji, także DLC; nie tylko misji 2.
+- Przejrzane wszystkie **20 komend ducha / 60 rekordów poziomów**.
+  Długie nazwy skrócone, m.in. **Wiatr**, **Celny**, **Duch**, **Błog.**;
+  większość nazw mieści się w 3–7 literach/znakach. Pełne, zaakceptowane
+  **Skupienie** pozostaje. Opisy działania nie zostały skrócone.
+- Działający bufor nazw, kod naprawy pamięci i font pozostają bez zmian.
+
+To poprawki danych/tekstu. Nowe dopasowanie napisów wymaga potwierdzenia
+w grze — testy offline nie zastępują widoku w PPSSPP. Wystarczy jedna
+przebudowa ISO, bez osobnego testu fontu czy kolejnego eksperymentu z buforem.
+
 ## Co zawiera ten przekład
 
 - Aktualny, sprawdzony import **PL3.zip**: widoki, **19841/19841** widocznych pól

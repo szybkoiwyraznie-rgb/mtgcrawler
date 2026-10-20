@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "review": "Ten missing measured base title slots only, accepted menu PL reused; preserve source line break, EN target empty, legacy leftovers quarantined.",
+  "container": "eventP00.cpk",
+  "container_sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa",
+  "entries": [
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:title",
+      "source_sha256": "a089ca123f62bfe09b8cd7f8088666aedd346e616bc280c61126b95b938803cb",
+      "pl": "Na ratunek White Base",
+      "member_sha256": "51189a2d3994740e61a519846be0c7774090a0b8940a75cf5ff2082361646135",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r2:title",
+      "accepted_pl_source_sha256": "6e54610f4630b9c96afa63023b55a1191f9c133b253779c2fcf2492dae06a538"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:title",
+      "source_sha256": "3b16649b937619ed79c0413dfad78e9321179d4e1e463e7b8df73652668959c4",
+      "pl": "Ep. 1\nSzalejący prototyp Labora",
+      "member_sha256": "b3f6df11fe26aed207c7194e13918481f5b81a2bf5836d3f46ab28be0e1455ea",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r4:title",
+      "accepted_pl_source_sha256": "9f1aae67c6564acb9e936c0e8bc6fb0282973e144429a25b4ffb6dd7c6eca982"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:title",
+      "source_sha256": "9080a3b6b3c9b0b6c95d3ac6a4abf56af5de64da3320f5942375516636aef1ab",
+      "pl": "Black Tri-Stars",
+      "member_sha256": "660f7d61c76bad03ad40849b0e46d5fc8a6311c2824a9fa3c6a9781a46aed8f1",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r6:title",
+      "accepted_pl_source_sha256": "da6aa97234bbd6d8c3e8e42e2cad464509aadbef782075907b2b26cf8ebe1381"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:title",
+      "source_sha256": "58924660cf5617f6d98d1df83ba4179177ad2645e00f193d67e866ec783c7147",
+      "pl": "Powstrzymaj pocisk termojądrowy",
+      "member_sha256": "27fd35544122054bc3157f025935c49dcce5b3a987432a35b93cc108be57b01a",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r7:title",
+      "accepted_pl_source_sha256": "24f969061c74cc22a03a079ecc8d664d461db182bcd5834c1d605f0233e5309e"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:title",
+      "source_sha256": "ca94a5e7412852b9a06a045ea50f48f514ea8d54b583db3fb6b22feca7ee9bd5",
+      "pl": "Trening Klasy Obrony",
+      "member_sha256": "7bb1f06f553c507732a31713f36a2f069885749f7bc5e32f83476880e6ed954a",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r8:title",
+      "accepted_pl_source_sha256": "10b91bae7af250dd97b794393e5951f5906c56b2d6f6860f2c8b1664047585d6"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:title",
+      "source_sha256": "5796e4dacfd0477f3add53123f209ccdb059a977e536413dc1f6b84f7d351fc5",
+      "pl": "Start Alexa",
+      "member_sha256": "b55af420d7de73469cd712bcca4f052eaf4bae87ff9172dbde0b40e9f2dff3ae",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r9:title",
+      "accepted_pl_source_sha256": "35d308b8e0026d1b517daa048f42705be5821e2d1956ed490af8fbe691c42065"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:title",
+      "source_sha256": "3e83f34a0fa2d7fa03fd89bde0762ddae73dd9f82aeb837ca458d0607fb7b1b0",
+      "pl": "Ratuj transportowiec Medea",
+      "member_sha256": "c64d6cd6d789af588f7e78bef2131bc3d5c03f8adb27e3ac4004db1278f207bb",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r10:title",
+      "accepted_pl_source_sha256": "f2f922ad55f83edbb112ec933316951dec92445620cac9fe70e1c195a9b9d3b8"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:title",
+      "source_sha256": "519fbf0228a16447ecf056efe160668651b48b64160de67a5a9e0f89ef61291e",
+      "pl": "Szalejący Labor powraca",
+      "member_sha256": "36b75257057ca56b923f85a58bbdfe5d1a4579e145eb4d2ec363e1aa93206eb9",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r11:title",
+      "accepted_pl_source_sha256": "f7c94cec9fcb3a0fccfe4e19d8f22825737f92e32ae7e15edc6088ee5895abac"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:title",
+      "source_sha256": "38f51dc08f65f4c8a2507842e735c1ac926432174caa2667c27262bb038d283d",
+      "pl": "Śledztwo pod przykrywką",
+      "member_sha256": "28a99beb85e1a2ea4e41720cb698c699d4d3569b2507328f178060624c650185",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r12:title",
+      "accepted_pl_source_sha256": "1e4759d51d671e656a5b062f379173f908b315669ca95d53ffd99c93ce538621"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:title",
+      "source_sha256": "8a46563b99ecab525492a01aa27cb25c99f792d488114d7033fb072e7a24b6c4",
+      "pl": "Ep. 2\nGroźba czająca się pod ziemią",
+      "member_sha256": "34afbe2630ab1dc959899fd1fe6f9d54149579d2865fce642b2e9d87511ac049",
+      "accepted_pl_source": "mission_title:config00.cpk/milstP00.bin:r14:title",
+      "accepted_pl_source_sha256": "1ebc280b9345aa38a4b477acdecac8db7670fdb94f50b863a5530bef867e29eb"
+    }
+  ]
+}

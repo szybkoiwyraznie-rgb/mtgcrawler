@@ -33,14 +33,15 @@ class Episode34Tests(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.temp.cleanup)
         # Preserve the delivered finale's exact frozen source, not a rewritten
-        # historical manifest. Only the22 subsequently audited base UI note rows
+        # historical manifest. Only the22 UI notes and ten subsequently audited PL-only title rows
         # may be removed; the resulting whole-file hash must equal the old hash.
         manifest_path = cls.plan_path.parent / cls.plan["source_manifest"]
         frozen_hashes = json.loads(manifest_path.read_bytes())["source_sha256"]
         note_file = cls.package / "05_mission_text.jsonl"
         if hashlib.sha256(note_file.read_bytes()).hexdigest() != frozen_hashes[note_file.name]:
             review = json.loads((PROJECT / "config/pl/ui-qa-mission-notes-2026-10-19.json").read_bytes())
-            added = {entry['id'] for entry in review['entries']}
+            title_review = json.loads((PROJECT / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+            added = {entry['id'] for entry in review['entries'] + title_review['entries']}
             lines = note_file.read_bytes().splitlines(keepends=True)
             old = b"".join(line for line in lines if json.loads(line)['id'] not in added)
             if hashlib.sha256(old).hexdigest() != frozen_hashes[note_file.name]:

@@ -7778,3 +7778,13 @@ Japanese title in both list/start objective footer; global title audit pending.
 60Spirit records/20families show7names >9cells; preserve full9cell Skupienie and
 accepted cache/font, compact only long name fields/aliases. Batch docs in
 pl/UI_SIX_2026-10-20.md, no new kit or snapshot yet; PR20 remains open.
+
+Seven-screen batch implementation: all527nonempty physical mission title fields
+in47original containers audited (304menu/223ext),10missing base344/40Bcopies
+promoted with ENempty and accepted PL menu wording, other517titles unchanged.
+100existing PL edits (90Spirit name aliases/9sysmes/1terrain);20families reviewed,
+60records/180name fields,7cell max except owner-accepted Skupienie9. No font/cache
+code change.12newtests pass; authentic7file NONPLAYABLE ISO+44DLC originals build
+old/new filtered available-file fixture with0problems. Delivery/fulltests pending.
+Historical reading plans/outputs untouched; exact bound ENempty append projection
+restores old hash, mutation tests refuse source/EN edits. See UI_SIX doc.

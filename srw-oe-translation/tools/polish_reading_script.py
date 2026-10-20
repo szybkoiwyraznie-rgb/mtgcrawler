@@ -90,11 +90,41 @@ def recover_blocks(source, reference):
     return out
 
 
+def validate_source_bindings(source, expected):
+    """Accept only the reviewed PL-only title append, without rebasing old plans.
+
+    Historical reading files/receipts remain unchanged. The actual source hashes
+    stay in the new build audit; removal of ten explicitly bound, EN-empty UI
+    slots must reproduce the exact previously reviewed whole-file bytes.
+    """
+    if source.hashes == expected:
+        return
+    name = '05_mission_text.jsonl'
+    need(set(source.hashes) == set(expected) and
+         all(source.hashes[k] == expected[k] for k in expected if k != name),
+         'English source changed; review the bindings again')
+    import pl_release_package as R
+    review = json.loads((Path(__file__).resolve().parents[1] /
+                         'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+    added = {e['id']: e['source_sha256'] for e in review['entries']}
+    kept, seen = [], set()
+    for line in (source.package / name).read_bytes().splitlines(keepends=True):
+        row = json.loads(line)
+        if row['id'] in added:
+            need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
+                 'Changed PL-only mission title promotion')
+            seen.add(row['id'])
+        else:
+            kept.append(line)
+    need(seen == set(added) and sha(b''.join(kept)) == expected[name],
+         'English source changed; review the bindings again')
+
+
 def validate_plan(plan, source, reference):
     need({s.get('episode') for s in source.scenes} == {plan['episode']}, 'Episode/source selection differs')
     need(plan.get('schema') == 1 and plan.get('reviewed') is True, 'Unreviewed Polish editorial plan')
     need(plan['reference_sha256'] == sha(reference), 'Delivered English reference changed')
-    need(plan['english_source_sha256'] == source.hashes, 'English source changed; review the bindings again')
+    validate_source_bindings(source, plan['english_source_sha256'])
     blocks = [{k: v for k, v in b.items() if k not in ('pl', 'mission_row')} for b in plan['blocks']]
     need(blocks == recover_blocks(source, reference), 'Editorial plan/source mapping differs')
     reference_blocks = reference.decode().strip().split('\n\n')
