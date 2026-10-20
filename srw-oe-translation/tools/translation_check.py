@@ -26,8 +26,7 @@ Rows with an empty ``en`` are reported as untranslated, not as errors, so the ch
 translating.  ``--require-complete`` turns them into errors for a release check.
 
 ``--field pl`` checks a Polish package instead: the text comes from the ``pl`` field, encoding
-and width go through ``tools/pl_text.py`` (the 18 letters count 2 bytes / 2 half-width cells,
-like any two-byte glyph), and the executable/terrain rows keep their strict CP932/ASCII slot
+and width go through ``tools/pl_text.py`` (the 18 letters count 1 byte / 1 half-width cell), and the executable/terrain rows keep their strict CP932/ASCII slot
 rules - a Polish letter there is reported as an error, because those writers have no private-code
 path (fail closed until the in-game test proves otherwise).
 
@@ -59,11 +58,15 @@ import exe_strings  # noqa: E402
 import export_strings  # noqa: E402
 import item_skill_write as ISW  # noqa: E402
 import mission_text as MT  # noqa: E402
+import name_table_write as NTW  # noqa: E402
 import pl_text  # noqa: E402
 import token_map as TMAP  # noqa: E402
 
 EXT_DAT_RECORD = 388   # the measured one-record ``*_ext.dat`` file (mission_text)
-TOKEN_RE = re.compile(r"＠[0-9]|%%|%s|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
+# Ordinary prose contains literal percentages followed by words ("50% obrażeń",
+# "% EN+"). Do NOT treat a space as a printf flag here: it invents % o/% E tokens.
+# Executable strings use their dedicated full printf parser in exe_strings.check_en.
+TOKEN_RE = re.compile(r"＜主人公(?:名|姓)＞|＠[0-9]|%%|%[-+#0]*(?:[0-9]+|\*)?(?:\.[0-9*]+)?[diuoxXfFeEgGcsp]|％[A-Za-z0-9]+|＄[0-9]*|＃|\{[0-9A-Fa-f]{2}\}")
 BOX_WIDTH = export_strings.TYPICAL_LINE   # the typical dialogue line (46); the hard limit per
 BOXED = ("dialogue", "battle_quote")      # kind is export_strings.box_limit, as in the writers
 CATEGORIES = ("dialogue", "quote", "item", "skill", "config", "mission", "name")
@@ -189,7 +192,7 @@ def controls(text: str) -> List[int]:
     text. English has no voiced kana, so the EN text must carry NO 0x0F at all - keeping it
     before a Latin letter would make the game swallow that letter as the token's second byte.
     """
-    return sorted(ord(ch) for ch in text if ord(ch) < 32 and ch != "\n")
+    return [ord(ch) for ch in text if ord(ch) < 32 and ch != "\n"]
 
 
 def list_cells(text: str, field: str = "en") -> int:
@@ -198,12 +201,11 @@ def list_cells(text: str, field: str = "en") -> int:
     The game's font has one full-width glyph for every two-byte CP932 code (``∞``, ``α``, ``※``
     included - ``export_strings.display_width`` counts those East-Asian-ambiguous characters as
     one) and one half-width glyph per single byte (ASCII, half-width kana).  A Polish letter is
-    drawn from a full-width ``kanji.fta`` cell, so under ``field="pl"`` it counts as its two
-    private-code bytes.
+    drawn from a native half-width cell, so under ``field="pl"`` it counts as one.
     """
     drawn = "".join(ch for ch in text if unicodedata.category(ch) != "Cc")
     if field == "pl":
-        return len(pl_text.encode(drawn))
+        return pl_text.display_width(drawn)
     try:
         return len(drawn.encode("cp932"))
     except UnicodeEncodeError:
@@ -240,6 +242,10 @@ def fixed_slot_limit(row: dict) -> Optional[int]:
     source = row.get("source") or {}
     member = source.get("member")
     offset = source.get("offset")
+    family = NTW.family_of(member or "")
+    cells = NTW.SPECS[family]["cells"] if family else {}
+    if row.get("part") in cells:
+        return cells[row["part"]][1] - 1
     if not member or not isinstance(offset, int):
         return None
     size = MT.slot_size_at(member, offset, EXT_DAT_RECORD if member.lower().endswith("_ext.dat")
@@ -270,9 +276,9 @@ def check_row(row: dict, require_complete: bool = False,
     if row.get("category") == exe_strings.CATEGORY:
         # executable strings: the in-place writer's own rules (byte budget incl. alignment
         # slack, printf conversions in order, exact segments, UTF-8 rows) are the check.
-        # The writer is CP932-only, so under field="pl" a Polish letter is refused here -
-        # deliberately fail closed for the slots without a private-code path.
-        patch, why = exe_strings.check_en({**row, "en": text})
+        # Display targets select the PL ank codec; source matching remains CP932.
+        # UTF-8 save metadata is not drawn with our patched font (writer refuses PL).
+        patch, why = exe_strings.check_en({**row, "en": text}, target_lang=field)
         if patch is None:
             errors.append(why or "refused by exe_strings.check_en")
         if text.count("\n") != jp.count("\n"):
@@ -342,9 +348,10 @@ def check_row(row: dict, require_complete: bool = False,
         limit = export_strings.box_limit(kind)
         widths = [width_of(line, field) for line in text.split("\n")]
         over = [width for width in widths if width > limit]
-        if over and kind != "narration":   # narration is a note in the writer, not a refusal
+        if over:
             which = widths.index(max(widths)) + 1
-            warnings.append(f"line {which} is {max(widths)} wide, the in-game box fits {limit} "
+            target = errors if field == "pl" and kind != "narration" else warnings
+            target.append(f"line {which} is {max(widths)} wide, the in-game box fits {limit} "
                             f"({kind})")
     return errors, warnings
 

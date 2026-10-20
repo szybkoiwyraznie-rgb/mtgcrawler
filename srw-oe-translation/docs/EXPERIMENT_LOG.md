@@ -6722,3 +6722,1113 @@ Przed uploadem0/po1 dopasowań nazwy, rozmiar667590B, MD5
 `1db3f99dd821fa4211b4f4f3e961d5df`; pobranie zwrotne w całości bajtowo identyczne.
 Starsze pliki i uprawnienia nietknięte. Aktualne manifest/raport wskazują v3,
 historyczne v2 są zachowane w revisions/. Pakiet gry oraz kit v17 bez zmian.
+
+## 2026-10-18 — PL v3: autonomous renderer analysis, two font fixes, one batch screen (PR #20)
+
+**Owner direction:** do static/offline work without routing every hypothesis through the owner.
+If runtime confirmation is necessary, place labelled probes at the start of mission 0-0;
+batch several observations in one ISO. The agent can inspect supplied screenshots.
+
+**Private inputs:** downloaded from the existing Drive originals into ignored `google_drive/`:
+`font.cpk` 242896 B, `eventP00.cpk` 162264 B, `config00.cpk` 929920 B,
+plain ELF `EBOOT.BIN` 5531024 B. SHA-256 values and delivery metadata are in
+`pl/test-v3-delivery.json`; no game data, derived ISO or bitmap preview was staged.
+Two other same-named historical BOOT/EBOOT candidates downloaded as entirely zero
+files (5438600/8388608 B), so they were not evidence and were not used. The valid
+ELF is `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`.
+
+**Environment:** Python 3.11.2. System `pip install pillow capstone` refused due to
+PEP 668 (externally managed environment); switched to an ignored `.venv`, Pillow
+13.0.0, Capstone 5.0.7. Neither dependency is needed by the delivered kit.
+
+**Confirmed static observation:** ordinary one-byte glyph lookup at ELF-relative
+0xDC1F8 (file 0xDC298) subtracts 0x20 for ASCII but **0x40 for katakana**, then
+multiplies by 56. The previous writer and verifier both used -0x20, a shared
+wrong assumption. `font_ank_probe.py` checks the measured instruction window and
+executes the small branch/arithmetic fragment, including branch-likely delay slots,
+for all 160 ordinary one-byte codes. Unknown/mutated windows are refused.
+No executable patch is made. Example: D5 selects physical cell 149, not 181.
+
+**Second correction:** offline previews from original/patched ISO bitmap cells
+showed original ASCII coherent under **low-nibble-left** interpretation, while
+high-first swaps every neighbouring pixel pair. Changed packing and reading;
+explicit raw `21 43 65 87` regression prevents a self-consistent but wrong round
+trip. The independent ISO verifier computes physical cells and packs JSON pixels
+without the writer's index/packing helpers. Original ASCII and all other font
+members/cells remain byte-identical. This is static/bitmap evidence, NOT gameplay.
+
+**Batch probe:** `test_pl_package.py` now puts all 18 letters, ASCII comparison and
+spacing guards into the first four-line panel (`PL V3 / 1`); the second panel adds
+width/baseline controls. Other opening lines preserve line/blank/token structure;
+all one-byte letters now fit without the obsolete double-width truncation. Only
+36 rows filled (16 opening + 1 title + 3 unit + 16 weapons); unrelated returned
+translator `pl` values are cleared in this diagnostic package. EN source unchanged.
+
+**Kit:** reproducible contents via `tools/build_pl_test_kit.py`; AST dependency
+closure for builder and verifier, 11 package JSONL files + TSV sidecars, glyph JSON,
+TEST_PL.bat and simple README, 64 files total. Found/fixed a distribution omission:
+AST imports alone do not include `tools/data/pl_glyphs_8x14.json`; both this kit
+and `build_distribution.py` now include runtime JSON data. TEST_PL runs the
+independent verifier before claiming completion and writes `output/PL_VERIFY.json`.
+No DLC, EBOOT or UI-texture changes. Original ISO and saves remain untouched.
+
+**Commands / results** (from repository root; outputs under ignored `local/`):
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_font_pl.py
+# Initial index fix: 13 tests OK; final nibble regression raises this to 14.
+python srw-oe-translation/tools/font_ank_probe.py google_drive/EBOOT.BIN \
+  --out srw-oe-translation/local/font_mapping.json
+python srw-oe-translation/tools/test_pl_package.py \
+  --package srw-oe-translation/pakiet_EN --out srw-oe-translation/local/test_PL_v3
+python srw-oe-translation/tools/translation_check.py \
+  --package srw-oe-translation/local/test_PL_v3 --field pl
+# 36 filled, 0 errors; empty rows intentionally skipped, not a full PL package.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 14 tests OK, including actual private containers and extracted-kit CLI.
+python -m unittest discover -s srw-oe-translation/tests -p 'test_*pl*.py'
+# 166 tests OK (after nibble fix).
+python -m unittest discover -s srw-oe-translation/tests
+# FINAL: 1553 tests, OK (25 skipped), 38.423 s.
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v3.zip
+```
+
+Built a small ISO9660 **fixture**, containing the three real original containers,
+with `iso_pack.build_iso`. Both the repo CLI and the CLI from the actual delivered
+ZIP (extracted to a fresh folder, Python `-I`) ran:
+
+```sh
+python -I tools/build_translation_patch.py --iso <fixture.iso> \
+  --package translation --out output --lang pl \
+  --only eventP00.cpk config00.cpk font.cpk --no-ui-textures
+python -I tools/verify_pl_test.py --original <fixture.iso> \
+  --iso output/patched.iso --package translation --out output/PL_VERIFY.json
+```
+
+Result: no build problems; 18 physical font cells, all 16 opening rows and 19
+unit/weapon rows found in the actual ISO; exact mission-title cell patch and other
+members/fonts unchanged. The original fixture hash is unchanged. A deliberately
+corrupted output glyph fails verification at cell 149. Early verifier development
+caught an invalid CPK `.blob()` API call, then flagged the deliberately modified
+mission-title member and nested config PAC; corrected the reader and explicitly
+checked allowed title bytes/nested name tables rather than suppressing the failures.
+Final independent result: `ok: true`, no failures. New font CPK SHA-256
+`4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863`.
+
+**Delivered:** [srw-oe-test-pl-v3.zip](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view),
+6413077 B, SHA-256 `de0c8fef000f35ea6ed86726eb6d60e27aec46d8c99cfc102d6212fa6a9a9727`.
+Drive download-back identical. Manifest: `pl/test-v3-delivery.json`.
+Code/tests/docs checkpointed and pushed on the session branch, PR #20.
+
+**Limits:** no full-game ISO boot/PPSSPP or Windows BAT execution in this sandbox.
+The local bitmap preview was visually inspected but is not an emulator screenshot.
+The one remaining owner action is a screenshot of the **first** `PL V3 / 1` panel
+from the new build/New Game; no menu search, weapon screen or repeated builds needed.
+This does not complete the full Polish translation or establish final in-game widths.
+
+## 2026-10-18 — v3 owner runtime positive; v4 natural Polish first-dialogue probes
+
+**Owner evidence:** two screenshots supplied in chat (`image-1.png`, `image-2.png`),
+showing the v3 alphabet/spacing panels and subsequent narration. Visual inspection:
+Polish upper/lowercase diacritics render, ASCII remains readable, guarded mixed
+strings are present. Owner: “wygląda dobrze :)”, then asked for natural Polish
+sentences with ł/ś/ć/ą/ę/ń in the first dialogue. This is a positive runtime result
+for v3's opening scene, NOT confirmation of all screens, exact pixel widths or
+full Polish translation. Screenshots are not copied into Git.
+
+**Changes:** v4 keeps the exact v3 font/codecs and replaces the first 16 opening
+probe rows with natural Polish test prose. First actual dialogue:
+
+```text
+(Łączność działa. Słychać mnie wyraźnie?
+Chcę dziś dokończyć próbę osłony.)
+```
+
+These are invented diagnostic sentences, not translations of the game. Dialogue
+line counts, the player-name token and trailing breaks are retained. Long opening
+narration rows 3–6 are deliberately shortened to two lines; no 12-line alphabet
+scrolling. First two panels also contain prose; the second retains all uppercase
+letters and a pangram. EN package untouched. Source-token/line-count mismatches
+fail closed. Independent verifier additionally requires all natural probes.
+Version v3 remains archived; no new font glyphs or codec changes.
+
+**Commands/results** (Python 3.11.2):
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 19 tests OK, including isolated extracted-kit CLI with original containers.
+python -m unittest discover -s srw-oe-translation/tests
+# 1558 tests in 36.771s, OK (25 skipped).
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v4.zip; 64 files; 36 filled probe rows.
+```
+
+Extracted the actual delivered ZIP to a fresh ignored folder and ran its CLI with
+Python `-I`, `--lang pl --only eventP00.cpk config00.cpk font.cpk --no-ui-textures`
+on the same fixture ISO containing the three real original containers. Then ran
+`verify_pl_test.py --original <fixture.iso> --iso output/patched.iso --package
+translation --out output/PL_VERIFY.json`. Result: `kit_version: 4`, `ok: true`, no
+failures, 18 font cells, 16 opening entries, 19 unit/weapon probes and mission
+cell present. All 14 natural-text row values found in the final member. Font CPK
+SHA-256 `4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863`,
+identical to v3. New event CPK SHA-256
+`abc9cfd9a66bf224c55876bc0f857a0e3f9f122f291aab10b167f8ade9621d16`.
+
+**Delivered:** [srw-oe-test-pl-v4.zip](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view),
+6414164 B, SHA-256 `183e39b3d08aa87bda74fc5aa25a46409287dc3d07f32127e18ed905b299dbc1`.
+Drive download-back is byte-identical. `pl/test-v4-delivery.json` records the
+scope and limits; code and tests pushed on the session branch/PR #20.
+
+**Limits:** v4 not run in this sandbox's PPSSPP or on Windows. V3 user runtime
+success and v4 offline checks are separate evidence. Owner can assess v4 with
+one screenshot of the first dialogue (or first prose panel); no menu search.
+No game files, screenshots, builds or filled translator package added to Git.
+
+## 2026-10-18 — v4 runtime confirmed with style feedback; native-body PL font v5
+
+**Owner evidence:** four chat screenshots (`image-1.png` through `image-4.png`)
+show v4 natural Polish prose in opening narration, scene title and dialogue, plus
+the `Zażółć` unit-name header. Owner: works, but PL appears bold/full and lowercase
+bodies seem 1–2 pixels lower. Screenshots remain outside Git. This expands v4
+runtime evidence to those screens, not the whole game or full Polish package.
+
+**Autonomous measurement:** inspected original `ank.fta` vs legacy v4 raster at
+8×14, low-nibble-left, using the known original font SHA-256
+`a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6`.
+Original ASCII peak values: usually 9/15, lowercase l 6/15; old PL raster reaches
+15/15. Native c/e/n/o/s meaningful body pixels start at row 4, the old PL bodies at
+row 5. Differences vary by letter (native a's strong pixels start at row 5 too),
+so do not claim that every PL letter is exactly 1 or 2 pixels low. Numeric body
+metrics (no pixel arrays) are in `pl/test-v5-delivery.json`.
+
+**Change:** new pure-Python `pl_glyph_compose.py` copies native ASCII bodies from
+the user's font at build time, without scaling, shifting, centering or boldening.
+Only sparse acute/dot/ogonek/crossing-stroke masks are added (2–6 permitted mask
+positions, 2 or 4 actual pixels changed on each real source glyph). Coverage
+adapts to the native peak; tails use free rows 12–13, accents use headroom, ł/Ł
+cross the measured native stem. Invalid/blank/unsupported source geometry fails
+closed. Code contains only recipes; no original or derived glyph bitmap JSON
+is committed or bundled. `make_pl_glyphs.py`/Roboto JSON retained as historical
+v2–v4 tooling, unused by v5. No Pillow or external font needed at build time.
+
+**Tests/verification:** patched `font_pl` uses composition from the input font;
+independent ISO read-back adds `verify_native` to compare original ASCII bodies
+against physical `byte−0x40` cells, preserving every pixel outside accent masks,
+source ASCII and peak values. Tests reject boldening, vertical shifts, missing
+marks, mutated source ASCII, blank cells and insufficient space; all other cells
+and font members remain unchanged. Synthetic native-source fixtures contain only
+invented shapes. Existing PL one-byte mapping/low-nibble-first packing unchanged.
+Natural sentences from v4 remain unchanged except version labels (PL V5).
+
+**Commands / environment:** Python 3.11.2; local preview uses Pillow 13.0.0 in the
+ignored venv (not a kit dependency). Original/base, v4 and v5 nearest-neighbour
+bitmap previews inspected; illustrative coverage visualization, not PPSSPP output.
+Preview files are derived game art and stay under ignored local/.
+
+```sh
+python -m unittest discover -s srw-oe-translation/tests -p test_font_pl.py
+# 14 tests OK.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_native_font.py
+# 11 tests OK, including private real font and mutation cases.
+python -m unittest discover -s srw-oe-translation/tests -p test_pl_font_v3.py
+# 19 tests OK, including isolated extracted-kit real-container fixture check.
+python -m unittest discover -s srw-oe-translation/tests
+# FINAL: 1569 tests in 37.353s, OK (25 skipped).
+python srw-oe-translation/tools/build_pl_test_kit.py
+# local/release/srw-oe-test-pl-v5.zip, 64 files, no game files or native raster JSON.
+```
+
+Extracted the actual delivered ZIP to a fresh ignored folder and ran its
+`build_translation_patch.py` with isolated Python (`-I`), `--lang pl --only
+ eventP00.cpk config00.cpk font.cpk --no-ui-textures`, on the existing ISO9660 fixture
+containing the three real original containers. Then ran its `verify_pl_test.py`
+against the original and output ISO: `ok: true`, 18 native glyphs audited, all
+16 opening entries and 19 unit/weapon probes present, exact mission-title cell.
+Original ASCII, other font members and nonselected event/config members unchanged.
+Native/output peak values identical for all 18. New font CPK SHA-256
+`e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f`;
+event CPK `b7ed5ae6a6deb32991b7b0e1d2d7c894d89a7d5e22a0cb2b1b8d788116446928`
+(version labels changed, prose unchanged). No failure in these test runs.
+
+**Delivered:** [srw-oe-test-pl-v5.zip](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view),
+6415373 B, SHA-256 `2ed8000ef9c4c61cb10b0d0b81b1b51bbfa2b8165a8c5c09aaabeef8931fec33`.
+Drive download-back is byte-identical. Manifest: `pl/test-v5-delivery.json`;
+code/tests/docs checkpointed and pushed to session branch, PR #20.
+
+**Limits:** v5 styling not booted in sandbox PPSSPP; Windows BAT not executed.
+Owner v4 runtime success is distinct from v5 offline source-body preservation.
+One first-panel/dialogue screenshot is sufficient to judge the revised appearance;
+no menu hunt or additional hypothesis-by-hypothesis kit. No full PL translation.
+
+## 2026-10-18 — PL translator archive audit, checkpoint 1
+
+Scope corrected by owner to `sceny_PL.zip` + `widoki_PL.zip`, not the patch kit.
+Original private archives: SHA256 `faea2f565ffd03d7659e9c05e8e5580d2002312b32acd54ed9c0cf0631b11d12`
+and `30e1064f92eeee74d73ca2b3a23809c31b0e014c3027ed0cc04d07d64ee7f29f`.
+Confirmed stale two-cell instructions; fixed name records were marked grow/no limit;
+PL copies had EN-only propagation; executable/terrain views absent; leftover decode
+artifacts were included. Audit/regeneration still in progress at this checkpoint.
+
+First fixes: count CP932 two-byte symbols as two PL display cells (PL letters still
+one), validate actual name-record byte budgets from writer SPECS, reject over-wide
+PL dialogue during import validation, protect printf/player-name tokens, encode
+record labels through the selected codec. CP932 decoder now handles F0–FC leads.
+Tests: `test_pl_handoff.py` 5 OK; `test_translation_check.py` 70 OK; diff check clean.
+No claim of full game-layout verification; v5 runtime result still pending.
+
+### PL handoff checkpoint 2 — import / copies / view contract
+
+PL import now compares complete multiline JP, refuses duplicate blocks/elements and
+conflicting edits, exposes nonzero CLI failure, and writes atomically on a clean
+report. Optional `--require-template` checks the generated source fingerprint.
+Explicit PL copies resync after import and at build load; chains resolve independently
+of row order. Real data exposed reused IDs, including self-ID copies across chapter
+tables: resolve by ID + JP, preferring the canonical non-copy, not last-row-wins.
+17,031 copy rows in the real EN package: no missing/stale sources or cycles after fix.
+No PL-to-EN reference leakage or English fallback for missing `pl` is allowed.
+Mirroring has an explicit `--field pl` path but is NOT run heuristically by import.
+
+PL views now share writer-derived byte/cell notes per element, omit 372 `leftover:`
+decode artifacts (not confirmed visible strings), and add `program.md` / `teren.md`
+for the previously absent 09/10 categories. Engine literals stay read-only; executable
+slots retain their special writer, terrain is ASCII-only. EN view shape preserved.
+Full suite: 1582 tests, OK, 25 skipped, 37.380 s. Includes isolated TEST_PL kit build
+against the three original private containers and independent output read-back.
+Build preflight deliberately allows narration reflow used by v4/v5; translator import
+retains conservative source-line-count rules. Synthetic fixture's display-name category
+corrected (it had incorrectly called all name parts the 14-cell unit-list field).
+Corrected translator archives/coverage manifest not yet released at this checkpoint.
+
+### PL handoff checkpoint 3 — exhaustive archive gate
+
+Added reproducible `build_pl_translator_views.py`: generate new/empty handoff only,
+check every JP/EN reference against the input rows, test empty import, mechanically
+fill ALL editable PL slots, import/copy/check/build-load, prove reference metadata
+unchanged and second import byte-identical. No literary translation performed.
+
+The exhaustive pass found further defects invisible in small samples: nested
+`[[kopia] ...]` labels confused the parser; parenthesized continuation lines could
+be swallowed as metadata; leading EN padding was stripped. Fixed with regressions.
+It also corrected the earlier blanket leftover quarantine: 8 `leftover:` roots are
+canonical sources of 24 structured catalogue fields. Preserve these, quarantine only
+364 unclassified leftover rows. No claim that every leftover is binary garbage.
+`NoData`, empty/whitespace fields and engine literals are read-only (19 rows).
+
+Actual extraction: 109144 text + 293 structural rows; 108780 represented text rows;
+108761 synthetically filled PL rows + 19 read-only + 364 quarantined = 109144.
+All 17031 explicit copy rows covered; 0 uncovered rows. Synthetic full import:
+84153 changed elements, 16262 newly filled copies, 0 validation errors; references
+unchanged, idempotent, PL-only build load passed. These are offline contract/roundtrip
+results, NOT complete game-container or runtime-layout coverage for 108761 strings.
+
+Token requirements and kana-token removals are now shown at each relevant element.
+Executable slots reject PL letters even in UTF-8 regions (font path unverified).
+Instructions corrected and unified with JSONL handoff. Full suite: 1591 tests OK,
+25 skipped, 40.158 s, including original-container extracted-kit verification.
+Final deterministic release build/upload follows this checkpoint.
+
+### PL translator v2 delivery — complete
+
+Final generator command (checkpoint `0053e01`):
+`python tools/build_pl_translator_views.py --package pakiet_EN --out local/release/pl_views_v2`.
+Exact ZIP CRC, file inventory/bytes vs generated folders and source-stamped blank
+import passed (46 MD files). Both uploaded privately beside originals and downloaded
+back; byte equality + SHA256 confirmed. Originals not renamed/overwritten.
+
+- `sceny_PL_sprawdzone_v2.zip`: 3078178 B, 39 entries,
+  SHA256 `225521b2b371d995dfc66fceadecbfae981abbb4e0397fb56b9fd518f4170598`,
+  Drive `1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB`.
+- `widoki_PL_sprawdzone_v2.zip`: 1204212 B, 11 entries,
+  SHA256 `d797e91518702bbc3be97be33e2b940ae784a7270a5f91aaa2e50c68da5350c9`,
+  Drive `1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_`.
+
+Report `docs/pl/TRANSLATOR_VIEWS_AUDIT.md`, numeric delivery manifest
+`docs/pl/translator-views-v2-delivery.json`. No synthetic translations are in these
+handoff ZIPs. Use both together and audited import/build tools, not old v1 patcher.
+Remaining uncertainty: unclassified leftovers, unmeasured layouts/variable expansion,
+actual translated-game QA and owner v5 runtime result. No 100% all-screen claim.
+
+## 2026-10-18 — owner accepts v5 runtime styling; caption typo diagnosis
+
+Owner supplied two new v5 runtime screenshots (opening narration and dialogue),
+reports missing Ł in MALE and Ś in CZYTELNOSCI, otherwise excellent appearance and
+no further objections. Read the actual previously delivered private ZIP
+`srw-oe-test-pl-v5.zip`, `translation/00_dialogue.jsonl`, opening rows 1/2:
+headings are literally `PL V5 - PROBA CZYTELNOSCI` and
+`PL V5 - MALE I WIELKIE LITERY`. Thus the missing accents (including Ó in PROBA)
+were never present in the payload; this is not a missing-glyph/font-style fault.
+Corrected source headings to `PRÓBA CZYTELNOŚCI` / `MAŁE I WIELKIE LITERY`;
+added exact-spelling, codec roundtrip and width regression. No font/codec/recipe
+changes and no replacement delivery or further owner test requested. Existing
+Drive ZIP and release hashes remain unchanged; subsequent feedback appended to
+manifests rather than rewriting the delivery evidence. Screenshots remain private.
+Acceptance applies to the shown opening screens, not every future translated UI.
+
+Validation: `python -m unittest discover -s srw-oe-translation/tests` — 1592 tests
+OK, 25 skipped, 39.142 s. Includes isolated regenerated kit against the three
+original containers and independent read-back with the corrected captions.
+`git diff --check` clean.
+
+## 2026-10-18 — returned PL.zip review, checkpoint 1
+
+Owner requests answers to translator questions, not a release/full integration.
+Downloaded private `PL.zip` (Drive `1sWC3IlSHLd_6uDy84Q08VJwzMQS3UlEt`,
+891620 B); extracted views and nested working glossary locally only. Do not execute
+translator-supplied scripts or alter the returned archive. Initial strict check of
+9 MD files: source fingerprints/JP resolve; 24360 filled elements; 77 refusals,
+all caused by our generic token regex misreading literal percent + space + a word
+(e.g. Polish "% obrażeń" as printf "% o"). Fixed generic parsing to exclude the
+space flag; executable keeps its separate full printf checker. Regression gate
+passes. Detailed returned-package/binary/fragment/size review still in progress.
+
+### Returned PL review checkpoint 2 — actual input and writer evidence
+
+After percent-token fix: strict source-stamped import of 9 MD files accepts all
+24360 filled elements, propagates 7580 PL copies. Working copy has 32744 filled
+text rows, 0 validator errors; 76400 empty rows reflect the partial handoff.
+EN/JP/metadata and original PL.zip remain unchanged. Imported into ignored copy only.
+
+Added `tools/audit_pl_return.py`: read nested glossary as data, never execute supplied
+scripts; source-preserving import, per-view warning/empty-field TSVs, original EBOOT
+write/read-back, original skill-pool/record size measurement and literal four-argument
+formatting previews. All detailed translation/game-derived output stays under local/.
+Actual private inputs downloaded: config00.cpk 929920 B, configst.cpk 376960 B,
+matching original EBOOT.BIN 5531024 B (SHA256 26e7f1a...2052).
+
+All 28 empty config elements classified: 18 offsets outside every one of the five
+item/skill text fields (14 record-header +24, 4 numeric tails); 10 ItemDrop binary
+noise rows already refused by table_write. Do not ask translator to fill them.
+EBOOT: 399 fields applied, 0 skipped; 68 contain a colour lead (63 complete codes,
+5 split leads); all source colour controls preserved, encoded slots read back exact.
+Warnings reproduced per visible MD element: skills 2082, items 138, genuinely soft.
+BUT builder of original config00 refuses current Skill00: 224678 B vs safe guard
+216768 B = 7910 B over. Same number independently measured from record/pool lengths;
+no budget guard removed, no release generated. Pool grows 1748 B (same-pool DLC
+projection 17386 B vs conservative 15638 B; not an actual EDAT build verification).
+
+Literal table formatting uses record bytes +28..31 for four pool indices, no added
+spaces (unlike the reading catalogue formatter). 1421 fields assembled; 33 fields
+using pool entry 37 exhibit the broken `...roń...` join. Example current output
+`Broń niewiązkowaroń wiązkowa`; fragment 263 also needs contextual review, not a
+blind capital-B insertion. No claim these previews replace runtime rendering or
+all executable overrides. Glossary: 187 distinct keys, no conflicting duplicate keys.
+Tests: 1599 OK, 27 skipped, 26.107 s; two extra skips vs earlier runs because private
+font/event originals are absent in this sandbox. Original config/EBOOT checks above
+ran independently and passed/refused exactly as stated. diff check clean.
+
+### Returned PL review delivery
+
+Added forwardable Polish response `docs/pl/RETURNED_PL_REVIEW.md` and non-game-data
+receipt `returned-pl-review-delivery.json`. Private worksheet bundle (7 text files,
+60597 B) uploaded beside original PL.zip, Drive ID 1PxXC3Kq_NcHWhro0bk6u0fI1wyEPzKqG.
+Local ZIP CRCs valid; Drive size/MD5 match (e2ec09bc45995eab905aef17d76b6cd1).
+SHA256 1cc03f74b43987fce87e0e5d2d85ce9ca7d79d6a3251a54a23010798c6f1de49.
+No sharing changed, no source/game binaries in bundle or Git. No download-back claim.
+Original PL.zip metadata MD5 matches unchanged local bytes. Worksheet adds MD group/
+element addresses and original EN reference so translator need not inspect JSONL.
+Reran real-input audit with these columns: all counts/measurements unchanged;
+5 synthetic audit tests pass. PR20 verified OPEN/DRAFT, correct assigned head branch.
+
+Final handoff: AGENTS.md points to returned-PL review, preserving partial-import
+scope and unresolved runtime/DLC limits. Audit now fails closed on any offset-row
+refusal other than pool deferral (pool writer separately verified); actual-input
+rerun unchanged. Final full suite: 1599 tests, OK, 27 skipped, 25.891 s.
+
+### 2026-10-18 — owner asks whether the Skill00 budget is real or a builder policy
+
+Audited provenance in sections 21.19–21.20, 21.24–21.25 and 21.27, not merely the
+code constant. 216768 is policy: T3/W5 217086 success minus 311 other-member growth,
+rounded down (318 total margin). Later W1 217090 succeeded, W2 218110 failed at
+Loading in that setup. There is no identified fixed buffer/allocation instruction,
+no general PSP format limit, no proof of a separate member-only ceiling; shared
+Skill00 + DLC arena still fits. Fixed 0x35000 hypothesis is not established, and
+current 224678 PL has not run. The distinct chapter-2 save crash was +52, fixed.
+DLC 15638 guard also uses original size conservatively, not a measured one-byte cap.
+
+Corrected overclaims in writer errors/docstrings, shrink-tool explanation, builder
+module docs, TECHNICAL_FINDINGS and returned-PL reply. Retain ALL numeric guards and
+refusal behaviour; add test assertions that diagnostics say conservative/unknown
+ceiling, rather than guaranteeing a crash above the guard. No game patch, new
+runtime result or Drive replacement. Earlier delivered ZIP is unchanged; current
+report explicitly identifies that its budget advice has been qualified.
+Validation after wording correction: 1599 tests OK, 27 skipped (25.692 s), diff
+check clean. No numerical limit, patch bytes, translator inputs or Drive artifact changed.
+
+### 2026-10-18 — owner requests intact PL skills above the guard: A/B test checkpoint
+
+PR20 reused, assigned branch unchanged. No full ISO available locally or on Drive
+(search .iso/.ISO); use same one-click local-ISO-build delivery as font tests.
+Downloaded original font.cpk from existing Drive source, 242896 B, ignored/private.
+Added opt-in `pl_skill_size_test.py`, private-kit builder, BAT and instructions.
+A retains returned Skill00 PL and 20 executable base-description overrides, accepted
+v5 font; B uses Japanese Skill00 padded with spaces to equal A's size, same font
+and executable. Neither changes DLC or other translated categories. Only Skill00
+guard is removed in a finally-restored scope; standard builder policy unchanged.
+Synthetic guard/opt-in/verbatim tests pass. First local kit generated (not delivered).
+Actual-container ISO-fixture execution and independent read-back STILL PENDING.
+Do not claim runtime QA or bootable full ISO from the miniature fixture.
+
+Intact-skill fixture checkpoint: isolated copied-kit run using original config00,
+font and plain EBOOT in a four-file miniature ISO (not a playable game). A builds
+224678 B, 4932 record fields and 696 edited pool entries read back verbatim; all
+1469 numeric tails/pointers preserved; only Skill00 changed among config subfiles.
+Initial control failed because Japanese strings passed through active PL codec;
+fixed by temporarily using native CP932 ONLY for original-JP padding and restoring
+PL even on failure. Regression tests cover reserved katakana and exception restore.
+A/B rerun successful: both 224678 B, B retains JP/pool/numerics, identical font and
+20 skill override strings, no other logical ISO file changes. Original unchanged,
+normal guard restored. Added explicit executable .text equality check; final ZIP
+and its isolated run still pending. No PPSSPP/runtime claim.
+
+### 2026-10-18 — intact PL skill A/B test delivered, runtime pending
+
+Final `TEST_UMIEJETNOSCI_PL_PELNE_AB_v1.zip`: 6480979 B / 69 files,
+SHA256 d04ff5f93e912e1d01d57a8eeb0a18d1cf70271e0ff7718dbbf63a03ce21a842,
+MD5 e5fc5b526a8da8c3692f669d17d42f37. Uploaded beside translator return, Drive
+1VBAwu-_PJGff_3mbKXdWxetB8FBRheMU; downloaded back, bytes/SHA/CRC identical.
+No sharing changes. No ISO or proprietary binary/font bitmap inside ZIP.
+
+Final ZIP extracted into a fresh isolated folder, every .py compiles and its actual
+CLI builds A/B from original-container miniature ISO. A/B 224678 B, 1469 records,
+720 pool entries each. A 4932 record fields and 696 pool edits match returned PL
+exactly; source package PL selected 4932 skills + 4290 config counterparts + 20 exe
+skill overrides, all other categories blank in private test snapshot. No shrinking
+or fragment repairs. B retains JP + effect trailing spaces, original pool/numerics.
+Same native v5 font and same 20 executable data slots in both; ELF .text unchanged.
+All 4 fixture ISO files compared: only config00/font/EBOOT differ; other 33 config
+subfiles unchanged. Source ISO hash unchanged. Guard restored. Fixture is NOT a
+playable full game; actual user ISO build, Windows BAT and PPSSPP execution pending.
+
+Full tests: 1604 OK, 26 skipped, 26.774 s (downloaded private font enables one formerly
+skipped check). Instructions: BAT selects original working 1.08 ISO, two images built
+once; run A cold/New Game first, B only if A fails; same DLC/settings, no save states,
+no deleting saves. Crash A alone does not isolate size; B has equal total size, not
+identical pool/record split. Manifest docs/pl/test-skills-full-v1-delivery.json.
+
+### 2026-10-18 — owner runtime result: both intact-skill A/B variants crash
+
+Owner reports both versions fail and proposes shortening. Record exactly: full PL
+Skill00 A 224678 B and original-JP-plus-spaces B 224678 B crash; no stage/signature
+provided. Do NOT silently label it Loading or claim an exact threshold/allocator.
+Supports size/layout issue rather than Polish wording alone; common font/EBOOT/setup
+and differing record/pool split mean not a proof of unique cause. No new build asked.
+
+Next agreed practical route: external translator shortens to existing guards;
+Skill00 over by 7910 B, shared-pool projection over by 1748 B. Pool savings count
+inside the whole-member savings, NOT 7910+1748. Preserve glossary/control tokens,
+repair fragment pairs, prioritise repeated names/level variants/shared descriptions.
+Measure actual writer output before next batched runtime test; no new font hunt or
+repeat of over-budget A/B. Updated delivery manifest, review and AGENTS handoff.
+Documentation/metadata only; delivered ZIP and translator/game inputs unchanged.
+
+### 2026-10-18 — v17 Masaki Character Viewer: actual delivered-kit reproduction
+
+Owner screenshot after mission 0-0 DLC bonuses: list Masaki/Shiro/Kuro JP, full name
+Masaki Andoh and series EN, nickname label JP/value Masaki EN, actor label/value JP.
+No claim about when this first appeared. Screenshot stays private, never Git.
+Git snapshot metadata had reverted to base a6e2f58; fetched assigned branch and
+SHA256-verified every tracked working file equals pushed 02567c5 before mixed reset
+of index/HEAD. No user files overwritten, assigned branch/PR20 retained.
+
+Downloaded actual v17 ZIP (SHA256 matches 5afdd00f...87937), original config19.EDAT
+32896 B and imenu19.EDAT 18600 B. Extracted kit builder (not current substitute),
+EN only, original two containers -> zero build problems. Its log gate holds back
+326 rows on config19. Both original CharaDictionary19 pools byte-identical.
+Actual output config19 for key4420: slot0/3 EN, slot4 JP label + Masaki, slot1/5/11
+JP. Keys4424/4426 analogous. imenu19 has all EN fields including labels and actor.
+This exactly reproduces screenshot content in the config-side bytes; it strongly
+supports this DLC viewer path selecting config19, but no runtime pointer trace.
+Cause is NOT absent EN: CONFIG_DICT_SPARE_CATEGORIES gate intentionally blocks
+voice_actor, short_name and labels globally after old config01-08 crashes.
+Do not remove that safety gate globally. Focused existing-slot-only patch for three
+config19 character records and its read-back/tests are next; runtime still pending.
+
+Masaki focused repair checkpoint: `masaki_viewer_test.py` leaves normal gate enabled,
+accepts measured English v17 baseline, edits only existing slots 1/4/5/11 of keys
+4420/4424/4426. Six synthetic regressions pass (scope, idempotence, wrong source,
+missing key, no spare population, v17 name/series precondition). Actual read-back:
+12 slots changed, dictionary 658->706 B, config19 remains 32896 B; all 10 other
+subfiles untouched, base unchanged. Entire corrected CharaDictionary19 equals the
+fully-English imenu19 produced by actual v17 byte-for-byte. Fixed config MD5
+077d4b17529f0d2d6d80ef8706935dc8, baseline 514434967daacf1afd588378794c1b20.
+Added QA_MASAKI_V17.md, corrected misleading builder note that every viewer reads
+imenu. No global safety exception, no runtime-tested/released fix claim. Private
+one-file test delivery and final full tests pending.
+
+### 2026-10-18 — Masaki TEST1 private one-file delivery
+
+Delivered v17_MASAKI_TEST1.zip 4307 B, 3 entries (config19.EDAT/CZYTAJ.md/verify JSON),
+SHA256 11ab934011727393ac7c85163c7b6dfd99e217dc942a33d42603650787eb0b0f,
+MD5 52a66b1ad2d5d54422daa3c91a0c0ee2. Drive 1RW-thcVUA7QcMLxG63eqBsejR8h3BZv5,
+no sharing changes. Download-back byte-identical; ZIP CRCs and extracted EDAT equal.
+Final fixed dictionary again compared directly to actual-v17-built imenu19: byte
+identical (706 B). Metadata/receipt only committed, binary/screenshot ignored/private.
+
+Instructions: back up active config19 outside DLC, replace only this one file,
+cold boot and normal save to same Library screen, one screenshot. No new ISO,
+New Game, save deletion, font change or skill-size experiment. Runtime not tested;
+old wider config01-08 crash cause not isolated, hence no global gate release.
+Full suite 1610 OK / 28 skipped,31.134 s; real input reproduction/readback performed
+separately and passed. Updated STATUS/NEXT_STEP/AGENTS and delivery manifest.
+
+### 2026-10-18 — owner accepts Masaki Character Viewer test
+
+Owner reports "wszystko pięknie przetłumaczone" after the focused config19 test.
+Mark reported visible Character Viewer fields accepted, no repeat screenshot/test
+needed. Do not extrapolate to all-chapter stability or remove config-wide guard.
+Update receipt, QA/status/next-step and AGENTS. Standard builder integration remains
+open for the next full release; the verified one-file override must be preserved.
+Delivered ZIP and code unchanged. Documentation-only: JSON parse and diff check.
+Git snapshot metadata again started at a6e2f58; SHA256-verified every working file
+against pushed 0f78c3e before mixed metadata reset, without file changes.
+
+### 2026-10-18 — owner requests immediate EN/PL builder integration
+
+PR20 reused, assigned branch clean at e013c22. Added shared gate exception based
+on physical input: only config19 / Character19, exactly keys4420/4424/4426,
+pre-existing slots1/4/5/11, empty spare cells preserved, no unexplained refs. Each
+released active-language row must resolve against original JP; combined nickname/
+label expectations read back after the container chain before shipping. No embedded
+English, no PL fallback; unrecognised shapes remain behind the global gate. Stamp
+updated. Eight synthetic tests include normal EN/PL build entry points, PL accents
+and labels distinct from EN, empty PL untouched, other configs/spares held, invalid
+shape/empty cells and read-back mismatch. All pass. Real-input/packaged update
+validation and delivery still pending; do not claim installed old kits updated.
+
+### 2026-10-18 — Masaki shared EN/PL integration delivered
+
+- Checkpoints `7d3c537` (shared physical whitelist + 8 tests) and `92e9b96`
+  (tools-only updater + complete dependency closure + 2 distribution tests) pushed PR20.
+- `python -m unittest discover -s tests`: **1620 tests / 26.280s, OK, 28 skipped**.
+- Built `BUILDER_EN_PL_MASAKI_UPDATE.zip` with `tools/build_builder_update.py`:
+  257303 B, 45 files, no translation/launchers/game binaries. SHA256
+  `2e8a2ffc35c7203edf19baa68d7eb00413b9acf516f760500ac9ee66625cdadd`.
+- Isolated delivered-v17 extraction + updater overlay; actual CLI EN and PL builds
+  against original private config19/imenu19, filtered to those two containers.
+  PL: strict source-stamped returned PL.zip import into a private package copy;
+  translator-supplied scripts never executed, no literary edits. Both 0 problems,
+  8 released rows /12 existing cells, readback verified. EN entire config19 equals
+  owner-accepted TEST1 byte-for-byte. PL dictionary distinct, its 12 target cells
+  independently compared directly to raw PL JSONL (EN's 12 likewise checked).
+  Blank/template slots2/6/7/8/9/10 unchanged, packages/originals untouched.
+  Local `local/character19-integration/` holds reports and private outputs;
+  miniature ISO is fixture only, not playable; no new runtime claim.
+- Private Drive upload ID `1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2`; download-back exact,
+  all CRCs and all manifest tool hashes checked against current sources.
+  No sharing changes. Receipt `docs/masaki-builder-update-delivery.json`.
+- Existing downloaded kits require the overlay (Git push alone does not update
+  user directories). Shared code now automatic in both normal entrypoints;
+  global spare-field gate elsewhere and ordinary PL Skill00 budgets remain enabled.
+
+### 2026-10-18 — PL2 return, first audit checkpoint (physical build pending)
+
+- Downloaded user-named `PL2.zip`, Drive `1-qf3wc-6X5uI9ZweDKsJiBb_PuMyZogQ`,
+  1958693 B, archive CRC OK. Read returned/nested text as data only; no scripts run.
+- Strict import to ignored private copy: 36161 elements, 7580 copies, no rejected,
+  unknown or duplicate elements. Original EN/JP metadata and source package preserved.
+- Confirmed 634 nonempty config fields have meaningful leading ASCII spaces.
+  Audit now verifies exact imported prefix and codec bytes; synthetic regression
+  preserves two leading spaces and one trailing space. Importer itself unchanged.
+- Initial audit hit an unsupported assumption: it tried to diagnose untranslated
+  battle quotes as binary Item/Skill fields and requested missing mesbtl assets.
+  Fixed audit classification only (not game writer/import rules); 8 focused tests OK.
+- Delivered outer cytaty.md has **11801 / 19841** nonempty PL fields, confirmed both
+  by raw PL-line count and parser, not reported 13460. Do not invent missing progress
+  or execute the translator's state scripts; clarify in finished receipt.
+- Member/pool measurement, normal builder output/readback, old/new 33 join comparison
+  and full suite remain pending at this checkpoint.
+
+### 2026-10-18 — PL2 physical measurement and language-aware DLC QA checkpoint
+
+- Corrected audit runs (old PL and PL2) complete: PL2 strict import 36161/0 errors,
+  634 exact leading-space prefixes preserved, all 33 prior join suspects changed,
+  1421 assembled fields, no remaining `roń` detector matches, `::` or double spaces.
+- **Skill00 still 217454 B vs 216768 policy (+686 B)**, down 7224 B from 224678.
+  Confirmed by normal builder and direct writer with its guard enabled; refused
+  config00 is NOT shipped. No new oversized test/bypass and no literary shortening.
+- Same-pool projection 15382 B; actual eight DLC builds/readback each **15331 B**
+  vs 15638 (307 B margin), 720 strings, 696 requested edits checked per pool.
+  Do not confuse the Skill00-tail projection with the physical DLC pool result.
+- All-eight-pool build exposed pre-existing EN-only DLC title QA: it decoded PL
+  diacritic bytes as CP932 and falsely rejected config04. Fixed codec selection,
+  compares actual bytes to active-language package, keeps immutable product/payload
+  checks and refusal on mismatches. PL checker requires explicit package expectations,
+  no English fallback. Three new synthetic regressions; 17 DLC-title tests OK.
+- PL2 glossary has one conflicting JP key (full/abbreviated Potencjał forms), not
+  0 conflicts; report to translator without rewriting his terminology.
+- Complete reports/private outputs remain ignored; finished delivery/docs pending.
+
+### 2026-10-18 — PL2 audit completion, delivery assembly
+
+- Ordinary all-eight-DLC build after language-aware title check: 0 problems.
+  Each Skill01–08 is15331 B/720strings,696 requested edits byte-readback OK,
+  including82 leading-space edits/pool. Original inputs SHA256 unchanged.
+- Independent size delta using real record/pool plans:5219 B record text saved,
+  +1 B alignment effect,2004 B pool saved, total7224 B. Same actual217454 B guard
+  refusal from full builder/direct writer; source config00 retained, not silently
+  shipped as a partial translated table. No clamp, bypass or translator prose edits.
+- Local verifier fixes (not production changes): restored PL codec before direct
+  table-writer comparison (default EN cannot encode diacritics), used convention-C
+  parser/int-index plans instead of convention-A record parser. Matched production
+  outputs for all pools. Do not reuse projection15382 as an actual DLC measurement.
+- Targeted new DLC fixture initially used invalid offset0 for both title slots;
+  corrected to real pointer offsets and explicit rows for both slots. Both slots,
+  descriptions, identifiers and EN default behaviour stay guarded.
+- Full suite initially leaked PL codec from the new builder test into old EN tests;
+  added test tearDown, rerun: **1626 tests OK/27 skipped,28.127s**.
+- Prepared tools-only updater with latest codec fix/stamp and full closure,
+  `BUILDER_EN_PL_UPDATE_PO_AUDYCIE_PL2.zip`,257695B/45files,
+  SHA256 c35d15eb27aa9d86776dea27c073992030d1da07107f51934c89cce154f9f925.
+  No translation/launchers/game assets included. Main audit bundle assembles only
+  reports/text + this updater, not the blocked patch or miniature ISO.
+
+### 2026-10-18 — PL2 audit privately delivered and verified
+
+- Code/docs checkpoint29686ed pushed. Extracted tools-only updater CLI tested
+  independently of repository modules: EN0problems; PL exactly expected +686B
+  config00 refusal, DLC4 active-codec readback/output passes. No translation edits.
+- Uploaded `PL2_AUDYT_DLA_TLUMACZA.zip`,454888B/16files, Drive
+  `17pn6ak1zEeXQNAKpQRlI5Zw0uDlF1mhU`, same private delivery folder, no sharing change.
+  SHA256 `965eaaac67085515274d256703f26c63e126c9275c8a1124546cf2937759ad48`.
+  Download-back byte-identical; outer/nested ZIP CRCs, every report hash and tool
+  hash verified against current sources. Receipt `docs/pl/pl2-return-review-delivery.json`.
+- Contains response/metrics,634-space audit,33-before/after comparison,1421 assembled
+  fields, glossary full/short variants, warnings and updated EN/PL tools-only ZIP.
+  No game binaries, full patch, translated package, font, ISO, save or screenshots.
+- Final handoff: ask for latest exported MD (delivered11801vsreported13460 quotes)
+  and remaining≥686B of physical Skill00 savings; no repeated runtime test now.
+
+### 2026-10-19 — PL3 initial audit checkpoint; PL release automation requested
+
+- Actual `PL3.zip` from Drive1e-k_dILG9N09LcwxzOHUu4QqF1rlkvK9,2748884B,
+  SHA256 d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351.
+  Strict import into ignored copy:48307 visible elements,8924 copies,0 errors;
+  references/source/archive unchanged; no returned scripts executed.
+- Skill00 writer projection now215764B,1004B below216768 policy. Same-tail-pool
+  projection15380B; actual physical ISO/DLC measurements pending.634 leading-space
+  fields preserved;1421 assembly previews,0 old `ron` detector hits.
+- Quotes actually19841/19841; glossary319keys/0 conflicting keys.13 MD files,
+  includes epizod00–03. Independently compared every explicit imported MD value
+  (after marker/kana/trailing-break normalization) to package:0 mismatches, including
+  speaker-aware dialogue corrections. Scene field/alias coverage still being audited.
+- Owner requests actual partial PL patcher ZIP and EN+PL releases after merges.
+  Plan: commit a text-only, source-bound PL overlay (no JP/game binaries/raw archive),
+  deterministic materialization against current EN package in CI; validate both,
+  build/publish two artifacts together from main. No Drive credentials in CI.
+  Package/binary fixture verification, full suite, workflow and delivery pending.
+
+### 2026-10-19 — PL3 extracted-kit binary/CI checkpoint
+
+- Versioned text-only PL snapshot9f84c5c committed (65566 bindings,65577 filled
+  physical package rows,109437 rows exact roundtrip). Binding is file+full source
+  metadata hash, not reused IDs. No JP/raw archive/game binaries in snapshot.
+- Workflow/distribution checkpoint89fdc87 pushed; actual GitHub run39225476467
+  SUCCESS: Linux/Python3.12 tests + BOTH language kits + artifact upload. Publish
+  correctly SKIPPED on PR. Main publication becomes active only after merge;
+  did not merge or publish an unmerged branch. No Drive secrets/game inputs in CI.
+- Extracted actual `srw-oe-translation-pl-v2-PL3.zip`, checked all file hashes,
+  ran its own CLI against authentic config00/configst/font/eventP00/mesbtl00/EBOOT
+  and config01–08 in a NONPLAYABLE miniature ISO: exit0/0problems, normal guards.
+  Physically read Skill00=215764B/1469records, all three pointer contracts OK;
+  each physical DLC pool15329B/720strings/309B margin. Native font18cells verified,
+  non-ank members/sourceISO/original inputs unchanged;397 nonidentity EBOOT writes.
+- Every scene element (including copies) filled: ep00=273/273,01=1452/1452,
+  02=2416/2416,03=1601/1601. A new audit helper compares every explicit MD PL to
+  final package after copy propagation (catches stale donor/gender/name reversion):
+  48326 explicit elements/56672 backing rows,0mismatches.48307 imported +19unchanged.
+  Regression tests9OK. No literary correction made; quote gender/158 findings open.
+- Full suite before last audit regression:1643OK/25skips69.808s. Final suite pending.
+  Local optional YAML parser unavailable (PyYAML); actual GitHub workflow parsed and
+  executed successfully, so no extra dependency introduced just for local parsing.
+
+### 2026-10-19 — PL3 complete kit delivered; dual-language workflow verified
+
+- Final full suite1644tests OK/25skips68.832s. Actual GitHub run39226067711
+  SUCCESS on01b9a9d: both kits built/validated/uploaded; publish correctly SKIPPED
+  on PR. Run API metadata available; downloading raw Actions logs redirects to
+  a host blocked in sandbox (EOF), did not retry or mistake this for auth failure.
+- Uploaded standalone `srw-oe-translation-pl-v2-PL3.zip`,7397107B/90files,
+  Drive1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb, SHA256
+  bc075a088e907ba880503da107831b52736e43ba5f86028760dd40642287fc2e.
+  Download-back byte-identical; CRC/all member hashes/PL launcher+checker confirmed.
+  No sharing changes or game binaries. Receipt docs/pl/pl3-release-delivery.json.
+- Further coverage audit: every editable visible view filled; exceptions4NoData,
+  9engine literals,28 proven binary fields, intentionally blank. Episode00–03
+  after-copy elements273/1452/2416/1601 all filled. Soft46-cell guideline exceeded
+  on8/109/297/242 lines; maxima50/55/56/53, no current kind-specific hard-limit
+  violation. Not a proof of screen fit; narration/dialogue limits differ.
+- No literary or grammatical-gender edits: all returned explicit strings retained;
+  user runtime/gameplay QA,158 reported format findings, quote gender and later
+  episodes remain open. No repeat font/Masaki/oversized A/B request.
+- PR20/assigned branch holds all eligible source/snapshot/workflow/docs. No merge
+  or main publication performed; user-requested dual Release automation starts
+  publishing after merge. CI consumes current source-bound snapshot offline.
+
+### 2026-10-19 — clarify158 findings; remove launcher font-step chatter
+
+- Owner asked about ambiguous "158 uwag formatowania i layouty" and quoted console
+  message. Clarified:158 translator-reported skill-description assembly/spacing
+  findings (e.g. `Po aktyw.:Obraż.`), not158 line-wrap errors. Layout QA is separate.
+- Removed only that echo from normal PATCH_PL.bat, clarified README/coverage notes,
+  added packaged-launcher regression.6 focused release tests OK/18.898s.
+  Code7165b0c pushed. Initial git-add used repo-prefixed paths from project cwd;
+  corrected relative paths before staging/commit; no partial work lost.
+- Full standalone v2.1-PL3 built:7397155B/90files. Compared every member to v2:
+  only PATCH.bat/README/PL_COVERAGE/RELEASE_MANIFEST differ; ALL builder modules,
+  translationJSONL/tokens/assets byte-identical. No font/gameplay/translation change
+  or new runtime test. Historical TEST_PL.bat experiment intentionally unchanged.
+- Drive1jkVKOzRyy8QE58elwLqezi19-iNXRNGq, download-back identical, CRC/all member
+  hashes verified, sharing unchanged. SHA256
+  c373b8ba7748def3a4ddb44d3eff89629a89e171065617a6b71a1cbd0ee46dcb.
+  Receipt docs/pl/pl3-launcher-cleanup-delivery.json. Old v2 receipt preserved.
+
+## 2026-10-19 — Polish reading editions01–03 and mech catalogue v3
+
+Owner requested four PL counterparts. Materialized current source-bound PL3;
+recovered early editorial plans by full ordered EN source-row matching, not text
+replacement/agent literary translation. All5225 prose rows covered. Rechecked
+PL aliases independently of EN (ep03:1011 shown unique /537 aliases); retained
+conditional quotes, contextual variants and explicit omitted-passage notes.
+Reproduced frozen EN catalogue v3 byte-for-byte from original inventory before
+localizing physically bound PL fields. All393 unit records/1485 weapon rows,
+base selectors/20 override offsets, stats/profiles/inference labels/110+230
+gaps preserved, along with owner v3 cosmetics. Did not apply17 EN-only wording
+errata to PL; no source/game/font modification or runtime claim.
+
+Commands: `pl_release_package.py materialize`; `build_polish_reading_editions.py`
+(see docs/reading-script/polish/README.md); focused unittest15 OK; full
+`python -m unittest discover -s tests`:1695 tests OK,24 skipped,99.959s.
+Independent source-span/alias and rendered weapon-stat verification passed;
+no residual JP. Four MDs + four-member ZIP uploaded to existing reading folder,
+all5 downloaded back byte-identical; ZIP CRC/member bytes verified. Private
+text/models remain ignored. Receipt/links: `docs/reading-script/polish/delivery.json`.
+
+### 2026-10-19 — PL UI QA checkpoint A (PR20)
+
+Reviewed ten owner screenshots; committed source-bound plan and 50 compact PL
+sysmes edits. Kept colours, two-line help and JP cell-width fit; EN, skill/story
+prose, font and Spirit unchanged. Four new correction regressions passed and
+whole PL snapshot materialized/validated. Executable accents/mission notes and
+Spirit runtime suffix investigation are still pending; no new runtime claim.
+See `docs/pl/UI_QA_2026-10-19.md`. Python3 standard-library tools; ignored
+Capstone/Unicorn research dependencies do not enter release or Git.
+
+### 2026-10-19 — PL Spirit name cache overwrite reproduced/fixed offline
+
+Actual MIPS strcpy at0x36731c and draw0x1a4a30 reproduce a pointer overwriting
+`Skupienie` byte8 after all three constructors. Hash/exact-word-gated69-instruction
+layout repair expands inline cache8->32 B and ten allocation sites40->64 B,
+including external pilot-viewer flags. Full name retained, EN unchanged. Four
+synthetic tests passed. Optional read-only Unicorn2.1.4 probe:3 original failures,
+186 patched passes/guard bytes intact,60 physical names (max16 B),31-byte boundary
+included. Probe SHA/report in `docs/pl/ui-cache-offline-verification.json`; no
+game bytes committed. Full kit readback/runtime still pending; see UI QA doc.
+
+### 2026-10-19 — executable Polish display codec, source checks unchanged
+
+Verified Victory/Defeat ->0x20f364 ->0x3529b8 and Docked ->0x352b4c ->0x3529b8,
+sharing game-font rendering with Spirit names. Added separate PL display-target
+encoder; JP CP932/UTF-8 matching/budgets unchanged; UTF-8 system-save Polish glyphs
+still refused. Five owner/status label edits, with PL-only cell limits. Tests:
+27 executable +24 handoff +4 PL executable passed; complete PL snapshot validated.
+No font alteration or PPSSPP claim. See UI QA checkpoint C.
+
+### 2026-10-19 — base mission notes promoted from measured source slots
+
+Original eventP00 independently parsed:11x388 B members,22 notes at24/184 with
+160 B slots. Added structured metadata with empty EN targets; PL reuses accepted
+identical fixed-roster note, preserves Medea NPC second line/colours. Generic
+leftover quarantine unchanged.22 immutable PL bindings/member hashes in reviewed
+plan. Full materialization passed;2 promotion +15 reading tests passed. Rebound
+only05 source-file hashes in reading plans after metadata-only append, and scoped
+catalogue05 binding checks to consumed group names. No literary/reading output
+change or EN text-output change; physical final build still pending.
+
+### 2026-10-19 — final UI packaging gates and baseline maintenance
+
+Added PL Spirit-name31-byte+NUL guard matching repaired32-byte cache, preserved
+owner correction provenance in coverage/release manifests, and documented the
+single-batch UI kit workflow. First full run:1690 tests, one obsolete CP932-only
+assertion and the historical episode34 whole05 hash failed (not gameplay errors).
+Updated the executable regression to supported display/unsupported UTF-8 system
+paths. Finale tests now reconstruct the exact historical05 bytes by removing only
+the22 reviewed later UI-note IDs and require its ORIGINAL hash; no delivered
+finale/prose/manifest changed. Focused20 finale +71 validation +5 cache tests pass.
+Full suite and isolated release readback follow; failed run retained ignored.
+
+### 2026-10-19 — independent UI physical readback caught sysmes aliases
+
+Full suite1711 OK/24 skipped,104.039s. First isolated91-file UI kit CLI exit0,
+Skill00215764 B/1004 B margin,8 pools15329 B/309 B margin,18 native font cells,
+all pointer gates preserved. A second, independent per-field readback correctly
+failed on money suffix14539: coloured root14536 still had old text (likewise14716).
+Corrected reviewed source roots and removed unrelated dormant ace suffix50438;
+rebased provenance chain from original pre-QA snapshot.51 sysmes +5 executable
+labels now active. Added alias/root regression; fresh final kit/retest pending.
+
+### 2026-10-19 — source-bound PL sysmes alias planner and failure escalation
+
+Second independent readback failed on plain funds: the legacy suffix inside ace
+caption voted on a different whole pool entry with same JP. Also found one extra
+unit-count root35308. PL planner now filters aliases by original physical offset
+before text matching, verifies JP at actual pool starts, and raises all sysmes
+planning/write failures to the outer build (no success with hidden refusal).
+EN route unchanged. Four synthetic regressions passed; current actual PL roots
+plan with zero problems. Final reviewed labels52+5;22 structured notes. Previous
+1712-test full run passed but cannot substitute for this new writer's full and
+physical rerun; both still pending here.
+
+### 2026-10-19 — batched UI kit delivered and downloaded back
+
+v2.2-PL3-UI:7401598 B/91 files, SHA-256
+b1fe9a6440a5813db5bf2ce52a1178b791c467a4c76e6d4bd1069418f978888f.
+Final1717 tests OK/24 skips,105.944s. Isolated standalone CLI exit0 on authentic
+containers in NONPLAYABLE fixture;52 sysmes +5 executable labels +22 mission
+slots and69 code words physically read back, entire expected ELF matched. Font
+members identical to accepted prior PL; Skill00215764/216768,8 pools15329/15638,
+all pointers/native cells/source hashes pass. Earlier72 reported missing-key
+notes in9 dictionary containers match pre-QA fixture exactly; not hidden as
+zero inherited problems. No new sysmes conflict. Readback helper initially tried
+TOC reader on ITOC font CPK; switched to existing font reader, no asset change.
+Drive12mZhkIjpxe9PgRAadD5FeOYHkmhUhVyk downloaded back byte-identical, CRC/member
+hashes passed, sharing unchanged. Receipts/physical metadata in docs/pl/;
+all proprietary builds/inputs remain ignored. No gameplay confirmation yet.
+
+### 2026-10-19 — owner rejects v2.2 Spirit-details regression
+
+Four new owner screenshots: missing saving-warning accents, two clipped button
+strips, Spirit-details crash. PC08a14904 maps210904; return089a60a0 maps1a20a0.
+Original caller1a209c reads cache+14; v2.2 shifted drawable to+2c but missed this
+consumer. Original name bytes leave0x65 there for Skupienie, then callee+8 reads
+0x6d as reported. Earlier186 stubbed constructor/draw tests missed this path.
+Recorded as a real regression; investigating tail-buffer repair preserving all
+old field offsets, plus broader executable spelling audit/compact button labels.
+
+Follow-up checkpoint:14-word tail-buffer replacement implemented; all original
+field offsets stay unchanged. Actual-MIPS historical69-word patch reproduces0x6d
+via three constructors; replacement186 cases/930 real details calls pass (other
+UI/getter functions stubbed, NOT PPSSPP). Source ELF hashes unchanged.193 explicit
+PL edits:178 accent-only/same-byte executable fields +15 compact button labels.
+Three UTF-8 system rows untouched. Sysmes scan45 ambiguous words reviewed/context
+correct, not changed.9 focused tests pass. See follow-up doc/cache receipt; full
+suite/standalone distribution still pending. Inputs/screenshots remain private.
+
+Follow-up final:1685 tests OK/2 skipped with isolated dependencies. Extracted
+v2.3-PL3-UI normal CLI authentic-container NONPLAYABLE fixture (five containers,
+ELF, synthetic PBP wrapper), scoped --only available inputs, exit0. Pillow missing
+on first attempt fixed/repeated fresh output; failed result not delivered.
+Whole expected disc/update ELF equal;399 fields/397 writes/178 independently-read
+new accent fields; .text ONLY14 words.67 old/new sysmes bindings/1182 IDs pass;
+same-CLI baseline shows only15 sysmes strings changed, all other configst members
+identical. Accepted font exact; Skill00215764B/1004margin.8DLC pools absent, total
+fit null; inherited8config00 dictionary refusals remain. Actual standalone Spirit
+names re-probed:186 cases/930 details calls pass,3historical0x6d failures repeat.
+CI39262933249 SUCCESS tests/both kits; publish skipped. ZIP7402213B/91members/
+d8380b79d753e49b7cd1bf0926566e56cce202d3127622d58dfe2e7fc5c06beb; Drive
+1BG6NLX2sXMY2bHl5EmjlT3XTWl8-JehR, download-back exact/CRC/all hashes verified.
+No game data/shared access changes. Runtime/PPSSPP still owner-pending; one normal
+save/cold-start Seishiro details+levels/selection/reopen and save/footer check.
+
+2026-10-19 delivery clarification (no code/package change): owner requests explicit
+ISO/DLC replacement requirements on EVERY future handoff, since DLC transfer is
+burdensome. For v2.3 versus installed v2.2 on tested PPSSPP1.20.4, replace ISO only;
+retain current DLC. Shared executable builder also changes PBOOT.PBP, but measured
+release-loader path runs disc EBOOT, not update PBOOT. No new DLC content edits in
+this batch; do not generalize exception to other loaders/future releases. Recorded
+standing instruction in root AGENTS and version-specific follow-up doc. Docs only;
+no runtime tests or distribution rebuild needed for this clarification.
+
+2026-10-19 third UI batch: owner confirms Skupienie/details no crash on v2.3.
+Seven screenshots report system-dialog font incompatibility (restore EN), missing
+Spirit/skill join spaces, Results/Parts overflow and dirty texture header, Results
+stat overlaps and persistent Search overlap; remove routine launcher font chatter.
+Recorded in UI_QA_THIRD_2026-10-19.md before changes. No new runtime fix claimed.
+
+Third UI implementation checkpoint: system font traced to sceUtilityMsgDialog
+NID2ad8e239 (a88b4->1cf5e0->1cf73c), English fallbacks3exe+2sysmes with PL-glyph
+guards. Removed routine launcher echo, kept actual missing-ISO guard. Private
+original intsys_04 shows original header row24..35 vs old patched29..37; PL-only
+layout/clearing fixed, EN geometry unchanged. Actual format audit120Spirit+1985
+Skill fields ->57/412 fields corrected by space-only TEMPLATE edits, pools intact;
+38exe overrides plus15labels.14fullslots use compact L-level/Obr. labels, no gate
+bypass.924 source-bound snapshot edits. First spacing prototype falsely counted
+split colour digits as text; corrected AFTER-substitution colour removal, explicit
+regression tests, zero remaining candidates for reviewed rules. Materialization
+passes;11new focused tests. Full suite/real-size/standalone verification pending.
+
+Third UI verification completed: full normal extracted-kit build/readback (authentic
+six-file NONPLAYABLE ISO), 1697 tests OK/3skip. First sysmes build correctly refused
+whole-JP duplicate40068/44704 conflicting PL/EN; reviewed fallback synchronized to
+both, no guard bypass. Final925source changes, zero DLC-source changes; all120/1985
+physical descriptions checked,57/412effects changed by186/689spaces; numeric tails,
+argument indices, token/newline counts, shared pools unchanged. Skill00216488<=216768
+(margin280, +724 including35net alignment), Spirit17635(+204 incl18net alignment).
+397exe writes verified exact, .text/cache unchanged, native font exact accepted SHA.
+17sysmes physical strings,1182keys unchanged. Both IMs verified intsys_04-only change
+vs prior PL spec; English authentic GIM output byte-identical. No runtime claim.
+Installation current PPSSPP path: ISO YES; DLC NO; new PBOOT transfer not needed.
+Receipt docs/pl/ui-third-physical-verification.json; final kit v2.4-PL3-UI being
+packaged, Drive delivery receipt to follow. Inherited8dictionary warnings unchanged,
+DLC absent total fits null openly recorded; no proprietary bytes in Git.
+
+v2.4-PL3-UI delivered on private Drive1O8p3IdvyTYLLrenmAwhj83613t20Nkjr,
+7404376B/91members/SHA5e879aa1cdc35ea951938de95944c0fb25b6bb75c612d2a11e63bd056eaf0b35.
+CRC/all90payload hashes pass, all91members equal physically tested kit; Drive
+size+MD5 equals local ZIP (no download-back claim). Source6797a7f pushed; local
+EN+PL release-pair build/verification passes, CI39283036474 queued at handoff.
+Explicit ISOyes/DLCno/PBOOTno upgrade scope in README and receipts, same owner
+PPSSPP loader only. PR20 still open, no merge or public-main release. No new
+PPSSPP runtime claim. Final receipt docs/pl/pl3-ui-third-delivery.json.
+
+Owner requests missing Polish reading Episode0 (2026-10-19). Earlier PL delivery
+was01–03+catalogue, no00. Downloaded delivered English00 reference20922B and bound
+ALL253 prose rows (242dialogue+11narration) from two story scenes to existing PL3;
+no new translation/fallback/package/game changes. New reviewed ID/editorial plan
+reading-script/polish/episode_00.json handles Prologue/Interlude before source-bound
+mission titles. Recovery now handles one multi-paragraph source record spanning
+multiple reference blocks, preserving the WHOLE Polish record's own paragraph
+boundaries. CLI --episodes0 selects only00; all-early default covers00–03.
+Independent verifier:253shown/0aliases/259textspans; no residual JP. Output21728B,
+SHAf72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97.
+Downloaded earlier PL bundle, all4oldmember hashes match archived receipt; English
+01–03 refs restored only for regression: ALL THREE regenerated Polish editions
+byte-identical to delivered originals. Catalogue NOT regenerated/modified. New
+five-member bundle copies old4members exactly and adds00 only.21focused tests pass
+(including6new synthetic tests for0scene/section mapping, multi-paragraph coverage,
+missing PL title, reference/episode binding and semantic corruption). Full suite
+and Drive delivery pending at this checkpoint. Outputs/audits stay ignored under
+local/polish-reading-zero/. ISO/DLC untouched; no install necessary.
+
+Polish reading00 delivered: Drive1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL,21728B,
+SHAf72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97.
+New complete five-member reading ZIP (00–03+unchanged catalogue) Drive
+1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ,159084B,
+SHA892f77ff1a063af05cc58301e5637cb84e627d960a6c44a3033c8545a1511ab7.
+Both downloaded back byte-identically, ZIP CRC and old4member hashes verified.
+Independent253prose/259span check passes;21focused tests, full1703tests OK/3skip
+(52.872s). No new literary text, story/source/game edits, catalogue regeneration,
+ISO/DLC transfer or prior-delivery overwrite. Source/tools checkpoint6e2f276
+pushed to assigned branch/PR20. Receipt reading-script/polish/episode_00.delivery.json.
+
+Model-viewer screenshot follow-up: three clipped/colliding labels bound to four
+whole sysmes roots19028/45684/21284/21292. PL-only source plan shortens to
+Zmień jedn.(11cells), Obr.(4), Ukryj(5); original JP slots12/4/10. Both identical
+unit-switch JP roots synchronized; no global replacement in help/exe captions.
+Normal snapshot guard applied;2focused tests pass incl synthetic sysmes duplicate
+planner/roundtrip. No cache/font/code/skill/reading changes. Full physical build,
+suite and private v2.5 delivery pending; ISOyes/DLCno intent needs confirmation.
+
+Model-viewer v2.5 delivered Drive1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8,
+7404887B/91members/SHA886dba74f65f4a69151db176f367d725148ea953a7ad31135cc72c41f2ac1e0d.
+Download-back identical, CRC90payload hashes verified. Normal extracted-kit CLI
+six-authentic-file NONPLAYABLE fixture exit0/no top-level problems; only4sysmes
+strings changed,1182keys unchanged. FULL other5ISO member bytes (config00/font/
+IM1000/IM3000/EBOOT) + all other configst members identical to v2.4. All source
+rows metadata equal,4PL changes,78324DLC rows unchanged.1705tests OK/3skip. Existing
+8nested dictionary warnings/absentDLC total fits:null documented, no gate bypass.
+Install current PPSSPP ISO path: ISOyes/DLCno/PBOOTno. Runtime labels pending,
+not all-game or v2.4 visual approval. No reading/prose/cache/font modifications.
+Receipts docs/pl/{ui-mech-viewer-verification,pl3-ui-mech-viewer-delivery}.json.
+
+Owner catalogue lookup: Real PG Gundam is present as heading Gundam (Keroro),
+Sgt. Frog/pilot Sierżant Keroro. Confirmed same source key1002: name=Real PG Gundam,
+name_display=Gundam (Keroro); catalogue renderer selects display name and omits
+list-name alias. Delivered PL v3 bytes rechecked against archived SHA dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462.
+One matching section, no literal Real PG alias, so owner's search failure is real
+but no missing unit. Documented lookup only, no output/source/game modifications;
+ISO/DLC unchanged. No full-suite rerun for documentation-only explanation.
+
+Owner PL catalogue naming request: roster name first, differing display name in
+parentheses, identical pair once. Source example corrected to existing Keroro
+spelling (not Kororo). PL renderer+independent verifier updated; historical
+roster_first=False remains reproducible. English renderer/data untouched.
+New guarded read-only presentation revision tool binds all393pairs against
+hash-pinned frozen EN08 (matches current) and delivered PL08. Delivered v3 input
+SHA checked; old model order recovered via frozen EN display casefold/numericID,
+not guessed from duplicate headings. New v4 changes242headings,151same names kept
+once. Independently restore old headings and require exact WHOLE original bytes:
+all descriptions/statistics/1485weapon rows/order/notes intact. No original21game
+containers needed for this presentation-only edit; do not claim model regenerated.
+7focused tests pass incl source mutation, duplicate name IDs, nested parentheses,
+old/new renderer equality, independent weapon verifier and non-heading corruption.
+Private output723499B/SHAec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca;
+new5member bundle copies all4episode00–03 bytes unchanged, catalogue v4 only.
+Full suite and private Drive delivery pending; no game/snapshot/EN changes.
+
+PL catalogue roster-first v4 delivered Drive146dxudsT9vEzGua6s--Z58s_QP8m_yF0,
+723499B/SHAec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca.
+Updated5member bundle Drive1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0,159934B,
+SHAe6eabae91d579e602f7aa2d2bb9504ef7cc8fb023c7eaf4b5a4bda9052677480.
+Both downloaded back identical; ZIP CRC and four episode bytes unchanged. All393
+name pairs bound,242headers changed,151identical pairs once; restoration yields
+exact original v3 bytes including1485weapon rows, all numbers/text/notes/order.
+7focused tests,1712full OK/3skip(60.099s). English renderer/data, PL game snapshot,
+ISO/DLC untouched; no model/original21container rebuild claimed. Tools/source
+checkpoint e652107 pushed; receipts reading-script/polish/catalogue-v4.delivery.json.
+Historical git aa178c object unavailable in current shallow clone, not needed:
+current EN08 matches hash-pinned original inventory d59b2ca9..., full PL08 matches
+old delivery60742411...; exact heading/source sequence verified on delivered file.
+
+Seven-screen UI investigation 2026-10-20: recovered assigned remote1026470 vs
+stale sandbox Git metadata by fetch+mixed reset (files preserved, clean match).
+Original eventP00 shows title at344 in all11ext members; old promotion covered
+22note slots only, just1structured title remains in package. This explains mission2
+Japanese title in both list/start objective footer; global title audit pending.
+60Spirit records/20families show7names >9cells; preserve full9cell Skupienie and
+accepted cache/font, compact only long name fields/aliases. Batch docs in
+pl/UI_SIX_2026-10-20.md, no new kit or snapshot yet; PR20 remains open.
+
+Seven-screen batch implementation: all527nonempty physical mission title fields
+in47original containers audited (303menu/224ext),10missing base344/40Bcopies
+promoted with ENempty and accepted PL menu wording, other517titles unchanged.
+100existing PL edits (90Spirit name aliases/9sysmes/1terrain);20families reviewed,
+60records/180name fields,7cell max except owner-accepted Skupienie9. No font/cache
+code change.12newtests pass; authentic7file NONPLAYABLE ISO+45DLC originals build
+old/new filtered available-file fixture with0problems. Delivery/fulltests pending.
+Historical reading plans/outputs untouched; exact bound ENempty append projection
+restores old hash, mutation tests refuse source/EN edits. See UI_SIX doc.
+
+PL4 merge (2026-10-20): Drive1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V,5254438B,
+SHA974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931,CRCpass.
+Strict stamped import on private projection removing exactly32 promoted mission
+rows:67143explicit PL blocks,0unknown/reject/duplicates,0hard validator errors;
+independent view readback 67143blocks/75489backingrows/0mismatch. All1283owner-UI
+bindings preserved;32owner mission rows reinserted. New delta22185rows in00_dialogue
+(22185new filled,6existing changed); all source containers DLC EDAT. 25 source
+containers listed in docs/pl/PL4_RETURN_REVIEW.md. Episode00–21 visible content
+28078/28079 filled; one row JP whitespace-only.57 saved TM corrections in six
+per-episode files all match exported views; protagonist name not hardcoded in PL.
+Package total87794/109176 filled,0harderrors/25165soft warnings. Episodes22–34+
+simulator remain partial. Snapshot 87783deduplicated bindings,sha876645f90b2bff7f6bfe20a9cf9d563bcb841d14a257c77866fc9d24dbf79585,
+exact materialization/readback against current EN. No original full ISO/DLC set in
+sandbox: no physical builder/DLC output/runtime proof; do not claim it. No translator
+scripts executed, no source-language/package rows overwritten. Details/limits
+in PL4_RETURN_REVIEW.md; private count/hash proof in snapshot/coverage.
+
+Seven-screen UI v2.6 DELIVERED: Drive1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg,
+7406218B/91members/SHA3ec082aa3da78d368c8452413cbcb0847f58d98665083c007ba56871d15794e6,
+MD528372b31cb8f14020944d8ef474e0aff. Download-back exact/CRC/90payloadSHAchecks pass.
+1724tests OK/2skip. Final extracted kit CLI on authentic7file NONPLAYABLE ISO+
+45DLC originals (available-file filter),0top-level problems. Readback all527titles
+(303menu/224ext), exact complete40Bslots; title audit now refuses post-NUL garbage.
+Only configst(sysmes9 +Spirit90names), eventP00(10title40Bslots), EBOOT(ground16Bslot)
+differ v2.5. All other EBOOT bytes/cache, font/config00/IMs, shipped44Pythonmodules+
+legacyglyphdata/launcher identical. All44DLC outputs identical; all79050DLC-backed
+source rows unchanged. Skilltotal339120<=342194/fits:true, no missing9members;
+Skill00216488<=216768. Inherited80nested dictionary refusals unchanged, no runtime
+claim. Current PPSSPP1.20.4 upgrade ISOYES/DLCNO/PBOOTNO recopy, not all loaders.
+README/receipt/proof under docs/pl/UI_SIX_2026-10-20.md and ui-six-verification.json.
+
+PL4 return received2026-10-20:5254438B/SHA974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931,
+Drive1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V.31MD/22episodes00–21+9views,
+CRCpass. Recover sandbox stale Git metadata via fetch/mixed-reset to0d2d044,
+files preserved/clean; no originals/privatefixture survived. Currentsourcehas
+32audited ENempty PL-only missions: exact projection restores original70c6...stamp.
+The final private overlay keeps the reviewed short UI wording rather than
+weakening the three narrow program-label width checks. Snapshot PL4 is committed
+with all1283 protected owner bindings. Static patcher kit v2.7-PL4: Drive
+1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF,8119658B,SHA1156ffc4455a18fbb8b2151afccc71c5f0e352a58b578b2027ff3e06fbafe78d,
+MD540b1373c52540b0f3b6e2e8e973c4f3f; 91 ZIP members/90 payload hashes. Drive
+download-back exact, CRC/all hashes pass. Full suite1727 OK/30 skipped. No
+original full ISO/DLC in this sandbox, so no physical build/readback.

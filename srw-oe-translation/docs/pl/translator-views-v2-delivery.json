@@ -1,0 +1,288 @@
+{
+  "ok": true,
+  "scope": "input JSONL extraction, not all unextracted game text or runtime layout",
+  "source_fingerprint": "70c6aad517a69b7cbd8cd01c76b6f3a5b14e4fbd3661bcc59aabbbd36fac112d",
+  "source_text_rows": 109144,
+  "structural_rows": 293,
+  "represented_source_rows": 108780,
+  "editable_backing_rows": 92499,
+  "explicit_copy_rows": 17031,
+  "covered_inherited_rows": 17031,
+  "excluded_unclassified_leftover_rows": 364,
+  "retained_leftover_roots": 8,
+  "readonly_rows": 19,
+  "uncovered_rows": 0,
+  "files": {
+    "epizod-00.md": {
+      "elements": 273,
+      "pl_slots": 273
+    },
+    "epizod-01.md": {
+      "elements": 1452,
+      "pl_slots": 1108
+    },
+    "epizod-02.md": {
+      "elements": 2416,
+      "pl_slots": 1472
+    },
+    "epizod-03.md": {
+      "elements": 1601,
+      "pl_slots": 1545
+    },
+    "epizod-04.md": {
+      "elements": 1264,
+      "pl_slots": 792
+    },
+    "epizod-05.md": {
+      "elements": 1299,
+      "pl_slots": 1298
+    },
+    "epizod-06.md": {
+      "elements": 1034,
+      "pl_slots": 829
+    },
+    "epizod-07.md": {
+      "elements": 2414,
+      "pl_slots": 1643
+    },
+    "epizod-08.md": {
+      "elements": 1220,
+      "pl_slots": 1220
+    },
+    "epizod-09.md": {
+      "elements": 1528,
+      "pl_slots": 1122
+    },
+    "epizod-10.md": {
+      "elements": 1123,
+      "pl_slots": 1009
+    },
+    "epizod-11.md": {
+      "elements": 1459,
+      "pl_slots": 842
+    },
+    "epizod-12.md": {
+      "elements": 1183,
+      "pl_slots": 909
+    },
+    "epizod-13.md": {
+      "elements": 1076,
+      "pl_slots": 1076
+    },
+    "epizod-14.md": {
+      "elements": 1247,
+      "pl_slots": 1247
+    },
+    "epizod-15.md": {
+      "elements": 1074,
+      "pl_slots": 968
+    },
+    "epizod-16.md": {
+      "elements": 825,
+      "pl_slots": 825
+    },
+    "epizod-17.md": {
+      "elements": 1312,
+      "pl_slots": 1115
+    },
+    "epizod-18.md": {
+      "elements": 1043,
+      "pl_slots": 958
+    },
+    "epizod-19.md": {
+      "elements": 862,
+      "pl_slots": 862
+    },
+    "epizod-20.md": {
+      "elements": 1002,
+      "pl_slots": 1002
+    },
+    "epizod-21.md": {
+      "elements": 1372,
+      "pl_slots": 1100
+    },
+    "epizod-22.md": {
+      "elements": 1703,
+      "pl_slots": 891
+    },
+    "epizod-23.md": {
+      "elements": 1050,
+      "pl_slots": 858
+    },
+    "epizod-24.md": {
+      "elements": 520,
+      "pl_slots": 520
+    },
+    "epizod-25.md": {
+      "elements": 1229,
+      "pl_slots": 871
+    },
+    "epizod-26.md": {
+      "elements": 1353,
+      "pl_slots": 885
+    },
+    "epizod-27.md": {
+      "elements": 1266,
+      "pl_slots": 920
+    },
+    "epizod-28.md": {
+      "elements": 1740,
+      "pl_slots": 1112
+    },
+    "epizod-29.md": {
+      "elements": 685,
+      "pl_slots": 588
+    },
+    "epizod-30.md": {
+      "elements": 1758,
+      "pl_slots": 1188
+    },
+    "epizod-31.md": {
+      "elements": 719,
+      "pl_slots": 630
+    },
+    "epizod-32.md": {
+      "elements": 412,
+      "pl_slots": 412
+    },
+    "epizod-33.md": {
+      "elements": 775,
+      "pl_slots": 691
+    },
+    "epizod-34.md": {
+      "elements": 7727,
+      "pl_slots": 7589
+    },
+    "simulator.md": {
+      "elements": 130,
+      "pl_slots": 92
+    },
+    "spis-scen.md": {
+      "elements": 0,
+      "pl_slots": 0
+    },
+    "cytaty.md": {
+      "elements": 19841,
+      "pl_slots": 19841
+    },
+    "mechy.md": {
+      "elements": 4701,
+      "pl_slots": 2308
+    },
+    "postacie.md": {
+      "elements": 2513,
+      "pl_slots": 1806
+    },
+    "program.md": {
+      "elements": 408,
+      "pl_slots": 399
+    },
+    "przedmioty.md": {
+      "elements": 1200,
+      "pl_slots": 443
+    },
+    "teksty-config.md": {
+      "elements": 15968,
+      "pl_slots": 14720
+    },
+    "teksty-misji.md": {
+      "elements": 1279,
+      "pl_slots": 1279
+    },
+    "teren.md": {
+      "elements": 111,
+      "pl_slots": 91
+    },
+    "umiejetnosci.md": {
+      "elements": 4932,
+      "pl_slots": 3069
+    }
+  },
+  "source_parts": {
+    "00_dialogue.jsonl": 48881,
+    "01_battle_quotes.jsonl": 27383,
+    "02_items.jsonl": 1200,
+    "03_skills.jsonl": 4932,
+    "04_config_text.jsonl": 16326,
+    "05_mission_text.jsonl": 1285,
+    "06_scenes.jsonl": 293,
+    "07_names_characters.jsonl": 3610,
+    "08_names_units_weapons.jsonl": 5008,
+    "09_executable.jsonl": 408,
+    "10_map_terrain.jsonl": 111
+  },
+  "empty_import": {
+    "imported": 0,
+    "written": []
+  },
+  "synthetic_import": {
+    "elements": 84153,
+    "copies_filled": 16262,
+    "pl_filled_rows": 108761,
+    "validation_errors": 0,
+    "idempotent": true,
+    "reference_fields_unchanged": true,
+    "build_load_pl_only": true
+  },
+  "format": "srwoe-pl-view-audit/2",
+  "generator_sha256": "ab54cfedfea6e184a3ff840f5fcafc4c2946ba83d09e9b41e4bd5e0b944c4f8e",
+  "instruction_sha256": "1ae88f5c8beab52f2a9d7f1e7b660172342a1462d7214a4075f975b30c2d85be",
+  "input_jsonl_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "02_items.jsonl": "c37d0b2075f3762a7bfd0487ca3e24e40c2c3abcb2ad7ed45974d73b27d8c5a7",
+    "01_battle_quotes.jsonl": "0eb8d6d5fe5ffaf52c29807f7029bf21b29b4bb6d61f8f8fb21e29090b84d6cf",
+    "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
+    "04_config_text.jsonl": "4afecd18296cbc8ee9812c6303906e24ddfe4eef3f42a3d4c305e7e8985832d5",
+    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+    "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+    "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db",
+    "10_map_terrain.jsonl": "f3bab6e9afea85d990456f5cc7555a2bd3d7b731b88b588e08dbde82fb4b0fe3"
+  },
+  "archives": {
+    "sceny_PL_sprawdzone_v2.zip": {
+      "bytes": 3078178,
+      "sha256": "225521b2b371d995dfc66fceadecbfae981abbb4e0397fb56b9fd518f4170598",
+      "files": 39,
+      "drive_id": "1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB",
+      "url": "https://drive.google.com/file/d/1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB/view",
+      "download_back_sha256_verified": true
+    },
+    "widoki_PL_sprawdzone_v2.zip": {
+      "bytes": 1204212,
+      "sha256": "d797e91518702bbc3be97be33e2b940ae784a7270a5f91aaa2e50c68da5350c9",
+      "files": 11,
+      "drive_id": "1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_",
+      "url": "https://drive.google.com/file/d/1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_/view",
+      "download_back_sha256_verified": true
+    }
+  },
+  "date": "2026-10-18",
+  "code_commit": "0053e017db53b26924e642ef5c0e460b7356efee",
+  "tests": {
+    "run": 1591,
+    "skipped": 25,
+    "result": "OK",
+    "seconds": 40.158
+  },
+  "runtime_layout_verified": false,
+  "v5_runtime_result": "owner accepted appearance on opening narration/dialogue; captions were ASCII source literals",
+  "original_archives_untouched": true,
+  "subsequent_runtime_feedback": {
+    "date": "2026-10-18",
+    "source": "owner: two v5 runtime screenshots and explicit positive feedback",
+    "result": "native-style v5 appearance accepted in shown opening narration/dialogue; no further styling objections",
+    "caption_diagnosis": {
+      "delivered_first": "PL V5 - PROBA CZYTELNOSCI",
+      "delivered_second": "PL V5 - MALE I WIELKIE LITERY",
+      "cause": "ASCII-only caption literals verified directly in the delivered ZIP translation/00_dialogue.jsonl, not missing font accents",
+      "corrected_source_first": "PL V5 - PRÓBA CZYTELNOŚCI",
+      "corrected_source_second": "PL V5 - MAŁE I WIELKIE LITERY"
+    },
+    "font_or_codec_changed": false,
+    "existing_drive_zip_replaced": false,
+    "new_runtime_test_requested": false,
+    "limits": "Acceptance applies to shown opening screens, not all layouts or a complete Polish translation. Screenshots not committed."
+  }
+}

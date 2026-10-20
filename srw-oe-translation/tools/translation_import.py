@@ -78,7 +78,7 @@ import translation_check as TC  # noqa: E402
 MARKERS = (("\u23ce", "\r"), ("<0x0F>", "\x0f"))   # the view shows them, the game needs bytes
 GROUP_HEAD_RE = re.compile(r"^## .+? (\d+)/\d+")
 SCENE_FILE_RE = re.compile(r"^- plik gry: (.+?) / (.+?)\s*$")   # older views carried the file name
-ELEMENT_RE = re.compile(r"^(\d+)\. \[(.*?)\] (.*)$")
+ELEMENT_RE = re.compile(r"^(\d+)\. \[((?:[^\[\]]|\[[^\[\]]*\])*)\] (.*)$")
 META_RE = re.compile(r"^(T\d+|N\d+)\. \[(.*?)\] (.*)$")
 EN_RE = re.compile(r"^\s*EN:\s?(.*)$")
 PL_RE = re.compile(r"^\s*PL:\s?(.*)$")
@@ -131,8 +131,8 @@ def restore_trailing_breaks(text: str, jp: str) -> str:
     return text
 
 
-def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
-    """{(group, element): {"en"/"pl": text, "jp": japanese first line}} of every element.
+def parse_view_full(text: str, include_empty: bool = False) -> Dict[Tuple[str, str], Dict[str, str]]:
+    """{(group, element): {"en"/"pl": text, "jp": first line, "jp_full": complete Japanese}} of every element.
 
     ``group`` is ``grp:<number>`` for the heading of a view (the scene number in a scene view, the
     number of the group in a table view) or the ``container/member`` of an older view that still
@@ -140,12 +140,13 @@ def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
     element (``"T1"``, ``"N1"``).  An element is always a group heading, one ``N. [Label] text``
     line, its continuation lines and the ``EN:``/``PL:`` blocks under it (an English view carries
     only ``EN:``; a Polish view carries the English as a read-only reference plus the ``PL:``
-    slot); the Japanese first line is kept so the importer can tell a stale view from a good one.
+    slot); complete JP is retained for fail-closed Polish imports.
     """
     found: Dict[Tuple[str, str], Dict[str, str]] = {}
     group: Optional[str] = None
     token: Optional[str] = None
     jp: Optional[str] = None
+    jp_lines: List[str] = []
     blocks: Dict[str, int] = {}     # how many blocks of each prefix the element carries (2 = a mistake)
     text_by_field: Dict[str, List[str]] = {}
     open_field: Optional[str] = None   # the block the continuation lines belong to
@@ -153,17 +154,23 @@ def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
     def close() -> None:
         if group is None or token is None:
             return
-        entry: Dict[str, str] = {"jp": (jp or "").rstrip(" ")}
+        entry = {"jp": (jp or "").rstrip(" "), "jp_full": "\n".join(jp_lines)}
         for field, lines in text_by_field.items():
-            joined = "\n".join(line.rstrip(" ") for line in lines).strip("\n")
+            joined = ("\n".join(line.rstrip(" ") for line in lines).strip("\n")
+                      if field == "en" else "\n".join(lines).rstrip("\n"))
             if joined.strip():
                 entry[field] = restore_markers(joined)
-        if any(field in entry for field in ("en", "pl")):
+        if include_empty or any(field in entry for field in ("en", "pl")):
             entry["blocks"] = blocks.get("en", 0)
             entry["pl_blocks"] = blocks.get("pl", 0)
-            found[(group, token)] = entry
+            key = (group, token)
+            if key in found:
+                entry["duplicate_element"] = True
+            entry["present_fields"] = list(text_by_field)
+            found[key] = entry
         text_by_field.clear()
         blocks.clear()
+        jp_lines.clear()
 
     for raw in text.splitlines():
         heading = GROUP_HEAD_RE.match(raw)
@@ -191,6 +198,7 @@ def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
             close()
             token = element.group(1)
             jp = element.group(3)
+            jp_lines.append(jp)
             text_by_field, open_field = {}, None
             continue
         en_match = EN_RE.match(raw)
@@ -200,11 +208,16 @@ def parse_view_full(text: str) -> Dict[Tuple[str, str], Dict[str, str]]:
             content = (en_match or pl_match).group(1)
             if field in text_by_field:
                 blocks[field] = blocks.get(field, 0) + 1   # the element had a block already
-            text_by_field[field] = [content.lstrip(" ")]
+            text_by_field[field] = [content]
             open_field = field
             continue
+        if raw.startswith(("   limit:", "   tokeny:", "   (tłumaczenie", "   (ten sam tekst")):
+            continue
         if open_field is not None:
-            text_by_field[open_field].append(raw[3:] if raw.startswith("   ") else raw)
+            if open_field == "en" or raw.startswith("   "):
+                text_by_field[open_field].append(raw[3:] if raw.startswith("   ") else raw)
+        elif token is not None and raw.startswith("   "):
+            jp_lines.append(raw[3:])
     close()
     return found
 
@@ -290,7 +303,7 @@ def view_kind(name: object) -> str:
 
 
 def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
-                 field: str = "en") -> dict:
+                 field: str = "en", require_template: bool = False) -> dict:
     """Write the translation of the views into the package; ``apply=False`` only reports.
 
     ``field`` says which slot the views fill: ``en`` (the ``EN:`` lines, the English flow)
@@ -301,7 +314,7 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
 
     rows, by_file = load_rows(package)
     lookup = scene_lookup(rows)
-    plan = table_view.plan_from(by_file)     # the very rows that get written back
+    plan = table_view.plan_from(by_file, lang=field)     # the very rows that get written back
     # tokeny.tsv (tools/token_map.py) next to the package tells the checker which %s of a
     # display-form jp is a literal placeholder (mandatory in EN) and which is a kana token
     # 0x0F (dropped from EN with the character after it); without it every %s stays mandatory
@@ -311,14 +324,28 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
     report = {"views": len(views), "field": field, "elements_with_text": 0, "imported": 0,
               "unchanged": 0, "unknown": [], "rejected": [], "duplicated": [], "written": [],
               "rows": len(rows), "token_map": str(sidecar) if sidecar else None}
+    import pl_handoff as PH
+    import translation_copy as COPY
+    retained_ids = PH.retained_leftovers(rows)
+    source_hash = PH.fingerprint(by_file) if field == "pl" else None
+    before = {id(r): r.get(field) or "" for r in rows}
+    assigned = {}
     touched: Dict[str, List[dict]] = {}
     for name, text in views.items():
+        if field == "pl":
+            stamps = PH.STAMP_RE.findall(text)
+            if (require_template and stamps != [source_hash]) or (stamps and stamps != [source_hash]):
+                report["rejected"].append(f"{name}: missing/stale PL template fingerprint")
+                continue
         kind = view_kind(name)
         view_name = str(name).replace("\\", "/").rsplit("/", 1)[-1]
         if ":" in view_name:                  # ``sceny.zip:epizod-00.md``
             view_name = view_name.rsplit(":", 1)[-1]
         table = view_name if view_name in table_view.VIEW_TO_FILE else None
-        for (group, token), content in sorted(parse_view_full(text).items()):
+        for (group, token), content in sorted(parse_view_full(text, include_empty=True).items()):
+            if field == "pl" and (content.get("duplicate_element") or content.get("pl_blocks")):
+                report["duplicated"].append(f"{name}:{group}:{token}: duplicate PL block/element")
+                continue
             if field not in content:
                 continue                      # the other language's block (or none)
             report["elements_with_text"] += 1
@@ -335,6 +362,17 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
             else:
                 single = resolve(lookup, group, token)
                 element = [single] if single else None
+            if element and field == "pl":
+                # Compare the complete source, not just a repeated first line. Preserve meaningful
+                # line breaks; tolerate only editor-trimmed trailing spaces and old literal \n.
+                shown = re.sub(r"\\+n", "\n", restore_markers(content["jp_full"]))
+                expected = element[0].get("jp") or ""
+                normalize = lambda t: "\n".join(line.rstrip(" ") for line in t.split("\n"))
+                if normalize(shown) != normalize(expected) or any(PH.excluded_reason(r, retained_ids) for r in element):
+                    element = None
+            if element and field == "pl" and any(PH.readonly_reason(r) for r in element):
+                report["rejected"].append(f"{name}:{group}:{token}: protected literal/empty field")
+                continue
             if not element:
                 report["unknown"].append(f"{name}:{group}:{token}")
                 continue
@@ -349,6 +387,11 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
             pct = next((token_map[row["id"]] for row in element if row.get("id") in token_map),
                        None)
             typed = TC.strip_kana_tokens(typed, element[0].get("jp") or "", pct)
+            if field == "pl" and any(id(r) in assigned and assigned[id(r)] != typed for r in element):
+                report["rejected"].append(f"{name}:{group}:{token}: conflicting translations of one row")
+                continue
+            for r in element:
+                assigned[id(r)] = typed
             if all((row.get(field) or "") == typed for row in element):
                 report["unchanged"] += 1
                 continue
@@ -366,7 +409,18 @@ def import_views(views: Dict[Path, str], package: Path, apply: bool = True,
                 row[field] = typed
                 touched.setdefault(row["_file"], []).append(row)
             report["imported"] += 1
-    if apply:
+    if field == "pl":
+        # Explicit copies only, never heuristic mirroring. Source edits must reach all DLC copies.
+        report["copies"] = COPY.copy_rows(rows, field=field, resync=True, token_map=token_map)
+        report["rejected"].extend(report["copies"]["problems"])
+        for r in rows:
+            if (r.get(field) or "") != before[id(r)]:
+                touched.setdefault(r["_file"], []).append(r)
+        for message, _ids in TC.conflicting_duplicates(rows, field=field):
+            report["rejected"].append(message)
+    failed = any(report[k] for k in ("unknown", "rejected", "duplicated"))
+    report["applied"] = bool(apply and not (field == "pl" and failed))
+    if report["applied"]:
         for file_name, file_rows in by_file.items():
             if file_name not in touched:
                 continue
@@ -389,10 +443,13 @@ def main(argv=None) -> int:
                         help="which slot the views fill: en = the EN: lines (default), "
                              "pl = the PL: lines of the Polish views (EN: is the reference there)")
     parser.add_argument("--check", action="store_true", help="report only, write nothing")
+    parser.add_argument("--require-template", action="store_true",
+                        help="require the audited PL source fingerprint in every view")
     args = parser.parse_args(argv)
 
     views = read_views(args.views)
-    report = import_views(views, args.package, apply=not args.check, field=args.lang)
+    report = import_views(views, args.package, apply=not args.check, field=args.lang,
+                          require_template=args.require_template)
     summary = {key: value for key, value in report.items()
                if key not in ("unknown", "rejected", "duplicated")}
     print(json.dumps(summary, ensure_ascii=False, indent=1))
@@ -402,7 +459,7 @@ def main(argv=None) -> int:
         print(f"dwie linie: {message}")
     for message in report["unknown"][:40]:
         print(f"nieznane: {message}")
-    return 0
+    return 1 if any(report[k] for k in ("unknown", "rejected", "duplicated")) else 0
 
 
 if __name__ == "__main__":

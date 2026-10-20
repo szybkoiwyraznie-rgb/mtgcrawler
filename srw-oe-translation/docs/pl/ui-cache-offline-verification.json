@@ -1,0 +1,37 @@
+{
+  "kind": "PL menu name cache",
+  "instructions": 69,
+  "name_bytes_before": 8,
+  "name_bytes_after": 32,
+  "object_bytes_before": 40,
+  "object_bytes_after": 64,
+  "constructor_allocation_sites": 10,
+  "runtime_tested": false,
+  "original_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+  "patched_sha256": "c3d1fb6273a50305008343d25e77206b8e1cb8dc7554a27b5eae82b9139d3d0f",
+  "scope": "Memory-only execution of original/patched cache constructors, strcpy and draw method; external UI/getter callees stubbed, NOT PPSSPP",
+  "unicorn": "2.1.4",
+  "constructors": [
+    {
+      "constructor": "0x1a4830",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    },
+    {
+      "constructor": "0x1a48b8",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    },
+    {
+      "constructor": "0x1a4938",
+      "old_suffix_hex": "536b757069656e69d45a4a",
+      "original_overwrite_reproduced": true
+    }
+  ],
+  "physical_names": 60,
+  "maximum_physical_name_bytes": 16,
+  "fixed_cases": 186,
+  "original_corrupt_cases": 3,
+  "guard_bytes_unchanged": true,
+  "full_focus_name_preserved": true
+}

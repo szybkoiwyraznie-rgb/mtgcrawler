@@ -1,0 +1,28 @@
+{
+  "name": "srw-oe-translation-pl-v2.1-PL3.zip",
+  "date": "2026-10-19",
+  "bytes": 7397155,
+  "files": 90,
+  "sha256": "c373b8ba7748def3a4ddb44d3eff89629a89e171065617a6b71a1cbd0ee46dcb",
+  "md5": "f93e571eb77908a3ec9966409e295bf5",
+  "drive_id": "1jkVKOzRyy8QE58elwLqezi19-iNXRNGq",
+  "url": "https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view",
+  "code_checkpoint": "7165b0c",
+  "download_back_identical": true,
+  "crc_and_member_hashes_ok": true,
+  "sharing_changed": false,
+  "scope": "launcher message removal and clearer assembly-spacing notes only",
+  "changed_members": [
+    "PATCH.bat",
+    "README.md",
+    "translation/PL_COVERAGE.json",
+    "RELEASE_MANIFEST.json"
+  ],
+  "all_game_builder_modules_byte_identical": true,
+  "all_translation_JSONL_and_tokens_byte_identical": true,
+  "all_graphics_and_font_assets_byte_identical": true,
+  "focused_release_tests": 6,
+  "focused_release_tests_result": "OK",
+  "no_new_runtime_test": true,
+  "game_binaries_included": false
+}

@@ -1,0 +1,49 @@
+{
+  "version": "2.7-PL4",
+  "source_archive": {
+    "name": "PL4.zip",
+    "drive_id": "1nm7lZttX-XuBY3P-i_twFiM31k1Y2j0V",
+    "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
+  },
+  "artifact": {
+    "name": "srw-oe-translation-pl-v2.7-PL4.zip",
+    "drive_id": "1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF",
+    "url": "https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view",
+    "bytes": 8119658,
+    "sha256": "1156ffc4455a18fbb8b2151afccc71c5f0e352a58b578b2027ff3e06fbafe78d",
+    "md5": "40b1373c52540b0f3b6e2e8e973c4f3f",
+    "zip_members": 91,
+    "manifest_payload_hashes": 90,
+    "crc_passed": true,
+    "drive_download_back_byte_identical": true,
+    "all_payload_hashes_verified": true,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "validation": {
+    "unittest_run": 1727,
+    "unittest_skipped": 30,
+    "result": "OK",
+    "source_bound_pl4_explicit_blocks": 67143,
+    "source_bound_readback_mismatches": 0,
+    "owner_ui_bindings_preserved": 1283,
+    "mission_rows_restored": 32,
+    "translator_temporary_fixes_confirmed": 57,
+    "episodes_00_21_visible_filled": "28078/28079 (the sole empty source is whitespace-only)",
+    "package_rows_filled": "87794/109176",
+    "hard_translation_errors": 0,
+    "soft_layout_warnings": 25165,
+    "runtime_tested": false,
+    "original_asset_physical_build_tested": false
+  },
+  "incremental_install_scope_from_v2_6": {
+    "iso_replace_expected": false,
+    "dlc_copy_expected": true,
+    "pboot_recopy_expected": false,
+    "differential_scope_basis": "All 22185 newly translated rows and six corrected rows bind to the listed DLC EDAT source containers; no new row binds to ISO/PBOOT. Source-only analysis; not physical builder output proof.",
+    "edat_source_containers": [
+      "eventP01.EDAT", "eventP02.EDAT", "eventP03.EDAT", "eventP04.EDAT", "eventP05.EDAT", "eventP06.EDAT", "eventP13.EDAT", "eventP20.EDAT", "eventP21.EDAT", "eventP22.EDAT", "eventP23.EDAT", "eventP24.EDAT", "eventP25.EDAT", "eventP26.EDAT", "eventP27.EDAT", "eventP28.EDAT", "eventP29.EDAT", "evept101.EDAT", "evept102.EDAT", "evept103.EDAT", "evept104.EDAT", "evept105.EDAT", "evept106.EDAT", "evept107.EDAT", "evept108.EDAT"
+    ],
+    "actual_emitted_output_filenames_verified": false,
+    "copy_only_files_reported_by_local_build": true
+  }
+}

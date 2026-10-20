@@ -1,0 +1,59 @@
+{
+  "name": "srw-oe-test-pl-v4.zip",
+  "bytes": 6414164,
+  "sha256": "183e39b3d08aa87bda74fc5aa25a46409287dc3d07f32127e18ed905b299dbc1",
+  "files": 64,
+  "probe_counts": {
+    "files": 11,
+    "dialogue_rows": 16,
+    "mission_rows": 1,
+    "unit_rows": 3,
+    "weapon_rows": 16
+  },
+  "scope": "patch tools and probe package only; no game files",
+  "date": "2026-10-18",
+  "drive_id": "1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U",
+  "drive_url": "https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view",
+  "drive_download_back_equal": true,
+  "font_identical_to_v3": true,
+  "read_back": {
+    "kit_version": "4",
+    "ok": true,
+    "failures": [],
+    "font_cells": 18,
+    "opening_rows": 16,
+    "unit_weapon_rows": 19,
+    "hashes": {
+      "original": {
+        "font_sha256": "a986115e793e4c0b69ec803650d1f7052909e6d6bb60cc09abffb72b1f49bed6",
+        "event_sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa"
+      },
+      "patched": {
+        "font_sha256": "4cee91de46025f25b8c46777c494f0a4703ebe4ab14699fe90848d3d9b0cc863",
+        "event_sha256": "abc9cfd9a66bf224c55876bc0f857a0e3f9f122f291aab10b167f8ade9621d16"
+      }
+    },
+    "scope": "ISO byte read-back, not emulator gameplay"
+  },
+  "tests": {
+    "runner": "python -m unittest discover -s srw-oe-translation/tests",
+    "total": 1558,
+    "skipped": 25,
+    "result": "OK"
+  },
+  "v3_runtime_evidence": {
+    "source": "two owner screenshots in chat (image-1.png, image-2.png), not stored in Git",
+    "owner_assessment": "wygląda dobrze :)",
+    "confirmed": "Polish upper/lowercase glyphs visible in opening narration with readable ASCII controls",
+    "limits": "Not evidence for all game screens, exact pixel advances or full PL translation"
+  },
+  "v4_changes": [
+    "Natural diagnostic Polish prose in first dialogue and opening narration, not a scenario translation.",
+    "Narration rows 3–6 shortened to two lines each; dialogue line counts and player token preserved.",
+    "No font/codec/English translation changes."
+  ],
+  "verification_limits": [
+    "Extracted delivered ZIP CLI tested with real original font/event/config containers in a fixture ISO.",
+    "No sandbox v4 PPSSPP or Windows BAT execution; v3 owner rendering confirmation is a separate result."
+  ]
+}

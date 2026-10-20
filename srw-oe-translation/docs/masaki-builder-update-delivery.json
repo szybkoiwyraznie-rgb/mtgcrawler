@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-18",
+  "name": "BUILDER_EN_PL_MASAKI_UPDATE.zip",
+  "bytes": 257303,
+  "files": 45,
+  "md5": "581ab0090b353ab66d7513e41625ce7c",
+  "sha256": "2e8a2ffc35c7203edf19baa68d7eb00413b9acf516f760500ac9ee66625cdadd",
+  "drive_id": "1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2",
+  "url": "https://drive.google.com/file/d/1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2/view",
+  "code_checkpoint": "92e9b965921cbf9440c001277f140e55abbe0ba4",
+  "kind": "shared EN/PL tools-only update",
+  "contains_game_binaries": false,
+  "contains_translation": false,
+  "replaces_launchers": false,
+  "download_back_identical": true,
+  "crc_and_all_tool_hashes_verified": true,
+  "sharing_changed": false,
+  "tests": {
+    "run": 1620,
+    "skipped": 28,
+    "result": "OK",
+    "seconds": 26.28
+  },
+  "verification": {
+    "source": "private original config19/imenu19; extracted delivered v17 with updater overlay",
+    "en": {
+      "problems": [],
+      "released_rows": 8,
+      "physical_cells": 12,
+      "readback_ok": true,
+      "whole_config19_equals_owner_accepted_TEST1": true,
+      "config19_bytes": 32896,
+      "config19_sha256": "84525e62f258ec54b13cda6144d8758beae2125cdee6b986aaf7472f10da8951"
+    },
+    "pl": {
+      "source": "strict source-stamped PL.zip import into private copy; no literary edits",
+      "problems": [],
+      "released_rows": 8,
+      "physical_cells": 12,
+      "readback_ok": true,
+      "independent_comparison_to_raw_pl_fields": true,
+      "dictionary_differs_from_en": true,
+      "config19_bytes": 32896,
+      "config19_sha256": "f714ca58c03587ca9a2f7c2775132a7f5b9a4c7b77234cf5fba9408f2bd1ca3f"
+    },
+    "templates_and_spares_unchanged_both_languages": true,
+    "packages_and_originals_unchanged": true,
+    "iso_fixture_only_not_playable": true,
+    "no_new_runtime_claim": true
+  },
+  "remaining": "PL full Skill00 remains over normal budget; no bypass. No all-chapter/runtime claim."
+}

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "review": "Three screenshot corrections: fit the Unit Stats command, remove the repeated HP marker in Trust Lv1, and localize active Spirit-orb captions.",
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:15952",
+      "source_sha256": "96e0417263f676d1e32f5f6c8132b52e5d37dba4c9a04f34633b10cab3d16c69",
+      "before": "Statystyki",
+      "after": "Stat.",
+      "max_cells": 12,
+      "reason": "Compact fixed-width command label; keeps the existing Unit Stats meaning."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:16776",
+      "source_sha256": "bb7d8271e9ac5600200e5627a1a4d6e547bea40d1907b71b40ba95bf3a454c25",
+      "before": "Statystyki",
+      "after": "Stat.",
+      "max_cells": 12,
+      "reason": "Compact fixed-width command label; keeps the existing Unit Stats meaning."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9412",
+      "source_sha256": "913e0b3a6507f069270cce77c931a29fde2618108fb8ec28108d101e2c861c18",
+      "before": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "after": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "max_cells": 34,
+      "reason": "Remove the duplicated HP marker before the separate +5% HP effect."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9692",
+      "source_sha256": "6054525930aa5f8a04c79e109137fc3a5c01e296f694b5e0a5247a9977cf1634",
+      "before": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "after": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "max_cells": 34,
+      "reason": "Remove the duplicated HP marker before the separate +5% HP effect."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9972",
+      "source_sha256": "49b08c8dede3f4e171e6c4dd13dfa7485a05ee9a800d497ba36fb7b764cd8eb5",
+      "before": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+HP5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "after": "＠6%s 1 jedn.＠0\nLv1%s20 %s 3 1500 HP+5%s\nLv2 SP-30 Zasięg 4 2500 HP+10％ HP\nLv3 SP-40 Zasięg 5 3500 HP+15％ HP",
+      "max_cells": 34,
+      "reason": "Remove the duplicated HP marker before the separate +5% HP effect."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "2.4-PL3-UI",
+  "drive_id": "1O8p3IdvyTYLLrenmAwhj83613t20Nkjr",
+  "url": "https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view",
+  "name": "srw-oe-translation-pl-v2.4-PL3-UI.zip",
+  "bytes": 7404376,
+  "members": 91,
+  "sha256": "5e879aa1cdc35ea951938de95944c0fb25b6bb75c612d2a11e63bd056eaf0b35",
+  "md5": "4d6392ba0de8604489aff84b2b7f8e18",
+  "drive_size_and_md5_match": true,
+  "zip_crc_passed": true,
+  "all_90_manifest_member_hashes_verified": true,
+  "all_91_archive_member_bytes_identical_to_physically_verified_kit": true,
+  "no_game_data_included": true,
+  "sharing_changed": false,
+  "download_back_performed": false,
+  "source_commit": "6797a7f3120b5ca125391202c26d6383243296e7",
+  "ci_run": 39283036474,
+  "ci_status_at_delivery": "queued; do not claim success",
+  "local_full_suite": {
+    "run": 1697,
+    "skipped": 3,
+    "result": "OK"
+  },
+  "local_build_release_pair": "EN and PL pair built and hash-verified successfully",
+  "physical_readback": "ui-third-physical-verification.json",
+  "runtime_tested": false,
+  "owner_runtime_acceptance": "v2.3 Skupienie/details/no crash accepted; v2.4 UI changes pending",
+  "installation": {
+    "iso_replace": true,
+    "required_output": "patched.iso",
+    "dlc_recopy": false,
+    "pboot_recopy": false,
+    "scope": "Upgrade accepted v2.3 in owner PPSSPP1.20.4 ISO-loading setup only"
+  },
+  "owner_test": "One cold-start ordinary-save run: English SYSTEM startup, Skupienie Lv1 and another skill header spaces, Parts headers/drop label, Results numbers, intermission square/triangle footer. No cache or font experiment."
+}

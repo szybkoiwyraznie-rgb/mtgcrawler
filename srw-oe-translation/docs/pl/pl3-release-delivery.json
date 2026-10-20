@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-19",
+  "source": {
+    "name": "PL3.zip",
+    "drive_id": "1e-k_dILG9N09LcwxzOHUu4QqF1rlkvK9",
+    "bytes": 2748884,
+    "sha256": "d34f4cae81f869e00e4260999d16ef2367dc3f78e7017c30c448f69492af8351",
+    "unchanged": true
+  },
+  "delivery": {
+    "name": "srw-oe-translation-pl-v2-PL3.zip",
+    "drive_id": "1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb",
+    "url": "https://drive.google.com/file/d/1Q927S-6PZpwX9qRUeaHfN8g6zpH5EHFb/view",
+    "bytes": 7397107,
+    "files": 90,
+    "sha256": "bc075a088e907ba880503da107831b52736e43ba5f86028760dd40642287fc2e",
+    "md5": "6eb29661714f82ac3533d5ced619df1f",
+    "download_back_identical": true,
+    "CRC_and_all_manifest_hashes_ok": true,
+    "sharing_changed": false,
+    "game_binaries_included": false,
+    "full_standalone_patcher": true,
+    "partial_translation": true
+  },
+  "verification": {
+    "md_files": 13,
+    "explicit_PL_elements": 48326,
+    "imported_changed_elements": 48307,
+    "unchanged_explicit_elements": 19,
+    "copies_filled": 8924,
+    "import_refusals_unknown_duplicates": 0,
+    "validation_errors": 0,
+    "text_rows_total": 109144,
+    "text_rows_filled": 65577,
+    "leading_space_fields_preserved": 634,
+    "visible_view_coverage": {
+      "cytaty.md": {
+        "visible_elements": 19841,
+        "filled_after_copies": 19841
+      },
+      "mechy.md": {
+        "visible_elements": 4701,
+        "filled_after_copies": 4701
+      },
+      "postacie.md": {
+        "visible_elements": 2513,
+        "protected_or_excluded": 4,
+        "filled_after_copies": 2509
+      },
+      "program.md": {
+        "visible_elements": 408,
+        "filled_after_copies": 399,
+        "protected_or_excluded": 9
+      },
+      "przedmioty.md": {
+        "visible_elements": 1200,
+        "filled_after_copies": 1200
+      },
+      "teksty-config.md": {
+        "visible_elements": 15968,
+        "filled_after_copies": 15940,
+        "proven_binary_fields": 28
+      },
+      "teksty-misji.md": {
+        "visible_elements": 1279,
+        "filled_after_copies": 1279
+      },
+      "teren.md": {
+        "visible_elements": 111,
+        "filled_after_copies": 111
+      },
+      "umiejetnosci.md": {
+        "visible_elements": 4932,
+        "filled_after_copies": 4932
+      }
+    },
+    "roundtrip": {
+      "explicit_elements_checked": 48326,
+      "backing_rows_checked": 56672,
+      "explicit_mismatches": 0,
+      "scenes": {
+        "epizod-00.md": {
+          "visible_elements": 273,
+          "filled_after_copies": 273,
+          "explicit_PL": 273
+        },
+        "epizod-01.md": {
+          "visible_elements": 1452,
+          "filled_after_copies": 1452,
+          "explicit_PL": 1108
+        },
+        "epizod-02.md": {
+          "visible_elements": 2416,
+          "filled_after_copies": 2416,
+          "explicit_PL": 1472
+        },
+        "epizod-03.md": {
+          "visible_elements": 1601,
+          "filled_after_copies": 1601,
+          "explicit_PL": 1545
+        }
+      }
+    },
+    "episode_line_widths": {
+      "epizod-00.md": {
+        "lines_above_46": 8,
+        "maximum_cells": 50,
+        "above_kind_box_limit": 0
+      },
+      "epizod-01.md": {
+        "lines_above_46": 109,
+        "maximum_cells": 55,
+        "above_kind_box_limit": 0
+      },
+      "epizod-02.md": {
+        "lines_above_46": 297,
+        "maximum_cells": 56,
+        "above_kind_box_limit": 0
+      },
+      "epizod-03.md": {
+        "lines_above_46": 242,
+        "maximum_cells": 53,
+        "above_kind_box_limit": 0
+      }
+    },
+    "glossary_keys": 319,
+    "glossary_conflicts": 0,
+    "assembled_fields": 1421,
+    "ron_suspects": 0,
+    "actual_extracted_kit_cli": {
+      "exit_status": 0,
+      "problems": [],
+      "Skill00_bytes": 215764,
+      "Skill00_limit": 216768,
+      "Skill00_headroom": 1004,
+      "Skill00_records": 1469,
+      "all_three_pointer_contracts_ok": true,
+      "physical_DLC_pools": {
+        "config01.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config02.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config03.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config04.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config05.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config06.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config07.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        },
+        "config08.EDAT": {
+          "bytes": 15329,
+          "strings": 720,
+          "headroom": 309
+        }
+      },
+      "font18_native_cells_verified": true,
+      "non_ank_members_unchanged": true,
+      "EBOOT_nonidentity_fields": 397,
+      "original_inputs_unchanged": true,
+      "fixture_not_playable": true,
+      "UI_textures_not_included_in_binary_fixture_test": true
+    },
+    "unittest": {
+      "run": 1644,
+      "skipped": 25,
+      "seconds": 68.832,
+      "result": "OK"
+    },
+    "runtime_tested": false
+  },
+  "automation": {
+    "workflow": ".github/workflows/release.yml",
+    "CI_run_id": 39226067711,
+    "CI_run_url": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/actions/runs/39226067711",
+    "tested_code_head": "01b9a9dd8faf47a9f4838c34246d39c32eceb510",
+    "conclusion": "success",
+    "PR_builds_EN_and_PL": true,
+    "PR_publication_skipped": true,
+    "publish_on_main_only_after_merge": true,
+    "main_publication_not_yet_executed": true,
+    "needs_Drive_credentials": false,
+    "needs_game_data": false,
+    "tracked_PL_snapshot_data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+    "distinct_PL_bindings": 65566,
+    "source_bound_materialization_exact_109437_row_roundtrip": true
+  },
+  "open_issues": [
+    "Some battle-quote gender not speaker-reviewed",
+    "158 translator-reported formatting findings remain",
+    "Longer-line visual QA and later story incomplete",
+    "No full authentic ISO/PPSSPP runtime run here"
+  ]
+}

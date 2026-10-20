@@ -1,5 +1,142 @@
 # Next step — current state and open work
 
+**PL4 translator return integrated and source-bound (2026-10-20).** [v2.7-PL4 kit](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view). All nine views and episodes00–21 imported; 67,143 explicit blocks strict-checked/read back, no rejects/unknowns. 28,078/28,079 visible episode elements have PL; the lone empty is structural whitespace. All1,283 local owner-UI bindings and32 promoted mission rows preserved;57 TM correction records match. Overall validator0 hard errors/25,165 soft warnings. New text maps to25 specific DLC EDAT containers; full physical build/outputs and runtime remain pending because original assets are absent here. [Coverage/install limits](pl/PL4_RETURN_REVIEW.md). Do not overwrite user UI/protagonist/cache/font. Episodes22–34/simulator remain incomplete.
+
+**Seven-screen PL UI batch v2.6 DELIVERED (2026-10-20).**
+[Download](https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view).
+100existing PL edits (90Spirit name aliases,9sysmes,1terrain),10missing base
+mission title copies promoted;527/527physical title slots read back across47
+original containers. All20Spirit families/60levels reviewed;7cell compact names,
+full accepted Skupienie9 unchanged. Cache/native font and all shipped tools
+unchanged; only configst,eventP00,terrain-string slot in EBOOT differ vs v2.5.
+1724tests OK/2skip, extracted-kit filtered authentic NONPLAYABLE fixture passes;
+44rebuilt DLC files identical and ALL79050DLC-backed source rows identical.
+**Owner PPSSPP1.20.4 upgrade: ISOYES (`patched.iso`), DLCNO, PBOOTNO recopy.**
+New visual fit still needs owner confirmation; no new cache/font experiment.
+See [UI batch](pl/UI_SIX_2026-10-20.md), [receipt](pl/pl3-ui-six-delivery.json).
+Catalogue/reading exports unchanged; do not restart them.
+
+**PL catalogue naming revision v4 DELIVERED (2026-10-19).**
+[Catalogue](https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view),
+[00–03+catalogue v4 ZIP](https://drive.google.com/file/d/1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0/view).
+Roster name first, differing display name in parentheses, identical pair once.
+393source-bound pairs;242headers changed,151same; exact non-heading byte proof
+preserves all1485weapon rows and descriptions. Four episode files unchanged.
+1712tests OK/3skip; both downloads byte-identical. Only reading presentation:
+no EN/source/game changes or ISO/DLC transfer. [Receipt](reading-script/polish/catalogue-v4.delivery.json).
+Do not restart completed exports or reinterpret this as runtime/game changes.
+
+
+**Latest model-viewer UI follow-up (2026-10-19): v2.5 delivered.**
+[Download](https://drive.google.com/file/d/1lTiINU17MPaHcm1SwOFm-A1zzYkZhic8/view).
+Clipped L/R/analog/SELECT labels now `Zmień jedn.`/`Obr.`/`Ukryj`; only4sysmes
+physical entries changed. All other text/resources/code/font/skills identical to
+v2.4.1705tests OK3skip, normal extracted-kit NONPLAYABLE authentic six-file CLI
+and independent readback pass; actual PPSSPP visual check pending.
+**ISO YES / DLC NO / no PBOOT recopy** on owner's accepted ISO-loading path.
+[Proof and receipt](pl/UI_MECH_VIEWER_2026-10-19.md). Preserve accepted Skupienie/cache/
+font; no new hypothesis experiments. Reading00 supplement below remains complete.
+
+
+**Polish reading supplement (2026-10-19): missing Episode00 DELIVERED.**
+[Episode00 PL](https://drive.google.com/file/d/1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL/view),
+[complete00–03+catalogue ZIP](https://drive.google.com/file/d/1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ/view).
+All253prose rows retained (242dialogue+11narration), independently source-verified;
+old01–03/catalogue bytes unchanged.1703tests OK/3skip, both outputs download-back
+identical. No story/source/game changes or new translation. ISO/DLC NO changes.
+[Details/receipt](reading-script/polish/README.md). Do not restart completed exports.
+
+
+**Latest owner UI batch (2026-10-19): v2.4-PL3-UI delivered.**
+[Download](https://drive.google.com/file/d/1O8p3IdvyTYLLrenmAwhj83613t20Nkjr/view).
+Owner NOW accepts v2.3 Skupienie/details without crash; no further cache/font
+experiment. New925source-bound fixes: proven PSP SYSTEM consumers stay English,
+all120Spirit/1985Skill description fields checked for fragment-join spaces, compact
+Results/drop/Search labels, PL-only Parts atlas cleanup with EN render unchanged.
+Normal authentic six-file NONPLAYABLE ISO CLI/readback pass;1697tests OK/3skip;
+Skill00216488<=216768 (280margin), all numeric mechanics/fragment pools unchanged.
+**Current PPSSPP1.20.4 upgrade: ISO YES; DLC NO; no PBOOT recopy for ISO path.**
+One cold-start ordinary-save UI check pending (not all-game approval).
+[Details/receipts](pl/UI_QA_THIRD_2026-10-19.md). Local EN+PL release pair passes;
+GitHub Actions queued at handoff, no claim of CI success/main publication. Older
+size/test/runtime-pending notes below are historical, not next tasks to repeat.
+
+
+**PL3 release (2026-10-19):** partial standalone PL patcher delivered from actual
+PL3.zip. Quotes19841/19841, all editable visible views filled (protected/binary
+blanks preserved), scenes00–03 fully filled after copies.0 import/validation errors;
+634 leading spaces preserved;48326 explicit MD blocks compared after propagation,
+0 mismatches. **Physical Skill00215764B (1004B margin)**,8 DLC pools15329B each
+(309B margin), extracted-kit CLI on authentic-container NONPLAYABLE fixture0problems.
+[Download PL patcher](https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view).
+EN+PL workflow now tested successfully on GitHub Actions; publishes BOTH only
+on main after merge, not from PR. Source-bound PL text snapshot tracked, no Drive
+secrets/game data in CI. **PR20 still open; main publication awaits merge.**
+1644 tests OK/25 skipped. Quote gender/158 formatting findings/later story/runtime
+QA remain open; not a literary/full-game approval. This supersedes PL2's686B
+blocker below. See [PL3_RELEASE.md](pl/PL3_RELEASE.md) and its delivery receipt.
+
+**PL2 return (2026-10-18):** audited actual PL2.zip. Leading spaces preserved in
+all 634 config fields; all 33 prior join suspects corrected in 1421 format previews.
+**Skill00 remains 217454 B vs 216768 (+686 B)**; normal builder refuses it,
+no bypass/new oversized test. All eight physical DLC pools build/read back at
+15331 B each (307 B margin). Delivered quotes are **11801/19841**, not reported
+13460 — request newest MD export before further edits. One glossary full/short
+variant to review, no import errors. Fixed EN-only chapter-4 DLC readback for PL.
+1626 tests OK/27 skipped; no playable ISO/runtime claim. See
+[PL2_RETURN_REVIEW.md](pl/PL2_RETURN_REVIEW.md). Keep translator's literary work;
+next: latest MD export and remaining ≥686 B of actual Skill00 savings.
+
+**Masaki v17 update (2026-10-18):** delivered-kit reproduction confirms the
+reported JP/EN mix in the config19 dictionary while imenu19 is fully EN. The
+global config-side viewer safety gate is the cause of those held-back fields;
+not missing translator work. A private existing-cell-only TEST1 for three
+characters is delivered and owner-confirmed ("wszystko pięknie przetłumaczone").
+Narrow integration is now active automatically in the normal shared **EN and PL**
+builder; global gate stays enabled elsewhere. The EN container is byte-identical
+to accepted TEST1; PL uses its own source-stamped returned fields (no EN fallback).
+[Tools-only updater](https://drive.google.com/file/d/1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2/view)
+for both existing kits is delivered; no translations/launchers/game files included.
+1620 tests OK/28 skipped; isolated updated-kit EN/PL builds and independent
+original-DLC readback pass. No playable ISO/full-game QA here. See
+[QA_MASAKI_V17.md](QA_MASAKI_V17.md) and [delivery receipt](masaki-builder-update-delivery.json).
+
+**V5 runtime update (2026-10-18): owner accepts the font on two opening
+narration/dialogue screenshots, with no further styling objections.** Missing
+Ł/Ś (also Ó) in all-caps headings were ASCII caption literals in the exact delivered
+ZIP, not a font defect. Source captions corrected; font/codec unchanged. No new
+font build/test requested. [Details](pl/PL_FONT_STYLE.md). Older pending notes below
+refer to the state at delivery, not the latest feedback.
+
+**Translator PL audit complete (2026-10-18, PR #20).** Replace the old
+`sceny_PL.zip` / `widoki_PL.zip` with checked **v2** archives linked in
+[`pl/TRANSLATOR_VIEWS_AUDIT.md`](pl/TRANSLATOR_VIEWS_AUDIT.md).
+All 109144 extracted text rows classified: 108761 editable/inherited, 19 protected,
+364 unclassified leftovers quarantined (8 necessary leftover roots retained).
+Full synthetic PL import/copy/check/build-load passed; 1591 tests OK, 25 skipped.
+Tools from `0053e01` or newer are required; use `--lang pl --require-template`.
+Next: external translator fills PL only; later validate returned text and runtime
+layout. No literary PL translation done; **v5 opening-screen appearance now accepted by owner**.
+Manifest: [`pl/translator-views-v2-delivery.json`](pl/translator-views-v2-delivery.json).
+
+> **Latest PL handoff (2026-10-18, PR #20): v4 works; native-style v5 delivered.**
+> Four owner screenshots confirm v4 opening prose, dialogue, scene title and unit
+> name. Feedback: Polish letters too bold and lowercase bodies too low. The old
+> Roboto raster has peak value 15 vs native 9 (lowercase l 6); some bodies start
+> at row 5 vs native row 4. [TEST_PL v5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view)
+> composes accents over **pixel-identical native ASCII bodies** at build time.
+> No game bitmap is committed/shipped; only accent recipes. No scaling/shifting,
+> original ASCII remains unchanged. Natural v4 probe sentences are unchanged,
+> apart from version labels. 1569 unittest tests OK (25 skipped); isolated actual
+> ZIP build/read-back with original-container fixture ISO pass; native-body audit
+> catches boldening/shifting/missing marks. **V5 runtime styling is unconfirmed.**
+> Details: [`pl/PL_FONT_STYLE.md`](pl/PL_FONT_STYLE.md),
+> [`pl/test-v5-delivery.json`](pl/test-v5-delivery.json),
+> [`../README_TEST_PL.md`](../README_TEST_PL.md).
+> One first-panel or first-dialogue screenshot suffices if evaluating appearance;
+> no menu hunt or hypothesis-by-hypothesis rebuild. Full PL translator material
+> remains external/pending; no claim of a finished Polish translation.
+
 **Updated 2026-10-17 (UTC).** This page replaces the old "superseded plan" notice.
 It lists only what is still open; the delivered products are frozen snapshots and
 must not be regenerated or re-uploaded without a new owner request.
@@ -217,3 +354,9 @@ that fills 02/03/04 rows.
    the simulator reading companion, or a deeper catalogue pass.
 3. Never commit ISO/EDAT/CPK/BIN/saves/screenshots; exchange them via Drive and keep
    outputs under ignored `local/`.
+
+Polish reading/reference handoff (2026-10-19): episodes01–03 and catalogue v3
+are now delivered and verified, not pending work. See
+`docs/reading-script/polish/README.md` / `delivery.json`. Do not regenerate or
+retranslate them unless the owner asks or returns corrected PL source. The
+existing translator/QA follow-up remains separate; this export changes no game.

@@ -1,0 +1,8786 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 2,
+  "reference_sha256": "2767dfc8e071ec1a1fb40c3b21a7f53153a511d92aeb5fb2cc11bc81e045c82b",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "aaa121d3860a14e26685fa327d6c7a691d153277aeb560ad2408ad8e3ea82caf",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP00.cpk/DL102_11.bin",
+      "block": 4,
+      "mission_row": "mission_title:config00.cpk/milstP00.bin:r14:title"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:228",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:328",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:408",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:496",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:596",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:720",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:784",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:872",
+      "mode": "story",
+      "level": 3,
+      "block": 12
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:980",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1064",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1140",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1332",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1384",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1448",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1500",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1564",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1648",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1732",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1796",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1864",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1920",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:1980",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2024",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2124",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2220",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2328",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2424",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2464",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2504",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2568",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2604",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2668",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2716",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2820",
+      "mode": "story",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2860",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2900",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2944",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:2980",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3044",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3096",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3180",
+      "mode": "story",
+      "level": 3,
+      "block": 46
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3228",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3272",
+      "mode": "story",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3340",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3388",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "heading": "### Underground",
+      "block": 51,
+      "pl": "### Pod ziemią"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3656",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3696",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3764",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3816",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3892",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:3964",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:4100",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:4592",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "heading": "### Connect joins the battle",
+      "block": 60,
+      "pl": "### Connect dołącza do bitwy"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:4760",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:4844",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:4932",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5016",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5068",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5128",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5212",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5244",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5296",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5352",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5384",
+      "mode": "story",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5444",
+      "mode": "story",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5508",
+      "mode": "story",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5596",
+      "mode": "story",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5664",
+      "mode": "story",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:5724",
+      "mode": "story",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "heading": "### Himari's sixth sense",
+      "block": 77,
+      "pl": "### Szósty zmysł Himari"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6228",
+      "mode": "story",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6256",
+      "mode": "story",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6296",
+      "mode": "story",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6336",
+      "mode": "story",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6384",
+      "mode": "story",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6456",
+      "mode": "story",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6524",
+      "mode": "story",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6644",
+      "mode": "story",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6724",
+      "mode": "story",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6872",
+      "mode": "story",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6928",
+      "mode": "story",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:6972",
+      "mode": "story",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7052",
+      "mode": "story",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7092",
+      "mode": "story",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7168",
+      "mode": "story",
+      "level": 3,
+      "block": 92
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7216",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7244",
+      "mode": "story",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7320",
+      "mode": "story",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7360",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7416",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7460",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7492",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7544",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7628",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7684",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7768",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7800",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:7844",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "heading": "### Mazinger Z",
+      "block": 106,
+      "pl": "### Mazinger Z"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8068",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8128",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8176",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8224",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8300",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8364",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8392",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8620",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8648",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8688",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8804",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8892",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:8936",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9016",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9108",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9152",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9208",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9320",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9352",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9448",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9484",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9524",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9584",
+      "mode": "story",
+      "level": 3,
+      "block": 129
+    },
+    {
+      "heading": "### A drill from another world",
+      "block": 130,
+      "pl": "### Wiertło z innego świata"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9924",
+      "mode": "story",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:9996",
+      "mode": "story",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10044",
+      "mode": "story",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10104",
+      "mode": "story",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10144",
+      "mode": "story",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10232",
+      "mode": "story",
+      "level": 3,
+      "block": 136
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10340",
+      "mode": "story",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10408",
+      "mode": "story",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10484",
+      "mode": "story",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10532",
+      "mode": "story",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10584",
+      "mode": "story",
+      "level": 3,
+      "block": 141
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10640",
+      "mode": "story",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10684",
+      "mode": "story",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10744",
+      "mode": "story",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10836",
+      "mode": "story",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10876",
+      "mode": "story",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10924",
+      "mode": "story",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:10956",
+      "mode": "story",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11016",
+      "mode": "story",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11064",
+      "mode": "story",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11108",
+      "mode": "story",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11220",
+      "mode": "story",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11260",
+      "mode": "story",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11340",
+      "mode": "story",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11372",
+      "mode": "story",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11416",
+      "mode": "story",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11464",
+      "mode": "story",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11528",
+      "mode": "story",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11596",
+      "mode": "story",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11676",
+      "mode": "story",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11780",
+      "mode": "story",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11876",
+      "mode": "story",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11932",
+      "mode": "story",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:11976",
+      "mode": "story",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12048",
+      "mode": "story",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12180",
+      "mode": "story",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12216",
+      "mode": "story",
+      "level": 3,
+      "block": 167
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12272",
+      "mode": "story",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12328",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12376",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12464",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12516",
+      "mode": "story",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12600",
+      "mode": "story",
+      "level": 3,
+      "block": 173
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12740",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:12812",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13020",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13068",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13120",
+      "mode": "story",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13204",
+      "mode": "story",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13284",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13392",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13444",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13492",
+      "mode": "story",
+      "level": 3,
+      "block": 183
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13536",
+      "mode": "story",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13604",
+      "mode": "story",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13648",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13704",
+      "mode": "story",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13796",
+      "mode": "story",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13840",
+      "mode": "story",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13912",
+      "mode": "story",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:13952",
+      "mode": "story",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14020",
+      "mode": "story",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14084",
+      "mode": "story",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "heading": "#### Situational battle dialogue — facing the new enemies",
+      "block": 194,
+      "pl": "#### Dialogi bojowe — sytuacyjne — starcie z nowymi wrogami"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14480",
+      "mode": "conditional",
+      "level": 3,
+      "block": 196
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14696",
+      "mode": "conditional",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14776",
+      "mode": "conditional",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:14860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "heading": "#### Conditional dialogue — Team Gurren searches beyond the wall",
+      "block": 200,
+      "pl": "#### Dialogi warunkowe — drużyna Gurren szuka za ścianą"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15068",
+      "mode": "conditional",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15176",
+      "mode": "conditional",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15240",
+      "mode": "conditional",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15420",
+      "mode": "conditional",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15592",
+      "mode": "conditional",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15728",
+      "mode": "conditional",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15780",
+      "mode": "conditional",
+      "level": 3,
+      "block": 209
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15892",
+      "mode": "conditional",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15936",
+      "mode": "conditional",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:15996",
+      "mode": "conditional",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "heading": "#### Situational dialogue — the Getter Team's response",
+      "block": 213,
+      "pl": "#### Dialogi sytuacyjne — reakcja zespołu Getter"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16100",
+      "mode": "conditional",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16208",
+      "mode": "conditional",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16276",
+      "mode": "conditional",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16392",
+      "mode": "conditional",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:16652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "heading": "#### Conditional dialogue — another reading behind the wall",
+      "block": 224,
+      "pl": "#### Dialogi warunkowe — kolejny odczyt za ścianą"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17496",
+      "mode": "conditional",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17572",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17648",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17912",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "heading": "#### Conditional dialogue — the Getter Team finds the gate",
+      "block": 232,
+      "pl": "#### Dialogi warunkowe — zespół Getter odnajduje bramę"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:17988",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18328",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18360",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18464",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18552",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18608",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18664",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18720",
+      "mode": "conditional",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:18944",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 243
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19176",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19208",
+      "mode": "conditional",
+      "level": 3,
+      "block": 245
+    },
+    {
+      "heading": "#### Situational dialogue — reinforcements",
+      "block": 246,
+      "pl": "#### Dialogi sytuacyjne — posiłki"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:19560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "heading": "### The Mucus Gate",
+      "block": 251,
+      "pl": "### Brama Mucus"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20248",
+      "mode": "story",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20292",
+      "mode": "story",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20340",
+      "mode": "story",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20388",
+      "mode": "story",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20444",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20476",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20532",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20624",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20668",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20708",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20824",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20928",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:20992",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21028",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21132",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21220",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21364",
+      "mode": "story",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21452",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21552",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21584",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21624",
+      "mode": "story",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21700",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21740",
+      "mode": "story",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21800",
+      "mode": "story",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:21932",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22008",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22108",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22168",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22316",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22364",
+      "mode": "story",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22488",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22532",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22660",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22744",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22880",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:22976",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23044",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23124",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23172",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23232",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23324",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23380",
+      "mode": "story",
+      "level": 3,
+      "block": 293
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23488",
+      "mode": "story",
+      "level": 3,
+      "block": 294
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23536",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23604",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23668",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23716",
+      "mode": "story",
+      "level": 3,
+      "block": 298
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23756",
+      "mode": "story",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23852",
+      "mode": "story",
+      "level": 3,
+      "block": 300
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23928",
+      "mode": "story",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:23980",
+      "mode": "story",
+      "level": 3,
+      "block": 302
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24032",
+      "mode": "story",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24084",
+      "mode": "story",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24140",
+      "mode": "story",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24208",
+      "mode": "story",
+      "level": 3,
+      "block": 306
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24292",
+      "mode": "story",
+      "level": 3,
+      "block": 307
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24408",
+      "mode": "story",
+      "level": 3,
+      "block": 308
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24488",
+      "mode": "story",
+      "level": 3,
+      "block": 309
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24564",
+      "mode": "story",
+      "level": 3,
+      "block": 310
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24636",
+      "mode": "story",
+      "level": 3,
+      "block": 311
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24728",
+      "mode": "story",
+      "level": 3,
+      "block": 312
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24788",
+      "mode": "story",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24836",
+      "mode": "story",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24916",
+      "mode": "story",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24952",
+      "mode": "story",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:24996",
+      "mode": "story",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25048",
+      "mode": "story",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25124",
+      "mode": "story",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25196",
+      "mode": "story",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25256",
+      "mode": "story",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25336",
+      "mode": "story",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25424",
+      "mode": "story",
+      "level": 3,
+      "block": 323
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25460",
+      "mode": "story",
+      "level": 3,
+      "block": 324
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25500",
+      "mode": "story",
+      "level": 3,
+      "block": 325
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25576",
+      "mode": "story",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25660",
+      "mode": "story",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25716",
+      "mode": "story",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25756",
+      "mode": "story",
+      "level": 3,
+      "block": 329
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25884",
+      "mode": "story",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:25944",
+      "mode": "story",
+      "level": 3,
+      "block": 331
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26004",
+      "mode": "story",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26068",
+      "mode": "story",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26220",
+      "mode": "story",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26256",
+      "mode": "story",
+      "level": 3,
+      "block": 335
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26300",
+      "mode": "story",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26372",
+      "mode": "story",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26408",
+      "mode": "story",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26464",
+      "mode": "story",
+      "level": 3,
+      "block": 339
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26508",
+      "mode": "story",
+      "level": 3,
+      "block": 340
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26632",
+      "mode": "story",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26740",
+      "mode": "story",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26788",
+      "mode": "story",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26828",
+      "mode": "story",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26904",
+      "mode": "story",
+      "level": 3,
+      "block": 345
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:26976",
+      "mode": "story",
+      "level": 3,
+      "block": 346
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:27004",
+      "mode": "story",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:27060",
+      "mode": "story",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:27100",
+      "mode": "story",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:27168",
+      "mode": "story",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL102_11.bin:27220",
+      "mode": "story",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_20.bin",
+      "block": 352,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r1:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:272",
+      "mode": "story",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:324",
+      "mode": "story",
+      "level": 3,
+      "block": 354
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:400",
+      "mode": "story",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:480",
+      "mode": "story",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:520",
+      "mode": "story",
+      "level": 3,
+      "block": 357
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:568",
+      "mode": "story",
+      "level": 3,
+      "block": 358
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:708",
+      "mode": "story",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:952",
+      "mode": "story",
+      "level": 3,
+      "block": 360
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1124",
+      "mode": "story",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1232",
+      "mode": "story",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1380",
+      "mode": "story",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1448",
+      "mode": "story",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1572",
+      "mode": "story",
+      "level": 3,
+      "block": 365
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1668",
+      "mode": "story",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1708",
+      "mode": "story",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1808",
+      "mode": "story",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:1924",
+      "mode": "story",
+      "level": 3,
+      "block": 369
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2024",
+      "mode": "story",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2084",
+      "mode": "story",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2136",
+      "mode": "story",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2188",
+      "mode": "story",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2332",
+      "mode": "story",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2380",
+      "mode": "story",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2416",
+      "mode": "story",
+      "level": 3,
+      "block": 376
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2524",
+      "mode": "story",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2600",
+      "mode": "story",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2656",
+      "mode": "story",
+      "level": 3,
+      "block": 379
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2752",
+      "mode": "story",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2808",
+      "mode": "story",
+      "level": 3,
+      "block": 381
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2892",
+      "mode": "story",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2932",
+      "mode": "story",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:2984",
+      "mode": "story",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3072",
+      "mode": "story",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3204",
+      "mode": "story",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3264",
+      "mode": "story",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3336",
+      "mode": "story",
+      "level": 3,
+      "block": 388
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3460",
+      "mode": "story",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3524",
+      "mode": "story",
+      "level": 3,
+      "block": 390
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3584",
+      "mode": "story",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3660",
+      "mode": "story",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3728",
+      "mode": "story",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3804",
+      "mode": "story",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3900",
+      "mode": "story",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:3944",
+      "mode": "story",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4032",
+      "mode": "story",
+      "level": 3,
+      "block": 397
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4088",
+      "mode": "story",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4180",
+      "mode": "story",
+      "level": 3,
+      "block": 399
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4236",
+      "mode": "story",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4288",
+      "mode": "story",
+      "level": 3,
+      "block": 401
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4364",
+      "mode": "story",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4432",
+      "mode": "story",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4500",
+      "mode": "story",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4544",
+      "mode": "story",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4576",
+      "mode": "story",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4672",
+      "mode": "story",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4756",
+      "mode": "story",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4788",
+      "mode": "story",
+      "level": 3,
+      "block": 409
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4828",
+      "mode": "story",
+      "level": 3,
+      "block": 410
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4872",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4920",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:4972",
+      "mode": "story",
+      "level": 3,
+      "block": 413
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5040",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5072",
+      "mode": "story",
+      "level": 3,
+      "block": 415
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5100",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5176",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5260",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5312",
+      "mode": "story",
+      "level": 3,
+      "block": 419
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5352",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5448",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5480",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5516",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5636",
+      "mode": "story",
+      "level": 3,
+      "block": 424
+    },
+    {
+      "heading": "### Searching the training range",
+      "block": 425,
+      "pl": "### Przeszukiwanie poligonu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5752",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5808",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:5916",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6056",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6104",
+      "mode": "story",
+      "level": 3,
+      "block": 430
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6184",
+      "mode": "story",
+      "level": 3,
+      "block": 431
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6212",
+      "mode": "story",
+      "level": 3,
+      "block": 432
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6316",
+      "mode": "story",
+      "level": 3,
+      "block": 433
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6416",
+      "mode": "story",
+      "level": 3,
+      "block": 434
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6452",
+      "mode": "story",
+      "level": 3,
+      "block": 435
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6496",
+      "mode": "story",
+      "level": 3,
+      "block": 436
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6552",
+      "mode": "story",
+      "level": 3,
+      "block": 437
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6608",
+      "mode": "story",
+      "level": 3,
+      "block": 438
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6664",
+      "mode": "story",
+      "level": 3,
+      "block": 439
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6768",
+      "mode": "story",
+      "level": 3,
+      "block": 440
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6828",
+      "mode": "story",
+      "level": 3,
+      "block": 441
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:6940",
+      "mode": "story",
+      "level": 3,
+      "block": 442
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7052",
+      "mode": "story",
+      "level": 3,
+      "block": 443
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7108",
+      "mode": "story",
+      "level": 3,
+      "block": 444
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7176",
+      "mode": "story",
+      "level": 3,
+      "block": 445
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7232",
+      "mode": "story",
+      "level": 3,
+      "block": 446
+    },
+    {
+      "heading": "#### Situational dialogue — armed Labors",
+      "block": 447,
+      "pl": "#### Dialogi sytuacyjne — uzbrojone Labory"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 448
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7584",
+      "mode": "conditional",
+      "level": 3,
+      "block": 449
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7624",
+      "mode": "conditional",
+      "level": 3,
+      "block": 450
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 451
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7752",
+      "mode": "conditional",
+      "level": 3,
+      "block": 452
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7816",
+      "mode": "conditional",
+      "level": 3,
+      "block": 453
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7872",
+      "mode": "conditional",
+      "level": 3,
+      "block": 454
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:7940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 455
+    },
+    {
+      "heading": "### Connect arrives",
+      "block": 456,
+      "pl": "### Przybycie Connect"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8204",
+      "mode": "story",
+      "level": 3,
+      "block": 457
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8244",
+      "mode": "story",
+      "level": 3,
+      "block": 458
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8348",
+      "mode": "story",
+      "level": 3,
+      "block": 459
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8384",
+      "mode": "story",
+      "level": 3,
+      "block": 460
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8452",
+      "mode": "story",
+      "level": 3,
+      "block": 461
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8508",
+      "mode": "story",
+      "level": 3,
+      "block": 462
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8568",
+      "mode": "story",
+      "level": 3,
+      "block": 463
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8616",
+      "mode": "story",
+      "level": 3,
+      "block": 464
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8684",
+      "mode": "story",
+      "level": 3,
+      "block": 465
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8764",
+      "mode": "story",
+      "level": 3,
+      "block": 466
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8872",
+      "mode": "story",
+      "level": 3,
+      "block": 467
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:8932",
+      "mode": "story",
+      "level": 3,
+      "block": 468
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9036",
+      "mode": "story",
+      "level": 3,
+      "block": 469
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9112",
+      "mode": "story",
+      "level": 3,
+      "block": 470
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9152",
+      "mode": "story",
+      "level": 3,
+      "block": 471
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9236",
+      "mode": "story",
+      "level": 3,
+      "block": 472
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9284",
+      "mode": "story",
+      "level": 3,
+      "block": 473
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9360",
+      "mode": "story",
+      "level": 3,
+      "block": 474
+    },
+    {
+      "heading": "### The black Labor",
+      "block": 475,
+      "pl": "### Czarny Labor"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9640",
+      "mode": "story",
+      "level": 3,
+      "block": 476
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9776",
+      "mode": "story",
+      "level": 3,
+      "block": 477
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9820",
+      "mode": "story",
+      "level": 3,
+      "block": 478
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9876",
+      "mode": "story",
+      "level": 3,
+      "block": 479
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9924",
+      "mode": "story",
+      "level": 3,
+      "block": 480
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:9984",
+      "mode": "story",
+      "level": 3,
+      "block": 481
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10060",
+      "mode": "story",
+      "level": 3,
+      "block": 482
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10132",
+      "mode": "story",
+      "level": 3,
+      "block": 483
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10216",
+      "mode": "story",
+      "level": 3,
+      "block": 484
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10332",
+      "mode": "story",
+      "level": 3,
+      "block": 485
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10376",
+      "mode": "story",
+      "level": 3,
+      "block": 486
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10480",
+      "mode": "story",
+      "level": 3,
+      "block": 487
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10520",
+      "mode": "story",
+      "level": 3,
+      "block": 488
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10596",
+      "mode": "story",
+      "level": 3,
+      "block": 489
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10668",
+      "mode": "story",
+      "level": 3,
+      "block": 490
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10740",
+      "mode": "story",
+      "level": 3,
+      "block": 491
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10792",
+      "mode": "story",
+      "level": 3,
+      "block": 492
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10844",
+      "mode": "story",
+      "level": 3,
+      "block": 493
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10900",
+      "mode": "story",
+      "level": 3,
+      "block": 494
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:10968",
+      "mode": "story",
+      "level": 3,
+      "block": 495
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11216",
+      "mode": "story",
+      "level": 3,
+      "block": 496
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11328",
+      "mode": "story",
+      "level": 3,
+      "block": 497
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11432",
+      "mode": "story",
+      "level": 3,
+      "block": 498
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11488",
+      "mode": "story",
+      "level": 3,
+      "block": 499
+    },
+    {
+      "heading": "#### Conditional dialogue — Noa and Asuma",
+      "block": 500,
+      "pl": "#### Dialogi warunkowe — Noa i Asuma"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11556",
+      "mode": "conditional",
+      "level": 3,
+      "block": 501
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 502
+    },
+    {
+      "heading": "#### Conditional dialogue — Ota and Bud",
+      "block": 503,
+      "pl": "#### Dialogi warunkowe — Ota i Bud"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11848",
+      "mode": "conditional",
+      "level": 3,
+      "block": 504
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:11936",
+      "mode": "conditional",
+      "level": 3,
+      "block": 505
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 506
+    },
+    {
+      "heading": "#### Conditional dialogue — Exart and the Griffon",
+      "block": 507,
+      "pl": "#### Dialogi warunkowe — Exart i Griffon"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12268",
+      "mode": "conditional",
+      "level": 3,
+      "block": 508
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12376",
+      "mode": "conditional",
+      "level": 3,
+      "block": 509
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12468",
+      "mode": "conditional",
+      "level": 3,
+      "block": 510
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12584",
+      "mode": "conditional",
+      "level": 3,
+      "block": 511
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12648",
+      "mode": "conditional",
+      "level": 3,
+      "block": 512
+    },
+    {
+      "heading": "### The Griffon withdraws",
+      "block": 513,
+      "pl": "### Odwrót Griffona"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12836",
+      "mode": "story",
+      "level": 3,
+      "block": 514
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12880",
+      "mode": "story",
+      "level": 3,
+      "block": 515
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:12952",
+      "mode": "story",
+      "level": 3,
+      "block": 516
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13020",
+      "mode": "story",
+      "level": 3,
+      "block": 517
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13072",
+      "mode": "story",
+      "level": 3,
+      "block": 518
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13160",
+      "mode": "story",
+      "level": 3,
+      "block": 519
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13208",
+      "mode": "story",
+      "level": 3,
+      "block": 520
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13300",
+      "mode": "story",
+      "level": 3,
+      "block": 521
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13376",
+      "mode": "story",
+      "level": 3,
+      "block": 522
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13440",
+      "mode": "story",
+      "level": 3,
+      "block": 523
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13500",
+      "mode": "story",
+      "level": 3,
+      "block": 524
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13828",
+      "mode": "story",
+      "level": 3,
+      "block": 525
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:13864",
+      "mode": "story",
+      "level": 3,
+      "block": 526
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14424",
+      "mode": "story",
+      "level": 3,
+      "block": 527
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14464",
+      "mode": "story",
+      "level": 3,
+      "block": 528
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14504",
+      "mode": "story",
+      "level": 3,
+      "block": 529
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14668",
+      "mode": "story",
+      "level": 3,
+      "block": 530
+    },
+    {
+      "heading": "### After the encounter",
+      "block": 531,
+      "pl": "### Po starciu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14776",
+      "mode": "story",
+      "level": 3,
+      "block": 532
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14840",
+      "mode": "story",
+      "level": 3,
+      "block": 533
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14924",
+      "mode": "story",
+      "level": 3,
+      "block": 534
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:14968",
+      "mode": "story",
+      "level": 3,
+      "block": 535
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15080",
+      "mode": "story",
+      "level": 3,
+      "block": 536
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15176",
+      "mode": "story",
+      "level": 3,
+      "block": 537
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15256",
+      "mode": "story",
+      "level": 3,
+      "block": 538
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15324",
+      "mode": "story",
+      "level": 3,
+      "block": 539
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15604",
+      "mode": "story",
+      "level": 3,
+      "block": 540
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15652",
+      "mode": "story",
+      "level": 3,
+      "block": 541
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15744",
+      "mode": "story",
+      "level": 3,
+      "block": 542
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15788",
+      "mode": "story",
+      "level": 3,
+      "block": 543
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15864",
+      "mode": "story",
+      "level": 3,
+      "block": 544
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:15920",
+      "mode": "story",
+      "level": 3,
+      "block": 545
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_20.bin:16016",
+      "mode": "story",
+      "level": 3,
+      "block": 546
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_30.bin",
+      "block": 547,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r2:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:184",
+      "mode": "story",
+      "level": 3,
+      "block": 548
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:304",
+      "mode": "story",
+      "level": 3,
+      "block": 549
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:416",
+      "mode": "story",
+      "level": 3,
+      "block": 550
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:536",
+      "mode": "story",
+      "level": 3,
+      "block": 551
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:724",
+      "mode": "story",
+      "level": 3,
+      "block": 552
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:812",
+      "mode": "story",
+      "level": 3,
+      "block": 553
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:884",
+      "mode": "story",
+      "level": 3,
+      "block": 554
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:980",
+      "mode": "story",
+      "level": 3,
+      "block": 555
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1068",
+      "mode": "story",
+      "level": 3,
+      "block": 556
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1148",
+      "mode": "story",
+      "level": 3,
+      "block": 557
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1212",
+      "mode": "story",
+      "level": 3,
+      "block": 558
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1288",
+      "mode": "story",
+      "level": 3,
+      "block": 559
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1344",
+      "mode": "story",
+      "level": 3,
+      "block": 560
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1404",
+      "mode": "story",
+      "level": 3,
+      "block": 561
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1472",
+      "mode": "story",
+      "level": 3,
+      "block": 562
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1604",
+      "mode": "story",
+      "level": 3,
+      "block": 563
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1688",
+      "mode": "story",
+      "level": 3,
+      "block": 564
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1760",
+      "mode": "story",
+      "level": 3,
+      "block": 565
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1804",
+      "mode": "story",
+      "level": 3,
+      "block": 566
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1864",
+      "mode": "story",
+      "level": 3,
+      "block": 567
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:1928",
+      "mode": "story",
+      "level": 3,
+      "block": 568
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2024",
+      "mode": "story",
+      "level": 3,
+      "block": 569
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2064",
+      "mode": "story",
+      "level": 3,
+      "block": 570
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2100",
+      "mode": "story",
+      "level": 3,
+      "block": 571
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2180",
+      "mode": "story",
+      "level": 3,
+      "block": 572
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2316",
+      "mode": "story",
+      "level": 3,
+      "block": 573
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2352",
+      "mode": "story",
+      "level": 3,
+      "block": 574
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2404",
+      "mode": "story",
+      "level": 3,
+      "block": 575
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2520",
+      "mode": "story",
+      "level": 3,
+      "block": 576
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2596",
+      "mode": "story",
+      "level": 3,
+      "block": 577
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2660",
+      "mode": "story",
+      "level": 3,
+      "block": 578
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2736",
+      "mode": "story",
+      "level": 3,
+      "block": 579
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2852",
+      "mode": "story",
+      "level": 3,
+      "block": 580
+    },
+    {
+      "heading": "### The Cyber Beast Force",
+      "block": 581,
+      "pl": "### Cyber Beast Force"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:2960",
+      "mode": "story",
+      "level": 3,
+      "block": 582
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3024",
+      "mode": "story",
+      "level": 3,
+      "block": 583
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3112",
+      "mode": "story",
+      "level": 3,
+      "block": 584
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3184",
+      "mode": "story",
+      "level": 3,
+      "block": 585
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3216",
+      "mode": "story",
+      "level": 3,
+      "block": 586
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3296",
+      "mode": "story",
+      "level": 3,
+      "block": 587
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3400",
+      "mode": "story",
+      "level": 3,
+      "block": 588
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3440",
+      "mode": "story",
+      "level": 3,
+      "block": 589
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3560",
+      "mode": "story",
+      "level": 3,
+      "block": 590
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3676",
+      "mode": "story",
+      "level": 3,
+      "block": 591
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3732",
+      "mode": "story",
+      "level": 3,
+      "block": 592
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3820",
+      "mode": "story",
+      "level": 3,
+      "block": 593
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3852",
+      "mode": "story",
+      "level": 3,
+      "block": 594
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3900",
+      "mode": "story",
+      "level": 3,
+      "block": 595
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:3968",
+      "mode": "story",
+      "level": 3,
+      "block": 596
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4004",
+      "mode": "story",
+      "level": 3,
+      "block": 597
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4060",
+      "mode": "story",
+      "level": 3,
+      "block": 598
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4104",
+      "mode": "story",
+      "level": 3,
+      "block": 599
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4184",
+      "mode": "story",
+      "level": 3,
+      "block": 600
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4248",
+      "mode": "story",
+      "level": 3,
+      "block": 601
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4320",
+      "mode": "story",
+      "level": 3,
+      "block": 602
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4416",
+      "mode": "story",
+      "level": 3,
+      "block": 603
+    },
+    {
+      "heading": "### Chief Suol",
+      "block": 604,
+      "pl": "### Szef Suol"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4508",
+      "mode": "story",
+      "level": 3,
+      "block": 605
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4560",
+      "mode": "story",
+      "level": 3,
+      "block": 606
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4612",
+      "mode": "story",
+      "level": 3,
+      "block": 607
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4700",
+      "mode": "story",
+      "level": 3,
+      "block": 608
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4772",
+      "mode": "story",
+      "level": 3,
+      "block": 609
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4836",
+      "mode": "story",
+      "level": 3,
+      "block": 610
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4912",
+      "mode": "story",
+      "level": 3,
+      "block": 611
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:4960",
+      "mode": "story",
+      "level": 3,
+      "block": 612
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5056",
+      "mode": "story",
+      "level": 3,
+      "block": 613
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5140",
+      "mode": "story",
+      "level": 3,
+      "block": 614
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5220",
+      "mode": "story",
+      "level": 3,
+      "block": 615
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5256",
+      "mode": "story",
+      "level": 3,
+      "block": 616
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5356",
+      "mode": "story",
+      "level": 3,
+      "block": 617
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5424",
+      "mode": "story",
+      "level": 3,
+      "block": 618
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5476",
+      "mode": "story",
+      "level": 3,
+      "block": 619
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5568",
+      "mode": "story",
+      "level": 3,
+      "block": 620
+    },
+    {
+      "heading": "### The joint exercise",
+      "block": 621,
+      "pl": "### Wspólne ćwiczenia"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5688",
+      "mode": "story",
+      "level": 3,
+      "block": 622
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5784",
+      "mode": "story",
+      "level": 3,
+      "block": 623
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5844",
+      "mode": "story",
+      "level": 3,
+      "block": 624
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:5988",
+      "mode": "story",
+      "level": 3,
+      "block": 625
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6024",
+      "mode": "story",
+      "level": 3,
+      "block": 626
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6132",
+      "mode": "story",
+      "level": 3,
+      "block": 627
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6196",
+      "mode": "story",
+      "level": 3,
+      "block": 628
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6256",
+      "mode": "story",
+      "level": 3,
+      "block": 629
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6356",
+      "mode": "story",
+      "level": 3,
+      "block": 630
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6400",
+      "mode": "story",
+      "level": 3,
+      "block": 631
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6484",
+      "mode": "story",
+      "level": 3,
+      "block": 632
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6552",
+      "mode": "story",
+      "level": 3,
+      "block": 633
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6604",
+      "mode": "story",
+      "level": 3,
+      "block": 634
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6640",
+      "mode": "story",
+      "level": 3,
+      "block": 635
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6752",
+      "mode": "story",
+      "level": 3,
+      "block": 636
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6824",
+      "mode": "story",
+      "level": 3,
+      "block": 637
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6888",
+      "mode": "story",
+      "level": 3,
+      "block": 638
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:6924",
+      "mode": "story",
+      "level": 3,
+      "block": 639
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7004",
+      "mode": "story",
+      "level": 3,
+      "block": 640
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7056",
+      "mode": "story",
+      "level": 3,
+      "block": 641
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7124",
+      "mode": "story",
+      "level": 3,
+      "block": 642
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7260",
+      "mode": "story",
+      "level": 3,
+      "block": 643
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7288",
+      "mode": "story",
+      "level": 3,
+      "block": 644
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7400",
+      "mode": "story",
+      "level": 3,
+      "block": 645
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:7432",
+      "mode": "story",
+      "level": 3,
+      "block": 646
+    },
+    {
+      "heading": "### Exart's limits",
+      "block": 647,
+      "pl": "### Ograniczenia Exarta"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8312",
+      "mode": "story",
+      "level": 3,
+      "block": 648
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8400",
+      "mode": "story",
+      "level": 3,
+      "block": 649
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8492",
+      "mode": "story",
+      "level": 3,
+      "block": 650
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8540",
+      "mode": "story",
+      "level": 3,
+      "block": 651
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8600",
+      "mode": "story",
+      "level": 3,
+      "block": 652
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8644",
+      "mode": "story",
+      "level": 3,
+      "block": 653
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8692",
+      "mode": "story",
+      "level": 3,
+      "block": 654
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8764",
+      "mode": "story",
+      "level": 3,
+      "block": 655
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8844",
+      "mode": "story",
+      "level": 3,
+      "block": 656
+    },
+    {
+      "heading": "### Final Dancouga",
+      "block": 657,
+      "pl": "### Final Dancouga"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8912",
+      "mode": "story",
+      "level": 3,
+      "block": 658
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:8976",
+      "mode": "story",
+      "level": 3,
+      "block": 659
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9040",
+      "mode": "story",
+      "level": 3,
+      "block": 660
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9096",
+      "mode": "story",
+      "level": 3,
+      "block": 661
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9144",
+      "mode": "story",
+      "level": 3,
+      "block": 662
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9208",
+      "mode": "story",
+      "level": 3,
+      "block": 663
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9272",
+      "mode": "story",
+      "level": 3,
+      "block": 664
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9352",
+      "mode": "story",
+      "level": 3,
+      "block": 665
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9408",
+      "mode": "story",
+      "level": 3,
+      "block": 666
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9488",
+      "mode": "story",
+      "level": 3,
+      "block": 667
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:9636",
+      "mode": "story",
+      "level": 3,
+      "block": 668
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:10768",
+      "mode": "story",
+      "level": 3,
+      "block": 669
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:10840",
+      "mode": "story",
+      "level": 3,
+      "block": 670
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:10888",
+      "mode": "story",
+      "level": 3,
+      "block": 671
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:10948",
+      "mode": "story",
+      "level": 3,
+      "block": 672
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11008",
+      "mode": "story",
+      "level": 3,
+      "block": 673
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11084",
+      "mode": "story",
+      "level": 3,
+      "block": 674
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11216",
+      "mode": "story",
+      "level": 3,
+      "block": 675
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11312",
+      "mode": "story",
+      "level": 3,
+      "block": 676
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11380",
+      "mode": "story",
+      "level": 3,
+      "block": 677
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11444",
+      "mode": "story",
+      "level": 3,
+      "block": 678
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11504",
+      "mode": "story",
+      "level": 3,
+      "block": 679
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11580",
+      "mode": "story",
+      "level": 3,
+      "block": 680
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11664",
+      "mode": "story",
+      "level": 3,
+      "block": 681
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11748",
+      "mode": "story",
+      "level": 3,
+      "block": 682
+    },
+    {
+      "heading": "#### Situational training dialogue — pushed to the limit",
+      "block": 683,
+      "pl": "#### Dialogi treningowe — sytuacyjne — na granicy możliwości"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:11972",
+      "mode": "conditional",
+      "level": 3,
+      "block": 684
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12024",
+      "mode": "conditional",
+      "level": 3,
+      "block": 685
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 686
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12168",
+      "mode": "conditional",
+      "level": 3,
+      "block": 687
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12220",
+      "mode": "conditional",
+      "level": 3,
+      "block": 688
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 689
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12340",
+      "mode": "conditional",
+      "level": 3,
+      "block": 690
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 691
+    },
+    {
+      "heading": "### The exercise ends",
+      "block": 692,
+      "pl": "### Koniec ćwiczeń"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12560",
+      "mode": "story",
+      "level": 3,
+      "block": 693
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12644",
+      "mode": "story",
+      "level": 3,
+      "block": 694
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12720",
+      "mode": "story",
+      "level": 3,
+      "block": 695
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12780",
+      "mode": "story",
+      "level": 3,
+      "block": 696
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:12844",
+      "mode": "story",
+      "level": 3,
+      "block": 697
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13020",
+      "mode": "story",
+      "level": 3,
+      "block": 698
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13076",
+      "mode": "story",
+      "level": 3,
+      "block": 699
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13152",
+      "mode": "story",
+      "level": 3,
+      "block": 700
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13224",
+      "mode": "story",
+      "level": 3,
+      "block": 701
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13296",
+      "mode": "story",
+      "level": 3,
+      "block": 702
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13360",
+      "mode": "story",
+      "level": 3,
+      "block": 703
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13424",
+      "mode": "story",
+      "level": 3,
+      "block": 704
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13504",
+      "mode": "story",
+      "level": 3,
+      "block": 705
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13588",
+      "mode": "story",
+      "level": 3,
+      "block": 706
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13668",
+      "mode": "story",
+      "level": 3,
+      "block": 707
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13708",
+      "mode": "story",
+      "level": 3,
+      "block": 708
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13792",
+      "mode": "story",
+      "level": 3,
+      "block": 709
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13820",
+      "mode": "story",
+      "level": 3,
+      "block": 710
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13892",
+      "mode": "story",
+      "level": 3,
+      "block": 711
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:13928",
+      "mode": "story",
+      "level": 3,
+      "block": 712
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14032",
+      "mode": "story",
+      "level": 3,
+      "block": 713
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14140",
+      "mode": "story",
+      "level": 3,
+      "block": 714
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14188",
+      "mode": "story",
+      "level": 3,
+      "block": 715
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14260",
+      "mode": "story",
+      "level": 3,
+      "block": 716
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14288",
+      "mode": "story",
+      "level": 3,
+      "block": 717
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14348",
+      "mode": "story",
+      "level": 3,
+      "block": 718
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14428",
+      "mode": "story",
+      "level": 3,
+      "block": 719
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14484",
+      "mode": "story",
+      "level": 3,
+      "block": 720
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14576",
+      "mode": "story",
+      "level": 3,
+      "block": 721
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14648",
+      "mode": "story",
+      "level": 3,
+      "block": 722
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14724",
+      "mode": "story",
+      "level": 3,
+      "block": 723
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14808",
+      "mode": "story",
+      "level": 3,
+      "block": 724
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14880",
+      "mode": "story",
+      "level": 3,
+      "block": 725
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:14988",
+      "mode": "story",
+      "level": 3,
+      "block": 726
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:15040",
+      "mode": "story",
+      "level": 3,
+      "block": 727
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:15128",
+      "mode": "story",
+      "level": 3,
+      "block": 728
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:15224",
+      "mode": "story",
+      "level": 3,
+      "block": 729
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:15268",
+      "mode": "story",
+      "level": 3,
+      "block": 730
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_30.bin:15332",
+      "mode": "story",
+      "level": 3,
+      "block": 731
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_40.bin",
+      "block": 732,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r3:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:240",
+      "mode": "story",
+      "level": 3,
+      "block": 733
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:372",
+      "mode": "story",
+      "level": 3,
+      "block": 734
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:492",
+      "mode": "story",
+      "level": 3,
+      "block": 735
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:568",
+      "mode": "story",
+      "level": 3,
+      "block": 736
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:708",
+      "mode": "story",
+      "level": 3,
+      "block": 737
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:812",
+      "mode": "story",
+      "level": 3,
+      "block": 738
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:944",
+      "mode": "story",
+      "level": 3,
+      "block": 739
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1012",
+      "mode": "story",
+      "level": 3,
+      "block": 740
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 741
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1188",
+      "mode": "story",
+      "level": 3,
+      "block": 742
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1248",
+      "mode": "story",
+      "level": 3,
+      "block": 743
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1348",
+      "mode": "story",
+      "level": 3,
+      "block": 744
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1432",
+      "mode": "story",
+      "level": 3,
+      "block": 745
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1500",
+      "mode": "story",
+      "level": 3,
+      "block": 746
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1648",
+      "mode": "story",
+      "level": 3,
+      "block": 747
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1712",
+      "mode": "story",
+      "level": 3,
+      "block": 748
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1784",
+      "mode": "story",
+      "level": 3,
+      "block": 749
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:1844",
+      "mode": "story",
+      "level": 3,
+      "block": 750
+    },
+    {
+      "heading": "### Zeon's descent",
+      "block": 751,
+      "pl": "### Desant Zeonu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:2828",
+      "mode": "story",
+      "level": 3,
+      "block": 752
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:2900",
+      "mode": "story",
+      "level": 3,
+      "block": 753
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:2956",
+      "mode": "story",
+      "level": 3,
+      "block": 754
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3100",
+      "mode": "story",
+      "level": 3,
+      "block": 755
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 756
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3460",
+      "mode": "story",
+      "level": 3,
+      "block": 757
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3528",
+      "mode": "story",
+      "level": 3,
+      "block": 758
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3604",
+      "mode": "story",
+      "level": 3,
+      "block": 759
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3640",
+      "mode": "story",
+      "level": 3,
+      "block": 760
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3684",
+      "mode": "story",
+      "level": 3,
+      "block": 761
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3728",
+      "mode": "story",
+      "level": 3,
+      "block": 762
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:3792",
+      "mode": "story",
+      "level": 3,
+      "block": 763
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4044",
+      "mode": "story",
+      "level": 3,
+      "block": 764
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4088",
+      "mode": "story",
+      "level": 3,
+      "block": 765
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4136",
+      "mode": "story",
+      "level": 3,
+      "block": 766
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4188",
+      "mode": "story",
+      "level": 3,
+      "block": 767
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4400",
+      "mode": "story",
+      "level": 3,
+      "block": 768
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4488",
+      "mode": "story",
+      "level": 3,
+      "block": 769
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4548",
+      "mode": "story",
+      "level": 3,
+      "block": 770
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4636",
+      "mode": "story",
+      "level": 3,
+      "block": 771
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:4688",
+      "mode": "story",
+      "level": 3,
+      "block": 772
+    },
+    {
+      "heading": "#### Conditional dialogue — Amuro and Char",
+      "block": 773,
+      "pl": "#### Dialogi warunkowe — Amuro i Char"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5152",
+      "mode": "conditional",
+      "level": 3,
+      "block": 774
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5196",
+      "mode": "conditional",
+      "level": 3,
+      "block": 775
+    },
+    {
+      "heading": "#### Conditional dialogue — Shiro and Char",
+      "block": 776,
+      "pl": "#### Dialogi warunkowe — Shiro i Char"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 777
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 778
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 779
+    },
+    {
+      "heading": "#### Conditional dialogue — Karen and Char",
+      "block": 780,
+      "pl": "#### Dialogi warunkowe — Karen i Char"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 781
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:5892",
+      "mode": "conditional",
+      "level": 3,
+      "block": 782
+    },
+    {
+      "heading": "#### Conditional dialogue — Sanders and Char",
+      "block": 783,
+      "pl": "#### Dialogi warunkowe — Sanders i Char"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6100",
+      "mode": "conditional",
+      "level": 3,
+      "block": 784
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6164",
+      "mode": "conditional",
+      "level": 3,
+      "block": 785
+    },
+    {
+      "heading": "#### Conditional dialogue — Sayla and Char",
+      "block": 786,
+      "pl": "#### Dialogi warunkowe — Sayla i Char"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 787
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 788
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 789
+    },
+    {
+      "heading": "#### Conditional dialogue — Kai",
+      "block": 790,
+      "pl": "#### Dialogi warunkowe — Kai"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6792",
+      "mode": "conditional",
+      "level": 3,
+      "block": 791
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:6832",
+      "mode": "conditional",
+      "level": 3,
+      "block": 792
+    },
+    {
+      "heading": "#### Conditional dialogue — Char pulls back",
+      "block": 793,
+      "pl": "#### Dialogi warunkowe — odwrót Chara"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 794
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 795
+    },
+    {
+      "heading": "#### Situational dialogue — new arrivals",
+      "block": 796,
+      "pl": "#### Dialogi sytuacyjne — nowo przybyli"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7400",
+      "mode": "conditional",
+      "level": 3,
+      "block": 797
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 798
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 799
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:7612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 800
+    },
+    {
+      "heading": "### The attack repelled",
+      "block": 801,
+      "pl": "### Atak odparty"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8288",
+      "mode": "story",
+      "level": 3,
+      "block": 802
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8348",
+      "mode": "story",
+      "level": 3,
+      "block": 803
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8412",
+      "mode": "story",
+      "level": 3,
+      "block": 804
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8492",
+      "mode": "story",
+      "level": 3,
+      "block": 805
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8636",
+      "mode": "story",
+      "level": 3,
+      "block": 806
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8708",
+      "mode": "story",
+      "level": 3,
+      "block": 807
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8752",
+      "mode": "story",
+      "level": 3,
+      "block": 808
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8844",
+      "mode": "story",
+      "level": 3,
+      "block": 809
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8896",
+      "mode": "story",
+      "level": 3,
+      "block": 810
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:8952",
+      "mode": "story",
+      "level": 3,
+      "block": 811
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9092",
+      "mode": "story",
+      "level": 3,
+      "block": 812
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9176",
+      "mode": "story",
+      "level": 3,
+      "block": 813
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9236",
+      "mode": "story",
+      "level": 3,
+      "block": 814
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9360",
+      "mode": "story",
+      "level": 3,
+      "block": 815
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9456",
+      "mode": "story",
+      "level": 3,
+      "block": 816
+    },
+    {
+      "heading": "### The war turns toward space",
+      "block": 817,
+      "pl": "### Wojna przenosi się w kosmos"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9496",
+      "mode": "story",
+      "level": 3,
+      "block": 818
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9596",
+      "mode": "story",
+      "level": 3,
+      "block": 819
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9728",
+      "mode": "story",
+      "level": 3,
+      "block": 820
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_40.bin:9864",
+      "mode": "story",
+      "level": 3,
+      "block": 821
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_50.bin",
+      "block": 822,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r4:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:236",
+      "mode": "story",
+      "level": 3,
+      "block": 823
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:296",
+      "mode": "story",
+      "level": 3,
+      "block": 824
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:404",
+      "mode": "story",
+      "level": 3,
+      "block": 825
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:516",
+      "mode": "story",
+      "level": 3,
+      "block": 826
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:676",
+      "mode": "story",
+      "level": 3,
+      "block": 827
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:728",
+      "mode": "story",
+      "level": 3,
+      "block": 828
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:832",
+      "mode": "story",
+      "level": 3,
+      "block": 829
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:936",
+      "mode": "story",
+      "level": 3,
+      "block": 830
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1004",
+      "mode": "story",
+      "level": 3,
+      "block": 831
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1116",
+      "mode": "story",
+      "level": 3,
+      "block": 832
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1184",
+      "mode": "story",
+      "level": 3,
+      "block": 833
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1272",
+      "mode": "story",
+      "level": 3,
+      "block": 834
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1320",
+      "mode": "story",
+      "level": 3,
+      "block": 835
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1428",
+      "mode": "story",
+      "level": 3,
+      "block": 836
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1548",
+      "mode": "story",
+      "level": 3,
+      "block": 837
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1592",
+      "mode": "story",
+      "level": 3,
+      "block": 838
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1708",
+      "mode": "story",
+      "level": 3,
+      "block": 839
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1764",
+      "mode": "story",
+      "level": 3,
+      "block": 840
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1788",
+      "mode": "story",
+      "level": 3,
+      "block": 841
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1860",
+      "mode": "story",
+      "level": 3,
+      "block": 842
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:1964",
+      "mode": "story",
+      "level": 3,
+      "block": 843
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2056",
+      "mode": "story",
+      "level": 3,
+      "block": 844
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2144",
+      "mode": "story",
+      "level": 3,
+      "block": 845
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2180",
+      "mode": "story",
+      "level": 3,
+      "block": 846
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2252",
+      "mode": "story",
+      "level": 3,
+      "block": 847
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2300",
+      "mode": "story",
+      "level": 3,
+      "block": 848
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2340",
+      "mode": "story",
+      "level": 3,
+      "block": 849
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2408",
+      "mode": "story",
+      "level": 3,
+      "block": 850
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2464",
+      "mode": "story",
+      "level": 3,
+      "block": 851
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2508",
+      "mode": "story",
+      "level": 3,
+      "block": 852
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2592",
+      "mode": "story",
+      "level": 3,
+      "block": 853
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2672",
+      "mode": "story",
+      "level": 3,
+      "block": 854
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 855
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2788",
+      "mode": "story",
+      "level": 3,
+      "block": 856
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2828",
+      "mode": "story",
+      "level": 3,
+      "block": 857
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2908",
+      "mode": "story",
+      "level": 3,
+      "block": 858
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:2992",
+      "mode": "story",
+      "level": 3,
+      "block": 859
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3092",
+      "mode": "story",
+      "level": 3,
+      "block": 860
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3172",
+      "mode": "story",
+      "level": 3,
+      "block": 861
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3240",
+      "mode": "story",
+      "level": 3,
+      "block": 862
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3324",
+      "mode": "story",
+      "level": 3,
+      "block": 863
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3452",
+      "mode": "story",
+      "level": 3,
+      "block": 864
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3524",
+      "mode": "story",
+      "level": 3,
+      "block": 865
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3644",
+      "mode": "story",
+      "level": 3,
+      "block": 866
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3680",
+      "mode": "story",
+      "level": 3,
+      "block": 867
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3764",
+      "mode": "story",
+      "level": 3,
+      "block": 868
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3828",
+      "mode": "story",
+      "level": 3,
+      "block": 869
+    },
+    {
+      "heading": "### A giant mobile armor approaches",
+      "block": 870,
+      "pl": "### Nadciąga olbrzymi mobilny pancerz"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:3932",
+      "mode": "story",
+      "level": 3,
+      "block": 871
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4008",
+      "mode": "story",
+      "level": 3,
+      "block": 872
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4052",
+      "mode": "story",
+      "level": 3,
+      "block": 873
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4112",
+      "mode": "story",
+      "level": 3,
+      "block": 874
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4172",
+      "mode": "story",
+      "level": 3,
+      "block": 875
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4280",
+      "mode": "story",
+      "level": 3,
+      "block": 876
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4344",
+      "mode": "story",
+      "level": 3,
+      "block": 877
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4384",
+      "mode": "story",
+      "level": 3,
+      "block": 878
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4440",
+      "mode": "story",
+      "level": 3,
+      "block": 879
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4716",
+      "mode": "story",
+      "level": 3,
+      "block": 880
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4792",
+      "mode": "story",
+      "level": 3,
+      "block": 881
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4852",
+      "mode": "story",
+      "level": 3,
+      "block": 882
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:4932",
+      "mode": "story",
+      "level": 3,
+      "block": 883
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5012",
+      "mode": "story",
+      "level": 3,
+      "block": 884
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5132",
+      "mode": "story",
+      "level": 3,
+      "block": 885
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5304",
+      "mode": "story",
+      "level": 3,
+      "block": 886
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5376",
+      "mode": "story",
+      "level": 3,
+      "block": 887
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5464",
+      "mode": "story",
+      "level": 3,
+      "block": 888
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5492",
+      "mode": "story",
+      "level": 3,
+      "block": 889
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5544",
+      "mode": "story",
+      "level": 3,
+      "block": 890
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5624",
+      "mode": "story",
+      "level": 3,
+      "block": 891
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5660",
+      "mode": "story",
+      "level": 3,
+      "block": 892
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5780",
+      "mode": "story",
+      "level": 3,
+      "block": 893
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5840",
+      "mode": "story",
+      "level": 3,
+      "block": 894
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5920",
+      "mode": "story",
+      "level": 3,
+      "block": 895
+    },
+    {
+      "heading": "### Ginias's resolve",
+      "block": 896,
+      "pl": "### Determinacja Giniasa"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:5984",
+      "mode": "story",
+      "level": 3,
+      "block": 897
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6084",
+      "mode": "story",
+      "level": 3,
+      "block": 898
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6180",
+      "mode": "story",
+      "level": 3,
+      "block": 899
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6228",
+      "mode": "story",
+      "level": 3,
+      "block": 900
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6268",
+      "mode": "story",
+      "level": 3,
+      "block": 901
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6324",
+      "mode": "story",
+      "level": 3,
+      "block": 902
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6372",
+      "mode": "story",
+      "level": 3,
+      "block": 903
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6456",
+      "mode": "story",
+      "level": 3,
+      "block": 904
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6532",
+      "mode": "story",
+      "level": 3,
+      "block": 905
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6616",
+      "mode": "story",
+      "level": 3,
+      "block": 906
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6732",
+      "mode": "story",
+      "level": 3,
+      "block": 907
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6784",
+      "mode": "story",
+      "level": 3,
+      "block": 908
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6888",
+      "mode": "story",
+      "level": 3,
+      "block": 909
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6956",
+      "mode": "story",
+      "level": 3,
+      "block": 910
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:6992",
+      "mode": "story",
+      "level": 3,
+      "block": 911
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7056",
+      "mode": "story",
+      "level": 3,
+      "block": 912
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7084",
+      "mode": "story",
+      "level": 3,
+      "block": 913
+    },
+    {
+      "heading": "#### Conditional dialogue — Shiro and Ginias",
+      "block": 914,
+      "pl": "#### Dialogi warunkowe — Shiro i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7692",
+      "mode": "conditional",
+      "level": 3,
+      "block": 915
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7768",
+      "mode": "conditional",
+      "level": 3,
+      "block": 916
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 917
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7844",
+      "mode": "conditional",
+      "level": 3,
+      "block": 918
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 919
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7932",
+      "mode": "conditional",
+      "level": 3,
+      "block": 920
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:7972",
+      "mode": "conditional",
+      "level": 3,
+      "block": 921
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8028",
+      "mode": "conditional",
+      "level": 3,
+      "block": 922
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 923
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8188",
+      "mode": "conditional",
+      "level": 3,
+      "block": 924
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 925
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 926
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 927
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8548",
+      "mode": "conditional",
+      "level": 3,
+      "block": 928
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8588",
+      "mode": "conditional",
+      "level": 3,
+      "block": 929
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8692",
+      "mode": "conditional",
+      "level": 3,
+      "block": 930
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 931
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:8884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 932
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 933
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 934
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 935
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 936
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9332",
+      "mode": "conditional",
+      "level": 3,
+      "block": 937
+    },
+    {
+      "heading": "### The Apsalus opens fire",
+      "block": 938,
+      "pl": "### Apsalus otwiera ogień"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9456",
+      "mode": "story",
+      "level": 3,
+      "block": 939
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9604",
+      "mode": "story",
+      "level": 3,
+      "block": 940
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:9648",
+      "mode": "story",
+      "level": 3,
+      "block": 941
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10044",
+      "mode": "story",
+      "level": 3,
+      "block": 942
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10396",
+      "mode": "story",
+      "level": 3,
+      "block": 943
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10544",
+      "mode": "story",
+      "level": 3,
+      "block": 944
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10604",
+      "mode": "story",
+      "level": 3,
+      "block": 945
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10672",
+      "mode": "story",
+      "level": 3,
+      "block": 946
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10732",
+      "mode": "story",
+      "level": 3,
+      "block": 947
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:10812",
+      "mode": "story",
+      "level": 3,
+      "block": 948
+    },
+    {
+      "heading": "#### Situational dialogue — the mega particle cannon",
+      "block": 949,
+      "pl": "#### Dialogi sytuacyjne — działo megacząsteczkowe"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:11280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 950
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:11760",
+      "mode": "conditional",
+      "level": 3,
+      "block": 951
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:11804",
+      "mode": "conditional",
+      "level": 3,
+      "block": 952
+    },
+    {
+      "heading": "#### Conditional dialogue — Amuro and Ramba Ral",
+      "block": 953,
+      "pl": "#### Dialogi warunkowe — Amuro i Ramba Ral"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 954
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 955
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 956
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 957
+    },
+    {
+      "heading": "#### Conditional dialogue — Sanders and the Apsalus",
+      "block": 958,
+      "pl": "#### Dialogi warunkowe — Sanders i Apsalus"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 959
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 960
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12680",
+      "mode": "conditional",
+      "level": 3,
+      "block": 961
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12756",
+      "mode": "conditional",
+      "level": 3,
+      "block": 962
+    },
+    {
+      "heading": "#### Conditional dialogue — Karen and Ginias",
+      "block": 963,
+      "pl": "#### Dialogi warunkowe — Karen i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:12968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 964
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 965
+    },
+    {
+      "heading": "#### Conditional dialogue — Shiro's decision",
+      "block": 966,
+      "pl": "#### Dialogi warunkowe — decyzja Shiro"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13240",
+      "mode": "conditional",
+      "level": 3,
+      "block": 967
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 968
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13420",
+      "mode": "conditional",
+      "level": 3,
+      "block": 969
+    },
+    {
+      "heading": "#### Conditional dialogue — Shiro and Ramba Ral",
+      "block": 970,
+      "pl": "#### Dialogi warunkowe — Shiro i Ramba Ral"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13644",
+      "mode": "conditional",
+      "level": 3,
+      "block": 971
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 972
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13780",
+      "mode": "conditional",
+      "level": 3,
+      "block": 973
+    },
+    {
+      "heading": "#### Conditional dialogue — Amuro and Ginias",
+      "block": 974,
+      "pl": "#### Dialogi warunkowe — Amuro i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:13988",
+      "mode": "conditional",
+      "level": 3,
+      "block": 975
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14080",
+      "mode": "conditional",
+      "level": 3,
+      "block": 976
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 977
+    },
+    {
+      "heading": "#### Conditional dialogue — Sayla and Ginias",
+      "block": 978,
+      "pl": "#### Dialogi warunkowe — Sayla i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 979
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 980
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 981
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 982
+    },
+    {
+      "heading": "#### Conditional dialogue — Hayato and Ginias",
+      "block": 983,
+      "pl": "#### Dialogi warunkowe — Hayato i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14864",
+      "mode": "conditional",
+      "level": 3,
+      "block": 984
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 985
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:14996",
+      "mode": "conditional",
+      "level": 3,
+      "block": 986
+    },
+    {
+      "heading": "#### Conditional dialogue — Kai and Ginias",
+      "block": 987,
+      "pl": "#### Dialogi warunkowe — Kai i Ginias"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:15224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 988
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:15320",
+      "mode": "conditional",
+      "level": 3,
+      "block": 989
+    },
+    {
+      "heading": "#### Conditional dialogue — Amuro and Hamon",
+      "block": 990,
+      "pl": "#### Dialogi warunkowe — Amuro i Hamon"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:15596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 991
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:15696",
+      "mode": "conditional",
+      "level": 3,
+      "block": 992
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:15784",
+      "mode": "conditional",
+      "level": 3,
+      "block": 993
+    },
+    {
+      "heading": "#### Conditional dialogue — Sayla and Ramba Ral",
+      "block": 994,
+      "pl": "#### Dialogi warunkowe — Sayla i Ramba Ral"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 995
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16096",
+      "mode": "conditional",
+      "level": 3,
+      "block": 996
+    },
+    {
+      "heading": "#### Conditional dialogue — Zeon withdrawals",
+      "block": 997,
+      "pl": "#### Dialogi warunkowe — odwroty sił Zeonu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 998
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 999
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16588",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1000
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16788",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1001
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:16984",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1002
+    },
+    {
+      "heading": "### The fall of the Apsalus",
+      "block": 1003,
+      "pl": "### Upadek Apsalusa"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:17560",
+      "mode": "story",
+      "level": 3,
+      "block": 1004
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:17624",
+      "mode": "story",
+      "level": 3,
+      "block": 1005
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:18456",
+      "mode": "story",
+      "level": 3,
+      "block": 1006
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:18532",
+      "mode": "story",
+      "level": 3,
+      "block": 1007
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:18612",
+      "mode": "story",
+      "level": 3,
+      "block": 1008
+    },
+    {
+      "heading": "### Operation complete",
+      "block": 1009,
+      "pl": "### Operacja zakończona"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:18900",
+      "mode": "story",
+      "level": 3,
+      "block": 1010
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:18980",
+      "mode": "story",
+      "level": 3,
+      "block": 1011
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19040",
+      "mode": "story",
+      "level": 3,
+      "block": 1012
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19192",
+      "mode": "story",
+      "level": 3,
+      "block": 1013
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19264",
+      "mode": "story",
+      "level": 3,
+      "block": 1014
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19308",
+      "mode": "story",
+      "level": 3,
+      "block": 1015
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19384",
+      "mode": "story",
+      "level": 3,
+      "block": 1016
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19480",
+      "mode": "story",
+      "level": 3,
+      "block": 1017
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19532",
+      "mode": "story",
+      "level": 3,
+      "block": 1018
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19608",
+      "mode": "story",
+      "level": 3,
+      "block": 1019
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19672",
+      "mode": "story",
+      "level": 3,
+      "block": 1020
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19704",
+      "mode": "story",
+      "level": 3,
+      "block": 1021
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19752",
+      "mode": "story",
+      "level": 3,
+      "block": 1022
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19796",
+      "mode": "story",
+      "level": 3,
+      "block": 1023
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19860",
+      "mode": "story",
+      "level": 3,
+      "block": 1024
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:19968",
+      "mode": "story",
+      "level": 3,
+      "block": 1025
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20016",
+      "mode": "story",
+      "level": 3,
+      "block": 1026
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20076",
+      "mode": "story",
+      "level": 3,
+      "block": 1027
+    },
+    {
+      "heading": "### Leaving Earth",
+      "block": 1028,
+      "pl": "### Opuszczenie Ziemi"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20156",
+      "mode": "story",
+      "level": 3,
+      "block": 1029
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20232",
+      "mode": "story",
+      "level": 3,
+      "block": 1030
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20336",
+      "mode": "story",
+      "level": 3,
+      "block": 1031
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20428",
+      "mode": "story",
+      "level": 3,
+      "block": 1032
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_50.bin:20532",
+      "mode": "story",
+      "level": 3,
+      "block": 1033
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_60.bin",
+      "block": 1034,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r5:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 1035
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:316",
+      "mode": "story",
+      "level": 3,
+      "block": 1036
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:408",
+      "mode": "story",
+      "level": 3,
+      "block": 1037
+    },
+    {
+      "heading": "### Zanzibar — after leaving the atmosphere",
+      "block": 1038,
+      "pl": "### Zanzibar — po opuszczeniu atmosfery"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:616",
+      "mode": "story",
+      "level": 3,
+      "block": 1039
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:700",
+      "mode": "story",
+      "level": 3,
+      "block": 1040
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:772",
+      "mode": "story",
+      "level": 3,
+      "block": 1041
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:828",
+      "mode": "story",
+      "level": 3,
+      "block": 1042
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:920",
+      "mode": "story",
+      "level": 3,
+      "block": 1043
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:972",
+      "mode": "story",
+      "level": 3,
+      "block": 1044
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1060",
+      "mode": "story",
+      "level": 3,
+      "block": 1045
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1104",
+      "mode": "story",
+      "level": 3,
+      "block": 1046
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1204",
+      "mode": "story",
+      "level": 3,
+      "block": 1047
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1300",
+      "mode": "story",
+      "level": 3,
+      "block": 1048
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1368",
+      "mode": "story",
+      "level": 3,
+      "block": 1049
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1416",
+      "mode": "story",
+      "level": 3,
+      "block": 1050
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1512",
+      "mode": "story",
+      "level": 3,
+      "block": 1051
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1564",
+      "mode": "story",
+      "level": 3,
+      "block": 1052
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1624",
+      "mode": "story",
+      "level": 3,
+      "block": 1053
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1680",
+      "mode": "story",
+      "level": 3,
+      "block": 1054
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1764",
+      "mode": "story",
+      "level": 3,
+      "block": 1055
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1804",
+      "mode": "story",
+      "level": 3,
+      "block": 1056
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1892",
+      "mode": "story",
+      "level": 3,
+      "block": 1057
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:1952",
+      "mode": "story",
+      "level": 3,
+      "block": 1058
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2008",
+      "mode": "story",
+      "level": 3,
+      "block": 1059
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2088",
+      "mode": "story",
+      "level": 3,
+      "block": 1060
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2160",
+      "mode": "story",
+      "level": 3,
+      "block": 1061
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2212",
+      "mode": "story",
+      "level": 3,
+      "block": 1062
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2248",
+      "mode": "story",
+      "level": 3,
+      "block": 1063
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2300",
+      "mode": "story",
+      "level": 3,
+      "block": 1064
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2344",
+      "mode": "story",
+      "level": 3,
+      "block": 1065
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2404",
+      "mode": "story",
+      "level": 3,
+      "block": 1066
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2484",
+      "mode": "story",
+      "level": 3,
+      "block": 1067
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2600",
+      "mode": "story",
+      "level": 3,
+      "block": 1068
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2640",
+      "mode": "story",
+      "level": 3,
+      "block": 1069
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2732",
+      "mode": "story",
+      "level": 3,
+      "block": 1070
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:2828",
+      "mode": "story",
+      "level": 3,
+      "block": 1071
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3120",
+      "mode": "story",
+      "level": 3,
+      "block": 1072
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3204",
+      "mode": "story",
+      "level": 3,
+      "block": 1073
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3304",
+      "mode": "story",
+      "level": 3,
+      "block": 1074
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 1075
+    },
+    {
+      "heading": "#### Conditional and situational battle dialogue",
+      "block": 1076,
+      "pl": "#### Dialogi bojowe — warunkowe i sytuacyjne"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3744",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1077
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:3828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1078
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4068",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1079
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1080
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4200",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1081
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4276",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1082
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4328",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1083
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4496",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1084
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1085
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4732",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1086
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:4932",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1087
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:5036",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1088
+    },
+    {
+      "heading": "### Breaking through the Camel Fleet",
+      "block": 1089,
+      "pl": "### Przebicie przez flotę Camel"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:5556",
+      "mode": "story",
+      "level": 3,
+      "block": 1090
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6288",
+      "mode": "story",
+      "level": 3,
+      "block": 1091
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6332",
+      "mode": "story",
+      "level": 3,
+      "block": 1092
+    },
+    {
+      "heading": "### Zanzibar — in pursuit",
+      "block": 1093,
+      "pl": "### Zanzibar — w pościgu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6580",
+      "mode": "story",
+      "level": 3,
+      "block": 1094
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6636",
+      "mode": "story",
+      "level": 3,
+      "block": 1095
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6712",
+      "mode": "story",
+      "level": 3,
+      "block": 1096
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6772",
+      "mode": "story",
+      "level": 3,
+      "block": 1097
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6804",
+      "mode": "story",
+      "level": 3,
+      "block": 1098
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:6924",
+      "mode": "story",
+      "level": 3,
+      "block": 1099
+    },
+    {
+      "heading": "### White Base — underway",
+      "block": 1100,
+      "pl": "### White Base — w drodze"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7032",
+      "mode": "story",
+      "level": 3,
+      "block": 1101
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7076",
+      "mode": "story",
+      "level": 3,
+      "block": 1102
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7136",
+      "mode": "story",
+      "level": 3,
+      "block": 1103
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7228",
+      "mode": "story",
+      "level": 3,
+      "block": 1104
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7348",
+      "mode": "story",
+      "level": 3,
+      "block": 1105
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7420",
+      "mode": "story",
+      "level": 3,
+      "block": 1106
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7504",
+      "mode": "story",
+      "level": 3,
+      "block": 1107
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_60.bin:7600",
+      "mode": "story",
+      "level": 3,
+      "block": 1108
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_70.bin",
+      "block": 1109,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r6:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:184",
+      "mode": "story",
+      "level": 3,
+      "block": 1110
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:300",
+      "mode": "story",
+      "level": 3,
+      "block": 1111
+    },
+    {
+      "heading": "### Aboard the Zanzibar",
+      "block": 1112,
+      "pl": "### Na pokładzie Zanzibara"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:488",
+      "mode": "story",
+      "level": 3,
+      "block": 1113
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:596",
+      "mode": "story",
+      "level": 3,
+      "block": 1114
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:696",
+      "mode": "story",
+      "level": 3,
+      "block": 1115
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:760",
+      "mode": "story",
+      "level": 3,
+      "block": 1116
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:840",
+      "mode": "story",
+      "level": 3,
+      "block": 1117
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:952",
+      "mode": "story",
+      "level": 3,
+      "block": 1118
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1056",
+      "mode": "story",
+      "level": 3,
+      "block": 1119
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1128",
+      "mode": "story",
+      "level": 3,
+      "block": 1120
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1216",
+      "mode": "story",
+      "level": 3,
+      "block": 1121
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1268",
+      "mode": "story",
+      "level": 3,
+      "block": 1122
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1328",
+      "mode": "story",
+      "level": 3,
+      "block": 1123
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1388",
+      "mode": "story",
+      "level": 3,
+      "block": 1124
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1456",
+      "mode": "story",
+      "level": 3,
+      "block": 1125
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1508",
+      "mode": "story",
+      "level": 3,
+      "block": 1126
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1576",
+      "mode": "story",
+      "level": 3,
+      "block": 1127
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1660",
+      "mode": "story",
+      "level": 3,
+      "block": 1128
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1776",
+      "mode": "story",
+      "level": 3,
+      "block": 1129
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1836",
+      "mode": "story",
+      "level": 3,
+      "block": 1130
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1924",
+      "mode": "story",
+      "level": 3,
+      "block": 1131
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:1972",
+      "mode": "story",
+      "level": 3,
+      "block": 1132
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2040",
+      "mode": "story",
+      "level": 3,
+      "block": 1133
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2112",
+      "mode": "story",
+      "level": 3,
+      "block": 1134
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2224",
+      "mode": "story",
+      "level": 3,
+      "block": 1135
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2312",
+      "mode": "story",
+      "level": 3,
+      "block": 1136
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2384",
+      "mode": "story",
+      "level": 3,
+      "block": 1137
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2496",
+      "mode": "story",
+      "level": 3,
+      "block": 1138
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2684",
+      "mode": "story",
+      "level": 3,
+      "block": 1139
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:2916",
+      "mode": "story",
+      "level": 3,
+      "block": 1140
+    },
+    {
+      "heading": "#### Conditional dialogue — Char and the White Base pilots",
+      "block": 1141,
+      "pl": "#### Dialogi warunkowe — Char i piloci White Base"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1142
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1143
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1144
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3556",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1145
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3660",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1146
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1147
+    },
+    {
+      "heading": "#### Situational dialogue — approaching White Base",
+      "block": 1148,
+      "pl": "#### Dialogi sytuacyjne — zbliżenie do White Base"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1149
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:3992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1150
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4064",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1151
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1152
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1153
+    },
+    {
+      "heading": "#### Conditional dialogue — Zeon pilots pull back",
+      "block": 1154,
+      "pl": "#### Dialogi warunkowe — odwrót pilotów Zeonu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1155
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4656",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1156
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:4880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1157
+    },
+    {
+      "heading": "### The Connect rendezvous",
+      "block": 1158,
+      "pl": "### Spotkanie z Connect"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5120",
+      "mode": "story",
+      "level": 3,
+      "block": 1159
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5172",
+      "mode": "story",
+      "level": 3,
+      "block": 1160
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5244",
+      "mode": "story",
+      "level": 3,
+      "block": 1161
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5376",
+      "mode": "story",
+      "level": 3,
+      "block": 1162
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5420",
+      "mode": "story",
+      "level": 3,
+      "block": 1163
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5456",
+      "mode": "story",
+      "level": 3,
+      "block": 1164
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5560",
+      "mode": "story",
+      "level": 3,
+      "block": 1165
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5644",
+      "mode": "story",
+      "level": 3,
+      "block": 1166
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5688",
+      "mode": "story",
+      "level": 3,
+      "block": 1167
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5728",
+      "mode": "story",
+      "level": 3,
+      "block": 1168
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5796",
+      "mode": "story",
+      "level": 3,
+      "block": 1169
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5852",
+      "mode": "story",
+      "level": 3,
+      "block": 1170
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:5928",
+      "mode": "story",
+      "level": 3,
+      "block": 1171
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6184",
+      "mode": "story",
+      "level": 3,
+      "block": 1172
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6316",
+      "mode": "story",
+      "level": 3,
+      "block": 1173
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6440",
+      "mode": "story",
+      "level": 3,
+      "block": 1174
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6508",
+      "mode": "story",
+      "level": 3,
+      "block": 1175
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6564",
+      "mode": "story",
+      "level": 3,
+      "block": 1176
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6632",
+      "mode": "story",
+      "level": 3,
+      "block": 1177
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6668",
+      "mode": "story",
+      "level": 3,
+      "block": 1178
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6740",
+      "mode": "story",
+      "level": 3,
+      "block": 1179
+    },
+    {
+      "heading": "### An unauthorized sortie",
+      "block": 1180,
+      "pl": "### Samowolny wylot"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6896",
+      "mode": "story",
+      "level": 3,
+      "block": 1181
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:6960",
+      "mode": "story",
+      "level": 3,
+      "block": 1182
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7092",
+      "mode": "story",
+      "level": 3,
+      "block": 1183
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7176",
+      "mode": "story",
+      "level": 3,
+      "block": 1184
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7212",
+      "mode": "story",
+      "level": 3,
+      "block": 1185
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7320",
+      "mode": "story",
+      "level": 3,
+      "block": 1186
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7384",
+      "mode": "story",
+      "level": 3,
+      "block": 1187
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7452",
+      "mode": "story",
+      "level": 3,
+      "block": 1188
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7552",
+      "mode": "story",
+      "level": 3,
+      "block": 1189
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7604",
+      "mode": "story",
+      "level": 3,
+      "block": 1190
+    },
+    {
+      "heading": "#### Conditional dialogue — engaging the Bigro",
+      "block": 1191,
+      "pl": "#### Dialogi warunkowe — starcie z Bigro"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1192
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:7964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1193
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1194
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8252",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1195
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1196
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8552",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1197
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1198
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1199
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:8900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1200
+    },
+    {
+      "heading": "### The Bigro defeated",
+      "block": 1201,
+      "pl": "### Bigro pokonany"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9076",
+      "mode": "story",
+      "level": 3,
+      "block": 1202
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9212",
+      "mode": "story",
+      "level": 3,
+      "block": 1203
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9268",
+      "mode": "story",
+      "level": 3,
+      "block": 1204
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9400",
+      "mode": "story",
+      "level": 3,
+      "block": 1205
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9464",
+      "mode": "story",
+      "level": 3,
+      "block": 1206
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9508",
+      "mode": "story",
+      "level": 3,
+      "block": 1207
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9596",
+      "mode": "story",
+      "level": 3,
+      "block": 1208
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9644",
+      "mode": "story",
+      "level": 3,
+      "block": 1209
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9752",
+      "mode": "story",
+      "level": 3,
+      "block": 1210
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9804",
+      "mode": "story",
+      "level": 3,
+      "block": 1211
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:9936",
+      "mode": "story",
+      "level": 3,
+      "block": 1212
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10008",
+      "mode": "story",
+      "level": 3,
+      "block": 1213
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10116",
+      "mode": "story",
+      "level": 3,
+      "block": 1214
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10252",
+      "mode": "story",
+      "level": 3,
+      "block": 1215
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10336",
+      "mode": "story",
+      "level": 3,
+      "block": 1216
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10424",
+      "mode": "story",
+      "level": 3,
+      "block": 1217
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10532",
+      "mode": "story",
+      "level": 3,
+      "block": 1218
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10640",
+      "mode": "story",
+      "level": 3,
+      "block": 1219
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10684",
+      "mode": "story",
+      "level": 3,
+      "block": 1220
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10800",
+      "mode": "story",
+      "level": 3,
+      "block": 1221
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:10924",
+      "mode": "story",
+      "level": 3,
+      "block": 1222
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_70.bin:11000",
+      "mode": "story",
+      "level": 3,
+      "block": 1223
+    },
+    {
+      "mission": "eventP01.EDAT/DL102_90.bin",
+      "block": 1224,
+      "mission_row": "mission_title:config01.EDAT/milstP01.bin:r7:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 1225
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:260",
+      "mode": "story",
+      "level": 3,
+      "block": 1226
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:396",
+      "mode": "story",
+      "level": 3,
+      "block": 1227
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:544",
+      "mode": "story",
+      "level": 3,
+      "block": 1228
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:616",
+      "mode": "story",
+      "level": 3,
+      "block": 1229
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:792",
+      "mode": "story",
+      "level": 3,
+      "block": 1230
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:856",
+      "mode": "story",
+      "level": 3,
+      "block": 1231
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:940",
+      "mode": "story",
+      "level": 3,
+      "block": 1232
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1020",
+      "mode": "story",
+      "level": 3,
+      "block": 1233
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1092",
+      "mode": "story",
+      "level": 3,
+      "block": 1234
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1164",
+      "mode": "story",
+      "level": 3,
+      "block": 1235
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1216",
+      "mode": "story",
+      "level": 3,
+      "block": 1236
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1280",
+      "mode": "story",
+      "level": 3,
+      "block": 1237
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1360",
+      "mode": "story",
+      "level": 3,
+      "block": 1238
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1408",
+      "mode": "story",
+      "level": 3,
+      "block": 1239
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1444",
+      "mode": "story",
+      "level": 3,
+      "block": 1240
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1512",
+      "mode": "story",
+      "level": 3,
+      "block": 1241
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1580",
+      "mode": "story",
+      "level": 3,
+      "block": 1242
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1620",
+      "mode": "story",
+      "level": 3,
+      "block": 1243
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1696",
+      "mode": "story",
+      "level": 3,
+      "block": 1244
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1752",
+      "mode": "story",
+      "level": 3,
+      "block": 1245
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1856",
+      "mode": "story",
+      "level": 3,
+      "block": 1246
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:1928",
+      "mode": "story",
+      "level": 3,
+      "block": 1247
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2020",
+      "mode": "story",
+      "level": 3,
+      "block": 1248
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2116",
+      "mode": "story",
+      "level": 3,
+      "block": 1249
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2184",
+      "mode": "story",
+      "level": 3,
+      "block": 1250
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2264",
+      "mode": "story",
+      "level": 3,
+      "block": 1251
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2356",
+      "mode": "story",
+      "level": 3,
+      "block": 1252
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2392",
+      "mode": "story",
+      "level": 3,
+      "block": 1253
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2512",
+      "mode": "story",
+      "level": 3,
+      "block": 1254
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2568",
+      "mode": "story",
+      "level": 3,
+      "block": 1255
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2644",
+      "mode": "story",
+      "level": 3,
+      "block": 1256
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2716",
+      "mode": "story",
+      "level": 3,
+      "block": 1257
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2780",
+      "mode": "story",
+      "level": 3,
+      "block": 1258
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2824",
+      "mode": "story",
+      "level": 3,
+      "block": 1259
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2876",
+      "mode": "story",
+      "level": 3,
+      "block": 1260
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:2956",
+      "mode": "story",
+      "level": 3,
+      "block": 1261
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3076",
+      "mode": "story",
+      "level": 3,
+      "block": 1262
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3140",
+      "mode": "story",
+      "level": 3,
+      "block": 1263
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3212",
+      "mode": "story",
+      "level": 3,
+      "block": 1264
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3304",
+      "mode": "story",
+      "level": 3,
+      "block": 1265
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3428",
+      "mode": "story",
+      "level": 3,
+      "block": 1266
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3524",
+      "mode": "story",
+      "level": 3,
+      "block": 1267
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3592",
+      "mode": "story",
+      "level": 3,
+      "block": 1268
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3676",
+      "mode": "story",
+      "level": 3,
+      "block": 1269
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3756",
+      "mode": "story",
+      "level": 3,
+      "block": 1270
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3872",
+      "mode": "story",
+      "level": 3,
+      "block": 1271
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:3924",
+      "mode": "story",
+      "level": 3,
+      "block": 1272
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4032",
+      "mode": "story",
+      "level": 3,
+      "block": 1273
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4132",
+      "mode": "story",
+      "level": 3,
+      "block": 1274
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4212",
+      "mode": "story",
+      "level": 3,
+      "block": 1275
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4268",
+      "mode": "story",
+      "level": 3,
+      "block": 1276
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4368",
+      "mode": "story",
+      "level": 3,
+      "block": 1277
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4428",
+      "mode": "story",
+      "level": 3,
+      "block": 1278
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4460",
+      "mode": "story",
+      "level": 3,
+      "block": 1279
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4524",
+      "mode": "story",
+      "level": 3,
+      "block": 1280
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4620",
+      "mode": "story",
+      "level": 3,
+      "block": 1281
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4668",
+      "mode": "story",
+      "level": 3,
+      "block": 1282
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4792",
+      "mode": "story",
+      "level": 3,
+      "block": 1283
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4884",
+      "mode": "story",
+      "level": 3,
+      "block": 1284
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:4952",
+      "mode": "story",
+      "level": 3,
+      "block": 1285
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5000",
+      "mode": "story",
+      "level": 3,
+      "block": 1286
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5096",
+      "mode": "story",
+      "level": 3,
+      "block": 1287
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5136",
+      "mode": "story",
+      "level": 3,
+      "block": 1288
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5184",
+      "mode": "story",
+      "level": 3,
+      "block": 1289
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5216",
+      "mode": "story",
+      "level": 3,
+      "block": 1290
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5288",
+      "mode": "story",
+      "level": 3,
+      "block": 1291
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5364",
+      "mode": "story",
+      "level": 3,
+      "block": 1292
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5444",
+      "mode": "story",
+      "level": 3,
+      "block": 1293
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5516",
+      "mode": "story",
+      "level": 3,
+      "block": 1294
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5632",
+      "mode": "story",
+      "level": 3,
+      "block": 1295
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5664",
+      "mode": "story",
+      "level": 3,
+      "block": 1296
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5736",
+      "mode": "story",
+      "level": 3,
+      "block": 1297
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5828",
+      "mode": "story",
+      "level": 3,
+      "block": 1298
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5872",
+      "mode": "story",
+      "level": 3,
+      "block": 1299
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5932",
+      "mode": "story",
+      "level": 3,
+      "block": 1300
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:5976",
+      "mode": "story",
+      "level": 3,
+      "block": 1301
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6108",
+      "mode": "story",
+      "level": 3,
+      "block": 1302
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6168",
+      "mode": "story",
+      "level": 3,
+      "block": 1303
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6276",
+      "mode": "story",
+      "level": 3,
+      "block": 1304
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6324",
+      "mode": "story",
+      "level": 3,
+      "block": 1305
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6356",
+      "mode": "story",
+      "level": 3,
+      "block": 1306
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6468",
+      "mode": "story",
+      "level": 3,
+      "block": 1307
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6596",
+      "mode": "story",
+      "level": 3,
+      "block": 1308
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6636",
+      "mode": "story",
+      "level": 3,
+      "block": 1309
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6704",
+      "mode": "story",
+      "level": 3,
+      "block": 1310
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6768",
+      "mode": "story",
+      "level": 3,
+      "block": 1311
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6864",
+      "mode": "story",
+      "level": 3,
+      "block": 1312
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6944",
+      "mode": "story",
+      "level": 3,
+      "block": 1313
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:6980",
+      "mode": "story",
+      "level": 3,
+      "block": 1314
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7084",
+      "mode": "story",
+      "level": 3,
+      "block": 1315
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7112",
+      "mode": "story",
+      "level": 3,
+      "block": 1316
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7152",
+      "mode": "story",
+      "level": 3,
+      "block": 1317
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7204",
+      "mode": "story",
+      "level": 3,
+      "block": 1318
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7256",
+      "mode": "story",
+      "level": 3,
+      "block": 1319
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7300",
+      "mode": "story",
+      "level": 3,
+      "block": 1320
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7348",
+      "mode": "story",
+      "level": 3,
+      "block": 1321
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7408",
+      "mode": "story",
+      "level": 3,
+      "block": 1322
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7484",
+      "mode": "story",
+      "level": 3,
+      "block": 1323
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7556",
+      "mode": "story",
+      "level": 3,
+      "block": 1324
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7624",
+      "mode": "story",
+      "level": 3,
+      "block": 1325
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7696",
+      "mode": "story",
+      "level": 3,
+      "block": 1326
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7764",
+      "mode": "story",
+      "level": 3,
+      "block": 1327
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7864",
+      "mode": "story",
+      "level": 3,
+      "block": 1328
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7920",
+      "mode": "story",
+      "level": 3,
+      "block": 1329
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:7948",
+      "mode": "story",
+      "level": 3,
+      "block": 1330
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8028",
+      "mode": "story",
+      "level": 3,
+      "block": 1331
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8124",
+      "mode": "story",
+      "level": 3,
+      "block": 1332
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8176",
+      "mode": "story",
+      "level": 3,
+      "block": 1333
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8264",
+      "mode": "story",
+      "level": 3,
+      "block": 1334
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8324",
+      "mode": "story",
+      "level": 3,
+      "block": 1335
+    },
+    {
+      "heading": "### Fuji Sea of Trees",
+      "block": 1336,
+      "pl": "### Morze Drzew u stóp Fuji"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8572",
+      "mode": "story",
+      "level": 3,
+      "block": 1337
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8620",
+      "mode": "story",
+      "level": 3,
+      "block": 1338
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8668",
+      "mode": "story",
+      "level": 3,
+      "block": 1339
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8732",
+      "mode": "story",
+      "level": 3,
+      "block": 1340
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8800",
+      "mode": "story",
+      "level": 3,
+      "block": 1341
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8860",
+      "mode": "story",
+      "level": 3,
+      "block": 1342
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:8928",
+      "mode": "story",
+      "level": 3,
+      "block": 1343
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9012",
+      "mode": "story",
+      "level": 3,
+      "block": 1344
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9100",
+      "mode": "story",
+      "level": 3,
+      "block": 1345
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9148",
+      "mode": "story",
+      "level": 3,
+      "block": 1346
+    },
+    {
+      "heading": "#### Conditional dialogue — facing the Labors",
+      "block": 1347,
+      "pl": "#### Dialogi warunkowe — starcie z Laborami"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9480",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1348
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1349
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9632",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1350
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9692",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1351
+    },
+    {
+      "heading": "#### Situational dialogue — protecting the forest",
+      "block": 1352,
+      "pl": "#### Dialogi sytuacyjne — ochrona lasu"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:9904",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1353
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10020",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1354
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10120",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1355
+    },
+    {
+      "heading": "#### Situational dialogue — more enemies",
+      "block": 1356,
+      "pl": "#### Dialogi sytuacyjne — kolejni wrogowie"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10360",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1357
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10404",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1358
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10444",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1359
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10504",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1360
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10572",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1361
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1362
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1363
+    },
+    {
+      "heading": "#### Conditional dialogue — Gurren Lagann searches underground",
+      "block": 1364,
+      "pl": "#### Dialogi warunkowe — Gurren Lagann szuka pod ziemią"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:10960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1365
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11028",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1366
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11076",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1367
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1368
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1369
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1370
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11332",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1371
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1372
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1373
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11608",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1374
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1375
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11800",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1376
+    },
+    {
+      "heading": "### Another Mucus Gate",
+      "block": 1377,
+      "pl": "### Kolejna Brama Mucus"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11836",
+      "mode": "story",
+      "level": 3,
+      "block": 1378
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11900",
+      "mode": "story",
+      "level": 3,
+      "block": 1379
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:11940",
+      "mode": "story",
+      "level": 3,
+      "block": 1380
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12008",
+      "mode": "story",
+      "level": 3,
+      "block": 1381
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12044",
+      "mode": "story",
+      "level": 3,
+      "block": 1382
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12136",
+      "mode": "story",
+      "level": 3,
+      "block": 1383
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12212",
+      "mode": "story",
+      "level": 3,
+      "block": 1384
+    },
+    {
+      "heading": "### After the battle",
+      "block": 1385,
+      "pl": "### Po bitwie"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12568",
+      "mode": "story",
+      "level": 3,
+      "block": 1386
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12620",
+      "mode": "story",
+      "level": 3,
+      "block": 1387
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12668",
+      "mode": "story",
+      "level": 3,
+      "block": 1388
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12700",
+      "mode": "story",
+      "level": 3,
+      "block": 1389
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12748",
+      "mode": "story",
+      "level": 3,
+      "block": 1390
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12792",
+      "mode": "story",
+      "level": 3,
+      "block": 1391
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12856",
+      "mode": "story",
+      "level": 3,
+      "block": 1392
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12912",
+      "mode": "story",
+      "level": 3,
+      "block": 1393
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:12964",
+      "mode": "story",
+      "level": 3,
+      "block": 1394
+    },
+    {
+      "heading": "### Team Gurren and the Eldran teams",
+      "block": 1395,
+      "pl": "### Drużyna Gurren i zespoły Eldrana"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13092",
+      "mode": "story",
+      "level": 3,
+      "block": 1396
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13168",
+      "mode": "story",
+      "level": 3,
+      "block": 1397
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13200",
+      "mode": "story",
+      "level": 3,
+      "block": 1398
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13260",
+      "mode": "story",
+      "level": 3,
+      "block": 1399
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13308",
+      "mode": "story",
+      "level": 3,
+      "block": 1400
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13364",
+      "mode": "story",
+      "level": 3,
+      "block": 1401
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13428",
+      "mode": "story",
+      "level": 3,
+      "block": 1402
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13504",
+      "mode": "story",
+      "level": 3,
+      "block": 1403
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13604",
+      "mode": "story",
+      "level": 3,
+      "block": 1404
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13656",
+      "mode": "story",
+      "level": 3,
+      "block": 1405
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13684",
+      "mode": "story",
+      "level": 3,
+      "block": 1406
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13728",
+      "mode": "story",
+      "level": 3,
+      "block": 1407
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13812",
+      "mode": "story",
+      "level": 3,
+      "block": 1408
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13864",
+      "mode": "story",
+      "level": 3,
+      "block": 1409
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13960",
+      "mode": "story",
+      "level": 3,
+      "block": 1410
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:13988",
+      "mode": "story",
+      "level": 3,
+      "block": 1411
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14188",
+      "mode": "story",
+      "level": 3,
+      "block": 1412
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14244",
+      "mode": "story",
+      "level": 3,
+      "block": 1413
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14284",
+      "mode": "story",
+      "level": 3,
+      "block": 1414
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14348",
+      "mode": "story",
+      "level": 3,
+      "block": 1415
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14440",
+      "mode": "story",
+      "level": 3,
+      "block": 1416
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14480",
+      "mode": "story",
+      "level": 3,
+      "block": 1417
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14520",
+      "mode": "story",
+      "level": 3,
+      "block": 1418
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14564",
+      "mode": "story",
+      "level": 3,
+      "block": 1419
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14596",
+      "mode": "story",
+      "level": 3,
+      "block": 1420
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14704",
+      "mode": "story",
+      "level": 3,
+      "block": 1421
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14764",
+      "mode": "story",
+      "level": 3,
+      "block": 1422
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14848",
+      "mode": "story",
+      "level": 3,
+      "block": 1423
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14924",
+      "mode": "story",
+      "level": 3,
+      "block": 1424
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:14960",
+      "mode": "story",
+      "level": 3,
+      "block": 1425
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15028",
+      "mode": "story",
+      "level": 3,
+      "block": 1426
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15088",
+      "mode": "story",
+      "level": 3,
+      "block": 1427
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15140",
+      "mode": "story",
+      "level": 3,
+      "block": 1428
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15228",
+      "mode": "story",
+      "level": 3,
+      "block": 1429
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15284",
+      "mode": "story",
+      "level": 3,
+      "block": 1430
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15376",
+      "mode": "story",
+      "level": 3,
+      "block": 1431
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15444",
+      "mode": "story",
+      "level": 3,
+      "block": 1432
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15508",
+      "mode": "story",
+      "level": 3,
+      "block": 1433
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15576",
+      "mode": "story",
+      "level": 3,
+      "block": 1434
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15616",
+      "mode": "story",
+      "level": 3,
+      "block": 1435
+    },
+    {
+      "heading": "### Who will go to space?",
+      "block": 1436,
+      "pl": "### Kto poleci w kosmos?"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15676",
+      "mode": "story",
+      "level": 3,
+      "block": 1437
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15724",
+      "mode": "story",
+      "level": 3,
+      "block": 1438
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15752",
+      "mode": "story",
+      "level": 3,
+      "block": 1439
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15796",
+      "mode": "story",
+      "level": 3,
+      "block": 1440
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:15904",
+      "mode": "story",
+      "level": 3,
+      "block": 1441
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16008",
+      "mode": "story",
+      "level": 3,
+      "block": 1442
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16048",
+      "mode": "story",
+      "level": 3,
+      "block": 1443
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16144",
+      "mode": "story",
+      "level": 3,
+      "block": 1444
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16224",
+      "mode": "story",
+      "level": 3,
+      "block": 1445
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16292",
+      "mode": "story",
+      "level": 3,
+      "block": 1446
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16360",
+      "mode": "story",
+      "level": 3,
+      "block": 1447
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16416",
+      "mode": "story",
+      "level": 3,
+      "block": 1448
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16476",
+      "mode": "story",
+      "level": 3,
+      "block": 1449
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16560",
+      "mode": "story",
+      "level": 3,
+      "block": 1450
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16624",
+      "mode": "story",
+      "level": 3,
+      "block": 1451
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16664",
+      "mode": "story",
+      "level": 3,
+      "block": 1452
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16720",
+      "mode": "story",
+      "level": 3,
+      "block": 1453
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16772",
+      "mode": "story",
+      "level": 3,
+      "block": 1454
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16808",
+      "mode": "story",
+      "level": 3,
+      "block": 1455
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16856",
+      "mode": "story",
+      "level": 3,
+      "block": 1456
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16884",
+      "mode": "story",
+      "level": 3,
+      "block": 1457
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:16948",
+      "mode": "story",
+      "level": 3,
+      "block": 1458
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17040",
+      "mode": "story",
+      "level": 3,
+      "block": 1459
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17092",
+      "mode": "story",
+      "level": 3,
+      "block": 1460
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17132",
+      "mode": "story",
+      "level": 3,
+      "block": 1461
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17172",
+      "mode": "story",
+      "level": 3,
+      "block": 1462
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17224",
+      "mode": "story",
+      "level": 3,
+      "block": 1463
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17316",
+      "mode": "story",
+      "level": 3,
+      "block": 1464
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17356",
+      "mode": "story",
+      "level": 3,
+      "block": 1465
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17392",
+      "mode": "story",
+      "level": 3,
+      "block": 1466
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17444",
+      "mode": "story",
+      "level": 3,
+      "block": 1467
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17476",
+      "mode": "story",
+      "level": 3,
+      "block": 1468
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17592",
+      "mode": "story",
+      "level": 3,
+      "block": 1469
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17664",
+      "mode": "story",
+      "level": 3,
+      "block": 1470
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17752",
+      "mode": "story",
+      "level": 3,
+      "block": 1471
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17896",
+      "mode": "story",
+      "level": 3,
+      "block": 1472
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:17996",
+      "mode": "story",
+      "level": 3,
+      "block": 1473
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18040",
+      "mode": "story",
+      "level": 3,
+      "block": 1474
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18148",
+      "mode": "story",
+      "level": 3,
+      "block": 1475
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18208",
+      "mode": "story",
+      "level": 3,
+      "block": 1476
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18252",
+      "mode": "story",
+      "level": 3,
+      "block": 1477
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18348",
+      "mode": "story",
+      "level": 3,
+      "block": 1478
+    },
+    {
+      "heading": "### At Hinobori Academy",
+      "block": 1479,
+      "pl": "### W Akademii Hinobori"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL102_90.bin:18420",
+      "mode": "story",
+      "level": 3,
+      "block": 1480
+    }
+  ]
+}

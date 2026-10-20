@@ -17,6 +17,17 @@ def _synthetic_container() -> bytes:
     ank = bytearray(font_pl.ANK_CELL * 192)
     for i in range(192):  # distinct filler so an accidental overwrite shows
         ank[i * font_pl.ANK_CELL:(i + 1) * font_pl.ANK_CELL] = bytes([(i * 7 + k) & 0xFF for k in range(font_pl.ANK_CELL)])
+    # Synthetic native bases (not proprietary bitmaps), with room for marks.
+    for ch in "acelnoszACELNOSZ":
+        art = [[0] * 8 for _ in range(14)]
+        for y in range(2 if ch.isupper() or ch == "l" else 4, 12):
+            art[y][3 if ch == "l" else 1] = 6
+            if ch not in "lL":
+                art[y][5] = 9
+        for x in range(1, 6):
+            art[11][x] = 6
+        start = (ord(ch) - 0x20) * 56
+        ank[start:start + 56] = font_pl.ank_cell(art)
     members = {
         "ank.fta": bytes(ank),
         "kanji.fta": bytes(range(256)) * 40,
@@ -43,7 +54,7 @@ class TableTests(unittest.TestCase):
             self.assertNotIn(b, range(0xA1, 0xA6))  # ｡｢｣､･
 
     def test_glyph_table_has_all_letters(self):
-        glyphs = font_pl.load_glyphs()
+        glyphs = font_pl.load_glyphs(font_pl.parse_container(_synthetic_container())[0]["ank.fta"])
         self.assertEqual(set(glyphs), set(font_pl.PL_LETTERS))
         for art in glyphs.values():
             self.assertEqual(len(art), 14)
@@ -82,31 +93,61 @@ class PatchTests(unittest.TestCase):
         self.assertEqual(len(self.members_after["ank.fta"]), len(self.members_before["ank.fta"]))
 
     def test_each_letter_draws_its_glyph(self):
-        glyphs = font_pl.load_glyphs()
+        glyphs = font_pl.load_glyphs(self.members_before["ank.fta"])
         for letter, byte in font_pl.pl_byte_map().items():
             art = font_pl.read_ank_glyph(self.members_after["ank.fta"], byte)
             self.assertEqual(art, [list(r) for r in glyphs[letter]], letter)
 
     def test_other_ank_cells_untouched(self):
         used = set(font_pl.PL_BYTES)
-        for byte in range(0x20, 0x20 + 192):
+        for byte in list(range(0x20, 0x80)) + list(range(0xA0, 0xE0)):
             if byte in used:
                 continue
             a = font_pl.read_ank_glyph(self.members_before["ank.fta"], byte)
             b = font_pl.read_ank_glyph(self.members_after["ank.fta"], byte)
             self.assertEqual(a, b, hex(byte))
 
+    def test_raw_physical_offsets_match_renderer_not_old_writer(self):
+        # Independent raw slices: do NOT use the patched reader for verification.
+        before = self.members_before["ank.fta"]
+        after = self.members_after["ank.fta"]
+        glyphs = font_pl.load_glyphs(self.members_before["ank.fta"])
+        changed = set()
+        for letter, byte in zip(font_pl.PL_LETTERS, font_pl.PL_BYTES):
+            index = byte - 0x40
+            changed.add(index)
+            self.assertEqual(after[index * 56:(index + 1) * 56],
+                             font_pl.ank_cell(glyphs[letter]))
+        for index in range(len(before) // 56):
+            if index not in changed:
+                self.assertEqual(after[index * 56:(index + 1) * 56],
+                                 before[index * 56:(index + 1) * 56], index)
+
+    def test_ascii_and_katakana_index_boundaries(self):
+        for byte, expected in ((0x20, 0), (0x7F, 95), (0xA0, 96),
+                               (0xA1, 97), (0xD5, 149), (0xDF, 159)):
+            self.assertEqual(font_pl.ank_index(byte), expected)
+        for byte in (0, 0x1F, 0x80, 0x9F, 0xE0, 256):
+            with self.assertRaises(ValueError):
+                font_pl.ank_index(byte)
+
     def test_verify_reports_all_ok(self):
         verify = font_pl.verify_container(self.after)
         self.assertEqual(set(verify), set(font_pl.PL_LETTERS))
         self.assertTrue(all(row["ok"] for row in verify.values()))
 
+    def test_nibbles_are_low_pixel_first_not_a_self_consistent_wrong_roundtrip(self):
+        rows = [[1, 2, 3, 4, 5, 6, 7, 8]] * 14
+        self.assertEqual(font_pl.ank_cell(rows), bytes.fromhex("21 43 65 87") * 14)
+        physical = b"\x00" * (69 * 56) + bytes.fromhex("21 43 65 87") * 14
+        self.assertEqual(font_pl.read_ank_glyph(physical, ord("e")), rows)
+
     def test_ank_cell_round_trip(self):
-        art = font_pl.load_glyphs()["ą"]
+        art = font_pl.load_glyphs(self.members_before["ank.fta"])["ą"]
         cell = font_pl.ank_cell(art)
         self.assertEqual(len(cell), font_pl.ANK_CELL)
         self.assertEqual([list(r) for r in art], [list(r) for r in font_pl.read_ank_glyph(
-            b"\x00" * (font_pl.ANK_CELL * 0x81) + cell, 0x20 + 0x81)])
+            b"\x00" * (font_pl.ANK_CELL * 0x61) + cell, 0xA1)])
 
 
 if __name__ == "__main__":

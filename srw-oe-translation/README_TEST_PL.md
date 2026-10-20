@@ -1,55 +1,46 @@
-# TEST_PL — mały test polskich liter w grze (SRW OE)
+# TEST_PL v5 — polskie litery dopasowane do oryginalnego fontu
 
-To **nie jest pełny patch tłumaczenia** — to próba techniczna, która wstawia do ISO
-wyłącznie trzy pliki i pokazuje na własne oczy, że polskie litery działają w grze:
-i w napisach, i w nazwach broni/mecha.
+W zrzutach v4 widać działające polskie napisy, ale litery z Roboto są pełniejsze,
+a korpusy części małych liter niższe od znaków gry. **V5 nie używa już Roboto.**
 
-## Co robi
+Podczas budowy kopiuje oryginalne `a/c/e/l/n/o/s/z` (i wielkie odpowiedniki) z Twojego
+fontu i dodaje tylko ogonki, kreski oraz kropki. Korpusy zachowują oryginalne piksele,
+wysokość, położenie i krycie. Nie są skalowane ani pogrubiane. Font i pochodne bitmapy
+nie są dołączone do paczki — bazę pobiera ona z Twojego własnego ISO.
 
-`TEST_PL.bat` patchuje **tylko**:
+## Jak sprawdzić — ten sam tekst co w v4
 
-| plik w ISO | co się zmienia |
-|---|---|
-| `font.cpk` | gra dostaje 18 polskich glifów: ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż |
-| `eventP00.cpk` | początek misji 0-0: narracja otwierająca (elementy 1–6), tytuł lokacji, dialogi Seishiro i Himari — z tekstem próbnym `TEST PL 1/4: ąćęłńóśźż...` |
-| `config00.cpk` | ekran mecha **Exart**: nazwa (`Zażółć`), nazwa ekranowa oraz nazwy i skróty jego 8 broni (`TEST W1: ąćęłńóśźż`, `T1 ąćęł`...) |
+1. Rozpakuj **cały ZIP do nowego folderu**. Uruchom **`TEST_PL.bat`** i wybierz
+   swoje **oryginalne ISO SRW OE 1.08**, nie wynik poprzedniego patchowania.
+2. Otwórz nowe **`output\patched.iso`** w PPSSPP od zimnego startu i wybierz
+   **New Game**. Nie wczytuj save state i nie kasuj zwykłych zapisów.
+3. Wystarczy screenshot pierwszej planszy **`PL V5`** lub pierwszego dialogu:
 
-Wszystkie inne teksty zostają japońskie — puste pola `pl` w pakiecie są pomijane
-(oryginalne bajty nietknięte). DLC nie jest potrzebne, tekstury UI nie są ruszane.
+```text
+(Łączność działa. Słychać mnie wyraźnie?
+Chcę dziś dokończyć próbę osłony.)
+```
 
-## Jak uruchomić
+Porównaj grubość i wysokość **ą/ę/ć/ś/ń/ó/ł** ze zwykłymi literami obok nich.
+Na kolejnej planszy pozostają wielkie litery i `Zażółć gęślą jaźń`.
+Naturalne zdania z v4 są bez zmian; zmieniły się tylko glify i etykiety wersji.
+Nie trzeba szukać niczego w menu ani dochodzić do listy broni. To nadal wymyślone
+próbki techniczne, **nie tłumaczenie japońskiego scenariusza**.
 
-1. Rozpakuj ten folder gdziekolwiek (Windows).
-2. Uruchom `TEST_PL.bat` (podwójny klik). Wymagany Python 3 (bat sam go znajdzie).
-3. Wybierz swoje ISO gry (SRW OE 1.08).
-4. Po chwili powstanie `output\patched.iso`.
-5. Otwórz go w PPSSPP i **zacznij nową grę** (New Game).
+## Co kontroluje automat
 
-## Co sprawdzić w grze
+Po budowie narzędzie czyta wynikowe ISO i tworzy **`output\PL_VERIFY.json`**:
 
-1. **Narracja otwierająca** (czarny ekran z tekstem przed pierwszą sceną) — linie
-   `TEST PL 1/4: ęłńóśźżĄĆĘŁŃÓ...` itd. Wszystkie małe i wielkie polskie litery
-   powinny się wyświetlać jako litery, nie krzaki/kwadraty.
-2. **Dialogi** Seishiro („(…") i Himari („TEST PL 1/1: żĄĆĘŁŃÓŚŹŻąćę") oraz
-   linia z tokenem `＜主人公名＞` (imię bohatera wstawiane przez grę — token musi
-   zadziałać, tzn. zamiast niego ma być imię).
-3. **Ekran mecha Exart** (jednostka bohatera): nazwa `Zażółć`, opis ekranowy
-   `TEST PL: Zażółć gęślą jaźń`, a na liście broni — `TEST W1: ...` do `TEST W8: ...`
-   wraz ze skrótami `T1 ąćęł` ... `T8 źżĄĆ`.
-4. **Tytuł misji** na briefingu: `TEST PL: Zażółć`.
+- 18 fizycznych komórek fontu i dokładne zachowanie korpusów poza maską diakrytyku;
+- oryginalne krycie oraz niezmienione litery ASCII i pozostałe człony fontu;
+- 16 wpisów początku misji, pole tytułu i 19 prób nazw jednostek/broni.
 
-Jeśli któraś litera NIE wyświetla się poprawnie — zanotuj którą i gdzie
-(napisy / nazwa broni / wielkość liter). To jedyna informacja, której potrzebuje
-osoba budująca patch, żeby poprawić font.
+W razie błędu nie zgłasza gotowego testu. Kontrola plików i lokalny podgląd bitmap
+przeszły; **v5 nie uruchomiono tutaj w PPSSPP**. Zrzuty właściciela potwierdzają
+wcześniejsze v4, nie nowy wygląd v5.
 
-## Jak wrócić do zwykłej gry
-
-Test niczego nie nadpisuje: twój oryginalny plik ISO zostaje nietknięty,
-a `output\patched.iso` to osobna kopia — usuń ją albo trzymaj obok.
-Pełny patch i tak buduje się od zera z oryginału.
-
-## Co dalej (po udanym teście)
-
-Pełny patch polski (`PATCH.bat` z pakietu `srw-oe-translation-pl-vN.zip`) robi to
-samo, ale na wszystkich kontenerach i z prawdziwym tłumaczeniem z pola `pl`
-pakietu tłumaczeniowego.
+Zmienia tylko `font.cpk`, `eventP00.cpk` i `config00.cpk`. Nie wymaga DLC,
+nie zmienia EBOOT, tekstur ani zapisów. Oryginalne ISO pozostaje nietknięte.
+Wymagany Python 3; Pillow ani inne biblioteki graficzne nie są potrzebne.
+Pakiet nie zawiera plików gry. W razie błędu budowy prześlij komunikat oraz
+`build_report.json` lub `PL_VERIFY.json` — nie rób kolejnych prób w ciemno.

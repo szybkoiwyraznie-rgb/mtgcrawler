@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "kind": "partial PL text-only release snapshot",
+  "source_return": {
+    "name": "PL4.zip",
+    "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
+  },
+  "entries": 87823,
+  "data_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
+  "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
+  "game_binaries_included": false,
+  "owner_ui_corrections": [
+    {
+      "plan": "ui-qa-2026-10-19.json",
+      "sha256": "8f1051f752ba14bc889ccef54c7187a46a42571765c4e6dd90a91fc74d1a094b",
+      "previous_data_sha256": "68029daeac668a949bdb0b6ac2ccde0b65a382ff81a16eccb5efdbf8513a8b65",
+      "entries": 52,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-qa-executable-2026-10-19.json",
+      "sha256": "9c271a7b1a9b80a5c8c05c34c06ae2dbba48ba84920f771eccf97ca59119feb1",
+      "previous_data_sha256": "1b364c33bcde73649c0b3d399add9d472a1e1ba3ef36e172ba0f6b73125d102e",
+      "entries": 5,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-qa-mission-notes-2026-10-19.json",
+      "sha256": "6b67bb7045429dc33d0077ce5163fef1ced44f3fd52fb08f4c7ca26d9bc9d166",
+      "previous_data_sha256": "76ec650158a088dbb812df5b83c1521debb9b42bdf26f017b04517076907dd27",
+      "entries": 22,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-followup-2026-10-19.json",
+      "sha256": "a2d1166a782e10fd2aa499404407cc495bf7879e35d0fcb5be882be01b19a64a",
+      "previous_data_sha256": "2dbf752abb90a1a7afb2b33fce8e21069c75c21817e8f3d10c5f43aade3ee8ef",
+      "entries": 193,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-third-2026-10-19.json",
+      "sha256": "02fe23885223a23919fd30145122307225abb716c992383b27266f075d7a6f98",
+      "previous_data_sha256": "fa45cc3a0bb1843c7f750ebeb89293aac8c230f02e8eeb6915cd8978140d48e5",
+      "entries": 925,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-mech-viewer-2026-10-19.json",
+      "sha256": "3477dc6876c19b66abb5793fa7835c61230298d4678f3400806a2dbd3d9a2f77",
+      "previous_data_sha256": "70f4ba2f193fb08be20694151acd5f0b1cea49adb1d59d55703081728a990cca",
+      "entries": 4,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-six-2026-10-20.json",
+      "sha256": "29fbebe7d776ccef03c1a5e1346d3607a202bf542e7816679270d469fb54711c",
+      "previous_data_sha256": "a5db7a7a20be32b2d1e388961703b41ebe0eb185d7775a1830b66cbcd1a2ba0d",
+      "entries": 100,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-mission-titles-2026-10-20.json",
+      "sha256": "c5ed360d3306d654f1f6888e05e2a193af80b1911e322367153d4c2adf442f47",
+      "previous_data_sha256": "66e54e9fbe93b32598cfa23bef2929fe81359eb814b5f71e52eb024657ba6f71",
+      "entries": 10,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-seven-2026-10-20.json",
+      "sha256": "cae904a23506d944e88f84b0c5c86b4c386e472a1781a8c91e39d9e64fe99863",
+      "previous_data_sha256": "876645f90b2bff7f6bfe20a9cf9d563bcb841d14a257c77866fc9d24dbf79585",
+      "entries": 5,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-zaku-enemy-robot-2026-10-20.json",
+      "sha256": "b3a8cc3e9824798ca66c013d35368136d446ad0c2f7697b607886ae025a4463a",
+      "previous_data_sha256": "fac5a2259f98bc1b80bd13f990207bdf1355e4e5a7f883f8ae8e4bba41536c4c",
+      "entries": 4,
+      "operation": "source-bound additions",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-robot-type-captions-2026-10-20.json",
+      "sha256": "b62a573dd86c9a8f0c415f6242fac36486f115e1628c5717939c84210a675123",
+      "previous_data_sha256": "0433717c63f6e514e9a44061da2b8fe22fd1c4985b96c3caa3af3d6a6bdee47f",
+      "entries": 32,
+      "operation": "source-bound additions",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-zaku-char-pilot-footer-2026-10-20.json",
+      "sha256": "360c0491b6db26c58444233d2b3bd020ac55eb51bb4499610bd5c8fd7b5eb972",
+      "previous_data_sha256": "1fc2050a17438b644c94be5f4ac25c27dfa7da14692a4bd676690a4b8ea2f0d4",
+      "entries": 4,
+      "operation": "source-bound additions",
+      "runtime_tested": false
+    }
+  ],
+  "merge_provenance": {
+    "source_archive": {
+      "name": "PL4.zip",
+      "bytes": 5254438,
+      "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931",
+      "crc_test_passed": true,
+      "md_files": 31,
+      "story_episodes": "00-21",
+      "views": "all 9 returned views"
+    },
+    "base_snapshot_data_sha256": "06acd106a5294dca65505e69ead4349a345e078f81c83a9ae5903a52ef903bce",
+    "strict_source_bound_import": {
+      "elements_with_text": 67143,
+      "unknown": 0,
+      "rejected": 0,
+      "duplicates": 0,
+      "view_roundtrip_explicit": 67143,
+      "view_roundtrip_mismatches": 0
+    },
+    "preservation": {
+      "reviewed_owner_bindings": 1283,
+      "restored_bindings": 1283,
+      "view_blocks_overlaid": 1251,
+      "promoted_mission_rows_restored": 32,
+      "all_527_title_slots_retained": "v2.6 proof unchanged",
+      "v2_6_owner_changes": [
+        "compact UI labels",
+        "10 mission title slots",
+        "527-title readback audited",
+        "Spirit aliases",
+        "terrain/executable/system text"
+      ],
+      "engineering_code_kept_in_current_toolkit": [
+        "accepted cache fix",
+        "font v5"
+      ]
+    },
+    "new_translation_delta": {
+      "new_nonempty_package_rows": 22185,
+      "changed_previously_nonempty_rows": 6,
+      "affected_source_edat_count": 25,
+      "affected_source_edats": [
+        "eventP01.EDAT",
+        "eventP02.EDAT",
+        "eventP03.EDAT",
+        "eventP04.EDAT",
+        "eventP05.EDAT",
+        "eventP06.EDAT",
+        "eventP13.EDAT",
+        "eventP20.EDAT",
+        "eventP21.EDAT",
+        "eventP22.EDAT",
+        "eventP23.EDAT",
+        "eventP24.EDAT",
+        "eventP25.EDAT",
+        "eventP26.EDAT",
+        "eventP27.EDAT",
+        "eventP28.EDAT",
+        "eventP29.EDAT",
+        "evept101.EDAT",
+        "evept102.EDAT",
+        "evept103.EDAT",
+        "evept104.EDAT",
+        "evept105.EDAT",
+        "evept106.EDAT",
+        "evept107.EDAT",
+        "evept108.EDAT"
+      ]
+    },
+    "validator": {
+      "rows": 109176,
+      "filled": 87794,
+      "empty": 21382,
+      "errors": 0,
+      "warnings": 25165
+    },
+    "episode_00_21": {
+      "visible_elements": 28079,
+      "filled_elements": 28078,
+      "only_empty": {
+        "episode": "05",
+        "scene": "evidenced by exact binding from readback",
+        "reason": "JP whitespace-only structural row",
+        "source_row_id": "dlg:eventP01.EDAT/DL105_40.bin:696"
+      },
+      "per_episode": {
+        "epizod-00.md": {
+          "visible": 273,
+          "filled": 273,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-01.md": {
+          "visible": 1452,
+          "filled": 1452,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-02.md": {
+          "visible": 2416,
+          "filled": 2416,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-03.md": {
+          "visible": 1601,
+          "filled": 1601,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-04.md": {
+          "visible": 1264,
+          "filled": 1264,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-05.md": {
+          "visible": 1299,
+          "filled": 1298,
+          "empty": 1,
+          "unresolved": 0
+        },
+        "epizod-06.md": {
+          "visible": 1034,
+          "filled": 1034,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-07.md": {
+          "visible": 2414,
+          "filled": 2414,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-08.md": {
+          "visible": 1220,
+          "filled": 1220,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-09.md": {
+          "visible": 1528,
+          "filled": 1528,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-10.md": {
+          "visible": 1123,
+          "filled": 1123,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-11.md": {
+          "visible": 1459,
+          "filled": 1459,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-12.md": {
+          "visible": 1183,
+          "filled": 1183,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-13.md": {
+          "visible": 1076,
+          "filled": 1076,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-14.md": {
+          "visible": 1247,
+          "filled": 1247,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-15.md": {
+          "visible": 1074,
+          "filled": 1074,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-16.md": {
+          "visible": 825,
+          "filled": 825,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-17.md": {
+          "visible": 1312,
+          "filled": 1312,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-18.md": {
+          "visible": 1043,
+          "filled": 1043,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-19.md": {
+          "visible": 862,
+          "filled": 862,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-20.md": {
+          "visible": 1002,
+          "filled": 1002,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-21.md": {
+          "visible": 1372,
+          "filled": 1372,
+          "empty": 0,
+          "unresolved": 0
+        }
+      }
+    },
+    "saved_memory_corrections": {
+      "per_episode": {
+        "epizod-06.md": 47,
+        "epizod-09.md": 1,
+        "epizod-08.md": 1,
+        "epizod-17.md": 2,
+        "epizod-18.md": 4,
+        "epizod-21.md": 2
+      },
+      "total": 57,
+      "mismatches": []
+    },
+    "protagonist_name": {
+      "episode13_PL_hardcoded_Seishiro": false,
+      "variable_tokens_checked_by_strict_validator": true
+    },
+    "runtime_tested": false,
+    "full_original_asset_build_tested": false,
+    "translator_scripts_executed": false
+  }
+}

@@ -68,7 +68,6 @@ rem ===== ISO picker =====
 :pick_iso
 echo.
 echo  Select your game ISO (SRW OE 1.08)...
-echo  The Polish font patch needs the ISO - font.cpk is a disc file.
 %PY% "tools\pick_path.py" iso --out "chosen_iso.txt" --title "Select game ISO"
 if not exist "chosen_iso.txt" (
   echo  [X] No ISO selected.
@@ -99,7 +98,6 @@ rem ===== Build =====
 echo.
 echo  ============================================
 echo   Building Polish translation patch...
-echo   (the font step takes a moment - it recompresses font.cpk)
 echo  ============================================
 echo.
 

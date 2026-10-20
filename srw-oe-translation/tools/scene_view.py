@@ -41,6 +41,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import translation_import as TI
+import pl_handoff as PH
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
@@ -159,7 +160,7 @@ def _block(row: dict, field: str) -> str:
     return f"   {field.upper()}: {text.replace(chr(10), chr(10) + '   ')}".rstrip()
 
 
-def element_line(row: dict, lang: str = "en") -> List[str]:
+def element_line(row: dict, lang: str = "en", token_map=None) -> List[str]:
     """The Japanese text of one element plus the fill line(s) (or the note for a copy).
 
     ``lang="pl"`` renders the English as a read-only reference block and the ``PL:`` slot
@@ -167,9 +168,13 @@ def element_line(row: dict, lang: str = "en") -> List[str]:
     """
     text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
     lines = [f"{row['order']}. [{label(row)}] {text}"]
-    if row.get("copy_of"):
+    if row.get("copy_of") or (lang == "pl" and PH.readonly_reason(row)):
         lines.append("   (tłumaczenie dziedziczone automatycznie — nie wpisuj tu nic)")
         return lines
+    if lang == "pl":
+        lines.append("   limit: " + PH.limit_note([row]))
+        if PH.token_note([row], token_map):
+            lines.append("   tokeny: " + PH.token_note([row], token_map))
     lines.append(_block(row, "en"))
     if lang == "pl":
         lines.append(_block(row, "pl"))
@@ -177,6 +182,7 @@ def element_line(row: dict, lang: str = "en") -> List[str]:
 
 
 def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en") -> str:
+    token_map = package.get("token_map") or {}
     mission = (scene.get("mission") or "(bez tytułu)").replace("\n", " ")
     lines = [f"## Scena {scene['seq']}/{scene.get('total', '?')} — {mission}"]
     if scene.get("episode") is not None:
@@ -186,8 +192,12 @@ def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en")
         lines.append("- odcinek: misje treningowe (Simulator)")
     for section in scene.get("sections") or []:
         lines.append(f"- miejsce: {section['jp']} (element {section['order']})")
-    lines.append("- limit: dialog — 46 jedn. na linię (gra sama używa do 52), narracja — do 50 jedn.; "
-                 "liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)")
+    if lang == "pl":
+        lines.append("- limit: stosuj limit przy KAŻDYM elemencie; PL/ASCII = 1 cela i 1 B; "
+                     "symbole dwubajtowe = 2 cele i 2 B. Celuj w 46 celi na linię.")
+    else:
+        lines.append("- limit: dialog — 46 jedn. na linię (gra sama używa do 52), narracja — do 50 jedn.; "
+                     "liczbę linii zostaw jak w oryginale (okno gry pokazuje 3 naraz)")
     people = participants(rows, package["series"])
     if people:
         lines.append("- uczestnicy:")
@@ -208,6 +218,14 @@ def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en")
     for token, name, row in elements:
         text = row["jp"].replace("\r", "⏎").replace("\x0f", "<0x0F>").replace("\n", "\n   ")
         lines.append(f"{token}. [{name}] {text}")
+        if lang == "pl":
+            lines.append("   limit: " + PH.limit_note([row]))
+        if lang == "pl":
+            if PH.token_note([row], token_map):
+                lines.append("   tokeny: " + PH.token_note([row], token_map))
+            if row.get("copy_of") or PH.readonly_reason(row) or (token == "T1" and scene.get("mission_inherited")):
+                lines.append("   (tłumaczenie dziedziczone — nic tu nie wpisuj)")
+                continue
         lines.append(_block(row, "en"))
         if lang == "pl":
             lines.append(_block(row, "pl"))
@@ -215,7 +233,7 @@ def render_scene(scene: dict, rows: List[dict], package: dict, lang: str = "en")
         lines.append("")
 
     for row in sorted(rows, key=lambda item: item["order"]):
-        lines.extend(element_line(row, lang))
+        lines.extend(element_line(row, lang, token_map))
     lines.append("")
     lines.append("_koniec sceny_")
     lines.append("")
@@ -229,7 +247,7 @@ def render_index(scenes: List[dict], lang: str = "en") -> str:
     lines = ["# Spis scen", "",
              f"Widok do czytania i do pracy: pod każdym elementem jest linia {fill} — tam wpisuje się",
              f"tłumaczenie{reference}. Gotowe pliki wracają do pakietu jednym poleceniem "
-             "`tools/translation_import.py`.", "",
+             "`tools/translation_import.py --lang pl` (PL) / `tools/translation_import.py` (EN).", "",
              "Kolejność jest kolejnością gry: odcinek, misja, wariant (DLC). "
              f"Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) to numer wiersza w `06_scenes.jsonl`.", "",
              "| # | odcinek | misja | miejsce | uwaga |",
@@ -259,7 +277,10 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
     block stays as a reference and the ``PL:`` slot is filled from the package's ``pl`` field.
     """
     data = load_package(package)
-    rows, scenes = data["rows"], data["scenes"]
+    sidecar = TI.TMAP.find_sidecar([Path(package)])
+    data["token_map"] = TI.TMAP.load_map(sidecar) if sidecar else {}
+    rows, scenes = PH.eligible(data["rows"], lang), data["scenes"]
+    stamp = PH.package_stamp(package) if lang == "pl" else ""
     lookup = TI.scene_lookup(rows)
     data["seq_by_id"] = {scene["id"]: scene["seq"] for scene in scenes}
     out.mkdir(parents=True, exist_ok=True)
@@ -268,7 +289,7 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
         by_scene[row["scene"]].append(row)
     for scene in scenes:
         scene["total"] = len(scenes)
-    (out / "spis-scen.md").write_text(render_index(scenes, lang), encoding="utf-8")
+    (out / "spis-scen.md").write_text((stamp + "\n" if stamp else "") + render_index(scenes, lang), encoding="utf-8")
 
     groups: Dict[str, List[dict]] = collections.defaultdict(list)
     for scene in scenes:
@@ -284,7 +305,7 @@ def write_views(package: Path, out: Path, force: bool = False, lang: str = "en")
         body = [f"# {name.replace('.md', '').replace('-', ' ')}", ""]
         for scene in sorted(group, key=lambda item: item["seq"]):
             body.append(render_scene(scene, by_scene.get(scene["id"], []), data, lang))
-        text = "\n".join(body)
+        text = (stamp + "\n" if stamp else "") + "\n".join(body)
         target = out / name
         if not force and target.exists():
             edited = 0

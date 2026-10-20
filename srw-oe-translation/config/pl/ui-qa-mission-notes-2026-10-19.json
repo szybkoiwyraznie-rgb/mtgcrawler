@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "review": "Eleven original eventP00 members independently parsed/read back; only two measured 160-byte note slots promoted. EN targets empty; legacy quarantine unchanged.",
+  "container": "eventP00.cpk",
+  "container_sha256": "d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa",
+  "accepted_plain_pl_source": "mission_note:eventP01.EDAT/DL102_20_ext.dat:r0:note_a",
+  "npc_note_source": "leftover:eventP00.cpk/DL101_60_ext.dat:24",
+  "npc_line": "Technical UI translation of the source allied NPC notice; names/colour/newline preserved.",
+  "entries": [
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_a",
+      "source_sha256": "0dfa8536c19b09e5f3d379e9cf506a411ed37f494bcfab5a2edcd611c42e2368",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "9976de8e58d80c09acdfed413ad024211b3e1887f984039343fc50407f08d877"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_b",
+      "source_sha256": "4248e2768c3c214a4eadae2866372f2c231bc747661a6538ae21319dca6779f3",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "9976de8e58d80c09acdfed413ad024211b3e1887f984039343fc50407f08d877"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_a",
+      "source_sha256": "58a74e3c66ed1fe8babf1ceb065356e0581efe8a0cc2af48980e5b35fe2d9fdb",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "51189a2d3994740e61a519846be0c7774090a0b8940a75cf5ff2082361646135"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_b",
+      "source_sha256": "22fe80a2041c3e304e93a529613ec45157886056e7f59d200ef901a5b92da39d",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "51189a2d3994740e61a519846be0c7774090a0b8940a75cf5ff2082361646135"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_a",
+      "source_sha256": "3e8ce95223d1fa1435dd33b83d46728c8e463eb1454dbff5965856154d505e47",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "b3f6df11fe26aed207c7194e13918481f5b81a2bf5836d3f46ab28be0e1455ea"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_b",
+      "source_sha256": "d6f568073c073e9208f80ea9a8cf491f0f496ed83ee8541efa8a6f32188a1bcf",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "b3f6df11fe26aed207c7194e13918481f5b81a2bf5836d3f46ab28be0e1455ea"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_a",
+      "source_sha256": "51dd6d0de36cf20dce184a50176c2036c68b974d0fd78d0ccfb83af096c7fdad",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "660f7d61c76bad03ad40849b0e46d5fc8a6311c2824a9fa3c6a9781a46aed8f1"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_b",
+      "source_sha256": "32dd1b9689e463eff046c47f26f33ad177796ef9832aec1976f58186f4f4b0eb",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "660f7d61c76bad03ad40849b0e46d5fc8a6311c2824a9fa3c6a9781a46aed8f1"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_a",
+      "source_sha256": "1ad8e0dc6521765a110423d10374262f37e27e20138c5384bf9ca4b9ae8fa76a",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "27fd35544122054bc3157f025935c49dcce5b3a987432a35b93cc108be57b01a"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_b",
+      "source_sha256": "e3cc5e8618c2c5b55445c30904ca754b199c8fc6396943439e48144b367bcc01",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "27fd35544122054bc3157f025935c49dcce5b3a987432a35b93cc108be57b01a"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_a",
+      "source_sha256": "faacf0a198ec6799aa73aac413a46338f2ec1f1824c6c303282b0becbbc0c051",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "7bb1f06f553c507732a31713f36a2f069885749f7bc5e32f83476880e6ed954a"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_b",
+      "source_sha256": "8d335439150d5fdc3edc64362a5edc61bbcb64f0cc440270a1fc39fceadc39ac",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "7bb1f06f553c507732a31713f36a2f069885749f7bc5e32f83476880e6ed954a"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_a",
+      "source_sha256": "e6054209eeda926e69e14fe86643024a53a7918da087651bd2510e8125c2db2c",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "b55af420d7de73469cd712bcca4f052eaf4bae87ff9172dbde0b40e9f2dff3ae"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_b",
+      "source_sha256": "21452f9cc1ae99ce3a98a10228abc8189108b4bb0ad2dcf011f5d1a886a8682e",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "b55af420d7de73469cd712bcca4f052eaf4bae87ff9172dbde0b40e9f2dff3ae"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_a",
+      "source_sha256": "85aa66b19723c263c43db734b67291336389f5ec230bd768573f0c03cea1dbda",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.\nJako sojuszniczy NPC pojawi się ＠6Medea＠0.",
+      "member_sha256": "c64d6cd6d789af588f7e78bef2131bc3d5c03f8adb27e3ac4004db1278f207bb"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_b",
+      "source_sha256": "456699c69294ed4eabc4ab7bd049441597ab2afd6ab0b661880de45470ac9fe4",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.\nJako sojuszniczy NPC pojawi się ＠6Medea＠0.",
+      "member_sha256": "c64d6cd6d789af588f7e78bef2131bc3d5c03f8adb27e3ac4004db1278f207bb"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_a",
+      "source_sha256": "3f5f5e55093ce36de5b7c4ee9d3495c0b39c0755cc1ea93498aeb8278ac9abc6",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "36b75257057ca56b923f85a58bbdfe5d1a4579e145eb4d2ec363e1aa93206eb9"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_b",
+      "source_sha256": "4738b225613e0d06feb4d02c75340e4a5c6cfdeeeb97b939464fc7215d2a8afc",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "36b75257057ca56b923f85a58bbdfe5d1a4579e145eb4d2ec363e1aa93206eb9"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_a",
+      "source_sha256": "2ec759e357a6a19229b1d35c1c774ef3394f64bd836e12c4897e2928d8fb9bab",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "28a99beb85e1a2ea4e41720cb698c699d4d3569b2507328f178060624c650185"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_b",
+      "source_sha256": "7c08a0f0f872bdd01e285a15044997853c91dce894383b152c9207d23d0b495e",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "28a99beb85e1a2ea4e41720cb698c699d4d3569b2507328f178060624c650185"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_a",
+      "source_sha256": "44dc9a073895ef97d2ac38989217f4261da407c07b9cce9ab734b9670bb40d45",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "34afbe2630ab1dc959899fd1fe6f9d54149579d2865fce642b2e9d87511ac049"
+    },
+    {
+      "file": "05_mission_text.jsonl",
+      "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_b",
+      "source_sha256": "1ca3a294dd8d5aced6b83e9c8a15f8334905c358adfb233f07ec860f19344538",
+      "pl": "W tej misji skład jednostek jest z góry ustalony.",
+      "member_sha256": "34afbe2630ab1dc959899fd1fe6f9d54149579d2865fce642b2e9d87511ac049"
+    }
+  ]
+}

@@ -75,7 +75,7 @@ def decode(data: bytes) -> str:
             out.append(BYTE_TO_PL[b])
             i += 1
             continue
-        if 0x81 <= b <= 0x9F or 0xE0 <= b <= 0xEF:  # CP932 lead byte
+        if 0x81 <= b <= 0x9F or 0xE0 <= b <= 0xFC:  # CP932 lead byte
             plain += data[i:i + 2]
             i += 2
         else:
@@ -92,18 +92,17 @@ def is_pl(text: str) -> bool:
 
 
 def display_width(s: str) -> int:
-    """Width in ASCII-letter units: a Polish letter is one unit, like Latin.
+    """Drawn half-width cells: PL/ASCII = 1, two-byte CP932 glyphs = 2.
 
-    Full-width (CJK) characters still count two; control characters count zero.
+    In particular CP932 ellipses, curly quotes and ambiguous symbols are NOT ASCII-width.
+    Invalid characters use a diagnostic fallback; encode() remains the strict gate.
     """
     total = 0
     for ch in s:
         if unicodedata.category(ch) == "Cc":
             continue
-        if ch in PL_LETTERS:
-            total += 1
-        elif unicodedata.east_asian_width(ch) in ("W", "F"):
-            total += 2
-        else:
-            total += 1
+        try:
+            total += len(encode(ch))
+        except UnicodeEncodeError:
+            total += 2 if unicodedata.east_asian_width(ch) in ("W", "F") else 1
     return total

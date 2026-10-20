@@ -43,7 +43,7 @@ slot, a jp that no longer matches the bytes, two rows fighting over one target) 
 not hold the other ten thousand hostage.  The exit code is 0 when every container that had rows
 produced a patched file, 1 when something structural broke.  One exception: a member over its
 in-game size budget (``item_skill_write.MEMBER_SIZE_LIMITS``, today ``srwDL_Skill00.bin`` at
-216 768 B - the game crashes at "Loading" above it, measured 2026-10-15) refuses its WHOLE
+216 768 B - a conservative guard based on Loading failures, NOT an exact proven engine ceiling) refuses its WHOLE
 container ("NOT written", exit 1) - shipping the container with that member left Japanese
 would hide the problem; shorten the English with ``tools/skill_shrink.py`` instead.
 
@@ -55,10 +55,11 @@ Usage::
 
 ``--lang pl`` switches the package language: rows are read from the ``pl`` field, the
 writers encode through the Polish codec (:mod:`text_codec` → :mod:`pl_text`, the 18
-diacritics as private two-byte codes), and the ISO's ``font.cpk`` is extended with the
+diacritics as single-byte half-width codes), and the ISO's ``font.cpk`` is extended with the
 18 glyphs (:mod:`font_pl`) before anything else is queued for ``patched.iso``.  The
-executable strings step stays CP932-strict: a Polish letter in an exe row is refused
-with a reason instead of written.
+executable display targets use the same Polish font codec; original JP source checks
+stay CP932. UTF-8 system save-data strings retain UTF-8 and refuse Polish glyphs.
+The PL executable step also expands the hash-gated menu name cache (8 to32 bytes).
 """
 from __future__ import annotations
 
@@ -81,7 +82,7 @@ import configst_pack as CSP          # noqa: E402
 
 # Written into build_report.json so a report tells which writers produced it (the user's copy
 # of the tools is a branch ZIP without git metadata).  Bump when a writer invariant changes.
-TOOLS_STAMP = ("2026-10-17-v17: map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
+TOOLS_STAMP = ("2026-10-18-v17-masaki-integrated-pl-dlc-codec: EN/PL existing-cell Character19 fix + map attr names fixed cells + batch STORED CPK, flat unambiguous DLC output + field read-back contract, conv-B +32/+36/+52, Skill00 budget 216768, DLC pool budget 15638, "
                "skill total 342194, copies resync, UI textures (stored) from ui_labels/, "
                "executable strings in place (ISO PSP_GAME/SYSDIR/EBOOT.BIN -> plain ELF in "
                "patched.iso, PBOOT.PBP -> plain-ELF DATA.PSP) + CWCheat, identical members "
@@ -126,7 +127,12 @@ SKIP_CATEGORIES = {"config_item_drop"}
 # side, while the byte-identical imenuNN side runs (imenu01.EDAT v9 - doubled in size, full
 # EN slots - stayed in the emulator folder through every test; v12A "#17 + v11 dictionaries
 # in config01-08" crashed, v13 with these rows held back ran).  The dictionary UI reads the
-# imenuNN copies (21.34), so the config side keeps name/nickname/series/length EN.
+# imenuNN copies in those tests (21.34), so config keeps name/nickname/series/length EN.
+# 2026-10-18 Masaki v17 report: DLC Character Viewer content matches the held-back
+# config19 copy, not the fully English imenu19. Do NOT assume every viewer path
+# reads imenu. Owner accepted the narrow existing-cell repair. The shared EN/PL
+# builder now releases only physically verified Character19 cells (see below);
+# all other guarded categories/containers remain held back.
 # 2026-10-17 (21.57/21.58): the Robot Viewer foe list ALSO reads the configNN copies and
 # falls back to them for chapter-only units - robo_name_narrow + robo_type are ORIGINAL
 # cells (present in the JP originals, in-place content replacement like name/series) and
@@ -140,11 +146,84 @@ CONFIG_DICT_SPARE_CATEGORIES = {
 
 
 def config_side_spare_row(row: dict) -> bool:
-    """True for a row that must not reach a configNN.EDAT dictionary copy: the v7 NEW viewer
+    """Default quarantine predicate; verified_character19_rows may narrowly override it.
+    These configNN.EDAT fields are held back by default: the v7 NEW viewer
     slots (voice_actor with the 'Voice:' label, short_name, alt_name, entry, labels) and
     note/weight.  robo_name_narrow/robo_type are original cells and ARE written (21.58 -
     the foe list of the Robot Viewer reads them).  The imenuNN copies keep everything."""
     return row.get("category") in CONFIG_DICT_SPARE_CATEGORIES
+
+
+CHARACTER19_MEMBER = "srwDL_CharaDictionary19.bin"
+CHARACTER19_KEYS = {4420, 4424, 4426}
+CHARACTER19_SLOTS = {1, 4, 5, 11}
+
+
+def verified_character19_rows(name: str, blob: bytes, rows: List[dict]) -> Tuple[List[dict], dict]:
+    """Release only the owner-accepted physical cells, using the active language's rows.
+
+    No English strings/fallback and no global category exception. Unknown shapes,
+    empty cells, stale JP or unresolvable rows stay behind the existing gate.
+    Broadcast labels are safe only when the WHOLE pool has the three known keys.
+    """
+    detail = {"released_rows": 0, "physical_cells": 0, "status": "not_applicable"}
+    if name.casefold() != "config19.edat":
+        return [], detail
+    candidates = []
+    for row in rows:
+        src = row.get("source") or {}
+        if src.get("container") not in (None, name) or src.get("member") not in (CHARACTER19_MEMBER, "srwDL_CharaDictionary"):
+            continue
+        cat, part = row.get("category"), row.get("part")
+        if ((cat == "character_voice_actor" and part == "voice_actor" or
+             cat == "character_short_name" and part == "short_name") and row.get("key") in CHARACTER19_KEYS):
+            candidates.append(row)
+        elif (cat == "config_label" and part == "label" and row.get("key") is None
+              and src.get("slot") in (4, 5)
+              and row.get("jp") == TW.SLOT_LABELS[("srwDL_CharaDictionary", src["slot"])].decode("cp932")):
+            candidates.append(row)
+    if not candidates:
+        return [], detail
+    detail["status"] = "held_back"
+    try:
+        pool = _members_of_blob(blob)[CHARACTER19_MEMBER]
+        family = TW.family_of(CHARACTER19_MEMBER)
+        records, spans = TW.parse_pool(pool, family), TW.record_spans(pool)
+        keys = [TW.record_key(pool, span, family) for span in spans]
+        if len(keys) != 3 or set(keys) != CHARACTER19_KEYS:
+            raise BuildError("unknown Character19 key set; safety gate retained")
+        if any(rec.unexplained_refs or any(not rec.strings[j] for j in CHARACTER19_SLOTS)
+               or any(rec.strings[j] for j in (6, 7, 10)) for rec in records):
+            raise BuildError("unknown/empty Character19 cells; safety gate retained")
+        released, targets = [], set()
+        for row in candidates:
+            plan, problems = TW.resolve_rows(pool, CHARACTER19_MEMBER, [row])
+            cells = set(plan["edits"])
+            if (not problems and not plan["refused"] and cells
+                and all(keys[i] in CHARACTER19_KEYS and j in CHARACTER19_SLOTS for i, j in cells)):
+                released.append(row)
+                targets.update(cells)
+        # Full active-row plan includes ordinary nickname edits BEFORE label replacement.
+        # It is necessary for an exact PL/EN read-back expectation of slots 4 and 5.
+        selected = [r for r in rows if not config_side_spare_row(r) or any(r is x for x in released)]
+        full_plan, problems = TW.resolve_rows(pool, CHARACTER19_MEMBER, selected)
+        if problems:
+            raise BuildError("Character19 full plan refused: " + str(problems))
+        expected = {cell: full_plan["edits"][cell] for cell in targets}
+        detail.update(status="verified", released_rows=len(released), physical_cells=len(expected),
+                      keys=sorted(keys), slots=sorted({j for i, j in expected}))
+        # Internal bytes stay out of JSON reports; caller checks them before writing container.
+        detail["_expected"] = expected
+        return released, detail
+    except (KeyError, ValueError, TW.TableError, BuildError) as exc:
+        detail["reason"] = str(exc)
+        return [], detail
+
+
+def verify_character19_result(blob: bytes, expected: dict) -> None:
+    records = TW.parse_pool(_members_of_blob(blob)[CHARACTER19_MEMBER], TW.family_of(CHARACTER19_MEMBER))
+    if any(records[i].strings[j] != value for (i, j), value in expected.items()):
+        raise BuildError("Character19 active-language field read-back differs; container refused")
 
 
 #: USRDIR containers whose GIM textures carry painted captions (tools/ui_texture_patch.py,
@@ -171,12 +250,34 @@ def load_rows(package: Path, lang: str = "en") -> List[dict]:
             if not line.strip():
                 continue
             row = json.loads(line)
-            if lang == "pl" and "pl" in row:
+            if lang == "pl":
                 # a Polish package translates the ``pl`` field; every writer keeps
                 # reading ``en``, so the field is mapped once, here, at load time
                 row["en"] = row.get("pl") or ""
             row["__file"] = name
             rows.append(row)
+    if lang == "pl":
+        import translation_copy
+        import translation_check
+        import token_map
+        sidecar = token_map.find_sidecar([Path(package)])
+        pct = token_map.load_map(sidecar) if sidecar else {}
+        copies = translation_copy.copy_rows(rows, field="pl", resync=True, token_map=pct)
+        if copies["problems"]:
+            raise BuildError("invalid PL copy graph: " + "; ".join(copies["problems"][:10]))
+        for row in rows:
+            row["en"] = row.get("pl") or ""
+            if row["en"].strip():
+                errors, _ = translation_check.check_row(row, field="pl", pct=pct.get(row.get("id")))
+                # Narration uses the measured grow/reflow writer; TEST_PL v4/v5 deliberately
+                # shortens the opening prose. Translator imports still preserve source breaks.
+                if row.get("kind") == "narration":
+                    errors = [e for e in errors if not e.startswith("line breaks changed:")]
+                if errors:
+                    raise BuildError(f"invalid PL row {row.get('id')}: " + "; ".join(errors))
+        conflicts = translation_check.conflicting_duplicates(rows, field="pl")
+        if conflicts:
+            raise BuildError("conflicting PL duplicates: " + conflicts[0][0])
     return rows
 
 
@@ -621,6 +722,8 @@ class ContainerBuild:
             edits, problems, notes = _sysmes_edits(blob, rows)
             self.report["problems"].extend(f"{step}: {p}" for p in problems)
             self.report.setdefault("info", []).extend(f"{step}: {n}" for n in notes)
+            if problems and text_codec.lang() == "pl":
+                raise BuildError("PL sysmes plan refused: " + "; ".join(problems[:5]))
             if not edits:
                 self._advance(None, step, {})
                 return
@@ -641,6 +744,8 @@ class ContainerBuild:
         except Exception as exc:
             self.report["problems"].append(f"{step}: {exc}")
             self._advance(None, step, {})
+            if text_codec.lang() == "pl":
+                raise BuildError(f"PL sysmes NOT written: {exc}") from exc
         finally:
             if not self.dry_run:
                 src.unlink(missing_ok=True)
@@ -708,7 +813,10 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
     edits: Dict[bytes, bytes] = {}
     problems: List[str] = []
     notes: List[str] = []
-    strings = [s for s in SMSP.parse(blob).strings if s]
+    parsed = SMSP.parse(blob)
+    starts = set(parsed.starts)
+    at_offset = dict(zip(parsed.starts, parsed.strings))
+    strings = [s for s in parsed.strings if s]
     decoded = [raw.decode("cp932", "replace") for raw in strings]
     displays = [TW.display(raw) for raw in strings]
     # the same lookup order as table_write.match_form: the file's own form first
@@ -721,6 +829,24 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
     unmatched_rows: List[dict] = []
     for row in rows:
         jp = row.get("jp")
+        # A legacy suffix can have the SAME text as another whole entry (e.g.
+        # money inside an ace caption). It still does not own that other entry.
+        # PL source rows carry physical offsets; filter before matching by text.
+        # Keep the shipped EN route unchanged.
+        if text_codec.lang() == "pl" and (row.get("source") or {}).get("offset") not in starts:
+            unmatched_rows.append(row)
+            continue
+        if text_codec.lang() == "pl":
+            original = at_offset[(row.get("source") or {})["offset"]]
+            if jp not in (original.decode("cp932", "replace"), TW.display(original)):
+                problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
+                continue
+        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068,44704):
+            # IDs0x367/0x36a reach sceUtilityMsgDialog, not ank.fta.
+            import pl_text
+            if pl_text.is_pl(TW.english(row)):
+                problems.append(f"sysmes row {row.get('id')}: PSP system dialog requires ASCII/English")
+                continue
         if jp in by_raw:
             matches.setdefault(by_raw[jp], []).append((row, "raw"))
         elif jp in by_display:
@@ -1039,16 +1165,27 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         reported_dlc = name.casefold() in {n.casefold() for n in DLC_TITLES.FILES} and bool(dlc_expected)
         if not mine and not reported_dlc:
             continue
+        viewer_expected = {}
         if DLC_CONFIG_RE.match(name):
-            spare_count = sum(1 for r in mine if config_side_spare_row(r))
+            released, viewer_detail = verified_character19_rows(name, blobs[name], mine)
+            viewer_expected = viewer_detail.pop("_expected", {})
+            if viewer_detail["status"] != "not_applicable":
+                report.setdefault("character_viewer_fix", {})[name] = viewer_detail
+            released_ids = {id(r) for r in released}
+            held = [r for r in mine if config_side_spare_row(r) and id(r) not in released_ids]
+            spare_count = len(held)
             if spare_count:
-                mine = [r for r in mine if not config_side_spare_row(r)]
+                held_ids = {id(r) for r in held}
+                mine = [r for r in mine if id(r) not in held_ids]
                 report.setdefault("notes", []).append(
                     f"gate: {name}: held back {spare_count} v7 viewer-slot rows from the "
-                    f"config-side dictionary copies (by design; the dictionary UI reads imenuNN)")
+                    f"config-side dictionary copies (safety gate; some DLC viewer paths may read configNN)")
         builder = ContainerBuild(name, blobs[name], mine, work / name, dry_run=dry_run)
         try:
             final = builder.run()
+            if viewer_expected:
+                verify_character19_result(final, viewer_expected)
+                report["character_viewer_fix"][name]["readback_ok"] = True
             if reported_dlc:
                 # A successful writer count is not proof that the reported titles
                 # reached the output. Check actual fields by immutable payload IDs.
@@ -1056,12 +1193,12 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                 check_path.parent.mkdir(parents=True, exist_ok=True)
                 check_path.write_bytes(final)
                 try:
-                    result = DLC_TITLES.inspect_container(check_path, dlc_expected)
+                    result = DLC_TITLES.inspect_container(check_path, dlc_expected, lang=lang)
                 finally:
                     check_path.unlink(missing_ok=True)
                 builder.report["dlc_title_check"] = result
                 if not result["passed"]:
-                    raise BuildError("reported DLC activation fields did not read back as package English")
+                    raise BuildError("reported DLC activation fields did not read back as active package language")
         except ISW.SizeBudgetError as exc:
             # a member over its in-game size budget: nothing of this container is written -
             # shipping the rest with that member left Japanese would hide the problem
@@ -1320,7 +1457,16 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
             tgt["problems"].append(msg)
             report["problems"].append(f"executable: {msg}")
             continue
-        patched, exe_report = EXE.apply_rows(elf, rows)
+        code_image = elf
+        if text_codec.lang() == "pl":
+            import spirit_name_cache
+            try:
+                code_image, tgt["spirit_name_cache"] = spirit_name_cache.apply(elf)
+            except ValueError as exc:
+                tgt["problems"].append(str(exc))
+                report["problems"].append(f"executable: {src['label']}: {exc}")
+                continue
+        patched, exe_report = EXE.apply_rows(code_image, rows)
         tgt["applied"] = exe_report["applied"]
         tgt["empty"] = exe_report["empty"]
         tgt["skipped"] = exe_report["skipped"]
@@ -1368,6 +1514,9 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
     if cheat_elf is None:
         return
     cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
+    if text_codec.lang() == "pl":
+        import spirit_name_cache
+        cheat_text += "\n".join(spirit_name_cache.cheat_lines()) + "\n"
     if dry_run:
         summary["written"].append("(dry-run) cheats/NPJH50521.ini")
         return

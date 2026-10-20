@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-18",
+  "name": "v17_MASAKI_TEST1.zip",
+  "bytes": 4307,
+  "md5": "52a66b1ad2d5d54422daa3c91a0c0ee2",
+  "sha256": "11ab934011727393ac7c85163c7b6dfd99e217dc942a33d42603650787eb0b0f",
+  "drive_id": "1RW-thcVUA7QcMLxG63eqBsejR8h3BZv5",
+  "drive_url": "https://drive.google.com/file/d/1RW-thcVUA7QcMLxG63eqBsejR8h3BZv5/view",
+  "sharing_changed": false,
+  "download_back_byte_identical": true,
+  "zip_crc_all_ok": true,
+  "scope": "private experimental config19.EDAT only, not a v18 release or a PL/font/skill patch",
+  "source_v17_zip_sha256": "5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937",
+  "delivered_v17_original_input_reproduction_problems": 0,
+  "observed_config_gate_rows_held": 326,
+  "screenshot_fields_match_config19_reproduction": true,
+  "runtime_consumer_pointer_trace": false,
+  "readback": {
+    "changed_slots": [
+      {
+        "key": 4420,
+        "record": 0,
+        "slot": 1
+      },
+      {
+        "key": 4420,
+        "record": 0,
+        "slot": 4
+      },
+      {
+        "key": 4420,
+        "record": 0,
+        "slot": 5
+      },
+      {
+        "key": 4420,
+        "record": 0,
+        "slot": 11
+      },
+      {
+        "key": 4424,
+        "record": 1,
+        "slot": 1
+      },
+      {
+        "key": 4424,
+        "record": 1,
+        "slot": 4
+      },
+      {
+        "key": 4424,
+        "record": 1,
+        "slot": 5
+      },
+      {
+        "key": 4424,
+        "record": 1,
+        "slot": 11
+      },
+      {
+        "key": 4426,
+        "record": 2,
+        "slot": 1
+      },
+      {
+        "key": 4426,
+        "record": 2,
+        "slot": 4
+      },
+      {
+        "key": 4426,
+        "record": 2,
+        "slot": 5
+      },
+      {
+        "key": 4426,
+        "record": 2,
+        "slot": 11
+      }
+    ],
+    "changed_slots_count": 12,
+    "old_dictionary_bytes": 658,
+    "new_dictionary_bytes": 706,
+    "records": 3,
+    "templates_and_empty_slots_preserved": true,
+    "non_pointer_prefix_and_tail_verified": true,
+    "scope": "experimental config19 existing-field-only fix for keys 4420/4424/4426",
+    "runtime_tested": false,
+    "original_v17_baseline_unchanged": true,
+    "normal_builder_dictionary_gate_unchanged": true,
+    "other_container_members_unchanged": 10,
+    "container_bytes_before": 32896,
+    "container_bytes_after": 32896,
+    "sha256_before": "14a645aa3fb11b7cad9b893102df06176a0fac1cff51c11a4a38b923d18895c9",
+    "sha256_after": "84525e62f258ec54b13cda6144d8758beae2125cdee6b986aaf7472f10da8951",
+    "md5_before": "514434967daacf1afd588378794c1b20",
+    "md5_after": "077d4b17529f0d2d6d80ef8706935dc8"
+  },
+  "dictionary_matches_already_english_v17_imenu19_byte_for_byte": true,
+  "dictionary_sha256": "3f16a4a7ffb633ab0aadc2140c065717c75bb2d8af34dc3c91cd99d6df3b8fc7",
+  "runtime_tested": true,
+  "tests": {
+    "run": 1610,
+    "result": "OK",
+    "skipped": 28,
+    "seconds": 31.134
+  },
+  "game_binaries_in_github": false,
+  "game_binary_in_private_delivery": true,
+  "owner_runtime": {
+    "date": "2026-10-18",
+    "feedback": "wszystko pięknie przetłumaczone",
+    "result": "accepted",
+    "scope": "reported Character Viewer fields after the focused config19 test",
+    "limits": "No claim of all-chapter stability, all dictionaries, or a global gate exception.",
+    "integration": "Focused fix confirmed; not yet folded into standard full builder/release."
+  }
+}

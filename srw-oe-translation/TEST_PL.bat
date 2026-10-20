@@ -7,7 +7,7 @@ rem    - font.cpk        (the 18 Polish letters added to the game font)
 rem    - eventP00.cpk    (the opening of mission 0-0: narration + dialogues)
 rem    - config00.cpk    (the Exart mech: its name and its weapons)
 rem
-rem  The texts are PROBES ("TEST PL 1/4: ąćęłńóśźż..."), not translations.
+rem  The texts are PROBES (PL V5 natural-text panels at the start of mission 0-0), not translations.
 rem  Goal: see with your own eyes, in game, that the Polish letters render.
 rem
 rem  Output:  output\patched.iso   (load in PPSSPP, start a NEW GAME)
@@ -16,7 +16,7 @@ rem ============================================================================
 setlocal
 cd /d "%~dp0"
 if not defined SRW_KEEP_WINDOW set "SRW_KEEP_WINDOW=1" & cmd /k ""%~f0" %*" & exit /b
-echo [TEST PL] folder: %~dp0
+echo [TEST PL V5] folder: %~dp0
 ver
 chcp 65001 >nul
 set "PYTHONIOENCODING=utf-8"
@@ -77,6 +77,13 @@ if errorlevel 1 (
   goto :finish
 )
 
+rem ===== Independent read-back (font cells and actual ISO texts) =====
+%PY% "tools\verify_pl_test.py" --original "%ISOFILE%" --iso "output\patched.iso" --package "translation" --out "output\PL_VERIFY.json"
+if errorlevel 1 (
+  echo  [X] ISO read-back FAILED. Do not test this build.
+  goto :finish
+)
+
 rem ===== Done =====
 echo.
 echo  ============================================
@@ -87,9 +94,9 @@ if exist "output\patched.iso"          echo  - patched.iso         (load in PPSS
 if exist "output\build_report.json"    echo  - build_report.json
 echo.
 echo  What to check in game (see README_TEST_PL.md):
-echo   1) New Game - the opening narration of mission 0-0
-echo   2) The dialogues of Seishiro and Himari (TEST PL ...)
-echo   3) The Exart unit screen: its name and the weapon list
+echo   New Game - take a screenshot of the FIRST DIALOGUE.
+echo   It starts: Lacznosc dziala. Slychac mnie wyraznie?
+echo   No menu search or weapon screen is needed.
 
 :finish
 echo.

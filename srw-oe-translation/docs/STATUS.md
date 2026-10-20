@@ -1,6 +1,120 @@
 # Project status
 
-Last updated: 2026-10-18 (§21.66 — prezentacja katalogu v3)
+**PL4 partial return integrated and v2.7-PL4 kit delivered (2026-10-20).**
+[Download](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view);
+All nine views plus episodes00–21: strict import67,143 explicit blocks,0 errors,
+0 stale/unknown/duplicate,exact roundtrip.1,283 existing owner-UI source bindings
+plus32 mission rows retained;57 translator correction-file entries round-trip.
+Episodes00–21 contain28,078/28,079 PL visible entries (one whitespace-only
+structural blank). Package validator:87,794/109,176 filled,0 hard errors/25,165
+soft warnings. New PL4 rows map only to25 DLC EDAT names; originals unavailable
+in this sandbox, so actual physical build/DLC output/runtime remains unverified.
+Episodes22–34 and simulator remain unfinished. See
+[PL4 audit](pl/PL4_RETURN_REVIEW.md); keep UI/protagonist/cache/font corrections.
+
+**PL UI v2.6 delivered (2026-10-20):** seven owner screenshots addressed in one
+text-only batch, all527mission title fields checked/read back,10missing base
+copies filled, all20Spirit families compact-name reviewed.1724tests OK/2skip;
+cache/font unchanged, new runtime layout confirmation pending. For current owner
+PPSSPP1.20.4 upgrade: ISOYES/DLCNO/PBOOTNO recopy.
+[Download](https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view),
+[scope/proof](pl/UI_SIX_2026-10-20.md). Older releases below are history.
+
+**PL3 release (2026-10-19):** partial standalone PL patcher delivered from actual
+PL3.zip. Quotes19841/19841, all editable visible views filled (protected/binary
+blanks preserved), scenes00–03 fully filled after copies.0 import/validation errors;
+634 leading spaces preserved;48326 explicit MD blocks compared after propagation,
+0 mismatches. **Physical Skill00215764B (1004B margin)**,8 DLC pools15329B each
+(309B margin), extracted-kit CLI on authentic-container NONPLAYABLE fixture0problems.
+[Download PL patcher](https://drive.google.com/file/d/1jkVKOzRyy8QE58elwLqezi19-iNXRNGq/view).
+EN+PL workflow now tested successfully on GitHub Actions; publishes BOTH only
+on main after merge, not from PR. Source-bound PL text snapshot tracked, no Drive
+secrets/game data in CI. **PR20 still open; main publication awaits merge.**
+1644 tests OK/25 skipped. Quote gender/158 formatting findings/later story/runtime
+QA remain open; not a literary/full-game approval. This supersedes PL2's686B
+blocker below. See [PL3_RELEASE.md](pl/PL3_RELEASE.md) and its delivery receipt.
+
+**PL2 return (2026-10-18):** audited actual PL2.zip. Leading spaces preserved in
+all 634 config fields; all 33 prior join suspects corrected in 1421 format previews.
+**Skill00 remains 217454 B vs 216768 (+686 B)**; normal builder refuses it,
+no bypass/new oversized test. All eight physical DLC pools build/read back at
+15331 B each (307 B margin). Delivered quotes are **11801/19841**, not reported
+13460 — request newest MD export before further edits. One glossary full/short
+variant to review, no import errors. Fixed EN-only chapter-4 DLC readback for PL.
+1626 tests OK/27 skipped; no playable ISO/runtime claim. See
+[PL2_RETURN_REVIEW.md](pl/PL2_RETURN_REVIEW.md). Keep translator's literary work;
+next: latest MD export and remaining ≥686 B of actual Skill00 savings.
+
+**Masaki v17 update (2026-10-18):** delivered-kit reproduction confirms the
+reported JP/EN mix in the config19 dictionary while imenu19 is fully EN. The
+global config-side viewer safety gate is the cause of those held-back fields;
+not missing translator work. A private existing-cell-only TEST1 for three
+characters is delivered and owner-confirmed ("wszystko pięknie przetłumaczone").
+Narrow integration is now active automatically in the normal shared **EN and PL**
+builder; global gate stays enabled elsewhere. The EN container is byte-identical
+to accepted TEST1; PL uses its own source-stamped returned fields (no EN fallback).
+[Tools-only updater](https://drive.google.com/file/d/1ssmlgTfscMTp-da2Ou_2t3STjua6h-f2/view)
+for both existing kits is delivered; no translations/launchers/game files included.
+1620 tests OK/28 skipped; isolated updated-kit EN/PL builds and independent
+original-DLC readback pass. No playable ISO/full-game QA here. See
+[QA_MASAKI_V17.md](QA_MASAKI_V17.md) and [delivery receipt](masaki-builder-update-delivery.json).
+
+**V5 runtime update (2026-10-18): owner accepts the font on two opening
+narration/dialogue screenshots, with no further styling objections.** Missing
+Ł/Ś (also Ó) in all-caps headings were ASCII caption literals in the exact delivered
+ZIP, not a font defect. Source captions corrected; font/codec unchanged. No new
+font build/test requested. [Details](pl/PL_FONT_STYLE.md). Older pending notes below
+refer to the state at delivery, not the latest feedback.
+
+**Translator PL audit complete (2026-10-18, PR #20).** Replace the old
+`sceny_PL.zip` / `widoki_PL.zip` with checked **v2** archives linked in
+[`pl/TRANSLATOR_VIEWS_AUDIT.md`](pl/TRANSLATOR_VIEWS_AUDIT.md).
+All 109144 extracted text rows classified: 108761 editable/inherited, 19 protected,
+364 unclassified leftovers quarantined (8 necessary leftover roots retained).
+Full synthetic PL import/copy/check/build-load passed; 1591 tests OK, 25 skipped.
+Tools from `0053e01` or newer are required; use `--lang pl --require-template`.
+Next: external translator fills PL only; later validate returned text and runtime
+layout. No literary PL translation done; **v5 opening-screen appearance now accepted by owner**.
+Manifest: [`pl/translator-views-v2-delivery.json`](pl/translator-views-v2-delivery.json).
+
+Last updated: 2026-10-18 (PL v4 runtime/style feedback; native font v5 — PR #20)
+
+**Najnowsze PL: v4 działa; [TEST_PL v5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view) dopasowuje styl fontu.**
+Cztery zrzuty właściciela pokazują działający tekst w narracji, dialogu, tytule
+sceny i nazwie jednostki; uwagi o grubości i wysokości potwierdzone pomiarem bitmap.
+V5 nie rasteruje Roboto: kopiuje korpusy ASCII z własnego oryginalnego fontu gry
+podczas budowy i dodaje tylko małe maski diakrytyków. Bez skalowania, przesuwania
+ani pogrubienia; źródłowe ASCII bez zmian. Korpusy i krycie sprawdzane niezależnym
+odczytem ISO, żadne bitmapy gry/pochodne JSON nie są w Git ani w paczce.
+1569 unittest OK (25 skipped), wydany ZIP wypakowany i jego CLI sprawdzone na fixture
+ISO z oryginalnymi kontenerami; Drive download-back identyczny. Teksty v4 zachowane
+(poza etykietami wersji). **V5 nie uruchomiono tu w PPSSPP; wygląd runtime oczekuje
+oceny**, czego nie zastępuje potwierdzenie v4. [Dowody stylu](pl/PL_FONT_STYLE.md),
+[manifest v5](pl/test-v5-delivery.json). Starsze stany poniżej są historią.
+
+**Najnowsze PL: v3 potwierdzony na zrzutach właściciela; [TEST_PL v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view) dostarczony.**
+Właściciel ocenił font pozytywnie i poprosił o naturalne zdania w pierwszym dialogu.
+V4 ma wymyślone próbki polskiej prozy (nie przekład scenariusza), w tym ł/ś/ć/ą/ę/ń
+w pierwszej kwestii; długie ciągi testowe w narracji 3–6 zastąpione dwiema liniami.
+Font i kodek bez zmian; SHA-256 font.cpk identyczny z v3. 1558 unittest OK
+(25 skipped); rzeczywiście wydany ZIP wypakowany, CLI i odczyt ISO z oryginalnymi
+kontenerami sprawdzone, pobranie zwrotne Drive identyczne. V4 nie uruchomiono tu
+w PPSSPP. Screenshoty v3 potwierdzają scenę otwierającą, nie wszystkie ekrany gry.
+[Manifest v4](pl/test-v4-delivery.json). Starsze stany poniżej są historią.
+
+**Najnowsze PL: [TEST_PL v3](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view) dostarczony.**
+Analiza prywatnego ELF ujawniła błędny indeks: katakana czytana z `bajt−0x40`,
+nie `bajt−0x20`. Podgląd bitmap ujawnił drugi błąd: piksele należy pakować młodszym
+nibblem jako lewym. Obie poprawki zapisane w kodzie; niezależne testy fizycznych
+bajtów i wykonanie małego fragmentu MIPS (ze slotami opóźnienia skoków).
+Jedna pierwsza plansza misji 0-0 pokazuje 18 liter, ASCII i odstępy. Kit sprawdza
+ISO po budowie, bez udziału właściciela. 1553 unittest OK (25 skipped); rzeczywiste
+kontenery font/event/config w fixture ISO + uruchomienie narzędzi z wypakowanego
+wydawanego ZIP sprawdzone. Nie uruchomiono pełnej gry/PPSSPP ani Windows BAT.
+Pobranie zwrotne Drive identyczne. **Oczekiwany tylko screenshot pierwszej planszy
+`PL V3 / 1` po New Game**, nie szukanie katakany w menu. To test techniczny, nie
+pełne PL; EN/katalog/scenariusz bez zmian. [Dowody](pl/PL_FONT_MAPPING.md),
+[manifest](pl/test-v3-delivery.json).
 
 **Najnowsze (§21.66): prezentacja katalogu v3 dostarczona.**
 [Nowy Markdown](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view),
@@ -1159,3 +1273,12 @@ UI (`system.cpk` — układ tylko-ITOC), potem przebudowa ISO i test w PPSSPP.
 * **Nie jest to skończone tłumaczenie i nie było testu w grze dla tej budowy** — to pierwszy pakiet,
   który pozwala taki test zrobić (linie 47–52, stored mesbtl00 1 MB, pula umiejętności, DLC_ID, tytuły).
   Testy: **977 OK (1 skipped)**.
+
+### 2026-10-19 — Polish reading/reference export delivered
+
+Four owner-requested PL3 counterparts (episodes01–03 + mech catalogue v3) are
+on Drive, individually and in one ZIP; all5 files download-back verified.
+5225 prose rows covered,393 catalogue unit records/1485 weapon-action entries;
+PL aliases rechecked, v3 cosmetics/uncertainty retained. No game/source changes
+or fresh literary translation.1695 tests OK/24 skipped.
+See [Polish reading editions](reading-script/polish/README.md) and delivery receipt.

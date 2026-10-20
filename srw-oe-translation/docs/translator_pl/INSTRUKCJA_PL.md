@@ -1,10 +1,14 @@
 # INSTRUKCJA — pakiet `pakiet_PL` (Super Robot Wars OE → polski)
 
-Pakiet na bazie kompletu `pakiet_EN` (109 144 wiersze, stan patcha v17). To jest **pełny,
-aktualny** zestaw tekstu gry — zastępuje stare pakiety `widoki.zip` / `sceny.zip`
-(widoki v3 z 2026-10-16 są nieaktualne; niczego z nich nie używaj).
+Pakiet JSONL jest bazą integracji. Aktualne **sprawdzone widoki PL, wydanie 2**
+(`sceny_PL_sprawdzone_v2.zip` i `widoki_PL_sprawdzone_v2.zip`) są równoważnym
+interfejsem do pracy tłumacza; ich import wypełnia `pl`. Nie używaj wcześniejszych
+archiwów PL bez audytu. Instrukcja widoków: `docs/INSTRUKCJA_WIDOKI_PL.md`.
 
-Twoje zadanie: wypełnić pole **`"pl"`** w plikach JSONL. Niczego więcej nie zmieniaj.
+Bezpośrednio w JSONL zmieniaj wyłącznie pole **`"pl"`**. Baza ma 109 144 wiersze
+tekstowe + 293 strukturalne. Odłożono 364 nierozpoznane `leftover:` (8 źródeł jawnych kopii pozostaje);
+chronione literały silnika, `NoData` i puste pola pozostają JP. Pokrycie dotyczy ekstrakcji `pakiet_EN`,
+nie obietnicy wyodrębnienia każdego napisu/tekstury całej gry.
 
 ## 1. Format
 
@@ -48,7 +52,7 @@ Pliki:
 ## 2. Polskie znaki diakrytyczne
 
 Font gry ma 18 polskich liter: `ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż`. Każda z nich zajmuje
-**jedną jednostkę szerokości**, tak jak zwykła litera angielska (od wersji TEST_PL v2, 2026-10-18).
+**jedną jednostkę szerokości**, tak jak zwykła litera angielska (od jednobajtowej wersji fontu, 2026-10-18).
 Możesz ich swobodnie używać w `"pl"`.
 
 **Nic poza tym.** Każdy inny znak spoza CP932 to twardy błąd importu:
@@ -81,17 +85,22 @@ zaktualizowane: litera PL = 1 jednostka.
 
 - **`max_bytes`** — twardy limit bajtów CAŁEGO tekstu (slot o stałym rozmiarze).
   Litera PL liczy się jako 1 bajt (tak jak ASCII), znak fullwidth jako 2.
-- **Dialogi/cytaty**: szerokość linii ≤ **46** jednostek (absolutne maksimum 52);
+- **Dialogi/cytaty**: celuj w **46** celi; limit dialogu **52**, cytatu **50**;
   litera PL = 1 jednostka.
 - **`suggested_max`** — ostrzeżenie (pole UI; nie przekraczaj zbytnio).
-- Wiersze z `"mode": "grow"` mogą być dowolnie długie bajtowo — limit jest tylko
-  szerokością linii na ekranie.
+- `mode: grow` nie dowodzi braku limitu: `charalist`, `unit_list`, `wp_list`
+  mają stałe pola według `name_table_write.SPECS` (m.in. 31/43/19 B dla imion,
+  31/31/63 B dla jednostek, 63/31 B dla broni), nawet przy `max_bytes: null`.
+  Nazwa w kolumnie jednostek maks. 14 celi; dla pilota 14 celi to zalecenie.
+- Dwubajtowe symbole CP932 (`…`, `“”`, `∞`) = 2 B / 2 cele, nie 1.
+- Brak zmierzonego limitu UI nie znaczy nieograniczonego miejsca na ekranie.
 
 ## 5. Kategorie specjalne
 
-- **`09_executable`**: stringi wszyte w `EBOOT.BIN` — **tylko ASCII** (pisarz exe nie ma
-  ścieżki dla polskich kodów). Większość to literały silnika / licencje — zostaw
-  bez zmian, jeśli en == jp.
+- **`09_executable`**: stringi wszyte w `EBOOT.BIN` — **bez polskich liter; zalecane ASCII**.
+  Writer zachowuje własne CP932/UTF-8, limity i printf; UTF-8 nie jest dowodem
+  obsługi fontu PL. Wyłącznie faktyczne `ENGINE_LITERALS` pozostają bez zmian;
+  samo `en == jp` nie wystarcza, by uznać napis za literał silnika.
 - **`10_map_terrain`**: podpisy terenu — **tylko ASCII, max 12 znaków**.
 - **`06_scenes`**: indeks scen — nie tłumacz (struktura).
 
@@ -122,4 +131,12 @@ zaktualizowane: litera PL = 1 jednostka.
 - Nie usuwaj wierszy, nie dodawaj nowych, nie przenoś między plikami.
 - Nie „naprawiaj" angielskiego w `en` — to pole referencyjne, zapisane w grze.
 - Nie tłumacz `06_scenes.jsonl` ani wierszy, gdzie en == jp i to literał silnika
-  (zostaw wtedy `pl` = en).
+  (zostaw wtedy `pl` puste; oryginalne bajty nie wymagają patchowania).
+
+## 9. Integracja po audycie
+
+Widoki PL importuj z `--lang pl --require-template`. Import jest atomowy na błąd
+i rozprowadza jawne `copy_of` w polu `pl`, także po zmianie źródła. `en` pozostaje
+referencją. `translation_copy.py --field pl` służy do kontroli/uzupełniania kopii,
+a nie domyślny tryb EN. Pełny zestaw poleceń jest w instrukcji widoków.
+Walidacja offline nie zastępuje testów układu w grze; wynik runtime v5 nadal oczekiwany.

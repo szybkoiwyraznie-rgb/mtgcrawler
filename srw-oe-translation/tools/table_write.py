@@ -274,7 +274,7 @@ def pool_size_limit_problem(member: str, size: int) -> Optional[str]:
     if limit is None or size <= limit:
         return None
     return (f"{member}: {size} B exceeds the in-game budget of {limit} B (+{size - limit} B over; "
-            f"the DLC chapters crash at Loading above it, measured 2026-10-15) - shorten the "
+            f"conservative safety guard from 2026-10-15 tests, exact pool ceiling unknown) - shorten the "
             f"shared skill fragments (tools/skill_shrink.py --dlc-original); the container is "
             f"refused")
 
@@ -732,7 +732,7 @@ def apply_labels(rows: Iterable[dict], sub_name: str, records: List["Record"],
             continue
         try:
             jp_label = (row.get("jp") or "").encode("cp932")
-            en_label = en.encode("cp932")
+            en_label = text_codec.encode(en)
         except UnicodeEncodeError as exc:
             refused.append(f"{row.get('id')}: label is not CP932-encodable: {exc}")
             continue

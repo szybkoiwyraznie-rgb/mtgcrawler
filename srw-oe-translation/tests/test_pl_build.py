@@ -66,9 +66,10 @@ class TextCodecTests(PlLangTestCase):
 class WriterPlTests(PlLangTestCase):
     def test_sysmes_chain_writes_private_codes(self):
         blob = SMSP.make_sysmes(["Ａ", "テスト"])
+        offset = SMSP.parse(blob).starts[1]
         rows = [{"id": "cfg:1", "category": "config_sysmes", "part": "text", "jp": "テスト",
                  "en": "Zażółć", "source": {"container": "config00.cpk",
-                                           "member": "sysmes.bin", "offset": 0}}]
+                                           "member": "sysmes.bin", "offset": offset}}]
         edits, problems, notes = BTP._sysmes_edits(blob, rows)
         self.assertEqual(problems, [])
         self.assertEqual(edits, {"テスト".encode("cp932"): pl_text.encode("Zażółć")})
@@ -275,7 +276,7 @@ class OnlyFilterPlTests(PlLangTestCase):
             if offset is not None:
                 source = {"container": "config00.cpk", "member": "wp_list", "offset": offset}
             rows.append({"id": ident, "category": "weapon_name" if offset is not None
-                         else "unit_name", "part": part, "jp": jp, "en": "", "pl": pl,
+                         else ("unit_name_display" if part == "name_display" else "unit_name"), "part": part, "jp": jp, "en": "", "pl": pl,
                          "key": key, "source": source})
 
         add("unit:3900:name", 3900, "name", "エグザート", "Zażółć")

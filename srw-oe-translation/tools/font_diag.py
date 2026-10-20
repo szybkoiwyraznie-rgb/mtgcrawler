@@ -32,7 +32,7 @@ SOLID = [[15] * font_pl.ANK_COLS for _ in range(font_pl.ANK_ROWS)]
 def diag_ank(ank: bytes) -> bytes:
     out = bytearray(ank)
     for byte in [ord("e")] + list(range(0xA1, 0xE0)):
-        index = byte - font_pl.ANK_FIRST
+        index = font_pl.ank_index(byte)
         out[index * font_pl.ANK_CELL:(index + 1) * font_pl.ANK_CELL] = font_pl.ank_cell(SOLID)
     return bytes(out)
 

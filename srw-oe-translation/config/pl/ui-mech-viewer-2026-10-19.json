@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "review": "Owner mech-model viewer screenshot: shorten L/R unit switch, analog rotation and SELECT hide-overlay prompts. Exact original whole sysmes roots; duplicate unit-switch roots stay consistent. No other captions, font or cache changes.",
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:19028",
+      "source_sha256": "54647585bad93df33fdc09ca52c4149ec4a4339c6e6caffbfd47accc84f88e90",
+      "before": "Zmień jednostkę",
+      "after": "Zmień jedn.",
+      "max_cells": 11
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21284",
+      "source_sha256": "9557c455a260a12e324b8e75e4a6a6c23a87f87a091d517529766eef7aab9e1c",
+      "before": "Obrót",
+      "after": "Obr.",
+      "max_cells": 4
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21292",
+      "source_sha256": "956b970ac7b034d3805b35d91fa15d303d6dc3503dbb023d8567ec7367803dc8",
+      "before": "Pokaż/ukryj",
+      "after": "Ukryj",
+      "max_cells": 5
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:45684",
+      "source_sha256": "ffdb2c5e8454ba449d3643dd67e2e41a4994f3007037c342a2781326b7b2579d",
+      "before": "Zmień jednostkę",
+      "after": "Zmień jedn.",
+      "max_cells": 11
+    }
+  ]
+}

@@ -15,6 +15,7 @@ from typing import Dict, Iterable, Optional
 import configst_pack as CSP
 import speaker_map
 import table_write
+import pl_text
 
 MEMBER = "srwDL_DLC_ID04.bin"
 FILES = ("config04.EDAT", "imenu04.EDAT")
@@ -30,24 +31,30 @@ class DlcTitleError(ValueError):
     pass
 
 
-def expectations(rows: Iterable[dict]) -> dict:
+def expectations(rows: Iterable[dict], field: str = "en") -> dict:
     relevant = [r for r in rows if (r.get("source") or {}).get("member") == MEMBER]
     result = {}
     for payload, target in TARGETS.items():
-        titles = {r["en"] for r in relevant if r.get("jp") == target["jp"] and (r.get("en") or "").strip()}
+        titles = {r[field] for r in relevant if r.get("jp") == target["jp"] and (r.get(field) or "").strip()}
         if not titles:
             continue
         if len(titles) != 1:
-            raise DlcTitleError("Conflicting English names for a reported DLC record")
-        descriptions = {r["en"] for r in relevant if r["source"].get("offset") == target["description_offset"]
-                        and (r.get("en") or "").strip()}
+            raise DlcTitleError("Conflicting package names for a reported DLC record")
+        descriptions = {r[field] for r in relevant if r["source"].get("offset") == target["description_offset"]
+                        and (r.get(field) or "").strip()}
         if len(descriptions) > 1:
             raise DlcTitleError("Conflicting DLC descriptions")
         result[payload] = {"title": next(iter(titles)), "description": next(iter(descriptions), None)}
     return result
 
 
-def inspect_table(blob: bytes, expected: Optional[dict] = None) -> dict:
+def inspect_table(blob: bytes, expected: Optional[dict] = None, lang: str = "en") -> dict:
+    if lang not in ("en", "pl"):
+        raise DlcTitleError("Expected en or pl codec")
+    if lang == "pl" and expected is None:
+        raise DlcTitleError("PL readback requires explicit package expectations; no EN fallback")
+    encode = pl_text.encode if lang == "pl" else lambda text: text.encode("cp932")
+    decode = pl_text.decode if lang == "pl" else lambda raw: raw.decode("cp932", "strict")
     expected = expected if expected is not None else {k: {"title": v["en"], "description": None} for k,v in TARGETS.items()}
     records = table_write.parse_pool(blob, table_write.family_of(MEMBER))
     found = {}
@@ -59,22 +66,22 @@ def inspect_table(blob: bytes, expected: Optional[dict] = None) -> dict:
             raise DlcTitleError(f"Duplicate DLC payload {payload}")
         if record.strings[5] != TARGETS[payload]["product"].encode("ascii"):
             raise DlcTitleError(f"Unexpected PSN identity for {payload}")
-        title0, title1, description = [value.decode("cp932", "strict") for value in record.strings[:3]]
+        title0, title1, description = [decode(value) for value in record.strings[:3]]
         want = expected[payload]
-        title_ok = title0 == title1 == want["title"]
-        desc_ok = description == want["description"] if want["description"] is not None else None
+        title_ok = record.strings[0] == record.strings[1] == encode(want["title"])
+        desc_ok = record.strings[2] == encode(want["description"]) if want["description"] is not None else None
         found[payload] = {"expected_title": want["title"], "title_slots": [title0,title1],
-                          "titles_english": title_ok, "description_matches_package": desc_ok,
+                          "titles_match_package": title_ok, "titles_english": title_ok if lang == "en" else None, "description_matches_package": desc_ok,
                           "reported_jp_occurrences": sum(s.count(TARGETS[payload]["jp"].encode("cp932"))
                                                          for s in record.strings[:3])}
     missing = sorted(set(expected) - set(found))
-    return {"passed": not missing and all(r["titles_english"] and r["description_matches_package"] is not False
+    return {"passed": not missing and all(r["titles_match_package"] and r["description_matches_package"] is not False
                                          for r in found.values()),
-            "missing_payloads": missing, "records": found,
+            "missing_payloads": missing, "records": found, "lang": lang,
             "member_bytes": len(blob), "member_sha256": hashlib.sha256(blob).hexdigest()}
 
 
-def inspect_container(path: Path, expected: Optional[dict] = None) -> dict:
+def inspect_container(path: Path, expected: Optional[dict] = None, lang: str = "en") -> dict:
     raw = path.read_bytes()
     if raw[:4] != b"CPK ":
         raise DlcTitleError("Not a decrypted CPK; the title table cannot be inspected")
@@ -87,10 +94,10 @@ def inspect_container(path: Path, expected: Optional[dict] = None) -> dict:
     if len(tables) != 1:
         raise DlcTitleError(f"Expected one {MEMBER}, found {len(tables)}")
     return {"file": path.name, "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest(),
-            "md5": hashlib.md5(raw).hexdigest(), **inspect_table(tables[0], expected)}
+            "md5": hashlib.md5(raw).hexdigest(), **inspect_table(tables[0], expected, lang)}
 
 
-def inspect_folder(folder: Path, expected: Optional[dict] = None) -> dict:
+def inspect_folder(folder: Path, expected: Optional[dict] = None, lang: str = "en") -> dict:
     results, missing, ambiguous = [], [], []
     files = [p for p in folder.rglob("*") if p.is_file()]
     for logical in FILES:
@@ -101,7 +108,7 @@ def inspect_folder(folder: Path, expected: Optional[dict] = None) -> dict:
             ambiguous.append(logical)
         for path in matches:
             try:
-                result = inspect_container(path, expected)
+                result = inspect_container(path, expected, lang)
             except Exception as exc:
                 result = {"file": path.name, "passed": False, "error": str(exc)}
             result["relative_path"] = path.relative_to(folder).as_posix()
@@ -116,6 +123,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dlc", type=Path, required=True, help="The installed folder actually used by PPSSPP")
     ap.add_argument("--package", type=Path, help="Optional kit package, to check filled descriptions too")
+    ap.add_argument("--lang", choices=("en", "pl"), default="en")
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args(argv)
     if not a.dlc.is_dir():
@@ -127,13 +135,15 @@ def main(argv=None) -> int:
     # Reports must not overwrite any source, including a misleading .EDAT --out.
     if a.out.resolve() == a.dlc.resolve() or a.dlc.resolve() in a.out.resolve().parents:
         raise DlcTitleError("Write the report outside the installed DLC folder")
+    if a.lang == "pl" and not a.package:
+        raise DlcTitleError("--lang pl requires --package; no English fallback")
     expected = None
     if a.package:
         rows = [json.loads(l) for l in (a.package/"04_config_text.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
-        expected = expectations(rows)
+        expected = expectations(rows, field=a.lang)
         if set(expected) != set(TARGETS):
             raise DlcTitleError("The kit does not define both DLC titles")
-    result = inspect_folder(a.dlc, expected)
+    result = inspect_folder(a.dlc, expected, lang=a.lang)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("PASS — files match the kit" if result["passed"] else "ATTENTION — missing, unreadable, duplicate or mismatched DLC files")

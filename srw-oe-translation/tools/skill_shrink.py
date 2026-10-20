@@ -3,14 +3,16 @@
 
 Why
 ---
-The skill table of ``config00.cpk`` has a hard size budget in the game [ZWERYFIKOWANE w grze,
-2026-10-14/15]: the member loads at 217 086 B and crashes the game at "Loading" from 221 182 B
-on, whatever the bytes hold (Japanese text padded with spaces crashes exactly like English), and
-a smaller archive around it does not help (``item_skill_write.SKILL00_LIMIT`` has the numbers).
-The full English of the 2026-10-14 package needs 228 202 B (+19 244 B over the Japanese); the
-budget allows +7 810 B.  There is no structural trick left - every record carries its five texts
-inline - so the English itself has to be shorter.  This tool makes that cut reproducible and
-reviewable instead of hand-editing 4 900 rows.
+The skill table of ``config00.cpk`` has a conservative runtime-safety budget based on
+2026-10-14/15 PPSSPP tests: Japanese text padded with spaces loaded at 217 090 B
+but failed at Loading at 218 110 B; a smaller enclosing archive did not rescue a
+228 202 B member. These tests do not identify an exact fixed buffer or rule out a
+shared allocation arena. The builder guard is 216 768 B, with a safety margin.
+The full English of the 2026-10-14 package needs 228 202 B (+19 244 B over Japanese).
+Shortening text is the existing supported way to fit the guard; structural storage
+optimisations or an engine allocation patch are not established as impossible,
+but require separate research and validation. This tool makes shortening reproducible
+and reviewable instead of hand-editing 4 900 rows.
 
 What
 ----

@@ -1,0 +1,1673 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 0,
+  "reference_sha256": "23f3961f6a046c1374518e10c012360ad6afe4e0ad8a8425975a1cbf4b88130b",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "aaa121d3860a14e26685fa327d6c7a691d153277aeb560ad2408ad8e3ea82caf",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP00.cpk/DL100_01.bin",
+      "block": 4,
+      "pl": "Prolog"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:180",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:348",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:524",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:988",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:1244",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:1388",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:1744",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:1844",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:1976",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2128",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2312",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "heading": "## Basic Training",
+      "block": 21,
+      "mission_row": "mission_title:config00.cpk/milstP00.bin:r1:title"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2468",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2532",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2820",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2872",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2928",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:2988",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3060",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3088",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "heading": "### Training exercise",
+      "block": 30,
+      "pl": "### Ćwiczenia treningowe"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3336",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3424",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3488",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3540",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:3760",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "heading": "#### Conditional dialogue — course corrections",
+      "block": 36,
+      "pl": "#### Dialogi warunkowe — korekty kursu"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4220",
+      "mode": "conditional",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4260",
+      "mode": "conditional",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "heading": "#### Conditional dialogue — remote guidance",
+      "block": 42,
+      "pl": "#### Dialogi warunkowe — zdalne wskazówki"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4776",
+      "mode": "conditional",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 46
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:4980",
+      "mode": "conditional",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "heading": "#### Supplies and parts",
+      "block": 49,
+      "pl": "#### Zaopatrzenie i części"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:5320",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:5368",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:5476",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:5572",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6048",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6100",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6160",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6372",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6476",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6804",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:6868",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "heading": "#### Combat training",
+      "block": 61,
+      "pl": "#### Trening walki"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7012",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7072",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7204",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7240",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7308",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7376",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7484",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7528",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7792",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7836",
+      "mode": "story",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:7892",
+      "mode": "story",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8160",
+      "mode": "story",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8368",
+      "mode": "story",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8412",
+      "mode": "story",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8480",
+      "mode": "story",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8548",
+      "mode": "story",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8624",
+      "mode": "story",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8692",
+      "mode": "story",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8892",
+      "mode": "story",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:8972",
+      "mode": "story",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9048",
+      "mode": "story",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9180",
+      "mode": "story",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9256",
+      "mode": "story",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9332",
+      "mode": "story",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9408",
+      "mode": "story",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9512",
+      "mode": "story",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9556",
+      "mode": "story",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9656",
+      "mode": "story",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9696",
+      "mode": "story",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9828",
+      "mode": "story",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:9964",
+      "mode": "story",
+      "level": 3,
+      "block": 92
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10016",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10112",
+      "mode": "story",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10176",
+      "mode": "story",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10216",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10268",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10320",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10432",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10484",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10532",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10588",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10676",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10736",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10788",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10892",
+      "mode": "story",
+      "level": 3,
+      "block": 106
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:10936",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11000",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11064",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11168",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11208",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11292",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11376",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11436",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11480",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11564",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11648",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11692",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11800",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:11912",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12016",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12060",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12104",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12188",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12244",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12296",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12344",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12420",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12488",
+      "mode": "story",
+      "level": 3,
+      "block": 129
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12532",
+      "mode": "story",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12628",
+      "mode": "story",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12712",
+      "mode": "story",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_01.bin:12812",
+      "mode": "story",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "mission": "eventP00.cpk/DL100_02.bin",
+      "block": 134,
+      "pl": "Interludium"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:228",
+      "mode": "story",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:444",
+      "mode": "story",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:548",
+      "mode": "story",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:648",
+      "mode": "story",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:756",
+      "mode": "story",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "heading": "## Rescue White Base",
+      "block": 141,
+      "mission_row": "mission_title:config00.cpk/milstP00.bin:r2:title"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:860",
+      "mode": "story",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:924",
+      "mode": "story",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1056",
+      "mode": "story",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1176",
+      "mode": "story",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1252",
+      "mode": "story",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1340",
+      "mode": "story",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1472",
+      "mode": "story",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1504",
+      "mode": "story",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1636",
+      "mode": "story",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1704",
+      "mode": "story",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1852",
+      "mode": "story",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1900",
+      "mode": "story",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1944",
+      "mode": "story",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:1988",
+      "mode": "story",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2028",
+      "mode": "story",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2092",
+      "mode": "story",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2136",
+      "mode": "story",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2200",
+      "mode": "story",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2248",
+      "mode": "story",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2352",
+      "mode": "story",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2412",
+      "mode": "story",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2520",
+      "mode": "story",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2588",
+      "mode": "story",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2632",
+      "mode": "story",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2732",
+      "mode": "story",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "heading": "### White Base",
+      "block": 167,
+      "pl": "### White Base"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:2964",
+      "mode": "story",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3016",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3076",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3140",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3216",
+      "mode": "story",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3256",
+      "mode": "story",
+      "level": 3,
+      "block": 173
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3392",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3448",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3524",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3556",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3644",
+      "mode": "story",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3700",
+      "mode": "story",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3756",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3800",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:3880",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4004",
+      "mode": "story",
+      "level": 3,
+      "block": 183
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4088",
+      "mode": "story",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4156",
+      "mode": "story",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4212",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "heading": "#### Conditional dialogue — Fraw and Amuro",
+      "block": 187,
+      "pl": "#### Dialogi warunkowe — Fraw i Amuro"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4704",
+      "mode": "conditional",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4784",
+      "mode": "conditional",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4852",
+      "mode": "conditional",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:4920",
+      "mode": "conditional",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "heading": "#### Conditional dialogue — Char's assessment",
+      "block": 194,
+      "pl": "#### Dialogi warunkowe — ocena Chara"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5204",
+      "mode": "conditional",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "heading": "### Reinforcements",
+      "block": 196,
+      "pl": "### Posiłki"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5324",
+      "mode": "story",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5388",
+      "mode": "story",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5424",
+      "mode": "story",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5504",
+      "mode": "story",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5644",
+      "mode": "story",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5736",
+      "mode": "story",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5800",
+      "mode": "story",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5884",
+      "mode": "story",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:5948",
+      "mode": "story",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6032",
+      "mode": "story",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6112",
+      "mode": "story",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6212",
+      "mode": "story",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6300",
+      "mode": "story",
+      "level": 3,
+      "block": 209
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6340",
+      "mode": "story",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6432",
+      "mode": "story",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6484",
+      "mode": "story",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6560",
+      "mode": "story",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6604",
+      "mode": "story",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6784",
+      "mode": "story",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:6956",
+      "mode": "story",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7036",
+      "mode": "story",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7104",
+      "mode": "story",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7180",
+      "mode": "story",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7296",
+      "mode": "story",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7344",
+      "mode": "story",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7428",
+      "mode": "story",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7468",
+      "mode": "story",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7560",
+      "mode": "story",
+      "level": 3,
+      "block": 224
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:7648",
+      "mode": "story",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "heading": "### Conditional battle dialogue",
+      "block": 226,
+      "pl": "### Warunkowe dialogi bitewne"
+    },
+    {
+      "heading": "#### Char and Amuro",
+      "block": 227,
+      "pl": "#### Char i Amuro"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8068",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8168",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8204",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "heading": "#### Seishiro and Char",
+      "block": 231,
+      "pl": "#### Seishiro i Char"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8404",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8644",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "heading": "#### Amuro and Char — another exchange",
+      "block": 236,
+      "pl": "#### Amuro i Char — kolejna wymiana zdań"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:8924",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9004",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "heading": "#### Char and Bright",
+      "block": 240,
+      "pl": "#### Char i Bright"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "heading": "#### Slender",
+      "block": 243,
+      "pl": "#### Slender"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "heading": "#### Crown",
+      "block": 245,
+      "pl": "#### Crown"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:9828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "heading": "### Withdrawal",
+      "block": 247,
+      "pl": "### Odwrót"
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10100",
+      "mode": "story",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10160",
+      "mode": "story",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10264",
+      "mode": "story",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10328",
+      "mode": "story",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10436",
+      "mode": "story",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10516",
+      "mode": "story",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10716",
+      "mode": "story",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10808",
+      "mode": "story",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10856",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10924",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:10964",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11056",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11144",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11228",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11316",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11356",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11408",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11440",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11512",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11568",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11664",
+      "mode": "story",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11748",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11828",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11892",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:11988",
+      "mode": "story",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12068",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12180",
+      "mode": "story",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12256",
+      "mode": "story",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12368",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12512",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12572",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12708",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12808",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12888",
+      "mode": "story",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:12972",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13036",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13112",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13252",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13368",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13408",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13476",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP00.cpk/DL100_02.bin:13588",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    }
+  ]
+}

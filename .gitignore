@@ -9,3 +9,6 @@ srw-oe-translation/local/
 srw-oe-translation/srw-oe-patch/
 srw-oe-translation/srw-oe-bisekcja/
 srw-oe-translation/srw-oe-wgrane/
+
+# Local Python analysis environment (never distribute)
+.venv/

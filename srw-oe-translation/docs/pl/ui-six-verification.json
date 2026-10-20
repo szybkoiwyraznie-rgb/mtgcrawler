@@ -1,0 +1,345 @@
+{
+  "iso_member_changes": [
+    "configst.cpk",
+    "eventP00.cpk",
+    "EBOOT.BIN"
+  ],
+  "unchanged_iso_member_sha256": {
+    "config00.cpk": "17e4b61588c4b6ae1beabe3c7d91a7c831148d8688f96d9be111ceaed564894a",
+    "font.cpk": "e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f",
+    "IM1000.cpk": "92d77fe781cdbeff53bc2b5852ead6b476cc42e2c798b9d279176105ad386300",
+    "IM3000.cpk": "b651514366260b0d54313d571e407511c1675c828339d36d064a4bbd39577c45"
+  },
+  "configst_member_changes": [
+    "srwDL_Spirit.bin",
+    "sysmes.bin"
+  ],
+  "sysmes": {
+    "keys": 1182,
+    "changed_strings": 9,
+    "all_other_strings_identical": true
+  },
+  "spirit": {
+    "records": 60,
+    "families": 20,
+    "physical_name_fields_checked": 180,
+    "changed_records": 30,
+    "changed_name_fields": 90,
+    "effect_prose_label_parameters_unchanged": true,
+    "before_bytes": 17635,
+    "after_bytes": 17119
+  },
+  "base_titles": {
+    "changed_members": 10,
+    "other_event_members_identical": true,
+    "all_neighbor_bytes_and_binary_tail_identical": true
+  },
+  "all_mission_titles": {
+    "schema": 1,
+    "original_containers": 47,
+    "physical_title_fields": 527,
+    "represented_title_fields": 527,
+    "rebuilt_slots_checked": 527,
+    "inventory_sha256": "b44663c355ba4b9d8b30075bb02dad39bb3e74172d0c51e73327094294a39fb9",
+    "counts": [
+      {
+        "name": "config00.cpk",
+        "title_fields": 15
+      },
+      {
+        "name": "config01.EDAT",
+        "title_fields": 31
+      },
+      {
+        "name": "config02.EDAT",
+        "title_fields": 34
+      },
+      {
+        "name": "config03.EDAT",
+        "title_fields": 33
+      },
+      {
+        "name": "config04.EDAT",
+        "title_fields": 34
+      },
+      {
+        "name": "config05.EDAT",
+        "title_fields": 33
+      },
+      {
+        "name": "config06.EDAT",
+        "title_fields": 32
+      },
+      {
+        "name": "config07.EDAT",
+        "title_fields": 30
+      },
+      {
+        "name": "config08.EDAT",
+        "title_fields": 31
+      },
+      {
+        "name": "config09.EDAT",
+        "title_fields": 0
+      },
+      {
+        "name": "config20.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config21.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config22.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config23.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config24.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config25.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config26.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config27.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config28.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config29.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config30.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "config31.EDAT",
+        "title_fields": 4
+      },
+      {
+        "name": "config32.EDAT",
+        "title_fields": 4
+      },
+      {
+        "name": "eventP00.cpk",
+        "title_fields": 11
+      },
+      {
+        "name": "eventP01.EDAT",
+        "title_fields": 22
+      },
+      {
+        "name": "eventP02.EDAT",
+        "title_fields": 24
+      },
+      {
+        "name": "eventP03.EDAT",
+        "title_fields": 23
+      },
+      {
+        "name": "eventP04.EDAT",
+        "title_fields": 24
+      },
+      {
+        "name": "eventP05.EDAT",
+        "title_fields": 23
+      },
+      {
+        "name": "eventP06.EDAT",
+        "title_fields": 23
+      },
+      {
+        "name": "eventP07.EDAT",
+        "title_fields": 22
+      },
+      {
+        "name": "eventP08.EDAT",
+        "title_fields": 22
+      },
+      {
+        "name": "eventP09.EDAT",
+        "title_fields": 0
+      },
+      {
+        "name": "eventP13.EDAT",
+        "title_fields": 0
+      },
+      {
+        "name": "eventP20.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP21.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP22.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP23.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP24.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP25.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP26.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP27.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP28.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP29.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP30.EDAT",
+        "title_fields": 2
+      },
+      {
+        "name": "eventP31.EDAT",
+        "title_fields": 4
+      },
+      {
+        "name": "eventP32.EDAT",
+        "title_fields": 4
+      }
+    ],
+    "problems": [],
+    "runtime_tested": false
+  },
+  "exe": {
+    "ground_warning_offset": 4145864,
+    "slot_bytes": 16,
+    "all_other_bytes_identical": true,
+    "accepted_cache_instructions_and_layout_unchanged": true
+  },
+  "dlc_built_identical": {
+    "files": 44,
+    "sha256_by_file": {
+      "config01.EDAT": "9afc2b92438889aae99d68f5368376c082a1e19b99b1823d730db22d3c87511a",
+      "config02.EDAT": "2bba70f3db17caee1d6982c00ae9ff312382628c204641e575ac112f6edd1086",
+      "config03.EDAT": "a7142e34e351faee09205919c5b7b8e1df948d14eb1b4e6cbda343e88f7b3e82",
+      "config04.EDAT": "67e5211487584d479bd13ed4f80b920beedf3567bdc32c4e501642c3902bf52e",
+      "config05.EDAT": "9e3d8c9032a8bd472ad9b5d7bca63abf171c30a9d4ecb585c858a5fa7f8097c9",
+      "config06.EDAT": "b38656bf4ac244f4c80253fab2d626eadeb5c2330ee827dd9fe5c98c9d040107",
+      "config07.EDAT": "db90a26aed00af917dac54512c146108fc6ceb8be61f73c962762b4e296fc149",
+      "config08.EDAT": "3afb58a15c028931471c03adfa7b885842fe27bf80ccc889980c3c6a4a928fdf",
+      "config20.EDAT": "8a00167e10d03fc6ac41ffc7420257d2611eb7011ad22440133790b1d6a3c8a3",
+      "config21.EDAT": "3460bc0d3f62fd169bb72f350c69f1c23a1fe867ecf92ad112a25b10f8c2a05b",
+      "config22.EDAT": "2dc0998e01be0db474777ea88bdc07f4e09649ba331609130f2b15cfa17dddd8",
+      "config23.EDAT": "637b71a7037a47cb05ef2f66f83d3d49a6633b7628cea9f956397ee6ac543a71",
+      "config24.EDAT": "77d23683587685c9d1a96d31ddbd08d1fe33da511e7a66588ffbdfbcc91adc6e",
+      "config25.EDAT": "39a5a8fd53eca064c0e8bfe4031c3ec065b23cdae06deaa59d25afe82646cc10",
+      "config26.EDAT": "f20bc2c6ea726d5cb00384794be958a4fe628a07d2353e4ccd8d42bca0a8d46b",
+      "config27.EDAT": "fa89214bcf0fe24525abaf7872b0587845d3915cd52e4f704c512139e8df3b11",
+      "config28.EDAT": "9b2e51a3d6d9434fe43087b5634563d9b2b7220fc5b39373a98038acbfb0b921",
+      "config29.EDAT": "48839df1b7cf7c2f44f2c4c91b06132dbbb18d5b2f83e367efc826f6c40c7210",
+      "config30.EDAT": "68620b52886bdf49d61c29ce57421e0e37062dfff6aeb9e23c9db62047dbdc48",
+      "config31.EDAT": "451d5363ecfc1713e09653aa55379b2541a03e5af3e082840e37461f3c8b320d",
+      "config32.EDAT": "ebb9d60f2ed12ad77d637d878e44551e354b0ca2bec79e3dc5f2e44adb498460",
+      "eventP01.EDAT": "c3db9c282a72681c8a8925009db7b9b56ad3469c690bf83d7dad830055a2ca16",
+      "eventP02.EDAT": "11309f8ba4c9fb547926d02e970a076ab7966ae99625e61280d88feb59af5866",
+      "eventP03.EDAT": "548ed6cc3c6d62b6422f23b27f2c44e2765075cf86bea241fe33ea8a3bbfb30e",
+      "eventP04.EDAT": "39c634522ebb61241308d64fb7550573f5c5d8f5bca71eaf5c4477278b6f17dd",
+      "eventP05.EDAT": "0674f028b9580c82d59d26706c461c1ae916686274993ba2945d17bf6f974176",
+      "eventP06.EDAT": "f10f10ba999032123e5cd66119078087ce48d79be92ee13b2f3c3cfffc1349b2",
+      "eventP07.EDAT": "2698d169f1f4a15183c7d47d1dc9ea7e38c3b1bd9bbd8d60f7ac1fb1b4244e9f",
+      "eventP08.EDAT": "81bf76b00091435e1fa58620183ae254a986bae87deeed28575429ba2da8b9ee",
+      "eventP09.EDAT": "bd8fb53d82843c7feecc5e732ae55c5bcb82dd713b8b739d67c3cf20e4bc1b51",
+      "eventP13.EDAT": "3e8999712c238d075895a91a5bc960f0c33cad23e6df4d6f4ebb3706bf5e1c5b",
+      "eventP20.EDAT": "f3ee01ceeffcbd24052c2b8a5b029797925e5c2e8f2cc23c6b21a5ebd37c1511",
+      "eventP21.EDAT": "54a518aea26b0777832fae5d94969fc3772519eb69659339c93a4b023eaca1f3",
+      "eventP22.EDAT": "dcb6b32ce743a8c81059c7413277813e202ce8e0f2c10cc0ecff342956731c17",
+      "eventP23.EDAT": "e1f66665203c502c89bce63b9beaa2f6b7bec8ed4464c26d35d4cde0e83805b2",
+      "eventP24.EDAT": "a59d97fdc0d6248904451410951dec21234c58d429c60a0c7aa13637ce8b4851",
+      "eventP25.EDAT": "678b58a22cf1741718c1f91807590d227f96f9406dc15f541c081c83f3120311",
+      "eventP26.EDAT": "56dcc3039a1166b39667e41b3f1ab73882a368fdb823aceb4ba3d65cfdae0d02",
+      "eventP27.EDAT": "f758f3c52404fd5282562ba46e6fa028751aed2bef1f9ada66b1b40beb242255",
+      "eventP28.EDAT": "77844be5ef79d73b3fec20ac5e7754cfb4fc3be2bdb64d7c049000da480a487b",
+      "eventP29.EDAT": "840377bab61928b49312bfbdfab0a62ffe6f7da2f4ec09c08e70c7c53edfc066",
+      "eventP30.EDAT": "aa11e92d0e878e3b4ce7f453c32a7816e7d968910221328bab407a0d8c906fef",
+      "eventP31.EDAT": "eabf9f4fbb3e6dbba2247b44c3338646f45d5f9665f9a0a70cf346f801908ccb",
+      "eventP32.EDAT": "3b4562e5af337484a7565cb3c0874216dd8acb85bb3ae462b3384b1bd456c902"
+    }
+  },
+  "package": {
+    "changed_existing_pl_fields": 100,
+    "added_bound_base_title_rows": 10,
+    "other_source_rows_identical": true,
+    "all_dlc_backed_rows_identical": 79050
+  },
+  "skill_total": {
+    "members": {
+      "srwDL_Skill00.bin": 216488,
+      "srwDL_Skill01.bin": 15329,
+      "srwDL_Skill02.bin": 15329,
+      "srwDL_Skill03.bin": 15329,
+      "srwDL_Skill04.bin": 15329,
+      "srwDL_Skill05.bin": 15329,
+      "srwDL_Skill06.bin": 15329,
+      "srwDL_Skill07.bin": 15329,
+      "srwDL_Skill08.bin": 15329
+    },
+    "total": 339120,
+    "limit": 342194,
+    "missing": [],
+    "fits": true
+  },
+  "warnings": {
+    "kind": "inherited nested dictionary row-key refusals",
+    "by_container": {
+      "config00.cpk": 8,
+      "config01.EDAT": 8,
+      "config02.EDAT": 8,
+      "config03.EDAT": 8,
+      "config04.EDAT": 8,
+      "config05.EDAT": 8,
+      "config06.EDAT": 8,
+      "config07.EDAT": 8,
+      "config08.EDAT": 8,
+      "config09.EDAT": 8
+    }
+  },
+  "kit": {
+    "members": 91,
+    "launcher_identical": true,
+    "crc_passed": true,
+    "all_shipped_tools_and_glyph_data_identical": true,
+    "python_modules": 44,
+    "tool_and_legacy_glyph_data_files": 45
+  },
+  "tests": {
+    "run": 1724,
+    "skipped": 2,
+    "result": "OK"
+  },
+  "runtime_tested": false,
+  "fixture": "Seven authentic ISO members in synthetic NONPLAYABLE image,45available original DLC; normal extracted kit CLI, explicit available-file filter. Not full ISO/91DLC proof."
+}

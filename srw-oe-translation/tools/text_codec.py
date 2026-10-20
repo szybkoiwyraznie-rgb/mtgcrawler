@@ -2,8 +2,8 @@
 """The single point where the patch build picks its text codec.
 
 ``en`` (default) is the shipped behaviour: CP932 bytes, ``export_strings.display_width``.
-``pl`` is the Polish patch: the 18 letters become the private two-byte codes of
-``tools/pl_text.py`` (drawn by the extended font), width counts them 2.
+``pl`` is the Polish patch: the 18 letters become single-byte codes of
+``tools/pl_text.py`` (native half-width font), width counts them 1.
 
 The language is set once per build (:func:`set_lang`) instead of being threaded through
 every writer signature - the writers already funnel their encoding through a handful of
@@ -62,10 +62,8 @@ def display_width(text: str) -> int:
 def cstring(data: bytes, start: int = 0, end: int = None) -> bytes:
     """The NUL-terminated text at ``data[start:end]``, Shift-JIS-aware.
 
-    A NUL that is the trail byte of a double-byte character does not terminate anything: the
-    Polish letters sit at 0x82FA..0x830B, and ś (0x8300) carries a literal 0x00 trail.  For
-    plain ASCII and for real Shift-JIS (whose trails never reach the control range) the result
-    is exactly the old ``split(b"\\x00")[0]``.
+    Current PL letters are single-byte codes; ordinary CP932 leads still skip their
+    trail byte. The byte walker also retains compatibility with historical private codes.
     """
     end = len(data) if end is None else end
     position = start

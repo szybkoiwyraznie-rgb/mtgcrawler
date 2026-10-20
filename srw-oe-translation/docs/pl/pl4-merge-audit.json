@@ -1,0 +1,240 @@
+{
+  "source_archive": {
+    "name": "PL4.zip",
+    "bytes": 5254438,
+    "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931",
+    "crc_test_passed": true,
+    "md_files": 31,
+    "story_episodes": "00-21",
+    "views": "all 9 returned views"
+  },
+  "base_snapshot_data_sha256": "06acd106a5294dca65505e69ead4349a345e078f81c83a9ae5903a52ef903bce",
+  "strict_source_bound_import": {
+    "elements_with_text": 67143,
+    "unknown": 0,
+    "rejected": 0,
+    "duplicates": 0,
+    "view_roundtrip_explicit": 67143,
+    "view_roundtrip_mismatches": 0
+  },
+  "preservation": {
+    "reviewed_owner_bindings": 1283,
+    "restored_bindings": 1283,
+    "view_blocks_overlaid": 1251,
+    "promoted_mission_rows_restored": 32,
+    "all_527_title_slots_retained": "v2.6 proof unchanged",
+    "v2_6_owner_changes": [
+      "compact UI labels",
+      "10 mission title slots",
+      "527-title readback audited",
+      "Spirit aliases",
+      "terrain/executable/system text"
+    ],
+    "engineering_code_kept_in_current_toolkit": [
+      "accepted cache fix",
+      "font v5"
+    ]
+  },
+  "new_translation_delta": {
+    "new_nonempty_package_rows": 22185,
+    "changed_previously_nonempty_rows": 6,
+    "affected_source_edat_count": 25,
+    "affected_source_edats": [
+      "eventP01.EDAT",
+      "eventP02.EDAT",
+      "eventP03.EDAT",
+      "eventP04.EDAT",
+      "eventP05.EDAT",
+      "eventP06.EDAT",
+      "eventP13.EDAT",
+      "eventP20.EDAT",
+      "eventP21.EDAT",
+      "eventP22.EDAT",
+      "eventP23.EDAT",
+      "eventP24.EDAT",
+      "eventP25.EDAT",
+      "eventP26.EDAT",
+      "eventP27.EDAT",
+      "eventP28.EDAT",
+      "eventP29.EDAT",
+      "evept101.EDAT",
+      "evept102.EDAT",
+      "evept103.EDAT",
+      "evept104.EDAT",
+      "evept105.EDAT",
+      "evept106.EDAT",
+      "evept107.EDAT",
+      "evept108.EDAT"
+    ]
+  },
+  "validator": {
+    "rows": 109176,
+    "filled": 87794,
+    "empty": 21382,
+    "errors": 0,
+    "warnings": 25165
+  },
+  "episode_00_21": {
+    "visible_elements": 28079,
+    "filled_elements": 28078,
+    "only_empty": {
+      "episode": "05",
+      "scene": "evidenced by exact binding from readback",
+      "reason": "JP whitespace-only structural row",
+      "source_row_id": "dlg:eventP01.EDAT/DL105_40.bin:696"
+    },
+    "per_episode": {
+      "epizod-00.md": {
+        "visible": 273,
+        "filled": 273,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-01.md": {
+        "visible": 1452,
+        "filled": 1452,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-02.md": {
+        "visible": 2416,
+        "filled": 2416,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-03.md": {
+        "visible": 1601,
+        "filled": 1601,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-04.md": {
+        "visible": 1264,
+        "filled": 1264,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-05.md": {
+        "visible": 1299,
+        "filled": 1298,
+        "empty": 1,
+        "unresolved": 0
+      },
+      "epizod-06.md": {
+        "visible": 1034,
+        "filled": 1034,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-07.md": {
+        "visible": 2414,
+        "filled": 2414,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-08.md": {
+        "visible": 1220,
+        "filled": 1220,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-09.md": {
+        "visible": 1528,
+        "filled": 1528,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-10.md": {
+        "visible": 1123,
+        "filled": 1123,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-11.md": {
+        "visible": 1459,
+        "filled": 1459,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-12.md": {
+        "visible": 1183,
+        "filled": 1183,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-13.md": {
+        "visible": 1076,
+        "filled": 1076,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-14.md": {
+        "visible": 1247,
+        "filled": 1247,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-15.md": {
+        "visible": 1074,
+        "filled": 1074,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-16.md": {
+        "visible": 825,
+        "filled": 825,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-17.md": {
+        "visible": 1312,
+        "filled": 1312,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-18.md": {
+        "visible": 1043,
+        "filled": 1043,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-19.md": {
+        "visible": 862,
+        "filled": 862,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-20.md": {
+        "visible": 1002,
+        "filled": 1002,
+        "empty": 0,
+        "unresolved": 0
+      },
+      "epizod-21.md": {
+        "visible": 1372,
+        "filled": 1372,
+        "empty": 0,
+        "unresolved": 0
+      }
+    }
+  },
+  "saved_memory_corrections": {
+    "per_episode": {
+      "epizod-06.md": 47,
+      "epizod-09.md": 1,
+      "epizod-08.md": 1,
+      "epizod-17.md": 2,
+      "epizod-18.md": 4,
+      "epizod-21.md": 2
+    },
+    "total": 57,
+    "mismatches": []
+  },
+  "protagonist_name": {
+    "episode13_PL_hardcoded_Seishiro": false,
+    "variable_tokens_checked_by_strict_validator": true
+  },
+  "runtime_tested": false,
+  "full_original_asset_build_tested": false,
+  "translator_scripts_executed": false
+}

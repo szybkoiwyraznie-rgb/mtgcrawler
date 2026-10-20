@@ -19,19 +19,22 @@ The Polish translation replaces every Japanese string, so the katakana bytes bel
 free in the finished game.  Each letter takes one of them; its glyph lives in the 8x14
 ``ank.fta`` cell, so it advances 8 px like ASCII.
 
-Glyphs come from ``tools/data/pl_glyphs_8x14.json`` (made by ``tools/make_pl_glyphs.py``
-from the shipped Roboto Medium), so the build needs no imaging library.
+Since TEST_PL v5 glyphs are composed from the user's original ASCII cells at build
+time by ``pl_glyph_compose``. Only sparse accents are added: body height, weight
+and coverage remain native. No original bitmap is shipped; no imaging library
+or external font is needed. The old Roboto JSON is historical, not a build input.
 
 Container layout (``font.cpk``, decompressed; measured)
 -------------------------------------------------------
 header: u32 dir_offset=0x10, u32 count=7, u32 name_len=0x20; directory of
 (u32 offset, u32 size, name[32]) records.  ``ank.fta`` is 192 glyphs x 56 B
-(8 x 14 px, 4 bpp, two pixels per byte, high nibble first); index = byte - 0x20.
+(8 x 14 px, 4 bpp, two pixels per byte, low nibble first). The renderer uses
+index = byte - 0x20 for ASCII, but byte - 0x40 for half-width katakana.
+See docs/pl/PL_FONT_MAPPING.md: the former universal -0x20 assumption was wrong.
 """
 from __future__ import annotations
 
 import argparse
-import json
 import struct
 import sys
 from pathlib import Path
@@ -52,9 +55,7 @@ ANK = "ank.fta"
 ANK_CELL = 56          # 8 x 14 @4bpp
 ANK_COLS = 8
 ANK_ROWS = 14
-ANK_FIRST = 0x20       # index = byte - ANK_FIRST
-
-GLYPH_TABLE = HERE / "data" / "pl_glyphs_8x14.json"
+ANK_FIRST = 0x20       # first ASCII byte (katakana has a different base)
 
 #: Polish letters in the order of the glyph table; each one takes one katakana byte.
 PL_LETTERS: Tuple[str, ...] = tuple("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
@@ -76,13 +77,10 @@ def katakana_byte_to_letter() -> Dict[int, str]:
     return {b: ch for ch, b in pl_byte_map().items()}
 
 
-def load_glyphs() -> Dict[str, List[List[int]]]:
-    doc = json.loads(GLYPH_TABLE.read_text(encoding="utf-8"))
-    glyphs = doc["glyphs"]
-    missing = [ch for ch in PL_LETTERS if ch not in glyphs]
-    if missing:
-        raise ValueError(f"glyph table lacks {missing}")
-    return {ch: glyphs[ch] for ch in PL_LETTERS}
+def load_glyphs(ank: bytes) -> Dict[str, List[List[int]]]:
+    """Compose the letters from original ASCII cells, never an external raster."""
+    import pl_glyph_compose
+    return pl_glyph_compose.compose(ank)
 
 
 # ---------------------------------------------------------------------------------------
@@ -135,9 +133,22 @@ def pack_container(members: Dict[str, bytes], order: Sequence[str], align: int =
 # ---------------------------------------------------------------------------------------
 
 
+def ank_index(byte: int) -> int:
+    """Renderer's single-byte index: ASCII -0x20, katakana -0x40.
+
+    Reject the SJIS lead/control gap rather than treating it as glyph codes.
+    The spare cells 160..191 are not addressed by these ordinary one-byte codes.
+    """
+    if 0x20 <= byte < 0x80:
+        return byte - 0x20
+    if 0xA0 <= byte <= 0xDF:
+        return byte - 0x40
+    raise ValueError(f"not an ordinary ank byte: {byte:#x}")
+
+
 def read_ank_glyph(ank: bytes, byte: int) -> List[List[int]]:
     """14 rows x 8 columns of 4-bit coverage for the one-byte code ``byte``."""
-    index = byte - ANK_FIRST
+    index = ank_index(byte)
     if not 0 <= index < len(ank) // ANK_CELL:
         raise ValueError(f"byte {byte:#04x} outside the ank table")
     cell = ank[index * ANK_CELL:(index + 1) * ANK_CELL]
@@ -145,7 +156,7 @@ def read_ank_glyph(ank: bytes, byte: int) -> List[List[int]]:
     for y in range(ANK_ROWS):
         px: List[int] = []
         for value in cell[y * 4:(y + 1) * 4]:
-            px.extend(((value >> 4) & 0xF, value & 0xF))
+            px.extend((value & 0xF, (value >> 4) & 0xF))
         rows.append(px)
     return rows
 
@@ -157,7 +168,7 @@ def ank_cell(rows: Sequence[Sequence[int]]) -> bytes:
     out = bytearray()
     for row in rows:
         for x in range(0, ANK_COLS, 2):
-            out.append(((row[x] & 0xF) << 4) | (row[x + 1] & 0xF))
+            out.append((row[x] & 0xF) | ((row[x + 1] & 0xF) << 4))
     return bytes(out)
 
 
@@ -165,7 +176,7 @@ def build_ank_patch(ank: bytes, glyphs: Dict[str, List[List[int]]]) -> bytes:
     """Return ``ank.fta`` with the 18 Polish cells written over their katakana bytes."""
     out = bytearray(ank)
     for letter, byte in pl_byte_map().items():
-        index = byte - ANK_FIRST
+        index = ank_index(byte)
         start = index * ANK_CELL
         if start + ANK_CELL > len(out):
             raise ValueError(f"byte {byte:#04x} outside ank.fta")
@@ -183,10 +194,11 @@ def extend_container(data: bytes) -> Tuple[bytes, dict]:
     members, order = parse_container(data)
     if ANK not in members:
         raise ValueError("font container is missing ank.fta")
-    glyphs = load_glyphs()
+    glyphs = load_glyphs(members[ANK])
     members[ANK] = build_ank_patch(members[ANK], glyphs)
     info = {
         "glyphs": len(PL_LETTERS),
+        "style": "native-ascii-plus-marks-v1",
         "bytes": [f"0x{b:02X}" for b in PL_BYTES],
         "ank_size": len(members[ANK]),
     }
@@ -194,9 +206,9 @@ def extend_container(data: bytes) -> Tuple[bytes, dict]:
 
 
 def verify_container(data: bytes) -> dict:
-    """Re-read the patched container: every Polish letter must draw its table glyph."""
+    """Re-read glyphs against untouched ASCII source cells and accent recipes."""
     members, _order = parse_container(data)
-    glyphs = load_glyphs()
+    glyphs = load_glyphs(members[ANK])
     out = {}
     for letter, byte in pl_byte_map().items():
         art = read_ank_glyph(members[ANK], byte)

@@ -1,6 +1,32 @@
 # Polskie litery: plan zmiany fontu (checkpoint 2026-10-18)
 
-Status (2026-10-18, po commicie 8497268): implementacja gotowa, testy jednostkowe 1535 OK.
+**Najnowsze v5 (2026-10-18):** v4 potwierdzony w grze, ale właściciel zgłosił
+zbyt grube i nieco za niskie polskie litery. [V5](https://drive.google.com/file/d/13tWWoHO6nBSmEVGFj4y46BtDIV2kz3uD/view)
+kopiuje oryginalne korpusy ASCII i dodaje tylko maski diakrytyków; nie rasteruje
+Roboto i nie przechowuje bitmap gry w repo/kit. [Styl i dowody](PL_FONT_STYLE.md),
+[manifest](test-v5-delivery.json). 1569 unittest OK (25 skipped), isolated kit
+read-back + niezależny audyt natywnych korpusów OK. **Właściciel potwierdził wygląd
+v5 w otwierającej narracji/dialogu** na dwóch nowych zrzutach, bez dalszych uwag
+do fontu. Brak Ł/Ś (także Ó) w nagłówkach wynikał z tekstów ASCII w paczce,
+nie z glifów. Pisownia poprawiona w źródle; bez zmiany fontu i bez nowego testu.
+Dalsze sekcje są historią.
+
+**Najnowsze (2026-10-18):** właściciel przesłał dwa zrzuty v3 i ocenił wygląd
+pozytywnie. Na jego prośbę [v4](https://drive.google.com/file/d/1ic0N5bx0PMF_3xnu2ZWhlG0e3nOQRc-U/view)
+zawiera naturalne próbki w pierwszym dialogu, bez zmiany fontu/kodeka.
+[Manifest](test-v4-delivery.json); 1558 unittest OK (25 skipped), offline read-back
+wydanego ZIP sprawdzony. V4 nie jest tłumaczeniem i nie ma jeszcze potwierdzenia
+runtime; poprzednie v3 ma potwierdzenie otwierającej sceny. Dalsze sekcje są historią.
+
+**Aktualizacja po PR #19 (2026-10-18, PR #20):** naprawiono dwie przyczyny:
+indeks katakany to `bajt − 0x40`, a lewy piksel jest w młodszym nibblu bajtu.
+[Dowody i granice](PL_FONT_MAPPING.md), [manifest TEST_PL v3](test-v3-delivery.json).
+[V3 na Drive](https://drive.google.com/file/d/16mPAOMpab8aSFbuqv1LSxMWyStEQmn_K/view)
+ma wszystkie 18 liter + ASCII + odstępy na pierwszej planszy misji 0-0;
+automatyczny odczyt ISO po budowie. 1553 testy OK (25 skipped), offline/extracted-kit
+sprawdzone; **potwierdzenie obrazu w PPSSPP nadal oczekiwane**. Poniżej historia.
+
+Status historyczny (2026-10-18, po commicie 8497268): implementacja gotowa, testy jednostkowe 1535 OK.
 Pakiet testowy **srw-oe-test-pl-v2.zip** na Dysku (`1GheEOtFzQm4pHv_VlOJqfs0hsFdiEazi`).
 **Nic nie jest jeszcze potwierdzone w grze** - czeka na test PPSSPP właściciela.
 

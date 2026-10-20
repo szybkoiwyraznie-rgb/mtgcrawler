@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "date": "2026-10-19",
+  "language": "pl",
+  "episode": 0,
+  "translation_source": "Existing accepted PL3 prose; current source-bound materialization, no retranslation",
+  "source_commit": "6e2f276",
+  "english_reference": {
+    "name": "srwoe_episode_00.md",
+    "drive_id": "1NxvAAzxVnbNfAnlwn7BOaiWzQzKAioND",
+    "sha256": "23f3961f6a046c1374518e10c012360ad6afe4e0ad8a8425975a1cbf4b88130b"
+  },
+  "polish_source_sha256": {
+    "00_dialogue.jsonl": "a15e7a31adc2387c59f28fe365d4a2146bb5081827acb8b948204bc869e7221d",
+    "05_mission_text.jsonl": "9ff28f709bf472cdfc05b49e2d0af081615f738c9b1e262f16cda16b4e671c3d",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "07_names_characters.jsonl": "f232f494d1bf61fbf711bcb05f71bbbca24c7ab35252f8547df55145d9835bdc"
+  },
+  "plan": "episode_00.json",
+  "verification": {
+    "prose_total": 253,
+    "shown_unique": 253,
+    "aliased": 0,
+    "verified_text_spans": 259,
+    "dialogue": 242,
+    "narration": 11,
+    "source_scenes": 2,
+    "residual_japanese": 0,
+    "source_paragraphs_and_speakers_verified": true,
+    "english_01_03_regenerated_polish_byte_identical": true
+  },
+  "files": [
+    {
+      "name": "srwoe_episode_00_PL.md",
+      "bytes": 21728,
+      "sha256": "f72871e8f4e7fcc0f82b92ce03b2a5ba2d23eae8c548dc75c841e3c28bdeaa97",
+      "md5": "34170f3974f0a7999bd0cb86fc54e32a",
+      "drive_id": "1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL",
+      "drive_url": "https://drive.google.com/file/d/1KEbIEpURPJXpGeAqBsLL-UMPkcXCaLhL/view",
+      "download_back_byte_identical": true
+    },
+    {
+      "name": "srwoe_reading_PL3_00-03.zip",
+      "bytes": 159084,
+      "sha256": "892f77ff1a063af05cc58301e5637cb84e627d960a6c44a3033c8545a1511ab7",
+      "md5": "3661e30e55ffc00c84771c61082f2af7",
+      "drive_id": "1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ",
+      "drive_url": "https://drive.google.com/file/d/1s27uNT-vv2S153m5JTGfsLiUeDUgSQTQ/view",
+      "download_back_byte_identical": true
+    }
+  ],
+  "bundle": {
+    "members": 5,
+    "previous_members": [
+      {
+        "name": "srwoe_episode_01_PL.md",
+        "sha256": "e9d8f6337b085002f63d2e1d73cf07052359876b0895464638592c5211bc5c47",
+        "identical_to_previous_delivery": true
+      },
+      {
+        "name": "srwoe_episode_02_PL.md",
+        "sha256": "6639161f591931b1a5cb56705bdae4be9889282dd6388b0365100592691a966c",
+        "identical_to_previous_delivery": true
+      },
+      {
+        "name": "srwoe_episode_03_PL.md",
+        "sha256": "2ed477846d2fa9ee6b723acbdbeed0fb2c1aed88ad6894cba5be0b080ea4d4ec",
+        "identical_to_previous_delivery": true
+      },
+      {
+        "name": "srwoe_mech_catalog_v3_PL.md",
+        "sha256": "dc1b1f58d1157d802176367abbda1dc8d4e266178992302b37523660cc0f7462",
+        "identical_to_previous_delivery": true
+      }
+    ],
+    "crc_verified": true,
+    "includes": "Episodes00–03 and mech catalogue v3; only00 is new"
+  },
+  "drive_parent": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+  "checks": {
+    "focused_tests": 21,
+    "full_suite_tests": 1703,
+    "full_suite_skipped": 3,
+    "full_suite_seconds": 52.872,
+    "result": "OK"
+  },
+  "sharing_changed": false,
+  "previous_deliveries_overwritten": false,
+  "game_package_changed": false,
+  "english_sources_changed": false,
+  "literary_retranslation": false,
+  "catalogue_regenerated": false,
+  "installation": {
+    "iso_replace": false,
+    "dlc_recopy": false,
+    "scope": "Reading Markdown only; no game installation"
+  }
+}

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Generate the 18 Polish glyphs for the 8x14 half-width cell (``ank.fta``).
+"""LEGACY v2-v4 generator (not used by v5; see pl_glyph_compose).
+
+Generate the 18 Polish glyphs for the 8x14 half-width cell (``ank.fta``).
 
 Source: ``assets/fonts/Roboto-Medium.ttf`` (OFL, shipped in this repo).  Each letter is
 rasterised with its diacritic from the font itself, then fitted to the game's own grid:

@@ -463,10 +463,14 @@ class PlFieldTest(unittest.TestCase):
         _e, warn_ascii = TC.check_row(prow("テスト", "a" * 60), field="pl")
         self.assertEqual([w for w in warn_pl if "box" in w], [w for w in warn_ascii if "box" in w])
 
-    def test_exe_rows_refuse_polish_letters_under_pl(self):
-        # the executable writer is CP932-only: fail closed until an in-game proof exists
+    def test_exe_display_rows_use_polish_target_codec(self):
         errors, _warnings = TC.check_row(
             prow("テスト", "ą", category="exe", source={"encoding": "cp932"}), field="pl")
+        self.assertEqual(errors, [])
+
+    def test_exe_utf8_system_rows_still_refuse_polish_letters(self):
+        errors, _warnings = TC.check_row(
+            prow("テスト", "ą", category="exe", source={"encoding": "utf-8"}), field="pl")
         self.assertTrue(errors)
 
     def test_terrain_rows_refuse_polish_letters_under_pl(self):

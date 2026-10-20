@@ -1,0 +1,2355 @@
+{
+  "schema": 1,
+  "review": "Seven owner screenshots, data-only compact captions; native font/cache untouched.",
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:886",
+      "source_sha256": "e4b16b1835424aafbc4a41ff3c696309144db85fb154560f58faf6a1d20f37af",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:891",
+      "source_sha256": "34fe7293e33da10229b8caab356ddd076c3abd2b79f92f0402fbd83b6f3c7ca1",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:968",
+      "source_sha256": "b9b3b6b7a69b111969452343c5dc5c275c3e45a09f4ba400d111f89ed0571a12",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1098",
+      "source_sha256": "47c0c36fc2d9d93bcbb56450d876aad20f3c84e678b15991a26a24cd883ccce1",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1103",
+      "source_sha256": "09eb5419954715fcc71dce06ac36576638105d9a4cd450a360c62a3bc9be6c10",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1180",
+      "source_sha256": "ae7a2c41d7fc33dd1b4a43b53ea4bd7ceb1be37c8fb1437c98cf35639f4a2997",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1310",
+      "source_sha256": "74e3585327d907fcd5ff8a125c7ebac8d0a747ad867c97c6d5df717e1893b5e7",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1315",
+      "source_sha256": "045ca23ce5dccb26f4b9267f3029243ad923ca69637e58cd950e2cba663bc0ba",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1392",
+      "source_sha256": "08d023ab6f1f91d402e0a7419dddbf7830ba5c31fa2f842a1ab18ce56ace817f",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1522",
+      "source_sha256": "9620a1932be3825c61012e48228f22e30e561bc3d8694c72bf5cad264fb39343",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1527",
+      "source_sha256": "1acb9681e9928005c399d328b0bc685515b1ee829d0e2f89a064a67a16c5c57d",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1604",
+      "source_sha256": "1f4c57a9b98002b3548c011ba65a4601ade95b1fcbaf54d6fefb81c9fd946851",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1734",
+      "source_sha256": "6b0f69e889a637eb789ac68eb12019366f5265043a231b2317b5ee125ccef3cf",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1739",
+      "source_sha256": "0a97da61c8b745b8d9866ebeb178ea5d449179b94c76f767aa1d93fcd4d34a51",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1816",
+      "source_sha256": "1578a36f9a3af82ccbbe9c26d56984dc307d0ea7124bc0472beebda0fd4cb0d5",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1946",
+      "source_sha256": "09b6dfdb7b66e9129ed61bb678517d7115c4e50683a4dfb89d7105736256802f",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:1951",
+      "source_sha256": "3b409d9233406fbda7b8f79eca47502eb870d01573c9935d3d74867dcab859b8",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:2028",
+      "source_sha256": "d317b2534fd4de79519df531400ea888527877db7409a669dc11a49a95662e23",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:2962",
+      "source_sha256": "5de3ddcfee6d5cbe811fbb4f8445ef9cf78b8867e7abd7a42fc73fb2fe886892",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:2967",
+      "source_sha256": "f50f898612293dacc3c0731ac813a8ba6747ce41f865f63a55df28c87a6fef6d",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3056",
+      "source_sha256": "f8372ed829b98be0436ec3ae08ed2f61e63d1725522ba0fca2050c52b6f2395c",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3218",
+      "source_sha256": "98698f74df4e76ad07978ef49c234deb47fdf4e9b9b9d5f1d046dfe1b853b9c0",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3223",
+      "source_sha256": "4320caa13bbace9541a29eb4930f6c9eff01a3ad8bed591688a7accb027ac18a",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3312",
+      "source_sha256": "67a804605e7da77452e0f07668247f0053f2f090835730accaed641460f2018c",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3474",
+      "source_sha256": "cac0a4bfe6ff6c2afe029ace6bb04cb9f3b8b980ff7c11f11b15f0f4fd779bdd",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3479",
+      "source_sha256": "bd607f9c61f618bae438f7ace073a32430bbdb267a46ebdc4f1ef9e6492a7e19",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:3568",
+      "source_sha256": "df8003c0f855cae08edf2d1e47123df70a71c62ad9fe42754b3c347aa6c0bbcf",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8034",
+      "source_sha256": "9bae7e18c370387f750aff0890c40f8a048c5471f45a470019a2ccf756d9c8d1",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8039",
+      "source_sha256": "5012880a9af09ad37a4bb66f4cdfcaef04bc3d52b10ee5f6754cccea14424b1b",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8088",
+      "source_sha256": "a52390c87d5a85463416e9e1b51ebd8aa94cbf29a7c63669aa34748213ab84d9",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8294",
+      "source_sha256": "ce78aebee60c94a4eccfb6413bfe2e21f926942e269c5d5b7997aa447a18236d",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8299",
+      "source_sha256": "13cab6cf671c5e6a68cbbf0daa6a63b2e7be84a066e5831c57186f2d239d86e4",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8348",
+      "source_sha256": "2144d5ac38c0568d18e39f2ef4128aff778ab4dace417bf065e516ec24404522",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8554",
+      "source_sha256": "2d92494156d9467b696e2f953602a7a9b82fe3cea41c429032a13ffc8c684c32",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8559",
+      "source_sha256": "5da2618df639dec8f852fb3aa32a141314e61cc90a14e6cc92692977a4669ef9",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:8608",
+      "source_sha256": "45638a09f65a5986ccf117ca043a7c0fd9ea8369201d8b76a5c873ae92892aec",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9402",
+      "source_sha256": "5a209f3cb55eb9243391414dd627a6111638ade7b5afdec848a6e555c0bf69e2",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9407",
+      "source_sha256": "3c35acd6c714820c89b393cf77beecdce4e2dd52e60152b556bdeb5e07f60fab",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9522",
+      "source_sha256": "349d839cc9b35a522277f2e8474f3bea659ceb50d9adb0da4747db799a428ff7",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9682",
+      "source_sha256": "7134d6ad35be13fcff83199c9ca5d7e2329e8d6a5323effa30bb6b054b678268",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9687",
+      "source_sha256": "38eb20ac2d37e66c86776c7e98a99b92b70ba1b3d39942cd7ec288f456f35f18",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9802",
+      "source_sha256": "5d7755d4a6688b9907504816447a0b8d5ada519999ea5e87cd1de9679c85a3d6",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9962",
+      "source_sha256": "c9115f600a7365b64099fd47bc7ea25a595b55fc233729871a63583b96751119",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:9967",
+      "source_sha256": "79198c91c7f61d821133e125d8b98f4f7063177805403e334c917611246ee108",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10082",
+      "source_sha256": "98a39fe6aefa28b768c146aa7f9c6700e435b97e91de64dd15ac1d7c6398a198",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10242",
+      "source_sha256": "e55dc4fa040c06fe11c2cd9ef2e6d1cd02b1a6b1b8cb389d7225e93e6f14855e",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10247",
+      "source_sha256": "c13408e75c5992672db5a83a9a3682ae22d4949c43299df23a5c66ef816bff71",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10326",
+      "source_sha256": "7b9dcf013a976f594278d2040795e78b39879f1b2f9c034af6eb9fac4fb61aac",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10486",
+      "source_sha256": "f5b7d936e4d52cc02c1e49bfb060a779d3e68e83c89e33a6cf04523628226b4b",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10491",
+      "source_sha256": "7ae7cdb39a4d3657a4a3ed6215d9caba00681141ffff35def25455a625570bc4",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10570",
+      "source_sha256": "191da56b094165872d001ebb90ef4a7f30b265c21ff02523966b83f80922203b",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10730",
+      "source_sha256": "b299fafcf76459ebdada3f82ed22020e08d8f7b121e779ffb7da2c07f4555f41",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10735",
+      "source_sha256": "d4a70cbdcd38815ff789a5815b026466f0ee21984fd98486e8b1552cad2ea728",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:10814",
+      "source_sha256": "1556b58bee865f44b2156c3348cc08e9eda6b41d96592a3f56e436cd97e9dcaf",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:11754",
+      "source_sha256": "0667e84e45bad94683951819c0abf1e803bcc7864486a59ba58496fe7f5db1a1",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:11759",
+      "source_sha256": "4c5da73fa134286403f65e6285e63db65156a446a29bc63c318ffdd239e61598",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:11834",
+      "source_sha256": "47ac0209fdc19c55fc007307415bff82b2b8bb80fb985a7d2fe35947717c09e7",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:11974",
+      "source_sha256": "e5025ead68cc874db24b2ca31d64234e2a1f1d54edc8204ebeebaff92bfe272a",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:11979",
+      "source_sha256": "2f34afd171ea5b27186faa541b684138073f1634d0b30aa469756b2fc6c8e4b9",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12054",
+      "source_sha256": "bba181fe927e4de395495ec337e4ed395508e0d81c9fdeaed0b6e62c92a63ba4",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12194",
+      "source_sha256": "ba827d57653a8a1095e6754eb90445f7d8dd4c36cad7f2093a29a7270b22c649",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12199",
+      "source_sha256": "c54fe07cca67ebe4c06ec322e58e0c334628a5e44855e43532bd6533391f5592",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12274",
+      "source_sha256": "dea0feddc69ed1dc584c891b4f17bd4d67a5b3467a6c48a06c1623a0b374326d",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12414",
+      "source_sha256": "b7e8aa80c123452d6b99fd1245c59044666ec95c396f695b83cd79606b3e1c93",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12419",
+      "source_sha256": "3e41082e9663c292a89d6f0a5db23fb888f7f41c1599d1a451cbb1581089fafc",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12494",
+      "source_sha256": "6a84ea7a0a1c0c9c28935b75c03e3abac179a836bdaa854fe4b1de536bad54c0",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12658",
+      "source_sha256": "8ac3b65d2c526f4e123ea7eaa7486bf6c06bfe7d69c0f5097916d766205da38e",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12663",
+      "source_sha256": "3f64423bcf43fdf899341c8fe2d91b740140fea6bbaf8972abfb2303b2f16d83",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12738",
+      "source_sha256": "185ebf11420969b2008f9005fa5d5e5485b116dba8e93d9a8921239fb95e7044",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12902",
+      "source_sha256": "02ff67ed0cbfcc310c20ad0f0d8270aaebf2e0b09eab940d02ee2b20ff1cac52",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12907",
+      "source_sha256": "c93e0dd8f4788d1612ab6fd61eb627884045846b00b35b2d078661ba523e0246",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:12982",
+      "source_sha256": "d4a61a2432b8c9a8806f5dcd09a559f65d1e63e9a4e2dcf2a30fe44992140d7c",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13146",
+      "source_sha256": "99b69f07a71734268e79b9bc143b0fe7433931203be342ba58f761198f475983",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13151",
+      "source_sha256": "272737d2137ac615cd7c368086a19b1f0f7537448ceabb2eae93fe6958d174dd",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13210",
+      "source_sha256": "84c925e728d1ed903991dda4f5d18c15d04905c250e2f30611034d4497bb0082",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13342",
+      "source_sha256": "2ac5a892794658aa46db3e4e2882957b86f3822c3dc989ef8ac23126dcfa4066",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13347",
+      "source_sha256": "e73e5f0a13d46678ba722851d1fe9a6018387ac4ae3ca68948b18a779bdc4643",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13406",
+      "source_sha256": "8795dca91544c24de6f7964d2b81da2d7766dbeb2352d72c380cf7040f333163",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13538",
+      "source_sha256": "e4c790ec8b948d4ce10c8d8d4e481a8a0522bb9d83364156afdc65e5281bd030",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13543",
+      "source_sha256": "a28a7a6431a41560bdef71d7c6e425f9832a1df17db0c7cbcf28996004745edf",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13602",
+      "source_sha256": "a1c7b76fdc43d099f8cd70dc266fac63213ed0bfe406d45b149b7d8ed1643f92",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13734",
+      "source_sha256": "8618d930fae5959730c5f462ef67721b87b190a39a8cf3c9fd3873ce8551fc69",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13739",
+      "source_sha256": "078459cdb247121fccce071f0f112d62a7a66182c41c479b3cfc0dc260445bc5",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13775",
+      "source_sha256": "664840474c6642e5f5952e42ff2ffe7dd6c2307bc9d79a259da2cdff0f054194",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13962",
+      "source_sha256": "d704c4f308d6741e34ca4d27ea285beae1cf9dbe95497db29464dbb3c2618bb9",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:13967",
+      "source_sha256": "9187d0521b7c42be2e00af46b3a7729b9299a22145c668157c6134901a0cd3f2",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:14003",
+      "source_sha256": "4dbe8e21fe52d5b0be867159f57b99ba4735e1a311c9aecf97647e0653bc1d26",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:14190",
+      "source_sha256": "e2963ee43e2c2ddd747a1fc0e3f1c4a74b95075b6f56860bbe77a8a10fa108a1",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:14195",
+      "source_sha256": "91554aea8508803c9327349aae81b62bb88c93903860218500a5dacf4200b29b",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:14231",
+      "source_sha256": "dabbfe85413410b4b195da2bee770dd40ffa8c2d08c3650e87eec1bcec24d0af",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "reason": "Compact narrow Spirit name, all levels and physical name aliases; descriptions and accepted Skupienie unchanged."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:14408",
+      "source_sha256": "cfbf3aebadc87e57360aae11e1630d056db16d8189ddbb0122be541fc31fad5a",
+      "before": "Dalej",
+      "after": "OK",
+      "max_cells": 2,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:34332",
+      "source_sha256": "c8f7d98b93be74fd5c8985e946626b28368d879e9ec0859636529c0b7c57e754",
+      "before": "Trudn.:",
+      "after": "Tr.:",
+      "max_cells": 4,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:35272",
+      "source_sha256": "db2d34f876152a5937da155f2c10b611f69064fda4e6a8ea823378491c7240c7",
+      "before": "Powiąż",
+      "after": "Łącz",
+      "max_cells": 4,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:35280",
+      "source_sha256": "69df1cae0ad8e7e8ad1211d55c5331851bfb56914e3d6cabe4306e1f32975e3f",
+      "before": "Gotowe",
+      "after": "OK",
+      "max_cells": 2,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42996",
+      "source_sha256": "a227689e4a955a7e030d216177b4eb3c1336aebabb26edc0fb839ab6979157cc",
+      "before": "Trudn.:",
+      "after": "Tr.:",
+      "max_cells": 4,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:43480",
+      "source_sha256": "df8465d9aca14df83a1e2c5102d3bc52b89bbb8d5a6c2c8683ebbada812a198e",
+      "before": "Gotowe",
+      "after": "OK",
+      "max_cells": 2,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:49436",
+      "source_sha256": "ce43cda263b3d98046e4c34e31feff816c30b65bbba2eae92c9589ef13558e50",
+      "before": "Gotowe",
+      "after": "OK",
+      "max_cells": 2,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:35268",
+      "source_sha256": "c552f52823a1b675127d594fd82dc6c47526ad843970c378117af7c02a6c159f",
+      "before": "Sortuj",
+      "after": "Sort",
+      "max_cells": 4,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:35292",
+      "source_sha256": "4f569d5b248ab2314ce7e3642724f44f98ea7e5a5335a08b8e7986312072638d",
+      "before": "Strona",
+      "after": "Str.",
+      "max_cells": 4,
+      "reason": "Owner screenshot: short difficulty/deployment/Results caption, consistent identical-JP aliases."
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8228",
+      "source_sha256": "12211baf59478d85463eff2de30e0717b3fd4f098627fbc55f555a9007c7b346",
+      "before": "Ląd: brak wst.",
+      "after": "Ląd: zakaz",
+      "max_cells": 10,
+      "reason": "Explicit ground-entry warning, no opaque wst abbreviation."
+    }
+  ],
+  "spirit_review": [
+    {
+      "record": 0,
+      "jp_name_sha256": "1a96b6acadc2d0f9f26e90ad15307ac778853d82ba8ea40d733f19b746c65df9",
+      "before": "Pęd",
+      "after": "Pęd",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:302",
+          "source_sha256": "c6adaab0e6a9a4a97486bd3f100faf980bcd23d9bebd2f777695b5ada6ebe1dc",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:307",
+          "source_sha256": "79d41bf8d804882cf26bac92fbfb2d7365698b20f01eef1f20534e4f0f78f611",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:334",
+          "source_sha256": "c53a65879f7524741a40863c7c8a7d7abf2fe81c24a30c64207c8a13500a7e6e",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 1,
+      "jp_name_sha256": "1a96b6acadc2d0f9f26e90ad15307ac778853d82ba8ea40d733f19b746c65df9",
+      "before": "Pęd",
+      "after": "Pęd",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:498",
+          "source_sha256": "74126d9eb69a67ba42fc77f54499f3b8a1976c42dc1a0fe5854cdd1d16eaac04",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:503",
+          "source_sha256": "ea279e94f2752a67b4218d4006c1b376163f34b5acaf501d3982c076201bf943",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:530",
+          "source_sha256": "0ba52d1917482571b1573209b394daf57f6a6cdc6ed2b8fdbdbccfbb9441e22b",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 2,
+      "jp_name_sha256": "1a96b6acadc2d0f9f26e90ad15307ac778853d82ba8ea40d733f19b746c65df9",
+      "before": "Pęd",
+      "after": "Pęd",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:694",
+          "source_sha256": "ea48c40d0e5aa41dc88c5ca849579c280b8b046eb2ded4ce8a97cef82e14c239",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:699",
+          "source_sha256": "fdef94ba04b0db4754bf9e57e8e3ce8aaa32415ccad5b6acb79985266050704f",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:725",
+          "source_sha256": "4aba297ad88084d3818044b0064535797b6ec6c5f9a5424ba861d6292ddaa74d",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 3,
+      "jp_name_sha256": "5e5ec2de2a553067a189c84258ecc5e28939bdef53cd692ca73fc515447896e1",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:886",
+          "source_sha256": "e4b16b1835424aafbc4a41ff3c696309144db85fb154560f58faf6a1d20f37af",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:891",
+          "source_sha256": "34fe7293e33da10229b8caab356ddd076c3abd2b79f92f0402fbd83b6f3c7ca1",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:968",
+          "source_sha256": "b9b3b6b7a69b111969452343c5dc5c275c3e45a09f4ba400d111f89ed0571a12",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 4,
+      "jp_name_sha256": "5e5ec2de2a553067a189c84258ecc5e28939bdef53cd692ca73fc515447896e1",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1098",
+          "source_sha256": "47c0c36fc2d9d93bcbb56450d876aad20f3c84e678b15991a26a24cd883ccce1",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1103",
+          "source_sha256": "09eb5419954715fcc71dce06ac36576638105d9a4cd450a360c62a3bc9be6c10",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1180",
+          "source_sha256": "ae7a2c41d7fc33dd1b4a43b53ea4bd7ceb1be37c8fb1437c98cf35639f4a2997",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 5,
+      "jp_name_sha256": "5e5ec2de2a553067a189c84258ecc5e28939bdef53cd692ca73fc515447896e1",
+      "before": "Przebłysk",
+      "after": "Przebł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1310",
+          "source_sha256": "74e3585327d907fcd5ff8a125c7ebac8d0a747ad867c97c6d5df717e1893b5e7",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1315",
+          "source_sha256": "045ca23ce5dccb26f4b9267f3029243ad923ca69637e58cd950e2cba663bc0ba",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1392",
+          "source_sha256": "08d023ab6f1f91d402e0a7419dddbf7830ba5c31fa2f842a1ab18ce56ace817f",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 6,
+      "jp_name_sha256": "3e76e6d438f9cf34766e12ea3de1559530e489980d3f1d6c50d486a05b3d8680",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1522",
+          "source_sha256": "9620a1932be3825c61012e48228f22e30e561bc3d8694c72bf5cad264fb39343",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1527",
+          "source_sha256": "1acb9681e9928005c399d328b0bc685515b1ee829d0e2f89a064a67a16c5c57d",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1604",
+          "source_sha256": "1f4c57a9b98002b3548c011ba65a4601ade95b1fcbaf54d6fefb81c9fd946851",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 7,
+      "jp_name_sha256": "3e76e6d438f9cf34766e12ea3de1559530e489980d3f1d6c50d486a05b3d8680",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1734",
+          "source_sha256": "6b0f69e889a637eb789ac68eb12019366f5265043a231b2317b5ee125ccef3cf",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1739",
+          "source_sha256": "0a97da61c8b745b8d9866ebeb178ea5d449179b94c76f767aa1d93fcd4d34a51",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1816",
+          "source_sha256": "1578a36f9a3af82ccbbe9c26d56984dc307d0ea7124bc0472beebda0fd4cb0d5",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 8,
+      "jp_name_sha256": "3e76e6d438f9cf34766e12ea3de1559530e489980d3f1d6c50d486a05b3d8680",
+      "before": "Celny strzał",
+      "after": "Celny",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1946",
+          "source_sha256": "09b6dfdb7b66e9129ed61bb678517d7115c4e50683a4dfb89d7105736256802f",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:1951",
+          "source_sha256": "3b409d9233406fbda7b8f79eca47502eb870d01573c9935d3d74867dcab859b8",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2028",
+          "source_sha256": "d317b2534fd4de79519df531400ea888527877db7409a669dc11a49a95662e23",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 9,
+      "jp_name_sha256": "af41f3cd2ee1780eb6c7024b1471b16c8685c82f6d7941cd908d229995a47c57",
+      "before": "Więź",
+      "after": "Więź",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2158",
+          "source_sha256": "a985dd890dc3c5a5ff43f8b38aa82f4e8fcfc802b026373ce5d7129cd7b00f52",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2163",
+          "source_sha256": "ffce9553ed409830bd1836d877bf1d196cbb77802e8282d6e7f4466c96bf6bf1",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2271",
+          "source_sha256": "a971a3431ac04d91be853fb901767e8de6ea832cedfb029bd9101425673c4cfa",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 10,
+      "jp_name_sha256": "af41f3cd2ee1780eb6c7024b1471b16c8685c82f6d7941cd908d229995a47c57",
+      "before": "Więź",
+      "after": "Więź",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2426",
+          "source_sha256": "6b578342489cf068501f7ebfb1ec5cb08b2f26695252273be73c3ccd9fe61fca",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2431",
+          "source_sha256": "c04495d4e6341cac62996e294159601079d0066083bdc79242e0b5aa908205dd",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2539",
+          "source_sha256": "7daabc20466a99e5327d21cc81a137db4005711879d95a368929c5e7f2bd5e2b",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 11,
+      "jp_name_sha256": "af41f3cd2ee1780eb6c7024b1471b16c8685c82f6d7941cd908d229995a47c57",
+      "before": "Więź",
+      "after": "Więź",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2694",
+          "source_sha256": "882e8d37891b70c6eab5f2d6a94dbdd2fc75277d0155d5a79a2fbda50f1e30c0",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2699",
+          "source_sha256": "59004abbcec23eb843751a6ea53a327eedd4630799b9733e23ec6bb15ea267ae",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2807",
+          "source_sha256": "ae55723657d24fe8aad543f1933e063a3cccf811ff1ef251b3d5229f02a9c62d",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 12,
+      "jp_name_sha256": "13f97cb5baa4b5cbf75d9667bbc42e96b8f16359e60cf720465a9e3964282d37",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2962",
+          "source_sha256": "5de3ddcfee6d5cbe811fbb4f8445ef9cf78b8867e7abd7a42fc73fb2fe886892",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:2967",
+          "source_sha256": "f50f898612293dacc3c0731ac813a8ba6747ce41f865f63a55df28c87a6fef6d",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3056",
+          "source_sha256": "f8372ed829b98be0436ec3ae08ed2f61e63d1725522ba0fca2050c52b6f2395c",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 13,
+      "jp_name_sha256": "13f97cb5baa4b5cbf75d9667bbc42e96b8f16359e60cf720465a9e3964282d37",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3218",
+          "source_sha256": "98698f74df4e76ad07978ef49c234deb47fdf4e9b9b9d5f1d046dfe1b853b9c0",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3223",
+          "source_sha256": "4320caa13bbace9541a29eb4930f6c9eff01a3ad8bed591688a7accb027ac18a",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3312",
+          "source_sha256": "67a804605e7da77452e0f07668247f0053f2f090835730accaed641460f2018c",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 14,
+      "jp_name_sha256": "13f97cb5baa4b5cbf75d9667bbc42e96b8f16359e60cf720465a9e3964282d37",
+      "before": "Niezłomność",
+      "after": "Niezł.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3474",
+          "source_sha256": "cac0a4bfe6ff6c2afe029ace6bb04cb9f3b8b980ff7c11f11b15f0f4fd779bdd",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3479",
+          "source_sha256": "bd607f9c61f618bae438f7ace073a32430bbdb267a46ebdc4f1ef9e6492a7e19",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3568",
+          "source_sha256": "df8003c0f855cae08edf2d1e47123df70a71c62ad9fe42754b3c347aa6c0bbcf",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 15,
+      "jp_name_sha256": "ad8730aed6127282d193967fae773fe36dab3f2de514f07aa559bcabc6e151b5",
+      "before": "Mur",
+      "after": "Mur",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3730",
+          "source_sha256": "585ccbb3bb97cb9b4a5e8d534beac2c2698a8b2f7c3c28e04550aa4f2c4215f6",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3735",
+          "source_sha256": "e666a7273a608011330c08a49a82a2869d7f772b3ad9191584d13ccf4446dc87",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3824",
+          "source_sha256": "3b4dabcca7a22482f1e6d7f13c70385b59d54fa14479e234e413f307d906c7c1",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 16,
+      "jp_name_sha256": "ad8730aed6127282d193967fae773fe36dab3f2de514f07aa559bcabc6e151b5",
+      "before": "Mur",
+      "after": "Mur",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:3998",
+          "source_sha256": "c89a4a4022dd4a6df76367565aa671013ff9b30befc32b363847d3a1285ede3c",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4003",
+          "source_sha256": "e29f852fc6a8e0a183f486c47affce88be31d07ce097e525309f0b1df0c33480",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4092",
+          "source_sha256": "8a17a7ab9e9500176d6e00a12dd5e11ff4d35b623754bb5db2e654476cc59678",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 17,
+      "jp_name_sha256": "ad8730aed6127282d193967fae773fe36dab3f2de514f07aa559bcabc6e151b5",
+      "before": "Mur",
+      "after": "Mur",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4266",
+          "source_sha256": "d3467896e5a2e2c0e8475618380b81f0ea7463b018c74db0a884f9a03ed27780",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4271",
+          "source_sha256": "d166ed2ffab8558ebb43cce7759ec11f90a2d74320c487d424d419b9bf1f34de",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4360",
+          "source_sha256": "e580ec47baee155a63859ae795b40b62274186635c50f6de8653fd3f661ec90d",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 18,
+      "jp_name_sha256": "a24f502c764c34cbdc9a4acb6846fbcdd0ec8df364db062d220796720cd37d24",
+      "before": "Skupienie",
+      "after": "Skupienie",
+      "max_cells": 9,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4534",
+          "source_sha256": "4443d7982d920c66cd4c53d6fde8e098073bd029ad3e20aa123e18a3af19bbb3",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4539",
+          "source_sha256": "ef23530976fd62c2fea456484788a8491bce0383671d19d7c444db4c96ddf07b",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4653",
+          "source_sha256": "e26ac80f0457df77216dd6898bf7541d82476fe9bd7777b2b66235e7e5635b4a",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 19,
+      "jp_name_sha256": "a24f502c764c34cbdc9a4acb6846fbcdd0ec8df364db062d220796720cd37d24",
+      "before": "Skupienie",
+      "after": "Skupienie",
+      "max_cells": 9,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4802",
+          "source_sha256": "4ab68f6375f2843caa2a94a60e7526540720d1ded6c5f6b3fd0e6c97da59ee95",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4807",
+          "source_sha256": "20bb0a1980904b16c7c473c51582b212cba206779ec55a6a5bba079042f43c6c",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:4921",
+          "source_sha256": "c6b4359ade9ae1a7f29755d19793157bab8d3817d017d9157f6ba048c1e9fa0a",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 20,
+      "jp_name_sha256": "a24f502c764c34cbdc9a4acb6846fbcdd0ec8df364db062d220796720cd37d24",
+      "before": "Skupienie",
+      "after": "Skupienie",
+      "max_cells": 9,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5070",
+          "source_sha256": "8d779d0c8838059504477d06dac802a37d803329e5c02891eff470f398124934",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5075",
+          "source_sha256": "c1e3f913afcd3a0f4f296ab68a5352eac2c090da7ce85b5ad5c4a084693d0e03",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5189",
+          "source_sha256": "accdaeb51f05052938c87b2117e04cc9216248e8613cd7acf4d337ecee1a859c",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 21,
+      "jp_name_sha256": "161e998735621757cab5d52b3ce8b848a1941c357864c536b493deb5d979eba7",
+      "before": "Zapał",
+      "after": "Zapał",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5338",
+          "source_sha256": "072893042fee712fd15d9b87517f23ffc6cb5b672956b1753e2bf3060af70466",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5343",
+          "source_sha256": "b8fd050b0b90c4c3034d613e1820ff5d54ba575817cc41ad46c549c2a7f79376",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5433",
+          "source_sha256": "34784a0c4a286afa6fe34edd22a65e112a968fe5600dcdfd5b9013176e7c6604",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 22,
+      "jp_name_sha256": "161e998735621757cab5d52b3ce8b848a1941c357864c536b493deb5d979eba7",
+      "before": "Zapał",
+      "after": "Zapał",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5566",
+          "source_sha256": "ecce72e76f24a669a62a8a25053d8c29bc60f2a490a371cb8d3c2da5f345aadf",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5571",
+          "source_sha256": "190c0533bc9bb5e123e96050fbe6642e5de0515d927bea44e2b2e0c4b1396f30",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5661",
+          "source_sha256": "f3e617f925e35d95deb14f873c02d7cd8b5e5e200d3ca5d07adf00bb8db9e6ea",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 23,
+      "jp_name_sha256": "161e998735621757cab5d52b3ce8b848a1941c357864c536b493deb5d979eba7",
+      "before": "Zapał",
+      "after": "Zapał",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5794",
+          "source_sha256": "b36de7bd54a710fc98ddc5154ebd85b8866eba43a14e303537be1f44b2e43739",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5799",
+          "source_sha256": "55e570be5f762efee41d89312cefd1b2beb03a197fa8b39641f5edded0867643",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:5889",
+          "source_sha256": "873c658d5f22c4b744546c89e79f5b12342cd1c8406172b47b2d6437f020a5d5",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 24,
+      "jp_name_sha256": "abe26aa668de1e20fb2713b8107bf689e57cf0c50cd0afa01eb3fb48e2b9cbaf",
+      "before": "Wysiłek",
+      "after": "Wysiłek",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6022",
+          "source_sha256": "783863106eec92c23c68d0acbe4cd9f05e08878d31f5bbdc7f034a519f807fe8",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6027",
+          "source_sha256": "f0702fd94c7487771c319d4a1d0914454fafd3a0c6d7f812997ffb39f5a00b7e",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6065",
+          "source_sha256": "6d4fac9c4d07f9b8a45966744958da1231674ec74768cea29d4bc0aedab6f22a",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 25,
+      "jp_name_sha256": "abe26aa668de1e20fb2713b8107bf689e57cf0c50cd0afa01eb3fb48e2b9cbaf",
+      "before": "Wysiłek",
+      "after": "Wysiłek",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6218",
+          "source_sha256": "384e2793f5a618b1a9fe3ce8e9e87d3c0555d4d17f6f63204233c39f267be1a2",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6223",
+          "source_sha256": "0dcad1a1e9bc0e4632d2a0bf9a15b9ab782af4c2b8372c1d945a0efa0e36ec29",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6261",
+          "source_sha256": "df6f2dec58fc5c8f2e4c91d8723c328c573b8c179a003aaa5dfff0353a2e25b9",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 26,
+      "jp_name_sha256": "abe26aa668de1e20fb2713b8107bf689e57cf0c50cd0afa01eb3fb48e2b9cbaf",
+      "before": "Wysiłek",
+      "after": "Wysiłek",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6414",
+          "source_sha256": "ec5f19bf743ad5398b4b639a408601e5e6ba78b0838905429107c282a8c15e37",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6419",
+          "source_sha256": "ce5a589dcbecf13ea60899f1c2af8376f446e1fd43b46bb8b226529b110a667d",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6457",
+          "source_sha256": "940a9ac99d0458de6b9af0087f638720e17e8980e63576258f9d14cde090dfee",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 27,
+      "jp_name_sha256": "9501ed3c4b98b3901d2bbcd206dafdea1e1b9034b220a2ceac3f6d17844e18e4",
+      "before": "Doping",
+      "after": "Doping",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6610",
+          "source_sha256": "3298b5462dfa669ec0b717f1563146c3964ad760fecb1ce3d253521f8a385c79",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6615",
+          "source_sha256": "6966848570b62333fee19f53e95346464c44adb6d7d6644f6c482c8474a1024f",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6663",
+          "source_sha256": "4f9cbf6b4b5af8ce0a0380d52bc2101328107589283d35af13562d158dab904d",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 28,
+      "jp_name_sha256": "9501ed3c4b98b3901d2bbcd206dafdea1e1b9034b220a2ceac3f6d17844e18e4",
+      "before": "Doping",
+      "after": "Doping",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6854",
+          "source_sha256": "e4c5972945c4939807faf47f7c4e9717b97364c6de062eb64eb02b9a62cbabaa",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6859",
+          "source_sha256": "951f199e765c653feaddd47a872f0b9d3b0a92b67aa2de54816434c65a6fd254",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:6908",
+          "source_sha256": "52c1581671d58f8a78e977bc0b71f5ed123f4f54a8caa6b2a3014521977cae29",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 29,
+      "jp_name_sha256": "9501ed3c4b98b3901d2bbcd206dafdea1e1b9034b220a2ceac3f6d17844e18e4",
+      "before": "Doping",
+      "after": "Doping",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7098",
+          "source_sha256": "e75376fff737a665beae72430c00bd6582c95c2232317e3a914adc6ef1fab34c",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7103",
+          "source_sha256": "61aef8381cc3b3c5108be934620b348bc3437000ce25c870e6890f16b4fc3262",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7151",
+          "source_sha256": "85690794416daea180df084e8d4842f41f6c622dca932cec46bc8b3494ff7c65",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 30,
+      "jp_name_sha256": "359222c341242c8c6d2bb3f0cde8938a8c815868e67e91600e2cc4502b628e71",
+      "before": "Fortuna",
+      "after": "Fortuna",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7342",
+          "source_sha256": "ab33b5259955820a6afa9ae601f74dc9786a6999864d6bd57bf304981393a991",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7347",
+          "source_sha256": "ad987abbbd2dc6aa816e320dd345516d6d827ad3da4c940363ae73c1b474b588",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7388",
+          "source_sha256": "87a678f698cb3ddfab391b20a7d012519f276a9c61f6ed1bf02e84dd273ac7bb",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 31,
+      "jp_name_sha256": "359222c341242c8c6d2bb3f0cde8938a8c815868e67e91600e2cc4502b628e71",
+      "before": "Fortuna",
+      "after": "Fortuna",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7570",
+          "source_sha256": "376d0fd1988bf622d7cd554aabaa89dce56ee99ac0fcc3066466e11985c42850",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7575",
+          "source_sha256": "b8933bd1b066345e45a5f269aa9ec6e15ae9a408a96a7c05d1e5711d8348e0fc",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7617",
+          "source_sha256": "7593a5d527b72a4523e4a95cbd83e8ccf5f66dc6ecf2c8f5d0a08f6d4df32281",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 32,
+      "jp_name_sha256": "359222c341242c8c6d2bb3f0cde8938a8c815868e67e91600e2cc4502b628e71",
+      "before": "Fortuna",
+      "after": "Fortuna",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7802",
+          "source_sha256": "dca83b8f98c72cb211c93f7f0da74a255db11ed8e0ebd117b434c21ac9101b03",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7807",
+          "source_sha256": "0b632dc7e685d4d57a903e136860645d2fbd5bc3d4c5c7f1a94cf2f75fe9afb9",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:7849",
+          "source_sha256": "68864a1f6bbf16338886071fe07f7afcebd8542c5d9b9f74a316361f95d7dc0e",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 33,
+      "jp_name_sha256": "626357531ee8a87121e5bb89709bc2fa621b6d2b8d851e2f26a69fdb3e22a71b",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8034",
+          "source_sha256": "9bae7e18c370387f750aff0890c40f8a048c5471f45a470019a2ccf756d9c8d1",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8039",
+          "source_sha256": "5012880a9af09ad37a4bb66f4cdfcaef04bc3d52b10ee5f6754cccea14424b1b",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8088",
+          "source_sha256": "a52390c87d5a85463416e9e1b51ebd8aa94cbf29a7c63669aa34748213ab84d9",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 34,
+      "jp_name_sha256": "626357531ee8a87121e5bb89709bc2fa621b6d2b8d851e2f26a69fdb3e22a71b",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8294",
+          "source_sha256": "ce78aebee60c94a4eccfb6413bfe2e21f926942e269c5d5b7997aa447a18236d",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8299",
+          "source_sha256": "13cab6cf671c5e6a68cbbf0daa6a63b2e7be84a066e5831c57186f2d239d86e4",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8348",
+          "source_sha256": "2144d5ac38c0568d18e39f2ef4128aff778ab4dace417bf065e516ec24404522",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 35,
+      "jp_name_sha256": "626357531ee8a87121e5bb89709bc2fa621b6d2b8d851e2f26a69fdb3e22a71b",
+      "before": "Błogosławieństwo",
+      "after": "Błog.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8554",
+          "source_sha256": "2d92494156d9467b696e2f953602a7a9b82fe3cea41c429032a13ffc8c684c32",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8559",
+          "source_sha256": "5da2618df639dec8f852fb3aa32a141314e61cc90a14e6cc92692977a4669ef9",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8608",
+          "source_sha256": "45638a09f65a5986ccf117ca043a7c0fd9ea8369201d8b76a5c873ae92892aec",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 36,
+      "jp_name_sha256": "f42efdb38f3aa9dfb9499c24b7782a76b7450e54d8f5e7cff68e18af4628546b",
+      "before": "Hart",
+      "after": "Hart",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8814",
+          "source_sha256": "dd7a2843d67f6dd245f57b72cbd7428c5acdcb47848720482059d69f2ecc8eb0",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8819",
+          "source_sha256": "c2981254ae7f46f015955302a76d93f328dbc100236719078ab92c1f5213368e",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:8887",
+          "source_sha256": "d494bbd8b96af4e7acc5667e1c23be9007eddda9074c092fcc03c9802ace5796",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 37,
+      "jp_name_sha256": "f42efdb38f3aa9dfb9499c24b7782a76b7450e54d8f5e7cff68e18af4628546b",
+      "before": "Hart",
+      "after": "Hart",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9010",
+          "source_sha256": "cdf6a5564289053b9adffc1f0352fc45eeaa3f0777b308f93d5dc9a046db6f6c",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9015",
+          "source_sha256": "5005905db37b157d69686b86459cfc22f0670b457e33331161f38fba7e5bf159",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9083",
+          "source_sha256": "191003d33e7bb50ffbf9ad18415bb7b0b3fdb3aff23b2e1bbb7559b8ba7a36e4",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 38,
+      "jp_name_sha256": "f42efdb38f3aa9dfb9499c24b7782a76b7450e54d8f5e7cff68e18af4628546b",
+      "before": "Hart",
+      "after": "Hart",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9206",
+          "source_sha256": "7697eac26d48fc671e8f19f3b173570500dc6148790833c734255fd2aa871251",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9211",
+          "source_sha256": "3763490a1385e839ecf69ed7130b6b25adb2cf27e5752964d9fbcb22ce156f82",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9279",
+          "source_sha256": "a0bf39360dded3facee9777afae64a5b1d306149af9ed82d9f7bf2daed66c222",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 39,
+      "jp_name_sha256": "2411804b4d413030a6657e104023ca529b645cade0df87d7b2e3197d7585a33a",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9402",
+          "source_sha256": "5a209f3cb55eb9243391414dd627a6111638ade7b5afdec848a6e555c0bf69e2",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9407",
+          "source_sha256": "3c35acd6c714820c89b393cf77beecdce4e2dd52e60152b556bdeb5e07f60fab",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9522",
+          "source_sha256": "349d839cc9b35a522277f2e8474f3bea659ceb50d9adb0da4747db799a428ff7",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 40,
+      "jp_name_sha256": "2411804b4d413030a6657e104023ca529b645cade0df87d7b2e3197d7585a33a",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9682",
+          "source_sha256": "7134d6ad35be13fcff83199c9ca5d7e2329e8d6a5323effa30bb6b054b678268",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9687",
+          "source_sha256": "38eb20ac2d37e66c86776c7e98a99b92b70ba1b3d39942cd7ec288f456f35f18",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9802",
+          "source_sha256": "5d7755d4a6688b9907504816447a0b8d5ada519999ea5e87cd1de9679c85a3d6",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 41,
+      "jp_name_sha256": "2411804b4d413030a6657e104023ca529b645cade0df87d7b2e3197d7585a33a",
+      "before": "Zaufanie",
+      "after": "Zauf.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9962",
+          "source_sha256": "c9115f600a7365b64099fd47bc7ea25a595b55fc233729871a63583b96751119",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:9967",
+          "source_sha256": "79198c91c7f61d821133e125d8b98f4f7063177805403e334c917611246ee108",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10082",
+          "source_sha256": "98a39fe6aefa28b768c146aa7f9c6700e435b97e91de64dd15ac1d7c6398a198",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 42,
+      "jp_name_sha256": "a66fb32ca44bd74d6f932cacb1ea4c968efb2e8941b61802562810353ed6acde",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10242",
+          "source_sha256": "e55dc4fa040c06fe11c2cd9ef2e6d1cd02b1a6b1b8cb389d7225e93e6f14855e",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10247",
+          "source_sha256": "c13408e75c5992672db5a83a9a3682ae22d4949c43299df23a5c66ef816bff71",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10326",
+          "source_sha256": "7b9dcf013a976f594278d2040795e78b39879f1b2f9c034af6eb9fac4fb61aac",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 43,
+      "jp_name_sha256": "a66fb32ca44bd74d6f932cacb1ea4c968efb2e8941b61802562810353ed6acde",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10486",
+          "source_sha256": "f5b7d936e4d52cc02c1e49bfb060a779d3e68e83c89e33a6cf04523628226b4b",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10491",
+          "source_sha256": "7ae7cdb39a4d3657a4a3ed6215d9caba00681141ffff35def25455a625570bc4",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10570",
+          "source_sha256": "191da56b094165872d001ebb90ef4a7f30b265c21ff02523966b83f80922203b",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 44,
+      "jp_name_sha256": "a66fb32ca44bd74d6f932cacb1ea4c968efb2e8941b61802562810353ed6acde",
+      "before": "Zagrzewanie",
+      "after": "Zagrz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10730",
+          "source_sha256": "b299fafcf76459ebdada3f82ed22020e08d8f7b121e779ffb7da2c07f4555f41",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10735",
+          "source_sha256": "d4a70cbdcd38815ff789a5815b026466f0ee21984fd98486e8b1552cad2ea728",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10814",
+          "source_sha256": "1556b58bee865f44b2156c3348cc08e9eda6b41d96592a3f56e436cd97e9dcaf",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 45,
+      "jp_name_sha256": "869c0300ff76847816098cb509e307b47dc57b86e80586df0c1369e74757ba44",
+      "before": "Zamęt",
+      "after": "Zamęt",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10974",
+          "source_sha256": "14371f5f78425c365e1f76c63b22b8380638f17561478a34e5bf29d1d20be749",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:10981",
+          "source_sha256": "e2a7158ef7d87ca303050d9c20020f256e27b5c2f1c1c34109f61ceae8568859",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11078",
+          "source_sha256": "2c7c167fe3077ddab8eb8badf9ade4726ac8ef394415607dd31664031c5efa30",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 46,
+      "jp_name_sha256": "869c0300ff76847816098cb509e307b47dc57b86e80586df0c1369e74757ba44",
+      "before": "Zamęt",
+      "after": "Zamęt",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11234",
+          "source_sha256": "85e4c82b12ba0a52b8796943453c025324dc7bee3f0b687c89944cce22e9efee",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11241",
+          "source_sha256": "285ff7c735eaafe315296b39d891b913e2b49b03665e2c38a1607cc8ebe733bc",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11338",
+          "source_sha256": "ae91bda0f50658ada78f74bcb29f467abd0453c46449c6e765853a383ffdbbee",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 47,
+      "jp_name_sha256": "869c0300ff76847816098cb509e307b47dc57b86e80586df0c1369e74757ba44",
+      "before": "Zamęt",
+      "after": "Zamęt",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11494",
+          "source_sha256": "1c1205a3fd065a4c34dacaa3d187ae395a45cb872fbe5dd85c34d32a722b914c",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11501",
+          "source_sha256": "428acc961114dfe7739357cb63f5500a9a64f1fb2837b9993e2dbb3c921e95b7",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11598",
+          "source_sha256": "4d980e5f9df0deb71f29f9abdc4a782957feebe95c778c9c157198068e21ef5f",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 48,
+      "jp_name_sha256": "d8547e89e274f35945af4462a3e4b976c429a63e7a223c1a470c9f783c0b3860",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11754",
+          "source_sha256": "0667e84e45bad94683951819c0abf1e803bcc7864486a59ba58496fe7f5db1a1",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11759",
+          "source_sha256": "4c5da73fa134286403f65e6285e63db65156a446a29bc63c318ffdd239e61598",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11834",
+          "source_sha256": "47ac0209fdc19c55fc007307415bff82b2b8bb80fb985a7d2fe35947717c09e7",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 49,
+      "jp_name_sha256": "d8547e89e274f35945af4462a3e4b976c429a63e7a223c1a470c9f783c0b3860",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11974",
+          "source_sha256": "e5025ead68cc874db24b2ca31d64234e2a1f1d54edc8204ebeebaff92bfe272a",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:11979",
+          "source_sha256": "2f34afd171ea5b27186faa541b684138073f1634d0b30aa469756b2fc6c8e4b9",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12054",
+          "source_sha256": "bba181fe927e4de395495ec337e4ed395508e0d81c9fdeaed0b6e62c92a63ba4",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 50,
+      "jp_name_sha256": "d8547e89e274f35945af4462a3e4b976c429a63e7a223c1a470c9f783c0b3860",
+      "before": "Osłabienie",
+      "after": "Osłab.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12194",
+          "source_sha256": "ba827d57653a8a1095e6754eb90445f7d8dd4c36cad7f2093a29a7270b22c649",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12199",
+          "source_sha256": "c54fe07cca67ebe4c06ec322e58e0c334628a5e44855e43532bd6533391f5592",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12274",
+          "source_sha256": "dea0feddc69ed1dc584c891b4f17bd4d67a5b3467a6c48a06c1623a0b374326d",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 51,
+      "jp_name_sha256": "8f694c7f4f2a064ce6ad741452654fe4913aecc1a6d01bdda93972db4683de93",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12414",
+          "source_sha256": "b7e8aa80c123452d6b99fd1245c59044666ec95c396f695b83cd79606b3e1c93",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12419",
+          "source_sha256": "3e41082e9663c292a89d6f0a5db23fb888f7f41c1599d1a451cbb1581089fafc",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12494",
+          "source_sha256": "6a84ea7a0a1c0c9c28935b75c03e3abac179a836bdaa854fe4b1de536bad54c0",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 52,
+      "jp_name_sha256": "8f694c7f4f2a064ce6ad741452654fe4913aecc1a6d01bdda93972db4683de93",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12658",
+          "source_sha256": "8ac3b65d2c526f4e123ea7eaa7486bf6c06bfe7d69c0f5097916d766205da38e",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12663",
+          "source_sha256": "3f64423bcf43fdf899341c8fe2d91b740140fea6bbaf8972abfb2303b2f16d83",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12738",
+          "source_sha256": "185ebf11420969b2008f9005fa5d5e5485b116dba8e93d9a8921239fb95e7044",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 53,
+      "jp_name_sha256": "8f694c7f4f2a064ce6ad741452654fe4913aecc1a6d01bdda93972db4683de93",
+      "before": "Nadzieja",
+      "after": "Nadz.",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12902",
+          "source_sha256": "02ff67ed0cbfcc310c20ad0f0d8270aaebf2e0b09eab940d02ee2b20ff1cac52",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12907",
+          "source_sha256": "c93e0dd8f4788d1612ab6fd61eb627884045846b00b35b2d078661ba523e0246",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:12982",
+          "source_sha256": "d4a61a2432b8c9a8806f5dcd09a559f65d1e63e9a4e2dcf2a30fe44992140d7c",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 54,
+      "jp_name_sha256": "4f46542515c6c094350b9a1793c9cc7da3f3b6a4aef89d428ab593850fe034be",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13146",
+          "source_sha256": "99b69f07a71734268e79b9bc143b0fe7433931203be342ba58f761198f475983",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13151",
+          "source_sha256": "272737d2137ac615cd7c368086a19b1f0f7537448ceabb2eae93fe6958d174dd",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13210",
+          "source_sha256": "84c925e728d1ed903991dda4f5d18c15d04905c250e2f30611034d4497bb0082",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 55,
+      "jp_name_sha256": "4f46542515c6c094350b9a1793c9cc7da3f3b6a4aef89d428ab593850fe034be",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13342",
+          "source_sha256": "2ac5a892794658aa46db3e4e2882957b86f3822c3dc989ef8ac23126dcfa4066",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13347",
+          "source_sha256": "e73e5f0a13d46678ba722851d1fe9a6018387ac4ae3ca68948b18a779bdc4643",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13406",
+          "source_sha256": "8795dca91544c24de6f7964d2b81da2d7766dbeb2352d72c380cf7040f333163",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 56,
+      "jp_name_sha256": "4f46542515c6c094350b9a1793c9cc7da3f3b6a4aef89d428ab593850fe034be",
+      "before": "Duch walki",
+      "after": "Duch",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13538",
+          "source_sha256": "e4c790ec8b948d4ce10c8d8d4e481a8a0522bb9d83364156afdc65e5281bd030",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13543",
+          "source_sha256": "a28a7a6431a41560bdef71d7c6e425f9832a1df17db0c7cbcf28996004745edf",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13602",
+          "source_sha256": "a1c7b76fdc43d099f8cd70dc266fac63213ed0bfe406d45b149b7d8ed1643f92",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 57,
+      "jp_name_sha256": "a88e021c5f222b0f22f2920569ac2945960a196ff8638f27296a7272f419c2b9",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13734",
+          "source_sha256": "8618d930fae5959730c5f462ef67721b87b190a39a8cf3c9fd3873ce8551fc69",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13739",
+          "source_sha256": "078459cdb247121fccce071f0f112d62a7a66182c41c479b3cfc0dc260445bc5",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13775",
+          "source_sha256": "664840474c6642e5f5952e42ff2ffe7dd6c2307bc9d79a259da2cdff0f054194",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 58,
+      "jp_name_sha256": "a88e021c5f222b0f22f2920569ac2945960a196ff8638f27296a7272f419c2b9",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13962",
+          "source_sha256": "d704c4f308d6741e34ca4d27ea285beae1cf9dbe95497db29464dbb3c2618bb9",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:13967",
+          "source_sha256": "9187d0521b7c42be2e00af46b3a7729b9299a22145c668157c6134901a0cd3f2",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:14003",
+          "source_sha256": "4dbe8e21fe52d5b0be867159f57b99ba4735e1a311c9aecf97647e0653bc1d26",
+          "role": "effect_brief"
+        }
+      ]
+    },
+    {
+      "record": 59,
+      "jp_name_sha256": "a88e021c5f222b0f22f2920569ac2945960a196ff8638f27296a7272f419c2b9",
+      "before": "Wiatr w żagle",
+      "after": "Wiatr",
+      "max_cells": 7,
+      "name_fields": [
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:14190",
+          "source_sha256": "e2963ee43e2c2ddd747a1fc0e3f1c4a74b95075b6f56860bbe77a8a10fa108a1",
+          "role": "name"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:14195",
+          "source_sha256": "91554aea8508803c9327349aae81b62bb88c93903860218500a5dacf4200b29b",
+          "role": "name_level"
+        },
+        {
+          "id": "spirit:configst.cpk/srwDL_Spirit.bin:14231",
+          "source_sha256": "dabbfe85413410b4b195da2bee770dd40ffa8c2d08c3650e87eec1bcec24d0af",
+          "role": "effect_brief"
+        }
+      ]
+    }
+  ],
+  "spirit_original_sha256": "531c817037389f429b76bc1c0378debbacf9ce571a0a3bc5e811701524ef59b5",
+  "spirit_max_cells": 7,
+  "spirit_exception": {
+    "name": "Skupienie",
+    "max_cells": 9,
+    "reason": "Keep owner-accepted full name; no change to native cache or memory."
+  }
+}

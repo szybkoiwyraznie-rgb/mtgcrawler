@@ -1,0 +1,71 @@
+{
+  "version": "2.5-PL3-UI",
+  "source_commit": "532d0d5",
+  "runtime_tested": false,
+  "fixture": "NONPLAYABLE authentic six-file miniature ISO; normal extracted distribution ZIP CLI",
+  "cli_exit_status": 0,
+  "top_level_problems": [],
+  "sysmes": {
+    "count": 1182,
+    "changed_physical_roots": [
+      19028,
+      21284,
+      21292,
+      45684
+    ],
+    "all_keys_unchanged": true,
+    "all_other_strings_unchanged": true
+  },
+  "unchanged_iso_members": [
+    {
+      "member": "psp_game/usrdir/config00.cpk",
+      "sha256": "17e4b61588c4b6ae1beabe3c7d91a7c831148d8688f96d9be111ceaed564894a"
+    },
+    {
+      "member": "psp_game/usrdir/font.cpk",
+      "sha256": "e996c80fe3f1e48b204c76a58289734abdcfb23ad1560b3af4b19f9bfb77ca6f"
+    },
+    {
+      "member": "psp_game/usrdir/im1000.cpk",
+      "sha256": "92d77fe781cdbeff53bc2b5852ead6b476cc42e2c798b9d279176105ad386300"
+    },
+    {
+      "member": "psp_game/usrdir/im3000.cpk",
+      "sha256": "b651514366260b0d54313d571e407511c1675c828339d36d064a4bbd39577c45"
+    },
+    {
+      "member": "psp_game/sysdir/eboot.bin",
+      "sha256": "967c24cda1fa590ba46cbc44722fbec0e2cf5cd9a1b65d2ad24fc94a86ba1126"
+    }
+  ],
+  "all_other_configst_members_identical_to_v24": true,
+  "materialized_value_changes": 4,
+  "dlc_source_rows_checked": 79050,
+  "dlc_source_rows_changed": 0,
+  "tests": {
+    "run": 1705,
+    "skipped": 3,
+    "result": "OK"
+  },
+  "installation": {
+    "iso_replace": true,
+    "required_output": "patched.iso",
+    "dlc_recopy": false,
+    "pboot_recopy": false,
+    "scope": "Owner current PPSSPP1.20.4 ISO-loading path, same v2.3/v2.4 DLC"
+  },
+  "zip": {
+    "bytes": 7404887,
+    "members": 91,
+    "payload_hashes_verified": 90,
+    "sha256": "886dba74f65f4a69151db176f367d725148ea953a7ad31135cc72c41f2ac1e0d",
+    "md5": "4f97cf074c75e1d1c4101ebb9e43bbd8",
+    "crc_passed": true,
+    "no_game_data": true
+  },
+  "caveats": [
+    "No PPSSPP runtime layout approval yet.",
+    "Only authentic available six-file fixture rebuilt; full nine-file skill-total remains fits:null because eight DLC absent.",
+    "Eight inherited config00 dictionary refusals; no new failure."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "2.6-PL3-UI",
+  "source_commit": "fe7964f",
+  "drive_id": "1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg",
+  "url": "https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view",
+  "name": "srw-oe-translation-pl-v2.6-PL3-UI.zip",
+  "bytes": 7406218,
+  "members": 91,
+  "payload_hashes_verified": 90,
+  "sha256": "3ec082aa3da78d368c8452413cbcb0847f58d98665083c007ba56871d15794e6",
+  "md5": "28372b31cb8f14020944d8ef474e0aff",
+  "crc_passed": true,
+  "no_game_data": true,
+  "download_back_byte_identical": true,
+  "drive_size_and_md5_match": true,
+  "sharing_changed": false,
+  "runtime_tested": false,
+  "physical_verification": "ui-six-verification.json",
+  "tests": {
+    "run": 1724,
+    "skipped": 2,
+    "result": "OK"
+  },
+  "installation": {
+    "iso_replace": true,
+    "required_output": "patched.iso",
+    "dlc_recopy": false,
+    "pboot_recopy": false,
+    "scope": "Upgrade fromv2.5 on owner current PPSSPP1.20.4 ISO-loading path. Rebuild on original inputs, keep installed DLC/PBOOT. Not first-install/other-loader guidance."
+  }
+}
