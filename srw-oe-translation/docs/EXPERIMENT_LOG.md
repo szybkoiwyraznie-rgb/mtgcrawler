@@ -7780,11 +7780,25 @@ accepted cache/font, compact only long name fields/aliases. Batch docs in
 pl/UI_SIX_2026-10-20.md, no new kit or snapshot yet; PR20 remains open.
 
 Seven-screen batch implementation: all527nonempty physical mission title fields
-in47original containers audited (304menu/223ext),10missing base344/40Bcopies
+in47original containers audited (303menu/224ext),10missing base344/40Bcopies
 promoted with ENempty and accepted PL menu wording, other517titles unchanged.
 100existing PL edits (90Spirit name aliases/9sysmes/1terrain);20families reviewed,
 60records/180name fields,7cell max except owner-accepted Skupienie9. No font/cache
-code change.12newtests pass; authentic7file NONPLAYABLE ISO+44DLC originals build
+code change.12newtests pass; authentic7file NONPLAYABLE ISO+45DLC originals build
 old/new filtered available-file fixture with0problems. Delivery/fulltests pending.
 Historical reading plans/outputs untouched; exact bound ENempty append projection
 restores old hash, mutation tests refuse source/EN edits. See UI_SIX doc.
+
+Seven-screen UI v2.6 DELIVERED: Drive1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg,
+7406218B/91members/SHA3ec082aa3da78d368c8452413cbcb0847f58d98665083c007ba56871d15794e6,
+MD528372b31cb8f14020944d8ef474e0aff. Download-back exact/CRC/90payloadSHAchecks pass.
+1724tests OK/2skip. Final extracted kit CLI on authentic7file NONPLAYABLE ISO+
+45DLC originals (available-file filter),0top-level problems. Readback all527titles
+(303menu/224ext), exact complete40Bslots; title audit now refuses post-NUL garbage.
+Only configst(sysmes9 +Spirit90names), eventP00(10title40Bslots), EBOOT(ground16Bslot)
+differ v2.5. All other EBOOT bytes/cache, font/config00/IMs, shipped44Pythonmodules+
+legacyglyphdata/launcher identical. All44DLC outputs identical; all79050DLC-backed
+source rows unchanged. Skilltotal339120<=342194/fits:true, no missing9members;
+Skill00216488<=216768. Inherited80nested dictionary refusals unchanged, no runtime
+claim. Current PPSSPP1.20.4 upgrade ISOYES/DLCNO/PBOOTNO recopy, not all loaders.
+README/receipt/proof under docs/pl/UI_SIX_2026-10-20.md and ui-six-verification.json.

@@ -189,6 +189,7 @@ class AuditorTests(unittest.TestCase):
         rebuilt = b'\0' * 344 + pl_text.encode(row['pl']) + b'\0' * 31 + b'\3\0\2\0'
         self.assertEqual(A.check_title(row, slot, rebuilt), [])
         self.assertTrue(A.check_title(row, slot, rebuilt.replace(pl_text.encode('Ć'), b'C')))
+        self.assertTrue(A.check_title(row, slot, rebuilt[:370] + b'x' + rebuilt[371:]))
         for text in ('', 'a' * 40, '訓練', 'Inny\ntekst'):
             self.assertTrue(A.check_title({**row, 'pl': text}, slot))
         self.assertTrue(A.check_title(row, {**slot, 'text': 'Inne'}))

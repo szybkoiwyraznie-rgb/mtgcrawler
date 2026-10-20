@@ -1,5 +1,13 @@
 # Project status
 
+**PL UI v2.6 delivered (2026-10-20):** seven owner screenshots addressed in one
+text-only batch, all527mission title fields checked/read back,10missing base
+copies filled, all20Spirit families compact-name reviewed.1724tests OK/2skip;
+cache/font unchanged, new runtime layout confirmation pending. For current owner
+PPSSPP1.20.4 upgrade: ISOYES/DLCNO/PBOOTNO recopy.
+[Download](https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view),
+[scope/proof](pl/UI_SIX_2026-10-20.md). Older releases below are history.
+
 **PL3 release (2026-10-19):** partial standalone PL patcher delivered from actual
 PL3.zip. Quotes19841/19841, all editable visible views filled (protected/binary
 blanks preserved), scenes00–03 fully filled after copies.0 import/validation errors;

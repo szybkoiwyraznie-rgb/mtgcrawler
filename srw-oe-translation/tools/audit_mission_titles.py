@@ -68,8 +68,9 @@ def check_title(row, slot, rebuilt_member=None):
     if rebuilt_member is not None:
         start = slot['offset']
         actual = rebuilt_member[start:start + slot['span']]
-        if len(actual) != slot['span'] or actual.split(b'\0', 1)[0] != encoded or b'\0' not in actual:
-            problems.append('rebuilt slot does not contain exact NUL-terminated PL bytes')
+        expected = encoded + b'\0' * (slot['span'] - len(encoded))
+        if len(encoded) >= slot['span'] or actual != expected:
+            problems.append('rebuilt slot does not contain exact NUL-padded PL bytes')
     return problems
 
 

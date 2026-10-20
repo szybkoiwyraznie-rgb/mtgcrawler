@@ -63,3 +63,13 @@ font, descriptions, DLC rows or reading editions. Physical readback isolates4
 strings; all other resources byte-identical to v2.4. See
 `docs/pl/UI_MECH_VIEWER_2026-10-19.md`. Current owner ISO loader: replace ISO only,
 no DLC/PBOOT recopy. Visual confirmation remains pending.
+
+Latest **v2.6-PL3-UI** (2026-10-20): seven-screen owner batch delivered.
+100existing source-bound PL fields changed (90Spirit names/9sysmes/1terrain),
+10missing title copies at344/40B promoted with ENempty and accepted menu PL.
+All527physical menu/ext titles independently audited/read back, all20Spirit
+families/60records/180name aliases reviewed. Compact7cells except accepted full
+Skupienie9; effect prose, parameters, cache/font code unchanged. Source snapshot
+65598entries.1724tests OK/2skip; visual fit still pending owner confirmation.
+Current PPSSPP1.20.4 upgrade: ISOYES/DLCNO/PBOOTNO recopy. See
+`docs/pl/UI_SIX_2026-10-20.md`, `pl3-ui-six-delivery.json`.

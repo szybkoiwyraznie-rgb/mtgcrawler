@@ -1,5 +1,19 @@
 # Next step — current state and open work
 
+**Seven-screen PL UI batch v2.6 DELIVERED (2026-10-20).**
+[Download](https://drive.google.com/file/d/1ZYLUYsDd97K1itqHGDqQQTDgX33wGVQg/view).
+100existing PL edits (90Spirit name aliases,9sysmes,1terrain),10missing base
+mission title copies promoted;527/527physical title slots read back across47
+original containers. All20Spirit families/60levels reviewed;7cell compact names,
+full accepted Skupienie9 unchanged. Cache/native font and all shipped tools
+unchanged; only configst,eventP00,terrain-string slot in EBOOT differ vs v2.5.
+1724tests OK/2skip, extracted-kit filtered authentic NONPLAYABLE fixture passes;
+44rebuilt DLC files identical and ALL79050DLC-backed source rows identical.
+**Owner PPSSPP1.20.4 upgrade: ISOYES (`patched.iso`), DLCNO, PBOOTNO recopy.**
+New visual fit still needs owner confirmation; no new cache/font experiment.
+See [UI batch](pl/UI_SIX_2026-10-20.md), [receipt](pl/pl3-ui-six-delivery.json).
+Catalogue/reading exports unchanged; do not restart them.
+
 **PL catalogue naming revision v4 DELIVERED (2026-10-19).**
 [Catalogue](https://drive.google.com/file/d/146dxudsT9vEzGua6s--Z58s_QP8m_yF0/view),
 [00–03+catalogue v4 ZIP](https://drive.google.com/file/d/1vslHzkyfkF39ewgIEkhsltDHiUw-tWn0/view).
