@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "delivery_date": "2026-10-20",
+  "kind": "PL4 source-order reading editions",
+  "requested_range": "01-23",
+  "audited_source_story_range": "00-21",
+  "delivered_range": "01-21",
+  "episode_00": "Generated and verified with the series; omitted from this new archive because the earlier curated PL reading edition remains delivered and unchanged.",
+  "not_available_in_audited_snapshot": [22, 23],
+  "gap_note": "The checked PL4 snapshot contains no Polish story rows for internal episodes 22 or 23. No English fallback was used. This records the inspected snapshot, not a claim about other/newer source data.",
+  "snapshot_path": "pakiet_PL/snapshot.json",
+  "snapshot_sha256": "1e8313fba7722c2f03943b28032d97e5e145ce8c5a7eaecd8133b4e031a5a99f",
+  "snapshot_episode_00_21_visible_elements": 28079,
+  "snapshot_episode_00_21_filled_elements": 28078,
+  "only_empty_structural_row": "dlg:eventP01.EDAT/DL105_40.bin:696",
+  "source_only_pl": true,
+  "english_fallback": false,
+  "delivered_episode_count": 21,
+  "delivered_scene_count": 167,
+  "delivered_prose_rows": 26572,
+  "full_series_verified_including_episode_00": {
+    "episodes": 22,
+    "scenes": 169,
+    "prose_rows": 26825,
+    "markdown_bytes": 1874241,
+    "residual_japanese": false
+  },
+  "archive": {
+    "name": "srwoe_reading_PL4_01-21.zip",
+    "drive_id": "1pqZyeeLcAzv6OcXqngdj9YvIbS_UapU-",
+    "url": "https://drive.google.com/file/d/1pqZyeeLcAzv6OcXqngdj9YvIbS_UapU-/view",
+    "size": 548642,
+    "md5": "cb741e2ce66aedd6e76bfd6195c35b56",
+    "sha256": "55cdb7769e57ab37eadcabf5ee795ef0e53cd10b8d95b9930acb429319b6895c",
+    "members": 22,
+    "crc_test": "passed"
+  },
+  "readme": {
+    "drive_id": "1_6QX1uVzIEGwhToYWZmNdlyR_zvYVKhz",
+    "url": "https://drive.google.com/file/d/1_6QX1uVzIEGwhToYWZmNdlyR_zvYVKhz/view",
+    "md5": "7b7049b02103cece52c71c7cc785a0f4",
+    "size": 1993
+  },
+  "standalone_drive_files": [
+    {"episode": 4, "id": "1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA", "url": "https://drive.google.com/file/d/1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA/view", "md5": "0ca66946c1548d5e8a4bbd5b6fde7147", "size": 89743},
+    {"episode": 5, "id": "1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI", "url": "https://drive.google.com/file/d/1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI/view", "md5": "95d8614ba1a981bc375c7f2a16ecef31", "size": 80409},
+    {"episode": 6, "id": "112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r", "url": "https://drive.google.com/file/d/112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r/view", "md5": "3c1db51959a60a3b0f6be2b0ebc4b10f", "size": 68692},
+    {"episode": 7, "id": "1A9LGHI3px111yW_8lUMVrfe98MrrD1to", "url": "https://drive.google.com/file/d/1A9LGHI3px111yW_8lUMVrfe98MrrD1to/view", "md5": "af955415e6ae2a8bae35e4f8f7d24430", "size": 170470},
+    {"episode": 8, "id": "1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl", "url": "https://drive.google.com/file/d/1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl/view", "md5": "8597d668c36c0fd79c56dd845dd6713e", "size": 80598},
+    {"episode": 9, "id": "1z_acnUhlgTMTf3aik1wRTdghJ28cmzws", "url": "https://drive.google.com/file/d/1z_acnUhlgTMTf3aik1wRTdghJ28cmzws/view", "md5": "7f2e3128b375b8d1ddff71fdd64eaf2f", "size": 100247},
+    {"episode": 10, "id": "1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG", "url": "https://drive.google.com/file/d/1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG/view", "md5": "1cf0f5f10439c0cb6e6c9b2b3394e6bf", "size": 70533},
+    {"episode": 11, "id": "1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB", "url": "https://drive.google.com/file/d/1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB/view", "md5": "ea590b2e2e9cb4d2f013a1637722530a", "size": 99381},
+    {"episode": 12, "id": "1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3", "url": "https://drive.google.com/file/d/1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3/view", "md5": "aaa52e32c2efb0c5d666104f40736d5c", "size": 73287},
+    {"episode": 13, "id": "1oDmwULnptz74B8OjPTF-ewJ2waho-8p4", "url": "https://drive.google.com/file/d/1oDmwULnptz74B8OjPTF-ewJ2waho-8p4/view", "md5": "460f2b9cf0f6a0a412223400c7b90d72", "size": 74256},
+    {"episode": 14, "id": "1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E", "url": "https://drive.google.com/file/d/1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E/view", "md5": "31867e07e6f449c459660f5ebaa0b16b", "size": 79024},
+    {"episode": 15, "id": "1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58", "url": "https://drive.google.com/file/d/1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58/view", "md5": "73540e5d07608b2663c8252dfab5954d", "size": 76545},
+    {"episode": 16, "id": "1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa", "url": "https://drive.google.com/file/d/1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa/view", "md5": "1c4691c00d1b6da3b1e73cdebefd62a2", "size": 54899},
+    {"episode": 17, "id": "1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv", "url": "https://drive.google.com/file/d/1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv/view", "md5": "135847b2dd854101ed73bae52c79240b", "size": 83365},
+    {"episode": 18, "id": "184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI", "url": "https://drive.google.com/file/d/184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI/view", "md5": "54032c2e47e5b3512cdd6cd75b63fde1", "size": 73682},
+    {"episode": 19, "id": "11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi", "url": "https://drive.google.com/file/d/11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi/view", "md5": "f2242b4ef6450eb2d6ece4a0075f1b48", "size": 60200},
+    {"episode": 20, "id": "1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF", "url": "https://drive.google.com/file/d/1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF/view", "md5": "82e2658488bc61b997a1205f958f2a66", "size": 64612},
+    {"episode": 21, "id": "1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm", "url": "https://drive.google.com/file/d/1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm/view", "md5": "ebe42473d8c811d7773fad8099dd7f80", "size": 98827}
+  ],
+  "validation": {
+    "source_row_bindings_and_text": "passed for 00-21",
+    "residual_japanese": false,
+    "archive_crc": "passed",
+    "repository_tests": "1737 passed, 5 skipped",
+    "runtime_tested": false,
+    "game_files_modified": false
+  }
+}
