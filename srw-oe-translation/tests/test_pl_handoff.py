@@ -172,6 +172,19 @@ class ExhaustiveAuditRegressions(unittest.TestCase):
         self.assertEqual(plan['teksty-config.md'][0][0], [root])
         self.assertFalse(H.excluded_reason(root, H.retained_leftovers([root, child])))
 
+    def test_only_screenshot_confirmed_zaku_type_leftovers_are_retained(self):
+        import pl_handoff as H
+        ids = set(H.OWNER_VISIBLE_LEFTOVERS)
+        self.assertEqual(ids, {
+            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
+            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252',
+            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124',
+            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252',
+        })
+        for row_id in ids:
+            self.assertIsNone(H.excluded_reason({'id': row_id}, H.retained_leftovers([])))
+        self.assertIn('leftover decode', H.excluded_reason({'id': 'leftover:unreviewed'}, H.retained_leftovers([])))
+
     def test_executable_utf8_is_not_proof_of_polish_font_support(self):
         import exe_strings
         row = dict(jp='字', pl='ą', category=exe_strings.CATEGORY,

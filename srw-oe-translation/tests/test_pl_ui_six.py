@@ -64,7 +64,7 @@ class BatchTests(unittest.TestCase):
             self.assertEqual(len(edits), h['entries'])
             for edit in edits:
                 last_value_by_binding[edit['source_sha256']] = edit.get('after', edit.get('pl'))
-        self.assertEqual(len(last_value_by_binding), 1283)
+        self.assertEqual(len(last_value_by_binding), 1287)
         for binding, expected in last_value_by_binding.items():
             self.assertEqual(current.get(binding), expected, binding)
         merge = meta['merge_provenance']

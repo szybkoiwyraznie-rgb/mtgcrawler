@@ -27,10 +27,22 @@ def readonly_reason(row):
     return None
 
 
+# Owner screenshot (2026-10-20) proves these two global Zaku type captions are visible
+# in Enemy Robots. Keep this exact source-bound pair in PL handoffs; all other generic
+# config_leftover scans remain quarantined. config00/imenu00 are byte-identical mirrors.
+OWNER_VISIBLE_LEFTOVERS = {
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
+    'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124',
+    'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252',
+}
+
+
 def retained_leftovers(rows):
-    """Do not quarantine a leftover that is the canonical source of a structured visible row."""
-    return {r['copy_of'] for r in rows if not str(r.get('id', '')).startswith('leftover:')
-            and str(r.get('copy_of', '')).startswith('leftover:')}
+    """Keep confirmed visible leftovers plus roots used by structured source aliases."""
+    return OWNER_VISIBLE_LEFTOVERS | {
+        r['copy_of'] for r in rows if not str(r.get('id', '')).startswith('leftover:')
+        and str(r.get('copy_of', '')).startswith('leftover:')}
 
 
 def eligible(rows, lang='en', retained_ids=()):

@@ -5,8 +5,8 @@
     "name": "PL4.zip",
     "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
   },
-  "entries": 87783,
-  "data_sha256": "fac5a2259f98bc1b80bd13f990207bdf1355e4e5a7f883f8ae8e4bba41536c4c",
+  "entries": 87787,
+  "data_sha256": "0433717c63f6e514e9a44061da2b8fe22fd1c4985b96c3caa3af3d6a6bdee47f",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -71,6 +71,14 @@
       "sha256": "cae904a23506d944e88f84b0c5c86b4c386e472a1781a8c91e39d9e64fe99863",
       "previous_data_sha256": "876645f90b2bff7f6bfe20a9cf9d563bcb841d14a257c77866fc9d24dbf79585",
       "entries": 5,
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-zaku-enemy-robot-2026-10-20.json",
+      "sha256": "b3a8cc3e9824798ca66c013d35368136d446ad0c2f7697b607886ae025a4463a",
+      "previous_data_sha256": "fac5a2259f98bc1b80bd13f990207bdf1355e4e5a7f883f8ae8e4bba41536c4c",
+      "entries": 4,
+      "operation": "source-bound additions",
       "runtime_tested": false
     }
   ],

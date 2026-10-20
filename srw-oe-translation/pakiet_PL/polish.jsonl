@@ -66794,6 +66794,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:8610","pl":"Zestrzel.: Morale+","source_sha256":"57c70fcd81c6c6ba8f32961db548508418f695a1ac3f47d5ec47be25217044e5"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:121027","pl":"Oszczędn. Lv6","source_sha256":"57ca3a6eb6600babd1a3d3d002d7228f5c88b5f530b14bf9089c820256f1700e"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:48938","pl":"Czy na pewno?","source_sha256":"57cfb3af8ba5f05be4eab7e2e7a6f8cafcc7ce8b76b378713f00ac5379972587"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252","pl":"Typ: bazooka Zaku","source_sha256":"57d611e3fd1ce0a29f894905bdbab90018a23d07721c408782ad4660f1e79261"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:32286","pl":"Obr+20","source_sha256":"57d729ccc7c22f7dba3dae33eacbf768e7909184bb292a7c45317b5ee119d298"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:166232","pl":"Potenc. Atk Lv2","source_sha256":"57dacce43029502708375a1503c62e60098a1210c154edb2dd13dc7f2f979375"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:146909","pl":"Sztuczny PS Lv6","source_sha256":"57e0ab2d57ef9c4b3ef7ebe93f0ed50be8cfcccad33c74c0dae6f406535436eb"}
@@ -67172,6 +67173,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:46740","pl":"Kr.","source_sha256":"5dee63c264a39a7b39ddfc58f5c8c4529a9a3b5e9020d030cb7ec457651becc7"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:49876","pl":"EN wynosi 10 lub mniej.","source_sha256":"5df74f64c2fd0beb901189b859dcb8631431ef559be3087a5996dc8a75fb959e"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:90727","pl":"Połączenie","source_sha256":"5df7b979f2fe1cce56dc001edd92257a8195e5106595140fa77ade8048a72f41"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252","pl":"Typ: bazooka Zaku","source_sha256":"5df9e3076d98a44e5722b54d76eeae7c9d088078f9f84f4bee9ca89482527969"}
 {"file":"04_config_text.jsonl","id":"item:config04.EDAT/srwDL_Item04.bin:575","pl":"Wzrost parametrów broni","source_sha256":"5dfb13fe90b8e9a9c791c4d39a64ec513fc9a817269b7f1825f382e525e0b6d5"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3417","pl":"Obr+","source_sha256":"5dfd9ea7865d1ef86aff097f759807f00fca3ea8d21e0e1f5337eecf7baa65b4"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:6445","pl":"(ignoruje Osłonę)","source_sha256":"5dfe6e439044f2aa928275983cc95e92661716d74cf33ca26f8e8e6a0e58c991"}
@@ -72269,6 +72271,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19664","pl":"Szczegóły Duchów.","source_sha256":"ae7fa8d54564762abc23d4897a0ee6e5278852c1fbfff6f840b0db9c0c58025b"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:7049","pl":" Lv","source_sha256":"ae822e7981db907a0fc1a9bb7ae4e65efb563fab19e050ec6f6357f73650dbdc"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6262","pl":"W obronie obraż.","source_sha256":"ae8d3875d07647bf50b179aeea113d805f9e837fce8ecb353a000de13898ba37"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124","pl":"Typ: karabin maszynowy Zaku","source_sha256":"ae8ee9717a5f0b6f8a67ad0623e76f5329561e7fa91608d8328fb52c15ccfd80"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:11338","pl":"Zamęt","source_sha256":"ae91bda0f50658ada78f74bcb29f467abd0453c46449c6e765853a383ffdbbee"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:154564","pl":"Dow. Obr/Cel Lv2","source_sha256":"ae959f8d5fca006b990e1d663dfbd5a01b04938a42f0ef61c33bd3dda7340ca9"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:1262","pl":"Znieś limit ulepsz.","source_sha256":"ae9cb6c6beaf5a53a861e8d10956d3a7c4ed0dfda495268f344b991aeed92b46"}
@@ -75906,6 +75909,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10611","pl":"Dowodzenie Obr/Cel:＠0Obr＠2%+3d%% ＠0Cel＠2%+3d%%＠0","source_sha256":"e85d742c22c914ddb3baea597af7e1dce81ad8e985351e13da7bcb9ab599fdb1"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:101600","pl":"%s 129 %s %s22%%\n%s","source_sha256":"e85ddf8533abb912f0913b7c087ee351fe1c150adc0c803d9872d1ba8b7137e9"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:63130","pl":"Pancerz VPS","source_sha256":"e86330737bcfd49659c436011adf7bfe0a811053bc3d2776003a8ece379b6ffc"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124","pl":"Typ: karabin maszynowy Zaku","source_sha256":"e86dccd338c9673ae79fd5d7d4222bd24c0006b0998d2d2c729afb81b0c47ca4"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":" - sojusznicy","source_sha256":"e877ac8ad5cebd03dd3bfacd35dc9787671548e96e1980239db4ea565902406c"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:28758","pl":"Wersja custom","source_sha256":"e87c10cbd8e54a115aace9fce82d26d83ca55c7528c840f5d17686b3c06119f8"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:9248","pl":"%s45 %s1000\nOdnowa %s3%%\n%s","source_sha256":"e88175c8c1114c8f43067f3e0442eae4e66aa256a31c60811386e31990acc5b4"}

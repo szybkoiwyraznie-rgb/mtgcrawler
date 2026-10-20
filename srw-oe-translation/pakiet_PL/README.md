@@ -73,6 +73,8 @@ strings; all other resources byte-identical to v2.4. See
 `docs/pl/UI_MECH_VIEWER_2026-10-19.md`. Current owner ISO loader: replace ISO only,
 no DLC/PBOOT recopy. Visual confirmation remains pending.
 
+Latest **PL4 Enemy Robots correction** (2026-10-20): owner screenshot shows the Zaku II weapon-type footer still Japanese. Added four exact source-bound PL rows for the two global `RoboDictionary00` captions (`Zaku Machine Gun` / `Zaku Bazooka`) in config00/imenu00 mirrors. Texts stay within measured 27/25-byte slots; the normal PL builder routes them through `table_write`. Generic leftovers remain quarantined; only these four screenshot-confirmed IDs are admitted to PL table views. Snapshot: four new entries; **runtime/physical ISO build not tested**. See `config/pl/ui-zaku-enemy-robot-2026-10-20.json` and `docs/pl/UI_ZAKU_ENEMY_ROBOT_2026-10-20.md`.
+
 Latest **v2.6-PL3-UI** (2026-10-20): seven-screen owner batch delivered.
 100existing source-bound PL fields changed (90Spirit names/9sysmes/1terrain),
 10missing title copies at344/40B promoted with ENempty and accepted menu PL.

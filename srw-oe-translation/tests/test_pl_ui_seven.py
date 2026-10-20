@@ -62,11 +62,10 @@ class SevenScreenCorrectionTests(unittest.TestCase):
     def test_snapshot_records_this_owner_correction_without_runtime_claim(self):
         manifest = json.loads((ROOT / "pakiet_PL/snapshot.json").read_text(encoding="utf-8"))
         history = manifest["owner_ui_corrections"]
-        latest = history[-1]
-        self.assertEqual(latest["plan"], self.plan_path.name)
-        self.assertEqual(latest["sha256"], hashlib.sha256(self.plan_path.read_bytes()).hexdigest())
-        self.assertEqual(latest["entries"], len(self.plan["changes"]))
-        self.assertFalse(latest["runtime_tested"])
+        entry = next(item for item in history if item["plan"] == self.plan_path.name)
+        self.assertEqual(entry["sha256"], hashlib.sha256(self.plan_path.read_bytes()).hexdigest())
+        self.assertEqual(entry["entries"], len(self.plan["changes"]))
+        self.assertFalse(entry["runtime_tested"])
 
 
 if __name__ == "__main__":

@@ -42,6 +42,32 @@ class UICorrectionTests(unittest.TestCase):
         self.assertEqual(json.loads((self.root/'out'/R.DATA).read_text())['pl'], '＠4Kr.')
         self.assertEqual(json.loads((self.stored/R.DATA).read_text())['pl'], '＠4Długie')
 
+    def test_source_bound_additions_require_an_exact_visible_base_row(self):
+        source = dict(id='leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124',
+                      category='config_leftover', part='text', jp='「ザク・マシンガン」タイプ',
+                      en='"Zaku Machine Gun" type', bytes=26, mode='slot', max_bytes=27,
+                      source=dict(container='config00.cpk', member='srw_DL_RoboDictionary00.bin', offset=2124))
+        base = self.root/'base'; base.mkdir()
+        (base/'04_config_text.jsonl').write_text(json.dumps(source, ensure_ascii=False)+'\n', encoding='utf-8')
+        addition = dict(operation='add', file='04_config_text.jsonl', id=source['id'],
+                        source_sha256=R.binding(source), source_jp=source['jp'], source_en=source['en'],
+                        container='config00.cpk', member='srw_DL_RoboDictionary00.bin', offset=2124,
+                        max_bytes=27, after='Typ: karabin maszynowy Zaku')
+        self.plan.write_text(json.dumps(dict(schema=1, changes=[addition]), ensure_ascii=False))
+        result = U.apply(self.stored, self.plan, self.root/'added', base=base)
+        entries = [json.loads(line) for line in (self.root/'added'/R.DATA).read_text().splitlines()]
+        found = next(e for e in entries if e['id'] == source['id'])
+        self.assertEqual(found['pl'], addition['after'])
+        self.assertEqual(result['entries'], 2)
+        self.assertEqual(result['owner_ui_corrections'][-1]['operation'], 'source-bound additions')
+        with self.assertRaisesRegex(ValueError, 'source package required'):
+            U.apply(self.stored, self.plan, self.root/'without-base')
+
+        stale = dict(addition, source_jp='wrong')
+        self.plan.write_text(json.dumps(dict(schema=1, changes=[stale])))
+        with self.assertRaisesRegex(ValueError, 'stale/unknown source addition'):
+            U.apply(self.stored, self.plan, self.root/'stale', base=base)
+
     def test_stale_source_or_previous_text_is_refused(self):
         for field in ('source_sha256', 'id', 'before'):
             with self.subTest(field=field):

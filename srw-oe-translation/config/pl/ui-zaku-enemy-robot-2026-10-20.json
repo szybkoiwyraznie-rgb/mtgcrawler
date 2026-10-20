@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "review": "Owner screenshot of the Enemy Robots viewer shows the global Zaku II type caption in Japanese. Translate only the two source-confirmed Zaku weapon-type strings in the global RoboDictionary00, for both byte-identical config00/imenu00 copies. Leave the canonical Zaku II roster names and all unrelated legacy leftovers unchanged.",
+  "changes": [
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2124",
+      "source_sha256": "ae8ee9717a5f0b6f8a67ad0623e76f5329561e7fa91608d8328fb52c15ccfd80",
+      "source_jp": "「ザク・マシンガン」タイプ",
+      "source_en": "\"Zaku Machine Gun\" type",
+      "container": "config00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2124,
+      "max_bytes": 27,
+      "after": "Typ: karabin maszynowy Zaku",
+      "reason": "Translate the exact Japanese type footer shown for the machine-gun Zaku II; the PL text exactly meets the measured 27-byte slot budget."
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2124",
+      "source_sha256": "e86dccd338c9673ae79fd5d7d4222bd24c0006b0998d2d2c729afb81b0c47ca4",
+      "source_jp": "「ザク・マシンガン」タイプ",
+      "source_en": "\"Zaku Machine Gun\" type",
+      "container": "imenu00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2124,
+      "max_bytes": 27,
+      "after": "Typ: karabin maszynowy Zaku",
+      "reason": "Keep the identical global imenu00 dictionary copy synchronized with config00."
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2252",
+      "source_sha256": "57d611e3fd1ce0a29f894905bdbab90018a23d07721c408782ad4660f1e79261",
+      "source_jp": "「ザク・バズーカ」タイプ",
+      "source_en": "\"Zaku Bazooka\" type",
+      "container": "config00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2252,
+      "max_bytes": 25,
+      "after": "Typ: bazooka Zaku",
+      "reason": "Translate the corresponding Zaku Bazooka type footer, also used by the Zaku II variant."
+    },
+    {
+      "operation": "add",
+      "file": "04_config_text.jsonl",
+      "id": "leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2252",
+      "source_sha256": "5df9e3076d98a44e5722b54d76eeae7c9d088078f9f84f4bee9ca89482527969",
+      "source_jp": "「ザク・バズーカ」タイプ",
+      "source_en": "\"Zaku Bazooka\" type",
+      "container": "imenu00.cpk",
+      "member": "srw_DL_RoboDictionary00.bin",
+      "offset": 2252,
+      "max_bytes": 25,
+      "after": "Typ: bazooka Zaku",
+      "reason": "Keep the identical global imenu00 dictionary copy synchronized with config00."
+    }
+  ]
+}
