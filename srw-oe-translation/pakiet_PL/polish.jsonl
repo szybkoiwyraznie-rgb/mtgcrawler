@@ -58494,7 +58494,7 @@
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r820:name_level","pl":"Meikyo Shisui Lv5","source_sha256":"6a7305cc3a3c3b4b2b2b74ce3c7fd3479a53445f90c6b18e8999dab2a09c76ad"}
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r71:effect","pl":"＠4<Rzut do siebie%s3>＠0%s 3 pola do siebie\nUpadek %s2000\n%s","source_sha256":"6a90a6d713cec4598afe7132cf1f2ed210f50886256dfeb39aff7d047b608246"}
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r428:effect","pl":"%s6Broń niewiązkowa%s0\": %s-1500\n%s4","source_sha256":"6a99431b24eb368835566facd5f881b1da872bf8576fa050c4a978972c70b899"}
-{"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r219:effect","pl":"＠4%s0 Warunek: roboty Eldoran x4\n%s Nie do wsparcia ataku","source_sha256":"6aa333b88296e21d74d06d92776ddcd15f3adbb58d26ba95e1e146fe87171e65"}
+{"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r219:effect","pl":"＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku","source_sha256":"6aa333b88296e21d74d06d92776ddcd15f3adbb58d26ba95e1e146fe87171e65"}
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r313:effect","pl":"Odporn.: %s6Przebicie＠0%s6%s0\", \"＠6Rzut＠0\"\n%s-16%%","source_sha256":"6aa619e73ed845d8d6936f8e0e39d0493746eb15432da3b506f97ed50925a9a5"}
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r385:name_level","pl":"Blok tarczą Lv5","source_sha256":"6ac33ccabbe4968c23d77b32626a812da9dbbf2aab31ce476a105c087542d2a7"}
 {"file":"03_skills.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:r452:effect_brief","pl":"Obraż.-1200, -18%","source_sha256":"6aca867cc3dbab05b1e304d11c2aef4137499dd7640b6aa8afd45cae9959a135"}
@@ -63386,7 +63386,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:9198","pl":" w zasięgu","source_sha256":"2084cd2d3abafb6d765def9e13db5735cddb4bf5c69c956c1a92cd33664aa494"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:159708","pl":"Min. zadane %s: %s (22%%)","source_sha256":"208714969f12d639ec6963df616c6c330c88326b6457ee61cd567c248abf4932"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:7390","pl":"Over Limiter","source_sha256":"208aad13e3942c529253c36f97c71041b2a5ce2d8d0cfae24c2f978e076383c3"}
-{"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"20906f4afc29333e1442b8f3c2ab92be705605eba8f0354982879d1e4cf0a934"}
+{"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"20906f4afc29333e1442b8f3c2ab92be705605eba8f0354982879d1e4cf0a934"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:6488","pl":"V-MAX/Unik","source_sha256":"2091393b1bc6a8fa99e05e89a7e0bf6961b70b36cdff2fe0d9cd52a1c84e5b33"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6076","pl":"Okrążenie+","source_sha256":"2099e5165797bb5f54425155f6d131bfb17df388fb50d4cd3332d512a002dbc7"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:27646","pl":"Ruchomy cel","source_sha256":"209d9d33a45e1a6a73cafd800936604ef3c136952d03fe6386cd6bb4b18a01d4"}
@@ -66812,7 +66812,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:32286","pl":"Obr+20","source_sha256":"57d729ccc7c22f7dba3dae33eacbf768e7909184bb292a7c45317b5ee119d298"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:166232","pl":"Potenc. Atk Lv2","source_sha256":"57dacce43029502708375a1503c62e60098a1210c154edb2dd13dc7f2f979375"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:146909","pl":"Sztuczny PS Lv6","source_sha256":"57e0ab2d57ef9c4b3ef7ebe93f0ed50be8cfcccad33c74c0dae6f406535436eb"}
-{"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"57e85f65c440c0d578764426e58fb365469dc8c3a0f3c1413acaf123b798fd70"}
+{"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"57e85f65c440c0d578764426e58fb365469dc8c3a0f3c1413acaf123b798fd70"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:15254","pl":"%s50\n%s","source_sha256":"57efa74945236d9c96c5566eb7069824eaf173601f4030199187b368ddcc1fa8"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:7804","pl":"Kotaro, Yosuke, Rikiya: Morale","source_sha256":"57f238e53dd511b028281ea647b52e0580a98c3d37acc0ce8865e738bf40b404"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42772","pl":"＠0Obr/Cel＠2%+3d＠0","source_sha256":"57f6347f2583bd2a808b77b9df81eed55011bb1ba261429a629c4579952e4348"}
@@ -67332,7 +67332,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:7434","pl":"+: EN-","source_sha256":"6013aea1b792a5402675dfb1aa17a7100219cdd6a3d12034af529a475878852a"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:27577","pl":"%s","source_sha256":"60229530c86a0c4bcc17805d4b2fc970d9cd3de58c15fb6447484d9586067927"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:25244","pl":"Fundusze za zestrzelenia są podwojone.\n＠4<Czas działania>\n＠4[Lv1：5 misji] [Lv2：15 misji] [Lv3：30 misji]\n＠6Najpierw zużywane są części niższego poziomu.\n＠6Liczą się też porażki i wycofania.","source_sha256":"6034f072af3d5cd7b4350e2e557a45209a900f95cfa39ee8b147a52b294a2d9a"}
-{"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"603570bac21beace7b66146443cd5dab1bad581a66fe6c623871fff70804a6bd"}
+{"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"603570bac21beace7b66146443cd5dab1bad581a66fe6c623871fff70804a6bd"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:17671","pl":"ukończono＠4","source_sha256":"603835cf11913464c97fdbcc760cd48b94fa394588afa3110126249f2c72b52d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:76976","pl":"Trafiony: %s %s-1500 i %s30%%\n%s44%%\nEN-5","source_sha256":"603955346767465d6f8b5412d4b5aae29e13845be2416f57a9c4aa3df403a01b"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:14176","pl":"Opis systemów przerwy między misjami.","source_sha256":"603cb46c0a262ab87bd83ff786ef83ff2190bc5836eb551f1fb24931e07a33ec"}
@@ -68029,7 +68029,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:143863","pl":"Precyzja Lv3","source_sha256":"6ab5e463485be2dbdf5cc131d7ed7465669043e08a2ee78d5b88c21f78eb8f78"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:34444","pl":"Obszar     :","source_sha256":"6ab87d1281ec6366d473fd205d74f34f0027807052b21f7a36178c0be44a769b"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:12407","pl":"Taran","source_sha256":"6abe0796ee3ad90c598f942505e2c729654121b309bf0a12296cd6c1053f3eae"}
-{"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"6acb2d5fde41afd7b17999995945f2ef85a77f39a85e2c8108882a89dc72bf65"}
+{"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"6acb2d5fde41afd7b17999995945f2ef85a77f39a85e2c8108882a89dc72bf65"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12236","pl":"Trafienie: Morale+","source_sha256":"6acbf0ddeb9e26952a938b8ef1aa41c0afba74be88946263955570c07167a36d"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:3830","pl":"Statystyki+","source_sha256":"6acf7018a620d989d22f28cab50b632c7d4521ab3af2bdda5cc3d50a46c40ef3"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:3491","pl":"Obr/Cel+","source_sha256":"6ad236839d8a043ce4438780f77c7c9353e6db75f839a65f31379f4c566610b7"}
@@ -68481,7 +68481,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10160","pl":"＠0Atk＠1%3d%% ＠0Obr＠1%3d%% ＠0Cel＠1%3d%% ＠0Unik＠1%3d%%＠0","source_sha256":"71b3ed82bd373b4a860ef18c572abf381a90434e36be4078bec2221f2ac3c29e"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:7850","pl":" tura: Unik wroga-","source_sha256":"71b6d48ae097c6c0d5bdecae9bfdc484fd425d390c70c07086e3d0f8ad0031ab"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:7048","pl":"NOT_POSSIBLE_BATTLE","source_sha256":"71b7d1d0a1e128f142d4057b2dc486ec5cd8013e2f6cc1a8d0a54c2dfc1c63b0"}
-{"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"71b8aaddc65a22310aa20748335dd224768837854feb544730ff8aac3884c535"}
+{"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"71b8aaddc65a22310aa20748335dd224768837854feb544730ff8aac3884c535"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:13900","pl":"＠4<W walce>\n＠0Najpierw jednostki, które wystartowały.","source_sha256":"71b9573d9f1a7a1f5f96543ba2f9d79f25acba564c1335cd358d84199f5e150f"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:13496","pl":"Maks. %s10\n%s","source_sha256":"71c4b5f5f077eaaed26d4e0b00b6582867b9c412bb1bd8bdc9afe3200e56eb63"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19760","pl":"Części","source_sha256":"71c5b90ff57fc1644bf301939d92a675077a78b73a42c7d07560fd4ce84f09d8"}
@@ -69275,7 +69275,7 @@
 {"file":"04_config_text.jsonl","id":"dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1877","pl":"JP0700-NPJH50521_00-ING_01000000","source_sha256":"7eb575b884036a8b87adeb6ffc5d643c0e50a7151a7c1acbb8a7f375e823d5ca"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:32068","pl":"Cała muzyka","source_sha256":"7eb89ea1d9785dd461f76a2429029741c8bca1ac87faa6e1c2ddbe38ba653256"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10818","pl":"Cel＠2%+3d%%＠0Unik＠2%+3d%%＠0","source_sha256":"7eb97be4bfb02a1d3a7620d3da330bd4deb8136c7ae09aa3c586b2d64afe6976"}
-{"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"7ec2470c8983bdcce773ae9a647709772aa94f23f88dbf59086f15f4462a0b32"}
+{"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"7ec2470c8983bdcce773ae9a647709772aa94f23f88dbf59086f15f4462a0b32"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:38703","pl":"Zaopatrz. Lv4","source_sha256":"7ec6df7cafbe81f95fd421c7e7be82de120667bbea59a431cf97d7476e847cb1"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:140959","pl":"Odwaga Lv2","source_sha256":"7ec852cb891d4b4188a808f4076a55ced9dbee3ec0ed1c02d2f53bebd3821bd2"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:22880","pl":"%s2","source_sha256":"7ecaf965bd2f00762e564f0ff001df7ebc0256149c71472e80e0f581a4de37d8"}
@@ -69302,7 +69302,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:2895","pl":"W walce: po aktyw. pełny unik","source_sha256":"7f2ca6dcff934df4cb5a90a745631bb8e5c2acb500373032b11be52a944a305c"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20593","pl":"Zdolności＠0 wzrosły o poziom.","source_sha256":"7f2f9069739f3004b755d3471a50ce8e68771689f01c443f7b970cb86f0751b2"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:5424","pl":"Lv","source_sha256":"7f305bd8a96d281245ad244ee3d1988ff01df63faa71aed60844e24219b4071b"}
-{"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:11230","pl":" Warunek: roboty Eldoran x","source_sha256":"7f432e5a09e1989719438b7fb49cb63055b18a2cd6abe99b1083f90e440836b5"}
+{"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:11230","pl":" Warunek: roboty Eldran x","source_sha256":"7f432e5a09e1989719438b7fb49cb63055b18a2cd6abe99b1083f90e440836b5"}
 {"file":"04_config_text.jsonl","id":"item:config01.EDAT/srwDL_Item01.bin:936","pl":"Atk+","source_sha256":"7f4a43787b14fdc7d5f7bf6bbec5d8c72145ad362d7b605d663dfdc008992f66"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:14279","pl":"Pocz. Morale+","source_sha256":"7f592b104b9b944a7c1829699c7c1edaabd7cb507d767bdce5ed93f827f70062"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:127440","pl":"Rachuby Cocoi Lv3","source_sha256":"7f63a678710c008d6966d77756f2f91533dd1c8c28873f6ff544e858a825dc65"}
@@ -71282,7 +71282,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:26203","pl":"Nie maleją po zdobyciu surowców.\n＠6Najpierw zużywane są części niższego poziomu.","source_sha256":"9eaf655bde57a9597cf6f33893f49ecbd048e3af6dfb55b4caa81b7db6a3e251"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21052","pl":"Części ulepsz.","source_sha256":"9eb5d49e0e47b790d8e44139f3d9b46d97b033dfaafb4fb8b8ee536505e74375"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:47609","pl":"Zestrzelenie prowadzącej nie niszczy jednostek rezerwy.","source_sha256":"9eb5fa07c60855b198cc20f83810713c2c4241f1677fcbf169f5eb8ecb407a63"}
-{"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11210","pl":" Warunek: roboty Eldoran x","source_sha256":"9ec17c7227dfa541ceac04c53aa902eb2c4bf30c24ccca19af53ba4ef75fa6e7"}
+{"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11210","pl":" Warunek: roboty Eldran x","source_sha256":"9ec17c7227dfa541ceac04c53aa902eb2c4bf30c24ccca19af53ba4ef75fa6e7"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:33420","pl":"% odnowy","source_sha256":"9ec1af497ad25d051ffb972b8c942bc5cfca47890c4963cd283dd70e99521f3f"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:11511","pl":"Sojusznicy obok: Obr/Unik+","source_sha256":"9ec3c279c1b90ff69f59020bc648dc1392428376292c892728413e26c05488dd"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:22482","pl":"Gakuen\"\nPołącz się z DS z włożoną\ngrą, aby spełnić warunek\nzdobycia części.","source_sha256":"9ec55b822b6b6dab24e21fd41f6eac922a2aac05835e92ecbb7b691fe10d0880"}
@@ -74392,7 +74392,7 @@
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:448","pl":"Działa do końca misji","source_sha256":"cfbca6900b975f7245a239cabc01fa4885811be5bb7ce849f9b94b073fc5e387"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14408","pl":"OK","source_sha256":"cfbf3aebadc87e57360aae11e1630d056db16d8189ddbb0122be541fc31fad5a"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:14364","pl":"jedn. <Celność w górę>＠","source_sha256":"cfc6070d5ee9c36c993fa1a76426848d6ed4b5161e27ba3ec34d435617bc170b"}
-{"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:36904","pl":"＠4%s0 Warunek: roboty Eldoran x4\n%s Nie do wsparcia ataku","source_sha256":"cfcb48a780d85f76d44076534765e7ffd3a4ebd9d3a3b9d6199fc2a97c6d9f28"}
+{"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:36904","pl":"＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku","source_sha256":"cfcb48a780d85f76d44076534765e7ffd3a4ebd9d3a3b9d6199fc2a97c6d9f28"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:3423","pl":"EN-","source_sha256":"cfd1554c753279c4375519c6e521f98f6f649eae4f006d51cf8d058d68e9f061"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:121259","pl":"Oszczędn. Lv8","source_sha256":"cfd23747b26a32fc63f8590808a1181dbc9ac6cf4c6c83e18c73b6feca6f81c2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"(ZZ Gundam)","source_sha256":"cfd30bd3f590b2bc51f0ed6f735865575cb4d48cbb560a86be1e58fa4808b883"}
@@ -75798,7 +75798,7 @@
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:8334","pl":"SPIRIT_EXP_UP","source_sha256":"e63c6eabac6ef202efa7dfe2e06774165b5a0b7886d07541b3ac2ec45544bf8f"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:8263","pl":"Pancerz PS","source_sha256":"e64024d3fb6858cd3e51b11aec042459fbf9c81545d4a4da6af092a4dff1aba6"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:14485","pl":"<Ostrzał pośr.>＠","source_sha256":"e64070a71d5aa08a00a002823c9e5c8ddf1ec502a06b1bb830bafed3424f16e5"}
-{"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":" Warunek: roboty Eldoran x","source_sha256":"e643403547737fd57cd6482c47b019baef9a3dcfd87aedd2e65f16f1e454fa3a"}
+{"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":" Warunek: roboty Eldran x","source_sha256":"e643403547737fd57cd6482c47b019baef9a3dcfd87aedd2e65f16f1e454fa3a"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config00.cpk/srwDL_DLC_ID00.bin:2530","pl":"Szansa na łup Lv1","source_sha256":"e646c57e6c8a64d8c1c2c948bc8eff149ad12e25805989699a199f058dac0767"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:133774","pl":"Św. wojownik","source_sha256":"e646e410f64c2767edd5dfadbac9610a3009c8437cf3f1ced48cea2b557c78ae"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:4103","pl":"B-System wył.","source_sha256":"e647dc0a8feeef6cc4117575bcd75ef8bcfaccfd27cf91bc680e3b1a1d0177e7"}

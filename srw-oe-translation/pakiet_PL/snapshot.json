@@ -6,7 +6,7 @@
     "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
   },
   "entries": 87823,
-  "data_sha256": "4b249e93f0fddbbc224cacca4dd279a8e863190fbda917561a9b3e81d1a34dfd",
+  "data_sha256": "535967dc033def57a46b2742df52c91d57f3fb319310494966f30a3cb0b2fcdf",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -102,6 +102,14 @@
       "sha256": "f737cc43d7dc0980be4402e42e2abae18507b5abdf45376d9feb8dea6e0a19ee",
       "previous_data_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
       "entries": 51,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-eldran-skills-2026-10-21.json",
+      "sha256": "384c804e15cf0bf07eca29b7cdb309ad2b50e120646b0376fc46c60e88c68276",
+      "previous_data_sha256": "4b249e93f0fddbbc224cacca4dd279a8e863190fbda917561a9b3e81d1a34dfd",
+      "entries": 11,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

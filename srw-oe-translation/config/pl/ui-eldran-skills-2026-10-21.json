@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "date": "2026-10-21",
+  "evidence": [
+    "Translator terminology alignment ('Eldoran' -> 'Eldran') across all 11 skill-description fields matching the character/weapon name 'Eldran' / 'Eldran Special':",
+    "umiejetnosci.md grupa 220 element 3 (03_skills.jsonl skill:config00.cpk/srwDL_Skill00.bin:r219:effect, 58 B -> 57 B)",
+    "teksty-config.md grupa 17 element 683 (04_config_text.jsonl skill:config00.cpk/srwDL_Skill00.bin:36904, 58 B -> 57 B)",
+    "teksty-config.md grupa 17 element 3971 + grupy 18-25 element 384 (04_config_text.jsonl srwDL_Skill00..08.bin tail-pool fragment ' Warunek: roboty Eldran x', preserving leading ASCII space, 26 B -> 25 B each)"
+  ],
+  "changes": [
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r219:effect",
+      "source_sha256": "6aa333b88296e21d74d06d92776ddcd15f3adbb58d26ba95e1e146fe87171e65",
+      "before": "＠4%s0 Warunek: roboty Eldoran x4\n%s Nie do wsparcia ataku",
+      "after": "＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku",
+      "max_cells": 27
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:36904",
+      "source_sha256": "cfcb48a780d85f76d44076534765e7ffd3a4ebd9d3a3b9d6199fc2a97c6d9f28",
+      "before": "＠4%s0 Warunek: roboty Eldoran x4\n%s Nie do wsparcia ataku",
+      "after": "＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku",
+      "max_cells": 27
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:193328",
+      "source_sha256": "e643403547737fd57cd6482c47b019baef9a3dcfd87aedd2e65f16f1e454fa3a",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config01.EDAT/srwDL_Skill01.bin:11230",
+      "source_sha256": "20906f4afc29333e1442b8f3c2ab92be705605eba8f0354982879d1e4cf0a934",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config02.EDAT/srwDL_Skill02.bin:11210",
+      "source_sha256": "9ec17c7227dfa541ceac04c53aa902eb2c4bf30c24ccca19af53ba4ef75fa6e7",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config03.EDAT/srwDL_Skill03.bin:11230",
+      "source_sha256": "7f432e5a09e1989719438b7fb49cb63055b18a2cd6abe99b1083f90e440836b5",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config04.EDAT/srwDL_Skill04.bin:11230",
+      "source_sha256": "57e85f65c440c0d578764426e58fb365469dc8c3a0f3c1413acaf123b798fd70",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config05.EDAT/srwDL_Skill05.bin:11230",
+      "source_sha256": "7ec2470c8983bdcce773ae9a647709772aa94f23f88dbf59086f15f4462a0b32",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config06.EDAT/srwDL_Skill06.bin:11230",
+      "source_sha256": "71b8aaddc65a22310aa20748335dd224768837854feb544730ff8aac3884c535",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config07.EDAT/srwDL_Skill07.bin:11230",
+      "source_sha256": "603570bac21beace7b66146443cd5dab1bad581a66fe6c623871fff70804a6bd",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config08.EDAT/srwDL_Skill08.bin:11230",
+      "source_sha256": "6acb2d5fde41afd7b17999995945f2ef85a77f39a85e2c8108882a89dc72bf65",
+      "before": " Warunek: roboty Eldoran x",
+      "after": " Warunek: roboty Eldran x",
+      "max_cells": 25
+    }
+  ]
+}
