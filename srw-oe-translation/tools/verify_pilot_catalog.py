@@ -145,7 +145,7 @@ def audit_markdown_document(document: str, expected_combat_keys: list[int], expe
             cur_table = []
 
     required_sections = [
-        "## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)",
+        "## 1. Leksykon wszystkich Komend Ducha (20 rodzin)",
         "## 2. Leksykon wszystkich umiejętności pilotów i Premii Asa (80 rodzin)",
         "## 3. Piloci grywalni — profile główne (92 profile)",
         "## 4. Podpiloci i załoga wsparcia (45 profili)",

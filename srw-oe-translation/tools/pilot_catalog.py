@@ -921,56 +921,39 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
         lines.append("\n".join(sp_lines) + "\n")
 
     if pilot["skills"]:
-        sk_blocks = ["**Umiejętności pilota:**"]
+        sk_lines = [
+            "**Umiejętności pilota:**\n",
+            "| Slot | Umiejętność | Efekt bazowy |",
+            "|---:|---|---|",
+        ]
         for sk in pilot["skills"]:
-            prog = sk["progression"]
-            if sk["unlevelled"] or (len(prog) == 1 and prog[0]["skill_level"] == 0):
-                p0 = prog[0]
-                tag = " *(1.08)*" if p0["origin"] == "executable_1_08" else ""
-                sk_blocks.append(
-                    f"- **Slot {sk['slot']}: {md(sk['name'])}** — odblokowanie: **Poz. {p0['unlock_pilot_level']}** "
-                    f"*(bez poziomów)*{tag}: {md(_one_line(p0['description']))}"
-                )
-            else:
-                sched_str = ", ".join(
-                    f"**Lv{p['skill_level']}**: poz. {p['unlock_pilot_level']}"
-                    for p in prog
-                )
-                tier_descs = "; ".join(
-                    f"Lv{p['skill_level']}{' (1.08)' if p['origin'] == 'executable_1_08' else ''}: "
-                    f"{md(_one_line(p['description']))}"
-                    for p in prog
-                )
-                sk_blocks.append(
-                    f"- **Slot {sk['slot']}: {md(sk['name'])}** — nauka `poz. {sk['learn_level']}`, "
-                    f"krok `+{sk['step']} poz.` ({sched_str})  \n"
-                    f"  Efekty: {tier_descs}"
-                )
+            p0 = sk["progression"][0]
+            tag = " *(1.08)*" if p0["origin"] == "executable_1_08" else ""
+            p0_desc = md(_one_line(re.sub(r"<([^<>]+)>", r"(\1)", p0["description"])))
+            base_eff = f"{p0_desc}{tag}"
             if sk["story_flag_upgrade"]:
                 up = sk["story_flag_upgrade"]
-                up_sched = ", ".join(
-                    f"**Lv{p['skill_level']}**: poz. {p['unlock_pilot_level']}"
-                    for p in up["progression"]
+                up0 = up["progression"][0]
+                up_tag = " *(1.08)*" if up0["origin"] == "executable_1_08" else ""
+                up_eff = md(_one_line(re.sub(r"<([^<>]+)>", r"(\1)", up0["description"])))
+                base_eff += (
+                    f" *(awans fabularny `flaga 0x{up['flag']:x} = 1` → "
+                    f"**{md(up['name'])}**: {up_eff}{up_tag})*"
                 )
-                up_descs = "; ".join(
-                    f"Lv{p['skill_level']}{' (1.08)' if p['origin'] == 'executable_1_08' else ''}: "
-                    f"{md(_one_line(p['description']))}"
-                    for p in up["progression"]
-                )
-                sk_blocks.append(
-                    f"  - *Awans fabularny (`flaga 0x{up['flag']:x} = 1` → ID {up['alias_id']}):* "
-                    f"**{md(up['name'])}** ({up_sched}) — {up_descs}"
-                )
-        lines.append("\n".join(sk_blocks) + "\n")
+            sk_lines.append(
+                f"| {sk['slot']} | **{md(sk['name'])}** | {base_eff} |"
+            )
+        lines.append("\n".join(sk_lines) + "\n")
     elif has_stats:
         lines.append("**Umiejętności pilota:** Brak przypisanych umiejętności w `charalist`.\n")
 
     if pilot["ace_bonus"]:
         ace = pilot["ace_bonus"]
         tag = " *(1.08)*" if ace["origin"] == "executable_1_08" else ""
+        ace_desc = re.sub(r"<([^<>]+)>", r"(\1)", ace["description"])
         lines.append(
             f"**Premia Asa (`≥ {ace['required_kills']}` zestrzeleń, strona gracza):** "
-            f"**{md(ace['name'])}**{tag} — {md(_one_line(ace['description']))}\n"
+            f"**{md(ace['name'])}**{tag} — {md(_one_line(ace_desc))}\n"
         )
 
     return "\n".join(lines)
@@ -1007,23 +990,24 @@ def render_polish_markdown(model: dict) -> str:
     put(
         f"Katalog obejmuje **wszystkie {s['total_character_records']} rekordy postaci** zapisane w "
         f"dwudziestu kontenerach gry (`config00.cpk` oraz `config01.EDAT`–`config19.EDAT`), "
-        "niezależnie od aktualnie przypisanego mecha, wraz z pełnym rozkładem poziomów odblokowania "
-        "i ulepszania **Komend Ducha (*Spirit Commands*)**, **umiejętności pilota** oraz **Premii Asa**:\n\n"
+        "niezależnie od aktualnie przypisanego mecha, prezentując wartości bazowe statystyk, "
+        "**Komend Ducha (*Spirit Commands*)**, **umiejętności pilota** oraz **Premii Asa** "
+        "(analogicznie do katalogu mechów, bez progów rozwojowych z wyższych poziomów):\n\n"
         f"- **Piloci grywalni (główni): {s['playable_main_profiles']} profile** "
         f"({s['playable_standalone_profiles']} profili bezpośrednich oraz "
         f"{s['playable_recruited_override_profiles']} profili sojuszniczych aktywowanych przez silnik gry "
         "po rekrutacji rywala przez pole `u16@+100`). Każdy posiada pulę SP, 4 statystyki bojowe "
         "(`Atak`, `Obrona`, `Celność`, `Unik`), Komendy Ducha, umiejętności specjalne i Premię Asa (`≥ 300` zestrzeleń).\n"
         f"- **Podpiloci i załoga wsparcia: {s['sub_pilot_profiles']} profili** — posiadają własną pulę SP "
-        "oraz własny zestaw Komend Ducha (`Lv1`–`Lv3`), natomiast w walce korzystają ze statystyk i umiejętności głównego pilota.\n"
+        "oraz własny zestaw Komend Ducha, natomiast w walce korzystają ze statystyk i umiejętności głównego pilota.\n"
         f"- **Piloci wrodzy, rywale i bossowie: {s['enemy_and_rival_combat_profiles']} profili bojowych** "
         f"({s['rival_enemy_profiles_with_override']} wrogich profili rekrutowalnych rywali powiązanych z ich wersją grywalną "
         f"oraz {s['other_enemy_combat_profiles']} pozostałych profili przeciwników, bossów i jednostek specjalnych).\n"
         f"- **Rekordy niebojowe / portretowe / systemowe: {s['non_combat_records']} rekordów** — portrety dialogowe, "
         "narrator i wpisy pomocnicze bez statystyk bojowych, duchów ani umiejętności (zestawione kompletnie w Dodatku A).\n"
-        f"- **Komendy Ducha: {s['spirit_families']} rodzin ({s['spirit_records']} rekordów poziomów `Lv1`–`Lv3`)** z pliku `configst.cpk/srwDL_Spirit.bin`.\n"
-        f"- **Umiejętności pilotów i Premie Asa: {s['pilot_skill_families']} rodzin ({s['pilot_skill_level_records']} rekordów poziomów)**, "
-        f"w tym **{s['executable_1_08_pilot_skill_overrides']} opisów poziomów nadpisanych bezpośrednio w pliku wykonywalnym `DATA.PSP` 1.08**."
+        f"- **Komendy Ducha: {s['spirit_families']} rodzin** z pliku `configst.cpk/srwDL_Spirit.bin` (koszt SP i efekt bazowy).\n"
+        f"- **Umiejętności pilotów i Premie Asa: {s['pilot_skill_families']} rodzin** "
+        f"(efekty bazowe, z uwzględnieniem nadpisań w pliku wykonywalnym `DATA.PSP` 1.08)."
     )
 
     put("### Zweryfikowane reguły silnika gry (`DATA.PSP` 1.08 `.text 0x21f4ec`)\n\n"
@@ -1031,15 +1015,15 @@ def render_polish_markdown(model: dict) -> str:
         "silnik używa jej bazowego rekordu `charalist`. Po przejściu do oddziału gracza (`flags & 4 == 0`), jeśli pole `u16@+100 > 0`, "
         "wszystkie ekrany i obliczenia bojowe przekierowują statystyki, SP, Komendy Ducha, umiejętności i Premię Asa do wskazanego profilu sojuszniczego.\n"
         "- **Statystyki pilota i pula SP (`+105..+115`):** tabele prezentują wyłącznie wartości bazowe startowe na `Poz. 1` "
-        "(`SP`, `Atak`, `Obrona`, `Celność`, `Unik`), bez progów wzrostu z poziomem — analogicznie do katalogu mechów.\n"
+        "(`SP`, `Atak`, `Obrona`, `Celność`, `Unik`), bez progów wzrostu z poziomem.\n"
         "- **Komendy Ducha (`+116..+127`):** tabele prezentują wartości bazowe komend "
-        "(koszt SP oraz efekt podstawowy, bez ulepszeń z wyższych poziomów — analogicznie do katalogu mechów).\n"
-        "- **Umiejętności pilota (`+128..+143`):** `żądany_poziom = min(1 + (poz. − poz._nauki) // krok, 9)`, "
-        "a selektor `0x0e5680` wybiera najwyższy zdefiniowany w `srwDL_Skill00–08.bin` poziom `≤ żądany_poziom`.\n"
+        "(koszt SP oraz efekt podstawowy, bez ulepszeń z wyższych poziomów).\n"
+        "- **Umiejętności pilota (`+128..+143`):** tabele prezentują wyłącznie efekt bazowy umiejętności "
+        "(pierwszy poziom z `srwDL_Skill00–08.bin` / `DATA.PSP` 1.08, bez progów z wyższych poziomów).\n"
         "- **Premia Asa (`+156`):** odblokowywana wyłącznie po stronie gracza po osiągnięciu **300 zestrzeleń** (`0x12c`).")
 
     put("## Spis treści\n\n"
-        "1. [Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)](#1-leksykon-wszystkich-komend-ducha-20-rodzin--60-poziomow)\n"
+        "1. [Leksykon wszystkich Komend Ducha (20 rodzin)](#1-leksykon-wszystkich-komend-ducha-20-rodzin)\n"
         "2. [Leksykon wszystkich umiejętności pilotów i Premii Asa (80 rodzin)](#2-leksykon-wszystkich-umiejetnosci-pilotow-i-premii-asa-80-rodzin)\n"
         "3. [Piloci grywalni — profile główne (92 profile)](#3-piloci-grywalni--profile-glowne-92-profile)\n"
         "4. [Podpiloci i załoga wsparcia (45 profili)](#4-podpiloci-i-zaloga-wsparcia-45-profili)\n"
@@ -1048,7 +1032,7 @@ def render_polish_markdown(model: dict) -> str:
         "7. [Pochodzenie danych i ograniczenia](#7-pochodzenie-danych-i-ograniczenia)")
 
     # Section 1: All 20 Spirit families (base cost & base effect)
-    put("---\n\n## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)")
+    put("---\n\n## 1. Leksykon wszystkich Komend Ducha (20 rodzin)")
     sp_rows = [
         "| ID | Duch | Koszt SP | Opis działania | Efekt bazowy |",
         "|---:|---|---:|---|---|",
@@ -1062,27 +1046,20 @@ def render_polish_markdown(model: dict) -> str:
         )
     put("\n".join(sp_rows))
 
-    # Section 2: All 80 Pilot Skill & Ace Bonus families
+    # Section 2: All 80 Pilot Skill & Ace Bonus families (base effect only)
     put("---\n\n## 2. Leksykon wszystkich umiejętności pilotów i Premii Asa (80 rodzin)")
-    sk_lines = []
+    sk_rows = [
+        "| ID | Umiejętność | Efekt bazowy |",
+        "|---:|---|---|",
+    ]
     for alias_str, sk in model["skills"].items():
-        if sk["unlevelled"]:
-            lv0 = sk["levels"][0]
-            tag = " *(nadpisanie 1.08)*" if lv0["origin"]["kind"] == "executable_1_08" else ""
-            sk_lines.append(
-                f"- **{md(sk['name'])}** `[alias {alias_str}]` *(bez poziomów)*{tag} — "
-                f"{md(_one_line(lv0['description']))}"
-            )
-        else:
-            tiers_txt = "; ".join(
-                f"**Lv{lv_e['level']}**{' *(1.08)*' if lv_e['origin']['kind'] == 'executable_1_08' else ''}: "
-                f"{md(_one_line(lv_e['description']))}"
-                for lv_e in sk["levels"]
-            )
-            sk_lines.append(
-                f"- **{md(sk['name'])}** `[alias {alias_str}]` ({len(sk['levels'])} poz.) — {tiers_txt}"
-            )
-    put("\n".join(sk_lines))
+        lv0 = sk["levels"][0]
+        tag = " *(1.08)*" if lv0["origin"]["kind"] == "executable_1_08" else ""
+        base_desc = re.sub(r"<([^<>]+)>", r"(\1)", lv0["description"])
+        sk_rows.append(
+            f"| {alias_str} | **{md(sk['name'])}** | {md(_one_line(base_desc))}{tag} |"
+        )
+    put("\n".join(sk_rows))
 
     # Section 3: Playable Main Pilots (92 profiles, grouped by series)
     playable = [
@@ -1160,8 +1137,8 @@ def render_polish_markdown(model: dict) -> str:
         "`03_skills.jsonl`, `04_config_text.jsonl`, `05_mission_text.jsonl`, `07_names_characters.jsonl`, "
         "`08_names_units_weapons.jsonl`, `09_executable.jsonl`) bez nowego przekładu literackiego i bez cichego "
         "podmieniania braków tekstem angielskim.\n"
-        "- **Weryfikacja emulacyjna:** formuły przyrostu SP, czterech statystyk pilota (IEEE-754 `float32`), "
-        "odblokowywania poziomów Komend Ducha (`Lv1`–`Lv3`), wyboru poziomów umiejętności (`0x0e5680`), "
+        "- **Weryfikacja emulacyjna:** formuły wartości bazowych SP i czterech statystyk pilota (IEEE-754 `float32`), "
+        "odblokowywania Komend Ducha, wyboru umiejętności (`0x0e5680`), "
         "przekierowań `u16@+100`, awansu fabularnego `flaga 0x461` (`ID 3401`) oraz Premii Asa (`≥ 300` zestrzeleń) "
         "zostały bezpośrednio porównane z wykonaniem oryginalnej funkcji MIPS `.text 0x21f4ec` w emulatorze Unicorn (`0` rozbieżności).\n"
         "- **Ograniczenia:** katalog opisuje macierzyste rekordy pilotów w `charalist00–19.bin`; skrypty konkretnych misji "

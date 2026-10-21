@@ -218,7 +218,7 @@ class SyntheticPilotCatalogTests(unittest.TestCase):
 
     def test_markdown_auditor_rejects_cjk_control_codes_and_missing_sections(self) -> None:
         valid_doc = (
-            "## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)\n"
+            "## 1. Leksykon wszystkich Komend Ducha (20 rodzin)\n"
             "## 2. Leksykon wszystkich umiejętności pilotów i Premii Asa (80 rodzin)\n"
             "## 3. Piloci grywalni — profile główne (92 profile)\n"
             "#### Jin Hyuga `[ID 500]`\n"
@@ -288,6 +288,8 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
             self.assertNotIn("Poz. 50", md_text)
             self.assertNotIn("Poz. 99", md_text)
             self.assertNotIn("/poz.", md_text)
+            for tier_n in range(2, 10):
+                self.assertNotIn(f"Lv{tier_n}", md_text)
 
             # Tampering a single stat cell must fail verification immediately.
             import re as _re
