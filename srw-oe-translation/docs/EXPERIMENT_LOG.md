@@ -7859,3 +7859,33 @@ Polish pilot, Spirit Command, and skill catalogue (2026-10-21):
    `md5_checksum` + `4,096`-char UTF-8 read-back prefix exact match. Full repository test
    suite: `1,751 OK, skipped=32`. Manifests in `docs/pilot-catalog/`.
 
+
+
+Polish UI & map terrain fixes v2.7-PL5 (`Clipboard-1.jpg`..`Clipboard-4.jpg`, 2026-10-21):
+1. Root causes confirmed in binary data and 1.08 MIPS `.text`:
+   - `Clipboard-1.jpg`: `spirit:configst.cpk/srwDL_Spirit.bin:14364` tail-pool fragment #35
+     (`jp=' HP'`, referenced exclusively by Spirit `Hart` records `36..38`) held `' HP'`,
+     expanding `'Lv1%s20%s25%s'` to `'Lv1 SP-20 HP25％ HP'`. Bound specifically by
+     `source_sha256` (`R.binding`) so tail-pool fragment #23 (`Wiatr`, `'jedn. <Ruch w górę>＠'`)
+     remains untouched; updated fragment #35 to `' Odnawia '` -> `'Lv1 SP-20 Odnawia 25％ HP'`.
+   - `Clipboard-2.jpg` & `Clipboard-3.jpg`: `sysmes:configst.cpk/sysmes.bin:11644,:11647`
+     (`'Obrażenia＠230％＠0 mniej'`) and `:11672,:11675` (`'Premia do uniku＠230％＠0 więcej'`)
+     lacked a space before color code `＠2`; added single space before `＠2` in all four rows.
+   - `Clipboard-4.jpg`: `10_map_terrain.jsonl` (`lmap.cpk/attr.par`, rendered by 1.08 `.text`
+     `0x1ec2a0..0x1ec410` through standard single-byte font renderer with 12-cell panel budget)
+     had ASCII transliterations because `terrain_names.validate_row` enforced ASCII on all
+     languages. Scoped `terrain_names.py`, `translation_check.py`, and `build_translation_patch.py`
+     so `target_lang == "pl"` encodes via `pl_text.encode` (`<= 31 B`, `display_width <= 12`,
+     `en` stays strict ASCII) and restored Polish diacritics across all `46` affected terrain
+     rows (including `terrain:lmap.cpk/attr.par:r3:name` `'Wzgorze'` -> `'Wzgórze'`).
+2. Applied source-bound plan `config/pl/ui-clipboard-2026-10-21.json` (`51` changes, SHA-256
+   `f737cc43d7dc0980be4402e42e2abae18507b5abdf45376d9feb8dea6e0a19ee`), built physical
+   `DLC/configst.cpk` to verify expanded `srwDL_Spirit.bin` (`Hart` `rec 36..38` and `Wiatr`
+   `rec 57..59`) and `sysmes.bin` null-terminated byte strings, and built release pair `2.7-PL5`:
+   - `srw-oe-translation-pl-v2.7-PL5.zip`: `8,121,934 B`, SHA-256
+     `5062d05dc295975fd4d705b9d1508d5ae339d771a9f471d8a5bb999d8d879997`, MD5
+     `c4ecc512422091ccb995e3a95cd79ece`, uploaded to Google Drive `1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV`
+     (folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`) and verified byte-identical via download-back.
+   - `srw-oe-translation-v2.7-PL5.zip`: `7,279,138 B`, SHA-256
+     `e3f6f4d6b0edb0778ffd52856d431b4e3431b7d6cb84a4333b1064a761887655`.
+

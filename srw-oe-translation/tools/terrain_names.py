@@ -18,6 +18,7 @@ from typing import Dict, Iterable, List, Tuple
 import configst_pack as CSP
 import cpk_table
 import cpk_write
+import pl_text
 import speaker_map
 
 CATEGORY = "terrain_name"
@@ -59,7 +60,7 @@ def parse_attr(blob: bytes) -> List[dict]:
     return result
 
 
-def validate_row(row: dict) -> bytes:
+def validate_row(row: dict, target_lang: str = "en") -> bytes:
     require(row.get("category") == CATEGORY and row.get("part") == "name", "wrong terrain row kind")
     src = row.get("source") or {}
     index = row.get("record")
@@ -70,20 +71,31 @@ def validate_row(row: dict) -> bytes:
     require(row.get("mode") == "slot" and row.get("max_bytes") == NAME_SIZE - 1, "wrong terrain cell budget")
     text = row.get("en")
     require(isinstance(text, str) and bool(text.strip()), "missing terrain English")
+    if target_lang == "pl":
+        require(all(ord(c) >= 32 and ord(c) != 127 for c in text),
+                "terrain caption must not contain control characters")
+        try:
+            raw = pl_text.encode(text)
+        except UnicodeEncodeError as exc:
+            raise TerrainError(f"terrain caption not encodable for pl ({exc.reason} at {exc.start})") from exc
+        require(pl_text.display_width(text) <= SCREEN_CELLS,
+                f"terrain caption exceeds {SCREEN_CELLS}-cell screen budget")
+        require(len(raw) < NAME_SIZE, "terrain caption exceeds name-cell byte budget")
+        return raw
     require(all(32 <= ord(c) < 127 for c in text), "terrain caption must be printable ASCII")
     raw = text.encode("ascii")
     require(len(raw) <= SCREEN_CELLS, f"terrain caption exceeds {SCREEN_CELLS}-cell screen budget")
     return raw
 
 
-def patch_attr(blob: bytes, rows: Iterable[dict]) -> Tuple[bytes, dict]:
+def patch_attr(blob: bytes, rows: Iterable[dict], target_lang: str = "en") -> Tuple[bytes, dict]:
     parsed = parse_attr(blob)
     require(len(parsed) == RECORDS, "unreviewed attr.par record count")
     plan = {}
     for row in rows:
         if row.get("category") != CATEGORY:
             continue
-        encoded = validate_row(row)
+        encoded = validate_row(row, target_lang=target_lang)
         index = row["record"]
         require(index not in plan, f"duplicate terrain record {index}")
         try:
@@ -142,7 +154,8 @@ def attr_span(pac: bytes) -> Tuple[int, int]:
     return hits[0]
 
 
-def apply_container(src: Path, dst: Path, rows: Iterable[dict], dry_run: bool = False) -> dict:
+def apply_container(src: Path, dst: Path, rows: Iterable[dict], dry_run: bool = False,
+                    target_lang: str = "en") -> dict:
     require(src.resolve() != dst.resolve(), "refusing in-place map edits")
     rows = list(rows)
     cpk = cpk_write.load(src)
@@ -154,7 +167,7 @@ def apply_container(src: Path, dst: Path, rows: Iterable[dict], dry_run: bool = 
         require(re.fullmatch(r"l\d{3}\.pac", member.name) is not None, "unexpected map member name")
         raw = cpk_write.decompressed(member.blob)
         start, size = attr_span(raw)
-        patched, detail = patch_attr(raw[start:start+size], rows)
+        patched, detail = patch_attr(raw[start:start+size], rows, target_lang=target_lang)
         out = bytearray(raw)
         out[start:start+size] = patched
         require(len(out) == len(raw) and out[:start] == raw[:start] and out[start+size:] == raw[start+size:],

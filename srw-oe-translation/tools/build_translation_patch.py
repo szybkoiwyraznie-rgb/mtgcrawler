@@ -1288,7 +1288,8 @@ def terrain_step(report: dict, store: ContainerStore, rows: List[dict], out: Pat
         src, dst = folder / name, folder / ("patched-" + name)
         try:
             src.write_bytes(store.read(name, where))
-            details = TERRAIN.apply_container(src, dst, rows, dry_run=dry_run)
+            details = TERRAIN.apply_container(src, dst, rows, dry_run=dry_run,
+                                              target_lang=report.get("lang") or "en")
             result["targets"].append({"location": where, **details})
             if dry_run:
                 continue

@@ -1,0 +1,420 @@
+{
+  "schema": 1,
+  "date": "2026-10-21",
+  "evidence": [
+    "Clipboard-1.jpg: spirit:configst.cpk/srwDL_Spirit.bin:14364 tail-pool entry #35 (jp=' HP', used exclusively by Hart rec 36..38): ' HP' -> ' Odnawia ' => 'Lv1 SP-20 Odnawia 25％ HP'",
+    "Clipboard-2.jpg: sysmes:configst.cpk/sysmes.bin:11644,:11647 ('Obrażenia＠230％＠0 mniej' -> 'Obrażenia ＠230％＠0 mniej')",
+    "Clipboard-3.jpg: sysmes:configst.cpk/sysmes.bin:11672,:11675 ('Premia do uniku＠230％＠0 więcej' -> 'Premia do uniku ＠230％＠0 więcej')",
+    "Clipboard-4.jpg + eboot_108.elf 0x1ec2a0..0x1ec410 HUD panel trace: 10_map_terrain.jsonl Polish diacritics restored via pl_text single-byte font.cpk glyphs (<= 12 cells)"
+  ],
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "spirit:configst.cpk/srwDL_Spirit.bin:14364",
+      "source_sha256": "95e8ac82d3c56f79c8af13743101b54e8a8666b9dbdb9ae1e6039f926eb0a1db",
+      "before": "HP",
+      "after": " Odnawia ",
+      "max_cells": 9
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:11644",
+      "source_sha256": "636e388ac5f93cfbd27edd91b87272f36088eea4c20154e24fb6ee5fa90a5e75",
+      "before": "＠0Obrażenia＠230％＠0 mniej",
+      "after": "＠0Obrażenia ＠230％＠0 mniej",
+      "max_cells": 20
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:11647",
+      "source_sha256": "265eb8de42fdffe4aed2365643ad05fe46fb11347019bac9034ad709f9689b26",
+      "before": "Obrażenia＠230％＠0 mniej",
+      "after": "Obrażenia ＠230％＠0 mniej",
+      "max_cells": 20
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:11672",
+      "source_sha256": "96251551a0e9b0ce90acb6b93f143fa5205c1b5680ec80e95f662d6941f5d778",
+      "before": "＠0Premia do uniku＠230％＠0 więcej",
+      "after": "＠0Premia do uniku ＠230％＠0 więcej",
+      "max_cells": 27
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:11675",
+      "source_sha256": "585fcb15492dfb99f566d23f8582bdb80e614cd0fdff75b5e960d4a747096a61",
+      "before": "Premia do uniku＠230％＠0 więcej",
+      "after": "Premia do uniku ＠230％＠0 więcej",
+      "max_cells": 27
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r1:name",
+      "source_sha256": "440cc87fad797075965d991739e064a6f0f175c1f946e92a9a81cf1c26194af8",
+      "before": "Poza mapa",
+      "after": "Poza mapą",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r2:name",
+      "source_sha256": "c082e4fad99da6724fad25d461397db1c02fb06fb20a1811eb891018805f7e8c",
+      "before": "Rownina",
+      "after": "Równina",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r3:name",
+      "source_sha256": "17299084b087b962b36d6833b5a8d937d445326077adbd8e6ffca6ac2af5d126",
+      "before": "Wzgorze",
+      "after": "Wzgórze",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r4:name",
+      "source_sha256": "8ebcbdb741b6c56e75591e83c324d6d23ada073b0877bd1fed2059a0f0846588",
+      "before": "Wyzyna",
+      "after": "Wyżyna",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r5:name",
+      "source_sha256": "fffbb2e8a4117f6b3d1703f2e1aad10356034deb3be73264a18f7243f1cc0d3d",
+      "before": "Wyzyna/Wzg.",
+      "after": "Wyżyna/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r7:name",
+      "source_sha256": "bc2d7c1a57d9edc8dd02a2c418ab694731cc7e92cd24a8675a2b645ff034d840",
+      "before": "Las/Wzgorze",
+      "after": "Las/Wzgórze",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r10:name",
+      "source_sha256": "3478b3e785b7a6ca86d195ab5a46e859b0f35e6a643c53bb375079b76229fc54",
+      "before": "Konstr./Wyz.",
+      "after": "Konstr./Wyż.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r15:name",
+      "source_sha256": "bc16b98f78071259dbab7ad753529f9a198c7e575ecb9ae3b0a96bf1fe2f5909",
+      "before": "Sniezne pole",
+      "after": "Śnieżne pole",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r16:name",
+      "source_sha256": "93797d814728a6caef09e3016cb4e74a9da12419c0aca16262e73601513d16ba",
+      "before": "Snieg/Wzg.",
+      "after": "Śnieg/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r17:name",
+      "source_sha256": "e6db9a0b5118240198c4270d1cd4626b4b03aa50cb7104eb8156c76387d78ccc",
+      "before": "Sniezne gory",
+      "after": "Śnieżne góry",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r18:name",
+      "source_sha256": "d4d3ff5f5bdeca2351b5138ca151014069f12aa3ad2215cde26106824e4ee0a2",
+      "before": "Sn.gory/Wzg.",
+      "after": "Śn.góry/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r27:name",
+      "source_sha256": "89782eda6409dd6ebd071ddf44d531b89f0ad830d6596973928b2f3028b6b89d",
+      "before": "Skala",
+      "after": "Skała",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r29:name",
+      "source_sha256": "a07b090b1bd7bbf39bc4ecf69cafcb916ad18609b581cde6eb442476d6cd2ba5",
+      "before": "Komorki DG",
+      "after": "Komórki DG",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r46:name",
+      "source_sha256": "12c530210929019437add8da1ef279ffc90c8353fe6050404a13ce260349570f",
+      "before": "Skala piecz.",
+      "after": "Skała piecz.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r47:name",
+      "source_sha256": "d21879b71d99d8f8c3c497efe2d40d3c88de194e126343b083974c93bcde6523",
+      "before": "Poza mapa",
+      "after": "Poza mapą",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r49:name",
+      "source_sha256": "40df3c6edb3bf234ef69360f3b728829e25bbf2d45d7ed48b67df92f0d97c965",
+      "before": "Skaly",
+      "after": "Skały",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r50:name",
+      "source_sha256": "f26d5a17352e85bad857f57099887aefcd5bdf74e04eca54187494ecbbd52151",
+      "before": "Brak wstepu",
+      "after": "Brak wstępu",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r51:name",
+      "source_sha256": "2b482b0a2f55cb84842d4eb4643a78b8b3a74a61b397dbcd5705e55a8e842523",
+      "before": "Sciana",
+      "after": "Ściana",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r53:name",
+      "source_sha256": "2db14d09ad5e3bd062623b6ffc6accd6f1ad9aa16a7990a4f122473212f36a7e",
+      "before": "Sniezne gory",
+      "after": "Śnieżne góry",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r57:name",
+      "source_sha256": "0215b5b9028c0b2d3412a45b9f696d008d39290fd09d4a0ffda9cb90690a58cf",
+      "before": "Sniezka",
+      "after": "Śnieżka",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r60:name",
+      "source_sha256": "e6d3bbd289d81feb93348e3b26db5c17f740dfcada0270a90b710a2e9a894261",
+      "before": "Podstawowka",
+      "after": "Podstawówka",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r66:name",
+      "source_sha256": "33ed920d5deffa669cac4932a77138f72f5609ff73d59d445fa10c29eba27eaa",
+      "before": "Komorki",
+      "after": "Komórki",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r67:name",
+      "source_sha256": "46d9e59c691e910b2f2ad09c5bab0bf2c1aa028b685a899e6a6e2f01e2fdf321",
+      "before": "Komorki/Wzg.",
+      "after": "Komórki/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r68:name",
+      "source_sha256": "15409acebd0b9b0c1ed1c6226fd71f8e2d6d935d8a83d168f0249c797bdb5127",
+      "before": "Komorki/Wyz.",
+      "after": "Komórki/Wyż.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r69:name",
+      "source_sha256": "3cd9ae0913418a9d73c5d8ddef6ae88998f6d705f4487e33322265dd2fda1373",
+      "before": "Kom.Wyz/Wzg.",
+      "after": "Kom.Wyż/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r71:name",
+      "source_sha256": "78cb8835208b3e618e0072fc936c67a7ab4cdcf1e2a8020686b3a42b4e7e1eb7",
+      "before": "Mucus G mala",
+      "after": "Mucus G mała",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r72:name",
+      "source_sha256": "ca4d5966952d2da52d66fdb818ec6b41498b4dd9dd38aac9e7fcd6d5c8a08e81",
+      "before": "Mucus G sred",
+      "after": "Mucus G śred",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r73:name",
+      "source_sha256": "098c648594a040ca3d2e7444ee4d91fa56e8115e2092b4e5a517c849434042d8",
+      "before": "Mucus G duza",
+      "after": "Mucus G duża",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r74:name",
+      "source_sha256": "0bcbfe400f590bcd0b4aea7b8e9ff5d256ef96240701d4b3715c9aa00e6e7827",
+      "before": "Las gorski",
+      "after": "Las górski",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r75:name",
+      "source_sha256": "c38f0eae61b145290d9af27ec4cd1d30e2f373168f621d5f15388b3b46b35d83",
+      "before": "Las gor./Wzg",
+      "after": "Las gór./Wzg",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r86:name",
+      "source_sha256": "c1ba3ab71900217920829959942720887868f501dabdc50c0f9998f5e13b2871",
+      "before": "Jask./Wyz.",
+      "after": "Jask./Wyż.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r87:name",
+      "source_sha256": "5e40c9523d93a9c27b09db6900c0c8a28a5ea2803aa2c8e8bc99cedb17ffe867",
+      "before": "JaskWyz/Wzg.",
+      "after": "JaskWyż/Wzg.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r105:name",
+      "source_sha256": "edcaf7f7d3a28954498d436e1367c3c1f420eb4da1b284ace349071861db65af",
+      "before": "Wieza centr.",
+      "after": "Wieża centr.",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r110:name",
+      "source_sha256": "3b0ef07a60253972545a1881be2166d6bec957b4f9469f5cd9a44839bd22a94e",
+      "before": "Swiatynia",
+      "after": "Świątynia",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r128:name",
+      "source_sha256": "7c386576a081b6484f559d058fd283570e6645dc9879730a5153238694751f3e",
+      "before": "Pole sil Lv5",
+      "after": "Pole sił Lv5",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r129:name",
+      "source_sha256": "1bb0e8d77ccd0e5aa50b78725dea03bdd1d9a57ce3ee0e551ebdec34287db5fc",
+      "before": "Pole sil Lv4",
+      "after": "Pole sił Lv4",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r130:name",
+      "source_sha256": "7dec1e240c4ba1c8f316bfae39303d2a42572d99cf351d60603b4d6a1e90e931",
+      "before": "Pole sil Lv3",
+      "after": "Pole sił Lv3",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r131:name",
+      "source_sha256": "03029d5f47e1d4b0691ae90e2cdb01d956807f9f71a70dd98abee491792b00db",
+      "before": "Pole sil Lv2",
+      "after": "Pole sił Lv2",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r132:name",
+      "source_sha256": "63d1342ac46cef533e681030065ece65fe2f2812c62acd674b82d45f54641ed3",
+      "before": "Pole sil Lv1",
+      "after": "Pole sił Lv1",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r133:name",
+      "source_sha256": "07027bd025bb5fcb879bdde7e07da78bd243959d026725d6d2f0aa84457effbd",
+      "before": "Poza mapa",
+      "after": "Poza mapą",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r134:name",
+      "source_sha256": "ad2d354de3819c775978df519a089b842a9219dbbfce3bc7d9b51088dc00cce3",
+      "before": "Pole sil Lv5",
+      "after": "Pole sił Lv5",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r135:name",
+      "source_sha256": "4cfc0f522cc8e55e32a9503fab420cd68873b0058312d815c23533bc8d68f171",
+      "before": "Pole sil Lv4",
+      "after": "Pole sił Lv4",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r136:name",
+      "source_sha256": "6ab6f34107d22731afce647353a60ac065d88ff1b9a2dff891e380ba7c8e8e4c",
+      "before": "Pole sil Lv3",
+      "after": "Pole sił Lv3",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r137:name",
+      "source_sha256": "52dd8c56876611a33e4c8c12354ec5904b9cbd34ae58ac5619ee6daff73b74ab",
+      "before": "Pole sil Lv2",
+      "after": "Pole sił Lv2",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r138:name",
+      "source_sha256": "a48f389ddcd4a002653d81f81c1a36198eefe989417a70ba9a64cc42b2a113e5",
+      "before": "Pole sil Lv1",
+      "after": "Pole sił Lv1",
+      "max_cells": 12
+    },
+    {
+      "file": "10_map_terrain.jsonl",
+      "id": "terrain:lmap.cpk/attr.par:r139:name",
+      "source_sha256": "7bc7b8bf4e4d004c0f559611e7a8c8568779a5d5871c2a7929442bc7aa9fe392",
+      "before": "Poza mapa",
+      "after": "Poza mapą",
+      "max_cells": 12
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
   },
   "entries": 87823,
-  "data_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
+  "data_sha256": "4b249e93f0fddbbc224cacca4dd279a8e863190fbda917561a9b3e81d1a34dfd",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -95,6 +95,14 @@
       "previous_data_sha256": "1fc2050a17438b644c94be5f4ac25c27dfa7da14692a4bd676690a4b8ea2f0d4",
       "entries": 4,
       "operation": "source-bound additions",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-clipboard-2026-10-21.json",
+      "sha256": "f737cc43d7dc0980be4402e42e2abae18507b5abdf45376d9feb8dea6e0a19ee",
+      "previous_data_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
+      "entries": 51,
+      "operation": "source-bound PL edits",
       "runtime_tested": false
     }
   ],

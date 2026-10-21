@@ -63729,7 +63729,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:47919","pl":"Okręt Lv7","source_sha256":"262e03dba01789befaabc2a2fa60f9bf6398fb6f61ac1a21ceae1e69fac88e3a"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15086","pl":" Atakując: Obr+%","source_sha256":"263aa38f9be829f09b7617f7307b2924af83a762cc5d699da9b7b3f6feb03750"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:14503","pl":"<Podłożenie>＠","source_sha256":"263cb57134ca19737d0b56fe619c610ddc75fef58540f9fb0577b73f2306e363"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11647","pl":"Obrażenia＠230％＠0 mniej","source_sha256":"265eb8de42fdffe4aed2365643ad05fe46fb11347019bac9034ad709f9689b26"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11647","pl":"Obrażenia ＠230％＠0 mniej","source_sha256":"265eb8de42fdffe4aed2365643ad05fe46fb11347019bac9034ad709f9689b26"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:185126","pl":"ASURA","source_sha256":"266619669b36cea9db4f801d72d8cf4538cac896f5918454a65226bf3da1caab"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:14442","pl":"%s60\n%s","source_sha256":"2668b9a1267888a015e2a501a1db6de3076d735938de1069e09ed3a5eea796f9"}
 {"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:3470","pl":"Typ: bazooka Gigant","source_sha256":"266adcb15e2df8a5ba281c27ea53a9cb977cc002379c11530056d0e8edf84931"}
@@ -66834,7 +66834,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:3367","pl":"Obr/Unik+","source_sha256":"585af51cf6820bddbc548d9945d2f3eebdb07573ac87fca7acf6243b9e450383"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11547","pl":" Warunek: Koji, Tetsuya, Ryoma","source_sha256":"585b3442595adb1633e4fe3db645672a30ac6580bd9d9a6819158c8ae2c894a9"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:3730","pl":"Mur","source_sha256":"585ccbb3bb97cb9b4a5e8d534beac2c2698a8b2f7c3c28e04550aa4f2c4215f6"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11675","pl":"Premia do uniku＠230％＠0 więcej","source_sha256":"585fcb15492dfb99f566d23f8582bdb80e614cd0fdff75b5e960d4a747096a61"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11675","pl":"Premia do uniku ＠230％＠0 więcej","source_sha256":"585fcb15492dfb99f566d23f8582bdb80e614cd0fdff75b5e960d4a747096a61"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:11427","pl":"Sojusznicy obok: Atk/Unik+","source_sha256":"58604cbc8608ac5129605df690d86987504bdd879dcecaa22c41d28332fa5e6a"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:3926","pl":"SP+20%s\n%s\nOdnowa 1%s1%s","source_sha256":"586193522fcb6efa963cfba26ed7d5a2f5568023d21a718b127eadecd5ee47fc"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:5873","pl":"Domena zła","source_sha256":"586273eb36d1605df226f839944413c3f9051b37c0849d7add1651cc11612f16"}
@@ -67545,7 +67545,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:12607","pl":"w \"Ryu Grand Chief Shine Balm\"","source_sha256":"6365af93c565c792a66cb4d889111d898b01a944d82a783cc2e0f5ea9028be8a"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:8455","pl":"Atk/Obr/Cel/Unik/Kryt+","source_sha256":"636955b38a657d1d1b2a9122bd9057bbd407da6422028b12bb297eeb0b009d66"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:117689","pl":"Atk/Obr+35%","source_sha256":"636a4b0581c79be83c58aed252fa025e07c25655fae6423b2d8c6d5ca534646d"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11644","pl":"＠0Obrażenia＠230％＠0 mniej","source_sha256":"636e388ac5f93cfbd27edd91b87272f36088eea4c20154e24fb6ee5fa90a5e75"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11644","pl":"＠0Obrażenia ＠230％＠0 mniej","source_sha256":"636e388ac5f93cfbd27edd91b87272f36088eea4c20154e24fb6ee5fa90a5e75"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:17688","pl":"Łącznie tur","source_sha256":"63772ede14e3074b2dd578c08d089c6d27339de23b43fa2f4df20dd1ff3650a3"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:8902","pl":" Obr wroga-","source_sha256":"637f96285a7bc195ca7c58a83fa1064641155074a5efa406241d1001ca5e4d9d"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18448","pl":"＠0Sortuje jednostki od najwyższej obrony.","source_sha256":"6380f1c29d52af28b961d78a73021093890d01707a2d81f3ce249f75f1346692"}
@@ -70723,7 +70723,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:190983","pl":"As: Odnowa","source_sha256":"95e2d15ee85f10f18c15bf51a1eb7e9caf696f0b34b930adc961a66d292f0edb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:52614","pl":"Odnowa EN","source_sha256":"95e56821bcdaff944950db0bd82000ee041b499e0cca3229e06e4b153e174c0b"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Start tury: odnowa HP/EN obok","source_sha256":"95e64cfd0c1ba4027a688bf7e6a010711ba7d6a608e517ad4003150cd47b571f"}
-{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:14364","pl":"HP","source_sha256":"95e8ac82d3c56f79c8af13743101b54e8a8666b9dbdb9ae1e6039f926eb0a1db"}
+{"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:14364","pl":" Odnawia ","source_sha256":"95e8ac82d3c56f79c8af13743101b54e8a8666b9dbdb9ae1e6039f926eb0a1db"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:46218","pl":"Okręt-matka","source_sha256":"95ea5feaecf7959672ea20a1bd489441f65588ea05231d5b8951abeddde19665"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:442","pl":"Obr+","source_sha256":"95f60229cd59e1fa1d052be8d0f1b160b8a615ba56c6a5e2e45b1d12f55d2a26"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:6146","pl":"Pakiet EN","source_sha256":"95f72b6d065dd10fbf87e78ae376aef223856239ab3845d093c2853f745e077e"}
@@ -70738,7 +70738,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:181466","pl":"Zestrzel.: %s+6","source_sha256":"9614603e5abd816cd18f5abe1f683b884ebf82de37e279e8c01586d5a69d3d99"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:1522","pl":"Celny","source_sha256":"9620a1932be3825c61012e48228f22e30e561bc3d8694c72bf5cad264fb39343"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:110250","pl":"Psycoframe","source_sha256":"96221f0a9f4d982e63a13646367c28aaaaa6d3448b9716ef1afa30c0478842aa"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11672","pl":"＠0Premia do uniku＠230％＠0 więcej","source_sha256":"96251551a0e9b0ce90acb6b93f143fa5205c1b5680ec80e95f662d6941f5d778"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11672","pl":"＠0Premia do uniku ＠230％＠0 więcej","source_sha256":"96251551a0e9b0ce90acb6b93f143fa5205c1b5680ec80e95f662d6941f5d778"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31848","pl":"Wybierz rodzaj szukanej części.","source_sha256":"9625961acffd13c59e8176cf21d681f1fa6f168cd3f7e2f0a218a3618c0fd49c"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:7443","pl":"<Wybuch Lv","source_sha256":"96268dd1ef4e5838202624bcec1f031e4d656ffcd8457c2e72928c9aef4cf9cf"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:171266","pl":"Zwierzolud","source_sha256":"9631d10d6b0d808354092b3846088fe2661a8688c2bc0cce126ce64518581483"}
@@ -87710,46 +87710,46 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf526b","pl":"Duży","source_sha256":"fec9a337306fa5e14ce350e47f7480d4d9038bde8be7e2dc6d07db205ae3c4cb"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf82bc","pl":"Kleszcz","source_sha256":"ff4eb4e00cb933469f951db059e76078e0d2598312069c076ec266466f8c09aa"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e02","pl":"Cel,Unik+22","source_sha256":"ff6da567b103680c6258a983e27e94ada962a2863764210a73a18bb68adc98d1"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r57:name","pl":"Sniezka","source_sha256":"0215b5b9028c0b2d3412a45b9f696d008d39290fd09d4a0ffda9cb90690a58cf"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r131:name","pl":"Pole sil Lv2","source_sha256":"03029d5f47e1d4b0691ae90e2cdb01d956807f9f71a70dd98abee491792b00db"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r133:name","pl":"Poza mapa","source_sha256":"07027bd025bb5fcb879bdde7e07da78bd243959d026725d6d2f0aa84457effbd"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r57:name","pl":"Śnieżka","source_sha256":"0215b5b9028c0b2d3412a45b9f696d008d39290fd09d4a0ffda9cb90690a58cf"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r131:name","pl":"Pole sił Lv2","source_sha256":"03029d5f47e1d4b0691ae90e2cdb01d956807f9f71a70dd98abee491792b00db"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r133:name","pl":"Poza mapą","source_sha256":"07027bd025bb5fcb879bdde7e07da78bd243959d026725d6d2f0aa84457effbd"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r13:name","pl":"Pustkowie","source_sha256":"098beae48957fb0f2830efe147935d34ec7d4ea76c019e91a1c47171a5e58be0"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r73:name","pl":"Mucus G duza","source_sha256":"098c648594a040ca3d2e7444ee4d91fa56e8115e2092b4e5a517c849434042d8"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r73:name","pl":"Mucus G duża","source_sha256":"098c648594a040ca3d2e7444ee4d91fa56e8115e2092b4e5a517c849434042d8"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r22:name","pl":"Mechanizacja","source_sha256":"0b9747a34af62faf5ac67514a5dcc518d704c78c6277d8798664db67987bbbce"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r74:name","pl":"Las gorski","source_sha256":"0bcbfe400f590bcd0b4aea7b8e9ff5d256ef96240701d4b3715c9aa00e6e7827"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r74:name","pl":"Las górski","source_sha256":"0bcbfe400f590bcd0b4aea7b8e9ff5d256ef96240701d4b3715c9aa00e6e7827"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r26:name","pl":"Niebo","source_sha256":"0e566a2be20ad40c9154712591038100356a5158027432f5580990816b2a1dca"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r37:name","pl":"Meteoryt","source_sha256":"123a3674cc5f33e4760706cb19236d09d481fe9c29db9bec8a5f058f90cb6e5e"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r46:name","pl":"Skala piecz.","source_sha256":"12c530210929019437add8da1ef279ffc90c8353fe6050404a13ce260349570f"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r68:name","pl":"Komorki/Wyz.","source_sha256":"15409acebd0b9b0c1ed1c6226fd71f8e2d6d935d8a83d168f0249c797bdb5127"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r3:name","pl":"Wzgorze","source_sha256":"17299084b087b962b36d6833b5a8d937d445326077adbd8e6ffca6ac2af5d126"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r46:name","pl":"Skała piecz.","source_sha256":"12c530210929019437add8da1ef279ffc90c8353fe6050404a13ce260349570f"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r68:name","pl":"Komórki/Wyż.","source_sha256":"15409acebd0b9b0c1ed1c6226fd71f8e2d6d935d8a83d168f0249c797bdb5127"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r3:name","pl":"Wzgórze","source_sha256":"17299084b087b962b36d6833b5a8d937d445326077adbd8e6ffca6ac2af5d126"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r32:name","pl":"Morze","source_sha256":"18ff5cd678c0c6dc2677147d996844e058546154093fe95510093185b7a3098e"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r12:name","pl":"Miasto/Wzg.","source_sha256":"1ac6aabadfef8f914e239db7d72c4c54ee4b1b6f34259bf75e1a77d71847848b"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r129:name","pl":"Pole sil Lv4","source_sha256":"1bb0e8d77ccd0e5aa50b78725dea03bdd1d9a57ce3ee0e551ebdec34287db5fc"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r129:name","pl":"Pole sił Lv4","source_sha256":"1bb0e8d77ccd0e5aa50b78725dea03bdd1d9a57ce3ee0e551ebdec34287db5fc"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r43:name","pl":"Brama","source_sha256":"1cc1eb74e70e37ce8b5d47baeaa2d38ae7f68918164c47720d11b5d604bd1e5c"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r100:name","pl":"Twierdza Imp","source_sha256":"1fcf1d98a00e53e7eb6982802e9739155830bbc5eb11ae68eabfbad4ca540241"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r54:name","pl":"Urwisko","source_sha256":"231c1f282995be0b273a2586a974dcd53c83b36dc7aa17bb12aa967487150f6d"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r101:name","pl":"Lab. Saotome","source_sha256":"25e74df1b73eeffb8f4fa0d3ab22ff5e93437dfc84764f011de3f5d76a616cf8"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r30:name","pl":"Bud/Blokada","source_sha256":"2654568dd36ba1a5a870864e6ba38943b8395a3429997847d3074638b51fe4fc"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r51:name","pl":"Sciana","source_sha256":"2b482b0a2f55cb84842d4eb4643a78b8b3a74a61b397dbcd5705e55a8e842523"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r51:name","pl":"Ściana","source_sha256":"2b482b0a2f55cb84842d4eb4643a78b8b3a74a61b397dbcd5705e55a8e842523"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r61:name","pl":"Dom Kena","source_sha256":"2c2ca55898f7c8986e1630e1e121a995066fc79ce64ec2e2039c8520c1726eb1"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r53:name","pl":"Sniezne gory","source_sha256":"2db14d09ad5e3bd062623b6ffc6accd6f1ad9aa16a7990a4f122473212f36a7e"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r53:name","pl":"Śnieżne góry","source_sha256":"2db14d09ad5e3bd062623b6ffc6accd6f1ad9aa16a7990a4f122473212f36a7e"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r24:name","pl":"Brama","source_sha256":"3114c1401729cd6c48fe4b0de52e73cfd8a517e18016b105ba559b6ea3d31bf7"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r66:name","pl":"Komorki","source_sha256":"33ed920d5deffa669cac4932a77138f72f5609ff73d59d445fa10c29eba27eaa"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r66:name","pl":"Komórki","source_sha256":"33ed920d5deffa669cac4932a77138f72f5609ff73d59d445fa10c29eba27eaa"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r33:name","pl":"Rzeka","source_sha256":"3450df2f611a6ea2674b3c8fb88abb18fd095cbd9f67c6c6624011684001583e"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r10:name","pl":"Konstr./Wyz.","source_sha256":"3478b3e785b7a6ca86d195ab5a46e859b0f35e6a643c53bb375079b76229fc54"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r10:name","pl":"Konstr./Wyż.","source_sha256":"3478b3e785b7a6ca86d195ab5a46e859b0f35e6a643c53bb375079b76229fc54"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r45:name","pl":"Zbocze 2","source_sha256":"3615c443cde0367716fd11dab0c3bb35368c4830a1c14e5223d14ac49c8d25b4"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r59:name","pl":"Inny wymiar","source_sha256":"39ff92104dcee59816dc0ce9fa77de789ea8cd2eb83da3815634f638c1e6aa49"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r110:name","pl":"Swiatynia","source_sha256":"3b0ef07a60253972545a1881be2166d6bec957b4f9469f5cd9a44839bd22a94e"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r69:name","pl":"Kom.Wyz/Wzg.","source_sha256":"3cd9ae0913418a9d73c5d8ddef6ae88998f6d705f4487e33322265dd2fda1373"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r49:name","pl":"Skaly","source_sha256":"40df3c6edb3bf234ef69360f3b728829e25bbf2d45d7ed48b67df92f0d97c965"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r110:name","pl":"Świątynia","source_sha256":"3b0ef07a60253972545a1881be2166d6bec957b4f9469f5cd9a44839bd22a94e"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r69:name","pl":"Kom.Wyż/Wzg.","source_sha256":"3cd9ae0913418a9d73c5d8ddef6ae88998f6d705f4487e33322265dd2fda1373"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r49:name","pl":"Skały","source_sha256":"40df3c6edb3bf234ef69360f3b728829e25bbf2d45d7ed48b67df92f0d97c965"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r115:name","pl":"D.Ultaria","source_sha256":"414f785cfb6aea9622ec5647a39d39d824a845fb4325c21686caba276f698f12"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r1:name","pl":"Poza mapa","source_sha256":"440cc87fad797075965d991739e064a6f0f175c1f946e92a9a81cf1c26194af8"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r1:name","pl":"Poza mapą","source_sha256":"440cc87fad797075965d991739e064a6f0f175c1f946e92a9a81cf1c26194af8"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r94:name","pl":"Pomnik","source_sha256":"45d592f1e53c1d0a949b3ebb605fcf53f6a1b1247b0855c2ab9c6d063f9b6c3b"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r67:name","pl":"Komorki/Wzg.","source_sha256":"46d9e59c691e910b2f2ad09c5bab0bf2c1aa028b685a899e6a6e2f01e2fdf321"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r67:name","pl":"Komórki/Wzg.","source_sha256":"46d9e59c691e910b2f2ad09c5bab0bf2c1aa028b685a899e6a6e2f01e2fdf321"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r23:name","pl":"Inny wymiar","source_sha256":"49686ec5a150de894bcfe8bafcca32df93d437f5cdae56108acedab7ee8f4f6b"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r135:name","pl":"Pole sil Lv4","source_sha256":"4cfc0f522cc8e55e32a9503fab420cd68873b0058312d815c23533bc8d68f171"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r135:name","pl":"Pole sił Lv4","source_sha256":"4cfc0f522cc8e55e32a9503fab420cd68873b0058312d815c23533bc8d68f171"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r58:name","pl":"Magma","source_sha256":"4ee1a07ff84378cc5d2a29cf387ba00dd0a4d5f9898c01e49ce33a7a13ec124d"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r137:name","pl":"Pole sil Lv2","source_sha256":"52dd8c56876611a33e4c8c12354ec5904b9cbd34ae58ac5619ee6daff73b74ab"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r137:name","pl":"Pole sił Lv2","source_sha256":"52dd8c56876611a33e4c8c12354ec5904b9cbd34ae58ac5619ee6daff73b74ab"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r20:name","pl":"Brama","source_sha256":"557b9a95b895f15027a45679a4ed2c4918a2f0064ba9185e45484a98635bfffc"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r70:name","pl":"Zamek Arara","source_sha256":"5815eecdc2d0d74c9b68f9563f73ca12631d8c34ad104b0f0e05f5fd7db2097f"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r36:name","pl":"Kosmos","source_sha256":"59b1e9807407a00068864648980c8d4007e591b96c7c5406648cfcb709230f35"}
@@ -87757,67 +87757,67 @@
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r81:name","pl":"Grunt/Wzg.","source_sha256":"5bcecbee2b69286acfe6e3b140c5cfaff2bab332d8f2dcefbf622348fcdc2dcc"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r48:name","pl":"Mechanizator","source_sha256":"5d2b1a49e82079aff12cfd1cf2ec2d41123920f606f8d8d36a5ecfe32277edd0"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r95:name","pl":"Stare ruiny","source_sha256":"5e0e96f2524e68d14a2b39a7437c8526ad16d0de9a1de35880adc0f55b070f63"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r87:name","pl":"JaskWyz/Wzg.","source_sha256":"5e40c9523d93a9c27b09db6900c0c8a28a5ea2803aa2c8e8bc99cedb17ffe867"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r132:name","pl":"Pole sil Lv1","source_sha256":"63d1342ac46cef533e681030065ece65fe2f2812c62acd674b82d45f54641ed3"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r87:name","pl":"JaskWyż/Wzg.","source_sha256":"5e40c9523d93a9c27b09db6900c0c8a28a5ea2803aa2c8e8bc99cedb17ffe867"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r132:name","pl":"Pole sił Lv1","source_sha256":"63d1342ac46cef533e681030065ece65fe2f2812c62acd674b82d45f54641ed3"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r40:name","pl":"Jaskinia/P1","source_sha256":"69e794dd0b9bdc0e3089fb74af3bedfe8d6c46e06d969db5d37591363a638ba3"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r136:name","pl":"Pole sil Lv3","source_sha256":"6ab6f34107d22731afce647353a60ac065d88ff1b9a2dff891e380ba7c8e8e4c"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r136:name","pl":"Pole sił Lv3","source_sha256":"6ab6f34107d22731afce647353a60ac065d88ff1b9a2dff891e380ba7c8e8e4c"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r41:name","pl":"Jaskinia/P2","source_sha256":"72f5cfbe223388c835e96617dfe1d0b028b4f13438431b1c80c38a29c7a1d10f"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r21:name","pl":"Ruiny","source_sha256":"73ae7cdef694df8a3e93040434399e90c97774baac6c15f5d79f529aa959b3a3"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r78:name","pl":"Kom./Wyrwa","source_sha256":"757959d32b4594ac57b829bcded20f918ca1a1cf533ee1b08dbeaf47d60608b0"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r71:name","pl":"Mucus G mala","source_sha256":"78cb8835208b3e618e0072fc936c67a7ab4cdcf1e2a8020686b3a42b4e7e1eb7"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r139:name","pl":"Poza mapa","source_sha256":"7bc7b8bf4e4d004c0f559611e7a8c8568779a5d5871c2a7929442bc7aa9fe392"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r128:name","pl":"Pole sil Lv5","source_sha256":"7c386576a081b6484f559d058fd283570e6645dc9879730a5153238694751f3e"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r71:name","pl":"Mucus G mała","source_sha256":"78cb8835208b3e618e0072fc936c67a7ab4cdcf1e2a8020686b3a42b4e7e1eb7"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r139:name","pl":"Poza mapą","source_sha256":"7bc7b8bf4e4d004c0f559611e7a8c8568779a5d5871c2a7929442bc7aa9fe392"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r128:name","pl":"Pole sił Lv5","source_sha256":"7c386576a081b6484f559d058fd283570e6645dc9879730a5153238694751f3e"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r88:name","pl":"Grunt","source_sha256":"7d614c2b9c84e2d404a429fce17367c241065d9a293e1385100f07a9d99b16bf"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r130:name","pl":"Pole sil Lv3","source_sha256":"7dec1e240c4ba1c8f316bfae39303d2a42572d99cf351d60603b4d6a1e90e931"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r130:name","pl":"Pole sił Lv3","source_sha256":"7dec1e240c4ba1c8f316bfae39303d2a42572d99cf351d60603b4d6a1e90e931"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r28:name","pl":"Mur zamku","source_sha256":"804278a735e8ae70f2840f2dfc405218092491e73b2ef06771fb7ddd5b25e0ea"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r55:name","pl":"Bez kursora","source_sha256":"82b6bb506d1811345857c7fb79f051b62ecde7c6e5775df3d3259a646dbaa717"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r103:name","pl":"Szk.Harukaze","source_sha256":"85675316f12deac5f972b0e5df5ec072604d216af151204f30a14ccf8541ff7f"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r27:name","pl":"Skala","source_sha256":"89782eda6409dd6ebd071ddf44d531b89f0ad830d6596973928b2f3028b6b89d"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r27:name","pl":"Skała","source_sha256":"89782eda6409dd6ebd071ddf44d531b89f0ad830d6596973928b2f3028b6b89d"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r52:name","pl":"Magma","source_sha256":"8e8dc442c9ea519509daa99fec1e814c21d3538472521158c6c1c0ecc27cabd9"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r4:name","pl":"Wyzyna","source_sha256":"8ebcbdb741b6c56e75591e83c324d6d23ada073b0877bd1fed2059a0f0846588"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r4:name","pl":"Wyżyna","source_sha256":"8ebcbdb741b6c56e75591e83c324d6d23ada073b0877bd1fed2059a0f0846588"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r80:name","pl":"Grunt","source_sha256":"90c12431c335d8f2682064e868e1ed815a023fe046ee37edf62c45c4a1e16ed6"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r82:name","pl":"Grunt/P1","source_sha256":"91c5f1c9b7bd2955610070c8e41e917cd135183db51633d3801ddee1e1e19a24"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r63:name","pl":"Meteoryt","source_sha256":"92c158752f38600465a270c68baf3712c17bf5901ff0454a7c97811859b24ce4"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r16:name","pl":"Snieg/Wzg.","source_sha256":"93797d814728a6caef09e3016cb4e74a9da12419c0aca16262e73601513d16ba"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r16:name","pl":"Śnieg/Wzg.","source_sha256":"93797d814728a6caef09e3016cb4e74a9da12419c0aca16262e73601513d16ba"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r89:name","pl":"Grunt/Wzg.","source_sha256":"93ba11338aa089c8bbc9ca721f24e541de95feb27d73d8697862b698050cc858"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r6:name","pl":"Las","source_sha256":"93c4ae6ce7b5c8c12aa1c8e3530cec8c0795d4118d13abe91391cbced729dc36"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r29:name","pl":"Komorki DG","source_sha256":"a07b090b1bd7bbf39bc4ecf69cafcb916ad18609b581cde6eb442476d6cd2ba5"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r29:name","pl":"Komórki DG","source_sha256":"a07b090b1bd7bbf39bc4ecf69cafcb916ad18609b581cde6eb442476d6cd2ba5"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r42:name","pl":"Jaskinia","source_sha256":"a0d0a520bd9872a326d7751c2df0e3ff7945725fc3f2ee551f3d5ce946792cd7"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r138:name","pl":"Pole sil Lv1","source_sha256":"a48f389ddcd4a002653d81f81c1a36198eefe989417a70ba9a64cc42b2a113e5"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r138:name","pl":"Pole sił Lv1","source_sha256":"a48f389ddcd4a002653d81f81c1a36198eefe989417a70ba9a64cc42b2a113e5"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r44:name","pl":"Zbocze","source_sha256":"a77b9a5d04827a4692d3f49ac1de5c733596ec10811a77d518b81f66567d3655"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r39:name","pl":"Jaskinia","source_sha256":"a7d7dd4a66206c6e0f3665750f7049bec8fd080888336fbc8f79a7bce56c46ef"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r31:name","pl":"Bud/Bez lotu","source_sha256":"a8661d7ae3926601a5d81a68d3b3d76f5d4d91dc3a06f5867cf75af781862f82"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r90:name","pl":"Grunt/P1","source_sha256":"a90249864293a29a237357c257ebc5110a092a350237d78edf83f25948aeca0c"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r8:name","pl":"Konstrukcja","source_sha256":"ab55fdbf86b5d685ace9bcc771dfc783837f547f2777f990faa8b7cfb69e1c09"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r134:name","pl":"Pole sil Lv5","source_sha256":"ad2d354de3819c775978df519a089b842a9219dbbfce3bc7d9b51088dc00cce3"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r134:name","pl":"Pole sił Lv5","source_sha256":"ad2d354de3819c775978df519a089b842a9219dbbfce3bc7d9b51088dc00cce3"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r35:name","pl":"Kom.DG/Blok.","source_sha256":"adc85341c2cbf3b45a528445a21cb40d85736c07e426dd8975046b4e4bc5f805"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r102:name","pl":"Szk. Aozora","source_sha256":"ae652efff2fe35d2b12ca2a183842e8d2bbd31b62aa2c1be6feb988b23c0d815"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r19:name","pl":"Brama","source_sha256":"b57281207cef3a9a2e2b75cf583ed3b847148910445cacf4a77c2824dd3eeaed"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r15:name","pl":"Sniezne pole","source_sha256":"bc16b98f78071259dbab7ad753529f9a198c7e575ecb9ae3b0a96bf1fe2f5909"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r7:name","pl":"Las/Wzgorze","source_sha256":"bc2d7c1a57d9edc8dd02a2c418ab694731cc7e92cd24a8675a2b645ff034d840"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r15:name","pl":"Śnieżne pole","source_sha256":"bc16b98f78071259dbab7ad753529f9a198c7e575ecb9ae3b0a96bf1fe2f5909"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r7:name","pl":"Las/Wzgórze","source_sha256":"bc2d7c1a57d9edc8dd02a2c418ab694731cc7e92cd24a8675a2b645ff034d840"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r11:name","pl":"Miasto","source_sha256":"bc352b7544607eaa1134601866b7cae0e03c9f600b74f1ad22d7b0fcba1e8f93"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r93:name","pl":"Tw. Mucus","source_sha256":"c02c0e06fce4fcec1dcc4c957ae2fc092b0fa9f6bf830395307c577e6c0cd355"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r2:name","pl":"Rownina","source_sha256":"c082e4fad99da6724fad25d461397db1c02fb06fb20a1811eb891018805f7e8c"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r86:name","pl":"Jask./Wyz.","source_sha256":"c1ba3ab71900217920829959942720887868f501dabdc50c0f9998f5e13b2871"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r75:name","pl":"Las gor./Wzg","source_sha256":"c38f0eae61b145290d9af27ec4cd1d30e2f373168f621d5f15388b3b46b35d83"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r2:name","pl":"Równina","source_sha256":"c082e4fad99da6724fad25d461397db1c02fb06fb20a1811eb891018805f7e8c"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r86:name","pl":"Jask./Wyż.","source_sha256":"c1ba3ab71900217920829959942720887868f501dabdc50c0f9998f5e13b2871"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r75:name","pl":"Las gór./Wzg","source_sha256":"c38f0eae61b145290d9af27ec4cd1d30e2f373168f621d5f15388b3b46b35d83"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r91:name","pl":"Grunt/P2","source_sha256":"c6c2fe9848e9d6888a35d53a944d2d3aa74f0346c2aea9d76f58cfe8cc10a2cd"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r72:name","pl":"Mucus G sred","source_sha256":"ca4d5966952d2da52d66fdb818ec6b41498b4dd9dd38aac9e7fcd6d5c8a08e81"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r72:name","pl":"Mucus G śred","source_sha256":"ca4d5966952d2da52d66fdb818ec6b41498b4dd9dd38aac9e7fcd6d5c8a08e81"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r64:name","pl":"Konstr./Blok","source_sha256":"ca9b652081d2079d51af7e513501bd445e28ddbf21d7bb337c384ceed22e2a76"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r85:name","pl":"Jask./Wzg.","source_sha256":"d04d31d5c63d9c79ed9195f233611abf5c65083367dbf04f0c1b868a263b06cf"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r47:name","pl":"Poza mapa","source_sha256":"d21879b71d99d8f8c3c497efe2d40d3c88de194e126343b083974c93bcde6523"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r18:name","pl":"Sn.gory/Wzg.","source_sha256":"d4d3ff5f5bdeca2351b5138ca151014069f12aa3ad2215cde26106824e4ee0a2"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r47:name","pl":"Poza mapą","source_sha256":"d21879b71d99d8f8c3c497efe2d40d3c88de194e126343b083974c93bcde6523"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r18:name","pl":"Śn.góry/Wzg.","source_sha256":"d4d3ff5f5bdeca2351b5138ca151014069f12aa3ad2215cde26106824e4ee0a2"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r65:name","pl":"Konstr./Lot","source_sha256":"d4ff6f5b2ca6221703da87574a417d2d7119c26f585eeb5f8e8499b9a0f32a71"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r120:name","pl":"Urz. niszcz.","source_sha256":"d97b4a9e8cdf3865a4757fffb7eb22ffd28099c44b13a71c64ca5bc69cf52fab"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r9:name","pl":"Konstr./Wzg.","source_sha256":"de7cb84665eca38ae07deb0bc280840d64d4a0ac5f860d53a5866cea6bbadf29"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r38:name","pl":"Konstr.kosm.","source_sha256":"e11741e5e1f577ee1a58cadd3a749410091e2bc9b29ea93c18b3fc6cd262704b"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r25:name","pl":"Budynek","source_sha256":"e3aafa425d474216c79d0550de3d19eeb14e7ce4d83d7e31c628c9ed5777dc9f"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r14:name","pl":"Pustk./Wzg.","source_sha256":"e5236d984efc4090cd8fadee99d4f5305663364f80f6c24ef00efc80d5a7efd9"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r60:name","pl":"Podstawowka","source_sha256":"e6d3bbd289d81feb93348e3b26db5c17f740dfcada0270a90b710a2e9a894261"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r17:name","pl":"Sniezne gory","source_sha256":"e6db9a0b5118240198c4270d1cd4626b4b03aa50cb7104eb8156c76387d78ccc"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r60:name","pl":"Podstawówka","source_sha256":"e6d3bbd289d81feb93348e3b26db5c17f740dfcada0270a90b710a2e9a894261"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r17:name","pl":"Śnieżne góry","source_sha256":"e6db9a0b5118240198c4270d1cd4626b4b03aa50cb7104eb8156c76387d78ccc"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r111:name","pl":"Zamek mech.","source_sha256":"e74e0cc86daefd9c168918b48aba7b6838ed7c1715e5b26bb393d4cf5faa7a1c"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r34:name","pl":"Las/Lot","source_sha256":"eb4528e55783e91f401fcb336b744e32f3633bfc6aba6d521330b9d2613a620f"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r83:name","pl":"Grunt/P2","source_sha256":"ecb94d9cdf9885f84f1992cb00dd8798cafb04b78411ee4c1e3f971b508af4e5"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r105:name","pl":"Wieza centr.","source_sha256":"edcaf7f7d3a28954498d436e1367c3c1f420eb4da1b284ace349071861db65af"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r50:name","pl":"Brak wstepu","source_sha256":"f26d5a17352e85bad857f57099887aefcd5bdf74e04eca54187494ecbbd52151"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r105:name","pl":"Wieża centr.","source_sha256":"edcaf7f7d3a28954498d436e1367c3c1f420eb4da1b284ace349071861db65af"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r50:name","pl":"Brak wstępu","source_sha256":"f26d5a17352e85bad857f57099887aefcd5bdf74e04eca54187494ecbbd52151"}
 {"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r56:name","pl":"Dziura","source_sha256":"f776b79a287042ab0f79701dbfdeae0aed8bcac564fa807ebe4a64f7c7fb4873"}
-{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r5:name","pl":"Wyzyna/Wzg.","source_sha256":"fffbb2e8a4117f6b3d1703f2e1aad10356034deb3be73264a18f7243f1cc0d3d"}
+{"file":"10_map_terrain.jsonl","id":"terrain:lmap.cpk/attr.par:r5:name","pl":"Wyżyna/Wzg.","source_sha256":"fffbb2e8a4117f6b3d1703f2e1aad10356034deb3be73264a18f7243f1cc0d3d"}
