@@ -222,13 +222,23 @@ def render_caption(font_path: Path, text: str, size: int, fill: RGBA, outline: R
 
 # ---------------------------------------------------------------- main entry
 
-def _clear_box(px, clear: Tuple[int, int, int, int], bg_col, bg: RGBA, opaque_only: bool) -> None:
+def _clear_box(px, clear: Tuple[int, int, int, int], bg_col, bg: RGBA, opaque_only: bool,
+               bg_row_inset: Optional[str] = None) -> None:
     """Repaint ``clear`` with ``bg`` (or, per row, the pixel of column ``bg_col``).
 
     The column is sampled BEFORE any pixel of the row is overwritten, so ``bg_col`` may even
     lie inside the box.  With ``opaque_only`` pixels that are transparent in the original
-    are left alone (slanted / hexagonal banner ends)."""
+    are left alone (slanted / hexagonal banner ends).  With ``bg_row_inset == 'right_inner'``
+    each row keeps its first/last opaque bevel pixels intact and fills interior opaque pixels
+    from ``opaque_xs[-2]`` (1 px inside the right border)."""
     for y in range(clear[1], clear[3]):
+        if bg_row_inset == "right_inner":
+            opaque_xs = [x for x in range(clear[0], clear[2]) if px[x, y][3] > 0]
+            if len(opaque_xs) >= 3:
+                row_bg = px[opaque_xs[-2], y]
+                for x in opaque_xs[1:-1]:
+                    px[x, y] = row_bg
+            continue
         row_bg = px[int(bg_col), y] if bg_col is not None else bg
         for x in range(clear[0], clear[2]):
             if opaque_only and px[x, y][3] == 0:
@@ -259,7 +269,8 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         # Language-scoped atlas repair: EN geometry remains byte-for-byte unchanged.
         if text_codec.lang() == 'pl' and 'pl_layout' in lab:
             layout = lab['pl_layout']
-            allowed = {'box','clear','size','min_size','squeeze','align','bg','fill','outline'}
+            allowed = {'box','clear','size','min_size','squeeze','align','bg','fill','outline',
+                       'clear_opaque_only','bg_from_column','bg_row_inset'}
             if not isinstance(layout, dict) or set(layout) - allowed:
                 raise LabelError('invalid PL label layout override')
             lab = {**lab, **layout}
@@ -288,7 +299,8 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
             if bg_col is not None and not 0 <= int(bg_col) < w:
                 res.error = f"bg_from_column {bg_col} outside the texture"
                 continue
-            _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")))
+            _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")),
+                       lab.get("bg_row_inset"))
             res.erased = True
             continue
         fill = _rgba(lab.get("fill") or spec.get("fill"), fill_o)
@@ -314,7 +326,8 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         if bg_col is not None and not 0 <= int(bg_col) < w:
             res.error = f"bg_from_column {bg_col} outside the texture"
             continue
-        _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")))
+        _clear_box(px, clear, bg_col, bg, bool(lab.get("clear_opaque_only")),
+                   lab.get("bg_row_inset"))
         align = lab.get("align", "left")
         bw, bh = box[2] - box[0], box[3] - box[1]
         if align == "center":
