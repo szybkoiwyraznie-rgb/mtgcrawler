@@ -1,9 +1,45 @@
-# Super Robot Wars OE — częściowy patcher PL (PL4)
+# Super Robot Wars OE — pełny polski patcher (v3.0 — finalny przekład PL5)
 
-Paczka buduje polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
-odszyfrowanym DLC NPJH50521. Nie zawiera plików gry ani gotowego ISO.
+Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
+odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
 
-## Najnowszy import PL4 — v2.7 (2026-10-20)
+## Finalne pełne wydanie PL — v3.0 (`PL5.zip`, 2026-10-21)
+
+Zintegrowano kompletny zwrot tłumacza **`PL5.zip`**:
+- **Wszystkie 36 plików scen (`epizod-00` – `epizod-34` oraz `simulator`)**:
+  przetłumaczone i zredagowane **49 144 / 49 146** widocznych elementów fabuły
+  oraz symulatora (jedyne 2 puste sloty w całej grze to czysto strukturalne
+  spacje JP: `dlg:eventP01.EDAT/DL105_40.bin:696` oraz
+  `dlg:eventP08.EDAT/DL833_60.bin:432`), w tym pełna korekta językowa także
+  wcześniejszych odcinków `00–21`.
+- **Pełne `cytaty.md` (kwestie bitewne)**: **19 841 / 19 841** wypełnionych
+  elementów po pełnej korekcie językowej, rodzajowej i łamania wierszy.
+- **Spójność imion, tytułów i terenu (`postacie.md`, `teksty-misji.md`, `teren.md`)**:
+  ujednolicone nazwy mówiących w dialogach (`Lesca`, `Misza`, `Pan Shinoda`,
+  `Pan Nakajima`, `Pani Yayoi`, `Pani Aiko`, `Pani Himeki`, `Kpt. Kusanagi`,
+  `Kapral Giroro`, `Szeregowy Tamama`, `Starszy szeregowy Dororo`), tytuł
+  `Ep. 25-2: Ku Ostrzu Ziemi` oraz teren `Zamek Arary`.
+- **Zachowane 100% wszystkich `1 385` wiązań poprawek UI, schowka, Eldrana,
+  Duchów, 32 wypromowanych tytułów/notatek misji, kodu naprawy bufora nazw
+  (`8 -> 32 B`) oraz natywnego fontu PL v5 (18 polskich znaków diakrytycznych).**
+- Walidator pakietu: **108 812 / 109 176** wypełnionych wierszy, **0 błędów twardych**,
+  miękkie ostrzeżenia długości/układu zredukowane z `25 165` do **4 169**
+  (pozostałe 364 puste wiersze to wyłącznie skwarantannowane artefakty binarne
+  i literały silnika bez fallbacku do EN). Testy automatyczne i odczyt binarny
+  nie zastępują pełnego runtime QA całej gry w PPSSPP.
+
+**Instalacja / aktualizacja do v3.0 (wymagane i `patched.iso`, i cały katalog `DLC\`):**
+1. Rozpakuj paczkę do nowego folderu i uruchom `PATCH.bat`.
+2. Wskaż czyste, oryginalne japońskie ISO **SRW OE 1.08** oraz pełny folder
+   odszyfrowanego DLC (`NPJH50521`) — **nie nakładaj patcha na wcześniej spatchowane ISO**.
+3. Podmień w PPSSPP zarówno wygenerowane `output\patched.iso`, jak i wszystkie
+   wygenerowane pliki z `output\DLC\` w `memstick\PSP\GAME\NPJH50521\`.
+   Zachowaj swoje zwykłe zapisy gry (wczytuj normalny zapis po zimnym starcie gry,
+   nie stary save-state).
+
+---
+
+## Historia wcześniejszych wydań częściowych — import PL4 (v2.7, 2026-10-20)
 
 Paczka patchera **v2.7-PL4** zawiera 91 plików; po pobraniu sprawdź hash
 z przekazania wydania.

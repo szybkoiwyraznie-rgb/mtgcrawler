@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and verify the current EN + partial PL patchers together, without game data."""
+"""Build and verify the current EN + PL patchers together, without game data."""
 import argparse
 import hashlib
 import json
@@ -32,8 +32,8 @@ def verify_pair(out,version):
                 if b'--lang pl'not in z.read('PATCH.bat')or b'--lang pl'not in z.read('CHECK_DLC.bat'):
                     raise ValueError('wrong PL launcher/checker')
                 coverage=json.loads(z.read('translation/PL_COVERAGE.json'))
-                if not coverage['partial']or coverage['totals']['errors']:
-                    raise ValueError('invalid/missing partial PL coverage')
+                if not isinstance(coverage.get('partial'),bool)or coverage['totals']['errors']:
+                    raise ValueError('invalid/missing PL coverage')
                 (out/'PL_COVERAGE.json').write_text(json.dumps(coverage,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         records[lang]=dict(name=name,bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())
     return records
@@ -49,9 +49,10 @@ def build(out,version):
         subprocess.run([sys.executable,str(ROOT/'tools/build_distribution.py'),'--lang',lang,
                         '--version',version,'--out',str(out.resolve())],cwd=ROOT,check=True)
     records=verify_pair(out,version)
+    coverage=json.loads((out/'PL_COVERAGE.json').read_text(encoding='utf-8'))
     (out/'SHA256SUMS.txt').write_text(''.join(f'{r["sha256"]}  {r["name"]}\n'for r in records.values()),encoding='ascii')
     (out/'RELEASE_PAIR.json').write_text(json.dumps(dict(version=version,artifacts=records,
-        PL_partial=True,game_binaries_included=False),indent=2)+'\n',encoding='utf-8')
+        PL_partial=bool(coverage['partial']),game_binaries_included=False),indent=2)+'\n',encoding='utf-8')
     return records
 
 

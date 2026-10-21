@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "kind": "partial PL text-only release snapshot",
+  "kind": "PL text-only release snapshot",
   "source_return": {
-    "name": "PL4.zip",
-    "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931"
+    "name": "PL5.zip",
+    "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
-  "entries": 87823,
-  "data_sha256": "535967dc033def57a46b2742df52c91d57f3fb319310494966f30a3cb0b2fcdf",
+  "entries": 108794,
+  "data_sha256": "b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -116,52 +116,93 @@
   ],
   "merge_provenance": {
     "source_archive": {
-      "name": "PL4.zip",
-      "bytes": 5254438,
-      "sha256": "974d99cea64aa4e96fc14e464c16695ef8e51695e3680d30ff2892a825a20931",
+      "name": "PL5.zip",
+      "bytes": 7473101,
+      "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a",
+      "md5": "2638a4223051fc5aec900293285ebbaf",
       "crc_test_passed": true,
-      "md_files": 31,
-      "story_episodes": "00-21",
-      "views": "all 9 returned views"
+      "members_total": 49,
+      "md_files": 45,
+      "story_episodes": "00-34",
+      "simulator_included": true,
+      "scene_files": 36,
+      "views": "all 9 returned views audited; 40 clean views imported directly, 5 UI-overlaid views bit-identical after owner UI preservation"
     },
-    "base_snapshot_data_sha256": "06acd106a5294dca65505e69ead4349a345e078f81c83a9ae5903a52ef903bce",
+    "base_snapshot_data_sha256": "535967dc033def57a46b2742df52c91d57f3fb319310494966f30a3cb0b2fcdf",
+    "pre_promotion_fingerprint": "70c6aad517a69b7cbd8cd01c76b6f3a5b14e4fbd3661bcc59aabbbd36fac112d",
     "strict_source_bound_import": {
-      "elements_with_text": 67143,
+      "views_imported": 40,
+      "elements_with_text": 63479,
+      "imported_changed": 17824,
+      "unchanged": 45655,
       "unknown": 0,
       "rejected": 0,
       "duplicates": 0,
-      "view_roundtrip_explicit": 67143,
-      "view_roundtrip_mismatches": 0
+      "view_roundtrip_explicit": 63479,
+      "view_roundtrip_backing_rows": 71783,
+      "view_roundtrip_mismatches": 0,
+      "full_45_view_equivalence_diffs": 0
     },
     "preservation": {
-      "reviewed_owner_bindings": 1283,
-      "restored_bindings": 1283,
-      "view_blocks_overlaid": 1251,
+      "owner_ui_plans": 14,
+      "reviewed_owner_bindings": 1385,
+      "restored_rows": 1385,
       "promoted_mission_rows_restored": 32,
-      "all_527_title_slots_retained": "v2.6 proof unchanged",
-      "v2_6_owner_changes": [
-        "compact UI labels",
-        "10 mission title slots",
-        "527-title readback audited",
-        "Spirit aliases",
-        "terrain/executable/system text"
-      ],
-      "engineering_code_kept_in_current_toolkit": [
-        "accepted cache fix",
-        "font v5"
+      "preserved_features": [
+        "all 14 reviewed owner UI/Eldran/clipboard/Zaku/compact-label/Spirit/terrain/executable plans",
+        "32 promoted mission notes/titles",
+        "menu name cache tail repair (8 -> 32 B)",
+        "native font v5 (18 Polish diacritic glyphs)"
       ]
     },
     "new_translation_delta": {
-      "new_nonempty_package_rows": 22185,
-      "changed_previously_nonempty_rows": 6,
-      "affected_source_edat_count": 25,
-      "affected_source_edats": [
+      "new_nonempty_package_rows": 20971,
+      "changed_previously_nonempty_rows": 760,
+      "newly_emptied_rows": 0,
+      "per_file": {
+        "00_dialogue.jsonl": {
+          "newly_filled": 20971,
+          "changed_nonempty": 581,
+          "newly_emptied": 0
+        },
+        "01_battle_quotes.jsonl": {
+          "newly_filled": 0,
+          "changed_nonempty": 137,
+          "newly_emptied": 0
+        },
+        "05_mission_text.jsonl": {
+          "newly_filled": 0,
+          "changed_nonempty": 2,
+          "newly_emptied": 0
+        },
+        "07_names_characters.jsonl": {
+          "newly_filled": 0,
+          "changed_nonempty": 39,
+          "newly_emptied": 0
+        },
+        "10_map_terrain.jsonl": {
+          "newly_filled": 0,
+          "changed_nonempty": 1,
+          "newly_emptied": 0
+        }
+      },
+      "affected_source_container_count": 49,
+      "affected_source_containers": [
+        "config00.cpk",
+        "config01.EDAT",
+        "config03.EDAT",
+        "config05.EDAT",
+        "config06.EDAT",
+        "eventP00.cpk",
         "eventP01.EDAT",
         "eventP02.EDAT",
         "eventP03.EDAT",
         "eventP04.EDAT",
         "eventP05.EDAT",
         "eventP06.EDAT",
+        "eventP07.EDAT",
+        "eventP08.EDAT",
+        "eventP09.EDAT",
         "eventP13.EDAT",
         "eventP20.EDAT",
         "eventP21.EDAT",
@@ -173,6 +214,9 @@
         "eventP27.EDAT",
         "eventP28.EDAT",
         "eventP29.EDAT",
+        "eventP30.EDAT",
+        "eventP31.EDAT",
+        "eventP32.EDAT",
         "evept101.EDAT",
         "evept102.EDAT",
         "evept103.EDAT",
@@ -180,178 +224,392 @@
         "evept105.EDAT",
         "evept106.EDAT",
         "evept107.EDAT",
-        "evept108.EDAT"
-      ]
+        "evept108.EDAT",
+        "imenu00.cpk",
+        "imenu01.EDAT",
+        "imenu03.EDAT",
+        "imenu05.EDAT",
+        "lmap.cpk",
+        "mesbtl00.cpk",
+        "mesbtl01.EDAT",
+        "mesbtl02.EDAT",
+        "mesbtl03.EDAT",
+        "mesbtl04.EDAT",
+        "mesbtl10.EDAT",
+        "mesbtl19.EDAT"
+      ],
+      "affected_rows_by_container": {
+        "config00.cpk": 17,
+        "config01.EDAT": 4,
+        "config03.EDAT": 3,
+        "config05.EDAT": 6,
+        "config06.EDAT": 1,
+        "eventP00.cpk": 16,
+        "eventP01.EDAT": 92,
+        "eventP02.EDAT": 72,
+        "eventP03.EDAT": 78,
+        "eventP04.EDAT": 103,
+        "eventP05.EDAT": 95,
+        "eventP06.EDAT": 3021,
+        "eventP07.EDAT": 3397,
+        "eventP08.EDAT": 4921,
+        "eventP09.EDAT": 2,
+        "eventP13.EDAT": 2,
+        "eventP20.EDAT": 6,
+        "eventP21.EDAT": 6,
+        "eventP22.EDAT": 5,
+        "eventP23.EDAT": 3,
+        "eventP24.EDAT": 7,
+        "eventP25.EDAT": 5,
+        "eventP26.EDAT": 9,
+        "eventP27.EDAT": 6,
+        "eventP28.EDAT": 3,
+        "eventP29.EDAT": 6,
+        "eventP30.EDAT": 82,
+        "eventP31.EDAT": 12,
+        "eventP32.EDAT": 12,
+        "evept101.EDAT": 21,
+        "evept102.EDAT": 3,
+        "evept103.EDAT": 1865,
+        "evept104.EDAT": 2775,
+        "evept105.EDAT": 2194,
+        "evept106.EDAT": 190,
+        "evept107.EDAT": 210,
+        "evept108.EDAT": 2334,
+        "imenu00.cpk": 4,
+        "imenu01.EDAT": 1,
+        "imenu03.EDAT": 1,
+        "imenu05.EDAT": 3,
+        "lmap.cpk": 1,
+        "mesbtl00.cpk": 90,
+        "mesbtl01.EDAT": 30,
+        "mesbtl02.EDAT": 8,
+        "mesbtl03.EDAT": 4,
+        "mesbtl04.EDAT": 2,
+        "mesbtl10.EDAT": 1,
+        "mesbtl19.EDAT": 2
+      }
     },
     "validator": {
       "rows": 109176,
-      "filled": 87794,
-      "empty": 21382,
+      "filled": 108805,
+      "empty": 371,
       "errors": 0,
-      "warnings": 25165
+      "warnings": 4169
     },
-    "episode_00_21": {
-      "visible_elements": 28079,
-      "filled_elements": 28078,
-      "only_empty": {
-        "episode": "05",
-        "scene": "evidenced by exact binding from readback",
-        "reason": "JP whitespace-only structural row",
-        "source_row_id": "dlg:eventP01.EDAT/DL105_40.bin:696"
-      },
-      "per_episode": {
+    "scenes_all_36": {
+      "files": 36,
+      "visible_elements": 49146,
+      "filled_elements": 49144,
+      "explicit_pl_elements": 40462,
+      "empty_elements": 2,
+      "structural_whitespace_empties": [
+        {
+          "episode": "05",
+          "source_row_id": "dlg:eventP01.EDAT/DL105_40.bin:696",
+          "reason": "JP whitespace-only structural row"
+        },
+        {
+          "episode": "33",
+          "source_row_id": "dlg:eventP08.EDAT/DL833_60.bin:432",
+          "reason": "JP whitespace-only structural row"
+        }
+      ],
+      "per_scene": {
         "epizod-00.md": {
           "visible": 273,
           "filled": 273,
+          "explicit_pl": 273,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-01.md": {
           "visible": 1452,
           "filled": 1452,
+          "explicit_pl": 1108,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-02.md": {
           "visible": 2416,
           "filled": 2416,
+          "explicit_pl": 1472,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-03.md": {
           "visible": 1601,
           "filled": 1601,
+          "explicit_pl": 1545,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-04.md": {
           "visible": 1264,
           "filled": 1264,
+          "explicit_pl": 792,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-05.md": {
           "visible": 1299,
           "filled": 1298,
+          "explicit_pl": 1298,
           "empty": 1,
           "unresolved": 0
         },
         "epizod-06.md": {
           "visible": 1034,
           "filled": 1034,
+          "explicit_pl": 829,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-07.md": {
           "visible": 2414,
           "filled": 2414,
+          "explicit_pl": 1643,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-08.md": {
           "visible": 1220,
           "filled": 1220,
+          "explicit_pl": 1220,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-09.md": {
           "visible": 1528,
           "filled": 1528,
+          "explicit_pl": 1122,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-10.md": {
           "visible": 1123,
           "filled": 1123,
+          "explicit_pl": 1009,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-11.md": {
           "visible": 1459,
           "filled": 1459,
+          "explicit_pl": 842,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-12.md": {
           "visible": 1183,
           "filled": 1183,
+          "explicit_pl": 909,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-13.md": {
           "visible": 1076,
           "filled": 1076,
+          "explicit_pl": 1076,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-14.md": {
           "visible": 1247,
           "filled": 1247,
+          "explicit_pl": 1247,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-15.md": {
           "visible": 1074,
           "filled": 1074,
+          "explicit_pl": 968,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-16.md": {
           "visible": 825,
           "filled": 825,
+          "explicit_pl": 825,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-17.md": {
           "visible": 1312,
           "filled": 1312,
+          "explicit_pl": 1115,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-18.md": {
           "visible": 1043,
           "filled": 1043,
+          "explicit_pl": 958,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-19.md": {
           "visible": 862,
           "filled": 862,
+          "explicit_pl": 862,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-20.md": {
           "visible": 1002,
           "filled": 1002,
+          "explicit_pl": 1002,
           "empty": 0,
           "unresolved": 0
         },
         "epizod-21.md": {
           "visible": 1372,
           "filled": 1372,
+          "explicit_pl": 1100,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-22.md": {
+          "visible": 1703,
+          "filled": 1703,
+          "explicit_pl": 891,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-23.md": {
+          "visible": 1050,
+          "filled": 1050,
+          "explicit_pl": 858,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-24.md": {
+          "visible": 520,
+          "filled": 520,
+          "explicit_pl": 520,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-25.md": {
+          "visible": 1229,
+          "filled": 1229,
+          "explicit_pl": 871,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-26.md": {
+          "visible": 1353,
+          "filled": 1353,
+          "explicit_pl": 885,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-27.md": {
+          "visible": 1266,
+          "filled": 1266,
+          "explicit_pl": 920,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-28.md": {
+          "visible": 1740,
+          "filled": 1740,
+          "explicit_pl": 1112,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-29.md": {
+          "visible": 685,
+          "filled": 685,
+          "explicit_pl": 588,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-30.md": {
+          "visible": 1758,
+          "filled": 1758,
+          "explicit_pl": 1188,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-31.md": {
+          "visible": 719,
+          "filled": 719,
+          "explicit_pl": 630,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-32.md": {
+          "visible": 412,
+          "filled": 412,
+          "explicit_pl": 412,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "epizod-33.md": {
+          "visible": 775,
+          "filled": 774,
+          "explicit_pl": 691,
+          "empty": 1,
+          "unresolved": 0
+        },
+        "epizod-34.md": {
+          "visible": 7727,
+          "filled": 7727,
+          "explicit_pl": 7589,
+          "empty": 0,
+          "unresolved": 0
+        },
+        "simulator.md": {
+          "visible": 130,
+          "filled": 130,
+          "explicit_pl": 92,
           "empty": 0,
           "unresolved": 0
         }
       }
     },
+    "battle_quotes": {
+      "view": "cytaty.md",
+      "visible_elements": 19841,
+      "filled_elements": 19841,
+      "empty_elements": 0
+    },
     "saved_memory_corrections": {
-      "per_episode": {
-        "epizod-06.md": 47,
-        "epizod-09.md": 1,
-        "epizod-08.md": 1,
-        "epizod-17.md": 2,
-        "epizod-18.md": 4,
-        "epizod-21.md": 2
+      "fix_files": {
+        "epizod-06_fix.txt": 47,
+        "epizod-08_fix.txt": 1,
+        "epizod-09_fix.txt": 1,
+        "epizod-17_fix.txt": 2,
+        "epizod-18_fix.txt": 4,
+        "epizod-21_fix.txt": 2,
+        "epizod-23_fix.txt": 1,
+        "epizod-25_fix.txt": 1,
+        "epizod-29_fix.txt": 3,
+        "epizod-30_fix.txt": 4,
+        "epizod-31_fix.txt": 1,
+        "epizod-32_fix.txt": 2,
+        "epizod-33_fix.txt": 3,
+        "epizod-34_fix.txt": 12,
+        "postacie_fix.txt": 2
       },
-      "total": 57,
-      "mismatches": []
+      "fix_blocks_total": 86,
+      "zaudit_files_count": 41,
+      "zaudit_blocks_total": 1051,
+      "glossary": {
+        "found": true,
+        "entries": 445,
+        "conflicting_keys": 0,
+        "sha256": "2408f6e3d1c5be8e1e1254a65109ea28fc070c76921781001c1b705e0793e390"
+      }
     },
     "protagonist_name": {
       "episode13_PL_hardcoded_Seishiro": false,
+      "en_seishiro_matches_in_pl": [],
       "variable_tokens_checked_by_strict_validator": true
     },
     "runtime_tested": false,
-    "full_original_asset_build_tested": false,
     "translator_scripts_executed": false
   }
 }

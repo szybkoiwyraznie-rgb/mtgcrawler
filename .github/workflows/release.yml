@@ -64,7 +64,7 @@ jobs:
           name: patchers-en-pl-${{ needs.build.outputs.version }}
           path: release
 
-      - name: Publish EN and partial PL in one release
+      - name: Publish EN and PL in one release
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -78,21 +78,20 @@ jobs:
           test -f "$EN" && test -f "$PL"
           (cd release && sha256sum --check SHA256SUMS.txt)
           cat > release-notes.md <<EOF
-          Current English and **partial Polish** one-click patchers for SRW OE (NPJH50521).
+          Complete English and Polish one-click patchers for SRW OE (NPJH50521).
           Source commit: ${GITHUB_SHA}. Both ZIPs use the same tested tools revision.
 
-          PL currently includes translated views/battle quotes and story episodes 00–03.
-          Later story is incomplete. Missing PL text does not fall back to EN.
-          Grammatical gender in some battle quotes, translator-reported formatting
-          findings and longer-line layouts remain open. See PL_COVERAGE.json and kit README.
-          Automated checks are not full-game runtime QA.
+          PL includes the complete PL5 return across all 35 story episodes (00–34),
+          all simulator scenes, all battle quotes (cytaty.md), all nine views, and
+          all reviewed UI, skill, mission, cache, and native v5 font fixes.
+          See PL_COVERAGE.json and kit README. Automated checks do not replace full-game runtime QA.
 
           Unzip the chosen language kit, run PATCH.bat, select your own original
           Japanese 1.08 ISO and decrypted DLC. Preserve saves. No game binaries,
           ISO, DLC, saves, or native game-font bitmaps are included in these kits.
           EOF
           if ! gh release view "$TAG" >/dev/null 2>&1; then
-            gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "SRW OE — EN + partial PL (${VERSION})" --notes-file release-notes.md
+            gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "SRW OE — EN + PL (${VERSION})" --notes-file release-notes.md
           fi
           gh release upload "$TAG" "$EN" "$PL" release/SHA256SUMS.txt release/PL_COVERAGE.json release/RELEASE_PAIR.json --clobber
           # Do not let a slower older build replace a newer main build as Latest.

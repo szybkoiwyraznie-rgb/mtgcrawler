@@ -68,9 +68,9 @@ class BatchTests(unittest.TestCase):
         for binding, expected in last_value_by_binding.items():
             self.assertEqual(current.get(binding), expected, binding)
         merge = meta['merge_provenance']
-        self.assertEqual(merge['source_archive']['name'], 'PL4.zip')
-        self.assertEqual(merge['preservation']['reviewed_owner_bindings'], 1283)
-        self.assertEqual(merge['preservation']['restored_bindings'], 1283)
+        self.assertEqual(merge['source_archive']['name'], 'PL5.zip')
+        self.assertEqual(merge['preservation']['reviewed_owner_bindings'], 1385)
+        self.assertEqual(merge['preservation']['restored_rows'], 1385)
         self.assertEqual(merge['strict_source_bound_import']['view_roundtrip_mismatches'], 0)
 
     def test_review_covers_all_sixty_spirit_records_and_three_name_aliases(self):
