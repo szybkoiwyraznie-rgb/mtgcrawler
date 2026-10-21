@@ -8,8 +8,11 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
+TOOLS_DIR = ROOT / "tools"
+sys.path.insert(0, str(TOOLS_DIR))
+sys.path.insert(0, str(TOOLS_DIR / "archive"))
 
+import inline_names as IA
 import item_skill_records as ISR
 import pl_release_package as R
 import pl_text
@@ -98,9 +101,11 @@ class EldranSkillFixTests(unittest.TestCase):
                 target_member = f"srwDL_Skill0{idx}.bin"
                 patched_blob = None
                 for cm, cb in SMF.read_members(out_dir / "DLC" / nm):
-                    if cm == target_member:
-                        patched_blob = cb
-                        break
+                    sub = IA.pac_subfiles(cb) if cm.lower().endswith(".pac") else [(cm, cb)]
+                    for sub_name, sub_data in sub:
+                        if sub_name == target_member:
+                            patched_blob = sub_data
+                            break
                 self.assertIsNotNone(patched_blob, target_member)
                 parsed = ISR.parse_member(patched_blob, "skill", target_member)
                 _, pool = ISR.parse_tail_pool(patched_blob, parsed["tail_offset"])
