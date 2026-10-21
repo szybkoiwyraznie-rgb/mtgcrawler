@@ -8054,6 +8054,36 @@ QoL rename & verbatim per-mission mech/pilot catalogue embedding in `srwoe_missi
    as `1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R`, trashed superseded `mission-deployments.md`
    (`1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`), and verified byte-identical download-back (`cmp -s`).
 
+Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues (2026-10-21):
+1. Audited and merged complete translator return `PL5.zip` (`1VcMn1tAMvjj4eLfyDuw4DTKt4po65twf`, `7,473,101 B`,
+   SHA-256 `2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a`, `0` archive scripts executed)
+   into `pakiet_PL` (`108,794` entries, `data_sha256 = b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8`,
+   `108,805 / 109,176` rows filled, `+20,971` newly filled, `760` revised across `49` containers, `42` consistency rows
+   across `postacie.md` / `teksty-misji.md` / `teren.md`, `1,385 / 1,385` `v2.7-PL6` UI/Eldran/system bindings preserved,
+   `errors = 0`, `partial = false`; `docs/pl/pl5-merge-audit.json`) [ZWERYFIKOWANE].
+2. Updated release & reading-series tooling for complete `v3.0` (`partial == False`, `epizod-00`..`epizod-34` across
+   all `47,056` prose blocks), refreshed synchronized reference catalogues, uploaded to Google Drive
+   `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, verified `cmp -s`, and trashed superseded copies [ZWERYFIKOWANE]:
+   - `srwoe_pilot_catalog_PL.md`: `1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ` (`303,342 B`, `6,278` lines,
+     SHA-256 `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`, MD5 `a0511a860ac09ced6ce748979dc8cc6c`;
+     `7,307 / 7,307` Unicorn `.text 0x21f4ec` executions matched; superseded `1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S` trashed).
+   - `srwoe_mission_deployments.md`: `1CX0l4c7wB9x8Qvy7TRcxw44u1c-UDVDG` (`11,576,996 B`, `217,528` lines,
+     SHA-256 `ca2b7a5fb3fd4189c43ede34465b03d46ddb8e8b49d4ccf60b8b08afb5fea0b0`, MD5 `3bc285b4d79987b7ae97869692d88816`;
+     superseded `1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R` trashed).
+   - `srwoe_mech_catalog_v4_PL.md`: `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` (`876,522 B`,
+     SHA-256 `76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76`, proven byte-identical under `v3.0`).
+3. Built `srw-oe-translation-pl-v3.0.zip` (`python3 tools/build_release_pair.py --out local/dist_v3_0 --version 3.0`:
+   `8,754,052 B`, SHA-256 `aa76ad348f3a8248ac3b92bdd2173efef4ed512ccb6b9ff6092c668008932a62`,
+   MD5 `c046ddccb6d60ffe808c62d8de719155`; paired EN `srw-oe-translation-v3.0.zip`: `7,279,168 B`,
+   SHA-256 `e28cc1f702e6d1b7092f4a7efbae3e08b1ecdf9a73b71fde90340cbc771cb9bf`), unpacked into a clean sterile directory,
+   executed full physical build across all `18` Chapter 1 ISO files + `PBOOT.PBP` + `92` DLC `.EDAT` containers
+   (`exit = 0`, `problems = []`, `refused = 0`, `written = 92`, `Skill00 = 216,487 B`, `Skill01-08 = 15,328 B`,
+   `skill_total = 339,111 / 342,194 B`, `terrain = 30,081` cells across `271` maps, `executable = 397 / 397` rows,
+   `EBOOT.BIN == PBOOT.PBP/DATA.PSP` SHA-256 `db626f819e14d0faa8ccc72afcfd798c5af02ef23bc86cf3767c5c81ad34f13f`),
+   verified direct binary readbacks across all 7 container domains, uploaded `srw-oe-translation-pl-v3.0.zip` to
+   Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as `1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO`, and confirmed byte-identical
+   download-back (`cmp -s`) [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+
 
 
 

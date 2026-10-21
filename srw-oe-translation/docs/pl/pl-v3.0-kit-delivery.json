@@ -1,0 +1,110 @@
+{
+  "version": "3.0",
+  "date": "2026-10-21",
+  "source_return": {
+    "name": "PL5.zip",
+    "drive_id": "1VcMn1tAMvjj4eLfyDuw4DTKt4po65twf",
+    "bytes": 7473101,
+    "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a",
+    "md5": "2638a4223051fc5aec900293285ebbaf",
+    "audit_manifest": "docs/pl/pl5-merge-audit.json",
+    "scripts_in_archive_executed": false
+  },
+  "package_snapshot": {
+    "path": "pakiet_PL/snapshot.json",
+    "entries": 108794,
+    "data_sha256": "b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8",
+    "total_rows": 109176,
+    "filled_rows": 108805,
+    "remaining_empty_rows": 371,
+    "partial": false,
+    "validation_errors": 0,
+    "validation_warnings": 4169,
+    "preserved_v2_7_pl6_owner_bindings": 1385,
+    "newly_filled_rows": 20971,
+    "revised_existing_rows": 760,
+    "consistency_rows_applied": 42
+  },
+  "artifact": {
+    "name": "srw-oe-translation-pl-v3.0.zip",
+    "drive_id": "1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO/view",
+    "bytes": 8754052,
+    "sha256": "aa76ad348f3a8248ac3b92bdd2173efef4ed512ccb6b9ff6092c668008932a62",
+    "md5": "c046ddccb6d60ffe808c62d8de719155",
+    "english_pair": {
+      "name": "srw-oe-translation-v3.0.zip",
+      "bytes": 7279168,
+      "sha256": "e28cc1f702e6d1b7092f4a7efbae3e08b1ecdf9a73b71fde90340cbc771cb9bf"
+    },
+    "zip_members": 91,
+    "manifest_payload_hashes": 90,
+    "crc_passed": true,
+    "drive_download_back_byte_identical": true,
+    "all_payload_hashes_verified": true,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "synchronized_reference_catalogues": {
+    "parent_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "srwoe_pilot_catalog_PL.md": {
+      "drive_id": "1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ",
+      "superseded_trashed_drive_id": "1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S",
+      "bytes": 303342,
+      "lines": 6278,
+      "sha256": "95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421",
+      "md5": "a0511a860ac09ced6ce748979dc8cc6c",
+      "download_back_byte_identical": true
+    },
+    "srwoe_mission_deployments.md": {
+      "drive_id": "1CX0l4c7wB9x8Qvy7TRcxw44u1c-UDVDG",
+      "superseded_trashed_drive_id": "1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R",
+      "bytes": 11576996,
+      "lines": 217528,
+      "sha256": "ca2b7a5fb3fd4189c43ede34465b03d46ddb8e8b49d4ccf60b8b08afb5fea0b0",
+      "md5": "3bc285b4d79987b7ae97869692d88816",
+      "download_back_byte_identical": true
+    },
+    "srwoe_mech_catalog_v4_PL.md": {
+      "drive_id": "15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV",
+      "bytes": 876522,
+      "lines": 11953,
+      "sha256": "76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76",
+      "md5": "62800b7fa067fa9b1df3370e90d79f63",
+      "unchanged_and_reverified_byte_identical": true
+    }
+  },
+  "physical_verification": {
+    "iso_containers_verified": 18,
+    "dlc_containers_verified": 93,
+    "written_outputs": 92,
+    "problems": [],
+    "refused_rows": 0,
+    "skill_total_bytes": 339111,
+    "skill_total_limit_bytes": 342194,
+    "skill00_bytes": 216487,
+    "skill00_limit_bytes": 216768,
+    "skill01_to_08_bytes": 15328,
+    "skill01_to_08_limit_bytes": 15638,
+    "terrain_cells_patched": 30081,
+    "terrain_members_patched": 271,
+    "executable_rows_applied": 397,
+    "patched_eboot_and_pboot_elf_sha256": "db626f819e14d0faa8ccc72afcfd798c5af02ef23bc86cf3767c5c81ad34f13f",
+    "readback_verified_domains": [
+      "lmap.cpk:l001.pac (Zamek Arary)",
+      "config00.cpk:srwDL_CharaDictionary00.bin (Generał Takeda)",
+      "config00.cpk:bg2dlist.bin (Las, góry)",
+      "config00.cpk:srwDL_Skill00.bin & config01.EDAT:srwDL_Skill01.bin ( Warunek: roboty Eldran x)",
+      "mesbtl00.cpk:p0050.pac, mesbtl01.EDAT:p0240.pac, mesbtl19.EDAT:p4420.pac",
+      "eventP00.cpk:DL100_01.bin, eventP32.EDAT:SM018.bin, evept108.EDAT:DL102_90J.bin",
+      "font.cpk v5 & EBOOT.BIN == PBOOT.PBP/DATA.PSP"
+    ],
+    "runtime_tested": false
+  },
+  "install_scope_note": {
+    "iso_rebuild_required": true,
+    "dlc_full_update_required": true,
+    "pboot_recopy_required": true,
+    "reason": "v3.0 updates scene dialogues, battle quotes, character names, mission texts, and terrain across both base ISO (eventP00.cpk, mesbtl00.cpk, config00.cpk, lmap.cpk, font.cpk, EBOOT.BIN, UI textures) and all 90 DLC .EDAT archives plus PBOOT.PBP."
+  }
+}
