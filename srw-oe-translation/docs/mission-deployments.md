@@ -1,4649 +1,4930 @@
-# Predefined Mission Deployments: Mechs and Combat Units
-
-A source-grounded catalogue of scenario-defined machine/combat deployments for both sides. It excludes player-selected roster slots. It preserves uncertain scripted entries separately rather than assigning them an unsupported allegiance.
-
-## Scope and reading guide
-
-- **Source coverage:** 24 eventP packages with `_Entry.dat` files (eventP00.cpk, eventP01.EDAT, eventP02.EDAT, eventP03.EDAT, eventP04.EDAT, eventP05.EDAT, eventP06.EDAT, eventP07.EDAT, eventP08.EDAT, eventP09.EDAT, eventP13.EDAT, eventP20.EDAT, eventP21.EDAT, eventP22.EDAT, eventP23.EDAT, eventP24.EDAT, eventP25.EDAT, eventP26.EDAT, eventP27.EDAT, eventP28.EDAT, eventP29.EDAT, eventP30.EDAT, eventP31.EDAT, eventP32.EDAT); 226 package-file instances representing 224 distinct mission codes. The separately inspected `evept101.EDAT`–`evept108.EDAT` packages contain no `_Entry.dat` members.
-- **Entry-data coverage:** 8,915 records from 226 `_Entry.dat` files; every file is a whole number of 64-byte records. 8,504 rows have both a nonzero entry ID and unit ID. All nonzero unit IDs and nonzero pilot/character IDs resolve to canonical names in the checked-in English dictionaries.
-- **Excluded roster/placeholders:** 205 records have entry ID 0 and 368 have unit ID 0 (these counts overlap). They are not listed as fixed deployments. This is a structural exclusion based on the entry-data pattern; the complete runtime schema is not decoded.
-- **Repeated states:** repeated rows with the same entry ID and the same unit/pilot are collapsed. If one entry ID points to different unit/pilot rows, the alternatives are retained and explicitly not counted as simultaneous units. The data does not establish turn-by-turn waves or when alternate records become active.
-- **Mission labels:** headings use the exact `DL…`/`SM…` source code and the matching `_ext.dat` mission title when present. For `DL` codes, the two digits after the package digit identify the episode; the numeric source code is retained so the file can be found unambiguously.
-- **Side labels:** “Allied” and “Enemy” are evidence-led inferences from the repeated entry-ID groups (`10xxx`/`11xxx`/`20xxx` and `12xxx`) cross-checked against recurring team-flag families. Since the full `_Entry.dat` schema is not decoded, unusual records remain in **Scripted units — side not established**; `13xxx`/`15xxx` are not assigned by prefix alone, and any entry ID whose observed flags disagree is held unresolved.
-- **Pilot versus crew:** the mission record supplies at most one character key; that is shown as the mission-assigned character. Where the global `unit_list` has multiple default character/crew references, they are listed separately and explicitly marked **not mission-confirmed**. They must not be read as proof that every referenced character sorties in that mission.
-- **Conditions and waves:** translated mission-note conditions are quoted below when present (for example fixed sorties, unit restrictions, allied NPCs, carrier changes, or special movement). The remaining timing/wave fields are not decoded; no wave timing is inferred.
-- **Non-mech records:** `Container` and `Repair Unit` entries are map objects/utilities and are excluded from the combat roster; their source-record counts are summarized at the end. Mines, gates, turrets, missiles, and other scripted combat targets are retained and tagged when recognizable.
-- **Verification limits:** the original `config00.cpk`, `config01`–`config19.EDAT`, and `configst.cpk` downloaded for this audit match all 21 hashes in `docs/mech-catalog/source-inventory.json` (including `config00.cpk`, 929,920 bytes, MD5 `266366c3bee66130d4b7cb57a1b1e3d4`). Event packages are listed by name above; their package hashes are not pinned by that inventory. This is a static data audit; no physical ISO or in-game runtime test was performed.
-
-**Record classification totals (after excluding Container/Repair Unit rows, before collapsing repeated states):** 881 allied-inferred, 7,198 enemy-inferred, 206 side-unresolved. These are source-record counts, not simultaneous unit counts.
-
-## Catalogue
-
-### Episode 0 — Basic Training (`DL100_01`)
-
-**Source:** `eventP00.cpk/DL100_01_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-
-**Enemy deployments (inferred):**
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 0 — Rescue White Base (`DL100_02`)
-
-**Source:** `eventP00.cpk/DL100_02_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Zaku II (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Crown
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Slender
-
-### Episode 1 — Ep. 1 Rogue Prototype Labor Incident (`DL101_11`)
-
-**Source:** `eventP00.cpk/DL101_11_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-
-**Enemy deployments (inferred):**
-  - **HAL-X10** — mission Entry character/pilot field: Shinohara HOS
-  - **HAL-X10/Green** — mission Entry character/pilot field: Shinohara HOS — ×3 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Helldiver** — mission Entry character/pilot field: JSDF Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Medea** — mission Entry character/pilot field: JSDF Soldier
-
-### Episode 1 — The Black Tri-Stars (`DL101_20`)
-
-**Source:** `eventP00.cpk/DL101_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 5 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **General-Purpose Turret** — mission Entry character/pilot field: Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present — scripted target/object; not a piloted mech
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 1 — Stop the H-Bomb Missile (`DL101_30`)
-
-**Source:** `eventP00.cpk/DL101_30_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 4 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **H-Bomb Missile** — mission Entry character/pilot field: No mission-assigned pilot key — scripted target/object; not a piloted mech
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 1 — Defense Class Training (`DL101_40`)
-
-**Source:** `eventP00.cpk/DL101_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-
-**Enemy deployments (inferred):**
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 1 — Launch the Alex (`DL101_50`)
-
-**Source:** `eventP00.cpk/DL101_50_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Karen Joshua
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-
-**Enemy deployments (inferred):**
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Andy Strauss
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Mikhail Kaminsky
-  - **Zaku II Kai** — mission Entry character/pilot field: Gabriel Ramirez Garcia
-  - **Zaku II Kai** — mission Entry character/pilot field: Hardy Steiner
-
-**Scripted units — side not established:**
-  - **General-Purpose Turret** — mission Entry character/pilot field: Narration — scripted target/object; not a piloted mech
-
-### Episode 1 — Rescue the Medea Transport (`DL101_60`)
-
-**Source:** `eventP00.cpk/DL101_60_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned. Medea appears as an allied NPC.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-
-**Enemy deployments (inferred):**
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Medea** — mission Entry character/pilot field: Federation Officer
-  - **Mucus Gate S** — mission Entry character/pilot field: No mission-assigned pilot key — scripted target/object; not a piloted mech
-
-### Episode 1 — The Rogue Labor Returns (`DL101_70`)
-
-**Source:** `eventP00.cpk/DL101_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-
-**Enemy deployments (inferred):**
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 1 — Undercover Investigation (`DL101_80`)
-
-**Source:** `eventP00.cpk/DL101_80_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-
-**Enemy deployments (inferred):**
-  - **HAL-X10/Green** — mission Entry character/pilot field: Shinohara HOS — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **HAL-X10/Green** — mission Entry character/pilot field: Shinohara HOS — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 2 — Ep. 2 The Threat Lurking Underground (`DL102_11`)
-
-**Source:** `eventP00.cpk/DL102_11_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-  - **Mazinger Z** — mission Entry character/pilot field: Koji Kabuto
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×8 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×9 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×15 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S IN** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Mucus Gate S MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mazinger Z** — mission Entry character/pilot field: Koji Kabuto
-
-### Episode 2 — The Black Labor (`DL102_20`)
-
-**Source:** `eventP01.EDAT/DL102_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **HAL-X10/Green** — mission Entry character/pilot field: JSDF Soldier
-  - **Helldiver** — mission Entry character/pilot field: JSDF Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-
-**Enemy deployments (inferred):**
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Griffon** — mission Entry character/pilot field: Badrinath Harchand — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 2 — Roar of the Wild (`DL102_30`)
-
-**Source:** `eventP01.EDAT/DL102_30_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-
-**Enemy deployments (inferred):**
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 2 — Battle of Jaburo (`DL102_40`)
-
-**Source:** `eventP01.EDAT/DL102_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-
-**Enemy deployments (inferred):**
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Zaku II (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Crown
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Slender
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 2 — Apsalus Assault (`DL102_50`)
-
-**Source:** `eventP01.EDAT/DL102_50_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Apsalus III** — mission Entry character/pilot field: Ginias Sahalin
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Zaku II Kai** — mission Entry character/pilot field: Cozun Graham
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Acous
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier
-  - **Zanzibar** — mission Entry character/pilot field: Crowley Hamon
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 2 — Forced Breakthrough (`DL102_60`)
-
-**Source:** `eventP01.EDAT/DL102_60_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass — alternate Entry ID record present
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden — alternate Entry ID record present
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray — alternate Entry ID record present
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi — alternate Entry ID record present
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Musai** — mission Entry character/pilot field: Dren
-  - **Musai** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 2 — Zanzibar in Pursuit (`DL102_70`)
-
-**Source:** `eventP01.EDAT/DL102_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass — alternate Entry ID record present
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden — alternate Entry ID record present
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray — alternate Entry ID record present
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi — alternate Entry ID record present
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bigro** — mission Entry character/pilot field: Tokwan
-  - **Gelgoog (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Rick Dom** — mission Entry character/pilot field: Crown
-  - **Rick Dom** — mission Entry character/pilot field: Slender
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer
-
-### Episode 2 — The Defense Class Heads to Space (`DL102_90`)
-
-**Source:** `eventP01.EDAT/DL102_90_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Daiteioh** — mission Entry character/pilot field: Taro Omomo — unit-list default character/crew refs (not mission-confirmed): Taro Omomo, Mai Ozora, Kakeru Daichi
-  - **Ganbaruger** — mission Entry character/pilot field: Kotaro Kirigakure — unit-list default character/crew refs (not mission-confirmed): Kotaro Kirigakure, Yosuke Kazamatsuri, Rikiya Ryuzaki
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 3 — Episode 3 Gundam Intervention (`DL103_11`)
-
-**Source:** `eventP01.EDAT/DL103_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **Mazinger Z** — mission Entry character/pilot field: Koji Kabuto
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-  - **Wing Gundam Zero/NB** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Gelgoog (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Garma Zabi
-  - **Zanzibar** — mission Entry character/pilot field: M'Quve
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 3 — Episode 3 A Black Shadow Creeps Closer (`DL103_12`)
-
-**Source:** `eventP01.EDAT/DL103_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **Mazinger Z** — mission Entry character/pilot field: Koji Kabuto
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-  - **Wing Gundam Zero** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×10 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader
-
-### Episode 3 — The Green Invader (`DL103_20`)
-
-**Source:** `eventP01.EDAT/DL103_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-  - **Keroro Robo Mk-II** — mission Entry character/pilot field: Sgt. Keroro
-
-**Enemy deployments (inferred):**
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×5 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 3 — Raid on the Pirate Base (`DL103_30`)
-
-> **Source variants differ:** this mission code occurs in 2 packages. Each package roster is shown separately; the files are not merged.
-
-#### Source package: `eventP01.EDAT`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Gelgoog** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: MS Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: MS Pilot — ×3 source Entry IDs (simultaneous count not verified)
-
-#### Source package: `eventP09.EDAT`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Gelgoog** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier
-
-### Episode 3 — The Mars Base Attack (`DL103_40`)
-
-**Source:** `eventP01.EDAT/DL103_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **RVF-25 Messiah/Fighter** — mission Entry character/pilot field: Luca Angeloni
-  - **VF-25F Messiah/Fighter** — mission Entry character/pilot field: Alto Saotome
-  - **VF-25G Messiah/Fighter** — mission Entry character/pilot field: Michael Blanc
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-
-### Episode 4 — Episode 4 Strike the Grados Warship (`DL104_11`)
-
-**Source:** `eventP01.EDAT/DL104_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×23 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer — alternate Entry ID record present
-
-### Episode 4 — The Invaders' Clutches (`DL104_20`)
-
-**Source:** `eventP01.EDAT/DL104_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×8 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×8 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S IN** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 4 — The Time Etranger (`DL104_30`)
-
-**Source:** `eventP01.EDAT/DL104_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 6 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **GoShogun** — mission Entry character/pilot field: Shingo Hojo — unit-list default character/crew refs (not mission-confirmed): Shingo Hojo, Killy Gagley, Remy Shimada
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×7 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×7 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **Mucus Gate S MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 4 — Lelouch of the Rebellion (`DL104_40`)
-
-**Source:** `eventP20.EDAT/DL104_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 3 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **L-Gaim** — mission Entry character/pilot field: Daba Myroad — unit-list default character/crew refs (not mission-confirmed): Daba Myroad, Lilis Faw
-  - **Novel D-Sserd** — mission Entry character/pilot field: Gaw Ha Leccee
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×23 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-**Scripted units — side not established:**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular
-  - **Gawain** — mission Entry character/pilot field: Lelouch Lamperouge — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Zero, C.C.
-  - **Gawain** — mission Entry character/pilot field: Zero — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Zero, C.C.
-
-### Episode 5 — Episode 5 Warp Gate (`DL105_11`)
-
-**Source:** `eventP01.EDAT/DL105_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 4 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Enkidu** — mission Entry character/pilot field: Viral
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×13 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×13 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-**Scripted units — side not established:**
-  - **Vasage** — mission Entry character/pilot field: Vasage
-
-### Episode 5 — Episode 5 Viral the Beastman (`DL105_12`)
-
-**Source:** `eventP01.EDAT/DL105_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **GoShogun** — mission Entry character/pilot field: Shingo Hojo — unit-list default character/crew refs (not mission-confirmed): Shingo Hojo, Killy Gagley, Remy Shimada
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **Gurren Lagann (Kamina)** — mission Entry character/pilot field: Kamina — unit-list default character/crew refs (not mission-confirmed): Kamina, Simon, Yoko, Boota
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Vasage** — mission Entry character/pilot field: Vasage
-  - **VF-25F Messiah/Fighter** — mission Entry character/pilot field: Alto Saotome
-
-**Enemy deployments (inferred):**
-  - **Enkidu** — mission Entry character/pilot field: Viral
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×28 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×13 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 5 — The Boy from Planet Zi (`DL105_20`)
-
-**Source:** `eventP01.EDAT/DL105_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-
-**Enemy deployments (inferred):**
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×6 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Pilot — alternate Entry ID record present
-
-**Scripted units — side not established:**
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-### Episode 5 — Roots of Ambition (`DL105_30`)
-
-**Source:** `eventP01.EDAT/DL105_30_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 4 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-
-**Enemy deployments (inferred):**
-  - **General-Purpose Turret** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present — scripted target/object; not a piloted mech
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×13 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 5 — Hero Lamuness's New Journey (`DL105_40`)
-
-**Source:** `eventP01.EDAT/DL105_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Keroro Robo Mk-II** — mission Entry character/pilot field: Sgt. Keroro
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **Queen Cideron/Ally** — mission Entry character/pilot field: Da Cider — unit-list default character/crew refs (not mission-confirmed): Da Cider, Hebi Metako
-
-**Enemy deployments (inferred):**
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×6 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 5 — The Terror of the DG Cells (`DL105_50`)
-
-**Source:** `eventP02.EDAT/DL105_50_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu
-  - **LCT-05-AT Space Landing Craft** — mission Entry character/pilot field: Bouleuse Gotho
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×2 source Entry IDs (simultaneous count not verified)
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gundam Head** — mission Entry character/pilot field: DG Cells
-
-### Episode 5 — Remnants of the Dark Dragon Clan (`DL105_70`)
-
-**Source:** `eventP02.EDAT/DL105_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Dark Knight Steru/Dark Dragon Form** — mission Entry character/pilot field: Galden
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 5 — The White Knight (`DL105_90`)
-
-**Source:** `eventP21.EDAT/DL105_90_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned. Iron Kong SS is available.
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 4 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Enemy deployments (inferred):**
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Pilot — ×8 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Iron Kong SS/Ally** — mission Entry character/pilot field: Karl Lichten Schubaltz — alternate Entry ID record present
-  - **Lancelot/Ally** — mission Entry character/pilot field: Suzaku Kururugi — alternate Entry ID record present
-  - **Mucus Gate S** — mission Entry character/pilot field: Zoid Pilot — scripted target/object; not a piloted mech
-
-### Episode 6 — Episode 6 Macross Frontier (`DL206_11`)
-
-**Source:** `eventP02.EDAT/DL206_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **VF-25F Messiah/Fighter** — mission Entry character/pilot field: Alto Saotome
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Gavlet Gablae
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-
-### Episode 6 — Episode 6 The Vajra Homeworld (`DL206_12`)
-
-**Source:** `eventP02.EDAT/DL206_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-
-### Episode 6 — The ISTO Fleet (`DL206_50`)
-
-**Source:** `eventP02.EDAT/DL206_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka — alternate Entry ID record present
-  - **VF-25F Messiah/Battroid Super Pack** — mission Entry character/pilot field: Alto Saotome — alternate Entry ID record present
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×11 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-
-### Episode 6 — Operation: Sever the Warp Route (`DL206_60`)
-
-**Source:** `eventP02.EDAT/DL206_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-
-### Episode 6 — The Black Organoid (`DL206_70`)
-
-**Source:** `eventP02.EDAT/DL206_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Command Wolf/White** — mission Entry character/pilot field: Helic Republic Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Command Wolf/White** — mission Entry character/pilot field: Rob Herman
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Officer
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Saber Tiger (Raven)** — mission Entry character/pilot field: Raven
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: --- — scripted target/object; not a piloted mech
-
-### Episode 6 — Deliver Supplies to the Republic (`DL206_80`)
-
-**Source:** `eventP02.EDAT/DL206_80_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-**Enemy deployments (inferred):**
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Officer — ×3 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×21 source Entry IDs (simultaneous count not verified)
-
-### Episode 7 — Episode 7 Mt. Ossa Fortress (`DL207_11`)
-
-**Source:** `eventP02.EDAT/DL207_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×41 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Officer
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×15 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Control AI — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 7 — Episode 7 Schubaltz's Offensive (`DL207_12`)
-
-**Source:** `eventP02.EDAT/DL207_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 5 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Officer — ×7 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong SS** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Lancelot** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×20 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Gawain** — mission Entry character/pilot field: Zero — unit-list default character/crew refs (not mission-confirmed): Zero, C.C.
-
-### Episode 7 — Episode 7 Battle for the Capital (`DL207_13`)
-
-**Source:** `eventP02.EDAT/DL207_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×14 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Saber Tiger (Raven)** — mission Entry character/pilot field: Raven
-  - **Whale King** — mission Entry character/pilot field: Gunther Prozen
-
-### Episode 7 — Search for Zoid Eve (`DL207_20`)
-
-**Source:** `eventP02.EDAT/DL207_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-**Enemy deployments (inferred):**
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Red Horn (Rosso)** — mission Entry character/pilot field: Rosso
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola
-
-### Episode 7 — Woman Who Calls Herself a Black Knight (`DL207_30`)
-
-**Source:** `eventP02.EDAT/DL207_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gawain** — mission Entry character/pilot field: Zero — unit-list default character/crew refs (not mission-confirmed): Zero, C.C.
-  - **Guren Mk-II** — mission Entry character/pilot field: Kallen Kozuki
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/White** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×11 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Command Wolf/White** — mission Entry character/pilot field: Zoid Pilot
-  - **Mucus Gate S** — mission Entry character/pilot field: --- — scripted target/object; not a piloted mech
-
-### Episode 7 — Doki Doki Space (`DL207_50`)
-
-**Source:** `eventP02.EDAT/DL207_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×8 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S DG** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 8 — Episode 8 Earthtia (`DL208_11`)
-
-**Source:** `eventP02.EDAT/DL208_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Dark Knight Steru/Dark Dragon Form** — mission Entry character/pilot field: Galden
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Ryu Knight Zephyr/Later** — mission Entry character/pilot field: Adeu Waltham
-  - **Ryu Mage Magidora** — mission Entry character/pilot field: Paffy Pafuricia — unit-list default character/crew refs (not mission-confirmed): Paffy Pafuricia, Hagu Hagu
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×11 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 8 — Episode 8 Dark Dragon Pirates (`DL208_12`)
-
-**Source:** `eventP02.EDAT/DL208_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×13 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×11 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×9 source Entry IDs (simultaneous count not verified)
-
-### Episode 8 — Da Cider Returns (`DL208_20`)
-
-**Source:** `eventP02.EDAT/DL208_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Hulk Gunship Axe Bomber** — mission Entry character/pilot field: Cocoa Arara — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Cocoa Arara, Milk Arara, Cafe au Lait Arara
-  - **Keroro Robo Mk-II** — mission Entry character/pilot field: Sgt. Keroro — alternate Entry ID record present
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×6 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Queen Cideron** — mission Entry character/pilot field: Da Cider
-
-### Episode 8 — Scenario `DL208_30`
-
-> **Source variants differ:** this mission code occurs in 2 packages. Each package roster is shown separately; the files are not merged.
-
-#### Source package: `eventP13.EDAT`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-
-**Enemy deployments (inferred):**
-  - **Crystal Pillar** — mission Entry character/pilot field: ---
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×24 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-
-#### Source package: `eventP22.EDAT`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-
-**Enemy deployments (inferred):**
-  - **Crystal Pillar** — mission Entry character/pilot field: ---
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×24 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 8 — Red Shoulder (`DL208_45`)
-
-**Source:** `eventP02.EDAT/DL208_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh — alternate Entry ID record present
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym — alternate Entry ID record present
-
-**Enemy deployments (inferred):**
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×13 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 8 — Battle of Sunsa (`DL208_50`)
-
-**Source:** `eventP02.EDAT/DL208_50_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×25 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-**Scripted units — side not established:**
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper
-
-### Episode 9 — Episode 9 Intervention at Sunsa (`DL209_11`)
-
-**Source:** `eventP02.EDAT/DL209_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **VF-25F Messiah/Fighter Super Pack** — mission Entry character/pilot field: Alto Saotome
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×10 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Ray** — mission Entry character/pilot field: Posaydal Regular Officer
-
-### Episode 9 — Episode 9 Death Match with Riemann (`DL209_12`)
-
-**Source:** `eventP02.EDAT/DL209_12_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-
-**Enemy deployments (inferred):**
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×2 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Scopedog RS (Riemann)** — mission Entry character/pilot field: Inge Riemann
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Gilgamesh Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Gilgamesh Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 9 — Episode 9 Seed of the Mucus (`DL209_13`)
-
-**Source:** `eventP02.EDAT/DL209_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×2 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Mucus Gate M** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Sarge Aupus (Nei)** — mission Entry character/pilot field: Nei Moh Han
-
-**Scripted units — side not established:**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-
-### Episode 9 — The Shadow of Drago Returns (`DL209_20`)
-
-**Source:** `eventP02.EDAT/DL209_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **Liger** — mission Entry character/pilot field: Ken Taiga
-
-**Enemy deployments (inferred):**
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×5 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 9 — Griffon VS Alphonse (`DL209_35`)
-
-**Source:** `eventP02.EDAT/DL209_35_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-
-**Enemy deployments (inferred):**
-  - **Griffon** — mission Entry character/pilot field: Badrinath Harchand
-
-### Episode 9 — Warriors Adrift (`DL209_40`)
-
-**Source:** `eventP03.EDAT/DL209_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Medea** — mission Entry character/pilot field: Zechs Merquise
-  - **Tallgeese/Ally** — mission Entry character/pilot field: Zechs Merquise
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-  - **Wing Gundam Zero** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Tallgeese** — mission Entry character/pilot field: Zechs Merquise
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer
-
-### Episode 9 — The Mechanization Empire's Next Move (`DL209_60`)
-
-**Source:** `eventP03.EDAT/DL209_60_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Daiteioh** — mission Entry character/pilot field: Taro Omomo — unit-list default character/crew refs (not mission-confirmed): Taro Omomo, Mai Ozora, Kakeru Daichi
-  - **Ganbaruger** — mission Entry character/pilot field: Kotaro Kirigakure — unit-list default character/crew refs (not mission-confirmed): Kotaro Kirigakure, Yosuke Kazamatsuri, Rikiya Ryuzaki
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **Liger** — mission Entry character/pilot field: Ken Taiga
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10** — mission Entry character/pilot field: Shinohara HOS — ×4 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 9 — The 30 Bunch Incident (`DL209_70`)
-
-**Source:** `eventP23.EDAT/DL209_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **Hyaku Shiki** — mission Entry character/pilot field: Quattro Bajeena
-  - **Zeta Gundam** — mission Entry character/pilot field: Kamille Bidan
-
-**Enemy deployments (inferred):**
-  - **Rick Dom** — mission Entry character/pilot field: MS Pilot — ×7 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: MS Pilot — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 10 — Episode 10 Signs of the Evil God (`DL310_11`)
-
-**Source:** `eventP03.EDAT/DL310_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Ganbaruger** — mission Entry character/pilot field: Kotaro Kirigakure — unit-list default character/crew refs (not mission-confirmed): Kotaro Kirigakure, Yosuke Kazamatsuri, Rikiya Ryuzaki
-  - **Liger** — mission Entry character/pilot field: Ken Taiga
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×12 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×23 source Entry IDs (simultaneous count not verified)
-
-### Episode 10 — Episode 10 The Mucus Gate Below (`DL310_12`)
-
-**Source:** `eventP03.EDAT/DL310_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Liger** — mission Entry character/pilot field: Ken Taiga
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×13 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M DR** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 10 — Talking with the Envoy (`DL310_20`)
-
-**Source:** `eventP03.EDAT/DL310_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Vasage** — mission Entry character/pilot field: Vasage
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 10 — Operation: Seize the Alex (`DL310_40`)
-
-**Source:** `eventP03.EDAT/DL310_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-  - **NT-1 Alex** — mission Entry character/pilot field: Christina Mackenzie
-
-**Enemy deployments (inferred):**
-  - **Gelgoog** — mission Entry character/pilot field: Crown
-  - **Gelgoog** — mission Entry character/pilot field: Slender
-  - **Gelgoog (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Mikhail Kaminsky
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Hardy Steiner
-  - **Zaku II Kai** — mission Entry character/pilot field: Andy Strauss
-  - **Zaku II Kai** — mission Entry character/pilot field: Bernard Wiseman
-  - **Zaku II Kai** — mission Entry character/pilot field: Gabriel Ramirez Garcia
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 10 — Stop the Nuclear Attack (`DL310_50`)
-
-**Source:** `eventP03.EDAT/DL310_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Musai** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 10 — Space Fortress Solomon (`DL310_60`)
-
-**Source:** `eventP03.EDAT/DL310_60_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **G-Fighter** — mission Entry character/pilot field: Sayla Mass — alternate Entry ID record present
-  - **Guncannon** — mission Entry character/pilot field: Kai Shiden — alternate Entry ID record present
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray — alternate Entry ID record present
-  - **Guntank** — mission Entry character/pilot field: Hayato Kobayashi — alternate Entry ID record present
-  - **NT-1 Alex** — mission Entry character/pilot field: Christina Mackenzie — alternate Entry ID record present
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Big Zam** — mission Entry character/pilot field: Dozle Zabi
-  - **Gwazine** — mission Entry character/pilot field: Conscon
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Control AI — scripted target/object; not a piloted mech
-
-### Episode 11 — Episode 11 Operation Retake the Ark (`DL311_11`)
-
-**Source:** `eventP03.EDAT/DL311_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×6 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×30 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10** — mission Entry character/pilot field: Shinohara HOS — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×10 source Entry IDs (simultaneous count not verified)
-  - **Type-Zero/Enemy** — mission Entry character/pilot field: Shinohara HOS
-
-### Episode 11 — Ep. 11 The Door That Opens in Darkness (`DL311_12`)
-
-**Source:** `eventP03.EDAT/DL311_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×20 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 11 — Ep. 11 Den of the Mechanization Empire (`DL311_13`)
-
-**Source:** `eventP03.EDAT/DL311_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×20 source Entry IDs (simultaneous count not verified)
-  - **Control Unit (Mega Castle)** — mission Entry character/pilot field: Mechanized Beast
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **HAL-X10** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified)
-  - **Type-Zero/Enemy** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 11 — SV2 and a New Ally (`DL311_20`)
-
-**Source:** `eventP03.EDAT/DL311_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Griffon/Ally** — mission Entry character/pilot field: Badrinath Harchand
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Ingram Unit 2** — mission Entry character/pilot field: Isao Ota
-  - **Type-Zero** — mission Entry character/pilot field: Kanuka Clancy
-
-**Enemy deployments (inferred):**
-  - **Brocken/Cannon** — mission Entry character/pilot field: Labor Pilot — ×7 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Labor Pilot — ×9 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Labor Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×12 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: MS Pilot
-  - **Zaku II Kai** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 11 — Operation Stop the Solar Ray (`DL311_40`)
-
-**Source:** `eventP24.EDAT/DL311_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Big Zam** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer
-
-### Episode 11 — The Pulse of Zeta (`DL311_50`)
-
-**Source:** `eventP03.EDAT/DL311_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Hyaku Shiki** — mission Entry character/pilot field: Quattro Bajeena
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-  - **Zeta Gundam** — mission Entry character/pilot field: Kamille Bidan
-
-**Enemy deployments (inferred):**
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Gwazine** — mission Entry character/pilot field: Zeon Officer
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Zeon Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Musai** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×15 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer
-
-### Episode 12 — Episode 12 Guardians of the Colonies (`DL312_11`)
-
-**Source:** `eventP03.EDAT/DL312_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Brocken/Cannon** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×10 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **Gelgoog** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 12 — Episode 12 Mop-Up Operation (`DL312_12`)
-
-**Source:** `eventP03.EDAT/DL312_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Wing Gundam Zero** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Cannon** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×16 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×9 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Control AI — ×5 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Control AI — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 12 — The Mucus Nesting in the Asteroid Belt (`DL312_20`)
-
-**Source:** `eventP03.EDAT/DL312_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 12 — Assassinate Rudolph (`DL312_40`)
-
-**Source:** `eventP03.EDAT/DL312_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Red Horn (Rosso Ally)** — mission Entry character/pilot field: Rosso
-  - **Redler (Viola Ally)** — mission Entry character/pilot field: Viola
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/White** — mission Entry character/pilot field: Zoid Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 12 — The Beast Reborn (`DL312_50`)
-
-**Source:** `eventP03.EDAT/DL312_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 5 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Red Horn (Rosso Ally)** — mission Entry character/pilot field: Rosso
-  - **Redler (Viola Ally)** — mission Entry character/pilot field: Viola — alternate Entry ID record present
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola — alternate Entry ID record present
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 12 — Valiant! The Geno Breaker (`DL312_60`)
-
-**Source:** `eventP03.EDAT/DL312_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Shield Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×7 source Entry IDs (simultaneous count not verified)
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×5 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×15 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×12 source Entry IDs (simultaneous count not verified)
-
-### Episode 13 — Episode 13 The Young King Returns (`DL313_11`)
-
-**Source:** `eventP03.EDAT/DL313_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer — ×3 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Whale King** — mission Entry character/pilot field: Guylos Imperial Officer
-
-**Scripted units — side not established:**
-  - **Death Saurer/Replica** — mission Entry character/pilot field: Gunther Prozen
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: No mission-assigned pilot key — scripted target/object; not a piloted mech
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 13 — Ep. 13 The Imperial Capital in Flames (`DL313_12`)
-
-**Source:** `eventP03.EDAT/DL313_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Command Wolf/Black/Upgraded** — mission Entry character/pilot field: Irvine
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gawain** — mission Entry character/pilot field: Zero — unit-list default character/crew refs (not mission-confirmed): Zero, C.C.
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Lancelot/Ally** — mission Entry character/pilot field: Suzaku Kururugi
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Saurer/Replica** — mission Entry character/pilot field: Gunther Prozen
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer — ×4 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 13 — Holy Warrior of a Fallen Kingdom (`DL313_25`)
-
-**Source:** `eventP03.EDAT/DL313_25_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Dunbine** — mission Entry character/pilot field: Show Zama — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-
-**Enemy deployments (inferred):**
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zwarth** — mission Entry character/pilot field: Black Knight
-
-### Episode 13 — Coordinator (`DL313_40`)
-
-**Source:** `eventP03.EDAT/DL313_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Infinite Justice Gundam** — mission Entry character/pilot field: Athrun Zala
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Strike Freedom Gundam** — mission Entry character/pilot field: Kira Yamato
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier
-  - **Musai** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Rick Dom** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-
-### Episode 13 — Leccee Mind (`DL313_55`)
-
-**Source:** `eventP04.EDAT/DL313_55_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **D-Sserd** — mission Entry character/pilot field: Fannaria Amm
-  - **L-Gaim** — mission Entry character/pilot field: Daba Myroad — unit-list default character/crew refs (not mission-confirmed): Daba Myroad, Lilis Faw
-  - **Novel D-Sserd** — mission Entry character/pilot field: Gaw Ha Leccee
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×3 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Gavlet Gablae
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-### Episode 13 — Seize the Nuclear Storage Facility (`DL313_66`)
-
-**Source:** `eventP04.EDAT/DL313_66_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-  - **Hyaku Shiki** — mission Entry character/pilot field: Quattro Bajeena
-  - **Zeta Gundam** — mission Entry character/pilot field: Kamille Bidan
-
-**Enemy deployments (inferred):**
-  - **Gelgoog** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: MS Pilot — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: MS Pilot — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 13 — The Nighthawk's Dream (`DL313_70`)
-
-**Source:** `eventP25.EDAT/DL313_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Iron Kong Mk-II** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Murasame Liger** — mission Entry character/pilot field: Ruuji Familon
-  - **Red Horn (Rosso Ally)** — mission Entry character/pilot field: Rosso
-  - **Redler (Viola Ally)** — mission Entry character/pilot field: Viola
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Pilot
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Iron Kong Mk-II** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Mucus Gate S** — mission Entry character/pilot field: Control AI — scripted target/object; not a piloted mech
-  - **Murasame Liger** — mission Entry character/pilot field: Ruuji Familon
-  - **Red Horn (Rosso)** — mission Entry character/pilot field: Rosso
-  - **Redler (Viola Ally)** — mission Entry character/pilot field: Viola
-
-### Episode 14 — Episode 14 War Cloud (`DL414_11`)
-
-**Source:** `eventP04.EDAT/DL414_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Dunbine** — mission Entry character/pilot field: Show Zama — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×8 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×11 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Sarge Aupus (Nei)** — mission Entry character/pilot field: Antoon Randow
-
-### Episode 14 — Episode 14 Against (`DL414_12`)
-
-**Source:** `eventP04.EDAT/DL414_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **D-Sserd** — mission Entry character/pilot field: Fannaria Amm — alternate Entry ID record present
-  - **L-Gaim** — mission Entry character/pilot field: Daba Myroad — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Daba Myroad, Lilis Faw
-  - **Novel D-Sserd** — mission Entry character/pilot field: Gaw Ha Leccee — alternate Entry ID record present
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-
-### Episode 14 — Episode 14 Planet Bomber (`DL414_13`)
-
-**Source:** `eventP04.EDAT/DL414_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **D-Sserd** — mission Entry character/pilot field: Fannaria Amm
-  - **L-Gaim** — mission Entry character/pilot field: Daba Myroad — unit-list default character/crew refs (not mission-confirmed): Daba Myroad, Lilis Faw
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Novel D-Sserd** — mission Entry character/pilot field: Gaw Ha Leccee
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Hatchia Motchia
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Gavlet Gablae
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Slender Skala** — mission Entry character/pilot field: Posaydal Regular Officer
-
-### Episode 14 — Guardian Force (`DL414_25`)
-
-**Source:** `eventP04.EDAT/DL414_25_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Gustav/Moonbay Special** — mission Entry character/pilot field: Moonbay
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-
-**Enemy deployments (inferred):**
-  - **Gun Sniper** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong SS** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Red Horn (Rosso)** — mission Entry character/pilot field: Rosso
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola
-
-### Episode 14 — Ryoma Returns (`DL414_35`)
-
-**Source:** `eventP04.EDAT/DL414_35_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **Shin Getter-1 (Ryoma)** — mission Entry character/pilot field: Ryoma Nagare — unit-list default character/crew refs (not mission-confirmed): Ryoma Nagare, Hayato Jin, Benkei Kuruma
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Enkidu** — mission Entry character/pilot field: Viral
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×32 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 14 — ZZ Gundam Transport Operation (`DL414_45`)
-
-**Source:** `eventP04.EDAT/DL414_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-  - **Zeta Gundam** — mission Entry character/pilot field: Kamille Bidan
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Qubeley Mk-II (Ple)** — mission Entry character/pilot field: Elpeo Ple
-
-### Episode 14 — The Boy of Shangri-La (`DL414_50`)
-
-**Source:** `eventP04.EDAT/DL414_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Hyaku Shiki** — mission Entry character/pilot field: Quattro Bajeena
-  - **Zeta Gundam** — mission Entry character/pilot field: Kamille Bidan
-  - **ZZ Gundam** — mission Entry character/pilot field: Judau Ashta
-
-**Enemy deployments (inferred):**
-  - **Dom** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Qubeley Mk-II (Ple)** — mission Entry character/pilot field: Elpeo Ple
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-
-**Scripted units — side not established:**
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Federation Soldier
-  - **Brocken/Melee** — mission Entry character/pilot field: Federation Soldier
-
-### Episode 15 — Episode 15 Rise of Neo Zeon (`DL415_11`)
-
-**Source:** `eventP04.EDAT/DL415_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×7 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Sadalahn** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Zaku II Kai** — mission Entry character/pilot field: Neo Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 15 — Episode 15 Axis Impact (`DL415_12`)
-
-**Source:** `eventP04.EDAT/DL415_12_Entry.dat`
-**Mission-note conditions:**
-> The mothership changes partway through. First Turner, then White Base.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Endra** — mission Entry character/pilot field: Rakan Dahkaran
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×11 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Neo Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Rick Dom** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-
-### Episode 15 — Battle of the Burning Sands (`DL415_20`)
-
-**Source:** `eventP04.EDAT/DL415_20_Entry.dat`
-**Mission-note conditions:**
-> NT-1 Alex must sortie as GR, but Zaku II Kai cannot be deployed.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×12 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dreissen** — mission Entry character/pilot field: Desert Rommel
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gouf** — mission Entry character/pilot field: Acous
-  - **Gouf** — mission Entry character/pilot field: Cozun Graham
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Crowley Hamon
-
-### Episode 15 — Wings Called Freedom (`DL415_30`)
-
-**Source:** `eventP04.EDAT/DL415_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Strike Freedom Gundam** — mission Entry character/pilot field: Kira Yamato
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bigro** — mission Entry character/pilot field: Tokwan
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-  - **Zanzibar** — mission Entry character/pilot field: M'Quve
-
-### Episode 15 — Destiny (`DL415_40`)
-
-**Source:** `eventP04.EDAT/DL415_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Destiny Gundam** — mission Entry character/pilot field: Shinn Asuka
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Infinite Justice Gundam** — mission Entry character/pilot field: Athrun Zala
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **Strike Freedom Gundam** — mission Entry character/pilot field: Kira Yamato
-
-**Enemy deployments (inferred):**
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×8 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader
-
-### Episode 15 — Return of the Goburiki Army (`DL415_60`)
-
-**Source:** `eventP26.EDAT/DL415_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Dunbine** — mission Entry character/pilot field: Show Zama — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Hulk Gunship Axe Bomber** — mission Entry character/pilot field: Cocoa Arara — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Cocoa Arara, Milk Arara, Cafe au Lait Arara
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **Ryu Knight Zephyr/Later** — mission Entry character/pilot field: Adeu Waltham
-  - **Ryu Mage Magidora** — mission Entry character/pilot field: Paffy Pafuricia — unit-list default character/crew refs (not mission-confirmed): Paffy Pafuricia, Hagu Hagu
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×6 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zwarth** — mission Entry character/pilot field: Black Knight
-
-### Episode 15 — Those Who Seek the Demon God's Return (`DL415_70`)
-
-**Source:** `eventP04.EDAT/DL415_70_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×7 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×7 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 16 — Episode 16 Assault of the Goburiki Army (`DL416_11`)
-
-**Source:** `eventP04.EDAT/DL416_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Hulk Gunship Axe Bomber** — mission Entry character/pilot field: Cocoa Arara — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Cocoa Arara, Milk Arara, Cafe au Lait Arara
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×7 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×2 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×2 source Entry IDs (simultaneous count not verified)
-  - **Queen Cideron** — mission Entry character/pilot field: Da Cider
-
-### Episode 16 — Episode 16 Aura Power Run Amok (`DL416_12`)
-
-**Source:** `eventP04.EDAT/DL416_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zwarth** — mission Entry character/pilot field: Black Knight
-  - **Zwarth/Hyper** — mission Entry character/pilot field: Black Knight
-
-### Episode 16 — The Day of Departure (`DL416_30`)
-
-**Source:** `eventP04.EDAT/DL416_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz — alternate Entry ID record present
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine — alternate Entry ID record present
-  - **Murasame Liger** — mission Entry character/pilot field: Ruuji Familon
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 16 — The Galeade Front (`DL416_45`)
-
-**Source:** `eventP04.EDAT/DL416_45_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Scopedog TC/ISS (Barcoff)** — mission Entry character/pilot field: Nor Barcoff
-  - **Scopedog TC/ISS (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog TC/ISS (Godan)** — mission Entry character/pilot field: Gary Godan
-  - **Scopedog TC/ISS (Kochak)** — mission Entry character/pilot field: Dare Kochak
-  - **Scopedog TC/ISS (Zaki)** — mission Entry character/pilot field: Gerenborash Droka Zaki
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×12 source Entry IDs (simultaneous count not verified)
-
-### Episode 16 — Rescue on Galeade (`DL416_55`)
-
-**Source:** `eventP04.EDAT/DL416_55_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-  - **Scopedog TC/ISS (Barcoff)** — mission Entry character/pilot field: Nor Barcoff
-  - **Scopedog TC/ISS (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog TC/ISS (Godan)** — mission Entry character/pilot field: Gary Godan
-  - **Scopedog TC/ISS (Kochak)** — mission Entry character/pilot field: Dare Kochak
-  - **Scopedog TC/ISS (Zaki)** — mission Entry character/pilot field: Gerenborash Droka Zaki
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×8 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×58 source Entry IDs (simultaneous count not verified)
-
-### Episode 17 — Episode 17 The Battle for Monad (`DL417_11`)
-
-**Source:** `eventP04.EDAT/DL417_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×18 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-### Episode 17 — Episode 17 Abnormal Survivor (`DL417_12`)
-
-**Source:** `eventP04.EDAT/DL417_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Scopedog TC/ISS (Barcoff)** — mission Entry character/pilot field: Nor Barcoff
-  - **Scopedog TC/ISS (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog TC/ISS (Godan)** — mission Entry character/pilot field: Gary Godan
-  - **Scopedog TC/ISS (Kochak)** — mission Entry character/pilot field: Dare Kochak — alternate Entry ID record present
-  - **Scopedog TC/ISS (Zaki)** — mission Entry character/pilot field: Gerenborash Droka Zaki
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao — alternate Entry ID record present
-
-**Enemy deployments (inferred):**
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×35 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 17 — Episode 17 Rescue (`DL417_13`)
-
-**Source:** `eventP04.EDAT/DL417_13_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Dark Knight Steru/Dark Dragon Form** — mission Entry character/pilot field: Galden
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Lancelot/Ally** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Shin Getter-1 (Ryoma)** — mission Entry character/pilot field: Ryoma Nagare — unit-list default character/crew refs (not mission-confirmed): Ryoma Nagare, Hayato Jin, Benkei Kuruma
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×18 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-### Episode 17 — Planet of the Seal (`DL417_30`)
-
-**Source:** `eventP04.EDAT/DL417_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×16 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-
-### Episode 17 — Defend the Warp Gate (`DL417_40`)
-
-**Source:** `eventP05.EDAT/DL417_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Ingram Unit 1** — mission Entry character/pilot field: Noa Izumi
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog TC/ISS (Barcoff)** — mission Entry character/pilot field: Nor Barcoff
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 17 — The Evolving DG Cells (`DL417_50`)
-
-**Source:** `eventP05.EDAT/DL417_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×6 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gundam Head** — mission Entry character/pilot field: DG Cells
-  - **Mucus Gate S DG** — mission Entry character/pilot field: Mucus — alternate Entry ID record present — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 17 — The Bandits' Misfortune (`DL417_70`)
-
-**Source:** `eventP27.EDAT/DL417_70_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Gun Sniper (Naomi)** — mission Entry character/pilot field: Naomi Fluegel
-  - **Iron Kong Mk-II** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Lancelot/Ally** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Murasame Liger** — mission Entry character/pilot field: Ruuji Familon
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Pilot — ×7 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×7 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **General-Purpose Turret** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Pilot — ×7 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×5 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Pilot — ×8 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Gun Sniper/LS** — mission Entry character/pilot field: Leena Toros — alternate Entry ID record present
-  - **Whale King** — mission Entry character/pilot field: Zoid Pilot
-
-### Episode 18 — Episode 18 Overture to Liberation (`DL518_11`)
-
-**Source:** `eventP05.EDAT/DL518_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×8 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×28 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×10 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer — ×3 source Entry IDs (simultaneous count not verified)
-  - **Ray** — mission Entry character/pilot field: Posaydal Regular Officer
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 18 — Episode 18 Le Cain's Challenge (`DL518_12`)
-
-**Source:** `eventP05.EDAT/DL518_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zakarl** — mission Entry character/pilot field: Le Cain
-
-### Episode 18 — Valley of Greed (`DL518_20`)
-
-**Source:** `eventP05.EDAT/DL518_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Enhanced Layzner** — mission Entry character/pilot field: Albatro Null Eiji Asuka
-
-**Enemy deployments (inferred):**
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-
-### Episode 18 — Asteroid Lido (`DL518_35`)
-
-**Source:** `eventP05.EDAT/DL518_35_Entry.dat`
-**Mission-note conditions:**
-> The sortie units for this mission are fixed. Scopedog appears as an allied NPC.
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-
-**Enemy deployments (inferred):**
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×6 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×2 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Scopedog/M** — mission Entry character/pilot field: Gilgamesh Soldier
-
-### Episode 18 — Uoodo (`DL518_40`)
-
-**Source:** `eventP05.EDAT/DL518_40_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Berserga WP** — mission Entry character/pilot field: Ru Shako
-  - **Scopedog/Chirico Special** — mission Entry character/pilot field: Chirico Cuvie
-
-**Enemy deployments (inferred):**
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×10 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: Gilgamesh Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 18 — Escape (`DL518_50`)
-
-**Source:** `eventP05.EDAT/DL518_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **AT Fly** — mission Entry character/pilot field: Vanilla Vartla
-  - **Berserga WP** — mission Entry character/pilot field: Ru Shako
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu
-  - **Scopedog/Chirico Special** — mission Entry character/pilot field: Chirico Cuvie
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Giga-class Space Battleship** — mission Entry character/pilot field: Gilgamesh Officer
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×27 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: Gilgamesh Soldier — ×18 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: Gilgamesh Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 19 — Ep. 19 Breaking the Axis Defense Line (`DL519_11`)
-
-**Source:** `eventP05.EDAT/DL519_11_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bigro** — mission Entry character/pilot field: Tokwan
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×7 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Garma Zabi
-
-### Episode 19 — Episode 19 Assault Landing on Axis (`DL519_12`)
-
-**Source:** `eventP05.EDAT/DL519_12_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Gundam Ground Type** — mission Entry character/pilot field: Terry Sanders Jr.
-  - **Gundam Ground Type/GM Head** — mission Entry character/pilot field: Karen Joshua
-  - **Hover Truck** — mission Entry character/pilot field: Michel Ninorich — unit-list default character/crew refs (not mission-confirmed): Michel Ninorich, Eledore Massis
-
-**Enemy deployments (inferred):**
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Dreissen** — mission Entry character/pilot field: Desert Rommel
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Acous
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Cozun Graham
-
-### Episode 19 — Episode 19 Withdrawal from Axis (`DL519_13`)
-
-**Source:** `eventP05.EDAT/DL519_13_Entry.dat`
-**Mission-note conditions:**
-> NT-1 Alex must sortie as GR, but Zaku II Kai cannot be deployed.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gwazine** — mission Entry character/pilot field: Kycilia Zabi
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zeong** — mission Entry character/pilot field: Char Aznable
-
-### Episode 19 — Pursuit by the Newtype Corps (`DL519_20`)
-
-**Source:** `eventP05.EDAT/DL519_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Qubeley Mk-II (Ple)** — mission Entry character/pilot field: Elpeo Ple
-
-### Episode 19 — Mr. Bushido (`DL519_30`)
-
-**Source:** `eventP05.EDAT/DL519_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **00 Raiser** — mission Entry character/pilot field: Setsuna F. Seiei — unit-list default character/crew refs (not mission-confirmed): Setsuna F. Seiei, Saji Crossroad
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gundam Exia** — mission Entry character/pilot field: Setsuna F. Seiei
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **Wing Gundam Zero** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Susanowo** — mission Entry character/pilot field: Mr. Bushido
-  - **Tallgeese** — mission Entry character/pilot field: Zechs Merquise
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer
-
-**Scripted units — side not established:**
-  - **Spaceship** — mission Entry character/pilot field: Saji Crossroad
-
-### Episode 19 — Strike the Enemy Supply Base (`DL519_40`)
-
-**Source:** `eventP05.EDAT/DL519_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-
-### Episode 19 — Base Suppression (`DL519_50`)
-
-**Source:** `eventP05.EDAT/DL519_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×2 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 20 — Episode 20 The 203rd Warp Gate (`DL520_11`)
-
-**Source:** `eventP05.EDAT/DL520_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 20 — Episode 20 The Sword to Inherit (`DL520_12`)
-
-**Source:** `eventP05.EDAT/DL520_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu — alternate Entry ID record present
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 20 — Episode 20 Planetary Survey (`DL520_13`)
-
-**Source:** `eventP05.EDAT/DL520_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 20 — Resolve Beneath the Mask (`DL520_40`)
-
-**Source:** `eventP05.EDAT/DL520_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 3 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **00 Raiser** — mission Entry character/pilot field: Setsuna F. Seiei — unit-list default character/crew refs (not mission-confirmed): Setsuna F. Seiei, Saji Crossroad
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Hyaku Shiki** — mission Entry character/pilot field: Quattro Bajeena
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Mucus Gate S** — mission Entry character/pilot field: No mission-assigned pilot key — scripted target/object; not a piloted mech
-  - **Susanowo/Ally** — mission Entry character/pilot field: Mr. Bushido
-  - **Tallgeese/Ally** — mission Entry character/pilot field: Zechs Merquise
-  - **Wing Gundam Zero** — mission Entry character/pilot field: Heero Yuy
-
-**Enemy deployments (inferred):**
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×10 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×13 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Susanowo** — mission Entry character/pilot field: Mr. Bushido — alternate Entry ID record present
-  - **Tallgeese** — mission Entry character/pilot field: Zechs Merquise — alternate Entry ID record present
-  - **Zeong** — mission Entry character/pilot field: Char Aznable — alternate Entry ID record present
-
-### Episode 20 — Trap on the Moon (`DL520_50`)
-
-**Source:** `eventP28.EDAT/DL520_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Nu Gundam** — mission Entry character/pilot field: Amuro Ray
-  - **Sazabi** — mission Entry character/pilot field: Quattro Bajeena
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: --- — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Rick Dom** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-
-### Episode 20 — Da Cider the Flash (`DL520_60`)
-
-**Source:** `eventP05.EDAT/DL520_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Hulk Gunship Axe Bomber** — mission Entry character/pilot field: Cocoa Arara — unit-list default character/crew refs (not mission-confirmed): Cocoa Arara, Milk Arara, Cafe au Lait Arara
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **Queen Cideron/Ally** — mission Entry character/pilot field: Da Cider — unit-list default character/crew refs (not mission-confirmed): Da Cider, Hebi Metako
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×5 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×7 source Entry IDs (simultaneous count not verified)
-  - **Queen Cideron** — mission Entry character/pilot field: Da Cider
-
-### Episode 21 — Episode 21 The Dark Zwarth (`DL521_11`)
-
-**Source:** `eventP05.EDAT/DL521_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Billbine** — mission Entry character/pilot field: Show Zama — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-  - **Dunbine** — mission Entry character/pilot field: Show Zama — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-  - **Giga-class Space Battleship** — mission Entry character/pilot field: Gilgamesh Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zwarth** — mission Entry character/pilot field: Black Knight
-  - **Zwarth/Hyper** — mission Entry character/pilot field: Black Knight
-
-### Episode 21 — Episode 21 Goburiki, Ultimate Form (`DL521_12`)
-
-**Source:** `eventP05.EDAT/DL521_12_Entry.dat`
-**Mission-note conditions:**
-> Demon God Goburiki has special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Hulk Gunship Axe Bomber** — mission Entry character/pilot field: Cocoa Arara — unit-list default character/crew refs (not mission-confirmed): Cocoa Arara, Milk Arara, Cafe au Lait Arara
-  - **King Squasher** — mission Entry character/pilot field: Hero Lamuness (Lamune Baba) — unit-list default character/crew refs (not mission-confirmed): Hero Lamuness (Lamune Baba), Tama-Q
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Queen Cideron/Ally** — mission Entry character/pilot field: Da Cider — unit-list default character/crew refs (not mission-confirmed): Da Cider, Hebi Metako
-
-**Enemy deployments (inferred):**
-  - **Demon God Goburiki/Ultimate** — mission Entry character/pilot field: Don Harumage
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×14 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×18 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 21 — Vanguard of the DG Cells (`DL521_20`)
-
-**Source:** `eventP05.EDAT/DL521_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Qubeley Mk-II (Ple, Ally)** — mission Entry character/pilot field: Elpeo Ple
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×16 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×34 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M DG** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Mucus Gate S DG** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 21 — DG Asteroid Approaching (`DL521_40`)
-
-**Source:** `eventP06.EDAT/DL521_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×10 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×5 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S DG** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 21 — A New Knightmare Frame (`DL521_70`)
-
-**Source:** `eventP29.EDAT/DL521_70_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Guren S.E.I.T.E.N.** — mission Entry character/pilot field: Kallen Kozuki
-  - **Lancelot Albion** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Shinkiro** — mission Entry character/pilot field: Zero
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 22 — Episode 22 Showdown, DG Cells R1 (`DL622_11`)
-
-**Source:** `eventP06.EDAT/DL622_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×8 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×15 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus
-
-### Episode 22 — Episode 22 Showdown, DG Cells R2 (`DL622_12`)
-
-**Source:** `eventP06.EDAT/DL622_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×8 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×12 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L DG** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 22 — Episode 22 Devil Gundam - Final Round (`DL622_13`)
-
-**Source:** `eventP06.EDAT/DL622_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **God Gundam** — mission Entry character/pilot field: Domon Kasshu
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×6 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×6 source Entry IDs (simultaneous count not verified)
-  - **Devil Gundam** — mission Entry character/pilot field: DG Cells
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gundam Head** — mission Entry character/pilot field: DG Cells — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 22 — God Keron Is Here! (`DL622_30`)
-
-**Source:** `eventP06.EDAT/DL622_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **God Keron** — mission Entry character/pilot field: Sgt. Keroro — unit-list default character/crew refs (not mission-confirmed): Sgt. Keroro, Cpl. Giroro, Pvt. Tamama, Sgt. Major Kululu, Lance Cpl. Dororo
-  - **Keroro Robo Mk-II** — mission Entry character/pilot field: Sgt. Keroro
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 22 — Eldran's Heroes Assemble! (`DL622_50`)
-
-**Source:** `eventP06.EDAT/DL622_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ganbaruger** — mission Entry character/pilot field: Kotaro Kirigakure — unit-list default character/crew refs (not mission-confirmed): Kotaro Kirigakure, Yosuke Kazamatsuri, Rikiya Ryuzaki
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **Perfect Daiteioh** — mission Entry character/pilot field: Taro Omomo — unit-list default character/crew refs (not mission-confirmed): Taro Omomo, Mai Ozora, Kakeru Daichi, Hiryu Tsukishiro
-  - **Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 22 — Colony Laser Reactivated (`DL622_60`)
-
-**Source:** `eventP06.EDAT/DL622_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Gwazine** — mission Entry character/pilot field: Conscon
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Musai** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 23 — Episode 23 Gihren's Trap (`DL623_11`)
-
-**Source:** `eventP06.EDAT/DL623_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Apsalus III** — mission Entry character/pilot field: Ginias Sahalin
-  - **Bigro** — mission Entry character/pilot field: Zeon Soldier
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Gwazine** — mission Entry character/pilot field: Gihren Zabi
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Musai** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 23 — Episode 23 Haman's Resolve (`DL623_12`)
-
-**Source:** `eventP06.EDAT/DL623_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Big Zam** — mission Entry character/pilot field: Neo Zeon Soldier
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Sadalahn** — mission Entry character/pilot field: Haman Karn
-  - **Zaku III** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-
-### Episode 23 — Episode 23 The Earth Sphere United (`DL623_13`)
-
-**Source:** `eventP06.EDAT/DL623_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gundam Ez8** — mission Entry character/pilot field: Shiro Amada
-  - **Qubeley Mk-II (Ple, Ally)** — mission Entry character/pilot field: Elpeo Ple
-  - **ZZ Gundam** — mission Entry character/pilot field: Judau Ashta
-
-**Enemy deployments (inferred):**
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Quin Mantha** — mission Entry character/pilot field: Ple Two
-  - **Zaku III** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 23 — Joint Front (`DL623_25`)
-
-**Source:** `eventP06.EDAT/DL623_25_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 23 — Mucus Gate Sweep (`DL623_35`)
-
-**Source:** `eventP06.EDAT/DL623_35_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 23 — Ominous Signs (`DL623_45`)
-
-**Source:** `eventP06.EDAT/DL623_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Final Dancouga** — mission Entry character/pilot field: Shinobu Fujiwara — unit-list default character/crew refs (not mission-confirmed): Shinobu Fujiwara, Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
-  - **Mazinger Z** — mission Entry character/pilot field: Koji Kabuto
-
-**Enemy deployments (inferred):**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 24 — Episode 24 A Mother's Memory (`DL624_11`)
-
-**Source:** `eventP06.EDAT/DL624_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 24 — Episode 24 Duel with Viral (`DL624_12`)
-
-**Source:** `eventP06.EDAT/DL624_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **GoShogun** — mission Entry character/pilot field: No mission-assigned pilot key — ×6 source Entry IDs (simultaneous count not verified) — unit-list default character/crew refs (not mission-confirmed): Shingo Hojo, Killy Gagley, Remy Shimada
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-
-**Enemy deployments (inferred):**
-  - **Enkidu** — mission Entry character/pilot field: Viral
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 24 — Unearthing the Sirbine (`DL624_25`)
-
-**Source:** `eventP30.EDAT/DL624_25_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Sirbine** — mission Entry character/pilot field: Show Zama — unit-list default character/crew refs (not mission-confirmed): Show Zama, Chum Huau
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 24 — Metal Knight Invasion (`DL624_35`)
-
-**Source:** `eventP06.EDAT/DL624_35_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×6 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×5 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 24 — Earthtia Ravaged (`DL624_45`)
-
-**Source:** `eventP06.EDAT/DL624_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×5 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×4 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 25 — Episode 25 The Defense of Eldgear (`DL625_11`)
-
-**Source:** `eventP06.EDAT/DL625_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Dark Knight Steru/Dark Dragon Form** — mission Entry character/pilot field: Galden
-  - **Eldgear Central Tower** — mission Entry character/pilot field: White Dragon — scripted target/object; not a piloted mech
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 25 — Episode 25 To the Earth Blade (`DL625_12`)
-
-**Source:** `eventP06.EDAT/DL625_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 25 — Episode 25 The Evil God Drago (`DL625_13`)
-
-**Source:** `eventP06.EDAT/DL625_13_Entry.dat`
-**Mission-note conditions:**
-> Evil God Drago uses special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Maryu-Oh Dolga** — mission Entry character/pilot field: Ryu Dolk
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Evil God Drago** — mission Entry character/pilot field: Evil God Drago
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×7 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×15 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L DR** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 25 — Operation: Sleeper Zoid Capture (`DL625_40`)
-
-**Source:** `eventP06.EDAT/DL625_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/White** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×10 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate M** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 25 — Giwaza Lowaw (`DL625_45`)
-
-**Source:** `eventP06.EDAT/DL625_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×25 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Sarge Aupus** — mission Entry character/pilot field: Posaydal Regular Officer
-  - **Sarge Aupus (Giwaza)** — mission Entry character/pilot field: Giwaza Lowaw
-
-### Episode 25 — The Geno Breaker Returns (`DL625_50`)
-
-**Source:** `eventP06.EDAT/DL625_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 2 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Iron Kong Mk-II** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Command Wolf/White** — mission Entry character/pilot field: Helic Republic Soldier — ×3 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer
-  - **Mucus Gate S** — mission Entry character/pilot field: No mission-assigned pilot key — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 26 — Episode 26 Harbinger of the End (`DL726_11`)
-
-**Source:** `eventP07.EDAT/DL726_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 26 — Episode 26 Fall of the Capital (`DL726_12`)
-
-**Source:** `eventP07.EDAT/DL726_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 26 — Episode 26 The Ultrasaurus Revived (`DL726_13`)
-
-**Source:** `eventP07.EDAT/DL726_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-  - **Ultrasaurus/Inactive** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×9 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×5 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×5 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×5 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×18 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×22 source Entry IDs (simultaneous count not verified)
-
-### Episode 26 — Brush with Death (`DL726_25`)
-
-**Source:** `eventP07.EDAT/DL726_25_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **AT Fly** — mission Entry character/pilot field: Vanilla Vartla
-  - **Berserga WP** — mission Entry character/pilot field: Ru Shako
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-  - **Scopedog TC/ISS (Barcoff)** — mission Entry character/pilot field: Nor Barcoff
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×10 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 26 — Hunting the Mechanization Empire (`DL726_35`)
-
-**Source:** `eventP07.EDAT/DL726_35_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×14 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus
-  - **Mucus Gate M MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 26 — A Lead on the Mechanization Empire (`DL726_45`)
-
-**Source:** `eventP07.EDAT/DL726_45_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×5 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×6 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus
-  - **Mucus Gate M MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 27 — Episode 27 Toward Mechanization Castle (`DL727_11`)
-
-**Source:** `eventP07.EDAT/DL727_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×8 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-
-### Episode 27 — Ep. 27 Terror! The Wrath of Kikaishin (`DL727_12`)
-
-**Source:** `eventP07.EDAT/DL727_12_Entry.dat`
-**Mission-note conditions:**
-> Kikaishin has special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Go-Saurer** — mission Entry character/pilot field: Kenichi Minezaki — unit-list default character/crew refs (not mission-confirmed): Kenichi Minezaki, Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
-  - **God Raijin-Oh** — mission Entry character/pilot field: Jin Hyuga — unit-list default character/crew refs (not mission-confirmed): Jin Hyuga, Asuka Tsukishiro, Koji Hoshiyama, Bakuryu-Oh
-  - **Great Ganbaruger** — mission Entry character/pilot field: Kotaro Kirigakure — unit-list default character/crew refs (not mission-confirmed): Kotaro Kirigakure, Yosuke Kazamatsuri, Rikiya Ryuzaki
-  - **Perfect Daiteioh** — mission Entry character/pilot field: Taro Omomo — unit-list default character/crew refs (not mission-confirmed): Taro Omomo, Mai Ozora, Kakeru Daichi, Hiryu Tsukishiro
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×11 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×10 source Entry IDs (simultaneous count not verified)
-  - **Dreissen** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×12 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10** — mission Entry character/pilot field: Control AI
-  - **Helldiver** — mission Entry character/pilot field: Control AI
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Kikaishin** — mission Entry character/pilot field: Kikaishin
-  - **Mucus Gate L MC** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Type-Zero/Enemy** — mission Entry character/pilot field: Control AI
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: No mission-assigned pilot key — scripted target/object; not a piloted mech
-
-### Episode 27 — Quwasan Olibee (`DL727_40`)
-
-**Source:** `eventP07.EDAT/DL727_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Auge** — mission Entry character/pilot field: Antoon Randow
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Sarge Aupus (Nei)** — mission Entry character/pilot field: Posaydal Regular Officer
-
-### Episode 27 — Under the Flag (`DL727_50`)
-
-**Source:** `eventP07.EDAT/DL727_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×18 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-
-### Episode 27 — Chess Piece (`DL727_60`)
-
-**Source:** `eventP07.EDAT/DL727_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Slender Skala** — mission Entry character/pilot field: Gavlet Gablae
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×18 source Entry IDs (simultaneous count not verified)
-  - **B-SFTV-AT-105 Zahatt** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×21 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×20 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 28 — Episode 28 First Attack (`DL728_11`)
-
-**Source:** `eventP07.EDAT/DL728_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **Bat-Shu** — mission Entry character/pilot field: Antoon Randow
-  - **Bat-Shu** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×15 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Sarge Aupus (Nei)** — mission Entry character/pilot field: Nei Moh Han
-
-### Episode 28 — Episode 28 Revenge Battle (`DL728_12`)
-
-**Source:** `eventP07.EDAT/DL728_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Auge** — mission Entry character/pilot field: Antoon Randow
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **Auge** — mission Entry character/pilot field: Posaydal Regular — ×4 source Entry IDs (simultaneous count not verified)
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×22 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-  - **Sarge Aupus (Giwaza)** — mission Entry character/pilot field: Giwaza Lowaw
-  - **Zakarl** — mission Entry character/pilot field: Le Cain
-
-### Episode 28 — Episode 28 Dreamers Again (`DL728_13`)
-
-**Source:** `eventP07.EDAT/DL728_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **D-Sserd** — mission Entry character/pilot field: Fannaria Amm
-  - **L-Gaim Mk-II** — mission Entry character/pilot field: Daba Myroad — unit-list default character/crew refs (not mission-confirmed): Daba Myroad, Lilis Faw
-  - **Novel D-Sserd** — mission Entry character/pilot field: Gaw Ha Leccee
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Aug** — mission Entry character/pilot field: True Posaydal
-  - **Auge** — mission Entry character/pilot field: Posaydal Regular — ×10 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×12 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: Balarant Soldier — ×10 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Heart of Lachesis** — mission Entry character/pilot field: ---
-
-**Scripted units — side not established:**
-  - **Heart of Lachesis** — mission Entry character/pilot field: ---
-
-### Episode 28 — The Last Red Shoulder (`DL728_20`)
-
-**Source:** `eventP07.EDAT/DL728_20_Entry.dat`
-**Mission-note conditions:**
-> Units for this mission are preassigned.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-
-**Enemy deployments (inferred):**
-  - **Blood Sucker** — mission Entry character/pilot field: Red Shoulder Trooper — ×7 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Control AI — scripted target/object; not a piloted mech
-
-### Episode 28 — Perfect Soldier (`DL728_30`)
-
-**Source:** `eventP07.EDAT/DL728_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Berserga WP** — mission Entry character/pilot field: Ru Shako
-  - **Scopedog RSC (Byman)** — mission Entry character/pilot field: Byman Hagard
-  - **Scopedog RSC (Chirico)** — mission Entry character/pilot field: Chirico Cuvie
-  - **Scopedog RSC (Gregore)** — mission Entry character/pilot field: Gregore Garosh
-  - **Scopedog RSC (Murza)** — mission Entry character/pilot field: Murza Melym
-  - **Scopedog TC/ISS (Zaki)** — mission Entry character/pilot field: Gerenborash Droka Zaki
-
-**Enemy deployments (inferred):**
-  - **Blood Sucker** — mission Entry character/pilot field: Red Shoulder Trooper — ×8 source Entry IDs (simultaneous count not verified)
-  - **Blood Sucker (Ypsilon)** — mission Entry character/pilot field: Ypsilon
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 28 — Preparing for the Rematch (`DL728_50`)
-
-**Source:** `eventP07.EDAT/DL728_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×8 source Entry IDs (simultaneous count not verified)
-
-### Episode 28 — Eve of the Decisive Battle (`DL728_60`)
-
-**Source:** `eventP07.EDAT/DL728_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×9 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×15 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×18 source Entry IDs (simultaneous count not verified)
-  - **Whale King** — mission Entry character/pilot field: Zoid Core
-
-### Episode 29 — Episode 29 Gravity Cannon (`DL729_11`)
-
-**Source:** `eventP07.EDAT/DL729_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **Murasame Liger** — mission Entry character/pilot field: Ruuji Familon
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Command Wolf/White** — mission Entry character/pilot field: Helic Republic Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 29 — Ep. 29 The Death Stinger's Onslaught (`DL729_12`)
-
-**Source:** `eventP07.EDAT/DL729_12_Entry.dat`
-**Mission-note conditions:**
-> Death Stinger uses special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 29 — An Invitation from the Void (`DL729_20`)
-
-**Source:** `eventP07.EDAT/DL729_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Cowen & Stinger** — mission Entry character/pilot field: Cowen & Stinger
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Episode 29 — The Devil in the Crater (`DL729_50`)
-
-**Source:** `eventP07.EDAT/DL729_50_Entry.dat`
-**Mission-note conditions:**
-> Invader (Devourer Type) uses special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×5 source Entry IDs (simultaneous count not verified)
-  - **Invader/Giant Worm** — mission Entry character/pilot field: Invader
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×5 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 30 — Episode 30 Ancient Memories (`DL830_11`)
-
-**Source:** `eventP08.EDAT/DL830_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 30 — Episode 30 Above Eve Polis (`DL830_12`)
-
-**Source:** `eventP08.EDAT/DL830_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×24 source Entry IDs (simultaneous count not verified)
-  - **Whale King** — mission Entry character/pilot field: Zoid Core
-
-**Scripted units — side not established:**
-  - **Whale King** — mission Entry character/pilot field: Guylos Imperial Officer — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 30 — Episode 30 Death Saurer, Beast of Ruin (`DL830_13`)
-
-**Source:** `eventP08.EDAT/DL830_13_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Blade Liger** — mission Entry character/pilot field: Van Flyheight — unit-list default character/crew refs (not mission-confirmed): Van Flyheight, Fiona Elisi Linette
-  - **Dibison** — mission Entry character/pilot field: Thomas Richard Schubaltz
-  - **Geno Breaker/Ally** — mission Entry character/pilot field: Raven
-  - **Lightning Saix** — mission Entry character/pilot field: Irvine
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Death Stinger** — mission Entry character/pilot field: Hiltz
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Original Death Saurer** — mission Entry character/pilot field: Hiltz
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×7 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Original Death Saurer** — mission Entry character/pilot field: Dark Kaiser
-
-### Episode 30 — Invader Sweep (`DL830_40`)
-
-**Source:** `eventP08.EDAT/DL830_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×11 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Mucus Gate L IN** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 30 — Consensus (`DL830_50`)
-
-**Source:** `eventP08.EDAT/DL830_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — alternate Entry ID record present
-
-### Episode 30 — Warp Ring Activation (`DL830_60`)
-
-**Source:** `eventP08.EDAT/DL830_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Giga-class Space Battleship** — mission Entry character/pilot field: Gilgamesh Officer
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×17 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-
-### Episode 31 — Ep. 31 Death Match!! Invader Fortress! (`DL831_11`)
-
-**Source:** `eventP08.EDAT/DL831_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Giant Worm** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×8 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L IN** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Cowen & Stinger** — mission Entry character/pilot field: Cowen & Stinger
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-  - **White Base** — mission Entry character/pilot field: Bright Noa — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-### Episode 31 — Episode 31 Flash!! At Evolution's End! (`DL831_12`)
-
-**Source:** `eventP08.EDAT/DL831_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Shin Getter-1 (Go)** — mission Entry character/pilot field: Go — unit-list default character/crew refs (not mission-confirmed): Go, Kei, Gai
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Cowen & Stinger** — mission Entry character/pilot field: Cowen & Stinger
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Invader/Giant Worm** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×22 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 31 — Sweeping the Warp Gate (`DL831_20`)
-
-**Source:** `eventP08.EDAT/DL831_20_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Episode 31 — Warriors of the Dark Dragon Realm (`DL831_30`)
-
-**Source:** `eventP08.EDAT/DL831_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier
-
-### Episode 31 — The Ultrasaurus Sets Sail (`DL831_40`)
-
-**Source:** `eventP08.EDAT/DL831_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Core — ×9 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Core — ×11 source Entry IDs (simultaneous count not verified)
-
-### Episode 32 — Episode 32 The Recoral Galaxy (`DL832_11`)
-
-**Source:** `eventP08.EDAT/DL832_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-
-### Episode 32 — Episode 32 The Mucus Fortress (`DL832_12`)
-
-**Source:** `eventP08.EDAT/DL832_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate L** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 32 — Go to Our Allies' Aid (`DL832_30`)
-
-**Source:** `eventP08.EDAT/DL832_30_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Benthos Cruiser α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Sarge Aupus** — mission Entry character/pilot field: Posaydal Regular Officer
-
-### Episode 32 — Ark Ship Transport Operation (`DL832_40`)
-
-**Source:** `eventP08.EDAT/DL832_40_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×11 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×5 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-### Episode 33 — Episode 33 The Domain of Harmony (`DL833_11`)
-
-**Source:** `eventP08.EDAT/DL833_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Vasage** — mission Entry character/pilot field: Vasage — ×2 source Entry IDs (simultaneous count not verified)
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier β** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×8 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Vasage** — mission Entry character/pilot field: Vasage — ×5 source Entry IDs (simultaneous count not verified)
-
-### Episode 33 — Episode 33 Gatekeeper (`DL833_12`)
-
-**Source:** `eventP08.EDAT/DL833_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier β** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-
-### Episode 33 — The Mists of Genesis (`DL833_50`)
-
-**Source:** `eventP08.EDAT/DL833_50_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 3 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier α** — mission Entry character/pilot field: Mucus
-  - **Benthos Carrier β** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Giga-class Space Battleship** — mission Entry character/pilot field: Gilgamesh Officer
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao — alternate Entry ID record present
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-  - **White Base** — mission Entry character/pilot field: Bright Noa — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-### Episode 33 — The Infernal Spatial Barrier (`DL833_60`)
-
-**Source:** `eventP08.EDAT/DL833_60_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier β** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-
-### Episode 34 — Episode 34 Into Genesis (`DL834_11`)
-
-**Source:** `eventP08.EDAT/DL834_11_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-**Alternate-record caution:** 1 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Vasage** — mission Entry character/pilot field: Vasage
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×13 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×15 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine G** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×9 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×7 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus
-  - **White Base** — mission Entry character/pilot field: Bright Noa — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-### Episode 34 — Episode 34 The Hopes Entrusted (`DL834_12`)
-
-**Source:** `eventP08.EDAT/DL834_12_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Benthos Carrier β** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×20 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×16 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×21 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×14 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×11 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-
-### Episode 34 — Episode 34 Operation Extend (`DL834_13`)
-
-**Source:** `eventP08.EDAT/DL834_13_Entry.dat`
-**Mission-note conditions:**
-> Mucus Arm uses special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-**Alternate-record caution:** 3 Entry ID(s) have more than one unit/pilot/side row; bullets marked “alternate Entry ID record present” are not assumed simultaneous.
-
-**Allied deployments (inferred):**
-  - **Gurren Lagann (Simon)** — mission Entry character/pilot field: Simon — unit-list default character/crew refs (not mission-confirmed): Simon, Kamina, Yoko, Boota
-
-**Enemy deployments (inferred):**
-  - **Giga Nekton β** — mission Entry character/pilot field: Mucus — ×16 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton ββ** — mission Entry character/pilot field: Mucus — ×15 source Entry IDs (simultaneous count not verified)
-  - **Mucus Arm** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×12 source Entry IDs (simultaneous count not verified)
-  - **Nekton Mine GG** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×10 source Entry IDs (simultaneous count not verified)
-
-**Scripted units — side not established:**
-  - **Exart** — mission Entry character/pilot field: Seishiro Kusanagi — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Seishiro Kusanagi, Himari Yaegaki, Vasage
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Macross Quarter (Storm Attack)** — mission Entry character/pilot field: Jeffrey Wilder — alternate Entry ID record present — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-  - **Mucus Emperor** — mission Entry character/pilot field: Mucus — alternate Entry ID record present
-  - **Mucus Emperor/MAX** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mucus Gate S** — mission Entry character/pilot field: Mucus — scripted target/object; not a piloted mech
-
-### Simulator — Rogue Machines (`SM001`)
-
-**Source:** `eventP01.EDAT/SM001_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10/Green** — mission Entry character/pilot field: Shinohara HOS — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Ground Mobile Suit Battle (`SM002`)
-
-**Source:** `eventP01.EDAT/SM002_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **General-Purpose Turret** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Gouf** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Zeon Officer — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Armed Groups (`SM003`)
-
-**Source:** `eventP20.EDAT/SM003_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Brocken/Cannon** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Melee** — mission Entry character/pilot field: Labor Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dom** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: MS Pilot
-  - **Gouf** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Griffon** — mission Entry character/pilot field: Badrinath Harchand
-  - **HAL-X10** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10/Green** — mission Entry character/pilot field: Shinohara HOS — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Threats from Space (`SM004`)
-
-**Source:** `eventP21.EDAT/SM004_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Veteran MS Pilots (`SM005`)
-
-**Source:** `eventP22.EDAT/SM005_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Mikhail Kaminsky
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Hardy Steiner
-  - **Zaku II (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Zaku II Kai** — mission Entry character/pilot field: Andy Strauss
-  - **Zaku II Kai** — mission Entry character/pilot field: Gabriel Ramirez Garcia
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Cozun Graham
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Slender
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Acous
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Crown
-  - **Zanzibar** — mission Entry character/pilot field: Crowley Hamon
-  - **Zanzibar** — mission Entry character/pilot field: Garma Zabi
-  - **Zanzibar** — mission Entry character/pilot field: M'Quve
-
-### Simulator — Solar System Defense Drill (`SM006`)
-
-**Source:** `eventP23.EDAT/SM006_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×4 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader
-
-### Simulator — The Lawless Galaxy (`SM007`)
-
-**Source:** `eventP24.EDAT/SM007_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×4 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×4 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×3 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×3 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Mixed AT Unit (`SM008`)
-
-**Source:** `eventP25.EDAT/SM008_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Balarant Land Battleship** — mission Entry character/pilot field: Gilgamesh Officer
-  - **Brocken/Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10/Green** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog** — mission Entry character/pilot field: Gilgamesh Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog RS (Riemann)** — mission Entry character/pilot field: Inge Riemann
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: Gilgamesh Soldier — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Earth's Nightmare (`SM009`)
-
-**Source:** `eventP26.EDAT/SM009_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×7 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10/Green** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×7 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×7 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Zoid Legion (`SM010`)
-
-**Source:** `eventP27.EDAT/SM010_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Death Saurer/Replica** — mission Entry character/pilot field: Gunther Prozen
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Guylos Imperial Officer — ×5 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong SS** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Red Horn (Rosso)** — mission Entry character/pilot field: Rosso
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola
-  - **Whale King** — mission Entry character/pilot field: Guylos Imperial Officer — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Multiplying War Machines (`SM011`)
-
-**Source:** `eventP28.EDAT/SM011_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Bolt Robo/Long-Range** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Standard** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×16 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gundam Head** — mission Entry character/pilot field: DG Cells
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×2 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Type-Zero/Enemy** — mission Entry character/pilot field: Control AI — ×2 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Heroes of Ground Combat (`SM012`)
-
-**Source:** `eventP29.EDAT/SM012_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Dark Horn** — mission Entry character/pilot field: Guylos Imperial Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Directional Mine** — mission Entry character/pilot field: Control AI — ×8 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Dreissen** — mission Entry character/pilot field: Desert Rommel
-  - **Endra** — mission Entry character/pilot field: Neo Zeon Officer
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Iron Kong SS** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Mikhail Kaminsky
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Hardy Steiner
-  - **Lancelot** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Molga** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Red Horn (Rosso)** — mission Entry character/pilot field: Rosso
-  - **Redler** — mission Entry character/pilot field: Guylos Imperial Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Redler (Viola)** — mission Entry character/pilot field: Viola
-  - **Saber Tiger (Raven)** — mission Entry character/pilot field: Raven
-  - **Scopedog RS (Riemann)** — mission Entry character/pilot field: Inge Riemann
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×3 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×2 source Entry IDs (simultaneous count not verified)
-  - **Whale King** — mission Entry character/pilot field: Gunther Prozen
-  - **Zaku II Kai** — mission Entry character/pilot field: Andy Strauss
-  - **Zaku II Kai** — mission Entry character/pilot field: Gabriel Ramirez Garcia
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Cozun Graham
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Acous
-  - **Zaku III** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Crowley Hamon
-
-### Simulator — Mixed Mobile Force (`SM013`)
-
-**Source:** `eventP30.EDAT/SM013_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu** — mission Entry character/pilot field: Posaydal Regular — ×6 source Entry IDs (simultaneous count not verified)
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Gavlet Gablae
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hatchia Motchia
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×14 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×9 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Grados New Giant Space Carrier** — mission Entry character/pilot field: Grados Officer
-  - **Lesrion-class Space Battleship** — mission Entry character/pilot field: Balarant Officer
-  - **Sarge Aupus** — mission Entry character/pilot field: Posaydal Regular Officer
-  - **Slender Skala** — mission Entry character/pilot field: Posaydal Regular Officer
-  - **Zakarl** — mission Entry character/pilot field: Le Cain
-
-### Simulator — The Stolen Moon (`SM014`)
-
-**Source:** `eventP31.EDAT/SM014_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Escort Ship** — mission Entry character/pilot field: Dark Dragon Soldier
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus
-  - **Giga Nekton αα** — mission Entry character/pilot field: Mucus
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×5 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×4 source Entry IDs (simultaneous count not verified)
-  - **Invader/Starfish** — mission Entry character/pilot field: Invader — ×11 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Creek** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-  - **Nekton Hauser** — mission Entry character/pilot field: Mucus — ×4 source Entry IDs (simultaneous count not verified)
-  - **Nekton Shooter** — mission Entry character/pilot field: Mucus — ×3 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Anti-Labor, Anti-AT Combat (`SM015`)
-
-**Source:** `eventP31.EDAT/SM015_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Brocken/Cannon** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Chaldea** — mission Entry character/pilot field: Control AI — ×11 source Entry IDs (simultaneous count not verified)
-  - **Command Wolf/White** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: AT Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Griffon** — mission Entry character/pilot field: Badrinath Harchand
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Core — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper/WW** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10** — mission Entry character/pilot field: Shinohara HOS — ×3 source Entry IDs (simultaneous count not verified)
-  - **HAL-X10/Green** — mission Entry character/pilot field: Labor Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Helldiver** — mission Entry character/pilot field: Control AI — ×5 source Entry IDs (simultaneous count not verified)
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Type-Zero/Enemy** — mission Entry character/pilot field: Shinohara HOS — ×4 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Dark Attacker Assault (`SM016`)
-
-**Source:** `eventP31.EDAT/SM016_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Macross Quarter (Fortress Ship)** — mission Entry character/pilot field: Jeffrey Wilder — unit-list default character/crew refs (not mission-confirmed): Jeffrey Wilder, Bobby Margot, Catherine Glass
-
-**Enemy deployments (inferred):**
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Antoon Randow
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Gavlet Gablae
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hatchia Motchia
-  - **Bat-Shu/Strong** — mission Entry character/pilot field: Hekeler Mauzer
-  - **Bolt Robo/Anti-Air** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Bolt Robo/Melee** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dark Go-Saurer** — mission Entry character/pilot field: Mechanized Beast — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Giga Nekton α** — mission Entry character/pilot field: Mucus — ×2 source Entry IDs (simultaneous count not verified)
-  - **Iron Kong** — mission Entry character/pilot field: Zoid Core — ×2 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×2 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×8 source Entry IDs (simultaneous count not verified)
-  - **Nekton Assault** — mission Entry character/pilot field: Mucus — ×6 source Entry IDs (simultaneous count not verified)
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Qubeley Mk-II (Ple)** — mission Entry character/pilot field: Elpeo Ple
-  - **Queen Cideron** — mission Entry character/pilot field: Da Cider
-  - **Saber Tiger (Raven)** — mission Entry character/pilot field: Raven
-  - **Susanowo** — mission Entry character/pilot field: Mr. Bushido
-  - **Zwarth** — mission Entry character/pilot field: Black Knight
-
-### Simulator — Zeon Ground Intercept Drill (`SM017`)
-
-**Source:** `eventP31.EDAT/SM017_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **Apsalus III** — mission Entry character/pilot field: Ginias Sahalin
-  - **Dom** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Dopp** — mission Entry character/pilot field: Zeon Soldier — ×12 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Crown
-  - **Gelgoog** — mission Entry character/pilot field: Slender
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gouf** — mission Entry character/pilot field: Acous
-  - **Gouf** — mission Entry character/pilot field: Cozun Graham
-  - **Gouf** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Zaku II/Bazooka** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku II/Machine Gun** — mission Entry character/pilot field: Zeon Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Zanzibar** — mission Entry character/pilot field: Char Aznable
-  - **Zanzibar** — mission Entry character/pilot field: Crowley Hamon
-  - **Zanzibar** — mission Entry character/pilot field: Garma Zabi
-  - **Zanzibar** — mission Entry character/pilot field: M'Quve
-
-### Simulator — Lawless Zone (`SM018`)
-
-**Source:** `eventP32.EDAT/SM018_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **Ultrasaurus** — mission Entry character/pilot field: Rob Herman — unit-list default character/crew refs (not mission-confirmed): Rob Herman, Moonbay, Karl Lichten Schubaltz
-
-**Enemy deployments (inferred):**
-  - **Blood Sucker** — mission Entry character/pilot field: Red Shoulder Trooper — ×3 source Entry IDs (simultaneous count not verified)
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×8 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Cannon** — mission Entry character/pilot field: Labor Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Brocken/Machine Cannon** — mission Entry character/pilot field: Labor Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Command Wolf/Khaki** — mission Entry character/pilot field: Zoid Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Dark Horn** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Dom** — mission Entry character/pilot field: MS Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty** — mission Entry character/pilot field: AT Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Fatty (Ground)** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gouf** — mission Entry character/pilot field: MS Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gun Sniper** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Pilot — ×3 source Entry IDs (simultaneous count not verified)
-  - **Redler** — mission Entry character/pilot field: Zoid Pilot — ×2 source Entry IDs (simultaneous count not verified)
-  - **Scopedog** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS** — mission Entry character/pilot field: Red Shoulder Trooper — ×4 source Entry IDs (simultaneous count not verified)
-  - **Scopedog TC-RS/M** — mission Entry character/pilot field: Red Shoulder Trooper — ×3 source Entry IDs (simultaneous count not verified)
-  - **Scopedog/M** — mission Entry character/pilot field: AT Pilot — ×4 source Entry IDs (simultaneous count not verified)
-  - **Zaku II Kai** — mission Entry character/pilot field: MS Pilot — ×3 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Zeon Space Intercept Drill (`SM019`)
-
-**Source:** `eventP32.EDAT/SM019_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Allied deployments (inferred):**
-  - **White Base** — mission Entry character/pilot field: Bright Noa — unit-list default character/crew refs (not mission-confirmed): Bright Noa, Mirai Yashima
-
-**Enemy deployments (inferred):**
-  - **B-FH-14/Dual-Role Fighter** — mission Entry character/pilot field: Balarant Soldier — ×6 source Entry IDs (simultaneous count not verified)
-  - **Big Zam** — mission Entry character/pilot field: Dozle Zabi
-  - **Bigro** — mission Entry character/pilot field: Tokwan
-  - **Braver** — mission Entry character/pilot field: Grados Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dreissen** — mission Entry character/pilot field: Desert Rommel
-  - **Dreissen** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Endra** — mission Entry character/pilot field: Rakan Dahkaran
-  - **Fatty** — mission Entry character/pilot field: Balarant Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Fatty/Anti-Ship** — mission Entry character/pilot field: Balarant Soldier — ×5 source Entry IDs (simultaneous count not verified)
-  - **Gattle** — mission Entry character/pilot field: Zeon Soldier — ×4 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gaza-C/MA** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gelgoog** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Gwazine** — mission Entry character/pilot field: Gihren Zabi
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Andy Strauss
-  - **Kampfer/Bazooka** — mission Entry character/pilot field: Mikhail Kaminsky
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Gabriel Ramirez Garcia
-  - **Kampfer/High Mobility** — mission Entry character/pilot field: Hardy Steiner
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Qubeley Mk-II (Ple Two)** — mission Entry character/pilot field: Ple Two
-  - **Qubeley Mk-II (Ple)** — mission Entry character/pilot field: Elpeo Ple
-  - **Rick Dom** — mission Entry character/pilot field: Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Gaia
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Mash
-  - **Rick Dom (Black Tri-Stars)** — mission Entry character/pilot field: Ortega
-  - **Sadalahn** — mission Entry character/pilot field: Haman Karn
-  - **Zaku III** — mission Entry character/pilot field: Neo Zeon Soldier — ×2 source Entry IDs (simultaneous count not verified)
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-  - **Zeong** — mission Entry character/pilot field: Char Aznable
-
-### Simulator — The Writhing Earth (`SM020`)
-
-**Source:** `eventP32.EDAT/SM020_Entry.dat`
-**Mission-note conditions:**
-> Invader (Devourer Type) uses special movement.
-**Wave/timing:** beyond the specific note above, arrival order and turn timing are unknown.
-
-**Allied deployments (inferred):**
-  - **Turner** — mission Entry character/pilot field: Mirawoo Kyao
-
-**Enemy deployments (inferred):**
-  - **Dark Dragon Soldier** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Flying** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Dark Dragon Soldier/Sniper** — mission Entry character/pilot field: Dark Dragon Soldier — ×3 source Entry IDs (simultaneous count not verified)
-  - **Death Army** — mission Entry character/pilot field: DG Cells — ×3 source Entry IDs (simultaneous count not verified)
-  - **Death Bird** — mission Entry character/pilot field: DG Cells — ×3 source Entry IDs (simultaneous count not verified)
-  - **Gandoppler** — mission Entry character/pilot field: Mechanized Beast — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Air** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Giant Worm** — mission Entry character/pilot field: Invader — ×3 source Entry IDs (simultaneous count not verified)
-  - **Invader/Ground** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight** — mission Entry character/pilot field: Metal Knight — ×3 source Entry IDs (simultaneous count not verified)
-  - **Mass-Produced Metal Knight/Heavy** — mission Entry character/pilot field: Metal Knight — ×3 source Entry IDs (simultaneous count not verified)
-  - **Metal Beast/Missile** — mission Entry character/pilot field: Invader — ×6 source Entry IDs (simultaneous count not verified) — scripted target/object; not a piloted mech
-  - **Metal Beast/Shell** — mission Entry character/pilot field: Invader — ×2 source Entry IDs (simultaneous count not verified)
-  - **Molga** — mission Entry character/pilot field: Zoid Core — ×3 source Entry IDs (simultaneous count not verified)
-  - **Monskar Medessa** — mission Entry character/pilot field: Monskar — ×3 source Entry IDs (simultaneous count not verified)
-  - **Monskar Neppoon** — mission Entry character/pilot field: Monskar — ×3 source Entry IDs (simultaneous count not verified)
-
-### Simulator — Warring Rivals (`SM021`)
-
-**Source:** `eventP32.EDAT/SM021_Entry.dat`
-**Wave/timing:** unknown; not specified in the available mission note or decoded fields.
-
-**Enemy deployments (inferred):**
-  - **Aug** — mission Entry character/pilot field: True Posaydal
-  - **Auge** — mission Entry character/pilot field: Nei Moh Han
-  - **Blood Sucker (Ypsilon)** — mission Entry character/pilot field: Ypsilon
-  - **Daljan** — mission Entry character/pilot field: Gosterro
-  - **Enkidu** — mission Entry character/pilot field: Viral
-  - **Gelgoog (Char)** — mission Entry character/pilot field: Char Aznable
-  - **Geno Breaker** — mission Entry character/pilot field: Raven
-  - **Gouf (Ramba Ral)** — mission Entry character/pilot field: Ramba Ral
-  - **Griffon** — mission Entry character/pilot field: Badrinath Harchand
-  - **Iron Kong SS** — mission Entry character/pilot field: Karl Lichten Schubaltz
-  - **Lancelot** — mission Entry character/pilot field: Suzaku Kururugi
-  - **Qubeley** — mission Entry character/pilot field: Haman Karn
-  - **Queen Cideron** — mission Entry character/pilot field: Da Cider
-  - **Quin Mantha** — mission Entry character/pilot field: Ple Two
-  - **Scopedog RS (Riemann)** — mission Entry character/pilot field: Inge Riemann
-  - **Susanowo** — mission Entry character/pilot field: Mr. Bushido
-  - **Tallgeese** — mission Entry character/pilot field: Zechs Merquise
-  - **Zakarl** — mission Entry character/pilot field: Le Cain
-  - **Zaku III (Rakan)** — mission Entry character/pilot field: Rakan Dahkaran
-  - **Zwarth/Hyper** — mission Entry character/pilot field: Black Knight
-
-## Excluded map objects / utilities
-
-- **Container:** 184 source records across the scanned package files; excluded from the mech/combat roster as map utility objects.
-- **Repair Unit:** 35 source records across the scanned package files; excluded from the mech/combat roster as map utility objects.
-
-## Provenance and interpretation
-
-- Deployment candidates come from the scenario-specific `_Entry.dat` members in the eventP packages, not from the player roster or global unit catalogue alone. Their unit and character keys are resolved against `pakiet_EN/08_names_units_weapons.jsonl` and `pakiet_EN/07_names_characters.jsonl` respectively.
-- The single mission-assigned character is read from the third u32 of each 64-byte record; the global default character/crew references are separately read from original `unit_list` records. The latter are contextual metadata only, not a mission assignment.
-- Exact same-code duplicates were preserved: `DL103_30` differs between `eventP01.EDAT` and `eventP09.EDAT`; `DL208_30` differs between `eventP13.EDAT` and `eventP22.EDAT`. No version was silently preferred.
-- Names use the canonical English unit/character dictionaries. Unavailable timing, trigger semantics, and ambiguous allegiance are left unresolved rather than reconstructed from record order or position.
-
-## Examples in this data
-
-- **White Base** appears with Bright Noa as its mission-assigned character where the entry record names him. Its separate global default unit-list references are Bright Noa and Mirai Yashima; this catalog does not claim Mirai is assigned in every White Base deployment.
-- **Exart** mission entries identify Seishiro Kusanagi. Its separate global default references include Seishiro Kusanagi, Himari Yaegaki, and Vasage; those additional refs are not mission-specific assignments.
-- **Gundam** entries resolve to Amuro Ray. Zaku II model/weapon variants remain distinct by their canonical unit-display names and are not collapsed into a generic Zaku II.
+# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe
+
+Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu. Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), zamiast przepisywać globalną listę domyślną z `unit_list`.
+
+## Zakres i zasady odczytu
+
+- **Pokrycie pakietów:** 24 kontenery `eventP` zawierające pliki `_Entry.dat` (eventP00.cpk, eventP01.EDAT, eventP02.EDAT, eventP03.EDAT, eventP04.EDAT, eventP05.EDAT, eventP06.EDAT, eventP07.EDAT, eventP08.EDAT, eventP09.EDAT, eventP13.EDAT, eventP20.EDAT, eventP21.EDAT, eventP22.EDAT, eventP23.EDAT, eventP24.EDAT, eventP25.EDAT, eventP26.EDAT, eventP27.EDAT, eventP28.EDAT, eventP29.EDAT, eventP30.EDAT, eventP31.EDAT, eventP32.EDAT); 226 instancji plików odpowiadających 224 unikalnym kodom misji. Sprawdzone osobno pakiety `evept101.EDAT`–`evept108.EDAT` nie zawierają członków `_Entry.dat`.
+- **Pokrycie rekordów `_Entry.dat`:** 8915 rekordów 64-bajtowych w 226 plikach `_Entry.dat` (8504 rekordów ma jednocześnie niezerowe `Entry ID` oraz `unit_id`). Wszystkie niezerowe identyfikatory jednostek i pilotów rozwiązują się do kanonicznych nazw z pakietu `pakiet_PL`.
+- **Wykluczone gniazda wyboru i obiekty użytkowe:** 205 rekordów ma `Entry ID = 0`, a 368 ma `unit_id = 0` (zakresy częściowo wspólne — są to gniazda oddziału gracza lub puste wpisy). Obiekty użytkowe mapy — **Container** (`unit_id = 3670`, 184 rekordy) oraz **Moduł naprawy** (`unit_id = 3660`, 35 rekordów) — wyłączono z list bojowych i podsumowano na końcu dokumentu.
+- **Powtarzające się stany `Entry ID`:** identyczne wiersze o tym samym `(Entry ID, unit_id, pilot_id, strona)` są łączone. Jeżeli jedno `Entry ID` występuje w kilku wariantach (np. przemiana formy lub kolejna faza bossa), warianty są zachowane z jawnym oznaczeniem `obecny alternatywny rekord Entry ID` i nie oznaczają jednoczesnej obecności na mapie.
+- **Oznaczenia misji:** nagłówki podają odcinek (lub tryb Symulatora), polski tytuł misji z `_ext.dat` / `05_mission_text.jsonl` oraz dokładny kod źródłowy `DL…` / `SM…`.
+- **Przynależność stron (zweryfikowana w silniku 1.08 `0x1f9810` oraz `op 519` `0x24af0c`):** pole bitowe `(w[3] >> 8) & 7` w 64-bajtowym rekordzie `_Entry.dat` określa początkową stronę jednostki (`0` — gracz, `2` — sojusznik NPC, `1` — wróg, `4` — strona neutralna / trzecia). Jeżeli skrypt `.bin` zmienia stronę w trakcie misji rozkazem `op 519(entry_id, strona)`, zmiana ta jest jawnie odnotowana przy jednostce.
+- **Pilot główny i aktywni piloci wspierający w misji (`0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`):** trzecie słowo 32-bitowe rekordu (`w[2]`) wskazuje pilota głównego (slot 0), natomiast pętla inicjalizacji załogi `0x202b80..0x202bd8` dodaje do slotów `1..4` niezerowych sub-pilotów z `unit_list` (`i16@+100..+106`), po czym silnik i skrypt misji nakładają warunki fabularne: dla **Exart** (`3900`) flaga `1075` odblokowuje **Himari Yaegaki** od `DL101_11` (w odcinku 0 brak sub-pilotów), a flaga `1112` odblokowuje **Vasage'a** w trakcie `DL310_20` (sekcja 2) i odłącza go na starcie `DL833_11`; dodatkowo rozkazy skryptowe `op 516` / `op 679` oraz strażnik fuzji Zeke (`0x214688..0x2146e0` w `DL830_11` dla **Fiony Elisi Linette**) modyfikują aktywną obsadę w konkretnych misjach.
+- **Warunki misji i fale:** polskie opisy warunków z `_ext.dat` są cytowane w bloku `Warunki misji`. Dokładny numer tury pojawienia się posiłków zależy od wyzwalaczy zdarzeń w `.bin`.
+- **Cele niebędące mechami:** miny, wieżyczki, bramy Mucus, rakiety i wieże są zachowane na listach bojowych z oznaczeniem `cel/obiekt skryptowy; nie jest pilotowanym mechem`.
+- **Weryfikacja źródeł:** wszystkie 21 plików `config00.cpk`, `config01`–`config19.EDAT` oraz `configst.cpk` zgadzają się bajt w bajt z sumami kontrolnymi w `docs/mech-catalog/source-inventory.json`, a kod wykonawczy 1.08 (`DATA.PSP`, SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`) posłużył do weryfikacji logiki załóg i stron.
+
+**Łączna liczba rekordów bojowych według początkowej strony (po wyłączeniu obiektów użytkowych mapy, przed łączeniem duplikatów):** 882 sojuszniczych (gracza), 61 sojuszniczych (NPC), 7266 wrogich, 76 neutralnych / trzeciej strony (łącznie 8285 rekordów bojowych).
+
+## Katalog misji
+
+### Odcinek 0 — Szkolenie podstawowe (`DL100_01`)
+
+**Źródło:** `eventP00.cpk/DL100_01_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: brak
+
+**Jednostki wrogie:**
+  - **Brocken/Melee** — pilot główny: Control AI — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 0 — Na ratunek White Base (`DL100_02`)
+
+**Źródło:** `eventP00.cpk/DL100_02_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: brak
+  - **Gundam** — pilot główny: Amuro Ray
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Zaku II (Char)** — pilot główny: Char Aznable
+  - **Zaku II/Bazooka** — pilot główny: Crown
+  - **Zaku II/Karabin maszynowy** — pilot główny: Slender
+
+### Odcinek 1 — Szalejący prototyp Labora (`DL101_11`)
+
+**Źródło:** `eventP00.cpk/DL101_11_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Medea** — pilot główny: Żołnierz JSDF
+
+**Jednostki wrogie:**
+  - **HAL-X10** — pilot główny: Shinohara HOS
+  - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×3 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Helldiver** — pilot główny: Żołnierz JSDF
+  - **Helldiver** — pilot główny: Żołnierz JSDF — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 1 — Black Tri-Stars (`DL101_20`)
+
+**Źródło:** `eventP00.cpk/DL101_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 5 identyfikatorów `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass
+  - **Guncannon** — pilot główny: Kai Shiden
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Guntank** — pilot główny: Hayato Kobayashi
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Wieżyczka uniwersalna** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Wieżyczka uniwersalna** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 1 — Powstrzymaj pocisk termojądrowy (`DL101_30`)
+
+**Źródło:** `eventP00.cpk/DL101_30_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 4 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass
+  - **Guncannon** — pilot główny: Kai Shiden
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Guntank** — pilot główny: Hayato Kobayashi
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — obecny alternatywny rekord Entry ID
+  - **H-Bomb Missile** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 1 — Trening Klasy Obrony (`DL101_40`)
+
+**Źródło:** `eventP00.cpk/DL101_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
+
+**Jednostki wrogie:**
+  - **Brocken/Melee** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 1 — Start Alexa (`DL101_50`)
+
+**Źródło:** `eventP00.cpk/DL101_50_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Zmiana obsady oddziału gracza (skrypt `.bin`):** w sekcji 0 skrypt usuwa z obsady maszyny pilota **Seishiro Kusanagi** pilota wspierającego **Himari Yaegaki**.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Karen Joshua
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+  - **Wieżyczka uniwersalna** — pilot główny: Narration — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki wrogie:**
+  - **Kampfer/Bazooka** — pilot główny: Andy Strauss
+  - **Kampfer/High Mobility** — pilot główny: Mikhail Kaminsky
+  - **Zaku II Kai** — pilot główny: Gabriel Ramirez Garcia
+  - **Zaku II Kai** — pilot główny: Hardy Steiner
+
+### Odcinek 1 — Ratuj transportowiec Medea (`DL101_60`)
+
+**Źródło:** `eventP00.cpk/DL101_60_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+> Jako sojuszniczy NPC pojawi się Medea.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki sojusznicze (NPC):**
+  - **Medea** — pilot główny: Oficer Federacji
+
+**Jednostki wrogie:**
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+
+### Odcinek 1 — Szalejący Labor powraca (`DL101_70`)
+
+**Źródło:** `eventP00.cpk/DL101_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
+
+**Jednostki wrogie:**
+  - **Brocken/Melee** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 1 — Śledztwo pod przykrywką (`DL101_80`)
+
+**Źródło:** `eventP00.cpk/DL101_80_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+
+**Jednostki sojusznicze (NPC):**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki wrogie:**
+  - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 2 — Groźba czająca się pod ziemią (`DL102_11`)
+
+**Źródło:** `eventP00.cpk/DL102_11_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Mazinger Z** — pilot główny: Koji Kabuto — ×2 rekordy źródłowe Entry ID
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×8 rekordów źródłowych Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×9 rekordów źródłowych Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×15 rekordów źródłowych Entry ID
+  - **Mucus Gate S IN** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+
+### Odcinek 2 — Czarny Labor (`DL102_20`)
+
+**Źródło:** `eventP01.EDAT/DL102_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+
+**Jednostki sojusznicze (NPC):**
+  - **HAL-X10/Green** — pilot główny: Żołnierz JSDF
+
+**Jednostki wrogie:**
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Griffon** — pilot główny: Badrinath Harchand — ×2 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Helldiver** — pilot główny: Żołnierz JSDF — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Żołnierz JSDF — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 2 — Ryk dziczy (`DL102_30`)
+
+**Źródło:** `eventP01.EDAT/DL102_30_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+
+**Jednostki wrogie:**
+  - **Nekton Assault** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 2 — Bitwa o Jaburo (`DL102_40`)
+
+**Źródło:** `eventP01.EDAT/DL102_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass
+  - **Guncannon** — pilot główny: Kai Shiden
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Guntank** — pilot główny: Hayato Kobayashi
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+
+**Jednostki wrogie:**
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku II (Char)** — pilot główny: Char Aznable
+  - **Zaku II/Bazooka** — pilot główny: Crown
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Slender
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+### Odcinek 2 — Szturm Apsalusa (`DL102_50`)
+
+**Źródło:** `eventP01.EDAT/DL102_50_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass
+  - **Guncannon** — pilot główny: Kai Shiden
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Guntank** — pilot główny: Hayato Kobayashi
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Apsalus III** — pilot główny: Ginias Sahalin
+  - **Dom** — pilot główny: Żołnierz Zeonu
+  - **Dom** — pilot główny: Żołnierz Zeonu
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Zaku II Kai** — pilot główny: Cozun Graham
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Acous
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zanzibar** — pilot główny: Crowley Hamon
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 2 — Przebicie się siłą (`DL102_60`)
+
+**Źródło:** `eventP01.EDAT/DL102_60_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass — obecny alternatywny rekord Entry ID
+  - **Guncannon** — pilot główny: Kai Shiden — obecny alternatywny rekord Entry ID
+  - **Gundam** — pilot główny: Amuro Ray — obecny alternatywny rekord Entry ID
+  - **Guntank** — pilot główny: Hayato Kobayashi — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Musai** — pilot główny: Dren
+  - **Musai** — pilot główny: Oficer Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 2 — W pościgu za Zanzibarem (`DL102_70`)
+
+**Źródło:** `eventP01.EDAT/DL102_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **G-Fighter** — pilot główny: Sayla Mass — obecny alternatywny rekord Entry ID
+  - **Guncannon** — pilot główny: Kai Shiden — obecny alternatywny rekord Entry ID
+  - **Gundam** — pilot główny: Amuro Ray — obecny alternatywny rekord Entry ID
+  - **Guntank** — pilot główny: Hayato Kobayashi — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bigro** — pilot główny: Tokwan
+  - **Gelgoog (Char)** — pilot główny: Char Aznable
+  - **Rick Dom** — pilot główny: Crown
+  - **Rick Dom** — pilot główny: Slender
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zanzibar** — pilot główny: Oficer Zeonu — zmiana strony w trakcie misji: wroga / agresywna frakcja
+
+### Odcinek 2 — Klasa Obrony leci w kosmos (`DL102_90`)
+
+**Źródło:** `eventP01.EDAT/DL102_90_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Daiteioh** — pilot główny: Taro Omomo — piloci wspierający w misji: Mai Ozora, Kakeru Daichi
+  - **Ganbaruger** — pilot główny: Kotaro Kirigakure — piloci wspierający w misji: Yosuke Kazamatsuri, Rikiya Ryuzaki
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate S MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 3 — Zbrojna interwencja Gundamów (`DL103_11`)
+
+**Źródło:** `eventP01.EDAT/DL103_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **Mazinger Z** — pilot główny: Koji Kabuto
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki sojusznicze (NPC):**
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **Wing Gundam Zero/NB** — pilot główny: Heero Yuy
+
+**Jednostki wrogie:**
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Gelgoog (Char)** — pilot główny: Char Aznable
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Garma Zabi
+  - **Zanzibar** — pilot główny: M'Quve
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 3 — Skradający się czarny cień (`DL103_12`)
+
+**Źródło:** `eventP01.EDAT/DL103_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **Mazinger Z** — pilot główny: Koji Kabuto
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+  - **Wing Gundam Zero** — pilot główny: Heero Yuy
+
+**Jednostki wrogie:**
+  - **Invader/Air** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×10 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader
+
+### Odcinek 3 — Zielony najeźdźca (`DL103_20`)
+
+**Źródło:** `eventP01.EDAT/DL103_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro
+
+**Jednostki wrogie:**
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Brocken/Melee** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Brocken/Melee** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+
+### Odcinek 3 — Szturm na kryjówkę piratów (`DL103_30`)
+
+> **Różne warianty pakietów źródłowych:** ten kod misji występuje w 2 pakietach. Każdy wariant pokazano osobno bez łączenia rekordów.
+
+#### Pakiet źródłowy: `eventP01.EDAT`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Gelgoog** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Pilot MS — ×3 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Pilot MS — ×3 rekordy źródłowe Entry ID
+
+#### Pakiet źródłowy: `eventP09.EDAT`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Gelgoog** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+
+### Odcinek 3 — Napaść na bazę marsjańską (`DL103_40`)
+
+**Źródło:** `eventP01.EDAT/DL103_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **RVF-25 Messiah/Fighter** — pilot główny: Luca Angeloni
+  - **VF-25F Messiah/Fighter** — pilot główny: Alto Saotome
+  - **VF-25G Messiah/Fighter** — pilot główny: Michael Blanc
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Daljan** — pilot główny: Gosterro
+
+### Odcinek 4 — Atak na okręt Gradosu (`DL104_11`)
+
+**Źródło:** `eventP01.EDAT/DL104_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×11 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×12 rekordów źródłowych Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu — obecny alternatywny rekord Entry ID
+
+### Odcinek 4 — Szpony Invaderów (`DL104_20`)
+
+**Źródło:** `eventP01.EDAT/DL104_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Invader/Air** — pilot główny: Invader — ×8 rekordów źródłowych Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×8 rekordów źródłowych Entry ID
+  - **Mucus Gate S IN** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 4 — Przybysz z innego czasu (`DL104_30`)
+
+**Źródło:** `eventP01.EDAT/DL104_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 6 identyfikatorów `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki — obecny alternatywny rekord Entry ID
+  - **GoShogun** — pilot główny: Shingo Hojo — piloci wspierający w misji: Killy Gagley, Remy Shimada
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×7 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×8 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×7 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **Mucus Gate S MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 4 — Lelouch buntownik (`DL104_40`)
+
+**Źródło:** `eventP20.EDAT/DL104_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 3 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gawain** — pilot główny: Zero — piloci wspierający w misji: C.C. — obecny alternatywny rekord Entry ID
+  - **L-Gaim** — pilot główny: Daba Myroad — piloci wspierający w misji: Lilis Faw
+  - **Novel D-Sserd** — pilot główny: Gaw Ha Leccee
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×15 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×11 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Gawain** — pilot główny: Lelouch Lamperouge — piloci wspierający w misji: C.C. — obecny alternatywny rekord Entry ID
+
+### Odcinek 5 — Brama warp (`DL105_11`)
+
+**Źródło:** `eventP01.EDAT/DL105_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 4 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki — obecny alternatywny rekord Entry ID
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Enkidu** — pilot główny: Viral
+  - **Nekton Assault** — pilot główny: Mucus — ×13 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×13 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Vasage** — pilot główny: Vasage
+
+### Odcinek 5 — Viral, zwierzoczłowiek (`DL105_12`)
+
+**Źródło:** `eventP01.EDAT/DL105_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **GoShogun** — pilot główny: Shingo Hojo — piloci wspierający w misji: Killy Gagley, Remy Shimada
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **Gurren Lagann (Kamina)** — pilot główny: Kamina — piloci wspierający w misji: Simon, Yoko, Boota
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Vasage** — pilot główny: Vasage
+  - **VF-25F Messiah/Fighter** — pilot główny: Alto Saotome
+
+**Jednostki wrogie:**
+  - **Enkidu** — pilot główny: Viral
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×28 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×13 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 5 — Chłopiec z planety Zi (`DL105_20`)
+
+**Źródło:** `eventP01.EDAT/DL105_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 2 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Molga** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — obecny alternatywny rekord Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — obecny alternatywny rekord Entry ID
+  - **Redler (Viola)** — pilot główny: Viola
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette — obecny alternatywny rekord Entry ID
+
+### Odcinek 5 — Źródła ambicji (`DL105_30`)
+
+**Źródło:** `eventP01.EDAT/DL105_30_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 4 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+
+**Jednostki wrogie:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×13 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×8 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Wieżyczka uniwersalna** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 5 — Bohater Lamuness znów wyrusza (`DL105_40`)
+
+**Źródło:** `eventP01.EDAT/DL105_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q
+  - **Queen Cideron/Ally** — pilot główny: Da Cider — piloci wspierający w misji: Hebi Metako
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×6 rekordów źródłowych Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 5 — Groza komórek DG (`DL105_50`)
+
+**Źródło:** `eventP02.EDAT/DL105_50_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **God Gundam** — pilot główny: Domon Kasshu
+  - **LCT-05-AT Space Landing Craft** — pilot główny: Bouleuse Gotho
+
+**Jednostki sojusznicze (NPC):**
+  - **Scopedog** — pilot główny: Pilot AT
+  - **Scopedog** — pilot główny: Pilot AT
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×6 rekordów źródłowych Entry ID
+  - **Gundam Head** — pilot główny: DG Cells
+
+### Odcinek 5 — Niedobitki Klanu Mrocznego Smoka (`DL105_70`)
+
+**Źródło:** `eventP02.EDAT/DL105_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dark Knight Steru/Dark Dragon Form** — pilot główny: Galden
+
+**Jednostki wrogie:**
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 5 — Biały rycerz (`DL105_90`)
+
+**Źródło:** `eventP21.EDAT/DL105_90_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+> Można używać "Iron Kong SS".
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Iron Kong SS/Ally** — pilot główny: Karl Lichten Schubaltz
+  - **Lancelot/Ally** — pilot główny: Suzaku Kururugi
+
+**Jednostki wrogie:**
+  - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Pilot Zoida — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 6 — Macross Frontier (`DL206_11`)
+
+**Źródło:** `eventP02.EDAT/DL206_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **VF-25F Messiah/Fighter** — pilot główny: Alto Saotome
+
+**Jednostki wrogie:**
+  - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+
+### Odcinek 6 — Rodzima planeta Vajra (`DL206_12`)
+
+**Źródło:** `eventP02.EDAT/DL206_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+
+### Odcinek 6 — Flota ISTO (`DL206_50`)
+
+**Źródło:** `eventP02.EDAT/DL206_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka — obecny alternatywny rekord Entry ID
+  - **VF-25F Messiah/Battroid Super Pack** — pilot główny: Alto Saotome — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+
+### Odcinek 6 — Operacja: przeciąć szlak warp (`DL206_60`)
+
+**Źródło:** `eventP02.EDAT/DL206_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+
+### Odcinek 6 — Czarny Organoid (`DL206_70`)
+
+**Źródło:** `eventP02.EDAT/DL206_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Mucus Gate S** — pilot główny: --- — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+
+**Jednostki sojusznicze (NPC):**
+  - **Command Wolf/White** — pilot główny: Rob Herman
+  - **Command Wolf/White** — pilot główny: Żołnierz Republiki Helic — ×8 rekordów źródłowych Entry ID
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Oficer Imperium Guylos
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Saber Tiger (Raven)** — pilot główny: Raven
+
+### Odcinek 6 — Dostarcz zapasy Republice (`DL206_80`)
+
+**Źródło:** `eventP02.EDAT/DL206_80_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+
+**Jednostki wrogie:**
+  - **Redler** — pilot główny: Oficer Imperium Guylos — ×3 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×11 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×10 rekordów źródłowych Entry ID
+
+### Odcinek 7 — Twierdza Mount Ossa (`DL207_11`)
+
+**Źródło:** `eventP02.EDAT/DL207_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 2 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×3 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×5 rekordów źródłowych Entry ID
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+  - **Iron Kong** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Iron Kong** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×41 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Redler** — pilot główny: Oficer Imperium Guylos
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×8 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×7 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Control AI — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 7 — Ofensywa Schubaltza (`DL207_12`)
+
+**Źródło:** `eventP02.EDAT/DL207_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 5 identyfikatorów `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Oficer Imperium Guylos — ×7 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×6 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Iron Kong SS** — pilot główny: Karl Lichten Schubaltz
+  - **Lancelot** — pilot główny: Suzaku Kururugi
+  - **Molga** — pilot główny: Zoid Core — ×20 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×6 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×6 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Gawain** — pilot główny: Zero — piloci wspierający w misji: C.C.
+
+### Odcinek 7 — Bitwa o stolicę (`DL207_13`)
+
+**Źródło:** `eventP02.EDAT/DL207_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Żołnierz Imperium Guylos
+  - **Iron Kong** — pilot główny: Żołnierz Imperium Guylos
+  - **Molga** — pilot główny: Zoid Core — ×14 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×7 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×3 rekordy źródłowe Entry ID
+  - **Saber Tiger (Raven)** — pilot główny: Raven
+  - **Whale King** — pilot główny: Gunther Prozen
+
+### Odcinek 7 — W poszukiwaniu Zoid Eve (`DL207_20`)
+
+**Źródło:** `eventP02.EDAT/DL207_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+
+**Jednostki wrogie:**
+  - **Molga** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Red Horn (Rosso)** — pilot główny: Rosso
+  - **Redler (Viola)** — pilot główny: Viola
+
+### Odcinek 7 — Rzekoma członkini Czarnych Rycerzy (`DL207_30`)
+
+**Źródło:** `eventP02.EDAT/DL207_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 3 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Gawain** — pilot główny: Zero — piloci wspierający w misji: C.C.
+  - **Guren Mk-II** — pilot główny: Kallen Kozuki
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+  - **Command Wolf/White** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+  - **Command Wolf/White** — pilot główny: Pilot Zoida
+  - **Gun Sniper** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×11 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+  - **Command Wolf/White** — pilot główny: Pilot Zoida — obecny alternatywny rekord Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+  - **Mucus Gate S** — pilot główny: --- — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 7 — Doki Doki Space (`DL207_50`)
+
+**Źródło:** `eventP02.EDAT/DL207_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **God Gundam** — pilot główny: Domon Kasshu
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×8 rekordów źródłowych Entry ID
+  - **Mucus Gate S DG** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 8 — Earthtia (`DL208_11`)
+
+**Źródło:** `eventP02.EDAT/DL208_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dark Knight Steru/Dark Dragon Form** — pilot główny: Galden
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Ryu Knight Zephyr/Later** — pilot główny: Adeu Waltham
+  - **Ryu Mage Magidora** — pilot główny: Paffy Pafuricia — piloci wspierający w misji: Hagu Hagu
+
+**Jednostki wrogie:**
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×11 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 8 — Piraci Mrocznego Smoka (`DL208_12`)
+
+**Źródło:** `eventP02.EDAT/DL208_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×13 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×11 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×9 rekordów źródłowych Entry ID
+
+### Odcinek 8 — Da Cider powraca (`DL208_20`)
+
+**Źródło:** `eventP02.EDAT/DL208_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki — obecny alternatywny rekord Entry ID
+  - **Hulk Gunship Axe Bomber** — pilot główny: Cocoa Arara — piloci wspierający w misji: Milk Arara, Cafe au Lait Arara — obecny alternatywny rekord Entry ID
+  - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro — obecny alternatywny rekord Entry ID
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×6 rekordów źródłowych Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Queen Cideron** — pilot główny: Da Cider
+
+### Odcinek 8 — Wydobycie metali rzadkich (`DL208_30`)
+
+> **Różne warianty pakietów źródłowych:** ten kod misji występuje w 2 pakietach. Każdy wariant pokazano osobno bez łączenia rekordów.
+
+#### Pakiet źródłowy: `eventP13.EDAT`
+**Warunki misji:**
+> ????
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+
+**Jednostki wrogie:**
+  - **Crystal Pillar** — pilot główny: ---
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×10 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×24 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+
+#### Pakiet źródłowy: `eventP22.EDAT`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+
+**Jednostki wrogie:**
+  - **Crystal Pillar** — pilot główny: ---
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×10 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×24 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 8 — Red Shoulder (`DL208_45`)
+
+**Źródło:** `eventP02.EDAT/DL208_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh — obecny alternatywny rekord Entry ID
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Scopedog** — pilot główny: Pilot AT — ×13 rekordów źródłowych Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 8 — Szturm na Sunsę (`DL208_50`)
+
+**Źródło:** `eventP02.EDAT/DL208_50_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+
+**Jednostki sojusznicze (NPC):**
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×13 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×12 rekordów źródłowych Entry ID
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Balarantu
+  - **Mucus Gate S** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 9 — Interwencja na Sunsie (`DL209_11`)
+
+**Źródło:** `eventP02.EDAT/DL209_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **VF-25F Messiah/Fighter Super Pack** — pilot główny: Alto Saotome
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Ray** — pilot główny: Oficer armii Posaydala
+
+### Odcinek 9 — Śmiertelny bój z Riemannem (`DL209_12`)
+
+**Źródło:** `eventP02.EDAT/DL209_12_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Balarantu
+  - **Scopedog RS (Riemann)** — pilot główny: Inge Riemann
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Gilgameshu — ×3 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Gilgameshu — ×3 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 9 — Zarodek Mucus (`DL209_13`)
+
+**Źródło:** `eventP02.EDAT/DL209_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Balarantu
+  - **Mucus Gate M** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Sarge Aupus (Nei)** — pilot główny: Nei Moh Han
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+
+### Odcinek 9 — Cień Drago powraca (`DL209_20`)
+
+**Źródło:** `eventP02.EDAT/DL209_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **Liger** — pilot główny: Ken Taiga
+
+**Jednostki wrogie:**
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×5 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 9 — Griffon kontra Alphonse (`DL209_35`)
+
+**Źródło:** `eventP02.EDAT/DL209_35_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+
+**Jednostki wrogie:**
+  - **Griffon** — pilot główny: Badrinath Harchand
+
+### Odcinek 9 — Wojownicy bez przystani (`DL209_40`)
+
+**Źródło:** `eventP03.EDAT/DL209_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Tallgeese/Ally** — pilot główny: Zechs Merquise
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+  - **Wing Gundam Zero** — pilot główny: Heero Yuy
+
+**Jednostki sojusznicze (NPC):**
+  - **Medea** — pilot główny: Zechs Merquise
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Mucus Gate M** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Tallgeese** — pilot główny: Zechs Merquise
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+### Odcinek 9 — Nowy ruch Imperium Mechanizacji (`DL209_60`)
+
+**Źródło:** `eventP03.EDAT/DL209_60_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Daiteioh** — pilot główny: Taro Omomo — piloci wspierający w misji: Mai Ozora, Kakeru Daichi
+  - **Ganbaruger** — pilot główny: Kotaro Kirigakure — piloci wspierający w misji: Yosuke Kazamatsuri, Rikiya Ryuzaki
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **Liger** — pilot główny: Ken Taiga
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **HAL-X10** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 9 — Incydent 30 Bunch (`DL209_70`)
+
+**Źródło:** `eventP23.EDAT/DL209_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **Hyaku Shiki** — pilot główny: Quattro Bajeena
+  - **Zeta Gundam** — pilot główny: Kamille Bidan
+
+**Jednostki wrogie:**
+  - **Rick Dom** — pilot główny: Pilot MS — ×7 rekordów źródłowych Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Pilot MS — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 10 — Ślady złego boga (`DL310_11`)
+
+**Źródło:** `eventP03.EDAT/DL310_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Ganbaruger** — pilot główny: Kotaro Kirigakure — piloci wspierający w misji: Yosuke Kazamatsuri, Rikiya Ryuzaki
+  - **Liger** — pilot główny: Ken Taiga
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Nekton Assault** — pilot główny: Mucus — ×23 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×12 rekordów źródłowych Entry ID
+
+### Odcinek 10 — Mucus Gate pod ziemią (`DL310_12`)
+
+**Źródło:** `eventP03.EDAT/DL310_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Liger** — pilot główny: Ken Taiga
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Mucus Gate M DR** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×13 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 10 — Rozmowa z Wysłannikiem (`DL310_20`)
+
+**Źródło:** `eventP03.EDAT/DL310_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage (dołącza w trakcie misji, sekcja 2)
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Vasage** — pilot główny: Vasage
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate M** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 10 — Operacja: przejęcie Alexa (`DL310_40`)
+
+**Źródło:** `eventP03.EDAT/DL310_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Guncannon** — pilot główny: Kai Shiden
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Guntank** — pilot główny: Hayato Kobayashi
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+  - **NT-1 Alex** — pilot główny: Christina Mackenzie
+
+**Jednostki wrogie:**
+  - **Gelgoog** — pilot główny: Crown
+  - **Gelgoog** — pilot główny: Slender
+  - **Gelgoog (Char)** — pilot główny: Char Aznable
+  - **Kampfer/Bazooka** — pilot główny: Mikhail Kaminsky
+  - **Kampfer/High Mobility** — pilot główny: Hardy Steiner
+  - **Zaku II Kai** — pilot główny: Andy Strauss
+  - **Zaku II Kai** — pilot główny: Bernard Wiseman
+  - **Zaku II Kai** — pilot główny: Gabriel Ramirez Garcia
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+
+### Odcinek 10 — Powstrzymaj atak atomowy (`DL310_50`)
+
+**Źródło:** `eventP03.EDAT/DL310_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+
+### Odcinek 10 — Kosmiczna twierdza Solomon (`DL310_60`)
+
+**Źródło:** `eventP03.EDAT/DL310_60_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **G-Fighter** — pilot główny: Sayla Mass — obecny alternatywny rekord Entry ID
+  - **Guncannon** — pilot główny: Kai Shiden — obecny alternatywny rekord Entry ID
+  - **Gundam** — pilot główny: Amuro Ray — obecny alternatywny rekord Entry ID
+  - **Guntank** — pilot główny: Hayato Kobayashi — obecny alternatywny rekord Entry ID
+  - **NT-1 Alex** — pilot główny: Christina Mackenzie — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Big Zam** — pilot główny: Dozle Zabi
+  - **Gwazine** — pilot główny: Conscon
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 11 — Operacja Odbicie Arki (`DL311_11`)
+
+**Źródło:** `eventP03.EDAT/DL311_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×30 rekordów źródłowych Entry ID
+  - **HAL-X10** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
+  - **Type-Zero/Wróg** — pilot główny: Shinohara HOS
+
+### Odcinek 11 — Wrota otwarte w mroku (`DL311_12`)
+
+**Źródło:** `eventP03.EDAT/DL311_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×20 rekordów źródłowych Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Mucus Gate M MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 11 — Leże Imperium Mechanizacji (`DL311_13`)
+
+**Źródło:** `eventP03.EDAT/DL311_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×20 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **HAL-X10** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Moduł kontroli (Mega Castle)** — pilot główny: Mechabestia
+  - **Type-Zero/Wróg** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 11 — SV2 i nowe siły (`DL311_20`)
+
+**Źródło:** `eventP03.EDAT/DL311_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Griffon/Ally** — pilot główny: Badrinath Harchand
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Ingram nr 2** — pilot główny: Isao Ota
+  - **Type-Zero** — pilot główny: Kanuka Clancy
+
+**Jednostki wrogie:**
+  - **Brocken/Cannon** — pilot główny: Pilot Labora — ×7 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×9 rekordów źródłowych Entry ID
+  - **Brocken/Melee** — pilot główny: Pilot Labora — ×4 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×12 rekordów źródłowych Entry ID
+  - **Kampfer/Bazooka** — pilot główny: Pilot MS
+  - **Zaku II Kai** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 11 — Operacja: zatrzymać Solar Ray (`DL311_40`)
+
+**Źródło:** `eventP24.EDAT/DL311_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Big Zam** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu
+  - **Gattle** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+### Odcinek 11 — Puls Zety (`DL311_50`)
+
+**Źródło:** `eventP03.EDAT/DL311_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Hyaku Shiki** — pilot główny: Quattro Bajeena
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+  - **Zeta Gundam** — pilot główny: Kamille Bidan
+
+**Jednostki wrogie:**
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×7 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×7 rekordów źródłowych Entry ID
+  - **Gwazine** — pilot główny: Oficer Zeonu
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×8 rekordów źródłowych Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×7 rekordów źródłowych Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+### Odcinek 12 — Strażnicy kolonii (`DL312_11`)
+
+**Źródło:** `eventP03.EDAT/DL312_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Brocken/Cannon** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **Gelgoog** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Kampfer/Bazooka** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 12 — Operacja oczyszczania (`DL312_12`)
+
+**Źródło:** `eventP03.EDAT/DL312_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Wing Gundam Zero** — pilot główny: Heero Yuy
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Brocken/Cannon** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×16 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **Gandoppler** — pilot główny: Mechabestia — ×9 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Rick Dom** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 12 — Gniazdo Mucus w pasie asteroid (`DL312_20`)
+
+**Źródło:** `eventP03.EDAT/DL312_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 12 — Zamach na Rudolpha (`DL312_40`)
+
+**Źródło:** `eventP03.EDAT/DL312_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Red Horn (Rosso Ally)** — pilot główny: Rosso
+  - **Redler (Viola Ally)** — pilot główny: Viola
+
+**Jednostki wrogie:**
+  - **Command Wolf/White** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos
+
+### Odcinek 12 — Odrodzona bestia (`DL312_50`)
+
+**Źródło:** `eventP03.EDAT/DL312_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 5 identyfikatorów `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Red Horn (Rosso Ally)** — pilot główny: Rosso
+  - **Redler (Viola Ally)** — pilot główny: Viola — obecny alternatywny rekord Entry ID
+  - **Redler (Viola)** — pilot główny: Viola — obecny alternatywny rekord Entry ID
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Geno Breaker** — pilot główny: Raven
+  - **Molga** — pilot główny: Zoid Core — ×8 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 12 — Waleczny! Geno Breaker (`DL312_60`)
+
+**Źródło:** `eventP03.EDAT/DL312_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Shield Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×7 rekordów źródłowych Entry ID
+  - **Geno Breaker** — pilot główny: Raven
+  - **Gun Sniper** — pilot główny: Zoid Core — ×5 rekordów źródłowych Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×15 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×12 rekordów źródłowych Entry ID
+
+### Odcinek 13 — Powrót młodego króla (`DL313_11`)
+
+**Źródło:** `eventP03.EDAT/DL313_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki sojusznicze (NPC):**
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×4 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×4 rekordy źródłowe Entry ID
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos
+  - **Death Saurer/Replica** — pilot główny: Gunther Prozen
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×8 rekordów źródłowych Entry ID
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×6 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×5 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×5 rekordów źródłowych Entry ID
+  - **Whale King** — pilot główny: Oficer Imperium Guylos
+
+### Odcinek 13 — Stolica imperium w ogniu (`DL313_12`)
+
+**Źródło:** `eventP03.EDAT/DL313_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Command Wolf/Black/Upgraded** — pilot główny: Irvine
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Gawain** — pilot główny: Zero — piloci wspierający w misji: C.C.
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Lancelot/Ally** — pilot główny: Suzaku Kururugi
+  - **Mucus Gate S** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos
+  - **Death Saurer/Replica** — pilot główny: Gunther Prozen
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos — ×3 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 13 — Święty wojownik upadłego królestwa (`DL313_25`)
+
+**Źródło:** `eventP03.EDAT/DL313_25_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dunbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar
+  - **Monskar Neppoon** — pilot główny: Monskar
+  - **Nekton Creek** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Zwarth** — pilot główny: Black Knight
+
+### Odcinek 13 — Koordynator (`DL313_40`)
+
+**Źródło:** `eventP03.EDAT/DL313_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 2 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Infinite Justice Gundam** — pilot główny: Athrun Zala
+  - **Nekton Mine** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Strike Freedom Gundam** — pilot główny: Kira Yamato
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Musai** — pilot główny: Oficer Neo Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Neo Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Neo Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Neo Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Neo Zeonu
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+
+### Odcinek 13 — Leccee Mind (`DL313_55`)
+
+**Źródło:** `eventP04.EDAT/DL313_55_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 2 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **D-Sserd** — pilot główny: Fannaria Amm
+  - **L-Gaim** — pilot główny: Daba Myroad — piloci wspierający w misji: Lilis Faw
+  - **Novel D-Sserd** — pilot główny: Gaw Ha Leccee
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+
+### Odcinek 13 — Przejmij skład broni jądrowej (`DL313_66`)
+
+**Źródło:** `eventP04.EDAT/DL313_66_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+  - **Hyaku Shiki** — pilot główny: Quattro Bajeena
+  - **Zeta Gundam** — pilot główny: Kamille Bidan
+
+**Jednostki wrogie:**
+  - **Gelgoog** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Pilot MS — ×8 rekordów źródłowych Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Pilot MS — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 13 — Sen lelka (`DL313_70`)
+
+**Źródło:** `eventP25.EDAT/DL313_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Iron Kong Mk-II** — pilot główny: Karl Lichten Schubaltz
+  - **Murasame Liger** — pilot główny: Ruuji Familon
+  - **Red Horn (Rosso Ally)** — pilot główny: Rosso
+  - **Redler (Viola Ally)** — pilot główny: Viola
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Pilot Zoida
+  - **Dark Horn** — pilot główny: Pilot Zoida
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida
+  - **Iron Kong** — pilot główny: Pilot Zoida
+  - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Iron Kong Mk-II** — pilot główny: Karl Lichten Schubaltz
+  - **Murasame Liger** — pilot główny: Ruuji Familon
+  - **Red Horn (Rosso)** — pilot główny: Rosso
+  - **Redler (Viola Ally)** — pilot główny: Viola
+
+### Odcinek 14 — War Cloud (`DL414_11`)
+
+**Źródło:** `eventP04.EDAT/DL414_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dunbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Auge** — pilot główny: Nei Moh Han
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Sarge Aupus (Nei)** — pilot główny: Antoon Randow
+
+### Odcinek 14 — Against (`DL414_12`)
+
+**Źródło:** `eventP04.EDAT/DL414_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **D-Sserd** — pilot główny: Fannaria Amm — obecny alternatywny rekord Entry ID
+  - **L-Gaim** — pilot główny: Daba Myroad — piloci wspierający w misji: Lilis Faw — obecny alternatywny rekord Entry ID
+  - **Novel D-Sserd** — pilot główny: Gaw Ha Leccee — obecny alternatywny rekord Entry ID
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 14 — Planet Bomber (`DL414_13`)
+
+**Źródło:** `eventP04.EDAT/DL414_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 2 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **D-Sserd** — pilot główny: Fannaria Amm
+  - **L-Gaim** — pilot główny: Daba Myroad — piloci wspierający w misji: Lilis Faw
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Novel D-Sserd** — pilot główny: Gaw Ha Leccee
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Bat-Shu** — pilot główny: Hatchia Motchia
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Slender Skala** — pilot główny: Oficer armii Posaydala
+
+### Odcinek 14 — Guardian Force (`DL414_25`)
+
+**Źródło:** `eventP04.EDAT/DL414_25_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Gustav/Moonbay Special** — pilot główny: Moonbay
+  - **Lightning Saix** — pilot główny: Irvine
+
+**Jednostki wrogie:**
+  - **Gun Sniper** — pilot główny: Żołnierz Imperium Guylos
+  - **Gun Sniper** — pilot główny: Żołnierz Imperium Guylos
+  - **Iron Kong SS** — pilot główny: Karl Lichten Schubaltz
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos
+  - **Red Horn (Rosso)** — pilot główny: Rosso
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos
+  - **Redler (Viola)** — pilot główny: Viola
+
+### Odcinek 14 — Ryoma powraca (`DL414_35`)
+
+**Źródło:** `eventP04.EDAT/DL414_35_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage — obecny alternatywny rekord Entry ID
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota — obecny alternatywny rekord Entry ID
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai — obecny alternatywny rekord Entry ID
+  - **Shin Getter-1 (Ryoma)** — pilot główny: Ryoma Nagare — piloci wspierający w misji: Hayato Jin, Benkei Kuruma
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Enkidu** — pilot główny: Viral
+  - **Invader/Starfish** — pilot główny: Invader — ×32 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 14 — Operacja: transport ZZ Gundama (`DL414_45`)
+
+**Źródło:** `eventP04.EDAT/DL414_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+  - **Zeta Gundam** — pilot główny: Kamille Bidan
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Qubeley Mk-II (Ple)** — pilot główny: Elpeo Ple
+
+### Odcinek 14 — Chłopiec z Shangri-La (`DL414_50`)
+
+**Źródło:** `eventP04.EDAT/DL414_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Hyaku Shiki** — pilot główny: Quattro Bajeena
+  - **Zeta Gundam** — pilot główny: Kamille Bidan
+  - **ZZ Gundam** — pilot główny: Judau Ashta — zmiana strony w trakcie misji: wroga / agresywna frakcja
+
+**Jednostki sojusznicze (NPC):**
+  - **Brocken/Działko automatyczne** — pilot główny: Żołnierz Federacji
+  - **Brocken/Melee** — pilot główny: Żołnierz Federacji
+
+**Jednostki wrogie:**
+  - **Dom** — pilot główny: Żołnierz Neo Zeonu
+  - **Dom** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Qubeley Mk-II (Ple)** — pilot główny: Elpeo Ple
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+
+### Odcinek 15 — Powstanie Neo Zeonu (`DL415_11`)
+
+**Źródło:** `eventP04.EDAT/DL415_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Neo Zeonu
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Neo Zeonu
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Sadalahn** — pilot główny: Oficer Neo Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 15 — Uderzenie Axis (`DL415_12`)
+
+**Źródło:** `eventP04.EDAT/DL415_12_Entry.dat`
+**Warunki misji:**
+> W połowie tej misji zmienia się okręt-matka.
+> Najpierw "Turner", potem "White Base".
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Endra** — pilot główny: Rakan Dahkaran
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Neo Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Rick Dom** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+
+### Odcinek 15 — Bój na palących piaskach (`DL415_20`)
+
+**Źródło:** `eventP04.EDAT/DL415_20_Entry.dat`
+**Warunki misji:**
+> W tej misji "NT-1 Alex" musi wyruszyć jako GR,
+> a "Zaku II Kai" nie może wziąć udziału.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Directional Mine** — pilot główny: Control AI — ×12 rekordów źródłowych Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu
+  - **Dopp** — pilot główny: Żołnierz Zeonu
+  - **Dreissen** — pilot główny: Desert Rommel
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gouf** — pilot główny: Acous
+  - **Gouf** — pilot główny: Cozun Graham
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Crowley Hamon
+
+### Odcinek 15 — Skrzydła zwane wolnością (`DL415_30`)
+
+**Źródło:** `eventP04.EDAT/DL415_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Strike Freedom Gundam** — pilot główny: Kira Yamato
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bigro** — pilot główny: Tokwan
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+  - **Zanzibar** — pilot główny: M'Quve
+
+### Odcinek 15 — Destiny (`DL415_40`)
+
+**Źródło:** `eventP04.EDAT/DL415_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Destiny Gundam** — pilot główny: Shinn Asuka
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Infinite Justice Gundam** — pilot główny: Athrun Zala
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **Strike Freedom Gundam** — pilot główny: Kira Yamato
+
+**Jednostki wrogie:**
+  - **Invader/Air** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×8 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 15 — Powrót armii Goburikiego (`DL415_60`)
+
+**Źródło:** `eventP26.EDAT/DL415_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dunbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau — obecny alternatywny rekord Entry ID
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage — obecny alternatywny rekord Entry ID
+  - **Hulk Gunship Axe Bomber** — pilot główny: Cocoa Arara — piloci wspierający w misji: Milk Arara, Cafe au Lait Arara — obecny alternatywny rekord Entry ID
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q — obecny alternatywny rekord Entry ID
+  - **Ryu Knight Zephyr/Later** — pilot główny: Adeu Waltham
+  - **Ryu Mage Magidora** — pilot główny: Paffy Pafuricia — piloci wspierający w misji: Hagu Hagu
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Monskar Medessa** — pilot główny: Monskar — ×6 rekordów źródłowych Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×6 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Zwarth** — pilot główny: Black Knight
+
+### Odcinek 15 — Pragnący wskrzesić demonicznego boga (`DL415_70`)
+
+**Źródło:** `eventP04.EDAT/DL415_70_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×7 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×7 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 16 — Atak armii Goburikiego (`DL416_11`)
+
+**Źródło:** `eventP04.EDAT/DL416_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Hulk Gunship Axe Bomber** — pilot główny: Cocoa Arara — piloci wspierający w misji: Milk Arara, Cafe au Lait Arara — obecny alternatywny rekord Entry ID
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×2 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×2 rekordy źródłowe Entry ID
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+  - **Queen Cideron** — pilot główny: Da Cider
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×10 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×7 rekordów źródłowych Entry ID
+
+### Odcinek 16 — Szalejąca moc aury (`DL416_12`)
+
+**Źródło:** `eventP04.EDAT/DL416_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Monskar Medessa** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Zwarth** — pilot główny: Black Knight
+  - **Zwarth/Hyper** — pilot główny: Black Knight
+
+### Odcinek 16 — Dzień wyruszenia w drogę (`DL416_30`)
+
+**Źródło:** `eventP04.EDAT/DL416_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz — obecny alternatywny rekord Entry ID
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage — obecny alternatywny rekord Entry ID
+  - **Lightning Saix** — pilot główny: Irvine — obecny alternatywny rekord Entry ID
+  - **Murasame Liger** — pilot główny: Ruuji Familon
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 16 — Front pod Galeade (`DL416_45`)
+
+**Źródło:** `eventP04.EDAT/DL416_45_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog TC/ISS (Barcoff)** — pilot główny: Nor Barcoff
+  - **Scopedog TC/ISS (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog TC/ISS (Godan)** — pilot główny: Gary Godan
+  - **Scopedog TC/ISS (Kochak)** — pilot główny: Dare Kochak
+  - **Scopedog TC/ISS (Zaki)** — pilot główny: Gerenborash Droka Zaki
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 16 — Operacja: ratunek dla Galeade (`DL416_55`)
+
+**Źródło:** `eventP04.EDAT/DL416_55_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+  - **Scopedog TC/ISS (Barcoff)** — pilot główny: Nor Barcoff
+  - **Scopedog TC/ISS (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog TC/ISS (Godan)** — pilot główny: Gary Godan
+  - **Scopedog TC/ISS (Kochak)** — pilot główny: Dare Kochak
+  - **Scopedog TC/ISS (Zaki)** — pilot główny: Gerenborash Droka Zaki
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×10 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×29 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×29 rekordów źródłowych Entry ID
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Balarantu
+
+### Odcinek 17 — Szturm na Monad (`DL417_11`)
+
+**Źródło:** `eventP04.EDAT/DL417_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu — ×2 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+### Odcinek 17 — Anomalny ocalały (`DL417_12`)
+
+**Źródło:** `eventP04.EDAT/DL417_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog TC/ISS (Barcoff)** — pilot główny: Nor Barcoff
+  - **Scopedog TC/ISS (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog TC/ISS (Godan)** — pilot główny: Gary Godan
+  - **Scopedog TC/ISS (Kochak)** — pilot główny: Dare Kochak — obecny alternatywny rekord Entry ID
+  - **Scopedog TC/ISS (Zaki)** — pilot główny: Gerenborash Droka Zaki
+  - **Turner** — pilot główny: Mirawoo Kyao — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×18 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×17 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 17 — Ratunek (`DL417_13`)
+
+**Źródło:** `eventP04.EDAT/DL417_13_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dark Knight Steru/Dark Dragon Form** — pilot główny: Galden
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Lancelot/Ally** — pilot główny: Suzaku Kururugi
+  - **Shin Getter-1 (Ryoma)** — pilot główny: Ryoma Nagare — piloci wspierający w misji: Hayato Jin, Benkei Kuruma
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Daljan** — pilot główny: Gosterro — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+
+### Odcinek 17 — Planeta Pieczęci (`DL417_30`)
+
+**Źródło:** `eventP04.EDAT/DL417_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×8 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×8 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+
+### Odcinek 17 — Obrona bramy warp (`DL417_40`)
+
+**Źródło:** `eventP05.EDAT/DL417_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Ingram nr 1** — pilot główny: Noa Izumi
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog TC/ISS (Barcoff)** — pilot główny: Nor Barcoff
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×7 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×7 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 17 — Ewoluujące komórki DG (`DL417_50`)
+
+**Źródło:** `eventP05.EDAT/DL417_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×6 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×6 rekordów źródłowych Entry ID
+  - **Gundam Head** — pilot główny: DG Cells
+  - **Mucus Gate S DG** — pilot główny: Mucus — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 17 — Tragedia rabusiów (`DL417_70`)
+
+**Źródło:** `eventP27.EDAT/DL417_70_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Gun Sniper (Naomi)** — pilot główny: Naomi Fluegel
+  - **Gun Sniper/LS** — pilot główny: Leena Toros
+  - **Iron Kong Mk-II** — pilot główny: Karl Lichten Schubaltz
+  - **Lancelot/Ally** — pilot główny: Suzaku Kururugi
+  - **Murasame Liger** — pilot główny: Ruuji Familon
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×7 rekordów źródłowych Entry ID
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
+  - **Whale King** — pilot główny: Pilot Zoida
+  - **Wieżyczka uniwersalna** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 18 — Preludium wyzwolenia (`DL518_11`)
+
+**Źródło:** `eventP05.EDAT/DL518_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×14 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×14 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Ray** — pilot główny: Oficer armii Posaydala
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 18 — Wyzwanie Le Caina (`DL518_12`)
+
+**Źródło:** `eventP05.EDAT/DL518_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Zakarl** — pilot główny: Le Cain
+
+### Odcinek 18 — Dolina pożądania (`DL518_20`)
+
+**Źródło:** `eventP05.EDAT/DL518_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Enhanced Layzner** — pilot główny: Albatro Null Eiji Asuka
+
+**Jednostki wrogie:**
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 18 — Asteroida Lido (`DL518_35`)
+
+**Źródło:** `eventP05.EDAT/DL518_35_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+> "Scopedog" pojawia się jako sojuszniczy NPC.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+
+**Jednostki sojusznicze (NPC):**
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — obecny alternatywny rekord Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu
+
+**Jednostki wrogie:**
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×4 rekordy źródłowe Entry ID
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 18 — Uoodo (`DL518_40`)
+
+**Źródło:** `eventP05.EDAT/DL518_40_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Berserga WP** — pilot główny: Ru Shako
+  - **Scopedog/Chirico Special** — pilot główny: Chirico Cuvie
+
+**Jednostki sojusznicze (NPC):**
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×3 rekordy źródłowe Entry ID
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×3 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+**Jednostki wrogie:**
+  - **Scopedog** — pilot główny: Pilot AT — ×10 rekordów źródłowych Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 18 — Ucieczka (`DL518_50`)
+
+**Źródło:** `eventP05.EDAT/DL518_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **AT Fly** — pilot główny: Vanilla Vartla
+  - **Berserga WP** — pilot główny: Ru Shako
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **God Gundam** — pilot główny: Domon Kasshu
+  - **Scopedog/Chirico Special** — pilot główny: Chirico Cuvie
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki sojusznicze (NPC):**
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+**Jednostki wrogie:**
+  - **Pancernik kosmiczny klasy Giga** — pilot główny: Oficer Gilgameshu
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×27 rekordów źródłowych Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu — ×18 rekordów źródłowych Entry ID
+
+### Odcinek 19 — Przełamanie obrony Axis (`DL519_11`)
+
+**Źródło:** `eventP05.EDAT/DL519_11_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bigro** — pilot główny: Tokwan
+  - **Directional Mine** — pilot główny: Control AI — ×7 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Garma Zabi
+
+### Odcinek 19 — Szturmowy desant na Axis (`DL519_12`)
+
+**Źródło:** `eventP05.EDAT/DL519_12_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Gundam Ground Type** — pilot główny: Terry Sanders Jr.
+  - **Gundam Ground Type/głowa GM** — pilot główny: Karen Joshua
+  - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
+
+**Jednostki wrogie:**
+  - **Directional Mine** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Dreissen** — pilot główny: Desert Rommel
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Zaku II/Bazooka** — pilot główny: Acous
+  - **Zaku II/Karabin maszynowy** — pilot główny: Cozun Graham
+
+### Odcinek 19 — Odwrót z Axis (`DL519_13`)
+
+**Źródło:** `eventP05.EDAT/DL519_13_Entry.dat`
+**Warunki misji:**
+> W tej misji "NT-1 Alex" musi wyruszyć jako GR,
+> a "Zaku II Kai" nie może wziąć udziału.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gwazine** — pilot główny: Kycilia Zabi
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zeong** — pilot główny: Char Aznable
+
+### Odcinek 19 — Pościg jednostki Newtype (`DL519_20`)
+
+**Źródło:** `eventP05.EDAT/DL519_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Qubeley Mk-II (Ple)** — pilot główny: Elpeo Ple
+
+### Odcinek 19 — Mr. Bushido (`DL519_30`)
+
+**Źródło:** `eventP05.EDAT/DL519_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **00 Raiser** — pilot główny: Setsuna F. Seiei — piloci wspierający w misji: Saji Crossroad (po połączeniu w trakcie misji; wcześniej osobno w Spaceship (`Entry ID 15000`))
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Gundam Exia** — pilot główny: Setsuna F. Seiei
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **Wing Gundam Zero** — pilot główny: Heero Yuy
+
+**Jednostki wrogie:**
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Susanowo** — pilot główny: Mr. Bushido
+  - **Tallgeese** — pilot główny: Zechs Merquise
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Spaceship** — pilot główny: Saji Crossroad
+
+### Odcinek 19 — Uderz w bazę zaopatrzeniową wroga (`DL519_40`)
+
+**Źródło:** `eventP05.EDAT/DL519_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+
+### Odcinek 19 — Zajęcie bazy (`DL519_50`)
+
+**Źródło:** `eventP05.EDAT/DL519_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 20 — Brama warp nr 203 (`DL520_11`)
+
+**Źródło:** `eventP05.EDAT/DL520_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 20 — Dziedzictwo miecza (`DL520_12`)
+
+**Źródło:** `eventP05.EDAT/DL520_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage — obecny alternatywny rekord Entry ID
+  - **God Gundam** — pilot główny: Domon Kasshu — obecny alternatywny rekord Entry ID
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 20 — Badanie planety (`DL520_13`)
+
+**Źródło:** `eventP05.EDAT/DL520_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 20 — Determinacja pod maską (`DL520_40`)
+
+**Źródło:** `eventP05.EDAT/DL520_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **00 Raiser** — pilot główny: Setsuna F. Seiei — piloci wspierający w misji: Saji Crossroad
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Gundam** — pilot główny: Amuro Ray
+  - **Hyaku Shiki** — pilot główny: Quattro Bajeena
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Susanowo/Ally** — pilot główny: Mr. Bushido
+  - **Tallgeese/Ally** — pilot główny: Zechs Merquise
+  - **Wing Gundam Zero** — pilot główny: Heero Yuy
+
+**Jednostki wrogie:**
+  - **Invader/Air** — pilot główny: Invader — ×10 rekordów źródłowych Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×13 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Susanowo** — pilot główny: Mr. Bushido
+  - **Tallgeese** — pilot główny: Zechs Merquise
+  - **Zeong** — pilot główny: Char Aznable
+
+### Odcinek 20 — Pułapka na Księżycu (`DL520_50`)
+
+**Źródło:** `eventP28.EDAT/DL520_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Nu Gundam** — pilot główny: Amuro Ray
+  - **Sazabi** — pilot główny: Quattro Bajeena
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: --- — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Rick Dom** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+
+### Odcinek 20 — Da Cider Błyskawica (`DL520_60`)
+
+**Źródło:** `eventP05.EDAT/DL520_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Hulk Gunship Axe Bomber** — pilot główny: Cocoa Arara — piloci wspierający w misji: Milk Arara, Cafe au Lait Arara
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q
+  - **Queen Cideron/Ally** — pilot główny: Da Cider — piloci wspierający w misji: Hebi Metako
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×5 rekordów źródłowych Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×7 rekordów źródłowych Entry ID
+  - **Queen Cideron** — pilot główny: Da Cider
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×6 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 21 — Mroczny Zwarth (`DL521_11`)
+
+**Źródło:** `eventP05.EDAT/DL521_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Billbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau
+  - **Dunbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki sojusznicze (NPC):**
+  - **Pancernik kosmiczny klasy Giga** — pilot główny: Oficer Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+**Jednostki wrogie:**
+  - **Monskar Medessa** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+  - **Zwarth** — pilot główny: Black Knight
+  - **Zwarth/Hyper** — pilot główny: Black Knight
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 21 — Ostateczna forma Goburikiego (`DL521_12`)
+
+**Źródło:** `eventP05.EDAT/DL521_12_Entry.dat`
+**Warunki misji:**
+> "Demon God Goburiki" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Hulk Gunship Axe Bomber** — pilot główny: Cocoa Arara — piloci wspierający w misji: Milk Arara, Cafe au Lait Arara
+  - **King Squasher** — pilot główny: Hero Lamuness — piloci wspierający w misji: Tama-Q
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Queen Cideron/Ally** — pilot główny: Da Cider — piloci wspierający w misji: Hebi Metako
+
+**Jednostki wrogie:**
+  - **Demon God Goburiki/Ultimate** — pilot główny: Don Harumage
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Monskar Medessa** — pilot główny: Monskar — ×14 rekordów źródłowych Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×18 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 21 — Awangarda komórek DG (`DL521_20`)
+
+**Źródło:** `eventP05.EDAT/DL521_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Qubeley Mk-II (Ple, Ally)** — pilot główny: Elpeo Ple
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×16 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×34 rekordy źródłowe Entry ID
+  - **Mucus Gate M DG** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S DG** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 21 — Nadlatuje asteroida DG (`DL521_40`)
+
+**Źródło:** `eventP06.EDAT/DL521_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **God Gundam** — pilot główny: Domon Kasshu
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×10 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×5 rekordów źródłowych Entry ID
+  - **Mucus Gate S DG** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 21 — Nowy Knightmare Frame (`DL521_70`)
+
+**Źródło:** `eventP29.EDAT/DL521_70_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Guren S.E.I.T.E.N.** — pilot główny: Kallen Kozuki
+  - **Lancelot Albion** — pilot główny: Suzaku Kururugi
+  - **Shinkiro** — pilot główny: Zero
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 22 — Bój z komórkami DG R1 (`DL622_11`)
+
+**Źródło:** `eventP06.EDAT/DL622_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Death Army** — pilot główny: DG Cells — ×8 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×15 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus
+
+### Odcinek 22 — Bój z komórkami DG R2 (`DL622_12`)
+
+**Źródło:** `eventP06.EDAT/DL622_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×8 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×12 rekordów źródłowych Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Mucus Gate L DG** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 22 — Devil Gundam, ostatnia runda (`DL622_13`)
+
+**Źródło:** `eventP06.EDAT/DL622_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **God Gundam** — pilot główny: Domon Kasshu
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×6 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×6 rekordów źródłowych Entry ID
+  - **Devil Gundam** — pilot główny: DG Cells
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Gundam Head** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate S** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 22 — Nadchodzi God Keron! (`DL622_30`)
+
+**Źródło:** `eventP06.EDAT/DL622_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **God Keron** — pilot główny: Sierżant Keroro — piloci wspierający w misji: Cpl. Giroro, Pvt. Tamama, Starszy sierżant Kululu, Lance Cpl. Dororo
+  - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro
+  - **Lightning Saix** — pilot główny: Irvine
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Mucus Gate M** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 22 — Wielki zlot bohaterów Eldrana! (`DL622_50`)
+
+**Źródło:** `eventP06.EDAT/DL622_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ganbaruger** — pilot główny: Kotaro Kirigakure — piloci wspierający w misji: Yosuke Kazamatsuri, Rikiya Ryuzaki
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **Perfect Daiteioh** — pilot główny: Taro Omomo — piloci wspierający w misji: Mai Ozora, Kakeru Daichi, Hiryu Tsukishiro
+  - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Mucus Gate L MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 22 — Laser kolonijny znów działa (`DL622_60`)
+
+**Źródło:** `eventP06.EDAT/DL622_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gwazine** — pilot główny: Conscon
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 23 — Pułapka Gihrena (`DL623_11`)
+
+**Źródło:** `eventP06.EDAT/DL623_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Apsalus III** — pilot główny: Ginias Sahalin
+  - **Bigro** — pilot główny: Żołnierz Zeonu
+  - **Gattle** — pilot główny: Żołnierz Zeonu
+  - **Gattle** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gwazine** — pilot główny: Gihren Zabi
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu
+  - **Kampfer/High Mobility** — pilot główny: Żołnierz Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Musai** — pilot główny: Oficer Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×7 rekordów źródłowych Entry ID
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu — ×7 rekordów źródłowych Entry ID
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+  - **Zaku II Kai** — pilot główny: Żołnierz Zeonu
+
+### Odcinek 23 — Determinacja Haman (`DL623_12`)
+
+**Źródło:** `eventP06.EDAT/DL623_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Big Zam** — pilot główny: Żołnierz Neo Zeonu
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Sadalahn** — pilot główny: Haman Karn
+  - **Zaku III** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+
+### Odcinek 23 — Zjednoczenie Ziemi (`DL623_13`)
+
+**Źródło:** `eventP06.EDAT/DL623_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gundam Ez8** — pilot główny: Shiro Amada
+  - **Qubeley Mk-II (Ple, Ally)** — pilot główny: Elpeo Ple
+  - **ZZ Gundam** — pilot główny: Judau Ashta
+
+**Jednostki wrogie:**
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×5 rekordów źródłowych Entry ID
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Neo Zeonu
+  - **Kampfer/Bazooka** — pilot główny: Żołnierz Neo Zeonu
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Quin Mantha** — pilot główny: Ple Two
+  - **Zaku III** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 23 — Wspólny front (`DL623_25`)
+
+**Źródło:** `eventP06.EDAT/DL623_25_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 23 — Oczyszczenie Mucus Gate (`DL623_35`)
+
+**Źródło:** `eventP06.EDAT/DL623_35_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 23 — Złowrogie znaki (`DL623_45`)
+
+**Źródło:** `eventP06.EDAT/DL623_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Final Dancouga** — pilot główny: Shinobu Fujiwara — piloci wspierający w misji: Sara Yuki, Ryo Shiba, Masato Shikibu, Alan Igor
+  - **Mazinger Z** — pilot główny: Koji Kabuto
+
+**Jednostki wrogie:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 24 — Wspomnienia o matce (`DL624_11`)
+
+**Źródło:** `eventP06.EDAT/DL624_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 24 — Pojedynek z Viralem (`DL624_12`)
+
+**Źródło:** `eventP06.EDAT/DL624_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **GoShogun** — pilot główny: Brak przypisanego klucza pilota w Entry — piloci wspierający w misji: Killy Gagley, Remy Shimada — ×6 rekordów źródłowych Entry ID
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+
+**Jednostki wrogie:**
+  - **Enkidu** — pilot główny: Viral
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 24 — Odkopywanie Sirbine (`DL624_25`)
+
+**Źródło:** `eventP30.EDAT/DL624_25_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Sirbine** — pilot główny: Show Zama — piloci wspierający w misji: Chum Huau
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×10 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×9 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 24 — Inwazja Metal Knights (`DL624_35`)
+
+**Źródło:** `eventP06.EDAT/DL624_35_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Mucus Gate S** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×6 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 24 — Najazd na Earthtię (`DL624_45`)
+
+**Źródło:** `eventP06.EDAT/DL624_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Mucus Gate S** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×5 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 25 — Obrona Eldgear (`DL625_11`)
+
+**Źródło:** `eventP06.EDAT/DL625_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Dark Knight Steru/Dark Dragon Form** — pilot główny: Galden
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki sojusznicze (NPC):**
+  - **Eldgear Central Tower** — pilot główny: White Dragon — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki wrogie:**
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 25 — Ku Earth Blade (`DL625_12`)
+
+**Źródło:** `eventP06.EDAT/DL625_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 25 — Zły Bóg Drago (`DL625_13`)
+
+**Źródło:** `eventP06.EDAT/DL625_13_Entry.dat`
+**Warunki misji:**
+> "Evil God Drago" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Maryu-Oh Dolga** — pilot główny: Ryu Dolk
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Evil God Drago** — pilot główny: Evil God Drago — zmiana strony w trakcie misji: neutralna / trzeciej strony, sojusznicza (NPC)
+  - **Giga Nekton α** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Mucus Gate L DR** — pilot główny: Mucus — zmiana strony w trakcie misji: neutralna / trzeciej strony, sojusznicza (NPC) — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×7 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×15 rekordów źródłowych Entry ID
+
+### Odcinek 25 — Operacja: schwytanie uśpionych Zoidów (`DL625_40`)
+
+**Źródło:** `eventP06.EDAT/DL625_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Command Wolf/White** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×10 rekordów źródłowych Entry ID
+  - **Mucus Gate M** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 25 — Giwaza Lowaw (`DL625_45`)
+
+**Źródło:** `eventP06.EDAT/DL625_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Auge** — pilot główny: Nei Moh Han
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×13 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×12 rekordów źródłowych Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Sarge Aupus** — pilot główny: Oficer armii Posaydala
+  - **Sarge Aupus (Giwaza)** — pilot główny: Giwaza Lowaw
+
+### Odcinek 25 — Geno Breaker powraca (`DL625_50`)
+
+**Źródło:** `eventP06.EDAT/DL625_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Iron Kong Mk-II** — pilot główny: Karl Lichten Schubaltz
+  - **Lightning Saix** — pilot główny: Irvine
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+**Jednostki sojusznicze (NPC):**
+  - **Command Wolf/White** — pilot główny: Żołnierz Republiki Helic — ×3 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Geno Breaker** — pilot główny: Raven
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core
+  - **Iron Kong** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×8 rekordów źródłowych Entry ID
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 26 — Wysłannik zagłady (`DL726_11`)
+
+**Źródło:** `eventP07.EDAT/DL726_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Lightning Saix** — pilot główny: Irvine
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Geno Breaker** — pilot główny: Raven
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 26 — Upadek stolicy (`DL726_12`)
+
+**Źródło:** `eventP07.EDAT/DL726_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 26 — Odrodzenie Ultrasaurusa (`DL726_13`)
+
+**Źródło:** `eventP07.EDAT/DL726_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Lightning Saix** — pilot główny: Irvine
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+  - **Ultrasaurus/Inactive** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×10 rekordów źródłowych Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×9 rekordów źródłowych Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×5 rekordów źródłowych Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×5 rekordów źródłowych Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×5 rekordów źródłowych Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×18 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×22 rekordy źródłowe Entry ID
+
+### Odcinek 26 — Na krawędzi śmierci (`DL726_25`)
+
+**Źródło:** `eventP07.EDAT/DL726_25_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **AT Fly** — pilot główny: Vanilla Vartla
+  - **Berserga WP** — pilot główny: Ru Shako
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+  - **Scopedog TC/ISS (Barcoff)** — pilot główny: Nor Barcoff
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Braver** — pilot główny: Żołnierz Gradosu
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Scopedog** — pilot główny: Pilot AT — ×14 rekordów źródłowych Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 26 — Poszukiwanie Imperium Mechanizacji (`DL726_35`)
+
+**Źródło:** `eventP07.EDAT/DL726_35_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×14 rekordów źródłowych Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus
+  - **Mucus Gate M MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 26 — Trop Imperium Mechanizacji (`DL726_45`)
+
+**Źródło:** `eventP07.EDAT/DL726_45_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus
+  - **Mucus Gate M MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 27 — Ku Zamkowi Mechanizacji (`DL727_11`)
+
+**Źródło:** `eventP07.EDAT/DL727_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×8 rekordów źródłowych Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+
+### Odcinek 27 — Groza! Gniew Kikaishina (`DL727_12`)
+
+**Źródło:** `eventP07.EDAT/DL727_12_Entry.dat`
+**Warunki misji:**
+> "Kikaishin" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Go-Saurer** — pilot główny: Kenichi Minezaki — piloci wspierający w misji: Hiromi Tachibana, Shinobu Asaoka, Taro Shirogane, Yoji Hiyama
+  - **God Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama, Bakuryu-Oh
+  - **Great Ganbaruger** — pilot główny: Kotaro Kirigakure — piloci wspierający w misji: Yosuke Kazamatsuri, Rikiya Ryuzaki
+  - **Perfect Daiteioh** — pilot główny: Taro Omomo — piloci wspierający w misji: Mai Ozora, Kakeru Daichi, Hiryu Tsukishiro
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×11 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×10 rekordów źródłowych Entry ID
+  - **Dreissen** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×12 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **HAL-X10** — pilot główny: Control AI
+  - **Helldiver** — pilot główny: Control AI
+  - **Kampfer/High Mobility** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Kikaishin** — pilot główny: Kikaishin — zmiana strony w trakcie misji: neutralna / trzeciej strony, sojusznicza (NPC)
+  - **Mucus Gate L MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Type-Zero/Wróg** — pilot główny: Control AI
+
+### Odcinek 27 — Quwasan Olibee (`DL727_40`)
+
+**Źródło:** `eventP07.EDAT/DL727_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Auge** — pilot główny: Antoon Randow
+  - **Auge** — pilot główny: Nei Moh Han
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Sarge Aupus (Nei)** — pilot główny: Oficer armii Posaydala
+
+### Odcinek 27 — Under the Flag (`DL727_50`)
+
+**Źródło:** `eventP07.EDAT/DL727_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×7 rekordów źródłowych Entry ID
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+
+### Odcinek 27 — Chess Piece (`DL727_60`)
+
+**Źródło:** `eventP07.EDAT/DL727_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Slender Skala** — pilot główny: Gavlet Gablae
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
+  - **B-SFTV-AT-105 Zahatt** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×12 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Balarantu
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 28 — First Attack (`DL728_11`)
+
+**Źródło:** `eventP07.EDAT/DL728_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Auge** — pilot główny: Nei Moh Han
+  - **Bat-Shu** — pilot główny: Antoon Randow — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Bat-Shu** — pilot główny: Hekeler Mauzer — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×8 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×7 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Daljan** — pilot główny: Gosterro — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Sarge Aupus (Nei)** — pilot główny: Nei Moh Han — zmiana strony w trakcie misji: neutralna / trzeciej strony
+
+### Odcinek 28 — Revenge Battle (`DL728_12`)
+
+**Źródło:** `eventP07.EDAT/DL728_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Auge** — pilot główny: Antoon Randow
+  - **Auge** — pilot główny: Nei Moh Han
+  - **Auge** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Auge** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×12 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×10 rekordów źródłowych Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+  - **Sarge Aupus (Giwaza)** — pilot główny: Giwaza Lowaw
+  - **Zakarl** — pilot główny: Le Cain
+
+### Odcinek 28 — Dreamers Again (`DL728_13`)
+
+**Źródło:** `eventP07.EDAT/DL728_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **D-Sserd** — pilot główny: Fannaria Amm
+  - **L-Gaim Mk-II** — pilot główny: Daba Myroad — piloci wspierający w misji: Lilis Faw
+  - **Novel D-Sserd** — pilot główny: Gaw Ha Leccee
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Aug** — pilot główny: True Posaydal
+  - **Auge** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
+  - **Auge** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×6 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×6 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Serce Lachesis** — pilot główny: ---
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Serce Lachesis** — pilot główny: ---
+
+### Odcinek 28 — The Last Red Shoulder (`DL728_20`)
+
+**Źródło:** `eventP07.EDAT/DL728_20_Entry.dat`
+**Warunki misji:**
+> W tej misji skład jednostek jest z góry ustalony.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+
+**Jednostki wrogie:**
+  - **Blood Sucker** — pilot główny: Żołnierz Red Shoulder — ×7 rekordów źródłowych Entry ID
+  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 28 — Perfect Soldier (`DL728_30`)
+
+**Źródło:** `eventP07.EDAT/DL728_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Berserga WP** — pilot główny: Ru Shako
+  - **Scopedog RSC (Byman)** — pilot główny: Byman Hagard
+  - **Scopedog RSC (Chirico)** — pilot główny: Chirico Cuvie
+  - **Scopedog RSC (Gregore)** — pilot główny: Gregore Garosh
+  - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
+  - **Scopedog TC/ISS (Zaki)** — pilot główny: Gerenborash Droka Zaki
+
+**Jednostki wrogie:**
+  - **Blood Sucker** — pilot główny: Żołnierz Red Shoulder — ×8 rekordów źródłowych Entry ID
+  - **Blood Sucker (Ypsilon)** — pilot główny: Ypsilon
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 28 — Przygotowania do rewanżu (`DL728_50`)
+
+**Źródło:** `eventP07.EDAT/DL728_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×5 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×8 rekordów źródłowych Entry ID
+
+### Odcinek 28 — W przededniu decydującej bitwy (`DL728_60`)
+
+**Źródło:** `eventP07.EDAT/DL728_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×9 rekordów źródłowych Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×15 rekordów źródłowych Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×18 rekordów źródłowych Entry ID
+  - **Whale King** — pilot główny: Zoid Core
+
+### Odcinek 29 — Gravity Cannon (`DL729_11`)
+
+**Źródło:** `eventP07.EDAT/DL729_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Lightning Saix** — pilot główny: Irvine
+  - **Murasame Liger** — pilot główny: Ruuji Familon
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki sojusznicze (NPC):**
+  - **Command Wolf/White** — pilot główny: Żołnierz Republiki Helic — ×2 rekordy źródłowe Entry ID
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 29 — Natarcie Death Stingera (`DL729_12`)
+
+**Źródło:** `eventP07.EDAT/DL729_12_Entry.dat`
+**Warunki misji:**
+> "Death Stinger" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 29 — Zaproszenie z pustki (`DL729_20`)
+
+**Źródło:** `eventP07.EDAT/DL729_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Cowen &amp; Stinger** — pilot główny: Cowen &amp; Stinger
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+
+### Odcinek 29 — Demon w kraterze (`DL729_50`)
+
+**Źródło:** `eventP07.EDAT/DL729_50_Entry.dat`
+**Warunki misji:**
+> "Invader (typ Pożeracz)" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Invader/Air** — pilot główny: Invader — ×5 rekordów źródłowych Entry ID
+  - **Invader/Giant Worm** — pilot główny: Invader
+  - **Invader/Ground** — pilot główny: Invader — ×5 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 30 — Pradawne wspomnienia (`DL830_11`)
+
+**Źródło:** `eventP08.EDAT/DL830_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: brak (Fiona Elisi Linette poza obsadą na starcie misji)
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Lightning Saix** — pilot główny: Irvine
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×7 rekordów źródłowych Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 30 — Nad Eve Polis (`DL830_12`)
+
+**Źródło:** `eventP08.EDAT/DL830_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Giga Nekton αα** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×24 rekordy źródłowe Entry ID
+  - **Whale King** — pilot główny: Zoid Core
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Whale King** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Whale King** — pilot główny: Oficer Imperium Guylos
+
+### Odcinek 30 — Death Saurer, bestia zagłady (`DL830_13`)
+
+**Źródło:** `eventP08.EDAT/DL830_13_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
+  - **Dibison** — pilot główny: Thomas Richard Schubaltz
+  - **Geno Breaker/Ally** — pilot główny: Raven
+  - **Lightning Saix** — pilot główny: Irvine
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Death Stinger** — pilot główny: Hiltz
+  - **Giga Nekton α** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Original Death Saurer** — pilot główny: Hiltz
+  - **Redler** — pilot główny: Zoid Core — ×7 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Original Death Saurer** — pilot główny: Dark Kaiser
+
+### Odcinek 30 — Operacja: likwidacja Invaderów (`DL830_40`)
+
+**Źródło:** `eventP08.EDAT/DL830_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Giga Nekton αα** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×11 rekordów źródłowych Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate L IN** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 30 — Konsensus (`DL830_50`)
+
+**Źródło:** `eventP08.EDAT/DL830_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
+
+### Odcinek 30 — Uruchomienie pierścienia warp (`DL830_60`)
+
+**Źródło:** `eventP08.EDAT/DL830_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Pancernik kosmiczny klasy Giga** — pilot główny: Oficer Gilgameshu
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Giga Nekton αα** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×17 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+
+### Odcinek 31 — Starcie!! Forteca Invaderów! (`DL831_11`)
+
+**Źródło:** `eventP08.EDAT/DL831_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **Turner** — pilot główny: Mirawoo Kyao
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Cowen &amp; Stinger** — pilot główny: Cowen &amp; Stinger
+  - **Giga Nekton αα** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Invader/Giant Worm** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×8 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate L IN** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 31 — Błysk!! U kresu ewolucji! (`DL831_12`)
+
+**Źródło:** `eventP08.EDAT/DL831_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Shin Getter-1 (Go)** — pilot główny: Go — piloci wspierający w misji: Kei, Gai
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Cowen &amp; Stinger** — pilot główny: Cowen &amp; Stinger — zmiana strony w trakcie misji: neutralna / trzeciej strony
+  - **Giga Nekton αα** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Invader/Giant Worm** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×22 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 31 — Poszukiwania w bramie warp (`DL831_20`)
+
+**Źródło:** `eventP08.EDAT/DL831_20_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+
+### Odcinek 31 — Wojownicy Krainy Mrocznego Smoka (`DL831_30`)
+
+**Źródło:** `eventP08.EDAT/DL831_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×8 rekordów źródłowych Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka
+
+### Odcinek 31 — Ultrasaurus rusza w kosmos (`DL831_40`)
+
+**Źródło:** `eventP08.EDAT/DL831_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Zoid Core — ×9 rekordów źródłowych Entry ID
+  - **Dark Horn** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Zoid Core — ×6 rekordów źródłowych Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Zoid Core — ×11 rekordów źródłowych Entry ID
+
+### Odcinek 32 — Galaktyka Recoral (`DL832_11`)
+
+**Źródło:** `eventP08.EDAT/DL832_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+
+### Odcinek 32 — Forteca Mucus (`DL832_12`)
+
+**Źródło:** `eventP08.EDAT/DL832_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Mucus Gate L** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 32 — Na pomoc sojusznikom (`DL832_30`)
+
+**Źródło:** `eventP08.EDAT/DL832_30_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Benthos Cruiser α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Sarge Aupus** — pilot główny: Oficer armii Posaydala
+
+### Odcinek 32 — Operacja: transport Arki (`DL832_40`)
+
+**Źródło:** `eventP08.EDAT/DL832_40_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×11 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×5 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+### Odcinek 33 — Domena harmonii (`DL833_11`)
+
+**Źródło:** `eventP08.EDAT/DL833_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Zmiana obsady oddziału gracza (skrypt `.bin`):** w sekcji 0 skrypt usuwa z obsady maszyny pilota **Seishiro Kusanagi** pilota wspierającego **Vasage**.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Vasage** — pilot główny: Vasage — ×2 rekordy źródłowe Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Benthos Carrier β** — pilot główny: Mucus
+  - **Giga Nekton β** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Vasage** — pilot główny: Vasage — ×5 rekordów źródłowych Entry ID
+
+### Odcinek 33 — Gatekeeper (`DL833_12`)
+
+**Źródło:** `eventP08.EDAT/DL833_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Benthos Carrier β** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton β** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+
+### Odcinek 33 — Mgły Genesis (`DL833_50`)
+
+**Źródło:** `eventP08.EDAT/DL833_50_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+**Uwaga o rekordach alternatywnych:** 3 identyfikatory `Entry ID` posiadają więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass — obecny alternatywny rekord Entry ID
+  - **Turner** — pilot główny: Mirawoo Kyao — obecny alternatywny rekord Entry ID
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Benthos Carrier α** — pilot główny: Mucus
+  - **Benthos Carrier β** — pilot główny: Mucus
+  - **Giga Nekton α** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton β** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×9 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Mine** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine G** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Mine GG** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass — obecny alternatywny rekord Entry ID
+  - **Pancernik kosmiczny klasy Giga** — pilot główny: Oficer Gilgameshu
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+  - **Turner** — pilot główny: Mirawoo Kyao — obecny alternatywny rekord Entry ID
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima — obecny alternatywny rekord Entry ID
+
+### Odcinek 33 — Piekielna bariera przestrzenna (`DL833_60`)
+
+**Źródło:** `eventP08.EDAT/DL833_60_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Benthos Carrier β** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Giga Nekton β** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID
+
+### Odcinek 34 — Wtargnięcie do Genesis (`DL834_11`)
+
+**Źródło:** `eventP08.EDAT/DL834_11_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Vasage** — pilot główny: Vasage
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Giga Nekton β** — pilot główny: Mucus — ×15 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×15 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×17 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×8 rekordów źródłowych Entry ID
+  - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — ×7 rekordów źródłowych Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC) — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 34 — Powierzone nadzieje (`DL834_12`)
+
+**Źródło:** `eventP08.EDAT/DL834_12_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Benthos Carrier β** — pilot główny: Mucus
+  - **Giga Nekton β** — pilot główny: Mucus — ×20 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×16 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×21 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×14 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×11 rekordów źródłowych Entry ID
+
+**Jednostki neutralne / trzeciej strony:**
+  - **Mucus Gate S** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Odcinek 34 — Operation Extend (`DL834_13`)
+
+**Źródło:** `eventP08.EDAT/DL834_13_Entry.dat`
+**Warunki misji:**
+> "Mucus Arm" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+**Uwaga o rekordach alternatywnych:** 1 identyfikator `Entry ID` posiada więcej niż jeden wariant jednostki/pilota/strony; pozycje oznaczone `obecny alternatywny rekord Entry ID` nie oznaczają jednoczesnej obecności.
+
+**Jednostki sojusznicze (gracza):**
+  - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki
+  - **Gurren Lagann (Simon)** — pilot główny: Simon — piloci wspierający w misji: Kamina, Yoko, Boota
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass — obecny alternatywny rekord Entry ID
+  - **Macross Quarter (Storm Attack)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass — obecny alternatywny rekord Entry ID
+
+**Jednostki wrogie:**
+  - **Giga Nekton β** — pilot główny: Mucus — ×16 rekordów źródłowych Entry ID
+  - **Giga Nekton ββ** — pilot główny: Mucus — ×15 rekordów źródłowych Entry ID
+  - **Mucus Arm** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Mucus Emperor** — pilot główny: Mucus
+  - **Mucus Emperor/MAX** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Assault** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×12 rekordów źródłowych Entry ID
+  - **Nekton Mine GG** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nekton Shooter** — pilot główny: Mucus — ×10 rekordów źródłowych Entry ID
+
+### Symulator — Szalejące maszyny (`SM001`)
+
+**Źródło:** `eventP01.EDAT/SM001_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Symulator — Bitwa mobile suitów na lądzie (`SM002`)
+
+**Źródło:** `eventP01.EDAT/SM002_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gouf** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gouf** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Wieżyczka uniwersalna** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Wieżyczka uniwersalna** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+  - **Zanzibar** — pilot główny: Oficer Zeonu
+
+### Symulator — Grupy zbrojne (`SM003`)
+
+**Źródło:** `eventP20.EDAT/SM003_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Brocken/Cannon** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: Pilot Labora — ×4 rekordy źródłowe Entry ID
+  - **Dom** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Pilot MS
+  - **Gouf** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Griffon** — pilot główny: Badrinath Harchand
+  - **HAL-X10** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+
+### Symulator — Zagrożenia z kosmosu (`SM004`)
+
+**Źródło:** `eventP21.EDAT/SM004_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **Gandoppler** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+
+### Symulator — Doświadczeni piloci MS (`SM005`)
+
+**Źródło:** `eventP22.EDAT/SM005_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Kampfer/Bazooka** — pilot główny: Mikhail Kaminsky
+  - **Kampfer/High Mobility** — pilot główny: Hardy Steiner
+  - **Zaku II (Char)** — pilot główny: Char Aznable
+  - **Zaku II Kai** — pilot główny: Andy Strauss
+  - **Zaku II Kai** — pilot główny: Gabriel Ramirez Garcia
+  - **Zaku II/Bazooka** — pilot główny: Cozun Graham
+  - **Zaku II/Bazooka** — pilot główny: Slender
+  - **Zaku II/Karabin maszynowy** — pilot główny: Acous
+  - **Zaku II/Karabin maszynowy** — pilot główny: Crown
+  - **Zanzibar** — pilot główny: Crowley Hamon
+  - **Zanzibar** — pilot główny: Garma Zabi
+  - **Zanzibar** — pilot główny: M'Quve
+
+### Symulator — Obrona Układu Słonecznego (`SM006`)
+
+**Źródło:** `eventP23.EDAT/SM006_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Dark Go-Saurer** — pilot główny: Mechabestia
+  - **Gandoppler** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+
+### Symulator — Galaktyczne bezprawie (`SM007`)
+
+**Źródło:** `eventP24.EDAT/SM007_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
+  - **Death Army** — pilot główny: DG Cells — ×4 rekordy źródłowe Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Monskar Medessa** — pilot główny: Monskar — ×3 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×3 rekordy źródłowe Entry ID
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×2 rekordy źródłowe Entry ID
+
+### Symulator — Mieszany oddział AT (`SM008`)
+
+**Źródło:** `eventP25.EDAT/SM008_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Lądowy pancernik Balarant** — pilot główny: Oficer Gilgameshu
+  - **Scopedog** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×4 rekordy źródłowe Entry ID
+  - **Scopedog RS (Riemann)** — pilot główny: Inge Riemann
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×4 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×2 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Żołnierz Gilgameshu — ×2 rekordy źródłowe Entry ID
+
+### Symulator — Koszmar Ziemi (`SM009`)
+
+**Źródło:** `eventP26.EDAT/SM009_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Death Army** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×7 rekordów źródłowych Entry ID
+  - **HAL-X10/Green** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×7 rekordów źródłowych Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×7 rekordów źródłowych Entry ID
+
+### Symulator — Legion Zoidów (`SM010`)
+
+**Źródło:** `eventP27.EDAT/SM010_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Death Saurer/Replica** — pilot główny: Gunther Prozen
+  - **Geno Breaker** — pilot główny: Raven
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper** — pilot główny: Pilot Zoida
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida
+  - **Gun Sniper/WW** — pilot główny: Pilot Zoida
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos — ×3 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Oficer Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong SS** — pilot główny: Karl Lichten Schubaltz
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Red Horn (Rosso)** — pilot główny: Rosso
+  - **Redler** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Redler (Viola)** — pilot główny: Viola
+  - **Whale King** — pilot główny: Oficer Imperium Guylos
+  - **Whale King** — pilot główny: Oficer Imperium Guylos
+
+### Symulator — Mnożące się maszyny bojowe (`SM011`)
+
+**Źródło:** `eventP28.EDAT/SM011_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Death Army** — pilot główny: DG Cells — ×16 rekordów źródłowych Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
+  - **Gundam Head** — pilot główny: DG Cells
+  - **Invader/Ground** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×3 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×2 rekordy źródłowe Entry ID
+  - **Type-Zero/Wróg** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+
+### Symulator — Bohaterowie walk lądowych (`SM012`)
+
+**Źródło:** `eventP29.EDAT/SM012_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
+  - **Directional Mine** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×9 rekordów źródłowych Entry ID
+  - **Dreissen** — pilot główny: Desert Rommel
+  - **Endra** — pilot główny: Oficer Neo Zeonu
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Iron Kong SS** — pilot główny: Karl Lichten Schubaltz
+  - **Kampfer/Bazooka** — pilot główny: Mikhail Kaminsky
+  - **Kampfer/High Mobility** — pilot główny: Hardy Steiner
+  - **Lancelot** — pilot główny: Suzaku Kururugi
+  - **Molga** — pilot główny: Żołnierz Imperium Guylos — ×4 rekordy źródłowe Entry ID
+  - **Red Horn (Rosso)** — pilot główny: Rosso
+  - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×4 rekordy źródłowe Entry ID
+  - **Redler (Viola)** — pilot główny: Viola
+  - **Saber Tiger (Raven)** — pilot główny: Raven
+  - **Scopedog RS (Riemann)** — pilot główny: Inge Riemann
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×3 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
+  - **Whale King** — pilot główny: Gunther Prozen
+  - **Zaku II Kai** — pilot główny: Andy Strauss
+  - **Zaku II Kai** — pilot główny: Gabriel Ramirez Garcia
+  - **Zaku II/Bazooka** — pilot główny: Cozun Graham
+  - **Zaku II/Karabin maszynowy** — pilot główny: Acous
+  - **Zaku III** — pilot główny: Żołnierz Neo Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Crowley Hamon
+
+### Symulator — Mieszane siły mobilne (`SM013`)
+
+**Źródło:** `eventP30.EDAT/SM013_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
+  - **Bat-Shu/Strong** — pilot główny: Hatchia Motchia
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×7 rekordów źródłowych Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×7 rekordów źródłowych Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×9 rekordów źródłowych Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Nowy gigantyczny lotniskowiec Grados** — pilot główny: Oficer Gradosu
+  - **Pancernik kosmiczny klasy Lesrion** — pilot główny: Oficer Balarantu
+  - **Sarge Aupus** — pilot główny: Oficer armii Posaydala
+  - **Slender Skala** — pilot główny: Oficer armii Posaydala
+  - **Zakarl** — pilot główny: Le Cain
+
+### Symulator — Skradziony Księżyc (`SM014`)
+
+**Źródło:** `eventP31.EDAT/SM014_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Giga Nekton α** — pilot główny: Mucus
+  - **Giga Nekton αα** — pilot główny: Mucus
+  - **Invader/Air** — pilot główny: Invader — ×5 rekordów źródłowych Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×4 rekordy źródłowe Entry ID
+  - **Invader/Starfish** — pilot główny: Invader — ×11 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Monskar Medessa** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×4 rekordy źródłowe Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Creek** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Nekton Hauser** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
+  - **Nekton Shooter** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID
+  - **Okręt eskorty Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×4 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+
+### Symulator — Walka z Laborami i AT (`SM015`)
+
+**Źródło:** `eventP31.EDAT/SM015_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Brocken/Cannon** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: Control AI — ×11 rekordów źródłowych Entry ID
+  - **Command Wolf/White** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Pilot AT — ×2 rekordy źródłowe Entry ID
+  - **Griffon** — pilot główny: Badrinath Harchand
+  - **Gun Sniper** — pilot główny: Zoid Core — ×4 rekordy źródłowe Entry ID
+  - **Gun Sniper/WW** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **HAL-X10** — pilot główny: Shinohara HOS — ×3 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Scopedog** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×3 rekordy źródłowe Entry ID
+  - **Type-Zero/Wróg** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
+
+### Symulator — Szturm Dark Attackera (`SM016`)
+
+**Źródło:** `eventP31.EDAT/SM016_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
+
+**Jednostki wrogie:**
+  - **Bat-Shu/Strong** — pilot główny: Antoon Randow
+  - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
+  - **Bat-Shu/Strong** — pilot główny: Hatchia Motchia
+  - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
+  - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Dark Go-Saurer** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
+  - **Iron Kong** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
+  - **Monskar Medessa** — pilot główny: Monskar — ×2 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×8 rekordów źródłowych Entry ID
+  - **Nekton Assault** — pilot główny: Mucus — ×6 rekordów źródłowych Entry ID
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Qubeley Mk-II (Ple)** — pilot główny: Elpeo Ple
+  - **Queen Cideron** — pilot główny: Da Cider
+  - **Saber Tiger (Raven)** — pilot główny: Raven
+  - **Susanowo** — pilot główny: Mr. Bushido
+  - **Zwarth** — pilot główny: Black Knight
+
+### Symulator — Zeon na lądzie - trening (`SM017`)
+
+**Źródło:** `eventP31.EDAT/SM017_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **Apsalus III** — pilot główny: Ginias Sahalin
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dom** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Dopp** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: Crown
+  - **Gelgoog** — pilot główny: Slender
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu
+  - **Gouf** — pilot główny: Acous
+  - **Gouf** — pilot główny: Cozun Graham
+  - **Gouf** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gouf** — pilot główny: Żołnierz Zeonu — ×3 rekordy źródłowe Entry ID
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Zaku II/Bazooka** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku II/Karabin maszynowy** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Zanzibar** — pilot główny: Char Aznable
+  - **Zanzibar** — pilot główny: Crowley Hamon
+  - **Zanzibar** — pilot główny: Garma Zabi
+  - **Zanzibar** — pilot główny: M'Quve
+
+### Symulator — Strefa bezprawia (`SM018`)
+
+**Źródło:** `eventP32.EDAT/SM018_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **Ultrasaurus** — pilot główny: Rob Herman — piloci wspierający w misji: Moonbay, Karl Lichten Schubaltz
+
+**Jednostki wrogie:**
+  - **Blood Sucker** — pilot główny: Żołnierz Red Shoulder — ×3 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: Pilot Labora — ×3 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×4 rekordy źródłowe Entry ID
+  - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Daljan** — pilot główny: Gosterro
+  - **Dark Horn** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Dom** — pilot główny: Pilot MS — ×4 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Pilot AT — ×2 rekordy źródłowe Entry ID
+  - **Fatty (Ground)** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Gouf** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
+  - **Gun Sniper** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Molga** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
+  - **Redler** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
+  - **Scopedog** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×4 rekordy źródłowe Entry ID
+  - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×3 rekordy źródłowe Entry ID
+  - **Scopedog/M** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: Pilot MS — ×3 rekordy źródłowe Entry ID
+
+### Symulator — Zeon w kosmosie - trening (`SM019`)
+
+**Źródło:** `eventP32.EDAT/SM019_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki sojusznicze (gracza):**
+  - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
+
+**Jednostki wrogie:**
+  - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
+  - **Big Zam** — pilot główny: Dozle Zabi
+  - **Bigro** — pilot główny: Tokwan
+  - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: Desert Rommel
+  - **Dreissen** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Endra** — pilot główny: Rakan Dahkaran
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
+  - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu
+  - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
+  - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gaza-C/MA** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Gwazine** — pilot główny: Gihren Zabi
+  - **Kampfer/Bazooka** — pilot główny: Andy Strauss
+  - **Kampfer/Bazooka** — pilot główny: Mikhail Kaminsky
+  - **Kampfer/High Mobility** — pilot główny: Gabriel Ramirez Garcia
+  - **Kampfer/High Mobility** — pilot główny: Hardy Steiner
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Qubeley Mk-II (Ple Two)** — pilot główny: Ple Two
+  - **Qubeley Mk-II (Ple)** — pilot główny: Elpeo Ple
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu
+  - **Rick Dom** — pilot główny: Żołnierz Zeonu
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Gaia
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Mash
+  - **Rick Dom (Black Tri-Stars)** — pilot główny: Ortega
+  - **Sadalahn** — pilot główny: Haman Karn
+  - **Zaku III** — pilot główny: Żołnierz Neo Zeonu — ×2 rekordy źródłowe Entry ID
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+  - **Zeong** — pilot główny: Char Aznable
+
+### Symulator — Wijąca się ziemia (`SM020`)
+
+**Źródło:** `eventP32.EDAT/SM020_Entry.dat`
+**Warunki misji:**
+> "Invader (typ Pożeracz)" porusza się w specjalny sposób.
+**Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
+
+**Jednostki sojusznicze (gracza):**
+  - **Turner** — pilot główny: Mirawoo Kyao
+
+**Jednostki wrogie:**
+  - **Death Army** — pilot główny: DG Cells — ×3 rekordy źródłowe Entry ID
+  - **Death Bird** — pilot główny: DG Cells — ×3 rekordy źródłowe Entry ID
+  - **Gandoppler** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
+  - **Invader/Air** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Giant Worm** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
+  - **Invader/Ground** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID
+  - **Metal Beast/Muszla** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
+  - **Metal Beast/Rakieta** — pilot główny: Invader — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Molga** — pilot główny: Zoid Core — ×3 rekordy źródłowe Entry ID
+  - **Monskar Medessa** — pilot główny: Monskar — ×3 rekordy źródłowe Entry ID
+  - **Monskar Neppoon** — pilot główny: Monskar — ×3 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×3 rekordy źródłowe Entry ID
+  - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Lot** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+  - **Żołnierz Mrocznego Smoka/Snajper** — pilot główny: Żołnierz Mrocznego Smoka — ×3 rekordy źródłowe Entry ID
+
+### Symulator — Wojna watażków (`SM021`)
+
+**Źródło:** `eventP32.EDAT/SM021_Entry.dat`
+**Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
+
+**Jednostki wrogie:**
+  - **Aug** — pilot główny: True Posaydal
+  - **Auge** — pilot główny: Nei Moh Han
+  - **Blood Sucker (Ypsilon)** — pilot główny: Ypsilon
+  - **Daljan** — pilot główny: Gosterro
+  - **Enkidu** — pilot główny: Viral
+  - **Gelgoog (Char)** — pilot główny: Char Aznable
+  - **Geno Breaker** — pilot główny: Raven
+  - **Gouf (Ramba Ral)** — pilot główny: Ramba Ral
+  - **Griffon** — pilot główny: Badrinath Harchand
+  - **Iron Kong SS** — pilot główny: Karl Lichten Schubaltz
+  - **Lancelot** — pilot główny: Suzaku Kururugi
+  - **Qubeley** — pilot główny: Haman Karn
+  - **Queen Cideron** — pilot główny: Da Cider
+  - **Quin Mantha** — pilot główny: Ple Two
+  - **Scopedog RS (Riemann)** — pilot główny: Inge Riemann
+  - **Susanowo** — pilot główny: Mr. Bushido
+  - **Tallgeese** — pilot główny: Zechs Merquise
+  - **Zakarl** — pilot główny: Le Cain
+  - **Zaku III (Rakan)** — pilot główny: Rakan Dahkaran
+  - **Zwarth/Hyper** — pilot główny: Black Knight
+
+## Wykluczone obiekty użytkowe mapy
+
+- **Container (`unit_id = 3670`):** 184 rekordy źródłowe we wszystkich zbadanych plikach `_Entry.dat`; wyłączone z list bojowych jako obiekty użytkowe mapy.
+- **Moduł naprawy (`unit_id = 3660`):** 35 rekordów źródłowych we wszystkich zbadanych plikach `_Entry.dat`; wyłączone z list bojowych jako obiekty użytkowe mapy.
+
+## Pochodzenie danych i weryfikacja
+
+- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, a aktywne składy załóg wspierających i zmiany stron w trakcie misji — z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`).
+- Polskie nazwy maszyn, postaci, tytułów misji oraz warunków pochodzą wyłącznie ze zweryfikowanego pakietu `pakiet_PL` (`05_mission_text.jsonl`, `07_names_characters.jsonl`, `08_names_units_weapons.jsonl`).
+- Zachowano osobno oba duplikaty kodów między pakietami (`DL103_30` w `eventP01.EDAT` i `eventP09.EDAT`; `DL208_30` w `eventP13.EDAT` i `eventP22.EDAT`).
+
+## Przykłady weryfikacji obsady w tym katalogu
+
+- **Exart (`unit_id = 3900`, pilot główny: Seishiro Kusanagi):** w `DL100_01` i `DL100_02` nie ma jeszcze żadnych pilotów wspierających (`flag[1075] = 0`); od `DL101_11` do `DL310_12` jedynym aktywnym pilotem wspierającym jest **Himari Yaegaki** (`Vasage` nie figuruje w załodze); w `DL310_20` **Vasage** dołącza w trakcie misji (sekcja 2, `op 679` + `flag[1112] = 1`); od `DL311_12` do `DL831_20` aktywni są **Himari Yaegaki, Vasage**; po odłączeniu w `DL833_11` (`op 318(1112, 0)` + `op 516`), w finałowych `DL834_12` i `DL834_13` ponownie aktywna jest wyłącznie **Himari Yaegaki**.
+- **Blade Liger (`unit_id = 3203`, pilot główny: Van Flyheight):** standardowo ma aktywną **Fionę Elisi Linette**, natomiast w `DL830_11` skrypt sekcji 0 (`op 516(-4101, 4105)`) oraz kod fuzji Zeke (`0x214688..0x2146e0`) usuwają ją z obsady na czas tej misji (`brak`).
+- **White Base (`unit_id = 1090`, pilot główny: Bright Noa):** pętla `0x202b80..0x202bd8` w każdej misji z udziałem White Base aktywuje **Mirai Yashimę** jako pilota wspierającego (brak jakichkolwiek wywołań `op 516` usuwających `1209` w skryptach gry).

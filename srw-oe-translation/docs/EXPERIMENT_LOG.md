@@ -7911,3 +7911,30 @@ Polish mech catalogue without default pilots/crews & synced pilot catalogue (202
    - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `12AaUkJrHqPMgFzJKtroXxAAPeLLq4jag`
    - `srwoe_pilot_catalog_PL.md`: `1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU`
 
+Polish mission deployments catalogue with engine-verified active sub-pilots (2026-10-21):
+1. Disassembled the 1.08 `DATA.PSP` (`eboot_108.elf`, SHA-256
+   `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`) scenario `_Entry.dat`
+   loader, crew attachment, fusion, map deduplication, and EVNT VM handlers [ZWERYFIKOWANE]:
+   - `0x1f9810`: `(w[3] >> 8) & 7` decodes initial unit team across all `8,285` non-utility combat
+     records (`0` = player allied `882`, `2` = allied NPC `61`, `1` = enemy `7,266`,
+     `4` = neutral / third party `76`).
+   - `0x202a68..0x202bd8`: sets main pilot `w[2]` into slot `0` and loops `slot = 1..4` over
+     `unit_list` `i16@+100..+106` (`refs_at_98[1..4]`), attaching every non-zero `cid != main_pilot`.
+   - `0x202bdc..0x202c1c`: for `unit_id == 3900` (`Exart`), checks campaign flags via `0x0c69a0`:
+     `!flag[1112]` (`0x458`) removes `4520` (`Vasage`) via `0x1ff95c`, and `!flag[1075]` (`0x433`)
+     removes `4510` (`Himari Yaegaki`) via `0x1ff95c`.
+   - `0x214688..0x2146e0`: during Organoid Zeke fusion for `main_pilot == 4101` (`Van Flyheight`),
+     removes `4105` (`Fiona Elisi Linette`) in Episode 30 Stage 1 (`DL830_11`).
+   - `0x1d9500..0x1d96dc`: dynamically removes duplicate sub-pilots when another map unit carries
+     the same character ID simultaneously.
+   - Scenario `.bin` EVNT VM handlers across all `24` `eventP` packages (`226` scripts):
+     `op 300`/`op 318` (global flags `1075` set in `DL101_11` sec 0; `1112` set in `DL310_20` sec 2
+     and reset in `DL833_11` sec 0), `op 516` (`0x24ea20`, remove sub-pilot), `op 679`
+     (`0x24ea5c`, add sub-pilot mid-mission), and `op 519` (`0x24af0c`, mid-mission side switch).
+2. Implemented `tools/mission_deployments.py` and `tests/test_mission_deployments.py`, regenerated
+   `docs/mission-deployments.md` in full Polish (`308,644 B`, SHA-256
+   `3bd719cbed23c67ce55a1a870337d38b1299dbd2a23c07745865c0e2165cca8a`, MD5
+   `d329e8642acb0a37bb930c96da860226`), uploaded to Google Drive `1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`
+   (replacing `1H1TjItPtQ3iGbfdlsqOZcU2JXC_LGY2-`), verified byte-identical download-back, and ran
+   the full `srw-oe-translation` test suite (`1,758` tests `OK`, `32` skipped).
+
