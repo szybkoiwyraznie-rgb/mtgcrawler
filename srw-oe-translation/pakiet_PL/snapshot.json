@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8",
+  "data_sha256": "3deac3056532968009c3264e1cff179924fabe8984a6a1943056039944b4cb3c",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -110,6 +110,14 @@
       "sha256": "384c804e15cf0bf07eca29b7cdb309ad2b50e120646b0376fc46c60e88c68276",
       "previous_data_sha256": "4b249e93f0fddbbc224cacca4dd279a8e863190fbda917561a9b3e81d1a34dfd",
       "entries": 11,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-five-screens-2026-10-21.json",
+      "sha256": "be4092e0b519adaefdee5128d7631bc27c35ec4d0b642f67d238869c94241dd2",
+      "previous_data_sha256": "b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8",
+      "entries": 141,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }
