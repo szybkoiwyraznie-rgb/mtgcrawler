@@ -8083,6 +8083,16 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
    verified direct binary readbacks across all 7 container domains, uploaded `srw-oe-translation-pl-v3.0.zip` to
    Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as `1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO`, and confirmed byte-identical
    download-back (`cmp -s`) [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+4. Built, verified, packaged, and delivered complete curated Polish reading scripts for all 35 story episodes `00–34`
+   (`srwoe_reading_PL_00-34.zip`) from accepted `pakiet_PL` `v3.0` (`python3 tools/build_polish_reading_editions.py --english pakiet_EN --polish local/mat_pl --references local/en_reading_refs --episodes 0-34 --out local/pl_reading_v3_out`):
+   - Covered `35 / 35` episodes (`srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md` + `README.md`, `36` files,
+     `2,437,269 B` uncompressed Markdown, `918,139 B` deflated ZIP, SHA-256 `e4adebb4d55cbe8af5991076208a571d0688c212bd3f6eba9101652ed6243cc0`,
+     MD5 `e76808b5041e17bb15cc933f5f6c2d12`) with `47,056 / 47,056` story prose entries accounted for (`32,954` unique
+     entries directly shown, `14,102` DLC variant aliases verified in Polish, `33,587` verified text spans, `0` CJK/control
+     leaks, `0` English fallbacks).
+   - Uploaded to Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`, confirmed
+     byte-identical round-trip download (`cmp -s == 0`), recorded receipt in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`,
+     and passed full repository test suite (`1,767` tests OK, `7` skipped) [ZWERYFIKOWANE; pliki do czytania, bez zmian ISO/DLC].
 
 
 

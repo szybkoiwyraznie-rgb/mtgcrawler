@@ -1,6 +1,26 @@
-# Polish reading editions — PL4 source series 01–21, curated 00–03 and catalogue v4
+# Polish reading editions — Complete curated series 00–34 (v3.0), PL4 01–21, and catalogue v4
 
-## New: PL4 source-order reading series — episodes 01–21 (2026-10-20)
+## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.0`, 2026-10-21)
+
+- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1PjPStP1V6DDso2asRR-3pcZE48IWYJhu/view)** (`918,139 B`, SHA-256 `e4adebb4d55cbe8af5991076208a571d0688c212bd3f6eba9101652ed6243cc0`, MD5 `e76808b5041e17bb15cc933f5f6c2d12`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`
+
+Built strictly from the accepted `pakiet_PL` **`v3.0`** package (`PL5.zip` + `v2.7-PL6`, `data_sha256 = b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8`) across **all 35 story episodes (`00–34`)**:
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans across `2,433,410 B` of Markdown plus `README.md`).
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green (**1,767 tests OK, 7 skipped**). Reading files only; no ISO/DLC changes or PPSSPP runtime claim.
+
+Reproduction from materialized `pakiet_PL`:
+
+```sh
+python3 tools/build_polish_reading_editions.py \
+  --english pakiet_EN --polish local/mat_pl \
+  --references local/en_reading_refs --episodes 0-34 \
+  --out local/pl_reading_v3_out
+```
+
+Older deliveries below are preserved, not overwritten.
+
+## Historical: PL4 source-order reading series — episodes 01–21 (2026-10-20)
 
 - **[Complete PL4 reading series 01–21 (ZIP)](https://drive.google.com/file/d/1pqZyeeLcAzv6OcXqngdj9YvIbS_UapU-/view)**
 - [PL4 scope and reading notes](https://drive.google.com/file/d/1_6QX1uVzIEGwhToYWZmNdlyR_zvYVKhz/view)
