@@ -829,6 +829,25 @@ def _series_heading(pilot: dict) -> str:
     return "; ".join(titles) if titles else "Pozostałe / bez wpisu serii w słowniku postaci"
 
 
+def _base_spirit_effect(effect_text: str, sp_cost: int) -> str:
+    """Extract only the base effect of a Spirit Command without Lv2/Lv3 upgrade tiers."""
+    raw_lines = [ln.strip() for ln in effect_text.splitlines() if ln.strip()]
+    kept = [ln for ln in raw_lines if not re.match(r"^Lv[2-9]\b", ln)]
+    cleaned: list[str] = []
+    for ln in kept:
+        ln = re.sub(r"<([^<>]+)>", r"(\1)", ln)
+        m = re.match(rf"^Lv1\s+SP-{sp_cost}\s+(.*)$", ln)
+        cleaned.append(m.group(1).strip() if m else ln)
+    return " — ".join(cleaned)
+
+
+def _base_spirit_guide(guide_text: str) -> str:
+    """Strip level-up remarks ('Wyższy poziom ...') from a Spirit Command's guide summary."""
+    raw_lines = [ln.strip() for ln in guide_text.splitlines() if ln.strip()]
+    kept = [ln for ln in raw_lines if not ln.startswith("Wyższy poziom")]
+    return " / ".join(kept)
+
+
 def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     md = MC.md
     lines: list[str] = []
@@ -897,22 +916,14 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     if pilot["spirits"]:
         sp_lines = [
             "**Komendy Ducha (*Spirit Commands*):**\n",
-            "| Slot | Duch | Typ | Lv1 (poz. / koszt) | Lv2 (poz. / koszt) | Lv3 (poz. / koszt) | Efekty poziomów (`Lv1`–`Lv3`) |",
-            "|---:|---|---|---|---|---|---|",
+            "| Slot | Duch | Koszt SP | Efekt bazowy |",
+            "|---:|---|---:|---|",
         ]
         for s in pilot["spirits"]:
-            t1, t2, t3 = s["tiers"]
-            c1 = f"**Poz. {t1['unlock_level']}** ({t1['sp_cost']} SP)"
-            c2 = f"**Poz. {t2['unlock_level']}** ({t2['sp_cost']} SP)"
-            c3 = f"**Poz. {t3['unlock_level']}** ({t3['sp_cost']} SP)"
-            if s["kind"] == "Typ do wyboru":
-                eff_summary = md(_one_line(t1["effect"]))
-            else:
-                eff_summary = "<br>".join(
-                    md(_one_line(ti["effect"])) for ti in (t1, t2, t3)
-                )
+            t1 = s["tiers"][0]
+            eff_summary = md(_base_spirit_effect(t1["effect"], t1["sp_cost"]))
             sp_lines.append(
-                f"| {s['slot']} | **{md(s['name'])}** | {md(s['kind'])} | {c1} | {c2} | {c3} | {eff_summary} |"
+                f"| {s['slot']} | **{md(s['name'])}** | {t1['sp_cost']} | {eff_summary} |"
             )
         lines.append("\n".join(sp_lines) + "\n")
 
@@ -1029,9 +1040,8 @@ def render_polish_markdown(model: dict) -> str:
         "- **Pula SP (`+105`, `+106`):** `SP(poz.) = SP_bazowe + (poz. − 1) × przyrost_SP`.\n"
         "- **Statystyki pilota (`+108..+115`):** `wartość(poz.) = baza + trunc_f32((przyrost × 0.1f) × poz.)` "
         "(arytmetyka pojedynczej precyzji IEEE-754 `0x3dcccccd` procesora Allegrex).\n"
-        "- **Komendy Ducha (`+116..+127`):** `Lv1` odblokowuje się na `poz. nauki`, `Lv2` na `poz. nauki + krok`, `Lv3` na `poz. nauki + 2 × krok`. "
-        "W komendach **Typu do wyboru** gracz zachowuje dostęp do wszystkich odblokowanych poziomów (`Lv1`–`Lv3`) o różnym koszcie SP; "
-        "w komendach **Typu rozwojowego** wyższy poziom ulepsza działanie lub obniża koszt SP.\n"
+        "- **Komendy Ducha (`+116..+127`):** tabele prezentują wartości bazowe komend "
+        "(koszt SP oraz efekt podstawowy, bez ulepszeń z wyższych poziomów — analogicznie do katalogu mechów).\n"
         "- **Umiejętności pilota (`+128..+143`):** `żądany_poziom = min(1 + (poz. − poz._nauki) // krok, 9)`, "
         "a selektor `0x0e5680` wybiera najwyższy zdefiniowany w `srwDL_Skill00–08.bin` poziom `≤ żądany_poziom`.\n"
         "- **Premia Asa (`+156`):** odblokowywana wyłącznie po stronie gracza po osiągnięciu **300 zestrzeleń** (`0x12c`).")
@@ -1045,24 +1055,18 @@ def render_polish_markdown(model: dict) -> str:
         "6. [Dodatek A — Rekordy niebojowe, portretowe i systemowe (150 rekordów)](#6-dodatek-a--rekordy-niebojowe-portretowe-i-systemowe-150-rekordow)\n"
         "7. [Pochodzenie danych i ograniczenia](#7-pochodzenie-danych-i-ograniczenia)")
 
-    # Section 1: All 20 Spirit families
+    # Section 1: All 20 Spirit families (base cost & base effect)
     put("---\n\n## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)")
     sp_rows = [
-        "| ID | Duch | Kategoria | Opis działania | Lv1 (koszt SP) | Lv2 (koszt SP) | Lv3 (koszt SP) | Szczegóły parametrów (`Lv1`–`Lv3`) |",
-        "|---:|---|---|---|---|---|---|---|",
+        "| ID | Duch | Koszt SP | Opis działania | Efekt bazowy |",
+        "|---:|---|---:|---|---|",
     ]
     for fam_id_str, fam in model["spirits"].items():
-        t1, t2, t3 = fam["tiers"]["1"] if "1" in fam["tiers"] else fam["tiers"][1], (
-            fam["tiers"]["2"] if "2" in fam["tiers"] else fam["tiers"][2]
-        ), (fam["tiers"]["3"] if "3" in fam["tiers"] else fam["tiers"][3])
-        if fam["kind"] == "Typ do wyboru":
-            detail = md(_one_line(t1["effect"]))
-        else:
-            detail = "<br>".join(md(_one_line(t["effect"])) for t in (t1, t2, t3))
+        t1 = fam["tiers"]["1"] if "1" in fam["tiers"] else fam["tiers"][1]
+        guide_txt = md(_base_spirit_guide(fam["guide"]))
+        detail = md(_base_spirit_effect(t1["effect"], t1["sp_cost"]))
         sp_rows.append(
-            f"| {fam_id_str} | **{md(fam['name'])}** | {md(fam['kind'])} | "
-            f"{md(_one_line(fam['guide']))} | {t1['sp_cost']} SP | {t2['sp_cost']} SP | "
-            f"{t3['sp_cost']} SP | {detail} |"
+            f"| {fam_id_str} | **{md(fam['name'])}** | {t1['sp_cost']} | {guide_txt} | {detail} |"
         )
     put("\n".join(sp_rows))
 

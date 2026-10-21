@@ -3,8 +3,8 @@
   "status": "PASS",
   "deliverable": {
     "filename": "srwoe_pilot_catalog_PL.md",
-    "bytes": 789670,
-    "sha256": "21b70d8ec8e3a38980ecf2c66d398d74fc52172b1c4a9a0b38096cd280a0ea70"
+    "bytes": 622908,
+    "sha256": "42d2773af1ccaa249fdb5665a7218aaeb4aa78d833f56b9c955ec44b87470bb6"
   },
   "provenance": {
     "source_inventory": "docs/mech-catalog/source-inventory.json",
@@ -42,7 +42,7 @@
     "story_flag_upgrades": 1
   },
   "markdown_audit": {
-    "markdown_lines": 6557,
+    "markdown_lines": 6100,
     "combat_pilot_headings_verified": 254,
     "non_combat_table_rows_verified": 150,
     "residual_cjk_characters": 0,

@@ -1109,10 +1109,10 @@ section bodies, interleaved with command words (the inter-unit gaps contain reco
 | Test                                                                                                                                                  | Result                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64                               | best base reaches **2%** of a file's starts, and the        |
-|                                                                                                                                                       |   starts-shifted-by-+1 control reaches the same → chance    |
+|                                                                                                                                                       | starts-shifted-by-+1 control reaches the same → chance      |
 | Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists         |
 | Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section                                    | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below |
-|                                                                                                                                                       |   chance                                                    |
+|                                                                                                                                                       | chance                                                      |
 
 **What this means, and the correction it forces.** `retro-trans/SRW-Z`'s COMPDATA model (a table of
 absolute load-base addresses) does **not** apply to this game's event files, so the base scan's
@@ -7966,4 +7966,20 @@ Notepad++ monospace pipe-table alignment across all Markdown catalogues & docs (
      SHA-256 `5e87af2e93a22477c9417662d7903fb1c4f054ae726c01bfa20ab8f33b9c71f3`)
    - `srwoe_reading_PL3.zip`: `1YTYNNoCnjABNdIHe4ljrhyj1XPDsLFzw` (`152,220 B`, SHA-256
      `41ecfb2e1acedb99c17c0023a52602e2d731859010b38375e637c452dba5ccf7`)
+
+Simplified base-only Spirit Command tables in `srwoe_pilot_catalog_PL.md` (2026-10-21):
+1. Updated `tools/pilot_catalog.py` (`_base_spirit_effect`, `_base_spirit_guide`) and
+   `tests/test_pilot_catalog.py` so both Section 1 (`Leksykon wszystkich Komend Ducha`, 5 columns:
+   `ID | Duch | Koszt SP | Opis działania | Efekt bazowy`) and per-pilot Spirit tables (4 columns:
+   `Slot | Duch | Koszt SP | Efekt bazowy`) render only base SP cost and base `Lv1` effect without
+   level-up/upgrade tiers (`Lv2`/`Lv3`), matching how base weapon/unit values are presented in
+   `srwoe_mech_catalog_v4_PL.md`, with `0` HTML entities/tags and full Notepad++ vertical `|` alignment
+   (`max line width = 215` chars).
+2. Rebuilt `srwoe_pilot_catalog_PL.md` (`622,908 B`, `6,100` lines, SHA-256
+   `42d2773af1ccaa249fdb5665a7218aaeb4aa78d833f56b9c955ec44b87470bb6`, MD5
+   `eb2a04b19544b663f534a7e7a8e6b7b9`), verified `PASS` on `tools/verify_pilot_catalog.py --replay-unicorn`
+   (`7,307 / 7,307` Unicorn hardware checks matched, `0` mismatches, `RealBinaryPilotCatalogTests` `OK`),
+   uploaded to Google Drive `1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5` (trashing superseded
+   `14ljZi9HkHbRuosL9qblu33RH0YhCzstM`), and confirmed byte-identical download-back.
+
 

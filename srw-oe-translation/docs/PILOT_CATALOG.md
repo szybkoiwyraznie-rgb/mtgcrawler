@@ -64,9 +64,9 @@ Each record in `charalist00.bin`–`charalist19.bin` is fixed-width **172 bytes 
    - Multiplier constant `0x3dcccccd` (`0.10000000149011612f` in IEEE-754 binary32):
    - `stat(level) = base + trunc_i32(f32(f32(rate) * 0.1f) * f32(level))`.
    - Note that `+112/+113` writes `slot + 0x16` (**Celność**) whereas `+114/+115` writes `slot + 0x14` (**Unik**), confirmed both in `0x21f67c..0x21f710` and in the level-up UI widget table at `0x148b70..0x148c64`.
-4. **Spirit Command Tier Unlocking (`0x21f748..0x21f81c` + `0x0e78b4`):**
-   - Each active slot (`1..4`) has 3 tiers (`Lv1`, `Lv2`, `Lv3`) in `configst.cpk/srwDL_Spirit.bin` (`20` families, `60` records, `SP` cost at `u8@+12`, `0` 1.08 ELF overrides).
-   - Unlock level of tier `t` (`1..3`): `learn_lv` if `step == 0`, else `learn_lv + (t - 1) * step`.
+4. **Spirit Command Base-Value Presentation (`0x21f748..0x21f81c` + `0x0e78b4`):**
+   - Each active slot (`1..4`) has 3 records in `configst.cpk/srwDL_Spirit.bin` (`20` families, `60` records, `SP` cost at `u8@+12`, `0` 1.08 ELF overrides; runtime unlock level of tier `t` is `learn_lv` if `step == 0`, else `learn_lv + (t - 1) * step`, still retained in `pilot_catalog_model.json` and `verify_pilot_catalog.py` Unicorn checks).
+   - Analogously to `srwoe_mech_catalog_v4_PL.md` (which renders base mech/weapon values without upgrade steps), the rendered Markdown Spirit tables in `srwoe_pilot_catalog_PL.md` present **base values only** (`Koszt SP` and `Efekt bazowy` without `Lv2`/`Lv3` progression rows), aligned cleanly for monospace Notepad++ reading.
 5. **Pilot Skill Selection, 1.08 Overrides, and Story Flag `0x461` (`0x21f824..0x21f8f8` + `0x0e5680` + `0x0e5d44`):**
    - When `skill_alias == 0x2ac` (`684`, *Niezw. moc* on Chirico Cuvie `[ID 3401]`) and `0x0c69a0(0x461) == 1`, the engine upgrades the slot dynamically to `0x2ad` (`685`, *Anom. ocalały*).
    - `desired_lv = 9 if step == 0 else min(1 + (level - learn_lv) // step, 9)`.

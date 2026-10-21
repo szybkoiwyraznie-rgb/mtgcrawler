@@ -199,6 +199,23 @@ class SyntheticPilotCatalogTests(unittest.TestCase):
         self.assertTrue(st_ally_300["ace_active"])
         self.assertEqual(skills[st_ally_300["ace_skill_record"]]["key"], 2100)
 
+    def test_base_spirit_effect_helper_strips_upgrade_tiers(self) -> None:
+        raw_choice = (
+            "Cel: ty Efekt: 1 tura\n"
+            "Lv1 SP-15 Unik+20% Celność+25%\n"
+            "Lv2 SP-20 Unik+30% Celność+35%\n"
+            "Lv3 SP-25 Unik+40% Celność+45%"
+        )
+        self.assertEqual(
+            PC._base_spirit_effect(raw_choice, 15),
+            "Cel: ty Efekt: 1 tura — Unik+20% Celność+25%",
+        )
+        raw_growth = "Cel: ty Efekt: 1 razy\nLv1 SP-20 Ruch+3"
+        self.assertEqual(
+            PC._base_spirit_effect(raw_growth, 20),
+            "Cel: ty Efekt: 1 razy — Ruch+3",
+        )
+
     def test_markdown_auditor_rejects_cjk_control_codes_and_missing_sections(self) -> None:
         valid_doc = (
             "## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)\n"
@@ -270,7 +287,9 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
             self.assertEqual(report["counts"]["non_combat"], 150)
 
             # Tampering a single stat cell must fail verification immediately.
-            tampered = md_text.replace("| **Atak** | 120 |", "| **Atak** | 999 |", 1)
+            import re as _re
+            tampered = _re.sub(r"(\|\s*\*\*Atak\*\*\s*\|\s*)120(\s*\|)", r"\g<1>999\2", md_text, count=1)
+            self.assertNotEqual(tampered, md_text)
             md_path.write_text(tampered, encoding="utf-8")
             with self.assertRaises(ValueError):
                 VPC.verify(
