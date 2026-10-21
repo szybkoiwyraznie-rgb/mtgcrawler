@@ -144,7 +144,7 @@ class BindingAndVerificationTests(unittest.TestCase):
     def test_checked_plans_cover_all_base_prose_in_order(self):
         import json
         project = Path(__file__).resolve().parent.parent
-        for episode in (0, 1, 2, 3):
+        for episode in range(35):
             source = EarlyReadingSource(project / 'pakiet_EN', episode)
             plan = json.loads((project / f'docs/reading-script/polish/episode_{episode:02}.json').read_bytes())
             self.assertTrue(plan['reviewed'])

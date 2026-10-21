@@ -1,0 +1,7196 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 30,
+  "reference_sha256": "e34c2145fc880c39810bbd68c05d0f280294f0a0077be72b6ece6af1125072c4",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP08.EDAT/DL830_11.bin",
+      "block": 4,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_11_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:224",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:316",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:444",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:560",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:612",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:668",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:756",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:856",
+      "mode": "story",
+      "level": 3,
+      "block": 12
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:964",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1072",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1164",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1268",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1308",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1388",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1468",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1496",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1544",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1596",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1652",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1740",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1836",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1868",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:1952",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2060",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2152",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2240",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "heading": "### Hiltz calls Fiona",
+      "block": 31,
+      "pl": "### Hiltz wzywa Fionę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2336",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2432",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2496",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2540",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2592",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2632",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2724",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2788",
+      "mode": "story",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2848",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2884",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2916",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:2952",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3052",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3104",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3152",
+      "mode": "story",
+      "level": 3,
+      "block": 46
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3184",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3332",
+      "mode": "story",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3388",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3428",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3480",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3544",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3576",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3608",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3676",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3748",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3788",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3848",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3892",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3928",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:3976",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4096",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4136",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4200",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "heading": "### Following Van and Zeke",
+      "block": 65,
+      "pl": "### Śladem Vana i Zeke'a"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4252",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4308",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4364",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4400",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4432",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4500",
+      "mode": "story",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4536",
+      "mode": "story",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4584",
+      "mode": "story",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4664",
+      "mode": "story",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4712",
+      "mode": "story",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4788",
+      "mode": "story",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4848",
+      "mode": "story",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4936",
+      "mode": "story",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:4984",
+      "mode": "story",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5064",
+      "mode": "story",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5180",
+      "mode": "story",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5204",
+      "mode": "story",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5240",
+      "mode": "story",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5320",
+      "mode": "story",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5396",
+      "mode": "story",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5436",
+      "mode": "story",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5528",
+      "mode": "story",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5612",
+      "mode": "story",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5720",
+      "mode": "story",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5816",
+      "mode": "story",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:5856",
+      "mode": "story",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "heading": "### Fiona and Dark Kaiser",
+      "block": 92,
+      "pl": "### Fiona i Dark Kaiser"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6092",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6132",
+      "mode": "story",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6224",
+      "mode": "story",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6260",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6332",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6368",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6424",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6492",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6548",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6624",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6680",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6732",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6816",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:6896",
+      "mode": "story",
+      "level": 3,
+      "block": 106
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7012",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7136",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7172",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7212",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7276",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "heading": "### The door to Eve Polis",
+      "block": 112,
+      "pl": "### Wrota do Eve Polis"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7332",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7404",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7476",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7520",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7624",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7684",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7752",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7828",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7924",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:7972",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8008",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8128",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8200",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8248",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8340",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8380",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8424",
+      "mode": "story",
+      "level": 3,
+      "block": 129
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8496",
+      "mode": "story",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8584",
+      "mode": "story",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8676",
+      "mode": "story",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "heading": "### Van reaches Eve Polis",
+      "block": 133,
+      "pl": "### Van dociera do Eve Polis"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8844",
+      "mode": "story",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:8908",
+      "mode": "story",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9004",
+      "mode": "story",
+      "level": 3,
+      "block": 136
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9060",
+      "mode": "story",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9100",
+      "mode": "story",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9336",
+      "mode": "story",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9404",
+      "mode": "story",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9584",
+      "mode": "story",
+      "level": 3,
+      "block": 141
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:9660",
+      "mode": "story",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "heading": "### Irvine and Thomas catch up",
+      "block": 143,
+      "pl": "### Irvine i Thomas doganiają oddział"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10136",
+      "mode": "story",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10200",
+      "mode": "story",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10232",
+      "mode": "story",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10312",
+      "mode": "story",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10356",
+      "mode": "story",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10424",
+      "mode": "story",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10756",
+      "mode": "story",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10948",
+      "mode": "story",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:10992",
+      "mode": "story",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11024",
+      "mode": "story",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11104",
+      "mode": "story",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11168",
+      "mode": "story",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11256",
+      "mode": "story",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11360",
+      "mode": "story",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11424",
+      "mode": "story",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11548",
+      "mode": "story",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11668",
+      "mode": "story",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11716",
+      "mode": "story",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11816",
+      "mode": "story",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:11916",
+      "mode": "story",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12004",
+      "mode": "story",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12116",
+      "mode": "story",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12228",
+      "mode": "story",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12308",
+      "mode": "story",
+      "level": 3,
+      "block": 167
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12356",
+      "mode": "story",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12388",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12520",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12616",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12704",
+      "mode": "story",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "heading": "### Voices reach Fiona",
+      "block": 173,
+      "pl": "### Głosy docierają do Fiony"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12792",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12848",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:12940",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13064",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13108",
+      "mode": "story",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "heading": "### Fiona's choice",
+      "block": 179,
+      "pl": "### Wybór Fiony"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13164",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13256",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13304",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13352",
+      "mode": "story",
+      "level": 3,
+      "block": 183
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13456",
+      "mode": "story",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13548",
+      "mode": "story",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13620",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13684",
+      "mode": "story",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13796",
+      "mode": "story",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13868",
+      "mode": "story",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13908",
+      "mode": "story",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:13972",
+      "mode": "story",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14036",
+      "mode": "story",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14128",
+      "mode": "story",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14212",
+      "mode": "story",
+      "level": 3,
+      "block": 194
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14268",
+      "mode": "story",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14344",
+      "mode": "story",
+      "level": 3,
+      "block": 196
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14388",
+      "mode": "story",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14464",
+      "mode": "story",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14536",
+      "mode": "story",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14592",
+      "mode": "story",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "heading": "### The Death Stinger blocks the rescue",
+      "block": 201,
+      "pl": "### Death Stinger odcina drogę ratunku"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14832",
+      "mode": "story",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14924",
+      "mode": "story",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:14984",
+      "mode": "story",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15304",
+      "mode": "story",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15336",
+      "mode": "story",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15376",
+      "mode": "story",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15416",
+      "mode": "story",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15488",
+      "mode": "story",
+      "level": 3,
+      "block": 209
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15664",
+      "mode": "story",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15716",
+      "mode": "story",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15804",
+      "mode": "story",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15884",
+      "mode": "story",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:15996",
+      "mode": "story",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:16308",
+      "mode": "story",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:16368",
+      "mode": "story",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "heading": "#### Conditional dialogue — Hiltz's last stand with the Death Stinger",
+      "block": 217,
+      "pl": "#### Dialogi warunkowe — ostatni bój Hiltza w Death Stingerze"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:16984",
+      "mode": "conditional",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17052",
+      "mode": "conditional",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17372",
+      "mode": "conditional",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17700",
+      "mode": "conditional",
+      "level": 3,
+      "block": 224
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:17796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18404",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18544",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:18900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19048",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19152",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19260",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19360",
+      "mode": "conditional",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19404",
+      "mode": "conditional",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19476",
+      "mode": "conditional",
+      "level": 3,
+      "block": 243
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19760",
+      "mode": "conditional",
+      "level": 3,
+      "block": 245
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:19816",
+      "mode": "conditional",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20284",
+      "mode": "conditional",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20508",
+      "mode": "conditional",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20668",
+      "mode": "conditional",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20744",
+      "mode": "conditional",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:20972",
+      "mode": "conditional",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "heading": "### Hiltz fuses with Ambient",
+      "block": 255,
+      "pl": "### Hiltz łączy się z Ambientem"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21300",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21340",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21388",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21460",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21520",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21588",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21772",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21824",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21872",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21924",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:21980",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22160",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22240",
+      "mode": "story",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22616",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22664",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22736",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22776",
+      "mode": "story",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:22808",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:23644",
+      "mode": "story",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:23804",
+      "mode": "story",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:23872",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:23964",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:23996",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24044",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24132",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24192",
+      "mode": "story",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24240",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24284",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24316",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24384",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24428",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24472",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24536",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24640",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24716",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24812",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:24852",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "heading": "### The light from Eve Polis",
+      "block": 293,
+      "pl": "### Światło z Eve Polis"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25024",
+      "mode": "story",
+      "level": 3,
+      "block": 294
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25152",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25184",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25232",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25296",
+      "mode": "story",
+      "level": 3,
+      "block": 298
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25468",
+      "mode": "story",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25572",
+      "mode": "story",
+      "level": 3,
+      "block": 300
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25648",
+      "mode": "story",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25696",
+      "mode": "story",
+      "level": 3,
+      "block": 302
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25772",
+      "mode": "story",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25892",
+      "mode": "story",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:25948",
+      "mode": "story",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26016",
+      "mode": "story",
+      "level": 3,
+      "block": 306
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26152",
+      "mode": "story",
+      "level": 3,
+      "block": 307
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26204",
+      "mode": "story",
+      "level": 3,
+      "block": 308
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26296",
+      "mode": "story",
+      "level": 3,
+      "block": 309
+    },
+    {
+      "heading": "### White Base holds the route",
+      "block": 310,
+      "pl": "### White Base utrzymuje szlak"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26360",
+      "mode": "story",
+      "level": 3,
+      "block": 311
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26428",
+      "mode": "story",
+      "level": 3,
+      "block": 312
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26508",
+      "mode": "story",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26592",
+      "mode": "story",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26720",
+      "mode": "story",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26768",
+      "mode": "story",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26856",
+      "mode": "story",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26916",
+      "mode": "story",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:26992",
+      "mode": "story",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27028",
+      "mode": "story",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27120",
+      "mode": "story",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27160",
+      "mode": "story",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27212",
+      "mode": "story",
+      "level": 3,
+      "block": 323
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27300",
+      "mode": "story",
+      "level": 3,
+      "block": 324
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27332",
+      "mode": "story",
+      "level": 3,
+      "block": 325
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27384",
+      "mode": "story",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27412",
+      "mode": "story",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27580",
+      "mode": "story",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27900",
+      "mode": "story",
+      "level": 3,
+      "block": 329
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:27956",
+      "mode": "story",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28020",
+      "mode": "story",
+      "level": 3,
+      "block": 331
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28268",
+      "mode": "story",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28300",
+      "mode": "story",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28372",
+      "mode": "story",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28424",
+      "mode": "story",
+      "level": 3,
+      "block": 335
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28500",
+      "mode": "story",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28592",
+      "mode": "story",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_11.bin:28648",
+      "mode": "story",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "mission": "eventP08.EDAT/DL830_12.bin",
+      "block": 339,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_12_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 340
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:280",
+      "mode": "story",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:464",
+      "mode": "story",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:624",
+      "mode": "story",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:764",
+      "mode": "story",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:896",
+      "mode": "story",
+      "level": 3,
+      "block": 345
+    },
+    {
+      "heading": "### Defending the airspace above Eve Polis",
+      "block": 346,
+      "pl": "### Obrona nieba nad Eve Polis"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:1216",
+      "mode": "story",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:1404",
+      "mode": "story",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:1444",
+      "mode": "story",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:1508",
+      "mode": "story",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:1552",
+      "mode": "story",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "heading": "#### Conditional dialogue — holding the skies for the ground team",
+      "block": 352,
+      "pl": "#### Dialogi warunkowe — osłona powietrzna dla oddziału naziemnego"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 354
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3428",
+      "mode": "conditional",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 357
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 358
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:3940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 360
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 365
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:4964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5048",
+      "mode": "conditional",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 369
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5468",
+      "mode": "conditional",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:5672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6152",
+      "mode": "conditional",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "heading": "### The Emperor's fleet arrives",
+      "block": 376,
+      "pl": "### Przybycie floty Imperatora"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6784",
+      "mode": "story",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6856",
+      "mode": "story",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:6908",
+      "mode": "story",
+      "level": 3,
+      "block": 379
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7040",
+      "mode": "story",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7080",
+      "mode": "story",
+      "level": 3,
+      "block": 381
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7132",
+      "mode": "story",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7208",
+      "mode": "story",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7300",
+      "mode": "story",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7364",
+      "mode": "story",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7448",
+      "mode": "story",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7492",
+      "mode": "story",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7560",
+      "mode": "story",
+      "level": 3,
+      "block": 388
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7656",
+      "mode": "story",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "heading": "### Light from the ancient city",
+      "block": 390,
+      "pl": "### Światło ze starożytnego miasta"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7764",
+      "mode": "story",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7800",
+      "mode": "story",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:7916",
+      "mode": "story",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:8000",
+      "mode": "story",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:8048",
+      "mode": "story",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_12.bin:8124",
+      "mode": "story",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "mission": "eventP08.EDAT/DL830_13.bin",
+      "block": 397,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_13_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:252",
+      "mode": "story",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:356",
+      "mode": "story",
+      "level": 3,
+      "block": 399
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:484",
+      "mode": "story",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:572",
+      "mode": "story",
+      "level": 3,
+      "block": 401
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:680",
+      "mode": "story",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:732",
+      "mode": "story",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:808",
+      "mode": "story",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:884",
+      "mode": "story",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:980",
+      "mode": "story",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1044",
+      "mode": "story",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1124",
+      "mode": "story",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1184",
+      "mode": "story",
+      "level": 3,
+      "block": 409
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1256",
+      "mode": "story",
+      "level": 3,
+      "block": 410
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1308",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1408",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1480",
+      "mode": "story",
+      "level": 3,
+      "block": 413
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1532",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "heading": "### The true Death Saurer awakens",
+      "block": 415,
+      "pl": "### Przebudzenie prawdziwego Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:1760",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2016",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2240",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2332",
+      "mode": "story",
+      "level": 3,
+      "block": 419
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2396",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2484",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2560",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2644",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 424
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2828",
+      "mode": "story",
+      "level": 3,
+      "block": 425
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2876",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:2932",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3020",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3068",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3116",
+      "mode": "story",
+      "level": 3,
+      "block": 430
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3204",
+      "mode": "story",
+      "level": 3,
+      "block": 431
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3272",
+      "mode": "story",
+      "level": 3,
+      "block": 432
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3340",
+      "mode": "story",
+      "level": 3,
+      "block": 433
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3392",
+      "mode": "story",
+      "level": 3,
+      "block": 434
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3484",
+      "mode": "story",
+      "level": 3,
+      "block": 435
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3544",
+      "mode": "story",
+      "level": 3,
+      "block": 436
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3620",
+      "mode": "story",
+      "level": 3,
+      "block": 437
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3764",
+      "mode": "story",
+      "level": 3,
+      "block": 438
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3820",
+      "mode": "story",
+      "level": 3,
+      "block": 439
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3956",
+      "mode": "story",
+      "level": 3,
+      "block": 440
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:3996",
+      "mode": "story",
+      "level": 3,
+      "block": 441
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4064",
+      "mode": "story",
+      "level": 3,
+      "block": 442
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4156",
+      "mode": "story",
+      "level": 3,
+      "block": 443
+    },
+    {
+      "heading": "### Van supports Raven",
+      "block": 444,
+      "pl": "### Van wspiera Ravena"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4540",
+      "mode": "story",
+      "level": 3,
+      "block": 445
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4576",
+      "mode": "story",
+      "level": 3,
+      "block": 446
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4624",
+      "mode": "story",
+      "level": 3,
+      "block": 447
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4752",
+      "mode": "story",
+      "level": 3,
+      "block": 448
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4872",
+      "mode": "story",
+      "level": 3,
+      "block": 449
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4924",
+      "mode": "story",
+      "level": 3,
+      "block": 450
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:4980",
+      "mode": "story",
+      "level": 3,
+      "block": 451
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5192",
+      "mode": "story",
+      "level": 3,
+      "block": 452
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5236",
+      "mode": "story",
+      "level": 3,
+      "block": 453
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5264",
+      "mode": "story",
+      "level": 3,
+      "block": 454
+    },
+    {
+      "heading": "### Shadow brings Fiona to Van",
+      "block": 455,
+      "pl": "### Shadow przyprowadza Fionę do Vana"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5344",
+      "mode": "story",
+      "level": 3,
+      "block": 456
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5384",
+      "mode": "story",
+      "level": 3,
+      "block": 457
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5584",
+      "mode": "story",
+      "level": 3,
+      "block": 458
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5616",
+      "mode": "story",
+      "level": 3,
+      "block": 459
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5692",
+      "mode": "story",
+      "level": 3,
+      "block": 460
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5884",
+      "mode": "story",
+      "level": 3,
+      "block": 461
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:5920",
+      "mode": "story",
+      "level": 3,
+      "block": 462
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6036",
+      "mode": "story",
+      "level": 3,
+      "block": 463
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6140",
+      "mode": "story",
+      "level": 3,
+      "block": 464
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6172",
+      "mode": "story",
+      "level": 3,
+      "block": 465
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6268",
+      "mode": "story",
+      "level": 3,
+      "block": 466
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6312",
+      "mode": "story",
+      "level": 3,
+      "block": 467
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6448",
+      "mode": "story",
+      "level": 3,
+      "block": 468
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6492",
+      "mode": "story",
+      "level": 3,
+      "block": 469
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6600",
+      "mode": "story",
+      "level": 3,
+      "block": 470
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6684",
+      "mode": "story",
+      "level": 3,
+      "block": 471
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6764",
+      "mode": "story",
+      "level": 3,
+      "block": 472
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6820",
+      "mode": "story",
+      "level": 3,
+      "block": 473
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6876",
+      "mode": "story",
+      "level": 3,
+      "block": 474
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6916",
+      "mode": "story",
+      "level": 3,
+      "block": 475
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:6968",
+      "mode": "story",
+      "level": 3,
+      "block": 476
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7020",
+      "mode": "story",
+      "level": 3,
+      "block": 477
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7056",
+      "mode": "story",
+      "level": 3,
+      "block": 478
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7144",
+      "mode": "story",
+      "level": 3,
+      "block": 479
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7188",
+      "mode": "story",
+      "level": 3,
+      "block": 480
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7236",
+      "mode": "story",
+      "level": 3,
+      "block": 481
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7272",
+      "mode": "story",
+      "level": 3,
+      "block": 482
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7328",
+      "mode": "story",
+      "level": 3,
+      "block": 483
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7384",
+      "mode": "story",
+      "level": 3,
+      "block": 484
+    },
+    {
+      "heading": "#### Conditional dialogue — confronting Dark Kaiser",
+      "block": 485,
+      "pl": "#### Dialogi warunkowe — starcie z Dark Kaiserem"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7912",
+      "mode": "conditional",
+      "level": 3,
+      "block": 486
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:7980",
+      "mode": "conditional",
+      "level": 3,
+      "block": 487
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 488
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 489
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8476",
+      "mode": "conditional",
+      "level": 3,
+      "block": 490
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8544",
+      "mode": "conditional",
+      "level": 3,
+      "block": 491
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 492
+    },
+    {
+      "heading": "### Hiltz returns to Dark Kaiser",
+      "block": 493,
+      "pl": "### Hiltz wraca do Dark Kaisera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8852",
+      "mode": "story",
+      "level": 3,
+      "block": 494
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8916",
+      "mode": "story",
+      "level": 3,
+      "block": 495
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:8996",
+      "mode": "story",
+      "level": 3,
+      "block": 496
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9088",
+      "mode": "story",
+      "level": 3,
+      "block": 497
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9152",
+      "mode": "story",
+      "level": 3,
+      "block": 498
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9192",
+      "mode": "story",
+      "level": 3,
+      "block": 499
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9292",
+      "mode": "story",
+      "level": 3,
+      "block": 500
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9328",
+      "mode": "story",
+      "level": 3,
+      "block": 501
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9380",
+      "mode": "story",
+      "level": 3,
+      "block": 502
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9416",
+      "mode": "story",
+      "level": 3,
+      "block": 503
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9460",
+      "mode": "story",
+      "level": 3,
+      "block": 504
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9548",
+      "mode": "story",
+      "level": 3,
+      "block": 505
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9640",
+      "mode": "story",
+      "level": 3,
+      "block": 506
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9696",
+      "mode": "story",
+      "level": 3,
+      "block": 507
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9764",
+      "mode": "story",
+      "level": 3,
+      "block": 508
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9816",
+      "mode": "story",
+      "level": 3,
+      "block": 509
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9876",
+      "mode": "story",
+      "level": 3,
+      "block": 510
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:9980",
+      "mode": "story",
+      "level": 3,
+      "block": 511
+    },
+    {
+      "heading": "### Dark Kaiser loses control",
+      "block": 512,
+      "pl": "### Dark Kaiser traci kontrolę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10104",
+      "mode": "story",
+      "level": 3,
+      "block": 513
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10164",
+      "mode": "story",
+      "level": 3,
+      "block": 514
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10300",
+      "mode": "story",
+      "level": 3,
+      "block": 515
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10336",
+      "mode": "story",
+      "level": 3,
+      "block": 516
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10400",
+      "mode": "story",
+      "level": 3,
+      "block": 517
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10432",
+      "mode": "story",
+      "level": 3,
+      "block": 518
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10552",
+      "mode": "story",
+      "level": 3,
+      "block": 519
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10604",
+      "mode": "story",
+      "level": 3,
+      "block": 520
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10684",
+      "mode": "story",
+      "level": 3,
+      "block": 521
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10748",
+      "mode": "story",
+      "level": 3,
+      "block": 522
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10812",
+      "mode": "story",
+      "level": 3,
+      "block": 523
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10860",
+      "mode": "story",
+      "level": 3,
+      "block": 524
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:10908",
+      "mode": "story",
+      "level": 3,
+      "block": 525
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11004",
+      "mode": "story",
+      "level": 3,
+      "block": 526
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11104",
+      "mode": "story",
+      "level": 3,
+      "block": 527
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11196",
+      "mode": "story",
+      "level": 3,
+      "block": 528
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11248",
+      "mode": "story",
+      "level": 3,
+      "block": 529
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11284",
+      "mode": "story",
+      "level": 3,
+      "block": 530
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11332",
+      "mode": "story",
+      "level": 3,
+      "block": 531
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11384",
+      "mode": "story",
+      "level": 3,
+      "block": 532
+    },
+    {
+      "heading": "### Hiltz claims the Death Saurer",
+      "block": 533,
+      "pl": "### Hiltz przejmuje Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11500",
+      "mode": "story",
+      "level": 3,
+      "block": 534
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11548",
+      "mode": "story",
+      "level": 3,
+      "block": 535
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11832",
+      "mode": "story",
+      "level": 3,
+      "block": 536
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11912",
+      "mode": "story",
+      "level": 3,
+      "block": 537
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:11980",
+      "mode": "story",
+      "level": 3,
+      "block": 538
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12032",
+      "mode": "story",
+      "level": 3,
+      "block": 539
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12284",
+      "mode": "story",
+      "level": 3,
+      "block": 540
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12332",
+      "mode": "story",
+      "level": 3,
+      "block": 541
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12396",
+      "mode": "story",
+      "level": 3,
+      "block": 542
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12580",
+      "mode": "story",
+      "level": 3,
+      "block": 543
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12664",
+      "mode": "story",
+      "level": 3,
+      "block": 544
+    },
+    {
+      "heading": "### The Ultrasaurus joins the battle",
+      "block": 545,
+      "pl": "### Ultrasaurus wkracza do bitwy"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12748",
+      "mode": "story",
+      "level": 3,
+      "block": 546
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12824",
+      "mode": "story",
+      "level": 3,
+      "block": 547
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12864",
+      "mode": "story",
+      "level": 3,
+      "block": 548
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:12944",
+      "mode": "story",
+      "level": 3,
+      "block": 549
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13004",
+      "mode": "story",
+      "level": 3,
+      "block": 550
+    },
+    {
+      "heading": "### A Mucus Gate for the Death Saurer",
+      "block": 551,
+      "pl": "### Brama Mucus dla Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13296",
+      "mode": "story",
+      "level": 3,
+      "block": 552
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13344",
+      "mode": "story",
+      "level": 3,
+      "block": 553
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13412",
+      "mode": "story",
+      "level": 3,
+      "block": 554
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13460",
+      "mode": "story",
+      "level": 3,
+      "block": 555
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13540",
+      "mode": "story",
+      "level": 3,
+      "block": 556
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13596",
+      "mode": "story",
+      "level": 3,
+      "block": 557
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13640",
+      "mode": "story",
+      "level": 3,
+      "block": 558
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:13688",
+      "mode": "story",
+      "level": 3,
+      "block": 559
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14060",
+      "mode": "story",
+      "level": 3,
+      "block": 560
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14116",
+      "mode": "story",
+      "level": 3,
+      "block": 561
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14212",
+      "mode": "story",
+      "level": 3,
+      "block": 562
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14284",
+      "mode": "story",
+      "level": 3,
+      "block": 563
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14360",
+      "mode": "story",
+      "level": 3,
+      "block": 564
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14424",
+      "mode": "story",
+      "level": 3,
+      "block": 565
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14480",
+      "mode": "story",
+      "level": 3,
+      "block": 566
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14548",
+      "mode": "story",
+      "level": 3,
+      "block": 567
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14628",
+      "mode": "story",
+      "level": 3,
+      "block": 568
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14840",
+      "mode": "story",
+      "level": 3,
+      "block": 569
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:14908",
+      "mode": "story",
+      "level": 3,
+      "block": 570
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:15004",
+      "mode": "story",
+      "level": 3,
+      "block": 571
+    },
+    {
+      "heading": "#### Conditional dialogue — the charged particle cannon",
+      "block": 572,
+      "pl": "#### Dialogi warunkowe — działo cząstek naładowanych"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:19492",
+      "mode": "conditional",
+      "level": 3,
+      "block": 573
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:19568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 574
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:19656",
+      "mode": "conditional",
+      "level": 3,
+      "block": 575
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:19900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 576
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:19940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 577
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:20288",
+      "mode": "conditional",
+      "level": 3,
+      "block": 578
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:20380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 579
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:20576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 580
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:20640",
+      "mode": "conditional",
+      "level": 3,
+      "block": 581
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:20956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 582
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:22844",
+      "mode": "conditional",
+      "level": 3,
+      "block": 583
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:23196",
+      "mode": "conditional",
+      "level": 3,
+      "block": 584
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:24616",
+      "mode": "conditional",
+      "level": 3,
+      "block": 585
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:24956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 586
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:25004",
+      "mode": "conditional",
+      "level": 3,
+      "block": 587
+    },
+    {
+      "heading": "### The Mucus Gate regenerates",
+      "block": 588,
+      "pl": "### Regeneracja Bramy Mucus"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26028",
+      "mode": "story",
+      "level": 3,
+      "block": 589
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26288",
+      "mode": "story",
+      "level": 3,
+      "block": 590
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26352",
+      "mode": "story",
+      "level": 3,
+      "block": 591
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26420",
+      "mode": "story",
+      "level": 3,
+      "block": 592
+    },
+    {
+      "heading": "#### Conditional failure — the Death Saurer prevails",
+      "block": 593,
+      "pl": "#### Warunkowa porażka — triumf Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26624",
+      "mode": "conditional",
+      "level": 3,
+      "block": 594
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:26840",
+      "mode": "conditional",
+      "level": 3,
+      "block": 595
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27228",
+      "mode": "conditional",
+      "level": 3,
+      "block": 596
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 597
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27476",
+      "mode": "conditional",
+      "level": 3,
+      "block": 598
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 599
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27552",
+      "mode": "conditional",
+      "level": 3,
+      "block": 600
+    },
+    {
+      "heading": "#### Conditional dialogue — the original Death Saurer: part 1",
+      "block": 601,
+      "pl": "#### Dialogi warunkowe — pierwotny Death Saurer: część 1"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27920",
+      "mode": "conditional",
+      "level": 3,
+      "block": 602
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:27976",
+      "mode": "conditional",
+      "level": 3,
+      "block": 603
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 604
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 605
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 606
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 607
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28508",
+      "mode": "conditional",
+      "level": 3,
+      "block": 608
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28588",
+      "mode": "conditional",
+      "level": 3,
+      "block": 609
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28800",
+      "mode": "conditional",
+      "level": 3,
+      "block": 610
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:28860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 611
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 612
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 613
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29116",
+      "mode": "conditional",
+      "level": 3,
+      "block": 614
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 615
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 616
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29552",
+      "mode": "conditional",
+      "level": 3,
+      "block": 617
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 618
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 619
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29812",
+      "mode": "conditional",
+      "level": 3,
+      "block": 620
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 621
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:29968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 622
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30080",
+      "mode": "conditional",
+      "level": 3,
+      "block": 623
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30312",
+      "mode": "conditional",
+      "level": 3,
+      "block": 624
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 625
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 626
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30536",
+      "mode": "conditional",
+      "level": 3,
+      "block": 627
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30640",
+      "mode": "conditional",
+      "level": 3,
+      "block": 628
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30756",
+      "mode": "conditional",
+      "level": 3,
+      "block": 629
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:30960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 630
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31056",
+      "mode": "conditional",
+      "level": 3,
+      "block": 631
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31332",
+      "mode": "conditional",
+      "level": 3,
+      "block": 632
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31412",
+      "mode": "conditional",
+      "level": 3,
+      "block": 633
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31500",
+      "mode": "conditional",
+      "level": 3,
+      "block": 634
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 635
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31804",
+      "mode": "conditional",
+      "level": 3,
+      "block": 636
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:31944",
+      "mode": "conditional",
+      "level": 3,
+      "block": 637
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 638
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32248",
+      "mode": "conditional",
+      "level": 3,
+      "block": 639
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 640
+    },
+    {
+      "heading": "#### Conditional dialogue — the original Death Saurer: part 2",
+      "block": 641,
+      "pl": "#### Dialogi warunkowe — pierwotny Death Saurer: część 2"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 642
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32812",
+      "mode": "conditional",
+      "level": 3,
+      "block": 643
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 644
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:32992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 645
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 646
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33284",
+      "mode": "conditional",
+      "level": 3,
+      "block": 647
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33500",
+      "mode": "conditional",
+      "level": 3,
+      "block": 648
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33580",
+      "mode": "conditional",
+      "level": 3,
+      "block": 649
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 650
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33904",
+      "mode": "conditional",
+      "level": 3,
+      "block": 651
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:33984",
+      "mode": "conditional",
+      "level": 3,
+      "block": 652
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34084",
+      "mode": "conditional",
+      "level": 3,
+      "block": 653
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34208",
+      "mode": "conditional",
+      "level": 3,
+      "block": 654
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34448",
+      "mode": "conditional",
+      "level": 3,
+      "block": 655
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 656
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 657
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34684",
+      "mode": "conditional",
+      "level": 3,
+      "block": 658
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34928",
+      "mode": "conditional",
+      "level": 3,
+      "block": 659
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:34992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 660
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35084",
+      "mode": "conditional",
+      "level": 3,
+      "block": 661
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 662
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 663
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 664
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 665
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35608",
+      "mode": "conditional",
+      "level": 3,
+      "block": 666
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35800",
+      "mode": "conditional",
+      "level": 3,
+      "block": 667
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35856",
+      "mode": "conditional",
+      "level": 3,
+      "block": 668
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:35932",
+      "mode": "conditional",
+      "level": 3,
+      "block": 669
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36152",
+      "mode": "conditional",
+      "level": 3,
+      "block": 670
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 671
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 672
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 673
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36648",
+      "mode": "conditional",
+      "level": 3,
+      "block": 674
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36768",
+      "mode": "conditional",
+      "level": 3,
+      "block": 675
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 676
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 677
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:36972",
+      "mode": "conditional",
+      "level": 3,
+      "block": 678
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37052",
+      "mode": "conditional",
+      "level": 3,
+      "block": 679
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 680
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37356",
+      "mode": "conditional",
+      "level": 3,
+      "block": 681
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37448",
+      "mode": "conditional",
+      "level": 3,
+      "block": 682
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37520",
+      "mode": "conditional",
+      "level": 3,
+      "block": 683
+    },
+    {
+      "heading": "#### Conditional dialogue — Go-Saurer faces the Death Saurer",
+      "block": 684,
+      "pl": "#### Dialogi warunkowe — Go-Saurer naprzeciw Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37768",
+      "mode": "conditional",
+      "level": 3,
+      "block": 685
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37864",
+      "mode": "conditional",
+      "level": 3,
+      "block": 686
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:37964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 687
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 688
+    },
+    {
+      "heading": "#### Conditional dialogue — King Go-Saurer faces the Death Saurer",
+      "block": 689,
+      "pl": "#### Dialogi warunkowe — King Go-Saurer naprzeciw Death Saurera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 690
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 691
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 692
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38464",
+      "mode": "conditional",
+      "level": 3,
+      "block": 693
+    },
+    {
+      "heading": "#### Conditional dialogue — the original Death Saurer: part 3",
+      "block": 694,
+      "pl": "#### Dialogi warunkowe — pierwotny Death Saurer: część 3"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38724",
+      "mode": "conditional",
+      "level": 3,
+      "block": 695
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 696
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 697
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:38980",
+      "mode": "conditional",
+      "level": 3,
+      "block": 698
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39204",
+      "mode": "conditional",
+      "level": 3,
+      "block": 699
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 700
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 701
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 702
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39752",
+      "mode": "conditional",
+      "level": 3,
+      "block": 703
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:39816",
+      "mode": "conditional",
+      "level": 3,
+      "block": 704
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40068",
+      "mode": "conditional",
+      "level": 3,
+      "block": 705
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40120",
+      "mode": "conditional",
+      "level": 3,
+      "block": 706
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40212",
+      "mode": "conditional",
+      "level": 3,
+      "block": 707
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40288",
+      "mode": "conditional",
+      "level": 3,
+      "block": 708
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40400",
+      "mode": "conditional",
+      "level": 3,
+      "block": 709
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40492",
+      "mode": "conditional",
+      "level": 3,
+      "block": 710
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 711
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 712
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:40872",
+      "mode": "conditional",
+      "level": 3,
+      "block": 713
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 714
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 715
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 716
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 717
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 718
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41840",
+      "mode": "conditional",
+      "level": 3,
+      "block": 719
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:41956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 720
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 721
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 722
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 723
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42492",
+      "mode": "conditional",
+      "level": 3,
+      "block": 724
+    },
+    {
+      "heading": "#### Conditional dialogue — the original Death Saurer: part 4",
+      "block": 725,
+      "pl": "#### Dialogi warunkowe — pierwotny Death Saurer: część 4"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 726
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:42816",
+      "mode": "conditional",
+      "level": 3,
+      "block": 727
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43052",
+      "mode": "conditional",
+      "level": 3,
+      "block": 728
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 729
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43312",
+      "mode": "conditional",
+      "level": 3,
+      "block": 730
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43416",
+      "mode": "conditional",
+      "level": 3,
+      "block": 731
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43508",
+      "mode": "conditional",
+      "level": 3,
+      "block": 732
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43736",
+      "mode": "conditional",
+      "level": 3,
+      "block": 733
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43836",
+      "mode": "conditional",
+      "level": 3,
+      "block": 734
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:43936",
+      "mode": "conditional",
+      "level": 3,
+      "block": 735
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44124",
+      "mode": "conditional",
+      "level": 3,
+      "block": 736
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 737
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 738
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 739
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44656",
+      "mode": "conditional",
+      "level": 3,
+      "block": 740
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:44756",
+      "mode": "conditional",
+      "level": 3,
+      "block": 741
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 742
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 743
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45200",
+      "mode": "conditional",
+      "level": 3,
+      "block": 744
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45324",
+      "mode": "conditional",
+      "level": 3,
+      "block": 745
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45556",
+      "mode": "conditional",
+      "level": 3,
+      "block": 746
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45664",
+      "mode": "conditional",
+      "level": 3,
+      "block": 747
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:45928",
+      "mode": "conditional",
+      "level": 3,
+      "block": 748
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:46008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 749
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:46120",
+      "mode": "conditional",
+      "level": 3,
+      "block": 750
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:46220",
+      "mode": "conditional",
+      "level": 3,
+      "block": 751
+    },
+    {
+      "heading": "### Refusing to destroy Zoid Eve",
+      "block": 752,
+      "pl": "### Odmowa zniszczenia Zoid Eve"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:47840",
+      "mode": "story",
+      "level": 3,
+      "block": 753
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48008",
+      "mode": "story",
+      "level": 3,
+      "block": 754
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48052",
+      "mode": "story",
+      "level": 3,
+      "block": 755
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48112",
+      "mode": "story",
+      "level": 3,
+      "block": 756
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48176",
+      "mode": "story",
+      "level": 3,
+      "block": 757
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48280",
+      "mode": "story",
+      "level": 3,
+      "block": 758
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48372",
+      "mode": "story",
+      "level": 3,
+      "block": 759
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48428",
+      "mode": "story",
+      "level": 3,
+      "block": 760
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48484",
+      "mode": "story",
+      "level": 3,
+      "block": 761
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48532",
+      "mode": "story",
+      "level": 3,
+      "block": 762
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48564",
+      "mode": "story",
+      "level": 3,
+      "block": 763
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48656",
+      "mode": "story",
+      "level": 3,
+      "block": 764
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48744",
+      "mode": "story",
+      "level": 3,
+      "block": 765
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48820",
+      "mode": "story",
+      "level": 3,
+      "block": 766
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48904",
+      "mode": "story",
+      "level": 3,
+      "block": 767
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48932",
+      "mode": "story",
+      "level": 3,
+      "block": 768
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:48984",
+      "mode": "story",
+      "level": 3,
+      "block": 769
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49020",
+      "mode": "story",
+      "level": 3,
+      "block": 770
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49084",
+      "mode": "story",
+      "level": 3,
+      "block": 771
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49340",
+      "mode": "story",
+      "level": 3,
+      "block": 772
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49384",
+      "mode": "story",
+      "level": 3,
+      "block": 773
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49720",
+      "mode": "story",
+      "level": 3,
+      "block": 774
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49760",
+      "mode": "story",
+      "level": 3,
+      "block": 775
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49808",
+      "mode": "story",
+      "level": 3,
+      "block": 776
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49884",
+      "mode": "story",
+      "level": 3,
+      "block": 777
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:49964",
+      "mode": "story",
+      "level": 3,
+      "block": 778
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50020",
+      "mode": "story",
+      "level": 3,
+      "block": 779
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50092",
+      "mode": "story",
+      "level": 3,
+      "block": 780
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50144",
+      "mode": "story",
+      "level": 3,
+      "block": 781
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50200",
+      "mode": "story",
+      "level": 3,
+      "block": 782
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50272",
+      "mode": "story",
+      "level": 3,
+      "block": 783
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50328",
+      "mode": "story",
+      "level": 3,
+      "block": 784
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50420",
+      "mode": "story",
+      "level": 3,
+      "block": 785
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50476",
+      "mode": "story",
+      "level": 3,
+      "block": 786
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50556",
+      "mode": "story",
+      "level": 3,
+      "block": 787
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50732",
+      "mode": "story",
+      "level": 3,
+      "block": 788
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50784",
+      "mode": "story",
+      "level": 3,
+      "block": 789
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50840",
+      "mode": "story",
+      "level": 3,
+      "block": 790
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:50924",
+      "mode": "story",
+      "level": 3,
+      "block": 791
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51020",
+      "mode": "story",
+      "level": 3,
+      "block": 792
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51128",
+      "mode": "story",
+      "level": 3,
+      "block": 793
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51180",
+      "mode": "story",
+      "level": 3,
+      "block": 794
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51208",
+      "mode": "story",
+      "level": 3,
+      "block": 795
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51256",
+      "mode": "story",
+      "level": 3,
+      "block": 796
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51320",
+      "mode": "story",
+      "level": 3,
+      "block": 797
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51352",
+      "mode": "story",
+      "level": 3,
+      "block": 798
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51412",
+      "mode": "story",
+      "level": 3,
+      "block": 799
+    },
+    {
+      "heading": "### The Gravity Cannon is repelled",
+      "block": 800,
+      "pl": "### Odparcie Działa Grawitacyjnego"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51816",
+      "mode": "story",
+      "level": 3,
+      "block": 801
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51860",
+      "mode": "story",
+      "level": 3,
+      "block": 802
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:51964",
+      "mode": "story",
+      "level": 3,
+      "block": 803
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52096",
+      "mode": "story",
+      "level": 3,
+      "block": 804
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52264",
+      "mode": "story",
+      "level": 3,
+      "block": 805
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52324",
+      "mode": "story",
+      "level": 3,
+      "block": 806
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52372",
+      "mode": "story",
+      "level": 3,
+      "block": 807
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52868",
+      "mode": "story",
+      "level": 3,
+      "block": 808
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:52968",
+      "mode": "story",
+      "level": 3,
+      "block": 809
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53008",
+      "mode": "story",
+      "level": 3,
+      "block": 810
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53164",
+      "mode": "story",
+      "level": 3,
+      "block": 811
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53200",
+      "mode": "story",
+      "level": 3,
+      "block": 812
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53352",
+      "mode": "story",
+      "level": 3,
+      "block": 813
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53384",
+      "mode": "story",
+      "level": 3,
+      "block": 814
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53460",
+      "mode": "story",
+      "level": 3,
+      "block": 815
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:53996",
+      "mode": "story",
+      "level": 3,
+      "block": 816
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54032",
+      "mode": "story",
+      "level": 3,
+      "block": 817
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54108",
+      "mode": "story",
+      "level": 3,
+      "block": 818
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54172",
+      "mode": "story",
+      "level": 3,
+      "block": 819
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54316",
+      "mode": "story",
+      "level": 3,
+      "block": 820
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54400",
+      "mode": "story",
+      "level": 3,
+      "block": 821
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54440",
+      "mode": "story",
+      "level": 3,
+      "block": 822
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54536",
+      "mode": "story",
+      "level": 3,
+      "block": 823
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54600",
+      "mode": "story",
+      "level": 3,
+      "block": 824
+    },
+    {
+      "heading": "### Van's proposal",
+      "block": 825,
+      "pl": "### Propozycja Vana"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54668",
+      "mode": "story",
+      "level": 3,
+      "block": 826
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54824",
+      "mode": "story",
+      "level": 3,
+      "block": 827
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54896",
+      "mode": "story",
+      "level": 3,
+      "block": 828
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54940",
+      "mode": "story",
+      "level": 3,
+      "block": 829
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:54976",
+      "mode": "story",
+      "level": 3,
+      "block": 830
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55068",
+      "mode": "story",
+      "level": 3,
+      "block": 831
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55112",
+      "mode": "story",
+      "level": 3,
+      "block": 832
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55168",
+      "mode": "story",
+      "level": 3,
+      "block": 833
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55224",
+      "mode": "story",
+      "level": 3,
+      "block": 834
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55312",
+      "mode": "story",
+      "level": 3,
+      "block": 835
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55352",
+      "mode": "story",
+      "level": 3,
+      "block": 836
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55432",
+      "mode": "story",
+      "level": 3,
+      "block": 837
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55476",
+      "mode": "story",
+      "level": 3,
+      "block": 838
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55536",
+      "mode": "story",
+      "level": 3,
+      "block": 839
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55640",
+      "mode": "story",
+      "level": 3,
+      "block": 840
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55676",
+      "mode": "story",
+      "level": 3,
+      "block": 841
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55776",
+      "mode": "story",
+      "level": 3,
+      "block": 842
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55880",
+      "mode": "story",
+      "level": 3,
+      "block": 843
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55920",
+      "mode": "story",
+      "level": 3,
+      "block": 844
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:55960",
+      "mode": "story",
+      "level": 3,
+      "block": 845
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56024",
+      "mode": "story",
+      "level": 3,
+      "block": 846
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56072",
+      "mode": "story",
+      "level": 3,
+      "block": 847
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56144",
+      "mode": "story",
+      "level": 3,
+      "block": 848
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56228",
+      "mode": "story",
+      "level": 3,
+      "block": 849
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56288",
+      "mode": "story",
+      "level": 3,
+      "block": 850
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56348",
+      "mode": "story",
+      "level": 3,
+      "block": 851
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56376",
+      "mode": "story",
+      "level": 3,
+      "block": 852
+    },
+    {
+      "heading": "### Fiona goes with Van",
+      "block": 853,
+      "pl": "### Fiona rusza z Vanem"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56428",
+      "mode": "story",
+      "level": 3,
+      "block": 854
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56476",
+      "mode": "story",
+      "level": 3,
+      "block": 855
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56512",
+      "mode": "story",
+      "level": 3,
+      "block": 856
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56580",
+      "mode": "story",
+      "level": 3,
+      "block": 857
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56628",
+      "mode": "story",
+      "level": 3,
+      "block": 858
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56740",
+      "mode": "story",
+      "level": 3,
+      "block": 859
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56780",
+      "mode": "story",
+      "level": 3,
+      "block": 860
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56852",
+      "mode": "story",
+      "level": 3,
+      "block": 861
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56884",
+      "mode": "story",
+      "level": 3,
+      "block": 862
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56940",
+      "mode": "story",
+      "level": 3,
+      "block": 863
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:56988",
+      "mode": "story",
+      "level": 3,
+      "block": 864
+    },
+    {
+      "heading": "### Raven opens the shield",
+      "block": 865,
+      "pl": "### Raven otwiera osłonę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57204",
+      "mode": "story",
+      "level": 3,
+      "block": 866
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57252",
+      "mode": "story",
+      "level": 3,
+      "block": 867
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57312",
+      "mode": "story",
+      "level": 3,
+      "block": 868
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57344",
+      "mode": "story",
+      "level": 3,
+      "block": 869
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57388",
+      "mode": "story",
+      "level": 3,
+      "block": 870
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57416",
+      "mode": "story",
+      "level": 3,
+      "block": 871
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57472",
+      "mode": "story",
+      "level": 3,
+      "block": 872
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57604",
+      "mode": "story",
+      "level": 3,
+      "block": 873
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57664",
+      "mode": "story",
+      "level": 3,
+      "block": 874
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57716",
+      "mode": "story",
+      "level": 3,
+      "block": 875
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57768",
+      "mode": "story",
+      "level": 3,
+      "block": 876
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57812",
+      "mode": "story",
+      "level": 3,
+      "block": 877
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57852",
+      "mode": "story",
+      "level": 3,
+      "block": 878
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:57920",
+      "mode": "story",
+      "level": 3,
+      "block": 879
+    },
+    {
+      "heading": "### The final Gravity Cannon launch",
+      "block": 880,
+      "pl": "### Ostatni wystrzał Działa Grawitacyjnego"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58000",
+      "mode": "story",
+      "level": 3,
+      "block": 881
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58068",
+      "mode": "story",
+      "level": 3,
+      "block": 882
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58120",
+      "mode": "story",
+      "level": 3,
+      "block": 883
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58172",
+      "mode": "story",
+      "level": 3,
+      "block": 884
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58224",
+      "mode": "story",
+      "level": 3,
+      "block": 885
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58284",
+      "mode": "story",
+      "level": 3,
+      "block": 886
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58340",
+      "mode": "story",
+      "level": 3,
+      "block": 887
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58372",
+      "mode": "story",
+      "level": 3,
+      "block": 888
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58436",
+      "mode": "story",
+      "level": 3,
+      "block": 889
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58484",
+      "mode": "story",
+      "level": 3,
+      "block": 890
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58548",
+      "mode": "story",
+      "level": 3,
+      "block": 891
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58672",
+      "mode": "story",
+      "level": 3,
+      "block": 892
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58744",
+      "mode": "story",
+      "level": 3,
+      "block": 893
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58836",
+      "mode": "story",
+      "level": 3,
+      "block": 894
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:58896",
+      "mode": "story",
+      "level": 3,
+      "block": 895
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59056",
+      "mode": "story",
+      "level": 3,
+      "block": 896
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59096",
+      "mode": "story",
+      "level": 3,
+      "block": 897
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59436",
+      "mode": "story",
+      "level": 3,
+      "block": 898
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59472",
+      "mode": "story",
+      "level": 3,
+      "block": 899
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59508",
+      "mode": "story",
+      "level": 3,
+      "block": 900
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59556",
+      "mode": "story",
+      "level": 3,
+      "block": 901
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59716",
+      "mode": "story",
+      "level": 3,
+      "block": 902
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:59748",
+      "mode": "story",
+      "level": 3,
+      "block": 903
+    },
+    {
+      "heading": "### Van and Fiona return safely",
+      "block": 904,
+      "pl": "### Bezpieczny powrót Vana i Fiony"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61492",
+      "mode": "story",
+      "level": 3,
+      "block": 905
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61532",
+      "mode": "story",
+      "level": 3,
+      "block": 906
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61608",
+      "mode": "story",
+      "level": 3,
+      "block": 907
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61652",
+      "mode": "story",
+      "level": 3,
+      "block": 908
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61692",
+      "mode": "story",
+      "level": 3,
+      "block": 909
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61756",
+      "mode": "story",
+      "level": 3,
+      "block": 910
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61868",
+      "mode": "story",
+      "level": 3,
+      "block": 911
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61924",
+      "mode": "story",
+      "level": 3,
+      "block": 912
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:61964",
+      "mode": "story",
+      "level": 3,
+      "block": 913
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62004",
+      "mode": "story",
+      "level": 3,
+      "block": 914
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62064",
+      "mode": "story",
+      "level": 3,
+      "block": 915
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62140",
+      "mode": "story",
+      "level": 3,
+      "block": 916
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62224",
+      "mode": "story",
+      "level": 3,
+      "block": 917
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62260",
+      "mode": "story",
+      "level": 3,
+      "block": 918
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62344",
+      "mode": "story",
+      "level": 3,
+      "block": 919
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62388",
+      "mode": "story",
+      "level": 3,
+      "block": 920
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62444",
+      "mode": "story",
+      "level": 3,
+      "block": 921
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62496",
+      "mode": "story",
+      "level": 3,
+      "block": 922
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62568",
+      "mode": "story",
+      "level": 3,
+      "block": 923
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62600",
+      "mode": "story",
+      "level": 3,
+      "block": 924
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62636",
+      "mode": "story",
+      "level": 3,
+      "block": 925
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62736",
+      "mode": "story",
+      "level": 3,
+      "block": 926
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62832",
+      "mode": "story",
+      "level": 3,
+      "block": 927
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62896",
+      "mode": "story",
+      "level": 3,
+      "block": 928
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:62944",
+      "mode": "story",
+      "level": 3,
+      "block": 929
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63008",
+      "mode": "story",
+      "level": 3,
+      "block": 930
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63056",
+      "mode": "story",
+      "level": 3,
+      "block": 931
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63128",
+      "mode": "story",
+      "level": 3,
+      "block": 932
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63204",
+      "mode": "story",
+      "level": 3,
+      "block": 933
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63240",
+      "mode": "story",
+      "level": 3,
+      "block": 934
+    },
+    {
+      "heading": "### Planet Zi's defenders take over",
+      "block": 935,
+      "pl": "### Obrońcy Planety Zi przejmują walkę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63396",
+      "mode": "story",
+      "level": 3,
+      "block": 936
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63464",
+      "mode": "story",
+      "level": 3,
+      "block": 937
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63576",
+      "mode": "story",
+      "level": 3,
+      "block": 938
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_13.bin:63668",
+      "mode": "story",
+      "level": 3,
+      "block": 939
+    },
+    {
+      "mission": "eventP08.EDAT/DL830_40.bin",
+      "block": 940,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_40_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 941
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:336",
+      "mode": "story",
+      "level": 3,
+      "block": 942
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:464",
+      "mode": "story",
+      "level": 3,
+      "block": 943
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:608",
+      "mode": "story",
+      "level": 3,
+      "block": 944
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:704",
+      "mode": "story",
+      "level": 3,
+      "block": 945
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:828",
+      "mode": "story",
+      "level": 3,
+      "block": 946
+    },
+    {
+      "heading": "### The asteroid reef sweep",
+      "block": 947,
+      "pl": "### Oczyszczanie rafy asteroid"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1076",
+      "mode": "story",
+      "level": 3,
+      "block": 948
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1120",
+      "mode": "story",
+      "level": 3,
+      "block": 949
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1176",
+      "mode": "story",
+      "level": 3,
+      "block": 950
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 951
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1320",
+      "mode": "story",
+      "level": 3,
+      "block": 952
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1476",
+      "mode": "story",
+      "level": 3,
+      "block": 953
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1512",
+      "mode": "story",
+      "level": 3,
+      "block": 954
+    },
+    {
+      "heading": "#### Conditional dialogue — the Invader sweep",
+      "block": 955,
+      "pl": "#### Dialogi warunkowe — oczyszczanie z Inwaderów"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1872",
+      "mode": "conditional",
+      "level": 3,
+      "block": 956
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:1948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 957
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 958
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2080",
+      "mode": "conditional",
+      "level": 3,
+      "block": 959
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 960
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 961
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2292",
+      "mode": "conditional",
+      "level": 3,
+      "block": 962
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2464",
+      "mode": "conditional",
+      "level": 3,
+      "block": 963
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 964
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 965
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 966
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2844",
+      "mode": "conditional",
+      "level": 3,
+      "block": 967
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 968
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:2948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 969
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:3172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 970
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:3300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 971
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:3420",
+      "mode": "conditional",
+      "level": 3,
+      "block": 972
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:3612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 973
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:3848",
+      "mode": "conditional",
+      "level": 3,
+      "block": 974
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4100",
+      "mode": "conditional",
+      "level": 3,
+      "block": 975
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4188",
+      "mode": "conditional",
+      "level": 3,
+      "block": 976
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4240",
+      "mode": "conditional",
+      "level": 3,
+      "block": 977
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4468",
+      "mode": "conditional",
+      "level": 3,
+      "block": 978
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 979
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:4804",
+      "mode": "conditional",
+      "level": 3,
+      "block": 980
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:5012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 981
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:5112",
+      "mode": "conditional",
+      "level": 3,
+      "block": 982
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:5656",
+      "mode": "conditional",
+      "level": 3,
+      "block": 983
+    },
+    {
+      "heading": "### An unexpectedly easy battle",
+      "block": 984,
+      "pl": "### Zaskakująco łatwa potyczka"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:5696",
+      "mode": "story",
+      "level": 3,
+      "block": 985
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6444",
+      "mode": "story",
+      "level": 3,
+      "block": 986
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6480",
+      "mode": "story",
+      "level": 3,
+      "block": 987
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6552",
+      "mode": "story",
+      "level": 3,
+      "block": 988
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6580",
+      "mode": "story",
+      "level": 3,
+      "block": 989
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6620",
+      "mode": "story",
+      "level": 3,
+      "block": 990
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6664",
+      "mode": "story",
+      "level": 3,
+      "block": 991
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6740",
+      "mode": "story",
+      "level": 3,
+      "block": 992
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6816",
+      "mode": "story",
+      "level": 3,
+      "block": 993
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6880",
+      "mode": "story",
+      "level": 3,
+      "block": 994
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:6952",
+      "mode": "story",
+      "level": 3,
+      "block": 995
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7016",
+      "mode": "story",
+      "level": 3,
+      "block": 996
+    },
+    {
+      "heading": "### The next key mission",
+      "block": 997,
+      "pl": "### Kolejna kluczowa misja"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7172",
+      "mode": "story",
+      "level": 3,
+      "block": 998
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7268",
+      "mode": "story",
+      "level": 3,
+      "block": 999
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7372",
+      "mode": "story",
+      "level": 3,
+      "block": 1000
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7504",
+      "mode": "story",
+      "level": 3,
+      "block": 1001
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7608",
+      "mode": "story",
+      "level": 3,
+      "block": 1002
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_40.bin:7760",
+      "mode": "story",
+      "level": 3,
+      "block": 1003
+    },
+    {
+      "mission": "eventP08.EDAT/DL830_50.bin",
+      "block": 1004,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_50_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 1005
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:284",
+      "mode": "story",
+      "level": 3,
+      "block": 1006
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:392",
+      "mode": "story",
+      "level": 3,
+      "block": 1007
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:524",
+      "mode": "story",
+      "level": 3,
+      "block": 1008
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:648",
+      "mode": "story",
+      "level": 3,
+      "block": 1009
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:744",
+      "mode": "story",
+      "level": 3,
+      "block": 1010
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:916",
+      "mode": "story",
+      "level": 3,
+      "block": 1011
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1012",
+      "mode": "story",
+      "level": 3,
+      "block": 1012
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1080",
+      "mode": "story",
+      "level": 3,
+      "block": 1013
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1188",
+      "mode": "story",
+      "level": 3,
+      "block": 1014
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1288",
+      "mode": "story",
+      "level": 3,
+      "block": 1015
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1352",
+      "mode": "story",
+      "level": 3,
+      "block": 1016
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1456",
+      "mode": "story",
+      "level": 3,
+      "block": 1017
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1524",
+      "mode": "story",
+      "level": 3,
+      "block": 1018
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1664",
+      "mode": "story",
+      "level": 3,
+      "block": 1019
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1784",
+      "mode": "story",
+      "level": 3,
+      "block": 1020
+    },
+    {
+      "heading": "### Watching the conference broadcast",
+      "block": 1021,
+      "pl": "### Oglądanie transmisji z konferencji"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1932",
+      "mode": "story",
+      "level": 3,
+      "block": 1022
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:1992",
+      "mode": "story",
+      "level": 3,
+      "block": 1023
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2060",
+      "mode": "story",
+      "level": 3,
+      "block": 1024
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2124",
+      "mode": "story",
+      "level": 3,
+      "block": 1025
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2184",
+      "mode": "story",
+      "level": 3,
+      "block": 1026
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2248",
+      "mode": "story",
+      "level": 3,
+      "block": 1027
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2324",
+      "mode": "story",
+      "level": 3,
+      "block": 1028
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2452",
+      "mode": "story",
+      "level": 3,
+      "block": 1029
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2488",
+      "mode": "story",
+      "level": 3,
+      "block": 1030
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2572",
+      "mode": "story",
+      "level": 3,
+      "block": 1031
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2652",
+      "mode": "story",
+      "level": 3,
+      "block": 1032
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2708",
+      "mode": "story",
+      "level": 3,
+      "block": 1033
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2768",
+      "mode": "story",
+      "level": 3,
+      "block": 1034
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2796",
+      "mode": "story",
+      "level": 3,
+      "block": 1035
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2868",
+      "mode": "story",
+      "level": 3,
+      "block": 1036
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:2984",
+      "mode": "story",
+      "level": 3,
+      "block": 1037
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3096",
+      "mode": "story",
+      "level": 3,
+      "block": 1038
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3168",
+      "mode": "story",
+      "level": 3,
+      "block": 1039
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3284",
+      "mode": "story",
+      "level": 3,
+      "block": 1040
+    },
+    {
+      "heading": "### A Mucus outbreak during the conference",
+      "block": 1041,
+      "pl": "### Wybuch aktywności Mucus podczas konferencji"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3376",
+      "mode": "story",
+      "level": 3,
+      "block": 1042
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3412",
+      "mode": "story",
+      "level": 3,
+      "block": 1043
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3520",
+      "mode": "story",
+      "level": 3,
+      "block": 1044
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3580",
+      "mode": "story",
+      "level": 3,
+      "block": 1045
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3664",
+      "mode": "story",
+      "level": 3,
+      "block": 1046
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3756",
+      "mode": "story",
+      "level": 3,
+      "block": 1047
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3844",
+      "mode": "story",
+      "level": 3,
+      "block": 1048
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:3924",
+      "mode": "story",
+      "level": 3,
+      "block": 1049
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:4032",
+      "mode": "story",
+      "level": 3,
+      "block": 1050
+    },
+    {
+      "heading": "### Mucus Gates across the planet",
+      "block": 1051,
+      "pl": "### Bramy Mucus na całej planecie"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:4240",
+      "mode": "story",
+      "level": 3,
+      "block": 1052
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:4292",
+      "mode": "story",
+      "level": 3,
+      "block": 1053
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:4376",
+      "mode": "story",
+      "level": 3,
+      "block": 1054
+    },
+    {
+      "heading": "#### Conditional dialogue — protecting the delegates' conference",
+      "block": 1055,
+      "pl": "#### Dialogi warunkowe — ochrona konferencji delegatów"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:5780",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1056
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:5852",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1057
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:5912",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1058
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:5972",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1059
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6028",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1060
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6192",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1061
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6268",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1062
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6468",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1063
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6548",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1064
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6760",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1065
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6812",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1066
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:6904",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1067
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1068
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7204",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1069
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1070
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1071
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1072
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1073
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:7808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1074
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1075
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1076
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1077
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8376",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1078
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1079
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1080
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1081
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1082
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8780",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1083
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:8860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1084
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9060",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1085
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9316",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1086
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1087
+    },
+    {
+      "heading": "### Back for maintenance",
+      "block": 1088,
+      "pl": "### Powrót na przegląd"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9796",
+      "mode": "story",
+      "level": 3,
+      "block": 1089
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9860",
+      "mode": "story",
+      "level": 3,
+      "block": 1090
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:9916",
+      "mode": "story",
+      "level": 3,
+      "block": 1091
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10132",
+      "mode": "story",
+      "level": 3,
+      "block": 1092
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10244",
+      "mode": "story",
+      "level": 3,
+      "block": 1093
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10324",
+      "mode": "story",
+      "level": 3,
+      "block": 1094
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10384",
+      "mode": "story",
+      "level": 3,
+      "block": 1095
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10464",
+      "mode": "story",
+      "level": 3,
+      "block": 1096
+    },
+    {
+      "heading": "### A meal between missions",
+      "block": 1097,
+      "pl": "### Posiłek między misjami"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10520",
+      "mode": "story",
+      "level": 3,
+      "block": 1098
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10572",
+      "mode": "story",
+      "level": 3,
+      "block": 1099
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10612",
+      "mode": "story",
+      "level": 3,
+      "block": 1100
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10680",
+      "mode": "story",
+      "level": 3,
+      "block": 1101
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10736",
+      "mode": "story",
+      "level": 3,
+      "block": 1102
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10812",
+      "mode": "story",
+      "level": 3,
+      "block": 1103
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10872",
+      "mode": "story",
+      "level": 3,
+      "block": 1104
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:10932",
+      "mode": "story",
+      "level": 3,
+      "block": 1105
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11012",
+      "mode": "story",
+      "level": 3,
+      "block": 1106
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11080",
+      "mode": "story",
+      "level": 3,
+      "block": 1107
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11128",
+      "mode": "story",
+      "level": 3,
+      "block": 1108
+    },
+    {
+      "heading": "### Agreement on Operation Extend",
+      "block": 1109,
+      "pl": "### Porozumienie w sprawie Operacji Extend"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11228",
+      "mode": "story",
+      "level": 3,
+      "block": 1110
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11320",
+      "mode": "story",
+      "level": 3,
+      "block": 1111
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11448",
+      "mode": "story",
+      "level": 3,
+      "block": 1112
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11576",
+      "mode": "story",
+      "level": 3,
+      "block": 1113
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11712",
+      "mode": "story",
+      "level": 3,
+      "block": 1114
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11804",
+      "mode": "story",
+      "level": 3,
+      "block": 1115
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:11944",
+      "mode": "story",
+      "level": 3,
+      "block": 1116
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_50.bin:12044",
+      "mode": "story",
+      "level": 3,
+      "block": 1117
+    },
+    {
+      "mission": "eventP08.EDAT/DL830_60.bin",
+      "block": 1118,
+      "mission_row": "mission_note:eventP08.EDAT/DL830_60_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:204",
+      "mode": "story",
+      "level": 3,
+      "block": 1119
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:372",
+      "mode": "story",
+      "level": 3,
+      "block": 1120
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:492",
+      "mode": "story",
+      "level": 3,
+      "block": 1121
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:632",
+      "mode": "story",
+      "level": 3,
+      "block": 1122
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:712",
+      "mode": "story",
+      "level": 3,
+      "block": 1123
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:772",
+      "mode": "story",
+      "level": 3,
+      "block": 1124
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:880",
+      "mode": "story",
+      "level": 3,
+      "block": 1125
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:948",
+      "mode": "story",
+      "level": 3,
+      "block": 1126
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1032",
+      "mode": "story",
+      "level": 3,
+      "block": 1127
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1124",
+      "mode": "story",
+      "level": 3,
+      "block": 1128
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1220",
+      "mode": "story",
+      "level": 3,
+      "block": 1129
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 1130
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1352",
+      "mode": "story",
+      "level": 3,
+      "block": 1131
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1400",
+      "mode": "story",
+      "level": 3,
+      "block": 1132
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1480",
+      "mode": "story",
+      "level": 3,
+      "block": 1133
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1540",
+      "mode": "story",
+      "level": 3,
+      "block": 1134
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1656",
+      "mode": "story",
+      "level": 3,
+      "block": 1135
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1752",
+      "mode": "story",
+      "level": 3,
+      "block": 1136
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1812",
+      "mode": "story",
+      "level": 3,
+      "block": 1137
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1872",
+      "mode": "story",
+      "level": 3,
+      "block": 1138
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:1976",
+      "mode": "story",
+      "level": 3,
+      "block": 1139
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2044",
+      "mode": "story",
+      "level": 3,
+      "block": 1140
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2140",
+      "mode": "story",
+      "level": 3,
+      "block": 1141
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2188",
+      "mode": "story",
+      "level": 3,
+      "block": 1142
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2272",
+      "mode": "story",
+      "level": 3,
+      "block": 1143
+    },
+    {
+      "heading": "### Linking the Warp Ring to the Recoral Galaxy",
+      "block": 1144,
+      "pl": "### Połączenie Warp Ringu z Galaktyką Recoral"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2376",
+      "mode": "story",
+      "level": 3,
+      "block": 1145
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2464",
+      "mode": "story",
+      "level": 3,
+      "block": 1146
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2532",
+      "mode": "story",
+      "level": 3,
+      "block": 1147
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2588",
+      "mode": "story",
+      "level": 3,
+      "block": 1148
+    },
+    {
+      "heading": "### Invaders strike during the preparations",
+      "block": 1149,
+      "pl": "### Atak Inwaderów w trakcie przygotowań"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2700",
+      "mode": "story",
+      "level": 3,
+      "block": 1150
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 1151
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2784",
+      "mode": "story",
+      "level": 3,
+      "block": 1152
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2824",
+      "mode": "story",
+      "level": 3,
+      "block": 1153
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:2888",
+      "mode": "story",
+      "level": 3,
+      "block": 1154
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3372",
+      "mode": "story",
+      "level": 3,
+      "block": 1155
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3432",
+      "mode": "story",
+      "level": 3,
+      "block": 1156
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3652",
+      "mode": "story",
+      "level": 3,
+      "block": 1157
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3712",
+      "mode": "story",
+      "level": 3,
+      "block": 1158
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3868",
+      "mode": "story",
+      "level": 3,
+      "block": 1159
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:3984",
+      "mode": "story",
+      "level": 3,
+      "block": 1160
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4044",
+      "mode": "story",
+      "level": 3,
+      "block": 1161
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4092",
+      "mode": "story",
+      "level": 3,
+      "block": 1162
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4152",
+      "mode": "story",
+      "level": 3,
+      "block": 1163
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4212",
+      "mode": "story",
+      "level": 3,
+      "block": 1164
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4248",
+      "mode": "story",
+      "level": 3,
+      "block": 1165
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4340",
+      "mode": "story",
+      "level": 3,
+      "block": 1166
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4400",
+      "mode": "story",
+      "level": 3,
+      "block": 1167
+    },
+    {
+      "heading": "#### Conditional dialogue — defending the Warp Ring activation",
+      "block": 1168,
+      "pl": "#### Dialogi warunkowe — obrona aktywacji Warp Ringu"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4868",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1169
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:4932",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1170
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5036",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1171
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5268",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1172
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1173
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5432",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1174
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5684",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1175
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:5968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1176
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6252",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1177
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1178
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1179
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6520",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1180
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6744",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1181
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:6836",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1182
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:7108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1183
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:7344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1184
+    },
+    {
+      "heading": "### The first Invaders repelled",
+      "block": 1185,
+      "pl": "### Pierwsi Inwaderzy odparci"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8156",
+      "mode": "story",
+      "level": 3,
+      "block": 1186
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8192",
+      "mode": "story",
+      "level": 3,
+      "block": 1187
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8236",
+      "mode": "story",
+      "level": 3,
+      "block": 1188
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8296",
+      "mode": "story",
+      "level": 3,
+      "block": 1189
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8328",
+      "mode": "story",
+      "level": 3,
+      "block": 1190
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8380",
+      "mode": "story",
+      "level": 3,
+      "block": 1191
+    },
+    {
+      "heading": "### Cowen and Stinger appear",
+      "block": 1192,
+      "pl": "### Pojawienie się Cowena i Stingera"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8524",
+      "mode": "story",
+      "level": 3,
+      "block": 1193
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8596",
+      "mode": "story",
+      "level": 3,
+      "block": 1194
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8636",
+      "mode": "story",
+      "level": 3,
+      "block": 1195
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8800",
+      "mode": "story",
+      "level": 3,
+      "block": 1196
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8896",
+      "mode": "story",
+      "level": 3,
+      "block": 1197
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:8964",
+      "mode": "story",
+      "level": 3,
+      "block": 1198
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9016",
+      "mode": "story",
+      "level": 3,
+      "block": 1199
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9076",
+      "mode": "story",
+      "level": 3,
+      "block": 1200
+    },
+    {
+      "heading": "### Another wormhole opens",
+      "block": 1201,
+      "pl": "### Otwiera się kolejny tunel czasoprzestrzenny"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9188",
+      "mode": "story",
+      "level": 3,
+      "block": 1202
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9260",
+      "mode": "story",
+      "level": 3,
+      "block": 1203
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9316",
+      "mode": "story",
+      "level": 3,
+      "block": 1204
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9408",
+      "mode": "story",
+      "level": 3,
+      "block": 1205
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9444",
+      "mode": "story",
+      "level": 3,
+      "block": 1206
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9608",
+      "mode": "story",
+      "level": 3,
+      "block": 1207
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9716",
+      "mode": "story",
+      "level": 3,
+      "block": 1208
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9784",
+      "mode": "story",
+      "level": 3,
+      "block": 1209
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9820",
+      "mode": "story",
+      "level": 3,
+      "block": 1210
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL830_60.bin:9876",
+      "mode": "story",
+      "level": 3,
+      "block": 1211
+    }
+  ]
+}

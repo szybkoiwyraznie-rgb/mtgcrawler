@@ -1,0 +1,7916 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 5,
+  "reference_sha256": "bfb394345227d36f3e34c1209a841bcaa3175a1e1781be7b0eed88f2fe51390f",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP01.EDAT/DL105_11.bin",
+      "block": 4,
+      "mission_row": "mission_note:eventP01.EDAT/DL105_11_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:192",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:368",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:500",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:648",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:784",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:848",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:912",
+      "mode": "story",
+      "level": 3,
+      "block": 12
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:952",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1004",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1108",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1192",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1300",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1372",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1440",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1524",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1564",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1616",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1696",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1744",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1884",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1960",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:1992",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2064",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2132",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2188",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2256",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2288",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2380",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2500",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2556",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2616",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2656",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2720",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2772",
+      "mode": "story",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2848",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:2916",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3048",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3144",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3220",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3316",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 46
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3468",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "heading": "### A voice approaching",
+      "block": 48,
+      "pl": "### Zbliżający się głos"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3644",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3672",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3716",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3776",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3824",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3920",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:3948",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4028",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4248",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4280",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4320",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4368",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4432",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4496",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4540",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4620",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4672",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4760",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:4872",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5020",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5080",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5132",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5224",
+      "mode": "story",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5344",
+      "mode": "story",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5416",
+      "mode": "story",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "heading": "### Defending the Warp Gate",
+      "block": 74,
+      "pl": "### Obrona Bramy Nadprzestrzennej"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5536",
+      "mode": "story",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5640",
+      "mode": "story",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5696",
+      "mode": "story",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5748",
+      "mode": "story",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5836",
+      "mode": "story",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5896",
+      "mode": "story",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:5956",
+      "mode": "story",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6104",
+      "mode": "story",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6164",
+      "mode": "story",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6252",
+      "mode": "story",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6340",
+      "mode": "story",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6496",
+      "mode": "story",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6548",
+      "mode": "story",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6580",
+      "mode": "story",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6708",
+      "mode": "story",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6768",
+      "mode": "story",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6836",
+      "mode": "story",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6896",
+      "mode": "story",
+      "level": 3,
+      "block": 92
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:6960",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "heading": "### Viral and the Mucus",
+      "block": 94,
+      "pl": "### Viral i Mucus"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7420",
+      "mode": "story",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7480",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7528",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7592",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7796",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7836",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7892",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7952",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:7984",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8048",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8172",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8280",
+      "mode": "story",
+      "level": 3,
+      "block": 106
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8440",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8488",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8544",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8648",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8752",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8788",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8900",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:8972",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9040",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9068",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9128",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9200",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9264",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9392",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9468",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9524",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9620",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9744",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9844",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:9956",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10012",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10068",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "heading": "#### Conditional dialogue — Kamina and Viral",
+      "block": 129,
+      "pl": "#### Dialogi warunkowe — Kamina i Viral"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10288",
+      "mode": "conditional",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10464",
+      "mode": "conditional",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10700",
+      "mode": "conditional",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "heading": "#### Conditional dialogue — Exart and Viral",
+      "block": 136,
+      "pl": "#### Dialogi warunkowe — Exart i Viral"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:10984",
+      "mode": "conditional",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11048",
+      "mode": "conditional",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11268",
+      "mode": "conditional",
+      "level": 3,
+      "block": 141
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11368",
+      "mode": "conditional",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11432",
+      "mode": "conditional",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11752",
+      "mode": "conditional",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:11792",
+      "mode": "conditional",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "heading": "#### Conditional dialogue — the Shin Getter Team",
+      "block": 150,
+      "pl": "#### Dialogi warunkowe — zespół Shin Getter"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12164",
+      "mode": "conditional",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12276",
+      "mode": "conditional",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12336",
+      "mode": "conditional",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12368",
+      "mode": "conditional",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "heading": "#### Conditional dialogue — the original Getter Team",
+      "block": 158,
+      "pl": "#### Dialogi warunkowe — pierwotny zespół Getter"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12824",
+      "mode": "conditional",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:12956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13200",
+      "mode": "conditional",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13296",
+      "mode": "conditional",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "heading": "#### Conditional dialogue — Show",
+      "block": 167,
+      "pl": "#### Dialogi warunkowe — Show"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13660",
+      "mode": "conditional",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "heading": "#### Conditional dialogue — Simon",
+      "block": 173,
+      "pl": "#### Dialogi warunkowe — Simon"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13928",
+      "mode": "conditional",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:13992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14028",
+      "mode": "conditional",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14116",
+      "mode": "conditional",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14196",
+      "mode": "conditional",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14236",
+      "mode": "conditional",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "heading": "#### Conditional dialogue — Liger",
+      "block": 182,
+      "pl": "#### Dialogi warunkowe — Liger"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 183
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14520",
+      "mode": "conditional",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14580",
+      "mode": "conditional",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14668",
+      "mode": "conditional",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14892",
+      "mode": "conditional",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:14944",
+      "mode": "conditional",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "heading": "#### Conditional dialogue — Dolk",
+      "block": 191,
+      "pl": "#### Dialogi warunkowe — Dolk"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15116",
+      "mode": "conditional",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15212",
+      "mode": "conditional",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15276",
+      "mode": "conditional",
+      "level": 3,
+      "block": 194
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15336",
+      "mode": "conditional",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15368",
+      "mode": "conditional",
+      "level": 3,
+      "block": 196
+    },
+    {
+      "heading": "#### Conditional dialogue — Da Cider",
+      "block": 197,
+      "pl": "#### Dialogi warunkowe — Da Cider"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15608",
+      "mode": "conditional",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15648",
+      "mode": "conditional",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15708",
+      "mode": "conditional",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15740",
+      "mode": "conditional",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15792",
+      "mode": "conditional",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15840",
+      "mode": "conditional",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15904",
+      "mode": "conditional",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:15960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16020",
+      "mode": "conditional",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "heading": "#### Conditional dialogue — Ganbaruger",
+      "block": 209,
+      "pl": "#### Dialogi warunkowe — Ganbaruger"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16388",
+      "mode": "conditional",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16468",
+      "mode": "conditional",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "heading": "#### Conditional dialogue — Go-Saurer",
+      "block": 214,
+      "pl": "#### Dialogi warunkowe — Go-Saurer"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16768",
+      "mode": "conditional",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16844",
+      "mode": "conditional",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:16956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "heading": "#### Conditional dialogue — Leena",
+      "block": 221,
+      "pl": "#### Dialogi warunkowe — Leena"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17432",
+      "mode": "conditional",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17504",
+      "mode": "conditional",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "heading": "#### Conditional dialogue — Zero",
+      "block": 224,
+      "pl": "#### Dialogi warunkowe — Zero"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:17928",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "heading": "#### Conditional dialogue — Domon",
+      "block": 229,
+      "pl": "#### Dialogi warunkowe — Domon"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18228",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18296",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "heading": "#### Conditional dialogue — another exchange with Kamina",
+      "block": 233,
+      "pl": "#### Dialogi warunkowe — kolejna wymiana zdań z Kaminą"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18512",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18760",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:18956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "heading": "### The attack on the Ark Ship",
+      "block": 239,
+      "pl": "### Atak na Ark Ship"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19084",
+      "mode": "story",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19128",
+      "mode": "story",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19176",
+      "mode": "story",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19268",
+      "mode": "story",
+      "level": 3,
+      "block": 243
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19368",
+      "mode": "story",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19436",
+      "mode": "story",
+      "level": 3,
+      "block": 245
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19512",
+      "mode": "story",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19584",
+      "mode": "story",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19652",
+      "mode": "story",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19684",
+      "mode": "story",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19740",
+      "mode": "story",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19776",
+      "mode": "story",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19824",
+      "mode": "story",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19880",
+      "mode": "story",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:19960",
+      "mode": "story",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20040",
+      "mode": "story",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20068",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20180",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20252",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20308",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20468",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20524",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20560",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20668",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20700",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20768",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:20976",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21032",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21068",
+      "mode": "story",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21124",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21204",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21248",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21304",
+      "mode": "story",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_11.bin:21420",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "mission": "eventP01.EDAT/DL105_12.bin",
+      "block": 274,
+      "mission_row": "mission_note:eventP01.EDAT/DL105_12_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:184",
+      "mode": "story",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:280",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:652",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:708",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:788",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:876",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:992",
+      "mode": "story",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1076",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1148",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "heading": "### The enemy's full assault",
+      "block": 284,
+      "pl": "### Pełnoskalowe natarcie wroga"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1512",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1552",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1620",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1652",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1792",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1852",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:1916",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2024",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2088",
+      "mode": "story",
+      "level": 3,
+      "block": 293
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2144",
+      "mode": "story",
+      "level": 3,
+      "block": 294
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2224",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2456",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2496",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2548",
+      "mode": "story",
+      "level": 3,
+      "block": 298
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2620",
+      "mode": "story",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "heading": "### Gundam Exia arrives",
+      "block": 300,
+      "pl": "### Przybycie Gundama Exia"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2740",
+      "mode": "story",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2788",
+      "mode": "story",
+      "level": 3,
+      "block": 302
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2848",
+      "mode": "story",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:2932",
+      "mode": "story",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3200",
+      "mode": "story",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3264",
+      "mode": "story",
+      "level": 3,
+      "block": 306
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3324",
+      "mode": "story",
+      "level": 3,
+      "block": 307
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3368",
+      "mode": "story",
+      "level": 3,
+      "block": 308
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3428",
+      "mode": "story",
+      "level": 3,
+      "block": 309
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3476",
+      "mode": "story",
+      "level": 3,
+      "block": 310
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3568",
+      "mode": "story",
+      "level": 3,
+      "block": 311
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3644",
+      "mode": "story",
+      "level": 3,
+      "block": 312
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3728",
+      "mode": "story",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3788",
+      "mode": "story",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3868",
+      "mode": "story",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:3944",
+      "mode": "story",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4036",
+      "mode": "story",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4144",
+      "mode": "story",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4216",
+      "mode": "story",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4276",
+      "mode": "story",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4404",
+      "mode": "story",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4440",
+      "mode": "story",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4480",
+      "mode": "story",
+      "level": 3,
+      "block": 323
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:4600",
+      "mode": "story",
+      "level": 3,
+      "block": 324
+    },
+    {
+      "heading": "#### Conditional dialogue — protecting the Warp Gate from Viral",
+      "block": 325,
+      "pl": "#### Dialogi warunkowe — obrona Bramy Nadprzestrzennej przed Viralem"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:5484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:5536",
+      "mode": "conditional",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:5604",
+      "mode": "conditional",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:5836",
+      "mode": "conditional",
+      "level": 3,
+      "block": 329
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:5920",
+      "mode": "conditional",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 331
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6212",
+      "mode": "conditional",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6404",
+      "mode": "conditional",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 335
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6660",
+      "mode": "conditional",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6732",
+      "mode": "conditional",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:6888",
+      "mode": "conditional",
+      "level": 3,
+      "block": 339
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 340
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7212",
+      "mode": "conditional",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7560",
+      "mode": "conditional",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:7748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 345
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 346
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8100",
+      "mode": "conditional",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8208",
+      "mode": "conditional",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 352
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8768",
+      "mode": "conditional",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8848",
+      "mode": "conditional",
+      "level": 3,
+      "block": 354
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:8948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9024",
+      "mode": "conditional",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9120",
+      "mode": "conditional",
+      "level": 3,
+      "block": 357
+    },
+    {
+      "heading": "### Viral's secret",
+      "block": 358,
+      "pl": "### Sekret Virala"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9396",
+      "mode": "story",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9460",
+      "mode": "story",
+      "level": 3,
+      "block": 360
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9508",
+      "mode": "story",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9556",
+      "mode": "story",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9592",
+      "mode": "story",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9796",
+      "mode": "story",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9856",
+      "mode": "story",
+      "level": 3,
+      "block": 365
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:9940",
+      "mode": "story",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10040",
+      "mode": "story",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10104",
+      "mode": "story",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10200",
+      "mode": "story",
+      "level": 3,
+      "block": 369
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10328",
+      "mode": "story",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10376",
+      "mode": "story",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10432",
+      "mode": "story",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10492",
+      "mode": "story",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10528",
+      "mode": "story",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10592",
+      "mode": "story",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10676",
+      "mode": "story",
+      "level": 3,
+      "block": 376
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10728",
+      "mode": "story",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10768",
+      "mode": "story",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10816",
+      "mode": "story",
+      "level": 3,
+      "block": 379
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10848",
+      "mode": "story",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "heading": "### Vasage's power",
+      "block": 381,
+      "pl": "### Moc Vasage'a"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:10944",
+      "mode": "story",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11116",
+      "mode": "story",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11168",
+      "mode": "story",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11212",
+      "mode": "story",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11264",
+      "mode": "story",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11332",
+      "mode": "story",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:11404",
+      "mode": "story",
+      "level": 3,
+      "block": 388
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12544",
+      "mode": "story",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12584",
+      "mode": "story",
+      "level": 3,
+      "block": 390
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12616",
+      "mode": "story",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12656",
+      "mode": "story",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12720",
+      "mode": "story",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12792",
+      "mode": "story",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12824",
+      "mode": "story",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12864",
+      "mode": "story",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12936",
+      "mode": "story",
+      "level": 3,
+      "block": 397
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:12988",
+      "mode": "story",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13100",
+      "mode": "story",
+      "level": 3,
+      "block": 399
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13180",
+      "mode": "story",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "heading": "### Viral withdraws",
+      "block": 401,
+      "pl": "### Odwrót Virala"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13232",
+      "mode": "story",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13300",
+      "mode": "story",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13768",
+      "mode": "story",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13836",
+      "mode": "story",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13904",
+      "mode": "story",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:13960",
+      "mode": "story",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14004",
+      "mode": "story",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14048",
+      "mode": "story",
+      "level": 3,
+      "block": 409
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14120",
+      "mode": "story",
+      "level": 3,
+      "block": 410
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14184",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14240",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14440",
+      "mode": "story",
+      "level": 3,
+      "block": 413
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14504",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14564",
+      "mode": "story",
+      "level": 3,
+      "block": 415
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14628",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14660",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14708",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14772",
+      "mode": "story",
+      "level": 3,
+      "block": 419
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14840",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14920",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:14964",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15080",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15148",
+      "mode": "story",
+      "level": 3,
+      "block": 424
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15196",
+      "mode": "story",
+      "level": 3,
+      "block": 425
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15276",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15396",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15480",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15556",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15660",
+      "mode": "story",
+      "level": 3,
+      "block": 430
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15708",
+      "mode": "story",
+      "level": 3,
+      "block": 431
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15828",
+      "mode": "story",
+      "level": 3,
+      "block": 432
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:15924",
+      "mode": "story",
+      "level": 3,
+      "block": 433
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16024",
+      "mode": "story",
+      "level": 3,
+      "block": 434
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16084",
+      "mode": "story",
+      "level": 3,
+      "block": 435
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16148",
+      "mode": "story",
+      "level": 3,
+      "block": 436
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16244",
+      "mode": "story",
+      "level": 3,
+      "block": 437
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16340",
+      "mode": "story",
+      "level": 3,
+      "block": 438
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16420",
+      "mode": "story",
+      "level": 3,
+      "block": 439
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16476",
+      "mode": "story",
+      "level": 3,
+      "block": 440
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16520",
+      "mode": "story",
+      "level": 3,
+      "block": 441
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16596",
+      "mode": "story",
+      "level": 3,
+      "block": 442
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16644",
+      "mode": "story",
+      "level": 3,
+      "block": 443
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16708",
+      "mode": "story",
+      "level": 3,
+      "block": 444
+    },
+    {
+      "heading": "### The warp postponed",
+      "block": 445,
+      "pl": "### Skok nadprzestrzenny odłożony"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16776",
+      "mode": "story",
+      "level": 3,
+      "block": 446
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:16872",
+      "mode": "story",
+      "level": 3,
+      "block": 447
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17000",
+      "mode": "story",
+      "level": 3,
+      "block": 448
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17108",
+      "mode": "story",
+      "level": 3,
+      "block": 449
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17248",
+      "mode": "story",
+      "level": 3,
+      "block": 450
+    },
+    {
+      "heading": "### Connect Station and Ark Ship — departure",
+      "block": 451,
+      "pl": "### Stacja Connect i Ark Ship — wymarsz"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17412",
+      "mode": "story",
+      "level": 3,
+      "block": 452
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17508",
+      "mode": "story",
+      "level": 3,
+      "block": 453
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17600",
+      "mode": "story",
+      "level": 3,
+      "block": 454
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17688",
+      "mode": "story",
+      "level": 3,
+      "block": 455
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17828",
+      "mode": "story",
+      "level": 3,
+      "block": 456
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17884",
+      "mode": "story",
+      "level": 3,
+      "block": 457
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:17948",
+      "mode": "story",
+      "level": 3,
+      "block": 458
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18004",
+      "mode": "story",
+      "level": 3,
+      "block": 459
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18076",
+      "mode": "story",
+      "level": 3,
+      "block": 460
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18112",
+      "mode": "story",
+      "level": 3,
+      "block": 461
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18152",
+      "mode": "story",
+      "level": 3,
+      "block": 462
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18208",
+      "mode": "story",
+      "level": 3,
+      "block": 463
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18272",
+      "mode": "story",
+      "level": 3,
+      "block": 464
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18328",
+      "mode": "story",
+      "level": 3,
+      "block": 465
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18432",
+      "mode": "story",
+      "level": 3,
+      "block": 466
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18496",
+      "mode": "story",
+      "level": 3,
+      "block": 467
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18588",
+      "mode": "story",
+      "level": 3,
+      "block": 468
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18664",
+      "mode": "story",
+      "level": 3,
+      "block": 469
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18692",
+      "mode": "story",
+      "level": 3,
+      "block": 470
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18816",
+      "mode": "story",
+      "level": 3,
+      "block": 471
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18872",
+      "mode": "story",
+      "level": 3,
+      "block": 472
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18932",
+      "mode": "story",
+      "level": 3,
+      "block": 473
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:18992",
+      "mode": "story",
+      "level": 3,
+      "block": 474
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19084",
+      "mode": "story",
+      "level": 3,
+      "block": 475
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19152",
+      "mode": "story",
+      "level": 3,
+      "block": 476
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19220",
+      "mode": "story",
+      "level": 3,
+      "block": 477
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19312",
+      "mode": "story",
+      "level": 3,
+      "block": 478
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19412",
+      "mode": "story",
+      "level": 3,
+      "block": 479
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19464",
+      "mode": "story",
+      "level": 3,
+      "block": 480
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19516",
+      "mode": "story",
+      "level": 3,
+      "block": 481
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19568",
+      "mode": "story",
+      "level": 3,
+      "block": 482
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19644",
+      "mode": "story",
+      "level": 3,
+      "block": 483
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19712",
+      "mode": "story",
+      "level": 3,
+      "block": 484
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19792",
+      "mode": "story",
+      "level": 3,
+      "block": 485
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19828",
+      "mode": "story",
+      "level": 3,
+      "block": 486
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19908",
+      "mode": "story",
+      "level": 3,
+      "block": 487
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:19960",
+      "mode": "story",
+      "level": 3,
+      "block": 488
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20064",
+      "mode": "story",
+      "level": 3,
+      "block": 489
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20104",
+      "mode": "story",
+      "level": 3,
+      "block": 490
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20220",
+      "mode": "story",
+      "level": 3,
+      "block": 491
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20312",
+      "mode": "story",
+      "level": 3,
+      "block": 492
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20352",
+      "mode": "story",
+      "level": 3,
+      "block": 493
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20444",
+      "mode": "story",
+      "level": 3,
+      "block": 494
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20492",
+      "mode": "story",
+      "level": 3,
+      "block": 495
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20560",
+      "mode": "story",
+      "level": 3,
+      "block": 496
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20628",
+      "mode": "story",
+      "level": 3,
+      "block": 497
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20688",
+      "mode": "story",
+      "level": 3,
+      "block": 498
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20748",
+      "mode": "story",
+      "level": 3,
+      "block": 499
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20800",
+      "mode": "story",
+      "level": 3,
+      "block": 500
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20880",
+      "mode": "story",
+      "level": 3,
+      "block": 501
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:20968",
+      "mode": "story",
+      "level": 3,
+      "block": 502
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21068",
+      "mode": "story",
+      "level": 3,
+      "block": 503
+    },
+    {
+      "heading": "### Entering the Warp Gate",
+      "block": 504,
+      "pl": "### Wejście w Bramę Nadprzestrzenną"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21156",
+      "mode": "story",
+      "level": 3,
+      "block": 505
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21208",
+      "mode": "story",
+      "level": 3,
+      "block": 506
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21324",
+      "mode": "story",
+      "level": 3,
+      "block": 507
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21376",
+      "mode": "story",
+      "level": 3,
+      "block": 508
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21448",
+      "mode": "story",
+      "level": 3,
+      "block": 509
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21556",
+      "mode": "story",
+      "level": 3,
+      "block": 510
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21768",
+      "mode": "story",
+      "level": 3,
+      "block": 511
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21836",
+      "mode": "story",
+      "level": 3,
+      "block": 512
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21916",
+      "mode": "story",
+      "level": 3,
+      "block": 513
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:21976",
+      "mode": "story",
+      "level": 3,
+      "block": 514
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:22032",
+      "mode": "story",
+      "level": 3,
+      "block": 515
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_12.bin:22092",
+      "mode": "story",
+      "level": 3,
+      "block": 516
+    },
+    {
+      "mission": "eventP01.EDAT/DL105_20.bin",
+      "block": 517,
+      "mission_row": "mission_note:eventP01.EDAT/DL105_20_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 518
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:248",
+      "mode": "story",
+      "level": 3,
+      "block": 519
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:328",
+      "mode": "story",
+      "level": 3,
+      "block": 520
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:588",
+      "mode": "story",
+      "level": 3,
+      "block": 521
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:664",
+      "mode": "story",
+      "level": 3,
+      "block": 522
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:744",
+      "mode": "story",
+      "level": 3,
+      "block": 523
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:772",
+      "mode": "story",
+      "level": 3,
+      "block": 524
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:876",
+      "mode": "story",
+      "level": 3,
+      "block": 525
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:936",
+      "mode": "story",
+      "level": 3,
+      "block": 526
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:992",
+      "mode": "story",
+      "level": 3,
+      "block": 527
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1056",
+      "mode": "story",
+      "level": 3,
+      "block": 528
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 529
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1380",
+      "mode": "story",
+      "level": 3,
+      "block": 530
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1444",
+      "mode": "story",
+      "level": 3,
+      "block": 531
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1480",
+      "mode": "story",
+      "level": 3,
+      "block": 532
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1528",
+      "mode": "story",
+      "level": 3,
+      "block": 533
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1596",
+      "mode": "story",
+      "level": 3,
+      "block": 534
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1632",
+      "mode": "story",
+      "level": 3,
+      "block": 535
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1680",
+      "mode": "story",
+      "level": 3,
+      "block": 536
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1732",
+      "mode": "story",
+      "level": 3,
+      "block": 537
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1768",
+      "mode": "story",
+      "level": 3,
+      "block": 538
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:1968",
+      "mode": "story",
+      "level": 3,
+      "block": 539
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2056",
+      "mode": "story",
+      "level": 3,
+      "block": 540
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2092",
+      "mode": "story",
+      "level": 3,
+      "block": 541
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2148",
+      "mode": "story",
+      "level": 3,
+      "block": 542
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2200",
+      "mode": "story",
+      "level": 3,
+      "block": 543
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2260",
+      "mode": "story",
+      "level": 3,
+      "block": 544
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2320",
+      "mode": "story",
+      "level": 3,
+      "block": 545
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2404",
+      "mode": "story",
+      "level": 3,
+      "block": 546
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2468",
+      "mode": "story",
+      "level": 3,
+      "block": 547
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2516",
+      "mode": "story",
+      "level": 3,
+      "block": 548
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2580",
+      "mode": "story",
+      "level": 3,
+      "block": 549
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2616",
+      "mode": "story",
+      "level": 3,
+      "block": 550
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2688",
+      "mode": "story",
+      "level": 3,
+      "block": 551
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2752",
+      "mode": "story",
+      "level": 3,
+      "block": 552
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2876",
+      "mode": "story",
+      "level": 3,
+      "block": 553
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2924",
+      "mode": "story",
+      "level": 3,
+      "block": 554
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:2996",
+      "mode": "story",
+      "level": 3,
+      "block": 555
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3088",
+      "mode": "story",
+      "level": 3,
+      "block": 556
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3136",
+      "mode": "story",
+      "level": 3,
+      "block": 557
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3184",
+      "mode": "story",
+      "level": 3,
+      "block": 558
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3240",
+      "mode": "story",
+      "level": 3,
+      "block": 559
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3300",
+      "mode": "story",
+      "level": 3,
+      "block": 560
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3332",
+      "mode": "story",
+      "level": 3,
+      "block": 561
+    },
+    {
+      "heading": "### The value of an Organoid",
+      "block": 562,
+      "pl": "### Wartość Organoida"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3400",
+      "mode": "story",
+      "level": 3,
+      "block": 563
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3488",
+      "mode": "story",
+      "level": 3,
+      "block": 564
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3528",
+      "mode": "story",
+      "level": 3,
+      "block": 565
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3620",
+      "mode": "story",
+      "level": 3,
+      "block": 566
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3688",
+      "mode": "story",
+      "level": 3,
+      "block": 567
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:3764",
+      "mode": "story",
+      "level": 3,
+      "block": 568
+    },
+    {
+      "heading": "### The bandits",
+      "block": 569,
+      "pl": "### Bandyci"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4024",
+      "mode": "story",
+      "level": 3,
+      "block": 570
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4092",
+      "mode": "story",
+      "level": 3,
+      "block": 571
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4152",
+      "mode": "story",
+      "level": 3,
+      "block": 572
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4204",
+      "mode": "story",
+      "level": 3,
+      "block": 573
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4296",
+      "mode": "story",
+      "level": 3,
+      "block": 574
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4436",
+      "mode": "story",
+      "level": 3,
+      "block": 575
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4504",
+      "mode": "story",
+      "level": 3,
+      "block": 576
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4548",
+      "mode": "story",
+      "level": 3,
+      "block": 577
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4592",
+      "mode": "story",
+      "level": 3,
+      "block": 578
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4624",
+      "mode": "story",
+      "level": 3,
+      "block": 579
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4688",
+      "mode": "story",
+      "level": 3,
+      "block": 580
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4728",
+      "mode": "story",
+      "level": 3,
+      "block": 581
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4856",
+      "mode": "story",
+      "level": 3,
+      "block": 582
+    },
+    {
+      "heading": "### The Shield Liger awakens",
+      "block": 583,
+      "pl": "### Przebudzenie Shield Ligera"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:4976",
+      "mode": "story",
+      "level": 3,
+      "block": 584
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5028",
+      "mode": "story",
+      "level": 3,
+      "block": 585
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5220",
+      "mode": "story",
+      "level": 3,
+      "block": 586
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5644",
+      "mode": "story",
+      "level": 3,
+      "block": 587
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5720",
+      "mode": "story",
+      "level": 3,
+      "block": 588
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5784",
+      "mode": "story",
+      "level": 3,
+      "block": 589
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5836",
+      "mode": "story",
+      "level": 3,
+      "block": 590
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5868",
+      "mode": "story",
+      "level": 3,
+      "block": 591
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:5932",
+      "mode": "story",
+      "level": 3,
+      "block": 592
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6004",
+      "mode": "story",
+      "level": 3,
+      "block": 593
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6084",
+      "mode": "story",
+      "level": 3,
+      "block": 594
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6176",
+      "mode": "story",
+      "level": 3,
+      "block": 595
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6256",
+      "mode": "story",
+      "level": 3,
+      "block": 596
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6356",
+      "mode": "story",
+      "level": 3,
+      "block": 597
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6436",
+      "mode": "story",
+      "level": 3,
+      "block": 598
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6512",
+      "mode": "story",
+      "level": 3,
+      "block": 599
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6576",
+      "mode": "story",
+      "level": 3,
+      "block": 600
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6636",
+      "mode": "story",
+      "level": 3,
+      "block": 601
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6668",
+      "mode": "story",
+      "level": 3,
+      "block": 602
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6736",
+      "mode": "story",
+      "level": 3,
+      "block": 603
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6784",
+      "mode": "story",
+      "level": 3,
+      "block": 604
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6832",
+      "mode": "story",
+      "level": 3,
+      "block": 605
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6884",
+      "mode": "story",
+      "level": 3,
+      "block": 606
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:6948",
+      "mode": "story",
+      "level": 3,
+      "block": 607
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7004",
+      "mode": "story",
+      "level": 3,
+      "block": 608
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7076",
+      "mode": "story",
+      "level": 3,
+      "block": 609
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7128",
+      "mode": "story",
+      "level": 3,
+      "block": 610
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7188",
+      "mode": "story",
+      "level": 3,
+      "block": 611
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7220",
+      "mode": "story",
+      "level": 3,
+      "block": 612
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7300",
+      "mode": "story",
+      "level": 3,
+      "block": 613
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7356",
+      "mode": "story",
+      "level": 3,
+      "block": 614
+    },
+    {
+      "heading": "#### Conditional and situational dialogue — Van's first Zoid battle",
+      "block": 615,
+      "pl": "#### Dialogi warunkowe i sytuacyjne — pierwsza walka Vana w Zoidzie"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 616
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7820",
+      "mode": "conditional",
+      "level": 3,
+      "block": 617
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:7992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 618
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 619
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 620
+    },
+    {
+      "heading": "### The bandits withdraw",
+      "block": 621,
+      "pl": "### Odwrót bandytów"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8376",
+      "mode": "story",
+      "level": 3,
+      "block": 622
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8456",
+      "mode": "story",
+      "level": 3,
+      "block": 623
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8504",
+      "mode": "story",
+      "level": 3,
+      "block": 624
+    },
+    {
+      "heading": "### The Wasteland — after the battle",
+      "block": 625,
+      "pl": "### Pustkowie — po bitwie"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8808",
+      "mode": "story",
+      "level": 3,
+      "block": 626
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8868",
+      "mode": "story",
+      "level": 3,
+      "block": 627
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8916",
+      "mode": "story",
+      "level": 3,
+      "block": 628
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:8948",
+      "mode": "story",
+      "level": 3,
+      "block": 629
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9076",
+      "mode": "story",
+      "level": 3,
+      "block": 630
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9128",
+      "mode": "story",
+      "level": 3,
+      "block": 631
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9172",
+      "mode": "story",
+      "level": 3,
+      "block": 632
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9228",
+      "mode": "story",
+      "level": 3,
+      "block": 633
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9268",
+      "mode": "story",
+      "level": 3,
+      "block": 634
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9324",
+      "mode": "story",
+      "level": 3,
+      "block": 635
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9396",
+      "mode": "story",
+      "level": 3,
+      "block": 636
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9428",
+      "mode": "story",
+      "level": 3,
+      "block": 637
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9496",
+      "mode": "story",
+      "level": 3,
+      "block": 638
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9592",
+      "mode": "story",
+      "level": 3,
+      "block": 639
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9676",
+      "mode": "story",
+      "level": 3,
+      "block": 640
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9764",
+      "mode": "story",
+      "level": 3,
+      "block": 641
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9852",
+      "mode": "story",
+      "level": 3,
+      "block": 642
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:9908",
+      "mode": "story",
+      "level": 3,
+      "block": 643
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10008",
+      "mode": "story",
+      "level": 3,
+      "block": 644
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10044",
+      "mode": "story",
+      "level": 3,
+      "block": 645
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10140",
+      "mode": "story",
+      "level": 3,
+      "block": 646
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10208",
+      "mode": "story",
+      "level": 3,
+      "block": 647
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10252",
+      "mode": "story",
+      "level": 3,
+      "block": 648
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10348",
+      "mode": "story",
+      "level": 3,
+      "block": 649
+    },
+    {
+      "heading": "### Setting out together",
+      "block": 650,
+      "pl": "### Wspólny wymarsz"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10380",
+      "mode": "story",
+      "level": 3,
+      "block": 651
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10460",
+      "mode": "story",
+      "level": 3,
+      "block": 652
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10540",
+      "mode": "story",
+      "level": 3,
+      "block": 653
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10696",
+      "mode": "story",
+      "level": 3,
+      "block": 654
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10780",
+      "mode": "story",
+      "level": 3,
+      "block": 655
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10900",
+      "mode": "story",
+      "level": 3,
+      "block": 656
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:10996",
+      "mode": "story",
+      "level": 3,
+      "block": 657
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11064",
+      "mode": "story",
+      "level": 3,
+      "block": 658
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11136",
+      "mode": "story",
+      "level": 3,
+      "block": 659
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11184",
+      "mode": "story",
+      "level": 3,
+      "block": 660
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11236",
+      "mode": "story",
+      "level": 3,
+      "block": 661
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11288",
+      "mode": "story",
+      "level": 3,
+      "block": 662
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11340",
+      "mode": "story",
+      "level": 3,
+      "block": 663
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11416",
+      "mode": "story",
+      "level": 3,
+      "block": 664
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11500",
+      "mode": "story",
+      "level": 3,
+      "block": 665
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11536",
+      "mode": "story",
+      "level": 3,
+      "block": 666
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11616",
+      "mode": "story",
+      "level": 3,
+      "block": 667
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11724",
+      "mode": "story",
+      "level": 3,
+      "block": 668
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11808",
+      "mode": "story",
+      "level": 3,
+      "block": 669
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_20.bin:11840",
+      "mode": "story",
+      "level": 3,
+      "block": 670
+    },
+    {
+      "mission": "eventP01.EDAT/DL105_30.bin",
+      "block": 671,
+      "mission_row": "mission_note:eventP01.EDAT/DL105_30_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:204",
+      "mode": "story",
+      "level": 3,
+      "block": 672
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:276",
+      "mode": "story",
+      "level": 3,
+      "block": 673
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:396",
+      "mode": "story",
+      "level": 3,
+      "block": 674
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:560",
+      "mode": "story",
+      "level": 3,
+      "block": 675
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:684",
+      "mode": "story",
+      "level": 3,
+      "block": 676
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:828",
+      "mode": "story",
+      "level": 3,
+      "block": 677
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1008",
+      "mode": "story",
+      "level": 3,
+      "block": 678
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1108",
+      "mode": "story",
+      "level": 3,
+      "block": 679
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1216",
+      "mode": "story",
+      "level": 3,
+      "block": 680
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1332",
+      "mode": "story",
+      "level": 3,
+      "block": 681
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1436",
+      "mode": "story",
+      "level": 3,
+      "block": 682
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1544",
+      "mode": "story",
+      "level": 3,
+      "block": 683
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1712",
+      "mode": "story",
+      "level": 3,
+      "block": 684
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1772",
+      "mode": "story",
+      "level": 3,
+      "block": 685
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1900",
+      "mode": "story",
+      "level": 3,
+      "block": 686
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:1996",
+      "mode": "story",
+      "level": 3,
+      "block": 687
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2136",
+      "mode": "story",
+      "level": 3,
+      "block": 688
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2208",
+      "mode": "story",
+      "level": 3,
+      "block": 689
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2248",
+      "mode": "story",
+      "level": 3,
+      "block": 690
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2304",
+      "mode": "story",
+      "level": 3,
+      "block": 691
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2344",
+      "mode": "story",
+      "level": 3,
+      "block": 692
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2448",
+      "mode": "story",
+      "level": 3,
+      "block": 693
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2512",
+      "mode": "story",
+      "level": 3,
+      "block": 694
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2568",
+      "mode": "story",
+      "level": 3,
+      "block": 695
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2676",
+      "mode": "story",
+      "level": 3,
+      "block": 696
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 697
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2832",
+      "mode": "story",
+      "level": 3,
+      "block": 698
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2888",
+      "mode": "story",
+      "level": 3,
+      "block": 699
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2928",
+      "mode": "story",
+      "level": 3,
+      "block": 700
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:2976",
+      "mode": "story",
+      "level": 3,
+      "block": 701
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3056",
+      "mode": "story",
+      "level": 3,
+      "block": 702
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3116",
+      "mode": "story",
+      "level": 3,
+      "block": 703
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3176",
+      "mode": "story",
+      "level": 3,
+      "block": 704
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3212",
+      "mode": "story",
+      "level": 3,
+      "block": 705
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3300",
+      "mode": "story",
+      "level": 3,
+      "block": 706
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3428",
+      "mode": "story",
+      "level": 3,
+      "block": 707
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3516",
+      "mode": "story",
+      "level": 3,
+      "block": 708
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3620",
+      "mode": "story",
+      "level": 3,
+      "block": 709
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3660",
+      "mode": "story",
+      "level": 3,
+      "block": 710
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3744",
+      "mode": "story",
+      "level": 3,
+      "block": 711
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:3772",
+      "mode": "story",
+      "level": 3,
+      "block": 712
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4004",
+      "mode": "story",
+      "level": 3,
+      "block": 713
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4044",
+      "mode": "story",
+      "level": 3,
+      "block": 714
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4200",
+      "mode": "story",
+      "level": 3,
+      "block": 715
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4252",
+      "mode": "story",
+      "level": 3,
+      "block": 716
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4344",
+      "mode": "story",
+      "level": 3,
+      "block": 717
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4388",
+      "mode": "story",
+      "level": 3,
+      "block": 718
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4444",
+      "mode": "story",
+      "level": 3,
+      "block": 719
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4508",
+      "mode": "story",
+      "level": 3,
+      "block": 720
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4548",
+      "mode": "story",
+      "level": 3,
+      "block": 721
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4644",
+      "mode": "story",
+      "level": 3,
+      "block": 722
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4672",
+      "mode": "story",
+      "level": 3,
+      "block": 723
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4728",
+      "mode": "story",
+      "level": 3,
+      "block": 724
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4792",
+      "mode": "story",
+      "level": 3,
+      "block": 725
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4888",
+      "mode": "story",
+      "level": 3,
+      "block": 726
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4944",
+      "mode": "story",
+      "level": 3,
+      "block": 727
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:4984",
+      "mode": "story",
+      "level": 3,
+      "block": 728
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5032",
+      "mode": "story",
+      "level": 3,
+      "block": 729
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5076",
+      "mode": "story",
+      "level": 3,
+      "block": 730
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5108",
+      "mode": "story",
+      "level": 3,
+      "block": 731
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5160",
+      "mode": "story",
+      "level": 3,
+      "block": 732
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5204",
+      "mode": "story",
+      "level": 3,
+      "block": 733
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5264",
+      "mode": "story",
+      "level": 3,
+      "block": 734
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5328",
+      "mode": "story",
+      "level": 3,
+      "block": 735
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5464",
+      "mode": "story",
+      "level": 3,
+      "block": 736
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5500",
+      "mode": "story",
+      "level": 3,
+      "block": 737
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5560",
+      "mode": "story",
+      "level": 3,
+      "block": 738
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5660",
+      "mode": "story",
+      "level": 3,
+      "block": 739
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5708",
+      "mode": "story",
+      "level": 3,
+      "block": 740
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5772",
+      "mode": "story",
+      "level": 3,
+      "block": 741
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5820",
+      "mode": "story",
+      "level": 3,
+      "block": 742
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:5864",
+      "mode": "story",
+      "level": 3,
+      "block": 743
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6004",
+      "mode": "story",
+      "level": 3,
+      "block": 744
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6068",
+      "mode": "story",
+      "level": 3,
+      "block": 745
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6164",
+      "mode": "story",
+      "level": 3,
+      "block": 746
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6252",
+      "mode": "story",
+      "level": 3,
+      "block": 747
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6336",
+      "mode": "story",
+      "level": 3,
+      "block": 748
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6408",
+      "mode": "story",
+      "level": 3,
+      "block": 749
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6496",
+      "mode": "story",
+      "level": 3,
+      "block": 750
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6580",
+      "mode": "story",
+      "level": 3,
+      "block": 751
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6632",
+      "mode": "story",
+      "level": 3,
+      "block": 752
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:6808",
+      "mode": "story",
+      "level": 3,
+      "block": 753
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7148",
+      "mode": "story",
+      "level": 3,
+      "block": 754
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7224",
+      "mode": "story",
+      "level": 3,
+      "block": 755
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7264",
+      "mode": "story",
+      "level": 3,
+      "block": 756
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7308",
+      "mode": "story",
+      "level": 3,
+      "block": 757
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7356",
+      "mode": "story",
+      "level": 3,
+      "block": 758
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7408",
+      "mode": "story",
+      "level": 3,
+      "block": 759
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7560",
+      "mode": "story",
+      "level": 3,
+      "block": 760
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7868",
+      "mode": "story",
+      "level": 3,
+      "block": 761
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7928",
+      "mode": "story",
+      "level": 3,
+      "block": 762
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:7992",
+      "mode": "story",
+      "level": 3,
+      "block": 763
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:8064",
+      "mode": "story",
+      "level": 3,
+      "block": 764
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:8116",
+      "mode": "story",
+      "level": 3,
+      "block": 765
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:8164",
+      "mode": "story",
+      "level": 3,
+      "block": 766
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:8204",
+      "mode": "story",
+      "level": 3,
+      "block": 767
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:8336",
+      "mode": "story",
+      "level": 3,
+      "block": 768
+    },
+    {
+      "heading": "#### Situational dialogue — escaping the base",
+      "block": 769,
+      "pl": "#### Dialogi sytuacyjne — ucieczka z bazy"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 770
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9368",
+      "mode": "conditional",
+      "level": 3,
+      "block": 771
+    },
+    {
+      "heading": "### Out of the base",
+      "block": 772,
+      "pl": "### Wydostanie się z bazy"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9792",
+      "mode": "story",
+      "level": 3,
+      "block": 773
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9844",
+      "mode": "story",
+      "level": 3,
+      "block": 774
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9900",
+      "mode": "story",
+      "level": 3,
+      "block": 775
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:9944",
+      "mode": "story",
+      "level": 3,
+      "block": 776
+    },
+    {
+      "heading": "### Pailsen's order",
+      "block": 777,
+      "pl": "### Rozkaz Pailsena"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10064",
+      "mode": "story",
+      "level": 3,
+      "block": 778
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10124",
+      "mode": "story",
+      "level": 3,
+      "block": 779
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10176",
+      "mode": "story",
+      "level": 3,
+      "block": 780
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10204",
+      "mode": "story",
+      "level": 3,
+      "block": 781
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10248",
+      "mode": "story",
+      "level": 3,
+      "block": 782
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10384",
+      "mode": "story",
+      "level": 3,
+      "block": 783
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10440",
+      "mode": "story",
+      "level": 3,
+      "block": 784
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10500",
+      "mode": "story",
+      "level": 3,
+      "block": 785
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10600",
+      "mode": "story",
+      "level": 3,
+      "block": 786
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10744",
+      "mode": "story",
+      "level": 3,
+      "block": 787
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10796",
+      "mode": "story",
+      "level": 3,
+      "block": 788
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10856",
+      "mode": "story",
+      "level": 3,
+      "block": 789
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10876",
+      "mode": "story",
+      "level": 3,
+      "block": 790
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10932",
+      "mode": "story",
+      "level": 3,
+      "block": 791
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:10980",
+      "mode": "story",
+      "level": 3,
+      "block": 792
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11076",
+      "mode": "story",
+      "level": 3,
+      "block": 793
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11152",
+      "mode": "story",
+      "level": 3,
+      "block": 794
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11252",
+      "mode": "story",
+      "level": 3,
+      "block": 795
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11332",
+      "mode": "story",
+      "level": 3,
+      "block": 796
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11440",
+      "mode": "story",
+      "level": 3,
+      "block": 797
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11480",
+      "mode": "story",
+      "level": 3,
+      "block": 798
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11516",
+      "mode": "story",
+      "level": 3,
+      "block": 799
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11624",
+      "mode": "story",
+      "level": 3,
+      "block": 800
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11736",
+      "mode": "story",
+      "level": 3,
+      "block": 801
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11800",
+      "mode": "story",
+      "level": 3,
+      "block": 802
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11876",
+      "mode": "story",
+      "level": 3,
+      "block": 803
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:11932",
+      "mode": "story",
+      "level": 3,
+      "block": 804
+    },
+    {
+      "heading": "### Four men who cheated death",
+      "block": 805,
+      "pl": "### Czterej ludzie, którzy oszukali śmierć"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12012",
+      "mode": "story",
+      "level": 3,
+      "block": 806
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12096",
+      "mode": "story",
+      "level": 3,
+      "block": 807
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12184",
+      "mode": "story",
+      "level": 3,
+      "block": 808
+    },
+    {
+      "heading": "### Next time — Chapter 2",
+      "block": 809,
+      "pl": "### W następnym odcinku — Rozdział 2"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12268",
+      "mode": "story",
+      "level": 3,
+      "block": 810
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12336",
+      "mode": "story",
+      "level": 3,
+      "block": 811
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12372",
+      "mode": "story",
+      "level": 3,
+      "block": 812
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12444",
+      "mode": "story",
+      "level": 3,
+      "block": 813
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12488",
+      "mode": "story",
+      "level": 3,
+      "block": 814
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12532",
+      "mode": "story",
+      "level": 3,
+      "block": 815
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_30.bin:12600",
+      "mode": "story",
+      "level": 3,
+      "block": 816
+    },
+    {
+      "mission": "eventP01.EDAT/DL105_40.bin",
+      "block": 817,
+      "mission_row": "mission_note:eventP01.EDAT/DL105_40_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 818
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:296",
+      "mode": "story",
+      "level": 3,
+      "block": 819
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:444",
+      "mode": "story",
+      "level": 3,
+      "block": 820
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:600",
+      "mode": "story",
+      "level": 3,
+      "block": 821
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:740",
+      "mode": "story",
+      "level": 3,
+      "block": 822
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:792",
+      "mode": "story",
+      "level": 3,
+      "block": 823
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:832",
+      "mode": "story",
+      "level": 3,
+      "block": 824
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:892",
+      "mode": "story",
+      "level": 3,
+      "block": 825
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1008",
+      "mode": "story",
+      "level": 3,
+      "block": 826
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 827
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1184",
+      "mode": "story",
+      "level": 3,
+      "block": 828
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1248",
+      "mode": "story",
+      "level": 3,
+      "block": 829
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1292",
+      "mode": "story",
+      "level": 3,
+      "block": 830
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1340",
+      "mode": "story",
+      "level": 3,
+      "block": 831
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1388",
+      "mode": "story",
+      "level": 3,
+      "block": 832
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1452",
+      "mode": "story",
+      "level": 3,
+      "block": 833
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1552",
+      "mode": "story",
+      "level": 3,
+      "block": 834
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1616",
+      "mode": "story",
+      "level": 3,
+      "block": 835
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1700",
+      "mode": "story",
+      "level": 3,
+      "block": 836
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1776",
+      "mode": "story",
+      "level": 3,
+      "block": 837
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1824",
+      "mode": "story",
+      "level": 3,
+      "block": 838
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:1952",
+      "mode": "story",
+      "level": 3,
+      "block": 839
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2000",
+      "mode": "story",
+      "level": 3,
+      "block": 840
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2088",
+      "mode": "story",
+      "level": 3,
+      "block": 841
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2192",
+      "mode": "story",
+      "level": 3,
+      "block": 842
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2260",
+      "mode": "story",
+      "level": 3,
+      "block": 843
+    },
+    {
+      "heading": "### Back in Hara-Hara World",
+      "block": 844,
+      "pl": "### Powrót do Świata Hara-Hara"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2564",
+      "mode": "story",
+      "level": 3,
+      "block": 845
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2596",
+      "mode": "story",
+      "level": 3,
+      "block": 846
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2656",
+      "mode": "story",
+      "level": 3,
+      "block": 847
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 848
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2808",
+      "mode": "story",
+      "level": 3,
+      "block": 849
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2920",
+      "mode": "story",
+      "level": 3,
+      "block": 850
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:2972",
+      "mode": "story",
+      "level": 3,
+      "block": 851
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3044",
+      "mode": "story",
+      "level": 3,
+      "block": 852
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3108",
+      "mode": "story",
+      "level": 3,
+      "block": 853
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3200",
+      "mode": "story",
+      "level": 3,
+      "block": 854
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3256",
+      "mode": "story",
+      "level": 3,
+      "block": 855
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3328",
+      "mode": "story",
+      "level": 3,
+      "block": 856
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3376",
+      "mode": "story",
+      "level": 3,
+      "block": 857
+    },
+    {
+      "heading": "### A girl in trouble",
+      "block": 858,
+      "pl": "### Dziewczyna w tarapatach"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3464",
+      "mode": "story",
+      "level": 3,
+      "block": 859
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3516",
+      "mode": "story",
+      "level": 3,
+      "block": 860
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3628",
+      "mode": "story",
+      "level": 3,
+      "block": 861
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3696",
+      "mode": "story",
+      "level": 3,
+      "block": 862
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3724",
+      "mode": "story",
+      "level": 3,
+      "block": 863
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3776",
+      "mode": "story",
+      "level": 3,
+      "block": 864
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3852",
+      "mode": "story",
+      "level": 3,
+      "block": 865
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:3904",
+      "mode": "story",
+      "level": 3,
+      "block": 866
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4012",
+      "mode": "story",
+      "level": 3,
+      "block": 867
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4100",
+      "mode": "story",
+      "level": 3,
+      "block": 868
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4168",
+      "mode": "story",
+      "level": 3,
+      "block": 869
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4260",
+      "mode": "story",
+      "level": 3,
+      "block": 870
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4332",
+      "mode": "story",
+      "level": 3,
+      "block": 871
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4416",
+      "mode": "story",
+      "level": 3,
+      "block": 872
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4492",
+      "mode": "story",
+      "level": 3,
+      "block": 873
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4568",
+      "mode": "story",
+      "level": 3,
+      "block": 874
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4624",
+      "mode": "story",
+      "level": 3,
+      "block": 875
+    },
+    {
+      "heading": "### The Monskars return",
+      "block": 876,
+      "pl": "### Powrót Monskarów"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4756",
+      "mode": "story",
+      "level": 3,
+      "block": 877
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4824",
+      "mode": "story",
+      "level": 3,
+      "block": 878
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4888",
+      "mode": "story",
+      "level": 3,
+      "block": 879
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4948",
+      "mode": "story",
+      "level": 3,
+      "block": 880
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:4984",
+      "mode": "story",
+      "level": 3,
+      "block": 881
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5024",
+      "mode": "story",
+      "level": 3,
+      "block": 882
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5096",
+      "mode": "story",
+      "level": 3,
+      "block": 883
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5192",
+      "mode": "story",
+      "level": 3,
+      "block": 884
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5288",
+      "mode": "story",
+      "level": 3,
+      "block": 885
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5368",
+      "mode": "story",
+      "level": 3,
+      "block": 886
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5420",
+      "mode": "story",
+      "level": 3,
+      "block": 887
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5472",
+      "mode": "story",
+      "level": 3,
+      "block": 888
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:5544",
+      "mode": "story",
+      "level": 3,
+      "block": 889
+    },
+    {
+      "heading": "#### Situational battle dialogue — the heroes and their motives",
+      "block": 890,
+      "pl": "#### Dialogi bojowe — sytuacyjne — bohaterowie i ich pobudki"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 891
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6204",
+      "mode": "conditional",
+      "level": 3,
+      "block": 892
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6284",
+      "mode": "conditional",
+      "level": 3,
+      "block": 893
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6500",
+      "mode": "conditional",
+      "level": 3,
+      "block": 894
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 895
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 896
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:6780",
+      "mode": "conditional",
+      "level": 3,
+      "block": 897
+    },
+    {
+      "heading": "### Natsumi's rescue",
+      "block": 898,
+      "pl": "### Ratunek dla Natsumi"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7076",
+      "mode": "story",
+      "level": 3,
+      "block": 899
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7140",
+      "mode": "story",
+      "level": 3,
+      "block": 900
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7220",
+      "mode": "story",
+      "level": 3,
+      "block": 901
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7272",
+      "mode": "story",
+      "level": 3,
+      "block": 902
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7312",
+      "mode": "story",
+      "level": 3,
+      "block": 903
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7384",
+      "mode": "story",
+      "level": 3,
+      "block": 904
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7440",
+      "mode": "story",
+      "level": 3,
+      "block": 905
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7528",
+      "mode": "story",
+      "level": 3,
+      "block": 906
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7584",
+      "mode": "story",
+      "level": 3,
+      "block": 907
+    },
+    {
+      "heading": "### Natsumi's transformation",
+      "block": 908,
+      "pl": "### Przemiana Natsumi"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7628",
+      "mode": "story",
+      "level": 3,
+      "block": 909
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7748",
+      "mode": "story",
+      "level": 3,
+      "block": 910
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7788",
+      "mode": "story",
+      "level": 3,
+      "block": 911
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:7852",
+      "mode": "story",
+      "level": 3,
+      "block": 912
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8032",
+      "mode": "story",
+      "level": 3,
+      "block": 913
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8092",
+      "mode": "story",
+      "level": 3,
+      "block": 914
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8176",
+      "mode": "story",
+      "level": 3,
+      "block": 915
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8224",
+      "mode": "story",
+      "level": 3,
+      "block": 916
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8440",
+      "mode": "story",
+      "level": 3,
+      "block": 917
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8476",
+      "mode": "story",
+      "level": 3,
+      "block": 918
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8548",
+      "mode": "story",
+      "level": 3,
+      "block": 919
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8772",
+      "mode": "story",
+      "level": 3,
+      "block": 920
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8824",
+      "mode": "story",
+      "level": 3,
+      "block": 921
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8900",
+      "mode": "story",
+      "level": 3,
+      "block": 922
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:8996",
+      "mode": "story",
+      "level": 3,
+      "block": 923
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9076",
+      "mode": "story",
+      "level": 3,
+      "block": 924
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9160",
+      "mode": "story",
+      "level": 3,
+      "block": 925
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9208",
+      "mode": "story",
+      "level": 3,
+      "block": 926
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9264",
+      "mode": "story",
+      "level": 3,
+      "block": 927
+    },
+    {
+      "heading": "### The Arara sisters arrive",
+      "block": 928,
+      "pl": "### Przybycie sióstr Arara"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9416",
+      "mode": "story",
+      "level": 3,
+      "block": 929
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9460",
+      "mode": "story",
+      "level": 3,
+      "block": 930
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9524",
+      "mode": "story",
+      "level": 3,
+      "block": 931
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9608",
+      "mode": "story",
+      "level": 3,
+      "block": 932
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9660",
+      "mode": "story",
+      "level": 3,
+      "block": 933
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9720",
+      "mode": "story",
+      "level": 3,
+      "block": 934
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9812",
+      "mode": "story",
+      "level": 3,
+      "block": 935
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9924",
+      "mode": "story",
+      "level": 3,
+      "block": 936
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:9992",
+      "mode": "story",
+      "level": 3,
+      "block": 937
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10144",
+      "mode": "story",
+      "level": 3,
+      "block": 938
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10212",
+      "mode": "story",
+      "level": 3,
+      "block": 939
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10276",
+      "mode": "story",
+      "level": 3,
+      "block": 940
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10336",
+      "mode": "story",
+      "level": 3,
+      "block": 941
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10408",
+      "mode": "story",
+      "level": 3,
+      "block": 942
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10476",
+      "mode": "story",
+      "level": 3,
+      "block": 943
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10552",
+      "mode": "story",
+      "level": 3,
+      "block": 944
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10612",
+      "mode": "story",
+      "level": 3,
+      "block": 945
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10704",
+      "mode": "story",
+      "level": 3,
+      "block": 946
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10768",
+      "mode": "story",
+      "level": 3,
+      "block": 947
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10836",
+      "mode": "story",
+      "level": 3,
+      "block": 948
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10900",
+      "mode": "story",
+      "level": 3,
+      "block": 949
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:10948",
+      "mode": "story",
+      "level": 3,
+      "block": 950
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11032",
+      "mode": "story",
+      "level": 3,
+      "block": 951
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11100",
+      "mode": "story",
+      "level": 3,
+      "block": 952
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11140",
+      "mode": "story",
+      "level": 3,
+      "block": 953
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11232",
+      "mode": "story",
+      "level": 3,
+      "block": 954
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11300",
+      "mode": "story",
+      "level": 3,
+      "block": 955
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11396",
+      "mode": "story",
+      "level": 3,
+      "block": 956
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11460",
+      "mode": "story",
+      "level": 3,
+      "block": 957
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11532",
+      "mode": "story",
+      "level": 3,
+      "block": 958
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11596",
+      "mode": "story",
+      "level": 3,
+      "block": 959
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11720",
+      "mode": "story",
+      "level": 3,
+      "block": 960
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11792",
+      "mode": "story",
+      "level": 3,
+      "block": 961
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11840",
+      "mode": "story",
+      "level": 3,
+      "block": 962
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11884",
+      "mode": "story",
+      "level": 3,
+      "block": 963
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:11948",
+      "mode": "story",
+      "level": 3,
+      "block": 964
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12016",
+      "mode": "story",
+      "level": 3,
+      "block": 965
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12068",
+      "mode": "story",
+      "level": 3,
+      "block": 966
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12144",
+      "mode": "story",
+      "level": 3,
+      "block": 967
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12248",
+      "mode": "story",
+      "level": 3,
+      "block": 968
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12296",
+      "mode": "story",
+      "level": 3,
+      "block": 969
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12392",
+      "mode": "story",
+      "level": 3,
+      "block": 970
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12480",
+      "mode": "story",
+      "level": 3,
+      "block": 971
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12512",
+      "mode": "story",
+      "level": 3,
+      "block": 972
+    },
+    {
+      "heading": "### Was it a trap?",
+      "block": 973,
+      "pl": "### Czy to była pułapka?"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12584",
+      "mode": "story",
+      "level": 3,
+      "block": 974
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12708",
+      "mode": "story",
+      "level": 3,
+      "block": 975
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12772",
+      "mode": "story",
+      "level": 3,
+      "block": 976
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12864",
+      "mode": "story",
+      "level": 3,
+      "block": 977
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12928",
+      "mode": "story",
+      "level": 3,
+      "block": 978
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:12992",
+      "mode": "story",
+      "level": 3,
+      "block": 979
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13036",
+      "mode": "story",
+      "level": 3,
+      "block": 980
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13092",
+      "mode": "story",
+      "level": 3,
+      "block": 981
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13188",
+      "mode": "story",
+      "level": 3,
+      "block": 982
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13248",
+      "mode": "story",
+      "level": 3,
+      "block": 983
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13308",
+      "mode": "story",
+      "level": 3,
+      "block": 984
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13336",
+      "mode": "story",
+      "level": 3,
+      "block": 985
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13468",
+      "mode": "story",
+      "level": 3,
+      "block": 986
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13524",
+      "mode": "story",
+      "level": 3,
+      "block": 987
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13616",
+      "mode": "story",
+      "level": 3,
+      "block": 988
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13700",
+      "mode": "story",
+      "level": 3,
+      "block": 989
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13804",
+      "mode": "story",
+      "level": 3,
+      "block": 990
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13884",
+      "mode": "story",
+      "level": 3,
+      "block": 991
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:13964",
+      "mode": "story",
+      "level": 3,
+      "block": 992
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14080",
+      "mode": "story",
+      "level": 3,
+      "block": 993
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14136",
+      "mode": "story",
+      "level": 3,
+      "block": 994
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14216",
+      "mode": "story",
+      "level": 3,
+      "block": 995
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14312",
+      "mode": "story",
+      "level": 3,
+      "block": 996
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14352",
+      "mode": "story",
+      "level": 3,
+      "block": 997
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14392",
+      "mode": "story",
+      "level": 3,
+      "block": 998
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14456",
+      "mode": "story",
+      "level": 3,
+      "block": 999
+    },
+    {
+      "heading": "### A new journey begins",
+      "block": 1000,
+      "pl": "### Początek nowej podróży"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14564",
+      "mode": "story",
+      "level": 3,
+      "block": 1001
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14656",
+      "mode": "story",
+      "level": 3,
+      "block": 1002
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14768",
+      "mode": "story",
+      "level": 3,
+      "block": 1003
+    },
+    {
+      "heading": "### Next time — Chapter 2",
+      "block": 1004,
+      "pl": "### W następnym odcinku — Rozdział 2"
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14896",
+      "mode": "story",
+      "level": 3,
+      "block": 1005
+    },
+    {
+      "row": "dlg:eventP01.EDAT/DL105_40.bin:14964",
+      "mode": "story",
+      "level": 3,
+      "block": 1006
+    },
+    {
+      "mission": "eventP02.EDAT/DL105_50.bin",
+      "block": 1007,
+      "mission_row": "mission_note:eventP02.EDAT/DL105_50_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 1008
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:328",
+      "mode": "story",
+      "level": 3,
+      "block": 1009
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:472",
+      "mode": "story",
+      "level": 3,
+      "block": 1010
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:552",
+      "mode": "story",
+      "level": 3,
+      "block": 1011
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:644",
+      "mode": "story",
+      "level": 3,
+      "block": 1012
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:688",
+      "mode": "story",
+      "level": 3,
+      "block": 1013
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:784",
+      "mode": "story",
+      "level": 3,
+      "block": 1014
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:828",
+      "mode": "story",
+      "level": 3,
+      "block": 1015
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:912",
+      "mode": "story",
+      "level": 3,
+      "block": 1016
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1012",
+      "mode": "story",
+      "level": 3,
+      "block": 1017
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1068",
+      "mode": "story",
+      "level": 3,
+      "block": 1018
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1176",
+      "mode": "story",
+      "level": 3,
+      "block": 1019
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1224",
+      "mode": "story",
+      "level": 3,
+      "block": 1020
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1348",
+      "mode": "story",
+      "level": 3,
+      "block": 1021
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1444",
+      "mode": "story",
+      "level": 3,
+      "block": 1022
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1536",
+      "mode": "story",
+      "level": 3,
+      "block": 1023
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1636",
+      "mode": "story",
+      "level": 3,
+      "block": 1024
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1792",
+      "mode": "story",
+      "level": 3,
+      "block": 1025
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1876",
+      "mode": "story",
+      "level": 3,
+      "block": 1026
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1932",
+      "mode": "story",
+      "level": 3,
+      "block": 1027
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:1984",
+      "mode": "story",
+      "level": 3,
+      "block": 1028
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2056",
+      "mode": "story",
+      "level": 3,
+      "block": 1029
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2132",
+      "mode": "story",
+      "level": 3,
+      "block": 1030
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2248",
+      "mode": "story",
+      "level": 3,
+      "block": 1031
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2308",
+      "mode": "story",
+      "level": 3,
+      "block": 1032
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2476",
+      "mode": "story",
+      "level": 3,
+      "block": 1033
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2552",
+      "mode": "story",
+      "level": 3,
+      "block": 1034
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2632",
+      "mode": "story",
+      "level": 3,
+      "block": 1035
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2760",
+      "mode": "story",
+      "level": 3,
+      "block": 1036
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2812",
+      "mode": "story",
+      "level": 3,
+      "block": 1037
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2900",
+      "mode": "story",
+      "level": 3,
+      "block": 1038
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:2980",
+      "mode": "story",
+      "level": 3,
+      "block": 1039
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3048",
+      "mode": "story",
+      "level": 3,
+      "block": 1040
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3132",
+      "mode": "story",
+      "level": 3,
+      "block": 1041
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3172",
+      "mode": "story",
+      "level": 3,
+      "block": 1042
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3248",
+      "mode": "story",
+      "level": 3,
+      "block": 1043
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3332",
+      "mode": "story",
+      "level": 3,
+      "block": 1044
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 1045
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3524",
+      "mode": "story",
+      "level": 3,
+      "block": 1046
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3640",
+      "mode": "story",
+      "level": 3,
+      "block": 1047
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3728",
+      "mode": "story",
+      "level": 3,
+      "block": 1048
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3804",
+      "mode": "story",
+      "level": 3,
+      "block": 1049
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:3860",
+      "mode": "story",
+      "level": 3,
+      "block": 1050
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4036",
+      "mode": "story",
+      "level": 3,
+      "block": 1051
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4104",
+      "mode": "story",
+      "level": 3,
+      "block": 1052
+    },
+    {
+      "heading": "### The Death Army",
+      "block": 1053,
+      "pl": "### Armia Śmierci"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4232",
+      "mode": "story",
+      "level": 3,
+      "block": 1054
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4296",
+      "mode": "story",
+      "level": 3,
+      "block": 1055
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4352",
+      "mode": "story",
+      "level": 3,
+      "block": 1056
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4444",
+      "mode": "story",
+      "level": 3,
+      "block": 1057
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4492",
+      "mode": "story",
+      "level": 3,
+      "block": 1058
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4540",
+      "mode": "story",
+      "level": 3,
+      "block": 1059
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4596",
+      "mode": "story",
+      "level": 3,
+      "block": 1060
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4664",
+      "mode": "story",
+      "level": 3,
+      "block": 1061
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4732",
+      "mode": "story",
+      "level": 3,
+      "block": 1062
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4780",
+      "mode": "story",
+      "level": 3,
+      "block": 1063
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4856",
+      "mode": "story",
+      "level": 3,
+      "block": 1064
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:4948",
+      "mode": "story",
+      "level": 3,
+      "block": 1065
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5080",
+      "mode": "story",
+      "level": 3,
+      "block": 1066
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5108",
+      "mode": "story",
+      "level": 3,
+      "block": 1067
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5156",
+      "mode": "story",
+      "level": 3,
+      "block": 1068
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5236",
+      "mode": "story",
+      "level": 3,
+      "block": 1069
+    },
+    {
+      "heading": "### God Gundam",
+      "block": 1070,
+      "pl": "### God Gundam"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5300",
+      "mode": "story",
+      "level": 3,
+      "block": 1071
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5460",
+      "mode": "story",
+      "level": 3,
+      "block": 1072
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5520",
+      "mode": "story",
+      "level": 3,
+      "block": 1073
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5692",
+      "mode": "story",
+      "level": 3,
+      "block": 1074
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5780",
+      "mode": "story",
+      "level": 3,
+      "block": 1075
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5836",
+      "mode": "story",
+      "level": 3,
+      "block": 1076
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:5984",
+      "mode": "story",
+      "level": 3,
+      "block": 1077
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6072",
+      "mode": "story",
+      "level": 3,
+      "block": 1078
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6148",
+      "mode": "story",
+      "level": 3,
+      "block": 1079
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6264",
+      "mode": "story",
+      "level": 3,
+      "block": 1080
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6352",
+      "mode": "story",
+      "level": 3,
+      "block": 1081
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6412",
+      "mode": "story",
+      "level": 3,
+      "block": 1082
+    },
+    {
+      "heading": "#### Conditional and situational dialogue — pursuing the DG Cells",
+      "block": 1083,
+      "pl": "#### Dialogi warunkowe i sytuacyjne — pościg za Komórkami DG"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:6968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1084
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7036",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1085
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1086
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1087
+    },
+    {
+      "heading": "### The asteroid cleared",
+      "block": 1088,
+      "pl": "### Asteroida oczyszczona"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7576",
+      "mode": "story",
+      "level": 3,
+      "block": 1089
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7624",
+      "mode": "story",
+      "level": 3,
+      "block": 1090
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7668",
+      "mode": "story",
+      "level": 3,
+      "block": 1091
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7848",
+      "mode": "story",
+      "level": 3,
+      "block": 1092
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7896",
+      "mode": "story",
+      "level": 3,
+      "block": 1093
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:7988",
+      "mode": "story",
+      "level": 3,
+      "block": 1094
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8096",
+      "mode": "story",
+      "level": 3,
+      "block": 1095
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8160",
+      "mode": "story",
+      "level": 3,
+      "block": 1096
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8256",
+      "mode": "story",
+      "level": 3,
+      "block": 1097
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8364",
+      "mode": "story",
+      "level": 3,
+      "block": 1098
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8444",
+      "mode": "story",
+      "level": 3,
+      "block": 1099
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8512",
+      "mode": "story",
+      "level": 3,
+      "block": 1100
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8640",
+      "mode": "story",
+      "level": 3,
+      "block": 1101
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8696",
+      "mode": "story",
+      "level": 3,
+      "block": 1102
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8824",
+      "mode": "story",
+      "level": 3,
+      "block": 1103
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:8952",
+      "mode": "story",
+      "level": 3,
+      "block": 1104
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9048",
+      "mode": "story",
+      "level": 3,
+      "block": 1105
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9128",
+      "mode": "story",
+      "level": 3,
+      "block": 1106
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9252",
+      "mode": "story",
+      "level": 3,
+      "block": 1107
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9336",
+      "mode": "story",
+      "level": 3,
+      "block": 1108
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9420",
+      "mode": "story",
+      "level": 3,
+      "block": 1109
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9448",
+      "mode": "story",
+      "level": 3,
+      "block": 1110
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9544",
+      "mode": "story",
+      "level": 3,
+      "block": 1111
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9656",
+      "mode": "story",
+      "level": 3,
+      "block": 1112
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9752",
+      "mode": "story",
+      "level": 3,
+      "block": 1113
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9800",
+      "mode": "story",
+      "level": 3,
+      "block": 1114
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9904",
+      "mode": "story",
+      "level": 3,
+      "block": 1115
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_50.bin:9952",
+      "mode": "story",
+      "level": 3,
+      "block": 1116
+    },
+    {
+      "mission": "eventP02.EDAT/DL105_70.bin",
+      "block": 1117,
+      "mission_row": "mission_note:eventP02.EDAT/DL105_70_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 1118
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:272",
+      "mode": "story",
+      "level": 3,
+      "block": 1119
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:376",
+      "mode": "story",
+      "level": 3,
+      "block": 1120
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:412",
+      "mode": "story",
+      "level": 3,
+      "block": 1121
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:512",
+      "mode": "story",
+      "level": 3,
+      "block": 1122
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:688",
+      "mode": "story",
+      "level": 3,
+      "block": 1123
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:740",
+      "mode": "story",
+      "level": 3,
+      "block": 1124
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:848",
+      "mode": "story",
+      "level": 3,
+      "block": 1125
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:956",
+      "mode": "story",
+      "level": 3,
+      "block": 1126
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1060",
+      "mode": "story",
+      "level": 3,
+      "block": 1127
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1184",
+      "mode": "story",
+      "level": 3,
+      "block": 1128
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1284",
+      "mode": "story",
+      "level": 3,
+      "block": 1129
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1376",
+      "mode": "story",
+      "level": 3,
+      "block": 1130
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1488",
+      "mode": "story",
+      "level": 3,
+      "block": 1131
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1548",
+      "mode": "story",
+      "level": 3,
+      "block": 1132
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1700",
+      "mode": "story",
+      "level": 3,
+      "block": 1133
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1788",
+      "mode": "story",
+      "level": 3,
+      "block": 1134
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:1936",
+      "mode": "story",
+      "level": 3,
+      "block": 1135
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2076",
+      "mode": "story",
+      "level": 3,
+      "block": 1136
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2236",
+      "mode": "story",
+      "level": 3,
+      "block": 1137
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2328",
+      "mode": "story",
+      "level": 3,
+      "block": 1138
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2472",
+      "mode": "story",
+      "level": 3,
+      "block": 1139
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2532",
+      "mode": "story",
+      "level": 3,
+      "block": 1140
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2604",
+      "mode": "story",
+      "level": 3,
+      "block": 1141
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2696",
+      "mode": "story",
+      "level": 3,
+      "block": 1142
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2792",
+      "mode": "story",
+      "level": 3,
+      "block": 1143
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2900",
+      "mode": "story",
+      "level": 3,
+      "block": 1144
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:2952",
+      "mode": "story",
+      "level": 3,
+      "block": 1145
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3072",
+      "mode": "story",
+      "level": 3,
+      "block": 1146
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3184",
+      "mode": "story",
+      "level": 3,
+      "block": 1147
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3308",
+      "mode": "story",
+      "level": 3,
+      "block": 1148
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3432",
+      "mode": "story",
+      "level": 3,
+      "block": 1149
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3492",
+      "mode": "story",
+      "level": 3,
+      "block": 1150
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3548",
+      "mode": "story",
+      "level": 3,
+      "block": 1151
+    },
+    {
+      "heading": "### The Dark Dragon pirates",
+      "block": 1152,
+      "pl": "### Piraci Mrocznego Smoka"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3576",
+      "mode": "story",
+      "level": 3,
+      "block": 1153
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3652",
+      "mode": "story",
+      "level": 3,
+      "block": 1154
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3700",
+      "mode": "story",
+      "level": 3,
+      "block": 1155
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3756",
+      "mode": "story",
+      "level": 3,
+      "block": 1156
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:3936",
+      "mode": "story",
+      "level": 3,
+      "block": 1157
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4008",
+      "mode": "story",
+      "level": 3,
+      "block": 1158
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4112",
+      "mode": "story",
+      "level": 3,
+      "block": 1159
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4172",
+      "mode": "story",
+      "level": 3,
+      "block": 1160
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4212",
+      "mode": "story",
+      "level": 3,
+      "block": 1161
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4260",
+      "mode": "story",
+      "level": 3,
+      "block": 1162
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4328",
+      "mode": "story",
+      "level": 3,
+      "block": 1163
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4404",
+      "mode": "story",
+      "level": 3,
+      "block": 1164
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4500",
+      "mode": "story",
+      "level": 3,
+      "block": 1165
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4568",
+      "mode": "story",
+      "level": 3,
+      "block": 1166
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4668",
+      "mode": "story",
+      "level": 3,
+      "block": 1167
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:4744",
+      "mode": "story",
+      "level": 3,
+      "block": 1168
+    },
+    {
+      "heading": "#### Conditional and situational battle dialogue — Steru's Class Change",
+      "block": 1169,
+      "pl": "#### Dialogi bojowe — warunkowe i sytuacyjne — Zmiana Klasy Steru"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5032",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1170
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5360",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1171
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1172
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5564",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1173
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5596",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1174
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1175
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5728",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1176
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5820",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1177
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5944",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1178
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:5992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1179
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1180
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6076",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1181
+    },
+    {
+      "heading": "### The pirates surrender",
+      "block": 1182,
+      "pl": "### Kapitulacja piratów"
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6428",
+      "mode": "story",
+      "level": 3,
+      "block": 1183
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6488",
+      "mode": "story",
+      "level": 3,
+      "block": 1184
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6552",
+      "mode": "story",
+      "level": 3,
+      "block": 1185
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6640",
+      "mode": "story",
+      "level": 3,
+      "block": 1186
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6672",
+      "mode": "story",
+      "level": 3,
+      "block": 1187
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6780",
+      "mode": "story",
+      "level": 3,
+      "block": 1188
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6844",
+      "mode": "story",
+      "level": 3,
+      "block": 1189
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:6888",
+      "mode": "story",
+      "level": 3,
+      "block": 1190
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7112",
+      "mode": "story",
+      "level": 3,
+      "block": 1191
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7196",
+      "mode": "story",
+      "level": 3,
+      "block": 1192
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7264",
+      "mode": "story",
+      "level": 3,
+      "block": 1193
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7368",
+      "mode": "story",
+      "level": 3,
+      "block": 1194
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7460",
+      "mode": "story",
+      "level": 3,
+      "block": 1195
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7568",
+      "mode": "story",
+      "level": 3,
+      "block": 1196
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7716",
+      "mode": "story",
+      "level": 3,
+      "block": 1197
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7840",
+      "mode": "story",
+      "level": 3,
+      "block": 1198
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:7920",
+      "mode": "story",
+      "level": 3,
+      "block": 1199
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:8004",
+      "mode": "story",
+      "level": 3,
+      "block": 1200
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:8164",
+      "mode": "story",
+      "level": 3,
+      "block": 1201
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:8244",
+      "mode": "story",
+      "level": 3,
+      "block": 1202
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:8340",
+      "mode": "story",
+      "level": 3,
+      "block": 1203
+    },
+    {
+      "row": "dlg:eventP02.EDAT/DL105_70.bin:8464",
+      "mode": "story",
+      "level": 3,
+      "block": 1204
+    },
+    {
+      "mission": "eventP21.EDAT/DL105_90.bin",
+      "block": 1205,
+      "mission_row": "mission_note:eventP21.EDAT/DL105_90_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 1206
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:248",
+      "mode": "story",
+      "level": 3,
+      "block": 1207
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:372",
+      "mode": "story",
+      "level": 3,
+      "block": 1208
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:540",
+      "mode": "story",
+      "level": 3,
+      "block": 1209
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:656",
+      "mode": "story",
+      "level": 3,
+      "block": 1210
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:716",
+      "mode": "story",
+      "level": 3,
+      "block": 1211
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:760",
+      "mode": "story",
+      "level": 3,
+      "block": 1212
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:812",
+      "mode": "story",
+      "level": 3,
+      "block": 1213
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:876",
+      "mode": "story",
+      "level": 3,
+      "block": 1214
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:916",
+      "mode": "story",
+      "level": 3,
+      "block": 1215
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:976",
+      "mode": "story",
+      "level": 3,
+      "block": 1216
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1048",
+      "mode": "story",
+      "level": 3,
+      "block": 1217
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 1218
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 1219
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1332",
+      "mode": "story",
+      "level": 3,
+      "block": 1220
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1412",
+      "mode": "story",
+      "level": 3,
+      "block": 1221
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1448",
+      "mode": "story",
+      "level": 3,
+      "block": 1222
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1524",
+      "mode": "story",
+      "level": 3,
+      "block": 1223
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1616",
+      "mode": "story",
+      "level": 3,
+      "block": 1224
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1656",
+      "mode": "story",
+      "level": 3,
+      "block": 1225
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1764",
+      "mode": "story",
+      "level": 3,
+      "block": 1226
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1856",
+      "mode": "story",
+      "level": 3,
+      "block": 1227
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:1908",
+      "mode": "story",
+      "level": 3,
+      "block": 1228
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2044",
+      "mode": "story",
+      "level": 3,
+      "block": 1229
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2116",
+      "mode": "story",
+      "level": 3,
+      "block": 1230
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2196",
+      "mode": "story",
+      "level": 3,
+      "block": 1231
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2252",
+      "mode": "story",
+      "level": 3,
+      "block": 1232
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2324",
+      "mode": "story",
+      "level": 3,
+      "block": 1233
+    },
+    {
+      "heading": "### Bandits attack the village",
+      "block": 1234,
+      "pl": "### Bandyci atakują wioskę"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2744",
+      "mode": "story",
+      "level": 3,
+      "block": 1235
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2784",
+      "mode": "story",
+      "level": 3,
+      "block": 1236
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2848",
+      "mode": "story",
+      "level": 3,
+      "block": 1237
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:2960",
+      "mode": "story",
+      "level": 3,
+      "block": 1238
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3060",
+      "mode": "story",
+      "level": 3,
+      "block": 1239
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3092",
+      "mode": "story",
+      "level": 3,
+      "block": 1240
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3144",
+      "mode": "story",
+      "level": 3,
+      "block": 1241
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3216",
+      "mode": "story",
+      "level": 3,
+      "block": 1242
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 1243
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3468",
+      "mode": "story",
+      "level": 3,
+      "block": 1244
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3528",
+      "mode": "story",
+      "level": 3,
+      "block": 1245
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3576",
+      "mode": "story",
+      "level": 3,
+      "block": 1246
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3640",
+      "mode": "story",
+      "level": 3,
+      "block": 1247
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3700",
+      "mode": "story",
+      "level": 3,
+      "block": 1248
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3792",
+      "mode": "story",
+      "level": 3,
+      "block": 1249
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3872",
+      "mode": "story",
+      "level": 3,
+      "block": 1250
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:3976",
+      "mode": "story",
+      "level": 3,
+      "block": 1251
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4028",
+      "mode": "story",
+      "level": 3,
+      "block": 1252
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4080",
+      "mode": "story",
+      "level": 3,
+      "block": 1253
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4164",
+      "mode": "story",
+      "level": 3,
+      "block": 1254
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4236",
+      "mode": "story",
+      "level": 3,
+      "block": 1255
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4312",
+      "mode": "story",
+      "level": 3,
+      "block": 1256
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4384",
+      "mode": "story",
+      "level": 3,
+      "block": 1257
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4476",
+      "mode": "story",
+      "level": 3,
+      "block": 1258
+    },
+    {
+      "heading": "#### Conditional dialogue — Suzaku and the bandits",
+      "block": 1259,
+      "pl": "#### Dialogi warunkowe — Suzaku i bandyci"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4852",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1260
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:4940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1261
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5156",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1262
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5240",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1263
+    },
+    {
+      "heading": "#### Conditional dialogue — Schubaltz fights for the village",
+      "block": 1264,
+      "pl": "#### Dialogi warunkowe — Schubaltz walczy w obronie wioski"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 1265
+    },
+    {
+      "heading": "### Major Schubaltz arrives",
+      "block": 1266,
+      "pl": "### Przybycie majora Schubaltza"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5728",
+      "mode": "story",
+      "level": 3,
+      "block": 1267
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5788",
+      "mode": "story",
+      "level": 3,
+      "block": 1268
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5916",
+      "mode": "story",
+      "level": 3,
+      "block": 1269
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:5960",
+      "mode": "story",
+      "level": 3,
+      "block": 1270
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6024",
+      "mode": "story",
+      "level": 3,
+      "block": 1271
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6096",
+      "mode": "story",
+      "level": 3,
+      "block": 1272
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6176",
+      "mode": "story",
+      "level": 3,
+      "block": 1273
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6404",
+      "mode": "story",
+      "level": 3,
+      "block": 1274
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6464",
+      "mode": "story",
+      "level": 3,
+      "block": 1275
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6500",
+      "mode": "story",
+      "level": 3,
+      "block": 1276
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6576",
+      "mode": "story",
+      "level": 3,
+      "block": 1277
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6616",
+      "mode": "story",
+      "level": 3,
+      "block": 1278
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6692",
+      "mode": "story",
+      "level": 3,
+      "block": 1279
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6800",
+      "mode": "story",
+      "level": 3,
+      "block": 1280
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6840",
+      "mode": "story",
+      "level": 3,
+      "block": 1281
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:6976",
+      "mode": "story",
+      "level": 3,
+      "block": 1282
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7036",
+      "mode": "story",
+      "level": 3,
+      "block": 1283
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7124",
+      "mode": "story",
+      "level": 3,
+      "block": 1284
+    },
+    {
+      "heading": "### The bandits defeated",
+      "block": 1285,
+      "pl": "### Bandyci pokonani"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7520",
+      "mode": "story",
+      "level": 3,
+      "block": 1286
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7604",
+      "mode": "story",
+      "level": 3,
+      "block": 1287
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7732",
+      "mode": "story",
+      "level": 3,
+      "block": 1288
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7780",
+      "mode": "story",
+      "level": 3,
+      "block": 1289
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7828",
+      "mode": "story",
+      "level": 3,
+      "block": 1290
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:7952",
+      "mode": "story",
+      "level": 3,
+      "block": 1291
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8004",
+      "mode": "story",
+      "level": 3,
+      "block": 1292
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8088",
+      "mode": "story",
+      "level": 3,
+      "block": 1293
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8116",
+      "mode": "story",
+      "level": 3,
+      "block": 1294
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8208",
+      "mode": "story",
+      "level": 3,
+      "block": 1295
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8244",
+      "mode": "story",
+      "level": 3,
+      "block": 1296
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8492",
+      "mode": "story",
+      "level": 3,
+      "block": 1297
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8536",
+      "mode": "story",
+      "level": 3,
+      "block": 1298
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8612",
+      "mode": "story",
+      "level": 3,
+      "block": 1299
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8652",
+      "mode": "story",
+      "level": 3,
+      "block": 1300
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8720",
+      "mode": "story",
+      "level": 3,
+      "block": 1301
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8764",
+      "mode": "story",
+      "level": 3,
+      "block": 1302
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8796",
+      "mode": "story",
+      "level": 3,
+      "block": 1303
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:8920",
+      "mode": "story",
+      "level": 3,
+      "block": 1304
+    },
+    {
+      "heading": "### Discussing their situation",
+      "block": 1305,
+      "pl": "### Omówienie położenia"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9180",
+      "mode": "story",
+      "level": 3,
+      "block": 1306
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9292",
+      "mode": "story",
+      "level": 3,
+      "block": 1307
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9372",
+      "mode": "story",
+      "level": 3,
+      "block": 1308
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9480",
+      "mode": "story",
+      "level": 3,
+      "block": 1309
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9584",
+      "mode": "story",
+      "level": 3,
+      "block": 1310
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9692",
+      "mode": "story",
+      "level": 3,
+      "block": 1311
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9784",
+      "mode": "story",
+      "level": 3,
+      "block": 1312
+    },
+    {
+      "heading": "### Schubaltz's offer",
+      "block": 1313,
+      "pl": "### Propozycja Schubaltza"
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9888",
+      "mode": "story",
+      "level": 3,
+      "block": 1314
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:9960",
+      "mode": "story",
+      "level": 3,
+      "block": 1315
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10068",
+      "mode": "story",
+      "level": 3,
+      "block": 1316
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10232",
+      "mode": "story",
+      "level": 3,
+      "block": 1317
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10296",
+      "mode": "story",
+      "level": 3,
+      "block": 1318
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10376",
+      "mode": "story",
+      "level": 3,
+      "block": 1319
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10524",
+      "mode": "story",
+      "level": 3,
+      "block": 1320
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10600",
+      "mode": "story",
+      "level": 3,
+      "block": 1321
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10656",
+      "mode": "story",
+      "level": 3,
+      "block": 1322
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10776",
+      "mode": "story",
+      "level": 3,
+      "block": 1323
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10864",
+      "mode": "story",
+      "level": 3,
+      "block": 1324
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:10920",
+      "mode": "story",
+      "level": 3,
+      "block": 1325
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11008",
+      "mode": "story",
+      "level": 3,
+      "block": 1326
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11088",
+      "mode": "story",
+      "level": 3,
+      "block": 1327
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11192",
+      "mode": "story",
+      "level": 3,
+      "block": 1328
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11256",
+      "mode": "story",
+      "level": 3,
+      "block": 1329
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11344",
+      "mode": "story",
+      "level": 3,
+      "block": 1330
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11432",
+      "mode": "story",
+      "level": 3,
+      "block": 1331
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11496",
+      "mode": "story",
+      "level": 3,
+      "block": 1332
+    },
+    {
+      "row": "dlg:eventP21.EDAT/DL105_90.bin:11556",
+      "mode": "story",
+      "level": 3,
+      "block": 1333
+    }
+  ]
+}
