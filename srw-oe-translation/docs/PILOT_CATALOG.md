@@ -1,9 +1,9 @@
 # Pilot, Spirit Command, and Skill Reference Catalogue (`srwoe_pilot_catalog_PL.md`)
 
-**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S/view)
-- **Size:** `303,329` bytes (`6,278` lines)
-- **SHA-256:** `63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3`
-- **MD5:** `8dd7b5ca642286648e2729378d5be3ec`
+**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ/view)
+- **Size:** `303,342` bytes (`6,278` lines)
+- **SHA-256:** `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`
+- **MD5:** `a0511a860ac09ced6ce748979dc8cc6c`
 - **Presentation:** Pilot headings without `[ID ...]` badges, base-only **Pilot Statistics** (`Parametr | Wartość bazowa`), **Spirit Commands** with unlock level (`Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy`), **Pilot Skills** with unlock level and base effect (`Slot | Umiejętność | Poz. nauki | Efekt bazowy` on pilot cards and `ID | Umiejętność | Efekt bazowy` in the Section 2 lexicon, without `Lv2`–`Lv9` progressions or `+krok` steps), and **Ace Bonuses**, vertically aligned for monospace Notepad++ (`≤ 216` cells wide).
 - **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `9` focused pilot/table tests.
 - **Manifests & reproduction commands:** [docs/pilot-catalog/README.md](pilot-catalog/README.md)
@@ -17,7 +17,7 @@ This deliverable builds the mech-independent Polish reference catalogue of all p
 1. **Read-only reference build:** Neither game binaries (`config00.cpk`, `config01.EDAT`–`config19.EDAT`, `configst.cpk`, `PBOOT.PBP`) nor `pakiet_EN` / `pakiet_PL` are modified.
 2. **Zero guesswork or franchise extrapolation:** Every record field, stat growth curve, Spirit tier unlock level, Skill tier selector, rival profile redirect, story-flag skill upgrade, and Ace Bonus rule is proven directly from 1.08 `DATA.PSP` MIPS `.text` disassembly and verified against live Unicorn execution of the unmodified game routine `.text 0x21f4ec`.
 3. **Why earlier PR #21 was rejected and discarded:** Earlier scripts (`pilot_skills*.py` in closed PR #21, never imported here) misread 32-bit string pool offsets at the start of `srwDL_CharaDictionary` records as `srwDL_Skill00` IDs. Actual pilot stats, Spirit Commands, Pilot Skills, and Ace Bonuses reside exclusively in the 172-byte `charalist00.bin`–`charalist19.bin` records and resolve via `u16@+2` (`alias_id`) across `srwDL_Skill00.bin`–`srwDL_Skill08.bin` and `u16@+2` (`family`) in `configst.cpk/srwDL_Spirit.bin`.
-4. **Source-bound Polish text (`pakiet_PL`):** All Polish names and descriptions come strictly from the materialized offline `pakiet_PL` snapshot (`PL4` + reviewed UI overlays, `snapshot_sha256 = 4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2`) without new literary translation or silent English substitution.
+4. **Source-bound Polish text (`pakiet_PL`):** All Polish names and descriptions come strictly from the materialized offline `pakiet_PL` snapshot (`PL5.zip` + reviewed UI overlays, `snapshot_sha256 = b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8`) without new literary translation or silent English substitution.
 5. **Repository hygiene:** Full rendered Markdown (`srwoe_pilot_catalog_PL.md`) and derived binaries remain excluded from Git under ignored `local/` and are exchanged via Google Drive with full checksum verification; only tools, tests, documentation, and sanitized JSON manifests live in Git.
 
 ---

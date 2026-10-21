@@ -3156,7 +3156,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Mikhail Kaminsky
 
 - **Seria:** Mobile Suit Gundam 0080: War in the Pocket
-- **Nazwa skrócona:** Misha
+- **Nazwa skrócona:** Misza
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -12367,7 +12367,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -12383,7 +12383,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -12415,7 +12415,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Lance Cpl. Dororo
+#### Starszy szeregowy Dororo
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Dororo
@@ -26000,7 +26000,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -40361,7 +40361,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -53030,7 +53030,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Mikhail Kaminsky
 
 - **Seria:** Mobile Suit Gundam 0080: War in the Pocket
-- **Nazwa skrócona:** Misha
+- **Nazwa skrócona:** Misza
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -68092,7 +68092,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -68108,7 +68108,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -68140,7 +68140,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Lance Cpl. Dororo
+#### Starszy szeregowy Dororo
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Dororo
@@ -68643,7 +68643,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -83493,7 +83493,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -84271,7 +84271,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -85126,7 +85126,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -86026,7 +86026,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -114663,7 +114663,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -116176,7 +116176,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -118555,7 +118555,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -124625,7 +124625,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: Fiona Elisi Linette
   - **Dibison** — pilot główny: Thomas Richard Schubaltz
   - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: Himari Yaegaki, Vasage
-  - **God Keron** — pilot główny: Sierżant Keroro — piloci wspierający w misji: Cpl. Giroro, Pvt. Tamama, Starszy sierżant Kululu, Lance Cpl. Dororo
+  - **God Keron** — pilot główny: Sierżant Keroro — piloci wspierający w misji: Kapral Giroro, Szeregowy Tamama, Starszy sierżant Kululu, Starszy szeregowy Dororo
   - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro
   - **Lightning Saix** — pilot główny: Irvine
   - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
@@ -125613,7 +125613,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -125629,7 +125629,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -125661,7 +125661,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Lance Cpl. Dororo
+#### Starszy szeregowy Dororo
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Dororo
@@ -138378,7 +138378,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -139115,7 +139115,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-### Odcinek 25 — Ku Earth Blade (`DL625_12`)
+### Odcinek 25 — Ku Ostrzu Ziemi (`DL625_12`)
 
 **Źródło:** `eventP06.EDAT/DL625_12_Entry.dat`
 **Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
@@ -152511,7 +152511,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -152527,7 +152527,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -177403,7 +177403,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -177419,7 +177419,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -177451,7 +177451,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Lance Cpl. Dororo
+#### Starszy szeregowy Dororo
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Dororo
@@ -184014,7 +184014,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -186393,7 +186393,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -186438,7 +186438,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -186454,7 +186454,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -194604,7 +194604,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -197331,7 +197331,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -201751,7 +201751,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Cafe au Lait Arara
 
 - **Seria:** NG Knight Lamune &amp; 40
-- **Nazwa skrócona:** Lesqua
+- **Nazwa skrócona:** Lesca
 
 - **Pula SP:** **60** *(podpilot korzysta ze statystyk bojowych głównego pilota)*
 
@@ -202081,7 +202081,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Cpl. Giroro
+#### Kapral Giroro
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Giroro
@@ -202097,7 +202097,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Pvt. Tamama
+#### Szeregowy Tamama
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Tamama
@@ -202129,7 +202129,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Lance Cpl. Dororo
+#### Starszy szeregowy Dororo
 
 - **Seria:** Sgt. Frog
 - **Nazwa skrócona:** Dororo
@@ -204779,7 +204779,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Mikhail Kaminsky
 
 - **Seria:** Mobile Suit Gundam 0080: War in the Pocket
-- **Nazwa skrócona:** Misha
+- **Nazwa skrócona:** Misza
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -209969,7 +209969,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Mikhail Kaminsky
 
 - **Seria:** Mobile Suit Gundam 0080: War in the Pocket
-- **Nazwa skrócona:** Misha
+- **Nazwa skrócona:** Misza
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -215522,7 +215522,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Mikhail Kaminsky
 
 - **Seria:** Mobile Suit Gundam 0080: War in the Pocket
-- **Nazwa skrócona:** Misha
+- **Nazwa skrócona:** Misza
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
