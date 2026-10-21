@@ -1,10 +1,10 @@
 # Pilot, Spirit Command, and Skill Reference Catalogue (`srwoe_pilot_catalog_PL.md`)
 
-**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/19UyM9KbMpq4H8wmFZiydMLKklpA96JwH/view)
-- **Size:** `286,627` bytes (`6,278` lines)
-- **SHA-256:** `d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`
-- **MD5:** `9e90132a7abcfbeebcf19b28e988fc2c`
-- **Presentation:** Base-only values across **Pilot Statistics** (`Parametr | Wartość bazowa`), **Spirit Commands** (`Slot | Duch | Koszt SP | Efekt bazowy`), **Pilot Skills** (`Slot | Umiejętność | Efekt bazowy` on pilot cards and `ID | Umiejętność | Efekt bazowy` in the Section 2 lexicon, without `Lv2`–`Lv9` progressions or unlock steps), and **Ace Bonuses**, vertically aligned for monospace Notepad++ (`≤ 216` cells wide).
+**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S/view)
+- **Size:** `303,329` bytes (`6,278` lines)
+- **SHA-256:** `63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3`
+- **MD5:** `8dd7b5ca642286648e2729378d5be3ec`
+- **Presentation:** Pilot headings without `[ID ...]` badges, base-only **Pilot Statistics** (`Parametr | Wartość bazowa`), **Spirit Commands** with unlock level (`Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy`), **Pilot Skills** with unlock level and base effect (`Slot | Umiejętność | Poz. nauki | Efekt bazowy` on pilot cards and `ID | Umiejętność | Efekt bazowy` in the Section 2 lexicon, without `Lv2`–`Lv9` progressions or `+krok` steps), and **Ace Bonuses**, vertically aligned for monospace Notepad++ (`≤ 216` cells wide).
 - **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `9` focused pilot/table tests.
 - **Manifests & reproduction commands:** [docs/pilot-catalog/README.md](pilot-catalog/README.md)
 

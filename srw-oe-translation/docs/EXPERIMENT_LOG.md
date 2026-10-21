@@ -8025,6 +8025,12 @@ Base-only Pilot Skills in `srwoe_pilot_catalog_PL.md` (2026-10-21):
    `d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`, MD5 `9e90132a7abcfbeebcf19b28e988fc2c`) to
    Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as file `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`, trashed
    superseded `1IPw-7q_874EmSm4FmJjPCQyJNFjESclm`, and confirmed byte-identical download-back (`cmp -s`).
+4. Added initial unlock level (`Poz. nauki`) columns to per-pilot Spirit Command (`Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy`)
+   and Pilot Skill (`Slot | Umiejętność | Poz. nauki | Efekt bazowy`) tables and removed all pilot `[ID ...]` badges / pilot ID columns
+   across pilot cards, cross-references, and Appendix A (`tools/pilot_catalog.py` + multiset card/unlock checks in
+   `tools/verify_pilot_catalog.py`, commit `e2ec961`); uploaded updated `srwoe_pilot_catalog_PL.md` (`303,329 B`, `6,278` lines,
+   SHA-256 `63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3`, MD5 `8dd7b5ca642286648e2729378d5be3ec`) to Google Drive
+   `1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S` (trashing `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`) and verified byte-identical download-back.
 
 
 
