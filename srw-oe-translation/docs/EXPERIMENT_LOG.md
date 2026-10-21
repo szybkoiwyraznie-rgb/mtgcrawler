@@ -8093,6 +8093,43 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
    - Uploaded to Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`, confirmed
      byte-identical round-trip download (`cmp -s == 0`), recorded receipt in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`,
      and passed full repository test suite (`1,767` tests OK, `7` skipped) [ZWERYFIKOWANE; pliki do czytania, bez zmian ISO/DLC].
+5. Conducted full binary/MIPS forensic regression audit and delivered **PL `v3.1` (`srw-oe-translation-pl-v3.1.zip`)** across all
+   5 owner-reported PPSSPP screens plus every sibling banner, forecast row, weapon trait, and Intermission footer help string:
+   - **Regression audit (`v2.7-PL6` -> `v3.0`, Checkpoint `a3e01ae`):** Verified `0 / 1,385` regressions across all prior
+     `owner_ui_corrections` bindings. Proved via binary readback that Screen 1 was an unshortened Battle top-bar entry
+     (`sysmes:configst.cpk/sysmes.bin:50972` `"Statystyki"` + `50984` `"Komendy akcji"`, distinct from the already-shortened
+     Intermission `imenu` header `"Stat."`) and Screen 5 was an active `sysmes:16792` entry (`"Sprawdzaj statystyki maszyn, pilotów i broni,\n..."`),
+     whereas `ui-six-screens-2026-10-19.json` had edited only the dormant `imenu:852` twin.
+   - **MIPS & container measurements (`pboot.elf` MD5 `8ba77a79e7d46473671cb87e77553deb`, `font.cpk` `7px` cell width):**
+     - **Screen 1 (Battle top bar):** Shortened `sysmes:50972` `"Statystyki"` -> `"Stat."` (`35 px`) and `sysmes:50984`
+       `"Komendy akcji"` -> `"Akcje"` (`35 px`).
+     - **Screen 2 (Active skill & spirit banners):** Measured `sysmes` `41760..42156` + `10656..11392` (`max <= 228 px`); shortened
+       `Precyzja:` (`42080`: `31 -> 26` visible chars = `182 px`) and all `6` sibling banner families (`24` `sysmes` slots).
+     - **Screen 3 (Battle forecast `sub_088f274c`, `0x08bf8280..0x08bf82e0`):** Disassembled all 4 forecast rows (`A`, `B1/B2`,
+       `C1/C2`, `D`: `x = +4 / +46 / +74 / +98 / +132`) and fixed all `10` executable strings (`0x003f4320..0x003f4380`, e.g.
+       `"Okrąż."` `42 px` + `"A/C"` `21 px` <= `28 px` budget before `+74`, `"Efekt "` `42 px == 42 px` exact join with `"A/C"`,
+       `"Bez okrąż."` `70 px`).
+     - **Screen 4 (Weapon trait descriptions `<= 46` chars = `322 px <= 327 px` before `[TGT Wr.]`):** Shortened all `18` `09_executable.jsonl`
+       1.08 trait overrides plus `36` `03_skills.jsonl` records, `31` `04_config_text.jsonl` `srwDL_Skill00.bin` mirrors, and `3`
+       tail-pool fragments (`0` weapon-used skill aliases across all `56` families exceed `46` chars on line 1).
+     - **Screen 5 (Intermission footer help bar `<= 39` chars = `273 px <= 278 px` before `Ukończ`):** Shortened `sysmes:16792`
+       (`35` chars = `245 px`) and all `17` sibling `sysmes` / `imenu` help rows (`141` verified source-bound changes total in
+       `config/pl/ui-five-screens-2026-10-21.json`; `1,521` unique bindings in `owner_ui_corrections`; `0` `sceUtility` firmware
+       strings touched).
+   - **Verification & Google Drive delivery:** Materialized `pakiet_PL` (`109,176` rows, `108,805` filled, `0` errors), verified
+     binary readbacks on `configst.cpk/sysmes.bin` (`868 / 868` entries, `48,592 B`), `config00.cpk/srwDL_Skill00.bin`
+     (`215,969 / 225,280 B`, `783` pool fragments + `9,658` record slots), and `PBOOT.PBP` (`399 / 399` applied, `6,194,059 B`),
+     passed `1,773` unit tests (`7` skipped), built `srw-oe-translation-pl-v3.1.zip` (`8,754,626 B`,
+     SHA-256 `f9c91e83b3acbc7ebde39681c34e1d8f181c5cda0bb56e47576fb3d862f09fb6`, MD5 `fcf8ba5773645f18da6c6d8aabc4a37b`,
+     Drive ID `1lIvk3Krr4KUve0fi0t_JP3yc1AUcOugm` in `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`; superseded `v3.0`
+     `1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO` moved to trash), refreshed `srwoe_mech_catalog_v4_PL.md` (`873,130 B`, max pipe line
+     `204 <= 216`, SHA-256 `07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031`, MD5 `3b636281662186cb3d1ede67990c24c6`,
+     Drive ID `1Iom2YIbNna-djLB5em8WchoQMjdu6pSx` in `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`; superseded
+     `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` moved to trash), confirmed `srwoe_pilot_catalog_PL.md` (`303,342 B`, `7,307 / 7,307`
+     Unicorn executions matched, SHA-256 unchanged `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`) and
+     `srwoe_mission_deployments.md` (`11,576,996 B`, unchanged), and verified round-trip `cmp -s == 0` on both Drive uploads
+     [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+
 
 
 
