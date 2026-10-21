@@ -2,10 +2,10 @@
   "schema": 1,
   "date": "2026-10-21",
   "language": "pl",
-  "source_commit": "173890a",
+  "source_commit": "7c8a819",
   "branch": "arena/df413232-mtgcrawler",
   "pull_request": 22,
-  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, base-only Pilot Statistics (SP, Atak, Obrona, Celność, Unik without level growth or Lv. 50/99 columns), base-only Spirit Command tables (SP cost + base effect), Pilot Skills, unlock schedules, and Ace Bonuses (v2.7-PL6, Notepad++ aligned)",
+  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, base-only Pilot Statistics (SP, Atak, Obrona, Celność, Unik), base-only Spirit Command tables (SP cost + base effect), base-only Pilot Skills (Slot | Umiejętność | Efekt bazowy without Lv2–Lv9 progressions, unlock schedules, or +krok steps), and Ace Bonuses (v2.7-PL6, Notepad++ aligned)",
   "game_package_changed": false,
   "literary_retranslation": false,
   "previous_files_overwritten": true,
@@ -13,14 +13,14 @@
   "files": [
     {
       "name": "srwoe_pilot_catalog_PL.md",
-      "bytes": 549140,
-      "lines": 6099,
-      "sha256": "a12ff8bca1564ca9a7eb93728870ca689d559a1531c3ae84a67c903b98c3bb29",
-      "md5": "8d5a1d39aea021b2f74a6fb2b077cb82",
+      "bytes": 286627,
+      "lines": 6278,
+      "sha256": "d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446",
+      "md5": "9e90132a7abcfbeebcf19b28e988fc2c",
       "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-      "drive_id": "1IPw-7q_874EmSm4FmJjPCQyJNFjESclm",
-      "url": "https://drive.google.com/file/d/1IPw-7q_874EmSm4FmJjPCQyJNFjESclm/view",
-      "superseded_trashed_drive_id": "1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5",
+      "drive_id": "19UyM9KbMpq4H8wmFZiydMLKklpA96JwH",
+      "url": "https://drive.google.com/file/d/19UyM9KbMpq4H8wmFZiydMLKklpA96JwH/view",
+      "superseded_trashed_drive_id": "1IPw-7q_874EmSm4FmJjPCQyJNFjESclm",
       "download_back_byte_identical": true
     }
   ],
@@ -47,7 +47,7 @@
     "engine_map": "docs/pilot-catalog/engine-map.json",
     "unicorn_0x21f4ec_executions": 7307,
     "unicorn_mismatches": 0,
-    "focused_tests": 11,
+    "focused_tests": 9,
     "result": "OK"
   },
   "installation": {

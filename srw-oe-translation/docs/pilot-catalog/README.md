@@ -6,7 +6,7 @@ This directory stores the machine-readable manifests backing the Polish pilot, S
 
 - **`engine-map.json`** — Output of `tools/pilot_catalog_probe.py`: records all `112` Patch 1.08 `DATA.PSP` skill description overrides (`0x0e5d44`), confirms `0` Spirit overrides across `60` records, and records `7,307 / 7,307` exact matches (`0` mismatches) against unmodified MIPS execution of `.text 0x21f4ec` in Unicorn.
 - **`verification.json`** — Sanitized output of `tools/verify_pilot_catalog.py`: independent audit of all `21` source container SHA-256 digests, `1.08` executable SHA-256, `pakiet_PL` coverage digest, all `404` character records (`92 + 45 + 117 + 150`), `60` Spirit records, `536` pilot/Ace skill records, zero CJK / control-token leakage, and byte-for-byte canonical Markdown determinism.
-- **`delivery.json`** — Google Drive delivery receipt (`1IPw-7q_874EmSm4FmJjPCQyJNFjESclm`), byte count (`549,140` B), SHA-256 (`a12ff8bca1564ca9a7eb93728870ca689d559a1531c3ae84a67c903b98c3bb29`), MD5 (`8d5a1d39aea021b2f74a6fb2b077cb82`), and server checksum + byte-identical download-back verification (base-only pilot stats & base-only Spirit Command tables aligned for Notepad++, synced to `v2.7-PL6`).
+- **`delivery.json`** — Google Drive delivery receipt (`19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`), byte count (`286,627` B, `6,278` lines), SHA-256 (`d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`), MD5 (`9e90132a7abcfbeebcf19b28e988fc2c`), and server checksum + byte-identical download-back verification (base-only pilot stats, base-only Spirit Commands, and base-only Pilot Skills aligned for Notepad++, synced to `v2.7-PL6`).
 
 ## Reproduction Commands
 

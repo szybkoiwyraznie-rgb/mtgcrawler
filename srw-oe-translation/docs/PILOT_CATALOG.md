@@ -1,10 +1,11 @@
 # Pilot, Spirit Command, and Skill Reference Catalogue (`srwoe_pilot_catalog_PL.md`)
 
-**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU/view)
-- **Size:** `634,883` bytes (`6,096` lines)
-- **SHA-256:** `12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53`
-- **MD5:** `c09c00756828434ae1cb7a8b902395ea`
-- **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `1,751` repository unit tests (`0` failures, `32` skipped).
+**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/19UyM9KbMpq4H8wmFZiydMLKklpA96JwH/view)
+- **Size:** `286,627` bytes (`6,278` lines)
+- **SHA-256:** `d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`
+- **MD5:** `9e90132a7abcfbeebcf19b28e988fc2c`
+- **Presentation:** Base-only values across **Pilot Statistics** (`Parametr | Wartość bazowa`), **Spirit Commands** (`Slot | Duch | Koszt SP | Efekt bazowy`), **Pilot Skills** (`Slot | Umiejętność | Efekt bazowy` on pilot cards and `ID | Umiejętność | Efekt bazowy` in the Section 2 lexicon, without `Lv2`–`Lv9` progressions or unlock steps), and **Ace Bonuses**, vertically aligned for monospace Notepad++ (`≤ 216` cells wide).
+- **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `9` focused pilot/table tests.
 - **Manifests & reproduction commands:** [docs/pilot-catalog/README.md](pilot-catalog/README.md)
 
 ---

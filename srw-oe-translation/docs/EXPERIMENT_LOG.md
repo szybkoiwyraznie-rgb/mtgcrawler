@@ -8013,5 +8013,18 @@ Base-only pilot statistics & Polish skill terminology fix v2.7-PL6 (`Eldoran` ->
    - `srwoe_reading_PL3.zip`: `1_ogO8CRZQebXAbBMGo1nmhple1WkO41w` (`152,210 B`, SHA-256
      `8f22691cb023540accaf492611c878d7ef97ce8f115d63862c1ee3dee61285a6`, MD5 `07b7a741899cdecc700eea8d9cac1a1c`)
 
+Base-only Pilot Skills in `srwoe_pilot_catalog_PL.md` (2026-10-21):
+1. Removed multi-level skill progressions (`Lv2`–`Lv9`, pilot unlock levels, and `+krok` step schedules) from both
+   the Section 2 lexicon (`| ID | Umiejętność | Efekt bazowy |`) and per-pilot cards in Sections 3 & 5
+   (`| Slot | Umiejętność | Efekt bazowy |`, retaining `*(1.08)*` origin markers and Chirico Cuvie `[ID 3401]`
+   base-level story-flag upgrade `flaga 0x461 = 1` → `Anom. ocalały`) in `tools/pilot_catalog.py` (commit `7c8a819`).
+2. Verified `0` occurrences of `Lv2`–`Lv9`, `0` CJK / control tokens / raw HTML tags, `≤ 216`-char Notepad++ vertical
+   column alignment on all tables, and `7,307 / 7,307` live Unicorn MIPS `.text 0x21f4ec` executions (`0` mismatches)
+   in `tools/verify_pilot_catalog.py --replay-unicorn` (`docs/pilot-catalog/verification.json`).
+3. Uploaded `srwoe_pilot_catalog_PL.md` (`286,627 B`, `6,278` lines, SHA-256
+   `d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`, MD5 `9e90132a7abcfbeebcf19b28e988fc2c`) to
+   Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as file `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`, trashed
+   superseded `1IPw-7q_874EmSm4FmJjPCQyJNFjESclm`, and confirmed byte-identical download-back (`cmp -s`).
+
 
 
