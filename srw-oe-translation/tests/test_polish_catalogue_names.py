@@ -33,6 +33,10 @@ class RosterFirstTests(unittest.TestCase):
         self.assertEqual(model,before)
         self.assertNotIn('<a id=',new)
         self.assertNotIn(' — Unit ',new)
+        self.assertNotIn('Domyślny pilot',new)
+        self.assertNotIn('#### Miejsce ',new)
+        self.assertNotIn('Przypisany profil:',new)
+        self.assertNotIn('Premia asa',new)
 
     def test_semantic_corruption_outside_headers_is_rejected(self):
         model=sample_model();old=P.render(model,roster_first=False);new=P.render(model)

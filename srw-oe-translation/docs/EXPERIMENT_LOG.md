@@ -7889,3 +7889,25 @@ Polish UI & map terrain fixes v2.7-PL5 (`Clipboard-1.jpg`..`Clipboard-4.jpg`, 20
    - `srw-oe-translation-v2.7-PL5.zip`: `7,279,138 B`, SHA-256
      `e3f6f4d6b0edb0778ffd52856d431b4e3431b7d6cb84a4333b1064a761887655`.
 
+Polish mech catalogue without default pilots/crews & synced pilot catalogue (2026-10-21):
+1. Updated `tools/polish_mech_catalog.py` and `tools/verify_polish_reading.py` (+ unit tests in
+   `tests/test_polish_catalogue_names.py` and `tests/test_polish_reading.py`) to omit all
+   default pilot/sub-pilot crew sections, profile skills, and Ace bonuses while preserving all
+   `393` unit sections (`242` roster-first `v4` headings + `151` identical headings), series
+   attributions, native mech skills, group compositions, and all `1,485` weapon rows localized
+   against `pakiet_PL` (`v2.7-PL5`).
+2. Verified `revise_polish_catalogue_names.py` `v3_PL` -> `v4_PL` round-trip byte-for-byte
+   (`v3_PL`: `506,983 B`, SHA-256 `27a5e9b05cb52fbf87dd05ec37b71b41c1c11402522b5075fc1eb3ff00360a25`;
+   `v4_PL`: `510,338 B`, SHA-256 `e7a6ed56f6cee954976a936837fd7d69af3116477c8a341903bcacef8bbc0b4f`,
+   MD5 `c2865c35400f3fe6a8e8150ffc8e7ebd`), rebuilt `srwoe_reading_PL3_00-03_catalog_v4.zip`
+   (`144,320 B`, SHA-256 `da44472e12c625ca8f27d5098dfed9c2c03106ea457ef07276498822e37a7225`,
+   MD5 `28293a123584f44ee0432c59706c7145`), and regenerated `srwoe_pilot_catalog_PL.md` (`634,883 B`,
+   SHA-256 `12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53`, MD5
+   `c09c00756828434ae1cb7a8b902395ea`, `7,307 / 7,307` Unicorn parity PASS) so Spirit `Hart Lv1`
+   reflects `'Odnawia 25% HP'` there as well.
+3. Uploaded to Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` and verified byte-for-byte
+   via download-back:
+   - `srwoe_mech_catalog_v4_PL.md`: `1CMZamTTp_UhVSLP9m1Whp4he1NJjbb3K`
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `12AaUkJrHqPMgFzJKtroXxAAPeLLq4jag`
+   - `srwoe_pilot_catalog_PL.md`: `1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU`
+

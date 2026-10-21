@@ -3,8 +3,8 @@
   "status": "PASS",
   "deliverable": {
     "filename": "srwoe_pilot_catalog_PL.md",
-    "bytes": 634758,
-    "sha256": "bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e"
+    "bytes": 634883,
+    "sha256": "12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53"
   },
   "provenance": {
     "source_inventory": "docs/mech-catalog/source-inventory.json",
@@ -20,8 +20,8 @@
       "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
       "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
     },
-    "polish_package_snapshot_sha256": "4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2",
-    "polish_package_files_sha256": "c3490d9fc66e30324273f0058cb91037a77c29b5498b5bd48cfd834782dcfff7"
+    "polish_package_snapshot_sha256": "4b249e93f0fddbbc224cacca4dd279a8e863190fbda917561a9b3e81d1a34dfd",
+    "polish_package_files_sha256": "ea4b6ad369f54959a76aac10a961c28eb55f1d0f16eb918695e97ee578b196d8"
   },
   "counts": {
     "total_characters": 404,

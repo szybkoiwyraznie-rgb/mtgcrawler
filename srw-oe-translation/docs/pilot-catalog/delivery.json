@@ -2,10 +2,10 @@
   "schema": 1,
   "date": "2026-10-21",
   "language": "pl",
-  "source_commit": "57f09e1",
+  "source_commit": "acd786a",
   "branch": "arena/df413232-mtgcrawler",
   "pull_request": 22,
-  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, Spirit Commands, Pilot Skills, unlock schedules, and Ace Bonuses",
+  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, Spirit Commands (including fixed Hart Lv1 'Odnawia 25% HP' from v2.7-PL5), Pilot Skills, unlock schedules, and Ace Bonuses",
   "game_package_changed": false,
   "literary_retranslation": false,
   "previous_files_overwritten": false,
@@ -13,13 +13,13 @@
   "files": [
     {
       "name": "srwoe_pilot_catalog_PL.md",
-      "bytes": 634758,
+      "bytes": 634883,
       "lines": 6096,
-      "sha256": "bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e",
-      "md5": "728d0b85d83e7b650ec49fe3fc9d726b",
+      "sha256": "12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53",
+      "md5": "c09c00756828434ae1cb7a8b902395ea",
       "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-      "drive_id": "1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t",
-      "url": "https://drive.google.com/file/d/1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t/view",
+      "drive_id": "1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU",
+      "url": "https://drive.google.com/file/d/1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU/view",
       "download_back_byte_identical": true
     }
   ],
@@ -47,8 +47,6 @@
     "unicorn_0x21f4ec_executions": 7307,
     "unicorn_mismatches": 0,
     "focused_tests": 5,
-    "total_tests": 1751,
-    "skipped_tests": 32,
     "result": "OK"
   },
   "installation": {

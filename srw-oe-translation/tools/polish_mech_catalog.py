@@ -71,17 +71,11 @@ def localize(model, source, english, polish):
                      lambda r: (r['category'], int(r['key'])))
     weapons = M.unique((r for r in data['08_names_units_weapons.jsonl'] if r['category'] == 'weapon_name'),
                        lambda r: r['id'])
-    characters = M.unique((r for r in data['07_names_characters.jsonl'] if r['part'] in ('name_full', 'name_short')),
-                         lambda r: (r['key'], r['part']))
+    characters = {}
     character_series = {}
     for r in data['07_names_characters.jsonl']:
         if r['part'] == 'series' and r.get('en') not in ('', None, 'NoData'):
             character_series.setdefault(r['key'], set()).add(text(r))
-    def pilot_name(key):
-        for part in ('name_full', 'name_short'):
-            if (key, part) in characters and characters[key, part].get('en'):
-                return text(characters[key, part])
-        raise ValueError(f'Missing Polish pilot {key}')
     for u in out['units']:
         uid = u['unit_id']
         u['name'] = text(units['unit_name_display', uid])
@@ -95,10 +89,9 @@ def localize(model, source, english, polish):
             titles = set().union(*(character_series.get(key, set()) for key in series['source_ids']))
             need(bool(titles), 'Missing Polish pilot-associated series')
             series['titles'] = sorted(titles)
-        for p in u['pilots']:
-            p['name'] = pilot_name(p['character_id'])
-            for profile in p['profiles']:
-                profile['name'] = pilot_name(profile['character_id'])
+        # Mech catalogue intentionally omits default pilot/sub-pilot crew assignments;
+        # pilots live in srwoe_pilot_catalog_PL.md and mission crews in mission-deployments.md.
+        u['pilots'] = []
         for w in u['weapons']:
             w['name'] = text(weapons[w['source_row']])
     groups = M.unique((r for r in data['05_mission_text.jsonl'] if r.get('category') == 'group_name'
@@ -110,7 +103,7 @@ def localize(model, source, english, polish):
 
 
 def facts(model):
-    """Only these precisely scoped text/provenance fields may differ in PL."""
+    """Only these precisely scoped text/provenance fields and omitted pilots differ in PL."""
     m = copy.deepcopy(model)
     m['summary'].pop('catalogue_only_description_errata', None)
     for s in m['skills'].values():
@@ -119,10 +112,7 @@ def facts(model):
         s['origin'].pop('catalogue_erratum', None)
     for u in m['units']:
         u.pop('name'); u.pop('list_name'); u['series'].pop('titles')
-        for p in u['pilots']:
-            p.pop('name')
-            for profile in p['profiles']:
-                profile.pop('name')
+        u['pilots'] = []
         for w in u['weapons']:
             w.pop('name')
     for g in m['groups']:
@@ -140,25 +130,23 @@ def unit_heading(unit, roster_first=True):
 
 
 def render(model, roster_first=True):
-    """v3 layout: keep uncertainty, omit the owner's removed repeated metadata."""
+    """v3/v4 mech-only layout: keep uncertainty, omit default pilots/crew and removed metadata."""
     blocks = []
     def put(value): blocks.append(value + '\n\n')
     md = M.md
     summary = model['summary']
-    put('# Super Robot Wars OE — Mechy, piloci i uzbrojenie')
-    put('*Polski katalog do czytania · Japońskie dane wersji 1.08 · Tekst projektu PL3*')
+    put('# Super Robot Wars OE — Mechy i uzbrojenie')
+    put('*Polski katalog do czytania · Japońskie dane wersji 1.08 · Tekst projektu PL*')
     put(f"**Zakres:** {summary['units']} zarejestrowane rekordy jednostek; {summary['weapons_and_actions']} wpisów broni i działań. "
         'Obejmuje formy gracza i przeciwników, okręty, stworzenia, obiekty, warianty animacyjne i rekordy zapasowe. '
         'Nie oznacza to 393 różnych grywalnych mechów.')
     put('## Jak czytać ten katalog')
-    put('- Nazwy i opisy pochodzą z aktualnego pakietu **PL3**, bez nowego przekładu literackiego. Nie wymieniamy komend ducha '
-        '(Spirit Commands). Umiejętności związane z duchem lub morale nie są tym samym co te komendy.\n'
+    put('- Nazwy i opisy pochodzą z aktualnego pakietu polskiego tłumaczenia, bez nowego przekładu literackiego. '
+        'Domyślni piloci, piloci wspierający, umiejętności pilotów oraz komendy ducha (Spirit Commands) nie są wymieniane w tym katalogu.\n'
         '- Opisy odpowiadają rekordom bazowym wybieranym przez silnik (zwykle poziom 1 lub rekord bez poziomu). '
         '20 nadpisań w pliku wykonywalnym wersji 1.08 ma pierwszeństwo przed tabelą. Użyto polskich odpowiedników '
         'z tych samych fizycznych pól. 17 korekt słownych angielskiego katalogu nie jest automatycznie stosowanych '
-        'do polskiego tekstu. Zachowano treść i terminologię PL3, także jej znane niedoskonałości składania fragmentów.\n'
-        '- Piloci i załoga to domyślne przypisania z danych. Powiązane profile alternatywne pokazano osobno; '
-        'nie należy łączyć zestawów umiejętności strony wrogiej i sojuszniczej. Nadpisania scenariuszowe nie są w pełni rozpoznane.\n'
+        'do polskiego tekstu. Zachowano treść i terminologię pakietu PL, także jej znane niedoskonałości składania fragmentów.\n'
         '- Moc, zasięg, modyfikator trafienia, EN i morale to **zapisane wartości bazowe broni**, przed wpływem poziomu, '
         'ulepszeń, terenu, umiejętności, wyposażenia i walki. Nie są to końcowe obrażenia ataków grupowych.\n'
         '- Dodatnia **flaga warunku** oznacza warunkowe sprawdzenie flagi gry; dokładna misja odblokowania nie jest ustalona. '
@@ -167,9 +155,8 @@ def render(model, roster_first=True):
         'Stan grupy/stosu, wyposażenie i skrypty mogą dodawać zdolności poza tymi polami. Składy grup są wpisami tabeli, '
         'nie zapewnieniem, że grupa jest obecnie utworzona.\n'
         '- Seria **ustalona na podstawie oznaczonej formy** pochodzi z odpowiadającego jej wpisu słownika. '
-        'Seria **powiązana przez pilota** to wyraźnie oznaczony wniosek, nie fakt ze słownika jednostek. Braki pozostają widoczne.\n'
-        '- EN oznacza energię; morale odpowiada polu Will. Opisy zachowują skróty i nazewnictwo tłumaczenia PL3. '
-        'Poziom nauki to zapisane pole rekordu, nie pełna instrukcja odblokowania.')
+        'Seria **powiązana przez pilota** to wyraźnie oznaczony wniosek ze słownika postaci, gdy słownik jednostek nie podaje serii. Braki pozostają widoczne.\n'
+        '- EN oznacza energię; morale odpowiada polu Will. Opisy zachowują skróty i nazewnictwo tłumaczenia PL.')
     put(f"**Luki w danych:** {len(summary['unresolved_native_references'])} odwołania macierzyste nie mają pasującej definicji "
         '(110 i 230). Zachowano ich identyfikatory zamiast zgadywać. '
         f"{summary['units_with_no_native_skill_assignment']} rekordów nie ma niezerowego przypisania w trzech polach umiejętności maszyny. "
@@ -187,28 +174,11 @@ def render(model, roster_first=True):
         series = u['series']
         value = '; '.join(series['titles']) or 'Brak wpisu w dostępnych słownikach jednostek i pilotów'
         qualifier = {'labelled_form': 'ustalona na podstawie oznaczonej formy; zobacz źródło',
-                     'pilot_association': 'powiązana wyłącznie przez pilota; brak wpisu w słowniku jednostek',
+                     'pilot_association': 'powiązana wyłącznie przez słownik postaci; brak wpisu w słowniku jednostek',
                      'unrecorded': 'nieustalona'}.get(series['method'])
         put('**Seria:** ' + md(value) + (f' — *{qualifier}*.' if qualifier else ''))
         if series['method'] == 'labelled_form':
             put('Źródło przypisania serii: ' + ', '.join(md(names[k]) for k in series['source_ids']) + '.')
-        put('### Domyślny pilot / załoga i umiejętności specjalne')
-        for pilot in u['pilots']:
-            put(f"#### Miejsce {pilot['slot'] + 1}: {md(pilot['name'])}")
-            if pilot['name'] in ('---', 'NoData'):
-                put('Dane przypisują wpis zastępczy, a nie nazwanego pilota.')
-            if len(pilot['profiles']) > 1:
-                put('Postać ma powiązany profil alternatywny. Profil wybierany jest w grze zależnie od strony/formy; '
-                    'poniższe zestawy umiejętności nie działają jednocześnie.')
-            for n, profile in enumerate(pilot['profiles']):
-                label = 'Przypisany profil' if n == 0 else 'Powiązany profil alternatywny'
-                put(f"**{label}: {md(profile['name'])}**")
-                if profile['skills']:
-                    put('\n'.join(f"- {ability(r['alias_id'])} *Pole poziomu nauki: {r['learn_level']}.*" for r in profile['skills']))
-                else:
-                    put('W tym rekordzie postaci brak macierzystego przypisania umiejętności specjalnej.')
-                if profile['ace_alias']:
-                    put('**Premia asa (osobne odblokowanie; nie zakładamy, że jest aktywna):**\n\n- ' + ability(profile['ace_alias']))
         put('### Macierzyste zdolności maszyny')
         put('\n'.join('- ' + ability(r['alias_id']) for r in u['native_skills']) if u['native_skills'] else
             'Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyny. '
@@ -241,14 +211,16 @@ def render(model, roster_first=True):
         put(f"- **{md(group['name'])}** (grupa {group['id']}): {members}.")
     put('## Pochodzenie i ograniczenia')
     put('Źródła danych: oryginalne config00.cpk, config01–19.EDAT i configst.cpk oraz japoński EBOOT 1.08. '
-        'Polski tekst: pliki 03, 04, 05, 07, 08 i 09 pakietu PL3. Nazwy i pola połączono po jawnych identyfikatorach '
-        'i fizycznych metadanych źródła, z kontrolą tekstu japońskiego. Opisy złożono według czterech bajtowych indeksów '
-        'fragmentów z gry, z zachowaniem nadpisań pliku wykonywalnego. Angielski katalog v3 odtworzono bajt w bajt '
-        'przed podmianą pól tekstowych; wartości liczbowe, profile, selektory i przypisania pozostają takie same. '
-        'Zachowano porządki prezentacyjne v3: bez kotwic, identyfikatorów w nagłówkach jednostek i profili, '
+        'Polski tekst: pliki 03, 04, 05, 07 (wyłącznie powiązania serii), 08 i 09 aktualnego pakietu PL. '
+        'Nazwy i pola połączono po jawnych identyfikatorach i fizycznych metadanych źródła, z kontrolą tekstu japońskiego. '
+        'Opisy złożono według czterech bajtowych indeksów fragmentów z gry, z zachowaniem nadpisań pliku wykonywalnego. '
+        'Angielski katalog v3 odtworzono bajt w bajt przed podmianą pól tekstowych; wartości liczbowe, selektory '
+        'i przypisania zdolności maszyn oraz uzbrojenia pozostają takie same. Domyślni piloci i załogi zostali celowo '
+        'pominięci (dane postaci opisuje osobny katalog pilotów, a obsady w misjach — zestawienie rozmieszczeń). '
+        'Zachowano porządki prezentacyjne v3/v4: bez kotwic, identyfikatorów w nagłówkach jednostek, '
         'wierszy Data, zbędnych znaczników słownika i usuniętych powtarzanych uwag.\n\n'
         'To katalog danych przygotowany poza grą, nie pełny test rozgrywki. Nie ustala dokładnych misji rekrutacji '
-        'i odblokowania, dowolnych zamian pilotów, bieżących obrażeń ani wszystkich dynamicznych efektów statusu '
-        'i wyposażenia. Nie poprawia ani nie zmienia pakietu tłumaczenia lub plików gry. Narzędzia i potwierdzenia: '
+        'i odblokowania, bieżących obrażeń ani wszystkich dynamicznych efektów statusu i wyposażenia. '
+        'Nie poprawia ani nie zmienia pakietu tłumaczenia lub plików gry. Narzędzia i potwierdzenia: '
         '`docs/reading-script/polish/`, `docs/mech-catalog/` i `docs/MECH_CATALOG.md` w repozytorium projektu.')
     return ''.join(blocks)

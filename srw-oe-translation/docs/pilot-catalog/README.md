@@ -6,7 +6,7 @@ This directory stores the machine-readable manifests backing the Polish pilot, S
 
 - **`engine-map.json`** — Output of `tools/pilot_catalog_probe.py`: records all `112` Patch 1.08 `DATA.PSP` skill description overrides (`0x0e5d44`), confirms `0` Spirit overrides across `60` records, and records `7,307 / 7,307` exact matches (`0` mismatches) against unmodified MIPS execution of `.text 0x21f4ec` in Unicorn.
 - **`verification.json`** — Sanitized output of `tools/verify_pilot_catalog.py`: independent audit of all `21` source container SHA-256 digests, `1.08` executable SHA-256, `pakiet_PL` coverage digest, all `404` character records (`92 + 45 + 117 + 150`), `60` Spirit records, `536` pilot/Ace skill records, zero CJK / control-token leakage, and byte-for-byte canonical Markdown determinism.
-- **`delivery.json`** — Google Drive delivery receipt (`1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t`), byte count (`634,758` B), SHA-256 (`bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e`), MD5 (`728d0b85d83e7b650ec49fe3fc9d726b`), and server checksum + content read-back verification.
+- **`delivery.json`** — Google Drive delivery receipt (`1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU`), byte count (`634,883` B), SHA-256 (`12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53`), MD5 (`c09c00756828434ae1cb7a8b902395ea`), and server checksum + content read-back verification.
 
 ## Reproduction Commands
 

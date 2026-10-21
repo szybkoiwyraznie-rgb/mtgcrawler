@@ -1,9 +1,9 @@
 # Pilot, Spirit Command, and Skill Reference Catalogue (`srwoe_pilot_catalog_PL.md`)
 
-**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t/view)
-- **Size:** `634,758` bytes (`6,096` lines)
-- **SHA-256:** `bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e`
-- **MD5:** `728d0b85d83e7b650ec49fe3fc9d726b`
+**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU/view)
+- **Size:** `634,883` bytes (`6,096` lines)
+- **SHA-256:** `12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53`
+- **MD5:** `c09c00756828434ae1cb7a8b902395ea`
 - **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `1,751` repository unit tests (`0` failures, `32` skipped).
 - **Manifests & reproduction commands:** [docs/pilot-catalog/README.md](pilot-catalog/README.md)
 

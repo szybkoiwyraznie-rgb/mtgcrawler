@@ -78,6 +78,9 @@ def verify_catalogue(text, english, polish, roster_first=True):
             need(columns[:8] == want, f'Rendered weapon facts differ: {unit["unit_id"]}/{weapon["slot"]}')
             count += 1
     need(count == 1485, 'Catalogue weapon coverage differs')
+    need('Domyślny pilot' not in text and '#### Miejsce ' not in text
+         and 'Przypisany profil:' not in text and 'Premia asa' not in text,
+         'Pilot/crew content remained in Polish mech catalogue')
     need('<a id=' not in text and '\n**Data:**' not in text, 'Removed v3 metadata restored')
     need(not re.search(r'^#{2,4} .*\[(?:unit|character|profile) ', text, re.M), 'v3 heading IDs restored')
     return {'units': len(polish['units']), 'weapon_rows': count, 'numeric_and_assignment_facts_equal': True,
