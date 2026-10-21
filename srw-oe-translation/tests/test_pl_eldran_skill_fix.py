@@ -77,7 +77,7 @@ class EldranSkillFixTests(unittest.TestCase):
             in_dir.mkdir()
             for nm in names:
                 (in_dir / nm).symlink_to((containers_dir / nm).resolve())
-            subprocess.run(
+            res = subprocess.run(
                 [
                     sys.executable,
                     str(ROOT / "tools" / "build_translation_patch.py"),
@@ -86,10 +86,14 @@ class EldranSkillFixTests(unittest.TestCase):
                     "--out", str(out_dir),
                     "--lang", "pl",
                     "--no-exe",
+                    "--no-ui-textures",
                     "--only", *names,
                 ],
-                check=True,
+                check=False,
             )
+            build_report = json.loads((out_dir / "build_report.json").read_text(encoding="utf-8"))
+            self.assertEqual(build_report["problems"], ["font: NOT written: no ISO given"])
+            self.assertEqual(res.returncode, 1)
             for idx, nm in enumerate(names):
                 target_member = f"srwDL_Skill0{idx}.bin"
                 patched_blob = None
