@@ -13,6 +13,7 @@ from pathlib import Path
 
 import mech_catalog as M
 from mech_catalog_sources import PACKAGE_FILES, need
+import md_table_align as TA
 
 
 def localized_rows(english, polish, filename, category=None):
@@ -169,6 +170,8 @@ def render(model, roster_first=True):
             return f'**Nierozpoznane odwołanie do umiejętności {alias}** — brak pasującej definicji w dostarczonej tabeli Skill00.'
         suffix = f" (poziom bazowy {skill['base_level']})" if skill['base_level'] else ' (bez poziomu)'
         return f"**{md(skill['name'] + suffix)}:** {md(skill['description'])}"
+    def ability_bullet(alias):
+        return ability(alias).replace('<br>', '  \n  ')
     for u in model['units']:
         put('---'); put('## ' + unit_heading(u, roster_first))
         series = u['series']
@@ -180,12 +183,12 @@ def render(model, roster_first=True):
         if series['method'] == 'labelled_form':
             put('Źródło przypisania serii: ' + ', '.join(md(names[k]) for k in series['source_ids']) + '.')
         put('### Macierzyste zdolności maszyny')
-        put('\n'.join('- ' + ability(r['alias_id']) for r in u['native_skills']) if u['native_skills'] else
+        put('\n'.join('- ' + ability_bullet(r['alias_id']) for r in u['native_skills']) if u['native_skills'] else
             'Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyny. '
             'Nie wyklucza to efektów grupy, stosu, wyposażenia ani skryptów.')
         if u['group_ids']:
             put('**Składy grup zapisane w tabeli:** ' + '; '.join(md(groups[g]['name']) for g in u['group_ids']) + '.')
-            put('**Zdolność stanu grupy (warunkowa, nie przypisanie macierzyste):**\n\n- ' + ability(589))
+            put('**Zdolność stanu grupy (warunkowa, nie przypisanie macierzyste):**\n\n- ' + ability_bullet(589))
         put('### Uzbrojenie i wymienione działania')
         for selected, heading in ((True, 'Broń i działania z niezerowym selektorem'),
                                   (False, 'Dodatkowe wpisy — selektor zerowy (animacje / rekordy specjalne)')):
@@ -199,12 +202,12 @@ def render(model, roster_first=True):
                 effects = '<br><br>'.join(ability(r['alias_id']) for r in w['skills']) or 'Brak odwołania w dwóch polach efektów broni'
                 lines.append(f"| {w['slot']} | {md(w['name'])} | {w['power']} | {w['range_min']}–{w['range_max']} | "
                              f"{w['hit']:+d} | {w['en']} | {w['will'] or '—'} | {gate} | {effects} |")
-            put('\n'.join(lines))
+            put(TA.align_markdown_tables('\n'.join(lines)))
         if not u['weapons']: put('Tabela uzbrojenia nie zawiera wpisów dla tej jednostki.')
     put('---'); put('## Warunkowe zdolności systemowe')
     put('Poniższe opisy wyjaśniają stan grupy/stosu. Katalog **nie przypisuje** ich każdej jednostce; '
         'aktywność stanu zależy od grupowania w grze lub ustawień scenariusza.')
-    put('- ' + ability(589) + '\n- ' + ability(646))
+    put('- ' + ability_bullet(589) + '\n- ' + ability_bullet(646))
     put('## Tabela składów grup')
     for group in model['groups']:
         members = ', '.join(f'{md(names[k])} (ID {k})' for k in group['unit_ids'])

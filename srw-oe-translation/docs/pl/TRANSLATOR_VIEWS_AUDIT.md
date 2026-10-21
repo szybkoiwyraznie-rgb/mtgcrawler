@@ -12,10 +12,10 @@ Oba nowe archiwa należy używać razem. Oryginały pozostawiono bez zmian.
 
 ### Gotowe paczki
 
-| Archiwum | Pobranie | Rozmiar | Pliki |
-|---|---|---:|---:|
-| `sceny_PL_sprawdzone_v2.zip` | [Google Drive](https://drive.google.com/file/d/1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB/view) | 3 078 178 B | 39 |
-| `widoki_PL_sprawdzone_v2.zip` | [Google Drive](https://drive.google.com/file/d/1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_/view) | 1 204 212 B | 11 |
+| Archiwum                      | Pobranie                                                                               |     Rozmiar | Pliki |
+| ----------------------------- | -------------------------------------------------------------------------------------- | ----------: | ----: |
+| `sceny_PL_sprawdzone_v2.zip`  | [Google Drive](https://drive.google.com/file/d/1ZHubQHhoh65WPC2mweJmPhzZaY1LtdXB/view) | 3 078 178 B |    39 |
+| `widoki_PL_sprawdzone_v2.zip` | [Google Drive](https://drive.google.com/file/d/1ibWIHHf8JsiqAH6cX_EtUL1pVmKmxnV_/view) | 1 204 212 B |    11 |
 
 Każde zawiera aktualną `INSTRUKCJA_PL.txt` i liczbowy `AUDYT_PL.json`.
 Druga paczka ma teraz 9 widoków: wcześniejsze 7 oraz `program.md` i `teren.md`.

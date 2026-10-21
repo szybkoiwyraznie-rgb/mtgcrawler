@@ -304,15 +304,15 @@ $text = $text.Replace("`r`n", ' / ').Replace("`r", ' / ').Replace("`n", ' / ')
 
 Observation matrix (user, PPSSPP, original DLC folder, `config00.cpk` inserted into a copy of the ISO):
 
-| variant | Skill00 member | `.pac` | CPK header | result |
-|---|---|---|---|---|
-| original | 208 958 B | 923 648 B | original | works |
-| T1 (JP text + spaces) | 210 942 B | — | stale Enabled* | works |
-| **T3 / W5** (JP text + spaces) | **217 086 B** | 929 792 B | stale / refreshed | **works** |
-| **T4** (JP text + spaces) | **221 182 B** | 933 888 B | stale | **crash** at "Loading" |
-| T5, T6, S1 (zeros), builds #6–#10 (English) | 225 278 … 228 202 B | — | — | crash |
-| U2 (sub-files packed at 64 B, container SMALLER than the original) | 228 202 B | 905 216 B | — | crash |
-| U1 (same tight container, original Skill00) | 208 958 B | 886 784 B | — | works |
+| variant                                                            | Skill00 member      | `.pac`    | CPK header        | result                 |
+| ------------------------------------------------------------------ | ------------------- | --------- | ----------------- | ---------------------- |
+| original                                                           | 208 958 B           | 923 648 B | original          | works                  |
+| T1 (JP text + spaces)                                              | 210 942 B           | —         | stale Enabled*    | works                  |
+| **T3 / W5** (JP text + spaces)                                     | **217 086 B**       | 929 792 B | stale / refreshed | **works**              |
+| **T4** (JP text + spaces)                                          | **221 182 B**       | 933 888 B | stale             | **crash** at "Loading" |
+| T5, T6, S1 (zeros), builds #6–#10 (English)                        | 225 278 … 228 202 B | —         | —                 | crash                  |
+| U2 (sub-files packed at 64 B, container SMALLER than the original) | 228 202 B           | 905 216 B | —                 | crash                  |
+| U1 (same tight container, original Skill00)                        | 208 958 B           | 886 784 B | —                 | works                  |
 
 **Qualification audited 2026-10-18:** these are runtime observations, NOT a proven exact
 per-member limit and NOT a PSP hardware/file-format limit. Later W1 (217 090 B) loaded
@@ -348,13 +348,14 @@ members (`srwDL_Spirit.bin` 60, `srwDL_Item.bin` 300, `srwDL_StatusChange.bin` 1
 `srwDL_Item00.bin` 300 = 2 230 records) against `offset`, `-offset`, `tail - offset`, `length - offset`,
 `offset + length`:
 
-| word | value | holds in | meaning |
-|---|---|---|---|
-| i32 `+32` | **`-record_offset`** | 2 230 / 2 230 | member start relative to the record (pointer to the member base) |
-| u32 `+36` | **`tail_offset - record_offset`** | 2 230 / 2 230 | fragment pool relative to the record (known since 2026-10-14) |
-| u16 `+40..+51` | field boundaries | all | record-relative string starts (`STRING_BASE` 54) |
-| u16 `+52` | **`last_boundary + delta`**, delta ∈ {2, 6, 10, 14, 18} B | 2 230 / 2 230 | record-relative start of the **parameter words** that follow the texts (a counted pair list such as `1, 78, 0` sits between the last text and them); NOT text; `config_text_tables` must not merge it with the first field |
-| other words | keys, levels, small indices | — | not position dependent |
+| word           | value                                                     | holds in      | meaning                                                                                                             |
+| -------------- | --------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| i32 `+32`      | **`-record_offset`**                                      | 2 230 / 2 230 | member start relative to the record (pointer to the member base)                                                    |
+| u32 `+36`      | **`tail_offset - record_offset`**                         | 2 230 / 2 230 | fragment pool relative to the record (known since 2026-10-14)                                                       |
+| u16 `+40..+51` | field boundaries                                          | all           | record-relative string starts (`STRING_BASE` 54)                                                                    |
+| u16 `+52`      | **`last_boundary + delta`**, delta ∈ {2, 6, 10, 14, 18} B | 2 230 / 2 230 | record-relative start of the **parameter words** that follow the texts (a counted pair list such as `1, 78, 0` sits |
+|                |                                                           |               |   between the last text and them); NOT text; `config_text_tables` must not merge it with the first field            |
+| other words    | keys, levels, small indices                               | —             | not position dependent                                                                                              |
 
 Consequence: every writer that shifts records must rewrite **both** words. Builds #6–#11 rewrote `+36` only;
 `+32` stayed `-old_offset` in every record after the first one that grew (build #11: 1 468 of 1 469 Skill00

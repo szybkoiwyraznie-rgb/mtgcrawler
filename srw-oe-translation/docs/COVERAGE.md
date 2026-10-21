@@ -19,19 +19,117 @@ Nie jest planem tłumaczenia — tłumaczenia startują dopiero po domknięciu s
 
 ## 1. Tabela zbiorcza
 
-| # | Kategoria | Źródło | Wyekstrahowane / zweryfikowane | Zapis | Stan | Główne braki |
-|---|---|---|---|---|---|---|
-| 1 | Dialogi fabuły | `eventP00`–`P32`, `evept101–108` (32 kontenery, 293 członki) | **26 468 linii, 313 kluczy (100% z nazwą), 1 186 781 B tekstu** (`tools/event_dialogue.py`) **+ 360 tekstów innych typów** (narracja 136, warunki zwycięstwa/porażki 149, lokacje 41, help 19, tytuły scen 6, etykiety 9) **+ 273 teksty w blokach-tabelach** (13 KB) | **grow — sprawdzony w grze** | **ekstrakcja domknięta** (0 błędów, 0 nieczytelnych rekordów) | stara liczba 12 738 linii była zaniżona ~2× (stary chodzik kończył na granicy bloku); brak kroku `apply`; 4008 bloków to tabele (nie tekst), 137 z nich ma teksty – wyekstrahowane |
-| 2 | Cytaty bitewne | `mesbtl00`–`mesbtl31` (32 kontenery) | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0 błędów**; **305/319 kluczy ma nazwę** z tabeli postaci (`local/name_map.json`); nazwane rekordy: **26 932/27 383 (98,35%)** | grow (rozmiary rekordów + łańcuch EVNT) | **ekstrakcja + nazwy domknięte** | **14 kluczy bez nazwy = 451 rekordów (1,65%)**: 50/55/60/101/151/733/1005/1037/1048/1051/3122/3702/3707/3712 — występują **tylko w `mesbtl00`**, brak ich w `charalist` (404 klucze), `CharaDictionary` (289) i slotach `config*`. Sprawdzone i odrzucone: ukryty klucz w rekordzie (skan wszystkich u16), reguła przesunięcia ±1 (5 kluczy ma sąsiada −1, 1 ma +1, 8 nie ma nazwanego sąsiada), wzorce `unitfacelist`/`robo_cpkid` (trafienia przypadkowe). **2 194 rekordy (7,4%) nie mają w grze żadnego tekstu** — `p0995.pac` (1 402) i `p0996.pac` (792): rekordy 24-B, `flags=0`, pusty tekst → nic do tłumaczenia. Ścieżka `apply` jeszcze nie zbudowana |
-| 3 | Imiona (mówcy) | `charalist` (404 klucze) + `srwDL_CharaDictionary` (289) + sloty `config*` | **381 kluczy w całej grze** (313 dialogów ∪ 319 cytatów); **362 z nazwą (95,0%)**; **100% linii dialogu (26 468/26 468)** i **98,35% rekordów cytatów** ma nazwę; do tego 210 kluczy z seiyuu i 284 z tytułem serii (`tools/name_map.py`) | grow (pula NUL) | **domknięte dla dostępnych danych** | 19 kluczy cytatów bez rekordu w `charalist` (patrz wiersz 2); sloty `config*` okazały się **redundantne** (190/201 trafień już w `charalist`, 11 to przypadkowe bajty) — zaufanie tylko do slotów z markerem `0x6401` |
-| 4 | Encyklopedia postaci | `srwDL_CharaDictionary` (imenu/config) — **pole [2] rekordu** | tabela **289 postaci** z nazwą, seiyuu, tytułem serii, pseudonimem `愛称：` i **slotem opisu**; opis ma **tylko 3/582 rekordy**, reszta trzyma sam szablon `＠０\r`; rekord `NoData` (klucz 65535) ma w tym polu `図鑑用のデータが存在していません。` = „brak danych do encyklopedii” (`tools/chara_dictionary.py`, 9 testów) | grow (pula NUL — `dict_pool_shift.rebuild_pool`) | **tabela zlokalizowana, opisów w danych gry brak** | 579 rekordów bez opisu → opisy trzeba **napisać** (praca redakcyjna), a wstrzyknięcie jest wykonalne w polu [2] (szablon `＠０\r` + tekst) `[HIPOTEZA]` co do wyświetlania |
-| 5 | Mechy ↔ bronie | `config00`–`config19` | **393 jednostki, 1485 broni, 41 tytułów serii**, 74 katalogi modeli | grow (tabele + pule) | domknięte dla danych | semantyka pól 88–134; 91 jednostek bez serii; 24 pary modeli poza `robo00` |
-| 6 | Itemy + opisy efektów | `srwDL_Item00` (config00) i `srwDL_Item` (configst) — **identyczne** (md5 `18f16420f2`); DLC `Item01–08` = 8 identycznych kopii puli | **300 rekordów = 300 kluczy** (u16 pod +0, unikalne); tekst: nazwa **4 001 B** (273 unikalne, max 20 B) + efekt **3 941 B** (max 66 B); pola `name_level`/`effect_brief`/`label` puste w 300/300 (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`) | **ekstrakcja + zapis domknięte** | znaczenie `linked` (+2 = +4; różne od id w 194 rekordach); 4 zduplikowane nazwy; ten sam plik leży w dwóch kontenerach — trzeba wypełnić oba wiersze |
-| 7 | Umiejętności + opisy | `srwDL_Skill00` (config00); DLC `Skill01–08` = pule bez nowych tekstów | **1 469 rekordów = 1 469 kluczy** (u16 pod +4, unikalne); **pięć pól tekstu**: nazwa 10 322 B (189 unikalnych, tokeny 0x0F) + `name_level` **15 032 B** + efekt 40 208 B (1 237 unikalnych, max 106 B) + `effect_brief` **7 161 B** + etykieta 99 B (`tools/item_skill_records.py`, 15 testów) | **grow — zapis gotowy i sprawdzony** (`tools/item_skill_write.py`, 19 testów) | **ekstrakcja + zapis domknięte** | nazwy z tokenami 0x0F do rozwiązania (`token_solve`); klucz rekordu niepowiązany z inną tabelą w przekazanych plikach `[OTWARTE]` |
-| 8 | Helpy / UI / system | `configst/sysmes.bin`, `srwDL_Reference`, `srwDL_DLC_ID`, `srwDL_Spirit`, `srwDL_Skill_Tag`, `srwDL_Achievement`, `srwDL_StatusChange`, `bgmlist<NN>.bin`, `groupunit<NN>.bin`, `srwDL_robo_Union.bin` | sysmes 1182 wpisy ≈38 KB; Reference 230 stringów/17,4 KB; DLC_ID 279/10 KB; Spirit 342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement 81/1,4 KB; StatusChange 311/2,3 KB; **nowe** (§3f): `bgmlist` = 490 tytułów BGM / 10 953 B, `groupunit` = 16 nazw oddziałów / 228 B; `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` — 0–2 B przebiegi (tabele id) | mieszany: sysmes = CAŁE wpisy puli (pisarz podmienia tylko całe napisy — wiersz-ogon nigdy nie trafia do gry; audyt `sysmes_missing_whole` od §21.32), reszta grow | częściowo | UI stałej szerokości: budżety znaków; `mesbmp*` (obrazy); menu tytułowe tylko equal-length; tytuły BGM i nazwy oddziałów — czytnika brak (pkt 12) |
-| 9 | Mapy / shop / drop | `srwDL_Map_S`, `bg2dlist`, `lmaplist`, `srwDL_Shop00`, `srwDL_ItemDrop` | **nazwy map i teł zlokalizowane** (§3f, znalezisko 15): `srwDL_Map_S` 15 nazw / 412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19 z tekstem: 5 etykiet kategorii `パイロット用パーツ` itp.); ItemDrop 1092 rekordy (5 stringów) | grow (slot + NUL) | **zdekodowane** | skąd sklep bierze nazwy itemów (nie z `srwDL_Shop`) — do ustalenia; nazwy map mają prefiks id (`53_…`), więc slot ma stałą szerokość do zmierzenia |
-| 10 | Tekst misji (tytuły + uwagi) | `*_ext.dat` w `eventP*`/`evept*` (226 plików) + `milstP<NN>.bin` w `config*` | **224 tytuły misji** (slot od +344, max 32 B, np. `19話\nアクシズからの撤退`) + **114 uwag do misji** (sloty +24 i +184, max 121 B, np. `このミッションでは…強制出撃しますが…`) + 203 tytuły w `milstP` (3 700 B); razem **10 147 B** tekstu w `_ext.dat` (§3f) | grow (slot + NUL, jak itemy) | **ekstrakcja domknięta** (`tools/mission_text.py`, 20 testów, 871 rekordów, 0 błędów) | te same tytuły w dwóch miejscach (lista misji i rekord misji) — trzeba ustalić, który jest wyświetlany; uwagi do misji **zduplikowane** w slotach +24/+184 (deduplikacja przy eksporcie) |
-| 11 | **Napisy programu gry** (nowa kategoria 2026-10-15, §21.32) | `PBOOT.PBP` (aktualizacja 1.08 w folderze DLC) → `DATA.PSP` (`~PSP` tag `0x2E5E10F0` → jawny ELF 5 531 024 B, md5 `8ba77a79…`; `tools/psp_prx.py`) | **408 napisów z odwołaniem z kodu** (`tools/exe_strings.py extract`: pary `lui/addiu` i wskaźniki `.data`; CP932 + 1 UTF-8 blok nazwy gry): panel broni w walce (`移動後`, `TGT 敵/味方/全て`), komunikaty bitewne, linie zdolności broni z 1.08 (`<貫通 Lv2>` …), efekt Guard, komendy, menu taktyczne, komunikaty sejwu/sieci/DLC; **397 z EN**, 11 zostawionych (symbole, czyste szablony printf, debug) | **slot — w miejscu**, `max_bytes` = bajty JP + wyrównanie do 4 (zapis `exe_step` buildera → **`EBOOT.BIN` w `patched.iso`** (jawny ELF) + `DLC\PBOOT.PBP` + `cheats\NPJH50521.ini` CWCheat) | **ekstrakcja + zapis gotowe; w grze: CWCheat DZIAŁA (2026-10-15), sama podmiana `PBOOT.PBP` NIE działa (PPSSPP-wydanie jej nie czyta), `EBOOT.BIN` z ISO (build #21 / `EXE_TEST2`) NIE sprawdzony** | `[HIPOTEZA]` PPSSPP uruchamia jawny ELF jako `EBOOT.BIN` z ISO (kod loadera + praktyka łatek, nie test); prawdziwe PSP poza celem; tag/md5 `EBOOT.BIN` użytkownika nieznane (cheat dowodzi tego samego układu napisów); krótkie budżety (`敵` → 3 B) |
+| #   | Kategoria               | Źródło                    | Wyekstrahowane / zweryfikowane                                           | Zapis                             | Stan                        | Główne braki                                                   |
+| --- | ----------------------- | ------------------------- | ------------------------------------------------------------------------ | --------------------------------- | --------------------------- | -------------------------------------------------------------- |
+| 1   | Dialogi fabuły          | `eventP00`–`P32`,         | **26 468 linii, 313 kluczy (100% z nazwą), 1 186                         | **grow — sprawdzony w             | **ekstrakcja                | stara liczba 12 738 linii                                      |
+|     |                         |   `evept101–108` (32      |   781 B tekstu** (`tools/event_dialogue.py`) **+                         |   grze**                          |   domknięta** (0            |   była zaniżona ~2× (stary                                     |
+|     |                         |   kontenery, 293          |   360 tekstów innych typów** (narracja 136, warunki                      |                                   |   błędów, 0                 |   chodzik kończył na granicy                                   |
+|     |                         |   członki)                |   zwycięstwa/porażki 149, lokacje 41, help 19,                           |                                   |   nieczytelnych             |   bloku); brak kroku                                           |
+|     |                         |                           |   tytuły scen 6, etykiety 9) **+ 273 teksty w                            |                                   |   rekordów)                 |   `apply`; 4008 bloków to                                      |
+|     |                         |                           |   blokach-tabelach** (13 KB)                                             |                                   |                             |   tabele (nie tekst), 137 z                                    |
+|     |                         |                           |                                                                          |                                   |                             |   nich ma teksty –                                             |
+|     |                         |                           |                                                                          |                                   |                             |   wyekstrahowane                                               |
+| 2   | Cytaty bitewne          | `mesbtl00`–`mesbtl31`     | **29 577 cytatów, 319 kluczy, 814 683 B tekstu, 0                        | grow (rozmiary rekordów +         | **ekstrakcja +              | **14 kluczy bez nazwy = 451                                    |
+|     |                         |   (32 kontenery)          |   błędów**; **305/319 kluczy ma nazwę** z tabeli                         |   łańcuch EVNT)                   |   nazwy domknięte**         |   rekordów (1,65%)**:                                          |
+|     |                         |                           |   postaci (`local/name_map.json`); nazwane rekordy:                      |                                   |                             |   50/55/60/101/151/733/1005/1037/1048/1051/3122/3702/3707/3712 |
+|     |                         |                           |   **26 932/27 383 (98,35%)**                                             |                                   |                             |   — występują **tylko w                                        |
+|     |                         |                           |                                                                          |                                   |                             |   `mesbtl00`**, brak ich w                                     |
+|     |                         |                           |                                                                          |                                   |                             |   `charalist` (404 klucze),                                    |
+|     |                         |                           |                                                                          |                                   |                             |   `CharaDictionary` (289) i                                    |
+|     |                         |                           |                                                                          |                                   |                             |   slotach `config*`.                                           |
+|     |                         |                           |                                                                          |                                   |                             |   Sprawdzone i odrzucone:                                      |
+|     |                         |                           |                                                                          |                                   |                             |   ukryty klucz w rekordzie                                     |
+|     |                         |                           |                                                                          |                                   |                             |   (skan wszystkich u16),                                       |
+|     |                         |                           |                                                                          |                                   |                             |   reguła przesunięcia ±1 (5                                    |
+|     |                         |                           |                                                                          |                                   |                             |   kluczy ma sąsiada −1, 1 ma                                   |
+|     |                         |                           |                                                                          |                                   |                             |   +1, 8 nie ma nazwanego                                       |
+|     |                         |                           |                                                                          |                                   |                             |   sąsiada), wzorce                                             |
+|     |                         |                           |                                                                          |                                   |                             |   `unitfacelist`/`robo_cpkid`                                  |
+|     |                         |                           |                                                                          |                                   |                             |   (trafienia przypadkowe).                                     |
+|     |                         |                           |                                                                          |                                   |                             |   **2 194 rekordy (7,4%) nie                                   |
+|     |                         |                           |                                                                          |                                   |                             |   mają w grze żadnego                                          |
+|     |                         |                           |                                                                          |                                   |                             |   tekstu** — `p0995.pac` (1                                    |
+|     |                         |                           |                                                                          |                                   |                             |   402) i `p0996.pac` (792):                                    |
+|     |                         |                           |                                                                          |                                   |                             |   rekordy 24-B, `flags=0`,                                     |
+|     |                         |                           |                                                                          |                                   |                             |   pusty tekst → nic do                                         |
+|     |                         |                           |                                                                          |                                   |                             |   tłumaczenia. Ścieżka                                         |
+|     |                         |                           |                                                                          |                                   |                             |   `apply` jeszcze nie                                          |
+|     |                         |                           |                                                                          |                                   |                             |   zbudowana                                                    |
+| 3   | Imiona (mówcy)          | `charalist` (404          | **381 kluczy w całej grze** (313 dialogów ∪ 319                          | grow (pula NUL)                   | **domknięte dla             | 19 kluczy cytatów bez                                          |
+|     |                         |   klucze) +               |   cytatów); **362 z nazwą (95,0%)**; **100% linii                        |                                   |   dostępnych                |   rekordu w `charalist`                                        |
+|     |                         |   `srwDL_CharaDictionary` |   dialogu (26 468/26 468)** i **98,35% rekordów                          |                                   |   danych**                  |   (patrz wiersz 2); sloty                                      |
+|     |                         |   (289) + sloty           |   cytatów** ma nazwę; do tego 210 kluczy z seiyuu i                      |                                   |                             |   `config*` okazały się                                        |
+|     |                         |   `config*`               |   284 z tytułem serii (`tools/name_map.py`)                              |                                   |                             |   **redundantne** (190/201                                     |
+|     |                         |                           |                                                                          |                                   |                             |   trafień już w `charalist`,                                   |
+|     |                         |                           |                                                                          |                                   |                             |   11 to przypadkowe bajty) —                                   |
+|     |                         |                           |                                                                          |                                   |                             |   zaufanie tylko do slotów z                                   |
+|     |                         |                           |                                                                          |                                   |                             |   markerem `0x6401`                                            |
+| 4   | Encyklopedia postaci    | `srwDL_CharaDictionary`   | tabela **289 postaci** z nazwą, seiyuu, tytułem                          | grow (pula NUL —                  | **tabela                    | 579 rekordów bez opisu →                                       |
+|     |                         |   (imenu/config) —        |   serii, pseudonimem `愛称：` i **slotem opisu**;                        |   `dict_pool_shift.rebuild_pool`) |   zlokalizowana,            |   opisy trzeba **napisać**                                     |
+|     |                         |   **pole [2] rekordu**    |   opis ma **tylko 3/582 rekordy**, reszta trzyma                         |                                   |   opisów w danych           |   (praca redakcyjna), a                                        |
+|     |                         |                           |   sam szablon `＠０\r`; rekord `NoData` (klucz                           |                                   |   gry brak**                |   wstrzyknięcie jest                                           |
+|     |                         |                           |   65535) ma w tym polu                                                   |                                   |                             |   wykonalne w polu [2]                                         |
+|     |                         |                           |   `図鑑用のデータが存在していません。` = „brak                           |                                   |                             |   (szablon `＠０\r` + tekst)                                   |
+|     |                         |                           |   danych do encyklopedii”                                                |                                   |                             |   `[HIPOTEZA]` co do                                           |
+|     |                         |                           |   (`tools/chara_dictionary.py`, 9 testów)                                |                                   |                             |   wyświetlania                                                 |
+| 5   | Mechy ↔ bronie          | `config00`–`config19`     | **393 jednostki, 1485 broni, 41 tytułów serii**, 74                      | grow (tabele + pule)              | domknięte dla               | semantyka pól 88–134; 91                                       |
+|     |                         |                           |   katalogi modeli                                                        |                                   |   danych                    |   jednostek bez serii; 24                                      |
+|     |                         |                           |                                                                          |                                   |                             |   pary modeli poza `robo00`                                    |
+| 6   | Itemy + opisy efektów   | `srwDL_Item00`            | **300 rekordów = 300 kluczy** (u16 pod +0,                               | **grow — zapis gotowy i           | **ekstrakcja +              | znaczenie `linked` (+2 = +4;                                   |
+|     |                         |   (config00) i            |   unikalne); tekst: nazwa **4 001 B** (273                               |   sprawdzony**                    |   zapis domknięte**         |   różne od id w 194                                            |
+|     |                         |   `srwDL_Item`            |   unikalne, max 20 B) + efekt **3 941 B** (max 66                        |   (`tools/item_skill_write.py`)   |                             |   rekordach); 4 zduplikowane                                   |
+|     |                         |   (configst) —            |   B); pola `name_level`/`effect_brief`/`label`                           |                                   |                             |   nazwy; ten sam plik leży w                                   |
+|     |                         |   **identyczne** (md5     |   puste w 300/300 (`tools/item_skill_records.py`,                        |                                   |                             |   dwóch kontenerach — trzeba                                   |
+|     |                         |   `18f16420f2`); DLC      |   15 testów)                                                             |                                   |                             |   wypełnić oba wiersze                                         |
+|     |                         |   `Item01–08` = 8         |                                                                          |                                   |                             |                                                                |
+|     |                         |   identycznych kopii      |                                                                          |                                   |                             |                                                                |
+|     |                         |   puli                    |                                                                          |                                   |                             |                                                                |
+| 7   | Umiejętności + opisy    | `srwDL_Skill00`           | **1 469 rekordów = 1 469 kluczy** (u16 pod +4,                           | **grow — zapis gotowy i           | **ekstrakcja +              | nazwy z tokenami 0x0F do                                       |
+|     |                         |   (config00); DLC         |   unikalne); **pięć pól tekstu**: nazwa 10 322 B                         |   sprawdzony**                    |   zapis domknięte**         |   rozwiązania                                                  |
+|     |                         |   `Skill01–08` = pule     |   (189 unikalnych, tokeny 0x0F) + `name_level` **15                      |   (`tools/item_skill_write.py`,   |                             |   (`token_solve`); klucz                                       |
+|     |                         |   bez nowych tekstów      |   032 B** + efekt 40 208 B (1 237 unikalnych, max                        |   19 testów)                      |                             |   rekordu niepowiązany z                                       |
+|     |                         |                           |   106 B) + `effect_brief` **7 161 B** + etykieta 99                      |                                   |                             |   inną tabelą w przekazanych                                   |
+|     |                         |                           |   B (`tools/item_skill_records.py`, 15 testów)                           |                                   |                             |   plikach `[OTWARTE]`                                          |
+| 8   | Helpy / UI / system     | `configst/sysmes.bin`,    | sysmes 1182 wpisy ≈38 KB; Reference 230                                  | mieszany: sysmes = CAŁE           | częściowo                   | UI stałej szerokości:                                          |
+|     |                         |   `srwDL_Reference`,      |   stringów/17,4 KB; DLC_ID 279/10 KB; Spirit                             |   wpisy puli (pisarz              |                             |   budżety znaków; `mesbmp*`                                    |
+|     |                         |   `srwDL_DLC_ID`,         |   342/9,3 KB; Skill_Tag 294/2,8 KB; Achievement                          |   podmienia tylko całe            |                             |   (obrazy); menu tytułowe                                      |
+|     |                         |   `srwDL_Spirit`,         |   81/1,4 KB; StatusChange 311/2,3 KB; **nowe**                           |   napisy — wiersz-ogon            |                             |   tylko equal-length; tytuły                                   |
+|     |                         |   `srwDL_Skill_Tag`,      |   (§3f): `bgmlist` = 490 tytułów BGM                                     |   nigdy nie trafia do gry;        |                             |   BGM i nazwy oddziałów —                                      |
+|     |                         |   `srwDL_Achievement`,    |   10 953 B, `groupunit` = 16 nazw oddziałów                              |   audyt                           |                             |   czytnika brak (pkt 12)                                       |
+|     |                         |   `srwDL_StatusChange`,   |   228 B;                                                                 |   `sysmes_missing_whole` od       |                             |                                                                |
+|     |                         |   `bgmlist<NN>.bin`,      |   `srwDL_robo_Union`/`SESys_list`/`unit_index_list`/`texanmptn`/`movlst` |   §21.32), reszta grow            |                             |                                                                |
+|     |                         |   `groupunit<NN>.bin`,    |   — 0–2 B przebiegi (tabele id)                                          |                                   |                             |                                                                |
+|     |                         |   `srwDL_robo_Union.bin`  |                                                                          |                                   |                             |                                                                |
+| 9   | Mapy / shop / drop      | `srwDL_Map_S`,            | **nazwy map i teł zlokalizowane** (§3f, znalezisko                       | grow (slot + NUL)                 | **zdekodowane**             | skąd sklep bierze nazwy                                        |
+|     |                         |   `bg2dlist`,             |   15): `srwDL_Map_S` 15 nazw                                             |                                   |                             |   itemów (nie z                                                |
+|     |                         |   `lmaplist`,             |   412 B, `bg2dlist` 64 nazwy; Shop 182 rekordy (19                       |                                   |                             |   `srwDL_Shop`) — do                                           |
+|     |                         |   `srwDL_Shop00`,         |   z tekstem: 5 etykiet kategorii                                         |                                   |                             |   ustalenia; nazwy map mają                                    |
+|     |                         |   `srwDL_ItemDrop`        |   `パイロット用パーツ` itp.); ItemDrop 1092 rekordy                      |                                   |                             |   prefiks id (`53_…`), więc                                    |
+|     |                         |                           |   (5 stringów)                                                           |                                   |                             |   slot ma stałą szerokość do                                   |
+|     |                         |                           |                                                                          |                                   |                             |   zmierzenia                                                   |
+| 10  | Tekst misji (tytuły +   | `*_ext.dat` w             | **224 tytuły misji** (slot od +344, max 32 B, np.                        | grow (slot + NUL, jak             | **ekstrakcja                | te same tytuły w dwóch                                         |
+|     |   uwagi)                |   `eventP*`/`evept*`      |   `19話\nアクシズからの撤退`) + **114 uwag do                            |   itemy)                          |   domknięta**               |   miejscach (lista misji i                                     |
+|     |                         |   (226 plików) +          |   misji** (sloty +24 i +184, max 121 B, np.                              |                                   |   (`tools/mission_text.py`, |   rekord misji) — trzeba                                       |
+|     |                         |   `milstP<NN>.bin` w      |   `このミッションでは…強制出撃しますが…`) + 203                          |                                   |   20 testów, 871            |   ustalić, który jest                                          |
+|     |                         |   `config*`               |   tytuły w `milstP` (3 700 B); razem **10 147 B**                        |                                   |   rekordów, 0               |   wyświetlany; uwagi do                                        |
+|     |                         |                           |   tekstu w `_ext.dat` (§3f)                                              |                                   |   błędów)                   |   misji **zduplikowane** w                                     |
+|     |                         |                           |                                                                          |                                   |                             |   slotach +24/+184                                             |
+|     |                         |                           |                                                                          |                                   |                             |   (deduplikacja przy                                           |
+|     |                         |                           |                                                                          |                                   |                             |   eksporcie)                                                   |
+| 11  | **Napisy programu gry** | `PBOOT.PBP`               | **408 napisów z odwołaniem z kodu**                                      | **slot — w miejscu**,             | **ekstrakcja +              | `[HIPOTEZA]` PPSSPP                                            |
+|     |   (nowa kategoria       |   (aktualizacja 1.08 w    |   (`tools/exe_strings.py extract`: pary `lui/addiu`                      |   `max_bytes` = bajty JP +        |   zapis gotowe; w           |   uruchamia jawny ELF jako                                     |
+|     |   2026-10-15, §21.32)   |   folderze DLC) →         |   i wskaźniki `.data`; CP932 + 1 UTF-8 blok nazwy                        |   wyrównanie do 4 (zapis          |   grze: CWCheat             |   `EBOOT.BIN` z ISO (kod                                       |
+|     |                         |   `DATA.PSP` (`~PSP`      |   gry): panel broni w walce (`移動後`, `TGT                              |   `exe_step` buildera →           |   DZIAŁA                    |   loadera + praktyka łatek,                                    |
+|     |                         |   tag `0x2E5E10F0` →      |   敵/味方/全て`), komunikaty bitewne, linie                              |   **`EBOOT.BIN` w                 |   (2026-10-15),             |   nie test); prawdziwe PSP                                     |
+|     |                         |   jawny ELF 5 531 024     |   zdolności broni z 1.08 (`<貫通 Lv2>` …), efekt                         |   `patched.iso`** (jawny          |   sama podmiana             |   poza celem; tag/md5                                          |
+|     |                         |   B, md5 `8ba77a79…`;     |   Guard, komendy, menu taktyczne, komunikaty                             |   ELF) + `DLC\PBOOT.PBP` +        |   `PBOOT.PBP` NIE           |   `EBOOT.BIN` użytkownika                                      |
+|     |                         |   `tools/psp_prx.py`)     |   sejwu/sieci/DLC; **397 z EN**, 11 zostawionych                         |   `cheats\NPJH50521.ini`          |   działa                    |   nieznane (cheat dowodzi                                      |
+|     |                         |                           |   (symbole, czyste szablony printf, debug)                               |   CWCheat)                        |   (PPSSPP-wydanie           |   tego samego układu                                           |
+|     |                         |                           |                                                                          |                                   |   jej nie czyta),           |   napisów); krótkie budżety                                    |
+|     |                         |                           |                                                                          |                                   |   `EBOOT.BIN` z ISO         |   (`敵` → 3 B)                                                 |
+|     |                         |                           |                                                                          |                                   |   (build #21                |                                                                |
+|     |                         |                           |                                                                          |                                   |   `EXE_TEST2`) NIE          |                                                                |
+|     |                         |                           |                                                                          |                                   |   sprawdzony**              |                                                                |
 
 Razem dla tabel z pkt 6–8 (`tools/config_text_tables.py`, 20 kontenerów + `configst`):
 **11 254 rekordy, 12 599 stringów, 208 KB tekstu; unikalnych 4208 (3518 z kanji/kana), 89,3 KB.**
@@ -39,16 +137,19 @@ Cytaty bitewne (pkt 2, `tools/battle_quotes.py`): **29 577 rekordów, 814,7 KB t
 
 ## 2. Klucze — stan (wymaganie „100% kluczy”)
 
-| Typ danych | Klucz | Pokrycie |
-|---|---|---|
-| Jednostki (mechy) | `unit_list` +84 = `wp_list` u32 = `RoboDictionary` +28 = `unit_index_list` kol. 1 | **393 / 393 (cała gra)** `[ZWERYFIKOWANE]` |
-| Bronie | pozycja wpisu w rekordzie `wp_list` jednostki (nazwa `.bsb` = `s<id>_<nnn>`) | **1485 / 1485** `[ZWERYFIKOWANE]` |
-| Mówcy | u16 w rekordzie dialogu/cytatu +10 → `charalist` +96 (nazwy) i `CharaDictionary` +0x40 (seiyuu, seria) | **362 / 381 kluczy (95,0%)**; dialogi 313/313 (100% linii), cytaty 305/319; 14 kluczy cytatów = 451 rekordów (1,65%) |
-| Cytaty bitewne | u16 klucza w rekordzie 0xC9 (nazwa członka `p<NNN>.pac` to *zestaw*, nie mówca) | **319 kluczy** `[ZWERYFIKOWANE]` (poprzednie 241 liczyło tylko rekordy zgodne z nazwą członka) |
-| Encyklopedia | klucz mówcy u16 +0x40 rekordu `CharaDictionary` | **289 / 313 kluczy dialogów** (`local/name_map.json`); opisy obecne w 3 rekordach |
-| Itemy | u16 na +0 rekordu `srwDL_Item` (np. 10000, 10019) | 300 kluczy na płycie + pule DLC; mapowanie nazwa↔klucz niepotwierdzone |
-| Skille | rekord `srwDL_Skill` (1469 na płycie + pule) | klucz nieustalony |
-| Tytuły serii | `RoboDictionary` po id jednostki | 302 / 393 jednostek ma rekord |
+| Typ danych        | Klucz                                                                                                  | Pokrycie                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Jednostki (mechy) | `unit_list` +84 = `wp_list` u32 = `RoboDictionary` +28 = `unit_index_list` kol. 1                      | **393 / 393 (cała gra)** `[ZWERYFIKOWANE]`                                              |
+| Bronie            | pozycja wpisu w rekordzie `wp_list` jednostki (nazwa `.bsb` = `s<id>_<nnn>`)                           | **1485 / 1485** `[ZWERYFIKOWANE]`                                                       |
+| Mówcy             | u16 w rekordzie dialogu/cytatu +10 → `charalist` +96 (nazwy) i `CharaDictionary` +0x40 (seiyuu, seria) | **362                                                                                   |
+|                   |                                                                                                        |   381 kluczy (95,0%)**; dialogi 313/313 (100% linii), cytaty 305/319; 14 kluczy cytatów |
+|                   |                                                                                                        |   = 451 rekordów (1,65%)                                                                |
+| Cytaty bitewne    | u16 klucza w rekordzie 0xC9 (nazwa członka `p<NNN>.pac` to *zestaw*, nie mówca)                        | **319 kluczy** `[ZWERYFIKOWANE]` (poprzednie 241 liczyło tylko rekordy zgodne z nazwą   |
+|                   |                                                                                                        |   członka)                                                                              |
+| Encyklopedia      | klucz mówcy u16 +0x40 rekordu `CharaDictionary`                                                        | **289 / 313 kluczy dialogów** (`local/name_map.json`); opisy obecne w 3 rekordach       |
+| Itemy             | u16 na +0 rekordu `srwDL_Item` (np. 10000, 10019)                                                      | 300 kluczy na płycie + pule DLC; mapowanie nazwa↔klucz niepotwierdzone                  |
+| Skille            | rekord `srwDL_Skill` (1469 na płycie + pule)                                                           | klucz nieustalony                                                                       |
+| Tytuły serii      | `RoboDictionary` po id jednostki                                                                       | 302 / 393 jednostek ma rekord                                                           |
 
 ## 3. Nowe narzędzie tej sesji
 
@@ -136,17 +237,17 @@ testami.
 `[ZWERYFIKOWANE]` `tools/chara_dictionary.py` (9 testów) — słownik postaci `srwDL_CharaDictionary<NN>.bin`
 (25 kontenerów `imenu`, 582 rekordy / 289 kluczy, identyczne w kopiach). 12 stringów rekordu:
 
-| pole | znaczenie | pokrycie |
-|---|---|---|
-| [0] | nazwa postaci (np. 霧隠虎太郎) | 582/582 |
-| [1] | seiyuu, `－－－` gdy brak | 426 + 156 placeholderów |
-| [2] | **opis do encyklopedii**: szablon `＠０\r` + tekst | 3/582 |
-| [3] | tytuł serii | 582/582 |
-| [4] | `愛称：<pseudonim>` | 582/582 |
-| [5] | `声優：<seiyuu>` | 582/582 |
-| [8]/[9] | szablony wyświetlania `＠６\r`, `＠０\r\n＠６\r` | 582/582 |
-| [10] | nazwa alternatywna (勇者ラムネス（馬場ランペルージ）) | 1 |
-| [11] | krótka nazwa wyświetlana (マリア) | 440/582 |
+| pole    | znaczenie                                             | pokrycie                |
+| ------- | ----------------------------------------------------- | ----------------------- |
+| [0]     | nazwa postaci (np. 霧隠虎太郎)                        | 582/582                 |
+| [1]     | seiyuu, `－－－` gdy brak                             | 426 + 156 placeholderów |
+| [2]     | **opis do encyklopedii**: szablon `＠０\r` + tekst    | 3/582                   |
+| [3]     | tytuł serii                                           | 582/582                 |
+| [4]     | `愛称：<pseudonim>`                                   | 582/582                 |
+| [5]     | `声優：<seiyuu>`                                      | 582/582                 |
+| [8]/[9] | szablony wyświetlania `＠６\r`, `＠０\r\n＠６\r`      | 582/582                 |
+| [10]    | nazwa alternatywna (勇者ラムネス（馬場ランペルージ）) | 1                       |
+| [11]    | krótka nazwa wyświetlana (マリア)                     | 440/582                 |
 
 `[ZWERYFIKOWANE]` `tools/name_map.py` (12 testów) — jeden stół **klucz → nazwa** dla całego uniwersum
 kluczy (26 468 linii dialogu + 29 577 cytatów), z priorytetem źródeł i raportem konfliktów:
@@ -173,16 +274,16 @@ leży **pula fragmentów** (NUL-terminowane kawałki, z których gra składa tek
 
 Rekord (identyczny kształt dla itemów i umiejętności, zmierzone na 1 769 rekordach):
 
-| offset | item | umiejętność |
-|---|---|---|
-| +0 | **id itemu** (unikalne 300/300) | id rodziny (193 różne wartości) |
-| +2 | `linked` (równe +4 w 300/300) | drugie pole rodziny (254 różne) |
-| +4 | kopia `linked` | **id rekordu, unikalne 1469/1469 → klucz** |
-| +6 | 5 wartości (0–4) | poziom (65535 = zalążek + 0–10) |
-| +8–39 | parametry | parametry |
-| +40 | **6 granic pól u16** (b0 = 54) = pięć pól tekstu | to samo |
-| +54 | pięć pól: `name`, `name_level`, `effect`, `effect_brief`, `label` | to samo |
-| dalej | ogon liczbowy (u16) po ostatnim polu | to samo |
+| offset | item                                                              | umiejętność                                |
+| ------ | ----------------------------------------------------------------- | ------------------------------------------ |
+| +0     | **id itemu** (unikalne 300/300)                                   | id rodziny (193 różne wartości)            |
+| +2     | `linked` (równe +4 w 300/300)                                     | drugie pole rodziny (254 różne)            |
+| +4     | kopia `linked`                                                    | **id rekordu, unikalne 1469/1469 → klucz** |
+| +6     | 5 wartości (0–4)                                                  | poziom (65535 = zalążek + 0–10)            |
+| +8–39  | parametry                                                         | parametry                                  |
+| +40    | **6 granic pól u16** (b0 = 54) = pięć pól tekstu                  | to samo                                    |
+| +54    | pięć pól: `name`, `name_level`, `effect`, `effect_brief`, `label` | to samo                                    |
+| dalej  | ogon liczbowy (u16) po ostatnim polu                              | to samo                                    |
 
 * **KOREKTA (sesja 5, cz. 9)**: sześć wartości `u16` pod +40 to **granice pięciu pól**, nie trzy pary
   `(start, end)`. Pierwsze odczytanie wzięło je za trzy pary i **zgubiło dwa pola**: `name_level`
@@ -223,18 +324,18 @@ który go skonsumował (nazwy bierze z JSON-ów wyjściowych czytników, nie z r
 
 **Wynik: 155 kontenerów / 4 043 pliki.**
 
-| czytnik (wyjście, które plik konsumuje) | plików |
-|---|---|
-| `event_dialogue` (`eventP*`/`evept*`, `*.bin`) | 293 |
-| `battle_quotes` (`mesbtl*`) | 257 |
-| `mission_notes` (`*_ext.dat` — nowa kategoria) | 226 |
-| `chara_dictionary` (`imenu*` + `config*.pac`) | 44 |
-| `robo_dictionary` | 44 |
-| `text_tables` (`srwDL_*` w `config*`) | 43 |
-| `unit_weapons` (`unit_list*`, `wp_list*`) | 18 |
-| `charalist_table` (`charalist*`) | 15 |
-| `name_map` (zestawienie nazw) | 2 |
-| **bez czytnika** | **3 101** |
+| czytnik (wyjście, które plik konsumuje)        | plików    |
+| ---------------------------------------------- | --------- |
+| `event_dialogue` (`eventP*`/`evept*`, `*.bin`) | 293       |
+| `battle_quotes` (`mesbtl*`)                    | 257       |
+| `mission_notes` (`*_ext.dat` — nowa kategoria) | 226       |
+| `chara_dictionary` (`imenu*` + `config*.pac`)  | 44        |
+| `robo_dictionary`                              | 44        |
+| `text_tables` (`srwDL_*` w `config*`)          | 43        |
+| `unit_weapons` (`unit_list*`, `wp_list*`)      | 18        |
+| `charalist_table` (`charalist*`)               | 15        |
+| `name_map` (zestawienie nazw)                  | 2         |
+| **bez czytnika**                               | **3 101** |
 
 Reszta bez czytnika to wyłącznie grafika, dźwięk i dane bez tekstu (rozszerzenia/liczby):
 `pac` 1 095 (tekstury i modele 3D), `gim` 553, `dat` 452 (226× `_Entry.dat` + 226× `_edit.dat` —
@@ -248,16 +349,16 @@ znalezisko 17).
 
 ### Nowe kategorie tekstu znalezione przy tej okazji
 
-| plik / obiekt | treść | sztuk | tekst | maks. |
-|---|---|---|---|---|
-| `*_ext.dat` slot 2 (+344) | **tytuł misji** (`19話\nアクシズからの撤退`) | 224 z 226 | — | 32 B |
-| `*_ext.dat` slot 0 (+24) i slot 1 (+184) | **uwagi do misji** (`このミッションでは…強制出撃しますが…`) | 61 / 53 | 10 147 B (razem z tytułami) | 121 B |
-| `milstP<NN>.bin` | tytuły misji w liście misji (`ホワイトベースを救援せよ`) | 22 pliki / 203 teksty | 3 700 B | 27 B |
-| `bgmlist<NN>.bin` | **tytuły BGM** (`Ｃｒｅａｔｅ ｙｏｕｒ Ｆｕｔｕｒｅ～時空を越えろ`) | 14 / 490 | 10 953 B | 48 B |
-| `bg2dlist.bin` | nazwy teł (`アステロイド宇宙`) | 64 (w `config00`) | ~800 B | 16 B |
-| `srwDL_Map_S.bin` | nazwy map (`53_必殺技用マップ1（ただの暗い空`) | 15 | 412 B | 32 B |
-| `groupunit<NN>.bin` | nazwy oddziałów (`スカル小隊／宇宙／Ｆ`) | 16 | 228 B | 20 B |
-| `srwDL_Shop<NN>.bin` | etykiety sklepu (`パイロット用パーツ`) | 5 | 66 B | 18 B |
+| plik / obiekt                            | treść                                                               | sztuk                 | tekst                       | maks. |
+| ---------------------------------------- | ------------------------------------------------------------------- | --------------------- | --------------------------- | ----- |
+| `*_ext.dat` slot 2 (+344)                | **tytuł misji** (`19話\nアクシズからの撤退`)                        | 224 z 226             | —                           | 32 B  |
+| `*_ext.dat` slot 0 (+24) i slot 1 (+184) | **uwagi do misji** (`このミッションでは…強制出撃しますが…`)         | 61 / 53               | 10 147 B (razem z tytułami) | 121 B |
+| `milstP<NN>.bin`                         | tytuły misji w liście misji (`ホワイトベースを救援せよ`)            | 22 pliki / 203 teksty | 3 700 B                     | 27 B  |
+| `bgmlist<NN>.bin`                        | **tytuły BGM** (`Ｃｒｅａｔｅ ｙｏｕｒ Ｆｕｔｕｒｅ～時空を越えろ`) | 14 / 490              | 10 953 B                    | 48 B  |
+| `bg2dlist.bin`                           | nazwy teł (`アステロイド宇宙`)                                      | 64 (w `config00`)     | ~800 B                      | 16 B  |
+| `srwDL_Map_S.bin`                        | nazwy map (`53_必殺技用マップ1（ただの暗い空`)                      | 15                    | 412 B                       | 32 B  |
+| `groupunit<NN>.bin`                      | nazwy oddziałów (`スカル小隊／宇宙／Ｆ`)                            | 16                    | 228 B                       | 20 B  |
+| `srwDL_Shop<NN>.bin`                     | etykiety sklepu (`パイロット用パーツ`)                              | 5                     | 66 B                        | 18 B  |
 
 To domyka dwie pozycje, które nie miały wskazanego pliku: **tytuły misji** (`*_ext.dat`, `milstP`)
 oraz **nazwy map i teł** (`srwDL_Map_S`, `bg2dlist`). Kształt rekordu `*_ext.dat`: 388 B
@@ -269,18 +370,18 @@ więc ścieżka grow będzie ta sama. Czytnik tych kategorii to następny krok (
 `tools/translator_export.py` skleja wszystkie artefakty z `local/` w **jeden pakiet dla tłumacza**
 (13 testów syntetycznych; wynik trafia do `local/translation/`, czyli poza repozytorium):
 
-| plik | wiersze | bajty JP | unikalne JP | tryb |
-|---|---|---|---|---|
-| `00_dialogue.jsonl` (dialogi + 360 tekstów innych typów + 273 embedded) | 27 101 | 1 221 274 | 17 820 | grow |
-| `01_battle_quotes.jsonl` (cytaty z tekstem) | 27 383 | 814 683 | 16 930 | grow |
-| `02_items.jsonl` (nazwa + efekt; pule Item/Item00–08) | 1 200 | 15 884 | 443 | grow + `suggested_max` |
-| `03_skills.jsonl` (nazwa, nazwa z poziomem, długi efekt, skrót, etykieta) | 4 932 | 72 822 | 2 878 | grow + `suggested_max` |
-| `04_config_text.jsonl` (Reference, Spirit, SkillTag, Achievement, DLC_ID, Shop, StatusChange, ItemDrop) | 12 631 | 208 229 | 4 216 | grow |
-| `05_mission_text.jsonl` (tytuły/uwagi misji, BGM, mapy, tła, oddziały) | 1 311 | 29 674 | 818 | grow (slot) |
-| `06_scenes.jsonl` (**struktura**: 293 nagłówki scen — odcinek, miejsce/czas, tytuł misji, znaczniki kopii) | 293 | — | — | struktura |
-| `07_names_characters.jsonl` (nazwy, pseudonimy, serie, seiyuu) | 3 388 | 37 861 | 1 033 | grow |
-| `08_names_units_weapons.jsonl` (jednostki, serie, bronie, noty RoboDictionary) | 4 645 | 69 250 | 2 020 | grow |
-| **razem** | **82 591** | **2 469 677** | — | — |
+| plik                                                                                                       | wiersze    | bajty JP      | unikalne JP | tryb                   |
+| ---------------------------------------------------------------------------------------------------------- | ---------- | ------------- | ----------- | ---------------------- |
+| `00_dialogue.jsonl` (dialogi + 360 tekstów innych typów + 273 embedded)                                    | 27 101     | 1 221 274     | 17 820      | grow                   |
+| `01_battle_quotes.jsonl` (cytaty z tekstem)                                                                | 27 383     | 814 683       | 16 930      | grow                   |
+| `02_items.jsonl` (nazwa + efekt; pule Item/Item00–08)                                                      | 1 200      | 15 884        | 443         | grow + `suggested_max` |
+| `03_skills.jsonl` (nazwa, nazwa z poziomem, długi efekt, skrót, etykieta)                                  | 4 932      | 72 822        | 2 878       | grow + `suggested_max` |
+| `04_config_text.jsonl` (Reference, Spirit, SkillTag, Achievement, DLC_ID, Shop, StatusChange, ItemDrop)    | 12 631     | 208 229       | 4 216       | grow                   |
+| `05_mission_text.jsonl` (tytuły/uwagi misji, BGM, mapy, tła, oddziały)                                     | 1 311      | 29 674        | 818         | grow (slot)            |
+| `06_scenes.jsonl` (**struktura**: 293 nagłówki scen — odcinek, miejsce/czas, tytuł misji, znaczniki kopii) | 293        | —             | —           | struktura              |
+| `07_names_characters.jsonl` (nazwy, pseudonimy, serie, seiyuu)                                             | 3 388      | 37 861        | 1 033       | grow                   |
+| `08_names_units_weapons.jsonl` (jednostki, serie, bronie, noty RoboDictionary)                             | 4 645      | 69 250        | 2 020       | grow                   |
+| **razem**                                                                                                  | **82 591** | **2 469 677** | —           | —                      |
 
 Do tego `strings.csv` (**tylko z opcją `--csv`**; te same wiersze w arkuszu: `id, category, part, jp,
 en, bytes, max_bytes, mode, speaker_key, speaker_jp, container, member, offset`) i `index.json` ze
@@ -560,15 +661,31 @@ Kategoria, której audyt „100% tekstu" z definicji nie widzi: etykiety ekranó
 intermisji nie są stringami, tylko bitmapami. Potwierdzone na zrzutach użytkownika po przyjęciu pakietu v4 (tekst
 po angielsku, etykiety wokół po japońsku). Szczegóły formatów i narzędzi: `EXPERIMENT_LOG.md` §21.28.
 
-| kontener | tekstury z japońskim napisem | stan (2026-10-15 późny wieczór, `UI_TEST4` / krok builderowy; `UI_TEST3` **działał w grze — build #19**) |
-|---|---|---|
-| `system.cpk` (CPK bez TOC, 1 member) | `mensys_01` (気力, 援護), `mensys_03` (status/broń + teren 空宇地 → AI SP GR), `mensys_08` (umiejętności/części), `mensys_13` (listy; cechy broni 突曲押投合 → BR AR PU TH CO), `mensys_05`, `mensys_07`, `mensys_10`, `mensys_11`, `mensys_14` (HP EN + teren → GR AI SP), `mensys_15` (kule ducha → VA BU AC FL FO PE WA GA FR DI, badge 包直投 → SR DH TH) | **spec + podgląd gotowe (10 tekstur), w `UI_TEST3` i w `HOKUS_POKUS`; `UI_TEST1` (4 z nich) działał w grze, reszta nie sprawdzona** |
-| | `mensys_12` (連 持 特 防 突 早 狙 回) | nie zaczęte — miejsce użycia w grze niepotwierdzone (czekam na zrzut) |
-| `IM1000.cpk` / `IM3000.cpk` (TOC, PAC w PAC) | `intsys_01` (zakładki), `intsys_03`, `intsys_04`; `IM9000`: `intsys_03` | **spec gotowe, w `UI_TEST3`; `intsys_01` działał w grze (`UI_TEST1`)** |
-| `tacsys.cpk` (walka) | `tacsys_07–11`, `13–18`, `vsbg` (+ badge 包 → SR w `15`, 押/投 → PU/TH w `17`) | **spec gotowe (12 tekstur), w `UI_TEST3`; w grze nie sprawdzone** |
-| `navisys.cpk` (TOC, 2 gołe GIM-y RGBA8888, stały `ExtractSize`) | `navisys_02` (戦闘 回避 ムサイ 決定 キャンセル 敵艦発見 → Battle Evade Musai Confirm Cancel Enemy Sighted); `navisys_01` bez tekstu | **spec gotowe, w `UI_TEST3`; w grze nie sprawdzone** (`cpk_write` obsługuje stały `ExtractSize` od §21.31) |
-| `sprstd00`, `mesbmp00`, `svicon`, `txa00`, pliki `.sp` | nieznane | nie pobrane / nie zdekodowane |
-| `PSP_GAME/SYSDIR/EBOOT.BIN` w ISO (program, który PPSSPP uruchamia) = `PBOOT.PBP` → `DATA.PSP` (ten sam program 1.08 jako aktualizacja; ten sam układ napisów — dowód: CWCheat działa) | nie tekstury — **napisy w programie** (408; wiersz 11 tabeli zbiorczej) | **w zakresie od 2026-10-15 (§21.32–21.33): 397 EN w `09_executable.jsonl`, zapis `exe_step` do `EBOOT.BIN` w `patched.iso` + PBOOT + cheat; w grze działa tylko cheat (sprawdzone), EBOOT nie sprawdzony** |
+| kontener                              | tekstury z japońskim napisem                                  | stan (2026-10-15 późny wieczór, `UI_TEST4` / krok builderowy; `UI_TEST3` **działał w grze — build #19**)     |
+| ------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `system.cpk` (CPK bez TOC, 1 member)  | `mensys_01` (気力, 援護), `mensys_03` (status/broń + teren    | **spec + podgląd gotowe (10 tekstur), w `UI_TEST3` i w `HOKUS_POKUS`; `UI_TEST1` (4 z nich) działał w grze,  |
+|                                       |   空宇地 → AI SP GR), `mensys_08` (umiejętności/części),      |   reszta nie sprawdzona**                                                                                    |
+|                                       |   `mensys_13` (listy; cechy broni 突曲押投合 → BR AR PU TH    |                                                                                                              |
+|                                       |   CO), `mensys_05`, `mensys_07`, `mensys_10`, `mensys_11`,    |                                                                                                              |
+|                                       |   `mensys_14` (HP EN + teren → GR AI SP), `mensys_15` (kule   |                                                                                                              |
+|                                       |   ducha → VA BU AC FL FO PE WA GA FR DI, badge 包直投 → SR DH |                                                                                                              |
+|                                       |   TH)                                                         |                                                                                                              |
+|                                       | `mensys_12` (連 持 特 防 突 早 狙 回)                         | nie zaczęte — miejsce użycia w grze niepotwierdzone (czekam na zrzut)                                        |
+| `IM1000.cpk`                          | `intsys_01` (zakładki), `intsys_03`, `intsys_04`; `IM9000`:   | **spec gotowe, w `UI_TEST3`; `intsys_01` działał w grze (`UI_TEST1`)**                                       |
+|   `IM3000.cpk` (TOC, PAC w PAC)       |   `intsys_03`                                                 |                                                                                                              |
+| `tacsys.cpk` (walka)                  | `tacsys_07–11`, `13–18`, `vsbg` (+ badge 包 → SR w `15`,      | **spec gotowe (12 tekstur), w `UI_TEST3`; w grze nie sprawdzone**                                            |
+|                                       |   押/投 → PU/TH w `17`)                                       |                                                                                                              |
+| `navisys.cpk` (TOC, 2 gołe GIM-y      | `navisys_02` (戦闘 回避 ムサイ 決定 キャンセル 敵艦発見 →     | **spec gotowe, w `UI_TEST3`; w grze nie sprawdzone** (`cpk_write` obsługuje stały `ExtractSize` od §21.31)   |
+|   RGBA8888, stały `ExtractSize`)      |   Battle Evade Musai Confirm Cancel Enemy Sighted);           |                                                                                                              |
+|                                       |   `navisys_01` bez tekstu                                     |                                                                                                              |
+| `sprstd00`, `mesbmp00`, `svicon`,     | nieznane                                                      | nie pobrane / nie zdekodowane                                                                                |
+|   `txa00`, pliki `.sp`                |                                                               |                                                                                                              |
+| `PSP_GAME/SYSDIR/EBOOT.BIN` w ISO     | nie tekstury — **napisy w programie** (408; wiersz 11 tabeli  | **w zakresie od 2026-10-15 (§21.32–21.33): 397 EN w `09_executable.jsonl`, zapis `exe_step` do `EBOOT.BIN` w |
+|   (program, który PPSSPP uruchamia) = |   zbiorczej)                                                  |   `patched.iso` + PBOOT + cheat; w grze działa tylko cheat (sprawdzone), EBOOT nie sprawdzony**              |
+|   `PBOOT.PBP` → `DATA.PSP` (ten sam   |                                                               |                                                                                                              |
+|   program 1.08 jako aktualizacja; ten |                                                               |                                                                                                              |
+|   sam układ napisów — dowód: CWCheat  |                                                               |                                                                                                              |
+|   działa)                             |                                                               |                                                                                                              |
 
 Świadomie zostawione po japońsku: `mensys_12` (j.w.), 6-pikselowe znaczniki 連 w `intsys_01`, nagłówki 名 / 用
 (kontekst niepotwierdzony); piktogramy (ogień, płatek, piorun, M, B) zostają. Ikony jednokanjiowe dostały 2-literowe

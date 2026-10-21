@@ -60,11 +60,11 @@ rozmów warunkowych bez zgadywania dokładnych wyzwalaczy. Pierwsza próbka obej
 
 SHA-256 źródeł użytych do próbki:
 
-| Plik w `pakiet_EN/` | SHA-256 |
-|---|---|
-| `00_dialogue.jsonl` | `4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee` |
-| `05_mission_text.jsonl` | `f22cdc1ad8662d37ccc8701420d5c7d56b3aea76ce3cef187ad56dbe7f4314d6` |
-| `06_scenes.jsonl` | `5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4` |
+| Plik w `pakiet_EN/`         | SHA-256                                                            |
+| --------------------------- | ------------------------------------------------------------------ |
+| `00_dialogue.jsonl`         | `4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee` |
+| `05_mission_text.jsonl`     | `f22cdc1ad8662d37ccc8701420d5c7d56b3aea76ce3cef187ad56dbe7f4314d6` |
+| `06_scenes.jsonl`           | `5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4` |
 | `07_names_characters.jsonl` | `f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b` |
 
 ### 21.62 Scenariusz epizodu 0 — bez początkowego spisu linków (2026-10-17)
@@ -118,15 +118,15 @@ ma również jawnie zaznaczoną pominiętą wypowiedź i dodatkowy nagłówek mi
 
 **Pokrycie źródła — niezależnie sprawdzone:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone wpisy | Identyczne kopie reprezentowane innym wpisem | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 01 | 1 371 | 1 035 | 336 | 107 | 73 038 |
-| 02 | 2 306 | 1 361 | 945 | 222 | 91 034 |
-| 03 | 1 548 | 1 021 | 527 | 300 | 75 657 |
-| 04 | 1 209 | 644 | 565 | 100 | 49 959 |
-| 05 | 1 239 | 1 239 | 0 | 162 | 82 520 |
-| 06 | 994 | 795 | 199 | 153 | 56 241 |
-| **Łącznie** | **8 667** | **6 095** | **2 572** | **1 044** | **428 449** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone wpisy | Identyczne kopie reprezentowane innym wpisem | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------------: | -------------------------------------------: | -------------------: | ------------: |
+| 01          |                   1 371 |             1 035 |                                          336 |                  107 |        73 038 |
+| 02          |                   2 306 |             1 361 |                                          945 |                  222 |        91 034 |
+| 03          |                   1 548 |             1 021 |                                          527 |                  300 |        75 657 |
+| 04          |                   1 209 |               644 |                                          565 |                  100 |        49 959 |
+| 05          |                   1 239 |             1 239 |                                            0 |                  162 |        82 520 |
+| 06          |                     994 |               795 |                                          199 |                  153 |        56 241 |
+| **Łącznie** |               **8 667** |         **6 095** |                                    **2 572** |            **1 044** |   **428 449** |
 
 W epizodzie 05 pominięto dodatkowo dokładnie jeden pusty odstęp: brak treści
 zarówno po angielsku, jak i po japońsku. Jest wyszczególniony w audycie;
@@ -179,8 +179,8 @@ Odciski wersji lokalnych narzędzi:
 `episode_06_audit.json`, `mutation_test_results.json`, `deliveries.json`
 oraz ZIP. Nie przesyłano ponownie plików 00–05 i nie zmieniano uprawnień Drive.
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_01.md` | `a0d0c6986c2ad377544b97b6e62b1d57b51f2d7fd732be9193e470d8e2844fb1` | [Drive](https://drive.google.com/file/d/1g014Dfq03AKB5tnovZi_fll7Pd3DkF57/view) |
 | `srwoe_episode_02.md` | `2767dfc8e071ec1a1fb40c3b21a7f53153a511d92aeb5fb2cc11bc81e045c82b` | [Drive](https://drive.google.com/file/d/1Q-8QIfgSx32lre0EGwQOkr2mvghnnbdw/view) |
 | `srwoe_episode_03.md` | `fbd2c507a95e51449269631b045249b63757b3c120f8e554d5d16df002f60a80` | [Drive](https://drive.google.com/file/d/130TMu0_rF7NTO5XYMySbt1o_PAru8hQd/view) |
@@ -251,13 +251,13 @@ wypowiedź nie została zmieniona. Nowe, nieznane prefiksy nadal zatrzymują pra
 
 **Pokrycie i rozmiary:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 07 | 2330 | 1458 | 872 | 235 | 105866 |
-| 08 | 1140 | 999 | 141 | 185 | 71349 |
-| 09 | 1453 | 1061 | 392 | 125 | 76437 |
-| 10 | 1067 | 936 | 131 | 169 | 64177 |
-| **Łącznie** | **5990** | **4454** | **1536** | **714** | **317829** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------: | ----------------: | -------------------: | ------------: |
+| 07          |                    2330 |        1458 |               872 |                  235 |        105866 |
+| 08          |                    1140 |         999 |               141 |                  185 |         71349 |
+| 09          |                    1453 |        1061 |               392 |                  125 |         76437 |
+| 10          |                    1067 |         936 |               131 |                  169 |         64177 |
+| **Łącznie** |                **5990** |    **4454** |          **1536** |              **714** |    **317829** |
 
 W partii nie ma pominiętych pustych wpisów prozy. Liczba słów czterech plików,
 łącznie z nagłówkami i notami, wynosi **50861** przy jawnym
@@ -305,8 +305,8 @@ Wersje narzędzi (wszystkie wyłącznie w ignorowanym `local/reading-script/`):
 
 **Dostawa:**
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_07.md` | `20bc702e5ad25a549e55eb0c76df639402bfa965c274caee8e6c6f62a6586bae` | [Drive](https://drive.google.com/file/d/1gyENdN0No5ew6LsqiyP9_uQ3prpR3-Ss/view) |
 | `srwoe_episode_08.md` | `d266500d5d7103c373fccc3253ac99e02db8d0a5d60914dfcbceb757bb8b81c8` | [Drive](https://drive.google.com/file/d/1ZT9cSNPUIJpOYu3jotslhNG2f_tOdBKk/view) |
 | `srwoe_episode_09.md` | `175404063e73dfb597bf608faebecac65129c3be58e2b250f7f9daab036fd613` | [Drive](https://drive.google.com/file/d/1t8dpgtVHvwq4HqI0mzQ6CwBcP98j7f1g/view) |
@@ -391,15 +391,15 @@ Zmiany te nie zmieniły bajtów żadnego wcześniej dostarczonego Markdownu.
 
 **Pokrycie i rozmiary:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 11 | 1388 | 731 | 657 | 148 | 55117 |
-| 12 | 1140 | 787 | 353 | 138 | 53091 |
-| 13 | 1025 | 1025 | 0 | 239 | 74496 |
-| 14 | 1200 | 1200 | 0 | 269 | 80736 |
-| 15 | 1021 | 897 | 124 | 271 | 70069 |
-| 16 | 784 | 784 | 0 | 139 | 56323 |
-| **Łącznie** | **6558** | **5424** | **1134** | **1204** | **389832** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------: | ----------------: | -------------------: | ------------: |
+| 11          |                    1388 |         731 |               657 |                  148 |         55117 |
+| 12          |                    1140 |         787 |               353 |                  138 |         53091 |
+| 13          |                    1025 |        1025 |                 0 |                  239 |         74496 |
+| 14          |                    1200 |        1200 |                 0 |                  269 |         80736 |
+| 15          |                    1021 |         897 |               124 |                  271 |         70069 |
+| 16          |                     784 |         784 |                 0 |                  139 |         56323 |
+| **Łącznie** |                **6558** |    **5424** |          **1134** |             **1204** |    **389832** |
 
 W partii nie ma pustych pominiętych wpisów prozy. Sześć plików zawiera
 **62517 słów** wraz z nagłówkami/notami, przy jawnym
@@ -455,8 +455,8 @@ Wersje narzędzi, wyłącznie w ignorowanym `local/reading-script/`:
 
 **Dostawa:**
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_11.md` | `c2d9efa0feeb7b95f7a68629e61c7e2c6b591efd46a14abc950c5add9505c768` | [Drive](https://drive.google.com/file/d/1XbVAqYE7T6q79EQb2Q-aWcWOq8iNwqW4/view) |
 | `srwoe_episode_12.md` | `902b40e68f7239097632cd2f7e387a3855c5911c0ca4fea18d3ed28ea8818307` | [Drive](https://drive.google.com/file/d/1R-jA5_yqM5X2WP5MREdJecNGAp23f0E1/view) |
 | `srwoe_episode_13.md` | `178d5a1d021bbbf3fc337bf0f274e3b526897f4baeffce03f625ec61a5de0b96` | [Drive](https://drive.google.com/file/d/1NRQRlm9Do64F5VPYM3_mG28Tw6t4tRol/view) |
@@ -539,15 +539,15 @@ podglądu. Generowanie i niezależna kontrola zawsze używają pełnych JSONL.
 
 **Pokrycie i rozmiary:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 17 | 1267 | 1037 | 230 | 161 | 72523 |
-| 18 | 982 | 896 | 86 | 220 | 66083 |
-| 19 | 815 | 815 | 0 | 221 | 61104 |
-| 20 | 965 | 965 | 0 | 248 | 67798 |
-| 21 | 1328 | 797 | 531 | 270 | 59094 |
-| 22 | 1628 | 843 | 785 | 235 | 56956 |
-| **Łącznie** | **6985** | **5353** | **1632** | **1355** | **383558** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------: | ----------------: | -------------------: | ------------: |
+| 17          |                    1267 |        1037 |               230 |                  161 |         72523 |
+| 18          |                     982 |         896 |                86 |                  220 |         66083 |
+| 19          |                     815 |         815 |                 0 |                  221 |         61104 |
+| 20          |                     965 |         965 |                 0 |                  248 |         67798 |
+| 21          |                    1328 |         797 |               531 |                  270 |         59094 |
+| 22          |                    1628 |         843 |               785 |                  235 |         56956 |
+| **Łącznie** |                **6985** |    **5353** |          **1632** |             **1355** |    **383558** |
 
 Brak pustych pominiętych wpisów prozy w nowej partii. Sześć plików zawiera
 **61332 słowa** wraz z nagłówkami/notami, przy jawnym
@@ -605,8 +605,8 @@ Plany i audyty zachowują dokładne źródła i sumy kontrolne każdej emisji.
 
 **Dostawa:**
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_17.md` | `4c012accd65776a6eaf6a58a2d692ba2364a684f30d7e172a9f357bdca6ccd1b` | [Drive](https://drive.google.com/file/d/1mh34_Dh25pN5UtakUZu0ayit8M1BWUBy/view) |
 | `srwoe_episode_18.md` | `afe96bfb629304d9abd4ceecc69c1a9ca36f6aafca5b3c7070abaf3ec4d00661` | [Drive](https://drive.google.com/file/d/17_X64l3JsDYeHHXSZabMmXxIaocxxWd-/view) |
 | `srwoe_episode_19.md` | `e32195e1b6428f00536749263e42ed955e42dd46fb86df49ba11b24ef2eb255a` | [Drive](https://drive.google.com/file/d/1DAXYmmyubhC2PeOsYb7t7MD5egFfvD4h/view) |
@@ -692,15 +692,15 @@ Plany 23–28 zapisują podział scen, warunkowe/sytuacyjne rozmowy oraz epilogi
 
 **Pokrycie i rozmiary:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 23 | 1011 | 810 | 201 | 333 | 57284 |
-| 24 | 499 | 499 | 0 | 110 | 35218 |
-| 25 | 1188 | 833 | 355 | 335 | 62759 |
-| 26 | 1298 | 820 | 478 | 151 | 54658 |
-| 27 | 1235 | 886 | 349 | 279 | 66957 |
-| 28 | 1692 | 1062 | 630 | 369 | 75379 |
-| **Łącznie** | **6923** | **4910** | **2013** | **1577** | **352255** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------: | ----------------: | -------------------: | ------------: |
+| 23          |                    1011 |         810 |               201 |                  333 |         57284 |
+| 24          |                     499 |         499 |                 0 |                  110 |         35218 |
+| 25          |                    1188 |         833 |               355 |                  335 |         62759 |
+| 26          |                    1298 |         820 |               478 |                  151 |         54658 |
+| 27          |                    1235 |         886 |               349 |                  279 |         66957 |
+| 28          |                    1692 |        1062 |               630 |                  369 |         75379 |
+| **Łącznie** |                **6923** |    **4910** |          **2013** |             **1577** |    **352255** |
 
 Brak pustych pominiętych wpisów prozy w partii. Łącznie **56650 słów** wraz
 z nagłówkami/notami przy jawnym `LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1).
@@ -754,8 +754,8 @@ oraz hashe materiałów wejściowych i wyników.
 
 **Dostawa:**
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_23.md` | `7ca65be164200e27790f2afe4643d8888090ff26eebe89ee6c2eabf7a5dc3f31` | [Drive](https://drive.google.com/file/d/14xU2PCis2zwLzuYqiIh98FmEEw2e2Zhl/view) |
 | `srwoe_episode_24.md` | `abf40588734ffefeb94eda1c580e09b0ee0123f56d6a553c51524552d39dd1ad` | [Drive](https://drive.google.com/file/d/1vO3qfLjxXJ_7xfeR9FDg1SySnSRP1xPZ/view) |
 | `srwoe_episode_25.md` | `c07db496eb3a615ed42d60e6233e8e774d409a2e4069ade657633641c7d365c6` | [Drive](https://drive.google.com/file/d/1bPDuot33X9WdmbnG1pekRm1jCi-VcbmH/view) |
@@ -845,14 +845,14 @@ plików 00–31 ani żadnej bieżącej dostawy.
 
 **Pokrycie i rozmiary:**
 
-| Epizod | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
-|---|---:|---:|---:|---:|---:|
-| 29 | 663 | 537 | 126 | 138 | 37698 |
-| 30 | 1708 | 1134 | 574 | 310 | 75541 |
-| 31 | 692 | 608 | 84 | 279 | 46192 |
-| 32 | 398 | 398 | 0 | 124 | 31141 |
-| 33 | 748 | 668 | 80 | 93 | 47988 |
-| **Łącznie** | **4209** | **3345** | **864** | **944** | **238560** |
+| Epizod      | Niepuste wpisy źródłowe | Wyświetlone | Identyczne aliasy | Warunkowe/sytuacyjne | Rozmiar MD, B |
+| ----------- | ----------------------: | ----------: | ----------------: | -------------------: | ------------: |
+| 29          |                     663 |         537 |               126 |                  138 |         37698 |
+| 30          |                    1708 |        1134 |               574 |                  310 |         75541 |
+| 31          |                     692 |         608 |                84 |                  279 |         46192 |
+| 32          |                     398 |         398 |                 0 |                  124 |         31141 |
+| 33          |                     748 |         668 |                80 |                   93 |         47988 |
+| **Łącznie** |                **4209** |    **3345** |           **864** |              **944** |    **238560** |
 
 Jeden rzeczywisty pusty spacer jest rozliczony osobno. Łącznie **38419 słów**
 wraz z nagłówkami/notami przy `LC_ALL=C.UTF-8 wc -w` (GNU coreutils 9.1).
@@ -905,8 +905,8 @@ Wersje narzędzi, wszystkie wyłącznie w ignorowanym `local/reading-script/`:
 
 **Dostawa:**
 
-| Plik | SHA-256 | Dostarczony plik |
-|---|---|---|
+| Plik                  | SHA-256                                                            | Dostarczony plik                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | `srwoe_episode_29.md` | `11684b3e368b6f8f22b96f4802cf4290ae68d426a0d5d178735be3e6c2b3906d` | [Drive](https://drive.google.com/file/d/1sEvxRgGv8hXyCDQUbmxlAKO5xDOu4d3M/view) |
 | `srwoe_episode_30.md` | `e34c2145fc880c39810bbd68c05d0f280294f0a0077be72b6ece6af1125072c4` | [Drive](https://drive.google.com/file/d/1DF-EzgSJw0GkC6-VnuMJhkMdnGIks1lc/view) |
 | `srwoe_episode_31.md` | `3ea43e64dd7626a0847d00880dfc51be2dda277ba064b90f5d85ea78f8c626fb` | [Drive](https://drive.google.com/file/d/1Gr8hnQ0xAg0vy4W5ca85RlJWXoJAdwX8/view) |

@@ -6,12 +6,12 @@ No cache/font regression reported; preserve accepted Skupienie/font work.
 
 Reviewed source-bound plan `config/pl/ui-mech-viewer-2026-10-19.json` changes only:
 
-| Original sysmes root | Before | After | New cells |
-|---|---|---|---:|
-| 19028 | Zmień jednostkę | Zmień jedn. | 11 |
-| 45684 | Zmień jednostkę | Zmień jedn. | 11 |
-| 21284 | Obrót | Obr. | 4 |
-| 21292 | Pokaż/ukryj | Ukryj | 5 |
+| Original sysmes root | Before          | After       | New cells |
+| -------------------- | --------------- | ----------- | --------: |
+| 19028                | Zmień jednostkę | Zmień jedn. |        11 |
+| 45684                | Zmień jednostkę | Zmień jedn. |        11 |
+| 21284                | Obrót           | Obr.        |         4 |
+| 21292                | Pokaż/ukryj     | Ukryj       |         5 |
 
 The two unit-change roots contain identical original JP; both must be synchronized
 for the existing whole-string conflict safeguard. Original authentic sysmes proves

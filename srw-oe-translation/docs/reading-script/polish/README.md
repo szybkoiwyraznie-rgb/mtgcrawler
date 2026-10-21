@@ -11,26 +11,26 @@ Polish text in the accepted PL4 snapshot: 26,572 dialogue/narration rows across
 already delivered. Episode 04 includes **Lelouch buntownik**; episode 05 includes
 **Biały rycerz**. Individual new PL4 files:
 
-| Episode | Reading file |
-|---:|---|
-| 04 | [PL4](https://drive.google.com/file/d/1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA/view) |
-| 05 | [PL4](https://drive.google.com/file/d/1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI/view) |
-| 06 | [PL4](https://drive.google.com/file/d/112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r/view) |
-| 07 | [PL4](https://drive.google.com/file/d/1A9LGHI3px111yW_8lUMVrfe98MrrD1to/view) |
-| 08 | [PL4](https://drive.google.com/file/d/1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl/view) |
-| 09 | [PL4](https://drive.google.com/file/d/1z_acnUhlgTMTf3aik1wRTdghJ28cmzws/view) |
-| 10 | [PL4](https://drive.google.com/file/d/1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG/view) |
-| 11 | [PL4](https://drive.google.com/file/d/1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB/view) |
-| 12 | [PL4](https://drive.google.com/file/d/1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3/view) |
-| 13 | [PL4](https://drive.google.com/file/d/1oDmwULnptz74B8OjPTF-ewJ2waho-8p4/view) |
-| 14 | [PL4](https://drive.google.com/file/d/1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E/view) |
-| 15 | [PL4](https://drive.google.com/file/d/1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58/view) |
-| 16 | [PL4](https://drive.google.com/file/d/1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa/view) |
-| 17 | [PL4](https://drive.google.com/file/d/1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv/view) |
-| 18 | [PL4](https://drive.google.com/file/d/184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI/view) |
-| 19 | [PL4](https://drive.google.com/file/d/11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi/view) |
-| 20 | [PL4](https://drive.google.com/file/d/1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF/view) |
-| 21 | [PL4](https://drive.google.com/file/d/1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm/view) |
+| Episode | Reading file                                                                  |
+| ------: | ----------------------------------------------------------------------------- |
+|      04 | [PL4](https://drive.google.com/file/d/1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA/view) |
+|      05 | [PL4](https://drive.google.com/file/d/1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI/view) |
+|      06 | [PL4](https://drive.google.com/file/d/112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r/view) |
+|      07 | [PL4](https://drive.google.com/file/d/1A9LGHI3px111yW_8lUMVrfe98MrrD1to/view) |
+|      08 | [PL4](https://drive.google.com/file/d/1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl/view) |
+|      09 | [PL4](https://drive.google.com/file/d/1z_acnUhlgTMTf3aik1wRTdghJ28cmzws/view) |
+|      10 | [PL4](https://drive.google.com/file/d/1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG/view) |
+|      11 | [PL4](https://drive.google.com/file/d/1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB/view) |
+|      12 | [PL4](https://drive.google.com/file/d/1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3/view) |
+|      13 | [PL4](https://drive.google.com/file/d/1oDmwULnptz74B8OjPTF-ewJ2waho-8p4/view) |
+|      14 | [PL4](https://drive.google.com/file/d/1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E/view) |
+|      15 | [PL4](https://drive.google.com/file/d/1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58/view) |
+|      16 | [PL4](https://drive.google.com/file/d/1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa/view) |
+|      17 | [PL4](https://drive.google.com/file/d/1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv/view) |
+|      18 | [PL4](https://drive.google.com/file/d/184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI/view) |
+|      19 | [PL4](https://drive.google.com/file/d/11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi/view) |
+|      20 | [PL4](https://drive.google.com/file/d/1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF/view) |
+|      21 | [PL4](https://drive.google.com/file/d/1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm/view) |
 
 **Coverage caveat:** this repository's checked PL4 snapshot declares story coverage
 00–21 (28,078 / 28,079 visible elements filled, with one blank structural row).

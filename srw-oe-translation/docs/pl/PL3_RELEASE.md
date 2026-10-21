@@ -58,12 +58,12 @@ Widoki po uwzględnieniu kopii:
 
 Sceny (wszystkie widoczne elementy, łącznie z kopiami):
 
-| Eksport | Wypełnione po imporcie/kopiach | Linie ponad zalecenie46 | Maks. cele |
-|---|---:|---:|---:|
-| epizod00 | 273/273 | 8 | 50 |
-| epizod01 | 1452/1452 | 109 | 55 |
-| epizod02 | 2416/2416 | 297 | 56 |
-| epizod03 | 1601/1601 | 242 | 53 |
+| Eksport  | Wypełnione po imporcie/kopiach | Linie ponad zalecenie46 | Maks. cele |
+| -------- | -----------------------------: | ----------------------: | ---------: |
+| epizod00 |                        273/273 |                       8 |         50 |
+| epizod01 |                      1452/1452 |                     109 |         55 |
+| epizod02 |                      2416/2416 |                     297 |         56 |
+| epizod03 |                      1601/1601 |                     242 |         53 |
 
 Zero linii ponad limit właściwego rodzaju ramki według obecnego walidatora
 (dialog/narracja mają różne limity). To nie to samo co brak uwag powyżej46 ani

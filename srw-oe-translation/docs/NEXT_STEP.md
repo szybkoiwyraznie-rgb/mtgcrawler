@@ -148,11 +148,17 @@ delivery read [`QA_V17.md`](QA_V17.md); the running log is
 
 ## Delivered — do not redo
 
-| Product | State | Where |
-|---|---|---|
-| Game patch kit **v17** | delivered 2026-10-17; offline/extracted-kit checks pass; **owner runtime confirmation pending** | [Drive](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view), 7,245,833 B, SHA-256 `5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`; GitHub tag `patch-v17` |
-| English **reading edition**, story episodes **00–34** | complete; 35 individual episodes + batch archives on Drive | [`reading-script/README.md`](reading-script/README.md), folder `English reading script` |
-| **Mech catalogue** presentation **v3** | delivered 2026-10-18 (owner's a–h list); identical model to v1/v2 | [Drive](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view), 667,590 B; [`mech-catalog/README.md`](mech-catalog/README.md) |
+| Product                                               | State                                                                                           | Where                                                                            |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Game patch kit **v17**                                | delivered 2026-10-17; offline/extracted-kit checks pass; **owner runtime confirmation pending** | [Drive](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view), |
+|                                                       |                                                                                                 |   7,245,833 B, SHA-256                                                           |
+|                                                       |                                                                                                 |   `5afdd00fec393edba9bc76371e4283cc17c5cc90cd05eab0b6a711b7bec87937`;            |
+|                                                       |                                                                                                 |   GitHub tag `patch-v17`                                                         |
+| English **reading edition**, story episodes **00–34** | complete; 35 individual episodes + batch archives on Drive                                      | [`reading-script/README.md`](reading-script/README.md),                          |
+|                                                       |                                                                                                 |   folder `English reading script`                                                |
+| **Mech catalogue** presentation **v3**                | delivered 2026-10-18 (owner's a–h list); identical model to v1/v2                               | [Drive](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view), |
+|                                                       |                                                                                                 |   667,590 B;                                                                     |
+|                                                       |                                                                                                 |   [`mech-catalog/README.md`](mech-catalog/README.md)                             |
 
 The source package [`pakiet_EN/`](../pakiet_EN/) is the translation source of record.
 Catalogue-only wording repairs (17 rows) were **not** backported to the game.

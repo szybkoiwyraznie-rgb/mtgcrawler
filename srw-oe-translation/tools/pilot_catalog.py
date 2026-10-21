@@ -41,6 +41,7 @@ import struct
 
 import inline_names as IN
 import item_skill_records as ISR
+import md_table_align as TA
 import mech_catalog as MC
 from mech_catalog_engine import ORIGINAL_SHA256, english_image, string_at
 from mech_catalog_sources import PACKAGE_FILES, collect, need
@@ -1171,7 +1172,7 @@ def render_polish_markdown(model: dict) -> str:
         "mogą nadawać jednostkom wroga określony poziom startowy, modyfikatory statusu lub części wyposażenia."
     )
 
-    return "".join(blocks)
+    return TA.align_markdown_tables("".join(blocks))
 
 
 def main(argv: list[str] | None = None) -> int:

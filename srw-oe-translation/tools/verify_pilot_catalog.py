@@ -113,6 +113,7 @@ def audit_markdown_document(document: str, expected_combat_keys: list[int], expe
     """Validate structure, pilot ID coverage, table formatting, and text hygiene of rendered MD."""
     check(not CJK_RE.search(document), "Rendered Polish Markdown contains residual CJK characters")
     check(not CTRL_RE.search(document), "Rendered Polish Markdown contains unstripped @0..@9 control markers")
+    check("<br>" not in document, "Rendered Polish Markdown contains raw <br> tags")
 
     combat_headings = [int(m) for m in re.findall(r"^#### .+ `\[ID (-?\d+)\]`$", document, flags=re.M)]
     check(
@@ -124,9 +125,24 @@ def audit_markdown_document(document: str, expected_combat_keys: list[int], expe
         "Combat/sub-pilot heading ID set in Markdown does not match binary records",
     )
 
-    noncombat_rows = [int(m) for m in re.findall(r"^\| (-?\d+) \| ", document, flags=re.M)]
+    noncombat_rows = [int(m) for m in re.findall(r"^\|\s*(-?\d+)\s*\|", document, flags=re.M)]
     for k in expected_noncombat_keys:
         check(k in noncombat_rows, f"Missing non-combat character key {k} in Appendix A table")
+
+    # Verify every Markdown pipe table has identical column pipe positions and fits <= 216 cells.
+    cur_table: list[str] = []
+    for ln in document.splitlines() + [""]:
+        if ln.startswith("|"):
+            cur_table.append(ln)
+        elif cur_table:
+            pipes0 = [idx for idx, ch in enumerate(cur_table[0]) if ch == "|"]
+            for tln in cur_table:
+                check(
+                    [idx for idx, ch in enumerate(tln) if ch == "|"] == pipes0,
+                    f"Misaligned table pipe columns on line: {tln[:80]}",
+                )
+                check(len(tln) <= 216, f"Table line exceeds 216-char Notepad++ budget ({len(tln)})")
+            cur_table = []
 
     required_sections = [
         "## 1. Leksykon wszystkich Komend Ducha (20 rodzin / 60 poziomów)",
@@ -356,10 +372,21 @@ def verify(
     md_text = md_bytes.decode("utf-8")
     md_audit = audit_markdown_document(md_text, combat_keys, noncombat_keys)
 
-    # Spot-check every combat profile's exact independent SP & f32 stats inside Markdown!
+    # Spot-check every combat profile's exact independent SP & f32 stats inside its own Markdown card!
+    pilot_sections: dict[int, str] = {}
+    for m in re.finditer(r"^#### .+ `\[ID (-?\d+)\]`\n([\s\S]*?)(?=^#### |^### |^---)", md_text, flags=re.M):
+        pilot_sections[int(m.group(1))] = m.group(2)
+
     for k, info in parsed_by_key.items():
         if not any(info["stats_bytes"]):
             continue
+        sec_text = pilot_sections.get(k, "")
+        stat_rows: dict[str, list[str]] = {}
+        for rline in sec_text.splitlines():
+            if rline.startswith("|"):
+                cols = [c.strip() for c in rline.split("|")[1:-1]]
+                if len(cols) == 5:
+                    stat_rows[cols[0]] = cols
         sp1 = info["sp_base"]
         sp50 = info["sp_base"] + 49 * info["sp_grow"]
         sp99 = info["sp_base"] + 98 * info["sp_grow"]
@@ -367,14 +394,29 @@ def verify(
         atk99 = independent_f32_stat(info["stats_bytes"][0], info["stats_bytes"][1], 99)
         hit99 = independent_f32_stat(info["stats_bytes"][4], info["stats_bytes"][5], 99)
         eva99 = independent_f32_stat(info["stats_bytes"][6], info["stats_bytes"][7], 99)
-        expected_snippet = (
-            f"| **SP** | {sp1} | {sp50} | {sp99} | `{sp1} + (Poz. − 1) × {info['sp_grow']}` |\n"
-            f"| **Atak** | {atk1} | "
+        check(
+            stat_rows.get("**SP**") == ["**SP**", str(sp1), str(sp50), str(sp99), f"`{sp1} + (Poz. − 1) × {info['sp_grow']}`"],
+            f"Markdown stat table SP mismatch for pilot ID {k}",
         )
-        check(expected_snippet in md_text, f"Markdown stat table mismatch for pilot ID {k}")
-        check(f"| {atk99} | baza `{info['stats_bytes'][0]}`" in md_text, f"Atak Lv99 mismatch for {k}")
-        check(f"| {hit99} | baza `{info['stats_bytes'][4]}`" in md_text, f"Celność Lv99 mismatch for {k}")
-        check(f"| {eva99} | baza `{info['stats_bytes'][6]}`" in md_text, f"Unik Lv99 mismatch for {k}")
+        check(
+            stat_rows.get("**Atak**") is not None
+            and stat_rows["**Atak**"][1] == str(atk1)
+            and stat_rows["**Atak**"][3] == str(atk99)
+            and f"baza `{info['stats_bytes'][0]}`" in stat_rows["**Atak**"][4],
+            f"Atak Lv99 mismatch for {k}",
+        )
+        check(
+            stat_rows.get("**Celność**") is not None
+            and stat_rows["**Celność**"][3] == str(hit99)
+            and f"baza `{info['stats_bytes'][4]}`" in stat_rows["**Celność**"][4],
+            f"Celność Lv99 mismatch for {k}",
+        )
+        check(
+            stat_rows.get("**Unik**") is not None
+            and stat_rows["**Unik**"][3] == str(eva99)
+            and f"baza `{info['stats_bytes'][6]}`" in stat_rows["**Unik**"][4],
+            f"Unik Lv99 mismatch for {k}",
+        )
 
     # Seal canonical render byte-for-byte determinism.
     canonical_model = PC.build_pilot_model(

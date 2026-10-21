@@ -13,12 +13,12 @@ these projects; the user asked for a fresh translation and rejected the Akurasu 
 `z3oo3z` publishes 21 Korean fan patches across PS1/PS2/PS3/PSP, two of them for Super Robot Wars
 Operation Extend (`NPJH50521`, the game in this project):
 
-| Repo | Version | Release assets | Size | Downloads |
-|---|---|---|---|---|
-| [`z3oo3z/PSP-SRWOE-KPatch`](https://github.com/z3oo3z/PSP-SRWOE-KPatch) | `v250810` (2025-08-10) | `srwOE_v250810.7z` | 54,258,657 B | 321 |
-| | | `srwOE_texture_NPJH50521_UI.7z` | 10,343,773 B | 276 |
-| [`z3oo3z/PSP-SRWOEDLC-KPatch`](https://github.com/z3oo3z/PSP-SRWOEDLC-KPatch) | `v250617` (2026-06-17) | `srwOEKDLC_v250617.7z` | 2,938,903 B | 246 |
-| | | `srwOEKDLC_eventP01.EDAT.7z` | 151,313 B | 221 |
+| Repo                                                                          | Version                | Release assets                  | Size         | Downloads |
+| ----------------------------------------------------------------------------- | ---------------------- | ------------------------------- | ------------ | --------- |
+| [`z3oo3z/PSP-SRWOE-KPatch`](https://github.com/z3oo3z/PSP-SRWOE-KPatch)       | `v250810` (2025-08-10) | `srwOE_v250810.7z`              | 54,258,657 B | 321       |
+|                                                                               |                        | `srwOE_texture_NPJH50521_UI.7z` | 10,343,773 B | 276       |
+| [`z3oo3z/PSP-SRWOEDLC-KPatch`](https://github.com/z3oo3z/PSP-SRWOEDLC-KPatch) | `v250617` (2026-06-17) | `srwOEKDLC_v250617.7z`          | 2,938,903 B  | 246       |
+|                                                                               |                        | `srwOEKDLC_eventP01.EDAT.7z`    | 151,313 B    | 221       |
 
 Both repos contain **only a README** (verified: one blob each, no tools, no scripts, no issues, no
 code). Everything below is what those READMEs claim; the archives themselves were **not** downloaded

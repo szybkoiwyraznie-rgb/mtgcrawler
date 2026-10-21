@@ -42,12 +42,12 @@ nie polecenie skrócenia każdego tekstu do rozmiaru japońskiego.
 
 **Jest jednak dodatkowa blokada bezpieczeństwa w builderze całego pliku umiejętności:**
 
-| Pomiar | Bajty zapisu gry |
-|---|---:|
-| Oryginalny `srwDL_Skill00.bin` | 208 958 |
-| Wynik budowy z obecnymi tekstami PL | **224 678** |
-| Przyjęty bezpieczny budżet buildera | **216 768** |
-| Nadwyżka | **7 910** |
+| Pomiar                              | Bajty zapisu gry |
+| ----------------------------------- | ---------------: |
+| Oryginalny `srwDL_Skill00.bin`      |          208 958 |
+| Wynik budowy z obecnymi tekstami PL |      **224 678** |
+| Przyjęty bezpieczny budżet buildera |      **216 768** |
+| Nadwyżka                            |        **7 910** |
 
 Builder odmówił wydania kontenera. **216 768 B nie jest udowodnionym twardym limitem
 PSP ani dokładną granicą gry.** Jest zachowawczą bramką wpisaną przez autora narzędzi

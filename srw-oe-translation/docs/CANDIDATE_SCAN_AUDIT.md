@@ -34,46 +34,46 @@ The tool's synthetic tests are in `tests/test_audit_event_candidates.py`; run th
 
 Punctuation-only review IDs (offsets are the first byte after `FF FF`; decoded text is intentionally omitted):
 
-| BIN | Review offsets |
-| --- | --- |
-| `DL102_20.bin` | `@38A8` |
-| `DL102_30.bin` | `@1C5C`, `@37B4` |
-| `DL102_50.bin` | `@10F8`, `@1E58` |
-| `DL103_11.bin` | `@067C`, `@51E0`, `@59B0`, `@59CC` |
-| `DL103_12.bin` | `@09C0`, `@09DC`, `@2EA8`, `@2F40`, `@3A30`, `@57E8` |
-| `DL103_30.bin` | `@1F74` |
-| `DL104_11.bin` | `@4254` |
-| `DL105_11.bin` | `@05F4`, `@0F50`, `@2350`, `@2F68` |
-| `DL105_12.bin` | `@37A0` |
-| `DL105_20.bin` | `@05C8`, `@286C` |
+| BIN            | Review offsets                                                                  |
+| -------------- | ------------------------------------------------------------------------------- |
+| `DL102_20.bin` | `@38A8`                                                                         |
+| `DL102_30.bin` | `@1C5C`, `@37B4`                                                                |
+| `DL102_50.bin` | `@10F8`, `@1E58`                                                                |
+| `DL103_11.bin` | `@067C`, `@51E0`, `@59B0`, `@59CC`                                              |
+| `DL103_12.bin` | `@09C0`, `@09DC`, `@2EA8`, `@2F40`, `@3A30`, `@57E8`                            |
+| `DL103_30.bin` | `@1F74`                                                                         |
+| `DL104_11.bin` | `@4254`                                                                         |
+| `DL105_11.bin` | `@05F4`, `@0F50`, `@2350`, `@2F68`                                              |
+| `DL105_12.bin` | `@37A0`                                                                         |
+| `DL105_20.bin` | `@05C8`, `@286C`                                                                |
 | `DL105_30.bin` | `@0900`, `@0C68`, `@0EA0`, `@11C4`, `@13A8`, `@161C`, `@20D4`, `@2A68`, `@2CB0` |
-| `DL105_40.bin` | `@0DE4`, `@2B5C` |
+| `DL105_40.bin` | `@0DE4`, `@2B5C`                                                                |
 
-| BIN | Bytes | Candidate spans | With single-NUL suffix | CR bytes in spans |
-| --- | ---: | ---: | ---: | ---: |
-| `DL102_20.bin` | 16,216 | 184 | 34 | 34 |
-| `DL102_30.bin` | 15,620 | 166 | 36 | 14 |
-| `DL102_40.bin` | 10,136 | 66 | 12 | 10 |
-| `DL102_50.bin` | 20,820 | 177 | 33 | 0 |
-| `DL102_60.bin` | 7,948 | 63 | 13 | 33 |
-| `DL102_70.bin` | 11,472 | 98 | 29 | 10 |
-| `DL102_90.bin` | 18,760 | 236 | 35 | 38 |
-| `DL103_11.bin` | 23,752 | 230 | 33 | 47 |
-| `DL103_12.bin` | 22,824 | 235 | 45 | 43 |
-| `DL103_20.bin` | 17,912 | 174 | 38 | 33 |
-| `DL103_30.bin` | 10,332 | 87 | 21 | 27 |
-| `DL103_40.bin` | 22,848 | 232 | 55 | 0 |
-| `DL104_11.bin` | 21,140 | 198 | 44 | 31 |
-| `DL104_20.bin` | 11,684 | 102 | 26 | 0 |
-| `DL104_30.bin` | 15,468 | 149 | 30 | 5 |
-| `DL105_11.bin` | 21,636 | 242 | 35 | 6 |
-| `DL105_12.bin` | 22,408 | 225 | 47 | 28 |
-| `DL105_20.bin` | 12,028 | 138 | 20 | 45 |
-| `DL105_30.bin` | 12,812 | 105 | 10 | 0 |
-| `DL105_40.bin` | 15,168 | 168 | 31 | 25 |
-| `SM001.bin` | 1,364 | 1 | 0 | 0 |
-| `SM002.bin` | 1,384 | 1 | 0 | 1 |
-| **Total** | **333,732** | **3,277** | **627** | **430** |
+| BIN            |       Bytes | Candidate spans | With single-NUL suffix | CR bytes in spans |
+| -------------- | ----------: | --------------: | ---------------------: | ----------------: |
+| `DL102_20.bin` |      16,216 |             184 |                     34 |                34 |
+| `DL102_30.bin` |      15,620 |             166 |                     36 |                14 |
+| `DL102_40.bin` |      10,136 |              66 |                     12 |                10 |
+| `DL102_50.bin` |      20,820 |             177 |                     33 |                 0 |
+| `DL102_60.bin` |       7,948 |              63 |                     13 |                33 |
+| `DL102_70.bin` |      11,472 |              98 |                     29 |                10 |
+| `DL102_90.bin` |      18,760 |             236 |                     35 |                38 |
+| `DL103_11.bin` |      23,752 |             230 |                     33 |                47 |
+| `DL103_12.bin` |      22,824 |             235 |                     45 |                43 |
+| `DL103_20.bin` |      17,912 |             174 |                     38 |                33 |
+| `DL103_30.bin` |      10,332 |              87 |                     21 |                27 |
+| `DL103_40.bin` |      22,848 |             232 |                     55 |                 0 |
+| `DL104_11.bin` |      21,140 |             198 |                     44 |                31 |
+| `DL104_20.bin` |      11,684 |             102 |                     26 |                 0 |
+| `DL104_30.bin` |      15,468 |             149 |                     30 |                 5 |
+| `DL105_11.bin` |      21,636 |             242 |                     35 |                 6 |
+| `DL105_12.bin` |      22,408 |             225 |                     47 |                28 |
+| `DL105_20.bin` |      12,028 |             138 |                     20 |                45 |
+| `DL105_30.bin` |      12,812 |             105 |                     10 |                 0 |
+| `DL105_40.bin` |      15,168 |             168 |                     31 |                25 |
+| `SM001.bin`    |       1,364 |               1 |                      0 |                 0 |
+| `SM002.bin`    |       1,384 |               1 |                      0 |                 1 |
+| **Total**      | **333,732** |       **3,277** |                **627** |           **430** |
 
 ### Marker and prefix-quality review flags
 
@@ -87,17 +87,17 @@ A counterfactual alternate-start pass examined all 49 nested `FF FF` starts insi
 
 The 36 half-width-only IDs are recorded below without decoded text. The first column lists prefixes that strictly decode and round-trip; the second lists prefixes that fail strict CP932 decoding. All remain review candidates.
 
-| BIN | Strict + round-tripping IDs | Non-strict CP932 IDs |
-| --- | --- | --- |
-| `DL102_20.bin` | — | `@35EC`, `@3840`, `@3934` |
-| `DL102_50.bin` | `@1924`, `@1A38` | — |
-| `DL103_12.bin` | — | `@0E14`, `@0E24`, `@0E34` |
-| `DL103_20.bin` | — | `@0E87`, `@2640`, `@268C`, `@27DC`, `@29E0`, `@3924`, `@39A0` |
-| `DL103_40.bin` | — | `@24C4`, `@2C5C`, `@2C9C`, `@2CD0`, `@2D78`, `@30C0`, `@338C`, `@4590`, `@4ACC` |
-| `DL104_11.bin` | `@143C` | `@17C4`, `@181C` |
-| `DL105_11.bin` | `@1E60`, `@5374`, `@5398` | `@49A8` |
-| `DL105_12.bin` | `@0BB7` | `@0CE4` |
-| `DL105_30.bin` | `@207C`, `@29E4` | `@1F20` |
+| BIN            | Strict + round-tripping IDs | Non-strict CP932 IDs                                                            |
+| -------------- | --------------------------- | ------------------------------------------------------------------------------- |
+| `DL102_20.bin` | —                           | `@35EC`, `@3840`, `@3934`                                                       |
+| `DL102_50.bin` | `@1924`, `@1A38`            | —                                                                               |
+| `DL103_12.bin` | —                           | `@0E14`, `@0E24`, `@0E34`                                                       |
+| `DL103_20.bin` | —                           | `@0E87`, `@2640`, `@268C`, `@27DC`, `@29E0`, `@3924`, `@39A0`                   |
+| `DL103_40.bin` | —                           | `@24C4`, `@2C5C`, `@2C9C`, `@2CD0`, `@2D78`, `@30C0`, `@338C`, `@4590`, `@4ACC` |
+| `DL104_11.bin` | `@143C`                     | `@17C4`, `@181C`                                                                |
+| `DL105_11.bin` | `@1E60`, `@5374`, `@5398`   | `@49A8`                                                                         |
+| `DL105_12.bin` | `@0BB7`                     | `@0CE4`                                                                         |
+| `DL105_30.bin` | `@207C`, `@29E4`            | `@1F20`                                                                         |
 
 Two illustrative low-confidence wide-script candidates are `DL102_20.bin@2160` and `DL105_20.bin@0F94`. Their prefixes are only 5 and 6 bytes long, with a nested `FF FF` at prefix-relative offset +2; each has one Japanese-matched codepoint before that marker and none after it. Both markers decode under CP932 as two U+F8F3 private-use codepoints, so the private-use and nested-marker flags are correlated here, not independent evidence. The second prefix is the one that does not round-trip and it also contains a non-newline control codepoint. These are plausible false positives, but remain candidates: rare names, control tokens, or unusual CP932 mappings may be legitimate. Preserve the bytes and review them in context rather than auto-dropping them.
 
@@ -165,10 +165,10 @@ A separate read-only probe checks literal tags and little-endian words across al
 - All 3,277 heuristic candidate spans, including their stopping `00 00` pair, fit wholly inside one calculated EVNT block; none cross or sit outside a block. All 3,277 `FF FF` candidate markers occur after their block's terminal u32 200; none occur before it or in a block without a valid observed ECHK chain. The smallest distance from the byte immediately after u32 200 to a candidate `FF FF` marker is 34 bytes. At least one candidate occurs in 272/319 blocks: 262 blocks with `EVNT + 8 == 1`, all seven with value 2, and all three with value 3.
 
 | Literal EVNT `+8` | Blocks | ECHK chain length | Tentative ECHK row totals per block | Candidate spans |
-| ---: | ---: | ---: | --- | ---: |
-| 1 | 309 | 1 | `{1:22, 2:44, 3:99, 4:139, 5:5}` | 3,105 |
-| 2 | 7 | 2 | `{5:1, 6:5, 7:1}` | 152 |
-| 3 | 3 | 3 | `{12:3}` | 20 |
+| ----------------: | -----: | ----------------: | ----------------------------------- | --------------: |
+|                 1 |    309 |                 1 | `{1:22, 2:44, 3:99, 4:139, 5:5}`    |           3,105 |
+|                 2 |      7 |                 2 | `{5:1, 6:5, 7:1}`                   |             152 |
+|                 3 |      3 |                 3 | `{12:3}`                            |              20 |
 
 Together, these exact cross-file relationships are strong evidence of top-level `EVNT` block framing and an ECHK endpoint chain in this archive. They do **not** decode the blocks' contents, identify the `EVNT +8` values or u32 200, validate `FF FF` text spans, or establish that the candidate prefix/suffix split is correct. The probe is included in `tools/audit_event_companions.py` and should be rechecked on other resource versions before generalizing.
 
@@ -178,12 +178,12 @@ The companion audit now reports ECHK segments separately by literal EVNT `+8` va
 
 Zero-based column 2 (`c2`) of each tentative 20-byte row was also compared numerically with heuristic candidate ranges in the same BIN. This comparison **does not establish pointer semantics**:
 
-| Literal EVNT `+8` | Rows | c2 values within BIN | Within candidate text prefix | Within full candidate span | Equal candidate start | Candidate span before/same/after owning EVNT block |
-| ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 1 | 988 | 978 | 501 | 503 | 4 | 486 / 11 / 6 |
-| 2 | 42 | 42 | 21 | 21 | 0 | 21 / 0 / 0 |
-| 3 | 36 | 36 | 18 | 18 | 0 | 18 / 0 / 0 |
-| **Total** | **1,066** | **1,056** | **540** | **542** | **4** | **525 / 11 / 6** |
+| Literal EVNT `+8` |      Rows | c2 values within BIN | Within candidate text prefix | Within full candidate span | Equal candidate start | Candidate span before/same/after owning EVNT block |
+| ----------------: | --------: | -------------------: | ---------------------------: | -------------------------: | --------------------: | -------------------------------------------------- |
+|                 1 |       988 |                  978 |                          501 |                        503 |                     4 | 486 / 11 / 6                                       |
+|                 2 |        42 |                   42 |                           21 |                         21 |                     0 | 21 / 0 / 0                                         |
+|                 3 |        36 |                   36 |                           18 |                         18 |                     0 | 18 / 0 / 0                                         |
+|         **Total** | **1,066** |            **1,056** |                      **540** |                    **542** |                 **4** | **525 / 11 / 6**                                   |
 
 There are 1,021 nonzero c2 values; ten numeric values are at or beyond their paired BIN length. In this overlap table, “full candidate span” means bytes from `Candidate.start` up to but not including the first `00 00` stopping pair; two full-span hits fall in the unvalidated suffix after the first NUL rather than in the proposed text prefix. “Before/same/after” classifies the heuristic candidate span containing the numeric value relative to the EVNT block owning the ECHK row. All matches inherit the scanner's unverified string-boundary limitations; most overlapping values land in candidate spans before the referencing block, but that remains a lead for controlled analysis, not proof that c2 stores an offset.
 
@@ -202,10 +202,10 @@ Among the 540 absolute-offset hits within proposed text prefixes, c2 minus the m
 Added `tools/audit_event_dat_runs.py` to inventory every nonempty maximal nonzero-byte run in each companion `.dat`, with no decoded-text filter. The optional JSONL carries stable offsets, end-exclusive boundaries, raw hex, replacement-decoded CP932, strict-decode/roundtrip metrics, script/punctuation/ASCII/PUA/control signals, and whether a NUL byte precedes/follows the run. A byte audit of the archived ZIP checked all 6,288 rows across 66 files: IDs were unique, raw bytes matched their offsets, and both delimiter flags/end boundaries were correct (zero mismatches). This only verifies the run export, not that NUL bytes are string terminators.
 
 | Suffix group | Files | Nonempty runs | Runs with wide Japanese | Runs with half-width Katakana | Runs with Japanese punctuation | Runs with ASCII print run ≥3 | Strict CP932 / exact roundtrip |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `_edit.dat` | 22 | 370 | 0 | 76 | 0 | 0 | 245 / 245 |
-| `_Entry.dat` | 22 | 5,802 | 230 | 1,226 | 20 | 48 | 4,884 / 4,863 |
-| `_ext.dat` | 22 | 116 | 42 | 5 | 22 | 2 | 108 / 108 |
+| ------------ | ----: | ------------: | ----------------------: | ----------------------------: | -----------------------------: | ---------------------------: | -----------------------------: |
+| `_edit.dat`  |    22 |           370 |                       0 |                            76 |                              0 |                            0 |                      245 / 245 |
+| `_Entry.dat` |    22 |         5,802 |                     230 |                         1,226 |                             20 |                           48 |                  4,884 / 4,863 |
+| `_ext.dat`   |    22 |           116 |                      42 |                             5 |                             22 |                            2 |                      108 / 108 |
 
 The `_Entry.dat` script hits are highly ambiguous: 1,352 runs match the broad Japanese detector, 1,122 are half-width-only, 954 include non-newline controls, and 80 decode with replacement characters. Only eight runs contain two wide-script Japanese codepoints, and none contains three or more. Forty-eight runs have an ASCII printable sequence of at least three characters, but 44 also contain non-newline controls; these must not be treated as English strings automatically. Nine additional `_Entry.dat` runs contain punctuation but no recognized Japanese script (eight are strict/roundtripping, three have controls, one has a replacement decode); the byte runs are only 2, 3, or 7 bytes long. The 76 `_edit.dat` half-width hits are all 2–3 bytes and all contain non-newline controls, so they are likely binary collisions, not text evidence.
 

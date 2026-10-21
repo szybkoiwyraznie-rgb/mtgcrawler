@@ -94,14 +94,14 @@ region means a table, and distances over 256 bytes are what chance looks like.
 
 ## Statuses and exit codes
 
-| Status | Meaning | Exit code |
-| --- | --- | --- |
-| `completed` | Every attempted step passed. Known gaps (ISO, write-back, boundaries, in-game QA) are still listed. | 0 |
-| `preflight_passed` | `--preflight-only` finished; no converter call was made. | 0 |
-| `completed_with_failures` | At least one package, text export, or repack gate failed. The rest is still in the report. | 1 |
-| `blocked` | A precondition failed (converter hash, output path, free space, or no converter mode worked). Nothing was extracted. | 1 |
-| `error` | An unexpected error, or the input folder changed during the run. | 1 |
-| `interrupted` | The run was stopped by the user. | 1 |
+| Status                    | Meaning                                                                                                              | Exit code |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------- | --------- |
+| `completed`               | Every attempted step passed. Known gaps (ISO, write-back, boundaries, in-game QA) are still listed.                  | 0         |
+| `preflight_passed`        | `--preflight-only` finished; no converter call was made.                                                             | 0         |
+| `completed_with_failures` | At least one package, text export, or repack gate failed. The rest is still in the report.                           | 1         |
+| `blocked`                 | A precondition failed (converter hash, output path, free space, or no converter mode worked). Nothing was extracted. | 1         |
+| `error`                   | An unexpected error, or the input folder changed during the run.                                                     | 1         |
+| `interrupted`             | The run was stopped by the user.                                                                                     | 1         |
 
 Setup errors (for example, no folder chosen with `--no-gui`) exit with code 2.
 

@@ -98,7 +98,7 @@ def main(argv=None):
                       [json.loads(l)for l in pl.decode().splitlines()])
     need(len(units)==spec['units'],'Unit coverage differs')
     after,report=revise(raw.decode('utf-8'),units)
-    need(len(re.findall(r'^\| \d+ \|',after,re.M))==spec['weapon_rows'],'Weapon row coverage differs')
+    need(len(re.findall(r'^\|\s*\d+\s*\|',after,re.M))==spec['weapon_rows'],'Weapon row coverage differs')
     report.update(schema=1,input_sha256=sha(raw),output_sha256=sha(after.encode()),
                   output_bytes=len(after.encode()),english_names_sha256=sha(en),polish_names_sha256=sha(pl),
                   weapon_rows=spec['weapon_rows'],english_catalogue_changed=False,game_package_changed=False,

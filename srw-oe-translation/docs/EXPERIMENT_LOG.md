@@ -945,10 +945,10 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Text cohort — the pointer result, and its control:**
 
-| u32 LE, unaligned | at marker | at text start | controls marker+1 / start+1 |
-| --- | --- | --- | --- |
-| real text cohort | 599 | **6,535** | 446 / 1,339 |
-| density-matched synthetic corpus with **no** pointer table | 340 | 421 | 494 / 374 |
+| u32 LE, unaligned                                          | at marker | at text start | controls marker+1 / start+1 |
+| ---------------------------------------------------------- | --------- | ------------- | --------------------------- |
+| real text cohort                                           | 599       | **6,535**     | 446 / 1,339                 |
+| density-matched synthetic corpus with **no** pointer table | 340       | 421           | 494 / 374                   |
 
 The synthetic null was built to the text cohort's own density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111; 18,264 bytes per file against 17,186) and gives `start/start+1` = 1.13, where the real data gives 4.88 with 15× the null's absolute count. So **the text-start offsets occur as u32 little-endian values in the event files far above chance, and the shifted-by-one control is not what produces it.** Marker offsets are *not* elevated (599 vs 446, like the null's 340 vs 494), so whatever is stored points at the byte after `FF FF`, not at the marker.
 
@@ -1106,11 +1106,13 @@ section bodies, interleaved with command words (the inter-unit gaps contain reco
 
 **Three offset hypotheses, all measured against a null, all negative:**
 
-| Test | Result |
-|---|---|
-| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64 | best base reaches **2%** of a file's starts, and the starts-shifted-by-+1 control reaches the same → chance |
-| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists |
-| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below chance |
+| Test                                                                                                                                                  | Result                                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64                               | best base reaches **2%** of a file's starts, and the        |
+|                                                                                                                                                       |   starts-shifted-by-+1 control reaches the same → chance    |
+| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists         |
+| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section                                    | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below |
+|                                                                                                                                                       |   chance                                                    |
 
 **What this means, and the correction it forces.** `retro-trans/SRW-Z`'s COMPDATA model (a table of
 absolute load-base addresses) does **not** apply to this game's event files, so the base scan's
@@ -1148,13 +1150,13 @@ step in the QuickBMS script posted in gbatemp thread 351431. Its header gives `t
 `rows_offset 67`, `string_table_offset 211`, `row_length 24`, `rows 6`. Seven columns, two of them
 constant-storage (`DirName`, `UserString`) and five per-row, laid out in the row as:
 
-| column | offset in row | width |
-|---|---|---|
-| `FileName` | 0 | 4 (string-table index) |
-| `FileSize` | 4 | 4 |
-| `ExtractSize` | 8 | 4 |
-| `FileOffset` | 12 | 8 |
-| `ID` | 20 | 4 |
+| column        | offset in row | width                  |
+| ------------- | ------------- | ---------------------- |
+| `FileName`    | 0             | 4 (string-table index) |
+| `FileSize`    | 4             | 4                      |
+| `ExtractSize` | 8             | 4                      |
+| `FileOffset`  | 12            | 8                      |
+| `ID`          | 20            | 4                      |
 
 All values big-endian. Reading them back gives `FileOffset` 4096 / 12288 / 8192 / 10240 / 6144 /
 18432 with the matching `FileSize`/`ExtractSize` — **identical to what `tools/cpk_table.py` reports
@@ -3001,16 +3003,16 @@ nie wstrzyknął.
 **Odwrócenie rodzajów na żywych memberach eventP00.cpk (2026-10-13) [ZWERYFIKOWANE]:**
 każdy rodzaj to zwykły rekord łańcucha `u32 type, u32 size, parametry, tekst+NUL, zera`:
 
-| rodzaj | type | parametry przed tekstem | tekst @ | próbki |
-|---|---|---|---|---|
-| condition_defeat | 0x1B5 | brak | 8 | 3 |
-| condition_victory | 0x1B4 | brak | 8 | 3 |
-| location | 0x152 | u32 id miejsca (786/157/83) | 12 | 3 |
-| help | 0x1FC | u32 (1/3) | 12 | 3 |
-| scene_title | 0x1B6 | 3×u32 (0,1,0) | 20 | 3 |
-| label | 0x1BA | **dwie postaci**: brak LUB u32 id (149) | 8 LUB 12 | 2 |
-| label | 0x14F | u32 id (368/375) | 12 | 2 |
-| label | 0x14A | brak | 8 | 4 |
+| rodzaj            | type  | parametry przed tekstem                 | tekst @  | próbki |
+| ----------------- | ----- | --------------------------------------- | -------- | ------ |
+| condition_defeat  | 0x1B5 | brak                                    | 8        | 3      |
+| condition_victory | 0x1B4 | brak                                    | 8        | 3      |
+| location          | 0x152 | u32 id miejsca (786/157/83)             | 12       | 3      |
+| help              | 0x1FC | u32 (1/3)                               | 12       | 3      |
+| scene_title       | 0x1B6 | 3×u32 (0,1,0)                           | 20       | 3      |
+| label             | 0x1BA | **dwie postaci**: brak LUB u32 id (149) | 8 LUB 12 | 2      |
+| label             | 0x14F | u32 id (368/375)                        | 12       | 2      |
+| label             | 0x14A | brak                                    | 8        | 4      |
 
 Reguła `padded_size` (wyrównanie do 4 bajtów, ≥1 NUL, `pad or 4`) zgadza się na KAŻDEJ
 zmierzonej próbce wszystkich rodzajów — mechanizm `grow_text` (poprawki size rekordu,
@@ -3225,13 +3227,13 @@ stracone; DLC_ID00 r9 / DLC_ID01 r0 → 171 wierszy). Teraz `resolve_rows` odmaw
 (z offsetami odwołań), reszta członka jest pisana; `rebuild_pool` zostaje jako ostatnia linia.
 
 **Przebiegi scale (7 JSONL bez 03 = „base", 8 JSONL = „full"; 6 kontenerów; build ~105–115 s):**
-| wersja | zmiana | base: sprawdzone / trafione / brak | full |
-|---|---|---|---|
-| v8a | sloty + białe znaki | 26 623 / 25 289 / 1 334 | 31 520 / 30 184 / 1 336 |
-| v8b | slot po binariach (bg2dlist, milstP01) | 26 623 / 25 304 / 1 319 | 31 520 / 30 199 / 1 321 |
-| v8c | pula w miejscu, bliźniaki, semantyka limitu | 26 514 / 25 945 / 569 | 31 411 / 30 842 / 569 |
-| v8d | strażnik TW per rekord | 26 514 / 26 032 / 482 | 31 411 / 30 929 / 482 |
-| v8e | wyjątek liczb w rekordach DLC_ID | 26 514 / **26 171 / 343** | 31 411 / **31 068 / 343** |
+| wersja | zmiana                                      | base: sprawdzone / trafione / brak | full                      |
+| ------ | ------------------------------------------- | ---------------------------------- | ------------------------- |
+| v8a    | sloty + białe znaki                         | 26 623 / 25 289 / 1 334            | 31 520 / 30 184 / 1 336   |
+| v8b    | slot po binariach (bg2dlist, milstP01)      | 26 623 / 25 304 / 1 319            | 31 520 / 30 199 / 1 321   |
+| v8c    | pula w miejscu, bliźniaki, semantyka limitu | 26 514 / 25 945 / 569              | 31 411 / 30 842 / 569     |
+| v8d    | strażnik TW per rekord                      | 26 514 / 26 032 / 482              | 31 411 / 30 929 / 482     |
+| v8e    | wyjątek liczb w rekordach DLC_ID            | 26 514 / **26 171 / 343**          | 31 411 / **31 068 / 343** |
 Walidator: v8a 51 błędów `copy differs` (bliźniaki `char:600:series` config01/imenu01 bez EN) → od
 v8b **0 błędów**. Niewypełnione przez fill: 111/146 „tylko tokeny" + 109 „znacznik nie mieści się"
 (fragmenty 2–4 B puli). „Poza buildem" 1 636 = bliźniaki w kontenerach spoza folderu (imenu01/02,
@@ -3318,21 +3320,21 @@ local/translation --out local/real_patch`), przebieg #4 (ostateczny): 91 s, exit
 kontenery pakietu nie leżą w folderze (config10–46, eventP01+, mesbtl01+, imenu01+). 13 kontenerów
 zapisanych (budowniczy znalazł `full_dlc/` przez rglob):**
 
-| kontener | we (B) | wy (B) | md5 wyjścia | kroki (zapisy/odmowy) |
-|---|---|---|---|---|
-| config00.cpk | 929 920 | 948 352 | `202c2d2476f36e37c619fdc088d9caa3` | tail-pool 671/0, records 9 658, tables 866/561, names 1 110/0, slots 464/5 |
-| config01.EDAT | 247 936 | 249 984 | `87b8ab67a47a706ae5f855e16afa35f4` | tables 1 164/473, names 1 264, slots 138 |
-| configst.cpk | 376 960 | 471 168 | `dd7e626bd7f14645abc52a2bf5bdb7c4` | tail-pool 184/0, records 1 645, tables 362/13, sysmes 1 666, slots 62 |
-| eventP00.cpk | 162 264 | 258 520 | `a3b1dfc31d63b678211a51a0f2ea476d` | dialogue 11 członków 1 706/0, slots 2/1 |
-| imenu00.cpk | 34 984 | 57 512 | `5317aa99dd3e1ddb3c7cf48310179b79` | tables 524/520 |
-| mesbtl00.cpk | 348 888 | 1 010 392 | `a5a6ac5ae905f6471048de7b5acc3ddc` | quotes 8 660/0 |
-| config02.EDAT | 157 824 | 161 920 | `bee5129687db831b854d14705cd1dc69` | tables 907/502, names 688, slots 60 |
-| config03.EDAT | 118 912 | 120 960 | `9afebe41f2931919c080b907e9879704` | tables 847/537, names 401, slots 42 |
-| config04.EDAT | 108 672 | 110 720 | `22c83c34e73f2b47e496a67a7fc4161e` | tables 816/560, names 311, slots 42 |
-| config05.EDAT | 110 720 | 112 768 | `b92efdbe76f2a5c1cc648242f9f509b7` | tables 770/557, names 317, slots 35 |
-| config06.EDAT | 75 904 | 77 952 | `5588f54ef8bcbd0f79206438e90c0dad` | tables 712/576, names 134, slots 32 |
-| config07.EDAT | 73 856 | 75 904 | `5f7624ea5ac80e1a3c72819949c8ea70` | tables 714/578, names 122, slots 27 |
-| config08.EDAT | 80 000 | 82 048 | `1433bb5c685bd11f38967fcfb965dee0` | tables 688/583, names 155, slots 32 |
+| kontener      | we (B)  | wy (B)    | md5 wyjścia                        | kroki (zapisy/odmowy)                                                      |
+| ------------- | ------- | --------- | ---------------------------------- | -------------------------------------------------------------------------- |
+| config00.cpk  | 929 920 | 948 352   | `202c2d2476f36e37c619fdc088d9caa3` | tail-pool 671/0, records 9 658, tables 866/561, names 1 110/0, slots 464/5 |
+| config01.EDAT | 247 936 | 249 984   | `87b8ab67a47a706ae5f855e16afa35f4` | tables 1 164/473, names 1 264, slots 138                                   |
+| configst.cpk  | 376 960 | 471 168   | `dd7e626bd7f14645abc52a2bf5bdb7c4` | tail-pool 184/0, records 1 645, tables 362/13, sysmes 1 666, slots 62      |
+| eventP00.cpk  | 162 264 | 258 520   | `a3b1dfc31d63b678211a51a0f2ea476d` | dialogue 11 członków 1 706/0, slots 2/1                                    |
+| imenu00.cpk   | 34 984  | 57 512    | `5317aa99dd3e1ddb3c7cf48310179b79` | tables 524/520                                                             |
+| mesbtl00.cpk  | 348 888 | 1 010 392 | `a5a6ac5ae905f6471048de7b5acc3ddc` | quotes 8 660/0                                                             |
+| config02.EDAT | 157 824 | 161 920   | `bee5129687db831b854d14705cd1dc69` | tables 907/502, names 688, slots 60                                        |
+| config03.EDAT | 118 912 | 120 960   | `9afebe41f2931919c080b907e9879704` | tables 847/537, names 401, slots 42                                        |
+| config04.EDAT | 108 672 | 110 720   | `22c83c34e73f2b47e496a67a7fc4161e` | tables 816/560, names 311, slots 42                                        |
+| config05.EDAT | 110 720 | 112 768   | `b92efdbe76f2a5c1cc648242f9f509b7` | tables 770/557, names 317, slots 35                                        |
+| config06.EDAT | 75 904  | 77 952    | `5588f54ef8bcbd0f79206438e90c0dad` | tables 712/576, names 134, slots 32                                        |
+| config07.EDAT | 73 856  | 75 904    | `5f7624ea5ac80e1a3c72819949c8ea70` | tables 714/578, names 122, slots 27                                        |
+| config08.EDAT | 80 000  | 82 048    | `1433bb5c685bd11f38967fcfb965dee0` | tables 688/583, names 155, slots 32                                        |
 
 Odmowy kroku `tables` to nie utracone teksty: RoboDictionary 472 „no record with key" (wiersze 03 adresowane
 kluczem, których rekord leży w innej puli — próbowane na każdym kontenerze), CharaDictionary 72 konflikty
@@ -3797,15 +3799,15 @@ sub-pliki identyczne): 7/7 OK. Testy `tests/test_member_variants.py` (4); pełny
 
 **Runda 2 (Skill00 w `config00.cpk`, reszta oryginalna):**
 
-| wariant | Skill00 B | pac B | md5 config00.cpk |
-|---|---|---|---|
-| S1 `pad` | 228 202 | 942 080 | `91217ef2920d836b97a84fb8e3cd5d56` |
-| S2 `rec_en_pool_jp` | 226 222 | 940 032 | `a7ed11e8864aadd228b1ab1fbe302ac6` |
-| S3 `rec_jp_pool_en` | 210 938 | 923 648 | `42873880e4a36064db48bcd18f8a2fc3` |
-| S4 `names_only` | 218 682 | 931 840 | `7cf248c7ced4abb69b2049ecccb8e72f` |
-| S5 `effects_only` | 216 434 | 929 792 | `dcf1161fb37b7ed06012b67ee4449221` |
-| S6 `half_a` | 219 498 | 933 888 | `daca472bca7f38daa43a4259399c4906` |
-| S7 `half_b` | 215 682 | 929 792 | `f6b76ded030668841e0c235b930cce44` |
+| wariant             | Skill00 B | pac B   | md5 config00.cpk                   |
+| ------------------- | --------- | ------- | ---------------------------------- |
+| S1 `pad`            | 228 202   | 942 080 | `91217ef2920d836b97a84fb8e3cd5d56` |
+| S2 `rec_en_pool_jp` | 226 222   | 940 032 | `a7ed11e8864aadd228b1ab1fbe302ac6` |
+| S3 `rec_jp_pool_en` | 210 938   | 923 648 | `42873880e4a36064db48bcd18f8a2fc3` |
+| S4 `names_only`     | 218 682   | 931 840 | `7cf248c7ced4abb69b2049ecccb8e72f` |
+| S5 `effects_only`   | 216 434   | 929 792 | `dcf1161fb37b7ed06012b67ee4449221` |
+| S6 `half_a`         | 219 498   | 933 888 | `daca472bca7f38daa43a4259399c4906` |
+| S7 `half_b`         | 215 682   | 929 792 | `f6b76ded030668841e0c235b930cce44` |
 
 Oczekiwane wzorce: rozmiar kontenera → V6 pada (i S1, S2); rozmiar członu → V6 działa, S1 pada, S3 działa;
 nazwy → S4 pada, S5 działa; opisy → odwrotnie; napisy puli (np. dopasowanie do pul `SkillNN` DLC po treści)
@@ -3832,14 +3834,14 @@ Weryfikacja niezależna każdego wariantu: pola poza `effect` identyczne, `effec
 nagłówki +0..+35 i ogony numeryczne identyczne, pula identyczna, 0 błędnych wskaźników, pozostałe 33
 sub-pliki bajt w bajt. Testy: `tests/test_member_variants.py` (6), pełny zestaw 1 052 OK / 1 skipped.
 
-| wariant | Skill00 B | wzrost | rekordów ze spacjami | pac B | md5 config00.cpk |
-|---|---|---|---|---|---|
-| T1_plus_2KB | 210 942 | +1 984 | 496 | 923 648 (= oryginał) | `33d38092ea1ce7fe9378b598e012e153` |
-| T2_plus_4KB | 212 990 | +4 032 | 1 008 | 925 696 | `28e215ae62dde9ea55fdab8caaeebd28` |
-| T3_plus_8KB | 217 086 | +8 128 | 1 463 | 929 792 | `ee063c83dcbdeaef5ffec9b3b18c4645` |
-| T4_plus_12KB | 221 182 | +12 224 | 1 463 | 933 888 | `3d4ed74f01597f495ef9843ac9124012` |
-| T5_plus_16KB | 225 278 | +16 320 | 1 463 | 937 984 | `336e4b9e70f98462eeb22b2e708c0d1a` |
-| T6_plus_19KB_jak_build | 228 202 | +19 244 | 1 463 | 942 080 (= build #10) | `915a38227cb003b10d029e32a33c4288` |
+| wariant                | Skill00 B | wzrost  | rekordów ze spacjami | pac B                 | md5 config00.cpk                   |
+| ---------------------- | --------- | ------- | -------------------- | --------------------- | ---------------------------------- |
+| T1_plus_2KB            | 210 942   | +1 984  | 496                  | 923 648 (= oryginał)  | `33d38092ea1ce7fe9378b598e012e153` |
+| T2_plus_4KB            | 212 990   | +4 032  | 1 008                | 925 696               | `28e215ae62dde9ea55fdab8caaeebd28` |
+| T3_plus_8KB            | 217 086   | +8 128  | 1 463                | 929 792               | `ee063c83dcbdeaef5ffec9b3b18c4645` |
+| T4_plus_12KB           | 221 182   | +12 224 | 1 463                | 933 888               | `3d4ed74f01597f495ef9843ac9124012` |
+| T5_plus_16KB           | 225 278   | +16 320 | 1 463                | 937 984               | `336e4b9e70f98462eeb22b2e708c0d1a` |
+| T6_plus_19KB_jak_build | 228 202   | +19 244 | 1 463                | 942 080 (= build #10) | `915a38227cb003b10d029e32a33c4288` |
 
 Oryginał Skill00 zajmuje w `.pac` slot 210 944 B (wyrównanie 2 048), więc T1 (i S3 z rundy 2) rosną bez
 zmiany rozmiaru `.pac` i bez przesuwania kolejnych sub-plików. Kontener T6 ma 948 352 B = dokładnie
@@ -3881,11 +3883,11 @@ wielokrotność 2 048), `member_variants --align`, `--labels`; szczebel o rozmia
 
 **Runda 4 (wszystkie: `config00.cpk`, pozostałe 33 sub-pliki bajt w bajt, kolejność i rozmiary zachowane):**
 
-| wariant | Skill00 B | krok pac | pac B | cpk B | nagłówek Enabled* | md5 |
-|---|---|---|---|---|---|---|
-| U2_pac_ciasny_plus_19KB | 228 202 (= T6) | 64 | 905 216 | 911 488 | stare (jak T6) | `5f7cc82990ba211b410029be8fc4361b` |
-| U1_pac_ciasny | 208 958 (oryginał) | 64 | 886 784 | 893 056 | stare | `b3ee2d4fe39e5769768e29f8f39fd4d8` |
-| T7_plus_19KB_naglowek_cpk | 228 202 (= T6) | 2 048 | 942 080 | 948 352 | poprawione 1 884 160 | `cc92f1973ea6f161c4e5047928602bbe` |
+| wariant                   | Skill00 B          | krok pac | pac B   | cpk B   | nagłówek Enabled*    | md5                                |
+| ------------------------- | ------------------ | -------- | ------- | ------- | -------------------- | ---------------------------------- |
+| U2_pac_ciasny_plus_19KB   | 228 202 (= T6)     | 64       | 905 216 | 911 488 | stare (jak T6)       | `5f7cc82990ba211b410029be8fc4361b` |
+| U1_pac_ciasny             | 208 958 (oryginał) | 64       | 886 784 | 893 056 | stare                | `b3ee2d4fe39e5769768e29f8f39fd4d8` |
+| T7_plus_19KB_naglowek_cpk | 228 202 (= T6)     | 2 048    | 942 080 | 948 352 | poprawione 1 884 160 | `cc92f1973ea6f161c4e5047928602bbe` |
 
 U1/U2 zbudowane PRZED poprawką Enabled* (jedna zmienna względem T6: tylko pakowanie); T7 po niej (jedna
 zmienna: tylko nagłówek). Weryfikacja: offsety sub-plików U1/U2 wielokrotności 64 (nie 2 048), człon U1 ==
@@ -3924,13 +3926,13 @@ przeliczonym nagłówkiem (kontrola nieszkodliwości poprawki; różni się od T
 301–309). Weryfikacja: pola poza `effect` identyczne z oryginałem, `effect` = oryginał + spacje (max 106 B),
 pozostałe sub-pliki bajt w bajt.
 
-| wariant | Skill00 B | wzrost | pac B | nagłówek | md5 config00.cpk |
-|---|---|---|---|---|---|
-| W1_plus_8132B | 217 090 | +8 132 | 931 840 | stary | `4761e349eca7e9a7d5ffb8d9982a3cf8` |
-| W2_plus_9152B | 218 110 | +9 152 | 931 840 | stary | `ccc6ff7282e42b025a559de386a6d0af` |
-| W3_plus_10176B | 219 134 | +10 176 | 931 840 | stary | `ff8df864bdab3a98d7d6f51ba9777a05` |
-| W4_plus_11200B | 220 158 | +11 200 | 933 888 | stary | `45fa9b1c69133bb85556e6f12af66e87` |
-| W5_jak_T3_nowy_naglowek | 217 086 | +8 128 | 929 792 | przeliczony | `14831c70663deecd14e1413276642b7a` |
+| wariant                 | Skill00 B | wzrost  | pac B   | nagłówek    | md5 config00.cpk                   |
+| ----------------------- | --------- | ------- | ------- | ----------- | ---------------------------------- |
+| W1_plus_8132B           | 217 090   | +8 132  | 931 840 | stary       | `4761e349eca7e9a7d5ffb8d9982a3cf8` |
+| W2_plus_9152B           | 218 110   | +9 152  | 931 840 | stary       | `ccc6ff7282e42b025a559de386a6d0af` |
+| W3_plus_10176B          | 219 134   | +10 176 | 931 840 | stary       | `ff8df864bdab3a98d7d6f51ba9777a05` |
+| W4_plus_11200B          | 220 158   | +11 200 | 933 888 | stary       | `45fa9b1c69133bb85556e6f12af66e87` |
+| W5_jak_T3_nowy_naglowek | 217 086   | +8 128  | 929 792 | przeliczony | `14831c70663deecd14e1413276642b7a` |
 
 **Drzewo decyzji dla użytkownika (w `CZYTAJ.txt`):** najpierw U2 (działa ⇒ STOP, poprawka = ciasny pac);
 U2 pada → U1 (działa ⇒ limit członu ⇒ runda 5; pada ⇒ V6: pada ⇒ limit kontenera, działa ⇒ runda 5).
@@ -4280,14 +4282,14 @@ E `imenu00`, G (same EDAT) nigdy nie były uruchomione.** `ppsspplog.txt` z Dysk
 **Build #15 (tu, z oryginałów z Dysku; 13 kontenerów, bo `--dlc` dostał tylko oryginały config00/configst/eventP00/
 imenu00/mesbtl00/config01–08; pakiet v3; narzędzia po `3fe558b`):**
 
-| plik | oryginał | build #15 | md5 build #15 |
-|---|---|---|---|
-| config00.cpk | 929 920 | 936 064 | `71d9fcafa37c21513b97c14d1dff8f33` (= #14) |
-| configst.cpk | 376 960 | 372 864 | `6cfe245d5f6ec6dfffd2a829b778a4d7` (= #14) |
-| eventP00.cpk | 162 264 | 260 568 | `ac538959fdef3d47eeb38d0e2282adb0` |
-| imenu00.cpk | 34 984 | 57 512 | `ee66a6f824a54f2ee27c8309db16294a` |
-| mesbtl00.cpk | 348 888 | 994 008 | `00e10760c204e75133169b3455b19608` |
-| config01–08.EDAT | — | każdy +2 048 B (config02 +4 096) | `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`, `41b25268…`, `75c1101f…`, `bbeddd5e…` |
+| plik             | oryginał | build #15                        | md5 build #15                                                                                          |
+| ---------------- | -------- | -------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| config00.cpk     | 929 920  | 936 064                          | `71d9fcafa37c21513b97c14d1dff8f33` (= #14)                                                             |
+| configst.cpk     | 376 960  | 372 864                          | `6cfe245d5f6ec6dfffd2a829b778a4d7` (= #14)                                                             |
+| eventP00.cpk     | 162 264  | 260 568                          | `ac538959fdef3d47eeb38d0e2282adb0`                                                                     |
+| imenu00.cpk      | 34 984   | 57 512                           | `ee66a6f824a54f2ee27c8309db16294a`                                                                     |
+| mesbtl00.cpk     | 348 888  | 994 008                          | `00e10760c204e75133169b3455b19608`                                                                     |
+| config01–08.EDAT | —        | każdy +2 048 B (config02 +4 096) | `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`, `41b25268…`, `75c1101f…`, `bbeddd5e…` |
 
 Analiza członów (`cpk_write.load`, `extract_size` oryginał → build): rozpakowane rozmiary rosną **najwyżej o ~6 %**
 (imenu00 `CharaDictionary00` +664 B; mesbtl00 suma 981 128 → 979 904; eventP00 suma 170 032 → 176 120); rozmiary
@@ -4483,14 +4485,14 @@ spec; zapisuje tylko kontenery, które coś zmieniły; member z powrotem STORED 
 `crilayla.compress` (LZSS; **nigdy nie sprawdzony w grze**); odczyt kontrolny przez `speaker_map.read_members` +
 porównanie bajtów GIM; `ui_texture_report.json` (rozmiary, md5, dopasowanie każdego napisu). Wyniki (oryginały z Dysku):
 
-| wariant | plik | B | md5 | member |
-|---|---|---|---|---|
-| A_stored (3 s) | system.cpk | 195 888 | `4862e1f34ef68c7b631d146995722dfe` | 191 792 stored |
-| | IM1000.cpk | 166 016 | `6695d4da2cfccde08bf6e2c51be1974d` | 158 352 stored |
-| | IM3000.cpk | 252 032 | `541c20d50c28ab0a3d0b6944c02093e4` | 243 760 stored |
-| B_crilayla (46 s) | system.cpk | 80 203 | `7be64db85b7662566b63b2071f7b7826` | 76 107 ← 191 792 |
-| | IM1000.cpk | 67 712 | `0362fa7a4a91b0b051c2caf73eb262bb` | 60 375 ← 158 352 |
-| | IM3000.cpk | 100 480 | `5458d0824b87461c1847481acde0ab04` | 92 644 ← 243 760 |
+| wariant           | plik       | B       | md5                                | member           |
+| ----------------- | ---------- | ------- | ---------------------------------- | ---------------- |
+| A_stored (3 s)    | system.cpk | 195 888 | `4862e1f34ef68c7b631d146995722dfe` | 191 792 stored   |
+|                   | IM1000.cpk | 166 016 | `6695d4da2cfccde08bf6e2c51be1974d` | 158 352 stored   |
+|                   | IM3000.cpk | 252 032 | `541c20d50c28ab0a3d0b6944c02093e4` | 243 760 stored   |
+| B_crilayla (46 s) | system.cpk | 80 203  | `7be64db85b7662566b63b2071f7b7826` | 76 107 ← 191 792 |
+|                   | IM1000.cpk | 67 712  | `0362fa7a4a91b0b051c2caf73eb262bb` | 60 375 ← 158 352 |
+|                   | IM3000.cpk | 100 480 | `5458d0824b87461c1847481acde0ab04` | 92 644 ← 243 760 |
 
 `verify-identity` obu pisarzy na zbudowanych plikach OK; `cpk_table.read_cpk_table` czyta je (ContentSize 192 512 /
 159 744 / 245 760 i 77 824 / 61 440 / 94 208). **Ryzyko A:** member 2,6× większy niż oryginał (gra może mieć bufor na
@@ -6177,24 +6179,24 @@ w PPSSPP ani na PSP. Poprzednie wydania i oryginały zachowane jako rollback.
 
 Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
 
-| Plik | Bajty | SHA-256 |
-|---|---:|---|
-| `config01.EDAT` | 247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
-| `config02.EDAT` | 157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
-| `config03.EDAT` | 118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
-| `config04.EDAT` | 108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
-| `config05.EDAT` | 110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
-| `config06.EDAT` | 75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
-| `config07.EDAT` | 73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
-| `imenu01.EDAT` | 24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
-| `imenu02.EDAT` | 20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
-| `imenu03.EDAT` | 18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
-| `imenu04.EDAT` | 20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
-| `imenu05.EDAT` | 18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
-| `imenu06.EDAT` | 18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
-| `imenu07.EDAT` | 18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
-| `eventP00.cpk` | 162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
-| `EBOOT.BIN` | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
+| Plik            |   Bajty | SHA-256                                                            |
+| --------------- | ------: | ------------------------------------------------------------------ |
+| `config01.EDAT` |  247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
+| `config02.EDAT` |  157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
+| `config03.EDAT` |  118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
+| `config04.EDAT` |  108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
+| `config05.EDAT` |  110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
+| `config06.EDAT` |   75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
+| `config07.EDAT` |   73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
+| `imenu01.EDAT`  |   24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
+| `imenu02.EDAT`  |   20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
+| `imenu03.EDAT`  |   18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
+| `imenu04.EDAT`  |   20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
+| `imenu05.EDAT`  |   18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
+| `imenu06.EDAT`  |   18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
+| `imenu07.EDAT`  |   18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
+| `eventP00.cpk`  |  162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
+| `EBOOT.BIN`     | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
 
 
 ### 21.62 Odzyskanie pracy poprzedniego agenta i finał czytelniczy 34 — checkpoint (2026-10-17)
@@ -7937,4 +7939,31 @@ Polish mission deployments catalogue with engine-verified active sub-pilots (202
    `d329e8642acb0a37bb930c96da860226`), uploaded to Google Drive `1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`
    (replacing `1H1TjItPtQ3iGbfdlsqOZcU2JXC_LGY2-`), verified byte-identical download-back, and ran
    the full `srw-oe-translation` test suite (`1,758` tests `OK`, `32` skipped).
+
+Notepad++ monospace pipe-table alignment across all Markdown catalogues & docs (2026-10-21):
+1. Added `tools/md_table_align.py` + `tests/test_md_table_align.py` and integrated fixed-width
+   monospace table column alignment into `tools/polish_mech_catalog.py`, `tools/pilot_catalog.py`,
+   `tools/verify_polish_reading.py`, `tools/revise_polish_catalogue_names.py`, and
+   `tools/verify_pilot_catalog.py`:
+   - Pads every table cell and rule bar so all `|` separators align identically top-to-bottom in
+     Notepad++ (`Courier New` / `Consolas`) independent of editor `Tab size` while remaining valid
+     CommonMark/GFM tables.
+   - Replaces all raw `<br>` / `<br><br>` HTML tags with clean multi-line continuation rows inside
+     the target column (`0` residual `<br>` tags across mech and pilot catalogues) and constrains
+     every table line to `<= 216` monospace cells (`max = 204` in mech catalogue, `max = 216` in
+     pilot catalogue) so rows never soft-wrap to column `0` on a 1080p Notepad++ viewport.
+   - Formatted all pipe tables across `32` tracked `docs/**/*.md` files (`docs/recovered/` untouched).
+2. Re-verified `7,307 / 7,307` Unicorn hardware checks (`verify_pilot_catalog.py --replay-unicorn`
+   `PASS`), ran full suite (`1,760` tests `OK`, `33` skipped), uploaded all four updated Polish
+   reading deliverables to Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, trashed superseded
+   copies, and verified byte-for-byte download-back:
+   - `srwoe_mech_catalog_v4_PL.md`: `1HuNsF6cwBkgvNaDlSZMvoRsWODKv1G_H` (`876,522 B`, SHA-256
+     `2f4f35725c1314a201d890e4fd780b102ea2244837c565e4f93f3111e83a8e33`; `v3_PL`: `873,167 B`,
+     SHA-256 `82b201e594840bee5c0879f875516954fb1e482346774e556269e53c9496c808`)
+   - `srwoe_pilot_catalog_PL.md`: `14ljZi9HkHbRuosL9qblu33RH0YhCzstM` (`789,670 B`, SHA-256
+     `21b70d8ec8e3a38980ecf2c66d398d74fc52172b1c4a9a0b38096cd280a0ea70`)
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `1n17df25TylgAXyBI_U0zomvAAPUrx0Ef` (`162,337 B`,
+     SHA-256 `5e87af2e93a22477c9417662d7903fb1c4f054ae726c01bfa20ab8f33b9c71f3`)
+   - `srwoe_reading_PL3.zip`: `1YTYNNoCnjABNdIHe4ljrhyj1XPDsLFzw` (`152,220 B`, SHA-256
+     `41ecfb2e1acedb99c17c0023a52602e2d731859010b38375e637c452dba5ccf7`)
 

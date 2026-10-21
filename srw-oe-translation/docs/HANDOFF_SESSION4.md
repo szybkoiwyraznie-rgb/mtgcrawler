@@ -5,12 +5,12 @@ Stan: nic nie jest przetłumaczone ani zakończone. Brak wykazanego, działając
 
 ## 1. Co zrobiono w tej sesji
 
-| Commit | Zawartość |
-|---|---|
-| `2e73bf0` | `tools/drive_manifest.tsv`: ID Drive, nazwy i rozmiary wejść (bez treści gry) |
-| `7d159fa` | dziennik eksperymentów (sekcja sesji 4) i status |
-| `3a53156` | korekta liczenia dialogów (łańcuch vs skanowanie znaczników) |
-| `044b096` | `tools/mech_names.py` (kandydaci mechów z config00 + config01–46) |
+| Commit       | Zawartość                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------- |
+| `2e73bf0`    | `tools/drive_manifest.tsv`: ID Drive, nazwy i rozmiary wejść (bez treści gry)                           |
+| `7d159fa`    | dziennik eksperymentów (sekcja sesji 4) i status                                                        |
+| `3a53156`    | korekta liczenia dialogów (łańcuch vs skanowanie znaczników)                                            |
+| `044b096`    | `tools/mech_names.py` (kandydaci mechów z config00 + config01–46)                                       |
 | (ten commit) | ten handoff; usunięcie lokalnych ścieżek absolutnych z `configst_pack.py`, `sysmes_pack.py` i dziennika |
 
 ## 2. Liczby i ich status

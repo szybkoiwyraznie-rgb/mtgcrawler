@@ -7,12 +7,12 @@ roboczy. **Pula fragmentów jest gotowa rozmiarowo, ale Skill00 nadal przekracza
 normalny limit o 686 B.** Nie wyłączono zabezpieczeń i nie przygotowano kolejnej
 próby za dużego pliku. Tekstu tłumacza nie przeredagowano.
 
-| Pomiar | Poprzedni PL.zip | PL2.zip | Limit |
-|---|---:|---:|---:|
-| Skill00, rzeczywisty układ writera | 224678 B | **217454 B** | 216768 B |
-| Nadmiar Skill00 | 7910 B | **686 B** | 0 B |
-| Pula z ogona Skill00 jako osobny kontener — projekcja | 17386 B | 15382 B | 15638 B |
-| Fizyczne pule DLC Skill01–08, normalny builder + odczyt | nie mierzono w tym porównaniu | **15331 B każda** | 15638 B |
+| Pomiar                                                  |              Poprzedni PL.zip |           PL2.zip |    Limit |
+| ------------------------------------------------------- | ----------------------------: | ----------------: | -------: |
+| Skill00, rzeczywisty układ writera                      |                      224678 B |      **217454 B** | 216768 B |
+| Nadmiar Skill00                                         |                        7910 B |         **686 B** |      0 B |
+| Pula z ogona Skill00 jako osobny kontener — projekcja   |                       17386 B |           15382 B |  15638 B |
+| Fizyczne pule DLC Skill01–08, normalny builder + odczyt | nie mierzono w tym porównaniu | **15331 B każda** |  15638 B |
 
 Zwykły builder potwierdził odmowę `config00.cpk` przy 217454 B. Osobno sprawdzono
 writer z nadal aktywną bramką: ten sam wynik. Odmówiony config00 nie trafia do

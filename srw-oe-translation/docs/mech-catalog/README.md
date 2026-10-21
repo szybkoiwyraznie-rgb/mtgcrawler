@@ -25,17 +25,17 @@ are preserved separately, with exact metadata in `revisions/01.*.json` and
 
 ## Coverage
 
-| Category | Result |
-|---|---:|
-| Registered unit records (friendly/enemy/forms/objects/cinematics/spares) | 393/393 |
-| Weapon/action table entries | 1485/1485 |
-| Nonzero selectors / zero selectors shown separately | 1274 / 211 |
-| Default crew assignments / distinct assigned character IDs | 535 / 201 |
-| Native machine-skill references resolved | 514/516 |
-| Concrete base descriptions / executable overrides | 249 / 20 |
-| Group rosters / distinct explicit member units | 16 / 53 |
-| Positive conditional weapon gates | 121 |
-| Source-checked, catalogue-only wording repairs | 17 |
+| Category                                                                 |     Result |
+| ------------------------------------------------------------------------ | ---------: |
+| Registered unit records (friendly/enemy/forms/objects/cinematics/spares) |    393/393 |
+| Weapon/action table entries                                              |  1485/1485 |
+| Nonzero selectors / zero selectors shown separately                      | 1274 / 211 |
+| Default crew assignments / distinct assigned character IDs               |  535 / 201 |
+| Native machine-skill references resolved                                 |    514/516 |
+| Concrete base descriptions / executable overrides                        |   249 / 20 |
+| Group rosters / distinct explicit member units                           |    16 / 53 |
+| Positive conditional weapon gates                                        |        121 |
+| Source-checked, catalogue-only wording repairs                           |         17 |
 
 Every entry has name/series, pilot/crew profiles and special skills, native machine
 abilities, and weapon names/effects with base power, range, hit modifier, EN and

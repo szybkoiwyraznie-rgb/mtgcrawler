@@ -16,14 +16,14 @@ The base ISO is held separately and was reported as `SRW OE 1.08.iso`, 664,324 K
 
 ## Extracted `imenu01.EDAT`
 
-| File | Bytes |
-| --- | ---: |
-| `srwDL_BMP01.bin` | 4 |
+| File                          |  Bytes |
+| ----------------------------- | -----: |
+| `srwDL_BMP01.bin`             |      4 |
 | `srwDL_CharaDictionary01.bin` | 15,688 |
-| `srwDL_DLC_ID01.bin` | 3,336 |
-| `srwDL_Reference01.bin` | 4 |
-| `srwDL_Shop01.bin` | 4 |
-| `srw_DL_RoboDictionary01.bin` | 9,702 |
+| `srwDL_DLC_ID01.bin`          |  3,336 |
+| `srwDL_Reference01.bin`       |      4 |
+| `srwDL_Shop01.bin`            |      4 |
+| `srw_DL_RoboDictionary01.bin` |  9,702 |
 
 ## Extracted `eventP01.EDAT`
 
@@ -37,20 +37,20 @@ The user reported 88 files arranged in these groups; each listed group had a `.b
 
 Selected member sizes:
 
-| File | Bytes |
-| --- | ---: |
-| `DL102_20.bin` | 16,216 |
-| `DL102_20_edit.dat` | 28 |
-| `DL102_20_Entry.dat` | 1,024 |
-| `DL102_20_ext.dat` | 388 |
-| `DL102_30.bin` | 15,620 |
-| `DL102_40.bin` | 10,136 |
-| `DL102_50.bin` | 20,820 |
-| `DL102_60.bin` | 7,948 |
-| `DL102_70.bin` | 11,472 |
-| `DL102_90.bin` | 18,760 |
-| `SM001.bin` | 1,364 |
-| `SM002.bin` | 1,384 |
+| File                 |  Bytes |
+| -------------------- | -----: |
+| `DL102_20.bin`       | 16,216 |
+| `DL102_20_edit.dat`  |     28 |
+| `DL102_20_Entry.dat` |  1,024 |
+| `DL102_20_ext.dat`   |    388 |
+| `DL102_30.bin`       | 15,620 |
+| `DL102_40.bin`       | 10,136 |
+| `DL102_50.bin`       | 20,820 |
+| `DL102_60.bin`       |  7,948 |
+| `DL102_70.bin`       | 11,472 |
+| `DL102_90.bin`       | 18,760 |
+| `SM001.bin`          |  1,364 |
+| `SM002.bin`          |  1,384 |
 
 The names suggest event/scenario resources, but the naming semantics have not been verified.
 

@@ -122,16 +122,16 @@ the fallback named in the thread is *cri packed file maker*.
 
 CrashmanX's own status table in that first post shows exactly where the public knowledge stops:
 
-| Area | His progress | Note |
-|---|---|---|
-| Level names, song names | 100% | hex-edited in place |
-| Item names | ~99% | "Some are a bit hard to read because space issues" |
-| Battle menus / main menus | 90% / ~70% | the repacked `imenu00.cpk` |
-| Unit and attack names | ~80% | |
-| **Story** | **---%** | "**Can't exactly translate ATM because I don't have tools to work with it**" |
-| **Attack shouts / talking** | **---%** | same |
-| **Reference** | **0%** | same |
-| **Chapter 1 (DLC)** | **0% on all** | "**Don't know how to repack the DLC properly yet**" |
+| Area                        | His progress  | Note                                                                         |
+| --------------------------- | ------------- | ---------------------------------------------------------------------------- |
+| Level names, song names     | 100%          | hex-edited in place                                                          |
+| Item names                  | ~99%          | "Some are a bit hard to read because space issues"                           |
+| Battle menus / main menus   | 90% / ~70%    | the repacked `imenu00.cpk`                                                   |
+| Unit and attack names       | ~80%          |                                                                              |
+| **Story**                   | **---%**      | "**Can't exactly translate ATM because I don't have tools to work with it**" |
+| **Attack shouts / talking** | **---%**      | same                                                                         |
+| **Reference**               | **0%**        | same                                                                         |
+| **Chapter 1 (DLC)**         | **0% on all** | "**Don't know how to repack the DLC properly yet**"                          |
 
 So the dialogue — this project's target — has no public tooling. The Korean patches prove it was
 eventually done, but neither repo publishes its tools. What is missing is narrow and concrete:

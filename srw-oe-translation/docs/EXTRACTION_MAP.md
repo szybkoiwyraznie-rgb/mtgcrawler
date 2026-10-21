@@ -7,14 +7,14 @@ tables), `extract_structured.py` (fixed-record tables — extraction only; repac
 
 ## Covered (extractable now)
 
-| Category | Container(s) | Tool | Notes |
-|---|---|---|---|
-| Event narration (ch1 disc) | `eventP00.cpk` | `export_strings.py` | EVNT records; growth proven |
-| Event narration (ch2-8 DLC) | `eventP01..P09.cpk` (DLC) | `export_strings.py` | same format |
-| Battle quotes / messages | `mesbtl00.cpk` | `extract_tables.py` | NUL-separated lines, e.g. 「どんな奴だろうと…」 |
-| Character dictionary / encyclopedia / names | `imenu00.cpk` | `extract_tables.py` | `srwDL_CharaDictionary00.bin`: 愛称／声優／図鑑 strings (DLC dictionary) |
-| Map / terrain / background names | `config00.cpk` | `extract_tables.py` | 赤宇宙／森林　山 etc. |
-| Credits / copyright | `cprt0001..0004.cpk` | `extract_tables.py` (raw) | ㊤/㊦ credit lines |
+| Category                                    | Container(s)              | Tool                      | Notes                                                                    |
+| ------------------------------------------- | ------------------------- | ------------------------- | ------------------------------------------------------------------------ |
+| Event narration (ch1 disc)                  | `eventP00.cpk`            | `export_strings.py`       | EVNT records; growth proven                                              |
+| Event narration (ch2-8 DLC)                 | `eventP01..P09.cpk` (DLC) | `export_strings.py`       | same format                                                              |
+| Battle quotes / messages                    | `mesbtl00.cpk`            | `extract_tables.py`       | NUL-separated lines, e.g. 「どんな奴だろうと…」                          |
+| Character dictionary / encyclopedia / names | `imenu00.cpk`             | `extract_tables.py`       | `srwDL_CharaDictionary00.bin`: 愛称／声優／図鑑 strings (DLC dictionary) |
+| Map / terrain / background names            | `config00.cpk`            | `extract_tables.py`       | 赤宇宙／森林　山 etc.                                                    |
+| Credits / copyright                         | `cprt0001..0004.cpk`      | `extract_tables.py` (raw) | ㊤/㊦ credit lines                                                       |
 
 ## System / UI / menus / items / parts / skills text — `configst.cpk` (verified, clean)
 

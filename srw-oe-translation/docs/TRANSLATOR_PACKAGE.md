@@ -18,11 +18,11 @@ tłumaczy się **tekst w plikach `.md`**, po znaczniku `EN:`.
 
 **Co dostajesz — dokładnie trzy rzeczy i nic więcej:**
 
-| plik | co to jest |
-|---|---|
-| `README.md` (ten dokument) | instrukcja |
-| `sceny.zip` | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
-| `widoki.zip` | nazwy i tabele: 7 plików `.md` |
+| plik                       | co to jest                                                |
+| -------------------------- | --------------------------------------------------------- |
+| `README.md` (ten dokument) | instrukcja                                                |
+| `sceny.zip`                | fabuła: 37 plików `.md` (spis scen + odcinki + symulator) |
+| `widoki.zip`               | nazwy i tabele: 7 plików `.md`                            |
 
 **Aktualizacja 2026-10-14:** do folderu doszedł plik **`tokeny.tsv`** — lista rodzajów `%s`
 (patrz sekcja 3, „Co dokładnie oznacza `%s` w opisach"). Trzeba go położyć **obok plików JSON**
@@ -60,8 +60,8 @@ tłumaczenie dziedziczy się tam automatycznie, nie wpisuje się nic (patrz „E
 Gra używa zestawu **CP932** (japoński Windows). Znaki spoza niego **nie wejdą do gry** —
 nasze narzędzie odrzuci taką linię i zgłosi to.
 
-| wolno | nie wolno |
-|---|---|
+| wolno                                                                                 | nie wolno                                                                       |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `―` (kreska japońska U+2015), `…`, `‘ ’ “ ”`, `°`, `×`, `→`, `★`, `〜`, `♪`, `①`, `Å` | `—` (U+2014), `–` (U+2013), `„`, `•`, `♥`, litery z akcentami (`é ä ö ñ ç å ø`) |
 
 Zamiast `—` pisz `-` albo `―`. Zamiast `José` pisz `Jose`. Pełna szerokość japońska (`Ａ`, `１`, `％`)
@@ -73,11 +73,19 @@ w polu pisanym czcionką półszeroką (patrz „Imiona wąskie" i `<0x0F>` niż
 Pod **każdym** elementem do przetłumaczenia jest linia `limit:` mówiąca, ile wolno napisać. Są trzy
 rodzaje tej linii:
 
-| linia `limit:` | co znaczy |
-|---|---|
-| `limit: 117 B (stała szerokość — dłuższe się nie zmieści)` | **twardy limit**. Miejsce w grze ma dokładnie tyle bajtów; dłuższy tekst **nie zostanie wpisany** (narzędzie go odrzuci i poda, o ile trzeba skrócić). Jeden znak japoński = 2 B, jeden znak angielski = 1 B. |
-| `limit: 46 jedn. na linię (twardy limit 52 jedn. — tyle gra sama rysuje w tym miejscu); oryginał: 3 linii` | tekst rysowany w oknie gry. Długość całego tekstu jest dowolna (gra przebudowuje rozmiary), ale **każda linia** ma się mieścić: trzymaj się 46; twardy limit to tyle, ile sama gra rysuje w tym rodzaju tekstu — **dialog 52, cytat bitewny 50** jednostek (jednostka = szerokość połowy znaku; znak japoński ma 2; znaki sterujące jak `\r` nie liczą się). `oryginał: N linii` mówi, na ile linii łamał się japoński — **zostaw tyle samo**. |
-| `limit: bez twardego limitu (pole rośnie) — trzymaj się długości oryginału (najdłuższy w tej kategorii: 18 jedn.)` | nazwy w listach, serie, opisy. Długość jest dowolna, ale interfejs gry ma stałą szerokość listy — **nie przekraczaj długości oryginału** więcej niż o ~⅓. Liczba w nawiasie to najdłuższy oryginał w tej samej kategorii: to praktyczna granica. |
+| linia `limit:`                                                                                                     | co znaczy                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `limit: 117 B (stała szerokość — dłuższe się nie zmieści)`                                                         | **twardy limit**. Miejsce w grze ma dokładnie tyle bajtów; dłuższy tekst **nie zostanie         |
+|                                                                                                                    |   wpisany** (narzędzie go odrzuci i poda, o ile trzeba skrócić). Jeden znak japoński = 2 B,     |
+|                                                                                                                    |   jeden znak angielski = 1 B.                                                                   |
+| `limit: 46 jedn. na linię (twardy limit 52 jedn. — tyle gra sama rysuje w tym miejscu); oryginał: 3 linii`         | tekst rysowany w oknie gry. Długość całego tekstu jest dowolna (gra przebudowuje rozmiary), ale |
+|                                                                                                                    |   **każda linia** ma się mieścić: trzymaj się 46; twardy limit to tyle, ile sama gra rysuje w   |
+|                                                                                                                    |   tym rodzaju tekstu — **dialog 52, cytat bitewny 50** jednostek (jednostka = szerokość połowy  |
+|                                                                                                                    |   znaku; znak japoński ma 2; znaki sterujące jak `\r` nie liczą się). `oryginał: N linii` mówi, |
+|                                                                                                                    |   na ile linii łamał się japoński — **zostaw tyle samo**.                                       |
+| `limit: bez twardego limitu (pole rośnie) — trzymaj się długości oryginału (najdłuższy w tej kategorii: 18 jedn.)` | nazwy w listach, serie, opisy. Długość jest dowolna, ale interfejs gry ma stałą szerokość listy |
+|                                                                                                                    |   — **nie przekraczaj długości oryginału** więcej niż o ~⅓. Liczba w nawiasie to najdłuższy     |
+|                                                                                                                    |   oryginał w tej samej kategorii: to praktyczna granica.                                        |
 
 Uwaga: „dowolna długość" przy dialogach **nie znaczy „bez konsekwencji"** — tekst wpisany do gry
 musi się jeszcze mieścić w oknie. Dlatego liczba linii i szerokość linii są w limicie, a nasze
@@ -205,15 +213,15 @@ wracają do nas razem.
 
 Rozpakuj `widoki.zip`. W środku jest siedem plików — każdy obejmuje jedną kategorię gry:
 
-| plik | co zawiera | linii `EN:` | dziedziczy |
-|---|---|---|---|
-| `postacie.md` | imiona, przezwiska, serie, aktorzy głosowi, wersje imion (pełne/krótkie/wąskie) | 1 807 | 484 |
-| `cytaty.md` | kwestie bitewne, pogrupowane po mówcy | 19 841 | 0 |
-| `mechy.md` | nazwy jednostek, serie, długość, masa **oraz wszystkie bronie** | 2 303 | 2 042 |
-| `przedmioty.md` | nazwy przedmiotów i opisy efektów | 443 | 757 |
-| `umiejetnosci.md` | nazwy umiejętności i opisy efektów | 3 069 | 1 863 |
-| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.) | 15 368 | 0 |
-| `teksty-misji.md` | tytuły misji, nazwy map, tytuły BGM, uwagi do misji | 1 284 | 0 |
+| plik               | co zawiera                                                                      | linii `EN:` | dziedziczy |
+| ------------------ | ------------------------------------------------------------------------------- | ----------- | ---------- |
+| `postacie.md`      | imiona, przezwiska, serie, aktorzy głosowi, wersje imion (pełne/krótkie/wąskie) | 1 807       | 484        |
+| `cytaty.md`        | kwestie bitewne, pogrupowane po mówcy                                           | 19 841      | 0          |
+| `mechy.md`         | nazwy jednostek, serie, długość, masa **oraz wszystkie bronie**                 | 2 303       | 2 042      |
+| `przedmioty.md`    | nazwy przedmiotów i opisy efektów                                               | 443         | 757        |
+| `umiejetnosci.md`  | nazwy umiejętności i opisy efektów                                              | 3 069       | 1 863      |
+| `teksty-config.md` | teksty menu i ekranów (sekcjami: umiejętności, przedmioty, duchy, itd.)         | 15 368      | 0          |
+| `teksty-misji.md`  | tytuły misji, nazwy map, tytuły BGM, uwagi do misji                             | 1 284       | 0          |
 
 Zasada jest **ta sama** co w fabule: linia japońska, pod nią linia `limit:` (ile wolno napisać),
 a pod nią `EN:`. Elementy w kolumnie „dziedziczy" nie mają `EN:` — nic tam nie wpisujesz.
