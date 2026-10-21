@@ -7982,4 +7982,36 @@ Simplified base-only Spirit Command tables in `srwoe_pilot_catalog_PL.md` (2026-
    uploaded to Google Drive `1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5` (trashing superseded
    `14ljZi9HkHbRuosL9qblu33RH0YhCzstM`), and confirmed byte-identical download-back.
 
+Base-only pilot statistics & Polish skill terminology fix v2.7-PL6 (`Eldoran` -> `Eldran`, 2026-10-21):
+1. Applied source-bound plan `config/pl/ui-eldran-skills-2026-10-21.json` (`11` entries, `SHA-256`
+   `384c804e15cf0bf07eca29b7cdb309ad2b50e120646b0376fc46c60e88c68276`) via `tools/pl_ui_corrections.py`
+   across the exact `11` translator-specified fields (`-1 B` each, leading ASCII space `0x20` preserved):
+   - `umiejetnosci.md` grupa `220` element `3` (`03_skills.jsonl` `skill:config00.cpk/srwDL_Skill00.bin:r219:effect`:
+     `'＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku'`, `58 B -> 57 B`).
+   - `teksty-config.md` grupa `17` element `683` (`04_config_text.jsonl` `skill:config00.cpk/srwDL_Skill00.bin:36904`:
+     `'＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku'`, `58 B -> 57 B`).
+   - `teksty-config.md` grupa `17` element `3971` + grupy `18`–`25` element `384` (`04_config_text.jsonl`
+     `srwDL_Skill00.bin`..`srwDL_Skill08.bin` tail-pool fragment `' Warunek: roboty Eldran x'`, `26 B -> 25 B`).
+   - Physically patched and read back all `9` containers (`config00.cpk` + `config01.EDAT`–`config08.EDAT`),
+     built release pair `2.7-PL6`, uploaded `srw-oe-translation-pl-v2.7-PL6.zip` to Google Drive
+     `1Z41f1W9cXIUAVa40evWcHzGQJXfHzfu-` (`8,122,152 B`, SHA-256
+     `126d37f2d1b21db57e1e8b3ae339560e07a49f01dcd470d41b25bcd4cf2598ae`, MD5
+     `4f386154840331aa696f61f63e3ed9a9`, trashing `1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV`), and verified
+     byte-identical download-back (`docs/pl/pl6-kit-delivery.json`).
+2. Simplified basic pilot statistics in `tools/pilot_catalog.py` and `tools/verify_pilot_catalog.py` to
+   base `Poz. 1` values only (`| Parametr | Wartość bazowa |` for combat profiles, base SP only on sub-pilots
+   and Appendix A, `0` `Poz. 50` / `Poz. 99` / `/poz.` columns), rebuilt all Polish reading deliverables against
+   `v2.7-PL6` (`0` residual `Eldoran` across all catalogues, `7,307 / 7,307` Unicorn parity `PASS`), uploaded to
+   Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, trashed superseded copies, and verified byte-identical download-back:
+   - `srwoe_pilot_catalog_PL.md`: `1IPw-7q_874EmSm4FmJjPCQyJNFjESclm` (`549,140 B`, SHA-256
+     `a12ff8bca1564ca9a7eb93728870ca689d559a1531c3ae84a67c903b98c3bb29`, MD5 `8d5a1d39aea021b2f74a6fb2b077cb82`)
+   - `srwoe_mech_catalog_v4_PL.md`: `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` (`876,522 B`, SHA-256
+     `76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76`, MD5 `62800b7fa067fa9b1df3370e90d79f63`;
+     `v3_PL`: `873,167 B`, SHA-256 `9a46c270de1aa1c2c8d6ca404acaf37b33ebeda94fe7a48e62621c36a845af1a`)
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `1LlaUuLCoBeXv_XBmoEkALWgiq8mbHRUc` (`162,328 B`, SHA-256
+     `e37962746e80e0d523983363d36187ee3b36cbcd20b5cf6d9646fdfaa19aa145`, MD5 `cd286c4128098d70f364160a7902023a`)
+   - `srwoe_reading_PL3.zip`: `1_ogO8CRZQebXAbBMGo1nmhple1WkO41w` (`152,210 B`, SHA-256
+     `8f22691cb023540accaf492611c878d7ef97ce8f115d63862c1ee3dee61285a6`, MD5 `07b7a741899cdecc700eea8d9cac1a1c`)
+
+
 

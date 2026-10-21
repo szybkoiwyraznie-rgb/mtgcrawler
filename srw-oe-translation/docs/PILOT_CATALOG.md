@@ -59,10 +59,10 @@ Each record in `charalist00.bin`–`charalist19.bin` is fixed-width **172 bytes 
    - `unit + 0x5bc` bit `4` (`0x04`) marks an enemy-side unit.
    - When `(unit_flags & 4) == 0` (player side) and `u16@+100 > 0`, `0x0e009c(u16@+100)` replaces the base enemy `charalist` pointer with the recruited `(Ally)` profile (`13` enemy records across `12` `(Ally)` profiles, including both `2315` and `2316` redirecting to `2317`).
 2. **SP Pool Formula (`0x21f58c`, `0x21f714..0x21f744`):**
-   - `SP(level) = base_sp + max(level - 1, 0) * sp_growth`.
+   - `SP(level) = base_sp + max(level - 1, 0) * sp_growth` (rendered Markdown cards in `srwoe_pilot_catalog_PL.md` show the starting `Poz. 1` base value only, without growth columns or `Poz. 50` / `Poz. 99` projections).
 3. **Allegrex Single-Precision `float32` Stat Growth (`0x21f598..0x21f710`):**
    - Multiplier constant `0x3dcccccd` (`0.10000000149011612f` in IEEE-754 binary32):
-   - `stat(level) = base + trunc_i32(f32(f32(rate) * 0.1f) * f32(level))`.
+   - `stat(level) = base + trunc_i32(f32(f32(rate) * 0.1f) * f32(level))` (rendered Markdown cards show the starting `Poz. 1` base values for **Atak**, **Obrona**, **Celność**, and **Unik** in a 2-column `Parametr | Wartość bazowa` table aligned for Notepad++).
    - Note that `+112/+113` writes `slot + 0x16` (**Celność**) whereas `+114/+115` writes `slot + 0x14` (**Unik**), confirmed both in `0x21f67c..0x21f710` and in the level-up UI widget table at `0x148b70..0x148c64`.
 4. **Spirit Command Base-Value Presentation (`0x21f748..0x21f81c` + `0x0e78b4`):**
    - Each active slot (`1..4`) has 3 records in `configst.cpk/srwDL_Spirit.bin` (`20` families, `60` records, `SP` cost at `u8@+12`, `0` 1.08 ELF overrides; runtime unlock level of tier `t` is `learn_lv` if `step == 0`, else `learn_lv + (t - 1) * step`, still retained in `pilot_catalog_model.json` and `verify_pilot_catalog.py` Unicorn checks).

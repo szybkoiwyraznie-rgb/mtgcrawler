@@ -2,10 +2,10 @@
   "schema": 1,
   "date": "2026-10-21",
   "language": "pl",
-  "source_commit": "62e0e2c",
+  "source_commit": "173890a",
   "branch": "arena/df413232-mtgcrawler",
   "pull_request": 22,
-  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, simplified base-only Spirit Command tables (SP cost + base effect without Lv2/Lv3 upgrade tiers, Notepad++ aligned), Pilot Skills, unlock schedules, and Ace Bonuses",
+  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, base-only Pilot Statistics (SP, Atak, Obrona, Celność, Unik without level growth or Lv. 50/99 columns), base-only Spirit Command tables (SP cost + base effect), Pilot Skills, unlock schedules, and Ace Bonuses (v2.7-PL6, Notepad++ aligned)",
   "game_package_changed": false,
   "literary_retranslation": false,
   "previous_files_overwritten": true,
@@ -13,14 +13,14 @@
   "files": [
     {
       "name": "srwoe_pilot_catalog_PL.md",
-      "bytes": 622908,
-      "lines": 6100,
-      "sha256": "42d2773af1ccaa249fdb5665a7218aaeb4aa78d833f56b9c955ec44b87470bb6",
-      "md5": "eb2a04b19544b663f534a7e7a8e6b7b9",
+      "bytes": 549140,
+      "lines": 6099,
+      "sha256": "a12ff8bca1564ca9a7eb93728870ca689d559a1531c3ae84a67c903b98c3bb29",
+      "md5": "8d5a1d39aea021b2f74a6fb2b077cb82",
       "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-      "drive_id": "1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5",
-      "url": "https://drive.google.com/file/d/1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5/view",
-      "superseded_trashed_drive_id": "14ljZi9HkHbRuosL9qblu33RH0YhCzstM",
+      "drive_id": "1IPw-7q_874EmSm4FmJjPCQyJNFjESclm",
+      "url": "https://drive.google.com/file/d/1IPw-7q_874EmSm4FmJjPCQyJNFjESclm/view",
+      "superseded_trashed_drive_id": "1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5",
       "download_back_byte_identical": true
     }
   ],
@@ -47,7 +47,7 @@
     "engine_map": "docs/pilot-catalog/engine-map.json",
     "unicorn_0x21f4ec_executions": 7307,
     "unicorn_mismatches": 0,
-    "focused_tests": 9,
+    "focused_tests": 11,
     "result": "OK"
   },
   "installation": {

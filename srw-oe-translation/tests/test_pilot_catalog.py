@@ -285,6 +285,9 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
             self.assertEqual(report["counts"]["sub_pilot"], 45)
             self.assertEqual(report["counts"]["enemy_total"], 117)
             self.assertEqual(report["counts"]["non_combat"], 150)
+            self.assertNotIn("Poz. 50", md_text)
+            self.assertNotIn("Poz. 99", md_text)
+            self.assertNotIn("/poz.", md_text)
 
             # Tampering a single stat cell must fail verification immediately.
             import re as _re

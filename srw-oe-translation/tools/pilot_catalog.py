@@ -893,24 +893,17 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     has_stats = any(st[k]["base"] or st[k]["rate_tenths"] for k in ("atk", "def", "hit", "eva"))
     if has_stats:
         lines.append(
-            "| Parametr | Poz. 1 | Poz. 50 | Poz. 99 | Wzór bazowy (`charalist`) |\n"
-            "|---|---:|---:|---:|---|\n"
-            f"| **SP** | {sp['base_lv1']} | {sp['lv50']} | {sp['lv99']} | "
-            f"`{sp['base_lv1']} + (Poz. − 1) × {sp['per_level']}` |\n"
-            f"| **Atak** | {st['atk']['lv1']} | {st['atk']['lv50']} | {st['atk']['lv99']} | "
-            f"baza `{st['atk']['base']}`, przyrost `+{st['atk']['rate_tenths'] / 10:.1f}/poz.` |\n"
-            f"| **Obrona** | {st['def']['lv1']} | {st['def']['lv50']} | {st['def']['lv99']} | "
-            f"baza `{st['def']['base']}`, przyrost `+{st['def']['rate_tenths'] / 10:.1f}/poz.` |\n"
-            f"| **Celność** | {st['hit']['lv1']} | {st['hit']['lv50']} | {st['hit']['lv99']} | "
-            f"baza `{st['hit']['base']}`, przyrost `+{st['hit']['rate_tenths'] / 10:.1f}/poz.` |\n"
-            f"| **Unik** | {st['eva']['lv1']} | {st['eva']['lv50']} | {st['eva']['lv99']} | "
-            f"baza `{st['eva']['base']}`, przyrost `+{st['eva']['rate_tenths'] / 10:.1f}/poz.` |\n"
+            "| Parametr | Wartość bazowa |\n"
+            "|---|---:|\n"
+            f"| **SP** | {sp['base_lv1']} |\n"
+            f"| **Atak** | {st['atk']['lv1']} |\n"
+            f"| **Obrona** | {st['def']['lv1']} |\n"
+            f"| **Celność** | {st['hit']['lv1']} |\n"
+            f"| **Unik** | {st['eva']['lv1']} |\n"
         )
     else:
         lines.append(
-            f"- **Pula SP:** Poz. 1: **{sp['base_lv1']}** · Poz. 50: **{sp['lv50']}** · "
-            f"Poz. 99: **{sp['lv99']}** *(przyrost `+{sp['per_level']}/poz.`; "
-            "podpilot korzysta ze statystyk bojowych głównego pilota)*\n"
+            f"- **Pula SP:** **{sp['base_lv1']}** *(podpilot korzysta ze statystyk bojowych głównego pilota)*\n"
         )
 
     if pilot["spirits"]:
@@ -1037,9 +1030,8 @@ def render_polish_markdown(model: dict) -> str:
         "- **Przełączanie profilu wróg / gracz (`u16@+100`):** gdy postać występuje po stronie wroga (`flags & 4 != 0`), "
         "silnik używa jej bazowego rekordu `charalist`. Po przejściu do oddziału gracza (`flags & 4 == 0`), jeśli pole `u16@+100 > 0`, "
         "wszystkie ekrany i obliczenia bojowe przekierowują statystyki, SP, Komendy Ducha, umiejętności i Premię Asa do wskazanego profilu sojuszniczego.\n"
-        "- **Pula SP (`+105`, `+106`):** `SP(poz.) = SP_bazowe + (poz. − 1) × przyrost_SP`.\n"
-        "- **Statystyki pilota (`+108..+115`):** `wartość(poz.) = baza + trunc_f32((przyrost × 0.1f) × poz.)` "
-        "(arytmetyka pojedynczej precyzji IEEE-754 `0x3dcccccd` procesora Allegrex).\n"
+        "- **Statystyki pilota i pula SP (`+105..+115`):** tabele prezentują wyłącznie wartości bazowe startowe na `Poz. 1` "
+        "(`SP`, `Atak`, `Obrona`, `Celność`, `Unik`), bez progów wzrostu z poziomem — analogicznie do katalogu mechów.\n"
         "- **Komendy Ducha (`+116..+127`):** tabele prezentują wartości bazowe komend "
         "(koszt SP oraz efekt podstawowy, bez ulepszeń z wyższych poziomów — analogicznie do katalogu mechów).\n"
         "- **Umiejętności pilota (`+128..+143`):** `żądany_poziom = min(1 + (poz. − poz._nauki) // krok, 9)`, "
@@ -1148,7 +1140,7 @@ def render_polish_markdown(model: dict) -> str:
         note_parts = []
         if p["sp"]["base_lv1"] or p["sp"]["per_level"]:
             note_parts.append(
-                f"SP bazowe {p['sp']['base_lv1']} (+{p['sp']['per_level']}/poz.), brak statystyk/duchów/umiejętności"
+                f"SP bazowe {p['sp']['base_lv1']}, brak statystyk/duchów/umiejętności"
             )
         else:
             note_parts.append("Wpis dialogowy / portretowy")

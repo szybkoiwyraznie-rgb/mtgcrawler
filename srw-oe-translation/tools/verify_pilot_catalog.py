@@ -385,37 +385,32 @@ def verify(
         for rline in sec_text.splitlines():
             if rline.startswith("|"):
                 cols = [c.strip() for c in rline.split("|")[1:-1]]
-                if len(cols) == 5:
+                if len(cols) == 2:
                     stat_rows[cols[0]] = cols
         sp1 = info["sp_base"]
-        sp50 = info["sp_base"] + 49 * info["sp_grow"]
-        sp99 = info["sp_base"] + 98 * info["sp_grow"]
         atk1 = independent_f32_stat(info["stats_bytes"][0], info["stats_bytes"][1], 1)
-        atk99 = independent_f32_stat(info["stats_bytes"][0], info["stats_bytes"][1], 99)
-        hit99 = independent_f32_stat(info["stats_bytes"][4], info["stats_bytes"][5], 99)
-        eva99 = independent_f32_stat(info["stats_bytes"][6], info["stats_bytes"][7], 99)
+        def1 = independent_f32_stat(info["stats_bytes"][2], info["stats_bytes"][3], 1)
+        hit1 = independent_f32_stat(info["stats_bytes"][4], info["stats_bytes"][5], 1)
+        eva1 = independent_f32_stat(info["stats_bytes"][6], info["stats_bytes"][7], 1)
         check(
-            stat_rows.get("**SP**") == ["**SP**", str(sp1), str(sp50), str(sp99), f"`{sp1} + (Poz. − 1) × {info['sp_grow']}`"],
+            stat_rows.get("**SP**") == ["**SP**", str(sp1)],
             f"Markdown stat table SP mismatch for pilot ID {k}",
         )
         check(
-            stat_rows.get("**Atak**") is not None
-            and stat_rows["**Atak**"][1] == str(atk1)
-            and stat_rows["**Atak**"][3] == str(atk99)
-            and f"baza `{info['stats_bytes'][0]}`" in stat_rows["**Atak**"][4],
-            f"Atak Lv99 mismatch for {k}",
+            stat_rows.get("**Atak**") == ["**Atak**", str(atk1)],
+            f"Atak base mismatch for {k}",
         )
         check(
-            stat_rows.get("**Celność**") is not None
-            and stat_rows["**Celność**"][3] == str(hit99)
-            and f"baza `{info['stats_bytes'][4]}`" in stat_rows["**Celność**"][4],
-            f"Celność Lv99 mismatch for {k}",
+            stat_rows.get("**Obrona**") == ["**Obrona**", str(def1)],
+            f"Obrona base mismatch for {k}",
         )
         check(
-            stat_rows.get("**Unik**") is not None
-            and stat_rows["**Unik**"][3] == str(eva99)
-            and f"baza `{info['stats_bytes'][6]}`" in stat_rows["**Unik**"][4],
-            f"Unik Lv99 mismatch for {k}",
+            stat_rows.get("**Celność**") == ["**Celność**", str(hit1)],
+            f"Celność base mismatch for {k}",
+        )
+        check(
+            stat_rows.get("**Unik**") == ["**Unik**", str(eva1)],
+            f"Unik base mismatch for {k}",
         )
 
     # Seal canonical render byte-for-byte determinism.
