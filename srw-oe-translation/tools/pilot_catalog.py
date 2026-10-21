@@ -851,8 +851,7 @@ def _base_spirit_guide(guide_text: str) -> str:
 def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     md = MC.md
     lines: list[str] = []
-    heading_suffix = f" `[ID {pilot['key']}]`"
-    lines.append(f"#### {md(pilot['name'])}{heading_suffix}\n")
+    lines.append(f"#### {md(pilot['name'])}\n")
 
     meta_parts = []
     if pilot["series"]["titles"]:
@@ -871,20 +870,19 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     if pilot["player_override_key"]:
         target = by_key[pilot["player_override_key"]]
         meta_parts.append(
-            f"**Przekierowanie po stronie gracza (`+100`):** `{target['name']}` `[ID {target['key']}]` "
+            f"**Przekierowanie po stronie gracza (`+100`):** `{target['name']}` "
             "*(ten rekord obowiązuje wyłącznie po stronie wroga; w oddziale gracza silnik przełącza profil)*"
         )
     if pilot["enemy_source_keys"]:
-        srcs = ", ".join(
-            f"`{by_key[sk]['name']}` `[ID {sk}]`" for sk in pilot["enemy_source_keys"]
-        )
+        unique_src_names = list(dict.fromkeys(by_key[sk]["name"] for sk in pilot["enemy_source_keys"]))
+        srcs = ", ".join(f"`{src_name}`" for src_name in unique_src_names)
         meta_parts.append(
             f"**Profil grywalny dla rekordu wroga:** {srcs}"
         )
     if pilot["paired_form_key"]:
         pair = by_key[pilot["paired_form_key"]]
         meta_parts.append(
-            f"**Powiązana forma podpilota (`+158`):** `{pair['name']}` `[ID {pair['key']}]`"
+            f"**Powiązana forma podpilota (`+158`):** `{pair['name']}`"
         )
     lines.append("- " + "\n- ".join(meta_parts) + "\n")
 
@@ -909,22 +907,22 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
     if pilot["spirits"]:
         sp_lines = [
             "**Komendy Ducha (*Spirit Commands*):**\n",
-            "| Slot | Duch | Koszt SP | Efekt bazowy |",
-            "|---:|---|---:|---|",
+            "| Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy |",
+            "|---:|---|---:|---:|---|",
         ]
         for s in pilot["spirits"]:
             t1 = s["tiers"][0]
             eff_summary = md(_base_spirit_effect(t1["effect"], t1["sp_cost"]))
             sp_lines.append(
-                f"| {s['slot']} | **{md(s['name'])}** | {t1['sp_cost']} | {eff_summary} |"
+                f"| {s['slot']} | **{md(s['name'])}** | {s['learn_level']} | {t1['sp_cost']} | {eff_summary} |"
             )
         lines.append("\n".join(sp_lines) + "\n")
 
     if pilot["skills"]:
         sk_lines = [
             "**Umiejętności pilota:**\n",
-            "| Slot | Umiejętność | Efekt bazowy |",
-            "|---:|---|---|",
+            "| Slot | Umiejętność | Poz. nauki | Efekt bazowy |",
+            "|---:|---|---:|---|",
         ]
         for sk in pilot["skills"]:
             p0 = sk["progression"][0]
@@ -941,7 +939,7 @@ def _render_pilot_card(pilot: dict, by_key: dict[int, dict]) -> str:
                     f"**{md(up['name'])}**: {up_eff}{up_tag})*"
                 )
             sk_lines.append(
-                f"| {sk['slot']} | **{md(sk['name'])}** | {base_eff} |"
+                f"| {sk['slot']} | **{md(sk['name'])}** | {sk['learn_level']} | {base_eff} |"
             )
         lines.append("\n".join(sk_lines) + "\n")
     elif has_stats:
@@ -1016,10 +1014,10 @@ def render_polish_markdown(model: dict) -> str:
         "wszystkie ekrany i obliczenia bojowe przekierowują statystyki, SP, Komendy Ducha, umiejętności i Premię Asa do wskazanego profilu sojuszniczego.\n"
         "- **Statystyki pilota i pula SP (`+105..+115`):** tabele prezentują wyłącznie wartości bazowe startowe na `Poz. 1` "
         "(`SP`, `Atak`, `Obrona`, `Celność`, `Unik`), bez progów wzrostu z poziomem.\n"
-        "- **Komendy Ducha (`+116..+127`):** tabele prezentują wartości bazowe komend "
-        "(koszt SP oraz efekt podstawowy, bez ulepszeń z wyższych poziomów).\n"
-        "- **Umiejętności pilota (`+128..+143`):** tabele prezentują wyłącznie efekt bazowy umiejętności "
-        "(pierwszy poziom z `srwDL_Skill00–08.bin` / `DATA.PSP` 1.08, bez progów z wyższych poziomów).\n"
+        "- **Komendy Ducha (`+116..+127`):** tabele na kartach pilotów prezentują poziom odblokowania komendy (`Poz. nauki`), "
+        "koszt SP oraz efekt podstawowy (bez ulepszeń z wyższych poziomów).\n"
+        "- **Umiejętności pilota (`+128..+143`):** tabele na kartach pilotów prezentują poziom odblokowania umiejętności (`Poz. nauki`) "
+        "oraz efekt bazowy (pierwszy poziom z `srwDL_Skill00–08.bin` / `DATA.PSP` 1.08, bez progów z wyższych poziomów).\n"
         "- **Premia Asa (`+156`):** odblokowywana wyłącznie po stronie gracza po osiągnięciu **300 zestrzeleń** (`0x12c`).")
 
     put("## Spis treści\n\n"
@@ -1110,8 +1108,8 @@ def render_polish_markdown(model: dict) -> str:
         "narrator lub rekordy pomocnicze)."
     )
     nc_rows = [
-        "| ID | Nazwa (PL) | Seria | Kontener / plik | Uwagi |",
-        "|---:|---|---|---|---|",
+        "| Nazwa (PL) | Seria | Kontener / plik | Uwagi |",
+        "|---|---|---|---|",
     ]
     for p in non_combat:
         note_parts = []
@@ -1122,7 +1120,7 @@ def render_polish_markdown(model: dict) -> str:
         else:
             note_parts.append("Wpis dialogowy / portretowy")
         nc_rows.append(
-            f"| {p['key']} | {md(p['name'])} | {md(_series_heading(p))} | "
+            f"| {md(p['name'])} | {md(_series_heading(p))} | "
             f"`{p['container']}/{p['member']}` | {'; '.join(note_parts)} |"
         )
     put("\n".join(nc_rows))
@@ -1139,7 +1137,7 @@ def render_polish_markdown(model: dict) -> str:
         "podmieniania braków tekstem angielskim.\n"
         "- **Weryfikacja emulacyjna:** formuły wartości bazowych SP i czterech statystyk pilota (IEEE-754 `float32`), "
         "odblokowywania Komend Ducha, wyboru umiejętności (`0x0e5680`), "
-        "przekierowań `u16@+100`, awansu fabularnego `flaga 0x461` (`ID 3401`) oraz Premii Asa (`≥ 300` zestrzeleń) "
+        "przekierowań `u16@+100`, awansu fabularnego `flaga 0x461` (`Chirico Cuvie`) oraz Premii Asa (`≥ 300` zestrzeleń) "
         "zostały bezpośrednio porównane z wykonaniem oryginalnej funkcji MIPS `.text 0x21f4ec` w emulatorze Unicorn (`0` rozbieżności).\n"
         "- **Ograniczenia:** katalog opisuje macierzyste rekordy pilotów w `charalist00–19.bin`; skrypty konkretnych misji "
         "mogą nadawać jednostkom wroga określony poziom startowy, modyfikatory statusu lub części wyposażenia."

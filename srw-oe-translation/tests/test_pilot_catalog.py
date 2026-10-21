@@ -217,26 +217,30 @@ class SyntheticPilotCatalogTests(unittest.TestCase):
         )
 
     def test_markdown_auditor_rejects_cjk_control_codes_and_missing_sections(self) -> None:
-        valid_doc = (
+        valid_doc = PC.TA.align_markdown_tables(
             "## 1. Leksykon wszystkich Komend Ducha (20 rodzin)\n"
             "## 2. Leksykon wszystkich umiejętności pilotów i Premii Asa (80 rodzin)\n"
             "## 3. Piloci grywalni — profile główne (92 profile)\n"
-            "#### Jin Hyuga `[ID 500]`\n"
+            "#### Jin Hyuga\n"
             "## 4. Podpiloci i załoga wsparcia (45 profili)\n"
             "## 5. Piloci wrodzy, rywale i bossowie (117 profili bojowych)\n"
             "## 6. Dodatek A — Rekordy niebojowe, portretowe i systemowe (150 rekordów)\n"
-            "| 999 | Test | Seria | — |\n"
+            "| Nazwa (PL) | Seria | Kontener / plik | Uwagi |\n"
+            "| --- | --- | --- | --- |\n"
+            "| Test | Seria | `c` | — |\n"
             "## 7. Pochodzenie danych i ograniczenia\n"
         )
-        res = VPC.audit_markdown_document(valid_doc, [500], [999])
+        res = VPC.audit_markdown_document(valid_doc, ["Jin Hyuga"], ["Test"])
         self.assertEqual(res["combat_pilot_headings_verified"], 1)
 
         with self.assertRaisesRegex(ValueError, "CJK"):
-            VPC.audit_markdown_document(valid_doc + "\n熱血\n", [500], [999])
+            VPC.audit_markdown_document(valid_doc + "\n熱血\n", ["Jin Hyuga"], ["Test"])
         with self.assertRaisesRegex(ValueError, "control"):
-            VPC.audit_markdown_document(valid_doc + "\n＠1Celność\n", [500], [999])
+            VPC.audit_markdown_document(valid_doc + "\n＠1Celność\n", ["Jin Hyuga"], ["Test"])
+        with self.assertRaisesRegex(ValueError, "ID"):
+            VPC.audit_markdown_document(valid_doc + "\n#### Foo `[ID 123]`\n", ["Jin Hyuga", "Foo `[ID 123]`"], ["Test"])
         with self.assertRaisesRegex(ValueError, "heading"):
-            VPC.audit_markdown_document(valid_doc, [500, 501], [999])
+            VPC.audit_markdown_document(valid_doc, ["Jin Hyuga", "Koji Kabuto"], ["Test"])
 
 
 class RealBinaryPilotCatalogTests(unittest.TestCase):
@@ -288,6 +292,8 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
             self.assertNotIn("Poz. 50", md_text)
             self.assertNotIn("Poz. 99", md_text)
             self.assertNotIn("/poz.", md_text)
+            self.assertNotIn("[ID ", md_text)
+            self.assertIn("Poz. nauki", md_text)
             for tier_n in range(2, 10):
                 self.assertNotIn(f"Lv{tier_n}", md_text)
 

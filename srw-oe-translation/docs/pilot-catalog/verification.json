@@ -3,8 +3,8 @@
   "status": "PASS",
   "deliverable": {
     "filename": "srwoe_pilot_catalog_PL.md",
-    "bytes": 286627,
-    "sha256": "d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446"
+    "bytes": 303329,
+    "sha256": "63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3"
   },
   "provenance": {
     "source_inventory": "docs/mech-catalog/source-inventory.json",

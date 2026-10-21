@@ -109,25 +109,45 @@ def independent_f32_stat(base: int, rate: int, level: int) -> int:
     return int(base) + int(prod)
 
 
-def audit_markdown_document(document: str, expected_combat_keys: list[int], expected_noncombat_keys: list[int]) -> dict:
-    """Validate structure, pilot ID coverage, table formatting, and text hygiene of rendered MD."""
+def audit_markdown_document(
+    document: str,
+    expected_combat_names: list[str],
+    expected_noncombat_names: list[str],
+) -> dict:
+    """Validate structure, pilot name coverage, table formatting, and text hygiene of rendered MD."""
+    from collections import Counter
+
     check(not CJK_RE.search(document), "Rendered Polish Markdown contains residual CJK characters")
     check(not CTRL_RE.search(document), "Rendered Polish Markdown contains unstripped @0..@9 control markers")
     check("<br>" not in document, "Rendered Polish Markdown contains raw <br> tags")
+    check(not re.search(r"\[ID -?\d+\]", document), "Rendered Polish Markdown contains pilot [ID ...] badges")
 
-    combat_headings = [int(m) for m in re.findall(r"^#### .+ `\[ID (-?\d+)\]`$", document, flags=re.M)]
+    combat_headings = [m for m in re.findall(r"^#### (?!Seria: )(.+)$", document, flags=re.M)]
     check(
-        len(combat_headings) == len(expected_combat_keys),
-        f"Expected {len(expected_combat_keys)} pilot headings in Markdown, found {len(combat_headings)}",
+        len(combat_headings) == len(expected_combat_names),
+        f"Expected {len(expected_combat_names)} pilot headings in Markdown, found {len(combat_headings)}",
     )
     check(
-        set(combat_headings) == set(expected_combat_keys),
-        "Combat/sub-pilot heading ID set in Markdown does not match binary records",
+        Counter(combat_headings) == Counter(expected_combat_names),
+        "Combat/sub-pilot heading multiset in Markdown does not match binary records",
     )
 
-    noncombat_rows = [int(m) for m in re.findall(r"^\|\s*(-?\d+)\s*\|", document, flags=re.M)]
-    for k in expected_noncombat_keys:
-        check(k in noncombat_rows, f"Missing non-combat character key {k} in Appendix A table")
+    sec6_part = ""
+    if "## 6. Dodatek A — Rekordy niebojowe, portretowe i systemowe" in document:
+        sec6_part = document.split("## 6. Dodatek A — Rekordy niebojowe, portretowe i systemowe", 1)[1].split(
+            "## 7.", 1
+        )[0]
+    sec6_table = [
+        ln for ln in sec6_part.splitlines() if ln.startswith("|")
+    ]
+    noncombat_rows = [
+        ln.split("|")[1].strip()
+        for ln in sec6_table[2:]
+    ]
+    check(
+        Counter(noncombat_rows) == Counter(expected_noncombat_names),
+        f"Appendix A non-combat rows ({len(noncombat_rows)}) do not match expected {len(expected_noncombat_names)} records",
+    )
 
     # Verify every Markdown pipe table has identical column pipe positions and fits <= 216 cells.
     cur_table: list[str] = []
@@ -159,7 +179,7 @@ def audit_markdown_document(document: str, expected_combat_keys: list[int], expe
     return {
         "markdown_lines": len(document.splitlines()),
         "combat_pilot_headings_verified": len(combat_headings),
-        "non_combat_table_rows_verified": len(expected_noncombat_keys),
+        "non_combat_table_rows_verified": len(noncombat_rows),
         "residual_cjk_characters": 0,
         "residual_control_tokens": 0,
     }
@@ -367,50 +387,78 @@ def verify(
     check(role_counts["non_combat"] == 150, f"Expected 150 non-combat records, got {role_counts['non_combat']}")
     check(len(referenced_skill_aliases) == 80, f"Expected 80 pilot/Ace skill families, got {len(referenced_skill_aliases)}")
 
-    # 4. Verify rendered Markdown bytes, contents, pilot stat tables, and canonical render parity.
+    # 4. Verify rendered Markdown bytes, contents, pilot stat/unlock tables, and canonical render parity.
+    from collections import Counter
+
+    expected_combat_names = [PC.MC.md(parsed_by_key[k]["name_pl"]) for k in combat_keys]
+    expected_noncombat_names = [PC.MC.md(parsed_by_key[k]["name_pl"]) for k in noncombat_keys]
     md_bytes = markdown_path.read_bytes()
     md_text = md_bytes.decode("utf-8")
-    md_audit = audit_markdown_document(md_text, combat_keys, noncombat_keys)
+    md_audit = audit_markdown_document(md_text, expected_combat_names, expected_noncombat_names)
 
-    # Spot-check every combat profile's exact independent SP & f32 stats inside its own Markdown card!
-    pilot_sections: dict[int, str] = {}
-    for m in re.finditer(r"^#### .+ `\[ID (-?\d+)\]`\n([\s\S]*?)(?=^#### |^### |^---)", md_text, flags=re.M):
-        pilot_sections[int(m.group(1))] = m.group(2)
-
-    for k, info in parsed_by_key.items():
-        if not any(info["stats_bytes"]):
-            continue
-        sec_text = pilot_sections.get(k, "")
-        stat_rows: dict[str, list[str]] = {}
+    # Verify every combat/sub-pilot card's base stats AND Spirit/Skill unlock levels by pilot name multiset!
+    rendered_cards_by_name: dict[str, list[tuple]] = defaultdict(list)
+    for m in re.finditer(r"^#### (?!Seria: )(.+)\n([\s\S]*?)(?=^#### |^### |^---)", md_text, flags=re.M):
+        h_name = m.group(1).strip()
+        sec_text = m.group(2)
+        stat_rows: dict[str, str] = {}
+        sp_unlocks: list[int] = []
+        sk_unlocks: list[int] = []
+        cur_mode: str | None = None
         for rline in sec_text.splitlines():
+            if rline.startswith("**Komendy Ducha"):
+                cur_mode = "spirits"
+                continue
+            if rline.startswith("**Umiejętności pilota"):
+                cur_mode = "skills"
+                continue
+            if rline.startswith("**Premia Asa"):
+                cur_mode = None
+                continue
             if rline.startswith("|"):
                 cols = [c.strip() for c in rline.split("|")[1:-1]]
-                if len(cols) == 2:
-                    stat_rows[cols[0]] = cols
-        sp1 = info["sp_base"]
-        atk1 = independent_f32_stat(info["stats_bytes"][0], info["stats_bytes"][1], 1)
-        def1 = independent_f32_stat(info["stats_bytes"][2], info["stats_bytes"][3], 1)
-        hit1 = independent_f32_stat(info["stats_bytes"][4], info["stats_bytes"][5], 1)
-        eva1 = independent_f32_stat(info["stats_bytes"][6], info["stats_bytes"][7], 1)
-        check(
-            stat_rows.get("**SP**") == ["**SP**", str(sp1)],
-            f"Markdown stat table SP mismatch for pilot ID {k}",
+                if len(cols) == 2 and cols[0].startswith("**"):
+                    stat_rows[cols[0]] = cols[1]
+                elif cur_mode == "spirits" and len(cols) == 5 and cols[0].isdigit():
+                    sp_unlocks.append(int(cols[2]))
+                elif cur_mode == "skills" and len(cols) == 4 and cols[0].isdigit():
+                    sk_unlocks.append(int(cols[2]))
+        stats_sig = (
+            (
+                int(stat_rows["**SP**"]),
+                int(stat_rows["**Atak**"]),
+                int(stat_rows["**Obrona**"]),
+                int(stat_rows["**Celność**"]),
+                int(stat_rows["**Unik**"]),
+            )
+            if stat_rows
+            else None
         )
+        rendered_cards_by_name[h_name].append((stats_sig, tuple(sp_unlocks), tuple(sk_unlocks)))
+
+    expected_cards_by_name: dict[str, list[tuple]] = defaultdict(list)
+    for k in combat_keys:
+        info = parsed_by_key[k]
+        h_name = PC.MC.md(info["name_pl"])
+        if any(info["stats_bytes"]):
+            stats_sig = (
+                info["sp_base"],
+                independent_f32_stat(info["stats_bytes"][0], info["stats_bytes"][1], 1),
+                independent_f32_stat(info["stats_bytes"][2], info["stats_bytes"][3], 1),
+                independent_f32_stat(info["stats_bytes"][4], info["stats_bytes"][5], 1),
+                independent_f32_stat(info["stats_bytes"][6], info["stats_bytes"][7], 1),
+            )
+        else:
+            stats_sig = None
+        sp_unlocks_t = tuple(lv for (_, lv, _) in info["spirits"])
+        sk_unlocks_t = tuple(lv for (_, lv, _) in info["skills"])
+        expected_cards_by_name[h_name].append((stats_sig, sp_unlocks_t, sk_unlocks_t))
+
+    for h_name, exp_list in expected_cards_by_name.items():
+        got_list = rendered_cards_by_name.get(h_name, [])
         check(
-            stat_rows.get("**Atak**") == ["**Atak**", str(atk1)],
-            f"Atak base mismatch for {k}",
-        )
-        check(
-            stat_rows.get("**Obrona**") == ["**Obrona**", str(def1)],
-            f"Obrona base mismatch for {k}",
-        )
-        check(
-            stat_rows.get("**Celność**") == ["**Celność**", str(hit1)],
-            f"Celność base mismatch for {k}",
-        )
-        check(
-            stat_rows.get("**Unik**") == ["**Unik**", str(eva1)],
-            f"Unik base mismatch for {k}",
+            Counter(got_list) == Counter(exp_list),
+            f"Markdown stat/unlock table mismatch for '{h_name}': expected {exp_list}, got {got_list}",
         )
 
     # Seal canonical render byte-for-byte determinism.
