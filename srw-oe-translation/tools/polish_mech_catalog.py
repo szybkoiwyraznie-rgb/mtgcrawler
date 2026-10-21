@@ -91,7 +91,7 @@ def localize(model, source, english, polish):
             need(bool(titles), 'Missing Polish pilot-associated series')
             series['titles'] = sorted(titles)
         # Mech catalogue intentionally omits default pilot/sub-pilot crew assignments;
-        # pilots live in srwoe_pilot_catalog_PL.md and mission crews in mission-deployments.md.
+        # pilots live in srwoe_pilot_catalog_PL.md and mission crews in srwoe_mission_deployments.md.
         u['pilots'] = []
         for w in u['weapons']:
             w['name'] = text(weapons[w['source_row']])

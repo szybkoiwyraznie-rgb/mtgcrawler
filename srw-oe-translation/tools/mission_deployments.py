@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-"""Build the verified Polish scenario deployment reference (`docs/mission-deployments.md`).
+"""Build the verified Polish scenario deployment reference (`docs/srwoe_mission_deployments.md`).
 
 Reads the 24 `eventP*` packages (`_Entry.dat`, `.bin`, `_ext.dat`), the 21 `config*`
-containers (`unit_list`), and the Polish translation snapshot (`pakiet_PL`) to produce a
-100% Polish, engine-verified catalogue of fixed scenario deployments and active per-mission
-supporting sub-pilots.
+containers (`unit_list`, `charalist`), the 1.08 executable (`eboot_108.elf`), and the
+Polish translation snapshot (`pakiet_PL`) to produce a 100% Polish, engine-verified
+catalogue of fixed scenario deployments, active per-mission supporting sub-pilots, AND
+verbatim per-mission mech sections (from `srwoe_mech_catalog_v4_PL.md`) plus verbatim
+pilot/character profiles and `Dodatek A` rows (from `srwoe_pilot_catalog_PL.md`) for
+every default mission unit, active pilot/sub-pilot, and scene-script speaker.
 
 Engine ground truth (1.08 `DATA.PSP` / `eboot_108.elf` `.text`):
 - `0x1f9810`: `(w[3] >> 8) & 7` decodes the initial runtime side of each 64-byte `_Entry.dat`
   row (`0` = player allied, `1` = enemy, `2` = allied NPC, `4` = neutral / third party).
+- `0x21f4ec`: when a recruitable rival deploys on or switches to player side (`side == 0`),
+  the engine swaps `pilot_id` to `player_override_key` (`charalist` `i16@+98`).
 - `0x202a68..0x202bd8`: crew initialization sets main pilot `w[2]` into slot `0` and attaches
   every non-zero `unit_list` `i16@+100..+106` (`refs_at_98[1..4]`) `!= main_pilot` to slots `1..4`.
 - `0x202bdc..0x202c1c`: for `unit_id == 3900` (`Exart`), checks global flags via `0x0c69a0`:
@@ -46,7 +51,9 @@ import cpk_write  # noqa: E402
 import evnt_walk  # noqa: E402
 import mech_catalog as M  # noqa: E402
 from mech_catalog_sources import need  # noqa: E402
+import pilot_catalog as PC  # noqa: E402
 import pl_release_package as R  # noqa: E402
+import polish_mech_catalog as PMC  # noqa: E402
 import table_write  # noqa: E402
 
 UTILITY_UNIT_IDS = {
@@ -83,6 +90,15 @@ HIMARI_ID = 4510
 VASAGE_ID = 4520
 FLAG_HIMARI = 1075
 FLAG_VASAGE = 1112
+
+MECH_META_HEADINGS = (
+    "## Jak czytać ten katalog",
+    "## Warunkowe zdolności systemowe",
+    "## Tabela składów grup",
+    "## Pochodzenie i ograniczenia",
+)
+
+MISSION_HEADING_RE = re.compile(r"^### (?:Odcinek \d+|Symulator) — .+\(`(?:DL|SM)[A-Z0-9_]+`\)$", re.M)
 
 
 def strip_engine_codes(value: str) -> str:
@@ -197,7 +213,7 @@ def compute_campaign_flags(mission_ops_by_code: dict[str, list[tuple[int, int, t
     return states
 
 
-def resolve_unit_sub_pilots(
+def _resolve_unit_sub_pilots_detail(
     *,
     code: str,
     unit_id: int,
@@ -208,15 +224,11 @@ def resolve_unit_sub_pilots(
     standalone_pilots_in_entry: dict[int, list[tuple[int, int, int]]],
     char_names_pl: dict[int, str],
     unit_names_pl: dict[int, str],
-) -> tuple[bool, str]:
-    """Return `(has_multi_crew_slots, formatted_polish_sub_pilots)` for `(unit_id, main_pilot_id)`.
-
-    Follows exact 1.08 engine logic (`0x202b80..0x202c1c`, `0x214688..0x2146e0`,
-    `0x1d9500..0x1d96dc`, and `.bin` ops `516`/`679`).
-    """
+) -> tuple[bool, str, list[int]]:
+    """Return `(has_multi_crew_slots, formatted_polish_sub_pilots, active_sub_ids)`."""
     candidates = [cid for cid in base_refs[1:5] if cid > 0 and cid != main_pilot_id]
     if not candidates:
-        return False, ""
+        return False, "", []
 
     active_start = list(candidates)
     removed_notes: list[str] = []
@@ -253,20 +265,203 @@ def resolve_unit_sub_pilots(
             )
 
     parts: list[str] = []
+    active_ids: list[int] = []
     for cid in active_start:
+        active_ids.append(cid)
         cname = M.md(char_names_pl[cid])
         if cid in overlap_notes:
             parts.append(f"{cname} ({overlap_notes[cid]})")
         else:
             parts.append(cname)
     for cid, sec in mid_joined:
+        if cid not in active_ids:
+            active_ids.append(cid)
         parts.append(f"{M.md(char_names_pl[cid])} (dołącza w trakcie misji, sekcja {sec})")
 
     if parts:
-        return True, ", ".join(parts)
+        return True, ", ".join(parts), active_ids
     if removed_notes:
-        return True, f"brak ({'; '.join(removed_notes)})"
-    return True, "brak"
+        return True, f"brak ({'; '.join(removed_notes)})", active_ids
+    return True, "brak", active_ids
+
+
+def resolve_unit_sub_pilots(
+    *,
+    code: str,
+    unit_id: int,
+    main_pilot_id: int,
+    base_refs: list[int],
+    flag_state: dict[str, bool],
+    script_ops: list[tuple[int, int, tuple[int, ...]]],
+    standalone_pilots_in_entry: dict[int, list[tuple[int, int, int]]],
+    char_names_pl: dict[int, str],
+    unit_names_pl: dict[int, str],
+) -> tuple[bool, str]:
+    """Return `(has_multi_crew_slots, formatted_polish_sub_pilots)` for `(unit_id, main_pilot_id)`."""
+    has_sub, text, _ids = _resolve_unit_sub_pilots_detail(
+        code=code,
+        unit_id=unit_id,
+        main_pilot_id=main_pilot_id,
+        base_refs=base_refs,
+        flag_state=flag_state,
+        script_ops=script_ops,
+        standalone_pilots_in_entry=standalone_pilots_in_entry,
+        char_names_pl=char_names_pl,
+        unit_names_pl=unit_names_pl,
+    )
+    return has_sub, text
+
+
+def extract_mech_catalog_sections(
+    source: dict,
+    english_dir: Path,
+    mech_catalog_md: str,
+) -> tuple[dict[int, str], list[int]]:
+    """Slice verbatim per-unit `## ...` sections from `srwoe_mech_catalog_v4_PL.md`."""
+    en_disp = {
+        int(r["key"]): r["en"].strip()
+        for r in M.rows(english_dir, "08_names_units_weapons.jsonl")
+        if r.get("key") is not None and r.get("category") == "unit_name_display"
+    }
+    sorted_units = sorted(
+        source["units"],
+        key=lambda u: (en_disp[int(u["unit_id"])].casefold(), int(u["unit_id"])),
+    )
+    raw_parts = re.split(r"(?=^## )", mech_catalog_md, flags=re.M)
+    mech_blocks = [
+        re.sub(r"\n+---\s*$", "", p).strip()
+        for p in raw_parts
+        if p.startswith("## ") and not p.startswith(MECH_META_HEADINGS)
+    ]
+    need(
+        len(sorted_units) == len(mech_blocks),
+        f"Mech catalogue count mismatch: {len(sorted_units)} units vs {len(mech_blocks)} sections",
+    )
+    by_uid: dict[int, str] = {}
+    ordered_uids: list[int] = []
+    for u, blk in zip(sorted_units, mech_blocks):
+        uid = int(u["unit_id"])
+        need(blk in mech_catalog_md, f"Sliced mech section for unit_id={uid} is not verbatim in mech catalogue")
+        by_uid[uid] = blk
+        ordered_uids.append(uid)
+    return by_uid, ordered_uids
+
+
+def extract_pilot_catalog_sections(
+    pilot_records: list[dict],
+    pilot_catalog_md: str,
+) -> dict:
+    """Slice verbatim `#### ...` cards and `Dodatek A` rows from `srwoe_pilot_catalog_PL.md`."""
+    playable_main = [p for p in pilot_records if p["role"] in ("playable_main", "playable_rival_ally")]
+    sub_pilots = [p for p in pilot_records if p["role"] == "sub_pilot"]
+    rival_enemies = [p for p in pilot_records if p["role"] == "rival_enemy_profile"]
+    other_enemies = [p for p in pilot_records if p["role"] == "enemy_combat"]
+    non_combat = [p for p in pilot_records if p["role"] == "non_combat"]
+
+    combat_order: list[int] = []
+    for grp in (playable_main, sub_pilots):
+        for _, members in PC._group_by_series(grp):
+            for p in members:
+                combat_order.append(int(p["key"]))
+    for p in rival_enemies:
+        combat_order.append(int(p["key"]))
+    for _, members in PC._group_by_series(other_enemies):
+        for p in members:
+            combat_order.append(int(p["key"]))
+
+    card_blocks = [
+        re.sub(r"\n+---\s*$", "", m.group(0)).strip()
+        for m in re.finditer(r"^#### (?!Seria: ).+\n[\s\S]*?(?=^#### |^### |^---)", pilot_catalog_md, flags=re.M)
+    ]
+    need(
+        len(combat_order) == len(card_blocks),
+        f"Pilot card count mismatch: {len(combat_order)} combat records vs {len(card_blocks)} Markdown cards",
+    )
+    card_by_key: dict[int, str] = {}
+    for k, blk in zip(combat_order, card_blocks):
+        need(blk in pilot_catalog_md, f"Sliced pilot card for key={k} is not verbatim in pilot catalogue")
+        card_by_key[k] = blk
+
+    need(
+        "## 6. Dodatek A — Rekordy niebojowe, portretowe i systemowe" in pilot_catalog_md,
+        "Missing Section 6 (Dodatek A) in pilot catalogue Markdown",
+    )
+    sec6_part = pilot_catalog_md.split("## 6. Dodatek A — Rekordy niebojowe, portretowe i systemowe", 1)[1]
+    if "\n## 7." in sec6_part:
+        sec6_part = sec6_part.split("\n## 7.", 1)[0]
+    sec6_table = [ln for ln in sec6_part.splitlines() if ln.startswith("|")]
+    need(len(sec6_table) >= 2, "Missing Markdown table header in Section 6 (Dodatek A)")
+    noncombat_header = sec6_table[:2]
+    noncombat_rows = sec6_table[2:]
+    need(
+        len(non_combat) == len(noncombat_rows),
+        f"Dodatek A row mismatch: {len(non_combat)} non-combat records vs {len(noncombat_rows)} rows",
+    )
+    noncombat_order: list[int] = []
+    noncombat_row_by_key: dict[int, str] = {}
+    for p, row_ln in zip(non_combat, noncombat_rows):
+        k = int(p["key"])
+        need(row_ln in pilot_catalog_md, f"Sliced Dodatek A row for key={k} is not verbatim in pilot catalogue")
+        noncombat_order.append(k)
+        noncombat_row_by_key[k] = row_ln
+
+    player_override_by_key = {
+        int(p["key"]): int(p["player_override_key"])
+        for p in pilot_records
+        if p.get("player_override_key")
+    }
+    return {
+        "combat_order": combat_order,
+        "card_by_key": card_by_key,
+        "noncombat_order": noncombat_order,
+        "noncombat_header": noncombat_header,
+        "noncombat_row_by_key": noncombat_row_by_key,
+        "player_override_by_key": player_override_by_key,
+    }
+
+
+def load_scene_speakers(
+    english_dir: Path,
+) -> tuple[dict[tuple[str, str], list[int]], dict[str, list[int]]]:
+    """Load speaking `character_id` sets per `(package, code)` and variant `code` from `00_dialogue.jsonl` + `06_scenes.jsonl`."""
+    spk_by_scene: dict[str, list[int]] = defaultdict(list)
+    for r in M.rows(english_dir, "00_dialogue.jsonl"):
+        if r.get("kind") == "dialogue":
+            sid = int(r["speaker"]["id"])
+            sc = r["scene"]
+            if sid not in spk_by_scene[sc]:
+                spk_by_scene[sc].append(sid)
+
+    by_pkg_code: dict[tuple[str, str], list[int]] = defaultdict(list)
+    by_code: dict[str, list[int]] = defaultdict(list)
+    for s in M.rows(english_dir, "06_scenes.jsonl"):
+        sc_id = s["id"]
+        spks = spk_by_scene.get(sc_id, [])
+        if sc_id.startswith("eventP"):
+            pkg_name, member = sc_id.split("/", 1)
+            need(member.endswith(".bin"), f"Unexpected scene member name: {sc_id}")
+            target = by_pkg_code[(pkg_name, member[:-4])]
+            for cid in spks:
+                if cid not in target:
+                    target.append(cid)
+        else:
+            vof = s.get("variant_of")
+            if vof:
+                vpkg, vmem = vof.split("/", 1)
+                need(vmem.endswith(".bin"), f"Unexpected variant_of scene target: {vof}")
+                target = by_pkg_code[(vpkg, vmem[:-4])]
+                for cid in spks:
+                    if cid not in target:
+                        target.append(cid)
+            else:
+                member = sc_id.split("/", 1)[1]
+                m = re.match(r"^([A-Z]+\d+(?:_\d+)?)[A-Z]\.bin$", member)
+                need(m is not None, f"Unmapped variant scene in 06_scenes.jsonl: {sc_id}")
+                target = by_code[m.group(1)]
+                for cid in spks:
+                    if cid not in target:
+                        target.append(cid)
+    return by_pkg_code, by_code
 
 
 def load_polish_dictionaries(polish_dir: Path) -> tuple[dict[int, str], dict[int, str], dict[str, str], dict[tuple[str, str, int], str], dict[str, str]]:
@@ -328,18 +523,53 @@ def build_deployments_markdown(
     containers_dir: Path,
     english_dir: Path,
     polish_dir: Path,
+    *,
+    elf_path: Path | None = None,
+    mech_catalog_path: Path | None = None,
+    pilot_catalog_path: Path | None = None,
+    mech_engine_map_path: Path = HERE.parent / "docs" / "mech-catalog" / "engine-map.json",
+    pilot_engine_map_path: Path = HERE.parent / "docs" / "pilot-catalog" / "engine-map.json",
+    expected_event_containers: int | None = 24,
+    pilot_records_override: list[dict] | None = None,
 ) -> tuple[str, dict]:
     source = M.collect(containers_dir, english_dir)
     unit_refs = {int(u["unit_id"]): list(u["refs_at_98"]) for u in source["units"]}
     unit_names_pl, char_names_pl, title_by_jp, note_by_src, note_by_jp = load_polish_dictionaries(polish_dir)
 
+    if mech_catalog_path is not None and mech_catalog_path.is_file():
+        mech_catalog_md = mech_catalog_path.read_text(encoding="utf-8")
+    else:
+        need(elf_path is not None and elf_path.is_file(), "Missing --elf or --mech-catalog for mech catalogue synthesis")
+        mech_emap = json.loads(mech_engine_map_path.read_text(encoding="utf-8"))
+        model_en = M.build_model(source, english_dir, elf_path.read_bytes(), mech_emap)
+        pl_loc = PMC.localize(model_en, source, english_dir, polish_dir)
+        mech_catalog_md = PMC.render(pl_loc)
+
+    if pilot_records_override is not None:
+        pilot_records = pilot_records_override
+        need(pilot_catalog_path is not None and pilot_catalog_path.is_file(), "pilot_records_override requires --pilot-catalog")
+        pilot_catalog_md = pilot_catalog_path.read_text(encoding="utf-8")
+    else:
+        need(elf_path is not None and elf_path.is_file(), "Missing --elf for pilot model build")
+        pilot_emap = json.loads(pilot_engine_map_path.read_text(encoding="utf-8"))
+        pmodel = PC.build_pilot_model(containers_dir, english_dir, polish_dir, elf_path.read_bytes(), pilot_emap)
+        pilot_records = pmodel["pilots"]
+        if pilot_catalog_path is not None and pilot_catalog_path.is_file():
+            pilot_catalog_md = pilot_catalog_path.read_text(encoding="utf-8")
+        else:
+            pilot_catalog_md = PC.render_polish_markdown(pmodel)
+
+    mech_block_by_uid, ordered_uids = extract_mech_catalog_sections(source, english_dir, mech_catalog_md)
+    pilot_sections = extract_pilot_catalog_sections(pilot_records, pilot_catalog_md)
+    speakers_by_pkg_code, speakers_by_code = load_scene_speakers(english_dir)
+
     event_pkgs = sorted(
         list(containers_dir.glob("eventP*.cpk")) + list(containers_dir.glob("eventP*.EDAT")),
         key=lambda p: p.name,
     )
-    need(len(event_pkgs) == 24, f"Expected 24 eventP containers, found {len(event_pkgs)}")
+    if expected_event_containers is not None:
+        need(len(event_pkgs) == expected_event_containers, f"Expected {expected_event_containers} eventP containers, found {len(event_pkgs)}")
 
-    # Read all _Entry.dat, .bin, and _ext.dat members across the 24 eventP packages.
     package_instances: list[dict] = []
     all_script_ops_by_code: dict[str, list[tuple[int, int, tuple[int, ...]]]] = defaultdict(list)
 
@@ -376,7 +606,6 @@ def build_deployments_markdown(
                         or ""
                     )
                     need(bool(title_pl), f"Missing Polish mission title for {pkg.name}/{code}: {jp_t!r}")
-                    # Strip multiline stage intertitle prefix ("Ep. N\n..." / "Symulator\n...")
                     if "\n" in title_pl:
                         title_pl = title_pl.split("\n", 1)[-1].strip()
                     title_pl = strip_engine_codes(norm_ws(title_pl))
@@ -415,6 +644,9 @@ def build_deployments_markdown(
     zero_unit = 0
     utility_counts: Counter[int] = Counter()
     combat_side_counts: Counter[int] = Counter()
+    embedded_mech_sections_total = 0
+    embedded_combat_pilot_cards_total = 0
+    embedded_noncombat_rows_total = 0
 
     instances_by_code: dict[str, list[dict]] = defaultdict(list)
     for inst in package_instances:
@@ -442,7 +674,9 @@ def build_deployments_markdown(
     lines: list[str] = [
         "# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe",
         "",
-        "Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu. "
+        "Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu, "
+        "wzbogacony pod każdą misją o dosłowne sekcje domyślnych mechów (z `srwoe_mech_catalog_v4_PL.md`) oraz dosłowne "
+        "profile pilotów i postacie występujące w misji lub wypowiadające się w skrypcie sceny (z `srwoe_pilot_catalog_PL.md`). "
         "Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów "
         "wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), "
         "zamiast przepisywać globalną listę domyślną z `unit_list`.",
@@ -451,7 +685,8 @@ def build_deployments_markdown(
         "",
         f"- **Pokrycie pakietów:** {len(event_pkgs)} kontenery `eventP` zawierające pliki `_Entry.dat` ({pkg_list_str}); "
         f"{len(package_instances)} instancji plików odpowiadających {len(instances_by_code)} unikalnym kodom misji. "
-        "Sprawdzone osobno pakiety `evept101.EDAT`–`evept108.EDAT` nie zawierają członków `_Entry.dat`.",
+        "Sprawdzone osobno pakiety `evept101.EDAT`–`evept108.EDAT` nie zawierają członków `_Entry.dat` (ich warianty scen "
+        "dialogowych z `06_scenes.jsonl` uwzględniono natomiast na listach postaci mówiących w danej misji).",
         f"- **Pokrycie rekordów `_Entry.dat`:** {total_records} rekordów 64-bajtowych w {len(package_instances)} plikach `_Entry.dat` "
         f"({nonzero_both} rekordów ma jednocześnie niezerowe `Entry ID` oraz `unit_id`). Wszystkie niezerowe identyfikatory "
         "jednostek i pilotów rozwiązują się do kanonicznych nazw z pakietu `pakiet_PL`.",
@@ -475,6 +710,11 @@ def build_deployments_markdown(
         "a flaga `1112` odblokowuje **Vasage'a** w trakcie `DL310_20` (sekcja 2) i odłącza go na starcie `DL833_11`; dodatkowo rozkazy "
         "skryptowe `op 516` / `op 679` oraz strażnik fuzji Zeke (`0x214688..0x2146e0` w `DL830_11` dla **Fiony Elisi Linette**) modyfikują "
         "aktywną obsadę w konkretnych misjach.",
+        "- **Osadzone sekcje mechów i pilotów/postaci pod każdą misją:** bezpośrednio pod zestawieniem jednostek każdej misji osadzono "
+        "bajt w bajt identyczne sekcje z `srwoe_mech_catalog_v4_PL.md` dla każdego domyślnego mecha/jednostki rozstawionej w `_Entry.dat` "
+        "oraz bajt w bajt identyczne sekcje z `srwoe_pilot_catalog_PL.md` (pełne karty bojowe/sub-pilotów oraz wiersze tabeli `Dodatek A` "
+        "dla postaci niebojowych, portretowych i systemowych) dla każdego pilota/sub-pilota aktywnego w misji (w tym profilu `(Ally)` przy "
+        "stronie gracza `0x21f4ec`) oraz każdej postaci wypowiadającej się w skrypcie sceny (`00_dialogue.jsonl` + `06_scenes.jsonl`).",
         "- **Warunki misji i fale:** polskie opisy warunków z `_ext.dat` są cytowane w bloku `Warunki misji`. Dokładny numer tury "
         "pojawienia się posiłków zależy od wyzwalaczy zdarzeń w `.bin`.",
         "- **Cele niebędące mechami:** miny, wieżyczki, bramy Mucus, rakiety i wieże są zachowane na listach bojowych z oznaczeniem "
@@ -492,7 +732,16 @@ def build_deployments_markdown(
         "",
     ]
 
+    combat_order = pilot_sections["combat_order"]
+    card_by_key = pilot_sections["card_by_key"]
+    noncombat_order = pilot_sections["noncombat_order"]
+    noncombat_header = pilot_sections["noncombat_header"]
+    noncombat_row_by_key = pilot_sections["noncombat_row_by_key"]
+    player_override_by_key = pilot_sections["player_override_by_key"]
+
     def render_instance_body(inst: dict, out_lines: list[str], include_source_line: bool) -> None:
+        nonlocal embedded_mech_sections_total, embedded_combat_pilot_cards_total, embedded_noncombat_rows_total
+
         code = inst["code"]
         pkg_name = inst["package"]
         if include_source_line:
@@ -513,7 +762,7 @@ def build_deployments_markdown(
         ]
         deployed_uids = {w[1] for w in combat_rows}
 
-        # Check script-only crew ops affecting player-sortied units not listed in _Entry.dat (e.g. DL101_50, DL833_11)!
+        # Script-only crew ops affecting player-sortied units not listed in _Entry.dat (e.g. DL101_50, DL833_11)
         roster_crew_notes: list[str] = []
         for sec, op, args in bin_ops:
             if op in (516, 679) and len(args) >= 2:
@@ -533,7 +782,6 @@ def build_deployments_markdown(
         if roster_crew_notes:
             out_lines.append("**Zmiana obsady oddziału gracza (skrypt `.bin`):** " + "; ".join(roster_crew_notes) + ".")
 
-        # Detect multi-state Entry IDs and op 519 mid-mission side switches
         states_per_eid: dict[int, set[tuple[int, int, int]]] = defaultdict(set)
         for w in combat_rows:
             states_per_eid[w[0]].add((w[1], w[2], (w[3] >> 8) & 7))
@@ -563,82 +811,148 @@ def build_deployments_markdown(
 
         out_lines.append("")
 
+        mission_cids: set[int] = set()
+        mission_cids.update(speakers_by_pkg_code.get((pkg_name, code), []))
+        mission_cids.update(speakers_by_code.get(code, []))
+
         if not combat_rows:
             out_lines.append("*Brak predefiniowanych jednostek bojowych w `_Entry.dat` (wyłącznie oddział wybierany przez gracza).*")
             out_lines.append("")
-            return
+        else:
+            grouped: dict[int, dict[tuple[int, int], set[int]]] = {s: defaultdict(set) for s in SIDE_ORDER}
+            for w in combat_rows:
+                side = (w[3] >> 8) & 7
+                grouped[side][(w[1], w[2])].add(w[0])
 
-        # Group within each side by (unit_id, pilot_id), collapsing identical Entry IDs
-        grouped: dict[int, dict[tuple[int, int], set[int]]] = {s: defaultdict(set) for s in SIDE_ORDER}
-        for w in combat_rows:
-            side = (w[3] >> 8) & 7
-            grouped[side][(w[1], w[2])].add(w[0])
-
-        fstate = flag_states.get(
-            code,
-            {"start_1075": True, "start_1112": True, "mid_set_1075": False, "mid_set_1112": False},
-        )
-
-        for side in SIDE_ORDER:
-            entries = grouped[side]
-            if not entries:
-                continue
-            out_lines.append(f"**{SIDE_HEADINGS_PL[side]}:**")
-            sorted_items = sorted(
-                entries.items(),
-                key=lambda kv: (
-                    unit_names_pl[kv[0][0]].casefold(),
-                    (char_names_pl.get(kv[0][1], "") if kv[0][1] else "").casefold(),
-                    kv[0][0],
-                    kv[0][1],
-                ),
+            fstate = flag_states.get(
+                code,
+                {"start_1075": True, "start_1112": True, "mid_set_1075": False, "mid_set_1112": False},
             )
-            for (uid, pid), eids in sorted_items:
-                uname = M.md(unit_names_pl[uid])
-                pname = M.md(char_names_pl[pid]) if pid else "Brak przypisanego klucza pilota w Entry"
-                parts = [f"  - **{uname}** — pilot główny: {pname}"]
 
-                has_sub, sub_text = resolve_unit_sub_pilots(
-                    code=code,
-                    unit_id=uid,
-                    main_pilot_id=pid,
-                    base_refs=unit_refs[uid],
-                    flag_state=fstate,
-                    script_ops=bin_ops,
-                    standalone_pilots_in_entry=standalone_pilots,
-                    char_names_pl=char_names_pl,
-                    unit_names_pl=unit_names_pl,
+            for side in SIDE_ORDER:
+                entries = grouped[side]
+                if not entries:
+                    continue
+                out_lines.append(f"**{SIDE_HEADINGS_PL[side]}:**")
+                sorted_items = sorted(
+                    entries.items(),
+                    key=lambda kv: (
+                        unit_names_pl[kv[0][0]].casefold(),
+                        (char_names_pl.get(kv[0][1], "") if kv[0][1] else "").casefold(),
+                        kv[0][0],
+                        kv[0][1],
+                    ),
                 )
-                if has_sub:
-                    parts.append(f"piloci wspierający w misji: {sub_text}")
+                for (uid, pid), eids in sorted_items:
+                    uname = M.md(unit_names_pl[uid])
+                    pname = M.md(char_names_pl[pid]) if pid else "Brak przypisanego klucza pilota w Entry"
+                    parts = [f"  - **{uname}** — pilot główny: {pname}"]
 
-                if len(eids) > 1:
-                    n_eids = len(eids)
-                    rec_lbl = pl_plural(
-                        n_eids,
-                        "rekord źródłowy Entry ID",
-                        "rekordy źródłowe Entry ID",
-                        "rekordów źródłowych Entry ID",
+                    if pid:
+                        mission_cids.add(pid)
+                        if pid in player_override_by_key and (
+                            side == 0 or any(0 in side_switches_by_eid.get(eid, []) for eid in eids)
+                        ):
+                            mission_cids.add(player_override_by_key[pid])
+
+                    has_sub, sub_text, active_sub_ids = _resolve_unit_sub_pilots_detail(
+                        code=code,
+                        unit_id=uid,
+                        main_pilot_id=pid,
+                        base_refs=unit_refs[uid],
+                        flag_state=fstate,
+                        script_ops=bin_ops,
+                        standalone_pilots_in_entry=standalone_pilots,
+                        char_names_pl=char_names_pl,
+                        unit_names_pl=unit_names_pl,
                     )
-                    parts.append(f"×{n_eids} {rec_lbl}")
+                    mission_cids.update(active_sub_ids)
+                    if has_sub:
+                        parts.append(f"piloci wspierający w misji: {sub_text}")
 
-                if eids & alt_eids:
-                    parts.append("obecny alternatywny rekord Entry ID")
+                    if len(eids) > 1:
+                        n_eids = len(eids)
+                        rec_lbl = pl_plural(
+                            n_eids,
+                            "rekord źródłowy Entry ID",
+                            "rekordy źródłowe Entry ID",
+                            "rekordów źródłowych Entry ID",
+                        )
+                        parts.append(f"×{n_eids} {rec_lbl}")
 
-                switched_targets: list[str] = []
-                for eid in sorted(eids):
-                    for new_s in side_switches_by_eid.get(eid, []):
-                        label = SIDE_SHORT_PL.get(new_s, f"kod {new_s}")
-                        if label not in switched_targets:
-                            switched_targets.append(label)
-                if switched_targets:
-                    parts.append(f"zmiana strony w trakcie misji: {', '.join(switched_targets)}")
+                    if eids & alt_eids:
+                        parts.append("obecny alternatywny rekord Entry ID")
 
-                if uid in NON_MECH_TARGET_IDS:
-                    parts.append("cel/obiekt skryptowy; nie jest pilotowanym mechem")
+                    switched_targets: list[str] = []
+                    for eid in sorted(eids):
+                        for new_s in side_switches_by_eid.get(eid, []):
+                            label = SIDE_SHORT_PL.get(new_s, f"kod {new_s}")
+                            if label not in switched_targets:
+                                switched_targets.append(label)
+                    if switched_targets:
+                        parts.append(f"zmiana strony w trakcie misji: {', '.join(switched_targets)}")
 
-                out_lines.append(" — ".join(parts))
+                    if uid in NON_MECH_TARGET_IDS:
+                        parts.append("cel/obiekt skryptowy; nie jest pilotowanym mechem")
+
+                    out_lines.append(" — ".join(parts))
+                out_lines.append("")
+
+        # Append exact verbatim mech sections from srwoe_mech_catalog_v4_PL.md
+        mission_uids = [u for u in ordered_uids if u in deployed_uids]
+        out_lines.append("---")
+        out_lines.append("")
+        out_lines.append("#### Domyślne mechy i jednostki w misji (sekcje z `srwoe_mech_catalog_v4_PL.md`)")
+        out_lines.append("")
+        if mission_uids:
+            for idx_u, uid in enumerate(mission_uids):
+                if idx_u > 0:
+                    out_lines.append("---")
+                    out_lines.append("")
+                out_lines.append(mech_block_by_uid[uid])
+                out_lines.append("")
+                embedded_mech_sections_total += 1
+        else:
+            out_lines.append("*Brak domyślnych mechów i jednostek w `_Entry.dat`.*")
             out_lines.append("")
+
+        # Append exact verbatim pilot cards and Dodatek A rows from srwoe_pilot_catalog_PL.md
+        mission_combat_cids = [c for c in combat_order if c in mission_cids]
+        mission_noncombat_cids = [c for c in noncombat_order if c in mission_cids]
+        unknown_cids = sorted(mission_cids - set(card_by_key) - set(noncombat_row_by_key))
+        need(not unknown_cids, f"Unmapped character keys in {pkg_name}/{code}: {unknown_cids}")
+
+        out_lines.append("---")
+        out_lines.append("")
+        out_lines.append("#### Piloci i postacie w misji oraz skrypcie sceny (sekcje z `srwoe_pilot_catalog_PL.md`)")
+        out_lines.append("")
+        if not mission_combat_cids and not mission_noncombat_cids:
+            out_lines.append("*Brak przypisanych pilotów i wypowiadających się postaci w tej misji.*")
+            out_lines.append("")
+        else:
+            for idx_c, cid in enumerate(mission_combat_cids):
+                if idx_c > 0:
+                    out_lines.append("---")
+                    out_lines.append("")
+                out_lines.append(card_by_key[cid])
+                out_lines.append("")
+                embedded_combat_pilot_cards_total += 1
+
+            if mission_noncombat_cids:
+                if mission_combat_cids:
+                    out_lines.append("---")
+                    out_lines.append("")
+                out_lines.append("##### Postacie niebojowe, portretowe i systemowe (`Dodatek A`)")
+                out_lines.append("")
+                out_lines.append(noncombat_header[0])
+                out_lines.append(noncombat_header[1])
+                for cid in mission_noncombat_cids:
+                    out_lines.append(noncombat_row_by_key[cid])
+                    embedded_noncombat_rows_total += 1
+                out_lines.append("")
+
+        out_lines.append("---")
+        out_lines.append("")
 
     for code in sorted(instances_by_code, key=mission_sort_key):
         insts = instances_by_code[code]
@@ -675,9 +989,12 @@ def build_deployments_markdown(
         "",
         "## Pochodzenie danych i weryfikacja",
         "",
-        "- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, a aktywne składy załóg wspierających i zmiany stron w trakcie misji — "
-        "z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) oraz analizy "
-        "wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`).",
+        "- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, aktywne składy załóg wspierających i zmiany stron w trakcie misji — "
+        "z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x21f4ec`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) "
+        "oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`), natomiast listy mówców — ze wszystkich "
+        "293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`).",
+        "- Sekcje mechów pod każdą misją są wycinane dosłownie (bajt w bajt) z `srwoe_mech_catalog_v4_PL.md`, a karty pilotów i wiersze "
+        "`Dodatek A` — dosłownie (bajt w bajt) z `srwoe_pilot_catalog_PL.md`.",
         "- Polskie nazwy maszyn, postaci, tytułów misji oraz warunków pochodzą wyłącznie ze zweryfikowanego pakietu `pakiet_PL` "
         "(`05_mission_text.jsonl`, `07_names_characters.jsonl`, `08_names_units_weapons.jsonl`).",
         "- Zachowano osobno oba duplikaty kodów między pakietami (`DL103_30` w `eventP01.EDAT` i `eventP09.EDAT`; "
@@ -691,7 +1008,8 @@ def build_deployments_markdown(
         "aktywni są **Himari Yaegaki, Vasage**; po odłączeniu w `DL833_11` (`op 318(1112, 0)` + `op 516`), w finałowych `DL834_12` i `DL834_13` "
         "ponownie aktywna jest wyłącznie **Himari Yaegaki**.",
         "- **Blade Liger (`unit_id = 3203`, pilot główny: Van Flyheight):** standardowo ma aktywną **Fionę Elisi Linette**, natomiast w `DL830_11` "
-        "skrypt sekcji 0 (`op 516(-4101, 4105)`) oraz kod fuzji Zeke (`0x214688..0x2146e0`) usuwają ją z obsady na czas tej misji (`brak`).",
+        "skrypt sekcji 0 (`op 516(-4101, 4105)`) oraz kod fuzji Zeke (`0x214688..0x2146e0`) usuwają ją z obsady na czas tej misji (`brak`), "
+        "ale jej karta pozostaje w sekcji postaci misji `DL830_11`, ponieważ wypowiada kwestie dialogowe w skrypcie sceny `DL830_11.bin`.",
         "- **White Base (`unit_id = 1090`, pilot główny: Bright Noa):** pętla `0x202b80..0x202bd8` w każdej misji z udziałem White Base "
         "aktywuje **Mirai Yashimę** jako pilota wspierającego (brak jakichkolwiek wywołań `op 516` usuwających `1209` w skryptach gry).",
         "",
@@ -699,7 +1017,7 @@ def build_deployments_markdown(
 
     markdown = "\n".join(lines)
     summary = {
-        "schema": 1,
+        "schema": 2,
         "event_containers": len(event_pkgs),
         "entry_files": len(package_instances),
         "distinct_missions": len(instances_by_code),
@@ -709,6 +1027,9 @@ def build_deployments_markdown(
         "zero_unit_records": zero_unit,
         "utility_counts": {str(k): v for k, v in sorted(utility_counts.items())},
         "combat_side_counts": {str(k): v for k, v in sorted(combat_side_counts.items())},
+        "embedded_mech_sections": embedded_mech_sections_total,
+        "embedded_combat_pilot_cards": embedded_combat_pilot_cards_total,
+        "embedded_noncombat_rows": embedded_noncombat_rows_total,
         "output_bytes": len(markdown.encode("utf-8")),
         "output_sha256": hashlib.sha256(markdown.encode("utf-8")).hexdigest(),
     }
@@ -721,7 +1042,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--english", required=True, type=Path, help="Path to pakiet_EN directory")
     ap.add_argument("--polish", type=Path, default=None, help="Materialized pakiet_PL directory")
     ap.add_argument("--stored-pl", type=Path, default=HERE.parent / "pakiet_PL", help="Stored pakiet_PL snapshot directory")
-    ap.add_argument("--out", required=True, type=Path, help="Output Markdown file path")
+    ap.add_argument("--elf", type=Path, default=HERE.parent / "local" / "eboot_108.elf", help="Decrypted 1.08 DATA.PSP ELF path")
+    ap.add_argument("--mech-catalog", type=Path, default=None, help="Optional reference srwoe_mech_catalog_v4_PL.md path")
+    ap.add_argument("--pilot-catalog", type=Path, default=None, help="Optional reference srwoe_pilot_catalog_PL.md path")
+    ap.add_argument("--out", required=True, type=Path, help="Output Markdown file path (docs/srwoe_mission_deployments.md)")
     ap.add_argument("--summary-json", type=Path, default=None, help="Optional JSON summary path")
     args = ap.parse_args(argv)
 
@@ -730,7 +1054,14 @@ def main(argv: list[str] | None = None) -> int:
         if pl_dir is None:
             pl_dir = Path(td) / "pakiet_PL"
             R.materialize(args.english, args.stored_pl, pl_dir)
-        markdown, summary = build_deployments_markdown(args.containers, args.english, pl_dir)
+        markdown, summary = build_deployments_markdown(
+            args.containers,
+            args.english,
+            pl_dir,
+            elf_path=args.elf,
+            mech_catalog_path=args.mech_catalog,
+            pilot_catalog_path=args.pilot_catalog,
+        )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(markdown, encoding="utf-8")

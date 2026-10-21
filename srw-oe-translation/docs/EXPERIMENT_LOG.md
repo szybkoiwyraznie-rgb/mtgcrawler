@@ -8032,5 +8032,28 @@ Base-only Pilot Skills in `srwoe_pilot_catalog_PL.md` (2026-10-21):
    SHA-256 `63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3`, MD5 `8dd7b5ca642286648e2729378d5be3ec`) to Google Drive
    `1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S` (trashing `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`) and verified byte-identical download-back.
 
+QoL rename & verbatim per-mission mech/pilot catalogue embedding in `srwoe_mission_deployments.md` (2026-10-21):
+1. Renamed `docs/mission-deployments.md` -> `docs/srwoe_mission_deployments.md` and extended
+   `tools/mission_deployments.py` + `tests/test_mission_deployments.py` [ZWERYFIKOWANE]:
+   - Directly below each of the `226` scenario package instances (`224` unique mission codes across
+     all `24` `eventP` archives), appends verbatim `## ...` sections from `srwoe_mech_catalog_v4_PL.md`
+     for every default non-utility unit deployed in `_Entry.dat` (`2,210` embedded mech sections total).
+   - Appends verbatim `#### ...` cards (`5,608` embedded combat/sub-pilot cards total) and `Dodatek A`
+     table rows (`937` embedded non-combat rows total) from `srwoe_pilot_catalog_PL.md` for every
+     active pilot/sub-pilot in the mission (including 1.08 `.text 0x21f4ec` player-side `player_override_key`
+     `(Ally)` profiles when `side == 0` or `op 519 -> 0`) and every character speaking across all `293`
+     scenes in `00_dialogue.jsonl` + `06_scenes.jsonl` (including optional-DLC `evept101.EDAT`–`evept108.EDAT`
+     variants such as `DL831_11G.bin` speaker `4420` `Masaki Andoh`).
+   - Verified byte-for-byte identity (`cmp -s`) between pure binary synthesis (`PMC.render` +
+     `PC.render_polish_markdown`) and direct slicing of Google Drive deliverables
+     `srwoe_mech_catalog_v4_PL.md` (`15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV`) and `srwoe_pilot_catalog_PL.md`
+     (`1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S`): `11,576,910 B` (`217,528` lines), SHA-256
+     `46a3d41696d7c1de182d7ff00ef7a9cbfba99009d8846901356faa4a23f7e4b0`, MD5
+     `7506616c88a5325deb4cd7644098804f`, `0` pipe lines `> 216` chars, `1,765` unit tests `OK` (`32` skipped).
+2. Uploaded `srwoe_mission_deployments.md` to Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`
+   as `1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R`, trashed superseded `mission-deployments.md`
+   (`1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`), and verified byte-identical download-back (`cmp -s`).
+
+
 
 
