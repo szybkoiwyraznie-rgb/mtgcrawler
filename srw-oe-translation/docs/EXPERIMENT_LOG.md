@@ -8129,6 +8129,43 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
      Unicorn executions matched, SHA-256 unchanged `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`) and
      `srwoe_mission_deployments.md` (`11,576,996 B`, unchanged), and verified round-trip `cmp -s == 0` on both Drive uploads
      [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+6. Diagnosed and resolved all 5 in-game Battle Forecast UI & GIM atlas defects across 3 owner-reported screenshots and delivered
+   **PL `v3.2` (`srw-oe-translation-pl-v3.2.zip`)**:
+   - **GIM UI atlas fixes (`tools/gim_label.py`, `ui_labels/{mensys_01,mensys_15,intsys_03,navisys_02}.json`, Checkpoint `896edd7`):**
+     - Added per-row inner background sampling (`bg_row_inset="right_inner"`, `clear_opaque_only`, `bg_from_column`) under `pl_layout`
+       so EN output remains 100% unchanged while diagonal/transparent ribbons erase cleanly.
+     - Fixed `mensys_01` `support_banner_short` (`"Sup"` badge: full `[103, 0, 128, 16]` clear of Japanese `援` using per-row inner
+       gradient + preserved left/right/bottom bevels).
+     - Audited all `25` GIM UI specs (`26` textures) and eliminated every remaining Polish atlas bleed: `mensys_15` (`surround`
+       `[108, 2, 118, 13]`, `direct_hit` `[10, 34, 21, 47]`, and restored the non-kanji eighth-note icon `♪` on `throw` via `"pl": null`),
+       `intsys_03` (`limit_break` `[12, 50, 102, 62]`), and `navisys_02` (`confirm` `[32, 106, 70, 125]`).
+   - **Executable & CWCheat fixes (`tools/battle_forecast_pl.py`, `tools/build_translation_patch.py`, `tests/test_pl_battle_forecast.py`,
+     Checkpoint `1d3dc98`, `38` `.text` words + `2` `.rodata` words, `0` `.rel.text` collisions):**
+     - **Missing space before `Lv%d` across all weapon & unit abilities:** Patched `.rodata` `0x08bf851c..0x08bf8523` from
+       `"Lv%d\0\0\0\0"` to `" Lv%d\0\0\0"` inside the existing 12-byte padded slot before `"%s:%s"` (`0x08bf8528`) and updated the
+       width advance in `sub_089cef34` (`0x089cefe8`: `21.0f` -> `28.0f`, `+7 px`). Verified `0` unspaced `Lv` strings across all
+       `109,176` `pakiet_PL` rows (`srwDL_Skill00..08.bin`).
+     - **Left/right weapon ability clipping & multi-skill truncation (`sub_089cef34` / `sub_089cf0bc`):** Raised `CFontString`
+       requested width (`0x089cef90`) from `256.0f` (`0x4380`) to `512.0f` (`0x4400`, power-of-two `512 px` strip) and unified all
+       three `sub_089cf0bc` modes onto width measurement + horizontal `scale_x` (`28($a0)`) auto-fit (`mode 0` left weapon bar:
+       right-aligned to `190.0f`, `max_w = 188.0f` -> `[5.63..190.00]` worst case `259 px`; `mode 1` right/support weapon bar:
+       `+6.0f`, `max_w = 196.0f` -> `[285.38..477.00]`; `mode 2` unit skill bar: `+12.0f`, `max_w = 190.0f` -> `[228.71..416.00]`
+       for max `350 px`). Verified bit-accurately via synthetic MIPS + IEEE-754 COP1 execution (`16 / 16` tests OK).
+     - **Support pilot portrait inner black border (`sub_089beee0`, `sub_089bf188`):** Expanded `GU_LINE_STRIP` frame from
+       `[239..270] × [-6/-5..+25]` to `[237..270] × [-7..+26]` on both Enemy (`0x089befd8`, `0x089befe4`, `0x089beffc`) and Ally
+       (`0x089bfb98`, `0x089bfba4`) cards so the outline sits strictly outside the `31×31` support portrait (`[238..269] × [-6..+25]`).
+     - **Bottom bar button prompt overlap (`0x089c0a08..0x089c1a80`):** Shifted button X coordinates from `[191, 296, 400]` to
+       `[172, 274, 396]` across both full (`Y = 235`) and detail (`Y = 156`) bars so `"Anim. WYŁ"`, `"Jedn. wsp."`, and `"Broń wsp."`
+       clear adjacent icons cleanly.
+   - **Verification & Google Drive delivery:** Built `srw-oe-translation-pl-v3.2.zip` (`python3 tools/build_release_pair.py --out local/dist_v3_2 --version 3.2`:
+     `8,758,754 B`, SHA-256 `827bc292e6857ccbd0c86ae95486b11f92257b2a1780adbbd6ea30f6f46becb3`, MD5 `e936ac3cf7f90cbf923049a2434ce021`;
+     paired EN `srw-oe-translation-v3.2.zip`: `7,283,291 B`, SHA-256 `a7f2786c64872152d250659530e65002462304d5980ba09c57d78b6de126e82d`),
+     verified sterile ISO + DLC build readback (`PBOOT.PBP` `6,191,659 B` SHA-256 `54fa8a4061191bfd2d0cb83a20d5e16659cc7c4f06798d3e553766b89a673ea1`;
+     `EBOOT.BIN == PBOOT.PBP/DATA.PSP` `5,531,024 B` SHA-256 `068326731460b88d3cbf0f95e9d1f48ac21f08c1c542a3bc1a2fa376d36e013e`;
+     all `40` CWCheat writes present in `cheats/NPJH50521.ini`; all `4` updated GIMs verified inside rebuilt `.cpk` containers),
+     uploaded `srw-oe-translation-pl-v3.2.zip` to Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as
+     `1f8wdj01Dhd1BLkJDa0J6Yu5VJgg58wmC` (`cmp -s == 0`), and moved superseded `srw-oe-translation-pl-v3.1.zip`
+     (`1lIvk3Krr4KUve0fi0t_JP3yc1AUcOugm`) to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
 
 
 
