@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "3deac3056532968009c3264e1cff179924fabe8984a6a1943056039944b4cb3c",
+  "data_sha256": "4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -618,6 +618,21 @@
       "variable_tokens_checked_by_strict_validator": true
     },
     "runtime_tested": false,
-    "translator_scripts_executed": false
+    "translator_scripts_executed": false,
+    "stylistic_qa_v3_3": {
+      "date": "2026-10-22",
+      "unique_edits": 99,
+      "rows_updated": 140,
+      "per_file": {
+        "00_dialogue.jsonl": 67,
+        "01_battle_quotes.jsonl": 73
+      },
+      "categories": [
+        "Himari cold/runny-nose symptoms in DL101_20.bin (4 rows: no pociąg nosem / siąk)",
+        "Nautical movement/sailing/docking/territorial-water calques on flying & space craft (13 unique / 17 rows)",
+        "Sinking/drowning/lifeboat calques on airborne, space, and land units (82 unique / 119 rows)"
+      ],
+      "sveet_floating_city_preserved": "dlg:eventP07.EDAT/DL727_60.bin:2064 (Sveet is an artificial sea city per DL727_60.bin:292)"
+    }
   }
 }
