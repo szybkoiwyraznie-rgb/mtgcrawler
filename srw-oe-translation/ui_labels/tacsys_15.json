@@ -170,13 +170,38 @@
    "id": "surround_badge",
    "jp": "包",
    "en": "SR",
+   "pl": "OK",
    "box": [
     7,
     19,
     18,
     30
    ],
-   "note": "yellow map-pin badge: 包囲 = Surround",
+   "pl_layout": {
+    "box": [
+     5,
+     18,
+     20,
+     30
+    ],
+    "clear": [
+     5,
+     18,
+     20,
+     30
+    ],
+    "bg_from_column": 5,
+    "crisp": true,
+    "size": 8,
+    "min_size": 7,
+    "outline": [
+     47,
+     28,
+     12,
+     255
+    ]
+   },
+   "note": "yellow map-pin badge: 包囲 = Surround (PL: Okrążenie -> OK)",
    "align": "center",
    "fill": [
     255,

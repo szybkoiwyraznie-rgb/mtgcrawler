@@ -37,6 +37,16 @@ loaded at E.LOAD_BASE = 0x08804000):
    - Shift the three right-hand prompts from [191, 296, 400] to [172, 274, 396]
      across both full (Y = 235) and support-detail (Y = 156) bars so Polish
      labels ('Anim. WYŁ', 'Jedn. wsp.', 'Broń wsp.') clear adjacent icons.
+
+5. Map terrain panel restriction sub-labels (0x089b7c88..0x089b7cf8 & 0x08bf8218..0x08bf8237):
+   - Left-align all three terrain restriction strings at X = 14 (0x0e, matching
+     the terrain title above and '------' at 0x089b7d24) instead of X = 32 / 47
+     inside the 128 px CFontString texture strip so no trailing glyph is clipped
+     at X = 128.
+   - Expand 'Ląd: bez post.' (0x08bf8218) to full unabbreviated 'Ląd: bez postoju'
+     (0x08bf8218..0x08bf8228) and shift the adjacent 'Ląd: zakaz' start pointer at
+     0x089b7cd0 by +2 bytes (0x4228 -> 0x422a, preserving PRX R_MIPS_HI16/LO16
+     relocation in .rel.text).
 """
 
 from __future__ import annotations
@@ -55,6 +65,11 @@ SPIRIT_CACHE_SHA256 = (
 
 # (.text offset == vaddr - E.LOAD_BASE, expected word, replacement word).
 TEXT_PATCHES: tuple[tuple[int, int, int], ...] = (
+    # Map terrain panel restriction sub-label X alignment & 'Ląd: zakaz' lo16 (+2)
+    (0x1B3C90, 0x34060020, 0x3406000E),  # 0x089b7c90: 'Ląd: bez postoju' x 32 -> 14
+    (0x1B3CC4, 0x34060020, 0x3406000E),  # 0x089b7cc4: 'Ląd: zakaz'       x 32 -> 14
+    (0x1B3CD0, 0x24A54228, 0x24A5422A),  # 0x089b7cd0: 'Ląd: zakaz' lo16 0x4228 -> 0x422a
+    (0x1B3CEC, 0x3406002F, 0x3406000E),  # 0x089b7cec: 'Brak wstępu'      x 47 -> 14
     # Support pilot portrait outer frame [237..270] x [-7..+26]
     (0x1BAFD8, 0x3C06436F, 0x3C06436D),  # 0x089befd8: enemy border x0 239 -> 237
     (0x1BAFE4, 0x3C06C0C0, 0x3C06C0E0),  # 0x089befe4: enemy border y0  -6 ->  -7
@@ -100,11 +115,21 @@ TEXT_PATCHES: tuple[tuple[int, int, int], ...] = (
 )
 
 # (vaddr - E.LOAD_BASE in .rodata, expected word, replacement word).
-# 'Lv%d\0\0\0\0' -> ' Lv%d\0\0\0' at 0x08bf851c..0x08bf8523.
+# 1. 'Ląd: bez postoju\0\0Ląd: zakaz\0\0\0\0' at 0x08bf8218..0x08bf8233.
+# 2. 'Lv%d\0\0\0\0' -> ' Lv%d\0\0\0' at 0x08bf851c..0x08bf8523.
 RODATA_PATCHES: tuple[tuple[int, int, int], ...] = (
+    (0x3F4218, 0xE38F6E92, 0x3A64D54C),
+    (0x3F421C, 0x7E8EE292, 0x7A656220),
+    (0x3F4220, 0xC2897395, 0x736F7020),
+    (0x3F4224, 0x00000000, 0x756A6F74),
+    (0x3F4228, 0xE38F6E92, 0xD54C0000),
+    (0x3F422C, 0xFC936990, 0x7A203A64),
+    (0x3F4230, 0xC2897395, 0x7A616B61),
     (0x3F451C, 0x6425764C, 0x25764C20),
     (0x3F4520, 0x00000000, 0x00000064),
 )
+
+TERRAIN_RODATA_ADDRS: frozenset[int] = frozenset(range(0x3F4218, 0x3F4234, 4))
 
 
 def patch_sections(
@@ -112,6 +137,8 @@ def patch_sections(
     text_offset: int,
     rodata_offset: int,
     rodata_addr: int,
+    *,
+    allow_translated_terrain: bool = False,
 ) -> bytes:
     """Verify and patch all .text and .rodata words in a raw buffer."""
     buf = bytearray(image)
@@ -132,7 +159,9 @@ def patch_sections(
         if pos < 0 or pos + 4 > len(buf):
             raise ValueError(f".rodata patch address out of image: 0x{address:x}")
         found = struct.unpack_from("<I", buf, pos)[0]
-        if found != expected:
+        if found != expected and not (
+            allow_translated_terrain and address in TERRAIN_RODATA_ADDRS
+        ):
             raise ValueError(
                 f"unexpected word at .rodata vaddr 0x{address:x}: "
                 f"expected 0x{expected:08x}, found 0x{found:08x}"
@@ -140,6 +169,22 @@ def patch_sections(
         struct.pack_into("<I", buf, pos, replacement)
 
     return bytes(buf)
+
+
+def apply_post_exe(patched_after_exe: bytes) -> bytes:
+    """Apply TEXT_PATCHES and RODATA_PATCHES onto an image after EXE.apply_rows."""
+    elf = E.Elf(patched_after_exe)
+    text = elf.section(".text")
+    rodata = elf.section(".rodata")
+    if text is None or rodata is None:
+        raise ValueError("pboot.elf has no .text/.rodata section")
+    return patch_sections(
+        patched_after_exe,
+        text.offset,
+        rodata.offset,
+        rodata.addr,
+        allow_translated_terrain=True,
+    )
 
 
 def apply(original: bytes) -> tuple[bytes, dict]:

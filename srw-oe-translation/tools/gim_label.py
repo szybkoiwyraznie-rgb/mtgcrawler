@@ -220,6 +220,72 @@ def render_caption(font_path: Path, text: str, size: int, fill: RGBA, outline: R
     return Image.alpha_composite(out_layer, fill_layer)
 
 
+def render_crisp_caption(font_path: Path, text: str, size: int, fill: RGBA, outline: RGBA,
+                         gap: int = 1, fill_thr: int = 120):
+    """Sharp pixel-aligned RGBA caption for tiny INDEX8 badges (e.g. 2-letter pins/circles).
+
+    Renders each character at 4x supersampling, downsamples with BOX filtering, thresholds
+    glyph stems so interior strokes stay pure ``fill`` colour after INDEX8 palette
+    quantisation instead of mid-grey anti-alias mush, spaces characters by ``gap`` px so
+    adjacent stems never merge, and adds a clean 1 px 8-connected outline.
+    """
+    from PIL import Image, ImageDraw
+
+    ss = 4
+    font = _font(font_path, size * ss)
+    glyphs = [(ch, *_text_extent(font, ch)) for ch in text]
+    min_y0 = min(g[2] for g in glyphs)
+    max_y1 = max(g[4] for g in glyphs)
+    h_big = (max_y1 - min_y0) + 2 * ss
+    char_masks = []
+    for ch, bx0, _, bx1, _ in glyphs:
+        w_big = (bx1 - bx0) + 2 * ss
+        m = Image.new("L", (w_big, h_big), 0)
+        ImageDraw.Draw(m).text((ss - bx0, ss - min_y0), ch, font=font, fill=255)
+        tw, th = max(1, round(w_big / ss)), max(1, round(h_big / ss))
+        m_small = m.resize((tw, th), Image.BOX)
+        m_bin = m_small.point(
+            lambda v: 255 if v >= fill_thr else (140 if v >= fill_thr - 35 else 0)
+        )
+        bb = m_bin.getbbox() or (0, 0, tw, th)
+        char_masks.append(m_bin.crop((bb[0], 0, bb[2], th)))
+    cw = sum(cm.width for cm in char_masks) + gap * max(0, len(char_masks) - 1) + 2
+    ch_h = char_masks[0].height + 2
+    fill_mask = Image.new("L", (cw, ch_h), 0)
+    cx = 1
+    for cm in char_masks:
+        fill_mask.paste(cm, (cx, 1))
+        cx += cm.width + gap
+    out_mask = Image.new("L", (cw, ch_h), 0)
+    fp, op = fill_mask.load(), out_mask.load()
+    for y in range(ch_h):
+        for x in range(cw):
+            best = 0
+            for dx in (-1, 0, 1):
+                for dy in (-1, 0, 1):
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < cw and 0 <= ny < ch_h and fp[nx, ny] >= 140:
+                        best = max(best, 255 if (dx == 0 or dy == 0) else 200)
+            op[x, y] = best
+    fill_layer = Image.new("RGBA", (cw, ch_h), tuple(fill[:3]) + (0,))
+    fill_layer.putalpha(fill_mask.point(lambda v: v * fill[3] // 255))
+    out_layer = Image.new("RGBA", (cw, ch_h), tuple(outline[:3]) + (0,))
+    out_layer.putalpha(out_mask.point(lambda v: v * outline[3] // 255))
+    return Image.alpha_composite(out_layer, fill_layer)
+
+
+def fit_crisp_size(font_path: Path, text: str, box_w: int, box_h: int,
+                   size: int, min_size: int, fill: RGBA, outline: RGBA):
+    """Largest crisp caption in ``[min_size, size]`` whose outer box fits ``(box_w, box_h)``."""
+    last_w = 0
+    for s in range(size, min_size - 1, -1):
+        cap = render_crisp_caption(font_path, text, s, fill, outline)
+        last_w = cap.width
+        if cap.width <= box_w and cap.height <= box_h:
+            return s, cap
+    return None, last_w
+
+
 # ---------------------------------------------------------------- main entry
 
 def _clear_box(px, clear: Tuple[int, int, int, int], bg_col, bg: RGBA, opaque_only: bool,
@@ -270,7 +336,7 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         if text_codec.lang() == 'pl' and 'pl_layout' in lab:
             layout = lab['pl_layout']
             allowed = {'box','clear','size','min_size','squeeze','align','bg','fill','outline',
-                       'clear_opaque_only','bg_from_column','bg_row_inset'}
+                       'clear_opaque_only','bg_from_column','bg_row_inset','crisp'}
             if not isinstance(layout, dict) or set(layout) - allowed:
                 raise LabelError('invalid PL label layout override')
             lab = {**lab, **layout}
@@ -313,14 +379,26 @@ def render_labels(gim_raw: bytes, spec: Dict, root: Path = ROOT) -> Tuple[bytes,
         if not 0.5 <= squeeze <= 1.0:
             res.error = f"squeeze {squeeze} outside 0.5..1.0"
             continue
-        size, x_scale, ink_w = fit_size(font_path, en, box[2] - box[0], box[3] - box[1],
-                                        int(lab.get("size", default_size)),
-                                        int(lab.get("min_size", default_min)), squeeze)
-        if size is None:
-            res.error = (f"does not fit: needs {ink_w} px at the minimum size, "
-                         f"box is {box[2] - box[0]} px wide")
-            continue
-        caption = render_caption(font_path, en, size, fill, outline, x_scale)
+        if lab.get("crisp"):
+            size, caption = fit_crisp_size(
+                font_path, en, box[2] - box[0], box[3] - box[1],
+                int(lab.get("size", default_size)),
+                int(lab.get("min_size", default_min)), fill, outline,
+            )
+            if size is None:
+                res.error = (f"does not fit: needs {caption} px at the minimum size, "
+                             f"box is {box[2] - box[0]} px wide")
+                continue
+            x_scale = 1.0
+        else:
+            size, x_scale, ink_w = fit_size(font_path, en, box[2] - box[0], box[3] - box[1],
+                                            int(lab.get("size", default_size)),
+                                            int(lab.get("min_size", default_min)), squeeze)
+            if size is None:
+                res.error = (f"does not fit: needs {ink_w} px at the minimum size, "
+                             f"box is {box[2] - box[0]} px wide")
+                continue
+            caption = render_caption(font_path, en, size, fill, outline, x_scale)
         bg_col = lab.get("bg_from_column")
         bg = _rgba(lab.get("bg"), transparent)
         if bg_col is not None and not 0 <= int(bg_col) < w:

@@ -276,6 +276,81 @@ class BattleForecastPlTests(unittest.TestCase):
         self.assertGreater(x0, 226.0)
         self.assertAlmostEqual(x1, 416.0, places=2)
 
+    def test_terrain_restriction_panel_alignment_and_full_polish_strings(self) -> None:
+        """Map terrain panel (0x089b7c88..0x089b7d34) left-aligns at X=14 and unclips 'postoju'."""
+        import pl_text
+
+        raw, text_off, rodata_off, rodata_addr = self.fixture()
+        patched = B.patch_sections(raw, text_off, rodata_off, rodata_addr)
+
+        for x_rel in (0x1B3C90, 0x1B3CC4, 0x1B3CEC):
+            self.assertEqual(
+                struct.unpack_from("<I", patched, text_off + x_rel)[0], 0x3406000E
+            )
+        self.assertEqual(
+            struct.unpack_from("<I", patched, text_off + 0x1B3CD0)[0], 0x24A5422A
+        )
+
+        terr_pos = rodata_off + (0x3F4218 - rodata_addr)
+        terr_raw = patched[terr_pos : terr_pos + 28]
+        cstr_stop, rest = terr_raw.split(b"\x00", 1)
+        self.assertEqual(pl_text.decode(cstr_stop), "Ląd: bez postoju")
+        # Starts at 0x08bf822a == 0x08bf8218 + 18 (16 bytes + 2 nulls)
+        cstr_ban = terr_raw[18:].split(b"\x00", 1)[0]
+        self.assertEqual(pl_text.decode(cstr_ban), "Ląd: zakaz")
+
+        # Post-EXE terrain words may hold EXE.apply_rows output before overwrite
+        exe_buf = bytearray(raw)
+        exe_buf[terr_pos : terr_pos + 16] = pl_text.encode("Ląd: bez post.") + b"\x00\x00"
+        post = B.patch_sections(
+            bytes(exe_buf), text_off, rodata_off, rodata_addr, allow_translated_terrain=True
+        )
+        self.assertEqual(post, patched)
+
+    def test_surround_ok_badge_specs_and_crisp_rendering(self) -> None:
+        """Both 'Okrążenie' ('OK') badges in tacsys_15 and mensys_15 use crisp layout."""
+        import json
+        import gim_label
+
+        root = Path(__file__).resolve().parents[1]
+        tac = json.loads((root / "ui_labels" / "tacsys_15.json").read_text(encoding="utf-8"))
+        men = json.loads((root / "ui_labels" / "mensys_15.json").read_text(encoding="utf-8"))
+
+        tac_ok = next(x for x in tac["labels"] if x["id"] == "surround_badge")
+        men_ok = next(x for x in men["labels"] if x["id"] == "surround")
+        self.assertEqual(tac_ok["pl"], "OK")
+        self.assertEqual(men_ok["pl"], "OK")
+        self.assertTrue(tac_ok["pl_layout"]["crisp"])
+        self.assertTrue(men_ok["pl_layout"]["crisp"])
+        self.assertEqual(tac_ok["pl_layout"]["box"], [5, 18, 20, 30])
+        self.assertEqual(men_ok["pl_layout"]["box"], [107, 3, 118, 12])
+
+        try:
+            import PIL  # noqa: F401
+        except ImportError:
+            return
+        font_path = root / tac["font"]
+        s1, cap1 = gim_label.fit_crisp_size(
+            font_path, "OK", 15, 12, 8, 7, (255, 255, 255, 255), (47, 28, 12, 255)
+        )
+        self.assertIsNotNone(s1)
+        self.assertLessEqual(cap1.width, 15)
+        self.assertLessEqual(cap1.height, 12)
+        raw_rgba = cap1.tobytes()
+        white_px = sum(
+            1
+            for i in range(0, len(raw_rgba), 4)
+            if raw_rgba[i : i + 4] == b"\xff\xff\xff\xff"
+        )
+        self.assertGreaterEqual(white_px, 20)
+
+        s2, cap2 = gim_label.fit_crisp_size(
+            font_path, "OK", 11, 9, 7, 6, (255, 255, 255, 255), (54, 23, 0, 255)
+        )
+        self.assertIsNotNone(s2)
+        self.assertLessEqual(cap2.width, 11)
+        self.assertLessEqual(cap2.height, 9)
+
 
 if __name__ == "__main__":
     unittest.main()
