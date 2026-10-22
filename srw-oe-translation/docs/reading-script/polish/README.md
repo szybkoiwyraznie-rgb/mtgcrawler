@@ -1,6 +1,15 @@
-# Polish reading editions — Complete curated series 00–34 (v3.3), v3.0, PL4 01–21, and catalogue v4
+# Polish reading editions — Complete curated series 00–34 (v3.5), v3.3, v3.0, PL4 01–21, and catalogue v4
 
-## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.3`, 2026-10-22)
+## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.5`, 2026-10-23)
+
+- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1/view)** (`915,737 B`, SHA-256 `1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5`, MD5 `83d3ecead5fbbc51b083ade1f84036e6`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; supersedes trashed `v3.3` archive `1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.5_reading.delivery.json` (prior `v3.3` / `v3.0` receipts preserved in `docs/reading-script/polish/PL5_v3.3_reading.delivery.json` and `PL5_v3.0_reading.delivery.json`)
+
+Built strictly from the accepted `pakiet_PL` **`v3.5`** package (`data_sha256 = f91ca01165c5d16df0bb7d75633491caeaf4f68a1ba85034fe5779ebefe45a92`) across **all 35 story episodes (`00–34`)**, incorporating all `19` story-dialogue fixes (`00_dialogue.jsonl`) alongside `20` battle-quote fixes (`01_battle_quotes.jsonl`) across Episodes `[00, 01, 07, 10, 18, 28, 31]`:
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans across `2,438,091 B` of Markdown).
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+
+## Historical: Complete curated Polish reading series — episodes 00–34 (`v3.3`, 2026-10-22)
 
 - **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi/view)** (`915,740 B`, SHA-256 `66629f651101737fcc2a37f44bff2aafb440028b5db50873584b226a99f913e7`, MD5 `0367e4b80f6d8bf505c2f77efb75e5fe`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; supersedes trashed `v3.0` archive `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`)
 - **Delivery receipt:** `docs/reading-script/polish/PL5_v3.3_reading.delivery.json` (prior `v3.0` receipt preserved in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`)
