@@ -8208,6 +8208,43 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
        receipt `docs/reading-script/polish/PL5_v3.3_reading.delivery.json`), uploaded to Google Drive `Skrypty`
        (`1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`) as **`1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi`**, confirmed `cmp -s == 0`, and moved superseded
        `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu` to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+8. Resolved both in-game tactical map UI defects reported from Mission `1_2` screenshots (`Zbocze` terrain restriction clipping +
+   leftover `"SR"` map pin with dark artifacts) and delivered **PL `v3.4` (`srw-oe-translation-pl-v3.4.zip`)** (2026-10-22):
+   - **Fix 1 — Map terrain restriction sub-labels (`tools/battle_forecast_pl.py`, `tools/build_translation_patch.py`):**
+     - Root cause confirmed in `PBOOT.PBP/DATA.PSP` (`0x089b7c80..0x089b7d34`): the `CFontString` texture strip allocated for the
+       terrain panel is `128 px` wide (`0..127`), with terrain names (`"Zbocze"`, etc.) drawn at `x_offset = 14 px` (`0x0e`, matching
+       `"------"` at `0x089b7d24`), whereas `"Ląd: bez post."` (`0x089b7c90`) and `"Ląd: zakaz"` (`0x089b7cc4`) inherited Japanese
+       centering `x_offset = 32 px` (`0x20`) and `"Brak wstępu"` (`0x089b7cec`) used `x_offset = 47 px` (`0x2f`), pushing the final `.`
+       of `"Ląd: bez post."` past `x = 128` (`32 + 95.5 = 127.5 px`) and forcing abbreviation.
+     - Patched `0x089b7c90`, `0x089b7cc4`, and `0x089b7cec` (`ori $a2, $zero, 0x0e`) so all three restriction labels align cleanly at
+       `x_offset = 14 px` under `"Zbocze"` (`114 px` budget inside `128 px`), expanded `0x08bf8218..0x08bf8233` to full unabbreviated
+       `"Ląd: bez postoju\0\0Ląd: zakaz\0\0\0\0"` (`14 + 108.0 = 122.0 <= 128 px`), and shifted the `.rel.text`-safe `addiu $a1, $a1, 0x422a`
+       low-halfword offset at `0x089b7cd0` (`+2` bytes). `pakiet_PL` remains untouched (`data_sha256 =
+       4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`), `EXE.apply_rows` applies `397 / 397` strings (`0` skipped),
+       and simulated CWCheat output (`cheats/NPJH50521.ini`) matches `PBOOT.PBP/DATA.PSP` bit-for-bit across all `5,531,024` bytes.
+   - **Fix 2 — Crisp `"OK"` (*Okrążenie*) map pin & status badges (`tools/gim_label.py`, `ui_labels/tacsys_15.json`, `ui_labels/mensys_15.json`):**
+     - Added opt-in `crisp` rendering (`render_crisp_caption` / `fit_crisp_size`: `4×` per-character supersampling, `BOX` downsampling,
+       stem binary thresholding for pure `[255, 255, 255]` fills under `INDEX8` palette quantisation, `1 px` inter-glyph spacing, and
+       `1 px` 8-connected outline) to `pl_layout` without touching EN assets.
+     - Set `"pl": "OK"` (*Okrążenie*) on both `tacsys_15.json` (`id: "surround_badge"`, yellow map pin: `box = clear = [5, 18, 20, 30]`,
+       `bg_from_column = 5`, `crisp = true`, `size = 8`, `min_size = 7`, `outline = [47, 28, 12, 255]` — clearing all original `包`
+       pixels at `x = 6..17, y = 18..29` while preserving the full horizontal highlight gradient) and `mensys_15.json` (`id: "surround"`,
+       status ring icon: `box = clear = [107, 3, 118, 12]`, `bg = [104, 29, 4, 255]`, `crisp = true`, `size = 7`, `min_size = 6`,
+       `outline = [54, 23, 0, 255]` — preserving the `360°` vermilion ring around the circle).
+   - **Verification & Google Drive delivery (Checkpoints `c602e61` + docs):**
+     - Passed all `1,779` unit tests (`python3 -m unittest discover -s srw-oe-translation/tests -p 'test_*.py'`, `0` failures).
+     - Built and verified **`srw-oe-translation-pl-v3.4.zip`** (`python3 tools/build_release_pair.py --out local/dist_v3_4 --version 3.4`:
+       `8,760,720 B`, SHA-256 `8483b647b04cc3f790434269639f4a06175c126ea2f43e0ecd1a1ecae289719b`,
+       MD5 `291cd7a19fddfa8b953179fdd1ab9e00`; paired EN `srw-oe-translation-v3.4.zip`: `7,285,087 B`,
+       SHA-256 `ce0fceec8c5df252e108f7ae291f22a64bc755c725d2ee576ed2bd04b671d6ca`, MD5 `f59f9b22eb6a7c974f8de123b0c98c49`;
+       sterile build outputs: `DLC/PBOOT.PBP` `6,191,659 B` SHA-256 `acbc0c3b2d2ae1894b8a000815d1e51ae7525cb3e10e5bf8a2e84e27d4987d22`,
+       `DATA.PSP` `5,531,024 B` SHA-256 `3364fbb319dcbc00231a7d781cbc82cc8a9936564197cf0a6c247c2bf58c474b`,
+       `tacsys.cpk` `189,968 B` SHA-256 `cc3d282df202f9b39a37e437aea142508674d94566aee5df9be4d50ea5f76055`,
+       `system.cpk` `195,888 B` SHA-256 `bb0fb00a07cbbac677b2e862f1d9eaa6b400947ba7bc203ed22fab8a72dee5ee`),
+       uploaded to Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as **`1peTuPYvPk5_g4rZtqyzXsYlpG9NOXRml`**, confirmed `cmp -s == 0`,
+       and moved superseded `srw-oe-translation-pl-v3.3.zip` (`1baz0LTnwD06ZWli6-bz9FzuYjOxuh746`) to trash
+       [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+
 
 
 
