@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85",
+  "data_sha256": "f91ca01165c5d16df0bb7d75633491caeaf4f68a1ba85034fe5779ebefe45a92",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -633,6 +633,20 @@
         "Sinking/drowning/lifeboat calques on airborne, space, and land units (82 unique / 119 rows)"
       ],
       "sveet_floating_city_preserved": "dlg:eventP07.EDAT/DL727_60.bin:2064 (Sveet is an artificial sea city per DL727_60.bin:292)"
+    },
+    "stylistic_qa_v3_5": {
+      "date": "2026-10-23",
+      "rows_updated": 39,
+      "per_file": {
+        "00_dialogue.jsonl": 19,
+        "01_battle_quotes.jsonl": 20
+      },
+      "categories": [
+        "Mission 1_4 (DL101_40) context-reply & gender review: Himari 'Tak!', Jin 'Że co?!', Jin->Asuka 'mogłeś', Maria 'Przyjęłam!' (x5), Himari 'S-są za silni!'",
+        "Episode 0-1 + DLC DL101_80G dialogue & mesbtl00.cpk battle-quote fixes (Asuma in-car 'Tak jest!', '22 zgłoszenia', Jin plural farewell, evade/hit subject inversions, inflection)",
+        "Whole-game female 'Przyjąłem!' -> 'Przyjęłam!' (all 13 rows across 7 female characters), all 'Dobrze!' after '?' -> 'Tak!' (6 rows), and Connect Force plural consistency (3 rows)",
+        "'Matchless' catchphrase lines preserved verbatim per owner decision"
+      ]
     }
   }
 }
