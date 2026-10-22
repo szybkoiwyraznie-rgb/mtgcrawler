@@ -8166,6 +8166,48 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
      uploaded `srw-oe-translation-pl-v3.2.zip` to Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as
      `1f8wdj01Dhd1BLkJDa0J6Yu5VJgg58wmC` (`cmp -s == 0`), and moved superseded `srw-oe-translation-pl-v3.1.zip`
      (`1lIvk3Krr4KUve0fi0t_JP3yc1AUcOugm`) to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+7. Audited all `109,469` materialized rows across all `10` package files (`00_dialogue.jsonl` .. `10_map_terrain.jsonl`) for
+   Polish stylistic defects reported in Mission `1_2` (`DL101_20.bin`) and delivered **PL `v3.3` (`srw-oe-translation-pl-v3.3.zip`)**
+   plus regenerated **`srwoe_reading_PL_00-34.zip`** (2026-10-22):
+   - **Issue 2 — Cold / runny-nose symptoms (`00_dialogue.jsonl`, `4` rows in `dlg:eventP00.cpk/DL101_20.bin`):**
+     - Audited all lines spoken by Himari Yaegaki across the entire game plus every `*pociąg*`, `*siąk*`, `*chlip*`, sneeze, and cold
+       line across all characters (`00_dialogue.jsonl` + `01_battle_quotes.jsonl`). Confirmed `0` occurrences of `*pociąg nosem*` or
+       `*siąk*` outside `DL101_20.bin` (epilogue sneezes in `DL834_13` / `DL834_13E` already use natural `A... Apsik!` / `Apsik!`;
+       all other `*chlip*` lines in `DL209_35` and `DL312_50` are genuine crying scenes).
+     - Replaced all `4` cold-symptom lines in `DL101_20.bin` (`1828`: `Aha... *pociąg nosem*...` -> `Aha... *pociągnięcie nosem*...`;
+       `2068`: `*chlip*... Zmarzłam na kość... Nie wytrzymam.` -> `*pociągnięcie nosem*... Zmarzłam... Nie wytrzymam.`;
+       `2816`: `*chlip*... Podobno wciąż nie wiadomo,...` -> `*siąkanie*... Podobno wciąż nie wiadomo,...`;
+       `4160`: `Aha... *chlip*... *siąk*...` -> `Aha... *pociąganie nosem*... *siąkanie*...`).
+   - **Issue 1 — Nautical / maritime calques on flying, space, and land units (`95` unique entries / `136` rows across `00_dialogue.jsonl` + `01_battle_quotes.jsonl`):**
+     - Replaced sailing/port/docking/territorial-water calques (`13` unique / `17` rows: `przepływali` -> `przelatywał nad wodami`,
+       `płynie` -> `leci`, `wychodzi w rejs` -> `zaraz wyrusza`, `wypływamy` -> `ruszamy`, `zacumować` -> `zadokować`,
+       `wychodzi z portu` / `wyjście z portu` -> `opuszcza port` / `opuszczenie doku`, `wypłynęliśmy` -> `wyruszyliśmy`,
+       lunar `Na wodach międzynarodowych / wody terytorialne / płyńcie za nami` -> `W przestrzeni międzynarodowej / nasze terytorium / lećcie za nami`,
+       `przycumować do Axis` -> `wylądować na Axis`, `Żegluga niezakłócona` -> `Lot niezakłócony`).
+     - Replaced sinking/drowning/lifeboat calques (`zatop*`, `zaton*`, `tonie`, `na dno`, `szalup ratunkowych` — including ungrammatical
+       `zatoną nas!` in `p3161.pac:6940`) on airborne carriers, space warships, mobile suits/armors, desert hover-carriers (`Gallop`),
+       and land Zoids (`Ultrasaurus`, `Dibison`, `Gun Sniper`) across `82` unique entries / `119` rows (`zniszczyć`, `zestrzelić`,
+       `wysadzić`, `uległ samozniszczeniu`, `kapsuł ratunkowych`, `paść`, `polec`, `Padnij!`).
+     - Preserved genuine water contexts and Polish idioms (`w pływającym mieście` in `DL727_60.bin:2064` where `DL727_60.bin:292`
+       establishes Sveet as an artificial floating sea city `海上人工都市`, `Trafiony-zatopiony!` in `DL622_13.bin:21908`,
+       `wiatr w żagle`, `jak ryba w wodzie`, `w gorącej wodzie kąpany`, and Mr. Bushido's literal `呉越同舟` river-boat proverb in
+       `DL209_40.bin:18760–18820`).
+   - **Snapshot, verification & Google Drive delivery (Checkpoints `4426070` + docs):**
+     - Packed `pakiet_PL` via `tools/pl_release_package.py snapshot` (`140` rows updated: `67` in `00_dialogue.jsonl`, `73` in
+       `01_battle_quotes.jsonl`; `108,794` entries, `data_sha256 = 4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`,
+       `errors = 0`, all `15` `owner_ui_corrections` plans bit-identical) and passed full `unittest` suite.
+     - Built and verified **`srw-oe-translation-pl-v3.3.zip`** (`python3 tools/build_release_pair.py --out local/dist_v3_3 --version 3.3`:
+       `8,758,917 B`, SHA-256 `bc41f3055b085ddcd5404ba45b9d7fd2a17c4d28b2535bc57a3700b85c35e412`,
+       MD5 `803237ef11b123cd5e95dfec78ede4d2`; paired EN `srw-oe-translation-v3.3.zip`: `7,283,291 B`,
+       SHA-256 `7101b32e762fd2205b92c723f92f44a765914bd66d4c916eef0fac80ff33b178`), uploaded to Google Drive
+       `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as **`1baz0LTnwD06ZWli6-bz9FzuYjOxuh746`**, confirmed `cmp -s == 0`, and moved superseded
+       `srw-oe-translation-pl-v3.2.zip` (`1f8wdj01Dhd1BLkJDa0J6Yu5VJgg58wmC`) to trash.
+     - Rebuilt and verified all `35` Polish reading scripts **`srwoe_reading_PL_00-34.zip`** (`20` episodes updated, `36` members,
+       `47,056 / 47,056` prose entries, `33,587` verified spans, `915,740 B`,
+       SHA-256 `66629f651101737fcc2a37f44bff2aafb440028b5db50873584b226a99f913e7`, MD5 `0367e4b80f6d8bf505c2f77efb75e5fe`,
+       receipt `docs/reading-script/polish/PL5_v3.3_reading.delivery.json`), uploaded to Google Drive `Skrypty`
+       (`1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`) as **`1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi`**, confirmed `cmp -s == 0`, and moved superseded
+       `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu` to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
 
 
 

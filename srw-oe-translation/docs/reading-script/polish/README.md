@@ -1,6 +1,15 @@
-# Polish reading editions — Complete curated series 00–34 (v3.0), PL4 01–21, and catalogue v4
+# Polish reading editions — Complete curated series 00–34 (v3.3), v3.0, PL4 01–21, and catalogue v4
 
-## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.0`, 2026-10-21)
+## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.3`, 2026-10-22)
+
+- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi/view)** (`915,740 B`, SHA-256 `66629f651101737fcc2a37f44bff2aafb440028b5db50873584b226a99f913e7`, MD5 `0367e4b80f6d8bf505c2f77efb75e5fe`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; supersedes trashed `v3.0` archive `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.3_reading.delivery.json` (prior `v3.0` receipt preserved in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`)
+
+Built strictly from the accepted `pakiet_PL` **`v3.3`** package (`data_sha256 = 4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`) across **all 35 story episodes (`00–34`)**, incorporating all `67` dialogue edits across `20` episodes (`[01, 02, 03, 04, 05, 06, 08, 09, 10, 11, 14, 15, 18, 19, 20, 23, 27, 28, 32, 33]` — Himari's cold symptoms in Episode `01` `DL101_20.bin` and game-wide replacement of nautical calques on airborne, space, and land units):
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans).
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+
+## Historical: Complete curated Polish reading series — episodes 00–34 (`v3.0`, 2026-10-21)
 
 - **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1PjPStP1V6DDso2asRR-3pcZE48IWYJhu/view)** (`918,139 B`, SHA-256 `e4adebb4d55cbe8af5991076208a571d0688c212bd3f6eba9101652ed6243cc0`, MD5 `e76808b5041e17bb15cc933f5f6c2d12`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`)
 - **Delivery receipt:** `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`
