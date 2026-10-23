@@ -86442,7 +86442,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:109550","pl":"Psycoframe","source_sha256":"42a5271e32ef71c73b73889b28484df9ad12051fab3e2470c88b6db031f6c647"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:6879","pl":" Morale wroga-","source_sha256":"42acd005fecece6eac90d546ad66d417169c6b6e439c1afc7b84029b2c1d98c6"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10113","pl":"Atk/Cel/Unik＠1%+3d%% ＠0Otrz. kryt.＠1%+3d%%＠0","source_sha256":"42afc25c8acf9d877da63d1a404bb7dd4dc6e4c263780bc7f4daa9c3824b516c"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31988","pl":"Posiadane","source_sha256":"42aff61d7ddca48209700b11b097c10d8e8fad884c025fa2d0637483e44a69da"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31988","pl":"Masz","source_sha256":"42aff61d7ddca48209700b11b097c10d8e8fad884c025fa2d0637483e44a69da"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:3029","pl":"Kryt+","source_sha256":"42b1d678128aeaf0dae6db200ef391e0dcf2afd05377729087c537031cfeef66"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:23867","pl":"Surowce","source_sha256":"42b99216dc4adcff86c849f6d88cd55398cd312bfc62ca8928f1e2d92c627828"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:3588","pl":"Po użyciu jedn. znika","source_sha256":"42bb68462a104bee7092e7b7a85119eff3b8c858044dc86273653cffc71d9f48"}
@@ -88426,7 +88426,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:25304","pl":"：5 misji] [Lv2：15 misji] [Lv3：30 misji]\n＠6Najpierw zużywane są części niższego poziomu.\n＠6Liczą się też porażki i wycofania.","source_sha256":"61ecdc6ff87322b70a268cd21177d97e9e71226f55b02bd9800af0af0955e06e"}
 {"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:6808","pl":"Typ: Czerwone Ramię (rakiety)","source_sha256":"61f0200f082b6f9a3b046e85da316f207f7955579e482c6477c9344347440eb8"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:6982","pl":"VIGOUR_UP","source_sha256":"61f3fc7e2aa27d6a152caa5bfa60d34c9a90036a6a779480c3fca046782d6cbe"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21488","pl":"Główny pilot","source_sha256":"61f503089f6b47017901ac71e16306aa0737e9ebe37d9911ff3ea08f3eb2ccaa"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21488","pl":"Pilot gł.","source_sha256":"61f503089f6b47017901ac71e16306aa0737e9ebe37d9911ff3ea08f3eb2ccaa"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:6868","pl":"<Spadek SP Lv","source_sha256":"61f831499e6c08f648c97a25b8f6456e5f2f7c028f8b150aa63f760e4c4a719d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:115552","pl":"%s\n%s","source_sha256":"61fab2515f2d54920554278d859f1c5f8a7d8b850fd67d6a8b540b464a0a6768"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Były bandyta","source_sha256":"61fc0a9018dd39528715a4a9874e5a649776847808df17614b8408a41b1cd570"}
@@ -92485,7 +92485,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15471","pl":"tura: Obr%","source_sha256":"a283fbf502ba9e950f9ad9980bad0430de587ea122876e0648c1c250943536ef"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:9592","pl":"＠4Zamęt:                    ＠0Cel＠1%+3d%%＠0","source_sha256":"a28683ab04e7e4cdfca33068f249b87005213a0c25862554270f3a78d2bc97a0"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:13543","pl":"Duch","source_sha256":"a28a7a6431a41560bdef71d7c6e425f9832a1df17db0c7cbcf28996004745edf"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:46264","pl":"＠4Posiadane","source_sha256":"a28e10948e8f65e88129e800dad9ae12395445806e118a36de1ae186c36fd4b6"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:46264","pl":"＠4Masz","source_sha256":"a28e10948e8f65e88129e800dad9ae12395445806e118a36de1ae186c36fd4b6"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:15451","pl":"% Otrz. kryt.+","source_sha256":"a28fae4f95f9a809ace8e564d9348f23556e879aabfaaa5abb2bfe4199685c55"}
 {"file":"04_config_text.jsonl","id":"item:config03.EDAT/srwDL_Item03.bin:1045","pl":"Fundusze+","source_sha256":"a291041bb7d1e6a55e22dcd02f941347a06543f01e978827a795f373e42a03b7"}
 {"file":"04_config_text.jsonl","id":"item:config01.EDAT/srwDL_Item01.bin:1126","pl":"% odnowy, SP+","source_sha256":"a291e6a44e0e8aa6fceb66faf019c74deed0a0fa4f326ac5cc2fdb71fe5d8479"}
@@ -98267,7 +98267,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:76886","pl":"淫b","source_sha256":"fe4e14db524cd8b0ad3a61dcf995ca7eb81fed4b80c439e50aed4d06993a5ee5"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6393","pl":" Po aktyw. bez kontry","source_sha256":"fe5066e4aa274bd1da2c4b7b9907b7d5b0f14feeb2ad54b48dfc84c04708ccaf"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:134842","pl":"Moc spirali","source_sha256":"fe5248c9b8a4d1390f6d9da95487b974ee57fdf4c2199dada330c44a3c0e1a70"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21500","pl":"Drugi pilot","source_sha256":"fe53cea0ec950d0a30501c80601e117fced3bc125a1bdc226cd7ba21d89c3846"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:21500","pl":"Współpilot","source_sha256":"fe53cea0ec950d0a30501c80601e117fced3bc125a1bdc226cd7ba21d89c3846"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:393","pl":"Cel+","source_sha256":"fe5915a916a4d5b2b4dbfee02477a10741032742cb0da936ddf70b2871a40128"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:14169","pl":": redukcja rośnie","source_sha256":"fe602c38b476df4f89bc97a8138d157f70d9b75c882cfb832f50a6282d6dce2b"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:3661","pl":"Atakuje wrogów w zasięgu","source_sha256":"fe619cb995c043549e838395796cf647900849c8b8d28113a1c469346cb33132"}
