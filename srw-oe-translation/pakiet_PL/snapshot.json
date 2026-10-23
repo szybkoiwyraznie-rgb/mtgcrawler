@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "4c7bf2114e208b5f5b1d6c4bc2cdbcd307b14c6aff5d506b6b5f76c7040dbb4e",
+  "data_sha256": "5f9a3706dff44cdbe4a6e7abc3a475c0ee35ea38b01336b7c816a9a1b8f4639c",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -649,9 +649,9 @@
       ]
     },
     "stylistic_qa_v4_0": {
-      "date": "2026-10-23",
-      "phase": "checkpoint-1-groups-ABC",
-      "ally_tag_policy": "keep (Ally) / /Ally per owner preference"
+      "checkpoint": "v4.0-ckpt2-ch3",
+      "scope": "Groups A+B+C + Chapter 3 full line-by-line QA (Ep 10-13 + SM006-008 + DLC)",
+      "runtime_ppsspp_verified": false
     }
   }
 }
