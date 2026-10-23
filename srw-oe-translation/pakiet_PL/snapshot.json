@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "d1f9170d99aac8745b3923cdca7914512504b0cf4a5a4c2cab019a073950d912",
+  "data_sha256": "1fc147cc6f0ccac9f8580517c067d3ab2ecbad1495c9435eab3f2ddea53fe101",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -649,8 +649,8 @@
       ]
     },
     "stylistic_qa_v4_0": {
-      "checkpoint": "v4.0-ckpt6-ch7",
-      "scope": "Groups A+B+C + Chapters 3-7 full line-by-line QA (Ep 10-29.5)",
+      "checkpoint": "checkpoint-7-complete-v4-0",
+      "scope": "100% completion of Ch 8 finale & epilogues, DLC evept101-108, 05_mission_text, and whole-corpus consistency across all 109176 rows",
       "runtime_ppsspp_verified": false
     }
   }
