@@ -1,0 +1,3408 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 29,
+  "reference_sha256": "11684b3e368b6f8f22b96f4802cf4290ae68d426a0d5d178735be3e6c2b3906d",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP07.EDAT/DL729_11.bin",
+      "block": 4,
+      "mission_row": "mission_note:eventP07.EDAT/DL729_11_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:324",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:404",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:564",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:660",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:748",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:848",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:912",
+      "mode": "story",
+      "level": 3,
+      "block": 12
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:972",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1060",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1128",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1232",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1288",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1364",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "heading": "### Dr. D explains the Gravity Cannon",
+      "block": 20,
+      "pl": "### Doktor D wyjaśnia działanie Działa Grawitacyjnego"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1432",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1508",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1576",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1636",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1716",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1800",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1888",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:1952",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2020",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2096",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2188",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2252",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2356",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2408",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2484",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2552",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2612",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2640",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2684",
+      "mode": "story",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2772",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2812",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2860",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:2944",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3028",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3072",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "heading": "### Immobilizing the Death Stinger",
+      "block": 46,
+      "pl": "### Unieruchomienie Death Stingera"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3188",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3228",
+      "mode": "story",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3320",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3384",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3440",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "heading": "### The Death Stinger surfaces",
+      "block": 52,
+      "pl": "### Death Stinger wynurza się spod ziemi"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3540",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3596",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3680",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3716",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3920",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:3968",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4052",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4088",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4116",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4220",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4420",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4468",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4516",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4592",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4636",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4680",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4760",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:4832",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "heading": "#### Conditional dialogue — the Gravity Cannon operation",
+      "block": 71,
+      "pl": "#### Dialogi warunkowe — operacja z Działem Grawitacyjnym"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5312",
+      "mode": "conditional",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5388",
+      "mode": "conditional",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5536",
+      "mode": "conditional",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5708",
+      "mode": "conditional",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:5996",
+      "mode": "conditional",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6520",
+      "mode": "conditional",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6760",
+      "mode": "conditional",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6820",
+      "mode": "conditional",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6892",
+      "mode": "conditional",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:6992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7024",
+      "mode": "conditional",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7064",
+      "mode": "conditional",
+      "level": 3,
+      "block": 92
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7092",
+      "mode": "conditional",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7320",
+      "mode": "conditional",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7416",
+      "mode": "conditional",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7700",
+      "mode": "conditional",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:7796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8064",
+      "mode": "conditional",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8392",
+      "mode": "conditional",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "heading": "### Hiltz's rising power",
+      "block": 103,
+      "pl": "### Rosnąca potęga Hiltza"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8732",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8784",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8848",
+      "mode": "story",
+      "level": 3,
+      "block": 106
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:8924",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9020",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9076",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9120",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9156",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9192",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9272",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9368",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9560",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9644",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:9696",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10232",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10276",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10340",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10440",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10496",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10536",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10896",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:10956",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11052",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11132",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11172",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11284",
+      "mode": "story",
+      "level": 3,
+      "block": 129
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11340",
+      "mode": "story",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11400",
+      "mode": "story",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11452",
+      "mode": "story",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11484",
+      "mode": "story",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11548",
+      "mode": "story",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "heading": "### The Gravity Cannon is ready",
+      "block": 135,
+      "pl": "### Działo Grawitacyjne gotowe do strzału"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11660",
+      "mode": "story",
+      "level": 3,
+      "block": 136
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11772",
+      "mode": "story",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11836",
+      "mode": "story",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "heading": "### Delta Formation Blockade",
+      "block": 139,
+      "pl": "### Blokada Formacji Delta"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:11936",
+      "mode": "story",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12012",
+      "mode": "story",
+      "level": 3,
+      "block": 141
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12040",
+      "mode": "story",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12344",
+      "mode": "story",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12380",
+      "mode": "story",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12424",
+      "mode": "story",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12464",
+      "mode": "story",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12728",
+      "mode": "story",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:12980",
+      "mode": "story",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:13784",
+      "mode": "story",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:13820",
+      "mode": "story",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:13932",
+      "mode": "story",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:13976",
+      "mode": "story",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14020",
+      "mode": "story",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14164",
+      "mode": "story",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14208",
+      "mode": "story",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14264",
+      "mode": "story",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "heading": "### The Zoid Core falls silent",
+      "block": 157,
+      "pl": "### Rdzeń Zoida milknie"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14720",
+      "mode": "story",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14804",
+      "mode": "story",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14900",
+      "mode": "story",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:14984",
+      "mode": "story",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15084",
+      "mode": "story",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15168",
+      "mode": "story",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15212",
+      "mode": "story",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15252",
+      "mode": "story",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15280",
+      "mode": "story",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_11.bin:15344",
+      "mode": "story",
+      "level": 3,
+      "block": 167
+    },
+    {
+      "mission": "eventP07.EDAT/DL729_12.bin",
+      "block": 168,
+      "mission_row": "mission_note:eventP07.EDAT/DL729_12_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:212",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:360",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:488",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:536",
+      "mode": "story",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:608",
+      "mode": "story",
+      "level": 3,
+      "block": 173
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:688",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:744",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:836",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:956",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:984",
+      "mode": "story",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1056",
+      "mode": "story",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1096",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1152",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1188",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "heading": "### Ambient revives the Death Stinger",
+      "block": 183,
+      "pl": "### Ambient wskrzesza Death Stingera"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1252",
+      "mode": "story",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1296",
+      "mode": "story",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1340",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1548",
+      "mode": "story",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1600",
+      "mode": "story",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1668",
+      "mode": "story",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1748",
+      "mode": "story",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1784",
+      "mode": "story",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1828",
+      "mode": "story",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1868",
+      "mode": "story",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1928",
+      "mode": "story",
+      "level": 3,
+      "block": 194
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:1972",
+      "mode": "story",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "heading": "### The Death Stinger attacks the Ultrasaurus",
+      "block": 196,
+      "pl": "### Death Stinger atakuje Ultrasaurusa"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2048",
+      "mode": "story",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2136",
+      "mode": "story",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2184",
+      "mode": "story",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2256",
+      "mode": "story",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2296",
+      "mode": "story",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2444",
+      "mode": "story",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2772",
+      "mode": "story",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2856",
+      "mode": "story",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2912",
+      "mode": "story",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:2948",
+      "mode": "story",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3012",
+      "mode": "story",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3080",
+      "mode": "story",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3128",
+      "mode": "story",
+      "level": 3,
+      "block": 209
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3160",
+      "mode": "story",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3240",
+      "mode": "story",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3316",
+      "mode": "story",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3348",
+      "mode": "story",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3508",
+      "mode": "story",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:3544",
+      "mode": "story",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "heading": "#### Conditional dialogue — attacks from underground",
+      "block": 216,
+      "pl": "#### Dialogi warunkowe — ataki spod ziemi"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:4472",
+      "mode": "conditional",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:4556",
+      "mode": "conditional",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:4608",
+      "mode": "conditional",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "heading": "### Hiltz and Zoid Eve",
+      "block": 220,
+      "pl": "### Hiltz i Zoid Eve"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:6624",
+      "mode": "story",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:6716",
+      "mode": "story",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:6748",
+      "mode": "story",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:6928",
+      "mode": "story",
+      "level": 3,
+      "block": 224
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7036",
+      "mode": "story",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7076",
+      "mode": "story",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7152",
+      "mode": "story",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "heading": "#### Conditional dialogue — the revived Death Stinger",
+      "block": 228,
+      "pl": "#### Dialogi warunkowe — wskrzeszony Death Stinger"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7312",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7392",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7580",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7684",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:7944",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8108",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8464",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8528",
+      "mode": "conditional",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8736",
+      "mode": "conditional",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8804",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8888",
+      "mode": "conditional",
+      "level": 3,
+      "block": 243
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:8968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 245
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9312",
+      "mode": "conditional",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9564",
+      "mode": "conditional",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9640",
+      "mode": "conditional",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9732",
+      "mode": "conditional",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:9796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10128",
+      "mode": "conditional",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10252",
+      "mode": "conditional",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10328",
+      "mode": "conditional",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10372",
+      "mode": "conditional",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10756",
+      "mode": "conditional",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10812",
+      "mode": "conditional",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:10940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11240",
+      "mode": "conditional",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11604",
+      "mode": "conditional",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:11772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12500",
+      "mode": "conditional",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12568",
+      "mode": "conditional",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12828",
+      "mode": "conditional",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:12952",
+      "mode": "conditional",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13168",
+      "mode": "conditional",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13284",
+      "mode": "conditional",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13508",
+      "mode": "conditional",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13584",
+      "mode": "conditional",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13668",
+      "mode": "conditional",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:13776",
+      "mode": "conditional",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "heading": "### The Death Stinger's regeneration outpaced",
+      "block": 282,
+      "pl": "### Przełamanie regeneracji Death Stingera"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14260",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14324",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14372",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14540",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14604",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14896",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:14956",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:15036",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:15624",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:15672",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:15756",
+      "mode": "story",
+      "level": 3,
+      "block": 293
+    },
+    {
+      "heading": "### The Death Stinger defeated",
+      "block": 294,
+      "pl": "### Death Stinger pokonany"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16708",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16740",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16796",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16828",
+      "mode": "story",
+      "level": 3,
+      "block": 298
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16880",
+      "mode": "story",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:16920",
+      "mode": "story",
+      "level": 3,
+      "block": 300
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:17008",
+      "mode": "story",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "heading": "### Fiona's unease remains",
+      "block": 302,
+      "pl": "### Niepokój Fiony nie mija"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:17220",
+      "mode": "story",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:17360",
+      "mode": "story",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:17448",
+      "mode": "story",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_12.bin:17608",
+      "mode": "story",
+      "level": 3,
+      "block": 306
+    },
+    {
+      "mission": "eventP07.EDAT/DL729_20.bin",
+      "block": 312,
+      "mission_row": "mission_note:eventP07.EDAT/DL729_20_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:208",
+      "mode": "story",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:316",
+      "mode": "story",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:408",
+      "mode": "story",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:496",
+      "mode": "story",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:580",
+      "mode": "story",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:752",
+      "mode": "story",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:836",
+      "mode": "story",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:940",
+      "mode": "story",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1032",
+      "mode": "story",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1096",
+      "mode": "story",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1168",
+      "mode": "story",
+      "level": 3,
+      "block": 323
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1260",
+      "mode": "story",
+      "level": 3,
+      "block": 324
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1360",
+      "mode": "story",
+      "level": 3,
+      "block": 325
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1424",
+      "mode": "story",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1476",
+      "mode": "story",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1504",
+      "mode": "story",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1616",
+      "mode": "story",
+      "level": 3,
+      "block": 329
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1680",
+      "mode": "story",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1784",
+      "mode": "story",
+      "level": 3,
+      "block": 331
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1864",
+      "mode": "story",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:1920",
+      "mode": "story",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2020",
+      "mode": "story",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "heading": "### Roan and the Grados Expeditionary Force",
+      "block": 335,
+      "pl": "### Roan i Siły Ekspedycyjne Gradosu"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2124",
+      "mode": "story",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2200",
+      "mode": "story",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2264",
+      "mode": "story",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2356",
+      "mode": "story",
+      "level": 3,
+      "block": 339
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2420",
+      "mode": "story",
+      "level": 3,
+      "block": 340
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2472",
+      "mode": "story",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2540",
+      "mode": "story",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2592",
+      "mode": "story",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2704",
+      "mode": "story",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2800",
+      "mode": "story",
+      "level": 3,
+      "block": 345
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2832",
+      "mode": "story",
+      "level": 3,
+      "block": 346
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2904",
+      "mode": "story",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:2944",
+      "mode": "story",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3048",
+      "mode": "story",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3160",
+      "mode": "story",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3260",
+      "mode": "story",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3344",
+      "mode": "story",
+      "level": 3,
+      "block": 352
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3388",
+      "mode": "story",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3464",
+      "mode": "story",
+      "level": 3,
+      "block": 354
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3588",
+      "mode": "story",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3656",
+      "mode": "story",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3756",
+      "mode": "story",
+      "level": 3,
+      "block": 357
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3852",
+      "mode": "story",
+      "level": 3,
+      "block": 358
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3908",
+      "mode": "story",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "heading": "### The Invader sweep plan",
+      "block": 360,
+      "pl": "### Plan oczyszczenia z Inwaderów"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:3992",
+      "mode": "story",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4032",
+      "mode": "story",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4128",
+      "mode": "story",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4208",
+      "mode": "story",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4296",
+      "mode": "story",
+      "level": 3,
+      "block": 365
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4396",
+      "mode": "story",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4468",
+      "mode": "story",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4504",
+      "mode": "story",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4580",
+      "mode": "story",
+      "level": 3,
+      "block": 369
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4652",
+      "mode": "story",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4748",
+      "mode": "story",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4844",
+      "mode": "story",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4896",
+      "mode": "story",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:4956",
+      "mode": "story",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5032",
+      "mode": "story",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5088",
+      "mode": "story",
+      "level": 3,
+      "block": 376
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5136",
+      "mode": "story",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5232",
+      "mode": "story",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5304",
+      "mode": "story",
+      "level": 3,
+      "block": 379
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5400",
+      "mode": "story",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5464",
+      "mode": "story",
+      "level": 3,
+      "block": 381
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5512",
+      "mode": "story",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5564",
+      "mode": "story",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5632",
+      "mode": "story",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5748",
+      "mode": "story",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5848",
+      "mode": "story",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5928",
+      "mode": "story",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:5976",
+      "mode": "story",
+      "level": 3,
+      "block": 388
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6068",
+      "mode": "story",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6152",
+      "mode": "story",
+      "level": 3,
+      "block": 390
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6228",
+      "mode": "story",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6312",
+      "mode": "story",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6400",
+      "mode": "story",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6448",
+      "mode": "story",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6492",
+      "mode": "story",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6536",
+      "mode": "story",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6608",
+      "mode": "story",
+      "level": 3,
+      "block": 397
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6704",
+      "mode": "story",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6800",
+      "mode": "story",
+      "level": 3,
+      "block": 399
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6860",
+      "mode": "story",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:6924",
+      "mode": "story",
+      "level": 3,
+      "block": 401
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7004",
+      "mode": "story",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7092",
+      "mode": "story",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7152",
+      "mode": "story",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7244",
+      "mode": "story",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7344",
+      "mode": "story",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7452",
+      "mode": "story",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7540",
+      "mode": "story",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7596",
+      "mode": "story",
+      "level": 3,
+      "block": 409
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7684",
+      "mode": "story",
+      "level": 3,
+      "block": 410
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7732",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7784",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "heading": "### A Benthos Carrier with Invaders",
+      "block": 413,
+      "pl": "### Nosiciel typu Benthos z Inwaderami"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:7960",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8028",
+      "mode": "story",
+      "level": 3,
+      "block": 415
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8116",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8336",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8388",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8448",
+      "mode": "story",
+      "level": 3,
+      "block": 419
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8496",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8540",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8636",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8724",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8804",
+      "mode": "story",
+      "level": 3,
+      "block": 424
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8860",
+      "mode": "story",
+      "level": 3,
+      "block": 425
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8900",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:8960",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:9068",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:9156",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:9188",
+      "mode": "story",
+      "level": 3,
+      "block": 430
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:9252",
+      "mode": "story",
+      "level": 3,
+      "block": 431
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:9300",
+      "mode": "story",
+      "level": 3,
+      "block": 432
+    },
+    {
+      "heading": "#### Conditional dialogue — the Invaders in the Planet of the Seal system",
+      "block": 433,
+      "pl": "#### Dialogi warunkowe — Inwaderzy w układzie Planety Pieczęci"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 434
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11100",
+      "mode": "conditional",
+      "level": 3,
+      "block": 435
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11168",
+      "mode": "conditional",
+      "level": 3,
+      "block": 436
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11220",
+      "mode": "conditional",
+      "level": 3,
+      "block": 437
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11448",
+      "mode": "conditional",
+      "level": 3,
+      "block": 438
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11508",
+      "mode": "conditional",
+      "level": 3,
+      "block": 439
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 440
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 441
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:11964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 442
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12060",
+      "mode": "conditional",
+      "level": 3,
+      "block": 443
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 444
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 445
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12456",
+      "mode": "conditional",
+      "level": 3,
+      "block": 446
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12556",
+      "mode": "conditional",
+      "level": 3,
+      "block": 447
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12604",
+      "mode": "conditional",
+      "level": 3,
+      "block": 448
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12792",
+      "mode": "conditional",
+      "level": 3,
+      "block": 449
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:12896",
+      "mode": "conditional",
+      "level": 3,
+      "block": 450
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13012",
+      "mode": "conditional",
+      "level": 3,
+      "block": 451
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 452
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13336",
+      "mode": "conditional",
+      "level": 3,
+      "block": 453
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 454
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13616",
+      "mode": "conditional",
+      "level": 3,
+      "block": 455
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:13796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 456
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 457
+    },
+    {
+      "heading": "### A wormhole opens",
+      "block": 458,
+      "pl": "### Otwarcie tunelu czasoprzestrzennego"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14332",
+      "mode": "story",
+      "level": 3,
+      "block": 459
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14376",
+      "mode": "story",
+      "level": 3,
+      "block": 460
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14424",
+      "mode": "story",
+      "level": 3,
+      "block": 461
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14468",
+      "mode": "story",
+      "level": 3,
+      "block": 462
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14508",
+      "mode": "story",
+      "level": 3,
+      "block": 463
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14612",
+      "mode": "story",
+      "level": 3,
+      "block": 464
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14644",
+      "mode": "story",
+      "level": 3,
+      "block": 465
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14708",
+      "mode": "story",
+      "level": 3,
+      "block": 466
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:14764",
+      "mode": "story",
+      "level": 3,
+      "block": 467
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15092",
+      "mode": "story",
+      "level": 3,
+      "block": 468
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15132",
+      "mode": "story",
+      "level": 3,
+      "block": 469
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15176",
+      "mode": "story",
+      "level": 3,
+      "block": 470
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15212",
+      "mode": "story",
+      "level": 3,
+      "block": 471
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15248",
+      "mode": "story",
+      "level": 3,
+      "block": 472
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15340",
+      "mode": "story",
+      "level": 3,
+      "block": 473
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15408",
+      "mode": "story",
+      "level": 3,
+      "block": 474
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15512",
+      "mode": "story",
+      "level": 3,
+      "block": 475
+    },
+    {
+      "heading": "### Cowen and Stinger",
+      "block": 476,
+      "pl": "### Cowen i Stinger"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15632",
+      "mode": "story",
+      "level": 3,
+      "block": 477
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15672",
+      "mode": "story",
+      "level": 3,
+      "block": 478
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15728",
+      "mode": "story",
+      "level": 3,
+      "block": 479
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15768",
+      "mode": "story",
+      "level": 3,
+      "block": 480
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15812",
+      "mode": "story",
+      "level": 3,
+      "block": 481
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15896",
+      "mode": "story",
+      "level": 3,
+      "block": 482
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:15964",
+      "mode": "story",
+      "level": 3,
+      "block": 483
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16064",
+      "mode": "story",
+      "level": 3,
+      "block": 484
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16152",
+      "mode": "story",
+      "level": 3,
+      "block": 485
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16252",
+      "mode": "story",
+      "level": 3,
+      "block": 486
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16316",
+      "mode": "story",
+      "level": 3,
+      "block": 487
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16384",
+      "mode": "story",
+      "level": 3,
+      "block": 488
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16464",
+      "mode": "story",
+      "level": 3,
+      "block": 489
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16508",
+      "mode": "story",
+      "level": 3,
+      "block": 490
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16564",
+      "mode": "story",
+      "level": 3,
+      "block": 491
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16672",
+      "mode": "story",
+      "level": 3,
+      "block": 492
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16704",
+      "mode": "story",
+      "level": 3,
+      "block": 493
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16780",
+      "mode": "story",
+      "level": 3,
+      "block": 494
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16860",
+      "mode": "story",
+      "level": 3,
+      "block": 495
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16908",
+      "mode": "story",
+      "level": 3,
+      "block": 496
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:16972",
+      "mode": "story",
+      "level": 3,
+      "block": 497
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17032",
+      "mode": "story",
+      "level": 3,
+      "block": 498
+    },
+    {
+      "heading": "### The invitation from the void",
+      "block": 499,
+      "pl": "### Zaproszenie z pustki"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17124",
+      "mode": "story",
+      "level": 3,
+      "block": 500
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17212",
+      "mode": "story",
+      "level": 3,
+      "block": 501
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17316",
+      "mode": "story",
+      "level": 3,
+      "block": 502
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17368",
+      "mode": "story",
+      "level": 3,
+      "block": 503
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17424",
+      "mode": "story",
+      "level": 3,
+      "block": 504
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17528",
+      "mode": "story",
+      "level": 3,
+      "block": 505
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17616",
+      "mode": "story",
+      "level": 3,
+      "block": 506
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17680",
+      "mode": "story",
+      "level": 3,
+      "block": 507
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17732",
+      "mode": "story",
+      "level": 3,
+      "block": 508
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17776",
+      "mode": "story",
+      "level": 3,
+      "block": 509
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17880",
+      "mode": "story",
+      "level": 3,
+      "block": 510
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17912",
+      "mode": "story",
+      "level": 3,
+      "block": 511
+    },
+    {
+      "heading": "### The Invaders withdraw through the wormhole",
+      "block": 512,
+      "pl": "### Inwaderzy wycofują się przez tunel czasoprzestrzenny"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:17972",
+      "mode": "story",
+      "level": 3,
+      "block": 513
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18056",
+      "mode": "story",
+      "level": 3,
+      "block": 514
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18100",
+      "mode": "story",
+      "level": 3,
+      "block": 515
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18148",
+      "mode": "story",
+      "level": 3,
+      "block": 516
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18216",
+      "mode": "story",
+      "level": 3,
+      "block": 517
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18316",
+      "mode": "story",
+      "level": 3,
+      "block": 518
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18416",
+      "mode": "story",
+      "level": 3,
+      "block": 519
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18496",
+      "mode": "story",
+      "level": 3,
+      "block": 520
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18816",
+      "mode": "story",
+      "level": 3,
+      "block": 521
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18844",
+      "mode": "story",
+      "level": 3,
+      "block": 522
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18908",
+      "mode": "story",
+      "level": 3,
+      "block": 523
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:18980",
+      "mode": "story",
+      "level": 3,
+      "block": 524
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:19040",
+      "mode": "story",
+      "level": 3,
+      "block": 525
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_20.bin:19088",
+      "mode": "story",
+      "level": 3,
+      "block": 526
+    },
+    {
+      "mission": "eventP07.EDAT/DL729_50.bin",
+      "block": 527,
+      "mission_row": "mission_note:eventP07.EDAT/DL729_50_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 528
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:324",
+      "mode": "story",
+      "level": 3,
+      "block": 529
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:432",
+      "mode": "story",
+      "level": 3,
+      "block": 530
+    },
+    {
+      "heading": "### The missing Grados fleet",
+      "block": 531,
+      "pl": "### Zaginiona flota Gradosu"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:728",
+      "mode": "story",
+      "level": 3,
+      "block": 532
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:784",
+      "mode": "story",
+      "level": 3,
+      "block": 533
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:832",
+      "mode": "story",
+      "level": 3,
+      "block": 534
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:876",
+      "mode": "story",
+      "level": 3,
+      "block": 535
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:952",
+      "mode": "story",
+      "level": 3,
+      "block": 536
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1008",
+      "mode": "story",
+      "level": 3,
+      "block": 537
+    },
+    {
+      "heading": "### The giant Invader beneath the crater",
+      "block": 538,
+      "pl": "### Olbrzymi Inwader pod kraterem"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1112",
+      "mode": "story",
+      "level": 3,
+      "block": 539
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1140",
+      "mode": "story",
+      "level": 3,
+      "block": 540
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1312",
+      "mode": "story",
+      "level": 3,
+      "block": 541
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1356",
+      "mode": "story",
+      "level": 3,
+      "block": 542
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1412",
+      "mode": "story",
+      "level": 3,
+      "block": 543
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1456",
+      "mode": "story",
+      "level": 3,
+      "block": 544
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1516",
+      "mode": "story",
+      "level": 3,
+      "block": 545
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1576",
+      "mode": "story",
+      "level": 3,
+      "block": 546
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:1720",
+      "mode": "story",
+      "level": 3,
+      "block": 547
+    },
+    {
+      "heading": "#### Conditional dialogue — the devil in the crater",
+      "block": 548,
+      "pl": "#### Dialogi warunkowe — diabeł w kraterze"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4156",
+      "mode": "conditional",
+      "level": 3,
+      "block": 549
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 550
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4288",
+      "mode": "conditional",
+      "level": 3,
+      "block": 551
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4372",
+      "mode": "conditional",
+      "level": 3,
+      "block": 552
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4548",
+      "mode": "conditional",
+      "level": 3,
+      "block": 553
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4632",
+      "mode": "conditional",
+      "level": 3,
+      "block": 554
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4696",
+      "mode": "conditional",
+      "level": 3,
+      "block": 555
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4792",
+      "mode": "conditional",
+      "level": 3,
+      "block": 556
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:4964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 557
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5028",
+      "mode": "conditional",
+      "level": 3,
+      "block": 558
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 559
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 560
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5264",
+      "mode": "conditional",
+      "level": 3,
+      "block": 561
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5480",
+      "mode": "conditional",
+      "level": 3,
+      "block": 562
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5532",
+      "mode": "conditional",
+      "level": 3,
+      "block": 563
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5728",
+      "mode": "conditional",
+      "level": 3,
+      "block": 564
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 565
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:5900",
+      "mode": "conditional",
+      "level": 3,
+      "block": 566
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:6144",
+      "mode": "conditional",
+      "level": 3,
+      "block": 567
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:6224",
+      "mode": "conditional",
+      "level": 3,
+      "block": 568
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:6460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 569
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:6512",
+      "mode": "conditional",
+      "level": 3,
+      "block": 570
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:6756",
+      "mode": "conditional",
+      "level": 3,
+      "block": 571
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:7016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 572
+    },
+    {
+      "heading": "### The giant worm destroyed",
+      "block": 573,
+      "pl": "### Olbrzymi czerw zniszczony"
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8072",
+      "mode": "story",
+      "level": 3,
+      "block": 574
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8144",
+      "mode": "story",
+      "level": 3,
+      "block": 575
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8356",
+      "mode": "story",
+      "level": 3,
+      "block": 576
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8396",
+      "mode": "story",
+      "level": 3,
+      "block": 577
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8444",
+      "mode": "story",
+      "level": 3,
+      "block": 578
+    },
+    {
+      "row": "dlg:eventP07.EDAT/DL729_50.bin:8544",
+      "mode": "story",
+      "level": 3,
+      "block": 579
+    }
+  ]
+}

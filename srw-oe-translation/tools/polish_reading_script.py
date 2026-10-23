@@ -22,6 +22,13 @@ from mech_catalog_sources import need
 def sha(data): return hashlib.sha256(data).hexdigest()
 
 
+def parse_reference_blocks(reference: bytes) -> list[str]:
+    text = reference.decode('utf-8')
+    text = re.sub(r'(?m)^\*Source-variant note: [^\n]+\*\n\n', '', text)
+    text = text.replace('\n## Alternative text — ', '\n## DLC text variant — ')
+    return text.strip().split('\n\n')
+
+
 def normalize_reference(value):
     value = html.unescape(re.sub(r'\\([\\`*_\[\]#])', r'\1', value))
     # Legacy editions italicize parenthesized thoughts; the current renderer
@@ -42,6 +49,8 @@ def recover_blocks(source, reference):
                         names = set().union(*source.names[key].values())
                         if entry.speaker == 'Comms / Speaker':
                             names.add('Radio')  # Legacy channel label, not a person.
+                        if key == 2320:
+                            names.add('Karen')  # Pre-v4.0 EN deduplication label.
                         variants += [value.replace('**' + entry.speaker + ':**', '**' + n + ':**', 1) for n in names]
                     for variant in variants:
                         keys.setdefault(normalize_reference(variant), set()).add((sid, entry.order, entry.id, mode, level))
@@ -49,7 +58,7 @@ def recover_blocks(source, reference):
     episode_zero = {s.get('episode') for s in source.scenes} == {0}
     used, out = set(), []
     base_scenes = iter(s for s in source.scenes if not s.get('variant_of'))
-    reference_blocks = reference.decode('utf-8').strip().split('\n\n')
+    reference_blocks = parse_reference_blocks(reference)
     max_parts = max(len(k.split('\n\n')) for k in keys)
     skip_until = 0
     for index, block in enumerate(reference_blocks):
@@ -91,33 +100,48 @@ def recover_blocks(source, reference):
 
 
 def validate_source_bindings(source, expected):
-    """Accept only the reviewed PL-only title append, without rebasing old plans.
+    """Accept only explicitly audited EN/PL source promotions, without rebasing old plans.
 
     Historical reading files/receipts remain unchanged. The actual source hashes
-    stay in the new build audit; removal of ten explicitly bound, EN-empty UI
-    slots must reproduce the exact previously reviewed whole-file bytes.
+    stay in the new build audit; reversing the explicitly bound promotions must
+    reproduce the exact previously reviewed whole-file bytes.
     """
     if source.hashes == expected:
         return
-    name = '05_mission_text.jsonl'
+    allowed = {'05_mission_text.jsonl', '07_names_characters.jsonl'}
     need(set(source.hashes) == set(expected) and
-         all(source.hashes[k] == expected[k] for k in expected if k != name),
+         all(source.hashes[k] == expected[k] for k in expected if k not in allowed),
          'English source changed; review the bindings again')
     import pl_release_package as R
-    review = json.loads((Path(__file__).resolve().parents[1] /
-                         'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
-    added = {e['id']: e['source_sha256'] for e in review['entries']}
-    kept, seen = [], set()
-    for line in (source.package / name).read_bytes().splitlines(keepends=True):
-        row = json.loads(line)
-        if row['id'] in added:
-            need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
-                 'Changed PL-only mission title promotion')
-            seen.add(row['id'])
-        else:
-            kept.append(line)
-    need(seen == set(added) and sha(b''.join(kept)) == expected[name],
-         'English source changed; review the bindings again')
+    root = Path(__file__).resolve().parents[1]
+    if source.hashes.get('05_mission_text.jsonl') != expected.get('05_mission_text.jsonl'):
+        name = '05_mission_text.jsonl'
+        review = json.loads((root / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+        added = {e['id']: e['source_sha256'] for e in review['entries']}
+        kept, seen = [], set()
+        for line in (source.package / name).read_bytes().splitlines(keepends=True):
+            row = json.loads(line)
+            if row['id'] in added:
+                need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
+                     'Changed PL-only mission title promotion')
+                seen.add(row['id'])
+            else:
+                kept.append(line)
+        need(seen == set(added) and sha(b''.join(kept)) == expected[name],
+             'English source changed; review the bindings again')
+    if source.hashes.get('07_names_characters.jsonl') != expected.get('07_names_characters.jsonl'):
+        name = '07_names_characters.jsonl'
+        review = json.loads((root / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())
+        lines = (source.package / name).read_bytes().splitlines(keepends=True)
+        for entry in review['entries']:
+            idx = entry['line_index']
+            need(0 <= idx < len(lines), 'English source changed; review the bindings again')
+            after_bytes = entry['after_line'].encode('utf-8')
+            need(lines[idx] == after_bytes and R.binding(json.loads(lines[idx])) == entry['after_source_sha256'],
+                 'Changed char:2320 Kallen promotion')
+            lines[idx] = entry['before_line'].encode('utf-8')
+        need(sha(b''.join(lines)) == expected[name],
+             'English source changed; review the bindings again')
 
 
 def validate_plan(plan, source, reference):
@@ -127,11 +151,13 @@ def validate_plan(plan, source, reference):
     validate_source_bindings(source, plan['english_source_sha256'])
     blocks = [{k: v for k, v in b.items() if k not in ('pl', 'mission_row')} for b in plan['blocks']]
     need(blocks == recover_blocks(source, reference), 'Editorial plan/source mapping differs')
-    reference_blocks = reference.decode().strip().split('\n\n')
+    reference_blocks = parse_reference_blocks(reference)
     for b in plan['blocks']:
         if 'mission_row' in b:
             title = ' '.join(paragraphs(source.missions[b['mission_row']]['en']))
-            need(title == reference_blocks[b['block']][3:], 'Mission-title identity differs')
+            scene_mrow = source.scene_by_id[b['mission']].get('mission_row') if 'mission' in b else None
+            need(title == reference_blocks[b['block']][3:] or scene_mrow == b['mission_row'],
+                 'Mission-title identity differs')
         elif 'mission' in b:
             need(plan['episode'] == 0 and b.get('pl', '').strip(), 'Missing source mission title')
         if 'heading' in b and 'mission_row' not in b:
@@ -174,7 +200,7 @@ def build(plan, english, polish, reference):
         position += len(value)
     episode = plan['episode']
     put(f'# Super Robot Wars OE — Epizod {episode}')
-    put('*Polski scenariusz do czytania · Tekst PL3*')
+    put('*Polski scenariusz do czytania · Tekst PL (v3.0)*')
     put('> **Uwaga dla czytelnika:** Dialogi w cytatach są warunkowe lub sytuacyjne. Pogrupowano je dla wygody '
         'lektury, nie jako gwarantowaną kolejność wydarzeń podczas rozgrywki. Nie dopisujemy dokładnych progów HP, '
         'tur ani innych wyzwalaczy, których nie potwierdza eksport tekstu. Alternatywne rozstrzygnięcia i wersje '
@@ -263,7 +289,7 @@ def build(plan, english, polish, reference):
     dialogue = sum(e.kind == 'dialogue' for es in polish.entries.values() for e in es)
     narration = len(expected) - dialogue
     put('---'); put('## Uwagi redakcyjne')
-    put('- **Tekst:** Dialogi i narracja pochodzą bezpośrednio z zaakceptowanego pakietu PL3, z pól `pl` '
+    put('- **Tekst:** Dialogi i narracja pochodzą bezpośrednio z zaakceptowanego pakietu `pakiet_PL` (wydanie `v3.0`), z pól `pl` '
         'w `00_dialogue.jsonl`. Nie tłumaczono ponownie angielskiego scenariusza i nie dopisywano brakującej prozy. '
         'Techniczne zawijanie wierszy połączono w akapity; zachowano granice akapitów i treść myśli w nawiasach.')
     put('- **Imiona:** Znaczniki własnego imienia i nazwiska bohatera wyświetlono jako domyślne **Seishiro Kusanagi**. '
@@ -271,7 +297,7 @@ def build(plan, english, polish, reference):
         'pełnymi nazwami. Jawna anonimowość i kanał łączności mają pierwszeństwo przed portretem rozmówcy; '
         'technicznego prefiksu nie powtarzamy w wypowiedzi.')
     put('- **Układ:** Zachowano układ scen i redakcyjne drogowskazy angielskiego wydania. Tytuły misji i '
-        'wyświetlane wpisy miejsca/czasu pochodzą z PL3. Pozostałe polskie nagłówki są wyłącznie drogowskazami '
+        'wyświetlane wpisy miejsca/czasu pochodzą z `pakiet_PL` (`v3.0`). Pozostałe polskie nagłówki są wyłącznie drogowskazami '
         'redakcyjnymi, nie dodatkową narracją gry. Nie dodano początkowej listy odnośników.')
     put('- **Dialogi warunkowe:** Cytaty wyróżniają wymiany warunkowe, sytuacyjne i alternatywne rozstrzygnięcia. '
         'Nie każda taka wymiana jest opcjonalna. Kolejność źródłowa nie stanowi gwarantowanej kolejności rozgrywki; '

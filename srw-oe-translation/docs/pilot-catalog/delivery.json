@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "language": "pl",
+  "release": "v4.0",
+  "source_commit": "2836e8d",
+  "branch": "arena/df413232-mtgcrawler",
+  "pull_request": 22,
+  "scope": "Mech-independent Polish reference catalogue of all SRW OE 1.08 pilots, sub-pilots, rivals, bosses, base-only Pilot Statistics (SP, Atak, Obrona, Celność, Unik), Spirit Command tables with unlock level + SP cost + base effect (Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy), Pilot Skill tables with unlock level + base effect (Slot | Umiejętność | Poz. nauki | Efekt bazowy, without Lv2–Lv9 progressions or +krok steps), Ace Bonuses, and zero pilot [ID ...] badges (v4.0, Notepad++ aligned)",
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "previous_files_overwritten": true,
+  "sharing_changed": false,
+  "files": [
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "lines": 6276,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "md5": "ea1cc66922dfc8b98cc5a2081f77d319",
+      "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+      "drive_id": "1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV",
+      "url": "https://drive.google.com/file/d/1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV/view",
+      "superseded_trashed_drive_id": "1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ",
+      "download_back_byte_identical": true
+    }
+  ],
+  "changes_vs_v3_5": {
+    "differing_lines": 10,
+    "summary": "Only the character-name correction Karen -> Kallen (and its derived headings) changed; every statistic, unlock level, spirit and skill table is unchanged.",
+    "unchanged_sections": "All 404 character records, 60 Spirit records and 536 Pilot Skill level records"
+  },
+  "counts": {
+    "total_character_records": 404,
+    "playable_main_profiles": 92,
+    "playable_standalone_profiles": 80,
+    "playable_recruited_override_profiles": 12,
+    "sub_pilot_profiles": 45,
+    "enemy_and_rival_combat_profiles": 117,
+    "rival_enemy_profiles_with_override": 13,
+    "other_enemy_combat_profiles": 104,
+    "non_combat_records": 150,
+    "spirit_families": 20,
+    "spirit_records": 60,
+    "pilot_skill_families": 80,
+    "pilot_skill_level_records": 536,
+    "executable_1_08_pilot_skill_overrides": 38,
+    "ace_bonus_profiles": 92,
+    "story_flag_skill_upgrades": 1,
+    "markdown_lines": 6276,
+    "combat_pilot_headings_verified": 254,
+    "non_combat_table_rows_verified": 150,
+    "residual_cjk_characters": 0,
+    "residual_control_tokens": 0
+  },
+  "provenance": {
+    "executable_1_08_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+    "source_inventory_sha256": "2cd8368f3da033d26e2642257975c0be73463527500602011ffcc8ffcbede5c2",
+    "engine_map_sha256": "be6c14be5a4956b46e7b018dfe05dc045c9c6a26b2b35912dab468c4bba7da25",
+    "polish_package_snapshot_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+    "polish_package_files_sha256": "047eed7e5a9429e30d7e8602b92946d7971d0df8a7a540e63b27d536f81a8c00",
+    "unicorn_progression_parity": {
+      "status": "PASS",
+      "characters_verified": 404,
+      "synthetic_edge_profiles_verified": 1,
+      "total_unicorn_executions_matched": 7307,
+      "mismatches": 0,
+      "note": "Recorded in docs/pilot-catalog/engine-map.json; not re-executed in this sandbox because unicorn is not installed. Re-run tools/pilot_catalog_probe.py --verify-progression in a venv with unicorn 2.1.4 to replay live."
+    }
+  },
+  "verification_report": "verification.json",
+  "installation": {
+    "iso_replace": false,
+    "dlc_recopy": false,
+    "scope": "Reading/reference Markdown only"
+  },
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static catalogue validation and Google Drive checksum read-back only. No PPSSPP/real-hardware gameplay session was run."
+  }
+}

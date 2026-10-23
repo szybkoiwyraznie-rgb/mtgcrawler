@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "language": "pl",
+  "release": "v4.0",
+  "presentation_version": 4,
+  "source_commit": "2836e8d",
+  "branch": "arena/df413232-mtgcrawler",
+  "pull_request": 22,
+  "scope": "Polish reading/reference edition of the delivered mech catalogue: all 393 registered units and 1,485 weapon/action rows, roster-first headings, default pilots and crew omitted, aligned for Notepad++ plain-text reading",
+  "english_catalogue_changed": false,
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "full_model_regenerated": true,
+  "files": [
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "lines": 11953,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "md5": "3b636281662186cb3d1ede67990c24c6",
+      "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+      "drive_id": "1lh4JHwKDE0nIknE13JwS5-BGtSViYze1",
+      "url": "https://drive.google.com/file/d/1lh4JHwKDE0nIknE13JwS5-BGtSViYze1/view",
+      "download_back_byte_identical": true,
+      "note": "Re-uploaded on 2026-10-23 09:31 so the Drive timestamp matches the v4.0 release; the bytes are unchanged (873,130 B, MD5 3b636281662186cb3d1ede67990c24c6), downloaded back and cmp -s against the fresh build. The previous ID held these exact bytes since 2026-10-21 and was trashed after the replacement.",
+      "superseded_trashed_drive_id": "1Iom2YIbNna-djLB5em8WchoQMjdu6pSx"
+    }
+  ],
+  "verification": {
+    "units": 393,
+    "headings": 397,
+    "weapon_rows": 1485,
+    "facts_equal_to_model": true,
+    "unresolved_native_references": [
+      {
+        "unit_id": 10115,
+        "slot": 0,
+        "alias_id": 110
+      },
+      {
+        "unit_id": 491,
+        "slot": 0,
+        "alias_id": 230
+      }
+    ],
+    "method": "tools/polish_mech_catalog.py localize + render from the rebuilt 1.08 English model and the materialized v4.0 Polish package; verify_polish_reading.verify_catalogue re-checked unit/weapon counts and every numeric fact against the model."
+  },
+  "changes_vs_previous_v4": {
+    "previous_bytes": 876522,
+    "previous_sha256": "76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76",
+    "differing_lines": 724,
+    "summary": "All differences are table separator widths plus the last (skill-effect) column, which now carries the v4.0 04_config_text.jsonl wording (dodatk. Obraż.500 -> +Obraż.500, Obraż.600 1 tura: -> Obraż.600, 1 tura:). Zero rows differ in any other cell; headings, unit order and all 1,485 weapon rows are identical."
+  },
+  "installation": {
+    "iso_replace": false,
+    "dlc_recopy": false,
+    "scope": "Reading/reference Markdown only"
+  },
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static catalogue validation and Google Drive checksum read-back only. No PPSSPP/real-hardware gameplay session was run."
+  }
+}

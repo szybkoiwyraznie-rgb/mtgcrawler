@@ -6,10 +6,10 @@ Owner screenshot shows the Robot Viewer with the Japanese footer `「ザク・�
 
 The screen caption is exported as a confirmed legacy visible string in `04_config_text.jsonl`, `config_leftover` category. Its bindings are in the global `srw_DL_RoboDictionary00.bin` source. The original config/imenu dictionary copies are byte-identical, so both physical rows receive the same PL value:
 
-| Source offset | Japanese source | EN reference | PL value | Slot budget |
-|---:|---|---|---|---:|
-| 2124 | `「ザク・マシンガン」タイプ` | `"Zaku Machine Gun" type` | `Typ: karabin maszynowy Zaku` | 27 B |
-| 2252 | `「ザク・バズーカ」タイプ` | `"Zaku Bazooka" type` | `Typ: bazooka Zaku` | 25 B |
+| Source offset | Japanese source              | EN reference              | PL value                      | Slot budget |
+| ------------: | ---------------------------- | ------------------------- | ----------------------------- | ----------: |
+|          2124 | `「ザク・マシンガン」タイプ` | `"Zaku Machine Gun" type` | `Typ: karabin maszynowy Zaku` |        27 B |
+|          2252 | `「ザク・バズーカ」タイプ`   | `"Zaku Bazooka" type`     | `Typ: bazooka Zaku`           |        25 B |
 
 Each caption is added for `config00.cpk` and its `imenu00.cpk` mirror: four rows total. The exact IDs, immutable binding hashes, original JP/EN, offsets, and reviewed texts are recorded in `config/pl/ui-zaku-enemy-robot-2026-10-20.json`. These are additions to the accepted PL4 text snapshot; returned PL4 text and historical corrections remain intact.
 

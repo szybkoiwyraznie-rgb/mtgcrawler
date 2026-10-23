@@ -1,0 +1,3241 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 24,
+  "reference_sha256": "abf40588734ffefeb94eda1c580e09b0ee0123f56d6a553c51524552d39dd1ad",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP06.EDAT/DL624_11.bin",
+      "block": 4,
+      "mission_row": "mission_note:eventP06.EDAT/DL624_11_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:196",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:272",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:372",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:480",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:628",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:696",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:780",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:892",
+      "mode": "story",
+      "level": 3,
+      "block": 12
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1008",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1096",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1192",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1276",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1356",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1408",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1484",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1684",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1788",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:1864",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2084",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2128",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2236",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2276",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2340",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:2408",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "heading": "### The Benthos Carrier arrives",
+      "block": 29,
+      "pl": "### Przybycie nosiciela typu Benthos"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:3912",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:3972",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4196",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4252",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4324",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4380",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4436",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4500",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4560",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "heading": "### Himari's vision of her mother",
+      "block": 39,
+      "pl": "### Wizja matki Himari"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4900",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4940",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:4988",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5060",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5104",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5152",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "heading": "### Dr. Kusanagi's interpretation",
+      "block": 46,
+      "pl": "### Interpretacja doktora Kusanagiego"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5244",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5328",
+      "mode": "story",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5416",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5496",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5572",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5668",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5724",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5816",
+      "mode": "story",
+      "level": 3,
+      "block": 54
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5920",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "heading": "### Himari's decision",
+      "block": 56,
+      "pl": "### Decyzja Himari"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:5976",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6040",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6080",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6108",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6152",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6224",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6284",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6328",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6536",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6600",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "heading": "#### Conditional dialogue — defending Connect Station",
+      "block": 67,
+      "pl": "#### Dialogi warunkowe — obrona Stacji Connect"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6788",
+      "mode": "conditional",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:6892",
+      "mode": "conditional",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7140",
+      "mode": "conditional",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7228",
+      "mode": "conditional",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7324",
+      "mode": "conditional",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7544",
+      "mode": "conditional",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7924",
+      "mode": "conditional",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:7992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8088",
+      "mode": "conditional",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8420",
+      "mode": "conditional",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8588",
+      "mode": "conditional",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8696",
+      "mode": "conditional",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:8948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 84
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9116",
+      "mode": "conditional",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9420",
+      "mode": "conditional",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9480",
+      "mode": "conditional",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9888",
+      "mode": "conditional",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "heading": "### Himari and the Benthos Carrier",
+      "block": 92,
+      "pl": "### Himari i nosiciel typu Benthos"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9940",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:9968",
+      "mode": "story",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10036",
+      "mode": "story",
+      "level": 3,
+      "block": 95
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10124",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10180",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10260",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10316",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10380",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10460",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10532",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10608",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10660",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:10700",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "heading": "### The Benthos Carrier defeated",
+      "block": 106,
+      "pl": "### Nosiciel typu Benthos pokonany"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12088",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12132",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12176",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12224",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12296",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12332",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12384",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12464",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12556",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12604",
+      "mode": "story",
+      "level": 3,
+      "block": 116
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12672",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12712",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12784",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "heading": "### A new vision",
+      "block": 120,
+      "pl": "### Nowa wizja"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:12996",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13144",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13176",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13232",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13276",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13340",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13528",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13596",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "heading": "### Viral enters the Warp Gate",
+      "block": 129,
+      "pl": "### Viral wkracza w Bramę Nadprzestrzenną"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13716",
+      "mode": "story",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13752",
+      "mode": "story",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13844",
+      "mode": "story",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13936",
+      "mode": "story",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:13984",
+      "mode": "story",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14036",
+      "mode": "story",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14092",
+      "mode": "story",
+      "level": 3,
+      "block": 136
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14204",
+      "mode": "story",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14244",
+      "mode": "story",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14328",
+      "mode": "story",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_11.bin:14384",
+      "mode": "story",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "mission": "eventP06.EDAT/DL624_12.bin",
+      "block": 141,
+      "mission_row": "mission_note:eventP06.EDAT/DL624_12_ext.dat:r0:title"
+    },
+    {
+      "heading": "### The Warp Gate garrison faces Viral",
+      "block": 142,
+      "pl": "### Garnizon Bramy Nadprzestrzennej staje naprzeciw Virala"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:328",
+      "mode": "story",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:388",
+      "mode": "story",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:440",
+      "mode": "story",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:648",
+      "mode": "story",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:760",
+      "mode": "story",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:832",
+      "mode": "story",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "heading": "#### Conditional dialogue — the garrison's first clash with Viral",
+      "block": 149,
+      "pl": "#### Dialogi warunkowe — pierwsze starcie garnizonu z Viralem"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1412",
+      "mode": "conditional",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1460",
+      "mode": "conditional",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "heading": "### The Exart reaches the garrison",
+      "block": 154,
+      "pl": "### Exart dociera do garnizonu"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1652",
+      "mode": "story",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1808",
+      "mode": "story",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1860",
+      "mode": "story",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:1996",
+      "mode": "story",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2032",
+      "mode": "story",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2136",
+      "mode": "story",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2192",
+      "mode": "story",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2260",
+      "mode": "story",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "heading": "### Viral's immortal body",
+      "block": 163,
+      "pl": "### Nieśmiertelne ciało Virala"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2572",
+      "mode": "story",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2792",
+      "mode": "story",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2860",
+      "mode": "story",
+      "level": 3,
+      "block": 166
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2912",
+      "mode": "story",
+      "level": 3,
+      "block": 167
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:2980",
+      "mode": "story",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3060",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3172",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3208",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "heading": "### Why Viral fights with the Mucus",
+      "block": 172,
+      "pl": "### Dlaczego Viral walczy u boku Mucus"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3308",
+      "mode": "story",
+      "level": 3,
+      "block": 173
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3476",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3532",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3676",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3736",
+      "mode": "story",
+      "level": 3,
+      "block": 178
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3800",
+      "mode": "story",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3856",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:3968",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4056",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4136",
+      "mode": "story",
+      "level": 3,
+      "block": 183
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4240",
+      "mode": "story",
+      "level": 3,
+      "block": 184
+    },
+    {
+      "heading": "### The rules of the duel",
+      "block": 185,
+      "pl": "### Zasady pojedynku"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4300",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4396",
+      "mode": "story",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4428",
+      "mode": "story",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4484",
+      "mode": "story",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4588",
+      "mode": "story",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4688",
+      "mode": "story",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4776",
+      "mode": "story",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4852",
+      "mode": "story",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:4932",
+      "mode": "story",
+      "level": 3,
+      "block": 194
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5008",
+      "mode": "story",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5104",
+      "mode": "story",
+      "level": 3,
+      "block": 196
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5180",
+      "mode": "story",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5280",
+      "mode": "story",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5392",
+      "mode": "story",
+      "level": 3,
+      "block": 199
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5468",
+      "mode": "story",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5512",
+      "mode": "story",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5588",
+      "mode": "story",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5664",
+      "mode": "story",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5788",
+      "mode": "story",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5860",
+      "mode": "story",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5928",
+      "mode": "story",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:5984",
+      "mode": "story",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6048",
+      "mode": "story",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "heading": "#### Conditional dialogue — the duel with Viral",
+      "block": 209,
+      "pl": "#### Dialogi warunkowe — pojedynek z Viralem"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6344",
+      "mode": "conditional",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6540",
+      "mode": "conditional",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6672",
+      "mode": "conditional",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6736",
+      "mode": "conditional",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:6960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7328",
+      "mode": "conditional",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7368",
+      "mode": "conditional",
+      "level": 3,
+      "block": 222
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7592",
+      "mode": "conditional",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7656",
+      "mode": "conditional",
+      "level": 3,
+      "block": 224
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7736",
+      "mode": "conditional",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:7956",
+      "mode": "conditional",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8040",
+      "mode": "conditional",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8364",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8416",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:8788",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9032",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9136",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9216",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9268",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9504",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9572",
+      "mode": "conditional",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "heading": "#### Conditional finishing line — Kamina",
+      "block": 241,
+      "pl": "#### Warunkowa kwestia kończąca — Kamina"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:9916",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "heading": "#### Conditional finishing line — Simon",
+      "block": 243,
+      "pl": "#### Warunkowa kwestia kończąca — Simon"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10004",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "heading": "### Viral keeps his word",
+      "block": 245,
+      "pl": "### Viral dotrzymuje słowa"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10368",
+      "mode": "story",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10528",
+      "mode": "story",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10588",
+      "mode": "story",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10640",
+      "mode": "story",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10692",
+      "mode": "story",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10820",
+      "mode": "story",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10884",
+      "mode": "story",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:10924",
+      "mode": "story",
+      "level": 3,
+      "block": 253
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11000",
+      "mode": "story",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11076",
+      "mode": "story",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11164",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11268",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11324",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11380",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11664",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11720",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11816",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11896",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:11960",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12052",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12116",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12164",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12244",
+      "mode": "story",
+      "level": 3,
+      "block": 268
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12344",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12396",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12444",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12532",
+      "mode": "story",
+      "level": 3,
+      "block": 272
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12580",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12660",
+      "mode": "story",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "heading": "### The way back to their world",
+      "block": 275,
+      "pl": "### Droga powrotna do własnego świata"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12772",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12836",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12884",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:12972",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13040",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13092",
+      "mode": "story",
+      "level": 3,
+      "block": 281
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13192",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13276",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13332",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13396",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13480",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13564",
+      "mode": "story",
+      "level": 3,
+      "block": 287
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13648",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13724",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13828",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13880",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:13976",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14076",
+      "mode": "story",
+      "level": 3,
+      "block": 293
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14192",
+      "mode": "story",
+      "level": 3,
+      "block": 294
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14284",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14364",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14408",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14492",
+      "mode": "story",
+      "level": 3,
+      "block": 298
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14616",
+      "mode": "story",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14744",
+      "mode": "story",
+      "level": 3,
+      "block": 300
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14808",
+      "mode": "story",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14896",
+      "mode": "story",
+      "level": 3,
+      "block": 302
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14952",
+      "mode": "story",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:14992",
+      "mode": "story",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15120",
+      "mode": "story",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "heading": "### The scale of the Mucus",
+      "block": 306,
+      "pl": "### Skala zagrożenia Mucus"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15176",
+      "mode": "story",
+      "level": 3,
+      "block": 307
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15252",
+      "mode": "story",
+      "level": 3,
+      "block": 308
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15296",
+      "mode": "story",
+      "level": 3,
+      "block": 309
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15328",
+      "mode": "story",
+      "level": 3,
+      "block": 310
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15420",
+      "mode": "story",
+      "level": 3,
+      "block": 311
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15512",
+      "mode": "story",
+      "level": 3,
+      "block": 312
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15628",
+      "mode": "story",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15732",
+      "mode": "story",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15788",
+      "mode": "story",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15872",
+      "mode": "story",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:15944",
+      "mode": "story",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16040",
+      "mode": "story",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16116",
+      "mode": "story",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16172",
+      "mode": "story",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16252",
+      "mode": "story",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16324",
+      "mode": "story",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "heading": "### Humanity's hope",
+      "block": 323,
+      "pl": "### Nadzieja ludzkości"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16384",
+      "mode": "story",
+      "level": 3,
+      "block": 324
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16480",
+      "mode": "story",
+      "level": 3,
+      "block": 325
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16552",
+      "mode": "story",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16632",
+      "mode": "story",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16692",
+      "mode": "story",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16800",
+      "mode": "story",
+      "level": 3,
+      "block": 329
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16904",
+      "mode": "story",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "heading": "### The station's crisis subsides",
+      "block": 331,
+      "pl": "### Kryzys na stacji zażegnany"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:16940",
+      "mode": "story",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:17016",
+      "mode": "story",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_12.bin:17100",
+      "mode": "story",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "mission": "eventP30.EDAT/DL624_25.bin",
+      "block": 335,
+      "mission_row": "mission_note:eventP30.EDAT/DL624_25_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:320",
+      "mode": "story",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:420",
+      "mode": "story",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:528",
+      "mode": "story",
+      "level": 3,
+      "block": 339
+    },
+    {
+      "heading": "### The Aura Battler dig site",
+      "block": 340,
+      "pl": "### Wykopalisko Aura Battlera"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:772",
+      "mode": "story",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:812",
+      "mode": "story",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:920",
+      "mode": "story",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:976",
+      "mode": "story",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1048",
+      "mode": "story",
+      "level": 3,
+      "block": 345
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1120",
+      "mode": "story",
+      "level": 3,
+      "block": 346
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1200",
+      "mode": "story",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1264",
+      "mode": "story",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1368",
+      "mode": "story",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1444",
+      "mode": "story",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1512",
+      "mode": "story",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1576",
+      "mode": "story",
+      "level": 3,
+      "block": 352
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1624",
+      "mode": "story",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "heading": "### Simon excavates the Aura Battler",
+      "block": 354,
+      "pl": "### Simon odkopuje Aura Battlera"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1680",
+      "mode": "story",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1856",
+      "mode": "story",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1920",
+      "mode": "story",
+      "level": 3,
+      "block": 357
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:1972",
+      "mode": "story",
+      "level": 3,
+      "block": 358
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2032",
+      "mode": "story",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2112",
+      "mode": "story",
+      "level": 3,
+      "block": 360
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2160",
+      "mode": "story",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2332",
+      "mode": "story",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2480",
+      "mode": "story",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2516",
+      "mode": "story",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2548",
+      "mode": "story",
+      "level": 3,
+      "block": 365
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2592",
+      "mode": "story",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2640",
+      "mode": "story",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2688",
+      "mode": "story",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "heading": "### Show tests the recovered machine",
+      "block": 369,
+      "pl": "### Show testuje odzyskaną maszynę"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2820",
+      "mode": "story",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2880",
+      "mode": "story",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:2908",
+      "mode": "story",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3008",
+      "mode": "story",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3068",
+      "mode": "story",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3268",
+      "mode": "story",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3388",
+      "mode": "story",
+      "level": 3,
+      "block": 376
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3420",
+      "mode": "story",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3460",
+      "mode": "story",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "heading": "### The Dark Dragons return",
+      "block": 379,
+      "pl": "### Powrót Mrocznych Smoków"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3544",
+      "mode": "story",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3792",
+      "mode": "story",
+      "level": 3,
+      "block": 381
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3828",
+      "mode": "story",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3880",
+      "mode": "story",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:3928",
+      "mode": "story",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:4092",
+      "mode": "story",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:4144",
+      "mode": "story",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:4216",
+      "mode": "story",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "heading": "#### Conditional dialogue — defending the dig site",
+      "block": 388,
+      "pl": "#### Dialogi warunkowe — obrona wykopaliska"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:4680",
+      "mode": "conditional",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:4728",
+      "mode": "conditional",
+      "level": 3,
+      "block": 390
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:5412",
+      "mode": "conditional",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:5452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:5676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:5884",
+      "mode": "conditional",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6116",
+      "mode": "conditional",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 397
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6700",
+      "mode": "conditional",
+      "level": 3,
+      "block": 399
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6796",
+      "mode": "conditional",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:6860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 401
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7084",
+      "mode": "conditional",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7320",
+      "mode": "conditional",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7448",
+      "mode": "conditional",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7592",
+      "mode": "conditional",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "heading": "### An Aura Battler from another world",
+      "block": 409,
+      "pl": "### Aura Battler z innego świata"
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7864",
+      "mode": "story",
+      "level": 3,
+      "block": 410
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:7908",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8008",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8076",
+      "mode": "story",
+      "level": 3,
+      "block": 413
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8128",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8204",
+      "mode": "story",
+      "level": 3,
+      "block": 415
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8264",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8372",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP30.EDAT/DL624_25.bin:8444",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "mission": "eventP06.EDAT/DL624_35.bin",
+      "block": 419,
+      "mission_row": "mission_note:eventP06.EDAT/DL624_35_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:208",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:332",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:428",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:564",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "heading": "### Metal Knights around the Mucus Gate",
+      "block": 424,
+      "pl": "### Metalowi Rycerze wokół Bramy Mucus"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:956",
+      "mode": "story",
+      "level": 3,
+      "block": 425
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1040",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1140",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1208",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1328",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1428",
+      "mode": "story",
+      "level": 3,
+      "block": 430
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1496",
+      "mode": "story",
+      "level": 3,
+      "block": 431
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1532",
+      "mode": "story",
+      "level": 3,
+      "block": 432
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1648",
+      "mode": "story",
+      "level": 3,
+      "block": 433
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1708",
+      "mode": "story",
+      "level": 3,
+      "block": 434
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1800",
+      "mode": "story",
+      "level": 3,
+      "block": 435
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1892",
+      "mode": "story",
+      "level": 3,
+      "block": 436
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:1940",
+      "mode": "story",
+      "level": 3,
+      "block": 437
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:2044",
+      "mode": "story",
+      "level": 3,
+      "block": 438
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:2232",
+      "mode": "story",
+      "level": 3,
+      "block": 439
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:2312",
+      "mode": "story",
+      "level": 3,
+      "block": 440
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:2380",
+      "mode": "story",
+      "level": 3,
+      "block": 441
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:2416",
+      "mode": "story",
+      "level": 3,
+      "block": 442
+    },
+    {
+      "heading": "#### Conditional dialogue — fighting the Metal Knight invasion",
+      "block": 443,
+      "pl": "#### Dialogi warunkowe — walka z inwazją Metalowych Rycerzy"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:3600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 444
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:3712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 445
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:3772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 446
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:3960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 447
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4008",
+      "mode": "conditional",
+      "level": 3,
+      "block": 448
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4200",
+      "mode": "conditional",
+      "level": 3,
+      "block": 449
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4436",
+      "mode": "conditional",
+      "level": 3,
+      "block": 450
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4704",
+      "mode": "conditional",
+      "level": 3,
+      "block": 451
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4808",
+      "mode": "conditional",
+      "level": 3,
+      "block": 452
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:4896",
+      "mode": "conditional",
+      "level": 3,
+      "block": 453
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:5124",
+      "mode": "conditional",
+      "level": 3,
+      "block": 454
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:5244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 455
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:5316",
+      "mode": "conditional",
+      "level": 3,
+      "block": 456
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:5488",
+      "mode": "conditional",
+      "level": 3,
+      "block": 457
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:5700",
+      "mode": "conditional",
+      "level": 3,
+      "block": 458
+    },
+    {
+      "heading": "### The operation complete",
+      "block": 459,
+      "pl": "### Operacja zakończona"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6012",
+      "mode": "story",
+      "level": 3,
+      "block": 460
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6068",
+      "mode": "story",
+      "level": 3,
+      "block": 461
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6124",
+      "mode": "story",
+      "level": 3,
+      "block": 462
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6180",
+      "mode": "story",
+      "level": 3,
+      "block": 463
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6232",
+      "mode": "story",
+      "level": 3,
+      "block": 464
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6296",
+      "mode": "story",
+      "level": 3,
+      "block": 465
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6340",
+      "mode": "story",
+      "level": 3,
+      "block": 466
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_35.bin:6456",
+      "mode": "story",
+      "level": 3,
+      "block": 467
+    },
+    {
+      "mission": "eventP06.EDAT/DL624_45.bin",
+      "block": 468,
+      "mission_row": "mission_note:eventP06.EDAT/DL624_45_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:208",
+      "mode": "story",
+      "level": 3,
+      "block": 469
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:336",
+      "mode": "story",
+      "level": 3,
+      "block": 470
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:416",
+      "mode": "story",
+      "level": 3,
+      "block": 471
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:496",
+      "mode": "story",
+      "level": 3,
+      "block": 472
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:596",
+      "mode": "story",
+      "level": 3,
+      "block": 473
+    },
+    {
+      "heading": "### The thieves' hideout under attack",
+      "block": 474,
+      "pl": "### Kryjówka złodziei pod ostrzałem"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:856",
+      "mode": "story",
+      "level": 3,
+      "block": 475
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:932",
+      "mode": "story",
+      "level": 3,
+      "block": 476
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:992",
+      "mode": "story",
+      "level": 3,
+      "block": 477
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1088",
+      "mode": "story",
+      "level": 3,
+      "block": 478
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1164",
+      "mode": "story",
+      "level": 3,
+      "block": 479
+    },
+    {
+      "heading": "### Evil energy for Drago",
+      "block": 480,
+      "pl": "### Zła energia dla Drago"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1328",
+      "mode": "story",
+      "level": 3,
+      "block": 481
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1428",
+      "mode": "story",
+      "level": 3,
+      "block": 482
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1872",
+      "mode": "story",
+      "level": 3,
+      "block": 483
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1904",
+      "mode": "story",
+      "level": 3,
+      "block": 484
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:1972",
+      "mode": "story",
+      "level": 3,
+      "block": 485
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2012",
+      "mode": "story",
+      "level": 3,
+      "block": 486
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2104",
+      "mode": "story",
+      "level": 3,
+      "block": 487
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2172",
+      "mode": "story",
+      "level": 3,
+      "block": 488
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2264",
+      "mode": "story",
+      "level": 3,
+      "block": 489
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2300",
+      "mode": "story",
+      "level": 3,
+      "block": 490
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2412",
+      "mode": "story",
+      "level": 3,
+      "block": 491
+    },
+    {
+      "heading": "### A surviving thief",
+      "block": 492,
+      "pl": "### Ocalały złodziej"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2644",
+      "mode": "story",
+      "level": 3,
+      "block": 493
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2720",
+      "mode": "story",
+      "level": 3,
+      "block": 494
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2760",
+      "mode": "story",
+      "level": 3,
+      "block": 495
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2812",
+      "mode": "story",
+      "level": 3,
+      "block": 496
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2856",
+      "mode": "story",
+      "level": 3,
+      "block": 497
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2904",
+      "mode": "story",
+      "level": 3,
+      "block": 498
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:2968",
+      "mode": "story",
+      "level": 3,
+      "block": 499
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3016",
+      "mode": "story",
+      "level": 3,
+      "block": 500
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3084",
+      "mode": "story",
+      "level": 3,
+      "block": 501
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3148",
+      "mode": "story",
+      "level": 3,
+      "block": 502
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3180",
+      "mode": "story",
+      "level": 3,
+      "block": 503
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3252",
+      "mode": "story",
+      "level": 3,
+      "block": 504
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3296",
+      "mode": "story",
+      "level": 3,
+      "block": 505
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3376",
+      "mode": "story",
+      "level": 3,
+      "block": 506
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3480",
+      "mode": "story",
+      "level": 3,
+      "block": 507
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3556",
+      "mode": "story",
+      "level": 3,
+      "block": 508
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3616",
+      "mode": "story",
+      "level": 3,
+      "block": 509
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3696",
+      "mode": "story",
+      "level": 3,
+      "block": 510
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:3728",
+      "mode": "story",
+      "level": 3,
+      "block": 511
+    },
+    {
+      "heading": "#### Conditional dialogue — the rescue in Earthtia",
+      "block": 512,
+      "pl": "#### Dialogi warunkowe — akcja ratunkowa w Earthtii"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:4552",
+      "mode": "conditional",
+      "level": 3,
+      "block": 513
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:4612",
+      "mode": "conditional",
+      "level": 3,
+      "block": 514
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:4840",
+      "mode": "conditional",
+      "level": 3,
+      "block": 515
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5060",
+      "mode": "conditional",
+      "level": 3,
+      "block": 516
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5128",
+      "mode": "conditional",
+      "level": 3,
+      "block": 517
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 518
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 519
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5616",
+      "mode": "conditional",
+      "level": 3,
+      "block": 520
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5868",
+      "mode": "conditional",
+      "level": 3,
+      "block": 521
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:5992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 522
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 523
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6284",
+      "mode": "conditional",
+      "level": 3,
+      "block": 524
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6380",
+      "mode": "conditional",
+      "level": 3,
+      "block": 525
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6564",
+      "mode": "conditional",
+      "level": 3,
+      "block": 526
+    },
+    {
+      "heading": "### Searching for the survivors",
+      "block": 527,
+      "pl": "### Poszukiwanie ocalałych"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6840",
+      "mode": "story",
+      "level": 3,
+      "block": 528
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6876",
+      "mode": "story",
+      "level": 3,
+      "block": 529
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6948",
+      "mode": "story",
+      "level": 3,
+      "block": 530
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:6996",
+      "mode": "story",
+      "level": 3,
+      "block": 531
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7100",
+      "mode": "story",
+      "level": 3,
+      "block": 532
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7204",
+      "mode": "story",
+      "level": 3,
+      "block": 533
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7260",
+      "mode": "story",
+      "level": 3,
+      "block": 534
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7360",
+      "mode": "story",
+      "level": 3,
+      "block": 535
+    },
+    {
+      "heading": "### An emergency call from Eldgear",
+      "block": 536,
+      "pl": "### Pilne wezwanie z Eldgearu"
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7404",
+      "mode": "story",
+      "level": 3,
+      "block": 537
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7472",
+      "mode": "story",
+      "level": 3,
+      "block": 538
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7568",
+      "mode": "story",
+      "level": 3,
+      "block": 539
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7624",
+      "mode": "story",
+      "level": 3,
+      "block": 540
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7680",
+      "mode": "story",
+      "level": 3,
+      "block": 541
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7732",
+      "mode": "story",
+      "level": 3,
+      "block": 542
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7820",
+      "mode": "story",
+      "level": 3,
+      "block": 543
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7880",
+      "mode": "story",
+      "level": 3,
+      "block": 544
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:7976",
+      "mode": "story",
+      "level": 3,
+      "block": 545
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:8012",
+      "mode": "story",
+      "level": 3,
+      "block": 546
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:8064",
+      "mode": "story",
+      "level": 3,
+      "block": 547
+    },
+    {
+      "row": "dlg:eventP06.EDAT/DL624_45.bin:8152",
+      "mode": "story",
+      "level": 3,
+      "block": 548
+    }
+  ]
+}

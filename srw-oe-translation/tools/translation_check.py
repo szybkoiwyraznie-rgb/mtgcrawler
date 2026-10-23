@@ -269,7 +269,7 @@ def check_row(row: dict, require_complete: bool = False,
     if row.get("category") == "terrain_name":
         import terrain_names
         try:
-            terrain_names.validate_row({**row, "en": text})
+            terrain_names.validate_row({**row, "en": text}, target_lang=field)
         except terrain_names.TerrainError as exc:
             errors.append(str(exc))
         return errors, warnings

@@ -945,10 +945,10 @@ Final SHA-256: `tools/iso9660.py` `26a14829f26b5373dce675fe67feb490f1a9e3382c74f
 
 **Text cohort — the pointer result, and its control:**
 
-| u32 LE, unaligned | at marker | at text start | controls marker+1 / start+1 |
-| --- | --- | --- | --- |
-| real text cohort | 599 | **6,535** | 446 / 1,339 |
-| density-matched synthetic corpus with **no** pointer table | 340 | 421 | 494 / 374 |
+| u32 LE, unaligned                                          | at marker | at text start | controls marker+1 / start+1 |
+| ---------------------------------------------------------- | --------- | ------------- | --------------------------- |
+| real text cohort                                           | 599       | **6,535**     | 446 / 1,339                 |
+| density-matched synthetic corpus with **no** pointer table | 340       | 421           | 494 / 374                   |
 
 The synthetic null was built to the text cohort's own density (5,351,375 bytes, 45,122 units, 293 files, 119 bytes per unit against the real 111; 18,264 bytes per file against 17,186) and gives `start/start+1` = 1.13, where the real data gives 4.88 with 15× the null's absolute count. So **the text-start offsets occur as u32 little-endian values in the event files far above chance, and the shifted-by-one control is not what produces it.** Marker offsets are *not* elevated (599 vs 446, like the null's 340 vs 494), so whatever is stored points at the byte after `FF FF`, not at the marker.
 
@@ -1106,11 +1106,13 @@ section bodies, interleaved with command words (the inter-unit gaps contain reco
 
 **Three offset hypotheses, all measured against a null, all negative:**
 
-| Test | Result |
-|---|---|
-| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64 | best base reaches **2%** of a file's starts, and the starts-shifted-by-+1 control reaches the same → chance |
-| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists |
-| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below chance |
+| Test                                                                                                                                                  | Result                                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Load-base pointers (`BASE + start` as u32, 4-aligned), 1,601 candidate bases over the PSP user-memory window plus 0..64                               | best base reaches **2%** of a file's starts, and the        |
+|                                                                                                                                                       | starts-shifted-by-+1 control reaches the same → chance      |
+| Longest strictly-increasing run of u16/u32 values inside `[0, file size)` — a table of any width, endian or alignment would show as a run of hundreds | **1–4 positions**, null gives 2–5 → no table exists         |
+| Section-relative offsets (start or marker minus the section body start) present as u16/u32 inside the same section                                    | real 12/1/4/11 units, null 18/16/9/26 for u16 — at or below |
+|                                                                                                                                                       | chance                                                      |
 
 **What this means, and the correction it forces.** `retro-trans/SRW-Z`'s COMPDATA model (a table of
 absolute load-base addresses) does **not** apply to this game's event files, so the base scan's
@@ -1148,13 +1150,13 @@ step in the QuickBMS script posted in gbatemp thread 351431. Its header gives `t
 `rows_offset 67`, `string_table_offset 211`, `row_length 24`, `rows 6`. Seven columns, two of them
 constant-storage (`DirName`, `UserString`) and five per-row, laid out in the row as:
 
-| column | offset in row | width |
-|---|---|---|
-| `FileName` | 0 | 4 (string-table index) |
-| `FileSize` | 4 | 4 |
-| `ExtractSize` | 8 | 4 |
-| `FileOffset` | 12 | 8 |
-| `ID` | 20 | 4 |
+| column        | offset in row | width                  |
+| ------------- | ------------- | ---------------------- |
+| `FileName`    | 0             | 4 (string-table index) |
+| `FileSize`    | 4             | 4                      |
+| `ExtractSize` | 8             | 4                      |
+| `FileOffset`  | 12            | 8                      |
+| `ID`          | 20            | 4                      |
 
 All values big-endian. Reading them back gives `FileOffset` 4096 / 12288 / 8192 / 10240 / 6144 /
 18432 with the matching `FileSize`/`ExtractSize` — **identical to what `tools/cpk_table.py` reports
@@ -3001,16 +3003,16 @@ nie wstrzyknął.
 **Odwrócenie rodzajów na żywych memberach eventP00.cpk (2026-10-13) [ZWERYFIKOWANE]:**
 każdy rodzaj to zwykły rekord łańcucha `u32 type, u32 size, parametry, tekst+NUL, zera`:
 
-| rodzaj | type | parametry przed tekstem | tekst @ | próbki |
-|---|---|---|---|---|
-| condition_defeat | 0x1B5 | brak | 8 | 3 |
-| condition_victory | 0x1B4 | brak | 8 | 3 |
-| location | 0x152 | u32 id miejsca (786/157/83) | 12 | 3 |
-| help | 0x1FC | u32 (1/3) | 12 | 3 |
-| scene_title | 0x1B6 | 3×u32 (0,1,0) | 20 | 3 |
-| label | 0x1BA | **dwie postaci**: brak LUB u32 id (149) | 8 LUB 12 | 2 |
-| label | 0x14F | u32 id (368/375) | 12 | 2 |
-| label | 0x14A | brak | 8 | 4 |
+| rodzaj            | type  | parametry przed tekstem                 | tekst @  | próbki |
+| ----------------- | ----- | --------------------------------------- | -------- | ------ |
+| condition_defeat  | 0x1B5 | brak                                    | 8        | 3      |
+| condition_victory | 0x1B4 | brak                                    | 8        | 3      |
+| location          | 0x152 | u32 id miejsca (786/157/83)             | 12       | 3      |
+| help              | 0x1FC | u32 (1/3)                               | 12       | 3      |
+| scene_title       | 0x1B6 | 3×u32 (0,1,0)                           | 20       | 3      |
+| label             | 0x1BA | **dwie postaci**: brak LUB u32 id (149) | 8 LUB 12 | 2      |
+| label             | 0x14F | u32 id (368/375)                        | 12       | 2      |
+| label             | 0x14A | brak                                    | 8        | 4      |
 
 Reguła `padded_size` (wyrównanie do 4 bajtów, ≥1 NUL, `pad or 4`) zgadza się na KAŻDEJ
 zmierzonej próbce wszystkich rodzajów — mechanizm `grow_text` (poprawki size rekordu,
@@ -3225,13 +3227,13 @@ stracone; DLC_ID00 r9 / DLC_ID01 r0 → 171 wierszy). Teraz `resolve_rows` odmaw
 (z offsetami odwołań), reszta członka jest pisana; `rebuild_pool` zostaje jako ostatnia linia.
 
 **Przebiegi scale (7 JSONL bez 03 = „base", 8 JSONL = „full"; 6 kontenerów; build ~105–115 s):**
-| wersja | zmiana | base: sprawdzone / trafione / brak | full |
-|---|---|---|---|
-| v8a | sloty + białe znaki | 26 623 / 25 289 / 1 334 | 31 520 / 30 184 / 1 336 |
-| v8b | slot po binariach (bg2dlist, milstP01) | 26 623 / 25 304 / 1 319 | 31 520 / 30 199 / 1 321 |
-| v8c | pula w miejscu, bliźniaki, semantyka limitu | 26 514 / 25 945 / 569 | 31 411 / 30 842 / 569 |
-| v8d | strażnik TW per rekord | 26 514 / 26 032 / 482 | 31 411 / 30 929 / 482 |
-| v8e | wyjątek liczb w rekordach DLC_ID | 26 514 / **26 171 / 343** | 31 411 / **31 068 / 343** |
+| wersja | zmiana                                      | base: sprawdzone / trafione / brak | full                      |
+| ------ | ------------------------------------------- | ---------------------------------- | ------------------------- |
+| v8a    | sloty + białe znaki                         | 26 623 / 25 289 / 1 334            | 31 520 / 30 184 / 1 336   |
+| v8b    | slot po binariach (bg2dlist, milstP01)      | 26 623 / 25 304 / 1 319            | 31 520 / 30 199 / 1 321   |
+| v8c    | pula w miejscu, bliźniaki, semantyka limitu | 26 514 / 25 945 / 569              | 31 411 / 30 842 / 569     |
+| v8d    | strażnik TW per rekord                      | 26 514 / 26 032 / 482              | 31 411 / 30 929 / 482     |
+| v8e    | wyjątek liczb w rekordach DLC_ID            | 26 514 / **26 171 / 343**          | 31 411 / **31 068 / 343** |
 Walidator: v8a 51 błędów `copy differs` (bliźniaki `char:600:series` config01/imenu01 bez EN) → od
 v8b **0 błędów**. Niewypełnione przez fill: 111/146 „tylko tokeny" + 109 „znacznik nie mieści się"
 (fragmenty 2–4 B puli). „Poza buildem" 1 636 = bliźniaki w kontenerach spoza folderu (imenu01/02,
@@ -3318,21 +3320,21 @@ local/translation --out local/real_patch`), przebieg #4 (ostateczny): 91 s, exit
 kontenery pakietu nie leżą w folderze (config10–46, eventP01+, mesbtl01+, imenu01+). 13 kontenerów
 zapisanych (budowniczy znalazł `full_dlc/` przez rglob):**
 
-| kontener | we (B) | wy (B) | md5 wyjścia | kroki (zapisy/odmowy) |
-|---|---|---|---|---|
-| config00.cpk | 929 920 | 948 352 | `202c2d2476f36e37c619fdc088d9caa3` | tail-pool 671/0, records 9 658, tables 866/561, names 1 110/0, slots 464/5 |
-| config01.EDAT | 247 936 | 249 984 | `87b8ab67a47a706ae5f855e16afa35f4` | tables 1 164/473, names 1 264, slots 138 |
-| configst.cpk | 376 960 | 471 168 | `dd7e626bd7f14645abc52a2bf5bdb7c4` | tail-pool 184/0, records 1 645, tables 362/13, sysmes 1 666, slots 62 |
-| eventP00.cpk | 162 264 | 258 520 | `a3b1dfc31d63b678211a51a0f2ea476d` | dialogue 11 członków 1 706/0, slots 2/1 |
-| imenu00.cpk | 34 984 | 57 512 | `5317aa99dd3e1ddb3c7cf48310179b79` | tables 524/520 |
-| mesbtl00.cpk | 348 888 | 1 010 392 | `a5a6ac5ae905f6471048de7b5acc3ddc` | quotes 8 660/0 |
-| config02.EDAT | 157 824 | 161 920 | `bee5129687db831b854d14705cd1dc69` | tables 907/502, names 688, slots 60 |
-| config03.EDAT | 118 912 | 120 960 | `9afebe41f2931919c080b907e9879704` | tables 847/537, names 401, slots 42 |
-| config04.EDAT | 108 672 | 110 720 | `22c83c34e73f2b47e496a67a7fc4161e` | tables 816/560, names 311, slots 42 |
-| config05.EDAT | 110 720 | 112 768 | `b92efdbe76f2a5c1cc648242f9f509b7` | tables 770/557, names 317, slots 35 |
-| config06.EDAT | 75 904 | 77 952 | `5588f54ef8bcbd0f79206438e90c0dad` | tables 712/576, names 134, slots 32 |
-| config07.EDAT | 73 856 | 75 904 | `5f7624ea5ac80e1a3c72819949c8ea70` | tables 714/578, names 122, slots 27 |
-| config08.EDAT | 80 000 | 82 048 | `1433bb5c685bd11f38967fcfb965dee0` | tables 688/583, names 155, slots 32 |
+| kontener      | we (B)  | wy (B)    | md5 wyjścia                        | kroki (zapisy/odmowy)                                                      |
+| ------------- | ------- | --------- | ---------------------------------- | -------------------------------------------------------------------------- |
+| config00.cpk  | 929 920 | 948 352   | `202c2d2476f36e37c619fdc088d9caa3` | tail-pool 671/0, records 9 658, tables 866/561, names 1 110/0, slots 464/5 |
+| config01.EDAT | 247 936 | 249 984   | `87b8ab67a47a706ae5f855e16afa35f4` | tables 1 164/473, names 1 264, slots 138                                   |
+| configst.cpk  | 376 960 | 471 168   | `dd7e626bd7f14645abc52a2bf5bdb7c4` | tail-pool 184/0, records 1 645, tables 362/13, sysmes 1 666, slots 62      |
+| eventP00.cpk  | 162 264 | 258 520   | `a3b1dfc31d63b678211a51a0f2ea476d` | dialogue 11 członków 1 706/0, slots 2/1                                    |
+| imenu00.cpk   | 34 984  | 57 512    | `5317aa99dd3e1ddb3c7cf48310179b79` | tables 524/520                                                             |
+| mesbtl00.cpk  | 348 888 | 1 010 392 | `a5a6ac5ae905f6471048de7b5acc3ddc` | quotes 8 660/0                                                             |
+| config02.EDAT | 157 824 | 161 920   | `bee5129687db831b854d14705cd1dc69` | tables 907/502, names 688, slots 60                                        |
+| config03.EDAT | 118 912 | 120 960   | `9afebe41f2931919c080b907e9879704` | tables 847/537, names 401, slots 42                                        |
+| config04.EDAT | 108 672 | 110 720   | `22c83c34e73f2b47e496a67a7fc4161e` | tables 816/560, names 311, slots 42                                        |
+| config05.EDAT | 110 720 | 112 768   | `b92efdbe76f2a5c1cc648242f9f509b7` | tables 770/557, names 317, slots 35                                        |
+| config06.EDAT | 75 904  | 77 952    | `5588f54ef8bcbd0f79206438e90c0dad` | tables 712/576, names 134, slots 32                                        |
+| config07.EDAT | 73 856  | 75 904    | `5f7624ea5ac80e1a3c72819949c8ea70` | tables 714/578, names 122, slots 27                                        |
+| config08.EDAT | 80 000  | 82 048    | `1433bb5c685bd11f38967fcfb965dee0` | tables 688/583, names 155, slots 32                                        |
 
 Odmowy kroku `tables` to nie utracone teksty: RoboDictionary 472 „no record with key" (wiersze 03 adresowane
 kluczem, których rekord leży w innej puli — próbowane na każdym kontenerze), CharaDictionary 72 konflikty
@@ -3797,15 +3799,15 @@ sub-pliki identyczne): 7/7 OK. Testy `tests/test_member_variants.py` (4); pełny
 
 **Runda 2 (Skill00 w `config00.cpk`, reszta oryginalna):**
 
-| wariant | Skill00 B | pac B | md5 config00.cpk |
-|---|---|---|---|
-| S1 `pad` | 228 202 | 942 080 | `91217ef2920d836b97a84fb8e3cd5d56` |
-| S2 `rec_en_pool_jp` | 226 222 | 940 032 | `a7ed11e8864aadd228b1ab1fbe302ac6` |
-| S3 `rec_jp_pool_en` | 210 938 | 923 648 | `42873880e4a36064db48bcd18f8a2fc3` |
-| S4 `names_only` | 218 682 | 931 840 | `7cf248c7ced4abb69b2049ecccb8e72f` |
-| S5 `effects_only` | 216 434 | 929 792 | `dcf1161fb37b7ed06012b67ee4449221` |
-| S6 `half_a` | 219 498 | 933 888 | `daca472bca7f38daa43a4259399c4906` |
-| S7 `half_b` | 215 682 | 929 792 | `f6b76ded030668841e0c235b930cce44` |
+| wariant             | Skill00 B | pac B   | md5 config00.cpk                   |
+| ------------------- | --------- | ------- | ---------------------------------- |
+| S1 `pad`            | 228 202   | 942 080 | `91217ef2920d836b97a84fb8e3cd5d56` |
+| S2 `rec_en_pool_jp` | 226 222   | 940 032 | `a7ed11e8864aadd228b1ab1fbe302ac6` |
+| S3 `rec_jp_pool_en` | 210 938   | 923 648 | `42873880e4a36064db48bcd18f8a2fc3` |
+| S4 `names_only`     | 218 682   | 931 840 | `7cf248c7ced4abb69b2049ecccb8e72f` |
+| S5 `effects_only`   | 216 434   | 929 792 | `dcf1161fb37b7ed06012b67ee4449221` |
+| S6 `half_a`         | 219 498   | 933 888 | `daca472bca7f38daa43a4259399c4906` |
+| S7 `half_b`         | 215 682   | 929 792 | `f6b76ded030668841e0c235b930cce44` |
 
 Oczekiwane wzorce: rozmiar kontenera → V6 pada (i S1, S2); rozmiar członu → V6 działa, S1 pada, S3 działa;
 nazwy → S4 pada, S5 działa; opisy → odwrotnie; napisy puli (np. dopasowanie do pul `SkillNN` DLC po treści)
@@ -3832,14 +3834,14 @@ Weryfikacja niezależna każdego wariantu: pola poza `effect` identyczne, `effec
 nagłówki +0..+35 i ogony numeryczne identyczne, pula identyczna, 0 błędnych wskaźników, pozostałe 33
 sub-pliki bajt w bajt. Testy: `tests/test_member_variants.py` (6), pełny zestaw 1 052 OK / 1 skipped.
 
-| wariant | Skill00 B | wzrost | rekordów ze spacjami | pac B | md5 config00.cpk |
-|---|---|---|---|---|---|
-| T1_plus_2KB | 210 942 | +1 984 | 496 | 923 648 (= oryginał) | `33d38092ea1ce7fe9378b598e012e153` |
-| T2_plus_4KB | 212 990 | +4 032 | 1 008 | 925 696 | `28e215ae62dde9ea55fdab8caaeebd28` |
-| T3_plus_8KB | 217 086 | +8 128 | 1 463 | 929 792 | `ee063c83dcbdeaef5ffec9b3b18c4645` |
-| T4_plus_12KB | 221 182 | +12 224 | 1 463 | 933 888 | `3d4ed74f01597f495ef9843ac9124012` |
-| T5_plus_16KB | 225 278 | +16 320 | 1 463 | 937 984 | `336e4b9e70f98462eeb22b2e708c0d1a` |
-| T6_plus_19KB_jak_build | 228 202 | +19 244 | 1 463 | 942 080 (= build #10) | `915a38227cb003b10d029e32a33c4288` |
+| wariant                | Skill00 B | wzrost  | rekordów ze spacjami | pac B                 | md5 config00.cpk                   |
+| ---------------------- | --------- | ------- | -------------------- | --------------------- | ---------------------------------- |
+| T1_plus_2KB            | 210 942   | +1 984  | 496                  | 923 648 (= oryginał)  | `33d38092ea1ce7fe9378b598e012e153` |
+| T2_plus_4KB            | 212 990   | +4 032  | 1 008                | 925 696               | `28e215ae62dde9ea55fdab8caaeebd28` |
+| T3_plus_8KB            | 217 086   | +8 128  | 1 463                | 929 792               | `ee063c83dcbdeaef5ffec9b3b18c4645` |
+| T4_plus_12KB           | 221 182   | +12 224 | 1 463                | 933 888               | `3d4ed74f01597f495ef9843ac9124012` |
+| T5_plus_16KB           | 225 278   | +16 320 | 1 463                | 937 984               | `336e4b9e70f98462eeb22b2e708c0d1a` |
+| T6_plus_19KB_jak_build | 228 202   | +19 244 | 1 463                | 942 080 (= build #10) | `915a38227cb003b10d029e32a33c4288` |
 
 Oryginał Skill00 zajmuje w `.pac` slot 210 944 B (wyrównanie 2 048), więc T1 (i S3 z rundy 2) rosną bez
 zmiany rozmiaru `.pac` i bez przesuwania kolejnych sub-plików. Kontener T6 ma 948 352 B = dokładnie
@@ -3881,11 +3883,11 @@ wielokrotność 2 048), `member_variants --align`, `--labels`; szczebel o rozmia
 
 **Runda 4 (wszystkie: `config00.cpk`, pozostałe 33 sub-pliki bajt w bajt, kolejność i rozmiary zachowane):**
 
-| wariant | Skill00 B | krok pac | pac B | cpk B | nagłówek Enabled* | md5 |
-|---|---|---|---|---|---|---|
-| U2_pac_ciasny_plus_19KB | 228 202 (= T6) | 64 | 905 216 | 911 488 | stare (jak T6) | `5f7cc82990ba211b410029be8fc4361b` |
-| U1_pac_ciasny | 208 958 (oryginał) | 64 | 886 784 | 893 056 | stare | `b3ee2d4fe39e5769768e29f8f39fd4d8` |
-| T7_plus_19KB_naglowek_cpk | 228 202 (= T6) | 2 048 | 942 080 | 948 352 | poprawione 1 884 160 | `cc92f1973ea6f161c4e5047928602bbe` |
+| wariant                   | Skill00 B          | krok pac | pac B   | cpk B   | nagłówek Enabled*    | md5                                |
+| ------------------------- | ------------------ | -------- | ------- | ------- | -------------------- | ---------------------------------- |
+| U2_pac_ciasny_plus_19KB   | 228 202 (= T6)     | 64       | 905 216 | 911 488 | stare (jak T6)       | `5f7cc82990ba211b410029be8fc4361b` |
+| U1_pac_ciasny             | 208 958 (oryginał) | 64       | 886 784 | 893 056 | stare                | `b3ee2d4fe39e5769768e29f8f39fd4d8` |
+| T7_plus_19KB_naglowek_cpk | 228 202 (= T6)     | 2 048    | 942 080 | 948 352 | poprawione 1 884 160 | `cc92f1973ea6f161c4e5047928602bbe` |
 
 U1/U2 zbudowane PRZED poprawką Enabled* (jedna zmienna względem T6: tylko pakowanie); T7 po niej (jedna
 zmienna: tylko nagłówek). Weryfikacja: offsety sub-plików U1/U2 wielokrotności 64 (nie 2 048), człon U1 ==
@@ -3924,13 +3926,13 @@ przeliczonym nagłówkiem (kontrola nieszkodliwości poprawki; różni się od T
 301–309). Weryfikacja: pola poza `effect` identyczne z oryginałem, `effect` = oryginał + spacje (max 106 B),
 pozostałe sub-pliki bajt w bajt.
 
-| wariant | Skill00 B | wzrost | pac B | nagłówek | md5 config00.cpk |
-|---|---|---|---|---|---|
-| W1_plus_8132B | 217 090 | +8 132 | 931 840 | stary | `4761e349eca7e9a7d5ffb8d9982a3cf8` |
-| W2_plus_9152B | 218 110 | +9 152 | 931 840 | stary | `ccc6ff7282e42b025a559de386a6d0af` |
-| W3_plus_10176B | 219 134 | +10 176 | 931 840 | stary | `ff8df864bdab3a98d7d6f51ba9777a05` |
-| W4_plus_11200B | 220 158 | +11 200 | 933 888 | stary | `45fa9b1c69133bb85556e6f12af66e87` |
-| W5_jak_T3_nowy_naglowek | 217 086 | +8 128 | 929 792 | przeliczony | `14831c70663deecd14e1413276642b7a` |
+| wariant                 | Skill00 B | wzrost  | pac B   | nagłówek    | md5 config00.cpk                   |
+| ----------------------- | --------- | ------- | ------- | ----------- | ---------------------------------- |
+| W1_plus_8132B           | 217 090   | +8 132  | 931 840 | stary       | `4761e349eca7e9a7d5ffb8d9982a3cf8` |
+| W2_plus_9152B           | 218 110   | +9 152  | 931 840 | stary       | `ccc6ff7282e42b025a559de386a6d0af` |
+| W3_plus_10176B          | 219 134   | +10 176 | 931 840 | stary       | `ff8df864bdab3a98d7d6f51ba9777a05` |
+| W4_plus_11200B          | 220 158   | +11 200 | 933 888 | stary       | `45fa9b1c69133bb85556e6f12af66e87` |
+| W5_jak_T3_nowy_naglowek | 217 086   | +8 128  | 929 792 | przeliczony | `14831c70663deecd14e1413276642b7a` |
 
 **Drzewo decyzji dla użytkownika (w `CZYTAJ.txt`):** najpierw U2 (działa ⇒ STOP, poprawka = ciasny pac);
 U2 pada → U1 (działa ⇒ limit członu ⇒ runda 5; pada ⇒ V6: pada ⇒ limit kontenera, działa ⇒ runda 5).
@@ -4280,14 +4282,14 @@ E `imenu00`, G (same EDAT) nigdy nie były uruchomione.** `ppsspplog.txt` z Dysk
 **Build #15 (tu, z oryginałów z Dysku; 13 kontenerów, bo `--dlc` dostał tylko oryginały config00/configst/eventP00/
 imenu00/mesbtl00/config01–08; pakiet v3; narzędzia po `3fe558b`):**
 
-| plik | oryginał | build #15 | md5 build #15 |
-|---|---|---|---|
-| config00.cpk | 929 920 | 936 064 | `71d9fcafa37c21513b97c14d1dff8f33` (= #14) |
-| configst.cpk | 376 960 | 372 864 | `6cfe245d5f6ec6dfffd2a829b778a4d7` (= #14) |
-| eventP00.cpk | 162 264 | 260 568 | `ac538959fdef3d47eeb38d0e2282adb0` |
-| imenu00.cpk | 34 984 | 57 512 | `ee66a6f824a54f2ee27c8309db16294a` |
-| mesbtl00.cpk | 348 888 | 994 008 | `00e10760c204e75133169b3455b19608` |
-| config01–08.EDAT | — | każdy +2 048 B (config02 +4 096) | `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`, `41b25268…`, `75c1101f…`, `bbeddd5e…` |
+| plik             | oryginał | build #15                        | md5 build #15                                                                                          |
+| ---------------- | -------- | -------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| config00.cpk     | 929 920  | 936 064                          | `71d9fcafa37c21513b97c14d1dff8f33` (= #14)                                                             |
+| configst.cpk     | 376 960  | 372 864                          | `6cfe245d5f6ec6dfffd2a829b778a4d7` (= #14)                                                             |
+| eventP00.cpk     | 162 264  | 260 568                          | `ac538959fdef3d47eeb38d0e2282adb0`                                                                     |
+| imenu00.cpk      | 34 984   | 57 512                           | `ee66a6f824a54f2ee27c8309db16294a`                                                                     |
+| mesbtl00.cpk     | 348 888  | 994 008                          | `00e10760c204e75133169b3455b19608`                                                                     |
+| config01–08.EDAT | —        | każdy +2 048 B (config02 +4 096) | `6199c7de…`, `e21939c4…`, `a701413a…`, `8e4ab123…`, `8f2a6292…`, `41b25268…`, `75c1101f…`, `bbeddd5e…` |
 
 Analiza członów (`cpk_write.load`, `extract_size` oryginał → build): rozpakowane rozmiary rosną **najwyżej o ~6 %**
 (imenu00 `CharaDictionary00` +664 B; mesbtl00 suma 981 128 → 979 904; eventP00 suma 170 032 → 176 120); rozmiary
@@ -4483,14 +4485,14 @@ spec; zapisuje tylko kontenery, które coś zmieniły; member z powrotem STORED 
 `crilayla.compress` (LZSS; **nigdy nie sprawdzony w grze**); odczyt kontrolny przez `speaker_map.read_members` +
 porównanie bajtów GIM; `ui_texture_report.json` (rozmiary, md5, dopasowanie każdego napisu). Wyniki (oryginały z Dysku):
 
-| wariant | plik | B | md5 | member |
-|---|---|---|---|---|
-| A_stored (3 s) | system.cpk | 195 888 | `4862e1f34ef68c7b631d146995722dfe` | 191 792 stored |
-| | IM1000.cpk | 166 016 | `6695d4da2cfccde08bf6e2c51be1974d` | 158 352 stored |
-| | IM3000.cpk | 252 032 | `541c20d50c28ab0a3d0b6944c02093e4` | 243 760 stored |
-| B_crilayla (46 s) | system.cpk | 80 203 | `7be64db85b7662566b63b2071f7b7826` | 76 107 ← 191 792 |
-| | IM1000.cpk | 67 712 | `0362fa7a4a91b0b051c2caf73eb262bb` | 60 375 ← 158 352 |
-| | IM3000.cpk | 100 480 | `5458d0824b87461c1847481acde0ab04` | 92 644 ← 243 760 |
+| wariant           | plik       | B       | md5                                | member           |
+| ----------------- | ---------- | ------- | ---------------------------------- | ---------------- |
+| A_stored (3 s)    | system.cpk | 195 888 | `4862e1f34ef68c7b631d146995722dfe` | 191 792 stored   |
+|                   | IM1000.cpk | 166 016 | `6695d4da2cfccde08bf6e2c51be1974d` | 158 352 stored   |
+|                   | IM3000.cpk | 252 032 | `541c20d50c28ab0a3d0b6944c02093e4` | 243 760 stored   |
+| B_crilayla (46 s) | system.cpk | 80 203  | `7be64db85b7662566b63b2071f7b7826` | 76 107 ← 191 792 |
+|                   | IM1000.cpk | 67 712  | `0362fa7a4a91b0b051c2caf73eb262bb` | 60 375 ← 158 352 |
+|                   | IM3000.cpk | 100 480 | `5458d0824b87461c1847481acde0ab04` | 92 644 ← 243 760 |
 
 `verify-identity` obu pisarzy na zbudowanych plikach OK; `cpk_table.read_cpk_table` czyta je (ContentSize 192 512 /
 159 744 / 245 760 i 77 824 / 61 440 / 94 208). **Ryzyko A:** member 2,6× większy niż oryginał (gra może mieć bufor na
@@ -6177,24 +6179,24 @@ w PPSSPP ani na PSP. Poprzednie wydania i oryginały zachowane jako rollback.
 
 Oryginały użyte do weryfikacji (pliki niepublikowane w repo):
 
-| Plik | Bajty | SHA-256 |
-|---|---:|---|
-| `config01.EDAT` | 247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
-| `config02.EDAT` | 157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
-| `config03.EDAT` | 118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
-| `config04.EDAT` | 108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
-| `config05.EDAT` | 110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
-| `config06.EDAT` | 75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
-| `config07.EDAT` | 73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
-| `imenu01.EDAT` | 24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
-| `imenu02.EDAT` | 20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
-| `imenu03.EDAT` | 18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
-| `imenu04.EDAT` | 20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
-| `imenu05.EDAT` | 18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
-| `imenu06.EDAT` | 18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
-| `imenu07.EDAT` | 18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
-| `eventP00.cpk` | 162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
-| `EBOOT.BIN` | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
+| Plik            |   Bajty | SHA-256                                                            |
+| --------------- | ------: | ------------------------------------------------------------------ |
+| `config01.EDAT` |  247936 | `1c2213b700d32963ed79d903b10f234bb365094b3f755ab2241d4a7bb7a38431` |
+| `config02.EDAT` |  157824 | `7c47a06cedbe2f86fc3c45d19d4056eaad48c41d725555eb86b8f22f7b5f0053` |
+| `config03.EDAT` |  118912 | `420ff4ab9d7d10a414d190e30ebec8d095107d73503863b970f2e3a05705b511` |
+| `config04.EDAT` |  108672 | `bed6afca95dd35c779b07c2d5958f420e0cc204efb241da363a549d4a4b1fd09` |
+| `config05.EDAT` |  110720 | `f6dcbd94a59e42e290a725b2806fa10d2dae1fd9689392a1b91d3a1e4f6d72a9` |
+| `config06.EDAT` |   75904 | `a70cea8dcd5fe2beeb2b1d76520521b4601a844a3db698b0aa664ed0c9fd886e` |
+| `config07.EDAT` |   73856 | `734f84b832126e83d76f8f9adc7de4afb304d81151ce0618609a4399d5a571d8` |
+| `imenu01.EDAT`  |   24744 | `d1bf9c4d6f222efaa0115f1162c3c0dc88bb725289127f7656d61004b9025325` |
+| `imenu02.EDAT`  |   20648 | `9294b9fdba2f9962a2e8182d5dcbed024251609710eca12d7a2b68e23cbeac03` |
+| `imenu03.EDAT`  |   18600 | `96dba48d6be2f2f32918076ef07ae4d9378adf8afb21142ec12d75edf894b4ef` |
+| `imenu04.EDAT`  |   20648 | `c3cac214d0945f27c066a586c336bd53e31762740def574cf3b06d2de8ef1121` |
+| `imenu05.EDAT`  |   18600 | `e5f59dd3bc184915fee551bb3c970615aa7efc970c2f9307ff2ea9bdeee6799d` |
+| `imenu06.EDAT`  |   18600 | `49ef91938d50ea9a43c7fbd1d45d1e5713f9227ec4bd70e2096def13404f68df` |
+| `imenu07.EDAT`  |   18600 | `d824ac795a315fd47460032a472c60e0b1c77b67597ca0f79abd8a92575dfdbc` |
+| `eventP00.cpk`  |  162264 | `d47fe41e6ff478c608086a969ce31789e92952e064ffa69eb104a0b8fe7c1dfa` |
+| `EBOOT.BIN`     | 5531024 | `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` |
 
 
 ### 21.62 Odzyskanie pracy poprzedniego agenta i finał czytelniczy 34 — checkpoint (2026-10-17)
@@ -7832,3 +7834,467 @@ with all1283 protected owner bindings. Static patcher kit v2.7-PL4: Drive
 MD540b1373c52540b0f3b6e2e8e973c4f3f; 91 ZIP members/90 payload hashes. Drive
 download-back exact, CRC/all hashes pass. Full suite1727 OK/30 skipped. No
 original full ISO/DLC in this sandbox, so no physical build/readback.
+
+Polish pilot, Spirit Command, and skill catalogue (2026-10-21):
+1. Verified 21 original game containers (`config00.cpk`, `config01.EDAT`–`config19.EDAT`,
+   `configst.cpk`) byte-for-byte against `docs/mech-catalog/source-inventory.json`,
+   decrypted 1.08 `DATA.PSP` (`5,531,024 B`, SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`),
+   and materialized offline `pakiet_PL` (`snapshot_sha256` `4a31a17cf3b69be5887c7c9e6800cf9ac157c7ed93dc5335c5795bb60abd7ab2`).
+2. Reverse engineered 1.08 `.text` pilot progression & lookup routines (`0x0e009c`,
+   `0x0e5680`, `0x0e5980..0x0e59b0`, `0x0e5d44`, `0x0e78b4`, `0x0c69a0`,
+   `0x148b70..0x148c64`, `0x21ba98`, `0x21df58`, `0x21f4ec..0x21f998`). Confirmed why
+   closed PR #21 (`pilot_skills*.py`) was invalid (misread `srwDL_CharaDictionary`
+   32-bit string offsets as skill IDs) and replaced cleanly from first principles with
+   `tools/pilot_catalog_probe.py`, `tools/pilot_catalog.py`, `tools/verify_pilot_catalog.py`,
+   and `tests/test_pilot_catalog.py`.
+3. Executed unmodified 1.08 `.text 0x0e5d44` across all `1,469` `Skill` + `60` `Spirit`
+   records (`112` total / `38` pilot-skill 1.08 ELF overrides, `0` Spirit overrides)
+   and executed unmodified `.text 0x21f4ec` in Unicorn across all `404` `charalist`
+   records + synthetic `step == 0` profile (`7,307 / 7,307` exact matches, `0` mismatches).
+4. Rendered `srwoe_pilot_catalog_PL.md`: `634,758 B`, `6,096` lines,
+   SHA-256 `bd283fa6bfa7ad19267ad7e56f560bea5a6683d2851fcb9c61bcc7a5c5a17a9e`,
+   MD5 `728d0b85d83e7b650ec49fe3fc9d726b` (`404` characters = `92` playable + `45` sub-pilots +
+   `117` enemy/rival + `150` non-combat; `20` Spirit families / `60` tiers; `80` pilot/Ace
+   skill families / `536` tiers; `0` CJK / control tokens).
+5. Uploaded to Google Drive `1RJL6Y7rjrsUA4c0YMPYgw13IDXxSwI4t` (folder
+   `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`), verified Drive server `sha256_checksum` +
+   `md5_checksum` + `4,096`-char UTF-8 read-back prefix exact match. Full repository test
+   suite: `1,751 OK, skipped=32`. Manifests in `docs/pilot-catalog/`.
+
+
+
+Polish UI & map terrain fixes v2.7-PL5 (`Clipboard-1.jpg`..`Clipboard-4.jpg`, 2026-10-21):
+1. Root causes confirmed in binary data and 1.08 MIPS `.text`:
+   - `Clipboard-1.jpg`: `spirit:configst.cpk/srwDL_Spirit.bin:14364` tail-pool fragment #35
+     (`jp=' HP'`, referenced exclusively by Spirit `Hart` records `36..38`) held `' HP'`,
+     expanding `'Lv1%s20%s25%s'` to `'Lv1 SP-20 HP25％ HP'`. Bound specifically by
+     `source_sha256` (`R.binding`) so tail-pool fragment #23 (`Wiatr`, `'jedn. <Ruch w górę>＠'`)
+     remains untouched; updated fragment #35 to `' Odnawia '` -> `'Lv1 SP-20 Odnawia 25％ HP'`.
+   - `Clipboard-2.jpg` & `Clipboard-3.jpg`: `sysmes:configst.cpk/sysmes.bin:11644,:11647`
+     (`'Obrażenia＠230％＠0 mniej'`) and `:11672,:11675` (`'Premia do uniku＠230％＠0 więcej'`)
+     lacked a space before color code `＠2`; added single space before `＠2` in all four rows.
+   - `Clipboard-4.jpg`: `10_map_terrain.jsonl` (`lmap.cpk/attr.par`, rendered by 1.08 `.text`
+     `0x1ec2a0..0x1ec410` through standard single-byte font renderer with 12-cell panel budget)
+     had ASCII transliterations because `terrain_names.validate_row` enforced ASCII on all
+     languages. Scoped `terrain_names.py`, `translation_check.py`, and `build_translation_patch.py`
+     so `target_lang == "pl"` encodes via `pl_text.encode` (`<= 31 B`, `display_width <= 12`,
+     `en` stays strict ASCII) and restored Polish diacritics across all `46` affected terrain
+     rows (including `terrain:lmap.cpk/attr.par:r3:name` `'Wzgorze'` -> `'Wzgórze'`).
+2. Applied source-bound plan `config/pl/ui-clipboard-2026-10-21.json` (`51` changes, SHA-256
+   `f737cc43d7dc0980be4402e42e2abae18507b5abdf45376d9feb8dea6e0a19ee`), built physical
+   `DLC/configst.cpk` to verify expanded `srwDL_Spirit.bin` (`Hart` `rec 36..38` and `Wiatr`
+   `rec 57..59`) and `sysmes.bin` null-terminated byte strings, and built release pair `2.7-PL5`:
+   - `srw-oe-translation-pl-v2.7-PL5.zip`: `8,121,934 B`, SHA-256
+     `5062d05dc295975fd4d705b9d1508d5ae339d771a9f471d8a5bb999d8d879997`, MD5
+     `c4ecc512422091ccb995e3a95cd79ece`, uploaded to Google Drive `1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV`
+     (folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`) and verified byte-identical via download-back.
+   - `srw-oe-translation-v2.7-PL5.zip`: `7,279,138 B`, SHA-256
+     `e3f6f4d6b0edb0778ffd52856d431b4e3431b7d6cb84a4333b1064a761887655`.
+
+Polish mech catalogue without default pilots/crews & synced pilot catalogue (2026-10-21):
+1. Updated `tools/polish_mech_catalog.py` and `tools/verify_polish_reading.py` (+ unit tests in
+   `tests/test_polish_catalogue_names.py` and `tests/test_polish_reading.py`) to omit all
+   default pilot/sub-pilot crew sections, profile skills, and Ace bonuses while preserving all
+   `393` unit sections (`242` roster-first `v4` headings + `151` identical headings), series
+   attributions, native mech skills, group compositions, and all `1,485` weapon rows localized
+   against `pakiet_PL` (`v2.7-PL5`).
+2. Verified `revise_polish_catalogue_names.py` `v3_PL` -> `v4_PL` round-trip byte-for-byte
+   (`v3_PL`: `506,983 B`, SHA-256 `27a5e9b05cb52fbf87dd05ec37b71b41c1c11402522b5075fc1eb3ff00360a25`;
+   `v4_PL`: `510,338 B`, SHA-256 `e7a6ed56f6cee954976a936837fd7d69af3116477c8a341903bcacef8bbc0b4f`,
+   MD5 `c2865c35400f3fe6a8e8150ffc8e7ebd`), rebuilt `srwoe_reading_PL3_00-03_catalog_v4.zip`
+   (`144,320 B`, SHA-256 `da44472e12c625ca8f27d5098dfed9c2c03106ea457ef07276498822e37a7225`,
+   MD5 `28293a123584f44ee0432c59706c7145`), and regenerated `srwoe_pilot_catalog_PL.md` (`634,883 B`,
+   SHA-256 `12697478dca631ec1b6eb0fc44a217a91b1ebe21a5c10450d66e19c58c5f7b53`, MD5
+   `c09c00756828434ae1cb7a8b902395ea`, `7,307 / 7,307` Unicorn parity PASS) so Spirit `Hart Lv1`
+   reflects `'Odnawia 25% HP'` there as well.
+3. Uploaded to Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` and verified byte-for-byte
+   via download-back:
+   - `srwoe_mech_catalog_v4_PL.md`: `1CMZamTTp_UhVSLP9m1Whp4he1NJjbb3K`
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `12AaUkJrHqPMgFzJKtroXxAAPeLLq4jag`
+   - `srwoe_pilot_catalog_PL.md`: `1mStMye1g-wbqLe_IVSCeN6K1_oBXfHTU`
+
+Polish mission deployments catalogue with engine-verified active sub-pilots (2026-10-21):
+1. Disassembled the 1.08 `DATA.PSP` (`eboot_108.elf`, SHA-256
+   `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`) scenario `_Entry.dat`
+   loader, crew attachment, fusion, map deduplication, and EVNT VM handlers [ZWERYFIKOWANE]:
+   - `0x1f9810`: `(w[3] >> 8) & 7` decodes initial unit team across all `8,285` non-utility combat
+     records (`0` = player allied `882`, `2` = allied NPC `61`, `1` = enemy `7,266`,
+     `4` = neutral / third party `76`).
+   - `0x202a68..0x202bd8`: sets main pilot `w[2]` into slot `0` and loops `slot = 1..4` over
+     `unit_list` `i16@+100..+106` (`refs_at_98[1..4]`), attaching every non-zero `cid != main_pilot`.
+   - `0x202bdc..0x202c1c`: for `unit_id == 3900` (`Exart`), checks campaign flags via `0x0c69a0`:
+     `!flag[1112]` (`0x458`) removes `4520` (`Vasage`) via `0x1ff95c`, and `!flag[1075]` (`0x433`)
+     removes `4510` (`Himari Yaegaki`) via `0x1ff95c`.
+   - `0x214688..0x2146e0`: during Organoid Zeke fusion for `main_pilot == 4101` (`Van Flyheight`),
+     removes `4105` (`Fiona Elisi Linette`) in Episode 30 Stage 1 (`DL830_11`).
+   - `0x1d9500..0x1d96dc`: dynamically removes duplicate sub-pilots when another map unit carries
+     the same character ID simultaneously.
+   - Scenario `.bin` EVNT VM handlers across all `24` `eventP` packages (`226` scripts):
+     `op 300`/`op 318` (global flags `1075` set in `DL101_11` sec 0; `1112` set in `DL310_20` sec 2
+     and reset in `DL833_11` sec 0), `op 516` (`0x24ea20`, remove sub-pilot), `op 679`
+     (`0x24ea5c`, add sub-pilot mid-mission), and `op 519` (`0x24af0c`, mid-mission side switch).
+2. Implemented `tools/mission_deployments.py` and `tests/test_mission_deployments.py`, regenerated
+   `docs/mission-deployments.md` in full Polish (`308,644 B`, SHA-256
+   `3bd719cbed23c67ce55a1a870337d38b1299dbd2a23c07745865c0e2165cca8a`, MD5
+   `d329e8642acb0a37bb930c96da860226`), uploaded to Google Drive `1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`
+   (replacing `1H1TjItPtQ3iGbfdlsqOZcU2JXC_LGY2-`), verified byte-identical download-back, and ran
+   the full `srw-oe-translation` test suite (`1,758` tests `OK`, `32` skipped).
+
+Notepad++ monospace pipe-table alignment across all Markdown catalogues & docs (2026-10-21):
+1. Added `tools/md_table_align.py` + `tests/test_md_table_align.py` and integrated fixed-width
+   monospace table column alignment into `tools/polish_mech_catalog.py`, `tools/pilot_catalog.py`,
+   `tools/verify_polish_reading.py`, `tools/revise_polish_catalogue_names.py`, and
+   `tools/verify_pilot_catalog.py`:
+   - Pads every table cell and rule bar so all `|` separators align identically top-to-bottom in
+     Notepad++ (`Courier New` / `Consolas`) independent of editor `Tab size` while remaining valid
+     CommonMark/GFM tables.
+   - Replaces all raw `<br>` / `<br><br>` HTML tags with clean multi-line continuation rows inside
+     the target column (`0` residual `<br>` tags across mech and pilot catalogues) and constrains
+     every table line to `<= 216` monospace cells (`max = 204` in mech catalogue, `max = 216` in
+     pilot catalogue) so rows never soft-wrap to column `0` on a 1080p Notepad++ viewport.
+   - Formatted all pipe tables across `32` tracked `docs/**/*.md` files (`docs/recovered/` untouched).
+2. Re-verified `7,307 / 7,307` Unicorn hardware checks (`verify_pilot_catalog.py --replay-unicorn`
+   `PASS`), ran full suite (`1,760` tests `OK`, `33` skipped), uploaded all four updated Polish
+   reading deliverables to Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, trashed superseded
+   copies, and verified byte-for-byte download-back:
+   - `srwoe_mech_catalog_v4_PL.md`: `1HuNsF6cwBkgvNaDlSZMvoRsWODKv1G_H` (`876,522 B`, SHA-256
+     `2f4f35725c1314a201d890e4fd780b102ea2244837c565e4f93f3111e83a8e33`; `v3_PL`: `873,167 B`,
+     SHA-256 `82b201e594840bee5c0879f875516954fb1e482346774e556269e53c9496c808`)
+   - `srwoe_pilot_catalog_PL.md`: `14ljZi9HkHbRuosL9qblu33RH0YhCzstM` (`789,670 B`, SHA-256
+     `21b70d8ec8e3a38980ecf2c66d398d74fc52172b1c4a9a0b38096cd280a0ea70`)
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `1n17df25TylgAXyBI_U0zomvAAPUrx0Ef` (`162,337 B`,
+     SHA-256 `5e87af2e93a22477c9417662d7903fb1c4f054ae726c01bfa20ab8f33b9c71f3`)
+   - `srwoe_reading_PL3.zip`: `1YTYNNoCnjABNdIHe4ljrhyj1XPDsLFzw` (`152,220 B`, SHA-256
+     `41ecfb2e1acedb99c17c0023a52602e2d731859010b38375e637c452dba5ccf7`)
+
+Simplified base-only Spirit Command tables in `srwoe_pilot_catalog_PL.md` (2026-10-21):
+1. Updated `tools/pilot_catalog.py` (`_base_spirit_effect`, `_base_spirit_guide`) and
+   `tests/test_pilot_catalog.py` so both Section 1 (`Leksykon wszystkich Komend Ducha`, 5 columns:
+   `ID | Duch | Koszt SP | Opis działania | Efekt bazowy`) and per-pilot Spirit tables (4 columns:
+   `Slot | Duch | Koszt SP | Efekt bazowy`) render only base SP cost and base `Lv1` effect without
+   level-up/upgrade tiers (`Lv2`/`Lv3`), matching how base weapon/unit values are presented in
+   `srwoe_mech_catalog_v4_PL.md`, with `0` HTML entities/tags and full Notepad++ vertical `|` alignment
+   (`max line width = 215` chars).
+2. Rebuilt `srwoe_pilot_catalog_PL.md` (`622,908 B`, `6,100` lines, SHA-256
+   `42d2773af1ccaa249fdb5665a7218aaeb4aa78d833f56b9c955ec44b87470bb6`, MD5
+   `eb2a04b19544b663f534a7e7a8e6b7b9`), verified `PASS` on `tools/verify_pilot_catalog.py --replay-unicorn`
+   (`7,307 / 7,307` Unicorn hardware checks matched, `0` mismatches, `RealBinaryPilotCatalogTests` `OK`),
+   uploaded to Google Drive `1SxtKZ1REKwtfPIcUeqYiUro-SFhpMDv5` (trashing superseded
+   `14ljZi9HkHbRuosL9qblu33RH0YhCzstM`), and confirmed byte-identical download-back.
+
+Base-only pilot statistics & Polish skill terminology fix v2.7-PL6 (`Eldoran` -> `Eldran`, 2026-10-21):
+1. Applied source-bound plan `config/pl/ui-eldran-skills-2026-10-21.json` (`11` entries, `SHA-256`
+   `384c804e15cf0bf07eca29b7cdb309ad2b50e120646b0376fc46c60e88c68276`) via `tools/pl_ui_corrections.py`
+   across the exact `11` translator-specified fields (`-1 B` each, leading ASCII space `0x20` preserved):
+   - `umiejetnosci.md` grupa `220` element `3` (`03_skills.jsonl` `skill:config00.cpk/srwDL_Skill00.bin:r219:effect`:
+     `'＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku'`, `58 B -> 57 B`).
+   - `teksty-config.md` grupa `17` element `683` (`04_config_text.jsonl` `skill:config00.cpk/srwDL_Skill00.bin:36904`:
+     `'＠4%s0 Warunek: roboty Eldran x4\n%s Nie do wsparcia ataku'`, `58 B -> 57 B`).
+   - `teksty-config.md` grupa `17` element `3971` + grupy `18`–`25` element `384` (`04_config_text.jsonl`
+     `srwDL_Skill00.bin`..`srwDL_Skill08.bin` tail-pool fragment `' Warunek: roboty Eldran x'`, `26 B -> 25 B`).
+   - Physically patched and read back all `9` containers (`config00.cpk` + `config01.EDAT`–`config08.EDAT`),
+     built release pair `2.7-PL6`, uploaded `srw-oe-translation-pl-v2.7-PL6.zip` to Google Drive
+     `1Z41f1W9cXIUAVa40evWcHzGQJXfHzfu-` (`8,122,152 B`, SHA-256
+     `126d37f2d1b21db57e1e8b3ae339560e07a49f01dcd470d41b25bcd4cf2598ae`, MD5
+     `4f386154840331aa696f61f63e3ed9a9`, trashing `1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV`), and verified
+     byte-identical download-back (`docs/pl/pl6-kit-delivery.json`).
+2. Simplified basic pilot statistics in `tools/pilot_catalog.py` and `tools/verify_pilot_catalog.py` to
+   base `Poz. 1` values only (`| Parametr | Wartość bazowa |` for combat profiles, base SP only on sub-pilots
+   and Appendix A, `0` `Poz. 50` / `Poz. 99` / `/poz.` columns), rebuilt all Polish reading deliverables against
+   `v2.7-PL6` (`0` residual `Eldoran` across all catalogues, `7,307 / 7,307` Unicorn parity `PASS`), uploaded to
+   Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, trashed superseded copies, and verified byte-identical download-back:
+   - `srwoe_pilot_catalog_PL.md`: `1IPw-7q_874EmSm4FmJjPCQyJNFjESclm` (`549,140 B`, SHA-256
+     `a12ff8bca1564ca9a7eb93728870ca689d559a1531c3ae84a67c903b98c3bb29`, MD5 `8d5a1d39aea021b2f74a6fb2b077cb82`)
+   - `srwoe_mech_catalog_v4_PL.md`: `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` (`876,522 B`, SHA-256
+     `76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76`, MD5 `62800b7fa067fa9b1df3370e90d79f63`;
+     `v3_PL`: `873,167 B`, SHA-256 `9a46c270de1aa1c2c8d6ca404acaf37b33ebeda94fe7a48e62621c36a845af1a`)
+   - `srwoe_reading_PL3_00-03_catalog_v4.zip`: `1LlaUuLCoBeXv_XBmoEkALWgiq8mbHRUc` (`162,328 B`, SHA-256
+     `e37962746e80e0d523983363d36187ee3b36cbcd20b5cf6d9646fdfaa19aa145`, MD5 `cd286c4128098d70f364160a7902023a`)
+   - `srwoe_reading_PL3.zip`: `1_ogO8CRZQebXAbBMGo1nmhple1WkO41w` (`152,210 B`, SHA-256
+     `8f22691cb023540accaf492611c878d7ef97ce8f115d63862c1ee3dee61285a6`, MD5 `07b7a741899cdecc700eea8d9cac1a1c`)
+
+Base-only Pilot Skills in `srwoe_pilot_catalog_PL.md` (2026-10-21):
+1. Removed multi-level skill progressions (`Lv2`–`Lv9`, pilot unlock levels, and `+krok` step schedules) from both
+   the Section 2 lexicon (`| ID | Umiejętność | Efekt bazowy |`) and per-pilot cards in Sections 3 & 5
+   (`| Slot | Umiejętność | Efekt bazowy |`, retaining `*(1.08)*` origin markers and Chirico Cuvie `[ID 3401]`
+   base-level story-flag upgrade `flaga 0x461 = 1` → `Anom. ocalały`) in `tools/pilot_catalog.py` (commit `7c8a819`).
+2. Verified `0` occurrences of `Lv2`–`Lv9`, `0` CJK / control tokens / raw HTML tags, `≤ 216`-char Notepad++ vertical
+   column alignment on all tables, and `7,307 / 7,307` live Unicorn MIPS `.text 0x21f4ec` executions (`0` mismatches)
+   in `tools/verify_pilot_catalog.py --replay-unicorn` (`docs/pilot-catalog/verification.json`).
+3. Uploaded `srwoe_pilot_catalog_PL.md` (`286,627 B`, `6,278` lines, SHA-256
+   `d0c0868c3a3111fb7e69bbaacd8fdc112cb466c95e2024f75c2cff65c7f27446`, MD5 `9e90132a7abcfbeebcf19b28e988fc2c`) to
+   Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as file `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`, trashed
+   superseded `1IPw-7q_874EmSm4FmJjPCQyJNFjESclm`, and confirmed byte-identical download-back (`cmp -s`).
+4. Added initial unlock level (`Poz. nauki`) columns to per-pilot Spirit Command (`Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy`)
+   and Pilot Skill (`Slot | Umiejętność | Poz. nauki | Efekt bazowy`) tables and removed all pilot `[ID ...]` badges / pilot ID columns
+   across pilot cards, cross-references, and Appendix A (`tools/pilot_catalog.py` + multiset card/unlock checks in
+   `tools/verify_pilot_catalog.py`, commit `e2ec961`); uploaded updated `srwoe_pilot_catalog_PL.md` (`303,329 B`, `6,278` lines,
+   SHA-256 `63d7766b549467bb03cc6722db148bb5ec043fb3dcd84046ae268a0715b716a3`, MD5 `8dd7b5ca642286648e2729378d5be3ec`) to Google Drive
+   `1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S` (trashing `19UyM9KbMpq4H8wmFZiydMLKklpA96JwH`) and verified byte-identical download-back.
+
+QoL rename & verbatim per-mission mech/pilot catalogue embedding in `srwoe_mission_deployments.md` (2026-10-21):
+1. Renamed `docs/mission-deployments.md` -> `docs/srwoe_mission_deployments.md` and extended
+   `tools/mission_deployments.py` + `tests/test_mission_deployments.py` [ZWERYFIKOWANE]:
+   - Directly below each of the `226` scenario package instances (`224` unique mission codes across
+     all `24` `eventP` archives), appends verbatim `## ...` sections from `srwoe_mech_catalog_v4_PL.md`
+     for every default non-utility unit deployed in `_Entry.dat` (`2,210` embedded mech sections total).
+   - Appends verbatim `#### ...` cards (`5,608` embedded combat/sub-pilot cards total) and `Dodatek A`
+     table rows (`937` embedded non-combat rows total) from `srwoe_pilot_catalog_PL.md` for every
+     active pilot/sub-pilot in the mission (including 1.08 `.text 0x21f4ec` player-side `player_override_key`
+     `(Ally)` profiles when `side == 0` or `op 519 -> 0`) and every character speaking across all `293`
+     scenes in `00_dialogue.jsonl` + `06_scenes.jsonl` (including optional-DLC `evept101.EDAT`–`evept108.EDAT`
+     variants such as `DL831_11G.bin` speaker `4420` `Masaki Andoh`).
+   - Verified byte-for-byte identity (`cmp -s`) between pure binary synthesis (`PMC.render` +
+     `PC.render_polish_markdown`) and direct slicing of Google Drive deliverables
+     `srwoe_mech_catalog_v4_PL.md` (`15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV`) and `srwoe_pilot_catalog_PL.md`
+     (`1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S`): `11,576,910 B` (`217,528` lines), SHA-256
+     `46a3d41696d7c1de182d7ff00ef7a9cbfba99009d8846901356faa4a23f7e4b0`, MD5
+     `7506616c88a5325deb4cd7644098804f`, `0` pipe lines `> 216` chars, `1,765` unit tests `OK` (`32` skipped).
+2. Uploaded `srwoe_mission_deployments.md` to Google Drive folder `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`
+   as `1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R`, trashed superseded `mission-deployments.md`
+   (`1Xo1JYYsU9kSPusZs8T3Yw2MFXSJiaLr2`), and verified byte-identical download-back (`cmp -s`).
+
+Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues (2026-10-21):
+1. Audited and merged complete translator return `PL5.zip` (`1VcMn1tAMvjj4eLfyDuw4DTKt4po65twf`, `7,473,101 B`,
+   SHA-256 `2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a`, `0` archive scripts executed)
+   into `pakiet_PL` (`108,794` entries, `data_sha256 = b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8`,
+   `108,805 / 109,176` rows filled, `+20,971` newly filled, `760` revised across `49` containers, `42` consistency rows
+   across `postacie.md` / `teksty-misji.md` / `teren.md`, `1,385 / 1,385` `v2.7-PL6` UI/Eldran/system bindings preserved,
+   `errors = 0`, `partial = false`; `docs/pl/pl5-merge-audit.json`) [ZWERYFIKOWANE].
+2. Updated release & reading-series tooling for complete `v3.0` (`partial == False`, `epizod-00`..`epizod-34` across
+   all `47,056` prose blocks), refreshed synchronized reference catalogues, uploaded to Google Drive
+   `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, verified `cmp -s`, and trashed superseded copies [ZWERYFIKOWANE]:
+   - `srwoe_pilot_catalog_PL.md`: `1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ` (`303,342 B`, `6,278` lines,
+     SHA-256 `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`, MD5 `a0511a860ac09ced6ce748979dc8cc6c`;
+     `7,307 / 7,307` Unicorn `.text 0x21f4ec` executions matched; superseded `1BLDKtNKzAif2njMJIyXFlXBTQpFSBz6S` trashed).
+   - `srwoe_mission_deployments.md`: `1CX0l4c7wB9x8Qvy7TRcxw44u1c-UDVDG` (`11,576,996 B`, `217,528` lines,
+     SHA-256 `ca2b7a5fb3fd4189c43ede34465b03d46ddb8e8b49d4ccf60b8b08afb5fea0b0`, MD5 `3bc285b4d79987b7ae97869692d88816`;
+     superseded `1DlIsx1OZdQzc4mgv1lYAG0X4mvAH-u1R` trashed).
+   - `srwoe_mech_catalog_v4_PL.md`: `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` (`876,522 B`,
+     SHA-256 `76cc60dafca1a96a5c4453b2de798c2d1fe06d9eeb53fc6f905aed25d8443c76`, proven byte-identical under `v3.0`).
+3. Built `srw-oe-translation-pl-v3.0.zip` (`python3 tools/build_release_pair.py --out local/dist_v3_0 --version 3.0`:
+   `8,754,052 B`, SHA-256 `aa76ad348f3a8248ac3b92bdd2173efef4ed512ccb6b9ff6092c668008932a62`,
+   MD5 `c046ddccb6d60ffe808c62d8de719155`; paired EN `srw-oe-translation-v3.0.zip`: `7,279,168 B`,
+   SHA-256 `e28cc1f702e6d1b7092f4a7efbae3e08b1ecdf9a73b71fde90340cbc771cb9bf`), unpacked into a clean sterile directory,
+   executed full physical build across all `18` Chapter 1 ISO files + `PBOOT.PBP` + `92` DLC `.EDAT` containers
+   (`exit = 0`, `problems = []`, `refused = 0`, `written = 92`, `Skill00 = 216,487 B`, `Skill01-08 = 15,328 B`,
+   `skill_total = 339,111 / 342,194 B`, `terrain = 30,081` cells across `271` maps, `executable = 397 / 397` rows,
+   `EBOOT.BIN == PBOOT.PBP/DATA.PSP` SHA-256 `db626f819e14d0faa8ccc72afcfd798c5af02ef23bc86cf3767c5c81ad34f13f`),
+   verified direct binary readbacks across all 7 container domains, uploaded `srw-oe-translation-pl-v3.0.zip` to
+   Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as `1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO`, and confirmed byte-identical
+   download-back (`cmp -s`) [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+4. Built, verified, packaged, and delivered complete curated Polish reading scripts for all 35 story episodes `00–34`
+   (`srwoe_reading_PL_00-34.zip`) from accepted `pakiet_PL` `v3.0` (`python3 tools/build_polish_reading_editions.py --english pakiet_EN --polish local/mat_pl --references local/en_reading_refs --episodes 0-34 --out local/pl_reading_v3_out`):
+   - Covered `35 / 35` episodes (`srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md` + `README.md`, `36` files,
+     `2,437,269 B` uncompressed Markdown, `918,139 B` deflated ZIP, SHA-256 `e4adebb4d55cbe8af5991076208a571d0688c212bd3f6eba9101652ed6243cc0`,
+     MD5 `e76808b5041e17bb15cc933f5f6c2d12`) with `47,056 / 47,056` story prose entries accounted for (`32,954` unique
+     entries directly shown, `14,102` DLC variant aliases verified in Polish, `33,587` verified text spans, `0` CJK/control
+     leaks, `0` English fallbacks).
+   - Uploaded to Google Drive `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H` as `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`, confirmed
+     byte-identical round-trip download (`cmp -s == 0`), recorded receipt in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`,
+     and passed full repository test suite (`1,767` tests OK, `7` skipped) [ZWERYFIKOWANE; pliki do czytania, bez zmian ISO/DLC].
+5. Conducted full binary/MIPS forensic regression audit and delivered **PL `v3.1` (`srw-oe-translation-pl-v3.1.zip`)** across all
+   5 owner-reported PPSSPP screens plus every sibling banner, forecast row, weapon trait, and Intermission footer help string:
+   - **Regression audit (`v2.7-PL6` -> `v3.0`, Checkpoint `a3e01ae`):** Verified `0 / 1,385` regressions across all prior
+     `owner_ui_corrections` bindings. Proved via binary readback that Screen 1 was an unshortened Battle top-bar entry
+     (`sysmes:configst.cpk/sysmes.bin:50972` `"Statystyki"` + `50984` `"Komendy akcji"`, distinct from the already-shortened
+     Intermission `imenu` header `"Stat."`) and Screen 5 was an active `sysmes:16792` entry (`"Sprawdzaj statystyki maszyn, pilotów i broni,\n..."`),
+     whereas `ui-six-screens-2026-10-19.json` had edited only the dormant `imenu:852` twin.
+   - **MIPS & container measurements (`pboot.elf` MD5 `8ba77a79e7d46473671cb87e77553deb`, `font.cpk` `7px` cell width):**
+     - **Screen 1 (Battle top bar):** Shortened `sysmes:50972` `"Statystyki"` -> `"Stat."` (`35 px`) and `sysmes:50984`
+       `"Komendy akcji"` -> `"Akcje"` (`35 px`).
+     - **Screen 2 (Active skill & spirit banners):** Measured `sysmes` `41760..42156` + `10656..11392` (`max <= 228 px`); shortened
+       `Precyzja:` (`42080`: `31 -> 26` visible chars = `182 px`) and all `6` sibling banner families (`24` `sysmes` slots).
+     - **Screen 3 (Battle forecast `sub_088f274c`, `0x08bf8280..0x08bf82e0`):** Disassembled all 4 forecast rows (`A`, `B1/B2`,
+       `C1/C2`, `D`: `x = +4 / +46 / +74 / +98 / +132`) and fixed all `10` executable strings (`0x003f4320..0x003f4380`, e.g.
+       `"Okrąż."` `42 px` + `"A/C"` `21 px` <= `28 px` budget before `+74`, `"Efekt "` `42 px == 42 px` exact join with `"A/C"`,
+       `"Bez okrąż."` `70 px`).
+     - **Screen 4 (Weapon trait descriptions `<= 46` chars = `322 px <= 327 px` before `[TGT Wr.]`):** Shortened all `18` `09_executable.jsonl`
+       1.08 trait overrides plus `36` `03_skills.jsonl` records, `31` `04_config_text.jsonl` `srwDL_Skill00.bin` mirrors, and `3`
+       tail-pool fragments (`0` weapon-used skill aliases across all `56` families exceed `46` chars on line 1).
+     - **Screen 5 (Intermission footer help bar `<= 39` chars = `273 px <= 278 px` before `Ukończ`):** Shortened `sysmes:16792`
+       (`35` chars = `245 px`) and all `17` sibling `sysmes` / `imenu` help rows (`141` verified source-bound changes total in
+       `config/pl/ui-five-screens-2026-10-21.json`; `1,521` unique bindings in `owner_ui_corrections`; `0` `sceUtility` firmware
+       strings touched).
+   - **Verification & Google Drive delivery:** Materialized `pakiet_PL` (`109,176` rows, `108,805` filled, `0` errors), verified
+     binary readbacks on `configst.cpk/sysmes.bin` (`868 / 868` entries, `48,592 B`), `config00.cpk/srwDL_Skill00.bin`
+     (`215,969 / 225,280 B`, `783` pool fragments + `9,658` record slots), and `PBOOT.PBP` (`399 / 399` applied, `6,194,059 B`),
+     passed `1,773` unit tests (`7` skipped), built `srw-oe-translation-pl-v3.1.zip` (`8,754,626 B`,
+     SHA-256 `f9c91e83b3acbc7ebde39681c34e1d8f181c5cda0bb56e47576fb3d862f09fb6`, MD5 `fcf8ba5773645f18da6c6d8aabc4a37b`,
+     Drive ID `1lIvk3Krr4KUve0fi0t_JP3yc1AUcOugm` in `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`; superseded `v3.0`
+     `1qtyOrnv_4Pl0MGSfwsCVBomFhnyovWDO` moved to trash), refreshed `srwoe_mech_catalog_v4_PL.md` (`873,130 B`, max pipe line
+     `204 <= 216`, SHA-256 `07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031`, MD5 `3b636281662186cb3d1ede67990c24c6`,
+     Drive ID `1Iom2YIbNna-djLB5em8WchoQMjdu6pSx` in `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`; superseded
+     `15w1R6NpxxwEJsNC2jWid96rEOQ0frOPV` moved to trash), confirmed `srwoe_pilot_catalog_PL.md` (`303,342 B`, `7,307 / 7,307`
+     Unicorn executions matched, SHA-256 unchanged `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`) and
+     `srwoe_mission_deployments.md` (`11,576,996 B`, unchanged), and verified round-trip `cmp -s == 0` on both Drive uploads
+     [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+6. Diagnosed and resolved all 5 in-game Battle Forecast UI & GIM atlas defects across 3 owner-reported screenshots and delivered
+   **PL `v3.2` (`srw-oe-translation-pl-v3.2.zip`)**:
+   - **GIM UI atlas fixes (`tools/gim_label.py`, `ui_labels/{mensys_01,mensys_15,intsys_03,navisys_02}.json`, Checkpoint `896edd7`):**
+     - Added per-row inner background sampling (`bg_row_inset="right_inner"`, `clear_opaque_only`, `bg_from_column`) under `pl_layout`
+       so EN output remains 100% unchanged while diagonal/transparent ribbons erase cleanly.
+     - Fixed `mensys_01` `support_banner_short` (`"Sup"` badge: full `[103, 0, 128, 16]` clear of Japanese `援` using per-row inner
+       gradient + preserved left/right/bottom bevels).
+     - Audited all `25` GIM UI specs (`26` textures) and eliminated every remaining Polish atlas bleed: `mensys_15` (`surround`
+       `[108, 2, 118, 13]`, `direct_hit` `[10, 34, 21, 47]`, and restored the non-kanji eighth-note icon `♪` on `throw` via `"pl": null`),
+       `intsys_03` (`limit_break` `[12, 50, 102, 62]`), and `navisys_02` (`confirm` `[32, 106, 70, 125]`).
+   - **Executable & CWCheat fixes (`tools/battle_forecast_pl.py`, `tools/build_translation_patch.py`, `tests/test_pl_battle_forecast.py`,
+     Checkpoint `1d3dc98`, `38` `.text` words + `2` `.rodata` words, `0` `.rel.text` collisions):**
+     - **Missing space before `Lv%d` across all weapon & unit abilities:** Patched `.rodata` `0x08bf851c..0x08bf8523` from
+       `"Lv%d\0\0\0\0"` to `" Lv%d\0\0\0"` inside the existing 12-byte padded slot before `"%s:%s"` (`0x08bf8528`) and updated the
+       width advance in `sub_089cef34` (`0x089cefe8`: `21.0f` -> `28.0f`, `+7 px`). Verified `0` unspaced `Lv` strings across all
+       `109,176` `pakiet_PL` rows (`srwDL_Skill00..08.bin`).
+     - **Left/right weapon ability clipping & multi-skill truncation (`sub_089cef34` / `sub_089cf0bc`):** Raised `CFontString`
+       requested width (`0x089cef90`) from `256.0f` (`0x4380`) to `512.0f` (`0x4400`, power-of-two `512 px` strip) and unified all
+       three `sub_089cf0bc` modes onto width measurement + horizontal `scale_x` (`28($a0)`) auto-fit (`mode 0` left weapon bar:
+       right-aligned to `190.0f`, `max_w = 188.0f` -> `[5.63..190.00]` worst case `259 px`; `mode 1` right/support weapon bar:
+       `+6.0f`, `max_w = 196.0f` -> `[285.38..477.00]`; `mode 2` unit skill bar: `+12.0f`, `max_w = 190.0f` -> `[228.71..416.00]`
+       for max `350 px`). Verified bit-accurately via synthetic MIPS + IEEE-754 COP1 execution (`16 / 16` tests OK).
+     - **Support pilot portrait inner black border (`sub_089beee0`, `sub_089bf188`):** Expanded `GU_LINE_STRIP` frame from
+       `[239..270] × [-6/-5..+25]` to `[237..270] × [-7..+26]` on both Enemy (`0x089befd8`, `0x089befe4`, `0x089beffc`) and Ally
+       (`0x089bfb98`, `0x089bfba4`) cards so the outline sits strictly outside the `31×31` support portrait (`[238..269] × [-6..+25]`).
+     - **Bottom bar button prompt overlap (`0x089c0a08..0x089c1a80`):** Shifted button X coordinates from `[191, 296, 400]` to
+       `[172, 274, 396]` across both full (`Y = 235`) and detail (`Y = 156`) bars so `"Anim. WYŁ"`, `"Jedn. wsp."`, and `"Broń wsp."`
+       clear adjacent icons cleanly.
+   - **Verification & Google Drive delivery:** Built `srw-oe-translation-pl-v3.2.zip` (`python3 tools/build_release_pair.py --out local/dist_v3_2 --version 3.2`:
+     `8,758,754 B`, SHA-256 `827bc292e6857ccbd0c86ae95486b11f92257b2a1780adbbd6ea30f6f46becb3`, MD5 `e936ac3cf7f90cbf923049a2434ce021`;
+     paired EN `srw-oe-translation-v3.2.zip`: `7,283,291 B`, SHA-256 `a7f2786c64872152d250659530e65002462304d5980ba09c57d78b6de126e82d`),
+     verified sterile ISO + DLC build readback (`PBOOT.PBP` `6,191,659 B` SHA-256 `54fa8a4061191bfd2d0cb83a20d5e16659cc7c4f06798d3e553766b89a673ea1`;
+     `EBOOT.BIN == PBOOT.PBP/DATA.PSP` `5,531,024 B` SHA-256 `068326731460b88d3cbf0f95e9d1f48ac21f08c1c542a3bc1a2fa376d36e013e`;
+     all `40` CWCheat writes present in `cheats/NPJH50521.ini`; all `4` updated GIMs verified inside rebuilt `.cpk` containers),
+     uploaded `srw-oe-translation-pl-v3.2.zip` to Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as
+     `1f8wdj01Dhd1BLkJDa0J6Yu5VJgg58wmC` (`cmp -s == 0`), and moved superseded `srw-oe-translation-pl-v3.1.zip`
+     (`1lIvk3Krr4KUve0fi0t_JP3yc1AUcOugm`) to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+7. Audited all `109,469` materialized rows across all `10` package files (`00_dialogue.jsonl` .. `10_map_terrain.jsonl`) for
+   Polish stylistic defects reported in Mission `1_2` (`DL101_20.bin`) and delivered **PL `v3.3` (`srw-oe-translation-pl-v3.3.zip`)**
+   plus regenerated **`srwoe_reading_PL_00-34.zip`** (2026-10-22):
+   - **Issue 2 — Cold / runny-nose symptoms (`00_dialogue.jsonl`, `4` rows in `dlg:eventP00.cpk/DL101_20.bin`):**
+     - Audited all lines spoken by Himari Yaegaki across the entire game plus every `*pociąg*`, `*siąk*`, `*chlip*`, sneeze, and cold
+       line across all characters (`00_dialogue.jsonl` + `01_battle_quotes.jsonl`). Confirmed `0` occurrences of `*pociąg nosem*` or
+       `*siąk*` outside `DL101_20.bin` (epilogue sneezes in `DL834_13` / `DL834_13E` already use natural `A... Apsik!` / `Apsik!`;
+       all other `*chlip*` lines in `DL209_35` and `DL312_50` are genuine crying scenes).
+     - Replaced all `4` cold-symptom lines in `DL101_20.bin` (`1828`: `Aha... *pociąg nosem*...` -> `Aha... *pociągnięcie nosem*...`;
+       `2068`: `*chlip*... Zmarzłam na kość... Nie wytrzymam.` -> `*pociągnięcie nosem*... Zmarzłam... Nie wytrzymam.`;
+       `2816`: `*chlip*... Podobno wciąż nie wiadomo,...` -> `*siąkanie*... Podobno wciąż nie wiadomo,...`;
+       `4160`: `Aha... *chlip*... *siąk*...` -> `Aha... *pociąganie nosem*... *siąkanie*...`).
+   - **Issue 1 — Nautical / maritime calques on flying, space, and land units (`95` unique entries / `136` rows across `00_dialogue.jsonl` + `01_battle_quotes.jsonl`):**
+     - Replaced sailing/port/docking/territorial-water calques (`13` unique / `17` rows: `przepływali` -> `przelatywał nad wodami`,
+       `płynie` -> `leci`, `wychodzi w rejs` -> `zaraz wyrusza`, `wypływamy` -> `ruszamy`, `zacumować` -> `zadokować`,
+       `wychodzi z portu` / `wyjście z portu` -> `opuszcza port` / `opuszczenie doku`, `wypłynęliśmy` -> `wyruszyliśmy`,
+       lunar `Na wodach międzynarodowych / wody terytorialne / płyńcie za nami` -> `W przestrzeni międzynarodowej / nasze terytorium / lećcie za nami`,
+       `przycumować do Axis` -> `wylądować na Axis`, `Żegluga niezakłócona` -> `Lot niezakłócony`).
+     - Replaced sinking/drowning/lifeboat calques (`zatop*`, `zaton*`, `tonie`, `na dno`, `szalup ratunkowych` — including ungrammatical
+       `zatoną nas!` in `p3161.pac:6940`) on airborne carriers, space warships, mobile suits/armors, desert hover-carriers (`Gallop`),
+       and land Zoids (`Ultrasaurus`, `Dibison`, `Gun Sniper`) across `82` unique entries / `119` rows (`zniszczyć`, `zestrzelić`,
+       `wysadzić`, `uległ samozniszczeniu`, `kapsuł ratunkowych`, `paść`, `polec`, `Padnij!`).
+     - Preserved genuine water contexts and Polish idioms (`w pływającym mieście` in `DL727_60.bin:2064` where `DL727_60.bin:292`
+       establishes Sveet as an artificial floating sea city `海上人工都市`, `Trafiony-zatopiony!` in `DL622_13.bin:21908`,
+       `wiatr w żagle`, `jak ryba w wodzie`, `w gorącej wodzie kąpany`, and Mr. Bushido's literal `呉越同舟` river-boat proverb in
+       `DL209_40.bin:18760–18820`).
+   - **Snapshot, verification & Google Drive delivery (Checkpoints `4426070` + docs):**
+     - Packed `pakiet_PL` via `tools/pl_release_package.py snapshot` (`140` rows updated: `67` in `00_dialogue.jsonl`, `73` in
+       `01_battle_quotes.jsonl`; `108,794` entries, `data_sha256 = 4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`,
+       `errors = 0`, all `15` `owner_ui_corrections` plans bit-identical) and passed full `unittest` suite.
+     - Built and verified **`srw-oe-translation-pl-v3.3.zip`** (`python3 tools/build_release_pair.py --out local/dist_v3_3 --version 3.3`:
+       `8,758,917 B`, SHA-256 `bc41f3055b085ddcd5404ba45b9d7fd2a17c4d28b2535bc57a3700b85c35e412`,
+       MD5 `803237ef11b123cd5e95dfec78ede4d2`; paired EN `srw-oe-translation-v3.3.zip`: `7,283,291 B`,
+       SHA-256 `7101b32e762fd2205b92c723f92f44a765914bd66d4c916eef0fac80ff33b178`), uploaded to Google Drive
+       `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as **`1baz0LTnwD06ZWli6-bz9FzuYjOxuh746`**, confirmed `cmp -s == 0`, and moved superseded
+       `srw-oe-translation-pl-v3.2.zip` (`1f8wdj01Dhd1BLkJDa0J6Yu5VJgg58wmC`) to trash.
+     - Rebuilt and verified all `35` Polish reading scripts **`srwoe_reading_PL_00-34.zip`** (`20` episodes updated, `36` members,
+       `47,056 / 47,056` prose entries, `33,587` verified spans, `915,740 B`,
+       SHA-256 `66629f651101737fcc2a37f44bff2aafb440028b5db50873584b226a99f913e7`, MD5 `0367e4b80f6d8bf505c2f77efb75e5fe`,
+       receipt `docs/reading-script/polish/PL5_v3.3_reading.delivery.json`), uploaded to Google Drive `Skrypty`
+       (`1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`) as **`1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi`**, confirmed `cmp -s == 0`, and moved superseded
+       `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu` to trash [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+8. Resolved both in-game tactical map UI defects reported from Mission `1_2` screenshots (`Zbocze` terrain restriction clipping +
+   leftover `"SR"` map pin with dark artifacts) and delivered **PL `v3.4` (`srw-oe-translation-pl-v3.4.zip`)** (2026-10-22):
+   - **Fix 1 — Map terrain restriction sub-labels (`tools/battle_forecast_pl.py`, `tools/build_translation_patch.py`):**
+     - Root cause confirmed in `PBOOT.PBP/DATA.PSP` (`0x089b7c80..0x089b7d34`): the `CFontString` texture strip allocated for the
+       terrain panel is `128 px` wide (`0..127`), with terrain names (`"Zbocze"`, etc.) drawn at `x_offset = 14 px` (`0x0e`, matching
+       `"------"` at `0x089b7d24`), whereas `"Ląd: bez post."` (`0x089b7c90`) and `"Ląd: zakaz"` (`0x089b7cc4`) inherited Japanese
+       centering `x_offset = 32 px` (`0x20`) and `"Brak wstępu"` (`0x089b7cec`) used `x_offset = 47 px` (`0x2f`), pushing the final `.`
+       of `"Ląd: bez post."` past `x = 128` (`32 + 95.5 = 127.5 px`) and forcing abbreviation.
+     - Patched `0x089b7c90`, `0x089b7cc4`, and `0x089b7cec` (`ori $a2, $zero, 0x0e`) so all three restriction labels align cleanly at
+       `x_offset = 14 px` under `"Zbocze"` (`114 px` budget inside `128 px`), expanded `0x08bf8218..0x08bf8233` to full unabbreviated
+       `"Ląd: bez postoju\0\0Ląd: zakaz\0\0\0\0"` (`14 + 108.0 = 122.0 <= 128 px`), and shifted the `.rel.text`-safe `addiu $a1, $a1, 0x422a`
+       low-halfword offset at `0x089b7cd0` (`+2` bytes). `pakiet_PL` remains untouched (`data_sha256 =
+       4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`), `EXE.apply_rows` applies `397 / 397` strings (`0` skipped),
+       and simulated CWCheat output (`cheats/NPJH50521.ini`) matches `PBOOT.PBP/DATA.PSP` bit-for-bit across all `5,531,024` bytes.
+   - **Fix 2 — Crisp `"OK"` (*Okrążenie*) map pin & status badges (`tools/gim_label.py`, `ui_labels/tacsys_15.json`, `ui_labels/mensys_15.json`):**
+     - Added opt-in `crisp` rendering (`render_crisp_caption` / `fit_crisp_size`: `4×` per-character supersampling, `BOX` downsampling,
+       stem binary thresholding for pure `[255, 255, 255]` fills under `INDEX8` palette quantisation, `1 px` inter-glyph spacing, and
+       `1 px` 8-connected outline) to `pl_layout` without touching EN assets.
+     - Set `"pl": "OK"` (*Okrążenie*) on both `tacsys_15.json` (`id: "surround_badge"`, yellow map pin: `box = clear = [5, 18, 20, 30]`,
+       `bg_from_column = 5`, `crisp = true`, `size = 8`, `min_size = 7`, `outline = [47, 28, 12, 255]` — clearing all original `包`
+       pixels at `x = 6..17, y = 18..29` while preserving the full horizontal highlight gradient) and `mensys_15.json` (`id: "surround"`,
+       status ring icon: `box = clear = [107, 3, 118, 12]`, `bg = [104, 29, 4, 255]`, `crisp = true`, `size = 7`, `min_size = 6`,
+       `outline = [54, 23, 0, 255]` — preserving the `360°` vermilion ring around the circle).
+   - **Verification & Google Drive delivery (Checkpoints `c602e61` + docs):**
+     - Passed all `1,779` unit tests (`python3 -m unittest discover -s srw-oe-translation/tests -p 'test_*.py'`, `0` failures).
+     - Built and verified **`srw-oe-translation-pl-v3.4.zip`** (`python3 tools/build_release_pair.py --out local/dist_v3_4 --version 3.4`:
+       `8,760,720 B`, SHA-256 `8483b647b04cc3f790434269639f4a06175c126ea2f43e0ecd1a1ecae289719b`,
+       MD5 `291cd7a19fddfa8b953179fdd1ab9e00`; paired EN `srw-oe-translation-v3.4.zip`: `7,285,087 B`,
+       SHA-256 `ce0fceec8c5df252e108f7ae291f22a64bc755c725d2ee576ed2bd04b671d6ca`, MD5 `f59f9b22eb6a7c974f8de123b0c98c49`;
+       sterile build outputs: `DLC/PBOOT.PBP` `6,191,659 B` SHA-256 `acbc0c3b2d2ae1894b8a000815d1e51ae7525cb3e10e5bf8a2e84e27d4987d22`,
+       `DATA.PSP` `5,531,024 B` SHA-256 `3364fbb319dcbc00231a7d781cbc82cc8a9936564197cf0a6c247c2bf58c474b`,
+       `tacsys.cpk` `189,968 B` SHA-256 `cc3d282df202f9b39a37e437aea142508674d94566aee5df9be4d50ea5f76055`,
+       `system.cpk` `195,888 B` SHA-256 `bb0fb00a07cbbac677b2e862f1d9eaa6b400947ba7bc203ed22fab8a72dee5ee`),
+       uploaded to Google Drive `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w` as **`1peTuPYvPk5_g4rZtqyzXsYlpG9NOXRml`**, confirmed `cmp -s == 0`,
+       and moved superseded `srw-oe-translation-pl-v3.3.zip` (`1baz0LTnwD06ZWli6-bz9FzuYjOxuh746`) to trash
+       [ZWERYFIKOWANE; brak uruchomieniowego testu PPSSPP w tym środowisku].
+
+## 2026-10-23 — PL v3.5: Audyt rodzajowy, krótkich replik i składni Epizodu 0–1 + globalnych klas błędów
+
+- **Zakres i przyczyna:** Pełna ręczna lektura Epizodu 0 i Epizodu 1 (`DL100_01..03`, `DL101_11..80`, DLC `DL101_50D`, `DL101_80G` — `5 568` linii + `51` wpisów `05_mission_text.jsonl`) oraz `100%` kwestii bojowych w `mesbtl00.cpk` (`22 192` linii), połączona ze skanem całego korpusu `145 tys.+` linii. Potwierdzono, że `pakiet_PL/polish.jsonl` wiąże `100%` wierszy `00_dialogue.jsonl` i `01_battle_quotes.jsonl` po `id` (`non-id = 0`), a kolizje pochodziły ze wsadowej pre-translacji w archiwum źródłowym (`はい！`/`うん！` -> `"Dobrze!"`, `はい！` -> `"Już idę!"`, `「了解！」` -> `"「Przyjąłem!」"`).
+- **Wdrożone poprawki (`39` wierszy: `19` w `00_dialogue.jsonl` + `20` w `01_battle_quotes.jsonl`, `data_sha256 = f91ca01165c5d16df0bb7d75633491caeaf4f68a1ba85034fe5779ebefe45a92`, regresja `tests/test_pl_v3_5_ep1_gender_qa.py`):**
+  1. Misja `1_4` (`DL101_40.bin`) + Raijin-Oh / Examainer (`mesbtl00.cpk`): `DL101_40.bin:896` (`"Tak!"`), `DL101_40.bin:2368` (`"Że co?!"`), `p0500.pac:33740` (Jin do chłopaka Asuki Tsukishiro: `"mogłaś"` -> `"mogłeś"`), `p0500.pac:36632` + `p0525.pac:5136,5320` + `p0526.pac:5136,5320` (Maria Shiratori: `"「Przyjęłam!」"` ×5), `p4501.pac:29364` (Himari: `"「Hwaaa! S-są za silni!」"`). Zgodnie z decyzją właściciela zachowano hasło `"Matchless"`.
+  2. Epizod 0–1 + DLC `DL101_80G` + `mesbtl00.cpk`: `DL100_01.bin:9332` (`"Nowa w Connect Force?"`), `DL101_60.bin:2172` (`"Ugh!"`), `DL101_70.bin:5324` (`"Pa, pa, dziewczyny!"`), `DL101_80.bin:1872` & `DL101_80G.bin:1872` (`"były już 22 zgłoszenia!"`), `DL101_80.bin:10864` & `DL101_80G.bin:10864` (Asuma w jadącym aucie: `"Tak jest!"`), `DL101_80.bin:17864` & `DL101_80G.bin:17836` (`"Nie do wiary...\r\n"`), `p0700.pac:23864` (Shinobu Asaoka: `"「Przyjęłam!」"`), `p0710.pac:11864` (`"「Co? Dostałem?」"`), `p0733.pac:4456` (`"「W takim stanie\n trudno to nazwać zwycięstwem.」"`), `p1301.pac:5036` (unik Christiny: `"「Och... Chybił?!」"`), `p2505.pac:12772` (`"「Chyba po prostu tamten spudłował...」"`), `p3711.pac:27284` (`"「Drugiego razu nie będzie! Unikaj porządnie!」"`).
+  3. Globalne poprawki tej samej klasy w Epizodach 2–8 i `mesbtl01..19`: pozostałe `7` kobiecych `"「Przyjąłem!」"` -> `"「Przyjęłam!」"` (`p2642.pac:8712,11236`, `p4101.pac:12820`, `p4122.pac:10300,10388`, `p4420.pac:9744,9992`), wszystkie `5` błędnych `"Dobrze!"`/`"Dobrze..."` po pytaniu (`DL207_13:21308`, `DL207_13B:21376`, `DL207_20:22772`, `DL310_20:10660`, `DL831_20:2928` — przy zachowaniu idiomatycznych `DL414_11:3844` i `DL834_13:65264`/`E`/`F`/`J`) oraz spójna liczba mnoga dla *Connect Force* (`DL520_60:4336`, `DL728_12:3924`, `DL728_12E:3924`).
+- **Zbudowane i zweryfikowane paczki (`cmp -s == 0` po pobraniu z Google Drive):**
+  - **`srw-oe-translation-pl-v3.5.zip`** (folder `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`): ID **`1Umr2dARMw6TP7k0FNddbpZmYLja6wZAp`**, `8,761,137 B`, SHA-256 `b90712710da07d46e327d5bcdec946110306e789363d8f7f2b8e19216d85e4c9`, MD5 `f34cc5d1c4a20dea6104c504491fc68a` (`v3.4` `1peTuPYvPk5_g4rZtqyzXsYlpG9NOXRml` przeniesione do kosza).
+  - **`srwoe_reading_PL_00-34.zip`** (folder `Skrypty` `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`, kwit `docs/reading-script/polish/PL5_v3.5_reading.delivery.json`): ID **`1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1`**, `915,737 B`, SHA-256 `1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5`, MD5 `83d3ecead5fbbc51b083ade1f84036e6` (`v3.3` `1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi` przeniesione do kosza) [ZWERYFIKOWANE; brak testu uruchomieniowego PPSSPP].
+
+## 2026-10-23 — PL v4.0: pełne domknięcie poprawek fabularnych, DLC, UI misji i spójności całego korpusu (Rozdziały 0–8 + `evept101`–`evept108`)
+
+- **Zakres i cel:** Zgodnie z dyspozycją właściciela z 2026-10-23 wykonano `100%` lektury bez skrótów wszystkich pozostałych partii gry (Rozdziały `0–8` aż do finału i epilogów `DL834_13`, pakiety DLC `evept101.EDAT`–`evept108.EDAT`, pełny plik `05_mission_text.jsonl`, audyt krzyżowy celów misji względem `08_names_units_weapons.jsonl` i `07_names_characters.jsonl`) i domknięto `100%` poprawek językowych oraz terminologicznych w `pakiet_PL`. Zgodnie z poleceniem właściciela **nie zbudowano** na tym etapie paczki dystrybucyjnej ZIP.
+- **Sumaryczny stan `pakiet_PL`:** względem `PL v3.5` (`bef5d8c`) zmodyfikowano **`342` wpisy `pakiet_PL/polish.jsonl`**: `285` `dlg:*`, `24` `quo:*`, `27` `char:*`, `2` `label:srwDL_CharaDictionary:*`, `4` wpisy `05_mission_text.jsonl` (`map_name:*`, `mission_note:*`, `mission_title:*`). Pliki `02_items.jsonl`, `03_skills.jsonl`, `04_config_text.jsonl`, `08_names_units_weapons.jsonl`, `09_executable.jsonl` i `ui_labels/mensys_15.json` pozostały nietknięte; zachowano `"Matchless"`, znaczniki `(Ally)` / `/Ally` oraz dynamiczny token `＜主人公名＞` (bez twardego `"Seishiro"` w `00_dialogue.jsonl`).
+- **Walidacja pełnego zestawu (`R.materialize` + `R.validate`):** `entries = 108794`, `rows = 109176`, `filled = 108805`, `empty = 371`, `errors = 0`; `pakiet_PL/polish.jsonl` SHA-256 = `8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c`; w `pakiet_PL/snapshot.json` zachowano `owner_ui_corrections` i `merge_provenance`.
+- **Klasy wdrożonych poprawek (commity `27d3561`, `ea10165`, `b21c994`, `d55660d`, `9713861`, `ee1cc45`):**
+  1. **Rozdzielenie puli skróconej nazwy Kallen Kozuki i Karen Joshua (`27d3561`, `9713861`):** wydzielono `5` wierszy `char:2320:*` w `pakiet_EN/07_names_characters.jsonl` (kwit `config/pl/char-2320-kallen-2026-10-23.json` wiążący dokładne bajty przed/po) tak, by Kallen Kozuki miała `"Kallen"`, a Karen Joshua (`char:1145`) nadal `"Karen"`. Strażniki proweniencji (`tools/polish_reading_script.py`, `tests/test_reading_script_episode34.py`) weryfikują odwracalność tej promocji bajt w bajt.
+  2. **Grupy A + B + C oraz Rozdziały 2–7 (`b21c994`, `d55660d`):** krótkie repliki (`はい`/`ええ` po pytaniach i pożegnaniach), zgody rodzajowe mówiących i adresatów (m.in. Chris MacKenzie, Sara Yuki, Leccee, Nei Moh Han, Chum Huau, Elle Vianno, Kallen, Sheryl Nome, Ranka Lee, Bobby Margot), kalki składniowe (`DL311_11` + lustrzane `DL311_11C`/`DL311_11E`) oraz nazwy pomocniczych pilotów w `07_names_characters.jsonl` (`SI sterująca`, `Żołnierz Posaydala`, `Oficer Posaydala`, `Komendant Igor`, `Wan`, żołnierze/oficerowie Pafuricii, Gilgameshu, Balarantu i Mrocznego Smoka).
+  3. **Rozdział 8 (`Ep 30–34`), finał, epilogi i DLC (`ee1cc45`):**
+     - odwrócony sens kulminacji starcia Vana z Ravenem: `DL830_13.bin:61756` `"Nie... Van wygrał!"` -> `"Tak... Van wygrał!"`;
+     - poprawki gramatyczno-stylistyczne: `DL831_12:9360` (`"jedną z naaas"`), `DL832_30:4304` (`"sprzed chwili"`), `DL833_11:12956` i `13872` (zgoda okrętu `Macross Quarter`), `DL834_11:1920` (`"zanim błona na wejściu odrośnie"`), `DL834_13:95380` (`"Tak! Bardzo dziękuję!"`), `DL834_13:98776` i `E/F/J` (`"profesjonalistką"`), `DL834_13:112576` i `E/F/J` (`"Wam obydwu…"`), `DL834_13:127736` i `E/F/J` (`"Dziękuję.\nWy też się trzymajcie."`), `DL834_13E/F/J:68540`/`72148`/`72168` (nadmiarowe cudzysłowy w kwestii Kamille'a), `DL834_13:94600` + `E/F/J` (Koji zwraca się do całego zespołu), `DL834_13:104960` + `E/F/J` (nazwa festynu bez zagnieżdżonych cytatów), `DL834_13:51632` + `E/F/J` (`"Shiden Swordem"` jako narzędnik), `DL834_13:60416` + `E/F/J` (wypowiedź Hayato o prasie), a także usunięcie gwarowego `"se"` u Buda w `DL834_13` i lustrzanych `DL834_13E/F/J` (przy zachowaniu utrwalonego `"Budziu"` z Rozdz. 1–2);
+     - ujednolicenie w całym korpusie: męski rodzaj i bezrodzajowy wołacz `Connect Force` (`0` wystąpień `"Przeklęte Connect Force"` i `"panowie z Connect Force"`), pisownia `Saurersi / Saurersów` (`DL832_40:6260`, `DL834_11:6432`) oraz nieodmienny termin `Mucus Gate` (`40` wierszy w Rozdz. 4, 6, 7 i 8; odmieniona proza `brama Mucus` zachowana tam, gdzie była już poprawna gramatycznie i dominująca);
+     - zgodność nazw jednostek i bossów w warunkach zwycięstwa/porażki z `08_names_units_weapons.jsonl` i `07_names_characters.jsonl`: `Dragon Escort`, `Moduł kontroli`, `Ray` (`DL518_11:6844`), `Eldgear Central Tower`, `Evil God Drago`, `Lądowy pancernik Balarant`, `True Posaydal`, `Cowen & Stinger`.
+  4. **`05_mission_text.jsonl` (`ee1cc45`):** `DL521_12_ext.dat:r0:note_a` -> `"＠6Demon Goburiki＠0"`; `srwDL_Map_S.bin:r7:name` -> `"64_Mapa ataku 10 (mrok pustki)"` (`30 <= 31 B` zmierzonego slotu); `milstP08.bin:r20:title` i `DL832_40_ext.dat:r0:title` -> `"Transport Ark Ship"`.
+  5. **Dokumentacja i testy:** `docs/srwoe_mission_deployments.md` zsynchronizowany z nowymi nazwami (`Kallen`, `SI sterująca`, `Żołnierz Posaydala`, `"Demon Goburiki"`, `Transport Ark Ship`) przy zachowaniu szerokości tabel `<= 216` i braku `[ID ...]`; dodano `tests/test_pl_v4_0_consistency.py` (walidacja pełnego zestawu, inwarianty `Kallen`/`Karen`, `Matchless`, `(Ally)`, `＜主人公名＞`, brak zakazanych form terminologicznych, obecność poprawek Rozdz. 8 i DLC oraz synchronizacja dokumentu rozmieszczeń).
+- **Weryfikacja:** `114` wcześniejszych modułów testowych przechodzi `100%`; walidacja `R.validate` zwraca `errors = 0`; CI `Release translation patch (EN + PL)` zielone [ZWERYFIKOWANE w CI; brak testu uruchomieniowego PPSSPP w tym środowisku].
+
+### 2026-10-23 — Wydanie `PL v4.0` zbudowane, zweryfikowane i wgrane na Google Drive
+
+- **Budowa (bez danych z gry):** `python3 tools/build_release_pair.py --version 4.0 --out local/dist_v4_0` — para EN + PL zbudowana i zweryfikowana przez wbudowany `verify_pair` (`RELEASE_MANIFEST.json`, `sha256_by_file`, CRC, launcher `--lang pl`, `PL_COVERAGE.json`).
+  - `srw-oe-translation-pl-v4.0.zip`: `8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`, MD5 `20b724d716de850da7a2fee383be643f`, `92` elementy ZIP, `91` digestów ładunku.
+  - Para EN: `srw-oe-translation-v4.0.zip`: `7,285,064 B`, SHA-256 `f542428707ce3d502cdd8fa9bb775c52cd876b5a34036522cfbb6779b7f03e5d`, MD5 `ba88ee86b3e717ddf1b0bbffed2f06b6` (zbudowana lokalnie; na Drive trafia wyłącznie kit PL).
+- **Zawartość paczki PL:** `108,805 / 109,176` wypełnionych wierszy, `371` pustych, `0` błędów (walidacja `R.validate`), `partial = false`, `snapshot_sha256 = 8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c`; w środku ZIP potwierdzono obecność poprawek v4.0 (m.in. `"Tak... Van wygrał!"` ×2, `"jedną z naaas"`, `"profesjonalistką"`, `"Shiden Swordem"` ×4, `Mucus Gate` ×773).
+- **README końcowy w paczce:** `README_DIST_PL.md` zaktualizowany do `v4.0` (pełny zakres rozdziałów 0–8 + DLC + teksty misji, liczby `108 805 / 109 176`, historia `v3.0`) i przepakowany do ZIP jako `README.md`.
+- **Dostawa Google Drive (folder główny `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`):** `srw-oe-translation-pl-v4.0.zip` -> **`1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC`**; odczyt metadanych z Drive zwrócił `md5 = 20b724d716de850da7a2fee383be643f`, `sha256 = c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a` i `size = 8761508` — **zgodne bajt w bajt z artefaktem lokalnym**. Kopia robocza tego samego wydania (`1f-ETY09CKwit7Xpa-DMQBFp94XjzW9PS`, przed aktualizacją README) oraz zastąpione `srw-oe-translation-pl-v3.5.zip` (`1Umr2dARMw6TP7k0FNddbpZmYLja6wZAp`) przeniesione do kosza. Kwit: `docs/pl/pl-v4.0-kit-delivery.json`.
+- **Zakres świadomie NIE odtworzony w tym środowisku:**
+  1. `srwoe_reading_PL_00-34.zip` pozostaje w wersji `v3.5` (`1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1`, `915,737 B`, SHA-256 `1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5`) — `tools/build_polish_reading_editions.py` weryfikuje `reference_sha256` zamrożonych angielskich plików `srwoe_episode_00.md`–`34.md` zapisany w `docs/reading-script/polish/episode_*.json`; zestaw referencyjny żył w ignorowanym `local/en_reading_refs` i na Google Drive, a nie w Git, więc nie ma go w tym sandboxie.
+  2. `srwoe_pilot_catalog_PL.md` nie został przeliczony — `tools/pilot_catalog.py` wymaga prywatnych kontenerów gry i `local/eboot_108.elf` (dane gry nie są i nie będą w Git). `docs/srwoe_mission_deployments.md` jest już zsynchronizowany z nazwami v4.0.
+- **Testy:** pełny przegląd `145` modułów `tests/test_*.py` (pętla per-moduł, `fail = 0`), w tym `tests/test_pl_v4_0_consistency.py`; `python3 -m unittest discover` w jednym przebiegu jest ubijany przez OOM w tym sandboxie, stąd pętla.
+- **Uwaga evidence:** brak uruchomieniowego QA w PPSSPP; wszystkie twierdzenia opierają się na walidacji pakietu, CRC/SHA-256 archiwum i sumach kontrolnych Google Drive [ZWERYFIKOWANE; brak testu uruchomieniowego PPSSPP].
+
+### 2026-10-23 — Odświeżenie wszystkich czterech artefaktów pochodnych dla tekstu `v4.0` i publikacja na Google Drive
+
+- **Wejścia odzyskane z Google Drive (nie z Git):** 21 kontenerów gry (`config00.cpk`, `configst.cpk`, `config01`–`config19.EDAT`), 24 kontenery `eventP` (`eventP00.cpk`, `eventP01`–`09`/`13`/`20`–`32.EDAT`), `EBOOT.BIN` (`26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`, `5,531,024 B`) oraz 35 zamrożonych angielskich plików `srwoe_episode_00.md`–`34.md`. Wszystkie `35/35` plików referencyjnych zgadza się bajt w bajt z `reference_sha256` zapisanym w `docs/reading-script/polish/episode_*.json`; sumy 21 kontenerów zgadzają się z `docs/mech-catalog/source-inventory.json` (`verified = 21`, `bad = 0`).
+- **`pakiet_PL` → pakiet materializowany:** `python3 tools/pl_release_package.py materialize --base pakiet_EN --stored pakiet_PL --out local/mat_pl` — `10` plików `jsonl`, w tym `04_config_text.jsonl` `3ed7eafa…c10b` i `07_names_characters.jsonl` `1b420e81…7de4` (wersja `v4.0`).
+- **1) Katalog mechów (`srwoe_mech_catalog_v4_PL.md`):** `tools/polish_mech_catalog.py localize` + `render` z odtworzonego modelu 1.08 i pakietu `v4.0` → `873,130 B`, `11,953` linii, SHA-256 `07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031`, MD5 `3b636281662186cb3d1ede67990c24c6`; `verify_catalogue` OK (`units 393`, `weapon_rows 1485`, fakty równe modelowi). Różnice wobec poprzedniego `v4` (`876,522 B`, `76cc60da…`): `724` linie, wyłącznie szerokości separatorów tabel i ostatnia kolumna opisu umiejętności z `v4.0` (`dodatk. Obraż.500` → `+Obraż.500`, `Obraż.600 1 tura:` → `Obraż.600, 1 tura:`); `0` wierszy różni się w jakiejkolwiek innej komórce. Plik na Drive (`1Iom2YIbNna-djLB5em8WchoQMjdu6pSx`) miał już identyczny MD5 — pobrany ponownie i porównany `cmp -s == 0`.
+- **2) Katalog pilotów (`srwoe_pilot_catalog_PL.md`):** `tools/pilot_catalog.py --containers ../google_drive --elf local/eboot_108.elf --english-package pakiet_EN --polish-package local/mat_pl --engine-map docs/pilot-catalog/engine-map.json` → `303,266 B`, `6,276` linii, SHA-256 `800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65`, MD5 `ea1cc66922dfc8b98cc5a2081f77d319`; `tools/verify_pilot_catalog.py` → `PASS` (404 postaci, 60 rekordów Duchów, 536 rekordów umiejętności, `0` CJK, `0` tokenów kontrolnych, odwzorowanie Markdown bajt w bajt). Różnica wobec `v3.5`: `10` linii, wyłącznie poprawka nazwy `Karen` → `Kallen`.
+- **3) Rozmieszczenia misji (`srwoe_mission_deployments.md`):** `tools/mission_deployments.py` → `11,560,402 B`, `217,482` linie, SHA-256 `d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd`, MD5 `eb7dd71b4488e3d13a3ddfef212fd92c`; `94,141` wierszy tabel, maksymalna szerokość `215` (`0` powyżej `216`), `0` znaczników `[ID ...]`. `24` wierszy treści różni się wobec poprzedniej dostawy (wyłącznie frazeologia efektów umiejętności z `v4.0`).
+- **4) Edycje do czytania (`srwoe_reading_PL_00-34.zip`):** `tools/build_polish_reading_editions.py --english pakiet_EN --polish local/mat_pl --references local/en-reference --text-source v4.0 --out local/reading-pl` (nowy argument `--text-source` etykietuje wydanie; nie zmienia tekstu) → `35` epizodów, `71` plików; pokrycie prozy `47,056 / 47,056` (`32,919` unikalnych + `14,137` aliasów, `33,548` sprawdzonych przedziałów), `2,430,374 B` Markdown, `0` znaków japońskich w `35/35` plikach. `31/35` epizodów różni się od `v3.5` (wyłącznie redakcja; `00`, `01`, `05`, `08` bajt w bajt identyczne). Nowe `tools/build_reading_archive.py` pakuje archiwum deterministycznie i generuje `README.md` z `verification.json`: `917,233 B`, SHA-256 `c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6`, MD5 `df2765ebca6251674de3e66e255d3893`, `36` elementów; ponowne zbudowanie daje identyczne bajty (`cmp -s == 0`).
+- **Publikacja i weryfikacja na Google Drive (folder `Skrypty` `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`):** archiwum czytania → `1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g`, katalog pilotów → `1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV`, rozmieszczenia → `1mcrih3r4TAE0pmAYebYH54XdDELS8P6v`; każdy plik pobrany ponownie i porównany `cmp -s == 0` z artefaktem lokalnym. Katalog mechów miał już identyczne bajty pod `1Iom2YIbNna-djLB5em8WchoQMjdu6pSx`; dla zgodności daty wydania wgrany ponownie jako `1lh4JHwKDE0nIknE13JwS5-BGtSViYze1` (`2026-10-23 09:31`, te same `873,130 B` / SHA-256 `07f11deb…` / MD5 `3b636281…`, pobrany i porównany `cmp -s == 0`), a poprzedni ID przeniesiono do kosza. Do kosza przeniesiono zastąpione kopie `v3.5`: `1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1` (czytanie), `1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ` (piloty), `1CX0l4c7wB9x8Qvy7TRcxw44u1c-UDVDG` (rozmieszczenia) oraz trzy archiwa pośrednie (`1_ogO8CRZQebXAbBMGo1nmhple1WkO41w`, `1LlaUuLCoBeXv_XBmoEkALWgiq8mbHRUc`, `1pqZyeeLcAzv6OcXqngdj9YvIbS_UapU-`).
+- **Kwity:** `docs/reading-script/polish/PL5_v4.0_reading.delivery.json`, `docs/pilot-catalog/delivery.json` + `verification.json`, `docs/reading-script/polish/catalogue-v4.0.delivery.json`, `docs/mission-deployments.delivery.json`, zaktualizowany `docs/pl/pl-v4.0-kit-delivery.json` (blok `derived_artefacts`).
+- **Uwaga evidence:** brak uruchomieniowego QA w PPSSPP; wszystkie twierdzenia opierają się na walidacji pakietu, CRC/SHA-256 archiwów i sumach kontrolnych Google Drive [ZWERYFIKOWANE; brak testu uruchomieniowego PPSSPP].

@@ -28,6 +28,7 @@ class FollowupTests(unittest.TestCase):
         self.assertEqual(len(self.plan),193)
         later={e['id']:e['after']for e in json.loads((ROOT/'config/pl/ui-third-2026-10-19.json').read_text())['changes']}
         later.update({e['id']:e['after'] for e in json.loads((ROOT/'config/pl/ui-six-2026-10-20.json').read_text())['changes']})
+        later.update({e['id']:e['after'] for e in json.loads((ROOT/'config/pl/ui-five-screens-2026-10-21.json').read_text())['changes']})
         self.assertEqual(len({e['source_sha256']for e in self.plan}),193)
         for e in self.plan:
             with self.subTest(id=e['id']):

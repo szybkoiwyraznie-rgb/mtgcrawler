@@ -1,0 +1,56 @@
+{
+  "version": "2.7-PL6",
+  "date": "2026-10-21",
+  "plan": {
+    "file": "config/pl/ui-eldran-skills-2026-10-21.json",
+    "sha256": "384c804e15cf0bf07eca29b7cdb309ad2b50e120646b0376fc46c60e88c68276",
+    "entries": 11
+  },
+  "artifact": {
+    "name": "srw-oe-translation-pl-v2.7-PL6.zip",
+    "drive_id": "1Z41f1W9cXIUAVa40evWcHzGQJXfHzfu-",
+    "parent_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "url": "https://drive.google.com/file/d/1Z41f1W9cXIUAVa40evWcHzGQJXfHzfu-/view",
+    "superseded_trashed_drive_id": "1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV",
+    "bytes": 8122152,
+    "sha256": "126d37f2d1b21db57e1e8b3ae339560e07a49f01dcd470d41b25bcd4cf2598ae",
+    "md5": "4f386154840331aa696f61f63e3ed9a9",
+    "english_pair": {
+      "name": "srw-oe-translation-v2.7-PL6.zip",
+      "bytes": 7279173,
+      "sha256": "b1d0e336f3b87f26fee9635bfaa8c89c8d17085bc86bb9824541fabd51136694"
+    },
+    "zip_members": 91,
+    "manifest_payload_hashes": 90,
+    "crc_passed": true,
+    "drive_download_back_byte_identical": true,
+    "all_payload_hashes_verified": true,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "physical_verification": {
+    "containers_built_and_read_back": [
+      "config00.cpk (srwDL_Skill00.bin)",
+      "config01.EDAT (srwDL_Skill01.bin)",
+      "config02.EDAT (srwDL_Skill02.bin)",
+      "config03.EDAT (srwDL_Skill03.bin)",
+      "config04.EDAT (srwDL_Skill04.bin)",
+      "config05.EDAT (srwDL_Skill05.bin)",
+      "config06.EDAT (srwDL_Skill06.bin)",
+      "config07.EDAT (srwDL_Skill07.bin)",
+      "config08.EDAT (srwDL_Skill08.bin)"
+    ],
+    "verified_skill_strings": {
+      "srwDL_Skill00_bin_r219_effect": "＠4%s0 Warunek: roboty Eldran x4\\n%s Nie do wsparcia ataku",
+      "srwDL_Skill00_to_08_tail_pool_fragment": " Warunek: roboty Eldran x",
+      "per_field_byte_delta": -1,
+      "leading_ascii_space_preserved": true
+    },
+    "runtime_tested": false
+  },
+  "install_scope_note": {
+    "iso_rebuild_required": true,
+    "dlc_config_update_required": true,
+    "pboot_recopy_required": false,
+    "reason": "srwDL_Skill00.bin lives in ISO config00.cpk; shared tail-pool copies live in DLC config01.EDAT..config08.EDAT."
+  }
+}

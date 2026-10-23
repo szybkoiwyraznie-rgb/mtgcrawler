@@ -1,6 +1,47 @@
-# Polish reading editions — PL4 source series 01–21, curated 00–03 and catalogue v4
+# Polish reading editions — Complete curated series 00–34 (v4.0), v3.5, v3.3, v3.0, and catalogue v4
 
-## New: PL4 source-order reading series — episodes 01–21 (2026-10-20)
+## Latest: Complete curated Polish reading series — episodes 00–34 (`v4.0`, 2026-10-23)
+
+- **[Complete Polish reading scripts 00–34, v4.0 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g/view)** (`917,233 B`, SHA-256 `c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6`, MD5 `df2765ebca6251674de3e66e255d3893`, 36 members: generated `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; `47,056 / 47,056` prose entries; supersedes trashed `v3.5` archive `1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v4.0_reading.delivery.json` (prior `v3.5` / `v3.3` / `v3.0` receipts preserved in `PL5_v3.5_reading.delivery.json`, `PL5_v3.3_reading.delivery.json` and `PL5_v3.0_reading.delivery.json`)
+
+Built strictly from the accepted `pakiet_PL` **`v4.0`** package (`data_sha256 = 8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c`) across **all 35 story episodes (`00–34`)**, re-rendered against the frozen English reference set (all `35/35` files matched the `reference_sha256` pinned in the reviewed plans `episode_00.json`..`episode_34.json`):
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,919` unique dialogue/narration entries directly rendered and `14,137` DLC variant aliases independently verified in Polish (`33,548` verified text spans across `2,430,374 B` of Markdown). `31` of `35` episodes changed against `v3.5`; the differences are editorial wording only, and episodes `00`, `01`, `05`, `08` stayed byte-identical.
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens or CJK characters (`0` Japanese characters in `35/35` files), full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), deterministic ZIP rebuild verified, and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+
+
+## Historical: Complete curated Polish reading series — episodes 00–34 (`v3.3`, 2026-10-22)
+
+- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi/view)** (`915,740 B`, SHA-256 `66629f651101737fcc2a37f44bff2aafb440028b5db50873584b226a99f913e7`, MD5 `0367e4b80f6d8bf505c2f77efb75e5fe`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; supersedes trashed `v3.0` archive `1PjPStP1V6DDso2asRR-3pcZE48IWYJhu`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.3_reading.delivery.json` (prior `v3.0` receipt preserved in `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`)
+
+Built strictly from the accepted `pakiet_PL` **`v3.3`** package (`data_sha256 = 4a277eff0c0e63d1d1fe0e92ec3a7acafe6925d903b17014a1b9a4b1c9860d85`) across **all 35 story episodes (`00–34`)**, incorporating all `67` dialogue edits across `20` episodes (`[01, 02, 03, 04, 05, 06, 08, 09, 10, 11, 14, 15, 18, 19, 20, 23, 27, 28, 32, 33]` — Himari's cold symptoms in Episode `01` `DL101_20.bin` and game-wide replacement of nautical calques on airborne, space, and land units):
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans).
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+
+## Historical: Complete curated Polish reading series — episodes 00–34 (`v3.0`, 2026-10-21)
+
+- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1PjPStP1V6DDso2asRR-3pcZE48IWYJhu/view)** (`918,139 B`, SHA-256 `e4adebb4d55cbe8af5991076208a571d0688c212bd3f6eba9101652ed6243cc0`, MD5 `e76808b5041e17bb15cc933f5f6c2d12`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.0_reading.delivery.json`
+
+Built strictly from the accepted `pakiet_PL` **`v3.0`** package (`PL5.zip` + `v2.7-PL6`, `data_sha256 = b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8`) across **all 35 story episodes (`00–34`)**:
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans across `2,433,410 B` of Markdown plus `README.md`).
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green (**1,767 tests OK, 7 skipped**). Reading files only; no ISO/DLC changes or PPSSPP runtime claim.
+
+Reproduction from materialized `pakiet_PL`:
+
+```sh
+python3 tools/build_polish_reading_editions.py \
+  --english pakiet_EN --polish local/mat_pl \
+  --references local/en_reading_refs --episodes 0-34 --text-source v4.0 \
+  --out local/reading-pl
+python3 tools/build_reading_archive.py --input local/reading-pl --release v4.0 \
+  --out local/dist_reading_v4_0/srwoe_reading_PL_00-34.zip
+```
+
+Older deliveries below are preserved, not overwritten.
+
+## Historical: PL4 source-order reading series — episodes 01–21 (2026-10-20)
 
 - **[Complete PL4 reading series 01–21 (ZIP)](https://drive.google.com/file/d/1pqZyeeLcAzv6OcXqngdj9YvIbS_UapU-/view)**
 - [PL4 scope and reading notes](https://drive.google.com/file/d/1_6QX1uVzIEGwhToYWZmNdlyR_zvYVKhz/view)
@@ -11,26 +52,26 @@ Polish text in the accepted PL4 snapshot: 26,572 dialogue/narration rows across
 already delivered. Episode 04 includes **Lelouch buntownik**; episode 05 includes
 **Biały rycerz**. Individual new PL4 files:
 
-| Episode | Reading file |
-|---:|---|
-| 04 | [PL4](https://drive.google.com/file/d/1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA/view) |
-| 05 | [PL4](https://drive.google.com/file/d/1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI/view) |
-| 06 | [PL4](https://drive.google.com/file/d/112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r/view) |
-| 07 | [PL4](https://drive.google.com/file/d/1A9LGHI3px111yW_8lUMVrfe98MrrD1to/view) |
-| 08 | [PL4](https://drive.google.com/file/d/1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl/view) |
-| 09 | [PL4](https://drive.google.com/file/d/1z_acnUhlgTMTf3aik1wRTdghJ28cmzws/view) |
-| 10 | [PL4](https://drive.google.com/file/d/1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG/view) |
-| 11 | [PL4](https://drive.google.com/file/d/1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB/view) |
-| 12 | [PL4](https://drive.google.com/file/d/1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3/view) |
-| 13 | [PL4](https://drive.google.com/file/d/1oDmwULnptz74B8OjPTF-ewJ2waho-8p4/view) |
-| 14 | [PL4](https://drive.google.com/file/d/1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E/view) |
-| 15 | [PL4](https://drive.google.com/file/d/1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58/view) |
-| 16 | [PL4](https://drive.google.com/file/d/1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa/view) |
-| 17 | [PL4](https://drive.google.com/file/d/1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv/view) |
-| 18 | [PL4](https://drive.google.com/file/d/184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI/view) |
-| 19 | [PL4](https://drive.google.com/file/d/11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi/view) |
-| 20 | [PL4](https://drive.google.com/file/d/1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF/view) |
-| 21 | [PL4](https://drive.google.com/file/d/1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm/view) |
+| Episode | Reading file                                                                  |
+| ------: | ----------------------------------------------------------------------------- |
+|      04 | [PL4](https://drive.google.com/file/d/1Q71meQqc4CutTBsLdjow7UFqz7ARD1WA/view) |
+|      05 | [PL4](https://drive.google.com/file/d/1OyOyTUX3cn8XDnxKnRaJ1jZ80CYeMPYI/view) |
+|      06 | [PL4](https://drive.google.com/file/d/112pE_CFjB2VkLk7wpJJmQZl-NDl1Um-r/view) |
+|      07 | [PL4](https://drive.google.com/file/d/1A9LGHI3px111yW_8lUMVrfe98MrrD1to/view) |
+|      08 | [PL4](https://drive.google.com/file/d/1QszJmbV6BWYpZENly4NrW1bsGgCKH4Nl/view) |
+|      09 | [PL4](https://drive.google.com/file/d/1z_acnUhlgTMTf3aik1wRTdghJ28cmzws/view) |
+|      10 | [PL4](https://drive.google.com/file/d/1WUfN1Nxbk0egrcBLiFwhrBBlcxYFA9wG/view) |
+|      11 | [PL4](https://drive.google.com/file/d/1fnjgHqgDeUXtPXmzG7J21X2yo_-Ej-IB/view) |
+|      12 | [PL4](https://drive.google.com/file/d/1pBjKqZiVDl7J0ZFGmhSWWrkDWmGGoLw3/view) |
+|      13 | [PL4](https://drive.google.com/file/d/1oDmwULnptz74B8OjPTF-ewJ2waho-8p4/view) |
+|      14 | [PL4](https://drive.google.com/file/d/1UmAa0WyLDXqMz-7YP2KAVXPp7k9m_4-E/view) |
+|      15 | [PL4](https://drive.google.com/file/d/1Uqj89hce1YyBvpnfc4Sph73LBFwOPT58/view) |
+|      16 | [PL4](https://drive.google.com/file/d/1Nsw8K8ttxBIanbWi8l2zzhFUxuduk7Wa/view) |
+|      17 | [PL4](https://drive.google.com/file/d/1ZSfp6ke40i-fLOdjX60vaxeOVupnh6Uv/view) |
+|      18 | [PL4](https://drive.google.com/file/d/184XdXIOtu5cZcARRmSAWYUWDrq2C7WJI/view) |
+|      19 | [PL4](https://drive.google.com/file/d/11y0u4UcNzvdY5ddu4DiVWQ-DTCcXfSZi/view) |
+|      20 | [PL4](https://drive.google.com/file/d/1wTAr-hGUlxKd1voZUPe4NrIckUPGfaJF/view) |
+|      21 | [PL4](https://drive.google.com/file/d/1s2_qQDkGl9X2yYn8vXHMG9Ppah4RCSxm/view) |
 
 **Coverage caveat:** this repository's checked PL4 snapshot declares story coverage
 00–21 (28,078 / 28,079 visible elements filled, with one blank structural row).

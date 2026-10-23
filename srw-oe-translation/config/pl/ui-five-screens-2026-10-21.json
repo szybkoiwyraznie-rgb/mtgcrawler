@@ -1,0 +1,1277 @@
+{
+  "schema": 1,
+  "date": "2026-10-21",
+  "name": "ui-five-screens-2026-10-21",
+  "summary": "Pixel-verified fixes for all 5 PPSSPP UI screenshots (battle top bar, all 41 active pilot/status banners, all PBOOT.PBP forecast branches A/B1/B2/C1/C2/D, all >54-char <...> weapon traits across Skill00..08, and all Intermission/Title help bars & splices)",
+  "changes": [
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r105:effect",
+      "source_sha256": "6174dbb79afefe3272099eb0c94cbb5482122beefd024cd1be628c26747c1aaa",
+      "before": "＠4<Pojmanie%s1>＠0 Bez kontry, 1 tura: wróg Atk/%s20%% otrz. %s8%%\n%s",
+      "after": "＠4<Pojmanie %s1>＠0 Bez kontry 1t: Atk/%s20%% %s8%%\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r106:effect",
+      "source_sha256": "6108a4c7608b5a2fd50d6943792eb59454721d116c7c5417cc279ed2e8015d16",
+      "before": "＠4<Pojmanie%s2>＠0 Bez kontry, 1 tura: wróg Atk/%s25%% otrz. %s10%%\n%s",
+      "after": "＠4<Pojmanie %s2>＠0 Bez kontry 1t: Atk/%s25%% %s10%%\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r107:effect",
+      "source_sha256": "0c575a29545e7687534527adbbfa5da0b11818fe5e195faaeb40a29ad2ddb416",
+      "before": "＠4<Pojmanie%s3>＠0 Bez kontry, 1 tura: wróg Atk/%s30%% otrz. %s12%%\n%s",
+      "after": "＠4<Pojmanie %s3>＠0 Bez kontry 1t: Atk/%s30%% %s12%%\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r108:effect",
+      "source_sha256": "caaf4bdbc0cd27262add544c1d53d594d1a43603cb0c82d91eb777e4caf15af7",
+      "before": "＠4<Pojmanie%s4>＠0 Bez kontry, 1 tura: wróg Atk/%s35%% otrz. %s14%%\n%s",
+      "after": "＠4<Pojmanie %s4>＠0 Bez kontry 1t: Atk/%s35%% %s14%%\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r109:effect",
+      "source_sha256": "2e012396731edcd5c1d98b65b35e7cd728bd5a7b7c08053d837e79708a64ed10",
+      "before": "＠4<Pojmanie%s5>＠0 Bez kontry, 1 tura: wróg Atk/%s40%% otrz. %s16%%\n%s",
+      "after": "＠4<Pojmanie %s5>＠0 Bez kontry 1t: Atk/%s40%% %s16%%\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r117:effect",
+      "source_sha256": "67741531a82adbcd26fc472d3f909891893150173321119dc9e39a7d36d51f76",
+      "before": "＠4<Komórki DG%s1>＠0 Wróg: %s4 1%s20%% %s10%%",
+      "after": "＠4<Komórki DG %s1>＠0 %s4, 1%s20%% %s 10%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r118:effect",
+      "source_sha256": "1ef7fcccb8e4eb079886fd81ad7bac3d6672fe95a4646f4749873c58d0a45e02",
+      "before": "＠4<Komórki DG%s2>＠0 Wróg: %s8 1%s25%% %s15%%",
+      "after": "＠4<Komórki DG %s2>＠0 %s8, 1%s25%% %s 15%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r119:effect",
+      "source_sha256": "b071867d9b760598df692450473366040fdf9fbd17c0de7e358cfdd384e6d727",
+      "before": "＠4<Komórki DG%s3>＠0 Wróg: %s12 1%s30%% %s20%%",
+      "after": "＠4<Komórki DG %s3>＠0 %s12, 1%s30%% %s 20%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r120:effect",
+      "source_sha256": "5edbcc7febc5443eb571ba0755d4b69fb7eec779bc1552ec3385ea5b93b40bcb",
+      "before": "＠4<Komórki DG%s4>＠0 Wróg: %s16 1%s35%% %s25%%",
+      "after": "＠4<Komórki DG %s4>＠0 %s16, 1%s35%% %s 25%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r121:effect",
+      "source_sha256": "38ecc74d3f33d2d8cd634340d6ecb6788f20765e06a7574bf06f1742c692f506",
+      "before": "＠4<Komórki DG%s5>＠0 Wróg: %s20 1%s40%% %s30%%",
+      "after": "＠4<Komórki DG %s5>＠0 %s20, 1%s40%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r123:effect",
+      "source_sha256": "eb201363a7a1743496865e4ee776c369c53455aed773cdd53874d9eb44ecc0e0",
+      "before": "＠4<Mechaniz.%s1>＠0 1%s20%% Unik-20%% %s10%%",
+      "after": "＠4<Mechaniz. %s1>＠0 1%s20%% Unik-20%% %s 10%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r124:effect",
+      "source_sha256": "069ef49e05ead51880e886c115d444cd0c03372f6b3537577f505aab83c2725f",
+      "before": "＠4<Mechaniz.%s2>＠0 1%s25%% Unik-24%% %s15%%",
+      "after": "＠4<Mechaniz. %s2>＠0 1%s25%% Unik-24%% %s 15%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r125:effect",
+      "source_sha256": "08edb11983fadcabd87f05d3e096e1d3cab4a3db25c50d9efc36e39fb65e8f69",
+      "before": "＠4<Mechaniz.%s3>＠0 1%s30%% Unik-28%% %s20%%",
+      "after": "＠4<Mechaniz. %s3>＠0 1%s30%% Unik-28%% %s 20%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r126:effect",
+      "source_sha256": "2d21b29675ed6a362d9b3ff3b083f1b9eb72917a809a8f8baf90df7abc9ea1d4",
+      "before": "＠4<Mechaniz.%s4>＠0 1%s35%% Unik-32%% %s25%%",
+      "after": "＠4<Mechaniz. %s4>＠0 1%s35%% Unik-32%% %s 25%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r127:effect",
+      "source_sha256": "470c84dd13187717441c82c2f8daa82ef0d3b8fc78117e42788984b8142d4c7e",
+      "before": "＠4<Mechaniz.%s5>＠0 1%s40%% Unik-36%% %s30%%",
+      "after": "＠4<Mechaniz. %s5>＠0 1%s40%% Unik-36%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r141:effect",
+      "source_sha256": "88caa4e5357c560da99ec9ab73d5546baf9c2d536a69707e93c60063115d80d7",
+      "before": "＠4<Wstrząs%s1>＠0 %s600 1%s20%% %s30%%",
+      "after": "＠4<Wstrząs %s1>＠0 %s600, 1%s20%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r142:effect",
+      "source_sha256": "af8ca0281281f1b79ce0fe8d500467ef35d2f351dc8fffa8dbae6ae50504d196",
+      "before": "＠4<Wstrząs%s2>＠0 %s800 1%s25%% %s35%%",
+      "after": "＠4<Wstrząs %s2>＠0 %s800, 1%s25%% %s 35%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r143:effect",
+      "source_sha256": "794ed9091f92a9d80485f3e3e2da94816a24773859192108a603d37a9b724206",
+      "before": "＠4<Wstrząs%s3>＠0 %s1000 1%s30%% %s40%%",
+      "after": "＠4<Wstrząs %s3>＠0 %s1000, 1%s30%% %s 40%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r144:effect",
+      "source_sha256": "0bf5cb3904fdb7fb6851ff0d49755d0f074ee67c47f818d08098cdd83afe3a42",
+      "before": "＠4<Wstrząs%s4>＠0 %s1200 1%s35%% %s45%%",
+      "after": "＠4<Wstrząs %s4>＠0 %s1200, 1%s35%% %s 45%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r145:effect",
+      "source_sha256": "63c04fb387cf9c7850b219fa89b0eea0aed11515d6a5be69c66c7a7ec24668a9",
+      "before": "＠4<Wstrząs%s5>＠0 %s1400 1%s40%% %s50%%",
+      "after": "＠4<Wstrząs %s5>＠0 %s1400, 1%s40%% %s 50%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r147:effect",
+      "source_sha256": "76ff3a1b3595418d2b4ed7f33b05b34c8a02eb15a9a05b01af19a244da3a50ae",
+      "before": "＠4<Spowoln.%s1>＠0 %s400 1 tura, wróg: Unik-20%% %s30%%",
+      "after": "＠4<Spowoln. %s1>＠0 %s400, 1t: Unik-20%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r148:effect",
+      "source_sha256": "77e5e5b360b57f98b32392685cda6a649c30aa698c4c81aadb5f4f5a55da5876",
+      "before": "＠4<Spowoln.%s2>＠0 %s600 1 tura, wróg: Unik-24%% %s35%%",
+      "after": "＠4<Spowoln. %s2>＠0 %s600, 1t: Unik-24%% %s 35%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r149:effect",
+      "source_sha256": "e1af81909678164496962ec1d6066025d61b3f8b9338355b21f99c6b9ab8570a",
+      "before": "＠4<Spowoln.%s3>＠0 %s800 1 tura, wróg: Unik-28%% %s40%%",
+      "after": "＠4<Spowoln. %s3>＠0 %s800, 1t: Unik-28%% %s 40%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r150:effect",
+      "source_sha256": "47548f40ec1f4b46498ea97ec13558b64350ad7fa112da160f96769e9804a54f",
+      "before": "＠4<Spowoln.%s4>＠0 %s1000 1 tura, wróg: Unik-32%% %s45%%",
+      "after": "＠4<Spowoln. %s4>＠0 %s1000, 1t: Unik-32%% %s 45%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r151:effect",
+      "source_sha256": "3fa593d5189583c0346633cdd7caeed31051f4007e2d5ef9cc3009d2697bf64e",
+      "before": "＠4<Spowoln.%s5>＠0 %s1200 1 tura, wróg: Unik-36%% %s50%%",
+      "after": "＠4<Spowoln. %s5>＠0 %s1200, 1t: Unik-36%% %s 50%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r237:effect",
+      "source_sha256": "8f343704309eaf2fabb1ea2fc50585824d00f2354c3cd2edae62d10122748796",
+      "before": "＠4<Atak grup.%s1>＠0%s5%% atakują wszystkie jedn. %s\nAtk = suma grupy\n%s",
+      "after": "＠4<Atak grup. %s1>＠0%s5%% Atakuje cała %s\nAtk = suma grupy\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r238:effect",
+      "source_sha256": "29af56df65435ceb164d01b7ba78243440389f1eec9e578842603e0484199c2b",
+      "before": "＠4<Atak grup.%s2>＠0%s10%% atakują wszystkie jedn. %s\nAtk = suma grupy\n%s",
+      "after": "＠4<Atak grup. %s2>＠0%s10%% Atakuje cała %s\nAtk = suma grupy\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r239:effect",
+      "source_sha256": "1926488e0c2d3dad9183923d34a275d4a8186c2cbfd219419d8608ccdb3abf5c",
+      "before": "＠4<Atak grup.%s3>＠0%s15%% atakują wszystkie jedn. %s\nAtk = suma grupy\n%s",
+      "after": "＠4<Atak grup. %s3>＠0%s15%% Atakuje cała %s\nAtk = suma grupy\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r240:effect",
+      "source_sha256": "adae21aa163948866f0f0c4f7f24282f9140c4f334caed2e02e9598e54ee741a",
+      "before": "＠4<Atak grup.%s4>＠0%s20%% atakują wszystkie jedn. %s\nAtk = suma grupy\n%s",
+      "after": "＠4<Atak grup. %s4>＠0%s20%% Atakuje cała %s\nAtk = suma grupy\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r241:effect",
+      "source_sha256": "85554b2fb47ab7f9257946bcd35d2468a984c4d15f7afc19d6bb4c61ab600c60",
+      "before": "＠4<Atak grup.%s5>＠0%s25%% atakują wszystkie jedn. %s\nAtk = suma grupy\n%s",
+      "after": "＠4<Atak grup. %s5>＠0%s25%% Atakuje cała %s\nAtk = suma grupy\n%s",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r251:effect",
+      "source_sha256": "6c46982f8b2e2c75ffe5272f298b27a7aae062742eba717a440b6b8092d9e6c2",
+      "before": "＠4<Detonacja>＠0 Wrogowie w %s: %s jako stałe %s\nJednostka znika",
+      "after": "＠4<Detonacja>＠0 W %s: %s jako stałe %s\nJednostka znika",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r255:effect",
+      "source_sha256": "a10548698de7d239fb7e568a7f35e4a18866732ee96a06c215782c7c9a72bb30",
+      "before": "＠4<Druid System%s1>＠0 1%s20%% Unik-20%%",
+      "after": "＠4<Druid System %s1>＠0 1%s20%% Unik-20%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r256:effect",
+      "source_sha256": "27f88f3b68007ab973d14b259d392b629d24c739005efc1022b1f238eb7102d6",
+      "before": "＠4<Druid System%s2>＠0 1%s25%% Unik-22%%",
+      "after": "＠4<Druid System %s2>＠0 1%s25%% Unik-22%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r257:effect",
+      "source_sha256": "c50f77011dee58e2860d5df4451b9fca43258d486b2d5fb01ced91aef89298eb",
+      "before": "＠4<Druid System%s3>＠0 1%s30%% Unik-24%%",
+      "after": "＠4<Druid System %s3>＠0 1%s30%% Unik-24%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r258:effect",
+      "source_sha256": "c0732fe17190cd7370ef2583404c39b0c43b881a679a4f490b8d19350058db15",
+      "before": "＠4<Druid System%s4>＠0 1%s35%% Unik-26%%",
+      "after": "＠4<Druid System %s4>＠0 1%s35%% Unik-26%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r259:effect",
+      "source_sha256": "ea89be926b5e63ed8493e8eb203f5d595d732fa1cbc831d66559fd92200bc425",
+      "before": "＠4<Druid System%s5>＠0 1%s40%% Unik-28%%",
+      "after": "＠4<Druid System %s5>＠0 1%s40%% Unik-28%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r87:effect",
+      "source_sha256": "67242d2ac0a0ea67a3530c028b33a3c9f0b7b7ade81f4cf5119d423e6c500658",
+      "before": "＠4<Ogłuszenie%s1>＠0 Bez kontry, dodatk. %s500 %s30%%",
+      "after": "＠4<Ogłuszenie %s1>＠0 Bez kontry, +%s500 %s 30%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r88:effect",
+      "source_sha256": "224500a5617ca792c618164a932c0eee312b7d4e18fe8aa17591ae6535299fd1",
+      "before": "＠4<Ogłuszenie%s2>＠0 Bez kontry, dodatk. %s800 %s40%%",
+      "after": "＠4<Ogłuszenie %s2>＠0 Bez kontry, +%s800 %s 40%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r89:effect",
+      "source_sha256": "0b8ed264258ccf29f28c0ce817f542601899a73d36c0a281c36edf4fa3de2850",
+      "before": "＠4<Ogłuszenie%s3>＠0 Bez kontry, dodatk. %s1100 %s50%%",
+      "after": "＠4<Ogłuszenie %s3>＠0 Bez kontry, +%s1100 %s 50%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r90:effect",
+      "source_sha256": "3370f7b2948b7399644c9ef6f8435255b4badf028be75e8168d94426fd5666d1",
+      "before": "＠4<Ogłuszenie%s4>＠0 Bez kontry, dodatk. %s1400 %s60%%",
+      "after": "＠4<Ogłuszenie %s4>＠0 Bez kontry, +%s1400 %s 60%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "03_skills.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:r91:effect",
+      "source_sha256": "21721852aa1dc5c91fb735e629895931d0bd235b07772de0e700c4d5f0a03043",
+      "before": "＠4<Ogłuszenie%s5>＠0 Bez kontry, dodatk. %s1700 %s70%%",
+      "after": "＠4<Ogłuszenie %s5>＠0 Bez kontry, +%s1700 %s 70%%",
+      "max_cells": 50,
+      "reason": "Screen 4 & siblings: weapon trait line 1 <= 54 rendered chars to clear [TGT Wr.]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:18222",
+      "source_sha256": "a3002728f0e0f6c968ce0035e66e458774bac2b99c94ccee6a7057aa18a23655",
+      "before": "＠4<Ogłuszenie%s1>＠0 Bez kontry, dodatk. %s500 %s30%%",
+      "after": "＠4<Ogłuszenie %s1>＠0 Bez kontry, +%s500 %s 30%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r87:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:18366",
+      "source_sha256": "88a8d1c611279a39baf39a002c06c245bb04757957e038c40a6d5f8a99cb033c",
+      "before": "＠4<Ogłuszenie%s2>＠0 Bez kontry, dodatk. %s800 %s40%%",
+      "after": "＠4<Ogłuszenie %s2>＠0 Bez kontry, +%s800 %s 40%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r88:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:18510",
+      "source_sha256": "81c2a7742a2a79fdf62a8473613176d0e904f919c39d47f6ac97ceda17d6e47c",
+      "before": "＠4<Ogłuszenie%s3>＠0 Bez kontry, dodatk. %s1100 %s50%%",
+      "after": "＠4<Ogłuszenie %s3>＠0 Bez kontry, +%s1100 %s 50%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r89:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:18650",
+      "source_sha256": "ad2ed2dad88c1c456cbb0d9c1ff29d191e6ebecb77ca37957450be21e51eade4",
+      "before": "＠4<Ogłuszenie%s4>＠0 Bez kontry, dodatk. %s1400 %s60%%",
+      "after": "＠4<Ogłuszenie %s4>＠0 Bez kontry, +%s1400 %s 60%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r90:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:18790",
+      "source_sha256": "3c10f0dfefc5564779d8ddf602a8b311107c6398aec095356a2d0230089eef87",
+      "before": "＠4<Ogłuszenie%s5>＠0 Bez kontry, dodatk. %s1700 %s70%%",
+      "after": "＠4<Ogłuszenie %s5>＠0 Bez kontry, +%s1700 %s 70%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r91:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:20612",
+      "source_sha256": "6e823d30e073d7d19433395fa32da19c3fe3974780ef1f9b476a77858563020a",
+      "before": "＠4<Pojmanie%s1>＠0 Bez kontry, 1 tura: wróg Atk/%s20%% otrz. %s8%%\n%s",
+      "after": "＠4<Pojmanie %s1>＠0 Bez kontry 1t: Atk/%s20%% %s8%%\n%s",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r105:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:20780",
+      "source_sha256": "47ae1eb88f9ce2183df418fd6ba4ca74e68abed1cca1b745c03a815265a0004f",
+      "before": "＠4<Pojmanie%s2>＠0 Bez kontry, 1 tura: wróg Atk/%s25%% otrz. %s10%%\n%s",
+      "after": "＠4<Pojmanie %s2>＠0 Bez kontry 1t: Atk/%s25%% %s10%%\n%s",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r106:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:20952",
+      "source_sha256": "98b6043f495d86a98bc3060e60fb91bfe3d5c4100efc5f163584ea92d9000c3f",
+      "before": "＠4<Pojmanie%s3>＠0 Bez kontry, 1 tura: wróg Atk/%s30%% otrz. %s12%%\n%s",
+      "after": "＠4<Pojmanie %s3>＠0 Bez kontry 1t: Atk/%s30%% %s12%%\n%s",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r107:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:21124",
+      "source_sha256": "840d9cd6bddf0e5cbbf2bf5fb27b482d1a8dbe4c773f0e5566883e0eeaf1ac90",
+      "before": "＠4<Pojmanie%s4>＠0 Bez kontry, 1 tura: wróg Atk/%s35%% otrz. %s14%%\n%s",
+      "after": "＠4<Pojmanie %s4>＠0 Bez kontry 1t: Atk/%s35%% %s14%%\n%s",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r108:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:21296",
+      "source_sha256": "cc18d59934ce147eb37ec742f8865f995cffafb7959c807b431b3f69b3981ad9",
+      "before": "＠4<Pojmanie%s5>＠0 Bez kontry, 1 tura: wróg Atk/%s40%% otrz. %s16%%\n%s",
+      "after": "＠4<Pojmanie %s5>＠0 Bez kontry 1t: Atk/%s40%% %s16%%\n%s",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r109:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:22556",
+      "source_sha256": "9e2bc160185b949a3a09096bef83ecef026532bbc456f4728d39f47eb1a004ad",
+      "before": "＠4<Komórki DG%s1>＠0 Wróg: %s4 1%s20%% %s10%%",
+      "after": "＠4<Komórki DG %s1>＠0 %s4, 1%s20%% %s 10%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r117:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:22704",
+      "source_sha256": "ca82cc2211ca13e4fd7f023bf0040397d29df15f107776c93433e841d8eed454",
+      "before": "＠4<Komórki DG%s2>＠0 Wróg: %s8 1%s25%% %s15%%",
+      "after": "＠4<Komórki DG %s2>＠0 %s8, 1%s25%% %s 15%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r118:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:22852",
+      "source_sha256": "e810d83e200d85f50c99b94f58976c49fd2e1a95b661b0d01ea725342941be83",
+      "before": "＠4<Komórki DG%s3>＠0 Wróg: %s12 1%s30%% %s20%%",
+      "after": "＠4<Komórki DG %s3>＠0 %s12, 1%s30%% %s 20%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r119:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23004",
+      "source_sha256": "5de07cc26386b5856e95740167dd09a4e40dfa3322ef38a70a6bfd768e3bfabb",
+      "before": "＠4<Komórki DG%s4>＠0 Wróg: %s16 1%s35%% %s25%%",
+      "after": "＠4<Komórki DG %s4>＠0 %s16, 1%s35%% %s 25%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r120:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23156",
+      "source_sha256": "6a25d752c5e651cfd0ed8db28fe0d9f20c79e4ec602884626cecc005b7c65b83",
+      "before": "＠4<Komórki DG%s5>＠0 Wróg: %s20 1%s40%% %s30%%",
+      "after": "＠4<Komórki DG %s5>＠0 %s20, 1%s40%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r121:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23460",
+      "source_sha256": "94403b82365265400f95175dcfc787a5711a6dea5d252dbba94681597273004c",
+      "before": "＠4<Mechaniz.%s1>＠0 1%s20%% Unik-20%% %s10%%",
+      "after": "＠4<Mechaniz. %s1>＠0 1%s20%% Unik-20%% %s 10%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r123:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23616",
+      "source_sha256": "ac206776ed7b677f1e7934b730d002aa038a0d5f3c33be27508119d8e8f164a5",
+      "before": "＠4<Mechaniz.%s2>＠0 1%s25%% Unik-24%% %s15%%",
+      "after": "＠4<Mechaniz. %s2>＠0 1%s25%% Unik-24%% %s 15%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r124:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23772",
+      "source_sha256": "fb2434e6faecbc90db30ba7f036f9e029bbc5014cce6e7e4bf4522a50d6c4f61",
+      "before": "＠4<Mechaniz.%s3>＠0 1%s30%% Unik-28%% %s20%%",
+      "after": "＠4<Mechaniz. %s3>＠0 1%s30%% Unik-28%% %s 20%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r125:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:23928",
+      "source_sha256": "655af0c4a5735645b0b1facabe6fdd3e4f1768c4d71f19102beb0920e7b42d09",
+      "before": "＠4<Mechaniz.%s4>＠0 1%s35%% Unik-32%% %s25%%",
+      "after": "＠4<Mechaniz. %s4>＠0 1%s35%% Unik-32%% %s 25%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r126:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:24084",
+      "source_sha256": "7e8a0a45bd48c823e0ea2cd86798fd17cc2f53efa25570f4f253f96a0585f117",
+      "before": "＠4<Mechaniz.%s5>＠0 1%s40%% Unik-36%% %s30%%",
+      "after": "＠4<Mechaniz. %s5>＠0 1%s40%% Unik-36%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r127:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26036",
+      "source_sha256": "1c8db11f9687f92d1b16085d209e075a05a23099f47e3ebea0effb3f04651132",
+      "before": "＠4<Wstrząs%s1>＠0 %s600 1%s20%% %s30%%",
+      "after": "＠4<Wstrząs %s1>＠0 %s600, 1%s20%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r141:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26176",
+      "source_sha256": "a022eeab4ee4c2d138c92431677b435a50ff814a24cb5749fb768e07b48ccd71",
+      "before": "＠4<Wstrząs%s2>＠0 %s800 1%s25%% %s35%%",
+      "after": "＠4<Wstrząs %s2>＠0 %s800, 1%s25%% %s 35%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r142:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26316",
+      "source_sha256": "cde45355f95e78b34d95ee60785bd7ade1fef4430d8543f688ee0803b5b67bb9",
+      "before": "＠4<Wstrząs%s3>＠0 %s1000 1%s30%% %s40%%",
+      "after": "＠4<Wstrząs %s3>＠0 %s1000, 1%s30%% %s 40%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r143:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26452",
+      "source_sha256": "6db8910f211617457c3f1c7f91eebad4b252450c2b3ac20914e0608ae58d9b6c",
+      "before": "＠4<Wstrząs%s4>＠0 %s1200 1%s35%% %s45%%",
+      "after": "＠4<Wstrząs %s4>＠0 %s1200, 1%s35%% %s 45%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r144:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26588",
+      "source_sha256": "edfe0a04dbf2238431135a6875c8cedd60dcb414506eb373a305e6538e1f835e",
+      "before": "＠4<Wstrząs%s5>＠0 %s1400 1%s40%% %s50%%",
+      "after": "＠4<Wstrząs %s5>＠0 %s1400, 1%s40%% %s 50%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r145:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:26866",
+      "source_sha256": "bef40ec418e2bec78e81143f2c02578a6e21d41ed619ae7afd46df60db810feb",
+      "before": "＠4<Spowoln.%s1>＠0 %s400 1 tura, wróg: Unik-20%% %s30%%",
+      "after": "＠4<Spowoln. %s1>＠0 %s400, 1t: Unik-20%% %s 30%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r147:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:27014",
+      "source_sha256": "983afdb858195b2458e206d51180c112c792cc330df3319dfbd701e5def8fa43",
+      "before": "＠4<Spowoln.%s2>＠0 %s600 1 tura, wróg: Unik-24%% %s35%%",
+      "after": "＠4<Spowoln. %s2>＠0 %s600, 1t: Unik-24%% %s 35%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r148:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:27162",
+      "source_sha256": "7be8a1d830ad9a8aafcb5d7a759ab4b55e5f9eae7a2130872bc9e1735a1e2618",
+      "before": "＠4<Spowoln.%s3>＠0 %s800 1 tura, wróg: Unik-28%% %s40%%",
+      "after": "＠4<Spowoln. %s3>＠0 %s800, 1t: Unik-28%% %s 40%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r149:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:27310",
+      "source_sha256": "2553681e94520bd101bb97b3f5995606bd9ab6761ff9b48b46c83f14547c8610",
+      "before": "＠4<Spowoln.%s4>＠0 %s1000 1 tura, wróg: Unik-32%% %s45%%",
+      "after": "＠4<Spowoln. %s4>＠0 %s1000, 1t: Unik-32%% %s 45%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r150:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:27454",
+      "source_sha256": "6a3c60d7ef5b6514691d636559989e8898212d983a55b869d3f316d598f48dbb",
+      "before": "＠4<Spowoln.%s5>＠0 %s1200 1 tura, wróg: Unik-36%% %s50%%",
+      "after": "＠4<Spowoln. %s5>＠0 %s1200, 1t: Unik-36%% %s 50%%",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r151:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "skill:config00.cpk/srwDL_Skill00.bin:41176",
+      "source_sha256": "fff93ebc119568cb648fce3710e26733dc73c3c21a847214e8685aa8d7822439",
+      "before": "＠4<Detonacja>＠0 Wrogowie w %s: %s jako stałe %s\nJednostka znika",
+      "after": "＠4<Detonacja>＠0 W %s: %s jako stałe %s\nJednostka znika",
+      "max_cells": 50,
+      "reason": "Mirror sync in 04_config_text.jsonl for skill:config00.cpk/srwDL_Skill00.bin:r251:effect"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10000",
+      "source_sha256": "9422671900ffe7db37fd7bbda1a2f7db78052b72e57753e37129e374715f8f73",
+      "before": "＠4Spadek celności:          ＠0Cel＠1%+3d%%＠0",
+      "after": "＠4Spadek Cel:             ＠0Cel＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10048",
+      "source_sha256": "05f634f52d6ae4ff33e058f1e447a34715c4f79d7b4583ca853df708642cfaf2",
+      "before": "＠4Spadek uniku:             ＠0Unik＠1%+3d%%＠0",
+      "after": "＠4Spadek Uniku:          ＠0Unik＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10096",
+      "source_sha256": "a449280cd8aad58971c38ddd288af55d7b7b5c0b991942bff27e17671ffd7b6f",
+      "before": "＠4Pojmanie:＠0Atk/Cel/Unik＠1%+3d%% ＠0Otrz. kryt.＠1%+3d%%＠0",
+      "after": "＠4Pojmanie:  ＠0A/C/U＠1%+3d%% ＠0O.kr.＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10152",
+      "source_sha256": "12b901d7fef36d621f80c97b372d5058ce0c03042c6c0bf7510be13c54b70de8",
+      "before": "＠4Statystyki:＠0Atk＠1%3d%% ＠0Obr＠1%3d%% ＠0Cel＠1%3d%% ＠0Unik＠1%3d%%＠0",
+      "after": "＠4Stat.:   ＠0A＠1%3d%% ＠0O＠1%3d%% ＠0C＠1%3d%% ＠0U＠1%3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=32, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10220",
+      "source_sha256": "6626c7682584964c702484a0828fae5681005ac2a8e378f9319f294deae48284",
+      "before": "＠4Upór:                   Szansa＠2%+3d%%＠0",
+      "after": "＠4Upór:                Szansa＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10264",
+      "source_sha256": "20e8c67967f59e597dc59e1605f3d0ba2cf7dc28a2e9b8c99928a92391bc5e2b",
+      "before": "＠4Zagłuszanie:       ＠0Cel＠1%+3d%% ＠0Unik＠1%+3d%%＠0",
+      "after": "＠4Zagłuszanie:  ＠0Cel＠1%+3d%% ＠0Unik＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10324",
+      "source_sha256": "5c0a6ee2e3f2f31afe8085ccec4cd783eaf0de2f7b23b43cc552850cddafba60",
+      "before": "＠4System Druid:      ＠0Cel＠1%+3d%% ＠0Unik＠1%+3d%%＠0",
+      "after": "＠4System Druid: ＠0Cel＠1%+3d%% ＠0Unik＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10384",
+      "source_sha256": "62fc1a7b596fcf3dd558daee525abdf53da135288b1523b4c920216b35251aad",
+      "before": "＠4Obliczenia Cocoi:＠0Cel＠2%+3d%% ＠0Unik＠2%+3d%%＠0",
+      "after": "＠4Obl. Cocoi:   ＠0Cel＠2%+3d%% ＠0Unik＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10440",
+      "source_sha256": "6e9f6d494ffd76f69375ac0ecf607c123ad51fcffb3dc04c90da2a7d7c942156",
+      "before": "＠4Dowodzenie Atk/Obr:＠0Atk＠2%+3d%% ＠0Obr＠2%+3d%%＠0",
+      "after": "＠4Dowodz. A/O:   ＠0Atk＠2%+3d%% ＠0Obr＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10496",
+      "source_sha256": "86626451a213278984a3c688a791d57054f844e35ff3d6a20916764d0bd66eb6",
+      "before": "＠4Dowodzenie Atk/Unik:＠0Atk＠2%+3d%% ＠0Unik＠2%+3d%%＠0",
+      "after": "＠4Dowodz. A/U:  ＠0Atk＠2%+3d%% ＠0Unik＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:10552",
+      "source_sha256": "8c81ffa9952f1f8e3eb096d7aa0fe1f1e17fb1c6e06c3c1a5732c775c3e82636",
+      "before": "＠4Dowodzenie Atk/Cel:＠0Atk＠2%+3d%% ＠0Cel＠2%+3d%%＠0",
+      "after": "＠4Dowodz. A/C:   ＠0Atk＠2%+3d%% ＠0Cel＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:16176",
+      "source_sha256": "c8f553d2f9924830c31e98a73c1faf1ed2dd6f458dc5022c02a5c17309a333a6",
+      "before": "Sprawdzaj statystyki jednostek,\nulepszaj maszyny i wyposażaj je w części.",
+      "after": "Statystyki jednostek, ulepszenia\noraz zmiana części.",
+      "max_cells": 36,
+      "reason": "Screen 5 sibling: compact Intermission Jednostki help tooltip"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:16792",
+      "source_sha256": "e0c0917bec8380be265696016a472c63b09f0889ec2aae446a2bd11c90d3d5f9",
+      "before": "Sprawdzaj statystyki maszyn, pilotów i broni,\nulepszaj maszyny\ni wyposażaj je w części.",
+      "after": "Statystyki maszyn, pilotów i broni,\nulepszanie maszyn\ni zmiana części.",
+      "max_cells": 36,
+      "reason": "Screen 5 exact string: shorten line 1 from 45 to 35 chars so it clears [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:17096",
+      "source_sha256": "1c383035567f045b9ad666b6d5363ecf4529a63aa0a16465e68b6d379e46752b",
+      "before": "Wyszukaj jednostki, części, zdolności, umiejętności,\nDuchy i inne.",
+      "after": "Wyszukaj jednostki, części, zdolności,\numiejętności, Duchy i inne.",
+      "max_cells": 38,
+      "reason": "Screen 5 sibling (Jednostki -> Szukaj): shorten line 1 from 52 to 38 chars so it clears [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:17716",
+      "source_sha256": "f48f4fba4dddc7945b7eeebb742e9f26528790724a0ff2924a93d9f2add1bd30",
+      "before": "Sprawdzaj statystyki maszyn, broni i pilotów,\nulepszaj maszyny\ni zmieniaj części.",
+      "after": "Statystyki maszyn, broni i pilotów,\nulepszanie maszyn\ni zmiana części.",
+      "max_cells": 36,
+      "reason": "Screen 5 sister string: shorten line 1 from 45 to 35 chars so it clears [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:20968",
+      "source_sha256": "5ae92440dcc1e89f87c50692c7f4369c9db1a1934e24254b4425fe1c4b6c35f7",
+      "before": "Obecnie stosowana premia za pełne ulepszenie.",
+      "after": "Aktywna premia za pełne ulepszenie.",
+      "max_cells": 36,
+      "reason": "Intermission tooltip: shorten full-upgrade bonus help line from 45 to 35 chars"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21132",
+      "source_sha256": "eb9255d229906c43b57d1f86a4a7c83b1782b0650fa42a58a834cd9a64e79a62",
+      "before": "Obecnie stosowana premia za pełne ulepszenie.\n＠6zmienisz na ekranie ulepszeń.",
+      "after": "Aktywna premia za pełne ulepszenie.\n＠6Zmienisz ją na ekranie ulepszeń.",
+      "max_cells": 36,
+      "reason": "Intermission tooltip: shorten line 1 (35 chars) and fix lowercase splice on line 2"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:22676",
+      "source_sha256": "350c98a100bf2ab1431e750e804e53781aab64a6b1569b153c77cf356e6826e0",
+      "before": "Przeglądaj roboty, które się pojawiły, i ich opisy\nmaszyn i broni.",
+      "after": "Przeglądaj spotkane roboty\noraz ich opisy.",
+      "max_cells": 36,
+      "reason": "Intermission Biblioteka -> Roboty: shorten line 1 from 50 to 26 chars and fix spliced text"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:22832",
+      "source_sha256": "d3b0d1dc8a143faed195f8ef9c0f39fa98e2d3cdd9aa30ab74280084c2da3b5b",
+      "before": "Wymieniaj części, fundusze i EC na inne części.",
+      "after": "Wymiana części, funduszy i EC.",
+      "max_cells": 36,
+      "reason": "Intermission Wymiana części: shorten help line from 47 to 30 chars to clear [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:23000",
+      "source_sha256": "0daa7fa943af59edfaef30ba94ca4fa5bc0fa88d1c36de2442582fc15b602eaa",
+      "before": "Pokaż listę wymiany części ze wszystkich kategorii.",
+      "after": "Lista wymiany części wszystkich typów.",
+      "max_cells": 38,
+      "reason": "Intermission Wymiana -> Wszystko: shorten help line from 51 to 38 chars to clear [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:23520",
+      "source_sha256": "933e99b20fb1e4b9d1685569067773131b60e297f4a1939e0d247a51dc1682e3",
+      "before": "Sortuj: maszyna, pilot, odnowa, części oddziału.",
+      "after": "Sortuj wg: maszyna, pilot, odnowa, oddz.",
+      "max_cells": 40,
+      "reason": "Intermission sort tooltip: shorten help line from 48 to 40 chars"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:24016",
+      "source_sha256": "cff3db74201c2eb0aedb87f013383917b9fedbe170ebb33ad2970c5390c36225",
+      "before": "Sprawdź efekty części oddziału, ich liczbę i nie tylko.\n＠6Części oddziału działają, gdy je posiadasz.\n(Nie można ich zakładać na jednostki)",
+      "after": "Efekty i liczba części oddziału.\n＠6Działają samą obecnością w ekwipunku.\n(Nie zakłada się ich na jednostki)",
+      "max_cells": 38,
+      "reason": "Intermission Części oddziału: shorten line 1 from 55 to 32 chars to clear [Ukończ]"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:38568",
+      "source_sha256": "32f7bfeb3ce579011bbe669a069598b2353564e3b4f627626a6e4bb71ca0ed49",
+      "before": "Rozpocznij główną fabułę Super Robot Wars NEO\nod początku.",
+      "after": "Zacznij fabułę Super Robot Wars NEO\nod początku.",
+      "max_cells": 36,
+      "reason": "Title/Menu help bar: shorten line 1 from 45 to 35 chars"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:38684",
+      "source_sha256": "cf9b737f7460b5509f3c5b3d3ab0f34502e6f94e5d7015d980d60526e88764a3",
+      "before": "Wznów grę od zapisu z przerwy między misjami.\nw którym zapisano przerwanie misji.",
+      "after": "Wznów grę od zapisu wykonanego\nw przerwie między misjami.",
+      "max_cells": 36,
+      "reason": "Title/Menu Kontynuuj: shorten line 1 from 45 to 30 chars and fix corrupted sentence splice"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:38744",
+      "source_sha256": "1712270ad1bda22b15f43bb23087030197d216d98d9ec1fdf8690cdebba7898a",
+      "before": "Przeglądaj informacje o robotach i postaciach\nz gry oraz słuchaj muzyki.",
+      "after": "Informacje o robotach i postaciach\nz gry oraz odsłuch muzyki.",
+      "max_cells": 36,
+      "reason": "Title/Menu Biblioteka: shorten line 1 from 45 to 34 chars"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:38832",
+      "source_sha256": "e5b18e8519d4aa7f0a0ea5776c3b46975dfdb8a1f2b3327e8890e8e0afe12520",
+      "before": "Przeglądaj roboty i inne obiekty z gry\ndodatkową.\n＠6W miarę postępów fabuły pojawią się nowe hasła.＠0",
+      "after": "Przeglądaj roboty i inne obiekty\nz gry.\n＠6W miarę postępów fabuły pojawią się nowe hasła.＠0",
+      "max_cells": 47,
+      "reason": "Biblioteka Roboty: fix corrupted line-2 splice ('dodatkową.') and shorten line 1"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:38936",
+      "source_sha256": "0182cb907b0e52de077f8187f46b9cc0eb588084a5739ac5184a6dbd402e96bd",
+      "before": "Przeglądaj postacie z gry\nmaszyn i broni.\n＠6W miarę postępów fabuły pojawią się nowe hasła.＠0",
+      "after": "Przeglądaj postacie występujące\nw grze.\n＠6W miarę postępów fabuły pojawią się nowe hasła.＠0",
+      "max_cells": 47,
+      "reason": "Biblioteka Postacie: fix corrupted line-2 splice ('maszyn i broni.')"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41528",
+      "source_sha256": "77f154a08b49e926d808da3a6b9109a0e128f8521dbbebafaa136993118204d1",
+      "before": "＠4Krew Argamy:＠0Zestrz.: Morale＠2%+2d ＠0Maks.＠2%+3d＠0",
+      "after": "＠4Krew Argamy:   ＠0Mor.＠2%+2d ＠0Maks.＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41584",
+      "source_sha256": "4421620f24b9cb2cc2954c843e64288f52222571bd2537063760a23a9af3dadd",
+      "before": "＠4Newtype:     ＠0Cel/Unik＠2%+3d ＠0Siła kryt.＠2%+3d%%＠0",
+      "after": "＠4Newtype:    ＠0C/U＠2%+3d ＠0S.kryt.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41644",
+      "source_sha256": "6233eb605a22d3e36e23f1a54a14ba48ae63ecc867b1db63d0a4b02bc176c37b",
+      "before": "＠4Cyber-Newtype: ＠0Cel/Unik＠2%+3d ＠0Siła kryt.＠2%+3d%%＠0",
+      "after": "＠4Cyber-NT:   ＠0C/U＠2%+3d ＠0S.kryt.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41700",
+      "source_sha256": "a04c260088b95ea13179c8c2d62fdba53209d3ca8afe15891f787b43b2132d97",
+      "before": "＠4SEED:        ＠0Cel/Unik＠2%+3d ＠0Siła kryt.＠2%+3d%%＠0",
+      "after": "＠4SEED:       ＠0C/U＠2%+3d ＠0S.kryt.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41756",
+      "source_sha256": "f91af0784710e847e40f75788eb0ba55fe346edbe2761740de5f2527f8620093",
+      "before": "＠4Święty wojownik: ＠0Unik＠2%+3d ＠0Atak broni＠2%+4d＠0",
+      "after": "＠4Św. woj.: ＠0Unik＠2%+3d ＠0Atak br.＠2%+4d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41808",
+      "source_sha256": "77dce118a7ff1442f0221319c2741e7c634c195a172140925988853b194deda8",
+      "before": "＠4Moc spirali:＠0Atk＠2%+3d%% ＠0Walka/zestrz.: Morale＠2%+2d＠0",
+      "after": "＠4Moc spir.:    ＠0Atk＠2%+3d%% ＠0Morale＠2%+2d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41864",
+      "source_sha256": "eb43d1978a5ca7384442c5c0341e1c6291476892f6767afda01e6e2b37cab355",
+      "before": "＠4Innovator:＠0Cel/Unik＠2%+3d ＠0Kryt＠2%+3d%% ＠0Odnowa SP＠2%+3d＠0",
+      "after": "＠4Innov.:   ＠0C/U＠2%+3d ＠0Kr＠2%+3d%% ＠0SP＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=29, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41928",
+      "source_sha256": "6984dde921d82df35ef2726d44035a8d14d1b816c9c6c94aa14bdc90fabdfe5a",
+      "before": "＠4Dziki instynkt:           ＠0Atk＠2%+3d%%＠0",
+      "after": "＠4Dziki instynkt:         ＠0Atk＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:41976",
+      "source_sha256": "2cffa84685d18720f11b2c97729f3c779390161f8dc699963efd68fc1c0e3a0e",
+      "before": "＠4Odwaga:              ＠0Atk/Obr/Cel＠2%+3d＠0",
+      "after": "＠4Odwaga:          ＠0Atk/Obr/Cel＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42024",
+      "source_sha256": "ff4ab0643db31b4cdbeaa37f963037e306bb013da1e7310afc0b19a31a31a258",
+      "before": "＠4Krew Yaman: ＠0Atk＠2%+3d%% ＠0Po walce: Morale＠2%+2d＠0",
+      "after": "＠4Krew Yaman:   ＠0Atk＠2%+3d%% ＠0Morale＠2%+2d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42080",
+      "source_sha256": "bd2cddfa80669bda395722ff5a8fd2ab1ea3bce40ef4276481302fecdd831c0d",
+      "before": "＠4Precyzja:      ＠0Kryt＠2%+3d%% ＠0Siła kryt.＠2%+3d%%＠0",
+      "after": "＠4Precyzja: ＠0Kryt＠2%+3d%% ＠0S.kryt.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42140",
+      "source_sha256": "24240f2332e407b08393c8393a7f37e997f94909b664f4ce05ca49383f41363b",
+      "before": "＠4Sztuczny PS:     ＠0Cel/Unik＠2%+3d ＠0Kryt＠2%+3d%%＠0",
+      "after": "＠4Sztuczny PS:   ＠0C/U＠2%+3d ＠0Kryt＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42196",
+      "source_sha256": "00fb4562dda2ea72b5c529a490a0cc43e7cecdb09b19eb2ac1fba088a608de14",
+      "before": "＠4Mistrzostwo:        ＠0Cel/Unik/Kryt＠2%+3d%%＠0",
+      "after": "＠4Mistrzostwo:    ＠0Cel/Unik/Kr＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42244",
+      "source_sha256": "e38c6085409ebd1557d51459852a17468a8764c4deba61082792314f56755994",
+      "before": "＠4Tyran:              ＠0Wyższe min. obrażenia＠0",
+      "after": "＠4Tyran:        ＠0Wyższe min. obraż.＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=32, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42288",
+      "source_sha256": "891c2c56c6c60742eff00530b40b1c56d7e28817db81e55ba568045d05660fd3",
+      "before": "＠4Przewidywanie:    ＠0Wyższa min. celność＠0",
+      "after": "＠4Przewidyw.:  ＠0Wyższa min. celność＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=32, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42332",
+      "source_sha256": "d73d5b4c1d3c5fede8e2ebdbaacdd482a380104ea29289f9b6c1253bf2763b3c",
+      "before": "＠4Geniusz:                ＠0Cel/Unik＠2%+3d＠0",
+      "after": "＠4Geniusz:            ＠0Cel/Unik＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42380",
+      "source_sha256": "aae1c423bc0c13a39c126d3c6e68a569acd99498943050f9923e281a8d12752c",
+      "before": "＠4Instynkt:               ＠0Cel/Unik＠2%+3d＠0",
+      "after": "＠4Instynkt:           ＠0Cel/Unik＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42428",
+      "source_sha256": "2d5ebf16029a30969f23d2040e656868a20b3a1537194bf1371535f4e0b2abab",
+      "before": "＠4Policjant:      ＠0Obraż.＠2x%.1f ＠0Obr＠2%+3d%%＠0",
+      "after": "＠4Policjant:   ＠0Obraż.＠2x%.1f ＠0Obr＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42484",
+      "source_sha256": "873edfb939ba6b304d79e81218a66001bc00df7fedcfee9c3fb19655c6192584",
+      "before": "＠4Fart:        ＠0Kryt＠2%+3d%% ＠0Fundusze＠2%+3d%%＠0",
+      "after": "＠4Fart:       ＠0Kryt＠2%+3d%% ＠0Fund.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42540",
+      "source_sha256": "486071106f9ea369f39b5b8d297907f182086736fce75ec74dde421a1083cd6a",
+      "before": "＠4Gracz:         ＠0Kryt＠2%+3d%% ＠0Siła kryt.＠2%+3d%%＠0",
+      "after": "＠4Gracz:    ＠0Kryt＠2%+3d%% ＠0S.kryt.＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42600",
+      "source_sha256": "c03e08ad69f879b45057e77072e4b919b888df84779fd9a4be4c72a91592d833",
+      "before": "＠4Keronianin:         ＠0Fundusze＠2%+3d%%＠0",
+      "after": "＠4Keronianin:        ＠0Fundusze＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42648",
+      "source_sha256": "cd5b91d98051a160c2adfe63c0191e9c93d66f052b87d79e4eb17628f72a33e3",
+      "before": "＠4Wóz dowodzenia:         ＠0Cel/Unik＠2%+3d＠0",
+      "after": "＠4Wóz dowodz.:        ＠0Cel/Unik＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42696",
+      "source_sha256": "318b72694ca2b960888e5146fd9bc453af98fe5f44065ca1b3cea8f14860a24c",
+      "before": "＠4Mighty Warrior:    ＠0Zestrz.: Morale＠2%+2d＠0",
+      "after": "＠4Mighty War.:     ＠0Zestrz. Mor.＠2%+2d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42744",
+      "source_sha256": "6be854ce9cf6771f7777b058ce97cb929d9038ef2d4ed68ca3b8fe570660251d",
+      "before": "＠4Bark:                   ＠0Obr/Cel＠2%+3d＠0",
+      "after": "＠4Bark:                ＠0Obr/Cel＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42792",
+      "source_sha256": "ae1193deb8f2d044aceb41c3dec4de605c625644308841b4fde1f395f4a45b67",
+      "before": "＠4Rei:                    ＠0Cel/Unik＠2%+3d＠0",
+      "after": "＠4Rei:                ＠0Cel/Unik＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42840",
+      "source_sha256": "c9b8c7064e295c430bd70461ffdaaff11e0938bfce20c88d20f849277e1a2ded",
+      "before": "＠4Zwiad:              ＠0Cel＠2%+3d ＠0Kryt＠2%+3d%%＠0",
+      "after": "＠4Zwiad:         ＠0Cel＠2%+3d ＠0Kryt＠2%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:42896",
+      "source_sha256": "1e216783241f73149b08737c6378fdc0f16e916f316dbab2d9a96b968cda61d4",
+      "before": "＠4ASURA:                  ＠0Cel/Unik＠2%+3d＠0",
+      "after": "＠4ASURA:              ＠0Cel/Unik＠2%+3d＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50972",
+      "source_sha256": "403fd8a83300c968a1f0846710167925ae9e55c12f81e7cad197d63b9cd4217a",
+      "before": "Statystyki",
+      "after": "Stat.",
+      "max_cells": 6,
+      "reason": "Screen 1: battle top bar Quick Stats ('Statystyki' 70px collided with circle button; matches intermission 'Stat.')"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50984",
+      "source_sha256": "1fb251daf07aa97b26044f11893f01c6d2cdfc2895fb15e519a596d00bfac3ef",
+      "before": "Komendy akcji",
+      "after": "Akcje",
+      "max_cells": 7,
+      "reason": "Screen 1: battle top bar Action Commands ('Komendy akcji' 91px hit right screen edge; 'Akcje' 35px leaves crisp margin)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:9848",
+      "source_sha256": "9a241616b6062a9f35afadfa33ca864e5fc1cf6c283cf59f69d3008afebdf3ce",
+      "before": "＠4Spętanie:          ＠0Atk＠1%+3d%% ＠0Obr＠1%+3d%%＠0",
+      "after": "＠4Spętanie:      ＠0Atk＠1%+3d%% ＠0Obr＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=30, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:9904",
+      "source_sha256": "a86d1a3d94880ba18364ff6f293c027749981813e24f029bf41b2ee5d4fc3bee",
+      "before": "＠4Spadek ataku:             ＠0Atk＠1%+3d%%＠0",
+      "after": "＠4Spadek Atk:             ＠0Atk＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:9952",
+      "source_sha256": "76e23242f952525203d8fff0e4e69d3623bd41e4cc59163b0dd71cf4282df42d",
+      "before": "＠4Spadek obrony:            ＠0Obr＠1%+3d%%＠0",
+      "after": "＠4Spadek Obr:             ＠0Obr＠1%+3d%%＠0",
+      "max_cells": 32,
+      "reason": "Screen 2 & siblings: active banner right-aligned to <=32 cols (normal=31, worst=32)"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8280",
+      "source_sha256": "85f57498fc520fb30921ee21006de560328778a699d7a6f9d6f56dd0efbc356a",
+      "before": "Okrążenie",
+      "after": "Okrąż.",
+      "max_cells": 8,
+      "reason": "Screen 3 Block A: x=0..42px leaves 22px gap before 'A/C' at x=64px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf828c",
+      "source_sha256": "872add4108f14b88242b59e7f1bd03975b142871f4a9865ebe489b6fd915690c",
+      "before": "Atk/Cel",
+      "after": "A/C",
+      "max_cells": 4,
+      "reason": "Screen 3 Block A: x=64..85px + arrow 85..97px clears '%3d%%' at x=99..126px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8298",
+      "source_sha256": "c15dfee13bc87b8c1eb4ac04396a56f0084b78fe60442e3f288a66ac4c87b67b",
+      "before": "Okrąż.",
+      "after": "Okr.",
+      "max_cells": 4,
+      "reason": "Screen 3 Block B1/C0: x=0..28px clears x=36px by 8px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82a0",
+      "source_sha256": "a078a81739c07530d18495e38aa15fca233bd35d185baea454695d6a75f5e99c",
+      "before": "Atak grup.",
+      "after": "At. grup",
+      "max_cells": 8,
+      "reason": "Screen 3 Block B2: x=0..56px clears x=64px by 8px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82ac",
+      "source_sha256": "b06029228f8b48b54976f06f6577537ae05a51207b95e8619155180ec7c834d2",
+      "before": "Okrąż.",
+      "after": "Bon",
+      "max_cells": 4,
+      "reason": "Screen 3 Block B1/B2: x=64..85px + arrow 85..97px clears '%3d%%' at x=99..126px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82b4",
+      "source_sha256": "8c25c30a9186f9684850b60380353545b22efe31b7374efc96272667a1e13ba0",
+      "before": "Peł.okr",
+      "after": "Pełne",
+      "max_cells": 6,
+      "reason": "Screen 3 Block C2: x=0..35px clears 'Efekt ' at x=50px by 15px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82bc",
+      "source_sha256": "ff4eb4e00cb933469f951db059e76078e0d2598312069c076ec266466f8c09aa",
+      "before": "Kleszcz",
+      "after": "Kles",
+      "max_cells": 4,
+      "reason": "Screen 3 Block C1: x=0..28px clears 'Efekt ' at x=36px by 8px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82c4",
+      "source_sha256": "a0d404e870123234cfa23e3f9c6efcf513e959ada383a3d9ef24347e2ce8ed7b",
+      "before": "Efekt",
+      "after": "Efekt ",
+      "max_cells": 6,
+      "reason": "Screen 3 Block C1/C2: trailing space before %.1fx multiplier ('Efekt 2.0x')"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82d8",
+      "source_sha256": "380fe09162f10932f240e6d3f067f87ca3fa8b5de1eed7eb7f2c44a415b201c5",
+      "before": "Samotn.",
+      "after": "Sam.",
+      "max_cells": 4,
+      "reason": "Screen 3 Block D (Burai): x=0..28px clears 'Bez okrąż.' at x=36px by 8px"
+    },
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82e0",
+      "source_sha256": "9788edc0585a0747f5ad9e8cab33d584e5bcaece1bb1d5847fe059a2b3c287c6",
+      "before": "Bez okrążenia",
+      "after": "Bez okrąż.",
+      "max_cells": 11,
+      "reason": "Screen 3 Block D (Burai): x=36..106px fits cleanly inside 128px forecast column"
+    }
+  ]
+}

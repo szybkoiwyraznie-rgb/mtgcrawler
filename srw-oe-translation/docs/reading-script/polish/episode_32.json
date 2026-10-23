@@ -1,0 +1,2543 @@
+{
+  "schema": 1,
+  "reviewed": true,
+  "episode": 32,
+  "reference_sha256": "484d62d188414479121a11a3e349762a66c73ba1a8826de2404418100d6f3d59",
+  "english_source_sha256": {
+    "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+    "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
+    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+  },
+  "blocks": [
+    {
+      "mission": "eventP08.EDAT/DL832_11.bin",
+      "block": 4,
+      "mission_row": "mission_note:eventP08.EDAT/DL832_11_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:192",
+      "mode": "story",
+      "level": 3,
+      "block": 5
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:300",
+      "mode": "story",
+      "level": 3,
+      "block": 6
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:392",
+      "mode": "story",
+      "level": 3,
+      "block": 7
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:500",
+      "mode": "story",
+      "level": 3,
+      "block": 8
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:620",
+      "mode": "story",
+      "level": 3,
+      "block": 9
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:784",
+      "mode": "story",
+      "level": 3,
+      "block": 10
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:892",
+      "mode": "story",
+      "level": 3,
+      "block": 11
+    },
+    {
+      "heading": "### Connect Force warps into the Recoral Galaxy",
+      "block": 12,
+      "pl": "### Connect Force wykonuje skok do Galaktyki Recoral"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1076",
+      "mode": "story",
+      "level": 3,
+      "block": 13
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1192",
+      "mode": "story",
+      "level": 3,
+      "block": 14
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1272",
+      "mode": "story",
+      "level": 3,
+      "block": 15
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1336",
+      "mode": "story",
+      "level": 3,
+      "block": 16
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1420",
+      "mode": "story",
+      "level": 3,
+      "block": 17
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1488",
+      "mode": "story",
+      "level": 3,
+      "block": 18
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1560",
+      "mode": "story",
+      "level": 3,
+      "block": 19
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1612",
+      "mode": "story",
+      "level": 3,
+      "block": 20
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1684",
+      "mode": "story",
+      "level": 3,
+      "block": 21
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1748",
+      "mode": "story",
+      "level": 3,
+      "block": 22
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1848",
+      "mode": "story",
+      "level": 3,
+      "block": 23
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1920",
+      "mode": "story",
+      "level": 3,
+      "block": 24
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:1948",
+      "mode": "story",
+      "level": 3,
+      "block": 25
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2020",
+      "mode": "story",
+      "level": 3,
+      "block": 26
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2076",
+      "mode": "story",
+      "level": 3,
+      "block": 27
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2132",
+      "mode": "story",
+      "level": 3,
+      "block": 28
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2208",
+      "mode": "story",
+      "level": 3,
+      "block": 29
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2296",
+      "mode": "story",
+      "level": 3,
+      "block": 30
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2364",
+      "mode": "story",
+      "level": 3,
+      "block": 31
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2460",
+      "mode": "story",
+      "level": 3,
+      "block": 32
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2564",
+      "mode": "story",
+      "level": 3,
+      "block": 33
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2640",
+      "mode": "story",
+      "level": 3,
+      "block": 34
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2692",
+      "mode": "story",
+      "level": 3,
+      "block": 35
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2760",
+      "mode": "story",
+      "level": 3,
+      "block": 36
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2860",
+      "mode": "story",
+      "level": 3,
+      "block": 37
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:2956",
+      "mode": "story",
+      "level": 3,
+      "block": 38
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3016",
+      "mode": "story",
+      "level": 3,
+      "block": 39
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3108",
+      "mode": "story",
+      "level": 3,
+      "block": 40
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3228",
+      "mode": "story",
+      "level": 3,
+      "block": 41
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3276",
+      "mode": "story",
+      "level": 3,
+      "block": 42
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3320",
+      "mode": "story",
+      "level": 3,
+      "block": 43
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3416",
+      "mode": "story",
+      "level": 3,
+      "block": 44
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3480",
+      "mode": "story",
+      "level": 3,
+      "block": 45
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3552",
+      "mode": "story",
+      "level": 3,
+      "block": 46
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3648",
+      "mode": "story",
+      "level": 3,
+      "block": 47
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3748",
+      "mode": "story",
+      "level": 3,
+      "block": 48
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3840",
+      "mode": "story",
+      "level": 3,
+      "block": 49
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3908",
+      "mode": "story",
+      "level": 3,
+      "block": 50
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:3960",
+      "mode": "story",
+      "level": 3,
+      "block": 51
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4024",
+      "mode": "story",
+      "level": 3,
+      "block": 52
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4116",
+      "mode": "story",
+      "level": 3,
+      "block": 53
+    },
+    {
+      "heading": "### The Commune and the Corridor",
+      "block": 54,
+      "pl": "### Komuna i Korytarz"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4192",
+      "mode": "story",
+      "level": 3,
+      "block": 55
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4268",
+      "mode": "story",
+      "level": 3,
+      "block": 56
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4372",
+      "mode": "story",
+      "level": 3,
+      "block": 57
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4468",
+      "mode": "story",
+      "level": 3,
+      "block": 58
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4532",
+      "mode": "story",
+      "level": 3,
+      "block": 59
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4596",
+      "mode": "story",
+      "level": 3,
+      "block": 60
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4692",
+      "mode": "story",
+      "level": 3,
+      "block": 61
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4724",
+      "mode": "story",
+      "level": 3,
+      "block": 62
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4840",
+      "mode": "story",
+      "level": 3,
+      "block": 63
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:4924",
+      "mode": "story",
+      "level": 3,
+      "block": 64
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5028",
+      "mode": "story",
+      "level": 3,
+      "block": 65
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5088",
+      "mode": "story",
+      "level": 3,
+      "block": 66
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5160",
+      "mode": "story",
+      "level": 3,
+      "block": 67
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5244",
+      "mode": "story",
+      "level": 3,
+      "block": 68
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5276",
+      "mode": "story",
+      "level": 3,
+      "block": 69
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5388",
+      "mode": "story",
+      "level": 3,
+      "block": 70
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5452",
+      "mode": "story",
+      "level": 3,
+      "block": 71
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5556",
+      "mode": "story",
+      "level": 3,
+      "block": 72
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5640",
+      "mode": "story",
+      "level": 3,
+      "block": 73
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5748",
+      "mode": "story",
+      "level": 3,
+      "block": 74
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5836",
+      "mode": "story",
+      "level": 3,
+      "block": 75
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:5948",
+      "mode": "story",
+      "level": 3,
+      "block": 76
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6048",
+      "mode": "story",
+      "level": 3,
+      "block": 77
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6088",
+      "mode": "story",
+      "level": 3,
+      "block": 78
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6160",
+      "mode": "story",
+      "level": 3,
+      "block": 79
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6260",
+      "mode": "story",
+      "level": 3,
+      "block": 80
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6364",
+      "mode": "story",
+      "level": 3,
+      "block": 81
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6456",
+      "mode": "story",
+      "level": 3,
+      "block": 82
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6512",
+      "mode": "story",
+      "level": 3,
+      "block": 83
+    },
+    {
+      "heading": "### The first offensive in the Recoral Galaxy",
+      "block": 84,
+      "pl": "### Pierwsza ofensywa w Galaktyce Recoral"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6716",
+      "mode": "story",
+      "level": 3,
+      "block": 85
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6792",
+      "mode": "story",
+      "level": 3,
+      "block": 86
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6844",
+      "mode": "story",
+      "level": 3,
+      "block": 87
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6884",
+      "mode": "story",
+      "level": 3,
+      "block": 88
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:6976",
+      "mode": "story",
+      "level": 3,
+      "block": 89
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7028",
+      "mode": "story",
+      "level": 3,
+      "block": 90
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7148",
+      "mode": "story",
+      "level": 3,
+      "block": 91
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7192",
+      "mode": "story",
+      "level": 3,
+      "block": 92
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7288",
+      "mode": "story",
+      "level": 3,
+      "block": 93
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7352",
+      "mode": "story",
+      "level": 3,
+      "block": 94
+    },
+    {
+      "heading": "### Le Cain holds the enemy main force",
+      "block": 95,
+      "pl": "### Le Cain powstrzymuje główne siły wroga"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7464",
+      "mode": "story",
+      "level": 3,
+      "block": 96
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7540",
+      "mode": "story",
+      "level": 3,
+      "block": 97
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7600",
+      "mode": "story",
+      "level": 3,
+      "block": 98
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7652",
+      "mode": "story",
+      "level": 3,
+      "block": 99
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7764",
+      "mode": "story",
+      "level": 3,
+      "block": 100
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7796",
+      "mode": "story",
+      "level": 3,
+      "block": 101
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7860",
+      "mode": "story",
+      "level": 3,
+      "block": 102
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:7944",
+      "mode": "story",
+      "level": 3,
+      "block": 103
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8004",
+      "mode": "story",
+      "level": 3,
+      "block": 104
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8108",
+      "mode": "story",
+      "level": 3,
+      "block": 105
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8200",
+      "mode": "story",
+      "level": 3,
+      "block": 106
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8412",
+      "mode": "story",
+      "level": 3,
+      "block": 107
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8448",
+      "mode": "story",
+      "level": 3,
+      "block": 108
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8500",
+      "mode": "story",
+      "level": 3,
+      "block": 109
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8544",
+      "mode": "story",
+      "level": 3,
+      "block": 110
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8660",
+      "mode": "story",
+      "level": 3,
+      "block": 111
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8712",
+      "mode": "story",
+      "level": 3,
+      "block": 112
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8752",
+      "mode": "story",
+      "level": 3,
+      "block": 113
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8800",
+      "mode": "story",
+      "level": 3,
+      "block": 114
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:8884",
+      "mode": "story",
+      "level": 3,
+      "block": 115
+    },
+    {
+      "heading": "### Allied fleets protect the advance",
+      "block": 116,
+      "pl": "### Floty sojusznicze osłaniają natarcie"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9316",
+      "mode": "story",
+      "level": 3,
+      "block": 117
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9412",
+      "mode": "story",
+      "level": 3,
+      "block": 118
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9484",
+      "mode": "story",
+      "level": 3,
+      "block": 119
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9540",
+      "mode": "story",
+      "level": 3,
+      "block": 120
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9608",
+      "mode": "story",
+      "level": 3,
+      "block": 121
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9696",
+      "mode": "story",
+      "level": 3,
+      "block": 122
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9796",
+      "mode": "story",
+      "level": 3,
+      "block": 123
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:9888",
+      "mode": "story",
+      "level": 3,
+      "block": 124
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:10636",
+      "mode": "story",
+      "level": 3,
+      "block": 125
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:10756",
+      "mode": "story",
+      "level": 3,
+      "block": 126
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:10948",
+      "mode": "story",
+      "level": 3,
+      "block": 127
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11024",
+      "mode": "story",
+      "level": 3,
+      "block": 128
+    },
+    {
+      "heading": "#### Conditional dialogue — the first Recoral Galaxy battle",
+      "block": 129,
+      "pl": "#### Dialogi warunkowe — pierwsza bitwa w Galaktyce Recoral"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 130
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 131
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11384",
+      "mode": "conditional",
+      "level": 3,
+      "block": 132
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 133
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 134
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11816",
+      "mode": "conditional",
+      "level": 3,
+      "block": 135
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11876",
+      "mode": "conditional",
+      "level": 3,
+      "block": 136
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:11992",
+      "mode": "conditional",
+      "level": 3,
+      "block": 137
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12080",
+      "mode": "conditional",
+      "level": 3,
+      "block": 138
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12160",
+      "mode": "conditional",
+      "level": 3,
+      "block": 139
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12320",
+      "mode": "conditional",
+      "level": 3,
+      "block": 140
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 141
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12636",
+      "mode": "conditional",
+      "level": 3,
+      "block": 142
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12676",
+      "mode": "conditional",
+      "level": 3,
+      "block": 143
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 144
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:12836",
+      "mode": "conditional",
+      "level": 3,
+      "block": 145
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 146
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 147
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13280",
+      "mode": "conditional",
+      "level": 3,
+      "block": 148
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13388",
+      "mode": "conditional",
+      "level": 3,
+      "block": 149
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13440",
+      "mode": "conditional",
+      "level": 3,
+      "block": 150
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 151
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13716",
+      "mode": "conditional",
+      "level": 3,
+      "block": 152
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:13920",
+      "mode": "conditional",
+      "level": 3,
+      "block": 153
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14016",
+      "mode": "conditional",
+      "level": 3,
+      "block": 154
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14096",
+      "mode": "conditional",
+      "level": 3,
+      "block": 155
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14180",
+      "mode": "conditional",
+      "level": 3,
+      "block": 156
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14272",
+      "mode": "conditional",
+      "level": 3,
+      "block": 157
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14372",
+      "mode": "conditional",
+      "level": 3,
+      "block": 158
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14448",
+      "mode": "conditional",
+      "level": 3,
+      "block": 159
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 160
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14684",
+      "mode": "conditional",
+      "level": 3,
+      "block": 161
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14764",
+      "mode": "conditional",
+      "level": 3,
+      "block": 162
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:14932",
+      "mode": "conditional",
+      "level": 3,
+      "block": 163
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15024",
+      "mode": "conditional",
+      "level": 3,
+      "block": 164
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15064",
+      "mode": "conditional",
+      "level": 3,
+      "block": 165
+    },
+    {
+      "heading": "### White Base begins the fortress assault",
+      "block": 166,
+      "pl": "### White Base rozpoczyna szturm na twierdzę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15244",
+      "mode": "story",
+      "level": 3,
+      "block": 167
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15328",
+      "mode": "story",
+      "level": 3,
+      "block": 168
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15416",
+      "mode": "story",
+      "level": 3,
+      "block": 169
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15488",
+      "mode": "story",
+      "level": 3,
+      "block": 170
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15544",
+      "mode": "story",
+      "level": 3,
+      "block": 171
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15620",
+      "mode": "story",
+      "level": 3,
+      "block": 172
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15688",
+      "mode": "story",
+      "level": 3,
+      "block": 173
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15756",
+      "mode": "story",
+      "level": 3,
+      "block": 174
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15848",
+      "mode": "story",
+      "level": 3,
+      "block": 175
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15936",
+      "mode": "story",
+      "level": 3,
+      "block": 176
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:15964",
+      "mode": "story",
+      "level": 3,
+      "block": 177
+    },
+    {
+      "heading": "### Humanity's spear enters the galaxy",
+      "block": 178,
+      "pl": "### Włócznia ludzkości wkracza do galaktyki"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:16152",
+      "mode": "story",
+      "level": 3,
+      "block": 179
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:16252",
+      "mode": "story",
+      "level": 3,
+      "block": 180
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:16300",
+      "mode": "story",
+      "level": 3,
+      "block": 181
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_11.bin:16396",
+      "mode": "story",
+      "level": 3,
+      "block": 182
+    },
+    {
+      "mission": "eventP08.EDAT/DL832_12.bin",
+      "block": 183,
+      "mission_row": "mission_note:eventP08.EDAT/DL832_12_ext.dat:r0:title"
+    },
+    {
+      "heading": "### The fortress is a giant Mucus Gate",
+      "block": 184,
+      "pl": "### Twierdza okazuje się olbrzymią Bramą Mucus"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:324",
+      "mode": "story",
+      "level": 3,
+      "block": 185
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:372",
+      "mode": "story",
+      "level": 3,
+      "block": 186
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:432",
+      "mode": "story",
+      "level": 3,
+      "block": 187
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:540",
+      "mode": "story",
+      "level": 3,
+      "block": 188
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:644",
+      "mode": "story",
+      "level": 3,
+      "block": 189
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:732",
+      "mode": "story",
+      "level": 3,
+      "block": 190
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:828",
+      "mode": "story",
+      "level": 3,
+      "block": 191
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:948",
+      "mode": "story",
+      "level": 3,
+      "block": 192
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1040",
+      "mode": "story",
+      "level": 3,
+      "block": 193
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1072",
+      "mode": "story",
+      "level": 3,
+      "block": 194
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1152",
+      "mode": "story",
+      "level": 3,
+      "block": 195
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1360",
+      "mode": "story",
+      "level": 3,
+      "block": 196
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1448",
+      "mode": "story",
+      "level": 3,
+      "block": 197
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:1524",
+      "mode": "story",
+      "level": 3,
+      "block": 198
+    },
+    {
+      "heading": "### The fortress manipulates space",
+      "block": 199,
+      "pl": "### Twierdza zakrzywia przestrzeń"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2028",
+      "mode": "story",
+      "level": 3,
+      "block": 200
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2264",
+      "mode": "story",
+      "level": 3,
+      "block": 201
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2332",
+      "mode": "story",
+      "level": 3,
+      "block": 202
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2412",
+      "mode": "story",
+      "level": 3,
+      "block": 203
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2448",
+      "mode": "story",
+      "level": 3,
+      "block": 204
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2504",
+      "mode": "story",
+      "level": 3,
+      "block": 205
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2916",
+      "mode": "story",
+      "level": 3,
+      "block": 206
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2960",
+      "mode": "story",
+      "level": 3,
+      "block": 207
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:2996",
+      "mode": "story",
+      "level": 3,
+      "block": 208
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3044",
+      "mode": "story",
+      "level": 3,
+      "block": 209
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3120",
+      "mode": "story",
+      "level": 3,
+      "block": 210
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3188",
+      "mode": "story",
+      "level": 3,
+      "block": 211
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3288",
+      "mode": "story",
+      "level": 3,
+      "block": 212
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3340",
+      "mode": "story",
+      "level": 3,
+      "block": 213
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3388",
+      "mode": "story",
+      "level": 3,
+      "block": 214
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3468",
+      "mode": "story",
+      "level": 3,
+      "block": 215
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3564",
+      "mode": "story",
+      "level": 3,
+      "block": 216
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3624",
+      "mode": "story",
+      "level": 3,
+      "block": 217
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3704",
+      "mode": "story",
+      "level": 3,
+      "block": 218
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3788",
+      "mode": "story",
+      "level": 3,
+      "block": 219
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3860",
+      "mode": "story",
+      "level": 3,
+      "block": 220
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:3940",
+      "mode": "story",
+      "level": 3,
+      "block": 221
+    },
+    {
+      "heading": "#### Conditional dialogue — closing on the Mucus fortress",
+      "block": 222,
+      "pl": "#### Dialogi warunkowe — podejście pod fortecę Mucus"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:4704",
+      "mode": "conditional",
+      "level": 3,
+      "block": 223
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:5148",
+      "mode": "conditional",
+      "level": 3,
+      "block": 224
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:5208",
+      "mode": "conditional",
+      "level": 3,
+      "block": 225
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:5256",
+      "mode": "conditional",
+      "level": 3,
+      "block": 226
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:5328",
+      "mode": "conditional",
+      "level": 3,
+      "block": 227
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:5392",
+      "mode": "conditional",
+      "level": 3,
+      "block": 228
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7288",
+      "mode": "conditional",
+      "level": 3,
+      "block": 229
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7352",
+      "mode": "conditional",
+      "level": 3,
+      "block": 230
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7388",
+      "mode": "conditional",
+      "level": 3,
+      "block": 231
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7484",
+      "mode": "conditional",
+      "level": 3,
+      "block": 232
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 233
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7784",
+      "mode": "conditional",
+      "level": 3,
+      "block": 234
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:7880",
+      "mode": "conditional",
+      "level": 3,
+      "block": 235
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8104",
+      "mode": "conditional",
+      "level": 3,
+      "block": 236
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8172",
+      "mode": "conditional",
+      "level": 3,
+      "block": 237
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8400",
+      "mode": "conditional",
+      "level": 3,
+      "block": 238
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8516",
+      "mode": "conditional",
+      "level": 3,
+      "block": 239
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8620",
+      "mode": "conditional",
+      "level": 3,
+      "block": 240
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8788",
+      "mode": "conditional",
+      "level": 3,
+      "block": 241
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:8872",
+      "mode": "conditional",
+      "level": 3,
+      "block": 242
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9084",
+      "mode": "conditional",
+      "level": 3,
+      "block": 243
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9356",
+      "mode": "conditional",
+      "level": 3,
+      "block": 244
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9564",
+      "mode": "conditional",
+      "level": 3,
+      "block": 245
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9668",
+      "mode": "conditional",
+      "level": 3,
+      "block": 246
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9736",
+      "mode": "conditional",
+      "level": 3,
+      "block": 247
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:9960",
+      "mode": "conditional",
+      "level": 3,
+      "block": 248
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10044",
+      "mode": "conditional",
+      "level": 3,
+      "block": 249
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10260",
+      "mode": "conditional",
+      "level": 3,
+      "block": 250
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10356",
+      "mode": "conditional",
+      "level": 3,
+      "block": 251
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10444",
+      "mode": "conditional",
+      "level": 3,
+      "block": 252
+    },
+    {
+      "heading": "### The fortress collapses",
+      "block": 253,
+      "pl": "### Upadek twierdzy"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10780",
+      "mode": "story",
+      "level": 3,
+      "block": 254
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10820",
+      "mode": "story",
+      "level": 3,
+      "block": 255
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10876",
+      "mode": "story",
+      "level": 3,
+      "block": 256
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:10972",
+      "mode": "story",
+      "level": 3,
+      "block": 257
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11060",
+      "mode": "story",
+      "level": 3,
+      "block": 258
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11128",
+      "mode": "story",
+      "level": 3,
+      "block": 259
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11180",
+      "mode": "story",
+      "level": 3,
+      "block": 260
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11236",
+      "mode": "story",
+      "level": 3,
+      "block": 261
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11408",
+      "mode": "story",
+      "level": 3,
+      "block": 262
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11480",
+      "mode": "story",
+      "level": 3,
+      "block": 263
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11548",
+      "mode": "story",
+      "level": 3,
+      "block": 264
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11604",
+      "mode": "story",
+      "level": 3,
+      "block": 265
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11668",
+      "mode": "story",
+      "level": 3,
+      "block": 266
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11732",
+      "mode": "story",
+      "level": 3,
+      "block": 267
+    },
+    {
+      "heading": "### On to the Commune",
+      "block": 268,
+      "pl": "### Kurs na Komunę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11876",
+      "mode": "story",
+      "level": 3,
+      "block": 269
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:11980",
+      "mode": "story",
+      "level": 3,
+      "block": 270
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_12.bin:12076",
+      "mode": "story",
+      "level": 3,
+      "block": 271
+    },
+    {
+      "mission": "eventP08.EDAT/DL832_30.bin",
+      "block": 272,
+      "mission_row": "mission_note:eventP08.EDAT/DL832_30_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:200",
+      "mode": "story",
+      "level": 3,
+      "block": 273
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:296",
+      "mode": "story",
+      "level": 3,
+      "block": 274
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:396",
+      "mode": "story",
+      "level": 3,
+      "block": 275
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:472",
+      "mode": "story",
+      "level": 3,
+      "block": 276
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:568",
+      "mode": "story",
+      "level": 3,
+      "block": 277
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:676",
+      "mode": "story",
+      "level": 3,
+      "block": 278
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:764",
+      "mode": "story",
+      "level": 3,
+      "block": 279
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:872",
+      "mode": "story",
+      "level": 3,
+      "block": 280
+    },
+    {
+      "heading": "### The Pentagona fleet's defense line",
+      "block": 281,
+      "pl": "### Linia obrony floty Pentagony"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 282
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1216",
+      "mode": "story",
+      "level": 3,
+      "block": 283
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1336",
+      "mode": "story",
+      "level": 3,
+      "block": 284
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1404",
+      "mode": "story",
+      "level": 3,
+      "block": 285
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1508",
+      "mode": "story",
+      "level": 3,
+      "block": 286
+    },
+    {
+      "heading": "### The Turner arrives to relieve its allies",
+      "block": 287,
+      "pl": "### Turner przybywa z odsieczą"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1596",
+      "mode": "story",
+      "level": 3,
+      "block": 288
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1680",
+      "mode": "story",
+      "level": 3,
+      "block": 289
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1768",
+      "mode": "story",
+      "level": 3,
+      "block": 290
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1844",
+      "mode": "story",
+      "level": 3,
+      "block": 291
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1928",
+      "mode": "story",
+      "level": 3,
+      "block": 292
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:1996",
+      "mode": "story",
+      "level": 3,
+      "block": 293
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:2076",
+      "mode": "story",
+      "level": 3,
+      "block": 294
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:2128",
+      "mode": "story",
+      "level": 3,
+      "block": 295
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:2220",
+      "mode": "story",
+      "level": 3,
+      "block": 296
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:2324",
+      "mode": "story",
+      "level": 3,
+      "block": 297
+    },
+    {
+      "heading": "#### Conditional dialogue — going to the allied fleet's aid",
+      "block": 298,
+      "pl": "#### Dialogi warunkowe — odsiecz dla floty sojuszniczej"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4304",
+      "mode": "conditional",
+      "level": 3,
+      "block": 299
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 300
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 301
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4524",
+      "mode": "conditional",
+      "level": 3,
+      "block": 302
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 303
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4772",
+      "mode": "conditional",
+      "level": 3,
+      "block": 304
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4868",
+      "mode": "conditional",
+      "level": 3,
+      "block": 305
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:4948",
+      "mode": "conditional",
+      "level": 3,
+      "block": 306
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 307
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5156",
+      "mode": "conditional",
+      "level": 3,
+      "block": 308
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5232",
+      "mode": "conditional",
+      "level": 3,
+      "block": 309
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5408",
+      "mode": "conditional",
+      "level": 3,
+      "block": 310
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5452",
+      "mode": "conditional",
+      "level": 3,
+      "block": 311
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5616",
+      "mode": "conditional",
+      "level": 3,
+      "block": 312
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 313
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5860",
+      "mode": "conditional",
+      "level": 3,
+      "block": 314
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:5928",
+      "mode": "conditional",
+      "level": 3,
+      "block": 315
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 316
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6184",
+      "mode": "conditional",
+      "level": 3,
+      "block": 317
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6260",
+      "mode": "conditional",
+      "level": 3,
+      "block": 318
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6444",
+      "mode": "conditional",
+      "level": 3,
+      "block": 319
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6652",
+      "mode": "conditional",
+      "level": 3,
+      "block": 320
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6912",
+      "mode": "conditional",
+      "level": 3,
+      "block": 321
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:6964",
+      "mode": "conditional",
+      "level": 3,
+      "block": 322
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 323
+    },
+    {
+      "heading": "### The next Mucus wave",
+      "block": 324,
+      "pl": "### Kolejna fala Mucus"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7288",
+      "mode": "story",
+      "level": 3,
+      "block": 325
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7576",
+      "mode": "story",
+      "level": 3,
+      "block": 326
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7628",
+      "mode": "story",
+      "level": 3,
+      "block": 327
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7688",
+      "mode": "story",
+      "level": 3,
+      "block": 328
+    },
+    {
+      "heading": "### The relief unit moves to another sector",
+      "block": 329,
+      "pl": "### Oddział odsieczy przechodzi do innego sektora"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7892",
+      "mode": "story",
+      "level": 3,
+      "block": 330
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7932",
+      "mode": "story",
+      "level": 3,
+      "block": 331
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:7968",
+      "mode": "story",
+      "level": 3,
+      "block": 332
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8024",
+      "mode": "story",
+      "level": 3,
+      "block": 333
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8072",
+      "mode": "story",
+      "level": 3,
+      "block": 334
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8128",
+      "mode": "story",
+      "level": 3,
+      "block": 335
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8192",
+      "mode": "story",
+      "level": 3,
+      "block": 336
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8304",
+      "mode": "story",
+      "level": 3,
+      "block": 337
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8396",
+      "mode": "story",
+      "level": 3,
+      "block": 338
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_30.bin:8440",
+      "mode": "story",
+      "level": 3,
+      "block": 339
+    },
+    {
+      "mission": "eventP08.EDAT/DL832_40.bin",
+      "block": 340,
+      "mission_row": "mission_note:eventP08.EDAT/DL832_40_ext.dat:r0:title"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:256",
+      "mode": "story",
+      "level": 3,
+      "block": 341
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:340",
+      "mode": "story",
+      "level": 3,
+      "block": 342
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:412",
+      "mode": "story",
+      "level": 3,
+      "block": 343
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:532",
+      "mode": "story",
+      "level": 3,
+      "block": 344
+    },
+    {
+      "heading": "### The slow Ark Ship transport",
+      "block": 345,
+      "pl": "### Powolny transport Ark Ship"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:832",
+      "mode": "story",
+      "level": 3,
+      "block": 346
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:864",
+      "mode": "story",
+      "level": 3,
+      "block": 347
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:956",
+      "mode": "story",
+      "level": 3,
+      "block": 348
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1044",
+      "mode": "story",
+      "level": 3,
+      "block": 349
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1136",
+      "mode": "story",
+      "level": 3,
+      "block": 350
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1236",
+      "mode": "story",
+      "level": 3,
+      "block": 351
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1332",
+      "mode": "story",
+      "level": 3,
+      "block": 352
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1472",
+      "mode": "story",
+      "level": 3,
+      "block": 353
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1536",
+      "mode": "story",
+      "level": 3,
+      "block": 354
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1632",
+      "mode": "story",
+      "level": 3,
+      "block": 355
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1736",
+      "mode": "story",
+      "level": 3,
+      "block": 356
+    },
+    {
+      "heading": "### Mucus break through the escorts",
+      "block": 357,
+      "pl": "### Mucus przełamują eskortę"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1860",
+      "mode": "story",
+      "level": 3,
+      "block": 358
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:1920",
+      "mode": "story",
+      "level": 3,
+      "block": 359
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2124",
+      "mode": "story",
+      "level": 3,
+      "block": 360
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2156",
+      "mode": "story",
+      "level": 3,
+      "block": 361
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2224",
+      "mode": "story",
+      "level": 3,
+      "block": 362
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2292",
+      "mode": "story",
+      "level": 3,
+      "block": 363
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2348",
+      "mode": "story",
+      "level": 3,
+      "block": 364
+    },
+    {
+      "heading": "#### Conditional dialogue — defending the Ark Ship transport",
+      "block": 365,
+      "pl": "#### Dialogi warunkowe — obrona transportu Ark Ship"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2748",
+      "mode": "conditional",
+      "level": 3,
+      "block": 366
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:2968",
+      "mode": "conditional",
+      "level": 3,
+      "block": 367
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3168",
+      "mode": "conditional",
+      "level": 3,
+      "block": 368
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3244",
+      "mode": "conditional",
+      "level": 3,
+      "block": 369
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 370
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3572",
+      "mode": "conditional",
+      "level": 3,
+      "block": 371
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3776",
+      "mode": "conditional",
+      "level": 3,
+      "block": 372
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:3840",
+      "mode": "conditional",
+      "level": 3,
+      "block": 373
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4036",
+      "mode": "conditional",
+      "level": 3,
+      "block": 374
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4132",
+      "mode": "conditional",
+      "level": 3,
+      "block": 375
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4308",
+      "mode": "conditional",
+      "level": 3,
+      "block": 376
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4396",
+      "mode": "conditional",
+      "level": 3,
+      "block": 377
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4600",
+      "mode": "conditional",
+      "level": 3,
+      "block": 378
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4844",
+      "mode": "conditional",
+      "level": 3,
+      "block": 379
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:4940",
+      "mode": "conditional",
+      "level": 3,
+      "block": 380
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5024",
+      "mode": "conditional",
+      "level": 3,
+      "block": 381
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5072",
+      "mode": "conditional",
+      "level": 3,
+      "block": 382
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5300",
+      "mode": "conditional",
+      "level": 3,
+      "block": 383
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5348",
+      "mode": "conditional",
+      "level": 3,
+      "block": 384
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5424",
+      "mode": "conditional",
+      "level": 3,
+      "block": 385
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5492",
+      "mode": "conditional",
+      "level": 3,
+      "block": 386
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5576",
+      "mode": "conditional",
+      "level": 3,
+      "block": 387
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5648",
+      "mode": "conditional",
+      "level": 3,
+      "block": 388
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5712",
+      "mode": "conditional",
+      "level": 3,
+      "block": 389
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:5912",
+      "mode": "conditional",
+      "level": 3,
+      "block": 390
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6000",
+      "mode": "conditional",
+      "level": 3,
+      "block": 391
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6064",
+      "mode": "conditional",
+      "level": 3,
+      "block": 392
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6260",
+      "mode": "conditional",
+      "level": 3,
+      "block": 393
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6340",
+      "mode": "conditional",
+      "level": 3,
+      "block": 394
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6500",
+      "mode": "conditional",
+      "level": 3,
+      "block": 395
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6688",
+      "mode": "conditional",
+      "level": 3,
+      "block": 396
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6872",
+      "mode": "conditional",
+      "level": 3,
+      "block": 397
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:6916",
+      "mode": "conditional",
+      "level": 3,
+      "block": 398
+    },
+    {
+      "heading": "### More attackers approach the Ark Ship",
+      "block": 399,
+      "pl": "### Kolejni napastnicy zbliżają się do Ark Ship"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7124",
+      "mode": "story",
+      "level": 3,
+      "block": 400
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7304",
+      "mode": "story",
+      "level": 3,
+      "block": 401
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7348",
+      "mode": "story",
+      "level": 3,
+      "block": 402
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7412",
+      "mode": "story",
+      "level": 3,
+      "block": 403
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7464",
+      "mode": "story",
+      "level": 3,
+      "block": 404
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7504",
+      "mode": "story",
+      "level": 3,
+      "block": 405
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:7688",
+      "mode": "story",
+      "level": 3,
+      "block": 406
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8056",
+      "mode": "story",
+      "level": 3,
+      "block": 407
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8140",
+      "mode": "story",
+      "level": 3,
+      "block": 408
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8204",
+      "mode": "story",
+      "level": 3,
+      "block": 409
+    },
+    {
+      "heading": "### The Ark Ship protected",
+      "block": 410,
+      "pl": "### Ark Ship obroniony"
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8572",
+      "mode": "story",
+      "level": 3,
+      "block": 411
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8604",
+      "mode": "story",
+      "level": 3,
+      "block": 412
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8696",
+      "mode": "story",
+      "level": 3,
+      "block": 413
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8736",
+      "mode": "story",
+      "level": 3,
+      "block": 414
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8824",
+      "mode": "story",
+      "level": 3,
+      "block": 415
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8876",
+      "mode": "story",
+      "level": 3,
+      "block": 416
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8920",
+      "mode": "story",
+      "level": 3,
+      "block": 417
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8960",
+      "mode": "story",
+      "level": 3,
+      "block": 418
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:8992",
+      "mode": "story",
+      "level": 3,
+      "block": 419
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9064",
+      "mode": "story",
+      "level": 3,
+      "block": 420
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9152",
+      "mode": "story",
+      "level": 3,
+      "block": 421
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9212",
+      "mode": "story",
+      "level": 3,
+      "block": 422
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9296",
+      "mode": "story",
+      "level": 3,
+      "block": 423
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9336",
+      "mode": "story",
+      "level": 3,
+      "block": 424
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9452",
+      "mode": "story",
+      "level": 3,
+      "block": 425
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9488",
+      "mode": "story",
+      "level": 3,
+      "block": 426
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9568",
+      "mode": "story",
+      "level": 3,
+      "block": 427
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9652",
+      "mode": "story",
+      "level": 3,
+      "block": 428
+    },
+    {
+      "row": "dlg:eventP08.EDAT/DL832_40.bin:9752",
+      "mode": "story",
+      "level": 3,
+      "block": 429
+    }
+  ]
+}

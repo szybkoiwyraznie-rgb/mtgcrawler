@@ -98,16 +98,17 @@ japońską kopię użytkownika. Twardy wymóg: **wzrost tekstu** (grow) tam, gdz
 - **Testy:** `cd srw-oe-translation && python3 -m unittest discover tests -q` (ostatnio **1 182 OK**, 1 skipped; 2026-10-15 wieczór).
 
 ## 2. Kontenery tekstu — klasyfikacja grow vs fixed
-| Kontener | Plik(i) | Tryb | Stan |
-|---|---|---|---|
-| Fabuła/dialogi (EVNT) | `eventP00..P09` | **GROW** | dowiedzione (rekord z polem długości + patch ISO bootuje) |
-| Menu tytułowe + help/systemowe | `configst.cpk/sysmes.bin` | **GROW** (tablica względna, `sysmes_pack.translate_bytes`) | struktura zmierzona 2026-10-14 (1182/1182 wpisów), 3 booty „shift" wyjaśnione nowym modelem; render po wzroście NIEZWERYFIKOWANY |
-| Słownik postaci (nazwy) | `imenu00` `srwDL_CharaDictionary` | do zbudowania grow | pula NUL; ekstrakcja verified |
-| Encyklopedia/Reference | `imenu00` `srwDL_Reference` | do zbudowania grow | pula NUL |
-| Nazwy mechów/serii/seiyū | `config0X` (DLC) | do zbudowania grow | pula NUL |
-| Opisy przedmiotów/skilli | `configst` (`srwDL_Item`,`srwDL_Skill_Tag`) | do zbudowania grow | — |
-| Nazwy map/terenu | `config00` | do zbudowania grow | pula NUL |
-| Okrzyki bitewne | `mesbtl00`+DLC `mesbtl0X` | do zbudowania grow | linia ≤50 (tyle gra sama rysuje; zalecane 46) |
+| Kontener                       | Plik(i)                                     | Tryb                                                       | Stan                                                               |
+| ------------------------------ | ------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ |
+| Fabuła/dialogi (EVNT)          | `eventP00..P09`                             | **GROW**                                                   | dowiedzione (rekord z polem długości + patch ISO bootuje)          |
+| Menu tytułowe + help/systemowe | `configst.cpk/sysmes.bin`                   | **GROW** (tablica względna, `sysmes_pack.translate_bytes`) | struktura zmierzona 2026-10-14 (1182/1182 wpisów), 3 booty „shift" |
+|                                |                                             |                                                            |   wyjaśnione nowym modelem; render po wzroście NIEZWERYFIKOWANY    |
+| Słownik postaci (nazwy)        | `imenu00` `srwDL_CharaDictionary`           | do zbudowania grow                                         | pula NUL; ekstrakcja verified                                      |
+| Encyklopedia/Reference         | `imenu00` `srwDL_Reference`                 | do zbudowania grow                                         | pula NUL                                                           |
+| Nazwy mechów/serii/seiyū       | `config0X` (DLC)                            | do zbudowania grow                                         | pula NUL                                                           |
+| Opisy przedmiotów/skilli       | `configst` (`srwDL_Item`,`srwDL_Skill_Tag`) | do zbudowania grow                                         | —                                                                  |
+| Nazwy map/terenu               | `config00`                                  | do zbudowania grow                                         | pula NUL                                                           |
+| Okrzyki bitewne                | `mesbtl00`+DLC `mesbtl0X`                   | do zbudowania grow                                         | linia ≤50 (tyle gra sama rysuje; zalecane 46)                      |
 
 **Zasada użytkownika:** grow wszędzie, gdzie budowa pozwala; stałe TYLKO tam, gdzie struktura
 pliku nie pozwala (jak menu tytułowe). Nie „dla bezpieczeństwa”.

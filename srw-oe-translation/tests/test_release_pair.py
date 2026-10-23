@@ -41,8 +41,9 @@ class PairTests(unittest.TestCase):
             self.assertIn(b'--lang pl',z.read('CHECK_DLC.bat'))
             self.assertIn('translation/tokeny.tsv',z.namelist())
             c=json.loads(z.read('translation/PL_COVERAGE.json'))
-            self.assertTrue(c['partial']);self.assertEqual(c['source_return'],json.loads((R.ROOT/'pakiet_PL/snapshot.json').read_text())['source_return'])
+            self.assertFalse(c['partial']);self.assertEqual(c['source_return'],json.loads((R.ROOT/'pakiet_PL/snapshot.json').read_text())['source_return'])
             self.assertGreater(c['totals']['filled'],0)
+        self.assertFalse(json.loads((self.out/'RELEASE_PAIR.json').read_text())['PL_partial'])
         self.assertTrue((self.out/'SHA256SUMS.txt').exists())
         self.assertTrue((self.out/'RELEASE_PAIR.json').exists())
 

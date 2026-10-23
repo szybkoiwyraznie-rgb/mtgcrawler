@@ -19,13 +19,13 @@ Pobrano **faktycznie dostarczony ZIP v17**, SHA256 zgodny z manifestem:
 Jego własny builder, nie zastępczy aktualny, zbudował oryginalne `config19.EDAT`
 i `imenu19.EDAT`: 0 problemów. Oryginalne pule CharaDictionary19 są identyczne.
 
-| Pole rekordu | config19 po v17 | imenu19 po v17 |
-|---|---|---|
-| 0 — pełne imię | EN | EN |
-| 3 — seria | EN | EN |
-| 4 — pseudonim z podpisem | podpis JP, wartość EN | całość EN |
-| 1 / 5 — aktor bez/z podpisem | JP | EN |
-| 11 — krótka nazwa do listy | JP | EN |
+| Pole rekordu                 | config19 po v17       | imenu19 po v17 |
+| ---------------------------- | --------------------- | -------------- |
+| 0 — pełne imię               | EN                    | EN             |
+| 3 — seria                    | EN                    | EN             |
+| 4 — pseudonim z podpisem     | podpis JP, wartość EN | całość EN      |
+| 1 / 5 — aktor bez/z podpisem | JP                    | EN             |
+| 11 — krótka nazwa do listy   | JP                    | EN             |
 
 Dotyczy kluczy **4420, 4424, 4426**. Układ po stronie config19 odpowiada dokładnie
 zgłoszonemu zrzutowi. To mocny dowód wyboru tej kopii w tym przebiegu UI, **nie ślad

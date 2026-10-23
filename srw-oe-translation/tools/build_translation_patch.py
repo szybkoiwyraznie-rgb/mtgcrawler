@@ -1288,7 +1288,8 @@ def terrain_step(report: dict, store: ContainerStore, rows: List[dict], out: Pat
         src, dst = folder / name, folder / ("patched-" + name)
         try:
             src.write_bytes(store.read(name, where))
-            details = TERRAIN.apply_container(src, dst, rows, dry_run=dry_run)
+            details = TERRAIN.apply_container(src, dst, rows, dry_run=dry_run,
+                                              target_lang=report.get("lang") or "en")
             result["targets"].append({"location": where, **details})
             if dry_run:
                 continue
@@ -1467,6 +1468,15 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
                 report["problems"].append(f"executable: {src['label']}: {exc}")
                 continue
         patched, exe_report = EXE.apply_rows(code_image, rows)
+        if text_codec.lang() == "pl":
+            import battle_forecast_pl
+            try:
+                _, tgt["battle_forecast_pl"] = battle_forecast_pl.apply(code_image)
+                patched = battle_forecast_pl.apply_post_exe(patched)
+            except ValueError as exc:
+                tgt["problems"].append(str(exc))
+                report["problems"].append(f"executable: {src['label']}: {exc}")
+                continue
         tgt["applied"] = exe_report["applied"]
         tgt["empty"] = exe_report["empty"]
         tgt["skipped"] = exe_report["skipped"]
@@ -1516,7 +1526,10 @@ def exe_step(report: dict, store: "ContainerStore", rows: List[dict], out: Path,
     cheat_text, _ = EXE.cheat_file(cheat_elf, rows)
     if text_codec.lang() == "pl":
         import spirit_name_cache
-        cheat_text += "\n".join(spirit_name_cache.cheat_lines()) + "\n"
+        import battle_forecast_pl
+        cheat_text += "\n".join(
+            (*spirit_name_cache.cheat_lines(), *battle_forecast_pl.cheat_lines())
+        ) + "\n"
     if dry_run:
         summary["written"].append("(dry-run) cheats/NPJH50521.ini")
         return

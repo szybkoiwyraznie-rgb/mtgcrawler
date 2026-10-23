@@ -33,19 +33,19 @@ Jeden wiersz JSON na linię pliku `.jsonl`. Przykład:
 
 Pliki:
 
-| Plik | Zawartość | Uwagi |
-|---|---|---|
-| `00_dialogue.jsonl` | dialogi fabularne (48 881) | sceny w kolejności gry |
-| `01_battle_quotes.jsonl` | cytaty bojowe (27 383) | krótkie, "[Kwestia]" — zachowaj 「 」 |
-| `02_items.jsonl` | przedmioty (1 200) | twarde limity bajtów |
-| `03_skills.jsonl` | umiejętności/duchy (4 932) | twarde limity bajtów |
-| `04_config_text.jsonl` | teksty UI/config (16 326) | etykiety, pomoc, warunki misji |
-| `05_mission_text.jsonl` | teksty misji (1 285) | tytuły misji, BGM, nazwy map |
-| `06_scenes.jsonl` | indeks scen (293) | **struktura — nie tłumacz** |
-| `07_names_characters.jsonl` | imiona postaci (3 610) | patrz §6 |
-| `08_names_units_weapons.jsonl` | jednostki/bronie (5 008) | twarde limity |
-| `09_executable.jsonl` | stringi EBOOT (408) | **tylko ASCII, patrz §5** |
-| `10_map_terrain.jsonl` | nazwy terenu (111) | **tylko ASCII, ≤ 12 znaków** |
+| Plik                           | Zawartość                  | Uwagi                                 |
+| ------------------------------ | -------------------------- | ------------------------------------- |
+| `00_dialogue.jsonl`            | dialogi fabularne (48 881) | sceny w kolejności gry                |
+| `01_battle_quotes.jsonl`       | cytaty bojowe (27 383)     | krótkie, "[Kwestia]" — zachowaj 「 」 |
+| `02_items.jsonl`               | przedmioty (1 200)         | twarde limity bajtów                  |
+| `03_skills.jsonl`              | umiejętności/duchy (4 932) | twarde limity bajtów                  |
+| `04_config_text.jsonl`         | teksty UI/config (16 326)  | etykiety, pomoc, warunki misji        |
+| `05_mission_text.jsonl`        | teksty misji (1 285)       | tytuły misji, BGM, nazwy map          |
+| `06_scenes.jsonl`              | indeks scen (293)          | **struktura — nie tłumacz**           |
+| `07_names_characters.jsonl`    | imiona postaci (3 610)     | patrz §6                              |
+| `08_names_units_weapons.jsonl` | jednostki/bronie (5 008)   | twarde limity                         |
+| `09_executable.jsonl`          | stringi EBOOT (408)        | **tylko ASCII, patrz §5**             |
+| `10_map_terrain.jsonl`         | nazwy terenu (111)         | **tylko ASCII, ≤ 12 znaków**          |
 
 `tokeny.tsv` — klasyfikacja każdego `%s` w jp (patrz §3). `name_map.tsv` — mapa mówców.
 

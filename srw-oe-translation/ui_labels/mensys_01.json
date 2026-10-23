@@ -89,7 +89,27 @@
         2,
         127,
         13
-      ]
+      ],
+      "pl_layout": {
+        "box": [
+          106,
+          1,
+          125,
+          13
+        ],
+        "clear": [
+          103,
+          0,
+          128,
+          14
+        ],
+        "bg_from_column": null,
+        "bg_row_inset": "right_inner",
+        "clear_opaque_only": true,
+        "size": 10,
+        "min_size": 7,
+        "squeeze": 0.78
+      }
     }
   ]
 }

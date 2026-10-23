@@ -16,13 +16,22 @@ No game text is in this file. Name strings live in `local/` only.
 
 ## 2. Name sources, in priority order (per key)
 
-| # | Source | Where | Format | Notes |
-|---|---|---|---|---|
-| 1 | CharaDictionary (dict) | `imenu00..32` pools, member `srwDL_CharaDictionary<NN>.bin` | pool: `u32 count`, `u32[count]` offsets from byte 4, records with 12 u32 string pointers | string[0] = full name. Duplicate records with identical names exist (two keys checked: 0xe93, 0x101a). **Rule: first record in pool order.** |
-| 2 | Config name slot | `config00.pac` … `config46` (CPK/EDAT) | 16-byte NUL-terminated CP932 slot, key u32 at slot+0x14, marker u16 0x6401 at key+0x0A (not universal) | `tools/speaker_names.py`. Generic roles (officer, soldier, pilot) are here. |
-| 3 | Config name slot with 0x0F tokens | same as 2 | 0x0F xx pairs inside the name | `tools/name_union.py` keeps tokens as `{0F xx}` placeholders (NFKC-normalised around them). |
-| 4 | Unmarked config slot | same | no marker | Accepted only if >= 2 full-width chars and no digits/symbols/fragments. Marked `confidence = unmarked-review` for human check. |
-| 5 | none | — | — | `UNNAMED`. Counted and listed; not guessed. |
+| #   | Source                            | Where                                                       | Format                                                       | Notes                                         |
+| --- | --------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------- |
+| 1   | CharaDictionary (dict)            | `imenu00..32` pools, member `srwDL_CharaDictionary<NN>.bin` | pool: `u32 count`, `u32[count]` offsets from byte 4, records | string[0] = full name. Duplicate records with |
+|     |                                   |                                                             |   with 12 u32 string pointers                                |   identical names exist (two keys checked:    |
+|     |                                   |                                                             |                                                              |   0xe93, 0x101a). **Rule: first record in     |
+|     |                                   |                                                             |                                                              |   pool order.**                               |
+| 2   | Config name slot                  | `config00.pac` … `config46` (CPK/EDAT)                      | 16-byte NUL-terminated CP932 slot, key u32 at slot+0x14,     | `tools/speaker_names.py`. Generic roles       |
+|     |                                   |                                                             |   marker u16 0x6401 at key+0x0A (not universal)              |   (officer, soldier, pilot) are here.         |
+| 3   | Config name slot with 0x0F tokens | same as 2                                                   | 0x0F xx pairs inside the name                                | `tools/name_union.py` keeps tokens as `{0F    |
+|     |                                   |                                                             |                                                              |   xx}` placeholders (NFKC-normalised around   |
+|     |                                   |                                                             |                                                              |   them).                                      |
+| 4   | Unmarked config slot              | same                                                        | no marker                                                    | Accepted only if >= 2 full-width chars and no |
+|     |                                   |                                                             |                                                              |   digits/symbols/fragments. Marked            |
+|     |                                   |                                                             |                                                              |   `confidence = unmarked-review` for human    |
+|     |                                   |                                                             |                                                              |   check.                                      |
+| 5   | none                              | —                                                           | —                                                            | `UNNAMED`. Counted and listed; not guessed.   |
 
 Implementation: `tools/name_union.py` (builds one row per key: name, source, confidence,
 dialogue flag, battle record count, events). Tests: `tests/test_battle_members.py`.
@@ -120,12 +129,12 @@ All in the `config00.pac` (disc side, `config00.cpk`) and `config01.pac` (`confi
 
 Output: `local/speaker_names_all.json`, `local/SPEAKER_NAMES_ALL.md` (game text, local only).
 
-| Set | Keys | Named | Notes |
-|---|---:|---:|---|
-| Dialogue keys (event probes) | 283 | 269 | 12 738 lines; 12 673 lines (99.5 %) have a name |
-| Dialogue keys with no name | 14 | 0 | 65 lines in total; 7 of them have >= 3 lines (decimal keys 510, 708, 507, 511, 715, 802, 804) |
-| Battle-only keys (no dialogue) | 56 | 32 (16 marked + 16 unmarked-review) | 24 without any name, 18 of them have battle records |
-| All keys | 339 | 301 | sources: dict 216, config 11, config_raw 40 (with tokens), config_raw_clean 34 (20 marked + 14 unmarked-review), none 38 |
+| Set                            | Keys |                               Named | Notes                                                                                                                    |
+| ------------------------------ | ---: | ----------------------------------: | ------------------------------------------------------------------------------------------------------------------------ |
+| Dialogue keys (event probes)   |  283 |                                 269 | 12 738 lines; 12 673 lines (99.5 %) have a name                                                                          |
+| Dialogue keys with no name     |   14 |                                   0 | 65 lines in total; 7 of them have >= 3 lines (decimal keys 510, 708, 507, 511, 715, 802, 804)                            |
+| Battle-only keys (no dialogue) |   56 | 32 (16 marked + 16 unmarked-review) | 24 without any name, 18 of them have battle records                                                                      |
+| All keys                       |  339 |                                 301 | sources: dict 216, config 11, config_raw 40 (with tokens), config_raw_clean 34 (20 marked + 14 unmarked-review), none 38 |
 
 - Decimal keys are used for the user; hex is kept here for the tools (see `local/` for the list).
 - The 17 no-source keys from the earlier whole-game work are now all named (with `{0F xx}`
@@ -310,13 +319,13 @@ for the remaining 1 182 records (4.0%).
 
 Source cross-checks (all measured on this corpus):
 
-| comparison | result |
-|---|---|
-| `charalist.name_full` vs `CharaDictionary.name` (288 common keys) | **285/288** equal after NFKC (283 exact) |
-| `charalist.name_short` vs `CharaDictionary.nickname` | **288/288** equal |
-| config name slot (marker `0x6401`) vs `charalist.name_short` | **89 agree / 2 differ**; both differences are abbreviations (連邦士官/連邦軍士官, RS隊員/レッドショルダー隊員) |
-| config name slot without the marker | wrong in 91 of 214 cases → **never trust** |
-| config slot hits that add a key the charalist lacks (quote universe) | **0** (190 of 201 already known, 11 single-character noise) |
+| comparison                                                           | result                                                                                                         |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `charalist.name_full` vs `CharaDictionary.name` (288 common keys)    | **285/288** equal after NFKC (283 exact)                                                                       |
+| `charalist.name_short` vs `CharaDictionary.nickname`                 | **288/288** equal                                                                                              |
+| config name slot (marker `0x6401`) vs `charalist.name_short`         | **89 agree / 2 differ**; both differences are abbreviations (連邦士官/連邦軍士官, RS隊員/レッドショルダー隊員) |
+| config name slot without the marker                                  | wrong in 91 of 214 cases → **never trust**                                                                     |
+| config slot hits that add a key the charalist lacks (quote universe) | **0** (190 of 201 already known, 11 single-character noise)                                                    |
 
 `CharaDictionary` field roles (12 strings per record, 582 records / 289 keys, identical across the
 pool copies): [0] name, [1] voice actor (`－－－` = none, 156 records), **[2] encyclopedia entry text**

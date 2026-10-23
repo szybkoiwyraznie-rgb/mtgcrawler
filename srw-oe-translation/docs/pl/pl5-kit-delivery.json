@@ -1,0 +1,54 @@
+{
+  "version": "2.7-PL5",
+  "date": "2026-10-21",
+  "plan": {
+    "file": "config/pl/ui-clipboard-2026-10-21.json",
+    "sha256": "f737cc43d7dc0980be4402e42e2abae18507b5abdf45376d9feb8dea6e0a19ee",
+    "entries": 51
+  },
+  "artifact": {
+    "name": "srw-oe-translation-pl-v2.7-PL5.zip",
+    "drive_id": "1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV",
+    "parent_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "url": "https://drive.google.com/file/d/1CZ_6SyOR4ERwpa2F42HYos4dfbtyByLV/view",
+    "bytes": 8121934,
+    "sha256": "5062d05dc295975fd4d705b9d1508d5ae339d771a9f471d8a5bb999d8d879997",
+    "md5": "c4ecc512422091ccb995e3a95cd79ece",
+    "english_pair": {
+      "name": "srw-oe-translation-v2.7-PL5.zip",
+      "bytes": 7279138,
+      "sha256": "e3f6f4d6b0edb0778ffd52856d431b4e3431b7d6cb84a4333b1064a761887655"
+    },
+    "zip_members": 91,
+    "manifest_payload_hashes": 90,
+    "crc_passed": true,
+    "drive_download_back_byte_identical": true,
+    "all_payload_hashes_verified": true,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "physical_verification": {
+    "configst_cpk_built_and_verified": true,
+    "verified_spirit_records": {
+      "Hart_rec_36_37_38": "Cel: ty\\nLv1 SP-20 Odnawia 25％ HP\\nLv2 SP-30 Odnawia 40％ HP\\nLv3 SP-40 Odnawia 60％ HP",
+      "Wiatr_rec_57_58_59_preserved": "Cel: sojusznicy 1 jedn. <Ruch w górę>\\nLv1 SP-20 Zasięg 3 +'Pęd'"
+    },
+    "verified_sysmes_strings": [
+      "＠0Obrażenia ＠230％＠0 mniej",
+      "Obrażenia ＠230％＠0 mniej",
+      "＠0Premia do uniku ＠230％＠0 więcej",
+      "Premia do uniku ＠230％＠0 więcej"
+    ],
+    "verified_terrain_cells_attr_par": {
+      "rows_updated": 46,
+      "total_rows_validated": 111,
+      "hud_panel_code": "eboot_108.elf .text 0x1ec2a0..0x1ec410 (12-cell display budget, native single-byte pl_text glyphs)"
+    },
+    "runtime_tested": false
+  },
+  "install_scope_note": {
+    "iso_rebuild_required": true,
+    "dlc_configst_update_required": true,
+    "pboot_recopy_required": false,
+    "reason": "Spirit 'Hart' Lv1 and battle-bar Defend/Evade spacing live in DLC/configst.cpk (srwDL_Spirit.bin, sysmes.bin); map terrain names ('Wzgórze' and 45 other Polish diacritic captions) live in ISO lmap.cpk/attr.par."
+  }
+}

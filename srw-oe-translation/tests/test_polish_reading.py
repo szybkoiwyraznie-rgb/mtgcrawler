@@ -32,6 +32,22 @@ class PolishReadingTests(unittest.TestCase):
         translated['units'][0]['weapons'][0]['power'] = 101
         self.assertNotEqual(C.facts(model), C.facts(translated))
 
+    def test_verifier_rejects_pilot_or_crew_sections_in_mech_catalogue(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from test_mech_catalog_presentation import sample_model
+        from verify_polish_reading import verify_catalogue
+        model = sample_model()
+        model['summary']['weapons_and_actions'] = 1485
+        model['units'][0]['weapons'] = [
+            dict(slot=i, name='Broń', selector=1, power=10, range_min=1,
+                 range_max=2, hit=3, en=4, will=0, gate=0, skills=[])
+            for i in range(1485)
+        ]
+        rendered = C.render(model)
+        self.assertEqual(verify_catalogue(rendered, model, model)['units'], 2)
+        with self.assertRaisesRegex(ValueError, 'Pilot/crew content remained'):
+            verify_catalogue(rendered + '\n### Domyślny pilot / załoga\n', model, model)
+
 
 class SourceAdapterTests(unittest.TestCase):
     def adapter(self):
@@ -128,7 +144,7 @@ class BindingAndVerificationTests(unittest.TestCase):
     def test_checked_plans_cover_all_base_prose_in_order(self):
         import json
         project = Path(__file__).resolve().parent.parent
-        for episode in (0, 1, 2, 3):
+        for episode in range(35):
             source = EarlyReadingSource(project / 'pakiet_EN', episode)
             plan = json.loads((project / f'docs/reading-script/polish/episode_{episode:02}.json').read_bytes())
             self.assertTrue(plan['reviewed'])

@@ -1,7 +1,8 @@
-"""PL4 story reader binds displayed prose only to accepted Polish source rows."""
+"""PL story reader binds displayed prose only to accepted Polish source rows."""
 import json
 from pathlib import Path
 import re
+import shutil
 import sys
 import tempfile
 import unittest
@@ -18,7 +19,7 @@ class PLReadingSeriesTests(unittest.TestCase):
     def setUpClass(cls):
         cls.tmp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.tmp.cleanup)
-        cls.polish = Path(cls.tmp.name) / "materialized-pl4"
+        cls.polish = Path(cls.tmp.name) / "materialized-pl"
         R.materialize(ROOT / "pakiet_EN", ROOT / "pakiet_PL", cls.polish)
 
     def test_dlc_mission_titles_are_in_their_source_story_episodes(self):
@@ -43,7 +44,7 @@ class PLReadingSeriesTests(unittest.TestCase):
                                   out / "ep04.md", out / "ep04.audit.json")
             text = (out / "ep04.md").read_text(encoding="utf-8")
             source = PolishStorySource(ROOT / "pakiet_EN", self.polish, 4)
-        self.assertIn("wyłącznie z polskich pól pakietu PL4", text)
+        self.assertIn("wyłącznie z polskich pól pakietu PL", text)
         self.assertEqual(audit["prose_total"], 1209)
         checked = 0
         for block in audit["rendered_blocks"]:
@@ -60,24 +61,40 @@ class PLReadingSeriesTests(unittest.TestCase):
             checked += 1
         self.assertGreater(checked, audit["prose_total"])
 
-    def test_untranslated_episodes_22_and_23_are_refused_without_en_fallback(self):
+    def test_all_late_episodes_22_through_34_build_and_blank_prose_never_falls_back_to_en(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
-            for episode in (22, 23):
-                md = out / f"ep{episode:02d}.md"
-                with self.subTest(episode=episode):
-                    with self.assertRaisesRegex(ValueError, "Missing Polish reading text"):
-                        build_episode(ROOT / "pakiet_EN", self.polish, episode, md,
-                                      out / f"audit{episode:02d}.json")
-                    self.assertFalse(md.exists())
+            for episode in (22, 25, 33, 34):
+                audit = build_episode(ROOT / "pakiet_EN", self.polish, episode,
+                                      out / f"ep{episode:02d}.md", out / f"audit{episode:02d}.json")
+                self.assertGreater(audit["prose_total"], 0)
+            # Clear a single prose row in a private copy to ensure missing PL never falls back to EN.
+            incomplete = out / "incomplete-pl"
+            shutil.copytree(self.polish, incomplete)
+            lines = (incomplete / "00_dialogue.jsonl").read_text(encoding="utf-8").splitlines()
+            cleared = []
+            dropped = False
+            for line in lines:
+                row = json.loads(line)
+                if not dropped and row.get("kind") == "dialogue" and (row.get("pl") or "").strip():
+                    row["pl"] = ""
+                    dropped = True
+                cleared.append(json.dumps(row, ensure_ascii=False))
+            self.assertTrue(dropped)
+            (incomplete / "00_dialogue.jsonl").write_text("\n".join(cleared) + "\n", encoding="utf-8")
+            missing_md = out / "missing.md"
+            with self.assertRaisesRegex(ValueError, "Missing Polish reading text"):
+                build_episode(ROOT / "pakiet_EN", incomplete, 0, missing_md, out / "missing.audit.json")
+            self.assertFalse(missing_md.exists())
 
-    def test_pl4_source_declares_current_story_coverage(self):
+    def test_pl5_source_declares_complete_story_coverage(self):
         receipt = json.loads((ROOT / "pakiet_PL/snapshot.json").read_text(encoding="utf-8"))
-        self.assertEqual(receipt["merge_provenance"]["source_archive"]["story_episodes"], "00-21")
-        self.assertEqual(receipt["merge_provenance"]["episode_00_21"]["visible_elements"], 28079)
-        self.assertEqual(receipt["merge_provenance"]["episode_00_21"]["filled_elements"], 28078)
-        self.assertEqual(receipt["merge_provenance"]["episode_00_21"]["only_empty"]["source_row_id"],
-                         "dlg:eventP01.EDAT/DL105_40.bin:696")
+        self.assertEqual(receipt["source_return"]["name"], "PL5.zip")
+        self.assertEqual(receipt["merge_provenance"]["source_archive"]["story_episodes"], "00-34")
+        self.assertTrue(receipt["merge_provenance"]["source_archive"]["simulator_included"])
+        self.assertEqual(receipt["merge_provenance"]["scenes_all_36"]["visible_elements"], 49146)
+        self.assertEqual(receipt["merge_provenance"]["scenes_all_36"]["filled_elements"], 49144)
+        self.assertEqual(receipt["merge_provenance"]["battle_quotes"]["filled_elements"], 19841)
 
 
 if __name__ == "__main__":

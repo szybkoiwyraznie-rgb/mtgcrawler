@@ -8,14 +8,14 @@ Drive) and the DLC.
 
 ## Container census (disc `PSP_GAME/USRDIR`)
 
-| container | loads in `cpk_write`? | contents |
-|---|---|---|
-| `u16tbl.cpk` | **no** — ExtractSize is a *constant-storage* column | `jis2ucs.bin`, `ucs2jis.bin` |
-| `system.cpk` | **no** — `CpkMode 0`, ITOC-only (no TOC) | system strings (TBD) |
-| `imenu00.cpk` | yes (6 members, all CRILAYLA) | `srwDL_*` dictionaries (see below) |
-| `mesbtl00.cpk` / `mesbmp00.cpk` | TBD | battle / message bitmaps (likely images) |
-| `config00.cpk` / `configst.cpk` | TBD | config / system text (TBD) |
-| `font.cpk` | TBD | glyph bitmaps |
+| container                       | loads in `cpk_write`?                               | contents                                 |
+| ------------------------------- | --------------------------------------------------- | ---------------------------------------- |
+| `u16tbl.cpk`                    | **no** — ExtractSize is a *constant-storage* column | `jis2ucs.bin`, `ucs2jis.bin`             |
+| `system.cpk`                    | **no** — `CpkMode 0`, ITOC-only (no TOC)            | system strings (TBD)                     |
+| `imenu00.cpk`                   | yes (6 members, all CRILAYLA)                       | `srwDL_*` dictionaries (see below)       |
+| `mesbtl00.cpk` / `mesbmp00.cpk` | TBD                                                 | battle / message bitmaps (likely images) |
+| `config00.cpk` / `configst.cpk` | TBD                                                 | config / system text (TBD)               |
+| `font.cpk`                      | TBD                                                 | glyph bitmaps                            |
 
 ## `u16tbl.cpk` = the encoding bridge (important for the font question)
 

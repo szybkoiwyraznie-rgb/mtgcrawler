@@ -70,6 +70,15 @@
     103,
     63
    ],
+   "pl_layout": {
+    "clear": [
+     11,
+     50,
+     103,
+     63
+    ],
+    "clear_opaque_only": true
+   },
    "bg": [
     0,
     106,

@@ -216,11 +216,14 @@ def main() -> None:
                     zf.write(f, str(rel))
 
     with zipfile.ZipFile(zip_path, "a", zipfile.ZIP_DEFLATED) as zf:
-        provenance = dict(language=args.lang, version=version, partial=pl,
-                          validation=checked["totals"], game_data_included=False,
-                          sha256_by_file={n: hashlib.sha256(zf.read(n)).hexdigest() for n in zf.namelist()})
+        coverage = None
         if pl and (pkg_dir / "PL_COVERAGE.json").exists():
             coverage = json.loads((pkg_dir / "PL_COVERAGE.json").read_text(encoding="utf-8"))
+        provenance = dict(language=args.lang, version=version,
+                          partial=bool(coverage["partial"]) if coverage is not None else False,
+                          validation=checked["totals"], game_data_included=False,
+                          sha256_by_file={n: hashlib.sha256(zf.read(n)).hexdigest() for n in zf.namelist()})
+        if coverage is not None:
             provenance["source_return"] = coverage["source_return"]
             provenance["owner_ui_corrections"] = coverage.get("owner_ui_corrections", [])
         zf.writestr("RELEASE_MANIFEST.json",json.dumps(provenance,ensure_ascii=False,indent=2)+"\n")

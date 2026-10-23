@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "delivered_at": "2026-10-23",
+  "release": "v4.0",
+  "source_commit": "2836e8d",
+  "branch": "arena/df413232-mtgcrawler",
+  "pull_request": 22,
+  "text_source": "v4.0",
+  "episodes": "00-34",
+  "episode_count": 35,
+  "english_reference": {
+    "files": "srwoe_episode_00.md .. srwoe_episode_34.md",
+    "verified_against_plan_reference_sha256": "35/35",
+    "source": "Google Drive folder Skrypty (1zBVlAv_Nu-2hynN86f-vml7Yy823q22H) and its episode ZIPs srwoe_episodes_01-06/07-10/11-16/17-22/23-28/29-33.zip"
+  },
+  "prose_summary": {
+    "prose_total": 47056,
+    "shown_unique": 32919,
+    "aliased": 14137,
+    "verified_text_spans": 33548,
+    "markdown_bytes_total": 2430374
+  },
+  "archive": {
+    "name": "srwoe_reading_PL_00-34.zip",
+    "bytes": 917233,
+    "sha256": "c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6",
+    "md5": "df2765ebca6251674de3e66e255d3893",
+    "member_count": 36,
+    "roundtrip_cmp_verified": true,
+    "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "drive_file_id": "1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g",
+    "web_view_link": "https://drive.google.com/file/d/1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g/view?usp=drivesdk",
+    "superseded_drive_file_id_trashed": "1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1",
+    "download_back_byte_identical": true,
+    "deterministic_rebuild_cmp_verified": true
+  },
+  "changes_vs_v3_5": {
+    "changed_episodes": 31,
+    "unchanged_episodes": [
+      0,
+      1,
+      5,
+      8
+    ],
+    "summary": "Editorial v4.0 wording only: identical entries that now read the same are folded into the alias count (shown 32,954 -> 32,919, aliased 14,102 -> 14,137), so prose coverage stays 47,056/47,056 (100%)."
+  },
+  "polish_package_sha256": {
+    "00_dialogue.jsonl": "37cccb2a9ddd2f513f78013e07af94e47783795ec45f8c722102a090703cae9b",
+    "03_skills.jsonl": "95128a0358c371b4c0f68bd9e97f86fac9df26125dcf94a0a331e5ba975c71df",
+    "04_config_text.jsonl": "3ed7eafa666324ee5c8071927e572a0fce6a788b5ab18499d7a26a63ad82c10b",
+    "05_mission_text.jsonl": "27d52a282977ab499a42d1b0d6ebae4915eff5fafe6c17c013e342c1ae30e99d",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "07_names_characters.jsonl": "1b420e81b4f06752fe99d4ae32c1cfda84686430d9b2379423798043f6e17de4",
+    "08_names_units_weapons.jsonl": "60742411cc774d5b479602bd6e7df8ad82a67a8469da9dbbd7ba6956513cd8ba",
+    "09_executable.jsonl": "3a542f9dcdb5751fb8063124caea347de999e71a8babf8d5b86c5fcd4a76a771"
+  },
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static package validation, ZIP CRC, per-member SHA-256 and Google Drive download-back checks only. No PPSSPP/real-hardware gameplay session was run."
+  },
+  "members": [
+    {
+      "name": "README.md",
+      "bytes": 4787,
+      "sha256": "5f5cd9da5126f65bc8db32134c20766925ccd49d43eae0f7059d475ec16f3aff",
+      "crc32": "6d7c05b8"
+    },
+    {
+      "name": "srwoe_episode_00_PL.md",
+      "bytes": 21757,
+      "sha256": "a0c0ff99140ecab8ee4808e6fba48c4f0317cb71dae8a1fc57d69e5e70d099d3",
+      "crc32": "cf852635"
+    },
+    {
+      "name": "srwoe_episode_01_PL.md",
+      "bytes": 75621,
+      "sha256": "565659c7a18f43ec25b49a16c8817f8b3df820edc4f897f0b2e20c93bfa7e7cf",
+      "crc32": "530a740d"
+    },
+    {
+      "name": "srwoe_episode_02_PL.md",
+      "bytes": 93274,
+      "sha256": "432757b6bdfd6f0f9710c647a7551321508a0f5d6e605108650b86454f126585",
+      "crc32": "8ba6a6da"
+    },
+    {
+      "name": "srwoe_episode_03_PL.md",
+      "bytes": 78213,
+      "sha256": "2ec91b2f6a2c7a8c279996f58db45d01f0afbfcb9209fd8cbad98555cd913359",
+      "crc32": "264fc7fa"
+    },
+    {
+      "name": "srwoe_episode_04_PL.md",
+      "bytes": 51441,
+      "sha256": "0ed8b97e9f9d2edc8d38c129b3d5dfb0a3db5e479b8128ae8677e7469f7db93f",
+      "crc32": "9179e747"
+    },
+    {
+      "name": "srwoe_episode_05_PL.md",
+      "bytes": 84347,
+      "sha256": "9858dbbb279b00e430deadf2789bb47226fe423a30c25ab725b2595425f4b145",
+      "crc32": "ee36a4af"
+    },
+    {
+      "name": "srwoe_episode_06_PL.md",
+      "bytes": 59072,
+      "sha256": "eb37767a150faaa6a1ce3d6b36b5363276ef638596776ec48330fb3ac7c8337b",
+      "crc32": "13cbe9c0"
+    },
+    {
+      "name": "srwoe_episode_07_PL.md",
+      "bytes": 109851,
+      "sha256": "135a95971bd1d547356f0f12725d61542c54ff2a0bb466c2327c95703cfb6ba9",
+      "crc32": "b9b61c38"
+    },
+    {
+      "name": "srwoe_episode_08_PL.md",
+      "bytes": 74410,
+      "sha256": "0d750e66001f2ed0c6d8df595700c502d202e34b5118a7977e5c9720f328882a",
+      "crc32": "c871ee32"
+    },
+    {
+      "name": "srwoe_episode_09_PL.md",
+      "bytes": 78064,
+      "sha256": "6f3b7be0df640dd31d0561944c25077f3f129fb68fb64cefc690acbfbefbfdac",
+      "crc32": "d87e1a50"
+    },
+    {
+      "name": "srwoe_episode_10_PL.md",
+      "bytes": 65985,
+      "sha256": "55f65b4d9cd75f19c72b8064199d1c78cca2e9e210cb5165a9f5edca5d673977",
+      "crc32": "19da31e1"
+    },
+    {
+      "name": "srwoe_episode_11_PL.md",
+      "bytes": 57173,
+      "sha256": "30f4f8f7d5fba3c1f6b9629befda9d8feb8ddcd6a8fae5e47e60a9d3425904d8",
+      "crc32": "ec45a3ba"
+    },
+    {
+      "name": "srwoe_episode_12_PL.md",
+      "bytes": 55865,
+      "sha256": "a5e9eded59716c9b2dd01ff58ddb34b7c1b6df7c75cdec4ce0f73adddf4a0edc",
+      "crc32": "a9a122df"
+    },
+    {
+      "name": "srwoe_episode_13_PL.md",
+      "bytes": 78341,
+      "sha256": "0d91c7160dc5aafd9a14c704b5f97230812d11319b62e5c50e3ff3e26a294c63",
+      "crc32": "99d46c27"
+    },
+    {
+      "name": "srwoe_episode_14_PL.md",
+      "bytes": 83173,
+      "sha256": "fe66a686356dc68fbec316bbc9e0cfc31d9c4123565a744da525237d03ff6675",
+      "crc32": "6ebac2f7"
+    },
+    {
+      "name": "srwoe_episode_15_PL.md",
+      "bytes": 73167,
+      "sha256": "1073ac6fa415fe13f1133f555ab5346cfb3a2198ce075cedffd57548c4fd1d79",
+      "crc32": "f791df70"
+    },
+    {
+      "name": "srwoe_episode_16_PL.md",
+      "bytes": 58062,
+      "sha256": "22b7ba9a3e22c9c84effa896e865aa0832407136f78b756ee70cbf58fe85f03b",
+      "crc32": "715530cc"
+    },
+    {
+      "name": "srwoe_episode_17_PL.md",
+      "bytes": 74787,
+      "sha256": "1b12f4c346b8eac369800e5e00a3966891d166f6614d31f47d736ff8a588a076",
+      "crc32": "83cde521"
+    },
+    {
+      "name": "srwoe_episode_18_PL.md",
+      "bytes": 69869,
+      "sha256": "931c9a07eb0ce994b6c3556d9e8d7660dd5e24846dd52c7a1fcab1623e58bc85",
+      "crc32": "9a172d31"
+    },
+    {
+      "name": "srwoe_episode_19_PL.md",
+      "bytes": 64653,
+      "sha256": "78e4be103ed58bf628cd9ae79051139cde7f7394b371daa6353891564c12d37d",
+      "crc32": "a4db3b54"
+    },
+    {
+      "name": "srwoe_episode_20_PL.md",
+      "bytes": 69105,
+      "sha256": "4d2162b429d61bc4a910ac5732ba614a436684b771662c0bb057302166df26ae",
+      "crc32": "0fa00109"
+    },
+    {
+      "name": "srwoe_episode_21_PL.md",
+      "bytes": 62816,
+      "sha256": "6d03c2e57518eaadc26f0ef5b2ab98d5ed4351ba6dabce48c44bfb467a6952be",
+      "crc32": "5f79c2d4"
+    },
+    {
+      "name": "srwoe_episode_22_PL.md",
+      "bytes": 59422,
+      "sha256": "c5d0cc865b1914c9d8891d418f0bdd57743b9592466a240ac9e0d04e18c79424",
+      "crc32": "c31853d6"
+    },
+    {
+      "name": "srwoe_episode_23_PL.md",
+      "bytes": 59234,
+      "sha256": "82f6702b8c10caba5c33760327b86439249016b43dee87b6ddf4362b56f7b048",
+      "crc32": "aaacce51"
+    },
+    {
+      "name": "srwoe_episode_24_PL.md",
+      "bytes": 36664,
+      "sha256": "9e6041564565bd8526496d5710014977fd499712c2e2247631bbeebf67e0058b",
+      "crc32": "982a2599"
+    },
+    {
+      "name": "srwoe_episode_25_PL.md",
+      "bytes": 64730,
+      "sha256": "3c668b6e0d59dbaee7bf5d79806d3bfc1440a30541b1cf43776e7de5c7293d94",
+      "crc32": "32cda514"
+    },
+    {
+      "name": "srwoe_episode_26_PL.md",
+      "bytes": 56513,
+      "sha256": "2eb8b84f40a738099f3037c5e625162eec064707fedba55a8499c118e61a6e06",
+      "crc32": "183aef38"
+    },
+    {
+      "name": "srwoe_episode_27_PL.md",
+      "bytes": 69731,
+      "sha256": "70f6233919458810d3e1e18d70dfaa6fc89cd6cf08ebedab1b85ff02ce4ee452",
+      "crc32": "1d868bee"
+    },
+    {
+      "name": "srwoe_episode_28_PL.md",
+      "bytes": 78555,
+      "sha256": "94920f4f0d32b688e9e214fa0bbea418a05429ae7b35a740f4d2c9cbbff3feaf",
+      "crc32": "8e452592"
+    },
+    {
+      "name": "srwoe_episode_29_PL.md",
+      "bytes": 39670,
+      "sha256": "6ddb40492a329bb701eded01b2a373ce7fd707a50b65c62751fcbed8229a57f7",
+      "crc32": "d03d8003"
+    },
+    {
+      "name": "srwoe_episode_30_PL.md",
+      "bytes": 78094,
+      "sha256": "3e01041227d7f7d259955d98dffbee0d11ff6026b46288295891fe57aa866afb",
+      "crc32": "3f1cc6a4"
+    },
+    {
+      "name": "srwoe_episode_31_PL.md",
+      "bytes": 48626,
+      "sha256": "22ffb411fa38c7581d9aa07db43f48e99588713d2f49beaaa53d4fdb60f9b2c0",
+      "crc32": "843e22ef"
+    },
+    {
+      "name": "srwoe_episode_32_PL.md",
+      "bytes": 32253,
+      "sha256": "2b85793184ccd2f1cddf844b776ba250b95721a7acb7eafc890c6036daa99083",
+      "crc32": "497748da"
+    },
+    {
+      "name": "srwoe_episode_33_PL.md",
+      "bytes": 48916,
+      "sha256": "58521aa3095085a48d516005bfa3e130f8d8ec88e563efb005553a5c6739b27c",
+      "crc32": "ec528825"
+    },
+    {
+      "name": "srwoe_episode_34_PL.md",
+      "bytes": 218920,
+      "sha256": "f38b4947715f1947547811476d2da15e984feee4d1491f0d9f80248b6f11aba4",
+      "crc32": "ac371f61"
+    }
+  ]
+}

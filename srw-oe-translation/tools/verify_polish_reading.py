@@ -66,7 +66,7 @@ def verify_catalogue(text, english, polish, roster_first=True):
             if heading != unit['name']:
                 heading += ' (' + unit['name'] + ')'
         need(section.splitlines()[0] == M.md(heading), 'Unit heading/order changed')
-        rows = re.findall(r'^\| \d+ \|.*$', section, flags=re.M)
+        rows = re.findall(r'^\|\s*\d+\s*\|.*$', section, flags=re.M)
         expected = [w for selected in (True, False) for w in unit['weapons'] if bool(w['selector']) == selected]
         need(len(rows) == len(expected), f'Weapon rows missing: {unit["unit_id"]}')
         for line, weapon in zip(rows, expected):
@@ -78,6 +78,20 @@ def verify_catalogue(text, english, polish, roster_first=True):
             need(columns[:8] == want, f'Rendered weapon facts differ: {unit["unit_id"]}/{weapon["slot"]}')
             count += 1
     need(count == 1485, 'Catalogue weapon coverage differs')
+    need('<br>' not in text, 'Raw HTML <br> tag remained in Polish mech catalogue')
+    cur_tbl = []
+    for ln in text.splitlines() + ['']:
+        if ln.startswith('|'):
+            cur_tbl.append(ln)
+        elif cur_tbl:
+            pipes0 = [i for i, ch in enumerate(cur_tbl[0]) if ch == '|']
+            for tln in cur_tbl:
+                need([i for i, ch in enumerate(tln) if ch == '|'] == pipes0, 'Misaligned pipe columns in mech catalogue')
+                need(len(tln) <= 216, f'Mech catalogue table line exceeds 216 chars ({len(tln)})')
+            cur_tbl = []
+    need('Domyślny pilot' not in text and '#### Miejsce ' not in text
+         and 'Przypisany profil:' not in text and 'Premia asa' not in text,
+         'Pilot/crew content remained in Polish mech catalogue')
     need('<a id=' not in text and '\n**Data:**' not in text, 'Removed v3 metadata restored')
     need(not re.search(r'^#{2,4} .*\[(?:unit|character|profile) ', text, re.M), 'v3 heading IDs restored')
     return {'units': len(polish['units']), 'weapon_rows': count, 'numeric_and_assignment_facts_equal': True,

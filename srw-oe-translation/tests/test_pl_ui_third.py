@@ -25,6 +25,7 @@ class ThirdTests(unittest.TestCase):
         cls.rows={R.binding(r):r for r in R.I.load_rows(ROOT/'pakiet_EN')[0]}
         cls.entries={e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
         later=json.loads((ROOT/'config/pl/ui-seven-2026-10-20.json').read_text())['changes']
+        later+=json.loads((ROOT/'config/pl/ui-five-screens-2026-10-21.json').read_text())['changes']
         cls.superseded={e['source_sha256']:e['after'] for e in later}
 
     def test_source_bound_tokens_no_pool_changes_and_physical_budgets(self):

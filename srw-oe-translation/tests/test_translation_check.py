@@ -473,16 +473,16 @@ class PlFieldTest(unittest.TestCase):
             prow("テスト", "ą", category="exe", source={"encoding": "utf-8"}), field="pl")
         self.assertTrue(errors)
 
-    def test_terrain_rows_refuse_polish_letters_under_pl(self):
+    def test_terrain_rows_use_polish_target_codec_while_en_stays_ascii(self):
         import terrain_names
         base = {"category": "terrain_name", "part": "name", "record": 0, "mode": "slot",
                 "max_bytes": terrain_names.NAME_SIZE - 1,
                 "source": {"container": terrain_names.CONTAINER,
                            "member": terrain_names.MEMBER, "offset": 4}}
         errors, _warnings = TC.check_row(prow("森", "Łąka", **base), field="pl")
-        self.assertTrue(any("printable ASCII" in e for e in errors), errors)
-        errors, _warnings = TC.check_row(prow("森", "Laka", **base), field="pl")
         self.assertFalse(errors, errors)
+        errors, _warnings = TC.check_row({**prow("森", "Łąka", **base), "en": "Łąka"}, field="en")
+        self.assertTrue(any("printable ASCII" in e for e in errors), errors)
 
     def test_check_rows_counts_the_pl_field(self):
         report = TC.check_rows([prow("はい", "Tak", id="a"), prow("いいえ", "", id="b")], field="pl")

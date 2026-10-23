@@ -56,14 +56,20 @@ Zasada stała: żaden plik `.bat` nie każe wpisywać ścieżek — zawsze otwie
 > nie sprawdzony** — po buildzie proszę o zrzuty Character Viewer (karta nie-pilota), Robot Viewer
 > (jednostka wroga) i Reference (lista sekcji + strona „Level Gap Modifier”).
 
-| plik | do czego |
-|---|---|
-| `pakiet_EN_2026-10-16_v8.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v7 (pola Character/Robot Viewer, etykiety `Nickname: ` / `Voice: `, Reference, kopie `imenuNN`) + opisy ducha Fortune/Bless, etykiety „Skill/Dmg Rate", poprawka „Urara Takano" i „SRW Web Collab"; 7 osiągnięć wchodzi dzięki poprawce w narzędziach (świeży ZIP gałęzi); opis w `CO_NOWEGO_v8.txt`, nazwiska aktorów w `aktorzy_glosowi.tsv` |
-| `EXE_TEST2.zip` | **napisy programu gry bez budowania (szybki test, 2 minuty):** `EBOOT.BIN` = program 1.08 z 397 angielskimi napisami, do włożenia w ISO przez `WGRAJ_DO_ISO.bat` + `CZYTAJ_EXE_TEST2.txt` + zapasowy plik cheatów (część 5). Zastępuje `EXE_TEST1` (sam `PBOOT.PBP` — **sprawdzone: PPSSPP go nie czyta**; jego plik cheatów działał) |
-| `UI_TEST4.zip` | **grafiki interfejsu, komplet 26 tekstur z poprawionymi komórkami** po zrzutach z #19 (zastępuje `UI_TEST3`, który działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`, `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk` + `CZYTAJ_UI_TEST4.txt`; `HOKUS_POKUS.bat` z aktualnym ZIP-em gałęzi buduje dokładnie to samo |
-| `RUNDA8_build14.zip` | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie) |
-| `INSTRUKCJA_PL.md` | ten tekst |
-| `_STARE_NIE_UZYWAC\…` | pakiet v6 (**działał w grze** — intermisja po angielsku; resztki w Viewerach i Reference), `EXE_TEST1` (PBOOT.PBP — PPSSPP go nie czyta; cheat z niego działał), pakiet v5, `KIT_build18` i `UI_TEST3` (wszystkie **działały w grze** w buildzie #19 — odniesienie, zastąpione przez v6 / UI_TEST4), pakiet v4 i `KIT_build17` (działały, dwa błędy tekstu), `UI_TEST1` (wariant A działał) i `UI_TEST2`, pakiety v3 i starsze (padają na Loading) |
+| plik                          | do czego                                                                                                                                                                           |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pakiet_EN_2026-10-16_v8.zip` | **jedyny aktualny pakiet tłumaczenia** (rozpakować do `srw-oe-translation\pakiet_EN\`); = v7 (pola Character/Robot Viewer, etykiety `Nickname: `                                   |
+|                               |   `Voice: `, Reference, kopie `imenuNN`) + opisy ducha Fortune/Bless, etykiety „Skill/Dmg Rate", poprawka „Urara Takano" i „SRW Web Collab"; 7 osiągnięć wchodzi dzięki poprawce w |
+|                               |   narzędziach (świeży ZIP gałęzi); opis w `CO_NOWEGO_v8.txt`, nazwiska aktorów w `aktorzy_glosowi.tsv`                                                                             |
+| `EXE_TEST2.zip`               | **napisy programu gry bez budowania (szybki test, 2 minuty):** `EBOOT.BIN` = program 1.08 z 397 angielskimi napisami, do włożenia w ISO przez `WGRAJ_DO_ISO.bat` +                 |
+|                               |   `CZYTAJ_EXE_TEST2.txt` + zapasowy plik cheatów (część 5). Zastępuje `EXE_TEST1` (sam `PBOOT.PBP` — **sprawdzone: PPSSPP go nie czyta**; jego plik cheatów działał)               |
+| `UI_TEST4.zip`                | **grafiki interfejsu, komplet 26 tekstur z poprawionymi komórkami** po zrzutach z #19 (zastępuje `UI_TEST3`, który działał w grze): `system.cpk`, `tacsys.cpk`, `IM1000.cpk`,      |
+|                               |   `IM3000.cpk`, `IM9000.cpk`, `navisys.cpk` + `CZYTAJ_UI_TEST4.txt`; `HOKUS_POKUS.bat` z aktualnym ZIP-em gałęzi buduje dokładnie to samo                                          |
+| `RUNDA8_build14.zip`          | `config00.cpk` + `configst.cpk` z budowy #14 — para sprawdzona w grze z oryginalnym DLC (odniesienie)                                                                              |
+| `INSTRUKCJA_PL.md`            | ten tekst                                                                                                                                                                          |
+| `_STARE_NIE_UZYWAC\…`         | pakiet v6 (**działał w grze** — intermisja po angielsku; resztki w Viewerach i Reference), `EXE_TEST1` (PBOOT.PBP — PPSSPP go nie czyta; cheat z niego działał), pakiet v5,        |
+|                               |   `KIT_build18` i `UI_TEST3` (wszystkie **działały w grze** w buildzie #19 — odniesienie, zastąpione przez v6                                                                      |
+|                               |   UI_TEST4), pakiet v4 i `KIT_build17` (działały, dwa błędy tekstu), `UI_TEST1` (wariant A działał) i `UI_TEST2`, pakiety v3 i starsze (padają na Loading)                         |
 
 Jak odróżnić pliki: `config00.cpk` z budowy #18 (pakiet v5) ma **936 064 B, md5
 `5c43cf343b9fafde62c3c53c3a6c1e78`**; z budowy #17 (pakiet v4, sprawdzony w grze) ten sam rozmiar, md5
@@ -175,13 +181,14 @@ nowa gra, lista umiejętności pilota w rozdziale 2 (tam są teksty z pul).
 **Y3 — tylko gdy Y4a padł.** Oryginalny folder DLC + `config00.cpk` i `configst.cpk`
 z `DLC_build17_config\` + 8 plików z `DLC_pulaJP_config01-08\` (pule japońskie, reszta po angielsku).
 
-| wynik | wniosek | następny krok |
-|---|---|---|
-| Y4a działa | pule były winne (budżet trzyma) | Y4 |
-| Y4a crash, Y3 działa | gra nie toleruje zmienionych pul nawet ≤ oryginału (treść, nie rozmiar) | prześlij zrzut; wrócę z pulami bajt-w-bajt tej samej długości |
-| Y4a crash, Y3 crash | problem poza pulami: słowniki/Item/DLC_ID w `config01–08` albo `config00` v4 | prześlij oba zrzuty + `DIAGNOZA.txt`; następna runda = `config00` v4 sam |
-| Y4 crash (po Y4a OK) | winny któryś z 83 pozostałych EDAT | `BISEKCJA.bat` literą `H` (EDAT z dialogami), potem `I` |
-| Z4 działa | pełny patch działa — pierwszy raz | graj; zbieraj zrzuty błędów tekstu (np. pasek podpowiedzi w słowniku nachodzi na zakładkę „Pilot” — znany, do poprawki) |
+| wynik                | wniosek                                                                      | następny krok                                                                                                 |
+| -------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Y4a działa           | pule były winne (budżet trzyma)                                              | Y4                                                                                                            |
+| Y4a crash, Y3 działa | gra nie toleruje zmienionych pul nawet ≤ oryginału (treść, nie rozmiar)      | prześlij zrzut; wrócę z pulami bajt-w-bajt tej samej długości                                                 |
+| Y4a crash, Y3 crash  | problem poza pulami: słowniki/Item/DLC_ID w `config01–08` albo `config00` v4 | prześlij oba zrzuty + `DIAGNOZA.txt`; następna runda = `config00` v4 sam                                      |
+| Y4 crash (po Y4a OK) | winny któryś z 83 pozostałych EDAT                                           | `BISEKCJA.bat` literą `H` (EDAT z dialogami), potem `I`                                                       |
+| Z4 działa            | pełny patch działa — pierwszy raz                                            | graj; zbieraj zrzuty błędów tekstu (np. pasek podpowiedzi w słowniku nachodzi na zakładkę „Pilot” — znany, do |
+|                      |                                                                              |   poprawki)                                                                                                   |
 
 Po każdym teście `DIAGNOZA.bat` (okno 1: folder DLC emulatora, okno 2: ISO) i prześlij
 `DIAGNOZA.txt` + zrzut PPSSPP przy crashu. Przy Y4/Z4 dołącz też `srw-oe-patch\build_report.json`.
@@ -227,12 +234,12 @@ któryś napis się nie zmieści, budowa jest przerwana z komunikatem — nic ni
 Wyłączenie (tylko tekst): `python tools\build_translation_patch.py … --no-ui-textures`.
 `DIAGNOZA.bat` z ISO pokazuje blok „tekstury UI” — oryginał / UI_TEST1 / UI_TEST2 / UI_TEST3 / UI_TEST4 / nieznany.
 
-| wynik | wniosek | następny krok |
-|---|---|---|
-| wszystko czytelne | technika potwierdzona na walce | poprawki pojedynczych napisów ze zrzutów |
+| wynik                       | wniosek                                          | następny krok                                                                              |
+| --------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| wszystko czytelne           | technika potwierdzona na walce                   | poprawki pojedynczych napisów ze zrzutów                                                   |
 | crash / czarne pola w walce | `tacsys.cpk` inaczej buforowany niż `system.cpk` | zrzut + moment; `WGRAJ_DO_ISO` z samym `system.cpk`+`IM*` (skopiuj je do osobnego folderu) |
-| napis ucięty / nachodzi | komórka węższa niż założona | napisz który — skracam/ściskam konkretny napis |
-| kody na ikonach nieczytelne | 7–9 px to za mało przy twoim skalowaniu | zamieniam na piktogramy / jednoliterowe kody w innym kolorze — do decyzji |
+| napis ucięty / nachodzi     | komórka węższa niż założona                      | napisz który — skracam/ściskam konkretny napis                                             |
+| kody na ikonach nieczytelne | 7–9 px to za mało przy twoim skalowaniu          | zamieniam na piktogramy / jednoliterowe kody w innym kolorze — do decyzji                  |
 
 Świadomie po japońsku zostają: ikony `mensys_12` (連 持 特 防 突 早 狙 回 — nie wiem na pewno, gdzie gra je
 pokazuje; prześlij zrzut z taką ikoną, dopiszę kody), 6-pikselowe znaczniki „連” w `intsys_01` (za małe)

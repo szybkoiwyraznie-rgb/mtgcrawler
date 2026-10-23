@@ -21,6 +21,10 @@ from reading_script_source import HEADINGS, PROSE, paragraphs, jsonl
 
 SOURCE_FILES = ("00_dialogue.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
                 "07_names_characters.jsonl")
+EMPTY_STRUCTURAL_IDS = frozenset({
+    "dlg:eventP01.EDAT/DL105_40.bin:696",
+    "dlg:eventP08.EDAT/DL833_60.bin:432",
+})
 EMPTY_STRUCTURAL_ID = "dlg:eventP01.EDAT/DL105_40.bin:696"
 JP_RE = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff\uff66-\uff9f]")
 
@@ -200,7 +204,7 @@ def build_episode(english_package: Path, polish_package: Path, episode: int,
                 technical[kind] = technical.get(kind, 0) + 1
                 continue
             if not (row.get("pl") or "").strip():
-                if (row["id"] == EMPTY_STRUCTURAL_ID and not (row.get("jp") or "").strip()
+                if (row["id"] in EMPTY_STRUCTURAL_IDS and not (row.get("jp") or "").strip()
                         and not (row.get("en") or "").strip()):
                     empty_structural.append(row["id"])
                     continue
@@ -224,7 +228,7 @@ def build_episode(english_package: Path, polish_package: Path, episode: int,
             spans.append({**meta, "start": start, "end": position})
 
     put(f"# Super Robot Wars OE — Epizod {episode:02d}")
-    put("*Polski scenariusz do czytania · tekst z zaakceptowanego pakietu PL4*")
+    put("*Polski scenariusz do czytania · tekst z zaakceptowanego pakietu PL*")
     put("> **Informacja:** Dialogi i narrację pokazano w kolejności wpisów źródłowych. Wymiany mogą zależeć "
         "od przebiegu misji; kolejność w dokumencie nie oznacza, że wszystkie kwestie występują w jednej "
         "rozgrywce. Nie dopisano warunków HP/tur ani dalszych zdarzeń. Alternatywne wersje źródłowe "
@@ -263,7 +267,7 @@ def build_episode(english_package: Path, polish_package: Path, episode: int,
          f"extra={len(shown_prose-expected_prose)}")
     put("---")
     put("## Uwagi redakcyjne")
-    put("- Tekst pochodzi wyłącznie z polskich pól pakietu PL4; angielskie wiersze służą tylko "
+    put("- Tekst pochodzi wyłącznie z polskich pól pakietu PL; angielskie wiersze służą tylko "
         "do sprawdzania identyfikatorów i struktury. Nie ma uzupełniania braków angielskim.")
     put("- Zachowano wszystkie polskie wpisy narracji/dialogu z tego epizodu, także tekst scen "
         "alternatywnych. Nie usuwano powtórzeń między scenami.")
@@ -298,14 +302,14 @@ def main(argv=None):
     parser.add_argument("--polish", type=Path, required=True,
                         help="materialized PL package from the accepted PL snapshot")
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--episodes", type=int, nargs="+", default=list(range(22)),
-                        help="internal story episode IDs; current PL source covers 00-21")
+    parser.add_argument("--episodes", type=int, nargs="+", default=list(range(35)),
+                        help="internal story episode IDs; current PL source covers 00-34")
     args = parser.parse_args(argv)
     need(args.out.resolve() not in (args.english.resolve(), args.polish.resolve()),
          "Output must be separate from both source packages")
     args.out.mkdir(parents=True, exist_ok=True)
-    manifest = {"schema": 1, "kind": "PL4 reading edition", "episodes": [],
-                "scope_note": "The source-bound PL package covers story episodes 00-21; no text beyond that coverage is generated."}
+    manifest = {"schema": 1, "kind": "PL reading edition", "episodes": [],
+                "scope_note": "The source-bound PL package covers all story episodes 00-34; no text beyond that coverage is generated."}
     for episode in args.episodes:
         audit = build_episode(args.english, args.polish, episode,
                               args.out / f"srwoe_episode_{episode:02d}_PL.md",

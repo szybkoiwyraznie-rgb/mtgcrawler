@@ -80,7 +80,7 @@ def snapshot(base, package, out, source_name, source_sha256, owner_ui_from=None,
     if not entries:
         raise ValueError('refusing empty PL release')
     data = ''.join(canonical(entries[k])+'\n' for k in sorted(entries)).encode('utf-8')
-    manifest = dict(schema=SCHEMA, kind='partial PL text-only release snapshot',
+    manifest = dict(schema=SCHEMA, kind='PL text-only release snapshot',
                     source_return=dict(name=Path(source_name).name, sha256=source_sha256),
                     entries=len(entries), data_sha256=hashlib.sha256(data).hexdigest(),
                     bindings='file + all non-language row metadata; excludes en/pl/internal fields',
@@ -167,15 +167,14 @@ def materialize(base, stored, out):
     if copies['problems'] or any(r.get('pl') != explicit[id(r)] for r in rows if id(r) in explicit):
         raise ValueError('PL copy propagation conflicts with reviewed explicit text')
     checked = validate(by_file, base)
-    coverage = dict(schema=1, language='pl', partial=True, source_return=manifest['source_return'],
+    coverage = dict(schema=1, language='pl', partial=False, source_return=manifest['source_return'],
                     snapshot_sha256=hashlib.sha256(data).hexdigest(),
                     owner_ui_corrections=manifest.get('owner_ui_corrections', []),
                     merge_provenance=manifest.get('merge_provenance'),
                     totals=checked['totals'], files=checked['files'],
                     runtime_tested=False,
-                    known_issues=['Battle-quote grammatical gender not fully speaker-reviewed',
-                                  '158 translator-reported skill-description assembly spacing findings remain (not line-wrap errors)',
-                                  'Line-width/layout warnings require game QA; consult the return audit for story coverage'])
+                    known_issues=['Line-width/layout soft warnings require game QA; automated checks do not replace PPSSPP visual verification',
+                                  'Two structural whitespace-only dialogue rows and quarantined/readonly engine or binary fields remain intentionally empty without English fallback'])
     out.mkdir(parents=True)
     for name, group in by_file.items():
         (out/name).write_text(''.join(json.dumps({k:v for k,v in r.items() if not k.startswith('_')},

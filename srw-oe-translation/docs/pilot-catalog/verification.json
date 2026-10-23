@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "deliverable": {
+    "filename": "srwoe_pilot_catalog_PL.md",
+    "bytes": 303266,
+    "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65"
+  },
+  "provenance": {
+    "source_inventory": "docs/mech-catalog/source-inventory.json",
+    "source_inventory_sha256": "2cd8368f3da033d26e2642257975c0be73463527500602011ffcc8ffcbede5c2",
+    "engine_map": "docs/pilot-catalog/engine-map.json",
+    "engine_map_sha256": "be6c14be5a4956b46e7b018dfe05dc045c9c6a26b2b35912dab468c4bba7da25",
+    "executable_1_08_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+    "english_package_sha256": {
+      "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
+      "04_config_text.jsonl": "4afecd18296cbc8ee9812c6303906e24ddfe4eef3f42a3d4c305e7e8985832d5",
+      "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+      "07_names_characters.jsonl": "88e18fb390cebcfd5166b013b0b1476a89972665598c26646d95f8d68d6626cc",
+      "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+      "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
+    },
+    "polish_package_snapshot_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+    "polish_package_files_sha256": "047eed7e5a9429e30d7e8602b92946d7971d0df8a7a540e63b27d536f81a8c00"
+  },
+  "counts": {
+    "total_characters": 404,
+    "playable_main": 80,
+    "playable_rival_ally": 12,
+    "playable_total": 92,
+    "sub_pilot": 45,
+    "rival_enemy_profile": 13,
+    "enemy_combat": 104,
+    "enemy_total": 117,
+    "non_combat": 150,
+    "spirit_families": 20,
+    "spirit_records": 60,
+    "pilot_skill_families": 80,
+    "pilot_skill_level_records": 536,
+    "executable_1_08_pilot_skill_overrides": 38,
+    "ace_bonuses": 92,
+    "story_flag_upgrades": 1
+  },
+  "markdown_audit": {
+    "markdown_lines": 6276,
+    "combat_pilot_headings_verified": 254,
+    "non_combat_table_rows_verified": 150,
+    "residual_cjk_characters": 0,
+    "residual_control_tokens": 0
+  },
+  "unicorn_progression_parity": {
+    "status": "PASS",
+    "characters_verified": 404,
+    "synthetic_edge_profiles_verified": 1,
+    "total_unicorn_executions_matched": 7307,
+    "mismatches": 0
+  }
+}

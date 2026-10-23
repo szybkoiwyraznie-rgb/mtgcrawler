@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "review": "Split Code Geass Kallen Kozuki (char:2320) short/narrow/nickname slots from Karen Joshua (char:1409) so Kallen renders as Kallen in both EN and PL without altering Karen Joshua.",
+  "before_file_sha256": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+  "after_file_sha256": "88e18fb390cebcfd5166b013b0b1476a89972665598c26646d95f8d68d6626cc",
+  "entries": [
+    {
+      "line_index": 694,
+      "file": "07_names_characters.jsonl",
+      "id": "char:2320:nickname",
+      "before_source_sha256": "63886737010424c018a84d684c51e111fcc8436a50a83dabe9d8eefa9d1c17bd",
+      "after_source_sha256": "42b2151cea88090bdccc6afcf00630bfeda18a4bbc88885adafb7fc2b5db3b72",
+      "before_line": "{\"id\": \"char:2320:nickname\", \"category\": \"character_nickname\", \"part\": \"nickname\", \"jp\": \"カレン\", \"en\": \"Karen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": true, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}, \"copy_of\": \"char:1409:nickname\"}\n",
+      "after_line": "{\"id\": \"char:2320:nickname\", \"category\": \"character_nickname\", \"part\": \"nickname\", \"jp\": \"カレン\", \"en\": \"Kallen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": false, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}}\n"
+    },
+    {
+      "line_index": 1783,
+      "file": "07_names_characters.jsonl",
+      "id": "char:2320:nickname",
+      "before_source_sha256": "795b266fd4625c0f1bb0403b8ac817d2791aaa60a4db0d3267e7b2b96ac74c5b",
+      "after_source_sha256": "2b2855738fe5015779f19fde98779b74b3dca0fa184ad5ae57648090099039b0",
+      "before_line": "{\"id\": \"char:2320:nickname\", \"category\": \"character_nickname\", \"part\": \"nickname\", \"jp\": \"カレン\", \"en\": \"Karen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": true, \"source\": {\"container\": \"imenu02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}, \"copy_of\": \"char:1409:nickname\"}\n",
+      "after_line": "{\"id\": \"char:2320:nickname\", \"category\": \"character_nickname\", \"part\": \"nickname\", \"jp\": \"カレン\", \"en\": \"Kallen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": true, \"source\": {\"container\": \"imenu02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}, \"copy_of\": \"char:2320:nickname\"}\n"
+    },
+    {
+      "line_index": 2967,
+      "file": "07_names_characters.jsonl",
+      "id": "char:2320:name_short",
+      "before_source_sha256": "c36ddd19335329140bffacfa8e3fae34bc6c662d034234f433a300ae884c3fab",
+      "after_source_sha256": "427eeb98f15166e4920d93ccc0a6814b69968f8466b52d7a8a2a8c51be2b3e35",
+      "before_line": "{\"id\": \"char:2320:name_short\", \"category\": \"character_name_short\", \"part\": \"name_short\", \"jp\": \"カレン\", \"en\": \"Karen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": true, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"charalist02.bin\", \"offset\": 0}, \"copy_of\": \"char:1409:name_short\"}\n",
+      "after_line": "{\"id\": \"char:2320:name_short\", \"category\": \"character_name_short\", \"part\": \"name_short\", \"jp\": \"カレン\", \"en\": \"Kallen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": false, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"charalist02.bin\", \"offset\": 0}}\n"
+    },
+    {
+      "line_index": 2969,
+      "file": "07_names_characters.jsonl",
+      "id": "char:2320:name_narrow",
+      "before_source_sha256": "bd2abc5cb0f00cb60b466a686d6ce6f41ab2006a08f41d2c6a77025bed8252dc",
+      "after_source_sha256": "d9973ec7d33d3664acc6d5d426e4ebd849c4f828da07e07333ff5134406bfa66",
+      "before_line": "{\"id\": \"char:2320:name_narrow\", \"category\": \"character_name_narrow\", \"part\": \"name_narrow\", \"jp\": \"ｶﾚﾝ\", \"en\": \"Karen\", \"bytes\": 3, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": true, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"charalist02.bin\", \"offset\": 0}, \"copy_of\": \"char:1409:name_narrow\"}\n",
+      "after_line": "{\"id\": \"char:2320:name_narrow\", \"category\": \"character_name_narrow\", \"part\": \"name_narrow\", \"jp\": \"ｶﾚﾝ\", \"en\": \"Kallen\", \"bytes\": 3, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"duplicate\": false, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"charalist02.bin\", \"offset\": 0}}\n"
+    },
+    {
+      "line_index": 3516,
+      "file": "07_names_characters.jsonl",
+      "id": "char:2320:short_name",
+      "before_source_sha256": "6bb024f099097e54952bb3bdc2df24c3981d6f114ac36ed93966241a20905459",
+      "after_source_sha256": "6bb024f099097e54952bb3bdc2df24c3981d6f114ac36ed93966241a20905459",
+      "before_line": "{\"id\": \"char:2320:short_name\", \"category\": \"character_short_name\", \"part\": \"short_name\", \"jp\": \"カレン\", \"en\": \"Karen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}, \"copy_of\": \"char:2320:nickname\"}\n",
+      "after_line": "{\"id\": \"char:2320:short_name\", \"category\": \"character_short_name\", \"part\": \"short_name\", \"jp\": \"カレン\", \"en\": \"Kallen\", \"bytes\": 6, \"mode\": \"grow\", \"max_bytes\": null, \"key\": 2320, \"source\": {\"container\": \"config02.EDAT\", \"member\": \"srwDL_CharaDictionary02.bin\", \"offset\": 0}, \"copy_of\": \"char:2320:nickname\"}\n"
+    }
+  ]
+}

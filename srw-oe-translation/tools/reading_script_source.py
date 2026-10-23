@@ -21,6 +21,10 @@ SOURCE_FILES = ("00_dialogue.jsonl", "05_mission_text.jsonl", "06_scenes.jsonl",
 PROSE = frozenset(("dialogue", "narration"))
 HEADINGS = frozenset(("location", "scene_title", "label"))
 TECHNICAL = frozenset(("help", "condition_victory", "condition_defeat"))
+EMPTY_STRUCTURAL_IDS = frozenset((
+    "dlg:eventP01.EDAT/DL105_40.bin:696",
+    "dlg:eventP08.EDAT/DL833_60.bin:432",
+))
 PREFIXES = {"＃？？？": "???", "＃???": "???"}
 
 
@@ -69,22 +73,33 @@ class Entry:
 
 class ReadingSource:
     def __init__(self, package: Path, episode: int):
+        language = getattr(self, "language", "en")
         self.package = Path(package)
         self.hashes = {name: hashlib.sha256((self.package / name).read_bytes()).hexdigest()
                        for name in SOURCE_FILES}
-        self.scenes = [s for s in jsonl(self.package / "06_scenes.jsonl")
-                       if s.get("series") == "story" and s.get("episode") == episode]
-        if not self.scenes:
+        raw_scenes = [s for s in jsonl(self.package / "06_scenes.jsonl")
+                      if s.get("series") == "story" and s.get("episode") == episode]
+        if not raw_scenes:
             raise ValueError(f"No story scenes for episode {episode}")
-        if [s["seq"] for s in self.scenes] != sorted({s["seq"] for s in self.scenes}):
+        if [s["seq"] for s in raw_scenes] != sorted({s["seq"] for s in raw_scenes}):
             raise ValueError("Scene index is not strictly ordered")
+        fixed_scenes = []
+        last_base = None
+        for s in raw_scenes:
+            sc = dict(s)
+            if not sc.get("variant"):
+                last_base = sc["id"]
+            elif not sc.get("variant_of"):
+                sc["variant_of"] = last_base
+            fixed_scenes.append(sc)
+        self.scenes = fixed_scenes
         self.scene_by_id = {s["id"]: s for s in self.scenes}
         if len(self.scene_by_id) != len(self.scenes):
             raise ValueError("Duplicate scene ID")
         self.names = defaultdict(lambda: defaultdict(set))
         for row in jsonl(self.package / "07_names_characters.jsonl"):
-            if row.get("key") is not None and row.get("en"):
-                self.names[row["key"]][row.get("part")].add(row["en"].strip())
+            if row.get("key") is not None and row.get(language):
+                self.names[row["key"]][row.get("part")].add(row[language].strip())
         self.missions = {}
         for row in jsonl(self.package / "05_mission_text.jsonl"):
             if row["id"] in self.missions:
@@ -101,8 +116,10 @@ class ReadingSource:
                 raise ValueError(f"Duplicate row ID: {row['id']}")
             if row.get("kind") not in PROSE | HEADINGS | TECHNICAL:
                 raise ValueError(f"Unreviewed entry kind: {row['id']}")
-            if not isinstance(row.get("en"), str) or not row["en"].strip():
-                raise ValueError(f"Empty English: {row['id']}")
+            if row["id"] not in EMPTY_STRUCTURAL_IDS:
+                if not isinstance(row.get(language), str) or not row[language].strip():
+                    label = "English" if language == "en" else f"Missing {language}"
+                    raise ValueError(f"Empty {label}: {row['id']}")
             self.rows[scene].append(row)
             self.by_id[row["id"]] = row
         for scene, rows in self.rows.items():
@@ -112,7 +129,11 @@ class ReadingSource:
                 raise ValueError(f"Scene row count disagrees with source index: {scene}")
         self.prepare_speakers()
         for scene, rows in self.rows.items():
-            self.entries[scene] = [self.make_entry(r) for r in rows if r["kind"] in PROSE | HEADINGS]
+            self.entries[scene] = [
+                self.make_entry(r) for r in rows
+                if r["kind"] in PROSE | HEADINGS
+                and not (r["id"] in EMPTY_STRUCTURAL_IDS and not (r.get(language) or "").strip())
+            ]
 
     def prepare_speakers(self) -> None:
         """Disambiguate shared short names, using only the package's full names."""
