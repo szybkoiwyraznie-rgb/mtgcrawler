@@ -37,6 +37,7 @@ class Episode34Tests(unittest.TestCase):
         # may be removed; the resulting whole-file hash must equal the old hash.
         manifest_path = cls.plan_path.parent / cls.plan["source_manifest"]
         frozen_hashes = json.loads(manifest_path.read_bytes())["source_sha256"]
+        overrides = {}
         note_file = cls.package / "05_mission_text.jsonl"
         if hashlib.sha256(note_file.read_bytes()).hexdigest() != frozen_hashes[note_file.name]:
             review = json.loads((PROJECT / "config/pl/ui-qa-mission-notes-2026-10-19.json").read_bytes())
@@ -46,11 +47,26 @@ class Episode34Tests(unittest.TestCase):
             old = b"".join(line for line in lines if json.loads(line)['id'] not in added)
             if hashlib.sha256(old).hexdigest() != frozen_hashes[note_file.name]:
                 raise ValueError("Unreviewed source change to frozen finale baseline")
+            overrides[note_file.name] = old
+        names_file = cls.package / "07_names_characters.jsonl"
+        if hashlib.sha256(names_file.read_bytes()).hexdigest() != frozen_hashes[names_file.name]:
+            kallen_review = json.loads((PROJECT / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())
+            lines = names_file.read_bytes().splitlines(keepends=True)
+            for entry in kallen_review['entries']:
+                idx = entry['line_index']
+                if not (0 <= idx < len(lines)) or lines[idx] != entry['after_line'].encode('utf-8'):
+                    raise ValueError("Unreviewed source change to frozen finale baseline")
+                lines[idx] = entry['before_line'].encode('utf-8')
+            old_names = b"".join(lines)
+            if hashlib.sha256(old_names).hexdigest() != frozen_hashes[names_file.name]:
+                raise ValueError("Unreviewed source change to frozen finale baseline")
+            overrides[names_file.name] = old_names
+        if overrides:
             frozen = Path(cls.temp.name) / 'frozen-package'
             frozen.mkdir()
             for name in SOURCE_FILES:
-                if name == note_file.name:
-                    (frozen / name).write_bytes(old)
+                if name in overrides:
+                    (frozen / name).write_bytes(overrides[name])
                 else:
                     shutil.copyfile(cls.package / name, frozen / name)
             cls.package = frozen

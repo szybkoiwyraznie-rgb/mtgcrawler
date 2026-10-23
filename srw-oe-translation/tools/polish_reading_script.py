@@ -49,6 +49,8 @@ def recover_blocks(source, reference):
                         names = set().union(*source.names[key].values())
                         if entry.speaker == 'Comms / Speaker':
                             names.add('Radio')  # Legacy channel label, not a person.
+                        if key == 2320:
+                            names.add('Karen')  # Pre-v4.0 EN deduplication label.
                         variants += [value.replace('**' + entry.speaker + ':**', '**' + n + ':**', 1) for n in names]
                     for variant in variants:
                         keys.setdefault(normalize_reference(variant), set()).add((sid, entry.order, entry.id, mode, level))
@@ -98,33 +100,48 @@ def recover_blocks(source, reference):
 
 
 def validate_source_bindings(source, expected):
-    """Accept only the reviewed PL-only title append, without rebasing old plans.
+    """Accept only explicitly audited EN/PL source promotions, without rebasing old plans.
 
     Historical reading files/receipts remain unchanged. The actual source hashes
-    stay in the new build audit; removal of ten explicitly bound, EN-empty UI
-    slots must reproduce the exact previously reviewed whole-file bytes.
+    stay in the new build audit; reversing the explicitly bound promotions must
+    reproduce the exact previously reviewed whole-file bytes.
     """
     if source.hashes == expected:
         return
-    name = '05_mission_text.jsonl'
+    allowed = {'05_mission_text.jsonl', '07_names_characters.jsonl'}
     need(set(source.hashes) == set(expected) and
-         all(source.hashes[k] == expected[k] for k in expected if k != name),
+         all(source.hashes[k] == expected[k] for k in expected if k not in allowed),
          'English source changed; review the bindings again')
     import pl_release_package as R
-    review = json.loads((Path(__file__).resolve().parents[1] /
-                         'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
-    added = {e['id']: e['source_sha256'] for e in review['entries']}
-    kept, seen = [], set()
-    for line in (source.package / name).read_bytes().splitlines(keepends=True):
-        row = json.loads(line)
-        if row['id'] in added:
-            need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
-                 'Changed PL-only mission title promotion')
-            seen.add(row['id'])
-        else:
-            kept.append(line)
-    need(seen == set(added) and sha(b''.join(kept)) == expected[name],
-         'English source changed; review the bindings again')
+    root = Path(__file__).resolve().parents[1]
+    if source.hashes.get('05_mission_text.jsonl') != expected.get('05_mission_text.jsonl'):
+        name = '05_mission_text.jsonl'
+        review = json.loads((root / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+        added = {e['id']: e['source_sha256'] for e in review['entries']}
+        kept, seen = [], set()
+        for line in (source.package / name).read_bytes().splitlines(keepends=True):
+            row = json.loads(line)
+            if row['id'] in added:
+                need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
+                     'Changed PL-only mission title promotion')
+                seen.add(row['id'])
+            else:
+                kept.append(line)
+        need(seen == set(added) and sha(b''.join(kept)) == expected[name],
+             'English source changed; review the bindings again')
+    if source.hashes.get('07_names_characters.jsonl') != expected.get('07_names_characters.jsonl'):
+        name = '07_names_characters.jsonl'
+        review = json.loads((root / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())
+        lines = (source.package / name).read_bytes().splitlines(keepends=True)
+        for entry in review['entries']:
+            idx = entry['line_index']
+            need(0 <= idx < len(lines), 'English source changed; review the bindings again')
+            after_bytes = entry['after_line'].encode('utf-8')
+            need(lines[idx] == after_bytes and R.binding(json.loads(lines[idx])) == entry['after_source_sha256'],
+                 'Changed char:2320 Kallen promotion')
+            lines[idx] = entry['before_line'].encode('utf-8')
+        need(sha(b''.join(lines)) == expected[name],
+             'English source changed; review the bindings again')
 
 
 def validate_plan(plan, source, reference):
