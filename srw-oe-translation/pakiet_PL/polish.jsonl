@@ -100,7 +100,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:117708","pl":"W sumie tak.\nChciałam go zwerbować do mojej drużyny Zoid Battle.","source_sha256":"0083dc068a8dce2789ec62feb0be3b966957d7b7f6eae246eccd0f7c9c756bb8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_35.bin:204","pl":"Ciężko dotknięte wybuchem planety Monad Sojusz Balarantu\ni Związek Gilgamesh błyskawicznie sfinalizowały\ntoczone potajemnie rozmowy o zawieszeniu broni.","source_sha256":"00846673006bbc6bf443e9edb19430ebd799df993dc4f3ad96aa44865695100a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_13.bin:26820","pl":"Co jest grane?!\nTen Heavy Metal jest nieśmiertelny?!","source_sha256":"00877316aac4135db5b442250bd956c42c7d91d131f221eb85ffae5ebde570c0"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_20.bin:4156","pl":"Ready!\n","source_sha256":"0087f38a9427f46e4d7fb8b3b292538538da4cdb254191cabfb35cddbfea6918"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_20.bin:4156","pl":"GOTOWOŚĆ!\n","source_sha256":"0087f38a9427f46e4d7fb8b3b292538538da4cdb254191cabfb35cddbfea6918"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:70836","pl":"Ojej! Przepraszam!","source_sha256":"0089199c9945dc5ab52778094ebac05a81e7036b797caca659bc2828a84ccb35"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_12.bin:8228","pl":"...Jeśli mogę w to uwierzyć,\nto warto było przejść przez piekło.","source_sha256":"008984fb270a6ede4b46cfc4b9093a92243d11e522d2e8e269ef983dc33c2d1e"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:19260","pl":"Tak, uciekamy!","source_sha256":"008ab8aefa22c2e894d471ed2e56653a700d4ea8a11902cabc840166f3a4a9f7"}
@@ -4593,7 +4593,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:74152","pl":"Wraki mobile suitów, które tu były...\nWszystkie zniknęły...","source_sha256":"180de9678e76786cf2f9ad5079b5a9e801c9e854260b67e5b44808cedba81368"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_40.bin:7788","pl":"Chyba już ostatnie...","source_sha256":"181096a64b6ad8faf9ac0ce0b01b656ef5981dd43d7618eaab57a74e44df2d80"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_12.bin:40640","pl":"Udało się! Udało się!","source_sha256":"1811453eb2336a389abfe2457d5633151ee52221d4d8049fcc8abb0636752c5c"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_40.bin:8844","pl":"Cała niezdobyta Jaburo.","source_sha256":"18132663a55fe87c0d023dfbc09a3e9a4d1c2a43772e7df01b575baa7331ccad"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_40.bin:8844","pl":"W końcu to niezdobyte Jaburo.","source_sha256":"18132663a55fe87c0d023dfbc09a3e9a4d1c2a43772e7df01b575baa7331ccad"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:5548","pl":"Ngh... Zajęci koniem trojańskim,\npozwoliliśmy im na sabotaż...\n","source_sha256":"181404e3fa08fd32fd781bf3f17f48841c52857be04e14ce96f406aa6bd49876"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:149124","pl":"Tak...","source_sha256":"18153a93a9684719c1721def6612fad21c1d2f161a42a86a0aa6417c02be1c7f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:184","pl":"Wkrótce po wybuchu wojny między Federacją a Zeonem\nArchipelag Japoński ogłoszono specjalną strefą\nneutralną. Objęła ona także Wyspy Kurylskie.\n","source_sha256":"1815ebb1f9247644a4bc8a4f076184a894ef3a8ec3585d0dc9624d248192e6a6"}
@@ -4737,7 +4737,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:3260","pl":"Co się stało, pułkowniku Herman?","source_sha256":"18f95e4dd575faedf5c0f2a6f39c1cfa5d2684401ceb7ac32f9789978104581b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:32224","pl":"W końcu pokonaliśmy Goburikiego!","source_sha256":"18faac6ae8e97297d76d21d42ecb5bf00892614f8838356f6292da881b288ca3"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:2108","pl":"W imię Króla Kier!","source_sha256":"18fb0d5d40d99c751942d7d91425f3a56f73bd73e7c6e4a20edfe11f881fecd3"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_12.bin:7256","pl":"Gah!","source_sha256":"18fe8271643a1bcdeacf2f3035e2cb2c7d4f3e570daab5d97026a209f345f29f"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_12.bin:7256","pl":"Uch!","source_sha256":"18fe8271643a1bcdeacf2f3035e2cb2c7d4f3e570daab5d97026a209f345f29f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_60.bin:12160","pl":"Oczywiście, że nie.\nNasze tarcze to zupełnie inna klasa.","source_sha256":"18ff42f69eb6d572b58b9bbc85595992c19a71f49fea6b5809dd0e8e879fc961"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:19496","pl":"Ultrasaurus jest powolny,\na jak to coś podejdzie, będzie kiepsko...","source_sha256":"18ffa8c45997668bc0ea0d6f5f481e4999df917851c3e8ec1d8d70d900dbb9b8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_60.bin:264","pl":"Federacja wygrała operację Odessa,\nale nie zdołała jeszcze rozbić sił lądowych\nZeonu rozmieszczonych w Azji Środkowej.\n","source_sha256":"1900635b95ed26848ff045fc12c4e572fb391c2004b85ba5109fa84232cc1ce0"}
@@ -6936,7 +6936,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:150476","pl":"Aaach!\nŻegnaj, ogromny budżecie Connect...","source_sha256":"24948ce39c6e57360c1236ab099177c6cb981025add505b079c2cf257f444f58"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL105_70.bin:2236","pl":"Galden czuł, że jego powołaniem jest poprowadzić\nswych zepsutych pobratymców z powrotem ku szlachetności.\n","source_sha256":"2494e392343634227ddf0dc0ed6f3af2a9aaba91fd034305b69e0605f94b7c88"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:12320","pl":"Kiedy to słyszę, mam więcej zapału.\r\n","source_sha256":"24977acec81156ad83cdaba0850507a39858bb4cee0d8b99feda800da126e518"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:15036","pl":"Nieważne, czyja to armia,\nnie tkniecie planety, na której żyjecie!","source_sha256":"24990776e55b131e481da14064b397895cf2babe2172de7e9fbc23446493287b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:15036","pl":"Nieważne, czyja to armia, nie pozwolę\ntknąć planety, na której żyjecie!","source_sha256":"24990776e55b131e481da14064b397895cf2babe2172de7e9fbc23446493287b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_11.bin:15584","pl":"Co... Co to za straszliwa moc aury?!","source_sha256":"24a34e8ef9409280286acd2d1b786ab4ad218137d4008c98b5b8dbca841d8a2b"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:31348","pl":"Ruszamy! Wejdziemy blisko i otworzymy drogę!","source_sha256":"24a4064972218d289b68dd71c4c662d58a9f16c627e1e337b9cb41cf6dfda151"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:12532","pl":"Hmm, całkiem nieźle.\r\n","source_sha256":"24a4e766c0dc24e98f0f737cd72b0dea9b944d45f54860db434c0ddc456d4a98"}
@@ -8142,7 +8142,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:118320","pl":"Możecie sobie wyleźć na górę i zdechnąć,\nale jeśli chcecie żyć, wracajcie do nory.","source_sha256":"2abbdccdf2bf1c2a17a8e759d072d5d2684ac469ba7b566b04f66ef41b1e9ed8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL518_11E.bin:11044","pl":"Kochanie, jesteś super, wiesz!\nPokonaj ich jeszcze więcej, wiesz!","source_sha256":"2abcda59a4536db78773b2e6ca0f0ec204d106c18dd116f05a5c275215221e01"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL102_11.bin:1732","pl":"Żałosne!\nWłaśnie po to trzeba się hartować!\n","source_sha256":"2ac050f0b591da6aaa9f9f3fe5f22a036fb0e4284c84eaec3ba3ae13882523e6"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:10000","pl":"Dobrze!","source_sha256":"2ac0c5905b11b68a44b4a1fe4e9d5a515af2dcca67e0787d02626b9de5c8303a"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:10000","pl":"Tak!","source_sha256":"2ac0c5905b11b68a44b4a1fe4e9d5a515af2dcca67e0787d02626b9de5c8303a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL622_11E.bin:9888","pl":"Co robi wróg?!","source_sha256":"2ac2eecb6d332db973b9bcd2a897889e601ad06540fa8f255182625390d0fcce"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:3336","pl":"Wiem.","source_sha256":"2ac5465018adcc37ed11cfd8aa942557ee77eb0cae736c2750a00d5cae55a6f1"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:15140","pl":"Niech będzie!","source_sha256":"2ac5cef0430db4ca6340ed6b0bae5e4d1b2fb0e27021fb93a6cba2d83f898aa8"}
@@ -9097,7 +9097,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:42828","pl":"Ts, ts, ts... To nie gad, tylko kaiju, melduję.\nWręcz przeciwnie, rozpala mnie, melduję!","source_sha256":"2f76ac793845cf9b2e8ae3f560db1c99a587e30cd2856eff6cac56cb40bcc940"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL100_01.bin:180","pl":"Minęły dekady, odkąd Federacja Ziemska\nzjednoczyła świat. Rozwój nauki, techniki\ni gospodarki nabrał tempa, wokół Ziemi wyrosły\nkolonie kosmiczne i nastała era Universal Century.\n","source_sha256":"2f773bcd14368c89fb335b1d78423cd29c3d4044701a7dd4a56b5c83fbb1eaed"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:37808","pl":"Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!","source_sha256":"2f77d320f8383f0dad7dba40dbc16fad32a87e3f2b8dc908588aac75839476df"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_12.bin:7040","pl":"Ugh!","source_sha256":"2f7829fe2b41069e1900c39b68f1468ff6efdafeef36658a6baabc0f7714effc"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_12.bin:7040","pl":"Uch!","source_sha256":"2f7829fe2b41069e1900c39b68f1468ff6efdafeef36658a6baabc0f7714effc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:13956","pl":"To chimera, zmutowana kosmiczna forma życia.\nPrzerażające stworzenie, które przeskakuje przez\nczasoprzestrzeń, by mnożyć się w innych światach.\n","source_sha256":"2f78f0fbe521f2a74ac0b557304befb36bd3f5897c621fc17fd323bff9da79dc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL313_55.bin:8880","pl":"Nie, jeśli mamy działać, to im szybciej, tym lepiej.","source_sha256":"2f78f57f08591925dbb0d6ae3c4f43722a08e211e94d08ce3528ef738c0edaa2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:16448","pl":"Tak... Jeszcze bardziej wzmacnia negatywną moc aury!","source_sha256":"2f796e7c88b6effd36ad96be33690c39532dbd6372fd50c559df0cf53a27b61c"}
@@ -9763,7 +9763,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_45.bin:8152","pl":"Przyjąłem!\n","source_sha256":"32ba0eeb22a012d89993d59a7a2bb8fe2e53058c870c5b8eba59c4143374a6b7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_11.bin:10792","pl":"Lepiej do tego czasu poćwiczcie, wiesz!\n","source_sha256":"32ba413b25b931a174dfebe1b1c7c364e3bc62c28e8e4227719561019411e389"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:14524","pl":"Powodzenia, Amuro!\n","source_sha256":"32ba9cdd02894d463144b9d4e9ddb92f13b01d44d3d6f6d55b9eaeb49e5b53a2"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:34236","pl":"GET READY.\nATAK W GOTOWOŚCI.","source_sha256":"32bce35e15783de3b510b1e33f85326e37620b408dfd7db20a2cab9fd7b68403"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:34236","pl":"PRZYGOTOWAĆ SIĘ.\nATAK W GOTOWOŚCI.","source_sha256":"32bce35e15783de3b510b1e33f85326e37620b408dfd7db20a2cab9fd7b68403"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP29.EDAT/DL521_70.bin:8660","pl":"Przyjęłam, wracam.","source_sha256":"32bfec0c6d127073d48bdd78712308c4b8f18aad9061c538f2aeae3ce72d760d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_30.bin:4680","pl":"Ziemianie czy spacenoidzi, nie wstyd wam\nuciekać się do piractwa?\r\n","source_sha256":"32c5b58c82270e1f706ee7e7ebbba363ef5b3af4845ece9841d71c6be66007fd"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_11.bin:15828","pl":"Nie rozluźniajcie się aż do samego końca!\r\n","source_sha256":"32c74662e5010f7a98d802f775152a5877a98c8b5745d76b7b383ce02b04dd74"}
@@ -10113,7 +10113,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_40.bin:10176","pl":"Uoodo / Kryjówka Gotha","source_sha256":"34937e9b63a38545c4a4761fd5b1e79d6261c907577f24d65ba6ea9c4956827b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_30.bin:7928","pl":"No to... co teraz, Chirico?!","source_sha256":"34946f45843391290bc36094c97ca11b3f4bca65d127f8b40ac9d021de4538af"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:9924","pl":"Nie kupuję wszystkiego, co gadał Chirico!\nAle nie chcę zdychać!","source_sha256":"3497ccae190bff145ae1dccd8a552dadb6853aa6d5362e1c81b2b998e5384309"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:34216","pl":"GET READY.\nATAK W GOTOWOŚCI.","source_sha256":"3498939c0f5c150f4d73ffe2288e06e4b34db76c287a6a70953e9f7fe2222587"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:34216","pl":"PRZYGOTOWAĆ SIĘ.\nATAK W GOTOWOŚCI.","source_sha256":"3498939c0f5c150f4d73ffe2288e06e4b34db76c287a6a70953e9f7fe2222587"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_30.bin:15224","pl":"Tak, ja na ciebie też, Shinobu.","source_sha256":"34995a6bf1d641550144badf69bd66c3757ae6bc5dc7f770b90c0204732e6123"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP21.EDAT/DL105_90.bin:3092","pl":"Czy to pan Lloyd?!","source_sha256":"349ac7cde09f7286f44d178eabb635f53868cf3757379ca674de846dca96ff2e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:16852","pl":"To, co dźwigamy na plecach,\njest o wiele cięższe niż wasz ciężar!","source_sha256":"349c38e7a77e95cdb7bf704a4493f7ca2b3f561cc167d0988c8d812491f8fbf6"}
@@ -10536,7 +10536,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:12384","pl":"Ja też się postaram!\r\n","source_sha256":"36ea126e3691df0c81c370fb010136c116798fc1ce44cc41c6d104061cd1ce6d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_80.bin:3216","pl":"Do Twierdzy Mount Ossa już niedaleko.","source_sha256":"36eb6dd4cfcc30f2208338809ee5181cbe9cba642c499b6024ad949174630746"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:122184","pl":"To, że trafiliśmy tutaj i byliśmy świadkami\nhistorycznej chwili... musi coś znaczyć.","source_sha256":"36eb9b95a0dd6971103d7ae8b383421c12d82e85a7f4764e28833a03dbaf12d3"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:5448","pl":"Racja...","source_sha256":"36ed3caa7bd78143dd49faf23da473a4b292d62aa1a4638f77e087b7c6ea5515"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:5448","pl":"Niech pomyślę...","source_sha256":"36ed3caa7bd78143dd49faf23da473a4b292d62aa1a4638f77e087b7c6ea5515"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:75808","pl":"Ach...!","source_sha256":"36edea9ebef2acf5daad06f5054f7df51ee555201b34b8a265726d6ebce12b29"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_11.bin:2488","pl":"Tutaj rozprawię się z Ravenem raz na zawsze!","source_sha256":"36eed6e22d2aa58315ae83d10a526a3b6e96d4a328ed215776a193afd015a6e1"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_35.bin:8396","pl":"Heh, nie dam mu się!\nSimon, my też idziemy na całość!","source_sha256":"36f18c969b4409d14589c7183e002cac6a8293659fd57d267c7ef5e02122bac7"}
@@ -11447,7 +11447,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_12.bin:17244","pl":"Wahamy się, smucimy... często jest ciężko,\nale serca są dowodem, że żyjemy!","source_sha256":"3b8d5519cd74631dc91509f34d31f417704fff94d59f488d139e0e99b3f04502"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:9676","pl":"Czemu?","source_sha256":"3b8d6723c3e661ccfb71af6176fabc8e50308d20a63e47e83a31dee19958851d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:2012","pl":"Masz zbyt wielki talent, by tkwić w naszej armii.\nOd teraz dołączysz do Connect Force.","source_sha256":"3b90d297572908a7b73b360c4d0b805c79ed0f035eb95e34203341d4b27cb4e1"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL104_40G.bin:11476","pl":"Zwłaszcza twoja. Twoja Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"3b918369fed22b610669162c3e9859e746787db2d7229c8a6208b0e77a1f6a09"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL104_40G.bin:11476","pl":"Zwłaszcza twój. Twój Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"3b918369fed22b610669162c3e9859e746787db2d7229c8a6208b0e77a1f6a09"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_11.bin:5312","pl":"Chyba walnęliśmy w wejście do mrowiska\ni żołnierze wyłażą w panice.","source_sha256":"3b92e88532938b01c6380a0da1f38ede92d6b7121c2aeb555884be7e082fda70"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:98256","pl":"...Według oddziału, który za nimi leciał,\nGoShogun rozpłynął się im na oczach.","source_sha256":"3b9675ae684d112fb8070ec6b3b6f1e6ffc9bb183534acceebafe44a26d7f1cc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:17148","pl":"...!","source_sha256":"3b977a9eb4028a34a6486e0561129b45ac7c67f8a0ecffd37209fb40a7c044f5"}
@@ -12025,7 +12025,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_11.bin:2336","pl":"Transmisja z zewnątrz!","source_sha256":"3eac5ee2ebf622aeb3cf0f6bb6a83ab2494e3acab4ed83f64bf2be87078610d8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_11.bin:6964","pl":"Zrozumiano.\nMacross Quarter i Turner wyruszają\nna zwiad tej planety.","source_sha256":"3ead6b646b652aa84b487354bef5db4cf93b51bcdece8ed3bfd9dd0a99579220"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:7616","pl":"Przyjąłem!","source_sha256":"3eafbf36dae089d59ea98cdd826556d823a49bddcd5cc11e0dac627626ab33c3"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_13.bin:5160","pl":"Ready...!","source_sha256":"3eb0a835030f0e94fba698443988e6bc8bc99f8e5cd1b7955b46bbd17a2e6e1b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_13.bin:5160","pl":"GOTOWOŚĆ...!","source_sha256":"3eb0a835030f0e94fba698443988e6bc8bc99f8e5cd1b7955b46bbd17a2e6e1b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_13.bin:4880","pl":"Nadal nie namierzyliście Death Stingera?!","source_sha256":"3eb2b4577e0dffc6321557d3d972b70f98d15f4374f9ec10fc5fb94e8042d850"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:47708","pl":"Bu-bu!","source_sha256":"3eb4d1af97e892af113e060dbb2cec8e976c668d83019cc497f6149124390941"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:32976","pl":"Ty idioto!\nGdyby ucieczka coś dała,\ndawno by mnie tu nie było!","source_sha256":"3eb5d51ac8dc4d73b22f8d40c9cac5906fe397ce4aa34b557588d0835715a4e3"}
@@ -13176,7 +13176,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:2872","pl":"Tak... Dyktator.\nCzłowiek, który nie zdołał przejrzeć świata.","source_sha256":"44654585daded82a96dd5d45c9e3320050586d1313137633804588050bd4a9e1"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_30.bin:5024","pl":"Rozstrzygnijmy to siłą, nie słowami.","source_sha256":"446728c449ec3816b462142c80a43aa77fbfb1ade081368dc7dbc1f22ab1ca78"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:6476","pl":"Wybacz, ale nie zamierzam jeszcze schodzić ze sceny.","source_sha256":"4469cd092fda04eb5b7e26a76841834e5e5adf2401ef4191cb47b98c20e5694c"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL103_40D.bin:5424","pl":"Racja...","source_sha256":"4469f9f5da5727b62f59afa7c2a9e5df3673167c2d6ed860b6f3b705080d2a84"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL103_40D.bin:5424","pl":"Niech pomyślę...","source_sha256":"4469f9f5da5727b62f59afa7c2a9e5df3673167c2d6ed860b6f3b705080d2a84"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL102_11.bin:25124","pl":"Dzięki.\nDobrze, że z tobą da się rozmawiać.","source_sha256":"446b7fc125e2aa571f1065308e8ff059842b17e93f68618c7354f849406fdcbc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:56644","pl":"Dobrze!","source_sha256":"446c0c6538ac18f0c03512c10f227c964bbd5a217c9ecc6e82a4cdac61c5eb7a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:145032","pl":"Po co wy właściwie wracacie...?","source_sha256":"446c18528eeededf5593aad9dc80f92064135313dfdc7095518657e46d619c45"}
@@ -13416,7 +13416,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:145420","pl":"Braciszku...","source_sha256":"45c14f7a9331568fa21c594242f13b3b65ca598d6b05ae9b3423ed75c689f140"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_50.bin:9976","pl":"Grados neguje ich kultury i narzuca im\nwłasne wartości, a przez tę politykę\ncierpią niezliczone rzesze ludzi!","source_sha256":"45c19b2ed9bede0ff20d0efe85d51203dfa9afc469857445884c703fc8d820f6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:32244","pl":"Wcielenie żądzy śmie sprzeciwiać się mej woli...!","source_sha256":"45c4bcb4960659c9c7e811d3c9b029d32f5e016d65fb83b0d37ccb244b18a489"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:60848","pl":"Dobrze...!","source_sha256":"45c4f1b132e3c531315aafc128a611b727cf5bc84be488ffe5e3186a753f5d28"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:60848","pl":"Tak...!","source_sha256":"45c4f1b132e3c531315aafc128a611b727cf5bc84be488ffe5e3186a753f5d28"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:60912","pl":"Czy porucznik Zechs i porucznik Quattro\nnie proponowali ci miejsca u siebie?","source_sha256":"45c717c8a2889a37667f3e78aacb820c460b39f1fe970936c1375a3ae81e7bfe"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:10896","pl":"W ramach traktatu pokojowego wymieniono Zoidy,\nby każda strona mogła ocenić siłę drugiej.","source_sha256":"45c74ac5b7ab32872b469b3b9c1f371bc0921faa4156b7670b1b247629449d79"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:21348","pl":"W takiej dyplomacji to na tobie polegam najbardziej.\nLiczę na ciebie.","source_sha256":"45c87db5eb15d870ad219a4dc67001de829a1f7c5ffdfd4c36aa2babf513cab1"}
@@ -13848,7 +13848,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_12.bin:2412","pl":"Jeśli nie zniszczymy tej bramy Mucus,\nZiemia padnie łupem komórek DG...!\n","source_sha256":"481d7bec2e3e39b58e5da19b5cbb86eac18d65ed4f2575351302376ba2fbddd5"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL209_35D.bin:8036","pl":"Jazda!","source_sha256":"481db671579f8639d874a4e32d3615e6f89ccd272f62dce4fbeabef234016180"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_12.bin:5556","pl":"On... cieszy się walką.","source_sha256":"4822bd9915a9e4a838aab20de56c58a5abe844c8f16c20a61531a29150706947"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:40100","pl":"Dobrze!","source_sha256":"4822f8385c570d7feffeb55805f48e72eb27a8406bce78f4431e5bb5df7352be"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:40100","pl":"Tak!","source_sha256":"4822f8385c570d7feffeb55805f48e72eb27a8406bce78f4431e5bb5df7352be"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL832_30.bin:5616","pl":"Pomoc sojusznikom zakończona sukcesem.\nPotwierdzam ich wyjście ze strefy walk.\n","source_sha256":"48233f15b64a0dde1ef06c0bcf82117e08a465d0343d2b8ad3f7d2e4cd721271"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_11.bin:9768","pl":"Podnosić rękę na własnego następcę tronu?\nHańbicie mundur!\n","source_sha256":"4823785359a0fe1e93d9285f5e84cb682d6532bd459f9ea3391aef24d7d2612e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_12.bin:8868","pl":"Wrogie jednostki atakują z flanki!","source_sha256":"4824aadea98b6dd2649550aa4fe63303718fc9f19c95d61b0568265f136b9693"}
@@ -13941,7 +13941,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_50G.bin:15200","pl":"Dobrze, oczyśćmy teren z resztek.","source_sha256":"488bae5fa85d9e1415a4a1a864ab02937bc954f0acb36abbcfafea6a713ca391"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_13.bin:24852","pl":"Wciąż było wiele światów, które ich potrzebowały.","source_sha256":"488c6582b84d4c3d87534190b016a3c1309584effcf63c26c8f1940319834a6a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_90.bin:1360","pl":"Ty...!\r\n","source_sha256":"488e570bd4f69a11d5d1a16047afd524d93fd3d3e11b44bc53731509a82a4f66"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_12.bin:428","pl":"Tymczasem balaranckiego okrętu ukrytego\nna powierzchni wytropił White Base.","source_sha256":"488ee2b486d44754437db7fc560a3d9c47e3ce32f5948decad53aaccfd4a506e"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_12.bin:428","pl":"Tymczasem balarancki okręt ukryty\nna powierzchni został namierzony przez White Base.","source_sha256":"488ee2b486d44754437db7fc560a3d9c47e3ce32f5948decad53aaccfd4a506e"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_60D.bin:264","pl":"Gdy coraz głośniej wzywano ludzkość do jedności,\nfrakcja Kycilii, Prawowity Zeon, zawarłszy pokój\nz Federacją, stopniowo zdobywała poparcie kolonii.","source_sha256":"488fd5e82013f4bb1c8a1f8d4b69d67c65ca036e5dd578e2df12a9af04b35d01"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_11.bin:13428","pl":"Nie bacząc na słuszność naszej sprawy...","source_sha256":"4890f359151b75bead12ced375f1206094a89a0518a47bc2dd8d292bde16116a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_11.bin:12852","pl":"Oddziały wroga zostały rozbite.\nPort zabezpieczony.\n","source_sha256":"4890f428fc6e4d4ca26fd92b8d9a52ed647ddf02fa229d6f0c821ee12c73078a"}
@@ -14399,7 +14399,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL830_40F.bin:6620","pl":"Za łatwo poszło...","source_sha256":"4ade5b59eef4fb41487cadde3ad9a7dc697c5f84b881aa159b67f827eb0c3934"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:11040","pl":"Kto tam?!","source_sha256":"4adeb2f55200473dbe2d3a2c373ffce85e41adafae96a91a1c9105f397c675e8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_11.bin:1016","pl":"＃???\nHę, hę, hę, hę... Dobra robota.\nTeraz zemszczę się na Imperium i na Republice.","source_sha256":"4adef75d2313e6c9f6de37a9392e64c43c31992709a086a4bd111879d380d1d4"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:1928","pl":"To obserwatorium na bezludnej wyspie.\nPewnie i personelu mają niewielu, nie?","source_sha256":"4ae102b5ec0c3a7d31864c0ce5d459cdd5224fb73691f03516ad2a2b4f9b2de9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:1928","pl":"To obserwatorium na bezludnej wyspie.\nPewnie i personelu mają niewiele, nie?","source_sha256":"4ae102b5ec0c3a7d31864c0ce5d459cdd5224fb73691f03516ad2a2b4f9b2de9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:59232","pl":"Connect Force!\nRaporty napływają ze wszystkich sektorów.","source_sha256":"4ae14562ec40ac1bcf7bb33362e4e5bc7fa0b3fd14c22d3f02add68af56b1c93"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:22360","pl":"Tak, wkrótce odlecimy.","source_sha256":"4ae1b7276b76cf100d96f7a8aba482ecd9f16baafb0b4502a0de20a5db3c6eec"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:29536","pl":"Ma rację!\nNie mogę zginąć w takim miejscu.","source_sha256":"4ae1d326fced8f128cc661c952ba168ac1599e983809280265332f155d705498"}
@@ -14633,7 +14633,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:6444","pl":"Dlaczego Starożytni Zoidianie wyginęli, nie wiadomo,\nale najpewniej...","source_sha256":"4becf1d6369927f48d52ff3c64aa8c4cb1095d3a7224cd256d8fd2291d52642d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:22708","pl":"Głupcze...\nNie jesteś nawet bohaterem.\nNigdy mnie nie pokonasz.","source_sha256":"4befa05fb01ac56cfb15ac7189261b16bd716ebc17741d2eb7b5b68ed7f8a712"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_35.bin:5832","pl":"(Jak zaatakuję go po prostu od frontu,\n to z nim nie wygram, ale...)","source_sha256":"4bf15136a4503637a56571b2ac25d42b4c539f408f5189f10f19d0b96a4b29c6"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:5168","pl":"Ready...!","source_sha256":"4bf3c0e34cd123a19badcacc798754d3a790cf3377706efcfec3465e917fe58f"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:5168","pl":"GOTOWOŚĆ...!","source_sha256":"4bf3c0e34cd123a19badcacc798754d3a790cf3377706efcfec3465e917fe58f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:26960","pl":"To znaczy, że ludzkość też ponosi część winy\nza tak szybkie odrodzenie się złego boga.","source_sha256":"4bf49933fcefea90bc3171fe26a4d4bb8b0cb4d59cba4f532f74774b40e04d46"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_11.bin:1788","pl":"Wszystkie maszyny gotowe do startu.","source_sha256":"4bf5e25fa3e8db8aecfd2b91f3b1c774d936c79e8a1bba742cbbf828e503cecb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP27.EDAT/DL417_70.bin:8148","pl":"Zmasowany ogień z góry szkodzi też siłom\nnaziemnym. Nie możemy tak po prostu szarżować.","source_sha256":"4bf98fec14c7d4e3401a9002436538fddb2a2ddd7d4b7156ddda93dfdea7f060"}
@@ -14735,7 +14735,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:14116","pl":"W walce o Arkę często dochodziło do tego,\nże wiele maszyn kłębiło się w ciasnych korytarzach.","source_sha256":"4c5a9a7ee81e26409bd1f8844cd09f774c9b6bfc19ecfec03a47b034b48b85f2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:99288","pl":"Hmm...","source_sha256":"4c5b01b421ac7d55091f141c09c996db2d9f023e8f596cb4da84051665fca11e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_11.bin:13128","pl":"Ota! Nie w pojedynkę!","source_sha256":"4c5be5f4cde1a68b8d97e5f8b47944609357d9b59a12eb6560966cdad1c302ef"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:30628","pl":"GET READY.\nATAK W GOTOWOŚCI.","source_sha256":"4c5d12dfbfb9eca7ec71dab182aac18e60de26093e8013d2bfdab71a00755063"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:30628","pl":"PRZYGOTOWAĆ SIĘ.\nATAK W GOTOWOŚCI.","source_sha256":"4c5d12dfbfb9eca7ec71dab182aac18e60de26093e8013d2bfdab71a00755063"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept102.EDAT/DL311_11C.bin:4296","pl":"Uderzyć w centrum i ograniczyć straty do minimum.\r\n","source_sha256":"4c61b57d51858bf4146d30fe99431a71934ae5aff0c156fb668828a57ee83ddc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:18568","pl":"Tu nie jest inaczej.\nMaruderzy zaraz zaroją się w porcie.\n","source_sha256":"4c63e4a9960cfd74fbf980e7fea27100b6a43ef578275670b8a63f58a3bd66f4"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept102.EDAT/DL311_11C.bin:6232","pl":"Przed nami wiele Laborów wojskowych!","source_sha256":"4c6499c6832812278e92f634f088aa8af6d5152b80171fea58b0a27dbf3fcaf4"}
@@ -14764,7 +14764,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_60.bin:11064","pl":"Przeklęte potwory...!","source_sha256":"4c7fd297c2341f13e09776197845c8d8e372cf0b0dc818e3a14ec4924d76a8a9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:360","pl":"Connect Force ruszył na Galeade akurat wtedy,\ngdy wycofywała się armia Gilgamesh,\ni szybko zniszczył Bramę Mucus.","source_sha256":"4c80c607f74d67ffb263b9e56e943dcfcb71be9285ed48d0c95a857667d25796"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_11.bin:668","pl":"Najbardziej wyróżniały się w tych walkach\nGundamy o nieznanej przynależności.","source_sha256":"4c812047dcef13e5d651b21977c54930a5a742f50cbd1ee1347b62dffade5b2e"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:36512","pl":"Dobrze!","source_sha256":"4c834ec68edefc62df937aa7126f8b7e40ff12c9d15ab863bcf7f10a235212c1"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:36512","pl":"Tak!","source_sha256":"4c834ec68edefc62df937aa7126f8b7e40ff12c9d15ab863bcf7f10a235212c1"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL102_50B.bin:3764","pl":"Podobno reaguje nieporównanie szybciej.","source_sha256":"4c867b404d7b61c2778c51266bb28ce63d095b3be179bd5b83ed95d768c1596d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_20.bin:12676","pl":"Ej, proszę pani!\nWalczyliśmy ze sobą na serio,\nto wszystko teraz nie wydaje się pani sztuczne?\n","source_sha256":"4c86f7620af56570f10e4f9b40a77af6fe094a2be601dfe8f78c1f1f935c4aae"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:1480","pl":"No to lecimy bez prób,\nliczę na ciebie, Ark Ship!","source_sha256":"4c87749ee7a7b0e6cf7962f3488d416b58be8bd2ebfaddd76fea292a35df9f49"}
@@ -15096,7 +15096,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:129752","pl":"Nie przepadam za wojskiem.\nBędę robił, co zechcę.","source_sha256":"4e4f547c1e584fe19f29e76d929afeea16a9599dbb138c6d230b14efea932bdc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_12.bin:5696","pl":"I zrozumiecie...","source_sha256":"4e51f998d3cc543328ef8a0e1a72553577b9c25c6ea8a72441a170389047465c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_11.bin:1688","pl":"Przy złym rozegraniu może tak się stać...","source_sha256":"4e53fa4eea629eb8687d30cd9573d47dafc7f46af216168292b217a9d1192e68"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_45.bin:2328","pl":"Gotowy!\r\n","source_sha256":"4e5429640fa7ae4709ec0df800cc3862cbf095af82cbe1dc81abf57a9992fb9a"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_45.bin:2328","pl":"GOTOWOŚĆ!\r\n","source_sha256":"4e5429640fa7ae4709ec0df800cc3862cbf095af82cbe1dc81abf57a9992fb9a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_45.bin:5608","pl":"Nigdzie nie było o tym ani słowa...\r\n","source_sha256":"4e58c8546265725ce0510482618ba851efd97d4eb4763f5ce33b76d6606b0776"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_80.bin:1972","pl":"Hehe, wydało się?","source_sha256":"4e5af62ae3dfdb16322cfda2f4c679ac3217af20bb14ea1e85dc873e0d1bb1d2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:23852","pl":"Atakujemy szybciej, niż on się leczy!","source_sha256":"4e5ba5d06f48b7fa2bc59877caade2794e02af76929e42563ed5c83c5de81791"}
@@ -16148,7 +16148,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:113132","pl":"Widać już Bramę Harmonii.","source_sha256":"540bcf522a70fefda4188b54518bc7abbb763f0396797ad4ad89c880ce324c64"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:81168","pl":"Szefie... Hayato... Ryoma.","source_sha256":"540c1e5e03029f0607f596b52af63219c5860410acd3bb2241203b24e0537563"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:12104","pl":"Ngh... Drugi rzut.\nW takim razie muszę uderzyć w okręt Gradosu...","source_sha256":"540c7cd4e1c8cbc13bccc1dc41d11bfc23d8ff75dc6e41ff5e2488667a0660d6"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:53892","pl":"Dobrze!","source_sha256":"5412a687a32a25b64512daaa16c507fa85a21d59352adb5ef7a0d088950edcb5"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:53892","pl":"Tak!","source_sha256":"5412a687a32a25b64512daaa16c507fa85a21d59352adb5ef7a0d088950edcb5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_12.bin:5868","pl":"Waszym szczęściem jest być rządzonym przez nas!","source_sha256":"5412afd976147e1538655bef1d47debfdd856a67bdc839f40eb3175d525edba0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:10684","pl":"Ale to Death Saurer tylko pana wykorzystywał.","source_sha256":"5413dd937a699bc8f49697419583b6217e995896f84268a4f4717e06b7ad5a00"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL209_13B.bin:9036","pl":"Krótko mówiąc: Chirico jest nieśmiertelny.\nOddział Gregore'a włącza się do walki!","source_sha256":"54155941b914217d72a6011f15b3ee8776093cc4adf26f84cb64e0fb89f019f5"}
@@ -16935,7 +16935,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:13736","pl":"Mrok toczący Federację jest głęboki...\nStrzeż się słodkich pokus.","source_sha256":"584dcd24193ddd86b6503d5f1ac260e9453c00179b69af0e65c0f2b1b04ca6ab"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_40.bin:1196","pl":"Pokażesz mi kiedyś, jak ustawić mój?","source_sha256":"584e281b4c5fdee66443df0002178d3ea91d5ed0c3049be865cb0f486d3b3fe8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_35.bin:1328","pl":"Ta brama Mucus wcale nie\nukrywała się w Earthtii.","source_sha256":"584f9dd2fdab43e730ecb17ab795b2800fc5fd0e67eab17cd7f68a8be585f09a"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_60.bin:5540","pl":"Gotowe! Cel namierzony.\nPrzewidywany zakres ruchu... błąd: 2 procent.","source_sha256":"58521c3237c9a1edb9a06d05ecf736715dd3b75bb6b53e302a8fa66e62c4c860"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_60.bin:5540","pl":"GOTOWOŚĆ! CEL NAMIERZONY.\nPRZEWIDYWANY ZAKRES RUCHU... BŁĄD: 2 PROCENT.","source_sha256":"58521c3237c9a1edb9a06d05ecf736715dd3b75bb6b53e302a8fa66e62c4c860"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_11.bin:324","pl":"Wreszcie po raz pierwszy udało się wykryć\nDeath Stingera przemieszczającego się pod ziemią.\n","source_sha256":"5852369fdf7ccd01858a8917be266f9bd1d9babe63fe6b27d9e43ca7664f2fdc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_30.bin:4104","pl":"W Cyber Beast Force nie brak rozrabiaków,\nale umiejętności mają prawdziwe. Liczę na was.","source_sha256":"5852a36b0bd3d6ca0e9fbedba4759b06bf94789854545280783767acde7275de"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL521_12G.bin:20028","pl":"Wiem.\nKei! Gai! Skupcie się...!\nWierzcie w Gettera... w naszą siłę...!","source_sha256":"5852f83118bf73846a3984c7851531e8291a0cfaf88cc19c8fcb6f6ae1573616"}
@@ -16950,7 +16950,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:4760","pl":"Choć to awangarda... nie można ich lekceważyć.\nGiwaza nie atakowałby bez szans na zwycięstwo.","source_sha256":"58604e532f7388ec6c3b0bb10e1b30da50f3ab06be818b43b73d53fa49d2c882"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_50G.bin:6300","pl":"Podróż z taką gorącą ekipą?\nJak tu się nudzić?","source_sha256":"586061f90867711c0a6cbca052afae0b154afea15ce5143bd6134073870c99ca"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL727_12D.bin:17060","pl":"Serca to tylko niewiadome, które burzą pokój.\nA teraz zawierzcie się Stalowemu Ładowi.","source_sha256":"5863763b61ba4def44340c150f0eae66c1516082094523f4cc81dd04ccd74c47"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_20.bin:10824","pl":"Ugh?!","source_sha256":"58655a8b597bfdda56300a35a70b95aeb63bebc751afb235b7ce148befc552b9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_20.bin:10824","pl":"Uuch?!","source_sha256":"58655a8b597bfdda56300a35a70b95aeb63bebc751afb235b7ce148befc552b9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:3876","pl":"Może znów wyślemy White Base...?","source_sha256":"5866f53388685bab9f2d28eaa04b6b8adede5318f50975aab1ec459b5e7ff059"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_11.bin:6704","pl":"Twierdzisz, że ktoś nami steruje...?!\nTo nasz własny wybór, nasza własna wola!","source_sha256":"5868f1ed9af516ca3e885c2fb46450dca46509a162dc15fe3f763284ac02d9cb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:10648","pl":"Leena chętnie spełni ich prośbę!","source_sha256":"586b1a854bf387163890c9a144a0e4978d16a35f444184562d2a8213213f4104"}
@@ -17691,7 +17691,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:14052","pl":"Kontynuuję walkę.","source_sha256":"5c34464d1ae01d74f97b5a01716fefc7a5c74982c981046d2eb03415f9d07bcc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL415_60F.bin:5544","pl":"Dość gadania.\nNadchodzę!","source_sha256":"5c34ed38803e3ec3c16833580d4106be1a75f9f3aeb5225f942171f7e4e9843a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:1960","pl":"Odpisują nam z taką bezczelnością...\nJakby mówili, że teraz należą do Connect Force.","source_sha256":"5c351c2e63609f4c2bf65872f717cc67424c60378b57ffd8b8304fdcd7d8924f"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:10020","pl":"Dobrze!","source_sha256":"5c35439f714897d0e37552ebe387a7680ebc63e7783616e9c9758fe06af66cb7"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:10020","pl":"Tak!","source_sha256":"5c35439f714897d0e37552ebe387a7680ebc63e7783616e9c9758fe06af66cb7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_12.bin:3956","pl":"Pojedynczo są niewiele warci, ale\nprzy takiej liczbie robi się ciężko...","source_sha256":"5c37105a9e6d4d9e389de37533178a7b6b52b2320235be86a7e198b422449570"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_12E.bin:14276","pl":"Wszystkie jednostki, odsunąć się!","source_sha256":"5c3851b109c4dcd61b20ed807f4ede2e64c7b4d3ea5cd6c5e0366f7dbd125ca7"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_50G.bin:9276","pl":"O, jest.\nDość duża.","source_sha256":"5c38f17625bce258210cf5aae169c7429dbaf69cdc12ef614e30f5d1ef2d9478"}
@@ -19243,7 +19243,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_11.bin:11372","pl":"Po takiej walce nic dziwnego, że się wycofali.","source_sha256":"6489275c0441fed49f84d5ebd23d8ef33b4b98a03c0ab84e3e82136ca1b2fa9e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_20.bin:6820","pl":"Potwierdzam zniszczenie celu.","source_sha256":"64897f57f5bbe64c1baf267058619725c971a8f2dc3ba032e6b76f6209db144d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:14036","pl":"Hm... Sądzę, że spotykamy się po raz pierwszy.","source_sha256":"648bb648c81608b7fc368b4993b43525b8d3f259e60821adae2ff80ba549575c"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL104_40F.bin:11476","pl":"Zwłaszcza twoja. Twoja Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"648cd23b99254d44e8b48cb5eb1770ce56ac22b4ac0e017b4e76ba5f91fd94cb"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL104_40F.bin:11476","pl":"Zwłaszcza twój. Twój Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"648cd23b99254d44e8b48cb5eb1770ce56ac22b4ac0e017b4e76ba5f91fd94cb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_90.bin:15904","pl":"Właściwie przed chwilą Connect złożył ofertę:\nmożemy dołączyć do Connect Force.","source_sha256":"648e742a3a9cf9c1841b5dded7d72c5402be7bbfe49748d9410dd0eabb02c34b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_11.bin:7276","pl":"No to co, lecimy ratować Chirico i resztę?","source_sha256":"648eafe6e58a6a646aa2acb521e07d89628d847e4a6513b2b6c869bac0d0d62b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:13820","pl":"Przestań!\nJeśli pochłonie cię nienawiść maszyny,\nstanie się coś strasznego!","source_sha256":"648f0dbd46f8ebec60304a3a34b838e749e5baa1b0d1b0497ba0915309b87014"}
@@ -20961,7 +20961,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:7608","pl":"Siły sojuszu Gradosu i Balarantu ruszyły\nna podbój sąsiednich rejonów...\nMuszę ich powstrzymać, za wszelką cenę.","source_sha256":"6d8d19118143906a32360be02968435c50e7616c0120683f4a579cc7bd31a7d6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:19612","pl":"Grados zamierza podbić Ziemię\ni zrobić z niej kolonię.","source_sha256":"6d8e1d52308ab862828ecad3b9f1aa2127e395b81a10db32734f9d41fc824102"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:17204","pl":"Cele mają różne, ale wiele z nich próbuje\nzbudować własną obronę, nie polegając\nani na Federacji, ani na Zeonie.","source_sha256":"6d921b58f3c3c8a32ca9a83b489ed94cdef31dc5481ac7b1683c3e6d3c007a33"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:12588","pl":"Ready.\r\n","source_sha256":"6d961d379a1b8fe57c50737192616d6752151ea8ee96e2df45abe60ece198478"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:12588","pl":"GOTOWOŚĆ.\r\n","source_sha256":"6d961d379a1b8fe57c50737192616d6752151ea8ee96e2df45abe60ece198478"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_20.bin:12376","pl":"Taka siła, że pokonał Siły Samoobrony...\nCzy to na pewno jest Labor?!","source_sha256":"6d9836f317a5421745c07cff1ed6e3f2b0200a0ba3e7da0fa829a2c454794fb7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:776","pl":"Lekkie uszkodzenia zewnętrznego kadłuba Ark Shipa.\nWydajność chłodzenia nieco spadła,\nale w granicach przewidywań.","source_sha256":"6d984bf2050e3f3f361e0fe4d907b0ea058b9cb3a3ad859c1d1a0218b1e1161e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL102_11.bin:26828","pl":"Ale miałeś pecha.\nWalka zaraz po przydziale.","source_sha256":"6d986ed5a5376c713cdefa547550c808a04b34fe3ced4af743c984b341afeb03"}
@@ -21148,7 +21148,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_20.bin:10880","pl":"Eee, żadnego wyzwania. Nuda.","source_sha256":"6e7d40ecdf76234226de572f9717ff32f068597f61bb43d60afa2c9af09f5c40"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:26900","pl":"Uuu...\n","source_sha256":"6e7ebb67d0d1e52be57e18fedf063541c245b0e6491149fc5c6f1e7e3f424e06"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:23216","pl":"Proszą, żebyśmy wytrzymali jeszcze chwilę.","source_sha256":"6e81c06d811eb6986063f58aca6faa92b39eb66d9616090addd5c9b51f9fbe1e"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:10016","pl":"Dobrze!","source_sha256":"6e82491b88e28e5f46050e716ee6df26d995501365d462d459082ed3ec94cea1"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:10016","pl":"Tak!","source_sha256":"6e82491b88e28e5f46050e716ee6df26d995501365d462d459082ed3ec94cea1"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL102_11F.bin:1732","pl":"Żałosne!\nWłaśnie po to trzeba się hartować!\n","source_sha256":"6e8363ceff6c8a224e90dbdbac30045254a06818dce0f266df188bfb7b8fb8ea"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:27304","pl":"Ej, Jin.\nTo naprawdę dobry moment na takie pytania?","source_sha256":"6e838bb6e537c31e2ab2e589b77d0ae9d230fc79341459315d6c53084d75821e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_11.bin:8164","pl":"Co takiego?!","source_sha256":"6e84b30c66710dd5113b819ad2b075994462e6e9a7ec416686bccb33704ea87a"}
@@ -21606,7 +21606,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:120640","pl":"Oto pani prezydent!\nNie to, co niektórzy uparci wojskowi.\n","source_sha256":"70cbe05ad4de60784c1400bac57e681d511bafc38853a5732f2f392db7529688"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_40.bin:18920","pl":"Jest pan pewien, że tak będzie dobrze?","source_sha256":"70cc90d26c0c3491ebfb1d3158affd09db2eb0ef9d2a53db92c8ac1005f35f88"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:144832","pl":"Nie powinniście być razem?\nYui i Mai będą strasznie zawiedzione.","source_sha256":"70cd577921d7d6c4ecdf67c0faa71da83edf0c31011f8056eb61b67d45c42410"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:10740","pl":"Racja...","source_sha256":"70cec51f04c314a20576dd37f8e7ae0439fc777669e19092eba07142af6c44ac"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:10740","pl":"Niech pomyślę...","source_sha256":"70cec51f04c314a20576dd37f8e7ae0439fc777669e19092eba07142af6c44ac"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_20.bin:25444","pl":"Tego właśnie poszukamy\nrazem z Connect Force, melduję!","source_sha256":"70d18540c80ce814160047d1cc6624948cc63fd5b9e1ed074567697d5522f20e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:10100","pl":"Ale... likwidacja...","source_sha256":"70d1ba3b881a6d4b62761e609eba46d5dfe973e5a6196d6b90de680a28e7f1d2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_11.bin:9696","pl":"Zniszcz wszystkich wrogów","source_sha256":"70d29aa10bca3dd4a8aabfbe0439e5bed14656cc39618ee4b3b729dfc9b9ad8a"}
@@ -21982,7 +21982,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:2564","pl":"Ile tam Giga Nektonów!","source_sha256":"72a9527798df3a67f228f2de345b3e935e9d531d46b8ba1d2483bcfcfe5fb5e4"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:82340","pl":"Hagu!","source_sha256":"72a97ea686eeb98eb96d8d8eda2171b2a2eea42314f560270dd8e6eca5a49213"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:1116","pl":"Stacja Connect / Sala odpraw","source_sha256":"72a9bc01a65d170bb11f82a56d0beed8e37c2d6cd2d7aca56379f5b2370d0c1e"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:63144","pl":"Pewnie tak...","source_sha256":"72a9f2bb0e3b551c6adc734aebf35def2dcddb51c46f74085dc172d01da00a2b"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:63144","pl":"To prawda...","source_sha256":"72a9f2bb0e3b551c6adc734aebf35def2dcddb51c46f74085dc172d01da00a2b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_80.bin:17132","pl":"No, udało się zapobiec czemuś poważnemu,\nwięc na razie niech tak zostanie.","source_sha256":"72aa4f8023ee1ac3a9e2ee49a6e5c682c1f601f2f65fa8c7b8eb2b64f5df6170"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:156620","pl":"Kto z wami przeszedł przez piekło, ten twardnieje.\nJuż nic mnie nie przeraża!","source_sha256":"72ac24cb7620df285643f1eab1defb853e2f8f5fd105c87d53076b1d1534ea22"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:4348","pl":"Staruchu, nie grzeb mi w Zoidzie bez pytania.\nMam go dostrojonego dokładnie pod siebie.\n","source_sha256":"72ac6d4caac97f3d675ee9db9c856cfa18da7b9edeebbb4b2947f5aa2e8ad97f"}
@@ -22563,7 +22563,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:17368","pl":"Ciekawe...\nOcenię twoje umiejętności na własne oczy!","source_sha256":"75c3c39976b73260e1cd5b272f1d20b177cca961adc778de3e548b537438f0ce"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL518_11E.bin:10252","pl":"Nie możemy tu pokazać żałosnej walki!\n","source_sha256":"75c4f201fef9e6b3c4c959f5fa5b638a1e037460ae4cd8a9b6cec027e7d9aa6c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_30.bin:13488","pl":"Mieszkańcy wioski cieszyli się, że Ruuji dołącza\ndo Connect Force, i serdecznie go pożegnali.","source_sha256":"75c829caebe2ed2a9fd4ce6b3e82594bfe2baa65ad56d707997da4bcdb523981"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP20.EDAT/DL104_40.bin:11492","pl":"Zwłaszcza twoja. Twoja Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"75c8490107df97c84aad342d34e80e7d2e750d2b273899679ae39c31c7a1d040"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP20.EDAT/DL104_40.bin:11492","pl":"Zwłaszcza twój. Twój Geass zmusza każdego\ndo wykonania rozkazu wbrew jego woli.\nJeśli zadziała tylko połowicznie...","source_sha256":"75c8490107df97c84aad342d34e80e7d2e750d2b273899679ae39c31c7a1d040"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL209_13B.bin:2980","pl":"Do tego jest podziurawiony kulami i odłamkami...\nTak czy inaczej, w tym stanie...","source_sha256":"75c8cf711dd4e34be08c3f3050ad18572161d98edac7738251bb146fe0ce720d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:130144","pl":"To ma być rada?\nNie lekceważ naszego wywiadu.","source_sha256":"75cae6142974b8e2b34d14c105280cef0aecd9b53fde353f543c00497aa0b607"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_20.bin:4288","pl":"Przybąąądź...\nLIGEEEEEEER!","source_sha256":"75cc0e8a70fadb133d67d4255d08dbc231ef37977a18e8a1b3df3576958d2244"}
@@ -22680,7 +22680,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_40.bin:3420","pl":"No to są!","source_sha256":"766df9294ae3368ed8574142e48114f2ed80b8e1e4dc458fb68c1563d8662728"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_11.bin:7096","pl":"Jeszcze jeden zryw!\nZdobędziemy to miejsce za jednym zamachem!","source_sha256":"766e73b1d2950848490856b82942dd0c11b7c0055bfefd0a24e0dd12c6a44e21"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_12.bin:15104","pl":"Wy, na utrzymaniu swojej organizacji, nie widzicie,\nże to tylko nieco inny układ władzy.","source_sha256":"766e97ea7b2b736082df2ec3adedc672cd82af95f17250d459f99b33115a0386"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:53876","pl":"Dobrze!","source_sha256":"766f313c817438213fde05f005726cc2dadd2176640c6bc7f5b4e013911dc6db"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:53876","pl":"Tak!","source_sha256":"766f313c817438213fde05f005726cc2dadd2176640c6bc7f5b4e013911dc6db"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:22896","pl":"Na koniec o wszystkim decyduje wola walki...\nI pragnienie pokoju! Pokażę ci!","source_sha256":"766f8840e45c1fda48b99efb15c1d1665397f42d91ce5b8b0c76f74ed7d8360b"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:21224","pl":"To tylko wymówka kogoś,\nkto nie potrafi uczciwie spojrzeć ludziom w oczy.","source_sha256":"766fb8e457bbdc02836a852b38c9c1b68460e344c422342213dcf9eaf9005501"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL103_40D.bin:18232","pl":"Nnngwoooooch!","source_sha256":"7670409bfcf7ff10589c94e2eba8cf9393705ce2f7680b38d16b90f3ef85f0fa"}
@@ -23314,7 +23314,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:25504","pl":"Tak, to prawda.","source_sha256":"79a5cb56b4a6fc3647177e2e9aa43133a1e1c922bdbf7891316c19611ea10ec8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:1396","pl":"A stężenie cząstek Minovsky'ego\nwcale nie jest takie wysokie...","source_sha256":"79a6981736082c6f824276898f765fe1c6060bd8f192f035d245015e7eeff71c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_20.bin:20336","pl":"Do dzieeełaaa!","source_sha256":"79a72ea766ffd8aad81cd449d98dedd1e37339157b9bd56f090abd7b22849946"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:59516","pl":"Pewnie tak...","source_sha256":"79aa4a72651f6edc1bc1d47cd303e2d1a207cccef61c79e1f6f214c114b5e95e"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:59516","pl":"To prawda...","source_sha256":"79aa4a72651f6edc1bc1d47cd303e2d1a207cccef61c79e1f6f214c114b5e95e"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:72148","pl":"\"To była nasza pierwsza misja w Preventers,\n ale nie doszło do żadnej walki.\"","source_sha256":"79ac70c94d62a171587af3a4e055f787162bebae0e518888b1edca8b7095b74c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_11.bin:16320","pl":"Kto by pomyślał, że Connect Force zebrał\naż tylu wprawnych wojowników...\n","source_sha256":"79ade791005cb6939ca770e96d7ebe320c5953d839c2db2a41d910e1b5f7abf2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_20.bin:7964","pl":"Tak się cieszę, że pokonaliśmy Metal Knighta,\nzanim zdążył zaatakować miasto.\r\n","source_sha256":"79b0d4a36ca51717c1d8704c9d66cbe5363c2fc8bce5f042ff627f10779d2dda"}
@@ -23818,7 +23818,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL104_40G.bin:14788","pl":"Leccee, salwa w punkt S8!","source_sha256":"7c2cbc912c1d65f149eecaa210c2c7a8f1b354fbb2016c54c90687457fbe1038"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_11.bin:6256","pl":"Nie spiesz się.\nMyśl tylko o tym, żeby wszyscy przeszli cali!\n","source_sha256":"7c2ea912526a99850d20cbf4c279e7a6bf7c6d9633344986d073f5b2ffd641eb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_13.bin:20924","pl":"Dobra, jest wyłom!","source_sha256":"7c2faf14dc8a98b17dcdaa8ad99ded2b5b6b4987e0a161692a3880ced8f35c3e"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:8592","pl":"Gah... Nie masz za grosz wstydu?!\n","source_sha256":"7c30d4d780ff1906a59fa449a3e5df0816470bf617a878ec45cc5893c3e7d3e2"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:8592","pl":"Kh... Nie masz za grosz wstydu?!\n","source_sha256":"7c30d4d780ff1906a59fa449a3e5df0816470bf617a878ec45cc5893c3e7d3e2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:21232","pl":"Jasne, że nie rozumiem!\nHaruję jak wół na czesne dla Leiny.","source_sha256":"7c3354d36389dd4939dbb777e9051d7c0fdd862e2868aecf8da90d3a5e7b88ee"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:5896","pl":"Mamy do czynienia z Hiltzem.\nNa pewno coś kombinuje.","source_sha256":"7c3358c943d194cd2c4925b8e4b8735f8bd173f5b1d66caa56255244229155d0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:105192","pl":"Ale Kamina i reszta też tu są,\nwięc chyba może być?\n","source_sha256":"7c336e7b0312b79e242b01c4c315d1d4ecde5fcddc7ee674582a4449df712860"}
@@ -23848,7 +23848,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL521_12G.bin:17472","pl":"Fu, fu, fu... Oto, co znaczy nie znać strachu.\nUgnij się przed moją demoniczną mocą!","source_sha256":"7c59329a944bc4cf144fa1a24926504bf7a835ac6595bc26a74451d6c38dcccc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_20.bin:3588","pl":"Podzielam wizję przyszłości Connect.","source_sha256":"7c5c2ff3c63a0c667f5a99adf7722a4b1b414b4c3e10193104f7d2f0344daf2e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_35.bin:14664","pl":"Jeśli będziesz miał szczęście i przeżyjesz,\npóźniej rozstrzygniemy nasze sprawy.","source_sha256":"7c5ce4c10c3a094426dac421d7f5e0c95f1e950ccb9073dea45bd21efdc127aa"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:50288","pl":"Dobrze!","source_sha256":"7c5e86538d271e592636b6066d2a3d30b3355800993a09d01dc808e59a806afc"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:50288","pl":"Tak!","source_sha256":"7c5e86538d271e592636b6066d2a3d30b3355800993a09d01dc808e59a806afc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:54300","pl":"To było twoje najlepsze cięcie, ＜主人公名＞.","source_sha256":"7c5ffa4dc268381d18bae4d7f5915afc181b3b38eb511d84c16615941d6845f7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:10148","pl":"Hehe, i co wy na to!","source_sha256":"7c60316c6e83418900a9e3500323ca8b3ea4d1cc997b39ff38250625783b2bf0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_40.bin:8176","pl":"Szaaaaaa!","source_sha256":"7c61f7f6868a074ec4c5ecae6063c2e978e9425b09d094edd21c774615b6e8e2"}
@@ -24284,7 +24284,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_12.bin:16264","pl":"...","source_sha256":"7eb6a32605c7a411cd90d306ffa3dbafeeaa90933fe8a2ba55981f89d6a27a5b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:5236","pl":"To nie ich główne siły.\nPewnie rozpoznanie walką.","source_sha256":"7eb714855cebfa4260345b05e4f3d53a4828abb97f7ca725c5859ec91915b269"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:131196","pl":"Nic nie szkodzi!\nZadzwonię do Rain i zrobimy podwójną randkę!\n","source_sha256":"7eb9ad8251be95eebd9904cb2e51da14f4421cf6cb2f03835e3abc614b754b3b"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:6336","pl":"Wygląda na to, że i tu będę musiał go urządzić.\r\n","source_sha256":"7eba077f375c9afc7696ab26e977efee5b8957c29a74c284e84c2fe98699e81e"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:6336","pl":"Wygląda na to, że i tu będę musiał je urządzić.\r\n","source_sha256":"7eba077f375c9afc7696ab26e977efee5b8957c29a74c284e84c2fe98699e81e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_35.bin:9224","pl":"Czemu tak bardzo nas nienawidzisz?!","source_sha256":"7eba3f0e122c8c26a041f47bdb92d372967aa2ca482900d3817a973677efd007"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL831_11G.bin:12092","pl":"White Base nieźle oberwał...","source_sha256":"7ebae28fe6b9bd574d6db743d18f8b352fc7bc1e67d7c5f37fba832581d73143"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:11248","pl":"H-Hiltz...!","source_sha256":"7ebb15ffc5a3bc9f6506ee247711e449ec620c55c81dac67dd5a217d873c6b5c"}
@@ -24487,7 +24487,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:860","pl":"By pokonać Goburikiego, Connect Force posłał\ndo decydującej bitwy elitarny oddział\nz okrętem flagowym Macross Quarter.","source_sha256":"7fbc48ca365a181f86e4e6ce8c4322cb0d97e5fe6b5eaba8898d6dfcbca2a2e7"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:22300","pl":"Ty też pamiętasz, prawda?\nTwierdzisz, że twoje ręce nie są splamione krwią?","source_sha256":"7fbda0cfc3096cf570af39d45614f120d2c0dec3b08a3f2db6d6a15114296479"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_13.bin:32656","pl":"Bio-Relation przestało działać...","source_sha256":"7fbddca73a978fe01fbb91b9d7a8bfc86a5f116384189a13141db1cbb9be8e8c"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:151164","pl":"Dobrze!","source_sha256":"7fbe1fc26c28710fd530e62d6c4fb8284f9f44ea3b129a3b5aefbd4997fb150a"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:151164","pl":"Tak!","source_sha256":"7fbe1fc26c28710fd530e62d6c4fb8284f9f44ea3b129a3b5aefbd4997fb150a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_40.bin:608","pl":"Mimo to Connect cierpliwie kontynuował rozmowy,\nsystematycznie przygotowując kontrofensywę.\n","source_sha256":"7fbe2b95043f8a2606699bb8068e8fee967e5b47a2f8a7731aa4c65659350e94"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:25872","pl":"Hmpf... Uparta zgraja...!\nŻe też potrafią tak opierać się temu Zwarthowi...!","source_sha256":"7fc03b4780dcb52829f869766c97873584e495b9e37ef2a292c3084dc61b9ad4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:30872","pl":"Daba, uważaj!\nOn jest strasznie, strasznie wściekły!","source_sha256":"7fc07672ef2ff52d332c3f13c7592ef4be0e34cb24d748ac4d6be65566311485"}
@@ -25021,7 +25021,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_13.bin:9492","pl":"Nawet jeśli się zemścisz...\nCzasu przecież nie cofniesz, prawda?","source_sha256":"8276189f0e73991dd66ce28bc30212d9b06c0f2317ac768a6cb0df8b90e6b6e1"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL209_35D.bin:12980","pl":"Odcięta platforma morska, zwana Arką.\r\n","source_sha256":"8276bb2f1e8801f63208f01e342b362fa9fc7ad80e55bfeb1e2db2672beea427"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:17628","pl":"Poznaj moją moc, większą niż kiedykolwiek!","source_sha256":"8276d441e046cb07e9786763c646e136329597117df29d7864ff41ce3adadb56"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL206_11B.bin:12588","pl":"Ready.\r\n","source_sha256":"827bcc3365a1b30684147bef059172d074a6f5ed892ef478cd03f1e53e5eecd5"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL206_11B.bin:12588","pl":"GOTOWOŚĆ.\r\n","source_sha256":"827bcc3365a1b30684147bef059172d074a6f5ed892ef478cd03f1e53e5eecd5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:10048","pl":"To naprawdę Dark Go-Saurer...\nKiedy z nim walczyliśmy, był taki silny i straszny,\nże myślałem, że już po nas...","source_sha256":"827dba31d4afa55d3499016ede6eba290a3d5deea3caa59719456851f8f3a2ca"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/SM002.bin:592","pl":"Zniszcz wszystkich wrogów\r\n","source_sha256":"8281c6cf7150738c3f89b2e9a06b325698ea810cbbbfcf98c40d7ee7f5de1828"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:2360","pl":"Wieziemy zaopatrzenie do New Helic City.\nI mamy wojskową zgodę na przejazd.\r\n","source_sha256":"8281de7d483955c697797d44d5ec8c1e891671f6e9fd70d49353ecc3f86f9330"}
@@ -25521,7 +25521,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_60.bin:2552","pl":"Regularni czy nie, mało kto jest wierny państwu.\nWielu traktuje to po prostu jak dobrą posadę.","source_sha256":"8504ffb6d61bc282915a9a4da2ca144eaaf1fa97f99c8f69088e487fa4052003"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:29932","pl":"Ten Death Saurer nie ma martwych pól ani słabości.\nPancerz niedokończony, a twardszy niż Gustav...","source_sha256":"85055f5b88d61f74d6d6019fa96b564fea0ab9c07bf5edc21b6e1e560aafafa5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:3652","pl":"Nie wierzysz w siłę serca,\nwięc nie masz z nami szans!","source_sha256":"8507ecdb995a8dda28b82489e3796b42d2f11cd70c707cb221070061955fa29f"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_50.bin:1668","pl":"Ugh...","source_sha256":"850885b189438e49a34ec595145ae16d687190e19b91b43d40b37fd5bb761ded"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_50.bin:1668","pl":"Uch...","source_sha256":"850885b189438e49a34ec595145ae16d687190e19b91b43d40b37fd5bb761ded"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:14224","pl":"Amuro, teraz uzupełniamy zapasy Gundama!","source_sha256":"8508fe8b78a58d897e067fa15e0074348968ab5a7e5ddf6a7c467fce2b2160d7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_12.bin:11272","pl":"Tutaj wszystkiego dopilnujemy ja i pan Tobei.","source_sha256":"850966f94a3a15f10a0062da2aa1853f7bd712ac6e0bf8cbcd7413cf9e8b679b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:53460","pl":"A teraz patrzcie!\nOto moc prawdziwego Death Saurera!\n","source_sha256":"850fa2d0c54cd9672f8f3101492ebb614862b752be4b33f13e8ec4b962942e4f"}
@@ -26722,7 +26722,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:53168","pl":"Nie czuję już tej złowrogiej presji.","source_sha256":"8ba3eb96012c569f30f429114018093ca7dcef8093b34fb26d2d2a21d019383f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_12.bin:9124","pl":"Nie wychodzi...","source_sha256":"8ba75f628e8a93bc1abbafa039cd018b58587a2cd1dc3cfbf17f7762dca20c98"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:4700","pl":"Nawet w takiej chwili gada o ocenach?!","source_sha256":"8baafe9e5627bd0f8dc7bfa77097bffbd78483921f6488979b57782cc4a3a579"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:40120","pl":"Dobrze!","source_sha256":"8bab12db3b92eb81fe8e8a287ad8ddcf4bd5772b2d54e8d926ae41bac39d3ad0"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:40120","pl":"Tak!","source_sha256":"8bab12db3b92eb81fe8e8a287ad8ddcf4bd5772b2d54e8d926ae41bac39d3ad0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:43876","pl":"Pewnie właśnie trwa koronacja Rudolpha w Guygalos.","source_sha256":"8baf10bc1dac9f787b0a84036c2159cd957bbe38112b89d278e6879631b0c1ab"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:18140","pl":"Nie ma powodów do optymizmu...","source_sha256":"8baf290471769321908d3e3625f8229c6379fae94520a1873e21e8c42d3f3552"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_50.bin:12284","pl":"To rozsądne.\nChoć ludzie będą się bardziej niepokoić...","source_sha256":"8bb215c9ba9cee158466bca0ff590532fef378b0cbe213db917aab65a1365b84"}
@@ -27463,7 +27463,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:122620","pl":"Wiem.\n","source_sha256":"8f6ecf9417fd89868161dc8d6117682b864026ba3fd7f140190c06dc698c98c4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:15744","pl":"Mimo to Federacja, mając A Baoa Qu, mogła w każdej\nchwili wysłać flotę na terytorium Zeonu,\na przewaga wydawała się już nie do odwrócenia.\n","source_sha256":"8f6ef043d64d8f893c91a600e3522ec03ccd60467bb32efd0be5454371e806f5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_11.bin:4860","pl":"Są tam też jacyś duzi Mucus.","source_sha256":"8f6fd3eab751f9adfc28c1fbb008b3544dbd76cc73ebc193d4c250f2105780b1"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_20.bin:17880","pl":"Gah!","source_sha256":"8f7137bd4a5ddc0d51969977de449b875ff98025aee7c8b38aae0961b6e9d81d"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_20.bin:17880","pl":"Uch!","source_sha256":"8f7137bd4a5ddc0d51969977de449b875ff98025aee7c8b38aae0961b6e9d81d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:8572","pl":"Pilna wiadomość od głównej floty!\nZniszczyli okręt flagowy wroga, Great Degwin!","source_sha256":"8f71ca945b0c677f56d39b7302d9b5ec2aefbc7da0cd9b50f6a70c416381e59d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_11.bin:7092","pl":"Wątpię...","source_sha256":"8f72b26b72ff655add61430efad8d02fc2c7d24a30be159c464897abeead757e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:8464","pl":"No bo to głośny megahit SRPG!\nMoja dusza gracza aż się rwie do grania!","source_sha256":"8f734a2925bd65c6380815876ab9c77ac5fc8ef737172535cde81bcf65bfc7ae"}
@@ -28082,7 +28082,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_50.bin:12392","pl":"Wysłanie przodem oddziału desantowego było słuszne.\n","source_sha256":"928a32277b712ad1cb41dce37ec7699f2b64c5da490a6ac9fff27376ac5fb632"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_35.bin:1888","pl":"Po co tyle nad tym myśleć?\nSwój ciągnie do swego, nie?","source_sha256":"928e3ac84823e13e0c1b61e2efb5e6bb8a03c28ae9bc9b80647bfaa4c662e308"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_13.bin:1764","pl":"Och... och...\n","source_sha256":"928f69f0338606d2305fee947d3d784cd461c4101c693c25ab205226bc527681"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:63120","pl":"Pewnie tak...","source_sha256":"928fd04fc8ab7c557b7b24c1ca0e88c2cc5863ff03f7c68b67324b82c43339f7"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:63120","pl":"To prawda...","source_sha256":"928fd04fc8ab7c557b7b24c1ca0e88c2cc5863ff03f7c68b67324b82c43339f7"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:20508","pl":"Connect Force!","source_sha256":"9290fcf5977b912bd6974b9087a6faf129f8cb6ecbfce080b14f7038cef89596"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:160496","pl":"(......? Czemu nie teraz...?)","source_sha256":"92916415cf323accdf5058b86a4755e1913842643be56cf78dcd794ad8f44952"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_11.bin:1972","pl":"Ale odkąd powstało ISTO, mogą nas zaatakować\nw każdej chwili.\n","source_sha256":"9292814dcd5a1b458fea1c903931a218e39b51aff1cc8231452225bd8c8abdd2"}
@@ -28776,7 +28776,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_11.bin:3628","pl":"Pan... znał mojego ojca?","source_sha256":"962cd44cad03fc2d72e2930db4c8ad9ae362d4a67afc3dba938bceda7941a642"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_20.bin:2036","pl":"No, chyba tylko nasze Labory.\nSieć jest wygodna, ale niesie ryzyko.","source_sha256":"962ed46a405739958e7e62ac102874629fe4bc4bbb4cfd91867998171b799fa7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_11.bin:1748","pl":"Aby walka nie zamieniła się w grzęzawisko,\nmusimy całkowicie rozbić wrogie dowództwo.","source_sha256":"962ef4f30dcc0a981dc446048405d23a5b74068e8d971c7a31193148b59139d5"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_20.bin:2500","pl":"Na szczęście dotąd Zarząd i wojsko\nwspólnie niszczyli szalejące Labory,\nwięc nic poważnego się nie stało.","source_sha256":"963026ae98157d1a7ffa827413b5e07cf25d33c6e503bd0ee85b0aa199ac7662"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_20.bin:2500","pl":"Na szczęście dotąd Zarząd i wojsko\nwspólnie niszczyły szalejące Labory,\nwięc nic poważnego się nie stało.","source_sha256":"963026ae98157d1a7ffa827413b5e07cf25d33c6e503bd0ee85b0aa199ac7662"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP25.EDAT/DL313_70.bin:5712","pl":"Tch... Wywęszyli naszą kryjówkę!\nRozwalić ich!","source_sha256":"9630d6fca17bb3e7beca7029182599e353026659f30e0e2d0e4e5d5f3936bef0"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL101_80G.bin:3352","pl":"Nieważne, rób, i to już!","source_sha256":"96311f9fd7fa7bd15898cf8af43774a909f584e555a60245af35dadc9445ae69"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:13472","pl":"Wybaczcie, ale czy mógłbym trochę odpocząć?\nOstatnie dni były bardzo napięte.","source_sha256":"963197d0e217c77130e45d12f9e70d588c9043db49b4e6dd3d19ef6a6b34146a"}
@@ -30720,7 +30720,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:17768","pl":"Nic dziwnego, że wróg zniknął.","source_sha256":"a06c31ef8128d4df29c9bd6fdd60e7f7f38f521dc923a9ebbce445d365e8a7f3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:1336","pl":"Stacja Connect / Świat Pentagony","source_sha256":"a06cd33c0825e248b2e6fc764c338ebb297077d88a70a0bcb95ebdfda03382e5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:26420","pl":"Kto chwyta za broń, tego kiedyś wytkną palcami.\nTrzeba być na to gotowym.\n","source_sha256":"a06ce3c73d0ea728ef8dbac38ea869bf888da1c0be7d1335feb034509cc4f388"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:30620","pl":"GET READY.\nATAK W GOTOWOŚCI.","source_sha256":"a06d64ca9603c1359f829fd6a2807a6b3f4785cf4204d6904d18fe1cb323c78b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:30620","pl":"PRZYGOTOWAĆ SIĘ.\nATAK W GOTOWOŚCI.","source_sha256":"a06d64ca9603c1359f829fd6a2807a6b3f4785cf4204d6904d18fe1cb323c78b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_45.bin:9600","pl":"Tsk, przebić się nie da,\nskoro tak nas otoczyli...","source_sha256":"a06e0b4a3573f604d62deb0f87c6c1c793158bed1a10854b32e16a9024223422"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL417_50.bin:5312","pl":"Zniszcz wszystkich wrogów","source_sha256":"a0739e73dbd133c0b068cccf13044d94f61b824e446de1c6c1f7307d9e9ce6ab"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL104_40F.bin:1540","pl":"Ej, Kyao! Ciszej!","source_sha256":"a0746cc086170bb0e26d42b68fa4b354f6b3b14ad4d01c1d69c2bc60a535f2a0"}
@@ -31355,7 +31355,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL623_11D.bin:21572","pl":"Wszystkie wrogie jednostki w okolicy odparte.","source_sha256":"a3a02f2b92ff80f361d33c3db343e00f1cee9f39eeda12ce9b8a82ea65064af4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:5692","pl":"Tch! Nie pozwolę ci!","source_sha256":"a3a086e5ca25b98ef62dabc54563ee9e638f3d11f90cd6a3ca6e4427b139d51e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_12.bin:23272","pl":"Zero, podziwiam twoją przenikliwość.\nAle jestem żołnierzem. Uczuć nie wnoszę do walki.","source_sha256":"a3a22ea85fbec151210b94dc39ba8182b5afe64d6d7f7f44913ab66df835b681"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL622_13H.bin:5160","pl":"Ready...!","source_sha256":"a3a31654d465f731f166ca707ef2d21f07a123b5824e422e7ab9a9a362791391"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL622_13H.bin:5160","pl":"GOTOWOŚĆ...!","source_sha256":"a3a31654d465f731f166ca707ef2d21f07a123b5824e422e7ab9a9a362791391"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:664","pl":"Trzonem obrony był rzecz jasna Connect Force,\noddział szybkiego reagowania ze specjalnym\nzadaniem przechwycenia głównych sił wroga.","source_sha256":"a3a34215243211da92365b39551daa5c2242e332de22cb34bb8bf2c2fdcd0e44"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_50.bin:2732","pl":"Ach...!\n","source_sha256":"a3a464aee3c4c5e040cecf816488671373b37c1b2cdcc3fde368fa268c0fe0bc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL833_12G.bin:400","pl":"Nadchodzą Mucus!","source_sha256":"a3a64c1fcbc0b92ce2c155bb4ce5a78ef817fb9e65fe92b55388e816e4fe15c3"}
@@ -31884,7 +31884,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL104_40G.bin:5796","pl":"Dane bojowe, przechwycona łączność, skan terenu...\nNajpierw zbieramy informacje.","source_sha256":"a69ca42d9e49bc0031c4072864f8e813b3c7ce73bedef79e72ea660b1da20c23"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:17872","pl":"Słyszę go... w moim sercu...","source_sha256":"a69ce0af0f13cea4fdd42a9adad9d40f22173d64307d4180d3d4ff253a7b6950"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_30.bin:6808","pl":"Heh! Za późno, już siedzimy!","source_sha256":"a69d27f2af411a9c7c7383f461b79f878464d118e1c65a5ff20316b416ec4366"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_12.bin:14820","pl":"Osobnik ewoluowany, powiadasz?\nLecz w tak wąskim gronie musi być samotnie, hm?","source_sha256":"a69d72847587ce9621dcb94c986cdbd96124c19324c62eaa43277a7f09ddb578"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_12.bin:14820","pl":"Osobnik po ewolucji, powiadasz?\nLecz w tak wąskim gronie musi być samotnie, hm?","source_sha256":"a69d72847587ce9621dcb94c986cdbd96124c19324c62eaa43277a7f09ddb578"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:10552","pl":"Zagrożenie dla Ziemi? Kim on jest...?","source_sha256":"a69ea94e3135c0e07d401303eca776a79903b1cc3784079fb0ad08de8e25690a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:11336","pl":"Rudolph, zdążyliśmy.","source_sha256":"a69ead7de01137ee8eafdb19f732c9b014bcf8b4945c05c22c6e41966217cd7c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:6888","pl":"Czarni Rycerze stoją po stronie słabych,\nwięc może nie ma rady, ale jednak.\nZero wymyśliłby lepszy plan.\r\n","source_sha256":"a69f71a6918fc067623e8b695b063b5cf25e884aca5c678fbf79e96265eb5dfe"}
@@ -34167,7 +34167,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_11.bin:11816","pl":"Nieliczni ocaleli Zoidianie w ostateczności\npróbowali zatrzymać Zoid Eve.","source_sha256":"b224fa59b6a01db3ffdb77f02c19e22663ee0f24be338fa6db2e0a1f92a26c4f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_40.bin:2156","pl":"Gdyby tylko \"czasem\" wystarczało...","source_sha256":"b225352c1283d7464dd357559270b9ed7bccf5f03e3aed265baefa68f7de3891"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:68460","pl":"Przyjąłem!","source_sha256":"b2265ec0082e696ee918bdc505930ddb8a36e38507c1746cb9cd057c128583dd"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:14360","pl":"Ready!","source_sha256":"b22908e8dda6134e826a1a3028ae3929a7eab7550eba3dc615c4d272f5c21c4d"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:14360","pl":"GOTOWOŚĆ!","source_sha256":"b22908e8dda6134e826a1a3028ae3929a7eab7550eba3dc615c4d272f5c21c4d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL100_02.bin:11828","pl":"...Fakt, w boju taka łagodność bywa zgubna.","source_sha256":"b229d25b5fb290f2dc53bf148a21410992b7bba5c4f5ec6a52ad361aa92ebe51"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:848","pl":"Nie wykręcaj się.\nJeśli nie znamy jego parametrów, będziemy mieli\nproblem z zaopatrzeniem i konserwacją.","source_sha256":"b22a42d53756c79cc4dfac2129b5ee23aef90a667d488fab11a551d09701ca21"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:10504","pl":"Ale nie jesteś dla mnie przeciwnikiem.","source_sha256":"b22ac33fd428bdeec8268adbf27aaed52cf4fb10eef24c3678983b1a57373ebd"}
@@ -34298,7 +34298,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_50.bin:9252","pl":"Zabiegi Connect u władz kolonii\ni błyskawiczna akcja Connect Force\nodbiły się echem w koloniach i zebrały pochwały.","source_sha256":"b2c9b13ae3311c5d42c254b61042efc5e66ed3c25784e9e5025bbdd4adf34bcf"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_60.bin:6108","pl":"Ale manewry z użyciem transformacji\npowinny być trudne do przewidzenia!","source_sha256":"b2cb09b361e484739a5cad1eaf7507a8fa499926e0ead870ba0b0fca189929d2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_11.bin:28592","pl":"Teraz przybądź, szybko!","source_sha256":"b2cb3c5a8dc69645f0f976ed7eeca11c9c6852760e77f80d0185f1fd5b26fdff"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL104_11E.bin:2332","pl":"Dobrze!\n","source_sha256":"b2cb4c9eda9e7ec6c3fea5a9c004d27c52e68559e25118fd26d1ddb82ac539c3"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL104_11E.bin:2332","pl":"Tak jest!\n","source_sha256":"b2cb4c9eda9e7ec6c3fea5a9c004d27c52e68559e25118fd26d1ddb82ac539c3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_11.bin:3984","pl":"C-c-co tu się dzieje?!","source_sha256":"b2ce2e70138531617621aabb3ac1b9abb7dac02fd7c9091f7fa275b789580571"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL207_50E.bin:5596","pl":"Aha, czyli też jesteś fanem!\nMamy coś wspólnego, kto by pomyślał.","source_sha256":"b2ce49f1fef272b796fb2866484336d583e1366fa3f6fd138ee51c1060faf549"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_13D.bin:24144","pl":"...Słuchaj!","source_sha256":"b2d3ba69219db6c4c155acc49ce291e0339db5b48ad94668cdac3c8788eafedc"}
@@ -36013,7 +36013,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_20.bin:12472","pl":"Gdybym tylko mógł użyć eksperymentalnej\namunicji wybuchowej i załatwić je hurtem!","source_sha256":"bbbabb6b5d1217615afbceac844a55e30161cfa5e4456308402bd350f380d93a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:776","pl":"W końcu dotarliśmy aż tutaj...","source_sha256":"bbbc9b2ad3b0afa81239ee9d2e1b4f75ae5f4ec8d345b7151970e5a5799fa949"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL832_12.bin:732","pl":"Tak jak przypuszczał Connect... To terminal,\nktóry wysyła ich warpem do innych wszechświatów.","source_sha256":"bbc00c0e1c9b1a81c7c51e3298ea64e0c5ab71e85b567e2ba9ebfd75b54ea24a"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:57220","pl":"Dobrze...!","source_sha256":"bbc0dbc7f38ab0274d307f28ebf76dfa34ed49bd6ffffa6b07e44d1f04833ff9"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:57220","pl":"Tak...!","source_sha256":"bbc0dbc7f38ab0274d307f28ebf76dfa34ed49bd6ffffa6b07e44d1f04833ff9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_60D.bin:15192","pl":"Przegraliśmy...?","source_sha256":"bbc11509580f68feca51e9e21d14c154132743dd9d47b859fc761952a6fe77cc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_13.bin:25484","pl":"Trenuj, póki jesteś młody, bo pożałujesz.\nNie marnuj swojego talentu.","source_sha256":"bbc2244b739886ef635bf1cc4bc0d6f436805861c14f2b5a947abbf4b616c78f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:4560","pl":"Ngh! Raijin-Oh!","source_sha256":"bbc694c4af5f4f6ba49aec41d802e405fd34469ab083ab0ad7ff45d35058efb3"}
@@ -36897,7 +36897,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_40.bin:4848","pl":"Przecież jeszcze nie dali sygnału do startu!","source_sha256":"c08bd5702ae8db47ef7cdd510cf62a2b874857924ff614d60dc4fe62121fb9b3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_12.bin:3460","pl":"Postanowiłem bronić Ziemi\nrazem z całym Connect Force!\nWięc doprowadzę to do samego końca!","source_sha256":"c08c5d52eab58ef81717af25236bc27eed900860c38d3aa44ed3f5233554a898"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:24548","pl":"W każdym razie nie przewidzieliśmy,\nże Connect Force wyruszy wcześniej.","source_sha256":"c08d6d14386a11178cb8c7689a7f237315c7373e9c10433e974ddb27212ff591"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL102_50G.bin:3452","pl":"Czyli to ewoluowany Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"c08dccabe7417e4adb70722530a69d30ff66e3f38aeddec8d67f0325e1f4868c"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL102_50G.bin:3452","pl":"Czyli to udoskonalony Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"c08dccabe7417e4adb70722530a69d30ff66e3f38aeddec8d67f0325e1f4868c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_60.bin:2680","pl":"Aaa... to o mnie...","source_sha256":"c09152abfb78078945027e529778e0f108bc332ea256ccf253759117cadc7961"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_20.bin:6988","pl":"A my nie mamy na to czasu!","source_sha256":"c091af764ab7fcb8bc527d7846f0456c36bac030d7fddbf76dadb72038c02fef"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_60.bin:22676","pl":"Dobrze...","source_sha256":"c092064f1be4e5839ec5c3ec7741b86b0042e7ae3f729fe5ba2fb58ae8befabc"}
@@ -39372,7 +39372,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_35.bin:4612","pl":"Z drogi!\nNie dam się zatrzymać, skoro zaszliśmy tak daleko!\n","source_sha256":"cde48e11982b5e7abdc90c5a788ea4c82d5e863a573687ef3f0027915f35fe17"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_12.bin:4100","pl":"Ten wygląda na mocnego.","source_sha256":"cde63c82ba5ed227284ae8c7f6e3a2911e8e0b6bd193242589f3c9ff3b607d9f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:17492","pl":"Coś się dzieje z jądrem Monad?!\n","source_sha256":"cde97e4b126afb11df2f01bbccb0ed9c233df1e0d211245a3ed021fde31e40fd"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:60808","pl":"Dobrze...!","source_sha256":"cde9ea8a11ce7c22bd1027ecbeff4c3a1d640f939527f681306d42ca779d9d3d"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:60808","pl":"Tak...!","source_sha256":"cde9ea8a11ce7c22bd1027ecbeff4c3a1d640f939527f681306d42ca779d9d3d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL102_11F.bin:25684","pl":"Nie, to pewnie nic takiego.","source_sha256":"cdead4455719f815444f05108eec143babc225f8733a793bb792e7c55c5d2931"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:19808","pl":"Nieprawda!\nLudzie umieją przezwyciężyć nienawiść i się dogadać!","source_sha256":"cdeaf67940b42fff86c7c2b18b6e4dbe3f4c9af531858905d3f4e7bef8147fb6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP25.EDAT/DL313_70.bin:10392","pl":"To żaden problem.\nObowiązki przejmie pułkownik Herman z Republiki.","source_sha256":"cdec000d4b88b2f681dac6032913d96441c6e72db449bc519862c5f36021f387"}
@@ -43978,7 +43978,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:136180","pl":"Dobrze.\nWy też się trzymajcie.","source_sha256":"e65c2d4b800533533be76d0a004357af1fab83365b5bcf65d9d64a1a9d65da1c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_13.bin:1056","pl":"Wygląda na to, że jest wśród nich koń trojański.\n","source_sha256":"e65d471ec47c6861f3d039780e341f5d0ef523d9aa95594e489448f0622908a6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL104_11E.bin:17816","pl":"Dobraaa! To od teraz nabieram apetytu!","source_sha256":"e65e71b892eca9598328dd25b9cc614acaa59327e80b27aa7a8fc9218b17a625"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL102_50B.bin:3452","pl":"Czyli to ewoluowany Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"e65f93146d60b17f3744bc6d3ed07b3ceaa5d8598ed529009733853f5afcbd50"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL102_50B.bin:3452","pl":"Czyli to udoskonalony Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"e65f93146d60b17f3744bc6d3ed07b3ceaa5d8598ed529009733853f5afcbd50"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL207_13B.bin:21128","pl":"Armia Republiki Helic / Sztab","source_sha256":"e65f9641f7834aab0799eec96a1a254977f5433e5930347142884ed2bbbd451d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_13.bin:14868","pl":"Moje panowanie nad światem jest boskim objawieniem\ni koniecznością.","source_sha256":"e660488c2ccef56f5e755492207e1ee2c480cd27aadd6e1167d0038fdab80b02"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:13808","pl":"Ja też to czuję... krzyk jego serca...","source_sha256":"e6616936db9c28d7f979b418dd9eeb45eb860ea8ee2729767774687f4269d0d4"}
@@ -44981,7 +44981,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:3868","pl":"Mamy też przybliżone położenie\nMucus Gate. Kiedy wejdziemy do Arki,\nodczyt na pewno będzie dokładniejszy.","source_sha256":"eb66388be4be26e1bdc5111b27c1d7639b8cf5b848ca352795ae6e91e6af09f2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL101_80G.bin:400","pl":"Rząd Japonii, widząc powagę sytuacji, zaczął działać,\nale przyczyna wciąż pozostawała zagadką.\n","source_sha256":"eb66413152991f54e4aa1a3639509e5488d59de2d8850f6dbab1ffc02f51f100"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:70324","pl":"Hmm...\nChętnie posłucham wszystkich szczegółów...","source_sha256":"eb6664a5d9f251c95a3c8eecdc35054478eba81ddd7b8d5891e2ad0b4855dd7f"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL206_11B.bin:15036","pl":"Nieważne, czyja to armia,\nnie tkniecie planety, na której żyjecie!","source_sha256":"eb688db7fd0afb79ad483e18114e43cb95afa49175c6e7df6bcd17b6aa2cc3d0"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL206_11B.bin:15036","pl":"Nieważne, czyja to armia, nie pozwolę\ntknąć planety, na której żyjecie!","source_sha256":"eb688db7fd0afb79ad483e18114e43cb95afa49175c6e7df6bcd17b6aa2cc3d0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_50.bin:13568","pl":"Przetrwamy to i droga stanie otworem.","source_sha256":"eb69be4ce8e49a8fd62ead2ca6d7291153cf444e87c8cb2891f5375b9838f73d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL207_50E.bin:14800","pl":"Mam lepszą zwrotność od ciebie.\nNawet nie myśl, że uciekniesz mojemu Gurenowi!\r\n","source_sha256":"eb6c656261874eb50e826ef58d5e5fab0a79a476d061cf656760ae71628a3b54"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:56728","pl":"Udało się...?","source_sha256":"eb6c874f9a2924ab75d3a30175996e4568a7c53e4686b69fd779e81bb4ea83d9"}
@@ -45739,7 +45739,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:32884","pl":"Hej, panie Barcoff.\nNie zrobisz tym razem swojego słynnego zniknięcia?","source_sha256":"ef788f307cf4e1c09d506640483b45a2797d7729330cc15ea261f12419c25e8e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_20.bin:10288","pl":"Może Zły Bóg Drago próbuje się odrodzić\nw innym wszechświecie.\r\n","source_sha256":"ef7a3edb63b3eef3bb60821c781a595440f766f553614af006a02f301ae4d70a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_11.bin:12948","pl":"Pokażcie się wreszcie,\nwy obleśne pokraki!","source_sha256":"ef7b46a87ce52f34d4b5575adefe12454c4503d7246ec50d3758230e04e300ee"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_40.bin:4376","pl":"Ready!","source_sha256":"ef7c622842d3e9be17cd043dad02dc8417aa3465de848c76d6dd01cf7978d55e"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_40.bin:4376","pl":"GOTOWOŚĆ!","source_sha256":"ef7c622842d3e9be17cd043dad02dc8417aa3465de848c76d6dd01cf7978d55e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:23800","pl":"Cóż, Zeke mnie ciekawi.\nPojadę z wami.","source_sha256":"ef7d7d20acab2e4efa027caae1e90efed1e82799d472f5b638e10e3a6a00a902"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:32668","pl":"Bio-Relation przestało działać...","source_sha256":"ef7dfeb3879a8b5c07805784109e9daad84158adf217c04f6c8530661cfdfcce"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:10860","pl":"Wszystkie jednostki, wycofać się!","source_sha256":"ef7fb32ce0cadf08e02718b0fab50e4e898b7ae6dab5fe0d947224dea57d9c37"}
@@ -46113,7 +46113,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL102_90J.bin:7152","pl":"Może to atak tych łotrów?","source_sha256":"f16215489dec0d4323ab8f51ed28edf7aacb90e032a4d57ad712d7fb9c921e08"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:28760","pl":"...Dobrze.\nNie mogę się doczekać, co to będzie...","source_sha256":"f163052f47904a3c0cbd4bc1fb76917902191c0e288bd5ab56879b1eb151b886"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL832_11.bin:8884","pl":"Jasne!","source_sha256":"f16328af8f19a254559e3ed53de1d518733937abc7723e14cef99d32128bb94b"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:52880","pl":"Hę, hę, hę, hę...\r\n","source_sha256":"f1659c6a1675da34ed9350d6a2aba85b4dd000fb3aaf6324f1b73dab289322f5"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:52880","pl":"He, he, he, he, he...\r\n","source_sha256":"f1659c6a1675da34ed9350d6a2aba85b4dd000fb3aaf6324f1b73dab289322f5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_11.bin:13688","pl":"...!","source_sha256":"f165a2fa2425bb471ba9cb756a371510eff44d77f1860ed96d5209e9b3e15890"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_50.bin:916","pl":"Uważajcie na ukrytych wrogów.","source_sha256":"f165b16f962c4526777eb845aa43fed77b0658aa3e515a6b7ac5daac492bfa97"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_12.bin:7392","pl":"Potrafi ożywić nawet skamieniałego Zoida...\nCzy to także moc Organoida?","source_sha256":"f16752dfb96ce1c39d2d0470326b9fc926ad803351ddf4bffab8570cdef9024b"}
@@ -46146,7 +46146,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_60.bin:4524","pl":"Jednostki w polu, lądować w miarę możliwości.","source_sha256":"f18763a985b8b2b9861904b595f9a1917683d69cc564703ce628f41e9b313e43"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:30848","pl":"Nienawiść i ból, które z niego płyną...\nDla Mucus to może my jesteśmy najeźdźcami.\n","source_sha256":"f1879aa81962905ed1b724afded75962b71c609e33f3543cc400e6e3efe76cb8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_30.bin:2208","pl":"Mam więc zostawić go w spokoju?","source_sha256":"f1899121fc1b5068b215a9996f8695bbc1e9d3de08e6db17c870902fbeade441"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_50.bin:3452","pl":"Czyli to ewoluowany Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"f189eb90c0d014ba5227914cedfa6620aeb4364f212385a5ca67364a9b755b02"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_50.bin:3452","pl":"Czyli to udoskonalony Gundam\nwyspecjalizowany w walce na lądzie.","source_sha256":"f189eb90c0d014ba5227914cedfa6620aeb4364f212385a5ca67364a9b755b02"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL207_50E.bin:3460","pl":"Wszyscy, liczę na was.","source_sha256":"f18d1495942bd1923bdfaf48567b0dcb5ceee4283d65268f35435df97a4c0ea7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_12.bin:892","pl":"Biorąc pod uwagę kratery i strumienie lawy,\nskoncentrowaliśmy garnizon w tym miejscu.","source_sha256":"f18d53058a936e53fab4619efd64d0d03a2d86c1baf51ca5f7143d7b94c23325"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:104024","pl":"Akademia Hinobori","source_sha256":"f18f9d9e444a2811d5dbe64489e8e414d5295349c9383ae2ba9702a390452178"}
@@ -46589,7 +46589,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_11.bin:6524","pl":"Rzeczywiście, z tego sektora\nbije dziwna presja...","source_sha256":"f3bf6dff1d154f5dc606f96d1d8789a7b7284027938843ff0049a725314a0f25"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL102_11.bin:5444","pl":"Mieliśmy przecież łapać szalejące Labory!","source_sha256":"f3c171775dc4aed082dd40376f84a4be1277cec411661138c517a94daed640e9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_11.bin:10816","pl":"Dobrze. White Base utrzymuje bramę.\nPo połączeniu z oddziałami z Macross Quarter\nprzechodzimy do operacji oczyszczania.\n","source_sha256":"f3c1beeaf03ca06a8c72f06d3a2340741a44a2a806ce9f6445f37a2d71fa47b9"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_13D.bin:5160","pl":"Ready...!","source_sha256":"f3c2baf9f359c1f45aa00b69fe28c6f58f2a2b912cc84a7f3d437f3f0897c837"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_13D.bin:5160","pl":"GOTOWOŚĆ...!","source_sha256":"f3c2baf9f359c1f45aa00b69fe28c6f58f2a2b912cc84a7f3d437f3f0897c837"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_11.bin:5660","pl":"Tak!","source_sha256":"f3c328ef0c84d4d616ab56d33cb9c2b91318ba56969d0f0702c04d37f00d26d4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:1776","pl":"Co pan ma na myśli?","source_sha256":"f3c331f300f337063c6d1ab7d9e9ec825074500caab8071d41b7f3c36d7d0638"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_12.bin:9912","pl":"Death Stinger ma włączoną tarczę energetyczną,\na jego pancerz jest wprost nieprawdopodobny!","source_sha256":"f3c339cdb59a6b1c25733cbe213ee18e87e14e6507976e99b09f42f6b676a499"}
@@ -47564,7 +47564,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:2356","pl":"Na Prozena to pewnie nie podziała,\nale swoją wolę trzeba okazać.","source_sha256":"f92144a4936495c3df8fae4e5c62d877e4891944331b330f7a4c649c8024663d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_12.bin:6372","pl":"Tak jest!","source_sha256":"f9218bc996086fd4dfcaf02fef597549fcf432f3b9f2cc7e4a3636c6e60b6583"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_45.bin:2012","pl":"Ale to także okazja.","source_sha256":"f9220fb670e583d06729dc4192d41a6f03d9860f054967f2ef9eb9df024c0fa6"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:14504","pl":"Ro...","source_sha256":"f9245d7b8fcc612893ef460de7f35bb56c15820f21b66f2bc995e97307506567"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:14504","pl":"Roz...","source_sha256":"f9245d7b8fcc612893ef460de7f35bb56c15820f21b66f2bc995e97307506567"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_13.bin:19628","pl":"Mamo, tata jeszcze tam jest...!\r\n","source_sha256":"f92545831f36d56b92780c861d66ae2c3721d5321250357efda07ee364d65397"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:11260","pl":"Dzięki! Wycofujemy się!","source_sha256":"f9259adb57c90dbd815e209193baa97635e5e1ec7cf939929509da2a3a445bb6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:103128","pl":"Kiedy problem Mucus zostanie w pełni rozwiązany,\nPlaneta Mędrców unieszkodliwi wszystkie bramy.","source_sha256":"f927072cecad0e260c4e995b488ffd218cc0b647aec4b8b7dd6490b815d641d6"}
@@ -49209,7 +49209,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p1801.pac:3124","pl":"「Misja przyjęta. Zestrzeliwuję wroga.」","source_sha256":"03060d8b8b97c807be4e6722d87315c30020a16802abfc99aaec1e8a858d15df"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4181.pac:11896","pl":"「Trafiaj, do diabła!」","source_sha256":"0306d6732c1089c13a218263f5c8f853ec2c094ccd9d5212864d32295a3e48d3"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl05.EDAT/p3423.pac:12848","pl":"「Chirico, koleżko, podoba się?」","source_sha256":"030a7349cc17e97a356f6dcf907c2deef72f6f6a745e1ba142869808463493bc"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3121.pac:8164","pl":"「Nngah!\n Ten mały gnojek!」","source_sha256":"030c4c262216fe0f148168fa8589760cf12db09057d1090190594ae8ed315a10"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3121.pac:8164","pl":"「Nngh!\n Ten mały gnojek!」","source_sha256":"030c4c262216fe0f148168fa8589760cf12db09057d1090190594ae8ed315a10"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3701.pac:29076","pl":"「Hah... hah...!\n Rozum... i odwaga...!」","source_sha256":"0310217f23fba3082c2088805e2d581042cc1f9b174efaa03c0cf1ac964822f6"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1657.pac:8504","pl":"「Niech cię! Jak śmiesz!」","source_sha256":"03104a2eba7556526bc00fc71c636e71c2c0aa8e0a0a5930f2e7faddfa85f5c4"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1258.pac:11220","pl":"「Nie na darmo pilotuje\n taką efektowną maszynę...!」","source_sha256":"031106abade4ae0411594bd6abc9194f75c944d2218df8fe78f72f6b0eca05d7"}
@@ -50760,7 +50760,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0600.pac:18352","pl":"「O rany!\n Robi się totalnie grubo!」","source_sha256":"10dd36a966592558f74391615c8ceb0f1a79204f2b2ff8c69b21ad88c3fcbd13"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl13.EDAT/p1501.pac:8852","pl":"「Jeśli wciąż chcesz stawiać opór!」","source_sha256":"10ddfba4c2e51400be285b485186ad9941f9325f07be291318b439cccb6bf9c9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1019.pac:2248","pl":"「Nie marnować amunicji!」","source_sha256":"10e16985338e1f3f1a935b7e4dce5e0bff64539414c94197c9f52b2d31a2a638"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1415.pac:5632","pl":"「Gah! Skąd to leci?!」","source_sha256":"10e2660bc98f96bc607b61ca9ac5dac86363d700cb2100a8cfe1c59af9ea6c90"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1415.pac:5632","pl":"「Tch! Skąd to leci?!」","source_sha256":"10e2660bc98f96bc607b61ca9ac5dac86363d700cb2100a8cfe1c59af9ea6c90"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0328.pac:13624","pl":"「Tyle to\n żaden problem!」","source_sha256":"10e3999f6d303f2769000c477e6ac94858b24fde45b7c479fa1ac93d69c14349"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1251.pac:4848","pl":"「Ster prosto! Przechodzimy do kontrataku!」","source_sha256":"10e54fc4d06a645db85d3a960cb385cff45c4cbbeac33c353872219048bcde86"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1251.pac:3800","pl":"「Ognia! Z tej odległości trafimy!」","source_sha256":"10e68bb540e572cecc2dd847f7e277edef7bddf6db9974158210fab04b20efa8"}
@@ -51143,7 +51143,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl07.EDAT/p2868.pac:12196","pl":"「Ludzie zawsze tak skwapliwie\n wymachują bronią.」","source_sha256":"1445f1f25a1c712196da8f1446a48e1d3d5940be01dfe0ff3a8bfd91e461bf0c"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p2505.pac:15212","pl":"「Nieźle, jak na zwierzoczłeka!」","source_sha256":"144a459918a710bc8ba7585426d9e3906cd405b6e7a4bd8b9f1156a3bb8e77b9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0402.pac:19536","pl":"「Nie lekceważ nóg tej maleńkiej!」","source_sha256":"144afb165773c06d452d964ae438fd58fab9a012d7ac351aa36ab8f73ae35240"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl19.EDAT/p4420.pac:13896","pl":"「Gah!!\n Robi się paskudnie…」","source_sha256":"144b6a1ee49e10b7ad105f3794533ddd32a3df25b525be09156069b835ad965e"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl19.EDAT/p4420.pac:13896","pl":"「Argh!!\n Robi się paskudnie…」","source_sha256":"144b6a1ee49e10b7ad105f3794533ddd32a3df25b525be09156069b835ad965e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0821.pac:5840","pl":"「Haaaaaaaaaa!」","source_sha256":"144c38925a3366e514a9dd3557d9ca8b15aaf33abbe1d704b6712d818cc3fda5"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0525.pac:6420","pl":"「Maria!\n Bakuryu Cannon gotowy!」","source_sha256":"144c6c480f6fd0bb228472dfcdb59c4f3becadff8a61224dcb1707fb76dbbdb0"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4156.pac:6540","pl":"「Ty chyba rozumiesz, prawda?\n Jak wspaniała jest ta ostateczna ewolucja!」","source_sha256":"144e2a1852f872456ceeec4105e9d104432fe48d227356ee0025ef2ef5343e1b"}
@@ -51938,7 +51938,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p3472.pac:4692","pl":"「Nie pozwolę ci się transformować!」","source_sha256":"1b5e0d0c85f342ddc481f4a06261ad02dcb8864ed129a06022d182557085e330"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0400.pac:20376","pl":"「Lamuness! Tak trzymaj dalej, mya!」","source_sha256":"1b5f6dfaa59cac4cdd7c0ad27d111fcb12af69f96943bd26b0ba31920dc5403d"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3711.pac:20796","pl":"「Doryaaaaaa!」","source_sha256":"1b60abb3f5214b161bcd7e309d8e2048d1933154d4d1bee99f9edd6e3bcb2c7e"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p1601.pac:11124","pl":"「Gah! J-jak tak dalej pójdzie...」","source_sha256":"1b67ea9df4b3eb05944d61db5aa5f2c6bbeb74c40966edf286a10f1fc52326be"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p1601.pac:11124","pl":"「Uch! J-jak tak dalej pójdzie...」","source_sha256":"1b67ea9df4b3eb05944d61db5aa5f2c6bbeb74c40966edf286a10f1fc52326be"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p3470.pac:2196","pl":"「Dopadnę cię!」","source_sha256":"1b6947f5ece53d495320ccd341e6fd9881d8407153ad763d48e012a3639a1816"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3462.pac:4684","pl":"「Nadchodzę, Gundamie!」","source_sha256":"1b6bf0307f07e63e61e51de2d53dba97a61a5d85fd11381e60257102cc25a4b6"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:47624","pl":"「Gerooo, obrona udana, melduję!」","source_sha256":"1b6e07a3de2394f22ef1243175a27d8b59c28e739231edc6b2c3b0e19c275323"}
@@ -56234,7 +56234,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4550.pac:17280","pl":"「…………」","source_sha256":"438796fb88a2a3637464386ae0d0d82029a5d4a8699a76618c5be7af844fc45a"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0700.pac:9156","pl":"「Sami rozwalmy tę mechabestię!」","source_sha256":"43879e58a42da13bc76e7b5b0d234d3495e6cbedf719bdbd9660f85ceb2ca6c3"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4555.pac:7936","pl":"「…………」","source_sha256":"43896f4ff8c4504c413ea6cca4b637b0fd3ff35045bd52fd11a8b29ee7b1ce73"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1325.pac:4980","pl":"「Gah!\n T-tak nie wytrzymam?!」","source_sha256":"438aae85a02281eb62e9705cda6ffd8338235790c61bdf8062a40806f98b1865"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1325.pac:4980","pl":"「Uch!\n T-tak nie wytrzymam?!」","source_sha256":"438aae85a02281eb62e9705cda6ffd8338235790c61bdf8062a40806f98b1865"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4122.pac:10388","pl":"「Przyjęłam!」","source_sha256":"438e1ddce83e395e2c5c3b1970b9ca94c7c015a1d861bfbfcc462fe2a1e82bd9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl05.EDAT/p3420.pac:1828","pl":"「Widzę go.」","source_sha256":"438e2335a39f9cfa016ed5921bfecab10afe3a30f9a2b4f34cf54217c7d77a12"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4122.pac:14520","pl":"「Ogniaaaa!」","source_sha256":"43916e2e6633c09d8ee2ce1a50a7bbae6559ecb4cd674a8324706f27c53fddd5"}
@@ -56404,7 +56404,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4160.pac:6116","pl":"「Zapowiada się ciekawie.\n To co, może małe starcie?」","source_sha256":"44fd8bc654228a1825d119d8f002a273350bd0a08b41fb1e6efe2d21d4e6c756"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p3475.pac:5508","pl":"「Cóż za daremny opór.」","source_sha256":"44ff023fc390b38de7335cc8bc55e7c84aa140849b87d8ac289422f8c08dc7fc"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3121.pac:8988","pl":"「Co ty wyprawiasz, Leccee?!\n Załatw ich jednym strzałem!」","source_sha256":"45069a5feaec16a94890e04239ddd722ce58bf4baf6c7a5f875a0dd171af58ef"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:8000","pl":"「Gah, ty draniu!」","source_sha256":"4507b50dc56f61376545ad38894178630bf4a9b63b85a12af7b976b560513364"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:8000","pl":"「Argh, ty draniu!」","source_sha256":"4507b50dc56f61376545ad38894178630bf4a9b63b85a12af7b976b560513364"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl13.EDAT/p1520.pac:10380","pl":"「Tch! To już koniec?!」","source_sha256":"450b5d258bbb777885ee38cdfedfaf3579ae2cdf61fd360be05805906e07da92"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3301.pac:22504","pl":"「Niech to szlaaag!!」","source_sha256":"450bd533e2598994422a57f3aceabc787f2b72c4735f071918df223194f51f3f"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl05.EDAT/p3423.pac:12612","pl":"「Wszystko gra, Chirico?!」","source_sha256":"450c0983bc33c12bfba42d601af58242388803a7ff0fed7c7fcc2492c702f800"}
@@ -56673,7 +56673,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl06.EDAT/p0220.pac:7172","pl":"「Zwykła marionetka Argamy\n sądziła, że mnie pokona?」","source_sha256":"4777c8ce502069e87389baa1052e8706ff9dea0a36a826d735a69da21059c216"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4180.pac:10692","pl":"「Maaaasz!」","source_sha256":"477d0c5b2e0fd857374791dcc4a35f437a344530590346569ced35befe271682"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1318.pac:5488","pl":"「Nieźle!\n Teraz moja kolej!」","source_sha256":"477dbb40e79c7ba3ac7de771ae2123f1634c621b546a52978e89a5902ccfdf34"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3462.pac:11160","pl":"「Gah!\n Przebił mi pancerz!」","source_sha256":"477ea9c70228f74c613f0a909b6a969e280bbdb87a67081d4cc27d645b01956e"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3462.pac:11160","pl":"「Uch!\n Przebił mi pancerz!」","source_sha256":"477ea9c70228f74c613f0a909b6a969e280bbdb87a67081d4cc27d645b01956e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0800.pac:16544","pl":"「Jeden wielki wybuch, proszę bardzo!」","source_sha256":"47867fc560417772fa8ac59b728f8a0d9decc55b74fb3a83c3e7ad883e4e5321"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4174.pac:7828","pl":"「W sam raz… Zgińcie wszyscy naraz!」","source_sha256":"478731cf3f0af908933e70d19d976f6f654a56ab47ccd76992b67d7f9ecfc4a4"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl13.EDAT/p1501.pac:10936","pl":"「Tam!!」","source_sha256":"4787e38ebbd3c9d03463f595bc05ec5618d80ce812e3ec24842a654cc042ec45"}
@@ -57349,7 +57349,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0405.pac:21736","pl":"「Niezły atak, Lesca!」","source_sha256":"4e0ffe84f8a25adb71569ebab16cf0d7ba733e997b06d00a5b2c8b98d1fbdc71"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p2624.pac:5704","pl":"「Pościgi to nie mój styl, ale...!」","source_sha256":"4e1307f5cce0cd8408796dfea60db14733c594d669225d1648993ba3b8703ea2"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4182.pac:20784","pl":"「Nic z tego!」","source_sha256":"4e131512a41d86c1e34ad60a05689f7e8a9e3c1c5ad7803fe5cb21b85d3ce115"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1305.pac:8376","pl":"「Gah!\n Cholera, głowa do góry! Inaczej przegrasz!」","source_sha256":"4e171aa082e0717299ed5b29f38a369597e934865bf5298250b8ea98a7e41cae"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1305.pac:8376","pl":"「Kh!\n Cholera, głowa do góry! Inaczej przegrasz!」","source_sha256":"4e171aa082e0717299ed5b29f38a369597e934865bf5298250b8ea98a7e41cae"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4150.pac:29044","pl":"「N-niemożliwe! To nie może się dziać!」","source_sha256":"4e178134c8df719cce67d52d8de805715f11cce708221869fc66fa05af79e840"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p4163.pac:5904","pl":"「Panowanie w powietrzu należy do mnie!」","source_sha256":"4e1c50d96f421a16f434236562fd99e4d4397e9d3f87cec2093a54bf717a53f4"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4174.pac:12832","pl":"「Hm, nie uciekniesz.」","source_sha256":"4e215bfd28ff10470c6b3ca172d4c3520bb52694a6578bb75f87eaf93e21d1e0"}
@@ -62109,7 +62109,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:31960","pl":"「Gero?\n Cóż za osobliwy robot, melduję!」","source_sha256":"7b6ab79b4152ede9d4d92af0ca7b735c8225ce3aba9937886577a4b6773d67c7"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p2809.pac:2520","pl":"「Dobra, lecę!」","source_sha256":"7b6ed5d8797ff17c0ccc8572c8341136fddd90830b831e7a3ed874673956b54f"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p1601.pac:10236","pl":"「Ple Two! Obudź się wreszcie!」","source_sha256":"7b728f06f189e611c731497732e9f65d6974fb517b6a41597d94343f72b1ec5c"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:8140","pl":"「Gah!\n Widzę, że nie zrozumiesz, póki nie oberwiesz!」","source_sha256":"7b7427ef303d22fa2ca6bccf544e9729d8eb3daad9f047bc63bdf651ee0a386d"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:8140","pl":"「Argh!\n Widzę, że nie zrozumiesz, póki nie oberwiesz!」","source_sha256":"7b7427ef303d22fa2ca6bccf544e9729d8eb3daad9f047bc63bdf651ee0a386d"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3149.pac:10836","pl":"「Jeśli to się nie odwróci, przegram?!」","source_sha256":"7b74c73a1c31166b123842e37fd3ff0c9ec3caaadcd603d9c8780b6b3969c17e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3301.pac:11424","pl":"「Naprzód, ludzie!\n Niech nasza dzikość spłonie do cna!」","source_sha256":"7b792e4fe0718ab2d7dd059e12460d3c167bbeae4a720b2fe49d20338d9f3d40"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3121.pac:6824","pl":"「Cholera!\n Jakbym miał od tego paść!」","source_sha256":"7b79811aaa3ddafbfbcedf5b18b88acef2c4c4c65eb7f73a862646df95d196fa"}
@@ -62695,7 +62695,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p1550.pac:4648","pl":"「Daremne…」","source_sha256":"80f15e5d0610b2cb0f262a5c60be3d30e21446119872e68e95160440c38ec5e1"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1257.pac:7816","pl":"「Nie wyjdziesz stąd żywy!」","source_sha256":"80f2100e8aa69633e1aaabc7f06b64e91de0bb1cf39cc7598020b18644fb4f98"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl11.EDAT/p3185.pac:4812","pl":"「Nie pozwólcie wrogowi podejść bliżej!」","source_sha256":"80f36485f09e8f376051340f12e767b165f96328958506662d4674d7a51d81c0"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl19.EDAT/p4420.pac:14332","pl":"「Gah!!\n S-spychają mnie?!」","source_sha256":"80f3a78e4db09e737ae46308a837214b0d05fa9a4fefcce5da301e2bff1db60e"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl19.EDAT/p4420.pac:14332","pl":"「Uch!!\n S-spychają mnie?!」","source_sha256":"80f3a78e4db09e737ae46308a837214b0d05fa9a4fefcce5da301e2bff1db60e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:27676","pl":"「Idę, melduję!」","source_sha256":"80f7235adfe25b0710ae8d94f3b775eccce4ab4b70f6a2901ef23aa9fe9b0a7b"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0326.pac:11224","pl":"「Ostatecznie tyle jesteście warci」","source_sha256":"80fb5e303faa5a991f84a1a23bdfc713e65ee5e0053816650351c472e1a7db37"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0402.pac:37328","pl":"「Proszę, jeszcze jeden cios!」","source_sha256":"80fc1f0665dc913a34d085f8a6dbadd21d409d361b3d7bcfd10076ec0714010c"}
@@ -62725,7 +62725,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3460.pac:11388","pl":"「Kh!\n Wykorzystał mój błąd?!」","source_sha256":"8136a4e7c1ac87d6832f8fb1aec6f1b1b2e6edaec23a12a49d7456f5cb42e65b"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3121.pac:5128","pl":"「Muhahahaha!\n Na nic, na nic!」","source_sha256":"813af51d0bb8befca8d2d746b96aaa5f2bae64efe561ae8274094f8220f26825"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p2320.pac:11396","pl":"「Haaa!」","source_sha256":"813d45a8e444089e77bf230035576f09eaf532bf2cad67528c81d430a7f99ef7"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4182.pac:17632","pl":"「Gah! Bezpośrednie trafienie?!」","source_sha256":"813e0ac4f7b259cd2b83b5125838b2ccc4af227dd5e6430f00944a268fdc9dfe"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4182.pac:17632","pl":"「Uch! Bezpośrednie trafienie?!」","source_sha256":"813e0ac4f7b259cd2b83b5125838b2ccc4af227dd5e6430f00944a268fdc9dfe"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl11.EDAT/p3178.pac:760","pl":"※※※","source_sha256":"813e0c487723a86bd40ebd0b1b849e731bb9099f2775d9ac3228f41d61ef02d9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl13.EDAT/p1520.pac:5704","pl":"「To było nierozważne!」","source_sha256":"81402eb2ed51203c62beff9a3bc5221831949c102c2df707b863837b1ad366ab"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p2825.pac:9440","pl":"「Zawaliłem...! Nie mogę go dosięgnąć!」","source_sha256":"814045ec80f56c8aba0e31b0a603def1c04a2aa27e25c13149b98c11c75017f7"}
@@ -63669,7 +63669,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4150.pac:13504","pl":"「O, wciąż tyle energii?\n Z Organoidem to jednak co innego.」","source_sha256":"8a227d64fcb129118c2f39522c005007d1a9b57e5d3662235dc9b3652d4525d1"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:67792","pl":"「Chwileczkę, stóóój!」","source_sha256":"8a22b745258c635340ac1ee185847a01069e86e7ec7b6924ec4908582c45d89b"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0708.pac:12108","pl":"「To nie twoja siła,\n tylko siła Dark Go-Saurera!\n Nie myśl sobie!」","source_sha256":"8a234bac611b885cb4e1e8154e0241252316415d6a18f69ae909a7c070f5e2ff"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1401.pac:7620","pl":"「Gah! J-jest za silny!!」","source_sha256":"8a24f9b9f386f08742effb54bd595e298d1d8de913cf199786e43aa3427d5a4c"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1401.pac:7620","pl":"「Uch! J-jest za silny!!」","source_sha256":"8a24f9b9f386f08742effb54bd595e298d1d8de913cf199786e43aa3427d5a4c"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0405.pac:16076","pl":"「Ugh!\n Moja piękna buźka zniszczona...!」","source_sha256":"8a27b4b9b838fe57754e89f7b062a2e76465234bcaff5bb5a3c60049b8bad9cd"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4550.pac:15992","pl":"「…………」","source_sha256":"8a297d9a91f0faa0d676d0f6c99b7b5a15b5919ab3e0b8c73d596a54f4e3f3f4"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p2805.pac:7636","pl":"「Wiem bez twojego gadania!」","source_sha256":"8a2a093ee6e590b69d63973258f6928cc826ba9aaf559a469b807e2f3b0766a4"}
@@ -64349,7 +64349,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4180.pac:6872","pl":"「Przechodzę do ataku!」","source_sha256":"907aea2f0e066ccf43022462fa9f2da8a6ee9df2f6d1f4cb1921b0f1d802b06f"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0302.pac:9164","pl":"「Czyżby zabrakło Mistu?」","source_sha256":"907ccf1c30f2cd2eacfca2aa2c615731b67329328f9326741781822b95cbfca5"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p2020.pac:4940","pl":"「Bezpośrednie trafienie? Nie ma mowy!」","source_sha256":"908066c3ed2a45ca0c6fb994a5ad6458741457335590c54ecce918bbde5ca466"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl14.EDAT/p4301.pac:17580","pl":"「Ugh… Ngh…!」","source_sha256":"9083f3a9a1e6824670efe9232c1797af3acfb5eac7c75f7436c2a421106ea48e"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl14.EDAT/p4301.pac:17580","pl":"「Uch… Ngh…!」","source_sha256":"9083f3a9a1e6824670efe9232c1797af3acfb5eac7c75f7436c2a421106ea48e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1652.pac:6204","pl":"「Ugh...! To już walka na wyniszczenie...!」","source_sha256":"908818948dcd9d715c53ca9791b201888d3890503c67b0887b8f9b77a79f1d07"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0500.pac:19312","pl":"「God Thunder Craaash!」","source_sha256":"908c215eadf56c3192f5c2ac83b3825802f630225ff1f7a60937683a6436cf0e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1409.pac:2600","pl":"「Wygląda na to, że nie ma wyjścia!」","source_sha256":"908cd5a195c1c294eabcebebb21fe584b7353e4f742233f9990864d03d678f27"}
@@ -64812,7 +64812,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0050.pac:24368","pl":"「To jeszcze nie koniec!」","source_sha256":"94c64982c00e9b4b7adbe63a752b2a4134092dc079bb79db39037ac5a487d22c"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p2501.pac:11720","pl":"「Przepraszam, Bracie...!」","source_sha256":"94c9860c83a59f04130eaa74c83f0b6d8a7c0f88d5c84d710edb8848ac54918f"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3146.pac:3780","pl":"「Przykro mi, ale spadasz!」","source_sha256":"94cff64733d4769065d21afe683ff32e8d68cbe6bbce8f2a100d16e51a8cff9b"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl14.EDAT/p4301.pac:17476","pl":"「Ugh…!」","source_sha256":"94da07223ee45d17e154fdc128f67714b91f3962015421c64bf3552c217bc50b"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl14.EDAT/p4301.pac:17476","pl":"「Uch…!」","source_sha256":"94da07223ee45d17e154fdc128f67714b91f3962015421c64bf3552c217bc50b"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p1163.pac:7856","pl":"「Cholera! Bigro jest już na granicy!」","source_sha256":"94db77ef103ba0a15649407aa3c7385c613894972393448c2c29828a674e9ec2"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1831.pac:8616","pl":"「Ugh!\n Ngh... Ale pojedynek nie jest skończony!」","source_sha256":"94dec8825ad804bdbeb3fdb8f3f2fef5381b72eb672cc8ccdf9bb34b0626a803"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3146.pac:6832","pl":"「Jakby to miało trafić!」","source_sha256":"94e07608ed69e7e9a0236e3f79b17ab05400c91b9323e11272dcc92832ac99c5"}
@@ -65983,7 +65983,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0406.pac:40956","pl":"「Płonę do czerwoności!\n Zdaj się na mnie!」","source_sha256":"9fc93fab11c73f087b96603c12ef2027ebd17aff23390fc67ffb4c54c4af5c0c"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3711.pac:13144","pl":"「Dobra! To cię wykończy!」","source_sha256":"9fc96550998d38dfb07b3cbd1cfa87c501a52ba3c1360881da60887229868941"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl10.EDAT/p3116.pac:4112","pl":"「Leeeeć!」","source_sha256":"9fcc8bfd4c830ede87b2e182d5b7e3371ddfde49dfc3ba3e8cce26277d6f021e"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:7260","pl":"「Gah! Niedobrze...」","source_sha256":"9fcf59f94a84beb499a81d5a0e94789058ae62ce7a0d0d00fa001f62b8ddb1b1"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:7260","pl":"「Uch! Niedobrze...」","source_sha256":"9fcf59f94a84beb499a81d5a0e94789058ae62ce7a0d0d00fa001f62b8ddb1b1"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p2250.pac:6844","pl":"「Przygotuj się na należną karę!」","source_sha256":"9fcfe9d2cf0bf5548bac9a98bb788b64174dc5eb284589c9b04be0bc2d0f9f58"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4156.pac:11536","pl":"「Death Saurer jest niezwyciężony!\n Tacy jak wy nigdy go nie pokonają!」","source_sha256":"9fd0cf1b6812c1af8f06457f34cf3b74e692ace00173a128b969e914443cebb0"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0325.pac:10240","pl":"「Za tę ranę odpłacę ci\n z nawiązką, później!」","source_sha256":"9fd152387d73d2c15b396296a9607df10b20a4d2b8244a127a4ba7e8464e5488"}
@@ -66698,7 +66698,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p4191.pac:8004","pl":"「Teraz moja kolej!」","source_sha256":"a6809229f370e5cb612933c5a3c1e930977b0d7f050ed0b220f3b96bc810e947"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1260.pac:3896","pl":"「Mam cię!」","source_sha256":"a68438b2ac1cc97a7933e2674e5ce00bc1277c8d7c5eb8fe37079bb2828c6be6"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4550.pac:11052","pl":"「…………」","source_sha256":"a68ade397e7ceb820bee18886629dd127b77e1a773d1dfe04089ea43efe5555a"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4183.pac:17632","pl":"「Gah! Bezpośrednie trafienie?!」","source_sha256":"a68c874be40716f4cd44809f75aab5bad4c9ad836a39adda8db2dc63383e9c9a"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4183.pac:17632","pl":"「Uch! Bezpośrednie trafienie?!」","source_sha256":"a68c874be40716f4cd44809f75aab5bad4c9ad836a39adda8db2dc63383e9c9a"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1321.pac:2568","pl":"「Pokażę wam siłę oddziału Cyclops!」","source_sha256":"a68d4e6a9420083c90a6853e8082e3e9906f7c1e64c056267882e2b32f63c993"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p4156.pac:8272","pl":"「Zniknij z tego świaaaata!」","source_sha256":"a68eb2be185e5138572ba50141341ed92b939df4e5bbd456d82e025cf2ab7463"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl19.EDAT/p4420.pac:11476","pl":"「Ha!」","source_sha256":"a69031a39700b402317cdbeb0c3383ec4cf1e19050bee240687827fffda00636"}
@@ -67171,7 +67171,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1258.pac:4028","pl":"「Co z tego, że to typ Gundam?!」","source_sha256":"aafcef3e1c85bce72f78843d35dee1efe102fa72809207b11618fb8126c33837"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p2817.pac:6372","pl":"「Haaaaaach!」","source_sha256":"aaffe528174403042d8a630356965266e1aa0f6b72e4667d4ab4ee5af8d8ded5"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4560.pac:7936","pl":"「…………」","source_sha256":"ab02f4ee22dc164a23c1c8c239ed8dcb591937e5442615522f4d5145e923adfe"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4501.pac:28116","pl":"「Gah! Bezpośrednie trafienie?!」","source_sha256":"ab030eb44e37506c9bd8d7dcce1343f68c0d78a1c108e83c8557e981ae36ac51"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p4501.pac:28116","pl":"「Uch! Bezpośrednie trafienie?!」","source_sha256":"ab030eb44e37506c9bd8d7dcce1343f68c0d78a1c108e83c8557e981ae36ac51"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1006.pac:5236","pl":"「Akurat dam się trafić!」","source_sha256":"ab0328dd722b37183071a92ad6d18863f4858ed43e7e4db1890e103b6b39ee82"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl12.EDAT/p4181.pac:18244","pl":"「Nie dam się tu pokonać!」","source_sha256":"ab0537a68b3b17390968ee63a8a34983c543b290daed4516ed2aa07846b4a6d6"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3731.pac:7908","pl":"「Chyba nie wyjdę z tego bez szwanku...」","source_sha256":"ab0beeac640638b15f13455f0f97e3950cc450dee7baf3befeda4277eb48cf7b"}
@@ -71979,7 +71979,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3480.pac:6608","pl":"「Idealna zdobycz dla AT!」","source_sha256":"d7d01505fb2a8fd376bc9ab99cdb8108b4da3c7cf14d58fa96ff7eb3c608f73e"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p1831.pac:5408","pl":"「Za wolno!」","source_sha256":"d7d51bb0bce9cf78ba57b20e3cae49d2f787f6a801a6cd69e304aaa2eb613171"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl04.EDAT/p3134.pac:7776","pl":"「Uaaa! Moja wina! Przepraszam, dobra?!」","source_sha256":"d7d6da05758ac94039b2cd143b39bea90b9eb609ad2bacabd5f62a12e99b3751"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1318.pac:4868","pl":"「Gahh... Nieźle... Ale nie jestem tak miękki,\n żeby paść w takiej dziurze...」","source_sha256":"d7d7ca8cf549ffc24c63a1fb85d47ba3208db355f46eb61184a728d6158cfe9d"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1318.pac:4868","pl":"「Uch... Nieźle... Ale nie jestem tak miękki,\n żeby paść w takiej dziurze...」","source_sha256":"d7d7ca8cf549ffc24c63a1fb85d47ba3208db355f46eb61184a728d6158cfe9d"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0406.pac:15960","pl":"「Hebi Metako!\n Kończymy to Yari Pantherem!」","source_sha256":"d7dd7216a556d83a8a55e93562b2de32815fa32ed001ee44a2d20c651e6abbc4"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p2250.pac:12920","pl":"「Gundamie!\n Czyżbyś został w tyle za moim szczytem?!」","source_sha256":"d7de759997fff52343c488b61c9af45477ae733b05fba5406b3b303ea0c986ec"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1048.pac:1100","pl":"Zniszczony","source_sha256":"d7e3c4fd3c3d31d55baa099e142459763385dc077379627bfb85bd596a879499"}
@@ -73356,7 +73356,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0402.pac:33328","pl":"「Przyjęłam, siostro!」","source_sha256":"e4f302d6f11883efe9d5ce4a94e61cf3a578e7537c5bac3fb19fb5523ce00f38"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0406.pac:13348","pl":"「Nie pozwolimy\n zniszczyć obu światów, wiesz!」","source_sha256":"e4f32dd8c6a2083d8f2cc0e6881688e66a0e4f8126f895b6a519fc08cb85e2d3"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:50928","pl":"「Wszyscy, ewakuacjaaa!」","source_sha256":"e4f4849357398bd1972d13665d667c5fc129c3d63b5a9fedcb6cac62e2186569"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3518.pac:5212","pl":"「Gah! Bezpośrednie trafienie?!」","source_sha256":"e4f5fcd5dea8e5b105b3f4d340d5b987226be3769863f12c195b7dd941460614"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3518.pac:5212","pl":"「Argh! Bezpośrednie trafienie?!」","source_sha256":"e4f5fcd5dea8e5b105b3f4d340d5b987226be3769863f12c195b7dd941460614"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl03.EDAT/p2250.pac:9960","pl":"「Oto tajne cięcie Powrotu Jaskółki!」","source_sha256":"e4f646b70103751409074bcdd92217b6ad51639f1f0dff68866a5edabdffba73"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1325.pac:4320","pl":"「Ha! Nie znasz nawet parametrów wroga?」","source_sha256":"e502b8f825946fff8c1b96b53bbc4ad533969c4ffe8140e6af374230701918d9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p3401.pac:3848","pl":"「Ta luka cię zgubi.」","source_sha256":"e502bc09ba44c46da68f79fd14fbe76db743363dd91ee3f5ffed383050d245c2"}
@@ -74267,7 +74267,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0302.pac:10280","pl":"「J-jeszcze nie mogę\n się poddać!」","source_sha256":"eda0838683587113fe0021d2d21a6a2063f8d4313a0a684ba89d77babff59ba0"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0700.pac:23972","pl":"「C-chyba nie możemy\n tego zrobić...」","source_sha256":"eda25c22f637cdb20ee8c8c990bf2c1b217e4f53827cd9b799cfc54eb65a9435"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl11.EDAT/p2305.pac:14400","pl":"「Twoja porażka jest już przesądzona!」","source_sha256":"eda31d4a2ee8411f0790f17ee7800c300d6517ee410049659097cafc7213a7a9"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl05.EDAT/p3423.pac:9320","pl":"「Gahh!\n I co ja mam teraz zrobić?!」","source_sha256":"eda4840d04e736e390d94fafa23309cb1b96c4833fab1e4dad0a266881133567"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl05.EDAT/p3423.pac:9320","pl":"「Uch!\n I co ja mam teraz zrobić?!」","source_sha256":"eda4840d04e736e390d94fafa23309cb1b96c4833fab1e4dad0a266881133567"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0800.pac:14244","pl":"「Jasne!」","source_sha256":"eda5ea60886027bdd88439243559c789d8d46482679067b47627e1d59f7b510b"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:15624","pl":"「Ujrzyjcie moją prawdziwą moc, melduję!」","source_sha256":"edaa3d39807f1c5a56df66579041dc1d36566f53bb101f6d82608d654817460d"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl02.EDAT/p0460.pac:6052","pl":"「Jej ryk każe mi chwycić zwycięstwo!!」","source_sha256":"edaba4c722f373194e7af4107f593470492dec4c8ed6cff84dfeb186971e7bc1"}
@@ -76254,7 +76254,7 @@
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl01.EDAT/p0400.pac:21796","pl":"「Hej!\n Tak postępują tylko tchórze!」","source_sha256":"fff12b7fb4200b2479b6a9a48c03bf7d760ee69ff936374ad1450e29e04dede9"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3901.pac:42792","pl":"「Vuuulcan!」","source_sha256":"fff4263a023f50a242760a14b83ce4bcce79d4df2e375e11eb7d6d1b9d301477"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p0708.pac:5136","pl":"「Nie licz, że wrócisz cały,\n Engine-Oh!」","source_sha256":"fff75101b517dd7b10f80cd623de23f501b4e565f1286431dd27f356fe379a4f"}
-{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1001.pac:18328","pl":"「Ugh! Char!」","source_sha256":"fff7c4698a7877021924aaa9a8be55b9f90cff70dbaafa5e302f0e017c761553"}
+{"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p1001.pac:18328","pl":"「Uch! Char!」","source_sha256":"fff7c4698a7877021924aaa9a8be55b9f90cff70dbaafa5e302f0e017c761553"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3731.pac:12732","pl":"「Po czymś takim mogę działać dalej!」","source_sha256":"fffa1fcbebefd6379cd374f384e76bfd640ff91767da73bab0894dd97079fa6a"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p3712.pac:1580","pl":"Wsparcie ataku","source_sha256":"fffc23bc1c405323c2a71da10a4666e8592f7653c7415b3e87e8a21a8cfd677c"}
 {"file":"01_battle_quotes.jsonl","id":"quo:mesbtl00.cpk/p2821.pac:8820","pl":"「Plasma Drill Hurricaaaaaaane!」","source_sha256":"ffff35157cd65d1f80e7111f0f3e8f0bc83acf47e1ac9070b07ea6d28d22d252"}
@@ -100029,7 +100029,7 @@
 {"file":"07_names_characters.jsonl","id":"char:706:series","pl":"Nekketsu Saikyo Go-Saurer","source_sha256":"195f3bcf5013b8e3ff4cf9e42a435304092741f13f8f4a7464da3de454688295"}
 {"file":"07_names_characters.jsonl","id":"char:3315:series","pl":"Super Beast Machine God Dancouga","source_sha256":"196b245a286f3f62c0dfce303abcb44d35246400377fb4e70a889fad8a73cc28"}
 {"file":"07_names_characters.jsonl","id":"char:2948:name_full","pl":"Black Knight","source_sha256":"1974098826d5671b3925954cad50e18be7079f74c435d24226e706571fbfe2ba"}
-{"file":"07_names_characters.jsonl","id":"char:3462:name_narrow","pl":"Gilgamesh Sldr","source_sha256":"198fb615afeb5f23e24f6f6bf1962b32704d94fad4759afe66645d191d3cf69f"}
+{"file":"07_names_characters.jsonl","id":"char:3462:name_narrow","pl":"Żołn. Gilgameshu","source_sha256":"198fb615afeb5f23e24f6f6bf1962b32704d94fad4759afe66645d191d3cf69f"}
 {"file":"07_names_characters.jsonl","id":"char:1321:series","pl":"Mobile Suit Gundam 0080: War in the Pocket","source_sha256":"19abf8573cbc9f0cfa02cdf82a581180fa5a485d753242a7c2b67a1169d8e0fa"}
 {"file":"07_names_characters.jsonl","id":"char:1643:name_short","pl":"Rakan","source_sha256":"19ac663df53cfa0973817cdccdb8754664be0fdda441169e17a6315189d584aa"}
 {"file":"07_names_characters.jsonl","id":"char:2125:name_full","pl":"Louise Halevy","source_sha256":"19daeeb790f3e8294d56697b6f33135e84e508c91b89e40a4fdf1dd086010f89"}
@@ -100070,7 +100070,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3719:nickname","pl":"Yamazaki","source_sha256":"1c405eb56ea2cb5676d1e25ad3bf146f4c7cafee37dbaeb973c1b15998ffc122"}
 {"file":"07_names_characters.jsonl","id":"char:2344:nickname","pl":"Cecile","source_sha256":"1c44ce77f04b0bfb105830105510f764cc6d482d467d97e64ce27ae6c01c5404"}
 {"file":"07_names_characters.jsonl","id":"char:600:series","pl":"Genki Bakuhatsu Ganbaruger","source_sha256":"1c681047f2a6c541600e768c2d7dddba506c72e572f642f273b5b2a180fbd7c5"}
-{"file":"07_names_characters.jsonl","id":"char:3472:name_narrow","pl":"Balarant Sldr","source_sha256":"1c70d0e01b6437bfc7b7f6263d4e47564d17941a4386615e91f7b9cc7bf7cb26"}
+{"file":"07_names_characters.jsonl","id":"char:3472:name_narrow","pl":"Żołnierz Balarantu","source_sha256":"1c70d0e01b6437bfc7b7f6263d4e47564d17941a4386615e91f7b9cc7bf7cb26"}
 {"file":"07_names_characters.jsonl","id":"char:1550:short_name","pl":"Haman","source_sha256":"1c749b5eb4025f49390090a227379337c0512edaf6ca146d69fae3c61985c93a"}
 {"file":"07_names_characters.jsonl","id":"char:1131:name_short","pl":"M'Quve","source_sha256":"1c85db15add627a9cfb3963de4c2563d147d82ddce7d41dfb78d23fe1568548c"}
 {"file":"07_names_characters.jsonl","id":"char:4183:name_short","pl":"Oficer Guylos","source_sha256":"1c88849ecfbc3bc5600a3f8ab01ff96267a82af1c249912500ec9fa53b25ecdc"}
@@ -100249,7 +100249,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2531:name_short","pl":"Viral (Ally)","source_sha256":"2a0429ada0ff14565150a32d7e33d94d63684b6129a43d566f9f7546b89d3f14"}
 {"file":"07_names_characters.jsonl","id":"char:616:name_narrow","pl":"Pani Aiko","source_sha256":"2a146c21cbf9ac1c58d080f59f9f39aa618563590650ae2529c919b4331c9ee5"}
 {"file":"07_names_characters.jsonl","id":"char:403:nickname","pl":"Tama-Q","source_sha256":"2a2b577a73ba46d46b7500b646db8d55f4f85a6ce9ba758c46c80d4e1ac25bc6"}
-{"file":"07_names_characters.jsonl","id":"char:3475:name_narrow","pl":"Balarant Ofcr","source_sha256":"2a2e711334c4dc72a32a094cfe065872f6afe6dbc440ebd21db8d5c1c2e72ffd"}
+{"file":"07_names_characters.jsonl","id":"char:3475:name_narrow","pl":"Oficer Balarantu","source_sha256":"2a2e711334c4dc72a32a094cfe065872f6afe6dbc440ebd21db8d5c1c2e72ffd"}
 {"file":"07_names_characters.jsonl","id":"char:1832:name_short","pl":"Zechs (Ally)","source_sha256":"2a3c2c1868bb2b723b30fa10a32213a59bb741aafa432274089804ecb1faa5d3"}
 {"file":"07_names_characters.jsonl","id":"char:206:name","pl":"Saeko Yagami","source_sha256":"2a565cbec1c8020cceb62f215cce6714cba57bc3cd11502f9d96d37da0da7c81"}
 {"file":"07_names_characters.jsonl","id":"char:2659:series","pl":"Macross Frontier","source_sha256":"2a739c29654c659288d4a385bd7e4f06445bb55588cd4d469eadb31bcd664ce5"}
@@ -100263,6 +100263,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3759:series","pl":"Mobile Police Patlabor","source_sha256":"2afe640f4c8f2a904beb1b37851abff6081982421a723a488cb495eb37df8f21"}
 {"file":"07_names_characters.jsonl","id":"char:1306:name_narrow","pl":"Bernie/Ally","source_sha256":"2b0753dff09d64056911b6402b6c6bfbce9ecc1eea091c7b0b52ed7805fe982e"}
 {"file":"07_names_characters.jsonl","id":"char:241:name_narrow","pl":"Killy","source_sha256":"2b25542ba95772aab1982a0e194bd054f018c81a1b4f8e712a3d067672c345a3"}
+{"file":"07_names_characters.jsonl","id":"char:2320:nickname","pl":"Kallen","source_sha256":"2b2855738fe5015779f19fde98779b74b3dca0fa184ad5ae57648090099039b0"}
 {"file":"07_names_characters.jsonl","id":"char:2610:voice_actor","pl":"Aya Endo","source_sha256":"2b2c1c7702bb4582c991b4c4dd675b88b9e20aae7e98828970c10b0b85e3db12"}
 {"file":"07_names_characters.jsonl","id":"char:3920:voice_actor","pl":"Takehito Koyasu","source_sha256":"2ba6b290737f7c9196263ecaf54a30a5445b1695277ae8928beb18dbba111682"}
 {"file":"07_names_characters.jsonl","id":"char:3178:name_full","pl":"Rebeliant","source_sha256":"2bab51c9303e34fd1312d7426af610e38def21e6f016200102863b8849ca4923"}
@@ -100409,7 +100410,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1305:name_full","pl":"Bernard Wiseman","source_sha256":"34fb5d033bae408fd4f3f87b40c17425d0d9564b5e50905ab932283e7fbee1f3"}
 {"file":"07_names_characters.jsonl","id":"char:717:name","pl":"Yuka Mizuhara","source_sha256":"35025fdbfd67aca43584003ea69aefa3fa219a21323172bb3a60199777870b16"}
 {"file":"07_names_characters.jsonl","id":"char:616:name_short","pl":"Pani Aiko","source_sha256":"350b29dca9e0fe002fecd2111e3eaa70dddfef3386390161f1227f3e536ab7c6"}
-{"file":"07_names_characters.jsonl","id":"char:720:name_narrow","pl":"One","source_sha256":"3516ce019382128e1712474dcd8f84d1b081fb325ce3d842cc23c6e94b707323"}
+{"file":"07_names_characters.jsonl","id":"char:720:name_narrow","pl":"Wan","source_sha256":"3516ce019382128e1712474dcd8f84d1b081fb325ce3d842cc23c6e94b707323"}
 {"file":"07_names_characters.jsonl","id":"char:302:name","pl":"Paffy Pafuricia","source_sha256":"3546ea2e047d9afdb1adabd2f6a5e182f081929dc338cb0acc3fb4c630af39e0"}
 {"file":"07_names_characters.jsonl","id":"char:3719:name","pl":"Hiromi Yamazaki","source_sha256":"35a984e83045be8808a81c4836e431bf28b6e80c495d4a9b93e5ef1f02b5ea63"}
 {"file":"07_names_characters.jsonl","id":"char:2624:series","pl":"Macross Frontier","source_sha256":"35b9e92c11cc84e5f4a9f67067ada455022ccfcd2fd0b125497c69513098be15"}
@@ -100448,7 +100449,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3851:name_short","pl":"HOS","source_sha256":"38fda7fe2a110639b06e02cced21712afa0d163de195b63177147414e3de4a83"}
 {"file":"07_names_characters.jsonl","id":"char:2901:name","pl":"Show Zama","source_sha256":"390ec8d1d488650fc9ec1f78c8a859a4f14804fb7df79f8dabe0f4bf4a7e29e9"}
 {"file":"07_names_characters.jsonl","id":"char:1109:nickname","pl":"Ramba Ral","source_sha256":"391f8bc886f15014a1b8ddbd8a1d0cd575842dc89bf9efa31bd50a3bb0f760be"}
-{"file":"07_names_characters.jsonl","id":"char:333:name_narrow","pl":"Pafuricia Sldr","source_sha256":"393180d2f439885146f551c1ba1e8d1fe4bbeb8b1a6191bac34d7500a57695b0"}
+{"file":"07_names_characters.jsonl","id":"char:333:name_narrow","pl":"Żołnierz Pafuricii","source_sha256":"393180d2f439885146f551c1ba1e8d1fe4bbeb8b1a6191bac34d7500a57695b0"}
 {"file":"07_names_characters.jsonl","id":"char:526:name_full","pl":"Bakuryu Dragon","source_sha256":"393827e03d564ea4b4cdbb600b7f82d961eb3369f74766ebf53978431fcd0f0e"}
 {"file":"07_names_characters.jsonl","id":"char:3472:name_full","pl":"Żołnierz Balarantu","source_sha256":"395b4f557036223dfbc7896be4fc99b93da1c8940c198fadf3599872fa2c00f1"}
 {"file":"07_names_characters.jsonl","id":"char:460:series","pl":"Mobile Fighter G Gundam","source_sha256":"39622ef488c6d7cd9f91ad8d4913e5f58b0020c6e0c504de6c1f3775f37c2b7a"}
@@ -100566,7 +100567,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2628:nickname","pl":"Luca","source_sha256":"40f070effe731fb0d89b7c1984089bd020d92a5a12ebdbeb7c7f289ae4894e6e"}
 {"file":"07_names_characters.jsonl","id":"char:1137:name","pl":"Slender","source_sha256":"40f5e96b056c52be86d56e43b59278ff9bf012f3789accd8632508dd1e7121b9"}
 {"file":"07_names_characters.jsonl","id":"char:804:nickname","pl":"Kakeru","source_sha256":"4123e3ac6445d5a70fd9c0a9bc749b55ca2357a0e3270fa30a67b7630304c526"}
-{"file":"07_names_characters.jsonl","id":"char:330:name_narrow","pl":"Pafuricia King","source_sha256":"4144367e912542d19367e621a28e43590148a76c5d211953cdcd7303b3f34d57"}
+{"file":"07_names_characters.jsonl","id":"char:330:name_narrow","pl":"Król Pafuricii","source_sha256":"4144367e912542d19367e621a28e43590148a76c5d211953cdcd7303b3f34d57"}
 {"file":"07_names_characters.jsonl","id":"char:3518:nickname","pl":"Byman","source_sha256":"415141c8d9fd79eec842ce4140f7810d05b78980a16df3663da2b564327d46cb"}
 {"file":"07_names_characters.jsonl","id":"char:3545:series","pl":"Armored Trooper VOTOMS: Red Shoulder Document","source_sha256":"415b8ad15c2b535d23b697876f28b7d18eff4d2c863317c85ae04f8a6b9197dd"}
 {"file":"07_names_characters.jsonl","id":"char:402:nickname","pl":"Cocoa","source_sha256":"417409e8c3fa38feb53c34eeeef6b477b956a8ad8834dc5020042527bb5785bd"}
@@ -100578,8 +100579,10 @@
 {"file":"07_names_characters.jsonl","id":"char:407:name_full","pl":"Cafe au Lait Arara","source_sha256":"422979266af26e86ec9f6773aca3081c554aac60b22a3ed5182d61d909d50f07"}
 {"file":"07_names_characters.jsonl","id":"char:725:name","pl":"Yuri Yayoi","source_sha256":"4248713cd97ad1d60d2bfc004fd08f2329f2449594f98ca4daa1afe63d490f99"}
 {"file":"07_names_characters.jsonl","id":"char:1550:name_short","pl":"Haman","source_sha256":"4271ad6c5138ffe700b83db455973b4bd21a2e87e6c7c962c75b90ae7c4d3619"}
+{"file":"07_names_characters.jsonl","id":"char:2320:name_short","pl":"Kallen","source_sha256":"427eeb98f15166e4920d93ccc0a6814b69968f8466b52d7a8a2a8c51be2b3e35"}
 {"file":"07_names_characters.jsonl","id":"char:4510:voice_actor","pl":"Kana Asumi","source_sha256":"42978b7cf9301360e009b2014de833c2fa01fd5ed332e9b1728c395c8830188a"}
 {"file":"07_names_characters.jsonl","id":"char:1072:name_short","pl":"Tianem","source_sha256":"42aac2185e01c2b004dccf8f8e264783832841eaa36ac3627ffa35a2ee2e5002"}
+{"file":"07_names_characters.jsonl","id":"char:2320:nickname","pl":"Kallen","source_sha256":"42b2151cea88090bdccc6afcf00630bfeda18a4bbc88885adafb7fc2b5db3b72"}
 {"file":"07_names_characters.jsonl","id":"char:2642:series","pl":"Macross Frontier","source_sha256":"42d2b2aed0811e436e6f35af85dbb20c24436ddfca0b357a818b12399ee5ce82"}
 {"file":"07_names_characters.jsonl","id":"char:2805:nickname","pl":"Hayato","source_sha256":"42db2d5c89541c9944d216f51cdd88f6af502b4c0528456e1f43fd5816a316c3"}
 {"file":"07_names_characters.jsonl","id":"char:2642:name_narrow","pl":"Jeffrey","source_sha256":"4303304b7a49d873652bd7f50f25adcf7924d949f8a0736483d4c992327b3f9e"}
@@ -100658,7 +100661,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1129:short_name","pl":"Conscon","source_sha256":"48056c7861e4d853c1c109291110f06f0b68ca26efff47a48e5e90d4980499ce"}
 {"file":"07_names_characters.jsonl","id":"char:515:name_narrow","pl":"Akira","source_sha256":"48061c6f92a1c67d311d64e04581ad7356ee62632d0cf4da45f2589b56594c15"}
 {"file":"07_names_characters.jsonl","id":"char:701:name_short","pl":"Kenichi","source_sha256":"482c69ac72463a412e06cdd63424fb927b9eba2b967f4d901a5c7af7b6407ef1"}
-{"file":"07_names_characters.jsonl","id":"char:3180:name_narrow","pl":"Posaydal Sldr","source_sha256":"4836db4bd2afdc37aec55812ac274fad1e30c3e6cd1348fb8bb95e9746be7e8e"}
+{"file":"07_names_characters.jsonl","id":"char:3180:name_narrow","pl":"Żołnierz Posaydala","source_sha256":"4836db4bd2afdc37aec55812ac274fad1e30c3e6cd1348fb8bb95e9746be7e8e"}
 {"file":"07_names_characters.jsonl","id":"char:3514:name_narrow","pl":"Murza","source_sha256":"4838b6e72a5b43381772617ac1befe215251446578e9f32d7243bd791d97312e"}
 {"file":"07_names_characters.jsonl","id":"char:302:name_short","pl":"Paffy","source_sha256":"48548e752224067381e6f98df05b353f485fc7ce73606a713727aa72fdc93832"}
 {"file":"07_names_characters.jsonl","id":"char:219:name_narrow","pl":"Ryu Dolk","source_sha256":"487284c286b970e64e102c0dd012886a8c76be133bce9e37c54d475293e240ca"}
@@ -100982,7 +100985,7 @@
 {"file":"07_names_characters.jsonl","id":"char:618:name","pl":"Yurika Komaki","source_sha256":"5d76c1d0c0e3ed117572a70205e376cb8b0e061e4b181db810365b8489e63abb"}
 {"file":"07_names_characters.jsonl","id":"char:507:series","pl":"Matchless Raijin-Oh","source_sha256":"5d82a07e59167302041b24c7fc739e27db51da73ccafee05f73f54abb6f18dd5"}
 {"file":"07_names_characters.jsonl","id":"char:218:short_name","pl":"Ryu Dolk","source_sha256":"5dc1ffc5a4fac2e888cc6b510bb15a509331f32a01686619f147539d230b0235"}
-{"file":"07_names_characters.jsonl","id":"char:375:name_narrow","pl":"Dark Dragon","source_sha256":"5dda550689a2e1e7c1e7d7aba7a5455f047f9dd8226022ab3aa1864099dd9c53"}
+{"file":"07_names_characters.jsonl","id":"char:375:name_narrow","pl":"Żołnierz Smoka","source_sha256":"5dda550689a2e1e7c1e7d7aba7a5455f047f9dd8226022ab3aa1864099dd9c53"}
 {"file":"07_names_characters.jsonl","id":"char:511:voice_actor","pl":"Rica Matsumoto","source_sha256":"5de9b55b06800dfe165ad4da41364c9023df9cbe4b630cfb7bfdb30be1ae9cc0"}
 {"file":"07_names_characters.jsonl","id":"char:424:name_short","pl":"Zenzain","source_sha256":"5e033237faab90056805a2e1458bc58724586e44dbab56524b8b8826a7e64f16"}
 {"file":"07_names_characters.jsonl","id":"char:3731:name_narrow","pl":"Kanuka","source_sha256":"5e242d14e575ff208dfe97198b6ff9eb6ecd74fc4e135953f6ba5f13dc1265fd"}
@@ -101051,7 +101054,6 @@
 {"file":"07_names_characters.jsonl","id":"char:405:nickname","pl":"Da Cider","source_sha256":"634184e487840ae00be2aea6006281242f86ce821cf5b6a07986aa34754b1564"}
 {"file":"07_names_characters.jsonl","id":"char:330:nickname","pl":"Król Pafuricii","source_sha256":"635bf4f7c6a36d14e6c18d0827c2ead48d2fd83358c6da51d831e1d890317b47"}
 {"file":"07_names_characters.jsonl","id":"char:1121:name","pl":"Cozun Graham","source_sha256":"637d5aaa292f35fc6c1c890b2dd838be46a24fefb7947f1ac7c4b8d80a58e761"}
-{"file":"07_names_characters.jsonl","id":"char:2320:nickname","pl":"Karen","source_sha256":"63886737010424c018a84d684c51e111fcc8436a50a83dabe9d8eefa9d1c17bd"}
 {"file":"07_names_characters.jsonl","id":"char:4154:nickname","pl":"Shadow","source_sha256":"639021b9e6db10ce8764f061e131ce62e1349f1eb18a217e48c6f5e2d35aa32a"}
 {"file":"07_names_characters.jsonl","id":"char:816:name_short","pl":"Seiji","source_sha256":"6394854c092d03aced8f4ff333c2c9adf17da9e7d1da1b14c35a9aa9ffa3e2a8"}
 {"file":"07_names_characters.jsonl","id":"char:1129:voice_actor","pl":"Osamu Kato","source_sha256":"63a17fd811f16c63c2a56543bdc3c168b2f668a5bafca965fcc717070ce08c4d"}
@@ -101191,7 +101193,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4174:voice_actor","pl":"Takahiro Sakurai","source_sha256":"6b74f338e8d6a8e0f5dfdb49f3ffd256a4a670b8eeb5ce7329cc09ef07baaa20"}
 {"file":"07_names_characters.jsonl","id":"char:2647:voice_actor","pl":"Sanae Kobayashi","source_sha256":"6b7ad249460a2f3c1d4c91df0f0aa3ef4e7822d610f7bdfb7ebbd4547e135c48"}
 {"file":"07_names_characters.jsonl","id":"char:1112:series","pl":"Mobile Suit Gundam","source_sha256":"6b9bb06459284449f86aafbb9defeb731eeb62cc2557eb2530162091253fe3d2"}
-{"file":"07_names_characters.jsonl","id":"char:2320:short_name","pl":"Karen","source_sha256":"6bb024f099097e54952bb3bdc2df24c3981d6f114ac36ed93966241a20905459"}
+{"file":"07_names_characters.jsonl","id":"char:2320:short_name","pl":"Kallen","source_sha256":"6bb024f099097e54952bb3bdc2df24c3981d6f114ac36ed93966241a20905459"}
 {"file":"07_names_characters.jsonl","id":"char:514:nickname","pl":"Potato","source_sha256":"6c07dca07e74dcf8088c34294f18d779fbe4285d85a4f598161fd7f4fa553709"}
 {"file":"07_names_characters.jsonl","id":"char:1315:series","pl":"Mobile Suit Gundam 0080: War in the Pocket","source_sha256":"6c11bcc90e55ffafa6fad93eb5326a6feb1333b8c173333b9373b0b290795d88"}
 {"file":"07_names_characters.jsonl","id":"char:500:name_short","pl":"Jin","source_sha256":"6c616a7d87fadf84d91ceb6dc59ec31f315aad8d40040f1a0b04c9cdb4f5fbc6"}
@@ -101304,7 +101306,7 @@
 {"file":"07_names_characters.jsonl","id":"char:600:nickname","pl":"Kotaro","source_sha256":"73c762ccf14f0b0d906f6b8e9624342cd93acaabec157947351ae0fce50e0aac"}
 {"file":"07_names_characters.jsonl","id":"char:3305:nickname","pl":"Sara","source_sha256":"73dc8470fa44009dc959ec8397e0aa5331f360a34473cdbae88ad52a0aeb926f"}
 {"file":"07_names_characters.jsonl","id":"char:2948:voice_actor","pl":"Sho Hayami","source_sha256":"73f7ba879ee01637c005a486f5088cb8b3c4744c97aa236e9c560c34b87c2ca5"}
-{"file":"07_names_characters.jsonl","id":"char:331:name_narrow","pl":"Pafuricia Queen","source_sha256":"742c2d124caf752db415b209686ed9661c74b955a4b5b11bd652736aee9ad482"}
+{"file":"07_names_characters.jsonl","id":"char:331:name_narrow","pl":"Królowa Pafuricii","source_sha256":"742c2d124caf752db415b209686ed9661c74b955a4b5b11bd652736aee9ad482"}
 {"file":"07_names_characters.jsonl","id":"char:329:name_narrow","pl":"White Dragon","source_sha256":"744d2bc8fc487d759f05a54b6dce610033e5d6b3b7081da01bffd10f0751a7d1"}
 {"file":"07_names_characters.jsonl","id":"char:1633:name","pl":"Ple Two","source_sha256":"746fa756e90437395e3d47846094d0c3dbb424b20ef66ee5947691adec44c1fa"}
 {"file":"07_names_characters.jsonl","id":"char:3106:voice_actor","pl":"Maria Kawamura","source_sha256":"74ad495e2ebc4fac58eea03320e291c935c685a55a82283749c0b953e8e3af88"}
@@ -101356,13 +101358,12 @@
 {"file":"07_names_characters.jsonl","id":"char:509:series","pl":"Matchless Raijin-Oh","source_sha256":"792684b1c0481adcb354aadcae996e0e04838ebfa72f747947b043020ba57b5d"}
 {"file":"07_names_characters.jsonl","id":"char:401:name","pl":"Milk Arara","source_sha256":"7938ca38f49f46bb446deed0630dd34dc936245b5dbf9e671dab46c7fa74dc58"}
 {"file":"07_names_characters.jsonl","id":"char:2860:name_narrow","pl":"Cowen","source_sha256":"7947baef04f4658fd9230661a8e9ec57f7ba175333b3d18fcac7884c6f1ad9dc"}
-{"file":"07_names_characters.jsonl","id":"char:2320:nickname","pl":"Karen","source_sha256":"795b266fd4625c0f1bb0403b8ac817d2791aaa60a4db0d3267e7b2b96ac74c5b"}
 {"file":"07_names_characters.jsonl","id":"char:2620:series","pl":"Macross Frontier","source_sha256":"795ed4f1fa65634713f55b22fd51393ce27b893fa072517107d3d552fc708df6"}
 {"file":"07_names_characters.jsonl","id":"char:515:name_full","pl":"Akira Imamura","source_sha256":"79816365c2cbe9eb359d01d73dfea9d086553b68722797d250ad299c73ad2502"}
 {"file":"07_names_characters.jsonl","id":"char:3315:short_name","pl":"Alan","source_sha256":"7998949434f36366400fe2fd69252af1a7ddc59d834d8f78877e74ed6ef1df48"}
 {"file":"07_names_characters.jsonl","id":"char:2948:nickname","pl":"Black Knight","source_sha256":"799d813a9ade9f50bbf810675611f9ed55b68b68a5daeeb43aa61107ef985531"}
 {"file":"07_names_characters.jsonl","id":"char:3429:name","pl":"Bouleuse Gotho","source_sha256":"79b30efb802a35355217f66057d5cd31d4cb15ed2b66a1a8921871e3d6bb640d"}
-{"file":"07_names_characters.jsonl","id":"char:3180:name_full","pl":"Posaydal Regular","source_sha256":"79b5ee98e69a403f5b08f4589207472fdf8fc6030e0d0a89df5d84d5b00afb21"}
+{"file":"07_names_characters.jsonl","id":"char:3180:name_full","pl":"Żołnierz Posaydala","source_sha256":"79b5ee98e69a403f5b08f4589207472fdf8fc6030e0d0a89df5d84d5b00afb21"}
 {"file":"07_names_characters.jsonl","id":"char:511:series","pl":"Matchless Raijin-Oh","source_sha256":"79b67307938552e876533a721e1cdcc7d75f6539518646e5836538b38c4cb545"}
 {"file":"07_names_characters.jsonl","id":"char:2865:nickname","pl":"Stinger","source_sha256":"79bdbc23222abf29fb73768705a97fe8488c141dfad8fd3a67460a4d472c6b03"}
 {"file":"07_names_characters.jsonl","id":"char:2809:voice_actor","pl":"Shozo Iizuka","source_sha256":"79cafd17062d2547e5e26f9cd123c41d529e50acb9763b8a713ecd994eca56cf"}
@@ -101458,7 +101459,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1433:nickname","pl":"Ginias","source_sha256":"800c5c8d6d017194ce337bd514627ee3be8ce4e45b7e0b482c94c15974a69713"}
 {"file":"07_names_characters.jsonl","id":"char:1604:name","pl":"Leina Ashta","source_sha256":"801a541455b6173a8465bccfdafff402738d6b05713a25289ba9e127f508d6b5"}
 {"file":"07_names_characters.jsonl","id":"char:1651:name_narrow","pl":"Oficer Neo Zeonu","source_sha256":"801a93332bd1f1aef26e1392c26270e40d4b3742bd8066e422a7b29c4e2f776f"}
-{"file":"07_names_characters.jsonl","id":"char:4570:name_short","pl":"Control AI","source_sha256":"8028380185aac00f03d7da5f7a8470ef98104519693c3e4a4cee7a4179894bde"}
+{"file":"07_names_characters.jsonl","id":"char:4570:name_short","pl":"SI sterująca","source_sha256":"8028380185aac00f03d7da5f7a8470ef98104519693c3e4a4cee7a4179894bde"}
 {"file":"07_names_characters.jsonl","id":"char:2905:name_full","pl":"Chum Huau","source_sha256":"8033e1e8b5aa55dd3b294f7bf771c4e71b1829c7701ef83d5e5d6eb30ec05be4"}
 {"file":"07_names_characters.jsonl","id":"char:1305:short_name","pl":"Bernie","source_sha256":"80419a5409d2f0846faf7c494669e73f71c1dba4d2ee1131bf1af5d3cbeb1a33"}
 {"file":"07_names_characters.jsonl","id":"char:520:name","pl":"Reiko Ikeda","source_sha256":"80458aadda58875e3a03ae1c7c16e6d6d494539ae51c02cd6a18862a16d41778"}
@@ -101484,7 +101485,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4518:short_name","pl":"Kapitan Kusanagi","source_sha256":"816e608ce6067ccfb649692819adbbdc68cece149491219233e70c451e78271b"}
 {"file":"07_names_characters.jsonl","id":"char:1146:name_short","pl":"Kycilia","source_sha256":"818d3d17031a8a7110df18460f412ce551fb94ec51fc88c133f1d50d1ffbbe8d"}
 {"file":"07_names_characters.jsonl","id":"char:202:series","pl":"Jushin Liger","source_sha256":"81ee44f99ee466f05e61a9b2703392089cbf7e56f89202d693a5a2b7e4c29a61"}
-{"file":"07_names_characters.jsonl","id":"char:3460:name_narrow","pl":"Gilgamesh Sldr","source_sha256":"81f3dda3fa8dcce6bfaa435ba6c735da7e46d0a8b91345c7f3d5cebb18a181e6"}
+{"file":"07_names_characters.jsonl","id":"char:3460:name_narrow","pl":"Żołn. Gilgameshu","source_sha256":"81f3dda3fa8dcce6bfaa435ba6c735da7e46d0a8b91345c7f3d5cebb18a181e6"}
 {"file":"07_names_characters.jsonl","id":"char:2530:voice_actor","pl":"Nobuyuki Hiyama","source_sha256":"81f930de82d3070cadb2647b999fdbe724fc13fc35bda411cdaee0f6e87ae6a4"}
 {"file":"07_names_characters.jsonl","id":"char:4101:voice_actor","pl":"Daisuke Kishio","source_sha256":"822afece00480a65bfb132be5a3afd313973ab7700570472d3e037eb466b96c6"}
 {"file":"07_names_characters.jsonl","id":"char:1163:name","pl":"Tokwan","source_sha256":"822cfbe6beaf7df8c6eecc048b0c012dce4f155a0c3059aac28c502a93ad3450"}
@@ -101616,7 +101617,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4160:nickname","pl":"Rosso","source_sha256":"8b2b25440d448e11646f1d7b4af8e478b86d5c2153b842cf35e12643a24ae9f6"}
 {"file":"07_names_characters.jsonl","id":"char:305:name","pl":"Hagu Hagu","source_sha256":"8b373264fd23af005fa094a1c73e3fa2de1fdc1f4016015c1c253225d41e7ab5"}
 {"file":"07_names_characters.jsonl","id":"char:422:nickname","pl":"Assam","source_sha256":"8b3ae860eb070be9bddce826f3fb769cc5d8d785c72022badacbcde4c0240747"}
-{"file":"07_names_characters.jsonl","id":"char:4570:name_full","pl":"Control AI","source_sha256":"8b6f707eb845b11342c838881d6ddb80cd23146191e53627cfa2f44ed219ca74"}
+{"file":"07_names_characters.jsonl","id":"char:4570:name_full","pl":"SI sterująca","source_sha256":"8b6f707eb845b11342c838881d6ddb80cd23146191e53627cfa2f44ed219ca74"}
 {"file":"07_names_characters.jsonl","id":"char:724:name_short","pl":"Pan Nakajima","source_sha256":"8b9c85a61ed8879103f18351e90659a62554cdecb523d6a8bd076129de39c9df"}
 {"file":"07_names_characters.jsonl","id":"char:3155:series","pl":"Heavy Metal L-Gaim","source_sha256":"8ba7c31c86f91df5069901af000cbb8f9465faea9eba8cdffee02d5125f48b6e"}
 {"file":"07_names_characters.jsonl","id":"char:700:name","pl":"Kenichi Minezaki","source_sha256":"8bbab00806413223de9453036d8eeb58ed74b206bbfe7813fa308296ac9a6ec2"}
@@ -101899,7 +101900,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3440:nickname","pl":"Rochina","source_sha256":"9ec0209df10c41a7fe7774b37ebc6da00d4400dcdb25013d0ef2ce32290438d4"}
 {"file":"07_names_characters.jsonl","id":"char:1831:nickname","pl":"Zechs","source_sha256":"9ec4caa7feb99b62c31d008918d5a58ab7d8998261829e1c3a5fc937720b9cb5"}
 {"file":"07_names_characters.jsonl","id":"char:2101:name_narrow","pl":"Setsuna","source_sha256":"9ed2d2adb90d3cc87529f6bdbab0160a8ce303e5b88f17cdeed4f042b384783b"}
-{"file":"07_names_characters.jsonl","id":"label:srwDL_CharaDictionary:5","pl":"Głos:","source_sha256":"9ed61663a256b021ebf6f73bc0e02de98f0fb91f9c8b12ca4e48ffe17c6f82a1"}
+{"file":"07_names_characters.jsonl","id":"label:srwDL_CharaDictionary:5","pl":"Głos: ","source_sha256":"9ed61663a256b021ebf6f73bc0e02de98f0fb91f9c8b12ca4e48ffe17c6f82a1"}
 {"file":"07_names_characters.jsonl","id":"char:2312:name","pl":"C.C.","source_sha256":"9ee47487ee9e51d270f0f7ebdb56b90ad5111e16f963f5e8b7f03b6556541232"}
 {"file":"07_names_characters.jsonl","id":"char:1520:voice_actor","pl":"Shuichi Ikeda","source_sha256":"9eea0c9ce96deaad29fe8acb01e29ca1b04531b1c03f2e163813b9495686d6b0"}
 {"file":"07_names_characters.jsonl","id":"char:241:name","pl":"Killy Gagley","source_sha256":"9f024ffb0d4539ea519b80f3bfd05232ec635859f221537aa2ac0214f0b6e515"}
@@ -101918,7 +101919,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1028:short_name","pl":"Fraw","source_sha256":"a0092af3a2055e2e2b3366cea73cb7c87c08bacb019fc584ca16178890833b53"}
 {"file":"07_names_characters.jsonl","id":"char:515:nickname","pl":"Akira","source_sha256":"a024a8bf5c6c027bda31ea027b4eaa89418a7f26718217a0aedefad47b1f0a17"}
 {"file":"07_names_characters.jsonl","id":"char:708:nickname","pl":"Kinta","source_sha256":"a0825a50ed2600301e00ecbdf5272ee3b49418fb17882e5cb8aa674429265696"}
-{"file":"07_names_characters.jsonl","id":"char:3321:name_short","pl":"Director Igor","source_sha256":"a08d3312484b9bdc4a5a42a70ee608d9d4f247f04712745d0762677b7758ead7"}
+{"file":"07_names_characters.jsonl","id":"char:3321:name_short","pl":"Komendant Igor","source_sha256":"a08d3312484b9bdc4a5a42a70ee608d9d4f247f04712745d0762677b7758ead7"}
 {"file":"07_names_characters.jsonl","id":"char:520:series","pl":"Matchless Raijin-Oh","source_sha256":"a091baffa836dafcd9040ee55d9d24f6db7848589287c75b8ce024727a4c6ea4"}
 {"file":"07_names_characters.jsonl","id":"char:1125:voice_actor","pl":"Issei Futamata","source_sha256":"a0981e566ff4424eaea4f713c87866e1f96b9f99e4d9cb8b43b8b9c97c6ab69b"}
 {"file":"07_names_characters.jsonl","id":"char:4174:name","pl":"Hiltz","source_sha256":"a0c8a0117e5f616fff338dfe2cf5cc0356bee9e34058ae354ffd36d4c32ebcb0"}
@@ -102133,7 +102134,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2821:series","pl":"Getter Robo Armageddon","source_sha256":"aefa23696d070bb7e0d54cb9b6c1d12786cc94da6f93c00f9fa8d00b21974a3c"}
 {"file":"07_names_characters.jsonl","id":"char:1149:voice_actor","pl":"Daisuke Gori","source_sha256":"af04a32ce120a1a1d897fe2a7a457b5128b0d2a709fe564601788799a2e34a15"}
 {"file":"07_names_characters.jsonl","id":"char:1633:series","pl":"Mobile Suit Gundam ZZ","source_sha256":"af0f6e107fbe7471df7317b72074c1b5b4cc46d77aa0527abf3267bc49de5d6b"}
-{"file":"07_names_characters.jsonl","id":"char:720:name_short","pl":"One","source_sha256":"af13414b6b83b63735d275f9c97040f7336b4c5c01c60aae31a4c4007dd2b3c9"}
+{"file":"07_names_characters.jsonl","id":"char:720:name_short","pl":"Wan","source_sha256":"af13414b6b83b63735d275f9c97040f7336b4c5c01c60aae31a4c4007dd2b3c9"}
 {"file":"07_names_characters.jsonl","id":"char:222:name_short","pl":"Metal Knight","source_sha256":"af1b955f00f0dfaa992ffab06dadfce2861f27a56869130efe68a655e435e851"}
 {"file":"07_names_characters.jsonl","id":"char:407:series","pl":"NG Knight Lamune & 40","source_sha256":"af37603b83f21230ee5a4424a7200df539908af2e649ecbc1915f2111c130e40"}
 {"file":"07_names_characters.jsonl","id":"char:3301:name","pl":"Shinobu Fujiwara","source_sha256":"af3f2f501744fe8e974355473d113eb18ac3e59aa42a0d66ff3b102c78670eeb"}
@@ -102172,7 +102173,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4130:name_full","pl":"Louise Teresa Camford","source_sha256":"b0f2618741a41376a0e211d56d9ba34836deeedc7ae949e44e9ab3135df6c493"}
 {"file":"07_names_characters.jsonl","id":"char:508:nickname","pl":"Yu","source_sha256":"b0ff01a447991d0e16297c34122bb5a3f984d53596ccc6334dd3517f438de9ef"}
 {"file":"07_names_characters.jsonl","id":"char:4140:name_short","pl":"Schubaltz","source_sha256":"b101bf39d1b822cc95b775330980a92f8c008fa1c8c011cbcce6cf318cf60dfd"}
-{"file":"07_names_characters.jsonl","id":"char:3470:name_narrow","pl":"Balarant Sldr","source_sha256":"b102ad6790680bbbd250bd1d814cb0fece62edcfd009032ffc4d022b81c238d2"}
+{"file":"07_names_characters.jsonl","id":"char:3470:name_narrow","pl":"Żołnierz Balarantu","source_sha256":"b102ad6790680bbbd250bd1d814cb0fece62edcfd009032ffc4d022b81c238d2"}
 {"file":"07_names_characters.jsonl","id":"char:65535:entry","pl":"Brak danych w encyklopedii.","source_sha256":"b10704f4f803e59ce97ef2c4a0c8f8b2be326c50e96b6b2cd6a4d768a637b1a6"}
 {"file":"07_names_characters.jsonl","id":"char:4181:name_short","pl":"Żołnierz Guylos","source_sha256":"b129d8daa6065a313777f860dba0869824d7c61dc76e01126d0e25c7c243bc2e"}
 {"file":"07_names_characters.jsonl","id":"char:1430:name_full","pl":"Aina Sahalin","source_sha256":"b12a909e84e387235e9f244bef5a9ba480c2de1eda4790dfa0010f9f6e2c60d0"}
@@ -102273,7 +102274,7 @@
 {"file":"07_names_characters.jsonl","id":"char:800:name_short","pl":"Momotaro","source_sha256":"b7c5a94d196a97bb732de9276a1b116a52a41be660b5619a3a3341a90f6617d3"}
 {"file":"07_names_characters.jsonl","id":"char:1101:voice_actor","pl":"Shuichi Ikeda","source_sha256":"b7d29a882806f9334b3b6d756010408de174c237a7d3451e5ae83842ac46b3a0"}
 {"file":"07_names_characters.jsonl","id":"char:4160:name_full","pl":"Rosso","source_sha256":"b7d9359ec85946625589ec9b9c5bcd35372de9c23d133669531f243888c3eb46"}
-{"file":"07_names_characters.jsonl","id":"char:3181:name_full","pl":"Posaydal Regular","source_sha256":"b7db0aec2e0646339e84dede8394242bb3f5f8272f7af57d33d0f8695fb7b6c6"}
+{"file":"07_names_characters.jsonl","id":"char:3181:name_full","pl":"Żołnierz Posaydala","source_sha256":"b7db0aec2e0646339e84dede8394242bb3f5f8272f7af57d33d0f8695fb7b6c6"}
 {"file":"07_names_characters.jsonl","id":"char:2252:name_short","pl":"Bushido/Ally","source_sha256":"b7f0290079eab6b1a02e43d94b69123ef0c8ad7cccd24f1f55fbfc05d32026e1"}
 {"file":"07_names_characters.jsonl","id":"char:3121:series","pl":"Heavy Metal L-Gaim","source_sha256":"b811addd992c307fcdbf7eec5287ba13ecb7b1833f3fed990817c921cfb79cc3"}
 {"file":"07_names_characters.jsonl","id":"char:729:name_short","pl":"Kikaishin","source_sha256":"b82b1f96cc6cea7e3b7799a6418c9d535a351944e7743574efa4eca4391cae74"}
@@ -102335,7 +102336,6 @@
 {"file":"07_names_characters.jsonl","id":"char:521:nickname","pl":"Pan Shinoda","source_sha256":"bc9a8297915e46eb2700d3f7fa17439980aa8cbc2338ba0eb830f347af1cd598"}
 {"file":"07_names_characters.jsonl","id":"char:1123:name_short","pl":"Gaia","source_sha256":"bca2798e57da54a1a015261ebd3bc8cde21a13be952e7ba0e09256b6b0581c3c"}
 {"file":"07_names_characters.jsonl","id":"char:2601:nickname","pl":"Alto","source_sha256":"bcc1a9690217007e1c766887ffdb0c717cd496774bda7b26fd8e5cd435984e56"}
-{"file":"07_names_characters.jsonl","id":"char:2320:name_narrow","pl":"Karen","source_sha256":"bd2abc5cb0f00cb60b466a686d6ce6f41ab2006a08f41d2c6a77025bed8252dc"}
 {"file":"07_names_characters.jsonl","id":"char:311:nickname","pl":"Galden","source_sha256":"bd631a1e465434534fb791645774a528dd4068c44fa35d1ebf85a2e632fc0e3e"}
 {"file":"07_names_characters.jsonl","id":"char:1119:name","pl":"Acous","source_sha256":"bd698cd2e15674206b686c9e9d55839d0879ccc54726985c93ee476dbbe88e59"}
 {"file":"07_names_characters.jsonl","id":"char:1123:nickname","pl":"Gaia","source_sha256":"bd76af8e5ddfdf76965e311efb7fea4c58114974f9dd815a34a9e0b8565dfa41"}
@@ -102417,10 +102417,9 @@
 {"file":"07_names_characters.jsonl","id":"char:724:nickname","pl":"Pan Nakajima","source_sha256":"c306d99e5fd0dbb8fa730248eb32e88b58ad198bac07c872094f8879afdec533"}
 {"file":"07_names_characters.jsonl","id":"char:3759:name_narrow","pl":"Kurosaki","source_sha256":"c31abbf49a2bf61746670b6c91f7f4598f0acde61bbdd93d4379a30f69f13e48"}
 {"file":"07_names_characters.jsonl","id":"char:242:nickname","pl":"Remy","source_sha256":"c31d79c38157296cbfaee525e966d20c7ffa6777ed94495dc1fe1819e3afd5e1"}
-{"file":"07_names_characters.jsonl","id":"char:3465:name_narrow","pl":"Gilgamesh Ofcr","source_sha256":"c31e06b2420a0165c36ddd45163186fc2f216afe53de2cb96b017ab308c9ec9c"}
+{"file":"07_names_characters.jsonl","id":"char:3465:name_narrow","pl":"Oficer Gilgameshu","source_sha256":"c31e06b2420a0165c36ddd45163186fc2f216afe53de2cb96b017ab308c9ec9c"}
 {"file":"07_names_characters.jsonl","id":"char:4510:short_name","pl":"Himari","source_sha256":"c348a640ca9de5a18017bcdc249456d8c0786da91eb166c15eb3247e5b2556f9"}
 {"file":"07_names_characters.jsonl","id":"char:3426:series","pl":"VOTOMS","source_sha256":"c36b00643a2c5c994d978e3814134a5fdec3638c084e35704d1da779b0f0d36d"}
-{"file":"07_names_characters.jsonl","id":"char:2320:name_short","pl":"Karen","source_sha256":"c36ddd19335329140bffacfa8e3fae34bc6c662d034234f433a300ae884c3fab"}
 {"file":"07_names_characters.jsonl","id":"char:1109:name_narrow","pl":"Ramba Ral","source_sha256":"c3a852b23d945410e7f08bfa5d5e41cef2bb3ef391e610c0b2d263d7ceb0b0e2"}
 {"file":"07_names_characters.jsonl","id":"char:4426:voice_actor","pl":"Rei Sakuma","source_sha256":"c3c153095d7feb24928f17087faef5043c89d8322666a30e64ef443ac1b36634"}
 {"file":"07_names_characters.jsonl","id":"char:3240:series","pl":"Blue Comet SPT Layzner","source_sha256":"c3ccef55cd1445a1b27ff1b64f5e6565e18fb325d3be88702136c224d7cf15e0"}
@@ -102512,7 +102511,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2825:series","pl":"Getter Robo Armageddon","source_sha256":"c93421d34d17457cc3a7aa969e0ffab8296528e6f1c6d137c364588a9cf6b716"}
 {"file":"07_names_characters.jsonl","id":"char:2120:name_narrow","pl":"Saji","source_sha256":"c949a9c6ac82b622a709debc561f3c0af15729afe5b6b6f1ec21ca3d64e62574"}
 {"file":"07_names_characters.jsonl","id":"char:714:series","pl":"Nekketsu Saikyo Go-Saurer","source_sha256":"c94bd9c42807cdd115039630f669d13afd0f2ac6bc789def0464763c318450c9"}
-{"file":"07_names_characters.jsonl","id":"char:326:name_narrow","pl":"Dark Dragon","source_sha256":"c9c21a5579c8f4d7c30c8963e827fe94a7c143f690124f340a22d18ffbc27b75"}
+{"file":"07_names_characters.jsonl","id":"char:326:name_narrow","pl":"Żołnierz Smoka","source_sha256":"c9c21a5579c8f4d7c30c8963e827fe94a7c143f690124f340a22d18ffbc27b75"}
 {"file":"07_names_characters.jsonl","id":"char:4175:nickname","pl":"Hiltz","source_sha256":"c9cff89a5dc34ed9de6b842426c7387e6cf49dd0363e74fe94063d007c5ea853"}
 {"file":"07_names_characters.jsonl","id":"char:3134:nickname","pl":"Hatchia","source_sha256":"c9e43b0c9debeff24c90c970e4aedccf4b02489025d906bc70b4f11416074696"}
 {"file":"07_names_characters.jsonl","id":"char:1127:series","pl":"Mobile Suit Gundam","source_sha256":"c9ef5e612134c1ccdbf1a4c506f65227b018ae63429bccb8710719eda3bab48f"}
@@ -102745,6 +102744,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1409:name","pl":"Karen Joshua","source_sha256":"d9642aafa3583151a8ddfdf8f005dd5b102137959946d5c7d8e124221472e31b"}
 {"file":"07_names_characters.jsonl","id":"char:3618:voice_actor","pl":"Masashi Yabe","source_sha256":"d9725dd644aa8c0fabe2a841152411f33551e8fe5646b73ba7f1341f72c0d6b5"}
 {"file":"07_names_characters.jsonl","id":"char:206:nickname","pl":"Saeko","source_sha256":"d9876765fd8321c92e79b6faa7c6b29b9651131c8cebe2842363075fb9198b07"}
+{"file":"07_names_characters.jsonl","id":"char:2320:name_narrow","pl":"Kallen","source_sha256":"d9973ec7d33d3664acc6d5d426e4ebd849c4f828da07e07333ff5134406bfa66"}
 {"file":"07_names_characters.jsonl","id":"char:2656:nickname","pl":"Mina","source_sha256":"d99f3554fb33232103ae6a2016f732c5fd4acd0ebe0f9ed1731545f8d7fe5ded"}
 {"file":"07_names_characters.jsonl","id":"char:2605:name","pl":"Ranka Lee","source_sha256":"d9aecd2735cb6502938be76bc8371686623cf99c8122bceb6df7c8161fa75d3e"}
 {"file":"07_names_characters.jsonl","id":"char:1831:name","pl":"Zechs Merquise","source_sha256":"d9b7051e0c09b7e763d5c4b54db5282845c900c24ea55e1ddf510283b590e092"}
@@ -103040,9 +103040,9 @@
 {"file":"07_names_characters.jsonl","id":"char:3244:series","pl":"Blue Comet SPT Layzner","source_sha256":"efa3a8c21cb63c5a6ca0e70b9ad2bca9b262d76248e8555d0a5e8667549a0bb9"}
 {"file":"07_names_characters.jsonl","id":"char:448:name_narrow","pl":"Monskar","source_sha256":"efa773d66e539b17fe1741087e4c1a9aa8fb566d7ab2799908c7b43d1fafe689"}
 {"file":"07_names_characters.jsonl","id":"char:2601:voice_actor","pl":"Yuichi Nakamura","source_sha256":"efafc06ffa23310bcec825a063f7fd354f6cfcbd19f18ef53b623e87c73d2730"}
-{"file":"07_names_characters.jsonl","id":"char:3185:name_narrow","pl":"Posaydal Ofcr","source_sha256":"efb33b422e9fdce336e6b432894ffbdc200944a61146f3576bae61ff35505a23"}
+{"file":"07_names_characters.jsonl","id":"char:3185:name_narrow","pl":"Oficer Posaydala","source_sha256":"efb33b422e9fdce336e6b432894ffbdc200944a61146f3576bae61ff35505a23"}
 {"file":"07_names_characters.jsonl","id":"char:3901:name_full","pl":"Sierżant Keroro","source_sha256":"efb5eb1a00082cfb05f3db384e1b4f015cead68614a0d08a66ca3a9dbff758ae"}
-{"file":"07_names_characters.jsonl","id":"char:325:name_narrow","pl":"Dark Dragon","source_sha256":"efbffa5b8839ac9eb7e94a6fd5f1d1215df8670c81b29872c2866b6622898d47"}
+{"file":"07_names_characters.jsonl","id":"char:325:name_narrow","pl":"Żołnierz Smoka","source_sha256":"efbffa5b8839ac9eb7e94a6fd5f1d1215df8670c81b29872c2866b6622898d47"}
 {"file":"07_names_characters.jsonl","id":"char:206:nickname","pl":"Saeko","source_sha256":"efd3c0e6adbff40b02e8aac11a3a519165cb4a046d09b8646e981eddb4b08937"}
 {"file":"07_names_characters.jsonl","id":"char:1022:name_narrow","pl":"Mirai","source_sha256":"efd574d3347e2f886eb3a0942dcca4cdf3b6cddc50e902448764c229049ccf9d"}
 {"file":"07_names_characters.jsonl","id":"char:1025:name","pl":"Sayla Mass","source_sha256":"efecb168651de64b5c291d74ff1daa9106093e9dd088a193d98ab7c958bb5573"}
@@ -103076,7 +103076,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2801:name_short","pl":"Ryoma","source_sha256":"f29b926c28048771817382ff5b312fa2811e5632bde5e9cb6385c72053cb93b7"}
 {"file":"07_names_characters.jsonl","id":"char:2101:series","pl":"Mobile Suit Gundam 00","source_sha256":"f2a642649b89ebc2a1b463edd03e7257c71a5c7153d69b7f539a68d45836c331"}
 {"file":"07_names_characters.jsonl","id":"char:1052:nickname","pl":"Marker","source_sha256":"f2ae39b456a51460d61c2ed2e013709d514126d67d9b78925bf80854adeeba75"}
-{"file":"07_names_characters.jsonl","id":"char:3181:name_narrow","pl":"Posaydal Sldr","source_sha256":"f2b1b9b52743a036d10b159dc3c3ea38ff56234c71a83e5efeccc7ac361defd3"}
+{"file":"07_names_characters.jsonl","id":"char:3181:name_narrow","pl":"Żołnierz Posaydala","source_sha256":"f2b1b9b52743a036d10b159dc3c3ea38ff56234c71a83e5efeccc7ac361defd3"}
 {"file":"07_names_characters.jsonl","id":"char:3311:voice_actor","pl":"Shigeru Nakahara","source_sha256":"f2b9cbda05d934115092ec503e8c3a19708f16cf2fd2d392c962c4276902263a"}
 {"file":"07_names_characters.jsonl","id":"char:2505:nickname","pl":"Kamina","source_sha256":"f2baa2ec6d677fe2e1d223db9c16e56d0472ec8082648823bf6d335049c23ffe"}
 {"file":"07_names_characters.jsonl","id":"char:2948:name","pl":"Black Knight","source_sha256":"f2c958cb8c8fc86f1669db65d37f24f5c5627e512b80b9eb2df826df1e9c65a6"}
@@ -103093,7 +103093,7 @@
 {"file":"07_names_characters.jsonl","id":"char:619:series","pl":"Genki Bakuhatsu Ganbaruger","source_sha256":"f35ace8ddcad3754a99ce7cea77ffc2058114ddf52b5cdc2efae30c88362b8c0"}
 {"file":"07_names_characters.jsonl","id":"char:415:name_narrow","pl":"Queen Cideron","source_sha256":"f35c06d2988057c10c3167adf7dc028e711f0ac026eec4836d287c4b2524abf8"}
 {"file":"07_names_characters.jsonl","id":"char:3244:name_narrow","pl":"Gosterro","source_sha256":"f38a4917c8f60ece21ea367a77803f94a326c13c3a12e8c2b6ce08c19badfc95"}
-{"file":"07_names_characters.jsonl","id":"label:srwDL_CharaDictionary:4","pl":"Nickname:","source_sha256":"f39e5a37b0d2e0b79c0e8f0a34e1c2038bda19806b032f459c2fdb3ce01230fb"}
+{"file":"07_names_characters.jsonl","id":"label:srwDL_CharaDictionary:4","pl":"Pseudonim: ","source_sha256":"f39e5a37b0d2e0b79c0e8f0a34e1c2038bda19806b032f459c2fdb3ce01230fb"}
 {"file":"07_names_characters.jsonl","id":"char:3614:series","pl":"Armored Trooper VOTOMS: Pailsen Files","source_sha256":"f3a1a5880a7f9d88619550000281eaab987f21e399cd4187804fc68ece850f66"}
 {"file":"07_names_characters.jsonl","id":"char:305:voice_actor","pl":"Ai Orikasa","source_sha256":"f3acdcc709bb8215b28946a416d8edd1517d59a53c4b3427d60ea09a3484fc51"}
 {"file":"07_names_characters.jsonl","id":"char:2647:name","pl":"Catherine Glass","source_sha256":"f3b7e4b889b9cf2046000648c8ff644da9d12713d9b93bea7246c33c66a59368"}
@@ -103228,7 +103228,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1315:name","pl":"Hardy Steiner","source_sha256":"fcad1bea12e69b298414f0ef2d49317f840b226d32d4d58acf5ff763c3bf7fbc"}
 {"file":"07_names_characters.jsonl","id":"char:2620:series","pl":"Macross Frontier","source_sha256":"fcb61b47cba555d7da553a452ea53b47424dcb4d5b7ca806845d04cc78bb8bc4"}
 {"file":"07_names_characters.jsonl","id":"char:1850:name","pl":"Relena Darlian","source_sha256":"fcbe886fe6d78e1cbf76689b9ef1588e11a3d905fd523798b515bf57dbd562bf"}
-{"file":"07_names_characters.jsonl","id":"char:4570:name_narrow","pl":"Control AI","source_sha256":"fcc41869e7cf302f9fe4dd09d39147d54fc7ceebdd5f5363457d0fe1cb52b754"}
+{"file":"07_names_characters.jsonl","id":"char:4570:name_narrow","pl":"SI sterująca","source_sha256":"fcc41869e7cf302f9fe4dd09d39147d54fc7ceebdd5f5363457d0fe1cb52b754"}
 {"file":"07_names_characters.jsonl","id":"char:3311:series","pl":"Super Beast Machine God Dancouga","source_sha256":"fcc94c31cf30ac304183a26c58281ff15b80b2db3b468842184cde6258fa050c"}
 {"file":"07_names_characters.jsonl","id":"char:416:name","pl":"Seirohm","source_sha256":"fcd05eefc0db70ada3038bc22f008afc53ad66b6b64fbefff5420113ce176b80"}
 {"file":"07_names_characters.jsonl","id":"char:4580:name_full","pl":"Pilot rezerwowy","source_sha256":"fcd3d9f59114a0ff95b77ceda609da96a63d389ae297eccfd10d2feb8a97abd4"}

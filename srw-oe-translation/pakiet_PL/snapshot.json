@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "f91ca01165c5d16df0bb7d75633491caeaf4f68a1ba85034fe5779ebefe45a92",
+  "data_sha256": "4c7bf2114e208b5f5b1d6c4bc2cdbcd307b14c6aff5d506b6b5f76c7040dbb4e",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -647,6 +647,11 @@
         "Whole-game female 'Przyjąłem!' -> 'Przyjęłam!' (all 13 rows across 7 female characters), all 'Dobrze!' after '?' -> 'Tak!' (6 rows), and Connect Force plural consistency (3 rows)",
         "'Matchless' catchphrase lines preserved verbatim per owner decision"
       ]
+    },
+    "stylistic_qa_v4_0": {
+      "date": "2026-10-23",
+      "phase": "checkpoint-1-groups-ABC",
+      "ally_tag_policy": "keep (Ally) / /Ally per owner preference"
     }
   }
 }
