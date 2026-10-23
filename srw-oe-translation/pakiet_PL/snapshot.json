@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "5f9a3706dff44cdbe4a6e7abc3a475c0ee35ea38b01336b7c816a9a1b8f4639c",
+  "data_sha256": "0e92ef58ff9fb01afa2c264081862cd73e8f6f9446a76cd699dce860f75f56db",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -649,8 +649,8 @@
       ]
     },
     "stylistic_qa_v4_0": {
-      "checkpoint": "v4.0-ckpt2-ch3",
-      "scope": "Groups A+B+C + Chapter 3 full line-by-line QA (Ep 10-13 + SM006-008 + DLC)",
+      "checkpoint": "v4.0-ckpt5-ch4-5-6",
+      "scope": "Groups A+B+C + Chapters 3-6 full line-by-line QA (Ep 10-25 + sub-missions)",
       "runtime_ppsspp_verified": false
     }
   }
