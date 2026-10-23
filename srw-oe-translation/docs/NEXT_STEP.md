@@ -1,5 +1,19 @@
 # Next step — current state and open work
 
+**PL v4.0 complete; all four derived artefacts republished (2026-10-23).**
+[`srw-oe-translation-pl-v4.0.zip`](https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view)
+`8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`,
+`108,805 / 109,176` rows filled, `0` errors. Rebuilt from the final package and
+byte-verified against Drive: mech catalogue `873,130 B` (`07f11deb…`),
+pilot catalogue `303,266 B` (`800a27fd…`), mission deployments `11,560,402 B`
+(`d166592b…`) and reading archive `917,233 B` (`c295fbe2…`, 35 episodes,
+`47,056 / 47,056` prose entries). Superseded v3.5 copies and interim PL3/PL4
+archives trashed; `145/145` test modules OK. Receipts: `pl/pl-v4.0-kit-delivery.json`,
+`reading-script/polish/PL5_v4.0_reading.delivery.json`,
+`reading-script/polish/catalogue-v4.0.delivery.json`, `pilot-catalog/delivery.json`,
+`mission-deployments.delivery.json`. The only open item is the owner-side
+PPSSPP/runtime check of the v4.0 kit; no runtime claim is made.
+
 **PL4 translator return integrated and source-bound (2026-10-20).** [v2.7-PL4 kit](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view). All nine views and episodes00–21 imported; 67,143 explicit blocks strict-checked/read back, no rejects/unknowns. 28,078/28,079 visible episode elements have PL; the lone empty is structural whitespace. All1,283 local owner-UI bindings and32 promoted mission rows preserved;57 TM correction records match. Overall validator0 hard errors/25,165 soft warnings. New text maps to25 specific DLC EDAT containers; full physical build/outputs and runtime remain pending because original assets are absent here. [Coverage/install limits](pl/PL4_RETURN_REVIEW.md). Do not overwrite user UI/protagonist/cache/font. Episodes22–34/simulator remain incomplete.
 
 **Seven-screen PL UI batch v2.6 DELIVERED (2026-10-20).**
