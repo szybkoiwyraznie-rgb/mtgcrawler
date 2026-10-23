@@ -1,5 +1,26 @@
 # Project status
 
+**PL v4.1 delivered — owner PPSSPP QA fixes (2026-10-23, branch
+`arena/7bb0f98d-mtgcrawler`, draft PR #23).** The owner reported three v4.0
+screens; all three root causes were measured (owner screenshots + authentic
+game data from Drive, never committed) and fixed:
+[`srw-oe-translation-pl-v4.1.zip`](https://drive.google.com/file/d/1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI/view)
+`8,762,312 B`, SHA-256 `0775aa2dc2062f96f5e21cb7f1343d9ca55f5afd143a411a827b659b6cf813cf`,
+coverage unchanged `108,805 / 109,176`, `0` errors, snapshot
+`e730f180…` (16 owner plans, `1,525` bindings). (1) Pilot-tab labels are now
+`Pilot gł.` / `Współpilot` (10-cell field). (2) `intsys_04` PL caption boxes
+now equal the TXCL sampled cells (`tex_gid 34`; `progress (42,12,84,24)`):
+v4.0 put `79` ink px outside the sampled cells on the authentic GIM, v4.1
+puts `0`; EN render byte-identical. (3) Owned footers are `＠4Masz` / `Masz`
+(Lv1 counter fixed at glyph-cell 8). Tests `146/146` modules OK incl. new
+`tests/test_pl_ui_qa_v41.py`. Receipt
+[pl-v4.1-kit-delivery.json](pl/pl-v4.1-kit-delivery.json), audit
+[UI_QA_V41_2026-10-23.md](pl/UI_QA_V41_2026-10-23.md). `runtime_tested`
+stays `false`: owner re-test in PPSSPP still required. Noted but
+deliberately untouched: the EN `intsys_04` boxes share the same TXCL
+mismatch (`80` ink px outside cells) — separate decision if EN geometry
+should follow. Older entries below are history.
+
 **Continuation session opened (2026-10-23, branch `arena/7bb0f98d-mtgcrawler`).**
 Baseline re-verified in the sandbox with no game files present: all `145/145`
 test modules pass when run per-module via

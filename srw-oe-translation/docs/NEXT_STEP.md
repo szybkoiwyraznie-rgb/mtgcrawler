@@ -1,5 +1,20 @@
 # Next step — current state and open work
 
+**PL v4.1 kit delivered for owner re-test (2026-10-23).**
+[`srw-oe-translation-pl-v4.1.zip`](https://drive.google.com/file/d/1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI/view)
+`8,762,312 B`, SHA-256 `0775aa2d…813cf`; fixes the three owner-reported v4.0
+PPSSPP screens (Pilot-tab labels, Records & Parts header `Postęp`/`Premia`,
+Owned footer vs Lv counters) — see `pl/UI_QA_V41_2026-10-23.md` and
+`pl/pl-v4.1-kit-delivery.json`. **Next: owner re-patches from a clean JP ISO
+(fresh `patched.iso` + full `DLC\`, normal save after cold boot) and
+re-checks the same three screens plus the parts conversion panel
+(`Warunki`, `Wym.`, `Masz`, `Lista części`).** Until then `runtime_tested`
+stays `false` and no runtime claim is made. Open optional item: the EN
+`intsys_04` caption boxes have the same latent TXCL mismatch (measured
+`80` ink px outside the sampled cells); aligning EN geometry would change
+the shipped EN kit and needs an explicit decision. Everything below is
+history/open scope from earlier releases.
+
 **PL v4.0 complete; all four derived artefacts republished (2026-10-23).**
 [`srw-oe-translation-pl-v4.0.zip`](https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view)
 `8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`,
