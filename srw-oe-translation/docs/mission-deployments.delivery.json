@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "language": "pl",
+  "release": "v4.0",
+  "source_commit": "2836e8d",
+  "branch": "arena/df413232-mtgcrawler",
+  "pull_request": 22,
+  "scope": "Predefined mission deployments: every scripted _Entry.dat placement across 24 eventP containers, enriched under each mission with the matching v4.0 mech-catalogue and pilot-catalogue sections",
+  "game_package_changed": false,
+  "literary_retranslation": false,
+  "files": [
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560402,
+      "lines": 217482,
+      "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd",
+      "md5": "eb7dd71b4488e3d13a3ddfef212fd92c",
+      "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+      "drive_id": "1mcrih3r4TAE0pmAYebYH54XdDELS8P6v",
+      "url": "https://drive.google.com/file/d/1mcrih3r4TAE0pmAYebYH54XdDELS8P6v/view",
+      "superseded_trashed_drive_id": "1CX0l4c7wB9x8Qvy7TRcxw44u1c-UDVDG",
+      "download_back_byte_identical": true
+    }
+  ],
+  "structure_checks": {
+    "pipe_table_rows": 94141,
+    "max_pipe_row_width": 215,
+    "rows_over_216": 0,
+    "unit_id_badges": 0
+  },
+  "changes_vs_previous_delivery": {
+    "previous_bytes": 11576996,
+    "previous_sha256": "ca2b7a5fb3fd4189c43ede34465b03d46ddb8e8b49d4ccf60b8b08afb5fea0b0",
+    "differing_content_rows": 24,
+    "summary": "24 embedded skill-effect rows now quote the v4.0 04_config_text.jsonl wording (dodatk. Obraż.500 -> +Obraż.500, 1 tura -> 1t:); every other difference is table separator padding. No unit, pilot, mission or record count changed."
+  },
+  "counts": {
+    "containers": 24,
+    "entry_files": 226,
+    "mission_codes": 224,
+    "records": 8915,
+    "records_with_entry_and_unit": 8504,
+    "mech_sections": 2210,
+    "pilot_cards": 5608,
+    "combat_records_by_side": {
+      "ally_player": 882,
+      "ally_npc": 61,
+      "enemy": 7266,
+      "neutral_third": 76,
+      "total": 8285
+    }
+  },
+  "provenance": {
+    "executable_1_08_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+    "source_inventory_sha256": "2cd8368f3da033d26e2642257975c0be73463527500602011ffcc8ffcbede5c2",
+    "english_package": "pakiet_EN",
+    "polish_package": "local/mat_pl (materialized v4.0 snapshot 8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c)",
+    "mech_catalogue": "srwoe_mech_catalog_v4_PL.md @ 07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+    "pilot_catalogue": "srwoe_pilot_catalog_PL.md @ 800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65"
+  },
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static extraction from containers, scripts and DATA.PSP plus Google Drive checksum read-back only. No PPSSPP/real-hardware gameplay session was run."
+  }
+}

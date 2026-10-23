@@ -1,10 +1,18 @@
 # SRW OE mech catalogue — delivered data-backed edition
 
-**Current presentation revision 3 — 2026-10-18:**
-[srwoe_mech_catalog_v3.md on Drive](https://drive.google.com/file/d/1h32WYqZ9SfrzO5BseooIdLzBNhNns-nt/view)
-— **667,590 bytes**, SHA-256
-`19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`.
-Downloaded back and compared byte-for-byte.
+**Current Polish presentation revision 4 (`v4.0`) — 2026-10-23:**
+[srwoe_mech_catalog_v4_PL.md on Drive](https://drive.google.com/file/d/1Iom2YIbNna-djLB5em8WchoQMjdu6pSx/view)
+— **873,130 bytes** (`11,953` lines), SHA-256
+`07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031`, MD5
+`3b636281662186cb3d1ede67990c24c6`. Downloaded back and compared byte-for-byte
+(`cmp -s`). Receipt: `docs/reading-script/polish/catalogue-v4.0.delivery.json`.
+
+The frozen English reference edition (`srwoe_mech_catalog_v3.md`, **667,590 bytes**,
+SHA-256 `19228a10bf3dcb4d0ae404a8de08b37f316db32de7a7de0eda7b9e2d90989dd7`) is not
+published on Drive any more; it is reproduced byte-for-byte from the live `pakiet_EN`
+by `tools/mech_catalog.py` (`collect` + `build_model` + `render`);
+`tools/build_polish_reading_editions.py --catalogue-english …` refuses to localize
+unless that reproduction matches the SHA-256 pinned in `presentation-v3.json`.
 
 The owner's complete presentation request (a–h) applies to **every** unit/crew entry:
 - No unit HTML anchor, “— Unit N” heading suffix or per-unit “Data: …” line (v2).

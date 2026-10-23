@@ -44,16 +44,67 @@
     "owner_ui_corrections_preserved": 1385
   },
   "reading_series": {
-    "status": "unchanged-at-v3.5",
+    "status": "rebuilt-at-v4.0",
     "archive": "srwoe_reading_PL_00-34.zip",
     "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-    "drive_file_id": "1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1",
-    "bytes": 915737,
-    "sha256": "1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5",
-    "reason_not_rebuilt": "tools/build_polish_reading_editions.py pins the SHA-256 of the frozen English reference Markdown (srwoe_episode_00.md .. srwoe_episode_34.md) in docs/reading-script/polish/episode_*.json. That reference set lived in the ignored local/en_reading_refs cache and on Google Drive, not in Git; it is absent from this sandbox, so the episodes cannot be rebuilt byte-verified here."
+    "drive_file_id": "1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g",
+    "web_view_link": "https://drive.google.com/file/d/1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g/view?usp=drivesdk",
+    "bytes": 917233,
+    "sha256": "c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6",
+    "md5": "df2765ebca6251674de3e66e255d3893",
+    "member_count": 36,
+    "episodes": 35,
+    "prose_summary": {
+      "prose_total": 47056,
+      "shown_unique": 32919,
+      "aliased": 14137,
+      "verified_text_spans": 33548,
+      "markdown_bytes_total": 2430374
+    },
+    "changed_episodes_vs_v3_5": 31,
+    "english_reference_sha256_matches": "35/35",
+    "superseded_drive_file_id_trashed": "1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1",
+    "download_back_byte_identical": true,
+    "receipt": "docs/reading-script/polish/PL5_v4.0_reading.delivery.json",
+    "note": "Rebuilt from the materialized v4.0 Polish package against the frozen English reference set (all 35 files matched the reference_sha256 pinned in docs/reading-script/polish/episode_*.json), then packed deterministically by tools/build_reading_archive.py."
   },
   "runtime": {
     "runtime_ppsspp_verified": false,
     "note": "Static package validation, ZIP CRC, per-member SHA-256 and Google Drive checksum read-back only. No PPSSPP/real-hardware gameplay session was run."
+  },
+  "derived_artefacts": {
+    "rebuilt_at": "2026-10-23",
+    "mech_catalogue": {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "md5": "3b636281662186cb3d1ede67990c24c6",
+      "drive_id": "1Iom2YIbNna-djLB5em8WchoQMjdu6pSx",
+      "receipt": "docs/reading-script/polish/catalogue-v4.0.delivery.json"
+    },
+    "pilot_catalogue": {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "md5": "ea1cc66922dfc8b98cc5a2081f77d319",
+      "drive_id": "1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV",
+      "receipt": "docs/pilot-catalog/delivery.json"
+    },
+    "mission_deployments": {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560402,
+      "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd",
+      "md5": "eb7dd71b4488e3d13a3ddfef212fd92c",
+      "drive_id": "1mcrih3r4TAE0pmAYebYH54XdDELS8P6v",
+      "receipt": "docs/mission-deployments.delivery.json"
+    },
+    "reading_series": {
+      "name": "srwoe_reading_PL_00-34.zip",
+      "bytes": 917233,
+      "sha256": "c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6",
+      "md5": "df2765ebca6251674de3e66e255d3893",
+      "drive_id": "1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g",
+      "receipt": "docs/reading-script/polish/PL5_v4.0_reading.delivery.json"
+    }
   }
 }

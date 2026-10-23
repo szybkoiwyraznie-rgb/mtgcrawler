@@ -1,9 +1,9 @@
 # Pilot, Spirit Command, and Skill Reference Catalogue (`srwoe_pilot_catalog_PL.md`)
 
-**Delivered 2026-10-21:** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1j4OhIq99k9CviqYNLcDgFHjBiHW-BHcJ/view)
-- **Size:** `303,342` bytes (`6,278` lines)
-- **SHA-256:** `95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421`
-- **MD5:** `a0511a860ac09ced6ce748979dc8cc6c`
+**Delivered 2026-10-23 (`v4.0`):** [srwoe_pilot_catalog_PL.md](https://drive.google.com/file/d/1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV/view)
+- **Size:** `303,266` bytes (`6,276` lines)
+- **SHA-256:** `800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65`
+- **MD5:** `ea1cc66922dfc8b98cc5a2081f77d319`
 - **Presentation:** Pilot headings without `[ID ...]` badges, base-only **Pilot Statistics** (`Parametr | Wartość bazowa`), **Spirit Commands** with unlock level (`Slot | Duch | Poz. nauki | Koszt SP | Efekt bazowy`), **Pilot Skills** with unlock level and base effect (`Slot | Umiejętność | Poz. nauki | Efekt bazowy` on pilot cards and `ID | Umiejętność | Efekt bazowy` in the Section 2 lexicon, without `Lv2`–`Lv9` progressions or `+krok` steps), and **Ace Bonuses**, vertically aligned for monospace Notepad++ (`≤ 216` cells wide).
 - **Verification:** `PASS` across all `404` character records, `20` Spirit Command families (`60` tiers), `80` Pilot Skill / Ace Bonus families (`536` level records, `38` Patch 1.08 executable overrides), `7,307` live Unicorn executions of `.text 0x21f4ec` (`0` mismatches), and `9` focused pilot/table tests.
 - **Manifests & reproduction commands:** [docs/pilot-catalog/README.md](pilot-catalog/README.md)

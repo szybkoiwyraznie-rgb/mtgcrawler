@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Reproduce and verify all Polish story reading editions (00-34) and optional mech catalogue."""
+"""Reproduce and verify all Polish story reading editions (00-34) and optional mech catalogue.
+
+The PL prose comes from the materialized package passed as --polish; --text-source only
+labels the release the snapshot belongs to (e.g. v4.0), it never changes the text."""
 import argparse
 import json
 from pathlib import Path
@@ -29,7 +32,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--english', required=True, type=Path, help='Current EN package (reading plans)')
     ap.add_argument('--catalogue-english', type=Path, help='Frozen catalogue EN package (optional)')
-    ap.add_argument('--polish', required=True, type=Path, help='Materialized, accepted PL v3.0 package')
+    ap.add_argument('--polish', required=True, type=Path, help='Materialized, accepted PL package')
+    ap.add_argument('--text-source', default='v3.0', help='Release label of the PL text snapshot (default: v3.0)')
     ap.add_argument('--references', required=True, type=Path, help='Delivered EN Markdown directory')
     ap.add_argument('--configs', type=Path, help='Private original config00/configst/config01–19 (optional)')
     ap.add_argument('--elf', type=Path, help='Private original Japanese 1.08 ELF (optional)')
@@ -59,7 +63,7 @@ def main(argv=None):
     report = {
         'schema': 1,
         'language': 'pl',
-        'text_source': 'v3.0',
+        'text_source': args.text_source,
         'episodes': episodes,
         'game_package_changed': False,
         'polish_package_sha256': {f: R.sha((args.polish / f).read_bytes()) for f in sorted(set(PACKAGE_FILES) | set(R.SOURCE_FILES))},

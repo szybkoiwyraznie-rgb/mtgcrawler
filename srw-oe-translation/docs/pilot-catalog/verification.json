@@ -3,8 +3,8 @@
   "status": "PASS",
   "deliverable": {
     "filename": "srwoe_pilot_catalog_PL.md",
-    "bytes": 303342,
-    "sha256": "95a8af1f8f0dba794b5878366b80f7a56387772ce003e1e3f98b21aeb2c43421"
+    "bytes": 303266,
+    "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65"
   },
   "provenance": {
     "source_inventory": "docs/mech-catalog/source-inventory.json",
@@ -16,12 +16,12 @@
       "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
       "04_config_text.jsonl": "4afecd18296cbc8ee9812c6303906e24ddfe4eef3f42a3d4c305e7e8985832d5",
       "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
-      "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+      "07_names_characters.jsonl": "88e18fb390cebcfd5166b013b0b1476a89972665598c26646d95f8d68d6626cc",
       "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
       "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
     },
-    "polish_package_snapshot_sha256": "3deac3056532968009c3264e1cff179924fabe8984a6a1943056039944b4cb3c",
-    "polish_package_files_sha256": "72ef3c9d8922a6d457f8f709311684f54ab9fe4a101aa97106bed418b9435caf"
+    "polish_package_snapshot_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+    "polish_package_files_sha256": "047eed7e5a9429e30d7e8602b92946d7971d0df8a7a540e63b27d536f81a8c00"
   },
   "counts": {
     "total_characters": 404,
@@ -42,7 +42,7 @@
     "story_flag_upgrades": 1
   },
   "markdown_audit": {
-    "markdown_lines": 6278,
+    "markdown_lines": 6276,
     "combat_pilot_headings_verified": 254,
     "non_combat_table_rows_verified": 150,
     "residual_cjk_characters": 0,

@@ -1,13 +1,14 @@
-# Polish reading editions — Complete curated series 00–34 (v3.5), v3.3, v3.0, PL4 01–21, and catalogue v4
+# Polish reading editions — Complete curated series 00–34 (v4.0), v3.5, v3.3, v3.0, and catalogue v4
 
-## Latest: Complete curated Polish reading series — episodes 00–34 (`v3.5`, 2026-10-23)
+## Latest: Complete curated Polish reading series — episodes 00–34 (`v4.0`, 2026-10-23)
 
-- **[Complete Polish reading scripts 00–34 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1/view)** (`915,737 B`, SHA-256 `1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5`, MD5 `83d3ecead5fbbc51b083ade1f84036e6`, 36 members: `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; supersedes trashed `v3.3` archive `1GGY33u25SpkxYqzal0zZ5xKw2M9pUiMi`)
-- **Delivery receipt:** `docs/reading-script/polish/PL5_v3.5_reading.delivery.json` (prior `v3.3` / `v3.0` receipts preserved in `docs/reading-script/polish/PL5_v3.3_reading.delivery.json` and `PL5_v3.0_reading.delivery.json`)
+- **[Complete Polish reading scripts 00–34, v4.0 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g/view)** (`917,233 B`, SHA-256 `c295fbe2063df91331326ee841c56a7749e6049cfed091a0a7feeb409f8c6fa6`, MD5 `df2765ebca6251674de3e66e255d3893`, 36 members: generated `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; `47,056 / 47,056` prose entries; supersedes trashed `v3.5` archive `1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1`)
+- **Delivery receipt:** `docs/reading-script/polish/PL5_v4.0_reading.delivery.json` (prior `v3.5` / `v3.3` / `v3.0` receipts preserved in `PL5_v3.5_reading.delivery.json`, `PL5_v3.3_reading.delivery.json` and `PL5_v3.0_reading.delivery.json`)
 
-Built strictly from the accepted `pakiet_PL` **`v3.5`** package (`data_sha256 = f91ca01165c5d16df0bb7d75633491caeaf4f68a1ba85034fe5779ebefe45a92`) across **all 35 story episodes (`00–34`)**, incorporating all `19` story-dialogue fixes (`00_dialogue.jsonl`) alongside `20` battle-quote fixes (`01_battle_quotes.jsonl`) across Episodes `[00, 01, 07, 10, 18, 28, 31]`:
-- **100% story prose coverage (`47,056 / 47,056` entries):** `32,954` unique dialogue/narration entries directly rendered and `14,102` DLC variant aliases independently verified in Polish (`33,587` verified text spans across `2,438,091 B` of Markdown).
-- **Strict source safety:** Zero English fallback, zero unreviewed tokens/CJK characters, full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+Built strictly from the accepted `pakiet_PL` **`v4.0`** package (`data_sha256 = 8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c`) across **all 35 story episodes (`00–34`)**, re-rendered against the frozen English reference set (all `35/35` files matched the `reference_sha256` pinned in the reviewed plans `episode_00.json`..`episode_34.json`):
+- **100% story prose coverage (`47,056 / 47,056` entries):** `32,919` unique dialogue/narration entries directly rendered and `14,137` DLC variant aliases independently verified in Polish (`33,548` verified text spans across `2,430,374 B` of Markdown). `31` of `35` episodes changed against `v3.5`; the differences are editorial wording only, and episodes `00`, `01`, `05`, `08` stayed byte-identical.
+- **Strict source safety:** Zero English fallback, zero unreviewed tokens or CJK characters (`0` Japanese characters in `35/35` files), full Polish editorial signpost headings reviewed across `episode_00.json`..`episode_34.json`, byte-identical Google Drive round-trip verified (`cmp -s == 0`), deterministic ZIP rebuild verified, and full repository test suite green. Reading files only; no PPSSPP runtime claim.
+
 
 ## Historical: Complete curated Polish reading series — episodes 00–34 (`v3.3`, 2026-10-22)
 
@@ -32,8 +33,10 @@ Reproduction from materialized `pakiet_PL`:
 ```sh
 python3 tools/build_polish_reading_editions.py \
   --english pakiet_EN --polish local/mat_pl \
-  --references local/en_reading_refs --episodes 0-34 \
-  --out local/pl_reading_v3_out
+  --references local/en_reading_refs --episodes 0-34 --text-source v4.0 \
+  --out local/reading-pl
+python3 tools/build_reading_archive.py --input local/reading-pl --release v4.0 \
+  --out local/dist_reading_v4_0/srwoe_reading_PL_00-34.zip
 ```
 
 Older deliveries below are preserved, not overwritten.
