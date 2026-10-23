@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "version": "4.0",
+  "date": "2026-10-23",
+  "scope": "Complete Polish translation kit: chapters 0-8 (prologue .. finale DL834_13 and epilogues), DLC evept101-evept108, full 05_mission_text.jsonl, and whole-corpus consistency audit; updated end-user README_DIST_PL.md shipped as README.md inside the archive",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.0.zip",
+    "drive_id": "1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view",
+    "bytes": 8761508,
+    "sha256": "c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a",
+    "md5": "20b724d716de850da7a2fee383be643f",
+    "zip_members": 92,
+    "manifest_payload_hashes": 91,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.0 revision)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "superseded_drive_file_id_trashed": "1Umr2dARMw6TP7k0FNddbpZmYLja6wZAp",
+    "superseded_same_name_draft_trashed": "1f-ETY09CKwit7Xpa-DMQBFp94XjzW9PS",
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.0.zip",
+    "bytes": 7285064,
+    "sha256": "f542428707ce3d502cdd8fa9bb775c52cd876b5a34036522cfbb6779b7f03e5d",
+    "md5": "ba88ee86b3e717ddf1b0bbffed2f06b6",
+    "note": "Built locally by tools/build_release_pair.py --version 4.0; not uploaded to Google Drive (only the PL kit and the reading series are delivered there)."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+    "changed_entries_vs_v3_5": 342,
+    "owner_ui_corrections_preserved": 1385
+  },
+  "reading_series": {
+    "status": "unchanged-at-v3.5",
+    "archive": "srwoe_reading_PL_00-34.zip",
+    "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "drive_file_id": "1d7JOPlRqH6Pd5ibCiMB1y2H-j59mFLw1",
+    "bytes": 915737,
+    "sha256": "1613f439131ba155a836e51102dc729153536217a8a3d590669c702ac385bbb5",
+    "reason_not_rebuilt": "tools/build_polish_reading_editions.py pins the SHA-256 of the frozen English reference Markdown (srwoe_episode_00.md .. srwoe_episode_34.md) in docs/reading-script/polish/episode_*.json. That reference set lived in the ignored local/en_reading_refs cache and on Google Drive, not in Git; it is absent from this sandbox, so the episodes cannot be rebuilt byte-verified here."
+  },
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static package validation, ZIP CRC, per-member SHA-256 and Google Drive checksum read-back only. No PPSSPP/real-hardware gameplay session was run."
+  }
+}

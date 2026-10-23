@@ -1,34 +1,36 @@
-# Super Robot Wars OE — pełny polski patcher (v3.0 — finalny przekład PL5)
+# Super Robot Wars OE — pełny polski patcher (v4.0 — domknięcie całego przekładu)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
 
-## Finalne pełne wydanie PL — v3.0 (`PL5.zip`, 2026-10-21)
+## Pełne wydanie PL — v4.0 (2026-10-23)
 
-Zintegrowano kompletny zwrot tłumacza **`PL5.zip`**:
-- **Wszystkie 36 plików scen (`epizod-00` – `epizod-34` oraz `simulator`)**:
-  przetłumaczone i zredagowane **49 144 / 49 146** widocznych elementów fabuły
-  oraz symulatora (jedyne 2 puste sloty w całej grze to czysto strukturalne
-  spacje JP: `dlg:eventP01.EDAT/DL105_40.bin:696` oraz
-  `dlg:eventP08.EDAT/DL833_60.bin:432`), w tym pełna korekta językowa także
-  wcześniejszych odcinków `00–21`.
-- **Pełne `cytaty.md` (kwestie bitewne)**: **19 841 / 19 841** wypełnionych
-  elementów po pełnej korekcie językowej, rodzajowej i łamania wierszy.
-- **Spójność imion, tytułów i terenu (`postacie.md`, `teksty-misji.md`, `teren.md`)**:
-  ujednolicone nazwy mówiących w dialogach (`Lesca`, `Misza`, `Pan Shinoda`,
-  `Pan Nakajima`, `Pani Yayoi`, `Pani Aiko`, `Pani Himeki`, `Kpt. Kusanagi`,
-  `Kapral Giroro`, `Szeregowy Tamama`, `Starszy szeregowy Dororo`), tytuł
-  `Ep. 25-2: Ku Ostrzu Ziemi` oraz teren `Zamek Arary`.
-- **Zachowane 100% wszystkich `1 385` wiązań poprawek UI, schowka, Eldrana,
-  Duchów, 32 wypromowanych tytułów/notatek misji, kodu naprawy bufora nazw
-  (`8 -> 32 B`) oraz natywnego fontu PL v5 (18 polskich znaków diakrytycznych).**
-- Walidator pakietu: **108 812 / 109 176** wypełnionych wierszy, **0 błędów twardych**,
-  miękkie ostrzeżenia długości/układu zredukowane z `25 165` do **4 169**
-  (pozostałe 364 puste wiersze to wyłącznie skwarantannowane artefakty binarne
-  i literały silnika bez fallbacku do EN). Testy automatyczne i odczyt binarny
-  nie zastępują pełnego runtime QA całej gry w PPSSPP.
+Wydanie domyka **100% prac redakcyjnych**: rozdziały 0–8 (od prologu po finał
+`DL834_13` i epilogi), pakiety DLC `evept101`–`evept108`, pełny plik tekstów misji
+(`05_mission_text.jsonl`) oraz audyt spójności całego korpusu (`109 176` wierszy).
 
-**Instalacja / aktualizacja do v3.0 (wymagane i `patched.iso`, i cały katalog `DLC\`):**
+- **Pokrycie pakietu:** **108 805 / 109 176** wypełnionych wierszy, **371** świadomie
+  pustych slotów strukturalnych, **0 błędów twardych**, `4 176` miękkich ostrzeżeń
+  długości/układu (kontrola statyczna — nie jest to runtime QA).
+- **Zakres merytoryczny v4.0:** rozdzielenie skróconej nazwy **Kallen** Kozuki
+  i **Karen** Joshua, zgody rodzajowe mówiących i adresatów w rozdziałach 0–8,
+  krótkie repliki po pytaniach, kalki składniowe, nazwy pomocniczych pilotów
+  (`SI sterująca`, `Żołnierz Posaydala`), ujednolicone `Saurersi / Saurersów`,
+  nieodmienny `Mucus Gate`, męski/bezrodzajowy `Connect Force`, poprawki finału
+  (`Tak... Van wygrał!`, `jedną z naaas`, `profesjonalistką`, `Shiden Swordem`)
+  oraz nazwy celów misji (`Demon Goburiki`, `Transport Ark Ship`,
+  `64_Mapa ataku 10 (mrok pustki)`).
+- **Zachowane 100% (`1 385 / 1 385`)** wcześniejszych wiązań właściciela: poprawek
+  UI, schowka, Eldrana, Duchów, umiejętności, 32 tytułów/notatek misji, kodu naprawy
+  bufora nazw (`8 -> 32 B`) oraz natywnego fontu PL v5 (18 znaków diakrytycznych),
+  wraz z `"Matchless"`, znacznikami `(Ally)` / `/Ally` i dynamicznym tokenem
+  `＜主人公名＞`.
+- **Wersja tekstu:** `pakiet_PL/snapshot.json` — `108 794` wpisów,
+  `data_sha256 = 8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c`,
+  `partial = false`. `translation/PL_COVERAGE.json` w paczce zawiera pochodzenie
+  i dokładne liczby.
+
+**Instalacja / aktualizacja do v4.0 (wymagane i `patched.iso`, i cały katalog `DLC\`):**
 1. Rozpakuj paczkę do nowego folderu i uruchom `PATCH.bat`.
 2. Wskaż czyste, oryginalne japońskie ISO **SRW OE 1.08** oraz pełny folder
    odszyfrowanego DLC (`NPJH50521`) — **nie nakładaj patcha na wcześniej spatchowane ISO**.
@@ -38,6 +40,15 @@ Zintegrowano kompletny zwrot tłumacza **`PL5.zip`**:
    nie stary save-state).
 
 ---
+
+## Historia: wydanie v3.0 (`PL5.zip`, 2026-10-21)
+
+Zintegrowano kompletny zwrot tłumacza `PL5.zip`: wszystkie 36 plików scen
+(`epizod-00`–`epizod-34` oraz `simulator`), pełne `cytaty.md` (**19 841** kwestii
+bitewnych), spójność imion, tytułów misji i terenu, przy zachowaniu **1 385**
+wiązań poprawek UI/Duchów/schowka i fontu PL v5. Wydanie **v4.0** powyżej dokłada
+**342** poprawki redakcyjne rozdziałów 0–8, DLC i tekstów misji oraz audyt
+spójności całego korpusu.
 
 ## Historia wcześniejszych wydań częściowych — import PL4 (v2.7, 2026-10-20)
 
@@ -97,11 +108,12 @@ przebudowa ISO, bez osobnego testu fontu czy kolejnego eksperymentu z buforem.
 
 ## Co zawiera ten przekład
 
-- Aktualny sprawdzony import **PL4.zip**: widoki oraz epizody **00–21**; wszystkie
-  28 078 widoczne, niepuste elementy fabuły przetłumaczone, a jeden strukturalny
-  biały rekord JP pozostaje pusty. Wypełniono 87 794/109 176 wierszy pakietu.
-- Dalsza fabuła nie jest ukończona. Epizody22–34 i symulator pozostają puste;
-  PL nie ma fallbacku do EN. Pakiet ma też 25 165 miękkich ostrzeżeń układu.
+- Kompletny przekład fabuły **epizodów 00–34** (w tym finał `DL834_13` i epilogi)
+  oraz wszystkich pakietów DLC `evept101`–`evept108`; wypełniono
+  **108 805 / 109 176** wierszy pakietu (`371` pustych slotów to wyłącznie
+  strukturalne artefakty binarne i literały silnika bez fallbacku do EN).
+- Pełne kwestie bitewne, nazwy postaci/jednostek/broni, encyklopedie z biogramami,
+  teksty misji, przedmioty, umiejętności, ekrany pomocy oraz całe menu i UI.
 - `translation/PL_COVERAGE.json` zawiera pochodzenie i dokładne liczby aktualnego
   pakietu. Pełne pokrycie widocznych slotów nie oznacza przetłumaczenia każdego
   tekstu silnika, odkrycia wszystkich zasobów ani sprawdzenia wszystkich ekranów.

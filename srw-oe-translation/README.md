@@ -31,6 +31,21 @@ Recovered history, tracked tools, reviewed plan, tests and delivery hashes:
 patch is archived byte-for-byte in Git. Full project suite: 1379 passed, 1 skipped,
 382 subtests passed. Earlier reading episodes remain on Drive; `simulator` is out of scope.
 
+## Polish translation — complete (`v4.0`, delivered 2026-10-23)
+
+The full Polish kit [**`srw-oe-translation-pl-v4.0.zip`**](https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view)
+is delivered (`8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`,
+MD5 `20b724d716de850da7a2fee383be643f`; Google Drive checksum read-back matches byte-for-byte).
+It covers chapters **0–8** (prologue through the `DL834_13` finale and epilogues),
+DLC `evept101`–`evept108` and the whole mission-text file, plus the end-user
+[`README_DIST_PL.md`](README_DIST_PL.md) shipped inside the archive.
+Package validation: **108,805 / 109,176** rows filled, `371` intentional structural
+empties, **0** hard errors, `partial = false`, snapshot `8cb37fb3…a6269c`.
+Reading editions remain at `v3.5` — rebuilding them pins the frozen English
+reference Markdown set, which is not available in this environment. Receipt:
+[`docs/pl/pl-v4.0-kit-delivery.json`](docs/pl/pl-v4.0-kit-delivery.json); full
+history in [`docs/EXPERIMENT_LOG.md`](docs/EXPERIMENT_LOG.md). No PPSSPP runtime claim.
+
 ## Goal
 
 Investigate a patch translating the Japanese PSP release of **Super Robot Taisen: Operation Extend** into English. The user confirmed the target ID as `NPJH50521`, described the base image as `SRW OE 1.08.iso` (reported size: 664,324 KB), and has the game data/DLC installed for PPSSPP.
