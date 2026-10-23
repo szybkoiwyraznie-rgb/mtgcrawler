@@ -1,7 +1,24 @@
-# Super Robot Wars OE — pełny polski patcher (v4.1 — poprawki interfejsu po testach PPSSPP)
+# Super Robot Wars OE — pełny polski patcher (v4.2 — geometria napisów tekstur wyrównana do TXCL)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Geometria napisów na teksturach — v4.2 (2026-10-24)
+
+Ta sama poprawka co polski `Postęp` z v4.1, domknięta dla pozostałych podpisów
+rysowanych na teksturach przeglądu/ulepszeń. Komórki TXCL zweryfikowano jako
+identyczne we wszystkich trzech kontenerach gry (`IM1000`/`IM3000`/`IM9000`):
+
+- **Ekran ulepszeń (`intsys_03`, podpisy wspólne z wersją EN):** `Unit / Pilot`,
+  `Upgrades`, `Linked Units`, `Support` i wstęga `Upgrade Limit Break` rysują się
+  teraz w całości w swoich komórkach — wcześniej dolne części liter były ucinane
+  albo wyciekały do sąsiednich podpisów, a przy wstęze zostawał ślad japońskiego
+  glifu.
+- **Znaczek `LNK` (`intsys_01`):** nie wystaje już o 1 px poza swoją komórkę.
+- **Wersja angielska (para EN):** wszystkie podpisy `intsys_04` (m.in. pełne
+  `Convert` i `Progress`) wyrównane tak samo jak polskie w v4.1.
+- **Bez zmian:** treść przekładu i liczby pokrycia jak w v4.1; polskie podpisy
+  `intsys_04` z v4.1 renderują się bajt w bajt identycznie.
 
 ## Poprawki interfejsu — v4.1 (2026-10-23)
 

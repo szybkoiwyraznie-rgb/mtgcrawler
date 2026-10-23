@@ -1,5 +1,26 @@
 # Project status
 
+**v4.2 pair delivered — EN/shared texture geometry aligned to TXCL
+(2026-10-24, PR #23).** At the owner's request the English caption boxes got
+the same treatment as PL in v4.1:
+[`srw-oe-translation-pl-v4.2.zip`](https://drive.google.com/file/d/1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD/view)
+`8,763,213 B`, SHA-256 `eebf0a1b51759f07ebd60d7c844375a9762035722d8eb42de495f5537ac564e2`;
+EN pair `srw-oe-translation-v4.2.zip` `7,285,821 B` (`64f90885…`, built
+locally). EN boxes for `intsys_04`/`intsys_03` and the `intsys_01` LNK badge
+are now the TXCL sampled cells inset by 1 px with cell-wide clears: measured
+on authentic GIMs, ink outside each label's cell went from up to `121 px`
+(`Progress`) / `92 px` (`Unit / Pilot`) to `0 px` everywhere, and JP
+remnants inside sampled cells are gone. TXCL rects for tex_gid 31/33/34 are
+identical in IM1000/IM3000/IM9000 (verified), so one geometry covers every
+container copy. PL text and the PL `intsys_04` render are byte-identical to
+v4.1 (`326c2062…`); the shared EN captions on `intsys_03`/`intsys_01` follow
+the fix in the PL kit too. Tests `147/147` modules OK incl. new
+`tests/test_en_txcl_geometry.py`. Receipt
+[pl-v4.2-kit-delivery.json](pl/pl-v4.2-kit-delivery.json). `runtime_tested`
+stays `false`. Textures without TXCL cell data (`mensys_*`, `tacsys_*`,
+`navisys_*`) are unchanged — no authoritative cell tables for them in the
+TXCL containers.
+
 **PL v4.1 delivered — owner PPSSPP QA fixes (2026-10-23, branch
 `arena/7bb0f98d-mtgcrawler`, draft PR #23).** The owner reported three v4.0
 screens; all three root causes were measured (owner screenshots + authentic

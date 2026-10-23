@@ -1,5 +1,22 @@
 # Next step — current state and open work
 
+**v4.2 pair delivered for owner re-test (2026-10-24).**
+[`srw-oe-translation-pl-v4.2.zip`](https://drive.google.com/file/d/1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD/view)
+`8,763,213 B`, SHA-256 `eebf0a1b…64e2` (EN pair `srw-oe-translation-v4.2.zip`
+`7,285,821 B`, `64f90885…`, local only). Adds the TXCL geometry alignment for
+the English/shared texture captions (`intsys_01` LNK, `intsys_03` upgrade
+screen, `intsys_04` EN boxes) on top of v4.1 — see
+`pl/pl-v4.2-kit-delivery.json`. **Next: owner re-patches from a clean JP ISO
+(v4.2 kit; fresh `patched.iso` + full `DLC\`, normal save after cold boot)
+and re-checks the v4.1 screens (Pilot tab, Records & Parts header/footer,
+parts conversion panel) plus the upgrade screen captions
+(`Unit / Pilot`, `Upgrades`, `Linked Units`, `Support`,
+`Upgrade Limit Break`) and — if the EN kit is used — the EN parts screen
+(`Owned`/`Convert`/`Progress` now render fully inside their cells at
+size 7/6/8).** Until then `runtime_tested` stays `false`. The EN-geometry
+item from v4.1 is closed; textures without TXCL cell data (`mensys_*`,
+`tacsys_*`, `navisys_*`) remain as-is.
+
 **PL v4.1 kit delivered for owner re-test (2026-10-23).**
 [`srw-oe-translation-pl-v4.1.zip`](https://drive.google.com/file/d/1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI/view)
 `8,762,312 B`, SHA-256 `0775aa2d…813cf`; fixes the three owner-reported v4.0

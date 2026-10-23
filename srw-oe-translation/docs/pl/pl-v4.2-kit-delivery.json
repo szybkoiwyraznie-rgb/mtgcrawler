@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "version": "4.2",
+  "date": "2026-10-24",
+  "scope": "English/shared texture-caption geometry aligned to the TXCL sampled cells, closing the latent EN defect noted in v4.1. EN boxes in intsys_04 (tex_gid 34), intsys_03 (tex_gid 33) and the intsys_01 link_icon (tex_gid 31) are now the sampled cells inset by 1 px with cell-wide clears, so no caption is clipped, none bleeds into a neighbouring cell and no JP remnants remain inside sampled cells. PL v4.1 text fixes unchanged; the PL intsys_04 render is byte-identical to v4.1 (326c2062...). intsys_03/intsys_01 captions are shared EN text in the PL kit, so those two textures follow the same fix there. TXCL rects for tex_gid 31/33/34 verified identical across IM1000/IM3000/IM9000 and the GIMs byte-identical across containers.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.2.zip",
+    "drive_id": "1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD/view",
+    "bytes": 8763213,
+    "sha256": "eebf0a1b51759f07ebd60d7c844375a9762035722d8eb42de495f5537ac564e2",
+    "md5": "10519465eedb6e0f5defd286238943d2",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.2 revision)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.2.zip",
+    "bytes": 7285821,
+    "sha256": "64f908851c590898d074e62ab40e652122eb40216cfb2bbcbb53f9879f5ba98e",
+    "md5": "c9ee158b6b396e6f3bcda04b0a5fa9fc",
+    "zip_members": 157,
+    "note": "Built locally by tools/build_release_pair.py --version 4.2; not uploaded to Google Drive (only the PL kit is delivered there). README_DIST.md gained a 'Caption geometry fix (2026-10-24)' note."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b",
+    "changed_entries_vs_v4_1": 0,
+    "note": "No translation-text change in v4.2; only ui_labels geometry for intsys_01/03/04 plus README notes."
+  },
+  "measurements_on_authentic_gims": {
+    "source": "owner IM1000.cpk srwDL_Inter_Tex.pac GIMs; TXCL from srwDL_Inter_Cell.bin; cross-checked against IM3000 srwDL_UnitParam_Cell.bin and IM9000 srwDL_Title_Cell.bin (identical rects for tex_gid 31/33/34)",
+    "en_ink_outside_own_cell_before": {
+      "intsys_01": "link_icon 12 px, all other labels 0; full render 5 px outside the TXCL union",
+      "intsys_03": "unit_pilot 92 px, upgrade_gauge 9 px, limit_break 90 px; full render 175 px outside the union",
+      "intsys_04": "parts_list 43, owned 58, convert 38, conditions 80, progress 121, equipped 27, squad 19, bonus 25, parts 20, full_upgrade_bonus 0; full render 80 px outside the union"
+    },
+    "en_ink_outside_own_cell_after": "0 px for every label; full renders outside the TXCL union: intsys_01 0 px, intsys_03 1 px (pre-existing JP stray at (48,25), outside all cells), intsys_04 0 px",
+    "render_sha256_after": {
+      "intsys_01_en": "0655e10a9befa66595bfdb902d86befce9821a8f5f6a8ae816ea0b4327d702b3",
+      "intsys_03_en": "27ef9622d6e52e017f46d03c7ac4dbdb80cd3e9a3a34b33560f156bf0925e8c0",
+      "intsys_04_en": "2ab1ac9e75cc2aa91ac0a85edcea2a067c99e09c24f872b4a765ef7badab29a2",
+      "intsys_04_pl": "326c2062ca4018681de5f054af3a2944885a9b594877dbfa705a6f98d1cda8d9 (unchanged vs v4.1)"
+    }
+  },
+  "tests": "tests/test_en_txcl_geometry.py (7 tests); full per-module suite 147/147 OK",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only: authentic-data geometry measurements, unit tests, ZIP CRC/member hashes, Drive checksum read-back. Owner re-test should add the upgrade screen (intsys_03 captions) and, if the EN kit is used, the EN parts/conversion screens."
+  }
+}
