@@ -31,7 +31,7 @@ Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skrypto
   - **Exart** — pilot główny: Seishiro Kusanagi — piloci wspierający w misji: brak
 
 **Jednostki wrogie:**
-  - **Brocken/Melee** — pilot główny: Control AI — ×3 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×3 rekordy źródłowe Entry ID
 
 ---
 
@@ -160,7 +160,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -2367,7 +2367,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
 
 **Jednostki wrogie:**
-  - **Brocken/Melee** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -2601,7 +2601,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -3746,7 +3746,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Raijin-Oh** — pilot główny: Jin Hyuga — piloci wspierający w misji: Asuka Tsukishiro, Koji Hoshiyama
 
 **Jednostki wrogie:**
-  - **Brocken/Melee** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×5 rekordów źródłowych Entry ID
 
 ---
 
@@ -4096,7 +4096,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -4149,7 +4149,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -4555,7 +4555,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -5700,8 +5700,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **HAL-X10/Green** — pilot główny: Żołnierz JSDF
 
 **Jednostki wrogie:**
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
-  - **Brocken/Melee** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Griffon** — pilot główny: Badrinath Harchand — ×2 rekordy źródłowe Entry ID
 
 **Jednostki neutralne / trzeciej strony:**
@@ -6192,7 +6192,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -10234,9 +10234,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
-  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Melee** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Gandoppler** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Mucus Gate S MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
@@ -11076,7 +11076,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -14261,11 +14261,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Keroro Robo Mk-II** — pilot główny: Sierżant Keroro
 
 **Jednostki wrogie:**
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
-  - **Brocken/Melee** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×5 rekordów źródłowych Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
 
 **Jednostki neutralne / trzeciej strony:**
-  - **Brocken/Melee** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID — zmiana strony w trakcie misji: sojusznicza (NPC)
 
 ---
 
@@ -14821,7 +14821,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -21375,8 +21375,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Turner** — pilot główny: Mirawoo Kyao
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×15 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×11 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×15 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×11 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
 
 **Jednostki neutralne / trzeciej strony:**
   - **Gawain** — pilot główny: Lelouch Lamperouge — piloci wspierający w misji: C.C. — obecny alternatywny rekord Entry ID
@@ -21759,10 +21759,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -21780,10 +21779,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -25151,7 +25149,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Mucus Gate S** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×13 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
   - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×8 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
-  - **Wieżyczka uniwersalna** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Wieżyczka uniwersalna** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
 ---
 
@@ -25541,7 +25539,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -31534,7 +31532,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Redler** — pilot główny: Żołnierz Imperium Guylos — ×7 rekordów źródłowych Entry ID
 
 **Jednostki neutralne / trzeciej strony:**
-  - **Mucus Gate S** — pilot główny: Control AI — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: SI sterująca — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
 ---
 
@@ -32366,7 +32364,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -36126,7 +36124,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -37441,7 +37439,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -43322,8 +43320,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
@@ -44358,10 +44356,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -44379,10 +44376,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -44446,8 +44442,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Scopedog RSC (Murza)** — pilot główny: Murza Melym
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular
-  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
   - **Braver** — pilot główny: Żołnierz Gradosu
   - **Braver** — pilot główny: Żołnierz Gradosu
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
@@ -45054,10 +45050,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -45075,10 +45070,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -45132,8 +45126,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular
-  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×6 rekordów źródłowych Entry ID
@@ -46373,7 +46367,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -46772,10 +46766,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -46793,10 +46786,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -48334,7 +48326,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
   - **HAL-X10** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -48915,7 +48907,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -53805,7 +53797,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Zaku II Kai** — pilot główny: Żołnierz Zeonu — ×2 rekordy źródłowe Entry ID
 
 **Jednostki neutralne / trzeciej strony:**
-  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: SI sterująca — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
 ---
 
@@ -54459,7 +54451,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -54571,9 +54563,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×30 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×30 rekordów źródłowych Entry ID
   - **HAL-X10** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×10 rekordów źródłowych Entry ID
   - **Type-Zero/Wróg** — pilot główny: Shinohara HOS
 
 ---
@@ -55369,7 +55361,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -55413,7 +55405,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×20 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×20 rekordów źródłowych Entry ID
   - **Gandoppler** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
   - **Giga Nekton α** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
   - **Mucus Gate M MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
@@ -56195,7 +56187,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -56228,12 +56220,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×6 rekordów źródłowych Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×20 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×20 rekordów źródłowych Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia
-  - **HAL-X10** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **HAL-X10** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID
   - **Moduł kontroli (Mega Castle)** — pilot główny: Mechabestia
-  - **Type-Zero/Wróg** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Type-Zero/Wróg** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -56936,7 +56928,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -57014,7 +57006,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Brocken/Cannon** — pilot główny: Pilot Labora — ×7 rekordów źródłowych Entry ID
   - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×9 rekordów źródłowych Entry ID
   - **Brocken/Melee** — pilot główny: Pilot Labora — ×4 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×12 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×12 rekordów źródłowych Entry ID
   - **Kampfer/Bazooka** — pilot główny: Pilot MS
   - **Zaku II Kai** — pilot główny: Pilot MS — ×2 rekordy źródłowe Entry ID
 
@@ -57742,7 +57734,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -59328,7 +59320,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -59719,13 +59711,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
 
 **Jednostki wrogie:**
-  - **Brocken/Cannon** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID
+  - **Brocken/Cannon** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×10 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×10 rekordów źródłowych Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia
-  - **Gelgoog** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
-  - **Kampfer/Bazooka** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Zaku II Kai** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
+  - **Kampfer/Bazooka** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Zaku II Kai** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
 
 ---
 
@@ -60896,7 +60888,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -60944,13 +60936,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×4 rekordy źródłowe Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×5 rekordów źródłowych Entry ID
-  - **Brocken/Cannon** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×16 rekordów źródłowych Entry ID
+  - **Brocken/Cannon** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×16 rekordów źródłowych Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia
   - **Gandoppler** — pilot główny: Mechabestia — ×9 rekordów źródłowych Entry ID
-  - **Gelgoog** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
-  - **Rick Dom** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Gelgoog** — pilot główny: SI sterująca — ×5 rekordów źródłowych Entry ID
+  - **Rick Dom** — pilot główny: SI sterująca — ×5 rekordów źródłowych Entry ID
 
 ---
 
@@ -61810,7 +61802,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -62703,7 +62695,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -67466,7 +67458,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -69319,8 +69311,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
   - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — obecny alternatywny rekord Entry ID
@@ -69802,10 +69794,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -69823,10 +69814,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -70822,7 +70812,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Iron Kong** — pilot główny: Pilot Zoida
   - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
   - **Molga** — pilot główny: Pilot Zoida — ×2 rekordy źródłowe Entry ID
-  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: SI sterująca — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
 **Jednostki neutralne / trzeciej strony:**
   - **Iron Kong Mk-II** — pilot główny: Karl Lichten Schubaltz
@@ -71423,7 +71413,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -71497,8 +71487,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Auge** — pilot główny: Nei Moh Han
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
   - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
   - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
@@ -72136,7 +72126,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -72571,10 +72561,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -72592,10 +72581,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -72709,11 +72697,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
 
@@ -73208,7 +73196,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -73308,10 +73296,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -73329,10 +73316,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -73414,8 +73400,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **Bat-Shu** — pilot główny: Hatchia Motchia
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID — obecny alternatywny rekord Entry ID
   - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
   - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
@@ -74450,10 +74436,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -74471,10 +74456,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -76306,7 +76290,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -80036,7 +80020,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
 
 **Jednostki wrogie:**
-  - **Directional Mine** — pilot główny: Control AI — ×12 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×12 rekordów źródłowych Entry ID
   - **Dom** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
   - **Dom** — pilot główny: Żołnierz Zeonu — ×5 rekordów źródłowych Entry ID
   - **Dopp** — pilot główny: Żołnierz Zeonu
@@ -80728,7 +80712,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -87948,8 +87932,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×10 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×29 rekordów źródłowych Entry ID
@@ -89253,10 +89237,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -89274,10 +89257,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -92081,7 +92063,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -92595,11 +92577,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×8 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×8 rekordów źródłowych Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
   - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
@@ -93190,7 +93172,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -93310,10 +93292,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -93331,10 +93312,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -94665,7 +94645,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -95125,7 +95105,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×3 rekordy źródłowe Entry ID
   - **Command Wolf/Khaki** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×7 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×7 rekordów źródłowych Entry ID
   - **Gun Sniper** — pilot główny: Pilot Zoida
   - **Gun Sniper** — pilot główny: Pilot Zoida
   - **Gun Sniper/WW** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
@@ -95135,7 +95115,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
   - **Redler** — pilot główny: Pilot Zoida — ×4 rekordy źródłowe Entry ID
   - **Whale King** — pilot główny: Pilot Zoida
-  - **Wieżyczka uniwersalna** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Wieżyczka uniwersalna** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
 
 ---
 
@@ -96055,7 +96035,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -96133,11 +96113,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Macross Quarter (forteca)** — pilot główny: Jeffrey Wilder — piloci wspierający w misji: Bobby Margot, Catherine Glass
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×4 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×14 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×14 rekordów źródłowych Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×10 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Directional Mine** — pilot główny: SI sterująca — ×10 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
@@ -97063,7 +97043,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -97183,10 +97163,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -97204,10 +97183,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -97265,8 +97243,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **White Base** — pilot główny: Bright Noa — piloci wspierający w misji: Mirai Yashima
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×6 rekordów źródłowych Entry ID
   - **Daljan** — pilot główny: Gosterro
@@ -98570,7 +98548,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -99360,10 +99338,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -99381,10 +99358,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -101493,7 +101469,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **Bigro** — pilot główny: Tokwan
-  - **Directional Mine** — pilot główny: Control AI — ×7 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Directional Mine** — pilot główny: SI sterująca — ×7 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Endra** — pilot główny: Oficer Neo Zeonu
   - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu
   - **Gaza-C** — pilot główny: Żołnierz Neo Zeonu
@@ -102223,7 +102199,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -102442,7 +102418,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Hover Truck** — pilot główny: Michel Ninorich — piloci wspierający w misji: Eledore Massis
 
 **Jednostki wrogie:**
-  - **Directional Mine** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
   - **Dom (Black Tri-Stars)** — pilot główny: Gaia
   - **Dom (Black Tri-Stars)** — pilot główny: Mash
   - **Dom (Black Tri-Stars)** — pilot główny: Ortega
@@ -103136,7 +103112,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -106014,8 +105990,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
@@ -106852,10 +106828,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -106873,10 +106848,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -106910,8 +106884,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular
-  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
@@ -107893,10 +107867,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -107914,10 +107887,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -114547,7 +114519,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -115926,7 +115898,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -116649,7 +116621,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Źródło:** `eventP05.EDAT/DL521_12_Entry.dat`
 **Warunki misji:**
-> "Demon God Goburiki" porusza się w specjalny sposób.
+> "Demon Goburiki" porusza się w specjalny sposób.
 **Fale i moment wejścia:** poza powyższą adnotacją kolejność fal i numery tur zależą od wyzwalaczy skryptu.
 
 **Jednostki sojusznicze (gracza):**
@@ -120674,7 +120646,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -126796,7 +126768,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Turner** — pilot główny: Mirawoo Kyao
 
 **Jednostki wrogie:**
-  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Directional Mine** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
   - **Gattle** — pilot główny: Żołnierz Zeonu — ×4 rekordy źródłowe Entry ID
   - **Gelgoog** — pilot główny: Żołnierz Zeonu — ×6 rekordów źródłowych Entry ID
@@ -127847,7 +127819,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -136077,7 +136049,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -143156,8 +143128,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Auge** — pilot główny: Nei Moh Han
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×13 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×12 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×13 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×12 rekordów źródłowych Entry ID
   - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
   - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×5 rekordów źródłowych Entry ID
@@ -143562,7 +143534,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -143871,10 +143843,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -143892,10 +143863,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -148101,7 +148071,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Turner** — pilot główny: Mirawoo Kyao
 
 **Jednostki wrogie:**
-  - **Bat-Shu** — pilot główny: Posaydal Regular
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala
   - **Braver** — pilot główny: Żołnierz Gradosu
   - **Braver** — pilot główny: Żołnierz Gradosu
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
@@ -149079,10 +149049,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -149820,7 +149789,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -152637,20 +152606,20 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **Bolt Robo/Anti-Air** — pilot główny: Mechabestia — ×11 rekordów źródłowych Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia — ×10 rekordów źródłowych Entry ID
-  - **Dreissen** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Dreissen** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Gandoppler** — pilot główny: Mechabestia — ×12 rekordów źródłowych Entry ID
-  - **Gelgoog** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Gelgoog** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Giga Nekton α** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
   - **Giga Nekton αα** — pilot główny: Mucus — ×2 rekordy źródłowe Entry ID
-  - **HAL-X10** — pilot główny: Control AI
-  - **Helldiver** — pilot główny: Control AI
-  - **Kampfer/High Mobility** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **HAL-X10** — pilot główny: SI sterująca
+  - **Helldiver** — pilot główny: SI sterująca
+  - **Kampfer/High Mobility** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Kikaishin** — pilot główny: Kikaishin — zmiana strony w trakcie misji: neutralna / trzeciej strony, sojusznicza (NPC)
   - **Mucus Gate L MC** — pilot główny: Mucus — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Mucus Gate S** — pilot główny: Brak przypisanego klucza pilota w Entry — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Nekton Mine G** — pilot główny: Mucus — ×3 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Nekton Shooter** — pilot główny: Mucus — ×4 rekordy źródłowe Entry ID
-  - **Type-Zero/Wróg** — pilot główny: Control AI
+  - **Type-Zero/Wróg** — pilot główny: SI sterująca
 
 ---
 
@@ -155274,7 +155243,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -155350,8 +155319,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Auge** — pilot główny: Nei Moh Han
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
   - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
@@ -155696,7 +155665,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -156142,10 +156111,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -156163,10 +156131,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -156297,8 +156264,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
   - **Fatty** — pilot główny: Żołnierz Balarantu — ×8 rekordów źródłowych Entry ID
@@ -157047,10 +157014,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -157068,10 +157034,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -157114,7 +157079,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **B-SFTV-AT-105 Zahatt** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×12 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×9 rekordów źródłowych Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×6 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×6 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×10 rekordów źródłowych Entry ID
   - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
@@ -158103,7 +158068,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -158309,8 +158274,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Auge** — pilot główny: Nei Moh Han
   - **Bat-Shu** — pilot główny: Antoon Randow — zmiana strony w trakcie misji: neutralna / trzeciej strony
   - **Bat-Shu** — pilot główny: Hekeler Mauzer — zmiana strony w trakcie misji: neutralna / trzeciej strony
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×8 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×7 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×8 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×7 rekordów źródłowych Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — zmiana strony w trakcie misji: neutralna / trzeciej strony
   - **Braver** — pilot główny: Żołnierz Gradosu — ×4 rekordy źródłowe Entry ID — zmiana strony w trakcie misji: neutralna / trzeciej strony
   - **Daljan** — pilot główny: Gosterro — zmiana strony w trakcie misji: neutralna / trzeciej strony
@@ -159015,10 +158980,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -159036,10 +159000,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -159206,12 +159169,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **Auge** — pilot główny: Antoon Randow
   - **Auge** — pilot główny: Nei Moh Han
-  - **Auge** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
-  - **Auge** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Auge** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
+  - **Auge** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×12 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×10 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×12 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×10 rekordów źródłowych Entry ID
   - **Bat-Shu/Strong** — pilot główny: Hekeler Mauzer
   - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×3 rekordy źródłowe Entry ID
@@ -159826,7 +159789,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -160379,10 +160342,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -160400,10 +160362,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -160605,10 +160566,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **Aug** — pilot główny: True Posaydal
-  - **Auge** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
-  - **Auge** — pilot główny: Posaydal Regular — ×5 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×6 rekordów źródłowych Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×6 rekordów źródłowych Entry ID
+  - **Auge** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID
+  - **Auge** — pilot główny: Żołnierz Posaydala — ×5 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×6 rekordów źródłowych Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×6 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
   - **Fatty (Ground)** — pilot główny: Żołnierz Balarantu — ×5 rekordów źródłowych Entry ID
   - **Fatty/Na okręty** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
@@ -161989,7 +161950,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -162758,10 +162719,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -162779,10 +162739,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -162903,7 +162862,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **Blood Sucker** — pilot główny: Żołnierz Red Shoulder — ×7 rekordów źródłowych Entry ID
-  - **Mucus Gate S** — pilot główny: Control AI — cel/obiekt skryptowy; nie jest pilotowanym mechem
+  - **Mucus Gate S** — pilot główny: SI sterująca — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Scopedog TC-RS** — pilot główny: Żołnierz Red Shoulder — ×2 rekordy źródłowe Entry ID
   - **Scopedog TC-RS/M** — pilot główny: Żołnierz Red Shoulder — ×4 rekordy źródłowe Entry ID
 
@@ -163275,7 +163234,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -182910,7 +182869,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -188870,10 +188829,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -188920,7 +188878,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-### Odcinek 32 — Operacja: transport Arki (`DL832_40`)
+### Odcinek 32 — Transport Ark Ship (`DL832_40`)
 
 **Źródło:** `eventP08.EDAT/DL832_40_Entry.dat`
 **Fale i moment wejścia:** nieokreślone w nocie misji; zależne od wyzwalaczy skryptu `.bin`.
@@ -190909,7 +190867,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -200832,7 +200790,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 #### Kallen Kozuki
 
 - **Seria:** Code Geass
-- **Nazwa skrócona:** Karen
+- **Nazwa skrócona:** Kallen
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -202618,10 +202576,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Melee** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Melee** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
   - **Gandoppler** — pilot główny: Mechabestia — ×3 rekordy źródłowe Entry ID
   - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -202912,7 +202870,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -203304,7 +203262,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Griffon** — pilot główny: Badrinath Harchand
   - **HAL-X10** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
   - **HAL-X10/Green** — pilot główny: Shinohara HOS — ×2 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
 
 ---
 
@@ -203615,7 +203573,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -205414,8 +205372,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×4 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Braver** — pilot główny: Żołnierz Gradosu — ×2 rekordy źródłowe Entry ID
   - **Death Army** — pilot główny: DG Cells — ×4 rekordy źródłowe Entry ID
@@ -206049,10 +206007,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -206070,10 +206027,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -206109,12 +206065,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
-  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
   - **Fatty (Ground)** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
-  - **HAL-X10/Green** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×4 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×4 rekordy źródłowe Entry ID
   - **Lądowy pancernik Balarant** — pilot główny: Oficer Gilgameshu
   - **Scopedog** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
   - **Scopedog** — pilot główny: Żołnierz Gilgameshu — ×4 rekordy źródłowe Entry ID
@@ -206493,7 +206449,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -206678,13 +206634,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Melee** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Death Army** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
   - **Death Bird** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
   - **Gandoppler** — pilot główny: Mechabestia — ×7 rekordów źródłowych Entry ID
-  - **HAL-X10/Green** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **HAL-X10/Green** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Invader/Air** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
   - **Invader/Ground** — pilot główny: Invader — ×3 rekordy źródłowe Entry ID
   - **Metal Beast/Muszla** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID
@@ -207236,7 +207192,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -208169,9 +208125,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **Bolt Robo/Long-Range** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Bolt Robo/Standard** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Cannon** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Brocken/Działko automatyczne** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Cannon** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Brocken/Działko automatyczne** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
   - **Dark Go-Saurer** — pilot główny: Mechabestia — ×2 rekordy źródłowe Entry ID
   - **Death Army** — pilot główny: DG Cells — ×16 rekordów źródłowych Entry ID
   - **Death Bird** — pilot główny: DG Cells — ×2 rekordy źródłowe Entry ID
@@ -208180,7 +208136,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Metal Beast/Rakieta** — pilot główny: Invader — ×2 rekordy źródłowe Entry ID — cel/obiekt skryptowy; nie jest pilotowanym mechem
   - **Seryjny Metal Knight** — pilot główny: Metal Knight — ×3 rekordy źródłowe Entry ID
   - **Seryjny Metal Knight/Ciężki** — pilot główny: Metal Knight — ×2 rekordy źródłowe Entry ID
-  - **Type-Zero/Wróg** — pilot główny: Control AI — ×2 rekordy źródłowe Entry ID
+  - **Type-Zero/Wróg** — pilot główny: SI sterująca — ×2 rekordy źródłowe Entry ID
 
 ---
 
@@ -208561,7 +208517,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -208659,7 +208615,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 **Jednostki wrogie:**
   - **Dark Horn** — pilot główny: Żołnierz Imperium Guylos — ×2 rekordy źródłowe Entry ID
-  - **Directional Mine** — pilot główny: Control AI — ×8 rekordów źródłowych Entry ID
+  - **Directional Mine** — pilot główny: SI sterująca — ×8 rekordów źródłowych Entry ID
   - **Dom (Black Tri-Stars)** — pilot główny: Gaia
   - **Dom (Black Tri-Stars)** — pilot główny: Mash
   - **Dom (Black Tri-Stars)** — pilot główny: Ortega
@@ -209627,7 +209583,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 
@@ -210118,8 +210074,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
   - **B-FH-14/Myśliwiec dwuzadaniowy** — pilot główny: Żołnierz Balarantu — ×2 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
-  - **Bat-Shu** — pilot główny: Posaydal Regular — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
+  - **Bat-Shu** — pilot główny: Żołnierz Posaydala — ×3 rekordy źródłowe Entry ID
   - **Bat-Shu/Strong** — pilot główny: Gavlet Gablae
   - **Bat-Shu/Strong** — pilot główny: Hatchia Motchia
   - **Braver** — pilot główny: Żołnierz Gradosu — ×7 rekordów źródłowych Entry ID
@@ -210662,10 +210618,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -210683,10 +210638,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Posaydal Regular
+#### Żołnierz Posaydala
 
 - **Seria:** Brak wpisu w słowniku postaci
-- **Nazwa skrócona:** Żołnierz Posaydala
 
 | Parametr    | Wartość bazowa |
 | ----------- | -------------: |
@@ -211477,7 +211431,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 **Jednostki wrogie:**
   - **Brocken/Cannon** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
   - **Brocken/Działko automatyczne** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
-  - **Chaldea** — pilot główny: Control AI — ×11 rekordów źródłowych Entry ID
+  - **Chaldea** — pilot główny: SI sterująca — ×11 rekordów źródłowych Entry ID
   - **Command Wolf/White** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
   - **Fatty (Ground)** — pilot główny: Pilot AT — ×2 rekordy źródłowe Entry ID
   - **Griffon** — pilot główny: Badrinath Harchand
@@ -211485,7 +211439,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
   - **Gun Sniper/WW** — pilot główny: Zoid Core — ×2 rekordy źródłowe Entry ID
   - **HAL-X10** — pilot główny: Shinohara HOS — ×3 rekordy źródłowe Entry ID
   - **HAL-X10/Green** — pilot główny: Pilot Labora — ×2 rekordy źródłowe Entry ID
-  - **Helldiver** — pilot główny: Control AI — ×5 rekordów źródłowych Entry ID
+  - **Helldiver** — pilot główny: SI sterująca — ×5 rekordów źródłowych Entry ID
   - **Scopedog** — pilot główny: Pilot AT — ×4 rekordy źródłowe Entry ID
   - **Scopedog/M** — pilot główny: Pilot AT — ×3 rekordy źródłowe Entry ID
   - **Type-Zero/Wróg** — pilot główny: Shinohara HOS — ×4 rekordy źródłowe Entry ID
@@ -211882,7 +211836,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ---
 
-#### Control AI
+#### SI sterująca
 
 - **Seria:** Brak wpisu w słowniku postaci
 

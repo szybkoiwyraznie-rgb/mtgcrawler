@@ -2417,7 +2417,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL622_11E.bin:9924","pl":"Wróg na razie się wycofuje.","source_sha256":"0c927dcfcc07cb8caa04183274573a5eb6ba28df0ae97d8d41c5d7dfde486979"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_12.bin:13544","pl":"I nie sprawiaj wszystkim kłopotów!\n","source_sha256":"0c9306c22c3173261007cefe4fe37368b2228c97946da86bbe4a328a4729dbdf"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:6424","pl":"Drago... Nie dość, że tak szybko wróciłeś,\nto jeszcze spotykam cię w innym świecie!","source_sha256":"0c932c048bd4968ccad139abd9baadab877b47dfd191c3b29de4e68e6a924996"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_40.bin:5348","pl":"Brama Mucus... Nie może być...!","source_sha256":"0c938846232b867056025fa56767a1ffaacd8f4ff2ca055da8ebe869f4247241"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_40.bin:5348","pl":"Mucus Gate... Nie może być...!","source_sha256":"0c938846232b867056025fa56767a1ffaacd8f4ff2ca055da8ebe869f4247241"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_40.bin:4736","pl":"Char... Przyszłość, której pragniesz,\npowinna być razem z Connect Force!","source_sha256":"0c9480acf410c50ae9836feb2cd573c43d332e13afdb6ebe6969af893142dac9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:96828","pl":"No już, wy dwaj! Pakujcie się od razu.","source_sha256":"0c96c837a47d63f79f2bac2ad6674ba90591f3a6e50f1af488c3bf923a096034"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL832_30.bin:8128","pl":"...Pewnie i tak nie będzie chwili oddechu.","source_sha256":"0c97bae2dacd9248840e608136b9ad38b97def28a5e921d0fe476f5c6859cd75"}
@@ -6709,7 +6709,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL102_11F.bin:15240","pl":"Tak, czuję!\nZa ścianą są wrogowie!","source_sha256":"236ae0e7f138adf9f8dfb222d200159af0d440a91dd61da96690ed5b87ebc3c8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:42192","pl":"Jasne!\nDla dobra świata, ludzi i Mucus!\nPokonajmy to coś i uratujmy wszechświat!","source_sha256":"236b4920aa59d67dda5252f15e4b283725b8de751d17f55c71222486d67da861"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:10916","pl":"W Type-Zero zainstalowano wzorce ruchu\nzoptymalizowane na danych uczenia Ingrama.","source_sha256":"236d06607996ac53443ab9375b25e43fe5eac40b621a56f1235709e0120bc29f"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:4700","pl":"Brama Mucus się zregenerowała?\n","source_sha256":"236d1f7cb06eeef989f41e0f6ba584e689f417ee3f2c033aca0e56f8b6f18f9c"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:4700","pl":"Mucus Gate się zregenerowało?\n","source_sha256":"236d1f7cb06eeef989f41e0f6ba584e689f417ee3f2c033aca0e56f8b6f18f9c"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_50G.bin:9444","pl":"Dotarliśmy do waszej asteroidy, kochani.\n","source_sha256":"236dd765bb0d8394f1b48d59d56464a4cab2dfbb409695b3becf47c481f66c6d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept102.EDAT/DL311_11C.bin:5224","pl":"Naprzód, ostrożnie.\nZabezpieczcie drogę dla kolejnych oddziałów.","source_sha256":"236f3b721f873dc18865ece6bbcf145fa4b659fb69a01969a6d7b0a048affa7b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL832_12.bin:2504","pl":"Co?!","source_sha256":"236f7ceeae1ab5f55235181b6d52e025a60f78373f6f2ed0a5bc78855cb8fcf2"}
@@ -7287,7 +7287,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_30.bin:10388","pl":"Niech was... Connect Force!\nCzyżby moja Qubeley Mk-II to było za mało...?","source_sha256":"265c03a98cf1c5987d112f00edb8f4ce4e78ad04e77a2614e08d70801e87c248"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL104_40F.bin:9488","pl":"Dobrze.","source_sha256":"265cc8c6d5b597bc57853701dcfaa27773c2417d1086d22fbdc0953563a6b1f7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_13.bin:8016","pl":"No chodź... Chodź z nami, Ple Two.\n","source_sha256":"265ee88b22c087a9aa31c0834df4ab884a656872f28c775c01ed93ad36e82445"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:4700","pl":"Brama Mucus się zregenerowała?\n","source_sha256":"265fdf0b7b12098b7737b72d6fbac1119b078eb4d53f1ecd13f5371403d392c1"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:4700","pl":"Mucus Gate się zregenerowało?\n","source_sha256":"265fdf0b7b12098b7737b72d6fbac1119b078eb4d53f1ecd13f5371403d392c1"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_11.bin:21068","pl":"A kto będzie tu bronił?!\r\n","source_sha256":"26613f31f738f8d4695b212d5bda95e84a8bc1cbf2129a59641f3460342a65a2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:25760","pl":"Gdybyś czekał, zmiażdżyłbyś Connect bez wysiłku.\nAle tego nie zrobiłeś.","source_sha256":"266347212a2e864a9259cf60309967a5200de6e200b0fad0408be86c2770582d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:98640","pl":"Prawdę mówiąc, zanim wyruszyli,\nShingo mi coś powiedział...","source_sha256":"26655e3f759e2c7fb9b5f3fddcb53206fdacdd066f76242115acf4ee11d52b6d"}
@@ -11240,7 +11240,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_60.bin:5480","pl":"Lądowy pancernik Balarant zostaje zniszczony","source_sha256":"3a678a45fd1d34555619470468c78ac9c4ef8b63b2d997b51d7b85c113cc8a61"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL207_13B.bin:5372","pl":"Wycofać okręt.\r\n","source_sha256":"3a6a669b4439f28523096bf42230d042be04612d02c1748d9951a4a25de7c986"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:6224","pl":"Aaach... no tak!","source_sha256":"3a6ad2b8f98d26e56523ac0f171145af52b6305fc5d0b82e7234b4044029c6d8"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_45.bin:6996","pl":"Brama Mucus zniszczona.\nZostali gdzieś jeszcze wrogowie?","source_sha256":"3a6b0426c7345f7c9ab712d7cbbd5a33dc5e3653afe112d2f0c0466479428bf6"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_45.bin:6996","pl":"Mucus Gate zniszczone.\nZostali gdzieś jeszcze wrogowie?","source_sha256":"3a6b0426c7345f7c9ab712d7cbbd5a33dc5e3653afe112d2f0c0466479428bf6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_13.bin:4728","pl":"Komandorze Char, jak Zeong?","source_sha256":"3a6c3c0c23a2fb8a2c48495096fa7f14e4f4a06486d16939715380961033449a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:59192","pl":"Connect Force!\nRaporty napływają ze wszystkich sektorów.","source_sha256":"3a6c9c3d40f86b4d810f58cee1b099e51d6cdf2def69ef24ed44f337bec055d3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_40.bin:5492","pl":"＃Pierścień warp","source_sha256":"3a6d4ec1a4233ca3bb3e1131c1d6b8dbe263364a3890466c247855aeec84e0e7"}
@@ -11996,7 +11996,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_11.bin:16984","pl":"Dlatego w początkowej fazie właśnie tu\nwróg będzie stawiał najsilniejszy opór.","source_sha256":"3e816c932483b9c950184b0444b63686825a60242f375cb6a41889533715ecef"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_11.bin:26656","pl":"No dalej, stań szybko tam, gdzie ja stoję!\nI wtedy cię pokonam!","source_sha256":"3e8197deddab71a503d3cd07a3778a1a2253096e316439ba5eb375e3f1f893b3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:4244","pl":"Rozumiem.\nCzyli smykałkę do pilotażu masz po ojcu.","source_sha256":"3e83d797a3a572cdf2e9fe60fb41772210e76257bbe5a652b22839c8b85a47bf"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_35.bin:428","pl":"Bramy Mucus rozsiane po Earthtii wyróżniały się\nna tle innych tym, że wypuszczały nie tylko Mucus,\nale też mnóstwo Metal Knightów.","source_sha256":"3e87c6c3af42b502ae7bc333d391da4dfc3f08d473c6e940b2cc92911b2fe5a9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_35.bin:428","pl":"Mucus Gate rozsiane po Earthtii wyróżniały się\nna tle innych tym, że wypuszczały nie tylko Mucus,\nale też mnóstwo Metal Knightów.","source_sha256":"3e87c6c3af42b502ae7bc333d391da4dfc3f08d473c6e940b2cc92911b2fe5a9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:28256","pl":"To musimy go zniszczyć, zanim do tego dojdzie!","source_sha256":"3e8a2ed7ef24a273fb1f9371855a7e25529295d85555299d389ee6c1a11446f6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:7376","pl":"Ogromny... Forteca Imperium Mechanizacji?","source_sha256":"3e8a6a1867626579a759a25a55386cb294ddd775373d5edbbc125fe60709c60a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:5688","pl":"He, he. Teraz już za późno, by to zrozumieć.","source_sha256":"3e8a6a9f9d2d939811203040ca450b901c790b373caa9991ca1fb1027a1a2cc9"}
@@ -21596,7 +21596,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_12.bin:10376","pl":"No pięknie, to się nigdy nie skończy.","source_sha256":"70c120f7e667e97f47abfd21bfd23a6c9da5096519bfaab361d7dcc6a09849be"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP13.EDAT/DL208_30.bin:3892","pl":"Mroczne Smoki to chyba nasza działka, nie?","source_sha256":"70c408a14973df028dad912fd3c272610b65c425f7dc8f8a5810eebfc8be3d3a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_11.bin:3656","pl":"Dowódco... Pierwszego dnia opuszcza pan odprawę?\nCo pan sobie wyobraża?","source_sha256":"70c42ebbbd5b6465ed12edea82b8463a5c7aa616b96942273301ada219ab1e03"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:1092","pl":"Patrzcie! Brama Mucus!","source_sha256":"70c4d11facdcce538f2fd154ceb613a3b1e0fab10e2d4784dbfaccd003d7c58b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:1092","pl":"Patrzcie! Mucus Gate!","source_sha256":"70c4d11facdcce538f2fd154ceb613a3b1e0fab10e2d4784dbfaccd003d7c58b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_60.bin:3912","pl":"Temperatura rośnie...\nWygląda na to, że działa.","source_sha256":"70c62197a95bf82795814cd425fe52a8fb6109b1d983f85e3d83e03bef8cc409"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:25648","pl":"Jest chyba za stary, żeby tak się podniecać zabawką.\nDobrze, Shingo. Daj mu popalić!","source_sha256":"70c6626f75ab2edafc5f25e96095a30799133a19b2924c6183d197084e716319"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP13.EDAT/DL208_30.bin:952","pl":"Za zgodą królestw Earthtii Connect Force\nzaplanował misję wydobycia surowców połączoną\nz poszukiwaniem Mrocznych Smoków.","source_sha256":"70c765fd4d0a570bc24fcb6ad671a259702894babc8a1275109b417585609c06"}
@@ -24796,7 +24796,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_13.bin:34268","pl":"Daba! Wszystko gra?!","source_sha256":"814c575d7af417d365c738afd6b08891946b50ab74ecbda0fdcaf02db4239b8a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:19320","pl":"Hmf... Rycerz Ryu z Earthtii...\n","source_sha256":"814ebafe30ed94e8c0de365e402128670d98ab44f137c6e659cd2d0b67ca672c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_11.bin:620","pl":"Planeta Zi / Podziemia","source_sha256":"814f44036b75c1114afd9f76ad6344b23d70b4502c77f6281ba87f3b10f8f164"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_45.bin:4204","pl":"Brama Mucus zniszczona.\nTeraz tylko oczyścić teren z resztek wroga.","source_sha256":"815141c5484fa6555fe7515af5a546a7c60fd8dbc1282ff001e041f665bc3624"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_45.bin:4204","pl":"Mucus Gate zniszczone.\nTeraz tylko oczyścić teren z resztek wroga.","source_sha256":"815141c5484fa6555fe7515af5a546a7c60fd8dbc1282ff001e041f665bc3624"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL209_35D.bin:12568","pl":"Buuu! Alphonse dopiero co przeszedł przegląd,\na teraz znowu jest cały poobijany!","source_sha256":"815148bed27cf4795b41ad8d48f5fa94d41ee1d4c87723e9df56dfb880d48b30"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:16012","pl":"E-eee... Powodzenia!","source_sha256":"8151e385cfcb7a4f363f91f19d23e5ebf6ef2291b941f9c2133067e722fba2a9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_45.bin:14056","pl":"Nie trzeba go ścigać. Po spotkaniu\nz drużyną Red Shoulder opuszczamy planetę.","source_sha256":"8153952bcb42e56db536a482835959b4ce3d8548ffe70c9a24558aaa1e9537d6"}
@@ -26588,7 +26588,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:2848","pl":"Pokonamy Death Stingera?!\nNaprawdę, dziadku?","source_sha256":"8ac8aed1dca614397ab32916350915c3bb5a2bb44d5df4b919b54177013b5de5"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_40.bin:5196","pl":"Jeszcze się poprawiłeś, Gundamie!","source_sha256":"8aca4afc7e407999cc5114e6de17ca1938e505232c9e6abe093807de36cc0525"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:9380","pl":"Ugh, Hiltz!","source_sha256":"8acb1511664f1b699e31a601525b4f84ca94e3395bde3cb680acd28fe03ef8a2"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_35.bin:7344","pl":"Uwaga!\nBrama Mucus się aktywuje!","source_sha256":"8acb60ac1accf6c755c96a0e99f049ccacb13a0ee0949846ec3e01fbba0c9b74"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_35.bin:7344","pl":"Uwaga!\nMucus Gate się aktywuje!","source_sha256":"8acb60ac1accf6c755c96a0e99f049ccacb13a0ee0949846ec3e01fbba0c9b74"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:10360","pl":"Co takiego...?!","source_sha256":"8acc934cc4af3cdec0f8781703b38767262898004541712145ba189e1cf554b9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_11.bin:27120","pl":"Bright...","source_sha256":"8acd897711c7e1479b0e9a9a8d08882ef4e6e88abeeb20f8e6a2a6323f48a7ec"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:5964","pl":"Tu poniesiecie żałosną klęskę wraz z rebeliantami,\na świat będzie się toczył po mojej myśli.","source_sha256":"8ad2374290620e9b149656d4959d86939995d53c87ba10e8d56714f2164fe140"}
@@ -31360,7 +31360,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_50.bin:2732","pl":"Ach...!\n","source_sha256":"a3a464aee3c4c5e040cecf816488671373b37c1b2cdcc3fde368fa268c0fe0bc"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL833_12G.bin:400","pl":"Nadchodzą Mucus!","source_sha256":"a3a64c1fcbc0b92ce2c155bb4ce5a78ef817fb9e65fe92b55388e816e4fe15c3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_11.bin:11676","pl":"Chodź tu, ＜主人公名＞, czy jak ci tam.\nPokaż mi, jak władasz mieczem!","source_sha256":"a3a7e80f463981f7a8dbde5234bdd013d55726821f600590c0e6ca520569e562"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:6616","pl":"Bramy Mucus...!","source_sha256":"a3a8fa03e9f01f3d7f0fa66c35783fadd552e4150677dacf210db42cd9eb021b"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL625_13D.bin:6616","pl":"Mucus Gate...!","source_sha256":"a3a8fa03e9f01f3d7f0fa66c35783fadd552e4150677dacf210db42cd9eb021b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_12.bin:2444","pl":"A teraz czas na polowanie.","source_sha256":"a3ab8f2cfc486a33835851ee80bf176512310aeedfdc0fc644d64f12fd9dbb8b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:508","pl":"Przeżyła garstka żołnierzy, wśród nich Chirico.\nAle i on odniósł ciężkie rany.","source_sha256":"a3ad8391ad9e35273939aa9ec51df37a107dd326c16e3340bd311bd0cf1e4f58"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:8976","pl":"Ultrasaurus / Salon prezydencki","source_sha256":"a3afda2ad1124868d6c7c171dcc4241451c875ed08c95cb2ce5b2956fc05f3b8"}
@@ -31500,7 +31500,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL105_70.bin:7368","pl":"Ngh... \"Ugnijcie się przed moją władzą\"...\nNawet by ich oszczędzić, takie prostackie słowa...","source_sha256":"a460c16949221133eaccb1f4bb49e58e0557e92cb4da4755b470e3bfae04da1c"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL727_12D.bin:17668","pl":"Nawet bolesne, smutne wspomnienia\nskładają się na to, kim jestem teraz!\nNie oddam ich... ani jednego!","source_sha256":"a460d0c6429be7415827d277413198cc73dddac766574d9223475ef47cbc050f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_11E.bin:9212","pl":"Rozum i odwaga...\nW końcu zawsze na nich polegamy, co...","source_sha256":"a4655486a610525172f303c340dcbd05c9b9ac4b58c32666515b6c3c04c55f7a"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_30.bin:12480","pl":"Bramy Mucus naprawdę wyskakują wszędzie.\nPewnie mogłaby stać ci w ogródku,\na nawet byś nie zauważył.\r\n","source_sha256":"a4662240ebd9ca78b631f5227557fc05964c4316bb68fb0c5be2fd848365edee"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_30.bin:12480","pl":"Mucus Gate naprawdę wyskakują wszędzie.\nPewnie jedno mogłoby stać ci w ogródku,\na nawet byś nie zauważył.\r\n","source_sha256":"a4662240ebd9ca78b631f5227557fc05964c4316bb68fb0c5be2fd848365edee"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:15340","pl":"Dotąd Mucus zarażeni przez Invaderów\nczy Komórki DG nie walczyli ze sobą nawzajem...","source_sha256":"a466aae5759f3c0064964307d5b81fa9aae8dba986c1af477454236be14ebd9b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_12.bin:6612","pl":"Kamina i reszta nigdy nie przestaną walczyć!","source_sha256":"a467b07702615860e55a931b4bd0c70ca06e0b8458245e445cd65a7f39a555ad"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_20.bin:1056","pl":"Nie, nie.\nZa bardzo zżarty. Nikt za to nie zapłaci.","source_sha256":"a46877976dc2f70481946444d1bf7186f8d7f24083e38f8eb60cf5ce9a524f72"}
@@ -34348,7 +34348,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:3260","pl":"Właśnie... słyszałem plotkę, że szuka\nżołnierzy, którzy nie giną...","source_sha256":"b310be96c28cbb02a3c04574d3ae3fbf901201676e3bf286b6d32095d368d1ac"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL103_40B.bin:5000","pl":"Mam materiały filmowe. Zobaczmy na monitorze.\r\n","source_sha256":"b3110bc871174e34e262661444807d5e40d5b9a0eacd456c03fe695e43bfc921"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_20.bin:21416","pl":"Gdyby nic się nie wydarzyło, przeszłaby\nna zwykłe stanowisko i żyła jak zwykła dziewczyna.","source_sha256":"b311794f5e5660efac7bc61aec6a98b94d9e6d4288708ce70fdfc46b2558a9c8"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:6816","pl":"Brama Mucus...!","source_sha256":"b312d69658493a9aaa899cb96e97f83567f45b91301467d5373ae01daf215311"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_50.bin:6816","pl":"Mucus Gate...!","source_sha256":"b312d69658493a9aaa899cb96e97f83567f45b91301467d5373ae01daf215311"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_20.bin:2896","pl":"Rozumiecie? Ple, Ple Two.","source_sha256":"b3141c7958314bbfc2702f6eae9d06f32e97d62132706ee2cb289873861af10d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_11.bin:16352","pl":"Zleciłem badanie i obronę ruin.\nConnect Force, przygotujcie się do następnej misji.","source_sha256":"b315b26318b731fe378f23117b12dd1f6a259639adf29b466e55e6caf7753bb4"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:130812","pl":"Do tej pory polegałem na Fionie i Zeke'u.","source_sha256":"b316183be80d8ff4e8a04dd7e5b3cf0add9e0be3ebd0a224fe04afcfd2627b7b"}
@@ -35380,7 +35380,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL727_12D.bin:1368","pl":"Ugh... To ty...!","source_sha256":"b85833ae3db06b1af4462f1e30a78b56fcc995b0f3ee3c02fb4644b6253c4658"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:8008","pl":"Taka jest wola lorda Posaydala.\nNie mów niczego, co mogłoby budzić podejrzenia.","source_sha256":"b85951dc08cad64d29983bba6bf5358775abf7fae784139ec44154e15309314d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_50.bin:464","pl":"Wnętrze pośredniej bazy ISTO","source_sha256":"b8598531f5c128041c7d4f327ea35330d819897af79ae01bc4ccae1493426ee1"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_30.bin:18840","pl":"Bramy Mucus z założenia leżą\nna współrzędnych, gdzie łatwo wyjść z warpu.\nTo żaden przypadek.","source_sha256":"b85b8a0623033253f9f331268d7732b9905b82deb5c0be286adc02eb21bb0268"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_30.bin:18840","pl":"Mucus Gate z założenia leżą\nna współrzędnych, gdzie łatwo wyjść z warpu.\nTo żaden przypadek.","source_sha256":"b85b8a0623033253f9f331268d7732b9905b82deb5c0be286adc02eb21bb0268"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:15524","pl":"Nie przybyłem tu z własnej woli!\nAle muszę zapewnić podwładnym godny byt!","source_sha256":"b85c12b76c3b34e26abd401937b3f1421a692d85d0e4c0ae3b9193266fc85a37"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:1032","pl":"Wy dwaj, słyszycie mnie?\nTu Connect Force.","source_sha256":"b85e61f518c8c70474d35929bd5fa9f375245bfad7700f8ab60583507290e341"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:1808","pl":"Nie wykręcaj się!\n","source_sha256":"b85fa6ceda13d4e70d6ea2e3156114a83caacac447e819ce0d69502dfd7175dc"}
@@ -38602,7 +38602,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:10400","pl":"Patrzcie bezradnie, jak mój Stalowy Ład\nrozprzestrzenia się po wszystkich zakątkach kosmosu.","source_sha256":"c9c6df361bb2f5d3d7ee890d81e9dcf5a7e534b30cf64cc45d256e57cd1d66d9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_20.bin:7300","pl":"Haa... Ale się porobiło...\r\n","source_sha256":"c9ca580e49d7fa386494a83a77a230553f7fe90bc7ef24d34ed779f064e61d4c"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:47692","pl":"Bu-bu!","source_sha256":"c9cb9aba820cdced7fb6ce535edbfa3c28aa0fed99d4e39773dfc5b842c3b449"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL521_40.bin:1204","pl":"Brama Mucus się aktywuje!","source_sha256":"c9cb9d783cd97f82d2d186d2147fe1346be38cc6fda83d1151bbfe2d879b616f"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL521_40.bin:1204","pl":"Mucus Gate się aktywuje!","source_sha256":"c9cb9d783cd97f82d2d186d2147fe1346be38cc6fda83d1151bbfe2d879b616f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_12.bin:12360","pl":"Tak, najprawdopodobniej...\n","source_sha256":"c9cbb5a790c1b10ed745be28d07d961454769632f34559551bef3495d03523a7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_60.bin:5164","pl":"Nie sądziłam, że przyjdzie nam\nwalczyć z Laborami.","source_sha256":"c9ccf767b1b69275744240d81968393872b53012e5c69c110eb2e63cf30b9326"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL727_12D.bin:13020","pl":"Nadchodzę, Kikaishinie!\n","source_sha256":"c9cd0434635ced5963338511afa59f3671068709382f888a063ccb18815bacbb"}
@@ -38685,7 +38685,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:39856","pl":"Vasage to czuje.\nJeśli zdołamy przemienić Rdzeń Genesis,\nna pewno nastanie jutro bez walk...","source_sha256":"ca250f50ebb04d6ef85446d5c1c8b45130e706253f4e0f7e2f9acb9fcfdd3629"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_20.bin:2244","pl":"Zniszcz wszystkich wrogów","source_sha256":"ca26041d9b409287fefb6e37a755191021c4e3197db454f356a2068b5f6753e2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_90.bin:13504","pl":"To co z Kaminą i resztą?\nGurren Lagann nie jest robotem Eldrana.","source_sha256":"ca284052e16df72dafca6c86fd19259449136f59abefcfd6eaaf2938f66045d9"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_12.bin:2160","pl":"No proszę, kto by pomyślał.\nBramy Mucus potrafią być AŻ TAK wielkie?\nTrzeba będzie przyłożyć się na serio!\n","source_sha256":"ca293d54542c1f0150b576677bec46c7fa231d329af6070a6aee7d1473422541"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_12.bin:2160","pl":"No proszę, kto by pomyślał.\nMucus Gate potrafią być AŻ TAK wielkie?\nTrzeba będzie przyłożyć się na serio!\n","source_sha256":"ca293d54542c1f0150b576677bec46c7fa231d329af6070a6aee7d1473422541"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_12.bin:8372","pl":"Ależ skąd... To ja przepraszam!\nSkupię się!\n","source_sha256":"ca2ba750f5c7ea337e2d492dba8fcdc7a23514a7f2674867f369a9db6aaa437c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:148840","pl":"Rozumiem... więc to takie uczucie...?\n","source_sha256":"ca2f61d46445f080783634352533c2228c03789cda63ca7a7bc5445e1efe3e85"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_11.bin:18932","pl":"Connect też jest świadomy tych ruchów.\nTo jeden z powodów, dla których musieliśmy\nw pośpiechu tworzyć Connect Force.","source_sha256":"ca2ffde6ea46b5d7dc9960daef3be7d45e432697e7350209aa9f66a6d32a3126"}
@@ -40051,7 +40051,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_20.bin:4988","pl":"Trzeba było grzecznie wrócić do domu...\nŹle wybraliście moment odwrotu.\n","source_sha256":"d1423121d35acb719377dc4d2efed6334697016a6dd6d06b2913c7ff96d7294a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:35568","pl":"Uspokój się, Noa!","source_sha256":"d143457ddbe72b7590921fca434d3a95b6a4b13ff707a03f7d61592f12ed2b04"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_11.bin:5624","pl":"Obywatele Imperium, słuchajcie mnie!","source_sha256":"d143ca82599d72462e007552508e90bf29768391af5e401794020f4cbf9ee55e"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_35.bin:2752","pl":"Brama Mucus jest tuż-tuż.\nGrupa uderzeniowa, szykujcie się do startu.","source_sha256":"d143e9d2b7e4c3f1b177c8cb1b53ba20cbeb0d5a10302aa22d4bef5595ba76ef"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_35.bin:2752","pl":"Mucus Gate jest tuż-tuż.\nGrupa uderzeniowa, szykujcie się do startu.","source_sha256":"d143e9d2b7e4c3f1b177c8cb1b53ba20cbeb0d5a10302aa22d4bef5595ba76ef"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:7440","pl":"Faktycznie dziwne.\nPowinien tu czekać na nas\nchoć jeden żołnierz.","source_sha256":"d1457766d9f61f1ac40bd57d2d4e988c32bdf833e093062f149b846320e0e450"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:18012","pl":"W każdym razie chodźmy do sali odpraw.","source_sha256":"d145bd8c49ed2d6df6edd6638c961d71b68e9a4a2ab1206d823881b7a5b05484"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_50.bin:1332","pl":"Posłuchajcie wszyscy.\nZnalazłem sposób, żeby wydostać się z miasta.","source_sha256":"d1464e3739d4ca2e41e2fc59eb9c76ca5d5b317945e5471a3ff190d459b67b4d"}
@@ -45743,7 +45743,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:23800","pl":"Cóż, Zeke mnie ciekawi.\nPojadę z wami.","source_sha256":"ef7d7d20acab2e4efa027caae1e90efed1e82799d472f5b638e10e3a6a00a902"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:32668","pl":"Bio-Relation przestało działać...","source_sha256":"ef7dfeb3879a8b5c07805784109e9daad84158adf217c04f6c8530661cfdfcce"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:10860","pl":"Wszystkie jednostki, wycofać się!","source_sha256":"ef7fb32ce0cadf08e02718b0fab50e4e898b7ae6dab5fe0d947224dea57d9c37"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_20.bin:8576","pl":"Bramy Mucus przejęte przez komórki DG...\nJeśli zostawimy je w spokoju, będzie katastrofa!\n","source_sha256":"ef80286de599f35225cbc89381bd8a48ca5667d52159a05529b4e0ca56c32a79"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_20.bin:8576","pl":"Mucus Gate w rękach komórek DG...\nJeśli zostawimy je w spokoju, będzie katastrofa!\n","source_sha256":"ef80286de599f35225cbc89381bd8a48ca5667d52159a05529b4e0ca56c32a79"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL104_11E.bin:14324","pl":"Nie dam się tak łatwo pokonać!\nPokonam cię i obronię Ziemię, przysięgam!","source_sha256":"ef824e9378c21b40247585f8bf9bd99d1e64cc6510dce3cf6167a153a5556352"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_12.bin:1184","pl":"Tak...\nKyao, L-Gaim jest w najlepszej formie, mam nadzieję?\n","source_sha256":"ef834c656e0c2ab9bfb6ba0f1be33eebd3c1c67e04ffadc743cee9ae90cc8c49"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:64228","pl":"Dowódco, a wie pan już,\ndokąd pójdzie po odejściu z wojska?","source_sha256":"ef84168071ac3fe86815942ddd8f42bab50f8a4a683fb557825a28b069e903c5"}
@@ -46238,7 +46238,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_12.bin:7052","pl":"Hoo, co za śmiałe ruchy...","source_sha256":"f1ead382ac95adf5602a97fc6f408a9aae12b807e3600e6e8be08257c3ad7b69"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL728_12E.bin:19316","pl":"Armia Gradosu się wycofuje...?","source_sha256":"f1eb3353dfe44a17dc04decc87e02b2381f55c0c430082f19d99cc679485c834"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_50.bin:6800","pl":"I w tym rejonie\nwreszcie wpadłem na ich trop.","source_sha256":"f1edb73fa5581bf4192a61de0234243e0a299e8b95c131536193cc9cc98a1e10"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:6616","pl":"Bramy Mucus...!","source_sha256":"f1edd498bd67b459d9c08abb94c940ffddfea6c8d9a069b18752cd144484dc8b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:6616","pl":"Mucus Gate...!","source_sha256":"f1edd498bd67b459d9c08abb94c940ffddfea6c8d9a069b18752cd144484dc8b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_20.bin:4208","pl":"Każdy okręt Connect Force sformuje oddział\ni uda się w jeden z tych rejonów.","source_sha256":"f1ef259da688fc18e73155fc625ee578c03ebc80a910d27ea335ca681a094adf"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL831_12.bin:17388","pl":"Nie dam się nabrać!\nChcecie tylko pochłonąć inne istoty!\nNie pozwolę wam zdeptać tego świata!","source_sha256":"f1f01cd0f4014caa7bf1cfc6d244fd9053189f27800a9d1d75a815b78db33ef8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL622_13H.bin:8196","pl":"Lamuness!\nTo coś ma niesamowitą żywotność, mya.\nRany od słabych ataków od razu goi, mya!","source_sha256":"f1f1d7c4fa67a6982fcfe162949c91448338c7a73570b04cd030bad4b08e8c78"}
