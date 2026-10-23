@@ -1,7 +1,7 @@
 # SRW OE mech catalogue — delivered data-backed edition
 
 **Current Polish presentation revision 4 (`v4.0`) — 2026-10-23:**
-[srwoe_mech_catalog_v4_PL.md on Drive](https://drive.google.com/file/d/1Iom2YIbNna-djLB5em8WchoQMjdu6pSx/view)
+[srwoe_mech_catalog_v4_PL.md on Drive](https://drive.google.com/file/d/1lh4JHwKDE0nIknE13JwS5-BGtSViYze1/view)
 — **873,130 bytes** (`11,953` lines), SHA-256
 `07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031`, MD5
 `3b636281662186cb3d1ede67990c24c6`. Downloaded back and compared byte-for-byte

@@ -10,7 +10,7 @@ See [`docs/QA_V17.md`](docs/QA_V17.md), [`docs/STATUS.md`](docs/STATUS.md) and
 
 ## Mech reference catalogue — delivered
 
-[Polish v4.0 Markdown catalogue](https://drive.google.com/file/d/1Iom2YIbNna-djLB5em8WchoQMjdu6pSx/view)
+[Polish v4.0 Markdown catalogue](https://drive.google.com/file/d/1lh4JHwKDE0nIknE13JwS5-BGtSViYze1/view)
 (`873,130 B`, SHA-256 `07f11deb…bb031`) and the frozen English presentation v3
 (`667,590 B`, SHA-256 `19228a10…dd7`, reproduced byte-for-byte from `pakiet_EN`)
 cover **393 registered unit records and 1485 weapon/action entries**, including
@@ -44,7 +44,7 @@ DLC `evept101`–`evept108` and the whole mission-text file, plus the end-user
 Package validation: **108,805 / 109,176** rows filled, `371` intentional structural
 empties, **0** hard errors, `partial = false`, snapshot `8cb37fb3…a6269c`.
 All four derived `v4.0` artefacts were regenerated against the final package and
-re-published to the `Skrypty` Drive folder: the [mech catalogue](https://drive.google.com/file/d/1Iom2YIbNna-djLB5em8WchoQMjdu6pSx/view)
+re-published to the `Skrypty` Drive folder: the [mech catalogue](https://drive.google.com/file/d/1lh4JHwKDE0nIknE13JwS5-BGtSViYze1/view)
 (`873,130 B`), the [pilot catalogue](https://drive.google.com/file/d/1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV/view)
 (`303,266 B`), the [mission deployments](https://drive.google.com/file/d/1mcrih3r4TAE0pmAYebYH54XdDELS8P6v/view)
 (`11,560,402 B`) and the [reading archive](https://drive.google.com/file/d/1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g/view)

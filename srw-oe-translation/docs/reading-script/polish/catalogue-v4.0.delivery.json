@@ -20,10 +20,11 @@
       "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
       "md5": "3b636281662186cb3d1ede67990c24c6",
       "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-      "drive_id": "1Iom2YIbNna-djLB5em8WchoQMjdu6pSx",
-      "url": "https://drive.google.com/file/d/1Iom2YIbNna-djLB5em8WchoQMjdu6pSx/view",
+      "drive_id": "1lh4JHwKDE0nIknE13JwS5-BGtSViYze1",
+      "url": "https://drive.google.com/file/d/1lh4JHwKDE0nIknE13JwS5-BGtSViYze1/view",
       "download_back_byte_identical": true,
-      "note": "The Drive copy already held these exact bytes (server MD5 3b636281662186cb3d1ede67990c24c6); it was downloaded back and cmp -s against the fresh build before this receipt was written."
+      "note": "Re-uploaded on 2026-10-23 09:31 so the Drive timestamp matches the v4.0 release; the bytes are unchanged (873,130 B, MD5 3b636281662186cb3d1ede67990c24c6), downloaded back and cmp -s against the fresh build. The previous ID held these exact bytes since 2026-10-21 and was trashed after the replacement.",
+      "superseded_trashed_drive_id": "1Iom2YIbNna-djLB5em8WchoQMjdu6pSx"
     }
   ],
   "verification": {
