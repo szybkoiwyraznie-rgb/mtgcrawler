@@ -1,6 +1,6 @@
 # Audyt językowy PL — epizody 0–2 (2026-10-24)
 
-**Status:** raport z przeglądu. Na polecenie właściciela **nie poprawiano w tej partii żadnych tekstów tłumaczenia**.
+**Status:** raport pierwotny; realizacja poprawek w toku (2026-10-24). Epizod 1 wdrożony planem `config/pl/story-language-ep01-2026-10-24.json`; epizod 0 nie miał konkretnych poprawek tekstowych, epizod 2 jest następny.
 
 ## Zakres i metoda
 
@@ -148,4 +148,7 @@ Odpowiedź jest eliptyczna już w JP (podanie nazwiska ma być potwierdzeniem), 
 - **Wyraźnie nienaturalne, ale sensownego toku nie łamią:** pkt 3–5, 10–11, „skąpią na dodatek".
 - **Reszta:** lokalne kalki/szyk i decyzje rejestru; w większości nie utrudniają zrozumienia, ale składają się na zgłoszone wrażenie „coś tu zgrzyta".
 
-Żadna linia `pakiet_PL/polish.jsonl` nie została w tej partii zmieniona.
+## Realizacja poprawek (2026-10-24)
+
+- **Epizod 0:** brak konkretnych zmian tekstowych z tego audytu.
+- **Epizod 1:** poprawiono 17 kwestii wskazanych w raporcie; plan objął 26 źródłowo powiązanych wpisów, ponieważ 9 kwestii ma jawne kopie DLC `copy_of`, które muszą otrzymać ten sam tekst. Po zastosowaniu snapshot PL ma 108 794 wpisy i `data_sha256 = 4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be`; pełna materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów. Nie jest to test PPSSPP.

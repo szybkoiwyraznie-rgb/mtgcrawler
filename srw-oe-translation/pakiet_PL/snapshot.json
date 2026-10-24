@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b",
+  "data_sha256": "4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -661,5 +661,16 @@
       "scope": "Ch 0-8 + DLC evept101-108 + 05_mission_text + global terminology/gender consistency",
       "runtime_ppsspp_verified": false
     }
-  }
+  },
+  "owner_story_language_corrections": [
+    {
+      "plan": "story-language-ep01-2026-10-24.json",
+      "sha256": "1ace97661d62c4a6c756c00ea914323576d965e4a4eda6e394a1bb6b994da794",
+      "previous_data_sha256": "e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b",
+      "entries": 26,
+      "episode": 1,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    }
+  ]
 }

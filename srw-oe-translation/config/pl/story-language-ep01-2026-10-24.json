@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "episode": 1,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_11.bin:8956",
+      "source_sha256": "2ae3a75a7678a60291bd5f566f6206a79aa9559b2e15427dfa5c90225a4e626c",
+      "before": "Przy dzisiejszym poziomie broni na pewno tak.\nPodobno trwają prace nad mobile suitami,\nktóre można zrzucać prosto z orbity.",
+      "after": "Przy obecnym poziomie techniki wojskowej tak.\nPodobno trwają prace nad mobile suitami,\nktóre można zrzucać prosto z orbity.",
+      "reason": "naturalna kolokacja techniki wojskowej zamiast poziomu broni"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_20.bin:3156",
+      "source_sha256": "92543cb069c042b1dfb0d896b4033320272f1a1d2ec5a9a309a1fe6306d91b99",
+      "before": "No, ręka rękę myje.",
+      "after": "No, interes jest obopólny.",
+      "reason": "wzajemny interes bez przestępczej konotacji idiomu"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_20.bin:11128",
+      "source_sha256": "cd22fa234e28301eb2c96090b1e5e8423aeb37ec36a62dd58fc3c79e70917c0c",
+      "before": "Idioto!\nŹle wybrać chwilę odwrotu przez głupią dumę\nto cecha drugorzędnych pilotów!",
+      "after": "Idioto!\nTylko drugorzędny pilot przegapia odwrót\nprzez głupią dumę!",
+      "reason": "bezpośrednia replika bojowa zamiast nominalizacji"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_20.bin:14640",
+      "source_sha256": "3cf12ac18cfb721d9dff86de25353feac692507ca2f4cd38de6c9148afe7c744",
+      "before": "Bright, nie możemy być zbyt pewni siebie,\nale powinniśmy bardziej w siebie wierzyć.\nTym razem Sayla też świetnie się spisała.",
+      "after": "Bright, zarozumiałość byłaby błędem,\nale powinniśmy bardziej ufać własnym siłom.\nTym razem Sayla też świetnie się spisała.",
+      "reason": "rozróżnienie zarozumiałości od wiary we własne siły"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_30.bin:2080",
+      "source_sha256": "0bfc09e034b114396fe661cf02302b87915d49c9787d6afa58cf0cd4c8fa4118",
+      "before": "Znając typ pocisku, z danych ujawnionych\nw ramach traktatu ustalimy położenie zapalnika.",
+      "after": "Typ rozpoznamy dopiero po odpaleniu,\na dane traktatu wskażą położenie zapalnika.",
+      "reason": "jawna przesłanka identyfikacji pocisku dopiero po starcie"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:1892",
+      "source_sha256": "0bb286a05d62d35b7cc9441725008eb60ddc4ffe12b796d2167e86bb9879e69b",
+      "before": "Na polu bitwy maszyna trzyma pani życie w rękach.\nLepiej, żeby była nadwrażliwa niż niedoczulona.",
+      "after": "W walce powierza pani maszynie własne życie.\nLepsza zbyt czuła niż za mało czuła.",
+      "reason": "sens JP i naturalne określenie czułości sterowania"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:1896",
+      "source_sha256": "5a07b9270649f426845caac797e330c9c5d9615d4fd4b821259f0d68dfb5059e",
+      "before": "Na polu bitwy maszyna trzyma pani życie w rękach.\nLepiej, żeby była nadwrażliwa niż niedoczulona.",
+      "after": "W walce powierza pani maszynie własne życie.\nLepsza zbyt czuła niż za mało czuła.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:1892"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:2216",
+      "source_sha256": "2c2f20ff33358113a5904954b3504cf9d7866f63fb3c9e16b2e848ae016d8968",
+      "before": "Spróbuj na symulatorze, to zobaczysz.\nMoże się przekonasz?",
+      "after": "Na symulatorze sam pan zobaczy.\nMoże chce pan spróbować?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:2212"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:2212",
+      "source_sha256": "92f275ca8a5535189d660576d74d0cb7911154afa7efe758f0fd700af60ac6cf",
+      "before": "Spróbuj na symulatorze, to zobaczysz.\nMoże się przekonasz?",
+      "after": "Na symulatorze sam pan zobaczy.\nMoże chce pan spróbować?",
+      "reason": "zaproszenie JP oraz spójny rejestr formalny"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:2508",
+      "source_sha256": "27dc85aac3e6e9dd0fd1ca1e3a2dda7a404fb7e903c8a55c1a67da061c292620",
+      "before": "No to wracam do patrolu.\nPani porucznik Chris, proszę spokojnie wsiadać.",
+      "after": "Wracam do patrolu, pani porucznik.\nProszę wsiadać bez obaw.",
+      "reason": "stopień bez imienia i sens wsiadania bez obaw"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:2608",
+      "source_sha256": "53af6740209fc1c863456d40970f4676e5327864c10fac2cadce9562b57ac214",
+      "before": "Chętnie zobaczyłabym, co potrafisz,\nale tym razem oby wróg się nie pojawił.",
+      "after": "Chętnie zobaczyłabym, co pan potrafi,\nale oby tym razem wróg się nie pojawił.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:2608"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:2608",
+      "source_sha256": "61a53dda0a1ff9af7dd4237006a7df7da3ea7f95d3414137a68488b6ba3e0c52",
+      "before": "Chętnie zobaczyłabym, co potrafisz,\nale tym razem oby wróg się nie pojawił.",
+      "after": "Chętnie zobaczyłabym, co pan potrafi,\nale oby tym razem wróg się nie pojawił.",
+      "reason": "spójny formalny rejestr Chris do Shiro"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:7772",
+      "source_sha256": "61a062f7b9d483c9274cdada813ca4d0ed22a575d7a5592d983b10f38b3b3c5d",
+      "before": "Głów już nie było.\nA co miałam zrobić?!",
+      "after": "Zapasowych głów już nie było.\nA co miałam zrobić?!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:7772"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:7772",
+      "source_sha256": "e8e550744a9271df07b1d663b8895207b85e89ed93a4c21142250f5a492560f0",
+      "before": "Głów już nie było.\nA co miałam zrobić?!",
+      "after": "Zapasowych głów już nie było.\nA co miałam zrobić?!",
+      "reason": "dopowiedziany zapas części"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:8148",
+      "source_sha256": "b51195c64cedd17ba46b4b992f86a08920a007e82b6ba75d0436273f990e0e58",
+      "before": "Ngh... Dalej siłą się nie przebijemy...\nWycofać się do punktu zbornego!",
+      "after": "Ngh... Siłą dalej się nie przebijemy...\nWycofać się do punktu zbornego!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:8148"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:8148",
+      "source_sha256": "b737fb5defce100462fc7701696a2fde91efe11644bbaa7557ce5ec2534b2034",
+      "before": "Ngh... Dalej siłą się nie przebijemy...\nWycofać się do punktu zbornego!",
+      "after": "Ngh... Siłą dalej się nie przebijemy...\nWycofać się do punktu zbornego!",
+      "reason": "naturalny szyk zdania"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:8932",
+      "source_sha256": "274849884e27f82adc2ea2caf0c0e9a3f8d4f1a1116626c2a6a369d90bcc68f5",
+      "before": "Przeklęty Zeon...\nNikt nie tknie wahadłowca pani porucznik Chris!",
+      "after": "Przeklęty Zeon...\nNikt nie tknie wahadłowca porucznik Mackenzie!",
+      "reason": "stopień z nazwiskiem zamiast stopnia z imieniem"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:10724",
+      "source_sha256": "53f3b9e2b586e719b54386cd1dd7f80d7759e2bab7f55a93218db8133e6b46fc",
+      "before": "Tak, jakoś wytrzymaliśmy.",
+      "after": "Tak. Wycofują się; jakoś wytrzymaliśmy.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:10732"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:10732",
+      "source_sha256": "cb26cb5cb76592f2d2e194dbb5396d5e3e3ece20564fbedd64f2230c56198125",
+      "before": "Tak, jakoś wytrzymaliśmy.",
+      "after": "Tak. Wycofują się; jakoś wytrzymaliśmy.",
+      "reason": "reakcja na dźwięk odwrotu i podsumowanie walki"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:10916",
+      "source_sha256": "366ee931beaae3eea39a5cfcd15c55b37b488505f4f77163b5b0f009be96dd96",
+      "before": "Dobra robota.\nDzięki wam kontener jest już załadowany.\nDziękujemy za waszą służbę!",
+      "after": "Dobra robota.\nDzięki wam kontener jest już załadowany.\nDziękujemy za osłonę!",
+      "reason": "podziękowanie za konkretne zadanie zamiast ogólnej formuły służby"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:10908",
+      "source_sha256": "df35091c4e627e5a71d1ce002a3c16365226da25cff13cb39b8c48edc9baacab",
+      "before": "Dobra robota.\nDzięki wam kontener jest już załadowany.\nDziękujemy za waszą służbę!",
+      "after": "Dobra robota.\nDzięki wam kontener jest już załadowany.\nDziękujemy za osłonę!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:10916"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL101_50D.bin:11056",
+      "source_sha256": "7986e8c429191cbf76e405de598171af569d0ab07d3ec52f3d9cec75b6bb2719",
+      "before": "Mów mi po prostu Shiro, Chris.",
+      "after": "Wystarczy Shiro, Chris.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_50.bin:11064"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_50.bin:11064",
+      "source_sha256": "d6e2d181a1b294312087fc235cf132430f1484e7884e95cc5b66f9620d994ee8",
+      "before": "Mów mi po prostu Shiro, Chris.",
+      "after": "Wystarczy Shiro, Chris.",
+      "reason": "łagodniejsze zaproponowanie przejścia na imiona"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_60.bin:2868",
+      "source_sha256": "95b62942c1ad92f42d938445f20c3f1e3523f089cd05bebff3a2431ff99d5ce0",
+      "before": "Pewnie Doppy ją przekazały...\nWróg też nie śpi.",
+      "after": "Pewnie przekazały trasę dalej...\nWróg też nie śpi.",
+      "reason": "jasny przedmiot przekazania zamiast nieostrego zaimka"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_80.bin:16332",
+      "source_sha256": "2d0469a36377aa84dd70a654e142b313753cd684473fc109398b59cd97392a4c",
+      "before": "Ponadto, by uniknąć niepotrzebnego zamieszania,\nogłosi się to jako bezpłatną aktualizację\ndo nowej wersji HOS-a.",
+      "after": "Ponadto, by uniknąć niepotrzebnego zamieszania,\nrząd przedstawi to jako bezpłatną aktualizację\ndo nowej wersji HOS-a.",
+      "reason": "konstrukcja osobowa zamiast kalki biernej"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL101_80G.bin:16304",
+      "source_sha256": "3ffc24ef2f84b25c2d1fe682dd8eea71f7967548572e1acb7e5ea2b7e124fd3a",
+      "before": "Ponadto, by uniknąć niepotrzebnego zamieszania,\nogłosi się to jako bezpłatną aktualizację\ndo nowej wersji HOS-a.",
+      "after": "Ponadto, by uniknąć niepotrzebnego zamieszania,\nrząd przedstawi to jako bezpłatną aktualizację\ndo nowej wersji HOS-a.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL101_80.bin:16332"
+    }
+  ]
+}
