@@ -170,3 +170,51 @@ czcionki głównej w RAM (komórka 24×24 4bpp, 288 B; `HW_MAP` ASCII →
 half-width w buildach) rozstrzygnie test P3 u właściciela.
 
 Brak wyników runtime; żaden plik w `local/` nie jest dystrybuowany.
+
+## 2026-10-24 — P1/P2: atlas PL, ELF baseline i PL, próbka dialogu; P3: kit testowy
+
+**Potwierdzone (sandbox; szczegóły `docs/FONT_RESEARCH.md`):**
+
+- `tools/gen_pl_atlas.py` (DejaVu Sans, em 20, linia bazowa w rzędzie
+  20 komórki 12×24, supersampling 4×, 4 poziomy alfa): atlas 87 glifów
+  × 72 B = 6 264 B, SHA-256 `38ec24bd…44202` (wycinek 69: `17d68def…a4add`).
+  Tusz PL: wielkie z kreską rzędy 1..20; ogonkowe (Ą Ę ą ę) do rzędu 23 —
+  bez przycięć. Waga kroju raczej ciężka; descensory blisko dołu komórki
+  (strojenie po screenach P3).
+- Problem miejsca rozwiązany bez ruszania vendora: cave 6 320 B przy
+  `0x78A070` to plikowe bajty `0x34D770..` (tablica sekcji ELF,
+  `e_shoff=0x34D770`, 215×40 B do EOF — loader jej nie używa); sterta
+  przesunięta na `0x78CD00` (luka 12 288 B). Nasz `tools/patch_hwfont_pl.py`
+  (fork-przez-import vendora) rozszerza PT_LOAD do 8 192 B (koniec pliku
+  `0x34F770` ≤ EOF `0x34F908`; koniec vaddr `0x78C070` < `0x78CD00`),
+  NART 69→87, NGLYPH 138→174, wpisy tabeli setText dla 18 zarezerwowanych
+  bajtów ASCII (`@ # & * + < = > [ \ ] ^ _ \` { | } ~`; `$` nigdy) →
+  kody PL `0x8585..0x8596` (bold +87).
+- P1 (niemodyfikowany vendor na ELF właściciela): rozmiar bez zmian,
+  e_phnum 209→210, **3 847 B** różnic tylko w: nagłówki PT/argumenty
+  sterty (`0x1001D9`, `0x3F3FB5`), miejsca hooków (`0x13A7A0`,
+  `0x13AB68..`, `0x13B304`, setText `0x20C9B0`), region cave od
+  `0x34D770`. `elf_r` SHA-256 `8878af89…ca97`, `elf_p1` `fd54e556…9194`.
+- ELF PL vs P1: tylko **879 B** dalej (pola PT_LOAD, stałe w hookach,
+  wpisy tabeli, ogon atlasu PL `0x34F018..0x34F524`); vs oryginał
+  4 680 B; SHA-256 `7bfc9a20…b7ba`. Rozmiar pliku niezmieniony.
+- P2 próbka: wiersz idx 632 (rec 0, off 129008, slot 112 B), mówca
+  ヘンケン zachowany; treść = zakodowane bajtami zapasowymi
+  „Zażółć gęślą jaźń! / ĄĆĘŁŃÓŚŹŻ ąćęłńóśźż” (105→51 B). Apply:
+  1 zapisany / 0 odrzuconych; ponowna ekstrakcja = tekst zamierzony
+  co do znaku; `verify_pointers` 121 383/131 977 (91,97%). Diff extentu
+  54 538 B w jednym zakresie `0xD..0xD85F` (rekompresja rekordu);
+  stage po próbce SHA-256 `c1ca930e…cc63`.
+- P3 kit (`tools/build_test_kit.py`, `kit/`): zip 14 plików, 43 748 B,
+  SHA-256 `7040ca98…38a4`; test end-to-end w sandboxie na łączonym
+  obrazie wirtualnym (ELF@455 + STAGE@1651029, tryb `--no-copy`):
+  hashe extentów po patchu = referencje co do bajta (`7bfc9a20…`,
+  `c1ca930e…`), ~93 s. Wgrany na Drive `SRWZ`:
+  `srwz-pl-font-test-p3.zip` (`1PMiZXRKJWvL9z0ETRGq-3lpENPvhJRAN`,
+  43 748 B). Patcher przerywa przy niezgodnych hashach źródła i pisze
+  wyłącznie kopię `*_PLTEST`.
+
+**Oczekuje na właściciela:** przebieg bata na prawdziwym ISO + screeny
+PCSX2 (okno dialogu z pangramem, menu) + `srwz_patch_log.txt`. Nadal
+**brak twierdzeń runtime** — ghost/zawijanie/czytelność ogonków oceni
+dopiero dowód z emulatora (P4: strojenie i zamrożenie kodów).

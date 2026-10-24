@@ -64,13 +64,18 @@
   2. ✅ Sparse virtual image proof in the sandbox: extract → 119,837
      rows; apply-unchanged → 0 writes, extent byte-identical;
      `verify_pointers.py` baseline 121,382/131,976 (91.97%).
-  3. **Font prototype (active):** upstream renderer+hwfont baseline on
-     the ELF copy, then the Polish atlas extension + one sample record
-     (changed-row write test) — sequence P1–P4 in `FONT_RESEARCH.md`;
-     owner judges PCSX2 screenshots.
-  4. Owner-side `PATCH.bat` test on the real ISO (first the STAGE no-op,
-     which must stay byte-identical, then the font test build); owner
-     returns logs, hashes and screenshots.
+  3. ✅ **Font prototype built (sandbox):** P1 vendor baseline + P2
+     Polish atlas (87 glyphs, DejaVu-rendered) + pangram sample row —
+     all byte-diffs/hashes in `FONT_RESEARCH.md`. P3 owner test kit
+     `srwz-pl-font-test-p3.zip` delivered to Drive `SRWZ`
+     (`1PMiZXRKJWvL9z0ETRGq-3lpENPvhJRAN`) and sandbox-tested
+     end-to-end (deterministic extent hashes).
+  4. **Awaiting owner:** run `PATCH_TEST.bat` on the real ISO (writes a
+     `*_PLTEST` copy; source hashes enforced), boot in PCSX2 v2.9.144,
+     return dialogue/menu screenshots + `srwz_patch_log.txt`. Then P4:
+     tune glyphs/metrics from evidence and freeze code assignments.
+     The standalone STAGE no-op bat test folds into this run (the
+     patcher verifies both source extents before writing).
 - **Phase 2 — translator files:** format with JP + EN reference + OE
   glossary, re-injectable through the proven pipeline; verify the
   doc-derived inventory in [`TEXT_SURFACES.md`](TEXT_SURFACES.md) against

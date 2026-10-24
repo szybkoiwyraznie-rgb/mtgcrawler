@@ -115,3 +115,41 @@ unchanged JSON → 119,837 unchanged / 0 to write / 0 rejected, extent
 **byte-identical**; `verify_pointers.py` virgin baseline: 205 records,
 131,976 pointers, 121,382 (91.97%) on a string start. A *changed-row*
 write test is part of P2. No runtime claims anywhere yet.
+
+## Progress: P1–P3 built in the sandbox (2026-10-24)
+
+- **Atlas** (`tools/gen_pl_atlas.py`, DejaVu Sans em 20, baseline row 20,
+  supersample 4×, 4 alpha levels): 87 glyphs × 72 B = 6,264 B, SHA-256
+  `38ec24bd…44202` (69-glyph baseline slice `17d68def…a4add`). Polish ink:
+  capitals with acute rows 1..20, ogonek letters (Ą Ę ą ę) descend to
+  row 23 — no clipping. Assignments frozen-for-prototype in
+  `tools/pl_font_codes.json`. Known cosmetics to tune after screenshots:
+  DejaVu renders heavy; descenders sit near the cell bottom.
+- **Space solution:** the cave segment patch_renderer appends is 6,320 B
+  (file bytes at `0x34D770` = the ELF section-header table, disposable),
+  heap moved to `0x78CD00` (gap 12,288 B). `tools/patch_hwfont_pl.py`
+  (fork-by-import of the vendored patcher) extends that PT_LOAD to
+  8,192 B (file end `0x34F770` ≤ EOF `0x34F908`; vaddr end `0x78C070` <
+  heap `0x78CD00`), sets NART=87/NGLYPH=174 and points the setText table
+  entries of 18 reserved ASCII bytes (`@ # & * + < = > [ \ ] ^ _ \` { | } ~`)
+  at the Polish regular codes `0x8585..0x8596`.
+- **P1 (unmodified vendor tools on the owner's ELF):** same file size,
+  e_phnum 209→210, 3,847 diff bytes confined to phdr/heap args, the four
+  hook sites and the cave file region. PL ELF vs P1: only 879 further
+  diff bytes (PT_LOAD fields, hook immediates, table entries, Polish
+  atlas tail); total vs original 4,680 B; PL ELF SHA-256 `7bfc9a20…b7ba`.
+- **P2 (sample injection):** row idx 632 (rec 0, off 129008, slot 112 B;
+  speaker Henken kept), body replaced by the reserved-byte encoding of
+  "Zażółć gęślą jaźń! / ĄĆĘŁŃÓŚŹŻ ąćęłńóśźż" (105→51 B): apply wrote
+  1 row / 0 rejected, re-extraction reproduces the intended text exactly,
+  `verify_pointers` 121,383/131,977 (91.97%). Extent diff 54,538 B in one
+  range `0xD..0xD85F` (record recompression, expected); sample stage
+  SHA-256 `c1ca930e…cc63`.
+- **P3 (owner kit):** `kit/` + `tools/build_test_kit.py` →
+  `srwz-pl-font-test-p3.zip` (14 members, 43,748 B, SHA-256
+  `7040ca98…38a4`), sandbox-tested end-to-end on a combined virtual
+  image: extent hashes reproduce the references exactly. Delivered to
+  Drive `SRWZ` as file `1PMiZXRKJWvL9z0ETRGq-3lpENPvhJRAN`. The patcher
+  aborts unless the source ISO extents hash to the recorded values and
+  only ever writes a `*_PLTEST` copy. **Awaiting owner PCSX2
+  screenshots — still no runtime claim.**
