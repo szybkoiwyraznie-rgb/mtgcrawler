@@ -174,3 +174,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** samurajskie „Zetnę cię... bez przeprosin!” (斬り捨て御免), celowa komedia „u Pana Boga za klatą” z natychmiastową korektą Kallen, metażarty Da Cidera o PD i czasie antenowym, bezpośrednie tagi w scenach zbiorowych oraz żart z itashą Noa.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6cd0389732a833a81e0bfeaf62bccf87bf53affb90fb8b4768628465bd5b3194` → `5a3319f106da80067496664181d96b0dbaac821398ccfe3f5f696942721b6112`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 7 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 21
+
+- **Zakres:** 801 wpisów — 538 fabularnych i 263 warunkowych; 103 grupy z pytaniami (68 fabularnych, 35 warunkowych).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 1 zmianę źródłową (`story-language-ep21-2026-10-24.json`, SHA-256 `1599d4b795ace20a0aab32a9818cf88c70d4744a5e42ddebcb3350b840991c73`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka w „Zostaw to mnie” zamiast „Zostaw to mi” (Kallen).
+- **Świadomie zachowane fałszywe alarmy:** przekomarzanie „karaluch czy mszyca” drużyny Ganba, długie żartobliwe tytuły Da Cidera, bezpośrednie tagi w kierowanych wymianach oraz demoniczne przechwałki Goburikiego.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `5a3319f106da80067496664181d96b0dbaac821398ccfe3f5f696942721b6112` → `9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
