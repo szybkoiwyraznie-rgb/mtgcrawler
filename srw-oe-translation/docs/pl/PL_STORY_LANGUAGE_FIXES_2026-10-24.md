@@ -39,3 +39,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** `dyrektor Douglas` (Suol Douglas), `Pan Lordgenome` jako forma czci Virala, poprawne powiedzenie `pozostawianie Chirico samemu sobie`, bezpośrednie tagi pytajne oraz formy grzecznościowe Suzaku wynikające z japońskich form uprzejmych.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `b3671f043b3203f9d45011bd8ee6cfa9867a430699466cdea4b9cbaf163097e9` → `6464d12792574e213d31b636b01b58a326995de5bda1e18de40d0d2ff1dc96d8`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 6
+
+- **Zakres:** 804 wpisy — 655 fabularnych i 149 warunkowych; 178 grup z pytaniami (147 fabularnych, 31 warunkowych).
+- **Poprawki:** 44 kwestie wskazane w przeglądzie; plan zawiera 57 zmian źródłowych po dołączeniu 13 jawnych kopii DLC.
+- **Potwierdzone klasy błędów:** powtarzający się błędny przypadek `zostaw to/ich/resztę mnie`, mianownik `Jestem pułkownik`, odwrócona rola adresata przy dokowaniu, rząd `czekamy z raportem`, termin `walka kołowa` zamiast manewrowej, maszyna jako podmiot kapitulacji oraz zagmatwana fizyka jednostronnego pierścienia warp wraz z bezpodmiotowym warunkiem zajęcia placu budowy.
+- **Świadomie zachowane fałszywe alarmy:** techniczny i JP-potwierdzony `przekrój warpu`, forma `Dzięki za fatygę`, komediowe inwokacje kulturalne oraz bezpośrednie tagi pytajne.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6464d12792574e213d31b636b01b58a326995de5bda1e18de40d0d2ff1dc96d8` → `3c6f89b0b2f5987fcb2002fafb0652c92945fdb609eeb0d4b8388dce4f12d87e`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
