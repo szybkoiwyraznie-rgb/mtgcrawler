@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "episode": 17,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL417_13.bin:18496",
+      "source_sha256": "2e7250062307bd9c651e5d1ab57d1f0cdd1b761689cb29605a30d69edf976d51",
+      "before": "Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "after": "Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL417_13.bin:17208",
+      "source_sha256": "3ed546d8709a93af1ca290255d16da688bb7df9d5cac9079905dfbb2830f81b3",
+      "before": "Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "after": "Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL417_13.bin:19152",
+      "source_sha256": "7caed62ee4fb4a52ff91952d9f2cc8a0dd262eeb571bbe0462af8eed970c2617",
+      "before": "Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "after": "Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL417_50.bin:7300",
+      "source_sha256": "9c598106631742da8d332f1b1faea3bca4bc993ab68f44e0cb6826eea0a4c68e",
+      "before": "Złączyli się, no i co, to tylko dwa!\nNas jest dużo więcej, to jak mamy przegrać?!\n",
+      "after": "Złączyli się, no i co, to tylko dwa w jednym!\nNas jest dużo więcej, to jak mamy przegrać?!\n",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP27.EDAT/DL417_70.bin:8456",
+      "source_sha256": "a61b077ead3ae07126e75d3cb371ab6b307abca5b68665e1cbec2a31cb18c0ed",
+      "before": "Zostawcie to mnie!",
+      "after": "Zostawcie to mi!",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP27.EDAT/DL417_70.bin:7968",
+      "source_sha256": "feab0f3a3c33e203a30151a850395b06f06984b650559b03f7870ce410dbc7b9",
+      "before": "Gun Snipery z Weasel Unit.\nŚwietne w ogniu przeciwlotniczym z czujnikami.",
+      "after": "Gun Snipery z Weasel Unit.\nMają ogień przeciwlotniczy sprzężony z czujnikami.",
+      "reason": "ep17 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

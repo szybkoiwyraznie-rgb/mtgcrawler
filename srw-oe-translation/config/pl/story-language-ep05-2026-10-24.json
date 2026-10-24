@@ -1,0 +1,390 @@
+{
+  "schema": 1,
+  "episode": 5,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:192",
+      "source_sha256": "ae03e545f106838553e7f21807b1cdcfd51bbbfe73e2aebb59c76888fba513da",
+      "before": "Po odparciu oddziału zwiadowczego Gradosu\ni oczyszczeniu okolicznej przestrzeni z Invaderów,\nmechabestii i Mucus Connect Force zabrał się\nna poważnie do uruchomienia bramy warp.\n",
+      "after": "Po odparciu oddziału zwiadowczego Gradosu\ni usunięciu Invaderów, mechabestii i Mucus\nz okolicznej przestrzeni, Connect Force na poważnie\nprzystąpił do uruchomienia bramy warp.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:4028",
+      "source_sha256": "383c9d329d854d409cd96ce2683fd2496ae8251946c7b4f604fca340e6d3e23d",
+      "before": "To... głos? Leci tutaj?",
+      "after": "To... głos? Zbliża się tutaj?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:4540",
+      "source_sha256": "0124ac918fb24a955b6f639fcaa7164a23fffebad409e8daa01c7369ef2db0f7",
+      "before": "Vasage to ściśle tajna sprawa Connect.\nNic dziwnego, że o nim nie wiedziałaś.",
+      "after": "Istnienie Vasage jest w Connect ściśle tajne.\nNic dziwnego, że o nim nie wiedziałaś.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:4872",
+      "source_sha256": "7767b553d33353339cb5c84173915976304df9a4fea544281f80a4a6a49b9ead",
+      "before": "Dzięki jego pomocy obliczanie współrzędnych,\nkontrola energii i reszta zajmują przy każdym\nwarpie dużo mniej czasu i energii.",
+      "after": "Dzięki jego pomocy obliczanie współrzędnych,\nkontrola energii i cała reszta wymagają przy każdym\nwarpie znacznie mniej czasu i energii.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:6960",
+      "source_sha256": "89dff6a73ad32b0c9afc47814b37adee0c136a32976845beb27764c30a4b896d",
+      "before": "Zlikwidować cele z przodu przed nadejściem posiłków!\nWszystkie maszyny, start!",
+      "after": "Zlikwidować cele z przodu przed drugą falą!\nWszystkie maszyny, start!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:8280",
+      "source_sha256": "25b695a27841b5765d801105a1a7c66131c3aef1ee2afab92a3a77a75f95cfb6",
+      "before": "I głupio walczą między sobą, brudząc świat.\nNajwyraźniej trzeba ludzi wytępić i z powrotem\nzagnać pod ziemię.",
+      "after": "I głupio walczą między sobą, zanieczyszczając świat.\nTrzeba usunąć ludzi z powierzchni i znów\nzagnać ich pod ziemię.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:9620",
+      "source_sha256": "4676fc384e60a11fe7249ce8566ed5cae386cdaacdadadc520c01358091750d0",
+      "before": "Głupia.\nMucus chcą się tylko rozmnażać.\nW odróżnieniu od głupich ludzkich wojen to czyste.",
+      "after": "Głupia.\nMucus chcą się tylko rozmnażać. Inaczej niż ludzie\nw swoich głupich wojnach, są w tym czyste.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:11048",
+      "source_sha256": "b9d68af560dd14e36949644b027f67c72fe77ffe67c91b5c2d457ad444806fe5",
+      "before": "Ludzie naprawdę są niewolnikami słów.\n\"Rozmowa\" to coś, po co ludzie sięgają,\nkiedy przychodzą do nas płaszczyć się.",
+      "after": "Ludzie naprawdę są niewolnikami słów.\n\"Rozmowa\" to tylko sposób, w jaki ludzie\nprzychodzą się nam płaszczyć.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:13088",
+      "source_sha256": "3c3ad596d277af4f05f1a52c5d65fd2e2a7834efd9a7a795c3a50cb7182dd6df",
+      "before": "Nie pojmuję, czemu bronicie ludzi.\nJeśli przegracie tę walkę, będziecie mi służyć?",
+      "after": "Nie pojmuję, czemu bronicie ludzi.\nJeśli przegracie, zostaniecie moimi podwładnymi?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_11.bin:20180",
+      "source_sha256": "f4ea09f1acfd417d70b25d71eaea6a6a94738297cf4e52e1199eb7c2036645d9",
+      "before": "Heh... Zostawiam to miejsce wam.",
+      "after": "Heh... Zostawiam to miejsce w waszych rękach.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:4480",
+      "source_sha256": "0299f77aa2dc3e2f7e42b95a98fe81def264fe399ed64f4e7dd3417b53aa51ca",
+      "before": "Heh. Nic dziwnego, w świecie, gdzie rządzą ludzie,\nwciąż jest wielu pełnych werwy.",
+      "after": "Heh. Nic dziwnego, w świecie, gdzie rządzą ludzie,\nwciąż jest wielu pełnych werwy ludzi.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:5604",
+      "source_sha256": "558b5a43a0841c719d2c91a9a37a37b6b3813e083911fb85d369a52721d40e9b",
+      "before": "Ale posłuchaj!\nBez woli rozszarpania gardła przeciwnika\nnigdy nie zmusisz bestii do uległości!",
+      "after": "Ale posłuchaj!　\nJeśli nie jesteś gotów rozszarpać gardła wroga,\nnigdy nie zmusisz bestii do uległości!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:7104",
+      "source_sha256": "a174fbfb295b1bf53232bfc8ddfdb4d6e5aa54ad4dea5e6f70b734675319427a",
+      "before": "Silny rządzi słabym... Oto prawda życia!\nMucus jedynie jej podlegają!",
+      "after": "Silni rządzą słabymi... Oto prawda życia!\nMucus jedynie jej podlegają!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:7212",
+      "source_sha256": "a9686a3cf363519227f1f176bb28ca3db9812cb1cf75ceadd20069447ebb3f0e",
+      "before": "Czyli zgoda na tyranię w stylu Posaydala!\nNie przyjmę tego!",
+      "after": "To oznaczałoby zgodę na tyranię jak u Posaydala!\nNie przyjmę tego!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:18328",
+      "source_sha256": "f5719660f5527c272acfa85bab39e20f1ef3349154b4e63fe76fcc194cc9119a",
+      "before": "No, pracę umysłową zostawcie mnie.\nBędę was wspierał, więc bez obaw.\r\n",
+      "after": "No, pracę umysłową zostawcie mi.\nBędę was wspierał, więc bez obaw.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:20220",
+      "source_sha256": "6420551f8e5f8a6de065bfea64e87c23b2d57539eee00e7e7f0d28fd189185fc",
+      "before": "Eiji...\nPrzepraszam, że dotarliśmy aż do Układu\nSłonecznego i nie było czasu odwiedzić Ziemi.",
+      "after": "Eiji...\nPrzepraszam, że przybyliśmy aż do Układu\nSłonecznego, a nie zdążyłeś odwiedzić Ziemi.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_12.bin:21068",
+      "source_sha256": "41531c1221d0288c3b5770ec7839fa6e2351404e559a74484b045c2aa19a08bc",
+      "before": "Jak mówi to Sayla,\nto nie ma się co spierać.\r\n",
+      "after": "Skoro mówi to Sayla,\nnie ma się co spierać.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:876",
+      "source_sha256": "1fc7bd721b3425c02be8b0b217b5f890d6db650277086274ddd6aaad2bf6837a",
+      "before": "To na tamtym wzgórzu to chyba wrak Zoida?",
+      "after": "Czy to na tamtym wzgórzu jest wrak Zoida?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:1380",
+      "source_sha256": "1ef2b4bb5f555f7395d7dafc706d69606163753bb055148ee1426b51add49737",
+      "before": "Hej, Zeke.\nCo jest z tym Zoidem?\r\n",
+      "after": "Hej, Zeke.\nZauważyłeś coś przy tym Zoidzie?\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:1968",
+      "source_sha256": "90f885fb088a927dcaa5cab92845de25306285fe18cd1ad58032b08d4891ae8f",
+      "before": "Co wy tu robicie, dzieciaki?\nSamym na tym pustkowiu jest niebezpiecznie!",
+      "after": "Co wy tu robicie, dzieciaki?\nNa pustkowiu dzieciom samym jest niebezpiecznie!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:3764",
+      "source_sha256": "39696287b6e596608aa5828784736ed5b13088a68f327d0253b3ade8f76c5397",
+      "before": "Zaraz, chwila.\nNajpierw zabieram ich do wioski, poznać wszystkich.",
+      "after": "Zaraz, chwila. Najpierw w wiosce\nprzedstawię ich wszystkim.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:5644",
+      "source_sha256": "1fe18a0b61828998eb4e21ac5ce6e917b9f53d75b6f994d567caf53986de5f32",
+      "before": "Niemożliwe!\nZłomowany Shield Liger ożył?!",
+      "after": "Niemożliwe!\nTen Shield Liger był złomem, a ożył?!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:8504",
+      "source_sha256": "6e1112dae53a5cabd47225cf6b1e0e8514cc6c2d70655bc2f16351f9804591e0",
+      "before": "Udało się! Udało się, Zeke!\nWygrałem w moim pierwszym Zoidzie!",
+      "after": "Udało się! Udało się, Zeke!\nWygrałem, choć pierwszy raz pilotuję Zoida!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_20.bin:9592",
+      "source_sha256": "88bef8a461627238a9f2ea67a5de466c348480ffa076e60b04d12ad475b4101e",
+      "before": "To niedaleko jest moja wioska.\nChcę się wam odwdzięczyć, zaprowadzę was.",
+      "after": "Moja wioska jest niedaleko.\nChcę się wam odwdzięczyć, zaprowadzę was.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:2136",
+      "source_sha256": "734f2a397dd051b1af46d4c49757a91637407cef823d2c785db547da3f46930c",
+      "before": "Co do Chirico, mówiłem ci od samego początku.",
+      "after": "Mówiłem ci o Chirico od samego początku.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:3116",
+      "source_sha256": "f0831276bdc3aad4b680492757a73d58df33bf30b94d82ccb8d37a92464b0f48",
+      "before": "Jeden na 25 miliardów, genetycznie. Oto kim jest.",
+      "after": "Genetycznie to jeden na 25 miliardów. Oto on.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:7992",
+      "source_sha256": "63f13cdbd0d204c32f20eacf4bdd34f0bb96dcf071375f4c38887fbce8b97419",
+      "before": "Zostać tu jest niebezpiecznie.\nUciekamy poza bazę.",
+      "after": "Tu jest zbyt niebezpiecznie.\nUciekamy poza bazę.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:9944",
+      "source_sha256": "17bebd73cde5690827818c5582331d10f50426c4b4baac277fc3fdc28dbce538",
+      "before": "Pewnie.\nTeraz jesteśmy naznaczeni.",
+      "after": "Pewnie.\nMają już nas na celowniku.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:10124",
+      "source_sha256": "27861f632c2950ffd0f8146e86d32be21344d44f10f3fbe71a6cdded675e1c21",
+      "before": "Zabić natychmiast! Nie zostawić nawet okrucha!",
+      "after": "Zabić natychmiast! Nie zostawić po nim śladu!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:11076",
+      "source_sha256": "7d1b41d83bdada7966d930247a0c69c97fef413bede010ccf21c5d61178ad18b",
+      "before": "Nie miał ani amunicji, ani jedzenia.\nTym razem nie miał innego wyjścia, jak zginąć.",
+      "after": "Nie miał ani amunicji, ani jedzenia.\nTym razem powinien był zginąć.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_30.bin:11332",
+      "source_sha256": "a1d82a15263661b6f05d3f5fa372cd554448c2e20e52c836869ede9765609a76",
+      "before": "To, że w chwili największego zagrożenia cudem\nprzybyłem, samo dowodzi jego anomalnej natury.",
+      "after": "Sam fakt, że cudem dotarłem w krytycznej chwili,\ndowodzi jego anomalnej natury.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:2656",
+      "source_sha256": "c13949a2dfbbed97ef1a0852dd904fe714f397b06f76587945f9617e1c24abbd",
+      "before": "Ale przez ten transporter czasoprzestrzenny\nMilk i reszta nas zauważyły...",
+      "after": "Ale użycie transportera czasoprzestrzennego\nsprawiło, że Milk i reszta nas zauważyły...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:9992",
+      "source_sha256": "3e438388c8c704a9a7d3664ddae83a2affed4b3b2d4668558b2625565f32a890",
+      "before": "Ty...! Przestań robić maślane oczy!\r\n",
+      "after": "Ty...! Przestań robić do niej maślane oczy!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:12772",
+      "source_sha256": "d3287bc2298aeb89677cd1ed9a14221fbdd21b57cdf45e8b45c6ada91245657d",
+      "before": "To, z czym przed chwilą walczyliście...\nto chyba nie był Monskar, prawda...?",
+      "after": "To, z czym przed chwilą walczyliście...\nczy to nie był Monskar...?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:13336",
+      "source_sha256": "97eaade08db7b11311f9bc99a6e927f254f5ebede58f70dc32c702360926c211",
+      "before": "Eeem, chodzi mi o to...\nże może ta dziewczyna była pułapką...\nżeby was zwabić...",
+      "after": "Eeem, chodzi mi o to...\nże może ta dziewczyna była przynętą...\nżeby was zwabić...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:14768",
+      "source_sha256": "8a9e82820971b25cb42052ec4a33a681daf367599ee058e353489026fc6a08fb",
+      "before": "Tyle Lamuness sobie wyobraził. Ale nawet mu\nsię nie śniło, że ta historia rozegra się w skali\ndaleko wykraczającej poza Doki Doki Space.",
+      "after": "Tyle jeszcze Lamuness zdołał sobie wyobrazić.\nAle nawet mu się nie śniło, że ta historia\nrozegra się na skalę poza Doki Doki Space.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:1932",
+      "source_sha256": "606306291770e7f7ddbf05f24ecb1d4dc83feba8217a5a69e84a4b1527aa82cd",
+      "before": "Owszem. To robota dla Connect.\r\n",
+      "after": "Owszem. Na zlecenie Connect.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:2632",
+      "source_sha256": "380fc398094c80769704d9884b7f7c3a36f74d308c91e1d460eceb552c015685",
+      "before": "Jak się czegoś szuka, im więcej oczu, tym lepiej.\nA jak znajdę jakieś złomowane części,\nzabiorę je do domu i trochę zarobię.",
+      "after": "Jak się czegoś szuka, im więcej oczu, tym lepiej.\nA jak znajdę jakieś części ze złomu,\nzabiorę je do domu i trochę zarobię.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:3048",
+      "source_sha256": "d5e0c62f6b3bf6497c6a1beba08d54181214f223aeb3328cd8fa73dfa3025887",
+      "before": "To w kontenerze to nie jest\nprzypadkiem twój pojazd?",
+      "after": "Czy ładunek w kontenerze nie jest\nprzypadkiem twoim pojazdem?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:3524",
+      "source_sha256": "1c364163b479889a9c08db99daa8de75e309efa67790ce816384f46a7049414c",
+      "before": "Ufam waszym umiejętnościom.\nPotrzebuję, żebyście zabezpieczyli drogę odwrotu.\nByliście w wojsku. Wiecie, co to znaczy.",
+      "after": "Ufam waszym umiejętnościom.\nProszę was, zabezpieczcie drogę odwrotu.\nByli żołnierze zrozumieją, co to znaczy.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:8952",
+      "source_sha256": "7a47f205c9109b0b33d5f88f6a27fdb555001d542297add7a3d2c6482a86a4a0",
+      "before": "Płacą mi w zależności od walki.\nTym razem pewnie kilka razy więcej niż tobie.",
+      "after": "Płacą mi zależnie od skali walki.\nTym razem pewnie kilka razy więcej niż tobie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:9252",
+      "source_sha256": "ef75ade34ee53754523e12553856e03fad820afeca4158cb33649bf2ec0fd919",
+      "before": "Skąpców skubię, ale porządnym\nklientom nigdy nie biorę za dużo.",
+      "after": "Skąpców skubię, ale porządnym\nklientom nigdy nie liczę za dużo.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:9448",
+      "source_sha256": "dcd75e28d5acc511de5f717d2197fd85cbdbbe4893c73c9e0ff606b82eda7729",
+      "before": "Tropię Komórki DG.\nChcę, żebyś poszukał w swojej siatce kontaktów.",
+      "after": "Tropię Komórki DG.\nUruchom swoją siatkę kontaktów i poszukaj śladów.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_70.bin:7368",
+      "source_sha256": "a460c16949221133eaccb1f4bb49e58e0557e92cb4da4755b470e3bfae04da1c",
+      "before": "Ngh... \"Ugnijcie się przed moją władzą\"...\nNawet by ich oszczędzić, takie prostackie słowa...",
+      "after": "Ngh... \"Ugnijcie się przed moją władzą\"...\nChoć chciałem ich oszczędzić, to prostackie słowa...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP21.EDAT/DL105_90.bin:5436",
+      "source_sha256": "c713ccec4b03b6caff443622b3c202f0d4d997088b0d6ef47bf1b46d4417351e",
+      "before": "Obcy żołnierz obronił wioskę na terytorium\nImperium. Odwdzięczę mu się tym samym!",
+      "after": "Obcy żołnierz obronił wioskę na terytorium\nImperium. Odwdzięczę się, pomagając mu!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP21.EDAT/DL105_90.bin:6500",
+      "source_sha256": "328a1cc7eaf3e645ad9d07a32942a1ad0d4d240980df45f042a16515c6d2ca6d",
+      "before": "Jestem major armii Imperium Guylos,\nKarl Lichten Schubaltz.",
+      "after": "Jestem majorem armii Imperium Guylos,\nKarl Lichten Schubaltz.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP21.EDAT/DL105_90.bin:6840",
+      "source_sha256": "1f70cb07c4e91f611a8217c75274a89bdb5e4b8c910de2d3e7d919c9dfe2fc67",
+      "before": "Nigdy... pan o nim nie słyszał, prawda?\nPóźniej wyjaśnię, skąd się tu wziąłem.\nNa razie pomoże mi pan ich przegonić?",
+      "after": "Pan o nim nigdy nie słyszał, prawda?\nPóźniej wyjaśnię, skąd się tu wziąłem.\nNa razie pomoże mi pan ich przegonić?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP21.EDAT/DL105_90.bin:8796",
+      "source_sha256": "6add6d5bd45fc3ce04f841f350aff0a7d7b497c049f2d250ec873e7f08835af0",
+      "before": "Trudno będzie udowodnić, kim jesteśmy,\nale zapewniam, że to nie są źli ludzie.\nProszę pozwolić mi wszystko wyjaśnić, także o mnie.\r\n",
+      "after": "Trudno będzie udowodnić, kim jesteśmy,\nale zapewniam, że to nie są źli ludzie.\nProszę pozwolić mi wyjaśnić wszystko, także o sobie.\r\n",
+      "reason": ""
+    }
+  ]
+}

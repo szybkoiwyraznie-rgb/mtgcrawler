@@ -5,6 +5,14 @@ Fan translation of **Super Robot Wars OE** (PSP) from Japanese to English.
 > **v17:** adds map terrain names, flat/unambiguous DLC deployment, and explicit
 > read-back checks for the two reported chapter-4 DLC titles. Visual/gameplay QA
 > continues; see `translation/CO_NOWEGO_v17.txt`. Existing saves must be preserved.
+>
+> **Caption geometry fix (2026-10-24):** English captions on the intermission /
+> upgrade / parts textures (`intsys_01`, `intsys_03`, `intsys_04`) are now drawn
+> inside the exact TXCL rectangles the game samples (verified identical in
+> IM1000/IM3000/IM9000), so no caption is clipped, none bleeds into a neighbouring
+> caption, and no Japanese glyph remnants remain (e.g. full-size `Convert` /
+> `Progress` on the parts screen, clean `Upgrade Limit Break` ribbon). The
+> translation text itself is unchanged; repatch from a clean ISO as usual.
 
 ---
 

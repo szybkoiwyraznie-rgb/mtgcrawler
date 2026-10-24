@@ -1,7 +1,71 @@
-# Super Robot Wars OE — pełny polski patcher (v4.0 — domknięcie całego przekładu)
+# Super Robot Wars OE — pełny polski patcher (v4.3 — korekta językowa całej fabuły)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Korekta językowa fabuły — v4.3 (2026-10-24)
+
+Pełny przegląd językowy polskiej prozy fabularnej, przeprowadzony epizod po
+epizodzie (0–34) z weryfikacją każdej zmiany wobec tekstu japońskiego
+i angielskiego, oraz domykający przegląd całej bazy:
+
+- **658 zmienionych wpisów** (30 planów źródłowych: 453 dialogi i 205 odzywek
+  bojowych): odpowiedzi niedopasowane do pytań, niezgodności rodzaju
+  mówiących i adresatów, kalki składniowe oraz błędny przypadek zaimka
+  w formule „Zostaw to mi” (JP ～にまかせ) — ta ostatnia poprawiona w całej
+  grze (239 wpisów, po korekcie 0 pozostałych wystąpień).
+- **Bez zmian pokrycia i interfejsu:** 108 805 / 109 176 wypełnionych wierszy,
+  371 świadomie pustych, 0 błędów, 4 176 ostrzeżeń; UI, font PL i geometria
+  podpisów tekstur jak w v4.2.
+- **Wersja tekstu:** `pakiet_PL/snapshot.json` — 108 794 wpisów,
+  `data_sha256 = e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262`,
+  `partial = false`.
+
+Aktualizacja z dowolnej starszej wersji przebiega jak zwykła instalacja
+(sekcja „Pełne wydanie PL — v4.0” niżej): spatchuj od nowa **czyste**
+japońskie ISO, wgraj świeże `patched.iso` i cały katalog `DLC\`, a zapis
+wczytaj normalnie po zimnym starcie (nie dawny save-state).
+
+## Geometria napisów na teksturach — v4.2 (2026-10-24)
+
+Ta sama poprawka co polski `Postęp` z v4.1, domknięta dla pozostałych podpisów
+rysowanych na teksturach przeglądu/ulepszeń. Komórki TXCL zweryfikowano jako
+identyczne we wszystkich trzech kontenerach gry (`IM1000`/`IM3000`/`IM9000`):
+
+- **Ekran ulepszeń (`intsys_03`, podpisy wspólne z wersją EN):** `Unit / Pilot`,
+  `Upgrades`, `Linked Units`, `Support` i wstęga `Upgrade Limit Break` rysują się
+  teraz w całości w swoich komórkach — wcześniej dolne części liter były ucinane
+  albo wyciekały do sąsiednich podpisów, a przy wstęze zostawał ślad japońskiego
+  glifu.
+- **Znaczek `LNK` (`intsys_01`):** nie wystaje już o 1 px poza swoją komórkę.
+- **Wersja angielska (para EN):** wszystkie podpisy `intsys_04` (m.in. pełne
+  `Convert` i `Progress`) wyrównane tak samo jak polskie w v4.1.
+- **Bez zmian:** treść przekładu i liczby pokrycia jak w v4.1; polskie podpisy
+  `intsys_04` z v4.1 renderują się bajt w bajt identycznie.
+
+## Poprawki interfejsu — v4.1 (2026-10-23)
+
+Wydanie naprawia trzy ekrany zgłoszone po testach v4.0 w PPSSPP (treść przekładu
+bez zmian; pokrycie i liczby jak w v4.0 poniżej):
+
+- **Zakładka pilota (Lista Jednostek):** napis pod portretem nie wychodzi już na
+  kolumnę statystyk — `Pilot gł.` (główny) i `Współpilot` (pomocniczy) mieszczą
+  się w ramce.
+- **Ekran „Wyniki i części”, pasek nagłówka:** `Postęp` wyświetla się w całości
+  (wcześniej ostatnie „p” było ucięte), zniknął obcy znak „|” po `Premii`,
+  a skróty `Masz` / `Wym.` nie są już przycinane. Przyczyna: gra przycina podpisy
+  tekstur do własnych prostokątów komórek TXCL — polskie podpisy są teraz
+  rysowane dokładnie w tych komórkach.
+- **Ten sam ekran, stopka:** etykieta posiadanych części to teraz `Masz` —
+  koniec najeżdżania na liczniki `Lv1 × 0 Lv2 × 0 Lv3 × 0`.
+- **Wersja tekstu:** `pakiet_PL/snapshot.json` — `108 794` wpisów,
+  `data_sha256 = e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b`
+  (16 planów poprawek właściciela, `1 525` wiązań), `partial = false`.
+
+Aktualizacja z v4.0 przebiega tak samo jak zwykła instalacja (sekcja niżej):
+spatchuj od nowa **czyste** japońskie ISO, wgraj świeże `patched.iso` i cały
+katalog `DLC\`, a zapis wczytaj normalnie po zimnym starcie (nie dawny
+save-state).
 
 ## Pełne wydanie PL — v4.0 (2026-10-23)
 
@@ -30,7 +94,7 @@ Wydanie domyka **100% prac redakcyjnych**: rozdziały 0–8 (od prologu po fina�
   `partial = false`. `translation/PL_COVERAGE.json` w paczce zawiera pochodzenie
   i dokładne liczby.
 
-**Instalacja / aktualizacja do v4.0 (wymagane i `patched.iso`, i cały katalog `DLC\`):**
+**Instalacja / aktualizacja (wymagane i `patched.iso`, i cały katalog `DLC\`):**
 1. Rozpakuj paczkę do nowego folderu i uruchom `PATCH.bat`.
 2. Wskaż czyste, oryginalne japońskie ISO **SRW OE 1.08** oraz pełny folder
    odszyfrowanego DLC (`NPJH50521`) — **nie nakładaj patcha na wcześniej spatchowane ISO**.

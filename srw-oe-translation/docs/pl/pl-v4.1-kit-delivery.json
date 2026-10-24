@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "version": "4.1",
+  "date": "2026-10-23",
+  "scope": "Owner PPSSPP QA fixes for three v4.0 screens: Pilot tab Main/Sub Pilot labels shortened to the measured 10-cell field; intsys_04 PL caption boxes aligned to the TXCL sampled cells (tex_gid 34, measured from the owner's IM1000.cpk) so Postęp keeps its final p, the '|' sliver from Warunki is gone and Wym./Masz are no longer clipped; Owned footers ＠4Posiadane/Posiadane shortened to ＠4Masz/Masz for the fixed Lv1 counter position. Translation content otherwise identical to v4.0; EN render of intsys_04 byte-identical.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.1.zip",
+    "drive_id": "1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI/view",
+    "bytes": 8762312,
+    "sha256": "0775aa2dc2062f96f5e21cb7f1343d9ca55f5afd143a411a827b659b6cf813cf",
+    "md5": "8b9dfd1a31877c45792cb613e62d4df1",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.1 revision)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.1.zip",
+    "bytes": 7285056,
+    "sha256": "6358d4e9c55dbcce7cce2f8b332ef22569f8b216b228f20a43a5c101df16cab6",
+    "note": "Built locally by tools/build_release_pair.py --version 4.1; not uploaded to Google Drive."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b",
+    "changed_entries_vs_v4_0": 4,
+    "owner_ui_plans": 16,
+    "owner_ui_bindings": 1525
+  },
+  "fixes": [
+    {
+      "screen": "Unit list, Pilot tab",
+      "channel": "sysmes roots 21488 (entry 360) / 21500 (entry 361), verified on the owner's configst.cpk",
+      "before": ["Główny pilot (12 cells)", "Drugi pilot (11 cells)"],
+      "after": ["Pilot gł. (9 cells)", "Współpilot (10 cells)"],
+      "budget": "10 glyph cells (panel 326 px, ~32.5 px/cell on the owner screenshot)"
+    },
+    {
+      "screen": "Records & Parts header bar",
+      "channel": "texture captions intsys_04.gim; TXCL cells tex_gid 34 measured from the owner's IM1000.cpk (srwDL_Inter_Cell.bin + srwDL_Inter_TexID.bin)",
+      "before": "PL boxes from atlas rows: progress x48-96, conditions x0-48, convert x100-128, owned x76-100; 79 ink px outside the sampled TXCL cells on the authentic GIM",
+      "after": "every PL box equals its TXCL cell; 0 ink px outside the sampled cells; EN gim byte-identical to the v4.0 render",
+      "budget": "TXCL cells: progress (42,12,84,24), conditions (0,12,42,24), convert (98,0,120,12), owned (76,0,98,12), parts_list (0,0,76,12), equipped (0,24,32,36), squad (32,24,54,36), bonus (54,24,96,36), parts (96,24,128,36), full_upgrade_bonus (0,36,111,54)"
+    },
+    {
+      "screen": "Records & Parts footer",
+      "channel": "sysmes roots 46264 (entry 1110, ＠4所持数) / 31988 (entry 668, 所持数), verified on the owner's configst.cpk",
+      "before": ["＠4Posiadane (9 cells)", "Posiadane (9 cells)"],
+      "after": ["＠4Masz (4 cells)", "Masz (4 cells)"],
+      "budget": "7 glyph cells (Lv1 counter fixed at glyph-cell 8, ~32.6 px/cell on the owner screenshot)"
+    }
+  ],
+  "tests": "tests/test_pl_ui_qa_v41.py (8 tests); historical plan-chain count 1521 -> 1525 in test_pl_ui_six.py; full per-module suite 146/146 OK; test_pl_v4_0_consistency still 108,805/109,176 with 0 errors",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only: owner screenshot measurements, authenticated game-data geometry (sysmes pool parse + TXCL cells), unit tests, ZIP CRC/member hashes and Google Drive checksum read-back. Owner re-test of the same three screens (plus the parts conversion panel) is still required."
+  }
+}

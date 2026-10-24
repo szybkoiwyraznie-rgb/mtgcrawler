@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 19,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL519_11.bin:5920",
+      "source_sha256": "21ec7ff7521eb3b92f9aceeb2e6071bafa0be15a159edaa2bf1fc6bae7be2de3",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep19 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL519_30.bin:9012",
+      "source_sha256": "f86b372ed82ee3c2c902ef59caa1e744730e1c541fca4be2844de1c58259e65f",
+      "before": "Dla przemiany świata przekroczę ciebie!",
+      "after": "Dla przemiany świata przewyższę cię!",
+      "reason": "ep19 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

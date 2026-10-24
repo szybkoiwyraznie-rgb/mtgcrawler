@@ -1,5 +1,7 @@
 # SRT OE English Translation — Research Workspace
 
+> Project directory of the SRW OE translation (English + Polish) — one of the per-title projects in this repository; see [`../PROJECTS.md`](../PROJECTS.md) for the workspace layout.
+
 **Status (2026-10-17):** [kit v17](https://drive.google.com/file/d/1TnJziZix9DxrC5XykEZM1vC0ujTBAjaw/view) is delivered: missing map terrain
 names, flat/unambiguous DLC deployment and actual field read-back for the reported
 chapter-4 DLC entries. Full suite **1493 passed, 1 skipped, 382 subtests passed**;

@@ -1,0 +1,12 @@
+# Private work area: extracted game files, virtual images, build outputs.
+local/
+
+# Disc images and binary patch artifacts are never committed.
+*.iso
+*.ISO
+*.chd
+*.img
+*.xdelta
+
+__pycache__/
+*.pyc

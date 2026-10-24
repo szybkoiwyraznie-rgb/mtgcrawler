@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 25,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL625_13D.bin:29264",
+      "source_sha256": "1f67ebb374b35066edd57a3161e5b2b51b07929e89990c18fe409487a7223351",
+      "before": "Uspokój się, Profesorko!\nWalnij się w pierś jak zawsze\ni powiedz \"Zostawcie to mnie!\"",
+      "after": "Uspokój się, Profesorko!\nWalnij się w pierś jak zawsze\ni powiedz \"Zostawcie to mi!\"",
+      "reason": "ep25 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP06.EDAT/DL625_13.bin:29164",
+      "source_sha256": "8da67c626a98067ccec24f5fb3e03aaf1185443090172019cdd4b55f30d67816",
+      "before": "Uspokój się, Profesorko!\nWalnij się w pierś jak zawsze\ni powiedz \"Zostawcie to mnie!\"",
+      "after": "Uspokój się, Profesorko!\nWalnij się w pierś jak zawsze\ni powiedz \"Zostawcie to mi!\"",
+      "reason": "ep25 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

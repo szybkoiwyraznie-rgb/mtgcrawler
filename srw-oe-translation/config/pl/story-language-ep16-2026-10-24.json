@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "episode": 16,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL416_45.bin:384",
+      "source_sha256": "17c32d82c62042e067903f2eecbc9b3a90aa80f7c741d20c599dadebc978192b",
+      "before": "Oddział pozorujący Chirico poświęcono. Operacja\nsię powiodła, lecz oddział złożony z 1500 AT\nzostał unicestwiony.",
+      "after": "Oddział pozorujący, w którym służył Chirico,\npoświęcono. Operacja się powiodła, lecz oddział\nz 1500 AT został unicestwiony.",
+      "reason": "ep16 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL416_55.bin:14632",
+      "source_sha256": "24c02f7dfd89aaeac91eb41f9194d4f99ad4a356d174aa72ba41150ed04d6611",
+      "before": "No, zostaw to mnie!",
+      "after": "No, zostaw to mi!",
+      "reason": "ep16 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL416_12.bin:5488",
+      "source_sha256": "550d7a7cd0561f0233608327fcd02a165ae179229366ecaa942eb765ec3c85c9",
+      "before": "Och, nie wolno nam!\nTen Zwarth nie może przebić niebios!",
+      "after": "O nie, nie wolno do tego dopuścić!\nTen Zwarth nie może przebić niebios!",
+      "reason": "ep16 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL416_45.bin:9584",
+      "source_sha256": "b3f0b5af12a8ec1d3423cc9e52e75a10237a1916a1cb4f91ceb8a90857a6fe8b",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep16 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL416_55.bin:12080",
+      "source_sha256": "eb9d139b512f569bcdc52bc1fce012fce2b86e632b1a218b2cd5161bc25717b5",
+      "before": "Tacy podejmują takie decyzje.\nMożna na nich polegać.",
+      "after": "Ten oddział potrafi podjąć taką decyzję.\nMożna na nich polegać.",
+      "reason": "ep16 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

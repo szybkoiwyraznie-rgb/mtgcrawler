@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 21,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP29.EDAT/DL521_70.bin:5940",
+      "source_sha256": "52aec47d3b408cf21fc211b47c1c0645b2d6bf0525990c75228f9a47361aab5d",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep21 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

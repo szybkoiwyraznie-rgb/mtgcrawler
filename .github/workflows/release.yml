@@ -1,4 +1,6 @@
-name: Release translation patch (EN + PL)
+# SRW OE project workflow (srw-oe-translation/) only.
+# Future game titles get their own workflow files; do not generalise this one.
+name: SRW OE — release translation patch (EN + PL)
 
 on:
   push:

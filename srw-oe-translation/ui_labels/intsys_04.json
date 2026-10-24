@@ -1,6 +1,6 @@
 {
  "texture": "intsys_04",
- "source": "IM1000.cpk (same bytes in IM3000) — 128x64 INDEX8; parts list / conversion captions",
+ "source": "IM1000.cpk (same bytes in IM3000) — 128x64 INDEX8; parts list / conversion captions. Clears = TXCL sampled cells (srwDL_Inter_Cell.bin tex_gid 34, measured 2026-10-23); EN boxes are the cells inset by 1 px (same convention as intsys_01) so caption rounding can never cross a cell edge; PL boxes = the cells themselves (pl_layout, v4.1)",
  "font": "assets/fonts/Roboto-Bold.ttf",
  "size": 11,
  "min_size": 7,
@@ -19,9 +19,16 @@
    "box": [
     1,
     1,
-    69,
-    15
+    75,
+    11
    ],
+   "clear": [
+    0,
+    0,
+    76,
+    12
+   ],
+   "align": "center",
    "pl": "Lista części",
    "pl_layout": {
     "box": [
@@ -44,28 +51,38 @@
    "jp": "所持",
    "en": "Owned",
    "box": [
-    69,
+    77,
     1,
-    99,
-    15
+    97,
+    11
    ],
+   "clear": [
+    76,
+    0,
+    98,
+    12
+   ],
+   "align": "center",
+   "min_size": 6,
+   "squeeze": 0.8,
    "pl": "Masz",
    "pl_layout": {
     "box": [
      76,
      0,
-     100,
+     98,
      12
     ],
     "clear": [
      76,
      0,
-     100,
+     98,
      12
     ],
     "align": "center",
     "size": 9,
-    "min_size": 7
+    "min_size": 7,
+    "squeeze": 0.85
    }
   },
   {
@@ -75,26 +92,36 @@
    "box": [
     99,
     1,
-    128,
-    15
+    119,
+    11
    ],
+   "clear": [
+    98,
+    0,
+    128,
+    12
+   ],
+   "align": "center",
+   "min_size": 6,
+   "squeeze": 0.8,
    "pl": "Wym.",
    "pl_layout": {
     "box": [
-     100,
+     98,
      0,
-     128,
+     120,
      12
     ],
     "clear": [
-     100,
+     98,
      0,
      128,
      12
     ],
     "align": "center",
     "size": 9,
-    "min_size": 7
+    "min_size": 7,
+    "squeeze": 0.85
    }
   },
   {
@@ -103,22 +130,29 @@
    "en": "Conditions",
    "box": [
     1,
-    15,
-    49,
-    29
+    13,
+    41,
+    23
    ],
+   "clear": [
+    0,
+    12,
+    42,
+    24
+   ],
+   "align": "center",
    "pl": "Warunki",
    "pl_layout": {
     "box": [
      0,
      12,
-     48,
+     42,
      24
     ],
     "clear": [
      0,
      12,
-     48,
+     42,
      24
     ],
     "align": "center"
@@ -129,21 +163,28 @@
    "jp": "発生状況",
    "en": "Progress",
    "box": [
-    49,
-    15,
-    95,
-    29
+    43,
+    13,
+    83,
+    23
    ],
+   "clear": [
+    42,
+    12,
+    128,
+    24
+   ],
+   "align": "center",
    "pl": "Postęp",
    "pl_layout": {
     "box": [
-     48,
+     42,
      12,
-     96,
+     84,
      24
     ],
     "clear": [
-     48,
+     42,
      12,
      128,
      24
@@ -157,10 +198,17 @@
    "en": "Equip",
    "box": [
     1,
-    29,
-    33,
-    38
+    25,
+    31,
+    35
    ],
+   "clear": [
+    0,
+    24,
+    32,
+    36
+   ],
+   "align": "center",
    "size": 8,
    "min_size": 6,
    "pl": "(Zał.)",
@@ -168,13 +216,13 @@
     "box": [
      0,
      24,
-     33,
+     32,
      36
     ],
     "clear": [
      0,
      24,
-     33,
+     32,
      36
     ],
     "align": "center"
@@ -186,24 +234,31 @@
    "en": "Team",
    "box": [
     33,
-    29,
-    55,
-    38
+    25,
+    53,
+    35
    ],
+   "clear": [
+    32,
+    24,
+    54,
+    36
+   ],
+   "align": "center",
    "size": 8,
    "min_size": 6,
    "pl": "Cz.",
    "pl_layout": {
     "box": [
-     33,
+     32,
      24,
-     55,
+     54,
      36
     ],
     "clear": [
-     33,
+     32,
      24,
-     55,
+     54,
      36
     ],
     "align": "center"
@@ -215,24 +270,31 @@
    "en": "Bonus",
    "box": [
     55,
-    29,
-    97,
-    38
+    25,
+    95,
+    35
    ],
+   "clear": [
+    54,
+    24,
+    96,
+    36
+   ],
+   "align": "center",
    "size": 8,
    "min_size": 6,
    "pl": "Premia",
    "pl_layout": {
     "box": [
-     55,
+     54,
      24,
-     97,
+     96,
      36
     ],
     "clear": [
-     55,
+     54,
      24,
-     97,
+     96,
      36
     ],
     "align": "center"
@@ -244,22 +306,29 @@
    "en": "Parts",
    "box": [
     97,
-    29,
-    128,
-    38
+    25,
+    127,
+    35
    ],
+   "clear": [
+    96,
+    24,
+    128,
+    36
+   ],
+   "align": "center",
    "size": 8,
    "min_size": 6,
    "pl": "oddz.",
    "pl_layout": {
     "box": [
-     97,
+     96,
      24,
      128,
      36
     ],
     "clear": [
-     97,
+     96,
      24,
      128,
      36
@@ -273,10 +342,17 @@
    "en": "Full Upgrade Bonus",
    "box": [
     1,
-    38,
-    111,
+    37,
+    110,
+    53
+   ],
+   "clear": [
+    0,
+    36,
+    128,
     55
    ],
+   "align": "center",
    "size": 13,
    "min_size": 9,
    "pl": "Premia ulepsz.",
@@ -284,8 +360,8 @@
     "box": [
      0,
      36,
-     112,
-     55
+     111,
+     54
     ],
     "clear": [
      0,

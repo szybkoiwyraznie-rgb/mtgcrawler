@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "episode": 11,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL311_13.bin:3884",
+      "source_sha256": "3f1c95e1de5098dbb326c623a46d58ccb6b56c77fb74e295939efe08dbe3ba59",
+      "before": "Oczywiście pod warunkiem,\nże przeżyjecie to miejsce.",
+      "after": "Oczywiście pod warunkiem,\nże wyjdziecie stąd żywi.",
+      "reason": "ep11 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept107.EDAT/DL311_13H.bin:3900",
+      "source_sha256": "d6f9bd62b3f68410f6f6aeb9227b3d6371fca68284952f5264899363a9f46fa4",
+      "before": "Oczywiście pod warunkiem,\nże przeżyjecie to miejsce.",
+      "after": "Oczywiście pod warunkiem,\nże wyjdziecie stąd żywi.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP03.EDAT/DL311_13.bin:3884"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept107.EDAT/DL311_13H.bin:10188",
+      "source_sha256": "bcfcb633c0128374a4488aabbda2b6c8c359900bf5af48f24cf59e5ff15feb45",
+      "before": "Każde przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.",
+      "after": "Wszelkie przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP03.EDAT/DL311_13.bin:10156"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL311_13.bin:10156",
+      "source_sha256": "f7fa8fcb3515ba3d139feab9001b6d3708c9e2d1a0cde666374e1284678cb77d",
+      "before": "Każde przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.",
+      "after": "Wszelkie przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.",
+      "reason": "ep11 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL311_20.bin:9220",
+      "source_sha256": "d5dbf8294b698db8f488246fb373b238de3fa45dbca72d79a13bced57352abad",
+      "before": "Jasne! Zostaw to mnie!",
+      "after": "Jasne! Zostaw to mi!",
+      "reason": "ep11 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL311_50E.bin:11648",
+      "source_sha256": "36819304c0ef23b7a22362e37cee31db364afff66a442843b7128d76cf8cfee8",
+      "before": "Zgubiliśmy pościg!",
+      "after": "Zgubiliśmy ścigających!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP03.EDAT/DL311_50.bin:11648"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL311_50.bin:11648",
+      "source_sha256": "f091766b0a65c5ea3b35119f98cdedb8ad64240d3b4f4a6af5067b39228fab47",
+      "before": "Zgubiliśmy pościg!",
+      "after": "Zgubiliśmy ścigających!",
+      "reason": "ep11 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}
