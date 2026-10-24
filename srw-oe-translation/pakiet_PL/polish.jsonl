@@ -8147,7 +8147,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:3336","pl":"Wiem.","source_sha256":"2ac5465018adcc37ed11cfd8aa942557ee77eb0cae736c2750a00d5cae55a6f1"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:15140","pl":"Niech będzie!","source_sha256":"2ac5cef0430db4ca6340ed6b0bae5e4d1b2fb0e27021fb93a6cba2d83f898aa8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL623_11D.bin:19728","pl":"Wodzu, okręt dłużej nie wytrzyma!","source_sha256":"2ac7f4fdbd3fd271718d1b06dbc8a445de9fcf826fdf507e57325769f32902eb"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_50.bin:9016","pl":"Zostaw to mnie!\nKiedyś byłem pilotem wojskowym, wiesz?\n","source_sha256":"2acba15bd8e26568dd107362cc748679c00a3396b395b607360d3c971835a327"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_50.bin:9016","pl":"Zostaw to mi!\nKiedyś byłem pilotem wojskowym, wiesz?\n","source_sha256":"2acba15bd8e26568dd107362cc748679c00a3396b395b607360d3c971835a327"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:8660","pl":"Hmpf, Lamuness i jego natrętne baby.\nNie zapomniałem, jak mnie zapieczętowaliście!","source_sha256":"2acc44f2af427584cca609d665eb7a712635a06d2c696f6fc19f1515893fd077"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL623_11D.bin:21848","pl":"Zatrzymać je!\nNie dopuścić żadnych innych jednostek\ndo rejonu operacji White Base!","source_sha256":"2ad07095f8aedca5fd30bbd872a71c3649a79f98e5b9aaff865e8e0453c331ef"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_40.bin:7656","pl":"Przemiana Natsumi: grafika, okno, części","source_sha256":"2ad1e356957d3c8853c88a97c62d262d489adb4d7f5883f4aaece43dd969d26f"}
@@ -16899,7 +16899,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL209_13.bin:8192","pl":"Co teraz? Chirico chce walczyć.\r\n","source_sha256":"5816514216a651948740d3ac60edae37f492309363017b85d8e74ad6b1a13a41"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_45.bin:2500","pl":"Nie wiedziałem...","source_sha256":"5816a7dc77e38c68c2b56618f575cd6ff335409e817ac31a2c6e7757b53d9b38"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP28.EDAT/DL520_50.bin:10312","pl":"Przebiegły koniu trojański!\nGdybyście byli posłuszni, darowalibyśmy wam życie!\n","source_sha256":"5817053c238d1c072206f4d74f1b418db11d155509ac38398ee317c431f60815"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL518_11E.bin:5440","pl":"Zostawcie to mnie.\nEskadra Skull, start!","source_sha256":"5818fba19242697c78d047452a3036658d4c0814c986ba93addca8860645f9db"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL518_11E.bin:5440","pl":"Zostawcie to mi.\nEskadra Skull, start!","source_sha256":"5818fba19242697c78d047452a3036658d4c0814c986ba93addca8860645f9db"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_12.bin:5948","pl":"Rządzący i rządzeni.\nOto jedyna zasada tego wszechświata!","source_sha256":"58201406f9ab87c5d069905273382af803202ceb731d57e10e7792090dd3ff87"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL623_11D.bin:19952","pl":"Cała załoga, opuścić okręt!","source_sha256":"582033eb17417fa57cbdab88c603dd198305f95d962ca3a852c725dbd4685e90"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:102912","pl":"Połączenie z innymi wszechświatami przez bramy...\nKorzyści z tego są ogromne.","source_sha256":"58230a7dc3fd7b06ec37e5b8c60d00ae467f2080c29d7a5717a8bb249eaa3384"}
@@ -42507,7 +42507,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:7916","pl":"Wygląda na to, że na niego\npółśrodki nic nie dadzą...!","source_sha256":"de6924c775261e111d65c4a52de40dfa781dba53080a3eef98d32a9e7175e8fb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:5096","pl":"Najpierw: gdzie właściwie jesteśmy?\nHmm... Według map gwiezdnych w pobliżu Marsa...\nale coś tu nie gra.","source_sha256":"de6a3b32760cb5ba6af0c21aa4fa6152f3db49a5edff7e44608ac2d8e2ac9ba6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL521_40.bin:2312","pl":"Zniszczmy najpierw bramę Mucus.","source_sha256":"de6b7c63741c6e4f1743aeaf4c1c0314d4859938e3a3151cb870f8116f2d5d8c"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_40.bin:7164","pl":"Celujecie tylko we mnie.\nNie mieszajcie w to ludzi, którzy są niewinni.","source_sha256":"de6bf9ff9c2ce36f49f0ba450f8035237e8c7a3f92d9346520a8cdb5e8b404ab"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_40.bin:7164","pl":"Waszym celem jestem tylko ja.\nNie mieszajcie w to ludzi, którzy są niewinni.","source_sha256":"de6bf9ff9c2ce36f49f0ba450f8035237e8c7a3f92d9346520a8cdb5e8b404ab"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_11.bin:8012","pl":"Brama Harmonii może wyrzucać cele z warpu\nw dowolnym punkcie orbity planety...","source_sha256":"de6deb8519d17bf6fe8943c3ef6eb569ef16500e43f7c8e18d7673755aace24d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_70.bin:10116","pl":"Słuchaj, Cocoa, badałaś tych schwytanych\nżołnierzy. Dowiedziałaś się czegoś?\n","source_sha256":"de6fca38d4dc89ecc6f1743fe7686cc51f8b561eec228f2054d82d20fb2c26b0"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:36896","pl":"Od tego jest zapał!\nSzybka decyzja w terenie!","source_sha256":"de73207fdaf12bf30217e92f20c65496fe8e6593975991efde4b91e0a8c812fa"}
@@ -48319,7 +48319,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL102_11.bin:14860","pl":"Dobra, Bracie!\nSpróbuję!","source_sha256":"fd4f96bbadb9da0e5e36c93c3686dc6ca68e2d9a074f6c7bbfa74b89b14fb01a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_60.bin:2832","pl":"Obecnie tylko Connect Force może wysłać oddziały\nprosto na Side 3, korzystając ze szlaków handlowych.","source_sha256":"fd514a55e6c2f7c54d0ac0c6578d01e2ae6f7ea993496ee906994742f439603e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:18420","pl":"Wszystkie jednostki, dobić resztki wroga!","source_sha256":"fd5355c6159d73f961e30fca4ea61300946f9f7d9774db785b14140ce1b0fc70"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_11.bin:5440","pl":"Zostawcie to mnie.\nEskadra Skull, start!","source_sha256":"fd536587c2067bc8a20576439c0d108ccbd2b217f999933af22411480bd386db"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_11.bin:5440","pl":"Zostawcie to mi.\nEskadra Skull, start!","source_sha256":"fd536587c2067bc8a20576439c0d108ccbd2b217f999933af22411480bd386db"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:132552","pl":"Przepraszam, że cię w to wciągam.\nSzef mówi, że to przez mój charakter...\n","source_sha256":"fd538bbcf8159200a9eba3b9eaebf759d1e1ca9df9a1dbfd88d35a7eccec9040"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:5332","pl":"No bo Fiona może akurat nieść herbatę!\nJak rozleje i się poparzy, będzie nieszczęście.","source_sha256":"fd53d873361b0f2d4db2954046e431c46065b32bd8de4832f11e4f46feae7e8e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP24.EDAT/DL311_40.bin:8844","pl":"Czysta siła? Tym bardziej nie przegramy.","source_sha256":"fd552cb6924b249e42cf0fa68df85de522f59b81604eb9fb1135b32b2fbd1581"}

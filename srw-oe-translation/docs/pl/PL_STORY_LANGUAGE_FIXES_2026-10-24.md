@@ -147,3 +147,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** „osłona tej trzysetki” jako określenie 300-osobowej jednostki, groźba Godana „przeżyje tylko jako pies”, żołnierskie „ile jeszcze, aż żołnierze wejdą na pokład?”, dosłowna metafora Naomi o robakach zmieniających się w muchy, zdublowana kwestia żołnierza Balarantu (dwa odrębne wiersze źródłowe) oraz bezpośrednie tagi w rozmowach grupowych.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `ffff3a1a5a8abbeb20afa2ce8e1cde50322ef5b7446697e517e3d4ac4ef00449` → `3e33d9b7b37d8f18d986fb582b5f600cd32fb3f77e8848f4215fd9cd463e42b7`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 6 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 18
+
+- **Zakres:** 913 wpisów — 693 fabularne i 220 warunkowych; 142 grupy z pytaniami (107 fabularnych, 35 warunkowych).
+- **Poprawki:** 3 kwestie wskazane w przeglądzie; plan zawiera 4 zmiany źródłowe, bo kwestia Ozmy ma jawny alias kopii (`story-language-ep18-2026-10-24.json`, SHA-256 `2955270a9177666832954cc9ae2f7a6cdbf11f8b1e615e5f728f9b1bca2d1e46`).
+- **Potwierdzone klasy błędów:** dwukrotnie błędny przypadek zaimka w „Zostawcie/Zostaw to mnie” zamiast „Zostawcie/Zostaw to mi” (Ozma, Vanilla); faktyczne „Celujecie tylko we mnie” zamiast żądania „Waszym celem jestem tylko ja” (Chirico).
+- **Świadomie zachowane fałszywe alarmy:** wyzywająca enumeracja Kenichiego „Niewybitni, barbarzyńscy, mniejsza z tym — to my!”, techniczne „krytyczne usterki konserwacyjne” okrętu, dworski rejestr przemówień Le Caina, „babrając się w robocie jak przy czyszczeniu ścieków” Vanilli, Vanilla zwracanie się per „kochaniutki” oraz bezpośrednie tagi w rozmowach grupowych.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `3e33d9b7b37d8f18d986fb582b5f600cd32fb3f77e8848f4215fd9cd463e42b7` → `321098b4d7156329ab52b98bf741cf7ac21f616cc7172e29bef12262b3dcacfc`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 4 teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
