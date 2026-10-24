@@ -8445,3 +8445,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Zakres:** przeczytano 851 wpisów (616 fabularnych, 235 warunkowych) i 114 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep22-2026-10-24.json` (SHA-256 `99c0a62dc589e1ca9934f507f6caf5c4a1f6ac41b440770018a173935721e8b9`) — 1 kwestia i 1 zmiana źródłowa.
 - **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2` → `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano tekst. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd językowy epizodu 23 PL (bez zmian)
+
+- **Zakres:** przeczytano 819 wpisów (486 fabularnych, 333 warunkowych) i 99 grup z pytaniami; wszystkie kandydatury okazały się fałszywymi alarmami — **0 poprawek, brak planu**, snapshot bez zmian (108 794 wpisy; SHA-256 `polish.jsonl` nadal `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`).
+- **Walidacja:** świeża materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.

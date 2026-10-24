@@ -192,3 +192,11 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** żołnierskie „Gero gero gero” Keroro, samo-adresatywne „Znaczy, ...?” Angol Mois, szkolne przekomarzanie uczniów Eldrana oraz bezpośrednie tagi w scenach zbiorowych.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2` → `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 23
+
+- **Zakres:** 819 wpisów — 486 fabularnych i 333 warunkowych; 99 grup z pytaniami (53 fabularne, 46 warunkowych).
+- **Poprawki:** 0 — pełne przeczytanie i adjudikacja kandydatur nie wykazały defektów wymagających zmiany; planu nie tworzono, snapshot bez zmian.
+- **Świadomie zachowane fałszywe alarmy:** poprawne „to wszystko nie ma sensu” Zera, kierowane tagi pytające (C.C., Simon, Haman), żołnierskie „to blisko, więc pewnie pojedzie Connect Force” oraz ceremonialny rejestr Gihrena.
+- **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
