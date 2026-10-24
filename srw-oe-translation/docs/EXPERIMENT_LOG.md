@@ -8340,3 +8340,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Narzędzie i plan:** dodano `tools/pl_story_corrections.py` (źródłowo powiązane poprawki prozy, odmowa zmiany tokenów, liczby linii i jawnych kopii `copy_of`) oraz `config/pl/story-language-ep01-2026-10-24.json`. Plan zawiera 17 kwestii z audytu epizodu 1 (m.in. zaproszenie na symulator, logiczną przesłankę zapalnika, formę „pani porucznik Chris” i „niedoczuloną”) i 9 jawnych kopii DLC, łącznie **26 wpisów**.
 - **Snapshot i walidacja:** `pakiet_PL` nadal ma 108 794 wpisy; SHA-256 `polish.jsonl`: `e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b` → `4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be`. Materializacja całego pakietu: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** (4176 dotychczasowych ostrzeżeń miękkich). Przeszły `test_pl_story_corrections` (4 testy) i `test_pl_v4_0_consistency` (5 testów). Brak testu PPSSPP.
+
+### 2026-10-24 — Poprawki językowe epizodu 2 wg audytu PL 0–2
+
+- **Plan:** `config/pl/story-language-ep02-2026-10-24.json`: 10 kwestii z audytu (limit możliwości maszyny, refleksyjne „...co?”, potwierdzenie w wymianie Kanuka–Alan, oferta opieki Connect, rząd czasownika „skąpią”, idiom ekspresu, oderwane „Nie, Rikiya?”) oraz 5 jawnych kopii DLC — **15 wpisów**.
+- **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be` → `fffa694322f42aeeb7652a9a70305fea3332d1ce81b9d096eceb83b7ae7a1bc1`; 108 794 wpisy bez zmiany. Materializacja całego pakietu: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów**. Przeszły `test_pl_story_corrections` (4 testy) i `test_pl_v4_0_consistency` (5 testów). Brak testu PPSSPP.

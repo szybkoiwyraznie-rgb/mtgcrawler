@@ -1,6 +1,6 @@
 # Audyt językowy PL — epizody 0–2 (2026-10-24)
 
-**Status:** raport pierwotny; realizacja poprawek w toku (2026-10-24). Epizod 1 wdrożony planem `config/pl/story-language-ep01-2026-10-24.json`; epizod 0 nie miał konkretnych poprawek tekstowych, epizod 2 jest następny.
+**Status:** raport pierwotny; konkretne poprawki epizodów 0–2 wdrożone (2026-10-24) planami `config/pl/story-language-ep01-2026-10-24.json` i `config/pl/story-language-ep02-2026-10-24.json`. Epizod 0 nie miał konkretnych poprawek tekstowych.
 
 ## Zakres i metoda
 
@@ -152,3 +152,4 @@ Odpowiedź jest eliptyczna już w JP (podanie nazwiska ma być potwierdzeniem), 
 
 - **Epizod 0:** brak konkretnych zmian tekstowych z tego audytu.
 - **Epizod 1:** poprawiono 17 kwestii wskazanych w raporcie; plan objął 26 źródłowo powiązanych wpisów, ponieważ 9 kwestii ma jawne kopie DLC `copy_of`, które muszą otrzymać ten sam tekst. Po zastosowaniu snapshot PL ma 108 794 wpisy i `data_sha256 = 4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be`; pełna materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów. Nie jest to test PPSSPP.
+- **Epizod 2:** poprawiono 10 kwestii wskazanych w raporcie; plan objął 15 źródłowo powiązanych wpisów (5 jawnych kopii DLC). Po zastosowaniu snapshot PL ma 108 794 wpisy i `data_sha256 = fffa694322f42aeeb7652a9a70305fea3332d1ce81b9d096eceb83b7ae7a1bc1`; pełna materializacja ponownie daje 109 176 wierszy, 108 805 wypełnionych, 371 pustych i 0 błędów. Nie jest to test PPSSPP.
