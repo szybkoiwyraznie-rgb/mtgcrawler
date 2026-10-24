@@ -235,3 +235,11 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** pytanie „Wchodzę, dobrze?” Seishiro (odpowiedź to zmiana sceny), repetycje „He, he, he” Kikaishina oraz żart o „wyprzedaży bogów” Masakiego.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38` → `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 28
+
+- **Zakres:** 1072 wpisy — 703 fabularne i 369 warunkowych; 179 grup z pytaniami (108 fabularnych, 71 warunkowych).
+- **Poprawki:** 0 — wszystkie kandydatury odrzucono jako fałszywe alarmy; planu nie tworzono, snapshot bez zmian.
+- **Świadomie zachowane fałszywe alarmy:** poprawny biernik „to mnie mdli” Bymana, JP-identyczny duplikat linijki Hiryu (źródło samo się powtarza) oraz celowy nonszalancki ton Gostero.
+- **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`.
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
