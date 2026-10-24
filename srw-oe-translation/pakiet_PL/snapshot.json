@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262",
+  "data_sha256": "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -930,6 +930,15 @@
       "previous_data_sha256": "bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1",
       "entries": 239,
       "episode": "sweep-zostaw-mi",
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-extra-2026-10-24.json",
+      "sha256": "399fc6fc61ff217d33016fad9cae54bcee1b4e811b5928fe69e6b23794f8b6e3",
+      "previous_data_sha256": "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262",
+      "entries": 22,
+      "episode": "extra",
       "operation": "source-bound PL story-language edits",
       "runtime_tested": false
     }

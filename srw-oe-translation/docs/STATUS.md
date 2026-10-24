@@ -1,5 +1,36 @@
 # Project status
 
+**PL v4.4 delivered — story-language review of the extra/simulator scenes
+(2026-10-24, PR #24).**
+[`srw-oe-translation-pl-v4.4.zip`](https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view)
+`8,764,460 B`, SHA-256
+`91b83aea27fc34af7a7059008e806a1af50eaa710092e951ddecea4ab87dc146`, MD5
+`f778e83f43b8d4b59129d1e538ef8b83`, `92` members; Drive checksum read-back
+matches (md5/sha256/size). EN pair `srw-oe-translation-v4.4.zip`
+`7,285,821 B` (`307618e7…`, local only). The v4.3 review covered the `35`
+reading episodes (`32,156` of `48,879` dialogue rows); this release reviews
+the remaining `16,725` — `evept101`–`evept108` (`15,645` rows) and `1,080`
+`eventP*` rows outside the episode blocks — `10,572` unique JP+EN texts.
+`22` source-bound corrections in one plan
+(`config/pl/story-language-extra-2026-10-24.json`, SHA-256 `399fc6fc…`):
+missing predicate (`No... przeszkadza.`), statement turned into a question
+tag (`Nie przegramy, prawda?`), agentless passive (`GoShogun nie wyrzuciło…`,
+3 DLC copies), missing instrumental (`Gurren Lagann wydobędę`), reversed
+subject/object (`Okręt przyspiesza wiązka naprowadzająca…`), the superseded
+`pokonuje nietknięta przekrój czasoprzestrzeni` calque, plus word-order/case
+defects (`Brak wam czujności, wszystkim.`, `siedziba na cały Układ
+Słoneczny`, `Ten alarm chyba nie to oznacza, co?`, `Nie, to nie jest aż tak
+wygodne.`). Two of them were misses inside the v4.3 episode scope
+(`eventP01/DL102_90:5828`, `eventP05/DL521_12:3104`). Snapshot
+`data_sha256 e54562d8…` → `da2ad33f…e1f` (`31st` story-plan ledger entry);
+coverage unchanged `108,805 / 109,176` filled, `371` empty, `0` errors,
+`4,176` warnings. Tests: new `tests/test_pl_story_extra.py` (5) plus `14`
+release/reading/story/UI modules OK. Ledger
+[PL_STORY_LANGUAGE_FIXES_2026-10-24.md](pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md),
+receipt [pl-v4.4-kit-delivery.json](pl/pl-v4.4-kit-delivery.json).
+`runtime_tested` stays `false` — corrected lines need an owner PPSSPP
+spot-check.
+
 **PL v4.3 delivered — story-language review of episodes 00–34 complete
 (2026-10-24, PR #23, text commit `8494811`).**
 [`srw-oe-translation-pl-v4.3.zip`](https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view)

@@ -14,9 +14,9 @@ disturbs another.
   Japanese release 1.08.
 - **Languages:** English and Polish (fresh translations from the Japanese
   original).
-- **Status:** active. English kit **v17**; full Polish translation **v4.3**
-  (2026-10-24). Polish reading editions of episodes 00–34 published with the
-  kits.
+- **Status:** active. English kit **v17**; full Polish translation **v4.4**
+  (2026-10-24, story-language review of episodes 00–34 plus the extra/simulator
+  scenes). Polish reading editions of episodes 00–34 published with the kits.
 - **Start here:** [`srw-oe-translation/README.md`](srw-oe-translation/README.md),
   status in [`srw-oe-translation/docs/STATUS.md`](srw-oe-translation/docs/STATUS.md),
   user instructions in

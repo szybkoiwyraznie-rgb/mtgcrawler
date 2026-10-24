@@ -1,5 +1,25 @@
 # Next step — current state and open work
 
+**PL v4.4 delivered for owner re-test (2026-10-24).**
+[`srw-oe-translation-pl-v4.4.zip`](https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view)
+`8,764,460 B`, SHA-256 `91b83aea…146`; `22` fixes in the extra/simulator
+scenes (`evept101`–`evept108` + `eventP*` rows outside the episodes), which
+the v4.3 pass did not cover; UI/font/geometry identical to v4.3, coverage
+unchanged. **Next owner-side: patch from a clean JP ISO with the v4.4 kit and
+spot-check the corrected lines in PPSSPP** — the Kamina/Yoko exchange in the
+`evept108`-family scene, the GoShogun line, and (if convenient) the Patlabor
+extra missions. `runtime_tested` stays `false`. ISO YES / DLC NO unchanged
+for the owner's 1.08 path.
+
+**Extra-scene review scope is now complete for `evept101`–`evept108` and the
+`eventP*` rows outside the episode blocks** (`16,725` rows reviewed against
+JP/EN and against the accepted rendering of identical Japanese lines; `22`
+corrections landed in v4.4, `12` divergent renderings kept as deliberate
+context variants). Remaining unreviewed prose categories are the non-dialogue
+files: `02_items`, `03_skills`, `05_mission_text`, `06_scenes`, `08_names_*`
+bios and `04_config_text` help pages — no decision made yet, ask the owner
+first.
+
 **PL v4.3 delivered for owner re-test (2026-10-24).**
 [`srw-oe-translation-pl-v4.3.zip`](https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view)
 `8,763,908 B`, SHA-256 `df589843…4d20`; story-language review of episodes

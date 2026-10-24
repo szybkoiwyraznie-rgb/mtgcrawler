@@ -308,3 +308,71 @@ Po epizodzie 34 przeskanowano cały snapshot (dialogi i odzywki bojowe) pod kąt
 - **Walidacja:** po materializacji zweryfikowano wszystkie 239 tekstów i **0 pozostałych trafień** wadliwego wzorca w dialogach i odzywkach; materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
 
 Przegląd epizodów 0–34 wraz z tym domknięciem kończy bieżący zakres skanowania językowego fabuły.
+
+## Sceny dodatkowe i symulator — `evept101`–`evept108` oraz `eventP*` poza epizodami
+
+Przegląd epizodów 0–34 objął 32 156 z 48 879 wierszy dialogów (plany
+`docs/reading-script/polish/episode_00.json`–`episode_34.json`). Pozostałe
+**16 725 wierszy** to sceny dodatkowe/symulatorowe w kontenerach
+`evept101`–`evept108` (`15 645`) oraz `1 080` wierszy `eventP*`, które nie
+wchodzą do bloków epizodów (`eventP22` 200, `eventP09` 97, `eventP00` 57,
+`eventP04` 86, `eventP05` 86, `eventP06` 85, `eventP02` 81, `eventP03` 81,
+`eventP08` 75, `eventP01` 71, `eventP07` 61 i pojedyncze wiersze pozostałych
+plików). Ten zakres nie był wcześniej przeglądany językowo.
+
+- **Zakres:** 16 725 wierszy = 10 572 unikalne teksty JP+EN (kopie DLC i warianty
+  E/F/G/J powtarzają te same sceny); `evept104` 3 837, `evept105` 3 047,
+  `evept108` 2 853, `evept103` 2 530, `evept106` 1 547, `evept101` 1 153,
+  `evept107` 378, `evept102` 300 wierszy.
+- **Metoda:** (1) skany klas kontrolowanych na całym zakresie — brakujące
+  diakrytyki (996 wstępnych trafień odsianych do 0 po usunięciu poprawnych
+  słów), podwojone wyrazy (0 rzeczywistych), spacje przed interpunkcją (0),
+  „zostaw… mnie” (0 po sweepie), mianownik po „Jestem” (0), tagi pytajne
+  (37 trafień w zakresie, 36 poprawnych, jedno poprawione — Araara),
+  elipsy (`......` to przyjęta konwencja dla JP „……” — 219 wystąpień w całym
+  pliku dialogów), CJK w PL (274 w całym pliku, wszystkie to chroniony token
+  `＜主人公名＞`/`＜主人公姓＞`); (2) **porównanie z korpusem już przyjętym**:
+  12 875 wierszy dodatkowych ma identyczną linię JP w epizodach — 34 różne
+  warianty przekładu, każdy zweryfikowany wobec JP/EN; (3) porównanie
+  wewnętrzne kopii DLC (64 grupy z więcej niż jednym wariantem PL).
+- **Poprawki:** **22 wiersze** (`story-language-extra-2026-10-24.json`,
+  SHA-256 `399fc6fc61ff217d33016fad9cae54bcee1b4e811b5928fe69e6b23794f8b6e3`):
+  - brak orzeczenia — „No... przeszkadza.” (Yoko, `eventP01/DL102_90`
+    i kopia `evept108/DL102_90J`) → „No... nie jest dobrze.”;
+  - twierdzenie zamienione w pytanie — „Nie przegramy, prawda?” (Araara,
+    `eventP05/DL521_12` i `evept106/DL521_12G`) → „Nie przegramy, zapewniam!”;
+  - strona bierna bez podmiotu — „GoShogun nie wyrzuciło do innej
+    czasoprzestrzeni…” (`evept104/DL834_13E`, `evept105/DL834_13F`,
+    `evept108/DL834_13J`) → „GoShogun nie trafił do innej czasoprzestrzeni,”;
+  - brak narzędnika — „To ja Gurren Lagann wydobędę to, co jest zakopane…”
+    (`eventP22/DL208_30`) → „To ja wydobędę Gurren Lagannem…”, zgodnie
+    z przyjętym przekładem tej samej linii w epizodach;
+  - odwrócony podmiot i dopełnienie — „Okręt przyspiesza wiązka naprowadzająca
+    emitowana przez stację.” (`evept101/DL103_40B`, `evept103/DL103_40D`) →
+    „Wiązka naprowadzająca ze stacji / przyspiesza okręt.”;
+  - kalka „materia pokonuje nietknięta przekrój czasoprzestrzeni” (te same dwa
+    kontenery) → „Chroniona polem Ark Shipa materia może / przejść nietknięta
+    przez przekrój czasoprzestrzeni.” (wersja przyjęta w epizodach);
+  - szyk i odmiana — „Brak wam czujności, wszystkim.” → „Wam wszystkim brak
+    czujności.”, „siedziba na cały Układ Słoneczny” → „główna siedziba Układu
+    Słonecznego”, „do siedziby na Układ Słoneczny” → „do siedziby Układu
+    Słonecznego”, „Ten alarm chyba nie to oznacza, co?” → „Ten alarm nie
+    oznacza przybycia.”, „Nie, to nie jest aż tak wygodne.” → „Nie, to nie
+    takie proste.” (dwa kontenery, z zachowanym `\r\n`/`\n`).
+- **Świadomie odrzucone fałszywe alarmy:** „Doki Doki Space” jako podwojony
+  wyraz, `Aye, aye, sir`/`Aye-aye, sir`, „He, he” i „Hę, hę” (132/113
+  wystąpień w przyjętym korpusie), skrócone warianty odpowiedzi („Tak!”,
+  „Tak jest!”, „Dobrze!” — zależne od kontekstu i mówiącego), „Ile razy by nie
+  wrócił…” vs „Nieważne, ile razy wróci…”, „......!” (konwencja 6 kropek).
+- **Dwie pomyłki v4.3 w wierszach objętych planami epizodów** poprawiono tym
+  samym planem: „No... przeszkadza.” (`eventP01/DL102_90`) i „Nie przegramy,
+  prawda?” (`eventP05/DL521_12`) leżały w epizodach 2 i 22, ale nie zostały
+  wychwycone w przeglądzie epizodowym.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`:
+  `e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262` →
+  `da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f`
+  (31. wpis w `owner_story_language_corrections`).
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych,
+  371 pustych, **0 błędów** i 4 176 ostrzeżeń (bez zmian względem v4.3);
+  nowy moduł `tests/test_pl_story_extra.py` (5 testów) oraz 14 modułów
+  wydania/czytania/fabuły/UI przechodzi. Brak testu PPSSPP.

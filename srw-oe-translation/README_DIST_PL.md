@@ -1,7 +1,36 @@
-# Super Robot Wars OE — pełny polski patcher (v4.3 — korekta językowa całej fabuły)
+# Super Robot Wars OE — pełny polski patcher (v4.4 — korekta językowa scen dodatkowych)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Sceny dodatkowe i symulator — v4.4 (2026-10-24)
+
+Dokończenie przeglądu językowego poza wydaniem do czytania: sceny z kontenerów
+`evept101`–`evept108` (dodatkowe misje/symulator) oraz wiersze `eventP*`
+leżące poza blokami epizodów 0–34 — 16 725 wierszy dialogów, których v4.3 nie
+obejmowało.
+
+- **22 poprawione wiersze**, każdy zweryfikowany wobec japońskiego oryginału
+  i angielskiej bazy oraz wobec przyjętego już polskiego przekładu tej samej
+  linii japońskiej w korpusie epizodów: brakujące orzeczenie („No...
+  przeszkadza.”), zdanie zamienione w pytanie („Nie przegramy, prawda?”),
+  strona bierna bez podmiotu („GoShogun nie wyrzuciło…” — trzy kopie DLC),
+  brak narzędnika („To ja Gurren Lagann wydobędę…”), odwrócony podmiot i
+  dopełnienie („Okręt przyspiesza wiązka naprowadzająca…”), kalka
+  „pokonuje nietknięta przekrój czasoprzestrzeni” oraz szyk i odmiana
+  („Brak wam czujności, wszystkim.”, „siedziba na cały Układ Słoneczny”,
+  „Ten alarm chyba nie to oznacza, co?”, „Nie, to nie jest aż tak wygodne.”).
+- **Bez zmian pokrycia i interfejsu:** 108 805 / 109 176 wypełnionych wierszy,
+  371 świadomie pustych, 0 błędów, 4 176 ostrzeżeń; UI, font PL i geometria
+  podpisów tekstur jak w v4.2.
+- **Wersja tekstu:** `pakiet_PL/snapshot.json` — 108 794 wpisów,
+  `data_sha256 = da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f`,
+  `partial = false`.
+
+Aktualizacja z dowolnej starszej wersji przebiega jak zwykła instalacja
+(sekcja „Pełne wydanie PL — v4.0” niżej): spatchuj od nowa **czyste**
+japońskie ISO, wgraj świeże `patched.iso` i cały katalog `DLC\`, a zapis
+wczytaj normalnie po zimnym starcie (nie dawny save-state).
 
 ## Korekta językowa fabuły — v4.3 (2026-10-24)
 
