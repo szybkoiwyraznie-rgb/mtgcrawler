@@ -8475,3 +8475,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Zakres:** przeczytano 1072 wpisy (703 fabularne, 369 warunkowych) i 179 grup z pytaniami; wszystkie kandydatury okazały się fałszywymi alarmami po porównaniu z JP/EN (w tym JP-identyczny duplikat linijki). Planu nie tworzono, snapshot bez zmian (108 794 wpisy, SHA-256 `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`).
 - **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd językowy epizodu 29 PL (bez zmian)
+
+- **Zakres:** przeczytano 539 wpisów (404 fabularne, 135 warunkowych) i 70 grup z pytaniami; wszystkie kandydatury okazały się fałszywymi alarmami po porównaniu z JP/EN. Planu nie tworzono, snapshot bez zmian (108 794 wpisy, SHA-256 `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`).
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
