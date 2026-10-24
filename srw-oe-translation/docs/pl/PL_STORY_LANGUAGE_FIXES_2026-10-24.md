@@ -120,3 +120,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** dworska liczba mnoga Gablae wobec Lady Nei, „wiesz?” Himari skierowane wprost do Seishiro, „prowadzić od frontu”, techniczne „dotrzeć” nową maszynę, JP-potwierdzone ukryte znaczenie `skrywacie ducha walki`, bezpośrednie tagi w rozmowach oraz poprawnie funkcjonujący porządek OVS w objaśnieniu wiązek łączących szlaki handlowe.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `23e5b39106fd4a4f2e45e38b15eb77de228d18a6a570d981617ed91e152b7b87` → `edb18709c876739d32ed0998fe31b829c5ac1dee6d24950d1c6add8d03366bcd`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; zmieniony tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 15
+
+- **Zakres:** 910 wpisów — 639 fabularnych i 271 warunkowych; 124 grupy z pytaniami (77 fabularnych, 47 warunkowych).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 1 zmianę źródłową (`story-language-ep15-2026-10-24.json`, SHA-256 `88d34c524eb8df44c55e7ffa52191c8c0adddd195f352afd2b2e8ffff057dd3e`).
+- **Potwierdzone klasy błędów:** błędny przypadek zaimka w „Zostawcie to mnie” zamiast „Zostawcie to mi”.
+- **Świadomie zachowane fałszywe alarmy:** bezpośrednie tagi w dyskusji mostkowej i dialogu Jeffrey–Haman, „Daliśmy się złapać w intrygę”, żołnierskie elipsy rozkazów, „chłopiec z Gundama” jako pilot wewnątrz maszyny, archaiczna „strawa” aury Czarnego Rycerza oraz JP-potwierdzone metafory strategiczne Haman.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `edb18709c876739d32ed0998fe31b829c5ac1dee6d24950d1c6add8d03366bcd` → `f8253586c1f6180a977aa975a32bee5d70f5fc84d1ee079af96813ee8c28a78f`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; zmieniony tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
