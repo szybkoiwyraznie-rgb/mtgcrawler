@@ -296,3 +296,15 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15` → `bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
 - **Uwaga:** epizod 34 to ostatni epizod wydania do czytania (`docs/reading-script/polish/episode_00.json`–`episode_34.json`), więc przegląd fabularnych dialogów w tej kolejności dobiegł końca.
+
+## Domknięcie: przegląd całej bazy pod kątem klasy „zostaw to mi”
+
+Po epizodzie 34 przeskanowano cały snapshot (dialogi i odzywki bojowe) pod kątem powtarzającej się klasy błędu — błędnego biernika „mnie” zamiast celownika „mi” w formule „zostawić coś komuś” (JP ～にまかせ).
+
+- **Zakres:** 245 wpisów-kandydatów (106 różnych tekstów). Każdy zweryfikowano programowo wobec JP/EN: formuły まかせ/まっかせ/やらせろ oraz ここは自分が・あとは俺が (EN „Leave … to me”).
+- **Poprawki:** 239 zmian źródłowych — 34 w dialogach i 205 w odzywkach bojowych (`story-language-sweep-zostaw-mi-2026-10-24.json`, SHA-256 `18313ff5314931237b8f53b8f3da0969dd2b10998f2436128baf88ff510a002f`). Objął też warianty plików spoza kolejności wydania do czytania (m.in. dodatkowe wersje DL834_13).
+- **Świadomie zachowane poprawne bierniki (6 wpisów):** „Zostawiono mnie na asteroidzie”, „Zostawiłeś mnie samą”, „zostaw mnie, skup się na wrogu”, „nie zostawią na mnie ani jednej rysy”, „zostawisz u mnie”. Sprawdzono też inne zaimki („zostawimy ich na śmierć”, „Zostaw nas w spokoju”) — poprawne, bez zmian.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1` → `e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262`.
+- **Walidacja:** po materializacji zweryfikowano wszystkie 239 tekstów i **0 pozostałych trafień** wadliwego wzorca w dialogach i odzywkach; materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+Przegląd epizodów 0–34 wraz z tym domknięciem kończy bieżący zakres skanowania językowego fabuły.
