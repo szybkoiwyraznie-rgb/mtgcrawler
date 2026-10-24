@@ -1,9 +1,11 @@
-# The user-supplied proprietary event archive is kept only in the ignored local work area.
+# Proprietary game files and local work areas are never committed (any project).
 /eventP01.zip
 google_drive/
-srw-oe-translation/local/
 
-# The patch output that the bats write next to them: game files, never committed
+# Per-project private work area (game files, extraction, build outputs).
+srw-*-translation/local/
+
+# SRW OE: patch output that the bats write next to them: game files, never committed
 # (the translation package pakiet_EN/ is committed since 2026-10-17 - user decision,
 #  required by the automated Release workflow; the local staging stays ignored)
 srw-oe-translation/srw-oe-patch/

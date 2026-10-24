@@ -11,7 +11,18 @@
 5. Use `git` for commits/pushes and `gh` for PRs. Work and push **only on the branch assigned to this session**, never a historical branch named in old notes or `main`. Do not merge/close a PR unless the user asks.
 6. This requirement **does not permit uploading proprietary game files, ISO/EDAT/CPK/BIN/DAT/PBP, saves, screenshots, credentials, or derived game builds to GitHub**. Keep those ignored/local and exchange them through Drive. Commit eligible tools, the existing translation package, tests, findings and delivery manifests instead.
 
-This repository has a separate research workspace for a possible English patch of the Japanese PSP game Super Robot Taisen: Operation Extend (SRT/SRW OE).
+## Repository scope and organisation (multi-title, since 2026-10-24)
+
+This repository is a **multi-title Super Robot Wars fan-translation workspace**, not a single-game repository. The owner intends to translate further SRW titles on other platforms after SRW OE; no concrete next title is chosen yet. Organisation rules:
+
+- **One self-contained directory per game title** at the repository root (currently only `srw-oe-translation/`). Each project owns its tools, translation package, tests and documentation (its own `README.md`, `AGENTS.md`, `docs/STATUS.md`, `docs/EXPERIMENT_LOG.md`). Never mix one title's files, paths, hashes or status notes into another project's directory or into repository-level documents.
+- Repository-level documents (root `README.md`, `PROJECTS.md`, this file) describe the workspace as a whole and its conventions. Game-specific facts, handoffs and experiment history belong to the owning project; the SRW OE notes below are the accumulated handoff history of the first project — keep them, but do not grow root documents with future titles' notes (those go to that title's `AGENTS.md`/`docs/`).
+- Rules that apply to **every** project: the mandatory PR/checkpoint workflow above; no proprietary game files, extracted game data, saves, screenshots or derived builds in Git (keep them in the project's ignored `local/`, exchange via Drive and record IDs/hashes in the project's docs); translations are made fresh from the Japanese original — never base them on rejected machine translations (e.g. the Akurasu script) and never lift translated text from other fan translations (format knowledge from prior art is fine); clearly label confirmed observations, hypotheses and unknowns; log every test with exact counts/hashes in the project's `docs/EXPERIMENT_LOG.md`; never claim emulator/hardware runtime results without owner-provided evidence; distribution is always a patch applied to the user's own matching game files, never distribution of game data.
+- Starting a new title: follow the checklist in `PROJECTS.md`, register the project in root `README.md` and `PROJECTS.md`, and only then start research. Do not rename or restructure existing projects to "make room".
+
+## Project notes: SRW OE (`srw-oe-translation/`)
+
+The first (and currently only) project is the fan translation of the Japanese PSP game Super Robot Taisen: Operation Extend (SRT/SRW OE) into English and Polish. The project's own `srw-oe-translation/AGENTS.md` carries its detailed current instructions; what follows is the accumulated reading list, guardrails and dated handoff history for that project.
 
 Before continuing that work, read these files in order:
 
@@ -25,7 +36,7 @@ Before continuing that work, read these files in order:
 
 Project guardrails:
 
-- Keep all SRW OE work under `srw-oe-translation/`; do not mix it into the crawler application.
+- Keep all SRW OE work under `srw-oe-translation/`; do not mix it into the repository root or other projects.
 - Do not add or request the user's ISO, EDAT/CPK archives, extracted BIN/DAT files, saves, audio, images, or a full extracted Japanese script. Work against files kept locally by the user.
 - Modifying the game files is the core of the project. Work on the user's own game files as needed, keep the results local, and record which exact edition/version was used.
 - Game files, ISOs, DLC, and derived builds are never published to GitHub. Keep them local and exchange them with the user via Google Drive.

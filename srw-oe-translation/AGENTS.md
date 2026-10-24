@@ -4,7 +4,7 @@ Read `README.md` and the linked status/technical/experiment documents before doi
 
 **MANDATORY: follow the root `AGENTS.md` GitHub checkpoint workflow. Open/reuse a PR at session start, then commit AND push every coherent code/documentation/translation chunk immediately, including unfinished episode work. Do not wait until completion or leave repository-eligible work only on Drive/in the sandbox. Game files and derived builds remain excluded from GitHub.**
 
-- Keep this project self-contained under this directory.
+- Keep this project self-contained under this directory. Repository scope (since 2026-10-24): SRW OE is one of potentially several per-title projects in this repo (see root `PROJECTS.md`); OE-specific facts stay in this directory and other titles' work never lands here.
 - Never commit proprietary game files or complete extracted/source text.
 - Work from copies; the user's original ISO and DLC must remain untouched.
 - Do not infer that an offset, marker, or field is understood merely because one sample looks plausible. Mark the `FF FF` prefix and double-NUL terminator as hypotheses until verified on multiple records.
