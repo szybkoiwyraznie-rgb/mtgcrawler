@@ -1,0 +1,398 @@
+{
+  "schema": 1,
+  "episode": 4,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:292",
+      "source_sha256": "116f1d247e0cb65b1953fe27502f92c25432ca5997344da4c059bcdaa20b4188",
+      "before": "Pierwotnie planowano ćwiczenia w tym rejonie,\na potem przejście przez bramę warp do układu Frontier,\nale sytuacja wymusiła pierwszeństwo prawdziwej walki.",
+      "after": "Pierwotnie planowano ćwiczenia w tym rejonie,\na potem przejście przez bramę warp do układu Frontier,\nale sytuacja wymagała prawdziwej walki.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:292"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:292",
+      "source_sha256": "17cd58df69e473cb2e263ab72f9998e7e952b6df9429aed7cfc1bb2bce8f8ee3",
+      "before": "Pierwotnie planowano ćwiczenia w tym rejonie,\na potem przejście przez bramę warp do układu Frontier,\nale sytuacja wymusiła pierwszeństwo prawdziwej walki.",
+      "after": "Pierwotnie planowano ćwiczenia w tym rejonie,\na potem przejście przez bramę warp do układu Frontier,\nale sytuacja wymagała prawdziwej walki.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:436",
+      "source_sha256": "0575022232880ce9346c9dcb14e09915f3f99a5a718453c9531cef376e2cb815",
+      "before": "Eiji, dezerter z armii Gradosu, ujawnił\nstrategię Gradosu i istnienie oddziału zwiadowczego,\na jego zniszczenie stało się najwyższym priorytetem.",
+      "after": "Eiji, dezerter z armii Gradosu, ujawnił\nstrategię Gradosu i istnienie oddziału zwiadowczego,\na zniszczenie tego oddziału stało się priorytetem.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:436",
+      "source_sha256": "7c4bceb34bd72503cc9bceedf84eabb9a43851a58ae1232328c7195e23f64f47",
+      "before": "Eiji, dezerter z armii Gradosu, ujawnił\nstrategię Gradosu i istnienie oddziału zwiadowczego,\na jego zniszczenie stało się najwyższym priorytetem.",
+      "after": "Eiji, dezerter z armii Gradosu, ujawnił\nstrategię Gradosu i istnienie oddziału zwiadowczego,\na zniszczenie tego oddziału stało się priorytetem.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:436"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:4308",
+      "source_sha256": "6592f205980f63abcb6878498f907bbf47a53e1abbc0107d63a330992f462874",
+      "before": "Technika Gradosu pozwala ruin używać,\nale nie pozwala ich zbudować. Gdybyśmy odparli\noddział zwiadowczy i zajęli ruiny...\r\n",
+      "after": "Technologia Gradosu pozwala\nkorzystać z ruin, ale nie zbudować takich.\nGdybyśmy odparli zwiadowców i zajęli ruiny...\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:4596",
+      "source_sha256": "636cad442dd779758f7df708d45af5d3e254f200a42460347b388484401431f2",
+      "before": "Nawet jeśli nie zdołamy unieruchomić ruin,\nto znając miejsce ataku, łatwo go odeprzemy.\r\n",
+      "after": "Nawet jeśli nie zdołamy wyłączyć ruin,\nto znając miejsce ataku, łatwo go odeprzemy.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:8660",
+      "source_sha256": "9f25b764b1f64e1504bd0f96f7bf991909357c173b876fda7aaa8c4888640382",
+      "before": "Z ich maszynami bojowymi nie podejdziemy.\nNajpierw rozprawimy się z resztą wrogów.",
+      "after": "Ich maszyny bojowe nie pozwolą nam podejść.\nNajpierw rozprawimy się z resztą wrogów.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:8688"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:8688",
+      "source_sha256": "eb7969da090b5c6c0c4f9e880c4ae851eff51b1690dda4fa23101a1df001fbac",
+      "before": "Z ich maszynami bojowymi nie podejdziemy.\nNajpierw rozprawimy się z resztą wrogów.",
+      "after": "Ich maszyny bojowe nie pozwolą nam podejść.\nNajpierw rozprawimy się z resztą wrogów.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:10396",
+      "source_sha256": "766d97884928635c2447ae09e5fb39b5a186afc7d6dcf0648af23f999ab1dd33",
+      "before": "Ty kanalio...!\nW takim razie tym razem ja pokażę ci,\njak boli i jak przeraża bycie bitym bez litości!",
+      "after": "Ty kanalio...!\nW takim razie tym razem pokażę ci,\njak to jest być bitym bez litości!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:10368",
+      "source_sha256": "a076b6f2903fed628a796223078ba7495a6dfbdab42509c0d5515992b1b8b58d",
+      "before": "Ty kanalio...!\nW takim razie tym razem ja pokażę ci,\njak boli i jak przeraża bycie bitym bez litości!",
+      "after": "Ty kanalio...!\nW takim razie tym razem pokażę ci,\njak to jest być bitym bez litości!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:10396"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:11556",
+      "source_sha256": "2e0eda34835b040816038a40b872171330187d08a0d95b1e8abefae6a9617796",
+      "before": "Co to za robot, ale szybki!\nTen gość... jest silny!",
+      "after": "Co to za robot?! Ależ szybki!\nTen gość... jest silny!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:11584"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:11584",
+      "source_sha256": "92c2e6d7d240ed801d879743d11fd1b417d7c212b3345c89f78d07034e69a358",
+      "before": "Co to za robot, ale szybki!\nTen gość... jest silny!",
+      "after": "Co to za robot?! Ależ szybki!\nTen gość... jest silny!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:18220",
+      "source_sha256": "e49e785de43b18628dbb4ae1c5a146b70743ca32add971864b557e4ff742a0bb",
+      "before": "Naprawdę jesteś zdecydowanie za poważny.",
+      "after": "Naprawdę jesteś o wiele za poważny.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:18192",
+      "source_sha256": "f6a021aa428ba3db2d529e48a15c2dba69b599d0c9d189f00693a959e9034133",
+      "before": "Naprawdę jesteś zdecydowanie za poważny.",
+      "after": "Naprawdę jesteś o wiele za poważny.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:18220"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL104_11E.bin:19768",
+      "source_sha256": "f5961006bfd8fcb6c9b7cad98a3b19426d431bf7108407f021fc7b8a9115f4e7",
+      "before": "Skradziona brama to stary, mało wydajny model.\nZa jednym razem przerzuci ograniczoną ilość.",
+      "after": "Skradziona brama to stary, mało wydajny model.\nZa jednym razem przerzuci tylko ograniczony ładunek.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL104_11.bin:19796"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_11.bin:19796",
+      "source_sha256": "fd9b2821fcf50aa3934829f6a08c6c1f3bdcbe9cc365a5030991e0f160f5b737",
+      "before": "Skradziona brama to stary, mało wydajny model.\nZa jednym razem przerzuci ograniczoną ilość.",
+      "after": "Skradziona brama to stary, mało wydajny model.\nZa jednym razem przerzuci tylko ograniczony ładunek.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_20.bin:372",
+      "source_sha256": "102fe5efe27e16880b935b80bf0f097f68586e4ec34e714274f3597baa0ef181",
+      "before": "Chciałem zobaczyć jego starcie z Zakrello,\nale skoro z pomocą Connect zgubiliśmy pościg\nkomandora Chara, szanse są marne, melduję.",
+      "after": "Chciałem zobaczyć jego starcie z Zakrello,\nale łącząc siły z Connect, uciekliśmy\nkomandorowi Charowi. Szanse marne, melduję.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_20.bin:596",
+      "source_sha256": "888c48f988a95951ab06831f656e8adaaf4a35f806c8a691b3797a8c7ecccbab",
+      "before": "To zaszczyt móc się przydać, melduję!\nDrobne szczegóły proszę zostawić mnie!",
+      "after": "To zaszczyt móc się przydać, melduję!\nDrobne szczegóły proszę zostawić mi!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_20.bin:4500",
+      "source_sha256": "fe195ae9c6c2d4a1c26a0cc4b943490033557856f284f66437d74a5b851c344e",
+      "before": "Ale najpierw, żeby wygrać, potrzeba nam sojuszników.\nI nie tylko walki, potrzeba też dużo badań.",
+      "after": "Ale żeby wygrać, najpierw potrzeba nam sojuszników.\nSama walka nie wystarczy. Trzeba też wielu badań.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_20.bin:4660",
+      "source_sha256": "56005dc9c7dacb32da89c812a84370a431cb5fa81da42259270d6e17f3e2de2e",
+      "before": "Dziękuję za tak jasne wyjaśnienie, Szefie.\nA przez badania rozumie pan ludzi i dane?",
+      "after": "Dziękuję za tak jasne wyjaśnienie, Szefie.\nA mówiąc o badaniach, chodzi o ludzi i dane?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_20.bin:8088",
+      "source_sha256": "d3d05a215f715e7d450c85d46a9027643819d79487bb0ab52687ca5f3b28bbc8",
+      "before": "Ale wyglądają zbyt złowrogo, melduję!\nNiech posłużą mi za szczebel do zdobycia\nzaufania w tym świecie!",
+      "after": "Ale wyglądają zbyt złowrogo, melduję!\nWalka z nimi pomoże mi zdobyć\nzaufanie w tym świecie!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:632",
+      "source_sha256": "171f0fa1bdac907d7e74078b72a0c528e0acba088df75ab02b4b62ba9c1ce945",
+      "before": "To, które zadaję od dłuższego czasu.\nO twojego Keroro Robo Mk-II. Nie mam pojęcia,\njaką ma siłę ognia ani zasięg.",
+      "after": "To pytanie, które zadaję od dłuższego czasu.\nO twojego Keroro Robo Mk-II. Nie mam pojęcia,\njaką ma siłę ognia ani zasięg.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:2928",
+      "source_sha256": "75f62d52832351566e5d4a068f9e9d3b97e4a9252e00b1312caae5811bdd6ff6",
+      "before": "Kręcimy się w kółko, prawda?",
+      "after": "Kręcimy się w kółko...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:3332",
+      "source_sha256": "e286420c7f4c636fe647289158b735af434e693ec5f2e84cb826d0169e365ee5",
+      "before": "(Kompletnie go oswoiła...\n  Może zostawię sierżanta w rękach Himari...)",
+      "after": "(Kompletnie go oswoiła...\n  Może zostawię sierżanta pod opieką Himari...)",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:6064",
+      "source_sha256": "98ee95734792a782f7dc7b5e056ea6da47d55efbd9ee20333d038b167c28a8d2",
+      "before": "Niestety dla naszych przyjaciół wrogów\nto wciąż za mało, wiesz?",
+      "after": "Niestety nasi drodzy wrogowie\nchyba nam nie odpuszczą, wiesz?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:10924",
+      "source_sha256": "cd1c34708b9970492ad9dbb8a58ae52a8226ec810e673c9cbb21def0fb11a625",
+      "before": "Dobrze powiedziane, Jin.\nTo od teraz koniec z wagarowaniem z treningów.",
+      "after": "Dobrze powiedziane, Jin.\nTo od teraz nie opuszczaj treningów.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:12080",
+      "source_sha256": "2ba2ffcb4c3c6d5b70c76c99aa60b3e891cf3364a88702a5e35a8ecec48837db",
+      "before": "Na wszelki wypadek resztki fortecy\nrozbijemy całkowicie z Macross Cannon.",
+      "after": "Na wszelki wypadek resztki fortecy\ncałkowicie rozbijemy Macross Cannonem.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:14072",
+      "source_sha256": "6e1996ac7c496100208fb962d5ae9a8e32f3754d3e6fa36788185335783d1e68",
+      "before": "Co to za miejsce?\nNa froncie walczą wszyscy, od podstawówki po żaby?",
+      "after": "Co to za miejsce? Na froncie\nwalczą tu wszyscy, od uczniów podstawówki po żaby?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:768",
+      "source_sha256": "11a75a5d373d1f2ebe1cd7bd3cb3ce774c171b6b0f3b5e4ef6e2e5d4c6af6bd5",
+      "before": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i zapłaciła\nza to ludobójczą czystką zwaną Polowaniem na Yaman.",
+      "after": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i za to\npoddano ją ludobójczej czystce, Polowaniu na Yaman.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:768"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:768",
+      "source_sha256": "65f7fc9227dc35d4a6cf3b9d17e4d0ff418f963ed361e527fd82344425c49513",
+      "before": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i zapłaciła\nza to ludobójczą czystką zwaną Polowaniem na Yaman.",
+      "after": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i za to\npoddano ją ludobójczej czystce, Polowaniu na Yaman.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:768"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:768",
+      "source_sha256": "eca2f1ffcad0b9cb9ac188c04478f3d953905c5c70d1fab0a7c5b764c76c8df7",
+      "before": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i zapłaciła\nza to ludobójczą czystką zwaną Polowaniem na Yaman.",
+      "after": "Mizun, niegdyś siedziba potężnej dynastii Yaman,\nopierała się armii Posaydala do samego końca i za to\npoddano ją ludobójczej czystce, Polowaniu na Yaman.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:2348",
+      "source_sha256": "89cc9596b64238c252318cdef6c865baae2245bed22a503beb5383d579cc53d2",
+      "before": "Gotowość na śmierć to piękna rzecz, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "after": "Łatwo godzić się na śmierć, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:2348"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:2348",
+      "source_sha256": "8bce93df4d66d2167bbe93b68cfa8881a7f86f9977a236f6ffc24922b3fbc97a",
+      "before": "Gotowość na śmierć to piękna rzecz, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "after": "Łatwo godzić się na śmierć, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:2348"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:2348",
+      "source_sha256": "e3a336e93c7598c745cf5f6ef919213dbf3e73c29cd32c5a592a586fe5bbbf54",
+      "before": "Gotowość na śmierć to piękna rzecz, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "after": "Łatwo godzić się na śmierć, ale spójrz\nprawdzie w oczy. Sam L-Gaim nie da rady.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:4212",
+      "source_sha256": "62a74ea887e9d96a1f50e1385b819b29f0a709de36175aaa06650169c44a4e14",
+      "before": "Dobrze. Dalej odciągajcie ich na siebie.",
+      "after": "Dobrze. Dalej ściągajcie ich na siebie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:4212",
+      "source_sha256": "c738bd93d29aad16b283b722d85478229a8477788c6ebaa4c3b6ba7f9efd270b",
+      "before": "Dobrze. Dalej odciągajcie ich na siebie.",
+      "after": "Dobrze. Dalej ściągajcie ich na siebie.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:4212"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:4212",
+      "source_sha256": "e04d7ab87f2b256ffa8306b6b031b5c0f5406e24310b29adee8fce734f6f82cc",
+      "before": "Dobrze. Dalej odciągajcie ich na siebie.",
+      "after": "Dobrze. Dalej ściągajcie ich na siebie.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:4212"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:8704",
+      "source_sha256": "741e77d97dfd6d69f6888eb283f512f41973ef71c58de7f959fd037588faf6f2",
+      "before": "Co?! Ty też jesteś z rebeliantów?!",
+      "after": "Co?! Ty też jesteś rebeliantem?!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:8700",
+      "source_sha256": "9ea20969a28cd317425466cc39ae487e0270b2ba6f39e90dcacdb70c523c97aa",
+      "before": "Co?! Ty też jesteś z rebeliantów?!",
+      "after": "Co?! Ty też jesteś rebeliantem?!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:8704"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:8700",
+      "source_sha256": "f0eb7c9f8cfe4fd92a22e4db662dad6c0d73a8995d0a7cb3a652bcf3f1e7e8bb",
+      "before": "Co?! Ty też jesteś z rebeliantów?!",
+      "after": "Co?! Ty też jesteś rebeliantem?!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:8704"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:10060",
+      "source_sha256": "a934cf46f40920bd64cecec3dffa13d5afdcd137d4c6eab18a151e4e99664327",
+      "before": "Każdy ruch i każdy atak zgram osobiście.\nWidziałem waszą poprzednią walkę. Z waszymi\numiejętnościami ta operacja się powiedzie.\r\n",
+      "after": "Osobiście wyznaczę czas każdego ruchu i ataku.\nWidziałem waszą poprzednią walkę. Z waszymi\numiejętnościami ta operacja się powiedzie.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:10556",
+      "source_sha256": "7068151cef5e02fa93aa29ddda4283e9d14136d5780c339a91ea810695c3757b",
+      "before": "Czarni Rycerze stoją po stronie słabych.\nZjawiamy się przed tymi, którzy nadużywają władzy.\r\n",
+      "after": "Czarni Rycerze stoją po stronie słabych.\nStajemy naprzeciw tych, którzy nadużywają władzy.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:13392",
+      "source_sha256": "28b9345b37cfc1da92b42137377021bec1cb46b3666eaa93ecc810e5de496099",
+      "before": "Pewnie to ostatnia rozpaczliwa szamotanina.",
+      "after": "Pewnie to ich ostatnia rozpaczliwa próba.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:13396"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:13392",
+      "source_sha256": "8b73a1616a26323cf308d08e32319e03f9bb6959fbda92d3e3ede33fc5fbfd54",
+      "before": "Pewnie to ostatnia rozpaczliwa szamotanina.",
+      "after": "Pewnie to ich ostatnia rozpaczliwa próba.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:13396"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:13396",
+      "source_sha256": "c0e42a465301565f921bfa0ddf61a3c0f28fddcc0bb715bed766463be0dcfee1",
+      "before": "Pewnie to ostatnia rozpaczliwa szamotanina.",
+      "after": "Pewnie to ich ostatnia rozpaczliwa próba.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:14540",
+      "source_sha256": "10a7a553a725d4cba06e39ea27ae712482d5f6643833ac9abab7da75ee70ba3a",
+      "before": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc niszczenia!",
+      "after": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc rażenia!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:14528"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:14540",
+      "source_sha256": "3c7f797fa84cc985ae2d9c2fa5c6fa3a1089c46954980c56df2cc918e6a117d7",
+      "before": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc niszczenia!",
+      "after": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc rażenia!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP20.EDAT/DL104_40.bin:14528"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:14528",
+      "source_sha256": "5455501540eee324c8090efd0276842484b19f6b23e2776346b2654bdecad165",
+      "before": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc niszczenia!",
+      "after": "C-co za siła ognia!\nBuster Launcher... nie...\nTo ma jeszcze większą moc rażenia!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:17492",
+      "source_sha256": "4b103ca77b043cdf1742bfd4bd2a6511ac79da2cd0091b70872e8a75feff8a45",
+      "before": "Myśleli, że postawili na łatwe zwycięstwo.\nA klęska odbiera temu wszelki sens.\r\n",
+      "after": "Liczyli na łatwe zwycięstwo, więc\nprzegrana niweczy cały ich plan.\r\n",
+      "reason": ""
+    }
+  ]
+}
