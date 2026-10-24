@@ -260,3 +260,11 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawny biernik „że to mnie zatrzyma” Ravena, poprawne „to to samo” Hiltza oraz warianty warunkowe Go-Saurer/King Go-Saurer (oddzielne wpisy JP).
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb` → `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 31
+
+- **Zakres:** 606 wpisów — 330 fabularnych i 276 warunkowych; 81 grup z pytaniami (36 fabularnych, 45 warunkowych).
+- **Poprawki:** 0 — wszystkie kandydatury odrzucono jako fałszywe alarmy; planu nie tworzono, snapshot bez zmian.
+- **Świadomie zachowane fałszywe alarmy:** poprawne „to to samo co ewolucja” Cowena, nazwa własna „Doki Doki Space” (fałszywy „podwójny wyraz”) oraz poprawny zwrot Adeu „Włożę w ten miecz…”.
+- **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85`.
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

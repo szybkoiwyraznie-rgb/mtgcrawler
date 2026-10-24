@@ -8485,3 +8485,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Zakres:** przeczytano 1142 wpisy (832 fabularne, 310 warunkowych) i 176 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep30-2026-10-24.json` (SHA-256 `699ee4ac0be7db6cac0450993260df920bf5df9aeeb01faaac36647350a76b82`) — 1 kwestia i 2 zmiany źródłowe (jedna jawna kopia).
 - **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb` → `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano oba teksty. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd językowy epizodu 31 PL (bez zmian)
+
+- **Zakres:** przeczytano 606 wpisów (330 fabularnych, 276 warunkowych) i 81 grup z pytaniami; wszystkie kandydatury okazały się fałszywymi alarmami po porównaniu z JP/EN. Planu nie tworzono, snapshot bez zmian (108 794 wpisy, SHA-256 `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85`).
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
