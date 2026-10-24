@@ -6449,7 +6449,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_35.bin:4544","pl":"Ngh...!","source_sha256":"21e4def8e538ea41648338a7e026de5c2e2928a7eb4da92cc8f033eb8e1f9686"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_60.bin:8216","pl":"Wysyłają siły po kawałku...\nCzyli jednak grają na zwłokę.","source_sha256":"21e90c9f97e093732c3d4f4f0898bf022bcc67e714515773407f2b0ba54a0c95"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:17428","pl":"Mam złe przeczucia.\nWszystko idzie dokładnie zgodnie z planem...\nCoś się za tym kryje.\r\n","source_sha256":"21ebe03b6b5925fbd473a82bc43e0b8561490cf4450b47809c4985a8c2c3d470"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:5920","pl":"Zostaw to mnie!","source_sha256":"21ec7ff7521eb3b92f9aceeb2e6071bafa0be15a159edaa2bf1fc6bae7be2de3"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:5920","pl":"Zostaw to mi!","source_sha256":"21ec7ff7521eb3b92f9aceeb2e6071bafa0be15a159edaa2bf1fc6bae7be2de3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_60.bin:3140","pl":"Wdarło się wielu dużych Mucus!","source_sha256":"21ec8a473ec38b23ba6ebf890854ae48701915b7a3bffcec857a3d9ca420e745"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:82928","pl":"A, i jeszcze... podobno bramę warp\nda się uruchomić tylko z tamtej strony.","source_sha256":"21ec973497717e32cc643e0e5dcc70a6b53e9e83930496a9a42a4f13f5473bf6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:18060","pl":"Tch... mam złe przeczucie...","source_sha256":"21ee14eb2a2995791d19d34c33c9d6c9d8b83f25276db68c08cb87d6dd78cd7d"}
@@ -47451,7 +47451,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:2980","pl":"T-tak!","source_sha256":"f862e5552e351e252d2ac5ddf0e21f60d771f413965e6f344eb5b54f58397953"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL103_40D.bin:19112","pl":"Przyjąłem!","source_sha256":"f864504d0f3436369ccf82d3284ad6a16616c2fa7f44e09c2071cc2afbf93966"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:140536","pl":"Zostaw to mnie!\nWszystko porząąądnie zorganizuję.","source_sha256":"f865feefaba3d0d8fe9207d95ae723836b59e2c4971357053fe4f21158424d28"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_30.bin:9012","pl":"Dla przemiany świata przekroczę ciebie!","source_sha256":"f86b372ed82ee3c2c902ef59caa1e744730e1c541fca4be2844de1c58259e65f"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_30.bin:9012","pl":"Dla przemiany świata przewyższę cię!","source_sha256":"f86b372ed82ee3c2c902ef59caa1e744730e1c541fca4be2844de1c58259e65f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_12.bin:1840","pl":"Wtedy przejmiemy kontrolę nad całym tym obszarem.","source_sha256":"f86d393baa4ba8d30bc6fa50636c3e2ae193e9c893dbed92140602edcba550ed"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:22288","pl":"...Nie zaprzeczam, że używałem siły,\npchany nienawiścią.","source_sha256":"f8734a1d802faf9b058b1188de6dd85d2d760f6632b5a6a6b78edb9df5638180"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL521_11J.bin:2688","pl":"Czyli jeśli pokonamy Goburikiego,\nklejnoty również stracą swoją magię.","source_sha256":"f87556784a0b74c58aafba64c2d3b797daa2eb938cf9f8276fa1fe098119860f"}

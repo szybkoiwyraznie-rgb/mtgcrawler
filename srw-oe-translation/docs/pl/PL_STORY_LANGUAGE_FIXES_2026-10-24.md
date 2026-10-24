@@ -156,3 +156,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** wyzywająca enumeracja Kenichiego „Niewybitni, barbarzyńscy, mniejsza z tym — to my!”, techniczne „krytyczne usterki konserwacyjne” okrętu, dworski rejestr przemówień Le Caina, „babrając się w robocie jak przy czyszczeniu ścieków” Vanilli, Vanilla zwracanie się per „kochaniutki” oraz bezpośrednie tagi w rozmowach grupowych.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `3e33d9b7b37d8f18d986fb582b5f600cd32fb3f77e8848f4215fd9cd463e42b7` → `321098b4d7156329ab52b98bf741cf7ac21f616cc7172e29bef12262b3dcacfc`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 4 teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 19
+
+- **Zakres:** 829 wpisów — 608 fabularnych i 221 warunkowych; 110 grup z pytaniami (75 fabularnych, 35 warunkowych).
+- **Poprawki:** 2 kwestie wskazane w przeglądzie; plan zawiera 2 zmiany źródłowe (`story-language-ep19-2026-10-24.json`, SHA-256 `469a176d7c49563626774cab48e4abee1ba5665d2d6528c8c470b1636dbecaa0`).
+- **Potwierdzone klasy błędów:** błędny przypadek zaimka w „Zostaw to mnie” zamiast „Zostaw to mi” (Judau); kalka „przekroczę ciebie” zamiast „przewyższę cię” (Setsuna).
+- **Świadomie zachowane fałszywe alarmy:** kanoniczne „Jesteś ogonem tego Hitlera” Degwina, eliptyczne „Moc Exii... jest większa niż to!” Setsuny, dziecięce bezpośrednie tagi Ple, wojskowe „pilnujcie nas porządnie, jasne?” Karen oraz teatralny rejestr Mr. Bushido.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `321098b4d7156329ab52b98bf741cf7ac21f616cc7172e29bef12262b3dcacfc` → `6cd0389732a833a81e0bfeaf62bccf87bf53affb90fb8b4768628465bd5b3194`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
