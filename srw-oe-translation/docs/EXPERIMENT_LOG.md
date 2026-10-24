@@ -8345,3 +8345,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Plan:** `config/pl/story-language-ep02-2026-10-24.json`: 10 kwestii z audytu (limit możliwości maszyny, refleksyjne „...co?”, potwierdzenie w wymianie Kanuka–Alan, oferta opieki Connect, rząd czasownika „skąpią”, idiom ekspresu, oderwane „Nie, Rikiya?”) oraz 5 jawnych kopii DLC — **15 wpisów**.
 - **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be` → `fffa694322f42aeeb7652a9a70305fea3332d1ce81b9d096eceb83b7ae7a1bc1`; 108 794 wpisy bez zmiany. Materializacja całego pakietu: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów**. Przeszły `test_pl_story_corrections` (4 testy) i `test_pl_v4_0_consistency` (5 testów). Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd i korekta językowa epizodu 3 PL
+
+- **Zakres:** przeczytano 994 wpisy (731 fabularnych, 263 warunkowe) i 238 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep03-2026-10-24.json` — 30 kwestii z przeglądu, 33 zmiany po jawnych kopiach DLC.
+- **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `fffa694322f42aeeb7652a9a70305fea3332d1ce81b9d096eceb83b7ae7a1bc1` → `fda6c27086af862b315cf50cd7f6a23d0298eb889554fc98596ac4ddc399e6c1`; 108 794 wpisy bez zmiany. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów**. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
