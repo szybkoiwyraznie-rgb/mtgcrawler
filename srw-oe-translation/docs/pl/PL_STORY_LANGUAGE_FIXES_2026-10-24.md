@@ -57,3 +57,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** źródłowe `Poniekąd zasłużył na śmierć`, dosłowne „cud natury” wypowiedziane żartem, frontowe bezpośrednie tagi, `Bracie` dla `aniki`, komedia o łagodnych gorylach i powtórzenie `wrócić... wrócić` tam, gdzie JP rozdziela warunek od dumnego powrotu.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `3c6f89b0b2f5987fcb2002fafb0652c92945fdb609eeb0d4b8388dce4f12d87e` → `615493273f199867e0e79899f97e20bfede4ee9871ee8a3f2516d5adbd9f67c3`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 87 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 8
+
+- **Zakres:** 981 wpisów — 832 fabularne i 149 warunkowych; 210 grup z pytaniami (180 fabularnych, 30 warunkowych).
+- **Poprawki:** 19 kwestii wskazanych w przeglądzie; plan zawiera 19 zmian źródłowych (brak jawnych kopii wymagających rozszerzenia).
+- **Potwierdzone klasy błędów:** Adeu dowiadujący się „o tym kosmosie” zamiast o locie w kosmos, oddział Mrocznego Smoka błędnie przypisany Galdenowi, niezgodność rodzaju przy ostatnich statkach, wadliwy podmiot przy `fatygować się`, brak narzędnika przy Gurren Lagann, niejednoznaczny zaimek odsyłający do żołnierzy zamiast metali, błędny kierunek transferu warp oraz `ochrona przestrzeni` zamiast patrolowania sektora.
+- **Świadomie zachowane fałszywe alarmy:** poprawne wojskowe `posiłki`, dowcip `początek/KONIEC-t`, `Bracie` dla `aniki`, terminologiczny „anomalny ocalały” oraz żart o robactwie przyczepiającym się do Adeu.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `615493273f199867e0e79899f97e20bfede4ee9871ee8a3f2516d5adbd9f67c3` → `a3dbd758f5470577e8f197c391f3a7c9e39c2a8e39cd3c1952d8461c007f22a9`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 19 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
