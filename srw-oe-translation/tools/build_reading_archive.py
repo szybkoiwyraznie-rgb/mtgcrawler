@@ -8,12 +8,18 @@ per-episode hashes can never drift from the episodes actually shipped.
 The ZIP is written deterministically (fixed member timestamps, stored order,
 fixed permissions) so that rebuilding an unchanged release yields the same
 bytes.
+
+Owner rule (2026-10-24): every reading-archive delivery must also bundle the
+current supplementary reading files (mech catalogue, pilot catalogue, mission
+deployments) via ``--extra``. If their source data is unchanged since their
+last delivery, bundle the last delivered bytes without rebuilding them.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import sys
 import zipfile
 from pathlib import Path
 
@@ -42,7 +48,8 @@ def sections(markdown: str) -> int:
     return total
 
 
-def readme(release: str, rows: list[dict], totals: dict) -> str:
+def readme(release: str, rows: list[dict], totals: dict,
+           extras: list[dict] | None = None) -> str:
     out = [
         f'# Super Robot Wars Operation Extend — Polskie scenariusze do czytania '
         f'(Epizody 0–34, wydanie {release})',
@@ -84,6 +91,21 @@ def readme(release: str, rows: list[dict], totals: dict) -> str:
             f'{num(row["bytes"])} | `{row["sha256"][:16]}…` |'
         )
     out.append('')
+    if extras:
+        out += [
+            '## Materiały uzupełniające',
+            '',
+            'Do archiwum dołączono aktualne katalogi i zestawienie rozstawień '
+            '(dostarczane wraz z każdą wersją wydań do czytania):',
+            '',
+            '| Plik | Rozmiar (B) | SHA-256 |',
+            '| --- | ---: | --- |',
+        ]
+        for extra in extras:
+            out.append(
+                f'| `{extra["name"]}` | {num(extra["bytes"])} | `{extra["sha256"][:16]}…` |'
+            )
+        out.append('')
     return '\n'.join(out)
 
 
@@ -96,6 +118,11 @@ def main(argv=None) -> int:
     ap.add_argument('--delivery', type=Path, help='Optional delivery receipt JSON path')
     ap.add_argument('--date', default='2026-10-23T00:00:00Z',
                     help='Fixed member/delivery timestamp (ISO-8601 UTC)')
+    ap.add_argument('--extra', action='append', type=Path, default=[],
+                    help='Supplementary .md member bundled after the episodes; '
+                         'repeatable. Owner rule (2026-10-24): always pass the '
+                         'current mech catalogue, pilot catalogue and mission '
+                         'deployments files for a delivery.')
     args = ap.parse_args(argv)
 
     verification = json.loads((args.input / 'verification.json').read_bytes())
@@ -115,7 +142,24 @@ def main(argv=None) -> int:
         rows.append(row)
         payload.append((name, data, row))
 
-    document = readme(args.release, rows, totals).encode('utf-8')
+    if not args.extra:
+        print('WARNING: no --extra members; the owner rule (2026-10-24) requires '
+              'bundling the current mech catalogue, pilot catalogue and mission '
+              'deployments .md files in every reading-archive delivery.',
+              file=sys.stderr)
+    extras = []
+    seen = {name for name, _, _ in payload} | {'README.md'}
+    for path in args.extra:
+        if path.suffix != '.md':
+            raise SystemExit(f'extra member is not Markdown: {path}')
+        if path.name in seen:
+            raise SystemExit(f'duplicate archive member name: {path.name}')
+        seen.add(path.name)
+        data = path.read_bytes()
+        extras.append({'name': path.name, 'bytes': len(data), 'sha256': sha(data)})
+        payload.append((path.name, data, None))
+
+    document = readme(args.release, rows, totals, extras).encode('utf-8')
     year, month, day = (int(x) for x in args.date[:10].split('-'))
     stamp = (year, month, day, 0, 0, 0)
 
@@ -154,6 +198,7 @@ def main(argv=None) -> int:
                     'md5': hashlib.md5(data).hexdigest(),
                     'member_count': len(members), 'roundtrip_cmp_verified': True},
         'polish_package_sha256': verification['polish_package_sha256'],
+        'supplementary_members': [extra['name'] for extra in extras],
         'members': members,
     }
     if args.delivery:

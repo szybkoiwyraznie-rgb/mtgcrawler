@@ -22,17 +22,24 @@
   },
   "archive": {
     "name": "srwoe_reading_PL_00-34.zip",
-    "bytes": 918561,
-    "sha256": "2e0a8b165fdc49e10c2f8027fc028df47a2ba938baa2773835f9e5ef50cbf0bf",
-    "md5": "a4267f27fda062db81cf8c6752fb371a",
-    "member_count": 36,
+    "bytes": 2176460,
+    "sha256": "1253927d079cad7f6e8f2d0ebde674eb98f4c1d3e91cee4a5fde44ca256c4e36",
+    "md5": "d315fa19f03469c2ea8a549445de36f8",
+    "member_count": 39,
     "roundtrip_cmp_verified": true,
     "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
-    "drive_file_id": "1OOEeAN_Sbuvcrg5xAfUWYJfogTiBeIlV",
-    "web_view_link": "https://drive.google.com/file/d/1OOEeAN_Sbuvcrg5xAfUWYJfogTiBeIlV/view?usp=drivesdk",
+    "drive_file_id": "1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-",
+    "web_view_link": "https://drive.google.com/file/d/1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-/view?usp=drivesdk",
     "superseded_drive_file_id_trashed": "1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g",
     "download_back_byte_identical": true,
-    "deterministic_rebuild_cmp_verified": true
+    "deterministic_rebuild_cmp_verified": true,
+    "reissued_same_day": {
+      "date": "2026-10-24",
+      "reason": "New standing owner rule: the reading archive must always bundle the current mech catalogue, pilot catalogue and mission deployments .md files. First v4.3 archive (36 members, episodes only) replaced the same day; all 35 episode members are byte-identical, only README.md regenerated and 3 supplementary members added.",
+      "first_archive_sha256": "2e0a8b165fdc49e10c2f8027fc028df47a2ba938baa2773835f9e5ef50cbf0bf",
+      "first_archive_bytes": 918561,
+      "first_drive_file_id_trashed": "1OOEeAN_Sbuvcrg5xAfUWYJfogTiBeIlV"
+    }
   },
   "changes_vs_v4_0": {
     "changed_episodes": 30,
@@ -62,9 +69,9 @@
   "members": [
     {
       "name": "README.md",
-      "bytes": 4789,
-      "sha256": "ecde6bdb54c1350a1ff9982d7cc97ed41719a5dba20accba5deb1a7b4a8774db",
-      "crc32": "8c11e587"
+      "bytes": 5207,
+      "sha256": "8f206846699d2dfd96711f16f00c3e48568ddf80c7e2cc2ff2db3d2f714adcd7",
+      "crc32": "a0f7da0e"
     },
     {
       "name": "srwoe_episode_00_PL.md",
@@ -275,6 +282,51 @@
       "bytes": 218906,
       "sha256": "8a11e89851a789b1d1dfbdfe2ba676c1797414dff7f914127577bf67e033ad07",
       "crc32": "b507d2a9"
+    },
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 723499,
+      "sha256": "ec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca",
+      "crc32": "08fcb739"
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "crc32": "1afe3b39"
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560402,
+      "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd",
+      "crc32": "d55dc0a8"
+    }
+  ],
+  "supplementary_members": [
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 723499,
+      "sha256": "ec185c38153362d0cd8fe68acf4bd2030a1f47e52953ba1546db93f625931fca",
+      "source_drive_file_id": "146dxudsT9vEzGua6s--Z58s_QP8m_yF0",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": false
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "source_drive_file_id": "1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": false
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560402,
+      "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd",
+      "source_drive_file_id": "1mcrih3r4TAE0pmAYebYH54XdDELS8P6v",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": false,
+      "staleness_check": "v4.0->v4.3 package diff touches only 00_dialogue (deployments uses it for speaker IDs only) and 4 sysmes labels in 04_config_text; none of the changed strings occur in the three files (0 hits). See EXPERIMENT_LOG 2026-10-24."
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 ## Latest: Complete curated Polish reading series — episodes 00–34 (`v4.3`, 2026-10-24)
 
-- **[Complete Polish reading scripts 00–34, v4.3 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1OOEeAN_Sbuvcrg5xAfUWYJfogTiBeIlV/view)** (`918,561 B`, SHA-256 `2e0a8b165fdc49e10c2f8027fc028df47a2ba938baa2773835f9e5ef50cbf0bf`, MD5 `a4267f27fda062db81cf8c6752fb371a`, 36 members: generated `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md`; `47,056 / 47,056` prose entries; supersedes trashed `v4.0` archive `1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g`)
+- **[Complete Polish reading scripts 00–34, v4.3 (`srwoe_reading_PL_00-34.zip`)](https://drive.google.com/file/d/1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-/view)** (`2,176,460 B`, SHA-256 `1253927d079cad7f6e8f2d0ebde674eb98f4c1d3e91cee4a5fde44ca256c4e36`, MD5 `d315fa19f03469c2ea8a549445de36f8`, **39 members**: generated `README.md` + `srwoe_episode_00_PL.md` .. `srwoe_episode_34_PL.md` + bundled supplements `srwoe_mech_catalog_v4_PL.md`, `srwoe_pilot_catalog_PL.md`, `srwoe_mission_deployments.md` (bytes unchanged since `v4.0`, bundled under the 2026-10-24 owner rule that every reading archive carries them); `47,056 / 47,056` prose entries; supersedes trashed `v4.0` archive `1pj7gCsM92H3ORcALkwStMg2J6eLr0-5g` and the episodes-only first `v4.3` archive `1OOEeAN_Sbuvcrg5xAfUWYJfogTiBeIlV`, replaced the same day)
 - **Delivery receipt:** `docs/reading-script/polish/PL5_v4.3_reading.delivery.json` (prior `v4.0` / `v3.5` / `v3.3` / `v3.0` receipts preserved in `PL5_v4.0_reading.delivery.json`, `PL5_v3.5_reading.delivery.json`, `PL5_v3.3_reading.delivery.json` and `PL5_v3.0_reading.delivery.json`)
 
 Built strictly from the accepted `pakiet_PL` **`v4.3`** package (`data_sha256 = e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262`) across **all 35 story episodes (`00–34`)** — the episode-by-episode Polish story-language review plus the corpus-wide „Zostaw to mi” sweep (`658` source-bound changes on `656` distinct rows: `453` dialogue, `205` battle quotes) — re-rendered against the frozen English reference set (all `35/35` files matched the `reference_sha256` pinned in the reviewed plans `episode_00.json`..`episode_34.json`):
@@ -47,7 +47,10 @@ python3 tools/build_polish_reading_editions.py \
   --out local/reading-pl
 python3 tools/build_reading_archive.py --input local/reading-pl --release v4.3 \
   --out local/dist_reading_v4_3/srwoe_reading_PL_00-34.zip \
-  --delivery docs/reading-script/polish/PL5_v4.3_reading.delivery.json
+  --delivery docs/reading-script/polish/PL5_v4.3_reading.delivery.json \
+  --extra local/reading_extras/srwoe_mech_catalog_v4_PL.md \
+  --extra local/reading_extras/srwoe_pilot_catalog_PL.md \
+  --extra local/reading_extras/srwoe_mission_deployments.md
 ```
 
 Older deliveries below are preserved, not overwritten.
