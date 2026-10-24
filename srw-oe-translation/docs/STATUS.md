@@ -1,5 +1,79 @@
 # Project status
 
+**v4.2 pair delivered — EN/shared texture geometry aligned to TXCL
+(2026-10-24, PR #23).** At the owner's request the English caption boxes got
+the same treatment as PL in v4.1:
+[`srw-oe-translation-pl-v4.2.zip`](https://drive.google.com/file/d/1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD/view)
+`8,763,213 B`, SHA-256 `eebf0a1b51759f07ebd60d7c844375a9762035722d8eb42de495f5537ac564e2`;
+EN pair `srw-oe-translation-v4.2.zip` `7,285,821 B` (`64f90885…`, built
+locally). EN boxes for `intsys_04`/`intsys_03` and the `intsys_01` LNK badge
+are now the TXCL sampled cells inset by 1 px with cell-wide clears: measured
+on authentic GIMs, ink outside each label's cell went from up to `121 px`
+(`Progress`) / `92 px` (`Unit / Pilot`) to `0 px` everywhere, and JP
+remnants inside sampled cells are gone. TXCL rects for tex_gid 31/33/34 are
+identical in IM1000/IM3000/IM9000 (verified), so one geometry covers every
+container copy. PL text and the PL `intsys_04` render are byte-identical to
+v4.1 (`326c2062…`); the shared EN captions on `intsys_03`/`intsys_01` follow
+the fix in the PL kit too. Tests `147/147` modules OK incl. new
+`tests/test_en_txcl_geometry.py`. Receipt
+[pl-v4.2-kit-delivery.json](pl/pl-v4.2-kit-delivery.json). `runtime_tested`
+stays `false`. Textures without TXCL cell data (`mensys_*`, `tacsys_*`,
+`navisys_*`) are unchanged — no authoritative cell tables for them in the
+TXCL containers.
+
+**PL v4.1 delivered — owner PPSSPP QA fixes (2026-10-23, branch
+`arena/7bb0f98d-mtgcrawler`, draft PR #23).** The owner reported three v4.0
+screens; all three root causes were measured (owner screenshots + authentic
+game data from Drive, never committed) and fixed:
+[`srw-oe-translation-pl-v4.1.zip`](https://drive.google.com/file/d/1gqGO1nMg-9BC17Mjve4JEQaJiDWaZaDI/view)
+`8,762,312 B`, SHA-256 `0775aa2dc2062f96f5e21cb7f1343d9ca55f5afd143a411a827b659b6cf813cf`,
+coverage unchanged `108,805 / 109,176`, `0` errors, snapshot
+`e730f180…` (16 owner plans, `1,525` bindings). (1) Pilot-tab labels are now
+`Pilot gł.` / `Współpilot` (10-cell field). (2) `intsys_04` PL caption boxes
+now equal the TXCL sampled cells (`tex_gid 34`; `progress (42,12,84,24)`):
+v4.0 put `79` ink px outside the sampled cells on the authentic GIM, v4.1
+puts `0`; EN render byte-identical. (3) Owned footers are `＠4Masz` / `Masz`
+(Lv1 counter fixed at glyph-cell 8). Tests `146/146` modules OK incl. new
+`tests/test_pl_ui_qa_v41.py`. Receipt
+[pl-v4.1-kit-delivery.json](pl/pl-v4.1-kit-delivery.json), audit
+[UI_QA_V41_2026-10-23.md](pl/UI_QA_V41_2026-10-23.md). `runtime_tested`
+stays `false`: owner re-test in PPSSPP still required. Noted but
+deliberately untouched: the EN `intsys_04` boxes share the same TXCL
+mismatch (`80` ink px outside cells) — separate decision if EN geometry
+should follow. Older entries below are history.
+
+**Continuation session opened (2026-10-23, branch `arena/7bb0f98d-mtgcrawler`).**
+Baseline re-verified in the sandbox with no game files present: all `145/145`
+test modules pass when run per-module via
+`python3 -m unittest discover -s tests -p 'test_<module>.py'` from
+`srw-oe-translation/` (a single-process `discover` run is still OOM-killed in
+this sandbox, exit `137`, as already recorded for v4.0; invoking modules as
+`tests.test_*` breaks six sibling imports — that is an invocation artefact, not
+a failure). EN package recount: `108,995` filled / `474` empty across the
+`00`–`10` JSONL files (`109,469` rows incl. the `293` `06_scenes` rows); the
+`143` empty `04_config_text` rows in `config01`–`config08` are the same
+unclassified gap noted in `NEXT_STEP.md` (decision needed, do not edit on file
+layout alone). PL snapshot unchanged: `108,794` entries,
+`data_sha256 8cb37fb3…6269c`. Google Drive newest file is still the v4.0
+delivery of 2026-10-23 (`srwoe_mech_catalog_v4_PL.md`, 09:31 UTC) — no new
+translator return, screenshot or kit arrived since. The only open item from
+v4.0 remains the owner-side PPSSPP/runtime check; no runtime claim is made.
+Older entries below are history.
+
+**PL v4.0 complete; all four derived artefacts republished (2026-10-23).**
+[`srw-oe-translation-pl-v4.0.zip`](https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view)
+`8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`,
+`108,805 / 109,176` rows filled, `371` intentionally empty, `0` errors,
+`partial = false`. All `36` scene files (episodes 00–34 + simulator) were
+already integrated from `PL5.zip` in v3.0, so the "episodes 22–34 / simulator
+unfinished" notes below are superseded history. Derived artefacts rebuilt from
+the final v4.0 package and byte-verified against Drive: mech catalogue
+`873,130 B` (`07f11deb…`), pilot catalogue `303,266 B` (`800a27fd…`), mission
+deployments `11,560,402 B` (`d166592b…`), reading archive `917,233 B`
+(`c295fbe2…`, 35 episodes, `47,056 / 47,056` prose entries). Receipts:
+[kit](pl/pl-v4.0-kit-delivery.json),
+[PL5/v3.0](pl/PL5_FINAL_RELEASE.md). See `NEXT_STEP.md` for open scope.
+
 **PL4 partial return integrated and v2.7-PL4 kit delivered (2026-10-20).**
 [Download](https://drive.google.com/file/d/1T4EPs_7fbJEyAVLIdCmDYLkEtNcWFViF/view);
 All nine views plus episodes00–21: strict import67,143 explicit blocks,0 errors,

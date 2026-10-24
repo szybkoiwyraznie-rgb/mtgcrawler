@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 12,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL312_20.bin:8184",
+      "source_sha256": "cb8b854eea4c76cd736b6b66065a2d91ef1723126acc673852c06d2b7a476419",
+      "before": "Ci Mucus pojawiają się wszędzie, co?\nTrzeba ich wybijać po kolei,\nbo inaczej będzie źle.\n",
+      "after": "Ci Mucus pojawiają się wszędzie.\nTrzeba ich wybijać po kolei,\nbo inaczej będzie źle.\n",
+      "reason": "ep12 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL312_40.bin:4376",
+      "source_sha256": "8cab1081e510bd540e92bfddac0edba4ae7b79381fa7aed7ee7df55ff71037f3",
+      "before": "Ruszasz się jak na dłoni!",
+      "after": "Twoje ruchy widać jak na dłoni!",
+      "reason": "ep12 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

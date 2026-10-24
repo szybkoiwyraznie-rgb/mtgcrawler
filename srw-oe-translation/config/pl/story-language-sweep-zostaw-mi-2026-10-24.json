@@ -1,0 +1,1918 @@
+{
+  "schema": 1,
+  "episode": "sweep-zostaw-mi",
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL834_13F.bin:151908",
+      "source_sha256": "0290617058abe77cc92f28d3e7b4131e2bd3273005fcb0fda251c59ce720f192",
+      "before": "Proszę zostawić to mnie!",
+      "after": "Proszę zostawić to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL105_50.bin:5156",
+      "source_sha256": "070ba4887dee1b2195c37a375854d351dc7f1619c84dff243e4fb9dec27aa08f",
+      "before": "Wasza broń ma za małą siłę ognia!\nZostawcie to mnie i wycofajcie się!",
+      "after": "Wasza broń ma za małą siłę ognia!\nZostawcie to mi i wycofajcie się!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP09.EDAT/DL103_30.bin:5068",
+      "source_sha256": "0723a723f40252c89bb7257d67663c900c7af84834235bfaf8b08038b884a59d",
+      "before": "Jasne, zostaw to mnie!\nRozwalę wszystkich tych łobuzów naraz!\r\n",
+      "after": "Jasne, zostaw to mi!\nRozwalę wszystkich tych łobuzów naraz!\r\n",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:19560",
+      "source_sha256": "0fbb0446cf6d0448dc9186319356743c3c540023648915c33804de9f875cdf8b",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:8204",
+      "source_sha256": "1c62eb6d262e08b801d5645090e48b433fe620138cf6ae5fab71c6fac93143ef",
+      "before": "Jasne, zostaw to mnie!",
+      "after": "Jasne, zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_35.bin:9536",
+      "source_sha256": "1d91055d5d3085778339b8311012c46183ddc4e49d25aea7c18eb1563fbf92d8",
+      "before": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mnie!",
+      "after": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:19576",
+      "source_sha256": "26c7409a19ac58f2ba8c8f46e92fa1c3dbe3bc24b49b932f366c4180993f53b7",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL834_13J.bin:37808",
+      "source_sha256": "2f77d320f8383f0dad7dba40dbc16fad32a87e3f2b8dc908588aac75839476df",
+      "before": "Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "after": "Zostaw to mi!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:18000",
+      "source_sha256": "304793c219579cf2943330dff4d5f7c5ad241f5af4820019222e7b4ee96c3925",
+      "before": "Zostawcie to mnie!",
+      "after": "Zostawcie to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL209_35D.bin:9536",
+      "source_sha256": "366679c152e1a7d813acbe0d3a16b96f49b5a286865a3df99ca800c2eb6c9865",
+      "before": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mnie!",
+      "after": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_20.bin:13440",
+      "source_sha256": "3bf788c70b9a6e315a57c62dea11c3975a02ed5815f2c0ecf8966d853720fe2b",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP20.EDAT/DL104_40.bin:8096",
+      "source_sha256": "4a51ce84672dc098bab6f8c5476a73d0991f1daed84aa03a622a4bc1286b2645",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_20.bin:12244",
+      "source_sha256": "5408fc34f9c91e0b5546bc8e36d078265beee42aad791aef7d8e61470a2f5b42",
+      "before": "Okej, zostaw to mnie!",
+      "after": "Okej, zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL105_40.bin:2260",
+      "source_sha256": "57ed8b69a3810a0c3f52e0691c38bed38b13c7d2a9c137b8cd77f31803ae9168",
+      "before": "Dobraaa, zostaw to mnie!\nJestem teraz super, mega rozpalony!\r\n",
+      "after": "Dobraaa, zostaw to mi!\nJestem teraz super, mega rozpalony!\r\n",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL101_60.bin:3252",
+      "source_sha256": "59b2e9d6b2152959e12eb8009b28703d38e9a2d18de316bbb58df41613c737de",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL104_40F.bin:8092",
+      "source_sha256": "5e432d6e1e2ba2d57cd0a8371f16f097fea024b2fcfa42372af9343cf1c6fd99",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL834_13F.bin:102228",
+      "source_sha256": "61a106f4b74fed7868e46d74fbb252ba82e14d8a90aa3cb24ee004ff98228108",
+      "before": "OK, dalej zostawcie to mnie.",
+      "after": "OK, dalej zostawcie to mi.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL104_30.bin:12200",
+      "source_sha256": "639e5953ee4655213f66b9371a838090ba791e3b42bb2f0c11a3270fcc176bc5",
+      "before": "Przyjęłam, zostaw to mnie.",
+      "after": "Przyjęłam, zostaw to mi.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL100_02.bin:2732",
+      "source_sha256": "6e8da098c8cd31fff158e1cc0b4eb4b917c16617dca50bd9607531aaf63e89ba",
+      "before": "Zostaw to mnie!\nBędę cię wspierać z całych sił!",
+      "after": "Zostaw to mi!\nBędę cię wspierać z całych sił!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:7184",
+      "source_sha256": "721902883bb12897e418f6f0555817c5f75d11e3abc2e6a3f318674407e31dd1",
+      "before": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mnie i Vanowi!",
+      "after": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mi i Vanowi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL104_40G.bin:8092",
+      "source_sha256": "8d8296848f3f148de54c585b40fccf0edb1bb8f3c0f46f1b2d25656aad40163d",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_13E.bin:147224",
+      "source_sha256": "925556cf5b943b95f7928089858c19cb69475946abab18ab2d048055768719bb",
+      "before": "Proszę zostawić to mnie!",
+      "after": "Proszę zostawić to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL834_13F.bin:37788",
+      "source_sha256": "94520840ea2b7e5eb2296adc8b96744d8171ef84250550dfdfe8fdcd23bee417",
+      "before": "Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "after": "Zostaw to mi!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:17988",
+      "source_sha256": "9d72a1b5ac1194fc12bacff3701521b21ba22c6d9799891848d9d95c498e5966",
+      "before": "Zostawcie to mnie!",
+      "after": "Zostawcie to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL834_13F.bin:140516",
+      "source_sha256": "a209a5a6c8ffe7e2233f3036011b5f9590838fe316f4617ef101150e2957f03c",
+      "before": "Zostaw to mnie!\nWszystko porząąądnie zorganizuję.",
+      "after": "Zostaw to mi!\nWszystko porząąądnie zorganizuję.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_13E.bin:34200",
+      "source_sha256": "a615bbd0e74450bfe31ccce53b7021a0895fe2b21dccafc147fd4074796013ef",
+      "before": "Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "after": "Zostaw to mi!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_30.bin:5280",
+      "source_sha256": "aa9ac89aaac0fe86b1c561da1ddb5847690caba6a3b4a4592d102c6b3296c8c7",
+      "before": "Jasne, zostaw to mnie!\nRozwalę wszystkich tych łobuzów naraz!",
+      "after": "Jasne, zostaw to mi!\nRozwalę wszystkich tych łobuzów naraz!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:6688",
+      "source_sha256": "b2a26606dd8cd3bdd17415c8e8c74106fbef1a741b530d7e51e39677687ab54f",
+      "before": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mnie i Vanowi!",
+      "after": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mi i Vanowi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:24768",
+      "source_sha256": "bd42a4672a322d7d5cec4bcc2c4c6877b659bddbbe3092c22fb51cbf89feea71",
+      "before": "Zostaw to mnie!\nNigdy się nie poddaję, to moja mocna strona!",
+      "after": "Zostaw to mi!\nNigdy się nie poddaję, to moja mocna strona!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL834_13J.bin:102248",
+      "source_sha256": "c02607f189103990efd6a7f52cc876a1366ed176ab4b83ee0506cfb42b32674b",
+      "before": "OK, dalej zostawcie to mnie.",
+      "after": "OK, dalej zostawcie to mi.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_13E.bin:98116",
+      "source_sha256": "dd94fff1a9f028306750d7b2e9685064631f988044d38c5891a5add2ff353882",
+      "before": "OK, dalej zostawcie to mnie.",
+      "after": "OK, dalej zostawcie to mi.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_13E.bin:135832",
+      "source_sha256": "e12a659d935047cb2b76d737d59295add4f76252d3d3da29328735227e00a656",
+      "before": "Zostaw to mnie!\nWszystko porząąądnie zorganizuję.",
+      "after": "Zostaw to mi!\nWszystko porząąądnie zorganizuję.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL834_13J.bin:151928",
+      "source_sha256": "efa48422cbd1aa8b7af058f141ae4147f59ab75e1b672daec64da28546220012",
+      "before": "Proszę zostawić to mnie!",
+      "after": "Proszę zostawić to mi!",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL834_13J.bin:140536",
+      "source_sha256": "f865feefaba3d0d8fe9207d95ae723836b59e2c4971357053fe4f21158424d28",
+      "before": "Zostaw to mnie!\nWszystko porząąądnie zorganizuję.",
+      "after": "Zostaw to mi!\nWszystko porząąądnie zorganizuję.",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0608.pac:5784",
+      "source_sha256": "0016228161a56ebcc862ce47b9b7eaacc69d08005d627e86002c2dc7315c5df2",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0708.pac:15228",
+      "source_sha256": "01319598ba94f510efa33a7863f2d686610781e6b6435c87ce9b325a6b9ba565",
+      "before": "「Danketsi,\n resztę zostawcie mnie!」",
+      "after": "「Danketsi,\n resztę zostawcie mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p1633.pac:11748",
+      "source_sha256": "0229ede75b31b6a82bc84b454caa2c38959c3e87eed05278c363ea1a3446f43b",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:14936",
+      "source_sha256": "02585b145c03b4f49b3ab033567bf87bc3c865d7d45e0f1d189fcf7268c805e4",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11372",
+      "source_sha256": "03274ff74ab4e90e4de0059e2c38fdd443aa6efbc1f949f0e27c31fa39a7512f",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl13.EDAT/p1520.pac:13748",
+      "source_sha256": "034a37cdf9816aac159b993fc69084cc31c973907b0603bbbe0ccbe7154df352",
+      "before": "「Zostawcie to mnie.」",
+      "after": "「Zostawcie to mi.」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0500.pac:37544",
+      "source_sha256": "0411ee020baba56658ef386b48d59de3cfd82a9ceacada1a6a0bf3bcaf8f1e37",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4181.pac:21184",
+      "source_sha256": "05ffe71d990f84c6d523962313a64f46dae53672a1b5498069120bb19752b72b",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12436",
+      "source_sha256": "065d859ca457c03e9bb48cb2b83e7701e99c398f99693516d37baa3bb08ce506",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12056",
+      "source_sha256": "0784fded970b750b17b28ec7af983a71967ceeeecffaf4d3c32d5f9648dbce92",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13616",
+      "source_sha256": "07f8db51594588bbf006c25b649dab5c577fa992588b75df8221e0a386562738",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0600.pac:6368",
+      "source_sha256": "0988bcb395b5528dcd4a2ba8857b5632d33c6a0a7a465b7982f5c7068ddf6a35",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2701.pac:13452",
+      "source_sha256": "0aed9d54b2534ce42fd6459c2db8db316de172d3f584795cbf7e1597934df228",
+      "before": "「Dobra, resztę zostaw mnie!」",
+      "after": "「Dobra, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4182.pac:21436",
+      "source_sha256": "0b558635fbe814192ad3913bbc53a6dde2adf12da19fd8a566022c30b73903a4",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:9444",
+      "source_sha256": "0be252a7b1ba8e67a4ab25d89f65ef7c2ff2940944dfb71bb714559550e3299b",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12360",
+      "source_sha256": "0cd423546a051599dc28f5c5174d5bc209e13336dfdbdb6394767d663fe8c9fb",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0604.pac:10456",
+      "source_sha256": "1119abcd81f24b740840db3865613463a77f7d7544f5aaa94bc4ff04712b7d70",
+      "before": "「Zostawcie to mnie, Klaso Obrony!」",
+      "after": "「Zostawcie to mi, Klaso Obrony!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0700.pac:7412",
+      "source_sha256": "115fff3b5d8552290a31f1fba9baa19021b27f1b5f2f197e64f06aa6a19ca54e",
+      "before": "「No pewnie! Zostaw to mnie!」",
+      "after": "「No pewnie! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:14280",
+      "source_sha256": "11ca7610ad63086bca6c2ea9b8585195db1c2843555313767255f89d2cd35d78",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11524",
+      "source_sha256": "154b6fc99bd64c0efdcb6f05fb6c5568658dea34d0cdfa6926bbb3546459fbb3",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3272.pac:6780",
+      "source_sha256": "187c6ec62622349cf816051f386f945904679e6140ac1e336c1362f2216fd949",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1001.pac:22176",
+      "source_sha256": "1987e7e48f49331e61ffa828eefad17345527d2e80f82f46a86ffe81cbed7f88",
+      "before": "「Zatrzymam go! Zostawcie to mnie!」",
+      "after": "「Zatrzymam go! Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11448",
+      "source_sha256": "1bc6a4f62057eeb19e47b18f8aafcc5c3b70329ef5e205fe1bcb78adcdc612d7",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4160.pac:11736",
+      "source_sha256": "1c43c01d38858b7201434061024b2133a2ba10b7908f5241242651c82d0d8304",
+      "before": "「Dobra robota, Viola!\n Resztę zostaw mnie!」",
+      "after": "「Dobra robota, Viola!\n Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13856",
+      "source_sha256": "1d33aa4dbc540339c246fb1ddd8086079a76d5875dc4eca4d3dac5bea3262846",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14156",
+      "source_sha256": "1f11b04017a8990dd85c2452ca05c67f6ac867c754a731277d2a97bef38c50c4",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl19.EDAT/p4420.pac:17332",
+      "source_sha256": "2053626ede06958fe62c68ce19d7620d4bfd1855f43e125c8212fc0bf767236a",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p3149.pac:13580",
+      "source_sha256": "20f7c5465212b508c553ee4e31b14728b281f5d2b96122b6cbfe8fc066c32254",
+      "before": "「Lady Nei, proszę zostawić to mnie!」",
+      "after": "「Lady Nei, proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14276",
+      "source_sha256": "216331b2c536b5bc9f9eec413520c5768240b9ac3f70ede874fb0ea9f3f32325",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11828",
+      "source_sha256": "217a33aa08df98b076dc89326b2f85848b4f7531164f05188d5512dff38c54fd",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4182.pac:21300",
+      "source_sha256": "23923439365ca1ef91bc2e6bf40e454c928d141fa1fb63f77588bb18e66c41f1",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p3470.pac:6216",
+      "source_sha256": "23c1977a50b306f72a36fae147bdbb2fa7fa4c443d1b65a21a8e1715ef323cab",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3272.pac:6856",
+      "source_sha256": "23e12661d979de57679592b93de074473a08c3ee258bc839d07cb87a7858b3ae",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:8640",
+      "source_sha256": "2590d57e0ba0e695affd8657a78679f5925a75346f7c998d10ac2902a89f013b",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0460.pac:13024",
+      "source_sha256": "283519675cb66178983d59b07322291d075f815832ba54445918d2a10dc6177e",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13676",
+      "source_sha256": "28c5295eebc07569e6c6a1df713157ac57efa86cf80d2f1d0ec3415aa9191345",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2817.pac:4196",
+      "source_sha256": "2b2792b22c3c0b83a8ff919e40f006102785643d6257ff0bc75e4d32823edd22",
+      "before": "「Zostaw to mnie...!」",
+      "after": "「Zostaw to mi...!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12132",
+      "source_sha256": "2cba4e607a6a7ecaacabe200749bed9ee50b5e8bd6ffd48fae6144c4941739c8",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1006.pac:10336",
+      "source_sha256": "2de00a855423c4aba09492347260db8e34bff4461bb84c4e824d388ba419a3d4",
+      "before": "「Amuro, resztę zostaw mnie!」",
+      "after": "「Amuro, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0500.pac:10948",
+      "source_sha256": "2fc4f27a53396211ad4b7ae58267258cd794bd393dbf1dd25e09304fb4fef93b",
+      "before": "「Zostaw to mnie! Nie uciekniesz!」",
+      "after": "「Zostaw to mi! Nie uciekniesz!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0500.pac:34824",
+      "source_sha256": "32f0c6035f4c47e9620d4031e5a54fc5b88f5a2feb6dc207d842698e70c2e81e",
+      "before": "「He, he, zostaw to mnie, Hidenori!」",
+      "after": "「He, he, zostaw to mi, Hidenori!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11600",
+      "source_sha256": "352d929048083a229ff8026c61e8d115cc59a1f94c9352613f82766f6aae8af4",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0326.pac:12512",
+      "source_sha256": "35f9141cc842f344b8f6ac7ed8c3b6c2bae10159431a081ee395a9bfcb1ef828",
+      "before": "「Sprzątanie zostaw mnie!」",
+      "after": "「Sprzątanie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p2809.pac:3088",
+      "source_sha256": "36d9eeaea7123fad2b85e0ed5d3e5dd8ef07f1ddf48ac021bf489c0a702c8dcb",
+      "before": "「Pewnie! Zostaw to mnie!」",
+      "after": "「Pewnie! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4180.pac:21192",
+      "source_sha256": "389575c0ee0aaf8bf0208783145bdfe73f8a835d8ae6f752e7624c3d28c87bec",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl10.EDAT/p3121.pac:9276",
+      "source_sha256": "3964699f1ebab97034e71fce8f9b94549eeb904e9c6bcdd98df6bb7cb9ce99b6",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl19.EDAT/p4420.pac:17596",
+      "source_sha256": "3993281bb389c647ff9d9b6657c2c00d640ed2541c160716d8cde62e3a7c5ceb",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:9772",
+      "source_sha256": "39e9494ae243c10d7b317617989e202bb17c9646b50047cd60c43bd339c071bb",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p2901.pac:10696",
+      "source_sha256": "3cde91dfa65319213ce47b48d61ee967889f1c1f906e3e8c028023a4ee5d6f5e",
+      "before": "「Tu Show!\n Resztę zostawcie mnie!」",
+      "after": "「Tu Show!\n Resztę zostawcie mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2817.pac:11348",
+      "source_sha256": "3e27cbf51f9ab15d692c2d42c876bfad554005d1aa3b4785dbf9e2fe78238c6d",
+      "before": "「Zostaw to mnie.」",
+      "after": "「Zostaw to mi.」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1406.pac:6640",
+      "source_sha256": "3f92ebb39221f055e64dcc150dca7fa6ce6cbb94a5b0acc1d7fa1a3b4f3fcbb5",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3514.pac:7772",
+      "source_sha256": "3f9779e99339cdf6e0e4a1b90a84282454d6476f0f6e87705f9e623db4c3a4bf",
+      "before": "「Zostaw to mnie, Byman!」",
+      "after": "「Zostaw to mi, Byman!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2501.pac:8296",
+      "source_sha256": "432c5afb2dc932ccd3878e43a338bb104d8f5ffac6f0bdfcbc1237aa61998bff",
+      "before": "「Precyzyjny strzał? Zostaw to mnie!」",
+      "after": "「Precyzyjny strzał? Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0710.pac:12976",
+      "source_sha256": "43804857a90b9fc33536c45d1c17b75d3fe78b3ca0b13d8601b1759f7eab298c",
+      "before": "「Klaso Obrony!\n Resztę zostawcie mnie!」",
+      "after": "「Klaso Obrony!\n Resztę zostawcie mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:15592",
+      "source_sha256": "4567efe460a8568edc3cf21ae824ecdbc1028913af3463bb99eddaf2fb538d2e",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3711.pac:18272",
+      "source_sha256": "45c6a822386e8d335767ebadfb3535bd59b76e5e204c5c33cf69f1cc7f85ea4b",
+      "before": "「Zostaw to mnieee!」",
+      "after": "「Zostaw to miii!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4160.pac:11468",
+      "source_sha256": "466bc7fbb0a73a1df35219f366f5b56322b2594b00b7c872a2d276d4e538a56d",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1657.pac:12308",
+      "source_sha256": "467e10dec801225039e79121c4b734018425b2abd551a31a9dc353b5fef111fc",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl19.EDAT/p4420.pac:9596",
+      "source_sha256": "476edf644a2b838b9be1b13083ab885a2d4145505a8c8ca0a2a5f1464f665587",
+      "before": "「Zostaw to mnie, miau!」",
+      "after": "「Zostaw to mi, miau!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p4501.pac:22700",
+      "source_sha256": "4a65d67321f0d320a88d6d7fd923894baefb2a1460dead4be86c033877e0ff5c",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2505.pac:9388",
+      "source_sha256": "4b19314857cfb5a4fc4f871427a3797156d63c4c2b48654abd7127de07bfbacd",
+      "before": "「Precyzyjny strzał? Zostaw to mnie!」",
+      "after": "「Precyzyjny strzał? Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2501.pac:4948",
+      "source_sha256": "4b7c463472a36f8f5bca3a1df314dc889013774924e41578a528ffbe6a1e2d54",
+      "before": "「Takie rzeczy zostaw mnie!」",
+      "after": "「Takie rzeczy zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0200.pac:16352",
+      "source_sha256": "4be7509b6c0acb596c5dd47d50a1fd20c83c671c41a1bf0d72ad919fab4bf08e",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0600.pac:9364",
+      "source_sha256": "4cc5e8ffae5842fabc455dd9750be2949fccbbc95a13ee08905eff29813c015c",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p3614.pac:8992",
+      "source_sha256": "4ccb8d930208e36454a22c8dedb7a77427af0195d4d2b8ad7dcc378b55aa7699",
+      "before": "「Chirico, resztę zostaw mnie!」",
+      "after": "「Chirico, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4187.pac:19196",
+      "source_sha256": "4dfdade0ace12706d6b55cdb4178dfb64ee3cefadb956fbf2738b136a5726b62",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4112.pac:16952",
+      "source_sha256": "4ed132ee5c34a62ae56a8e395b89c05b3a079c148f0fb2014e32198709b95d5d",
+      "before": "「No dobraaa, Van! Resztę zostaw mnie!」",
+      "after": "「No dobraaa, Van! Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0708.pac:15388",
+      "source_sha256": "51af1f8e6bf6b7d7251302c0b8c6ff529b00ea876553d6b2c3d86f77fef97f2c",
+      "before": "「Zostaw go mnie\n i uciekaj w bezpieczne miejsce!」",
+      "after": "「Zostaw go mi\n i uciekaj w bezpieczne miejsce!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0600.pac:5872",
+      "source_sha256": "529f0591c2b09fb455832a415be102acc8668554b44f14b17e08b443297262c1",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14456",
+      "source_sha256": "5303a1bc2c8b68c97335b32604f05ff9d3cec3501486185fa21ac1630dd77d19",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11212",
+      "source_sha256": "55cc54c536d2e4acead09d695aa20ba9ea267d6e0f213e01a892c19b5d871a73",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4187.pac:18744",
+      "source_sha256": "56a4f032ac790b79622c1a2f884a87a8f3729391b1c697bf73c63eebae6ee24a",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11052",
+      "source_sha256": "579fa67a186804f574b89e87603e9a2d11571b84caf055184432a66c06ffcfc6",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12512",
+      "source_sha256": "580a8ff346e3bf39072cbdc0e0bdefdffd3d873f290f85aea10ca8eeb0a7e826",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p4143.pac:17276",
+      "source_sha256": "583d9ef276e6114e6e90be584271a1b01fe4a1934e23c9ac71e1e35ebe6c18a8",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4160.pac:11820",
+      "source_sha256": "59189e011f710bed3eb9f470e1afcfae3aeed001efa9712831a9dee3ca1d8e1b",
+      "before": "「Viola! Resztę zostaw mnie!」",
+      "after": "「Viola! Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0300.pac:16220",
+      "source_sha256": "59df5de7f2a43c7e44339ce3650c14fd04b21e4c85ba9e25cd74fd95a46375a4",
+      "before": "「Paffy, resztę zostaw mnie!」",
+      "after": "「Paffy, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2701.pac:14352",
+      "source_sha256": "5a450b1eaecff104bbae269f26c4d97db32e6b77e7e1629388c8204f30196a50",
+      "before": "「Zostawcie to mnie, drużyno Gettera!」",
+      "after": "「Zostawcie to mi, drużyno Gettera!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:8312",
+      "source_sha256": "5a6f2c64000073393466ff796db25ec5422384f554bfcbbf53708c27eb92d5f4",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14576",
+      "source_sha256": "5a99c2e21b979a1947cfb91792cdc6f6ca48b6a07cfbe4900364e787c5ec80a7",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3711.pac:14284",
+      "source_sha256": "5d961142f3630e6bd9c32a636fcfc4490a81a3cd2b2fab3243683595b219e64d",
+      "before": "「Nyahahahahahaha!\n Zostawcie to mnie!」",
+      "after": "「Nyahahahahahaha!\n Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0800.pac:10872",
+      "source_sha256": "5eb5bfe3903dbc88105ad48e1094cfb3dfae2a689306c112330e36620706de28",
+      "before": "「Atak na tamten punkt zostaw mnie!」",
+      "after": "「Atak na tamten punkt zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4183.pac:21300",
+      "source_sha256": "5fb9543488f6ad3ec246bca25a3d901086b0cb257e2b59a7dcc21843486b1bcd",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl19.EDAT/p4420.pac:18136",
+      "source_sha256": "6221452179036a9d861fb976ba55c02933be152f56142f96fa1c77900bd17a4c",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4194.pac:15216",
+      "source_sha256": "62db88d2cc276f8785e0ac5319131cdb6155d4b0c433c4ba3e37534aebf5a232",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1415.pac:10556",
+      "source_sha256": "6388679ccaf1a78b183648c486f88cfe101a1c8002573dc11dc7fc8eae53dad5",
+      "before": "「Pani sierżant! Proszę zostawić to mnie!」",
+      "after": "「Pani sierżant! Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl10.EDAT/p3121.pac:8524",
+      "source_sha256": "63df8d63120ee86a4b8f90978b40a9b847e783095544d234356bcb33065aeef9",
+      "before": "「Dobra,\n jedną maszynę czy coś zostaw mnie!」",
+      "after": "「Dobra,\n jedną maszynę czy coś zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1138.pac:7628",
+      "source_sha256": "6421aaa3c53a7fcd3ec5e0e9713652a8fdd719bd358fc0668815348184dcd48b",
+      "before": "「Resztę proszę zostawić mnie!」",
+      "after": "「Resztę proszę zostawić mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12588",
+      "source_sha256": "6487b879b536921d9965ff39b6eaac3e463a01fc82f3361c6c68884bb4b2def3",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0800.pac:11460",
+      "source_sha256": "64d3178ea04e8338172d0d9b31f486389b6a22152796cb88077cce131cdaf8c0",
+      "before": "「Zostaw to mnie!\n Dostaną megawielki cios!」",
+      "after": "「Zostaw to mi!\n Dostaną megawielki cios!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3201.pac:14092",
+      "source_sha256": "6572b941f4c09be041aa1463e7fc9f36e2098b497b5a0ce677a6c09334a01e2e",
+      "before": "「Zostawcie go mnie!」",
+      "after": "「Zostawcie go mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4183.pac:21028",
+      "source_sha256": "686e8bdaa7efab8f92e75e39f7f7bbfde73b61a8d45c57f5ac1a9ce8e3c96317",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p1109.pac:10244",
+      "source_sha256": "68fc12ee2c4e2ebe0f36a7ebf495a3f55664c549b2d05026fc354d089fe40076",
+      "before": "「Dobrze, świetnie! Resztę zostaw mnie!」",
+      "after": "「Dobrze, świetnie! Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p4501.pac:22112",
+      "source_sha256": "69487b8a2dec3ab83c1947e9935a2d47590f1dcfedca2b6c88c7a7dc4eff262f",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0200.pac:17428",
+      "source_sha256": "6bc0c74a05bfec07acaba5b69133f5550802121b29d09d9807863ca9290abe45",
+      "before": "「Ryoma, zostaw to mnie!」",
+      "after": "「Ryoma, zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1321.pac:6164",
+      "source_sha256": "6c6921284ecb3cc6850636f360782933a9545af219df505b61581ffc62a5bc71",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl06.EDAT/p0218.pac:11140",
+      "source_sha256": "6dcc0bc368603955b0feccaee339357492daa21d7f81b1c6a02cb3655b0e362a",
+      "before": "「Ken, resztę zostaw mnie!」",
+      "after": "「Ken, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0700.pac:13768",
+      "source_sha256": "6eb204e92dfee57d62432104b7047e493fcda9e57a07357f88780132f7bef6fb",
+      "before": "「No pewnie! Zostaw to mnie!」",
+      "after": "「No pewnie! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4182.pac:21028",
+      "source_sha256": "6fcd2607a817e0c4014ca5ca2a350f42f87f0f703bed717034b2f115b878420a",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4191.pac:15352",
+      "source_sha256": "7179f7953c0e723df54b92fe7af0c05d31dae781577226b2d3e15c5106452fc7",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4187.pac:19256",
+      "source_sha256": "71aa23f2765a016deeeae5d738edd10ce73f180f4f5c5366c3efa6fdd5e6a11f",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0800.pac:14340",
+      "source_sha256": "73d3aca46b8b0534c688c2049fde42c89bc57a506a55342c98f81cf47ac108ed",
+      "before": "「Zostaw to mnie!\n Dostaną megawielki cios!」",
+      "after": "「Zostaw to mi!\n Dostaną megawielki cios!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4181.pac:20804",
+      "source_sha256": "744d78616b5c909e34b5cf4aea24b630e3f4155779cf44cb761b1713f0cb8866",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1325.pac:6736",
+      "source_sha256": "7b3f81a34a6e12386757c2f7914e7d3555c40184696cb3579b14667c37f815f6",
+      "before": "「Zostaw to mnie, kapitanie! Idź przodem!!」",
+      "after": "「Zostaw to mi, kapitanie! Idź przodem!!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:6792",
+      "source_sha256": "7b59a95c6e5aaf2ac65def5c60d490bbbaeb3b0edc83f123fd946e105bac9317",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2821.pac:4896",
+      "source_sha256": "7ca428d933c8dc7173dc3802eb5a915089f3cc9683263c18f32550711c5d6f95",
+      "before": "「OK! Zostaw to mnie!」",
+      "after": "「OK! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13976",
+      "source_sha256": "7d062345501ec0fbca02facb32abe30f7f2f20db626096f83ea728b7228f9f25",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2821.pac:4356",
+      "source_sha256": "7e2ec2d28d4e1f35dbb70bb9025a0f0c4815bb5fcdb162ff73d6ba7b5cb1cff7",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0325.pac:12508",
+      "source_sha256": "7fb1bc7b088ecdf57e702771ca54dc1582b5514d25eb27ccf547e509e2707864",
+      "before": "「Sprzątanie zostaw mnie!」",
+      "after": "「Sprzątanie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0200.pac:16704",
+      "source_sha256": "7fca3fdb66303501605f543a252aaccc7207a6b5ef43334e29411b956e447901",
+      "before": "「Koji!\n Resztę zostaw mnie!」",
+      "after": "「Koji!\n Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3270.pac:7400",
+      "source_sha256": "81064c031455dc983c062730e125813c864c818ecc026a53709bd1dceb48b15a",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p2805.pac:6976",
+      "source_sha256": "8306846a8e6bf32fadb04fbb292f0a1891c1ade9d11a0b79a0f01a8820d5ae72",
+      "before": "「Wyjaśnienia później! Zostaw to mnie!」",
+      "after": "「Wyjaśnienia później! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p2001.pac:10012",
+      "source_sha256": "8613d019b1cbfa34f5b5eb0644a527fbf27548253136ac20e408b9db2baaa27c",
+      "before": "「Kamille, resztę zostaw mnie!」",
+      "after": "「Kamille, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p2315.pac:21844",
+      "source_sha256": "870f57d93b744ea5d3b7b7a69d799a00bc0c0af0c9d2c707616c89e58f53a3e4",
+      "before": "「Kallen, resztę zostaw mnie!」",
+      "after": "「Kallen, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p4143.pac:17480",
+      "source_sha256": "8721cd77d3d9f43118183ef06497be99bed8f38e46c21c384e5b48f5cc3b0848",
+      "before": "「Dobicie zostaw mnie!」",
+      "after": "「Dobicie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13736",
+      "source_sha256": "87274958b7396f9914e0b37212d11f3aaca2f4ef5b2e6b06fc54e207d33cd5d0",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13916",
+      "source_sha256": "8b700f041bccd5ffef3a67f05ba141a3f365b6523659d4e1d218f4f2b5c4d646",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4183.pac:21436",
+      "source_sha256": "8c01653373de6f3c5f67cd402591b5974b7ae72281119c6652f28096ffa1e3fc",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p4501.pac:14592",
+      "source_sha256": "8cb0d3db5a591df1f73b1c09c8711017601e1ed6cad80e375c849177547ce1c1",
+      "before": "「Precyzyjny strzał zostaw mnie!」",
+      "after": "「Precyzyjny strzał zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14036",
+      "source_sha256": "8e11297d6752ef0a6debe3704b06d0c90c76f8b56247d0f3e73dd05c27cf1729",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4180.pac:21132",
+      "source_sha256": "9011e925ac47c15668b5cb98cbdd2339e0d03455a5023c083f4fd4ec31c73f80",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:7608",
+      "source_sha256": "9113ed4430911e071e47091c1db247f58a9fc132a4920308f9ef219de21b8f6e",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12208",
+      "source_sha256": "91b542a6854db355a745e8afb2cc8f0dac76c5ad421f70ecc1c87cadc15ae69f",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4180.pac:20680",
+      "source_sha256": "920a5e8fd372ab53bbcd05438ac8fe26b1d63ca5208616e99dd4a47efeb117a4",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0821.pac:9916",
+      "source_sha256": "93fb14e343219571167dc5cb90e40046c4f26b76fff17c1262fb118cdc0d4cce",
+      "before": "「Resztę zostaw mnie\n i patrz z tyłu.」",
+      "after": "「Resztę zostaw mi\n i patrz z tyłu.」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11980",
+      "source_sha256": "94f0b1c4d6cb22867ebeb36fb0e71c7df6a76a5bf4d66bfc420e31c6cb9f3de3",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p2320.pac:17984",
+      "source_sha256": "956b399057e0a58a41400deb1eec8f06a68ce1612fadb3d3015cbbff869ee385",
+      "before": "「Zero, zostaw to mnie...!」",
+      "after": "「Zero, zostaw to mi...!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3460.pac:13956",
+      "source_sha256": "977995371583a94623766daf1c3c1c3afa1bf464dfa0f92b6ffafd2a1f78d36b",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p4501.pac:31804",
+      "source_sha256": "9800429aaca7f41963a4bad6c208d8bb403662e006e8295b285639687eabad97",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3751.pac:23396",
+      "source_sha256": "99ad860e904e8fa32728f3ffa652f26f9470f1c41728d3b18fa01d86f587caf6",
+      "before": "「Resztę zostaw mnie.」",
+      "after": "「Resztę zostaw mi.」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl10.EDAT/p3111.pac:8304",
+      "source_sha256": "9aea849f8b34210da9980d491767116df6782e5fbb246ddb18866babcc7e274b",
+      "before": "「Daba, sam nie dasz rady!\n Zostaw to mnie!」",
+      "after": "「Daba, sam nie dasz rady!\n Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14516",
+      "source_sha256": "9aeb1e8364c26e44d9095258bcfbe9f5c94dc4d0cf2be16ea5fa5a6a572a3e75",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3711.pac:30592",
+      "source_sha256": "9cab46858012cab0ad0e492ae7761609c6ee4eb512981a72024c33350eb283c8",
+      "before": "「Zostaw to mnieee!」",
+      "after": "「Zostaw to miii!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0302.pac:14116",
+      "source_sha256": "9cb415a00b093ca19223802905571a8a09c5c19496a2909cc5f35b4a25f14db5",
+      "before": "「Proszę zostawić resztę mnie!」",
+      "after": "「Proszę zostawić resztę mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14216",
+      "source_sha256": "9d91017e20db82fa152cb7289ccaa5d3ab103759e9a58b6e8060d58c8b83a991",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1318.pac:6192",
+      "source_sha256": "9dd89f60e4105eb3671417cf21d2a2927b9e0796d5e3e8832608da6ce42e2911",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl15.EDAT/p4215.pac:12068",
+      "source_sha256": "9e0a3195f2de72dee4534defeab25fd4741b8e85f3e129e35e3dac416bb6b292",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0400.pac:20440",
+      "source_sha256": "9e2f55a0d44d5e8e6ebf4049f4cf5f4397db9807937a47d780c13ee95fb25de8",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4101.pac:12596",
+      "source_sha256": "a056335bf8f842c79ef1fba0140b8807eefb1f3b917e67220e962f78200b6703",
+      "before": "「Spokojnie. Zostaw to mnie!」",
+      "after": "「Spokojnie. Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1301.pac:9112",
+      "source_sha256": "a2645e4c1248ee3ea0daaa2feb2b839f13ed46f10cdd060f97fb61b5cac16967",
+      "before": "「Resztę proszę zostawić mnie!」",
+      "after": "「Resztę proszę zostawić mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3701.pac:38156",
+      "source_sha256": "a71f2e0fba9bfc185a9863bb38b66353c53aa1e6d821ed9e379d84ce8168a1cd",
+      "before": "「Kanuka! Zostaw to mnie!」",
+      "after": "「Kanuka! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl05.EDAT/p3423.pac:12476",
+      "source_sha256": "a963b19f1eb2ef995d13f9b89a17fa962ec636813166d6b13a185cbc232e21f8",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:12284",
+      "source_sha256": "a9bdfe3644a600e0e4608042880db8b0acab5dd22635e7bb40bc9d8f8dbb1c5a",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4180.pac:20812",
+      "source_sha256": "aa6c66e68073efbe5fe3faa5e5bebb29f154c6249b6c3241f00c43f03ee02a1f",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0200.pac:17068",
+      "source_sha256": "aa9d58c8456e613f355945389a6ca6d798af34950955c7707f2e7fb1a59f778e",
+      "before": "「Zostaw to mnie, wszystko!」",
+      "after": "「Zostaw to mi, wszystko!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11904",
+      "source_sha256": "ab48092c52ac3c1d0b3e96a3152c2a6e12ae8972d479d30d956c94f47eb7ff60",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl13.EDAT/p1501.pac:19904",
+      "source_sha256": "abfff79de6297a3148339d367caf3dc7a6a70b1b2f6c9edd0dd1fb09bce6dbbf",
+      "before": "「Shinn, zostaw to mnie!」",
+      "after": "「Shinn, zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11676",
+      "source_sha256": "ac0890afe177ed4eb3a7ceee13d9b804d054e7c3443281662e4cbac9d929e628",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2825.pac:13348",
+      "source_sha256": "ac71c7fffa0b2b7b7c3bc313ebbd8f0c1764649e6dce6a5da6be50fba54164ab",
+      "before": "「Dobra robota! Resztę zostaw mnie!」",
+      "after": "「Dobra robota! Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3270.pac:7460",
+      "source_sha256": "ad8226b582db21095a4c814eea547abc8f8cbcd6caa789fbbaa10e52314c5c65",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:16248",
+      "source_sha256": "b0579686a441b58dbaca913f764f40b56a0be45deb3bfba97a86dcb6b43ed324",
+      "before": "「Zostaw to mnie! Ruszam!」",
+      "after": "「Zostaw to mi! Ruszam!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p2101.pac:15712",
+      "source_sha256": "b3210dc5907ee69a2ee15ea6eddd29189fd261e22339190379b713d2ee2a59f7",
+      "before": "「Resztę zostaw mnie...!」",
+      "after": "「Resztę zostaw mi...!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3901.pac:34672",
+      "source_sha256": "b41d28a76c65cdb5f935b84167afe2fb40ada9ae421eef0ab7d05fc761c2153b",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4163.pac:10872",
+      "source_sha256": "b6b9e69b754d88033e69a28afb674f6627d421cff9412f3a1300b5544dbe3ab5",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1001.pac:22344",
+      "source_sha256": "b75ef85707a094b27674580cd1f6dc74120cebbadd730efaa871a1f4619e5417",
+      "before": "「Dobra, zostaw to mnie, Hayato!」",
+      "after": "「Dobra, zostaw to mi, Hayato!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p3472.pac:11856",
+      "source_sha256": "b7cd449dfaeaa0dd0e881c1f56573ec681e9f1318538116e2e839c9a44e9f79a",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p2020.pac:7332",
+      "source_sha256": "b8831f23a40107c6a2567400dfa0c249a128a3df4bb97d29166ddad19daeb56a",
+      "before": "「Resztę zostaw mnie, Kira!」",
+      "after": "「Resztę zostaw mi, Kira!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p2315.pac:21516",
+      "source_sha256": "b8b7afd644e2ca369eccee5ffd8c2b322bfbca16cb4654d517e19a96e7cb4e17",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3711.pac:10504",
+      "source_sha256": "b947b2d34224a00d8458fd3a00633a91d89b5afb5d91116f3e0bdd05a2711b2d",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:10892",
+      "source_sha256": "b9a1c16ec5bf19376dcb22dcb90ac6bbc22cffd2ed506ecc17e2abc7805ca3f7",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p3146.pac:10648",
+      "source_sha256": "be49a0ce058584c9812103a727f74511be4ef1780a14f9a8b9bcefc5fd043b78",
+      "before": "「Dobicie zostaw mnie!」",
+      "after": "「Dobicie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0302.pac:14452",
+      "source_sha256": "bee81fe24eb32ad918e8402336d1601d10f2f9851b04c121b3c453ebc3ae63e8",
+      "before": "「Resztę zostaw mnie, Adeu!」",
+      "after": "「Resztę zostaw mi, Adeu!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0400.pac:7552",
+      "source_sha256": "c18fcd222ff146d304f6ce4ebfae9a60f431997ce966bf631b640a4bbf9eb122",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14396",
+      "source_sha256": "c4c80b6fd72b75e77cf08b983c80a76880895a27046d62f154e6dbbc0430d8b0",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0600.pac:9692",
+      "source_sha256": "c689ff7ca9a8bc88cc4e77c50cc9429de56e57650ec4d7e5a93c2bc16fed1329",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1401.pac:10092",
+      "source_sha256": "c6931217c6c56d95a891996547eda38f0699fb0ee29bab1399980f062e2f29ed",
+      "before": "「Dobra, Sanders! Zostaw to mnie!」",
+      "after": "「Dobra, Sanders! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4181.pac:21124",
+      "source_sha256": "c97518404e674f22951b480b1c50fc2eaaf94e783c23ce2aa1a5af4a25c546da",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4101.pac:34608",
+      "source_sha256": "cd6da539a64ae76ebff709070e6acca31b830cd2d5ded88199e37e844e27d93f",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0604.pac:9312",
+      "source_sha256": "cf1dc73a05e42052b43f30a44b33040413fd750287771d6875dfaf25f3982d20",
+      "before": "「Kotaro, resztę zostaw mnie!」",
+      "after": "「Kotaro, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl05.EDAT/p3423.pac:5108",
+      "source_sha256": "cf6c76d185acc6130ec9e0c371a649b5345345c844cd9fc0dc39b5193008e39f",
+      "before": "「Pilotowanie śmigłowca? Zostaw to mnie!」",
+      "after": "「Pilotowanie śmigłowca? Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p1305.pac:11752",
+      "source_sha256": "d39b9a00a561d92cc2f5071e27bf4d234f166177b72afa97e132841729d5384c",
+      "before": "「Z-zostawcie to mnie!」",
+      "after": "「Z-zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p0375.pac:12508",
+      "source_sha256": "d60e1eb5811ccd44cce096bb5917c831ecc3763296c443b6145b55bc65222680",
+      "before": "「Sprzątanie zostaw mnie!」",
+      "after": "「Sprzątanie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p3130.pac:13924",
+      "source_sha256": "d6674f2a5814b229af4f32f1383282501cc6de34c56ecd0453a9ee560fdc5ba3",
+      "before": "「Lady Nei, zostaw to mnie!」",
+      "after": "「Lady Nei, zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl02.EDAT/p4187.pac:18876",
+      "source_sha256": "d6aad2ac57b5d9e0c9adc2ae381b587866a401427f3c4dbe9a69192f594a33f1",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1006.pac:10500",
+      "source_sha256": "d99e6983614170e5b135b92d8e96452c14f0e8f2332b9dcdcfc34f8908f6edec",
+      "before": "「Hehe, zostaw to mnie, Sayla!」",
+      "after": "「Hehe, zostaw to mi, Sayla!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:13796",
+      "source_sha256": "d9d32acf936cba807eed579b4353f78c60d05e9e39f687a22b4656e1381c39b7",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl05.EDAT/p3423.pac:12992",
+      "source_sha256": "dad8312c27774c2e73d3c9b8c0e5240ec88c7e905bd614b2b97de045155fb7be",
+      "before": "「Zostaw to mnie, Shako!」",
+      "after": "「Zostaw to mi, Shako!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl04.EDAT/p1630.pac:9732",
+      "source_sha256": "daf50ac0c923810de4648f4fd7f8d13bf2fb4472d542e744298377a349164a00",
+      "before": "「Resztę zostaw mnie!」",
+      "after": "「Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0600.pac:15876",
+      "source_sha256": "dbac726acaabffa6d0025dfdd408bfacd8768c41716cbe3de9a51c70141611ee",
+      "before": "「Takie drobiazgi zostaw mnie!」",
+      "after": "「Takie drobiazgi zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0406.pac:40376",
+      "source_sha256": "dbcf1ddf9ee6b266c4274c06f48ab00cff8af209ef47ec3d059b5f41cc173cb9",
+      "before": "「Lamuness!\n Wykończenie zostaw mnie!」",
+      "after": "「Lamuness!\n Wykończenie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl05.EDAT/p3420.pac:4272",
+      "source_sha256": "dc25877080088d3152d93abb45d57a15d66d9e7199a381bf4a480b016e118da2",
+      "before": "「Chirico, resztę zostaw mnie.」",
+      "after": "「Chirico, resztę zostaw mi.」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4181.pac:20672",
+      "source_sha256": "de3c00f06d16e63df0fc827ec3a55948f9dd5d90e939017f90f17e889e9f8a78",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:34456",
+      "source_sha256": "deba562701f459ba0301266d34e40a4c38c471c1ad26c084da5319a80c2f3e95",
+      "before": "「Heh, resztę zostaw mnie!」",
+      "after": "「Heh, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14636",
+      "source_sha256": "dedccfd1c0fc39780894b5a10f4a90b6e768d68675a591ad09b7b3ec03fc6d1a",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl15.EDAT/p4210.pac:15932",
+      "source_sha256": "df224ba227cc9a7348260dd735d21489649f67fc93b56da413e0d84814c33a46",
+      "before": "「OK! Resztę zostaw mnie!」",
+      "after": "「OK! Resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p2601.pac:14308",
+      "source_sha256": "dff6cba68b53178dc7fa9ebad886937db7941996c3257cdad5c7102db8557cf7",
+      "before": "「Ostateczny cios zostaw mnie, Michel!」",
+      "after": "「Ostateczny cios zostaw mi, Michel!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0402.pac:39764",
+      "source_sha256": "e2f78260d6e56b6641f1ea65d5d287854248ee1fb66fdf318f8d1a328fe83c39",
+      "before": "「Obronę zostaw mnie, szybko kontratakuj!」",
+      "after": "「Obronę zostaw mi, szybko kontratakuj!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p4101.pac:36176",
+      "source_sha256": "e52caec677bcb955b9754df5825a9aebaa67b34c376ece31829f4267cd30bf38",
+      "before": "「Herman! Zostaw to mnie!」",
+      "after": "「Herman! Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl13.EDAT/p1501.pac:19832",
+      "source_sha256": "e68a014abce02add183547a5cbf9966e42491f8438874a2a11d78e5d39475c7b",
+      "before": "「Kira, resztę zostaw mnie!」",
+      "after": "「Kira, resztę zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2825.pac:4888",
+      "source_sha256": "e88e0bf32a46b3dedab2ce009869900473b49010aef040bb0df884a093712a36",
+      "before": "「Go, Kei!\n Ten zostawcie mnie!」",
+      "after": "「Go, Kei!\n Ten zostawcie mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl03.EDAT/p2948.pac:8376",
+      "source_sha256": "e8dfe7b3eab3a3f69aa8e0818782956c79fa0c9ac0d9d06b69783ad05c896d7c",
+      "before": "「Dobrze! Dobicie zostaw mnie!」",
+      "after": "「Dobrze! Dobicie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p3751.pac:23888",
+      "source_sha256": "e9dfd9f66d61ffa681bb9c74719ef001f88f2c0ee446e8403135b43cf883c317",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p0708.pac:15308",
+      "source_sha256": "eabebee024c829f90e76afc1ea381c5f2068f890b9f112ed88600974b98cd4b5",
+      "before": "「Danketsi,\n resztę zostawcie mnie!」",
+      "after": "「Danketsi,\n resztę zostawcie mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p2505.pac:6956",
+      "source_sha256": "ec0779b2c9e0d472ad46e564b81d9f51a5c02a69fdd6083c1fafbd0aad6dce72",
+      "before": "「Takie rzeczy zostaw mnie!」",
+      "after": "「Takie rzeczy zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p3301.pac:24508",
+      "source_sha256": "ecae23498ebe74d9271d95138b87e61e729e59913365edcc3912998ea70e2378",
+      "before": "「Następnym razem nie oberwę!\n Zostawcie to mnie, Sara, Ryo!」",
+      "after": "「Następnym razem nie oberwę!\n Zostawcie to mi, Sara, Ryo!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0402.pac:41140",
+      "source_sha256": "ed5185225137f0e90f13332c3c3ffaa49682fa060451da3e072660d18ac6e5e2",
+      "before": "「Obronę zostaw mnie, szybko kontratakuj!」",
+      "after": "「Obronę zostaw mi, szybko kontratakuj!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14096",
+      "source_sha256": "eeebdfd629c1f3d472e7300864b1b955d9433e35672e397a1102fbd8bade3afa",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl05.EDAT/p3423.pac:12420",
+      "source_sha256": "eefa1fdc6d1e1c4fe2d27f50e882921c28094f4dd2824d238b25ebc3c8feea9f",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl19.EDAT/p4420.pac:5804",
+      "source_sha256": "f35276cf99034e4fbc072682b21e6720595193ae9333496458fd934a266bc9df",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4183.pac:21164",
+      "source_sha256": "f706a241e23f986f43a9919cf45cb4ccfbe5e6eba461685d7b2509373077b014",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl12.EDAT/p4182.pac:21164",
+      "source_sha256": "f8959980f8618dbd43efd385f7c8569c6d165521bc151a96b13b0729e5d4e77f",
+      "before": "「Proszę zostawić to mnie!」",
+      "after": "「Proszę zostawić to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl00.cpk/p1257.pac:14336",
+      "source_sha256": "f9f6ec91011cccd7d83a45bca2b2d65caf82b56fc716cf81dc114b323617d663",
+      "before": "「Zostawcie to mnie!」",
+      "after": "「Zostawcie to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0800.pac:11732",
+      "source_sha256": "faacc9db1779d003b0a85b19d7e181cfc30990aa964d127a874c3933e995b9d8",
+      "before": "「Zostaw to mnie!\n Dostaną megawielki cios!」",
+      "after": "「Zostaw to mi!\n Dostaną megawielki cios!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0608.pac:5456",
+      "source_sha256": "fc6e32f0fac57636d8f92790dcd6d6cb732259a86057c1ebb21c6b71b9e4f519",
+      "before": "「Zostaw to mnie!」",
+      "after": "「Zostaw to mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    },
+    {
+      "file": "01_battle_quotes.jsonl",
+      "id": "quo:mesbtl01.EDAT/p0405.pac:21584",
+      "source_sha256": "fdd38bc8c10e62210b85d81660e1fdbc8d29a7a5d7f2ab78c6cbdb7cd563d2f3",
+      "before": "「Lamuness!\n Wykończenie zostaw mnie!」",
+      "after": "「Lamuness!\n Wykończenie zostaw mi!」",
+      "reason": "sweep zostaw-mi: błędny przypadek zaimka (JP ～にまかせ / EN leave it to me)"
+    }
+  ]
+}

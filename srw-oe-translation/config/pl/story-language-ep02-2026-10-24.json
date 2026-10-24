@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "episode": 2,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:7492",
+      "source_sha256": "7af13ff16c51554626b28b22b62d499792fb3550a2619815b5727ae3a30e58a9",
+      "before": "Profesorko, czy to nowy gatunek mechabestii?",
+      "after": "Pani profesor, czy to nowy gatunek mechabestii?",
+      "reason": "neutralna forma zwrotu do autorytetu naukowego"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:7492",
+      "source_sha256": "e0317a93728cc60ce5e56cdc271168b40eaa362fa44b2b53ddbfb9ab470c972a",
+      "before": "Profesorko, czy to nowy gatunek mechabestii?",
+      "after": "Pani profesor, czy to nowy gatunek mechabestii?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL102_11.bin:7492"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:22008",
+      "source_sha256": "22b4cf9b3b9fac8aa9b9268bf7203dc57d5b6aa95e26477ef775af7252559341",
+      "before": "A tak w ogóle, Kamina i reszta z tej maszyny...\nz jakiej oni są organizacji?",
+      "after": "A tak w ogóle, Kamina i reszta z tej maszyny...\ndo jakiej organizacji należą?",
+      "reason": "naturalny szyk pytania o przynależność"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:22032",
+      "source_sha256": "5fc58d0fe8e42f0771725a22f1d612cc2fe29279c5ed4706cda9752ca26103a6",
+      "before": "A tak w ogóle, Kamina i reszta z tej maszyny...\nz jakiej oni są organizacji?",
+      "after": "A tak w ogóle, Kamina i reszta z tej maszyny...\ndo jakiej organizacji należą?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL102_11.bin:22008"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:23404",
+      "source_sha256": "f64223697e20ce2f3e550526b207ff6fda9f5d90c33a27cddbc16c008642a319",
+      "before": "Zostawicie swoją sprawę w rękach Connect?\nMożemy wam załatwić papiery, żebyście tu żyli.",
+      "after": "Czy pozwolicie, by Connect wziął was pod opiekę?\nZapewnimy wam tożsamość, byście mogli tu żyć.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL102_11.bin:23380"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:23380",
+      "source_sha256": "f79341714687b5f466de8023f23f87a7b7d0c4ddc6ca7ba8412d1844de6a4772",
+      "before": "Zostawicie swoją sprawę w rękach Connect?\nMożemy wam załatwić papiery, żebyście tu żyli.",
+      "after": "Czy pozwolicie, by Connect wziął was pod opiekę?\nZapewnimy wam tożsamość, byście mogli tu żyć.",
+      "reason": "konkretna propozycja opieki i statusu zamiast nieostrej sprawy"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL102_11F.bin:26532",
+      "source_sha256": "790df1d4b52f75394c3e10ab141eedfedf06fdc6cbe364590c2ebbdb336f198b",
+      "before": "Choćby te pojawienia się Invaderów...\nRosną obawy, że zagrożenia dla ludzkości\nznów przejdą do ofensywy.",
+      "after": "Weź choćby pojawienie się Invaderów.\nRośnie obawa, że siły zagrażające ludzkości\nznów przejdą do ofensywy.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP00.cpk/DL102_11.bin:26508"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP00.cpk/DL102_11.bin:26508",
+      "source_sha256": "ba87ad4800ff238cab358a800bae0fc6a51685b66afc74dfff55149c11c4e657",
+      "before": "Choćby te pojawienia się Invaderów...\nRosną obawy, że zagrożenia dla ludzkości\nznów przejdą do ofensywy.",
+      "after": "Weź choćby pojawienie się Invaderów.\nRośnie obawa, że siły zagrażające ludzkości\nznów przejdą do ofensywy.",
+      "reason": "czynna i naturalna składnia zamiast nominalizacji"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_20.bin:3804",
+      "source_sha256": "fb42d67f7ea4ffc5c6621da56df7f5dff842c919e2067bf857fa7cab008a49fe",
+      "before": "Oficjalnie pewnie tak.\nAlbo po prostu skąpią na dodatek za ryzyko.",
+      "after": "Oficjalnie pewnie tak.\nAlbo zwyczajnie skąpią dodatku za ryzyko.",
+      "reason": "poprawny rząd czasownika skąpić"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_20.bin:8568",
+      "source_sha256": "2b52fd6ada2d00a9937932aa41c8eacd8003255dd57ed5f0dfa66d8bfc0d27b4",
+      "before": "Tak. Pędziliśmy ekspresem.",
+      "after": "Tak. Lecieliśmy tu co sił.",
+      "reason": "przenośny sens JP zamiast dosłownego ekspresu"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_30.bin:4060",
+      "source_sha256": "cf41b9fad089fae7e4f372b8058c1e36abc992b2f00aa363c214382a7b02a152",
+      "before": "Alan Igor.",
+      "after": "Tak, Alan Igor.",
+      "reason": "jawna odpowiedź twierdząca na pytanie o pochodzenie"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_30.bin:8844",
+      "source_sha256": "d12517aa707e124dfcdedfe057270cf95b34aecf624eb96d880fef23726b2523",
+      "before": "Ale maszyna ma swój potencjał!",
+      "after": "Ale możliwości maszyny są ograniczone!",
+      "reason": "limit osiągów zamiast dodatnio brzmiącego potencjału"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_30.bin:14428",
+      "source_sha256": "4251207fd989ec2dc995b5fbb5ffc868a1a213e3faf6fd9429940b07ad119d8d",
+      "before": "Spokojny, a zarazem pełen zapału... co?",
+      "after": "Spokojny, a zarazem pełen zapału...",
+      "reason": "refleksyjne powtórzenie bez pozornego pytania"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_90.bin:2356",
+      "source_sha256": "25c3235b8a9b63b312edbc893061ec9a79944695bebd1bba560b2e1d1d486795",
+      "before": "Nie, Rikiya?",
+      "after": "Prawda, Rikiya?",
+      "reason": "samodzielna końcówka potwierdzająca JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL102_90J.bin:2356",
+      "source_sha256": "2670302f1a744fc4e2417f5fa2b0b1f65909e9b44aec4b8c77377cb1ed56067c",
+      "before": "Nie, Rikiya?",
+      "after": "Prawda, Rikiya?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL102_90.bin:2356"
+    }
+  ]
+}

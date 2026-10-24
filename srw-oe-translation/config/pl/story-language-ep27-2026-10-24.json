@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 27,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP07.EDAT/DL727_40.bin:6296",
+      "source_sha256": "0926357981584590d3b3781c4a1e9ac6a502459b69cf6bfca495860c7ca04543",
+      "before": "Moi ludzie badają teraz otoczenie Amandry.\nZakulisowe rozgrywki zostawcie mnie.",
+      "after": "Moi ludzie badają teraz otoczenie Amandry.\nZakulisowe rozgrywki zostawcie mi.",
+      "reason": "ep27 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP07.EDAT/DL727_11.bin:8928",
+      "source_sha256": "b1306840f2e16d114d4a0faa1ad06d996fc7e146361a2b0154a2c06230be76b9",
+      "before": "Proszę zostawić to mnie, melduję!",
+      "after": "Proszę zostawić to mi, melduję!",
+      "reason": "ep27 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

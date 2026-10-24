@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+  "data_sha256": "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -118,6 +118,14 @@
       "sha256": "be4092e0b519adaefdee5128d7631bc27c35ec4d0b642f67d238869c94241dd2",
       "previous_data_sha256": "b24fe9b4c8e504778c25c5145fbe81960d2c7b3bdb7679678f10a05a190104d8",
       "entries": 141,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-qa-v41-2026-10-23.json",
+      "sha256": "89698da780fdadb3f3bea71ad8ea1b29fdc5b047831a78a21b307f8dedf893e6",
+      "previous_data_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
+      "entries": 4,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }
@@ -653,5 +661,277 @@
       "scope": "Ch 0-8 + DLC evept101-108 + 05_mission_text + global terminology/gender consistency",
       "runtime_ppsspp_verified": false
     }
-  }
+  },
+  "owner_story_language_corrections": [
+    {
+      "plan": "story-language-ep01-2026-10-24.json",
+      "sha256": "1ace97661d62c4a6c756c00ea914323576d965e4a4eda6e394a1bb6b994da794",
+      "previous_data_sha256": "e730f18027e876edd1cc466831bc9cbda6370b7e542a1ad6d9c9bf9e5272de1b",
+      "entries": 26,
+      "episode": 1,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep02-2026-10-24.json",
+      "sha256": "6738466ab3885752ec1a1a1bdd6677e224a4b4636724fb194d790486b9457130",
+      "previous_data_sha256": "4845cf11f84b96ecee5867809ee18fc1686417602196a073fbde68a4c72fb9be",
+      "entries": 15,
+      "episode": 2,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep03-2026-10-24.json",
+      "sha256": "ca0fcfe80041111a424abe645437ae5b82be71dceb6b97e9560ff98c60cb7a97",
+      "previous_data_sha256": "fffa694322f42aeeb7652a9a70305fea3332d1ce81b9d096eceb83b7ae7a1bc1",
+      "entries": 33,
+      "episode": 3,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep04-2026-10-24.json",
+      "sha256": "0c511da64abf8abf69963b6f7c47b2ce8bc73882960c9f33d880f2d32546d6da",
+      "previous_data_sha256": "fda6c27086af862b315cf50cd7f6a23d0298eb889554fc98596ac4ddc399e6c1",
+      "entries": 49,
+      "episode": 4,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep05-2026-10-24.json",
+      "sha256": "f25129fe07bc9ab97d8d157fbb9e5d258cb59a8a7bb192e7ef57c5efcff2dc3f",
+      "previous_data_sha256": "b3671f043b3203f9d45011bd8ee6cfa9867a430699466cdea4b9cbaf163097e9",
+      "entries": 48,
+      "episode": 5,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep06-2026-10-24.json",
+      "sha256": "f22ddc08d04a9d5af48571bbb8e2d039505ca10cccb42d0281bfbd7253d38963",
+      "previous_data_sha256": "6464d12792574e213d31b636b01b58a326995de5bda1e18de40d0d2ff1dc96d8",
+      "entries": 57,
+      "episode": 6,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep07-2026-10-24.json",
+      "sha256": "36e934ff459b18a509194e1a7b36bd1593733b436a83005b1368ecdf4eec5706",
+      "previous_data_sha256": "3c6f89b0b2f5987fcb2002fafb0652c92945fdb609eeb0d4b8388dce4f12d87e",
+      "entries": 87,
+      "episode": 7,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep08-2026-10-24.json",
+      "sha256": "32f12ec27ae066c3523e5bd90860012c58223a9f56ff4e25ca92b6ed12986b2e",
+      "previous_data_sha256": "615493273f199867e0e79899f97e20bfede4ee9871ee8a3f2516d5adbd9f67c3",
+      "entries": 19,
+      "episode": 8,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep09-2026-10-24.json",
+      "sha256": "c75cebecb7617e6540ed67b669f72d4795e7bb167aad0774095d3e99173ae26e",
+      "previous_data_sha256": "a3dbd758f5470577e8f197c391f3a7c9e39c2a8e39cd3c1952d8461c007f22a9",
+      "entries": 19,
+      "episode": 9,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep10-2026-10-24.json",
+      "sha256": "8c14325fd7011fc9c2b5a0850d2987ae6be5b802cd6b3d22baccafc0f4568b8f",
+      "previous_data_sha256": "e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d",
+      "entries": 10,
+      "episode": 10,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep11-2026-10-24.json",
+      "sha256": "545f48789e9511834d40b0fd7e71adee93c60c06e8d0ad4e6ea2559c79cab777",
+      "previous_data_sha256": "6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d",
+      "entries": 7,
+      "episode": 11,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep12-2026-10-24.json",
+      "sha256": "5770cbd7809a669ff13cb35cfe74e12753108752f06d428feb9bb5f39ef1afef",
+      "previous_data_sha256": "8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c",
+      "entries": 2,
+      "episode": 12,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep13-2026-10-24.json",
+      "sha256": "e88d8aa8fa524c94fc93be8ed9ce0085cccf239b8eb94c5e9738d4a3fbbfbf8d",
+      "previous_data_sha256": "8401bb6996f333bdf539514d07839841aead78e670a357ce6c2a950b702afc52",
+      "entries": 1,
+      "episode": 13,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep14-2026-10-24.json",
+      "sha256": "5d43890b068304740792cc58d048018cca1ac66fdc9f9ac6ab696effd05a8008",
+      "previous_data_sha256": "23e5b39106fd4a4f2e45e38b15eb77de228d18a6a570d981617ed91e152b7b87",
+      "entries": 1,
+      "episode": 14,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep15-2026-10-24.json",
+      "sha256": "88d34c524eb8df44c55e7ffa52191c8c0adddd195f352afd2b2e8ffff057dd3e",
+      "previous_data_sha256": "edb18709c876739d32ed0998fe31b829c5ac1dee6d24950d1c6add8d03366bcd",
+      "entries": 1,
+      "episode": 15,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep16-2026-10-24.json",
+      "sha256": "0d2092107d6f8dbe1f61a576c1c6e0fb9f4cb2fdc42e22a470f640cba3112ca7",
+      "previous_data_sha256": "f8253586c1f6180a977aa975a32bee5d70f5fc84d1ee079af96813ee8c28a78f",
+      "entries": 5,
+      "episode": 16,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep17-2026-10-24.json",
+      "sha256": "aec1fb67ea8a443c0e201b147ed3292eda0d0378f7dbd29e7dd7b9a590373d33",
+      "previous_data_sha256": "ffff3a1a5a8abbeb20afa2ce8e1cde50322ef5b7446697e517e3d4ac4ef00449",
+      "entries": 6,
+      "episode": 17,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep18-2026-10-24.json",
+      "sha256": "2955270a9177666832954cc9ae2f7a6cdbf11f8b1e615e5f728f9b1bca2d1e46",
+      "previous_data_sha256": "3e33d9b7b37d8f18d986fb582b5f600cd32fb3f77e8848f4215fd9cd463e42b7",
+      "entries": 4,
+      "episode": 18,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep19-2026-10-24.json",
+      "sha256": "469a176d7c49563626774cab48e4abee1ba5665d2d6528c8c470b1636dbecaa0",
+      "previous_data_sha256": "321098b4d7156329ab52b98bf741cf7ac21f616cc7172e29bef12262b3dcacfc",
+      "entries": 2,
+      "episode": 19,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep20-2026-10-24.json",
+      "sha256": "a27e002217e6aa1fedc945f373213c4e84983f775e1d3efb9f803e92d6eeb733",
+      "previous_data_sha256": "6cd0389732a833a81e0bfeaf62bccf87bf53affb90fb8b4768628465bd5b3194",
+      "entries": 7,
+      "episode": 20,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep21-2026-10-24.json",
+      "sha256": "1599d4b795ace20a0aab32a9818cf88c70d4744a5e42ddebcb3350b840991c73",
+      "previous_data_sha256": "5a3319f106da80067496664181d96b0dbaac821398ccfe3f5f696942721b6112",
+      "entries": 1,
+      "episode": 21,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep22-2026-10-24.json",
+      "sha256": "99c0a62dc589e1ca9934f507f6caf5c4a1f6ac41b440770018a173935721e8b9",
+      "previous_data_sha256": "9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2",
+      "entries": 1,
+      "episode": 22,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep25-2026-10-24.json",
+      "sha256": "4ec8479745801730508869fe58dbf08238d7814ea1ef74e3298ae0b69c31a1ad",
+      "previous_data_sha256": "af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa",
+      "entries": 2,
+      "episode": 25,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep26-2026-10-24.json",
+      "sha256": "7af634fa1d4111566104f35a613af4dc4e8286123e0ae4e7f6331aa24dd1a765",
+      "previous_data_sha256": "761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5",
+      "entries": 3,
+      "episode": 26,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep27-2026-10-24.json",
+      "sha256": "ea4671d298a662cd3ef6f92088a4b330fbc140d2c5c67513696a85c7e96943a5",
+      "previous_data_sha256": "2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38",
+      "entries": 2,
+      "episode": 27,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep30-2026-10-24.json",
+      "sha256": "699ee4ac0be7db6cac0450993260df920bf5df9aeeb01faaac36647350a76b82",
+      "previous_data_sha256": "1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb",
+      "entries": 2,
+      "episode": 30,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep32-2026-10-24.json",
+      "sha256": "14bcce2bffb03a1f7f1a1cdc368a8154a8869e6be3c55d31ca07c1e42ac87f52",
+      "previous_data_sha256": "ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85",
+      "entries": 1,
+      "episode": 32,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep33-2026-10-24.json",
+      "sha256": "ac934320d51cf9b7b97f41006be1ba336751a12e06a3e274f38928118d8a1e2c",
+      "previous_data_sha256": "f0c3a628963273ec871ca92bcdf5adc411d26d4db97ddfc1d7910a9b23b5f295",
+      "entries": 2,
+      "episode": 33,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep34-2026-10-24.json",
+      "sha256": "8a73069ac0d05233ce86bc0956abbe70076ae9398e20091e5de098614fdf5b83",
+      "previous_data_sha256": "17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15",
+      "entries": 6,
+      "episode": 34,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-sweep-zostaw-mi-2026-10-24.json",
+      "sha256": "18313ff5314931237b8f53b8f3da0969dd2b10998f2436128baf88ff510a002f",
+      "previous_data_sha256": "bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1",
+      "entries": 239,
+      "episode": "sweep-zostaw-mi",
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    }
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 22,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP06.EDAT/DL622_30.bin:11588",
+      "source_sha256": "90e1da68b129010f2447ab628f2ca12b847864d5f91ae377436dacf16f3a25c1",
+      "before": "Zostaw to mnie, Fiono!\r\n",
+      "after": "Zostaw to mi, Fiona!\r\n",
+      "reason": "ep22 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

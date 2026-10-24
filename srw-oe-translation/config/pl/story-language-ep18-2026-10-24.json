@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "episode": 18,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL518_50.bin:9016",
+      "source_sha256": "2acba15bd8e26568dd107362cc748679c00a3396b395b607360d3c971835a327",
+      "before": "Zostaw to mnie!\nKiedyś byłem pilotem wojskowym, wiesz?\n",
+      "after": "Zostaw to mi!\nKiedyś byłem pilotem wojskowym, wiesz?\n",
+      "reason": "ep18 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL518_11E.bin:5440",
+      "source_sha256": "5818fba19242697c78d047452a3036658d4c0814c986ba93addca8860645f9db",
+      "before": "Zostawcie to mnie.\nEskadra Skull, start!",
+      "after": "Zostawcie to mi.\nEskadra Skull, start!",
+      "reason": "ep18 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL518_40.bin:7164",
+      "source_sha256": "de6bf9ff9c2ce36f49f0ba450f8035237e8c7a3f92d9346520a8cdb5e8b404ab",
+      "before": "Celujecie tylko we mnie.\nNie mieszajcie w to ludzi, którzy są niewinni.",
+      "after": "Waszym celem jestem tylko ja.\nNie mieszajcie w to ludzi, którzy są niewinni.",
+      "reason": "ep18 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL518_11.bin:5440",
+      "source_sha256": "fd536587c2067bc8a20576439c0d108ccbd2b217f999933af22411480bd386db",
+      "before": "Zostawcie to mnie.\nEskadra Skull, start!",
+      "after": "Zostawcie to mi.\nEskadra Skull, start!",
+      "reason": "ep18 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

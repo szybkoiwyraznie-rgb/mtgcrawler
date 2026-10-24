@@ -1,6 +1,6 @@
 {
  "texture": "intsys_03",
- "source": "IM1000.cpk (same bytes in IM3000 / IM9000) — 128x64 INDEX8; upgrade screen captions",
+ "source": "IM1000.cpk (same bytes in IM3000 / IM9000) — 128x64 INDEX8; upgrade screen captions. Aligned to TXCL sampled cells (srwDL_Inter_Cell.bin tex_gid 33, measured 2026-10-24): 'cell' is the sampled rect, boxes are inset by 1 px (same convention as intsys_01), clears cover the cell",
  "font": "assets/fonts/Roboto-Bold.ttf",
  "size": 11,
  "min_size": 8,
@@ -11,11 +11,24 @@
    "jp": "ロボ・パイロット",
    "en": "Unit / Pilot",
    "box": [
-    47,
+    49,
     9,
-    118,
-    24
-   ]
+    115,
+    19
+   ],
+   "clear": [
+    48,
+    8,
+    116,
+    20
+   ],
+   "cell": [
+    48,
+    8,
+    116,
+    20
+   ],
+   "align": "center"
   },
   {
    "id": "upgrade_gauge",
@@ -23,10 +36,23 @@
    "en": "Upgrades",
    "box": [
     1,
+    27,
+    57,
+    37
+   ],
+   "clear": [
+    0,
     26,
-    52,
-    41
-   ]
+    58,
+    38
+   ],
+   "cell": [
+    0,
+    26,
+    58,
+    38
+   ],
+   "align": "center"
   },
   {
    "id": "linked_units",
@@ -34,10 +60,23 @@
    "en": "Linked Units",
    "box": [
     1,
-    40,
-    56,
-    51
+    39,
+    61,
+    49
    ],
+   "clear": [
+    0,
+    38,
+    62,
+    50
+   ],
+   "cell": [
+    0,
+    38,
+    62,
+    50
+   ],
+   "align": "center",
    "size": 9,
    "min_size": 7
   },
@@ -47,10 +86,23 @@
    "en": "Support",
    "box": [
     63,
-    40,
-    105,
-    51
+    39,
+    101,
+    49
    ],
+   "clear": [
+    62,
+    38,
+    102,
+    50
+   ],
+   "cell": [
+    62,
+    38,
+    102,
+    50
+   ],
+   "align": "center",
    "size": 9,
    "min_size": 7
   },
@@ -59,17 +111,27 @@
    "jp": "改造段階限界突破",
    "en": "Upgrade Limit Break",
    "box": [
-    14,
+    12,
     51,
     102,
-    63
+    61
    ],
    "clear": [
-    13,
-    51,
+    11,
+    50,
     103,
-    63
+    62
    ],
+   "cell": [
+    0,
+    50,
+    106,
+    62
+   ],
+   "align": "center",
+   "clear_opaque_only": true,
+   "size": 10,
+   "min_size": 7,
    "pl_layout": {
     "clear": [
      11,
@@ -85,9 +147,6 @@
     149,
     255
    ],
-   "align": "center",
-   "size": 10,
-   "min_size": 7,
    "fill": [
     255,
     255,

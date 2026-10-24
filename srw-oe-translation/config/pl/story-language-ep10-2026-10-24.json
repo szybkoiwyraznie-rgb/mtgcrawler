@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "episode": 10,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_11.bin:1228",
+      "source_sha256": "f483eb351c2908b4fcb87236e0864fd8468b92b5a0c433fbc2363e5bb7a2bff3",
+      "before": "Dobraaa! Dawać tu, z której strony chcecie!",
+      "after": "Dobraaa! Chodźcie, z której strony chcecie!",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_11.bin:2496",
+      "source_sha256": "7100b7ec2bb81440e06457cf1493751fd3fe7d18f307c78e4e3c22c77fd3ffaf",
+      "before": "Szybko jesteście, Ganbaruger!\n",
+      "after": "Szybko dotarliście, Ganbaruger!\n",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_12.bin:10480",
+      "source_sha256": "2f580d711cf673a3eb6013276f7087a9da40c6c77382aa57a2925b8329647971",
+      "before": "Tak.\nNie wyczuwam też fal Mucus.\n",
+      "after": "Nie.\nNie wyczuwam też fal Mucus.\n",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_12.bin:17224",
+      "source_sha256": "806edcab1895db66b41815e43b31fdf44df331ceb79ce6fe06d92a1ac1e38482",
+      "before": "Gdy Ken Taiga poznał wiedzę Connect Force,\nszybko nabrał co do tego pewności.",
+      "after": "Gdy Ken Taiga poznał ustalenia Connect Force,\nszybko nabrał co do tego pewności.",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_20.bin:9848",
+      "source_sha256": "50ac676ec22b3aea94cbbee16cba0e8eb420c200aaf27e6716a4a4584b277982",
+      "before": "Przekażę ataki Vasage na twój spust\ni zsynchronizuję je!",
+      "after": "Przekażę i zsynchronizuję ataki Vasage\nz twoim spustem!",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_20.bin:14812",
+      "source_sha256": "7458edac712e7b0c36707dc4dbcb8fff38b406c9f4e3760cca3ce919f41ffe4f",
+      "before": "Kapitanie Jeffrey, wybacz, że ciągle ci dokładam.",
+      "after": "Kapitanie Jeffrey, wybacz, że wciąż cię obciążam.",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_40.bin:17480",
+      "source_sha256": "1ac018981b443af19f9fd8bf1103cc338dccc5964a94955c0ab8102f3f4dff56",
+      "before": "Obecna sytuacja jest dla nich idealna,\nżeby wprowadzić do Connect Force żołnierzy,\nktórych nie mogą ruszyć otwarcie.",
+      "after": "Obecna sytuacja jest dla nich idealna,\nżeby wprowadzić do Connect Force żołnierzy,\nktórych nie mogą otwarcie zaangażować.",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_50.bin:448",
+      "source_sha256": "c583b8922e2bd696d78cd2e7380e806a41a5ebc760c0ccad98d4b0fb3506ad45",
+      "before": "Ostrzegały przed atakiem jądrowym Zeonu na Side 6\ni prosiły Connect o zaradzenie temu.",
+      "after": "Ostrzegały przed atakiem jądrowym Zeonu na Side 6\ni wzywały Connect, by temu zaradził.",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_50.bin:828",
+      "source_sha256": "64326794f3c5c081b581974d5061c45be8b6e6a967e9da487d9f9986240120b9",
+      "before": "Informacje potwierdziły zeznania kaprala\nWisemana, jeńca White Base, i natychmiast\nprzekazano je oddziałowi operacyjnemu.",
+      "after": "Informacje zostały potwierdzone zeznaniami\nkaprala Wisemana, jeńca White Base,\ni natychmiast przekazane oddziałowi operacyjnemu.",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL310_50.bin:8196",
+      "source_sha256": "8b4c5e58f1b3dd3a78180677f41a830ff118f1801e51a984af28a53f3f96ad14",
+      "before": "Ale następna operacja Federacji jest blisko.\nPospieszcie konserwację mobile suitów.\n",
+      "after": "Ale następna operacja Federacji jest blisko.\nPrzyspieszcie konserwację mobile suitów.\n",
+      "reason": "ep10 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

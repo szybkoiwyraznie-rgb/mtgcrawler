@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "episode": 8,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_11.bin:6148",
+      "source_sha256": "2b64c190b49aaf5140c3c875f9300a867b62dd233d162a9eef17594872b43a8f",
+      "before": "Sam dopiero się dowiedziałem o tym kosmosie!",
+      "after": "Sam dopiero dowiedziałem się, że lecę w kosmos!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_12.bin:424",
+      "source_sha256": "b122212d92d629637a30876a8faf8803c7c9080b52edd7bf3ec1da00d27a34aa",
+      "before": "Wtedy nadeszła wiadomość o odkryciu kryjówki piratów.\nBył to owoc żmudnego zwiadu i pracy wywiadu\noddziału Mrocznego Smoka pod wodzą Galdena.",
+      "after": "Wtedy nadeszła wiadomość o odkryciu kryjówki piratów.\nBył to owoc żmudnego zwiadu i pracy wywiadowczej\noddziału Galdena przeciw Mrocznym Smokom.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_12.bin:1268",
+      "source_sha256": "cfb4e5bd14c1ac1b6707bc82e7d5970fa8fffc1f15e39b19552574bd3a07bf4d",
+      "before": "Zniszczyliśmy kilka statków na zewnątrz planetoidy,\nmoże to byli ostatni.",
+      "after": "Zniszczyliśmy kilka statków na zewnątrz planetoidy,\nmoże to były ostatnie.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_12.bin:7408",
+      "source_sha256": "ce463da2bcd8d3fedd65f896a3faffa2598da8ed6a430c129cd07c8b961322ce",
+      "before": "A jego władza jest tak silna, że znający go\nwolą wysadzić się w powietrze, niż się poddać.",
+      "after": "A trzyma ich tak mocno, że ci, którzy o nim\nwiedzą, wolą się wysadzić, niż się poddać.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_20.bin:18324",
+      "source_sha256": "1e96615811b7dfa70f483dd8b9889d4fe788c9494f3f9df5e0fcecad3d4b2fe1",
+      "before": "Da Cider zamierza rozstrzygnąć walkę\nna serio, Yari Pantherem!",
+      "after": "Da Cider chce rozstrzygnąć walkę,\nużywając Yari Panthera na poważnie!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_20.bin:22576",
+      "source_sha256": "1ef635420aa5f65966eacb44b9f1ee6672bb03133d7305887b17d55e8ddee1e1",
+      "before": "Nic nie pamiętam.\nNie wiem kiedy, uśpili mnie,\na jak się ocknęłam, byłam przywiązana.",
+      "after": "Nic nie pamiętam.\nNim się zorientowałam, uśpili mnie,\na gdy się ocknęłam, byłam przywiązana.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_20.bin:25444",
+      "source_sha256": "70d18540c80ce814160047d1cc6624948cc63fd5b9e1ed074567697d5522f20e",
+      "before": "Tego właśnie poszukamy\nrazem z Connect Force, melduję!",
+      "after": "Poszukamy sposobu powrotu\nrazem z Connect Force, melduję!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:1364",
+      "source_sha256": "11a47bd2252087bf4c9f1de44034fc1f4bb9dde5edd81e8e0f858ad662aadcca",
+      "before": "A po co Connect Force fatygować się\npo jakieś metale rzadkie?",
+      "after": "A czemu Connect Force miałby się fatygować\npo jakieś metale rzadkie?",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:3552",
+      "source_sha256": "a6a554b47580fa6f4c626ed6a950f49870978549518c61376d1d063a308fdbff",
+      "before": "Brzmi o wiele pewniej niż jacyś wojskowi.\nTo Simon jest w ekipie wydobywczej.",
+      "after": "Można na nim polegać bardziej niż na wojskowych.\nSimon wchodzi do ekipy wydobywczej.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:6424",
+      "source_sha256": "209ca3f08831f0bf7a91bfd107deb518cea81efccb7c231edbe18e711af7ab1f",
+      "before": "To ja Gurren Lagann wydobędę\nto, co jest zakopane w ziemi.",
+      "after": "To ja wydobędę Gurren Lagannem\nto, co jest zakopane w ziemi.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:8888",
+      "source_sha256": "1bc26b2e34bda3f5d6a4acba96c813f53dffbd5cc2169eb18779fea4af04bb59",
+      "before": "Jednak z tych w ziemi\nwychodzi lepszy metal.\n",
+      "after": "Jednak te zakopane w ziemi\ndają lepszy metal.\n",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:16956",
+      "source_sha256": "a29454ea17513ba21660ba381d1fb992388ac914b9bf2cf0dc59ab6b1d288ef3",
+      "before": "Podobają ci się, Fiono?\nTo szybko załatwmy Żołnierzy Smoka\ni zabierzmy ich jak najwięcej!\n",
+      "after": "Podobają ci się, Fiono?\nTo szybko załatwmy Żołnierzy Smoka\ni zabierzmy mnóstwo tych metali!\n",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:18444",
+      "source_sha256": "a8b91bdb88006544db598d38223d2ff8f797fbfd7e876b118667571ad8f6ec41",
+      "before": "Hej, hej, to nie jest byle płotka!\nOn razem z nami będzie dokonywał\ncoraz większych rzeczy!",
+      "after": "Hej, hej, to nie jest byle płotka!\nOn razem z nami będzie dokonywał\ncoraz większych czynów!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP13.EDAT/DL208_30.bin:19808",
+      "source_sha256": "7418d8ceb583f8faa71797b74db78b0a6c08f1fd36026fb0c6cd5494877fd5b4",
+      "before": "Niech w stołówce będzie bogaciej.\nPrzecież zdobyliśmy metale rzadkie!",
+      "after": "Niech w stołówce podadzą coś lepszego.\nPrzecież zdobyliśmy metale rzadkie!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_45.bin:832",
+      "source_sha256": "aed61246ebbc07fc845f1fdf5b7b60efaffab6aa3b785c0e6cc886392a107602",
+      "before": "Ocaleli z samego środka buntu,\nlecz bez chwili wytchnienia czekała ich nowa walka...",
+      "after": "Przeżyli, choć byli w samym środku buntu,\nlecz bez chwili wytchnienia czekała ich nowa walka...",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_45.bin:5464",
+      "source_sha256": "31961b6875656b99ef5c069b80a268adb2cca0279e35aed9f1d42af6dcd429fa",
+      "before": "Obecna technologia przy czterech pierścieniach\npozwala na przesył z punktu pośredniego\nbez wychodzenia z warpu w węźle.\r\n",
+      "after": "Przy obecnej technologii, łącząc cztery\npierścienie, można przejść przez punkt pośredni\nbez wychodzenia tam z warpu.\r\n",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_45.bin:7220",
+      "source_sha256": "2406a8ad259c309abc544753276a32d91d5563b1271a8deb035c46df3ca93225",
+      "before": "Przyjąłem.\nMacross Quarter wesprze ochronę przestrzeni.",
+      "after": "Przyjąłem.\nMacross Quarter wesprze patrolowanie tego sektora.",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_45.bin:10972",
+      "source_sha256": "55e4cbbf3b2259371a8b4b4361fa213565069537006eee37a79e413c8d4bbe8e",
+      "before": "Nie zostawimy ludzi, z którymi mamy się spotkać!\nOdeprzemy walczące niezidentyfikowane maszyny!",
+      "after": "Nie zostawimy ludzi, z którymi mamy się spotkać!\nOdeprzemy atakujące ich niezidentyfikowane maszyny!",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL208_45.bin:13192",
+      "source_sha256": "db9d2dfbb96725e2c83e465bc42d8df7d96ea3a613afdd0a99d4abf168924e34",
+      "before": "Nie wiem kiedy, a już trwa walka, melduję!\nHmm, czy nie mieliśmy ich tylko odebrać...?",
+      "after": "Ani się obejrzałem, a tu już trwa walka, melduję!\nHmm, czy nie mieliśmy ich tylko odebrać...?",
+      "reason": "ep8 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

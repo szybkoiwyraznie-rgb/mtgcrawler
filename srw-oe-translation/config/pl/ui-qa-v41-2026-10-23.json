@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "scope": "PL v4.1 owner PPSSPP QA of the v4.0 kit: three reported screens (Pilot tab label overlapping the stats column; Records & Parts footer Owned running into the Lv counters). The header-bar defect of the same report is a texture/TXCL geometry fix in ui_labels/intsys_04.json and is not part of this text plan.",
+  "source_binding": "every change is bound to the EN row source hash; runtime_tested stays false until the owner re-tests the v4.1 kit.",
+  "sysmes_root_evidence": "All four offsets were re-verified as whole-string roots on 2026-10-23 by parsing the owner's own configst.cpk (Google Drive, 376,960 bytes) with sysmes_text.sysmes_blob + sysmes_pack.parse: sysmes.bin 51,280 bytes, count 1182, string base 9468. offset 21488 = entry 360 (id 909, JP halfwidth Main Pilot), 21500 = entry 361 (id 143, Sub Pilot), 46264 = entry 1110 (id 1102, JP ＠4所持数), 31988 = entry 668 (id 528, JP 所持数). Each JP string has exactly one root in the pool, so no duplicate-root conflict can arise. The adjacent row sysmes:...:46267 (JP 所持数) is a byte fragment inside entry 1110 and is deliberately not edited, the same fail-closed rule as all previous sysmes plans.",
+  "measurements": {
+    "pilot_label_field": "Owner screenshot 1 (822x688 crop): the dark panel under the portrait spans image x165-490 (326 px); the game's fixed-width glyph advance is ~32.5 px/cell, so the field holds 10 cells exactly (EN 'Main Pilot' = 10). The centred 12-cell 'Główny pilot' spans ink x133-510 and overflows about one cell on each side, crossing into the HIT/EVA column. The sibling label 'Drugi pilot' (11 cells) shares the same field whenever a sub pilot is shown, so it is shortened in the same batch.",
+    "owned_footer_field": "Owner screenshot 3 (1219x106 crop): 'Posiadane' (9 cells) starts at glyph-cell 0 with advance ~32.6 px/cell; the cyan 'Lv1' block is drawn at a fixed position whose 'L' occupies glyph-cell 8, colliding with the final 'e'. JP ＠4所持数 occupies 6 cells and EN '＠4Owned' 5, both clear of cell 8. Budget: at most 7 cells so one empty cell remains before Lv1. The plain sibling 所持数 (entry 668, no colour token) gets the same short form for consistency with the intsys_04 texture caption Owned='Masz' already shipped since v2.4."
+  },
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21488",
+      "source_sha256": "61f503089f6b47017901ac71e16306aa0737e9ebe37d9911ff3ea08f3eb2ccaa",
+      "before": "Główny pilot",
+      "after": "Pilot gł.",
+      "max_cells": 10,
+      "reason": "Pilot tab of Lista Jednostek: measured 10-cell field; 12-cell label overlapped the stats column. 'Pilot gł.' is 9 cells and keeps the noun readable."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:21500",
+      "source_sha256": "fe53cea0ec950d0a30501c80601e117fced3bc125a1bdc226cd7ba21d89c3846",
+      "before": "Drugi pilot",
+      "after": "Współpilot",
+      "max_cells": 10,
+      "reason": "Sibling of Main Pilot in the same 10-cell field (Sub Pilot shown for support pilots of the selected unit); 'Drugi pilot' is 11 cells and would overflow identically. 'Współpilot' is a single natural 10-cell word for a co-pilot."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:46264",
+      "source_sha256": "a28e10948e8f65e88129e800dad9ae12395445806e118a36de1ae186c36fd4b6",
+      "before": "＠4Posiadane",
+      "after": "＠4Masz",
+      "max_cells": 7,
+      "reason": "Records & Parts footer: the yellow (＠4) Owned label collided with the fixed Lv1 counter at glyph-cell 8; measured budget 7 cells. 'Masz' is 4 cells and matches the intsys_04 texture caption Owned='Masz'. The ＠4 colour token is preserved."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:31988",
+      "source_sha256": "42aff61d7ddca48209700b11b097c10d8e8fad884c025fa2d0637483e44a69da",
+      "before": "Posiadane",
+      "after": "Masz",
+      "max_cells": 7,
+      "reason": "Plain sibling of the ＠4 Owned label (same JP 所持数 without the colour token, JP budget 6 cells). Same short form as the footer and the intsys_04 texture caption."
+    }
+  ]
+}

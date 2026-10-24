@@ -1,0 +1,621 @@
+{
+ "note": "SRW Z PL half-width font assignments (prototype; freeze at P4). Regular code = 0x8540+index, bold = 0x8540+87+index. dialogue_byte = reserved ASCII stored in scenario data for Polish letters (null = the character itself).",
+ "font": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+ "em_size": 20,
+ "baseline_row": 20,
+ "cell": [
+  12,
+  24
+ ],
+ "glyphs": [
+  {
+   "index": 0,
+   "char": ".",
+   "code": 34112,
+   "bold_code": 34199,
+   "dialogue_byte": null
+  },
+  {
+   "index": 1,
+   "char": "\"",
+   "code": 34113,
+   "bold_code": 34200,
+   "dialogue_byte": null
+  },
+  {
+   "index": 2,
+   "char": "'",
+   "code": 34114,
+   "bold_code": 34201,
+   "dialogue_byte": null
+  },
+  {
+   "index": 3,
+   "char": "!",
+   "code": 34115,
+   "bold_code": 34202,
+   "dialogue_byte": null
+  },
+  {
+   "index": 4,
+   "char": ",",
+   "code": 34116,
+   "bold_code": 34203,
+   "dialogue_byte": null
+  },
+  {
+   "index": 5,
+   "char": "-",
+   "code": 34117,
+   "bold_code": 34204,
+   "dialogue_byte": null
+  },
+  {
+   "index": 6,
+   "char": "?",
+   "code": 34118,
+   "bold_code": 34205,
+   "dialogue_byte": null
+  },
+  {
+   "index": 7,
+   "char": "0",
+   "code": 34119,
+   "bold_code": 34206,
+   "dialogue_byte": null
+  },
+  {
+   "index": 8,
+   "char": "1",
+   "code": 34120,
+   "bold_code": 34207,
+   "dialogue_byte": null
+  },
+  {
+   "index": 9,
+   "char": "2",
+   "code": 34121,
+   "bold_code": 34208,
+   "dialogue_byte": null
+  },
+  {
+   "index": 10,
+   "char": "3",
+   "code": 34122,
+   "bold_code": 34209,
+   "dialogue_byte": null
+  },
+  {
+   "index": 11,
+   "char": "4",
+   "code": 34123,
+   "bold_code": 34210,
+   "dialogue_byte": null
+  },
+  {
+   "index": 12,
+   "char": "5",
+   "code": 34124,
+   "bold_code": 34211,
+   "dialogue_byte": null
+  },
+  {
+   "index": 13,
+   "char": "6",
+   "code": 34125,
+   "bold_code": 34212,
+   "dialogue_byte": null
+  },
+  {
+   "index": 14,
+   "char": "7",
+   "code": 34126,
+   "bold_code": 34213,
+   "dialogue_byte": null
+  },
+  {
+   "index": 15,
+   "char": "8",
+   "code": 34127,
+   "bold_code": 34214,
+   "dialogue_byte": null
+  },
+  {
+   "index": 16,
+   "char": "9",
+   "code": 34128,
+   "bold_code": 34215,
+   "dialogue_byte": null
+  },
+  {
+   "index": 17,
+   "char": "A",
+   "code": 34129,
+   "bold_code": 34216,
+   "dialogue_byte": null
+  },
+  {
+   "index": 18,
+   "char": "B",
+   "code": 34130,
+   "bold_code": 34217,
+   "dialogue_byte": null
+  },
+  {
+   "index": 19,
+   "char": "C",
+   "code": 34131,
+   "bold_code": 34218,
+   "dialogue_byte": null
+  },
+  {
+   "index": 20,
+   "char": "D",
+   "code": 34132,
+   "bold_code": 34219,
+   "dialogue_byte": null
+  },
+  {
+   "index": 21,
+   "char": "E",
+   "code": 34133,
+   "bold_code": 34220,
+   "dialogue_byte": null
+  },
+  {
+   "index": 22,
+   "char": "F",
+   "code": 34134,
+   "bold_code": 34221,
+   "dialogue_byte": null
+  },
+  {
+   "index": 23,
+   "char": "G",
+   "code": 34135,
+   "bold_code": 34222,
+   "dialogue_byte": null
+  },
+  {
+   "index": 24,
+   "char": "H",
+   "code": 34136,
+   "bold_code": 34223,
+   "dialogue_byte": null
+  },
+  {
+   "index": 25,
+   "char": "I",
+   "code": 34137,
+   "bold_code": 34224,
+   "dialogue_byte": null
+  },
+  {
+   "index": 26,
+   "char": "J",
+   "code": 34138,
+   "bold_code": 34225,
+   "dialogue_byte": null
+  },
+  {
+   "index": 27,
+   "char": "K",
+   "code": 34139,
+   "bold_code": 34226,
+   "dialogue_byte": null
+  },
+  {
+   "index": 28,
+   "char": "L",
+   "code": 34140,
+   "bold_code": 34227,
+   "dialogue_byte": null
+  },
+  {
+   "index": 29,
+   "char": "M",
+   "code": 34141,
+   "bold_code": 34228,
+   "dialogue_byte": null
+  },
+  {
+   "index": 30,
+   "char": "N",
+   "code": 34142,
+   "bold_code": 34229,
+   "dialogue_byte": null
+  },
+  {
+   "index": 31,
+   "char": "O",
+   "code": 34143,
+   "bold_code": 34230,
+   "dialogue_byte": null
+  },
+  {
+   "index": 32,
+   "char": "P",
+   "code": 34144,
+   "bold_code": 34231,
+   "dialogue_byte": null
+  },
+  {
+   "index": 33,
+   "char": "Q",
+   "code": 34145,
+   "bold_code": 34232,
+   "dialogue_byte": null
+  },
+  {
+   "index": 34,
+   "char": "R",
+   "code": 34146,
+   "bold_code": 34233,
+   "dialogue_byte": null
+  },
+  {
+   "index": 35,
+   "char": "S",
+   "code": 34147,
+   "bold_code": 34234,
+   "dialogue_byte": null
+  },
+  {
+   "index": 36,
+   "char": "T",
+   "code": 34148,
+   "bold_code": 34235,
+   "dialogue_byte": null
+  },
+  {
+   "index": 37,
+   "char": "U",
+   "code": 34149,
+   "bold_code": 34236,
+   "dialogue_byte": null
+  },
+  {
+   "index": 38,
+   "char": "V",
+   "code": 34150,
+   "bold_code": 34237,
+   "dialogue_byte": null
+  },
+  {
+   "index": 39,
+   "char": "W",
+   "code": 34151,
+   "bold_code": 34238,
+   "dialogue_byte": null
+  },
+  {
+   "index": 40,
+   "char": "X",
+   "code": 34152,
+   "bold_code": 34239,
+   "dialogue_byte": null
+  },
+  {
+   "index": 41,
+   "char": "Y",
+   "code": 34153,
+   "bold_code": 34240,
+   "dialogue_byte": null
+  },
+  {
+   "index": 42,
+   "char": "Z",
+   "code": 34154,
+   "bold_code": 34241,
+   "dialogue_byte": null
+  },
+  {
+   "index": 43,
+   "char": "a",
+   "code": 34155,
+   "bold_code": 34242,
+   "dialogue_byte": null
+  },
+  {
+   "index": 44,
+   "char": "b",
+   "code": 34156,
+   "bold_code": 34243,
+   "dialogue_byte": null
+  },
+  {
+   "index": 45,
+   "char": "c",
+   "code": 34157,
+   "bold_code": 34244,
+   "dialogue_byte": null
+  },
+  {
+   "index": 46,
+   "char": "d",
+   "code": 34158,
+   "bold_code": 34245,
+   "dialogue_byte": null
+  },
+  {
+   "index": 47,
+   "char": "e",
+   "code": 34159,
+   "bold_code": 34246,
+   "dialogue_byte": null
+  },
+  {
+   "index": 48,
+   "char": "f",
+   "code": 34160,
+   "bold_code": 34247,
+   "dialogue_byte": null
+  },
+  {
+   "index": 49,
+   "char": "g",
+   "code": 34161,
+   "bold_code": 34248,
+   "dialogue_byte": null
+  },
+  {
+   "index": 50,
+   "char": "h",
+   "code": 34162,
+   "bold_code": 34249,
+   "dialogue_byte": null
+  },
+  {
+   "index": 51,
+   "char": "i",
+   "code": 34163,
+   "bold_code": 34250,
+   "dialogue_byte": null
+  },
+  {
+   "index": 52,
+   "char": "j",
+   "code": 34164,
+   "bold_code": 34251,
+   "dialogue_byte": null
+  },
+  {
+   "index": 53,
+   "char": "k",
+   "code": 34165,
+   "bold_code": 34252,
+   "dialogue_byte": null
+  },
+  {
+   "index": 54,
+   "char": "l",
+   "code": 34166,
+   "bold_code": 34253,
+   "dialogue_byte": null
+  },
+  {
+   "index": 55,
+   "char": "m",
+   "code": 34167,
+   "bold_code": 34254,
+   "dialogue_byte": null
+  },
+  {
+   "index": 56,
+   "char": "n",
+   "code": 34168,
+   "bold_code": 34255,
+   "dialogue_byte": null
+  },
+  {
+   "index": 57,
+   "char": "o",
+   "code": 34169,
+   "bold_code": 34256,
+   "dialogue_byte": null
+  },
+  {
+   "index": 58,
+   "char": "p",
+   "code": 34170,
+   "bold_code": 34257,
+   "dialogue_byte": null
+  },
+  {
+   "index": 59,
+   "char": "q",
+   "code": 34171,
+   "bold_code": 34258,
+   "dialogue_byte": null
+  },
+  {
+   "index": 60,
+   "char": "r",
+   "code": 34172,
+   "bold_code": 34259,
+   "dialogue_byte": null
+  },
+  {
+   "index": 61,
+   "char": "s",
+   "code": 34173,
+   "bold_code": 34260,
+   "dialogue_byte": null
+  },
+  {
+   "index": 62,
+   "char": "t",
+   "code": 34174,
+   "bold_code": 34261,
+   "dialogue_byte": null
+  },
+  {
+   "index": 63,
+   "char": "u",
+   "code": 34175,
+   "bold_code": 34262,
+   "dialogue_byte": null
+  },
+  {
+   "index": 64,
+   "char": "v",
+   "code": 34176,
+   "bold_code": 34263,
+   "dialogue_byte": null
+  },
+  {
+   "index": 65,
+   "char": "w",
+   "code": 34177,
+   "bold_code": 34264,
+   "dialogue_byte": null
+  },
+  {
+   "index": 66,
+   "char": "x",
+   "code": 34178,
+   "bold_code": 34265,
+   "dialogue_byte": null
+  },
+  {
+   "index": 67,
+   "char": "y",
+   "code": 34179,
+   "bold_code": 34266,
+   "dialogue_byte": null
+  },
+  {
+   "index": 68,
+   "char": "z",
+   "code": 34180,
+   "bold_code": 34267,
+   "dialogue_byte": null
+  },
+  {
+   "index": 69,
+   "char": "Ą",
+   "code": 34181,
+   "bold_code": 34268,
+   "dialogue_byte": "@"
+  },
+  {
+   "index": 70,
+   "char": "Ć",
+   "code": 34182,
+   "bold_code": 34269,
+   "dialogue_byte": "#"
+  },
+  {
+   "index": 71,
+   "char": "Ę",
+   "code": 34183,
+   "bold_code": 34270,
+   "dialogue_byte": "&"
+  },
+  {
+   "index": 72,
+   "char": "Ł",
+   "code": 34184,
+   "bold_code": 34271,
+   "dialogue_byte": "*"
+  },
+  {
+   "index": 73,
+   "char": "Ń",
+   "code": 34185,
+   "bold_code": 34272,
+   "dialogue_byte": "+"
+  },
+  {
+   "index": 74,
+   "char": "Ó",
+   "code": 34186,
+   "bold_code": 34273,
+   "dialogue_byte": "<"
+  },
+  {
+   "index": 75,
+   "char": "Ś",
+   "code": 34187,
+   "bold_code": 34274,
+   "dialogue_byte": "="
+  },
+  {
+   "index": 76,
+   "char": "Ź",
+   "code": 34188,
+   "bold_code": 34275,
+   "dialogue_byte": ">"
+  },
+  {
+   "index": 77,
+   "char": "Ż",
+   "code": 34189,
+   "bold_code": 34276,
+   "dialogue_byte": "["
+  },
+  {
+   "index": 78,
+   "char": "ą",
+   "code": 34190,
+   "bold_code": 34277,
+   "dialogue_byte": "\\"
+  },
+  {
+   "index": 79,
+   "char": "ć",
+   "code": 34191,
+   "bold_code": 34278,
+   "dialogue_byte": "]"
+  },
+  {
+   "index": 80,
+   "char": "ę",
+   "code": 34192,
+   "bold_code": 34279,
+   "dialogue_byte": "^"
+  },
+  {
+   "index": 81,
+   "char": "ł",
+   "code": 34193,
+   "bold_code": 34280,
+   "dialogue_byte": "_"
+  },
+  {
+   "index": 82,
+   "char": "ń",
+   "code": 34194,
+   "bold_code": 34281,
+   "dialogue_byte": "`"
+  },
+  {
+   "index": 83,
+   "char": "ó",
+   "code": 34195,
+   "bold_code": 34282,
+   "dialogue_byte": "{"
+  },
+  {
+   "index": 84,
+   "char": "ś",
+   "code": 34196,
+   "bold_code": 34283,
+   "dialogue_byte": "|"
+  },
+  {
+   "index": 85,
+   "char": "ź",
+   "code": 34197,
+   "bold_code": 34284,
+   "dialogue_byte": "}"
+  },
+  {
+   "index": 86,
+   "char": "ż",
+   "code": 34198,
+   "bold_code": 34285,
+   "dialogue_byte": "~"
+  }
+ ]
+}

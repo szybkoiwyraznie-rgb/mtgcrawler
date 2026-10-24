@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 30,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL830_13E.bin:56392",
+      "source_sha256": "032a564c06b20a7da1c09bee00e482c6f0572f460261dbb8f51dd8f074f2513d",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep30 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL830_13.bin:56376",
+      "source_sha256": "1481b492046b1748efefdb8d9e405ec28036b7fbf2c26270e68e0eb236c9ef5f",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep30 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 32,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL832_12.bin:9736",
+      "source_sha256": "61f344ff5196ac8632f6824158d6dfa1643fb17751d33fb9f75171380f520c50",
+      "before": "Zostaw to mnie!\nJestem teraz super, mega zmotywowanyyy!\n",
+      "after": "Zostaw to mi!\nJestem teraz super, mega zmotywowanyyy!\n",
+      "reason": "ep32 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

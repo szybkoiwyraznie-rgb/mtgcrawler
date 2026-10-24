@@ -1,0 +1,462 @@
+{
+  "schema": 1,
+  "episode": 6,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:216",
+      "source_sha256": "07144dc0b02d695f42cfbd969aaf5ebb98342e13ff6904c87c6a7533df6a0ee1",
+      "before": "Układ kolonizacyjny, który flota Macross zdobyła\npo zaciętej walce z hiperwymiarowymi Vajrami.",
+      "after": "Układ kolonizacyjny, który flota Macross wywalczyła\npo ciężkiej walce z hiperwymiarowymi Vajrami.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:216",
+      "source_sha256": "f83d2a955f7a31e058f1aad8a0f87f1ef0665cce849a24993b1ec25fd2caf78a",
+      "before": "Układ kolonizacyjny, który flota Macross zdobyła\npo zaciętej walce z hiperwymiarowymi Vajrami.",
+      "after": "Układ kolonizacyjny, który flota Macross wywalczyła\npo ciężkiej walce z hiperwymiarowymi Vajrami.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:216"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:308",
+      "source_sha256": "6a300b7f60c3923b112f4cb0f58772d4735564591aa28282d9c61a78dc220ece",
+      "before": "W pobliżu ojczystej planety Vajr, obecnie stolicy,\nConnect zbudował kilka bram warp,\na jedna z nich była wrotami do Układu Słonecznego.",
+      "after": "W pobliżu ojczystej planety Vajr, stolicy układu,\nConnect zbudował kilka bram warp,\na jedna z nich była wrotami do Układu Słonecznego.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:308"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:308",
+      "source_sha256": "6f1b4d5660eb15af652afd0a75516a9aa9cea2146224394bd696b7c125a2f9df",
+      "before": "W pobliżu ojczystej planety Vajr, obecnie stolicy,\nConnect zbudował kilka bram warp,\na jedna z nich była wrotami do Układu Słonecznego.",
+      "after": "W pobliżu ojczystej planety Vajr, stolicy układu,\nConnect zbudował kilka bram warp,\na jedna z nich była wrotami do Układu Słonecznego.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:2320",
+      "source_sha256": "66bc61d68bfcefbda28c793fc63c6d524bd9615a849ee474dc5d9fe4c1a3a63b",
+      "before": "Kapitanie Jeffrey, czy możemy od razu\nzadokować przy stacji?",
+      "after": "Kapitanie Jeffrey, czy mógłby pan od razu\nzadokować przy stacji?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:2320"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:2320",
+      "source_sha256": "fcd77e58ba05875fe227a2762bb28c3596e610af89d937a58667e6c83b3065bf",
+      "before": "Kapitanie Jeffrey, czy możemy od razu\nzadokować przy stacji?",
+      "after": "Kapitanie Jeffrey, czy mógłby pan od razu\nzadokować przy stacji?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:2676",
+      "source_sha256": "2205a0bb12aacf0b91f83b1650a187fb87771d3a15109256d659bd03f50ed2e4",
+      "before": "Nie, wyjaśnienie było bardzo przystępne.\nAle też rozmach tego wszystkiego, no, no.",
+      "after": "Nie, wyjaśnienie było bardzo przystępne.\nA skala tego wszystkiego robi wrażenie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:2676",
+      "source_sha256": "8a526cd4d1a2acce1236637d7a03b0c2c131d53dbec6c1110e24b462efc1f20a",
+      "before": "Nie, wyjaśnienie było bardzo przystępne.\nAle też rozmach tego wszystkiego, no, no.",
+      "after": "Nie, wyjaśnienie było bardzo przystępne.\nA skala tego wszystkiego robi wrażenie.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:2676"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:3244",
+      "source_sha256": "3f7e9c1f692395208f3440b1d093b180a53c62b3e3ce25cb00eef27284ed08f8",
+      "before": "Connect dostarcza też własnych ludzi i sprzęt,\nwięc obrona i wywiad rosną w siłę z dnia na dzień.",
+      "after": "Connect dostarcza też ludzi i sprzęt, więc zdolności\nobronne i wywiadowcze rosną z dnia na dzień.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:3244"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:3244",
+      "source_sha256": "4b974ba731fc6492d93ef368a0a527e2b17fd511d727388760ffec7acea2d419",
+      "before": "Connect dostarcza też własnych ludzi i sprzęt,\nwięc obrona i wywiad rosną w siłę z dnia na dzień.",
+      "after": "Connect dostarcza też ludzi i sprzęt, więc zdolności\nobronne i wywiadowcze rosną z dnia na dzień.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:3572",
+      "source_sha256": "80ac59294ce888e06224692f7f0649b2fa179cd94bcbd904059b8526b3a13668",
+      "before": "Kapitanie.\nPołączenie ze stolicy ojczystej planety Vajr.\nOd dowódcy Ozmy, szefa obrony.",
+      "after": "Kapitanie.\nPołączenie ze stolicy ojczystej planety Vajr.\nNadaje Ozma, szef obrony.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:3572",
+      "source_sha256": "e8707180d89a425743de4579b2209f2e482716983ac7516ed1d64652215e54be",
+      "before": "Kapitanie.\nPołączenie ze stolicy ojczystej planety Vajr.\nOd dowódcy Ozmy, szefa obrony.",
+      "after": "Kapitanie.\nPołączenie ze stolicy ojczystej planety Vajr.\nNadaje Ozma, szef obrony.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:3572"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:4076",
+      "source_sha256": "037fbbec9e855ca27f6fc0a5bad308e29b9476b19d8e44923fae0e8e629ca362",
+      "before": "Mamy przybliżony obszar, ale na szczegóły\nwciąż czekamy z raportem od zwiadu.",
+      "after": "Znamy przybliżony obszar, ale szczegóły\npoznamy dopiero z raportu zwiadu.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:4076",
+      "source_sha256": "18d030fa035c892a6270738b49a379e2928e177371e8fd0f28c6adc2371966ed",
+      "before": "Mamy przybliżony obszar, ale na szczegóły\nwciąż czekamy z raportem od zwiadu.",
+      "after": "Znamy przybliżony obszar, ale szczegóły\npoznamy dopiero z raportu zwiadu.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:4076"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:6416",
+      "source_sha256": "8f3981048d18d99c41a0493a6ce4ca240b48ab3c8148d06c58ee1656be80febb",
+      "before": "Rozumiem.\nCzuć od ciebie, że to nie przelewki.",
+      "after": "Rozumiem.\nWidać, że mówisz zupełnie serio.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:6416",
+      "source_sha256": "b640f6e378df168834eb8b1ffe65db07064b7dc3d293d41058e963c28c44889d",
+      "before": "Rozumiem.\nCzuć od ciebie, że to nie przelewki.",
+      "after": "Rozumiem.\nWidać, że mówisz zupełnie serio.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:6416"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:13108",
+      "source_sha256": "03cb9f172343f809c8c4f64f6ff4494307c1ad0774992d790940d075a5d4e4e1",
+      "before": "To powinny być ostatnie ich rezerwy.",
+      "after": "To powinny być już ostatnie rezerwy wroga.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:13108"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:13108",
+      "source_sha256": "27ad8fd4d5cdbafa27c16d3caecc5ea4ab914d7e364529c906582b00482c298f",
+      "before": "To powinny być ostatnie ich rezerwy.",
+      "after": "To powinny być już ostatnie rezerwy wroga.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:17088",
+      "source_sha256": "6afc7ff5f381891ba0d8b04fee74388f4cb38231bb7306f6759a742f0febe837",
+      "before": "Wreszcie znaleźliśmy miejsce, które jest domem.\nNie potrzeba nam węszących obcych.",
+      "after": "Wreszcie znaleźliśmy miejsce, które możemy\nnazwać domem. Nie potrzeba nam węszących obcych.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:17128"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:17128",
+      "source_sha256": "b4f750cf4cc2ba373da0adffb41dbc9092395887c2fc6f76238439305d4baa64",
+      "before": "Wreszcie znaleźliśmy miejsce, które jest domem.\nNie potrzeba nam węszących obcych.",
+      "after": "Wreszcie znaleźliśmy miejsce, które możemy\nnazwać domem. Nie potrzeba nam węszących obcych.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:17920",
+      "source_sha256": "a6e4f53989692d867fde30f30c4a4bf23837e2be1caee86948e095eb8387338f",
+      "before": "Nic dobrego nie przyjdzie mi\nz dalszego pozostawania tutaj.",
+      "after": "Nic dobrego nie przyniesie mi\ndalsze przebywanie tutaj.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:17880",
+      "source_sha256": "ee5ed1a8622d9de5d7870fdad299ff869ce2b6498dfec888fa97d2957dc73642",
+      "before": "Nic dobrego nie przyjdzie mi\nz dalszego pozostawania tutaj.",
+      "after": "Nic dobrego nie przyniesie mi\ndalsze przebywanie tutaj.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:17920"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:18160",
+      "source_sha256": "684f1829e8a7dfedc811e933f0afe73b84fc97d39bd30455b75ee494250e14c3",
+      "before": "To bardzo wprawny przeciwnik.\nPościg za daleko byłby niebezpieczny...",
+      "after": "To bardzo wprawny przeciwnik.\nDaleki pościg byłby niebezpieczny...",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:18200"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:18200",
+      "source_sha256": "c38096c592d3e4fc5a2745dc7a8d94d5b0e0dc7b377badec91817d621b406f68",
+      "before": "To bardzo wprawny przeciwnik.\nPościg za daleko byłby niebezpieczny...",
+      "after": "To bardzo wprawny przeciwnik.\nDaleki pościg byłby niebezpieczny...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_11.bin:18620",
+      "source_sha256": "c3aa384775992ea105513eb6cc8a86e1d69984e40393c2cbd04f55ac7367302b",
+      "before": "Brak sygnałów wroga.\nUnieruchomione maszyny wroga chyba się poddały.",
+      "after": "Brak sygnałów wroga.\nPiloci unieruchomionych maszyn chyba się poddali.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL206_11B.bin:18580",
+      "source_sha256": "deb129f86124380bd98baa5fab989b7f8063f354b0b99166f905f4e20f050011",
+      "before": "Brak sygnałów wroga.\nUnieruchomione maszyny wroga chyba się poddały.",
+      "after": "Brak sygnałów wroga.\nPiloci unieruchomionych maszyn chyba się poddali.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL206_11.bin:18620"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_12.bin:336",
+      "source_sha256": "a244e4bbf8cf74a9c738e877696fba6a9e917be24e109aa9405a34922bfa515b",
+      "before": "Okręt Gradosu próbował uciec z informacjami,\nale Macross Quarter udaremnił jego misję.",
+      "after": "Okręt Gradosu próbował uciec z informacjami,\nale Macross Quarter go powstrzymał.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_12.bin:1928",
+      "source_sha256": "19c163d28f7d3ae417f5230b00cafac5e2ca92e06a10738f8238c83f08fef05d",
+      "before": "Cele są za małe.\nUkryte w strumieniach i skałach są niewidoczne.",
+      "after": "Cele są za małe.\nUkryte w strumieniach i wśród skał są niewidoczne.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_12.bin:4540",
+      "source_sha256": "2f0cb5c2c08d12c76bdcbee10b44cdb027b681936f22358f0feb2b7784490a6b",
+      "before": "Spokojnie, Asuma.\nZostaw to mnie!",
+      "after": "Spokojnie, Asuma.\nZostaw to mi!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_12.bin:5136",
+      "source_sha256": "2787d9727460b5e67bd5b1b8da8b05410ac600619bd782332e50514cab8dd177",
+      "before": "Hm, hm...\nWalka z maszynami innymi niż mobile suity\nto będzie świetna opowieść do domu, melduję!\r\n",
+      "after": "Hm, hm...\nWalka z maszynami innymi niż mobile suity\nbędzie świetną opowieścią po powrocie, melduję!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:1852",
+      "source_sha256": "548da04ec834da9ce0762724b072a3d277534c562cddb39b3068802bea074172",
+      "before": "Z układu Frontier do układu planety Zi\ndotarliśmy bramą warp za jednym zamachem!",
+      "after": "Z układu Frontier do układu planety Zi\ndotarliśmy jednym skokiem przez bramę warp!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:3352",
+      "source_sha256": "486e0d2a8a02ebab6f1fa44e101c99745d9e5600f59f42ffe6553477710c3eaa",
+      "before": "To Zoidy uzbrojone dzięki rdzeniowi Zoida\ni przystosowane tak, by ludzie mogli nimi sterować.\nNa planecie Zi to podstawowa broń.",
+      "after": "To Zoidy uzbrojone przy użyciu rdzenia Zoida\ni przystosowane tak, by ludzie mogli nimi sterować.\nNa planecie Zi to podstawowa broń.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:4220",
+      "source_sha256": "61854a094c94f0cdb279a6ebecc8681bf7d241f718660b5eb0c8b5718e7ed972",
+      "before": "Przepraszam, że pan i ludzie od Laborów\nmusicie nam pomagać, panie Sakaki...",
+      "after": "Przepraszam, że pan i pańscy mechanicy od Laborów\nmusicie nam pomagać, panie Sakaki...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:5436",
+      "source_sha256": "5aaf98c33d1565c60d1c4af9ef36d0a2dc0c4931ab4ae7312cf88980513cd6fb",
+      "before": "Jasne! Zostaw to mnie.",
+      "after": "Jasne! Zostaw to mi.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:6704",
+      "source_sha256": "06568c544e79dfe54835d3ae019d5b18e4a2b651c71ff28a63cc06c2b0a8f150",
+      "before": "To będzie walka kołowa.\nSPT to twardzi przeciwnicy, Alto.",
+      "after": "To będzie walka manewrowa.\nSPT to twardzi przeciwnicy, Alto.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_50.bin:9380",
+      "source_sha256": "9bc4c808692b6ae969535b069fbc926341d7d9210de9a630b8f94b4880ecedf6",
+      "before": "Naprawdę nie chcą nas dopuścić\nw pobliże tej planety.",
+      "after": "Naprawdę nie chcą pozwolić nam\nzbliżyć się do tej planety.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_60.bin:524",
+      "source_sha256": "baae1a85e0a59560fe5ec2104b343d3d6e9e8fa0723eda8b4a655c89c3fea5d4",
+      "before": "Przy pierścieniu warp tylko po jednej stronie\nwarp czasoprzestrzenny przenosił ograniczony ładunek.\n",
+      "after": "Przy pierścieniu tylko na jednym końcu warp\nprzenosi jedynie ograniczoną ilość ładunku.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_60.bin:624",
+      "source_sha256": "3ccc1eca48773e22669887b210f647e0dfb51641e4663c2a922171e034ce4144",
+      "before": "Gdyby zająć rejon budowy, zanim brama ISTO\nw układzie zostanie ukończona, nawet siły Connect\nwystarczyłyby do obrony układu.\n",
+      "after": "Gdybyśmy zajęli rejon budowy, zanim brama ISTO\nw układzie zostanie ukończona, nawet siły Connect\nwystarczyłyby do obrony układu.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_60.bin:764",
+      "source_sha256": "98eeab04671bf34b2a8be5cb1b025fc92428c0a97c919595dfa8d676fb683a60",
+      "before": "Odnalezienie jej w ogromie kosmosu graniczyło\nz niemożliwością, ale umożliwił to łut szczęścia.\n",
+      "after": "Odnalezienie jej w ogromie kosmosu graniczyło\nz niemożliwością, ale umożliwił je szczęśliwy traf.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:1976",
+      "source_sha256": "77ea87b86e5b2e25ca8b9ad9e360602b297694c393056087c335e122ecfad46a",
+      "before": "Na to wygląda, że zaraz będzie niezła zadyma.",
+      "after": "Wygląda na to, że niedługo wybuchnie niezła zadyma.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:3272",
+      "source_sha256": "b1747410b397abfdb15d79632f6e6dd081e3b974df8756929479b2c5f7d76cb1",
+      "before": "No, i tak lepiej, niż gdyby go znaleźli w ukryciu.\nNie mamy nic na sumieniu,\nwięc zachowujmy się normalnie.",
+      "after": "No, lepiej tak, niż gdyby przyłapano nas,\njak go ukrywamy. Nie mamy nic na sumieniu,\nwięc zachowujmy się normalnie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:3412",
+      "source_sha256": "26aee09ae4dd66559ce9cb810de5880e1e4658c6a4ba32d8e71c36351ab7502a",
+      "before": "Jestem pułkownik Rob Herman z armii Republiki.\nCzy to ty jesteś właścicielem tego Organoida?",
+      "after": "Jestem pułkownikiem Rob Herman z armii Republiki.\nCzy to ty jesteś właścicielem tego Organoida?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:3644",
+      "source_sha256": "0985d959cec639433564086a6cc8adea4a5eff83746bf60bca95beeb012753f7",
+      "before": "Sam go tak nazwałem.\nTo mój najlepszy kumpel, więc dałem mu imię\nCommand Wolfa, którego pilotował mój tata.",
+      "after": "Sam go tak nazwałem.\nTo mój najlepszy kumpel, więc nazwałem go tak jak\nCommand Wolfa, którego pilotował mój tata.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:8856",
+      "source_sha256": "9cb5f2f3712b86b0c8c912340d49524dfcc1ad69c200157443b0d3bc14b61ac9",
+      "before": "Co ty wygadujesz?\nSam sobie winien, kto słaby, to chyba oczywiste.",
+      "after": "Co ty wygadujesz?\nSłaby sam jest sobie winien, to chyba oczywiste.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:9104",
+      "source_sha256": "77fda4701dec015aac3c6d1e4f6ecb4c77d67387bed50ed0141872545deb27d4",
+      "before": "Nawet jeśli... nie daruję takiej walki!",
+      "after": "Nawet jeśli... nie wybaczę ci walki w taki sposób!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:9520",
+      "source_sha256": "7687d3c6db54f9e7b8e7a978bc8e84326e2a3c4738ac65c7ee5300fe1e609336",
+      "before": "Skoro tak mówisz, to pewnie jesteś silniejszy\node mnie. A może ten Organoid?",
+      "after": "Skoro tak mówisz, to pewnie jesteś silniejszy\node mnie. A może to ten Organoid?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:10820",
+      "source_sha256": "43f0286d7df7aed3821c62774fcf75d629af612c35d3bd55d586ddc94d8e7b53",
+      "before": "Ngh... Z tego Gustava żyję.\nNie mogę dać go rozwalić!",
+      "after": "Ngh... Ten Gustav to moje źródło utrzymania.\nNie pozwolę, żeby go rozwalono!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:16104",
+      "source_sha256": "35ee169970293ec029e90c45796d9571497c994af16700f55672886422739cee",
+      "before": "Jeśli zechcesz, może będziesz służył pode mną?",
+      "after": "Jeśli zechcesz, możesz służyć pod moim dowództwem.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:16220",
+      "source_sha256": "9ce5b72c3c19b74b67da41d2c2c5addd780a9b51f72666d397951887bd35cbe4",
+      "before": "Dowodzę siłami na całym tym froncie.\nPrzypadkiem akurat wizytowałem linie.",
+      "after": "Dowodzę siłami na całym tym froncie.\nTrafiłem tu przy okazji wizytacji linii frontu.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_70.bin:16656",
+      "source_sha256": "1fd8397b1817460b4671792cbfd15c874d9dd12ea065da2f878c3951590e30d7",
+      "before": "Panie pułkowniku, mnie\nto może pan zatrudnić, co?",
+      "after": "Panie pułkowniku, czy mnie\nzechciałby pan zatrudnić?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:2220",
+      "source_sha256": "f00865e9bace54027c59d08f29b25df638a96ba2dc71997747a95298c9292074",
+      "before": "Tuż obok frontu, gdzie stoją naprzeciw Imperium...\nTo nie jest niebezpieczne?",
+      "after": "Tuż przy froncie, gdzie nasze wojska stoją\nnaprzeciw Imperium... To nie jest niebezpieczne?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:2908",
+      "source_sha256": "24fc7c01031ad364114675391dcdefbe8a0ed59a480acdc8d4e710ea86975dbc",
+      "before": "Zostaw to mnie.\nDla takiego kierowcy jak ja taka wyboista droga\nto pestka.",
+      "after": "Zostaw to mi.\nDla takiego kierowcy jak ja taka wyboista droga\nto pestka.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:6192",
+      "source_sha256": "351c5f142575587f43aae4039eb8e5cd40cc73707fa649ac9adf3ff2923073a5",
+      "before": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mnie i Vanowi!",
+      "after": "To było wtedy, a to jest teraz.\nPo prostu przejedź już przez ten wąwóz!\nResztę zostaw mi i Vanowi!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:7588",
+      "source_sha256": "d5b339e0d7ec45ec08aba977f6b906954eb1b82c2c1116d67d9d50fb0bb743fa",
+      "before": "W końcu latają.\nOsłaniajcie mnie porządnie, dobra?",
+      "after": "Przeciwnicy latają.\nOsłaniajcie mnie porządnie, dobra?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:8096",
+      "source_sha256": "6dc72e81f160aade3781f22e1012efb3d176c5ef1b2a31130d5d4fd7c90d4dc2",
+      "before": "Może ich być więcej.\nNie rozluźniaj się do samego końca, Van!",
+      "after": "Mogą nadejść kolejni.\nNie rozluźniaj się do samego końca, Van!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:8412",
+      "source_sha256": "ea54579e7abeb86788e29c046ad23ccc8536bfad4344fee2c278b0e10a7f2be8",
+      "before": "OK! Ich zostaw mnie!",
+      "after": "OK! Ich zostaw mi!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL206_80.bin:9664",
+      "source_sha256": "885abbd6c44f4b8bd2ffa36132a5a2ab9fa149c5f6e69432fe4ec5b0d8addb5b",
+      "before": "Nic nie rozumiesz.\nPędzenie Gustavem po takich wertepach\nwymaga dużo więcej niż przeciętnych umiejętności!\n",
+      "after": "Nic nie rozumiesz.\nProwadzenie Gustava po takich wertepach\nwymaga znacznie ponadprzeciętnych umiejętności!\n",
+      "reason": ""
+    }
+  ]
+}

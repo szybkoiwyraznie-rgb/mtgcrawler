@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "episode": 20,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_40.bin:6176",
+      "source_sha256": "128b035065eaf3d2bc6b69f8693df434dba3d6ab80770e2982e5106f01f42260",
+      "before": "Będę się od ciebie uczył, stawiając życie! Heero!\n",
+      "after": "Ryzykując życiem, będę się od ciebie uczył! Heero!\n",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_11.bin:6132",
+      "source_sha256": "26ad69a1e557a445ab063ebc6f7ccc216300bf9327e4b3091cf4ac5e737507f7",
+      "before": "Tak jest! Proszę zostawić to mnie!",
+      "after": "Tak jest! Proszę zostawić to mi!",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_11.bin:9368",
+      "source_sha256": "4ac974252acfb1869361d0f43158433bb68592eb2c54ffac6cbaa5e11cb36a07",
+      "before": "Tego zostawcie mnie!",
+      "after": "Tego zostawcie mi!",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_13.bin:3420",
+      "source_sha256": "796bd536e6ea6263babdcc700f588cec4ac07c3c7229e02b27bf97426868ccbb",
+      "before": "Ehe! Proszę zostawić to mnie!",
+      "after": "Ehe! Proszę zostawić to mi!",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_12.bin:8848",
+      "source_sha256": "92a3ca73270ae16dfe22eeeb7e4c73bd2b4d356dd7790a35c4331c1cb994647f",
+      "before": "Jasne! Zostaw to mnie.\nWalczyliśmy już z Invaderami\nwielkości księżyców.",
+      "after": "Jasne! Zostaw to mi.\nWalczyliśmy już z Invaderami\nwielkości księżyców.",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_12.bin:15912",
+      "source_sha256": "9c0b994f066879fc3154bc7587a97b2f5beb8d17a9eefc826fd5302272561a5a",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL520_12.bin:11380",
+      "source_sha256": "cd86b48eca198c0da8c87e5d354705c71bfd679afd6125a86737db6b09a4476b",
+      "before": "Płotki zostawcie mnie!\nZatrzymam tu każdą co do jednej!",
+      "after": "Płotki zostawcie mi!\nZatrzymam tu każdą co do jednej!",
+      "reason": "ep20 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

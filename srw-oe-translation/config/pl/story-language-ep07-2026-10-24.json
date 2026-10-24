@@ -1,0 +1,702 @@
+{
+  "schema": 1,
+  "episode": 7,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:284",
+      "source_sha256": "2d13b5174b858d1da5fd8cb1072dcbadd1569a21469454ad259097532225213d",
+      "before": "Cesarz Guylos, Zeppelin II, leżał na łożu śmierci,\na marszałek Prozen, który przejął realną władzę,\nrozpoczął natarcie na stolicę Republiki Helic.\n",
+      "after": "Cesarz Guylos, Zeppelin II, był na łożu śmierci,\na marszałek Prozen, który przejął realną władzę,\nrozpoczął natarcie na stolicę Republiki Helic.\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:284"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:284",
+      "source_sha256": "db1eea5e01f52c1c6c7b3473b2289280d913b26187f993d67383ff914ada1e56",
+      "before": "Cesarz Guylos, Zeppelin II, leżał na łożu śmierci,\na marszałek Prozen, który przejął realną władzę,\nrozpoczął natarcie na stolicę Republiki Helic.\n",
+      "after": "Cesarz Guylos, Zeppelin II, był na łożu śmierci,\na marszałek Prozen, który przejął realną władzę,\nrozpoczął natarcie na stolicę Republiki Helic.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:4816",
+      "source_sha256": "09566644ce821f91fd36570a30f724824ee29de3eb46c0874b177161a9b0b27a",
+      "before": "Tak czy inaczej, by zyskać przewagę w rozmowach\nz Imperium, musimy raz odnieść wielkie zwycięstwo.",
+      "after": "Tak czy inaczej, by zyskać przewagę w rozmowach\nz Imperium, potrzebujemy wielkiego zwycięstwa.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:4816",
+      "source_sha256": "2124c5a490e36ed241cbb2aa9493bd1fd8523e68d417971b6fd5bb84415895d9",
+      "before": "Tak czy inaczej, by zyskać przewagę w rozmowach\nz Imperium, musimy raz odnieść wielkie zwycięstwo.",
+      "after": "Tak czy inaczej, by zyskać przewagę w rozmowach\nz Imperium, potrzebujemy wielkiego zwycięstwa.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:4816"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:5964",
+      "source_sha256": "b9fbdd2ad538a618c9ec6ddfe73415ae6dc2d419489fdc7b4ffd0a72f181f0d7",
+      "before": "Mieszkańcy planety Zi będą wyzyskiwani\ni wcielani do armii na jego wojny.",
+      "after": "Mieszkańcy planety Zi będą wyzyskiwani\ni wcielani do armii na wojny ISTO.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:5964",
+      "source_sha256": "ff6573406564ec9a3346f227bac1f7789b9b4b8258ff1557a53b0114ef578571",
+      "before": "Mieszkańcy planety Zi będą wyzyskiwani\ni wcielani do armii na jego wojny.",
+      "after": "Mieszkańcy planety Zi będą wyzyskiwani\ni wcielani do armii na wojny ISTO.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:5964"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:9412",
+      "source_sha256": "41802c9f8a90e75194e226c38f5871b3a7a4ccf28d0ccab0761e95931f49959d",
+      "before": "Dlatego do Connect przystąpiłem pod warunkiem,\nże uczynię to \"jako Czarni Rycerze\".\r\n",
+      "after": "Dlatego postawiłem jeden warunek: przystąpię\ndo Connect jako Czarni Rycerze.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:9412"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:9412",
+      "source_sha256": "c5ceed66407953ac4f6b6407677a1dac9b3b557b80cda6b97be5c7cfac11a1fc",
+      "before": "Dlatego do Connect przystąpiłem pod warunkiem,\nże uczynię to \"jako Czarni Rycerze\".\r\n",
+      "after": "Dlatego postawiłem jeden warunek: przystąpię\ndo Connect jako Czarni Rycerze.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:10584",
+      "source_sha256": "396cc9c1fc85b2b49b84e98a2ce6c81e7f330cabd31ce7c70e66fcf452e5a8ca",
+      "before": "W odróżnieniu od niego nic mnie nie krępuje.",
+      "after": "W odróżnieniu od niego nic mnie nie wiąże.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:10584",
+      "source_sha256": "45497d528f2b950fdc4b42aba5e5ac7d5eb7c1219f352dc9065a96fc446c61cc",
+      "before": "W odróżnieniu od niego nic mnie nie krępuje.",
+      "after": "W odróżnieniu od niego nic mnie nie wiąże.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:10584"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:12072",
+      "source_sha256": "17ca5165b0b32c870855d02dbcd6a0d887df7e8f8eac41047454b943704b3291",
+      "before": "No, no, imponujące.\nIle on ruchów naprzód przewiduje...?\r\n",
+      "after": "No, no, imponujące.\nIle ruchów naprzód on przewiduje...?\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:12072",
+      "source_sha256": "c84504141b661cfcf8e6cada32ac1381ac8c79895686d15ed7827c349358441c",
+      "before": "No, no, imponujące.\nIle on ruchów naprzód przewiduje...?\r\n",
+      "after": "No, no, imponujące.\nIle ruchów naprzód on przewiduje...?\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:12072"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:12776",
+      "source_sha256": "399a5915a42fc34fb68fd307de8993a6c64009bf381a2c4b5a744582f30b2230",
+      "before": "Jak zamierzasz odwrócić losy bitwy?\nNie... nawet jeśli zadamy im ciężki cios, czemu\nszacunek naszych strat jest tak niski?",
+      "after": "Jak zamierzasz odwrócić losy bitwy?\nNie... nawet jeśli zadamy im ciężki cios, czemu\nszacunki naszych strat są tak niskie?",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:12776"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:12776",
+      "source_sha256": "79de401d0964a94395eb6ae0fdae2115065ccbfaae50395b16f1a13a9f46bad4",
+      "before": "Jak zamierzasz odwrócić losy bitwy?\nNie... nawet jeśli zadamy im ciężki cios, czemu\nszacunek naszych strat jest tak niski?",
+      "after": "Jak zamierzasz odwrócić losy bitwy?\nNie... nawet jeśli zadamy im ciężki cios, czemu\nszacunki naszych strat są tak niskie?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:15660",
+      "source_sha256": "b0368c36fabea23b67b208dbb350f73dcef5c0b6d9197ea2341ea093ca89ce84",
+      "before": "Może jeszcze nie wszystko jest wygodne,\nale teraz możemy cię wspierać, Suzaku.",
+      "after": "Może jeszcze być trochę niewygodnie,\nale teraz możemy cię wspierać, Suzaku.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:15660",
+      "source_sha256": "bf62ddaddab4305cfa5e3f1a8481b5036e6963f5d106492da32b8d20b712a447",
+      "before": "Może jeszcze nie wszystko jest wygodne,\nale teraz możemy cię wspierać, Suzaku.",
+      "after": "Może jeszcze być trochę niewygodnie,\nale teraz możemy cię wspierać, Suzaku.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:15660"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:15836",
+      "source_sha256": "42dfab8f73a17b501db8ef4679a5e3ffe74dc2010f9c724da74a2fa73a99667c",
+      "before": "Podoba ci się?\nTen Gustav służy też jako ruchomy sztab.\nSam będę z niego korzystał na naradach.",
+      "after": "Podoba ci się?\nTen Gustav służy też jako ruchomy sztab.\nSam będę z niego korzystał podczas narad.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:15836"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:15836",
+      "source_sha256": "6847f10b77d611a3053657c30f7c731f4991fa0f4c560e7a2281f294b7a5679c",
+      "before": "Podoba ci się?\nTen Gustav służy też jako ruchomy sztab.\nSam będę z niego korzystał na naradach.",
+      "after": "Podoba ci się?\nTen Gustav służy też jako ruchomy sztab.\nSam będę z niego korzystał podczas narad.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:16256",
+      "source_sha256": "70885cf77e9cb0197e3c300d24d77a12d6513946b749a6a8e4c134c343b4feab",
+      "before": "Niestety, pudłoooo!",
+      "after": "Nic z tegooo!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:16256"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:16256",
+      "source_sha256": "f50400bd7354179f4938670b6e5700e5408ac0e4f115619fb496dcff25674543",
+      "before": "Niestety, pudłoooo!",
+      "after": "Nic z tegooo!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:17564",
+      "source_sha256": "99a1c9722f9ff37874514184834220b61b19459c5d9e4cfb68883c1e3e713863",
+      "before": "Szczerze mówiąc, nie chciałem cię w tej wojnie.\nTo nie jest ściganie bandytów na naszych ziemiach.\nTo wojna między państwami.\r\n",
+      "after": "Szczerze, nie chciałem cię wciągać w tę wojnę.\nTo nie jest ściganie bandytów na naszych ziemiach.\nTo wojna między państwami.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:17564",
+      "source_sha256": "d5d219e86320d0e5254e8b4bdb012f44c4d7d2730a7483cbb45d132aa9437ca4",
+      "before": "Szczerze mówiąc, nie chciałem cię w tej wojnie.\nTo nie jest ściganie bandytów na naszych ziemiach.\nTo wojna między państwami.\r\n",
+      "after": "Szczerze, nie chciałem cię wciągać w tę wojnę.\nTo nie jest ściganie bandytów na naszych ziemiach.\nTo wojna między państwami.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:17564"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:19284",
+      "source_sha256": "455de563b9ff5f1add50fe486928080d5afbb2bcad17b8146372991a2fa7ebb4",
+      "before": "Rozuuumiem.\nCzyli łączy się zwierzęcy umysł z komputerem\nsterującym i wychodzi samodzielna broń.",
+      "after": "Rozuuumiem.\nCzyli zwierzęcy umysł połączony z komputerem\nsterującym tworzy samodzielną broń.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:19472",
+      "source_sha256": "72fe87c4703f75b89383b5096247c1385e1302c03a89f391071fd0e801b57e4d",
+      "before": "Rozuuumiem.\nCzyli łączy się zwierzęcy umysł z komputerem\nsterującym i wychodzi samodzielna broń.",
+      "after": "Rozuuumiem.\nCzyli zwierzęcy umysł połączony z komputerem\nsterującym tworzy samodzielną broń.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:19284"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:19852",
+      "source_sha256": "8b380eec9f8ce5b88f4228e47baf62c985270e63fbf0d984f8e9e2b7e36b9b2d",
+      "before": "Ogień osłonowy naszych Zoidów,\nktóre wycofują się po drodze, zaraz ustanie.",
+      "after": "Ogień osłonowy naszych oddziałów Zoidów,\nktóre się przy tym wycofują, zaraz ustanie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:20040",
+      "source_sha256": "db8418a4b2fcaad5197cebe4947e1ccdc23d3844e53eda478459bd5bcf1e3b6e",
+      "before": "Ogień osłonowy naszych Zoidów,\nktóre wycofują się po drodze, zaraz ustanie.",
+      "after": "Ogień osłonowy naszych oddziałów Zoidów,\nktóre się przy tym wycofują, zaraz ustanie.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:19852"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:21784",
+      "source_sha256": "a5b0783402a4a9c07d18f9f3bd3f3b9964a096ea52556a4517f3cce52ef693fd",
+      "before": "Nawet jeśli nie przebijemy się przez ten szczyt,\nw sumie stale spychamy ich linie obrony.",
+      "after": "Nawet jeśli nie przebijemy się przez te wzgórza,\nw sumie stale spychamy ich linie obrony.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:21968",
+      "source_sha256": "e375cc5d6087be2267cb3af5293d245ecb7e4f2480e9794c3a721e68895e1649",
+      "before": "Nawet jeśli nie przebijemy się przez ten szczyt,\nw sumie stale spychamy ich linie obrony.",
+      "after": "Nawet jeśli nie przebijemy się przez te wzgórza,\nw sumie stale spychamy ich linie obrony.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:21784"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:24540",
+      "source_sha256": "1ca4dd1855ae8dfe7648d64e58ae28ac0159134f48084b34d1a040dd98b8c896",
+      "before": "Zostaw to mnie!\nNigdy się nie poddaję, to moja mocna strona!\r\n",
+      "after": "Zostaw to mi!\nNigdy się nie poddaję, to moja mocna strona!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:25172",
+      "source_sha256": "31e9085c832c5275f01fc3ef622388a3aa5168f303cdfa67986366429add14c4",
+      "before": "Jak zostaniemy odcięci między nimi, to po nas.\nTrzeba zająć pozycje, z których się osłonimy.\r\n",
+      "after": "Jak zostaniemy odcięci, to po nas. Trzeba zająć\npozycje, z których będziemy współdziałać.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:25392",
+      "source_sha256": "8604c791065cc55a96c5babcf4192b2746a315568003838745df28d8acf35217",
+      "before": "Jak zostaniemy odcięci między nimi, to po nas.\nTrzeba zająć pozycje, z których się osłonimy.\r\n",
+      "after": "Jak zostaniemy odcięci, to po nas. Trzeba zająć\npozycje, z których będziemy współdziałać.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:25172"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:27812",
+      "source_sha256": "3955a4ed9e60808d1964dc7f0d8f9c74a580ffa4d30a28ae6218354e0f4fdbe0",
+      "before": "Dostojny, uporządkowany odwrót, co?\nConnect Force... umieją walczyć.",
+      "after": "Wzorowo uporządkowany odwrót.\nConnect Force... umieją walczyć.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:27568"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:27568",
+      "source_sha256": "e4397cffbc480af92f8c566391157430f17b42364e6546ace218fbc430c5d809",
+      "before": "Dostojny, uporządkowany odwrót, co?\nConnect Force... umieją walczyć.",
+      "after": "Wzorowo uporządkowany odwrót.\nConnect Force... umieją walczyć.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_11G.bin:28768",
+      "source_sha256": "54ffbf9494d90bda0038b0c6067b2b18f51733d798be155eda587c2f61a9415b",
+      "before": "Generałowie, którym dano twierdzę, łakną chwały.\nRozkazy wykonane połowicznie siałyby chaos.\nJego Ekscelencja weźmie to pod uwagę.",
+      "after": "Generałowie mający zdobyć twierdzę łakną chwały.\nRozkazy wykonane połowicznie siałyby chaos.\nJego Ekscelencja weźmie to pod uwagę.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_11.bin:28524"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_11.bin:28524",
+      "source_sha256": "618db734f5cce917bd6aad31fdfc177bf509a73e08e125afceee570ef0a2b6a2",
+      "before": "Generałowie, którym dano twierdzę, łakną chwały.\nRozkazy wykonane połowicznie siałyby chaos.\nJego Ekscelencja weźmie to pod uwagę.",
+      "after": "Generałowie mający zdobyć twierdzę łakną chwały.\nRozkazy wykonane połowicznie siałyby chaos.\nJego Ekscelencja weźmie to pod uwagę.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:284",
+      "source_sha256": "ff52cccc3508887b3b0389a2bdd2bd7975e61fec6bf58bcb8e17dc6fe0646fc1",
+      "before": "Celowo porzuconą twierdzę sprytnie zaminowano\npułapkami, od automatycznych baterii po bezzałogowe\nZoidy Sleeper, co pozwoliło zyskać mnóstwo czasu.\n",
+      "after": "Celowo porzuconą twierdzę sprytnie naszpikowano\npułapkami, od automatycznych baterii po bezzałogowe\nZoidy Sleeper, co pozwoliło zyskać mnóstwo czasu.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:1492",
+      "source_sha256": "80e1f93f473c4d3ff5164a94595a6cf30668829e84c009be185df1dab7f9070b",
+      "before": "Dlaczego tak się ustawili...?\nTwierdzy wbudowanej w góry powinno się\nbronić o wiele łatwiej.",
+      "after": "Dlaczego tak się ustawili...?\nTwierdza wbudowana w góry powinna być\nznacznie łatwiejsza do obrony.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:3236",
+      "source_sha256": "a3f58b761d62f189e770f56a2aec83be7916f03df97c5b4ef39ad22be0a04256",
+      "before": "Uderzymy szeroko na front Zoidami Sleeper\ni rozpoznamy rozmieszczenie oraz siły wroga.",
+      "after": "Uderzymy Zoidami Sleeper na szerokim froncie\ni rozpoznamy rozmieszczenie oraz siły wroga.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:4112",
+      "source_sha256": "a1f165ac636bde8e6ebf16f90eca7f6055a88d15ad52eef507f3cdeaf30953d1",
+      "before": "Prozen nie może go dostać, za żadne skarby.\nTak uważam!",
+      "after": "Prozen za żadne skarby nie może zdobyć miasta.\nTak uważam!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:6688",
+      "source_sha256": "d0d36c8272055c8c8d26469bb3086b30ea436cd039176ed6a36b95ee742417c7",
+      "before": "Na obu skrzydłach to samo.\nJesteśmy w krzyżowym ogniu ich Zoidów i pod\nostrzałem z tyłu. Nie możemy się przebić.",
+      "after": "Na obu skrzydłach to samo. Jesteśmy\nw krzyżowym ogniu Zoidów i pod ostrzałem\nwspierającym zza ich pozycji. Nie przebijemy się.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:7756",
+      "source_sha256": "d53745c7e6f02e4de4eed3af26a8833cdee46c880c2b8217875889668de9e67f",
+      "before": "Cel: roboty Connect Force!\nPokonajmy je, a w zwykłej walce Zoidów wygramy!",
+      "after": "Cel: roboty Connect Force!\nPokonajmy je, a zwykłą walkę Zoidów wygramy!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:12916",
+      "source_sha256": "75f6e00d799b7a03237da5bbdd270ebd24f9bf927c7976b8ea3a4cbb41e22634",
+      "before": "Wyglądasz na miłego faceta, ale sztywniacy\nto nie w moim typie.\nPrzykro mi, ale masz mnie na celowniku!",
+      "after": "Wyglądasz na miłego faceta, ale sztywniacy\nto nie w moim typie.\nPrzykro mi, ale mam cię na celowniku!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:14376",
+      "source_sha256": "73997cb6e3eee855f03f1e44a75377135dcd410fa36ee62b18bf763238d5b6be",
+      "before": "Ale na polu bitwy nie mogę się oszczędzać.\r\n",
+      "after": "Ale na polu bitwy nie mogę cię oszczędzać.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:17636",
+      "source_sha256": "86f822600ae7fcfbb28013c5d2c8f74d3d5427e34204ab1722595a9ef0a2beb0",
+      "before": "Dobrze. Zmienić oddziały na froncie. Generalny atak!",
+      "after": "Dobrze. Zluzować oddziały. Generalny atak!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:19212",
+      "source_sha256": "0b9386ed6e2b9a7a4f3b1e2e4d699b0f2dfd347e78b479993287f726ea32f89f",
+      "before": "Meldunek!\nWraz z erupcją w twierdzy doszło do wybuchów.\nWiele oddziałów zasypało w tunelach i wąwozach.\r\n",
+      "after": "Meldunek!\nWraz z erupcją w twierdzy doszło do wybuchów.\nMnóstwo oddziałów zasypano w tunelach i wąwozach.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:19800",
+      "source_sha256": "c5fb6ca47e74e5c1f2b8a63a5f0a479e64c81bc32055ba617909f99ca5c37805",
+      "before": "Broń bezzałogowa rozstawiona pod nasz szyk,\nnaloty na zaopatrzenie po wysadzeniu twierdzy...\nOto co znaczy zostać kompletnie przechytrzonym.\r\n",
+      "after": "Broń bezzałogowa rozstawiona z myślą o naszym szyku,\nnaloty na zaopatrzenie po wysadzeniu twierdzy...\nOto co znaczy zostać kompletnie przechytrzonym.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:21180",
+      "source_sha256": "07841d752c81ceac5192f7419bab8cb8bf1d3482adfcf282312469f87b699b05",
+      "before": "Nie. Imperium potrzebuje zdolnych oficerów.\nAle nie żołnierze zauroczeni Prozenem.\nWłaśnie to zamierzam sprawdzić.",
+      "after": "Nie. Imperium potrzebuje zdolnych oficerów.\nAle nie żołnierzy zauroczonych Prozenem.\nWłaśnie to zamierzam sprawdzić.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_12.bin:22752",
+      "source_sha256": "163d7e880c001629a6b9e70654b78d1377978bf1c872d73c393ce8e1049ed73e",
+      "before": "Ale ty, wspierając Imperium Guylos pod rządami\nProzena, nie możesz wyznawać ideałów równych moim.",
+      "after": "Ale ty, wspierając Imperium Guylos\npod rządami Prozena, nie wyznajesz moich ideałów.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:5688",
+      "source_sha256": "be75fb30338a6cd084bc2ec938028373e988fa2c9b86490467ae7f4694abfedf",
+      "before": "Nieźle.\nTyle mi przysporzyć kłopotu.\r\n",
+      "after": "Nieźle.\nNarobiliście mi tyle kłopotu.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:5652"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:5652",
+      "source_sha256": "ebfc9e6fccc014d72c8b761dfb5963a4ac142f046e7e7ba15ab1708b135c4300",
+      "before": "Nieźle.\nTyle mi przysporzyć kłopotu.\r\n",
+      "after": "Nieźle.\nNarobiliście mi tyle kłopotu.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:5984",
+      "source_sha256": "1eb0e476a9e3b16d179d8f7209cdf6dab708e45b2ae4f72b94fe125d0bc3ea09",
+      "before": "To nie było warte nawet zabicia nudy.\nSkoro już jesteś, zatańczmy, beksa Van.",
+      "after": "To nawet nie złagodziło mojej nudy.\nSkoro już jesteś, zatańczmy, beksa Van.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:5952"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:5952",
+      "source_sha256": "ae32aca3d1d207615355ee2df0aec2ffca06b0aa046fb5cd6bdb493dd9fbef6e",
+      "before": "To nie było warte nawet zabicia nudy.\nSkoro już jesteś, zatańczmy, beksa Van.",
+      "after": "To nawet nie złagodziło mojej nudy.\nSkoro już jesteś, zatańczmy, beksa Van.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:11484",
+      "source_sha256": "5966a741a715d84a8d1d8bad9db246d80632d75a149ee564b2d013e33f9f281c",
+      "before": "Oddział bojowy, który nie jest Zoidami...",
+      "after": "Oddział bojowy bez Zoidów...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:11556",
+      "source_sha256": "b138e2df3d492e1789174e802bda0674d313dd1bba0b1cea9b11ff3a6b68484b",
+      "before": "Oddział bojowy, który nie jest Zoidami...",
+      "after": "Oddział bojowy bez Zoidów...",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:11484"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:11892",
+      "source_sha256": "2594ce70b7cd35fb72bb4cd8083bc2be735064bdedc993aa961308e1cd41825a",
+      "before": "To pokażę ci tyle zabawy, ile zdołasz znieść!",
+      "after": "To dam ci rozrywkę, ile tylko zdołasz znieść!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:11820"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:11820",
+      "source_sha256": "c7db33574a67622cf9bd6b1182e4e5a7fbe931c09cce121ad7c81eaf760e7a03",
+      "before": "To pokażę ci tyle zabawy, ile zdołasz znieść!",
+      "after": "To dam ci rozrywkę, ile tylko zdołasz znieść!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:12652",
+      "source_sha256": "d650355c5229d3391541a84f97f195b8738034308bf076b3e6876ef2f882d39e",
+      "before": "Van ufa swojemu Zoidowi.\nA tego ty nie masz!\r\n",
+      "after": "Van ufa swojemu Zoidowi.\nTy swojemu nie ufasz!\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:12580"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:12580",
+      "source_sha256": "fdce89fb3be1e6df0c6d71a88cdb9383dee9daf7068bc861cd99726bd64a1f05",
+      "before": "Van ufa swojemu Zoidowi.\nA tego ty nie masz!\r\n",
+      "after": "Van ufa swojemu Zoidowi.\nTy swojemu nie ufasz!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:15588",
+      "source_sha256": "899f58db57b4d377f06632cef92760bdf0eb9957315b7bc8eafc0077d1c3df4e",
+      "before": "Ja jestem zły?\nZa tą bitwą widzę czekający pokój.\nTo, że obcy nazywa go złem, jest nad wyraz śmieszne!\r\n",
+      "after": "Ja jestem zły?\nZa tą bitwą widzę czekający pokój.\nNazywanie tego złem przez przybysza jest śmieszne!\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:15520"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:15520",
+      "source_sha256": "b18aaa4b01437173ffaedc354797ce830f3a6fec5e32efa0d6801e862e45ece8",
+      "before": "Ja jestem zły?\nZa tą bitwą widzę czekający pokój.\nTo, że obcy nazywa go złem, jest nad wyraz śmieszne!\r\n",
+      "after": "Ja jestem zły?\nZa tą bitwą widzę czekający pokój.\nNazywanie tego złem przez przybysza jest śmieszne!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:17828",
+      "source_sha256": "f023283daf1ac1f7c512df632f0e229bc7017fb20caa5e8a28189b5aeb20cf80",
+      "before": "Mniejsza z tym...\nPozbędziemy się nieudolnych dygnitarzy, a zdolni\nłatwiej obsadzą trzon armii. Niewielka cena...",
+      "after": "Mniejsza z tym...\nPozbędziemy się nieudolnych dygnitarzy, a zdolni\nłatwiej umocnią trzon armii. Niewielka cena...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:19436",
+      "source_sha256": "06b554fa1fbf892e2b83f013c289579517e6bdbd634c7f576c32c639a03998e3",
+      "before": "Nasze straty przekraczają szacunki, owszem, ale\nsame moje siły osobiste przewyższają waszą armię.",
+      "after": "Nasze straty przekraczają szacunki, ale siły\npod moim dowództwem przewyższają wasze.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:19504",
+      "source_sha256": "22c275f806937d884081a598ecd006336f519491064c852a5603af3ca9ddb632",
+      "before": "Nasze straty przekraczają szacunki, owszem, ale\nsame moje siły osobiste przewyższają waszą armię.",
+      "after": "Nasze straty przekraczają szacunki, ale siły\npod moim dowództwem przewyższają wasze.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:19436"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_13.bin:22944",
+      "source_sha256": "2fd09b1e647035286647a40db4850f557d6e01c26b8f1566bc144ffe508501a9",
+      "before": "Ale czyn jednej osoby może przerosnąć każdy plan.\nWłaśnie tym był komunikat cesarza Rudolpha.",
+      "after": "Ale czyn jednostki może przeważyć nad planem.\nWłaśnie tym był komunikat cesarza Rudolpha.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL207_13B.bin:22988",
+      "source_sha256": "f0cd7b0abfaeb7bb8fda9fd5b1e420832d96077a691a9bd73e83126f384aa0ce",
+      "before": "Ale czyn jednej osoby może przerosnąć każdy plan.\nWłaśnie tym był komunikat cesarza Rudolpha.",
+      "after": "Ale czyn jednostki może przeważyć nad planem.\nWłaśnie tym był komunikat cesarza Rudolpha.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_13.bin:22944"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_20.bin:856",
+      "source_sha256": "c78277f29dbe00e5951358f95f675ef988c1c2a110d7115275b32d1b586d31cc",
+      "before": "Prozen, który wcześniej prowadził rozmowy z ISTO,\nteraz okazał zrozumienie dla Connect i wolę cesarza.",
+      "after": "Prozen, który rozmawiał z ISTO, teraz okazał\nzrozumienie dla Connect i ugiął się przed cesarzem.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_20.bin:8656",
+      "source_sha256": "1e74eba7cda2538ff58961e1b5ef8530513da2d7048bdc36591fa226034c3797",
+      "before": "Słuchaj uważnie, smarkaczu.\nOrganoid to nie jest coś dla ciebie.\nOddaj go, a daruję ci życie.",
+      "after": "Słuchaj uważnie, smarkaczu.\nOrganoid to nie coś, co powinieneś mieć.\nOddaj go, a daruję ci życie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_20.bin:18344",
+      "source_sha256": "fa108544158561389ec694a69ff8896d7a00cb2cf7ef3bc5900f003d359548b0",
+      "before": "Jeśli tak, to piekielnie niebezpieczny Zoid.\nMógł zniszczyć prastarą cywilizację.\n",
+      "after": "Jeśli tak, to piekielnie niebezpieczny Zoid.\nMógł doprowadzić do zagłady pradawnej cywilizacji.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_20.bin:19768",
+      "source_sha256": "a41adc4a95fb1c7f76d2bb8dd036c31643f1c93eb773086b2c6a534185fe5af9",
+      "before": "No, o te głosy Mucus...\nZawsze jesteś taka pogodna, że...\nchyba nie byłem zbyt domyślny...",
+      "after": "No, o te głosy Mucus...\nZawsze jesteś taka pogodna, że...\nchyba byłem mało spostrzegawczy...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_20.bin:21800",
+      "source_sha256": "f60091ee79e4b3c7d46379b9e83a1ec3ae51552eb9e3a90a65bcf3d30b558804",
+      "before": "No właśnie!\nDotknęła tablicy i zobaczyła tego Death Saurera.\nTeraz pozostaje tylko wytrząsnąć prawdę z Prozena.",
+      "after": "No właśnie!\nFiona dotknęła tablicy i zobaczyła Death Saurera.\nTeraz pozostaje tylko wytrząsnąć prawdę z Prozena.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_30.bin:2760",
+      "source_sha256": "bba309296748077cc8dc0e59a42a031515f196593bbb6d3c0629d919a5c34977",
+      "before": "To oczywiste.",
+      "after": "Tyle się ode mnie oczekuje.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_30.bin:8348",
+      "source_sha256": "549e78524c5e2297870a33296bbfa10612a6987a791c70d29ac95fa1fb34f55f",
+      "before": "Rozszarpią na strzępy każdego, kto nie jest z nas.",
+      "after": "Każdego spoza nas rozszarpią na strzępy.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_30.bin:9156",
+      "source_sha256": "c2e71dedceaa7bec8d02281cf7d4459fa99a5eee3ae4d80a3051b5a2f1df2472",
+      "before": "Te Zoidy Sleeper oblepiają mnie\nbez żadnej ostrożności...\nW takiej sytuacji są gorsze, niż myślałam.",
+      "after": "Te Zoidy Sleeper oblepiają mnie,\nnie zważając na niebezpieczeństwo...\nW takich warunkach są trudniejsze, niż myślałam.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_30.bin:11396",
+      "source_sha256": "828ddf0662928f1789ccd9b4da3f6e89fbcff25cbf53ec802fb945bea6c57588",
+      "before": "Pańskie rozkazy tak łatwo z góry zrozumieć.\nTo dla mnie jako drugiego pilota duża pomoc.",
+      "after": "Pana rozkazy łatwo odczytać z góry.\nTo dla mnie jako drugiego pilota duża pomoc.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_30.bin:12216",
+      "source_sha256": "8ddc6ea78940b9a733bc569d4fd74b79f0d7ed4ec1143c0caf644e27bc47836b",
+      "before": "Himari, to samo dotyczy twojej siły.\nRozwijając się, możesz dobrze\nwpływać na otoczenie.\r\n",
+      "after": "Himari, to samo dotyczy twojej siły.\nRozwijając się, możesz dobrze\nwpływać na ludzi wokół ciebie.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:2428",
+      "source_sha256": "0d338d189ff3a51ee40070245293e821ab5dfa187cc983cd37f2334fd83ec04f",
+      "before": "Cóż, incydenty mają to do siebie,\nże lubią się łańcuchowo powtarzać.\r\n",
+      "after": "Cóż, incydenty mają to do siebie,\nże następują jeden po drugim.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL207_50E.bin:2412",
+      "source_sha256": "904f5d8b24abdc831d4a69af36303842e7547eb0b4cbdb1fc5a65c55da8565aa",
+      "before": "Cóż, incydenty mają to do siebie,\nże lubią się łańcuchowo powtarzać.\r\n",
+      "after": "Cóż, incydenty mają to do siebie,\nże następują jeden po drugim.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:2428"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:3712",
+      "source_sha256": "1eb9b56f5dbb88eaab0550acaed7b09d7ea42e07c31b9687ba291c65f57d682b",
+      "before": "Żeby kiedyś, gdy będę mogła wrócić do Japonii,\nwrócić z podniesioną głową...\r\n",
+      "after": "Żeby kiedyś, gdy będę mogła wrócić do Japonii,\nmogła to zrobić z podniesioną głową...\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_50G.bin:7164",
+      "source_sha256": "21bc0a75f7f0d23d0ccdeb4ae39fe625e37a446ae1ac5c1dd48cfbd2b67e3c57",
+      "before": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich jądra jeszcze nie znalazłem.",
+      "after": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich rdzenia jeszcze nie znalazłem.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:7244"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:7244",
+      "source_sha256": "2a6301b412d8ca01953f013047086b9f26d374998e25dea2668e9443e77d8f71",
+      "before": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich jądra jeszcze nie znalazłem.",
+      "after": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich rdzenia jeszcze nie znalazłem.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL207_50E.bin:7184",
+      "source_sha256": "59b93ecead1f4d8c702970d52605e7778dd3e220c6444677e4c2c4d006998448",
+      "before": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich jądra jeszcze nie znalazłem.",
+      "after": "Wytępiłem już komórki DG na kilku asteroidach,\nale ich rdzenia jeszcze nie znalazłem.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:7244"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL207_50G.bin:7832",
+      "source_sha256": "68d2b31cce5ce7930e9ca16adaa8bacb1dd45d1b47373dff046e0fe4e66d7a4b",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:7912"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL207_50E.bin:7852",
+      "source_sha256": "77085ad52717008c5ce3861e910cbb6962e98477811194e959e16a0c99cd7da3",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:7912"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:7912",
+      "source_sha256": "960f0ffe85e7fb83ea6702af350993e2627fdda25a34e223efb81526eb4c1308",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:9872",
+      "source_sha256": "9826bf1c8ee450b1c06af0abb895e10c96076bddbf382475596d625509ac62be",
+      "before": "Są wyniki skanowania.\nW środku jest ogromna pustka.\r\n",
+      "after": "Są wyniki skanowania.\nW środku jest ogromna pusta przestrzeń.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL207_50E.bin:9812",
+      "source_sha256": "cedbfb54f183805443f8a572b1d08fbed9e3681bba9f4aaf1e67b84fbe8f346e",
+      "before": "Są wyniki skanowania.\nW środku jest ogromna pustka.\r\n",
+      "after": "Są wyniki skanowania.\nW środku jest ogromna pusta przestrzeń.\r\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL207_50.bin:9872"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL207_50.bin:13248",
+      "source_sha256": "bbe73b76e35b126668baf032043230f0bd4c6dc5386664477f061c19103fac47",
+      "before": "Zostawiłem świeżo poślubioną żonę dla komórek DG.\nJeśli nie wytępię ich do cna,\nnie będę mógł spojrzeć jej w oczy!\r\n",
+      "after": "Porzuciłem świeże małżeństwo, by ścigać komórki DG.\nJeśli nie wytępię ich do cna,\nnie będę mógł spojrzeć jej w oczy!\r\n",
+      "reason": ""
+    }
+  ]
+}

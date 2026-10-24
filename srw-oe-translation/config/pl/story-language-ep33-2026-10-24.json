@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "episode": 33,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL833_12.bin:8612",
+      "source_sha256": "2014f5d7aebb95db5b2e6af37b3a7d526eb587869c6650c3bc43d897b3fa0d99",
+      "before": "To zostawcie mnie.",
+      "after": "To zostawcie mi.",
+      "reason": "ep33 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL833_12G.bin:8608",
+      "source_sha256": "e6c17284487bbb4819601faa70a85bdccd2881add7ebcb7630e0e037d2d132fb",
+      "before": "To zostawcie mnie.",
+      "after": "To zostawcie mi.",
+      "reason": "ep33 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

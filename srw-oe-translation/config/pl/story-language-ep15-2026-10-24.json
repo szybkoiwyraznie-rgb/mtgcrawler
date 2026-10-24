@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 15,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL415_70.bin:9740",
+      "source_sha256": "5ae6af97e62aecb49b5de0b5c71e495f1d0ed9907732f9da5d43c31d22326cfe",
+      "before": "Zostawcie to mnie!\nChoćby zebrał nie wiem ile wojska,\nmy mamy masę przyjaciół. Bułka z masłem!",
+      "after": "Zostawcie to mi!\nChoćby zebrał nie wiem ile wojska,\nmy mamy masę przyjaciół. Bułka z masłem!",
+      "reason": "ep15 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

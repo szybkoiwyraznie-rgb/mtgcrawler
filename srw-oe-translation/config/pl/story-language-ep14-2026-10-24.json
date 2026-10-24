@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 14,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL414_12.bin:4424",
+      "source_sha256": "1f2a606e824e997b529880111743dfd432af2f92c0abe67ec582baef202614ee",
+      "before": "Chyba potrafię rozbroić te pułapki.\nZostaw to mnie!",
+      "after": "Chyba potrafię rozbroić te pułapki.\nZostaw to mi!",
+      "reason": "ep14 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

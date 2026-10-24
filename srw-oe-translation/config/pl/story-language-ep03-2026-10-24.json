@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "episode": 3,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:2528",
+      "source_sha256": "3699a404fb913ebc9f9f616d579f7643c29f2a24f03e470ee7d0f1f24ea8a0cd",
+      "before": "Baza Federacji... co...",
+      "after": "Baza Federacji, więc...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:6136",
+      "source_sha256": "27da35052a372d275d3a50a9126141af8dc99f9c28f19c20d2f2299ef5991cca",
+      "before": "Szybko się rozwijają.\nTo pewnie oddział elitarny.",
+      "after": "Szybko zajmują pozycje.\nTo pewnie oddział elitarny.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:8344",
+      "source_sha256": "7cd412812029f6251ac4fc3872108b058d1d325dcf79181c80d88ddceda3a952",
+      "before": "Do dzieła...!\nZwrotnością maszyny aury wprowadzę zamęt\ni zatrzymam tu ich okręt-matkę!",
+      "after": "Do dzieła...!\nDzięki zwrotności maszyny aury narobię zamętu\ni zatrzymam tu ich okręt-matkę!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:9844",
+      "source_sha256": "7186fce6b24878b712376d560e370fa4621dc0d1a4e2130e03bbe9f6b268517c",
+      "before": "Na całego wygralibyśmy w mgnieniu oka,\nale to ludzie, więc trzeba się hamować.",
+      "after": "Idąc na całego, wygralibyśmy od razu,\nale to ludzie, więc trzeba się hamować.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:10244",
+      "source_sha256": "c0e343169a48870c5f3a028fa683c40cd6b4f593fc144f833552b27a4e003e33",
+      "before": "Ludzie, my po prostu robimy swoje!\nNie wpuśćcie wroga do środka!",
+      "after": "Wszyscy, robimy po prostu swoje!\nNie wpuśćcie wroga do środka!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:11144",
+      "source_sha256": "64149b31276d4584085e254de2b9704e3ffbbb855a6a4e4bb043df81d6599f5a",
+      "before": "Sofistyka...!\r\n",
+      "after": "Sofizmat...!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:15508",
+      "source_sha256": "41ec71320649b29b826e88f22c73b28b4b2bee0d06111a5cf39f5af0e7a43948",
+      "before": "Nawet koń trojański nie nadąży\nza moją szybkością z tej odległości!\r\n",
+      "after": "Nawet koń trojański z tej odległości\nnie nadąży za moją szybkością!\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_11.bin:18724",
+      "source_sha256": "65a976ac18728ef0f6e4ab3b70048cd03c98f0c72c5a114c9e59de24edbf850b",
+      "before": "Ani trochę. Z damą trzeba postępować\nzręczniej, bo inaczej straci zainteresowanie.",
+      "after": "Dokładnie. Z damą trzeba postępować\nzręczniej, bo inaczej straci zainteresowanie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:740",
+      "source_sha256": "b76758a92dfa6d822392e8626eb4501118faef646bfdbe5297cc2d675f9ac071",
+      "before": "Jak ty możesz być taki spokojny?\nJaki by nie był ten powód, każdego by wkurzyło,\njakby ktoś bez słowa zaczął strzelać, nie?",
+      "after": "Jak ty możesz być taki spokojny?\nNieważne, jaki powód, każdego wkurzyłoby\ngdyby ktoś bez słowa zaczął strzelać, nie?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:6188",
+      "source_sha256": "d0ab0a7e4b2d9a82c5e3a48f9dd4d2175611c07e476ec6888fa918909311677d",
+      "before": "Invaderzy, co...\nTo chyba bardziej dla nas niż roboty, nie?",
+      "after": "Invaderzy... Tacy przeciwnicy\npasują nam lepiej niż roboty, nie?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:10472",
+      "source_sha256": "6b63209c1c27a1a0bd5f29db167e49b9aaf572cc9e4e71128b25ada244fb561e",
+      "before": "Metal Beast, tak?\nCzuć od niego złą wolę,\ntak samo jak od Metalowych Rycerzy...",
+      "after": "A więc to Metal Beast...\nCzuć od niego złą wolę,\ntak samo jak od Metalowych Rycerzy...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:12376",
+      "source_sha256": "24623b60f8f80d281984aab6697e411e62311e7d1abe909fa6441de943200ee2",
+      "before": "Jako jednostka bojowa na tym kończymy.\nZdamy raport z faktów, śledztwo zostawmy innym.\r\n",
+      "after": "Na tym kończy się rola naszej jednostki bojowej.\nZłóżmy raport o faktach, a śledztwo zostawmy innym.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:14784",
+      "source_sha256": "a7d4f7b1e8fb8f8c34d44a00b3b34ed9b485ab7e0f902576f614c8a49c1a2a07",
+      "before": "Jak daleko sięga już inwazja Invaderów?\nOby placówkom u nas w domu nic nie było.",
+      "after": "Jak daleko sięga już inwazja Invaderów?\nOby naszym miejscowym placówkom nic nie było.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:15452",
+      "source_sha256": "7eee2b078be6c5f03a5ee6507514351c8fcff46e631bd9af17316ab6f50f9286",
+      "before": "...Ale to znaczy, że wszyscy się starają, prawda?\nNie rozumiem tych skomplikowanych spraw,\nale żeby nikt nas nie najechał po cichu...",
+      "after": "...Ale to znaczy, że wszyscy się starają, prawda?\nNie rozumiem tych skomplikowanych spraw,\nale robią to, by nikt nas nie najechał znienacka...",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:18996",
+      "source_sha256": "860ebd448fc5b5f64d25b6d3a52a7904dc22517f4c43ed7e83c6b13774d2c77a",
+      "before": "Cóż, kimkolwiek jest druga strona,\ntrzeba wyjść jej naprzeciw, inaczej nie ma drogi.\nTak uważam.\r\n",
+      "after": "Cóż, kimkolwiek jest druga strona,\ntrzeba wyjść jej naprzeciw, inaczej\nżadna droga się nie otworzy. Tak uważam.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:19340",
+      "source_sha256": "494508793d267a4c58922bdfebbe032a2109c23f5ee155bbeda87004d88d1478",
+      "before": "Miałem pewne informacje, ale tym razem\nudawałem, że rząd Federacji mnie oszukał.\r\n",
+      "after": "Miałem pewne informacje, ale tym razem\nudawałem, że daję się rządowi oszukać.\r\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_12.bin:21348",
+      "source_sha256": "45c87db5eb15d870ad219a4dc67001de829a1f7c5ffdfd4c36aa2babf513cab1",
+      "before": "W takiej dyplomacji to na tobie polegam najbardziej.\nLiczę na ciebie.",
+      "after": "W takiej dyplomacji na tobie polegam najbardziej.\nLiczę na ciebie.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_20.bin:2424",
+      "source_sha256": "fa690a7870af3a1e185997933376562538a5493db170bc1d63fb2ea27066be65",
+      "before": "Co sprawia, że Labory\nzaczynają szaleć... prawda?",
+      "after": "To, co wprawia Labory\nw szał... prawda?",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_20.bin:12132",
+      "source_sha256": "29438a87ac96cba38297eeb5029caf2f1ac8645a7d739e809eaf975254ef0b92",
+      "before": "Noa, w kosmosie czy na Ziemi, pokażmy im, że jak\nchodzi o Labory, mogą to zostawić nam!",
+      "after": "Noa, w kosmosie czy na Ziemi, pokażmy im, że\nLabory mogą spokojnie zostawić nam!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_30.bin:856",
+      "source_sha256": "1e94ae5d13b80a5ee7ebc3d8d14ce61ec3ec9d86d2a5186223be040b705ff37a",
+      "before": "No i co z tego?\nŻarcie jest najważniejsze!",
+      "after": "No już, nic się nie stało!\nŻarcie jest najważniejsze!",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP09.EDAT/DL103_30.bin:800",
+      "source_sha256": "b5c4f52b6cd2e4e4269062c9e7ff7ae3fd3712707cab60071cb120ddf3fac02e",
+      "before": "No i co z tego?\nŻarcie jest najważniejsze!",
+      "after": "No już, nic się nie stało!\nŻarcie jest najważniejsze!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL103_30.bin:856"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP09.EDAT/DL103_30.bin:8520",
+      "source_sha256": "2164196bfc6a6dbf6aefc0709bc7382a8c2329f89cdc7974c39b7ab1974bb48a",
+      "before": "Nie, to nie takie proste.\nMusi istnieć syndykat, który nieuczciwie\nsię na nich bogaci, w zamian za pomoc.",
+      "after": "Nie, to nie takie proste.\nNa pewno jest syndykat, który w zamian\nza pomoc czerpie z nich nieuczciwe zyski.",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL103_30.bin:8760"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_30.bin:8760",
+      "source_sha256": "4afcd1ce6aa148fb033b208e35d78afde14cb22a76f7027591630e250fe63e63",
+      "before": "Nie, to nie takie proste.\nMusi istnieć syndykat, który nieuczciwie\nsię na nich bogaci, w zamian za pomoc.",
+      "after": "Nie, to nie takie proste.\nNa pewno jest syndykat, który w zamian\nza pomoc czerpie z nich nieuczciwe zyski.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_30.bin:9880",
+      "source_sha256": "98f8777861a3c0594850f19251cd828e395b8e8260588e1d3f71563744764ab5",
+      "before": "W drodze na Marsa Connect Force zajął\nbazę piratów.\nDało to impuls do szybkiego śledztwa w sprawie\nprzepływu pieniędzy do piratów i ich mocodawców.\n",
+      "after": "W drodze na Marsa Connect Force zajął\nbazę piratów.\nTo zapoczątkowało szybkie śledztwo w sprawie\nfinansowania piratów i organizacji za nimi.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP09.EDAT/DL103_30.bin:9580",
+      "source_sha256": "e666c1c370ded7de52d74c1c72b08610a90ec151c77a5185470d39ca9525cc59",
+      "before": "W drodze na Marsa Connect Force zajął\nbazę piratów.\nDało to impuls do szybkiego śledztwa w sprawie\nprzepływu pieniędzy do piratów i ich mocodawców.\n",
+      "after": "W drodze na Marsa Connect Force zajął\nbazę piratów.\nTo zapoczątkowało szybkie śledztwo w sprawie\nfinansowania piratów i organizacji za nimi.\n",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP01.EDAT/DL103_30.bin:9880"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:184",
+      "source_sha256": "c4f3377717dae64947e91b9f731331cb9ff4c3bd1e9fdefdc8a39f2d5dc0e538",
+      "before": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał siedzibę na cały Układ Słoneczny.",
+      "after": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał główną siedzibę Układu Słonecznego.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:1364",
+      "source_sha256": "2f3b4389804dd0017daca7b3536a04abe3dc6713aa10404db9a68625c5bd1fce",
+      "before": "Ściśle mówiąc, do siedziby na Układ Słoneczny.",
+      "after": "Ściśle mówiąc, do siedziby Układu Słonecznego.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:3320",
+      "source_sha256": "3e25f666bef0ae6952e8e3c0d0231d0bf89460108c86db847d711d3786473a7d",
+      "before": "Okręt przyspiesza wiązka naprowadzająca\nemitowana przez stację.",
+      "after": "Wiązka naprowadzająca ze stacji\nprzyspiesza okręt.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:4780",
+      "source_sha256": "3925d3970673a9619d33c38f314eca71521c8e42ef40720ae7362a4699c28d45",
+      "before": "Nie, to nie jest aż tak wygodne.\n",
+      "after": "Nie, to nie takie proste.\n",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:5188",
+      "source_sha256": "d6b1f86a2744c46bdb5dc71c72323ef77c8b3c047a8ae753d6a7da976098f9cb",
+      "before": "Zgadza się.\nPod osłoną pola, które tworzy Ark Ship, materia\npokonuje nietknięta przekrój czasoprzestrzeni.",
+      "after": "Zgadza się.\nChroniona polem Ark Shipa materia może\nprzejść nietknięta przez przekrój czasoprzestrzeni.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:6308",
+      "source_sha256": "14d1f3b97cfae2be7ba46829655fd26a61cf3f0ffbb6aaebbfbe93630eb9bb4e",
+      "before": "Ten alarm chyba nie to oznacza, co?",
+      "after": "Ten alarm nie oznacza przybycia.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:18572",
+      "source_sha256": "1c2a2b8d0d63b0e650a667369980cc81d84d309c44db306f86a2be7040a26977",
+      "before": "Ile razy by nie wrócił, obronię ją.",
+      "after": "Nieważne, ile razy wróci, obronię ją.",
+      "reason": ""
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL103_40.bin:18956",
+      "source_sha256": "d5508e6845dc78a518a1270dfd9c278d5805645eb2e19c68518af4b7d57190e6",
+      "before": "Brak wam czujności, wszystkim.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!",
+      "after": "Wam wszystkim brak czujności.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!",
+      "reason": ""
+    }
+  ]
+}
