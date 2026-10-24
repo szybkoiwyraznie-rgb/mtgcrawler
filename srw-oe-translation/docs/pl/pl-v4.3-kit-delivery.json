@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "version": "4.3",
+  "date": "2026-10-24",
+  "scope": "Polish story-language review of the full prose corpus: episode-by-episode QA of episodes 0-34 against the Japanese/English bases plus a closing corpus-wide sweep, applied as 30 source-bound plans in config/pl/story-language-*.json (658 changes on 656 distinct snapshot rows; 453 in 00_dialogue.jsonl, 205 in 01_battle_quotes.jsonl). Recurring defect eradicated: dative recipient in the 'leave it to me' formula (JP ~ni makase), 'Zostaw to mnie' -> 'Zostaw to mi' game-wide (239 entries in the sweep; 0 defective occurrences remain, 6 correct accusatives deliberately kept). UI, PL font and texture-caption geometry unchanged from v4.2. Full ledger: docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.3.zip",
+    "drive_id": "1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view",
+    "bytes": 8763908,
+    "sha256": "df5898434198bb89a2ed38b1483cd61fc95f0f7ef46b4d6ea77c87adc2e14d20",
+    "md5": "2eb8b98a5995c2c71ae354e7639b543f",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.3 revision)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "download_back_byte_identical": true,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.3.zip",
+    "bytes": 7285821,
+    "sha256": "b5a0639b2bd0c8ea7dc0653c96d102b4370b734a2539c731b3a23586538ee3bb",
+    "md5": "adf755bc14526e0f7e45abb27560b5a6",
+    "zip_members": 157,
+    "note": "Built locally by tools/build_release_pair.py --version 4.3; not uploaded to Google Drive (only the PL kit is delivered there). English text unchanged vs v4.2; README_DIST.md unchanged."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262",
+    "changed_entries_vs_v4_2": 656,
+    "note": "658 source-bound plan changes on 656 distinct snapshot rows (two rows were edited by two plans). Text-only change vs v4.2: no UI labels, font or geometry change; coverage identical (108,805/109,176, 371 empty, 0 errors)."
+  },
+  "tests": "tools/build_release_pair.py internal verification (ZIP CRC, spec bytes vs repo, PL coverage 108,805/109,176, 0 errors) plus 13 release/reading/story test modules, 127 tests OK (test_pl5_final_release, test_pl_reading_series, test_pl_release_package, test_pl_story_corrections, test_pl_ui_qa_v41, test_pl_v4_0_consistency, test_polish_reading, test_polish_reading_zero, test_reading_script_episode34, test_reading_script_pipeline, test_reading_script_source, test_release_pair, test_release_verification).",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only: source-bound text validation (translation_check, width limits, newline/control-token preservation), materialization assertion of every changed row, unit tests, ZIP CRC/member hashes, Drive checksum read-back and byte-identical download-back. No PPSSPP session was run; the corrected lines should be spot-checked in game."
+  }
+}

@@ -1,7 +1,30 @@
-# Super Robot Wars OE — pełny polski patcher (v4.2 — geometria napisów tekstur wyrównana do TXCL)
+# Super Robot Wars OE — pełny polski patcher (v4.3 — korekta językowa całej fabuły)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Korekta językowa fabuły — v4.3 (2026-10-24)
+
+Pełny przegląd językowy polskiej prozy fabularnej, przeprowadzony epizod po
+epizodzie (0–34) z weryfikacją każdej zmiany wobec tekstu japońskiego
+i angielskiego, oraz domykający przegląd całej bazy:
+
+- **658 zmienionych wpisów** (30 planów źródłowych: 453 dialogi i 205 odzywek
+  bojowych): odpowiedzi niedopasowane do pytań, niezgodności rodzaju
+  mówiących i adresatów, kalki składniowe oraz błędny przypadek zaimka
+  w formule „Zostaw to mi” (JP ～にまかせ) — ta ostatnia poprawiona w całej
+  grze (239 wpisów, po korekcie 0 pozostałych wystąpień).
+- **Bez zmian pokrycia i interfejsu:** 108 805 / 109 176 wypełnionych wierszy,
+  371 świadomie pustych, 0 błędów, 4 176 ostrzeżeń; UI, font PL i geometria
+  podpisów tekstur jak w v4.2.
+- **Wersja tekstu:** `pakiet_PL/snapshot.json` — 108 794 wpisów,
+  `data_sha256 = e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262`,
+  `partial = false`.
+
+Aktualizacja z dowolnej starszej wersji przebiega jak zwykła instalacja
+(sekcja „Pełne wydanie PL — v4.0” niżej): spatchuj od nowa **czyste**
+japońskie ISO, wgraj świeże `patched.iso` i cały katalog `DLC\`, a zapis
+wczytaj normalnie po zimnym starcie (nie dawny save-state).
 
 ## Geometria napisów na teksturach — v4.2 (2026-10-24)
 
