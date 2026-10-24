@@ -208,3 +208,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** kierowany tag Virala „Żaden z nas nie chce już tracić czasu, prawda?”, kolokwialne wezwania Kaminy oraz emocjonalne rozdzielenie zdania Seishiro na dwa wpisy.
 - **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
 - **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 25
+
+- **Zakres:** 838 wpisów — 503 fabularne i 335 warunkowych; 146 grup z pytaniami (87 fabularnych, 59 warunkowych).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 2 zmiany źródłowe, bo rząd ma jedną jawną kopię (`story-language-ep25-2026-10-24.json`, SHA-256 `4ec8479745801730508869fe58dbf08238d7814ea1ef74e3298ae0b69c31a1ad`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka w cytowanym haśle „Zostawcie to mnie” zamiast „Zostawcie to mi” (Kenichi).
+- **Świadomie zachowane fałszywe alarmy:** poprawny biernik w „to mnie wybrał ten świat” Drago, żartobliwe „jakmutam” Kaminy, znaczniki ukrytego mówcy „＃???” oraz żarty o „wyprzedaży bogów”.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa` → `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
