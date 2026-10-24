@@ -599,7 +599,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_30.bin:3348","pl":"Taki mobile suit poszedłby za niezłą sumkę.","source_sha256":"0328c47466aa47719be79c7b09ecb3587ea1eccc6fa4881ebe2cd17b9cff22d0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:14768","pl":"Dobrze. Tak zrobię.","source_sha256":"03291d495db66eb070a43bb5e7e257f09441c15632be5584702dd09eb54d17ce"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL101_80G.bin:7604","pl":"Po tamtym incydencie wszystkie maszyny\nSił Samoobrony wróciły do producenta.\nPewnie na gruntowną kontrolę.","source_sha256":"032978a1687c99bde6f08feba24cd73347449c851c55b165c87504fd9c735d38"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:56392","pl":"Zostaw to mnie!","source_sha256":"032a564c06b20a7da1c09bee00e482c6f0572f460261dbb8f51dd8f074f2513d"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:56392","pl":"Zostaw to mi!","source_sha256":"032a564c06b20a7da1c09bee00e482c6f0572f460261dbb8f51dd8f074f2513d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_60D.bin:6848","pl":"Uszkodzenia okrętu się rozszerzają!","source_sha256":"032afd72b6e1f6a8f85d24582d6d87134f206dce0fa6cba530ac5598240efc34"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_12.bin:8220","pl":"Z drogi!\nKobieta czy nie, nie okażę litości!","source_sha256":"032dc86c348c2fcb043c80e20176c4254b7d55e7b5fe4bf4510ad9a89557009b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP13.EDAT/DL208_30.bin:1816","pl":"Cel to podziemne jaskinie w wielkim pasie\nwulkanicznym Earthtii. W okolicy nikt nie mieszka.","source_sha256":"032de0fb25522f300a729c605c23a6ce3c5f02e78a86f3398507ab1e28dd21a6"}
@@ -3904,7 +3904,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_20.bin:3024","pl":"Akurat, nie ma mowy!","source_sha256":"147e08e453d84ac0278453f63985f681c1c1c4222bd944dd387a6a1213372d6d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_13.bin:11192","pl":"Dobra, w takim razie od dziś trenujemy we trójkę.","source_sha256":"147e6e3747128c4eb6ae11ee2f265da9814a546599ba61b844ff46d39fedb82e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_40.bin:3628","pl":"Oho! To pewnie ona!","source_sha256":"1481452f55ece1c7db64734dde04a39ea93692ad2bc8bfa90c3d86f7871eb1ea"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:56376","pl":"Zostaw to mnie!","source_sha256":"1481b492046b1748efefdb8d9e405ec28036b7fbf2c26270e68e0eb236c9ef5f"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:56376","pl":"Zostaw to mi!","source_sha256":"1481b492046b1748efefdb8d9e405ec28036b7fbf2c26270e68e0eb236c9ef5f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL102_50B.bin:11292","pl":"Ładowanie działa megacząsteczkowego!\r\n","source_sha256":"1483256585700084f795700f3ccd68d851d99e965834e1fa5551dc78bca26984"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_12.bin:3476","pl":"To prawda, nie interesuje mnie to.","source_sha256":"1485311f0d4e05bbb3a82ccb6a8394cd54c9f4f6522622171da3da48f75ad745"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:7940","pl":"Przekierować moc generatora działa grawitacyjnego\ndo bloku napędowego!","source_sha256":"14889e1ce57550f276d64e5564b322c41474599727141353b16053db121d93b9"}

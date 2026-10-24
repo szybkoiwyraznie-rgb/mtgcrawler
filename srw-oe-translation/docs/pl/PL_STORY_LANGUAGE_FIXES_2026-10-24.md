@@ -251,3 +251,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** kolokwialne „No no” Ryomy, poprawne „Więc to to zniszczyło flotę” Brighta oraz kierowany tag Stingera „będziecie się szamotać, prawda?”.
 - **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`.
 - **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 30
+
+- **Zakres:** 1142 wpisy — 832 fabularne i 310 warunkowych; 176 grup z pytaniami (124 fabularne, 52 warunkowe).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 2 zmiany źródłowe, bo rząd ma jedną jawną kopię (`story-language-ep30-2026-10-24.json`, SHA-256 `699ee4ac0be7db6cac0450993260df920bf5df9aeeb01faaac36647350a76b82`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka „Zostaw to mnie” zamiast „Zostaw to mi” (Irvine).
+- **Świadomie zachowane fałszywe alarmy:** poprawny biernik „że to mnie zatrzyma” Ravena, poprawne „to to samo” Hiltza oraz warianty warunkowe Go-Saurer/King Go-Saurer (oddzielne wpisy JP).
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb` → `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
