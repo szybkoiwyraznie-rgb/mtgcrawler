@@ -10,12 +10,16 @@
   Only `README.md` was renamed to `UPSTREAM_README.md` to avoid clashing
   with project documentation.
 
-## Imported paths (19 files, 180,088 B)
+## Imported paths (22 files, 225,346 B; two batches, 2026-10-24)
 
-- `tools/` — the 7-file dependency closure of the script pipeline
-  (66,772 B): `extract_script.py`, `apply_script.py`,
+- `tools/` — batch 1: the 7-file dependency closure of the script
+  pipeline (66,772 B): `extract_script.py`, `apply_script.py`,
   `verify_pointers.py`, `scan_visible_defects.py`, `build_compare.py`,
-  `banlz.py`, `rewrap_dialogue.py`.
+  `banlz.py`, `rewrap_dialogue.py`. Batch 2 (font track, 45,258 B):
+  `patch_renderer.py` (19,463 B), `patch_hwfont.py` (21,887 B),
+  `patch.py` (3,908 B) — stdlib-only except `patch.py` → `patch_hwfont`;
+  imported after the owner chose the ambitious half-width font route
+  (see `../../docs/FONT_RESEARCH.md`).
 - `docs/` — all 9 upstream documents (`BASE_RULES.md`, `CUSTOM_FONT.md`,
   `DEBUGGER_TRACE.md`, `FINDINGS.md`, `LZ_FORMAT.md`, `RENDERER.md`,
   `STANDARD_RELEASES.md`, `TECHNICAL.md`, `VWF.md`).
@@ -38,6 +42,7 @@
   must update this file and `../../docs/EXPERIMENT_LOG.md` in the same
   commit, after the audit: dependency closure, no personal absolute
   paths, no proprietary game data.
-- Audit evidence for this import: `docs/EXPERIMENT_LOG.md` entry
-  2026-10-24 (closure computation, byte counts, `ast` parse of all 7
-  tools, personal-path scan of the imported set = none).
+- Audit evidence: `docs/EXPERIMENT_LOG.md` entries 2026-10-24 (batch 1:
+  closure computation, byte counts, `ast` parse, personal-path scan =
+  none; batch 2: font tools — imports/sizes/`ast` parse, personal-path
+  scan = none).

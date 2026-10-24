@@ -31,6 +31,13 @@
 - Owner's `DATA/` also holds the other text-bearing candidates named by
   upstream docs: `HSFC.BIN` 250,112 B, `compdata.bn` 144,990 B (plus
   `BTL/SRVC.BIN`, `MAP/MAPNAME.BIN` outside `DATA/` — sizes not listed yet).
+- Inputs are in `local/inputs/` with SHA-256 recorded (`stage.bin`
+  `9c56d42f…240dc`, `SLPS_258.87` `6c4c81c4…9b50`). The sparse-image
+  sandbox proof passed (extract 119,837 rows; unchanged apply
+  byte-identical), and all five upstream renderer landmarks match the
+  owner's ELF byte-for-byte — see [`FONT_RESEARCH.md`](FONT_RESEARCH.md).
+  SJIS lead banks `0x84/0x85/0x86` are entirely unused in the JP script,
+  leaving ample private code space for Polish glyphs.
 
 ## Owner decisions on record (2026-10-24)
 
@@ -42,21 +49,28 @@
    column + our SRW OE terminology glossary; Polish written fresh from JP.
 3. **Order of work:** technical proof first (round-trip + font prototype),
    translator files after.
-4. **Font route:** decided after the prototype.
+4. **Font route (updated later on 2026-10-24):** fonts are now the
+   **first** work track, ambitious route — Polish glyphs at normal
+   English (half-width) metrics, built on the Latin letterforms with
+   added diacritics; fullwidth is not a shipping fallback. Design and
+   prototype sequence: [`FONT_RESEARCH.md`](FONT_RESEARCH.md).
 
 ## Phases
 
 - **Phase 0 — setup (done):** scaffold, decisions, vendored core, registry.
-- **Phase 1 — technical proof (next):**
-  1. Download `DATA/stage.bin` (+ `SLPS_258.87`) to `local/`, record SHA-256.
-  2. Build a sparse virtual image with `stage.bin` at offset
-     1651029 × 2048; run unmodified vendored extract → apply-unchanged →
-     compare extent bytes; run `verify_pointers.py`. *Planned approach —
-     hypothesis until executed and logged.*
-  3. Owner-side `PATCH.bat` no-op test on the real ISO (new image must be
-     byte-identical to the original); owner returns log + hashes.
-  4. Polish-glyph font prototype on the extracted ELF copy; owner judges
-     screenshots in PCSX2; then the font-route decision.
+- **Phase 1 — technical proof (in progress; font track first per owner):**
+  1. ✅ Downloaded `DATA/stage.bin` + `SLPS_258.87` to `local/inputs/`
+     (SHA-256 in `FONT_RESEARCH.md` / experiment log).
+  2. ✅ Sparse virtual image proof in the sandbox: extract → 119,837
+     rows; apply-unchanged → 0 writes, extent byte-identical;
+     `verify_pointers.py` baseline 121,382/131,976 (91.97%).
+  3. **Font prototype (active):** upstream renderer+hwfont baseline on
+     the ELF copy, then the Polish atlas extension + one sample record
+     (changed-row write test) — sequence P1–P4 in `FONT_RESEARCH.md`;
+     owner judges PCSX2 screenshots.
+  4. Owner-side `PATCH.bat` test on the real ISO (first the STAGE no-op,
+     which must stay byte-identical, then the font test build); owner
+     returns logs, hashes and screenshots.
 - **Phase 2 — translator files:** format with JP + EN reference + OE
   glossary, re-injectable through the proven pipeline; verify the
   doc-derived inventory in [`TEXT_SURFACES.md`](TEXT_SURFACES.md) against

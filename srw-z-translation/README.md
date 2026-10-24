@@ -68,6 +68,7 @@ and docs is vendored, pinned at commit `fed4c8b…`, under
 | `docs/STATUS.md` | current state, phases, blockers, unknowns |
 | `docs/PRIOR_ART.md` | retro-trans survey: pipeline, font state, what we reuse |
 | `docs/TEXT_SURFACES.md` | where all the game's text lives (not just `stage.bin`): files, formats, constraints |
+| `docs/FONT_RESEARCH.md` | Polish half-width font: verified renderer landmarks, master-font stamping design, prototype plan |
 | `docs/EXPERIMENT_LOG.md` | every test, with exact counts/hashes |
 | `vendor/retro-trans/` | pinned upstream core tools + docs (do not edit in place) |
 | `tools/` | our own wrappers/adapters and the owner kit builder (as they arrive) |
