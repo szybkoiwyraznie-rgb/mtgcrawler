@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "episode": 26,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP07.EDAT/DL726_13.bin:8200",
+      "source_sha256": "1a10ec4aa34ee5dcf25ca6535a38924e5e577297b4a4b1110363d8ed5e10f0da",
+      "before": "To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "after": "To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "reason": "ep26 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL726_13J.bin:8208",
+      "source_sha256": "1b0c3bf4a320e099273d05c37bb771f58c673c5cea33b1e127ccaadf79f43d64",
+      "before": "To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "after": "To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "reason": "ep26 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL726_13F.bin:8200",
+      "source_sha256": "9d42d3912bf4ebd1451e269b8520070d796b1d6d3d202620eed9bc1fc25823d7",
+      "before": "To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "after": "To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.",
+      "reason": "ep26 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}

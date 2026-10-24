@@ -4944,7 +4944,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_20.bin:16316","pl":"Ojej, no.\nWcale nie trzeba się tak ekscytować.","source_sha256":"1a0bed745acef16270cf39b5713d7c7d8e17d2a8c198ac5aff68eeb856bd1c71"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP20.EDAT/DL104_40.bin:16660","pl":"Wróg jest w rozsypce. To nasza szansa.\nPrzełamcie okrążenie jednym uderzeniem!","source_sha256":"1a0e55fcc504002617779b7566a90da0660395d0670a9287bce6d1dbe90c63f2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:22084","pl":"Mobile suity?!","source_sha256":"1a0e7597a019cd86d05056a5bf12e03d47a5ef7ad11c5beda52fe7466c505a09"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_13.bin:8200","pl":"To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"1a10ec4aa34ee5dcf25ca6535a38924e5e577297b4a4b1110363d8ed5e10f0da"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL726_13.bin:8200","pl":"To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"1a10ec4aa34ee5dcf25ca6535a38924e5e577297b4a4b1110363d8ed5e10f0da"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_12.bin:5768","pl":"Ej, przynajmniej mnie chrońcie, dobra?\nJestem tu tylko od zaopatrzenia.","source_sha256":"1a127d9dab087a2f4a1e5e0fe4c78c23bc290e65f804fdbb74890359fba1618a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:155796","pl":"Kto to mówi!","source_sha256":"1a16373ba182b3fe51cf37a28fd7df500dd79f0b50981e572177a1459d68ef8f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL312_50F.bin:15476","pl":"Uaaaaa!","source_sha256":"1a1813d119b1c9a55553af30b262d66a4c27d434602b21c73f220e085a006ab4"}
@@ -5137,7 +5137,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:15928","pl":"To prawda.\nWolałbym nie walczyć z żadnym z was, ale...\r\n","source_sha256":"1b0a65b6cbe3f9c670cd21229761c6ec3a764c110adea78189dacce886edb96f"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:43864","pl":"Trochę współczuję Mucus, ale\nto nie daje im prawa wysysać energii\nz całego wszechświata tylko po to, żeby się mnożyć.","source_sha256":"1b0b142a30dbba23028487e347577d1dbf9262ed568ce82497fab4885c34d52f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_60.bin:5760","pl":"Wciągnąć mnie w taką szaloną akcję...\n","source_sha256":"1b0b3a385fb128425314fdda9d45c927a31ad62d5269add3b00a80e8fecc3000"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:8208","pl":"To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"1b0c3bf4a320e099273d05c37bb771f58c673c5cea33b1e127ccaadf79f43d64"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:8208","pl":"To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"1b0c3bf4a320e099273d05c37bb771f58c673c5cea33b1e127ccaadf79f43d64"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_11.bin:17216","pl":"Dobra robota, wszyscy.\nWkraczamy teraz do wnętrza Genesis!","source_sha256":"1b0d5399f28521a8f05f172a58c6195e45b09b209002c5e30cb1288bb9fbfd09"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:124488","pl":"No, ale jak będziesz w prawdziwych tarapatach,\nto zawołaj, a pomogę!","source_sha256":"1b0da2388af8c815d140a0a6d7392c1fc56edb8fb5d06670f18615bbd18f2f07"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:1372","pl":"Mogę mówić do ciebie Zaki? Co, młody?","source_sha256":"1b0e451a5201380d656514c4288e47979ae0e3882acac76ec9b60eaf1f900caa"}
@@ -30095,7 +30095,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_12.bin:16292","pl":"To już przesada, wiesz!\nKochanie bardzo się stara, wiesz!\n","source_sha256":"9d41575a5649b0ff21d8ffc9bf4a2d8ffa6502e2e7f078d8f2483470da8fb536"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL831_11G.bin:12308","pl":"Ale ta cisza jest jakaś złowroga...","source_sha256":"9d418bcd1024a52e1dcc0eb22fc07788f21ebc267823a7e83838a43a241f64e0"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:1928","pl":"Przybąąądź! GUNDAAAAAM!!","source_sha256":"9d41dc4b035aa02efdc01438b20b5de0c558eb18f5cf09c8a1757759d844249b"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:8200","pl":"To zostawcie mnie.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"9d42d3912bf4ebd1451e269b8520070d796b1d6d3d202620eed9bc1fc25823d7"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:8200","pl":"To zostawcie mi.\nPogrzebię trochę w module rozruchu rdzenia.","source_sha256":"9d42d3912bf4ebd1451e269b8520070d796b1d6d3d202620eed9bc1fc25823d7"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:1368","pl":"Ale się ich nawysypywało.","source_sha256":"9d435264f6224a3ab1328c0047816ce16b6265c644da8ef205c9227c835db166"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_12.bin:1800","pl":"Chce zmechanizować wszystkie wszechświaty\ni rządzić nimi tym swoim Stalowym Ładem.","source_sha256":"9d44e0b9b5e11333ea90d61c3eca1a0b38ec48dc6d0fafc1fe6bf2d8c2de148a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL207_11G.bin:11352","pl":"On w czymś kłamie.\nAle... nie wydaje się złym człowiekiem.","source_sha256":"9d4521dbc54937b4d362da0f57513c41f3315576bdd2d3b1199aad80a6f3774a"}

@@ -217,3 +217,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawny biernik w „to mnie wybrał ten świat” Drago, żartobliwe „jakmutam” Kaminy, znaczniki ukrytego mówcy „＃???” oraz żarty o „wyprzedaży bogów”.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa` → `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 26
+
+- **Zakres:** 830 wpisów — 679 fabularnych i 151 warunkowych; 139 grup z pytaniami (111 fabularnych, 28 warunkowych).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 3 zmiany źródłowe, bo rząd ma jawne kopie (`story-language-ep26-2026-10-24.json`, SHA-256 `7af634fa1d4111566104f35a613af4dc4e8286123e0ae4e7f6331aa24dd1a765`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka „To zostawcie mnie” zamiast „To zostawcie mi” (Moonbay); skaner wzorców tego zdania nie wychwycił (szyk „zostawcie mnie” bez „to”).
+- **Świadomie zachowane fałszywe alarmy:** poprawny biernik „i to mnie wkurza” Leenon, znaczniki „＃???” oraz kolokwialne „Ale urwanie głowy!” Moonbay.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5` → `2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 3 teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

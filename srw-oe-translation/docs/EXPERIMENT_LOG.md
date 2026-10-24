@@ -8460,3 +8460,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Zakres:** przeczytano 838 wpisów (503 fabularne, 335 warunkowych) i 146 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep25-2026-10-24.json` (SHA-256 `4ec8479745801730508869fe58dbf08238d7814ea1ef74e3298ae0b69c31a1ad`) — 1 kwestia i 2 zmiany źródłowe (jedna jawna kopia).
 - **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa` → `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano oba teksty. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd i korekta językowa epizodu 26 PL
+
+- **Zakres:** przeczytano 830 wpisów (679 fabularnych, 151 warunkowych) i 139 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep26-2026-10-24.json` (SHA-256 `7af634fa1d4111566104f35a613af4dc4e8286123e0ae4e7f6331aa24dd1a765`) — 1 kwestia i 3 zmiany źródłowe (jawne kopie).
+- **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5` → `2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano wszystkie 3 teksty. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
