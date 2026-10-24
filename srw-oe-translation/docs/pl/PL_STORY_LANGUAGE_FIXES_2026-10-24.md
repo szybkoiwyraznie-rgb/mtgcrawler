@@ -272,8 +272,17 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 ## Epizod 32
 
 - **Zakres:** 399 wpisów — 275 fabularnych i 124 warunkowe; 40 grup z pytaniami (31 fabularnych, 9 warunkowych).
-- **Poprawki:** 1 zmiana źródłowa (`story-language-ep32-2026-10-24.json`, SHA-256 `14bcce2bffb03a1f7f1a1cdc368a8154a8869e6be3c55d31ca07c1e42ac87f52`).
+- **Poprawki:** 2 zmiany źródłowe (`story-language-ep32-2026-10-24.json`, SHA-256 `14bcce2bffb03a1f7f1a1cdc368a8154a8869e6be3c55d31ca07c1e42ac87f52`).
 - **Potwierdzona klasa błędu:** błędny przypadek zaimka „Zostaw to mnie” zamiast „Zostaw to mi” (Lamuness).
 - **Świadomie zachowane fałszywe alarmy:** poprawny zwrot Adeu „W ten sposób nie da się podejść” oraz znaczniki mówców „＃Żołnierz Pentagony / ＃Oficer Pentagony”.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `ce7636174e1f2afdf1066355e99c255614e8f7cafaccc270cf3723e3f76e7e85` → `f0c3a628963273ec871ca92bcdf5adc411d26d4db97ddfc1d7910a9b23b5f295`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 33
+
+- **Zakres:** 677 wpisów — 584 fabularne i 93 warunkowe; 88 grup z pytaniami (79 fabularnych, 9 warunkowych).
+- **Poprawki:** 1 zmiana źródłowa (`story-language-ep33-2026-10-24.json`, SHA-256 `ac934320d51cf9b7b97f41006be1ba336751a12e06a3e274f38928118d8a1e2c`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka „To zostawcie mnie” zamiast „To zostawcie mi” (Zero).
+- **Świadomie zachowane fałszywe alarmy:** poprawny zwrot Himari „w ten sposób uratujemy też samych Mucus” oraz dialogowe wielokropki na początku kolejnych okien.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `f0c3a628963273ec871ca92bcdf5adc411d26d4db97ddfc1d7910a9b23b5f295` → `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
