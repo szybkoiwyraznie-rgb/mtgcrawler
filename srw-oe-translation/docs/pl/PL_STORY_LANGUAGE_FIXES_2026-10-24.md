@@ -183,3 +183,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** przekomarzanie „karaluch czy mszyca” drużyny Ganba, długie żartobliwe tytuły Da Cidera, bezpośrednie tagi w kierowanych wymianach oraz demoniczne przechwałki Goburikiego.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `5a3319f106da80067496664181d96b0dbaac821398ccfe3f5f696942721b6112` → `9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 22
+
+- **Zakres:** 851 wpisów — 616 fabularnych i 235 warunkowych; 114 grup z pytaniami (82 fabularne, 32 warunkowe).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 1 zmianę źródłową (`story-language-ep22-2026-10-24.json`, SHA-256 `99c0a62dc589e1ca9934f507f6caf5c4a1f6ac41b440770018a173935721e8b9`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka w „Zostaw to mnie, Fiono” zamiast „Zostaw to mi, Fiono” (Van).
+- **Świadomie zachowane fałszywe alarmy:** żołnierskie „Gero gero gero” Keroro, samo-adresatywne „Znaczy, ...?” Angol Mois, szkolne przekomarzanie uczniów Eldrana oraz bezpośrednie tagi w scenach zbiorowych.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `9ecf7f96412d20938da364bd540f55104a7df3cffc66956de56c6951e86ebed2` → `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
