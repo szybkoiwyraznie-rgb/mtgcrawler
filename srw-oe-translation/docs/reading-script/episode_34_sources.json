@@ -1,9 +1,9 @@
 {
   "source_sha256": {
     "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
-    "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+    "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
     "06_scenes.jsonl": "5ea2031f15a3c472edeefa73d94ec0d2d1d7950c6553ad4bdc5dd62ed9f2e1e4",
-    "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b"
+    "07_names_characters.jsonl": "88e18fb390cebcfd5166b013b0b1476a89972665598c26646d95f8d68d6626cc"
   },
   "scenes": [
     {

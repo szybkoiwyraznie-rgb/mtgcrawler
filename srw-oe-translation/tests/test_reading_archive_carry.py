@@ -1,4 +1,5 @@
-"""Reading-archive carry support and the deployment-title refresh helper."""
+"""Reading-archive README/plural helpers, the deployment-title refresh and the
+repository-only build guarantee."""
 import hashlib
 import json
 import subprocess
@@ -81,36 +82,70 @@ class DeploymentTitleRefreshTests(unittest.TestCase):
             self.assertFalse((tmp / 'bad.md').exists())
 
 
-class CarriedEpisodeGuardTests(unittest.TestCase):
-    """A carried episode is only acceptable when a rebuild provably cannot change it."""
+class RepositoryOnlyBuildTests(unittest.TestCase):
+    """The v4.5 delivery must rebuild every episode from repository inputs alone.
+
+    The owner rejected a build that depends on Drive: the 35 English reader
+    editions are committed, and episode 34 is regenerated like all the others.
+    These tests fail if a future delivery reintroduces an out-of-repo input or a
+    carried-over member.
+    """
+
+    RECEIPT = ROOT / 'docs/reading-script/polish/PL5_v4.5_reading.delivery.json'
+    REFS = ROOT / 'docs/reading-script/english-reference'
 
     @classmethod
     def setUpClass(cls):
-        cls.receipt = json.loads((ROOT / 'docs/reading-script/polish/PL5_v4.5_reading.delivery.json')
-                                 .read_text(encoding='utf-8'))
+        cls.receipt = json.loads(cls.RECEIPT.read_text(encoding='utf-8'))
 
-    def test_carried_episode_references_none_of_the_changed_rows(self):
-        self.assertEqual(len(self.receipt['carried_members']), 1)
-        carried = self.receipt['carried_members'][0]
-        guard = carried['guard']
-        plan = json.loads((ROOT / guard['episode_plan']).read_text(encoding='utf-8'))
-        rows = {b['row'] for b in plan['blocks'] if 'row' in b}
-        mission_rows = {b['mission_row'] for b in plan['blocks'] if 'mission_row' in b}
-        self.assertEqual((len(rows), len(mission_rows)),
-                         (guard['episode_plan_rows'], guard['episode_plan_mission_rows']))
-        total = 0
-        for name in guard['checked_change_plans']:
-            changes = json.loads((ROOT / name).read_text(encoding='utf-8'))['changes']
-            total += len(changes)
-            inside = [c['id'] for c in changes if c['id'] in rows or c['id'] in mission_rows]
-            self.assertEqual(inside, [], f'{name} touches the carried episode')
-        self.assertEqual(total, guard['changed_rows_total'])
-        self.assertEqual(guard['changed_rows_inside_episode'], 0)
+    def test_no_carried_member_is_delivered(self):
+        self.assertFalse(self.receipt.get('carried_members'))
+        self.assertEqual(self.receipt['english_reference']['files'], '35/35 '
+                         'srwoe_episode_00.md .. srwoe_episode_34.md')
+        self.assertEqual(self.receipt['english_reference']['verified_against_plan_reference_sha256'],
+                         '35/35')
+        episodes = self.receipt['changes_vs_v4_3']['changed_episodes'] + \
+            self.receipt['changes_vs_v4_3']['unchanged_episodes']
+        self.assertEqual(sorted(set(episodes)), [f'{n:02d}' for n in range(35)],
+                         'all 35 episodes must be rebuilt from the package')
+        self.assertIn('34', self.receipt['changes_vs_v4_3']['changed_episodes'])
 
-    def test_carried_member_is_the_previously_delivered_bytes(self):
-        carried = self.receipt['carried_members'][0]
-        self.assertEqual(carried['sha256'], carried['guard']['previous_delivery_sha256'])
-        self.assertEqual(carried['name'], 'srwoe_episode_34_PL.md')
+    def test_english_references_live_in_the_repository(self):
+        manifest = json.loads((self.REFS / 'references.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(manifest['files']), 35)
+        for name, meta in manifest['files'].items():
+            data = (self.REFS / name).read_bytes()
+            self.assertEqual(len(data), meta['bytes'], name)
+            self.assertEqual(hashlib.sha256(data).hexdigest(), meta['sha256'], name)
+        self.assertFalse(self.receipt['english_reference']['external_input_required'])
+        self.assertTrue(self.receipt['english_reference']['directory']
+                        .startswith('docs/reading-script/english-reference'))
+
+    def test_plans_are_pinned_to_the_committed_references(self):
+        manifest = json.loads((self.REFS / 'references.json').read_text(encoding='utf-8'))
+        plans = ROOT / 'docs/reading-script/polish'
+        for number in range(35):
+            plan = json.loads((plans / f'episode_{number:02d}.json').read_text(encoding='utf-8'))
+            name = f'srwoe_episode_{number:02d}.md'
+            self.assertEqual(plan['reference_sha256'], manifest['files'][name]['sha256'],
+                             f'{name} pin drifted from the committed reference')
+
+    def test_builder_verifies_the_repository_reference_set(self):
+        source = (ROOT / 'tools/build_polish_reading_editions.py').read_text(encoding='utf-8')
+        self.assertIn("project / 'docs/reading-script/english-reference'", source)
+        self.assertIn("manifest_path = args.references / 'references.json'", source)
+        self.assertIn('--skip-reference-manifest-check', source)
+
+    def test_receipt_archive_matches_the_local_zip_when_present(self):
+        archive = ROOT / 'local/dist_reading_v4_5/srwoe_reading_PL_00-34.zip'
+        if not archive.exists():
+            self.skipTest('local archive not kept in the checkout')
+        data = archive.read_bytes()
+        self.assertEqual(len(data), self.receipt['archive']['bytes'])
+        self.assertEqual(hashlib.sha256(data).hexdigest(), self.receipt['archive']['sha256'])
+        self.assertTrue(self.receipt['archive']['download_back_byte_identical'])
+        self.assertEqual(self.receipt['archive']['drive_file_id'],
+                         '1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv')
 
 
 if __name__ == '__main__':

@@ -34,13 +34,19 @@ def main(argv=None):
     ap.add_argument('--catalogue-english', type=Path, help='Frozen catalogue EN package (optional)')
     ap.add_argument('--polish', required=True, type=Path, help='Materialized, accepted PL package')
     ap.add_argument('--text-source', default='v3.0', help='Release label of the PL text snapshot (default: v3.0)')
-    ap.add_argument('--references', required=True, type=Path, help='Delivered EN Markdown directory')
+    ap.add_argument('--references', type=Path,
+                    help='English reference directory (default: docs/reading-script/english-reference, '
+                         'which is committed so the build needs no external input)')
     ap.add_argument('--configs', type=Path, help='Private original config00/configst/config01–19 (optional)')
     ap.add_argument('--elf', type=Path, help='Private original Japanese 1.08 ELF (optional)')
     ap.add_argument('--episodes', default='0-34', help='Episode range, e.g. 0-34 (default: all 35 episodes)')
     ap.add_argument('--out', required=True, type=Path)
+    ap.add_argument('--skip-reference-manifest-check', action='store_true',
+                    help='Bypass the references.json hash check (debugging only)')
     args = ap.parse_args(argv)
     project = Path(__file__).resolve().parent.parent
+    if args.references is None:
+        args.references = project / 'docs/reading-script/english-reference'
     docs = project / 'docs'
     checked_paths = [p for p in (args.english, args.catalogue_english, args.polish, args.references, args.configs, docs) if p is not None]
     inputs = {p.resolve() for p in checked_paths}
@@ -48,6 +54,12 @@ def main(argv=None):
     if args.elf is not None:
         need(not args.elf.resolve().is_relative_to(args.out.resolve()), 'Refusing output around original ELF')
     args.out.mkdir(parents=True, exist_ok=True)
+    manifest_path = args.references / 'references.json'
+    if manifest_path.exists() and not args.skip_reference_manifest_check:
+        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))['files']
+        for name, meta in manifest.items():
+            data = (args.references / name).read_bytes()
+            need(R.sha(data) == meta['sha256'], f'English reference {name} changed since it was frozen')
     episodes = parse_episodes(args.episodes)
     verification = {}
     for episode in episodes:

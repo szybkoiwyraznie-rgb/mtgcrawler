@@ -25,17 +25,39 @@ owner. Game data and descriptive content are unchanged. Full source verification
 and Drive read-back pass; suite: **1509 passed, 1 skipped, 382 subtests passed**.
 [Reproduce it / evidence / delivery manifest](docs/mech-catalog/README.md).
 
-## English reading edition — episodes 00–34 complete
+## Reading editions — Polish episodes 00–34 complete (`v4.5`)
 
-The final [episode 34 Markdown](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
-is delivered and independently verified, including all unique finale/epilogue variants.
-This uses the existing English package; it does not change the translation or game.
-Recovered history, tracked tools, reviewed plan, tests and delivery hashes:
-[`docs/reading-script/README.md`](docs/reading-script/README.md). The original Drive
-patch is archived byte-for-byte in Git. Full project suite: 1379 passed, 1 skipped,
-382 subtests passed. Earlier reading episodes remain on Drive; `simulator` is out of scope.
+The complete Polish reading series is published as
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv/view)
+(`2,181,852 B`, SHA-256 `d16a78aa…d2ba1`, `39` members: `README.md`, `srwoe_episode_00_PL.md` …
+`srwoe_episode_34_PL.md` and the bundled catalogues/deployments supplement):
+`47,056 / 47,056` prose entries, `32,977` unique + `14,079` aliases, `33,608` spans.
+**Every episode is rebuilt from the PL package on each delivery and the build needs
+nothing from outside this repository** — the 35 English reader editions it uses as plan
+checksums are committed in
+[`docs/reading-script/english-reference/`](docs/reading-script/english-reference/) with a
+pinned `references.json`. Recovered history, tracked tools, reviewed plans, tests and
+delivery hashes: [`docs/reading-script/README.md`](docs/reading-script/README.md) and
+[`docs/reading-script/polish/README.md`](docs/reading-script/polish/README.md).
+The English editions of the same 35 episodes remain on Drive; `simulator` is out of scope.
+Reading files only — no game files, no runtime claim.
 
-## Polish translation — complete (`v4.0`, delivered 2026-10-23)
+## Polish translation — complete (`v4.5`, delivered 2026-10-24)
+
+The current Polish kit
+[**`srw-oe-translation-pl-v4.5.zip`**](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
+is delivered (`8,764,842 B`, SHA-256 `6a602305…d025`, MD5 `568637c9…7f84`, `92` members;
+Drive checksum read-back and download-back byte-identical). It contains the v4.4
+story-language review of the extra/simulator scenes plus the **v4.5 mission-title fit**:
+24 mission titles (and their 24 `*_ext.dat` copies) were over the 32-cell budget of the
+mission-select bottom bar reported by the owner with a screenshot, so all 48 source-bound
+rows were shortened (`Ep. 2: Groźba czająca się pod ziemią` → `Ep. 2: Groźba pod ziemią`);
+the remaining 255 titles and the story text are unchanged.
+Receipt: [`docs/pl/pl-v4.5-kit-delivery.json`](docs/pl/pl-v4.5-kit-delivery.json); ledger
+[`docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md`](docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md).
+`runtime_tested` stays `false`; patch from a clean JP 1.08 ISO (**ISO YES / DLC NO**).
+
+### Previous delivery: `v4.0` (2026-10-23)
 
 The full Polish kit [**`srw-oe-translation-pl-v4.0.zip`**](https://drive.google.com/file/d/1yPe_24aTq0qbBHT_40UGsxIKvIU8_4hC/view)
 is delivered (`8,761,508 B`, SHA-256 `c88f37be5effe5ccc1dbad3b56f01c0c9fd0c9cbd83edbc2a6eef0ff03f46d6a`,

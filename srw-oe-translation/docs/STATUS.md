@@ -22,31 +22,35 @@ copies: `24` menu titles were over `32` cells (max `38`). All are shortened to
 belong to other panels and were left unchanged. Snapshot `data_sha256
 da2ad33f…e1f` → `788ab91c…62` (`17th` UI-plan ledger entry); coverage unchanged
 `108,805 / 109,176` filled, `371` empty, `0` errors, `4,176` warnings. Tests: new
-`tests/test_pl_mission_title_fit.py` (7) plus the full sweep `150/150` modules OK.
+`tests/test_pl_mission_title_fit.py` (7) plus the full sweep `151/151` modules OK.
 Ledger [PL_MISSION_TITLE_FIT_2026-10-24.md](pl/PL_MISSION_TITLE_FIT_2026-10-24.md),
 receipt [pl-v4.5-kit-delivery.json](pl/pl-v4.5-kit-delivery.json). `runtime_tested`
 stays `false` — the bar needs an owner PPSSPP re-check (ISO YES / DLC NO).
 
-**PL reading editions v4.5 reissued (2026-10-24).**
-[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1mPih1fAdD2M0qAWRO13udylguIFpPrwT/view)
-`2,182,137 B`, SHA-256 `ae77c4e6…5047`, MD5 `94471c46…9ada2f`, `39` members;
+**PL reading editions v4.5 reissued — build now self-contained in the repository
+(2026-10-24).**
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv/view)
+`2,181,852 B`, SHA-256 `d16a78aa…d2ba1`, MD5 `dcea2ffc…5106d`, `39` members;
 Drive read-back byte-identical, deterministic rebuild identical, superseded
-`v4.3` archive trashed. `34` episodes rebuilt from `pakiet_PL` v4.5 (`34/34`
-English references matched their plan pins) — `17` episodes changed against
-`v4.3`: the `24` shortened mission titles in `60` heading lines plus the v4.4
-corrections flowing into DLC-variant aliasing (episodes `03` and `08` lose `15`
-redundant fragment lines, every removed line still present verbatim);
-`17` episodes stayed byte-identical. **Episode 34 is carried over byte-identically** (`8a11e898…`) and that is all it
-is: its editorial plan references `2,023` dialogue rows and `3` mission titles,
-and **`0` of the `70` rows changed in v4.4/v4.5** are among them — a rebuild
-would emit exactly the delivered bytes. The only missing input is that
-episode's English reader edition, which the build script uses purely as a
-checksum for the plan (`reference_sha256` + re-derived row mapping), never as
-a text source. The guard is pinned in the receipt and re-checked by
-`tests/test_reading_archive_carry.py`. The episode is listed separately in the
-archive README and excluded from the printed totals `39,585/39,585` prose,
-`30,315` spans (with it the series keeps `47,056/47,056`).
-`runtime_tested` stays `false`.
+`1mPih1…` and `v4.3` archives trashed. **All `35` episodes are rebuilt from
+`pakiet_PL` v4.5 — nothing is carried over.** The build no longer reads any file
+outside the repository: the `35` English reader editions are committed in
+`docs/reading-script/english-reference/` (`references.json` pins each byte count
+and SHA-256, and `build_polish_reading_editions.py` now defaults to that
+directory and refuses to run if a reference file changed), so a clone plus the
+PL package reproduces the archive with no Drive access. Verified: a full `0–34` rebuild from the
+committed set produced `0` differing files (episode 34 included). Episode `34`, whose
+delivered English copy had been lost, was regenerated in-repo from
+`docs/reading-script/episode_34.json` after refreshing
+`episode_34_sources.json` to the current `pakiet_EN` hashes (the `Karen`→`Kallen`
+fix); its plan is re-pinned to `75f0cb5f…be93`. `18` episodes differ from `v4.3`:
+the `24` shortened mission titles in `60` heading lines, the v4.4 corrections
+flowing into DLC-variant aliasing (episodes `03` and `08` lose `15` redundant
+fragment lines, every removed line still present verbatim), and episode `34`
+now showing the corrected GoShogun line (`nie trafił`, previously `nie
+wyrzuciło`). Full-series totals: `47,056/47,056` prose (100%), `32,977` unique +
+`14,079` aliases, `33,608` verified spans, `2,436,871 B` of Markdown.
+`runtime_tested` stays `false`; ISO NO / DLC NO.
 
 **PL v4.4 delivered — story-language review of the extra/simulator scenes
 (2026-10-24, PR #24).**

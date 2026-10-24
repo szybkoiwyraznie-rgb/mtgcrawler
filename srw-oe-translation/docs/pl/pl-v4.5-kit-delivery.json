@@ -2,7 +2,7 @@
   "schema": 1,
   "version": "4.5",
   "date": "2026-10-24",
-  "scope": "Owner-reported UI defect in the mission-select bottom bar: the Ep. 2 title ran into the mission-counter badge. All mission titles were audited (303 menu slots + 224 *_ext.dat copies) against a capacity measured from the owner's screenshot (480 px bar, title from x=167, badge at x=425 = 258 px = ~36 cells at 7.17 px/cell). 24 menu titles exceeded 32 cells and were shortened, together with their 24 *_ext.dat copies (48 source-bound rows in config/pl/ui-mission-title-length-2026-10-24.json). All 255 remaining titles are byte-identical; note_a/note_b body lines and bgm_title rows belong to other panels and were left alone. UI labels, PL font and texture-caption geometry unchanged from v4.4. Ledger: docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md.",
+  "scope": "Mission-title fit: the owner's PPSSPP screenshot showed the Ep. 2 title in the mission-select bottom bar running into the mission-counter badge. Measured from that screenshot (480 px screen, image scale 4.629): the bar holds ~36 cells at ~7.17 px per character, so the bar was capped at 32 cells (4-cell margin). 24 menu mission titles (max 38 cells) and their 24 *_ext.dat copies were shortened - 48 source-bound rows in config/pl/ui-mission-title-length-2026-10-24.json - while the other 255 titles and all note_a/note_b/bgm_title body lines stayed byte-identical. Story text, UI labels, PL font and geometry are unchanged from v4.4. Full ledger: docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md.",
   "artifact": {
     "name": "srw-oe-translation-pl-v4.5.zip",
     "drive_id": "1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1",
@@ -20,16 +20,17 @@
       "size_match": true
     },
     "download_back_byte_identical": true,
-    "download_back_note": "The uploaded ZIP was downloaded back from Drive in this session and hashed: sha256 6a602305…d025, identical to the local build.",
+    "download_back_note": "Downloaded back from Drive and compared with cmp -s (exit 0).",
+    "superseded_drive_file_id_trashed": "18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud",
     "contains_game_binaries_or_full_translation_exports": false
   },
   "english_pair": {
     "name": "srw-oe-translation-v4.5.zip",
     "bytes": 7285821,
     "sha256": "dfb196df4565b6584f3f808be3e11e5c6f1b5fabf4c41adf9bc2d691102e253d",
-    "md5": "e9867ce5c7066d80b85baeef411d6693",
     "zip_members": 157,
-    "note": "Built locally by tools/build_release_pair.py --version 4.5; not uploaded to Google Drive. English text unchanged vs v4.4; README_DIST.md unchanged."
+    "note": "Built locally by tools/build_release_pair.py --version 4.5; not uploaded to Google Drive. All 157 members are byte-identical to v4.4 except RELEASE_MANIFEST.json (version string), so English text is unchanged.",
+    "md5": "e9867ce5c7066d80b85baeef411d6693"
   },
   "package": {
     "entries": 108794,
@@ -44,39 +45,41 @@
     "changed_entries": 48,
     "plan": "config/pl/ui-mission-title-length-2026-10-24.json",
     "plan_sha256": "f191db7df6e6a7abffb0952401c4990ddb49da1b86554b16e047ee1e152e8d64",
-    "note": "Text-only change: no UI labels, font, texture captions or geometry touched; PL coverage identical to v4.4 (108,805/109,176, 371 empty, 0 errors). Only mission titles changed."
+    "plan_rows": 48,
+    "mission_titles_audited": {
+      "menu": 303,
+      "ext_dat_copies": 224,
+      "over_cap_before": 24,
+      "max_cells_before": 38,
+      "cap_cells": 32
+    },
+    "ledger": "docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md",
+    "ledger_index_in_ui_plan_series": 17,
+    "changed_artifacts_vs_v4_4": [
+      "README.md",
+      "RELEASE_MANIFEST.json",
+      "translation/05_mission_text.jsonl",
+      "translation/PL_COVERAGE.json"
+    ],
+    "changed_artifact_count": 4
   },
-  "measurement": {
-    "screen_width_px": 480,
-    "screenshot_scale": 4.629,
-    "title_start_x": 167,
-    "counter_badge_start_x": 425,
-    "title_area_px": 258,
-    "cell_advance_px": 7.17,
-    "measured_capacity_cells": 36,
-    "applied_cap_cells": 32,
-    "confidence": "geometry measured from one owner screenshot; the 4-cell margin is an estimate, not a runtime confirmation"
+  "reading_archive_follow_up": {
+    "name": "srwoe_reading_PL_00-34.zip",
+    "bytes": 2181852,
+    "sha256": "d16a78aa2812726b4dad0f0a655955347c1cde632d2144037a039fb81bfd2ba1",
+    "drive_id": "1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv",
+    "note": "Reissued the same day so the reading editions print the new titles; receipt docs/reading-script/polish/PL5_v4.5_reading.delivery.json."
   },
-  "title_audit": {
-    "menu_title_slots": 303,
-    "menu_titles_over_cap_before": 24,
-    "menu_titles_over_cap_after": 0,
-    "note_title_copies": 224,
-    "note_copies_over_cap_before": 6,
-    "note_copies_over_cap_after": 0,
-    "rows_changed": 48,
-    "titles_left_untouched": 255,
-    "separate_panels_not_changed": ["mission_note note_a/note_b body lines", "bgm_title rows"]
-  },
-  "tests": "tools/build_release_pair.py internal verification (ZIP CRC, member hashes, active-language manifests, PL coverage 108,805/109,176, 0 errors) plus tests/test_pl_mission_title_fit.py (7 tests) and the full sweep 150/150 modules OK.",
+  "tests": "tests/test_pl_mission_title_fit.py (7 tests: plan hash, no title over 32 cells in menu or *_ext.dat copies, episode prefixes and title uniqueness preserved, note_a/note_b/bgm_title untouched, snapshot text equals the plan) plus the full module sweep (all tests/test_*.py modules OK). tools/build_release_pair.py internal verification: ZIP CRC, member hashes, active-language manifests, PL coverage 108,805/109,176, 0 errors.",
   "runtime": {
     "runtime_ppsspp_verified": false,
-    "note": "Static evidence only. The bar layout should be re-checked by the owner in PPSSPP: the Ep. 2 screen that produced the report is the fastest regression check."
+    "note": "Static evidence only: source-bound plan validation, full package materialisation with every changed row asserted, unit tests, ZIP CRC/member hashes, Drive read-back. The fix is only complete when the owner re-takes the mission-select screenshot of Ep. 2 in PPSSPP; runtime_tested stays false.",
+    "owner_retest_needed": "Mission-select bottom bar, Ep. 2 (and any mission with a longer counter)."
   },
-  "replacement": {
-    "replace_iso": true,
-    "recopy_dlc": false,
-    "recopy_pboot": false,
-    "note": "Same patch procedure as v4.4 on the owner's clean JP 1.08 ISO; DLC files already on the memory stick are unchanged by this release."
+  "distribution": {
+    "replace_iso": "YES",
+    "recopy_dlc": "NO",
+    "recopy_pboot": "NO",
+    "note": "Same patch-from-clean-JP-1.08-ISO workflow as v4.4; no DLC rebuild was needed or made."
   }
 }

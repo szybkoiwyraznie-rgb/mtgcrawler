@@ -1,110 +1,89 @@
-# Tytuły misji dopasowane do paska wyboru — PL v4.5 (2026-10-24)
+# Dopasowanie tytułów misji do paska wyboru misji (v4.5, 2026-10-24)
 
-Zgłoszenie właściciela ze zrzutem ekranu: w dolnym pasku ekranu wyboru misji tytuł
-**„Ep. 2: Groźba czająca się pod ziemią”** wchodził na licznik misji **`(8)`**.
-Polecenie: sprawdzić, czy inne misje mają ten sam problem, i skrócić tytuły, które
-nie mieszczą się w pasku.
+## Zgłoszenie właściciela
 
-Plan źródłowy: `config/pl/ui-mission-title-length-2026-10-24.json`
-(48 zmian, wszystkie w `05_mission_text.jsonl`). Plan jest autorytatywną listą
-„przed/po”; ten dokument opisuje pomiar, zakres i walidację.
+Właściciel przysłał zrzut ekranu z PPSSPP: w dolnym pasku ekranu wyboru misji tytuł epizodu 2 („Ep. 2: Groźba czająca się pod ziemią”) wchodzi w plakietkę licznika misji. To jedyny zgłoszony ekran, ale przyczyna jest systemowa — długość tytułu, nie treść jednego napisu.
 
-## Pomiar [ZWERYFIKOWANE z jednego zrzutu]
+## Pomiar ze zrzutu
 
-Zrzut właściciela: 2222 × 361 px, ekran PSP 480 px → skala 4,629.
+| Element | Wartość |
+| --- | --- |
+| Szerokość ekranu | 480 px (obraz 4,629×) |
+| Początek tekstu tytułu | x = 167 px (obraz 774 px) |
+| Początek plakietki `(8)` | x = 425 px (obraz 1969 px) |
+| Tytuł 35 znaków | obraz 774–1935 px = 251 px ekranu |
+| Średni krok znaku | ~7,17 px |
+| Pojemność paska | ~36 komórek = ~258 px |
 
-| Element | px na zrzucie | px na ekranie |
-| --- | --- | --- |
-| początek tytułu | 774 | **167** |
-| pierwszy znak licznika `(8)` | 1969 | **425** |
-| szerokość pola tytułu | — | **258** |
+Wniosek: tytuł 36-komórkowy dotyka plakietki, więc limit ustawiono na **32 komórki**, czyli 4 komórki zapasu (~29 px) na dłuższy licznik (np. `(12)`).
 
-Tytuł Ep. 2 ma 35 znaków i zajmuje 774–1935 px zrzutu, czyli 251 px ekranu →
-**7,17 px na znak** (znak + odstęp, uśrednione). Pole 258 px mieści więc
-**~36 znaków**. Tytuł 35-znakowy kończył się dokładnie pod licznikiem; każdy
-dłuższy wchodziłby w niego.
+## Audyt
 
-**Założenie [HIPOTEZA]:** tytuły są rysowane od tego samego x w każdej misji
-(wszystkie zmierzone tytuły zaczynają się w tej samej kolumnie). Zapas na inne
-zestawy licznika jest kalibrowany na jednym ekranie; stąd zapas 4 znaków.
+Przejrzano **303** tytuły menu i **224** kopie w plikach `*_ext.dat`. **24** tytuły menu przekraczały 32 komórki (maksymalnie **38**, „Ep. 2: Groźba czająca się pod ziemią”). Wszystkie skrócono do ≤32 komórek razem z ich kopiami w panelu notki misji — **24** wierszy `mission_title` + **24** wiersze `mission_note` = **48** zmian źródłowo powiązanych w `config/pl/ui-mission-title-length-2026-10-24.json` (SHA-256 `f191db7d…8d64`). Pozostałe **255** tytułów jest bajt w bajt bez zmian.
 
-## Zakres
+Kryteria skracania: zachować prefiks epizodu (`Ep. N`, `Ep. N-M`, `SIM:`) i unikalny człon rozpoznawczy; usuwać powtórzenia i ozdobniki („czająca się pod ziemią” → „pod ziemią”), nie skracać nazw własnych, nie zmieniać sensu. Tytuły spoza paska — linie `note_a`/`note_b` w treści panelu oraz `bgm_title` — należą do innych paneli i pozostały nietknięte.
 
-Policzone zostały **wszystkie** pola tytułu w grze, nie tylko menu:
+## Zmiany
 
-| Kategoria | wierszy | > 32 znaków przed | > 32 znaków po |
-| --- | --- | --- | --- |
-| `mission_title` (menu, `milstP*.bin`, slot 40 B) | 303 | 24 | **0** |
-| `mission_note` – kopie tytułów (`*_ext.dat`, slot 40 B) | 224 | 6 (wszystkie w skróconych 24) | **0** |
-| `mission_note` – `note_a` / `note_b` (osobny panel listy) | 224 | do 49 znaków | bez zmian |
-| `bgm_title` (osobny panel) | — | długie wiersze | bez zmian |
+| # | Identyfikator | Przed | Po | Komórki przed → po |
+| --- | --- | --- | --- | --- |
+| 1 | `mission_title:config00.cpk/milstP00.bin:r14:title` | Ep. 2: Groźba czająca się pod ziemią | **Ep. 2: Groźba pod ziemią** | 36 → 24 |
+| 2 | `mission_title:config01.EDAT/milstP01.bin:r9:title` | Ep. 3-1: Zbrojna interwencja Gundamów | **Ep. 3-1: Interwencja Gundamów** | 37 → 29 |
+| 3 | `mission_title:config01.EDAT/milstP01.bin:r10:title` | Ep. 3-2: Skradający się czarny cień | **Ep. 3-2: Skradający się cień** | 35 → 28 |
+| 4 | `mission_title:config01.EDAT/milstP01.bin:r30:title` | SIM: Bitwa mobile suitów na lądzie | **SIM: Bitwa MS na lądzie** | 34 → 23 |
+| 5 | `mission_title:config02.EDAT/milstP02.bin:r16:title` | Rzekoma członkini Czarnych Rycerzy | **Rzekoma Czarna Rycerka** | 34 → 22 |
+| 6 | `mission_title:config02.EDAT/milstP02.bin:r28:title` | Ep. 9-2: Śmiertelny bój z Riemannem | **Ep. 9-2: Bój z Riemannem** | 35 → 24 |
+| 7 | `mission_title:config03.EDAT/milstP03.bin:r13:title` | Ep. 11-3: Leże Imperium Mechanizacji | **Ep. 11-3: Leże Imperium** | 36 → 23 |
+| 8 | `mission_title:config03.EDAT/milstP03.bin:r28:title` | Ep. 13-2: Stolica imperium w ogniu | **Ep. 13-2: Stolica w ogniu** | 34 → 25 |
+| 9 | `mission_title:config03.EDAT/milstP03.bin:r30:title` | Święty wojownik upadłego królestwa | **Wojownik upadłego królestwa** | 34 → 27 |
+| 10 | `mission_title:config04.EDAT/milstP04.bin:r19:title` | Pragnący wskrzesić demonicznego boga | **Pragnący wskrzesić boga** | 36 → 23 |
+| 11 | `mission_title:config05.EDAT/milstP05.bin:r11:title` | Ep. 19-1: Przełamanie obrony Axis | **Ep. 19-1: Przełamanie Axis** | 33 → 26 |
+| 12 | `mission_title:config05.EDAT/milstP05.bin:r12:title` | Ep. 19-2: Szturmowy desant na Axis | **Ep. 19-2: Desant na Axis** | 34 → 24 |
+| 13 | `mission_title:config05.EDAT/milstP05.bin:r17:title` | Uderz w bazę zaopatrzeniową wroga | **Uderz w bazę zaopatrzenia** | 33 → 25 |
+| 14 | `mission_title:config05.EDAT/milstP05.bin:r29:title` | Ep. 21-2: Ostateczna forma Goburikiego | **Ep. 21-2: Ostateczny Goburiki** | 38 → 29 |
+| 15 | `mission_title:config06.EDAT/milstP06.bin:r4:title` | Ep. 22-3: Devil Gundam, ostatnia runda | **Ep. 22-3: Devil Gundam, finał** | 38 → 29 |
+| 16 | `mission_title:config06.EDAT/milstP06.bin:r29:title` | Operacja: schwytanie uśpionych Zoidów | **Operacja: uśpione Zoidy** | 37 → 23 |
+| 17 | `mission_title:config07.EDAT/milstP07.bin:r3:title` | Ep. 26-3: Odrodzenie Ultrasaurusa | **Ep. 26-3: Powrót Ultrasaurusa** | 33 → 29 |
+| 18 | `mission_title:config07.EDAT/milstP07.bin:r6:title` | Poszukiwanie Imperium Mechanizacji | **Poszukiwanie Imperium** | 34 → 21 |
+| 19 | `mission_title:config07.EDAT/milstP07.bin:r9:title` | Ep. 27-1: Ku Zamkowi Mechanizacji | **Ep. 27-1: Zamek Mechanizacji** | 33 → 28 |
+| 20 | `mission_title:config07.EDAT/milstP07.bin:r10:title` | Ep. 27-2: Groza! Gniew Kikaishina | **Ep. 27-2: Gniew Kikaishina** | 33 → 26 |
+| 21 | `mission_title:config07.EDAT/milstP07.bin:r26:title` | Ep. 29-2: Natarcie Death Stingera | **Ep. 29-2: Atak Death Stingera** | 33 → 29 |
+| 22 | `mission_title:config08.EDAT/milstP08.bin:r3:title` | Ep. 30-3: Death Saurer, bestia zagłady | **Ep. 30-3: Death Saurer** | 38 → 22 |
+| 23 | `mission_title:config08.EDAT/milstP08.bin:r9:title` | Ep. 31-1: Starcie!! Forteca Invaderów! | **Ep. 31-1: Forteca Invaderów!!** | 38 → 29 |
+| 24 | `mission_title:config08.EDAT/milstP08.bin:r10:title` | Ep. 31-2: Błysk!! U kresu ewolucji! | **Ep. 31-2: Błysk!! Kres ewolucji** | 35 → 31 |
+| 25 | `mission_note:eventP01.EDAT/DL103_11_ext.dat:r0:title` | Ep. 3 / Zbrojna interwencja Gundamów | **Ep. 3 / Interwencja Gundamów** | 28 → 20 |
+| 26 | `mission_note:eventP01.EDAT/DL103_12_ext.dat:r0:title` | Ep. 3 / Skradający się czarny cień | **Ep. 3 / Skradający się cień** | 26 → 19 |
+| 27 | `mission_note:eventP01.EDAT/SM002_ext.dat:r0:title` | Symulator / Bitwa mobile suitów na lądzie | **Symulator / Bitwa MS na lądzie** | 29 → 18 |
+| 28 | `mission_note:eventP02.EDAT/DL207_30_ext.dat:r0:title` | Rzekoma członkini Czarnych Rycerzy | **Rzekoma Czarna Rycerka** | 34 → 22 |
+| 29 | `mission_note:eventP02.EDAT/DL209_12_ext.dat:r0:title` | Ep. 9 / Śmiertelny bój z Riemannem | **Ep. 9 / Bój z Riemannem** | 26 → 15 |
+| 30 | `mission_note:eventP03.EDAT/DL311_13_ext.dat:r0:title` | Ep. 11 / Leże Imperium Mechanizacji | **Ep. 11 / Leże Imperium** | 26 → 13 |
+| 31 | `mission_note:eventP03.EDAT/DL313_12_ext.dat:r0:title` | Ep. 13 / Stolica imperium w ogniu | **Ep. 13 / Stolica w ogniu** | 24 → 15 |
+| 32 | `mission_note:eventP03.EDAT/DL313_25_ext.dat:r0:title` | Święty wojownik upadłego królestwa | **Wojownik upadłego królestwa** | 34 → 27 |
+| 33 | `mission_note:eventP04.EDAT/DL415_70_ext.dat:r0:title` | Pragnący wskrzesić demonicznego boga | **Pragnący wskrzesić boga** | 36 → 23 |
+| 34 | `mission_note:eventP05.EDAT/DL519_11_ext.dat:r0:title` | Ep. 19 / Przełamanie obrony Axis | **Ep. 19 / Przełamanie Axis** | 23 → 16 |
+| 35 | `mission_note:eventP05.EDAT/DL519_12_ext.dat:r0:title` | Ep. 19 / Szturmowy desant na Axis | **Ep. 19 / Desant na Axis** | 24 → 14 |
+| 36 | `mission_note:eventP05.EDAT/DL519_40_ext.dat:r0:title` | Uderz w bazę zaopatrzeniową wroga | **Uderz w bazę zaopatrzenia** | 33 → 25 |
+| 37 | `mission_note:eventP05.EDAT/DL521_12_ext.dat:r0:title` | Ep. 21 / Ostateczna forma Goburikiego | **Ep. 21 / Ostateczny Goburiki** | 28 → 19 |
+| 38 | `mission_note:eventP06.EDAT/DL622_13_ext.dat:r0:title` | Ep. 22 / Devil Gundam, ostatnia runda | **Ep. 22 / Devil Gundam, finał** | 28 → 19 |
+| 39 | `mission_note:eventP06.EDAT/DL625_40_ext.dat:r0:title` | Operacja: schwytanie uśpionych Zoidów | **Operacja: uśpione Zoidy** | 37 → 23 |
+| 40 | `mission_note:eventP07.EDAT/DL726_13_ext.dat:r0:title` | Ep. 26 / Odrodzenie Ultrasaurusa | **Ep. 26 / Powrót Ultrasaurusa** | 23 → 19 |
+| 41 | `mission_note:eventP07.EDAT/DL726_35_ext.dat:r0:title` | Poszukiwanie Imperium Mechanizacji | **Poszukiwanie Imperium** | 34 → 21 |
+| 42 | `mission_note:eventP07.EDAT/DL727_11_ext.dat:r0:title` | Ep. 27 / Ku Zamkowi Mechanizacji | **Ep. 27 / Zamek Mechanizacji** | 23 → 18 |
+| 43 | `mission_note:eventP07.EDAT/DL727_12_ext.dat:r0:title` | Ep. 27 / Groza! Gniew Kikaishina | **Ep. 27 / Gniew Kikaishina** | 23 → 16 |
+| 44 | `mission_note:eventP07.EDAT/DL729_12_ext.dat:r0:title` | Ep. 29 / Natarcie Death Stingera | **Ep. 29 / Atak Death Stingera** | 23 → 19 |
+| 45 | `mission_note:eventP08.EDAT/DL830_13_ext.dat:r0:title` | Ep. 30 / Death Saurer, bestia zagłady | **Ep. 30 / Death Saurer** | 28 → 12 |
+| 46 | `mission_note:eventP08.EDAT/DL831_11_ext.dat:r0:title` | Ep. 31 / Starcie!! Forteca Invaderów! | **Ep. 31 / Forteca Invaderów!!** | 28 → 19 |
+| 47 | `mission_note:eventP08.EDAT/DL831_12_ext.dat:r0:title` | Ep. 31 / Błysk!! U kresu ewolucji! | **Ep. 31 / Błysk!! Kres ewolucji** | 25 → 21 |
+| 48 | `mission_note:eventP00.cpk/DL102_11_ext.dat:r0:title` | Ep. 2 / Groźba czająca się pod ziemią | **Ep. 2 / Groźba pod ziemią** | 29 → 17 |
 
-`note_a`/`note_b` i `bgm_title` renderują się w innych panelach i nie mają
-zgłoszonego defektu — świadomie **niezmienione** (osobna sprawa, jeśli właściciel
-zgłosi).
+## Weryfikacja
 
-## Poprawki — 24 tytuły menu (i ich 24 kopie w `*_ext.dat`)
+- Każdy wiersz planu jest powiązany ze źródłem przez `source_sha256` (`pakiet_EN` i snapshot PL); narzędzie `tools/pl_story_corrections.py` nakłada plan asertywnie i odmawia pracy przy niezgodności.
+- Po nałożeniu cały pakiet PL jest materializowany od zera (`109 176` wierszy, `108 805` wypełnionych, `371` pustych, `0` błędów, `4 176` ostrzeżeń — bez zmian względem v4.4).
+- `tests/test_pl_mission_title_fit.py` (7 testów) sprawdza: plan i jego hash, brak tytułu >32 komórek w menu i kopiach, zachowanie prefiksów epizodu i unikalności tytułów, brak zmian w `note_a`/`note_b`/`bgm_title`, oraz to, że teksty w snapshocie dokładnie odpowiadają planowi.
+- Snapshot: `data_sha256` `da2ad33f…e1f` → `788ab91c…62` (17. wpis w ledgerze planów UI).
+- **Brak testu PPSSPP** — fix mierzy się jednym zrzutem ekranu wyboru misji epizodu 2; `runtime_tested` pozostaje `false`.
 
-| przed (znaki) | przed | po (znaki) | po |
-| --- | --- | --- | --- |
-| 38 | `Ep. 21-2: Ostateczna forma Goburikiego` | 29 | `Ep. 21-2: Ostateczny Goburiki` |
-| 38 | `Ep. 22-3: Devil Gundam, ostatnia runda` | 29 | `Ep. 22-3: Devil Gundam, finał` |
-| 38 | `Ep. 30-3: Death Saurer, bestia zagłady` | 22 | `Ep. 30-3: Death Saurer` |
-| 38 | `Ep. 31-1: Starcie!! Forteca Invaderów!` | 29 | `Ep. 31-1: Forteca Invaderów!!` |
-| 37 | `Ep. 3-1: Zbrojna interwencja Gundamów` | 29 | `Ep. 3-1: Interwencja Gundamów` |
-| 37 | `Operacja: schwytanie uśpionych Zoidów` | 23 | `Operacja: uśpione Zoidy` |
-| 36 | `Ep. 11-3: Leże Imperium Mechanizacji` | 23 | `Ep. 11-3: Leże Imperium` |
-| 36 | `Ep. 2: Groźba czająca się pod ziemią` | 24 | **`Ep. 2: Groźba pod ziemią`** |
-| 36 | `Pragnący wskrzesić demonicznego boga` | 23 | `Pragnący wskrzesić boga` |
-| 35 | `Ep. 3-2: Skradający się czarny cień` | 28 | `Ep. 3-2: Skradający się cień` |
-| 35 | `Ep. 31-2: Błysk!! U kresu ewolucji!` | 31 | `Ep. 31-2: Błysk!! Kres ewolucji` |
-| 35 | `Ep. 9-2: Śmiertelny bój z Riemannem` | 24 | `Ep. 9-2: Bój z Riemannem` |
-| 34 | `Ep. 13-2: Stolica imperium w ogniu` | 25 | `Ep. 13-2: Stolica w ogniu` |
-| 34 | `Ep. 19-2: Szturmowy desant na Axis` | 24 | `Ep. 19-2: Desant na Axis` |
-| 34 | `Poszukiwanie Imperium Mechanizacji` | 21 | `Poszukiwanie Imperium` |
-| 34 | `Rzekoma członkini Czarnych Rycerzy` | 22 | `Rzekoma Czarna Rycerka` |
-| 34 | `SIM: Bitwa mobile suitów na lądzie` | 23 | `SIM: Bitwa MS na lądzie` |
-| 34 | `Święty wojownik upadłego królestwa` | 27 | `Wojownik upadłego królestwa` |
-| 33 | `Ep. 19-1: Przełamanie obrony Axis` | 26 | `Ep. 19-1: Przełamanie Axis` |
-| 33 | `Ep. 26-3: Odrodzenie Ultrasaurusa` | 29 | `Ep. 26-3: Powrót Ultrasaurusa` |
-| 33 | `Ep. 27-1: Ku Zamkowi Mechanizacji` | 28 | `Ep. 27-1: Zamek Mechanizacji` |
-| 33 | `Ep. 27-2: Groza! Gniew Kikaishina` | 26 | `Ep. 27-2: Gniew Kikaishina` |
-| 33 | `Ep. 29-2: Natarcie Death Stingera` | 29 | `Ep. 29-2: Atak Death Stingera` |
-| 33 | `Uderz w bazę zaopatrzeniową wroga` | 25 | `Uderz w bazę zaopatrzenia` |
+## Ryzyko szczątkowe
 
-Kopie w `*_ext.dat` mają dokładnie ten sam tekst (dla pozycji z prefiksem `Ep. N`
-w formie dwuwierszowej `Ep. N\n<tytuł>`), więc lista w grze i panel noty pokazują
-to samo. Kontrolki formatowania i podziały wierszy pozostały nietknięte.
-
-Tytuły, które już mieściły się w 32 znakach (279 z 303 w menu), są **bajt w bajt**
-niezmienione — m.in. `Ep. 0: Misje główne` i `Szkolenie podstawowe`.
-
-## Walidacja
-
-- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`
-  `da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f` →
-  `788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62`;
-  17. wpis `owner_ui_corrections` (`entries: 48`, `runtime_tested: false`,
-  plan SHA-256 `f191db7df6e6a7abffb0952401c4990ddb49da1b86554b16e047ee1e152e8d64`).
-- **Nakładanie planu:** `tools/pl_ui_corrections.py --stored pakiet_PL --plan … --out …`
-  — 48/48 zmian zastosowanych, każda powiązana hashem źródłowego wiersza EN.
-- **Materializacja:** `tools/pl_release_package.py materialize` → 109 176 wierszy,
-  108 805 wypełnionych, 371 pustych, **0 błędów**, 4 176 ostrzeżeń; zmierzona
-  maksymalna szerokość tytułu menu i noty = **32 znaki**, 0 wierszy powyżej.
-- **Testy:** nowy `tests/test_pl_mission_title_fit.py` (7 testów: kształt planu
-  i pomiaru, powiązanie każdej zmiany z `pakiet_PL`, limit szerokości, równość
-  kontrolek i podziałów wierszy, wpis w ledgerze, zgodność menu ↔ kopia
-  `*_ext.dat`, limit 32 znaków w materializacji, dokładne teksty Ep. 2, brak zmian
-  w `Ep. 0: Misje główne` / `Szkolenie podstawowe`) — pełny przebieg
-  `150/150` modułów OK.
-- **Kit:** `tools/build_release_pair.py --out local/dist_v4_5 --version 4.5`;
-  ZIP PL `8 764 842 B`, SHA-256 `6a602305…d025`, MD5 `568637c9…ed3`,
-  92 elementy; kontrola CRC i pokrycia wewnątrz archiwum: 0 błędów,
-  108 805/109 176. `README_DIST_PL.md` zyskał sekcję v4.5.
-
-## Status
-
-`runtime_tested` = **false**. Cała weryfikacja jest statyczna (pomiar ze zrzutu,
-plan źródłowy, materializacja, testy, CRC/hashe ZIP). Docelowy wygląd paska
-wymaga ponownego zrzutu właściciela z PPSSPP — jeśli 32 znaki nadal są zbyt
-szerokie przy innym zestawie licznika, limit można obniżyć kolejnym planem.
+Jeśli na innym ekranie licznik misji jest dłuższy niż 4 komórki (np. trzycyfrowy), pasek może nadal się zetknąć; wtedy wystarczy obniżyć limit do 30 komórek w kolejnym planie — mechanizm i test już istnieją. Nie zaobserwowano żadnego innego panelu rysującego ten sam tytuł w innym rozmiarze.

@@ -24,15 +24,13 @@ extra missions. `runtime_tested` stays `false`. ISO YES / DLC NO unchanged
 for the owner's 1.08 path.
 
 **Reading editions v4.5 reissued (2026-10-24).**
-[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1mPih1fAdD2M0qAWRO13udylguIFpPrwT/view)
-`2,182,137 B`, SHA-256 `ae77c4e6…5047`: `34` episodes rebuilt from the v4.5
-package, episode `34` carried over unchanged, supplements re-bundled and the
-mission-deployment headings refreshed to the new titles. **Episode 34 needs nothing from you:** none of the `70` rows changed in
-v4.4/v4.5 belongs to it, so the file in the archive is exactly what a rebuild
-would produce. The only missing input is its English reader edition, used by
-the build script as a plan checksum, not as a source of text — if you happen to
-have `srwoe_episode_34.md` (`4f1c6c3e…`), uploading it to `Skrzpty` just restores
-the normal rebuild path.
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv/view)
+`2,181,852 B`, SHA-256 `d16a78aa…d2ba1`: **all `35` episodes rebuilt** from the
+v4.5 package, supplements re-bundled and the mission-deployment headings
+refreshed to the new titles. **Nothing here needs anything from you** — the `35`
+English reader editions live in `docs/reading-script/english-reference/`, so the
+archive is reproducible from the repository alone and no longer depends on
+Drive. ISO NO / DLC NO.
 
 The canonical `srwoe_mission_deployments.md` rebuild also needs the private
 `eventP*`/`config*` containers and the decrypted 1.08 ELF.
