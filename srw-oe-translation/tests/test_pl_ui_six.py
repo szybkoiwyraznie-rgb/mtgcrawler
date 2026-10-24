@@ -64,8 +64,9 @@ class BatchTests(unittest.TestCase):
             self.assertEqual(len(edits), h['entries'])
             for edit in edits:
                 last_value_by_binding[edit['source_sha256']] = edit.get('after', edit.get('pl'))
-        # 1521 historical bindings + 4 new ones from ui-qa-v41-2026-10-23.json
-        self.assertEqual(len(last_value_by_binding), 1525)
+        # 1521 historical bindings + 4 from ui-qa-v41-2026-10-23 + later batches
+        # (story-language plans and the mission-title fit plan append here too).
+        self.assertGreaterEqual(len(last_value_by_binding), 1525)
         for binding, expected in last_value_by_binding.items():
             self.assertEqual(current.get(binding), expected, binding)
         merge = meta['merge_provenance']
@@ -126,9 +127,12 @@ class BatchTests(unittest.TestCase):
             donor_pl = self.entries[R.binding(donor)]['pl']
             self.assertEqual(R.binding(row), entry['source_sha256'])
             self.assertEqual(R.binding(donor), entry['accepted_pl_source_sha256'])
-            self.assertEqual(self.entries[entry['source_sha256']]['pl'], entry['pl'])
+            # The promoted copy keeps reusing the *current* accepted menu text,
+            # so a later menu-title shortening flows into the copy too; the
+            # historical plan text is only the first edition.
+            expected = donor_pl.replace(': ', '\n', 1) if '\n' in row['jp'] else donor_pl
+            self.assertEqual(self.entries[entry['source_sha256']]['pl'], expected)
             self.assertEqual(row['jp'].replace('\n', ' '), donor['jp'])
-            self.assertEqual(entry['pl'], donor_pl.replace(': ', '\n', 1) if '\n' in row['jp'] else donor_pl)
             self.assertEqual(row['source']['offset'], 344)
             self.assertEqual(row['max_bytes'], 39)
             self.assertEqual(row['en'], '')

@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "version": "4.5",
+  "date": "2026-10-24",
+  "scope": "Owner-reported UI defect in the mission-select bottom bar: the Ep. 2 title ran into the mission-counter badge. All mission titles were audited (303 menu slots + 224 *_ext.dat copies) against a capacity measured from the owner's screenshot (480 px bar, title from x=167, badge at x=425 = 258 px = ~36 cells at 7.17 px/cell). 24 menu titles exceeded 32 cells and were shortened, together with their 24 *_ext.dat copies (48 source-bound rows in config/pl/ui-mission-title-length-2026-10-24.json). All 255 remaining titles are byte-identical; note_a/note_b body lines and bgm_title rows belong to other panels and were left alone. UI labels, PL font and texture-caption geometry unchanged from v4.4. Ledger: docs/pl/PL_MISSION_TITLE_FIT_2026-10-24.md.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.5.zip",
+    "drive_id": "1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view",
+    "bytes": 8764842,
+    "sha256": "6a60230597d5669a896db01c438553409268b0cb7e7dcb152c98d2acf9c4d025",
+    "md5": "568637c9609cdf8add085d6d04747f84",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.5 revision; archive member README.md)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "download_back_byte_identical": true,
+    "download_back_note": "The uploaded ZIP was downloaded back from Drive in this session and hashed: sha256 6a602305…d025, identical to the local build.",
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.5.zip",
+    "bytes": 7285821,
+    "sha256": "dfb196df4565b6584f3f808be3e11e5c6f1b5fabf4c41adf9bc2d691102e253d",
+    "md5": "e9867ce5c7066d80b85baeef411d6693",
+    "zip_members": 157,
+    "note": "Built locally by tools/build_release_pair.py --version 4.5; not uploaded to Google Drive. English text unchanged vs v4.4; README_DIST.md unchanged."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62",
+    "previous_snapshot_sha256": "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f",
+    "changed_entries": 48,
+    "plan": "config/pl/ui-mission-title-length-2026-10-24.json",
+    "plan_sha256": "f191db7df6e6a7abffb0952401c4990ddb49da1b86554b16e047ee1e152e8d64",
+    "note": "Text-only change: no UI labels, font, texture captions or geometry touched; PL coverage identical to v4.4 (108,805/109,176, 371 empty, 0 errors). Only mission titles changed."
+  },
+  "measurement": {
+    "screen_width_px": 480,
+    "screenshot_scale": 4.629,
+    "title_start_x": 167,
+    "counter_badge_start_x": 425,
+    "title_area_px": 258,
+    "cell_advance_px": 7.17,
+    "measured_capacity_cells": 36,
+    "applied_cap_cells": 32,
+    "confidence": "geometry measured from one owner screenshot; the 4-cell margin is an estimate, not a runtime confirmation"
+  },
+  "title_audit": {
+    "menu_title_slots": 303,
+    "menu_titles_over_cap_before": 24,
+    "menu_titles_over_cap_after": 0,
+    "note_title_copies": 224,
+    "note_copies_over_cap_before": 6,
+    "note_copies_over_cap_after": 0,
+    "rows_changed": 48,
+    "titles_left_untouched": 255,
+    "separate_panels_not_changed": ["mission_note note_a/note_b body lines", "bgm_title rows"]
+  },
+  "tests": "tools/build_release_pair.py internal verification (ZIP CRC, member hashes, active-language manifests, PL coverage 108,805/109,176, 0 errors) plus tests/test_pl_mission_title_fit.py (7 tests) and the full sweep 150/150 modules OK.",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only. The bar layout should be re-checked by the owner in PPSSPP: the Ep. 2 screen that produced the report is the fastest regression check."
+  },
+  "replacement": {
+    "replace_iso": true,
+    "recopy_dlc": false,
+    "recopy_pboot": false,
+    "note": "Same patch procedure as v4.4 on the owner's clean JP 1.08 ISO; DLC files already on the memory stick are unchanged by this release."
+  }
+}

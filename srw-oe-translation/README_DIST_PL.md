@@ -1,7 +1,25 @@
-# Super Robot Wars OE — pełny polski patcher (v4.4 — korekta językowa scen dodatkowych)
+# Super Robot Wars OE — pełny polski patcher (v4.5 — tytuły misji dopasowane do paska)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Tytuły misji w pasku wyboru — v4.5 (2026-10-24)
+
+Zgłoszenie właściciela: w dolnym pasku ekranu wyboru misji tytuł „Ep. 2: Groźba
+czająca się pod ziemią” wchodził na licznik misji `(8)`.
+
+- **Pomiar (zrzut właściciela):** pasek ma 480 px szerokości; tytuł rysowany jest
+  od x=167, licznik `(8)` zaczyna się od x=425 — na tekst zostaje 258 px, czyli
+  ~36 znaków przy zmierzonych 7,17 px na znak. Tytuł Ep. 2 (35 znaków) kończył się
+  dokładnie pod licznikiem.
+- **Poprawka:** wszystkie polskie tytuły misji (303 wpisy menu + 224 kopie
+  w plikach `*_ext.dat`) są ograniczone do **32 znaków**, czyli 4 znaki zapasu.
+  Skrócono 24 tytuły menu i ich 24 kopie — razem 48 wierszy; treść pozostałych
+  255 tytułów bez zmian.
+- **Bez zmian pokrycia i interfejsu:** 108 805 / 109 176 wypełnionych wierszy,
+  371 świadomie pustych, 0 błędów; UI, font PL i geometria podpisów tekstur jak
+  w v4.4.
+- **Wersja tekstu:** `data_sha256 = 788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62`.
 
 ## Sceny dodatkowe i symulator — v4.4 (2026-10-24)
 

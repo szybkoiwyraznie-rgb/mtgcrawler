@@ -1,0 +1,453 @@
+{
+ "schema": 1,
+ "date": "2026-10-24",
+ "scope": "PL v4.5 owner report: the Ep. 2 mission title in the mission-select bottom bar ran into the mission-counter badge. Every mission title (303 menu slots + 224 *_ext.dat copies) was measured; 24 menu titles exceeded 32 cells. All are shortened to <=32 cells with their *_ext.dat copies kept identical, 48 rows in total.",
+ "source_binding": "Every change is bound to the EN row source hash; runtime_tested stays false until the owner re-tests the v4.5 kit.",
+ "measurements": {
+  "screen_width_px": 480,
+  "screenshot_scale": 4.629,
+  "bar_title_start_x": 167,
+  "counter_badge_start_x": 425,
+  "title_area_px": 258,
+  "cell_advance_px": 7.17,
+  "measured_capacity_cells": 36,
+  "chosen_cap_cells": 32,
+  "method": "Column ink profile of the owner screenshot (2026-10-24): the 35-character Ep. 2 title spans 774..1935 image px = 251 screen px, i.e. 7.17 px per character; the (8) badge starts at 1969 image px. Titles are rendered left-aligned from the same x on every mission, so the cap is uniform.",
+  "original_jp_check": "JP titles are full-width and stay under the cap by construction (longest JP menu title is 22 characters = 44 half-width cells, drawn in a list box, not this bar); only the bottom bar is tight.",
+  "hypothesis": "The remaining margin is calibrated on one screenshot of one mission; a different badge set (e.g. longer right-hand labels) could still crowd a 32-cell title. No runtime confirmation yet."
+ },
+ "changes": [
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config00.cpk/milstP00.bin:r14:title",
+   "source_sha256": "1ebc280b9345aa38a4b477acdecac8db7670fdb94f50b863a5530bef867e29eb",
+   "before": "Ep. 2: Groźba czająca się pod ziemią",
+   "after": "Ep. 2: Groźba pod ziemią",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config01.EDAT/milstP01.bin:r9:title",
+   "source_sha256": "f080cfd39a69d862de85824828ba833df6106c4d009c74c413a654d8bfa368a9",
+   "before": "Ep. 3-1: Zbrojna interwencja Gundamów",
+   "after": "Ep. 3-1: Interwencja Gundamów",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config01.EDAT/milstP01.bin:r10:title",
+   "source_sha256": "65173f13a64f23d08484594b39cdf559a8fd909712608ba0e554a4d3e72e1614",
+   "before": "Ep. 3-2: Skradający się czarny cień",
+   "after": "Ep. 3-2: Skradający się cień",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config01.EDAT/milstP01.bin:r30:title",
+   "source_sha256": "e4358cd3bc04127900b2fdeffb8f3177cdac62f835f9fc3e2840bce59ff352c7",
+   "before": "SIM: Bitwa mobile suitów na lądzie",
+   "after": "SIM: Bitwa MS na lądzie",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config02.EDAT/milstP02.bin:r16:title",
+   "source_sha256": "b4efed8caf832cd42bb6f125a6dd45f39d0d51fbc8025b22caa5b85d36a77ede",
+   "before": "Rzekoma członkini Czarnych Rycerzy",
+   "after": "Rzekoma Czarna Rycerka",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config02.EDAT/milstP02.bin:r28:title",
+   "source_sha256": "ce9a45e1500aad14387401c14222ba00c0fe8fd687730ec7cf99329692f50fc7",
+   "before": "Ep. 9-2: Śmiertelny bój z Riemannem",
+   "after": "Ep. 9-2: Bój z Riemannem",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config03.EDAT/milstP03.bin:r13:title",
+   "source_sha256": "ce6e2f845db730023b915d01f12ea24e25f1b4eeb2edd274891d53d0398b7bd1",
+   "before": "Ep. 11-3: Leże Imperium Mechanizacji",
+   "after": "Ep. 11-3: Leże Imperium",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config03.EDAT/milstP03.bin:r28:title",
+   "source_sha256": "1ddbc38cde4982804f4d1e97fe3ec48c9163deed0223782b1c393f281eec45e8",
+   "before": "Ep. 13-2: Stolica imperium w ogniu",
+   "after": "Ep. 13-2: Stolica w ogniu",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config03.EDAT/milstP03.bin:r30:title",
+   "source_sha256": "b8846509bdc1da7c29135bdb73650dfa399a5e18d0d922698d39af70fa61ccc6",
+   "before": "Święty wojownik upadłego królestwa",
+   "after": "Wojownik upadłego królestwa",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config04.EDAT/milstP04.bin:r19:title",
+   "source_sha256": "8c5eb9b975f7eb0a36408eee7c8fdf01b867f54574df924cea9297f10d986044",
+   "before": "Pragnący wskrzesić demonicznego boga",
+   "after": "Pragnący wskrzesić boga",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config05.EDAT/milstP05.bin:r11:title",
+   "source_sha256": "bfa1ebdb0768bb75c2d8fdbdcab8a91e6aab2494066ac389fe81628a8bc2d9e1",
+   "before": "Ep. 19-1: Przełamanie obrony Axis",
+   "after": "Ep. 19-1: Przełamanie Axis",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config05.EDAT/milstP05.bin:r12:title",
+   "source_sha256": "d63caa845a53e289f9b1f5b11f53373ba97b65a50ff38c0dee8b1d2296fc1bf5",
+   "before": "Ep. 19-2: Szturmowy desant na Axis",
+   "after": "Ep. 19-2: Desant na Axis",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config05.EDAT/milstP05.bin:r17:title",
+   "source_sha256": "d95dde11b5721c3e286ffba4820638f88aeba5c7811998d52de1bb8c57147e20",
+   "before": "Uderz w bazę zaopatrzeniową wroga",
+   "after": "Uderz w bazę zaopatrzenia",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config05.EDAT/milstP05.bin:r29:title",
+   "source_sha256": "e7081d4c84c93dfe6d797bab1a43b002daefbf4c18f06d87450828465246beee",
+   "before": "Ep. 21-2: Ostateczna forma Goburikiego",
+   "after": "Ep. 21-2: Ostateczny Goburiki",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config06.EDAT/milstP06.bin:r4:title",
+   "source_sha256": "42061f40a35996178cdb56f073ea25db073f50f5ebc944aac5515e6edf0a7cfe",
+   "before": "Ep. 22-3: Devil Gundam, ostatnia runda",
+   "after": "Ep. 22-3: Devil Gundam, finał",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config06.EDAT/milstP06.bin:r29:title",
+   "source_sha256": "33a27a5c72f5e46d7db9c11ba6787ac75a694c2bcca7d318441400b79aa7472c",
+   "before": "Operacja: schwytanie uśpionych Zoidów",
+   "after": "Operacja: uśpione Zoidy",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config07.EDAT/milstP07.bin:r3:title",
+   "source_sha256": "e3fe90ae325ccaf4dcfe5569e88b57c4c20fc4bdb0aeb20f22eddfd5b40eceaf",
+   "before": "Ep. 26-3: Odrodzenie Ultrasaurusa",
+   "after": "Ep. 26-3: Powrót Ultrasaurusa",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config07.EDAT/milstP07.bin:r6:title",
+   "source_sha256": "d9b61d3bda8c24a23d41278ae552fcb627d98989080690e0c52752485f71cc8b",
+   "before": "Poszukiwanie Imperium Mechanizacji",
+   "after": "Poszukiwanie Imperium",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config07.EDAT/milstP07.bin:r9:title",
+   "source_sha256": "96b07f04092c7d77ba92e0d93ae84fe502e97049a1845543f86369f25ea48d15",
+   "before": "Ep. 27-1: Ku Zamkowi Mechanizacji",
+   "after": "Ep. 27-1: Zamek Mechanizacji",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config07.EDAT/milstP07.bin:r10:title",
+   "source_sha256": "38411a21c1d550bf9ced8ba1dc5cf91b3fd247a4439ad6554b78eed1ddf4f9cb",
+   "before": "Ep. 27-2: Groza! Gniew Kikaishina",
+   "after": "Ep. 27-2: Gniew Kikaishina",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config07.EDAT/milstP07.bin:r26:title",
+   "source_sha256": "70685eb8cfafb7641c9b00195c31ead636c30a0728bd1aca2c943af78f734b84",
+   "before": "Ep. 29-2: Natarcie Death Stingera",
+   "after": "Ep. 29-2: Atak Death Stingera",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config08.EDAT/milstP08.bin:r3:title",
+   "source_sha256": "05c0075a182c7026ec8b8d67418cc18ac0ef5ff8fd6e286c76415b2bf349fe6f",
+   "before": "Ep. 30-3: Death Saurer, bestia zagłady",
+   "after": "Ep. 30-3: Death Saurer",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config08.EDAT/milstP08.bin:r9:title",
+   "source_sha256": "b560cdc1febb634eceda002ad1885250a531347fb93b0106745b7eee45c01041",
+   "before": "Ep. 31-1: Starcie!! Forteca Invaderów!",
+   "after": "Ep. 31-1: Forteca Invaderów!!",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_title:config08.EDAT/milstP08.bin:r10:title",
+   "source_sha256": "5da88bde3159352ae44c29c7c2091df6165834e65cb2694f6873d4b90aa07f5f",
+   "before": "Ep. 31-2: Błysk!! U kresu ewolucji!",
+   "after": "Ep. 31-2: Błysk!! Kres ewolucji",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP01.EDAT/DL103_11_ext.dat:r0:title",
+   "source_sha256": "b1fa02fba1db732595fa8eb09dcafbb5d329cbbdde42ad307a22163eb040caba",
+   "before": "Ep. 3\nZbrojna interwencja Gundamów",
+   "after": "Ep. 3\nInterwencja Gundamów",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP01.EDAT/DL103_12_ext.dat:r0:title",
+   "source_sha256": "4119f2fb64e3c7127a048e61aaf4d603afce35ad5141df6f11e12386b8481c99",
+   "before": "Ep. 3\nSkradający się czarny cień",
+   "after": "Ep. 3\nSkradający się cień",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP01.EDAT/SM002_ext.dat:r0:title",
+   "source_sha256": "bec2b9722533cb8129d0ed36e58b39f4278d12fa3316a771727f98363978cdf9",
+   "before": "Symulator\nBitwa mobile suitów na lądzie",
+   "after": "Symulator\nBitwa MS na lądzie",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP02.EDAT/DL207_30_ext.dat:r0:title",
+   "source_sha256": "4ce6590a1f6bb00a978fad5eaa4fe46f7d3ada7c49d8cd4fcde4d6f22164801c",
+   "before": "Rzekoma członkini Czarnych Rycerzy",
+   "after": "Rzekoma Czarna Rycerka",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP02.EDAT/DL209_12_ext.dat:r0:title",
+   "source_sha256": "c6173bb83711c0a19a846f0e93518c720a5128f2b8d5318c75ca13068d4cb598",
+   "before": "Ep. 9\nŚmiertelny bój z Riemannem",
+   "after": "Ep. 9\nBój z Riemannem",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP03.EDAT/DL311_13_ext.dat:r0:title",
+   "source_sha256": "bcf5999c9f88250ef316cec9369c31edbb2890b496fe9bf52780b103c5145186",
+   "before": "Ep. 11\nLeże Imperium Mechanizacji",
+   "after": "Ep. 11\nLeże Imperium",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP03.EDAT/DL313_12_ext.dat:r0:title",
+   "source_sha256": "7dbd6e32b8127602b62dd04e4ed1fe81b12fa54654c6d40e50a528b35e8269c9",
+   "before": "Ep. 13\nStolica imperium w ogniu",
+   "after": "Ep. 13\nStolica w ogniu",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP03.EDAT/DL313_25_ext.dat:r0:title",
+   "source_sha256": "bfbc6228b5aa553544b008940381815a97b6b916f5b3f78e37d011793e486c9a",
+   "before": "Święty wojownik upadłego królestwa",
+   "after": "Wojownik upadłego królestwa",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP04.EDAT/DL415_70_ext.dat:r0:title",
+   "source_sha256": "1880371e8a2226bffaf896f06fbc21094bf7af7a353641ab4207562e76619b93",
+   "before": "Pragnący wskrzesić demonicznego boga",
+   "after": "Pragnący wskrzesić boga",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP05.EDAT/DL519_11_ext.dat:r0:title",
+   "source_sha256": "81c37ccaefcc1648478d7528eb43ed1d0f01f8eb654343eafbc75772e5eecc09",
+   "before": "Ep. 19\nPrzełamanie obrony Axis",
+   "after": "Ep. 19\nPrzełamanie Axis",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP05.EDAT/DL519_12_ext.dat:r0:title",
+   "source_sha256": "2394585a87dd86e7f5bd92a098fbe80c2a5bbdb4d415345b13751bfdc9d326ef",
+   "before": "Ep. 19\nSzturmowy desant na Axis",
+   "after": "Ep. 19\nDesant na Axis",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP05.EDAT/DL519_40_ext.dat:r0:title",
+   "source_sha256": "db3e1f520ed449b147182524747bbdfad5ee72ae00500907ee9764a2374ce0d2",
+   "before": "Uderz w bazę zaopatrzeniową wroga",
+   "after": "Uderz w bazę zaopatrzenia",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP05.EDAT/DL521_12_ext.dat:r0:title",
+   "source_sha256": "8a3eaed060d710867b2153b5ca20a96625acf72bb1a1de14be282e9e9d7940a6",
+   "before": "Ep. 21\nOstateczna forma Goburikiego",
+   "after": "Ep. 21\nOstateczny Goburiki",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP06.EDAT/DL622_13_ext.dat:r0:title",
+   "source_sha256": "edf249ecdbeefa53a04caa8a2c6cdd1789d0012a95c0b0d572819233a8d9ed51",
+   "before": "Ep. 22\nDevil Gundam, ostatnia runda",
+   "after": "Ep. 22\nDevil Gundam, finał",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP06.EDAT/DL625_40_ext.dat:r0:title",
+   "source_sha256": "e4d59004da65567f347a4b6609ddf835bedf927101c94ee5c38d81d8f08bf441",
+   "before": "Operacja: schwytanie uśpionych Zoidów",
+   "after": "Operacja: uśpione Zoidy",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP07.EDAT/DL726_13_ext.dat:r0:title",
+   "source_sha256": "5b03fddd80b22e0a7e29a0054a810f585c32695324ad1f7e8cd01ec7aece86e0",
+   "before": "Ep. 26\nOdrodzenie Ultrasaurusa",
+   "after": "Ep. 26\nPowrót Ultrasaurusa",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP07.EDAT/DL726_35_ext.dat:r0:title",
+   "source_sha256": "0fab51db486854d4d6b67d5b62b476dcce69bbb7e84bac2c3d2cc19bc4256721",
+   "before": "Poszukiwanie Imperium Mechanizacji",
+   "after": "Poszukiwanie Imperium",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP07.EDAT/DL727_11_ext.dat:r0:title",
+   "source_sha256": "71c674c6fbb2e10e75c93908dd98e9f1fafb13c8011a2effcbb0980e2a60f3dc",
+   "before": "Ep. 27\nKu Zamkowi Mechanizacji",
+   "after": "Ep. 27\nZamek Mechanizacji",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP07.EDAT/DL727_12_ext.dat:r0:title",
+   "source_sha256": "c7187bdd3cab74bc0ce0dd9f87f0c9f15e25871077156e39d5557ff279d8e3bc",
+   "before": "Ep. 27\nGroza! Gniew Kikaishina",
+   "after": "Ep. 27\nGniew Kikaishina",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP07.EDAT/DL729_12_ext.dat:r0:title",
+   "source_sha256": "8841cbb5afc53189183b417e88c2c6a3429cf105bd7e04e26ba187b6d86012b8",
+   "before": "Ep. 29\nNatarcie Death Stingera",
+   "after": "Ep. 29\nAtak Death Stingera",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP08.EDAT/DL830_13_ext.dat:r0:title",
+   "source_sha256": "50ce13a5522bb5d0b7b878abba42d9d346304d7a39621f6e11f3a54b32d83cb4",
+   "before": "Ep. 30\nDeath Saurer, bestia zagłady",
+   "after": "Ep. 30\nDeath Saurer",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP08.EDAT/DL831_11_ext.dat:r0:title",
+   "source_sha256": "1b808f44a3d205f42c57104fec7675658f3a112c5948be5e78bbdc17d06b155e",
+   "before": "Ep. 31\nStarcie!! Forteca Invaderów!",
+   "after": "Ep. 31\nForteca Invaderów!!",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP08.EDAT/DL831_12_ext.dat:r0:title",
+   "source_sha256": "5675f6759e2e5fc6c725c2722a07ee41b826d1297c904ab376452db88050f2e1",
+   "before": "Ep. 31\nBłysk!! U kresu ewolucji!",
+   "after": "Ep. 31\nBłysk!! Kres ewolucji",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:title",
+   "source_sha256": "8a46563b99ecab525492a01aa27cb25c99f792d488114d7033fb072e7a24b6c4",
+   "before": "Ep. 2\nGroźba czająca się pod ziemią",
+   "after": "Ep. 2\nGroźba pod ziemią",
+   "max_cells": 32,
+   "reason": "Mission-select bottom bar: the bar draws the title from x=167 (480-wide screen) and the '(8)' counter badge starts at x=425, i.e. 258 px = ~36 cells at the measured 7.2 px cell advance. A 36-cell title reaches the badge (owner screenshot 2026-10-24, Ep. 2); the plan caps every mission title at 32 cells, leaving a 4-cell margin. Rows marked 'note copy' are the *_ext.dat duplicates of the same mission title and are kept identical to the menu string. note copy"
+  }
+ ]
+}

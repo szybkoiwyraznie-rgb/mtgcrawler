@@ -1,5 +1,32 @@
 # Project status
 
+**PL v4.5 delivered — mission titles fitted to the mission-select bar
+(2026-10-24, PR #24).**
+[`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
+`8,764,842 B`, SHA-256
+`6a60230597d5669a896db01c438553409268b0cb7e7dcb152c98d2acf9c4d025`, MD5
+`568637c9609cdf8add085d6d04747f84`, `92` members; Drive checksum read-back and
+download-back byte-identical. EN pair `srw-oe-translation-v4.5.zip`
+`7,285,821 B` (`dfb196df…`, local only; EN text unchanged vs v4.4).
+Owner report with screenshot: the Ep. 2 title ran into the mission-counter badge
+in the bottom bar. Measured from that screenshot: bar 480 px, title drawn from
+x=167, badge starts at x=425 — `258` px, i.e. `~36` cells at the measured
+`7.17` px per character. Audited all `303` menu titles and `224` `*_ext.dat`
+copies: `24` menu titles were over `32` cells (max `38`). All are shortened to
+`<=32` cells together with their copies — `48` source-bound rows in
+`config/pl/ui-mission-title-length-2026-10-24.json` (`f191db7d…`) — e.g.
+`Ep. 2: Groźba czająca się pod ziemią` → **`Ep. 2: Groźba pod ziemią`**,
+`Ep. 21-2: Ostateczna forma Goburikiego` → `Ep. 21-2: Ostateczny Goburiki`,
+`Ep. 30-3: Death Saurer, bestia zagłady` → `Ep. 30-3: Death Saurer`. The other
+`255` titles are byte-identical; `note_a`/`note_b` body lines and `bgm_title`
+belong to other panels and were left unchanged. Snapshot `data_sha256
+da2ad33f…e1f` → `788ab91c…62` (`17th` UI-plan ledger entry); coverage unchanged
+`108,805 / 109,176` filled, `371` empty, `0` errors, `4,176` warnings. Tests: new
+`tests/test_pl_mission_title_fit.py` (7) plus the full sweep `150/150` modules OK.
+Ledger [PL_MISSION_TITLE_FIT_2026-10-24.md](pl/PL_MISSION_TITLE_FIT_2026-10-24.md),
+receipt [pl-v4.5-kit-delivery.json](pl/pl-v4.5-kit-delivery.json). `runtime_tested`
+stays `false` — the bar needs an owner PPSSPP re-check (ISO YES / DLC NO).
+
 **PL v4.4 delivered — story-language review of the extra/simulator scenes
 (2026-10-24, PR #24).**
 [`srw-oe-translation-pl-v4.4.zip`](https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view)

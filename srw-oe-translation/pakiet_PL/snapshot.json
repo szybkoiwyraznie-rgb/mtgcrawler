@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f",
+  "data_sha256": "788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -126,6 +126,14 @@
       "sha256": "89698da780fdadb3f3bea71ad8ea1b29fdc5b047831a78a21b307f8dedf893e6",
       "previous_data_sha256": "8cb37fb30f8c1551083a2e1c050abb645ed561c706a1515cbc8152cc32a6269c",
       "entries": 4,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-mission-title-length-2026-10-24.json",
+      "sha256": "f191db7df6e6a7abffb0952401c4990ddb49da1b86554b16e047ee1e152e8d64",
+      "previous_data_sha256": "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f",
+      "entries": 48,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

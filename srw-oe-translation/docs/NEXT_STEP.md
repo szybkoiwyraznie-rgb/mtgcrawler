@@ -1,5 +1,17 @@
 # Next step — current state and open work
 
+**PL v4.5 delivered for owner re-test (2026-10-24).**
+[`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
+`8,764,842 B`, SHA-256 `6a602305…d025`; `48` mission-title rows shortened so that
+every title (menu + `*_ext.dat` copy) fits `32` cells in the bottom bar, the Ep. 2
+case included (`Ep. 2: Groźba pod ziemią`). UI labels/font/geometry and the story
+text are identical to v4.4; coverage unchanged. **Next owner-side: patch from a
+clean JP ISO with the v4.5 kit and re-take the mission-select screenshot of Ep. 2**
+— that single screen is the whole regression test for this fix. If a title still
+touches the badge (e.g. a longer counter on another mission), report it and the cap
+can be lowered in one more plan. `runtime_tested` stays `false`. ISO YES / DLC NO
+unchanged for the owner's 1.08 path.
+
 **PL v4.4 delivered for owner re-test (2026-10-24).**
 [`srw-oe-translation-pl-v4.4.zip`](https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view)
 `8,764,460 B`, SHA-256 `91b83aea…146`; `22` fixes in the extra/simulator

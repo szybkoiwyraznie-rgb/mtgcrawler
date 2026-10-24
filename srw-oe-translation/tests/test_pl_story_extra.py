@@ -39,7 +39,6 @@ import translation_check as C  # noqa: E402
 
 PLAN_NAME = "story-language-extra-2026-10-24.json"
 V43_DATA_SHA = "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262"
-V44_DATA_SHA = "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f"
 EXTRA_PREFIXES = (
     "dlg:evept101.EDAT/", "dlg:evept102.EDAT/", "dlg:evept103.EDAT/",
     "dlg:evept104.EDAT/", "dlg:evept105.EDAT/", "dlg:evept106.EDAT/",
@@ -74,18 +73,22 @@ class ExtraScenePlanTests(unittest.TestCase):
     def test_snapshot_ledger_chain(self):
         raw = (ROOT / "pakiet_PL/polish.jsonl").read_bytes()
         self.assertEqual(self.snapshot["data_sha256"], hashlib.sha256(raw).hexdigest())
-        self.assertEqual(self.snapshot["data_sha256"], V44_DATA_SHA)
         self.assertEqual(self.snapshot["entries"], 108794)
-        last = self.snapshot["owner_story_language_corrections"][-1]
-        self.assertEqual(last["plan"], PLAN_NAME)
-        self.assertEqual(last["entries"], 22)
-        self.assertEqual(last["episode"], "extra")
-        self.assertEqual(last["previous_data_sha256"], V43_DATA_SHA)
+        # This plan's edition is pinned by its own ledger entry (previous
+        # snapshot hash + plan hash); later batches legitimately move the
+        # snapshot on, so the newest entry is not assumed to be this plan.
+        entry = next(
+            h for h in self.snapshot["owner_story_language_corrections"] if h["plan"] == PLAN_NAME
+        )
+        self.assertEqual(entry["plan"], PLAN_NAME)
+        self.assertEqual(entry["entries"], 22)
+        self.assertEqual(entry["episode"], "extra")
+        self.assertEqual(entry["previous_data_sha256"], V43_DATA_SHA)
         self.assertEqual(
-            last["sha256"],
+            entry["sha256"],
             hashlib.sha256((ROOT / "config/pl" / PLAN_NAME).read_bytes()).hexdigest(),
         )
-        self.assertFalse(last["runtime_tested"])
+        self.assertFalse(entry["runtime_tested"])
 
     def test_every_edit_is_bound_and_landed(self):
         self.assertEqual(len(self.plan["changes"]), 22)
