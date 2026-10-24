@@ -75,3 +75,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** wojskowe pozostawienie okrętu `na straży`, żart o kanibalizmie Red Shoulder, dosłowne oddanie tytułu przez Chara, bezokolicznikowa refleksja Zechsa oraz metafora zarodka/ziarna konfliktu u Setsuny.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `a3dbd758f5470577e8f197c391f3a7c9e39c2a8e39cd3c1952d8461c007f22a9` → `e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 19 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 10
+
+- **Zakres:** 954 wpisy — 785 fabularnych i 169 warunkowych; 191 grup z pytaniami (160 fabularnych, 31 warunkowych).
+- **Poprawki:** 10 kwestii wskazanych w przeglądzie; plan zawiera 10 zmian źródłowych (brak jawnych kopii wymagających rozszerzenia).
+- **Potwierdzone klasy błędów:** bezpodmiotowe wyzwanie Kena `Dawać tu`, przysłówek zamiast przymiotnika w `Szybko jesteście`, mylące potwierdzenie po pytaniu o pozostałych wrogów, kolokacja `poznał wiedzę`, ataki synchronizowane wyłącznie „z spustem” bez jasnej relacji, niepełne `ciągle ci dokładam`, żołnierze, których nie można `ruszyć otwarcie`, nominalizacyjne `zaradzenie temu`, odwrócona relacja między informacjami a zeznaniami Wisemana oraz błędny rząd w `Pospieszcie konserwację`.
+- **Świadomie zachowane fałszywe alarmy:** dosłowna metafora Chara o patrzeniu na rzeczywistość, luksusowy „problem do pozazdroszczenia” Himari, wojskowe potwierdzenie `Tak jest!` po pytaniu o Big Zama oraz eliptyczna odpowiedź Garcii o prowizorycznej naprawie.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d` → `6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 10 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
