@@ -93,3 +93,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** techniczne `zoptymalizowane na danych uczenia`, `masz głowę martwić się o innych`, `nie mogę tego darować`, taktyczne rozwijanie Mobile suitów oraz skrót o krytycznej energii Solar Raya.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d` → `8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 7 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 12
+
+- **Zakres:** 799 wpisów — 661 fabularnych i 138 warunkowych; 139 grup z pytaniami (117 fabularnych, 22 warunkowe).
+- **Poprawki:** 2 kwestie wskazane w przeglądzie; plan zawiera 2 zmiany źródłowe (`story-language-ep12-2026-10-24.json`, SHA-256 `5770cbd7809a669ff13cb35cfe74e12753108752f06d428feb9bb5f39ef1afef`).
+- **Potwierdzone klasy błędów:** oderwany tag `co?` w monologu Lamunessa, który Tama-Q wprost nazywa gadaniem do siebie, oraz zniekształcony frazeologizm Violi `ruszasz się jak na dłoni` zamiast widocznych jak na dłoni ruchów przeciwnika.
+- **Świadomie zachowane fałszywe alarmy:** Setsuny „możliwości przewyższają moje dane” jako techniczna ocena wobec danych, metafora Heero o byciu częścią maszyny, humorystyczna „data przydatności” informacji Rosso, dehumanizujące „obie rzeczy” Ravena oraz JP-potwierdzone bezpośrednie tagi Ravena i Lamunessa skierowane do rozmówców.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c` → `8401bb6996f333bdf539514d07839841aead78e670a357ce6c2a950b702afc52`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

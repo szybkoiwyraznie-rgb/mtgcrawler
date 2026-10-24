@@ -26927,7 +26927,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:111092","pl":"To nie dręczenie... To tresura.\n","source_sha256":"8ca86f2c9ecdd25f3c61eed4aa5116be9eafae2e7c781f70ec0034aad5a258a7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_40.bin:6992","pl":"Nie daruję mu...\nNa pewno go znajdę i dam mu nauczkę!\n","source_sha256":"8ca8b4e17c7b7711747c90b673bc6beb0047168f65198e23573278ca8980b98b"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL102_11F.bin:21156","pl":"Nie... Ludzie nie mogą przez te bramy\nskakać w przestrzeni...\n","source_sha256":"8ca9d004602bb88a434c7201a659b27c636b84e0856eedff288aa0d9d2d62eb4"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_40.bin:4376","pl":"Ruszasz się jak na dłoni!","source_sha256":"8cab1081e510bd540e92bfddac0edba4ae7b79381fa7aed7ee7df55ff71037f3"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_40.bin:4376","pl":"Twoje ruchy widać jak na dłoni!","source_sha256":"8cab1081e510bd540e92bfddac0edba4ae7b79381fa7aed7ee7df55ff71037f3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_20.bin:4324","pl":"Ple?!\nJak to pomóc...?","source_sha256":"8cab2449e1edc49fb9b1fd2eec5daafdb55ac33042be2134445147fec2f9fce6"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:14896","pl":"No to jazda!\nConnect Force, za mną!","source_sha256":"8cac062488f5d8cf343b3462ae95805774ac1dc591d0013355739625fff4021d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL833_50.bin:7520","pl":"Jest!","source_sha256":"8cae09ac8a1ed40efd20e5f07bcc00fb894e019157dc63d36c277546b532a0ee"}
@@ -38929,7 +38929,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:118280","pl":"Jedna przestroga.","source_sha256":"cb8a0b0b09c27dd1b990f124262b6def977477161b394475f0b070050be9d548"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL102_50G.bin:7248","pl":"① Apsalus III wkracza do wyznaczonego obszaru\n② White Base zostaje zniszczony\n③ Shiro zostaje zestrzelony","source_sha256":"cb8b05be06e4977c0cfb0ecb2ee195b4eb14ef65e5d0d8ac83012f6804558c2f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL729_11.bin:8308","pl":"Connect Force wcale nas nie zmusza\ndo walki!\n","source_sha256":"cb8b5d59ec0a7143a52eb2af18c566a65e996101b287214aaa776c25c5036ccf"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_20.bin:8184","pl":"Ci Mucus pojawiają się wszędzie, co?\nTrzeba ich wybijać po kolei,\nbo inaczej będzie źle.\n","source_sha256":"cb8b854eea4c76cd736b6b66065a2d91ef1723126acc673852c06d2b7a476419"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_20.bin:8184","pl":"Ci Mucus pojawiają się wszędzie.\nTrzeba ich wybijać po kolei,\nbo inaczej będzie źle.\n","source_sha256":"cb8b854eea4c76cd736b6b66065a2d91ef1723126acc673852c06d2b7a476419"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_70.bin:10440","pl":"Widzę, że masz doświadczenie bojowe.\nPoznaję po tym, jak się ruszasz.","source_sha256":"cb8b862e2f73d4201bd1c1c0c0e9f290db1506f393db471399afe52940a62308"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_11.bin:4264","pl":"E tam.\nW przeciwieństwie do rebeliantów Connect Force\nma pełno ludzi, na których można polegać!\n","source_sha256":"cb91afe4f79356c23663f65fb794cf2815431a1cc32d36ebfd24f84b6c6f3eca"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:16792","pl":"Hehe! No i co, panie żołnierzu?\nNadążysz za Masoukishinem Wiatru, Cybusterem?","source_sha256":"cb934a8ce85c351220314ab8bd099238e91a8df6d47c757086485430d26cd67b"}
