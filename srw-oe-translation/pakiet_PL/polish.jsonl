@@ -1773,7 +1773,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:1944","pl":"W każdym razie!\nPowiedz mi chociaż podstawy, sierżancie!","source_sha256":"0920797f91e12a38ee9f67dac15413947ca85599faef6b31b875a7af84e11cc8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL207_13B.bin:7840","pl":"Shadooow!","source_sha256":"0921608fdeee368258cb368ce3f11f846e6c445d6ea3addb0e13fdab75dc7143"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_20.bin:4548","pl":"Czekaj, Zeke...","source_sha256":"0922487a901d80771c58feefa2ba58a765514da25b1f5647e98673d57a71cf8e"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:6296","pl":"Moi ludzie badają teraz otoczenie Amandry.\nZakulisowe rozgrywki zostawcie mnie.","source_sha256":"0926357981584590d3b3781c4a1e9ac6a502459b69cf6bfca495860c7ca04543"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_40.bin:6296","pl":"Moi ludzie badają teraz otoczenie Amandry.\nZakulisowe rozgrywki zostawcie mi.","source_sha256":"0926357981584590d3b3781c4a1e9ac6a502459b69cf6bfca495860c7ca04543"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_12.bin:1528","pl":"Jesteśmy w samym środku terenu wroga.\nPosiłki mogą nadejść skądkolwiek.","source_sha256":"0927c1e9e40fef5c9f71767e5132af8adb87c79b903ca9dc65d52ce48b217134"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL833_12G.bin:1524","pl":"Ci Mucus są inni niż dotąd...!","source_sha256":"092a6a65d67add92c89328394594c65ae2e7dd56b412e7158e09a6dba2ea445c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_80.bin:15300","pl":"Hmm... A nie mówiłem, żebyś się pilnował?\r\n","source_sha256":"092c146b6032a6289b5dd70fb6480a58462561755e28a9b62eb219edf31ba079"}
@@ -33979,7 +33979,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_20.bin:22108","pl":"Słucham?!\n","source_sha256":"b12aeef3e8b1fd2390781ab22b5ca5ab7f151d5d3d58b7125c53e5150eb9afb8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_12.bin:4092","pl":"No to jak zwykle, chłopcy, liczę na was.\nWracajmy szybko na podwieczorek♪\n","source_sha256":"b12cbf3aaef0bb8dc404f2ef5c0b5689250e70db13721956a620dd8b66da42c8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:1044","pl":"A ten odczyt rdzenia Zoida\nwskazuje na Death Saurera...","source_sha256":"b12fd21fa2f35739fb74354769a36d863674745204122161ab98dd748ce95b70"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_11.bin:8928","pl":"Proszę zostawić to mnie, melduję!","source_sha256":"b1306840f2e16d114d4a0faa1ad06d996fc7e146361a2b0154a2c06230be76b9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_11.bin:8928","pl":"Proszę zostawić to mi, melduję!","source_sha256":"b1306840f2e16d114d4a0faa1ad06d996fc7e146361a2b0154a2c06230be76b9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:153828","pl":"Tak...","source_sha256":"b1309408b2f684897389052b6c39ae1b14381bd0b8a2bab01e5a89ef7929aed4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL417_40.bin:1416","pl":"No, nie nasza głowa się tym martwić.","source_sha256":"b1351ab56fc5170b5e4c0543ebc7fc20682f84a23487b89a1fd87c8a2c267dbb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:16704","pl":"Eee, pomogli mi pokonać bandytów.","source_sha256":"b1358ab87e27dce8fb21d267a8c45d6a8f0c5869927591f2bdb1b294485d0978"}

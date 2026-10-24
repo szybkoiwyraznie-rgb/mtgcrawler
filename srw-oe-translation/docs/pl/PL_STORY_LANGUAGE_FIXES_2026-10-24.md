@@ -226,3 +226,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawny biernik „i to mnie wkurza” Leenon, znaczniki „＃???” oraz kolokwialne „Ale urwanie głowy!” Moonbay.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `761a8bb5c878de1b1ba839155239c9647a8c272f309c69a227e20ba9f650a2c5` → `2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 3 teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 27
+
+- **Zakres:** 895 wpisów — 616 fabularnych i 279 warunkowych; 123 grupy z pytaniami (78 fabularnych, 45 warunkowych).
+- **Poprawki:** 2 kwestie; plan zawiera 2 zmiany źródłowe (`story-language-ep27-2026-10-24.json`, SHA-256 `ea4671d298a662cd3ef6f92088a4b330fbc140d2c5c67513696a85c7e96943a5`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka w formułach „zostawić to mnie” (Keroro) i „zostawcie mnie” (Zero) zamiast „…to mi / zostawcie mi”.
+- **Świadomie zachowane fałszywe alarmy:** pytanie „Wchodzę, dobrze?” Seishiro (odpowiedź to zmiana sceny), repetycje „He, he, he” Kikaishina oraz żart o „wyprzedaży bogów” Masakiego.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `2e020dc914caff970afe0ec57b7039b5659b3d8fbed792ed06e70da049fb1d38` → `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
