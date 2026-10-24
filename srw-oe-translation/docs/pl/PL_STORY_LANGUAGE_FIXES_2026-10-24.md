@@ -66,3 +66,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawne wojskowe `posiłki`, dowcip `początek/KONIEC-t`, `Bracie` dla `aniki`, terminologiczny „anomalny ocalały” oraz żart o robactwie przyczepiającym się do Adeu.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `615493273f199867e0e79899f97e20bfede4ee9871ee8a3f2516d5adbd9f67c3` → `a3dbd758f5470577e8f197c391f3a7c9e39c2a8e39cd3c1952d8461c007f22a9`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 19 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 9
+
+- **Zakres:** 1 080 wpisów — 960 fabularnych i 120 warunkowych; 171 grup z pytaniami (152 fabularne, 19 warunkowych).
+- **Poprawki:** 16 kwestii wskazanych w przeglądzie; plan zawiera 19 zmian źródłowych po dołączeniu 3 jawnych kopii.
+- **Potwierdzone klasy błędów:** `przymusowy zwiad` zamiast przeforsowania badań Connect Force, niejednoznaczna `przestrzeń planety`, żołnierze `rozmieszczeni samotnie`, hybrydowe `nie pachnie powitaniem`, niepełne `jakby dla dobicia`, `stracił krwi` bez określenia ilości, sztywne `to rangą generał`, formalny rozkaz Buda `Pan się nie boi`, `kwestia zasady` zamiast JP-owskiej kwestii odczuć, Amuro zatrzymany **w** pracy zamiast powstrzymany od pracy, `zwycięstwo wartego rozejmu`, brakujące `temu` po `dałam początek`, niezgodność orzeczenia przy obrońcach Ziemi oraz `odpierać w dwie maszyny`.
+- **Świadomie zachowane fałszywe alarmy:** wojskowe pozostawienie okrętu `na straży`, żart o kanibalizmie Red Shoulder, dosłowne oddanie tytułu przez Chara, bezokolicznikowa refleksja Zechsa oraz metafora zarodka/ziarna konfliktu u Setsuny.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `a3dbd758f5470577e8f197c391f3a7c9e39c2a8e39cd3c1952d8461c007f22a9` → `e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 19 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

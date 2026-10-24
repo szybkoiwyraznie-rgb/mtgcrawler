@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "episode": 9,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_11.bin:392",
+      "source_sha256": "4254a423c45cf8faeecbe560afcd6ae448902644874164e2dbb16a59fee14583",
+      "before": "Nie brakowało głosów sprzeciwu wobec wysyłania zwiadu\nw sam środek walk, lecz gdy natarcie Red Shoulder\nniemal przesądziło o opanowaniu terenu, a Gilgamesh\nmocno naciskał, zapadła decyzja o przymusowym zwiadzie.",
+      "after": "Nie brakowało głosów sprzeciwu wobec wysyłania zwiadu\nw sam środek walk, lecz gdy natarcie Red Shoulder\nniemal przesądziło o opanowaniu terenu, a Gilgamesh\nmocno naciskał, przeforsowano badania Connect Force.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_11.bin:700",
+      "source_sha256": "f787434f56ece00c94b3eacf850cbbfe801316cfde4deee23b2972e170f94f89",
+      "before": "Macross Quarter dotarł\nw przestrzeń planety Sunsa.",
+      "after": "Macross Quarter dotarł\nw przestrzeń wokół planety Sunsa.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_11.bin:5748",
+      "source_sha256": "5408c991921b6f2f2caef5965c4d70e7c7dec05d88baf563a3d61f5d07a25b31",
+      "before": "Z powrotem mam Ghosty,\nwięc walczy się dużo łatwiej.\r\n",
+      "after": "Znów mam Ghosty,\nwięc walczy się dużo łatwiej.\r\n",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_11.bin:5984",
+      "source_sha256": "742b21b1a1183ec55321a54a3f2cb9e3df39fe13fd39500f5c25bc55db05c0d6",
+      "before": "Utknąć na progu celu podróży? Słabo.\r\n",
+      "after": "Zatrzymali nas tuż przed celem. Słabo.\r\n",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_12.bin:428",
+      "source_sha256": "6c108216540418fe04060decc3a9ab1b737c678181c03fe1b84599c4cd6ebe50",
+      "before": "W rezultacie Chirico i reszta zostali rozmieszczeni\nsamotnie, z dala od głównych sił...",
+      "after": "W rezultacie Chirico i reszta zostali wysłani sami\nw rejon odcięty od głównych sił...",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_12.bin:1280",
+      "source_sha256": "26c0dab75b81d0fbbdb47b099052fe971ece59e7ec94fe639d54a0395f744497",
+      "before": "Nie, coś mi tu nie pachnie powitaniem.",
+      "after": "Nie, nie wygląda mi to na powitanie.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_12.bin:9968",
+      "source_sha256": "c3a47361ae2cb2487a2409c77e18200877021a0868197e58bbf72533cf515d39",
+      "before": "A jakby dla dobicia zbliżały się siły\nOrganizacji Traktatu Międzygwiezdnego (ISTO).",
+      "after": "A jakby po to, by ich dobić, zbliżały się siły\nOrganizacji Traktatu Międzygwiezdnego (ISTO).",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL209_13B.bin:2724",
+      "source_sha256": "11e45b13f386fe53b8cd1a0d29f5d158008411555a0e682dfd73e629460f5a47",
+      "before": "Ależ on stracił krwi.\nSzybko, do izby chorych!",
+      "after": "Ależ on stracił dużo krwi.\nSzybko, do izby chorych!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL209_13.bin:2724"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_13.bin:2724",
+      "source_sha256": "4bdf1acc1f71bd211e45c2049aaf3676818ec0369bc1b31d48290dbea36ba005",
+      "before": "Ależ on stracił krwi.\nSzybko, do izby chorych!",
+      "after": "Ależ on stracił dużo krwi.\nSzybko, do izby chorych!",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_13.bin:13976",
+      "source_sha256": "837876c9fca7533e85cab8c87e274a7520f92f36bb412b016b26c4e7e1b6bbd0",
+      "before": "Członek Trzynastki to rangą generał.\nŻeby ktoś taki zjawił się osobiście...",
+      "after": "Członek Trzynastki ma rangę generała.\nŻeby ktoś taki zjawił się osobiście...",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL209_13B.bin:13960",
+      "source_sha256": "e03646db097963d323b21b39416733a51ef79dfa6840ee2267678bc2d63b4c2f",
+      "before": "Członek Trzynastki to rangą generał.\nŻeby ktoś taki zjawił się osobiście...",
+      "after": "Członek Trzynastki ma rangę generała.\nŻeby ktoś taki zjawił się osobiście...",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL209_13.bin:13976"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP02.EDAT/DL209_35.bin:9536",
+      "source_sha256": "1d91055d5d3085778339b8311012c46183ddc4e49d25aea7c18eb1563fbf92d8",
+      "before": "Czyli muszę wygrać szybko, nie?\nPan się nie boi!",
+      "after": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mnie!",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL209_35D.bin:9536",
+      "source_sha256": "366679c152e1a7d813acbe0d3a16b96f49b5a286865a3df99ca800c2eb6c9865",
+      "before": "Czyli muszę wygrać szybko, nie?\nPan się nie boi!",
+      "after": "Czyli muszę wygrać szybko, nie?\nNiech pan to zostawi mnie!",
+      "reason": "jawna kopia tej samej kwestii co dlg:eventP02.EDAT/DL209_35.bin:9536"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL209_40.bin:10340",
+      "source_sha256": "6f781f936f326d9319ef5ed20a9eab4bc8d4fe352268017658941c70c213ea4f",
+      "before": "Chodzi o zasadę!\nPokonajmy szybko Mucus\ni wracajmy na gorącą herbatkę!",
+      "after": "To kwestia odczuć!\nPokonajmy szybko Mucus\ni wracajmy na gorącą herbatkę!",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL209_40.bin:15632",
+      "source_sha256": "279f7c01d69607df1efb890e382e2008eb33f6eb9b4abd1e4a81393a7a9f3ff2",
+      "before": "Wybacz.\nZatrzymałem Amura w pracy.\r\n",
+      "after": "Wybacz.\nPrzeszkodziłem Amurowi w pracy.\r\n",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL209_40.bin:18088",
+      "source_sha256": "84fe9cf2a257aa15d405eb3d76f439aa18ac8e90be6c25c304562c0870582914",
+      "before": "Ja również chcę zwycięstwa wartego rozejmu.",
+      "after": "Ja również chcę zwycięstwa na miarę rozejmu.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL209_40.bin:19048",
+      "source_sha256": "afc5db71ce06bdf3e1794afa228f8d94ba139147637d1edbb1e9e45da326e7e5",
+      "before": "To ja dałam początek, lecz nie krępujcie się.\nOczekuję od was szczerych opinii.",
+      "after": "To ja dałam temu początek, lecz nie krępujcie się.\nOczekuję od was szczerych opinii.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP03.EDAT/DL209_60.bin:200",
+      "source_sha256": "923b467cc3f1da3b6c9528cf377c833776a0520ea2a6a8e11c5d30771fcf15a8",
+      "before": "Gdy Connect Force wyruszył do innych wszechświatów,\nZiemi strzegły drużyna Ganba, Saurersi\ni inni.",
+      "after": "Gdy Connect Force wyruszył do innych wszechświatów,\nZiemi strzegli drużyna Ganba, Saurersi\ni inni.",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP23.EDAT/DL209_70.bin:4360",
+      "source_sha256": "9776d9590f6a3f8f4e330cbc8dd122309f3e78ace4e3a420ca2a311ef56a0547",
+      "before": "Odpierać ich w dwie maszyny to ciężka sprawa...",
+      "after": "Trudno ich odpierać dwiema maszynami...",
+      "reason": "ep9 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}
