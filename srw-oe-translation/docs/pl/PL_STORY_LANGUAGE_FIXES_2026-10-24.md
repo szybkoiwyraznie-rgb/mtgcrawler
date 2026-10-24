@@ -48,3 +48,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** techniczny i JP-potwierdzony `przekrój warpu`, forma `Dzięki za fatygę`, komediowe inwokacje kulturalne oraz bezpośrednie tagi pytajne.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6464d12792574e213d31b636b01b58a326995de5bda1e18de40d0d2ff1dc96d8` → `3c6f89b0b2f5987fcb2002fafb0652c92945fdb609eeb0d4b8388dce4f12d87e`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 7
+
+- **Zakres:** 1 463 wpisy — 1 240 fabularnych i 223 warunkowe; 271 grup z pytaniami (235 fabularnych, 36 warunkowych).
+- **Poprawki:** 56 kwestii wskazanych w przeglądzie; plan zawiera 87 zmian źródłowych po dołączeniu 31 jawnych kopii.
+- **Potwierdzone klasy błędów:** odwrócona osoba celująca u Naomi, błędny celownik `Zostaw to mnie`, doczepianie wojny do ISTO przez zaimek `jego`, biernik/mianownik po `Imperium potrzebuje`, błędne ujęcie twierdzy w dopełniaczu po `bronić się`, generalskie „danie twierdzy”, `zaminowano pułapkami`, strona czynna przy zasypanych oddziałach oraz zagubiony podmiot Fiony po kilku dniach narracji.
+- **Świadomie zachowane fałszywe alarmy:** źródłowe `Poniekąd zasłużył na śmierć`, dosłowne „cud natury” wypowiedziane żartem, frontowe bezpośrednie tagi, `Bracie` dla `aniki`, komedia o łagodnych gorylach i powtórzenie `wrócić... wrócić` tam, gdzie JP rozdziela warunek od dumnego powrotu.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `3c6f89b0b2f5987fcb2002fafb0652c92945fdb609eeb0d4b8388dce4f12d87e` → `615493273f199867e0e79899f97e20bfede4ee9871ee8a3f2516d5adbd9f67c3`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 87 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
