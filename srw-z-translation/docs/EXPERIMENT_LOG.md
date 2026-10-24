@@ -218,3 +218,14 @@ Brak wyników runtime; żaden plik w `local/` nie jest dystrybuowany.
 PCSX2 (okno dialogu z pangramem, menu) + `srwz_patch_log.txt`. Nadal
 **brak twierdzeń runtime** — ghost/zawijanie/czytelność ogonków oceni
 dopiero dowód z emulatora (P4: strojenie i zamrożenie kodów).
+
+## 2026-10-24 — projekt ZAWIESZONY (decyzja właściciela)
+
+Właściciel zawiesza projekt SRW Z do odwołania („może kiedyś go
+wznowimy”); zespół wraca do SRW OE. Stan zaparkowania: wszystko
+scommitowane i wypchnięte (przez `e6ac62b`), kit testowy na Drive,
+test właściciela niewykonany, brak nierozliczonych zmian lokalnych —
+artefakty sandboxa (`local/`: wejścia z hashami, obrazy wirtualne, dist)
+są jednorazowe i odtwarzalne z Drive + repo wg `docs/STATUS.md`
+(sekcja wznowienia) i `docs/FONT_RESEARCH.md`. Nie kontynuować prac nad
+SRW Z bez nowej decyzji właściciela.

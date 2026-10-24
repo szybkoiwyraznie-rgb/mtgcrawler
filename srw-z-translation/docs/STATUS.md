@@ -1,6 +1,13 @@
 # SRW Z (Polish) — status
 
-*2026-10-24 — phase 0 (setup/research) complete; phase 1 not started.*
+*2026-10-24 — **SUSPENDED by owner decision.** The project is parked in a
+clean, fully committed state and may be resumed later. Work stopped at:
+font prototype P1–P3 built in the sandbox, owner test kit delivered to
+Drive, owner PCSX2 test **not run**. **To resume:** re-download the two
+inputs from the Drive tree (`SRW/SRWZ/rozpakowane ISO`; IDs + SHA-256 in
+`FONT_RESEARCH.md` and the experiment log — sandbox `local/` artifacts are
+disposable), then run the P3 owner test (`kit/PATCH_TEST.bat`) and continue
+at P4 in `FONT_RESEARCH.md`. Team focus returns to SRW OE in the meantime.*
 
 ## Confirmed
 

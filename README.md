@@ -14,7 +14,7 @@ and tests.
 | Directory | Game | Platform | Languages | Status |
 |---|---|---|---|---|
 | [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | active — EN kit v17; full Polish translation v4.3 (2026-10-24) |
-| [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | setup/research (2026-10-24) — technical proof (extraction round-trip + Polish font) before translator files |
+| [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | suspended (2026-10-24) — Polish half-width font prototype built, owner PCSX2 test pending; resume point in its `docs/STATUS.md` |
 
 The second title, **SRW Z** (PS2), started on 2026-10-24 as
 [`srw-z-translation/`](srw-z-translation/) (setup/research: technical proof

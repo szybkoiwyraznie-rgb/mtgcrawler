@@ -4,9 +4,13 @@
 > in this repository; see [`../PROJECTS.md`](../PROJECTS.md) for the
 > workspace layout.
 
-**Status (2026-10-24): setup / research.** Project scaffold, owner decisions
-and a pinned, audited subset of the retro-trans toolchain are in place. No
-game file has been modified yet and there is no emulator runtime claim.
+**Status (2026-10-24): SUSPENDED by owner decision** (may resume later).
+Reached state: scaffold + decisions, pinned audited retro-trans toolchain,
+sandbox-proven STAGE round-trip, Polish half-width font prototype P1–P3
+built and an owner test kit delivered to Drive (owner PCSX2 test not run).
+Resume point and details: [`docs/STATUS.md`](docs/STATUS.md) and
+[`docs/FONT_RESEARCH.md`](docs/FONT_RESEARCH.md). No emulator runtime
+claim exists for this project.
 
 ## Game and edition
 
