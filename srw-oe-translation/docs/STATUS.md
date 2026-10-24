@@ -28,30 +28,24 @@ receipt [pl-v4.5-kit-delivery.json](pl/pl-v4.5-kit-delivery.json). `runtime_test
 stays `false` — the bar needs an owner PPSSPP re-check (ISO YES / DLC NO).
 
 **PL reading editions v4.5 reissued (2026-10-24).**
-[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1NcUVHCwnk8KpnYAiXu0i-Li_6oBW6vpl/view)
-`2,182,124 B`, SHA-256 `00f8c00e…2032`, MD5 `7108c7cb…ddf6`, `39` members;
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1mPih1fAdD2M0qAWRO13udylguIFpPrwT/view)
+`2,182,137 B`, SHA-256 `ae77c4e6…5047`, MD5 `94471c46…9ada2f`, `39` members;
 Drive read-back byte-identical, deterministic rebuild identical, superseded
 `v4.3` archive trashed. `34` episodes rebuilt from `pakiet_PL` v4.5 (`34/34`
 English references matched their plan pins) — `17` episodes changed against
 `v4.3`: the `24` shortened mission titles in `60` heading lines plus the v4.4
 corrections flowing into DLC-variant aliasing (episodes `03` and `08` lose `15`
 redundant fragment lines, every removed line still present verbatim);
-`17` episodes stayed byte-identical. **Episode 34 is carried over
-byte-identically** — its delivered English reference is gone from Drive
-(`1roWkSt4…` returns 404, absent from the folder and the trash) and cannot be
-reproduced from the current `pakiet_EN`, so the archive README and the receipt
-list it separately and exclude it from the printed totals
-`39,585/39,585` prose, `30,315` spans (with episode 34's `7,471/7,471` the
-series keeps `47,056/47,056`). Supplements: the current roster-first mech
-catalogue (`07f11deb…`, `873,130 B` — the v4.3 archive still bundled the older
-`723,499 B` pre-roster-first bytes), the unchanged pilot catalogue, and a
-**refreshed mission-deployments document** — it quoted `23` old mission titles,
-now revised with `tools/refresh_mission_deployments_titles.py` from the pinned
-v4.0 bytes (Drive `1k5RvyJB…`, superseded `1mcrih3r4…` trashed; canonical
-`mission_deployments.py` rebuild still needs the private containers and the 1.08
-ELF). Receipts
-[PL5_v4.5_reading.delivery.json](reading-script/polish/PL5_v4.5_reading.delivery.json),
-[mission-deployments-title-refresh-2026-10-24.json](mission-deployments-title-refresh-2026-10-24.json).
+`17` episodes stayed byte-identical. **Episode 34 is carried over byte-identically** (`8a11e898…`) and that is all it
+is: its editorial plan references `2,023` dialogue rows and `3` mission titles,
+and **`0` of the `70` rows changed in v4.4/v4.5** are among them — a rebuild
+would emit exactly the delivered bytes. The only missing input is that
+episode's English reader edition, which the build script uses purely as a
+checksum for the plan (`reference_sha256` + re-derived row mapping), never as
+a text source. The guard is pinned in the receipt and re-checked by
+`tests/test_reading_archive_carry.py`. The episode is listed separately in the
+archive README and excluded from the printed totals `39,585/39,585` prose,
+`30,315` spans (with it the series keeps `47,056/47,056`).
 `runtime_tested` stays `false`.
 
 **PL v4.4 delivered — story-language review of the extra/simulator scenes

@@ -81,5 +81,37 @@ class DeploymentTitleRefreshTests(unittest.TestCase):
             self.assertFalse((tmp / 'bad.md').exists())
 
 
+class CarriedEpisodeGuardTests(unittest.TestCase):
+    """A carried episode is only acceptable when a rebuild provably cannot change it."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.receipt = json.loads((ROOT / 'docs/reading-script/polish/PL5_v4.5_reading.delivery.json')
+                                 .read_text(encoding='utf-8'))
+
+    def test_carried_episode_references_none_of_the_changed_rows(self):
+        self.assertEqual(len(self.receipt['carried_members']), 1)
+        carried = self.receipt['carried_members'][0]
+        guard = carried['guard']
+        plan = json.loads((ROOT / guard['episode_plan']).read_text(encoding='utf-8'))
+        rows = {b['row'] for b in plan['blocks'] if 'row' in b}
+        mission_rows = {b['mission_row'] for b in plan['blocks'] if 'mission_row' in b}
+        self.assertEqual((len(rows), len(mission_rows)),
+                         (guard['episode_plan_rows'], guard['episode_plan_mission_rows']))
+        total = 0
+        for name in guard['checked_change_plans']:
+            changes = json.loads((ROOT / name).read_text(encoding='utf-8'))['changes']
+            total += len(changes)
+            inside = [c['id'] for c in changes if c['id'] in rows or c['id'] in mission_rows]
+            self.assertEqual(inside, [], f'{name} touches the carried episode')
+        self.assertEqual(total, guard['changed_rows_total'])
+        self.assertEqual(guard['changed_rows_inside_episode'], 0)
+
+    def test_carried_member_is_the_previously_delivered_bytes(self):
+        carried = self.receipt['carried_members'][0]
+        self.assertEqual(carried['sha256'], carried['guard']['previous_delivery_sha256'])
+        self.assertEqual(carried['name'], 'srwoe_episode_34_PL.md')
+
+
 if __name__ == '__main__':
     unittest.main()
