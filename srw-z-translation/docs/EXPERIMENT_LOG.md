@@ -63,5 +63,50 @@ bez ISO; zgodność bajtów rozpakowanego `stage.bin` z extentem w ISO
 udowodni dopiero test no-op bata u właściciela.
 
 **Nieznane:** hashe plików gry (żaden nie został jeszcze pobrany),
-limity tekstu poza skryptem głównym, źródło glifów PL, wersja PCSX2
+limity tekstu poza skryptem głównym, źródło glifów PL, ustawienia PCSX2
 właściciela. Brak jakichkolwiek wyników runtime.
+
+## 2026-10-24 — inwentarz powierzchni tekstowych (dokumentacja vendora) + PCSX2 właściciela
+
+Pytanie właściciela: czy wszystkie teksty są w `stage.bin`? Odpowiedź:
+**nie** — jak w SRW OE tekst jest rozproszony po kilku plikach.
+Szczegóły: `docs/TEXT_SURFACES.md`.
+
+**Potwierdzone (dokumentacja upstream w vendorze — `FINDINGS.md`,
+`TECHNICAL.md` — zgodne z rozmiarami plików `DATA/` właściciela tam,
+gdzie je znamy):**
+
+- `DATA/stage.bin` = tylko scenariusz główny: 205 rekordów banlz
+  (jeden scenariusz = jeden rekord, ~400–1450 wierszy; wiersz =
+  zablokowana linia mówcy + treść, ramka maks. 3 linie × 34 kolumny;
+  offsety stringów inline w bytecode scenariusza).
+- `DATA/HSFC.BIN` (właściciel: 250 112 B) = streszczenia etapów,
+  4 rekordy banlz.
+- `btl/SRVC.BIN` (+ `.SEG`) = dialogi/kwestie bitewne (~1,08 mln
+  znaków; wg README upstream 19 213 linii bitewnych), **bez kompresji**,
+  indeksowane `.SEG`; regiony upstream 3 313 040 B + 1 416 B — rozmiary
+  u właściciela jeszcze niezmierzone.
+- `DATA/compdata.bn` (właściciel: 144 990 B skompresowane) = jeden
+  rekord banlz → 524 032 B pod RAM `0x006D6800`: nazwy/tytuły/biogramy
+  (jednostki, piloci), teksty broni/przedmiotów/zdolności, 55 opisów
+  zdolności/skilli, tytuły odcinków/scenariuszy, etykiety wyboru trasy,
+  UI statystyk/wyszukiwarki/bonusów; pula stringów ~3 433 wpisów na
+  absolutnych wskaźnikach RAM (nie da się wydłużać w miejscu, da się
+  przepakować pulę); kodowanie „menu" (ASCII `0x2E–0x3D` = kody
+  sterujące). Narzędzia puli/COMPDATA **nie** są jeszcze w vendorze.
+- `SLPS_258.87` (ELF, 3 471 624 B) = część UI: skille, tytuły serii,
+  komunikaty systemowe (SJIS w ELF) + miejsce patcha renderera/czcionki.
+  Dokładny podział UI ELF vs COMPDATA — do ustalenia.
+- `MAP/MAPNAME.BIN` = 195 nazw map, SJIS, stały krok 256 B (= 49 920 B);
+  rozmiar u właściciela niezmierzony. `DATA/MtVZkn*.bin`
+  (29 936 / 293 696 / 185 600 B) = archiwa encyklopedii (grupa TEXT
+  upstream); `DATA/MtV_ProS.BIN` 9 056 B — zawartość TBD. Teksty
+  malowane w teksturach = osobna powierzchnia (poza zakresem do fazy 2+).
+
+**Fakt od właściciela:** emulator testowy to **PCSX2 v2.9.144**
+(Windows x64 Qt, `pcsx2-v2.9.144-windows-x64-Qt.7z` z GitHub Releases) —
+pobrany 2026-10-24. Ustawień jeszcze nie znamy.
+
+Żaden plik gry nie został w tym kroku pobrany ani przetworzony; brak
+wyników runtime. Weryfikacja każdej powierzchni na kopii właściciela =
+faza 1 (STAGE) i faza 2 (reszta).

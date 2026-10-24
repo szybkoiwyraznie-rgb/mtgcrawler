@@ -20,6 +20,14 @@
   vendored: 19 files / 180,088 B (7-tool dependency closure 66,772 B +
   9 docs + `LICENSE` + `TRANSLATING.md` + `UPSTREAM_README.md`); all 7
   tools parse (`ast`), no personal absolute paths in the imported set.
+- Owner's test emulator will be **PCSX2 v2.9.144** (Windows x64 Qt;
+  owner-reported download on 2026-10-24). Settings still to record; no
+  runtime result yet.
+- The text is **not** all in `stage.bin`: doc-derived inventory of all
+  text surfaces (STAGE, HSFC, SRVC battle quotes, COMPDATA names/UI, ELF
+  UI strings, MAPNAME, ZKN, textures) is in
+  [`TEXT_SURFACES.md`](TEXT_SURFACES.md) — to be verified on the owner's
+  copy surface by surface.
 - Owner's `DATA/` also holds the other text-bearing candidates named by
   upstream docs: `HSFC.BIN` 250,112 B, `compdata.bn` 144,990 B (plus
   `BTL/SRVC.BIN`, `MAP/MAPNAME.BIN` outside `DATA/` — sizes not listed yet).
@@ -50,9 +58,10 @@
   4. Polish-glyph font prototype on the extracted ELF copy; owner judges
      screenshots in PCSX2; then the font-route decision.
 - **Phase 2 — translator files:** format with JP + EN reference + OE
-  glossary, re-injectable through the proven pipeline; inventory of the
-  remaining text files (`HSFC.BIN`, `compdata.bn`, `SRVC.BIN`,
-  `MAPNAME.BIN`, ELF strings, textures).
+  glossary, re-injectable through the proven pipeline; verify the
+  doc-derived inventory in [`TEXT_SURFACES.md`](TEXT_SURFACES.md) against
+  the owner's copy, surface by surface (`HSFC.BIN`, `compdata.bn`,
+  `SRVC.BIN`, `MAPNAME.BIN`, ZKN/MTV_PROS, ELF strings, textures).
 - **Phase 3 — translation production** (scope/order decided with owner).
 
 ## Unknowns / blockers
@@ -62,5 +71,6 @@
 - Text limits beyond the main script (byte budgets, encodings per file).
 - Polish glyph source: the game font is fullwidth-SJIS; free slots/atlas
   location unidentified (upstream font docs are the starting point).
-- Owner's PCSX2 version/settings — needed when the first test build ships.
+- Owner's PCSX2 **settings** (version known: v2.9.144, Windows x64 Qt) —
+  GS/graphics settings to record when the first test build ships.
 - No emulator runtime result of any kind yet.
