@@ -200,3 +200,11 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawne „to wszystko nie ma sensu” Zera, kierowane tagi pytające (C.C., Simon, Haman), żołnierskie „to blisko, więc pewnie pojedzie Connect Force” oraz ceremonialny rejestr Gihrena.
 - **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
 - **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 24
+
+- **Zakres:** 502 wpisy — 392 fabularne i 110 warunkowych; 83 grupy z pytaniami (65 fabularnych, 18 warunkowych).
+- **Poprawki:** 0 — wszystkie kandydatury odrzucono jako fałszywe alarmy; planu nie tworzono, snapshot bez zmian.
+- **Świadomie zachowane fałszywe alarmy:** kierowany tag Virala „Żaden z nas nie chce już tracić czasu, prawda?”, żołnierskie „Żyłeś sobie o niebo lepiej” (ep. 23) analogie, kolokwialne wezwania Kaminy oraz emocjonalne rozdzielenie zdania Seishiro na dwa wpisy.
+- **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `af299852a00bbca1bc4532e30009ef8ba4268c315db68a5c010ad1bdc07c7faa`.
+- **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
