@@ -8893,7 +8893,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:30652","pl":"Dobrze, Raven.\nJeśli ruszysz na mnie z takim zapałem,\nbędzie warto cię pokonać.","source_sha256":"2e6e69a68cff43c9c262b3c9a8258196b8851624dbda81dba8a95e639dbe3562"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL417_12E.bin:7616","pl":"Daruj sobie pocieszanie...!","source_sha256":"2e6fba107ae15ab77b06a091fee38674e7923252a78b6494bb4d44f15c06da7c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_11.bin:18012","pl":"Hmf... Connect Force.\nMacie szczęście, że moją misją był zwiad.\nGdy spotkamy się następnym razem, strzeżcie się.","source_sha256":"2e6fcbf433a85a8a0e445b038cb2ae3a23c67060ed4ef08528c7d2d98257fff6"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:18496","pl":"Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"2e7250062307bd9c651e5d1ab57d1f0cdd1b761689cb29605a30d69edf976d51"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:18496","pl":"Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"2e7250062307bd9c651e5d1ab57d1f0cdd1b761689cb29605a30d69edf976d51"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL312_50.bin:17040","pl":"Van, ruszaj się!","source_sha256":"2e727dda5c177b569e60e87525e8e2ea1ba4e773b8b54ae7caec6b4909f78bd8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_11.bin:16616","pl":"Dlaczego zrzucacie kolonię na Ziemię?!\nPustoszenie Ziemi, kolebki wszelkiego życia,\nto szczyt głupoty!","source_sha256":"2e733f98e32fad6deb901c18319b40d3536f0cf3be724da223b6f7c5f977cfeb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_12.bin:2504","pl":"Uruchamiam pułapki.","source_sha256":"2e7a9a59fd5f62820af2e452d0f2e3c45fa9be07c59bce70ecb8a608034b2ea8"}
@@ -12054,7 +12054,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:5984","pl":"Przenieśliśmy już system Zoida\nCommand Wolfa do Lightning Saixa\ni wysłaliśmy go do was.","source_sha256":"3ed128756a4cc3dc853f8c2db97befddb642556fac485bee1ad03fd7dbfaa1f2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:27440","pl":"Czy to już koniec...\n","source_sha256":"3ed1afb712f11a6e4bf3fa768337abdc2c4dad814bfa351ad5bf1313055d492f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:8088","pl":"Co to jest \"dostojeństwo\"?\nI czym się różni?\n","source_sha256":"3ed1d23ae015ce11379e73027730dd5e5ac18c637b394a27d42ac2021186d98f"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:17208","pl":"Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"3ed546d8709a93af1ca290255d16da688bb7df9d5cac9079905dfbb2830f81b3"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:17208","pl":"Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"3ed546d8709a93af1ca290255d16da688bb7df9d5cac9079905dfbb2830f81b3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_30.bin:16336","pl":"Wygląda na to, że po wszystkim.","source_sha256":"3ed56a0fa69e9f06cc5d1d3bfc36d01938ea306df4cda9c5f8fad61d3bd94597"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL102_50G.bin:19736","pl":"Wszyscy, pośpieszcie się z przygotowaniami.","source_sha256":"3ed66903b66f160b59c64535c2da6cd898c51c95eaeb205ced678c94524c4c48"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:59044","pl":"Czyli na to, czy dostaniemy, czego chcemy,\nmusimy poczekać do Jaburo, co?\n","source_sha256":"3ed7eea9856ed53be5042a6945fb34ef04d2aca517fa3d4715d253ab74a8032c"}
@@ -23899,7 +23899,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_11.bin:804","pl":"Grupa uderzeniowa, start!","source_sha256":"7cabdfa5d0e7620811c852b126e26dacbb0e1ada0be67d1aabaad91efb28bc25"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP28.EDAT/DL520_50.bin:976","pl":"Amuro i porucznik Quattro polecieli przodem\nodebrać nowe maszyny z Anaheim, prawda?","source_sha256":"7cad1240e0b7f04a8e76aa66a1ee091496b5a7ac4658d8e8018f748bacfe4f93"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_13.bin:3332","pl":"Przestań! Nie mąć mi w głowie!","source_sha256":"7cad7401f12100878229ced9fa7a775ff670380466e38de6de52a82f37721df2"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:19152","pl":"Gotuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"7caed62ee4fb4a52ff91952d9f2cc8a0dd262eeb571bbe0462af8eed970c2617"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_13.bin:19152","pl":"Szykuj się, Gosterro!\nNie pozwolę, żeby ktoś taki jak ty chodził wolno!","source_sha256":"7caed62ee4fb4a52ff91952d9f2cc8a0dd262eeb571bbe0462af8eed970c2617"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_13.bin:2248","pl":"Dobraaa!\nNa pewno odzyskam Rycerza Strażnika!","source_sha256":"7caf760c62ebf6cbe03402365dce175c8560358186aeec902f1f1a793b9eddc2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL726_13F.bin:980","pl":"Jezioro Wendeen","source_sha256":"7cb0d227f6b74cb6dc991f1e6a4e24eedd35527b438df8246062b74d1ee267b0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_11.bin:15300","pl":"Wodzu Gihrenie, Connect Force uważa,\nże ludzkość musi sobie podać ręce.","source_sha256":"7cb0dc2e1d44569906ce60027654c8cc5295c2f20c0f0b1bd4734df01479de52"}
@@ -29937,7 +29937,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_12.bin:7636","pl":"Ranka, ty też?","source_sha256":"9c5839c9fa18d0ee25b069da7c4378d1e8303231bb970913f021846529e8b93e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:32852","pl":"Jaka jest sytuacja w innych sektorach?","source_sha256":"9c5928f10ddb43d3c20a775b07e90c2bed9b876b4de581d727629f64fa27b6f6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:58356","pl":"Nieważne!","source_sha256":"9c59472ba1f110f7f04e335c851766f27fed55ce5642d5dded2a964d8bcb1402"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL417_50.bin:7300","pl":"Złączyli się, no i co, to tylko dwa!\nNas jest dużo więcej, to jak mamy przegrać?!\n","source_sha256":"9c598106631742da8d332f1b1faea3bca4bc993ab68f44e0cb6826eea0a4c68e"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL417_50.bin:7300","pl":"Złączyli się, no i co, to tylko dwa w jednym!\nNas jest dużo więcej, to jak mamy przegrać?!\n","source_sha256":"9c598106631742da8d332f1b1faea3bca4bc993ab68f44e0cb6826eea0a4c68e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:7048","pl":"Co ci jest, Zaki?\nZbladłeś jak ściana...","source_sha256":"9c5aeaedd8d4182a4e466e32dfd1d121cf336648de2b52cab2214c5e01999148"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_50.bin:3376","pl":"Sytuacja alarmowa!","source_sha256":"9c5e433da3ad64b2a2af64ad8a7920a9fe46c47fdc12477935b5112999a1ccc2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_12.bin:13480","pl":"I jeszcze jedno... Żebym mógł wrócić do swojego\nświata, pomoc Vasage jest absolutnie niezbędna.","source_sha256":"9c5e6d7721c4e77a3b8a1326112c4965f24a8f45f45ad6a34a159268f1976beb"}
@@ -31794,7 +31794,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_11.bin:3024","pl":"Jestem Daba Myroad.\nProszę, wesprzyjcie nas w walce\no obalenie Posaydala.","source_sha256":"a617bd301a7d1db295af24af14255fae5e3f84c4692aa6594b1c9659e0b5cf61"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL625_13.bin:18936","pl":"Jam jest samym światem.\nNikt nigdy nie pokona mnie, boga.\n","source_sha256":"a617ddd2972ae55c20cf2eec2bfb836310c863c587b1600712e697265e3eb9db"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:145456","pl":"No naprawdę!\nŻeby nie odwiedzić takich uroczych siostrzyczek...!","source_sha256":"a618cc9edfbfdaa162de4ef91f6078285a120ea02c195abe20773f7cccec85c6"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP27.EDAT/DL417_70.bin:8456","pl":"Zostawcie to mnie!","source_sha256":"a61b077ead3ae07126e75d3cb371ab6b307abca5b68665e1cbec2a31cb18c0ed"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP27.EDAT/DL417_70.bin:8456","pl":"Zostawcie to mi!","source_sha256":"a61b077ead3ae07126e75d3cb371ab6b307abca5b68665e1cbec2a31cb18c0ed"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL622_11E.bin:1912","pl":"To najlepsza okazja, żeby ich pogrzebać.\nPrawdziwy facet teraz nie stchórzy!","source_sha256":"a61ba2412774e9e833f5a3effc872961d5d91f799043d283d975bde25a44f07c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_20.bin:664","pl":"Jaaa jestem~ przewoźniczką~ z pustkowiii~♪","source_sha256":"a61cc4f3dfc5b752a85585c989ce215e31cf93594898458245caf4e6a0f1becf"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:28388","pl":"Rebelianci mają przewagę!\nBo flota wroga trzyma się z tyłu.","source_sha256":"a61d198a548122bd60b4fdbac47fc5bc3a9afdd24643c89512e9a554f9a0da64"}
@@ -48600,7 +48600,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:44192","pl":"Po tym, przez co przeszliśmy, nie możemy przegrać.\nPrawda, Bracie?!","source_sha256":"fea72b5e324029b4b73c0a64fe6f4c0967398090448759f6dbc40657e5473b82"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:130260","pl":"Zresztą utrzymywaliśmy je w ruchu tylko\ndzięki funduszom i materiałom Connect.","source_sha256":"fea80dd64665a7ca10214045c22ea112831c2bad3af0d553a359c07fba8efd03"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_20.bin:26744","pl":"Trudno uwierzyć, ale to prawda...","source_sha256":"fea929559aad10170534d8eb12f533878e486946eb4f9e51210524f85af051f6"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP27.EDAT/DL417_70.bin:7968","pl":"Gun Snipery z Weasel Unit.\nŚwietne w ogniu przeciwlotniczym z czujnikami.","source_sha256":"feab0f3a3c33e203a30151a850395b06f06984b650559b03f7870ce410dbc7b9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP27.EDAT/DL417_70.bin:7968","pl":"Gun Snipery z Weasel Unit.\nMają ogień przeciwlotniczy sprzężony z czujnikami.","source_sha256":"feab0f3a3c33e203a30151a850395b06f06984b650559b03f7870ce410dbc7b9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:90692","pl":"Ahaha...","source_sha256":"feae5758d009a53f4a324f4f7377ca9ee704cee5ef8ce8532fd0ffc3cdede426"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:8328","pl":"Nie, sprawa wykracza już poza takie kwestie.\nNie potrzebuję już marnych politycznych gierek.\nWystarczy usunąć każdego, kto stoi mi na drodze.","source_sha256":"feaed0808ce181dacc542a1531938ba25260444ef93411cbb658925e8bf0ec1e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_12.bin:7104","pl":"Godny przeciwnik dla Ramby Rala!","source_sha256":"feb109e7c78b09abb1ada6ee6e9603794f4585f9b67158d1545ff975b5b513f6"}
