@@ -286,3 +286,13 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** poprawny zwrot Himari „w ten sposób uratujemy też samych Mucus” oraz dialogowe wielokropki na początku kolejnych okien.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `f0c3a628963273ec871ca92bcdf5adc411d26d4db97ddfc1d7910a9b23b5f295` → `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 34
+
+- **Zakres:** 2023 wpisy — 1693 fabularne i 330 warunkowych; 338 grup z pytaniami (301 fabularnych, 37 warunkowych).
+- **Poprawki:** 5 poprawek logicznych, 6 zmian źródłowych (`story-language-ep34-2026-10-24.json`, SHA-256 `8a73069ac0d05233ce86bc0956abbe70076ae9398e20091e5de098614fdf5b83`).
+- **Potwierdzona klasa błędu:** błędny przypadek zaimka w formule „zostawić to komuś” — „Zostaw to mi” (Himari ×2, Shinobu), „zostawcie to mi” (Bobby) oraz „Proszę zostawić to mi” (Ohta).
+- **Świadomie zachowane fałszywe alarmy:** poprawny bierny przypadek „to mnie jeszcze bardziej nakręca” Buda, nazwa własna „Doki Doki Space”, poprawne zwroty „w ten sposób”, dopełnieniowe „mnie” w „po to mnie pan wezwał” oraz zwroty do rozmówców z „prawda?”.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15` → `bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+- **Uwaga:** epizod 34 to ostatni epizod wydania do czytania (`docs/reading-script/polish/episode_00.json`–`episode_34.json`), więc przegląd fabularnych dialogów w tej kolejności dobiegł końca.

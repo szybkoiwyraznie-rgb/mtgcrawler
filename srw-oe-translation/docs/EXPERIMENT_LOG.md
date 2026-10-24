@@ -8500,3 +8500,8 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 
 - **Zakres:** przeczytano 677 wpisów (584 fabularne, 93 warunkowe) i 88 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep33-2026-10-24.json` (SHA-256 `ac934320d51cf9b7b97f41006be1ba336751a12e06a3e274f38928118d8a1e2c`) — 1 zmiana źródłowa.
 - **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `f0c3a628963273ec871ca92bcdf5adc411d26d4db97ddfc1d7910a9b23b5f295` → `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano tekst. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.
+
+### 2026-10-24 — Przegląd i korekta językowa epizodu 34 PL (ostatni epizod wydania do czytania)
+
+- **Zakres:** przeczytano 2023 wpisy (1693 fabularne, 330 warunkowych) i 338 grup z pytaniami; kandydatury zweryfikowano wobec JP/EN. **Plan:** `config/pl/story-language-ep34-2026-10-24.json` (SHA-256 `8a73069ac0d05233ce86bc0956abbe70076ae9398e20091e5de098614fdf5b83`) — 5 poprawek logicznych, 6 zmian źródłowych.
+- **Snapshot i walidacja:** SHA-256 `polish.jsonl`: `17b2fea2564e2ec5af24e1c4ca9d807afc99b1b0d4c1afb945af1b61c4e9db15` → `bd61253ea31142b6f53a1107a5d2c54ca1903fea7d3bf9456735466bfeb2b1a1`; 108 794 wpisy. Materializacja: 109 176 wierszy, 108 805 wypełnionych, 371 pustych, **0 błędów** i 4176 ostrzeżeń; zweryfikowano tekst. Przeszły `test_pl_story_corrections` (4) i `test_pl_v4_0_consistency` (5). Szczegóły: `docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md`. Brak testu PPSSPP.

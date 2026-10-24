@@ -12159,7 +12159,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:49384","pl":"Nie macie żadnych szans na zwycięstwo...!","source_sha256":"3f500ce8344fa3c2c3556e8de8c9e5902bc4717714478d4d958236612834ccb8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_30.bin:2456","pl":"Wypuścić Bigro porucznika Tokwana!","source_sha256":"3f50388d3ad2593e1df83b51f308cc3d9182b3d1e3021474d91650eba52b1c2d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_20.bin:14880","pl":"Connect Force to wciąż młoda jednostka.\nSatysfakcja patrzeć, jak się rozwija.","source_sha256":"3f519630c689cc91012d143c9314ef0f7f18c28dd0943855bf8abfb179f8db72"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:34192","pl":"Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!","source_sha256":"3f5202d1084a7327bb916a3263e5ae1b45b48246ce2164bcf8bf16f47767b17e"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:34192","pl":"Zostaw to mi!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!","source_sha256":"3f5202d1084a7327bb916a3263e5ae1b45b48246ce2164bcf8bf16f47767b17e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:8300","pl":"Dobrze wyszkoleni...","source_sha256":"3f528fa7449984379d8f3c79b9468ea71434022816d5681996c8c72814bfce8e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL417_12.bin:4000","pl":"Że rany goją się wam szybciej niż innym?\n","source_sha256":"3f5557c3c59621645612ed1969d53695fd0d01b04d71291d25a823bb150c9be3"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_30.bin:4480","pl":"Hm... Przybyliście mnie zabić...?","source_sha256":"3f57e29b34d59be34805fc64c4d0672cfb6138224481b1c47245fc2408c95aa2"}
@@ -12414,7 +12414,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP24.EDAT/DL311_40.bin:1380","pl":"Solar Ray...?","source_sha256":"40b46a563b50cae4fedebabcb5e87987726901afce896ec528859b1ff6809947"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL727_12D.bin:5884","pl":"Nasze ataki nie poszły na marne!\nUszkodzenia Mucus Gate się kumulują!","source_sha256":"40b5345b845454f44db6cde8384c5a51754fb4a96bb9257e325e65d76eda9aa7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_35.bin:3528","pl":"Może się ich chować więcej.\nNie rozluźniajcie się!","source_sha256":"40b60ed9e180df4249a2c683e44ffb004733acf16b531dbcec2ea7ebce817791"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_12E.bin:16120","pl":"Zostaw to mnie!","source_sha256":"40b67be74942b47a78eee50b0628ba0a9aef94ba77a6557278989d08cb72136a"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_12E.bin:16120","pl":"Zostaw to mi!","source_sha256":"40b67be74942b47a78eee50b0628ba0a9aef94ba77a6557278989d08cb72136a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:42156","pl":"Właśnie.","source_sha256":"40b74669485ef5403057913334a8ccacb208c9f2167ceece88a204fa6d9eada2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL622_11E.bin:5380","pl":"Groooar!\r\n","source_sha256":"40b7965a3dc9e4bd20201671f6aea7ed562b4327014259c8ab4972234452d861"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:13240","pl":"Zostawiam decyzję wam, na miejscu.\nDziałajcie natychmiast.","source_sha256":"40b8441890982655e26c3efd438825f13af7eb6a6ebd4dec35dd89239db0a4d2"}
@@ -19609,7 +19609,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_80.bin:2468","pl":"Pancerz Gustava wytrzyma parę trafień.\nA jak co do czego, to wasza kolej.","source_sha256":"6673eb508475d200016b70e718d07560a5c04b134d28d2c940f5c62e06c85ab8"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_11.bin:3492","pl":"Rozpaczliwy krok...","source_sha256":"6674542bd7c806f334265e9aa10cba03433290dcc93bb04c1f674432d7b56227"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:10908","pl":"Nie ma pan prawa władać Death Saurerem.\nJest pan tylko niższą formą życia.","source_sha256":"6675507ebfe147a226e9f39fa38a556c1a6932bb98a55d6c1a21d764e3c061f1"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:142384","pl":"Proszę zostawić to mnie!\n","source_sha256":"66771e6db5aefa10a57dd5c0e6074c71f7bf9d9645600c5e4624237a17057c12"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:142384","pl":"Proszę zostawić to mi!\n","source_sha256":"66771e6db5aefa10a57dd5c0e6074c71f7bf9d9645600c5e4624237a17057c12"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_12.bin:13636","pl":"Nie ma żadnej wskazówki, jak go odnaleźć?","source_sha256":"6677513acdf493ced1afae516113a12066311f07e255ac525b4a59f303a3b2f5"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:9052","pl":"Słyszeliście, wszyscy.\nWalka naszych sojuszników podtrzymuje ten front.","source_sha256":"6677918f5a6d2aa596013e590ea14bc3bb475d8ef932177febdc066b27acf5b4"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:77740","pl":"W każdym razie to była straszliwa bitwa!","source_sha256":"6679249d1a5f4f6aa6b5f769dc04f6483ba72893d99c7d627eca11466d5c8664"}
@@ -23788,7 +23788,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:40532","pl":"Jest tylko jeden sposób, żeby skończyć cierpienie\nMucus i jednocześnie uratować wszechświat.","source_sha256":"7bf8c2f0c2adba548bc4365ef4ff1b3fdb86d4229827cf6ef9158af568b725fd"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_11.bin:14360","pl":"A więc to jest Haman Karn.\nFaktyczna przywódczyni Neo Zeonu...!","source_sha256":"7bf95b37c693ebfc96eba8db4574d71108f5120ff36af80c320f1eae52b408d2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_30.bin:13580","pl":"No, no, wszystkie szczegóły\nwysłuchamy sobie spokojnie\nprzy frytkach, melduję.","source_sha256":"7bfa8ac97a47169fdf3e66001d252ab35bd031da45e6f435ebbaa17cdcce4556"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:131320","pl":"Zostaw to mnie!\nWszystko porząąądnie zorganizuję.\n","source_sha256":"7bfb06fb17dc561978e3066d67da4e6596367ff43500a69cb626750579367ef0"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:131320","pl":"Zostaw to mi!\nWszystko porząąądnie zorganizuję.\n","source_sha256":"7bfb06fb17dc561978e3066d67da4e6596367ff43500a69cb626750579367ef0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_40.bin:3692","pl":"Tylko się nie wtrącaj.\nSimon, pilnuj go dobrze.","source_sha256":"7bfc8c63927fb15987da195a26562d15d81d2d48d4f61d1c01f239d5a9f38a95"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL104_20.bin:7760","pl":"Tak...!","source_sha256":"7c04a27e1630490e30ee82fd1f4ad0a44c09316d7c4822d5ac7de46fee0324a3"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:65352","pl":"Tak, w Sferze Ziemskiej i tak nie ma już\nroboty przy walce z Mucus.","source_sha256":"7c04af10d8d2d82994fe53db4a5a43e94da18863d2b34a01289c80056f1bb46d"}
@@ -38211,7 +38211,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_12.bin:1628","pl":"Ach... Te pęknięcia w skorupie!","source_sha256":"c7c13e791f8e1f3c3b54d8aab64070e7b18e0cba952f7d5ab97cab414f122bda"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_12.bin:11264","pl":"Rozumiesz, co mówi Vasage?","source_sha256":"c7c26bf0333fbf69d8118f7b483d5ad02130d8baf1c806f13a07c7b34a8b6d41"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:1876","pl":"Pojawił się koń trojański Federacji!\nIgnoruje rozkaz zatrzymania i się zbliża!","source_sha256":"c7c3862186494002b5e95f748c9fa45009bdc4eaabefba88cae43ff82077ae92"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:95724","pl":"OK, dalej zostawcie to mnie.","source_sha256":"c7c50c0c08b8c6d628a2f630c5e7535c5bb67513b4e3f7a8cd332100c9b34b04"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:95724","pl":"OK, dalej zostawcie to mi.","source_sha256":"c7c50c0c08b8c6d628a2f630c5e7535c5bb67513b4e3f7a8cd332100c9b34b04"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:3228","pl":"Jestem tego świadom.","source_sha256":"c7c585b2f0ea655da294b88b9b370f4656dcbbb4cbbcdf3fc83bfa001ec97b53"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_50.bin:12224","pl":"Ty... Ramba Ral!","source_sha256":"c7c7bce74ebae019c826238034000e673ee2cf55db937a777eeb251fefbf7392"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_40.bin:3200","pl":"Naprawdę, mya?","source_sha256":"c7c7eb2c7ae61993bc999c5d4af53dc7b20e2d3548446260ec0eb0a10c7bba3e"}
@@ -40174,7 +40174,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL209_13B.bin:17764","pl":"Teraz wszystko zależy od tego, czy Vasage\nzrozumie, co chcemy zrobić...","source_sha256":"d1eb7e246eb4a62ad934e1cfc2a67edbc5d5c1036d5785f10bfac9f8c1d5b475"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_80.bin:11268","pl":"Ahaha... Strasznie przepraszam.","source_sha256":"d1ed0b3ab3702300aa98a610ed0f4bfc4e4b85b2d18a259fc3d5997785932c2a"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL417_40.bin:2016","pl":"To nie jest cudzy problem, kapitanie!","source_sha256":"d1ed40bd2ad45ee0f8278419105d6d41cf8f294d561d8bb4b73c318d49dcc2cb"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_12.bin:16044","pl":"Zostaw to mnie!","source_sha256":"d1ed49541986cd2f94c62699bbf10f135932856507a9b1236a18cb53770477a0"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_12.bin:16044","pl":"Zostaw to mi!","source_sha256":"d1ed49541986cd2f94c62699bbf10f135932856507a9b1236a18cb53770477a0"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL521_12.bin:7244","pl":"Hmm... Przeklęci Connect Force...\nPrzebić moją Barierę Psychokinetyczną! Imponujące.","source_sha256":"d1eddc0dfe619e29579995fb87d7f1bd68b06313680875e4cd96400a200c3e0c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_60.bin:5548","pl":"Raz na jakiś czas można.\nJa lubię lekcje pana Nakajimy.","source_sha256":"d1ee8073ef83b5fe90607e5443e769f76796740367873bdd898618dac45de138"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:75716","pl":"Dziwne... Żaden start nie był zaplanowany.\nKto to może być...?","source_sha256":"d1f06d11cd791da0a0b177684414945a0124775406bd763db7534b7dd9174f17"}

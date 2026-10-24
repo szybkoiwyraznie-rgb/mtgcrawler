@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "episode": 34,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL834_13.bin:34192",
+      "source_sha256": "3f5202d1084a7327bb916a3263e5ae1b45b48246ce2164bcf8bf16f47767b17e",
+      "before": "Zostaw to mnie!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "after": "Zostaw to mi!\nPonad bestię, ponad człowieka, stajemy się bogiem!\nSuperbestia Machina Bóg Dancouga, nooo to jaaazda!!",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_12E.bin:16120",
+      "source_sha256": "40b67be74942b47a78eee50b0628ba0a9aef94ba77a6557278989d08cb72136a",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL834_13.bin:142384",
+      "source_sha256": "66771e6db5aefa10a57dd5c0e6074c71f7bf9d9645600c5e4624237a17057c12",
+      "before": "Proszę zostawić to mnie!\n",
+      "after": "Proszę zostawić to mi!\n",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL834_13.bin:131320",
+      "source_sha256": "7bfb06fb17dc561978e3066d67da4e6596367ff43500a69cb626750579367ef0",
+      "before": "Zostaw to mnie!\nWszystko porząąądnie zorganizuję.\n",
+      "after": "Zostaw to mi!\nWszystko porząąądnie zorganizuję.\n",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL834_13.bin:95724",
+      "source_sha256": "c7c50c0c08b8c6d628a2f630c5e7535c5bb67513b4e3f7a8cd332100c9b34b04",
+      "before": "OK, dalej zostawcie to mnie.",
+      "after": "OK, dalej zostawcie to mi.",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP08.EDAT/DL834_12.bin:16044",
+      "source_sha256": "d1ed49541986cd2f94c62699bbf10f135932856507a9b1236a18cb53770477a0",
+      "before": "Zostaw to mnie!",
+      "after": "Zostaw to mi!",
+      "reason": "ep34 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}
