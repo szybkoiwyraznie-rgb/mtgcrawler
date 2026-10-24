@@ -165,3 +165,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** kanoniczne „Jesteś ogonem tego Hitlera” Degwina, eliptyczne „Moc Exii... jest większa niż to!” Setsuny, dziecięce bezpośrednie tagi Ple, wojskowe „pilnujcie nas porządnie, jasne?” Karen oraz teatralny rejestr Mr. Bushido.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `321098b4d7156329ab52b98bf741cf7ac21f616cc7172e29bef12262b3dcacfc` → `6cd0389732a833a81e0bfeaf62bccf87bf53affb90fb8b4768628465bd5b3194`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 20
+
+- **Zakres:** 974 wpisy — 726 fabularnych i 248 warunkowych; 145 grup z pytaniami (100 fabularnych, 45 warunkowych).
+- **Poprawki:** 7 kwestii wskazanych w przeglądzie; plan zawiera 7 zmian źródłowych (`story-language-ep20-2026-10-24.json`, SHA-256 `a27e002217e6aa1fedc945f373213c4e84983f775e1d3efb9f803e92d6eeb733`).
+- **Potwierdzone klasy błędów:** sześć kolejnych błędów celownika w „Zostaw mi/mi zostawcie” (Himari ×3, Koji, Ryoma, Lamuness); niepełna fraza „stawiając życie” zamiast „Ryzykując życiem” (Zechs).
+- **Świadomie zachowane fałszywe alarmy:** samurajskie „Zetnę cię... bez przeprosin!” (斬り捨て御免), celowa komedia „u Pana Boga za klatą” z natychmiastową korektą Kallen, metażarty Da Cidera o PD i czasie antenowym, bezpośrednie tagi w scenach zbiorowych oraz żart z itashą Noa.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6cd0389732a833a81e0bfeaf62bccf87bf53affb90fb8b4768628465bd5b3194` → `5a3319f106da80067496664181d96b0dbaac821398ccfe3f5f696942721b6112`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 7 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
