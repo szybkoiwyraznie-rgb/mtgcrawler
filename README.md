@@ -14,11 +14,14 @@ and tests.
 | Directory | Game | Platform | Languages | Status |
 |---|---|---|---|---|
 | [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | active — EN kit v17; full Polish translation v4.3 (2026-10-24) |
+| [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | setup/research (2026-10-24) — technical proof (extraction round-trip + Polish font) before translator files |
 
-Further SRW titles on other platforms are planned after SRW OE. Each will be
-added as a separate `<game>-translation/` directory and registered here and in
-[`PROJECTS.md`](PROJECTS.md), which also records the layout conventions and
-the checklist for starting a new title.
+The second title, **SRW Z** (PS2), started on 2026-10-24 as
+[`srw-z-translation/`](srw-z-translation/) (setup/research: technical proof
+before translator files). Further titles will follow the same pattern — each
+added as a separate `<game>-translation/` directory and registered here and
+in [`PROJECTS.md`](PROJECTS.md), which also records the layout conventions
+and the checklist for starting a new title.
 
 ## Repository layout
 

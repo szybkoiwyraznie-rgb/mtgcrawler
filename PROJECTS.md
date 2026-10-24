@@ -27,10 +27,32 @@ disturbs another.
 - **CI:** [`.github/workflows/release.yml`](.github/workflows/release.yml)
   (SRW OE only).
 
+### SRW Z — `srw-z-translation/`
+
+- **Game:** Super Robot Wars Z (Super Robot Taisen Z), PlayStation 2,
+  `SLPS-25887` (original Japanese release, owner's copy).
+- **Languages:** Polish (fresh translation from the Japanese original;
+  retro-trans English used only as a translator reference column).
+- **Status:** setup/research (started 2026-10-24). Phase 1 = technical
+  proof first: extraction round-trip on the owner's extracted
+  `DATA/stage.bin` plus a Polish-glyph font prototype; translator files
+  after that. Working model as in SRW OE: the ISO stays with the owner,
+  the sandbox works on extracted files from Drive, and a `PATCH.bat` kit
+  will patch the owner's image.
+- **Start here:** [`srw-z-translation/README.md`](srw-z-translation/README.md),
+  status in [`srw-z-translation/docs/STATUS.md`](srw-z-translation/docs/STATUS.md),
+  prior-art survey in
+  [`srw-z-translation/docs/PRIOR_ART.md`](srw-z-translation/docs/PRIOR_ART.md),
+  experiment history in
+  [`srw-z-translation/docs/EXPERIMENT_LOG.md`](srw-z-translation/docs/EXPERIMENT_LOG.md).
+  The pinned MIT-licensed retro-trans core toolchain is vendored under
+  `srw-z-translation/vendor/retro-trans/` (see its `PROVENANCE.md`).
+- **CI:** none yet (added when the project ships kits).
+
 ## Planned
 
-Further Super Robot Wars titles on other platforms will follow SRW OE. No
-concrete title is selected yet. When one is picked, it starts as a new
+Further Super Robot Wars titles on other platforms may follow SRW OE and
+SRW Z; none is selected yet. When one is picked, it starts as a new
 directory created with the checklist below — repository-level documents only
 gain a registry row; nothing about existing projects changes.
 
