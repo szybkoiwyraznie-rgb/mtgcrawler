@@ -248,6 +248,6 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 
 - **Zakres:** 539 wpisów — 404 fabularne i 135 warunkowych; 70 grup z pytaniami (50 fabularnych, 20 warunkowych).
 - **Poprawki:** 0 — wszystkie kandydatury odrzucono jako fałszywe alarmy; planu nie tworzono, snapshot bez zmian.
-- **Świadomie zachowane fałszywe alarmy:** kolokwialne „No no” Ryomy, poprawne „Więc to to zniszczyło flotkę” Brighta oraz kierowany tag Stingera „będziecie się szamotać, prawda?”.
+- **Świadomie zachowane fałszywe alarmy:** kolokwialne „No no” Ryomy, poprawne „Więc to to zniszczyło flotę” Brighta oraz kierowany tag Stingera „będziecie się szamotać, prawda?”.
 - **Snapshot:** bez zmian — 108 794 wpisy; SHA-256 `polish.jsonl` nadal `1550d30d4a57850a0d0e12f7d1807012bc767216b7a7e20ccbbed72c27de7afb`.
 - **Walidacja:** świeża materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
