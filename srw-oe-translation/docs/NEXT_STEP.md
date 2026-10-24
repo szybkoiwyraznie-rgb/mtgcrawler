@@ -23,6 +23,19 @@ spot-check the corrected lines in PPSSPP** — the Kamina/Yoko exchange in the
 extra missions. `runtime_tested` stays `false`. ISO YES / DLC NO unchanged
 for the owner's 1.08 path.
 
+**Reading editions v4.5 reissued (2026-10-24).**
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1NcUVHCwnk8KpnYAiXu0i-Li_6oBW6vpl/view)
+`2,182,124 B`, SHA-256 `00f8c00e…2032`: `34` episodes rebuilt from the v4.5
+package, episode `34` carried over unchanged, supplements re-bundled and the
+mission-deployment headings refreshed to the new titles. **Open item for the
+owner:** the delivered English reference `srwoe_episode_34.md`
+(`4f1c6c3e…`, formerly Drive `1roWkSt4ur91OMSHqIDonmouEYBDYF0-j`) is no longer
+available. If you still have it locally, re-uploading it to the `Skrzpty`
+folder lets episode 34 be rebuilt again and the carried-member exception
+retired; otherwise the archive will keep carrying that episode from `v4.3`.
+The canonical `srwoe_mission_deployments.md` rebuild also needs the private
+`eventP*`/`config*` containers and the decrypted 1.08 ELF.
+
 **Extra-scene review scope is now complete for `evept101`–`evept108` and the
 `eventP*` rows outside the episode blocks** (`16,725` rows reviewed against
 JP/EN and against the accepted rendering of identical Japanese lines; `22`

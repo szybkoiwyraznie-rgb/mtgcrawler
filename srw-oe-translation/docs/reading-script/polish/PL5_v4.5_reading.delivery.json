@@ -1,0 +1,378 @@
+{
+  "schema": 1,
+  "release": "v4.5",
+  "episodes": "00-34",
+  "episode_count": 35,
+  "text_source": "v4.5",
+  "prose_summary": {
+    "prose_total": 39585,
+    "shown_unique": 29891,
+    "aliased": 9694,
+    "verified_text_spans": 30315,
+    "markdown_bytes_total": 2436877
+  },
+  "archive": {
+    "name": "srwoe_reading_PL_00-34.zip",
+    "bytes": 2182124,
+    "sha256": "00f8c00e20c3f6bcef5211e1296dc62d7185a87c6dbc83d6a3269c4166e42032",
+    "md5": "7108c7cb0bce4ce0a1886a59dd3dd8f6",
+    "member_count": 39,
+    "roundtrip_cmp_verified": true,
+    "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "drive_file_id": "1NcUVHCwnk8KpnYAiXu0i-Li_6oBW6vpl",
+    "web_view_link": "https://drive.google.com/file/d/1NcUVHCwnk8KpnYAiXu0i-Li_6oBW6vpl/view",
+    "download_back_byte_identical": true,
+    "deterministic_rebuild_cmp_verified": true,
+    "superseded_drive_file_id_trashed": "1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-"
+  },
+  "polish_package_sha256": {
+    "00_dialogue.jsonl": "7087f64af4f3ffa78ee06ec6204569ee6f18fca40ecd91a555ce1f22798fa843",
+    "03_skills.jsonl": "95128a0358c371b4c0f68bd9e97f86fac9df26125dcf94a0a331e5ba975c71df",
+    "04_config_text.jsonl": "695ae616f0f05af2fbad9b5adcb5d4ba08ad94ecbb2d8c7e92345e970d8cb168",
+    "05_mission_text.jsonl": "730c7a01e494adb17cafba37ed1475304b831d077a02b6f03bb597dca9707b4e",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "07_names_characters.jsonl": "1b420e81b4f06752fe99d4ae32c1cfda84686430d9b2379423798043f6e17de4",
+    "08_names_units_weapons.jsonl": "60742411cc774d5b479602bd6e7df8ad82a67a8469da9dbbd7ba6956513cd8ba",
+    "09_executable.jsonl": "3a542f9dcdb5751fb8063124caea347de999e71a8babf8d5b86c5fcd4a76a771"
+  },
+  "supplementary_members": [
+    "srwoe_mech_catalog_v4_PL.md",
+    "srwoe_pilot_catalog_PL.md",
+    "srwoe_mission_deployments.md"
+  ],
+  "carried_members": [
+    {
+      "name": "srwoe_episode_34_PL.md",
+      "bytes": 218906,
+      "sha256": "8a11e89851a789b1d1dfbdfe2ba676c1797414dff7f914127577bf67e033ad07",
+      "reason": "przeniesiony bez zmian z wydania v4.3: źródłowy angielski referent epizodu 34 nie jest już dostępny na Dysku, a epizod nie zawiera żadnego z 48 zmienionych wierszy v4.4/v4.5",
+      "carried_from_bytes": 218906,
+      "carried_from_sha256": "8a11e89851a789b1d1dfbdfe2ba676c1797414dff7f914127577bf67e033ad07"
+    }
+  ],
+  "members": [
+    {
+      "name": "README.md",
+      "bytes": 5782,
+      "sha256": "adbed23845b270294c135621ad0edb6dc4009be6cb23753e54808ddaeb1285d0",
+      "crc32": "05060e5d"
+    },
+    {
+      "name": "srwoe_episode_00_PL.md",
+      "bytes": 21755,
+      "sha256": "e98163e405f92f263534b1e0ebda59964d6e8a5e00921b0f88ec6cc1503d2301",
+      "crc32": "d0596f2d"
+    },
+    {
+      "name": "srwoe_episode_01_PL.md",
+      "bytes": 75591,
+      "sha256": "70640e375f000839af4f3d64c87354d9350165d551916d6bba2c604911345047",
+      "crc32": "104e39f0"
+    },
+    {
+      "name": "srwoe_episode_02_PL.md",
+      "bytes": 93285,
+      "sha256": "f5240d6f57825a57afa9b231ea83f65278698d79a14b76e581425832e3867018",
+      "crc32": "d3bf2a56"
+    },
+    {
+      "name": "srwoe_episode_03_PL.md",
+      "bytes": 78435,
+      "sha256": "a5a12e56d18491ce13cf46671f92b9bc0ebaa6ea396d218a3c88290ac257059d",
+      "crc32": "110427c3"
+    },
+    {
+      "name": "srwoe_episode_04_PL.md",
+      "bytes": 53539,
+      "sha256": "c0d1ff391cea9a540d7dbcb2d42e8a9175c2f64a5e5e1884edf563eacb3f091d",
+      "crc32": "cc331145"
+    },
+    {
+      "name": "srwoe_episode_05_PL.md",
+      "bytes": 84408,
+      "sha256": "d7c21591a728ccb330ef6462480945ce40cd97a904edaa475aad5405e11fff6f",
+      "crc32": "f90a9a34"
+    },
+    {
+      "name": "srwoe_episode_06_PL.md",
+      "bytes": 59184,
+      "sha256": "ac65a2628ebc8c1e6db2504d73b3e1fdca836c5f4188363e2bd39290bcdeac0c",
+      "crc32": "c7c51d86"
+    },
+    {
+      "name": "srwoe_episode_07_PL.md",
+      "bytes": 112850,
+      "sha256": "838e58e95619940a3b9e989ee2a9ba0b5c6d5feb356bfd34d1c93a505624ec9c",
+      "crc32": "16e736cb"
+    },
+    {
+      "name": "srwoe_episode_08_PL.md",
+      "bytes": 75580,
+      "sha256": "e59976316220ff1c8b11c6631d396330bdf0a34229df29cdb8b9ce72b8dbc464",
+      "crc32": "5b9d6ff3"
+    },
+    {
+      "name": "srwoe_episode_09_PL.md",
+      "bytes": 78075,
+      "sha256": "0ab9f3c4d1db6b1566937dc6be55ed89e37dc7a6b9ac8fbf75ba278cbe17f74e",
+      "crc32": "7c439254"
+    },
+    {
+      "name": "srwoe_episode_10_PL.md",
+      "bytes": 66006,
+      "sha256": "1f0ed589ec8950d94ff094a66b9efbe94d36e94bd19426815aaacb617511f196",
+      "crc32": "a49d7959"
+    },
+    {
+      "name": "srwoe_episode_11_PL.md",
+      "bytes": 57165,
+      "sha256": "75b0a84f0445776053d02c2c88f8eca703d806caa28e15164dca23f6ca8c700b",
+      "crc32": "c50f10e3"
+    },
+    {
+      "name": "srwoe_episode_12_PL.md",
+      "bytes": 55867,
+      "sha256": "e6b2c5a81b768a09c68c063453ee285ace31be1ca361f6fcfa9ec34eff82d3fe",
+      "crc32": "82109b5d"
+    },
+    {
+      "name": "srwoe_episode_13_PL.md",
+      "bytes": 78321,
+      "sha256": "e1d976cd3df63473ab555f407fbd8dd0340425757a73c56fa0b90f8b5dd856fe",
+      "crc32": "6f0ccd3c"
+    },
+    {
+      "name": "srwoe_episode_14_PL.md",
+      "bytes": 83171,
+      "sha256": "e8d5e2731238ab2e88fb96e642d519d821613399674ef91fda437a2b0d22d863",
+      "crc32": "047e5a7d"
+    },
+    {
+      "name": "srwoe_episode_15_PL.md",
+      "bytes": 73152,
+      "sha256": "5fbb0a45d2d2d66d265b686a3788b4168943480ed30821b55240dde86716aa7b",
+      "crc32": "50e781b1"
+    },
+    {
+      "name": "srwoe_episode_16_PL.md",
+      "bytes": 58102,
+      "sha256": "4b339de39ea245d569506296f67e7d3bc9243a76c0f6e4d4d6d068ff4d340e35",
+      "crc32": "9b720766"
+    },
+    {
+      "name": "srwoe_episode_17_PL.md",
+      "bytes": 74804,
+      "sha256": "810ba6e93740ab92b9231e6dda405aa54bd4beaf69011b117364e8dcd2997e47",
+      "crc32": "5ff3cf35"
+    },
+    {
+      "name": "srwoe_episode_18_PL.md",
+      "bytes": 69870,
+      "sha256": "0421e8b2092a7491269aefd5ebefb4baffbbf9d9f30c1a4701ba39dda4fd25d5",
+      "crc32": "d05ab530"
+    },
+    {
+      "name": "srwoe_episode_19_PL.md",
+      "bytes": 64624,
+      "sha256": "64a9adc079a601bfc2402daec5aed26f86b15936ef5f84f9cb5663f3e7da1245",
+      "crc32": "533a7171"
+    },
+    {
+      "name": "srwoe_episode_20_PL.md",
+      "bytes": 69094,
+      "sha256": "48c65e0d54cb84a7321535c5be568d91bdef85dcdf65e3a89dd0709a4776b3c3",
+      "crc32": "4add2152"
+    },
+    {
+      "name": "srwoe_episode_21_PL.md",
+      "bytes": 62799,
+      "sha256": "6e4397c99aa9b7a705f30a01f65f6cba812a2ad8b3a91e8e3af66c3ef5ecd3cb",
+      "crc32": "4bbd55cc"
+    },
+    {
+      "name": "srwoe_episode_22_PL.md",
+      "bytes": 59412,
+      "sha256": "78ea1b17ef9486c6ce14d9faca0d9b07285112cc1bbd5b26732880f1abbb3dd5",
+      "crc32": "e4beacd9"
+    },
+    {
+      "name": "srwoe_episode_23_PL.md",
+      "bytes": 59234,
+      "sha256": "82f6702b8c10caba5c33760327b86439249016b43dee87b6ddf4362b56f7b048",
+      "crc32": "aaacce51"
+    },
+    {
+      "name": "srwoe_episode_24_PL.md",
+      "bytes": 36664,
+      "sha256": "9e6041564565bd8526496d5710014977fd499712c2e2247631bbeebf67e0058b",
+      "crc32": "982a2599"
+    },
+    {
+      "name": "srwoe_episode_25_PL.md",
+      "bytes": 64713,
+      "sha256": "633d20f24b0afe3baeddb70088efcdabbd1e53cdbe6489c538051c0b2a9f7165",
+      "crc32": "83ef563e"
+    },
+    {
+      "name": "srwoe_episode_26_PL.md",
+      "bytes": 56495,
+      "sha256": "54fe61401da635317c82e86999c847e1be678caa996ab5a14b41f3b2e5bc2c23",
+      "crc32": "2544b993"
+    },
+    {
+      "name": "srwoe_episode_27_PL.md",
+      "bytes": 69715,
+      "sha256": "c5cf7d9ae516e24161f94fa7c106e440c14f7f5d710a21264d129fd2425367a4",
+      "crc32": "8b6910a7"
+    },
+    {
+      "name": "srwoe_episode_28_PL.md",
+      "bytes": 78555,
+      "sha256": "94920f4f0d32b688e9e214fa0bbea418a05429ae7b35a740f4d2c9cbbff3feaf",
+      "crc32": "8e452592"
+    },
+    {
+      "name": "srwoe_episode_29_PL.md",
+      "bytes": 39662,
+      "sha256": "aac17ee0d238830aea5aee41bd0549425c8e0e255a0fc0a96c7dd1b4008853e6",
+      "crc32": "98eca360"
+    },
+    {
+      "name": "srwoe_episode_30_PL.md",
+      "bytes": 78075,
+      "sha256": "eb2f3181a5bfa0c963ab882a2cd043786f1be0cfa960fd43635c705a97a4a4ca",
+      "crc32": "e8df1d86"
+    },
+    {
+      "name": "srwoe_episode_31_PL.md",
+      "bytes": 48604,
+      "sha256": "e6f9e74b27490d642e194e829a7e35f4e1929be1bc5de9970ac08e80b2f9c252",
+      "crc32": "3603fd19"
+    },
+    {
+      "name": "srwoe_episode_32_PL.md",
+      "bytes": 32251,
+      "sha256": "b7da21560c208b04bceb6b71ec1247691b40d3cca355b7d904a60b86e6861f48",
+      "crc32": "e759068c"
+    },
+    {
+      "name": "srwoe_episode_33_PL.md",
+      "bytes": 48914,
+      "sha256": "143701914d90ea2f9b9a033a93ee9401862164263f1baca61c82d7b73a26421f",
+      "crc32": "ee71605f"
+    },
+    {
+      "name": "srwoe_episode_34_PL.md",
+      "bytes": 218906,
+      "sha256": "8a11e89851a789b1d1dfbdfe2ba676c1797414dff7f914127577bf67e033ad07",
+      "crc32": "b507d2a9"
+    },
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "crc32": "9728e719"
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "crc32": "1afe3b39"
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560184,
+      "sha256": "ccf3c6ae7cd92307130a6771f05f05f58c5037ab9b53e4155c3d8fdf2aa578df",
+      "crc32": "36f58382"
+    }
+  ],
+  "delivered_at": "2026-10-24",
+  "source_commit": "6afdc28",
+  "branch": "arena/6906ed6b-mtgcrawler",
+  "pull_request": 24,
+  "pakiet_pl_data_sha256": "788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62",
+  "english_reference": {
+    "files": "srwoe_episode_00.md .. srwoe_episode_33.md",
+    "verified_against_plan_reference_sha256": "34/34 rebuilt episodes",
+    "source": "Google Drive folder Skrzpty (1zBVlAv_Nu-2hynN86f-vml7Yy823q22H): individual srwoe_episode_00.md plus srwoe_episodes_01-06/07-10/11-16/17-22/23-28/29-33.zip",
+    "episode_34_missing": "The delivered English reference srwoe_episode_34.md (sha256 4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8, Drive 1roWkSt4ur91OMSHqIDonmouEYBDYF0-j) is no longer retrievable: the file returns Drive 404, is absent from the folder listing and from the trash, and its build inputs cannot be reproduced (pakiet_EN 05_mission_text.jsonl and 07_names_characters.jsonl changed since the EN plan). Episode 34 therefore cannot be rebuilt and is carried over byte-identically."
+  },
+  "changes_vs_v4_3": {
+    "changed_episodes": [
+      "02",
+      "03",
+      "07",
+      "08",
+      "09",
+      "11",
+      "13",
+      "15",
+      "19",
+      "21",
+      "22",
+      "25",
+      "26",
+      "27",
+      "29",
+      "30",
+      "31"
+    ],
+    "carried_episodes": [
+      "34"
+    ],
+    "unchanged_episodes": [
+      "00",
+      "01",
+      "04",
+      "05",
+      "06",
+      "10",
+      "12",
+      "14",
+      "16",
+      "17",
+      "18",
+      "20",
+      "23",
+      "24",
+      "28",
+      "32",
+      "33"
+    ],
+    "summary": "Two accepted text changes since v4.3 are now reflected in the reading editions. (1) v4.5 renamed 24 mission titles to fit the mission-select bar, so every episode heading that printed a shortened title now prints the new one (60 heading lines across 17 episodes, both `## Ep. N …` and `## Wariant tekstu DLC — Ep. N …`). (2) The v4.4 story-language review corrected 22 dialogue rows; where those rows belong to a DLC variant shown in an episode, the corrected variant now matches the accepted rendering of the base scene, so it is verified as an alias instead of being printed as a separate fragment (episodes 03 and 08 lose 15 redundant fragment lines; no text is lost - every removed line is present verbatim elsewhere in the same episode). Episode 34 contains none of the changed rows and is carried over byte-identically. Totals cover the 34 rebuilt episodes: 39,585/39,585 prose entries (100%), 29,891 unique + 9,694 aliases, 30,315 verified spans, 2,436,877 B of Markdown; adding the carried episode 34 (7,471/7,471 verified in v4.3) keeps the series at 47,056/47,056."
+  },
+  "supplementary_members_detail": [
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "drive_id": "1lh4JHwKDE0nIknE13JwS5-BGtSViYze1",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": false,
+      "note": "Current roster-first v4 catalogue. The v4.3 archive bundled the older pre-roster-first bytes (723,499 B / ec185c38…); this release bundles the current file that the deployments document itself quotes."
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303266,
+      "sha256": "800a27fdb822fd220aebc77cc20b7ff3ee6526e21b07c7565f74d03e25facc65",
+      "drive_id": "1YsNL3AT6IHqxJdGXeeKwECdVz-uZSjLV",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": false,
+      "note": "Unchanged since v4.0; no mission title or story text is quoted in this file (0 hits for the changed strings)."
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560184,
+      "sha256": "ccf3c6ae7cd92307130a6771f05f05f58c5037ab9b53e4155c3d8fdf2aa578df",
+      "drive_id": "1k5RvyJBfX4NzyFmL7o5hUF9iuuYumHNo",
+      "last_delivered_release": "v4.0",
+      "rebuilt_for_this_release": true,
+      "note": "Its `### Odcinek N — <title>` headings quote mission titles, so the delivered v4.0 bytes were stale for 23 headings. tools/refresh_mission_deployments_titles.py applied exactly those 23 substitutions to the pinned v4.0 file (sha256 d166592b…); the remaining 11,560,184 B are otherwise byte-identical. A canonical mission_deployments.py rebuild supersedes this file once the private containers and the 1.08 ELF are available. Superseded Drive file 1mcrih3r4TAE0pmAYebYH54XdDELS8P6v trashed."
+    }
+  ],
+  "reproduction": "python3 tools/build_polish_reading_editions.py --english pakiet_EN --polish <materialized v4.5> --references local/en_reading_refs --episodes 0-33 --text-source v4.5 --out local/reading_v4_5 ; python3 tools/refresh_mission_deployments_titles.py --source <pinned v4.0 deployments> --pin-sha256 d166592b… --plan config/pl/ui-mission-title-length-2026-10-24.json --out local/reading_extras_v4_5/srwoe_mission_deployments.md ; python3 tools/build_reading_archive.py --input local/reading_v4_5 --release v4.5 --date 2026-10-24T00:00:00Z --out … --delivery … --carry \"srwoe_episode_34_PL.md=<reason>\" --carry-from <v4.3 archive> --extra … (three supplements)",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static package validation, ZIP CRC, per-member SHA-256, deterministic rebuild and Google Drive read-back (SHA-256 + cmp) only. No PPSSPP session was run; the reading editions do not depend on the running game."
+  }
+}
