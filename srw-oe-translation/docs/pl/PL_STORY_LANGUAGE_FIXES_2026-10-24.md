@@ -129,3 +129,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** bezpośrednie tagi w dyskusji mostkowej i dialogu Jeffrey–Haman, „Daliśmy się złapać w intrygę”, żołnierskie elipsy rozkazów, „chłopiec z Gundama” jako pilot wewnątrz maszyny, archaiczna „strawa” aury Czarnego Rycerza oraz JP-potwierdzone metafory strategiczne Haman.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `edb18709c876739d32ed0998fe31b829c5ac1dee6d24950d1c6add8d03366bcd` → `f8253586c1f6180a977aa975a32bee5d70f5fc84d1ee079af96813ee8c28a78f`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; zmieniony tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 16
+
+- **Zakres:** 800 wpisów — 661 fabularnych i 139 warunkowych; 161 grup z pytaniami (132 fabularne, 29 warunkowych).
+- **Poprawki:** 5 kwestii wskazanych w przeglądzie; plan zawiera 5 zmian źródłowych (`story-language-ep16-2026-10-24.json`, SHA-256 `0d2092107d6f8dbe1f61a576c1c6e0fb9f4cb2fdc42e22a470f640cba3112ca7`).
+- **Potwierdzone klasy błędów:** dwukrotnie błędny przypadek zaimka w „Zostaw to mnie” zamiast „Zostaw to mi” (Gary Godan, Kochak); wisząca kalka „Och, nie wolno nam!” bez dopełnienia zamiast „O nie, nie wolno do tego dopuścić!” (Puffy); odwrócony sens narracji „Oddział pozorujący Chirico” zamiast oddziału pozorującego, w którym służył Chirico; kalka „Tacy podejmują takie decyzje” zamiast „Ten oddział potrafi podjąć taką decyzję” (Chirico).
+- **Świadomie zachowane fałszywe alarmy:** złowróżbne „grób to dla ciebie za wiele” Czarnego Rycerza, „roztopione substancje pewnie reagują chemicznie” Seishiro (JP-potwierdzone topniejące po downburście substancje), „krew dopłynie do palców AT” jako metafora płynu Polymer Ringer, zdublowana narracja o rozkazie dla oddziału Barcoffa (dwa odrębne wiersze źródłowe), zdobywanie przez Guardian Force doświadczenia przeciwko ISTO w walce z Balarantem oraz bezpośrednie tagi w rozmowach grupowych i rozkazach.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `f8253586c1f6180a977aa975a32bee5d70f5fc84d1ee079af96813ee8c28a78f` → `ffff3a1a5a8abbeb20afa2ce8e1cde50322ef5b7446697e517e3d4ac4ef00449`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 5 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

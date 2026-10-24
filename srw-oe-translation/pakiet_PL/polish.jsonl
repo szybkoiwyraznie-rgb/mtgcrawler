@@ -4532,7 +4532,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_30.bin:9944","pl":"Pewnie.\nMają już nas na celowniku.","source_sha256":"17bebd73cde5690827818c5582331d10f50426c4b4baac277fc3fdc28dbce538"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:49720","pl":"Proszę... przestań...","source_sha256":"17bfa75c196e7b5aacb91daf18481e1c48639efcf38ea58144b0358193797d36"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_60.bin:2520","pl":"Przyjęłam! Przegonimy ich!","source_sha256":"17c1a07146235345a2304f6ee1effbadce38e0fd80435369a82b00f621559a22"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:384","pl":"Oddział pozorujący Chirico poświęcono. Operacja\nsię powiodła, lecz oddział złożony z 1500 AT\nzostał unicestwiony.","source_sha256":"17c32d82c62042e067903f2eecbc9b3a90aa80f7c741d20c599dadebc978192b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:384","pl":"Oddział pozorujący, w którym służył Chirico,\npoświęcono. Operacja się powiodła, lecz oddział\nz 1500 AT został unicestwiony.","source_sha256":"17c32d82c62042e067903f2eecbc9b3a90aa80f7c741d20c599dadebc978192b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_80.bin:10656","pl":"W imieniu Republiki Helic dziękuję wam.","source_sha256":"17c419a3a2577394736ea9159c275a254bf7d8ca1119690ac2965ecf45155203"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:94064","pl":"Do takiej przyszłości zamierzam dążyć.","source_sha256":"17c736b498bec8202a43a515ad3b0c9f41cd18eef3e1aa6b94d92c4352e89161"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_50.bin:4524","pl":"Ale żeby dalej ogarniać obsługę techniczną,\nbędzie trzeba więcej rąk do pracy.\n","source_sha256":"17c7d8c2e7fbd8726e50c38e56ba8e9333b8da62005087400f84ea993721ae01"}
@@ -6965,7 +6965,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:61820","pl":"Z chwilą wejścia na regularną trasę\noddział White Base wraca do Federacji.","source_sha256":"24bf0e22f99d76c002d840edd8cc0c3dec9066c6869372a18ba55d4f15c98b3b"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept102.EDAT/DL310_60C.bin:3276","pl":"Dobrze.\nOczyszczenie drogi zostawiam tobie!","source_sha256":"24bf4fcf713eece535ce2f071f4c9764aa201dc9a9ac21c3d59d0a8dcb09258f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL310_60.bin:9120","pl":"Nawet z barierą antywiązkową\nGuntank da radę...!\n","source_sha256":"24bff71f8197138a75699db747780502c0cda800a0c0d26da23dac5ce20621d7"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:14632","pl":"No, zostaw to mnie!","source_sha256":"24c02f7dfd89aaeac91eb41f9194d4f99ad4a356d174aa72ba41150ed04d6611"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:14632","pl":"No, zostaw to mi!","source_sha256":"24c02f7dfd89aaeac91eb41f9194d4f99ad4a356d174aa72ba41150ed04d6611"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_12.bin:7536","pl":"Gdy ISTO odzyska siły, szala od razu się przechyli.","source_sha256":"24c0e11db6fafa6aeaf055e4c1b092d5c69bbc92d9b76cb77ed3090a35a4e409"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_12.bin:23616","pl":"Majorze Schubaltz!","source_sha256":"24c2b091b552a212a86936f18f537952e754d2bba8d29d9fd726d2a6c990eb0c"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:592","pl":"Hiltz przejrzał jednak ten zamiar, przerwał\nwalkę z Connect Force w stolicy\ni ruszył nad jezioro Wendeen.","source_sha256":"24c3271621c78462369d4a119dd953055f75fe818c62f74c5476543d956fca3c"}
@@ -16345,7 +16345,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP29.EDAT/DL521_70.bin:9320","pl":"Tę wspaniałą moc trzeba wykorzystywać właściwie.\nTo obowiązek, który na nas spoczywa.","source_sha256":"5508498037adfe8dca7562f2eba7f32884aeb4bad2c5147f71df3967c49ff7fc"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_90.bin:17476","pl":"Mechabestie to wrogowie Eldrana!\nW imieniu drużyn Eldrana\nmy, Klasa Obrony Ziemi, też lecimy w kosmos!","source_sha256":"550bd16b8c1a3f89d6f1e5e07b864da526128d8c901b2ca5cffbc75faa499d9f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL520_11.bin:2248","pl":"Czyli to bardzo niebezpieczna... ale i ważna misja.","source_sha256":"550c43ad99fd2c7ef15a470c90d0cfb05f98cefe3897515a0d7e1db5968113d8"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_12.bin:5488","pl":"Och, nie wolno nam!\nTen Zwarth nie może przebić niebios!","source_sha256":"550d7a7cd0561f0233608327fcd02a165ae179229366ecaa942eb765ec3c85c9"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_12.bin:5488","pl":"O nie, nie wolno do tego dopuścić!\nTen Zwarth nie może przebić niebios!","source_sha256":"550d7a7cd0561f0233608327fcd02a165ae179229366ecaa942eb765ec3c85c9"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL728_13D.bin:4532","pl":"Niemożliwe... Ta maszyna to...!","source_sha256":"550deaece44e43d498dfdb61eb1c56fe11fd65ff984b587ba90a1041d585d91c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:61784","pl":"T-to nie tak...!","source_sha256":"550e94a4bdcc9d110ee7c289fcd31546f41f85f6a90638922a4e61db6d045b2b"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:8316","pl":"Ale nie możemy im pomóc...","source_sha256":"550f2a9aeeabe1f8e3d6a4d8b20ddc779646dc97f35bedad5f5e2970698b544a"}
@@ -34532,7 +34532,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:29364","pl":"Zero... dzięki twej wybitnej przenikliwości\nmój plan przebiegał gładko.","source_sha256":"b3ecd0fbb1405a3ac72daed1fbf6ce7687c29687ff97c8164620555f39adbf66"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL105_40.bin:9720","pl":"Te dwie... Jednak goniły nas\nw Hulk Gunship!\r\n","source_sha256":"b3ed6daa4188c6f95bc5a52bc3b0aabf74cb8405a49391b2a94640a04f6cb9e4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_12.bin:17668","pl":"Nawet bolesne, smutne wspomnienia\nskładają się na to, kim jestem teraz!\nNie oddam ich... ani jednego!","source_sha256":"b3ee6b840675b754c516e31857f4410db915f46aac1307f98e8cc3459e1f11e4"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:9584","pl":"Zostaw to mnie!","source_sha256":"b3f0b5af12a8ec1d3423cc9e52e75a10237a1916a1cb4f91ceb8a90857a6fe8b"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_45.bin:9584","pl":"Zostaw to mi!","source_sha256":"b3f0b5af12a8ec1d3423cc9e52e75a10237a1916a1cb4f91ceb8a90857a6fe8b"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL521_12G.bin:21204","pl":"Przekonajmy się, czyja pewność siebie\njest prawdziwa, twoja czy nasza!","source_sha256":"b3f17786841ebc2696cb409589f6bc6d2ccf2e397ba8bf6156bcca78edf2570d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL622_11.bin:10224","pl":"My również zbierzemy flotę.\nPrzechodzimy do drugiej fazy operacji.","source_sha256":"b3f4882e8918f2baa2a4d844fc3ff82844fdfadf3f24be9d67f46e9ba157647a"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL622_13J.bin:3288","pl":"Mamy walczyć z tym legendarnym diabłem...?","source_sha256":"b3f64cb5314d3cc4345d6dbd04d1bcddcbd4d6dddbf76b6ba5167628d33d032a"}
@@ -45033,7 +45033,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL206_12.bin:7676","pl":"No, przepraszam.\nAle... nie mogłam siedzieć bezczynnie.","source_sha256":"eb97f77e78df05a3ab5ef96e135692dba3255d270614ed98f79b324754b86df0"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:124700","pl":"Chodźmy, Shadow.","source_sha256":"eb9a33acb584d320096171b092ec11e93fc45bd9c4dc46ad8d6c4f2cac75eda4"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL727_12.bin:41100","pl":"Operacja zakończona.\nProszę udać się do wyznaczonego punktu zbiórki.","source_sha256":"eb9ab38691d99f44d6582833c8c54c2fc12402e37f5d2c0a59127f9e34d00d4a"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:12080","pl":"Tacy podejmują takie decyzje.\nMożna na nich polegać.","source_sha256":"eb9d139b512f569bcdc52bc1fce012fce2b86e632b1a218b2cd5161bc25717b5"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_55.bin:12080","pl":"Ten oddział potrafi podjąć taką decyzję.\nMożna na nich polegać.","source_sha256":"eb9d139b512f569bcdc52bc1fce012fce2b86e632b1a218b2cd5161bc25717b5"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept101.EDAT/DL206_11B.bin:10488","pl":"Byłem żołnierzem Gradosu.","source_sha256":"eb9f87b1b4d1d8c07ba81bc3e6036145a116400526428a07dc74babd33f12020"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_12.bin:18704","pl":"A Instytut Saotome w obecnym stanie\ntrudno nazwać organizacją...","source_sha256":"eba0cb8bfcdfde7bebad4c7424a311876414581c4a6d6962e65b3846f2997853"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_25.bin:15604","pl":"Czyli dlatego tak łatwo\ndało się ich pokonać.","source_sha256":"eba133d6297a07b276efef5928f56267998f3600a67bff1d896d55f7c52d1a96"}
