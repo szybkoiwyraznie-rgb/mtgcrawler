@@ -30,3 +30,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Uwaga walidacyjna:** pierwsza próba zastosowania planu została poprawnie odrzucona przez limit szerokości dialogu (linia 53 przy limicie 52); po skróceniu frazy o zwiadowcach cała ścieżka przeszła.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `fda6c27086af862b315cf50cd7f6a23d0298eb889554fc98596ac4ddc399e6c1` → `b3671f043b3203f9d45011bd8ee6cfa9867a430699466cdea4b9cbaf163097e9`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 5
+
+- **Zakres:** 1 257 wpisów — 1 095 fabularnych i 162 warunkowe; 284 grupy z pytaniami (251 fabularnych, 33 warunkowe).
+- **Poprawki:** 48 kwestii wskazanych w przeglądzie; żadna nie wymagała jawnej kopii `copy_of`, więc plan zawiera 48 zmian źródłowych.
+- **Potwierdzone klasy błędów:** twarda gramatyka (`Jestem major`, `pracę umysłową zostawcie mnie`), odwrócona biegunowość potwierdzenia Monskara, błędna agencja przy przedstawianiu mieszkańców wioski, podmiot głos w `Leci tutaj?`, niejednoznaczne `posiłki` zamiast drugiej fali, sprzeczność `wytępić i zagnać pod ziemię`, dziewczyna nazwana `pułapką` zamiast przynęty oraz rządy i nominalizacje przy zabezpieczaniu odwrotu, płatności, liczeniu klientom i wyszukiwaniu śladów DG.
+- **Świadomie zachowane fałszywe alarmy:** `dyrektor Douglas` (Suol Douglas), `Pan Lordgenome` jako forma czci Virala, poprawne powiedzenie `pozostawianie Chirico samemu sobie`, bezpośrednie tagi pytajne oraz formy grzecznościowe Suzaku wynikające z japońskich form uprzejmych.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `b3671f043b3203f9d45011bd8ee6cfa9867a430699466cdea4b9cbaf163097e9` → `6464d12792574e213d31b636b01b58a326995de5bda1e18de40d0d2ff1dc96d8`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
