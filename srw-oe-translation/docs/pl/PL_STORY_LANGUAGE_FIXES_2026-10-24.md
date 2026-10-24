@@ -84,3 +84,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** dosłowna metafora Chara o patrzeniu na rzeczywistość, luksusowy „problem do pozazdroszczenia” Himari, wojskowe potwierdzenie `Tak jest!` po pytaniu o Big Zama oraz eliptyczna odpowiedź Garcii o prowizorycznej naprawie.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d` → `6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów; wszystkie 10 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 11
+
+- **Zakres:** 739 wpisów — 594 fabularne i 145 warunkowych; 99 grup z pytaniami (81 fabularnych, 18 warunkowych).
+- **Poprawki:** 4 kwestie wskazane w przeglądzie; plan zawiera 7 zmian źródłowych po dołączeniu 3 jawnych kopii (`story-language-ep11-2026-10-24.json`, SHA-256 `545f48789e9511834d40b0fd7e71adee93c60c06e8d0ad4e6ea2559c79cab777`).
+- **Potwierdzone klasy błędów:** warunek Kikaishina `przeżyjecie to miejsce` zastąpiony wyrażeniem `wyjdziecie stąd żywi`, niezgodność `każde przejęte dane`, błędny przypadek w `Zostaw to mnie` oraz raport `zgubiliśmy pościg` wymagający podmiotu ścigających.
+- **Świadomie zachowane fałszywe alarmy:** techniczne `zoptymalizowane na danych uczenia`, `masz głowę martwić się o innych`, `nie mogę tego darować`, taktyczne rozwijanie Mobile suitów oraz skrót o krytycznej energii Solar Raya.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d` → `8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; wszystkie 7 tekstów zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

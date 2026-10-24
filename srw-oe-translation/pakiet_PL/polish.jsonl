@@ -10457,7 +10457,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL208_45.bin:7852","pl":"Tak, na pewno.\nŚmigłowiec po prostu przyleciał za wcześnie.","source_sha256":"367dee0f64e9e4e62b485d0bbd461314157df9bc46e95e907b512d1464be81eb"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL830_13.bin:2332","pl":"Hę, hę, hę... Moc...!\nNieskończona moc wypełnia moje ciało...!","source_sha256":"367ee66740009c81d6a54ced53d382cd49bd3b5ecb43285928d07358b7d5d0e7"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL624_35.bin:1892","pl":"Tak... Na to wygląda.","source_sha256":"367f2e4a968cdcd84636a75a5ffddc03e507c15055bd26ef9dca78b7b359a1d6"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:11648","pl":"Zgubiliśmy pościg!","source_sha256":"36819304c0ef23b7a22362e37cee31db364afff66a442843b7128d76cf8cfee8"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:11648","pl":"Zgubiliśmy ścigających!","source_sha256":"36819304c0ef23b7a22362e37cee31db364afff66a442843b7128d76cf8cfee8"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept103.EDAT/DL622_13D.bin:2708","pl":"Nie możemy ich tak zostawić!\nZatrzymamy ich tutaj, bez względu na wszystko!","source_sha256":"3685184256ec7ad74a2f576c3239ec244a16c0dc2ee1f4e2a8fd47784218565e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP30.EDAT/DL624_25.bin:6380","pl":"Sorry, że weszliśmy na wasz teren bez pytania,\nale żeby od razu atakować?\nTo chyba trochę wbrew zasadom...!","source_sha256":"36859a04e3e742e1f4385b5d43127e7c3035e52154c9fea28177ae8ecd60cc3e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL416_30.bin:9648","pl":"Jasne, poczekamy.","source_sha256":"3686674b530370e37b63223bae305284eda4ec26f6f0cd83006ef95705064cfc"}
@@ -12110,7 +12110,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL415_60F.bin:3888","pl":"Pojawiło się mnóstwo Mucus!\nA ten odczyt to...!","source_sha256":"3f1a478da5d220d5ec31c797f97a5a53a389b81570f131784dbbe3fde35e32f7"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:150116","pl":"Kiedy drużyna nabierze kształtu,\nprzyjedziemy do Japonii na walki treningowe.","source_sha256":"3f1a65237e803dd17575de9d160500cbea58c22c9dd1ed4bd81c89a202cf4396"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:34956","pl":"Je-je!\nNawet w ostatniej bitwie jesteś w formie, Kochanie!\nRozwalmy to coś, wiesz!","source_sha256":"3f1c93597e9a990a84ec8d94c06778c017b48e4d8a05125a8b6d246311029de4"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:3884","pl":"Oczywiście pod warunkiem,\nże przeżyjecie to miejsce.","source_sha256":"3f1c95e1de5098dbb326c623a46d58ccb6b56c77fb74e295939efe08dbe3ba59"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:3884","pl":"Oczywiście pod warunkiem,\nże wyjdziecie stąd żywi.","source_sha256":"3f1c95e1de5098dbb326c623a46d58ccb6b56c77fb74e295939efe08dbe3ba59"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP07.EDAT/DL728_50.bin:1496","pl":"Wszystkie siły zdolne do walki na Zi podzieliły się\ni atakują Mucus Gate w całym regionie.","source_sha256":"3f1cdc69a5571bc27a48ce1708dbcb2cbb9aa5def57d735814c68c9e96947fc2"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_50.bin:8904","pl":"Pewnie musimy podlecieć bliżej,\nżeby coś się pokazało...","source_sha256":"3f1d76e73f1973077f8728b7278c869a17aa515287ac75a094ee59f47197f1f9"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL313_12.bin:6352","pl":"Nadchodzę, Prozen!\nZetrę ci ten uśmieszek z twarzy!\n","source_sha256":"3f1e3ba6458d21106cef1a2e3b5897264644d06eb58a8407dae259c789d16e21"}
@@ -36244,7 +36244,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_30.bin:2360","pl":"Jeszcze lepsi niż przedtem... Connect Force!\n","source_sha256":"bcfae7d31d2838e0d1496ae039d6579d05a53d81ad4dee27653c2f53aedc1280"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:93808","pl":"A Grados i Planeta Pieczęci zawarły pokój...","source_sha256":"bcfb257e3b98d17c2d3c34c954b4faedf0c4a09f1a979a77508ee476a5f8c907"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_30.bin:5356","pl":"Nie pędź sam przed siebie.","source_sha256":"bcfb61817a98cb48354278f8cb294b21203ee33c4d0ec22be3c5c1d4834a22bb"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:10188","pl":"Każde przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.","source_sha256":"bcfcb633c0128374a4488aabbda2b6c8c359900bf5af48f24cf59e5ff15feb45"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:10188","pl":"Wszelkie przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.","source_sha256":"bcfcb633c0128374a4488aabbda2b6c8c359900bf5af48f24cf59e5ff15feb45"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_12.bin:476","pl":"Oddziałem, który miał zniszczyć Mucus Gate,\ndowodził natomiast Exart.","source_sha256":"bcff1aa7a0e880ff8d4a1793a232ff5c621f0270f9238ced979e4512f380b16e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL209_40.bin:372","pl":"Wraz z rosnącą rolą Connect Force przybywało\ntych, którzy współpracowali z Connect, ale to nie\nwystarczyło, by doprowadzić obie strony do rozejmu.","source_sha256":"bd0142ce9009377a35f81ed01caf718b40f0293912ef2eee0755a6f2044aead3"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:86108","pl":"Plaże pełne ślicznotek w kostiumach!\nCzy tam czeka taki raj...?","source_sha256":"bd02d32328de44b572d824b624bc2a369e2f7307a42125ee7137280e5e7617c6"}
@@ -40914,7 +40914,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_11.bin:5204","pl":"Co? Przecież ja tego nie używam, prawda?","source_sha256":"d5d932740bb1b22304afaaa7f6e1e96e40f32ba9dc8f2e44646548acbeb0bf3e"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_12.bin:11592","pl":"Nie słabnąć w natarciu.\nWykończcie ich falą za falą!","source_sha256":"d5da86d7109b06c4758cb085f33de9e0cbcc2a68cef107a41d6acb1af5ceb555"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP08.EDAT/DL834_13.bin:89692","pl":"Bo to tropikalny kurort!","source_sha256":"d5db9165fed6cefa42d5f19fa19bd6e7e390a25473fe4d99ecb22e025c5cce91"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_20.bin:9220","pl":"Jasne! Zostaw to mnie!","source_sha256":"d5dbf8294b698db8f488246fb373b238de3fa45dbca72d79a13bced57352abad"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_20.bin:9220","pl":"Jasne! Zostaw to mi!","source_sha256":"d5dbf8294b698db8f488246fb373b238de3fa45dbca72d79a13bced57352abad"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_11.bin:1516","pl":"Muszę jednak prosić, ojcze,\nżebyś wycofał się do Granady.","source_sha256":"d5dc80e0c677c8bd1832871d9e4d345ef0afc3e30da278c55884b866ec25fe0d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL104_40F.bin:12884","pl":"A zatem Daba i Leccee,\nzajmijcie pozycje według planu i czekajcie.\nTurner, naprzód w równym szyku.","source_sha256":"d5dc820f075e88bf5eacbe9d6ae6932a963ff1fbaf165b24153e5685447ca7b2"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL834_13E.bin:106704","pl":"No wiem, ale jednak.","source_sha256":"d5dece64d124d0119469450d73c3adcc056062fdfac62ef873c6f3b8118d3b16"}
@@ -41109,7 +41109,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL834_13J.bin:88256","pl":"To były raptem jakieś trzy minuty.\nTrochę hartu ducha i po sprawie, nie?","source_sha256":"d6f30ec572fd83ed483abbde2a306b1c0b16f069fea1480158b1870cb1899979"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept106.EDAT/DL102_50G.bin:9092","pl":"Byle prosty żołdak nie ma prawa oceniać tej walki!","source_sha256":"d6f32a40e56eecb8f81bd634deed4c5b3ee4d4faeada38502f057b6065dabef6"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept105.EDAT/DL834_13F.bin:139224","pl":"W takim Tokio zimą jest o wiele zimniej!","source_sha256":"d6f5ceb43a417117516c36f99656ea45545eecc83f95ad1c70afecac79e1bc6f"}
-{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:3900","pl":"Oczywiście pod warunkiem,\nże przeżyjecie to miejsce.","source_sha256":"d6f9bd62b3f68410f6f6aeb9227b3d6371fca68284952f5264899363a9f46fa4"}
+{"file":"00_dialogue.jsonl","id":"dlg:evept107.EDAT/DL311_13H.bin:3900","pl":"Oczywiście pod warunkiem,\nże wyjdziecie stąd żywi.","source_sha256":"d6f9bd62b3f68410f6f6aeb9227b3d6371fca68284952f5264899363a9f46fa4"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL311_50E.bin:4304","pl":"Cholera... Nie zdążyliśmy...!","source_sha256":"d6fa48d5340567f8b5b823e047bc9a065cfffa2bddff71e604d70a25919a1c09"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL415_70.bin:2344","pl":"Tak. Pragniemy powrotu Boga Goburikiego.","source_sha256":"d6fae82bf1bf406f19f98e15db721283427b6e48e35f7320a966a4d2952e57ed"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP06.EDAT/DL623_13.bin:3824","pl":"Nie możemy nazywać się niezwyciężonymi,\njeśli nie uratujemy tej dziewczyny...!","source_sha256":"d6fc9fe6ad8e75297567422e00731239106a2de65c22bc932dcef81a3ea81f56"}
@@ -45953,7 +45953,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL518_40.bin:3252","pl":"...No to zaczynajmy.\n","source_sha256":"f08c193c375771e053ac1eeccda1e390fb97f6fe7bdb564326cf14c4b6d0341f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP00.cpk/DL101_80.bin:8796","pl":"Majstrzeee! Odpalaj wóz, szybko!","source_sha256":"f08fbe36627cf10e0b54ba9f48fb29472b7eabfc17cdc9527388bb81ca66e5cd"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:17664","pl":"Co to...?!","source_sha256":"f0911617bdfb6f015913c9f65c8fc8057ada75535a174930111e2f3353ac5752"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:11648","pl":"Zgubiliśmy pościg!","source_sha256":"f091766b0a65c5ea3b35119f98cdedb8ad64240d3b4f4a6af5067b39228fab47"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_50.bin:11648","pl":"Zgubiliśmy ścigających!","source_sha256":"f091766b0a65c5ea3b35119f98cdedb8ad64240d3b4f4a6af5067b39228fab47"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP02.EDAT/DL207_20.bin:5220","pl":"Cooo?!","source_sha256":"f092afe9ecd2d677b3981d799e42fe035bfc629b41b92cc5f1cce324023aee3d"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL726_13J.bin:13500","pl":"Dlatego musimy kupić mu czas na rozruch.","source_sha256":"f0961cd65612067c86ce2d8c51f4cf93a709193bff93538f705f4860ed89db0f"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_30.bin:1272","pl":"Głęboki kosmos jest ogromny, a wpływy Federacji\nsą tam słabe. Piractwo szerzy się bez przeszkód.","source_sha256":"f096a1fa9e60cff9c487b9f51a0a592ef7808102d06b577fc2ec82d47b5ec2da"}
@@ -47375,7 +47375,7 @@
 {"file":"00_dialogue.jsonl","id":"dlg:evept104.EDAT/DL830_13E.bin:39216","pl":"Ugh, więc to prawdziwa moc Death Saurera...!\nJak w ogóle walczyć z takim potworem?!","source_sha256":"f7f5bd36232af233339aab13a029ff2b1ca6c8d5dbe13bc01f7ed5af5f04041c"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL103_11.bin:21052","pl":"Nie zaniedbujcie zwiadu i wart.\nW tym czasie wymienimy wyczerpane jednostki.","source_sha256":"f7f76532d8aa3b07d7c9e5ee5498cc6d16deece573698730935498d942ec7282"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP05.EDAT/DL519_40.bin:4724","pl":"Jeszcze jeden napór!\nRozbijmy ich za jednym zamachem!","source_sha256":"f7fa04e7f15ae6da2f7cb5f1571dd69487949cbbbf3667fabebb8347a96292e2"}
-{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:10156","pl":"Każde przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.","source_sha256":"f7fa8fcb3515ba3d139feab9001b6d3708c9e2d1a0cde666374e1284678cb77d"}
+{"file":"00_dialogue.jsonl","id":"dlg:eventP03.EDAT/DL311_13.bin:10156","pl":"Wszelkie przejęte dane mogę powielać bez końca.\nTaki zakład mogę odbudować w każdej chwili.","source_sha256":"f7fa8fcb3515ba3d139feab9001b6d3708c9e2d1a0cde666374e1284678cb77d"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP04.EDAT/DL414_13.bin:11348","pl":"Spadam stąd!","source_sha256":"f7fb91e952502e799c0755c08b5de3454df836a293df919533b4422254ed0408"}
 {"file":"00_dialogue.jsonl","id":"dlg:eventP01.EDAT/DL102_30.bin:5568","pl":"Przyjąłem!","source_sha256":"f800d08b0a00a650d27e51c0e5bd0efe0240f183b51d7cb011a3b70f5c690cdb"}
 {"file":"00_dialogue.jsonl","id":"dlg:evept108.EDAT/DL102_90J.bin:2184","pl":"Jeśli wracają za każdym razem, to bez końca...","source_sha256":"f80156833804e02b227d4383e18b6570049af64d5d197141a8227e180c1ef345"}

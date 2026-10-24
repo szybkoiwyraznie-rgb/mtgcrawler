@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108794,
-  "data_sha256": "6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d",
+  "data_sha256": "8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -750,6 +750,15 @@
       "previous_data_sha256": "e289dc2e2a70b95eb2a36ecccc176fd5af67561ca9c9b5d6d453579f7c1c386d",
       "entries": 10,
       "episode": 10,
+      "operation": "source-bound PL story-language edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "story-language-ep11-2026-10-24.json",
+      "sha256": "545f48789e9511834d40b0fd7e71adee93c60c06e8d0ad4e6ea2559c79cab777",
+      "previous_data_sha256": "6098604da3928842d13b87b04bfdc4eb67ec6b1e64a35127176454e7d1159a2d",
+      "entries": 7,
+      "episode": 11,
       "operation": "source-bound PL story-language edits",
       "runtime_tested": false
     }
