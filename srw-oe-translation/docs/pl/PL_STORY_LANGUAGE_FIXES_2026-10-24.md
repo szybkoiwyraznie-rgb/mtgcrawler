@@ -102,3 +102,12 @@ Plan jest następnie nakładany narzędziem `tools/pl_story_corrections.py`, ca�
 - **Świadomie zachowane fałszywe alarmy:** Setsuny „możliwości przewyższają moje dane” jako techniczna ocena wobec danych, metafora Heero o byciu częścią maszyny, humorystyczna „data przydatności” informacji Rosso, dehumanizujące „obie rzeczy” Ravena oraz JP-potwierdzone bezpośrednie tagi Ravena i Lamunessa skierowane do rozmówców.
 - **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `8ef7c6891790fa1db8daf773aef8dfd00d97477e9cec98e2b5ce8a0426540c9c` → `8401bb6996f333bdf539514d07839841aead78e670a357ce6c2a950b702afc52`.
 - **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; oba teksty zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.
+
+## Epizod 13
+
+- **Zakres:** 1 040 wpisów — 801 fabularnych i 239 warunkowych; 201 grup z pytaniami (137 fabularnych, 64 warunkowych).
+- **Poprawki:** 1 kwestia wskazana w przeglądzie; plan zawiera 1 zmianę źródłową (`story-language-ep13-2026-10-24.json`, SHA-256 `e88d8aa8fa524c94fc93be8ed9ce0085cccf239b8eb94c5e9738d4a3fbbfbf8d`).
+- **Potwierdzone klasy błędów:** błędny przypadek zaimka w bojowej uwadze Shiro „osłonę zostaw mnie” zamiast „osłonę zostaw mi”.
+- **Świadomie zachowane fałszywe alarmy:** formalne „powinien był zostać rozwiązany” Rudolpha, „wedrze się lukami” jako droga przez luki w obronie, techniczne „zasymulowałem” Zera, Van „stanę się jednym z Blade Ligerem”, podwójnie grzeczne „proszę pana” Chum (bezpośrednio wyśmiane przez Dona Harumage) oraz bezpośrednie tagi w odprawach i rozmowach grupowych.
+- **Snapshot:** 108 794 wpisy; SHA-256 `polish.jsonl`: `8401bb6996f333bdf539514d07839841aead78e670a357ce6c2a950b702afc52` → `23e5b39106fd4a4f2e45e38b15eb77de228d18a6a570d981617ed91e152b7b87`.
+- **Walidacja:** materializacja 109 176 wierszy, 108 805 wypełnionych, 371 pustych, 0 błędów i 4176 ostrzeżeń; zmieniony tekst zweryfikowano po materializacji; przeszły 4 testy narzędzia korekt i 5 testów spójności. Brak testu PPSSPP.

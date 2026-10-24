@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "episode": 13,
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP04.EDAT/DL313_66.bin:5076",
+      "source_sha256": "d1d5ecc1fecae8728c46f7f5fdca9a6242059c0986627390635c590bfe550599",
+      "before": "Michel, osłonę zostaw mnie!\n",
+      "after": "Michel, osłonę zostaw mi!\n",
+      "reason": "ep13 review: poprawka językowa / zgodność z JP"
+    }
+  ]
+}
