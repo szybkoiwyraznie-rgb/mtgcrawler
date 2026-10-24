@@ -1,5 +1,30 @@
 # Next step — current state and open work
 
+**PL v4.3 delivered for owner re-test (2026-10-24).**
+[`srw-oe-translation-pl-v4.3.zip`](https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view)
+`8,763,908 B`, SHA-256 `df589843…4d20`; story-language review of episodes
+`00`–`34` plus the „Zostaw to mi” sweep (`656` snapshot rows rewritten, `0`
+defects left), UI/font/geometry identical to v4.2. Reading archive reissued
+with the catalogues bundled (`2,176,460 B`, SHA-256 `1253927d…4e36`).
+**Next owner-side: patch from a clean JP ISO with the v4.3 kit and
+spot-check corrected lines in PPSSPP (the sweep touched battle quotes as
+well as dialogue)** — `runtime_tested` stays `false` until then. ISO YES /
+DLC NO unchanged for the owner's 1.08 path.
+
+**Review scope for this session: the extra/simulator scenarios.**
+The `00`–`34` review covered `32,156` of the `48,879` dialogue rows. The
+remaining `16,723` are outside the reading episodes and have never been
+language-reviewed: `evept101`–`evept108` (`15,645` rows — `evept102` `300`,
+`evept107` `378`, `evept101` `1,153`, `evept106` `1,547`, `evept103` `2,530`,
+`evept108` `2,853`, `evept105` `3,047`, `evept104` `3,837`) and `1,078` rows
+in `eventP00`–`eventP32` that fall outside the episode blocks (e.g.
+`eventP22` `200`, `eventP09` `97`). Method is the established one: scan for
+controlled defect classes, verify every candidate against JP and EN, land
+confirmed fixes as source-bound plans through `tools/pl_story_corrections.py`
+and re-materialise the whole package before committing. Smallest containers
+first; the ledger `pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md` gains an
+“extra scenes” section.
+
 **v4.2 pair delivered for owner re-test (2026-10-24).**
 [`srw-oe-translation-pl-v4.2.zip`](https://drive.google.com/file/d/1A7H2VzAo-X7245wmrymxyvJhDGo8f_DD/view)
 `8,763,213 B`, SHA-256 `eebf0a1b…64e2` (EN pair `srw-oe-translation-v4.2.zip`

@@ -1,5 +1,48 @@
 # Project status
 
+**PL v4.3 delivered — story-language review of episodes 00–34 complete
+(2026-10-24, PR #23, text commit `8494811`).**
+[`srw-oe-translation-pl-v4.3.zip`](https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view)
+`8,763,908 B`, SHA-256
+`df5898434198bb89a2ed38b1483cd61fc95f0f7ef46b4d6ea77c87adc2e14d20`, MD5
+`2eb8b98a5995c2c71ae354e7639b543f`, `92` members; drive checksum read-back
+and download-back byte-identical. EN pair `srw-oe-translation-v4.3.zip`
+`7,285,821 B` (`b5a0639b…`, built locally; EN text unchanged vs v4.2).
+Snapshot `data_sha256 e54562d8…9262`, `108,794` entries, coverage unchanged
+`108,805 / 109,176` filled, `371` intentionally empty, `0` errors,
+`partial = false`. `656` snapshot rows rewritten (`658` source-bound changes
+in `30` plans `config/pl/story-language-*.json`: `453` dialogue, `205` battle
+quotes) by the episode-by-episode review of `00`–`34` plus the closing
+corpus-wide „Zostaw to mi” sweep; `239` entries of the dative-recipient
+defect fixed game-wide, `0` defective occurrences left, `6` correct
+accusatives kept. UI labels, PL font and texture-caption geometry are
+identical to v4.2. Reading archive reissued the same day under the new owner
+rule (catalogues always bundled): `srwoe_reading_PL_00-34.zip`
+`2,176,460 B` / SHA-256 `1253927d…4e36`, `39` members, Drive
+`1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-`; `30/35` episodes differ from v4.0
+(`23, 24, 28, 29, 31` byte-identical), prose `47,056 / 47,056`. Tests: `13`
+release/reading/story modules, `127` tests OK. Ledger
+[PL_STORY_LANGUAGE_FIXES_2026-10-24.md](pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md),
+receipts [pl-v4.3-kit-delivery.json](pl/pl-v4.3-kit-delivery.json) and
+[PL5_v4.3_reading.delivery.json](reading-script/polish/PL5_v4.3_reading.delivery.json).
+`runtime_tested` stays `false`: static validation, unit tests and Drive
+read-back only — the corrected lines still need an owner PPSSPP spot-check.
+
+**Continuation session opened (2026-10-24, branch
+`arena/6906ed6b-mtgcrawler`).** Baseline re-verified in the sandbox with no
+game files present: all `148/148` test modules pass when run per-module
+(`python3 -m unittest discover -s tests -p 'test_<module>.py'`); the two
+texture-geometry modules (`test_en_txcl_geometry`, `test_pl_ui_qa_v41`)
+need Pillow, which is not in the base sandbox image and was installed into a
+throw-away venv (`/tmp/venv`, outside the repo) — a sandbox artefact, not a
+repository dependency. Snapshot unchanged at `108,794` entries /
+`data_sha256 e54562d8…9262`. Work selected for this session: the Polish
+story-language review covered the `35` reading episodes, but the
+`evept101`–`evept108` extra/simulator scenario containers (`15,645`
+dialogue rows, plus `1,078` further `eventP*` rows outside the episode
+blocks) have never been reviewed; that corpus is now the review scope (see
+`NEXT_STEP.md` and the ledger).
+
 **v4.2 pair delivered — EN/shared texture geometry aligned to TXCL
 (2026-10-24, PR #23).** At the owner's request the English caption boxes got
 the same treatment as PL in v4.1:
