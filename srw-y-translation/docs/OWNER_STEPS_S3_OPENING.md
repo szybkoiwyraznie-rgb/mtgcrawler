@@ -1,6 +1,6 @@
 # SRW Y - poczatek gry: wyciecie tekstu z pamieci (jeden przebieg, ~5 minut)
 
-Wersja arkusza: 2026-10-26.12
+Wersja arkusza: 2026-10-26.13
 
 ## Po co to jest
 
@@ -26,7 +26,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 Set-Location $work
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $name = "srw_y_find_text" + [char]46 + "py"
-$sha  = "dbafe658155ebc7a796c36431e13dc88f9121cf3"
+$sha  = "f28fba378420c23f19ec0838097478f2bdde4e6f"
 $url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
 Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
 try {
