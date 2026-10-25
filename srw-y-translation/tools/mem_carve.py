@@ -308,6 +308,34 @@ class MEMORY_BASIC_INFORMATION(ctypes.Structure):
                 ("__alignment2", ctypes.c_uint32)]
 
 
+def win_api():
+    """Load kernel32 with explicit prototypes.
+
+    Without these, ctypes assumes `int` everywhere: on 64-bit Windows that
+    truncates the process handle returned by `OpenProcess` and the address
+    arguments, and the scan would fail in ways that look like permission errors.
+    """
+    if sys.platform != "win32":
+        raise RuntimeError("live memory scanning needs Windows; use --from-file")
+    if ctypes.sizeof(ctypes.c_void_p) != 8:
+        raise RuntimeError("a 64-bit Python is required for a 64-bit game; "
+                           "install the normal 64-bit build of Python")
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel32.OpenProcess.restype = ctypes.c_void_p
+    kernel32.OpenProcess.argtypes = [ctypes.c_uint32, ctypes.c_int, ctypes.c_uint32]
+    kernel32.CloseHandle.restype = ctypes.c_int
+    kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+    kernel32.VirtualQueryEx.restype = ctypes.c_size_t
+    kernel32.VirtualQueryEx.argtypes = [ctypes.c_void_p, ctypes.c_void_p,
+                                        ctypes.POINTER(MEMORY_BASIC_INFORMATION),
+                                        ctypes.c_size_t]
+    kernel32.ReadProcessMemory.restype = ctypes.c_int
+    kernel32.ReadProcessMemory.argtypes = [ctypes.c_void_p, ctypes.c_void_p,
+                                           ctypes.c_void_p, ctypes.c_size_t,
+                                           ctypes.POINTER(ctypes.c_size_t)]
+    return kernel32
+
+
 def process_pid(image_name: str) -> int | None:
     """Find a PID by image name without third-party modules."""
     result = subprocess.run(["tasklist", "/FI", f"IMAGENAME eq {image_name}",
@@ -329,9 +357,11 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
         raise RuntimeError("live memory scanning needs Windows; use --from-file")
     pid = process_pid(image_name)
     if pid is None:
-        raise RuntimeError(f"process not found: {image_name} (is the game running?)")
+        raise RuntimeError(
+            f"process not found: {image_name} (is the game running?)\n"
+            "if the game window is open, run:  tasklist | findstr /i super")
 
-    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel32 = win_api()
     handle = kernel32.OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,
                                   False, pid)
     if not handle:
@@ -366,8 +396,8 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                     want = min(CHUNK, size - offset)
                     read = ctypes.c_size_t(0)
                     ok = kernel32.ReadProcessMemory(
-                        handle, ctypes.c_void_p(base + offset),
-                        ctypes.byref(view), want, ctypes.byref(read))
+                        ctypes.c_void_p(handle), ctypes.c_void_p(base + offset),
+                        ctypes.cast(view, ctypes.c_void_p), want, ctypes.byref(read))
                     if not ok or read.value == 0:
                         break
                     buffer = bytes(view.raw[:read.value])

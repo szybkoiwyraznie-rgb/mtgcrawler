@@ -67,12 +67,20 @@ powiem dokładnie, które pliki (jeśli w ogóle) warto przesłać.
   `OpenProcess failed`, uruchom PowerShell jako administrator i powtórz).
 - **Nie zawiera** żadnej treści gry w raporcie.
 
+## Wymagania (sprawdzone z góry)
+
+- **Python 64-bit** — masz 3.12.9, czyli w porządku; gdyby to była wersja 32-bit,
+  skrypt powie o tym wprost (gra jest 64-bitowa i inaczej się nie da).
+- **Żadnych dodatkowych bibliotek** — tylko to, co jest w Pythonie.
+- **Gra uruchomiona** przed krokiem 2.
+
 ## Jeśli coś nie zadziała
 
 Wklej mi dokładnie to, co wypisała konsola (albo zrzut ekranu). Najczęstsze
 przypadki: gra nie działa (skrypt powie `process not found`), gra działa pod
-inną nazwą (sprawdzimy `tasklist`), albo pamięć jest większa niż domyślny limit
-— wtedy dodam parametr `--max-scan`.
+inną nazwą — wtedy wykonaj `tasklist | findstr /i super` i podaj mi wynik, albo
+pamięć jest większa niż domyślny limit (8 GB) — wtedy dodaj `--max-scan 16GB`
+bez cudzysłowów: `--max-scan 17179869184`.
 
 ## Co będzie dalej
 
