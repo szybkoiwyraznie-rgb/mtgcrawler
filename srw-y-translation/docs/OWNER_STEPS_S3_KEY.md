@@ -6,7 +6,7 @@ rozmiaru. To pierwsza polowa tego, co robi zestaw OE: podmiana tekstu w plikach.
 
 Co sie zmienilo po nieudanym KROKU 0:
 
-- nie ma juz dwoch plikow - jest **jeden** (`srw_y_key`, wersja `2026-10-26.5`);
+- nie ma juz dwoch plikow - jest **jeden** (`srw_y_key`, wersja `2026-10-26.6`);
 - pobieranie ustawia TLS 1.2 (PowerShell 5.1 sam negocjuje 1.0/1.1 i GitHub tego
   nie przyjmuje) i ma zapasowe wyjscie przez `curl.exe`;
 - nic nie jest zapisywane na `C:\` - wszystko idzie na **Pulpit**, jak dotychczas;
@@ -52,7 +52,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 Set-Location $work
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $name = "srw_y_key" + [char]46 + "py"
-$sha  = "d013c72c3a409a98cde4056e683a7fcb903bd4e5"
+$sha  = "3e3c253dbe9b766093238f5f321d78566902b122"
 $url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
 Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
 try {
@@ -86,7 +86,7 @@ python $tool selftest
 Oczekiwane (dokladnie te linie, bez bledow):
 
 ```
-srw_y_key 2026-10-26.5
+srw_y_key 2026-10-26.6
   ctr-le        ok
   ctr-be        ok
   ofb           ok
@@ -100,7 +100,7 @@ srw_y_key 2026-10-26.5
 selftest: PASS
 ```
 
-**Wazne:** pierwsza linia musi brzmiec `srw_y_key 2026-10-26.5`. Jesli widzisz
+**Wazne:** pierwsza linia musi brzmiec `srw_y_key 2026-10-26.6`. Jesli widzisz
 starszy numer, to jest plik z poprzedniej proby i KROK 3 znow sie wywali -
 powtorz KROK 0, zeby go nadpisac.
 
@@ -166,7 +166,7 @@ python $tool decrypt --in $sample.FullName --out (Join-Path $work "decrypted.bun
 Oczekiwane:
 
 ```
-srw_y_key 2026-10-26.5
+srw_y_key 2026-10-26.6
 mode: <jedna z nazw: ctr-le, ctr-be, cfb128, ofb>
 unity: 2022.3.44f1, size <rozmiar tego pliku> B
 wrote ...\decrypted.bundle (<ten sam rozmiar> B)
