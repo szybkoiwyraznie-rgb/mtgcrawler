@@ -4,47 +4,55 @@ Cel: wyciagnac z dzialajacej gry klucz, ktorym sa zaszyfrowane pliki `.bundle`,
 a potem **odszyfrowac prawdziwy plik** i pokazac, ze wraca do gry bez zmiany
 rozmiaru. To pierwsza polowa tego, co robi zestaw OE: podmiana tekstu w plikach.
 
-Zmiany po nieudanym KROKU 0: nie ma juz zadnego pobierania z GitHuba (blad
-SSL/TLS w PowerShell 5.1), nic nie jest zapisywane na `C:\` - wszystko idzie na
-**Pulpit**, tak jak dotychczas. Jest tez **jeden** plik zamiast dwoch.
+Co sie zmienilo po nieudanym KROKU 0:
+
+- nie ma juz dwoch plikow - jest **jeden** (`srw_y_key`, wersja `2026-10-26.2`);
+- pobieranie ustawia TLS 1.2 (PowerShell 5.1 sam negocjuje 1.0/1.1 i GitHub tego
+  nie przyjmuje) i ma zapasowe wyjscie przez `curl.exe`;
+- nic nie jest zapisywane na `C:\` - wszystko idzie na **Pulpit**, jak dotychczas;
+- w bloczkach nie ma nazw plikow z rozszerzeniem ani gotowych adresow, bo klient
+  czatu zamienial je na linki i do PowerShell trafial link zamiast nazwy pliku.
+  Nazwy sa skladane z kawalkow, a skrypt znajdowany jest maska `*key*`.
 
 Skrypt czyta pamiec gry tylko do odczytu (`PROCESS_VM_READ`): nie zmienia gry, nie
 instaluje modow, nie rusza zapisow.
 
-Wersja do sprawdzenia: `srw_y_key 2026-10-26.2`.
+## KROK 0 - folder na Pulpicie i pobranie skryptu
 
-## KROK 0 - folder na Pulpicie i pobranie skryptu z Drive
-
-1. W przegladarce wejdz na swoje Google Drive, folder `SRW` -> `SRWY`, i pobierz
-   plik `srw_y_key` (skrypt Pythona, jeden plik, kilkadziesiat kB). Laduje w
-   `Pobrane`.
-2. Uruchom PowerShell **jako administrator** i wklej caly blok. Tworzy folder
-   `srwytool` na Pulpicie i przenosi do niego swiezo pobrany plik.
+Uruchom PowerShell **jako administrator** i wklej caly blok:
 
 ```powershell
 $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
 New-Item -ItemType Directory -Force -Path $work | Out-Null
-$ext = [char]46 + "py"
-$src = Get-ChildItem (Join-Path $env:USERPROFILE "Downloads") -File |
-    Where-Object { $_.Extension -eq $ext -and $_.Name -like "*key*" } |
-    Sort-Object LastWriteTime -Descending | Select-Object -First 1
-if (-not $src) {
-    Write-Host "BRAK PLIKU w Pobrane - pobierz go z Drive i uruchom blok jeszcze raz"
+Set-Location $work
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$name = "srw_y_key" + [char]46 + "py"
+$sha  = "ad6286e9cee40bb81a313883446195931dbd7527"
+$url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
+Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
+try {
+    Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile (Join-Path $work $name) -ErrorAction Stop
+} catch {
+    Write-Host ("pierwsza proba nie dala rady: " + $_.Exception.Message)
+    curl.exe -L -o (Join-Path $work $name) $url
+}
+$f = Get-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
+if ($f -and $f.Length -gt 15000) {
+    Write-Host ("OK  skrypt: " + $f.FullName + "  " + $f.Length + " B")
 } else {
-    Copy-Item $src.FullName $work -Force
-    $tool = Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1
-    Write-Host ("skrypt: " + $tool.FullName)
-    Write-Host ("rozmiar: " + $tool.Length + " B")
+    Write-Host "BRAK PLIKU - skopiuj mi caly ten wynik"
 }
 ```
 
-`rozmiar` musi byc wiekszy od 10 000 B. Jesli jest `BRAK PLIKU`, plik nie trafil
-do `Pobrane` - pobierz go z Drive jeszcze raz i powtorz blok.
+Musi pojawic sie linia `OK  skrypt: ...Desktop\srwytool\...` z rozmiarem powyzej
+15 000 B. Jesli jest `BRAK PLIKU`, nic nie zgaduj - odeslij mi wynik, podam inna
+droge.
 
 ## KROK 1 - biblioteka AES i test skryptu (bez gry)
 
 ```powershell
 $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
+Set-Location $work
 $tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 python -m pip install --upgrade pycryptodome
 python $tool selftest
@@ -78,8 +86,8 @@ Jesli `python` nie jest rozpoznany, uzyj `py` zamiast `python`.
 
 ```powershell
 $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
-$tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 Set-Location $work
+$tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 $bundles = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
 $sample = Get-ChildItem $bundles -Filter *.bundle | Where-Object { $_.Length -eq 940012 } |
     Select-Object -First 1
@@ -93,24 +101,21 @@ Write-Host ("proba: " + $sample.FullName + "  (" + $sample.Length + " B)")
 python $tool key --bundle $sample.FullName --report (Join-Path $work "key_report.json")
 ```
 
-`proba:` musi wskazac istniejacy plik. Jesli jest puste, ten plik ma inna nazwe -
-wtedy odeslij mi wynik tego polecenia i przejdziemy dalej.
-
 Skrypt wypisuje postep (`scanned ... GB`) i na koncu jedna z dwoch rzeczy:
 
 - `hits: 1 (verified: 1)` oraz `FOUND stream: key ... iv ...` - klucz jest;
 - `hits: 0` - w pamieci nie bylo w tym momencie zadnego `byte[]` z kluczem.
 
 Przy `hits: 0` nie zgadujemy: zrob w grze dwie-trzy akcje z tekstem (dialog, menu
-jednostki) i uruchom KROK 3 jeszcze raz. Nadal zero - odeslij
-`key_report.json`, to tez jest wynik.
+jednostki) i uruchom KROK 3 jeszcze raz. Nadal zero - odeslij `key_report.json`,
+to tez jest wynik.
 
 ## KROK 4 - dowod: odszyfrowanie prawdziwego pliku
 
 ```powershell
 $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
-$tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 Set-Location $work
+$tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 $bundles = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
 $sample = Get-ChildItem $bundles -Filter *.bundle | Where-Object { $_.Length -eq 940012 } |
     Select-Object -First 1
@@ -128,8 +133,8 @@ Oczekiwane:
 ```
 srw_y_key 2026-10-26.2
 mode: <jedna z nazw: ctr-le, ctr-be, cfb128, ofb>
-unity: 2022.3.44f1, size 940,012 B
-wrote ...\decrypted.bundle (940,012 B)
+unity: 2022.3.44f1, size <rozmiar tego pliku> B
+wrote ...\decrypted.bundle (<ten sam rozmiar> B)
 ```
 
 To jest moment, w ktorym wiadomo, ze pliki da sie podmieniac: ten sam plik, ten
@@ -140,7 +145,7 @@ uzywa gra - bez tego nie da sie zapisac tlumaczenia z powrotem.
 
 1. `key_report.json` z folderu `srwytool` na Pulpicie - zawiera tylko liczby i
    klucz, zadnego tekstu z gry.
-2. Skopiowany tekst (albo zrzut ekranu) z KROKU 1, 3 i 4.
+2. Skopiowany tekst (albo zrzut ekranu) z KROKU 0, 1, 3 i 4.
 
 ## Czego ten krok jeszcze nie robi
 
