@@ -84,7 +84,23 @@ this build's files do not.
 
 No padding is added or removed, and the byte length is preserved.
 
-## 5. What is proven here and what is not
+## 5. One file for the owner
+
+`tools/srw_y_key.py` is the same two jobs in a single self-contained script
+(`selftest`, `key`, `decrypt`, `encrypt`), because the two-file download failed at
+step 0 on the owner's machine: Windows PowerShell 5.1 negotiates TLS 1.0/1.1 and
+`raw.githubusercontent.com` requires TLS 1.2. The owner sheet now sets
+`[Net.SecurityProtocolType]::Tls12` and falls back to `curl.exe`. Uploading the
+script to Drive instead was refused by the connector provider's security filter,
+so GitHub stays the delivery path.
+
+The sheet also stopped showing file names as `name.py` tokens: the owner's client
+auto-links `memory.py` / `crypt.py` (`.py` is Paraguay's TLD) and the pasted command
+then contained a markdown link instead of a file name. Names are built from parts
+(`[char]46`), commands locate the script with `Get-ChildItem *key*`, and the sheet
+is checked to contain no `.py` token and no literal URL.
+
+## 6. What is proven here and what is not
 
 Proven in the sandbox: known-prefix keystream, the CBC target-set test, the array
 scanner (finds planted keys in heap-like noise, 2,048/2,048), the end-to-end run
@@ -99,7 +115,7 @@ plainly instead of guessing — `key_report.json` records the scanned volume, th
 candidate counts and every hit, and `bundle_crypt.py` refuses to claim success
 until a real bundle opens.
 
-## 6. After the key
+## 7. After the key
 
 1. Decrypt one bundle, open it with UnityPy, confirm the text layer is readable
    (the Addressables catalogue already points at

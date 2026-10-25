@@ -138,11 +138,12 @@ def load_key(path: Path) -> tuple[bytes, bytes, str | None]:
         hit.get("mode")
 
 
-def _synthetic(size: int, unity: str = "2022.3.44f1") -> bytes:
-    revision = unity.encode() + b"\x00"
-    header = (b"UnityFS\x00" + (7).to_bytes(4, "big") + b"5.x.x\x00" + revision
-              + size.to_bytes(8, "big") + (64).to_bytes(4, "big")
-              + (64).to_bytes(4, "big") + (0x40).to_bytes(4, "big"))
+def _synthetic(size: int) -> bytes:
+    """A bundle with the real 30-byte prefix (version 8, revision 2022.3.44f1)."""
+    header = (b"UnityFS\x00" + (8).to_bytes(4, "big") + b"5.x.x\x00"
+              + b"2022.3.44f1\x00" + size.to_bytes(8, "big")
+              + (64).to_bytes(4, "big") + (64).to_bytes(4, "big")
+              + (0x40).to_bytes(4, "big"))
     body = bytes((i * 37 + 11) % 251 for i in range(size - len(header)))
     return header + body
 
