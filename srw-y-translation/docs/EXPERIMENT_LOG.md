@@ -557,3 +557,30 @@ inputs (size, SHA-256 where available) and the result, labelled
   checked by temporarily reverting it. The sheet pins the new commit and tells the
   owner the first output line must read `2026-10-26.3`, because the old file is
   still on their Desktop.
+- **Six owner runs, always `nothing verified` - and the fault was the test
+  [2026-10-26]:** every run attached to the game and scanned, and every run ended
+  with zero hits. The old acceptance rule was: a candidate key is accepted only if
+  `AES-decrypt(key, keystream0)` is **a 16-byte array found in the same heap**, i.e.
+  the IV had to exist in memory as a managed `byte[]`. If the game keeps the
+  counter in a local buffer or an int field, no such array exists, the correct key
+  is rejected, and the result is exactly what the owner saw six times.
+  - The bundles give 38 known plaintext bytes for free (`UnityFS\0`, version 8,
+    `5.x.x\0`, `2022.3.44f1\0`, then the 8-byte size equal to the file size), so a
+    key can be judged from the ciphertext alone: derive the counter from block 0,
+    predict blocks 1 and 2, compare. 16 + 16 + 6 known bytes make a false hit
+    impossible. Verified on synthetic data: no IV from memory is needed anywhere.
+  - Constructions now tested per candidate: `ctr-le`, `ctr-be`, `ofb`, `cfb128`,
+    `cfb8`, `cbc`, `ecb` - `cfb8` and `ecb` were never tried before, and `cfb8`
+    (a real .NET option) turns out to be recoverable without the IV as well, since
+    CFB feeds back ciphertext and the first block is the known header.
+  - Candidate payload offsets are now guessed at +4/+8/+12 after a length field
+    with a zero monitor and a plausible class pointer: three IL2CPP/Mono header
+    layouts instead of one. Guessing the wrong layout used to cost a whole run.
+  - Two earlier bugs found while doing this: the CFB state was computed as
+    `D(C0)` instead of `D(keystream0)`, and `cfb8` had no file-level decrypt.
+  - The run now reports **candidates by length** and prints keys that matched the
+    first blocks but did not open the whole file: a hit that fails verification
+    means the key is right and the construction is not (for example sector-wise
+    CBC), which is worth knowing.
+  - `--passes N --wait S` rescans, so a key that only exists while the game is
+    decrypting can still be caught.

@@ -318,3 +318,15 @@ progress tick: the callback closed over `keys`, which that same statement was
 still assigning. `srw_y_key` is `2026-10-26.3`; the callback now receives the
 counts, and the sheet warns that a `2026-10-26.2` banner means the old file is
 being run. Suite **161** (both new regression tests fail against the old code).
+
+### The key test itself was wrong (2026-10-26)
+
+Six owner runs found nothing because the acceptance rule required the IV to exist
+in the game's heap as a 16-byte array. A key is now judged from the ciphertext
+alone: the bundles carry 38 known plaintext bytes, so blocks 1 and 2 can be
+predicted and checked (16 + 16 + 6 bytes - no false hits). Seven constructions are
+tested (`ctr-le`, `ctr-be`, `ofb`, `cfb128`, `cfb8`, `cbc`, `ecb`), payload
+offsets at +4/+8/+12, and the report now lists candidate counts and any key that
+matched the first blocks without opening the file. `srw_y_key 2026-10-26.5`,
+suite **166**. If this still finds nothing, the report says whether the scan sees
+candidate keys at all, which decides the next move.
