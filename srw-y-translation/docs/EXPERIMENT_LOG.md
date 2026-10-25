@@ -646,3 +646,50 @@ Same commit, `srw_y_key` `2026-10-26.8`:
   "matched but the file did not open" for candidates that *did* verify.
 
 Suite: **187 tests, OK**.
+
+## 2026-10-26 - the 276 pairs arrive, and the first patched bundles
+
+The owner zipped the files whose sizes are unique on disk (`srw_y_pairs.zip`,
+3,158,019 B, 276 files). What the pairs say:
+
+- **276/276 pair cleanly.** Every carved plaintext passes the "UnityFS at 0 and
+  declared size == file size" test, and every bundle has exactly one file of that
+  size on disk. UnityPy reads 273 of 276 (three reject decompression, `Error
+  code 2333/690/4065` - a carve artefact, not a pairing problem).
+- **276 distinct keystreams, 0 shared heads.** Each file has its own IV/state, so
+  there is no cross-file keystream to reuse; the earlier conclusion (fixed
+  keystream ruled out) is confirmed at n = 276 instead of n = 2.
+- Zero-byte share of a keystream: 0.2-0.4%, i.e. indistinguishable from random -
+  consistent with AES output, so the pair is genuine and not an accidental
+  size collision.
+- The catalogue resolves 209 of the 276 to addresses: mostly DLC free-patch UI
+  and effect bundles (`Assets/DLC1..DLC_EXP2/FreePatch/...`), including four
+  DLC localization "Shared Data" tables. **The base-game tables and the 30
+  scenario bundles are not among them** - their plaintext was never carved, and
+  their ciphertext we do hold (`1cc7e02e` 940,012 B ja-JP table, `1c12bbab`
+  5,591,151 B scenario) has no twin yet.
+
+Patch route that needs no key, and why it is safe:
+
+1. `keystream = ciphertext XOR plaintext` for the paired file;
+2. edit the text **in the compressed stream**, not in the decompressed blocks:
+   UnityFS data is LZ4, and a string stored as an LZ4 *literal* can be
+   overwritten byte for byte - literals are length-prefixed runs copied verbatim,
+   so a same-length overwrite leaves the compressed stream valid and the
+   decompressed length identical. No recompression, no offset changes, no string
+   length prefix touched. (Text is visible in the raw compressed bytes for exactly
+   this reason, which is how the Japanese runs were found in the first place.)
+3. re-encrypt: `patched_ciphertext = patched_plaintext XOR keystream`, same size.
+
+Every patch is verified before it is written: UnityPy must load the patched
+bundle, the decompressed content must keep its length, each new string must be
+present and each old one gone (`keystream_patch.verify_patch`).
+
+First pilot, three bundles, 20 replacements, all verified:
+`a74bb206` (BGM list, 8 romaji titles -> Polish), `f547a414` (weapon ability
+descriptions, 7 Japanese strings -> Polish), `cd75854d` (data handover screen,
+5 strings -> Polish). Uploaded as `srw_y_pilot.zip` (33,730 B); the owner sheet is
+`OWNER_STEPS_S3_PILOT.md`.
+
+Tools: `tools/keystream_patch.py` (`info`, `plan`, `apply`) with 14 tests. Suite:
+**201 tests, OK**.

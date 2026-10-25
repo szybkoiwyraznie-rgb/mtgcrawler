@@ -348,3 +348,25 @@ copies the 276 files (matched by size, nothing renamed) to the Desktop and zips 
 `survey`); `srw_y_key` is `2026-10-26.8` with 15 constructions, five key forms per
 candidate, name-derived state hypotheses, `--dump` for offline analysis, and a
 `check_key` that is 20x faster. Suite **187**.
+
+### 276 keystreams: the first patched files (2026-10-26)
+
+The owner's `srw_y_pairs.zip` (276 files, 3.16 MB) closed the loop: each of the 276
+bundles has exactly one file of the same size on disk, all plaintexts are valid
+UnityFS, and all 276 keystreams are distinct (0.2-0.4% zero bytes, i.e. random) -
+per-file state confirmed on the whole set, not on two samples.
+
+`tools/keystream_patch.py` turns a pair into a patched, re-encrypted bundle: the
+text is edited **inside the LZ4 literal runs of the compressed stream**, so a
+same-length replacement leaves the stream valid and the file size unchanged, and
+the result is XORed with the keystream. Every patch is proven before it is shipped
+(UnityPy loads it, content length unchanged, new text present, old text gone).
+
+Pilot `srw_y_pilot.zip`: three bundles, 20 replacements (`a74bb206` BGM titles,
+`f547a414` weapon ability text, `cd75854d` data handover screen). This is a
+mechanism test, not a translation - if the game accepts them, whole-file patching
+works without the key.
+
+Still missing for real coverage: the base-game localization tables and the scenario
+bundles are not in the carve (their ciphertext we already hold). A targeted memory
+carve of those specific sizes is the next step.
