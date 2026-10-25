@@ -11,7 +11,7 @@ już u mnie i odczytana.
 ## Co zrobić (jeden raz)
 
 1. Rozpakuj `SRW_Y_ZBIERZ_S6E.zip` **na Pulpit** (wszystkie trzy pliki do jednego folderu).
-2. Kliknij dwa razy **`URUCHOM_TO.bat`**.
+2. Kliknij dwa razy **`URUCHOM_TO.bat`** (w paczce jest tylko jeden plik .bat).
 3. Na Pulpicie pojawi się **`srw_y_free_patch.zip`** — wrzuć go na Dysk Google (ten sam folder co poprzednie).
 4. Jeśli coś pójdzie nie tak, okno się nie zamknie i pokaże błąd; pełny opis będzie
    w `srw_y_s6e_log.txt` na Pulpicie — wyślij mi ten plik.
