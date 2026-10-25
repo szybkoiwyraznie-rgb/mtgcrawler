@@ -1,6 +1,20 @@
 # SRW Y - krok S6c: bundle DLC z tekstem (tylko 601 plików, 6.7 MB)
 
-Wersja arkusza: 2026-10-25.1
+Wersja arkusza: 2026-10-25.2
+
+## Najprostsza droga (polecam)
+
+Nie wklejaj 601 nazw. Na Dysku jest paczka **`SRW_Y_ZBIERZ_DLC.zip`**:
+
+1. pobierz ją i **rozpakuj na Pulpit** (wszystkie pliki do jednego folderu),
+2. kliknij dwa razy **`URUCHOM_TO.bat`**,
+3. okno **nie zamknie się** - na końcu pokaże wynik i zostanie otwarte,
+4. na Pulpicie pojawi się `srw_y_dlc_bundle.zip` - to wrzuć na Dysk.
+
+Jeśli coś pójdzie nie tak, w oknie zostanie **czerwony błąd**, a pełny opis będzie
+też w `srw_y_dlc_log.txt` na Pulpicie - wyślij mi ten plik (albo zdjęcie okna).
+`.bat` sam odblokowuje pliki pobrane z internetu (`Unblock-File`), więc nie powinno
+już być błędu „plik zablokowany".
 
 ## Co wyszło z indeksów
 
@@ -35,14 +49,23 @@ ich tekst interfejsu jest w tabelach DLC z `aa`.
 Skopiuj **cały** blok poniżej do PowerShella:
 
 ```powershell
-# SRW Y - bundle DLC z tekstem scenariusza (na Pulpit; nic nie jest usuwane)
-$sa    = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets'
-$desk  = [Environment]::GetFolderPath('Desktop')
-$dst   = Join-Path $desk 'srw_y_dlc_bundle'
-$zip   = Join-Path $desk 'srw_y_dlc_bundle.zip'
-New-Item -ItemType Directory -Force -Path $dst | Out-Null
+# SRW Y - bundle DLC z tekstem scenariusza (601 plikow; nic nie jest usuwane)
+$ErrorActionPreference = 'Stop'
+$desk = [Environment]::GetFolderPath('Desktop')
+$log  = Join-Path $desk 'srw_y_dlc_log.txt'
+Start-Transcript -Path $log -Force | Out-Null
 
-$pliki = @(
+try {
+    $sa = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets'
+    $dst = Join-Path $desk 'srw_y_dlc_bundle'
+    $zip = Join-Path $desk 'srw_y_dlc_bundle.zip'
+
+    "folder gry : $sa"
+    "na pulpit  : $dst"
+    if (-not (Test-Path $sa)) { throw "Nie ma folderu: $sa" }
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+
+    $pliki = @(
     @{ d='AnniversaryExpansionPack'; f='072e862842bd2d46eccc478737e6ab90.bundle' },
     @{ d='AnniversaryExpansionPack'; f='075080c75d137a5594889e56d81bd33a.bundle' },
     @{ d='AnniversaryExpansionPack'; f='099f1cf2ad3c5c2e90f702859c628b46.bundle' },
@@ -644,29 +667,48 @@ $pliki = @(
     @{ d='SeasonPassBonus'; f='c01c1b2c4da7bf89785ef191221d37a0.bundle' },
     @{ d='UltimateEdition'; f='5c5987f0335cec98a288d948504d13c5.bundle' },
     @{ d='UltimateEdition'; f='0dc28ec7b48c3414801a3167ba57f929.bundle' },
-)
+    )
 
-$brak = @(); $suma = 0
-foreach ($p in $pliki) {
-    $src = Join-Path (Join-Path $sa $p.d) $p.f
-    if (Test-Path $src) {
-        $sub = Join-Path $dst $p.d
-        New-Item -ItemType Directory -Force -Path $sub | Out-Null
-        Copy-Item $src (Join-Path $sub $p.f) -Force
-        $suma += (Get-Item $src).Length
-    } else { $brak += ($p.d + '\' + $p.f) }
+    $brak = @()
+    $suma = 0
+    $n = 0
+    foreach ($p in $pliki) {
+        $n++
+        $src = Join-Path (Join-Path $sa $p.d) $p.f
+        if (Test-Path $src) {
+            $sub = Join-Path $dst $p.d
+            if (-not (Test-Path $sub)) { New-Item -ItemType Directory -Force -Path $sub | Out-Null }
+            Copy-Item $src (Join-Path $sub $p.f) -Force
+            $suma += (Get-Item $src).Length
+        } else {
+            $brak += ($p.d + '' + $p.f)
+        }
+        if ($n % 100 -eq 0) { "  ... " + $n + " / " + $pliki.Count }
+    }
+
+    ""
+    "skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
+    "razem bajtow: " + $suma.ToString('N0')
+    if ($brak.Count -gt 0) { "BRAKUJE:"; $brak }
+
+    if (Test-Path $zip) { Remove-Item $zip -Force }
+    Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
+    $i = Get-Item $zip
+    "zip: " + $i.FullName
+    "zip bajtow: " + $i.Length.ToString('N0')
+    "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+    "GOTOWE"
 }
-
-"skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
-"razem bajtow: " + $suma.ToString('N0')
-if ($brak.Count -gt 0) { "BRAKUJE:"; $brak }
-
-if (Test-Path $zip) { Remove-Item $zip -Force }
-Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
-$i = Get-Item $zip
-"zip: " + $i.FullName
-"zip bajtow: " + $i.Length.ToString('N0')
-"zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+catch {
+    ""
+    "BLAD: " + $_.Exception.Message
+    if ($_.InvocationInfo) { "linia: " + $_.InvocationInfo.ScriptLineNumber }
+    "Pelny opis powyzej zapisany w: $log"
+    exit 1
+}
+finally {
+    Stop-Transcript | Out-Null
+}
 ```
 
 Ma wyjść `skopiowanych plików: 601 z 601` i `razem bajtow: 7,032,042`.

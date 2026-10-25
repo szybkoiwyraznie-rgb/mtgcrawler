@@ -77,38 +77,95 @@ def ps_block(plan: dict) -> str:
     for pack, bundle, _lang in plan['wanted']:
         lines.append(f"    @{{ d='{pack}'; f='{bundle}' }},")
     body = '\n'.join(lines)
-    return f"""# SRW Y - bundle DLC z tekstem scenariusza (na Pulpit; nic nie jest usuwane)
-$sa    = 'D:\\Games\\SUPER ROBOT WARS Y\\SUPER ROBOT WARS Y_Data\\StreamingAssets'
-$desk  = [Environment]::GetFolderPath('Desktop')
-$dst   = Join-Path $desk 'srw_y_dlc_bundle'
-$zip   = Join-Path $desk 'srw_y_dlc_bundle.zip'
-New-Item -ItemType Directory -Force -Path $dst | Out-Null
+    count = len(plan['wanted'])
+    return f"""# SRW Y - bundle DLC z tekstem scenariusza ({count} plikow; nic nie jest usuwane)
+$ErrorActionPreference = 'Stop'
+$desk = [Environment]::GetFolderPath('Desktop')
+$log  = Join-Path $desk 'srw_y_dlc_log.txt'
+Start-Transcript -Path $log -Force | Out-Null
 
-$pliki = @(
+try {{
+    $sa = 'D:\\Games\\SUPER ROBOT WARS Y\\SUPER ROBOT WARS Y_Data\\StreamingAssets'
+    $dst = Join-Path $desk 'srw_y_dlc_bundle'
+    $zip = Join-Path $desk 'srw_y_dlc_bundle.zip'
+
+    "folder gry : $sa"
+    "na pulpit  : $dst"
+    if (-not (Test-Path $sa)) {{ throw "Nie ma folderu: $sa" }}
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+
+    $pliki = @(
 {body}
-)
+    )
 
-$brak = @(); $suma = 0
-foreach ($p in $pliki) {{
-    $src = Join-Path (Join-Path $sa $p.d) $p.f
-    if (Test-Path $src) {{
-        $sub = Join-Path $dst $p.d
-        New-Item -ItemType Directory -Force -Path $sub | Out-Null
-        Copy-Item $src (Join-Path $sub $p.f) -Force
-        $suma += (Get-Item $src).Length
-    }} else {{ $brak += ($p.d + '\\' + $p.f) }}
+    $brak = @()
+    $suma = 0
+    $n = 0
+    foreach ($p in $pliki) {{
+        $n++
+        $src = Join-Path (Join-Path $sa $p.d) $p.f
+        if (Test-Path $src) {{
+            $sub = Join-Path $dst $p.d
+            if (-not (Test-Path $sub)) {{ New-Item -ItemType Directory -Force -Path $sub | Out-Null }}
+            Copy-Item $src (Join-Path $sub $p.f) -Force
+            $suma += (Get-Item $src).Length
+        }} else {{
+            $brak += ($p.d + '\' + $p.f)
+        }}
+        if ($n % 100 -eq 0) {{ "  ... " + $n + " / " + $pliki.Count }}
+    }}
+
+    ""
+    "skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
+    "razem bajtow: " + $suma.ToString('N0')
+    if ($brak.Count -gt 0) {{ "BRAKUJE:"; $brak }}
+
+    if (Test-Path $zip) {{ Remove-Item $zip -Force }}
+    Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
+    $i = Get-Item $zip
+    "zip: " + $i.FullName
+    "zip bajtow: " + $i.Length.ToString('N0')
+    "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+    "GOTOWE"
 }}
+catch {{
+    ""
+    "BLAD: " + $_.Exception.Message
+    if ($_.InvocationInfo) {{ "linia: " + $_.InvocationInfo.ScriptLineNumber }}
+    "Pelny opis powyzej zapisany w: $log"
+    exit 1
+}}
+finally {{
+    Stop-Transcript | Out-Null
+}}
+"""
 
-"skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
-"razem bajtow: " + $suma.ToString('N0')
-if ($brak.Count -gt 0) {{ "BRAKUJE:"; $brak }}
 
-if (Test-Path $zip) {{ Remove-Item $zip -Force }}
-Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
-$i = Get-Item $zip
-"zip: " + $i.FullName
-"zip bajtow: " + $i.Length.ToString('N0')
-"zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+BAT = """@echo off
+setlocal
+cd /d "%~dp0"
+echo.
+echo  SRW Y - zbieram bundle DLC (601 plikow, okolo 7 MB)
+echo  To moze potrwac minute. Nic nie jest usuwane.
+echo.
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem '%~dp0*' | Unblock-File" 2>nul
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0ZBIERZ_DLC_BUNDLE.ps1"
+set RC=%ERRORLEVEL%
+echo.
+if exist "%USERPROFILE%\Desktop\srw_y_dlc_log.txt" (
+    echo  ---------------- LOG ----------------
+    type "%USERPROFILE%\Desktop\srw_y_dlc_log.txt"
+    echo  -----------------------------------
+)
+echo.
+if "%RC%"=="0" (
+    echo  OK. Zip lezy na Pulpicie: srw_y_dlc_bundle.zip
+) else (
+    echo  Cos poszlo nie tak ^(kod %RC%^). Zrob zdjecie tego okna albo wyslij
+    echo  plik srw_y_dlc_log.txt z Pulpitu.
+)
+echo.
+pause
 """
 
 
@@ -127,7 +184,21 @@ def doc(plan: dict) -> str:
     mb = plan['bytes'] / 1024 / 1024
     return f"""# SRW Y - krok S6c: bundle DLC z tekstem (tylko {count} plików, {mb:.1f} MB)
 
-Wersja arkusza: 2026-10-25.1
+Wersja arkusza: 2026-10-25.2
+
+## Najprostsza droga (polecam)
+
+Nie wklejaj 601 nazw. Na Dysku jest paczka **`SRW_Y_ZBIERZ_DLC.zip`**:
+
+1. pobierz ją i **rozpakuj na Pulpit** (wszystkie pliki do jednego folderu),
+2. kliknij dwa razy **`URUCHOM_TO.bat`**,
+3. okno **nie zamknie się** - na końcu pokaże wynik i zostanie otwarte,
+4. na Pulpicie pojawi się `srw_y_dlc_bundle.zip` - to wrzuć na Dysk.
+
+Jeśli coś pójdzie nie tak, w oknie zostanie **czerwony błąd**, a pełny opis będzie
+też w `srw_y_dlc_log.txt` na Pulpicie - wyślij mi ten plik (albo zdjęcie okna).
+`.bat` sam odblokowuje pliki pobrane z internetu (`Unblock-File`), więc nie powinno
+już być błędu „plik zablokowany".
 
 ## Co wyszło z indeksów
 
@@ -178,29 +249,70 @@ z podstawki (arkusz S6) dają **komplet scenariusza gry** - każda misja, jp + e
 """
 
 
+def write_powershell(path: Path, text: str) -> None:
+    """CRLF + UTF-8 BOM: PowerShell 5.1 misreads a BOM-less file as ANSI."""
+    body = text.replace('\r\n', '\n').replace('\n', '\r\n')
+    path.write_bytes(b'\xef\xbb\xbf' + body.encode('utf-8'))
+
+
+def write_batch(path: Path, text: str) -> None:
+    body = text.replace('\r\n', '\n').replace('\n', '\r\n')
+    path.write_bytes(body.encode('ascii'))
+
+
+def build_kit(plan: dict, out_dir: Path) -> Path:
+    """A zip the owner can unpack on the Desktop and start with a double-click."""
+    import zipfile
+    out_dir.mkdir(parents=True, exist_ok=True)
+    zip_path = out_dir / 'SRW_Y_ZBIERZ_DLC.zip'
+    ps = ps_block(plan)
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr('ZBIERZ_DLC_BUNDLE.ps1',
+                         b'\xef\xbb\xbf' + ps.replace('\n', '\r\n').encode('utf-8'))
+        archive.writestr('URUCHOM_TO.bat', BAT.replace('\n', '\r\n').encode('ascii'))
+        archive.writestr('CZYTAJ_TO.txt', (
+            'SRW Y - zbieranie bundli DLC ze scenariuszem (601 plikow, okolo 7 MB)\r\n'
+            '\r\n'
+            '1. Rozpakuj ten zip na Pulpit (wszystkie pliki do jednego folderu).\r\n'
+            '2. Kliknij dwa razy URUCHOM_TO.bat\r\n'
+            '3. Poczekaj; na koncu okno pokaze wynik i zostanie otwarte.\r\n'
+            '4. Na Pulpicie pojawi sie srw_y_dlc_bundle.zip - to wrzuc na Dysk Google.\r\n'
+            '\r\n'
+            'Jesli bedzie blad: okno sie nie zamknie, pokaze tresc, a pelny opis\r\n'
+            'bedzie tez w pliku srw_y_dlc_log.txt na Pulpicie. Wyslij mi ten plik.\r\n'
+            'Skrypt nic nie usuwa - tylko kopiuje pliki gry na Pulpit i pakuje zip.\r\n'
+        ).encode('ascii'))
+    return zip_path
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--listing', type=Path, default=LISTING)
     parser.add_argument('--doc', type=Path, default=DOC)
     parser.add_argument('--ps1', type=Path, default=PS1)
     parser.add_argument('--out', type=Path, default=OUT)
+    parser.add_argument('--kit-dir', type=Path, default=HERE / 'build')
     args = parser.parse_args(argv)
 
     sizes = read_listing(args.listing)
     plan = survey(sizes)
     if plan['missing']:
         raise SystemExit(f'not in the owner listing: {plan["missing"][:5]}')
-    args.ps1.write_text(ps_block(plan), encoding='utf-8')
+
+    write_powershell(args.ps1, ps_block(plan))
+    write_batch(args.ps1.with_name('URUCHOM_TO.bat'), BAT)
     args.doc.write_text(doc(plan), encoding='utf-8')
     args.out.write_text(json.dumps(
         {'wanted': [{'pack': p, 'bundle': b, 'lang': l} for p, b, l in plan['wanted']],
          'bytes': plan['bytes']}, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    kit = build_kit(plan, args.kit_dir)
+
     print(f'{len(plan["wanted"])} DLC scenario bundles, {plan["bytes"]:,} B')
     for pack in plan['packs']:
         got = {lang: len(v) for lang, v in pack['by_lang'].items()}
         print(f"  {pack['pack']:26} {got}")
     print(f'written {args.doc.relative_to(HERE)}, {args.ps1.relative_to(HERE)}, '
-          f'{args.out.relative_to(HERE)}')
+          f'{args.ps1.with_name("URUCHOM_TO.bat").relative_to(HERE)}, {kit.relative_to(HERE)}')
     return 0
 
 

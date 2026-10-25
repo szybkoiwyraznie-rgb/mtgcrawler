@@ -847,3 +847,32 @@ the container: **v1 rebuilt it (new header, +9,488 B), v2 keeps it byte-for-byte
 identical outside the text block.** This is now the standard for SRW Y and
 `tools/srw_y_fit_patch.py` is the tool of record. The remaining unknown is only how
 much room a given bundle has for a merge (each patch must be checked for fit).
+
+## 2026-10-25 (S6c) - the owner's first run of the DLC collector failed silently
+
+Owner report: running
+`powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Desktop\ZBIERZ_DLC_BUNDLE.ps1"`
+printed a red error and the window closed before it could be read.
+
+What I could rule out here, by inspecting the exact file that was uploaded
+(`tools/collect_dlc_bundles.ps1`, 45,994 B): pure ASCII (0 bytes > 0x7F), no BOM,
+LF-only line endings, 601 well-formed `@{ d='…'; f='…' }` entries, balanced `{}`/`()`
+(613/613 and 24/24 outside string literals). So the script text itself parses; the
+failure is environmental and unproven - most likely the `-File` path (a file that
+Google Drive/the browser saved under a different name, e.g. `….ps1.txt`, or into
+`Downloads`), or the "downloaded from the internet" mark.
+
+Fix, not a guess at the cause: stop handing over bare `.ps1` files.
+* the `.ps1` is now written **CRLF + UTF-8 BOM** (PS 5.1 reads a BOM-less file as ANSI);
+* it runs inside `try/catch/finally` with `$ErrorActionPreference = 'Stop'`, prints
+  `BLAD: …` plus the script line number, and always closes its transcript;
+* `Start-Transcript` writes **`srw_y_dlc_log.txt` on the Desktop**, so the error
+  survives the window;
+* a `URUCHOM_TO.bat` wrapper runs it with `-NoProfile -ExecutionPolicy Bypass`,
+  calls `Unblock-File` on the folder first, prints the log and ends with `pause`;
+* both are shipped inside **`build/SRW_Y_ZBIERZ_DLC.zip`** and, for the 38-file
+  base-text kit, **`build/SRW_Y_ZBIERZ_TEKST.zip`**.
+
+Both kits are built by `tools/build_dlc_bundle_request.py` and
+`tools/build_text_upload_request.py`; nothing in them was executed here (no
+PowerShell, no Windows, no game in the sandbox) - the sheets say so explicitly.

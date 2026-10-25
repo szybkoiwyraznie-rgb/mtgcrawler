@@ -79,46 +79,82 @@ def collect(mapping: dict, sizes: dict[str, int], have: set[str]) -> dict:
 
 def ps_block(plan: dict) -> str:
     names = '\n'.join(f"    '{name}'," for name in plan['need'])
-    text = f"""# SRW Y - zbior tekstu do pakietu tlumacza (na Pulpit; nic nie jest usuwane)
-$aa    = 'D:__BS__Games__BS__SUPER ROBOT WARS Y__BS__SUPER ROBOT WARS Y_Data__BS__StreamingAssets__BS__aa__BS__StandaloneWindows64'
-$desk  = [Environment]::GetFolderPath('Desktop')
-$dst   = Join-Path $desk 'srw_y_tekst'
-$zip   = Join-Path $desk 'srw_y_tekst.zip'
-New-Item -ItemType Directory -Force -Path $dst | Out-Null
+    text = f"""# SRW Y - 38 bundli z tekstem podstawki (na Pulpit; nic nie jest usuwane)
+$ErrorActionPreference = 'Stop'
+$desk = [Environment]::GetFolderPath('Desktop')
+$log  = Join-Path $desk 'srw_y_tekst_log.txt'
+Start-Transcript -Path $log -Force | Out-Null
 
-$pliki = @(
+try {{
+    $aa   = 'D:__BS__Games__BS__SUPER ROBOT WARS Y__BS__SUPER ROBOT WARS Y_Data__BS__StreamingAssets__BS__aa__BS__StandaloneWindows64'
+    $dst  = Join-Path $desk 'srw_y_tekst'
+    $zip  = Join-Path $desk 'srw_y_tekst.zip'
+
+    "folder gry : $aa"
+    "na pulpit  : $dst"
+    if (-not (Test-Path $aa)) {{ throw "Nie ma folderu: $aa" }}
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+
+    $pliki = @(
 {names}
-)
+    )
 
-$brak = @(); $suma = 0
-foreach ($f in $pliki) {{
-    $src = Join-Path $aa $f
-    if (Test-Path $src) {{
-        Copy-Item $src (Join-Path $dst $f) -Force
-        $suma += (Get-Item $src).Length
-    }} else {{ $brak += $f }}
+    $brak = @()
+    $suma = 0
+    foreach ($f in $pliki) {{
+        $src = Join-Path $aa $f
+        if (Test-Path $src) {{
+            Copy-Item $src (Join-Path $dst $f) -Force
+            $suma += (Get-Item $src).Length
+        }} else {{
+            $brak += $f
+        }}
+    }}
+
+    ""
+    "skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
+    "razem bajtow: " + $suma.ToString('N0')
+    if ($brak.Count -gt 0) {{ "BRAKUJE:"; $brak }}
+
+    if (Test-Path $zip) {{ Remove-Item $zip -Force }}
+    Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
+    $i = Get-Item $zip
+    "zip: " + $i.FullName
+    "zip bajtow: " + $i.Length.ToString('N0')
+    "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+    "GOTOWE"
 }}
-
-"skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
-"razem bajtow: " + $suma.ToString('N0')
-if ($brak.Count -gt 0) {{ "BRAKUJE:"; $brak }}
-
-if (Test-Path $zip) {{ Remove-Item $zip -Force }}
-Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
-$i = Get-Item $zip
-"zip: " + $i.FullName
-"zip bajtow: " + $i.Length.ToString('N0')
-"zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+catch {{
+    ""
+    "BLAD: " + $_.Exception.Message
+    if ($_.InvocationInfo) {{ "linia: " + $_.InvocationInfo.ScriptLineNumber }}
+    "Pelny opis powyzej zapisany w: $log"
+    exit 1
+}}
+finally {{
+    Stop-Transcript | Out-Null
+}}
 """
     return text.replace("__BS__", chr(92))
-
 
 def doc(plan: dict) -> str:
     mb = plan['bytes'] / 1024 / 1024
     all_mb = plan['all_bytes'] / 1024 / 1024
     return f"""# SRW Y - krok S6: co mam Ci wrzucić (tekst do pakietu tłumacza)
 
-Wersja arkusza: 2026-10-25.1
+Wersja arkusza: 2026-10-25.2
+
+## Najprostsza droga (polecam)
+
+Na Dysku jest paczka **`SRW_Y_ZBIERZ_TEKST.zip`**:
+
+1. pobierz ją i **rozpakuj na Pulpit** (wszystkie pliki do jednego folderu),
+2. kliknij dwa razy **`URUCHOM_TO.bat`**,
+3. okno **nie zamknie się** - na końcu pokaże wynik i zostanie otwarte,
+4. na Pulpicie pojawi się `srw_y_tekst.zip` - to wrzuć na Dysk.
+
+Jeśli coś pójdzie nie tak, w oknie zostanie **czerwony błąd**, a pełny opis będzie
+też w `srw_y_tekst_log.txt` na Pulpicie - wyślij mi ten plik (albo zdjęcie okna).
 
 ## Po co to
 
@@ -187,12 +223,70 @@ najpierw **próbkę dokładnie w docelowym formacie**.
 """
 
 
+def write_powershell(path: Path, text: str) -> None:
+    """CRLF + UTF-8 BOM: PowerShell 5.1 reads a BOM-less file as ANSI."""
+    body = text.replace('\r\n', '\n').replace('\n', '\r\n')
+    path.write_bytes(b'\xef\xbb\xbf' + body.encode('utf-8'))
+
+
+BAT = """@echo off
+setlocal
+cd /d "%~dp0"
+echo.
+echo  SRW Y - zbieram 38 bundli z tekstem podstawki (okolo 22 MB)
+echo  To moze potrwac minute. Nic nie jest usuwane.
+echo.
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem '%~dp0*' | Unblock-File" 2>nul
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0ZBIERZ_TEKST.ps1"
+set RC=%ERRORLEVEL%
+echo.
+if exist "%USERPROFILE%\\Desktop\\srw_y_tekst_log.txt" (
+    echo  ---------------- LOG ----------------
+    type "%USERPROFILE%\\Desktop\\srw_y_tekst_log.txt"
+    echo  -----------------------------------
+)
+echo.
+if "%RC%"=="0" (
+    echo  OK. Zip lezy na Pulpicie: srw_y_tekst.zip
+) else (
+    echo  Cos poszlo nie tak ^(kod %RC%^). Wyslij mi plik srw_y_tekst_log.txt z Pulpitu.
+)
+echo.
+pause
+"""
+
+
+def build_kit(plan: dict, out_dir: Path) -> Path:
+    import zipfile
+    out_dir.mkdir(parents=True, exist_ok=True)
+    zip_path = out_dir / 'SRW_Y_ZBIERZ_TEKST.zip'
+    ps = ps_block(plan)
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr('ZBIERZ_TEKST.ps1',
+                         b'\xef\xbb\xbf' + ps.replace('\n', '\r\n').encode('utf-8'))
+        archive.writestr('URUCHOM_TO.bat', BAT.replace('\n', '\r\n').encode('ascii'))
+        archive.writestr('CZYTAJ_TO.txt', (
+            'SRW Y - zbieranie 38 bundli z tekstem podstawki (okolo 22 MB)\r\n'
+            '\r\n'
+            '1. Rozpakuj ten zip na Pulpit (wszystkie pliki do jednego folderu).\r\n'
+            '2. Kliknij dwa razy URUCHOM_TO.bat\r\n'
+            '3. Poczekaj; na koncu okno pokaze wynik i zostanie otwarte.\r\n'
+            '4. Na Pulpicie pojawi sie srw_y_tekst.zip - to wrzuc na Dysk Google.\r\n'
+            '\r\n'
+            'Jesli bedzie blad: okno sie nie zamknie, pokaze tresc, a pelny opis\r\n'
+            'bedzie tez w pliku srw_y_tekst_log.txt na Pulpicie. Wyslij mi ten plik.\r\n'
+            'Skrypt nic nie usuwa - tylko kopiuje pliki gry na Pulpit i pakuje zip.\r\n'
+        ).encode('ascii'))
+    return zip_path
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--mapping', type=Path, default=MAPPING)
     parser.add_argument('--listing', type=Path, default=LISTING)
     parser.add_argument('--doc', type=Path, default=DOC)
     parser.add_argument('--ps1', type=Path, default=PS1)
+    parser.add_argument('--kit-dir', type=Path, default=HERE / 'build')
     args = parser.parse_args(argv)
 
     mapping = json.loads(args.mapping.read_text(encoding='utf-8'))
@@ -200,11 +294,13 @@ def main(argv=None) -> int:
     have = {path.name for path in HAVE.glob('*.bundle')}
     plan = collect(mapping, sizes, have)
 
-    args.ps1.write_text(ps_block(plan), encoding='utf-8')
+    write_powershell(args.ps1, ps_block(plan))
     args.doc.write_text(doc(plan), encoding='utf-8')
     print(f'need {len(plan["need"])} files, {plan["bytes"]:,} B')
     print(f'have {len(plan["have"])}: {", ".join(name[:8] for name in plan["have"])}')
-    print(f'written {args.doc.relative_to(HERE)} and {args.ps1.relative_to(HERE)}')
+    kit = build_kit(plan, args.kit_dir)
+    print(f'written {args.doc.relative_to(HERE)}, {args.ps1.relative_to(HERE)}, '
+          f'{kit.relative_to(HERE)}')
     return 0
 
 

@@ -1,11 +1,20 @@
-# SRW Y - zbior tekstu do pakietu tlumacza (na Pulpit; nic nie jest usuwane)
-$aa    = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'
-$desk  = [Environment]::GetFolderPath('Desktop')
-$dst   = Join-Path $desk 'srw_y_tekst'
-$zip   = Join-Path $desk 'srw_y_tekst.zip'
-New-Item -ItemType Directory -Force -Path $dst | Out-Null
+﻿# SRW Y - 38 bundli z tekstem podstawki (na Pulpit; nic nie jest usuwane)
+$ErrorActionPreference = 'Stop'
+$desk = [Environment]::GetFolderPath('Desktop')
+$log  = Join-Path $desk 'srw_y_tekst_log.txt'
+Start-Transcript -Path $log -Force | Out-Null
 
-$pliki = @(
+try {
+    $aa   = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'
+    $dst  = Join-Path $desk 'srw_y_tekst'
+    $zip  = Join-Path $desk 'srw_y_tekst.zip'
+
+    "folder gry : $aa"
+    "na pulpit  : $dst"
+    if (-not (Test-Path $aa)) { throw "Nie ma folderu: $aa" }
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+
+    $pliki = @(
     '91fbfdfba1fd39edbe153d4bec9a32ba.bundle',
     '87aad0e5edac27a8024e0a463c337d1c.bundle',
     '65dbabff8fbeee5c6c267469446efdbf.bundle',
@@ -44,24 +53,40 @@ $pliki = @(
     '4dd4d85f742c65c9f6175a5bb9778647.bundle',
     'f1ba80f5694d96485b7f8c5402dd18c9.bundle',
     'a1afc008875b80176d4139e04773d990.bundle',
-)
+    )
 
-$brak = @(); $suma = 0
-foreach ($f in $pliki) {
-    $src = Join-Path $aa $f
-    if (Test-Path $src) {
-        Copy-Item $src (Join-Path $dst $f) -Force
-        $suma += (Get-Item $src).Length
-    } else { $brak += $f }
+    $brak = @()
+    $suma = 0
+    foreach ($f in $pliki) {
+        $src = Join-Path $aa $f
+        if (Test-Path $src) {
+            Copy-Item $src (Join-Path $dst $f) -Force
+            $suma += (Get-Item $src).Length
+        } else {
+            $brak += $f
+        }
+    }
+
+    ""
+    "skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
+    "razem bajtow: " + $suma.ToString('N0')
+    if ($brak.Count -gt 0) { "BRAKUJE:"; $brak }
+
+    if (Test-Path $zip) { Remove-Item $zip -Force }
+    Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
+    $i = Get-Item $zip
+    "zip: " + $i.FullName
+    "zip bajtow: " + $i.Length.ToString('N0')
+    "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+    "GOTOWE"
 }
-
-"skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
-"razem bajtow: " + $suma.ToString('N0')
-if ($brak.Count -gt 0) { "BRAKUJE:"; $brak }
-
-if (Test-Path $zip) { Remove-Item $zip -Force }
-Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
-$i = Get-Item $zip
-"zip: " + $i.FullName
-"zip bajtow: " + $i.Length.ToString('N0')
-"zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+catch {
+    ""
+    "BLAD: " + $_.Exception.Message
+    if ($_.InvocationInfo) { "linia: " + $_.InvocationInfo.ScriptLineNumber }
+    "Pelny opis powyzej zapisany w: $log"
+    exit 1
+}
+finally {
+    Stop-Transcript | Out-Null
+}

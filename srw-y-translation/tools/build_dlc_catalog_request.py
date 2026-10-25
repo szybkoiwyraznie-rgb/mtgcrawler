@@ -155,6 +155,12 @@ te bundle DLC, w których faktycznie jest tekst.
 """
 
 
+def write_powershell(path: Path, text: str) -> None:
+    """CRLF + UTF-8 BOM: PowerShell 5.1 reads a BOM-less file as ANSI."""
+    body = text.replace('\r\n', '\n').replace('\n', '\r\n')
+    path.write_bytes(b'\xef\xbb\xbf' + body.encode('utf-8'))
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--listing', type=Path, default=LISTING)
@@ -165,7 +171,7 @@ def main(argv=None) -> int:
     plan = dlc_catalogs(read_listing(args.listing))
     if not plan:
         raise SystemExit('no DLC catalogues found in the listing')
-    args.ps1.write_text(ps_block(plan), encoding='utf-8')
+    write_powershell(args.ps1, ps_block(plan))
     args.doc.write_text(doc(plan), encoding='utf-8')
     total = sum(pack['json'][1] + (pack['hash'][1] if pack['hash'] else 0) for pack in plan)
     print(f'{len(plan)} packs, {total:,} B of indices')

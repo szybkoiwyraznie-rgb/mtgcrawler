@@ -1,4 +1,4 @@
-# SRW Y - indeksy DLC (na Pulpit; nic nie jest usuwane)
+﻿# SRW Y - indeksy DLC (na Pulpit; nic nie jest usuwane)
 $sa    = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets'
 $desk  = [Environment]::GetFolderPath('Desktop')
 $dst   = Join-Path $desk 'srw_y_dlc_catalog'
