@@ -69,6 +69,13 @@ robi teraz więcej**: obok plików zapisuje też zebrane stringi (dwa pliki
 japońskiego tekstu ma gra.
 
 Blok się nie zmienił — skrypt sam się podmienia przy każdym uruchomieniu.
+
+Trzecia runda (ta sama wklejka) ma jeszcze jedną poprawkę: skrypt czyta teraz
+**całe** pliki z pamięci, także takie, które nie mieszczą się w jednym kawałku
+(poprzednio zawsze ucinał je na 8 MB), odrzuca fałszywe nagłówki i zapisuje w
+folderach po kilka surowych fragmentów pamięci (`region_..bin`) tam, gdzie jest
+najwięcej japońskiego. Te pliki też możesz zostawić u siebie — do raportów nie są
+potrzebne.
 Wystarczy powtórzyć te same kroki (gra na ekranie tytułowym, potem scena z
 dialogiem) i wgrać **dwa nowe raporty**. Pliki `strings_*` zostaw u siebie;
 poproszę o nie, jeśli będą potrzebne.

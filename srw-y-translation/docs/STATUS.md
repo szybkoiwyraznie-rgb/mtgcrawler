@@ -207,6 +207,18 @@ folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
 
 ## Where S3 stands
 
+Reading is measured: the Japanese is plaintext in memory and the harvest pulls
+**17,000-18,000 unique UTF-16 strings (~310-340k chars) and 8,700-9,100 UTF-8
+strings (~625-640k chars)** out of the running game, and the content is real game
+text. Two structural defects found in the second run are already fixed — carves
+never crossed the 8 MB chunk boundary, and false `CAB-` headers were accepted.
+What is **not** solved is the write path: the disk bundles are AES-encrypted and
+the key is still unrecovered, so installing a translation needs either the key, a
+runtime string patcher, or an IL2CPP mod. See the decision section at the end of
+`docs/S2_FINDINGS.md`. `runtime_tested` stays `false`.
+
+## Where S3 stood after the first run
+
 The first live run is in and it answers the central question. The carver works
 (read-only, 1.8-2.2 GB scanned, 592 files carved, all re-parsed), **the Japanese
 text is plaintext in memory** (~630,000 kana characters at the title screen and in

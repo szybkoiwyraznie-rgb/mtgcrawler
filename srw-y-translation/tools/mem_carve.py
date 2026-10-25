@@ -64,6 +64,10 @@ MAX_BUNDLE_BYTES = 512 * 1024 * 1024   # no SRW Y bundle comes close; anything
                                        # bigger is a false header in random bytes
 MAX_TEXT_CHARS = 8 * 1024 * 1024       # cap for one harvested text file
 UNITY_VERSION_RE = re.compile(r"^\d{4}\.\d+\.\d+[a-z]\d+$")
+SERIALIZED_NAME_RE = re.compile(r"^[0-9a-f]{16}$")
+MAX_SINGLE_READ = 64 * 1024 * 1024
+RICH_KANA_THRESHOLD = 2000     # kana chars in one 8 MB chunk = worth keeping
+MAX_RICH_REGIONS = 4
 
 
 # --------------------------------------------------------------- pure helpers
@@ -130,7 +134,13 @@ def parse_serialized_header(data: bytes) -> dict | None:
         return None
     if metadata_size > file_size or data_offset > file_size:
         return None
-    if version > 32:                     # Unity serialized-file format version
+    if version == 0 or version > 32:     # Unity serialized-file format version
+        return None
+    if data_offset < 48 or metadata_size < 32:
+        return None
+    if not SERIALIZED_NAME_RE.match(data[4:20].decode("latin-1", "replace")):
+        # the 16 bytes after `CAB-` are a hex digest; anything else is a false
+        # hit in random bytes (the owner's run carved four 8 MB blobs that way)
         return None
     return {"metadata_size": metadata_size, "file_size": file_size,
             "version": version, "data_offset": data_offset,
@@ -423,6 +433,44 @@ def process_pid(image_name: str) -> int | None:
     return None
 
 
+def read_pieces(address: int, size: int, read_fn, piece: int = 1024 * 1024) -> bytes:
+    """Assemble `size` bytes from `read_fn(address, size) -> bytes` calls.
+
+    Short reads end the loop, which is how an unreadable tail (or a page that is
+    not committed) shows up as `complete: false` instead of an exception.
+    """
+    out = bytearray()
+    while len(out) < size:
+        chunk = read_fn(address + len(out), min(piece, size - len(out)))
+        if not chunk:
+            break
+        out += chunk
+    return bytes(out)
+
+
+def read_process(kernel32, handle: int, address: int, size: int,
+                 piece: int = 1024 * 1024) -> bytes:
+    """Read `size` bytes at `address`, in pieces, across region boundaries.
+
+    Carving from the chunk that happened to contain a header only works while
+    the object ends inside that chunk. A serialized file or bundle larger than
+    the 8 MB chunk was therefore always cut short; the owner's run kept three
+    8 MB stubs of ~32-45 MB files. Reading straight from the address fixes that.
+    """
+    view = (ctypes.c_char * piece)()
+
+    def read_fn(where: int, want: int) -> bytes:
+        read = ctypes.c_size_t(0)
+        ok = kernel32.ReadProcessMemory(
+            ctypes.c_void_p(handle), ctypes.c_void_p(where),
+            ctypes.cast(view, ctypes.c_void_p), want, ctypes.byref(read))
+        if not ok or read.value == 0:
+            return b""
+        return view.raw[:read.value]
+
+    return read_pieces(address, size, read_fn, piece)
+
+
 def live_scan(image_name: str, out_dir: Path, budget: int,
               max_scan: int, marker_limit: int = 2000,
               harvest: bool = True) -> dict:
@@ -446,6 +494,8 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
     regions = 0
     scanned = 0
     carved = {"written": [], "planned": 0}
+    seen: set = set()
+    rich = []
     bundle_sizes = []
     japanese_windows = 0
     kana = {"runs": 0, "chars": 0, "longest": 0}
@@ -487,6 +537,17 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                         japanese_windows += 1
                     if harvest:
                         harvest_buffer(buffer, utf16, utf8)
+                    if stats["chars"] >= RICH_KANA_THRESHOLD and \
+                            len(rich) < MAX_RICH_REGIONS:
+                        # a chunk this full of Japanese is the closest thing to a
+                        # decompressed text file; keep it whole, it shows the
+                        # structure around the strings (Lua, keys, indices)
+                        rich_name = ("region_%02d_%08x.bin"
+                                     % (len(rich), base + offset))
+                        (out_dir / rich_name).write_bytes(buffer)
+                        rich.append({"name": rich_name, "bytes": len(buffer),
+                                     "kana": stats["chars"],
+                                     "address": base + offset})
                     hits = [(index, declared)
                             for index, declared, _ in scan["bundles"]]
                     hits += [(index, header["file_size"])
@@ -494,27 +555,29 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                     hits.sort()
                     plan = carve_plan(hits, len(buffer), base + offset, budget)
                     for task in plan:
-                        data = buffer[task["offset"]:task["offset"] + task["size"]]
+                        wanted = min(task["size"], MAX_SINGLE_READ)
+                        data = read_process(kernel32, handle, task["address"], wanted)
                         complete = len(data) == task["size"]
-                        if not complete:
-                            # a serialized file may span chunks or be block-
-                            # decompressed; keep what we have and say so
-                            if len(data) < 64:
-                                continue
+                        if not complete and len(data) < 64:
+                            continue
                         is_bundle = parse_unityfs(data) is not None
                         if not is_bundle and parse_serialized_header(data) is None:
                             continue
+                        digest = hashlib.sha256(data).hexdigest()
+                        if digest in seen:
+                            continue
+                        seen.add(digest)
                         suffix = "bundle" if is_bundle else "assets"
                         name = ("%s_%03d_%s.%s"
                                 % (suffix, len(carved["written"]),
-                                   hashlib.sha256(data).hexdigest()[:8], suffix))
+                                   digest[:8], suffix))
                         (out_dir / name).write_bytes(data)
                         carved["written"].append({
-                            "name": name, "size": len(data), "declared_size": task["size"],
+                            "name": name, "size": len(data),
+                            "declared_size": task["size"],
                             "complete": complete, "kind": suffix,
-                            "address": task["address"],
-                            "sha256": hashlib.sha256(data).hexdigest()})
-                        budget -= task["size"]
+                            "address": task["address"], "sha256": digest})
+                        budget -= len(data)
                         if budget <= 0:
                             break
                     carved["planned"] += len(plan)
@@ -545,6 +608,7 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
             "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
             "utf8": write_strings(out_dir / "strings_utf8.txt", utf8),
         },
+        "rich_regions": rich,
         "carved": carved,
     }
 

@@ -409,3 +409,17 @@ inputs (size, SHA-256 where available) and the result, labelled
   - **Added:** UTF-16LE + UTF-8 string harvest with dedupe and caps, written to
     `strings_utf16.txt` / `strings_utf8.txt` in the output folder, counts only in
     the report. 6 new tests (95 total).
+- **Second real run analysed [2026-10-25]:** `carve2.zip` (12,704,151 B) →
+  `google_drive/carve2.zip` → `local/owner_carve2/`. The harvest works:
+  17,035 UTF-16 strings / 308,982 chars and 9,131 UTF-8 strings / 625,119 chars at
+  the title screen; 17,931 / 340,375 and 8,769 / 639,501 in a dialogue scene. The
+  content is real (pilot abilities, spirit commands, tutorials, credits, TMP draw
+  instructions). Two structural findings: (a) the four `.assets` carves are
+  **false `CAB-` headers** (garbage name, version 0) that happened to capture
+  8 MB of text-rich memory; (b) even valid headers declare 32-45 MB while only
+  8 MB was carved — **a carve never crosses the 8 MB chunk boundary**.
+  Fixed: `read_pieces`/`read_process` read the declared size from the process
+  address in 1 MB pieces, `CAB-` names must be 16 hex digits with version 1-32,
+  duplicate carves are suppressed by SHA-256, and chunks with ≥ 2,000 kana are
+  dumped whole as `region_NN_*.bin` (max four) to expose the surrounding
+  structure. Tests 99/99.

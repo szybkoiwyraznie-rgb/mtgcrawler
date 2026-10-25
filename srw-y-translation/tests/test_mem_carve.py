@@ -244,3 +244,37 @@ class StrictHeaderTests(unittest.TestCase):
                   + struct.pack(">I", 128) + struct.pack(">I", 256)
                   + struct.pack(">I", 0x43))
         self.assertIsNone(M.parse_unityfs(header + b"\x00" * 64))
+
+
+class ReadPiecesTests(unittest.TestCase):
+    """Assembling a file that does not fit in one chunk."""
+
+    def test_assembles_across_pieces(self):
+        source = bytes(range(256)) * 40          # 10,240 B
+        def read_fn(address, size):
+            return source[address:address + size]
+        data = M.read_pieces(0, len(source), read_fn, piece=1024)
+        self.assertEqual(data, source)
+
+    def test_short_read_stops_and_reports(self):
+        source = b"x" * 500
+        def read_fn(address, size):
+            return source[address:address + size]
+        data = M.read_pieces(0, 1000, read_fn, piece=256)
+        self.assertEqual(len(data), 500)          # 256 + 244, then nothing left
+        self.assertNotEqual(len(data), 1000)      # caller marks complete: false
+
+
+class FalseSerializedHeaderTests(unittest.TestCase):
+    def test_non_hex_name_rejected(self):
+        # the owner's run carved four 8 MB blobs whose "CAB-" name was garbage
+        header = (b"CAB-" + b"\x00\x90\x99\x04\xb1y\x02\x00\x000\x00\x00\x00\x00"
+                  + struct.pack(">IIII", 240, 33554496, 0, 0))
+        self.assertIsNone(M.parse_serialized_header(header + b"\x00" * 64))
+
+    def test_hex_name_accepted(self):
+        header = (b"CAB-" + b"0123456789abcdef"
+                  + struct.pack(">IIII", 240, 33554496, 6, 4096))
+        parsed = M.parse_serialized_header(header + b"\x00" * 64)
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["file_size"], 33554496)

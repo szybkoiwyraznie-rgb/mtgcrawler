@@ -255,3 +255,72 @@ never enters the report. `--no-text` turns the harvest off.
 
 Next run therefore answers the volume question directly: how many unique Japanese
 strings, and how many characters, the running game holds.
+
+## S3, second run: the strings are real, the containers are not
+
+`carve2.zip` (12,704,151 B) — same two scans, now with the string harvest.
+
+| | run 1 — title screen | run 2 — dialogue scene |
+|---|---|---|
+| memory scanned | 1.68 GB in 980 regions | 2.09 GB in 946 regions |
+| `UnityFS` / `CAB-` | 560 / 7,836 | 803 / 13,628 |
+| kana in memory | 90,671 runs, 613,502 chars | 92,413 runs, 623,507 chars |
+| **UTF-16 strings** | **17,035 unique, 308,982 chars** | **17,931 unique, 340,375 chars** |
+| **UTF-8 strings** | **9,131 unique, 625,119 chars** | **8,769 unique, 639,501 chars** |
+| carved | 246 files, 19,221,592 B | 351 files, 11,715,387 B |
+
+**The harvested text is genuine game text**, and it is exactly what a translator
+needs: pilot-ability descriptions (`ユニットコマンド「パーツ」で使用すると…`),
+spirit commands, tutorial paragraphs, UI labels, voice-cast credits
+(`… 斎藤千和　モコナ …`), Unity UI draw commands (`{Inst_BG_PlaceWindowDraw, 261,
+0, BgSizeHeightx2, …}`). Median string length is 14–16 characters, the longest
+harvested line is 400 (the cap).
+
+**What the runs also proved is a limit:** four carved `.assets` files (8.1, 8.3,
+4.8 and 4.1 MB) have **invalid** `CAB-` headers — garbage instead of the 16-hex
+name, version 0 — so they are false hits, not serialized files. They were
+nevertheless 8 MB of memory containing thousands of kana runs: real text, wrong
+container. And even the genuine hits are stubs: `file_size` says 33,554,496 B
+while only 8,087,127 B were carved, i.e. **the object always ends outside the 8 MB
+chunk that held its header**.
+
+Both problems are fixed in `tools/mem_carve.py`:
+
+- **`read_pieces` / `read_process`:** carving no longer slices the chunk — it
+  reads the declared size straight from the process address, in 1 MB pieces,
+  across region boundaries. A file bigger than the chunk now arrives whole, and a
+  genuinely unreadable tail shows up as `complete: false` with `size` <
+  `declared_size` instead of silently looking fine.
+- **Strict `CAB-` validation:** the 16 bytes after the marker must be hex, version
+  must be 1–32, `data_offset >= 48`, `metadata_size >= 32`. The four garbage
+  blobs would now be rejected.
+- **Duplicate suppression by SHA-256**, so a header seen in two overlapping
+  chunks is written once.
+- **Rich region dumps:** a chunk holding ≥ 2,000 kana characters is written out
+  whole (`region_NN_XXXXXXXX.bin`, at most four) because that is the closest thing
+  to a decompressed text file — it shows the structure around the strings (Lua
+  code, keys, indices) that a flat string list loses.
+
+Tests **99/99** (piece assembly, short-read truncation, non-hex and hex `CAB-`
+names).
+
+## The unfinished half of S3: how a translation gets back in
+
+Reading is solved in principle — the text is plaintext in memory and can be
+harvested. **Writing is not.** The bundles on disk are AES-encrypted by
+`SeekableAesStream` and the key (password + salt through `Rfc2898`) has not been
+recovered: 61.2 M candidate keys from `GameAssembly.dll` and 4,712 name-derived
+KDF combinations all failed. Without the key a re-encrypted bundle cannot be
+produced, so the install path has to be one of:
+
+1. **key recovery** (then a normal bundle patch, identical in shape to the OE and
+   SRW Z kits),
+2. **runtime text replacement** — an external companion that patches the loaded
+   strings in place while the game runs (no key, but the target string must not
+   grow, which JP→PL violates),
+3. **an IL2CPP mod** — needs a .NET toolchain on the owner's machine, which the
+   owner does not have.
+
+This is the decision the next measurement has to inform, and it is why rich region
+dumps matter: they show whether full scenario scripts (with their `lua.txt` name
+and structure) ever exist contiguously, which decides between (1) and (2).
