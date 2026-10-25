@@ -1,6 +1,6 @@
 # SRW Y - poczatek gry: wyciecie tekstu z pamieci (jeden przebieg, ~5 minut)
 
-Wersja arkusza: 2026-10-26.11
+Wersja arkusza: 2026-10-26.12
 
 ## Po co to jest
 
@@ -26,7 +26,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 Set-Location $work
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $name = "srw_y_find_text" + [char]46 + "py"
-$sha  = "297b3bedd568b0d0039a5a21a7b6885c24b197dd"
+$sha  = "dbafe658155ebc7a796c36431e13dc88f9121cf3"
 $url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
 Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
 try {
@@ -36,7 +36,7 @@ try {
     curl.exe -L -o (Join-Path $work $name) $url
 }
 $f = Get-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
-if ($f -and $f.Length -gt 25000) {
+if ($f -and $f.Length -gt 26000) {
     Write-Host ("OK  skrypt: " + $f.FullName + "  " + $f.Length + " B")
 } else {
     Write-Host "BRAK PLIKU - skopiuj mi caly ten wynik"
@@ -44,7 +44,7 @@ if ($f -and $f.Length -gt 25000) {
 ```
 
 Ma wyjsc `OK  skrypt: ...\Desktop\srwytool\srw_y_find_text.py` z rozmiarem
-powyzej 25 000 B (plik ma ok. 26 kB).
+powyzej 26 000 B (plik ma ok. 27 kB).
 
 ## KROK 1 - doprowadz gre do tekstu z poczatku
 

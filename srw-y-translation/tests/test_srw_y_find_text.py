@@ -46,7 +46,7 @@ def memory_with(bundle, before=50_000, after=20_000):
 
 class VersionTests(unittest.TestCase):
     def test_version_is_pinned(self):
-        self.assertEqual(M.SCRIPT_VERSION, "2026-10-26.11")
+        self.assertEqual(M.SCRIPT_VERSION, "2026-10-26.12")
 
 
 class NeedleTests(unittest.TestCase):

@@ -51,7 +51,7 @@ from pathlib import Path
 SCHEMA = 1
 # Bumped with every change that reaches the owner; the owner's paste-block checks
 # it, because a stale download once looked exactly like a script bug.
-SCRIPT_VERSION = "2026-10-26.11"
+SCRIPT_VERSION = "2026-10-26.12"
 UNITYFS = b"UnityFS\x00"
 DEFAULT_LOOKBACK = 16 << 20
 DEFAULT_CONTEXT = 64 << 10
@@ -253,7 +253,10 @@ class ProcessSource:
         self.kernel32 = win_api()
         pid = process_pid(image_name)
         if not pid:
-            raise SystemExit(f"process not found: {image_name} (is the game running?)")
+            raise SystemExit(
+                f"process not found: {image_name}\n"
+                "is the game running? check the exact name with:\n"
+                "  tasklist | findstr /i super")
         self.pid = pid
         self.piece = piece
         self.handle = self.kernel32.OpenProcess(
@@ -567,8 +570,10 @@ def main(argv: list[str] | None = None) -> int:
         else:
             print(f"source: pid {source.pid}, {len(source.regions):,} regions")
             print("scanning; this takes a minute")
-        for index, fragment in enumerate(fragments, 1):
-            for encoding in ("utf-8", "utf-16-le"):
+        # UTF-8 first for every fragment: it is the likely storage, and a scan over
+        # gigabytes is not free, so the second encoding is only reached if nothing hit
+        for encoding in ("utf-8", "utf-16-le"):
+            for index, fragment in enumerate(fragments, 1):
                 needle = needle_variants(fragment)[encoding]
                 print(f"  [{index}/{len(fragments)}] {encoding}: "
                       f"{fragment[:48]}...", flush=True)
