@@ -50,6 +50,11 @@ def read_one(path: Path) -> dict:
     env = UnityPy.load(str(path))
     objects: dict[str, int] = {}
     texts: dict[str, str] = {}
+    if not env.objects:
+        # UnityPy is forgiving: garbage bytes open as an empty environment. A
+        # carve that yields nothing is a failed carve, so say so instead of
+        # reporting a healthy file with zero text.
+        raise ValueError("no Unity objects found (header not recognisable)")
     for obj in env.objects:
         type_name = getattr(obj.type, "name", str(obj.type))
         objects[type_name] = objects.get(type_name, 0) + 1

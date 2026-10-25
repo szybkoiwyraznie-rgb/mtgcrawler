@@ -14,11 +14,38 @@ Na ich podstawie policzę, ile tekstu ma gra.
 ## Jedyny krok — wklej całość do PowerShella
 
 Najpierw **uruchom grę** i zostań na ekranie tytułowym (gra ma działać w tle).
-Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter:
+Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter.
+
+> **Poprawka po Twoim błędzie:** `Invoke-WebRequest` w starym PowerShellu domyślnie
+> używa TLS 1.0, a GitHub wymaga nowszego — stąd "Nie można utworzyć bezpiecznego
+> kanału SSL/TLS". W nowym bloku plik pobiera **Python** (sam negocjuje nowsze
+> TLS), a PowerShell jest tylko w odwodzie, z wymuszonym TLS 1.2.
 
 ```powershell
 $py = "$env:USERPROFILE\Desktop\mem_carve.py"
-Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py" -OutFile $py
+$urls = @(
+  "https://raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py",
+  "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/raw/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py"
+)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Remove-Item -LiteralPath $py -ErrorAction SilentlyContinue
+foreach ($u in $urls) {
+  if (Test-Path -LiteralPath $py) { break }
+  python -c "import urllib.request,sys; urllib.request.urlretrieve(sys.argv[1], sys.argv[2])" $u $py 2>$null
+  if ((Test-Path -LiteralPath $py) -and ((Get-Item -LiteralPath $py).Length -lt 5000)) {
+    Remove-Item -LiteralPath $py
+  }
+  if (!(Test-Path -LiteralPath $py)) {
+    try { Invoke-WebRequest -UseBasicParsing -Uri $u -OutFile $py } catch { }
+  }
+  if ((Test-Path -LiteralPath $py) -and ((Get-Item -LiteralPath $py).Length -lt 5000)) {
+    Remove-Item -LiteralPath $py
+  }
+}
+if (!(Test-Path -LiteralPath $py)) {
+  Write-Host "NIE UDALO SIE POBRAC - wyslij mi to, co jest wyzej" -ForegroundColor Red
+  return
+}
 Write-Host "=== TEST (bez gry, powinno byc PASS) ===" -ForegroundColor Cyan
 python $py --selftest
 Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter"
@@ -30,16 +57,19 @@ explorer "$env:USERPROFILE\Desktop\srw_y_carve_1"
 explorer "$env:USERPROFILE\Desktop\srw_y_carve_2"
 ```
 
+> Jeśli wisisz teraz na `KROK 1: ... nacisnij Enter` z poprzedniej próby -
+> naciśnij **Ctrl+C** i wklej blok od nowa.
+
 Co się będzie działo po kolei:
 
-1. Skrypt ściągnie się na pulpit i sam się przetestuje — zobaczysz
-   `self-test: PASS`.
-2. Zatrzyma się na `KROK 1: ...` — wtedy **naciśnij Enter**. Odczyt potrwa od
-   kilku sekund do minuty (okno może wyglądać na „zawieszone”, to normalne).
-3. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w dowolną misję
-   tak, żeby **dialog był widoczny na ekranie**, wróć do PowerShella i **naciśnij
-   Enter**. To drugi odczyt.
-4. Otworzą się dwa foldery z pulpitowego `srw_y_carve_1` i `srw_y_carve_2`.
+1. Plik `mem_carve.py` trafi na pulpit (pobiera go Python; jeśli się nie uda,
+   PowerShell z TLS 1.2).
+2. Skrypt sam się przetestuje — musi pojawić się `self-test: PASS`.
+3. Zatrzyma się na `KROK 1: ...` — **naciśnij Enter**. Odczyt potrwa od kilku
+   sekund do minuty (okno może wyglądać na "zawieszone", to normalne).
+4. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w dowolną misję
+   tak, żeby **dialog był widoczny na ekranie**, wróć i **naciśnij Enter**.
+5. Otworzą się dwa foldery: `srw_y_carve_1` i `srw_y_carve_2`.
 
 ## Co dalej wgrać
 
@@ -62,6 +92,21 @@ zepsujesz: skrypt tylko czyta.
 | `OpenProcess failed` | uruchom PowerShell jako administrator i powtórz |
 | `a 64-bit Python is required` | zainstalowana jest wersja 32-bit — napisz, podam inną drogę |
 | `Microsoft.PowerShell... nie można rozpoznać` | wklej jeszcze raz cały blok, od pierwszej linii |
+| `Nie można utworzyć bezpiecznego kanału SSL/TLS` | to był stary blok; nowy pobiera przez Pythona — wklej go od nowa |
+| `can't open file ... mem_carve.py` | plik się nie pobrał; nowy blok sam sprawdza, czy plik jest |
+| `NIE UDALO SIE POBRAC` | obie drogi zawiodły — użyj drogi z przeglądarki (niżej) i wklej blok jeszcze raz |
+
+## Jeśli pobieranie nie wyjdzie (droga z przeglądarki)
+
+Przeglądarka ma nowsze TLS niż stary PowerShell, więc ta droga działa zawsze:
+
+1. Otwórz w przeglądarce:
+   `https://github.com/szybkoiwyraznie-rgb/mtgcrawler/raw/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py`
+2. W przeglądarce powinien pokazać się kod. Naciśnij **Ctrl+S** i zapisz plik
+   **dokładnie** jako `mem_carve.py` **na Pulpicie** (typ: wszystkie pliki; jeśli
+   przeglądarka dopisze `.txt`, usuń to końcówkę).
+3. Wróć do PowerShella i wklej ten sam blok — zobaczy, że plik już jest, i pójdzie
+   dalej bez pobierania.
 
 ## Czego skrypt NIE robi
 

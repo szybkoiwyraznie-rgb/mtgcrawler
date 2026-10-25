@@ -205,6 +205,15 @@ folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
 | 3 | Content translation in chapters, reviewed batch by batch | not started |
 | 4 | Packaging: patcher or loader package, README for the owner, delivery receipt | not started |
 
+## Where S3 stands
+
+The runtime carver is written, self-tested and pushed; the owner's first run
+failed only on the download step (old PowerShell + TLS 1.0 → GitHub refused the
+connection). `docs/OWNER_STEPS_S3.md` now downloads the script **with Python**,
+keeps a TLS 1.2 PowerShell fallback and a "browser → Ctrl+S" route, and checks the
+file exists before running it. Waiting for: two `carve_report.json` files in Drive
+`SRW/SRWY`. `runtime_tested` stays `false` — the carver has never seen the game.
+
 ## Explicit non-claims
 
 - No Polish text exists yet; no coverage percentage exists yet.

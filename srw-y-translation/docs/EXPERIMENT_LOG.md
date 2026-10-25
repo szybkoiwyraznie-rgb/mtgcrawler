@@ -326,3 +326,21 @@ inputs (size, SHA-256 where available) and the result, labelled
 - **Next:** `docs/OWNER_STEPS_S3.md` — self-test, scan at the title screen, scan
   with a dialogue scene loaded, upload the two small reports. `runtime_tested`
   stays `false` until the owner's run reports back.
+- **Owner's first S3 run — delivery bug, not a script bug [2026-10-25]:**
+  the sheet downloaded `mem_carve.py` with a bare `Invoke-WebRequest`. On the
+  owner's machine (Windows PowerShell 5.1, TLS 1.0 default) GitHub answered with
+  `Żądanie zostało przerwane: Nie można utworzyć bezpiecznego kanału SSL/TLS`,
+  so the file never landed and `--selftest` failed with `can't open file
+  ...\Desktop\mem_carve.py`. The run also stopped at the first `Read-Host`, which
+  is expected. Fix in `docs/OWNER_STEPS_S3.md`: the download is now done **by
+  Python** (`urllib.request.urlretrieve` over HTTPS, which negotiates TLS 1.2/1.3
+  from the OS store), with two mirror URLs, `Test-Path` + size guards (a stub
+  under 5,000 B is deleted and retried), PowerShell only as a fallback *after*
+  `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`,
+  a `Ctrl+C` note for the stuck prompt, a manual "browser → Ctrl+S" route, and
+  troubleshooting rows for `NIE UDALO SIE POBRAC` and the TLS error. The block is
+  verified pure ASCII, and the spaced download path was rehearsed in the sandbox
+  (`/tmp/Jacek PC/Desktop/mem_carve.py` → `self-test: PASS`).
+- **Lesson for every owner-facing sheet:** never use a bare `Invoke-WebRequest`
+  against GitHub; use Python `urllib`, or set TLS 1.2 first, or point the owner at
+  the browser. Nothing about the carver itself changed.
