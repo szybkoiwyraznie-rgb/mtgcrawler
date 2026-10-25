@@ -386,3 +386,25 @@ whose sizes we know (text tables + scenario scripts) so later lines need no furt
 `docs/OWNER_STEPS_S3_OPENING.md` is the sheet; `docs/OPENING_PL_DRAFT.md` holds the Polish
 draft of the opening paragraph with the byte budget (English 326 B, faithful Polish 338 B,
 tight Polish 255 B).
+
+### S3 closed: the key is found (2026-10-27) — **confirmed**
+
+The previous section assumed a plaintext had to come from the running game once. It no
+longer does. The cipher is the published `SeekableAesStream` with
+`password = "ComBBStudioSRTeam"`, salt = the bundle's own file name minus `.bundle`,
+key = `PasswordDeriveBytes(password, salt).GetBytes(16)` (PBKDF1-SHA1, 100 rounds),
+AES-128-ECB over `LE32(n) || 0^12` from n = 1. `tools/srw_y_bundle_crypt.py verify`
+decrypts **276 of 276** known pairs byte for byte (32-byte oracle and the 32 KiB carved
+head). Found by sweeping the 13,428 exact `Il2CppStringLiteral` records instead of
+printable runs, and confirmed in the code (`CustomAssetBundleResource::LoadLocalBundle`
+RVA `0xbce440`, `SeekableAesStream::.ctor` RVA `0x429cf0`). Full record:
+[`S3_KEY_FOUND.md`](S3_KEY_FOUND.md).
+
+Consequence: every bundle can be decoded and re-encoded on disk, offline, with no game
+running and no memory capture — including the text tables and the scenario scripts that
+were never in the pair set. The next deliverable is the opening narration;
+[`OWNER_STEPS_S4_TEXT.md`](OWNER_STEPS_S4_TEXT.md) asks the owner for the four bundles
+that hold it (`dialog_text_en-US`, `dialog_text_ja-JP`, en + jp scenario scripts).
+
+Not yet run in the game: that a re-encrypted bundle loads. That is the first owner
+install and the only claim this document does not make.

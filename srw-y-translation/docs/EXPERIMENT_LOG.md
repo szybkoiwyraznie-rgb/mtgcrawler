@@ -731,3 +731,31 @@ pair for the carved file comes from the owner's disk copy, matched by size.
 
 Suite: **224 tests, OK**. Polish draft of the opening, with the byte budget worked out, is
 in `docs/OPENING_PL_DRAFT.md`.
+
+## 2026-10-27 — S3 closed: the bundle cipher is recovered
+
+- **Hypothesis tested [negative, then positive]:** nine sweeps had already excluded
+  716,558 direct keys, 12,500 PBKDF2 derivations and 428,538 printable literals. The
+  untested assumption was that the password is a *printable run* in the binary. The
+  sweep was rerun over the 13,428 `Il2CppStringLiteral` records chosen by their own
+  length/data index: **hit on the first pair** in 73 s —
+  `password = ComBBStudioSRTeam`, salt `stem`, 100 iterations.
+- **Why the earlier sweeps missed it [confirmed]:** the printable-run extractor never
+  emitted that literal as one run (it is stored in the literal blob, not in a general
+  string area), so a candidate that was always in the file never entered the list.
+- **Independent confirmation [confirmed]:** `tools/il2cpp_modules.py` finds 81
+  `Il2CppCodeGenModule` records (147,184 methods; `Assembly-CSharp` 37,353). Mapping
+  metadata to those arrays puts `SeekableAesStream` at 14 methods (`.ctor` RVA
+  `0x429cf0`, `Cipher` `0x429840`) and shows its only call site,
+  `CustomAssetBundleResource::LoadLocalBundle` RVA `0xbce440`, passing the password
+  from one fixed slot and `Encoding.UTF8.GetBytes(...)` of the file name as the salt.
+- **Verification [confirmed]:** `srw_y_bundle_crypt.py verify` → 276/276 pairs match on
+  the 32-byte oracle and 276/276 on the carved 32 KiB head. The apparent full-length
+  mismatch at offset 32,768 is the memory carve ending there and zero-filling the rest,
+  not the cipher.
+- **Tooling added:** `tools/srw_y_bundle_crypt.py` (derive/decrypt/encrypt/verify, 17
+  tests), `tools/il2cpp_modules.py` (PE + module records), `tools/key_matrix.py`
+  (key-derivation x counter-layout matrix, 16.1 M checks, all negative — kept as
+  evidence). Suite: **263 tests OK**.
+- **Consequence:** any bundle can be opened and rewritten offline. The S4 sheet asks the
+  owner for the four bundles holding the opening; no memory run is needed again.
