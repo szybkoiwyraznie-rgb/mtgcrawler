@@ -344,3 +344,25 @@ inputs (size, SHA-256 where available) and the result, labelled
 - **Lesson for every owner-facing sheet:** never use a bare `Invoke-WebRequest`
   against GitHub; use Python `urllib`, or set TLS 1.2 first, or point the owner at
   the browser. Nothing about the carver itself changed.
+- **Second owner attempt — the chat client rewrites URLs [2026-10-25]:**
+  the owner pasted the *previous* block again (the one with `Invoke-WebRequest`
+  first), so the TLS failure repeated, and the paste shows what really happened
+  to the text on the way in: `https://raw.githubusercontent.com/...` arrived as
+  `[https://raw.githubusercontent.com/...](https://raw.githubusercontent.com/...)`
+  and `mem_carve.py` arrived as `mem_[carve.py](http://carve.py)`. Any bare URL or
+  `*.py` filename in a chat message is auto-linked by the client, so a copied
+  block is no longer valid PowerShell or a valid URL. The console was also full
+  of `>>` continuation prompts, i.e. the earlier truncated paste had left an
+  unclosed construct and everything after it was being swallowed as input.
+- **Rule added:** owner-facing blocks must contain **no literal URLs and no
+  `name.ext` tokens**. The download URL is now assembled in PowerShell from
+  fragments (`[char]58` for `:`, `[char]46` for `.`) and the destination is
+  `Join-Path $env:USERPROFILE ("Desktop\mem_carve" + [char]46 + "py")`, so the
+  block survives the client's linkification. Assembled output was checked to be
+  byte-identical to both real URLs, and the `python -c urlretrieve` plumbing was
+  rehearsed with a spaced path (`self-test: PASS`).
+- **Rule added:** keep every statement on **one line** and have no mandatory
+  multi-line block, so a truncated paste fails loudly instead of silently
+  swallowing the rest of the block into a `>>` continuation. The sheet also tells
+  the owner to press `Ctrl+C` and wait for a normal `PS D:\...>` prompt before
+  pasting.

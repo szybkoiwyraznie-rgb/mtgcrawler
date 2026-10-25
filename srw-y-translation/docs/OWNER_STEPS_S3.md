@@ -16,43 +16,32 @@ Na ich podstawie policzę, ile tekstu ma gra.
 Najpierw **uruchom grę** i zostań na ekranie tytułowym (gra ma działać w tle).
 Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter.
 
-> **Poprawka po Twoim błędzie:** `Invoke-WebRequest` w starym PowerShellu domyślnie
-> używa TLS 1.0, a GitHub wymaga nowszego — stąd "Nie można utworzyć bezpiecznego
-> kanału SSL/TLS". W nowym bloku plik pobiera **Python** (sam negocjuje nowsze
-> TLS), a PowerShell jest tylko w odwodzie, z wymuszonym TLS 1.2.
+> **Dwie poprawki po Twoich próbach.** (1) Stary PowerShell używa TLS 1.0, a
+> GitHub wymaga nowszego — stąd "Nie można utworzyć bezpiecznego kanału SSL/TLS".
+> Teraz plik pobiera **Python**, który sam negocjuje nowsze TLS. (2) Twój
+> komunikator zamienia adresy i nazwy plików na klikalne linki, więc po
+> skopiowaniu blok zamieniał się w `[https://...](https://...)`. Dlatego w bloku
+> **nie ma ani jednego adresu** — jest składany z kawałków (`[char]58` to dwukropek,
+> `[char]46` to kropka). Wygląda dziwnie, ale właśnie dlatego przetrwa kopiowanie.
+>
+> Zanim wkleisz: jeśli w konsoli widzisz na początku linii `>>` (PowerShell czeka
+> na dokończenie niedomkniętego bloku po przerwanej próbie), naciśnij **Ctrl+C**
+> i dopiero wtedy wklej — znak zachęty musi wyglądać zwykle, np. `PS D:\Games\SUPER ROBOT WARS Y>`.
 
 ```powershell
-$py = "$env:USERPROFILE\Desktop\mem_carve.py"
-$urls = @(
-  "https://raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py",
-  "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/raw/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py"
-)
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Remove-Item -LiteralPath $py -ErrorAction SilentlyContinue
-foreach ($u in $urls) {
-  if (Test-Path -LiteralPath $py) { break }
-  python -c "import urllib.request,sys; urllib.request.urlretrieve(sys.argv[1], sys.argv[2])" $u $py 2>$null
-  if ((Test-Path -LiteralPath $py) -and ((Get-Item -LiteralPath $py).Length -lt 5000)) {
-    Remove-Item -LiteralPath $py
-  }
-  if (!(Test-Path -LiteralPath $py)) {
-    try { Invoke-WebRequest -UseBasicParsing -Uri $u -OutFile $py } catch { }
-  }
-  if ((Test-Path -LiteralPath $py) -and ((Get-Item -LiteralPath $py).Length -lt 5000)) {
-    Remove-Item -LiteralPath $py
-  }
-}
-if (!(Test-Path -LiteralPath $py)) {
-  Write-Host "NIE UDALO SIE POBRAC - wyslij mi to, co jest wyzej" -ForegroundColor Red
-  return
-}
-Write-Host "=== TEST (bez gry, powinno byc PASS) ===" -ForegroundColor Cyan
+$py = Join-Path $env:USERPROFILE ("Desktop\mem_carve" + [char]46 + "py")
+$u1 = "https" + [char]58 + "//raw" + [char]46 + "githubusercontent" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve" + [char]46 + "py"
+$u2 = "https" + [char]58 + "//github" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/raw/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve" + [char]46 + "py"
+python -c "import urllib.request,sys;urllib.request.urlretrieve(sys.argv[1],sys.argv[2])" $u1 $py
+if (-not (Test-Path $py)) { python -c "import urllib.request,sys;urllib.request.urlretrieve(sys.argv[1],sys.argv[2])" $u2 $py }
+if (-not (Test-Path $py)) { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri $u2 -OutFile $py }
+if ((Test-Path $py) -and -not (Select-String -LiteralPath $py -Pattern "carve_plan" -Quiet)) { Remove-Item $py }
+if (-not (Test-Path $py)) { Write-Host "POBRANIE NIE UDALO SIE - napisz mi to, co widac wyzej" -ForegroundColor Red }
 python $py --selftest
 Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter"
 python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_1"
 Read-Host "KROK 2: wejdz w misje tak, zeby dialog byl widoczny - nacisnij Enter"
 python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_2"
-Write-Host "=== GOTOWE - otwieram dwa foldery z raportami ===" -ForegroundColor Green
 explorer "$env:USERPROFILE\Desktop\srw_y_carve_1"
 explorer "$env:USERPROFILE\Desktop\srw_y_carve_2"
 ```
