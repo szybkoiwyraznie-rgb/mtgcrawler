@@ -16,34 +16,39 @@ Na ich podstawie policzę, ile tekstu ma gra.
 Najpierw **uruchom grę** i zostań na ekranie tytułowym (gra ma działać w tle).
 Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter.
 
-> **Dwie poprawki po Twoich próbach.** (1) Stary PowerShell używa TLS 1.0, a
-> GitHub wymaga nowszego — stąd "Nie można utworzyć bezpiecznego kanału SSL/TLS".
-> Teraz plik pobiera **Python**, który sam negocjuje nowsze TLS. (2) Twój
-> komunikator zamienia adresy i nazwy plików na klikalne linki, więc po
-> skopiowaniu blok zamieniał się w `[https://...](https://...)`. Dlatego w bloku
-> **nie ma ani jednego adresu** — jest składany z kawałków (`[char]58` to dwukropek,
-> `[char]46` to kropka). Wygląda dziwnie, ale właśnie dlatego przetrwa kopiowanie.
+> **Trzecia poprawka — najważniejsza.** Poprzedni blok pobierał plik tylko
+> wtedy, gdy go nie było, więc nieudane pobranie zostawiało **stary** skrypt i
+> błąd wyglądał identycznie jak błąd w programie. Teraz blok: (1) **kasuje** stary
+> plik, (2) pobiera wersję przypiętą do konkretnego commita (`$sha`), więc nie ma
+> czego zcache'ować, (3) **sprawdza numer wersji** w pliku i bez zgodności nic nie
+> uruchamia. Poprawny skrypt wypisuje na starcie `mem_carve 2026-10-25.5` — jeśli
+> tej linii nie ma, to znaczy, że pobrało się coś innego.
 >
-> Zanim wkleisz: jeśli w konsoli widzisz na początku linii `>>` (PowerShell czeka
-> na dokończenie niedomkniętego bloku po przerwanej próbie), naciśnij **Ctrl+C**
-> i dopiero wtedy wklej — znak zachęty musi wyglądać zwykle, np. `PS D:\Games\SUPER ROBOT WARS Y>`.
+> Przypomnienie: w bloku nie ma ani jednego adresu ani nazwy pliku, bo komunikator
+> zamienia je w linki — adres składa się z kawałków (`[char]58` to dwukropek,
+> `[char]46` to kropka). Jeśli w konsoli widzisz `>>`, naciśnij **Ctrl+C** i wklej
+> od nowa.
 
 ```powershell
 $py = Join-Path $env:USERPROFILE ("Desktop\mem_carve" + [char]46 + "py")
-$u1 = "https" + [char]58 + "//raw" + [char]46 + "githubusercontent" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve" + [char]46 + "py"
-$u2 = "https" + [char]58 + "//github" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/raw/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve" + [char]46 + "py"
+$want = "2026-10-25" + [char]46 + "5"
+$sha = "4081499d3a06b4f2f8d55e1cf0a78fc2cc2aad3f"
+$u1 = "https" + [char]58 + "//raw" + [char]46 + "githubusercontent" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/mem_carve" + [char]46 + "py"
+$u2 = "https" + [char]58 + "//github" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/raw/" + $sha + "/srw-y-translation/tools/mem_carve" + [char]46 + "py"
+Remove-Item -LiteralPath $py -ErrorAction SilentlyContinue
 python -c "import urllib.request,sys;urllib.request.urlretrieve(sys.argv[1],sys.argv[2])" $u1 $py
 if (-not (Test-Path $py)) { python -c "import urllib.request,sys;urllib.request.urlretrieve(sys.argv[1],sys.argv[2])" $u2 $py }
 if (-not (Test-Path $py)) { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri $u2 -OutFile $py }
-if ((Test-Path $py) -and -not (Select-String -LiteralPath $py -Pattern "carve_plan" -Quiet)) { Remove-Item $py }
-if (-not (Test-Path $py)) { Write-Host "POBRANIE NIE UDALO SIE - napisz mi to, co widac wyzej" -ForegroundColor Red }
-python $py --selftest
-Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter"
-python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_1"
-Read-Host "KROK 2: wejdz w misje tak, zeby dialog byl widoczny - nacisnij Enter"
-python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_2"
-explorer "$env:USERPROFILE\Desktop\srw_y_carve_1"
-explorer "$env:USERPROFILE\Desktop\srw_y_carve_2"
+$ok = (Test-Path $py) -and (Select-String -LiteralPath $py -Pattern $want -Quiet)
+if (-not (Test-Path $py)) { Write-Host "POBRANIE NIE UDALO SIE - napisz mi to" -ForegroundColor Red }
+if ((Test-Path $py) -and -not $ok) { Write-Host "POBRAL SIE STARY PLIK - napisz mi to" -ForegroundColor Red; Remove-Item $py }
+if ($ok) { python $py --selftest }
+if ($ok) { Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter" }
+if ($ok) { python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_1" }
+if ($ok) { Read-Host "KROK 2: wejdz w misje tak, zeby dialog byl widoczny - nacisnij Enter" }
+if ($ok) { python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_2" }
+if ($ok) { explorer "$env:USERPROFILE\Desktop\srw_y_carve_1" }
+if ($ok) { explorer "$env:USERPROFILE\Desktop\srw_y_carve_2" }
 ```
 
 > Jeśli wisisz teraz na `KROK 1: ... nacisnij Enter` z poprzedniej próby -
@@ -109,7 +114,9 @@ zepsujesz: skrypt tylko czyta.
 | `Microsoft.PowerShell... nie można rozpoznać` | wklej jeszcze raz cały blok, od pierwszej linii |
 | `Nie można utworzyć bezpiecznego kanału SSL/TLS` | to był stary blok; nowy pobiera przez Pythona — wklej go od nowa |
 | `can't open file ... mem_carve.py` | plik się nie pobrał; nowy blok sam sprawdza, czy plik jest |
-| `NIE UDALO SIE POBRAC` | obie drogi zawiodły — użyj drogi z przeglądarki (niżej) i wklej blok jeszcze raz |
+| `POBRANIE NIE UDALO SIE` | obie drogi zawiodły — użyj drogi z przeglądarki (niżej) i wklej blok jeszcze raz |
+| `POBRAL SIE STARY PLIK` | pobrało się coś innego niż wersja 2026-10-25.5 — napisz mi to |
+| brak linii `mem_carve 2026-10-25.5` na starcie | to stary skrypt; wklej blok jeszcze raz |
 
 ## Jeśli pobieranie nie wyjdzie (droga z przeglądarki)
 

@@ -456,3 +456,22 @@ inputs (size, SHA-256 where available) and the result, labelled
 - **Cost check:** the object scanner runs at ~25 MB/s, so a 2 GB scan adds about a
   minute to each of the two reads. The sheet now says the read may take 1-3
   minutes instead of "a few seconds".
+- **Second identical crash: the download was stale, not the code [2026-10-25]:**
+  the owner reported the *same* traceback twice — `NameError` at line 643,
+  `live_scan` at 759, `main()` at 801. Those line numbers belong to the **old**
+  file (`9984680`, 801 lines); the fixed one has no error there and is longer.
+  Diagnosis: the paste-block downloaded only `if (-not (Test-Path $py))`, so a
+  failed fetch left the previous script on the Desktop, every guard passed
+  (`carve_plan` was present in the old file too), and the owner ran the buggy
+  version again. Two lessons, both now rules:
+  - **delete the old copy before downloading**, never "download if missing";
+  - **pin the URL to a commit SHA** (`.../mtgcrawler/4081499d.../tools/mem_carve.py`)
+    so no CDN cache can serve an older body;
+  - **verify a version stamp in the fetched file** before running it, and stop
+    with a red line if it is missing. `mem_carve.py` now carries
+    `SCRIPT_VERSION = "2026-10-25.5"`, prints `mem_carve 2026-10-25.5` as its
+    first line and records the version in every report.
+  - the run steps are guarded by `$ok`, so a failed or stale download cannot fall
+    through into a scan.
+  Tests **108/108** (version shape, and that `--selftest` prints the banner the
+  block greps for).
