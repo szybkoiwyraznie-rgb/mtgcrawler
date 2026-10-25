@@ -153,3 +153,44 @@ Arkusze: [`OWNER_STEPS_S6_TEXT_UPLOAD.md`](OWNER_STEPS_S6_TEXT_UPLOAD.md) (podst
 i [`OWNER_STEPS_S6B_DLC_CATALOGS.md`](OWNER_STEPS_S6B_DLC_CATALOGS.md) (indeksy DLC),
 generowane przez `tools/build_text_upload_request.py` i
 `tools/build_dlc_catalog_request.py`.
+
+### 6a. Wynik po odebraniu indeksów DLC [confirmed, 2026-10-25]
+
+Indeksy doszły (`google_drive/srw_y_dlc_catalog.zip`, 2 884 114 B, rozpakowane do
+`local/dlc_catalog/`, 10 × `.json` + `.hash`) i przeszły to samo rozwiązanie adresów
+co podstawka (`tools/map_catalog.py`): **0 nierozwiązanych** w każdym zestawie.
+
+Skrypty scenariusza w DLC leżą pod **dwoma** rodami adresów, nie jednym:
+
+| ród adresów | gdzie |
+|---|---|
+| `Assets/Datas/Scenario/<lang>/…` | BonusMission, Dlc1, Dlc2, EarlyPurchase, SeasonPassBonus, Deluxe/Ultimate |
+| `Assets/DLC_EXP{,2}/PaidContent/Scenario/<lang>/…` | AnniversaryExpansionPack (630), ExpansionPack (439) |
+
+Gdyby patrzeć tylko na pierwszy ród, wypadłoby 269 z 601 potrzebnych plików — dlatego
+filtr w `tools/build_dlc_bundle_request.py` dopasowuje parę `Scenario/<lang>/`.
+
+**Tabele językowe:** DLC nie mają własnych. Interfejs i opisy dodatków są w tabelach
+`ja-JP`/`en-US` z `aa` (12 bundli z arkusza S6, w tym cztery DLC i dwie zaślepki).
+
+**Skrypty DLC są tanie:** każdy skrypt to osobny bundle 5–18 kB. Dla `jp` + `en`:
+
+| zestaw | `jp` | `en` |
+|---|---|---|
+| AnniversaryExpansionPack | 105 | 105 |
+| BonusMission | 33 | 35 |
+| Dlc1 | 46 | **brak** |
+| Dlc2 | 51 | 51 |
+| EarlyPurchase | 5 | 5 |
+| ExpansionPack | 75 | 74 |
+| SeasonPassBonus | 5 | 5 |
+| Deluxe / Ultimate / PremiumSound | po 1 | po 1 |
+
+Razem **601 plików, 7 032 042 B** — i **zero wspólnych nazw** z 30 bundlami
+scenariusza z podstawki (sprawdzone), więc nic się nie dubluje. Lista:
+[`OWNER_STEPS_S6C_DLC_BUNDLES.md`](OWNER_STEPS_S6C_DLC_BUNDLES.md),
+`tools/collect_dlc_bundles.ps1`, dane: `local/dlc_scenario_bundles.json`.
+
+Jedyna otwarta kwestia: **`Dlc1` nie ma w indeksie ani jednego skryptu `en`**
+(46 `jp`, 0 `en`). Albo tak jest w grze, albo angielski leży w innym zestawie —
+w pakiecie zobaczymy to wprost (misje Dlc1 zostaną z samym jp).
