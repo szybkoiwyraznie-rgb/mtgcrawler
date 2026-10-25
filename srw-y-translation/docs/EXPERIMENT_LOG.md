@@ -37,3 +37,38 @@ inputs (size, SHA-256 where available) and the result, labelled
   text containers are still unlocated (`docs/FEASIBILITY.md` step S1).
 - **Runtime status:** **none**. Nothing has been modified or run; `runtime_tested`
   is `false`.
+
+## 2026-10-25 — first owner attempt at S1 (two failed commands, both my fault)
+
+- **What the owner ran:** from `D:\Games\SUPER ROBOT WARS Y`, first
+  `python tools\inventory_build.py --root "C:\ścieżka\do\SRWY" --out build_report.json`
+  and then `dir /s /b > listing.txt` / `dir /s > listing_sizes.txt`.
+- **Result: both failed.**
+  1. `can't open file 'D:\Games\SUPER ROBOT WARS Y\tools\inventory_[build.py](http://build.py)'`
+     — the file name arrived from the chat as a *markdown link*, and the tool was
+     never in the game folder to begin with (it is in the repository, which the
+     owner does not have checked out). The literal `C:\ścieżka\do\SRWY`
+     placeholder was also left as-is.
+  2. `dir : Cannot find path 'D:\s'` — `dir /s /b` is `cmd.exe` syntax;
+     in PowerShell `dir` is an alias for `Get-ChildItem` and `/s` is parsed as
+     a path.
+- **Diagnosis:** my instructions, not the owner's typing. A step meant for a
+  machine that already has the repo was given to a machine that does not.
+- **Fix (this commit):**
+  - new `tools/inventory_build.ps1` — same metadata-only inventory in pure
+    Windows PowerShell 5.1 (no Python, no modules): relative paths, sizes,
+    magic-number family (`CPK `, `UnityFS`, `MZ`, `BLTU`, …), and flags for
+    IL2CPP/Unity/MelonLoader/BepInEx/Doorstop presence. It reads at most 16 bytes
+    per file and writes one text report; the folder prefix is stripped, so the
+    report carries no user name.
+  - new `docs/OWNER_STEPS_S1.md` — copy-paste block, three routes (PowerShell
+    download-and-run, Python download-and-run, plain listing fallback), the
+    corrected `cmd /c "dir /s /b > …"` form, and an explicit note that the
+    scripts must be downloaded first because they are not in the game folder.
+  - `docs/FEASIBILITY.md` S1 rewritten to match.
+- **Verification status of the new script:** **not executed in the sandbox** —
+  no PowerShell is available here (only Python 3.11), so the `.ps1` is written
+  conservatively for Windows PowerShell 5.1 and its first real run will be on
+  the owner's machine. The Python tool keeps its 8 green tests. Reported as
+  unknown, not as working.
+- **Runtime:** still none; nothing in the game folder has been read or modified.

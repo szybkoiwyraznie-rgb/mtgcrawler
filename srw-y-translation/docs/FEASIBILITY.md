@@ -59,10 +59,20 @@ Each step has an input, an output and a pass criterion. Results go into
 ### S1 — Build inventory (owner side, ~5 minutes)
 
 - **Input:** the game folder (owner's machine).
-- **Action:** run `tools/inventory_build.py --root "<game dir>" --out build_report.json`
-  (metadata only: relative paths, sizes, magic numbers, hashes of small files).
-  If Python is unavailable, `dir /s /b > listing.txt` plus `dir /s > listing_sizes.txt`
-  in the game folder is enough to start.
+- **Action:** copy-paste steps for the owner are in
+  [`OWNER_STEPS_S1.md`](OWNER_STEPS_S1.md). Two supported routes, both producing
+  metadata only:
+  - **Python 3 (primary, covered by tests):** download `tools/inventory_build.py`
+    to a scratch folder (it does **not** live in the game folder) and run
+    `python inventory_build.py --root "<game dir>" --out build_report.json`.
+  - **PowerShell, no Python:** `tools/inventory_build.ps1 -Root "<game dir>"`
+    writes `srw_y_inventory.txt` (relative paths, sizes, magic family, flags);
+    written for Windows PowerShell 5.1 but **not executed in the sandbox** (no
+    PowerShell available there), so its first real run is the owner's.
+  - Fallback: a plain listing — `Get-ChildItem -Recurse -File` in PowerShell.
+    Note that `dir /s /b > listing.txt` is `cmd.exe` syntax and fails in
+    PowerShell (`/s` is read as a path); use `cmd /c "dir /s /b > listing.txt"`
+    if a plain cmd listing is wanted.
 - **Pass:** we can name the data container(s), the Unity data folder and the
   executable, and see whether text bundles sit beside the container.
 - **Output:** `build_report.json` (or the listings) uploaded to the Drive folder
