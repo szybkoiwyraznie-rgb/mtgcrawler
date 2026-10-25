@@ -38,7 +38,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "2026-10-26.5"
+SCRIPT_VERSION = "2026-10-26.6"
 
 # ---------------------------------------------------------------- bundle facts
 # Taken from bundles carved out of the game's memory: one distinct prefix across
@@ -162,7 +162,12 @@ def scan_arrays(buffer: bytes, sizes=ARRAY_SIZES) -> list[tuple[int, int, bytes]
         short = size.to_bytes(4, "little")
         at = buffer.find(short)
         while at >= 0:
-            if (at >= 16 and buffer[at - 8:at] == zeros
+            monitor = buffer[at - 8:at] if at >= 8 else b""
+            # the word before the length is the object's sync block: zero for a
+            # normal object, a pointer for a locked one (a thin lock). Requiring
+            # zero - as the earlier versions did - hides every locked array.
+            monitor_ok = monitor == zeros or looks_like_pointer(monitor)
+            if (at >= 16 and monitor_ok
                     and looks_like_pointer(buffer[at - 16:at - 8])):
                 for offset in PAYLOAD_OFFSETS:
                     start = at + offset

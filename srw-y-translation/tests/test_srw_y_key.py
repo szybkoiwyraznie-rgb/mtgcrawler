@@ -88,7 +88,7 @@ def heap_with(*payloads: bytes) -> bytes:
 
 class VersionTests(unittest.TestCase):
     def test_version_is_pinned(self):
-        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.5")
+        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.6")
 
     def test_cli_version(self):
         result = subprocess.run([sys.executable, SCRIPT, "--version"],
@@ -106,7 +106,7 @@ class SelfTestTests(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("selftest: PASS", result.stdout)
-        self.assertIn("2026-10-26.5", result.stdout)
+        self.assertIn("2026-10-26.6", result.stdout)
 
 
 @unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
@@ -150,6 +150,15 @@ class ScanTests(unittest.TestCase):
                     + b"\x00" * (offset - 4) + payload)
             found = [item for item in S.scan_arrays(blob) if item[2] == payload]
             self.assertTrue(found, f"payload at +{offset} not found")
+
+    def test_a_locked_object_still_yields_its_array(self):
+        """A thin lock puts a pointer in the sync block; the array is still there."""
+        klass = (0x1F1803285D0).to_bytes(8, "little")
+        lock = (0x1F1C0000A00).to_bytes(8, "little")
+        payload = bytes(range(32))
+        blob = klass + lock + struct.pack("<i", 32) + payload
+        found = [item for item in S.scan_arrays(blob) if item[2] == payload]
+        self.assertTrue(found)
 
     def test_constant_payloads_are_ignored(self):
         klass = (0x1F1803285D0).to_bytes(8, "little")

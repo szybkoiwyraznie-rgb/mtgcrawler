@@ -584,3 +584,13 @@ inputs (size, SHA-256 where available) and the result, labelled
     CBC), which is worth knowing.
   - `--passes N --wait S` rescans, so a key that only exists while the game is
     decrypting can still be caught.
+- **Two more hypotheses tested while building 2026-10-26.6:**
+  - *One keystream for every file?* No. The two encrypted samples we hold start with
+    different bytes (`d2d7592e...` vs `d8768263...`), and their plaintext prefixes are
+    identical, so each file has its own IV - a fixed keystream is ruled out and
+    per-file pairs would be needed for a keyless patch.
+  - *Locked arrays.* The array scan required the 8-byte word before the length to be
+    zero. That word is the object's sync block, which holds a thin-lock pointer while
+    the object is locked - so a locked key array was invisible. Both are accepted
+    now, and the cost is nil: 16 MB of bundle-and-noise filler yields 0 candidates
+    either way, so the filter that matters is the class-pointer check.
