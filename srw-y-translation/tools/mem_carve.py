@@ -458,8 +458,6 @@ def run_from_file(path: Path, out_dir: Path, budget: int) -> dict:
     report["carved"] = carved
     utf16: set = set()
     utf8: set = set()
-    object_hits: list = []          # (klass, address, text), filtered at the end
-    klass_counts: dict = {}
     harvest_buffer(buffer, utf16, utf8)
     report["strings"] = {
         "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
@@ -604,6 +602,8 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
     kana = {"runs": 0, "chars": 0, "longest": 0}
     utf16: set = set()
     utf8: set = set()
+    object_hits: list = []          # (klass, address, text), filtered at the end
+    klass_counts: dict = {}
     address = 0
     mbi = MEMORY_BASIC_INFORMATION()
     try:

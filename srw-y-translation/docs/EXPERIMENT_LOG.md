@@ -440,3 +440,19 @@ inputs (size, SHA-256 where available) and the result, labelled
     report. 104 tests.
   - No menu labels and no scenario dialogue in those four samples: the dumps are
     7.6 MB of a ~2 GB space, so a full-heap pass is the next step.
+- **The fourth run crashed before it started — my bug, not the owner's [2026-10-25]:**
+  `NameError: name 'object_hits' is not defined` at the first `Read-Host`. The
+  patch that added the string-object accumulator anchored on the first
+  `utf16: set = set()` in the file, which is in `run_from_file`, so the
+  initialisation landed in the wrong function and `live_scan` referenced
+  variables it never created. **Why it shipped:** `live_scan` only runs on
+  Windows, so no test ever executed it; the unit tests covered the pure helpers
+  around it and nothing else. Fixed by moving the initialisation into
+  `live_scan`, and by adding a **fake kernel32** to the suite — a `CFUNCTYPE`
+  stand-in for `VirtualQueryEx`/`ReadProcessMemory`/`OpenProcess`/`CloseHandle`
+  over an in-memory region list, so `live_scan` now runs end to end on Linux
+  (finds objects, carves a bundle, writes `strings_objects.tsv`, honours
+  `--no-text`). Suite **106/106**.
+- **Cost check:** the object scanner runs at ~25 MB/s, so a 2 GB scan adds about a
+  minute to each of the two reads. The sheet now says the read may take 1-3
+  minutes instead of "a few seconds".

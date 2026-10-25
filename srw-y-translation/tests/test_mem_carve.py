@@ -1,10 +1,12 @@
 """Memory carver tests — synthetic images only, no game and no Windows needed."""
 import json
+import ctypes
 import struct
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -327,3 +329,95 @@ class HarvestObjectTests(unittest.TestCase):
 
     def test_no_dominant_class_means_nothing(self):
         self.assertEqual(M.harvest_objects([(b"1" * 8, 0, "a")], {b"1" * 8: 3}), [])
+
+
+class FakeKernel:
+    """A tiny stand-in for kernel32 so `live_scan` can run in the test suite.
+
+    This exists because a `NameError` inside the scan loop shipped to the owner:
+    the loop is only ever exercised on Windows, so nothing caught a local that
+    was initialised in the wrong function. With this fake the whole scan runs on
+    any platform.
+    """
+
+    def __init__(self, regions):
+        self.regions = regions            # [(address, bytes)]
+        self.handle = 0x1234
+        VirtualQueryEx = ctypes.CFUNCTYPE(
+            ctypes.c_int, ctypes.c_void_p, ctypes.c_void_p,
+            ctypes.POINTER(M.MEMORY_BASIC_INFORMATION), ctypes.c_size_t)
+        ReadProcessMemory = ctypes.CFUNCTYPE(
+            ctypes.c_int, ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p,
+            ctypes.c_size_t, ctypes.POINTER(ctypes.c_size_t))
+        CloseHandle = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_void_p)
+        OpenProcess = ctypes.CFUNCTYPE(ctypes.c_void_p, ctypes.c_uint32,
+                                       ctypes.c_int, ctypes.c_uint32)
+        self.VirtualQueryEx = VirtualQueryEx(self._query)
+        self.ReadProcessMemory = ReadProcessMemory(self._read)
+        self.CloseHandle = CloseHandle(lambda handle: 1)
+        self.OpenProcess = OpenProcess(lambda access, inherit, pid: self.handle)
+
+    def _query(self, handle, address, mbi_ptr, size):
+        # like the real call: report the first region at or after the address,
+        # which is how the scan walks the space from 0
+        address = address or 0
+        for start, data in self.regions:
+            if start + len(data) > address:
+                mbi = mbi_ptr.contents
+                mbi.BaseAddress = start
+                mbi.RegionSize = len(data)
+                mbi.State = M.MEM_COMMIT
+                mbi.Protect = 0x04
+                return 1
+        return 0
+
+    def _read(self, handle, address, buffer, size, read_ptr):
+        address = address or 0
+        for start, data in self.regions:
+            if start <= address < start + len(data):
+                chunk = data[address - start:address - start + size]
+                ctypes.memmove(buffer, chunk, len(chunk))
+                read_ptr[0] = len(chunk)
+                return 1
+        read_ptr[0] = 0
+        return 0
+
+
+class LiveScanTests(unittest.TestCase):
+    def test_scan_runs_end_to_end(self):
+        text = "\u30d1\u30a4\u30ed\u30c3\u30c8\u3001\u51fa\u6483\u3057\u307e\u3059\u3002"
+        klass = bytes.fromhex("d0853280f1010000")
+        strings = b""
+        # `harvest_objects` only trusts a class pointer seen at least 50 times,
+        # which is what keeps false positives out on real heaps
+        for item in [text, "ja-JP", "M0078A_MOOTRON"] * 60:
+            raw = item.encode("utf-16-le")
+            strings += klass + b"\x00" * 8 + struct.pack("<i", len(item)) + raw
+        memory = (b"\x00" * 64 + unityfs(8192) + b"\x00" * 512 + strings)
+        kernel = FakeKernel([(0x10000000, memory)])
+
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw) / "carve"
+            with mock.patch.object(M, "win_api", lambda: kernel), \
+                    mock.patch.object(M, "process_pid", lambda name: 4242), \
+                    mock.patch.object(M.sys, "platform", "win32"):
+                report = M.live_scan("SUPER ROBOT WARS Y.exe", out, 1 << 20, 1 << 20)
+
+            self.assertIn("strings", report)
+            self.assertIn("objects", report["strings"])
+            self.assertGreater(report["strings"]["objects"]["objects"], 0)
+            self.assertTrue((out / "strings_objects.tsv").is_file())
+            tsv = (out / "strings_objects.tsv").read_text(encoding="utf-8")
+            self.assertIn("M0078A_MOOTRON", tsv)
+            self.assertTrue(any(item["kind"] == "bundle"
+                                for item in report["carved"]["written"]))
+
+    def test_no_text_flag_skips_harvest(self):
+        kernel = FakeKernel([(0x20000000, b"\x00" * 4096)])
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw) / "carve"
+            with mock.patch.object(M, "win_api", lambda: kernel), \
+                    mock.patch.object(M, "process_pid", lambda name: 4242), \
+                    mock.patch.object(M.sys, "platform", "win32"):
+                report = M.live_scan("x.exe", out, 1 << 20, 1 << 20, harvest=False)
+            self.assertEqual(report["strings"]["objects"]["objects"], 0)

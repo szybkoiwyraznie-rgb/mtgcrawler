@@ -54,8 +54,9 @@ Co się będzie działo po kolei:
 1. Plik `mem_carve.py` trafi na pulpit (pobiera go Python; jeśli się nie uda,
    PowerShell z TLS 1.2).
 2. Skrypt sam się przetestuje — musi pojawić się `self-test: PASS`.
-3. Zatrzyma się na `KROK 1: ...` — **naciśnij Enter**. Odczyt potrwa od kilku
-   sekund do minuty (okno może wyglądać na "zawieszone", to normalne).
+3. Zatrzyma się na `KROK 1: ...` — **naciśnij Enter**. Odczyt potrwa teraz
+   **od 1 do 3 minut** (skrypt czyta też napisy z pamięci), okno może wyglądać na
+   "zawieszone" — to normalne, nie zamykaj go.
 4. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w dowolną misję
    tak, żeby **dialog był widoczny na ekranie**, wróć i **naciśnij Enter**.
 5. Otworzą się dwa foldery: `srw_y_carve_1` i `srw_y_carve_2`.
