@@ -70,7 +70,12 @@ japońskiego tekstu ma gra.
 
 Blok się nie zmienił — skrypt sam się podmienia przy każdym uruchomieniu.
 
-Trzecia runda (ta sama wklejka) ma jeszcze jedną poprawkę: skrypt czyta teraz
+Czwarta runda (ta sama wklejka) dopisuje do folderów plik
+`strings_objects.tsv` — spis tekstów gry z pamięci, z adresami i długościami.
+Ten plik **wgraj razem z raportami** (może mieć kilkanaście MB, wchodzi bez
+problemu).
+
+Poprzednia poprawka: skrypt czyta teraz
 **całe** pliki z pamięci, także takie, które nie mieszczą się w jednym kawałku
 (poprzednio zawsze ucinał je na 8 MB), odrzuca fałszywe nagłówki i zapisuje w
 folderach po kilka surowych fragmentów pamięci (`region_..bin`) tam, gdzie jest

@@ -278,3 +278,52 @@ class FalseSerializedHeaderTests(unittest.TestCase):
         parsed = M.parse_serialized_header(header + b"\x00" * 64)
         self.assertIsNotNone(parsed)
         self.assertEqual(parsed["file_size"], 33554496)
+
+
+class StringObjectTests(unittest.TestCase):
+    """IL2CPP strings: `[klass 8][monitor 8][length 4][utf-16 chars]`."""
+
+    KLASS = bytes.fromhex("d0853280f1010000")     # ends in zeros, like real ones
+
+    @classmethod
+    def heap(cls, *texts: str) -> bytes:
+        blob = b""
+        for text in texts:
+            raw = text.encode("utf-16-le")
+            blob += cls.KLASS + b"\x00" * 8 + struct.pack("<i", len(text)) + raw
+            blob += b"\x00" * ((8 - len(blob) % 8) % 8)
+        return blob
+
+    def test_finds_strings_and_their_addresses(self):
+        blob = self.heap("\u30d1\u30a4\u30ed\u30c3\u30c8", "ja-JP")
+        hits = M.scan_string_objects(blob)
+        self.assertEqual([text for _, _, text in hits],
+                         ["\u30d1\u30a4\u30ed\u30c3\u30c8", "ja-JP"])
+        self.assertEqual(hits[0][1], 0)
+        self.assertEqual(hits[0][0], self.KLASS)
+
+    def test_class_pointer_ending_in_zeros_is_handled(self):
+        # the klass pointer itself ends in 00 00, so the zero run starts inside
+        # it; anchoring on the run start (the first attempt) found nothing
+        blob = self.heap("abc")
+        self.assertTrue(M.scan_string_objects(blob))
+
+    def test_empty_and_absurd_lengths_ignored(self):
+        blob = self.KLASS + b"\x00" * 8 + struct.pack("<i", 0) + b"x" * 32
+        blob += self.KLASS + b"\x00" * 8 + struct.pack("<i", 99999) + b"y" * 32
+        self.assertEqual(M.scan_string_objects(blob), [])
+
+
+class HarvestObjectTests(unittest.TestCase):
+    def test_dominant_class_kept_and_text_deduplicated(self):
+        other = bytes.fromhex("1122334455667788")
+        hits = [(M.KLASS if hasattr(M, "KLASS") else bytes.fromhex("d0853280f1010000"), 0, "a"),
+                (bytes.fromhex("d0853280f1010000"), 32, "a"),
+                (bytes.fromhex("d0853280f1010000"), 64, "b"),
+                (other, 96, "c")]
+        counts = {bytes.fromhex("d0853280f1010000"): 60, other: 1}
+        kept = M.harvest_objects(hits, counts)
+        self.assertEqual([text for _, text in kept], ["a", "b"])
+
+    def test_no_dominant_class_means_nothing(self):
+        self.assertEqual(M.harvest_objects([(b"1" * 8, 0, "a")], {b"1" * 8: 3}), [])

@@ -423,3 +423,20 @@ inputs (size, SHA-256 where available) and the result, labelled
   duplicate carves are suppressed by SHA-256, and chunks with ≥ 2,000 kana are
   dumped whole as `region_NN_*.bin` (max four) to expose the surrounding
   structure. Tests 99/99.
+- **Third run: the string heap [2026-10-25]:** `carve3.zip` (7,863,958 B) →
+  `local/owner_carve3/`. The four rich dumps per run are the **IL2CPP string
+  heap**: `[klass 8][monitor 8][length 4][UTF-16]`, `System.String` class pointer
+  `0x1f1803285d0` (27,713 hits in 3.8 MB). Extraction over 7.6 MB of dumps gives
+  55,908 / 56,186 objects → 14,457 / 14,478 unique strings → 418,335 / 418,348
+  chars, of which 1,941 / 1,958 are Japanese (31,825 / 31,854 chars). Identifiers
+  sit beside the text (`WEBGM_BRK6_1`, `RFN_B_DFNS_SLD`, `M0078A_MOOTRON`,
+  `ja-JP`, 32-hex keys) — the loaded tables are visible as key/value rows.
+  - **Trap:** boehm heap pointers end in `00 00`, so the zero run of the monitor
+    starts inside the class pointer. Anchoring on the run start → **0 strings**;
+    anchoring on the run end → 28,865 in the same dump. Pinned by tests.
+  - `mem_carve.py` now extracts string objects across the whole scan, keeps the
+    dominant class pointer, dedupes by text, and writes
+    `strings_objects.tsv` (`address<TAB>length<TAB>text`) plus counts in the
+    report. 104 tests.
+  - No menu labels and no scenario dialogue in those four samples: the dumps are
+    7.6 MB of a ~2 GB space, so a full-heap pass is the next step.

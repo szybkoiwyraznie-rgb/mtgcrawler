@@ -231,6 +231,68 @@ TEXT_NEIGHBOUR = re.compile(r"[\u3000-\u30ff\u4e00-\u9fff\uff01-\uff60"
 MAX_STRING = 400
 
 
+MAX_STRING_OBJECT = 4096          # code units; longer than any UI line
+STRING_LIMIT = 500_000            # candidate cap, protects the reporter's RAM
+
+
+def looks_like_pointer(value: bytes) -> bool:
+    """True for an 8-byte value that could be a 64-bit user-space address."""
+    number = int.from_bytes(value, "little")
+    return 0x0001_0000 <= number < 0x0000_8000_0000_0000 and number % 8 == 0
+
+
+def scan_string_objects(buffer: bytes, base: int = 0,
+                        limit: int = STRING_LIMIT) -> list:
+    """Find IL2CPP `System.String` objects in a memory image.
+
+    Layout: `[klass 8][monitor 8][length 4][UTF-16 chars <= length]`. A monitor
+    pointer of zero is the anchor: eight zero bytes are common in padding, but
+    they only sit directly after a class pointer, directly before a plausible
+    length and a decodable string, inside real string objects. That is why this
+    beats regex harvesting - it yields whole strings with their real boundaries
+    instead of concatenations of neighbouring heap bytes.
+
+    Returns `[(klass_bytes, address, text), ...]`; the caller decides which class
+    pointer is `System.String` by frequency.
+    """
+    hits = []
+    start = 0
+    while len(hits) < limit:
+        zero = buffer.find(b"\x00" * 8, start)
+        if zero < 0:
+            break
+        run_end = zero + 8
+        while run_end < len(buffer) and buffer[run_end] == 0:
+            run_end += 1
+        start = run_end
+        # A heap pointer usually ends in zero bytes, so the zero run that
+        # contains the monitor can start inside the class pointer. Anchor at the
+        # END of the run instead: the length field follows the monitor directly.
+        monitor = run_end - 8
+        if monitor < 8 or run_end + 4 > len(buffer):
+            continue
+        klass = buffer[monitor - 8:monitor]
+        if not looks_like_pointer(klass):
+            continue
+        length = int.from_bytes(buffer[run_end:run_end + 4], "little")
+        if not 1 <= length <= MAX_STRING_OBJECT:
+            continue
+        text_end = run_end + 4 + length * 2
+        if text_end > len(buffer):
+            continue
+        raw = buffer[run_end + 4:text_end]
+        try:
+            text = raw.decode("utf-16-le")
+        except UnicodeDecodeError:
+            continue
+        if "\x00" in text:
+            continue
+        if any(ord(ch) < 32 and ch not in "\t\n\r" for ch in text):
+            continue
+        hits.append((klass, base + monitor - 8, text))
+    return hits
+
+
 def harvest_text(text: str, found: set) -> None:
     """Collect Japanese-bearing strings out of already-decoded text.
 
@@ -258,6 +320,45 @@ def harvest_buffer(buffer: bytes, utf16: set, utf8: set) -> None:
         harvest_text(buffer.decode("utf-16-le", "ignore"), utf16)
     if KANA8_HINT.search(buffer):
         harvest_text(buffer.decode("utf-8", "ignore"), utf8)
+
+
+def harvest_objects(hits: list, klass_counts: dict,
+                    minimum: int = 50) -> list:
+    """Keep the strings whose class pointer dominates, deduplicated by text.
+
+    False positives are vanishingly rare, but the dominant class pointer is
+    `System.String` by a wide margin (27,713 of 28,865 in the owner's dump), so
+    everything else is dropped rather than trusted.
+    """
+    if not hits:
+        return []
+    klass, _ = max(klass_counts.items(), key=lambda item: item[1])
+    if klass_counts[klass] < minimum:
+        return []
+    seen = set()
+    kept = []
+    for hit_klass, address, text in hits:
+        if hit_klass != klass or text in seen:
+            continue
+        seen.add(text)
+        kept.append((address, text))
+    return kept
+
+
+def write_string_objects(path: Path, objects: list, cap: int = MAX_TEXT_CHARS) -> dict:
+    """Write `address<TAB>length<TAB>text` for harvested IL2CPP strings."""
+    written = 0
+    chars = 0
+    lines = []
+    for address, text in objects:
+        if chars + len(text) + 24 > cap:
+            break
+        lines.append("%d\t%d\t%s" % (address, len(text), text))
+        chars += len(text) + 24
+        written += 1
+    path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    return {"objects": len(objects), "written": written, "chars": chars,
+            "truncated": written < len(objects)}
 
 
 def write_strings(path: Path, strings: set, cap: int = MAX_TEXT_CHARS) -> dict:
@@ -357,6 +458,8 @@ def run_from_file(path: Path, out_dir: Path, budget: int) -> dict:
     report["carved"] = carved
     utf16: set = set()
     utf8: set = set()
+    object_hits: list = []          # (klass, address, text), filtered at the end
+    klass_counts: dict = {}
     harvest_buffer(buffer, utf16, utf8)
     report["strings"] = {
         "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
@@ -537,6 +640,12 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                         japanese_windows += 1
                     if harvest:
                         harvest_buffer(buffer, utf16, utf8)
+                    if harvest and len(object_hits) < STRING_LIMIT:
+                        for klass, address, text in scan_string_objects(
+                                buffer, base + offset,
+                                STRING_LIMIT - len(object_hits)):
+                            klass_counts[klass] = klass_counts.get(klass, 0) + 1
+                            object_hits.append((klass, address, text))
                     if stats["chars"] >= RICH_KANA_THRESHOLD and \
                             len(rich) < MAX_RICH_REGIONS:
                         # a chunk this full of Japanese is the closest thing to a
@@ -607,6 +716,9 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
         "strings": {
             "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
             "utf8": write_strings(out_dir / "strings_utf8.txt", utf8),
+            "objects": write_string_objects(
+                out_dir / "strings_objects.tsv",
+                harvest_objects(object_hits, klass_counts)),
         },
         "rich_regions": rich,
         "carved": carved,
@@ -666,8 +778,12 @@ def main(argv: list[str] | None = None) -> int:
               f"longest {kana['longest']})")
     strings = result.get("strings") or {}
     for encoding, stats in strings.items():
-        print(f"{encoding} strings: {stats['unique']:,} unique, "
-              f"{stats['chars']:,} chars written")
+        if encoding == "objects":
+            print(f"IL2CPP string objects: {stats['objects']:,} unique, "
+                  f"{stats['written']:,} written")
+        else:
+            print(f"{encoding} strings: {stats['unique']:,} unique, "
+                  f"{stats['chars']:,} chars written")
     if result.get("japanese_windows") is not None:
         print(f"windows with Japanese UTF-16 text: {result['japanese_windows']}")
     if result.get("bytes_scanned") is not None:

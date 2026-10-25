@@ -324,3 +324,73 @@ produced, so the install path has to be one of:
 This is the decision the next measurement has to inform, and it is why rich region
 dumps matter: they show whether full scenario scripts (with their `lua.txt` name
 and structure) ever exist contiguously, which decides between (1) and (2).
+
+## S3, third run: the memory is full of managed strings, and they are readable
+
+`carve3.zip` (7,863,958 B) added what the previous run could not: **rich region
+dumps** — four chunks per run, 262,144 + 675,840 + 2,850,816 + 3,801,088 B =
+7,586,944 B of memory chosen only because they are dense with Japanese.
+
+Reading those dumps as raw bytes explained everything. They are not bundles, not
+Lua and not UTF-8: they are the **IL2CPP string heap**. Every object in them has
+the layout
+
+```
+[ klass 8 ][ monitor 8 = 0 ][ length 4 ][ UTF-16 chars <= length ]
+```
+
+and the same class pointer (`0x1f1803285d0`) appears 27,713 times in a 3.8 MB
+dump. That is `System.String`. So the text is not merely "somewhere in memory" —
+it is made of managed string objects, with exact boundaries, lengths and
+addresses.
+
+**Extraction, on those four dumps only:**
+
+| | run 1 | run 2 |
+|---|---|---|
+| string objects found | 55,908 | 56,186 |
+| unique strings after the class filter | 14,457 | 14,478 |
+| characters | 418,335 | 418,348 |
+| strings containing Japanese | 1,941 (31,825 chars) | 1,958 (31,854 chars) |
+| plain-ASCII strings | 4,013 identifiers | 9,252 |
+
+The quality is different in kind from the regex harvest: strings arrive whole and
+with their real content, including `\n` (pilot skill descriptions, tutorial
+paragraphs, `ブラックシックス（０）`, `ラビッツ・フォーメーション（２）`), and next
+to them sit the **identifiers**: `WEBGM_BRK6_1`, `RFN_B_DFNS_SLD`,
+`RFD_HrmnicLvl`, `M0078A_MOOTRON`, `ja-JP`, `en-US`, and 32-hex hashes. Those look
+like key/value rows of the loaded data tables, which is exactly what a translation
+memory wants.
+
+**What is still missing:** the four dumps are 7.6 MB out of a ~2 GB address space.
+Menu labels (`はじめから`, `オプション`) and scenario dialogue did not appear in
+them — only what happened to live in those four chunks. A full-heap pass with the
+object scanner (not four samples) is the next measurement.
+
+**A parsing trap worth recording:** the class pointer itself usually ends in
+`00 00` (heap addresses are page-aligned), so the zero run that marks the monitor
+starts *inside* the pointer. Anchoring on the start of the zero run found **zero**
+strings; anchoring on its **end** (the length field follows the monitor directly)
+found 28,865 objects in the same 3.8 MB. Four tests now pin this.
+
+## The install path, after the string heap discovery
+
+The strings the game displays are managed `System.String` objects in a **Boehm**
+heap (non-moving, non-compacting). That makes a runtime writer plausible without
+the AES key, in two steps of increasing ambition:
+
+1. **In place, same or shorter.** Overwrite the UTF-16 chars of a string object,
+   update its `length` field, done. Safe (no allocation, no pointer changes), but
+   only works when the Polish text has no more UTF-16 units than the Japanese —
+   `ブラックシックス（０）` is 12, so `Czarna Szostka (0)` at 17 does not fit.
+   Abbreviations can carry a first proof but not a translation.
+2. **Pointer swap.** Allocate a synthetic string object (same class pointer,
+   monitor 0, new length, new chars) in a page we allocate, then rewrite every
+   8-byte reference to the old object. Arbitrary length becomes possible. The
+   risk is Boehm: a pointer that lands inside its "plausible heap" range but not
+   in one of its blocks can upset a collection. This has to be tested on a single
+   string, with a restart as the failure mode, before anything is built on it.
+
+Both are write operations on a running game, so both need an explicit owner
+decision and a test that can be undone (`mem_patch` keeps a JSON backup of the
+original bytes and can restore them).

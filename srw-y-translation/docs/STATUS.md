@@ -207,6 +207,20 @@ folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
 
 ## Where S3 stands
 
+The text is **managed `System.String` objects in an IL2CPP/Boehm heap** and can be
+extracted with exact boundaries, lengths and addresses: from 7.6 MB of sampled
+memory, 55,908 objects → **14.5 k unique strings / 418 k chars**, of which ~1,950
+are Japanese (~32 k chars), with table identifiers (`RFN_B_DFNS_SLD`, `ja-JP`,
+32-hex keys) sitting next to them. That is the whole reading story; a full-heap
+pass (`strings_objects.tsv`) is the next run.
+
+The write path now has a concrete candidate that needs no AES key: patch the
+managed strings at runtime — in place for same-or-shorter text, by pointer swap to
+an allocated object for longer text. The second variant carries a Boehm risk and
+must be proved on a single string, undoably, with the owner's consent.
+
+## Where S3 stood before the third run
+
 Reading is measured: the Japanese is plaintext in memory and the harvest pulls
 **17,000-18,000 unique UTF-16 strings (~310-340k chars) and 8,700-9,100 UTF-8
 strings (~625-640k chars)** out of the running game, and the content is real game
