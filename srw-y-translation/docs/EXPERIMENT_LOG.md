@@ -825,3 +825,25 @@ in `docs/OPENING_PL_DRAFT.md`.
 - **Still unknown:** whether the game accepts the modified bundle at all. If it still
   crashes, the next artefact to look at is `Player.log` (the sheet says how to grab it)
   - it names the failing subsystem instead of us guessing.
+
+## 2026-10-25 (wynik) - v2 dziala w grze [owner evidence]
+
+Owner ran the S5b sheet (restore originals -> install v2) and reports: the game
+starts, the opening narration is in Polish, all Polish diacritics render, nothing
+overflows its frame.
+
+That settles the four questions the v1 crash left open, all in the *permissive*
+direction:
+
+1. Addressables does **not** verify the bundle against the catalog (the catalog was
+   not touched, the bundle content changed).
+2. The font carries the full Polish set, so `opening_pl.json` needs no ASCII fallback.
+3. Unity's loader accepts a merged 256 KiB LZ4 block and 2,638 / 2,161 B of zero
+   padding at the end of the file.
+4. Text padded to the original byte lengths stays inside the frames.
+
+So the difference between a crashing patch and a working one was not the content but
+the container: **v1 rebuilt it (new header, +9,488 B), v2 keeps it byte-for-byte
+identical outside the text block.** This is now the standard for SRW Y and
+`tools/srw_y_fit_patch.py` is the tool of record. The remaining unknown is only how
+much room a given bundle has for a merge (each patch must be checked for fit).

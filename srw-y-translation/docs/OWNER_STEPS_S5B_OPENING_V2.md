@@ -1,9 +1,15 @@
 # SRW Y - krok S5b: polskie otwarcie, wersja 2 (po crashu)
 
-Wersja arkusza: 2026-10-25.3
+> **ZADZIALALO (2026-10-25, relacja wlasciciela).** Po wykonaniu KROK 0-3 gra
+> wystartowala, narracja otwierajaca jest po polsku, wszystkie polskie znaki
+> diakrytyczne sa widoczne, zaden ekran nie wychodzi za ramke. Wersja 2 jest
+> pierwsza dzialajaca podmiana plikow w tym projekcie.
 
-Zmiana wzgledem 2026-10-25.2: KROK 0 pokazuje sumy SHA256 po przywroceniu, zeby
-bylo widac, ze w grze sa naprawde oryginaly (a nie resztki wersji 1).
+Wersja arkusza: 2026-10-25.4 (po tescie u wlasciciela - dziala)
+
+Historia: 2026-10-25.2 pierwsza wersja arkusza; 2026-10-25.3 KROK 0 pokazuje sumy
+SHA256 po przywroceniu; 2026-10-25.4 dopisany wynik testu i odpowiedzi na pytania,
+ktore wczesniej byly otwarte.
 
 ## Co poszlo nie tak i co zmienilem
 
@@ -122,11 +128,13 @@ KROK 0 powyzej przywraca oryginaly z `Pulpit\srw_y_backup_otwarcie`.
 | przerabiac DLC? | **NIE** (te pliki sa z podstawki) |
 | PBOOT? | **NIE** |
 
-## Czego nie wiem
+## Co sie wyjasnilo po tescie
 
-- czy gra sprawdza sume kontrolna pliku z katalogu Addressables; jesli tak, zadna
-  podmiana tekstu nie przejdzie bez podmiany katalogu - log z KROKU 3 powie to wprost
-- czy czcionka ma polskie znaki
+- **gra nie sprawdza sumy kontrolnej pliku** z katalogu Addressables - przyjmuje plik
+  o zmienionej zawartosci, jesli rozmiar i naglowek sa te same (katalog nietkniety)
+- **czcionka ma polskie znaki** - wszystkie ogonki wyswietlaja sie poprawnie
+- **scalony blok LZ4 + zera na koncu pliku sa akceptowane** przez loader Unity
+- tekst dopelniony spacjami do dlugosci oryginalu miesci sie w ramkach
 - paczki nie moglem uruchomic u siebie (brak PowerShella i gry w srodowisku, w ktorym
   pracuje); sprawdzilem tylko, ze plik daje sie odszyfrowac, ma ten sam rozmiar,
   ten sam naglowek i te same obiekty co oryginal

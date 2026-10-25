@@ -486,3 +486,25 @@ questions the owner's run answers: whether the game verifies the bundle against 
 Addressables catalog, whether it tolerates a merged block plus zero tail, and whether
 the font carries Polish diacritics. If it crashes again, `Player.log` names the
 failing subsystem.
+
+## Update 2026-10-25 (koniec dnia) - v2 PRZESZLA TEST U WLASCICIELA
+
+**`runtime_tested = true`.** Po wykonaniu arkusza S5b (KROK 0-3) gra wystartowala,
+narracja otwierajaca jest po polsku, wszystkie polskie znaki diakrytyczne sa
+widoczne, zaden ekran nie wychodzi za ramke. To pierwsza dzialajaca podmiana plikow
+w tym projekcie.
+
+Co to definitywnie rozstrzyga (wczesniej hipotezy):
+
+| pytanie | odpowiedz | dowod |
+|---|---|---|
+| czy gra sprawdza CRC/hash bundle'a z katalogu Addressables | **nie** | plik o zmienionej zawartosci zostal wczytany, katalog nietkniety |
+| czy czcionka ma polskie znaki | **tak** | wlasciciel widzi pelny zestaw ogonkow |
+| czy scalony blok LZ4 + zera na koncu pliku sa OK | **tak** | 18 -> 17 i 22 -> 21 blokow, 2,638 / 2,161 B zer na koncu |
+| czy tekst dlugosci oryginalu miesci sie w ramkach | **tak** | brak wyjscia za ramke |
+
+Wniosek na przyszlosc: metoda "ten sam rozmiar pliku, ten sam naglowek, podmiana
+samych bajtow tekstu, brakujace bajty z placu merge'u dwoch blokow" jest
+**potwierdzona w grze** i to ona jest standardem dla SRW Y (narzedzie
+`tools/srw_y_fit_patch.py`). Nie przebudowywac kontenera od zera - to wlasnie
+zabilo wersje 1.
