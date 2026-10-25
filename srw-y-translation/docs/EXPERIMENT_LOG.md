@@ -378,3 +378,15 @@ inputs (size, SHA-256 where available) and the result, labelled
   `TLS/SSL connection has been closed`), so a short-lived download URL cannot be
   fetched either. The owner is being asked for the two small `carve_report.json`
   files on their own; the 4 MB archive stays on their disk for the carving work.
+- **Why a 71 MB pull worked yesterday-in-session and 4 MB does not now [2026-10-25]:**
+  the sandbox restarted at **15:22 UTC** (`uptime -s`) and came back with the
+  restricted egress policy: `api.github.com`, `github.com`, `codeload.github.com`
+  and `pypi.org` answer **200**, while `drive.google.com` and
+  `drive.usercontent.google.com` fail with `TLS/SSL connection has been closed
+  (EOF)`. `GameAssembly.dll` was pulled into `srw-y-translation/local/meta/` at
+  14:44, i.e. under the earlier network, which is why that 74,865,152 B transfer
+  worked. Nothing about Drive or about the owner's machine changed — my own read
+  path did. Consequence for this phase: Drive files can still be read through the
+  connector, but only as **text** (`read_file_text`), which is fine for the two
+  `carve_report.json` files and not for a 4 MB binary archive. Keep asking for the
+  reports themselves rather than an archive.
