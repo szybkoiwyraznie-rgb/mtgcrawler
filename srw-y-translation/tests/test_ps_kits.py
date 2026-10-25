@@ -19,11 +19,13 @@ HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / 'tools'))
 
 import build_dlc_bundle_request as dlc  # noqa: E402
+import build_free_patch_request as free_kit  # noqa: E402
 import build_text_upload_request as text_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
     ('text', text_kit, 'collect_text_bundles.ps1', 'SRW_Y_ZBIERZ_TEKST.zip', 'ZBIERZ_TEKST.ps1'),
+    ('free', free_kit, 'collect_free_patch.ps1', 'SRW_Y_ZBIERZ_S6E.zip', 'ZBIERZ_S6E.ps1'),
 ]
 
 
@@ -55,6 +57,8 @@ class KitTests(unittest.TestCase):
     def plan_for(module):
         if module is dlc:
             return module.survey(dlc.read_listing(dlc.LISTING))
+        if module is free_kit:
+            return module.survey(module.read_listing(module.LISTING))
         import json
         mapping = json.loads(text_kit.MAPPING.read_text(encoding='utf-8'))
         sizes = text_kit.read_listing(text_kit.LISTING)
@@ -87,8 +91,8 @@ class KitTests(unittest.TestCase):
                 start = ps_text.index('$pliki = @(')
                 block = ps_text[start:ps_text.index('\n    )', start)]
                 lines = [line.strip() for line in block.splitlines()[1:] if line.strip()]
-                self.assertEqual(len(lines), len(plan['wanted']) if module is dlc
-                                 else len(plan['need']))
+                expected = len(plan['wanted']) if 'wanted' in plan else len(plan['need'])
+                self.assertEqual(len(lines), expected)
                 for line in lines[:-1]:
                     self.assertTrue(line.endswith(','), line)
                 self.assertFalse(lines[-1].endswith(','), lines[-1])

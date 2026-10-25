@@ -194,3 +194,80 @@ scenariusza z podstawki (sprawdzone), więc nic się nie dubluje. Lista:
 Jedyna otwarta kwestia: **`Dlc1` nie ma w indeksie ani jednego skryptu `en`**
 (46 `jp`, 0 `en`). Albo tak jest w grze, albo angielski leży w innym zestawie —
 w pakiecie zobaczymy to wprost (misje Dlc1 zostaną z samym jp).
+
+---
+
+## 7. Odkodowanie tabel i scenariuszy (2026-10-25, po paczce S6)
+
+### 7a. Rekord tabeli — zamknięte
+
+Obiekt tabeli (`MonoBehaviour`, np. `prologue_en-US`):
+
+```text
++0    12 x 0x00
++12   u32 1, u32 1, 8 B hash
++28   u32 dlugosc nazwy, nazwa, pad4
+      u32 dlugosc locale, locale ("ja-JP"/"en-US"), pad4
+      u32 2, 8 B hash, u32 0, u32 liczba rekordow
+      rekordy...
+      u32 2, u32 0                     <- 8-bajtowy terminator, zawsze obecny
+```
+
+Rekord:
+
+```text
+u32   klucz dolny    \
+u32   klucz gorny    /  ta sama para jest w pliku jp i en dla tego samego napisu
+u32   dlugosc tekstu w bajtach
+...   tekst UTF-8
+      pad4
+u32   zawsze 0        (wszystkie 72 436 rekordow odczytanych tu)
+```
+
+czyli `nastepny = align4(rekord + 12 + dlugosc) + 4`. Chodzenie po rekordach zgadza się
+ze liczbą z nagłówka **i** kończy dokładnie na terminatorze w **144 tabelach × 2 języki**
+(`tools/s6_tables.py`, twardy błąd przy niezgodności).
+
+**Klucz jest w rekordzie — i to on łączy języki.** Parowanie po pozycji jest błędne:
+`robot_name` po japońsku zaczyna się od ライディーン, a po angielsku od `Combattler V`.
+Po kluczu wychodzi `ライディーン → Reideen`, `洸 → Akira`, `底力Ｌ１ → Potential L1`.
+`battle_voice` ma 2 043 powtórzone klucze dolne, więc kluczem jest **para** (dolny, górny),
+unikalna w obu językach.
+
+Wynik: `local/s6/tables.jsonl` — **44 344 wiersze**, 891 094 znaki jp / 2 121 512 znaki en.
+141 wierszy nie ma drugiej strony: `active_ability-DLC3` (139 — bundle en ma 18 z 157
+wpisów, czyli angielski tej tabeli jest w grze niepełny) i `voiceactor` (2).
+
+### 7b. Scenariusze — co jest linią
+
+Plik scenariusza to skrypt Lua wygenerowany z C++. Tekst, który widzi gracz, stoi jako
+literal `[[ mówca\n「kwestia」 ]]` i **tylko** on ma w komentarzu `srw-tag=string-id>`:
+
+```text
+  {WPos_c, 2, FDMode_Normal, pid_CHISE,
+  [[ちせ
+「ん…？」]],
+   0, NULL, NULL},  -- <srw-tag=speakEE>(...)<srw-tag=string-id>(87.0)
+```
+
+W pliku kontrolnym 147 z 160 literalow miało `string-id`; pozostałe 13 to nazwy BGM,
+tła i efektów (`[[Y_DEM_2]]`, `[[221\t通常サイズ<...>左下]]`) — nigdy nie są pokazywane
+jako tekst. Pierwsza linia wewnątrz literal to mówca (także lokalizowany: `ちせ`/`Chise`),
+a linia zaczynająca się od samej spacji ideograficznej to wcięcie podpisu, nie mówca.
+
+Wynik: `local/s6/scenario.jsonl` — **601 scen, 119 151 linii** ze 1 883 plików
+(927 ja / 956 en): 114 383 linie sparowane, 159 tylko jp (`Dlc1` nie ma angielskiego),
+4 609 tylko en.
+
+**Czego nie parujemy:** 30 plików angielskich nie ma japońskiego odpowiednika — to
+starsze wersje tych samych scen (nagłówek `$Date: 2024/11/20` vs `2025/11/07` w wersji
+japońskiej). Parowanie po `string-id` **jest błędne i zmierzone jako błędne**: dla
+`cse20_0024_0202800a` zgodność `pid_` ze sceną jp wynosi 93/278. Dlatego te 4 609 linii
+zostaje w pakiecie z `EN:` jako jedynym źródłem, z jawnym opisem.
+
+### 7c. Czego jeszcze brakuje
+
+`Assets/DLC_EXP/FreePatch/Scenario/{jp,en}/…` — **19 scen, 19 + 19 bundli, 357 783 B**
+(`docs/OWNER_STEPS_S6E_FREE_PATCH.md`, `tools/build_free_patch_request.py`). Nie ma ich
+w żadnej dotychczasowej paczce. `ba1da373` (25 tabel podstawki) jest zbędny: te same
+tabele są w `2d69c099`/`1cc7e02e`.

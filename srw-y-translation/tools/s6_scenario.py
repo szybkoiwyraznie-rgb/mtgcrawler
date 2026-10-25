@@ -59,6 +59,7 @@ LANG = {'jp': 'ja', 'ja': 'ja', 'en': 'en'}
 LITERAL_RE = re.compile(r'\[\[(.*?)\]\]', re.S)
 ID_RE = re.compile(r'srw-tag=string-id>\(([\d.]+)\)')
 SCENE_RE = re.compile(r'^(cse\d+_\d+)_')
+STEM_RE = re.compile(r'^(.*)_(?:sdemo|dlgev)\.lua$')
 
 
 def parse_units(script: str) -> list[dict]:
@@ -71,11 +72,14 @@ def parse_units(script: str) -> list[dict]:
             continue
         body = match.group(1).replace('\r\n', '\n').replace('\r', '\n')
         speaker, _, line = body.partition('\n')
-        units.append({
-            'string_id': found.group(1),
-            'speaker': speaker if line else '',
-            'text': line if line else body,
-        })
+        if line and speaker.strip(' \u3000\t'):
+            units.append({'string_id': found.group(1), 'speaker': speaker, 'text': line})
+        elif line:
+            # a first line that is only an ideographic space is the game indenting a
+            # caption ("　　～A. Advent　居住区～"), not a speaker
+            units.append({'string_id': found.group(1), 'speaker': '', 'text': line})
+        else:
+            units.append({'string_id': found.group(1), 'speaker': '', 'text': body})
     return units
 
 
@@ -246,14 +250,14 @@ def resolve_variants(scripts: dict[str, dict], matched_ja: set[str],
 
 def make_row(name: str, ja_unit: dict | None, en_unit: dict | None,
              pack: str, partner: str | None) -> dict:
-    scene = SCENE_RE.match(name)
+    stem = STEM_RE.match(name)
     kind = 'sdemo' if name.endswith('_sdemo.lua') else 'dlgev'
     return {
         'id': f'scenario:{name}:{ja_unit["key"] if ja_unit else en_unit["key"]}',
         'file': name,
         'sibling': partner,
         'pack': pack,
-        'scene': scene.group(1) if scene else name,
+        'scene': stem.group(1) if stem else name,
         'kind': kind,
         'string_id': ja_unit['string_id'] if ja_unit else en_unit['string_id'],
         'speaker_jp': ja_unit['speaker'] if ja_unit else None,
