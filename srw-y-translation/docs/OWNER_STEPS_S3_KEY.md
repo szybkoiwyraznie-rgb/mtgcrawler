@@ -6,7 +6,7 @@ rozmiaru. To pierwsza polowa tego, co robi zestaw OE: podmiana tekstu w plikach.
 
 Co sie zmienilo po nieudanym KROKU 0:
 
-- nie ma juz dwoch plikow - jest **jeden** (`srw_y_key`, wersja `2026-10-26.3`);
+- nie ma juz dwoch plikow - jest **jeden** (`srw_y_key`, wersja `2026-10-26.5`);
 - pobieranie ustawia TLS 1.2 (PowerShell 5.1 sam negocjuje 1.0/1.1 i GitHub tego
   nie przyjmuje) i ma zapasowe wyjscie przez `curl.exe`;
 - nic nie jest zapisywane na `C:\` - wszystko idzie na **Pulpit**, jak dotychczas;
@@ -33,7 +33,7 @@ $src = Get-ChildItem (Join-Path $env:USERPROFILE "Downloads") -File |
     Sort-Object LastWriteTime -Descending | Select-Object -First 1
 if ($src) { Copy-Item $src.FullName $work -Force }
 $f = Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1
-if ($f -and $f.Length -gt 15000) {
+if ($f -and $f.Length -gt 20000) {
     Write-Host ("OK  skrypt: " + $f.FullName + "  " + $f.Length + " B")
 } elseif ($f) {
     Write-Host ("plik jest, ale maly (" + $f.Length + " B) - pobierz go jeszcze raz")
@@ -52,7 +52,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 Set-Location $work
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $name = "srw_y_key" + [char]46 + "py"
-$sha  = "4227ad304c6eb08057a21d7e9e427f7b71f94385"
+$sha  = "d013c72c3a409a98cde4056e683a7fcb903bd4e5"
 $url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
 Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
 try {
@@ -62,7 +62,7 @@ try {
     curl.exe -L -o (Join-Path $work $name) $url
 }
 $f = Get-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
-if ($f -and $f.Length -gt 15000) {
+if ($f -and $f.Length -gt 20000) {
     Write-Host ("OK  skrypt: " + $f.FullName + "  " + $f.Length + " B")
 } else {
     Write-Host "BRAK PLIKU - skopiuj mi caly ten wynik"
@@ -70,7 +70,7 @@ if ($f -and $f.Length -gt 15000) {
 ```
 
 W obu drogach musi pojawic sie `OK  skrypt: ...Desktop\srwytool\...` z rozmiarem
-powyzej 15 000 B (plik ma ok. 23 kB). Jesli nie - odeslij mi wynik, to nie jest
+powyzej 20 000 B (plik ma ok. 30 kB). Jesli nie - odeslij mi wynik, to nie jest
 problem po Twojej stronie.
 
 ## KROK 1 - biblioteka AES i test skryptu (bez gry)
@@ -86,20 +86,23 @@ python $tool selftest
 Oczekiwane (dokladnie te linie, bez bledow):
 
 ```
-srw_y_key 2026-10-26.3
-  key test        ok
-  byte[] scan     ok
+srw_y_key 2026-10-26.5
   ctr-le        ok
   ctr-be        ok
-  cfb128        ok
   ofb           ok
+  cfb128        ok
+  cfb8          ok
   cbc           ok
+  ecb           ok
+  wrong key     ok
+  byte[] scan   ok
+  patch + enc   ok
 selftest: PASS
 ```
 
-**Wazne:** pierwsza linia musi brzmiec `srw_y_key 2026-10-26.3`. Jesli widzisz
-`2026-10-26.2` (albo starsza), to jest plik z poprzedniej proby i KROK 3 znow sie
-wywali - powtorz KROK 0, zeby go nadpisac.
+**Wazne:** pierwsza linia musi brzmiec `srw_y_key 2026-10-26.5`. Jesli widzisz
+starszy numer, to jest plik z poprzedniej proby i KROK 3 znow sie wywali -
+powtorz KROK 0, zeby go nadpisac.
 
 Jesli `python` nie jest rozpoznany, uzyj `py` zamiast `python`.
 
@@ -127,17 +130,20 @@ if (-not $sample) {
 }
 if (-not $sample) { Write-Host "BRAK KANDYDATA - odeslij mi ten wynik"; return }
 Write-Host ("proba: " + $sample.FullName + "  (" + $sample.Length + " B)")
-python $tool key --bundle $sample.FullName --report (Join-Path $work "key_report.json")
+python $tool key --bundle $sample.FullName --passes 2 --wait 15 --report (Join-Path $work "key_report.json")
 ```
 
-Skrypt wypisuje postep (`scanned ... GB`) i na koncu jedna z dwoch rzeczy:
+Skrypt skanuje pamiec dwa razy (15 s przerwy), zeby zlapac klucz, ktory istnieje
+tylko przez chwile. Wypisuje postep i na koncu jedna z trzech rzeczy:
 
-- `hits: 1 (verified: 1)` oraz `FOUND stream: key ... iv ...` - klucz jest;
-- `hits: 0` - w pamieci nie bylo w tym momencie zadnego `byte[]` z kluczem.
+- `FOUND ...: key ...` i `hits: 1 (verified: 1)` - klucz jest, lec do KROKU 4;
+- `candidates by length: 32: 12 345, ...` ale `hits: 0` - skan widzi tablice
+  w pamieci, tylko zaden kandydat nie pasuje. To konkretna informacja;
+- `candidates by length: none` - w pamieci nie ma zadnych tablic 16/24/32 B.
 
-Przy `hits: 0` nie zgadujemy: zrob w grze dwie-trzy akcje z tekstem (dialog, menu
-jednostki) i uruchom KROK 3 jeszcze raz. Nadal zero - odeslij `key_report.json`,
-to tez jest wynik.
+W obu przypadkach bez klucza odeslij mi `key_report.json` - jest tam napisane, ile
+kandydatow sprawdzono i jakiej dlugosci. Na tej podstawie wybieram nastepny ruch;
+mam tez plan B, ktory w ogole nie potrzebuje klucza (opisany nizej).
 
 ## KROK 4 - dowod: odszyfrowanie prawdziwego pliku
 
@@ -160,7 +166,7 @@ python $tool decrypt --in $sample.FullName --out (Join-Path $work "decrypted.bun
 Oczekiwane:
 
 ```
-srw_y_key 2026-10-26.3
+srw_y_key 2026-10-26.5
 mode: <jedna z nazw: ctr-le, ctr-be, cfb128, ofb>
 unity: 2022.3.44f1, size <rozmiar tego pliku> B
 wrote ...\decrypted.bundle (<ten sam rozmiar> B)
@@ -169,6 +175,16 @@ wrote ...\decrypted.bundle (<ten sam rozmiar> B)
 To jest moment, w ktorym wiadomo, ze pliki da sie podmieniac: ten sam plik, ten
 sam rozmiar, w srodku normalny naglowek Unity. Linia `mode:` mowi, jakiego szyfru
 uzywa gra - bez tego nie da sie zapisac tlumaczenia z powrotem.
+
+## Plan B, gdyby klucza nie bylo
+
+Nie zalezy od klucza: skoro gra musi odszyfrowac bundle, zeby dzialac, to jej
+pamiec zawiera **gotowy tekst** tych bundle (mamy ich juz 594 z poprzednich
+przebiegow). Mamy tez zaszyfrowane pliki na dysku. Jesli rozmiar odszyfrowanego
+bundle jest unikalny na dysku (276 takich rozmiarow), to para plaintext/ciphertext
+jest wymuszona - a z pary wychodzi strumien szyfru, ktorym mozna podmienic tekst
+bez znajomosci klucza. Do sprawdzenia tej drogi potrzebowalbym 2-3 **malych**
+plikow `.bundle` z dysku (kilka kB kazdy) - powiem dokladnie ktore.
 
 ## Co odeslac
 
