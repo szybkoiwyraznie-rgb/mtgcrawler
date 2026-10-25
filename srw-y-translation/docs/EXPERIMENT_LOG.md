@@ -492,3 +492,11 @@ inputs (size, SHA-256 where available) and the result, labelled
     carries `japanese` counts and `script_version`; new `--watch SECONDS` re-scans
     until the deadline, which is how text that only exists while a line is shown
     gets caught. Tests **126** (watch repeats passes, single pass otherwise).
+- **PR description rebuilt [2026-10-25]:** a script appended section 18 to a stale
+  temp copy of PR #24's body (the sandbox had restarted and `/tmp` was empty) and
+  PATCHed the result, replacing ~38,000 characters of history with one section.
+  Rebuilt from the repository documents into a shorter, structured description;
+  the detailed record lives in `docs/S2_FINDINGS.md` and this log, which is where
+  it belongs. **Rule:** build a PATCH body by reading the current body from the API
+  in the same command that patches it, never from a temp file that may predate a
+  restart.
