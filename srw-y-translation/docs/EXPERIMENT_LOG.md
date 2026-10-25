@@ -545,3 +545,15 @@ inputs (size, SHA-256 where available) and the result, labelled
     `SRW/SRWY` failed with `file_transfer_failed` - "a security filter at the
     connector provider blocked the file ... because of its content". Not retried
     (the filter must not be worked around); GitHub stays the delivery path.
+- **First real key run on the owner's machine: attached, then crashed [2026-10-26]:**
+  steps 0-2 worked (TLS fix, one file, Desktop folder, `selftest: PASS`), the game
+  was found at pid 59364, and the scan began. Fifty regions in, it died with
+  `NameError: cannot access free variable 'keys'` - the progress lambda printed
+  `len(keys)` while `keys` was being assigned from the same statement, so the name
+  was a free variable of the enclosing function that had no value yet. Fixed by
+  passing `(scanned, key_count, regions)` into the callback; `srw_y_key` is now
+  `2026-10-26.3`. Two regression tests added (a callback over 60 regions, and a full
+  `key` run over more than fifty regions); both fail against the previous code,
+  checked by temporarily reverting it. The sheet pins the new commit and tells the
+  owner the first output line must read `2026-10-26.3`, because the old file is
+  still on their Desktop.

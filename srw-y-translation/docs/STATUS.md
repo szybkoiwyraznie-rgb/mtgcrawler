@@ -309,3 +309,12 @@ sheet sets TLS 1.2 with a `curl.exe` fallback, names are built from
 `[char]46`, the script is located with `Get-ChildItem *key*`, and everything is
 written to `Desktop\srwytool` instead of `C:\`. Uploading the script to Drive was
 refused by the connector provider's security filter, so GitHub remains the path.
+
+### First real key run: one bug, fixed (2026-10-26)
+
+Steps 0-2 passed on the owner's machine (TLS, single file, Desktop folder,
+`selftest: PASS`). Step 3 attached to the game and scanned, then died on the first
+progress tick: the callback closed over `keys`, which that same statement was
+still assigning. `srw_y_key` is `2026-10-26.3`; the callback now receives the
+counts, and the sheet warns that a `2026-10-26.2` banner means the old file is
+being run. Suite **161** (both new regression tests fail against the old code).
