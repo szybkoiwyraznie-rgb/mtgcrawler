@@ -56,7 +56,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 Set-Location $work
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $name = "srw_y_key" + [char]46 + "py"
-$sha  = "3e3c253dbe9b766093238f5f321d78566902b122"
+$sha  = "c6a093edcabcdff98ac8f2a4d2cd98af464de29f"
 $url  = "https" + [char]58 + "//raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/" + $name
 Remove-Item (Join-Path $work $name) -ErrorAction SilentlyContinue
 try {
@@ -133,14 +133,14 @@ $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
 Set-Location $work
 $tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 $bundles = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
-$sample = Get-ChildItem $bundles -Filter *.bundle | Where-Object { $_.Length -eq 940012 } |
-    Select-Object -First 1
+$sample = Get-ChildItem $bundles -Filter *.bundle -ErrorAction SilentlyContinue |
+    Where-Object { $_.Length -eq 940012 } | Select-Object -First 1
 if (-not $sample) {
-    $sample = Get-ChildItem $bundles -Filter *.bundle |
+    $sample = Get-ChildItem $bundles -Filter *.bundle -ErrorAction SilentlyContinue |
         Where-Object { $_.Length -gt 200000 -and $_.Length -lt 2000000 } |
         Sort-Object Length -Descending | Select-Object -First 1
 }
-if (-not $sample) { Write-Host "BRAK KANDYDATA - odeslij mi ten wynik"; return }
+if (-not $sample) { Write-Host "BRAK PLIKU PROBKI - odeslij mi ten wynik"; return }
 Write-Host ("proba: " + $sample.FullName + "  (" + $sample.Length + " B)")
 python $tool key --bundle $sample.FullName --passes 2 --wait 15 --report (Join-Path $work "key_report.json") --dump (Join-Path $work "candidates.bin")
 ```
@@ -168,14 +168,14 @@ $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
 Set-Location $work
 $tool = (Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1).FullName
 $bundles = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
-$sample = Get-ChildItem $bundles -Filter *.bundle | Where-Object { $_.Length -eq 940012 } |
-    Select-Object -First 1
+$sample = Get-ChildItem $bundles -Filter *.bundle -ErrorAction SilentlyContinue |
+    Where-Object { $_.Length -eq 940012 } | Select-Object -First 1
 if (-not $sample) {
-    $sample = Get-ChildItem $bundles -Filter *.bundle |
+    $sample = Get-ChildItem $bundles -Filter *.bundle -ErrorAction SilentlyContinue |
         Where-Object { $_.Length -gt 200000 -and $_.Length -lt 2000000 } |
         Sort-Object Length -Descending | Select-Object -First 1
 }
-if (-not $sample) { Write-Host "BRAK KANDYDATA - odeslij mi ten wynik"; return }
+if (-not $sample) { Write-Host "BRAK PLIKU PROBKI - odeslij mi ten wynik"; return }
 python $tool decrypt --in $sample.FullName --out (Join-Path $work "decrypted.bundle") --report (Join-Path $work "key_report.json")
 ```
 
