@@ -81,7 +81,7 @@ def heap_with(*payloads: bytes) -> bytes:
 
 class VersionTests(unittest.TestCase):
     def test_version_is_pinned(self):
-        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.2")
+        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.3")
 
     def test_cli_version(self):
         result = subprocess.run([sys.executable, SCRIPT, "--version"],
@@ -147,6 +147,44 @@ class KeyCommandTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as raw:
             code = self.run_key(FakeKernel([]), Path(raw) / "nope.bundle")
             self.assertEqual(code, 2)
+
+
+@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
+class ProgressTests(unittest.TestCase):
+    """The first real run died on the first progress tick: the callback closed over
+    the values the same statement was assigning, so `keys` was not bound yet."""
+
+    def regions(self, count: int):
+        return [(0x10000000 + index * 0x10000, heap_with(IV))
+                for index in range(count)]
+
+    def test_progress_receives_counts_instead_of_the_enclosing_names(self):
+        calls = []
+        keys, _ivs, stats = S.collect(
+            FakeKernel(self.regions(60)), 0x1234,
+            progress=lambda total, keys_so_far, regions: calls.append(
+                (total, keys_so_far, regions)))
+        self.assertEqual(stats["regions"], 60)
+        self.assertTrue(calls, "the callback never ran")
+        self.assertGreaterEqual(calls[0][2], 1)
+        self.assertEqual(calls[0][1], 0)
+
+    def test_key_command_survives_more_than_fifty_regions(self):
+        regions = self.regions(60)
+        regions.append((0x30000000, heap_with(IV, KEY)))
+        with tempfile.TemporaryDirectory() as raw:
+            tmp = Path(raw)
+            bundle = tmp / "x.bundle"
+            bundle.write_bytes(S.encrypt(KEY, IV, S._synthetic(4096), "ctr-le"))
+            report = tmp / "key_report.json"
+            with mock.patch.object(S, "win_api",
+                                   lambda: FakeKernel(regions)), \
+                    mock.patch.object(S, "process_pid", lambda name: 7):
+                code = S.main(["key", "--bundle", str(bundle), "--report",
+                               str(report)])
+            self.assertEqual(code, 0)
+            data = json.loads(report.read_text(encoding="utf-8"))
+            self.assertEqual(len(data["verified"]), 1)
 
 
 @unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")

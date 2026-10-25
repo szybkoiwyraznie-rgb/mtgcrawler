@@ -41,7 +41,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-SCRIPT_VERSION = "2026-10-26.2"
+SCRIPT_VERSION = "2026-10-26.3"
 
 # ---------------------------------------------------------------- bundle facts
 # Taken from bundles carved out of the game's memory: one distinct prefix across
@@ -244,7 +244,9 @@ def collect(api, handle, max_scan: int = 0, progress=None) -> tuple[list, set, d
                 scanned += want
                 stats["bytes"] = scanned
                 if progress and stats["regions"] % 50 == 0:
-                    progress(scanned)
+                    # counts are passed in: a closure over the values assigned
+                    # from this call raised NameError on the first progress tick
+                    progress(scanned, len(keys), stats["regions"])
                 if max_scan and scanned >= max_scan:
                     return keys, iv_pool, stats
                 offset += want
@@ -455,10 +457,12 @@ def cmd_key(args) -> int:
         return 2
     print(f"attached to pid {pid}; scanning read-only", flush=True)
     try:
-        keys, iv_pool, stats = collect(
-            api, handle, args.max_scan,
-            progress=lambda total: print(f"  scanned {total / 1e9:.2f} GB, "
-                                         f"keys {len(keys):,}", flush=True))
+        def report_progress(total, key_count, regions):
+            print(f"  scanned {total / 1e9:.2f} GB, {regions:,} regions, "
+                  f"keys {key_count:,}", flush=True)
+
+        keys, iv_pool, stats = collect(api, handle, args.max_scan,
+                                       progress=report_progress)
     finally:
         api.CloseHandle(handle)
 

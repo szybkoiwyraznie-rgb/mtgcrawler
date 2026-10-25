@@ -42,7 +42,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-SCRIPT_VERSION = "2026-10-26.1"
+SCRIPT_VERSION = "2026-10-26.3"
 
 # The first 30 bytes of every bundle in this build, taken from bundles carved out
 # of memory (one distinct prefix across 200 samples).
@@ -206,7 +206,7 @@ def collect(kernel32, handle, max_scan: int = 0, progress=None) -> tuple[list, s
                 scanned += want
                 stats["bytes"] = scanned
                 if progress and stats["regions"] % 50 == 0:
-                    progress(scanned)
+                    progress(scanned, len(keys), stats["regions"])
                 if max_scan and scanned >= max_scan:
                     return keys, iv_pool, stats
                 offset += want
@@ -281,10 +281,12 @@ def main(argv: list[str] | None = None) -> int:
               file=sys.stderr)
         return 2
     try:
-        keys, iv_pool, stats = collect(
-            kernel32, handle, args.max_scan,
-            progress=lambda total: print(f"  scanned {total/1e9:.2f} GB, "
-                                         f"keys {len(keys):,}", flush=True))
+        def report_progress(total, key_count, regions):
+            print(f"  scanned {total / 1e9:.2f} GB, {regions:,} regions, "
+                  f"keys {key_count:,}", flush=True)
+
+        keys, iv_pool, stats = collect(kernel32, handle, args.max_scan,
+                                       progress=report_progress)
     finally:
         kernel32.CloseHandle(handle)
 
