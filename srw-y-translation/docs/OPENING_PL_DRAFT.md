@@ -1,3 +1,13 @@
+# SRW Y — szkic otwarcia (NIEAKTUALNY)
+
+Ten plik jest archiwalny: szkic powstał z **angielskiego** tekstu i z budżetem
+bajtowym, którego już nie potrzebujemy (klucz jest znany, więc plik może zmienić
+rozmiar). Aktualne tłumaczenie, z japońskiego, jest w
+[`../translations/opening_pl.json`](../translations/opening_pl.json); opis pracy —
+w [`STATUS.md`](STATUS.md) (sekcja S5).
+
+---
+
 # SRW Y — opening narration: Polish draft (not yet installed)
 
 Source offered by the owner on 2026-10-26, as displayed by the English build:

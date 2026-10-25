@@ -18,3 +18,6 @@ srw-oe-translation/srw-oe-wgrane/
 # Python bytecode (any project)
 __pycache__/
 candidates.bin
+
+# SRW Y: patched bundles built from the owner-s own files (never committed)
+srw-y-translation/build/

@@ -408,3 +408,45 @@ that hold it (`dialog_text_en-US`, `dialog_text_ja-JP`, en + jp scenario scripts
 
 Not yet run in the game: that a re-encrypted bundle loads. That is the first owner
 install and the only claim this document does not make.
+
+## S5: the opening in Polish is built and verified offline (2026-10-25) — **ready for the owner**
+
+The four S4 bundles arrived and decrypt byte-exactly (`srw_y_bundle_crypt.py`), and
+the opening narration was found in the two localization tables:
+
+| bundle | object | strings | plaintext |
+|---|---|---|---|
+| `2d69c099bfdf0e252dabe84dbbba11df` (948,652 B) | `prologue_en-US` | 24 | 2,356,984 B serialized |
+| `1cc7e02ee5711c6ba87a0e364f62198c` (940,012 B) | `prologue_ja-JP` | 24 | 2,756,536 B serialized |
+
+Both tables hold the **same 24 narration screens** in the same order, so the Polish
+text can be written into both and the game shows it in either locale. The Japanese
+column is the source (`translations/opening_pl.json`), the English column is reference
+only — and they do disagree (the JP announces 新宇宙正暦, the EN says "Sixty years ago").
+
+`tools/srw_y_text_patch.py` is the whole pipeline the owner asked for, and every step
+is on disk:
+
+    cipher -> decrypt(key) -> replace 24 strings -> env.file.save() -> encrypt(key) -> cipher'
+
+Build result (both re-verified by decrypting the built file and reading the strings back):
+
+| | original | patched | SHA-256 (patched) |
+|---|---|---|---|
+| en-US | 948,652 B | 958,140 B | `e62ba6e39b5e4e0ce13c4bbd773bf48138141d6ef23006ba5424006d6fd04a7e` |
+| ja-JP | 940,012 B | 950,862 B | `c5dc63ebb3f70af5a23646119dfae02250b5050392c881d3864a3c7caed2e294` |
+
+Every other object in both bundles is byte-identical to the original (the builder
+asserts it), the bundle is still a valid `UnityFS` file, and the plaintext length
+change is absorbed by re-encrypting at the new length — the key is known, so the old
+"same size only" restriction of the keystream patch no longer applies.
+
+Delivery: `build/srw_y_pl_otwarcie_v1.zip` (1,910,257 B, SHA-256
+`7c2f6eecdc9389458a80345567fa2a878e41611f87a4bbf46be52c2c8a64c49b`) on the owner's
+Drive folder, sheet [`OWNER_STEPS_S5_OPENING.md`](OWNER_STEPS_S5_OPENING.md).
+The two patched bundles are the owner's own game data rebuilt, so they are **not** in
+the repository: `srw-y-translation/build/` is git-ignored and only the zip travels.
+
+Still `runtime_tested = false`. Two open questions the owner's run answers:
+does the game accept a bundle whose size changed (Addressables CRC question), and does
+the game font carry `ą ć ę ł ń ó ś ź ż`.

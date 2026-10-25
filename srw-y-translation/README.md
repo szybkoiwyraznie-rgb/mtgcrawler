@@ -91,7 +91,10 @@ count is quoted until the first extraction runs.
 - `docs/` — status, prior art, feasibility plan, experiment log, owner-facing
   step sheets (`OWNER_STEPS_S1.md`, `OWNER_STEPS_S2.md`).
 - `tools/` — build inventory, Addressables catalogue scanner and mapper, text
-  extractor (UnityPy), and (later) translation tooling.
+  extractor (UnityPy), the bundle cipher (`srw_y_bundle_crypt.py`) and the
+  text-replacement pipeline (`srw_y_text_patch.py`: decrypt -> replace -> re-encrypt).
+- `translations/` — the translation sources; `opening_pl.json` holds the 24 screens of
+  the opening narration (Japanese source, English reference, Polish target).
 - `tests/` — offline tests on synthetic data; no game files needed.
 - `local/` — ignored scratch area for anything derived from the owner's copy.
 

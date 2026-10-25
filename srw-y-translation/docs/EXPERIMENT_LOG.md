@@ -759,3 +759,38 @@ in `docs/OPENING_PL_DRAFT.md`.
   evidence). Suite: **263 tests OK**.
 - **Consequence:** any bundle can be opened and rewritten offline. The S4 sheet asks the
   owner for the four bundles holding the opening; no memory run is needed again.
+
+## 2026-10-25 — the opening narration: located, translated from the JP, rebuilt, re-encrypted
+
+- **Where the text lives [confirmed]:** in the two locale tables, and nowhere else among
+  the four S4 bundles. `prologue_en-US` (bundle `2d69c099…`) and `prologue_ja-JP`
+  (bundle `1cc7e02e…`) each hold **24** strings in the same order; the English column
+  matches the owner's paste verbatim ("The Earth." → "…The species' recovery was
+  nothing short of miraculous…").
+- **How the table is stored [confirmed]:** a run of `int32 length + UTF-8 bytes`
+  fields with 12–15 bytes of binary metadata between them and an 88-byte head. There is
+  **no usable typetree** for these fields: `read_typetree` fails on the object
+  (`m_TableData` is an empty reference list), so the table is walked as raw byte runs.
+  Consequence for editing: keep the inter-field bytes verbatim, rewrite only
+  `length + text` — the object may grow, the gaps must not move.
+- **Distance measurement that changed the plan [negative]:** a same-length, key-free
+  patch inside the compressed stream was tried first, because it would have produced a
+  few-KB patch and no rebuilt container. It is not possible: the text bytes are only
+  **34.1 %** LZ4 literals in the English table and **9.0 %** in the Japanese one (the
+  rest are match copies), so byte substitution cannot reach most of the text.
+  `tools/lz4_block_map.py` is the measurement, kept as evidence.
+- **Encoder identity [confirmed]:** python-lz4 `high_compression` level **12** with
+  128 KiB chunks reproduces all 18 blocks of `2d69c099…` **bit for bit** (948,428 B of
+  compressed data, all 18 blocks equal). Unity's LZ4HC settings are therefore known
+  exactly, which is why the rebuilt bundles stay the same shape.
+- **Rebuild [confirmed]:** `tools/srw_y_text_patch.py build` → every object in the
+  bundle except the edited one is byte-identical after the save (asserted per object),
+  the 24 strings read back as the Polish text, and `decrypt(encrypt(x)) == x`.
+  273 tests OK (10 new).
+- **Translation [decided]:** translated from the Japanese, not from the English. Polish
+  is 4,119 B against the English 4,609 B, so it fits the box the English text was laid
+  out in; block 1 is "Ziemia…… / Ta planeta na skraju Drogi Mlecznej / przeszła
+  burzliwą historię."
+- **Unknown, to be answered by the owner's run:** whether Addressables accepts a bundle
+  whose byte size changed (no CRC check is known for local bundles, but it is untested),
+  and whether the game font has the Polish diacritics.
