@@ -153,6 +153,11 @@ Jeśli pokaże się `BRAKUJE:` - wklej mi tę listę, sprawdzę nazwy.
 > PowerShella ani gry. Jest napisany pod PowerShell 5.1 (żadnych poleceń, których
 > 5.1 nie ma) i niczego nie usuwa: tylko kopiuje pliki na Pulpit i pakuje zip.
 
+> **Uwaga:** ten arkusz dotyczy **podstawki** (`aa\catalog.json`). DLC obok `aa`
+> mają własne indeksy i osobne bundle - ich lista jest w arkuszu S6b
+> (`OWNER_STEPS_S6B_DLC_CATALOGS.md`). Bez tamtych indeksów nie da się powiedzieć,
+> które bundle DLC zawierają tekst.
+
 ## KROK 2 - wrzuć na Dysk
 
 Wrzuć `srw_y_tekst.zip` z Pulpitu do tego samego folderu na Dysku Google, w którym

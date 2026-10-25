@@ -121,3 +121,35 @@ pewne i nie zależy od kolejności. `prologue`: 18 wspólnych kluczy z 19/19
    jak odesłać pracę, jak dziedziczą się powtórzenia).
 5. Import zwrotny i patch — ta sama metoda, która zadziałała w S5b
    (`srw_y_fit_patch.py`, ten sam rozmiar pliku).
+
+## 6. DLC: osobne zestawy, osobne indeksy [confirmed — uwaga właściciela]
+
+Właściciel zauważył katalogi obok `aa`. Ma rację i **poprawia to punkt 1**: liczba
+„42 pliki” obejmuje **tylko podstawkę**.
+
+Obok `aa` leży 10 osobnych zestawów Addressables, każdy z **własnym indeksem
+`catalog_<nazwa>.json`** i własnymi bundlami:
+
+| folder | indeks | indeks B | bundli | razem B |
+|---|---|---|---|---|
+| `AnniversaryExpansionPack` | `catalog_anniversaryexpansionpack.json` | 5 308 249 | 2 601 | 1 678 581 815 |
+| `ExpansionPack` | `catalog_expansionpack.json` | 3 031 427 | 1 551 | 814 688 229 |
+| `Dlc1` | `catalog_dlc1.json` | 1 640 455 | 830 | 449 111 081 |
+| `Dlc2` | `catalog_dlc2.json` | 1 593 357 | 782 | 554 220 108 |
+| `SeasonPassBonus` | `catalog_seasonpassbonus.json` | 1 148 607 | 418 | 270 688 509 |
+| `BonusMission` | `catalog_bonusmission.json` | 416 490 | 274 | 3 583 308 |
+| `PremiumSound` | `catalog_premiumsound.json` | 103 933 | 64 | 163 395 645 |
+| `EarlyPurchase` | `catalog_earlypurchase.json` | 68 160 | 42 | 516 572 |
+| `DeluxeEdition` | `catalog_deluxeedition.json` | 15 054 | 7 | 57 292 |
+| `UltimateEdition` | `catalog_ultimateedition.json` | 15 072 | 7 | 57 321 |
+
+Razem **6 576 bundli i 3,6 GB**, a katalog podstawki ich nie opisuje (19 160 bundli
+w `aa` vs 19 923 pliki w folderze). Dlatego kolejność jest taka: **najpierw indeksy
+DLC (13,3 MB)**, potem — już z resolved adresami — krótka lista bundli DLC
+z tekstem. Wstępnie widać, że tekst DLC jest tani: cały `BonusMission` to 274 bundle
+i 3,58 MB, `EarlyPurchase` 42 bundle i 0,5 MB.
+
+Arkusze: [`OWNER_STEPS_S6_TEXT_UPLOAD.md`](OWNER_STEPS_S6_TEXT_UPLOAD.md) (podstawka)
+i [`OWNER_STEPS_S6B_DLC_CATALOGS.md`](OWNER_STEPS_S6B_DLC_CATALOGS.md) (indeksy DLC),
+generowane przez `tools/build_text_upload_request.py` i
+`tools/build_dlc_catalog_request.py`.
