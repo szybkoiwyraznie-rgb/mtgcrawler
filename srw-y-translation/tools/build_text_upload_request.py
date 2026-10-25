@@ -79,8 +79,8 @@ def collect(mapping: dict, sizes: dict[str, int], have: set[str]) -> dict:
 
 def ps_block(plan: dict) -> str:
     names = '\n'.join(f"    '{name}'," for name in plan['need'])
-    return f"""# SRW Y - zbior tekstu do pakietu tlumacza (na Pulpit; nic nie jest usuwane)
-$aa    = 'D:\\Games\\SUPER ROBOT WARS Y\\SUPER ROBOT WARS Y_Data\\StreamingAssets\\aa\\StandaloneWindows64'
+    text = f"""# SRW Y - zbior tekstu do pakietu tlumacza (na Pulpit; nic nie jest usuwane)
+$aa    = 'D:__BS__Games__BS__SUPER ROBOT WARS Y__BS__SUPER ROBOT WARS Y_Data__BS__StreamingAssets__BS__aa__BS__StandaloneWindows64'
 $desk  = [Environment]::GetFolderPath('Desktop')
 $dst   = Join-Path $desk 'srw_y_tekst'
 $zip   = Join-Path $desk 'srw_y_tekst.zip'
@@ -110,6 +110,7 @@ $i = Get-Item $zip
 "zip bajtow: " + $i.Length.ToString('N0')
 "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
 """
+    return text.replace("__BS__", chr(92))
 
 
 def doc(plan: dict) -> str:
@@ -147,6 +148,10 @@ Skopiuj **cały** blok poniżej do PowerShella i wklej. Zrobi na Pulpicie folder
 Na końcu mają wyjść trzy linie: `skopiowanych plików: {len(plan['need'])} z {len(plan['need'])}`,
 `razem bajtow: {plan['bytes']:,}` (mniej więcej) i `zip sha256: ...`.
 Jeśli pokaże się `BRAKUJE:` - wklej mi tę listę, sprawdzę nazwy.
+
+> Ten blok **nie był u mnie uruchamiany** - w środowisku, w którym pracuję, nie ma
+> PowerShella ani gry. Jest napisany pod PowerShell 5.1 (żadnych poleceń, których
+> 5.1 nie ma) i niczego nie usuwa: tylko kopiuje pliki na Pulpit i pakuje zip.
 
 ## KROK 2 - wrzuć na Dysk
 

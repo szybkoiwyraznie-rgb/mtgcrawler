@@ -98,6 +98,10 @@ Na końcu mają wyjść trzy linie: `skopiowanych plików: 38 z 38`,
 `razem bajtow: 22,459,767` (mniej więcej) i `zip sha256: ...`.
 Jeśli pokaże się `BRAKUJE:` - wklej mi tę listę, sprawdzę nazwy.
 
+> Ten blok **nie był u mnie uruchamiany** - w środowisku, w którym pracuję, nie ma
+> PowerShella ani gry. Jest napisany pod PowerShell 5.1 (żadnych poleceń, których
+> 5.1 nie ma) i niczego nie usuwa: tylko kopiuje pliki na Pulpit i pakuje zip.
+
 ## KROK 2 - wrzuć na Dysk
 
 Wrzuć `srw_y_tekst.zip` z Pulpitu do tego samego folderu na Dysku Google, w którym
