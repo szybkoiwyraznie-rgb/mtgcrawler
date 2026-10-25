@@ -1,0 +1,62 @@
+# SRW Y — Polish translation project (phase 0: feasibility)
+
+Fan Polish translation of **SUPER ROBOT WARS Y** (スーパーロボット大戦Y,
+Bandai Namco Forge Digitals, 2025) — the fourth SRW entry released on PC and the
+second one sold outside Asia. Started 2026-10-25 on the owner's decision; the
+first milestone is a **go/no-go feasibility report**, not a translation.
+
+> **No game data here.** This repository holds no game files, containers,
+> bundles, saves, screenshots or derived builds, and never will. Work happens on
+> the owner's own copy; the repository keeps tools, glossary, translation data
+> and documentation.
+
+## The game (confirmed facts)
+
+| | |
+|---|---|
+| Title | SUPER ROBOT WARS Y / スーパーロボット大戦Y |
+| Developer / publisher | Bandai Namco Forge Digitals / Bandai Namco Entertainment |
+| Release | 2025-08-27 (Steam, worldwide) · 2025-08-28 (PS5, Switch) |
+| Platforms | PC (Steam app `1909950`), PlayStation 5, Nintendo Switch |
+| Languages shipped | **Japanese, English**, Simplified & Traditional Chinese, Korean |
+| Polish | **none** — the reason for this project |
+| Engine | **Unity, IL2CPP** (first SRW built on Unity; see `docs/PRIOR_ART.md`) |
+| Content state | **finished**: v1.4.0 (2026-08-04) + *Anniversary Expansion Pack* (2026-08-05), announced as the last DLC |
+| Scale | 55 main + 104 optional + 112 DLC scenarios (Akurasu) |
+| Owner's copy | PC build **v1.4.0 with all DLC**, final, outside Steam — so no update can break a patch |
+
+## Scope
+
+- **Polish only**, translated **fresh from the Japanese text**. The official
+  English is a secondary reference column (it is a licensed translation, but it
+  is not our source and its wording is never copied).
+- Text surfaces in scope: story/event dialogue, battle quotes, mission titles and
+  briefings, unit/pilot/weapon/part/skill names and descriptions, tutorials,
+  menus and system messages, encyclopaedia entries.
+- Out of scope: voice (Japanese audio stays), image-based text baked into
+  textures unless it blocks play, network/leaderboard strings.
+
+## Status
+
+**Phase 0 — feasibility spike.** No translation has been produced and no promise
+about coverage or timeline is made. The spike answers five questions (text
+location, string volume, Polish glyphs, line-length limits, install/patch shape)
+and ends with a measured report and a go/no-go recommendation. See
+[`docs/FEASIBILITY.md`](docs/FEASIBILITY.md) and
+[`docs/STATUS.md`](docs/STATUS.md).
+
+## Layout
+
+- `docs/` — status, prior art, feasibility plan, experiment log.
+- `tools/` — build inventory and (later) extraction/translation tooling.
+- `tests/` — offline tests on synthetic data; no game files needed.
+- `local/` — ignored scratch area for anything derived from the owner's copy.
+
+## Working model
+
+The project follows the repository rules: the owner's game files stay on the
+owner's machine (or in the project's ignored `local/`), the sandbox works on
+metadata and the smallest possible extracts, and deliveries are a *patcher or a
+translation package* applied to the owner's copy — never game data. Every claim
+in these documents is labelled **confirmed**, **hypothesis** or **unknown**, and
+no emulator/hardware runtime result is claimed without owner evidence.

@@ -14,3 +14,6 @@ srw-oe-translation/srw-oe-wgrane/
 
 # Local Python analysis environment (never distribute)
 .venv/
+
+# Python bytecode (any project)
+__pycache__/
