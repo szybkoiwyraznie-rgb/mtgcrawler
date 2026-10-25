@@ -78,7 +78,8 @@ def collect(mapping: dict, sizes: dict[str, int], have: set[str]) -> dict:
 
 
 def ps_block(plan: dict) -> str:
-    names = '\n'.join(f"    '{name}'," for name in plan['need'])
+    # no trailing comma: PS 5.1 rejects `@( x, )` with "Missing expression after ','"
+    names = ',\n'.join(f"    '{name}'" for name in plan['need'])
     text = f"""# SRW Y - 38 bundli z tekstem podstawki (na Pulpit; nic nie jest usuwane)
 $ErrorActionPreference = 'Stop'
 $desk = [Environment]::GetFolderPath('Desktop')

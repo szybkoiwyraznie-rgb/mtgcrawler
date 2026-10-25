@@ -73,10 +73,11 @@ def survey(sizes: dict[str, int]) -> dict:
 
 
 def ps_block(plan: dict) -> str:
-    lines = []
-    for pack, bundle, _lang in plan['wanted']:
-        lines.append(f"    @{{ d='{pack}'; f='{bundle}' }},")
-    body = '\n'.join(lines)
+    # PowerShell does NOT accept a trailing comma before the closing paren of an
+    # array literal - "Missing expression after ','" at the last entry.  So the
+    # separator goes between entries, never after the last one.
+    entries = [f"    @{{ d='{pack}'; f='{bundle}' }}" for pack, bundle, _lang in plan['wanted']]
+    body = ',\n'.join(entries)
     count = len(plan['wanted'])
     return f"""# SRW Y - bundle DLC z tekstem scenariusza ({count} plikow; nic nie jest usuwane)
 $ErrorActionPreference = 'Stop'

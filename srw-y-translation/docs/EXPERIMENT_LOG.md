@@ -876,3 +876,29 @@ Fix, not a guess at the cause: stop handing over bare `.ps1` files.
 Both kits are built by `tools/build_dlc_bundle_request.py` and
 `tools/build_text_upload_request.py`; nothing in them was executed here (no
 PowerShell, no Windows, no game in the sandbox) - the sheets say so explicitly.
+
+## 2026-10-25 (S6c, second run) - the real cause: a trailing comma in the array
+
+Owner report (verbatim point): `ZBIERZ_DLC_BUNDLE.ps1:618 char:75` - the last array
+element, `@{ d='UltimateEdition'; f='0dc28ec7…' },` - with
+`ParserError: Missing expression after ','`.
+
+**Confirmed cause:** PowerShell 5.1 does not accept a trailing comma before the
+closing paren of an array literal. The entry list was built as `join('\n', [x + ','])`
+so every entry, including the last one, ended with a comma. It is a *parse* error, so
+nothing ran at all - no file was touched, and no transcript was written (which is also
+why the log was absent).
+
+Fix: entries are now joined with `','`, so the comma sits *between* entries and never
+after the last one. Both kits were regenerated: `tools/collect_dlc_bundles.ps1`
+(601 entries) and `tools/collect_text_bundles.ps1` (38 entries).
+
+Guard against a repeat: `tests/test_ps_kits.py` builds both kits and asserts - no
+`,` before a closing paren, balanced `{}`/`()` outside string literals, every entry
+line except the last ends with `,` and the last does not, BOM + CRLF, ASCII only,
+zip members exactly `{ps1, URUCHOM_TO.bat, CZYTAJ_TO.txt}` with `pause` and
+`Unblock-File` present, plus one regression test for the exact line that failed.
+6 tests, all pass.
+
+Lesson for the rest of the project: any generated `.ps1` for the owner must go through
+this lint - a syntax error costs a round trip and looks like an unexplained red window.

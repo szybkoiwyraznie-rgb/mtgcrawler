@@ -615,7 +615,7 @@ try {
     @{ d='SeasonPassBonus'; f='ac592c1ff34577b52aa591b4d590488a.bundle' },
     @{ d='SeasonPassBonus'; f='c01c1b2c4da7bf89785ef191221d37a0.bundle' },
     @{ d='UltimateEdition'; f='5c5987f0335cec98a288d948504d13c5.bundle' },
-    @{ d='UltimateEdition'; f='0dc28ec7b48c3414801a3167ba57f929.bundle' },
+    @{ d='UltimateEdition'; f='0dc28ec7b48c3414801a3167ba57f929.bundle' }
     )
 
     $brak = @()

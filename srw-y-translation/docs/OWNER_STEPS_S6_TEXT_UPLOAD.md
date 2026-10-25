@@ -91,7 +91,7 @@ try {
     'f2d4d1610724c20b49489757435ac136.bundle',
     '4dd4d85f742c65c9f6175a5bb9778647.bundle',
     'f1ba80f5694d96485b7f8c5402dd18c9.bundle',
-    'a1afc008875b80176d4139e04773d990.bundle',
+    'a1afc008875b80176d4139e04773d990.bundle'
     )
 
     $brak = @()
