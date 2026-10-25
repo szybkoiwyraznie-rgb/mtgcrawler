@@ -44,6 +44,31 @@ The path prefix in the listing was cut three characters short
 the fallback command used a fixed substring length; the structure below is intact
 and was restored during analysis.
 
+### S2 blocked — the asset bundles are encrypted (2026-10-25)
+
+The two bundles requested for the first extraction arrived intact and were read:
+**they carry no `UnityFS` header**. Evidence: entropy 8.0 bits/byte in every
+64 KiB window, all 256 byte values present, no repeated 16-byte block, XOR of the
+two files still at entropy 7.997 (so each file has its own keystream), and not one
+readable fragment of an expected string. `UnityPy` opens them and sees **0
+objects** — the tools are fine, the input is ciphertext.
+
+So the text cannot be read, counted or patched on disk until that is undone. Two
+routes, both recorded in `docs/S2_FINDINGS.md`:
+
+- **A — find the key.** Next input requested: `global-metadata.dat`
+  (18,909,544 B, managed string literals only). `tools/keyhunt.py` sweeps every
+  key-sized literal against the real bundle and looks for the `UnityFS`
+  signature; a hit is proof.
+- **B — runtime dump** through MelonLoader (no key needed; also the delivery
+  architecture). Blocked on tooling: **this sandbox has no C# compiler and cannot
+  install one** (the .NET Core runtime needs `libunwind.so.8`, absent and not
+  installable). Recorded as a constraint, not worked around by pretending.
+
+**This is now the central risk of the project.** The phase-0 outcome depends on
+A succeeding or B becoming buildable; until then there is no honest scope number
+and no go/no-go.
+
 ### S2 progress — the catalogue is read (2026-10-25)
 
 The owner supplied `aa/catalog.json` (41,543,062 B, SHA-256 `12c17bf9…73b4`) and

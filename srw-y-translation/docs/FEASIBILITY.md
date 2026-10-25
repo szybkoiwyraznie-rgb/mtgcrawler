@@ -97,6 +97,12 @@ only index of what is inside the bundles.*
   UI, names) **with** the bundle that holds each, so the owner can send one or
   two bundles of a few MiB instead of anything large.
 
+*Blocker 2026-10-25:* the bundles themselves are **encrypted** (no `UnityFS`
+header, entropy 8.0, per-file keystream — see `S2_FINDINGS.md`). String counting
+and any on-disk patch now depend on either recovering the key or dumping text
+from the running game. This promotes the encryption from a register line to the
+project's critical path.
+
 *Result 2026-10-25:* pass met — see `S2_FINDINGS.md`. The mapping is exact
 (`tools/map_catalog.py`, validated against the listing), and the text sits in two
 systems: Unity Localization tables (~940 kB per language) and 4,131 scenario
@@ -167,6 +173,8 @@ Nothing above includes a whole game folder, and nothing is committed.
 
 | Risk | Likelihood | Mitigation |
 |---|---|---|
+| **Asset bundles are encrypted (no `UnityFS` header, per-file keystream)** — confirmed 2026-10-25 | **certain** | Two routes: recover the key from the game's own literals/code (`tools/keyhunt.py`, first test: `global-metadata.dat`), or dump decrypted text from the running game. Until one works there is no scope number and no on-disk patch. **This is the critical path.** |
+| **No C# toolchain in the working environment** — confirmed 2026-10-25 (no .NET/Mono; the .NET Core runtime aborts on the missing `libunwind.so.8`) | **certain** | Either solve the toolchain, or build the runtime dump outside it (a tool the owner can run without compilation), or fall back to a key-recovery-only plan. Must be answered before promising architecture A |
 | Font lacks Polish glyphs | medium | TMP fallback font asset at runtime; atlas patch if needed (SRW OE already solved a similar problem) |
 | Text baked into images for some surfaces | medium | accept partial coverage there, list it explicitly in the delivery |
 | Hooking every text surface is impractical | medium | hook the text-setter level first (catches most UI), then the localization table |

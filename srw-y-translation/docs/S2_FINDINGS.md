@@ -53,6 +53,57 @@ Pod `Assets/Datas/Scenario/{jp,en,cn,…}/` jest **4 131 plików** typu
 `cse20_0001_0000310a_dlgev.lua.txt` w **30 bundlach**, razem **32 267 543 B**.
 Sześć największych bundli ma po 605–678 plików i 4,7–5,6 MB.
 
+## Blokada: bundle są zaszyfrowane
+
+Oba bundle dotarły (Drive `SRW/SRWY`), rozmiary zgadzają się co do bajtu z
+listingiem:
+
+| bundle | bajty | SHA-256 |
+|---|---|---|
+| `1cc7e02ee5711c6ba87a0e364f62198c.bundle` | 940 012 | `a209190e…a9c1` |
+| `1c12bbab8ed0f62ff22f808ce0138bc1.bundle` | 5 591 151 | `5ee05187…9a0d` |
+
+**Nie zawierają nagłówka `UnityFS`.** Dowody z samych plików:
+
+- brak sygnatury `UnityFS` / `UnityWeb` / `CAB-` w całym pliku;
+- entropia **8,0 bita/bajt w każdym oknie 64 KiB**, wszystkie 256 wartości
+  bajtów występują;
+- **zero powtórzonych bloków 16-bajtowych** (wyklucza ECB);
+- XOR obu plików daje entropię 7,997 (0,43 % zer) → **każdy plik ma własny
+  strumień klucza**, więc to nie jest stały XOR ani stały keystream;
+- brak czytelnych fragmentów (`cse20`, `dialog_text`, `Localization`, japoński
+  UTF-8) — nic.
+
+`UnityPy` otwiera pliki bez błędu i widzi **0 obiektów**, co jest zgodne z
+powyższym. W katalogu jest własny provider
+`Com.BBStudio.SRTeam.Data.CustomAssetBundleProvider` — czyli Bandai zaszyfrowało
+całe bundle i odszyfrowuje je we własnym kodzie przy ładowaniu. Nie jest to
+UnityCN (ten zaczyna się od `#$unity3dchina!@`, a nasze pliki są losowe od
+pierwszego bajtu), nie jest to CPK/Blowfish z SRW 30/V.
+
+**Skutek:** dopóki szyfrowanie nie zostanie zdjęte, nie da się policzyć znaków
+ani przygotować łatki na plikach. To nie jest drobiazg — to główne ryzyko całego
+projektu.
+
+## Dwie drogi (obie sprawdzalne)
+
+**A. Znaleźć klucz (offline).** Klucz siedzi w kodzie gry. Najtańszy test:
+`il2cpp_data\Metadata\global-metadata.dat` (18 909 544 B) zawiera **literały
+tekstowe** z całego C# — jeśli klucz jest tam stringiem, `tools/keyhunt.py`
+znajdzie go i sprawdzi na prawdziwym bundlu (szuka sygnatury `UnityFS` po
+odszyfrowaniu). Jeśli nie — klucz jest tablicą bajtów w `GameAssembly.dll`
+(74 865 152 B) i trzeba by go wyłuskać z kodu maszynowego, co jest znacznie
+droższe i niepewne.
+
+**B. Zrzut z pamięci gry (runtime).** Nie potrzebuje klucza: wtyczka do
+MelonLoadera (który na tej grze już działa — patrz `PRIOR_ART.md`) woła
+`AssetBundle.GetAllLoadedAssetBundles()` i zapisuje tekst assetów. To także
+docelowa architektura łatki. Ograniczenie: w moim środowisku **nie ma
+kompilatora C#** (szczegóły w `EXPERIMENT_LOG.md`), więc wtyczkę trzeba by
+zbudować inaczej — to osobny, nierozstrzygnięty problem.
+
+Kolejność: **A**, bo jest tania i w całości po mojej stronie.
+
 ## Interpretacja (hipoteza, nie fakt)
 
 - Tabele na język to ~940 kB na 24 tabele. Dla 55 misji głównych + 104 opcjonalnych

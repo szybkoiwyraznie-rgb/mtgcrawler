@@ -1,64 +1,66 @@
-# Krok S2 — znaleźć tekst w grze (dla właściciela)
+# Krok S2 — odczyt bundli zatrzymał się na szyfrowaniu (dla właściciela)
 
-**Krok 1 (katalog) — ZROBIONE.** `catalog.json` dotarł, 41 543 062 B,
-SHA-256 `12c17bf9…73b4`. Odczyt przeszedł w całości: gra jest w Unity
-Addressables, a katalog wskazuje, co siedzi w którym bundlu. Wynik:
-`docs/S2_FINDINGS.md`.
+Oba bundle dotarły w całości (rozmiary zgadzają się co do bajtu), ale **gra
+wysyła je zaszyfrowane**. To nie jest problem z plikami — pliki są dobre, tylko
+całe zaszyfrowane, a klucz siedzi w kodzie gry. Szczegóły techniczne:
+`docs/S2_FINDINGS.md`, sekcja „Blokada”.
 
-Najważniejsze z odczytu:
+Co to znaczy praktycznie: dopóki nie zdejmiemy szyfrowania, **nie umiem policzyć
+znaków ani przygotować łatki na plikach**. Dlatego pytam teraz o inny plik — i to
+ostatni, o jaki proszę na tym etapie.
 
-- Tekst siedzi w **dwóch** miejscach: w tabelach Unity Localization (UI, nazwy,
-  komunikaty — jeden bundle ~940 kB na język) oraz w **skryptach scenariuszy**
-  `*.lua.txt` (4 131 plików w 30 bundlach) — i to tam prawie na pewno jest fabuła.
-- Wszystkie bundle, o które proszę poniżej, leżą w jednym folderze. Nic nie
-  trzeba szukać po całym dysku.
+## Co jest potrzebne
 
-## Krok 2 — dwa bundle (razem 6 531 163 B, ~6,2 MiB)
-
-Folder:
-
-```powershell
-explorer "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
+```
+D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\il2cpp_data\Metadata\global-metadata.dat
 ```
 
-Wgraj do **`SRW/SRWY`** (przeciągnij, jak katalog) dokładnie te dwa pliki:
+rozmiar **18 909 544 B** (18,0 MiB).
 
-| plik | rozmiar | po co |
-|---|---|---|
-| `1cc7e02ee5711c6ba87a0e364f62198c.bundle` | 940 012 B | wszystkie tabele tekstowe po japońsku — poznam format, liczbę stringów i czy czcionka ma polskie znaki |
-| `1c12bbab8ed0f62ff22f808ce0138bc1.bundle` | 5 591 151 B | 678 skryptów scenariuszy — faktyczny tekst fabuły: objętość i znaczniki |
+To metadane kodu gry: **nazwy klas, metod i teksty wpisane w kod** (literały).
+Nie zawiera assetów, grafik, dźwięków ani dialogów. Jeśli klucz do bundli jest
+zapisany w kodzie jako tekst, jest właśnie tutaj — a wtedy odczyt tekstu rusza
+od razu i w całości po mojej stronie.
 
-To **nie jest** zgoda na wysyłanie gry: te dwa pliki to ok. **0,03 %** zawartości
-(6,2 MiB z 20,66 GiB), zostaną w moim `local/` (ignorowanym przez repo) i
-posłużą tylko do zmierzenia tekstu.
-
-Jeśli nazwy plików są zbyt długie do przepisania, możesz je wkleić do PowerShella
-i skopiować na pulpit pod krótszymi nazwami:
+Wgraj do **`SRW/SRWY`**, tak jak poprzednie pliki. Folder otworzysz tak:
 
 ```powershell
-$src = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
-Copy-Item -LiteralPath "$src\1cc7e02ee5711c6ba87a0e364f62198c.bundle" "$env:USERPROFILE\Desktop\srw_y_text_ja.bundle"
-Copy-Item -LiteralPath "$src\1c12bbab8ed0f62ff22f808ce0138bc1.bundle" "$env:USERPROFILE\Desktop\srw_y_scenario.bundle"
-explorer "$env:USERPROFILE\Desktop"
+explorer "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\il2cpp_data\Metadata"
 ```
 
-…i wgraj z pulpitu `srw_y_text_ja.bundle` oraz `srw_y_scenario.bundle`.
+**Jeśli nazwa `global-metadata.dat` jest dla Ciebie myląca** — to nie są dane
+gry, tylko „spis” nazw z kodu (18 MB). Nie zawiera niczego, czym da się grać.
 
-## Opcjonalnie (później)
+## Opcjonalnie, razem z tym (małe, pomaga)
 
-- `2d69c099bfdf0e252dabe84dbbba11df.bundle` (948 652 B) — tabele angielskie,
-  przydadzą się jako kolumna referencyjna przy tłumaczeniu z japońskiego.
-- Nie ma potrzeby wysyłać nic więcej: resztę bundli wyliczę z katalogów dodatków.
+Z folderu `…_Data\StreamingAssets\aa\`:
 
-## Porządki (jeśli jeszcze nie zrobione)
+- `settings.json` — **1 604 B**
+- `AddressablesLink\link.xml` — **99 045 B** (lista klas używanych przez grę;
+  może wprost wskazać klasę od szyfrowania)
 
-```powershell
-Remove-Item -LiteralPath "D:\Games\SUPER ROBOT WARS Y\listing.txt","D:\Games\SUPER ROBOT WARS Y\listing_sizes.txt" -ErrorAction SilentlyContinue
-```
+Razem ~18,1 MB — czyli mniej niż poprzedni `catalog.json`.
+
+## Jeśli ten trop nie zadziała
+
+Wtedy zostaje droga runtime: gra sama odszyfrowuje bundle w pamięci, więc
+wtyczka do MelonLoadera może zrzucić tekst bez znajomości klucza. Uprzedzam
+uczciwie: **w moim środowisku nie ma kompilatora C#**, więc ta droga wymaga
+najpierw rozwiązania problemu po mojej stronie — nie obiecuję jej na dziś.
+Napisałem to też w `docs/STATUS.md`, żeby nie zniknęło.
+
+## Czego nie trzeba robić
+
+- Nie wysyłaj `GameAssembly.dll` (74,9 MB) — jeszcze nie teraz; sens miałby
+  dopiero, gdyby metadane nie wystarczyły.
+- Nie ruszaj niczego w folderze gry.
+- Nie szukaj „klucza” samodzielnie — to nie jest plik, który gdzieś leży.
 
 ## Co dalej
 
-1. Ja: otwieram oba bundle, wyciągam tekst, liczę znaki i linie per język,
-   sprawdzam, czy polskie znaki mają czcionkę (S3).
-2. Ty: dopiero wtedy dostaniesz **uczciwą liczbę** — ile znaków ma fabuła i ile
-   to realnie pracy — oraz decyzję go/no-go.
+1. Ja: przeszukuję literały z metadanych jako kandydatów na klucz i sprawdzam
+   każdy na prawdziwym bundlu (jeśli odszyfrowanie da nagłówek `UnityFS`, mamy
+   klucz — to dowód, nie zgadywanie).
+2. Jeśli klucz się znajdzie: odczyt wszystkich tabel tekstowych i skryptów
+   scenariuszy → **uczciwa liczba znaków** i decyzja go/no-go.
+3. Jeśli nie: wracam do drogi runtime i melduję, co jest realne.

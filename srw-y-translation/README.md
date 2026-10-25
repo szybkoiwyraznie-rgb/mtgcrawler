@@ -56,6 +56,16 @@ catalogue per content pack (`Dlc1`, `Dlc2`, `ExpansionPack`,
 SRW 30/V CPK–Blowfish–CRILAYLA tooling does not apply. Details and the full
 inventory table: [`docs/STATUS.md`](docs/STATUS.md#s1-result--build-inventory-2026-10-25-from-the-owners-listing).
 
+## S2 blocked — the asset bundles are encrypted (2026-10-25)
+
+The first two bundles were opened: **they are ciphertext**, not `UnityFS`
+(entropy 8.0 bits/byte in every window, no repeated block, per-file keystream,
+not UnityCN). The catalogue still tells us exactly which bundle holds which text
+table and scenario script, but nothing inside can be read, counted or patched
+until the protection is undone — by recovering the key or by dumping text from
+the running game. Details and the two routes:
+[`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
+
 ## S2 in progress — the catalogue names every bundle (2026-10-25)
 
 The owner's `aa/catalog.json` (41,543,062 B) was parsed: **187,039 addresses**,

@@ -20,9 +20,11 @@ Requires **UnityPy** (LGPL, not vendored here). Create a throwaway environment:
 Text dumps go to ``--out-dir`` (the repo's ignored ``local/``); the JSON report
 holds only counts and file names, so it can be committed or shared.
 
-**Status of this tool: the pure functions are unit-tested, the bundle reading
-path has not been run yet — no bundle has been available in the sandbox.** The
-first bundle opens it for real; until then do not treat its output as proven.
+**Status of this tool (2026-10-25):** the pure functions are unit-tested, and the
+bundle path has now been run — on a real SRW Y bundle, which turned out to be
+**encrypted** (no `UnityFS` header, entropy 8.0). The tool reported `0 objects`,
+which was the correct answer for that input; it has still never parsed a
+*plaintext* SRW Y bundle, because none exists on disk. See `docs/S2_FINDINGS.md`.
 """
 from __future__ import annotations
 

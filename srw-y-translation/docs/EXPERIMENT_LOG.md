@@ -164,3 +164,46 @@ inputs (size, SHA-256 where available) and the result, labelled
   documents the venv command instead of assuming a global install.
 - **Next input:** `1cc7e02e…` + `1c12bbab…` (6,531,163 B). `runtime_tested`
   stays `false`.
+
+## 2026-10-25 — S2 blocked: the bundles are encrypted, not just compressed
+
+- **Input:** the two requested bundles, Drive `SRW/SRWY` —
+  `1cc7e02ee5711c6ba87a0e364f62198c.bundle` (940,012 B,
+  SHA-256 `a209190eeac1ec32bd6f0979dbf8ff53d0960b7cdc8818d94604f9979bb1a9c1`) and
+  `1c12bbab8ed0f62ff22f808ce0138bc1.bundle` (5,591,151 B, SHA-256
+  `5ee05187c3342c978310a5334645c621f9f9429af67b8735feec5f1c76e29a0d`). Both
+  sizes match the listing byte for byte; both are stored in the ignored
+  `local/bundles/`.
+- **Result [confirmed]: fully encrypted.** No `UnityFS`/`UnityWeb`/`CAB-`
+  signature anywhere; entropy **8.0 bits/byte in every 64 KiB window** with all
+  256 byte values present; **no repeated 16-byte block** in either file (so not
+  ECB); XOR of the two files has entropy 7.997 with 0.43 % zero bytes and no
+  constant run longer than 3, so **each file carries its own keystream** (not a
+  fixed XOR, not a fixed-IV CTR); no readable fragment of any expected string
+  (`cse20`, `dialog_text`, `Localization`, Japanese UTF-8).
+- **Correction to my own earlier step:** `tools/extract_text.py` ran on the ja
+  table bundle and reported **0 objects**. That is the honest output — the tool
+  is not broken, the input is ciphertext. Its "never opened a real bundle" note
+  is now replaced by "opened one; it is encrypted".
+- **Cause [hypothesis]:** Bandai ships whole bundles encrypted through the custom
+  `Com.BBStudio.SRTeam.Data.CustomAssetBundleProvider` listed in the catalogue;
+  it is not UnityCN (that format begins with `#$unity3dchina!@`) and it is not
+  the SRW 30/V CPK + Blowfish + CRILAYLA pipeline (no CPK in this build).
+- **Tool added:** `tools/keyhunt.py` — dependency-free AES (checked against the
+  FIPS-197 vectors), candidate extraction from a metadata blob (every printable
+  string of 16/24/32 bytes and every hex run that decodes to one) and a sweep of
+  stock constructions (AES-ECB, CBC with zero/prefixed IV, CTR variants, XOR),
+  each validated by looking for the `UnityFS` signature in the decrypted block.
+  13 tests. Nothing found yet: no metadata file has been available.
+- **Toolchain finding [confirmed]:** the sandbox has **no .NET, Mono, `mcs` or
+  `csc`**, and no package manager that can install one. A .NET Core SDK tarball
+  *can* be fetched from the npm registry (allowed host), but its runtime aborts at
+  startup with `libunwind.so.8: cannot open shared object file`, and `libunwind`
+  is neither installed nor installable here. **Consequence: a MelonLoader mod
+  cannot be compiled in this environment as it stands.** That is a delivery-path
+  constraint, not a game constraint, and it is recorded as such rather than
+  glossed over.
+- **Next input:** `il2cpp_data/Metadata/global-metadata.dat` (18,909,544 B) —
+  managed string literals, no assets, no code — plus `aa/settings.json` (1,604 B)
+  and `aa/AddressablesLink/link.xml` (99,045 B). If the key is a literal string,
+  the hunt settles it in minutes. `runtime_tested` stays `false`.
