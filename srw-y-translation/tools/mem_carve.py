@@ -44,13 +44,14 @@ import struct
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 SCHEMA = 1
 # Bumped with every change that reaches the owner, and checked by the paste-block
 # before anything runs: a silently stale download cost two failed runs, and the
 # symptom looked exactly like a script bug.
-SCRIPT_VERSION = "2026-10-25.5"
+SCRIPT_VERSION = "2026-10-25.7"
 SIGNATURE = b"UnityFS\x00"
 CAB = b"CAB-"
 MARKERS = {
@@ -67,6 +68,7 @@ MAX_CARVE_BYTES = 256 * 1024 * 1024
 MAX_BUNDLE_BYTES = 512 * 1024 * 1024   # no SRW Y bundle comes close; anything
                                        # bigger is a false header in random bytes
 MAX_TEXT_CHARS = 8 * 1024 * 1024       # cap for one harvested text file
+MAX_OBJECT_CHARS = 64 * 1024 * 1024    # the string table is bigger than the rest
 UNITY_VERSION_RE = re.compile(r"^\d{4}\.\d+\.\d+[a-z]\d+$")
 SERIALIZED_NAME_RE = re.compile(r"^[0-9a-f]{16}$")
 MAX_SINGLE_READ = 64 * 1024 * 1024
@@ -326,6 +328,21 @@ def harvest_buffer(buffer: bytes, utf16: set, utf8: set) -> None:
         harvest_text(buffer.decode("utf-8", "ignore"), utf8)
 
 
+def is_plausible_text(text: str) -> bool:
+    """Reject heap objects that decode but are not language.
+
+    A few `System.String` objects in the heap are character tables (a font or
+    unicode map): 4,096 units spanning a dozen scripts. They decode cleanly and
+    would otherwise dominate any "longest text" list. Anything long that is not
+    mostly Japanese is not a line of dialogue.
+    """
+    if len(text) <= 500:
+        return True
+    japanese = sum(1 for ch in text
+                   if "\u3041" <= ch <= "\u30ff" or "\u4e00" <= ch <= "\u9fff")
+    return japanese / len(text) >= 0.3
+
+
 def harvest_objects(hits: list, klass_counts: dict,
                     minimum: int = 50) -> list:
     """Keep the strings whose class pointer dominates, deduplicated by text.
@@ -344,25 +361,32 @@ def harvest_objects(hits: list, klass_counts: dict,
     for hit_klass, address, text in hits:
         if hit_klass != klass or text in seen:
             continue
+        if not is_plausible_text(text):
+            continue
         seen.add(text)
         kept.append((address, text))
     return kept
 
 
-def write_string_objects(path: Path, objects: list, cap: int = MAX_TEXT_CHARS) -> dict:
+def write_string_objects(path: Path, objects: list,
+                         cap: int = MAX_OBJECT_CHARS) -> dict:
     """Write `address<TAB>length<TAB>text` for harvested IL2CPP strings."""
     written = 0
     chars = 0
+    japanese = 0
     lines = []
     for address, text in objects:
+        is_japanese = any("\u3041" <= ch <= "\u30ff" or "\u4e00" <= ch <= "\u9fff"
+                          for ch in text)
         if chars + len(text) + 24 > cap:
             break
         lines.append("%d\t%d\t%s" % (address, len(text), text))
         chars += len(text) + 24
         written += 1
+        japanese += 1 if is_japanese else 0
     path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
     return {"objects": len(objects), "written": written, "chars": chars,
-            "truncated": written < len(objects)}
+            "japanese": japanese, "truncated": written < len(objects)}
 
 
 def write_strings(path: Path, strings: set, cap: int = MAX_TEXT_CHARS) -> dict:
@@ -578,7 +602,7 @@ def read_process(kernel32, handle: int, address: int, size: int,
 
 def live_scan(image_name: str, out_dir: Path, budget: int,
               max_scan: int, marker_limit: int = 2000,
-              harvest: bool = True) -> dict:
+              harvest: bool = True, watch_seconds: int = 0) -> dict:
     if sys.platform != "win32":
         raise RuntimeError("live memory scanning needs Windows; use --from-file")
     pid = process_pid(image_name)
@@ -610,8 +634,14 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
     klass_counts: dict = {}
     address = 0
     mbi = MEMORY_BASIC_INFORMATION()
+    passes = 0
+    deadline = time.monotonic() + watch_seconds if watch_seconds else 0.0
     try:
-        while scanned < max_scan:
+      while True:
+        passes += 1
+        address = 0
+        pass_scanned = 0
+        while pass_scanned < max_scan:
             if not kernel32.VirtualQueryEx(handle, ctypes.c_void_p(address),
                                            ctypes.byref(mbi), ctypes.sizeof(mbi)):
                 break
@@ -624,7 +654,7 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                 regions += 1
                 view = (ctypes.c_char * min(size, CHUNK))()
                 offset = 0
-                while offset < size and scanned < max_scan:
+                while offset < size and pass_scanned < max_scan:
                     want = min(CHUNK, size - offset)
                     read = ctypes.c_size_t(0)
                     ok = kernel32.ReadProcessMemory(
@@ -695,6 +725,7 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                             break
                     carved["planned"] += len(plan)
                     bundle_sizes.extend(declared for _, declared in hits)
+                    pass_scanned += read.value
                     scanned += read.value
                     offset += read.value
                     if budget <= 0:
@@ -703,12 +734,18 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
             if next_address <= address:
                 break
             address = next_address
+        if not deadline:
+            break                     # single pass unless --watch was given
+        if time.monotonic() >= deadline or budget <= 0:
+            break
     finally:
         kernel32.CloseHandle(handle)
 
     return {
         "schema": SCHEMA,
         "script_version": SCRIPT_VERSION,
+        "passes": passes,
+        "watch_seconds": watch_seconds,
         "mode": "live",
         "process": {"image": image_name, "pid": pid},
         "regions_scanned": regions,
@@ -744,6 +781,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--carve-budget", type=int, default=MAX_CARVE_BYTES)
     parser.add_argument("--max-scan", type=int, default=8 * 1024 ** 3)
     parser.add_argument("--marker-limit", type=int, default=2000)
+    parser.add_argument("--watch", type=int, default=0, metavar="SECONDS",
+                        help="keep re-scanning memory for this long, so text "
+                             "that only exists briefly is caught too")
     parser.add_argument("--no-text", action="store_true",
                         help="skip the string harvest (faster, no text files)")
     args = parser.parse_args(argv)
@@ -764,7 +804,8 @@ def main(argv: list[str] | None = None) -> int:
         else:
             result = live_scan(args.process, args.out, args.carve_budget,
                                args.max_scan, args.marker_limit,
-                               harvest=not args.no_text)
+                               harvest=not args.no_text,
+                               watch_seconds=args.watch)
     except RuntimeError as error:
         print(f"error: {error}", file=sys.stderr)
         return 2

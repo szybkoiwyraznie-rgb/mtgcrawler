@@ -207,6 +207,24 @@ folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
 
 ## Where S3 stands
 
+Measured: **235,000 unique managed strings** in the running game; **7,547
+translatable / 132,038 characters** of Japanese in the layer we can read today —
+mech and weapon names, pilot abilities, spirit commands, assist crew, mission
+conditions, some dialogue lines. That is the UI and data-table layer.
+
+**The story is not in it.** Scanning with a mission open changed nothing, and the
+rows are dominated by table keys, so scenario text is not interned as
+`System.String` — the `.lua.txt` assets are streamed through `SeekableAesStream`
+into the Lua VM and released. `mem_carve.py --watch N` now re-scans for a given
+time to catch text that exists only while a line is displayed; if that fails, the
+fallback is dumping decrypted stream bytes.
+
+So: a first Polish patch target exists (UI/data strings, all real
+`System.String`s), but the story still needs a capture method before any
+translation work is worth starting.
+
+## Where S3 stood before the fourth run
+
 The text is **managed `System.String` objects in an IL2CPP/Boehm heap** and can be
 extracted with exact boundaries, lengths and addresses: from 7.6 MB of sampled
 memory, 55,908 objects → **14.5 k unique strings / 418 k chars**, of which ~1,950

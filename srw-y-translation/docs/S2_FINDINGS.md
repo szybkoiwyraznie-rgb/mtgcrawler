@@ -394,3 +394,60 @@ the AES key, in two steps of increasing ambition:
 Both are write operations on a running game, so both need an explicit owner
 decision and a test that can be undone (`mem_patch` keeps a JSON backup of the
 original bytes and can restore them).
+
+## S3, fourth run: the text budget, and what is still missing
+
+`carve4.zip` (11,479,083 B) is the first run where the string-object pass and the
+raised reporting worked end to end.
+
+| | run 1 — title screen | run 2 — mission with dialogue |
+|---|---|---|
+| memory scanned | 1.75 GB in 1,037 regions | 2.16 GB in 985 regions |
+| `UnityFS` / `CAB-` | 580 / 8,612 | 794 / 13,859 |
+| string objects, unique | **235,031** | **234,961** |
+| rows written (8 MB cap hit) | 145,702 | 145,690 |
+| plausible Japanese strings | 6,831 (126,871 chars) | 6,827 (126,829 chars) |
+
+`tools/strings_to_worklist.py` turns those rows into a worklist:
+
+```
+translatable: 7,547 strings, 132,038 characters
+  fragment         4,709 strings    101,557 chars
+  label_or_name    2,224 strings     18,836 chars
+  sentence           614 strings     11,645 chars
+  identifier     137,908 strings  4,738,221 chars   (keys, not text)
+```
+
+**What that text is:** mech and weapon names (`νガンダム`, `ロング・ビーム・サーベル`),
+pilot abilities and spirit-command descriptions (`出撃時の気力＋１０、…`), assist
+crew entries, mission conditions, and dialogue lines (`いい機会だ。`,
+`この瞬間、世界は変わる`). It is the **UI and data-table layer**, and it is worth
+translating — but it is not the story.
+
+**What is missing and why.** Two clues say the scenario script is not in this
+table. First, scanning with a mission open changed almost nothing (6,827 vs 6,831
+strings). Second, 137,908 of the rows are ASCII keys (`M0078A_MOOTRON`,
+`RFN_B_DFNS_SLD`, `GUID:…`), i.e. the rows come from data tables that were loaded
+once. A 33.5 MB scenario corpus cannot be absent from the matching total without a
+reason, and the reason is that scenario text is **not interned as managed
+strings**: the `.lua.txt` assets are read through `SeekableAesStream`, executed,
+and released, so the characters exist in a buffer for a moment rather than as
+`System.String` objects in the heap we sample.
+
+**Consequence for the plan.** The string table gives the first Polish patch target
+(menu labels, names, ability text — text that is definitely a `System.String`),
+while the story needs a different capture:
+
+- **`--watch N`** (new in this build): re-scans the address space for N seconds
+  instead of once. If the story text is only resident while a line is on screen,
+  a 2-3 minute watch with the dialogue advancing will catch it.
+- if that fails, the remaining option is hooking `SeekableAesStream` so decrypted
+  bundle bytes are dumped as they stream — the fallback recorded earlier.
+
+Both are cheap next steps compared with writing a translation for text we cannot
+yet re-insert.
+
+**Also noted:** one harvested row is an English tutorial sentence
+(`Low Morale will not only stymie your attack and defense…`), i.e. the localisation
+tables for other languages are in the same heap. Useful later as a translation
+oracle, and a reminder that a PL string must be distinguishable from EN at runtime.

@@ -475,3 +475,20 @@ inputs (size, SHA-256 where available) and the result, labelled
     through into a scan.
   Tests **108/108** (version shape, and that `--selftest` prints the banner the
   block greps for).
+- **Fourth run: numbers, and the gap they expose [2026-10-25]:** `carve4.zip`
+  (11,479,083 B) → `local/owner_carve4/`, script version `2026-10-25.5` (the
+  pinned-SHA block worked). 235,031 / 234,961 unique string objects, of which
+  145,702 / 145,690 rows survived the old 8 MB cap; plausible Japanese 6,831 /
+  6,827 strings (126,871 / 126,829 chars). New `tools/strings_to_worklist.py`
+  reports **7,547 translatable strings / 132,038 chars** (fragment 4,709,
+  label_or_name 2,224, sentence 614) plus 137,908 ASCII keys.
+  - **Conclusion:** the harvested layer is UI + data tables, not the story. A scan
+    with a mission open produced the same totals, and the rows are dominated by
+    table keys, so scenario text is not interned as `System.String` — it lives in
+    a buffer while `SeekableAesStream` feeds the Lua VM.
+  - Changes: object table cap raised to 64 MB so the next run is complete; a
+    plausibility filter drops the four unicode/font tables that decode as strings
+    (drops 4 of 145,701 rows, verified against the owner's data); the report now
+    carries `japanese` counts and `script_version`; new `--watch SECONDS` re-scans
+    until the deadline, which is how text that only exists while a line is shown
+    gets caught. Tests **126** (watch repeats passes, single pass otherwise).

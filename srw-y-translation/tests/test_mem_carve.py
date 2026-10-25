@@ -434,3 +434,40 @@ class VersionTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(ROOT / "tools" / "mem_carve.py"),
                                  "--selftest"], capture_output=True, text=True)
         self.assertIn(M.SCRIPT_VERSION, result.stdout)
+
+
+class PlausibilityTests(unittest.TestCase):
+    def test_long_dialogue_kept(self):
+        self.assertTrue(M.is_plausible_text("\u3042" * 600))
+
+    def test_unicode_table_dropped(self):
+        # a 4,096-unit character map decodes cleanly but is not language
+        table = "".join(chr(0x400 + index) for index in range(600))
+        self.assertFalse(M.is_plausible_text(table))
+
+    def test_short_ascii_kept(self):
+        self.assertTrue(M.is_plausible_text("M0078A_MOOTRON"))
+
+
+class WatchTests(unittest.TestCase):
+    def test_watch_mode_repeats_passes(self):
+        kernel = FakeKernel([(0x30000000, b"\x00" * 2048)])
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw) / "carve"
+            with mock.patch.object(M, "win_api", lambda: kernel), \
+                    mock.patch.object(M, "process_pid", lambda name: 1), \
+                    mock.patch.object(M.sys, "platform", "win32"):
+                report = M.live_scan("x.exe", out, 1 << 20, 1 << 20,
+                                     harvest=False, watch_seconds=1)
+            self.assertGreater(report["passes"], 1)
+            self.assertEqual(report["watch_seconds"], 1)
+
+    def test_single_pass_without_watch(self):
+        kernel = FakeKernel([(0x30000000, b"\x00" * 2048)])
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw) / "carve"
+            with mock.patch.object(M, "win_api", lambda: kernel), \
+                    mock.patch.object(M, "process_pid", lambda name: 1), \
+                    mock.patch.object(M.sys, "platform", "win32"):
+                report = M.live_scan("x.exe", out, 1 << 20, 1 << 20, harvest=False)
+            self.assertEqual(report["passes"], 1)
