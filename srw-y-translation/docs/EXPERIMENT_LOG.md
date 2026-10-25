@@ -594,3 +594,55 @@ inputs (size, SHA-256 where available) and the result, labelled
     the object is locked - so a locked key array was invisible. Both are accepted
     now, and the cost is nil: 16 MB of bundle-and-noise filler yields 0 candidates
     either way, so the filter that matters is the class-pointer check.
+
+## 2026-10-26 (later) - the plaintext we already had, and the pair route
+
+The owner's `key_report.json` (`2026-10-26.6`, `passes: 1`) confirmed the scan sees
+the heap: 1,028 regions, 2.12 GB, 511,394 candidate arrays (`16: 183,231`,
+`32: 286,404`, `24: 41,759`), **0 hits**. Before spending another run, the carve from
+two days ago (`local/owner_carve4`, 614 files, 597 starting with `UnityFS`) was
+checked properly - it had only ever been counted:
+
+- every carved bundle passes the "UnityFS at 0 and declared size == file size" test,
+  and UnityPy 1.25.4 parses them (`bundle_048` = 1 MonoBehaviour + 1 AssetBundle
+  with container `c` and dependency `cab-096b832207e63dd98ced260ecd336a02`);
+- 255 of the 597 carry Japanese UTF-8 (max 396 B in 26 runs), 106 mention `Datas`,
+  2 mention `lua.txt`, 1 mentions `Localization`;
+- **all 362 carved sizes exist on disk**, and for **276** of them the listing has
+  exactly one bundle of that size (3,113,778 B in total).
+
+So the game hands us plaintext for 276 identifiable files. Since every construction
+tested so far is a stream over the whole file, `keystream = ciphertext XOR plaintext`
+depends on the key and the file's state, **not on the bytes**. A rebuilt bundle that
+is zero-padded back to the original size and XORed with that keystream is a drop-in
+replacement, and no key is needed. Constraint: a patched bundle may not grow past
+the original file size (Japanese is 3 B/char in UTF-8, Polish about 1.1, so a
+translation normally shrinks). Nothing about this needs the game to run.
+
+New tool `tools/pair_keystream.py` (`info`, `save`, `check`, `encrypt`, `survey`)
+plus 20 tests; `survey` answers the one structural question the pairs can answer
+without a key - do two files share a keystream (shared state), or does every file
+have its own.
+
+Same commit, `srw_y_key` `2026-10-26.8`:
+
+- **counter-rule aliasing fixed in the self test.** The test state ended in `0x4F`,
+  where `+16 == ^16`, so `ctr-be-xorbyte` could never be told apart from `ctr-be`.
+  States now end in `0x3F` (bit 4 and bit 5 set). Label column widened to 16 so a
+  verdict never touches a mode name.
+- **five key forms per 32-byte candidate**: the array itself, its two 16-byte halves,
+  `SHA-256(array)` and `MD5(array)` - an AES-128 key stored in a 32-byte buffer or
+  hashed from a string is no longer invisible.
+- **state hypotheses**: the recovered state is compared with the file name as 16
+  bytes, its reverse, `MD5`/`SHA-1`/`SHA-256` of the name, and zeros. A hit means
+  the key is right even when the advance rule is one nobody guessed.
+- **`--dump candidates.bin`**: every candidate is written out (record format
+  `SRWK1`), so a `tools/key_from_dump.py` run here can test new hypotheses against
+  the same heap snapshot. That is what turns "another owner run" into "one minute
+  locally".
+- **`check_key` is 20x faster** (1 ms -> 0.05 ms per candidate, 20,419/s, 511k in
+  0.4 min) by resolving the mode table once, precomputing the known plaintext and
+  evaluating the second block only when the first matches. It also stopped printing
+  "matched but the file did not open" for candidates that *did* verify.
+
+Suite: **187 tests, OK**.

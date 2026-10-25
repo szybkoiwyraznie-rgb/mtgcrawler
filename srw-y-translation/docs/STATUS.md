@@ -330,3 +330,21 @@ offsets at +4/+8/+12, and the report now lists candidate counts and any key that
 matched the first blocks without opening the file. `srw_y_key 2026-10-26.5`,
 suite **166**. If this still finds nothing, the report says whether the scan sees
 candidate keys at all, which decides the next move.
+
+### 276 plaintext/ciphertext pairs: patching without the key (2026-10-26)
+
+The memory carve was never examined after it was counted. It holds **597 decrypted
+bundles** (UnityFS at offset 0, declared size == file size, UnityPy reads them), and
+**276 of them have exactly one file of that size on disk** - 3.1 MB in total. From
+such a pair, `keystream = ciphertext XOR plaintext`; the keystream does not depend on
+the bundle's bytes, so a rebuilt bundle zero-padded to the original size and XORed
+with it is a drop-in replacement. No key, no running game, no mod.
+
+`docs/OWNER_STEPS_S3_PAIRS.md` is the current owner sheet: one PowerShell block that
+copies the 276 files (matched by size, nothing renamed) to the Desktop and zips them.
+`docs/OWNER_STEPS_S3_KEY.md` stays as the fallback route and is marked as such.
+
+`tools/pair_keystream.py` works with a pair (`info`, `save`, `check`, `encrypt`,
+`survey`); `srw_y_key` is `2026-10-26.8` with 15 constructions, five key forms per
+candidate, name-derived state hypotheses, `--dump` for offline analysis, and a
+`check_key` that is 20x faster. Suite **187**.

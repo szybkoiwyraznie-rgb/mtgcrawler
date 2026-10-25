@@ -29,7 +29,8 @@ except Exception:  # pragma: no cover
 CARVES = ROOT / "local" / "owner_carve4"
 SCRIPT = str(ROOT / "tools" / "srw_y_key.py")
 KEY = bytes(range(32))
-STATE = bytes(range(0x40, 0x50))
+# bit0, bit1 and bit4 set, so "+i" and "xor i" differ on block 1 and 2
+STATE = bytes([0x3B]) + bytes(range(0x41, 0x4F)) + bytes([0x3B])
 STREAM_MODES = ("ctr-le", "ctr-be", "ofb", "cfb128", "cfb8")
 
 
@@ -88,7 +89,7 @@ def heap_with(*payloads: bytes) -> bytes:
 
 class VersionTests(unittest.TestCase):
     def test_version_is_pinned(self):
-        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.6")
+        self.assertEqual(S.SCRIPT_VERSION, "2026-10-26.8")
 
     def test_cli_version(self):
         result = subprocess.run([sys.executable, SCRIPT, "--version"],
@@ -106,7 +107,7 @@ class SelfTestTests(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("selftest: PASS", result.stdout)
-        self.assertIn("2026-10-26.6", result.stdout)
+        self.assertIn("2026-10-26.8", result.stdout)
 
 
 @unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
@@ -181,11 +182,17 @@ class KeyCommandTests(unittest.TestCase):
             plain = S._synthetic(940012 // 100)
             bundle.write_bytes(S.encrypt(KEY, "ctr-be", STATE, plain))
             report = tmp / "key_report.json"
+            dump = tmp / "candidates.bin"
             kernel = FakeKernel([(0x10000000, heap_with(KEY))])
-            code = self.run_key(kernel, bundle, ("--report", str(report)))
+            code = self.run_key(kernel, bundle, ("--report", str(report),
+                                                 "--dump", str(dump)))
+            self.assertTrue(dump.exists())
+            self.assertIn(KEY, S.read_dump(dump))
             self.assertEqual(code, 0)
             data = json.loads(report.read_text(encoding="utf-8"))
-            self.assertEqual(len(data["verified"]), 1)
+            # counter rules can alias (ctr-be and ctr32be agree until a carry),
+            # so more than one verified entry is fine as long as the key is right
+            self.assertGreaterEqual(len(data["verified"]), 1)
             hit = data["verified"][0]
             self.assertEqual(hit["key_hex"], KEY.hex())
             self.assertEqual(hit["mode"], "ctr-be")
@@ -239,6 +246,45 @@ class KeyCommandTests(unittest.TestCase):
             report = tmp / "key_report.json"
             self.assertEqual(self.run_key(FakeKernel(regions), bundle,
                                           ("--report", str(report))), 0)
+
+
+class DumpTests(unittest.TestCase):
+    def test_dump_round_trips(self):
+        keys = [(16, bytes(range(16))), (32, bytes(range(32)))]
+        with tempfile.TemporaryDirectory() as raw:
+            path = Path(raw) / "candidates.bin"
+            self.assertEqual(S.write_dump(path, keys), 2)
+            self.assertEqual(S.read_dump(path), [bytes(range(16)), bytes(range(32))])
+
+    def test_rejects_a_foreign_file(self):
+        with tempfile.TemporaryDirectory() as raw:
+            path = Path(raw) / "x.bin"
+            path.write_bytes(b"nope")
+            with self.assertRaises(ValueError):
+                S.read_dump(path)
+
+
+@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
+class StateHypothesisTests(unittest.TestCase):
+    def test_name_derived_states_are_offered(self):
+        states = S.state_hypotheses(Path("1cc7e02ee5711c6ba87a0e364f62198c.bundle"))
+        self.assertIn(bytes.fromhex("1cc7e02ee5711c6ba87a0e364f62198c"), states)
+        self.assertIn("md5(name)", states.values())
+
+    def test_a_matching_state_is_reported_even_with_an_unknown_rule(self):
+        # an IV that comes from the file name is recognised by the state itself
+        name = "1cc7e02ee5711c6ba87a0e364f62198c"
+        state = bytes.fromhex(name)
+        key = KEY
+        plain = S._synthetic(8211)
+        from Crypto.Cipher import AES
+        ecb = AES.new(key, AES.MODE_ECB)
+        ks0 = ecb.encrypt(state)
+        prefix = S.known_plain(len(plain))
+        cipher = bytearray(S.xor(prefix[:16], ks0) + b"\x00" * 32)
+        hits = S.check_key(key, bytes(cipher), len(plain),
+                           S.state_hypotheses(Path(name + ".bundle")))
+        self.assertIn("state-name-hex", [hit["mode"] for hit in hits])
 
 
 @unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")

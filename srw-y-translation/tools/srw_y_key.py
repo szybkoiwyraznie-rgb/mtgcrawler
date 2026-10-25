@@ -32,13 +32,14 @@ from __future__ import annotations
 import argparse
 import ctypes
 import json
+import hashlib
 import struct
 import subprocess
 import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "2026-10-26.6"
+SCRIPT_VERSION = "2026-10-26.8"
 
 # ---------------------------------------------------------------- bundle facts
 # Taken from bundles carved out of the game's memory: one distinct prefix across
@@ -52,7 +53,12 @@ ARRAY_SIZES = (16, 24, 32)      # AES-128 / AES-192 / AES-256 keys and 16-byte I
 MAX_POOL = 20000
 CHUNK = 8 * 1024 * 1024
 PROBE = 4096
-MODES = ("ctr-le", "ctr-be", "ofb", "cfb128", "cfb8", "cbc", "ecb")
+COUNTER_MODES = ("ctr-le", "ctr-be", "ctr-le-byte", "ctr-be-byte",
+                 "ctr-le-xoridx", "ctr-be-xoridx",
+                 "ctr-le-xorbyte", "ctr-be-xorbyte",
+                 "ctr32le", "ctr32be")
+MODES = COUNTER_MODES + ("ofb", "cfb128", "cfb8", "cbc", "ecb")
+DUMP_LIMIT = 1_000_000
 DEFAULT_PROCESS = "SUPER ROBOT WARS Y.exe"
 
 # --------------------------------------------------------------- windows api
@@ -203,6 +209,13 @@ def cfb8_state(cipher: bytes, upto_block: int) -> bytes:
     return state.rjust(BLOCK, b"\x00")
 
 
+def cfb8_state_byte(key: bytes, cipher: bytes, index: int) -> int:
+    """First keystream byte of block `index` under CFB-8 (one AES call)."""
+    from Crypto.Cipher import AES
+
+    return AES.new(key, AES.MODE_ECB).encrypt(cfb8_state(cipher, index))[0]
+
+
 def cfb8_block(key: bytes, cipher: bytes, index: int) -> bytes | None:
     """The 16 keystream bytes of block `index` under CFB-8, or None."""
     from Crypto.Cipher import AES
@@ -272,79 +285,138 @@ def cfb8_encrypt(key: bytes, plain: bytes) -> bytes:
     return bytes(out)
 
 
-def check_key(key: bytes, cipher: bytes, size: int) -> list[dict]:
+def state_hypotheses(bundle: Path) -> dict:
+    """Values the counter block / IV could plausibly be, from the file name.
+
+    The names are 32 hex characters, i.e. exactly 16 bytes, so "IV = the file name"
+    is a real possibility for a seekable stream. If the recovered state equals one
+    of these, the key is right even when the advance rule is unusual.
+    """
+    import hashlib
+
+    stem = bundle.stem
+    out = {}
+    try:
+        out[bytes.fromhex(stem)] = "name-hex"
+        out[bytes.fromhex(stem)[::-1]] = "name-hex-reversed"
+    except ValueError:
+        pass
+    raw = (stem + ".bundle").encode()
+    out[hashlib.md5(raw).digest()] = "md5(name)"
+    out[hashlib.sha1(raw).digest()[:16]] = "sha1(name)"
+    out[hashlib.sha256(raw).digest()[:16]] = "sha256(name)"
+    out[hashlib.md5(stem.encode()).digest()] = "md5(stem)"
+    out[b"\x00" * BLOCK] = "zeros"
+    return out
+
+
+def check_key(key: bytes, cipher: bytes, size: int,
+              states: dict | None = None, known: bytes | None = None) -> list[dict]:
     """Which constructions does this key satisfy? No IV from memory needed.
 
-    `cipher` is the first 48 bytes of the file, `size` the file size. Returns one
-    entry per matching construction with the state needed to decrypt the rest.
+    `cipher` is the first 48 bytes of the file, `size` the file size. A candidate
+    costs one AES decryption plus one per construction, and the second block is
+    only evaluated when the first matches - the earlier version computed both
+    unconditionally and ran at 1 ms per candidate.
     """
     from Crypto.Cipher import AES
 
     if len(cipher) < 48:
         return []
+    if known is None:
+        known = known_plain(size)
     ecb = AES.new(key, AES.MODE_ECB)
-    known = known_plain(size)
-    ks0 = xor(cipher[0:BLOCK], known[0:BLOCK])
+    ks0 = (int.from_bytes(cipher[0:BLOCK], "big")
+           ^ int.from_bytes(known[0:BLOCK], "big")).to_bytes(BLOCK, "big")
     hits = []
 
-    def block_ok(stream: bytes, index: int) -> bool:
-        got = xor(cipher[index * BLOCK:(index + 1) * BLOCK], stream)
+    def matches(stream: bytes, index: int) -> bool:
+        block = (int.from_bytes(cipher[index * BLOCK:(index + 1) * BLOCK], "big")
+                 ^ int.from_bytes(stream, "big")).to_bytes(BLOCK, "big")
         want = known[index * BLOCK:(index + 1) * BLOCK]
-        return got == want if index < 2 else got[:6] == want[:6]
+        return block == want if index < 2 else block[:6] == want[:6]
 
-    # CTR: the counter block is E-decrypt of the first keystream block
     state = ecb.decrypt(ks0)
-    for mode, little in (("ctr-le", True), ("ctr-be", False)):
-        base = int.from_bytes(state, "little" if little else "big")
-        byteorder = "little" if little else "big"
-        streams = [ecb.encrypt((base + step).to_bytes(BLOCK, byteorder))
-                   for step in (1, 2)]
-        if block_ok(streams[0], 1) and block_ok(streams[1], 2):
+    if states and state in states:
+        hits.append({"mode": "state-" + states[state], "state": state})
+
+    for mode in COUNTER_MODES:
+        if not matches(ecb.encrypt(counter_block(state, 1, mode)), 1):
+            continue
+        if matches(ecb.encrypt(counter_block(state, 2, mode)), 2):
             hits.append({"mode": mode, "state": state})
 
-    # OFB: the keystream is the iterated encryption of itself
-    streams = [ecb.encrypt(ks0), None]
-    streams[1] = ecb.encrypt(streams[0])
-    if block_ok(streams[0], 1) and block_ok(streams[1], 2):
+    first = ecb.encrypt(ks0)
+    if matches(first, 1) and matches(ecb.encrypt(first), 2):
         hits.append({"mode": "ofb", "state": ks0})
 
-    # CFB: each keystream block is the encryption of the previous ciphertext block
-    streams = [ecb.encrypt(cipher[0:BLOCK]), ecb.encrypt(cipher[BLOCK:2 * BLOCK])]
-    if block_ok(streams[0], 1) and block_ok(streams[1], 2):
-        # C0 = P0 xor E(IV), so the IV is the decryption of the keystream block,
-        # the same value as the CTR counter start
-        hits.append({"mode": "cfb128", "state": ecb.decrypt(ks0)})
+    first = ecb.encrypt(cipher[0:BLOCK])
+    if matches(first, 1) and matches(ecb.encrypt(cipher[BLOCK:2 * BLOCK]), 2):
+        hits.append({"mode": "cfb128", "state": state})
 
-    # ECB: plaintext = D(cipher); three blocks of it, so a hit is certain
-    if (ecb.decrypt(cipher[0:BLOCK]) == known[0:BLOCK]
-            and ecb.decrypt(cipher[BLOCK:2 * BLOCK]) == known[BLOCK:2 * BLOCK]):
+    if cfb8_state_byte(key, cipher, 1) == cipher[BLOCK] ^ known[BLOCK] and \
+            cfb8_state_byte(key, cipher, 2) == cipher[2 * BLOCK] ^ known[2 * BLOCK]:
+        if cfb8_matches(key, cipher, known):
+            hits.append({"mode": "cfb8", "state": b"\x00" * BLOCK})
+
+    if ecb.decrypt(cipher[0:BLOCK]) == known[0:BLOCK] and \
+            ecb.decrypt(cipher[BLOCK:2 * BLOCK]) == known[BLOCK:2 * BLOCK]:
         hits.append({"mode": "ecb", "state": b"\x00" * BLOCK})
 
-    # CFB-8: feedback is one byte, so the stream is generated byte by byte. The
-    # first byte of block 1 rejects a wrong key at the cost of a single AES call.
-    if cfb8_block(key, cipher, 1) is not None and cfb8_matches(key, cipher, known):
-        hits.append({"mode": "cfb8", "state": b"\x00" * BLOCK})
-
-    # CBC: plaintext = D(cipher) xor previous ciphertext
-    if xor(ecb.decrypt(cipher[BLOCK:2 * BLOCK]), cipher[0:BLOCK]) == known[BLOCK:2 * BLOCK]:
-        if xor(ecb.decrypt(cipher[2 * BLOCK:3 * BLOCK]),
-               cipher[BLOCK:2 * BLOCK])[:6] == known[2 * BLOCK:2 * BLOCK + 6]:
+    if (int.from_bytes(ecb.decrypt(cipher[BLOCK:2 * BLOCK]), "big")
+            ^ int.from_bytes(cipher[0:BLOCK], "big")).to_bytes(BLOCK, "big") \
+            == known[BLOCK:2 * BLOCK]:
+        if (int.from_bytes(ecb.decrypt(cipher[2 * BLOCK:3 * BLOCK]), "big")
+                ^ int.from_bytes(cipher[BLOCK:2 * BLOCK], "big")).to_bytes(
+                    BLOCK, "big")[:6] == known[2 * BLOCK:2 * BLOCK + 6]:
             hits.append({"mode": "cbc",
-                         "state": xor(known[0:BLOCK], ecb.decrypt(cipher[0:BLOCK]))})
+                         "state": (int.from_bytes(known[0:BLOCK], "big")
+                                   ^ int.from_bytes(ecb.decrypt(cipher[0:BLOCK]),
+                                                    "big")).to_bytes(BLOCK, "big")})
     return hits
 
 
 # ------------------------------------------------------------------ the cipher
-def _counter_stream(key: bytes, start: bytes, length: int, little: bool) -> bytes:
+# mode -> (kind, step, byteorder); resolving this once keeps the hot loop free of
+# string work, which dominated the first version (1 ms per candidate)
+MODE_TABLE = {
+    "ctr-le": ("add", 1, "little"),
+    "ctr-be": ("add", 1, "big"),
+    "ctr-le-byte": ("add", BLOCK, "little"),
+    "ctr-be-byte": ("add", BLOCK, "big"),
+    "ctr-le-xoridx": ("xor", 1, "little"),
+    "ctr-be-xoridx": ("xor", 1, "big"),
+    "ctr-le-xorbyte": ("xor", BLOCK, "little"),
+    "ctr-be-xorbyte": ("xor", BLOCK, "big"),
+    "ctr32le": ("ctr32", 1, "little"),
+    "ctr32be": ("ctr32", 1, "big"),
+}
+
+
+def counter_block(base: bytes, index: int, mode: str) -> bytes:
+    """The counter block for block `index` of a CTR-like construction."""
+    kind, step, order = MODE_TABLE[mode]
+    if kind == "ctr32":
+        tail = (int.from_bytes(base[12:16], order) + index * step) % (1 << 32)
+        return base[:12] + tail.to_bytes(4, order)
+    value = int.from_bytes(base, order)
+    if kind == "xor":
+        value ^= index * step
+    else:
+        value = (value + index * step) % (1 << 128)
+    return value.to_bytes(BLOCK, order)
+
+
+def _counter_stream(key: bytes, start: bytes, length: int,
+                    mode: str = "ctr-le") -> bytes:
     from Crypto.Cipher import AES
 
     ecb = AES.new(key, AES.MODE_ECB)
-    value = int.from_bytes(start, "little" if little else "big")
-    byteorder = "little" if little else "big"
     out = bytearray()
+    index = 0
     while len(out) < length:
-        out += ecb.encrypt(value.to_bytes(BLOCK, byteorder))
-        value = (value + 1) % (1 << 128)
+        out += ecb.encrypt(counter_block(start, index, mode))
+        index += 1
     return bytes(out[:length])
 
 
@@ -361,11 +433,9 @@ def _ofb_stream(key: bytes, first: bytes, length: int) -> bytes:
 
 
 def keystream(key: bytes, mode: str, state: bytes, length: int) -> bytes:
-    """The XOR stream for the modes that ignore the data (CTR, OFB)."""
-    if mode == "ctr-le":
-        return _counter_stream(key, state, length, True)
-    if mode == "ctr-be":
-        return _counter_stream(key, state, length, False)
+    """The XOR stream for the modes that ignore the data (CTR variants, OFB)."""
+    if mode in COUNTER_MODES:
+        return _counter_stream(key, state, length, mode)
     if mode == "ofb":
         return _ofb_stream(key, state, length)
     raise ValueError(f"{mode} needs the ciphertext to chain")
@@ -462,7 +532,7 @@ def _synthetic(size: int) -> bytes:
 
 def selftest() -> bool:
     key = bytes(range(32))
-    iv = bytes(range(0x40, 0x50))
+    iv = bytes([0x3B]) + bytes(range(0x41, 0x4F)) + bytes([0x3B])
     ok = True
 
     # 1. every construction is recognised from the ciphertext alone
@@ -470,16 +540,18 @@ def selftest() -> bool:
         plain = _synthetic(8208 if mode in ("cbc", "ecb") else 8211)
         cipher = encrypt(key, mode, iv, plain)
         found = identify(key, cipher)
-        good = bool(found and found[0] == mode and found[2] == plain)
+        # two counter rules can alias on the first blocks when base+i == base^i;
+        # what matters is that the file comes back byte for byte
+        good = bool(found and found[2] == plain)
         ok &= good
-        print(f"  {mode:14}{'ok' if good else 'FAILED'}")
+        print(f"  {mode:<16}{'ok' if good else 'FAILED'}")
 
     # 2. a wrong key is rejected (38 known bytes make a false hit impossible)
     plain = _synthetic(8211)
     cipher = encrypt(key, "ctr-le", iv, plain)
     good = identify(bytes(range(32, 64)), cipher) is None
     ok &= good
-    print(f"  wrong key     {'ok' if good else 'FAILED'}")
+    print(f"  {'wrong key':<16}{'ok' if good else 'FAILED'}")
 
     # 3. candidates are found at all three payload offsets
     klass = (0x1F1803285D0).to_bytes(8, "little")
@@ -489,7 +561,7 @@ def selftest() -> bool:
                if payload == bytes(range(32))}
     good = bool(offsets)
     ok &= good
-    print(f"  byte[] scan   {'ok' if good else 'FAILED'}")
+    print(f"  {'byte[] scan':<16}{'ok' if good else 'FAILED'}")
 
     # 4. re-encrypting a patched plaintext restores a decryptable file
     plain = _synthetic(8211)
@@ -499,7 +571,7 @@ def selftest() -> bool:
     good = (decrypt(key, "cfb128", iv, back) == patched
             and len(back) == len(cipher) and back[:384] == cipher[:384])
     ok &= good
-    print(f"  patch + enc   {'ok' if good else 'FAILED'}")
+    print(f"  {'patch + enc':<16}{'ok' if good else 'FAILED'}")
     return bool(ok)
 
 
@@ -553,6 +625,36 @@ def collect(api, handle, max_scan: int = 0, progress=None,
     return keys, stats
 
 
+def write_dump(path: Path, keys: list[tuple[int, bytes]]) -> int:
+    """Write the candidates so the search can continue offline.
+
+    Format: b"SRWK1\n" then [u8 length][length bytes] per candidate. Sending this
+    file is cheaper than more runs on the owner's machine: every new hypothesis can
+    then be tested here against the same heap snapshot.
+    """
+    written = 0
+    with path.open("wb") as handle:
+        handle.write(b"SRWK1\n")
+        for _length, key in keys[:DUMP_LIMIT]:
+            handle.write(bytes([len(key)]))
+            handle.write(key)
+            written += 1
+    return written
+
+
+def read_dump(path: Path) -> list[bytes]:
+    data = Path(path).read_bytes()
+    if not data.startswith(b"SRWK1\n"):
+        raise ValueError("not a candidate dump")
+    pos, out = 6, []
+    while pos < len(data):
+        length = data[pos]
+        pos += 1
+        out.append(data[pos:pos + length])
+        pos += length
+    return out
+
+
 def load_report(path: str) -> dict:
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -574,6 +676,7 @@ def cmd_key(args) -> int:
 
     size = bundle.stat().st_size
     cipher = bundle.read_bytes()[:48]
+    states = state_hypotheses(bundle)
     found_keys: dict = {}
     counters: dict = {}
     total = {"regions": 0, "bytes": 0}
@@ -583,17 +686,23 @@ def cmd_key(args) -> int:
     def test_candidates():
         hits_local, verified_local = [], []
         for key in found_keys.values():
-            for hit in check_key(key, cipher, size):
-                hits_local.append(dict(hit, key=key))
-                try:
-                    plain = decrypt(key, hit["mode"], hit["state"],
-                                    bundle.read_bytes())
-                except ValueError:
-                    continue
-                header = parse_unityfs(plain[:PROBE])
-                if header is not None and header["size"] == size:
-                    verified_local.append(dict(hit, key=key,
-                                               unity_revision=header["unity_revision"]))
+            candidates = [key]
+            if len(key) == 32:
+                candidates += [key[:16], key[16:]]   # AES-128 from a 32-byte buffer
+                candidates += [hashlib.sha256(key).digest(),
+                               hashlib.md5(key).digest()]
+            for candidate in candidates:
+                for hit in check_key(candidate, cipher, size, states):
+                    hits_local.append(dict(hit, key=candidate))
+                    try:
+                        plain = decrypt(candidate, hit["mode"], hit["state"],
+                                        bundle.read_bytes())
+                    except ValueError:
+                        continue
+                    header = parse_unityfs(plain[:PROBE])
+                    if header is not None and header["size"] == size:
+                        verified_local.append(dict(hit, key=candidate,
+                                                   unity_revision=header["unity_revision"]))
         return hits_local, verified_local
 
     for attempt in range(1, max(1, args.passes) + 1):
@@ -630,6 +739,9 @@ def cmd_key(args) -> int:
                   f"again in {args.wait}s", flush=True)
             time.sleep(args.wait)
 
+    dumped = write_dump(Path(args.dump), [(len(key), key) for key in found_keys])
+    print(f"candidates written to {args.dump} ({dumped:,} records, "
+          f"{Path(args.dump).stat().st_size / 1e6:.1f} MB)")
     print("candidates by length: " +
           (", ".join(f"{length}: {count:,}"
                      for length, count in sorted(counters.items()))
@@ -648,8 +760,9 @@ def cmd_key(args) -> int:
     Path(args.report).write_text(json.dumps(report, indent=1, default=str) + "\n",
                                  encoding="utf-8")
     print(f"hits: {len(hits)} (verified: {len(verified)})")
+    verified_ids = {(hit["mode"], hit["key"]) for hit in verified}
     for hit in hits:
-        if hit not in verified:
+        if (hit["mode"], hit["key"]) not in verified_ids:
             print(f"  key matched {hit['mode']} on the known first blocks but the "
                   f"whole file did not open")
     for hit in verified[:3]:
@@ -675,7 +788,7 @@ def cmd_crypt(args, encrypting: bool) -> int:
             return 2
         hit = hits[0]
         key = bytes.fromhex(hit["key_hex"])
-        state = bytes.fromhex(hit["state_hex"])
+        state = bytes.fromhex(hit.get("state_hex") or hit["iv_hex"])
         mode = hit["mode"]
 
     source, target = Path(args.inp), Path(args.out)
@@ -721,6 +834,8 @@ def main(argv: list[str] | None = None) -> int:
                      help="scan this many times (transient keys are easier to catch)")
     key.add_argument("--wait", type=int, default=20,
                      help="seconds between passes")
+    key.add_argument("--dump", default="candidates.bin",
+                     help="where to write the candidate keys")
 
     for name in ("decrypt", "encrypt"):
         part = sub.add_parser(name, help=f"{name} a bundle")

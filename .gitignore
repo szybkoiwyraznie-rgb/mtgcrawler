@@ -17,3 +17,4 @@ srw-oe-translation/srw-oe-wgrane/
 
 # Python bytecode (any project)
 __pycache__/
+candidates.bin
