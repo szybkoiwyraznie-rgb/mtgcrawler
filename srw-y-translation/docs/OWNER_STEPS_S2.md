@@ -1,62 +1,57 @@
-# Krok S2 — potrzebny plik kodu gry (dla właściciela)
+# Krok S2 — wynik analizy `GameAssembly.dll` (dla właściciela)
 
-**Skrót:** metadane dotarły i zostały przeszukane. Klucza tam nie ma — sprawdziłem
-2,2 mln literałów z metadanych na 13 różnych szyfrach i 3,8 mln kluczy
-wyprowadzonych z tych literałów skrótami MD5/SHA. Żadnego trafienia. Sprawdziłem
-też, czy to nie jest zwykłe maskowanie, kompresja albo szyfr z powtarzalnym
-kluczem — nie jest. Szczegóły: `docs/S2_FINDINGS.md`.
+Krótko: **nic nie musisz teraz robić.** Plik dotarł, jest poprawny (74 865 152 B,
+SHA-256 `d96e91f5…68bb`) i dał najwięcej jak dotąd — wiem już **jak** gra
+szyfruje bundle, choć samego klucza nie mam.
 
-Zostaje jeden plik, w którym klucz może być: **kod gry**.
+## Co ustaliłem
 
-## Co wgrać
+Z nazw w kodzie gry (są w `global-metadata.dat`, nie w samym DLL):
 
-```
-D:\Games\SUPER ROBOT WARS Y\GameAssembly.dll
-```
+- `Assets\Scripts\Addressable\SeekableAesStreamcs.cs` — własna klasa
+  **strumienia AES, który można przewijać**, a jej pola to `password`, `salt`,
+  `buffer`, `streamPos`, `aes`, `encryptor`;
+- `Com.BBStudio.SRTeam.Encryption|EnctyptionInfo` z polami `KeySize`,
+  `BlockSize`, `Mode`, `IV`, `Padding` — czyli konfiguracja AES;
+- `Assets\Scripts\Addressable\CustomAssetBundleProvider.cs` — klasa, która
+  podmienia standardowe ładowanie bundli.
 
-rozmiar **74 865 152 B** (71,4 MiB). Leży **w głównym folderze gry**, obok
-`SUPER ROBOT WARS Y.exe` — nie w `_Data`.
+Czyli: **klucz nie leży w grze jako gotowy napis — jest wyprowadzany z hasła i
+soli.** Dlatego wszystkie wcześniejsze próby (6,1 mln kandydatów) nie mogły
+trafić: one sprawdzały literały jako klucze, a literały to nie klucze.
+
+## Czego jeszcze spróbowałem i co nie wyszło
+
+- **61 201 575** okien 16/24/32-bajtowych — **każde przesunięcie** w danych
+  `GameAssembly.dll` — jako gotowy klucz AES/RC4/ChaCha20. Zero trafień
+  (15 minut 34 sekundy pracy).
+- Klucz wyprowadzony z **nazwy samego bundla** (PBKDF2 i skróty MD5/SHA) × 12
+  stałych projektu — 4712 kombinacji, zero trafień.
+
+Uczciwie: statyczne szukanie klucza wyczerpałem w tym zakresie, który ma sens.
+
+## Co dalej — i czego teraz NIE potrzebuję
+
+Następny krok jest po mojej stronie: zamiast zgadywać hasło, **przechwycić tekst
+w momencie, gdy gra już go odszyfruje** (gra musi to robić, żeby działać).
+Technicznie: podpięcie się do działającej gry małym skryptem i zapisanie
+odszyfrowanych danych — bez znajomości klucza.
+
+To wymaga uruchomienia czegoś na Twoim komputerze, więc **dostaniesz osobną
+instrukcję do wklejenia**, tak jak poprzednie, dopiero gdy sam sprawdzę, że
+metoda jest realna. Nie chcę Ci wysyłać czegoś, czego nie przetestowałem.
+
+**Nie wysyłaj już żadnych plików gry** — mam wszystko, co na tym etapie miało
+sens (dwa bundle 6,5 MB, katalog, metadane, `GameAssembly.dll`).
+
+## Jedno pytanie, które może przyspieszyć sprawę
+
+Czy na Twoim komputerze jest zainstalowany **Python**? (Wcześniejsze kroki
+zakładały PowerShell, więc nie wiem.) Jeśli tak — powiedz, którą wersję pokazuje
 
 ```powershell
-explorer "D:\Games\SUPER ROBOT WARS Y"
+python --version
 ```
 
-Przeciągnij `GameAssembly.dll` do folderu **`SRW/SRWY`** na Dysku Google, tak jak
-poprzednie pliki.
-
-## Co to jest i czego w nim nie ma
-
-- To **skompilowany kod gry** (Unity z IL2CPP pakuje cały C# do jednego pliku).
-  W nim jest logika odszyfrowywania bundli, a więc najprawdopodobniej i klucz.
-- **Nie ma tam dialogów, tekstu gry, grafik ani dźwięków.** Same instrukcje
-  procesora i stałe.
-- Nie da się z niego „uruchomić gry” ani nic z niego podmienić — nic nie zmieniam
-  w Twojej instalacji, plik tylko kopiujesz.
-
-## Co z nim zrobię
-
-1. Odczytam nagłówki i sekcje (czy to x86-64, gdzie leży część danych).
-2. Poszukam nazw, które powiedzą, **czym** jest szyfrowanie: klasy
-   `CustomAssetBundleProvider` oraz śladów `AES` / `CreateDecryptor` /
-   `Rijndael` / `SHA256`.
-3. Podam każde okno 16/24/32 bajtów z sekcji danych jako kandydata na klucz i
-   sprawdzę na prawdziwym bundlu — jeśli odszyfrowanie da sygnaturę `UnityFS`,
-   mamy klucz i cała reszta rusza w ciągu jednego dnia.
-
-**Mówię uczciwie, jakie są szanse:** to długi strzał. Jeśli klucz jest zwykłą
-tablicą bajtów w pliku — znajdę go. Jeśli kod składa klucz w runtime z kilku
-kawałków (częste w nowszych grach), tą drogą go nie zobaczę.
-
-## Jeśli to nie zadziała
-
-Zostaje droga „z pamięci gry”: gra sama odszyfrowuje bundle, więc można tekst
-przechwycić w trakcie działania. Tu mam własny problem, nie grę: **w moim
-środowisku nie ma kompilatora C#**, więc nie zbuduję wtyczki od ręki. Nie
-obiecuję tego na dziś — napiszę osobno, co i jak, gdy będę miał plan, który sam
-uznam za realny. Wolę to powiedzieć teraz niż po trzech tygodniach.
-
-## Czego nie trzeba robić
-
-- Nie wysyłaj `resources.assets` ani innych bundli — te dwa, które mam, wystarczą.
-- Nie zmieniaj nic w folderze gry.
-- Nie próbuj samodzielnie nic „odblokowywać” — to nie jest kwestia ustawienia.
+To może skrócić drogę, ale nie jest warunkiem: jeśli Pythona nie ma, poszukam
+wariantu, który go nie wymaga.

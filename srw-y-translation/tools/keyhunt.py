@@ -373,7 +373,13 @@ def _decrypt_variants(key: bytes, data: bytes) -> dict[str, bytes]:
 
 
 def matches(key: bytes, data: bytes) -> list[str]:
-    """Scheme names whose output starts with the UnityFS signature."""
+    """Scheme names whose output starts with the UnityFS signature.
+
+    Keys of any other length are rejected instead of raising: callers sweep
+    candidate material that is not guaranteed to be a key at all.
+    """
+    if len(key) not in KEY_SIZES:
+        return []
     hits = []
     for name, plain in _decrypt_variants(key, data).items():
         if plain.startswith(SIGNATURE):

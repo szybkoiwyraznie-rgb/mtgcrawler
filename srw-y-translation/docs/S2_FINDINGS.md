@@ -85,6 +85,30 @@ pierwszego bajtu), nie jest to CPK/Blowfish z SRW 30/V.
 ani przygotować łatki na plikach. To nie jest drobiazg — to główne ryzyko całego
 projektu.
 
+## Mechanizm szyfrowania — zidentyfikowany [confirmed]
+
+`GameAssembly.dll` dotarł (74 865 152 B, SHA-256 `d96e91f5…68bb`) i jest to
+typowy obraz IL2CPP: sekcje `.text`, `il2cpp` (50 MB kodu), `.rdata`, `.data`.
+Nazwy z kodu gry siedzą w metadanych, więc to tam szukałem śladów — i są:
+
+| ślad | co znaczy |
+|---|---|
+| `Assets\Scripts\Addressable\SeekableAesStreamcs.cs` | własna klasa **strumienia AES z możliwością przewijania** („seekable”) — dokładnie to, czego trzeba, by grać bundle bez rozpakowywania całości |
+| pola tej klasy: `baseStream`, `password`, `salt`, `buffer`, `count`, `streamPos`, `Cipher`, `aes`, `encryptor` | klucz **nie jest stałą** — jest wyprowadzany z **hasła i soli** |
+| `Com.BBStudio.SRTeam.Encryption|EnctyptionInfo` z polami `KeySize`, `BlockSize`, `Mode`, `IV`, `Padding` | konfiguracja AES (rozmiar klucza, tryb, IV, dopełnianie) |
+| `Rfc2898` / `PasswordDeriveBytes` w metadanych | standardowe .NET-owe KDF-y są w grze obecne, czyli PBKDF2 jest realną drogą wyprowadzenia klucza |
+| `AES_KEY`, `IV_SIZE`, `ClassSalt`, `salt`, `password` jako nazwy symboli | potwierdzają obraz: klucz + sól + IV |
+| `Assets\Scripts\Addressable\CustomAssetBundleProvider.cs` | klasa, która podmienia standardowe ładowanie bundli — stąd własne szyfrowanie zamiast `UnityFS` |
+
+To wyjaśnia wszystko, co zmierzyłem wcześniej: brak nagłówka `UnityFS`, entropię
+8,0, brak powtarzalnego strumienia i brak trafienia przy testowaniu literałów
+jako **kluczy** — bo literały to nie klucze, tylko (być może) hasło i sól, z
+których klucz dopiero powstaje.
+
+**Konsekwencja praktyczna:** żeby odczytać bundle bez gry, trzeba znać **parę
+hasło + sól** oraz tryb AES. To zawęża atak, ale nie czyni go łatwym: hasło
+i sól mogą być równie dobrze tablicami bajtów w kodzie, jak i napisami.
+
 ## Czego już próbowałem (i co to wyklucza)
 
 Wszystko offline, na dwóch prawdziwych bundlach. **Każda próba zakończona
@@ -97,34 +121,37 @@ negatywnie — ale negatywny wynik też jest wiedzą: wyklucza całe klasy rozwi
 | proste maskowanie nagłówka | 256 × XOR, 256 × dodawanie, 256 × odejmowanie, zamiana półbajtów, odwrócenie bitów, odwrócenie pliku, negacja | brak `UnityFS` |
 | kompresja / kontener pod spodem | zlib, gzip, bz2, xz/LZMA, LZ4, zstd — każdy offset w pierwszych 4096 B | nic nie dekompresuje się do `UnityFS`/`CAB-` |
 | powtarzający się strumień klucza | współczynnik równych bajtów dla przesunięć 1…4096 | maks. 0,0049 przy losowym 0,0039 → **brak powtarzalności**, strumień jest ciągły |
+| klucz jako tablica bajtów w `GameAssembly.dll` | **61 201 575** okien 16/24/32 B, **każde przesunięcie** (bez zaokrągleń) w sekcjach `.rdata`, `.data`, `.pdata`, `.fptable`, `.reloc` (16,6 MB danych) | brak trafienia, 15 min 34 s |
+| klucz wyprowadzony z nazwy bundla (PBKDF2 i skróty) | 4712 kombinacji: nazwa/hash jako hasło lub sól × 12 stałych projektu × iteracje 1/1000/10 000 × SHA-1/SHA-256 × 16/32 B | brak trafienia |
 
-Wniosek: to nie jest ani proste maskowanie, ani kompresja, ani szyfr z
-powtarzalnym kluczem, ani szyfr z kluczem zapisanym jako **tekst** w metadanych.
-Klucz jest najprawdopodobniej **tablicą bajtów w kodzie** (`GameAssembly.dll`,
-74 865 152 B) albo wyprowadzany w runtime z kilku stałych.
+Wniosek po wszystkich próbach: to nie jest maskowanie, kompresja ani szyfr z
+powtarzalnym kluczem. Klucz **nie jest** też ani literałem, ani skrótem literału,
+ani gotową tablicą bajtów leżącą w sekcjach danych `GameAssembly.dll`. Zostaje
+dokładnie to, co wynika z identyfikacji mechanizmu: **para hasło + sól** (lub
+hasło + sól same będące tablicami budowanymi w kodzie) i konkretny tryb AES.
+Statycznie tego nie rozwiązałem i nie będę udawał, że jest blisko.
 
-## Dwie drogi (obie sprawdzalne)
+## Co zostaje
 
+**A. Statyczne — wyczerpane w tym, co tanie.** Zostałyby dwie drogi, obie drogie
+i o niepewnym wyniku: (1) deasemblacja metod `SeekableAesStream`/`CustomAssetBundleResource`
+w `GameAssembly.dll`, żeby zobaczyć, skąd biorą się `password` i `salt` — to
+praca z deasemblerem IL2CPP, nie „jeszcze jedna próba”; (2) przesiewanie
+nieczytelnych (bajtowych) obszarów metadanych jako kluczy — 56 mln okien, ~15
+min, ale niska szansa, bo metadane trzymają nazwy i typy, nie sekrety.
 
-**A. Znaleźć klucz (offline).** Część tania jest już **zrobiona i nie dała
-wyniku**: literały z `global-metadata.dat` ani ich skróty nie są kluczem
-(tabela wyżej). Kolejny krok to `GameAssembly.dll` (74 865 152 B): szukam tam
-nazw `CustomAssetBundleProvider` / `AES` / `CreateDecryptor` (czy to w ogóle AES
-i gdzie), a potem podaję **każde okno 16/24/32 B z sekcji danych** jako klucz
-(`tools/probe_assembly.py`). To długi strzał: klucz składany w runtime z kilku
-stałych w ten sposób się nie znajdzie. Ale jest ograniczony, offline i — gdy
-trafi — jest dowodem, nie domysłem.
+**B. Runtime — bez klucza.** Gra sama odszyfrowuje bundle w pamięci. Zamiast
+klucza można więc **przechwycić jawny tekst** w trakcie działania gry:
+podpiąć się pod `SeekableAesStream.Read` (albo pod samo ładowanie bundla) i
+zapisać to, co wychodzi — a potem analizować offline naszymi narzędziami.
 
-**B. Zrzut z pamięci gry (runtime).** Nie potrzebuje klucza: wtyczka do
-MelonLoadera (który na tej grze już działa — patrz `PRIOR_ART.md`) woła
-`AssetBundle.GetAllLoadedAssetBundles()` i zapisuje tekst assetów. To także
-docelowa architektura łatki. Ograniczenie: w moim środowisku **nie ma
-kompilatora C#** (szczegóły w `EXPERIMENT_LOG.md`), więc wtyczki nie zbuduję
-bez rozwiązania tego problemu.
-
-Kolejność: dokończyć **A** (jeden plik od właściciela, praca po mojej stronie),
-z **B** jako planem zapasowym — nie odwrotnie, bo B jest dziś zablokowana po
-mojej stronie, a nie po stronie gry.
+To jest obecnie **najbardziej obiecująca droga** i jedyna, która nie zależy od
+odgadnięcia hasła. Ma jednak dwa warunki: trzeba ją napisać i uruchomić na
+komputerze właściciela (Windows), a ja muszę zaprojektować ją tak, żeby nie
+wymagała kompilatora C# — którego w moim środowisku nie ma. Realny kandydat to
+Frida (jest na PyPI, czyli w zasięgu) z mostkiem do IL2CPP, sterowana krótkim
+skryptem. **Nie obiecuję, że zadziała, dopóki tego nie sprawdzę** — ale to
+następna rzecz, którą zrobię, zamiast dalej zgadywać klucz.
 
 ## Interpretacja (hipoteza, nie fakt)
 
@@ -136,13 +163,14 @@ mojej stronie, a nie po stronie gry.
 
 ## Czego potrzebuję teraz
 
-**Jeden plik:** `SUPER ROBOT WARS Y_Data\GameAssembly.dll` — **74 865 152 B**.
-To skompilowany kod gry (odpowiednik `.exe` dla Unity z IL2CPP), a nie assety.
-Jeśli klucz jest tablicą bajtów, to jest w tym pliku. Instrukcja dla
-właściciela: `docs/OWNER_STEPS_S2.md`.
+**Niczego.** Wszystkie pliki, które miały sens na tym etapie, są już w `local/`:
+dwa bundle (6 531 163 B), katalog (41 543 062 B), metadane (18 909 544 B) i
+`GameAssembly.dll` (74 865 152 B). Dalsza praca — zaprojektowanie przechwycenia
+tekstu w runtime — jest po mojej stronie i nie wymaga wysyłania kolejnych
+plików gry.
 
-Oba bundle, o które prosiłem wcześniej, **są już w `local/` i są wystarczające**
-(6 531 163 B) — nic więcej z zawartości gry nie trzeba.
+Jeśli ta droga będzie wymagała uruchomienia czegoś na Twoim komputerze,
+dostaniesz **osobną, gotową do wklejenia instrukcję** — tak jak poprzednie.
 
 ## Odtworzenie
 

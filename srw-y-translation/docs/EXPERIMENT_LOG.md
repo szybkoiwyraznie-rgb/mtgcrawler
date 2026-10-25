@@ -246,3 +246,49 @@ inputs (size, SHA-256 where available) and the result, labelled
   `/home/user/.venv`, outside the repo. The tools work without them, only slower.
 - **Next input:** `GameAssembly.dll` (74,865,152 B). `runtime_tested` stays
   `false`.
+
+## 2026-10-25 — mechanism identified: SeekableAesStream(password, salt); 61.2M binary windows negative
+
+- **Input:** `GameAssembly.dll`, Drive `SRW/SRWY` file
+  `1Gqx0auEuvGyzFFlf2QJxy0EdMV29S3jy`, **74,865,152 B** (matches the listing),
+  SHA-256 `d96e91f584250e6451789b48da2cc3e89005279f92140a706cdc132316d468bb`.
+  Kept in the ignored `local/meta/`.
+- **PE layout [confirmed]:** x86-64, image base `0x140000000`, sections
+  `.text` 4,271,104 B (code), `il2cpp` 50,192,384 B (generated code), `.rdata`
+  12,891,648 B, `.data` 3,688,960 B, `.pdata`, `.fptable`, `.reloc`. Keyword hits
+  in the binary are only `UnityEngine.AssetBundle` API names and Steam
+  `Encrypt/Decrypt` imports — the game's own names live in the metadata, as
+  expected for IL2CPP.
+- **Mechanism [confirmed from metadata names]:**
+  `Assets/Scripts/Addressable/SeekableAesStreamcs.cs` — a custom *seekable AES
+  stream* with fields `baseStream`, `password`, `salt`, `buffer`, `count`,
+  `streamPos`, `Cipher`, `aes`, `encryptor`; plus
+  `Com.BBStudio.SRTeam.Encryption|EnctyptionInfo` with `KeySize`, `BlockSize`,
+  `Mode`, `IV`, `Padding`; plus `Rfc2898` / `PasswordDeriveBytes` / `AES_KEY` /
+  `IV_SIZE` / `ClassSalt` symbols. And
+  `Assets/Scripts/Addressable/CustomAssetBundleProvider.cs` — the replacement
+  loader. So: **key derived from a password and a salt, AES with a mode, IV and
+  padding, stream over the bundle file**. That is why every literal failed as a
+  key: literals are not keys.
+- **Binary sweep [confirmed negative]:** every 16/24/32-byte window at **every
+  offset** (alignment 1) of all non-executable sections — `.rdata`, `.data`,
+  `.pdata`, `.fptable`, `.reloc`, 16.6 MB — **61,201,575 candidates**, each
+  checked for AES-ECB, AES-CBC (zero IV, file-prefixed IV, key IV), AES-CTR
+  (0/1 counters), RC4, ChaCha20 and repeating XOR by looking for `UnityFS`.
+  No hit; 15 min 34 s. Report: `local/probe_run1.json`.
+- **Structural key derivations [confirmed negative]:** 4,712 combinations of the
+  bundle's own name/hash as password or salt, twelve project constants
+  (`SRWY`, `BBStudio`, `SRTeam`, …), PBKDF2-SHA1/SHA-256 at 1/1,000/10,000
+  iterations, 16/32-byte keys, plus MD5/SHA-1/SHA-256 of the name. No hit.
+- **Tools:** `tools/kdf_hunt.py` (PBKDF2/other-digest derivations over supplied
+  password and salt lists, 6 tests) and the fast prefilter `fast_prefix_hit` +
+  `sweep` in `tools/probe_assembly.py`, which made a 61M-candidate sweep take
+  minutes instead of days. `keyhunt.matches` now rejects wrong key lengths
+  instead of raising, because sweep material is not guaranteed to be a key at
+  all. Suite **66/66**.
+- **Where this leaves the project:** static key recovery is exhausted at the
+  cheap end. What remains is either IL2CPP disassembly of the two classes
+  (expensive, uncertain) or **runtime capture** of the decrypted stream, which
+  needs no key. The second is now the planned route, and it must be built
+  without a C# compiler — Frida plus an IL2CPP bridge is the candidate.
+  Written down as a plan, not as a promise. `runtime_tested` stays `false`.

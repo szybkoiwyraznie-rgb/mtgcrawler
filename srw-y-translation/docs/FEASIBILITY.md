@@ -173,7 +173,7 @@ Nothing above includes a whole game folder, and nothing is committed.
 
 | Risk | Likelihood | Mitigation |
 |---|---|---|
-| **Asset bundles are encrypted (no `UnityFS` header, per-file keystream)** — confirmed 2026-10-25 | **certain** | Two routes: recover the key from the game's own code (metadata literals and hash-derived keys already ruled out: 6.1 M candidates, 13 constructions; next is `GameAssembly.dll`), or dump decrypted text from the running game. Until one works there is no scope number and no on-disk patch. **This is the critical path.** |
+| **Asset bundles are encrypted by a custom seekable AES stream (password + salt)** — mechanism confirmed 2026-10-25 | **certain** | Static recovery exhausted at the cheap end: 6.1 M literal/hash candidates, 61.2 M key-sized windows across every offset of the DLL's data sections, structural derivations — all negative. Remaining: IL2CPP disassembly (expensive, uncertain) or **runtime capture of the decrypted stream** (no key needed). Until one works there is no scope number and no on-disk patch. **This is the critical path.** |
 | **No C# toolchain in the working environment** — confirmed 2026-10-25 (no .NET/Mono; the .NET Core runtime aborts on the missing `libunwind.so.8`) | **certain** | Either solve the toolchain, or build the runtime dump outside it (a tool the owner can run without compilation), or fall back to a key-recovery-only plan. Must be answered before promising architecture A |
 | Font lacks Polish glyphs | medium | TMP fallback font asset at runtime; atlas patch if needed (SRW OE already solved a similar problem) |
 | Text baked into images for some surfaces | medium | accept partial coverage there, list it explicitly in the delivery |

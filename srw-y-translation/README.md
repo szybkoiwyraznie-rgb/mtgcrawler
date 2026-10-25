@@ -64,12 +64,14 @@ not UnityCN). The catalogue still tells us exactly which bundle holds which text
 table and scenario script, but nothing inside can be read, counted or patched
 until the protection is undone.
 
-Offline key recovery has been attempted and failed so far, with numbers: 2.2 M
-metadata-literal candidates against 13 cipher constructions, 3.8 M hash-derived
-candidates, plus masking, compression and keystream-period tests — all negative.
-The next attempt is a static sweep of `GameAssembly.dll`; the fallback is dumping
-text from the running game, which needs a toolchain this environment does not
-have. Details: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
+The mechanism is identified: the metadata names a `SeekableAesStream` with
+`password` and `salt` fields, so the key is *derived*, not stored — which is why
+every literal failed as a key. Static recovery has been taken to the cheap end
+and failed with numbers: 2.2 M metadata-literal candidates, 3.8 M hash-derived
+candidates, 61.2 M key-sized windows across every offset of the DLL's data
+sections, plus masking, compression and keystream-period tests. The planned route
+is now to capture the decrypted stream from the running game, which needs no key.
+Details: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
 
 ## S2 in progress — the catalogue names every bundle (2026-10-25)
 

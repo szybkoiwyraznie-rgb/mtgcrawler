@@ -64,13 +64,24 @@ no hit. Single-byte masking, nibble/bit reversal, compression at any offset of
 the first 4 KiB, and a repeating keystream (shifts 1…4096) are all excluded too.
 The full table: `docs/S2_FINDINGS.md`.
 
-Two routes remain:
+**The mechanism is now identified [confirmed].** `GameAssembly.dll`
+(74,865,152 B, SHA-256 `d96e91f5…68bb`) shows an IL2CPP image whose metadata
+names `Assets/Scripts/Addressable/SeekableAesStreamcs.cs` — a **seekable AES
+stream with `password` and `salt` fields** — plus
+`Com.BBStudio.SRTeam.Encryption|EnctyptionInfo` (`KeySize`, `BlockSize`, `Mode`,
+`IV`, `Padding`) and `CustomAssetBundleProvider.cs`. So the key is *derived from
+a password and a salt*, which is exactly why every literal failed as a key.
 
-- **A — find the key in the code.** Next input requested: `GameAssembly.dll`
-  (74,865,152 B). `tools/probe_assembly.py` reports the PE sections and the
-  `CustomAssetBundleProvider`/`AES`/`CreateDecryptor` hits, then tries every
-  aligned 16/24/32-byte window of the data sections as a key. A long shot,
-  bounded and offline; a hit would be proof.
+**Static recovery is exhausted at the cheap end [confirmed negative].** All
+non-executable sections of the DLL were swept at **every offset**: 61,201,575
+key-sized windows against AES-ECB/CBC/CTR, RC4, ChaCha20 and XOR — no hit. Using
+the bundle's own name/hash as password or salt through PBKDF2 — no hit. Full
+table in `docs/S2_FINDINGS.md`; tool `tools/kdf_hunt.py` added for derivations.
+
+**What remains:** IL2CPP disassembly of the two classes (expensive, uncertain),
+or **capture the decrypted stream at runtime**, which needs no key at all. The
+second is the planned route and must be built without a C# compiler — Frida with
+an IL2CPP bridge is the candidate. Stated as a plan, not a promise.
 - **B — runtime dump** through MelonLoader (no key needed; also the delivery
   architecture). Blocked on tooling: **this sandbox has no C# compiler and cannot
   install one** (the .NET Core runtime needs `libunwind.so.8`, absent and not

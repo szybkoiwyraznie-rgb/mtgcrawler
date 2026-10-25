@@ -131,6 +131,68 @@ def candidate_windows(blob: bytes, alignment: int) -> list[bytes]:
     return out
 
 
+def fast_prefix_hit(key: bytes, ct: bytes, head: bytes = b"UnityFS") -> list[str]:
+    """Cheap prefilter: does any scheme reproduce `head` at the start of `ct`?
+
+    One AES key schedule, one decrypt and one encrypt, plus the cheap ciphers.
+    Only survivors need the full `keyhunt.matches()` check, which is what makes a
+    sweep over tens of millions of windows affordable.
+    """
+    hits = []
+    # keyhunt picks pycryptodome when it is installed and falls back to its own
+    # (tested, slower) AES otherwise, so the sweep works in both environments.
+    if K._AES is not None:
+        cipher = K._AES.new(key, K._AES.MODE_ECB)
+        dec = cipher.decrypt(ct[:16])
+    else:
+        cipher = None
+        dec = K.decrypt_block(key, ct[:16])
+    if dec.startswith(head):
+        hits.append("aes-ecb|cbc-iv0")
+    if bytes(a ^ b for a, b in zip(dec[: len(head)], key)).startswith(head):
+        hits.append("aes-cbc-key-iv")
+    counter = keyhunt_counter(0)
+    enc = cipher.encrypt(counter) if cipher else K.encrypt_block(key, counter)
+    if bytes(a ^ b for a, b in zip(enc, ct)).startswith(head):
+        hits.append("aes-ctr-0")
+    enc1 = cipher.encrypt(keyhunt_counter(1)) if cipher else K.encrypt_block(key, keyhunt_counter(1))
+    if bytes(a ^ b for a, b in zip(enc1, ct)).startswith(head):
+        hits.append("aes-ctr-1")
+    xored = bytes(a ^ b for a, b in zip(ct, (key * 2)[:16]))
+    if xored.startswith(head):
+        hits.append("xor-repeat")
+    return hits
+
+
+def keyhunt_counter(value: int, little_endian: bool = False) -> bytes:
+    return value.to_bytes(16, "little" if little_endian else "big")
+
+
+def sweep(blobs: list[tuple[str, bytes]], ct: bytes, alignment: int,
+          limit: int = 0, progress: int = 5_000_000) -> dict:
+    """Try every aligned 16/24/32-byte window of `blobs` as an AES key."""
+    tried = 0
+    for name, blob in blobs:
+        for size in K.KEY_SIZES:
+            for offset in range(0, len(blob) - size + 1, alignment):
+                key = blob[offset:offset + size]
+                hits = fast_prefix_hit(key, ct)
+                tried += 1
+                if limit and tried >= limit:
+                    return {"tried": tried, "hit": None, "truncated": True}
+                if hits:
+                    # confirm with the full matcher before believing it
+                    confirmed = K.matches(key, ct)
+                    if confirmed:
+                        return {"tried": tried,
+                                "hit": {"key_hex": key.hex(), "schemes": confirmed,
+                                        "section": name, "offset": offset, "size": size},
+                                "truncated": False}
+                if progress and tried % progress == 0:
+                    print(f"  ... {tried:,} windows tried", file=sys.stderr)
+    return {"tried": tried, "hit": None, "truncated": False}
+
+
 def scan(dll: Path, bundles: list[Path], alignment: int = 16,
          max_candidates: int = 0, include_all: bool = False) -> dict:
     if not dll.is_file():
@@ -155,26 +217,17 @@ def scan(dll: Path, bundles: list[Path], alignment: int = 16,
     chosen = [s for s in pe["sections"] if s["readable"] and not s["executable"]]
     if include_all or not chosen:
         chosen = pe["sections"]
-    candidates: list[bytes] = []
-    for section in chosen:
-        blob = section_bytes(data, section)
-        candidates += candidate_windows(blob, alignment)
-        report["candidates"][section["name"]] = len(candidates)
-        if max_candidates and len(candidates) >= max_candidates:
-            break
-    candidates = list(dict.fromkeys(candidates))
-    if max_candidates:
-        candidates = candidates[:max_candidates]
-    report["candidates"]["total"] = len(candidates)
+    blobs = [(section["name"], section_bytes(data, section)) for section in chosen]
     report["candidates"]["alignment"] = alignment
-    report["candidates"]["sections_scanned"] = [s["name"] for s in chosen]
+    report["candidates"]["sections_scanned"] = [name for name, _ in blobs]
 
-    for key in candidates:
-        for name, sample in samples:
-            schemes = K.matches(key, sample)
-            if schemes:
-                report["hit"] = {"key_hex": key.hex(), "bundle": name, "schemes": schemes}
-                return report
+    for name, sample in samples:
+        result = sweep(blobs, sample, alignment, max_candidates)
+        report["candidates"].setdefault("tried", {})[name] = result["tried"]
+        if result["hit"]:
+            report["hit"] = {**result["hit"], "bundle": name}
+            return report
+    report["candidates"]["total"] = sum(report["candidates"].get("tried", {}).values())
     return report
 
 
