@@ -1,6 +1,9 @@
 # SRW Y - krok S5b: polskie otwarcie, wersja 2 (po crashu)
 
-Wersja arkusza: 2026-10-25.2
+Wersja arkusza: 2026-10-25.3
+
+Zmiana wzgledem 2026-10-25.2: KROK 0 pokazuje sumy SHA256 po przywroceniu, zeby
+bylo widac, ze w grze sa naprawde oryginaly (a nie resztki wersji 1).
 
 ## Co poszlo nie tak i co zmienilem
 
@@ -25,10 +28,16 @@ $backup = Join-Path ([Environment]::GetFolderPath("Desktop")) "srw_y_backup_otwa
 if (Test-Path $backup) {
     Copy-Item (Join-Path $backup '*.bundle') $aa -Force
     "przywrocone z " + $backup
+    Get-ChildItem $aa -Filter '*.bundle' |
+        Where-Object { $_.Length -in 948652, 940012 } |
+        ForEach-Object { "{0}  {1}  {2:N0} B" -f $_.Name.Substring(0,8), (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower().Substring(0,8), $_.Length }
 } else {
-    "brak kopii zapasowej - nie ruszam niczego"
+    "brak kopii zapasowej - nie ruszam niczego, napisz do mnie"
 }
 ```
+
+Powinno wyjsc `2d69c099  ce764ace  948 652 B` i `1cc7e02e  a209190e  940 012 B`.
+Jesli tak jest, w grze sa z powrotem oryginaly - dopiero teraz KROK 1.
 
 ## KROK 1 - pobierz i rozpakuj wersje 2
 

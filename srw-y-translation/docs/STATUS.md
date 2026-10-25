@@ -450,3 +450,39 @@ the repository: `srw-y-translation/build/` is git-ignored and only the zip trave
 Still `runtime_tested = false`. Two open questions the owner's run answers:
 does the game accept a bundle whose size changed (Addressables CRC question), and does
 the game font carry `ą ć ę ł ń ó ś ź ż`.
+
+## Update 2026-10-25 (later) - v1 crashed, v2 shipped in its place
+
+**Owner report:** after installing `srw_y_pl_otwarcie_v1.zip` the game exits a few
+seconds after launch, before anything is drawn.
+
+**v2 = same file size, one merged block.** The builder no longer rebuilds the
+container: it decompresses the blocks, rewrites only the 5,116-byte narration table
+(padded to the original byte lengths), recompresses, and merges the two LZ4 blocks
+around the text into one 256 KiB block. That merge compresses 2,638 B better than the
+original pair, which pays for the +749 B the Polish text costs; the leftover 2,638 B
+is zero padding at the end of the file and the header's size field is rewritten to
+match. Nothing else in either file changes.
+
+| | original | v2 | blocks | sha256 (v2) |
+|---|---|---|---|---|
+| en-US | 948,652 B | **948,652 B** | 18 -> 17 | `08bc13517dd7c354da2b6956ca0ec3ec51d8ab63c3e8e65fded11714e40879c5` |
+| ja-JP | 940,012 B | **940,012 B** | 22 -> 21 | `c92c8764e6a62025d60870c4b648106f90a7874aa6f1017025d45b12a48f7672` |
+
+Verified here: decrypt round-trip, container size == file length, decompressed blob
+length unchanged, differences confined to the narration object (en-US
+`0x806D4..0x81A67`, ja-JP `0x299FCC..0x29B86B`), UnityPy still reads 37 objects and
+24 Polish strings, and the first 208,878 B / 183,465 B of the files are identical to
+the originals. Tool: `tools/srw_y_fit_patch.py`. Builds stay git-ignored.
+
+Delivery: `build/srw_y_pl_otwarcie_v2.zip` (1,889,926 B, SHA-256
+`ebfec1692b96565b7c1991f0d22f6aa8b451fe610470cfa766ed379b9ce8f88c`) on the owner's
+Drive folder, sheet [`OWNER_STEPS_S5B_OPENING_V2.md`](OWNER_STEPS_S5B_OPENING_V2.md)
+(KROK 0 restores the originals from the backup, and prints their hashes so the state is
+not guessed). The v1 sheet carries an "outdated" banner.
+
+Still `runtime_tested = false` - no PowerShell, no game, no Windows here. Open
+questions the owner's run answers: whether the game verifies the bundle against the
+Addressables catalog, whether it tolerates a merged block plus zero tail, and whether
+the font carries Polish diacritics. If it crashes again, `Player.log` names the
+failing subsystem.
