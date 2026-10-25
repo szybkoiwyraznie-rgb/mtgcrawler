@@ -31,8 +31,8 @@ Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter.
 
 ```powershell
 $py = Join-Path $env:USERPROFILE ("Desktop\mem_carve" + [char]46 + "py")
-$want = "2026-10-25" + [char]46 + "5"
-$sha = "4081499d3a06b4f2f8d55e1cf0a78fc2cc2aad3f"
+$want = "2026-10-25" + [char]46 + "7"
+$sha = "f27d2b68ec09473ac42b9d1adc775a4b3ce6358e"
 $u1 = "https" + [char]58 + "//raw" + [char]46 + "githubusercontent" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/" + $sha + "/srw-y-translation/tools/mem_carve" + [char]46 + "py"
 $u2 = "https" + [char]58 + "//github" + [char]46 + "com/szybkoiwyraznie-rgb/mtgcrawler/raw/" + $sha + "/srw-y-translation/tools/mem_carve" + [char]46 + "py"
 Remove-Item -LiteralPath $py -ErrorAction SilentlyContinue
@@ -45,8 +45,8 @@ if ((Test-Path $py) -and -not $ok) { Write-Host "POBRAL SIE STARY PLIK - napisz 
 if ($ok) { python $py --selftest }
 if ($ok) { Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter" }
 if ($ok) { python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_1" }
-if ($ok) { Read-Host "KROK 2: wejdz w misje tak, zeby dialog byl widoczny - nacisnij Enter" }
-if ($ok) { python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_2" }
+if ($ok) { Read-Host "KROK 2: wejdz w misje, poczekaj az pojawi sie KUBA dialogu z tekstem - nacisnij Enter" }
+if ($ok) { python $py --watch 120 --out "$env:USERPROFILE\Desktop\srw_y_carve_2" }
 if ($ok) { explorer "$env:USERPROFILE\Desktop\srw_y_carve_1" }
 if ($ok) { explorer "$env:USERPROFILE\Desktop\srw_y_carve_2" }
 ```
@@ -59,11 +59,12 @@ Co się będzie działo po kolei:
 1. Plik `mem_carve.py` trafi na pulpit (pobiera go Python; jeśli się nie uda,
    PowerShell z TLS 1.2).
 2. Skrypt sam się przetestuje — musi pojawić się `self-test: PASS`.
-3. Zatrzyma się na `KROK 1: ...` — **naciśnij Enter**. Odczyt potrwa teraz
-   **od 1 do 3 minut** (skrypt czyta też napisy z pamięci), okno może wyglądać na
-   "zawieszone" — to normalne, nie zamykaj go.
-4. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w dowolną misję
-   tak, żeby **dialog był widoczny na ekranie**, wróć i **naciśnij Enter**.
+3. Zatrzyma się na `KROK 1: ...` — **naciśnij Enter**. Odczyt potrwa **1–3
+   minuty** (okno może wyglądać na zawieszone, nie zamykaj go).
+4. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w misję tak, żeby
+   **ukazał się dialog z tekstem**, wróć i naciśnij Enter. Potem **szybko wróć do
+   gry i przez 2 minuty przechodź dialogi** (klikaj dalej). Skrypt w tym czasie
+   czyta pamięć i zapisuje to, co się pojawia.
 5. Otworzą się dwa foldery: `srw_y_carve_1` i `srw_y_carve_2`.
 
 ## Druga runda — ta sama wklejka, bez zmian
@@ -76,10 +77,14 @@ japońskiego tekstu ma gra.
 
 Blok się nie zmienił — skrypt sam się podmienia przy każdym uruchomieniu.
 
-Czwarta runda (ta sama wklejka) dopisuje do folderów plik
-`strings_objects.tsv` — spis tekstów gry z pamięci, z adresami i długościami.
-Ten plik **wgraj razem z raportami** (może mieć kilkanaście MB, wchodzi bez
-problemu).
+Piąta runda ma dwie zmiany i obie są ważne:
+
+1. **KROK 2 to teraz 2 minuty nagrywania.** Skrypt nie robi jednego przebiegu,
+   tylko przez 2 minuty w kółko czyta pamięć. W tym czasie **przechodź dialogi** —
+   klikaj dalej, żeby kolejne kwestie się pojawiały. Tekst fabuły istnieje w
+   pamięci tylko przez chwilę, więc trzeba go „przyłapać".
+2. **Plik `strings_objects.tsv` będzie teraz kompletny** (poprzednio ucinał się na
+   8 MB). Wgraj go **razem z raportami** — może mieć kilkanaście MB.
 
 Poprzednia poprawka: skrypt czyta teraz
 **całe** pliki z pamięci, także takie, które nie mieszczą się w jednym kawałku
