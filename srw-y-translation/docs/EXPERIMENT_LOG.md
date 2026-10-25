@@ -500,3 +500,25 @@ inputs (size, SHA-256 where available) and the result, labelled
   it belongs. **Rule:** build a PATCH body by reading the current body from the API
   in the same command that patches it, never from a temp file that may predate a
   restart.
+- **Return to the static path [2026-10-26]:** the owner rejected the memory
+  capture direction ("czemu nie możesz podmienić tekstów w plikach jak w OE"),
+  so the work moved back to finding the cipher and its key. What that produced:
+  - `GameAssembly.dll` holds **no** `SeekableAesStream`, `Rfc2898`,
+    `PasswordDeriveBytes`, `AesManaged`, `Rijndael`, `Encryption` or `UnityFS`
+    literal — IL2CPP compiles those names away, so the password/salt cannot be
+    read as a string and the static sweeps stay dead.
+  - **No plaintext twin of the 940,012 B disk sample exists** in `owner_carve4`
+    (largest carved bundle 275,626 B). An earlier note claimed one; that was
+    wrong. It does not matter: the fixed 30-byte bundle prefix is enough, because
+    `E(IV)` and `E(C0)` are one AES operation away from any candidate key.
+  - New `tools/key_from_memory.py`: read-only process scan for managed 16/24/32
+    byte arrays, known-prefix test, CBC folded into one lookup via a precomputed
+    `P0 xor IV` set. First version walked zero runs and took minutes per
+    megabyte; anchoring on the little-endian length field gives **656 MB/s** and
+    still finds 2,048/2,048 planted arrays.
+  - New `tools/bundle_crypt.py`: `identify` proves the construction from the
+    `UnityFS` header plus an exact size match. First draft derived CFB/OFB from a
+    zero-input keystream, which makes the two identical and mislabelled an OFB
+    file as `cfb128`; fixed by using the mode objects directly. On real carved
+    bundles all four stream modes now round-trip and identify as themselves.
+  - Tests **148** (8 skip without pycryptodome on the system interpreter).

@@ -275,3 +275,26 @@ file exists before running it. Waiting for: two `carve_report.json` files in Dri
 - No Polish text exists yet; no coverage percentage exists yet.
 - No claim that the game runs with any modification — `runtime_tested` is `false`
   and stays so until the owner supplies evidence.
+
+## S3 — pivot back to file patching (2026-10-26)
+
+The owner's correction stands: the deliverable is patched game files, not text
+harvested from a running process. `mem_carve.py` (and its `--watch` mode) is now a
+diagnostic only; nothing further is invested in it.
+
+The static path is the one being built, and its first half is done:
+
+- **The format allows in-place patching [confirmed].** 362 of 362 distinct carved
+  plaintext sizes equal an on-disk size exactly, the 940,012 B sample is 12 bytes
+  past a 16-byte boundary and has no repeated blocks — keystream, no padding, no
+  extra header. See `docs/S3_KEY_RECOVERY.md` §1.
+- **The key is not in any file [confirmed].** `GameAssembly.dll` has no
+  `SeekableAesStream` / `Rfc2898` / `PasswordDeriveBytes` / `AesManaged` literal,
+  and the static sweeps (61,201,575 windows) are negative. The key must be taken
+  from the process, once, and then it is a constant for the build.
+- **New tools, tested:** `tools/key_from_memory.py` (read-only; known-prefix test =
+  one AES operation per candidate key; 656 MB/s heap scan) and
+  `tools/bundle_crypt.py` (identifies the construction from the `UnityFS` header
+  and the exact size, decrypts, re-encrypts byte-exactly). Suite **148**, green.
+- **Not yet run against the game** — that is the owner's step, and `runtime_tested`
+  stays `false` until it returns. Sheet: `docs/OWNER_STEPS_S3_KEY.md`.
