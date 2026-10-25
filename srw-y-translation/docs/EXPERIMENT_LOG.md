@@ -794,3 +794,34 @@ in `docs/OPENING_PL_DRAFT.md`.
 - **Unknown, to be answered by the owner's run:** whether Addressables accepts a bundle
   whose byte size changed (no CRC check is known for local bundles, but it is untested),
   and whether the game font has the Polish diacritics.
+
+## 2026-10-25 (later) — the first package crashed the game; v2 keeps the byte size
+
+- **What happened [owner report]:** with the v1 files installed the game exits a few
+  seconds after the executable starts, before anything is drawn.
+- **What v1 had changed [confirmed, measured here]:** the whole bundle was rebuilt by
+  UnityPy. Compared with the owner's file: the serialized file's header and object
+  table were rewritten, the serialized file shrank by 488 B, the bundle grew from
+  948,652 B to 958,140 B (+9,488) and the decrypted content differed from offset 30
+  onwards. Any of those (most likely the size difference the Addressables catalog
+  records) can be fatal; all of them are avoidable.
+- **Encoder identity [confirmed again]:** python-lz4 `high_compression` level 12 with
+  128 KiB chunks reproduces all 18 blocks of `2d69c099…` **bit for bit**, so a rebuild
+  that only touches the block holding the text can stay byte-identical everywhere else.
+- **Why the text block cannot simply be recompressed in place [measured]:** the Polish
+  table (padded to the original byte lengths, so the serialized file does not move at
+  all) compresses to 57,943 B instead of 57,194 B - +749 B, which does not fit into the
+  same file. Shorter variants are worse, not better: natural-length Polish gives
+  +545 B over 14 blocks.
+- **Fix [built]:** merge the two blocks around the text into one 256 KiB block. The
+  pair compresses to 109,594 B instead of 112,232 B (-2,638 B), which pays for the
+  +749 B and leaves 2,638 B of slack, written as zero padding at the end of the file.
+  Result: **exactly 948,652 B**, header `size` == file length, and the decompressed
+  serialized file is byte-identical to the original everywhere except
+  0x806D4..0x81A67 (the 5,116-byte narration table). Same check for ja-JP: 940,012 B,
+  0x299FCC..0x29B86B, 2,161 B of tail padding.
+- **Tooling:** `tools/srw_y_fit_patch.py` (UnityPy is used for reading only; the
+  decompressed serialized file is edited as bytes and the container is rebuilt here).
+- **Still unknown:** whether the game accepts the modified bundle at all. If it still
+  crashes, the next artefact to look at is `Player.log` (the sheet says how to grab it)
+  - it names the failing subsystem instead of us guessing.

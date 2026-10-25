@@ -1,5 +1,10 @@
 # SRW Y - krok S5: polskie otwarcie gry (2 pliki, 3 minuty)
 
+> **ARKUSZ NIEAKTUALNY (2026-10-25.2).** Ta wersja paczki wysypala gre przy
+> starcie - pliki byly przebudowane i mialy inny rozmiar. Uzyj
+> [`OWNER_STEPS_S5B_OPENING_V2.md`](OWNER_STEPS_S5B_OPENING_V2.md) i paczki
+> `srw_y_pl_otwarcie_v2.zip`. Ten plik zostaje jako zapis tego, co poszlo nie tak.
+
 Wersja arkusza: 2026-10-25.1
 
 ## Co to jest
