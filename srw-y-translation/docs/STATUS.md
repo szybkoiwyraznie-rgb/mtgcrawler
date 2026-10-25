@@ -5,6 +5,60 @@ nothing translated, `runtime_tested = false`. Next action: owner runs the
 inventory on the game folder (or sends a plain directory listing) so the text
 containers can be located without transferring game data.*
 
+## S1 result — build inventory (2026-10-25, from the owner's listing)
+
+The owner supplied `listing_sizes.txt` (3,006,746 B, SHA-256
+`74854bf01f759f45c7a0ea16021e88f7cdad26b91966a677330c6f5ae20c0cba`, 26,763
+entries, 22,181,372,434 B = 20.66 GiB). It lists **relative path + size** only, no
+content. What it proves about the build:
+
+- **The game is Unity Addressables based.** `SUPER ROBOT WARS Y_Data/StreamingAssets/`
+  holds 26,718 files / 20,933 MiB, of which the asset bundles live in
+  `aa/StandaloneWindows64/`: **19,923 bundles**, 16.74 GiB, median **81,597 B**,
+  9,372 under 64 KiB, largest 441,154,782 B. Bundle names are content hashes
+  (`2e1c004184c62d08997e13aed13a1004.bundle`), so the catalogue is what maps
+  names to bundles — not the file names.
+- **Ten Addressables catalogues**, i.e. the base game plus every content pack, each
+  with its own `catalog_<name>.json` + `.hash`:
+  `aa/catalog.json` (39.62 MiB, base), `Dlc1`, `Dlc2`, `SeasonPassBonus`,
+  `BonusMission`, `ExpansionPack` (2.89 MiB), `AnniversaryExpansionPack`
+  (5.06 MiB), `PremiumSound`, `EarlyPurchase`, `DeluxeEdition`,
+  `UltimateEdition`. **This matches the announced final content line-up**, so the
+  copy really is the complete build.
+- **Stock Unity layout**: `SUPER ROBOT WARS Y.exe` (901,192 B),
+  `GameAssembly.dll` (74,865,152 B — IL2CPP, as expected),
+  `il2cpp_data/Metadata/global-metadata.dat` (18.03 MiB),
+  `UnityPlayer.dll` (29.31 MiB), `resources.assets` (66.07 MiB), plus
+  `boot.config`, `app.info`, `ScriptingAssemblies.json`.
+- **No loader is installed** — no MelonLoader/BepInEx/Doorstop files present, so
+  architecture A would be a new installation on the owner's machine.
+- Files with unknown role, to identify later: `SUPER ROBOT WARS Y.rne` (0.86 MiB,
+  beside the exe) and a repack scaffolding (`_Redist/`, `unins000.*`) that is not
+  part of the game.
+- Two zero-byte leftovers of the earlier failed attempt sit in the game folder
+  (`listing.txt`, `listing_sizes.txt`); harmless, worth deleting so later
+  inventories stay clean.
+
+The path prefix in the listing was cut three characters short
+(`S Y\GameAssembly.dll` instead of `SUPER ROBOT WARS Y\GameAssembly.dll`) because
+the fallback command used a fixed substring length; the structure below is intact
+and was restored during analysis.
+
+**S1 = passed.** The text itself is not located yet: that needs the catalogue
+(S2), because bundles carry no meaningful names. Next input requested from the
+owner: `SUPER ROBOT WARS Y_Data\StreamingAssets\aa\catalog.json`
+(41,543,062 B, address index only — no game content), scanned with
+`tools/scan_catalog.py`. How to send it: **`docs/OWNER_STEPS_S2.md`**
+(recommended: drag the file into Drive `SRW/SRWY`; alternative: a PowerShell
+block that decodes only the name sections to a few-hundred-KB text file).
+
+Note: the per-DLC catalogues are **not** under `aa/` — each pack has its own
+folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
+1,593,357 B, `ExpansionPack` 3,031,427 B, `AnniversaryExpansionPack` 5,308,249 B,
+`SeasonPassBonus` 1,148,607 B, `BonusMission` 416,490 B, `PremiumSound`
+103,933 B, `EarlyPurchase` 68,160 B, `DeluxeEdition` 15,054 B, plus
+`UltimateEdition`) — needed only after the base catalogue proves the method.
+
 ## Confirmed
 
 - **Game:** *SUPER ROBOT WARS Y*, Bandai Namco Forge Digitals, released
@@ -28,10 +82,12 @@ containers can be located without transferring game data.*
 
 ## Hypothesis (to be measured in the spike)
 
-- The bulk of the text lives in one large CRI `.cpk` container, with additional
-  text inside Unity bundles whose internal names are non-descriptive
-  (public datamining reports: ~18,000 files in the main data, a few hundred text
-  files in ~5 MB bundles, five languages present).
+- The text lives in the Addressables bundles as Unity text assets
+  (`TextAsset`/`MonoBehaviour` with a string table), addressed by name in
+  `catalog.json`; the "one large CPK" description in the datamining reports
+  matches the 20 GiB `StreamingAssets` tree rather than a single container.
+- The five languages are either separate assets per language (likely: separate
+  `Text/English/...` style addresses) or one asset with five fields.
 - The five-language string set is table-driven, so a Polish "language" can be
   produced either by a runtime lookup override (architecture **A**) or by
   patching the table (architecture **B**).
@@ -63,7 +119,7 @@ containers can be located without transferring game data.*
 
 | # | Milestone | State |
 |---|---|---|
-| 0 | Feasibility report: text location, string count, glyphs, line caps, install shape | **in progress** |
+| 0 | Feasibility report: text location, string count, glyphs, line caps, install shape | **in progress** — S1 done, S2 needs the catalogue |
 | 1 | Proof: one real scene rendered in Polish on the owner's screen + glossary skeleton | not started |
 | 2 | Pipeline: extract → translation memory → build → install, reproducible, with tests | not started |
 | 3 | Content translation in chapters, reviewed batch by batch | not started |

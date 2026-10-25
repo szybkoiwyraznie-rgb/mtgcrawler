@@ -45,10 +45,23 @@ and ends with a measured report and a go/no-go recommendation. See
 [`docs/FEASIBILITY.md`](docs/FEASIBILITY.md) and
 [`docs/STATUS.md`](docs/STATUS.md).
 
+## S1 done — what the build looks like (2026-10-25)
+
+From the owner's file listing (paths and sizes only): a stock **Unity IL2CPP**
+layout, no loader installed, and the content delivered as **Addressables** —
+`StreamingAssets/aa/StandaloneWindows64/` holds **19,923 bundles** (16.74 GiB,
+median 81,597 B) with hash names, indexed by `aa/catalog.json` (41.5 MB) plus one
+catalogue per content pack (`Dlc1`, `Dlc2`, `ExpansionPack`,
+`AnniversaryExpansionPack`, …). There is **no CRI CPK** in this build, so the
+SRW 30/V CPK–Blowfish–CRILAYLA tooling does not apply. Details and the full
+inventory table: [`docs/STATUS.md`](docs/STATUS.md#s1-result--build-inventory-2026-10-25-from-the-owners-listing).
+
 ## Layout
 
-- `docs/` — status, prior art, feasibility plan, experiment log.
-- `tools/` — build inventory and (later) extraction/translation tooling.
+- `docs/` — status, prior art, feasibility plan, experiment log, owner-facing
+  step sheets (`OWNER_STEPS_S1.md`, `OWNER_STEPS_S2.md`).
+- `tools/` — build inventory, Addressables catalogue scanner, and (later)
+  extraction/translation tooling.
 - `tests/` — offline tests on synthetic data; no game files needed.
 - `local/` — ignored scratch area for anything derived from the owner's copy.
 

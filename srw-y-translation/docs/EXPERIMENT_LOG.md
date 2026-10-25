@@ -72,3 +72,51 @@ inputs (size, SHA-256 where available) and the result, labelled
   the owner's machine. The Python tool keeps its 8 green tests. Reported as
   unknown, not as working.
 - **Runtime:** still none; nothing in the game folder has been read or modified.
+
+## 2026-10-25 — S1 done: the owner's build listing analysed
+
+- **Input:** `listing_sizes.txt` from the owner, Drive
+  `SRW/SRWY` file `1s7Ll2JdVwi7paGANMWtdK8jkoNq1r2Mm`, 3,006,746 B, SHA-256
+  `74854bf01f759f45c7a0ea16021e88f7cdad26b91966a677330c6f5ae20c0cba`,
+  26,763 lines, listing **paths + sizes only** (the owner ran the fallback
+  `Get-ChildItem` route). Nothing from the game folder was uploaded.
+- **Parsed [confirmed]:** 22,181,372,434 B = 20.66 GiB total; game root has
+  `SUPER ROBOT WARS Y.exe` 901,192 B, `GameAssembly.dll` 74,865,152 B,
+  `UnityPlayer.dll` 29.31 MiB, `global-metadata.dat` 18.03 MiB,
+  `resources.assets` 66.07 MiB — a stock Unity IL2CPP layout.
+- **StreamingAssets [confirmed]:** 26,718 files / 20,933 MiB. Bundles under
+  `StreamingAssets/aa/StandaloneWindows64/`: **19,923**, 16.74 GiB, median
+  **81,597 B**, 9,372 files under 64 KiB, 180 over 16 MiB, largest
+  441,154,782 B. Bundle names are hashes, so the catalogue is the only index.
+- **Catalogues found [confirmed]:** `aa/catalog.json` 39.62 MiB plus per-pack
+  catalogues — `Dlc1` 1.56 MiB, `Dlc2` 1.52 MiB, `SeasonPassBonus` 1.10 MiB,
+  `BonusMission` 0.40 MiB, `ExpansionPack` 2.89 MiB,
+  `AnniversaryExpansionPack` 5.06 MiB, `PremiumSound` 0.10 MiB,
+  `EarlyPurchase` 0.07 MiB, `DeluxeEdition` 0.01 MiB, `UltimateEdition`
+  0.01 MiB. The line-up matches the announced final content, so the copy is
+  complete as far as the DLC is concerned.
+- **No loader installed [confirmed]:** no MelonLoader, BepInEx or Doorstop files
+  in the tree, so architecture A would be a fresh install on the owner's PC.
+- **Data quirk [confirmed]:** the fallback command I gave used
+  `$_.FullName.Substring(24)`; the owner's path is 27 characters, so every line
+  lost its first three characters (`S Y\...`). The structure below the root is
+  intact and was restored while parsing. The tool `tools/inventory_build.py`
+  does not have this problem (it uses the real root length).
+- **Two stale zero-byte files** (`listing.txt`, `listing_sizes.txt`) sit inside
+  the game folder from the earlier failed attempt; safe to delete.
+- **Tool added:** `tools/scan_catalog.py` — reads an Addressables catalogue and
+  reports identity fields, plain strings, strings recovered from the base64
+  binary sections, distinct bundle names, asset-path prefixes, and **candidate
+  text addresses** with a nearby-bundle heuristic. It does not assume a
+  catalogue serialiser version (a UTF-8 string scan of the decoded sections), and
+  it never writes game content. Tests: `tests/test_scan_catalog.py`, 8 tests,
+  green; verified on a hand-built catalogue that the recovery, classification
+  and address→bundle pairing behave as intended, including Polish UTF-8.
+  Two false-positive classes were found and fixed while testing: `Unity`
+  matching the hint word "unit", and a 32-character base64 fragment
+  (`AAAA…`) reading as a bundle name.
+- **Next input requested:** `StreamingAssets/aa/catalog.json` (39.6 MiB,
+  address index only). With it we name the text assets, then request the **one
+  or two** bundles they live in. `aa/settings.json` is optional.
+- **Runtime:** none. Nothing in the game folder was modified; the listing is
+  metadata. `runtime_tested` stays `false`.

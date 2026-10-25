@@ -80,6 +80,24 @@ Each step has an input, an output and a pass criterion. Results go into
 
 ### S2 — Locate the text and measure it (sandbox)
 
+*Status 2026-10-25: S1 done — the build is Unity Addressables (19,923 bundles,
+ten catalogues; see `STATUS.md`). S2 now starts from the catalogue, which is the
+only index of what is inside the bundles.*
+
+- **Input:** `StreamingAssets/aa/catalog.json` (41,543,062 B; address index only,
+  no game content) and, optionally, `aa/settings.json` (1,604 B). Owner-facing
+  instructions: `OWNER_STEPS_S2.md` (upload, or a PowerShell block that extracts
+  only the name list from the same file if a 40 MB upload is inconvenient).
+- **Action:** `python3 tools/scan_catalog.py --catalog catalog.json --out
+  catalog_summary.json --print-candidates 40`, then read the candidate text
+  addresses and their nearby bundle names; if the base64 sections do not yield
+  strings, the fallback is to open two or three small bundles from the same
+  Addressables group instead.
+- **Pass:** a short list of addresses that are clearly the text tables (dialogue,
+  UI, names) **with** the bundle that holds each, so the owner can send one or
+  two bundles of a few MiB instead of anything large.
+
+
 - **Input:** S1 report, then the smallest container that plausibly holds text.
 - **Action:** extract the container, identify the string set(s), dump the
   Japanese and English columns, count entries and characters, and classify by
