@@ -298,3 +298,14 @@ The static path is the one being built, and its first half is done:
   and the exact size, decrypts, re-encrypts byte-exactly). Suite **148**, green.
 - **Not yet run against the game** — that is the owner's step, and `runtime_tested`
   stays `false` until it returns. Sheet: `docs/OWNER_STEPS_S3_KEY.md`.
+
+### Step 0 on the owner's machine: fixed (2026-10-26)
+
+The first download block failed for three reasons, all recorded in
+`docs/EXPERIMENT_LOG.md`: PowerShell 5.1 negotiated TLS 1.0/1.1, the client turned
+`memory.py` / `crypt.py` into markdown links (`.py` is a TLD), and the delivery was
+two files. Now there is one script (`tools/srw_y_key.py`, pinned to `ad6286e`), the
+sheet sets TLS 1.2 with a `curl.exe` fallback, names are built from
+`[char]46`, the script is located with `Get-ChildItem *key*`, and everything is
+written to `Desktop\srwytool` instead of `C:\`. Uploading the script to Drive was
+refused by the connector provider's security filter, so GitHub remains the path.

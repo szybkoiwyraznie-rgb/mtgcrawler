@@ -17,9 +17,34 @@ Co sie zmienilo po nieudanym KROKU 0:
 Skrypt czyta pamiec gry tylko do odczytu (`PROCESS_VM_READ`): nie zmienia gry, nie
 instaluje modow, nie rusza zapisow.
 
-## KROK 0 - folder na Pulpicie i pobranie skryptu
+## KROK 0 - folder na Pulpicie i skrypt w nim
 
-Uruchom PowerShell **jako administrator** i wklej caly blok:
+**Droga A (najprostsza, bez PowerShell):** w czacie dostajesz bezposredni link do
+pliku. Klikasz go w przegladarce, plik laduje w `Pobrane` - dalej robi to bloczek
+ponizej (utworzy folder `srwytool` na Pulpicie i przeniesie tam swiezo pobrany
+plik). PowerShell uruchom **jako administrator**, bo pozniej czyta pamiec gry.
+
+```powershell
+$work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
+New-Item -ItemType Directory -Force -Path $work | Out-Null
+$ext = [char]46 + "py"
+$src = Get-ChildItem (Join-Path $env:USERPROFILE "Downloads") -File |
+    Where-Object { $_.Extension -eq $ext -and $_.Name -like "*key*" } |
+    Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($src) { Copy-Item $src.FullName $work -Force }
+$f = Get-ChildItem $work -Filter "*key*" -File | Select-Object -First 1
+if ($f -and $f.Length -gt 15000) {
+    Write-Host ("OK  skrypt: " + $f.FullName + "  " + $f.Length + " B")
+} elseif ($f) {
+    Write-Host ("plik jest, ale maly (" + $f.Length + " B) - pobierz go jeszcze raz")
+} else {
+    Write-Host "BRAK PLIKU - uzyj drogi B nizej"
+}
+```
+
+**Droga B (gdy przegladarka nie pobierze):** ten bloczek pobiera plik sam, z
+wymuszonym TLS 1.2 (PowerShell 5.1 sam negocjuje 1.0/1.1 i GitHub tego nie
+przyjmuje) oraz z zapasem przez `curl.exe`.
 
 ```powershell
 $work = Join-Path ([Environment]::GetFolderPath("Desktop")) "srwytool"
@@ -44,9 +69,9 @@ if ($f -and $f.Length -gt 15000) {
 }
 ```
 
-Musi pojawic sie linia `OK  skrypt: ...Desktop\srwytool\...` z rozmiarem powyzej
-15 000 B. Jesli jest `BRAK PLIKU`, nic nie zgaduj - odeslij mi wynik, podam inna
-droge.
+W obu drogach musi pojawic sie `OK  skrypt: ...Desktop\srwytool\...` z rozmiarem
+powyzej 15 000 B (plik ma ok. 23 kB). Jesli nie - odeslij mi wynik, to nie jest
+problem po Twojej stronie.
 
 ## KROK 1 - biblioteka AES i test skryptu (bez gry)
 

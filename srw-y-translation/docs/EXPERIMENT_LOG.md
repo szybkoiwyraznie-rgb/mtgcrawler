@@ -522,3 +522,26 @@ inputs (size, SHA-256 where available) and the result, labelled
     file as `cfb128`; fixed by using the mode objects directly. On real carved
     bundles all four stream modes now round-trip and identify as themselves.
   - Tests **148** (8 skip without pycryptodome on the system interpreter).
+- **Step 0 failed on the owner's machine [2026-10-26]:** three separate faults in
+  one block, all fixed:
+  - **TLS.** `Invoke-WebRequest` reached neither file:
+    "Nie mozna utworzyc bezpiecznego kanalu SSL/TLS". Windows PowerShell 5.1
+    defaults to TLS 1.0/1.1 and `raw.githubusercontent.com` requires 1.2. The sheet
+    now sets `[Net.SecurityProtocolType]::Tls12` and falls back to `curl.exe`.
+  - **Autolinked file names.** What arrived at PowerShell was
+    `key_from_[memory.py](http://memory.py)` and `bundle_[crypt.py](http://crypt.py)`:
+    `memory.py` and `crypt.py` are read as domains, because `.py` is Paraguay's TLD.
+    The second name in every pair broke, so the download wrote nothing and the size
+    check reported `0 B`. The sheet no longer contains any `nazwa.py` token: names
+    are built with `[char]46`, the script is found with `Get-ChildItem *key*`, and
+    the file is checked for ASCII, no `.py` token and no literal URL before shipping.
+  - **Two files instead of one.** The owner now gets a single script,
+    `tools/srw_y_key.py` (`selftest` / `key` / `decrypt` / `encrypt`), pinned in the
+    sheet to commit `ad6286e`; the raw URL was fetched from the sandbox to confirm
+    it serves that build.
+  - Everything is written to `Desktop\\srwytool` now - nothing touches `C:\\`, at the
+    owner's request.
+  - **Drive delivery was tried and refused:** uploading the script to
+    `SRW/SRWY` failed with `file_transfer_failed` - "a security filter at the
+    connector provider blocked the file ... because of its content". Not retried
+    (the filter must not be worked around); GitHub stays the delivery path.
