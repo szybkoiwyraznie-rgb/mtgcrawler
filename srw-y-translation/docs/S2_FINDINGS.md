@@ -131,27 +131,27 @@ dokładnie to, co wynika z identyfikacji mechanizmu: **para hasło + sól** (lub
 hasło + sól same będące tablicami budowanymi w kodzie) i konkretny tryb AES.
 Statycznie tego nie rozwiązałem i nie będę udawał, że jest blisko.
 
-## Co zostaje
+## Co zostaje — droga runtime, zbudowana
 
-**A. Statyczne — wyczerpane w tym, co tanie.** Zostałyby dwie drogi, obie drogie
-i o niepewnym wyniku: (1) deasemblacja metod `SeekableAesStream`/`CustomAssetBundleResource`
-w `GameAssembly.dll`, żeby zobaczyć, skąd biorą się `password` i `salt` — to
-praca z deasemblerem IL2CPP, nie „jeszcze jedna próba”; (2) przesiewanie
-nieczytelnych (bajtowych) obszarów metadanych jako kluczy — 56 mln okien, ~15
-min, ale niska szansa, bo metadane trzymają nazwy i typy, nie sekrety.
+Skoro klucza nie ma w plikach, sięgamy po to, co gra **musi** mieć: odszyfrowany
+tekst w pamięci. Właściciel potwierdził Pythona 3.12.9, więc nie potrzebujemy
+kompilatora C#.
 
-**B. Runtime — bez klucza.** Gra sama odszyfrowuje bundle w pamięci. Zamiast
-klucza można więc **przechwycić jawny tekst** w trakcie działania gry:
-podpiąć się pod `SeekableAesStream.Read` (albo pod samo ładowanie bundla) i
-zapisać to, co wychodzi — a potem analizować offline naszymi narzędziami.
+- `tools/mem_carve.py` — **bez żadnych bibliotek** (tylko `ctypes`), **tylko do
+  odczytu** (`PROCESS_QUERY_INFORMATION | PROCESS_VM_READ`): przegląda pamięć
+  procesu, szuka nagłówków `UnityFS` i `CAB-`, parsuje je, wycina dokładnie tyle
+  bajtów, ile deklaruje nagłówek, i **ponownie parsuje wynik**, żeby nie nazwać
+  sukcesem czegoś, co się nie otwiera. Raport zawiera **tylko liczby i nazwy**
+  plików — bez treści gry, więc można go wysłać.
+- `tools/read_carve.py` — otwiera wycięte pliki (UnityPy) i mierzy tekst:
+  znaki, linie, znaki japońskie, znaki zastępcze (dowód złego kodowania).
+- Instrukcja dla właściciela: `docs/OWNER_STEPS_S3.md`.
 
-To jest obecnie **najbardziej obiecująca droga** i jedyna, która nie zależy od
-odgadnięcia hasła. Ma jednak dwa warunki: trzeba ją napisać i uruchomić na
-komputerze właściciela (Windows), a ja muszę zaprojektować ją tak, żeby nie
-wymagała kompilatora C# — którego w moim środowisku nie ma. Realny kandydat to
-Frida (jest na PyPI, czyli w zasięgu) z mostkiem do IL2CPP, sterowana krótkim
-skryptem. **Nie obiecuję, że zadziała, dopóki tego nie sprawdzę** — ale to
-następna rzecz, którą zrobię, zamiast dalej zgadywać klucz.
+**Uczciwie:** narzędzie przeszło self-test i przebieg na zsyntetyzowanym zrzucie
+(18 testów na parsowaniu i wycinaniu), ale **nie było jeszcze uruchomione na
+prawdziwej grze** — to wymaga komputera właściciela. Jeśli okaże się, że gra nie
+trzyma w pamięci całych bundli (tylko bloki), raport to pokaże liczbami, a wtedy
+zostaje podpięcie się do funkcji odszyfrowującej.
 
 ## Interpretacja (hipoteza, nie fakt)
 
@@ -163,14 +163,10 @@ następna rzecz, którą zrobię, zamiast dalej zgadywać klucz.
 
 ## Czego potrzebuję teraz
 
-**Niczego.** Wszystkie pliki, które miały sens na tym etapie, są już w `local/`:
-dwa bundle (6 531 163 B), katalog (41 543 062 B), metadane (18 909 544 B) i
-`GameAssembly.dll` (74 865 152 B). Dalsza praca — zaprojektowanie przechwycenia
-tekstu w runtime — jest po mojej stronie i nie wymaga wysyłania kolejnych
-plików gry.
-
-Jeśli ta droga będzie wymagała uruchomienia czegoś na Twoim komputerze,
-dostaniesz **osobną, gotową do wklejenia instrukcję** — tak jak poprzednie.
+**Żadnych plików gry.** Wszystko, co da się wyczytać z plików, jest już
+wyczytane. Potrzebny jest **jeden przebieg na komputerze właściciela**, przy
+działającej grze: `docs/OWNER_STEPS_S3.md` (self-test → odczyt na ekranie
+tytułowym → odczyt z dialogiem na ekranie → dwa małe raporty JSON).
 
 ## Odtworzenie
 

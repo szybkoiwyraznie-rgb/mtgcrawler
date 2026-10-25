@@ -69,9 +69,13 @@ The mechanism is identified: the metadata names a `SeekableAesStream` with
 every literal failed as a key. Static recovery has been taken to the cheap end
 and failed with numbers: 2.2 M metadata-literal candidates, 3.8 M hash-derived
 candidates, 61.2 M key-sized windows across every offset of the DLL's data
-sections, plus masking, compression and keystream-period tests. The planned route
-is now to capture the decrypted stream from the running game, which needs no key.
-Details: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
+sections, plus masking, compression and keystream-period tests. The route now taken is to
+read the plaintext out of the running game, which needs no key:
+`tools/mem_carve.py` (stdlib-only, read-only memory carver) plus
+`tools/read_carve.py` (measures the text it recovers). Built and tested against
+synthetic dumps; the first real run is the owner's, per
+[`docs/OWNER_STEPS_S3.md`](docs/OWNER_STEPS_S3.md). Details:
+[`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
 
 ## S2 in progress — the catalogue names every bundle (2026-10-25)
 

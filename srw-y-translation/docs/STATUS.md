@@ -78,10 +78,21 @@ key-sized windows against AES-ECB/CBC/CTR, RC4, ChaCha20 and XOR — no hit. Usi
 the bundle's own name/hash as password or salt through PBKDF2 — no hit. Full
 table in `docs/S2_FINDINGS.md`; tool `tools/kdf_hunt.py` added for derivations.
 
-**What remains:** IL2CPP disassembly of the two classes (expensive, uncertain),
-or **capture the decrypted stream at runtime**, which needs no key at all. The
-second is the planned route and must be built without a C# compiler — Frida with
-an IL2CPP bridge is the candidate. Stated as a plan, not a promise.
+**Route chosen: read the plaintext out of the running game [built, not yet run].**
+The owner confirmed Python 3.12.9 on their machine, which removes the C# compiler
+problem: `tools/mem_carve.py` is a **dependency-free, read-only** memory carver
+(`ctypes`: `VirtualQueryEx` + `ReadProcessMemory`, access
+`PROCESS_QUERY_INFORMATION | PROCESS_VM_READ`). It searches the game's committed
+memory for `UnityFS` and `CAB-` headers, parses them, carves exactly the declared
+size, re-parses the result to prove it, and writes a report with **counts and
+names only** — no game text. `tools/read_carve.py` then opens the carved files
+with UnityPy and measures the text.
+
+Honest status: the carver passes a self-test and an end-to-end synthetic run, and
+its parsing/carving logic carries 18 tests, but **it has never been pointed at
+the real game** — that needs the owner's Windows machine. Instructions:
+`docs/OWNER_STEPS_S3.md` (self-test, then one scan at the title screen and one
+with a dialogue scene on screen, then two small JSON reports).
 - **B — runtime dump** through MelonLoader (no key needed; also the delivery
   architecture). Blocked on tooling: **this sandbox has no C# compiler and cannot
   install one** (the .NET Core runtime needs `libunwind.so.8`, absent and not

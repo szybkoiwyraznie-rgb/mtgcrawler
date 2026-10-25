@@ -292,3 +292,37 @@ inputs (size, SHA-256 where available) and the result, labelled
   needs no key. The second is now the planned route, and it must be built
   without a C# compiler — Frida plus an IL2CPP bridge is the candidate.
   Written down as a plan, not as a promise. `runtime_tested` stays `false`.
+
+## 2026-10-25 — runtime route built: read-only memory carver for the owner's PC
+
+- **Trigger:** the owner reported **Python 3.12.9** on their machine. That
+  removes the blocker recorded earlier (no C# toolchain in the working
+  environment), because the runtime route no longer needs a compiled mod.
+- **`tools/mem_carve.py` [built, not yet run against the game]:** stdlib only
+  (`ctypes`), read-only access (`PROCESS_QUERY_INFORMATION | PROCESS_VM_READ`).
+  Finds the PID via `tasklist`, walks committed readable regions with
+  `VirtualQueryEx`, reads 8 MiB chunks with 512-byte overlap, and in each chunk
+  searches `UnityFS`, `CAB-`, `cse20_`, `dialog_text` and `StandaloneWindows64`.
+  For every `UnityFS` header it parses the declared size and carves exactly that
+  many bytes; for every `CAB-` header it parses the serialized-file header and
+  carves the declared file size. Every carved file is **re-parsed before being
+  claimed**, incomplete carves are marked `complete: false` rather than dropped,
+  and the report carries counts, sizes, hashes and names — **no game text**.
+  Japanese presence is measured with **kana** runs only (U+3040-U+30FF is 192 of
+  65,536 code units, so four kana in random bytes is a ~1e-10 event), after the
+  first attempt at a kanji-based ratio proved to fire on 32 % of random bytes.
+- **`tools/read_carve.py` [built]:** opens carved `.bundle`/`.assets` files with
+  UnityPy and measures characters, lines, CJK and replacement characters per
+  class; text goes to `--out-dir`, the report keeps only counts.
+- **Verification in the sandbox:** `--selftest` (synthetic image with a real
+  bundle header) passes, and an end-to-end run on a synthetic 586 KB dump carved
+  both a 65,536 B bundle and a 98,304 B serialized file, with `kana` counting
+  5,400 characters. 18 new tests (header parsing, marker limits, carve planning
+  and budgets, partial carves, kana detection, CLI paths); suite **89/89**.
+- **What is explicitly NOT claimed:** this has never been pointed at the real
+  game. Whether the engine keeps whole bundles (rather than per-block buffers)
+  in memory is an open question, and the first report will answer it with
+  numbers. If it does not, the fallback is hooking the decrypt routine.
+- **Next:** `docs/OWNER_STEPS_S3.md` — self-test, scan at the title screen, scan
+  with a dialogue scene loaded, upload the two small reports. `runtime_tested`
+  stays `false` until the owner's run reports back.

@@ -1,0 +1,188 @@
+"""Memory carver tests — synthetic images only, no game and no Windows needed."""
+import json
+import struct
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+import mem_carve as M  # noqa: E402
+
+
+def unityfs(size: int = 4096, unity_version: bytes = b"5.x.x") -> bytes:
+    header = (M.SIGNATURE + struct.pack(">I", 7) + unity_version + b"\x00"
+              + b"2021.3.0f1\x00" + struct.pack(">q", size)
+              + struct.pack(">I", 128) + struct.pack(">I", 256)
+              + struct.pack(">I", 0x43))
+    return header + b"\x00" * (size - len(header))
+
+
+class HeaderTests(unittest.TestCase):
+    def test_parses_a_bundle_header(self):
+        parsed = M.parse_unityfs(unityfs(4096))
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["version"], 7)
+        self.assertEqual(parsed["size"], 4096)
+        self.assertEqual(parsed["unity_revision"], "2021.3.0f1")
+        self.assertEqual(parsed["uncompressed_blocks_info_size"], 256)
+
+    def test_rejects_rubbish(self):
+        self.assertIsNone(M.parse_unityfs(b"not a bundle at all, really"))
+        self.assertIsNone(M.parse_unityfs(M.SIGNATURE + b"\x00" * 4))
+        bad_size = (M.SIGNATURE + struct.pack(">I", 7) + b"a\x00" + b"b\x00"
+                    + struct.pack(">q", -5) + b"\x00" * 12)
+        self.assertIsNone(M.parse_unityfs(bad_size))
+
+    def test_rejects_absurd_size(self):
+        absurd = (M.SIGNATURE + struct.pack(">I", 7) + b"a\x00" + b"b\x00"
+                  + struct.pack(">q", 1 << 40) + b"\x00" * 12)
+        self.assertIsNone(M.parse_unityfs(absurd))
+
+
+class ScanTests(unittest.TestCase):
+    def test_finds_markers_and_bundles(self):
+        image = (b"\x00" * 100 + unityfs(2048) + b"\x00" * 50 + M.CAB
+                 + b"deadbeef" + b"cse20_0001_0000310a" + b"dialog_text_ja-JP")
+        scan = M.scan_buffer(image)
+        self.assertEqual(len(scan["bundles"]), 1)
+        self.assertEqual(scan["bundles"][0][1], 2048)
+        self.assertEqual(len(scan["markers"]["cab"]), 1)
+        self.assertEqual(len(scan["markers"]["scenario_name"]), 1)
+        self.assertEqual(len(scan["markers"]["localization"]), 1)
+
+    def test_marker_limit_is_honoured(self):
+        image = M.CAB * 500
+        scan = M.scan_buffer(image, marker_limit=10)
+        self.assertEqual(len(scan["markers"]["cab"]), 10)
+
+    def test_japanese_ratio(self):
+        japanese = "これはテストです".encode("utf-16-le") * 200
+        self.assertGreater(M.utf16_japanese_ratio(japanese), 0.8)
+        self.assertEqual(M.utf16_japanese_ratio(b"\x00" * 1000), 0.0)
+        self.assertLess(M.utf16_japanese_ratio(bytes(range(256)) * 8), 0.2)
+
+
+def serialized(size: int = 1024, name: bytes = b"0123456789abcdef") -> bytes:
+    body = (M.CAB + name + struct.pack(">IIII", 128, size, 22, 512)
+            + b"\x00" * (size - 24))
+    return body
+
+
+class SerializedTests(unittest.TestCase):
+    def test_parses_a_serialized_file_header(self):
+        parsed = M.parse_serialized_header(serialized(2048))
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["file_size"], 2048)
+        self.assertEqual(parsed["data_offset"], 512)
+        self.assertEqual(parsed["name"], "0123456789abcdef")
+
+    def test_rejects_bad_sizes(self):
+        bad = M.CAB + b"0123456789abcdef" + struct.pack(">IIII", 4096, 1024, 22, 0)
+        self.assertIsNone(M.parse_serialized_header(bad))       # metadata > file
+        huge = M.CAB + b"0123456789abcdef" + struct.pack(">IIII", 0, 1 << 31, 22, 0)
+        self.assertIsNone(M.parse_serialized_header(huge))
+        self.assertIsNone(M.parse_serialized_header(b"CAB-"))
+
+    def test_carving_writes_serialized_files_too(self):
+        image = b"\x00" * 64 + serialized(1024) + b"\x00" * 32 + unityfs(512)
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw)
+            result = M.carve_from_buffer(image, out)
+            kinds = sorted(item["kind"] for item in result["written"])
+            self.assertEqual(kinds, ["assets", "bundle"])
+            assets = next(item for item in result["written"] if item["kind"] == "assets")
+            self.assertEqual(assets["size"], 1024)
+            self.assertIsNotNone(M.parse_serialized_header(
+                (out / assets["name"]).read_bytes()))
+
+
+class KanaTests(unittest.TestCase):
+    def test_counts_runs_without_keeping_text(self):
+        text = "これはテストです。".encode("utf-16-le") * 5
+        stats = M.kana_stats(text)
+        self.assertGreaterEqual(stats["runs"], 5)
+        self.assertGreater(stats["chars"], 20)
+        self.assertGreater(stats["longest"], 5)
+
+    def test_random_bytes_do_not_look_like_kana(self):
+        stats = M.kana_stats(bytes(range(256)) * 64)
+        self.assertLess(stats["runs"], 5)
+
+
+class CarveTests(unittest.TestCase):
+    def test_carve_plan_skips_overlaps_and_respects_budget(self):
+        plan = M.carve_plan([(0, 100), (50, 100), (400, 100)], 1000, 0x1000, 250)
+        self.assertEqual([task["offset"] for task in plan], [0, 400])
+        self.assertEqual(plan[0]["address"], 0x1000)
+        plan = M.carve_plan([(0, 400)], 1000, 0, 100)
+        self.assertEqual(plan, [])
+
+    def test_carve_writes_valid_bundles_only(self):
+        image = unityfs(1024) + b"\x00" * 64 + unityfs(2048)
+        with tempfile.TemporaryDirectory() as raw:
+            out = Path(raw)
+            result = M.carve_from_buffer(image, out)
+            self.assertEqual(len(result["written"]), 2)
+            sizes = sorted(item["size"] for item in result["written"])
+            self.assertEqual(sizes, [1024, 2048])
+            for item in result["written"]:
+                data = (out / item["name"]).read_bytes()
+                self.assertIsNotNone(M.parse_unityfs(data))
+                self.assertEqual(len(data), item["size"])
+
+    def test_truncated_bundle_is_flagged_incomplete(self):
+        """A partial carve is kept (it may still hold text) but never claimed whole."""
+        bundle = unityfs(4096)
+        image = bundle[:1000]            # header promises 4096, only 1000 present
+        with tempfile.TemporaryDirectory() as raw:
+            result = M.carve_from_buffer(image, Path(raw))
+            self.assertEqual(len(result["written"]), 1)
+            item = result["written"][0]
+            self.assertFalse(item["complete"])
+            self.assertEqual(item["size"], 1000)
+            self.assertEqual(item["declared_size"], 4096)
+
+
+class CliTests(unittest.TestCase):
+    def test_selftest_passes(self):
+        result = subprocess.run([sys.executable, str(ROOT / "tools/mem_carve.py"),
+                                 "--selftest"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("PASS", result.stdout)
+
+    def test_from_file_end_to_end(self):
+        with tempfile.TemporaryDirectory() as raw:
+            tmp = Path(raw)
+            dump = tmp / "dump.bin"
+            dump.write_bytes(b"\x11" * 512 + unityfs(1024) + M.CAB + b"x" * 64)
+            out = tmp / "carved"
+            report = tmp / "report.json"
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "tools/mem_carve.py"),
+                 "--from-file", str(dump), "--out", str(out),
+                 "--report", str(report)],
+                capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(report.is_file())
+            self.assertEqual(len(list(out.glob("*.bundle"))), 1)
+            payload = json.loads(report.read_text(encoding="utf-8"))
+            self.assertEqual(payload["counts"]["cab"], 1)
+            self.assertEqual(len(payload["carved"]["written"]), 1)
+
+    def test_live_scan_refuses_outside_windows(self):
+        if sys.platform == "win32":
+            self.skipTest("this test targets non-Windows hosts")
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "tools/mem_carve.py"),
+             "--process", "nothing.exe", "--out", "/tmp/x"],
+            capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("needs Windows", result.stderr)
+
+
+if __name__ == "__main__":
+    unittest.main()
