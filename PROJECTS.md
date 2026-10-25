@@ -58,6 +58,46 @@ SRW Z; none is selected yet. When one is picked, it starts as a new
 directory created with the checklist below — repository-level documents only
 gain a registry row; nothing about existing projects changes.
 
+### Candidates assessed 2026-10-25 — **not started, no decision taken**
+
+Both candidates are modern entries with an **official English release**, so the
+scope would be a **Polish-only** translation made from the Japanese text, with the
+official English as a secondary reference. That is the opposite of SRW OE, where
+the English text itself had to be written here.
+
+**SRW 30** — *Super Robot Wars 30*, Bandai Namco Forge Digitals.
+- Confirmed: PC/Steam worldwide since 2021-10-27 (Steam app `898750`, sold in
+  Europe), PS4/Switch Asia-only; ships Japanese **and** official English; content
+  is finished (Season Pass = DLC1/DLC2, Expansion Pack, Bonus Mission Pack,
+  Premium Sound & Data Pack). Scenario count per the Akurasu wiki: 62 key + 166
+  optional + 87 DLC.
+- Confirmed about the files: the text sits in CRI `.cpk` containers under the
+  game's `pc/` directory (e.g. `data/mission/*_en.cpk`, `commondata/...`), the
+  payload is Blowfish-encrypted and CRILAYLA-compressed, and mission dialogue sits
+  inside Lua scripts. Public prior art covers exactly this: CriPakGUI + QuickBMS
+  scripts, community modding guides, and maintainer-side fixes shipped as small
+  CPK patches. The PC version of SRW V has a documented full Russian fan
+  translation, i.e. this class of work has been done on this engine family.
+- Hypothesis, to be measured: string volume is several times SRW OE's 47k prose
+  entries; because the official English ships in the same build, the renderer
+  already handles Latin text and long strings, which removes the hardest part of
+  the SRW OE job (custom font + per-line width machine).
+
+**SRW Y** — *SUPER ROBOT WARS Y*, same developer.
+- Confirmed: worldwide since 2025-08-27 (PS5, Switch, Steam app `1909950`);
+  official English + Japanese + Chinese + Korean; DLC1 (2025-11), DLC2, DLC 1&2
+  Set, Expansion Pack, Bonus Mission Pack, Premium Sound & Data Pack; the game is
+  still receiving content updates.
+- Unknown, must be measured: the PC file layout (hypothesis: the same CPK family
+  as SRW 30) and how much text still moves with each patch.
+
+**Recommendation on record (owner decides):** SRW 30 first — finished content,
+cheap on sale, best-documented tooling, no moving target — then SRW Y once its DLC
+run is over. Neither starts before the SRW OE hand-off is complete, and each
+begins with a one-day feasibility spike (JP text export, string count, Polish
+diacritics on screen, line-length caps, behaviour after a Steam update) instead of
+a translation plan.
+
 ## Adding a new title — checklist
 
 1. **Directory:** create `<slug>-translation/` (conventionally
