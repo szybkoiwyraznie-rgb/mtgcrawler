@@ -693,3 +693,41 @@ descriptions, 7 Japanese strings -> Polish), `cd75854d` (data handover screen,
 
 Tools: `tools/keystream_patch.py` (`info`, `plan`, `apply`) with 14 tests. Suite:
 **201 tests, OK**.
+
+## 2026-10-26 - the owner wants the opening screen, not UI bundles
+
+The pilot three bundles were the honest maximum before the opening was reachable: they
+are the only text files whose plaintext we hold. They are useless to someone who has not
+started the game yet, and the owner said so.
+
+The opening narration lives in a localization table or a scenario script, and both are
+still only available as ciphertext: `1cc7e02e` (940,012 B, ja-JP table) and `1c12bbab`
+(5,591,151 B, scenario) were uploaded days ago but their plaintext was never carved, so
+no keystream can be computed for them. A keyless patch needs a plaintext/ciphertext pair,
+and the only place a plaintext for those files can come from is the running game.
+
+New tool `tools/srw_y_find_text.py` (2026-10-26.10) makes that one run cheap and exact:
+
+- the **owner's own text is the locator** - the pasted paragraph is searched in memory
+  as UTF-8 and UTF-16LE, and because a paragraph can be assembled from several table
+  entries, sentences and shorter prefixes are tried in order until one hits;
+- from a hit the tool walks **backwards** to the nearest `UnityFS` header and carves the
+  bundle whose declared size covers the hit, re-parsing the result so a false positive
+  is rejected rather than shipped;
+- a second pass collects plaintext bundles whose **size** is one we know we need (the six
+  en-US and six ja-JP text tables, the six per-language scenario bundles) - 19 sizes, all
+  unique in this build. That is what makes later lines cost no further runs;
+- if no header is found around the text (the game may keep it in a managed string), a
+  small context window is saved instead, so the storage format becomes visible.
+
+Everything is testable without Windows or the game: the reader is a buffer, and the tests
+use real carved bundles. Two bugs were found that way and fixed before shipping: advancing
+blindly over an unreadable region skipped a whole readable region (it missed a 134-byte
+fixture), and the first version mapped hits back through a concatenated window, losing the
+address of every hit.
+
+`tools/` also gains nothing else: the patch path is unchanged (`keystream_patch.py`), the
+pair for the carved file comes from the owner's disk copy, matched by size.
+
+Suite: **224 tests, OK**. Polish draft of the opening, with the byte budget worked out, is
+in `docs/OPENING_PL_DRAFT.md`.

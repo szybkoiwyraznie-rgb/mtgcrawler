@@ -370,3 +370,19 @@ works without the key.
 Still missing for real coverage: the base-game localization tables and the scenario
 bundles are not in the carve (their ciphertext we already hold). A targeted memory
 carve of those specific sizes is the next step.
+
+### The opening screen, not UI bundles (2026-10-26)
+
+The pilot bundles were the only text files with a known plaintext, and they sit deep in
+the game - useless before the first mission. The opening narration lives in a
+localization table (`2d69c099` 948,652 B en-US, `1cc7e02e` 940,012 B ja-JP) or in the
+scenario scripts (`1c12bbab` 5,591,151 B), and for those we hold only ciphertext, so no
+keystream exists for them yet. A plaintext has to come from the running game once.
+
+`tools/srw_y_find_text.py` (2026-10-26.10) does that in a single run: the line the owner
+sees on screen is the search key, the tool walks back to the enclosing `UnityFS` header
+and carves that bundle, verifying the result; a second pass also collects the 19 bundles
+whose sizes we know (text tables + scenario scripts) so later lines need no further runs.
+`docs/OWNER_STEPS_S3_OPENING.md` is the sheet; `docs/OPENING_PL_DRAFT.md` holds the Polish
+draft of the opening paragraph with the byte budget (English 326 B, faithful Polish 338 B,
+tight Polish 255 B).
