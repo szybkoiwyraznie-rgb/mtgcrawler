@@ -46,7 +46,7 @@ def memory_with(bundle, before=50_000, after=20_000):
 
 class VersionTests(unittest.TestCase):
     def test_version_is_pinned(self):
-        self.assertEqual(M.SCRIPT_VERSION, "2026-10-26.10")
+        self.assertEqual(M.SCRIPT_VERSION, "2026-10-26.11")
 
 
 class NeedleTests(unittest.TestCase):
@@ -193,6 +193,27 @@ class KnownSizeTests(unittest.TestCase):
         self.assertIn(948652, M.KNOWN_BUNDLES)   # en-US large table
         self.assertIn(940012, M.KNOWN_BUNDLES)   # ja-JP large table
         self.assertIn(5591151, M.KNOWN_BUNDLES)  # scenario scripts
+
+
+class CappedSource(M.BufferSource):
+    """Pretends to be ReadProcessMemory: never returns more than 1 MB per call."""
+
+    def read(self, address, size):
+        return super().read(address, min(size, 1 << 20))
+
+
+class LargeRegionTests(unittest.TestCase):
+    def test_a_region_larger_than_one_read_is_fully_scanned(self):
+        """ProcessSource.read caps at 1 MB, so the scan has to chunk by itself."""
+        filler = bytes((i * 7) & 0xFF for i in range(3 << 20))
+        bundle = M._fake_bundle(TEXT.encode("utf-8"))
+        source = CappedSource(filler + bundle)
+        source.regions = [(source.base, len(filler) + len(bundle))]
+        with tempfile.TemporaryDirectory() as raw:
+            report = M.scan(source, TEXT.encode("utf-8"), Path(raw),
+                            lookback=1 << 20)
+            self.assertEqual(len(report["bundles"]), 1)
+            self.assertEqual(report["bytes_scanned"], len(filler) + len(bundle))
 
 
 class CliTests(unittest.TestCase):

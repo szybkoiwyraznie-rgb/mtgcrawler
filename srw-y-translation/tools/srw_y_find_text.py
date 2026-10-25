@@ -43,6 +43,7 @@ import ctypes
 import hashlib
 import json
 import struct
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -50,7 +51,7 @@ from pathlib import Path
 SCHEMA = 1
 # Bumped with every change that reaches the owner; the owner's paste-block checks
 # it, because a stale download once looked exactly like a script bug.
-SCRIPT_VERSION = "2026-10-26.10"
+SCRIPT_VERSION = "2026-10-26.11"
 UNITYFS = b"UnityFS\x00"
 DEFAULT_LOOKBACK = 16 << 20
 DEFAULT_CONTEXT = 64 << 10
@@ -182,88 +183,116 @@ class BufferSource:
         return self.data[start:start + size]
 
 
+class MEMORY_BASIC_INFORMATION(ctypes.Structure):
+    """Exactly the layout VirtualQueryEx writes on 64-bit Windows."""
+
+    _fields_ = [("BaseAddress", ctypes.c_void_p),
+                ("AllocationBase", ctypes.c_void_p),
+                ("AllocationProtect", ctypes.c_uint32),
+                ("__alignment1", ctypes.c_uint16),
+                ("RegionSize", ctypes.c_size_t),
+                ("State", ctypes.c_uint32),
+                ("Protect", ctypes.c_uint32),
+                ("Type", ctypes.c_uint32),
+                ("__alignment2", ctypes.c_uint32)]
+
+
+def win_api():
+    """kernel32 with explicit prototypes.
+
+    Without these, ctypes assumes `int` everywhere: on 64-bit Windows that truncates
+    the handle returned by `OpenProcess` and every address argument, and the scan then
+    fails in ways that look like permission errors. Same prototype set that the
+    carving tool has already run successfully on the owner's machine.
+    """
+    if sys.platform != "win32":
+        raise SystemExit("live memory scanning needs Windows; use --from-file")
+    if ctypes.sizeof(ctypes.c_void_p) != 8:
+        raise SystemExit("64-bit Python is required for a 64-bit game")
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel32.OpenProcess.restype = ctypes.c_void_p
+    kernel32.OpenProcess.argtypes = [ctypes.c_uint32, ctypes.c_int, ctypes.c_uint32]
+    kernel32.CloseHandle.restype = ctypes.c_int
+    kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+    kernel32.VirtualQueryEx.restype = ctypes.c_size_t
+    kernel32.VirtualQueryEx.argtypes = [ctypes.c_void_p, ctypes.c_void_p,
+                                        ctypes.POINTER(MEMORY_BASIC_INFORMATION),
+                                        ctypes.c_size_t]
+    kernel32.ReadProcessMemory.restype = ctypes.c_int
+    kernel32.ReadProcessMemory.argtypes = [ctypes.c_void_p, ctypes.c_void_p,
+                                           ctypes.c_void_p, ctypes.c_size_t,
+                                           ctypes.POINTER(ctypes.c_size_t)]
+    return kernel32
+
+
+def process_pid(image_name: str) -> int | None:
+    """Find a PID by image name, using tasklist (no psapi, no third-party)."""
+    result = subprocess.run(["tasklist", "/FI", f"IMAGENAME eq {image_name}",
+                             "/FO", "CSV", "/NH"],
+                            capture_output=True, text=True, check=False)
+    for line in result.stdout.splitlines():
+        parts = [item.strip('"') for item in line.split('","')]
+        if len(parts) >= 2 and parts[0].lower() == image_name.lower():
+            try:
+                return int(parts[1])
+            except ValueError:
+                continue
+    return None
+
+
 class ProcessSource:
-    """Read-only view of another process. Windows only."""
+    """Read-only view of the running game. Windows only."""
 
     PROCESS_QUERY_INFORMATION = 0x0400
     PROCESS_VM_READ = 0x0010
     MEM_COMMIT = 0x1000
+    READABLE = {0x02, 0x04, 0x20, 0x40, 0x80}
+    PAGE_GUARD = 0x100
 
-    class MEMORY_BASIC_INFORMATION(ctypes.Structure):
-        _fields_ = [("BaseAddress", ctypes.c_void_p),
-                    ("AllocationBase", ctypes.c_void_p),
-                    ("AllocationProtect", ctypes.c_ulong),
-                    ("RegionSize", ctypes.c_size_t),
-                    ("State", ctypes.c_ulong),
-                    ("Protect", ctypes.c_ulong),
-                    ("Type", ctypes.c_ulong)]
-
-    def __init__(self, image_name: str):
-        if sys.platform != "win32":
-            raise SystemExit("live memory reading needs Windows; use --from-file")
-        self.kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
-        self.psapi = ctypes.WinDLL("psapi", use_last_error=True)
-        pid = self._find_pid(image_name)
+    def __init__(self, image_name: str, piece: int = 1 << 20):
+        self.kernel32 = win_api()
+        pid = process_pid(image_name)
         if not pid:
             raise SystemExit(f"process not found: {image_name} (is the game running?)")
         self.pid = pid
+        self.piece = piece
         self.handle = self.kernel32.OpenProcess(
             self.PROCESS_QUERY_INFORMATION | self.PROCESS_VM_READ, False, pid)
         if not self.handle:
             raise SystemExit("cannot open the process; run PowerShell as administrator")
+        self.view = (ctypes.c_char * piece)()
         self.regions = self._regions()
-
-    def _find_pid(self, image_name: str) -> int:
-        arr = (ctypes.c_ulong * 4096)()
-        needed = ctypes.c_ulong()
-        if not self.psapi.EnumProcesses(ctypes.byref(arr), ctypes.sizeof(arr),
-                                        ctypes.byref(needed)):
-            return 0
-        count = needed.value // ctypes.sizeof(ctypes.c_ulong)
-        for index in range(count):
-            pid = arr[index]
-            handle = self.kernel32.OpenProcess(0x1000, False, pid)
-            if not handle:
-                continue
-            try:
-                buf = ctypes.create_unicode_buffer(260)
-                size = ctypes.c_ulong(260)
-                if self.kernel32.QueryFullProcessImageNameW(
-                        handle, 0, buf, ctypes.byref(size)):
-                    if buf.value.lower().endswith(image_name.lower()):
-                        return pid
-            finally:
-                self.kernel32.CloseHandle(handle)
-        return 0
 
     def _regions(self) -> list[tuple[int, int]]:
         out, address = [], 0
-        info = self.MEMORY_BASIC_INFORMATION()
+        info = MEMORY_BASIC_INFORMATION()
         while self.kernel32.VirtualQueryEx(self.handle, ctypes.c_void_p(address),
                                            ctypes.byref(info), ctypes.sizeof(info)):
             base = int(info.BaseAddress or 0)
             size = int(info.RegionSize or 0)
             if size <= 0:
                 break
-            # committed and readable; skip guard pages (they would fault)
-            readable = info.Protect & 0xFF in (0x02, 0x04, 0x20, 0x40, 0x80)
-            if info.State == self.MEM_COMMIT and readable \
-                    and not info.Protect & 0x100:
+            if (info.State == self.MEM_COMMIT and info.Protect in self.READABLE
+                    and not info.Protect & self.PAGE_GUARD):
                 out.append((base, size))
             address = base + size
         return out
 
     def read(self, address: int, size: int) -> bytes:
-        buf = ctypes.create_string_buffer(size)
-        got = ctypes.c_size_t(0)
+        """One ReadProcessMemory call, capped at the reusable buffer."""
+        size = min(size, self.piece)
+        read = ctypes.c_size_t(0)
         ok = self.kernel32.ReadProcessMemory(
-            self.handle, ctypes.c_void_p(address), buf, ctypes.c_sizeof(buf),
-            ctypes.byref(got))
-        return buf.raw[:got.value] if ok else b""
+            ctypes.c_void_p(self.handle), ctypes.c_void_p(address),
+            ctypes.cast(self.view, ctypes.c_void_p), size, ctypes.byref(read))
+        if not ok or read.value == 0:
+            return b""
+        return self.view.raw[:read.value]
 
     def close(self) -> None:
         if getattr(self, "handle", None):
             self.kernel32.CloseHandle(self.handle)
+            self.handle = None
 
 
 def read_segments(source, start: int, end: int,
@@ -330,8 +359,8 @@ def carve_sizes(source, out_dir: Path, wanted: dict[int, tuple[str, str]] | None
                 byte_limit: int = DEFAULT_WANTED_LIMIT, progress=None) -> list[dict]:
     """Carve any plaintext bundle in memory whose size is one we know we need.
 
-    The needle pass answers "where is this line"; this pass answers "give me the
-    text tables while the game is running", so later lines need no further runs.
+    The needle pass answers "where is this line"; this pass answers "give me the text
+    tables while the game is running", so later lines need no further runs.
     """
     table = KNOWN_BUNDLES if wanted is None else wanted
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -341,29 +370,30 @@ def carve_sizes(source, out_dir: Path, wanted: dict[int, tuple[str, str]] | None
     for base, size in getattr(source, "regions", []):
         if carried >= byte_limit:
             break
-        data = source.read(base, size)
-        index = data.find(UNITYFS)
-        while index >= 0:
-            header = parse_header(data[index:index + 48])
-            if header and header["declared_size"] in table:
-                declared = header["declared_size"]
-                address = base + index
-                blob = read_span(source, address, address + declared)
-                check = parse_header(blob)
-                if len(blob) == declared and check and check["declared_size"] == declared:
-                    digest = hashlib.sha256(blob).hexdigest()
-                    if digest not in seen_sha and carried + declared <= byte_limit:
-                        name, role = table[declared]
-                        file_name = f"known_{name}"
-                        (out_dir / file_name).write_bytes(blob)
-                        seen_sha.add(digest)
-                        carried += declared
-                        carved.append({"file": file_name, "size": declared,
-                                       "role": role, "sha256": digest,
-                                       "address": address, "declared": declared})
-                        if progress:
-                            progress(role, name, declared)
-            index = data.find(UNITYFS, index + 1)
+        for address, data in read_segments(source, base, base + size):
+            index = data.find(UNITYFS)
+            while index >= 0:
+                header = parse_header(data[index:index + 48])
+                if header and header["declared_size"] in table:
+                    declared = header["declared_size"]
+                    where = address + index
+                    blob = read_span(source, where, where + declared)
+                    check = parse_header(blob)
+                    if len(blob) == declared and check \
+                            and check["declared_size"] == declared:
+                        digest = hashlib.sha256(blob).hexdigest()
+                        if digest not in seen_sha and carried + declared <= byte_limit:
+                            name, role = table[declared]
+                            file_name = f"known_{name}"
+                            (out_dir / file_name).write_bytes(blob)
+                            seen_sha.add(digest)
+                            carried += declared
+                            carved.append({"file": file_name, "size": declared,
+                                           "role": role, "sha256": digest,
+                                           "address": where})
+                            if progress:
+                                progress(role, name, declared)
+                index = data.find(UNITYFS, index + 1)
     return carved
 
 
@@ -373,47 +403,50 @@ def scan(source, needle: bytes, out_dir: Path, lookback: int = DEFAULT_LOOKBACK,
     """Search every readable region, carve the bundle behind each hit."""
     started = time.time()
     out_dir.mkdir(parents=True, exist_ok=True)
-    hits, bundles, contexts = [], {}, {}
-    seen_addresses: dict[int, str] = {}
+    hits: list[dict] = []
+    bundles: dict[int, dict] = {}
+    contexts: dict[int, dict] = {}
     regions = getattr(source, "regions", [])
     scanned = 0
+    stop = False
     for base, size in regions:
-        data = source.read(base, size)
-        scanned += len(data)
-        if progress and scanned % (64 << 20) < len(data):
-            progress(scanned, len(hits))
-        for offset in find_all(data, needle):
-            if len(hits) >= max_hits:
-                break
-            address = base + offset
-            hits.append({"address": address, "region": base,
-                         "needle_bytes": len(needle)})
-            found = locate_bundle(source, address, len(needle), lookback)
-            if found is None:
-                if address not in contexts:
-                    blob = read_span(source, max(0, address - context // 2),
-                                     address + context // 2)
-                    name = f"context_{len(contexts):02d}_{address:#x}.bin"
-                    (out_dir / name).write_bytes(blob)
-                    contexts[address] = {"file": name, "address": address,
-                                         "bytes": len(blob),
-                                         "needle_offset": blob.find(needle)}
-                continue
-            address_key = found["address"]
-            if address_key in seen_addresses:
-                continue
-            digest = hashlib.sha256(found["blob"]).hexdigest()
-            name = f"bundle_{address_key:#x}_{digest[:8]}.bundle"
-            (out_dir / name).write_bytes(found["blob"])
-            seen_addresses[address_key] = name
-            bundles[address_key] = {"file": name, "address": address_key,
-                                    "size": len(found["blob"]),
-                                    "sha256": digest, "header": found["header"]}
+        if stop:
+            break
+        for address, data in read_segments(source, base, base + size):
+            scanned += len(data)
+            if progress:
+                progress(scanned, len(hits))
+            for offset in find_all(data, needle):
+                if len(hits) >= max_hits:
+                    stop = True
+                    break
+                hit_address = address + offset
+                hits.append({"address": hit_address, "region": base,
+                             "needle_bytes": len(needle)})
+                found = locate_bundle(source, hit_address, len(needle), lookback)
+                if found is None:
+                    if hit_address not in contexts:
+                        blob = read_span(source, max(0, hit_address - context // 2),
+                                         hit_address + context // 2)
+                        name = f"context_{len(contexts):02d}_{hit_address:#x}.bin"
+                        (out_dir / name).write_bytes(blob)
+                        contexts[hit_address] = {"file": name, "address": hit_address,
+                                                 "bytes": len(blob),
+                                                 "needle_offset": blob.find(needle)}
+                    continue
+                key = found["address"]
+                if key in bundles:
+                    continue
+                digest = hashlib.sha256(found["blob"]).hexdigest()
+                name = f"bundle_{key:#x}_{digest[:8]}.bundle"
+                (out_dir / name).write_bytes(found["blob"])
+                bundles[key] = {"file": name, "address": key,
+                                "size": len(found["blob"]), "sha256": digest,
+                                "header": found["header"]}
 
     report = {"schema": SCHEMA, "script_version": SCRIPT_VERSION,
               "needle_bytes": len(needle), "regions": len(regions),
-              "bytes_scanned": scanned, "hits": hits,
-              "hits_found": len(hits),
+              "bytes_scanned": scanned, "hits": hits, "hits_found": len(hits),
               "bundles": list(bundles.values()),
               "contexts": list(contexts.values()),
               "elapsed_s": round(time.time() - started, 2)}
