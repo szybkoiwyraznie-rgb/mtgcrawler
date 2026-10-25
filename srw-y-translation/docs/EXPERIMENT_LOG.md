@@ -366,3 +366,15 @@ inputs (size, SHA-256 where available) and the result, labelled
   swallowing the rest of the block into a `>>` continuation. The sheet also tells
   the owner to press `Ctrl+C` and wait for a normal `PS D:\...>` prompt before
   pasting.
+- **Owner delivered the run — but as one 4.2 MB archive [2026-10-25]:**
+  `carve.zip` (`1t9ST4MOnMG2FW18GlIdOjCmR3clAHIXS`, 4,222,016 B, modified
+  15:47 UTC) is in Drive `SRW/SRWY`. Two practical facts: (1) the carver **did
+  produce output**, otherwise the archive would be a few kB instead of 4 MB, which
+  is the first evidence that the engine keeps plaintext bundles in memory;
+  (2) the Drive connector cannot hand a 4 MB binary to this session —
+  `read_file_text` refuses zips, and `download_file` inlines base64 (≈5.6 MB,
+  far beyond a context), while the sandbox has **no egress at all** (every HTTPS
+  host, including raw.githubusercontent, fails with
+  `TLS/SSL connection has been closed`), so a short-lived download URL cannot be
+  fetched either. The owner is being asked for the two small `carve_report.json`
+  files on their own; the 4 MB archive stays on their disk for the carving work.
