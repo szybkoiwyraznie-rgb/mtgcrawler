@@ -1,93 +1,103 @@
-# Krok S3 — odczyt tekstu z pamięci gry (dla właściciela)
+# Krok S3 — najprościej: jeden blok do wklejenia
 
-Dziękuję za wersję Pythona (**3.12.9**) — to wystarcza. Nie potrzebuję już
-żadnego pliku gry. Potrzebuję jednego przebiegu **na Twoim komputerze**, przy
-działającej grze.
+**Po co to:** gra trzyma odszyfrowany tekst w pamięci, kiedy działa. Skrypt czyta
+tę pamięć (tylko do odczytu, niczego nie zmienia) i zapisuje dwa małe raporty.
+Na ich podstawie policzę, ile tekstu ma gra.
 
-## Idea w jednym akapicie
+**Co pobrać:** nic ręcznie. Blok poniżej sam pobiera skrypt.
+**Co wgrać:** dwa pliki `carve_report.json` do folderu `SRW/SRWY` na Dysku
+(tam, gdzie wcześniej wrzucałeś `catalog.json`).
+**Co napisać:** nic. Naciskasz dwa razy **Enter**.
 
-Bundli na dysku nie da się odczytać, bo gra je szyfruje własnym strumieniem AES
-(hasło + sól). Ale gra **musi** je odszyfrować, żeby działać — więc przez chwilę
-odszyfrowany tekst istnieje w jej pamięci. Zamiast zgadywać hasło, czytamy tę
-pamięć. Skrypt niczego nie zmienia: otwiera proces **tylko do odczytu**.
+---
 
-## Krok 1 — sprawdź, że skrypt działa u Ciebie (10 sekund, bez gry)
+## Jedyny krok — wklej całość do PowerShella
 
-Wklej do PowerShella:
-
-```powershell
-$u = "https://raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py"
-Invoke-WebRequest -UseBasicParsing -Uri $u -OutFile "$env:USERPROFILE\Desktop\mem_carve.py"
-python "$env:USERPROFILE\Desktop\mem_carve.py" --selftest
-```
-
-Powinno wypisać `self-test: PASS` i `carved: [...]`. Jeśli tak — skrypt działa
-na Twoim Pythonie i nic więcej nie trzeba instalować (żadnych bibliotek).
-
-## Krok 2 — pierwszy odczyt (gra na ekranie tytułowym)
-
-1. Uruchom grę normalnie i **zostań na ekranie tytułowym** (nie klikaj dalej).
-2. Otwórz **drugie** okno PowerShella (gra ma działać dalej) i wklej:
+Najpierw **uruchom grę** i zostań na ekranie tytułowym (gra ma działać w tle).
+Potem skopiuj **cały** blok poniżej, wklej do PowerShella i naciśnij Enter:
 
 ```powershell
-python "$env:USERPROFILE\Desktop\mem_carve.py" --out "$env:USERPROFILE\Desktop\srw_y_carve_1"
+$py = "$env:USERPROFILE\Desktop\mem_carve.py"
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/szybkoiwyraznie-rgb/mtgcrawler/arena/6906ed6b-mtgcrawler/srw-y-translation/tools/mem_carve.py" -OutFile $py
+Write-Host "=== TEST (bez gry, powinno byc PASS) ===" -ForegroundColor Cyan
+python $py --selftest
+Read-Host "KROK 1: gra na ekranie tytulowym - nacisnij Enter"
+python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_1"
+Read-Host "KROK 2: wejdz w misje tak, zeby dialog byl widoczny - nacisnij Enter"
+python $py --out "$env:USERPROFILE\Desktop\srw_y_carve_2"
+Write-Host "=== GOTOWE - otwieram dwa foldery z raportami ===" -ForegroundColor Green
+explorer "$env:USERPROFILE\Desktop\srw_y_carve_1"
+explorer "$env:USERPROFILE\Desktop\srw_y_carve_2"
 ```
 
-Odczyt potrwa od kilku sekund do około minuty (zależy od rozmiaru pamięci gry).
-Na końcu zobaczysz kilka linii, m.in. `markers: {...}`, `carved files: N`,
-`kana runs: ...`, oraz `report: ...carve_report.json`.
+Co się będzie działo po kolei:
 
-## Krok 3 — drugi odczyt (z fabułą na ekranie)
+1. Skrypt ściągnie się na pulpit i sam się przetestuje — zobaczysz
+   `self-test: PASS`.
+2. Zatrzyma się na `KROK 1: ...` — wtedy **naciśnij Enter**. Odczyt potrwa od
+   kilku sekund do minuty (okno może wyglądać na „zawieszone”, to normalne).
+3. Zatrzyma się na `KROK 2: ...` — przełącz się do gry, wejdź w dowolną misję
+   tak, żeby **dialog był widoczny na ekranie**, wróć do PowerShella i **naciśnij
+   Enter**. To drugi odczyt.
+4. Otworzą się dwa foldery z pulpitowego `srw_y_carve_1` i `srw_y_carve_2`.
 
-1. W grze wejdź w scenariusz, w którym **widać dialogi** (dowolna misja z
-   rozmową; wystarczy pierwsza scena).
-2. W tym samym oknie PowerShella wklej:
+## Co dalej wgrać
 
-```powershell
-python "$env:USERPROFILE\Desktop\mem_carve.py" --out "$env:USERPROFILE\Desktop\srw_y_carve_2"
-```
+W każdym z tych dwóch folderów jest plik **`carve_report.json`**. Przeciągnij
+**oba** te pliki do folderu **`SRW/SRWY`** na Dysku Google (ten sam, w którym są
+`catalog.json` i `GameAssembly.dll`).
 
-## Krok 4 — co wgrać
+To wszystko. Foldery z odzyskanymi plikami **zostaw u siebie** — po raportach
+powiem, czy i które pliki warto przesłać.
 
-Wgraj do **`SRW/SRWY`** dwa małe pliki raportów:
+## Jeśli coś pójdzie nie tak
 
-- `srw_y_carve_1\carve_report.json`
-- `srw_y_carve_2\carve_report.json`
+Wklej mi dokładnie to, co wypisała konsola — albo zrób zrzut ekranu. Nic nie
+zepsujesz: skrypt tylko czyta.
 
-To raporty z **liczbami** (ile znaleziono nagłówków bundli, ile plików
-odszyfrowanych w pamięci, ile tekstu japońskiego) — bez treści gry, więc można je
-wysłać bez obaw. Foldery z odzyskanymi plikami **zostaw u siebie**; po raportach
-powiem dokładnie, które pliki (jeśli w ogóle) warto przesłać.
+| komunikat | co zrobić |
+|---|---|
+| `self-test: FAIL` | napisz mi to, poprawię przed dalszymi krokami |
+| `process not found` | gra musi działać w momencie odczytu; sprawdź `tasklist \| findstr /i super` i podaj mi wynik |
+| `OpenProcess failed` | uruchom PowerShell jako administrator i powtórz |
+| `a 64-bit Python is required` | zainstalowana jest wersja 32-bit — napisz, podam inną drogę |
+| `Microsoft.PowerShell... nie można rozpoznać` | wklej jeszcze raz cały blok, od pierwszej linii |
 
-## Czego ten skrypt nie robi
+## Czego skrypt NIE robi
 
-- **Nie zmienia** gry, plików ani zapisów — dostęp tylko do odczytu pamięci.
-- **Nie wysyła** niczego do internetu; wszystko zostaje na Twoim dysku.
-- **Nie wymaga** uprawnień administratora (gdyby jednak wyskoczył błąd
-  `OpenProcess failed`, uruchom PowerShell jako administrator i powtórz).
-- **Nie zawiera** żadnej treści gry w raporcie.
+- nie zmienia gry, plików, zapisów — dostęp **tylko do odczytu**;
+- nie wysyła niczego do internetu;
+- w raportach **nie ma treści gry** — same liczby i nazwy.
 
-## Wymagania (sprawdzone z góry)
+---
 
-- **Python 64-bit** — masz 3.12.9, czyli w porządku; gdyby to była wersja 32-bit,
-  skrypt powie o tym wprost (gra jest 64-bitowa i inaczej się nie da).
-- **Żadnych dodatkowych bibliotek** — tylko to, co jest w Pythonie.
-- **Gra uruchomiona** przed krokiem 2.
+<details>
+<summary>Więcej szczegółów (możesz pominąć)</summary>
 
-## Jeśli coś nie zadziała
+## Dlaczego nie da się po prostu odczytać plików
 
-Wklej mi dokładnie to, co wypisała konsola (albo zrzut ekranu). Najczęstsze
-przypadki: gra nie działa (skrypt powie `process not found`), gra działa pod
-inną nazwą — wtedy wykonaj `tasklist | findstr /i super` i podaj mi wynik, albo
-pamięć jest większa niż domyślny limit (8 GB) — wtedy dodaj `--max-scan 16GB`
-bez cudzysłowów: `--max-scan 17179869184`.
+Gra szyfruje bundle własnym strumieniem AES z hasłem i solą
+(`SeekableAesStream` — widać to w kodzie gry). Sprawdziłem 61 mln kandydatów na
+klucz i 6 mln literałów z metadanych — bez trafienia. Dlatego nie zgadujemy
+hasła, tylko bierzemy tekst tam, gdzie gra już go odszyfrowała: z pamięci.
 
-## Co będzie dalej
+## Co dokładnie robi skrypt
 
-1. Z raportów odczytam, czy odszyfrowane bundle/pliki w ogóle pojawiają się w
-   pamięci i w jakiej liczbie.
-2. Jeśli tak — poproszę o konkretne pliki z `srw_y_carve_2`, otworzę je naszymi
-   narzędziami i **policzę znaki**. To jest liczba, której brakuje do decyzji
-   go/no-go.
-3. Jeśli nie — powiem to wprost i przejdziemy na wariant z podpięciem do funkcji
-   odszyfrowującej (trudniejszy, ale nie wymaga zgadywania hasła).
+1. znajduje proces gry (`tasklist`),
+2. otwiera go **tylko do odczytu** (`PROCESS_VM_READ`),
+3. przegląda czytelne obszary pamięci (8 MB na raz),
+4. szuka nagłówków `UnityFS` (cały bundle) i `CAB-` (plik w środku bundla),
+5. wycina dokładnie tyle bajtów, ile deklaruje nagłówek, i **sprawdza, że
+   wycięte dane znów się otwierają**,
+6. liczy obecność tekstu japońskiego (kany) — bez zapisywania treści,
+7. zapisuje raport z liczbami: `carve_report.json`.
+
+## Pliki w projekcie
+
+- `tools/mem_carve.py` — ten skrypt (bez żadnych bibliotek, tylko standardowy
+  Python),
+- `tools/read_carve.py` — otwiera odzyskane pliki i mierzy tekst (używam go ja,
+  nie Ty),
+- `docs/S2_FINDINGS.md` — pełna analiza szyfrowania i wyników.
+
+</details>
