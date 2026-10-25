@@ -421,3 +421,16 @@ class LiveScanTests(unittest.TestCase):
                     mock.patch.object(M.sys, "platform", "win32"):
                 report = M.live_scan("x.exe", out, 1 << 20, 1 << 20, harvest=False)
             self.assertEqual(report["strings"]["objects"]["objects"], 0)
+
+
+class VersionTests(unittest.TestCase):
+    def test_version_is_declared_and_shaped(self):
+        import re
+        self.assertRegex(M.SCRIPT_VERSION, r"^\d{4}-\d{2}-\d{2}\.\d+$")
+
+    def test_version_is_printed_before_anything_runs(self):
+        # the paste-block greps for it; if the banner disappears the block would
+        # refuse to run a perfectly good script
+        result = subprocess.run([sys.executable, str(ROOT / "tools" / "mem_carve.py"),
+                                 "--selftest"], capture_output=True, text=True)
+        self.assertIn(M.SCRIPT_VERSION, result.stdout)

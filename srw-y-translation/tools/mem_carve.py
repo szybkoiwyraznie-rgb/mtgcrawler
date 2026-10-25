@@ -47,6 +47,10 @@ import tempfile
 from pathlib import Path
 
 SCHEMA = 1
+# Bumped with every change that reaches the owner, and checked by the paste-block
+# before anything runs: a silently stale download cost two failed runs, and the
+# symptom looked exactly like a script bug.
+SCRIPT_VERSION = "2026-10-25.5"
 SIGNATURE = b"UnityFS\x00"
 CAB = b"CAB-"
 MARKERS = {
@@ -704,6 +708,7 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
 
     return {
         "schema": SCHEMA,
+        "script_version": SCRIPT_VERSION,
         "mode": "live",
         "process": {"image": image_name, "pid": pid},
         "regions_scanned": regions,
@@ -742,6 +747,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--no-text", action="store_true",
                         help="skip the string harvest (faster, no text files)")
     args = parser.parse_args(argv)
+    print(f"mem_carve {SCRIPT_VERSION}")
 
     try:
         if args.selftest:
