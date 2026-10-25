@@ -39,6 +39,9 @@ if (Test-Path $backup) {
 Powinno wyjsc `2d69c099  ce764ace  948 652 B` i `1cc7e02e  a209190e  940 012 B`.
 Jesli tak jest, w grze sa z powrotem oryginaly - dopiero teraz KROK 1.
 
+Gdybys nie mial juz tej kopii: **mam Twoje oryginalne pliki** (te same sumy SHA256)
+i wysle je z powrotem - napisz tylko jedno zdanie, ze zginal backup.
+
 ## KROK 1 - pobierz i rozpakuj wersje 2
 
 Pobierz z Dysku Google `srw_y_pl_otwarcie_v2.zip` na **Pulpit**, potem:
