@@ -56,12 +56,21 @@ catalogue per content pack (`Dlc1`, `Dlc2`, `ExpansionPack`,
 SRW 30/V CPK–Blowfish–CRILAYLA tooling does not apply. Details and the full
 inventory table: [`docs/STATUS.md`](docs/STATUS.md#s1-result--build-inventory-2026-10-25-from-the-owners-listing).
 
+## S2 in progress — the catalogue names every bundle (2026-10-25)
+
+The owner's `aa/catalog.json` (41,543,062 B) was parsed: **187,039 addresses**,
+104,118 assets resolved to **19,160 bundles**, validated against the file
+listing. Text sits in **Unity Localization tables** (24 per language, one ~940 kB
+bundle per language) and in **4,131 scenario scripts** `*.lua.txt` in 30
+bundles. Full reasoning: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md). No string
+count is quoted until the first extraction runs.
+
 ## Layout
 
 - `docs/` — status, prior art, feasibility plan, experiment log, owner-facing
   step sheets (`OWNER_STEPS_S1.md`, `OWNER_STEPS_S2.md`).
-- `tools/` — build inventory, Addressables catalogue scanner, and (later)
-  extraction/translation tooling.
+- `tools/` — build inventory, Addressables catalogue scanner and mapper, text
+  extractor (UnityPy), and (later) translation tooling.
 - `tests/` — offline tests on synthetic data; no game files needed.
 - `local/` — ignored scratch area for anything derived from the owner's copy.
 

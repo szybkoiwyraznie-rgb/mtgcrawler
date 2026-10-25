@@ -97,6 +97,13 @@ only index of what is inside the bundles.*
   UI, names) **with** the bundle that holds each, so the owner can send one or
   two bundles of a few MiB instead of anything large.
 
+*Result 2026-10-25:* pass met — see `S2_FINDINGS.md`. The mapping is exact
+(`tools/map_catalog.py`, validated against the listing), and the text sits in two
+systems: Unity Localization tables (~940 kB per language) and 4,131 scenario
+scripts in 30 bundles. The remaining S2 step is the first real extraction from
+two bundles (6,531,163 B); the string count and the honest scope number come
+from there, not from an estimate.
+
 
 - **Input:** S1 report, then the smallest container that plausibly holds text.
 - **Action:** extract the container, identify the string set(s), dump the

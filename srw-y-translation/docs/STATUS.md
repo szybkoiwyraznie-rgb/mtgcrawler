@@ -44,6 +44,28 @@ The path prefix in the listing was cut three characters short
 the fallback command used a fixed substring length; the structure below is intact
 and was restored during analysis.
 
+### S2 progress — the catalogue is read (2026-10-25)
+
+The owner supplied `aa/catalog.json` (41,543,062 B, SHA-256 `12c17bf9…73b4`) and
+`tools/map_catalog.py` resolved every address to its bundle. Full result and the
+reasoning: **`docs/S2_FINDINGS.md`**. Short version:
+
+- **187,039 addresses**, 104,118 of them assets resolved across **19,160
+  bundles**; 49 unresolved (Unity built-ins and CriMana platform libraries), one
+  synthetic CriWare anchor bundle that does not exist on disk. Resolution was
+  validated against the owner's listing.
+- **Two text systems.** Unity Localization tables (24 per language, UI/names/
+  messages) — one bundle per language, ~940 kB, holding `dialog_text`,
+  `mission_title`, `mission_detail`, `mission_outline`, `prologue`,
+  `system_text`, `tutorial_text`, `stgmemory`; plus per-DLC table bundles of
+  40–80 kB. And **scenario scripts**: 4,131 `*.lua.txt` files under
+  `Assets/Datas/Scenario/{jp,en,cn,…}` in **30 bundles**, 32,267,543 B total.
+- **[hypothesis]** the story text is in the `.lua.txt` scripts, not in
+  `dialog_text` — 940 kB cannot hold the dialogue of 55 + 104 + 112 scenarios.
+  To be settled by extraction, not by argument.
+- **Next input:** two bundles, 6,531,163 B — `1cc7e02e…` (ja tables) and
+  `1c12bbab…` (678 scenario scripts). Instructions: `docs/OWNER_STEPS_S2.md`.
+
 **S1 = passed.** The text itself is not located yet: that needs the catalogue
 (S2), because bundles carry no meaningful names. Next input requested from the
 owner: `SUPER ROBOT WARS Y_Data\StreamingAssets\aa\catalog.json`

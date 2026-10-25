@@ -120,3 +120,47 @@ inputs (size, SHA-256 where available) and the result, labelled
   or two** bundles they live in. `aa/settings.json` is optional.
 - **Runtime:** none. Nothing in the game folder was modified; the listing is
   metadata. `runtime_tested` stays `false`.
+
+## 2026-10-25 — S2: the Addressables catalogue is read, the text is located structurally
+
+- **Input:** `aa/catalog.json`, Drive `SRW/SRWY` file
+  `1cSFIutg4pfL_KGimi4tab4_j29uC3s7N`, **41,543,062 B** (matches the listing
+  exactly), SHA-256 `12c17bf97478eca66f2aa6066c0a14974639443d0e9d79af3355abdd895273b4`.
+  Metadata only — asset names, no game text.
+- **Format worked out [confirmed]:** JSON with four base64 sections —
+  keys `[type:u8][len:i32][payload]` (type 0 UTF-8, type 1 UTF-16LE),
+  buckets `[keyOffset:i32][count:i32][entryIndex*]` in key order, entries
+  `[count]` + 28-byte records
+  `(internalId, provider, dependencyKey, depHash, dataIndex, primaryKey,
+  resourceType)`. Bundle keys are served by an AssetBundle provider and point at
+  the path in `m_InternalIds`; asset keys reach the bundle through
+  `dependencyKey`. **Parse keys via the bucket offsets, never sequentially** —
+  the two opaque key types (4, 2 records) desynchronised the whole key table and
+  produced nonsense bundle names ('d', 'fa').
+- **Result [confirmed]:** 187,039 keys, 118,222 entries, 23,747 internal ids,
+  104,118 assets resolved to 19,160 bundles, **49 unresolved** (built-ins,
+  CriMana platform libs) and **1 bundle key that has no file** —
+  `cri_addressables_anchor_group_assets_cri_addressables_dummy_anchor.bundle`,
+  a synthetic CriWare anchor. Everything else was cross-checked against the
+  owner's listing.
+- **Text locations [confirmed structurally]:** Unity Localization tables, 24 per
+  language (144 addresses per language) — one ~940 kB bundle per language
+  (`1cc7e02ee5711c6ba87a0e364f62198c.bundle` for ja-JP, 940,012 B;
+  `2d69c099bfdf0e252dabe84dbbba11df.bundle` for en-US, 948,652 B) holding
+  `dialog_text`, `mission_title`, `mission_detail`, `mission_outline`,
+  `prologue`, `system_text`, `tutorial_text`, `stgmemory`, plus per-DLC table
+  bundles (40–80 kB). And **4,131 scenario scripts** `*.lua.txt` under
+  `Assets/Datas/Scenario/{jp,en,cn,…}` in 30 bundles / 32,267,543 B.
+- **[hypothesis]** the story dialogue is in the scenario scripts; ~940 kB per
+  language cannot carry 55 + 104 + 112 scenarios. Not claimed as fact.
+- **Tools added:** `tools/map_catalog.py` (catalogue → address/bundle mapping,
+  validation against the listing, 9 tests) and `tools/extract_text.py`
+  (UnityPy-based bundle reader: TextAssets and string tables, per-class stats,
+  encoding evidence, dump to `local/`; 5 tests on the pure functions). Suite
+  36/36. **`extract_text.py` has never opened a real bundle** — no bundle has
+  been in the sandbox — and the module says so.
+- **UnityPy 1.25.4** installed into a throwaway `/home/user/.venv` (outside the
+  repo, ignored) after `pip` refused to touch the system interpreter; the tool
+  documents the venv command instead of assuming a global install.
+- **Next input:** `1cc7e02e…` + `1c12bbab…` (6,531,163 B). `runtime_tested`
+  stays `false`.

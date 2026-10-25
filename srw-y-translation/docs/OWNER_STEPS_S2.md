@@ -1,91 +1,64 @@
 # Krok S2 — znaleźć tekst w grze (dla właściciela)
 
-Dzięki Twojemu listingowi wiem już, jak gra jest zbudowana — i to dobra
-wiadomość: tekst jest w zwykłych plikach Unity, a nie w jednym wielkim kontenerze
-CRI (jak w SRW 30/V). Szczegóły w `STATUS.md`, sekcja „S1 result”.
+**Krok 1 (katalog) — ZROBIONE.** `catalog.json` dotarł, 41 543 062 B,
+SHA-256 `12c17bf9…73b4`. Odczyt przeszedł w całości: gra jest w Unity
+Addressables, a katalog wskazuje, co siedzi w którym bundlu. Wynik:
+`docs/S2_FINDINGS.md`.
 
-Teraz potrzebuję **jednego pliku-indeksu**, który mówi, co siedzi w którym
-bundlu. Bez niego pliki w grze nazywają się jak
-`2e1c004184c62d08997e13aed13a1004.bundle` i nie da się zgadnąć, który zawiera
-dialogi.
+Najważniejsze z odczytu:
 
-## Co konkretnie
+- Tekst siedzi w **dwóch** miejscach: w tabelach Unity Localization (UI, nazwy,
+  komunikaty — jeden bundle ~940 kB na język) oraz w **skryptach scenariuszy**
+  `*.lua.txt` (4 131 plików w 30 bundlach) — i to tam prawie na pewno jest fabuła.
+- Wszystkie bundle, o które proszę poniżej, leżą w jednym folderze. Nic nie
+  trzeba szukać po całym dysku.
 
-```
-D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\catalog.json
-```
+## Krok 2 — dwa bundle (razem 6 531 163 B, ~6,2 MiB)
 
-rozmiar **41 543 062 B** (39,6 MiB).
-
-To indeks Addressables: mapa „nazwa assetu → bundle”. **Nie zawiera tekstu gry
-ani dialogów** — same nazwy assetów i numery bundli. Wysyłasz go raz, ja robię z
-niego krótką listę kandydatów i wtedy poproszę Cię o **jeden lub dwa** bundle
-(po kilka MiB), a nie o całe 20 GB.
-
-## Wariant A — najlepszy: przeciągnij plik na Dysk Google
-
-1. Otwórz folder z plikiem:
+Folder:
 
 ```powershell
-explorer "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa"
+explorer "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
 ```
 
-2. Przeciągnij `catalog.json` do folderu **`SRW/SRWY`** na Dysku Google (ten sam,
-   do którego trafił `listing_sizes.txt`). Możesz też użyć „Nowy → Wgranie pliku”
-   i wskazać tę ścieżkę.
+Wgraj do **`SRW/SRWY`** (przeciągnij, jak katalog) dokładnie te dwa pliki:
 
-Nic więcej nie trzeba — nie zmieniasz niczego w grze, plik tylko się kopiuje.
+| plik | rozmiar | po co |
+|---|---|---|
+| `1cc7e02ee5711c6ba87a0e364f62198c.bundle` | 940 012 B | wszystkie tabele tekstowe po japońsku — poznam format, liczbę stringów i czy czcionka ma polskie znaki |
+| `1c12bbab8ed0f62ff22f808ce0138bc1.bundle` | 5 591 151 B | 678 skryptów scenariuszy — faktyczny tekst fabuły: objętość i znaczniki |
 
-## Wariant B — jeśli wolisz nie wysyłać 40 MB
+To **nie jest** zgoda na wysyłanie gry: te dwa pliki to ok. **0,03 %** zawartości
+(6,2 MiB z 20,66 GiB), zostaną w moim `local/` (ignorowanym przez repo) i
+posłużą tylko do zmierzenia tekstu.
 
-Poniższy blok wyciąga z tego samego pliku **tylko listę nazw** (kilkaset KB) i
-zapisuje ją na pulpicie jako `catalog_strings.txt`. Wklej całość do PowerShella:
+Jeśli nazwy plików są zbyt długie do przepisania, możesz je wkleić do PowerShella
+i skopiować na pulpit pod krótszymi nazwami:
 
 ```powershell
-$src = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\catalog.json"
-$raw = Get-Content -LiteralPath $src -Raw
-$out = New-Object System.Collections.Generic.List[string]
-foreach ($m in [regex]::Matches($raw, '"m_[A-Za-z]+String"\s*:\s*"([A-Za-z0-9+/=]+)"')) {
-  $bytes = [Convert]::FromBase64String($m.Groups[1].Value)
-  $text  = [Text.Encoding]::UTF8.GetString($bytes)
-  foreach ($s in ($text -split '[\x00-\x1F]+')) { if ($s.Length -ge 6) { $out.Add($s) } }
-}
-$dest = "$env:USERPROFILE\Desktop\catalog_strings.txt"
-$out | Sort-Object -Unique | Set-Content -LiteralPath $dest -Encoding UTF8
-"gotowe: " + (Get-Item -LiteralPath $dest).Length + " B -> " + $dest
+$src = "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64"
+Copy-Item -LiteralPath "$src\1cc7e02ee5711c6ba87a0e364f62198c.bundle" "$env:USERPROFILE\Desktop\srw_y_text_ja.bundle"
+Copy-Item -LiteralPath "$src\1c12bbab8ed0f62ff22f808ce0138bc1.bundle" "$env:USERPROFILE\Desktop\srw_y_scenario.bundle"
+explorer "$env:USERPROFILE\Desktop"
 ```
 
-Na końcu wypisze rozmiar pliku — powinno być od kilkuset KB w górę. Ten plik
-wgraj do **`SRW/SRWY`** zamiast `catalog.json`.
+…i wgraj z pulpitu `srw_y_text_ja.bundle` oraz `srw_y_scenario.bundle`.
 
-> Uczciwie: tego bloku nie uruchamiałem u siebie (nie mam w moim środowisku
-> PowerShella), więc jeśli coś zgrzytnie — wklej mi dokładnie to, co wypisał
-> konsola, i poprawię. Wariant A nie ma tego ryzyka, bo to zwykłe kopiowanie.
+## Opcjonalnie (później)
 
-## Opcjonalnie (30 sekund, pomaga)
+- `2d69c099bfdf0e252dabe84dbbba11df.bundle` (948 652 B) — tabele angielskie,
+  przydadzą się jako kolumna referencyjna przy tłumaczeniu z japońskiego.
+- Nie ma potrzeby wysyłać nic więcej: resztę bundli wyliczę z katalogów dodatków.
 
-Ten sam folder, plik `settings.json` (1 604 B) — małą konfigurację Addressables.
-Jeśli wariant A już działa, dorzuć go przy okazji; jeśli nie — pomiń.
-
-## Porządki (opcjonalne)
-
-W folderze gry zostały dwa puste pliki po pierwszej, nieudanej próbie. Możesz je
-usunąć, żeby późniejsze listy były czyste:
+## Porządki (jeśli jeszcze nie zrobione)
 
 ```powershell
 Remove-Item -LiteralPath "D:\Games\SUPER ROBOT WARS Y\listing.txt","D:\Games\SUPER ROBOT WARS Y\listing_sizes.txt" -ErrorAction SilentlyContinue
 ```
 
-## Czego NIE trzeba robić
+## Co dalej
 
-- Nie kopiuj bundli „na wyczucie” — po `catalog.json` wskażę dokładnie które.
-- Nie ruszaj `GameAssembly.dll`, `.exe` ani niczego w folderze gry.
-- Nie wysyłaj całego `StreamingAssets` (20 GB) — nie jest potrzebne.
-
-## Co będzie dalej
-
-1. Ja: odczyt indeksu → lista assetów, które wyglądają na teksty (dialogi, UI,
-   nazwy) + bundle, w których leżą.
-2. Ty: wgrywasz **ten jeden lub dwa** bundle (kilka MiB).
-3. Ja: pierwsza prawdziwa próbka tekstu → policzę znaki i powiem uczciwie, ile
-   to jest roboty (S2 → S3).
+1. Ja: otwieram oba bundle, wyciągam tekst, liczę znaki i linie per język,
+   sprawdzam, czy polskie znaki mają czcionkę (S3).
+2. Ty: dopiero wtedy dostaniesz **uczciwą liczbę** — ile znaków ma fabuła i ile
+   to realnie pracy — oraz decyzję go/no-go.
