@@ -17,10 +17,14 @@ Nothing is brute-forced beyond literal extraction: if this finds nothing, the ke
 is a byte array compiled into `GameAssembly.dll` or derived at runtime, and the
 answer is a runtime dump instead (see `docs/FEASIBILITY.md`).
 
-The AES here is a plain implementation with no dependencies, so the tool runs in
-the same place the tests run. It is checked against the FIPS-197 vectors in
-`tests/test_keyhunt.py`; it is not constant-time and must never be used for
-anything but this analysis.
+There are two AES backends. The **pure-Python** one (no dependencies, checked
+against the FIPS-197 vectors in `tests/test_keyhunt.py`) keeps the tool runnable
+and testable anywhere; it is slow — roughly 0.3 ms per block, so a two-million
+candidate sweep takes hours. When `pycryptodome` is importable the tool uses its
+C implementation instead (a two-million candidate sweep takes a couple of
+minutes). A sweep covers AES-ECB, AES-CBC (zero IV, file-prefixed IV, key as IV),
+AES-CTR (several counter layouts), RC4, ChaCha20 and a repeating XOR. Neither is constant-time; they must
+never be used for anything but this analysis.
 
 Usage:
     python3 tools/keyhunt.py --bundle local/bundles/x.bundle --candidates global-metadata.dat
@@ -33,6 +37,7 @@ bad input.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -164,6 +169,37 @@ def decrypt_block(key: bytes, block: bytes) -> bytes:
     return bytes(state)
 
 
+# --------------------------------------------------------------- AES backends
+try:  # fast path, optional
+    from Crypto.Cipher import AES as _AES  # type: ignore
+except Exception:  # noqa: BLE001 - any import problem means "use the slow path"
+    _AES = None
+
+BACKEND = "pycryptodome" if _AES is not None else "python"
+
+
+def _fast_encrypt_block(key: bytes, block: bytes) -> bytes:
+    return _AES.new(key, _AES.MODE_ECB).encrypt(block)
+
+
+def _fast_decrypt_block(key: bytes, block: bytes) -> bytes:
+    return _AES.new(key, _AES.MODE_ECB).decrypt(block)
+
+
+def encrypt(key: bytes, block: bytes) -> bytes:
+    """AES block encryption using the active backend."""
+    if _AES is not None:
+        return _fast_encrypt_block(key, block)
+    return encrypt_block(key, block)
+
+
+def decrypt(key: bytes, block: bytes) -> bytes:
+    """AES block decryption using the active backend."""
+    if _AES is not None:
+        return _fast_decrypt_block(key, block)
+    return decrypt_block(key, block)
+
+
 def _xor(a: bytes, b: bytes) -> bytes:
     return bytes(x ^ y for x, y in zip(a, b))
 
@@ -202,6 +238,41 @@ def candidates_from_blob(blob: bytes, limit: int = 0) -> list[bytes]:
     return out
 
 
+LITERAL = re.compile(rb"[\x20-\x7e]{4,64}")
+
+
+def literals_from_blob(blob: bytes) -> list[bytes]:
+    """Whole printable runs, for derivation — not every window inside them."""
+    seen: set[bytes] = set()
+    out: list[bytes] = []
+    for match in LITERAL.finditer(blob):
+        run = match.group()
+        if run not in seen:
+            seen.add(run)
+            out.append(run)
+    return out
+
+
+def derive_keys(literal: bytes) -> list[bytes]:
+    """Key material commonly derived from a string constant.
+
+    Games very often write ``Encoding.UTF8.GetBytes`` of a passphrase into a hash
+    and use the digest as the AES key, so the literal is never a key itself.
+    """
+    digests = []
+    md5 = hashlib.md5(literal).digest()
+    sha1 = hashlib.sha1(literal).digest()
+    sha256 = hashlib.sha256(literal).digest()
+    digests += [md5, sha1[:16], sha1[:24], sha1[:32], sha256[:16], sha256[:24], sha256,
+                md5.hex().encode()[:16], sha256.hex().encode()[:32]]
+    out = []
+    for digest in digests:
+        for size in KEY_SIZES:
+            if len(digest) >= size:
+                out.append(digest[:size])
+    return out
+
+
 def candidates_from_words(text: str) -> list[bytes]:
     out = []
     for line in text.splitlines():
@@ -217,25 +288,87 @@ def candidates_from_words(text: str) -> list[bytes]:
 # ---------------------------------------------------------------------- schemes
 
 
+def rc4_keystream(key: bytes, length: int) -> bytes:
+    """First `length` bytes of the RC4 keystream (also called ARC4)."""
+    box = list(range(256))
+    j = 0
+    for i in range(256):
+        j = (j + box[i] + key[i % len(key)]) & 0xFF
+        box[i], box[j] = box[j], box[i]
+    out = bytearray()
+    i = j = 0
+    for _ in range(length):
+        i = (i + 1) & 0xFF
+        j = (j + box[i]) & 0xFF
+        box[i], box[j] = box[j], box[i]
+        out.append(box[(box[i] + box[j]) & 0xFF])
+    return bytes(out)
+
+
+def _rotl(value: int, count: int) -> int:
+    return ((value << count) | (value >> (32 - count))) & 0xFFFFFFFF
+
+
+def chacha20_block(key: bytes, nonce: bytes = b"\x00" * 12, counter: int = 0) -> bytes:
+    """One ChaCha20 block.
+
+    Two layouts exist: the RFC 8439 one (12-byte nonce, 32-bit block counter) and
+    the original one (8-byte nonce, 64-bit counter). Both are accepted, chosen by
+    the nonce length, because game code uses either.
+    """
+    if len(key) != 32:
+        raise ValueError("ChaCha20 needs a 32-byte key")
+    if len(nonce) not in (8, 12):
+        raise ValueError("ChaCha20 nonce must be 8 or 12 bytes")
+    constants = [0x61707865, 0x3320646E, 0x79622D32, 0x6B206574]
+    key_words = [int.from_bytes(key[i:i + 4], "little") for i in range(0, 32, 4)]
+    if len(nonce) == 12:
+        tail = [counter & 0xFFFFFFFF] + [int.from_bytes(nonce[i:i + 4], "little")
+                                         for i in range(0, 12, 4)]
+    else:
+        tail = [counter & 0xFFFFFFFF, (counter >> 32) & 0xFFFFFFFF,
+                int.from_bytes(nonce[0:4], "little"), int.from_bytes(nonce[4:8], "little")]
+    state = constants + key_words + tail
+    working = list(state)
+    for _ in range(10):
+        for a, b, c, d in ((0, 4, 8, 12), (1, 5, 9, 13), (2, 6, 10, 14), (3, 7, 11, 15),
+                           (0, 5, 10, 15), (1, 6, 11, 12), (2, 7, 8, 13), (3, 4, 9, 14)):
+            working[a] = (working[a] + working[b]) & 0xFFFFFFFF
+            working[d] = _rotl(working[d] ^ working[a], 16)
+            working[c] = (working[c] + working[d]) & 0xFFFFFFFF
+            working[b] = _rotl(working[b] ^ working[c], 12)
+            working[a] = (working[a] + working[b]) & 0xFFFFFFFF
+            working[d] = _rotl(working[d] ^ working[a], 8)
+            working[c] = (working[c] + working[d]) & 0xFFFFFFFF
+            working[b] = _rotl(working[b] ^ working[c], 7)
+    return b"".join(((working[i] + state[i]) & 0xFFFFFFFF).to_bytes(4, "little")
+                    for i in range(16))
+
+
 def _decrypt_variants(key: bytes, data: bytes) -> dict[str, bytes]:
     """Stock constructions, each returning the bytes expected at offset 0."""
     block = data[:16]
     if len(block) < 16:
         return {}
     variants = {
-        "aes-ecb": decrypt_block(key, block),
-        "aes-cbc-iv0": _xor(decrypt_block(key, block), bytes(16)),
-        "aes-ctr-0": _xor(encrypt_block(key, _counter_block(0)), block),
-        "aes-ctr-1": _xor(encrypt_block(key, _counter_block(1)), block),
-        "aes-ctr-0-le": _xor(encrypt_block(key, _counter_block(0, True)), block),
+        "aes-ecb": decrypt(key, block),
+        "aes-cbc-iv0": _xor(decrypt(key, block), bytes(16)),
+        "aes-ctr-0": _xor(encrypt(key, _counter_block(0)), block),
+        "aes-ctr-1": _xor(encrypt(key, _counter_block(1)), block),
+        "aes-ctr-0-le": _xor(encrypt(key, _counter_block(0, True)), block),
         "xor-repeat": _xor(block, (key * 2)[:16]),
     }
     if len(data) >= 32:
         iv = data[:16]
-        variants["aes-cbc-iv-prefix"] = _xor(decrypt_block(key, data[16:32]), iv)
-        variants["aes-ctr-iv-prefix"] = _xor(encrypt_block(key, iv), data[16:32])
+        variants["aes-cbc-iv-prefix"] = _xor(decrypt(key, data[16:32]), iv)
+        variants["aes-ctr-iv-prefix"] = _xor(encrypt(key, iv), data[16:32])
         variants["aes-ctr-iv-prefix-1"] = _xor(
-            encrypt_block(key, _xor(iv, _counter_block(1))), data[16:32])
+            encrypt(key, _xor(iv, _counter_block(1))), data[16:32])
+    variants["aes-cbc-iv-key"] = _xor(decrypt(key, block), (key * 2)[:16])
+    variants["rc4"] = _xor(rc4_keystream(key, 16), block)
+    if len(key) == 32:
+        variants["chacha20-12"] = _xor(chacha20_block(key)[:16], block)
+        variants["chacha20-8"] = _xor(chacha20_block(key, b"\x00" * 8)[:16], block)
     return variants
 
 
@@ -291,6 +424,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="blobs to mine for key material (e.g. global-metadata.dat)")
     parser.add_argument("--list-words", type=Path, action="append", default=[],
                         help="word list, one candidate key per line")
+    parser.add_argument("--derive", action="store_true",
+                        help="also try MD5/SHA-1/SHA-256 of each printable run as the key")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--out", type=Path)
     parser.add_argument("--verbose", action="store_true")
@@ -301,7 +436,11 @@ def main(argv: list[str] | None = None) -> int:
         if not source.is_file():
             print(f"error: not a file: {source}", file=sys.stderr)
             return 2
-        keys += candidates_from_blob(source.read_bytes(), args.limit)
+        blob = source.read_bytes()
+        keys += candidates_from_blob(blob, args.limit)
+        if args.derive:
+            for literal in literals_from_blob(blob):
+                keys += derive_keys(literal)
     for wordlist in args.list_words:
         keys += candidates_from_words(wordlist.read_text(encoding="utf-8", errors="replace"))
     keys = list(dict.fromkeys(keys))
@@ -317,6 +456,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {error}", file=sys.stderr)
         return 2
 
+    print(f"aes backend      : {K_BACKEND}")
     print(f"candidates tried : {result['candidates_tried']:,}")
     print(f"bundles          : {', '.join(result['bundles'])}")
     if result["found"]:
@@ -329,6 +469,9 @@ def main(argv: list[str] | None = None) -> int:
                             encoding="utf-8")
         print(f"report written: {args.out}")
     return 0
+
+
+K_BACKEND = BACKEND
 
 
 if __name__ == "__main__":

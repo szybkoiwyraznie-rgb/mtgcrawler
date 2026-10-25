@@ -1,66 +1,62 @@
-# Krok S2 — odczyt bundli zatrzymał się na szyfrowaniu (dla właściciela)
+# Krok S2 — potrzebny plik kodu gry (dla właściciela)
 
-Oba bundle dotarły w całości (rozmiary zgadzają się co do bajtu), ale **gra
-wysyła je zaszyfrowane**. To nie jest problem z plikami — pliki są dobre, tylko
-całe zaszyfrowane, a klucz siedzi w kodzie gry. Szczegóły techniczne:
-`docs/S2_FINDINGS.md`, sekcja „Blokada”.
+**Skrót:** metadane dotarły i zostały przeszukane. Klucza tam nie ma — sprawdziłem
+2,2 mln literałów z metadanych na 13 różnych szyfrach i 3,8 mln kluczy
+wyprowadzonych z tych literałów skrótami MD5/SHA. Żadnego trafienia. Sprawdziłem
+też, czy to nie jest zwykłe maskowanie, kompresja albo szyfr z powtarzalnym
+kluczem — nie jest. Szczegóły: `docs/S2_FINDINGS.md`.
 
-Co to znaczy praktycznie: dopóki nie zdejmiemy szyfrowania, **nie umiem policzyć
-znaków ani przygotować łatki na plikach**. Dlatego pytam teraz o inny plik — i to
-ostatni, o jaki proszę na tym etapie.
+Zostaje jeden plik, w którym klucz może być: **kod gry**.
 
-## Co jest potrzebne
+## Co wgrać
 
 ```
-D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\il2cpp_data\Metadata\global-metadata.dat
+D:\Games\SUPER ROBOT WARS Y\GameAssembly.dll
 ```
 
-rozmiar **18 909 544 B** (18,0 MiB).
-
-To metadane kodu gry: **nazwy klas, metod i teksty wpisane w kod** (literały).
-Nie zawiera assetów, grafik, dźwięków ani dialogów. Jeśli klucz do bundli jest
-zapisany w kodzie jako tekst, jest właśnie tutaj — a wtedy odczyt tekstu rusza
-od razu i w całości po mojej stronie.
-
-Wgraj do **`SRW/SRWY`**, tak jak poprzednie pliki. Folder otworzysz tak:
+rozmiar **74 865 152 B** (71,4 MiB). Leży **w głównym folderze gry**, obok
+`SUPER ROBOT WARS Y.exe` — nie w `_Data`.
 
 ```powershell
-explorer "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\il2cpp_data\Metadata"
+explorer "D:\Games\SUPER ROBOT WARS Y"
 ```
 
-**Jeśli nazwa `global-metadata.dat` jest dla Ciebie myląca** — to nie są dane
-gry, tylko „spis” nazw z kodu (18 MB). Nie zawiera niczego, czym da się grać.
+Przeciągnij `GameAssembly.dll` do folderu **`SRW/SRWY`** na Dysku Google, tak jak
+poprzednie pliki.
 
-## Opcjonalnie, razem z tym (małe, pomaga)
+## Co to jest i czego w nim nie ma
 
-Z folderu `…_Data\StreamingAssets\aa\`:
+- To **skompilowany kod gry** (Unity z IL2CPP pakuje cały C# do jednego pliku).
+  W nim jest logika odszyfrowywania bundli, a więc najprawdopodobniej i klucz.
+- **Nie ma tam dialogów, tekstu gry, grafik ani dźwięków.** Same instrukcje
+  procesora i stałe.
+- Nie da się z niego „uruchomić gry” ani nic z niego podmienić — nic nie zmieniam
+  w Twojej instalacji, plik tylko kopiujesz.
 
-- `settings.json` — **1 604 B**
-- `AddressablesLink\link.xml` — **99 045 B** (lista klas używanych przez grę;
-  może wprost wskazać klasę od szyfrowania)
+## Co z nim zrobię
 
-Razem ~18,1 MB — czyli mniej niż poprzedni `catalog.json`.
+1. Odczytam nagłówki i sekcje (czy to x86-64, gdzie leży część danych).
+2. Poszukam nazw, które powiedzą, **czym** jest szyfrowanie: klasy
+   `CustomAssetBundleProvider` oraz śladów `AES` / `CreateDecryptor` /
+   `Rijndael` / `SHA256`.
+3. Podam każde okno 16/24/32 bajtów z sekcji danych jako kandydata na klucz i
+   sprawdzę na prawdziwym bundlu — jeśli odszyfrowanie da sygnaturę `UnityFS`,
+   mamy klucz i cała reszta rusza w ciągu jednego dnia.
 
-## Jeśli ten trop nie zadziała
+**Mówię uczciwie, jakie są szanse:** to długi strzał. Jeśli klucz jest zwykłą
+tablicą bajtów w pliku — znajdę go. Jeśli kod składa klucz w runtime z kilku
+kawałków (częste w nowszych grach), tą drogą go nie zobaczę.
 
-Wtedy zostaje droga runtime: gra sama odszyfrowuje bundle w pamięci, więc
-wtyczka do MelonLoadera może zrzucić tekst bez znajomości klucza. Uprzedzam
-uczciwie: **w moim środowisku nie ma kompilatora C#**, więc ta droga wymaga
-najpierw rozwiązania problemu po mojej stronie — nie obiecuję jej na dziś.
-Napisałem to też w `docs/STATUS.md`, żeby nie zniknęło.
+## Jeśli to nie zadziała
+
+Zostaje droga „z pamięci gry”: gra sama odszyfrowuje bundle, więc można tekst
+przechwycić w trakcie działania. Tu mam własny problem, nie grę: **w moim
+środowisku nie ma kompilatora C#**, więc nie zbuduję wtyczki od ręki. Nie
+obiecuję tego na dziś — napiszę osobno, co i jak, gdy będę miał plan, który sam
+uznam za realny. Wolę to powiedzieć teraz niż po trzech tygodniach.
 
 ## Czego nie trzeba robić
 
-- Nie wysyłaj `GameAssembly.dll` (74,9 MB) — jeszcze nie teraz; sens miałby
-  dopiero, gdyby metadane nie wystarczyły.
-- Nie ruszaj niczego w folderze gry.
-- Nie szukaj „klucza” samodzielnie — to nie jest plik, który gdzieś leży.
-
-## Co dalej
-
-1. Ja: przeszukuję literały z metadanych jako kandydatów na klucz i sprawdzam
-   każdy na prawdziwym bundlu (jeśli odszyfrowanie da nagłówek `UnityFS`, mamy
-   klucz — to dowód, nie zgadywanie).
-2. Jeśli klucz się znajdzie: odczyt wszystkich tabel tekstowych i skryptów
-   scenariuszy → **uczciwa liczba znaków** i decyzja go/no-go.
-3. Jeśli nie: wracam do drogi runtime i melduję, co jest realne.
+- Nie wysyłaj `resources.assets` ani innych bundli — te dwa, które mam, wystarczą.
+- Nie zmieniaj nic w folderze gry.
+- Nie próbuj samodzielnie nic „odblokowywać” — to nie jest kwestia ustawienia.

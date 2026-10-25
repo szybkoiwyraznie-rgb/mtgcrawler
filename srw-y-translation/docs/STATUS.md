@@ -53,21 +53,32 @@ two files still at entropy 7.997 (so each file has its own keystream), and not o
 readable fragment of an expected string. `UnityPy` opens them and sees **0
 objects** — the tools are fine, the input is ciphertext.
 
-So the text cannot be read, counted or patched on disk until that is undone. Two
-routes, both recorded in `docs/S2_FINDINGS.md`:
+So the text cannot be read, counted or patched on disk until that is undone.
 
-- **A — find the key.** Next input requested: `global-metadata.dat`
-  (18,909,544 B, managed string literals only). `tools/keyhunt.py` sweeps every
-  key-sized literal against the real bundle and looks for the `UnityFS`
-  signature; a hit is proof.
+**The cheap half of key recovery is done and failed [confirmed].**
+`global-metadata.dat` arrived (18,909,544 B, SHA-256 `b9937bc8…6386`) and was
+swept: **2,249,429** literal-window candidates × 13 constructions (AES-ECB,
+AES-CBC in three flavours, AES-CTR in four counter layouts, RC4, ChaCha20 in two
+layouts, repeating XOR) and **3,836,487** MD5/SHA-1/SHA-256-derived candidates —
+no hit. Single-byte masking, nibble/bit reversal, compression at any offset of
+the first 4 KiB, and a repeating keystream (shifts 1…4096) are all excluded too.
+The full table: `docs/S2_FINDINGS.md`.
+
+Two routes remain:
+
+- **A — find the key in the code.** Next input requested: `GameAssembly.dll`
+  (74,865,152 B). `tools/probe_assembly.py` reports the PE sections and the
+  `CustomAssetBundleProvider`/`AES`/`CreateDecryptor` hits, then tries every
+  aligned 16/24/32-byte window of the data sections as a key. A long shot,
+  bounded and offline; a hit would be proof.
 - **B — runtime dump** through MelonLoader (no key needed; also the delivery
   architecture). Blocked on tooling: **this sandbox has no C# compiler and cannot
   install one** (the .NET Core runtime needs `libunwind.so.8`, absent and not
   installable). Recorded as a constraint, not worked around by pretending.
 
-**This is now the central risk of the project.** The phase-0 outcome depends on
-A succeeding or B becoming buildable; until then there is no honest scope number
-and no go/no-go.
+**This is the central risk of the project.** The phase-0 outcome depends on A
+succeeding or B becoming buildable; until then there is no honest scope number
+and no go/no-go. No string count will be guessed in the meantime.
 
 ### S2 progress — the catalogue is read (2026-10-25)
 

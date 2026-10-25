@@ -56,6 +56,27 @@ class AesVectorTests(unittest.TestCase):
         self.assertEqual(K.encrypt_block(key, block).hex(), "3ad77bb40d7a3660a89ecaf32466ef97")
 
 
+class StreamCipherVectorTests(unittest.TestCase):
+    """Known-answer vectors: RC4 (RFC 6229-style) and ChaCha20 (RFC 8439)."""
+
+    def test_rc4_keystream_rfc_vector(self):
+        # key "Key", plaintext "Plaintext" -> ciphertext BBF316E8D940AF0AD3 (classic vector)
+        stream = K.rc4_keystream(b"Key", 9)
+        plain = b"Plaintext"
+        self.assertEqual(bytes(a ^ b for a, b in zip(stream, plain)).hex().upper(),
+                         "BBF316E8D940AF0AD3")
+
+    def test_chacha20_block_rfc8439(self):
+        key = bytes(range(32))
+        nonce = bytes.fromhex("000000090000004a00000000")   # RFC 8439 layout
+        block = K.chacha20_block(key, nonce, counter=1)
+        self.assertEqual(block[:16].hex(), "10f1e7e4d13b5915500fdd1fa32071c4")
+
+    def test_chacha20_rejects_wrong_key_size(self):
+        with self.assertRaises(ValueError):
+            K.chacha20_block(b"short")
+
+
 class CandidateTests(unittest.TestCase):
     def test_printable_and_hex_candidates(self):
         blob = (b"\x00\x01" + b"0123456789abcdef" + b"\x00" + b"a" * 40 + b"\x00"
@@ -71,6 +92,16 @@ class CandidateTests(unittest.TestCase):
         self.assertIn(b"ABCDEFGHIJKLMNOP", keys)
         self.assertIn(b"QRSTUVWXYZ012345", keys)
         self.assertIn(b"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345", keys)   # 32
+
+    def test_literals_and_derived_keys(self):
+        import hashlib
+        blob = b"\x00MySecretPassphrase\x00" + b"x" * 100
+        runs = K.literals_from_blob(blob)
+        self.assertIn(b"MySecretPassphrase", runs)
+        derived = K.derive_keys(b"MySecretPassphrase")
+        self.assertIn(hashlib.md5(b"MySecretPassphrase").digest(), derived)
+        self.assertIn(hashlib.sha256(b"MySecretPassphrase").digest(), derived)
+        self.assertTrue(all(len(key) in (16, 24, 32) for key in derived))
 
     def test_word_list(self):
         words = K.candidates_from_words("short\n0123456789abcdef\n" + "z" * 32 + "\n")

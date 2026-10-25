@@ -207,3 +207,42 @@ inputs (size, SHA-256 where available) and the result, labelled
   managed string literals, no assets, no code — plus `aa/settings.json` (1,604 B)
   and `aa/AddressablesLink/link.xml` (99,045 B). If the key is a literal string,
   the hunt settles it in minutes. `runtime_tested` stays `false`.
+
+## 2026-10-25 — key hunt: metadata literals ruled out (2.2M + 3.8M candidates)
+
+- **Input:** `global-metadata.dat`, Drive `SRW/SRWY` file
+  `1SVt5wtOwnRuFECO_vuBE3OaPDxfgBOVs`, **18,909,544 B** (matches the listing),
+  SHA-256 `b9937bc88b42b1d71fd1e7b0ece8029da00095b8f514c64d0509887a9d546386`.
+  Kept in the ignored `local/meta/`.
+- **Sweep 1 [confirmed negative]:** every 16/24/32-byte window of every printable
+  run in the metadata — **2,249,429 candidates** — against **13 constructions**
+  (AES-ECB; AES-CBC with zero IV, file-prefixed IV and key-as-IV; AES-CTR with
+  4 counter layouts; RC4; ChaCha20 with 8- and 12-byte nonces; repeating XOR).
+  **No hit**: no candidate decrypts either bundle to a `UnityFS` signature.
+  9 min 41 s with the pycryptodome backend.
+- **Sweep 2 [confirmed negative]:** MD5/SHA-1/SHA-256 of each printable run
+  (raw and hex, truncated to 16/24/32) — **3,836,487 candidates** against the
+  Japanese table bundle. No hit, 8 min 20 s. Not repeated on the scenario bundle:
+  a per-file key would be unusual and the tables bundle already failed.
+- **Masking tests [confirmed negative]:** 256 single-byte XOR, 256 additions, 256
+  subtractions, nibble swap, bit reversal, file reversal, complement — none
+  produces `UnityFS` in the header.
+- **Container tests [confirmed negative]:** zlib, gzip, bz2, xz/LZMA, LZ4 and
+  zstd probed at every offset of the first 4096 bytes; nothing decompresses into
+  `UnityFS` or `CAB-`. So the file is not merely compressed.
+- **Keystream tests [confirmed negative]:** equal-byte rate for every shift 1…4096
+  peaks at 0.0049 against a 0.0039 random baseline — **the keystream does not
+  repeat**, so it is not a repeating-key XOR with a long key either.
+- **Conclusion:** the key is not a text literal, not a digest of one, and not any
+  of the stock schemes tried. It is most likely a `byte[]` in `GameAssembly.dll`
+  or derived at runtime.
+- **Tools:** `tools/keyhunt.py` grew RC4 and ChaCha20 (with RFC known-answer
+  vectors), a pycryptodome fast path (pure-Python AES kept as the tested
+  fallback) and `--derive`; new `tools/probe_assembly.py` parses the PE, reports
+  the section table and crypto/provider keyword hits, then feeds every aligned
+  16/24/32-byte window of the data sections to the same matcher. 17 + 7 tests;
+  suite **60/60**.
+- **Environment note:** `numpy` and `pycryptodome` live in a throwaway venv at
+  `/home/user/.venv`, outside the repo. The tools work without them, only slower.
+- **Next input:** `GameAssembly.dll` (74,865,152 B). `runtime_tested` stays
+  `false`.

@@ -62,9 +62,14 @@ The first two bundles were opened: **they are ciphertext**, not `UnityFS`
 (entropy 8.0 bits/byte in every window, no repeated block, per-file keystream,
 not UnityCN). The catalogue still tells us exactly which bundle holds which text
 table and scenario script, but nothing inside can be read, counted or patched
-until the protection is undone — by recovering the key or by dumping text from
-the running game. Details and the two routes:
-[`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
+until the protection is undone.
+
+Offline key recovery has been attempted and failed so far, with numbers: 2.2 M
+metadata-literal candidates against 13 cipher constructions, 3.8 M hash-derived
+candidates, plus masking, compression and keystream-period tests — all negative.
+The next attempt is a static sweep of `GameAssembly.dll`; the fallback is dumping
+text from the running game, which needs a toolchain this environment does not
+have. Details: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
 
 ## S2 in progress — the catalogue names every bundle (2026-10-25)
 

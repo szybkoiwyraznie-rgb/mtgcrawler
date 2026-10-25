@@ -85,24 +85,46 @@ pierwszego bajtu), nie jest to CPK/Blowfish z SRW 30/V.
 ani przygotować łatki na plikach. To nie jest drobiazg — to główne ryzyko całego
 projektu.
 
+## Czego już próbowałem (i co to wyklucza)
+
+Wszystko offline, na dwóch prawdziwych bundlach. **Każda próba zakończona
+negatywnie — ale negatywny wynik też jest wiedzą: wyklucza całe klasy rozwiązań.**
+
+| próba | skala | wynik |
+|---|---|---|
+| literały z `global-metadata.dat` jako klucze | **2 249 429** kandydatów × 13 konstrukcji (AES-ECB, CBC z IV zerowym / z pliku / z klucza, CTR w czterech układach licznika, RC4, ChaCha20 w dwóch układach, XOR) | brak trafienia (`UnityFS` się nie pojawia), 9 min 41 s |
+| klucz jako skrót literału (MD5 / SHA-1 / SHA-256, też hex) | **3 836 487** kandydatów na bundlu tabel japońskich | brak trafienia, 8 min 20 s |
+| proste maskowanie nagłówka | 256 × XOR, 256 × dodawanie, 256 × odejmowanie, zamiana półbajtów, odwrócenie bitów, odwrócenie pliku, negacja | brak `UnityFS` |
+| kompresja / kontener pod spodem | zlib, gzip, bz2, xz/LZMA, LZ4, zstd — każdy offset w pierwszych 4096 B | nic nie dekompresuje się do `UnityFS`/`CAB-` |
+| powtarzający się strumień klucza | współczynnik równych bajtów dla przesunięć 1…4096 | maks. 0,0049 przy losowym 0,0039 → **brak powtarzalności**, strumień jest ciągły |
+
+Wniosek: to nie jest ani proste maskowanie, ani kompresja, ani szyfr z
+powtarzalnym kluczem, ani szyfr z kluczem zapisanym jako **tekst** w metadanych.
+Klucz jest najprawdopodobniej **tablicą bajtów w kodzie** (`GameAssembly.dll`,
+74 865 152 B) albo wyprowadzany w runtime z kilku stałych.
+
 ## Dwie drogi (obie sprawdzalne)
 
-**A. Znaleźć klucz (offline).** Klucz siedzi w kodzie gry. Najtańszy test:
-`il2cpp_data\Metadata\global-metadata.dat` (18 909 544 B) zawiera **literały
-tekstowe** z całego C# — jeśli klucz jest tam stringiem, `tools/keyhunt.py`
-znajdzie go i sprawdzi na prawdziwym bundlu (szuka sygnatury `UnityFS` po
-odszyfrowaniu). Jeśli nie — klucz jest tablicą bajtów w `GameAssembly.dll`
-(74 865 152 B) i trzeba by go wyłuskać z kodu maszynowego, co jest znacznie
-droższe i niepewne.
+
+**A. Znaleźć klucz (offline).** Część tania jest już **zrobiona i nie dała
+wyniku**: literały z `global-metadata.dat` ani ich skróty nie są kluczem
+(tabela wyżej). Kolejny krok to `GameAssembly.dll` (74 865 152 B): szukam tam
+nazw `CustomAssetBundleProvider` / `AES` / `CreateDecryptor` (czy to w ogóle AES
+i gdzie), a potem podaję **każde okno 16/24/32 B z sekcji danych** jako klucz
+(`tools/probe_assembly.py`). To długi strzał: klucz składany w runtime z kilku
+stałych w ten sposób się nie znajdzie. Ale jest ograniczony, offline i — gdy
+trafi — jest dowodem, nie domysłem.
 
 **B. Zrzut z pamięci gry (runtime).** Nie potrzebuje klucza: wtyczka do
 MelonLoadera (który na tej grze już działa — patrz `PRIOR_ART.md`) woła
 `AssetBundle.GetAllLoadedAssetBundles()` i zapisuje tekst assetów. To także
 docelowa architektura łatki. Ograniczenie: w moim środowisku **nie ma
-kompilatora C#** (szczegóły w `EXPERIMENT_LOG.md`), więc wtyczkę trzeba by
-zbudować inaczej — to osobny, nierozstrzygnięty problem.
+kompilatora C#** (szczegóły w `EXPERIMENT_LOG.md`), więc wtyczki nie zbuduję
+bez rozwiązania tego problemu.
 
-Kolejność: **A**, bo jest tania i w całości po mojej stronie.
+Kolejność: dokończyć **A** (jeden plik od właściciela, praca po mojej stronie),
+z **B** jako planem zapasowym — nie odwrotnie, bo B jest dziś zablokowana po
+mojej stronie, a nie po stronie gry.
 
 ## Interpretacja (hipoteza, nie fakt)
 
@@ -112,19 +134,15 @@ Kolejność: **A**, bo jest tania i w całości po mojej stronie.
 - Sprawdzenie tego kosztuje dwa pliki (patrz niżej) i jedną komendę — dlatego
   **nie podaję jeszcze żadnej liczby znaków do przetłumaczenia**.
 
-## Czego potrzebuję, żeby to potwierdzić
+## Czego potrzebuję teraz
 
-Dwa bundle z `SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64\`
-(razem **6 531 163 B, ~6,2 MiB**; instrukcja dla właściciela:
-`docs/OWNER_STEPS_S2.md`):
+**Jeden plik:** `SUPER ROBOT WARS Y_Data\GameAssembly.dll` — **74 865 152 B**.
+To skompilowany kod gry (odpowiednik `.exe` dla Unity z IL2CPP), a nie assety.
+Jeśli klucz jest tablicą bajtów, to jest w tym pliku. Instrukcja dla
+właściciela: `docs/OWNER_STEPS_S2.md`.
 
-| bundle | rozmiar | po co |
-|---|---|---|
-| `1cc7e02ee5711c6ba87a0e364f62198c.bundle` | 940 012 B | wszystkie tabele japońskie → format tabel, liczba stringów, obecność polskich znaków w czcionce |
-| `1c12bbab8ed0f62ff22f808ce0138bc1.bundle` | 5 591 151 B | 678 skryptów scenariuszy → prawdziwy tekst fabuły, objętość, znaczniki Lua |
-
-Opcjonalnie (później, do kolumny referencyjnej): `2d69c099…` 948 652 B — tabele
-angielskie.
+Oba bundle, o które prosiłem wcześniej, **są już w `local/` i są wystarczające**
+(6 531 163 B) — nic więcej z zawartości gry nie trzeba.
 
 ## Odtworzenie
 
@@ -136,6 +154,16 @@ python3 tools/map_catalog.py --catalog catalog.json \
 
 `mapping.json` zostaje w `local/` (ignorowane) — do repo idą tylko liczby i nazwy
 bundli, nigdy zawartość gry.
+
+Próby złamania szyfrowania (wszystkie na plikach z `local/`, nic nie trafia do
+repo):
+
+```bash
+python3 tools/keyhunt.py --bundle local/bundles/*.bundle \
+        --candidates local/meta/global-metadata.dat --derive
+python3 tools/probe_assembly.py --dll local/meta/GameAssembly.dll \
+        --bundle local/bundles/1cc7e02e*.bundle --alignment 16
+```
 
 ## Ograniczenia tej analizy
 
