@@ -199,3 +199,59 @@ python3 tools/probe_assembly.py --dll local/meta/GameAssembly.dll \
   (`Dlc1`, `Dlc2`, `ExpansionPack`, `AnniversaryExpansionPack`, …) i będą
   potrzebne dopiero po potwierdzeniu metody na bazie.
 - Niczego nie uruchamiałem w grze: `runtime_tested` pozostaje `false`.
+
+## S3 — the first real run on the owner's machine (2026-10-25)
+
+Two live scans with `tools/mem_carve.py`, game running, read-only access. Raw
+reports (with the carved files) are the owner's; the numbers below are from those
+reports and from opening every carved file with UnityPy here.
+
+| | run 1 — title screen | run 2 — dialogue on screen |
+|---|---|---|
+| image / pid | `SUPER ROBOT WARS Y.exe` / 63044 | `SUPER ROBOT WARS Y.exe` / 63044 |
+| memory scanned | 1,834,594,304 B in 1,013 regions | 2,190,172,160 B in 973 regions |
+| `UnityFS` markers | 571 | 795 |
+| `CAB-` markers | 8,971 | 14,019 |
+| `cse20_` (scenario names) | 580 | 641 |
+| `dialog_text` (localisation) | 27 | 27 |
+| `StandaloneWindows64` | 70 | 57 |
+| kana (UTF-16LE runs) | 91,846 runs · **628,553 chars** · longest 192 | 93,277 runs · **636,764 chars** · longest 192 |
+| carved files | 244 bundles · 2,210,644 B · largest 28,151 B | 348 files · 3,575,972 B · largest 275,626 B |
+| incomplete carves | 0 | 0 |
+
+**The carver works.** Every carved file re-parsed before being claimed, and the
+sizes are sane.
+
+**Whole-bundle carving does not reach the text.** Opening all 592 carved files
+with UnityPy: 587 `AssetBundle`, 826 `MonoBehaviour`, 1,310 `MonoScript`, 266
+`Texture2D`, 317 `Sprite`, 49 `Material`, 35 `Shader`, 30 `AnimationClip`, 10
+`AnimatorController`, 4 files unreadable — and **zero `TextAsset`s, zero
+characters of Japanese**. What is resident in memory as a whole bundle is the
+small UI/prefab bundles (2 KB – 275 KB). The bundles that carry text (the 940,012 B
+ja-JP localisation table, the 33.5 MB of scenario scripts) are streamed through
+`SeekableAesStream` in blocks and are never contiguous in memory, so a
+whole-bundle carver cannot see them.
+
+**The text itself is in memory**, though: 628,553 kana characters at the title
+screen and 636,764 in a dialogue scene, in 91,846 and 93,277 runs. That is the
+number to build on — it says the Japanese is plaintext in the process and only
+needs harvesting, not a key.
+
+**A real bug found by the run:** the reports list bundle sizes of 4,294,967,141 B,
+4,294,967,129 B, … Those are false `UnityFS` headers in random bytes that passed
+validation (`size <= 8 GiB` was far too generous). Because `carve_plan` skips any
+hit that starts before the previous hit's declared end, one false header swallowed
+**every subsequent hit in that 8 MB chunk** — which is why 14,019 `CAB-` headers
+produced exactly **zero** carved serialized files. The header parse now requires a
+plausible editor revision (`2021.3.0f1`) and caps a bundle at 512 MB.
+
+**New in `tools/mem_carve.py`:** a string harvest that runs alongside the carve.
+It decodes each chunk as UTF-16LE and as UTF-8 (only when kana lead bytes are
+present, which keeps the cost down), anchors on kana runs, grows each run over
+kanji/kana/full-width/ASCII neighbours up to 400 characters, deduplicates, and
+writes `strings_utf16.txt` and `strings_utf8.txt` into the output folder. The
+report keeps **counts only** (`unique`, `chars`, `truncated`); the text itself
+never enters the report. `--no-text` turns the harvest off.
+
+Next run therefore answers the volume question directly: how many unique Japanese
+strings, and how many characters, the running game holds.

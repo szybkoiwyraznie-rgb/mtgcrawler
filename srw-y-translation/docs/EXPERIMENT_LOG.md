@@ -390,3 +390,22 @@ inputs (size, SHA-256 where available) and the result, labelled
   connector, but only as **text** (`read_file_text`), which is fine for the two
   `carve_report.json` files and not for a 4 MB binary archive. Keep asking for the
   reports themselves rather than an archive.
+- **First real run analysed [2026-10-25]:** `carve.zip` (4,222,016 B) downloaded
+  through the Drive connector straight into the workspace as
+  `google_drive/carve.zip` — the earlier claim that a 4 MB archive "cannot be
+  fetched" was wrong: the connector materialises large binaries as files, it just
+  does not inline them into the conversation. Extracted to the ignored
+  `srw-y-translation/local/owner_carve/` (597 entries: 591 bundles, 1 `.assets`,
+  2 reports, the script itself), then read with `tools/read_carve.py` and with a
+  raw-object pass.
+  - 592 carved files open in UnityPy (4 unreadable), 338 carry objects, **no
+    `TextAsset`, no Japanese** — only UI/prefab bundles are resident whole.
+  - Memory does hold the text: **628,553 kana chars** at the title screen and
+    **636,764** in a dialogue scene (91,846 / 93,277 runs, longest 192).
+  - **Bug:** false `UnityFS` headers with 4.29 GB sizes passed validation and, via
+    `carve_plan`'s overlap skip, swallowed every later hit in the same chunk —
+    14,019 `CAB-` markers yielded zero carved serialized files. Fixed: the header
+    now needs a real editor revision and a size below 512 MB.
+  - **Added:** UTF-16LE + UTF-8 string harvest with dedupe and caps, written to
+    `strings_utf16.txt` / `strings_utf8.txt` in the output folder, counts only in
+    the report. 6 new tests (95 total).

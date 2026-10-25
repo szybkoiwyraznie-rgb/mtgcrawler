@@ -207,6 +207,18 @@ folder (`StreamingAssets\Dlc1\catalog_dlc1.json` 1,640,455 B, `Dlc2`
 
 ## Where S3 stands
 
+The first live run is in and it answers the central question. The carver works
+(read-only, 1.8-2.2 GB scanned, 592 files carved, all re-parsed), **the Japanese
+text is plaintext in memory** (~630,000 kana characters at the title screen and in
+a dialogue scene, 92,000-93,000 runs), but **whole-bundle carving reaches only UI
+bundles** — the text-carrying bundles are streamed and never contiguous. So the
+next measurement harvests strings instead of bundles: `mem_carve.py` now writes
+`strings_utf16.txt` / `strings_utf8.txt` and reports counts. The owner re-runs the
+same block; volume, structure and the extraction design follow from that.
+`runtime_tested` stays `false` until a modified build is seen running.
+
+## Where S3 stood before the run
+
 The runtime carver is written, self-tested and pushed; the owner's first run
 failed only on the download step (old PowerShell + TLS 1.0 → GitHub refused the
 connection). `docs/OWNER_STEPS_S3.md` now downloads the script **with Python**,

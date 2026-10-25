@@ -186,3 +186,61 @@ class CliTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HarvestTests(unittest.TestCase):
+    """String harvesting: the volume measurement that does not need a bundle."""
+
+    SENTENCE = "\u3053\u3093\u306b\u3061\u306f\u3001\u30d1\u30a4\u30ed\u30c3\u30c8\u3002"
+
+    def test_utf16_and_utf8_both_harvested(self):
+        utf16, utf8 = set(), set()
+        M.harvest_buffer(self.SENTENCE.encode("utf-16-le") + b"\x00" * 8, utf16, utf8)
+        M.harvest_buffer(self.SENTENCE.encode("utf-8") + b"\x7f" * 8, utf8, utf8)
+        self.assertEqual(len(utf16), 1)
+        self.assertIn(self.SENTENCE, "".join(utf16))
+
+    def test_ascii_is_not_harvested(self):
+        utf16, utf8 = set(), set()
+        M.harvest_buffer(b"ordinary english text, no japanese" * 10, utf16, utf8)
+        self.assertEqual(utf16, set())
+        self.assertEqual(utf8, set())
+
+    def test_deduplicates(self):
+        utf16, utf8 = set(), set()
+        block = self.SENTENCE.encode("utf-16-le")
+        M.harvest_buffer(block * 3, utf16, utf8)
+        self.assertEqual(len(utf16), 1)
+
+    def test_write_strings_caps_and_reports(self):
+        with tempfile.TemporaryDirectory() as raw:
+            path = Path(raw) / "strings.txt"
+            stats = M.write_strings(path, {"\u3042" * 10, "\u3044" * 10}, cap=15)
+            self.assertTrue(path.is_file())
+            self.assertEqual(stats["unique"], 2)
+            self.assertEqual(stats["written"], 1)
+            self.assertTrue(stats["truncated"])
+
+
+class StrictHeaderTests(unittest.TestCase):
+    """False headers in random bytes must not swallow the rest of a chunk."""
+
+    def test_absurd_size_rejected(self):
+        # the owner's reports contained sizes of 4,294,967,141 B: false headers
+        # that used to swallow every following hit in the same chunk
+        self.assertIsNone(M.parse_unityfs(self._with_size(4294967141)))
+
+    @staticmethod
+    def _with_size(size: int) -> bytes:
+        header = (M.SIGNATURE + struct.pack(">I", 7) + b"5.x.x\x00"
+                  + b"2021.3.0f1\x00" + struct.pack(">q", size)
+                  + struct.pack(">I", 128) + struct.pack(">I", 256)
+                  + struct.pack(">I", 0x43))
+        return header + b"\x00" * 64
+
+    def test_bad_revision_rejected(self):
+        header = (M.SIGNATURE + struct.pack(">I", 7) + b"5.x.x\x00"
+                  + b"not-a-version\x00" + struct.pack(">q", 4096)
+                  + struct.pack(">I", 128) + struct.pack(">I", 256)
+                  + struct.pack(">I", 0x43))
+        self.assertIsNone(M.parse_unityfs(header + b"\x00" * 64))

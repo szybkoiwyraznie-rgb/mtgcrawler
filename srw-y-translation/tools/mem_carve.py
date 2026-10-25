@@ -39,6 +39,7 @@ import ctypes
 import hashlib
 import json
 import os
+import re
 import struct
 import subprocess
 import sys
@@ -59,6 +60,10 @@ UTF16_JAPANESE = None   # compiled lazily; needs `re` only
 CHUNK = 8 * 1024 * 1024
 OVERLAP = 512   # a UnityFS/CAB header is far shorter than this
 MAX_CARVE_BYTES = 256 * 1024 * 1024
+MAX_BUNDLE_BYTES = 512 * 1024 * 1024   # no SRW Y bundle comes close; anything
+                                       # bigger is a false header in random bytes
+MAX_TEXT_CHARS = 8 * 1024 * 1024       # cap for one harvested text file
+UNITY_VERSION_RE = re.compile(r"^\d{4}\.\d+\.\d+[a-z]\d+$")
 
 
 # --------------------------------------------------------------- pure helpers
@@ -91,7 +96,11 @@ def parse_unityfs(data: bytes) -> dict | None:
         flags = struct.unpack_from(">I", data, pos + 8)[0]
     except struct.error:
         return None
-    if size <= 0 or size > 1 << 33:
+    if size <= 0 or size > MAX_BUNDLE_BYTES:
+        return None
+    if not UNITY_VERSION_RE.match(values[1]):
+        # the second string is the editor revision ("2021.3.0f1"); the first is
+        # the player version and is often just "5.x.x"
         return None
     return {
         "version": version,
@@ -117,9 +126,11 @@ def parse_serialized_header(data: bytes) -> dict | None:
         metadata_size, file_size, version, data_offset = struct.unpack_from(">IIII", data, 20)
     except struct.error:
         return None
-    if file_size <= 0 or file_size > 1 << 33 or file_size < 48:
+    if file_size <= 0 or file_size > MAX_BUNDLE_BYTES or file_size < 48:
         return None
     if metadata_size > file_size or data_offset > file_size:
+        return None
+    if version > 32:                     # Unity serialized-file format version
         return None
     return {"metadata_size": metadata_size, "file_size": file_size,
             "version": version, "data_offset": data_offset,
@@ -202,6 +213,60 @@ def kana_stats(buffer: bytes) -> dict:
     return {"runs": len(runs), "chars": sum(runs), "longest": max(runs) if runs else 0}
 
 
+KANA16_HINT = re.compile(rb"(?:[\x40-\xff]\x30){2,}")
+KANA8_HINT = re.compile(rb"\xe3[\x81\x82\x83]")
+KANA_TEXT = re.compile(r"[\u3041-\u30ff]{2,}")
+TEXT_NEIGHBOUR = re.compile(r"[\u3000-\u30ff\u4e00-\u9fff\uff01-\uff60"
+                            r"\uffe0-\uffe6\u0020-\u007e]")
+MAX_STRING = 400
+
+
+def harvest_text(text: str, found: set) -> None:
+    """Collect Japanese-bearing strings out of already-decoded text.
+
+    A kana run is the anchor; the string is then grown in both directions over
+    characters that plausibly belong to the same sentence (kanji, kana, full
+    width punctuation, ASCII), so a dialogue line arrives as one string instead
+    of a word. Deduplication happens in the caller's set.
+    """
+    for match in KANA_TEXT.finditer(text):
+        start, end = match.span()
+        while start > 0 and end - start < MAX_STRING and \
+                TEXT_NEIGHBOUR.match(text[start - 1]):
+            start -= 1
+        while end < len(text) and end - start < MAX_STRING and \
+                TEXT_NEIGHBOUR.match(text[end]):
+            end += 1
+        candidate = text[start:end].strip()
+        if len(candidate) >= 4:
+            found.add(candidate)
+
+
+def harvest_buffer(buffer: bytes, utf16: set, utf8: set) -> None:
+    """Harvest from both encodings, but only decode when kana bytes are there."""
+    if KANA16_HINT.search(buffer):
+        harvest_text(buffer.decode("utf-16-le", "ignore"), utf16)
+    if KANA8_HINT.search(buffer):
+        harvest_text(buffer.decode("utf-8", "ignore"), utf8)
+
+
+def write_strings(path: Path, strings: set, cap: int = MAX_TEXT_CHARS) -> dict:
+    """Write harvested strings, oldest-first ordering by length, capped."""
+    ordered = sorted(strings, key=len, reverse=True)
+    written = 0
+    chars = 0
+    lines = []
+    for item in ordered:
+        if chars + len(item) + 1 > cap:
+            break
+        lines.append(item)
+        chars += len(item) + 1
+        written += 1
+    path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    return {"unique": len(strings), "written": written, "chars": chars,
+            "truncated": written < len(strings)}
+
+
 def buffer_report(buffer: bytes, base: int, marker_limit: int = 0) -> dict:
     scan = scan_buffer(buffer, base, marker_limit)
     return {
@@ -280,6 +345,13 @@ def run_from_file(path: Path, out_dir: Path, budget: int) -> dict:
     report = buffer_report(buffer, 0)
     report["source"] = {"file": path.name, "bytes": len(buffer)}
     report["carved"] = carved
+    utf16: set = set()
+    utf8: set = set()
+    harvest_buffer(buffer, utf16, utf8)
+    report["strings"] = {
+        "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
+        "utf8": write_strings(out_dir / "strings_utf8.txt", utf8),
+    }
     return report
 
 
@@ -352,7 +424,8 @@ def process_pid(image_name: str) -> int | None:
 
 
 def live_scan(image_name: str, out_dir: Path, budget: int,
-              max_scan: int, marker_limit: int = 2000) -> dict:
+              max_scan: int, marker_limit: int = 2000,
+              harvest: bool = True) -> dict:
     if sys.platform != "win32":
         raise RuntimeError("live memory scanning needs Windows; use --from-file")
     pid = process_pid(image_name)
@@ -376,6 +449,8 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
     bundle_sizes = []
     japanese_windows = 0
     kana = {"runs": 0, "chars": 0, "longest": 0}
+    utf16: set = set()
+    utf8: set = set()
     address = 0
     mbi = MEMORY_BASIC_INFORMATION()
     try:
@@ -410,6 +485,8 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
                     kana["longest"] = max(kana["longest"], stats["longest"])
                     if utf16_japanese_ratio(buffer) > 0.01:
                         japanese_windows += 1
+                    if harvest:
+                        harvest_buffer(buffer, utf16, utf8)
                     hits = [(index, declared)
                             for index, declared, _ in scan["bundles"]]
                     hits += [(index, header["file_size"])
@@ -464,6 +541,10 @@ def live_scan(image_name: str, out_dir: Path, budget: int,
         "bundle_sizes": sorted(bundle_sizes, reverse=True)[:50],
         "japanese_windows": japanese_windows,
         "kana": kana,
+        "strings": {
+            "utf16": write_strings(out_dir / "strings_utf16.txt", utf16),
+            "utf8": write_strings(out_dir / "strings_utf8.txt", utf8),
+        },
         "carved": carved,
     }
 
@@ -482,6 +563,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--carve-budget", type=int, default=MAX_CARVE_BYTES)
     parser.add_argument("--max-scan", type=int, default=8 * 1024 ** 3)
     parser.add_argument("--marker-limit", type=int, default=2000)
+    parser.add_argument("--no-text", action="store_true",
+                        help="skip the string harvest (faster, no text files)")
     args = parser.parse_args(argv)
 
     try:
@@ -498,7 +581,8 @@ def main(argv: list[str] | None = None) -> int:
             result = run_from_file(args.from_file, args.out, args.carve_budget)
         else:
             result = live_scan(args.process, args.out, args.carve_budget,
-                               args.max_scan, args.marker_limit)
+                               args.max_scan, args.marker_limit,
+                               harvest=not args.no_text)
     except RuntimeError as error:
         print(f"error: {error}", file=sys.stderr)
         return 2
@@ -516,6 +600,10 @@ def main(argv: list[str] | None = None) -> int:
         kana = result["kana"]
         print(f"kana runs: {kana['runs']:,} ({kana['chars']:,} chars, "
               f"longest {kana['longest']})")
+    strings = result.get("strings") or {}
+    for encoding, stats in strings.items():
+        print(f"{encoding} strings: {stats['unique']:,} unique, "
+              f"{stats['chars']:,} chars written")
     if result.get("japanese_windows") is not None:
         print(f"windows with Japanese UTF-16 text: {result['japanese_windows']}")
     if result.get("bytes_scanned") is not None:

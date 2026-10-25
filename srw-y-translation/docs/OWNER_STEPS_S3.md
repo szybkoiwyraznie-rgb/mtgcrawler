@@ -60,6 +60,19 @@ Co się będzie działo po kolei:
    tak, żeby **dialog był widoczny na ekranie**, wróć i **naciśnij Enter**.
 5. Otworzą się dwa foldery: `srw_y_carve_1` i `srw_y_carve_2`.
 
+## Druga runda — ta sama wklejka, bez zmian
+
+Pierwsza runda dała wynik i pokazała, czego brakuje: skrypt wyciąga całe pliki, a
+tych z tekstem gra trzyma w pamięci pocięte na kawałki. Dlatego **ten sam blok
+robi teraz więcej**: obok plików zapisuje też zebrane stringi (dwa pliki
+`strings_utf16.txt` i `strings_utf8.txt`, w tych samych folderach) i liczy, ile
+japońskiego tekstu ma gra.
+
+Blok się nie zmienił — skrypt sam się podmienia przy każdym uruchomieniu.
+Wystarczy powtórzyć te same kroki (gra na ekranie tytułowym, potem scena z
+dialogiem) i wgrać **dwa nowe raporty**. Pliki `strings_*` zostaw u siebie;
+poproszę o nie, jeśli będą potrzebne.
+
 ## Co dalej wgrać
 
 W każdym z tych dwóch folderów jest plik **`carve_report.json`**. Przeciągnij
