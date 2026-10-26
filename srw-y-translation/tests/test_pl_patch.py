@@ -135,3 +135,41 @@ def test_translation_source_matches_game_text():
         assert row['pl'].count('\n') <= 2
         # localised quotes stay the game's own, never ASCII ones
         assert '"' not in row['pl']
+
+
+def test_table_translation_source_is_consistent():
+    """Every table row in the translation file must be complete and unambiguous."""
+    data = json.loads((HERE / 'translations' / 'tabele_test_pl.json').read_text(encoding='utf-8'))
+    tables = data['tables']
+    assert set(tables) == {'system_text', 'dic_text_pilot'}
+    assert len(tables['system_text']) == 34 and len(tables['dic_text_pilot']) == 2
+    for table, entries in tables.items():
+        indexes = set()
+        for key, row in entries.items():
+            assert len(key.split(':')) == 2 and all(len(part) == 8 for part in key.split(':'))
+            assert row['pl'].strip() and row['en'].strip()
+            assert row['index'] not in indexes          # one row touched once
+            indexes.add(row['index'])
+            assert '"' not in row['pl']                  # no ASCII quotes in table text
+            assert row['pl_bytes'] == len(row['pl'].encode('utf-8'))
+    # the title menu and the character-select block are the point of this test
+    menu = {row['index']: row['pl'] for row in tables['system_text'].values()}
+    assert menu[135] == 'Nowa gra' and menu[247] == 'Ulubione danie'
+    assert menu[251].count('\n') == 4               # five lines, like the English original
+    assert menu[250].count('\n') == 4
+
+
+def test_table_translation_keys_exist_in_extracted_tables():
+    """Guard against typos in a key: each one must exist in the game's own extraction."""
+    tables = HERE / 'local' / 's6' / 'tables.jsonl'
+    if not tables.is_file():
+        pytest.skip('brak local/s6/tables.jsonl (dane gry, odtwarzalne z Drive)')
+    known = set()
+    for line in tables.read_text(encoding='utf-8').splitlines():
+        row = json.loads(line)
+        if row['table'] in ('system_text', 'dic_text_pilot'):
+            known.add((row['table'], row['key']))
+    data = json.loads((HERE / 'translations' / 'tabele_test_pl.json').read_text(encoding='utf-8'))
+    for table, entries in data['tables'].items():
+        for key in entries:
+            assert (table, key) in known, (table, key)
