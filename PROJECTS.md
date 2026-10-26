@@ -73,9 +73,11 @@ only when an owner report from the game arrives.
   Feasibility is long past: the bundle cipher is recovered
   (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
   in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
-  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v6**
-  (`plik_dla_tlumacza_v6.zip`, SHA-256 `e19d8505…56aa93`, Drive
-  `1tnXKRYzt93u2Arjb_UJj0c8pJW8sjMYh`) is delivered, which also answers the
+  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v7**
+  (`plik_dla_tlumacza_v7.zip`, SHA-256 `e6d789ff…4f80e1`, Drive
+  `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD`) is delivered: every battle quote now carries the
+  speaker the game names (`[Cytat bitewny — アムロ (Amuro), m]`, 32,402 / 94.4 %) or a
+  `??? NNN` group id (1,915 in 138 groups, indexed for the translator). It also answers the
   translator's six questions of 2026-10-26: the protagonist has a male and a female
   version (both ship in the scripts, 17,657 lines are now tagged), the `font` table
   of machine keys is no longer shipped, `～` is dropped in Polish, the scene→chapter

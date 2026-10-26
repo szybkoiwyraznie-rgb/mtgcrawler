@@ -4,7 +4,7 @@
 > puzzle is solved.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
 > 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the translator
-> package **v6** and patcher v2 are delivered, and rebuilding is proven in the game.
+> package **v7** and patcher v2 are delivered, and rebuilding is proven in the game.
 > Only the translation itself is missing. Package v6 answers the translator's six questions
 > — including the one that changed the data: **the protagonist exists as a man and as a
 > woman, both routes ship in the scripts**, so 17,657 lines carry a
@@ -20,11 +20,15 @@
 > [`VOICE_ANCHORS_Y.md`](VOICE_ANCHORS_Y.md). The last 1,915 quotes (5.6 %) point at voice
 > sets whose containers are in **no file of the shipped build**: the fourth kit
 > `SRW_Y_BVC4.zip` (145 files / 520,834 B, returned byte-exact) added 101 audio assets and
-> zero containers, and the scan of all 941 `MonoBehaviour` objects plus every asset of the
-> containers' resource type closes the question — those 1,915 rows are table entries whose
-> voice set was not shipped (5.6 %), reported as a number, never as a guess. The data phase
-> is finished; the next artefact is translator package **v7** with
-> `[Cytat bitewny — アムロ (Amuro)]` labels built from `nameText` + `NameKey → pilot row`.
+> zero containers, and the scan of all 1,520 `MonoBehaviour` objects across 783 bundles plus
+> every asset of the containers' resource type closes the question — those 1,915 rows are
+> table entries whose voice set was not shipped (5.6 %), reported as a number, never as a
+> guess. The data phase is finished and **translator package v7 is delivered**
+> (`plik_dla_tlumacza_v7.zip`, 8,338,936 B, SHA-256 `e6d789ff…4f80e1`, Drive
+> `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD`, read back byte-identical): `[Cytat bitewny —
+> アムロ (Amuro), m]` for 32,402 quotes (28,763 with gender) and a `??? NNN` group id for the
+> other 1,915 — 138 groups, indexed in the new `09_grupy_bez_mowcy.md`, so one number always
+> means one voice. The owner's call: those quotes are translated, not left in English.
 > Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
 > [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 

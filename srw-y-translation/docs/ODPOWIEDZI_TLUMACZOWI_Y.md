@@ -49,6 +49,27 @@ jednej płci na numer**: w jednym banku mówi kilka postaci. Gdy kontenery dotr�
 zmieni się na `[Cytat bitewny - アムロ (Amuro)]` z płcią z `genderType`, a **same cytaty
 zostaną bez zmian** — nic już przetłumaczonego nie trzeba przerabiać.
 
+### Aktualizacja do wersji 7 (2026-10-26, wieczór) — mówca już jest, reszta ma grupy
+
+Kontenery dotarły w trzech paczkach od właściciela i łańcuch został odczytany w całości:
+
+```text
+wiersz battle_voice (klucz 01999dc9:15e0b000)
+  -> battle_voice Shared Data   (m_Id -> m_Key, np. F069_002)
+  -> kontener głosu             (WaveId -> nameText: imię, które gra wypisuje nad kwestią)
+```
+
+- **32 402 z 34 317 cytatów (94,4%)** ma imię mówcy z danych gry — 290 różnych mówców;
+- **28 763** z nich ma też płeć z `PilotBasicDatas` (`genderType`, dopasowanie po nazwisku
+  i po polu `voiceContainer`), więc etykieta to np. `[Cytat bitewny — アムロ (Amuro), m]`;
+- pozostałe **1 915 (5,6%)** to kwestie, których zestawu głosu **nie ma w wydanym buildzie**
+  (dowód: `GLOSY_BITEWNE_Y.md` §9–10 — sprawdzone wszystkie bundel i zasoby tej klasy).
+  **Decyzja właściciela: przekładamy je mimo to**, a żeby nie mieszać rodzaju, każda ma
+  numer grupy: `[Cytat bitewny — ??? 012]`. Numer = jedna postać; 138 grup, indeks w
+  `09_grupy_bez_mowcy.md` (liczba kwestii, tabela, seria, podpowiedź mówcy/płci).
+- **Nic już przetłumaczonego nie trzeba przerabiać**: elementy i numeracja są te same,
+  zmienił się tylko tekst w nawiasie kwadratowym.
+
 Dodatkowo: 339 kwestii z tabeli `strategypart_pilotmess` (kwestie pilotów przy częściach)
 przeniosło się z „pozostałych tabel” do pliku cytatów, bo to ten sam rodzaj tekstu.
 

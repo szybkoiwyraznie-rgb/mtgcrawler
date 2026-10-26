@@ -6,11 +6,30 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza_v6.zip
-├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6
+plik_dla_tlumacza_v7.zip          (bieżąca, 2026-10-26)
+├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6 + sekcja 7
 ├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
-└── widoki.zip     9 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana)
+└── widoki.zip     10 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana,
+                   nowy plik 09_grupy_bez_mowcy.md to indeks grup `??? NNN`)
 ```
+
+## Wersja 7 — co doszło (2026-10-26, wieczór)
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v7.zip` |
+| rozmiar / sha256 | 8 338 936 B / `e6d789ffb1b98baeb74380f74fd51f91c01ec90542db018e6e732d01b74f80e1` |
+| Drive | `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD` |
+| czytanie zwrotne | pobrane ponownie, **identyczne co do bajta** (`cmp` = 0) |
+| zawartość | `README.md` 16 305 B, `sceny.zip` 6 195 930 B (bez zmian od v5/v6), `widoki.zip` 2 134 622 B |
+
+Co się zmieniło: **etykiety cytatów bitewnych**. Zamiast `[głos N/39]` jest teraz mówca
+z danych gry — `[Cytat bitewny — アムロ (Amuro), m]` dla **32 402 kwestii (94,4%)**, a dla
+pozostałych **1 915 (5,6%)** numer grupy `[Cytat bitewny — ??? 012]` plus indeks tych grup
+w `09_grupy_bez_mowcy.md` (138 grup: liczba kwestii, tabela, seria, podpowiedź mówcy/płci).
+
+Elementy i numeracja w plikach `.md` są **te same co w v4–v6** — zmienił się tylko tekst
+w nawiasie kwadratowym, więc przetłumaczone fragmenty nie wymagają przerabiania.
 
 Element ma układ z OE:
 

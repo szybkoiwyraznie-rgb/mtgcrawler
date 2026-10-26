@@ -12,13 +12,17 @@ workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 
 Settled and delivered: the bundle cipher (`SeekableAesStream`, 276/276 pairs),
 the extraction route (143 shipped tables + 946 Japanese Lua scenario files), the
-translator package **v6** (138,736 `PL:` slots; the files to translate are identical
-to v4/v5, only sections 7 and 9 of the package README changed) and **patcher v2**, plus the
-mode-B rebuild proven in the game. v6 answers the translator's six questions of
-2026-10-26 (`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the protagonist
-has a male and a female version and both routes ship — 17,657 lines carry a
+translator package **v7** (138,736 `PL:` slots; the scenes are byte-identical to v4–v6 and
+the element numbering never changed, only battle-quote labels and one new file) and
+**patcher v2**, plus the mode-B rebuild proven in the game. v7 answers the translator's six
+questions of 2026-10-26 (`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the
+protagonist has a male and a female version and both routes ship — 17,657 lines carry a
 `(wariant: bohater)` / `(wariant: bohaterka)` marker, so **do not re-derive gender from
-the text**.
+the text**. Battle quotes are labelled `[Cytat bitewny — アムロ (Amuro), m]` from the game's
+own `nameText` (32,402 / 94.4 %) or `[Cytat bitewny — ??? 012]` for the 1,915 rows whose
+voice set is not in the shipped build (138 groups, `docs/VOICE_UNKNOWN_Y.md`) — the owner's
+decision is that those are translated, not left in English, and one `???` number always
+means one voice.
 
 `battle_voice` speakers are **solved and measured** — the owner was right that the join
 exists, and it was found in the data (`docs/GLOSY_BITEWNE_Y.md` §8–9):
