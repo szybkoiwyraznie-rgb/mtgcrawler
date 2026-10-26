@@ -1,84 +1,91 @@
-# PATCHER — jeden plik do instalacji, sprawdzenia i cofnięcia
+# PATCHER — jeden klik, jak w SRW OE
 
-Plik: **`SRW_Y_PATCHER.zip`** (2,862,356 B, SHA-256
-`aeffef8572f7fb7657c4bc01251d4097722097b65d4a15bd761307b511a517cc`)
-w tym samym folderze na Drive.
+## Gdzie go znajdziesz
 
-## Co to jest
+Ten sam folder na Drive, plik **`SRW_Y_PATCHER_v2.zip`** (2,864,321 B):
 
-Do tej pory każdy test miał własny `PATCH_PL.bat` ze wpisaną na sztywno listą plików.
-`PATCHER.bat` jest **jeden na zawsze**: lista plików leży w `MANIFEST.txt`, pliki
-w `pliki/`, a skrypty się nie zmieniają. Do wydania finalnego podmieniam tylko zawartość
-tych dwóch rzeczy.
+<https://drive.google.com/file/d/14_Ymoh6osiABK0gquZqBBMf_St1Zl-aP/view>
+
+SHA-256 `e44f71ffe11401aaaa4382a4a8b91435514c9ef76891e37a0e3854ca79015e29`
+— jeśli po pobraniu skrót się zgadza, plik jest w całości.
+Stara wersja `SRW_Y_PATCHER.zip` z menu 1/2/3 jest nieaktualna — do kosza.
+
+## Co się zmieniło względem pierwszej wersji
+
+Było: menu `1/2/3/0` i trzeba było wybrać instalację. Doszedłeś do tego słusznie —
+w OE nie ma menu, jest dwuklik i robota zrobiona. Teraz jest tak samo:
 
 ```text
-SRW_Y_PATCHER.zip
-├── PATCHER.bat     ← to klikasz (dwuklik)
-├── PATCHER.ps1     ← robota: kopiowanie, skróty SHA-256, cofanie
+SRW_Y_PATCHER_v2.zip
+├── PATCHER.bat     ← dwuklik: instaluje polskie pliki
+├── COFNIJ.bat      ← dwuklik: przywraca oryginały
+├── PATCHER.ps1     ← robota: kopiowanie, skróty SHA-256, kopie .bak
 ├── MANIFEST.txt    ← 13 plików: skrót oryginału i skrót wersji polskiej
 ├── CZYTAJ_TO.md    ← instrukcja
-└── pliki/          ← gotowe polskie pliki (13)
+└── pliki/          ← gotowe polskie pliki (13, z testu 6)
 ```
 
-## Menu (pokazuje się przy każdym uruchomieniu)
+Żadnego wyboru, żadnych pytań poza jednym: **jeśli gra nie znajdzie się sama**, patcher
+poprosi o folder gry i zapamięta go w `sciezka.txt`. Można też przeciągnąć folder gry
+na `PATCHER.bat` — wtedy pytań nie ma wcale.
 
-```text
-1 - zainstaluj polskie pliki
-2 - sprawdź, co jest teraz w grze
-3 - cofnij do oryginału (z kopii .bak)
-0 - wyjście
-```
+## Jak to działa
 
-## Co robi, zanim cokolwiek podmieni
+1. Szuka gry: `sciezka.txt` → `D:\Games\SUPER ROBOT WARS Y` → typowe miejsca
+   (`Gry`, `SteamLibrary\steamapps\common`, `Program Files (x86)\Steam\...`)
+   na wszystkich dyskach stałych → pyta.
+2. Sprawdza, czy **gra nie jest uruchomiona** — Windows trzyma wtedy pliki otwarte
+   i kopiowanie i tak by się nie udało.
+3. Dla każdego pliku liczy SHA-256 tego, co leży w grze i porównuje z manifestem:
 
-Dla każdego pliku liczy SHA-256 tego, co leży w grze, i porównuje z manifestem:
+   | skrót w grze | reakcja |
+   |---|---|
+   | równy oryginałowi | kopiuje `.bak`, wgrywa polską wersję |
+   | równy wersji polskiej | nic, pisze `JUŻ POLSKI` |
+   | **inny niż oba** | **nie rusza pliku**, pisze `INNA WERSJA` |
 
-| skrót w grze | reakcja |
-|---|---|
-| równy oryginałowi | robi `.bak` i wgrywa polską wersję |
-| równy wersji polskiej | nic, pisze `JUŻ POLSKI` |
-| **inny niż oba** | **nie rusza pliku**, pisze `INNA WERSJA` |
-
-Ten trzeci przypadek jest najważniejszy: gdyby patch był zbudowany z innej wersji gry,
-patcher nie rozwali instalacji po cichu — powie, który plik się nie zgadza.
-Wcześniejsze testy umiały tylko sprawdzić „czy skopiowałem”, więc „nic się nie zmieniło”
-i „kopiowanie nie doszło” wyglądały identycznie.
-
-Po każdym kopiowaniu liczy skrót **jeszcze raz** i porównuje z manifestem: `OK` znaczy,
-że w grze jest dokładnie ten plik, który zbudowałem. Cała sesja trafia do
-**`RAPORT_PATCHERA.txt`** na Pulpicie (data, godzina, każdy plik).
+   Trzeci przypadek chroni przed patchem z innej wersji gry. Wcześniejsze testy umiały
+   tylko sprawdzić „czy skopiowałem”, więc „nic się nie zmieniło” i „kopiowanie nie doszło”
+   wyglądały identycznie.
+4. Kopiuje przez plik `.nowy` i przenosi go na miejsce — przerwane kopiowanie nie zostawia
+   w grze połowy bundla. Błąd (antywirus, brak uprawnień) jest łapany i opisany, a nie
+   wywala okna.
+5. Po każdym kopiowaniu liczy skrót **jeszcze raz**: `OK` znaczy, że w grze jest dokładnie
+   ten plik, który zbudowałem.
+6. Podsumowanie na ekranie (`GOTOWE — uruchom grę normalnie`) i **`RAPORT_PATCHERA.txt`**
+   na Pulpicie: data, godzina, wersja Windows i PowerShell, każdy plik, wynik.
 
 ## Cofnięcie
 
-Opcja **3** przywraca `.bak` i też sprawdza wynik skrótem. Kopie powstają wyłącznie
+**`COFNIJ.bat`** — przywraca `.bak` i też weryfikuje skrótem. Kopie powstają wyłącznie
 z oryginałów (nigdy z już podmienionego pliku), więc cofnięcie wraca do stanu sprzed
 patchera nawet po kilku instalacjach pod rząd.
 
-## Gdzie szuka gry
+Podgląd bez zmieniania czegokolwiek: `PATCHER.bat sprawdz` (z listy plików pokaże,
+co jest polskie, co oryginalne, a czego w grze nie ma).
 
-Najpierw `sciezka.txt` (zapamiętana przy poprzednim uruchomieniu), potem
-`D:\Games\SUPER ROBOT WARS Y`, a jeśli tam nie ma gry — pyta o ścieżkę i zapamiętuje ją.
-Sprawdza, czy w środku jest `SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64`.
+## Co jest sprawdzone, a co nie
 
-## Stan tej wersji
+Nie mam tu Windows ani PowerShell, więc **skryptu nie uruchomiłem**. Sprawdzone statycznie
+i testami (`tests/test_patcher.py`, 16 testów):
 
-To jest **mechanizm docelowy, wypełniony plikami z testu 6** (13 plików: tabele, prefaby,
-atlasy menu i pojęć). Możesz go użyć zamiast `PATCH_PL.bat` z testu 6 — efekt ten sam,
-ale z weryfikacją każdego pliku i cofaniem. Jeśli test 6 jest już zainstalowany, opcja 1
-napiszе `JUŻ POLSKI` przy każdym pliku i nic nie zmieni.
+- **gramatyka PowerShell** — cały `.ps1` parsuje się bez błędu (`tree-sitter-powershell`);
+  to wyłapuje klasę błędów, która 2026-10-25 wywaliła zbieraczkę DLC bez komunikatu
+  (przecinek przed `)`);
+- `PATCHER.bat` i `COFNIJ.bat` są czystym ASCII + CRLF (konsola psuje polskie znaki
+  w `.bat`), a `.ps1` ma BOM UTF-8 + CRLF (PowerShell 5.1 czyta plik bez BOM jako ANSI);
+- brak menu, brak `Read-Host` poza pytaniem o folder gry;
+- manifest ↔ `pliki/` ↔ oryginały w `local/`: skróty się zgadzają, żaden „polski” plik
+  nie jest identyczny z oryginałem;
+- paczka jest kompletna i sprawdza się sama: gdy brakuje `pliki/`, patcher mówi
+  „paczka niekompletna”, a nie „13 plików brak w grze”;
+- ten sam wsad daje **bit w bit to samo zip** (stałe znaczniki czasu), więc podany wyżej
+  SHA-256 zostanie aktualny także po przebudowaniu paczki z tych samych bundli.
 
-## Czego nie mogłem sprawdzić
+Czego testy nie zastąpią: prawdziwego uruchomienia na Twoim dysku. Jeśli po dwukliku coś
+pójdzie nie tak, wyślij mi `RAPORT_PATCHERA.txt` z Pulpitu — tam jest każdy krok z godziną.
 
-Nie mam tu PowerShell ani Windows, więc skryptu nie uruchomiłem. Sprawdziłem go inaczej:
+## Wydanie finalne
 
-- **gramatyka PowerShell** (`tree-sitter-powershell`) parsuje cały plik bez błędu —
-  to wyłapuje właśnie takie rzeczy, jak przecinek przed `)`, który 2026-10-25 wywalił
-  zbieraczkę DLC bez żadnego komunikatu;
-- `PATCHER.bat` jest czystym ASCII (konsola psuje polskie znaki w `.bat`),
-  a `PATCHER.ps1` ma BOM UTF-8 + CRLF (PowerShell 5.1 czyta plik bez BOM jako ANSI);
-- `tests/test_patcher.py` (8 testów) sprawdza skład paczki, bilans nawiasów, brak
-  przecinka przed `)`, zgodność manifestu z `pliki/` i to, że żaden „polski” plik nie jest
-  identyczny z oryginałem.
-
-Jeśli po dwukliku coś się nie uruchomi, wyślij mi `RAPORT_PATCHERA.txt` z Pulpitu —
-tam jest każdy krok z godziną.
+Podmienia się **tylko** `pliki/` i `MANIFEST.txt`. Skrypty, kopie `.bak`, weryfikacja
+skrótów i raport zostają te same — dokładnie tak, jak w OE.

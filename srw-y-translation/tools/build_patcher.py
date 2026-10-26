@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""One patcher for the owner: install, verify, revert — in that order of usefulness.
+"""One patcher for the owner: double-click, it installs, it verifies, it keeps backups.
 
-Every earlier delivery was a fresh `PATCH_PL.bat` with a hard-coded list, so each test
-meant a new script and a new set of habits. This generates **one** patcher whose file list
-lives in `pliki/` and `MANIFEST.txt`, so the final release is "drop new bundles in, same
-script".
+The owner's yardstick is the SRW OE patcher: unpack the folder, double-click one `.bat`,
+point it at the game if it cannot find it by itself, and everything else happens without
+questions. So there is no menu here. `PATCHER.bat` installs, `COFNIJ.bat` puts the
+originals back, and both share `PATCHER.ps1`. The file list lives in `pliki/` +
+`MANIFEST.txt`, so the final release is "drop new bundles in, same scripts".
 
 What the patcher guarantees, and why each part exists:
 
@@ -12,17 +13,19 @@ What the patcher guarantees, and why each part exists:
   original bundle *and* of the patched one. Before touching a file the patcher hashes the
   file in the game: original -> patch, already patched -> skip, anything else -> leave it
   alone and say so. That is what stops a patch built from a different game version from
-  silently wrecking the install (the copy check alone could not tell).
+  silently wrecking the install (a copy check alone cannot tell).
 * **The backup is made from the real original, never from an already patched file.**
   `.bak` is written only when the hash says this is the original.
 * **Every copy is verified.** `Get-FileHash` after the copy, compared with the manifest.
   "Nic się nie zmieniło" and "the copy never happened" stop being the same report.
+* **The copy lands through a temporary file**, so a crash or an antivirus lock cannot
+  leave a half-written bundle in the game.
 * **Revert is symmetric** and also verified against the original hash.
 * **The whole session lands in `RAPORT_PATCHERA.txt` on the Desktop**, because the console
   window closes and an unreadable red line is worse than no line.
 
 The `.ps1` is UTF-8 **with BOM** and CRLF (PowerShell 5.1 reads a BOM-less file as ANSI,
-which is how a Polish message turns into mojibake). The `.bat` stays pure ASCII: the
+which is how a Polish message turns into mojibake). The `.bat` files stay pure ASCII: the
 console code page would garble anything else.
 
     python3 tools/build_patcher.py --zip build/SRW_Y_PATCHER.zip
@@ -46,25 +49,46 @@ ORIGINAL_ROOTS = (LOCAL / 'ui', LOCAL / 'ui6', LOCAL / 's4_plain', LOCAL / 's6' 
 GAME_DEFAULT = r'D:\Games\SUPER ROBOT WARS Y'
 AA_REL = r'SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'
 
+#: the wrapper around the PowerShell script; one double-click = one action, no menu
 BAT = r'''@echo off
 setlocal
 cd /d "%~dp0"
+title SUPER ROBOT WARS Y - polska wersja
 if not exist "%~dp0PATCHER.ps1" (
   echo BLAD: brak pliku PATCHER.ps1 obok tego skryptu.
+  echo Rozpakuj caly folder, nie kopiuj samego PATCHER.bat.
+  echo.
   pause
   exit /b 1
 )
+set "TRYB=@@TRYB@@"
+set "FOLDER=%~1"
+if /i "%~1"=="sprawdz" (
+  set "TRYB=sprawdz"
+  set "FOLDER="
+)
+if /i "%~1"=="cofnij" (
+  set "TRYB=cofnij"
+  set "FOLDER="
+)
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -LiteralPath '%~dp0' -File | Unblock-File -ErrorAction SilentlyContinue"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0PATCHER.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0PATCHER.ps1" -Tryb "%TRYB%" -FolderGry "%FOLDER%"
 set "KOD=%ERRORLEVEL%"
+if not "%KOD%"=="0" (
+  echo.
+  echo Patcher zakonczyl sie kodem %KOD%. Szczegoly: RAPORT_PATCHERA.txt na Pulpicie.
+)
 echo.
-if not "%KOD%"=="0" echo Patcher zakonczyl sie kodem %KOD% - szczegoly w RAPORT_PATCHERA.txt na Pulpicie.
 pause
 exit /b %KOD%
 '''
 
-PS1 = r'''# PATCHER do SUPER ROBOT WARS Y — instalacja, sprawdzenie i cofnięcie polskich plików.
-# Uruchamiaj przez PATCHER.bat (nie przez prawy przycisk, bo wtedy okno zamyka się samo).
+PS1 = r'''# PATCHER do SUPER ROBOT WARS Y — wkłada polskie pliki do gry, robi kopie i sprawdza wynik.
+# Uruchamiaj przez PATCHER.bat (instalacja) albo COFNIJ.bat (powrót do oryginału).
+param(
+    [string]$Tryb = 'instaluj',
+    [string]$FolderGry = ''
+)
 $ErrorActionPreference = 'Stop'
 
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -92,37 +116,74 @@ function Read-Manifest {
         if ($t.StartsWith('#')) { continue }
         $parts = $t.Split('|')
         if ($parts.Count -ne 3) { throw ('MANIFEST.txt: zły wiersz: ' + $t) }
-        $rows += , @($parts[0], $parts[1], $parts[2])
+        $rows += [pscustomobject]@{ Name = $parts[0]; Original = $parts[1]; Patched = $parts[2] }
     }
     if ($rows.Count -eq 0) { throw 'MANIFEST.txt jest pusty' }
     return $rows
 }
 
+function Test-GameDir {
+    param([string]$Path)
+    if ($Path -eq '') { return $false }
+    return (Test-Path -LiteralPath (Join-Path $Path $aaRel))
+}
+
 function Find-Game {
+    param([string]$Hint)
     $candidates = @()
+    if ($Hint -ne '') {
+        if (Test-Path -LiteralPath $Hint -PathType Leaf) { $Hint = Split-Path -Parent $Hint }
+        $candidates += $Hint.TrimEnd('\')
+    }
     if (Test-Path -LiteralPath $pathFile) {
-        $saved = (Get-Content -LiteralPath $pathFile -TotalCount 1).Trim()
-        if ($saved -ne '') { $candidates += $saved }
+        $saved = (Get-Content -LiteralPath $pathFile -TotalCount 1)
+        if ($saved) { $candidates += $saved.Trim() }
     }
     $candidates += $defaultGame
     foreach ($candidate in $candidates) {
-        if (Test-Path -LiteralPath (Join-Path $candidate $aaRel)) { return $candidate }
+        if (Test-GameDir $candidate) { return $candidate }
+    }
+    $roots = @('Games', 'SteamLibrary\steamapps\common', 'Program Files (x86)\Steam\steamapps\common',
+               'Program Files\Steam\steamapps\common', 'SteamGames\steamapps\common')
+    foreach ($drive in [System.IO.DriveInfo]::GetDrives()) {
+        if (-not $drive.IsReady) { continue }
+        if ($drive.DriveType -ne 'Fixed') { continue }
+        foreach ($root in $roots) {
+            $candidate = Join-Path $drive.Name (Join-Path $root 'SUPER ROBOT WARS Y')
+            if (Test-GameDir $candidate) { return $candidate }
+        }
     }
     return ''
 }
 
 function Ask-Game {
     Write-Host ''
-    Write-Host 'Nie znalazłem folderu gry. Podaj ścieżkę do folderu, w którym leży'
-    Write-Host 'plik SUPER ROBOT WARS Y.exe (np. D:\Games\SUPER ROBOT WARS Y).'
-    $answer = Read-Host 'Ścieżka'
-    $answer = $answer.Trim().Trim('"')
-    return $answer
+    Write-Host 'Nie znalazłem folderu gry. Wpisz ścieżkę do folderu, w którym leży'
+    Write-Host 'plik SUPER ROBOT WARS Y.exe (albo przeciągnij ten folder na PATCHER.bat).'
+    for ($i = 0; $i -lt 3; $i++) {
+        $answer = Read-Host 'Ścieżka'
+        if (-not $answer) { continue }
+        $answer = $answer.Trim().Trim('"').TrimEnd('\')
+        if (Test-GameDir $answer) { return $answer }
+        Write-Host ('To nie jest folder gry — nie ma w nim ' + $aaRel)
+    }
+    return ''
 }
 
 function Hash-Of {
     param([string]$Path)
-    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLower()
+    try {
+        return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLower()
+    }
+    catch {
+        return ''
+    }
+}
+
+function Test-GameRunning {
+    $running = @(Get-Process -ErrorAction SilentlyContinue |
+                 Where-Object { $_.ProcessName -like '*SUPER*ROBOT*' })
+    return ($running.Count -gt 0)
 }
 
 function Install-All {
@@ -131,46 +192,67 @@ function Install-All {
     $already = 0
     $skipped = 0
     $failed = 0
+    $total = $Rows.Count
+    $index = 0
     foreach ($row in $Rows) {
-        $name = $row[0]
-        $original = $row[1]
-        $patched = $row[2]
+        $index++
+        $name = $row.Name
+        $original = $row.Original
+        $patched = $row.Patched
         $target = Join-Path $Aa $name
         $source = Join-Path $filesDir $name
+        $prefix = ('[{0}/{1}] ' -f $index, $total)
         if (-not (Test-Path -LiteralPath $target)) {
-            Write-Log ('  BRAK W GRZE    ' + $name)
-            $skipped += 1
+            Write-Log ($prefix + 'BRAK W GRZE      ' + $name)
+            $skipped++
             continue
         }
         if (-not (Test-Path -LiteralPath $source)) {
-            Write-Log ('  BRAK W PACZCE ' + $name)
-            $skipped += 1
+            Write-Log ($prefix + 'BRAK W PACZCE    ' + $name)
+            $skipped++
             continue
         }
         $current = Hash-Of $target
+        if ($current -eq '') {
+            Write-Log ($prefix + 'NIE CZYTA SIE    ' + $name + ' — sprawdź uprawnienia do pliku')
+            $skipped++
+            continue
+        }
         if ($current -eq $patched) {
-            Write-Log ('  JUŻ POLSKI     ' + $name)
-            $already += 1
+            Write-Log ($prefix + 'JUŻ POLSKI       ' + $name)
+            $already++
             continue
         }
         if ($current -ne $original) {
-            Write-Log ('  INNA WERSJA    ' + $name + ' — nie ruszam (gra ma inny plik niż ten, z którego budowałem)')
-            $skipped += 1
+            Write-Log ($prefix + 'INNA WERSJA      ' + $name + ' — nie ruszam (w grze jest inny plik)')
+            $skipped++
             continue
         }
         $backup = $target + '.bak'
         if (-not (Test-Path -LiteralPath $backup)) {
             Copy-Item -LiteralPath $target -Destination $backup -Force
         }
-        Copy-Item -LiteralPath $source -Destination $target -Force
+        $temp = $target + '.nowy'
+        try {
+            Copy-Item -LiteralPath $source -Destination $temp -Force
+            Move-Item -LiteralPath $temp -Destination $target -Force
+        }
+        catch {
+            Write-Log ($prefix + 'BŁĄD KOPIOWANIA  ' + $name + ' — ' + $_.Exception.Message)
+            if (Test-Path -LiteralPath $temp) {
+                Remove-Item -LiteralPath $temp -Force -ErrorAction SilentlyContinue
+            }
+            $failed++
+            continue
+        }
         $after = Hash-Of $target
         if ($after -eq $patched) {
-            Write-Log ('  OK            ' + $name)
-            $ok += 1
+            Write-Log ($prefix + 'OK               ' + $name)
+            $ok++
         }
         else {
-            Write-Log ('  BŁĄD KOPIOWANIA ' + $name)
-            $failed += 1
+            Write-Log ($prefix + 'BŁĄD KOPIOWANIA  ' + $name)
+            $failed++
         }
     }
     Write-Log ''
@@ -186,25 +268,25 @@ function Check-All {
     $other = 0
     $missing = 0
     foreach ($row in $Rows) {
-        $name = $row[0]
+        $name = $row.Name
         $target = Join-Path $Aa $name
         if (-not (Test-Path -LiteralPath $target)) {
             Write-Log ('  BRAK          ' + $name)
-            $missing += 1
+            $missing++
             continue
         }
         $current = Hash-Of $target
-        if ($current -eq $row[2]) {
+        if ($current -eq $row.Patched) {
             Write-Log ('  POLSKI        ' + $name)
-            $polish += 1
+            $polish++
         }
-        elseif ($current -eq $row[1]) {
+        elseif ($current -eq $row.Original) {
             Write-Log ('  ORYGINAŁ      ' + $name)
-            $ok += 1
+            $ok++
         }
         else {
             Write-Log ('  INNY PLIK     ' + $name)
-            $other += 1
+            $other++
         }
     }
     Write-Log ''
@@ -218,22 +300,34 @@ function Revert-All {
     $noBackup = 0
     $failed = 0
     foreach ($row in $Rows) {
-        $name = $row[0]
+        $name = $row.Name
         $target = Join-Path $Aa $name
         $backup = $target + '.bak'
         if (-not (Test-Path -LiteralPath $backup)) {
             Write-Log ('  BEZ KOPII     ' + $name)
-            $noBackup += 1
+            $noBackup++
             continue
         }
-        Copy-Item -LiteralPath $backup -Destination $target -Force
-        if ((Hash-Of $target) -eq $row[1]) {
+        $temp = $target + '.nowy'
+        try {
+            Copy-Item -LiteralPath $backup -Destination $temp -Force
+            Move-Item -LiteralPath $temp -Destination $target -Force
+        }
+        catch {
+            Write-Log ('  BŁĄD PRZYWRACANIA ' + $name + ' — ' + $_.Exception.Message)
+            if (Test-Path -LiteralPath $temp) {
+                Remove-Item -LiteralPath $temp -Force -ErrorAction SilentlyContinue
+            }
+            $failed++
+            continue
+        }
+        if ((Hash-Of $target) -eq $row.Original) {
             Write-Log ('  PRZYWRÓCONY   ' + $name)
-            $done += 1
+            $done++
         }
         else {
             Write-Log ('  BŁĄD PRZYWRACANIA ' + $name)
-            $failed += 1
+            $failed++
         }
     }
     Write-Log ''
@@ -242,120 +336,170 @@ function Revert-All {
     return 0
 }
 
-Write-Log '=============================================='
-Write-Log ('PATCHER SRW Y — ' + (Get-Date).ToString('yyyy-MM-dd HH:mm:ss'))
-Write-Log ('Folder patchera: ' + $here)
-$rows = Read-Manifest
-Write-Log ('Plików w manifeście: ' + $rows.Count)
+# ---------------------------------------------------------------- start
 
-$game = Find-Game
+Set-Content -LiteralPath $logPath -Value ('PATCHER SRW Y — ' + (Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) -Encoding UTF8
+Write-Log ('Tryb: ' + $Tryb)
+Write-Log ('Folder patchera: ' + $here)
+Write-Log ('Windows: ' + [Environment]::OSVersion.VersionString)
+Write-Log ('PowerShell: ' + $PSVersionTable.PSVersion.ToString())
+Write-Host ''
+Write-Host ' ============================================'
+if ($Tryb -eq 'cofnij') {
+    Write-Host '  Super Robot Wars Y — powrót do oryginału'
+}
+elseif ($Tryb -eq 'sprawdz') {
+    Write-Host '  Super Robot Wars Y — co jest teraz w grze'
+}
+else {
+    Write-Host '  Super Robot Wars Y — polska wersja'
+}
+Write-Host ' ============================================'
+Write-Host ''
+
+$rows = Read-Manifest
+$missing = @()
+foreach ($row in $rows) {
+    if (-not (Test-Path -LiteralPath (Join-Path $filesDir $row.Name))) { $missing += $row.Name }
+}
+if ($missing.Count -gt 0) {
+    Write-Log (' [X] Paczka niekompletna — brakuje w pliki/: ' + ($missing -join ', '))
+    Write-Log '     Rozpakuj cały folder patchera, nie kopiuj samych skryptów.'
+    exit 4
+}
+Write-Log (' [OK] Pliki w paczce: ' + $rows.Count)
+Write-Log ' [i]  Kopie zapasowe: obok każdego podmienionego pliku, z końcówką .bak'
+
+$game = Find-Game $FolderGry
 if ($game -eq '') { $game = Ask-Game }
 if ($game -eq '') {
-    Write-Log 'BŁĄD: nie mam folderu gry, kończę.'
+    Write-Log ' [X] Nie mam folderu gry — kończę. Wskaż go, przeciągając folder na PATCHER.bat.'
     exit 2
 }
 $aa = Join-Path $game $aaRel
 if (-not (Test-Path -LiteralPath $aa)) {
-    Write-Log ('BŁĄD: nie ma folderu ' + $aa)
-    Write-Log 'Sprawdź, czy gra jest zainstalowana właśnie tam.'
+    Write-Log (' [X] Nie ma folderu ' + $aa)
     exit 2
 }
 Set-Content -LiteralPath $pathFile -Value $game -Encoding UTF8
-Write-Log ('Gra: ' + $game)
-Write-Log ''
+Write-Log (' [OK] Gra: ' + $game)
 
-$exitCode = 0
-while ($true) {
-    Write-Host ''
-    Write-Host '1 - zainstaluj polskie pliki'
-    Write-Host '2 - sprawdź, co jest teraz w grze'
-    Write-Host '3 - cofnij do oryginału (z kopii .bak)'
-    Write-Host '0 - wyjście'
-    $choice = Read-Host 'Wybierz'
-    if ($choice -eq '0') { break }
-    if ($choice -eq '1') {
-        Write-Log '--- INSTALACJA ---'
-        $exitCode = Install-All $aa $rows
-        break
-    }
-    if ($choice -eq '2') {
-        Write-Log '--- SPRAWDZENIE ---'
-        $exitCode = Check-All $aa $rows
-        break
-    }
-    if ($choice -eq '3') {
-        Write-Log '--- COFNIĘCIE ---'
-        $exitCode = Revert-All $aa $rows
-        break
-    }
-    Write-Host 'Nie znam tej opcji — wpisz 0, 1, 2 albo 3.'
+if (Test-GameRunning) {
+    Write-Log ''
+    Write-Log ' [X] Gra jest uruchomiona. Zamknij ją całkowicie i uruchom patcher jeszcze raz'
+    Write-Log '     (Windows trzyma wtedy pliki gry otwarte i kopiowanie się nie uda).'
+    exit 5
 }
 
 Write-Log ''
-Write-Log ('Raport zapisany w: ' + $logPath)
-exit $exitCode
+$kod = 0
+if ($Tryb -eq 'cofnij') {
+    Write-Log '--- PRZYWRACANIE ORYGINAŁÓW ---'
+    $kod = Revert-All $aa $rows
+}
+elseif ($Tryb -eq 'sprawdz') {
+    Write-Log '--- SPRAWDZENIE, CO JEST W GRZE ---'
+    $kod = Check-All $aa $rows
+}
+else {
+    Write-Log '--- INSTALACJA ---'
+    $kod = Install-All $aa $rows
+}
+
+Write-Log ''
+Write-Host ' ============================================'
+if ($kod -eq 0) {
+    if ($Tryb -eq 'cofnij') {
+        Write-Host '  GOTOWE — gra wróciła do oryginału'
+    }
+    elseif ($Tryb -eq 'sprawdz') {
+        Write-Host '  GOTOWE — sprawdzenie zakończone'
+    }
+    else {
+        Write-Host '  GOTOWE — uruchom grę normalnie'
+    }
+}
+else {
+    Write-Host '  NIE UDAŁO SIĘ DO KOŃCA — zobacz raport'
+}
+Write-Host ' ============================================'
+Write-Log ('Raport: ' + $logPath)
+exit $kod
 '''
 
-README = r'''# PATCHER — jeden plik do instalacji, sprawdzenia i cofnięcia
+README = r'''# SUPER ROBOT WARS Y — polska wersja: instalator
 
-## Co to jest
+## Jak to uruchomić
 
-`PATCHER.bat` to jedyne, co klikasz. Pod nim leżą:
+1. **Rozpakuj cały folder** (np. na Pulpit). Nie kopiuj samego `PATCHER.bat`.
+2. Zamknij grę, jeśli działa.
+3. Kliknij dwa razy **`PATCHER.bat`**.
+4. Jeśli patcher sam nie znajdzie gry, wskaż folder, w którym leży
+   `SUPER ROBOT WARS Y.exe` — zapamięta go na przyszłość.
+
+Nic więcej. Nie ma menu, nie ma pytań, nie trzeba instalować Pythona ani niczego
+doinstalowywać — patcher korzysta tylko z PowerShell, który jest w Windows.
+
+## Co robi
+
+1. Znajduje grę (`@@GAME@@`, potem typowe miejsca na wszystkich dyskach, na końcu pyta).
+2. Dla **każdego** pliku sprawdza SHA-256 tego, co leży w grze, i porównuje z manifestem:
+
+   | skrót w grze | co robi |
+   |---|---|
+   | równy oryginałowi | robi kopię `.bak` i wgrywa polską wersję |
+   | równy wersji polskiej | nic — pisze `JUŻ POLSKI` |
+   | inny niż oba | **nie rusza pliku**, pisze `INNA WERSJA` |
+
+   Trzeci przypadek jest po to, żeby patch zbudowany z innej wersji gry nie rozwalił
+   instalacji po cichu. Jeśli go zobaczysz — napisz mi który plik, a nie „na siłę”.
+3. Kopiuje przez plik tymczasowy i przenosi go na miejsce, więc przerwane kopiowanie
+   nie zostawia w grze połowy pliku.
+4. Po każdym kopiowaniu liczy skrót **jeszcze raz**. `OK` znaczy, że w grze jest
+   dokładnie ten plik, który zbudowałem. `BŁĄD KOPIOWANIA` znaczy, że nie jest —
+   wtedy problem jest z dyskiem albo antywirusem, nie z patchem.
+5. Na końcu pokazuje podsumowanie, a całą sesję zapisuje w **`RAPORT_PATCHERA.txt`**
+   na Pulpicie (data, godzina, każdy plik).
+
+## Cofnięcie
+
+Kliknij dwa razy **`COFNIJ.bat`**. Przywraca pliki `.bak` — też z weryfikacją skrótu.
+Kopie powstają wyłącznie z oryginałów, więc cofnięcie wraca do stanu sprzed patchera
+nawet po kilku instalacjach pod rząd.
+
+## Sprawdzenie bez zmieniania czegokolwiek
+
+W linii poleceń, w folderze patchera:
+
+```text
+PATCHER.bat sprawdz
+```
+
+(pokazuje, które pliki w grze są polskie, które oryginalne, a których nie ma).
+
+## Co leży w folderze
 
 | plik | rola |
 |---|---|
-| `PATCHER.bat` | uruchamia wszystko (dwuklik) |
+| `PATCHER.bat` | instalacja (to klikasz) |
+| `COFNIJ.bat` | powrót do oryginału |
 | `PATCHER.ps1` | właściwa robota: kopiowanie, sprawdzanie skrótów, cofanie |
 | `MANIFEST.txt` | lista plików + SHA-256 oryginału i wersji polskiej |
 | `pliki/` | gotowe polskie pliki do wgrania |
 
-## Jak używać
-
-1. Rozpakuj cały folder na Pulpit (nie kopiuj samego `PATCHER.bat`!).
-2. Kliknij dwa razy **`PATCHER.bat`**.
-3. Wybierz **1** — instalacja. Menu pokaże się przy każdym uruchomieniu, więc ten sam
-   plik służy też do sprawdzenia (**2**) i cofnięcia (**3**).
-
-## Co patcher sprawdza, zanim cokolwiek podmieni
-
-Dla każdego pliku liczy SHA-256 tego, co leży w grze, i porównuje z manifestem:
-
-| skrót w grze | co robi |
-|---|---|
-| równy oryginałowi | robi kopię `.bak` i wgrywa polską wersję |
-| równy wersji polskiej | nic — pisze `JUZ POLSKI` |
-| inny niż oba | **nie rusza pliku**, pisze `INNA WERSJA` |
-
-Trzeci przypadek jest po to, żeby patch zbudowany z innej wersji gry nie rozwalił
-instalacji po cichu. Jeśli go zobaczysz — napisz mi to, a nie „na siłę”.
-
-Po każdym kopiowaniu patcher liczy skrót jeszcze raz. `OK` znaczy, że plik w grze jest
-dokładnie ten, który zbudowałem. `BLAD KOPIOWANIA` znaczy, że nie jest — i wtedy jest
-problem z dyskiem albo antywirusem, nie z patchem.
-
-Cała sesja ląduje w **`RAPORT_PATCHERA.txt`** na Pulpicie (z datą i godziną), bo okno
-konsoli się zamyka.
-
-## Cofnięcie
-
-Opcja **3** przywraca pliki `.bak`. Kopie powstają tylko z oryginałów, więc cofnięcie
-zawsze wraca do stanu gry sprzed patchera — nawet po kilku instalacjach pod rząd.
-
-## Gdzie szuka gry
-
-Patcher próbuje `@@GAME@@`, a jeśli tam nie ma gry, pyta o ścieżkę i zapamiętuje ją
-w `sciezka.txt` obok siebie. Szuka w niej podfolderu
-`SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64`.
-
 ## Stan tej wersji
 
-To jest **wersja robocza patchera** — mechanizm docelowy, wypełniony plikami z testu 6
-(13 plików: tabele, prefaby, atlasy menu i pojęć). Do wydania finalnego podmienia się
-tylko zawartość `pliki/` i `MANIFEST.txt`; skrypty zostają te same.
+To jest **mechanizm docelowy** wypełniony plikami z testu 6 (13 plików: tabele, prefaby,
+atlasy menu i pojęć). Do wydania finalnego podmienia się tylko zawartość `pliki/`
+i `MANIFEST.txt`; skrypty zostają te same.
 
-Testy w repozytorium (`tests/test_patcher.py`) sprawdzają: skład paczki, BOM i CRLF
-w `.ps1`, czystość ASCII w `.bat`, zgodność liczby wierszy manifestu z plikami w `pliki/`,
-poprawność skrótów i to, że żaden plik „polski” nie jest identyczny z oryginałem.
+Polskie znaki działają — czcionka gry ma wszystkie znaki diakrytyczne (sprawdzone w grze),
+więc patcher nie rusza czcionki.
+
+Testy w repozytorium (`tests/test_patcher.py`) sprawdzają skład paczki, BOM i CRLF w `.ps1`,
+czystość ASCII w `.bat`, zgodność manifestu z `pliki/`, poprawność skrótów, to, że żaden
+plik „polski” nie jest identyczny z oryginałem, i parsują `.ps1` prawdziwą gramatyką
+PowerShell.
 '''
 
 
@@ -394,6 +538,12 @@ def collect(sources, originals_check: bool = True) -> tuple[dict[str, Path], dic
     return bundles, originals
 
 
+def write_bat(path: Path, mode: str) -> None:
+    """A wrapper per mode: one double-click = one action, no menu."""
+    path.write_bytes(BAT.replace('@@TRYB@@', mode)
+                     .replace('\n', '\r\n').encode('ascii'))
+
+
 def write_patcher(out_dir: Path, bundles: dict[str, Path], originals: dict[str, str],
                   zip_path: Path | None = None, game: str = GAME_DEFAULT) -> dict:
     out_dir = Path(out_dir)
@@ -406,21 +556,32 @@ def write_patcher(out_dir: Path, bundles: dict[str, Path], originals: dict[str, 
         manifest.append(f'{name}|{originals[name]}|{sha256(target)}')
     (out_dir / 'MANIFEST.txt').write_bytes(
         '\n'.join(manifest).encode('utf-8') + b'\n')
-    (out_dir / 'PATCHER.bat').write_bytes(BAT.replace('\n', '\r\n').encode('ascii'))
+
+    write_bat(out_dir / 'PATCHER.bat', 'instaluj')
+    write_bat(out_dir / 'COFNIJ.bat', 'cofnij')
+
     ps1 = PS1.replace('@@AA@@', AA_REL).replace('@@GAME@@', game)
     (out_dir / 'PATCHER.ps1').write_bytes(
         b'\xef\xbb\xbf' + ps1.replace('\n', '\r\n').encode('utf-8'))
     (out_dir / 'CZYTAJ_TO.md').write_bytes(
         ('\ufeff' + README.replace('@@GAME@@', game)
          .replace('\n', '\r\n')).encode('utf-8'))
+
     info = {'dir': str(out_dir), 'files': len(bundles), 'zip': None}
     if zip_path is not None:
         zip_path = Path(zip_path)
         zip_path.parent.mkdir(parents=True, exist_ok=True)
+        # fixed timestamps: the same bundles must give the same zip, so the SHA-256 we
+        # publish stays valid across rebuilds instead of drifting with the clock
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
             for path in sorted(out_dir.rglob('*')):
-                if path.is_file():
-                    archive.write(path, path.relative_to(out_dir).as_posix())
+                if not path.is_file():
+                    continue
+                info_entry = zipfile.ZipInfo(path.relative_to(out_dir).as_posix(),
+                                             date_time=(2026, 1, 1, 0, 0, 0))
+                info_entry.compress_type = zipfile.ZIP_DEFLATED
+                info_entry.external_attr = 0o644 << 16
+                archive.writestr(info_entry, path.read_bytes())
         info['zip'] = str(zip_path)
         info['zip_size'] = zip_path.stat().st_size
         info['zip_sha256'] = sha256(zip_path)

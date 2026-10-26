@@ -64,14 +64,28 @@ def kit(tmp_path_factory):
     return out / 'kit', zip_path, info, bundles
 
 
-def test_bat_is_ascii_and_crlf(kit):
+@pytest.mark.parametrize('name', ['PATCHER.bat', 'COFNIJ.bat'])
+def test_bats_are_ascii_and_crlf(kit, name):
     _dir, _zip, _info, _b = kit
-    raw = (_dir / 'PATCHER.bat').read_bytes()
-    assert raw.decode('ascii') is not None, 'PATCHER.bat musi byc czystym ASCII'
-    assert b'\r\n' in raw and b'\n' not in raw.replace(b'\r\n', b''), 'PATCHER.bat: CRLF'
+    raw = (_dir / name).read_bytes()
+    assert raw.decode('ascii') is not None, f'{name} musi byc czystym ASCII'
+    assert b'\r\n' in raw and b'\n' not in raw.replace(b'\r\n', b''), f'{name}: CRLF'
     text = raw.decode('ascii')
-    assert 'URUCHOM' not in text  # no leftover of the old wrapper names
     assert 'PATCHER.ps1' in text and 'pause' in text
+    assert '-Tryb' in text and '-FolderGry' in text
+
+
+def test_one_double_click_installs_without_a_menu(kit):
+    """Like the OE patcher: no options, no questions - the bat says what to do."""
+    _dir, _zip, _info, _b = kit
+    install = (_dir / 'PATCHER.bat').read_text(encoding='ascii')
+    undo = (_dir / 'COFNIJ.bat').read_text(encoding='ascii')
+    assert 'set "TRYB=instaluj"' in install
+    assert 'set "TRYB=cofnij"' in undo
+    assert 'choice' not in install.lower()  # no menu prompt
+    ps1 = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert '1 - zainstaluj' not in ps1
+    assert "$choice = Read-Host" not in ps1
 
 
 def test_ps1_has_bom_and_crlf(kit):
@@ -106,12 +120,56 @@ def test_ps1_contains_the_three_modes_and_a_verified_copy(kit):
     _dir, _zip, _info, _b = kit
     text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
     for needle in ('function Install-All', 'function Check-All', 'function Revert-All',
-                   'Get-FileHash', 'Copy-Item', 'Read-Host', 'RAPORT_PATCHERA.txt'):
+                   'Get-FileHash', 'Copy-Item', 'Read-Host', 'RAPORT_PATCHERA.txt',
+                   "if ($Tryb -eq 'cofnij')", "if ($Tryb -eq 'sprawdz')"):
         assert needle in text, f'brak {needle}'
     # the copy is hashed again afterwards and compared with the manifest
     assert '$after -eq $patched' in text
     # an unknown file in the game is never overwritten
     assert '$current -ne $original' in text
+
+
+def test_ps1_refuses_to_patch_a_running_game(kit):
+    """Windows keeps the bundles open; copying into a running game is how installs break."""
+    _dir, _zip, _info, _b = kit
+    text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert 'function Test-GameRunning' in text
+    assert 'if (Test-GameRunning)' in text
+    assert 'Zamknij ją całkowicie' in text
+
+
+def test_ps1_copies_through_a_temporary_file(kit):
+    """A crash mid-copy must not leave half a bundle in the game."""
+    _dir, _zip, _info, _b = kit
+    text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert "$temp = $target + '.nowy'" in text
+    assert 'Move-Item -LiteralPath $temp -Destination $target -Force' in text
+
+
+def test_manifest_rows_are_objects_not_arrays(kit):
+    """A one-row manifest would unroll `@(name, hash, hash)` into three strings."""
+    _dir, _zip, _info, _b = kit
+    text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert '[pscustomobject]@{ Name = $parts[0]; Original = $parts[1]; Patched = $parts[2] }' in text
+    assert '$row[0]' not in text and '$row[1]' not in text and '$row[2]' not in text
+
+
+def test_ps1_notices_an_incomplete_kit(kit):
+    """Owner copies the .bat only -> say so, do not report 13 missing files in the game."""
+    _dir, _zip, _info, _b = kit
+    text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert 'Paczka niekompletna' in text
+    assert 'foreach ($row in $rows) {' in text
+
+
+def test_ps1_finds_the_game_without_help(kit):
+    """Same as OE: try the usual places first, ask only when that fails."""
+    _dir, _zip, _info, _b = kit
+    text = (_dir / 'PATCHER.ps1').read_bytes()[3:].decode('utf-8')
+    assert 'function Find-Game' in text and 'function Ask-Game' in text
+    assert '[System.IO.DriveInfo]::GetDrives()' in text
+    assert 'steamapps\\common' in text
+    assert 'sciezka.txt' in text  # the answer is remembered between runs
 
 
 def test_manifest_matches_the_files_and_carries_two_hashes(kit):
@@ -137,9 +195,20 @@ def test_zip_holds_the_whole_folder(kit):
     _dir, zip_path, info, bundles = kit
     with zipfile.ZipFile(zip_path) as archive:
         names = set(archive.namelist())
-    assert {'PATCHER.bat', 'PATCHER.ps1', 'MANIFEST.txt', 'CZYTAJ_TO.md'} <= names
+    assert {'PATCHER.bat', 'COFNIJ.bat', 'PATCHER.ps1', 'MANIFEST.txt',
+            'CZYTAJ_TO.md'} <= names
     assert sum(1 for name in names if name.startswith('pliki/')) == len(bundles)
     assert info['zip_sha256'] == hashlib.sha256(zip_path.read_bytes()).hexdigest()
+
+
+def test_the_same_bundles_give_the_same_zip(tmp_path):
+    """Fixed timestamps: the published SHA-256 stays valid when the kit is rebuilt."""
+    bundles, originals = build_patcher.collect(SOURCES)
+    first = build_patcher.write_patcher(tmp_path / 'a', bundles, originals,
+                                        tmp_path / 'a.zip')
+    second = build_patcher.write_patcher(tmp_path / 'b', bundles, originals,
+                                         tmp_path / 'b.zip')
+    assert first['zip_sha256'] == second['zip_sha256']
 
 
 def test_ps1_is_a_valid_powershell_document(kit):

@@ -60,6 +60,9 @@ class KitTests(unittest.TestCase):
         if module is free_kit:
             return module.survey(module.read_listing(module.LISTING))
         import json
+        if not text_kit.MAPPING.is_file():
+            raise unittest.SkipTest('brak local/mapping.json — plik roboczy poza '
+                                    'repozytorium, zestaw juz odebrany')
         mapping = json.loads(text_kit.MAPPING.read_text(encoding='utf-8'))
         sizes = text_kit.read_listing(text_kit.LISTING)
         have = {path.name for path in text_kit.HAVE.glob('*.bundle')}
@@ -67,6 +70,9 @@ class KitTests(unittest.TestCase):
 
     def kit_paths(self, module, ps_name, zip_name):
         plan = self.plan_for(module)
+        wanted = plan.get('wanted') or plan.get('need') or []
+        if not wanted:
+            raise unittest.SkipTest('nic do zebrania — paczki z tymi plikami juz odebrane')
         return plan, module.ps_block(plan)
 
     def test_no_trailing_comma_before_closing_paren(self):
