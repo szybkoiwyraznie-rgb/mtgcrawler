@@ -23,7 +23,8 @@ import UnityPy  # noqa: E402
 
 from srw_y_bundle_crypt import decrypt  # noqa: E402
 
-ROOTS = (HERE / 'local' / 's6' / 'tekst', HERE / 'local' / 's6' / 'dlc')
+ROOTS = (HERE / 'local' / 's6' / 'tekst', HERE / 'local' / 's6' / 'dlc',
+         HERE / 'local' / 's6' / 'fp')
 PLAIN = HERE / 'local' / 's6' / 'plain'
 OUT = HERE / 'local' / 's6' / 'inventory.json'
 

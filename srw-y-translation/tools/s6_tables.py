@@ -45,7 +45,8 @@ sys.path.insert(0, str(HERE / 'tools'))
 
 import UnityPy  # noqa: E402
 
-ROOTS = (HERE / 'local' / 's4_plain', HERE / 'local' / 's6' / 'plain' / 'tekst')
+ROOTS = (HERE / 'local' / 's4_plain', HERE / 'local' / 's6' / 'plain' / 'tekst',
+         HERE / 'local' / 's6' / 'plain' / 'fp')
 OUT = HERE / 'local' / 's6' / 'tables.jsonl'
 REPORT = HERE / 'local' / 's6' / 'tables_report.json'
 LOCALES = {'_ja-JP': 'ja', '_en-US': 'en'}

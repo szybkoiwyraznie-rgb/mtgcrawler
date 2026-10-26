@@ -53,7 +53,9 @@ BASE = {
            / '1c12bbab8ed0f62ff22f808ce0138bc1.bundle'),
 }
 DLC_ROOT = HERE / 'local' / 's6' / 'plain' / 'dlc'
-DLC_MAP = HERE / 'local' / 'dlc_scenario_bundles.json'
+FREE_PATCH = HERE / 'local' / 's6' / 'plain' / 'fp'
+DLC_MAP = HERE / 'data' / 'dlc_scenario_bundles.json'
+FREE_MAP = HERE / 'data' / 'free_patch_bundles.json'
 LANG = {'jp': 'ja', 'ja': 'ja', 'en': 'en'}
 
 LITERAL_RE = re.compile(r'\[\[(.*?)\]\]', re.S)
@@ -115,9 +117,12 @@ def collect_scripts() -> tuple[dict[str, dict], list[dict]]:
         sources.append({'language': language, 'pack': pack,
                         'bundle': path.name, 'files': len(files)})
     wanted = json.loads(DLC_MAP.read_text(encoding='utf-8'))['wanted']
+    wanted += [{'pack': 'FreePatch', 'bundle': item['broadcast'], 'lang': item['lang']}
+               for item in json.loads(FREE_MAP.read_text(encoding='utf-8'))['wanted']]
     for item in wanted:
         language = LANG[item['lang']]
-        path = DLC_ROOT / item['pack'] / item['bundle']
+        path = (FREE_PATCH if item['pack'] == 'FreePatch'
+                else DLC_ROOT / item['pack']) / item['bundle']
         if not path.is_file():
             sources.append({'language': language, 'pack': item['pack'],
                             'bundle': item['bundle'], 'files': 0,

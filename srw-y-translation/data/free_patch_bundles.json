@@ -1,0 +1,201 @@
+{
+ "wanted": [
+  {
+   "broadcast": "0d4da62848b000a01b923ae084a6b5d0.bundle",
+   "lang": "jp",
+   "bytes": 9306
+  },
+  {
+   "broadcast": "141beb454fb44e3a272f5552bb6611e7.bundle",
+   "lang": "jp",
+   "bytes": 9209
+  },
+  {
+   "broadcast": "1cdd8e59c3948d121d648b119d250431.bundle",
+   "lang": "jp",
+   "bytes": 9403
+  },
+  {
+   "broadcast": "1e7237b067180a084a41813d725b206c.bundle",
+   "lang": "jp",
+   "bytes": 11090
+  },
+  {
+   "broadcast": "24589bf8af43622440136450ebc8f659.bundle",
+   "lang": "jp",
+   "bytes": 11094
+  },
+  {
+   "broadcast": "251b193b2f5eb700ee4630f384392af2.bundle",
+   "lang": "jp",
+   "bytes": 6798
+  },
+  {
+   "broadcast": "29bcf7970261ce0994d3941e0cdcaea4.bundle",
+   "lang": "jp",
+   "bytes": 10130
+  },
+  {
+   "broadcast": "2ca4f140dc737f2e3052e019a8378599.bundle",
+   "lang": "jp",
+   "bytes": 11153
+  },
+  {
+   "broadcast": "3ff7231ca08573b470a794283c1d5c15.bundle",
+   "lang": "jp",
+   "bytes": 7100
+  },
+  {
+   "broadcast": "6ed33d795cbd7fa0e61a577bcee0fbac.bundle",
+   "lang": "jp",
+   "bytes": 9485
+  },
+  {
+   "broadcast": "76d2c892f39485bfea780ed27394adba.bundle",
+   "lang": "jp",
+   "bytes": 9479
+  },
+  {
+   "broadcast": "83d6b36d01cf4c373cde7d5b68a1c95a.bundle",
+   "lang": "jp",
+   "bytes": 6730
+  },
+  {
+   "broadcast": "8a1d95393391e5fe652090f59d2a09e0.bundle",
+   "lang": "jp",
+   "bytes": 7002
+  },
+  {
+   "broadcast": "937bc61e8968b32d98ebb248f8620124.bundle",
+   "lang": "jp",
+   "bytes": 6117
+  },
+  {
+   "broadcast": "97087a594607743728c740e5bfafc598.bundle",
+   "lang": "jp",
+   "bytes": 9109
+  },
+  {
+   "broadcast": "9b7b9187c8666a7921c30b9a1783ac3e.bundle",
+   "lang": "jp",
+   "bytes": 11394
+  },
+  {
+   "broadcast": "9f1ff4c36b11d456e9c43fd495d3ef6a.bundle",
+   "lang": "jp",
+   "bytes": 10002
+  },
+  {
+   "broadcast": "de838ab8c5065210c5038b9f88ce3041.bundle",
+   "lang": "jp",
+   "bytes": 10685
+  },
+  {
+   "broadcast": "f1add4a1bc8a4355ca5e6d5aef52685a.bundle",
+   "lang": "jp",
+   "bytes": 10579
+  },
+  {
+   "broadcast": "05ac40cd8b0d0c560e37b9a43f643c14.bundle",
+   "lang": "en",
+   "bytes": 6067
+  },
+  {
+   "broadcast": "14bb3de6c1d6f272abd381e3822a90a5.bundle",
+   "lang": "en",
+   "bytes": 9486
+  },
+  {
+   "broadcast": "154bdbe91a60bc343c9bcd84e69a7e9f.bundle",
+   "lang": "en",
+   "bytes": 9728
+  },
+  {
+   "broadcast": "18593b7af33eb3ce73264f6e33fc3450.bundle",
+   "lang": "en",
+   "bytes": 6910
+  },
+  {
+   "broadcast": "26216ce79427f69751a05f49a93519c8.bundle",
+   "lang": "en",
+   "bytes": 9395
+  },
+  {
+   "broadcast": "33ff0406dd30f1c392fcf6e952aab74b.bundle",
+   "lang": "en",
+   "bytes": 10674
+  },
+  {
+   "broadcast": "3c1b09a99bb76c0116a4886321d0d668.bundle",
+   "lang": "en",
+   "bytes": 11680
+  },
+  {
+   "broadcast": "3d24a0ef475075fe52f3a6765c113c9f.bundle",
+   "lang": "en",
+   "bytes": 11535
+  },
+  {
+   "broadcast": "401421c9cbe7836dab9456090c20dff0.bundle",
+   "lang": "en",
+   "bytes": 7585
+  },
+  {
+   "broadcast": "45e7a190e4cb11cf2cf79e8ffa4aa345.bundle",
+   "lang": "en",
+   "bytes": 11679
+  },
+  {
+   "broadcast": "4903c1e92ad1f05d42ada5d72747089f.bundle",
+   "lang": "en",
+   "bytes": 9828
+  },
+  {
+   "broadcast": "4ec51514db6c85d1167ce46836350bde.bundle",
+   "lang": "en",
+   "bytes": 10882
+  },
+  {
+   "broadcast": "5f432593aaa6866379f58cabd1897552.bundle",
+   "lang": "en",
+   "bytes": 9860
+  },
+  {
+   "broadcast": "670349f8f0d391fbe1171eb4e742806a.bundle",
+   "lang": "en",
+   "bytes": 11662
+  },
+  {
+   "broadcast": "72418e5d483d4794a75beba4f6df7461.bundle",
+   "lang": "en",
+   "bytes": 7136
+  },
+  {
+   "broadcast": "84d156259997cddfed298f754e3041a4.bundle",
+   "lang": "en",
+   "bytes": 10994
+  },
+  {
+   "broadcast": "867d0e134ea7bfe1c59c6829da3a2836.bundle",
+   "lang": "en",
+   "bytes": 10245
+  },
+  {
+   "broadcast": "908ad98cd52f0e3a1015a387a16d164b.bundle",
+   "lang": "en",
+   "bytes": 6879
+  },
+  {
+   "broadcast": "e5e77bc4623e60c89b0b87ab2bf27b40.bundle",
+   "lang": "en",
+   "bytes": 9693
+  }
+ ],
+ "bytes": 357783,
+ "files": {
+  "jp": 19,
+  "en": 19
+ },
+ "shared_files": 19,
+ "jp_only": []
+}
