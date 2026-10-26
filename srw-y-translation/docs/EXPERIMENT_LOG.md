@@ -902,3 +902,36 @@ zip members exactly `{ps1, URUCHOM_TO.bat, CZYTAJ_TO.txt}` with `pause` and
 
 Lesson for the rest of the project: any generated `.ps1` for the owner must go through
 this lint - a syntax error costs a round trip and looks like an unexplained red window.
+
+## 2026-10-26 (test 6) - the atlas tool drew upside down and every check passed
+
+The first build of test 6 produced a `Mid_Font` whose **original** labels were still on the
+texture (`必要気力 Required Morale` at the top) with the Polish ones as mirror-image
+leftovers at the bottom. Nothing in the tool complained: `rebuild_plain` verified every
+object, the stream came back byte-exact, the BC7 length matched, the crypto round-tripped
+and the preview PNG looked plausible.
+
+**Cause.** `texture2ddecoder.decode_bc7` returns the stream's rows as stored, which are
+bottom-up relative to the picture, while the sprite rects are also bottom-up. The tool
+converted the rect to a top-left `top = height - y - h` and drew onto an image that had
+never been flipped, so the erase and the draw both landed on the mirrored band. The
+atlas had been produced by this path for tests 4 and 5 (`TOP_Font`, `DataBase_Font`,
+`OptionMenuButton_Font`) - those were never looked at in game, which is why it survived
+two deliveries.
+
+**Fix.** `decode_texture()` / `encode_texture()` in `tools/build_pl_ui_atlas.py`: one
+flip on the way in, one on the way out, for BC7 *and* for uncompressed RGBA32
+(`TacticalPart_Font` is format 4, not 25). Per-texture `pad` added, because a 60x32 chip
+cannot carry the 24 px margin of a 352x64 cell.
+
+**How it was proved.** Not by eye alone: the rebuilt texture was re-read through UnityPy
+(`Texture2D.image`, i.e. the orientation the game shows), composited on a dark background
+and read - all five columns `Wym. morale / Nazwa broni / Siła ataku / ...` in the right
+rows, original text gone. The same check on `Pilot_Font` and `TacticalPart_Font` covers
+both code paths. `tests/test_ui_atlas_orientation.py` pins it: the decode must put the
+first label at the top and leave the bottom rows empty, and encoding must keep the stream
+length.
+
+**Lesson.** For a picture the artefact *is* the content, so "the bytes changed" and "the
+container verified" prove nothing. Every atlas patch is now read back as an image and
+compared against the cell rects before it ships.

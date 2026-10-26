@@ -61,7 +61,7 @@ def bundle_index() -> dict[str, str]:
     return index
 
 
-PLAIN_ROOTS = (LOCAL / 's6' / 'plain', LOCAL / 'ui')
+PLAIN_ROOTS = (LOCAL / 's6' / 'plain', LOCAL / 'ui', LOCAL / 'ui6')
 
 
 def source_of(stem: str, base: Path | None) -> tuple[Path, str]:

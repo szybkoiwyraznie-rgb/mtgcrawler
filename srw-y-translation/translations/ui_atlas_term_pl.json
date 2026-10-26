@@ -1,0 +1,167 @@
+{
+ "title": "SRW Y - test 6: atlasy pojęć (ekran pilota, mecha, panel bitwy)",
+ "rule": "każdy wiersz atlasu to jedno pojęcie w pięciu kolumnach językowych; przerysowujemy wszystkie kolumny po polsku, żeby język gry nie miał znaczenia. Polski napis musi zmieścić się w komórce oryginału - rysowanie zmniejsza czcionkę, aż wejdzie, i nigdy nie wychodzi za komórkę.",
+ "bundles": {
+  "6311c54bdb9f1c66aa237c78ac8dd3a2": {
+   "file": "Short_Font (HP/EN/tereny)",
+   "textures": {
+    "Short_Font": {
+     "columns": 5,
+     "pad": 6,
+     "labels": [
+      "HP",
+      "EN",
+      "Pow",
+      "Zie",
+      "Wod",
+      "Kos",
+      "Teren"
+     ]
+    }
+   }
+  },
+  "ee1aae99cb34ce3465609bab05ea9352": {
+   "file": "Mid_Font (broń, pole bitwy)",
+   "textures": {
+    "Mid_Font": {
+     "columns": 5,
+     "pad": 10,
+     "labels": [
+      "Wym. morale",
+      "Wym. umiej.",
+      "Nazwa broni",
+      "Siła ataku",
+      "Zasięg",
+      "Koszt EN",
+      "Amunicja",
+      "CELN",
+      "KRYT",
+      "Cechy",
+      "Misja",
+      "Miejsce"
+     ]
+    }
+   }
+  },
+  "b8d33782faeb506758612069ab793763": {
+   "file": "Long_Font (podsumowania misji)",
+   "textures": {
+    "Long_Font": {
+     "columns": 5,
+     "pad": 10,
+     "labels": [
+      "Zalec. ranga",
+      "Stałe wyjścia",
+      "Nagrody",
+      "Adaptacja terenu",
+      "Morale startowe",
+      "Maks. morale",
+      "Maks. SP",
+      "Suma kredytów",
+      "Suma punktów",
+      "Utracone jedn.",
+      "Zdobyte części",
+      "Zdobyte umiej.",
+      "Zdobyte części",
+      "Zdobyte umiej."
+     ]
+    }
+   }
+  },
+  "888af64bb02036975e2c47e315b9c9cf": {
+   "file": "Pilot_Font (ekran pilota)",
+   "textures": {
+    "Pilot_Font": {
+     "columns": 5,
+     "pad": 6,
+     "labels": [
+      "WRĘCZ",
+      "DYST",
+      "OBR",
+      "CELN",
+      "UNIK",
+      "UMIEJ",
+      "SP",
+      "Morale",
+      "Punkty",
+      "Nast.",
+      "Poz.",
+      "KRYT",
+      "Efekt",
+      "Cel"
+     ]
+    }
+   }
+  },
+  "49e9a7cb08897c1d98ed50c65be849a1": {
+   "file": "Robot_Font (ekran mecha)",
+   "textures": {
+    "Robot_Font": {
+     "columns": 5,
+     "pad": 8,
+     "labels": [
+      "Pancerz",
+      "Zwrotność",
+      "Widoczność",
+      "Poziom ulepsz.",
+      "Rozmiar",
+      "Ruch",
+      "Pełna nazwa",
+      "Broń",
+      "Ulepsz. mecha",
+      "Ulepsz. broni",
+      "Modyf. obrony",
+      "Modyf. uniku",
+      "Regen. HP",
+      "Regen. EN",
+      "Info o terenie",
+      "Wym. morale",
+      "Wym. umiej."
+     ]
+    }
+   }
+  },
+  "e17590ff3bc880acbf75b441e2cd59ce": {
+   "file": "StatusBuff_Font (stany w bitwie)",
+   "textures": {
+    "StatusBuff_Font": {
+     "columns": 5,
+     "pad": 12,
+     "labels": [
+      "Statystyki +",
+      "Statystyki −",
+      "Umiejętność aktywna",
+      "Zdolność aktywna",
+      "Unieruchomiony"
+     ]
+    }
+   }
+  },
+  "ef1c821ee34b3038bbc876f1525481b1": {
+   "file": "TacticalPart_Font (fazy tury)",
+   "textures": {
+    "TacticalPart_Font": {
+     "columns": 5,
+     "pad": 10,
+     "labels": [
+      "FAZA GRACZA",
+      "FAZA WROGA"
+     ]
+    }
+   }
+  },
+  "6a72778325cc4a18fedcc48a664ed23a": {
+   "file": "TacticalPart02_Font (tura, jednostka)",
+   "textures": {
+    "TacticalPart02_Font": {
+     "columns": 5,
+     "pad": 4,
+     "labels": [
+      "TURA",
+      "JEDN."
+     ]
+    }
+   }
+  }
+ }
+}

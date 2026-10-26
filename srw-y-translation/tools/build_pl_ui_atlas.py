@@ -44,6 +44,8 @@ TRANS = HERE / 'translations' / 'ui_atlas_pl.json'
 BUILD = HERE / 'build' / 'ui_atlas'
 FONT = Path('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf')
 BC7 = 25
+RGBA32 = 4
+PAD = 24
 
 
 def streams_of(plain: bytes) -> tuple[dict, list[bytes]]:
@@ -90,8 +92,13 @@ def cells_of(env, texture: str, columns: int) -> dict[int, tuple[int, int, int, 
 
 
 def draw_labels(image: Image.Image, boxes: dict[int, tuple[int, int, int, int]],
-                labels: list[str], columns: int) -> Image.Image:
-    """Redraw each cell with the Polish label for its row."""
+                labels: list[str], columns: int, pad: int = PAD) -> Image.Image:
+    """Redraw each cell with the Polish label for its row.
+
+    `pad` is the total width kept clear of pixels, so the text never touches the border.
+    Small cells (the 60x32 terrain chips) need a smaller pad than the wide menu cells,
+    otherwise the font shrinks for no reason.
+    """
     width, height = image.size
     draw = ImageDraw.Draw(image)
     for index, (x, y, w, h) in sorted(boxes.items()):
@@ -104,13 +111,33 @@ def draw_labels(image: Image.Image, boxes: dict[int, tuple[int, int, int, int]],
         while size > 8:
             font = ImageFont.truetype(str(FONT), size)
             left, _top, right, _bottom = draw.textbbox((0, 0), label, font=font)
-            if right - left <= w - 24:
+            if right - left <= w - pad:
                 break
             size -= 1
         font = ImageFont.truetype(str(FONT), size)
         draw.text((x + w / 2, top + h / 2), label, font=font, fill=(255, 255, 255, 255),
                   anchor='mm')
     return image
+
+
+def decode_texture(fmt: int, pixels: bytes, width: int, height: int) -> Image.Image:
+    """Stream bytes -> RGBA in reading order.
+
+    Both BC7 and RGBA32 keep their rows bottom-up, so the decode is flipped once here.
+    Skipping that flip was a real bug: the labels were drawn into mirrored rows, the
+    original ones stayed visible, and nothing could tell it from "the game ignores us".
+    """
+    if fmt == BC7:
+        image = Image.open(io.BytesIO(_png(pixels, width, height))).convert('RGBA')
+    else:
+        image = Image.frombytes('RGBA', (width, height), pixels)
+    return image.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+
+
+def encode_texture(fmt: int, image: Image.Image) -> bytes:
+    """RGBA in reading order -> stream bytes, undoing the flip of `decode_texture`."""
+    flipped = image.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+    return to_bc7(flipped) if fmt == BC7 else flipped.tobytes()
 
 
 def to_bc7(image: Image.Image) -> bytes:
@@ -137,8 +164,9 @@ def patch(stem: str, spec: dict, start: Path, out_dir: Path, preview: Path | Non
         if obj is None:
             raise SystemExit(f'{stem}: brak tekstury {texture_name}')
         fmt = tree['m_TextureFormat']
-        if fmt != BC7:
-            raise SystemExit(f'{stem}: {texture_name} ma format {fmt}, oczekiwano BC7')
+        if fmt not in (BC7, RGBA32):
+            raise SystemExit(f'{stem}: {texture_name} ma format {fmt}, '
+                             f'oczekiwano BC7 ({BC7}) albo RGBA32 ({RGBA32})')
         stream = tree['m_StreamData']
         offset, size = int(stream['offset']), int(stream['size'])
         stream_name = stream['path'].rsplit('/', 1)[-1]
@@ -147,20 +175,24 @@ def patch(stem: str, spec: dict, start: Path, out_dir: Path, preview: Path | Non
         if index is None:
             raise SystemExit(f'{stem}: nie ma strumienia {stream_name}')
         width, height = tree['m_Width'], tree['m_Height']
-        if size != width * height:
-            raise SystemExit(f'{stem}: {texture_name} nie jest 1 bajtem na piksel')
+        # BC7 is one byte per pixel; RGBA32 is four. Either way the stream must already be
+        # exactly the size the format implies, or the byte-for-byte swap is off the table.
+        stride = 1 if fmt == BC7 else 4
+        if size != width * height * stride:
+            raise SystemExit(f'{stem}: {texture_name} format {fmt} nie pasuje do strumienia')
 
         data = bytearray(streams[index] if index not in new_streams else new_streams[index])
         pixels = data[offset:offset + size]
-        image = Image.open(io.BytesIO(_png(pixels, width, height))).convert('RGBA')
+        image = decode_texture(fmt, pixels, width, height)
         boxes = cells_of(env, texture_name, texture_spec['columns'])
         if not boxes:
             raise SystemExit(f'{stem}: {texture_name} nie ma sprite\'ów')
         before = image.tobytes()
-        image = draw_labels(image, boxes, texture_spec['labels'], texture_spec['columns'])
-        encoded = to_bc7(image)
+        image = draw_labels(image, boxes, texture_spec['labels'], texture_spec['columns'],
+                            int(texture_spec.get('pad', PAD)))
+        encoded = encode_texture(fmt, image)
         if len(encoded) != size:
-            raise SystemExit(f'{stem}: BC7 ma {len(encoded)} B, a strumień {size} B')
+            raise SystemExit(f'{stem}: format {fmt} dał {len(encoded)} B, a strumień {size} B')
         data[offset:offset + size] = encoded
         new_streams[index] = bytes(data)
         done.append({'texture': texture_name, 'width': width, 'height': height,

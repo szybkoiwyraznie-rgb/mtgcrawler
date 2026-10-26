@@ -68,7 +68,9 @@ def test_patch_changes_only_the_wanted_strings_and_keeps_the_streams(tmp_path):
 
     rows = build(out_dir=tmp_path)
     title = next(row for row in rows if row['stem'] == TITLE)
-    assert [item['pl'] for item in title['strings']] == ['Naciśnij klawisz\n'] * 2
+    # dwie kopie napisu plus numer wersji jako widoczny znacznik (`30` -> `PL6`):
+    # jesli w grze pojawi sie PL6, ten prefab naprawde jest na ekranie
+    assert [item['pl'] for item in title['strings']] == ['Naciśnij klawisz\n'] * 2 + ['PL6']
 
     rebuilt = decrypt(f'{TITLE}.bundle', Path(title['path']).read_bytes())
     layout_after, files_after = files_of(rebuilt)
@@ -84,7 +86,7 @@ def test_patch_changes_only_the_wanted_strings_and_keeps_the_streams(tmp_path):
         part[2] for part in decompress_blocks(rebuilt, layout_after)))
     assert len(before) == len(after)
     changed = [right for left, right in zip(before, after) if left[2] != right[2]]
-    assert len(changed) == 2
+    assert len(changed) == 3   # dwa napisy + numer wersji
     assert all(b'Press Any Key' not in raw for _id, _name, raw in changed)
 
     env, temp_path, _blob = load_objects(rebuilt)
