@@ -1,5 +1,37 @@
 # Next step — current state and open work
 
+**PL v4.6 delivered for owner re-test (2026-10-26).**
+[`srw-oe-translation-pl-v4.6.zip`](https://drive.google.com/file/d/1TREAui4lchY2Ujbk5nzk__Iv8jByeU_k/view)
+`8,765,212 B`, SHA-256 `2e5ebfeb…6d6e`, MD5 `e5c0e9aa…274a`. First language
+review of the **non-dialogue prose** (`28,431` PL rows / `5,846` unique texts):
+the unit-data panel's `weight`/`length` lines were still half English and are
+now Polish (`Masa 6387 kg`, `Dł. 3,804 m`, `Masa －－－`, `Dł. 6,9 mett`), and
+the save-failure / full-version system messages left in English are translated
+(`Zapis nie powiódł się. / Kontynuować bez zapisu?`). Everything else — story,
+battle quotes, mission titles, UI labels, font, geometry — is identical to
+v4.5. **Next owner-side: patch from a clean JP ISO with the v4.6 kit and check
+two screens** — the mech-dictionary unit-data panel (any unit with a
+weight/length line) and the "save failed" prompt. `runtime_tested` stays
+`false`. ISO YES / DLC NO / no PBOOT recopy.
+
+**Open decisions from the v4.6 audit** (nothing was changed for these; see
+`pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md`):
+1. full-width digits in `9` `config_status_change` rows
+   (`１ tura  Unik -５０％  Celność -５０％`) — cosmetic fix, but the field may be
+   fixed-width, so it needs an owner go-ahead;
+2. `11` single-kanji junk rows in `04_config_text` (`牾`, `珱`, `淫`, …) —
+   the English column has them too;
+3. `sysmes:29165` — its JP and EN are internally inconsistent; needs a measured
+   decision on which offset is really displayed before rewriting the PL;
+4. the fictional units `shin`/`zusshiri`/`mett`/`rufton` are kept in romaji —
+   say so if they should be Polonised;
+5. the English rows `43897`/`44013` carry the same wrong content as the Polish
+   rows fixed in v4.6 — an EN-kit fix, deliberately out of scope.
+
+**Reading editions** were not rebuilt for v4.6: the audit touched no dialogue,
+mission title or reading-edition source, so `srwoe_reading_PL_00-34.zip`
+(`d16a78aa…d2ba1`) stays the current one.
+
 **PL v4.5 delivered for owner re-test (2026-10-24).**
 [`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
 `8,764,842 B`, SHA-256 `6a602305…d025`; `48` mission-title rows shortened so that

@@ -1,7 +1,41 @@
-# Super Robot Wars OE — pełny polski patcher (v4.5 — tytuły misji dopasowane do paska)
+# Super Robot Wars OE — pełny polski patcher (v4.6 — panel danych jednostki i komunikaty systemowe)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Panel danych jednostki i komunikaty systemowe — v4.6 (2026-10-26)
+
+Pierwszy przegląd językowy tekstów, których wcześniejsze wydania nie obejmowały:
+nazwy i opisy przedmiotów, umiejętności, pomoc ekranowa, notki misji i nazwy —
+28 431 polskich wierszy (5 846 unikalnych tekstów). Skanowanie klas błędów
+(diakrytyki, powtórzone wyrazy, spacje i interpunkcja, resztki japońskiego,
+zdania angielskie, spójność terminologii) wykazało, że proza jest poprawna, ale
+dwie klasy były systemowe:
+
+- **Panel danych jednostki był w połowie po angielsku.** 348 wierszy pola
+  masa/długość (z 607) trzymało nadal tekst angielski: `Weight －－－`,
+  `Len. －－－`, `Empty Wt. 8,450kg`, `Dry Weight 4.4 rufton`, a obok nich
+  przetłumaczone `Masa 54,0 t` / `Dł. 25,0 m`. Teraz całość jest polska w tej
+  samej konwencji: `Masa 6387 kg`, `Dł. 3,804 m`, `Masa własna 8,45 t`,
+  `Masa 32 000 t`, `Dł. 14,53 m (15,59 m z działkami)`, `Masa －－－` /
+  `Dł. －－－` dla jednostek bez danych. Jednostki fikcyjne/żartobliwe
+  (`shin`, `zusshiri`, `mett`, `rufton`) zostają w oryginalnym zapisie.
+- **Komunikaty systemowe były po angielsku.** Monity o nieudanym zapisie
+  (`Save failed. Continue without saving?`) to jedyne nietłumaczone zdania
+  widoczne dla gracza — teraz `Zapis nie powiódł się. / Kontynuować bez
+  zapisu?`, a pełny wariant: `Zapis nie powiódł się. / Po "Starcie gry"
+  z ekranu tytułowego / gra ruszy od poprzedniego zapisu. / Czy na pewno?`.
+  Napis „Pobierz pełną wersję gry” (ekran zakupu wersji pełnej) pokazywał
+  wcześniej tytuł gry zamiast treści — poprawiony.
+- **Bez zmian:** fabuła, dialogi, odzywki bojowe, tytuły misji, etykiety UI,
+  font PL i geometria podpisów tekstur — identyczne jak w v4.5.
+- **Bez zmian pokrycia:** 108 805 / 109 176 wypełnionych wierszy, 371 świadomie
+  pustych, 0 błędów; kopie wierszy w panelach słownikowych zgodne (0 rozjazdów).
+- **Wersja tekstu:** `data_sha256 = 321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8`.
+- **Do sprawdzenia u Ciebie:** panel danych jednostki w słowniku mechów
+  (np. Scopedog `Masa 6387 kg` / `Dł. 3,804 m`) oraz monit o nieudanym zapisie.
+  W tym wydaniu nie ma potwierdzenia z PPSSPP — to nadal tylko sprawdzenie
+  statyczne i testy.
 
 ## Tytuły misji w pasku wyboru — v4.5 (2026-10-24)
 

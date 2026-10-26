@@ -14,10 +14,11 @@ disturbs another.
   Japanese release 1.08.
 - **Languages:** English and Polish (fresh translations from the Japanese
   original).
-- **Status:** active. English kit **v17**; full Polish translation **v4.5**
-  (2026-10-24 — story-language review of episodes 00–34 and the extra/simulator
-  scenes, then mission titles fitted to the mission-select bar). Polish reading
-  editions of episodes 00–34 published with the kits.
+- **Status:** active. English kit **v17**; full Polish translation **v4.6**
+  (2026-10-26 — first language review of the non-dialogue prose: the
+  unit-data panel completed and the save-failure/full-version system messages
+  translated). Polish reading editions of episodes 00–34 published with the
+  kits (unchanged by v4.6).
 - **Start here:** [`srw-oe-translation/README.md`](srw-oe-translation/README.md),
   status in [`srw-oe-translation/docs/STATUS.md`](srw-oe-translation/docs/STATUS.md),
   user instructions in
