@@ -78,3 +78,32 @@ przeszkodził rozmiar, czy nowy nagłówek kontenera.
 - Plan obejścia dla scen w trybie A: plik Lua można dopełnić **komentarzami** (`-- …`),
   których gra nie wyświetla, więc rozmiar pliku da się utrzymać bez ruszania tekstu.
   Dla tabel takiego wypełniacza nie ma — tam działa tylko tryb B.
+
+## 5. Test trybu B w grze (gotowy, czeka na uruchomienie)
+
+Sprawdzenie offline nie wystarczy — potrzebny jest jeden bieg w grze. Zbudowany kit
+podmienia **jedną scenę** (pierwsze dialogi po narracji otwierającej, `cse20_0000_0000300a`,
+61 linii po polsku) w **obu wariantach językowych gry**, więc właściciel nie potrzebuje
+sejwa: nowa gra i tekst jest na ekranie w pierwszej minucie.
+
+Co ten test rozstrzyga i czego **nie** rusza:
+
+| element | stan |
+|---|---|
+| nagłówek pliku serializowanego (wersja, typy, koniec pliku) | **bez zmian** — w pierwszych 4096 B różnią się 2 bajty: rozmiar metadanych `0x4B58 → 0x4948` |
+| układ bloków LZ4 (128 KiB, LZ4HC) | bez zmian, ta sama liczba bloków (ja 239, en 259) |
+| podmiana bloków + nowy blok informacyjny kontenera | **już sprawdzone w grze** — tak działa polska narracja (v2) |
+| obiekty inne niż edytowany skrypt | **weryfikowane bajt w bajt** przy budowie, 606/679 obiektów bez zmian |
+| nowy rozmiar obiektu w tabeli obiektów | **to jest nowe** |
+| inny rozmiar całego pliku `.bundle` | **to jest nowe** (ja +1 666 B, en +1 096 B) |
+
+Liczby z builda:
+
+| wariant | bundle przed → po | skrypt przed → po | bloki |
+|---|---|---|---|
+| ja-JP `8939a711…` | 4 740 401 → 4 742 067 B | 40 133 → 39 068 B | 239 → 239 |
+| en-US `1c12bbab…` | 5 591 151 → 5 592 247 B | 39 293 → 38 761 B | 259 → 259 |
+
+Gdyby gra odmówiła startu, następny krok jest jednoznaczny: ten sam build dopełniony
+zerami do **oryginalnego** rozmiaru pliku. Wtedy test odcina „inny rozmiar pliku” i
+zostawia samo „inny rozmiar obiektu” — i od razu wiadomo, która z dwóch rzeczy szkodzi.
