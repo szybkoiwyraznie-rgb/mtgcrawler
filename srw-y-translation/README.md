@@ -41,7 +41,10 @@ tables. Lines that belong to only one protagonist version carry
 `(wariant: bohater)` / `(wariant: bohaterka)` — 9,034 and 8,623 lines; battle quotes
 carry a `[głos N/39]` group number, because the speaker name is not in the text tables
 (one group = one character's voice set; the name sits in the game's `battle_voice Shared
-Data` / `PilotBasicDatas`, and the request for those files — **`SRW_Y_GLOSY_PROSBA.zip`** (Drive `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4 485 B): rozpakowujesz na pulpit, klikasz `URUCHOM_TO.bat`, a powstały `SRW_Y_GLOSY.zip` (17 bundli, ~3 MB) odsyłasz na Drive — is described in
+Data` / `PilotBasicDatas`, and the request for those files is the kit
+**`SRW_Y_GLOSY_PROSBA.zip`** (Drive `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4,485 B) —
+unzip it on the desktop, run `URUCHOM_TO.bat`, send back the resulting
+`SRW_Y_GLOSY.zip` with 17 game bundles, ~3 MB — described in
 [`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md)). The six questions the
 translator asked on 2026-10-26 are answered in
 [`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the
