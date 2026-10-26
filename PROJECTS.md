@@ -8,16 +8,25 @@ disturbs another.
 
 ## Current projects
 
+**Active project: SRW Y** (`srw-y-translation/`) — the text is extracted and with
+the translator, and the rebuilding/patcher toolchain is ready; the only blocking
+item is the translation itself. **SRW OE is complete** (2026-10-26) and changes
+only when an owner report from the game arrives.
+
 ### SRW OE — `srw-oe-translation/`
 
 - **Game:** Super Robot Taisen: Operation Extend, PSP, `NPJH50521`,
   Japanese release 1.08.
 - **Languages:** English and Polish (fresh translations from the Japanese
   original).
-- **Status:** active. English kit **v17**; full Polish translation **v4.5**
-  (2026-10-24 — story-language review of episodes 00–34 and the extra/simulator
-  scenes, then mission titles fitted to the mission-select bar). Polish reading
-  editions of episodes 00–34 published with the kits.
+- **Status:** **complete (2026-10-26)**, kept as a maintained release. English
+  kit **v17**; full Polish translation **v4.6** (2026-10-26 — first language
+  review of the non-dialogue prose: the unit-data panel completed and the
+  save-failure/full-version system messages translated). The whole non-dialogue
+  corpus was audited in the same session and closed with no further text
+  changes. Polish reading editions of episodes 00–34 published with the kits
+  (unchanged by v4.6). Further work happens only on owner reports from the game
+  (bug fixes), not as planned development.
 - **Start here:** [`srw-oe-translation/README.md`](srw-oe-translation/README.md),
   status in [`srw-oe-translation/docs/STATUS.md`](srw-oe-translation/docs/STATUS.md),
   user instructions in
@@ -60,18 +69,48 @@ disturbs another.
   Polish**.
 - **Languages:** Polish, translated fresh from the Japanese text; the official
   English is a reference column only.
-- **Status:** **new (2026-10-25), phase 0 — feasibility**. Nothing translated and
-  no coverage claim. The spike (`docs/FEASIBILITY.md`) locates the text
-  containers, measures the string volume, proves Polish glyphs and line-length
-  behaviour on the owner's screen, and decides between a runtime loader-plugin
-  translation and an asset patch. Scale for planning: 55 main + 104 optional +
-  112 DLC scenarios.
+- **Status:** **main project, waiting for the translation (2026-10-26).**
+  Feasibility is long past: the bundle cipher is recovered
+  (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
+  in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
+  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v7**
+  (`plik_dla_tlumacza_v7.zip`, SHA-256 `e6d789ff…4f80e1`, Drive
+  `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD`) is delivered: every battle quote now carries the
+  speaker the game names (`[Cytat bitewny — アムロ (Amuro), m]`, 32,402 / 94.4 %) or a
+  `??? NNN` group id (1,915 in 138 groups, indexed for the translator). All 11 catalogues
+  on the owner's disk were audited for voice containers (0 missing), and the scene → chapter
+  link was tracked down to the game's own mission data — kit `SRW_Y_MISSION_PROSBA.zip`,
+  18 files / 681,877 B, now with the owner. It also answers the
+  translator's six questions of 2026-10-26: the protagonist has a male and a female
+  version (both ship in the scripts, 17,657 lines are now tagged), the `font` table
+  of machine keys is no longer shipped, `～` is dropped in Polish, and `鋼鉄ジーグ` was a
+  repeat. The scene→chapter map is **not** in the scripts (15 of 378 mission titles occur
+  there, only as words in dialogue) but it is in the game's own mission data — that kit is
+  now with the owner. On the battle quotes:
+  the owner rejected "no speaker recoverable" and was right, and it is now **measured** —
+  `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container (`WaveId → nameText`)
+  gives **32,402 of 34,317 quotes (94.4 %) with the speaker the game itself prints, 290
+  speakers, 28,763 with gender** (`docs/VOICE_MAP_Y.md`, proof in
+  `docs/GLOSY_BITEWNE_Y.md` §8–10, catchphrase check `docs/VOICE_ANCHORS_Y.md`). The 683
+  pilots (`bvcFile`), 1,198 units (`ipnameId`) and 34,317 keys came from the returned data
+  bundles, and the remaining 1,915 quotes carry `??? NNN` group ids (138 groups); the four
+  container kits were followed by an audit of all 11 catalogues on disk
+  (`docs/VOICE_DLC_AUDIT_Y.md`).
+  Rebuilding
+  (mode B, seen in the game) and the **patcher v2**
+  (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial
+  content. Nothing is translated yet; when the returned `.md` files arrive the
+  bundles are rebuilt and only `pliki/` + `MANIFEST.txt` of the patcher change.
+  Handoff: `docs/HANDOFF_2026-10-26.md`.
 - **Start here:** [`srw-y-translation/README.md`](srw-y-translation/README.md),
+  session handoff in
+  [`srw-y-translation/docs/HANDOFF_2026-10-26.md`](srw-y-translation/docs/HANDOFF_2026-10-26.md),
   status in [`srw-y-translation/docs/STATUS.md`](srw-y-translation/docs/STATUS.md),
+  package shape in
+  [`srw-y-translation/docs/PAKIET_TLUMACZA_Y.md`](srw-y-translation/docs/PAKIET_TLUMACZA_Y.md),
+  limits in [`srw-y-translation/docs/LIMITY_Y.md`](srw-y-translation/docs/LIMITY_Y.md),
   prior art in
-  [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md),
-  spike plan in
-  [`srw-y-translation/docs/FEASIBILITY.md`](srw-y-translation/docs/FEASIBILITY.md).
+  [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md).
 - **CI:** none (added when the project ships kits).
 
 ## Planned

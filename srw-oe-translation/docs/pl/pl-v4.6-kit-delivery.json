@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "version": "4.6",
+  "date": "2026-10-26",
+  "scope": "Non-dialogue prose audit, part 1. The PL rows of 02_items/03_skills/04_config_text/05_mission_text/07/08 names had never been language-reviewed (28,431 PL rows, 17,724 prose rows = 5,846 unique texts). Controlled-class scans found the prose clean; two systemic defects were fixed with one source-bound plan (config/pl/nondialogue-unit-data-sysmes-2026-10-26.json, 357 rows): (a) 348 weight/length rows of the unit-data panel still carried the ENGLISH column (Weight/Len./Empty Wt./Dry Weight) although the translated rows of the same field already use 'Masa 54,0 t'/'Dł. 25,0 m' - the panel was half translated, half English; now fully Polish per that convention, Polish decimal comma, Polish thousands spacing, fictional units (shin/zusshiri/mett/rufton) kept in romaji; (b) 9 sysmes rows: the save-failure prompts were still English ('Save failed. Continue without saving?'), the overlapping full-version string 製品版をダウンロードします。 carried the game title instead of its meaning, and two siblings were unified to the same wording (longest line 49 -> 36 cells). Dialogue, story, mission-title, UI-label, font and geometry text are unchanged from v4.5. Full ledger: docs/pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.6.zip",
+    "drive_id": "1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8/view",
+    "bytes": 8766165,
+    "sha256": "742da3f473426d0644da12912e7d568f8f216aa9f0d2e7adafd01e270364adde",
+    "md5": "92ff6c2115646cd9dd143b77ad6e1323",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.6 section added; archive member README.md)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true,
+      "note": "Drive md5/size read-back match the local build, and the download-back sha256 equals the local build."
+    },
+    "download_back_byte_identical": true,
+    "download_back_note": "Downloaded back from Drive and compared with cmp (exit 0); sha256 742da3f4… on both sides.",
+    "superseded_drive_file_id_trashed": "1TREAui4lchY2Ujbk5nzk__Iv8jByeU_k",
+    "contains_game_binaries_or_full_translation_exports": false,
+    "superseded_upload_note": "A first v4.6 upload (8,765,212 B, 2e5ebfeb…, id 1TREAui4lchY2Ujbk5nzk__Iv8jByeU_k) was made before the README_DIST_PL.md v4.6 section was added; it was trashed after the rebuild so the folder holds one v4.6 kit."
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.6.zip",
+    "bytes": 7285821,
+    "sha256": "7f314d1a8d04b01c6f6123bf86679242f1b374dc35c6bca156195968a5c90627",
+    "md5": "cbd05020c35bd903940eaacebeefb2eb",
+    "zip_members": 157,
+    "note": "Built locally by tools/build_release_pair.py --version 4.6; not uploaded to Google Drive. No English translation file changed in this release, so the EN kit differs from v4.5 only in RELEASE_MANIFEST.json's version string and the README_DIST.md copy.",
+    "uploaded": false
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8",
+    "previous_snapshot_sha256": "788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62",
+    "changed_entries": 357,
+    "plan": "config/pl/nondialogue-unit-data-sysmes-2026-10-26.json",
+    "plan_sha256": "e2f1e0604c192a450c7da5b7ef050a4abbfced9980a1d383155c210eb339934d",
+    "plan_rows": 357,
+    "plan_split": {
+      "08_names_units_weapons weight": 186,
+      "08_names_units_weapons length": 162,
+      "04_config_text config_sysmes": 9
+    },
+    "distinct_strings_translated": 25,
+    "ledger": "docs/pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md",
+    "ledger_index_in_ui_plan_series": 18,
+    "width_rule": "new line width <= max(previous line width, JP line width + 4 cells); measured sysmes label rule (cells(PL) <= cells(JP)) honoured for the one-line labels",
+    "changed_artifacts_vs_v4_5": [
+      "README.md",
+      "RELEASE_MANIFEST.json",
+      "translation/04_config_text.jsonl",
+      "translation/08_names_units_weapons.jsonl",
+      "translation/PL_COVERAGE.json"
+    ],
+    "changed_artifact_count": 5,
+    "changed_artifacts_note": "By construction: README.md is README_DIST_PL.md with the new v4.6 section, the manifest/coverage carry the new snapshot, and only the two translation files changed. Every other member comes from repository files untouched since v4.5."
+  },
+  "audit_coverage": {
+    "rows_in_scope": 28431,
+    "prose_rows": 17724,
+    "unique_prose_texts": 5846,
+    "scans": [
+      "missing diacritics (0 real hits)",
+      "doubled words (1 hit, a source-side sysmes fragment; left for the owner)",
+      "space/punctuation anomalies (0 real hits after removing %s/＠n tokens; column alignment ruled out)",
+      "CJK leftovers (11 single-kanji extraction artefacts, EN identical, untouched)",
+      "untranslated English sentences (only the 9 sysmes rows fixed here)",
+      "terminology consistency (shorthand Atk/Cel/Unik/Obr/Kryt consistent across effects and UI)",
+      "full read of config_reference (77 unique), mission_note (13 unique), config_achievement (75), bg/map/group names (98)"
+    ],
+    "owner_decisions_open": [
+      "full-width digits in 9 config_status_change rows (１ tura  Unik -５０％  Celność -５０％) - left as JP/EN ship them",
+      "11 single-kanji junk rows in 04_config_text - left as EN ships them",
+      "sysmes:29165 - JP and EN are internally inconsistent; needs a measured offset decision before rewriting",
+      "fictional units (shin/zusshiri/mett/rufton) kept in romaji",
+      "English rows 43897/44013 carry the same wrong content as the fixed Polish rows - an EN-kit fix, out of scope"
+    ]
+  },
+  "tests": "New tests/test_pl_nondialogue.py (8 tests: plan hash, ledger chain, source binding + token/line-break safety per row, width rule, unit-data panel fully Polish, copy groups identical, system-message texts, no English label left in scope) and the release/reading/story/UI module sweep (test_pl_release_package, test_pl_story_corrections, test_pl_story_extra, test_pl_mission_title_fit, test_pl_ui_corrections, test_pl_v4_0_consistency, test_pl5_final_release, test_pl_reading_series, test_polish_reading, test_polish_reading_zero, test_pl_sysmes_roots, test_pl_package_build) all OK. tests/test_pl_mission_title_fit.py made ledger-relative so later plan batches do not break it. tools/build_release_pair.py internal verification: ZIP CRC, member hashes, active-language manifests, PL coverage 108,805/109,176, 0 errors.",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only: source-bound plan validation, full package materialisation with every changed row asserted, unit tests, ZIP CRC/member hashes, Drive md5/size read-back. runtime_tested stays false until the owner patches from a clean JP ISO with the v4.6 kit.",
+    "owner_retest_needed": "Mech dictionary unit-data panel (e.g. Scopedog 'Masa 6387 kg' / 'Dł. 3,804 m', White Base 'Masa 32 000 t' / 'Dł. 262 m', and any unit whose data is missing: 'Masa －－－' / 'Dł. －－－') and the save-failure prompt ('Zapis nie powiódł się. / Kontynuować bez zapisu?')."
+  },
+  "distribution": {
+    "replace_iso": "YES",
+    "recopy_dlc": "NO",
+    "recopy_pboot": "NO",
+    "note": "Same patch-from-clean-JP-1.08-ISO workflow as v4.5; no DLC rebuild was needed or made. The unit-data panel fields live in srw_DL_RoboDictionary (config00.cpk, ISO) and the sysmes rows in configst.cpk (ISO), so the ISO is the only output that matters."
+  }
+}

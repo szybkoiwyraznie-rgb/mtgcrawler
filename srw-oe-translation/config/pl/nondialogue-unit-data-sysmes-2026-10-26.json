@@ -1,0 +1,2863 @@
+{
+ "schema": 1,
+ "episode": null,
+ "description": "PL non-dialogue prose: complete the unit-data panel (weight/length) and translate the untranslated save-failure / full-version system messages (2026-10-26)",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:39944",
+   "source_sha256": "3734323ca1ac7e380b3f43ed811d71349f1e9bf416ffa17d6081bba700cf5686",
+   "before": "Save failed.\nIf you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?",
+   "after": "Zapis nie powiódł się.\nPo \"Starcie gry\" z ekranu tytułowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+   "max_cells": 44
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:39967",
+   "source_sha256": "b5cb3e8813587d27a0b269b8bbac1c09c7aa064df03f701fa3c6b0212358bbfb",
+   "before": "Jeśli wybierzesz \"Start gry\" na ekranie tytułowym,\ngra rozpocznie się od poprzedniego zapisu.\nCzy na pewno?",
+   "after": "Po \"Starcie gry\" z ekranu tytułowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+   "max_cells": 50
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:40006",
+   "source_sha256": "92c33f82791aa70c1b039ab86b085c6213adca897aa69a935f462af8adb88adf",
+   "before": "gra rozpocznie się od poprzedniego zapisu.\nCzy na pewno?",
+   "after": "Gra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+   "max_cells": 42
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:40068",
+   "source_sha256": "4c1f486cb84cd39724519661056c7462edfcbf4b124f605244404f1c74e73192",
+   "before": "Save failed.\nContinue without saving?",
+   "after": "Zapis nie powiódł się.\nKontynuować bez zapisu?",
+   "max_cells": 28
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43894",
+   "source_sha256": "e8c604b6e927e4c2f9dcc636e326c20fac4aa38513e746981ff1f6ebc368e94d",
+   "before": "-\nSuper Robot Wars Operation Extend.",
+   "after": "-\nPobierz pełną wersję gry.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43897",
+   "source_sha256": "ab43f15a5c741f55f8b9fa50216bd32974bcda8b39faeb7637035300b2fee46c",
+   "before": "Super Robot Wars Operation Extend.",
+   "after": "Pobierz pełną wersję gry.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:44010",
+   "source_sha256": "a5d17499dd064619a624561cc73424f8ce652ac837f1a56c2d591e366e46ddc7",
+   "before": "-\nSuper Robot Wars Operation Extend.",
+   "after": "-\nPobierz pełną wersję gry.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:44013",
+   "source_sha256": "39655653b4d7fc817c403aab270449a3eef428047ef68db87b0d4ba295f889f4",
+   "before": "Super Robot Wars Operation Extend.",
+   "after": "Pobierz pełną wersję gry.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:44704",
+   "source_sha256": "52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd",
+   "before": "Save failed.\nContinue without saving?",
+   "after": "Zapis nie powiódł się.\nKontynuować bez zapisu?",
+   "max_cells": 28
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1020:weight",
+   "source_sha256": "135a9e684139a55d47d2101de4e6752f986554ad6fb24c826fb8defeeec84b17",
+   "before": "Weight 32,000t",
+   "after": "Masa 32 000 t",
+   "max_cells": 16
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2200:length",
+   "source_sha256": "babd548f7b1544ca62db949585484870b55247b31ff5447be5ba8a785f57c535",
+   "before": "Dł. 14,53 m (15.59m incl. head lasers)",
+   "after": "Dł. 14,53 m (15,59 m z działkami)",
+   "max_cells": 45
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2200:weight",
+   "source_sha256": "cb4f74d4dd87e399b716b6207efa587dd1e1d3d7c06e8ef610d20cbb2fb79830",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2201:weight",
+   "source_sha256": "9c05f48206da484ff7aea42ec3204cc4f8475b775df351cbca789796672d939f",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2222:weight",
+   "source_sha256": "a1ba4bcdd8122a8341e494fb3fc192e9ef91df59bd71fcd3493147be9fe96d07",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2223:weight",
+   "source_sha256": "7ac958abb43b5894c2c61249ab1a67099fab32280548c48b068c1380ce4fe0e2",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2230:weight",
+   "source_sha256": "6c7820c4e57c57068eb50a3ad82dd0750fcd48ce4b2d4c0b92467f32938dfff7",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2231:weight",
+   "source_sha256": "44ee4a0fc35dcced45dbe881901fb793d0d6a934d19ee3509009c89051c7cb67",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:401:length",
+   "source_sha256": "7339a7753e58e3fcab5a1b8f893975f79f87efb90befa938902fc735626c6625",
+   "before": "Len. 485 shin",
+   "after": "Dł. 485 shin",
+   "max_cells": 14
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:401:weight",
+   "source_sha256": "6601be711790c41ee6babecc1a8be2a4eb771e4075b56f0b84f3f1063353297f",
+   "before": "Weight 2250 zusshiri",
+   "after": "Masa 2250 zusshiri",
+   "max_cells": 20
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:402:length",
+   "source_sha256": "450464e9faea677f38318c73282d246979fa47c5f1ac8fb0b4d29a927b5deae8",
+   "before": "Len. 628 shin",
+   "after": "Dł. 628 shin",
+   "max_cells": 14
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:402:weight",
+   "source_sha256": "c2958791d60ffe99e4a21b7e04fa31ec7ce3106d790903a72b012eb104788602",
+   "before": "Weight 3077 zusshiri",
+   "after": "Masa 3077 zusshiri",
+   "max_cells": 20
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:405:length",
+   "source_sha256": "23eaf25ba81458422c70bfa49815d15a20392c36fa3d3f44d977c763a99e62a8",
+   "before": "Len. 462 shin",
+   "after": "Dł. 462 shin",
+   "max_cells": 14
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:405:weight",
+   "source_sha256": "766952e79ff84482af27f4ac882dbb7749ad36eba0badf81cb206f16135151a1",
+   "before": "Weight 2040 zusshiri",
+   "after": "Masa 2040 zusshiri",
+   "max_cells": 20
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1088:length",
+   "source_sha256": "fcf28058bfb79603d3c00f9d15c6a05c46ed6a8d918e0a337fde5b4da5ca92a5",
+   "before": "Dł. 440 m (294m)",
+   "after": "Dł. 440 m (294 m)",
+   "max_cells": 21
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2900:weight",
+   "source_sha256": "f30558b7b630e9d4e8e047a7ae7e4c804957eb487aec2ef3612a887414816432",
+   "before": "Weight 6387kg",
+   "after": "Masa 6387 kg",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2950:weight",
+   "source_sha256": "7d04f74f8f2048feb0934e3773e9005bf6345aba370cf5aedb714196a95833ac",
+   "before": "Weight 8089kg",
+   "after": "Masa 8089 kg",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1075:weight",
+   "source_sha256": "25f908a7f0de3ea8475ae018e2bd631e30471b8ffb97dae8f4cff9ede7b38e54",
+   "before": "Weight 1,021.2t",
+   "after": "Masa 1 021,2 t",
+   "max_cells": 17
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2500:length",
+   "source_sha256": "cc550e3f0141712d16e741260eb4fc32770f32385d98595395ff1de92229b7f8",
+   "before": "Len. 6.9 mett",
+   "after": "Dł. 6,9 mett",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2500:weight",
+   "source_sha256": "472685b2f88ba158ddfecd78284b50a055e3132cd0f99f0315a5c8d04ffd4f0f",
+   "before": "Dry Weight 4.4 rufton",
+   "after": "Masa sucha 4,4 rufton",
+   "max_cells": 22
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2560:length",
+   "source_sha256": "9ce73a22030bff0816c6c1a81d96ce98b1199f930b7e31aab6f86c5eee7154c7",
+   "before": "Len. approx. 13 mett",
+   "after": "Dł. ok. 13 mett",
+   "max_cells": 20
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2215:length",
+   "source_sha256": "00ee2192b26b309be3ed1dc274a491abe15d767bfbd7705da761e348455aa8ad",
+   "before": "Dł. 14,53 m (15.59m incl. head lasers)",
+   "after": "Dł. 14,53 m (15,59 m z działkami)",
+   "max_cells": 45
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2215:weight",
+   "source_sha256": "d88d977a3a70752c3bc95e336c59f445d071d9c298c41ca8bf417505a90bb117",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2216:weight",
+   "source_sha256": "b144b6f63eaa4766845a0bba1430678037055f032844b8fc554f923a0d7ba2e5",
+   "before": "Empty Wt. 8,450kg",
+   "after": "Masa własna 8,45 t",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2510:length",
+   "source_sha256": "85424bc342b777a6ed6fde8ed6b8300ed0690fe5dbc4dbb39092e0db4ad4a40d",
+   "before": "Len. 8.8 mett",
+   "after": "Dł. 8,8 mett",
+   "max_cells": 18
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2510:weight",
+   "source_sha256": "9aee40ccae12a95f94506e914b183d9e08524d0fc7e2293283722d1baf599fae",
+   "before": "Dry Weight 8.6 rufton",
+   "after": "Masa sucha 8,6 rufton",
+   "max_cells": 22
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2930:weight",
+   "source_sha256": "a32befeac17cd3263f3e2811f06e88110467fd4670d18561a1bed5ced642f207",
+   "before": "Weight 8.103kg",
+   "after": "Masa 8103 kg",
+   "max_cells": 16
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2605:weight",
+   "source_sha256": "f6734928e04f4a2a6d7ae085234c95fffc81493009cf035d3efa85f52a3d8898",
+   "before": "Masa 36,8 t (loaded)",
+   "after": "Masa 36,8 t (pełna)",
+   "max_cells": 26
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2915:weight",
+   "source_sha256": "384957ff2f6106b6f355e76bda1bcfc7a21916af12b36021d5d6b58509417806",
+   "before": "Weight 7639kg",
+   "after": "Masa 7639 kg",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3288:length",
+   "source_sha256": "add5041e6f31608144b0cfabca45f97d4f7a58ccebc80f94afc67739a065d16b",
+   "before": "Dł. 19,4 m (land)",
+   "after": "Dł. 19,4 m (ląd)",
+   "max_cells": 20
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2530:length",
+   "source_sha256": "921faff67fb83e39d005e5a3102430f89a5cf36c4219173a8d83cf778b8ca5b3",
+   "before": "Len. approx. 6.9 mett",
+   "after": "Dł. ok. 6,9 mett",
+   "max_cells": 21
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:65535:length",
+   "source_sha256": "3142764a7088b49eb5531e520bb8c0447eca366f8c448176b22fdba12767f28c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:65535:weight",
+   "source_sha256": "c2093dee3eab9bb96dbc3aa2c4de7545df8477ac105d523b5dedf090ac6fff94",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:138:length",
+   "source_sha256": "f80d16c5e31794f782ac839e667b7a9c16f72551cbcc9ed4b6b6131c5512e3c1",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:138:weight",
+   "source_sha256": "03269a66136b9a6b67c162bc6549359239517615437aab418321d6f50ca6c394",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:139:length",
+   "source_sha256": "d07d918d46c0116dbe12d7cca38fb9b5994c8d5e73f40d50ff93d1b7e45d6114",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:139:weight",
+   "source_sha256": "070df2ef1c384c19f609e355e36f2da9abc6b0ce1ba06d8fb3fb0cf133bd10c7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:140:length",
+   "source_sha256": "4a57a0806457204b566fc42017d0ae231db514f4b6b7df4b95b9b79de2e90bc3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:140:weight",
+   "source_sha256": "1ae167e3e47c64ae7ecbafa32c6fc379ff1783c76347ae7c7b075f0f486c92ad",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:141:length",
+   "source_sha256": "0bbf7a6b35b1bd0769460fd5a60e3306b27691621a48fe84c7565c04d22b8d14",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:141:weight",
+   "source_sha256": "8a6e66ec622658a41b3b22df54e24514dc90029713341d8a61fae6ef58fb7de3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1010:length",
+   "source_sha256": "95e26b9d318afaf4739eb7f79560f117b1872ae92b9352ded7465cba2b99b42e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1010:weight",
+   "source_sha256": "740325cae7bad8738a77a059be4a9f465e4ce899224d3fe236d77439b3bd964f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1050:weight",
+   "source_sha256": "7de8b62af735cccf8915c411630f57e308a4daa6c058c44a8ecc9f2c2fba30f2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1051:weight",
+   "source_sha256": "7e4e8ef79cbdd96305411b24d26f81d49dadf919199ba76497ce5892e955b248",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1053:weight",
+   "source_sha256": "be5ebcfc9b5ea65dd4df936ea83d4ad66260d1381cc8b5ec6d72bc66a171b63e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1092:length",
+   "source_sha256": "b406645815821eda98d59625d7cdcbd039d9f89f13a6e863727b3729918f5b2a",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1092:weight",
+   "source_sha256": "6c72520c1ea2c3a2391e8dd0e17ef1a7e8faf3e2676abad290091326bbdee89a",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1202:length",
+   "source_sha256": "10db66eb54c17a7c4143aee1567cd90d9310cae4ce116390cbc2e27e6c3641f4",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1202:weight",
+   "source_sha256": "dae861fdb9756baffc48a2011fa72f2d6d697c1acc8b6f41a15a58c35d2ddbcf",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1208:length",
+   "source_sha256": "944fa44d7f0cff1f0cc7b94dd2af90812b917aa484e36fc9d30c54f99a7c6c5e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1208:weight",
+   "source_sha256": "35c634240df36efe8689f3d6c0962855aa9cd7f97fffc9369eb2fc3be9b1b843",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2110:length",
+   "source_sha256": "13ebfcb1ea2239ed340065e52761a5a8eb780e7931005190a1dd680a61b6147c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2110:weight",
+   "source_sha256": "bcd1d0121cf16b312bc3af1d9706689a1c70b610d537abe138911e2185eac667",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2115:length",
+   "source_sha256": "88d3234b5da6d576d0d3b66c365b8594f1014c15ed8564fe30b454c7148f2e39",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2115:weight",
+   "source_sha256": "606a6583905a97eb0733df538e172ee63701df4cb85e5c912fe12368d2621c66",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2400:length",
+   "source_sha256": "92b9be3f44298eed8e9443935994af448b04eab17fe7b0882a107d794524f707",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2400:weight",
+   "source_sha256": "c7bad59c8719404e6461449d2a1d77bf695342229fac3e324a5b245db2e9f079",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2403:length",
+   "source_sha256": "107675bd775b128d74e890c4d711c9c738716ea9ace48b44c90788c81895ea8e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2403:weight",
+   "source_sha256": "7b3fb32f6e00467388de44a96d5d1d6bbafdb64d5f4d3056d9f5a096a0c688f6",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2404:length",
+   "source_sha256": "18e8422f93fdfda8039daee6e2a0b8fef07f3b9665e3a0afc24e60d12d473065",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2404:weight",
+   "source_sha256": "7f15ff99564acb16fe3eb00fb5abaf2dbb50fd85eb1695215fa80c2085157a48",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2410:length",
+   "source_sha256": "6cb46ac1e2c3053e1603db38946def521689d881034c2cc0ef55a4814b496e95",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2410:weight",
+   "source_sha256": "a2babc83028748f137bdf268385c86bd5d0c9ccb8bbfb8e1c05de5c39b860cae",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2413:length",
+   "source_sha256": "a90ac9bab85ea3db3500d5e801f8405b190175171246521d15668a4906beb15f",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2413:weight",
+   "source_sha256": "d9e7af9f0c7a95b41b77638ff65263cacdabec12ec0c3b58d43cfb7b12540366",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2414:length",
+   "source_sha256": "7bf8f758c99789c7784dda89840e7e19cd92cae6ec0aeb545773cacdfaba4366",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2414:weight",
+   "source_sha256": "64ffc07f5f49593ab9e1c3f4658d0199622d9c90321c7cc4a35f4b0aa5a0cc41",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2430:length",
+   "source_sha256": "ab8f33bc1a2ebb9b723a668a1d9221948dc8087436da1aa775b3dcac678cfa01",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2430:weight",
+   "source_sha256": "3d2a70d93cd0547d5e7771d3b42e6d76a44dbf2b35379c48f6a4b27712ff4ea1",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3056:length",
+   "source_sha256": "ff38425e52c91c0ea1d9b8697ed5d478b99eba9d0329e826f13b8e722a374802",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3056:weight",
+   "source_sha256": "e26351f8ef0f2dc96d84546de407e1823d8a645dc869e78aa789da8e6748a9ff",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3057:length",
+   "source_sha256": "1faed69cd822bf19d8cfe52a44222670b9e8a48171b533cbe18078d62bbb59fa",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3057:weight",
+   "source_sha256": "52543b3099bfd68a710e1a722b9a4b20a210b058ea95936a441301ccc7070e9d",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3600:length",
+   "source_sha256": "8d4b8499c335e8737ad41aef56a7c52674108dc1442cdaadfdd0cf56b9777e49",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3600:weight",
+   "source_sha256": "3415f47857383970f03871f8d4a04c80a7f4d52cacc59f71510fcc22330913a4",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3650:length",
+   "source_sha256": "515ccf889cc7cc304b842ef6c1e12c72519884bc7121cee8c3f782a967434cdd",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3650:weight",
+   "source_sha256": "b7c2866d9845949072333b960b21b2c8a092e034aeb6d0e2a5667062aaa9c6d3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3651:length",
+   "source_sha256": "4931dc585c7ab81d8e49a18a64fe7591e32887e0391a3547a30a407192eb9365",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3651:weight",
+   "source_sha256": "f2f8f9f7ce48d4de73a182d51249276d2833a1e0f8a72c3336674f46c5d41511",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3900:length",
+   "source_sha256": "577b9877de0cf626bfad11a99d968a3687d5870aead29f342f4d478dcd22157d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3900:weight",
+   "source_sha256": "3146dc7f3cb348ec2a52f608d19e0fabefc077d99b9b1ad08e16a3e041d4e72e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3910:length",
+   "source_sha256": "c436ef4d1d8f15c379e053108046421fb4df9819e2d41abdbe4fdf60052c92b8",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3910:weight",
+   "source_sha256": "d48ff3bc49eaa19e84891b43aacdda7f78acc35ad6ff60aebe27ef38a2f765d9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3930:length",
+   "source_sha256": "29c7748c38fcc0885047ab48c641927f36c58b5d7a54b06519a6dfc924ce63ca",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3930:weight",
+   "source_sha256": "d6652c3ca5867da10dde2fe3e9fb9bb17776a98562c3d61700ebc5c30b0987d3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3975:length",
+   "source_sha256": "dd7f2e1166bf083187d968c5d59e601ffeac7aa64343993081e0d8b5ce7f10d1",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3975:weight",
+   "source_sha256": "b4246487f6ff602e694a1f1a3e54a39f9b433bce53b5bf891f9f940383fdc6ac",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3976:length",
+   "source_sha256": "c8cb70e6324fb375fbae692be6f0003078d10cd4eb42f5c5e1db0d9a4dbfde3a",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3976:weight",
+   "source_sha256": "803dab9263911cfcdaeac70ce0e1ac64802f92df1ac87d8e89880f0c17c1b7a1",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3977:length",
+   "source_sha256": "ad81479329ba76bbe956eb615efb5f2dd2b61b2d710dc2f3b19cefd79c29faa9",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3977:weight",
+   "source_sha256": "f25dd3a3aef82ded461ad72a8e54d6f95aed16e5bb2c0096e6020261a5268ae4",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3978:length",
+   "source_sha256": "1741c221f2e8107ab32d35d1b6ae94014aa062c37947bc6549aaccdd8240948f",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3978:weight",
+   "source_sha256": "cf01fb3fa8667c59ca0b0a9f5993b24d69197d9374a7e4763854b9ba30681d60",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3979:length",
+   "source_sha256": "e82b060a146af981c90bbe410c8e73b43212c6a92d47e3a11065ab5ae7e4a584",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3979:weight",
+   "source_sha256": "b37265db14b78551098ef8bf80548277f4a2b85a327751de6e778fd789cc51b2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3980:length",
+   "source_sha256": "4a1b929126c8740a14de854a484cb1f6001395730ade794b8a7eb586c7605a63",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3980:weight",
+   "source_sha256": "40a6ac59374fe934c6b2db42c40e21d0cf6b1fa930be7451b32511bbfc58e0e1",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3981:length",
+   "source_sha256": "7c77f1c18203c09ef6a35f48ca4f2c063ebc081ef8649ab7fff54d27bc6f9914",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3981:weight",
+   "source_sha256": "fec15f573280bc6d8734bbab389e6d586047aa5234bdb472663b2944682f0a47",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3983:length",
+   "source_sha256": "92bc3a92da5e5791132d3fcce03156de892d670ecef5ad6e08310fc98d853e82",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3983:weight",
+   "source_sha256": "ffbf763f451de915fc625e08c3a2cc12a8acd5b604bfda3542a9df7464825ef9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3985:length",
+   "source_sha256": "710c2492dfc53bce2cd58d5e10b735b91869711fd251651eb07565df724da09e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3985:weight",
+   "source_sha256": "92191ce14ef2448170e7f7a9bcdf8d543f21f8d90158d80220453c724bac07c5",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3986:length",
+   "source_sha256": "58fa874629d2a6c49dffa473f45cd36bccc2895dc265ce8eef96f5cd4e46a84f",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3986:weight",
+   "source_sha256": "f97229dae93d60a443abb040345f4bb49c372f3bffc171bb2b19013bd1fd9903",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3987:length",
+   "source_sha256": "d1add61e3c9e4c48afe38dc1fe61e8aee51efade36a75e342e504f19d240893a",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3987:weight",
+   "source_sha256": "c3dfb91b431a1d39a378187c65317b3a6290246e47e356632461e625de2ae89c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3988:length",
+   "source_sha256": "d13451a9e56241a7d38994198517aa64e06d86fac94e54da6af6c0e7164acafd",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3988:weight",
+   "source_sha256": "f79be45ae0e3ab10970285c07864b5de1e88a091eecbb6718b062d5476ed9307",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3989:length",
+   "source_sha256": "2db2f2cce212c409c68283c6818186a8aae4d156bbe7392b694829830066aca0",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3989:weight",
+   "source_sha256": "e32b4fd4dfafde8d9cce1930e2be867e1b31c5cacb8558de1f70e6310692f2ce",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:124:length",
+   "source_sha256": "5f2e0dc67ba3a1eeb1b77118ca3ae384c3b6fc09e1706e36755abacbd4397c44",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:124:weight",
+   "source_sha256": "a33b5ac361760ebe5dd9ee45eb028af5052ba7143d975e727700a24d38b44195",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:133:length",
+   "source_sha256": "d29cdbdc2afa353aad2ec6a7af42f503947778df9103fa4c1cfd015cae29b591",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:133:weight",
+   "source_sha256": "307863626dd2bb3847464285e9417ae7a608941f4a457324923e76bc6f3d92b9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:160:length",
+   "source_sha256": "fc73c0f56648d68c39be3f21051bb583d8fb520a1c1c24dbd24bffcbbad28439",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:160:weight",
+   "source_sha256": "1720ba4d221ef9ac90ed3873fe3a344a901d41e1489d44d6ea46f5794fe93d0c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:500:length",
+   "source_sha256": "ea2634ef87698ef7e87dbea7cbb43a1cab4f780ebcd29402bc065166cb2a34fd",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:500:weight",
+   "source_sha256": "670b0783fffb71c77ac26ce9e054ad9c7d8c577621a6fc711f35f4a9f338a2fe",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:501:length",
+   "source_sha256": "1a502cb2a425a7cf54d7e43ee2274528c879c4195338f7e3359229a79cf6aa67",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:501:weight",
+   "source_sha256": "26f2cffb6da5f1a822126ea8c45319bd24d2ac97229ef2b01f365e882c097871",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:502:length",
+   "source_sha256": "89f41dbc9767b61c4629f9608ff7a04f8e767cccc569ebd6ebff85593b3e8630",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:502:weight",
+   "source_sha256": "cfb3a491ba257a6ab64095f9a53a71a30deec0568be23f9ce99c59722ab3c42f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:503:length",
+   "source_sha256": "092434d7e88e35be5d8ba540b15e02277a83c6ce968ffe0b852a26c99d2cb9fe",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:503:weight",
+   "source_sha256": "f48025f508d44e394cd3ac1479eb357ed315fba634111c9833033481cb047fac",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:504:length",
+   "source_sha256": "2719c511af59aeb084c02b9f0c9f558eff9536332e10a929db7d0cbfb3388f5c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:504:weight",
+   "source_sha256": "19437f36cd28e33562df4b9dbcf790961ba8a6c234336154b8a3a0252e300480",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:505:length",
+   "source_sha256": "7ea0ad20b89ecbda397b8468670bcec12a2144d49e65fd436a66b47f395a105c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:505:weight",
+   "source_sha256": "42d8eef74fd91c7fe8938a8c6493ebcc110808f7dee363ed8f962640362f3b17",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:507:length",
+   "source_sha256": "306d758fab2576d05c2c28ccc99f358afc67ae12af95b7d48d6eb1f5673ce95b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:507:weight",
+   "source_sha256": "a9612db432910090460648c2925c26789567f2ec416b24afb50a3779cf365d33",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:509:length",
+   "source_sha256": "67c891e12e2740efea4acefa407cd85271a50481530886ffc053c294fdee7544",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:509:weight",
+   "source_sha256": "6744ff857a2ea9470fe42b7f1ae3992e7b7eff84be2c8e87b5d0d6346482b638",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:511:length",
+   "source_sha256": "0ee220b6215296ab5c918e177a6cc43b39572be3a969b33b7f6067066b7ccab9",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:511:weight",
+   "source_sha256": "5aa1771f570f7d0b860113598e7039ed27830303420082515885781a87e9d231",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:514:length",
+   "source_sha256": "112b3a0caa244052d07a1a5753f0cd51b3082e4b69922ebe90ba126dffc37298",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:514:weight",
+   "source_sha256": "bfe57e2574c0b4cceb1feb053236b1060a72ee19041ef210f3432b1155d98602",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:523:length",
+   "source_sha256": "a5dccc291511050e4e957b5104b8350f56d83a42dd18b953aec0b3abd5bd50cf",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:523:weight",
+   "source_sha256": "7ca7e8d62be394a455940bae85d04dfa072510101e98d577e3fe7d583d495dc2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:524:length",
+   "source_sha256": "364a5c8b298331243c371b9266d97ab712f691adb1221629bf5aeae6e69959ed",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:524:weight",
+   "source_sha256": "e270adf476efd66bf509196a64e2fc7b0e27b70f704a1a54a42ad58464b65ff8",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1080:weight",
+   "source_sha256": "83965440d50f1145c25e8c0006340a260c732c3746f2301123f247446c1c080c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1240:length",
+   "source_sha256": "d9b8674ad30b351d359dc61e958de957671c92e080e99cf70893142d65bd7aeb",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1240:weight",
+   "source_sha256": "2d865dff68196283911e00cf71e4e7c30c5d109aa99b9b6b239ec14d6e213749",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1606:length",
+   "source_sha256": "85af66a52c814fc6aecb56ba63af63b2e3c3430d3ee066922c20f3034ff671cd",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1606:weight",
+   "source_sha256": "a479f2bc1e62160be1c11fee7dbcd2358c55e03f5205de30c5af9baca2411785",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2130:length",
+   "source_sha256": "a263cd3aae19e61851cf1bc4d009ea6c4a91c93a84cbf718fd5f297f1773eb40",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2130:weight",
+   "source_sha256": "7b8c06c8c36c8ae31dcae525fb3ecb904891642ea466ed7ecf20a800ec7c8fed",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2132:length",
+   "source_sha256": "a2fa04711772f39572e09b7ca54d9e1ec732185b90a25c8b560d78986a16722d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2132:weight",
+   "source_sha256": "a13c8aa3d6a1d5460ee38972e1aa1ed10e935007f43507e7c249b382177dc0b3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2204:length",
+   "source_sha256": "85e0d62a499e0409c26ea57e0346175da0132c648494d14cb18cc66f2d4d630d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2204:weight",
+   "source_sha256": "8e250c05627529672fe4954b287c29c1a71033a5c4a2ad677602624676c48ef0",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2205:length",
+   "source_sha256": "7eae0b978e93d9a513029348222d94709b4a8b1fb40fc2693e2954dbadf75394",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2205:weight",
+   "source_sha256": "2bb5baf287a335eb8931c98d00c2ea8af6dd14d3514ab150388d67fa661f90e6",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2245:length",
+   "source_sha256": "791c5363c9b6d351ff6cb6f97fbb39183e9b678fe26f45bbe0caf6b2d7b36dab",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2245:weight",
+   "source_sha256": "d34b471857c1d098e97e95029d5964cbe32ad6ecca14dc0a57033a00c7dc56ed",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2246:length",
+   "source_sha256": "81d7585256e81493bd9068106739e281ba378ad7a41fc846668b3faa140c94d3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2246:weight",
+   "source_sha256": "07e40371bafe6ebfb0fc0ab099daae6bbf3b96f26d39b2adf0db38ce98410c98",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2440:length",
+   "source_sha256": "4c6059c7f4754931937ef2ba5444139084a8bcf186512a395a1381cb28ce7da5",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2440:weight",
+   "source_sha256": "37846053c76ac0211a8154a57cb6896e9aab0cd077636ba68c9217919a49e7f2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2445:length",
+   "source_sha256": "21854aa2f4621e1494f83c2bfe45b803ca99d6d28e9363298d0869f105501acc",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2445:weight",
+   "source_sha256": "be69782d73e0e1e8ffb4b1d627c9c245bb1ec2fd5b9c17cfba062ec98ddceaea",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2450:length",
+   "source_sha256": "f937b1b6572af9c72c3a5a764517def4595957c268b52ebad9847e675a0e1c50",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2450:weight",
+   "source_sha256": "5c2500d3d40c54faa7a7d97235602ed4085fa5b22da3dd8031e8fa901b874601",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2705:length",
+   "source_sha256": "95c6b8a2c105ff432d2900ff48b6cd19fdc92ad1d72560ac40e6f5d28a8576b2",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2705:weight",
+   "source_sha256": "ed614d00a75c6b77e6726c7b3db9b528781e1114738b1073e44dc5c03621bc4b",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2780:length",
+   "source_sha256": "6e4e34fd3ef3a5495532689b47f9ce13dade7fabf7c8318f9ff81a4e378218d4",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2780:weight",
+   "source_sha256": "7994677193d52c49d9636ebdc2d29244cbe4d514def02954c84d55288305a7f6",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2815:length",
+   "source_sha256": "32e5be2a9d00a0242480f98d1400e9eda3091e17fd43fa1a06a3a8c6a7caa4c8",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2815:weight",
+   "source_sha256": "f9faf4bc805f384cc9da009e9ec9313e994d4e66c36dd2c3b3befc6aacaa9ac2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2904:length",
+   "source_sha256": "ecce71d878b979d1837b91faa1562cb996ecfcfa3ae20cd4c56746ecddc5a7e1",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2904:weight",
+   "source_sha256": "44bfe2acc78946aae10369a23a449d759234d4ffda0f733cfc73ab46a4286943",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2994:length",
+   "source_sha256": "cff7e603c3af1df66d3c3be0d86ddbcb225153358e84992b1dd38e718f35bdb1",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2994:weight",
+   "source_sha256": "44ff52a1a2aa7ec3c23cb0c8262f9ad05432f4345b245d06df2c43f0fce33263",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2905:length",
+   "source_sha256": "28fda859f61052f28530b7b0ebb2aa6cf1edb03a18fda878df17ee44860c8107",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2905:weight",
+   "source_sha256": "5941eed926ac9350f475702d6884ddad1b0fd92e64cab72ebaf9082823ad34bd",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2906:length",
+   "source_sha256": "8ecbae5f4af87ba5f409a1f7292e44de2f08af342549244338aca7f84a116159",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2906:weight",
+   "source_sha256": "971b115fce846eb85336e0f969aea37111aa792a68b6e9779c2b0f7aed70180e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2907:length",
+   "source_sha256": "b3ca4a69ec3c508bce5911875ee1a10c3b1e0209ee9c56796b8bc8e1e5d37367",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2907:weight",
+   "source_sha256": "f2453491a29be70312c839ba541d010b08bb004d9ef35f36d0e3f67108e1a4e4",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2908:length",
+   "source_sha256": "ee50b9f57493cce0fca6959bdc3b22040a983a5e29ce7505280c857730f32d7d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2908:weight",
+   "source_sha256": "77b29290d1b7d2fbdf6af6280c4c0a6ba6cd4827ced333936588f64381ddd969",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3101:length",
+   "source_sha256": "2263bda4be56de7fff56d9906ae9e8eca437b0b4768c843847881ad76e561de3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3101:weight",
+   "source_sha256": "aadd2b04fe94ebf78476be4e2f064efa8b78829c0effb5ff897d3e88bb0080e8",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3105:length",
+   "source_sha256": "4b6ec5aee85535356cbb7964a34dc58913e4393b34fab4f3326bd2da22c5f7f4",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3105:weight",
+   "source_sha256": "73a6c956c4883306e2c56e1f368e754277b39f73e1d9105ab59d1b8930e444e7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3201:length",
+   "source_sha256": "c30a8c284154a18af81de0e5a7a19eff8eff390bd6bdfba4fa1aeb77a4c793cc",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3201:weight",
+   "source_sha256": "065e48d4a9a4d7e03403bbe7ccd0fe40bab736dc49bb2139f2258c2292abdd2c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3931:length",
+   "source_sha256": "91a5139ebde1222b1fa338979f6a3d22da633d33efbddd560a2224a3ba97eb72",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3931:weight",
+   "source_sha256": "d96ef235adcfc279b38382256415836f926b775d181175c734e1c359369f4a46",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3932:length",
+   "source_sha256": "c00b1b03861801c2238a80a88f087374ab4d759c64a63ee873ff6d779306ff3e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3932:weight",
+   "source_sha256": "b7bb2fa64ac1e0c4473e077125fd41020de0862bbde2998100d61620f3aacb37",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3933:length",
+   "source_sha256": "ff0941a20790b3dcc27853916afe94975922c06c54329d91c349edac5561270a",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3933:weight",
+   "source_sha256": "f651bddcfd004047ef5f1e44d65bef889604b9f0dab56ac6f26685473cb84aeb",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3970:length",
+   "source_sha256": "9c27ff2f22693829ee27d99058ba16d74f2ec7207cae5f9aaf3e8ba3b1826701",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3970:weight",
+   "source_sha256": "d0e4a0d4c0253fdc1ac747f6073ec13e6c0e6869723c914a1559fee750bfe118",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3971:length",
+   "source_sha256": "b85df99175ef82015027e97e6b01f7addaae3b36bab25881a9a82ff085290484",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3971:weight",
+   "source_sha256": "7a9a3d328b05ab5f8fa9adc3d1b31bd206d28e353a7e51b0a7af411f5bf8a1f7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3972:length",
+   "source_sha256": "141fb97ef8aa8a97fc3f2df2e1ac0493d5bcf12362d3ec2940069223b4ee432e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3972:weight",
+   "source_sha256": "52381644f466270e85058076ec9774e02ac3ffe7cb448e30d307116ccc3e1e6e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:350:length",
+   "source_sha256": "aa4494cc0baa6318513a2a3c69c766c9532b7508171338e8369a05209a2493c5",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:350:weight",
+   "source_sha256": "479bb76ba5e47d1ed6ccecf9d7ba46c69f29cfae70ba330ae02624d579eb902b",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:352:length",
+   "source_sha256": "8b5f821805457c61c64d1f0e62a12fafea997784d57795765c32b79555362ce7",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:352:weight",
+   "source_sha256": "97dd36e8377fe01f37a859f56210a2577cf72d158f13740e423a8351d6e0bab5",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:354:length",
+   "source_sha256": "b086e31520b7eb0301d205a340d79ff266dc08fc3f37c934218b5f17ea245a40",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:354:weight",
+   "source_sha256": "1ea2a114937f6c8855e28dc35f8d2cb449587c53c72c6c9fba25136e7572e9f6",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:378:length",
+   "source_sha256": "6847dbcbcbae1b5430b05d2c2908b71c8696d5c425a61f0355846bb0108fec51",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:378:weight",
+   "source_sha256": "c965651ee79b422c921e917480f4408e6c35d9dfec58f0573e3fcc1e797affa5",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:379:length",
+   "source_sha256": "c7d163d4f010ff018b2b100eef988413bb8c4bd8555f1d1a4dfd2440a19ba1a8",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:379:weight",
+   "source_sha256": "94a88c1b19430b12669c986659bdf35b2dc013f9dfc8633384cc6034c7f77888",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:406:length",
+   "source_sha256": "c41bb66790495ad5194efebffe96797e411141287d9c9052d3e3e6eab37a67ab",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:406:weight",
+   "source_sha256": "ba87efed6103fbcb86bf4d9ef0966bb8d6173ced87059848d94d99732edcb3de",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:426:length",
+   "source_sha256": "06773a207098870bfffe8feefa608b76e7d724c7ab2b47391976de48d9577b2b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:426:weight",
+   "source_sha256": "2df226ca0c42b626b6edcf19ee47bde00936dfaff13f939c56d16265b21ffe76",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:428:length",
+   "source_sha256": "6c794c0b07944a3c48459970f77eaf1410710faa608903fef6a8062c5e4b73c0",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:428:weight",
+   "source_sha256": "242dbca236d9b07a23beea828ba7e19d15cd1c2433a973b0957234ee341693e3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:430:length",
+   "source_sha256": "5d8dc78e4b8d6d0b94145d353747ad613e7576360fb2af9b27132dd4b6626bd5",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:430:weight",
+   "source_sha256": "1428ce8d5916b495d4bf453596c6179ed95c3c4aad9de2a0dca0257cbcfad3d8",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:431:length",
+   "source_sha256": "4519d1c2eea7bb950468f1a2b779abadf465c85998ec559177880c1c0d9cbb57",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:431:weight",
+   "source_sha256": "ccad2653c2316d9a9e1157d2fa38bb40d759d33de32a12c0be65407bd7a5bf13",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:432:length",
+   "source_sha256": "9f785410e494908dff6b9a3f6d225a7decd742355ca4fb172a21b7823d156201",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:432:weight",
+   "source_sha256": "e1a9b51ff48e85c632572333743ac1a60db6a150d28b19dd30e65c473962941e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:485:length",
+   "source_sha256": "8f8658973da40dbf9b8a2254ef0188ace039ce5d15d4e3fd39f953774ccda126",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:485:weight",
+   "source_sha256": "178b52812b9b66f138888872924c961d1d02438f6e02e562025c5a17dbb938bd",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:538:length",
+   "source_sha256": "b09aa8fd9f0eb2e1f6c32a75dcc67ad1b1b657aba5852f0aec855a1a36c26937",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:538:weight",
+   "source_sha256": "f1c40c832f1303c35dc6347aee5dbb2750643b87887af5f19d37e7a871d9b1ad",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:712:length",
+   "source_sha256": "355fe3d6db9246a58a72bdf4754e219acccf1d6cd4e97b7f3110e86cac393cc4",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:712:weight",
+   "source_sha256": "6212246469ef6650ef59eeee91becf795a33078a9651294f61c7747e7e01a223",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:714:length",
+   "source_sha256": "a3ad8aa1527d3e2d3323c98ad66f23be2e5328860b1377fc913cef9677f51240",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:714:weight",
+   "source_sha256": "10830e777a2c69075d7235c9d913aa19a2da8f9eafb273cc0fec85bb5f9c60df",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:716:length",
+   "source_sha256": "cfbe245a4cce71a7b631a2bc90ab3b4d6bf427cfa4e797138c71712f4790febc",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:716:weight",
+   "source_sha256": "01fd5dd1b4cdeec539a4f7a282b8a0970b3dfac50381355956a7e1517372e03f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1088:weight",
+   "source_sha256": "365246ab54208e8efc489ab041a47aa588e8af363a9c985cbbd7c826ed582c39",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2680:weight",
+   "source_sha256": "08dcc291ea1d5d40347aac004f1c3eef06423f89bd4e4d98253bfd1e1d9022d7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2681:weight",
+   "source_sha256": "fb3f57411f168b122b9f044598cb57b4f4e54a4b7a0da37453b2d34b1aa67a10",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2685:weight",
+   "source_sha256": "9d18407f0da4fabab879c3b7148ab60c857285fb87d95994981d196d4729e9e8",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2990:length",
+   "source_sha256": "a7ac42740109a5ca0404932d9e9628ba1a98bcb3d0326416c6fbde0e74ba5b0e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2990:weight",
+   "source_sha256": "562dd7915bce3ef37b83b447e611e0251415d24d357568d86f7dc4b52e86d928",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2903:length",
+   "source_sha256": "232b8a99591ed1a21cfb6bbf532ee133cd2f6d908ef5e1a7014ba298059cd040",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2903:weight",
+   "source_sha256": "9f3aabc84c09b6457cdd2e48090aa9cf98847d97add8dabc59f5a3137d88684a",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2951:length",
+   "source_sha256": "595fb0faea6986d9798f315b57a95e68d94c2d0b461b9eace8e47e8f7173674e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2951:weight",
+   "source_sha256": "52b9f99705ac2e3827d82c1f28ae9d62bc41889e8de867abfc7e6363c8cac83d",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2952:length",
+   "source_sha256": "ddee512ba563d5b97bafba87c0105c773d92b9e0526634b06909d037ea9d8f8e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2952:weight",
+   "source_sha256": "f10db9564abbbce63b0146c38116b78a669aa8700c83629f2887bb8501e3e667",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2964:length",
+   "source_sha256": "6791f352a99e365445b027e120db7bd2ed2062dae98c4a8941582de826406b30",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2964:weight",
+   "source_sha256": "01a53c8bf65c95d83b26aa7caf2542be2a877eb2894ddadcb1734176e28ce003",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2966:length",
+   "source_sha256": "a92e75e75bf61347e20995fe72cef126478582151b76ad21414860df0fdeec5d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2966:weight",
+   "source_sha256": "b8f23e3dfe39a6bf81be17111d40b8c2597da0b5ad1ff5e0b0f31924cdf11ef2",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2980:length",
+   "source_sha256": "72aa40abd835a934a04876da64439a02985682dd3ecc66dda9a1a4525acba438",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2980:weight",
+   "source_sha256": "1fb54754095e367cc8b21d296c7b5474a2835700ff240fbf1bfe35459546c678",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3276:length",
+   "source_sha256": "89b9f3c82e22a3f958f905481416fe070d4bb42acb2897a64b5111ad8c93697f",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3276:weight",
+   "source_sha256": "41c6c28d56d75f3aa541506588a8acf29a267ccdfb106f021a2877f987402ae7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3940:length",
+   "source_sha256": "a24d443dea578c8de17c7d70df760627190c49a0db72c12a3a8d25876a901ede",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3940:weight",
+   "source_sha256": "098a4766fbd687a6b6a9f178dbcbd62312322cb3f3e2a8a995931b87d26464f9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1094:length",
+   "source_sha256": "d45ce8e3bd679a634ec1cea891e921ca2878e5e387919e37464a680cd00dc027",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1094:weight",
+   "source_sha256": "8c9571004297ab181e84262c12efd0ceead4956da9426469db2ee105371674b7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1351:weight",
+   "source_sha256": "6bfa59497a2ee8b0b88357b22dd7498d72a24b53489fbe7de04313d4d7d0c582",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2560:weight",
+   "source_sha256": "9889bb0b370035de1502ffce27cad4e9fc5a0be74b77901d950d26b881c2e28c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2561:length",
+   "source_sha256": "20a4b4425af67ca208c5608f8fa10492335c958e9fd7e8f1ef0c9e8879086754",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2561:weight",
+   "source_sha256": "83e092f687fc8e1298b28d3d7cf2b74b97129631d09a1a7a82bf45f21d736207",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3204:length",
+   "source_sha256": "039d7fac714d65555fed0fdd01ce0d33b8dd2f18becd317b3e0060fa83bbda7b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3204:weight",
+   "source_sha256": "fc4e078e9f3e084681e842091710c1696ef0c312ab8fedcacd0d4f01ea26ec1b",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3287:length",
+   "source_sha256": "d7ba3e90a1193da0f1a85c66b58b94d48f671e4010a5f99b5cc361496177c2c3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3287:weight",
+   "source_sha256": "c582a23676df5eb7e6593300e53d6a42539337a7cf11e665579c74464556a909",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3960:length",
+   "source_sha256": "95f1e1cf0e8e276cbfd83ed85e07068d048f5f08679b580d1c4a3b5a164af8a4",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3960:weight",
+   "source_sha256": "964054e2b8a5453fc8264abf698277341bd2770b8d49f3807429c50abed90e23",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1402:weight",
+   "source_sha256": "153af496447caf7d7278b1dc7a413b049192039e3894ccecaac1febb40137485",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1485:length",
+   "source_sha256": "4d201cb981305c6099643da7bf3fc57fafd2c5001b16cfcd028fe099bca9bf0c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1485:weight",
+   "source_sha256": "42569dad193e1b5d917fa50b4d07afab471f6bbb8b9bf6b36670915372f69bc9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2455:length",
+   "source_sha256": "bd011b09f80d22f0e61489bc13e50c38a1262fb1181dcf7039b5895121f8fdf2",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2455:weight",
+   "source_sha256": "ec2d1de5d9aa1d41c1105c5ca267a1b18d27612903635b0155c26070655ffec9",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2686:length",
+   "source_sha256": "0440346677ef5d98d63ba6a2948934571852b2fe9c2f21b2d61944d44ec2e865",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2686:weight",
+   "source_sha256": "20e45336124434f508f19b5ec1d96bbdcd7e3d4ce9013f76df88aab94a55824f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2910:length",
+   "source_sha256": "fd42163f387b631201e1655a6be7a70e94c7c4c7161d61f680046f7f601b121e",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2910:weight",
+   "source_sha256": "80e22cc516df95c9abe6c9384abd725d9dac610f04807d4f4a34e3e08d3f3e12",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2911:length",
+   "source_sha256": "7ceb6751a82ffeef2b109092055b8d58fa607eea4509b8160b8fd9330ab25722",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2911:weight",
+   "source_sha256": "de8616792177fc30514978f41f8263ccc2ae6e0cd6223284fb8bf4b02fd68cec",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2912:length",
+   "source_sha256": "272323c5dd41e388fba04c4286c424c8988987fe21276dfc3be7eae1bd8783de",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2912:weight",
+   "source_sha256": "8c6e29da92d189de272b9d3220afc337937841f5d9e80bfbae118a54c6cf86f7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2913:length",
+   "source_sha256": "437db8bb7afea0042585977d701f01293d3f0f3cf7202bd4b5571f98b33142a9",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2913:weight",
+   "source_sha256": "8132f1a60bf487315159d457d5083e49906e9ff520b3adf48bb7ec588c9500a1",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2914:length",
+   "source_sha256": "8ae3509b8dbe554efdb0c8a3d3129e6c8fccd1f1c86cd8ce78069ac88726eb23",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2914:weight",
+   "source_sha256": "201a24ab620f9455031a816985899c1536646662b57b91ac33c80aaa0843c276",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:526:length",
+   "source_sha256": "1e145bc06cf857d2427b06ba7a1bd0bd951240580e360d9720edae082d88c237",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:526:weight",
+   "source_sha256": "0a6c691b4f50034c597b49d58eacc6cf2e3c8da356d7f84f88480257ca0babc5",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2217:length",
+   "source_sha256": "e4befe2096af79a8c2fa3dd012fd7c7151db3c68426d18ced52bf78dfa02f4dd",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2217:weight",
+   "source_sha256": "c88c79aaf4d844ebc685209de8e749534cc51338caa9c356058ee11cc9578d4a",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2218:length",
+   "source_sha256": "03fbb7fc0f707c9314ed29d50c6746d6e418083929cc1c7541f4b9cb2e6bbd89",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2218:weight",
+   "source_sha256": "2db48acf047befde5793723e7ac63102a632606ea2737724628146e1772e4070",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2511:length",
+   "source_sha256": "da936fea1e13fa80e419ef174fd8372a852451fc52b5bc683b8207a5d6e6cbe0",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2511:weight",
+   "source_sha256": "01663a0850545e9a5fac08b136af81dabb4df8db0c266bc6378ad69b9e33936f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2901:length",
+   "source_sha256": "9832fa2806e410a969db4965f9f2846bdbb2c99734e05584f7053302483cd6c0",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2901:weight",
+   "source_sha256": "d247dce6987b9e59d1b1532130f048f69d4ba3bfad7bccd0768ea9dc54e1747b",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2940:length",
+   "source_sha256": "98f0672e5dbf96bb1cf7a078f94e3aaac7788ab0f8fec5f07cf8c167adf5aa5b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2940:weight",
+   "source_sha256": "63d879242d4e0134009a614fba9fce2e83f87c9bada55a304b96ca12e0837d1b",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2944:length",
+   "source_sha256": "b0ac0f28e7831eb23c56015a5a48945fece724bf66956413c7f50df43b2ed2aa",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2944:weight",
+   "source_sha256": "33d1f5c3731d6c1d925e8a8616ad11814f16034ca13ce106afc8724adc0f64f3",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3120:length",
+   "source_sha256": "a413ea2457a1c143394936a4bcb81b83a006fb3fb4f7b96bc4278db01a742707",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3120:weight",
+   "source_sha256": "73854624500b036f0c868b21ad9ceb288125025783c2ff610f4606b05be36aed",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3943:length",
+   "source_sha256": "8949ed8806e1d6bf2baa36d60080873ec877218eb148c8362c262c2cb28a4463",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3943:weight",
+   "source_sha256": "1f047f79e22629e1099ff9c59f3650df445b899c237f91e9124f3a3a1c3dd6c7",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3963:length",
+   "source_sha256": "6621d5d57f276610a132f125e460d3af5dc25a5345f098dabafb7421ed04f58a",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3963:weight",
+   "source_sha256": "cf2fd9ac6d2dee403fddcb88049404c7f4c1b65f1c74c35c4a271372d56fde98",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:370:length",
+   "source_sha256": "2252d9c25f5fb3fabc25d4eebb83b63d38636323ec413f4eda120b130ff5078c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:370:weight",
+   "source_sha256": "393ed44ed7e6bd429636729454b6453f67e872afc4dd55c33f620d1ae9c4e9ba",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:371:length",
+   "source_sha256": "6ba421f25e95c2fc240cbd8a917b7986a744c7303ff8b59abc188f2a3d830a8b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:371:weight",
+   "source_sha256": "f73405dfaad22d5e6ac440720fa1ca6dabd9bc93b946ed7b851328a021b1f611",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:382:length",
+   "source_sha256": "f9f0522d159a0d7ff4c9af317fc54804b4823a6bd26c7a7502bffaa0885acecc",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:382:weight",
+   "source_sha256": "8d58ef46b75c40316c35243e88468e99a0360039a41f04fc7a38541d31c65f7d",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2606:length",
+   "source_sha256": "0eeaa6b217c550eafbfa05f941bf678c9e764dad269c7827e2c0c36f3ec11714",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2606:weight",
+   "source_sha256": "eccd3aef2f52b9e2193866c9e8fef091ce2b4fcf7c4945ddd77c5cd8b8f12a23",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2682:weight",
+   "source_sha256": "93649fd0f279c8529f7d11303d7e27cf291353961943d0396e844432f7b9d080",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:148:length",
+   "source_sha256": "e93cabc1879ee3e4d317c114c8baf3a6ce7e215098b633211aa8504b039d386f",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:148:weight",
+   "source_sha256": "da9ea8f765c65ef05d5ca8a3f92b8e7be1433fcc4ff28f01c394aeefb9d05e6e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2460:length",
+   "source_sha256": "87d968b063a6b00c37cb650125c65d3397b37bb2ce743e2dbdb2df698554ed3d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2460:weight",
+   "source_sha256": "dae46f47b89489f8df25cb173dee484a839fa3bec342f55d8700d6c91092042e",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2675:weight",
+   "source_sha256": "030acaf1dd2bcb64d4b1a2da28ea823fd3e0224a186e067315da62f0ca9b0191",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2916:length",
+   "source_sha256": "e74aefa4d670ad0491745f7591b0352485d1988df8732133b6600ec48043557b",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2916:weight",
+   "source_sha256": "b85d1036ec6e4576ecc5e593088411bd84bee16b48db23decd3314e1098c997f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2465:length",
+   "source_sha256": "6f46e67ab6a370b047bcfd3cc3992ae8a0c85414c77e9d7dd207f394dbd63395",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2465:weight",
+   "source_sha256": "429f4840906ae922227e25655f6bfaeef18766bbf3caa41122b9ad73c8bcbe55",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3296:length",
+   "source_sha256": "79355b8aa04a47c588ad8a86bb55ebc3cca268f9b9fc9481c25a45e5c9abd95d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3296:weight",
+   "source_sha256": "765b1c1948bef472146cc042d730969686e002f6526b12ca14309138c295ed51",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3941:length",
+   "source_sha256": "78a9976775c84b136592318f185e2ef8b774f314ebfb9cad51b04351e0bb98b3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3941:weight",
+   "source_sha256": "2f960b97486b49878cbea87b7771e2e034cb422756e4e0391e668dede50b4739",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3950:length",
+   "source_sha256": "80afd61231662c56f9323acdacc7073b3182032bcc576290911ebce642e088f6",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3950:weight",
+   "source_sha256": "6d4721734f8ec27626371d84e5f3f5c5bdf9ffc41307a840dac21723c36edf42",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3964:length",
+   "source_sha256": "deb8282dd86a84c1a5510c0f147b7aea219784d1293bd97fc06ddcfdfa630498",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3964:weight",
+   "source_sha256": "e28ac40fa63d29b7ed72e3e817dfa6105c9809b1cb345a6bab57c0b25f7cc027",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3990:length",
+   "source_sha256": "4ddb71b3b2af1c2c3ce4d2bb4c90a6ef3445d51c23fd9bf86b56721b6f13a70c",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3990:weight",
+   "source_sha256": "cd16b0003a8d1f76bced8af6db9825f9733e5eea9cc28f712cd12218bf9c0a85",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3991:length",
+   "source_sha256": "da0a4d5fea149c996e674222396c8744c7f6903f1864b9b9339ecf1678d56888",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3991:weight",
+   "source_sha256": "0b3cece1f2f8bb5e1c9c4c4d9786d78735eb7d9c8a0de76e28e3491bc96792ef",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3992:length",
+   "source_sha256": "5f6ce008bb9b05698f9e50a9b451dd598517a59a0c7af8d6e7b389132469309d",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3992:weight",
+   "source_sha256": "cfb3622355f75221dd4760750799691c64ed6a96b1375873a83c4590b1c0f586",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3993:length",
+   "source_sha256": "2d7d7c2719b0da29b5849ff2f3456539c3e2453f2699efba76059f318aca83c3",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3993:weight",
+   "source_sha256": "465f0fdafefc6662978317f2f088c828d86f24a4bddc531b5ae9c1226919993f",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2610:length",
+   "source_sha256": "53a93ec1a94d9d97f8ec2f363dafa2fc91d271db021accfcffdfa08161b69dab",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2610:weight",
+   "source_sha256": "188e441642848b8bcc645f83ff5c947ff03768c784b569ddbb334a6f22a14a65",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2620:weight",
+   "source_sha256": "310ab3aa481c3a421a182f244c23e776b54eadd5056349e3cece491c53e77045",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2666:length",
+   "source_sha256": "461dc747adf26a9de7e5b57e44a572c183c6395ca1b03a9ed089f518e5142ef2",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:2666:weight",
+   "source_sha256": "720e9e4d97080a415c59adf63fc8467315b33d587f276aedfbe3d1208b39255c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:1317:weight",
+   "source_sha256": "e055b43f867242a7a66acf0fe403cea5a63c59cb27199c89f50d9c813b2acacf",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3850:length",
+   "source_sha256": "c836e5f367e2e5545315c94b37dbea559fc468ba6c02a1444de6aa5a19422e37",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3850:weight",
+   "source_sha256": "b79e871c79c622185bc62894fd7290abd76a3c29b829ca367d2c34b99be94f5c",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3852:length",
+   "source_sha256": "97b650483730be7964c00b2d05df25350cf39599c18c302fe20623e4ecfc8019",
+   "before": "Len. －－－",
+   "after": "Dł. －－－",
+   "max_cells": 15
+  },
+  {
+   "file": "08_names_units_weapons.jsonl",
+   "id": "robonote:3852:weight",
+   "source_sha256": "94b57124aaa20bbc9477b6528c76f0dee6e1318f073ab4eb8923d7a6d3e45360",
+   "before": "Weight －－－",
+   "after": "Masa －－－",
+   "max_cells": 15
+  }
+ ]
+}

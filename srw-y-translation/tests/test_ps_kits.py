@@ -21,11 +21,25 @@ sys.path.insert(0, str(HERE / 'tools'))
 import build_dlc_bundle_request as dlc  # noqa: E402
 import build_free_patch_request as free_kit  # noqa: E402
 import build_text_upload_request as text_kit  # noqa: E402
+import build_voice_speaker_request as voice_kit  # noqa: E402
+import build_bvc_request as bvc_kit  # noqa: E402
+import build_bvc_rest_request as bvc3_kit  # noqa: E402
+import build_bvc_final_request as bvc4_kit  # noqa: E402
+import build_mission_request as mission_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
     ('text', text_kit, 'collect_text_bundles.ps1', 'SRW_Y_ZBIERZ_TEKST.zip', 'ZBIERZ_TEKST.ps1'),
     ('free', free_kit, 'collect_free_patch.ps1', 'SRW_Y_ZBIERZ_S6E.zip', 'ZBIERZ_S6E.ps1'),
+    ('voice', voice_kit, 'collect_voice_speaker_data.ps1', 'SRW_Y_GLOSY_PROSBA.zip',
+     'ZBIERZ_GLOSY.ps1'),
+    ('bvc', bvc_kit, 'collect_bvc_bundles.ps1', 'SRW_Y_BVC_PROSBA.zip', 'ZBIERZ_BVC.ps1'),
+    ('bvc3', bvc3_kit, 'collect_bvc_rest_bundles.ps1', 'SRW_Y_BVC3_PROSBA.zip',
+     'ZBIERZ_BVC3.ps1'),
+    ('bvc4', bvc4_kit, 'collect_bvc_final_bundles.ps1', 'SRW_Y_BVC4_PROSBA.zip',
+     'ZBIERZ_BVC4.ps1'),
+    ('mission', mission_kit, 'collect_mission_data.ps1', 'SRW_Y_MISSION_PROSBA.zip',
+     'ZBIERZ_MISSION.ps1'),
 ]
 
 
@@ -59,6 +73,19 @@ class KitTests(unittest.TestCase):
             return module.survey(dlc.read_listing(dlc.LISTING))
         if module is free_kit:
             return module.survey(module.read_listing(module.LISTING))
+        if module is voice_kit:
+            return module.resolve()
+        if module is bvc3_kit:
+            return module.survey()
+        if module is bvc4_kit:
+            return module.survey()
+        if module is mission_kit:
+            return module.survey()
+        if module is bvc_kit:
+            if not bvc_kit.PLAN.is_file():
+                raise unittest.SkipTest('brak local/s6/bvc_bundles.json — dane właściciela, '
+                                        'poza repozytorium')
+            return module.load_plan()
         import json
         if not text_kit.MAPPING.is_file():
             raise unittest.SkipTest('brak local/mapping.json — plik roboczy poza '

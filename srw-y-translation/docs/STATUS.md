@@ -1,9 +1,65 @@
 # SRW Y (Polish) — status
 
-*2026-10-25 — project started on the owner's decision. Phase 0 (feasibility),
-nothing translated, `runtime_tested = false`. Next action: owner runs the
-inventory on the game folder (or sends a plain directory listing) so the text
-containers can be located without transferring game data.*
+> **Current state (2026-10-26, night): the project waits for the translator, the voice
+> puzzle is solved.**
+> The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
+> 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the translator
+> package **v8** and patcher v2 are delivered, and rebuilding is proven in the game.
+> Only the translation itself is missing. The package answers the translator's six questions
+> — including the one that changed the data: **the protagonist exists as a man and as a
+> woman, both routes ship in the scripts**, so 17,657 lines carry a
+> `(wariant: bohater)` / `(wariant: bohaterka)` marker.
+> Answers with evidence: [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md).
+>
+> **Battle-voice speakers are no longer a hypothesis.** The owner's returned containers name
+> them: `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container
+> `WaveId → nameText`, giving **32,402 / 34,317 quotes (94.4 %) with the speaker the game
+> itself prints, 290 distinct speakers, 28,763 with gender** — proof in
+> [`GLOSY_BITEWNE_Y.md`](GLOSY_BITEWNE_Y.md) §8–9, per-quote table in
+> [`VOICE_MAP_Y.md`](VOICE_MAP_Y.md), catchphrase check in
+> [`VOICE_ANCHORS_Y.md`](VOICE_ANCHORS_Y.md). The last 1,915 quotes (5.6 %) point at voice
+> sets whose containers are in **no file of the shipped build**: the fourth kit
+> `SRW_Y_BVC4.zip` (145 files / 520,834 B, returned byte-exact) added 101 audio assets and
+> zero containers, and the scan of all 1,520 `MonoBehaviour` objects across 783 bundles plus
+> every asset of the containers' resource type closes the question — those 1,915 rows are
+> table entries whose voice set was not shipped (5.6 %), reported as a number, never as a
+> guess. The data phase is finished and **translator package v7 is delivered**
+> (`plik_dla_tlumacza_v7.zip`, 8,338,936 B, SHA-256 `e6d789ff…4f80e1`, Drive
+> `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD`, read back byte-identical): `[Cytat bitewny —
+> アムロ (Amuro), m]` for 32,402 quotes (28,763 with gender) and a `??? NNN` group id for the
+> other 1,915 — 138 groups, indexed in the new `09_grupy_bez_mowcy.md`, so one number always
+> means one voice. The owner's call: those quotes are translated, not left in English.
+>
+> **All packs on the owner's disk are covered, counted not promised** — 11 Addressables
+> catalogues (base + Dlc1, Dlc2, ExpansionPack, Anniversary, BonusMission, EarlyPurchase,
+> SeasonPassBonus, PremiumSound, Deluxe, Ultimate): 395 voice-set addresses, **0 missing**;
+> 794 assets of the container class, the only absent entry being a CriWare anchor; the 137
+> `WaveId` families of the 1,915 unnamed quotes appear in **none** of them. Audit:
+> [`VOICE_DLC_AUDIT_Y.md`](VOICE_DLC_AUDIT_Y.md).
+>
+> **Scene → chapter/mission: solved from the game's mission data (package v8).** The link
+> is not in the scripts (15 of 378 titles occur anywhere in the 946 scripts, as dialogue
+> words only; 0 mission ids in any `Cmd_*`), it is in `missionRomList[]` of the
+> `Mission*Data` assets returned in kit 5: each mission lists its scene files in
+> `composition[]`, so a scene joins its mission by **exact file name**.
+> Measured: **533 missions** (363 base + 170 DLC/bonus), **144 with `chapterNo` 1–7**,
+> **588 of 611 scenes attributed** (580 by file name, 8 by the preset `ICE_OP_ADVICE_*`
+> keys), **188 scenes inside chapters 1–7**, and **23 scenes with no mission record**,
+> listed one by one instead of guessed. Package **v8** (`plik_dla_tlumacza_v8.zip`,
+> 8,364,702 B, SHA-256 `71c07511…86b57c`, Drive `1N4RRwggKU6o8BWd-3LNpDqHXB98MqGih`, read
+> back byte-identical) adds `spis-misji.md` — the whole flow, chapter 1 → 7, missions in
+> order with title, scenes and lines, DLC packs after — plus `misja`/`rozdział` columns in
+> `spis-scen.md`, `misja:`/`tytuł misji:` lines in every scene header and a `misja:` line
+> next to every mission title. Element numbering and `PL:` lines are unchanged from v7,
+> so nothing translated needs redoing. Map: [`MISJE_Y.md`](MISJE_Y.md).
+> Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
+> Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
+
+*Historical start (2026-10-25): project opened on the owner's decision with a
+feasibility spike, nothing translated, `runtime_tested = false`. The sections
+below keep their original dates and wording as the chronological record.*
 
 ## S1 result — build inventory (2026-10-25, from the owner's listing)
 

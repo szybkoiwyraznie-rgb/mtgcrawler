@@ -1,3 +1,14 @@
+> **STATUS 2026-10-26 (późniejsza sesja, wieczór): ten dokument jest historyczny.**
+> Pakiet dla tłumacza jest w wersji **v6** (odpowiedzi na jego sześć pytań,
+> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md)); numeracja elementów
+> w plikach scen jest identyczna z v3, więc zwrotka zaczęta na v3 czyta się tak samo. Wszystkie
+> trzy braki z §2 zostały domknięte **poza punktem 2a**, który nadal jest otwarty:
+> tryb B (przebudowa przy zmienionym rozmiarze) **działa i został zobaczony w grze**,
+> patcher v2 z `PATCHER.bat` / `COFNIJ.bat` jest zbudowany i wysłany, a 19 scen
+> darmowej łatki jest w pakiecie. Do zrobienia zostało **tylko** narzędzie
+> `tools/pl_import.py` (walidator zwrotki opisany w §2a). Aktualny stan:
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md).
+
 # Powrót tłumaczeń — co jest gotowe, a czego brakuje
 
 Audyt na 2026-10-26, przed oddaniem pakietu tłumaczowi. Pytanie brzmiało: czy mamy

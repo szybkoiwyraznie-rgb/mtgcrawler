@@ -223,7 +223,8 @@ class ViewElementTest(unittest.TestCase):
 
 class ReadmeTest(unittest.TestCase):
     def setUp(self):
-        self.text = PK.build_readme(611, 120665, 44344, 97514, 41228)
+        self.text = PK.build_readme(611, 120665, 44344, 97514, 41228,
+                                    {'M': 9034, 'F': 8623, 'hero': 7992})
 
     def test_readme_states_the_dialogue_budget_in_characters(self):
         self.assertIn('do 270 znaków', self.text)
@@ -238,6 +239,138 @@ class ReadmeTest(unittest.TestCase):
     def test_readme_lists_the_name_tokens(self):
         for token in ('[p1:]', '[r1:]', '[i:]', '[protagonist]'):
             self.assertIn(token, self.text)
+
+    def test_readme_answers_the_knowledge_questions(self):
+        """The six questions the translator asked on 2026-10-26 stay answered in the file."""
+        for marker in ('wariant: bohater', 'głos', '鋼鉄ジーグ', '～', 'spis-misji.md',
+                       'font'):
+            self.assertIn(marker, self.text)
+
+
+
+class GenderVariantTest(unittest.TestCase):
+    """The protagonist exists as a man and as a woman, and both routes ship (2026-10-26).
+
+    The scripts mark the variants three ways: an explicit branch span
+    (`Cmd_BranchProtagonist_Begin, 0/1`), the speaker id (`pid_MHERO`/`pid_FHERO`) and,
+    as a fallback, the event table - a table carrying male-hero lines can only ever be
+    shown on the male route, so all of its lines are that variant.
+    """
+
+    def test_branch_span_decides_the_whole_block(self):
+        tables = {}
+        rows = [row('「あ」', 'a'), row('「い」', 'b')]
+        rows[0]['branch'], rows[1]['branch'] = 'M', 'M'
+        rows = [dict(item, gender=PK.row_gender(item, tables)) for item in rows]
+        lines = PK.render_scene_block(1, 1, scene(*rows), {})
+        self.assertIn('- warianty płci: bohater — 2 linii', lines)
+        self.assertIn('1. [Dialog - ちせ (wariant: bohater)] 「あ」', lines)
+
+    def test_hero_speaker_id_names_the_variant(self):
+        tables = {}
+        male = row('「俺だ」', 'Me.', speaker='$n')
+        male['pid'] = 'MHERO'
+        female = row('「ワタシだ」', 'Me.', speaker='$n')
+        female['pid'] = 'FHERO'
+        people = [dict(item, gender=PK.row_gender(item, tables)) for item in (male, female)]
+        lines = PK.render_scene_block(1, 1, scene(*people), {})
+        self.assertIn('1. [Dialog - $n (wariant: bohater)] 「俺だ」', lines)
+        self.assertIn('2. [Dialog - $n (wariant: bohaterka)] 「ワタシだ」', lines)
+
+    def test_event_table_is_the_fallback_for_other_speakers(self):
+        rows = [row('「あ」', 'a'), row('「い」', 'b'), row('「う」', 'c')]
+        rows[0]['pid'] = 'MHERO'
+        # a table with hero lines of one gender only: every line in it is that variant
+        rows[0]['table'] = rows[1]['table'] = 4
+        rows[2]['table'] = 5
+        tables = PK.table_genders(rows)
+        self.assertEqual(tables, {('cse20_0001_0000310a_sdemo.lua', 4): 'M'})
+        genders = [PK.row_gender(item, tables) for item in rows]
+        self.assertEqual(genders, ['M', 'M', None])
+
+    def test_a_table_with_both_genders_falls_back_to_the_line_itself(self):
+        rows = [row('「あ」', 'a'), row('「い」', 'b')]
+        rows[0]['pid'], rows[0]['table'] = 'MHERO', 7
+        rows[1]['pid'], rows[1]['table'] = 'FHERO', 7
+        tables = PK.table_genders(rows)
+        self.assertEqual(tables, {})
+        self.assertEqual([PK.row_gender(item, tables) for item in rows], ['M', 'F'])
+
+
+class TableViewTest(unittest.TestCase):
+    def tables(self, *rows):
+        return list(rows)
+
+    def test_machine_key_tables_are_not_shipped(self):
+        """`font` holds md5-like resource names - not text (translator's question 2)."""
+        rows = [{'table': 'font', 'key': '0287ee44:2123', 'jp': 'a1b2c3', 'en': 'a1b2c3',
+                 'index': 0},
+                {'table': 'prologue', 'key': '00eddfb7:a020b000', 'jp': '地球……',
+                 'en': 'The Earth.', 'index': 0}]
+        files = PK.build_view_files(self.tables(*rows), LIMITS, {'tables': {}})
+        text = files['08_pokrewne.md']
+        self.assertNotIn('a1b2c3', text)
+        self.assertIn('地球……', text)
+
+    def test_battle_voice_gets_a_stable_group_number(self):
+        """There is no name column; the same number must always mean the same voice."""
+        rows = [{'table': 'battle_voice', 'key': bank + ':00000000', 'jp': '「あ」',
+                 'en': 'a', 'index': 0} for bank in ('00000002', '00000001', '00000003')]
+        rows.append({'table': 'battle_voice-DLC1', 'key': '00000004:00000000',
+                     'jp': '「い」', 'en': 'b', 'index': 0})
+        banks = PK.voice_banks(rows)
+        self.assertEqual(len(banks), 4)
+        self.assertEqual(sorted(banks.values()), [1, 2, 3, 4])
+        self.assertEqual(list(banks)[0], '00000001')
+
+
+class SpeakerLabelTest(unittest.TestCase):
+    """The v7 label: the speaker the game names, or the ??? group the tool assigned."""
+
+    voice = {
+        'available': True,
+        'speakers': {('battle_voice', '0001:0002'): {'speaker': 'アムロ', 'gender': 'm'},
+                     ('battle_voice-DLC1', '0003:0004'): {'speaker': 'セイラ', 'gender': 'f'},
+                     ('battle_voice', '0005:0006'): {'speaker': 'ゲッターチーム',
+                                                     'gender': 'x'}},
+        'groups': {'battle_voice|0007:0008': '??? 012'},
+        'group_list': [{'id': '??? 012', 'rows': 3, 'tables': {'battle_voice': 3},
+                        'families': ['01999dcc'], 'family': 'F363', 'bank': '01999dcc',
+                        'hint_speaker': 'シズム', 'hint_gender': 'm',
+                        'hint_evidence': 38}],
+        'series': {'01999dcc': 'GTRARK'},
+        'en': {'アムロ': 'Amuro', 'セイラ': 'Sayla'},
+    }
+
+    def test_named_quote_shows_name_english_and_gender(self):
+        row = {'table': 'battle_voice', 'key': '0001:0002'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), ' — アムロ (Amuro), m')
+
+    def test_gender_letters(self):
+        row = {'table': 'battle_voice-DLC1', 'key': '0003:0004'}
+        self.assertTrue(PK.voice_suffix(row, self.voice).endswith(', k'))
+        row = {'table': 'battle_voice', 'key': '0005:0006'}
+        self.assertTrue(PK.voice_suffix(row, self.voice).endswith(', miesz.'))
+
+    def test_unknown_quote_falls_back_to_the_group_id(self):
+        row = {'table': 'battle_voice', 'key': '0007:0008'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), ' — ??? 012')
+
+    def test_quote_without_any_voice_data_has_no_suffix(self):
+        row = {'table': 'battle_voice', 'key': '0009:000a'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), '')
+
+    def test_other_tables_are_untouched(self):
+        row = {'table': 'pilot_name', 'key': '0001:0002'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), '')
+
+    def test_group_index_lists_every_group_without_game_text(self):
+        text = PK.render_groups(self.voice)
+        self.assertIn('??? 012', text)
+        self.assertIn('シズム', text)
+        self.assertIn('GTRARK', text)
+        self.assertIn('シズム (mężczyzna)', text)
+        self.assertEqual(PK.count_slots({'x': text}), (0, 0))
 
 
 class RebuildSafetyTest(unittest.TestCase):

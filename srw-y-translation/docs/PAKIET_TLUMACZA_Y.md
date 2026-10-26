@@ -6,11 +6,60 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza.zip
-├── README.md      instrukcja (polski, ten sam układ co w OE)
-├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
-└── widoki.zip     9 plików tabel (44 344 elementy)
+plik_dla_tlumacza_v8.zip          (bieżąca, 2026-10-26)
+├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6 + sekcja 7
+├── sceny.zip      spis-scen.md + spis-misji.md + 37 plików scen (611 scen, 120 665 linii)
+└── widoki.zip     10 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana,
+                   nowy plik 09_grupy_bez_mowcy.md to indeks grup `??? NNN`)
 ```
+
+## Wersja 8 — mapa scena → misja → rozdział (2026-10-26, noc)
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v8.zip` |
+| rozmiar / sha256 | 8 364 702 B / `71c075111e7cddadbc531f9b6084f120530b0638b298fc0be50ccb0cf286b57c` |
+| Drive | `1N4RRwggKU6o8BWd-3LNpDqHXB98MqGih` |
+| czytanie zwrotne | pobrane ponownie, **identyczne co do bajta** (`cmp` = 0) |
+| zawartość | `README.md` 19 527 B, `sceny.zip` 6 217 570 B, `widoki.zip` 2 137 638 B |
+
+Co się zmieniło: **odpowiedź na pytanie 4 tłumacza — mapa scena → misja → rozdział**.
+Powiązanie wzięte z `missionRomList[]` tabel `Mission*Data` (18 plików `.bundle`,
+321 obiektów `MonoBehaviour`), gdzie każda misja wymienia swoje pliki scen w
+`composition[]`; scena trafia do misji po **dokładnej nazwie pliku**, nie po kolejności.
+
+| miara | wynik |
+|---|---|
+| misje w danych | 533 (podstawka 363, dodatki 170) |
+| misje z rozdziałem 1–7 | 144 |
+| sceny | 611, przypisane **588** (580 po nazwie pliku + 8 po kluczach `ICE_OP_ADVICE_*`) |
+| sceny bez wpisu misji | **23**, wypisane wprost w [`MISJE_Y.md`](MISJE_Y.md) |
+| sceny z rozdziałem 1–7 | 188 (rozdz. 1: 14, 2: 42, 3: 35, 4: 21, 5: 24, 6: 29, 7: 23) |
+
+W paczce: nowy **`spis-misji.md`** (cały flow — rozdział 1 → 7, misje po numerze
+z tytułem, liczbą scen i linii, na końcu dodatki w podziale na paczki), kolumny
+`misja` / `rozdział` w `spis-scen.md`, linie `- misja:` / `- tytuł misji:` w nagłówku
+każdej sceny i linia `misja:` przy każdym tytule w `06_teksty_misji.md`. Numeracja
+elementów, klucze i linie `PL:` **bez zmian** względem v7 — nic przetłumaczonego nie
+trzeba przerabiać. Szczegóły i dowody: [`MISJE_Y.md`](MISJE_Y.md).
+
+## Wersja 7 — co doszło (2026-10-26, wieczór)
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v7.zip` |
+| rozmiar / sha256 | 8 338 936 B / `e6d789ffb1b98baeb74380f74fd51f91c01ec90542db018e6e732d01b74f80e1` |
+| Drive | `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD` |
+| czytanie zwrotne | pobrane ponownie, **identyczne co do bajta** (`cmp` = 0) |
+| zawartość | `README.md` 16 305 B, `sceny.zip` 6 195 930 B (bez zmian od v5/v6), `widoki.zip` 2 134 622 B |
+
+Co się zmieniło: **etykiety cytatów bitewnych**. Zamiast `[głos N/39]` jest teraz mówca
+z danych gry — `[Cytat bitewny — アムロ (Amuro), m]` dla **32 402 kwestii (94,4%)**, a dla
+pozostałych **1 915 (5,6%)** numer grupy `[Cytat bitewny — ??? 012]` plus indeks tych grup
+w `09_grupy_bez_mowcy.md` (138 grup: liczba kwestii, tabela, seria, podpowiedź mówcy/płci).
+
+Elementy i numeracja w plikach `.md` są **te same co w v4–v6** — zmienił się tylko tekst
+w nawiasie kwadratowym, więc przetłumaczone fragmenty nie wymagają przerabiania.
 
 Element ma układ z OE:
 
@@ -30,9 +79,9 @@ Grupy plików: `odcinek-NN[_x].md` dla podstawki (numeracja z nazw scenariuszy) 
 
 | część | elementy | sloty `PL:` | źródło |
 |---|---|---|---|
-| sceny | 116 056 | 97 514 | 611 scen z 1 883 plików Lua podstawki, DLC i darmowej łatki |
-| widoki | 44 344 | 41 228 | 144 tabele × 2 języki |
-| razem | 160 400 | **138 742** | |
+| sceny | 116 056 | 97 514 | 611 scen z 946 plików Lua jp podstawki, DLC i darmowej łatki |
+| widoki | 44 340 | 41 222 | 143 tabele × 2 języki (bez `font`) |
+| razem | 160 396 | **138 736** | |
 
 Pozostałe 21 565 elementów to powtórzenia w obrębie pliku — mają znacznik
 `(powtórzenie elementu N)`, tłumaczenie dziedziczy się automatycznie, tak jak kopie w OE.
@@ -113,9 +162,71 @@ właściciela pokazywał U+3000 jako czarne prostokąty z napisem `IDSP`, co wyg
 uszkodzony plik. Wcięcia i łamanie linii odtwarzamy sami przy składaniu tekstu, więc
 `PL:` to zawsze jedna linia tekstu.
 
+## Wersja 4 (2026-10-26) — odpowiedzi na pytania tłumacza
+
+Tłumacz zwrócił sześć pytań (cytaty bez mówcy, wiersze hex, fala `～`, mapa
+scena → rozdział, `鋼鉄ジーグ`, płeć bohatera w `$n`/`$c`). Odpowiedzi z dowodami:
+[`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md); w skrócie:
+
+| pytanie | rozstrzygnięcie | zmiana w paczce |
+|---|---|---|
+| 1. mówca cytatów bitewnych | nazw **nie ma w danych** (0/34 317 cytatów występuje w fabule, żadna tabela nie dzieli kluczy) | numer grupy `[głos N/39]` + 339 kwestii pilotów przeniesione z „pozostałych” |
+| 2. wiersze szesnastkowe | to tabela `font`, nie tekst | tabela **wyrzucona** z paczki |
+| 3. fala `～` | EN nie używa jej ani raz | reguła w README (sekcja 4): `-` albo nic |
+| 4. scena → rozdział | ~~powiązania nie ma w danych~~ — **sprostowane**: jest w danych misji ([`MISJE_Y.md`](MISJE_Y.md)) | v4: `spis-scen.md` z podsumowaniem grup; **v8: pełna mapa misja/rozdział** |
+| 5. `鋼鉄ジーグ` | dane poprawne, 1901 to powtórzenie 732 | wyraźniejsze oznaczenie powtórzeń |
+| 6. płeć bohatera | **dwie wersje w grze**: `cmd_BranchProtagonist 0/1`, `pid_MHERO`/`pid_FHERO` | 9 034 linie `(wariant: bohater)`, 8 623 `(wariant: bohaterka)` |
+
+Do tego: pełne odtworzenie danych w tym przebiegu z `srw_y_dlc_bundle.zip` i
+`srw_y_free_patch.zip` — **0 brakujących bundli** (wcześniej raport miał 639 wpisów
+„bundle missing on disk”, bo dodatków nie było na dysku). Numeracja elementów w plikach
+scen jest **identyczna z v3** (37 plików różni się tylko dodanymi znacznikami), więc praca
+zaczęta na v3 przenosi się przez numer elementu.
+
 ## Wysłane (2026-10-26)
 
-Wersja bieżąca — **`plik_dla_tlumacza_v3.zip`**:
+Wersja bieżąca — **`plik_dla_tlumacza_v6.zip`** (sekcja 7 przepisana po danych, które
+właściciel odesłał tego samego dnia: **bank głosów = jedna seria**, dowiedzione dla
+11 z 39 banków; druga prośba o kontenery głosu — `SRW_Y_BVC_PROSBA.zip`; treść plików
+do tłumaczenia **bez zmian** względem v5 — ta sama numeracja, te same elementy):
+
+| | |
+|---|---|
+| plik | **`plik_dla_tlumacza_v6.zip`** |
+| rozmiar | 8,283,635 B |
+| SHA-256 | `e19d8505d6cbab34d31fcada5a46398b27a5158b113699a47720099a2056aa93` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1tnXKRYzt93u2Arjb_UJj0c8pJW8sjMYh` |
+| w środku | `README.md` (15,958 B), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
+| sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
+| treść do tłumaczenia | `sceny.zip` i `widoki.zip` — **te same rozmiary co w v4/v5**; zmienił się tylko `README.md` w paczce (sekcja 7 i 9) |
+
+Poprzednia wersja — **`plik_dla_tlumacza_v5.zip`** (sekcja 7 o cytatach bitewnych
+przepisana na język danych: czym jest grupa głosu, co wiemy o kluczach i jak domkniemy
+mówców; treść plików do tłumaczenia **bez zmian** względem v4 — ta sama numeracja, te
+same elementy):
+
+| | |
+|---|---|
+| plik | **`plik_dla_tlumacza_v5.zip`** |
+| rozmiar | 8,283,398 B |
+| SHA-256 | `d765c481f1eb5ec18f4e506552c33d85e8e3496443cb24e70582137bf8491611` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1U-gZS-LfEZq2h9tAZgl_R_WA2bsivdU4` |
+| w środku | `README.md` (15,449 B), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
+| sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
+| treść do tłumaczenia | `sceny.zip` 6,195,930 B i `widoki.zip` 2,079,401 B — **te same rozmiary co w v4**, generator jest deterministyczny, więc numeracja i elementy są identyczne; zmienił się tylko `README.md` w paczce (sekcja 7) |
+
+Wersja z rana 2026-10-26 — **`plik_dla_tlumacza_v4.zip`** (ta sama treść do tłumaczenia,
+starsza sekcja 7):
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v4.zip` |
+| rozmiar | 8,282,791 B |
+| SHA-256 | `235bee7a9b0ed352e3af077ed65f6cd51bb5687ff507544b1de6e3c09a0e80bf` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1tWR6mafmm-MHRyJZmbfflTzy5a0SPzLc` |
+
+Poprzednia wersja — **`plik_dla_tlumacza_v3.zip`** (nieaktualna, bez znaczników płci
+i z tabelą `font`):
 
 | | |
 |---|---|
@@ -129,10 +240,11 @@ Nieaktualne: `plik_dla_tlumacza.zip` (id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`, ce
 japońskie i surowe znaki formatowania) oraz `plik_dla_tlumacza_v2.zip`
 (id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a`, `limit` z liczbą linii).
 
-Zmierzona treść: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md` z mówcami
-i liczbą linii każdej sceny; **9 plików tabel, 44 344 elementy**. Slotów `PL:` razem
-**138 742** (sceny 97 514, widoki 41 228). Pozostałe elementy to powtórzenia w obrębie
-pliku (tłumaczenie dziedziczy się automatycznie).
+Zmierzona treść v5: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md`
+z podsumowaniem grup, mówcami i liczbą linii każdej sceny; **9 plików tabel,
+44 340 elementów**. Slotów `PL:` razem **138 736** (sceny 97 514, widoki 41 222).
+Pozostałe elementy to powtórzenia w obrębie pliku (tłumaczenie dziedziczy się
+automatycznie).
 
 Dane wejściowe tej wersji (wszystkie z Drive właściciela):
 

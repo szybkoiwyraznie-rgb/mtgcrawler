@@ -1,5 +1,62 @@
 # Project status
 
+**Non-dialogue audit closed (part 2, 2026-10-26).** The remaining "to check"
+items were traced to source and none is a defect, so the snapshot and the kit are
+unchanged (`data_sha256` still `321d22bd…f8`): `%s` "holes" were a report
+artefact, `sysmes:29165` is a suffix-duplicate record (owner question), and
+`09_executable` (408 rows, first review) is fully governed — 399 Polish, 0
+rejected by `exe_strings.check_en`, the five English-looking rows forced to ASCII
+by policy (unpatched PSP system font / no Polish codec for UTF-8 save metadata).
+`tests/test_pl_nondialogue.py` = 11 tests; `152/152` modules green.
+
+**PL v4.6 delivered — non-dialogue prose: unit-data panel and system messages
+(2026-10-26, PR #25).**
+[`srw-oe-translation-pl-v4.6.zip`](https://drive.google.com/file/d/1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8/view)
+`8,766,165 B`, SHA-256
+`742da3f473426d0644da12912e7d568f8f216aa9f0d2e7adafd01e270364adde` (sha
+`742da3f4…adde`), MD5 `92ff6c2115646cd9dd143b77ad6e1323`, `92` members; Drive
+md5/sha256/size read-back matches **and the download-back is byte-identical**.
+Superseded: a first v4.6 upload made before the `README_DIST_PL.md` v4.6 section
+was added (`2e5ebfeb…`) was trashed; v4.5 (`1LNhc0Mh…`) stays in the folder. EN pair `srw-oe-translation-v4.6.zip` `7,285,821 B` (`7f314d1a…`, local
+only; no English text changed). First language review of the non-dialogue prose
+— `28,431` PL rows (`17,724` prose rows, `5,846` unique texts) that no earlier
+pass had covered. Controlled-class scans found the prose clean; two systemic
+defects were fixed with one source-bound plan
+(`config/pl/nondialogue-unit-data-sysmes-2026-10-26.json`, SHA-256
+`e2f1e060…934d`, `357` rows):
+
+* **Unit-data panel was half English** (`08_names_units_weapons`,
+  `weight`/`length`): `348` rows still carried the English column
+  (`Weight －－－` ×166, `Len. －－－` ×151, `Empty Wt. 8,450kg` ×8,
+  `Len./Weight … shin/mett/zusshiri/rufton`, `Dry Weight … rufton`, …) while
+  the translated rows of the very same field already read `Masa 54,0 t` /
+  `Dł. 25,0 m`. All `25` distinct strings are now Polish in that convention
+  (decimal comma, space thousands separator, fictional units kept in romaji):
+  `Masa －－－`, `Dł. －－－`, `Masa własna 8,45 t`, `Masa 32 000 t`,
+  `Dł. 6,9 mett`, `Dł. 14,53 m (15,59 m z działkami)`.
+* **System messages** (`04_config_text`, `config_sysmes`, `9` rows): the
+  save-failure prompts were still English (`Save failed. Continue without
+  saving?`) — the only untranslated player-visible sentences in the whole
+  scope — now `Zapis nie powiódł się.` / `Kontynuować bez zapisu?`; the
+  overlapping `製品版をダウンロードします。` carried the game title instead of its
+  meaning (`Pobierz pełną wersję gry.`), and two siblings were unified to the
+  full row's wording, which cut the longest line from `49` to `36` cells.
+
+Width rule: new line width ≤ `max(previous width, JP width + 4 cells)`, plus the
+measured `cells(PL) ≤ cells(JP)` rule for one-line sysmes labels. Snapshot
+`788ab91c…62` → `321d22bd…f8` (`18th` `owner_ui_corrections` entry); coverage
+unchanged `108,805 / 109,176` filled, `371` empty, `0` errors, `4,176`
+warnings; `430` robonote `copy_of` rows stay byte-identical (`0` mismatches).
+Tests: new `tests/test_pl_nondialogue.py` (8) plus the release/reading/story/UI
+sweep OK; `tests/test_pl_mission_title_fit.py` is ledger-relative now. Ledger
+[PL_NONDIALOGUE_AUDIT_2026-10-26.md](pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md),
+receipt [pl-v4.6-kit-delivery.json](pl/pl-v4.6-kit-delivery.json).
+`runtime_tested` stays `false` — the panel and the save prompt need an owner
+PPSSPP check (ISO YES / DLC NO). Five owner-decision items (full-width digits
+in `config_status_change`, the `11` single-kanji extraction artefacts,
+`sysmes:29165`, the romaji joke units, the same wrong content in the EN rows
+`43897`/`44013`) are listed in the ledger and untouched.
+
 **PL v4.5 delivered — mission titles fitted to the mission-select bar
 (2026-10-24, PR #24).**
 [`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
