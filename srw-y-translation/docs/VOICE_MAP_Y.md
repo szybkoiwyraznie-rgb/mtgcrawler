@@ -7,7 +7,7 @@ kwestią. Żadnego zgadywania z treści.
 - kwestii w tabeli `battle_voice`: **34,317**
 - z odczytanym mówcą: **32,402** (94.4%)
 - różnych mówców: **290**
-- z płcią z `PilotBasicDatas`: 14,552 kwestii
+- z płcią z `PilotBasicDatas`: 28,763 kwestii
 - bez kontenera w wydanym buildzie: **1,915** (5.6%) — te kwestie nie mają swojego zestawu głosu w danych; nie są zgadywane
 
 | tabela | z mówcą | bez kontenera | wszystkich |

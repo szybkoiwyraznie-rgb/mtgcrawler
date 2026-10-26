@@ -324,6 +324,55 @@ class TableViewTest(unittest.TestCase):
         self.assertEqual(list(banks)[0], '00000001')
 
 
+class SpeakerLabelTest(unittest.TestCase):
+    """The v7 label: the speaker the game names, or the ??? group the tool assigned."""
+
+    voice = {
+        'available': True,
+        'speakers': {('battle_voice', '0001:0002'): {'speaker': 'アムロ', 'gender': 'm'},
+                     ('battle_voice-DLC1', '0003:0004'): {'speaker': 'セイラ', 'gender': 'f'},
+                     ('battle_voice', '0005:0006'): {'speaker': 'ゲッターチーム',
+                                                     'gender': 'x'}},
+        'groups': {'battle_voice|0007:0008': '??? 012'},
+        'group_list': [{'id': '??? 012', 'rows': 3, 'tables': {'battle_voice': 3},
+                        'families': ['01999dcc'], 'family': 'F363', 'bank': '01999dcc',
+                        'hint_speaker': 'シズム', 'hint_gender': 'm',
+                        'hint_evidence': 38}],
+        'series': {'01999dcc': 'GTRARK'},
+        'en': {'アムロ': 'Amuro', 'セイラ': 'Sayla'},
+    }
+
+    def test_named_quote_shows_name_english_and_gender(self):
+        row = {'table': 'battle_voice', 'key': '0001:0002'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), ' — アムロ (Amuro), m')
+
+    def test_gender_letters(self):
+        row = {'table': 'battle_voice-DLC1', 'key': '0003:0004'}
+        self.assertTrue(PK.voice_suffix(row, self.voice).endswith(', k'))
+        row = {'table': 'battle_voice', 'key': '0005:0006'}
+        self.assertTrue(PK.voice_suffix(row, self.voice).endswith(', miesz.'))
+
+    def test_unknown_quote_falls_back_to_the_group_id(self):
+        row = {'table': 'battle_voice', 'key': '0007:0008'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), ' — ??? 012')
+
+    def test_quote_without_any_voice_data_has_no_suffix(self):
+        row = {'table': 'battle_voice', 'key': '0009:000a'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), '')
+
+    def test_other_tables_are_untouched(self):
+        row = {'table': 'pilot_name', 'key': '0001:0002'}
+        self.assertEqual(PK.voice_suffix(row, self.voice), '')
+
+    def test_group_index_lists_every_group_without_game_text(self):
+        text = PK.render_groups(self.voice)
+        self.assertIn('??? 012', text)
+        self.assertIn('シズム', text)
+        self.assertIn('GTRARK', text)
+        self.assertIn('シズム (mężczyzna)', text)
+        self.assertEqual(PK.count_slots({'x': text}), (0, 0))
+
+
 class RebuildSafetyTest(unittest.TestCase):
     """What the package strips from the display must never be needed to rebuild.
 

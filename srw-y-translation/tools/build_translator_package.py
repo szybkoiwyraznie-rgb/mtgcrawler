@@ -51,9 +51,12 @@ SCENARIO = HERE / 'local' / 's6' / 'scenario.jsonl'
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
 LIMITS = HERE / 'local' / 's6' / 'limits.json'
 GROUPS = HERE / 'local' / 's6' / 'groups.json'
+VOICE_MAP = HERE / 'local' / 's6' / 'voice_map.json'
+VOICE_GROUPS = HERE / 'local' / 's6' / 'voice_groups.json'
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
+VERSION = 7
 
 PACK_ORDER = [
     'base', 'EarlyPurchase', 'Dlc1', 'Dlc2', 'ExpansionPack',
@@ -158,6 +161,61 @@ SCENE_CHARS = SCENE_LINES * SCENE_CHARS_PER_LINE
 # Whitespace the game uses for layout: ASCII and ideographic spaces, tabs, the narrower
 # Unicode spaces. All of it collapses to one space, so the translator sees wording only.
 SPACE_RUN = re.compile(r'[ \t\u00a0\u2000-\u200a\u202f\u205f\u3000]+')
+
+
+GENDER_SHORT = {'m': 'm', 'f': 'k', 'x': 'miesz.'}
+
+
+def load_voice() -> dict:
+    """Speaker labels for the battle quotes, from the owner's returned containers.
+
+    `voice_map.json` says which quote got a `nameText` speaker (tool `voice_speaker_map.py`);
+    `voice_groups.json` gives the `??? NNN` id to every quote whose container is not in the
+    shipped build (tool `voice_unknown_groups.py`). Both are optional: without them the
+    package falls back to the old `[głos N/39]` number.
+    """
+    voice = {'speakers': {}, 'groups': {}, 'group_list': [], 'en': {}, 'available': False}
+    if not VOICE_MAP.is_file():
+        return voice
+    for item in json.loads(VOICE_MAP.read_text(encoding='utf-8')).get('rows_mapped', []):
+        voice['speakers'][(item['table'], item['key'])] = {
+            'speaker': item['speaker'], 'gender': item.get('gender') or ''}
+    if VOICE_GROUPS.is_file():
+        data = json.loads(VOICE_GROUPS.read_text(encoding='utf-8'))
+        voice['groups'] = data.get('row_groups', {})
+        voice['group_list'] = data.get('groups', [])
+        voice['series'] = data.get('series', {})
+    voice['available'] = bool(voice['speakers'])
+    return voice
+
+
+def speaker_english(tables: list[dict]) -> dict[str, str]:
+    """Japanese speaker name -> the English name the game itself uses."""
+    english: dict[str, str] = {}
+    for row in tables:
+        base = re.sub(r'-DLC\d+$', '', row['table'])
+        if base not in ('pilot_name', 'dic_text_name', 'dic_text_pilot', 'robot_name'):
+            continue
+        if row.get('jp') and row.get('en') and row['jp'].strip() != row['en'].strip():
+            english.setdefault(row['jp'].strip(), row['en'].strip())
+    return english
+
+
+def voice_suffix(row: dict, voice: dict) -> str:
+    """` — アムロ (Amuro), m` for a named quote, ` — ??? 012` for a grouped one."""
+    if re.sub(r'-DLC\d+$', '', row['table']) != 'battle_voice':
+        return ''
+    known = voice['speakers'].get((row['table'], row['key']))
+    if known:
+        name = known['speaker']
+        english = voice['en'].get(name)
+        label = f'{name} ({english})' if english else name
+        gender = GENDER_SHORT.get(known['gender'])
+        return f' — {label}' + (f', {gender}' if gender else '')
+    group = voice['groups'].get(f"{row['table']}|{row['key']}")
+    if group:
+        return f' — {group}'
+    return ''
 
 
 def table_label(table: str) -> str:
@@ -478,7 +536,12 @@ def voice_banks(tables: list[dict]) -> dict[str, int]:
 
 
 def build_view_files(tables: list[dict], limits: dict,
-                     groups: dict | None = None) -> dict[str, str]:
+                     groups: dict | None = None,
+                     voice: dict | None = None) -> dict[str, str]:
+    voice = voice or {'speakers': {}, 'groups': {}, 'group_list': [], 'en': {},
+                      'available': False}
+    if not voice['en']:
+        voice['en'] = speaker_english(tables)
     banks = voice_banks(tables)
     tables = [row for row in tables
               if re.sub(r'-DLC\d+$', '', row['table']) not in NOT_TEXT_TABLES]
@@ -500,11 +563,16 @@ def build_view_files(tables: list[dict], limits: dict,
         for index, row in enumerate(rows, start=1):
             suffix = ''
             if re.sub(r'-DLC\d+$', '', row['table']) == 'battle_voice':
-                number = banks.get(row['key'].split(':')[0])
-                suffix = f' [głos {number}/{len(banks)}]'
+                suffix = voice_suffix(row, voice)
+                if not suffix:
+                    number = banks.get(row['key'].split(':')[0])
+                    suffix = f' [głos {number}/{len(banks)}]'
             lines += render_table_element(index, row, seen, limits, groups, suffix)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
+
+    if voice.get('group_list'):
+        files['09_grupy_bez_mowcy.md'] = render_groups(voice)
 
     leftover = sorted(set(by_base) - listed)
     if leftover:
@@ -519,6 +587,51 @@ def build_view_files(tables: list[dict], limits: dict,
     return files
 
 
+GENDER_WORD = {'m': 'mężczyzna', 'f': 'kobieta', 'x': 'głos mieszany'}
+
+
+def render_groups(voice: dict) -> str:
+    """The `??? NNN` index: which unidentified quotes belong to one voice (no game text)."""
+    groups = voice['group_list']
+    series = voice.get('series', {})
+    total = sum(group['rows'] for group in groups)
+    hinted = sum(group['rows'] for group in groups if group.get('hint_speaker'))
+    lines = ['# Grupy kwestii bez imienia mówcy — SRW Y', '',
+             f'{total:,} kwestii w {len(groups)} grupach. Numer `??? NNN` dostajesz też',
+             'w etykiecie każdej takiej kwestii w `02_cytaty_bitewne.md`:', '',
+             '```text',
+             '   [Cytat bitewny (DLC1) — ??? 012] 「当たれっ！」',
+             '```', '',
+             '**Jeden numer = jedna postać.** W obrębie numeru trzymaj jeden rodzaj',
+             'gramatyczny; zmiana rodzaju w środku numeru to błąd. Między numerami rodzaj',
+             'może się różnić — to różne postacie.', '',
+             '## Skąd się bierze numer', '',
+             'Numer to **rodzina głosu** — jeden zestaw nagrań jednej postaci w danych gry.',
+             'Sprawdzone na kwestiach, które mają imię: w obrębie takiej rodziny mówi jedna',
+             'postać w 92,8% kwestii (a tam, gdzie dwie, to prawie zawsze ten sam bohater',
+             'w duecie, np. „X” i „X＆Y”). Dlatego numer jest dobrą wskazówką spójności,',
+             'a nie etykietą imienia.', '',
+             '## Podpowiedź płci', '',
+             f'Dla {hinted:,} z {total:,} kwestii mamy **podpowiedź** płci: w tej samej',
+             'rodzinie głosu są już kwestie z imieniem i wszystkie mają jednego mówcę.',
+             'To podpowiedź, nie etykieta — jeśli japoński tekst sam mówi o płci',
+             '(`俺` / `私` / `あたし`, formy żeńskie), **wierzymy tekstowi japońskiemu**.', '',
+             '| grupa | kwestii | tabele | seria (z banku) | podpowiedź mówcy |',
+             '|---|---|---|---|---|']
+    for group in groups:
+        found = sorted({series.get(bank, '') for bank in group.get('families', [])} - {''})
+        hint = ''
+        if group.get('hint_speaker'):
+            gender = GENDER_WORD.get(group.get('hint_gender'), '')
+            hint = group['hint_speaker'] + (f' ({gender})' if gender else '')
+        lines.append(f"| **{group['id']}** | {group['rows']} | "
+                     f"{', '.join(sorted(group['tables']))} | "
+                     f"{', '.join(found) or '—'} | {hint or '—'} |")
+    lines += ['', 'Kolumna „seria” pochodzi z banku głosów i jest dowiedziona tylko dla części',
+              'banków — puste pole znaczy „nie wiemy”, a nie „żadna”.', '']
+    return '\n'.join(lines)
+
+
 def count_slots(files: dict[str, str]) -> tuple[int, int]:
     elements = slots = 0
     for text in files.values():
@@ -530,14 +643,16 @@ def count_slots(files: dict[str, str]) -> tuple[int, int]:
 def build_readme(scene_total: int, scene_lines: int, table_rows: int,
                  scene_slots: int, view_slots: int, gender: dict) -> str:
     male, female = gender['M'], gender['F']
-    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski), wersja 6
+    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski), wersja {VERSION}
 
 To jest cały tekst fabularny i cały tekst nazw tej gry, w jednej paczce w formacie
 identycznym z pakietem do SRW OE. Tłumaczy się **tekst w plikach `.md`**, wpisując
 polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 
-Wersja 4 odpowiada na sześć pytań z 26 października — odpowiedzi są w sekcjach 6–8,
-a to, co się zmieniło w samych plikach, w sekcji 9.
+Wersja 7 domyka temat mówców w cytatach bitewnych: **94,4% cytatów ma imię mówcy z danych
+gry**, a reszta dostała numer grupy `??? NNN`, po którym widać, które kwestie mówi jedna
+postać (sekcja 7). Odpowiedzi na sześć pytań z 26 października są w sekcjach 6–8, a wykaz
+zmian w sekcji 9.
 
 ## 0. W skrócie
 
@@ -678,47 +793,60 @@ Co to znaczy dla polskiego:
 4. `$n`, `$c`, `$F` są **bezrodzajowe** — gra podstawia imię, skrót i pełne nazwisko
    niezależnie od płci. Rodzaj nosisz w słowach wokół tokenu, nie w tokenie.
 
-## 7. Cytaty bitewne — odpowiedź na pytanie 1
+## 7. Cytaty bitewne — odpowiedź na pytanie 1 (i zmiana etykiet)
 
 Tabela `battle_voice` ma **34 317 kwestii w 39 bankach** (31 w podstawce, 8 w dodatkach)
-i nie ma w niej kolumny z mówcą. Wniosek „mówcy nie da się ustalić” był błędny i został
-wycofany: dane gry to ustalają. Po odebraniu 17 bundli danych (2026-10-26) wiemy
-dokładnie, co jest czym:
+i nie ma w niej kolumny z mówcą. Wniosek „mówcy nie da się ustalić” był błędny — dane gry
+to ustalają i zostało to odczytane. Łańcuch jest taki:
 
-- **`grupa` (numer w `[głos N/39]`) to bank głosów jednej serii**, nie jednej postaci.
-  Dowód z treści skrzyżowanej z `RobotBasicDatas` (`ipnameId` każdej jednostki): w banku
-  `01999dd0` 100% kwestii, które nazywają jakąkolwiek jednostkę, nazywa jednostkę
-  z ダイナゼノン; w `01999de0` — 98% z マジンガー; w `01999dcc` — 81% z `GTRARK`;
-  w `01999dcb` — 67% z `MZKZRDSDG`. **11 z 39 banków** dało się tak przypisać do serii (próg: ≥20
-  nazwanych kwestii i ≥60% udziału); reszta zostaje numerami, dopóki nie rozstrzygną
-  tego kontenery głosu.
-- **numer wpisu wewnątrz banku** to zwykły identyfikator z generatora Unity: bity 12–21
-  to numer maszyny (11 albo 8), bity 0–11 sekwencja (maks. 148), reszta znacznik czasu.
-  Wewnątrz banku nie ma w nim żadnej informacji o mówcy.
-- **pilot** ma w `PilotBasicDatas` pole `bvcFile` (np. `REIRE_HA0`), a **jednostka**
-  w `RobotBasicDatas` — `voiceGroup` i `voiceContainer`. Kontener o nazwie z `bvcFile`
-  to brakujące ogniwo: on mówi, które klucze (`F321_026`…) należą do którego pilota.
-  310 takich plików (1,2 MB, same tabele przypisań — nie audio) jest w drodze
-  (`SRW_Y_BVC_PROSBA.zip`).
+```text
+wiersz battle_voice  (klucz 01999dc9:15e0b000)
+  -> battle_voice Shared Data   (m_Id -> m_Key, np. F069_002)
+  -> kontener głosu             (WaveId -> nameText: imię, które gra wypisuje nad kwestią)
+```
 
-**Co z tego wynika dla tłumaczenia.** Numer `[głos N/39]` znaczy dziś: „to mówi ktoś
-z tej serii”. To za mało, żeby wpisać imię, ale wystarcza, żeby nie zgadywać płci:
+Skąd pewność: sprawdzone na okrzykach, o których wiadomo, kto je wykrzykuje —
+`イデオンソード` wraca z mówcą **コスモ** (pilot, nie robot イデオン), `ダ・ガーン` z **星史**,
+`ゲッタービーム` z **拓馬**, `ブライ・ソード` z **キッド**. Nic nie jest zgadywane z treści:
+etykieta to pole `nameText` z pliku gry.
 
-1. **Nie zakładaj jednej płci na numer.** W jednym banku mówi kilka postaci jednej serii
-   i różne płcie. Jeśli w obrębie numeru raz jest „powiedziałem”, a raz „powiedziałam”,
-   to nie błąd — to dwie postacie (przy jednej postaci byłby to błąd).
-2. **Cytaty pisz bez rodzaju**, dopóki mówca nie jest znany: czas teraźniejszy
-   („Namierzyłem” → „Mam go na celowniku”), tryb rozkazujący („Ognia!”, „Uważaj!”),
-   bezosobowo („Trzeba się wycofać”). Wyjątkiem są kwestie, w których japoński sam mówi
-   o płci mówcy (zaimki `俺` / `私` / `あたし`, formy żeńskie) — wtedy płeć wynika z tekstu.
-3. **Numer zostanie zamieniony na imię i płeć** — etykieta `[Cytat bitewny - アムロ
-   (Amuro)]` — gdy dotrą kontenery głosu. **Same cytaty zostaną bez zmian**: nie trzeba
-   niczego przerabiać w tym, co już przetłumaczone.
+**Co się zmieniło w plikach.** Etykieta cytatu nie jest już numerem banku, tylko mówcą:
 
-Dlaczego nie zgadujemy: treść podpowiada serię (np. w banku `00000411` padają nazwy
-z Big O, a w `0001168c` — „ダ・ガーン!”), ale te same nazwy padają też w cudzych kwestiach
-(„来い、蜃気楼蛟!” mówi ktoś inny niż pilot 蜃気楼). Podmiana numeru na imię na podstawie
-takich tropów byłaby zgadywaniem, a błędne imię w paczce jest gorsze niż numer.
+```text
+2541. [Cytat bitewny — アムロ (Amuro), m] 「当たれっ！」
+2542. [Cytat bitewny — シャア (Char), m] 「遅い！」
+2543. [Cytat bitewny — ??? 012] 「いいだろう！」
+```
+
+- **`m` = mężczyzna, `k` = kobieta, `miesz.` = głos zbiorowy lub mieszany** (chórek, „oni”).
+  Płeć pochodzi z tabeli pilotów, nie z domysłu o tekście.
+- W nawiasie jest **angielska wersja imienia z gry**; gdy gra jej nie ma, zostaje samo imię
+  japońskie.
+- **`??? NNN`** to cytat, którego zestawu głosu **nie ma w wydanym buildzie** — wiersz
+  w tabeli jest, pliku z nagraniem nie ma (sprawdzone na wszystkich plikach gry). Takich
+  kwestii jest **1 915 (5,6%)** i właściciel projektu zdecydował, że **przekładamy je
+  mimo to** — lepszy polski bez imienia niż angielski.
+
+### Co zrobić z `??? NNN`
+
+`widoki.zip` ma osobny plik **`09_grupy_bez_mowcy.md`** — indeks wszystkich 138 grup:
+ile kwestii, z jakiej tabeli, z jakiej serii (gdy dowiedziona) i **podpowiedź mówcy**
+tam, gdzie da się ją uzasadnić.
+
+1. **Jeden numer = jedna postać.** W obrębie numeru trzymaj **jeden rodzaj gramatyczny**.
+   Zmiana rodzaju w środku numeru to błąd; między numerami — to różne postacie, więc
+   rodzaj może się różnić.
+2. **Podpowiedź nie jest etykietą.** Dla 1 870 z 1 915 kwestii w tej samej rodzinie głosu
+   są już kwestie z imieniem i wszystkie mają jednego mówcę — to dobra podpowiedź płci.
+   Ale jeśli japoński tekst sam mówi o płci (`俺` / `私` / `あたし`, formy żeńskie),
+   **wierzymy tekstowi japońskiemu**.
+3. **Gdy nie wiadomo nic** — pisz bez rodzaju: czas teraźniejszy, tryb rozkazujący,
+   bezosobowo („Trzeba się wycofać”). To ta sama zasada, co w sekcji 6 dla linii wspólnych
+   bohatera.
+
+Dlaczego nie ma tam imion: rodzina głosu bywa wielomówcza (w jednym banku mówi nawet
+40 postaci), a treść bywa myląca — te same nazwy robotów padają w cudzych kwestiach.
+Błędne imię albo błędny rodzaj w paczce jest gorszy niż numer grupy.
 
 ## 8. Pozostałe odpowiedzi
 
@@ -760,20 +888,22 @@ błąd danych. W `00_postacie.md`:
 Czyli: `鋼鉄ジーグ` = „Kotetsu Jeeg” (albo „Jeeg z Kotetsu”, jeśli wolisz tłumaczyć),
 a Getter to osobna pozycja. W wersji 4 powtórzenia są oznaczone wyraźniej.
 
-## 9. Co się zmieniło w wersji 6
+## 9. Co się zmieniło w wersji 7
 
-1. **Sekcja 7 przepisana po danych od właściciela** (odesłane 2026-10-26): bank głosów
-   to jedna **seria**, nie jedna postać; dowiedzione dla 11 z 39 banków. Pliki do
-   tłumaczenia są **te same co w wersji 4** — numeracja i elementy bez zmian.
-2. Każda kwestia bohatera i każda kwestia z bloku jednego wariantu płci ma znacznik
+1. **Etykiety cytatów bitewnych: numer banku → mówca.** `[głos N/39]` zniknął;
+   **94,4% cytatów** ma imię i płeć z danych gry, reszta numer grupy `??? NNN`.
+   Pliki do tłumaczenia mają **te same elementy i tę samą numerację** — zmienił się tylko
+   tekst w nawiasie kwadratowym. Tego, co już przetłumaczone, nie trzeba przerabiać.
+2. **Nowy plik `09_grupy_bez_mowcy.md`** — indeks 138 grup `??? NNN` z liczbą kwestii,
+   tabelą, serią i podpowiedzią mówcy/płci. Bez tekstu gry, tylko spis.
+3. **Płeć mówcy** w etykiecie (`m`, `k`, `miesz.`) — z tabeli pilotów (`PilotBasicDatas`),
+   dla 28 763 z 32 402 nazwanych cytatów. Reszta bez oznaczenia płci.
+4. Każda kwestia bohatera i każda kwestia z bloku jednego wariantu płci ma znacznik
    `(wariant: bohater)` / `(wariant: bohaterka)`; nagłówek sceny podaje, ile linii ma
    każdy wariant (sekcja 6).
-3. Cytaty bitewne mają numer banku `[głos N/39]` — patrz sekcja 7 (bank = seria; imiona
-   i płeć dochodzą osobnym krokiem, bez zmian w samych cytatach).
-4. Tabela `font` (klucze szesnastkowe) **zniknęła** z paczki.
 5. Pełne dane dodatków — 611 scen i {scene_lines:,} linii, tyle ile w grze.
-6. Nowe zasady: `～` (sekcja 4), rodzaj bohatera (sekcja 6), cytaty bez rodzaju (sekcja 7).
-7. `spis-scen.md` ma na górze podsumowanie grup z liczbą scen i linii.
+6. Tabela `font` (klucze szesnastkowe) nie jest wysyłana.
+7. Nowe zasady: `～` (sekcja 4), rodzaj bohatera (sekcja 6), cytaty `???` (sekcja 7).
 
 ## 10. Co odesłać
 
@@ -811,7 +941,8 @@ def main(argv=None) -> int:
                     scene['file'] = name
                     break
     scene_files['spis-scen.md'] = render_index(scenes)
-    view_files = build_view_files(tables, limits, load_groups())
+    voice = load_voice()
+    view_files = build_view_files(tables, limits, load_groups(), voice)
 
     out = args.out_dir
     if out.exists():

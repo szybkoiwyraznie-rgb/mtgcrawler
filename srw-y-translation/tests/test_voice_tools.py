@@ -21,6 +21,7 @@ import voice_identify_speaker as identify  # noqa: E402
 import voice_speaker_map as speakermap  # noqa: E402
 import build_bvc_rest_request as bvc3  # noqa: E402
 import voice_phrase_anchor as anchor  # noqa: E402
+import voice_unknown_groups as unknown  # noqa: E402
 
 
 def row(table, key, jp, en=""):
@@ -272,6 +273,85 @@ class PhraseAnchorTests(unittest.TestCase):
         self.assertEqual(sample['wave'], 'B09_289')
         self.assertEqual(sample['container'], '3EXID_YK0_00')
         self.assertEqual(sample['key'].split(':')[0], '0000157d')  # the bank
+
+
+class UnknownGroupTests(unittest.TestCase):
+    """`??? NNN`: which unattributed quotes belong to one voice, measured on the named ones."""
+
+    def tables(self):
+        rows = [
+            ('battle_voice', 'b1:1', 'jp1'), ('battle_voice', 'b1:2', 'jp2'),
+            ('battle_voice', 'b1:3', 'jp3'), ('battle_voice', 'b2:4', 'jp4'),
+            ('battle_voice', 'b2:5', 'jp5'), ('battle_voice', 'b3:6', 'jp6'),
+            ('battle_voice', 'b3:7', 'jp7'), ('battle_voice', 'b4:8', 'jp8'),
+            ('battle_voice', 'b4:9', 'jp9'), ('battle_voice', 'b5:10', 'jp10'),
+            ('battle_voice', 'b5:11', 'jp11'), ('pilot_name', 'b9:9', 'アムロ'),
+        ]
+        return [{'table': table, 'key': key, 'jp': jp, 'en': jp} for table, key, jp in rows]
+
+    waves = {'b1:1': 'F100_001', 'b1:2': 'F100_002', 'b1:3': 'F100_003',
+             'b2:4': 'F100_004', 'b2:5': 'F200_005', 'b3:6': 'F300_006',
+             'b3:7': 'F200_007', 'b4:8': 'F400_008', 'b4:9': 'F400_009',
+             'b5:10': 'F400_010', 'b5:11': 'F400_011'}
+    #: F100 is one voice in two banks; F200 is unnamed; F400 is two speakers in two banks
+    mapped = [{'table': 'battle_voice', 'key': 'b1:1', 'speaker': 'アムロ', 'gender': 'm'},
+              {'table': 'battle_voice', 'key': 'b1:3', 'speaker': 'アムロ', 'gender': 'm'},
+              {'table': 'battle_voice', 'key': 'b2:5', 'speaker': 'シャア', 'gender': 'm'},
+              {'table': 'battle_voice', 'key': 'b3:7', 'speaker': 'セイラ', 'gender': 'f'},
+              {'table': 'battle_voice', 'key': 'b4:8', 'speaker': 'アムロ', 'gender': 'm'},
+              {'table': 'battle_voice', 'key': 'b5:10', 'speaker': 'シャア', 'gender': 'm'}]
+    pilots = [{'id': 'AMRO', 'name': 'アムロ', 'container': 'Ｃ＿アムロ', 'gender': 'm'},
+              {'id': 'CHAR', 'name': 'シャア', 'container': 'Ｃ＿シャア', 'gender': 'm'},
+              {'id': 'SAYLA', 'name': 'セイラ', 'container': 'Ｃ＿セイラ', 'gender': 'f'}]
+
+    def result(self):
+        return unknown.build(self.tables(), self.pilots, self.mapped, self.waves)
+
+    def test_family_name(self):
+        self.assertEqual(unknown.family('F363_142'), 'F363')
+        self.assertEqual(unknown.family('gra_001_0007'), 'gra_001')
+        self.assertEqual(unknown.family('noseparator'), 'noseparator')
+
+    def test_same_family_shares_one_group_across_banks(self):
+        result = self.result()
+        self.assertEqual(result['row_groups']['battle_voice|b1:2'],
+                         result['row_groups']['battle_voice|b2:4'])
+
+    def test_one_family_with_two_speakers_is_split_by_bank(self):
+        result = self.result()
+        self.assertNotEqual(result['row_groups']['battle_voice|b4:9'],
+                            result['row_groups']['battle_voice|b5:11'])
+
+    def test_ids_are_ordered_by_first_appearance(self):
+        groups = self.result()['groups']
+        self.assertEqual([g['id'] for g in groups],
+                         ['??? 001', '??? 002', '??? 003', '??? 004'])
+        self.assertEqual(groups[0]['keys'][0][1], 'b1:2')
+
+    def test_hint_comes_from_the_family_and_is_marked_as_hint(self):
+        groups = self.result()['groups']
+        self.assertEqual(groups[0]['hint_speaker'], 'アムロ')
+        self.assertEqual(groups[0]['hint_gender'], 'm')
+        self.assertTrue(groups[0]['hint_only'])
+        self.assertEqual(groups[1]['hint_speaker'], '')       # F300 never seen named
+        self.assertEqual(groups[3]['hint_speaker'], 'シャア')
+
+    def test_only_battle_rows_are_grouped(self):
+        result = self.result()
+        self.assertEqual(result['unknown_rows'], 5)
+        self.assertNotIn('pilot_name|b9:9', result['row_groups'])
+
+    def test_purity_is_measured_not_assumed(self):
+        count, pure, share = self.result()['purity']['family_bank']
+        self.assertGreaterEqual(share, 0.0)
+        self.assertLessEqual(share, 1.0)
+        self.assertGreaterEqual(count, 4)
+
+    def test_gendered_pilot_match_uses_the_container_field(self):
+        from voice_speaker_map import pilot_genders
+        found = pilot_genders(self.pilots, ['アムロ', 'シャア'])
+        self.assertEqual(found.get('アムロ'), 'm')
+        self.assertEqual(found.get('シャア'), 'm')
 
 
 def bankmap_paths(listing):
